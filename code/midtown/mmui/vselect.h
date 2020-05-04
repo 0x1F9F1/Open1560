@@ -1,0 +1,141 @@
+/*
+    Open1560 - An Open Source Re-Implementation of Midtown Madness 1 Beta
+    Copyright (C) 2020 Brick
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#pragma once
+
+#include "mmwidget/menu.h"
+
+/*
+    mmui:vselect
+
+    0x49A790 | public: __thiscall VehicleSelectBase::VehicleSelectBase(int) | ??0VehicleSelectBase@@QAE@H@Z
+    0x49A8F0 | public: void __thiscall VehicleSelectBase::IncColor(void) | ?IncColor@VehicleSelectBase@@QAEXXZ
+    0x49A9B0 | public: void __thiscall VehicleSelectBase::DecColor(void) | ?DecColor@VehicleSelectBase@@QAEXXZ
+    0x49AA70 | public: void __thiscall VehicleSelectBase::ColorCB(void) | ?ColorCB@VehicleSelectBase@@QAEXXZ
+    0x49AA90 | public: void __thiscall VehicleSelectBase::InitCarSelection(int,float,float,float,float) | ?InitCarSelection@VehicleSelectBase@@QAEXHMMMM@Z
+    0x49B7D0 | public: virtual __thiscall VehicleSelectBase::~VehicleSelectBase(void) | ??1VehicleSelectBase@@UAE@XZ
+    0x49B870 | public: virtual void __thiscall VehicleSelectBase::PreSetup(void) | ?PreSetup@VehicleSelectBase@@UAEXXZ
+    0x49B960 | public: virtual void __thiscall VehicleSelectBase::PostSetup(void) | ?PostSetup@VehicleSelectBase@@UAEXXZ
+    0x49B990 | public: void __thiscall VehicleSelectBase::AllSetCar(char *,int) | ?AllSetCar@VehicleSelectBase@@QAEXPADH@Z
+    0x49B9E0 | public: void __thiscall VehicleSelectBase::TDPickCB(void) | ?TDPickCB@VehicleSelectBase@@QAEXXZ
+    0x49B9F0 | public: virtual void __thiscall VehicleSelectBase::Reset(void) | ?Reset@VehicleSelectBase@@UAEXXZ
+    0x49BA00 | public: virtual void __thiscall VehicleSelectBase::Update(void) | ?Update@VehicleSelectBase@@UAEXXZ
+    0x49BAA0 | public: char * __thiscall VehicleSelectBase::GetCarTitle(int,char *,short,class string *) | ?GetCarTitle@VehicleSelectBase@@QAEPADHPADFPAVstring@@@Z
+    0x49BBD0 | public: int __thiscall VehicleSelectBase::CurrentVehicleIsLocked(void) | ?CurrentVehicleIsLocked@VehicleSelectBase@@QAEHXZ
+    0x49BBF0 | public: void __thiscall VehicleSelectBase::SetLastUnlockedVehicle(void) | ?SetLastUnlockedVehicle@VehicleSelectBase@@QAEXXZ
+    0x49BC50 | public: void __thiscall VehicleSelectBase::CarMod(int &) | ?CarMod@VehicleSelectBase@@QAEXAAH@Z
+    0x49BC80 | public: void __thiscall VehicleSelectBase::SetPick(int,short) | ?SetPick@VehicleSelectBase@@QAEXHF@Z
+    0x49BF60 | public: int __thiscall VehicleSelectBase::LoadStats(char *) | ?LoadStats@VehicleSelectBase@@QAEHPAD@Z
+    0x49C000 | public: void __thiscall VehicleSelectBase::AssignVehicleStats(int,float,float,float,float) | ?AssignVehicleStats@VehicleSelectBase@@QAEXHMMMM@Z
+    0x49C1E0 | public: void __thiscall VehicleSelectBase::FillStats(void) | ?FillStats@VehicleSelectBase@@QAEXXZ
+    0x49C230 | public: void __thiscall VehicleSelectBase::SetLockedLabel(void) | ?SetLockedLabel@VehicleSelectBase@@QAEXXZ
+    0x49C3A0 | public: virtual void * __thiscall VehicleSelectBase::`scalar deleting destructor'(unsigned int) | ??_GVehicleSelectBase@@UAEPAXI@Z
+    0x49C3A0 | public: virtual void * __thiscall VehicleSelectBase::`vector deleting destructor'(unsigned int) | ??_EVehicleSelectBase@@UAEPAXI@Z
+    0x49C3D0 | public: virtual void * __thiscall asDofCS::`vector deleting destructor'(unsigned int) | ??_EasDofCS@@UAEPAXI@Z
+    0x49C430 | public: virtual __thiscall asDofCS::~asDofCS(void) | ??1asDofCS@@UAE@XZ
+    0x49C440 | public: virtual void * __thiscall mmVehicleForm::`vector deleting destructor'(unsigned int) | ??_EmmVehicleForm@@UAEPAXI@Z
+    0x49C4A0 | public: virtual __thiscall mmVehicleForm::~mmVehicleForm(void) | ??1mmVehicleForm@@UAE@XZ
+    0x49C4F0 | public: virtual int __thiscall UIMenu::IsAnOptionMenu(void) | ?IsAnOptionMenu@UIMenu@@UAEHXZ
+    0x49C500 | public: void __thiscall VehicleSelectBase::DecCar(void) | ?DecCar@VehicleSelectBase@@QAEXXZ
+    0x49C510 | public: void __thiscall VehicleSelectBase::IncCar(void) | ?IncCar@VehicleSelectBase@@QAEXXZ
+    0x49C520 | public: void __thiscall VehicleSelectBase::SetShowcaseFlag(void) | ?SetShowcaseFlag@VehicleSelectBase@@QAEXXZ
+    0x49C530 | public: void __thiscall Card2D::SetColor(class Vector4) | ?SetColor@Card2D@@QAEXVVector4@@@Z
+    0x49C590 | public: int __thiscall mmVehInfo::IsValid(void) | ?IsValid@mmVehInfo@@QAEHXZ
+    0x61D3D0 | const VehicleSelectBase::`vftable' | ??_7VehicleSelectBase@@6B@
+*/
+
+class VehicleSelectBase : public UIMenu
+{
+    // const VehicleSelectBase::`vftable' @ 0x61D3D0
+
+public:
+    // 0x49A790 | ??0VehicleSelectBase@@QAE@H@Z
+    VehicleSelectBase(i32 arg1);
+
+    // 0x49C3A0 | ??_EVehicleSelectBase@@UAEPAXI@Z
+    // 0x49B7D0 | ??1VehicleSelectBase@@UAE@XZ
+    ~VehicleSelectBase() override;
+
+    // 0x49B990 | ?AllSetCar@VehicleSelectBase@@QAEXPADH@Z
+    void AllSetCar(char* arg1, i32 arg2);
+
+    // 0x49C000 | ?AssignVehicleStats@VehicleSelectBase@@QAEXHMMMM@Z
+    void AssignVehicleStats(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+
+    // 0x49BC50 | ?CarMod@VehicleSelectBase@@QAEXAAH@Z
+    void CarMod(i32& arg1);
+
+    // 0x49AA70 | ?ColorCB@VehicleSelectBase@@QAEXXZ
+    void ColorCB();
+
+    // 0x49BBD0 | ?CurrentVehicleIsLocked@VehicleSelectBase@@QAEHXZ
+    i32 CurrentVehicleIsLocked();
+
+    // 0x49C500 | ?DecCar@VehicleSelectBase@@QAEXXZ
+    void DecCar();
+
+    // 0x49A9B0 | ?DecColor@VehicleSelectBase@@QAEXXZ
+    void DecColor();
+
+    // 0x49C1E0 | ?FillStats@VehicleSelectBase@@QAEXXZ
+    void FillStats();
+
+    // 0x49BAA0 | ?GetCarTitle@VehicleSelectBase@@QAEPADHPADFPAVstring@@@Z
+    char* GetCarTitle(i32 arg1, char* arg2, i16 arg3, class string* arg4);
+
+    // 0x49C510 | ?IncCar@VehicleSelectBase@@QAEXXZ
+    void IncCar();
+
+    // 0x49A8F0 | ?IncColor@VehicleSelectBase@@QAEXXZ
+    void IncColor();
+
+    // 0x49AA90 | ?InitCarSelection@VehicleSelectBase@@QAEXHMMMM@Z
+    void InitCarSelection(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+
+    // 0x49BF60 | ?LoadStats@VehicleSelectBase@@QAEHPAD@Z
+    i32 LoadStats(char* arg1);
+
+    // 0x49B960 | ?PostSetup@VehicleSelectBase@@UAEXXZ
+    void PostSetup() override;
+
+    // 0x49B870 | ?PreSetup@VehicleSelectBase@@UAEXXZ
+    void PreSetup() override;
+
+    // 0x49B9F0 | ?Reset@VehicleSelectBase@@UAEXXZ
+    void Reset() override;
+
+    // 0x49BBF0 | ?SetLastUnlockedVehicle@VehicleSelectBase@@QAEXXZ
+    void SetLastUnlockedVehicle();
+
+    // 0x49C230 | ?SetLockedLabel@VehicleSelectBase@@QAEXXZ
+    void SetLockedLabel();
+
+    // 0x49BC80 | ?SetPick@VehicleSelectBase@@QAEXHF@Z
+    void SetPick(i32 arg1, i16 arg2);
+
+    // 0x49C520 | ?SetShowcaseFlag@VehicleSelectBase@@QAEXXZ
+    void SetShowcaseFlag();
+
+    // 0x49B9E0 | ?TDPickCB@VehicleSelectBase@@QAEXXZ
+    void TDPickCB();
+
+    // 0x49BA00 | ?Update@VehicleSelectBase@@UAEXXZ
+    void Update() override;
+};
+
+check_size(VehicleSelectBase, 0x0);

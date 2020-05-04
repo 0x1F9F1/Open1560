@@ -1,0 +1,96 @@
+/*
+    Open1560 - An Open Source Re-Implementation of Midtown Madness 1 Beta
+    Copyright (C) 2020 Brick
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#pragma once
+
+#include "carcamcs.h"
+
+/*
+    mmcamcs:pointcamcs
+
+    0x4F9E20 | public: __thiscall PointCamCS::PointCamCS(void) | ??0PointCamCS@@QAE@XZ
+    0x4F9E50 | public: void __thiscall PointCamCS::Init(class mmCar *) | ?Init@PointCamCS@@QAEXPAVmmCar@@@Z
+    0x4F9E80 | public: virtual void __thiscall PointCamCS::Reset(void) | ?Reset@PointCamCS@@UAEXXZ
+    0x4F9E90 | public: virtual void __thiscall PointCamCS::MakeActive(void) | ?MakeActive@PointCamCS@@UAEXXZ
+    0x4F9EC0 | public: void __thiscall PointCamCS::SetPos(class Vector3 &) | ?SetPos@PointCamCS@@QAEXAAVVector3@@@Z
+    0x4F9F00 | public: void __thiscall PointCamCS::SetMaxDist(float) | ?SetMaxDist@PointCamCS@@QAEXM@Z
+    0x4F9F20 | public: void __thiscall PointCamCS::SetMinDist(float) | ?SetMinDist@PointCamCS@@QAEXM@Z
+    0x4F9F40 | public: void __thiscall PointCamCS::SetAppRate(float) | ?SetAppRate@PointCamCS@@QAEXM@Z
+    0x4F9F50 | public: void __thiscall PointCamCS::SetVel(class Vector3 &) | ?SetVel@PointCamCS@@QAEXAAVVector3@@@Z
+    0x4F9F70 | public: class Vector3 __thiscall PointCamCS::GetPos(void) | ?GetPos@PointCamCS@@QAE?AVVector3@@XZ
+    0x4F9FA0 | public: virtual void __thiscall PointCamCS::Update(void) | ?Update@PointCamCS@@UAEXXZ
+    0x4FA280 | public: static void __cdecl PointCamCS::DeclareFields(void) | ?DeclareFields@PointCamCS@@SAXXZ
+    0x4FA3F0 | public: virtual class MetaClass * __thiscall PointCamCS::GetClass(void) | ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
+    0x4FA430 | public: virtual void * __thiscall PointCamCS::`vector deleting destructor'(unsigned int) | ??_EPointCamCS@@UAEPAXI@Z
+    0x620248 | const PointCamCS::`vftable' | ??_7PointCamCS@@6B@
+    0x719438 | class MetaClass PointCamCSMetaClass | ?PointCamCSMetaClass@@3VMetaClass@@A
+*/
+
+class PointCamCS : public CarCamCS
+{
+    // const PointCamCS::`vftable' @ 0x620248
+
+public:
+    // 0x4F9E20 | ??0PointCamCS@@QAE@XZ
+    PointCamCS();
+
+    // 0x4FA430 | ??_EPointCamCS@@UAEPAXI@Z
+    // 0x42D2D0 | ??1PointCamCS@@UAE@XZ
+    ~PointCamCS() override;
+
+    // 0x4FA3F0 | ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
+    class MetaClass* GetClass() override;
+
+    // 0x4F9F70 | ?GetPos@PointCamCS@@QAE?AVVector3@@XZ
+    class Vector3 GetPos();
+
+    // 0x4F9E50 | ?Init@PointCamCS@@QAEXPAVmmCar@@@Z
+    void Init(class mmCar* arg1);
+
+    // 0x4F9E90 | ?MakeActive@PointCamCS@@UAEXXZ
+    void MakeActive() override;
+
+    // 0x4F9E80 | ?Reset@PointCamCS@@UAEXXZ
+    void Reset() override;
+
+    // 0x4F9F40 | ?SetAppRate@PointCamCS@@QAEXM@Z
+    void SetAppRate(f32 arg1);
+
+    // 0x4F9F00 | ?SetMaxDist@PointCamCS@@QAEXM@Z
+    void SetMaxDist(f32 arg1);
+
+    // 0x4F9F20 | ?SetMinDist@PointCamCS@@QAEXM@Z
+    void SetMinDist(f32 arg1);
+
+    // 0x4F9EC0 | ?SetPos@PointCamCS@@QAEXAAVVector3@@@Z
+    void SetPos(class Vector3& arg1);
+
+    // 0x4F9F50 | ?SetVel@PointCamCS@@QAEXAAVVector3@@@Z
+    void SetVel(class Vector3& arg1);
+
+    // 0x4F9FA0 | ?Update@PointCamCS@@UAEXXZ
+    void Update() override;
+
+    // 0x4FA280 | ?DeclareFields@PointCamCS@@SAXXZ
+    static void DeclareFields();
+};
+
+check_size(PointCamCS, 0x144);
+
+// 0x719438 | ?PointCamCSMetaClass@@3VMetaClass@@A
+inline extern_var(0x319438_Offset, class MetaClass, PointCamCSMetaClass);

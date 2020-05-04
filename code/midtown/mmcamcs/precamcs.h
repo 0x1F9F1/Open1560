@@ -1,0 +1,76 @@
+/*
+    Open1560 - An Open Source Re-Implementation of Midtown Madness 1 Beta
+    Copyright (C) 2020 Brick
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#pragma once
+
+#include "carcamcs.h"
+
+/*
+    mmcamcs:precamcs
+
+    0x4F99E0 | public: __thiscall PreCamCS::PreCamCS(void) | ??0PreCamCS@@QAE@XZ
+    0x4F9A30 | public: void __thiscall PreCamCS::Init(class mmCar *) | ?Init@PreCamCS@@QAEXPAVmmCar@@@Z
+    0x4F9A60 | public: virtual void __thiscall PreCamCS::Reset(void) | ?Reset@PreCamCS@@UAEXXZ
+    0x4F9A70 | public: virtual void __thiscall PreCamCS::MakeActive(void) | ?MakeActive@PreCamCS@@UAEXXZ
+    0x4F9AC0 | public: virtual void __thiscall PreCamCS::Update(void) | ?Update@PreCamCS@@UAEXXZ
+    0x4F9B20 | public: virtual void __thiscall PreCamCS::AddWidgets(class Bank *) | ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z
+    0x4F9C10 | public: static void __cdecl PreCamCS::DeclareFields(void) | ?DeclareFields@PreCamCS@@SAXXZ
+    0x4F9D80 | public: virtual class MetaClass * __thiscall PreCamCS::GetClass(void) | ?GetClass@PreCamCS@@UAEPAVMetaClass@@XZ
+    0x4F9DC0 | public: virtual void * __thiscall PreCamCS::`vector deleting destructor'(unsigned int) | ??_EPreCamCS@@UAEPAXI@Z
+    0x6201E8 | const PreCamCS::`vftable' | ??_7PreCamCS@@6B@
+    0x719400 | class MetaClass PreCamCSMetaClass | ?PreCamCSMetaClass@@3VMetaClass@@A
+*/
+
+class PreCamCS : public CarCamCS
+{
+    // const PreCamCS::`vftable' @ 0x6201E8
+
+public:
+    // 0x4F99E0 | ??0PreCamCS@@QAE@XZ
+    PreCamCS();
+
+    // 0x4F9DC0 | ??_EPreCamCS@@UAEPAXI@Z
+    // 0x42D2E0 | ??1PreCamCS@@UAE@XZ
+    ~PreCamCS() override;
+
+    // 0x4F9B20 | ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z
+    void AddWidgets(class Bank* arg1) override;
+
+    // 0x4F9D80 | ?GetClass@PreCamCS@@UAEPAVMetaClass@@XZ
+    class MetaClass* GetClass() override;
+
+    // 0x4F9A30 | ?Init@PreCamCS@@QAEXPAVmmCar@@@Z
+    void Init(class mmCar* arg1);
+
+    // 0x4F9A70 | ?MakeActive@PreCamCS@@UAEXXZ
+    void MakeActive() override;
+
+    // 0x4F9A60 | ?Reset@PreCamCS@@UAEXXZ
+    void Reset() override;
+
+    // 0x4F9AC0 | ?Update@PreCamCS@@UAEXXZ
+    void Update() override;
+
+    // 0x4F9C10 | ?DeclareFields@PreCamCS@@SAXXZ
+    static void DeclareFields();
+};
+
+check_size(PreCamCS, 0x130);
+
+// 0x719400 | ?PreCamCSMetaClass@@3VMetaClass@@A
+inline extern_var(0x319400_Offset, class MetaClass, PreCamCSMetaClass);

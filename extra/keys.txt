@@ -1,0 +1,68 @@
+if (DebugMode)
+    CTRL+M = Midgets
+    SHIFT+F1 = Perf Graph Mode
+    SHIFT+F2 = Draw Mode
+    SHIFT+F3 = Draw Mode
+    SHIFT+F4 = Draw Mode
+    SHIFT+F11 = Unpause Game
+    SHIFT+F12 = Advance To Next Frame
+    CTRL+SHIFT+F2 = Graph Scale
+    CTRL+SHIFT+F3 = Graph Scale
+    CTRL+SHIFT+F4 = Graph Mode
+else
+    CTRL+ALT+SHIFT+F4 - Enable Debug Mode
+    SHIFT+F5 = Screenshot
+    SHIFT+F6 = Toggle Filter
+    SHIFT+F9 = Toggle KNI
+
+CTRL+ALT+SHIFT+F7 - Open Chat
+
+P = Toggle Show Position
+
+SHIFT+Q : toggles between car masses
+SHIFT+W : draw AI ids
+SHIFT+E : replay
+SHIFT+R : teleports to random places in the city
+SHIFT+T :  draws something to do with AI (path progress?)
+SHIFT+I : draw intersection ids
+SHIFT+U : returns camera to player car
+SHIFT+O : camera follows an opponent, press more to cycle
+SHIFT+P : saves a position
+SHIFT+A : turns on/off audio system
+SHIFT+S : toggles sky
+SHIFT+F : toggles Force feedback
+SHIFT+G : draws bridge IDs
+SHIFT+L : draws path IDs
+SHIFT+V : draws version number
+SHIFT+B : draws ai paths
+SHIFT+M : same as shift+B?
+SHIFT+1-4 : toggle specific force feedback effects
+SHIFT+7 : next race
+SHIFT+8 : reload race
+SHIFT+9 : explode car
+SHIFT+F1 : toggle cullmgr pages (performance debug modes)
+SHIFT+F2 : toggles some render debug mode (depth?)
+SHIFT+F3 : toggle render mode (solid, wire, textured)
+SHIFT+F4 : toggle physics debug mode
+SHIFT+F5 : make BMP screenshot
+SHIFT+F7 : toggle mipmaps
+SHIFT+F12 : advance frame by frame
+P : show coordinates
+
+Midgets (CTRL+M) controls:
+NUMPAD 8: Move up
+NUMPAD 2: Move down
+NUMPAD 6: Increase value
+NUMPAD 4: Decrease value
+NUMPAD 7: Top of page
+NUMPAD 1: Bottom of page
+NUMPAD 9: Page up
+NUMPAD 3: Page down
+Enter: Select
+P: Return to parent menu
+1-9: Go to child menu+
+
+& 1 = PRESSED?
+& 2 = SHIFT?
+& 4 = CTRL
+& 8 = ALT

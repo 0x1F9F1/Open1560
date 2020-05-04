@@ -1,0 +1,40 @@
+/*
+    Open1560 - An Open Source Re-Implementation of Midtown Madness 1 Beta
+    Copyright (C) 2020 Brick
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#pragma once
+
+/*
+    mmdjpeg:jcomapi
+
+    0x580960 | void __cdecl jpeg_abort(struct jpeg_common_struct *) | ?jpeg_abort@@YAXPAUjpeg_common_struct@@@Z
+    0x5809B0 | void __cdecl jpeg_destroy(struct jpeg_common_struct *) | ?jpeg_destroy@@YAXPAUjpeg_common_struct@@@Z
+    0x5809E0 | struct JQUANT_TBL * __cdecl jpeg_alloc_quant_table(struct jpeg_common_struct *) | ?jpeg_alloc_quant_table@@YAPAUJQUANT_TBL@@PAUjpeg_common_struct@@@Z
+    0x580A00 | struct JHUFF_TBL * __cdecl jpeg_alloc_huff_table(struct jpeg_common_struct *) | ?jpeg_alloc_huff_table@@YAPAUJHUFF_TBL@@PAUjpeg_common_struct@@@Z
+*/
+
+// 0x580960 | ?jpeg_abort@@YAXPAUjpeg_common_struct@@@Z
+void jpeg_abort(struct jpeg_common_struct* arg1);
+
+// 0x580A00 | ?jpeg_alloc_huff_table@@YAPAUJHUFF_TBL@@PAUjpeg_common_struct@@@Z
+struct JHUFF_TBL* jpeg_alloc_huff_table(struct jpeg_common_struct* arg1);
+
+// 0x5809E0 | ?jpeg_alloc_quant_table@@YAPAUJQUANT_TBL@@PAUjpeg_common_struct@@@Z
+struct JQUANT_TBL* jpeg_alloc_quant_table(struct jpeg_common_struct* arg1);
+
+// 0x5809B0 | ?jpeg_destroy@@YAXPAUjpeg_common_struct@@@Z
+void jpeg_destroy(struct jpeg_common_struct* arg1);

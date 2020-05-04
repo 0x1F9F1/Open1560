@@ -1,0 +1,309 @@
+/*
+    Open1560 - An Open Source Re-Implementation of Midtown Madness 1 Beta
+    Copyright (C) 2020 Brick
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#pragma once
+
+#include "arts7/node.h"
+#include "mmcity/inst.h"
+
+/*
+    mmai:aiVehicleMGR
+
+    0x451450 | void __cdecl AMBIENTCB(class aiVehicleActive *,class asBound *,class mmIntersection *,class Vector3 *,float) | ?AMBIENTCB@@YAXPAVaiVehicleActive@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M@Z
+    0x4515E0 | public: virtual void __fastcall aiVehicleInstance::Draw(int) | ?Draw@aiVehicleInstance@@UAIXH@Z
+    0x451E20 | public: virtual void __fastcall aiVehicleInstance::DrawGlow(void) | ?DrawGlow@aiVehicleInstance@@UAIXXZ
+    0x451E70 | public: virtual void __fastcall aiVehicleInstance::DrawShadow(void) | ?DrawShadow@aiVehicleInstance@@UAIXXZ
+    0x451F10 | public: virtual class mmPhysEntity * __thiscall aiVehicleInstance::GetEntity(void) | ?GetEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
+    0x451F40 | public: virtual void __thiscall aiVehicleInstance::Detach(void) | ?Detach@aiVehicleInstance@@UAEXXZ
+    0x451F70 | public: virtual class mmPhysEntity * __thiscall aiVehicleInstance::AttachEntity(void) | ?AttachEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
+    0x451FD0 | public: virtual class Vector3 __thiscall aiVehicleInstance::GetVelocity(void) | ?GetVelocity@aiVehicleInstance@@UAE?AVVector3@@XZ
+    0x452080 | public: virtual void __fastcall aiVehicleInstance::FromMatrix(class Matrix34 const &) | ?FromMatrix@aiVehicleInstance@@UAIXABVMatrix34@@@Z
+    0x452090 | public: virtual class Matrix34 & __fastcall aiVehicleInstance::ToMatrix(class Matrix34 &) | ?ToMatrix@aiVehicleInstance@@UAIAAVMatrix34@@AAV2@@Z
+    0x4520A0 | public: virtual class Vector3 & __fastcall aiVehicleInstance::GetPos(void) | ?GetPos@aiVehicleInstance@@UAIAAVVector3@@XZ
+    0x4520B0 | public: __thiscall aiVehicleActive::aiVehicleActive(void) | ??0aiVehicleActive@@QAE@XZ
+    0x4521A0 | public: void __thiscall aiVehicleActive::Init(char *) | ?Init@aiVehicleActive@@QAEXPAD@Z
+    0x452450 | public: virtual __thiscall aiVehicleActive::~aiVehicleActive(void) | ??1aiVehicleActive@@UAE@XZ
+    0x452540 | public: void __thiscall aiVehicleActive::Attach(class aiVehicleInstance *) | ?Attach@aiVehicleActive@@QAEXPAVaiVehicleInstance@@@Z
+    0x4526F0 | public: virtual void __thiscall aiVehicleActive::DetachMe(void) | ?DetachMe@aiVehicleActive@@UAEXXZ
+    0x452710 | public: void __thiscall aiVehicleActive::Detach(void) | ?Detach@aiVehicleActive@@QAEXXZ
+    0x4528E0 | public: virtual void __thiscall aiVehicleActive::Update(void) | ?Update@aiVehicleActive@@UAEXXZ
+    0x452950 | public: virtual void __thiscall aiVehicleActive::PostUpdate(void) | ?PostUpdate@aiVehicleActive@@UAEXXZ
+    0x4529D0 | public: void __thiscall aiVehicleActive::UpdateDamage(void) | ?UpdateDamage@aiVehicleActive@@QAEXXZ
+    0x452A30 | public: __thiscall aiVehicleManager::aiVehicleManager(void) | ??0aiVehicleManager@@QAE@XZ
+    0x452B10 | public: virtual __thiscall aiVehicleManager::~aiVehicleManager(void) | ??1aiVehicleManager@@UAE@XZ
+    0x452BB0 | public: void __thiscall aiVehicleManager::Init(char *) | ?Init@aiVehicleManager@@QAEXPAD@Z
+    0x452BE0 | public: virtual void __thiscall aiVehicleManager::Reset(void) | ?Reset@aiVehicleManager@@UAEXXZ
+    0x452C20 | public: class aiVehicleActive * __thiscall aiVehicleManager::Attach(class aiVehicleInstance *) | ?Attach@aiVehicleManager@@QAEPAVaiVehicleActive@@PAVaiVehicleInstance@@@Z
+    0x452CE0 | public: void __thiscall aiVehicleManager::Detach(class aiVehicleActive *) | ?Detach@aiVehicleManager@@QAEXPAVaiVehicleActive@@@Z
+    0x452D70 | public: virtual void __thiscall aiVehicleManager::Update(void) | ?Update@aiVehicleManager@@UAEXXZ
+    0x452E60 | public: int __thiscall aiVehicleData::LoadEntry(char *) | ?LoadEntry@aiVehicleData@@QAEHPAD@Z
+    0x453020 | public: class aiVehicleData * __thiscall aiVehicleInstance::GetData(void) | ?GetData@aiVehicleInstance@@QAEPAVaiVehicleData@@XZ
+    0x453040 | public: int __thiscall aiVehicleManager::AddVehicleDataEntry(char *) | ?AddVehicleDataEntry@aiVehicleManager@@QAEHPAD@Z
+    0x453350 | public: virtual void __thiscall aiVehicleManager::Save(void) | ?Save@aiVehicleManager@@UAEXXZ
+    0x453380 | public: virtual void __thiscall aiVehicleManager::AddWidgets(class Bank *) | ?AddWidgets@aiVehicleManager@@UAEXPAVBank@@@Z
+    0x453390 | public: virtual void __thiscall aiVehicleData::AddWidgets(class Bank *) | ?AddWidgets@aiVehicleData@@UAEXPAVBank@@@Z
+    0x453610 | public: static void __cdecl aiVehicleInstance::DeclareFields(void) | ?DeclareFields@aiVehicleInstance@@SAXXZ
+    0x4536B0 | public: virtual class MetaClass * __thiscall aiVehicleInstance::GetClass(void) | ?GetClass@aiVehicleInstance@@UAEPAVMetaClass@@XZ
+    0x4536C0 | public: static void __cdecl aiVehicleData::DeclareFields(void) | ?DeclareFields@aiVehicleData@@SAXXZ
+    0x4539F0 | public: virtual class MetaClass * __thiscall aiVehicleData::GetClass(void) | ?GetClass@aiVehicleData@@UAEPAVMetaClass@@XZ
+    0x453A00 | public: virtual void * __thiscall aiVehicleActive::`vector deleting destructor'(unsigned int) | ??_EaiVehicleActive@@UAEPAXI@Z
+    0x453A00 | public: virtual void * __thiscall aiVehicleActive::`scalar deleting destructor'(unsigned int) | ??_GaiVehicleActive@@UAEPAXI@Z
+    0x453A30 | public: virtual __thiscall asInertialCS::~asInertialCS(void) | ??1asInertialCS@@UAE@XZ
+    0x453A40 | public: virtual __thiscall asBound::~asBound(void) | ??1asBound@@UAE@XZ
+    0x453A50 | public: virtual __thiscall mmWheelCheap::~mmWheelCheap(void) | ??1mmWheelCheap@@UAE@XZ
+    0x453A60 | public: virtual void * __thiscall aiVehicleManager::`scalar deleting destructor'(unsigned int) | ??_GaiVehicleManager@@UAEPAXI@Z
+    0x453A60 | public: virtual void * __thiscall aiVehicleManager::`vector deleting destructor'(unsigned int) | ??_EaiVehicleManager@@UAEPAXI@Z
+    0x453A90 | public: virtual void * __thiscall aiVehicleData::`vector deleting destructor'(unsigned int) | ??_EaiVehicleData@@UAEPAXI@Z
+    0x453AF0 | public: virtual void __thiscall mmPhysEntity::Update(void) | ?Update@mmPhysEntity@@UAEXXZ
+    0x453B00 | public: virtual void __thiscall mmPhysEntity::PostUpdate(void) | ?PostUpdate@mmPhysEntity@@UAEXXZ
+    0x453B10 | public: virtual class asBound * __thiscall mmPhysEntity::GetBound(void) | ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ
+    0x453B20 | public: virtual class asInertialCS * __thiscall mmPhysEntity::GetICS(void) | ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ
+    0x453B30 | public: virtual void __thiscall mmPhysEntity::DetachMe(void) | ?DetachMe@mmPhysEntity@@UAEXXZ
+    0x453B40 | public: virtual void * __thiscall mmPhysEntity::`vector deleting destructor'(unsigned int) | ??_EmmPhysEntity@@UAEPAXI@Z
+    0x453B40 | public: virtual void * __thiscall mmPhysEntity::`scalar deleting destructor'(unsigned int) | ??_GmmPhysEntity@@UAEPAXI@Z
+    0x453B70 | public: __thiscall aiVehicleData::aiVehicleData(void) | ??0aiVehicleData@@QAE@XZ
+    0x453B90 | public: virtual __thiscall aiVehicleData::~aiVehicleData(void) | ??1aiVehicleData@@UAE@XZ
+    0x453BA0 | public: virtual class asBound * __thiscall aiVehicleActive::GetBound(void) | ?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ
+    0x453BB0 | public: virtual class asInertialCS * __thiscall aiVehicleActive::GetICS(void) | ?GetICS@aiVehicleActive@@UAEPAVasInertialCS@@XZ
+    0x453BC0 | public: virtual __thiscall asBirthRule::~asBirthRule(void) | ??1asBirthRule@@UAE@XZ
+    0x61B850 | const aiVehicleActive::`vftable' | ??_7aiVehicleActive@@6B@
+    0x61B8A0 | const mmPhysEntity::`vftable' | ??_7mmPhysEntity@@6B@
+    0x61B8F0 | const aiVehicleManager::`vftable' | ??_7aiVehicleManager@@6B@
+    0x61B930 | const aiVehicleData::`vftable' | ??_7aiVehicleData@@6B@
+    0x6A7AD8 | public: static class aiVehicleManager * aiVehicleManager::Instance | ?Instance@aiVehicleManager@@2PAV1@A
+    0x6A7AE0 | class HashTable VehicleDataHash | ?VehicleDataHash@@3VHashTable@@A
+    0x6A7AF0 | class MetaClass aiVehicleDataMetaClass | ?aiVehicleDataMetaClass@@3VMetaClass@@A
+    0x6A7B18 | class MetaClass aiVehicleInstanceMetaClass | ?aiVehicleInstanceMetaClass@@3VMetaClass@@A
+    0x6A7B40 | class HashTable NoDataWhined | ?NoDataWhined@@3VHashTable@@A
+    0x6A7B50 | public: static float aiVehicleManager::FloatClock | ?FloatClock@aiVehicleManager@@2MA
+    0x6A7B54 | public: static int aiVehicleManager::SignalClock | ?SignalClock@aiVehicleManager@@2HA
+*/
+
+class mmPhysEntity : public asNode
+{
+    // const mmPhysEntity::`vftable' @ 0x61B8A0
+
+public:
+    // 0x453B40 | ??_GmmPhysEntity@@UAEPAXI@Z
+    // 0x42D510 | ??1mmPhysEntity@@UAE@XZ
+    ~mmPhysEntity() override;
+
+    // 0x453B00 | ?PostUpdate@mmPhysEntity@@UAEXXZ
+    virtual void PostUpdate();
+
+    // 0x453B10 | ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ
+    virtual class asBound* GetBound();
+
+    // 0x453B20 | ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ
+    virtual class asInertialCS* GetICS();
+
+    // 0x453B30 | ?DetachMe@mmPhysEntity@@UAEXXZ
+    virtual void DetachMe();
+
+    // 0x453AF0 | ?Update@mmPhysEntity@@UAEXXZ
+    void Update() override;
+};
+
+check_size(mmPhysEntity, 0x0);
+
+// 0x451450 | ?AMBIENTCB@@YAXPAVaiVehicleActive@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M@Z
+void AMBIENTCB(
+    class aiVehicleActive* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4, f32 arg5);
+
+// 0x6A7B40 | ?NoDataWhined@@3VHashTable@@A
+inline extern_var(0x2A7B40_Offset, class HashTable, NoDataWhined);
+
+// 0x6A7AE0 | ?VehicleDataHash@@3VHashTable@@A
+inline extern_var(0x2A7AE0_Offset, class HashTable, VehicleDataHash);
+
+// 0x6A7AF0 | ?aiVehicleDataMetaClass@@3VMetaClass@@A
+inline extern_var(0x2A7AF0_Offset, class MetaClass, aiVehicleDataMetaClass);
+
+// 0x6A7B18 | ?aiVehicleInstanceMetaClass@@3VMetaClass@@A
+inline extern_var(0x2A7B18_Offset, class MetaClass, aiVehicleInstanceMetaClass);
+
+class aiVehicleInstance : public mmInstance
+{
+    // const aiVehicleInstance::`vftable' @ 0x61BA18
+
+public:
+    // 0x45C530 | ??_GaiVehicleInstance@@UAEPAXI@Z
+    // 0x45C550 | ??1aiVehicleInstance@@UAE@XZ
+    ~aiVehicleInstance() override;
+
+    // 0x45C510 | ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z
+    void AddWidgets(class Bank* arg1) override;
+
+    // 0x451F70 | ?AttachEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
+    class mmPhysEntity* AttachEntity() override;
+
+    // 0x451F40 | ?Detach@aiVehicleInstance@@UAEXXZ
+    void Detach() override;
+
+    // 0x4515E0 | ?Draw@aiVehicleInstance@@UAIXH@Z
+    void __fastcall Draw(i32 arg1) override;
+
+    // 0x451E20 | ?DrawGlow@aiVehicleInstance@@UAIXXZ
+    void __fastcall DrawGlow() override;
+
+    // 0x451E70 | ?DrawShadow@aiVehicleInstance@@UAIXXZ
+    void __fastcall DrawShadow() override;
+
+    // 0x452080 | ?FromMatrix@aiVehicleInstance@@UAIXABVMatrix34@@@Z
+    void __fastcall FromMatrix(class Matrix34 const& arg1) override;
+
+    // 0x4536B0 | ?GetClass@aiVehicleInstance@@UAEPAVMetaClass@@XZ
+    class MetaClass* GetClass() override;
+
+    // 0x453020 | ?GetData@aiVehicleInstance@@QAEPAVaiVehicleData@@XZ
+    class aiVehicleData* GetData();
+
+    // 0x451F10 | ?GetEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
+    class mmPhysEntity* GetEntity() override;
+
+    // 0x4520A0 | ?GetPos@aiVehicleInstance@@UAIAAVVector3@@XZ
+    class Vector3& __fastcall GetPos() override;
+
+    // 0x451FD0 | ?GetVelocity@aiVehicleInstance@@UAE?AVVector3@@XZ
+    class Vector3 GetVelocity() override;
+
+    // 0x452090 | ?ToMatrix@aiVehicleInstance@@UAIAAVMatrix34@@AAV2@@Z
+    class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
+
+    // 0x453610 | ?DeclareFields@aiVehicleInstance@@SAXXZ
+    static void DeclareFields();
+};
+
+check_size(aiVehicleInstance, 0x0);
+
+class aiVehicleActive : public asNode
+{
+    // const aiVehicleActive::`vftable' @ 0x61B850
+
+public:
+    // 0x4520B0 | ??0aiVehicleActive@@QAE@XZ
+    aiVehicleActive();
+
+    // 0x453A00 | ??_GaiVehicleActive@@UAEPAXI@Z
+    // 0x452450 | ??1aiVehicleActive@@UAE@XZ
+    ~aiVehicleActive() override;
+
+    // 0x452950 | ?PostUpdate@aiVehicleActive@@UAEXXZ
+    virtual void PostUpdate();
+
+    // 0x453BA0 | ?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ
+    virtual class asBound* GetBound();
+
+    // 0x453BB0 | ?GetICS@aiVehicleActive@@UAEPAVasInertialCS@@XZ
+    virtual class asInertialCS* GetICS();
+
+    // 0x4526F0 | ?DetachMe@aiVehicleActive@@UAEXXZ
+    virtual void DetachMe();
+
+    // 0x452540 | ?Attach@aiVehicleActive@@QAEXPAVaiVehicleInstance@@@Z
+    void Attach(class aiVehicleInstance* arg1);
+
+    // 0x452710 | ?Detach@aiVehicleActive@@QAEXXZ
+    void Detach();
+
+    // 0x4521A0 | ?Init@aiVehicleActive@@QAEXPAD@Z
+    void Init(char* arg1);
+
+    // 0x4528E0 | ?Update@aiVehicleActive@@UAEXXZ
+    void Update() override;
+
+    // 0x4529D0 | ?UpdateDamage@aiVehicleActive@@QAEXXZ
+    void UpdateDamage();
+};
+
+check_size(aiVehicleActive, 0xA6C);
+
+class aiVehicleManager : public asNode
+{
+    // const aiVehicleManager::`vftable' @ 0x61B8F0
+
+public:
+    // 0x452A30 | ??0aiVehicleManager@@QAE@XZ
+    aiVehicleManager();
+
+    // 0x453A60 | ??_EaiVehicleManager@@UAEPAXI@Z
+    // 0x452B10 | ??1aiVehicleManager@@UAE@XZ
+    ~aiVehicleManager() override;
+
+    // 0x453040 | ?AddVehicleDataEntry@aiVehicleManager@@QAEHPAD@Z
+    i32 AddVehicleDataEntry(char* arg1);
+
+    // 0x453380 | ?AddWidgets@aiVehicleManager@@UAEXPAVBank@@@Z
+    void AddWidgets(class Bank* arg1) override;
+
+    // 0x452C20 | ?Attach@aiVehicleManager@@QAEPAVaiVehicleActive@@PAVaiVehicleInstance@@@Z
+    class aiVehicleActive* Attach(class aiVehicleInstance* arg1);
+
+    // 0x452CE0 | ?Detach@aiVehicleManager@@QAEXPAVaiVehicleActive@@@Z
+    void Detach(class aiVehicleActive* arg1);
+
+    // 0x452BB0 | ?Init@aiVehicleManager@@QAEXPAD@Z
+    void Init(char* arg1);
+
+    // 0x452BE0 | ?Reset@aiVehicleManager@@UAEXXZ
+    void Reset() override;
+
+    // 0x453350 | ?Save@aiVehicleManager@@UAEXXZ
+    void Save() override;
+
+    // 0x452D70 | ?Update@aiVehicleManager@@UAEXXZ
+    void Update() override;
+
+    // 0x6A7B50 | ?FloatClock@aiVehicleManager@@2MA
+    static inline extern_var(0x2A7B50_Offset, f32, FloatClock);
+
+    // 0x6A7AD8 | ?Instance@aiVehicleManager@@2PAV1@A
+    static inline extern_var(0x2A7AD8_Offset, class aiVehicleManager*, Instance);
+
+    // 0x6A7B54 | ?SignalClock@aiVehicleManager@@2HA
+    static inline extern_var(0x2A7B54_Offset, i32, SignalClock);
+};
+
+check_size(aiVehicleManager, 0x16628);
+
+class aiVehicleData : public asNode
+{
+    // const aiVehicleData::`vftable' @ 0x61B930
+
+public:
+    // 0x453B70 | ??0aiVehicleData@@QAE@XZ
+    aiVehicleData();
+
+    // 0x453A90 | ??_EaiVehicleData@@UAEPAXI@Z
+    // 0x453B90 | ??1aiVehicleData@@UAE@XZ
+    ~aiVehicleData() override;
+
+    // 0x453390 | ?AddWidgets@aiVehicleData@@UAEXPAVBank@@@Z
+    void AddWidgets(class Bank* arg1) override;
+
+    // 0x4539F0 | ?GetClass@aiVehicleData@@UAEPAVMetaClass@@XZ
+    class MetaClass* GetClass() override;
+
+    // 0x452E60 | ?LoadEntry@aiVehicleData@@QAEHPAD@Z
+    i32 LoadEntry(char* arg1);
+
+    // 0x4536C0 | ?DeclareFields@aiVehicleData@@SAXXZ
+    static void DeclareFields();
+};
+
+check_size(aiVehicleData, 0xC0);
