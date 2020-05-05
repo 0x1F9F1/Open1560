@@ -20,9 +20,8 @@ arts_component "vector7"
         -- "trigmath.h",
         -- "vector2.cpp",
         -- "vector2.h",
-        -- "vector3.cpp",
-        -- "vector3.h",
+        "vector3.cpp",
+        "vector3.h",
         -- "vector4.cpp",
         -- "vector4.h",
     }
-

@@ -16,22 +16,17 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#include "assert.h"
 
-#define DIRECTX_VERSION 0x0600
+[[noreturn]] void ArReportAssertion(const ArAssertData* data)
+{
+    Abortf("Assertion Failure: %s (%s) in %s (%s:%u)", data->message, data->condition, data->location.function,
+        data->location.filename, data->location.linenum);
 
-#define DIRECT3D_VERSION DIRECTX_VERSION
-#define DIRECTDRAW_VERSION DIRECTX_VERSION
-#define DIRECTINPUT_VERSION DIRECTX_VERSION
-#define DIRECTSOUND_VERSION DIRECTX_VERSION
+    std::abort();
+}
 
-#include "core/defines.h"
-#include "core/hooking.h"
-#include "core/primitives.h"
-
-#include "core/assert.h"
-
-#include "data7/printer.h"
-#include "data7/quitf.h"
-
-#include <sol/sol.hpp>
+[[noreturn]] void ArUnimplemented(const ArSourceLocation& location)
+{
+    Abortf("Unimplemented Function: %s in %s:%u", location.function, location.filename, location.linenum);
+}

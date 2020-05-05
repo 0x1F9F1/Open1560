@@ -25,7 +25,7 @@ agiTexSorter::agiTexSorter()
 
 agiTexSorter::~agiTexSorter()
 {
-    unimplemented();
+    Instance = nullptr;
 }
 
 void agiTexSorter::AddWidgets(class Bank* arg1)

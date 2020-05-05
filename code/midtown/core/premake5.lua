@@ -3,6 +3,9 @@ arts_component "core"
         "primitives.cpp",
         "primitives.h",
 
+        "hooking.cpp",
         "hooking.h",
-        "hooking.cpp"
+
+        "assert.cpp",
+        "assert.h",
     }

@@ -410,9 +410,11 @@ private:
 
     // 0x503180 | ?PageOutCallback@agiMeshSet@@CAXPAXH@Z
     static void PageOutCallback(void* arg1, i32 arg2);
+
+    char _pad0[0x64];
 };
 
-check_size(agiMeshSet, 0x0);
+check_size(agiMeshSet, 0x64);
 
 // 0x505990 | ?EyePlaneOutcode@@YAIPAEEAAVVector4@@PAVVector3@@H@Z
 u32 EyePlaneOutcode(u8* arg1, u8 arg2, class Vector4& arg3, class Vector3* arg4, i32 arg5);
@@ -446,9 +448,14 @@ struct agiMeshCardInfo
 public:
     // 0x50EC90 | ?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z
     void Init(i32 arg1, struct agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
+
+    i32 VertCount {0};
+    i32 PointCount {0};
+    class Vector2* Points {nullptr};
+    class Vector2* Points2 {nullptr};
 };
 
-check_size(agiMeshCardInfo, 0x0);
+check_size(agiMeshCardInfo, 0x10);
 
 class agiPolySet
 {
@@ -456,8 +463,19 @@ public:
     // 0x510480 | ?Triangle@agiPolySet@@QAEXHHH@Z
     void Triangle(i32 arg1, i32 arg2, i32 arg3);
 
+    u16* Indices {nullptr};
+    struct agiScreenVtx* Verts {nullptr};
+    struct agiScreenVtx2* Verts2 {nullptr};
+    class agiTexDef* Textures[2] {};
+    i32 VertCount {0};
+    i32 IndexCount {0};
+    i32 BaseIndex {0};
+    i32 MaxVerts {0};
+    i32 MaxIndices {0};
+    i32 MultiTex {0};
+
     // 0x719738 | ?TriCount@agiPolySet@@2HA
     static inline extern_var(0x319738_Offset, i32, TriCount);
 };
 
-check_size(agiPolySet, 0x0);
+check_size(agiPolySet, 0x2C);

@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "data7/metatype.h"
+// #include "data7/metatype.h"
 
 /*
     vector7:vector3
@@ -80,8 +80,13 @@
 class Vector3
 {
 public:
-    // 0x43C100 | ??0Vector3@@QAE@MMM@Z
-    Vector3(f32 arg1, f32 arg2, f32 arg3);
+    constexpr Vector3() = default;
+
+    constexpr Vector3(f32 x, f32 y, f32 z)
+        : x(x)
+        , y(y)
+        , z(z)
+    {}
 
     // 0x45C420 | ??LVector3@@QBE?AV0@ABV0@@Z
     class Vector3 operator%(class Vector3 const& arg1);
@@ -227,9 +232,13 @@ public:
 
     // 0x566300 | ?rgbtohsv@Vector3@@QAEXXZ
     void rgbtohsv();
+
+    f32 x {0.0f};
+    f32 y {0.0f};
+    f32 z {0.0f};
 };
 
-check_size(Vector3, 0x0);
+check_size(Vector3, 0xC);
 
 // 0x566D00 | ?TransformNormalList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z
 void TransformNormalList(class Vector3* arg1, class Vector3 const* arg2, i32 arg3, class Matrix34 const& arg4);
@@ -262,6 +271,7 @@ inline extern_var(0x509470_Offset, class Vector3, YAXIS);
 // 0x909480 | ?ZAXIS@@3VVector3@@A
 inline extern_var(0x509480_Offset, class Vector3, ZAXIS);
 
+/*
 class Vector3Array
 {
 public:
@@ -309,3 +319,4 @@ public:
 };
 
 check_size(Vector3Type, 0x0);
+*/

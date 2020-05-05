@@ -30,3 +30,21 @@
 
 #define ARTS_CONCAT HEDLEY_CONCAT
 #define ARTS_STRINGIFY HEDLEY_STRINGIFY
+
+#ifndef ARTS_FUNCTION
+#    if defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)
+#        define ARTS_FUNCTION __func__
+#    elif ((__GNUC__ >= 2) || defined(_MSC_VER) || defined(__WATCOMC__))
+#        define ARTS_FUNCTION __FUNCTION__
+#    else
+#        define ARTS_FUNCTION "???"
+#    endif
+#endif
+
+#ifndef ARTS_FILE
+#    define ARTS_FILE __FILE__
+#endif
+
+#ifndef ARTS_LINE
+#    define ARTS_LINE __LINE__
+#endif

@@ -18,11 +18,6 @@
 
 #include "vector3.h"
 
-Vector3::Vector3(f32 arg1, f32 arg2, f32 arg3)
-{
-    unimplemented();
-}
-
 class Vector3 Vector3::operator%(class Vector3 const& arg1)
 {
     return stub<thiscall_t<class Vector3, Vector3*, class Vector3 const&>>(0x5C420_Offset, this, arg1);
@@ -312,6 +307,7 @@ void TransformVertNorm(class Vector3& arg1, class Vector3& arg2, class Vector3 c
         0x166A80_Offset, arg1, arg2, arg3, arg4, arg5);
 }
 
+/*
 void Vector3Array::operator=(class Vector3Array& arg1)
 {
     return stub<thiscall_t<void, Vector3Array*, class Vector3Array&>>(0x167030_Offset, this, arg1);
@@ -366,5 +362,6 @@ u32 Vector3Type::SizeOf()
 {
     return stub<thiscall_t<u32, Vector3Type*>>(0x167390_Offset, this);
 }
+*/
 
 define_dummy_symbol(vector7_vector3);

@@ -4,7 +4,7 @@ include "core"
 -- include "agid3d"
 -- include "agirend"
 -- include "agisw"
--- include "agiworld"
+include "agiworld"
 -- include "arts7"
 include "data7"
 -- include "dyna7"
@@ -31,7 +31,7 @@ include "data7"
 -- include "mmwidget"
 include "pcwindis"
 -- include "stream"
--- include "vector7"
+include "vector7"
 
 arts_component "midtown"
     files {
@@ -46,7 +46,7 @@ arts_component "midtown"
         -- "arts_agid3d",
         -- "arts_agirend",
         -- "arts_agisw",
-        -- "arts_agiworld",
+        "arts_agiworld",
         -- "arts_arts7",
         "arts_data7",
         -- "arts_dyna7",
@@ -73,7 +73,7 @@ arts_component "midtown"
         -- "arts_mmwidget",
         "arts_pcwindis",
         -- "arts_stream",
-        -- "arts_vector7",
+        "arts_vector7",
 
         "lua",
     }

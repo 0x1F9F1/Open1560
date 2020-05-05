@@ -87,4 +87,14 @@ void dxiConfig(i32 arg1, char** arg2)
     return stub<cdecl_t<void, i32, char**>>(0x175360_Offset, arg1, arg2);
 }
 
+run_once([] {
+    create_patch("TestResolution", "Unsigned Comparison", 0x575E34, "\x72", 1);
+    create_patch("TestResolution", "Unsigned Comparison", 0x575E38, "\x72", 1);
+
+    create_patch("Res String", "Unsigned Printf", 0x661890, "res %d x %d: %u %u / %u %u", 27);
+
+    create_patch(
+        "EliminatingRes String", "Unsigned Printf", 0x6618AC, "Eliminating res %d x %d; texmem=%u, vidmem=%u", 46);
+});
+
 define_dummy_symbol(pcwindis_dxsetup);

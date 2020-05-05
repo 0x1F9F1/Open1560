@@ -18,6 +18,8 @@
 
 #include "meshrend.h"
 
+#include "vector7/vector3.h"
+
 agiMeshSet::agiMeshSet()
 {
     unimplemented();

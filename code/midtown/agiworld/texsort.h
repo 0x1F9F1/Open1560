@@ -89,7 +89,7 @@ public:
     static class agiPolySet* GetEnv(class agiTexDef* arg1, i32 arg2, i32 arg3);
 
     // 0x719788 | ?AlphaPolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    static inline extern_var(0x319788_Offset, class agiPolySet**, AlphaPolySets);
+    static inline extern_var(0x319788_Offset, class agiPolySet * [32], AlphaPolySets);
 
     // 0x719780 | ?AlphaSetCount@agiTexSorter@@2HA
     static inline extern_var(0x319780_Offset, i32, AlphaSetCount);
@@ -119,7 +119,7 @@ public:
     static inline extern_var(0x24A3E8_Offset, i32, MaxVertsPerSet);
 
     // 0x719630 | ?OpaquePolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    static inline extern_var(0x319630_Offset, class agiPolySet**, OpaquePolySets);
+    static inline extern_var(0x319630_Offset, class agiPolySet * [64], OpaquePolySets);
 
     // 0x719744 | ?OpaqueSetCount@agiTexSorter@@2HA
     static inline extern_var(0x319744_Offset, i32, OpaqueSetCount);
@@ -138,7 +138,7 @@ private:
     static inline extern_var(0x319624_Offset, class agiTexSorter*, Instance);
 };
 
-check_size(agiTexSorter, 0x0);
+check_size(agiTexSorter, 0x1);
 
 // 0x5043E0 | ?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z
 class agiTexDef* GetPackedTexture(char* arg1, i32 arg2);
