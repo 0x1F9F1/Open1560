@@ -16,12 +16,14 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_metaclass);
+
 #include "metaclass.h"
 
 MetaClass::MetaClass(
     char* arg1, u32 arg2, void* (*arg3)(i32), void (*arg4)(void*, i32), void (*arg5)(void), class MetaClass* arg6)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 MetaClass::~MetaClass()
@@ -73,5 +75,3 @@ void __BadSafeCall(char* arg1, class Base* arg2)
 {
     return stub<cdecl_t<void, char*, class Base*>>(0x177C50_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(data7_metaclass);

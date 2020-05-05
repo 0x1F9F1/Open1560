@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmbangers_data);
+
 #include "data.h"
 
 mmBangerData::mmBangerData()
@@ -25,7 +27,7 @@ mmBangerData::mmBangerData()
 
 mmBangerData::~mmBangerData()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmBangerData::AddWidgets(class Bank* arg1)
@@ -85,7 +87,7 @@ mmBangerDataManager::mmBangerDataManager()
 
 mmBangerDataManager::~mmBangerDataManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmBangerDataManager::AddBangerDataEntry(char* arg1, char* arg2)
@@ -117,5 +119,3 @@ struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i16* arg3)
 {
     return stub<cdecl_t<struct MetaType*, struct MetaType*, i32, i16*>>(0xC9A50_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(mmbangers_data);

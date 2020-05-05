@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_dlp);
+
 #include "dlp.h"
 
 DLP::DLP(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 DLP::~DLP()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void DLP::Cull(i32 arg1)
@@ -83,5 +85,3 @@ void DLP::FixTemplateRefs(i32 arg1)
 {
     return stub<thiscall_t<void, DLP*, i32>>(0x15E000_Offset, this, arg1);
 }
-
-define_dummy_symbol(agi_dlp);

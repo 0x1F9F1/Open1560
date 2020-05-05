@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcity:portal
 
@@ -51,6 +49,8 @@
     0x705714 | public: static unsigned short asPortalWeb::VisitTag | ?VisitTag@asPortalWeb@@2GA
     0x705718 | class MetaClass asPortalWebMetaClass | ?asPortalWebMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class asPortalWeb : public asNode
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_getdlp);
+
 #include "getdlp.h"
 
 void CheckLibraries()
@@ -37,5 +39,3 @@ i32 OutOfDate(char* arg1, char* arg2)
 {
     return stub<cdecl_t<i32, char*, char*>>(0x1569D0_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(agi_getdlp);

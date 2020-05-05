@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_d3dpipe);
+
 #include "d3dpipe.h"
 
 agiD3DPipeline::agiD3DPipeline()
@@ -25,7 +27,7 @@ agiD3DPipeline::agiD3DPipeline()
 
 agiD3DPipeline::~agiD3DPipeline()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiD3DPipeline::BeginFrame()
@@ -123,7 +125,7 @@ i32 __stdcall callb(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* ar
 
 agiD3DTexLut::~agiD3DTexLut()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiD3DTexLut::BeginGfx()
@@ -135,5 +137,3 @@ void agiD3DTexLut::EndGfx()
 {
     return stub<thiscall_t<void, agiD3DTexLut*>>(0x132020_Offset, this);
 }
-
-define_dummy_symbol(agid3d_d3dpipe);

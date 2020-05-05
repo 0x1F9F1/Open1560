@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "optionsbase.h"
-
 /*
     mmui:audio
 
@@ -51,6 +49,8 @@
     0x49D700 | public: virtual void * __thiscall AudioOptions::`scalar deleting destructor'(unsigned int) | ??_GAudioOptions@@UAEPAXI@Z
     0x61D488 | const AudioOptions::`vftable' | ??_7AudioOptions@@6B@
 */
+
+#include "optionsbase.h"
 
 class AudioOptions : public OptionsBase
 {

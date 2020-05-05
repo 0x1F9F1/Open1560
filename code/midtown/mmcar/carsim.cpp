@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_carsim);
+
 #include "carsim.h"
 
 void IMPACTCB(class mmCarSim* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4, f32 arg5,
@@ -38,7 +40,7 @@ mmCarSim::mmCarSim()
 
 mmCarSim::~mmCarSim()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCarSim::AddPlayerSpecifics()
@@ -196,5 +198,3 @@ void mmCarSim::SetGlobalTuning(f32 arg1, f32 arg2)
 {
     return stub<cdecl_t<void, f32, f32>>(0x6C030_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmcar_carsim);

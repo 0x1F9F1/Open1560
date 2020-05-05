@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_manager);
+
 #include "manager.h"
 
 AudManager::AudManager()
@@ -25,7 +27,7 @@ AudManager::AudManager()
 
 AudManager::~AudManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 AudManager::AddSound(class AudSound* arg1)
@@ -488,5 +490,3 @@ void RestoreApplication()
 {
     return stub<cdecl_t<void>>(0xEA040_Offset);
 }
-
-define_dummy_symbol(mmaudio_manager);

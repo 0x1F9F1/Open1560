@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-#include "game.h"
-
 /*
     mmgame:singleblitz
 
@@ -64,6 +61,9 @@
     0x61A638 | const Base::`vftable' | ??_7Base@@6B@
     0x6A7040 | class MetaClass mmSingleBlitzMetaClass | ?mmSingleBlitzMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
+#include "game.h"
 
 class foobar : public asNode
 {

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmeffects:mousesteerbar
 
@@ -33,6 +31,8 @@
     0x502BA0 | public: virtual void * __thiscall mmMouseSteerBar::`scalar deleting destructor'(unsigned int) | ??_GmmMouseSteerBar@@UAEPAXI@Z
     0x6207E0 | const mmMouseSteerBar::`vftable' | ??_7mmMouseSteerBar@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmMouseSteerBar : public asNode
 {

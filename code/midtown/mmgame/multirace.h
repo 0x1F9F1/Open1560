@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "gamemulti.h"
-
 /*
     mmgame:multirace
 
@@ -44,6 +42,8 @@
     0x61AA18 | const mmMultiRace::`vftable' | ??_7mmMultiRace@@6B@
     0x6A7280 | class MetaClass mmMultiRaceMetaClass | ?mmMultiRaceMetaClass@@3VMetaClass@@A
 */
+
+#include "gamemulti.h"
 
 class mmMultiRace : public mmGameMulti
 {

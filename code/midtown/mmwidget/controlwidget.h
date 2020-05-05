@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:controlwidget
 
@@ -38,6 +36,8 @@
     0x4BC0E0 | public: virtual void __thiscall UIControlWidget::TurnOff(void) | ?TurnOff@UIControlWidget@@UAEXXZ
     0x61ED88 | const UIControlWidget::`vftable' | ??_7UIControlWidget@@6B@
 */
+
+#include "textfield.h"
 
 class UIControlWidget : public uiWidget
 {

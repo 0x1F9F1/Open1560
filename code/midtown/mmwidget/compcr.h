@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "comprrec.h"
-
 /*
     mmwidget:compcr
 
@@ -39,6 +37,8 @@
     0x4B7810 | public: virtual void * __thiscall mmCompCRPlayer::`vector deleting destructor'(unsigned int) | ??_EmmCompCRPlayer@@UAEPAXI@Z
     0x61E8F8 | const mmCompCRPlayer::`vftable' | ??_7mmCompCRPlayer@@6B@
 */
+
+#include "comprrec.h"
 
 class mmCompCRPlayer : public mmCompBase
 {

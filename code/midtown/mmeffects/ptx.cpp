@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmeffects_ptx);
+
 #include "ptx.h"
 
 asParticles::asParticles()
@@ -25,7 +27,7 @@ asParticles::asParticles()
 
 asParticles::~asParticles()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asParticles::AddWidgets(class Bank* arg1)
@@ -83,5 +85,3 @@ i32 cmpPtx(void const* arg1, void const* arg2)
 {
     return stub<cdecl_t<i32, void const*, void const*>>(0x100690_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmeffects_ptx);

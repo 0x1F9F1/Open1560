@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-#include "inst.h"
-
 /*
     mmcity:ped
 
@@ -45,6 +42,9 @@
     0x705740 | class MetaClass mmPedManagerMetaClass | ?mmPedManagerMetaClass@@3VMetaClass@@A
     0x705768 | class MetaClass mmPedMetaClass | ?mmPedMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
+#include "inst.h"
 
 class mmPed : public mmYInstance
 {

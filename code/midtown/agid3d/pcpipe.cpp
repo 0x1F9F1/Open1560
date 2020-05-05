@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_pcpipe);
+
 #include "pcpipe.h"
 
 class agiPipeline* d3dCreatePipeline(i32 arg1, char** arg2)
 {
     return stub<cdecl_t<class agiPipeline*, i32, char**>>(0x12DFC0_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(agid3d_pcpipe);

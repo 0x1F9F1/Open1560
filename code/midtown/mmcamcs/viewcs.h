@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/linear.h"
-
 /*
     mmcamcs:viewcs
 
@@ -42,6 +40,8 @@
     0x620118 | const mmViewCS::`vftable' | ??_7mmViewCS@@6B@
     0x7193A8 | class MetaClass mmViewCSMetaClass | ?mmViewCSMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/linear.h"
 
 class mmViewCS : public asLinearCS
 {

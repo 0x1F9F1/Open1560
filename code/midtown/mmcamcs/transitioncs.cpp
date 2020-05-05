@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_transitioncs);
+
 #include "transitioncs.h"
 
 TransitionCS::TransitionCS()
@@ -25,7 +27,7 @@ TransitionCS::TransitionCS()
 
 TransitionCS::~TransitionCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void TransitionCS::ForceMatrixDelta(class Vector3 const& arg1)
@@ -72,5 +74,3 @@ void TransitionCS::Update()
 {
     return stub<thiscall_t<void, TransitionCS*>>(0xFB580_Offset, this);
 }
-
-define_dummy_symbol(mmcamcs_transitioncs);

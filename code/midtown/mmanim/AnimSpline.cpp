@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_AnimSpline);
+
 #include "AnimSpline.h"
 
 mmAnimSpline::mmAnimSpline()
@@ -25,7 +27,7 @@ mmAnimSpline::mmAnimSpline()
 
 mmAnimSpline::~mmAnimSpline()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmAnimSpline::AddVector(class Vector3& arg1)
@@ -82,5 +84,3 @@ void mmAnimSpline::Update()
 {
     return stub<thiscall_t<void, mmAnimSpline*>>(0xC3BC0_Offset, this);
 }
-
-define_dummy_symbol(mmanim_AnimSpline);

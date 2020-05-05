@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_splash);
+
 #include "splash.h"
 
 mmSplash::mmSplash()
@@ -25,7 +27,7 @@ mmSplash::mmSplash()
 
 mmSplash::~mmSplash()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmSplash::Activate(f32 arg1)
@@ -53,5 +55,3 @@ void mmSplash::Update()
 {
     return stub<thiscall_t<void, mmSplash*>>(0x811E0_Offset, this);
 }
-
-define_dummy_symbol(mmcar_splash);

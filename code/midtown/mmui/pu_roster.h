@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:pu_roster
 
@@ -40,6 +38,8 @@
     0x4A9390 | public: virtual void * __thiscall PURoster::`scalar deleting destructor'(unsigned int) | ??_GPURoster@@UAEPAXI@Z
     0x61DE08 | const PURoster::`vftable' | ??_7PURoster@@6B@
 */
+
+#include "pu_menu.h"
 
 class PURoster : public PUMenuBase
 {

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:dlg_msg
 
@@ -31,6 +29,8 @@
     0x49F480 | public: virtual void * __thiscall Dialog_Message::`scalar deleting destructor'(unsigned int) | ??_GDialog_Message@@UAEPAXI@Z
     0x61D6B8 | const Dialog_Message::`vftable' | ??_7Dialog_Message@@6B@
 */
+
+#include "pu_menu.h"
 
 class Dialog_Message : public PUMenuBase
 {

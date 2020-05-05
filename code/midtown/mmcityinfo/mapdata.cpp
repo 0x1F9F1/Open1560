@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_mapdata);
+
 #include "mapdata.h"
 
 mmMapData::mmMapData()
@@ -25,7 +27,7 @@ mmMapData::mmMapData()
 
 mmMapData::~mmMapData()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmMapData::Append(char* arg1)
@@ -62,5 +64,3 @@ void mmMapData::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xD3400_Offset);
 }
-
-define_dummy_symbol(mmcityinfo_mapdata);

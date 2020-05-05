@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "agi/dlp.h"
-#include "agi/dyndlp.h"
-
 /*
     agirend:rdlp
 
@@ -45,6 +42,9 @@
     0x6213B8 | const RDLP::`vftable' | ??_7RDLP@@6B@
     0x6213F0 | const RDynamicDLP::`vftable' | ??_7RDynamicDLP@@6B@
 */
+
+#include "agi/dlp.h"
+#include "agi/dyndlp.h"
 
 class RDLP : public DLP
 {

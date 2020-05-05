@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_mmvoicecommentary);
+
 #include "mmvoicecommentary.h"
 
 mmVoiceCommentary::mmVoiceCommentary()
@@ -267,5 +269,3 @@ void mmVoiceCommentary::ValidateCity(char* arg1)
 {
     return stub<thiscall_t<void, mmVoiceCommentary*, char*>>(0xEC130_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmaudio_mmvoicecommentary);

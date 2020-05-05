@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_controlbase);
+
 #include "controlbase.h"
 
 ControlBase::ControlBase()
@@ -37,5 +39,3 @@ void ControlBase::SetSensitivity()
 {
     return stub<thiscall_t<void, ControlBase*>>(0xAB780_Offset, this);
 }
-
-define_dummy_symbol(mmui_controlbase);

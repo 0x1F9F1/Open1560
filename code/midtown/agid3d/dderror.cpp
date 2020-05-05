@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_dderror);
+
 #include "dderror.h"
 
 char* DDErrorToString(i32 arg1)
@@ -33,5 +35,3 @@ void __DDTry(i32 arg1, char const* arg2, char const* arg3, i32 arg4)
 {
     return stub<cdecl_t<void, i32, char const*, char const*, i32>>(0x1327B0_Offset, arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(agid3d_dderror);

@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_heap);
+
 #include "heap.h"
 
 void mmHeapError()
 {
     return stub<cdecl_t<void>>(0x955C0_Offset);
 }
-
-define_dummy_symbol(mmcity_heap);

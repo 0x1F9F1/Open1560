@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jutils);
+
 #include "jutils.h"
 
 void jcopy_block_row(i16 (*arg1)[64], i16 (*arg2)[64], u32 arg3)
@@ -42,5 +44,3 @@ void jzero_far(void* arg1, u32 arg2)
 {
     return stub<cdecl_t<void, void*, u32>>(0x180F80_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmdjpeg_jutils);

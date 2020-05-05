@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_train);
+
 #include "train.h"
 
 mmAnimTrain::mmAnimTrain()
@@ -118,5 +120,3 @@ void mmAnimTrain::UpdateAudio()
 {
     return stub<thiscall_t<void, mmAnimTrain*>>(0xC6CA0_Offset, this);
 }
-
-define_dummy_symbol(mmanim_train);

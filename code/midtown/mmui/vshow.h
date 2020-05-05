@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmwidget/menu.h"
-
 /*
     mmui:vshow
 
@@ -31,6 +29,8 @@
     0x4A51A0 | public: virtual void * __thiscall VehShowcase::`scalar deleting destructor'(unsigned int) | ??_GVehShowcase@@UAEPAXI@Z
     0x61DB20 | const VehShowcase::`vftable' | ??_7VehShowcase@@6B@
 */
+
+#include "mmwidget/menu.h"
 
 class VehShowcase : public UIMenu
 {

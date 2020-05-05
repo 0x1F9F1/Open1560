@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_d3dmtldef);
+
 #include "d3dmtldef.h"
 
 agiD3DMtlDef::agiD3DMtlDef(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiD3DMtlDef::~agiD3DMtlDef()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiD3DMtlDef::Activate()
@@ -47,5 +49,3 @@ u32 agiD3DMtlDef::GetHandle()
 {
     return stub<thiscall_t<u32, agiD3DMtlDef*>>(0x133750_Offset, this);
 }
-
-define_dummy_symbol(agid3d_d3dmtldef);

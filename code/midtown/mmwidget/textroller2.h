@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:textroller2
 
@@ -41,6 +39,8 @@
     0x4BBA50 | public: virtual void * __thiscall UITextRoller2::`vector deleting destructor'(unsigned int) | ??_EUITextRoller2@@UAEPAXI@Z
     0x61ED08 | const UITextRoller2::`vftable' | ??_7UITextRoller2@@6B@
 */
+
+#include "textfield.h"
 
 class UITextRoller2 : public uiWidget
 {

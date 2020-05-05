@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "infobase.h"
-
 /*
     mmcityinfo:racerecord
 
@@ -44,6 +42,8 @@
     0x4D1B60 | public: virtual void * __thiscall mmRecord::`vector deleting destructor'(unsigned int) | ??_EmmRecord@@UAEPAXI@Z
     0x7085F0 | class MetaClass mmRecordMetaClass | ?mmRecordMetaClass@@3VMetaClass@@A
 */
+
+#include "infobase.h"
 
 class mmRecord : public mmInfoBase
 {

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:cwarray
 
@@ -50,6 +48,8 @@
     0x4B8790 | public: virtual void * __thiscall UIControlWidget::`vector deleting destructor'(unsigned int) | ??_EUIControlWidget@@UAEPAXI@Z
     0x61E9F0 | const UICWArray::`vftable' | ??_7UICWArray@@6B@
 */
+
+#include "textfield.h"
 
 class UICWArray : public uiWidget
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_multicircuit);
+
 #include "multicircuit.h"
 
 mmMultiCircuit::mmMultiCircuit()
@@ -25,7 +27,7 @@ mmMultiCircuit::mmMultiCircuit()
 
 mmMultiCircuit::~mmMultiCircuit()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmMultiCircuit::GameMessage(struct NETGAME_MSG* arg1)
@@ -102,5 +104,3 @@ void mmMultiCircuit::SendPlayerFinish()
 {
     return stub<thiscall_t<void, mmMultiCircuit*>>(0x1BC20_Offset, this);
 }
-
-define_dummy_symbol(mmgame_multicircuit);

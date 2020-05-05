@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_ddpipe);
+
 #include "ddpipe.h"
 
 agiDDPipeline::agiDDPipeline()
@@ -25,7 +27,7 @@ agiDDPipeline::agiDDPipeline()
 
 agiDDPipeline::~agiDDPipeline()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiDDPipeline::BeginFrame()
@@ -105,5 +107,3 @@ i32 __stdcall EnumSurfsCallback(struct IDirectDrawSurface* arg1, struct _DDSURFA
     return stub<stdcall_t<i32, struct IDirectDrawSurface*, struct _DDSURFACEDESC*, void*>>(
         0x132A00_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(agid3d_ddpipe);

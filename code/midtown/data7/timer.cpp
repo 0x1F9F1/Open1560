@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_timer);
+
 #include "timer.h"
 
 Timer::Timer()
@@ -52,5 +54,3 @@ u32 Timer::Ticks()
 {
     return stub<cdecl_t<u32>>(0x176830_Offset);
 }
-
-define_dummy_symbol(data7_timer);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_shard);
+
 #include "shard.h"
 
 mmShard::mmShard()
@@ -25,7 +27,7 @@ mmShard::mmShard()
 
 mmShard::~mmShard()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmShard::AddShard(class Vector3 arg1, class Vector3 arg2, class Vector3 arg3, f32 arg4)
@@ -66,7 +68,7 @@ mmShardManager::mmShardManager()
 
 mmShardManager::~mmShardManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmShardManager::AddWidgets(class Bank* arg1)
@@ -118,5 +120,3 @@ class mmShardManager* mmShardManager::GetInstance(i32 arg1)
 {
     return stub<cdecl_t<class mmShardManager*, i32>>(0x788D0_Offset, arg1);
 }
-
-define_dummy_symbol(mmcar_shard);

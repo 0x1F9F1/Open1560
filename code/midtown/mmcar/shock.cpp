@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_shock);
+
 #include "shock.h"
 
 mmShock::mmShock()
@@ -25,7 +27,7 @@ mmShock::mmShock()
 
 mmShock::~mmShock()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmShock::AddWidgets(class Bank* arg1)
@@ -52,5 +54,3 @@ void mmShock::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x7D2A0_Offset);
 }
-
-define_dummy_symbol(mmcar_shock);

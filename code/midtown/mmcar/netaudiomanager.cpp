@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_netaudiomanager);
+
 #include "netaudiomanager.h"
 
 NetAudioManager::NetAudioManager()
@@ -25,7 +27,7 @@ NetAudioManager::NetAudioManager()
 
 NetAudioManager::~NetAudioManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i16 NetAudioManager::AddVehicle(class mmNetworkCarAudio* arg1)
@@ -117,5 +119,3 @@ void NetAudioManager::AssignAddOnSounds(class mmNetworkCarAudio* arg1, i16 arg2)
 {
     return stub<thiscall_t<void, NetAudioManager*, class mmNetworkCarAudio*, i16>>(0x76940_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mmcar_netaudiomanager);

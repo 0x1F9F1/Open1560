@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_interface);
+
 #include "interface.h"
 
 void ReportTimeAlloc(f32 arg1)
@@ -30,7 +32,7 @@ mmInterface::mmInterface()
 
 mmInterface::~mmInterface()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmInterface::BeDone()
@@ -387,5 +389,3 @@ void mmInterface::ShowSessions()
 {
     return stub<thiscall_t<void, mmInterface*>>(0xCDA0_Offset, this);
 }
-
-define_dummy_symbol(mmgame_interface);

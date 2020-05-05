@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:force
 
@@ -36,6 +34,8 @@
     0x63C9F8 | float YDownForceMax | ?YDownForceMax@@3MA
     0x6A8148 | class MetaClass mmForceMetaClass | ?mmForceMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmForce : public asNode
 {

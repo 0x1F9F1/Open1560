@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_pointer);
+
 #include "pointer.h"
 
 sfPointer::sfPointer()
@@ -25,7 +27,7 @@ sfPointer::sfPointer()
 
 sfPointer::~sfPointer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void sfPointer::Cull()
@@ -72,5 +74,3 @@ void sfPointer::UpdateAttached()
 {
     return stub<thiscall_t<void, sfPointer*>>(0xBDD10_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_pointer);

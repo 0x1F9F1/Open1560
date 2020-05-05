@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:vswidget
 
@@ -45,6 +43,8 @@
     0x61F1E0 | const VSWidget::`vftable' | ??_7VSWidget@@6B@
     0x705CC8 | class MetaClass VSWidgetMetaClass | ?VSWidgetMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class VSWidget : public asNode
 {

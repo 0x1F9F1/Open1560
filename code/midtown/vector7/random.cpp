@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_random);
+
 #include "random.h"
 
 f32 Random::Normal(f32 arg1, f32 arg2)
@@ -32,5 +34,3 @@ void Random::Seed(i32 arg1)
 {
     return stub<thiscall_t<void, Random*, i32>>(0x16D9F0_Offset, this, arg1);
 }
-
-define_dummy_symbol(vector7_random);

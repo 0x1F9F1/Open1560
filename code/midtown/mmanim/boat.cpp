@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_boat);
+
 #include "boat.h"
 
 mmBoat::mmBoat()
@@ -25,7 +27,7 @@ mmBoat::mmBoat()
 
 mmBoat::~mmBoat()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmBoat::AddWidgets(class Bank* arg1)
@@ -109,5 +111,3 @@ void mmBoat::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xC7E50_Offset);
 }
-
-define_dummy_symbol(mmanim_boat);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_icons);
+
 #include "icons.h"
 
 mmIcons::mmIcons()
@@ -25,7 +27,7 @@ mmIcons::mmIcons()
 
 mmIcons::~mmIcons()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmIcons::Cull()
@@ -47,5 +49,3 @@ void mmIcons::Update()
 {
     return stub<thiscall_t<void, mmIcons*>>(0x26530_Offset, this);
 }
-
-define_dummy_symbol(mmgame_icons);

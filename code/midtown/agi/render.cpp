@@ -16,6 +16,6 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "render.h"
-
 define_dummy_symbol(agi_render);
+
+#include "render.h"

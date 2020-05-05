@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "aiVehicleSpline.h"
-
 /*
     mmai:aiVehiclePolice
 
@@ -59,6 +57,8 @@
     0x446620 | public: virtual int __thiscall aiVehiclePolice::Type(void) | ?Type@aiVehiclePolice@@UAEHXZ
     0x61B538 | const aiVehiclePolice::`vftable' | ??_7aiVehiclePolice@@6B@
 */
+
+#include "aiVehicleSpline.h"
 
 class aiVehiclePolice : public aiVehicleSpline
 {

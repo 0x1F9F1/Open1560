@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_wheel);
+
 #include "wheel.h"
 
 mmWheel::mmWheel()
@@ -25,7 +27,7 @@ mmWheel::mmWheel()
 
 mmWheel::~mmWheel()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmWheel::AddWidgets(class Bank* arg1)
@@ -115,5 +117,3 @@ void mmWheel::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x7FB00_Offset);
 }
-
-define_dummy_symbol(mmcar_wheel);

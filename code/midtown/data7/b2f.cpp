@@ -16,6 +16,6 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "b2f.h"
-
 define_dummy_symbol(data7_b2f);
+
+#include "b2f.h"

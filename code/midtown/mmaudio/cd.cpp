@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_cd);
+
 #include "cd.h"
 
 CDMan::~CDMan()
@@ -67,5 +69,3 @@ u32 CDMan::Stop()
 {
     return stub<thiscall_t<u32, CDMan*>>(0xF4560_Offset, this);
 }
-
-define_dummy_symbol(mmaudio_cd);

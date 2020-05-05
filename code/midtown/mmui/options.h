@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmwidget/menu.h"
-
 /*
     mmui:options
 
@@ -31,6 +29,8 @@
     0x4A3B70 | public: virtual void * __thiscall OptionsMenu::`vector deleting destructor'(unsigned int) | ??_EOptionsMenu@@UAEPAXI@Z
     0x61DA00 | const OptionsMenu::`vftable' | ??_7OptionsMenu@@6B@
 */
+
+#include "mmwidget/menu.h"
 
 class OptionsMenu : public UIMenu
 {

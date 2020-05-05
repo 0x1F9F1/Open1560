@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_icon);
+
 #include "icon.h"
 
 UIIcon::UIIcon()
@@ -25,7 +27,7 @@ UIIcon::UIIcon()
 
 UIIcon::~UIIcon()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class agiBitmap* UIIcon::CreateDummyBitmap()
@@ -62,5 +64,3 @@ void UIIcon::Update()
 {
     return stub<thiscall_t<void, UIIcon*>>(0xB9AD0_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_icon);

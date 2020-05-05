@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "infobase.h"
-
 /*
     mmcityinfo:playerdir
 
@@ -50,6 +48,8 @@
     0x61F900 | const mmPlayerDirectory::`vftable' | ??_7mmPlayerDirectory@@6B@
     0x708548 | class MetaClass mmPlayerDirectoryMetaClass | ?mmPlayerDirectoryMetaClass@@3VMetaClass@@A
 */
+
+#include "infobase.h"
 
 class mmPlayerDirectory : public mmInfoBase
 {

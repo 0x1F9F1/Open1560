@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "d3dpipe.h"
-
 /*
     agid3d:d3drpipe
 
@@ -38,6 +36,8 @@
     0x621010 | const agiD3DRPipeline::`vftable' | ??_7agiD3DRPipeline@@6B@
     0x795C34 | int UseSimpleRenderer | ?UseSimpleRenderer@@3HA
 */
+
+#include "d3dpipe.h"
 
 class agiD3DRPipeline : public agiD3DPipeline
 {

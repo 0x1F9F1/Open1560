@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_playerdata);
+
 #include "playerdata.h"
 
 mmPlayerRecord::mmPlayerRecord()
@@ -25,12 +27,12 @@ mmPlayerRecord::mmPlayerRecord()
 
 mmPlayerRecord::mmPlayerRecord(class mmPlayerRecord const& arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 mmPlayerRecord::~mmPlayerRecord()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPlayerRecord::operator=(class mmPlayerRecord& arg1)
@@ -75,7 +77,7 @@ mmPlayerData::mmPlayerData()
 
 mmPlayerData::~mmPlayerData()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPlayerData::operator=(class mmPlayerData& arg1)
@@ -212,5 +214,3 @@ void mmPlayerData::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xD0F00_Offset);
 }
-
-define_dummy_symbol(mmcityinfo_playerdata);

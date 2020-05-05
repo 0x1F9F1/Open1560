@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_togglebutton2);
+
 #include "togglebutton2.h"
 
 UIToggleButton2::UIToggleButton2()
@@ -25,7 +27,7 @@ UIToggleButton2::UIToggleButton2()
 
 UIToggleButton2::~UIToggleButton2()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UIToggleButton2::DoToggle()
@@ -80,5 +82,3 @@ void UIToggleButton2::Update()
 {
     return stub<thiscall_t<void, UIToggleButton2*>>(0xBCA80_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_togglebutton2);

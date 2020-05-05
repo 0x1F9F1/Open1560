@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_Excel);
+
 #include "Excel.h"
 
 mmAnimExcel::mmAnimExcel()
@@ -25,7 +27,7 @@ mmAnimExcel::mmAnimExcel()
 
 mmAnimExcel::~mmAnimExcel()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmAnimExcel::AddFile(char* arg1, char* arg2)
@@ -52,5 +54,3 @@ i32 mmAnimExcel::Init(char* arg1, char* arg2)
 {
     return stub<thiscall_t<i32, mmAnimExcel*, char*, char*>>(0xC3530_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mmanim_Excel);

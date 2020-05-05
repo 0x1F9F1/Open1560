@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:dlg_drec
 
@@ -35,6 +33,8 @@
     0x49F2B0 | public: virtual void * __thiscall Dialog_DriverRec::`scalar deleting destructor'(unsigned int) | ??_GDialog_DriverRec@@UAEPAXI@Z
     0x61D668 | const Dialog_DriverRec::`vftable' | ??_7Dialog_DriverRec@@6B@
 */
+
+#include "pu_menu.h"
 
 class Dialog_DriverRec : public PUMenuBase
 {

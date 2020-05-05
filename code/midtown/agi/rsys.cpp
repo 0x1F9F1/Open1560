@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_rsys);
+
 #include "rsys.h"
 
 agiRasterizer::agiRasterizer(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiRasterizer::~agiRasterizer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiRasterizer::BeginGroup()
@@ -102,5 +104,3 @@ void agiRendStateStruct::Reset()
 {
     return stub<thiscall_t<void, agiRendStateStruct*>>(0x157CE0_Offset, this);
 }
-
-define_dummy_symbol(agi_rsys);

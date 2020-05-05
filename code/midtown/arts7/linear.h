@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "node.h"
-
 /*
     arts7:linear
 
@@ -33,6 +31,8 @@
     0x620B40 | const asLinearCS::`vftable' | ??_7asLinearCS@@6B@
     0x7908D8 | class MetaClass asLinearCSMetaClass | ?asLinearCSMetaClass@@3VMetaClass@@A
 */
+
+#include "node.h"
 
 class asLinearCS : public asNode
 {

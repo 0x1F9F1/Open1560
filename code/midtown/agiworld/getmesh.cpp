@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agiworld_getmesh);
+
 #include "getmesh.h"
 
 void FixTexFlags(class agiTexParameters& arg1)
@@ -30,22 +32,20 @@ class agiMeshSet* GetMeshSet(char* arg1, char* arg2, class Vector3* arg3, i32 ar
 
 __cdecl GetMeshSet::N::operator++ ::DLPVertex2::DLPVertex2(char* arg1, char* arg2, class Vector3* arg3, i32 arg4)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4);
 }
 
 __cdecl GetMeshSet::N::operator++ ::DLPVertex2::DLPVertex2(char* arg1, char* arg2, class Vector3* arg3, i32 arg4)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4);
 }
 
 __cdecl GetMeshSet::N::operator++ ::nbuf::nbuf(char* arg1, char* arg2, class Vector3* arg3, i32 arg4)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4);
 }
 
 __cdecl GetMeshSet::N::operator++ ::nbuf::nbuf(char* arg1, char* arg2, class Vector3* arg3, i32 arg4)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(agiworld_getmesh);

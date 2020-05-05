@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(eventq7_event);
+
 #include "event.h"
 
 eqEventHandler::eqEventHandler()
@@ -25,7 +27,7 @@ eqEventHandler::eqEventHandler()
 
 eqEventHandler::~eqEventHandler()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 eqEventHandler::BeginGfx(i32 arg1, i32 arg2, i32 arg3)
@@ -75,12 +77,12 @@ char* eqEventHandler::EKeyName(i32 arg1)
 
 eqEventMonitor::eqEventMonitor(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 eqEventMonitor::~eqEventMonitor()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void eqEventMonitor::Redraw(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
@@ -152,5 +154,3 @@ void eqEventReplayChannelClass::QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg
     return stub<thiscall_t<void, eqEventReplayChannelClass*, i32, i32, i32, i32, i32, i32, i32>>(
         0x163880_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
-
-define_dummy_symbol(eventq7_event);

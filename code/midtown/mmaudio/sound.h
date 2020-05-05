@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmaudio:sound
 
@@ -90,6 +88,8 @@
     0x61FDAC | private: static unsigned long const AudSound::s_DWSoftFreqChange2DCtrlFlags | ?s_DWSoftFreqChange2DCtrlFlags@AudSound@@0KB
     0x61FDC8 | const AudSound::`vftable' | ??_7AudSound@@6B@
 */
+
+#include "arts7/node.h"
 
 class AudSound : public asNode
 {

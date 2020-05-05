@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agiworld_meshlight);
+
 #include "meshlight.h"
 
 void agiBeginCones()
@@ -69,5 +71,3 @@ void agiMeshPrelight(u32* arg1, class agiMeshSet* arg2, class Matrix34& arg3)
 {
     return stub<cdecl_t<void, u32*, class agiMeshSet*, class Matrix34&>>(0x111010_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(agiworld_meshlight);

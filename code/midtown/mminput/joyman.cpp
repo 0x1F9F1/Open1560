@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_joyman);
+
 #include "joyman.h"
 
 i32 __stdcall inputEnumDeviceProc(struct DIDEVICEINSTANCEA* arg1, void* arg2)
@@ -127,5 +129,3 @@ void mmJoyMan::Update()
 {
     return stub<thiscall_t<void, mmJoyMan*>>(0xE5C80_Offset, this);
 }
-
-define_dummy_symbol(mminput_joyman);

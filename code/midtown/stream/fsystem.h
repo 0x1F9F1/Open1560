@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "data7/base.h"
-
 /*
     stream:fsystem
 
@@ -40,6 +38,8 @@
     0x907A38 | public: static class FileSystem * * FileSystem::FS | ?FS@FileSystem@@2PAPAV1@A
     0x907B38 | int fsVerbose | ?fsVerbose@@3HA
 */
+
+#include "data7/base.h"
 
 class FileSystem : public Base
 {

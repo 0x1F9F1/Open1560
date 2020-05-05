@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_cullable);
+
 #include "cullable.h"
 
 asCullable::asCullable()
@@ -25,7 +27,7 @@ asCullable::asCullable()
 
 asCullable::~asCullable()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asCullable::Cull()
@@ -47,5 +49,3 @@ void asCullable::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x1258E0_Offset);
 }
-
-define_dummy_symbol(arts7_cullable);

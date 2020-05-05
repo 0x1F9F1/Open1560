@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_anim);
+
 #include "anim.h"
 
 void mmAnimation::Load(char* arg1, class Stream* arg2)
@@ -42,5 +44,3 @@ void mmAnimInstState::PreUpdate(f32 arg1)
 {
     return stub<cdecl_t<void, f32>>(0x98830_Offset, arg1);
 }
-
-define_dummy_symbol(mmcity_anim);

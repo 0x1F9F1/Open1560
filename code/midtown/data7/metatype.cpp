@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_metatype);
+
 #include "metatype.h"
 
 void PtrToType::Delete(void* arg1, i32 arg2)
@@ -397,5 +399,3 @@ void MetaType::Delete(void* arg1, i32 arg2)
 {
     return stub<thiscall_t<void, MetaType*, void*, i32>>(0x - 400000_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(data7_metatype);

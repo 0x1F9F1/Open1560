@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agirend_surfrender);
+
 #include "surfrender.h"
 
 agiSurfRenderer::agiSurfRenderer(class agiRasterizer* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiSurfRenderer::BeginDraw(i32 arg1)
@@ -75,7 +77,7 @@ void agiSurfRenderer::Verts(union agiVtx* arg1, i32 arg2)
 
 agiSurfRenderer::~agiSurfRenderer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiSurfRenderer::AddSurface(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
@@ -90,7 +92,7 @@ agiRenderer::agiRenderer()
 
 agiRenderer::~agiRenderer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiRenderer::BeginGroup()
@@ -147,5 +149,3 @@ void agiRenderer::EndDraw()
 {
     return stub<thiscall_t<void, agiRenderer*>>(0x - 400000_Offset, this);
 }
-
-define_dummy_symbol(agirend_surfrender);

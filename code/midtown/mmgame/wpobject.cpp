@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_wpobject);
+
 #include "wpobject.h"
 
 mmWaypointObject::mmWaypointObject(class Vector4& arg1, char* arg2, i32 arg3, f32 arg4, i32 arg5, f32 arg6)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 mmWaypointObject::~mmWaypointObject()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmWaypointObject::Activate()
@@ -57,5 +59,3 @@ void mmWaypointObject::Update()
 {
     return stub<thiscall_t<void, mmWaypointObject*>>(0x30530_Offset, this);
 }
-
-define_dummy_symbol(mmgame_wpobject);

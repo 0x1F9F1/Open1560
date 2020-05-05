@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:sliderbar
 
@@ -47,6 +45,8 @@
     0x61F140 | const mmSlider::`vftable' | ??_7mmSlider@@6B@
     0x705CA0 | class MetaClass mmSliderMetaClass | ?mmSliderMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmSlider : public asNode
 {

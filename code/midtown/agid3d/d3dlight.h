@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/light.h"
-
 /*
     agid3d:d3dlight
 
@@ -32,6 +30,8 @@
     0x5339C0 | public: virtual void * __thiscall agiD3DLight::`scalar deleting destructor'(unsigned int) | ??_GagiD3DLight@@UAEPAXI@Z
     0x621188 | const agiD3DLight::`vftable' | ??_7agiD3DLight@@6B@
 */
+
+#include "agi/light.h"
 
 class agiD3DLight : public agiLight
 {

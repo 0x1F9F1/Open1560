@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_multirace);
+
 #include "multirace.h"
 
 mmMultiRace::mmMultiRace()
@@ -25,7 +27,7 @@ mmMultiRace::mmMultiRace()
 
 mmMultiRace::~mmMultiRace()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmMultiRace::ChangePlayerData()
@@ -102,5 +104,3 @@ void mmMultiRace::SendPlayerFinish()
 {
     return stub<thiscall_t<void, mmMultiRace*>>(0x21240_Offset, this);
 }
-
-define_dummy_symbol(mmgame_multirace);

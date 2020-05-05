@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_collide);
+
 #include "collide.h"
 
 i32 mmCollideFF::Assign(i32 arg1, i32 arg2)
@@ -42,5 +44,3 @@ i32 mmCollideFF::Stop()
 {
     return stub<thiscall_t<i32, mmCollideFF*>>(0xE77B0_Offset, this);
 }
-
-define_dummy_symbol(mminput_collide);

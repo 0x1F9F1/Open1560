@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:compscroll
 
@@ -49,6 +47,8 @@
     0x4B5A50 | public: virtual void * __thiscall UICompositeScroll::`vector deleting destructor'(unsigned int) | ??_EUICompositeScroll@@UAEPAXI@Z
     0x61E778 | const UICompositeScroll::`vftable' | ??_7UICompositeScroll@@6B@
 */
+
+#include "textfield.h"
 
 class UICompositeScroll : public uiWidget
 {

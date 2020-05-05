@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_lmodel);
+
 #include "lmodel.h"
 
 agiLightModelParameters::agiLightModelParameters()
@@ -36,7 +38,7 @@ void agiLightModelParameters::operator=(class agiLightModelParameters const& arg
 
 agiLightModel::~agiLightModel()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiLightModel::Activate()
@@ -56,7 +58,5 @@ i32 agiLightModel::Init(class agiLightModelParameters const& arg1)
 
 agiLightModel::agiLightModel(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
-
-define_dummy_symbol(agi_lmodel);

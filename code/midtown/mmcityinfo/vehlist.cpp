@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_vehlist);
+
 #include "vehlist.h"
 
 mmVehList::mmVehList()
@@ -25,7 +27,7 @@ mmVehList::mmVehList()
 
 mmVehList::~mmVehList()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmVehList::GetVehicleID(char* arg1)
@@ -62,5 +64,3 @@ void mmVehList::Print()
 {
     return stub<thiscall_t<void, mmVehList*>>(0xCC370_Offset, this);
 }
-
-define_dummy_symbol(mmcityinfo_vehlist);

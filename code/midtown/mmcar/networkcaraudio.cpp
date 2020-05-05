@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_networkcaraudio);
+
 #include "networkcaraudio.h"
 
 mmNetworkCarAudio::mmNetworkCarAudio()
@@ -25,12 +27,12 @@ mmNetworkCarAudio::mmNetworkCarAudio()
 
 mmNetworkCarAudio::mmNetworkCarAudio(class mmCarSim* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 mmNetworkCarAudio::~mmNetworkCarAudio()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmNetworkCarAudio::CalculateDistToPlayer2()
@@ -112,5 +114,3 @@ void mmNetworkCarAudio::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x843A0_Offset);
 }
-
-define_dummy_symbol(mmcar_networkcaraudio);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_trailer);
+
 #include "trailer.h"
 
 mmTrailer::mmTrailer()
@@ -25,7 +27,7 @@ mmTrailer::mmTrailer()
 
 mmTrailer::~mmTrailer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmTrailer::Activate()
@@ -111,7 +113,7 @@ void mmTrailer::DeclareFields()
 
 mmTrailerInstance::~mmTrailerInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmTrailerInstance::AddWidgets(class Bank* arg1)
@@ -163,5 +165,3 @@ class Matrix34& __fastcall mmTrailerInstance::ToMatrix(class Matrix34& arg1)
 {
     return stub<fastcall_t<class Matrix34&, mmTrailerInstance*, class Matrix34&>>(0x796F0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmcar_trailer);

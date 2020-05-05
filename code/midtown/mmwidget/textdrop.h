@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:textdrop
 
@@ -45,6 +43,8 @@
     0x4B3980 | public: virtual void * __thiscall UITextDropdown::`scalar deleting destructor'(unsigned int) | ??_GUITextDropdown@@UAEPAXI@Z
     0x61E4F8 | const UITextDropdown::`vftable' | ??_7UITextDropdown@@6B@
 */
+
+#include "textfield.h"
 
 class UITextDropdown : public uiWidget
 {

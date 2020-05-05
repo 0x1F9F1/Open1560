@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "aiVehicleSpline.h"
-
 /*
     mmai:aiVehicleAmbient
 
@@ -69,6 +67,8 @@
     0x6A7AA0 | private: static float aiVehicleAmbient::s_fAttenuationMult | ?s_fAttenuationMult@aiVehicleAmbient@@0MA
     0x6A7AD0 | private: static short aiVehicleAmbient::s_iPrevSoundObjIndex | ?s_iPrevSoundObjIndex@aiVehicleAmbient@@0FA
 */
+
+#include "aiVehicleSpline.h"
 
 class aiVehicleAmbient : public aiVehicleSpline
 {

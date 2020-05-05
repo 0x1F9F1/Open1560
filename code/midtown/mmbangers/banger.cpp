@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmbangers_banger);
+
 #include "banger.h"
 
 mmBangerInstance::mmBangerInstance()
@@ -25,7 +27,7 @@ mmBangerInstance::mmBangerInstance()
 
 mmBangerInstance::~mmBangerInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmBangerInstance::AddWidgets(class Bank* arg1)
@@ -80,7 +82,7 @@ mmUnhitBangerInstance::mmUnhitBangerInstance()
 
 mmUnhitBangerInstance::~mmUnhitBangerInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall mmUnhitBangerInstance::FromMatrix(class Matrix34 const& arg1)
@@ -133,7 +135,7 @@ mmHitBangerInstance::mmHitBangerInstance()
 
 mmHitBangerInstance::~mmHitBangerInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmHitBangerInstance::Detach()
@@ -165,5 +167,3 @@ class Matrix34& __fastcall mmHitBangerInstance::ToMatrix(class Matrix34& arg1)
 {
     return stub<fastcall_t<class Matrix34&, mmHitBangerInstance*, class Matrix34&>>(0xCA540_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmbangers_banger);

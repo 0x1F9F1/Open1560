@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "gamemulti.h"
-
 /*
     mmgame:multicircuit
 
@@ -44,6 +42,8 @@
     0x61A890 | const mmMultiCircuit::`vftable' | ??_7mmMultiCircuit@@6B@
     0x6A71B8 | class MetaClass mmMultiCircuitMetaClass | ?mmMultiCircuitMetaClass@@3VMetaClass@@A
 */
+
+#include "gamemulti.h"
 
 class mmMultiCircuit : public mmGameMulti
 {

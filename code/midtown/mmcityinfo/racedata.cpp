@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_racedata);
+
 #include "racedata.h"
 
 mmRaceData::mmRaceData()
@@ -92,5 +94,3 @@ i32 mmRaceData::Load(char* arg1)
 {
     return stub<thiscall_t<i32, mmRaceData*, char*>>(0xD1BE0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmcityinfo_racedata);

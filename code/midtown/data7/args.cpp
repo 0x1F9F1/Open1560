@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_args);
+
 #include "args.h"
 
 asArg::asArg(char arg1, char* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 void asArg::Print(char* arg1)
@@ -42,5 +44,3 @@ void ArgSet::Usage()
 {
     return stub<thiscall_t<void, ArgSet*>>(0x179010_Offset, this);
 }
-
-define_dummy_symbol(data7_args);

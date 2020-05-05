@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmwidget/menu.h"
-
 /*
     mmui:driver
 
@@ -45,6 +43,8 @@
     0x4A5E00 | public: virtual void * __thiscall DriverMenu::`vector deleting destructor'(unsigned int) | ??_EDriverMenu@@UAEPAXI@Z
     0x61DBF0 | const DriverMenu::`vftable' | ??_7DriverMenu@@6B@
 */
+
+#include "mmwidget/menu.h"
 
 class DriverMenu : public UIMenu
 {

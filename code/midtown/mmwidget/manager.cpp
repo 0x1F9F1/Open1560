@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_manager);
+
 #include "manager.h"
 
 MenuManager::MenuManager()
@@ -25,7 +27,7 @@ MenuManager::MenuManager()
 
 MenuManager::~MenuManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 MenuManager::ActionID(i32 arg1)
@@ -305,5 +307,3 @@ void MenuManager::PlayMenuSwitchSound()
 {
     return stub<thiscall_t<void, MenuManager*>>(0xB1730_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_manager);

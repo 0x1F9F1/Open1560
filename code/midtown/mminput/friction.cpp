@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_friction);
+
 #include "friction.h"
 
 i32 mmFrictionFF::Assign(i32 arg1)
@@ -42,5 +44,3 @@ i32 mmFrictionFF::Stop()
 {
     return stub<thiscall_t<i32, mmFrictionFF*>>(0xE7D10_Offset, this);
 }
-
-define_dummy_symbol(mminput_friction);

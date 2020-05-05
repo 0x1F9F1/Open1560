@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmphysics:aero
 
@@ -34,6 +32,8 @@
     0x61FBF8 | const asAero::`vftable' | ??_7asAero@@6B@
     0x7191F8 | class MetaClass asAeroMetaClass | ?asAeroMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class asAero : public asNode
 {

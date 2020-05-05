@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmwidget/menu.h"
-
 /*
     mmui:vselect
 
@@ -58,6 +56,8 @@
     0x49C590 | public: int __thiscall mmVehInfo::IsValid(void) | ?IsValid@mmVehInfo@@QAEHXZ
     0x61D3D0 | const VehicleSelectBase::`vftable' | ??_7VehicleSelectBase@@6B@
 */
+
+#include "mmwidget/menu.h"
 
 class VehicleSelectBase : public UIMenu
 {

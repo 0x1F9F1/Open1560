@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:popup
 
@@ -45,6 +43,8 @@
     0x427D80 | public: virtual void * __thiscall mmPopup::`scalar deleting destructor'(unsigned int) | ??_GmmPopup@@UAEPAXI@Z
     0x61AD80 | const mmPopup::`vftable' | ??_7mmPopup@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmPopup : public asNode
 {

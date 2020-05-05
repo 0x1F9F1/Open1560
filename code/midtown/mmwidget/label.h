@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:label
 
@@ -37,6 +35,8 @@
     0x61EB28 | const UILabel::`vftable' | ??_7UILabel@@6B@
     0x705A10 | public: static float UILabel::TextHeight | ?TextHeight@UILabel@@2MA
 */
+
+#include "textfield.h"
 
 class UILabel : public uiWidget
 {

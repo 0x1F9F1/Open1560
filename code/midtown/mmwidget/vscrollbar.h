@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:vscrollbar
 
@@ -47,6 +45,8 @@
     0x61F030 | const UIVScrollBar::`vftable' | ??_7UIVScrollBar@@6B@
     0x705C28 | class MetaClass UIVScrollBarMetaClass | ?UIVScrollBarMetaClass@@3VMetaClass@@A
 */
+
+#include "textfield.h"
 
 class UIVScrollBar : public uiWidget
 {

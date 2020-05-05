@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmcity/inst.h"
-
 /*
     mmcar:carmodel
 
@@ -57,6 +55,8 @@
     0x6A7DF8 | class MetaClass mmCarModelMetaClass | ?mmCarModelMetaClass@@3VMetaClass@@A
     0x6A7E2C | int IsPlayerAutoCam | ?IsPlayerAutoCam@@3HA
 */
+
+#include "mmcity/inst.h"
 
 class mmCarModel : public mmInstance
 {

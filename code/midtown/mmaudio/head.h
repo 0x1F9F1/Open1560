@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmaudio:head
 
@@ -38,6 +36,8 @@
     0x4EC040 | public: virtual void * __thiscall AudHead::`vector deleting destructor'(unsigned int) | ??_EAudHead@@UAEPAXI@Z
     0x61FE08 | const AudHead::`vftable' | ??_7AudHead@@6B@
 */
+
+#include "arts7/node.h"
 
 class AudHead : public asNode
 {

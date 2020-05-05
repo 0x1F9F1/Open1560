@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_cr_settings);
+
 #include "cr_settings.h"
 
 CRSettings::CRSettings(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 CRSettings::~CRSettings()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 CRSettings::AddPlayerRecord(char* arg1, i32 arg2, i32 arg3, char* arg4)
@@ -122,5 +124,3 @@ void CRSettings::SettingsCB()
 {
     return stub<thiscall_t<void, CRSettings*>>(0xA0F10_Offset, this);
 }
-
-define_dummy_symbol(mmui_cr_settings);

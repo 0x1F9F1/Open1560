@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_bridge);
+
 #include "bridge.h"
 
 mmBridgeMgr::mmBridgeMgr()
@@ -25,7 +27,7 @@ mmBridgeMgr::mmBridgeMgr()
 
 mmBridgeMgr::~mmBridgeMgr()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmBridgeMgr::AddWidgets(class Bank* arg1)
@@ -71,7 +73,7 @@ mmBridgeSet::mmBridgeSet()
 
 mmBridgeSet::~mmBridgeSet()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmBridgeSet::AddWidgets(class Bank* arg1)
@@ -153,5 +155,3 @@ void mmBridgeSet::RampDownBridgeVolume()
 {
     return stub<thiscall_t<void, mmBridgeSet*>>(0xC2E80_Offset, this);
 }
-
-define_dummy_symbol(mmanim_bridge);

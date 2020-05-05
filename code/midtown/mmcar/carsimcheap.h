@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/linear.h"
-
 /*
     mmcar:carsimcheap
 
@@ -32,6 +30,8 @@
     0x61C170 | const mmWheelCheap::`vftable' | ??_7mmWheelCheap@@6B@
     0x6A7E7C | float EggFriction | ?EggFriction@@3MA
 */
+
+#include "arts7/linear.h"
 
 class mmWheelCheap : public asLinearCS
 {

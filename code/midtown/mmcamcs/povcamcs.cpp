@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_povcamcs);
+
 #include "povcamcs.h"
 
 PovCamCS::PovCamCS()
@@ -25,7 +27,7 @@ PovCamCS::PovCamCS()
 
 PovCamCS::~PovCamCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void PovCamCS::AddWidgets(class Bank* arg1)
@@ -72,5 +74,3 @@ void PovCamCS::UpdatePOV()
 {
     return stub<thiscall_t<void, PovCamCS*>>(0xF6560_Offset, this);
 }
-
-define_dummy_symbol(mmcamcs_povcamcs);

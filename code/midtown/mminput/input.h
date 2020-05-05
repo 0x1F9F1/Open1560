@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mminput:input
 
@@ -111,6 +109,8 @@
     0x71926C | struct IDirectInputA * gpdi | ?gpdi@@3PAUIDirectInputA@@A
     0x719270 | float testValue | ?testValue@@3MA
 */
+
+#include "arts7/node.h"
 
 // 0x4E06E0 | ?testsuperq@@YAXXZ
 void testsuperq();

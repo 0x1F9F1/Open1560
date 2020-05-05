@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "portal.h"
-
 /*
     mmcity:renderweb
 
@@ -63,6 +61,8 @@
     0x6A8F10 | int PopupEnabled | ?PopupEnabled@@3HA
     0x6A8F14 | int Front2Back | ?Front2Back@@3HA
 */
+
+#include "portal.h"
 
 class asRenderWeb : public asPortalWeb
 {

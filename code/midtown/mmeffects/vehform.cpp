@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmeffects_vehform);
+
 #include "vehform.h"
 
 mmVehicleForm::mmVehicleForm()
@@ -25,7 +27,7 @@ mmVehicleForm::mmVehicleForm()
 
 mmVehicleForm::~mmVehicleForm()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmVehicleForm::Cull()
@@ -43,5 +45,3 @@ void mmVehicleForm::Update()
 {
     return stub<thiscall_t<void, mmVehicleForm*>>(0x102780_Offset, this);
 }
-
-define_dummy_symbol(mmeffects_vehform);

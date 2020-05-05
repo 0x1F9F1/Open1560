@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:engineaudio
 
@@ -39,6 +37,8 @@
     0x61CAE8 | const EngineAudio::`vftable' | ??_7EngineAudio@@6B@
     0x6A82A0 | class MetaClass EngineAudioMetaClass | ?EngineAudioMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class EngineAudio : public asNode
 {

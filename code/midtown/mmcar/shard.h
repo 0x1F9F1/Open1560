@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-#include "mmcity/inst.h"
-
 /*
     mmcar:shard
 
@@ -53,6 +50,9 @@
     0x6A7F68 | class MetaClass mmShardMetaClass | ?mmShardMetaClass@@3VMetaClass@@A
     0x6A7F90 | protected: static int mmShardManager::NumInstances | ?NumInstances@mmShardManager@@1HA
 */
+
+#include "arts7/node.h"
+#include "mmcity/inst.h"
 
 class mmShard : public mmMatrixInstance
 {

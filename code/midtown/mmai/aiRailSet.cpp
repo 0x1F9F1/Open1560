@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiRailSet);
+
 #include "aiRailSet.h"
 
 aiRailSet::aiRailSet()
@@ -130,5 +132,3 @@ class Vector3 operator*(f32 arg1, class Vector3 const& arg2)
 {
     return stub<cdecl_t<class Vector3, f32, class Vector3 const&>>(0x59E00_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmai_aiRailSet);

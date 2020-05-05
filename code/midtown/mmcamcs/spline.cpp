@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_spline);
+
 #include "spline.h"
 
 Spline::Spline()
@@ -25,7 +27,7 @@ Spline::Spline()
 
 Spline::~Spline()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void Spline::AddWidgets(class Bank* arg1)
@@ -87,5 +89,3 @@ void Spline::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xFDB90_Offset);
 }
-
-define_dummy_symbol(mmcamcs_spline);

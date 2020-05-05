@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/lmodel.h"
-
 /*
     agirend:bilmodel
 
@@ -32,6 +30,8 @@
     0x555340 | public: virtual void * __thiscall agiBILightModel::`scalar deleting destructor'(unsigned int) | ??_GagiBILightModel@@UAEPAXI@Z
     0x621508 | const agiBILightModel::`vftable' | ??_7agiBILightModel@@6B@
 */
+
+#include "agi/lmodel.h"
 
 class agiBILightModel : public agiLightModel
 {

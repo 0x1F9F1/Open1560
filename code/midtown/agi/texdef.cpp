@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_texdef);
+
 #include "texdef.h"
 
 agiTexParameters::agiTexParameters()
@@ -120,12 +122,12 @@ void agiTexDef::PageOutCallback(void* arg1, i32 arg2)
 
 agiTexDef::agiTexDef(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiTexDef::~agiTexDef()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void ShutdownLutQueue()
@@ -150,12 +152,10 @@ i32 agiTexLut::Init(char* arg1)
 
 agiTexLut::agiTexLut(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiTexLut::~agiTexLut()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
-
-define_dummy_symbol(agi_texdef);

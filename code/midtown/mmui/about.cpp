@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_about);
+
 #include "about.h"
 
 AboutMenu::AboutMenu(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 AboutMenu::~AboutMenu()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void AboutMenu::Cull()
@@ -42,5 +44,3 @@ void AboutMenu::Update()
 {
     return stub<thiscall_t<void, AboutMenu*>>(0xA6080_Offset, this);
 }
-
-define_dummy_symbol(mmui_about);

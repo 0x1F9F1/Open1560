@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:player
 
@@ -63,6 +61,8 @@
     0x6A7750 | class MetaClass mmPlayerMetaClass | ?mmPlayerMetaClass@@3VMetaClass@@A
     0x6A7778 | int RestoreCityCam | ?RestoreCityCam@@3HA
 */
+
+#include "arts7/node.h"
 
 class mmPlayer : public asNode
 {

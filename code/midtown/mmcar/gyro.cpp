@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_gyro);
+
 #include "gyro.h"
 
 VehGyro::VehGyro()
@@ -25,7 +27,7 @@ VehGyro::VehGyro()
 
 VehGyro::~VehGyro()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void VehGyro::AddWidgets(class Bank* arg1)
@@ -57,5 +59,3 @@ void VehGyro::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x809E0_Offset);
 }
-
-define_dummy_symbol(mmcar_gyro);

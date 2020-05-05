@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:dlg_newp
 
@@ -31,6 +29,8 @@
     0x49F820 | public: virtual void * __thiscall Dialog_NewPlayer::`vector deleting destructor'(unsigned int) | ??_EDialog_NewPlayer@@UAEPAXI@Z
     0x61D710 | const Dialog_NewPlayer::`vftable' | ??_7Dialog_NewPlayer@@6B@
 */
+
+#include "pu_menu.h"
 
 class Dialog_NewPlayer : public PUMenuBase
 {

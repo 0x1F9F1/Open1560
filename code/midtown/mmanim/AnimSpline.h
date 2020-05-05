@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmanim:AnimSpline
 
@@ -39,6 +37,8 @@
     0x4C3CE0 | public: virtual void * __thiscall mmAnimSpline::`scalar deleting destructor'(unsigned int) | ??_GmmAnimSpline@@UAEPAXI@Z
     0x61F3F0 | const mmAnimSpline::`vftable' | ??_7mmAnimSpline@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmAnimSpline : public asNode
 {

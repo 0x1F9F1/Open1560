@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_midgets);
+
 #include "midgets.h"
 
 asMidgets::asMidgets()
@@ -25,7 +27,7 @@ asMidgets::asMidgets()
 
 asMidgets::~asMidgets()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class bkButton* asMidgets::AddButton(char* arg1, class Callback arg2)
@@ -472,5 +474,3 @@ void MI::Key(i32 arg1, i32 arg2)
 {
     return stub<thiscall_t<void, MI*, i32, i32>>(0x - 400000_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(arts7_midgets);

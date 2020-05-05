@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:pu_key
 
@@ -31,6 +29,8 @@
     0x4A9750 | public: virtual void * __thiscall PUKey::`scalar deleting destructor'(unsigned int) | ??_GPUKey@@UAEPAXI@Z
     0x61DE58 | const PUKey::`vftable' | ??_7PUKey@@6B@
 */
+
+#include "pu_menu.h"
 
 class PUKey : public PUMenuBase
 {

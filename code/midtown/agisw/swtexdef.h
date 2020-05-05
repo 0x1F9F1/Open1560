@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/texdef.h"
-
 /*
     agisw:swtexdef
 
@@ -44,6 +42,8 @@
     0x621308 | const agiSWTexLut::`vftable' | ??_7agiSWTexLut@@6B@
     0x652304 | float swLutInvGamma | ?swLutInvGamma@@3MA
 */
+
+#include "agi/texdef.h"
 
 class agiSWTexDef : public agiTexDef
 {

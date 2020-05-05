@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_hud);
+
 #include "hud.h"
 
 mmHUD::mmHUD()
@@ -25,7 +27,7 @@ mmHUD::mmHUD()
 
 mmHUD::~mmHUD()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmHUD::ActivateDash()
@@ -230,7 +232,7 @@ mmTimer::mmTimer()
 
 mmTimer::~mmTimer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 f32 mmTimer::GetTime()
@@ -275,7 +277,7 @@ mmArrow::mmArrow()
 
 mmArrow::~mmArrow()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmArrow::Init(class Matrix34* arg1)
@@ -302,5 +304,3 @@ void mmArrow::ReColorArrow(i32 arg1)
 {
     return stub<thiscall_t<void, mmArrow*, i32>>(0x64F0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmgame_hud);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "game.h"
-
 /*
     mmgame:gamesingle
 
@@ -52,6 +50,8 @@
     0x61A728 | const mmGameSingle::`vftable' | ??_7mmGameSingle@@6B@
     0x6A7110 | class MetaClass mmGameSingleMetaClass | ?mmGameSingleMetaClass@@3VMetaClass@@A
 */
+
+#include "game.h"
 
 // 0x416C90 | ?ThreadFunc@@YGKPAX@Z
 u32 __stdcall ThreadFunc(void* arg1);

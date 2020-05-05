@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "cullable.h"
-
 /*
     arts7:midgets
 
@@ -100,9 +98,11 @@
     0x790928 | class asMidgets * MIDGETSPTR | ?MIDGETSPTR@@3PAVasMidgets@@A
 */
 
+#include "cullable.h"
+
 class asMidgets
-    : public Bank
-    , public asCullable
+    : public asCullable
+    , public Bank /* Warning: Unordered Multiple Inheritance */
 {
     // const asMidgets::`vftable'{for `asCullable'} @ 0x620BC0
     // const asMidgets::`vftable'{for `Bank'} @ 0x620BD8

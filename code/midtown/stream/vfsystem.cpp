@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(stream_vfsystem);
+
 #include "vfsystem.h"
 
 VirtualFileSystem::VirtualFileSystem(class Stream* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 VirtualFileSystem::~VirtualFileSystem()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 VirtualFileSystem::ChangeDir(char* arg1)
@@ -90,5 +92,3 @@ void VirtualFileSystem::NormalizeName(char* arg1, char* arg2)
 {
     return stub<cdecl_t<void, char*, char*>>(0x160790_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(stream_vfsystem);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:gyro
 
@@ -34,6 +32,8 @@
     0x61C810 | const VehGyro::`vftable' | ??_7VehGyro@@6B@
     0x6A8120 | class MetaClass VehGyroMetaClass | ?VehGyroMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class VehGyro : public asNode
 {

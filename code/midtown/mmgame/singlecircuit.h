@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "game.h"
-
 /*
     mmgame:singlecircuit
 
@@ -52,6 +50,8 @@
     0x61A680 | const mmSingleCircuit::`vftable' | ??_7mmSingleCircuit@@6B@
     0x6A70A8 | class MetaClass mmSingleCircuitMetaClass | ?mmSingleCircuitMetaClass@@3VMetaClass@@A
 */
+
+#include "game.h"
 
 class mmSingleCircuit : public mmGame
 {

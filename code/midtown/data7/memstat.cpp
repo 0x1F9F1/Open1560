@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_memstat);
+
 #include "memstat.h"
 
 void BeginMemStat(char const* arg1)
@@ -27,5 +29,3 @@ void EndMemStat()
 {
     return stub<cdecl_t<void>>(0x178BB0_Offset);
 }
-
-define_dummy_symbol(data7_memstat);

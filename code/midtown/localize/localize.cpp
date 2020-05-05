@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(localize_localize);
+
 #include "localize.h"
 
 struct LocString* AngelReadString(u32 arg1)
@@ -27,5 +29,3 @@ char* GetLocTime(f32 arg1)
 {
     return stub<cdecl_t<char*, f32>>(0x120010_Offset, arg1);
 }
-
-define_dummy_symbol(localize_localize);

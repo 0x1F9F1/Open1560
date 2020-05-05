@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_spring);
+
 #include "spring.h"
 
 i32 mmSpringFF::Assign(i32 arg1)
@@ -42,5 +44,3 @@ i32 mmSpringFF::Stop()
 {
     return stub<thiscall_t<i32, mmSpringFF*>>(0xE7FE0_Offset, this);
 }
-
-define_dummy_symbol(mminput_spring);

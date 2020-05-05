@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmcity/inst.h"
-
 /*
     mmgame:wpinst
 
@@ -41,6 +39,8 @@
     0x61B168 | const mmWaypointInstance::`vftable' | ??_7mmWaypointInstance@@6B@
     0x6A7800 | class MetaClass mmWaypointInstanceMetaClass | ?mmWaypointInstanceMetaClass@@3VMetaClass@@A
 */
+
+#include "mmcity/inst.h"
 
 class mmWaypointInstance : public mmStaticInstance
 {

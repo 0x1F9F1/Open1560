@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(memory_allocator);
+
 #include "allocator.h"
 
 asMemoryAllocator::asMemoryAllocator()
@@ -82,5 +84,3 @@ void asMemoryAllocator::Verify(void* arg1)
 {
     return stub<thiscall_t<void, asMemoryAllocator*, void*>>(0x120F00_Offset, this, arg1);
 }
-
-define_dummy_symbol(memory_allocator);

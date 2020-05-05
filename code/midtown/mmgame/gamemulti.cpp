@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_gamemulti);
+
 #include "gamemulti.h"
 
 mmGameMulti::mmGameMulti()
@@ -25,7 +27,7 @@ mmGameMulti::mmGameMulti()
 
 mmGameMulti::~mmGameMulti()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmGameMulti::InitNetworkPlayers()
@@ -208,5 +210,3 @@ void mmGameMulti::StartXYZ(i32 arg1, class Vector3& arg2, class Vector3& arg3, f
     return stub<thiscall_t<void, mmGameMulti*, i32, class Vector3&, class Vector3&, f32, f32>>(
         0x30CC0_Offset, this, arg1, arg2, arg3, arg4, arg5);
 }
-
-define_dummy_symbol(mmgame_gamemulti);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmbangers:data
 
@@ -54,6 +52,8 @@
     0x705FF0 | public: static int mmBangerDataManager::SignalClock | ?SignalClock@mmBangerDataManager@@2HA
     0x706008 | class MetaClass mmBangerDataManagerMetaClass | ?mmBangerDataManagerMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmBangerData : public asNode
 {

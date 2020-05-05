@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(stream_fsystem);
+
 #include "fsystem.h"
 
 FileSystem::FileSystem()
@@ -25,7 +27,7 @@ FileSystem::FileSystem()
 
 FileSystem::~FileSystem()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 FileSystem::ValidPath(char* arg1)
@@ -112,5 +114,3 @@ class Stream* OpenFile(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5,
     return stub<cdecl_t<class Stream*, char*, char*, char*, i32, char*, char*>>(
         0x15FD60_Offset, arg1, arg2, arg3, arg4, arg5, arg6);
 }
-
-define_dummy_symbol(stream_fsystem);

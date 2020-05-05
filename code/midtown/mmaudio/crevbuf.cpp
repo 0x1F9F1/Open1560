@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_crevbuf);
+
 #include "crevbuf.h"
 
 CReverbBuffer::CReverbBuffer(struct IDirectSound3DBuffer* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 CReverbBuffer::~CReverbBuffer()
@@ -57,5 +59,3 @@ i32 CReverbBuffer::QueryProperty(u32 arg1)
 {
     return stub<thiscall_t<i32, CReverbBuffer*, u32>>(0xF4B10_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmaudio_crevbuf);

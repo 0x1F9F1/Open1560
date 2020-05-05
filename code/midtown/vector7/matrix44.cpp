@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_matrix44);
+
 #include "matrix44.h"
 
 Matrix44::Matrix44(class Matrix34 const& arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 Matrix44::Matrix44(class Matrix44 const& arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class Matrix44 Matrix44::operator*(f32 arg1)
@@ -155,5 +157,3 @@ class Vector4 operator^(class Vector4 const& arg1, class Matrix44 const& arg2)
 {
     return stub<cdecl_t<class Vector4, class Vector4 const&, class Matrix44 const&>>(0x16F460_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(vector7_matrix44);

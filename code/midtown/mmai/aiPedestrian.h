@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmcity/inst.h"
-
 /*
     mmai:aiPedestrian
 
@@ -78,6 +76,8 @@
     0x639374 | private: static float aiPedestrian::s_fAudioMaxDistance | ?s_fAudioMaxDistance@aiPedestrian@@0MA
     0x6A7A18 | private: static float aiPedestrian::s_fAttenuationMult | ?s_fAttenuationMult@aiPedestrian@@0MA
 */
+
+#include "mmcity/inst.h"
 
 class aiPedestrian
 {

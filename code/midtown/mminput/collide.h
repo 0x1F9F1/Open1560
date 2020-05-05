@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "effect.h"
-
 /*
     mminput:collide
 
@@ -29,6 +27,8 @@
     0x4E7760 | public: virtual int __thiscall mmCollideFF::Play(void) | ?Play@mmCollideFF@@UAEHXZ
     0x4E77B0 | public: virtual int __thiscall mmCollideFF::Stop(void) | ?Stop@mmCollideFF@@UAEHXZ
 */
+
+#include "effect.h"
 
 class mmCollideFF : public mmEffectFF
 {

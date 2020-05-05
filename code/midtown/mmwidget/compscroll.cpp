@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_compscroll);
+
 #include "compscroll.h"
 
 UICompositeScroll::UICompositeScroll()
@@ -25,7 +27,7 @@ UICompositeScroll::UICompositeScroll()
 
 UICompositeScroll::~UICompositeScroll()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UICompositeScroll::Action(union eqEvent arg1)
@@ -129,5 +131,3 @@ void UICompositeScroll::VScrollCB()
 {
     return stub<thiscall_t<void, UICompositeScroll*>>(0xB55F0_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_compscroll);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_carmodel);
+
 #include "carmodel.h"
 
 mmCarModel::mmCarModel()
@@ -25,7 +27,7 @@ mmCarModel::mmCarModel()
 
 mmCarModel::~mmCarModel()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCarModel::Activate()
@@ -163,5 +165,3 @@ void mmCarModel::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x73100_Offset);
 }
-
-define_dummy_symbol(mmcar_carmodel);

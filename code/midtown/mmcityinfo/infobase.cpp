@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_infobase);
+
 #include "infobase.h"
 
 mmInfoBase::mmInfoBase()
@@ -25,7 +27,7 @@ mmInfoBase::mmInfoBase()
 
 mmInfoBase::~mmInfoBase()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class MetaClass* mmInfoBase::GetClass()
@@ -52,5 +54,3 @@ void mmInfoBase::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xD1460_Offset);
 }
-
-define_dummy_symbol(mmcityinfo_infobase);

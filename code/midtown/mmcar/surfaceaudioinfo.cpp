@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_surfaceaudioinfo);
+
 #include "surfaceaudioinfo.h"
 
 void SetClearSurfaceAudioInfos()
@@ -32,5 +34,3 @@ void SetSnowSurfaceAudioInfos()
 {
     return stub<cdecl_t<void>>(0x71210_Offset);
 }
-
-define_dummy_symbol(mmcar_surfaceaudioinfo);

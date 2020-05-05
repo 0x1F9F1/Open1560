@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/cullable.h"
-
 /*
     mmcity:loader
 
@@ -44,6 +42,8 @@
     0x6A8DA8 | void * IntroFont | ?IntroFont@@3PAXA
     0x6A8DAC | void * myFont | ?myFont@@3PAXA
 */
+
+#include "arts7/cullable.h"
 
 class mmLoader : public asCullable
 {

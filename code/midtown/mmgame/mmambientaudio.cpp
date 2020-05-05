@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_mmambientaudio);
+
 #include "mmambientaudio.h"
 
 mmAmbientAudio::mmAmbientAudio(class mmPlayer* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 mmAmbientAudio::~mmAmbientAudio()
@@ -32,5 +34,3 @@ void mmAmbientAudio::Update()
 {
     return stub<thiscall_t<void, mmAmbientAudio*>>(0x27E60_Offset, this);
 }
-
-define_dummy_symbol(mmgame_mmambientaudio);

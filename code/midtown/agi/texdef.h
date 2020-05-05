@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "refresh.h"
-
 /*
     agi:texdef
 
@@ -65,6 +63,8 @@
     0x8FAF88 | class DataCache TEXCACHE | ?TEXCACHE@@3VDataCache@@A
     0x8FAFC8 | int TexsPaged | ?TexsPaged@@3HA
 */
+
+#include "refresh.h"
 
 class agiTexParameters
 {

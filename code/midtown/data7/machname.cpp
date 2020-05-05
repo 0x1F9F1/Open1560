@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_machname);
+
 #include "machname.h"
 
 void GetMachineName(char* buffer, i32 buffer_len)
@@ -24,5 +26,3 @@ void GetMachineName(char* buffer, i32 buffer_len)
 
     strcpy_s(buffer, buffer_len, "Open1560");
 }
-
-define_dummy_symbol(data7_machname);

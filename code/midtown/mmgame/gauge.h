@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:gauge
 
@@ -43,6 +41,8 @@
     0x424170 | public: virtual void * __thiscall RadialGauge::`vector deleting destructor'(unsigned int) | ??_ERadialGauge@@UAEPAXI@Z
     0x61ABA8 | const RadialGauge::`vftable' | ??_7RadialGauge@@6B@
 */
+
+#include "arts7/node.h"
 
 class RadialGauge : public asNode
 {

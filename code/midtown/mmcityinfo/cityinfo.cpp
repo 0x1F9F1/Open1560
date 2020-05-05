@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_cityinfo);
+
 #include "cityinfo.h"
 
 mmCityInfo::mmCityInfo()
@@ -25,12 +27,10 @@ mmCityInfo::mmCityInfo()
 
 mmCityInfo::~mmCityInfo()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmCityInfo::Load(char* arg1)
 {
     return stub<thiscall_t<i32, mmCityInfo*, char*>>(0xD3650_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmcityinfo_cityinfo);

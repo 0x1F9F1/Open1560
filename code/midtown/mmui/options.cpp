@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_options);
+
 #include "options.h"
 
 OptionsMenu::OptionsMenu(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 OptionsMenu::~OptionsMenu()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void OptionsMenu::PostSetup()
@@ -37,5 +39,3 @@ void OptionsMenu::PreSetup()
 {
     return stub<thiscall_t<void, OptionsMenu*>>(0xA3B20_Offset, this);
 }
-
-define_dummy_symbol(mmui_options);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_comproster);
+
 #include "comproster.h"
 
 mmCompRoster::mmCompRoster()
@@ -25,7 +27,7 @@ mmCompRoster::mmCompRoster()
 
 mmCompRoster::~mmCompRoster()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCompRoster::Cull()
@@ -86,5 +88,3 @@ void mmCompRoster::Update()
 {
     return stub<thiscall_t<void, mmCompRoster*>>(0xB7A30_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_comproster);

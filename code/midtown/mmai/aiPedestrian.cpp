@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiPedestrian);
+
 #include "aiPedestrian.h"
 
 aiPedestrian::aiPedestrian()
@@ -222,7 +224,7 @@ void aiPedestrian::Wander()
 
 aiPedestrianInstance::~aiPedestrianInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void aiPedestrianInstance::AddWidgets(class Bank* arg1)
@@ -259,5 +261,3 @@ class Matrix34& __fastcall aiPedestrianInstance::ToMatrix(class Matrix34& arg1)
 {
     return stub<fastcall_t<class Matrix34&, aiPedestrianInstance*, class Matrix34&>>(0x4D7F0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmai_aiPedestrian);

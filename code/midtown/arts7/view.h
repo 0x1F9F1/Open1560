@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "linear.h"
-
 /*
     arts7:view
 
@@ -42,6 +40,8 @@
     0x620E40 | const asViewCS::`vftable' | ??_7asViewCS@@6B@
     0x7909B8 | class MetaClass asViewCSMetaClass | ?asViewCSMetaClass@@3VMetaClass@@A
 */
+
+#include "linear.h"
 
 class asViewCS : public asLinearCS
 {

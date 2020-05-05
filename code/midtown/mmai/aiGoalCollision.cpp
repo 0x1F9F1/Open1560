@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiGoalCollision);
+
 #include "aiGoalCollision.h"
 
 aiGoalCollision::aiGoalCollision(class aiRailSet* arg1, class aiVehicleSpline* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 aiGoalCollision::~aiGoalCollision()
@@ -52,5 +54,3 @@ void aiGoalCollision::Update()
 {
     return stub<thiscall_t<void, aiGoalCollision*>>(0x6B350_Offset, this);
 }
-
-define_dummy_symbol(mmai_aiGoalCollision);

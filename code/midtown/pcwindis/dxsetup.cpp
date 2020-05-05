@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(pcwindis_dxsetup);
+
 #include "dxsetup.h"
 
 struct dxiResolution
@@ -61,13 +63,13 @@ i32 WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
 
     if (info->ResCount < 32)
     {
-        float ar = static_cast<float>(sd->dwWidth) / static_cast<float>(sd->dwHeight);
+        f32 ar = static_cast<f32>(sd->dwWidth) / static_cast<f32>(sd->dwHeight);
 
         if (sd->dwWidth >= 640 && sd->dwHeight >= 480 && sd->ddpfPixelFormat.dwRGBBitCount == 32 &&
             (ar > 1.6f) == WANT_WIDESCREEN)
         {
-            info->Resolutions[info->ResCount].uWidth = static_cast<uint16_t>(sd->dwWidth);
-            info->Resolutions[info->ResCount].uHeight = static_cast<uint16_t>(sd->dwHeight);
+            info->Resolutions[info->ResCount].uWidth = static_cast<u16>(sd->dwWidth);
+            info->Resolutions[info->ResCount].uHeight = static_cast<u16>(sd->dwHeight);
 
             info->ResCount++;
         }
@@ -88,13 +90,11 @@ void dxiConfig(i32 arg1, char** arg2)
 }
 
 run_once([] {
-    create_patch("TestResolution", "Unsigned Comparison", 0x575E34, "\x72", 1);
-    create_patch("TestResolution", "Unsigned Comparison", 0x575E38, "\x72", 1);
+    create_patch("TestResolution", "Unsigned Comparison", 0x175E34_Offset, "\x72", 1);
+    create_patch("TestResolution", "Unsigned Comparison", 0x175E38_Offset, "\x72", 1);
 
-    create_patch("Res String", "Unsigned Printf", 0x661890, "res %d x %d: %u %u / %u %u", 27);
+    create_patch("Res String", "Unsigned Printf", 0x261890_Offset, "res %d x %d: %u %u / %u %u", 27);
 
-    create_patch(
-        "EliminatingRes String", "Unsigned Printf", 0x6618AC, "Eliminating res %d x %d; texmem=%u, vidmem=%u", 46);
+    create_patch("EliminatingRes String", "Unsigned Printf", 0x2618AC_Offset,
+        "Eliminating res %d x %d; texmem=%u, vidmem=%u", 46);
 });
-
-define_dummy_symbol(pcwindis_dxsetup);

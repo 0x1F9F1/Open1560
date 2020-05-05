@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "surfrender.h"
-
 /*
     agirend:zbrender
 
@@ -32,6 +30,8 @@
     0x656348 | int twiddle | ?twiddle@@3HA
     0x65634C | float aa_expansion | ?aa_expansion@@3MA
 */
+
+#include "surfrender.h"
 
 class agiZBufRenderer : public agiSurfRenderer
 {

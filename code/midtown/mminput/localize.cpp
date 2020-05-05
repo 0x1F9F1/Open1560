@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_localize);
+
 #include "localize.h"
 
 struct LocString* AngelReadKeyString(u32 arg1)
 {
     return stub<cdecl_t<struct LocString*, u32>>(0xE7310_Offset, arg1);
 }
-
-define_dummy_symbol(mminput_localize);

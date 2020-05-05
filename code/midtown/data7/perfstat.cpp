@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_perfstat);
+
 #include "perfstat.h"
 
 u32 PerfGetValue(i32 arg1)
@@ -37,5 +39,3 @@ void PerfShutdown()
 {
     return stub<cdecl_t<void>>(0x17B450_Offset);
 }
-
-define_dummy_symbol(data7_perfstat);

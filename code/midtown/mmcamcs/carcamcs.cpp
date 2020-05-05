@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_carcamcs);
+
 #include "carcamcs.h"
 
 CarCamCS::CarCamCS()
@@ -25,7 +27,7 @@ CarCamCS::CarCamCS()
 
 CarCamCS::~CarCamCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void CarCamCS::AddWidgets(class Bank* arg1)
@@ -47,5 +49,3 @@ void CarCamCS::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xFB290_Offset);
 }
-
-define_dummy_symbol(mmcamcs_carcamcs);

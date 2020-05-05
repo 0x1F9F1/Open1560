@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:cd
 
@@ -37,6 +35,8 @@
     0x423810 | public: virtual void * __thiscall mmCDPlayer::`scalar deleting destructor'(unsigned int) | ??_GmmCDPlayer@@UAEPAXI@Z
     0x61AB40 | const mmCDPlayer::`vftable' | ??_7mmCDPlayer@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmCDPlayer : public asNode
 {

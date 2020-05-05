@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "node.h"
-
 /*
     arts7:form
 
@@ -42,6 +40,8 @@
     0x620D10 | const asForm::`vftable' | ??_7asForm@@6B@
     0x790930 | class MetaClass asFormMetaClass | ?asFormMetaClass@@3VMetaClass@@A
 */
+
+#include "node.h"
 
 class asForm : public asNode
 {

@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agisw_swddraw);
+
 #include "swddraw.h"
 
 void ddAttach(i32 arg1, i32 arg2)
 {
     return stub<cdecl_t<void, i32, i32>>(0x134E30_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(agisw_swddraw);

@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_audstream);
+
 #include "audstream.h"
 
 AudStream::AudStream(u32 arg1, i32 arg2, i16 arg3)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3);
 }
 
 AudStream::~AudStream()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void AudStream::DeallocateStreamObjs()
@@ -163,5 +165,3 @@ u32 const AudStream::GetFreqChange2DFlags()
 {
     return stub<cdecl_t<u32 const>>(0xF4120_Offset);
 }
-
-define_dummy_symbol(mmaudio_audstream);

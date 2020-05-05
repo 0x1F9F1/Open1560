@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiIntersection);
+
 #include "aiIntersection.h"
 
 aiIntersection::aiIntersection(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 aiIntersection::~aiIntersection()
@@ -82,5 +84,3 @@ void aiIntersection::SaveBinary(class Stream* arg1)
 {
     return stub<thiscall_t<void, aiIntersection*, class Stream*>>(0x47610_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmai_aiIntersection);

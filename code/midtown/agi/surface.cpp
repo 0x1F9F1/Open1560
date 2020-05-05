@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_surface);
+
 #include "surface.h"
 
 void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* arg1, i32 arg2)
@@ -44,5 +46,3 @@ class agiSurfaceDesc* agiSurfaceDesc::Load(char* arg1, char* arg2, i32 arg3, i32
     return stub<cdecl_t<class agiSurfaceDesc*, char*, char*, i32, i32, i32, i32>>(
         0x15A7A0_Offset, arg1, arg2, arg3, arg4, arg5, arg6);
 }
-
-define_dummy_symbol(agi_surface);

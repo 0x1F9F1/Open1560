@@ -16,17 +16,19 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(stream_vstream);
+
 #include "vstream.h"
 
 VirtualStream::VirtualStream(
     class Stream* arg1, struct VirtualFileInode* arg2, void* arg3, i32 arg4, class FileSystem* arg5)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5);
 }
 
 VirtualStream::~VirtualStream()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void* VirtualStream::GetMapping()
@@ -63,5 +65,3 @@ i32 VirtualStream::RawWrite(void* arg1, i32 arg2)
 {
     return stub<thiscall_t<i32, VirtualStream*, void*, i32>>(0x161CD0_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(stream_vstream);

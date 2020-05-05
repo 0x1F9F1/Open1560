@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcamcs:spline
 
@@ -40,6 +38,8 @@
     0x620540 | const Spline::`vftable' | ??_7Spline@@6B@
     0x719548 | class MetaClass SplineMetaClass | ?SplineMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class Spline : public asNode
 {

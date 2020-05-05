@@ -16,21 +16,21 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agirend_zbrender);
+
 #include "zbrender.h"
 
 agiZBufRenderer::agiZBufRenderer(class agiRasterizer* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiZBufRenderer::~agiZBufRenderer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiZBufRenderer::EndGroup()
 {
     return stub<thiscall_t<void, agiZBufRenderer*>>(0x14FAA0_Offset, this);
 }
-
-define_dummy_symbol(agirend_zbrender);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_form);
+
 #include "form.h"
 
 asForm::asForm()
@@ -25,7 +27,7 @@ asForm::asForm()
 
 asForm::~asForm()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asForm::AddWidgets(class Bank* arg1)
@@ -93,5 +95,3 @@ void asForm::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x1289D0_Offset);
 }
-
-define_dummy_symbol(arts7_form);

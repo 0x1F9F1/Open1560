@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "refresh.h"
-
 /*
     agi:mtldef
 
@@ -35,6 +33,8 @@
     0x55DD50 | protected: virtual void * __thiscall agiMtlDef::`vector deleting destructor'(unsigned int) | ??_EagiMtlDef@@MAEPAXI@Z
     0x621888 | const agiMtlDef::`vftable' | ??_7agiMtlDef@@6B@
 */
+
+#include "refresh.h"
 
 class agiMtlParameters
 {

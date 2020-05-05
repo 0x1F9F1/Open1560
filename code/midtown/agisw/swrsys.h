@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/rsys.h"
-
 /*
     agisw:swrsys
 
@@ -41,6 +39,8 @@
     0x537DC0 | public: virtual void * __thiscall agiSWRasterizer::`scalar deleting destructor'(unsigned int) | ??_GagiSWRasterizer@@UAEPAXI@Z
     0x621338 | const agiSWRasterizer::`vftable' | ??_7agiSWRasterizer@@6B@
 */
+
+#include "agi/rsys.h"
 
 class agiSWRasterizer : public agiRasterizer
 {

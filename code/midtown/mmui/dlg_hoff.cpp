@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_dlg_hoff);
+
 #include "dlg_hoff.h"
 
 Dialog_HallOfFame::Dialog_HallOfFame(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 Dialog_HallOfFame::~Dialog_HallOfFame()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void Dialog_HallOfFame::AddRaceRecord(i32 arg1, char* arg2, char* arg3, char* arg4, i32 arg5, char* arg6, char* arg7)
@@ -53,5 +55,3 @@ void Dialog_HallOfFame::SetSortState()
 {
     return stub<thiscall_t<void, Dialog_HallOfFame*>>(0x9E9D0_Offset, this);
 }
-
-define_dummy_symbol(mmui_dlg_hoff);

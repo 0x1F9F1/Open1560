@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/light.h"
-
 /*
     agirend:bilight
 
@@ -33,6 +31,8 @@
     0x555430 | public: virtual void * __thiscall agiBILight::`vector deleting destructor'(unsigned int) | ??_EagiBILight@@UAEPAXI@Z
     0x621528 | const agiBILight::`vftable' | ??_7agiBILight@@6B@
 */
+
+#include "agi/light.h"
 
 class agiBILight : public agiLight
 {

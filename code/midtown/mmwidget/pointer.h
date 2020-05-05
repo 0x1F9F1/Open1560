@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:pointer
 
@@ -38,6 +36,8 @@
     0x61F0A8 | const sfPointer::`vftable' | ??_7sfPointer@@6B@
     0x705C50 | class MetaClass sfPointerMetaClass | ?sfPointerMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class sfPointer : public asNode
 {

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "fsystem.h"
-
 /*
     stream:vfsystem
 
@@ -41,6 +39,8 @@
     0x560D80 | public: virtual void * __thiscall VirtualFileSystem::`vector deleting destructor'(unsigned int) | ??_EVirtualFileSystem@@UAEPAXI@Z
     0x6219A8 | const VirtualFileSystem::`vftable' | ??_7VirtualFileSystem@@6B@
 */
+
+#include "fsystem.h"
 
 class VirtualFileSystem : public FileSystem
 {

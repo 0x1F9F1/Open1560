@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/texdef.h"
-
 /*
     agid3d:d3dtexdef
 
@@ -41,6 +39,8 @@
     0x621090 | const agiD3DTexDef::`vftable' | ??_7agiD3DTexDef@@6B@
     0x795C38 | int DontCacheTextures | ?DontCacheTextures@@3HA
 */
+
+#include "agi/texdef.h"
 
 class agiD3DTexDef : public agiTexDef
 {

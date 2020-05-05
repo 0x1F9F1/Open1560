@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_print);
+
 #include "print.h"
 
 void agiPrint(i32 arg1, i32 arg2, i32 arg3, char const* arg4)
@@ -40,7 +42,5 @@ void agiPrintShutdown()
 
 void agiPrintf(i32 arg1, i32 arg2, i32 arg3, char const* arg4, ...)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(agi_print);

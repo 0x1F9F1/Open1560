@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_racebase);
+
 #include "racebase.h"
 
 RaceMenuBase::RaceMenuBase(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 RaceMenuBase::~RaceMenuBase()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void RaceMenuBase::UsesLobby(i32 arg1)
@@ -112,5 +114,3 @@ void RaceMenuBase::WidgetOnOff(i32 arg1, class uiWidget* arg2)
 {
     return stub<thiscall_t<void, RaceMenuBase*, i32, class uiWidget*>>(0xA7370_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mmui_racebase);

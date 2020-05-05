@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:textfield
 
@@ -58,6 +56,8 @@
     0x61E408 | const UITextField::`vftable' | ??_7UITextField@@6B@
     0x61E478 | const uiWidget::`vftable' | ??_7uiWidget@@6B@
 */
+
+#include "arts7/node.h"
 
 class UITextField : public uiWidget
 {

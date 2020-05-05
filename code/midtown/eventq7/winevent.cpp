@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(eventq7_winevent);
+
 #include "winevent.h"
 
 WINEventHandler::WINEventHandler()
@@ -25,7 +27,7 @@ WINEventHandler::WINEventHandler()
 
 WINEventHandler::~WINEventHandler()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void WINEventHandler::AdjustMouse(i32& arg1, i32& arg2)
@@ -84,5 +86,3 @@ i32 Dispatchable::WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4)
     return stub<thiscall_t<i32, Dispatchable*, struct HWND__*, u32, u32, i32>>(
         0x - 400000_Offset, this, arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(eventq7_winevent);

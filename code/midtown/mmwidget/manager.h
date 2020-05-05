@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:manager
 
@@ -88,6 +86,8 @@
     0x6418B4 | float DELAYTTIME | ?DELAYTTIME@@3MA
     0x705960 | public: static class MenuManager * MenuManager::Instance | ?Instance@MenuManager@@2PAV1@A
 */
+
+#include "arts7/node.h"
 
 class MenuManager : public asNode
 {

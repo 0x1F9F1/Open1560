@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:toggle
 
@@ -36,6 +34,8 @@
     0x61F270 | const mmToggle::`vftable' | ??_7mmToggle@@6B@
     0x705D18 | class MetaClass mmToggleMetaClass | ?mmToggleMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmToggle : public asNode
 {

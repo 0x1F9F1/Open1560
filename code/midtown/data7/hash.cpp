@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_hash);
+
 #include "hash.h"
 
 HashTable::~HashTable()
@@ -92,5 +94,3 @@ i32 HashIterator::Next()
 {
     return stub<thiscall_t<i32, HashIterator*>>(0x178050_Offset, this);
 }
-
-define_dummy_symbol(data7_hash);

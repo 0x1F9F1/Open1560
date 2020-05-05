@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiVehiclePolice);
+
 #include "aiVehiclePolice.h"
 
 aiVehiclePolice::aiVehiclePolice()
@@ -170,5 +172,3 @@ i32 aiVehiclePolice::FindPerp(i32 arg1, i32 arg2, class aiPath* arg3, i32 arg4, 
     return stub<thiscall_t<i32, aiVehiclePolice*, i32, i32, class aiPath*, i32, i32>>(
         0x45C70_Offset, this, arg1, arg2, arg3, arg4, arg5);
 }
-
-define_dummy_symbol(mmai_aiVehiclePolice);

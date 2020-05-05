@@ -16,21 +16,23 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(stream_filestream);
+
 #include "filestream.h"
 
 FileStream::FileStream(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 FileStream::FileStream(void* arg1, i32 arg2, class FileSystem* arg3)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3);
 }
 
 FileStream::~FileStream()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 FileStream::Close()
@@ -92,5 +94,3 @@ i32 FileStream::Stdout()
 {
     return stub<thiscall_t<i32, FileStream*>>(0x161930_Offset, this);
 }
-
-define_dummy_symbol(stream_filestream);

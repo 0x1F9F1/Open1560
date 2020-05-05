@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "infobase.h"
-
 /*
     mmcityinfo:roadsect
 
@@ -75,6 +73,8 @@
     0x708640 | class MetaClass mmRoadSideMetaClass | ?mmRoadSideMetaClass@@3VMetaClass@@A
     0x708668 | class MetaClass mmRoadSectMetaClass | ?mmRoadSectMetaClass@@3VMetaClass@@A
 */
+
+#include "infobase.h"
 
 class mmRoadSide : public mmInfoBase
 {

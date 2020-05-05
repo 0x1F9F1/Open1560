@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_navbar);
+
 #include "navbar.h"
 
 uiNavBar::uiNavBar(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 uiNavBar::~uiNavBar()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void uiNavBar::BackUp()
@@ -82,5 +84,3 @@ void uiNavBar::Update()
 {
     return stub<thiscall_t<void, uiNavBar*>>(0xB1FD0_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_navbar);

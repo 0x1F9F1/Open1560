@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmeffects_meshform);
+
 #include "meshform.h"
 
 asMeshSetForm::asMeshSetForm()
@@ -25,7 +27,7 @@ asMeshSetForm::asMeshSetForm()
 
 asMeshSetForm::~asMeshSetForm()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asMeshSetForm::Cull()
@@ -52,5 +54,3 @@ void asMeshSetForm::Update()
 {
     return stub<thiscall_t<void, asMeshSetForm*>>(0xFFF40_Offset, this);
 }
-
-define_dummy_symbol(mmeffects_meshform);

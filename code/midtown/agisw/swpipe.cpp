@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agisw_swpipe);
+
 #include "swpipe.h"
 
 agiSWPipeline::agiSWPipeline(i32 arg1, char** arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 agiSWPipeline::~agiSWPipeline()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiSWPipeline::BeginFrame()
@@ -127,7 +129,7 @@ class agiPipeline* swCreatePipeline(i32 arg1, char** arg2)
 
 agiSWViewport::~agiSWViewport()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiSWViewport::Activate()
@@ -157,7 +159,7 @@ void agiSWViewport::SetBackground(class Vector3& arg1)
 
 agiSWBitmap::~agiSWBitmap()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiSWBitmap::BeginGfx()
@@ -179,5 +181,3 @@ void agiSWBitmap::UpdateFlags()
 {
     return stub<thiscall_t<void, agiSWBitmap*>>(0x134DA0_Offset, this);
 }
-
-define_dummy_symbol(agisw_swpipe);

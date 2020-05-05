@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_stuck);
+
 #include "stuck.h"
 
 mmStuck::mmStuck()
@@ -25,7 +27,7 @@ mmStuck::mmStuck()
 
 mmStuck::~mmStuck()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmStuck::AddWidgets(class Bank* arg1)
@@ -57,5 +59,3 @@ void mmStuck::Update()
 {
     return stub<thiscall_t<void, mmStuck*>>(0x7C5B0_Offset, this);
 }
-
-define_dummy_symbol(mmcar_stuck);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_tscroll);
+
 #include "tscroll.h"
 
 UITextScroll::UITextScroll()
@@ -25,7 +27,7 @@ UITextScroll::UITextScroll()
 
 UITextScroll::~UITextScroll()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UITextScroll::Action(union eqEvent arg1)
@@ -124,5 +126,3 @@ void UITextScroll::SetTextColor()
 {
     return stub<thiscall_t<void, UITextScroll*>>(0xB9250_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_tscroll);

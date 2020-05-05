@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agirend_bilight);
+
 #include "bilight.h"
 
 agiBILight::agiBILight(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiBILight::~agiBILight()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiBILight::BeginGfx()
@@ -47,5 +49,3 @@ i32 agiBILight::Update()
 {
     return stub<thiscall_t<i32, agiBILight*>>(0x155410_Offset, this);
 }
-
-define_dummy_symbol(agirend_bilight);

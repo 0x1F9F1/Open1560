@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_physdef);
+
 #include "physdef.h"
 
 void agiPhysParameters::Load(class Stream* arg1)
@@ -27,5 +29,3 @@ void agiPhysParameters::Save(class Stream* arg1)
 {
     return stub<thiscall_t<void, agiPhysParameters*, class Stream*>>(0x157040_Offset, this, arg1);
 }
-
-define_dummy_symbol(agi_physdef);

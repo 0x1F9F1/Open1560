@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_audio);
+
 #include "audio.h"
 
 AudioOptions::AudioOptions(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 AudioOptions::~AudioOptions()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void AudioOptions::CancelAction()
@@ -137,5 +139,3 @@ void AudioOptions::StoreCurrentSetup()
 {
     return stub<thiscall_t<void, AudioOptions*>>(0x9D0C0_Offset, this);
 }
-
-define_dummy_symbol(mmui_audio);

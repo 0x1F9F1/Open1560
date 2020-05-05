@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "effect.h"
-
 /*
     mminput:friction
 
@@ -29,6 +27,8 @@
     0x4E7CB0 | public: virtual int __thiscall mmFrictionFF::Play(void) | ?Play@mmFrictionFF@@UAEHXZ
     0x4E7D10 | public: virtual int __thiscall mmFrictionFF::Stop(void) | ?Stop@mmFrictionFF@@UAEHXZ
 */
+
+#include "effect.h"
 
 class mmFrictionFF : public mmEffectFF
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmbangers_active);
+
 #include "active.h"
 
 mmBangerActive::mmBangerActive()
@@ -25,7 +27,7 @@ mmBangerActive::mmBangerActive()
 
 mmBangerActive::~mmBangerActive()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmBangerActive::PostUpdate()
@@ -70,7 +72,7 @@ mmBangerActiveManager::mmBangerActiveManager()
 
 mmBangerActiveManager::~mmBangerActiveManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class mmBangerActive* mmBangerActiveManager::Attach(class mmBangerInstance* arg1)
@@ -99,5 +101,3 @@ void mmBangerActiveManager::Update()
 {
     return stub<thiscall_t<void, mmBangerActiveManager*>>(0xCB640_Offset, this);
 }
-
-define_dummy_symbol(mmbangers_active);

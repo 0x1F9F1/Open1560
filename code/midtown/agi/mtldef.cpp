@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_mtldef);
+
 #include "mtldef.h"
 
 agiMtlParameters::agiMtlParameters()
@@ -50,12 +52,10 @@ i32 agiMtlDef::Init(class agiMtlParameters const& arg1)
 
 agiMtlDef::agiMtlDef(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiMtlDef::~agiMtlDef()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
-
-define_dummy_symbol(agi_mtldef);

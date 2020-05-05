@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmphysics:joint3dof
 
@@ -64,6 +62,8 @@
     0x719140 | class Vector3 Veldiscrepancy | ?Veldiscrepancy@@3VVector3@@A
     0x719150 | class Vector3 discrepancy | ?discrepancy@@3VVector3@@A
 */
+
+#include "arts7/node.h"
 
 class Joint3Dof : public asNode
 {

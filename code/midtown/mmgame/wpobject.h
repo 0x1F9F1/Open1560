@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:wpobject
 
@@ -36,6 +34,8 @@
     0x430690 | public: static void __cdecl mmInstance::operator delete(void *) | ??3mmInstance@@SAXPAX@Z
     0x61AFC0 | const mmWaypointObject::`vftable' | ??_7mmWaypointObject@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmWaypointObject : public asNode
 {

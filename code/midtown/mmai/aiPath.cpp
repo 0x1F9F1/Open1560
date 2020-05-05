@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiPath);
+
 #include "aiPath.h"
 
 aiPath::aiPath(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 aiPath::~aiPath()
@@ -270,5 +272,3 @@ class Vector3* aiPath::VertZDir(i32 arg1)
 {
     return stub<thiscall_t<class Vector3*, aiPath*, i32>>(0x3FFD0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmai_aiPath);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_opponentsurfaceaudio);
+
 #include "opponentsurfaceaudio.h"
 
 mmOpponentSurfaceAudio::mmOpponentSurfaceAudio()
@@ -60,5 +62,3 @@ void mmOpponentSurfaceAudio::UpdateSkidSnow(f32 arg1)
 {
     return stub<thiscall_t<void, mmOpponentSurfaceAudio*, f32>>(0x86120_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmcar_opponentsurfaceaudio);

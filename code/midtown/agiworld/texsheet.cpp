@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agiworld_texsheet);
+
 #include "texsheet.h"
 
 char* mystrtok(char* arg1, char const* arg2)
@@ -62,5 +64,3 @@ void agiTexSheet::Save(char* arg1)
 {
     return stub<thiscall_t<void, agiTexSheet*, char*>>(0x1120D0_Offset, this, arg1);
 }
-
-define_dummy_symbol(agiworld_texsheet);

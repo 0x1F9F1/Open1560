@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agisw_swtexdef);
+
 #include "swtexdef.h"
 
 agiSWTexDef::agiSWTexDef(class agiSWPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiSWTexDef::~agiSWTexDef()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiSWTexDef::BeginGfx()
@@ -65,12 +67,12 @@ void agiSWTexDef::Unlock(struct agiTexLock& arg1)
 
 agiSWTexLut::agiSWTexLut(class agiSWPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiSWTexLut::~agiSWTexLut()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiSWTexLut::BeginGfx()
@@ -82,5 +84,3 @@ void agiSWTexLut::EndGfx()
 {
     return stub<thiscall_t<void, agiSWTexLut*>>(0x137B30_Offset, this);
 }
-
-define_dummy_symbol(agisw_swtexdef);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "refresh.h"
-
 /*
     agi:rsys
 
@@ -40,6 +38,8 @@
     0x8FF090 | class agiRendState agiCurState | ?agiCurState@@3VagiRendState@@A
     0x8FF0D0 | class agiRasterizer * RAST | ?RAST@@3PAVagiRasterizer@@A
 */
+
+#include "refresh.h"
 
 class agiRasterizer : public agiRefreshable
 {

@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_utimer);
+
 #include "utimer.h"
 
 u32 utimer()
 {
     return stub<cdecl_t<u32>>(0x17C4C0_Offset);
 }
-
-define_dummy_symbol(data7_utimer);

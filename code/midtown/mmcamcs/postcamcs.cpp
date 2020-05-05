@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_postcamcs);
+
 #include "postcamcs.h"
 
 PostCamCS::PostCamCS()
@@ -25,7 +27,7 @@ PostCamCS::PostCamCS()
 
 PostCamCS::~PostCamCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void PostCamCS::AddWidgets(class Bank* arg1)
@@ -62,5 +64,3 @@ void PostCamCS::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xF97C0_Offset);
 }
-
-define_dummy_symbol(mmcamcs_postcamcs);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "cmodel.h"
-
 /*
     agi:cmodelx
 
@@ -136,6 +134,8 @@
     0x9077C8 | class agiColorModelRGB565 ColorModelRGB565 | ?ColorModelRGB565@@3VagiColorModelRGB565@@A
     0x9077F8 | class agiColorModelRGB555 ColorModelRGB555 | ?ColorModelRGB555@@3VagiColorModelRGB555@@A
 */
+
+#include "cmodel.h"
 
 class agiColorModelRGB555 : public agiColorModel
 {

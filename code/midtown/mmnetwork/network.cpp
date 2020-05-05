@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmnetwork_network);
+
 #include "network.h"
 
 asNetwork::asNetwork()
@@ -326,5 +328,3 @@ i32 __stdcall EnumSessionCallback(struct DPSESSIONDESC2 const* arg1, u32* arg2, 
 {
     return stub<stdcall_t<i32, struct DPSESSIONDESC2 const*, u32*, u32, void*>>(0x8B0B0_Offset, arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(mmnetwork_network);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/linear.h"
-
 /*
     mmcar:shock
 
@@ -33,6 +31,8 @@
     0x61C640 | const mmShock::`vftable' | ??_7mmShock@@6B@
     0x6A8058 | class MetaClass mmShockMetaClass | ?mmShockMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/linear.h"
 
 class mmShock : public asLinearCS
 {

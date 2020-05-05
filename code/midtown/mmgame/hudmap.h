@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:hudmap
 
@@ -61,6 +59,8 @@
     0x6A7350 | class MetaClass mmHudMapMetaClass | ?mmHudMapMetaClass@@3VMetaClass@@A
     0x6A7378 | union agiVtx * Tris | ?Tris@@3PATagiVtx@@A
 */
+
+#include "arts7/node.h"
 
 class mmHudMap : public asNode
 {

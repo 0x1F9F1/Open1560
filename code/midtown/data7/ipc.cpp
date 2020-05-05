@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_ipc);
+
 #include "ipc.h"
 
 void ipcCloseHandle(u32 arg1)
@@ -112,5 +114,3 @@ u32 __stdcall ipcMessageQueue::Proc(void* arg1)
 {
     return stub<stdcall_t<u32, void*>>(0x178780_Offset, arg1);
 }
-
-define_dummy_symbol(data7_ipc);

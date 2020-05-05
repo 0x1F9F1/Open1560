@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_AnimMgr);
+
 #include "AnimMgr.h"
 
 mmAnimMgr::mmAnimMgr()
@@ -25,7 +27,7 @@ mmAnimMgr::mmAnimMgr()
 
 mmAnimMgr::~mmAnimMgr()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmAnimMgr::AirlinerSwap()
@@ -63,5 +65,3 @@ void mmAnimMgr::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xC1440_Offset);
 }
-
-define_dummy_symbol(mmanim_AnimMgr);

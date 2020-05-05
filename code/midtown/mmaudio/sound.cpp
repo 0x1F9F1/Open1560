@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_sound);
+
 #include "sound.h"
 
 AudSound::AudSound(u32 arg1, i32 arg2, i16 arg3)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3);
 }
 
 AudSound::~AudSound()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void AudSound::AddWidgets(class Bank* arg1)
@@ -302,5 +304,3 @@ u32 const AudSound::GetSoftFreqChange2DFlags()
 {
     return stub<cdecl_t<u32 const>>(0xEBB50_Offset);
 }
-
-define_dummy_symbol(mmaudio_sound);

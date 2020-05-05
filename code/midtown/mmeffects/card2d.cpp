@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmeffects_card2d);
+
 #include "card2d.h"
 
 Card2D::Card2D()
@@ -25,7 +27,7 @@ Card2D::Card2D()
 
 Card2D::~Card2D()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void Card2D::Init(class asCamera* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6)
@@ -68,5 +70,3 @@ void Card2D::Cull()
 {
     return stub<thiscall_t<void, Card2D*>>(0xFE330_Offset, this);
 }
-
-define_dummy_symbol(mmeffects_card2d);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/linear.h"
-
 /*
     mmphysics:inertia
 
@@ -63,6 +61,8 @@
     0x61FA48 | const asInertialCS::`vftable' | ??_7asInertialCS@@6B@
     0x7190E8 | class MetaClass asInertialCSMetaClass | ?asInertialCSMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/linear.h"
 
 class asInertialCS : public asLinearCS
 {

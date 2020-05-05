@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_sliderbar);
+
 #include "sliderbar.h"
 
 mmSlider::mmSlider()
@@ -25,7 +27,7 @@ mmSlider::mmSlider()
 
 mmSlider::~mmSlider()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmSlider::Cull()
@@ -120,5 +122,3 @@ void mmSlider::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xBEF00_Offset);
 }
-
-define_dummy_symbol(mmwidget_sliderbar);

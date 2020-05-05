@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "racebase.h"
-
 /*
     mmui:racehost
 
@@ -32,6 +30,8 @@
     0x4A2C70 | public: virtual void * __thiscall HostRaceMenu::`vector deleting destructor'(unsigned int) | ??_EHostRaceMenu@@UAEPAXI@Z
     0x61D930 | const HostRaceMenu::`vftable' | ??_7HostRaceMenu@@6B@
 */
+
+#include "racebase.h"
 
 class HostRaceMenu : public RaceMenuBase
 {

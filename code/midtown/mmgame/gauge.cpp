@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_gauge);
+
 #include "gauge.h"
 
 RadialGauge::RadialGauge()
@@ -25,7 +27,7 @@ RadialGauge::RadialGauge()
 
 RadialGauge::~RadialGauge()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void RadialGauge::AddWidgets(class Bank* arg1)
@@ -107,5 +109,3 @@ void mmSpeedIndicator::Init(class mmExternalView* arg1, class mmCarSim* arg2)
     return stub<thiscall_t<void, mmSpeedIndicator*, class mmExternalView*, class mmCarSim*>>(
         0x23F90_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mmgame_gauge);

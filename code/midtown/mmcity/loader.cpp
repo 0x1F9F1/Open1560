@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_loader);
+
 #include "loader.h"
 
 mmLoader::mmLoader()
@@ -25,7 +27,7 @@ mmLoader::mmLoader()
 
 mmLoader::~mmLoader()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmLoader::BeginTask(struct LocString* arg1, f32 arg2)
@@ -72,5 +74,3 @@ void mmLoader::Update()
 {
     return stub<thiscall_t<void, mmLoader*>>(0x8B9E0_Offset, this);
 }
-
-define_dummy_symbol(mmcity_loader);

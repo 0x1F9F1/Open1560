@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmaudio:manager
 
@@ -122,6 +120,8 @@
     0x7192F8 | class MetaClass AudManagerMetaClass | ?AudManagerMetaClass@@3VMetaClass@@A
     0x719320 | class AudManager * AUDMGRPTR | ?AUDMGRPTR@@3PAVAudManager@@A
 */
+
+#include "arts7/node.h"
 
 class AudManager : public asNode
 {

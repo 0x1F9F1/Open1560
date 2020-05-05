@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_viewcs);
+
 #include "viewcs.h"
 
 mmViewCS::mmViewCS()
@@ -25,7 +27,7 @@ mmViewCS::mmViewCS()
 
 mmViewCS::~mmViewCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmViewCS::AddWidgets(class Bank* arg1)
@@ -93,5 +95,3 @@ class mmViewCS* mmViewCS::Instance(class asCamera* arg1)
 {
     return stub<cdecl_t<class mmViewCS*, class asCamera*>>(0xF9080_Offset, arg1);
 }
-
-define_dummy_symbol(mmcamcs_viewcs);

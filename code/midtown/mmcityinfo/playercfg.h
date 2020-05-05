@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "infobase.h"
-
 /*
     mmcityinfo:playercfg
 
@@ -53,6 +51,8 @@
     0x61F8E8 | const mmPlayerConfig::`vftable' | ??_7mmPlayerConfig@@6B@
     0x708520 | class MetaClass mmPlayerConfigMetaClass | ?mmPlayerConfigMetaClass@@3VMetaClass@@A
 */
+
+#include "infobase.h"
 
 class mmPlayerConfig : public mmInfoBase
 {

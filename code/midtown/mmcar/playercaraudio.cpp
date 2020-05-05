@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_playercaraudio);
+
 #include "playercaraudio.h"
 
 mmPlayerCarAudio::mmPlayerCarAudio()
@@ -25,12 +27,12 @@ mmPlayerCarAudio::mmPlayerCarAudio()
 
 mmPlayerCarAudio::mmPlayerCarAudio(class mmCarSim* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 mmPlayerCarAudio::~mmPlayerCarAudio()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPlayerCarAudio::EchoOff()
@@ -107,5 +109,3 @@ void mmPlayerCarAudio::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x83080_Offset);
 }
-
-define_dummy_symbol(mmcar_playercaraudio);

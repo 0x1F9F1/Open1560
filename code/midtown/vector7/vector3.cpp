@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_vector3);
+
 #include "vector3.h"
 
 class Vector3 Vector3::operator%(class Vector3 const& arg1)
@@ -363,5 +365,3 @@ u32 Vector3Type::SizeOf()
     return stub<thiscall_t<u32, Vector3Type*>>(0x167390_Offset, this);
 }
 */
-
-define_dummy_symbol(vector7_vector3);

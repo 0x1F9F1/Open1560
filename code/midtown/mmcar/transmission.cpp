@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_transmission);
+
 #include "transmission.h"
 
 mmTransmission::mmTransmission()
@@ -25,7 +27,7 @@ mmTransmission::mmTransmission()
 
 mmTransmission::~mmTransmission()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmTransmission::AddWidgets(class Bank* arg1)
@@ -102,5 +104,3 @@ struct MetaType* ArrayOf(struct MetaType* arg1, i32 arg2)
 {
     return stub<cdecl_t<struct MetaType*, struct MetaType*, i32>>(0x70CC0_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmcar_transmission);

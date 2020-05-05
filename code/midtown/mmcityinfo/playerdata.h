@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "infobase.h"
-
 /*
     mmcityinfo:playerdata
 
@@ -65,6 +63,8 @@
     0x708570 | class MetaClass mmPlayerDataMetaClass | ?mmPlayerDataMetaClass@@3VMetaClass@@A
     0x708598 | class MetaClass mmPlayerRecordMetaClass | ?mmPlayerRecordMetaClass@@3VMetaClass@@A
 */
+
+#include "infobase.h"
 
 class mmPlayerRecord : public mmInfoBase
 {

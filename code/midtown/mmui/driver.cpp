@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_driver);
+
 #include "driver.h"
 
 DriverMenu::DriverMenu(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 DriverMenu::~DriverMenu()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void DriverMenu::AddPlayer(char* arg1)
@@ -108,5 +110,3 @@ void DriverMenu::TDPickCB()
 {
     return stub<thiscall_t<void, DriverMenu*>>(0xA5C90_Offset, this);
 }
-
-define_dummy_symbol(mmui_driver);

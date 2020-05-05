@@ -16,16 +16,16 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_error);
+
 #include "error.h"
 
 void agiDisplayf(char const* arg1, ...)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 char* agiGetError(i32 arg1)
 {
     return stub<cdecl_t<char*, i32>>(0x15BE20_Offset, arg1);
 }
-
-define_dummy_symbol(agi_error);

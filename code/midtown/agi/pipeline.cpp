@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_pipeline);
+
 #include "pipeline.h"
 
 agiPipeline::~agiPipeline()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiPipeline::Validate()
@@ -266,5 +268,3 @@ void* GetRootWindow()
 {
     return stub<cdecl_t<void*>>(0x155F70_Offset);
 }
-
-define_dummy_symbol(agi_pipeline);

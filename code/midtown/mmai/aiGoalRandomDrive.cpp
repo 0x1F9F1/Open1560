@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiGoalRandomDrive);
+
 #include "aiGoalRandomDrive.h"
 
 aiGoalRandomDrive::aiGoalRandomDrive(class aiRailSet* arg1, class aiVehicleSpline* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 aiGoalRandomDrive::~aiGoalRandomDrive()
@@ -107,5 +109,3 @@ void aiGoal::Update()
 {
     return stub<thiscall_t<void, aiGoal*>>(0x5F700_Offset, this);
 }
-
-define_dummy_symbol(mmai_aiGoalRandomDrive);

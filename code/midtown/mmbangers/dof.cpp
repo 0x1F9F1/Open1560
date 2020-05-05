@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmbangers_dof);
+
 #include "dof.h"
 
 class Vector3& __fastcall mmFacadeBangerInstance::GetPos()
@@ -32,5 +34,3 @@ void __fastcall mmGlassBangerInstance::Draw(i32 arg1)
 {
     return stub<fastcall_t<void, mmGlassBangerInstance*, i32>>(0xCB9C0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmbangers_dof);

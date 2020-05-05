@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_basecamcs);
+
 #include "basecamcs.h"
 
 BaseCamCS::BaseCamCS()
@@ -25,7 +27,7 @@ BaseCamCS::BaseCamCS()
 
 BaseCamCS::~BaseCamCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void BaseCamCS::MakeActive()
@@ -77,5 +79,3 @@ void BaseCamCS::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xFC0E0_Offset);
 }
-
-define_dummy_symbol(mmcamcs_basecamcs);

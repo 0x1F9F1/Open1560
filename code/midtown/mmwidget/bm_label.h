@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:bm_label
 
@@ -37,6 +35,8 @@
     0x61E608 | const UIBMLabel::`vftable' | ??_7UIBMLabel@@6B@
     0x7059A0 | class MetaClass UIBMLabelMetaClass | ?UIBMLabelMetaClass@@3VMetaClass@@A
 */
+
+#include "textfield.h"
 
 class UIBMLabel : public uiWidget
 {

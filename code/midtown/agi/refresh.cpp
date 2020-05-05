@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_refresh);
+
 #include "refresh.h"
 
 agiRefreshable::agiRefreshable(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiRefreshable::EndGfx()
@@ -40,7 +42,7 @@ char* agiRefreshable::GetName()
 
 agiRefreshable::~agiRefreshable()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiRefreshable::BeginGfx()
@@ -72,5 +74,3 @@ void agiRefreshable::ValidatePtr(char* arg1)
 {
     return stub<thiscall_t<void, agiRefreshable*, char*>>(0x157B30_Offset, this, arg1);
 }
-
-define_dummy_symbol(agi_refresh);

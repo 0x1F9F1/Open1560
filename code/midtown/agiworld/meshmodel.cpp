@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agiworld_meshmodel);
+
 #include "meshmodel.h"
 
 i32 agiMeshModel::ModelDraw(u32 arg1, class agiLitAnimation* arg2, i32 arg3)
@@ -49,7 +51,5 @@ i32 agiMeshModel::ModelGeometry(u32 arg1, class bnAnimation* arg2, i32 arg3)
 
 agiLitAnimation::agiLitAnimation(class agiMeshModel* arg1, class bnAnimation* arg2, class Stream* arg3)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3);
 }
-
-define_dummy_symbol(agiworld_meshmodel);

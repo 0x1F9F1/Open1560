@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "node.h"
-
 /*
     arts7:lamp
 
@@ -38,6 +36,8 @@
     0x620B80 | const asLamp::`vftable' | ??_7asLamp@@6B@
     0x790900 | class MetaClass asLampMetaClass | ?asLampMetaClass@@3VMetaClass@@A
 */
+
+#include "node.h"
 
 class asLamp : public asNode
 {

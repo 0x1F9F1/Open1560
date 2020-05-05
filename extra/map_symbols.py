@@ -1016,6 +1016,18 @@ for lib, paths in grouped_symbols.items():
     if any((lib.startswith(v) for v in IGNORED_LIB_PREFIXES)):
         continue
 
+    if lib in [
+        'test',
+        'data7:machname',
+        'data7:printer',
+        'pcwindis:dxinit',
+        'pcwindis:dxsetup',
+        'vector7:vector3',
+        'agiworld:meshrend',
+        'agiworld:texsort',
+        ]:
+        continue
+
     lib_header = ''
     lib_header_includes = set()
     lib_source = ''
@@ -1058,9 +1070,7 @@ for lib, paths in grouped_symbols.items():
         sym_comment += sym.raw_name
         sym_comment += '\n'
 
-    sym_comment += '*/\n\n'
-
-    lib_header += sym_comment
+    sym_comment += '*/'
 
     for path, values in paths.items():
         if path:
@@ -1232,7 +1242,7 @@ for lib, paths in grouped_symbols.items():
 
                     src_tokens.append(')')
                 else:
-                    src_tokens.append('unimplemented()')
+                    src_tokens.append('unimplemented({})'.format(', '.join( p.name for p in value.type.parameters )))
 
                 src_tokens.append(';')
 
@@ -1275,7 +1285,10 @@ for lib, paths in grouped_symbols.items():
     with open(output_dir + '.h', 'w') as f:
         f.write(LICENSE_TXT)
         f.write('\n')
-        f.write('#pragma once\n\n')
+        f.write('#pragma once')
+        f.write('\n\n')
+        f.write(sym_comment)
+        f.write('\n\n')
 
         if lib_header_includes:
             lib_header_includes = list(lib_header_includes)
@@ -1300,11 +1313,11 @@ for lib, paths in grouped_symbols.items():
     with open(output_dir + '.cpp', 'w') as f:
         f.write(LICENSE_TXT)
         f.write('\n')
+        f.write('define_dummy_symbol({});\n'.format(lib.replace(':', '_')))
+        f.write('\n')
         f.write('#include "{}.h"\n'.format(base_name))
         f.write('\n')
         f.write(lib_source)
-        f.write('\n')
-        f.write('define_dummy_symbol({});\n'.format(lib.replace(':', '_')))
 
 if False:
     for lib_dir, (lib_name, files) in all_files.items():

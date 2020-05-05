@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(pcwindis_setupdata);
+
 #include "setupdata.h"
 
 i32 dxiReadConfigFile()
@@ -37,5 +39,3 @@ void dxiWriteConfigFile()
 {
     return stub<cdecl_t<void>>(0x174E90_Offset);
 }
-
-define_dummy_symbol(pcwindis_setupdata);

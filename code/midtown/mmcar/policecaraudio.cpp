@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_policecaraudio);
+
 #include "policecaraudio.h"
 
 mmPoliceCarAudio::mmPoliceCarAudio(class mmCarSim* arg1, f32 arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 mmPoliceCarAudio::~mmPoliceCarAudio()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPoliceCarAudio::AssignSounds(class AudSound* arg1, class AudSound* arg2, class AudSound* arg3,
@@ -94,5 +96,3 @@ void mmPoliceCarAudio::FluctuateSlowSiren()
 {
     return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x7AD50_Offset, this);
 }
-
-define_dummy_symbol(mmcar_policecaraudio);

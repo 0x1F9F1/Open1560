@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmanim:AnimMgr
 
@@ -37,6 +35,8 @@
     0x61F308 | const mmAnimMgr::`vftable' | ??_7mmAnimMgr@@6B@
     0x705D68 | class MetaClass mmAnimMgrMetaClass | ?mmAnimMgrMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmAnimMgr : public asNode
 {

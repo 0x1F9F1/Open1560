@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "gamemulti.h"
-
 /*
     mmgame:multiblitz
 
@@ -45,6 +43,8 @@
     0x61A7D8 | const mmMultiBlitz::`vftable' | ??_7mmMultiBlitz@@6B@
     0x6A7170 | class MetaClass mmMultiBlitzMetaClass | ?mmMultiBlitzMetaClass@@3VMetaClass@@A
 */
+
+#include "gamemulti.h"
 
 class mmMultiBlitz : public mmGameMulti
 {

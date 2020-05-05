@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jdapimin);
+
 #include "jdapimin.h"
 
 void jpeg_CreateDecompress(struct jpeg_decompress_struct* arg1, i32 arg2, u32 arg3)
@@ -57,5 +59,3 @@ i32 jpeg_read_header(struct jpeg_decompress_struct* arg1, u8 arg2)
 {
     return stub<cdecl_t<i32, struct jpeg_decompress_struct*, u8>>(0x17D120_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmdjpeg_jdapimin);

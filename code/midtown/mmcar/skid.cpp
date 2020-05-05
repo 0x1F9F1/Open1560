@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_skid);
+
 #include "skid.h"
 
 mmSkid::mmSkid()
@@ -25,7 +27,7 @@ mmSkid::mmSkid()
 
 mmSkid::~mmSkid()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmSkid::AddSkid(class Matrix34& arg1, class Vector3* arg2, class agiPhysParameters* arg3, f32 arg4)
@@ -91,7 +93,7 @@ mmSkidManager::mmSkidManager()
 
 mmSkidManager::~mmSkidManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class MetaClass* mmSkidManager::GetClass()
@@ -128,5 +130,3 @@ void mmSkidManager::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x78310_Offset);
 }
-
-define_dummy_symbol(mmcar_skid);

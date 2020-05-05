@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_iodev);
+
 #include "iodev.h"
 
 mmIODev::mmIODev()
@@ -25,7 +27,7 @@ mmIODev::mmIODev()
 
 mmIODev::~mmIODev()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmIODev::operator==(union eqEvent* arg1)
@@ -97,5 +99,3 @@ i32 ConvertDItoString(i32 arg1, char* arg2, i32 arg3)
 {
     return stub<cdecl_t<i32, i32, char*, i32>>(0xE5260_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(mminput_iodev);

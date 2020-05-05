@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_callback);
+
 #include "callback.h"
 
 Callback::Callback()
@@ -25,22 +27,20 @@ Callback::Callback()
 
 Callback::Callback(void (*arg1)(void))
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 Callback::Callback(void (*arg1)(void*), void* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 Callback::Callback(void (*arg1)(void*, void*), void* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 void Callback::Call(void* arg1)
 {
     return stub<thiscall_t<void, Callback*, void*>>(0x179450_Offset, this, arg1);
 }
-
-define_dummy_symbol(data7_callback);

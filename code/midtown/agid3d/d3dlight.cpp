@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_d3dlight);
+
 #include "d3dlight.h"
 
 agiD3DLight::agiD3DLight(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiD3DLight::~agiD3DLight()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiD3DLight::BeginGfx()
@@ -42,5 +44,3 @@ i32 agiD3DLight::Update()
 {
     return stub<thiscall_t<i32, agiD3DLight*>>(0x133910_Offset, this);
 }
-
-define_dummy_symbol(agid3d_d3dlight);

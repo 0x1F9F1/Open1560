@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmeffects:meshform
 
@@ -36,6 +34,8 @@
     0x649D8C | public: static void (__cdecl* asMeshSetForm::Lighter)(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?Lighter@asMeshSetForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
     0x7195A4 | public: static class agiTexDef * asMeshSetForm::SphMapTex | ?SphMapTex@asMeshSetForm@@2PAVagiTexDef@@A
 */
+
+#include "arts7/node.h"
 
 class asMeshSetForm : public asNode
 {

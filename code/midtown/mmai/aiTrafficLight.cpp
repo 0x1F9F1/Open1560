@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiTrafficLight);
+
 #include "aiTrafficLight.h"
 
 aiTrafficLightSet::aiTrafficLightSet(class aiIntersection* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 aiTrafficLightSet::~aiTrafficLightSet()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void aiTrafficLightSet::Reset()
@@ -40,7 +42,7 @@ void aiTrafficLightSet::Update()
 
 aiTrafficLightInstance::~aiTrafficLightInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall aiTrafficLightInstance::Draw(i32 arg1)
@@ -53,5 +55,3 @@ i32 aiTrafficLightInstance::Init(char* arg1, class Vector3& arg2, class Vector3&
     return stub<thiscall_t<i32, aiTrafficLightInstance*, char*, class Vector3&, class Vector3&, i32, char*>>(
         0x44330_Offset, this, arg1, arg2, arg3, arg4, arg5);
 }
-
-define_dummy_symbol(mmai_aiTrafficLight);

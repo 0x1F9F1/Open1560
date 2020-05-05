@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_linear);
+
 #include "linear.h"
 
 asLinearCS::asLinearCS()
@@ -25,7 +27,7 @@ asLinearCS::asLinearCS()
 
 asLinearCS::~asLinearCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asLinearCS::AddWidgets(class Bank* arg1)
@@ -57,5 +59,3 @@ void asLinearCS::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x125E20_Offset);
 }
-
-define_dummy_symbol(arts7_linear);

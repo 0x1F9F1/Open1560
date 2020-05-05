@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmnetwork:netobject
 
@@ -31,6 +29,8 @@
     0x48B500 | public: virtual void * __thiscall asNetObject::`scalar deleting destructor'(unsigned int) | ??_GasNetObject@@UAEPAXI@Z
     0x61CB80 | const asNetObject::`vftable' | ??_7asNetObject@@6B@
 */
+
+#include "arts7/node.h"
 
 class asNetObject : public asNode
 {

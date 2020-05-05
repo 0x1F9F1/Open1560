@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_force);
+
 #include "force.h"
 
 mmForce::mmForce()
@@ -25,7 +27,7 @@ mmForce::mmForce()
 
 mmForce::~mmForce()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmForce::AddWidgets(class Bank* arg1)
@@ -47,5 +49,3 @@ void mmForce::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x80E20_Offset);
 }
-
-define_dummy_symbol(mmcar_force);

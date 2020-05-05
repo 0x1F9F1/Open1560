@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:dlg_ctrl
 
@@ -30,6 +28,8 @@
     0x4A0350 | public: virtual void * __thiscall Dialog_ControlAssign::`scalar deleting destructor'(unsigned int) | ??_GDialog_ControlAssign@@UAEPAXI@Z
     0x61D7B8 | const Dialog_ControlAssign::`vftable' | ??_7Dialog_ControlAssign@@6B@
 */
+
+#include "pu_menu.h"
 
 class Dialog_ControlAssign : public PUMenuBase
 {

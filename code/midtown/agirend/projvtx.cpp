@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agirend_projvtx);
+
 #include "projvtx.h"
 
 void agiProjVtx::Init(i32 arg1, class agiLighter* arg2, u32 arg3)
@@ -42,5 +44,3 @@ void agiProjVtx::ToScreen(i32 arg1)
 {
     return stub<cdecl_t<void, i32>>(0x152A20_Offset, arg1);
 }
-
-define_dummy_symbol(agirend_projvtx);

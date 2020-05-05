@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_trigmath);
+
 #include "trigmath.h"
 
 f32 atan2f_fast(f32 arg1, f32 arg2)
@@ -47,5 +49,3 @@ f32 tanf_fast(f32 arg1)
 {
     return stub<cdecl_t<f32, f32>>(0x173250_Offset, arg1);
 }
-
-define_dummy_symbol(vector7_trigmath);

@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "arts7/linear.h"
-#include "arts7/node.h"
-
 /*
     mmgame:dash
 
@@ -57,6 +54,9 @@
     0x636504 | float MAX_SPEED | ?MAX_SPEED@@3MA
     0x6A72B8 | class MetaClass mmDashViewMetaClass | ?mmDashViewMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/linear.h"
+#include "arts7/node.h"
 
 class mmExternalView : public asNode
 {

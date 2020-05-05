@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jidctint);
+
 #include "jidctint.h"
 
 void jpeg_idct_islow(
@@ -24,5 +26,3 @@ void jpeg_idct_islow(
     return stub<cdecl_t<void, struct jpeg_decompress_struct*, struct jpeg_component_info*, i16*, u8**, u32>>(
         0x183790_Offset, arg1, arg2, arg3, arg4, arg5);
 }
-
-define_dummy_symbol(mmdjpeg_jidctint);

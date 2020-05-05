@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_const);
+
 #include "const.h"
 
 void ResetMathSpeed()
@@ -97,5 +99,3 @@ void FloatArray::NewTable(i32 arg1)
 {
     return stub<thiscall_t<void, FloatArray*, i32>>(0x173920_Offset, this, arg1);
 }
-
-define_dummy_symbol(vector7_const);

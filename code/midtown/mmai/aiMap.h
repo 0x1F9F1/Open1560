@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmai:aiMap
 
@@ -112,6 +110,8 @@
     0x6A793C | int _nAmbientQty | ?_nAmbientQty@@3HA
     0x6A7948 | float _fTotUpdate | ?_fTotUpdate@@3MA
 */
+
+#include "arts7/node.h"
 
 class aiMap : public asNode
 {

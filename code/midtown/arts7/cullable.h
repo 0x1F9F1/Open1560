@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "data7/base.h"
-
 /*
     arts7:cullable
 
@@ -31,6 +29,8 @@
     0x525AA0 | public: __thiscall asCullable::asCullable(void) | ??0asCullable@@QAE@XZ
     0x7908B0 | class MetaClass asCullableMetaClass | ?asCullableMetaClass@@3VMetaClass@@A
 */
+
+#include "data7/base.h"
 
 class asCullable : public Base
 {

@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmphysics_phys);
+
 #include "phys.h"
 
 mmPhysExec::~mmPhysExec()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPhysExec::DoUpdateAll()
@@ -45,7 +47,7 @@ mmPhysicsMGR::mmPhysicsMGR()
 
 mmPhysicsMGR::~mmPhysicsMGR()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPhysicsMGR::AddWidgets(class Bank* arg1)
@@ -232,5 +234,3 @@ i32 testNoOverlap(f32 arg1, f32 arg2)
 {
     return stub<cdecl_t<i32, f32, f32>>(0xD90C0_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmphysics_phys);

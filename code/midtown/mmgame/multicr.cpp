@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_multicr);
+
 #include "multicr.h"
 
 mmMultiCR::mmMultiCR()
@@ -25,7 +27,7 @@ mmMultiCR::mmMultiCR()
 
 mmMultiCR::~mmMultiCR()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmMultiCR::ChangePlayerData()
@@ -257,5 +259,3 @@ void mmMultiCR::UpdateTimeWarning()
 {
     return stub<thiscall_t<void, mmMultiCR*>>(0x1EFC0_Offset, this);
 }
-
-define_dummy_symbol(mmgame_multicr);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "refresh.h"
-
 /*
     agi:light
 
@@ -34,6 +32,8 @@
     0x55BB40 | public: virtual void * __thiscall agiLight::`vector deleting destructor'(unsigned int) | ??_EagiLight@@UAEPAXI@Z
     0x621720 | const agiLight::`vftable' | ??_7agiLight@@6B@
 */
+
+#include "refresh.h"
 
 class agiLightParameters
 {

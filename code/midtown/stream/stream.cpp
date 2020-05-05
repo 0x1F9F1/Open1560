@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(stream_stream);
+
 #include "stream.h"
 
 Stream::Stream(void* arg1, i32 arg2, class FileSystem* arg3)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3);
 }
 
 Stream::~Stream()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void* Stream::GetMapping()
@@ -135,7 +137,7 @@ i32 Stream::GetString(char* arg1, i32 arg2)
 
 i32 Stream::Printf(char const* arg1, ...)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 Stream::Put(f32 arg1)
@@ -235,17 +237,15 @@ class Stream* fopen(char* arg1, char* arg2)
 
 void fprintf(class Stream* arg1, char const* arg2, ...)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 i32 fscanf(class Stream* arg1, char const* arg2, ...)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 i32 fseek(class Stream* arg1, i32 arg2, i32 arg3)
 {
     return stub<cdecl_t<i32, class Stream*, i32, i32>>(0x15F330_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(stream_stream);

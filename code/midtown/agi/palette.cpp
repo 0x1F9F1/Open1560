@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_palette);
+
 #include "palette.h"
 
 agiPalette::agiPalette()
@@ -47,5 +49,3 @@ void agiPalette::Load(char* arg1)
 {
     return stub<thiscall_t<void, agiPalette*, char*>>(0x15C180_Offset, this, arg1);
 }
-
-define_dummy_symbol(agi_palette);

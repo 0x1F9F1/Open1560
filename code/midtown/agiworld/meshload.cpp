@@ -16,6 +16,6 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "meshload.h"
-
 define_dummy_symbol(agiworld_meshload);
+
+#include "meshload.h"

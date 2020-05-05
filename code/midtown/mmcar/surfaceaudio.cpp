@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_surfaceaudio);
+
 #include "surfaceaudio.h"
 
 mmSurfaceAudio::mmSurfaceAudio(class mmCarSim* arg1, class Vector3* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 mmSurfaceAudio::~mmSurfaceAudio()
@@ -129,5 +131,3 @@ void mmSurfaceAudio::PlayCobble(f32 arg1)
 {
     return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x88190_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmcar_surfaceaudio);

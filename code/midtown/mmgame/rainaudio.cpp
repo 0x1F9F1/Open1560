@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_rainaudio);
+
 #include "rainaudio.h"
 
 mmRainAudio::mmRainAudio()
@@ -47,5 +49,3 @@ void mmRainAudio::Update()
 {
     return stub<thiscall_t<void, mmRainAudio*>>(0x335B0_Offset, this);
 }
-
-define_dummy_symbol(mmgame_rainaudio);

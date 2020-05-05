@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:roadff
 
@@ -40,6 +38,8 @@
     0x61C920 | const mmCarRoadFF::`vftable' | ??_7mmCarRoadFF@@6B@
     0x6A8170 | class MetaClass mmCarRoadFFMetaClass | ?mmCarRoadFFMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmCarRoadFF : public asNode
 {

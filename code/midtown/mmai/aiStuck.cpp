@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiStuck);
+
 #include "aiStuck.h"
 
 aiStuck::aiStuck()
@@ -25,7 +27,7 @@ aiStuck::aiStuck()
 
 aiStuck::~aiStuck()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void aiStuck::AddWidgets(class Bank* arg1)
@@ -57,5 +59,3 @@ void aiStuck::Update()
 {
     return stub<thiscall_t<void, aiStuck*>>(0x6B550_Offset, this);
 }
-
-define_dummy_symbol(mmai_aiStuck);

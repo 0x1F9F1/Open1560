@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_view);
+
 #include "view.h"
 
 asViewCS::asViewCS()
@@ -25,7 +27,7 @@ asViewCS::asViewCS()
 
 asViewCS::~asViewCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asViewCS::AddWidgets(class Bank* arg1)
@@ -92,5 +94,3 @@ void asViewCS::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x12CC70_Offset);
 }
-
-define_dummy_symbol(arts7_view);

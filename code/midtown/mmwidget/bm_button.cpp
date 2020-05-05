@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_bm_button);
+
 #include "bm_button.h"
 
 UIBMButton::UIBMButton()
@@ -25,7 +27,7 @@ UIBMButton::UIBMButton()
 
 UIBMButton::~UIBMButton()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UIBMButton::Action(union eqEvent arg1)
@@ -155,5 +157,3 @@ void UIBMButton::AllocateSounds()
 {
     return stub<cdecl_t<void>>(0xB6ED0_Offset);
 }
-
-define_dummy_symbol(mmwidget_bm_button);

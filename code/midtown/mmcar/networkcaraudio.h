@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:networkcaraudio
 
@@ -47,6 +45,8 @@
     0x6A81F0 | class MetaClass mmNetworkCarAudioMetaClass | ?mmNetworkCarAudioMetaClass@@3VMetaClass@@A
     0x6A822C | public: static short mmNetworkCarAudio::s_iPlayingFluctuator | ?s_iPlayingFluctuator@mmNetworkCarAudio@@2FA
 */
+
+#include "arts7/node.h"
 
 class mmNetworkCarAudio : public asNode
 {

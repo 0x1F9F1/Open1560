@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:game
 
@@ -61,6 +59,8 @@
     0x6A6FB4 | int masscycle | ?masscycle@@3HA
     0x6A6FB8 | class mmBangerData * BangerProjectile | ?BangerProjectile@@3PAVmmBangerData@@A
 */
+
+#include "arts7/node.h"
 
 class mmGame : public asNode
 {

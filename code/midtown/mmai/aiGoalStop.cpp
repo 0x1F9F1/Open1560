@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiGoalStop);
+
 #include "aiGoalStop.h"
 
 aiGoalStop::aiGoalStop(class mmCar* arg1, i16* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 aiGoalStop::~aiGoalStop()
@@ -52,5 +54,3 @@ void aiGoalStop::Update()
 {
     return stub<thiscall_t<void, aiGoalStop*>>(0x5F770_Offset, this);
 }
-
-define_dummy_symbol(mmai_aiGoalStop);

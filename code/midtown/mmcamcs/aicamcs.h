@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "carcamcs.h"
-
 /*
     mmcamcs:aicamcs
 
@@ -34,6 +32,8 @@
     0x6202B8 | const AICamCS::`vftable' | ??_7AICamCS@@6B@
     0x719468 | class MetaClass AICamCSMetaClass | ?AICamCSMetaClass@@3VMetaClass@@A
 */
+
+#include "carcamcs.h"
 
 class AICamCS : public CarCamCS
 {

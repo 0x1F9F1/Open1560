@@ -16,12 +16,14 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiGoalChase);
+
 #include "aiGoalChase.h"
 
 aiGoalChase::aiGoalChase(
     class aiVehiclePolice* arg1, class aiRailSet* arg2, class mmCar** arg3, i16* arg4, class Vector3* arg5, i16* arg6)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 aiGoalChase::~aiGoalChase()
@@ -179,5 +181,3 @@ i32 aiGoalChase::Stopped(class mmCar* arg1)
 {
     return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x60640_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmai_aiGoalChase);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_instchn);
+
 #include "instchn.h"
 
 mmInstChain::mmInstChain()
@@ -68,5 +70,3 @@ void mmInstChain::Unparent(class mmInstance* arg1)
 {
     return stub<thiscall_t<void, mmInstChain*, class mmInstance*>>(0x923A0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmcity_instchn);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:pu_main
 
@@ -29,6 +27,8 @@
     0x4AAFB0 | public: virtual void * __thiscall PUMain::`scalar deleting destructor'(unsigned int) | ??_GPUMain@@UAEPAXI@Z
     0x61E198 | const PUMain::`vftable' | ??_7PUMain@@6B@
 */
+
+#include "pu_menu.h"
 
 class PUMain : public PUMenuBase
 {

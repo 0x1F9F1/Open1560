@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmeffects:birth
 
@@ -32,6 +30,8 @@
     0x620740 | const asBirthRule::`vftable' | ??_7asBirthRule@@6B@
     0x7195D8 | class MetaClass asBirthRuleMetaClass | ?asBirthRuleMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class asBirthRule : public asNode
 {

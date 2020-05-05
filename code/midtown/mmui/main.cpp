@@ -16,21 +16,21 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_main);
+
 #include "main.h"
 
 MainMenu::MainMenu(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 MainMenu::~MainMenu()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void MainMenu::PreSetup()
 {
     return stub<thiscall_t<void, MainMenu*>>(0xA6380_Offset, this);
 }
-
-define_dummy_symbol(mmui_main);

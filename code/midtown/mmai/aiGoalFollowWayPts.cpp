@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiGoalFollowWayPts);
+
 #include "aiGoalFollowWayPts.h"
 
 aiGoalFollowWayPts::aiGoalFollowWayPts()
@@ -26,7 +28,7 @@ aiGoalFollowWayPts::aiGoalFollowWayPts()
 aiGoalFollowWayPts::aiGoalFollowWayPts(char* arg1, class aiRailSet* arg2, class aiVehicleOpponent* arg3, i16* arg4,
     i16* arg5, i16* arg6, char* arg7, f32 arg8)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 }
 
 aiGoalFollowWayPts::~aiGoalFollowWayPts()
@@ -136,5 +138,3 @@ void aiGoalFollowWayPts::SolveTargetPoint()
 {
     return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x69E10_Offset, this);
 }
-
-define_dummy_symbol(mmai_aiGoalFollowWayPts);

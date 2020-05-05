@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmanim:mmbridgeaudmgr
 
@@ -36,6 +34,8 @@
     0x61F430 | const mmBridgeAudMgr::`vftable' | ??_7mmBridgeAudMgr@@6B@
     0x705E1C | class mmBridgeAudMgr * MMBRIDGEAUDMGRPTR | ?MMBRIDGEAUDMGRPTR@@3PAVmmBridgeAudMgr@@A
 */
+
+#include "arts7/node.h"
 
 class mmBridgeAudMgr : public asNode
 {

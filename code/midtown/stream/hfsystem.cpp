@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(stream_hfsystem);
+
 #include "hfsystem.h"
 
 HierFileSystem::HierFileSystem()
@@ -25,7 +27,7 @@ HierFileSystem::HierFileSystem()
 
 HierFileSystem::~HierFileSystem()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 HierFileSystem::ChangeDir(char* arg1)
@@ -78,5 +80,3 @@ void PagerInfo_t::Read(void* arg1, u32 arg2, u32 arg3)
 {
     return stub<thiscall_t<void, PagerInfo_t*, void*, u32, u32>>(0x1605D0_Offset, this, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(stream_hfsystem);

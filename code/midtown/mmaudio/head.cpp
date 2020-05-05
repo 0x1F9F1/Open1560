@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_head);
+
 #include "head.h"
 
 AudHead::AudHead(class Matrix34* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 AudHead::~AudHead()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void AudHead::AddWidgets(class Bank* arg1)
@@ -72,5 +74,3 @@ void AudHead::Update()
 {
     return stub<thiscall_t<void, AudHead*>>(0xEBD60_Offset, this);
 }
-
-define_dummy_symbol(mmaudio_head);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_drivetrain);
+
 #include "drivetrain.h"
 
 mmDrivetrain::mmDrivetrain()
@@ -25,7 +27,7 @@ mmDrivetrain::mmDrivetrain()
 
 mmDrivetrain::~mmDrivetrain()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmDrivetrain::AddWheel(class mmWheel* arg1)
@@ -72,5 +74,3 @@ void mmDrivetrain::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x80460_Offset);
 }
-
-define_dummy_symbol(mmcar_drivetrain);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "carcamcs.h"
-
 /*
     mmcamcs:transitioncs
 
@@ -38,6 +36,8 @@
     0x4FBDD0 | public: virtual void * __thiscall TransitionCS::`scalar deleting destructor'(unsigned int) | ??_GTransitionCS@@UAEPAXI@Z
     0x620438 | const TransitionCS::`vftable' | ??_7TransitionCS@@6B@
 */
+
+#include "carcamcs.h"
 
 class TransitionCS : public CarCamCS
 {

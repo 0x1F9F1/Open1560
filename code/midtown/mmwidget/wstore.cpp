@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_wstore);
+
 #include "wstore.h"
 
 WArray::WArray()
@@ -64,5 +66,3 @@ void WArray::Write(char* arg1)
 {
     return stub<thiscall_t<void, WArray*, char*>>(0xABEA0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmwidget_wstore);

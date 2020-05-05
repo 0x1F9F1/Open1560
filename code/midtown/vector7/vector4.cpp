@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_vector4);
+
 #include "vector4.h"
 
 class Vector4 Vector4::operator!()
@@ -122,5 +124,3 @@ u32 Vector4Type::SizeOf()
 {
     return stub<thiscall_t<u32, Vector4Type*>>(0x16E470_Offset, this);
 }
-
-define_dummy_symbol(vector7_vector4);

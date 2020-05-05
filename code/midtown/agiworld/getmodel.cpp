@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agiworld_getmodel);
+
 #include "getmodel.h"
 
 class agiMeshModel* GetModel(char* arg1, char* arg2, char* arg3)
 {
     return stub<cdecl_t<class agiMeshModel*, char*, char*, char*>>(0x1154C0_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(agiworld_getmodel);

@@ -16,6 +16,6 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "pager.h"
-
 define_dummy_symbol(data7_pager);
+
+#include "pager.h"

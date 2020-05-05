@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jcomapi);
+
 #include "jcomapi.h"
 
 void jpeg_abort(struct jpeg_common_struct* arg1)
@@ -37,5 +39,3 @@ void jpeg_destroy(struct jpeg_common_struct* arg1)
 {
     return stub<cdecl_t<void, struct jpeg_common_struct*>>(0x1809B0_Offset, arg1);
 }
-
-define_dummy_symbol(mmdjpeg_jcomapi);

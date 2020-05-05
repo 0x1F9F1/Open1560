@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_mexbutton);
+
 #include "mexbutton.h"
 
 UIMexButton::UIMexButton()
@@ -25,7 +27,7 @@ UIMexButton::UIMexButton()
 
 UIMexButton::~UIMexButton()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UIMexButton::Action(union eqEvent arg1)
@@ -60,5 +62,3 @@ void UIMexButton::DrawOn()
 {
     return stub<thiscall_t<void, UIMexButton*>>(0xBCC70_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_mexbutton);

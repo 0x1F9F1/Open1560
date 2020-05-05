@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_gameman);
+
 #include "gameman.h"
 
 mmScreenClearFlunky::~mmScreenClearFlunky()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmScreenClearFlunky::Cull()
@@ -40,7 +42,7 @@ mmGameManager::mmGameManager()
 
 mmGameManager::~mmGameManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmGameManager::AddWidgets(class Bank* arg1)
@@ -107,5 +109,3 @@ void mmGameManager::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x49C0_Offset);
 }
-
-define_dummy_symbol(mmgame_gameman);

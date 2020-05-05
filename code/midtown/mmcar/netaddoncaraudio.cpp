@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_netaddoncaraudio);
+
 #include "netaddoncaraudio.h"
 
 NetAddOnCarAudio::NetAddOnCarAudio(char* arg1, i16 arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 NetAddOnCarAudio::~NetAddOnCarAudio()
@@ -47,5 +49,3 @@ void NetAddOnCarAudio::Update()
 {
     return stub<thiscall_t<void, NetAddOnCarAudio*>>(0x857D0_Offset, this);
 }
-
-define_dummy_symbol(mmcar_netaddoncaraudio);

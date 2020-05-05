@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_carsimcheap);
+
 #include "carsimcheap.h"
 
 mmWheelCheap::mmWheelCheap()
@@ -25,7 +27,7 @@ mmWheelCheap::mmWheelCheap()
 
 mmWheelCheap::~mmWheelCheap()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmWheelCheap::Init(class Vector3* arg1, class aiVehicleData* arg2, class asInertialCS* arg3)
@@ -43,5 +45,3 @@ void mmWheelCheap::Update()
 {
     return stub<thiscall_t<void, mmWheelCheap*>>(0x74A20_Offset, this);
 }
-
-define_dummy_symbol(mmcar_carsimcheap);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmanim:boat
 
@@ -49,6 +47,8 @@
     0x705F30 | class Matrix44 _Hermite | ?_Hermite@@3VMatrix44@@A
     0x705F70 | class Matrix44 CatmullBasis | ?CatmullBasis@@3VMatrix44@@A
 */
+
+#include "arts7/node.h"
 
 class mmBoat : public asNode
 {

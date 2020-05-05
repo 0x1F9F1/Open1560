@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmanim:bridge
 
@@ -63,6 +61,8 @@
     0x705DD0 | class MetaClass mmBridgeSetMetaClass | ?mmBridgeSetMetaClass@@3VMetaClass@@A
     0x705DFC | protected: static class mmBridgeMgr * mmBridgeMgr::Instance | ?Instance@mmBridgeMgr@@1PAV1@A
 */
+
+#include "arts7/node.h"
 
 class mmBridgeMgr : public asNode
 {

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:tscroll
 
@@ -48,6 +46,8 @@
     0x4B95D0 | public: virtual void * __thiscall UITextScroll::`vector deleting destructor'(unsigned int) | ??_EUITextScroll@@UAEPAXI@Z
     0x61EA98 | const UITextScroll::`vftable' | ??_7UITextScroll@@6B@
 */
+
+#include "textfield.h"
 
 class UITextScroll : public uiWidget
 {

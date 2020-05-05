@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "racebase.h"
-
 /*
     mmui:race
 
@@ -36,6 +34,8 @@
     0x4A4F60 | public: virtual void __thiscall RaceMenuBase::UsesLobby(int) | ?UsesLobby@RaceMenuBase@@UAEXH@Z
     0x61DAC8 | const RaceMenu::`vftable' | ??_7RaceMenu@@6B@
 */
+
+#include "racebase.h"
 
 class RaceMenu : public RaceMenuBase
 {

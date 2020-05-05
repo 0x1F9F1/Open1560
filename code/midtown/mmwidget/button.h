@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:button
 
@@ -41,6 +39,8 @@
     0x4B9F80 | public: virtual void __thiscall UIButton::Disable(void) | ?Disable@UIButton@@UAEXXZ
     0x61EC18 | const UIButton::`vftable' | ??_7UIButton@@6B@
 */
+
+#include "textfield.h"
 
 class UIButton : public uiWidget
 {

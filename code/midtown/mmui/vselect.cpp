@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_vselect);
+
 #include "vselect.h"
 
 VehicleSelectBase::VehicleSelectBase(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 VehicleSelectBase::~VehicleSelectBase()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void VehicleSelectBase::AllSetCar(char* arg1, i32 arg2)
@@ -140,5 +142,3 @@ void VehicleSelectBase::Update()
 {
     return stub<thiscall_t<void, VehicleSelectBase*>>(0x9BA00_Offset, this);
 }
-
-define_dummy_symbol(mmui_vselect);

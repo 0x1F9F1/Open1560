@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:transmission
 
@@ -44,6 +42,8 @@
     0x61BF58 | const ArrayOfType::`vftable' | ??_7ArrayOfType@@6B@
     0x6A7CB8 | class MetaClass mmTransmissionMetaClass | ?mmTransmissionMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmTransmission : public asNode
 {

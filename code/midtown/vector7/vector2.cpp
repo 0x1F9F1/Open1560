@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_vector2);
+
 #include "vector2.h"
 
 Vector2::Vector2(class Vector2 const& arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class Vector2 Vector2::operator/(f32 arg1)
@@ -97,5 +99,3 @@ u32 Vector2Type::SizeOf()
 {
     return stub<thiscall_t<u32, Vector2Type*>>(0x1716A0_Offset, this);
 }
-
-define_dummy_symbol(vector7_vector2);

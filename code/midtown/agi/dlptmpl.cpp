@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_dlptmpl);
+
 #include "dlptmpl.h"
 
 agiLib<class agiPhysParameters, class agiPhysDef>::agiLib<class agiPhysParameters, class agiPhysDef>()
@@ -46,7 +48,7 @@ void agiLib<class agiPhysParameters, class agiPhysDef>::Kill()
 
 DLPTemplate::DLPTemplate(char* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void DLPTemplate::AddRef()
@@ -166,7 +168,7 @@ DLPGroup::DLPGroup()
 
 DLPGroup::DLPGroup(class DLPTemplate* arg1, class DLPGroup* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 DLPGroup::~DLPGroup()
@@ -249,5 +251,3 @@ void agiLib<class agiMtlParameters, class agiMtlDef>::Kill()
 {
     return stub<thiscall_t<void, agiLib<class agiMtlParameters, class agiMtlDef>*>>(0x15A030_Offset, this);
 }
-
-define_dummy_symbol(agi_dlptmpl);

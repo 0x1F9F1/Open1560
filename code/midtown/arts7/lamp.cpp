@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_lamp);
+
 #include "lamp.h"
 
 asLamp::asLamp()
@@ -25,7 +27,7 @@ asLamp::asLamp()
 
 asLamp::~asLamp()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asLamp::AddWidgets(class Bank* arg1)
@@ -77,5 +79,3 @@ void asLamp::Regen()
 {
     return stub<thiscall_t<void, asLamp*>>(0x1262F0_Offset, this);
 }
-
-define_dummy_symbol(arts7_lamp);

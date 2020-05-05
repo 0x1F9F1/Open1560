@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "game.h"
-
 /*
     mmgame:gameedit
 
@@ -47,6 +45,8 @@
     0x61A4A0 | const mmGameEdit::`vftable' | ??_7mmGameEdit@@6B@
     0x6A6FE0 | class MetaClass mmGameEditMetaClass | ?mmGameEditMetaClass@@3VMetaClass@@A
 */
+
+#include "game.h"
 
 class mmGameEdit : public mmGame
 {

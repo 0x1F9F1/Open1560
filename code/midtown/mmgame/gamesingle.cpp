@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_gamesingle);
+
 #include "gamesingle.h"
 
 u32 __stdcall ThreadFunc(void* arg1)
@@ -30,7 +32,7 @@ mmGameSingle::mmGameSingle()
 
 mmGameSingle::~mmGameSingle()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmGameSingle::AddWidgets(class Bank* arg1)
@@ -142,5 +144,3 @@ i32 mmGameSingle::RegisterFinish()
 {
     return stub<thiscall_t<i32, mmGameSingle*>>(0x183F0_Offset, this);
 }
-
-define_dummy_symbol(mmgame_gamesingle);

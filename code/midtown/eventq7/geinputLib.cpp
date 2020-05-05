@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(eventq7_geinputLib);
+
 #include "geinputLib.h"
 
 void geinputAcquireMouse()
@@ -58,5 +60,3 @@ i32 inputSetup(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
 {
     return stub<cdecl_t<i32, i32, i32, i32, i32, i32>>(0x163DE0_Offset, arg1, arg2, arg3, arg4, arg5);
 }
-
-define_dummy_symbol(eventq7_geinputLib);

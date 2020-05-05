@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_netobject);
+
 #include "netobject.h"
 
 mmNetObject::mmNetObject()
@@ -25,7 +27,7 @@ mmNetObject::mmNetObject()
 
 mmNetObject::~mmNetObject()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmNetObject::Activate()
@@ -89,5 +91,3 @@ void mmNetObject::Update()
 {
     return stub<thiscall_t<void, mmNetObject*>>(0x33130_Offset, this);
 }
-
-define_dummy_symbol(mmgame_netobject);

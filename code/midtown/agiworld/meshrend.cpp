@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agiworld_meshrend);
+
 #include "meshrend.h"
 
 #include "vector7/vector3.h"
@@ -381,5 +383,3 @@ void agiPolySet::Triangle(i32 arg1, i32 arg2, i32 arg3)
 {
     return stub<thiscall_t<void, agiPolySet*, i32, i32, i32>>(0x110480_Offset, this, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(agiworld_meshrend);

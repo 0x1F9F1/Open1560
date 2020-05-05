@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmphysics_aero);
+
 #include "aero.h"
 
 asAero::asAero()
@@ -25,7 +27,7 @@ asAero::asAero()
 
 asAero::~asAero()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asAero::AddWidgets(class Bank* arg1)
@@ -57,5 +59,3 @@ void asAero::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xE0490_Offset);
 }
-
-define_dummy_symbol(mmphysics_aero);

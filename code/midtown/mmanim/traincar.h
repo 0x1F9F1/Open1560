@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmcity/inst.h"
-
 /*
     mmanim:traincar
 
@@ -33,6 +31,8 @@
     0x4C8190 | public: virtual void * __thiscall mmAnimTrainCar::`scalar deleting destructor'(unsigned int) | ??_GmmAnimTrainCar@@UAEPAXI@Z
     0x61F658 | const mmAnimTrainCar::`vftable' | ??_7mmAnimTrainCar@@6B@
 */
+
+#include "mmcity/inst.h"
 
 class mmAnimTrainCar : public mmMatrixInstance
 {

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:dlg_tcpip
 
@@ -31,6 +29,8 @@
     0x4A0520 | public: virtual void * __thiscall Dialog_TCPIP::`scalar deleting destructor'(unsigned int) | ??_GDialog_TCPIP@@UAEPAXI@Z
     0x61D808 | const Dialog_TCPIP::`vftable' | ??_7Dialog_TCPIP@@6B@
 */
+
+#include "pu_menu.h"
 
 class Dialog_TCPIP : public PUMenuBase
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aipedaudiomanager);
+
 #include "aipedaudiomanager.h"
 
 aiPedAudioManager::aiPedAudioManager()
@@ -25,7 +27,7 @@ aiPedAudioManager::aiPedAudioManager()
 
 aiPedAudioManager::~aiPedAudioManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i16 aiPedAudioManager::Add(class aiPedestrian* arg1)
@@ -62,5 +64,3 @@ void aiPedAudioManager::Update()
 {
     return stub<thiscall_t<void, aiPedAudioManager*>>(0x47220_Offset, this);
 }
-
-define_dummy_symbol(mmai_aipedaudiomanager);

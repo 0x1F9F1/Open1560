@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jmemnobs);
+
 #include "jmemnobs.h"
 
 void jpeg_free_large(struct jpeg_common_struct* arg1, void* arg2, u32 arg3)
@@ -58,5 +60,3 @@ void jpeg_open_backing_store(struct jpeg_common_struct* arg1, struct backing_sto
     return stub<cdecl_t<void, struct jpeg_common_struct*, struct backing_store_struct*, i32>>(
         0x181030_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(mmdjpeg_jmemnobs);

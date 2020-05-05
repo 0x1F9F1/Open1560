@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_matrix34);
+
 #include "matrix34.h"
 
 Matrix34::Matrix34()
@@ -25,7 +27,7 @@ Matrix34::Matrix34()
 
 Matrix34::Matrix34(class Matrix44 const& arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class Matrix34 Matrix34::operator*(f32 arg1)
@@ -335,5 +337,3 @@ f32 asinf_fast(f32 arg1)
 {
     return stub<cdecl_t<f32, f32>>(0x16D950_Offset, arg1);
 }
-
-define_dummy_symbol(vector7_matrix34);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(midtown);
+
 #include "midtown.h"
 
 void Application(i32 arg1, char** arg2)
@@ -52,5 +54,3 @@ void InitAudioManager()
 {
     return stub<cdecl_t<void>>(0x2F40_Offset);
 }
-
-define_dummy_symbol(midtown);

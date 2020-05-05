@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_waypoints);
+
 #include "waypoints.h"
 
 mmWaypoints::mmWaypoints()
@@ -25,7 +27,7 @@ mmWaypoints::mmWaypoints()
 
 mmWaypoints::~mmWaypoints()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmWaypoints::AIWPHit(i32 arg1, i32 arg2, class Matrix34 arg3, class Vector3 arg4, f32 arg5)
@@ -198,5 +200,3 @@ f32 mmGate::LineEq(f32 arg1, f32 arg2)
 {
     return stub<thiscall_t<f32, mmGate*, f32, f32>>(0x301F0_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mmgame_waypoints);

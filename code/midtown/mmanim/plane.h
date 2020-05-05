@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmcity/inst.h"
-
 /*
     mmanim:plane
 
@@ -52,6 +50,8 @@
     0x642700 | private: static float mmAnimPlane::s_fAudioVolume | ?s_fAudioVolume@mmAnimPlane@@0MA
     0x705E58 | private: static float mmAnimPlane::s_fAudioAttenuationMult | ?s_fAudioAttenuationMult@mmAnimPlane@@0MA
 */
+
+#include "mmcity/inst.h"
 
 class mmAnimPlane : public mmMatrixInstance
 {

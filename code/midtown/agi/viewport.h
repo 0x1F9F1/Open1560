@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "refresh.h"
-
 /*
     agi:viewport
 
@@ -43,6 +41,8 @@
     0x8FF044 | public: static unsigned int agiViewParameters::MtxSerial | ?MtxSerial@agiViewParameters@@2IA
     0x8FF048 | protected: static class agiViewport * agiViewport::Active | ?Active@agiViewport@@1PAV1@A
 */
+
+#include "refresh.h"
 
 class agiViewParameters
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_hudmap);
+
 #include "hudmap.h"
 
 mmHudMap::mmHudMap()
@@ -25,7 +27,7 @@ mmHudMap::mmHudMap()
 
 mmHudMap::~mmHudMap()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmHudMap::Activate()
@@ -179,5 +181,3 @@ struct Point mmHudMap::WorldToBitmap(class Vector3* arg1)
 {
     return stub<thiscall_t<struct Point, mmHudMap*, class Vector3*>>(0x29B20_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmgame_hudmap);

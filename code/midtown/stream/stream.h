@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "data7/base.h"
-
 /*
     stream:stream
 
@@ -71,6 +69,8 @@
     0x6218E8 | const Stream::`vftable' | ??_7Stream@@6B@
     0x907960 | int EnableBinaryFileMapping | ?EnableBinaryFileMapping@@3HA
 */
+
+#include "data7/base.h"
 
 class Stream : public Base
 {

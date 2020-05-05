@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmeffects:mmnumber
 
@@ -41,6 +39,8 @@
     0x649C9C | char * NUMBERSTRING | ?NUMBERSTRING@@3PADA
     0x719570 | class MetaClass mmNumberMetaClass | ?mmNumberMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmNumber : public asNode
 {

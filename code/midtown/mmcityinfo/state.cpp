@@ -16,6 +16,6 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "state.h"
-
 define_dummy_symbol(mmcityinfo_state);
+
+#include "state.h"

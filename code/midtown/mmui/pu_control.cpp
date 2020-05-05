@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_pu_control);
+
 #include "pu_control.h"
 
 PUControl::PUControl(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5);
 }
 
 PUControl::~PUControl()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void PUControl::CancelAction()
@@ -52,5 +54,3 @@ void PUControl::SetSensitivityCB()
 {
     return stub<thiscall_t<void, PUControl*>>(0xAA3B0_Offset, this);
 }
-
-define_dummy_symbol(mmui_pu_control);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "node.h"
-
 /*
     arts7:camera
 
@@ -59,6 +57,8 @@
     0x790958 | class MetaClass asCameraMetaClass | ?asCameraMetaClass@@3VMetaClass@@A
     0x790980 | class agiViewport * VW | ?VW@@3PAVagiViewport@@A
 */
+
+#include "node.h"
 
 class asCamera : public asNode
 {

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmaudio:audstream
 
@@ -58,6 +56,8 @@
     0x61FF28 | private: static unsigned long const AudStream::s_DWFreqChange2DCtrlFlags | ?s_DWFreqChange2DCtrlFlags@AudStream@@0KB
     0x61FF40 | const AudStream::`vftable' | ??_7AudStream@@6B@
 */
+
+#include "arts7/node.h"
 
 class AudStream : public asNode
 {

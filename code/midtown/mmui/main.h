@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmwidget/menu.h"
-
 /*
     mmui:main
 
@@ -30,6 +28,8 @@
     0x4A6390 | public: virtual void * __thiscall MainMenu::`scalar deleting destructor'(unsigned int) | ??_GMainMenu@@UAEPAXI@Z
     0x61DCB0 | const MainMenu::`vftable' | ??_7MainMenu@@6B@
 */
+
+#include "mmwidget/menu.h"
 
 class MainMenu : public UIMenu
 {

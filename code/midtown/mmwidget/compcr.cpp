@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_compcr);
+
 #include "compcr.h"
 
 mmCompCRPlayer::mmCompCRPlayer()
@@ -25,7 +27,7 @@ mmCompCRPlayer::mmCompCRPlayer()
 
 mmCompCRPlayer::~mmCompCRPlayer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCompCRPlayer::Cull()
@@ -81,5 +83,3 @@ void mmCompCRPlayer::Update()
 {
     return stub<thiscall_t<void, mmCompCRPlayer*>>(0xB7580_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_compcr);

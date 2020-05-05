@@ -16,21 +16,21 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_pu_debug);
+
 #include "pu_debug.h"
 
 PUDebug::PUDebug(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5);
 }
 
 PUDebug::~PUDebug()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void PUDebug::RecordCB()
 {
     return stub<thiscall_t<void, PUDebug*>>(0xAA5A0_Offset, this);
 }
-
-define_dummy_symbol(mmui_pu_debug);

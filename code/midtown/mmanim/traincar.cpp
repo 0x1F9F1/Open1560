@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_traincar);
+
 #include "traincar.h"
 
 mmAnimTrainCar::mmAnimTrainCar()
@@ -25,7 +27,7 @@ mmAnimTrainCar::mmAnimTrainCar()
 
 mmAnimTrainCar::~mmAnimTrainCar()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall mmAnimTrainCar::Draw(i32 arg1)
@@ -52,5 +54,3 @@ void mmAnimTrainCar::SetStart(f32 arg1, f32 arg2)
 {
     return stub<thiscall_t<void, mmAnimTrainCar*, f32, f32>>(0xC8160_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mmanim_traincar);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "carcamcs.h"
-
 /*
     mmcamcs:polarcamcs
 
@@ -34,6 +32,8 @@
     0x620348 | const PolarCamCS::`vftable' | ??_7PolarCamCS@@6B@
     0x719498 | class MetaClass PolarCamCSMetaClass | ?PolarCamCSMetaClass@@3VMetaClass@@A
 */
+
+#include "carcamcs.h"
 
 class PolarCamCS : public CarCamCS
 {

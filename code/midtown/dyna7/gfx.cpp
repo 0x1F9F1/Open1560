@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(dyna7_gfx);
+
 #include "gfx.h"
 
 void DrawBegin(class Matrix34& arg1)
@@ -50,7 +52,7 @@ void DrawEnd()
 
 void DrawLabelf(class Vector3& arg1, char* arg2, ...)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 void DrawLine(class Vector3& arg1, class Vector3& arg2)
@@ -89,5 +91,3 @@ void DrawWireSphere(class Vector3& arg1, f32 arg2)
 {
     return stub<cdecl_t<void, class Vector3&, f32>>(0x12D320_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(dyna7_gfx);

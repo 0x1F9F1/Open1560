@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_mixer);
+
 #include "mixer.h"
 
 VolumeDW::~VolumeDW()
@@ -35,7 +37,7 @@ u32 VolumeDW::Value()
 
 MixerCTL::~MixerCTL()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void MixerCTL::AssignCDBalance(f32 arg1)
@@ -118,5 +120,3 @@ i32 MixerCTL::WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4)
     return stub<thiscall_t<i32, MixerCTL*, struct HWND__*, u32, u32, i32>>(
         0xEEB70_Offset, this, arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(mmaudio_mixer);

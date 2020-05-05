@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_citylist);
+
 #include "citylist.h"
 
 mmCityList::mmCityList()
@@ -25,7 +27,7 @@ mmCityList::mmCityList()
 
 mmCityList::~mmCityList()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmCityList::GetCityID(char* arg1)
@@ -77,5 +79,3 @@ void mmCityList::SetCurrentCity(i32 arg1)
 {
     return stub<thiscall_t<void, mmCityList*, i32>>(0xCBDF0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmcityinfo_citylist);

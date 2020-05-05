@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/bitmap.h"
-
 /*
     agid3d:ddbitmap
 
@@ -34,6 +32,8 @@
     0x533D90 | public: virtual void * __thiscall agiDDBitmap::`vector deleting destructor'(unsigned int) | ??_EagiDDBitmap@@UAEPAXI@Z
     0x6211B0 | const agiDDBitmap::`vftable' | ??_7agiDDBitmap@@6B@
 */
+
+#include "agi/bitmap.h"
 
 class agiDDBitmap : public agiBitmap
 {

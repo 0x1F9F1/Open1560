@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_dlg_msg);
+
 #include "dlg_msg.h"
 
 Dialog_Message::Dialog_Message(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 Dialog_Message::~Dialog_Message()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void Dialog_Message::Init(i32 arg1, char* arg2, char* arg3)
@@ -37,5 +39,3 @@ void Dialog_Message::PreSetup()
 {
     return stub<thiscall_t<void, Dialog_Message*>>(0x9F470_Offset, this);
 }
-
-define_dummy_symbol(mmui_dlg_msg);

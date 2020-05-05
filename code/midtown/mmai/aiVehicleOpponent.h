@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "aiVehicle.h"
-
 /*
     mmai:aiVehicleOpponent
 
@@ -49,6 +47,8 @@
     0x61B6F8 | const aiVehicleOpponent::`vftable' | ??_7aiVehicleOpponent@@6B@
     0x6A7A58 | class MetaClass aiVehicleOpponentMetaClass | ?aiVehicleOpponentMetaClass@@3VMetaClass@@A
 */
+
+#include "aiVehicle.h"
 
 class aiVehicleOpponent : public aiVehicle
 {

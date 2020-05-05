@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_dof);
+
 #include "dof.h"
 
 asDofCS::asDofCS()
@@ -25,7 +27,7 @@ asDofCS::asDofCS()
 
 asDofCS::~asDofCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asDofCS::operator=(class asDofCS const& arg1)
@@ -72,5 +74,3 @@ void asDofCS::ModeCB()
 {
     return stub<thiscall_t<void, asDofCS*>>(0x12B5E0_Offset, this);
 }
-
-define_dummy_symbol(arts7_dof);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:dlg_serial
 
@@ -33,6 +31,8 @@
     0x4A0200 | public: virtual void * __thiscall Dialog_Serial::`scalar deleting destructor'(unsigned int) | ??_GDialog_Serial@@UAEPAXI@Z
     0x61D768 | const Dialog_Serial::`vftable' | ??_7Dialog_Serial@@6B@
 */
+
+#include "pu_menu.h"
 
 class Dialog_Serial : public PUMenuBase
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiVehicleAmbient);
+
 #include "aiVehicleAmbient.h"
 
 aiVehicleAmbient::aiVehicleAmbient()
@@ -189,5 +191,3 @@ void aiVehicleAmbient::UpdateDSound3DAudio()
 {
     return stub<thiscall_t<void, aiVehicleAmbient*>>(0x50DC0_Offset, this);
 }
-
-define_dummy_symbol(mmai_aiVehicleAmbient);

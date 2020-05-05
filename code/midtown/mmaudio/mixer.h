@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "data7/base.h"
-#include "eventq7/winevent.h"
-
 /*
     mmaudio:mixer
 
@@ -50,6 +47,9 @@
     0x61FECC | const MixerCTL::`vftable'{for `Dispatchable'} | ??_7MixerCTL@@6BDispatchable@@@
 */
 
+#include "data7/base.h"
+#include "eventq7/winevent.h"
+
 struct VolumeDW
 {
 public:
@@ -66,8 +66,8 @@ public:
 check_size(VolumeDW, 0x0);
 
 class MixerCTL
-    : public Dispatchable
-    , public Base
+    : public Base
+    , public Dispatchable /* Warning: Unordered Multiple Inheritance */
 {
     // const MixerCTL::`vftable'{for `Base'} @ 0x61FEB8
     // const MixerCTL::`vftable'{for `Dispatchable'} @ 0x61FECC

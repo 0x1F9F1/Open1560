@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "data7/base.h"
-
 /*
     mmcityinfo:infobase
 
@@ -32,6 +30,8 @@
     0x4D15E0 | public: virtual void * __thiscall mmInfoBase::`vector deleting destructor'(unsigned int) | ??_EmmInfoBase@@UAEPAXI@Z
     0x7085C8 | class MetaClass mmInfoBaseMetaClass | ?mmInfoBaseMetaClass@@3VMetaClass@@A
 */
+
+#include "data7/base.h"
 
 class mmInfoBase : public Base
 {

@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_d3drsys);
+
 #include "d3drsys.h"
 
 agiD3DRasterizer::agiD3DRasterizer(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiD3DRasterizer::~agiD3DRasterizer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiD3DRasterizer::BeginGfx()
@@ -101,5 +103,3 @@ void d3d_state_init()
 {
     return stub<cdecl_t<void>>(0x12E5C0_Offset);
 }
-
-define_dummy_symbol(agid3d_d3drsys);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_str);
+
 #include "str.h"
 
 string::string()
@@ -25,12 +27,12 @@ string::string()
 
 string::string(char const* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 string::string(class string const& arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 string::~string()
@@ -190,5 +192,3 @@ void StringArray::NewTable(i32 arg1)
 {
     return stub<thiscall_t<void, StringArray*, i32>>(0x17AF30_Offset, this, arg1);
 }
-
-define_dummy_symbol(data7_str);

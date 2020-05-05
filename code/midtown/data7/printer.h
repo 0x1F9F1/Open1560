@@ -95,7 +95,7 @@ inline extern_var(0x261AA8_Offset, i32, EnableDebugOutput);
 inline extern_var(0x261AA4_Offset, i32, EnableNormalOutput);
 
 // 0x90A688 | ?MessageFifo@@3PAY0FA@DA
-inline extern_var(0x50A688_Offset, char [10][80], MessageFifo);
+inline extern_var(0x50A688_Offset, char[10][80], MessageFifo);
 
 // 0x90A680 | ?MessageFirst@@3HA
 inline extern_var(0x50A680_Offset, i32, MessageFirst);

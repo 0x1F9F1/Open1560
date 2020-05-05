@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_comprrec);
+
 #include "comprrec.h"
 
 mmCompRaceRecord::mmCompRaceRecord()
@@ -25,7 +27,7 @@ mmCompRaceRecord::mmCompRaceRecord()
 
 mmCompRaceRecord::~mmCompRaceRecord()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCompRaceRecord::Cull()
@@ -85,7 +87,7 @@ void mmCompRaceRecord::Update()
 
 mmCompBase::~mmCompBase()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCompBase::DisableBlt()
@@ -148,5 +150,3 @@ void mmCompBase::Update()
 {
     return stub<thiscall_t<void, mmCompBase*>>(0xBF2E0_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_comprrec);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmeffects_mousesteerbar);
+
 #include "mousesteerbar.h"
 
 mmMouseSteerBar::mmMouseSteerBar()
@@ -25,7 +27,7 @@ mmMouseSteerBar::mmMouseSteerBar()
 
 mmMouseSteerBar::~mmMouseSteerBar()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmMouseSteerBar::AddWidgets(class Bank* arg1)
@@ -47,5 +49,3 @@ void mmMouseSteerBar::Update()
 {
     return stub<thiscall_t<void, mmMouseSteerBar*>>(0x102A00_Offset, this);
 }
-
-define_dummy_symbol(mmeffects_mousesteerbar);

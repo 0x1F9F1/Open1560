@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:pu_results
 
@@ -41,6 +39,8 @@
     0x4A8C70 | public: virtual void * __thiscall PUResults::`scalar deleting destructor'(unsigned int) | ??_GPUResults@@UAEPAXI@Z
     0x61DDA8 | const PUResults::`vftable' | ??_7PUResults@@6B@
 */
+
+#include "pu_menu.h"
 
 class PUResults : public PUMenuBase
 {

@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_pu_results);
+
 #include "pu_results.h"
 
 PUResults::PUResults(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 PUResults::~PUResults()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void PUResults::AddName(i32 arg1, char* arg2, f32 arg3)
@@ -87,5 +89,3 @@ void PUResults::SetMessage(struct LocString* arg1)
 {
     return stub<thiscall_t<void, PUResults*, struct LocString*>>(0xA8C50_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmui_pu_results);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "gamemulti.h"
-
 /*
     mmgame:multicr
 
@@ -76,6 +74,8 @@
     0x6A7210 | class MetaClass mmMultiCRMetaClass | ?mmMultiCRMetaClass@@3VMetaClass@@A
     0x6A7240 | int TwoPlayers | ?TwoPlayers@@3HA
 */
+
+#include "gamemulti.h"
 
 class mmMultiCR : public mmGameMulti
 {

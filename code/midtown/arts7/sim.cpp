@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_sim);
+
 #include "sim.h"
 
 asSimulation::asSimulation()
@@ -25,7 +27,7 @@ asSimulation::asSimulation()
 
 asSimulation::~asSimulation()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asSimulation::AddWidgets(class Bank* arg1)
@@ -193,5 +195,3 @@ void artsReplayChannel::DoRecord(class Stream* arg1)
 {
     return stub<thiscall_t<void, artsReplayChannel*, class Stream*>>(0x1236D0_Offset, this, arg1);
 }
-
-define_dummy_symbol(arts7_sim);

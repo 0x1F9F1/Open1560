@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_vehicle);
+
 #include "vehicle.h"
 
 Vehicle::Vehicle(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 Vehicle::~Vehicle()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void Vehicle::PostSetup()
@@ -47,5 +49,3 @@ void Vehicle::SetSubMenuButtons()
 {
     return stub<thiscall_t<void, Vehicle*>>(0xA52E0_Offset, this);
 }
-
-define_dummy_symbol(mmui_vehicle);

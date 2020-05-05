@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_toggle);
+
 #include "toggle.h"
 
 mmToggle::mmToggle()
@@ -25,7 +27,7 @@ mmToggle::mmToggle()
 
 mmToggle::~mmToggle()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmToggle::Cull()
@@ -63,5 +65,3 @@ void mmToggle::SetSize(f32 arg1, f32 arg2)
 {
     return stub<thiscall_t<void, mmToggle*, f32, f32>>(0xC04E0_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mmwidget_toggle);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_vehinfo);
+
 #include "vehinfo.h"
 
 mmVehInfo::mmVehInfo()
@@ -25,7 +27,7 @@ mmVehInfo::mmVehInfo()
 
 mmVehInfo::~mmVehInfo()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmVehInfo::HasColorVariations()
@@ -47,5 +49,3 @@ void mmVehInfo::Print()
 {
     return stub<thiscall_t<void, mmVehInfo*>>(0xD3C00_Offset, this);
 }
-
-define_dummy_symbol(mmcityinfo_vehinfo);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_list);
+
 #include "list.h"
 
 List::~List()
@@ -42,5 +44,3 @@ void List::Kill()
 {
     return stub<thiscall_t<void, List*>>(0x17C290_Offset, this);
 }
-
-define_dummy_symbol(data7_list);

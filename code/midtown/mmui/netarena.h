@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmwidget/menu.h"
-
 /*
     mmui:netarena
 
@@ -48,6 +46,8 @@
     0x4A2B30 | public: virtual void * __thiscall NetArena::`vector deleting destructor'(unsigned int) | ??_ENetArena@@UAEPAXI@Z
     0x61D8E0 | const NetArena::`vftable' | ??_7NetArena@@6B@
 */
+
+#include "mmwidget/menu.h"
 
 class NetArena : public UIMenu
 {

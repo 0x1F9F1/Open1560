@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_netarena);
+
 #include "netarena.h"
 
 NetArena::NetArena(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 NetArena::~NetArena()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void NetArena::AddGameChatLine(char* arg1)
@@ -124,5 +126,3 @@ void NetArena::SetReady(u32 arg1, i32 arg2)
 {
     return stub<thiscall_t<void, NetArena*, u32, i32>>(0xA2620_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mmui_netarena);

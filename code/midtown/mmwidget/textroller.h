@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:textroller
 
@@ -40,6 +38,8 @@
     0x4BAB80 | public: virtual void * __thiscall UITextRoller::`scalar deleting destructor'(unsigned int) | ??_GUITextRoller@@UAEPAXI@Z
     0x61EC88 | const UITextRoller::`vftable' | ??_7UITextRoller@@6B@
 */
+
+#include "textfield.h"
 
 class UITextRoller : public uiWidget
 {

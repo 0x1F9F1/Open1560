@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_pgraph);
+
 #include "pgraph.h"
 
 asPerfGraph::asPerfGraph()
@@ -47,5 +49,3 @@ void asPerfGraph::Update()
 {
     return stub<thiscall_t<void, asPerfGraph*>>(0x12AA30_Offset, this);
 }
-
-define_dummy_symbol(arts7_pgraph);

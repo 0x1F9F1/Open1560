@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/mtldef.h"
-
 /*
     agid3d:d3dmtldef
 
@@ -33,6 +31,8 @@
     0x533770 | public: virtual void * __thiscall agiD3DMtlDef::`scalar deleting destructor'(unsigned int) | ??_GagiD3DMtlDef@@UAEPAXI@Z
     0x621170 | const agiD3DMtlDef::`vftable' | ??_7agiD3DMtlDef@@6B@
 */
+
+#include "agi/mtldef.h"
 
 class agiD3DMtlDef : public agiMtlDef
 {

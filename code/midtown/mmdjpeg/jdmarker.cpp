@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jdmarker);
+
 #include "jdmarker.h"
 
 void jinit_marker_reader(struct jpeg_decompress_struct* arg1)
@@ -34,5 +36,3 @@ void jpeg_set_marker_processor(
     return stub<cdecl_t<void, struct jpeg_decompress_struct*, i32, u8 (*)(struct jpeg_decompress_struct*)>>(
         0x17FCB0_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(mmdjpeg_jdmarker);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_inst);
+
 #include "inst.h"
 
 mmInstance::mmInstance()
@@ -25,7 +27,7 @@ mmInstance::mmInstance()
 
 mmInstance::~mmInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall mmInstance::FromMatrix(class Matrix34 const& arg1)
@@ -173,7 +175,7 @@ mmShearInstance::mmShearInstance()
 
 mmShearInstance::~mmShearInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall mmShearInstance::Draw(i32 arg1)
@@ -214,7 +216,7 @@ mmBuildingInstance::mmBuildingInstance()
 
 mmBuildingInstance::~mmBuildingInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall mmBuildingInstance::Draw(i32 arg1)
@@ -255,7 +257,7 @@ i32 GetPolyInfo(class agiMeshSet* arg1)
 
 char* formatf(char const* arg1, ...)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 mmYInstance::mmYInstance()
@@ -265,7 +267,7 @@ mmYInstance::mmYInstance()
 
 mmYInstance::~mmYInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmYInstance::AddWidgets(class Bank* arg1)
@@ -310,7 +312,7 @@ mmMatrixInstance::mmMatrixInstance()
 
 mmMatrixInstance::~mmMatrixInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmMatrixInstance::Hit(class mmInstance* arg1)
@@ -367,7 +369,7 @@ mmStaticInstance::mmStaticInstance()
 
 mmStaticInstance::~mmStaticInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmStaticInstance::AddWidgets(class Bank* arg1)
@@ -413,7 +415,7 @@ mmFacadeInstance::mmFacadeInstance()
 
 mmFacadeInstance::~mmFacadeInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall mmFacadeInstance::Draw(i32 arg1)
@@ -451,7 +453,7 @@ void mmFacadeInstance::DeclareFields()
 
 mmFacadeQuad::mmFacadeQuad(class agiMeshSet* arg1, f32 arg2, f32 arg3)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3);
 }
 
 void mmFacadeQuad::DrawLit(void (*arg1)(u8*, u32*, u32*, class agiMeshSet*), class agiMeshSet* arg2)
@@ -469,5 +471,3 @@ i32 mmFacadeQuad::Valid(class agiMeshSet* arg1)
 {
     return stub<cdecl_t<i32, class agiMeshSet*>>(0x93820_Offset, arg1);
 }
-
-define_dummy_symbol(mmcity_inst);

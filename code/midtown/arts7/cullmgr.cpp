@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_cullmgr);
+
 #include "cullmgr.h"
 
 asCullManager::asCullManager(i32 arg1, i32 arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 asCullManager::~asCullManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asCullManager::DeclareCamera(class asCamera* arg1)
@@ -96,7 +98,5 @@ void asCullManager::PrintStats()
 
 void Statsf(char const* arg1, ...)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
-
-define_dummy_symbol(arts7_cullmgr);

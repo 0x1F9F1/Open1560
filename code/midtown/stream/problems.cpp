@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(stream_problems);
+
 #include "problems.h"
 
 void DumpProblems()
@@ -37,5 +39,3 @@ problem_t::~problem_t()
 {
     unimplemented();
 }
-
-define_dummy_symbol(stream_problems);

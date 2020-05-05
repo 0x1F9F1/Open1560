@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcamcs:basecamcs
 
@@ -36,6 +34,8 @@
     0x620488 | const BaseCamCS::`vftable' | ??_7BaseCamCS@@6B@
     0x7194F8 | class MetaClass BaseCamCSMetaClass | ?BaseCamCSMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class BaseCamCS : public asNode
 {

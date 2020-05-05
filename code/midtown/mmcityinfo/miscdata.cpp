@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_miscdata);
+
 #include "miscdata.h"
 
 mmMiscData::mmMiscData()
@@ -25,7 +27,7 @@ mmMiscData::mmMiscData()
 
 mmMiscData::~mmMiscData()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmMiscData::CheckBlitz(char* arg1, f32 arg2, i32 arg3, char* arg4, i32 arg5, i32 arg6)
@@ -105,5 +107,3 @@ void mmMiscData::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xCD6E0_Offset);
 }
-
-define_dummy_symbol(mmcityinfo_miscdata);

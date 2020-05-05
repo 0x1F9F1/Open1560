@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:dropdown
 
@@ -40,6 +38,8 @@
     0x61F2B8 | const mmDropDown::`vftable' | ??_7mmDropDown@@6B@
     0x705D40 | class MetaClass mmDropDownMetaClass | ?mmDropDownMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmDropDown : public asNode
 {

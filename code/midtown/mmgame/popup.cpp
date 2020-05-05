@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_popup);
+
 #include "popup.h"
 
 mmPopup::mmPopup(class mmGame* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5);
 }
 
 mmPopup::~mmPopup()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPopup::ChatCB()
@@ -107,5 +109,3 @@ void mmPopup::Update()
 {
     return stub<thiscall_t<void, mmPopup*>>(0x27680_Offset, this);
 }
-
-define_dummy_symbol(mmgame_popup);

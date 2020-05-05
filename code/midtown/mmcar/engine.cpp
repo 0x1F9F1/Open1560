@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_engine);
+
 #include "engine.h"
 
 mmEngine::mmEngine()
@@ -25,7 +27,7 @@ mmEngine::mmEngine()
 
 mmEngine::~mmEngine()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmEngine::AddWidgets(class Bank* arg1)
@@ -92,5 +94,3 @@ void mmEngine::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x7CFC0_Offset);
 }
-
-define_dummy_symbol(mmcar_engine);

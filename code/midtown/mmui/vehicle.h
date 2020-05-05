@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "vselect.h"
-
 /*
     mmui:vehicle
 
@@ -33,6 +31,8 @@
     0x4A5320 | public: virtual void * __thiscall Vehicle::`vector deleting destructor'(unsigned int) | ??_EVehicle@@UAEPAXI@Z
     0x61DB70 | const Vehicle::`vftable' | ??_7Vehicle@@6B@
 */
+
+#include "vselect.h"
 
 class Vehicle : public VehicleSelectBase
 {

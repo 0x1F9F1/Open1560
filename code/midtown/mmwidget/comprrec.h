@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:comprrec
 
@@ -52,6 +50,8 @@
     0x61E680 | const mmCompRaceRecord::`vftable' | ??_7mmCompRaceRecord@@6B@
     0x61E6E8 | const mmCompBase::`vftable' | ??_7mmCompBase@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmCompRaceRecord : public mmCompBase
 {

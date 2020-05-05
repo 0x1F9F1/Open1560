@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_netselect);
+
 #include "netselect.h"
 
 NetSelectMenu::NetSelectMenu(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 NetSelectMenu::~NetSelectMenu()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void NetSelectMenu::AddModem(char* arg1, i32 arg2)
@@ -203,5 +205,3 @@ void NetSelectMenu::WidgetSwitch(i32 arg1, i32 arg2)
 {
     return stub<thiscall_t<void, NetSelectMenu*, i32, i32>>(0xA4940_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mmui_netselect);

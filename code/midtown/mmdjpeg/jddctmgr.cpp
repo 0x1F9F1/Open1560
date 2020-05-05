@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jddctmgr);
+
 #include "jddctmgr.h"
 
 void jinit_inverse_dct(struct jpeg_decompress_struct* arg1)
 {
     return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x1825E0_Offset, arg1);
 }
-
-define_dummy_symbol(mmdjpeg_jddctmgr);

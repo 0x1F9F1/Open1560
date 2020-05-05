@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(pcwindis_dxmovie);
+
 #include "dxmovie.h"
 
 void dxiPlayMovie(char* arg1)
 {
     return stub<cdecl_t<void, char*>>(0x175100_Offset, arg1);
 }
-
-define_dummy_symbol(pcwindis_dxmovie);

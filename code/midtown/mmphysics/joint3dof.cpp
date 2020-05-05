@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmphysics_joint3dof);
+
 #include "joint3dof.h"
 
 Joint3Dof::Joint3Dof()
@@ -25,7 +27,7 @@ Joint3Dof::Joint3Dof()
 
 Joint3Dof::~Joint3Dof()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void Joint3Dof::GetCMatrix(
@@ -180,5 +182,3 @@ void CrossProdMatrix(class Matrix34* arg1, class Vector3 const& arg2)
 {
     return stub<cdecl_t<void, class Matrix34*, class Vector3 const&>>(0xDECD0_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmphysics_joint3dof);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_cmodelx);
+
 #include "cmodelx.h"
 
 agiColorModelRGB555::agiColorModelRGB555()
@@ -25,7 +27,7 @@ agiColorModelRGB555::agiColorModelRGB555()
 
 agiColorModelRGB555::~agiColorModelRGB555()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModelRGB555::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -63,7 +65,7 @@ agiColorModelRGB565::agiColorModelRGB565()
 
 agiColorModelRGB565::~agiColorModelRGB565()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModelRGB565::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -101,7 +103,7 @@ agiColorModelRGB555_Rev::agiColorModelRGB555_Rev()
 
 agiColorModelRGB555_Rev::~agiColorModelRGB555_Rev()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModelRGB555_Rev::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -139,7 +141,7 @@ agiColorModelRGB565_Rev::agiColorModelRGB565_Rev()
 
 agiColorModelRGB565_Rev::~agiColorModelRGB565_Rev()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModelRGB565_Rev::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -177,7 +179,7 @@ agiColorModelRGB888::agiColorModelRGB888()
 
 agiColorModelRGB888::~agiColorModelRGB888()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModelRGB888::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -215,7 +217,7 @@ agiColorModelRGB888_Rev::agiColorModelRGB888_Rev()
 
 agiColorModelRGB888_Rev::~agiColorModelRGB888_Rev()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModelRGB888_Rev::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -253,7 +255,7 @@ agiColorModelRGBA5551::agiColorModelRGBA5551()
 
 agiColorModelRGBA5551::~agiColorModelRGBA5551()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModelRGBA5551::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -291,7 +293,7 @@ agiColorModelRGBA4444::agiColorModelRGBA4444()
 
 agiColorModelRGBA4444::~agiColorModelRGBA4444()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModelRGBA4444::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -329,7 +331,7 @@ agiColorModelARGB::agiColorModelARGB()
 
 agiColorModelARGB::~agiColorModelARGB()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModelARGB::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -366,7 +368,7 @@ agiColorModelABGR::agiColorModelABGR()
 
 agiColorModelABGR::~agiColorModelABGR()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModelABGR::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -395,5 +397,3 @@ void agiColorModelABGR::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3,
     return stub<thiscall_t<void, agiColorModelABGR*, class agiSurfaceDesc*, i32, i32, u32>>(
         0x15D740_Offset, this, arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(agi_cmodelx);

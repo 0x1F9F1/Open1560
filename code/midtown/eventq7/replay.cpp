@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(eventq7_replay);
+
 #include "replay.h"
 
 eqReplayChannel::~eqReplayChannel()
@@ -55,7 +57,7 @@ void eqReplayChannel::ShutdownPlayback()
 
 eqReplayChannel::eqReplayChannel(u32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void eqReplay::DoPlayback()
@@ -87,5 +89,3 @@ void eqReplay::ShutdownRecord()
 {
     return stub<cdecl_t<void>>(0x164800_Offset);
 }
-
-define_dummy_symbol(eventq7_replay);

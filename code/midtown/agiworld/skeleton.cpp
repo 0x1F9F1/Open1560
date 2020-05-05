@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agiworld_skeleton);
+
 #include "skeleton.h"
 
 bnSkeleton::bnSkeleton()
@@ -77,5 +79,3 @@ class bnAnimation* bnAnimation::Lookup(char* arg1)
 {
     return stub<cdecl_t<class bnAnimation*, char*>>(0x1153F0_Offset, arg1);
 }
-
-define_dummy_symbol(agiworld_skeleton);

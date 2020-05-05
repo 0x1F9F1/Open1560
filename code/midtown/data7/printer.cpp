@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_printer);
+
 #include "printer.h"
 
 #include <cstring>
@@ -240,5 +242,3 @@ void Quit(char const* arg1)
 {
     return stub<cdecl_t<void, char const*>>(0x176DD0_Offset, arg1);
 }
-
-define_dummy_symbol(data7_printer);

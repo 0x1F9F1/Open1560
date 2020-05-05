@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_bitmap);
+
 #include "bitmap.h"
 
 agiBitmap::agiBitmap(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiBitmap::UpdateFlags()
@@ -45,7 +47,5 @@ void agiBitmap::SetTransparency(i32 arg1)
 
 agiBitmap::~agiBitmap()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
-
-define_dummy_symbol(agi_bitmap);

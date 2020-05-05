@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_ttip);
+
 #include "ttip.h"
 
 mmToolTip::mmToolTip()
@@ -25,7 +27,7 @@ mmToolTip::mmToolTip()
 
 mmToolTip::~mmToolTip()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmToolTip::Init(class UIMenu* arg1, struct LocString* arg2)
@@ -47,5 +49,3 @@ void mmToolTip::Update()
 {
     return stub<thiscall_t<void, mmToolTip*>>(0xBF290_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_ttip);

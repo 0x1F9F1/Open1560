@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:icons
 
@@ -33,6 +31,8 @@
     0x426B70 | public: virtual void * __thiscall mmIcons::`scalar deleting destructor'(unsigned int) | ??_GmmIcons@@UAEPAXI@Z
     0x61AD28 | const mmIcons::`vftable' | ??_7mmIcons@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmIcons : public asNode
 {

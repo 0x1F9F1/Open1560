@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agirend_bilmodel);
+
 #include "bilmodel.h"
 
 agiBILightModel::agiBILightModel(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiBILightModel::~agiBILightModel()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiBILightModel::Activate()
@@ -42,5 +44,3 @@ void agiBILightModel::EndGfx()
 {
     return stub<thiscall_t<void, agiBILightModel*>>(0x155310_Offset, this);
 }
-
-define_dummy_symbol(agirend_bilmodel);

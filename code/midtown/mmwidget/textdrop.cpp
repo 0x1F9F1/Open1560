@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_textdrop);
+
 #include "textdrop.h"
 
 UITextDropdown::UITextDropdown()
@@ -25,7 +27,7 @@ UITextDropdown::UITextDropdown()
 
 UITextDropdown::~UITextDropdown()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UITextDropdown::Action(union eqEvent arg1)
@@ -110,5 +112,3 @@ void UITextDropdown::Update()
 {
     return stub<thiscall_t<void, UITextDropdown*>>(0xB3490_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_textdrop);

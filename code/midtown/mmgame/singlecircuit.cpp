@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_singlecircuit);
+
 #include "singlecircuit.h"
 
 mmSingleCircuit::mmSingleCircuit()
@@ -25,7 +27,7 @@ mmSingleCircuit::mmSingleCircuit()
 
 mmSingleCircuit::~mmSingleCircuit()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmSingleCircuit::AddWidgets(class Bank* arg1)
@@ -142,5 +144,3 @@ i32 mmSingleCircuit::RegisterLap()
 {
     return stub<thiscall_t<i32, mmSingleCircuit*>>(0x16170_Offset, this);
 }
-
-define_dummy_symbol(mmgame_singlecircuit);

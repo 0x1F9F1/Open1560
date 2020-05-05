@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_opponentimpactaudio);
+
 #include "opponentimpactaudio.h"
 
 mmOpponentImpactAudio::mmOpponentImpactAudio()
@@ -58,5 +60,3 @@ void mmOpponentImpactAudio::SetSecondsElapsed(f32 arg1)
 {
     return stub<cdecl_t<void, f32>>(0x7A7C0_Offset, arg1);
 }
-
-define_dummy_symbol(mmcar_opponentimpactaudio);

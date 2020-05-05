@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_multiblitz);
+
 #include "multiblitz.h"
 
 mmMultiBlitz::mmMultiBlitz()
@@ -25,7 +27,7 @@ mmMultiBlitz::mmMultiBlitz()
 
 mmMultiBlitz::~mmMultiBlitz()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmMultiBlitz::GameMessage(struct NETGAME_MSG* arg1)
@@ -102,5 +104,3 @@ void mmMultiBlitz::SendPlayerFinish()
 {
     return stub<thiscall_t<void, mmMultiBlitz*>>(0x1A420_Offset, this);
 }
-
-define_dummy_symbol(mmgame_multiblitz);

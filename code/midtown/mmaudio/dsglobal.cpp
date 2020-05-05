@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_dsglobal);
+
 #include "dsglobal.h"
 
 DSGlobal::DSGlobal()
@@ -229,5 +231,3 @@ void UpperCase(char* arg1)
 {
     return stub<cdecl_t<void, char*>>(0xEF800_Offset, arg1);
 }
-
-define_dummy_symbol(mmaudio_dsglobal);

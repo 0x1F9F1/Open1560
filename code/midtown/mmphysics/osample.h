@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmphysics:osample
 
@@ -34,6 +32,8 @@
     0x719160 | class MetaClass asOverSampleMetaClass | ?asOverSampleMetaClass@@3VMetaClass@@A
     0x719188 | int BenchOSample | ?BenchOSample@@3HA
 */
+
+#include "arts7/node.h"
 
 class asOverSample : public asNode
 {

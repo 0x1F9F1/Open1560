@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:ttip
 
@@ -33,6 +31,8 @@
     0x4BF2A0 | public: virtual void * __thiscall mmToolTip::`scalar deleting destructor'(unsigned int) | ??_GmmToolTip@@UAEPAXI@Z
     0x61F190 | const mmToolTip::`vftable' | ??_7mmToolTip@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmToolTip : public asNode
 {

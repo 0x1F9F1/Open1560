@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdyna_bndtmpl2);
+
 #include "bndtmpl2.h"
 
 bool EdgeInList(i32 arg1, i32 arg2, i32 arg3, i32* arg4, i32* arg5)
 {
     return stub<cdecl_t<bool, i32, i32, i32, i32*, i32*>>(0x117620_Offset, arg1, arg2, arg3, arg4, arg5);
 }
-
-define_dummy_symbol(mmdyna_bndtmpl2);

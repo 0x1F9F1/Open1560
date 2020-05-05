@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_d3dview);
+
 #include "d3dview.h"
 
 agiD3DViewport::agiD3DViewport(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiD3DViewport::~agiD3DViewport()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiD3DViewport::Activate()
@@ -52,5 +54,3 @@ void agiD3DViewport::SetBackground(class Vector3& arg1)
 {
     return stub<thiscall_t<void, agiD3DViewport*, class Vector3&>>(0x133410_Offset, this, arg1);
 }
-
-define_dummy_symbol(agid3d_d3dview);

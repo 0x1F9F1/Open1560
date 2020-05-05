@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(memory_stack);
+
 #include "stack.h"
 
 void DebugLog(i32 arg1, void* arg2, i32 arg3)
@@ -57,5 +59,3 @@ void StackTraceback(i32 arg1)
 {
     return stub<cdecl_t<void, i32>>(0x120590_Offset, arg1);
 }
-
-define_dummy_symbol(memory_stack);

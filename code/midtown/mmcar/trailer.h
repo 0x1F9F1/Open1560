@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "mmai/aiVehicleMGR.h"
-#include "mmcity/inst.h"
-
 /*
     mmcar:trailer
 
@@ -60,6 +57,9 @@
     0x61C3E0 | const mmTrailerInstance::`vftable' | ??_7mmTrailerInstance@@6B@
     0x6A7F98 | class MetaClass mmTrailerMetaClass | ?mmTrailerMetaClass@@3VMetaClass@@A
 */
+
+#include "mmai/aiVehicleMGR.h"
+#include "mmcity/inst.h"
 
 class mmTrailer : public mmPhysEntity
 {

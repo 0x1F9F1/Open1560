@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "comprrec.h"
-
 /*
     mmwidget:compdrec
 
@@ -40,6 +38,8 @@
     0x4B6090 | public: virtual void __thiscall mmCompDRecord::DisableBlt(void) | ?DisableBlt@mmCompDRecord@@UAEXXZ
     0x61E800 | const mmCompDRecord::`vftable' | ??_7mmCompDRecord@@6B@
 */
+
+#include "comprrec.h"
 
 class mmCompDRecord : public mmCompBase
 {

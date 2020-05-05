@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "opponentcaraudio.h"
-
 /*
     mmcar:policecaraudio
 
@@ -43,6 +41,8 @@
     0x61C4A0 | const mmPoliceCarAudio::`vftable' | ??_7mmPoliceCarAudio@@6B@
     0x6A7FE8 | private: static short mmPoliceCarAudio::s_iPlayingFluctuator | ?s_iPlayingFluctuator@mmPoliceCarAudio@@0FA
 */
+
+#include "opponentcaraudio.h"
 
 class mmPoliceCarAudio : public mmOpponentCarAudio
 {

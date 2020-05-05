@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_trackcamcs);
+
 #include "trackcamcs.h"
 
 TrackCamCS::TrackCamCS()
@@ -25,7 +27,7 @@ TrackCamCS::TrackCamCS()
 
 TrackCamCS::~TrackCamCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void TrackCamCS::AddWidgets(class Bank* arg1)
@@ -117,5 +119,3 @@ void TrackCamCS::UpdateTrack()
 {
     return stub<thiscall_t<void, TrackCamCS*>>(0xF7510_Offset, this);
 }
-
-define_dummy_symbol(mmcamcs_trackcamcs);

@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-#include "mmcity/inst.h"
-
 /*
     mmcar:skid
 
@@ -54,6 +51,9 @@
     0x6A7EA0 | class MetaClass mmSkidMetaClass | ?mmSkidMetaClass@@3VMetaClass@@A
     0x6A7EC8 | class MetaClass mmSkidManagerMetaClass | ?mmSkidManagerMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
+#include "mmcity/inst.h"
 
 class mmSkid : public mmInstance
 {

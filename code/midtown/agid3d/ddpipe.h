@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/pipeline.h"
-
 /*
     agid3d:ddpipe
 
@@ -44,6 +42,8 @@
     0x5332A0 | public: virtual void * __thiscall agiDDPipeline::`scalar deleting destructor'(unsigned int) | ??_GagiDDPipeline@@UAEPAXI@Z
     0x6210C0 | const agiDDPipeline::`vftable' | ??_7agiDDPipeline@@6B@
 */
+
+#include "agi/pipeline.h"
 
 class agiDDPipeline : public agiPipeline
 {

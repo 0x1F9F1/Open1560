@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_streamobj);
+
 #include "streamobj.h"
 
 StreamObj::StreamObj()
@@ -163,5 +165,3 @@ u32 HandleNotifications(void* arg1)
 {
     return stub<cdecl_t<u32, void*>>(0xF5B80_Offset, arg1);
 }
-
-define_dummy_symbol(mmaudio_streamobj);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "cmodel.h"
-
 /*
     agi:cmodel8
 
@@ -34,6 +32,8 @@
     0x55C040 | public: virtual void * __thiscall agiColorModel8::`vector deleting destructor'(unsigned int) | ??_EagiColorModel8@@UAEPAXI@Z
     0x621780 | const agiColorModel8::`vftable' | ??_7agiColorModel8@@6B@
 */
+
+#include "cmodel.h"
 
 class agiColorModel8 : public agiColorModel
 {

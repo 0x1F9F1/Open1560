@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "effect.h"
-
 /*
     mminput:road
 
@@ -29,6 +27,8 @@
     0x4E79E0 | public: virtual int __thiscall mmRoadFF::Play(void) | ?Play@mmRoadFF@@UAEHXZ
     0x4E7A50 | public: virtual int __thiscall mmRoadFF::Stop(void) | ?Stop@mmRoadFF@@UAEHXZ
 */
+
+#include "effect.h"
 
 class mmRoadFF : public mmEffectFF
 {

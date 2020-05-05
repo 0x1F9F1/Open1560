@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "menu.h"
-
 /*
     mmwidget:navbar
 
@@ -40,6 +38,8 @@
     0x4B2150 | public: virtual void __thiscall uiNavBar::BackUp(void) | ?BackUp@uiNavBar@@UAEXXZ
     0x61E3B8 | const uiNavBar::`vftable' | ??_7uiNavBar@@6B@
 */
+
+#include "menu.h"
 
 class uiNavBar : public UIMenu
 {

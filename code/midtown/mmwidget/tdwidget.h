@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:tdwidget
 
@@ -47,6 +45,8 @@
     0x61F0F8 | const TextDropWidget::`vftable' | ??_7TextDropWidget@@6B@
     0x705C78 | class MetaClass TextDropWidgetMetaClass | ?TextDropWidgetMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class TextDropWidget : public asNode
 {

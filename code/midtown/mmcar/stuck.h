@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:stuck
 
@@ -34,6 +32,8 @@
     0x47C900 | public: virtual void * __thiscall mmStuck::`scalar deleting destructor'(unsigned int) | ??_GmmStuck@@UAEPAXI@Z
     0x61C540 | const mmStuck::`vftable' | ??_7mmStuck@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmStuck : public asNode
 {

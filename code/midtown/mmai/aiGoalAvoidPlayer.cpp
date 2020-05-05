@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiGoalAvoidPlayer);
+
 #include "aiGoalAvoidPlayer.h"
 
 aiGoalAvoidPlayer::aiGoalAvoidPlayer(class aiRailSet* arg1, class aiVehicleAmbient* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 aiGoalAvoidPlayer::~aiGoalAvoidPlayer()
@@ -62,5 +64,3 @@ void aiGoalAvoidPlayer::AvoidPlayer()
 {
     return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x6A700_Offset, this);
 }
-
-define_dummy_symbol(mmai_aiGoalAvoidPlayer);

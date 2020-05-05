@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agiworld_texsort);
+
 #include "texsort.h"
 
 agiTexSorter::agiTexSorter()
@@ -73,5 +75,3 @@ class agiTexDef* GetPackedTexture(char* arg1, i32 arg2)
 {
     return stub<cdecl_t<class agiTexDef*, char*, i32>>(0x1043E0_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(agiworld_texsort);

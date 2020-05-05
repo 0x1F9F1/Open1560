@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agirend_lighter);
+
 #include "lighter.h"
 
 agiLighter::agiLighter()
@@ -25,7 +27,7 @@ agiLighter::agiLighter()
 
 agiLighter::~agiLighter()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void agiLighter::TransformAll(class Matrix34* arg1, class Vector3* arg2, u32 arg3)
@@ -62,7 +64,7 @@ agiMonoLighter::agiMonoLighter()
 
 agiMonoLighter::~agiMonoLighter()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiMonoLighter::LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3)
@@ -78,7 +80,7 @@ agiRGBLighter::agiRGBLighter()
 
 agiRGBLighter::~agiRGBLighter()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiRGBLighter::LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3)
@@ -86,5 +88,3 @@ u32 agiRGBLighter::LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* 
     return stub<thiscall_t<u32, agiRGBLighter*, u32, struct agiLitVtx*, class Vector3*>>(
         0x151E70_Offset, this, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(agirend_lighter);

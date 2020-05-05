@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:pu_quit
 
@@ -29,6 +27,8 @@
     0x4AAD70 | public: virtual void * __thiscall PUQuit::`scalar deleting destructor'(unsigned int) | ??_GPUQuit@@UAEPAXI@Z
     0x61E148 | const PUQuit::`vftable' | ??_7PUQuit@@6B@
 */
+
+#include "pu_menu.h"
 
 class PUQuit : public PUMenuBase
 {

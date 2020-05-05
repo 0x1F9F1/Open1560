@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamtour_gamerecord);
+
 #include "gamerecord.h"
 
 mmGameRecord::mmGameRecord(f32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 mmGameRecord::~mmGameRecord()
@@ -64,5 +66,3 @@ void mmGameRecord::Sim()
 {
     return stub<thiscall_t<void, mmGameRecord*>>(0xFE140_Offset, this);
 }
-
-define_dummy_symbol(mmcamtour_gamerecord);

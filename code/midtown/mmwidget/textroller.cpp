@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_textroller);
+
 #include "textroller.h"
 
 UITextRoller::UITextRoller()
@@ -25,7 +27,7 @@ UITextRoller::UITextRoller()
 
 UITextRoller::~UITextRoller()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UITextRoller::Action(union eqEvent arg1)
@@ -85,5 +87,3 @@ void UITextRoller::Update()
 {
     return stub<thiscall_t<void, UITextRoller*>>(0xBA5B0_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_textroller);

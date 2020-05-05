@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_road);
+
 #include "road.h"
 
 i32 mmRoadFF::Assign(i32 arg1, i32 arg2)
@@ -42,5 +44,3 @@ i32 mmRoadFF::Stop()
 {
     return stub<thiscall_t<i32, mmRoadFF*>>(0xE7A50_Offset, this);
 }
-
-define_dummy_symbol(mminput_road);

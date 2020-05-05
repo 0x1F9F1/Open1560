@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_positions);
+
 #include "positions.h"
 
 void DumpPositions(char* arg1)
@@ -58,5 +60,3 @@ position_t::~position_t()
 {
     unimplemented();
 }
-
-define_dummy_symbol(mmcity_positions);

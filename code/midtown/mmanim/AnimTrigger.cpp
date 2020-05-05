@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_AnimTrigger);
+
 #include "AnimTrigger.h"
 
 mmAnimTrigger::mmAnimTrigger()
@@ -77,5 +79,3 @@ void mmAnimTrigger::Reset()
 {
     return stub<thiscall_t<void, mmAnimTrigger*>>(0xC43A0_Offset, this);
 }
-
-define_dummy_symbol(mmanim_AnimTrigger);

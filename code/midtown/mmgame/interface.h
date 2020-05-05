@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:interface
 
@@ -104,6 +102,8 @@
     0x6A6E40 | char * szSearchPath | ?szSearchPath@@3PADA
     0x6A6EC8 | char * defcarname | ?defcarname@@3PADA
 */
+
+#include "arts7/node.h"
 
 // 0x406A80 | ?ReportTimeAlloc@@YAXM@Z
 void ReportTimeAlloc(f32 arg1);

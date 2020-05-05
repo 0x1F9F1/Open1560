@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmwidget/menu.h"
-
 /*
     mmui:racebase
 
@@ -47,6 +45,8 @@
     0x641198 | float GoldHPScale | ?GoldHPScale@@3MA
     0x64119C | float GoldDamageScale | ?GoldDamageScale@@3MA
 */
+
+#include "mmwidget/menu.h"
 
 class RaceMenuBase : public UIMenu
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_light);
+
 #include "light.h"
 
 agiLightParameters::agiLightParameters()
@@ -30,12 +32,12 @@ void agiLightParameters::operator=(class agiLightParameters const& arg1)
 
 agiLight::agiLight(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiLight::~agiLight()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiLight::Update()
@@ -57,5 +59,3 @@ i32 agiLight::Init(class agiLightParameters const& arg1)
 {
     return stub<thiscall_t<i32, agiLight*, class agiLightParameters const&>>(0x15BAD0_Offset, this, arg1);
 }
-
-define_dummy_symbol(agi_light);

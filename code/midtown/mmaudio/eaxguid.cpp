@@ -16,6 +16,6 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "eaxguid.h"
-
 define_dummy_symbol(mmaudio_eaxguid);
+
+#include "eaxguid.h"

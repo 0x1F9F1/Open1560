@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "comprrec.h"
-
 /*
     mmwidget:comproster
 
@@ -40,6 +38,8 @@
     0x4B7C40 | public: virtual void * __thiscall mmCompRoster::`vector deleting destructor'(unsigned int) | ??_EmmCompRoster@@UAEPAXI@Z
     0x61E978 | const mmCompRoster::`vftable' | ??_7mmCompRoster@@6B@
 */
+
+#include "comprrec.h"
 
 class mmCompRoster : public mmCompBase
 {

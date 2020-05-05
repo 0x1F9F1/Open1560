@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "refresh.h"
-
 /*
     agi:dlp
 
@@ -39,6 +37,8 @@
     0x6218A8 | const DLP::`vftable' | ??_7DLP@@6B@
     0x907950 | class HashTable DLPHash | ?DLPHash@@3VHashTable@@A
 */
+
+#include "refresh.h"
 
 class DLP : public agiRefreshable
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_quat);
+
 #include "quat.h"
 
 class Quaternion Quaternion::operator~()
@@ -78,5 +80,3 @@ void Quaternion::TrackBall(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
     return stub<thiscall_t<void, Quaternion*, f32, f32, f32, f32, f32>>(
         0x172A30_Offset, this, arg1, arg2, arg3, arg4, arg5);
 }
-
-define_dummy_symbol(vector7_quat);

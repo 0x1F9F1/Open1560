@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_pointcamcs);
+
 #include "pointcamcs.h"
 
 PointCamCS::PointCamCS()
@@ -25,7 +27,7 @@ PointCamCS::PointCamCS()
 
 PointCamCS::~PointCamCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class MetaClass* PointCamCS::GetClass()
@@ -87,5 +89,3 @@ void PointCamCS::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xFA280_Offset);
 }
-
-define_dummy_symbol(mmcamcs_pointcamcs);

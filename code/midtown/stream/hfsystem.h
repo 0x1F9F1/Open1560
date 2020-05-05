@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "fsystem.h"
-
 /*
     stream:hfsystem
 
@@ -43,6 +41,8 @@
     0x907BD0 | char * HierAllowPath | ?HierAllowPath@@3PADA
     0x907BD4 | int LogOpenOn | ?LogOpenOn@@3HA
 */
+
+#include "fsystem.h"
 
 class HierFileSystem : public FileSystem
 {

@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(eventq7_eventq);
+
 #include "eventq.h"
 
 eqEventQ::eqEventQ(i32 arg1, i32 arg2, i32 arg3)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3);
 }
 
 eqEventQ::~eqEventQ()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void eqEventQ::Activate(void* arg1, i32 arg2)
@@ -70,5 +72,3 @@ void eqEventQ::Queue(union eqEvent& arg1)
 {
     return stub<thiscall_t<void, eqEventQ*, union eqEvent&>>(0x163D00_Offset, this, arg1);
 }
-
-define_dummy_symbol(eventq7_eventq);

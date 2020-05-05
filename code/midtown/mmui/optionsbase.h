@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmwidget/menu.h"
-
 /*
     mmui:optionsbase
 
@@ -33,6 +31,8 @@
     0x4AB6F0 | public: virtual void __thiscall OptionsBase::ResetDefaultAction(void) | ?ResetDefaultAction@OptionsBase@@UAEXXZ
     0x61E250 | const OptionsBase::`vftable' | ??_7OptionsBase@@6B@
 */
+
+#include "mmwidget/menu.h"
 
 class OptionsBase : public UIMenu
 {

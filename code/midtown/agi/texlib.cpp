@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_texlib);
+
 #include "texlib.h"
 
 agiLib<class agiTexParameters, class agiTexDef>::agiLib<class agiTexParameters, class agiTexDef>()
@@ -43,5 +45,3 @@ void agiLib<class agiTexParameters, class agiTexDef>::Kill()
 {
     return stub<thiscall_t<void, agiLib<class agiTexParameters, class agiTexDef>*>>(0x15A140_Offset, this);
 }
-
-define_dummy_symbol(agi_texlib);

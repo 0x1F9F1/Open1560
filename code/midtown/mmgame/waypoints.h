@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:waypoints
 
@@ -64,6 +62,8 @@
     0x61AF78 | const mmWaypoints::`vftable' | ??_7mmWaypoints@@6B@
     0x6A7788 | class Vector3 Size | ?Size@@3VVector3@@A
 */
+
+#include "arts7/node.h"
 
 class mmWaypoints : public asNode
 {

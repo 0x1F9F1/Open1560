@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_mmbridgeaudmgr);
+
 #include "mmbridgeaudmgr.h"
 
 mmBridgeAudMgr::mmBridgeAudMgr()
@@ -25,7 +27,7 @@ mmBridgeAudMgr::mmBridgeAudMgr()
 
 mmBridgeAudMgr::~mmBridgeAudMgr()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i16 mmBridgeAudMgr::Add(class mmBridgeSet* arg1)
@@ -57,5 +59,3 @@ void mmBridgeAudMgr::Update()
 {
     return stub<thiscall_t<void, mmBridgeAudMgr*>>(0xC4150_Offset, this);
 }
-
-define_dummy_symbol(mmanim_mmbridgeaudmgr);

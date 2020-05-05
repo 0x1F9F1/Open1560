@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:carsim
 
@@ -81,6 +79,8 @@
     0x6A7C98 | public: static class agiTexDef * mmCarSim::SnowTex | ?SnowTex@mmCarSim@@2PAVagiTexDef@@A
     0x6A7C9C | public: static float mmCarSim::PlayerRawSteering | ?PlayerRawSteering@mmCarSim@@2MA
 */
+
+#include "arts7/node.h"
 
 // 0x46B8F0 | ?IMPACTCB@@YAXPAVmmCarSim@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M3@Z
 void IMPACTCB(class mmCarSim* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4, f32 arg5,

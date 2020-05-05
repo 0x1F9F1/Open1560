@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/linear.h"
-
 /*
     mmcar:wheel
 
@@ -47,6 +45,8 @@
     0x6A80B8 | class MetaClass mmWheelMetaClass | ?mmWheelMetaClass@@3VMetaClass@@A
     0x6A80F4 | float DispLatZeroThresh | ?DispLatZeroThresh@@3MA
 */
+
+#include "arts7/linear.h"
 
 class mmWheel : public asLinearCS
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_iconwidget);
+
 #include "iconwidget.h"
 
 UIIconW::UIIconW()
@@ -25,7 +27,7 @@ UIIconW::UIIconW()
 
 UIIconW::~UIIconW()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UIIconW::Action(union eqEvent arg1)
@@ -48,5 +50,3 @@ void UIIconW::Update()
 {
     return stub<thiscall_t<void, UIIconW*>>(0xBC360_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_iconwidget);

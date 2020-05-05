@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:pu_chat
 
@@ -31,6 +29,8 @@
     0x4A9930 | public: virtual void * __thiscall PUChat::`vector deleting destructor'(unsigned int) | ??_EPUChat@@UAEPAXI@Z
     0x61DED8 | const PUChat::`vftable' | ??_7PUChat@@6B@
 */
+
+#include "pu_menu.h"
 
 class PUChat : public PUMenuBase
 {

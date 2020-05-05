@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiaudiomanager);
+
 #include "aiaudiomanager.h"
 
 aiAudioManager::aiAudioManager()
@@ -25,7 +27,7 @@ aiAudioManager::aiAudioManager()
 
 aiAudioManager::~aiAudioManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i16 aiAudioManager::AddVehicle(class aiVehicleAmbient* arg1)
@@ -207,5 +209,3 @@ char* aiAudioManager::CatName(char* arg1, i32 arg2, i32 arg3)
 {
     return stub<thiscall_t<char*, aiAudioManager*, char*, i32, i32>>(0x430C0_Offset, this, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(mmai_aiaudiomanager);

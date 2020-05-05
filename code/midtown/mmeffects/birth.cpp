@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmeffects_birth);
+
 #include "birth.h"
 
 asBirthRule::asBirthRule()
@@ -25,7 +27,7 @@ asBirthRule::asBirthRule()
 
 asBirthRule::~asBirthRule()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asBirthRule::AddWidgets(class Bank* arg1)
@@ -48,5 +50,3 @@ void asBirthRule::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x1012A0_Offset);
 }
-
-define_dummy_symbol(mmeffects_birth);

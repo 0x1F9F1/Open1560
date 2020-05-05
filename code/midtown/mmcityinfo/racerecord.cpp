@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_racerecord);
+
 #include "racerecord.h"
 
 mmRecord::mmRecord()
@@ -25,7 +27,7 @@ mmRecord::mmRecord()
 
 mmRecord::~mmRecord()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmRecord::operator=(class mmRecord& arg1)
@@ -107,5 +109,3 @@ void mmRecord::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xD1970_Offset);
 }
-
-define_dummy_symbol(mmcityinfo_racerecord);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_playercfg);
+
 #include "playercfg.h"
 
 mmPlayerConfig::mmPlayerConfig()
@@ -25,7 +27,7 @@ mmPlayerConfig::mmPlayerConfig()
 
 mmPlayerConfig::~mmPlayerConfig()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPlayerConfig::operator=(class mmPlayerConfig& arg1)
@@ -147,5 +149,3 @@ mmCtrlCFG::~mmCtrlCFG()
 {
     unimplemented();
 }
-
-define_dummy_symbol(mmcityinfo_playercfg);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmbangers/banger.h"
-
 /*
     mmanim:AnimDOF
 
@@ -50,6 +48,8 @@
     0x61F4D8 | const mmDrawbridgeInstance::`vftable' | ??_7mmDrawbridgeInstance@@6B@
     0x705E20 | class MetaClass mmAnimDOFMetaClass | ?mmAnimDOFMetaClass@@3VMetaClass@@A
 */
+
+#include "mmbangers/banger.h"
 
 class mmDrawbridgeInstance : public mmDofBangerInstance
 {

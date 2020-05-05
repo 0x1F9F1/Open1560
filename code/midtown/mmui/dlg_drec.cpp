@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_dlg_drec);
+
 #include "dlg_drec.h"
 
 Dialog_DriverRec::Dialog_DriverRec(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 Dialog_DriverRec::~Dialog_DriverRec()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 Dialog_DriverRec::AddDriverRecord(i32 arg1, char* arg2, i32 arg3, f32 arg4, char* arg5, i32 arg6)
@@ -58,5 +60,3 @@ void Dialog_DriverRec::SetSortState()
 {
     return stub<thiscall_t<void, Dialog_DriverRec*>>(0x9F250_Offset, this);
 }
-
-define_dummy_symbol(mmui_dlg_drec);

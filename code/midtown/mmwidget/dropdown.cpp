@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_dropdown);
+
 #include "dropdown.h"
 
 mmDropDown::mmDropDown()
@@ -25,7 +27,7 @@ mmDropDown::mmDropDown()
 
 mmDropDown::~mmDropDown()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmDropDown::FindFirstEnabled()
@@ -84,5 +86,3 @@ void mmDropDown::SetString(class string arg1)
 {
     return stub<thiscall_t<void, mmDropDown*, class string>>(0xC0C70_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmwidget_dropdown);

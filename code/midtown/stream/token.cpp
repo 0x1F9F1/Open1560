@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(stream_token);
+
 #include "token.h"
 
 Tokenizer::Tokenizer(char const* arg1, class Stream* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 f32 Tokenizer::GetFloat()
@@ -47,5 +49,3 @@ void Tokenizer::MatchToken(char* arg1)
 {
     return stub<thiscall_t<void, Tokenizer*, char*>>(0x161690_Offset, this, arg1);
 }
-
-define_dummy_symbol(stream_token);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/viewport.h"
-
 /*
     agid3d:d3dview
 
@@ -34,6 +32,8 @@
     0x533530 | public: virtual void * __thiscall agiD3DViewport::`vector deleting destructor'(unsigned int) | ??_EagiD3DViewport@@UAEPAXI@Z
     0x621130 | const agiD3DViewport::`vftable' | ??_7agiD3DViewport@@6B@
 */
+
+#include "agi/viewport.h"
 
 class agiD3DViewport : public agiViewport
 {

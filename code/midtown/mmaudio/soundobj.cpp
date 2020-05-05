@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_soundobj);
+
 #include "soundobj.h"
 
 SoundObj::SoundObj()
@@ -288,5 +290,3 @@ struct IDirectSoundBuffer* SoundObj::SetupChorusBuffer(char* arg1)
 {
     return stub<thiscall_t<struct IDirectSoundBuffer*, SoundObj*, char*>>(0xF2E10_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmaudio_soundobj);

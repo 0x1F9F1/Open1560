@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "event.h"
-
 /*
     eventq7:eventq
 
@@ -37,6 +35,8 @@
     0x563DB0 | public: virtual void * __thiscall eqEventQ::`scalar deleting destructor'(unsigned int) | ??_GeqEventQ@@UAEPAXI@Z
     0x621B00 | const eqEventQ::`vftable' | ??_7eqEventQ@@6B@
 */
+
+#include "event.h"
 
 class eqEventQ : public eqEventMonitor
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_bm_label);
+
 #include "bm_label.h"
 
 UIBMLabel::UIBMLabel()
@@ -25,7 +27,7 @@ UIBMLabel::UIBMLabel()
 
 UIBMLabel::~UIBMLabel()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class agiBitmap* UIBMLabel::CreateDummyBitmap()
@@ -68,5 +70,3 @@ void UIBMLabel::LoadBitmap()
 {
     return stub<thiscall_t<void, UIBMLabel*>>(0xB44E0_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_bm_label);

@@ -18,10 +18,6 @@
 
 #pragma once
 
-#include "agi/bitmap.h"
-#include "agi/pipeline.h"
-#include "agi/viewport.h"
-
 /*
     agisw:swpipe
 
@@ -67,6 +63,10 @@
     0x621248 | const agiSWViewport::`vftable' | ??_7agiSWViewport@@6B@
     0x621288 | const agiSWBitmap::`vftable' | ??_7agiSWBitmap@@6B@
 */
+
+#include "agi/bitmap.h"
+#include "agi/pipeline.h"
+#include "agi/viewport.h"
 
 class agiSWPipeline : public agiPipeline
 {

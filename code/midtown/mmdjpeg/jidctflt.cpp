@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jidctflt);
+
 #include "jidctflt.h"
 
 void jpeg_idct_float(
@@ -24,5 +26,3 @@ void jpeg_idct_float(
     return stub<cdecl_t<void, struct jpeg_decompress_struct*, struct jpeg_component_info*, i16*, u8**, u32>>(
         0x1841B0_Offset, arg1, arg2, arg3, arg4, arg5);
 }
-
-define_dummy_symbol(mmdjpeg_jidctflt);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_axle);
+
 #include "axle.h"
 
 mmAxle::mmAxle()
@@ -25,7 +27,7 @@ mmAxle::mmAxle()
 
 mmAxle::~mmAxle()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmAxle::AddWidgets(class Bank* arg1)
@@ -53,5 +55,3 @@ void mmAxle::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x7D5B0_Offset);
 }
-
-define_dummy_symbol(mmcar_axle);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmaudio_dupbufcreator);
+
 #include "dupbufcreator.h"
 
 DupBuffCreator::DupBuffCreator()
@@ -55,5 +57,3 @@ i32 DupBuffCreator::IntegrityCheck(struct IDirectSoundBuffer* arg1, struct IDire
     return stub<thiscall_t<i32, DupBuffCreator*, struct IDirectSoundBuffer*, struct IDirectSoundBuffer*, i32*>>(
         0xEF010_Offset, this, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(mmaudio_dupbufcreator);

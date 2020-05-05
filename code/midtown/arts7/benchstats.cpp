@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_benchstats);
+
 #include "benchstats.h"
 
 void asBenchStats::Average(class asBenchStats* arg1, f32 arg2, i32 arg3)
@@ -38,5 +40,3 @@ void asBenchStats::Reset()
 {
     return stub<thiscall_t<void, asBenchStats*>>(0x12CE60_Offset, this);
 }
-
-define_dummy_symbol(arts7_benchstats);

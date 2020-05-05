@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmnetwork_netobject);
+
 #include "netobject.h"
 
 asNetObject::asNetObject()
@@ -25,7 +27,7 @@ asNetObject::asNetObject()
 
 asNetObject::~asNetObject()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asNetObject::SetLocalData()
@@ -43,5 +45,3 @@ void asNetObject::Update()
 {
     return stub<thiscall_t<void, asNetObject*>>(0x8B4F0_Offset, this);
 }
-
-define_dummy_symbol(mmnetwork_netobject);

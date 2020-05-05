@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "agi/rsys.h"
-
 /*
     agid3d:d3drsys
 
@@ -48,6 +46,8 @@
     0x794F18 | int OneTexture | ?OneTexture@@3HA
     0x794F1C | int OrthoFix | ?OrthoFix@@3HA
 */
+
+#include "agi/rsys.h"
 
 class agiD3DRasterizer : public agiRasterizer
 {

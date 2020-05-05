@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmeffects:vehform
 
@@ -32,6 +30,8 @@
     0x64A348 | public: static void (__cdecl* mmVehicleForm::Lighter)(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?Lighter@mmVehicleForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
     0x719610 | public: static class agiTexDef * mmVehicleForm::SphMapTex | ?SphMapTex@mmVehicleForm@@2PAVagiTexDef@@A
 */
+
+#include "arts7/node.h"
 
 class mmVehicleForm : public asNode
 {

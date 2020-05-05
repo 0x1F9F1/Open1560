@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmeffects:ptx
 
@@ -41,6 +39,8 @@
     0x7195A8 | class MetaClass asParticlesMetaClass | ?asParticlesMetaClass@@3VMetaClass@@A
     0x7195D0 | int EnablePtxSorting | ?EnablePtxSorting@@3HA
 */
+
+#include "arts7/node.h"
 
 class asParticles : public asNode
 {

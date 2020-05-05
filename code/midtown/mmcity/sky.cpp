@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_sky);
+
 #include "sky.h"
 
 mmSky::mmSky()
@@ -42,5 +44,3 @@ void mmSky::SetTexture(class agiTexDef* arg1)
 {
     return stub<thiscall_t<void, mmSky*, class agiTexDef*>>(0x95680_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmcity_sky);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "aiVehicle.h"
-
 /*
     mmai:aiVehicleSpline
 
@@ -60,6 +58,8 @@
     0x61BA18 | const aiVehicleInstance::`vftable' | ??_7aiVehicleInstance@@6B@
     0x6A7BA0 | class MetaClass aiVehicleSplineMetaClass | ?aiVehicleSplineMetaClass@@3VMetaClass@@A
 */
+
+#include "aiVehicle.h"
 
 class aiVehicleSpline : public aiVehicle
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_node);
+
 #include "node.h"
 
 asNode::asNode()
@@ -25,7 +27,7 @@ asNode::asNode()
 
 asNode::~asNode()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asNode::Update()
@@ -182,5 +184,3 @@ struct MetaType* PtrTo(struct MetaType* arg1)
 {
     return stub<cdecl_t<struct MetaType*, struct MetaType*>>(0x124610_Offset, arg1);
 }
-
-define_dummy_symbol(arts7_node);

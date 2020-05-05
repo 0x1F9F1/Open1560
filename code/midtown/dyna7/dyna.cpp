@@ -16,6 +16,6 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "dyna.h"
-
 define_dummy_symbol(dyna7_dyna);
+
+#include "dyna.h"

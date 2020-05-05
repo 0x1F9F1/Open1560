@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmeffects_mmnumber);
+
 #include "mmnumber.h"
 
 mmNumber::mmNumber()
@@ -25,7 +27,7 @@ mmNumber::mmNumber()
 
 mmNumber::~mmNumber()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmNumber::AddWidgets(class Bank* arg1)
@@ -50,7 +52,7 @@ void mmNumber::Init(class mmNumberFont* arg1, f32 arg2, f32 arg3)
 
 void mmNumber::Printf(char const* arg1, ...)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmNumber::SetString(char* arg1)
@@ -88,5 +90,3 @@ void mmNumberFont::LoadLocFont(char* arg1, struct LocString* arg2, i32 arg3, u32
     return stub<thiscall_t<void, mmNumberFont*, char*, struct LocString*, i32, u32>>(
         0xFE880_Offset, this, arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(mmeffects_mmnumber);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:hud
 
@@ -96,6 +94,8 @@
     0x6A6DA8 | class MetaClass mmHUDMetaClass | ?mmHUDMetaClass@@3VMetaClass@@A
     0x6A6DD0 | float LastResetTime | ?LastResetTime@@3MA
 */
+
+#include "arts7/node.h"
 
 class mmHUD : public asNode
 {

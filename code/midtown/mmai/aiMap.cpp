@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiMap);
+
 #include "aiMap.h"
 
 aiMap::aiMap()
@@ -25,7 +27,7 @@ aiMap::aiMap()
 
 aiMap::~aiMap()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void aiMap::AddAmbient(class aiVehicleSpline* arg1)
@@ -359,5 +361,3 @@ f32 Clamp(f32 arg1, f32 arg2, f32 arg3)
 {
     return stub<cdecl_t<f32, f32, f32, f32>>(0x3C0D0_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(mmai_aiMap);

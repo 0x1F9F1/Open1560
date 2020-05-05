@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "eventq7/replay.h"
-#include "node.h"
-
 /*
     arts7:sim
 
@@ -71,6 +68,9 @@
     0x790808 | class VirtualFileSystem * VFS | ?VFS@@3PAVVirtualFileSystem@@A
     0x790820 | int StereoBuffer | ?StereoBuffer@@3HA
 */
+
+#include "eventq7/replay.h"
+#include "node.h"
 
 class asSimulation : public asNode
 {

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "event.h"
-
 /*
     eventq7:winevent
 
@@ -46,9 +44,11 @@
     0x908C48 | int eqRestoreFlag | ?eqRestoreFlag@@3HA
 */
 
+#include "event.h"
+
 struct WINEventHandler
-    : eqEventHandler
-    , Dispatchable
+    : Dispatchable
+    , eqEventHandler /* Warning: Unordered Multiple Inheritance */
 {
     // const WINEventHandler::`vftable'{for `Dispatchable'} @ 0x621A78
     // const WINEventHandler::`vftable'{for `eqEventHandler'} @ 0x621A80

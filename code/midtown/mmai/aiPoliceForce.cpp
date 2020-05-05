@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiPoliceForce);
+
 #include "aiPoliceForce.h"
 
 aiPoliceForce::aiPoliceForce()
@@ -58,5 +60,3 @@ void aiPoliceForce::Update()
 {
     return stub<thiscall_t<void, aiPoliceForce*>>(0x4E850_Offset, this);
 }
-
-define_dummy_symbol(mmai_aiPoliceForce);

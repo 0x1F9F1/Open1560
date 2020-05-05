@@ -16,6 +16,6 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "widget.h"
-
 define_dummy_symbol(mmwidget_widget);
+
+#include "widget.h"

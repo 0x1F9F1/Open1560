@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "togglebutton2.h"
-
 /*
     mmwidget:mexbutton
 
@@ -35,6 +33,8 @@
     0x4BCD30 | public: virtual void * __thiscall UIMexButton::`vector deleting destructor'(unsigned int) | ??_EUIMexButton@@UAEPAXI@Z
     0x61EFA8 | const UIMexButton::`vftable' | ??_7UIMexButton@@6B@
 */
+
+#include "togglebutton2.h"
 
 class UIMexButton : public UIToggleButton2
 {

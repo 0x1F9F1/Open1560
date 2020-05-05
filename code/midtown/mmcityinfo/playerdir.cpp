@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_playerdir);
+
 #include "playerdir.h"
 
 mmPlayerDirectory::mmPlayerDirectory()
@@ -25,7 +27,7 @@ mmPlayerDirectory::mmPlayerDirectory()
 
 mmPlayerDirectory::~mmPlayerDirectory()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmPlayerDirectory::AddPlayer(char* arg1)
@@ -132,5 +134,3 @@ struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i32* arg3)
 {
     return stub<cdecl_t<struct MetaType*, struct MetaType*, i32, i32*>>(0xCFB90_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(mmcityinfo_playerdir);

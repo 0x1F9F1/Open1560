@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_engineaudio);
+
 #include "engineaudio.h"
 
 EngineAudio::EngineAudio()
@@ -25,7 +27,7 @@ EngineAudio::EngineAudio()
 
 EngineAudio::~EngineAudio()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void EngineAudio::UpdateRPM(f32 arg1)
@@ -77,5 +79,3 @@ void EngineAudio::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x86DF0_Offset);
 }
-
-define_dummy_symbol(mmcar_engineaudio);

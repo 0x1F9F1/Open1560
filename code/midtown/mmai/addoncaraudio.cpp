@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_addoncaraudio);
+
 #include "addoncaraudio.h"
 
 AddOnCarAudio::AddOnCarAudio(char* arg1, i16 arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 AddOnCarAudio::~AddOnCarAudio()
@@ -47,5 +49,3 @@ void AddOnCarAudio::Update()
 {
     return stub<thiscall_t<void, AddOnCarAudio*>>(0x5C780_Offset, this);
 }
-
-define_dummy_symbol(mmai_addoncaraudio);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_vscrollbar);
+
 #include "vscrollbar.h"
 
 UIVScrollBar::UIVScrollBar()
@@ -25,7 +27,7 @@ UIVScrollBar::UIVScrollBar()
 
 UIVScrollBar::~UIVScrollBar()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UIVScrollBar::Action(union eqEvent arg1)
@@ -119,5 +121,3 @@ void UIVScrollBar::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xBD730_Offset);
 }
-
-define_dummy_symbol(mmwidget_vscrollbar);

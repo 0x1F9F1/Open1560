@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "infobase.h"
-
 /*
     mmcityinfo:mapdata
 
@@ -36,6 +34,8 @@
     0x61F930 | const mmMapData::`vftable' | ??_7mmMapData@@6B@
     0x708690 | class MetaClass mmMapDataMetaClass | ?mmMapDataMetaClass@@3VMetaClass@@A
 */
+
+#include "infobase.h"
 
 class mmMapData : public mmInfoBase
 {

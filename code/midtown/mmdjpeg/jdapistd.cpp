@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jdapistd);
+
 #include "jdapistd.h"
 
 u32 jpeg_read_raw_data(struct jpeg_decompress_struct* arg1, u8*** arg2, u32 arg3)
@@ -32,5 +34,3 @@ u8 jpeg_start_decompress(struct jpeg_decompress_struct* arg1)
 {
     return stub<cdecl_t<u8, struct jpeg_decompress_struct*>>(0x17D570_Offset, arg1);
 }
-
-define_dummy_symbol(mmdjpeg_jdapistd);

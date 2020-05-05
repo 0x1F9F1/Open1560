@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_cellrend);
+
 #include "cellrend.h"
 
 mmCellRenderer::mmCellRenderer()
@@ -43,5 +45,3 @@ void mmCellRenderer::Relight()
 {
     return stub<thiscall_t<void, mmCellRenderer*>>(0x98F90_Offset, this);
 }
-
-define_dummy_symbol(mmcity_cellrend);

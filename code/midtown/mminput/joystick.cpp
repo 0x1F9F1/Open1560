@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_joystick);
+
 #include "joystick.h"
 
 mmJoystick::mmJoystick()
@@ -188,5 +190,3 @@ void DecodeDIErrorMFlag(i32 arg1)
 {
     return stub<cdecl_t<void, i32>>(0xE6FB0_Offset, arg1);
 }
-
-define_dummy_symbol(mminput_joystick);

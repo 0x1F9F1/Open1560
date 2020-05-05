@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_precamcs);
+
 #include "precamcs.h"
 
 PreCamCS::PreCamCS()
@@ -25,7 +27,7 @@ PreCamCS::PreCamCS()
 
 PreCamCS::~PreCamCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void PreCamCS::AddWidgets(class Bank* arg1)
@@ -62,5 +64,3 @@ void PreCamCS::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xF9C10_Offset);
 }
-
-define_dummy_symbol(mmcamcs_precamcs);

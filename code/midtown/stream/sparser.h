@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "data7/miniparser.h"
-
 /*
     stream:sparser
 
@@ -31,6 +29,8 @@
     0x561520 | public: static void __cdecl StreamMiniParser::Save(class MetaClass *,char *,void *) | ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z
     0x6219E8 | const StreamMiniParser::`vftable' | ??_7StreamMiniParser@@6B@
 */
+
+#include "data7/miniparser.h"
 
 class StreamMiniParser : public MiniParser
 {

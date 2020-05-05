@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:pu_graphics
 
@@ -32,6 +30,8 @@
     0x4A9F40 | public: static class mmCullCity * __cdecl mmCullCity::GetInstance(void) | ?GetInstance@mmCullCity@@SAPAV1@XZ
     0x61DF48 | const PUGraphics::`vftable' | ??_7PUGraphics@@6B@
 */
+
+#include "pu_menu.h"
 
 class PUGraphics : public PUMenuBase
 {

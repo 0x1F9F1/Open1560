@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_cwarray);
+
 #include "cwarray.h"
 
 UICWArray::UICWArray()
@@ -25,7 +27,7 @@ UICWArray::UICWArray()
 
 UICWArray::~UICWArray()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UICWArray::AcceptCapture()
@@ -128,5 +130,3 @@ void UICWArray::VScrollCB()
 {
     return stub<thiscall_t<void, UICWArray*>>(0xB7FB0_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_cwarray);

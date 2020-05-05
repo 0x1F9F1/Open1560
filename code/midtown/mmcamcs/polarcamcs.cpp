@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_polarcamcs);
+
 #include "polarcamcs.h"
 
 PolarCamCS::PolarCamCS()
@@ -25,7 +27,7 @@ PolarCamCS::PolarCamCS()
 
 PolarCamCS::~PolarCamCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class MetaClass* PolarCamCS::GetClass()
@@ -57,5 +59,3 @@ void PolarCamCS::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xFB010_Offset);
 }
-
-define_dummy_symbol(mmcamcs_polarcamcs);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_graphics);
+
 #include "graphics.h"
 
 void AutoDetect(i32 arg1, i32 arg2)
@@ -25,12 +27,12 @@ void AutoDetect(i32 arg1, i32 arg2)
 
 GraphicsOptions::GraphicsOptions(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 GraphicsOptions::~GraphicsOptions()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void GraphicsOptions::CancelAction()
@@ -67,5 +69,3 @@ void GraphicsOptions::SetResolution()
 {
     return stub<thiscall_t<void, GraphicsOptions*>>(0x9A350_Offset, this);
 }
-
-define_dummy_symbol(mmui_graphics);

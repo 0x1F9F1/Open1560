@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_io);
+
 #include "io.h"
 
 mmIO::mmIO()
@@ -77,5 +79,3 @@ i32 mmIO::Write(class Stream* arg1)
 {
     return stub<thiscall_t<i32, mmIO*, class Stream*>>(0xE4DC0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mminput_io);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdyna_poly);
+
 #include "poly.h"
 
 mmPolygon::mmPolygon()
@@ -103,5 +105,3 @@ void mmPolygon::PlotTriangle(i32 arg1, i32 arg2, i32 arg3, class mmBoundTemplate
     return stub<thiscall_t<void, mmPolygon*, i32, i32, i32, class mmBoundTemplate*, i32>>(
         0x11C380_Offset, this, arg1, arg2, arg3, arg4, arg5);
 }
-
-define_dummy_symbol(mmdyna_poly);

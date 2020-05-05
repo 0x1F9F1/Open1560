@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "carcamcs.h"
-
 /*
     mmcamcs:trackcamcs
 
@@ -48,6 +46,8 @@
     0x6200C8 | const TrackCamCS::`vftable' | ??_7TrackCamCS@@6B@
     0x719380 | class MetaClass TrackCamCSMetaClass | ?TrackCamCSMetaClass@@3VMetaClass@@A
 */
+
+#include "carcamcs.h"
 
 class TrackCamCS : public CarCamCS
 {

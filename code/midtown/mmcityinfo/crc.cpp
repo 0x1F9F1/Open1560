@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_crc);
+
 #include "crc.h"
 
 u32 UpdateCrc(u8* arg1, u32 arg2)
 {
     return stub<cdecl_t<u32, u8*, u32>>(0xD3CC0_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmcityinfo_crc);

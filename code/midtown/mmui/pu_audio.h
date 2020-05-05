@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:pu_audio
 
@@ -35,6 +33,8 @@
     0x61E0A8 | const PUAudioOptions::`vftable' | ??_7PUAudioOptions@@6B@
     0x705958 | class mmPlayerConfig * PUOptionsConfig | ?PUOptionsConfig@@3PAVmmPlayerConfig@@A
 */
+
+#include "pu_menu.h"
 
 class PUAudioOptions : public PUMenuBase
 {

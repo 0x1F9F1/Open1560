@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_AnimDOF);
+
 #include "AnimDOF.h"
 
 mmDrawbridgeInstance::~mmDrawbridgeInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall mmDrawbridgeInstance::Draw(i32 arg1)
@@ -83,7 +85,7 @@ void mmAnimDOF::DeclareFields()
 
 mmDofBangerInstance::~mmDofBangerInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall mmDofBangerInstance::FromMatrix(class Matrix34 const& arg1)
@@ -111,5 +113,3 @@ class Matrix34& __fastcall mmDofBangerInstance::ToMatrix(class Matrix34& arg1)
 {
     return stub<fastcall_t<class Matrix34&, mmDofBangerInstance*, class Matrix34&>>(0xC4E60_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmanim_AnimDOF);

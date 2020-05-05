@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:slider
 
@@ -45,6 +43,8 @@
     0x4B4270 | public: virtual float __thiscall UISlider::GetScreenHeight(void) | ?GetScreenHeight@UISlider@@UAEMXZ
     0x61E590 | const UISlider::`vftable' | ??_7UISlider@@6B@
 */
+
+#include "textfield.h"
 
 class UISlider : public uiWidget
 {

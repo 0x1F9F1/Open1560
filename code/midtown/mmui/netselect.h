@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmwidget/menu.h"
-
 /*
     mmui:netselect
 
@@ -65,6 +63,8 @@
     0x4A4C00 | public: virtual void * __thiscall NetSelectMenu::`scalar deleting destructor'(unsigned int) | ??_GNetSelectMenu@@UAEPAXI@Z
     0x61DA78 | const NetSelectMenu::`vftable' | ??_7NetSelectMenu@@6B@
 */
+
+#include "mmwidget/menu.h"
 
 class NetSelectMenu : public UIMenu
 {

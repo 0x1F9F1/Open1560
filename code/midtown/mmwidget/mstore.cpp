@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_mstore);
+
 #include "mstore.h"
 
 MArray::MArray()
@@ -58,5 +60,3 @@ void MArray::Write(char* arg1)
 {
     return stub<thiscall_t<void, MArray*, char*>>(0xAB810_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmwidget_mstore);

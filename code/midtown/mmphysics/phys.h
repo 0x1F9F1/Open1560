@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmphysics:phys
 
@@ -80,6 +78,8 @@
     0x7188C0 | unsigned long physCollisions | ?physCollisions@@3KA
     0x7190D0 | unsigned long physUpdate | ?physUpdate@@3KA
 */
+
+#include "arts7/node.h"
 
 class mmPhysExec : public asNode
 {

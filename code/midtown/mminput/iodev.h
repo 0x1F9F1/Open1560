@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmcityinfo/infobase.h"
-
 /*
     mminput:iodev
 
@@ -42,6 +40,8 @@
     0x61FCA8 | const mmIODev::`vftable' | ??_7mmIODev@@6B@
     0x719288 | class MetaClass mmIODevMetaClass | ?mmIODevMetaClass@@3VMetaClass@@A
 */
+
+#include "mmcityinfo/infobase.h"
 
 class mmIODev : public mmInfoBase
 {

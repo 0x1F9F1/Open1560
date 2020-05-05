@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:iconwidget
 
@@ -33,6 +31,8 @@
     0x4BC460 | public: virtual void * __thiscall UIIconW::`scalar deleting destructor'(unsigned int) | ??_GUIIconW@@UAEPAXI@Z
     0x61EE18 | const UIIconW::`vftable' | ??_7UIIconW@@6B@
 */
+
+#include "textfield.h"
 
 class UIIconW : public uiWidget
 {

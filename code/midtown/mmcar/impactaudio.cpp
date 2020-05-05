@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_impactaudio);
+
 #include "impactaudio.h"
 
 mmImpactAudio::mmImpactAudio(class mmCarSim* arg1, class Vector3* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 mmImpactAudio::~mmImpactAudio()
@@ -103,5 +105,3 @@ void mmImpactAudio::Update()
 {
     return stub<thiscall_t<void, mmImpactAudio*>>(0x85530_Offset, this);
 }
-
-define_dummy_symbol(mmcar_impactaudio);

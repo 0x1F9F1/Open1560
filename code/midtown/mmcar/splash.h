@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:splash
 
@@ -33,6 +31,8 @@
     0x4814A0 | public: virtual void * __thiscall mmSplash::`scalar deleting destructor'(unsigned int) | ??_GmmSplash@@UAEPAXI@Z
     0x61C8B0 | const mmSplash::`vftable' | ??_7mmSplash@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmSplash : public asNode
 {

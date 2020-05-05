@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:dlg_renv
 
@@ -34,6 +32,8 @@
     0x49E3B0 | public: virtual void * __thiscall Dialog_RaceEnvironment::`scalar deleting destructor'(unsigned int) | ??_GDialog_RaceEnvironment@@UAEPAXI@Z
     0x61D5A0 | const Dialog_RaceEnvironment::`vftable' | ??_7Dialog_RaceEnvironment@@6B@
 */
+
+#include "pu_menu.h"
 
 class Dialog_RaceEnvironment : public PUMenuBase
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmeffects_damage);
+
 #include "damage.h"
 
 mmDamage::mmDamage()
@@ -42,5 +44,3 @@ void mmDamage::Reset(i32 arg1)
 {
     return stub<thiscall_t<void, mmDamage*, i32>>(0x102420_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmeffects_damage);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmphysics_osample);
+
 #include "osample.h"
 
 asOverSample::asOverSample()
@@ -25,7 +27,7 @@ asOverSample::asOverSample()
 
 asOverSample::~asOverSample()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asOverSample::AddWidgets(class Bank* arg1)
@@ -52,5 +54,3 @@ void asOverSample::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xDEEE0_Offset);
 }
-
-define_dummy_symbol(mmphysics_osample);

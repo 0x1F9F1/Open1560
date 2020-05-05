@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_effect);
+
 #include "effect.h"
 
 i32 __stdcall inputEnumEffectTypeProc(struct DIEFFECTINFOA const* arg1, void* arg2)
@@ -52,5 +54,3 @@ i32 mmEffectFF::SetValues(f32 arg1, f32 arg2)
 {
     return stub<thiscall_t<i32, mmEffectFF*, f32, f32>>(0xE7460_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mminput_effect);

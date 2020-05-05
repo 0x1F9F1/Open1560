@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agirend_rdlp);
+
 #include "rdlp.h"
 
 RDLP::RDLP(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 RDLP::~RDLP()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 RDLP::BeginGfx()
@@ -61,12 +63,12 @@ i32 RDLP::InitFacet(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg
 
 RDynamicDLP::RDynamicDLP(i32 arg1, class RDLP* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 RDynamicDLP::~RDynamicDLP()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 RDynamicDLP::Init(char* arg1)
@@ -88,5 +90,3 @@ void RDynamicDLP::Unlock()
 {
     return stub<thiscall_t<void, RDynamicDLP*>>(0x151480_Offset, this);
 }
-
-define_dummy_symbol(agirend_rdlp);

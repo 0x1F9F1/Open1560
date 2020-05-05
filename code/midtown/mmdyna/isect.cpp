@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdyna_isect);
+
 #include "isect.h"
 
 mmIntersection::mmIntersection()
@@ -85,5 +87,3 @@ void mmEdgeBodyIsect::Reset()
 {
     return stub<thiscall_t<void, mmEdgeBodyIsect*>>(0x11A660_Offset, this);
 }
-
-define_dummy_symbol(mmdyna_isect);

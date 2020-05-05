@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:engine
 
@@ -42,6 +40,8 @@
     0x61C600 | const mmEngine::`vftable' | ??_7mmEngine@@6B@
     0x6A8030 | class MetaClass mmEngineMetaClass | ?mmEngineMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmEngine : public asNode
 {

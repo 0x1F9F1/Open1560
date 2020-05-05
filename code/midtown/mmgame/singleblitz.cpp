@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_singleblitz);
+
 #include "singleblitz.h"
 
 foobar::~foobar()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void foobar::Update()
@@ -40,7 +42,7 @@ mmSingleBlitz::mmSingleBlitz()
 
 mmSingleBlitz::~mmSingleBlitz()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class MetaClass* mmSingleBlitz::GetClass()
@@ -147,5 +149,3 @@ i32 mmSingleBlitz::RegisterFinish()
 {
     return stub<thiscall_t<i32, mmSingleBlitz*>>(0x140C0_Offset, this);
 }
-
-define_dummy_symbol(mmgame_singleblitz);

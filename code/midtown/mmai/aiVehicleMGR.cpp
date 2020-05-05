@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiVehicleMGR);
+
 #include "aiVehicleMGR.h"
 
 mmPhysEntity::~mmPhysEntity()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPhysEntity::PostUpdate()
@@ -57,7 +59,7 @@ void AMBIENTCB(
 
 aiVehicleInstance::~aiVehicleInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void aiVehicleInstance::AddWidgets(class Bank* arg1)
@@ -137,7 +139,7 @@ aiVehicleActive::aiVehicleActive()
 
 aiVehicleActive::~aiVehicleActive()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void aiVehicleActive::PostUpdate()
@@ -192,7 +194,7 @@ aiVehicleManager::aiVehicleManager()
 
 aiVehicleManager::~aiVehicleManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 aiVehicleManager::AddVehicleDataEntry(char* arg1)
@@ -243,7 +245,7 @@ aiVehicleData::aiVehicleData()
 
 aiVehicleData::~aiVehicleData()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void aiVehicleData::AddWidgets(class Bank* arg1)
@@ -265,5 +267,3 @@ void aiVehicleData::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x536C0_Offset);
 }
-
-define_dummy_symbol(mmai_aiVehicleMGR);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmwidget:menu
 
@@ -88,6 +86,8 @@
     0x64185C | public: static float UIMenu::WIDGET_HEIGHT | ?WIDGET_HEIGHT@UIMenu@@2MA
     0x70595C | public: static float UIMenu::UI_RIGHT_MARGIN | ?UI_RIGHT_MARGIN@UIMenu@@2MA
 */
+
+#include "arts7/node.h"
 
 class UIMenu : public asNode
 {

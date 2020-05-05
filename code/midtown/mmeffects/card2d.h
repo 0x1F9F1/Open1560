@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmeffects:card2d
 
@@ -36,6 +34,8 @@
     0x4FE650 | public: virtual __thiscall Card2D::~Card2D(void) | ??1Card2D@@UAE@XZ
     0x6205B8 | const Card2D::`vftable' | ??_7Card2D@@6B@
 */
+
+#include "arts7/node.h"
 
 class Card2D : public asNode
 {

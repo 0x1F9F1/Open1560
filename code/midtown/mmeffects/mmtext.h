@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmeffects:mmtext
 
@@ -53,6 +51,8 @@
     0x4FFE70 | public: virtual void * __thiscall mmTextNode::`scalar deleting destructor'(unsigned int) | ??_GmmTextNode@@UAEPAXI@Z
     0x620658 | const mmTextNode::`vftable' | ??_7mmTextNode@@6B@
 */
+
+#include "arts7/node.h"
 
 class mmTextNode : public asNode
 {

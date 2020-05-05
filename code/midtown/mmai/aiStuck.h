@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmai:aiStuck
 
@@ -34,6 +32,8 @@
     0x46B8A0 | public: virtual void * __thiscall aiStuck::`scalar deleting destructor'(unsigned int) | ??_GaiStuck@@UAEPAXI@Z
     0x61BD60 | const aiStuck::`vftable' | ??_7aiStuck@@6B@
 */
+
+#include "arts7/node.h"
 
 class aiStuck : public asNode
 {

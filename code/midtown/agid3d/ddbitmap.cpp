@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_ddbitmap);
+
 #include "ddbitmap.h"
 
 agiDDBitmap::agiDDBitmap(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiDDBitmap::~agiDDBitmap()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiDDBitmap::BeginGfx()
@@ -52,5 +54,3 @@ void breakme()
 {
     return stub<cdecl_t<void>>(0x133D40_Offset);
 }
-
-define_dummy_symbol(agid3d_ddbitmap);

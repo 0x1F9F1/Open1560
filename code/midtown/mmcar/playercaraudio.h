@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:playercaraudio
 
@@ -45,6 +43,8 @@
     0x61C9A8 | const mmPlayerCarAudio::`vftable' | ??_7mmPlayerCarAudio@@6B@
     0x6A8198 | class MetaClass mmPlayerCarAudioMetaClass | ?mmPlayerCarAudioMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/node.h"
 
 class mmPlayerCarAudio : public asNode
 {

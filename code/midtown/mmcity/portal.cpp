@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_portal);
+
 #include "portal.h"
 
 asPortalWeb::asPortalWeb()
@@ -25,7 +27,7 @@ asPortalWeb::asPortalWeb()
 
 asPortalWeb::~asPortalWeb()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 struct asPortalCell* asPortalWeb::GetStartCell(class Vector3& arg1, struct asPortalCell* arg2, class mmPolygon** arg3)
@@ -131,12 +133,10 @@ void asPortalPVS::SetVisible(u32 arg1)
 
 struct asPortalPVS* asPortalPVS::Create(i32 arg1, ...)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 asPortalEdge::asPortalEdge(struct asPortalCell* arg1, struct asPortalCell* arg2, i32 arg3)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3);
 }
-
-define_dummy_symbol(mmcity_portal);

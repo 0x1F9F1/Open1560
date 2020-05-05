@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmeffects_linespark);
+
 #include "linespark.h"
 
 class asSparkLut* GetSparkLut(char* arg1)
@@ -58,5 +60,3 @@ void asLineSparks::Update(f32 arg1)
 {
     return stub<thiscall_t<void, asLineSparks*, f32>>(0x101FC0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmeffects_linespark);

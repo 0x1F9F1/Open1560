@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(arts7_camera);
+
 #include "camera.h"
 
 asCamera::asCamera()
@@ -25,7 +27,7 @@ asCamera::asCamera()
 
 asCamera::~asCamera()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asCamera::AddWidgets(class Bank* arg1)
@@ -169,5 +171,3 @@ void ViewIt(class asCamera* arg1)
 {
     return stub<cdecl_t<void, class asCamera*>>(0x12A020_Offset, arg1);
 }
-
-define_dummy_symbol(arts7_camera);

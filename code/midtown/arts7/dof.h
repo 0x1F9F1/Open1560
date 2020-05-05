@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "linear.h"
-
 /*
     arts7:dof
 
@@ -37,6 +35,8 @@
     0x620DF8 | const asDofCS::`vftable' | ??_7asDofCS@@6B@
     0x790990 | class MetaClass asDofCSMetaClass | ?asDofCSMetaClass@@3VMetaClass@@A
 */
+
+#include "linear.h"
 
 class asDofCS : public asLinearCS
 {

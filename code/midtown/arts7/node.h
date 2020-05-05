@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "cullable.h"
-
 /*
     arts7:node
 
@@ -63,6 +61,8 @@
     0x790834 | public: static int asNode::TimingCount | ?TimingCount@asNode@@2HA
     0x790838 | class MetaClass asNodeMetaClass | ?asNodeMetaClass@@3VMetaClass@@A
 */
+
+#include "cullable.h"
 
 class asNode : public asCullable
 {

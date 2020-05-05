@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiVehicle);
+
 #include "aiVehicle.h"
 
 aiVehicle::aiVehicle()
@@ -52,5 +54,3 @@ void aiVehicle::Init(i32 arg1)
 {
     return stub<thiscall_t<void, aiVehicle*, i32>>(0x65920_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmai_aiVehicle);

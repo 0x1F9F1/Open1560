@@ -16,6 +16,6 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "compbase.h"
-
 define_dummy_symbol(mmwidget_compbase);
+
+#include "compbase.h"

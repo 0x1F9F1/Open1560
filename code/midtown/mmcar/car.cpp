@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_car);
+
 #include "car.h"
 
 mmCar::mmCar()
@@ -25,7 +27,7 @@ mmCar::mmCar()
 
 mmCar::~mmCar()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCar::AddWidgets(class Bank* arg1)
@@ -138,5 +140,3 @@ i32 EggNameIndex(char* arg1)
 {
     return stub<cdecl_t<i32, char*>>(0x742E0_Offset, arg1);
 }
-
-define_dummy_symbol(mmcar_car);

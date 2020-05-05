@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_cmodel8);
+
 #include "cmodel8.h"
 
 agiColorModel8::agiColorModel8(class agiPalette* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiColorModel8::~agiColorModel8()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModel8::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -54,5 +56,3 @@ void agiColorModel8::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u3
     return stub<thiscall_t<void, agiColorModel8*, class agiSurfaceDesc*, i32, i32, u32>>(
         0x15C020_Offset, this, arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(agi_cmodel8);

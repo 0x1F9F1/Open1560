@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "refresh.h"
-
 /*
     agi:bitmap
 
@@ -35,6 +33,8 @@
     0x6570F0 | char * BitmapSearchPath | ?BitmapSearchPath@@3PADA
     0x903140 | class HashTable BitmapHash | ?BitmapHash@@3VHashTable@@A
 */
+
+#include "refresh.h"
 
 class agiBitmap : public agiRefreshable
 {

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmcar:netaudiomanager
 
@@ -49,6 +47,8 @@
     0x61C1C8 | const NetAudioManager::`vftable' | ??_7NetAudioManager@@6B@
     0x6A7E98 | class NetAudioManager * NETAUDMGRPTR | ?NETAUDMGRPTR@@3PAVNetAudioManager@@A
 */
+
+#include "arts7/node.h"
 
 class NetAudioManager : public asNode
 {

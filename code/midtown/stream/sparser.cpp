@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(stream_sparser);
+
 #include "sparser.h"
 
 StreamMiniParser::StreamMiniParser(char* arg1, class Stream* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 StreamMiniParser::~StreamMiniParser()
@@ -47,5 +49,3 @@ void StreamMiniParser::Save(class MetaClass* arg1, char* arg2, void* arg3)
 {
     return stub<cdecl_t<void, class MetaClass*, char*, void*>>(0x161520_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(stream_sparser);

@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_cmodel);
+
 #include "cmodel.h"
 
 agiColorModel::~agiColorModel()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 u32 agiColorModel::GetColor(struct agiRgba arg1)
@@ -79,5 +81,3 @@ class agiColorModel* agiColorModel::FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 
 {
     return stub<cdecl_t<class agiColorModel*, i32, i32, i32, i32>>(0x15D760_Offset, arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(agi_cmodel);

@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "agi/texdef.h"
-#include "ddpipe.h"
-
 /*
     agid3d:d3dpipe
 
@@ -59,6 +56,9 @@
     0x795C18 | int AlphaPalette | ?AlphaPalette@@3HA
     0x795C20 | int NotIndependentUV | ?NotIndependentUV@@3HA
 */
+
+#include "agi/texdef.h"
+#include "ddpipe.h"
 
 class agiD3DPipeline : public agiDDPipeline
 {

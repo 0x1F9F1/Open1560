@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "effect.h"
-
 /*
     mminput:spring
 
@@ -29,6 +27,8 @@
     0x4E7F70 | public: virtual int __thiscall mmSpringFF::Play(void) | ?Play@mmSpringFF@@UAEHXZ
     0x4E7FE0 | public: virtual int __thiscall mmSpringFF::Stop(void) | ?Stop@mmSpringFF@@UAEHXZ
 */
+
+#include "effect.h"
 
 class mmSpringFF : public mmEffectFF
 {

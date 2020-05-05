@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmcity/inst.h"
-
 /*
     mmbangers:banger
 
@@ -54,6 +52,8 @@
     0x642C8C | int ExpensiveShadows | ?ExpensiveShadows@@3HA
     0x706048 | protected: static class mmBangerManager * mmBangerManager::Instance | ?Instance@mmBangerManager@@1PAV1@A
 */
+
+#include "mmcity/inst.h"
 
 class mmBangerInstance : public mmInstance
 {

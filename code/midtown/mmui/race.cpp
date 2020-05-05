@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_race);
+
 #include "race.h"
 
 RaceMenu::RaceMenu(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 RaceMenu::~RaceMenu()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 RaceMenu::GetRaceID()
@@ -57,5 +59,3 @@ void RaceMenu::SetProgressMask(i32 arg1)
 {
     return stub<thiscall_t<void, RaceMenu*, i32>>(0xA4D90_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmui_race);

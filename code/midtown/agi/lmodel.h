@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "refresh.h"
-
 /*
     agi:lmodel
 
@@ -34,6 +32,8 @@
     0x55BDF0 | public: virtual void * __thiscall agiLightModel::`vector deleting destructor'(unsigned int) | ??_EagiLightModel@@UAEPAXI@Z
     0x621760 | const agiLightModel::`vftable' | ??_7agiLightModel@@6B@
 */
+
+#include "refresh.h"
 
 class agiLightModelParameters
 {

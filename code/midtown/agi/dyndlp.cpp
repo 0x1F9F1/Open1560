@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agi_dyndlp);
+
 #include "dyndlp.h"
 
 DynamicDLP::DynamicDLP(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 DynamicDLP::~DynamicDLP()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 DynamicDLP::Init(char* arg1)
@@ -57,5 +59,3 @@ i32 DynamicDLP::Release()
 {
     return stub<thiscall_t<i32, DynamicDLP*>>(0x15E600_Offset, this);
 }
-
-define_dummy_symbol(agi_dyndlp);

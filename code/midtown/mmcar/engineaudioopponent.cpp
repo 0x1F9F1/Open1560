@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_engineaudioopponent);
+
 #include "engineaudioopponent.h"
 
 EngineAudioOpponent::EngineAudioOpponent()
@@ -25,7 +27,7 @@ EngineAudioOpponent::EngineAudioOpponent()
 
 EngineAudioOpponent::~EngineAudioOpponent()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void EngineAudioOpponent::ClearName()
@@ -72,5 +74,3 @@ void EngineAudioOpponent::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x85A60_Offset);
 }
-
-define_dummy_symbol(mmcar_engineaudioopponent);

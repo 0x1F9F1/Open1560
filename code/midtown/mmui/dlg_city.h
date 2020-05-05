@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:dlg_city
 
@@ -31,6 +29,8 @@
     0x49DA80 | public: virtual void * __thiscall Dialog_City::`scalar deleting destructor'(unsigned int) | ??_GDialog_City@@UAEPAXI@Z
     0x61D4E8 | const Dialog_City::`vftable' | ??_7Dialog_City@@6B@
 */
+
+#include "pu_menu.h"
 
 class Dialog_City : public PUMenuBase
 {

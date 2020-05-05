@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmanim_plane);
+
 #include "plane.h"
 
 mmAnimPlane::mmAnimPlane()
@@ -25,7 +27,7 @@ mmAnimPlane::mmAnimPlane()
 
 mmAnimPlane::~mmAnimPlane()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmAnimPlane::Activate()
@@ -120,5 +122,3 @@ void mmAnimPlane::UpdateAudio()
 {
     return stub<thiscall_t<void, mmAnimPlane*>>(0xC5AC0_Offset, this);
 }
-
-define_dummy_symbol(mmanim_plane);

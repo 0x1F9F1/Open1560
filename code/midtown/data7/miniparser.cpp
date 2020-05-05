@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_miniparser);
+
 #include "miniparser.h"
 
 MiniParser::MiniParser(char* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 MiniParser::~MiniParser()
@@ -40,12 +42,12 @@ void MiniParser::RawPutCh(i32 arg1)
 
 void MiniParser::Commentf(char const* arg1, ...)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void MiniParser::Errorf(char const* arg1, ...)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 f32 MiniParser::FloatVal()
@@ -100,7 +102,7 @@ void MiniParser::PrintString(char* arg1, i32 arg2)
 
 void MiniParser::Printf(char const* arg1, ...)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void MiniParser::PutBack(i32 arg1)
@@ -122,5 +124,3 @@ char* MiniParser::TokenName(i32 arg1)
 {
     return stub<cdecl_t<char*, i32>>(0x17C8E0_Offset, arg1);
 }
-
-define_dummy_symbol(data7_miniparser);

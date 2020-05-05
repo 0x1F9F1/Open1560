@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jdhuff);
+
 #include "jdhuff.h"
 
 void jinit_huff_decoder(struct jpeg_decompress_struct* arg1)
@@ -39,5 +41,3 @@ void jpeg_make_d_derived_tbl(struct jpeg_decompress_struct* arg1, u8 arg2, i32 a
     return stub<cdecl_t<void, struct jpeg_decompress_struct*, u8, i32, struct d_derived_tbl**>>(
         0x181AA0_Offset, arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(mmdjpeg_jdhuff);

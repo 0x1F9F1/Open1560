@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_vshow);
+
 #include "vshow.h"
 
 VehShowcase::VehShowcase(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 VehShowcase::~VehShowcase()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void VehShowcase::PostSetup()
@@ -37,5 +39,3 @@ void VehShowcase::PreSetup()
 {
     return stub<thiscall_t<void, VehShowcase*>>(0xA5120_Offset, this);
 }
-
-define_dummy_symbol(mmui_vshow);

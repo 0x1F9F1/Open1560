@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_dash);
+
 #include "dash.h"
 
 mmExternalView::mmExternalView()
@@ -25,7 +27,7 @@ mmExternalView::mmExternalView()
 
 mmExternalView::~mmExternalView()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmExternalView::AddWidgets(class Bank* arg1)
@@ -70,7 +72,7 @@ mmDashView::mmDashView()
 
 mmDashView::~mmDashView()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmDashView::Activate()
@@ -137,5 +139,3 @@ void mmDashView::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x22BD0_Offset);
 }
-
-define_dummy_symbol(mmgame_dash);

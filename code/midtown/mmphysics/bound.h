@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmphysics:bound
 
@@ -31,6 +29,8 @@
     0x61FBB8 | const asBound::`vftable' | ??_7asBound@@6B@
     0x719194 | int ImpactCallbackCount | ?ImpactCallbackCount@@3HA
 */
+
+#include "arts7/node.h"
 
 class asBound : public asNode
 {

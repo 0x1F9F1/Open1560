@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_control);
+
 #include "control.h"
 
 ControlSetup::ControlSetup(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 ControlSetup::~ControlSetup()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void ControlSetup::ActivateDeviceOptions()
@@ -127,5 +129,3 @@ void ControlSetup::VerifyBadAssignment()
 {
     return stub<thiscall_t<void, ControlSetup*>>(0xA3900_Offset, this);
 }
-
-define_dummy_symbol(mmui_control);

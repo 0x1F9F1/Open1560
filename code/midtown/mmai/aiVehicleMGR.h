@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-#include "mmcity/inst.h"
-
 /*
     mmai:aiVehicleMGR
 
@@ -93,6 +90,9 @@
     0x6A7B50 | public: static float aiVehicleManager::FloatClock | ?FloatClock@aiVehicleManager@@2MA
     0x6A7B54 | public: static int aiVehicleManager::SignalClock | ?SignalClock@aiVehicleManager@@2HA
 */
+
+#include "arts7/node.h"
+#include "mmcity/inst.h"
 
 class mmPhysEntity : public asNode
 {

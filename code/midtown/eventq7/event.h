@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "replay.h"
-
 /*
     eventq7:event
 
@@ -53,6 +51,8 @@
     0x908C58 | class eqEventReplayChannelClass eqEventReplayChannel | ?eqEventReplayChannel@@3VeqEventReplayChannelClass@@A
     0x909290 | public: static class eqEventHandler * eqEventHandler::SuperQ | ?SuperQ@eqEventHandler@@2PAV1@A
 */
+
+#include "replay.h"
 
 class eqEventHandler
 {

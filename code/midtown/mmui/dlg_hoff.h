@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:dlg_hoff
 
@@ -34,6 +32,8 @@
     0x49EBE0 | public: virtual void * __thiscall Dialog_HallOfFame::`vector deleting destructor'(unsigned int) | ??_EDialog_HallOfFame@@UAEPAXI@Z
     0x61D608 | const Dialog_HallOfFame::`vftable' | ??_7Dialog_HallOfFame@@6B@
 */
+
+#include "pu_menu.h"
 
 class Dialog_HallOfFame : public PUMenuBase
 {

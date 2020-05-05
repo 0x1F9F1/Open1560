@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_optionsbase);
+
 #include "optionsbase.h"
 
 OptionsBase::OptionsBase(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 OptionsBase::~OptionsBase()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void OptionsBase::CancelAction()
@@ -57,5 +59,3 @@ i32 OptionsBase::IsAnOptionMenu()
 {
     return stub<thiscall_t<i32, OptionsBase*>>(0x9A6E0_Offset, this);
 }
-
-define_dummy_symbol(mmui_optionsbase);

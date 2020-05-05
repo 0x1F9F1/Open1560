@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_randmath);
+
 #include "randmath.h"
 
 f32 frand()
@@ -37,5 +39,3 @@ i32 irand(i32 arg1)
 {
     return stub<cdecl_t<i32, i32>>(0x164A00_Offset, arg1);
 }
-
-define_dummy_symbol(vector7_randmath);

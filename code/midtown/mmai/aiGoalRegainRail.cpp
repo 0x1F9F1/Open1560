@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiGoalRegainRail);
+
 #include "aiGoalRegainRail.h"
 
 aiGoalRegainRail::aiGoalRegainRail(class aiRailSet* arg1, class aiVehicleSpline* arg2)
 {
-    unimplemented();
+    unimplemented(arg1, arg2);
 }
 
 aiGoalRegainRail::~aiGoalRegainRail()
@@ -57,5 +59,3 @@ void aiGoalRegainRail::Dump()
 {
     return stub<thiscall_t<void, aiGoalRegainRail*>>(0x6B270_Offset, this);
 }
-
-define_dummy_symbol(mmai_aiGoalRegainRail);

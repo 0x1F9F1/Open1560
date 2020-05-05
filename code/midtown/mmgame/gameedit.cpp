@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_gameedit);
+
 #include "gameedit.h"
 
 mmGameEdit::mmGameEdit()
@@ -25,7 +27,7 @@ mmGameEdit::mmGameEdit()
 
 mmGameEdit::~mmGameEdit()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmGameEdit::AddWidgets(class Bank* arg1)
@@ -117,5 +119,3 @@ void mmGameEdit::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x12B80_Offset);
 }
-
-define_dummy_symbol(mmgame_gameedit);

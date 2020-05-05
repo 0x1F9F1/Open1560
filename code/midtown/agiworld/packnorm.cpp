@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agiworld_packnorm);
+
 #include "packnorm.h"
 
 u8 PackNormal(class Vector3& arg1)
@@ -27,5 +29,3 @@ u8 PackNormalSlow(class Vector3& arg1)
 {
     return stub<cdecl_t<u8, class Vector3&>>(0x116400_Offset, arg1);
 }
-
-define_dummy_symbol(agiworld_packnorm);

@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-#include "mmbangers/banger.h"
-
 /*
     mmai:aiTrafficLight
 
@@ -46,6 +43,9 @@
     0x61B480 | const mmBangerInstance::`vftable' | ??_7mmBangerInstance@@6B@
     0x6A7970 | private: static short aiTrafficLightSet::ObjCount | ?ObjCount@aiTrafficLightSet@@0FA
 */
+
+#include "arts7/node.h"
+#include "mmbangers/banger.h"
 
 class aiTrafficLightSet : public asNode
 {

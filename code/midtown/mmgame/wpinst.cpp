@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_wpinst);
+
 #include "wpinst.h"
 
 mmWaypointInstance::mmWaypointInstance(i32 arg1, f32 arg2, f32 arg3)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3);
 }
 
 mmWaypointInstance::~mmWaypointInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmWaypointInstance::AddWidgets(class Bank* arg1)
@@ -57,5 +59,3 @@ void mmWaypointInstance::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x33BA0_Offset);
 }
-
-define_dummy_symbol(mmgame_wpinst);

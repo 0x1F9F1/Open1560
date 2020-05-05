@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "carcamcs.h"
-
 /*
     mmcamcs:povcamcs
 
@@ -39,6 +37,8 @@
     0x620000 | const PovCamCS::`vftable' | ??_7PovCamCS@@6B@
     0x719350 | class MetaClass PovCamCSMetaClass | ?PovCamCSMetaClass@@3VMetaClass@@A
 */
+
+#include "carcamcs.h"
 
 class PovCamCS : public CarCamCS
 {

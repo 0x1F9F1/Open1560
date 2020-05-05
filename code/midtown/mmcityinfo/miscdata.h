@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "infobase.h"
-
 /*
     mmcityinfo:miscdata
 
@@ -46,6 +44,8 @@
     0x61F8D0 | const mmRecord::`vftable' | ??_7mmRecord@@6B@
     0x7084F8 | class MetaClass mmMiscDataMetaClass | ?mmMiscDataMetaClass@@3VMetaClass@@A
 */
+
+#include "infobase.h"
 
 class mmMiscData : public mmInfoBase
 {

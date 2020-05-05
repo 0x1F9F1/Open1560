@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_compdrec);
+
 #include "compdrec.h"
 
 mmCompDRecord::mmCompDRecord()
@@ -25,7 +27,7 @@ mmCompDRecord::mmCompDRecord()
 
 mmCompDRecord::~mmCompDRecord()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCompDRecord::Cull()
@@ -86,5 +88,3 @@ void mmCompDRecord::Update()
 {
     return stub<thiscall_t<void, mmCompDRecord*>>(0xB5D50_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_compdrec);

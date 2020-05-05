@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/linear.h"
-
 /*
     mmcar:axle
 
@@ -33,6 +31,8 @@
     0x61C680 | const mmAxle::`vftable' | ??_7mmAxle@@6B@
     0x6A8080 | class MetaClass mmAxleMetaClass | ?mmAxleMetaClass@@3VMetaClass@@A
 */
+
+#include "arts7/linear.h"
 
 class mmAxle : public asLinearCS
 {

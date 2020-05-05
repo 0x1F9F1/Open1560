@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "data7/metatype.h"
-
 /*
     vector7:vector2
 
@@ -41,6 +39,8 @@
     0x621CD0 | const Vector2Type::`vftable' | ??_7Vector2Type@@6B@
     0x909644 | struct Vector2Type Vector2Inst | ?Vector2Inst@@3UVector2Type@@A
 */
+
+#include "data7/metatype.h"
 
 class Vector2
 {

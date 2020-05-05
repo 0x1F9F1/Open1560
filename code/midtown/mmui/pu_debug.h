@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:pu_debug
 
@@ -30,6 +28,8 @@
     0x4AA5B0 | public: virtual void * __thiscall PUDebug::`vector deleting destructor'(unsigned int) | ??_EPUDebug@@UAEPAXI@Z
     0x61E000 | const PUDebug::`vftable' | ??_7PUDebug@@6B@
 */
+
+#include "pu_menu.h"
 
 class PUDebug : public PUMenuBase
 {

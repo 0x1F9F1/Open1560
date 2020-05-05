@@ -18,9 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-#include "inst.h"
-
 /*
     mmcity:cullcity
 
@@ -101,6 +98,9 @@
     0x6A8E78 | float FadeScale | ?FadeScale@@3MA
     0x6A8E7C | int DisableUpper | ?DisableUpper@@3HA
 */
+
+#include "arts7/node.h"
+#include "inst.h"
 
 class mmCullCity : public asNode
 {

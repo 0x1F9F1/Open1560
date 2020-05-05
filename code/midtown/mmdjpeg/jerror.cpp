@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jerror);
+
 #include "jerror.h"
 
 struct jpeg_error_mgr* jpeg_std_error(struct jpeg_error_mgr* arg1)
 {
     return stub<cdecl_t<struct jpeg_error_mgr*, struct jpeg_error_mgr*>>(0x17D930_Offset, arg1);
 }
-
-define_dummy_symbol(mmdjpeg_jerror);

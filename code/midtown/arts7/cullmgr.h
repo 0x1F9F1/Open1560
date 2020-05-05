@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "node.h"
-
 /*
     arts7:cullmgr
 
@@ -46,6 +44,8 @@
     0x790880 | class MetaClass asCullManagerMetaClass | ?asCullManagerMetaClass@@3VMetaClass@@A
     0x7908A8 | float Update3D | ?Update3D@@3MA
 */
+
+#include "node.h"
 
 class asCullManager : public asNode
 {

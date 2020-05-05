@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "pu_menu.h"
-
 /*
     mmui:dlg_password
 
@@ -31,6 +29,8 @@
     0x49DC50 | public: virtual void * __thiscall Dialog_Password::`scalar deleting destructor'(unsigned int) | ??_GDialog_Password@@UAEPAXI@Z
     0x61D538 | const Dialog_Password::`vftable' | ??_7Dialog_Password@@6B@
 */
+
+#include "pu_menu.h"
 
 class Dialog_Password : public PUMenuBase
 {

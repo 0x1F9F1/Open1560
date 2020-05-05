@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "optionsbase.h"
-
 /*
     mmui:graphics
 
@@ -49,6 +47,8 @@
     0x705820 | int RenderToSystemMemory | ?RenderToSystemMemory@@3HA
     0x705824 | int TextureLevel | ?TextureLevel@@3HA
 */
+
+#include "optionsbase.h"
 
 // 0x499710 | ?AutoDetect@@YAXHH@Z
 void AutoDetect(i32 arg1, i32 arg2);

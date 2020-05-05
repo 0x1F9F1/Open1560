@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_d3drpipe);
+
 #include "d3drpipe.h"
 
 agiD3DRPipeline::agiD3DRPipeline()
@@ -25,7 +27,7 @@ agiD3DRPipeline::agiD3DRPipeline()
 
 agiD3DRPipeline::~agiD3DRPipeline()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiD3DRPipeline::BeginGfx()
@@ -67,5 +69,3 @@ void agiD3DRPipeline::EndScene()
 {
     return stub<thiscall_t<void, agiD3DRPipeline*>>(0x131890_Offset, this);
 }
-
-define_dummy_symbol(agid3d_d3drpipe);

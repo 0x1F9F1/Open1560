@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_aicamcs);
+
 #include "aicamcs.h"
 
 AICamCS::AICamCS()
@@ -25,7 +27,7 @@ AICamCS::AICamCS()
 
 AICamCS::~AICamCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class MetaClass* AICamCS::GetClass()
@@ -57,5 +59,3 @@ void AICamCS::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xFA950_Offset);
 }
-
-define_dummy_symbol(mmcamcs_aicamcs);

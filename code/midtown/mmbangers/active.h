@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmbangers:active
 
@@ -48,6 +46,8 @@
     0x642E44 | float ParticleMultiplier | ?ParticleMultiplier@@3MA
     0x706060 | protected: static class mmBangerActiveManager * mmBangerActiveManager::Instance | ?Instance@mmBangerActiveManager@@1PAV1@A
 */
+
+#include "arts7/node.h"
 
 class mmBangerActive : public asNode
 {

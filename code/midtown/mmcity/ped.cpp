@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_ped);
+
 #include "ped.h"
 
 mmPed::mmPed()
@@ -25,7 +27,7 @@ mmPed::mmPed()
 
 mmPed::~mmPed()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall mmPed::Draw(i32 arg1)
@@ -65,7 +67,7 @@ mmPedManager::mmPedManager()
 
 mmPedManager::~mmPedManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class MetaClass* mmPedManager::GetClass()
@@ -87,5 +89,3 @@ void mmPedManager::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x97C20_Offset);
 }
-
-define_dummy_symbol(mmcity_ped);

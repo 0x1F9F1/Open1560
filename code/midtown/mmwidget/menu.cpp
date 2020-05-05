@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_menu);
+
 #include "menu.h"
 
 UIMenu::UIMenu(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 UIMenu::~UIMenu()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UIMenu::PreSetup()
@@ -335,5 +337,3 @@ void UIMenu::Update()
 {
     return stub<thiscall_t<void, UIMenu*>>(0xACB10_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_menu);

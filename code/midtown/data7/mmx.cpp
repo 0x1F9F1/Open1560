@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_mmx);
+
 #include "mmx.h"
 
 initHaveMMX::initHaveMMX()
 {
     unimplemented();
 }
-
-define_dummy_symbol(data7_mmx);

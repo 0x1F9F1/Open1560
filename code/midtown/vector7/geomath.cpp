@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(vector7_geomath);
+
 #include "geomath.h"
 
 i32 CollideTri(class Vector3 const& arg1, class Vector3 const& arg2, class Vector3 const& arg3,
@@ -53,5 +55,3 @@ i32 IsQuadCoplanar(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3
     return stub<cdecl_t<i32, class Vector3&, class Vector3&, class Vector3&, class Vector3&>>(
         0x172210_Offset, arg1, arg2, arg3, arg4);
 }
-
-define_dummy_symbol(vector7_geomath);

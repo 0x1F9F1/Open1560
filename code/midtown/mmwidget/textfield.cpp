@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_textfield);
+
 #include "textfield.h"
 
 UITextField::UITextField()
@@ -25,7 +27,7 @@ UITextField::UITextField()
 
 UITextField::~UITextField()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UITextField::Action(union eqEvent arg1)
@@ -108,7 +110,7 @@ uiWidget::uiWidget()
 
 uiWidget::~uiWidget()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void uiWidget::Disable()
@@ -185,5 +187,3 @@ void uiWidget::SetToolTipText(struct LocString* arg1)
 {
     return stub<thiscall_t<void, uiWidget*, struct LocString*>>(0xB48D0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmwidget_textfield);

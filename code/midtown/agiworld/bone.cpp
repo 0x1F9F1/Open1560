@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agiworld_bone);
+
 #include "bone.h"
 
 bnBone::bnBone()
@@ -52,5 +54,3 @@ void bnBone::Transform(class Matrix34* arg1)
 {
     return stub<thiscall_t<void, bnBone*, class Matrix34*>>(0x116F70_Offset, this, arg1);
 }
-
-define_dummy_symbol(agiworld_bone);

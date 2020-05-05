@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcamcs_appcamcs);
+
 #include "appcamcs.h"
 
 AppCamCS::AppCamCS()
@@ -25,7 +27,7 @@ AppCamCS::AppCamCS()
 
 AppCamCS::~AppCamCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void AppCamCS::AddWidgets(class Bank* arg1)
@@ -63,5 +65,3 @@ void AppCamCS::UpdateMaxDist()
 {
     return stub<thiscall_t<void, AppCamCS*>>(0xFC9D0_Offset, this);
 }
-
-define_dummy_symbol(mmcamcs_appcamcs);

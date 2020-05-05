@@ -16,11 +16,11 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdjpeg_jdpostct);
+
 #include "jdpostct.h"
 
 void jinit_d_post_controller(struct jpeg_decompress_struct* arg1, u8 arg2)
 {
     return stub<cdecl_t<void, struct jpeg_decompress_struct*, u8>>(0x182840_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmdjpeg_jdpostct);

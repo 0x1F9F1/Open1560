@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_opponentcaraudio);
+
 #include "opponentcaraudio.h"
 
 mmOpponentCarAudio::mmOpponentCarAudio()
@@ -25,12 +27,12 @@ mmOpponentCarAudio::mmOpponentCarAudio()
 
 mmOpponentCarAudio::mmOpponentCarAudio(class mmCarSim* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 mmOpponentCarAudio::~mmOpponentCarAudio()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmOpponentCarAudio::AssignSounds(
@@ -109,5 +111,3 @@ void mmOpponentCarAudio::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x7C0E0_Offset);
 }
-
-define_dummy_symbol(mmcar_opponentcaraudio);

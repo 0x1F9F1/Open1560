@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_player);
+
 #include "player.h"
 
 mmPlayer::mmPlayer()
@@ -25,7 +27,7 @@ mmPlayer::mmPlayer()
 
 mmPlayer::~mmPlayer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPlayer::AddWidgets(class Bank* arg1)
@@ -152,5 +154,3 @@ void mmPlayer::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x2CD40_Offset);
 }
-
-define_dummy_symbol(mmgame_player);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_tdwidget);
+
 #include "tdwidget.h"
 
 TextDropWidget::TextDropWidget()
@@ -25,7 +27,7 @@ TextDropWidget::TextDropWidget()
 
 TextDropWidget::~TextDropWidget()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 TextDropWidget::Capture(f32 arg1, f32 arg2)
@@ -119,5 +121,3 @@ void TextDropWidget::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xBE4C0_Offset);
 }
-
-define_dummy_symbol(mmwidget_tdwidget);

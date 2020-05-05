@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcityinfo_roadsect);
+
 #include "roadsect.h"
 
 mmRoadSide::mmRoadSide()
@@ -25,7 +27,7 @@ mmRoadSide::mmRoadSide()
 
 mmRoadSide::~mmRoadSide()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class MetaClass* mmRoadSide::GetClass()
@@ -45,7 +47,7 @@ mmRoadSect::mmRoadSect()
 
 mmRoadSect::~mmRoadSect()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class MetaClass* mmRoadSect::GetClass()
@@ -205,7 +207,7 @@ mmPropInfo::mmPropInfo()
 
 mmPropInfo::~mmPropInfo()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmPropInfo::Append(char* arg1)
@@ -252,5 +254,3 @@ void mmPropInfo::DeclareFields()
 {
     return stub<cdecl_t<void>>(0xD29A0_Offset);
 }
-
-define_dummy_symbol(mmcityinfo_roadsect);

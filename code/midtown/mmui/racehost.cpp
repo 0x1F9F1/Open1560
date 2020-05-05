@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_racehost);
+
 #include "racehost.h"
 
 HostRaceMenu::HostRaceMenu(i32 arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 HostRaceMenu::~HostRaceMenu()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void HostRaceMenu::DisableStart()
@@ -42,5 +44,3 @@ void HostRaceMenu::UsesLobby(i32 arg1)
 {
     return stub<thiscall_t<void, HostRaceMenu*, i32>>(0xA2C60_Offset, this, arg1);
 }
-
-define_dummy_symbol(mmui_racehost);

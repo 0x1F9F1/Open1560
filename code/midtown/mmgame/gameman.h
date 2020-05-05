@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:gameman
 
@@ -53,6 +51,8 @@
     0x6A6D68 | class MetaClass mmGameManagerMetaClass | ?mmGameManagerMetaClass@@3VMetaClass@@A
     0x6A6D94 | private: static class mmGameManager * mmGameManager::Instance | ?Instance@mmGameManager@@0PAV1@A
 */
+
+#include "arts7/node.h"
 
 class mmScreenClearFlunky : public asNode
 {

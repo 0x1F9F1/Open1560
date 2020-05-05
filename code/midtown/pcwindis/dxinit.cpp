@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(pcwindis_dxinit);
+
 #include "dxinit.h"
 
 i32 dxiChangeDisplaySettings(i32 /*width*/, i32 /*height*/, i32 /*bpp*/)
@@ -79,5 +81,3 @@ void dxiWindowCreate(char* arg1)
 {
     return stub<cdecl_t<void, char*>>(0x173B80_Offset, arg1);
 }
-
-define_dummy_symbol(pcwindis_dxinit);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmai:aipedaudiomanager
 
@@ -37,6 +35,8 @@
     0x61B568 | const aiPedAudioManager::`vftable' | ??_7aiPedAudioManager@@6B@
     0x6A79AC | class aiPedAudioManager * AIPEDAUDMGRPTR | ?AIPEDAUDMGRPTR@@3PAVaiPedAudioManager@@A
 */
+
+#include "arts7/node.h"
 
 class aiPedAudioManager : public asNode
 {

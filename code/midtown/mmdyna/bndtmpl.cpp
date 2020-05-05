@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmdyna_bndtmpl);
+
 #include "bndtmpl.h"
 
 mmBoundTemplate::mmBoundTemplate()
@@ -294,5 +296,3 @@ void mmBoundTemplate::PageOutCallback(void* arg1, i32 arg2)
 {
     return stub<cdecl_t<void, void*, i32>>(0x118D40_Offset, arg1, arg2);
 }
-
-define_dummy_symbol(mmdyna_bndtmpl);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmwidget/menu.h"
-
 /*
     mmui:cr_settings
 
@@ -50,6 +48,8 @@
     0x640A60 | int * GameType_PenaltyTable | ?GameType_PenaltyTable@@3PAHA
     0x640A88 | int * Limit_ValueTable | ?Limit_ValueTable@@3PAHA
 */
+
+#include "mmwidget/menu.h"
 
 class CRSettings : public UIMenu
 {

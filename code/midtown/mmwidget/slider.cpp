@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_slider);
+
 #include "slider.h"
 
 UISlider::UISlider()
@@ -25,7 +27,7 @@ UISlider::UISlider()
 
 UISlider::~UISlider()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UISlider::Action(union eqEvent arg1)
@@ -110,5 +112,3 @@ void UISlider::Update()
 {
     return stub<thiscall_t<void, UISlider*>>(0xB3E40_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_slider);

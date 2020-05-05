@@ -16,16 +16,18 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agid3d_d3dtexdef);
+
 #include "d3dtexdef.h"
 
 agiD3DTexDef::agiD3DTexDef(class agiPipeline* arg1)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 agiD3DTexDef::~agiD3DTexDef()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 agiD3DTexDef::BeginGfx()
@@ -77,5 +79,3 @@ void agiD3DTexDef::Prober(void* arg1)
 {
     return stub<cdecl_t<void, void*>>(0x12FA90_Offset, arg1);
 }
-
-define_dummy_symbol(agid3d_d3dtexdef);

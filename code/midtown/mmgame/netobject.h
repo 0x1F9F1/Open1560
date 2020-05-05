@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmnetwork/netobject.h"
-
 /*
     mmgame:netobject
 
@@ -42,6 +40,8 @@
     0x61B120 | const mmNetObject::`vftable' | ??_7mmNetObject@@6B@
     0x6A77E8 | float time_delta | ?time_delta@@3MA
 */
+
+#include "mmnetwork/netobject.h"
 
 class mmNetObject : public asNetObject
 {

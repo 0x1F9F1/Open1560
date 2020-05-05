@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "stream.h"
-
 /*
     stream:vstream
 
@@ -36,6 +34,8 @@
     0x561D60 | public: virtual void * __thiscall VirtualStream::`vector deleting destructor'(unsigned int) | ??_EVirtualStream@@UAEPAXI@Z
     0x621A38 | const VirtualStream::`vftable' | ??_7VirtualStream@@6B@
 */
+
+#include "stream.h"
 
 class VirtualStream : public Stream
 {

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_cullcity);
+
 #include "cullcity.h"
 
 mmCullCity::mmCullCity()
@@ -25,7 +27,7 @@ mmCullCity::mmCullCity()
 
 mmCullCity::~mmCullCity()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCullCity::AddWidgets(class Bank* arg1)
@@ -138,7 +140,7 @@ void mmCullCity::UpdateSnowTextures()
 
 mmUpperInstance::~mmUpperInstance()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void __fastcall mmUpperInstance::Draw(i32 arg1)
@@ -148,12 +150,12 @@ void __fastcall mmUpperInstance::Draw(i32 arg1)
 
 mmRunwayLight::mmRunwayLight(char* arg1, class Vector3& arg2, class Vector3& arg3)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3);
 }
 
 mmRunwayLight::~mmRunwayLight()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmRunwayLight::AddWidgets(class Bank* arg1)
@@ -208,7 +210,7 @@ void fix_shadow()
 
 mmBangerManager::~mmBangerManager()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class mmHitBangerInstance* mmBangerManager::GetBanger()
@@ -225,5 +227,3 @@ void mmBangerManager::Reset()
 {
     return stub<thiscall_t<void, mmBangerManager*>>(0xCAD90_Offset, this);
 }
-
-define_dummy_symbol(mmcity_cullcity);

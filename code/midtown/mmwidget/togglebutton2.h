@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "button.h"
-
 /*
     mmwidget:togglebutton2
 
@@ -40,6 +38,8 @@
     0x61EF20 | const UIToggleButton2::`vftable' | ??_7UIToggleButton2@@6B@
     0x705C20 | protected: static int UIToggleButton2::ToggleBMLoaded | ?ToggleBMLoaded@UIToggleButton2@@1HA
 */
+
+#include "button.h"
 
 class UIToggleButton2 : public UIButton
 {

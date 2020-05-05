@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmphysics_inertia);
+
 #include "inertia.h"
 
 asInertialCS::asInertialCS()
@@ -25,7 +27,7 @@ asInertialCS::asInertialCS()
 
 asInertialCS::~asInertialCS()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asInertialCS::ApplyPush(class Vector3 const& arg1, class Vector3 const& arg2)
@@ -201,5 +203,3 @@ class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, class Matrix34 con
     return stub<cdecl_t<class Vector3, class Matrix34 const&, class Matrix34 const&, f32>>(
         0xDB120_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(mmphysics_inertia);

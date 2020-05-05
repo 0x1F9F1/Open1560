@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_renderweb);
+
 #include "renderweb.h"
 
 asRenderWeb::asRenderWeb()
@@ -25,7 +27,7 @@ asRenderWeb::asRenderWeb()
 
 asRenderWeb::~asRenderWeb()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void asRenderWeb::AddWidgets(class Bank* arg1)
@@ -90,5 +92,3 @@ void DrawMirrorBorder()
 {
     return stub<cdecl_t<void>>(0x90F40_Offset);
 }
-
-define_dummy_symbol(mmcity_renderweb);

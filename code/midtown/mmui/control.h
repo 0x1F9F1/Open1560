@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "optionsbase.h"
-
 /*
     mmui:control
 
@@ -49,6 +47,8 @@
     0x4A3920 | public: virtual void * __thiscall ControlSetup::`vector deleting destructor'(unsigned int) | ??_EControlSetup@@UAEPAXI@Z
     0x61D9A0 | const ControlSetup::`vftable' | ??_7ControlSetup@@6B@
 */
+
+#include "optionsbase.h"
 
 class ControlSetup : public OptionsBase
 {

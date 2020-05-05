@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiVehicleSpline);
+
 #include "aiVehicleSpline.h"
 
 aiVehicleSpline::aiVehicleSpline()
@@ -167,5 +169,3 @@ void aiVehicleSpline::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x5C250_Offset);
 }
-
-define_dummy_symbol(mmai_aiVehicleSpline);

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "arts7/node.h"
-
 /*
     mmgame:wphud
 
@@ -72,6 +70,8 @@
     0x61ACB8 | const mmCRHUD::`vftable' | ??_7mmCRHUD@@6B@
     0x636A00 | float fontscalar | ?fontscalar@@3MA
 */
+
+#include "arts7/node.h"
 
 class mmWPHUD : public asNode
 {

@@ -16,11 +16,13 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_base);
+
 #include "base.h"
 
 Base::~Base()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 class MetaClass* Base::GetClass()
@@ -52,5 +54,3 @@ void Base::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x1791F0_Offset);
 }
-
-define_dummy_symbol(data7_base);

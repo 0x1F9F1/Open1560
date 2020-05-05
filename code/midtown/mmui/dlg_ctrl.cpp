@@ -16,21 +16,21 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmui_dlg_ctrl);
+
 #include "dlg_ctrl.h"
 
 Dialog_ControlAssign::Dialog_ControlAssign(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6)
 {
-    unimplemented();
+    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 Dialog_ControlAssign::~Dialog_ControlAssign()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void Dialog_ControlAssign::PreSetup()
 {
     return stub<thiscall_t<void, Dialog_ControlAssign*>>(0xA0340_Offset, this);
 }
-
-define_dummy_symbol(mmui_dlg_ctrl);

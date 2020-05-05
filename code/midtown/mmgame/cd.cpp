@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_cd);
+
 #include "cd.h"
 
 mmCDPlayer::mmCDPlayer()
@@ -25,7 +27,7 @@ mmCDPlayer::mmCDPlayer()
 
 mmCDPlayer::~mmCDPlayer()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCDPlayer::AddWidgets(class Bank* arg1)
@@ -72,5 +74,3 @@ void mmCDPlayer::Update()
 {
     return stub<thiscall_t<void, mmCDPlayer*>>(0x231A0_Offset, this);
 }
-
-define_dummy_symbol(mmgame_cd);

@@ -16,6 +16,6 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "arraylist.h"
-
 define_dummy_symbol(mmai_arraylist);
+
+#include "arraylist.h"

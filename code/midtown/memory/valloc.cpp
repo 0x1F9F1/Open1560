@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(memory_valloc);
+
 #include "valloc.h"
 
 asSafeHeap::asSafeHeap()
@@ -52,5 +54,3 @@ void asSafeHeap::Deactivate()
 {
     return stub<thiscall_t<void, asSafeHeap*>>(0x1214C0_Offset, this);
 }
-
-define_dummy_symbol(memory_valloc);

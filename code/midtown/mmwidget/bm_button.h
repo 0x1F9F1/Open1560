@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "textfield.h"
-
 /*
     mmwidget:bm_button
 
@@ -55,6 +53,8 @@
     0x7059D0 | class MetaClass UIBMButtonMetaClass | ?UIBMButtonMetaClass@@3VMetaClass@@A
     0x705A08 | private: static class AudSound * UIBMButton::s_pSound | ?s_pSound@UIBMButton@@0PAVAudSound@@A
 */
+
+#include "textfield.h"
 
 class UIBMButton : public uiWidget
 {

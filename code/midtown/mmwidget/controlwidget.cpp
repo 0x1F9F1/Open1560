@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmwidget_controlwidget);
+
 #include "controlwidget.h"
 
 UIControlWidget::UIControlWidget()
@@ -25,7 +27,7 @@ UIControlWidget::UIControlWidget()
 
 UIControlWidget::~UIControlWidget()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void UIControlWidget::Action(union eqEvent arg1)
@@ -78,5 +80,3 @@ void UIControlWidget::UpdateField()
 {
     return stub<thiscall_t<void, UIControlWidget*>>(0xBBEE0_Offset, this);
 }
-
-define_dummy_symbol(mmwidget_controlwidget);

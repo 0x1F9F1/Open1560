@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_cache);
+
 #include "cache.h"
 
 DataCache::DataCache()
@@ -99,5 +101,3 @@ void DataCache::Unload(i32 arg1)
 {
     return stub<thiscall_t<void, DataCache*, i32>>(0x1770B0_Offset, this, arg1);
 }
-
-define_dummy_symbol(data7_cache);

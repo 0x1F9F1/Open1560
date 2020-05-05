@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmai_aiVehicleOpponent);
+
 #include "aiVehicleOpponent.h"
 
 aiVehicleOpponent::aiVehicleOpponent()
@@ -135,5 +137,3 @@ void aiVehicleOpponent::AddToAiAudMgr()
 {
     return stub<thiscall_t<void, aiVehicleOpponent*>>(0x4E430_Offset, this);
 }
-
-define_dummy_symbol(mmai_aiVehicleOpponent);

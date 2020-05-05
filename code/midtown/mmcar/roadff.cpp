@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcar_roadff);
+
 #include "roadff.h"
 
 mmCarRoadFF::mmCarRoadFF()
@@ -25,7 +27,7 @@ mmCarRoadFF::mmCarRoadFF()
 
 mmCarRoadFF::~mmCarRoadFF()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmCarRoadFF::AddWidgets(class Bank* arg1)
@@ -82,5 +84,3 @@ void mmCarRoadFF::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x81920_Offset);
 }
-
-define_dummy_symbol(mmcar_roadff);

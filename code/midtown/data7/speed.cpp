@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(data7_speed);
+
 #include "speed.h"
 
 u32 ComputeCpuSpeed()
@@ -27,5 +29,3 @@ u32 __ComputeCpuSpeed()
 {
     return stub<cdecl_t<u32>>(0x17CE90_Offset);
 }
-
-define_dummy_symbol(data7_speed);

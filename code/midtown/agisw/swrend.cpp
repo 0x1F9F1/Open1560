@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agisw_swrend);
+
 #include "swrend.h"
 
 void __fastcall __emitDebug(struct swSurface* arg1, i32 arg2)
@@ -155,5 +157,3 @@ void swTri(struct agiScreenVtx* arg1, struct agiScreenVtx* arg2, struct agiScree
     return stub<cdecl_t<void, struct agiScreenVtx*, struct agiScreenVtx*, struct agiScreenVtx*>>(
         0x136950_Offset, arg1, arg2, arg3);
 }
-
-define_dummy_symbol(agisw_swrend);

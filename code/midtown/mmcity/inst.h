@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "data7/base.h"
-
 /*
     mmcity:inst
 
@@ -131,6 +129,8 @@
     0x7056C0 | class MetaClass mmStaticInstanceMetaClass | ?mmStaticInstanceMetaClass@@3VMetaClass@@A
     0x7056F8 | public: static int mmInstance::MeshSetSetCount | ?MeshSetSetCount@mmInstance@@2HA
 */
+
+#include "data7/base.h"
 
 class mmInstance : public Base
 {

@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "mmai/aiVehicleMGR.h"
-
 /*
     mmcar:car
 
@@ -55,6 +53,8 @@
     0x6A7E68 | public: static float mmCar::UpdateTime | ?UpdateTime@mmCar@@2MA
     0x6A7E6C | public: static float mmCar::PostUpdateTime | ?PostUpdateTime@mmCar@@2MA
 */
+
+#include "mmai/aiVehicleMGR.h"
 
 class mmCar : public mmPhysEntity
 {

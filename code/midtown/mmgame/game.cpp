@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmgame_game);
+
 #include "game.h"
 
 mmGame::mmGame()
@@ -25,7 +27,7 @@ mmGame::mmGame()
 
 mmGame::~mmGame()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmGame::InitGameStrings()
@@ -182,5 +184,3 @@ void mmGame::RespawnXYZ(class Vector3& arg1, f32& arg2)
 {
     return stub<thiscall_t<void, mmGame*, class Vector3&, f32&>>(0x10130_Offset, this, arg1, arg2);
 }
-
-define_dummy_symbol(mmgame_game);

@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmeffects_mmtext);
+
 #include "mmtext.h"
 
 mmTextNode::mmTextNode()
@@ -25,7 +27,7 @@ mmTextNode::mmTextNode()
 
 mmTextNode::~mmTextNode()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 i32 mmTextNode::AddText(void* arg1, struct LocString* arg2, i32 arg3, f32 arg4, f32 arg5)
@@ -58,7 +60,7 @@ void mmTextNode::Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, i32 arg6
 
 void mmTextNode::Printf(char const* arg1, ...)
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmTextNode::RenderText(class agiSurfaceDesc* arg1, struct mmTextData* arg2, i32 arg3, u32 arg4)
@@ -158,5 +160,3 @@ void mmText::ReleaseDC()
 {
     return stub<cdecl_t<void>>(0xFF010_Offset);
 }
-
-define_dummy_symbol(mmeffects_mmtext);

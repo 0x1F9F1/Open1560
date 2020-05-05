@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mmcity_position);
+
 #include "position.h"
 
 mmPositions::mmPositions()
@@ -59,5 +61,3 @@ i32 mmPositions::Register(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32
     return stub<thiscall_t<i32, mmPositions*, class Vector4&, i32, i32, i32, i32, char*>>(
         0x92180_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6);
 }
-
-define_dummy_symbol(mmcity_position);

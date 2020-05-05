@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(mminput_input);
+
 #include "input.h"
 
 void testsuperq()
@@ -30,7 +32,7 @@ mmInput::mmInput()
 
 mmInput::~mmInput()
 {
-    unimplemented();
+    unimplemented(arg1);
 }
 
 void mmInput::AssignIO(class mmIO* arg1, i32 arg2, i32 arg3)
@@ -377,5 +379,3 @@ i64 mmInput::ScanState(class mmIO* arg1)
 {
     return stub<thiscall_t<i64, mmInput*, class mmIO*>>(0xE26E0_Offset, this, arg1);
 }
-
-define_dummy_symbol(mminput_input);

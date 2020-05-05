@@ -16,6 +16,8 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+define_dummy_symbol(agisw_swemitrunall);
+
 #include "swemitrunall.h"
 
 void __fastcall swEmitRun0_NoZChromaDecalLinearSolidCUCV(i32 arg1)
@@ -1527,5 +1529,3 @@ void __fastcall swEmitRun8_ZReadWriteOpaqueDecalLinearSolidWUWV(i32 arg1)
 {
     return stub<fastcall_t<void, i32>>(0x139720_Offset, arg1);
 }
-
-define_dummy_symbol(agisw_swemitrunall);

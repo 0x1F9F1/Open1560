@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "stream.h"
-
 /*
     stream:filestream
 
@@ -44,6 +42,8 @@
     0x908BE0 | class FileStream __stdout | ?__stdout@@3VFileStream@@A
     0x908C08 | class FileStream __stdin | ?__stdin@@3VFileStream@@A
 */
+
+#include "stream.h"
 
 class FileStream : public Stream
 {
