@@ -121,19 +121,19 @@ private:
     void UpdateAudio();
 
     // 0x705E58 | ?s_fAudioAttenuationMult@mmAnimPlane@@0MA
-    static inline extern_var(0x305E58_Offset, f32, s_fAudioAttenuationMult);
+    static inline extern_var(0x705E58, f32, s_fAudioAttenuationMult);
 
     // 0x6426FC | ?s_fAudioMaxDistance@mmAnimPlane@@0MA
-    static inline extern_var(0x2426FC_Offset, f32, s_fAudioMaxDistance);
+    static inline extern_var(0x6426FC, f32, s_fAudioMaxDistance);
 
     // 0x6426F4 | ?s_fAudioMinDistance@mmAnimPlane@@0MA
-    static inline extern_var(0x2426F4_Offset, f32, s_fAudioMinDistance);
+    static inline extern_var(0x6426F4, f32, s_fAudioMinDistance);
 
     // 0x642700 | ?s_fAudioVolume@mmAnimPlane@@0MA
-    static inline extern_var(0x242700_Offset, f32, s_fAudioVolume);
+    static inline extern_var(0x642700, f32, s_fAudioVolume);
 
     // 0x6426F8 | ?s_fCloserMinDistMult@mmAnimPlane@@0MA
-    static inline extern_var(0x2426F8_Offset, f32, s_fCloserMinDistMult);
+    static inline extern_var(0x6426F8, f32, s_fCloserMinDistMult);
 };
 
 check_size(mmAnimPlane, 0x0);

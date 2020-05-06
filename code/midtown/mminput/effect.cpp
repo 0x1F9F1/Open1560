@@ -22,7 +22,7 @@ define_dummy_symbol(mminput_effect);
 
 i32 __stdcall inputEnumEffectTypeProc(struct DIEFFECTINFOA const* arg1, void* arg2)
 {
-    return stub<stdcall_t<i32, struct DIEFFECTINFOA const*, void*>>(0xE7350_Offset, arg1, arg2);
+    return stub<stdcall_t<i32, struct DIEFFECTINFOA const*, void*>>(0x4E7350, arg1, arg2);
 }
 
 mmEffectFF::mmEffectFF()
@@ -42,15 +42,15 @@ i32 mmEffectFF::Init(struct IDirectInputDevice2A* arg1)
 
 i32 mmEffectFF::Play()
 {
-    return stub<thiscall_t<i32, mmEffectFF*>>(0xE7440_Offset, this);
+    return stub<thiscall_t<i32, mmEffectFF*>>(0x4E7440, this);
 }
 
 i32 mmEffectFF::Stop()
 {
-    return stub<thiscall_t<i32, mmEffectFF*>>(0xE7450_Offset, this);
+    return stub<thiscall_t<i32, mmEffectFF*>>(0x4E7450, this);
 }
 
 i32 mmEffectFF::SetValues(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<i32, mmEffectFF*, f32, f32>>(0xE7460_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmEffectFF*, f32, f32>>(0x4E7460, this, arg1, arg2);
 }

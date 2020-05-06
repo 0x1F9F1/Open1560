@@ -25,4 +25,4 @@
 */
 
 // 0x64ACD8 | ?agiRQ@@3UagiWorldRenderQuality@@A
-inline extern_var(0x24ACD8_Offset, struct agiWorldRenderQuality, agiRQ);
+inline extern_var(0x64ACD8, struct agiWorldRenderQuality, agiRQ);

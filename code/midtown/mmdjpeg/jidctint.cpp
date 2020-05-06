@@ -24,5 +24,5 @@ void jpeg_idct_islow(
     struct jpeg_decompress_struct* arg1, struct jpeg_component_info* arg2, i16* arg3, u8** arg4, u32 arg5)
 {
     return stub<cdecl_t<void, struct jpeg_decompress_struct*, struct jpeg_component_info*, i16*, u8**, u32>>(
-        0x183790_Offset, arg1, arg2, arg3, arg4, arg5);
+        0x583790, arg1, arg2, arg3, arg4, arg5);
 }

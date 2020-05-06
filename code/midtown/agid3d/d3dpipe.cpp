@@ -32,95 +32,95 @@ agiD3DPipeline::~agiD3DPipeline()
 
 void agiD3DPipeline::BeginFrame()
 {
-    return stub<thiscall_t<void, agiD3DPipeline*>>(0x130A40_Offset, this);
+    return stub<thiscall_t<void, agiD3DPipeline*>>(0x530A40, this);
 }
 
 i32 agiD3DPipeline::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiD3DPipeline*>>(0x12FB90_Offset, this);
+    return stub<thiscall_t<i32, agiD3DPipeline*>>(0x52FB90, this);
 }
 
 void agiD3DPipeline::BeginScene()
 {
-    return stub<thiscall_t<void, agiD3DPipeline*>>(0x130AF0_Offset, this);
+    return stub<thiscall_t<void, agiD3DPipeline*>>(0x530AF0, this);
 }
 
 void agiD3DPipeline::ClearAll(i32 arg1)
 {
-    return stub<thiscall_t<void, agiD3DPipeline*, i32>>(0x131400_Offset, this, arg1);
+    return stub<thiscall_t<void, agiD3DPipeline*, i32>>(0x531400, this, arg1);
 }
 
 void agiD3DPipeline::CopyBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7)
 {
     return stub<thiscall_t<void, agiD3DPipeline*, i32, i32, class agiBitmap*, i32, i32, i32, i32>>(
-        0x131520_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x531520, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 class agiBitmap* agiD3DPipeline::CreateBitmap()
 {
-    return stub<thiscall_t<class agiBitmap*, agiD3DPipeline*>>(0x1314C0_Offset, this);
+    return stub<thiscall_t<class agiBitmap*, agiD3DPipeline*>>(0x5314C0, this);
 }
 
 class agiLight* agiD3DPipeline::CreateLight()
 {
-    return stub<thiscall_t<class agiLight*, agiD3DPipeline*>>(0x1313A0_Offset, this);
+    return stub<thiscall_t<class agiLight*, agiD3DPipeline*>>(0x5313A0, this);
 }
 
 class agiMtlDef* agiD3DPipeline::CreateMtlDef()
 {
-    return stub<thiscall_t<class agiMtlDef*, agiD3DPipeline*>>(0x131250_Offset, this);
+    return stub<thiscall_t<class agiMtlDef*, agiD3DPipeline*>>(0x531250, this);
 }
 
 class agiTexDef* agiD3DPipeline::CreateTexDef()
 {
-    return stub<thiscall_t<class agiTexDef*, agiD3DPipeline*>>(0x1312B0_Offset, this);
+    return stub<thiscall_t<class agiTexDef*, agiD3DPipeline*>>(0x5312B0, this);
 }
 
 class agiTexLut* agiD3DPipeline::CreateTexLut()
 {
-    return stub<thiscall_t<class agiTexLut*, agiD3DPipeline*>>(0x131310_Offset, this);
+    return stub<thiscall_t<class agiTexLut*, agiD3DPipeline*>>(0x531310, this);
 }
 
 class agiViewport* agiD3DPipeline::CreateViewport()
 {
-    return stub<thiscall_t<class agiViewport*, agiD3DPipeline*>>(0x1311F0_Offset, this);
+    return stub<thiscall_t<class agiViewport*, agiD3DPipeline*>>(0x5311F0, this);
 }
 
 void agiD3DPipeline::Defragment()
 {
-    return stub<thiscall_t<void, agiD3DPipeline*>>(0x131580_Offset, this);
+    return stub<thiscall_t<void, agiD3DPipeline*>>(0x531580, this);
 }
 
 void agiD3DPipeline::DumpStatus(struct agiMemStatus& arg1)
 {
-    return stub<thiscall_t<void, agiD3DPipeline*, struct agiMemStatus&>>(0x130FE0_Offset, this, arg1);
+    return stub<thiscall_t<void, agiD3DPipeline*, struct agiMemStatus&>>(0x530FE0, this, arg1);
 }
 
 void agiD3DPipeline::EndFrame()
 {
-    return stub<thiscall_t<void, agiD3DPipeline*>>(0x130BD0_Offset, this);
+    return stub<thiscall_t<void, agiD3DPipeline*>>(0x530BD0, this);
 }
 
 void agiD3DPipeline::EndGfx()
 {
-    return stub<thiscall_t<void, agiD3DPipeline*>>(0x131100_Offset, this);
+    return stub<thiscall_t<void, agiD3DPipeline*>>(0x531100, this);
 }
 
 void agiD3DPipeline::EndScene()
 {
-    return stub<thiscall_t<void, agiD3DPipeline*>>(0x130B60_Offset, this);
+    return stub<thiscall_t<void, agiD3DPipeline*>>(0x530B60, this);
 }
 
 i32 __stdcall RestoreCallback(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3)
 {
     return stub<stdcall_t<i32, struct IDirectDrawSurface4*, struct _DDSURFACEDESC2*, void*>>(
-        0x130A20_Offset, arg1, arg2, arg3);
+        0x530A20, arg1, arg2, arg3);
 }
 
 i32 __stdcall callb(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3)
 {
     return stub<stdcall_t<i32, struct IDirectDrawSurface4*, struct _DDSURFACEDESC2*, void*>>(
-        0x130D30_Offset, arg1, arg2, arg3);
+        0x530D30, arg1, arg2, arg3);
 }
 
 agiD3DTexLut::~agiD3DTexLut()
@@ -130,10 +130,10 @@ agiD3DTexLut::~agiD3DTexLut()
 
 i32 agiD3DTexLut::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiD3DTexLut*>>(0x131FD0_Offset, this);
+    return stub<thiscall_t<i32, agiD3DTexLut*>>(0x531FD0, this);
 }
 
 void agiD3DTexLut::EndGfx()
 {
-    return stub<thiscall_t<void, agiD3DTexLut*>>(0x132020_Offset, this);
+    return stub<thiscall_t<void, agiD3DTexLut*>>(0x532020, this);
 }

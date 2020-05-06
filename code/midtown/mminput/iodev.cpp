@@ -32,70 +32,70 @@ mmIODev::~mmIODev()
 
 i32 mmIODev::operator==(union eqEvent* arg1)
 {
-    return stub<thiscall_t<i32, mmIODev*, union eqEvent*>>(0xE5200_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmIODev*, union eqEvent*>>(0x4E5200, this, arg1);
 }
 
 void mmIODev::Assign(i32 arg1, i32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, mmIODev*, i32, i32, i32>>(0xE50E0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmIODev*, i32, i32, i32>>(0x4E50E0, this, arg1, arg2, arg3);
 }
 
 class MetaClass* mmIODev::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmIODev*>>(0xE5A50_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmIODev*>>(0x4E5A50, this);
 }
 
 i32 mmIODev::GetComponentType(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, mmIODev*, i32, i32>>(0xE5580_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmIODev*, i32, i32>>(0x4E5580, this, arg1, arg2);
 }
 
 void mmIODev::GetDescription(char* arg1)
 {
-    return stub<thiscall_t<void, mmIODev*, char*>>(0xE52C0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmIODev*, char*>>(0x4E52C0, this, arg1);
 }
 
 void mmIODev::Init(i32 arg1, i64 arg2)
 {
-    return stub<thiscall_t<void, mmIODev*, i32, i64>>(0xE50B0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmIODev*, i32, i64>>(0x4E50B0, this, arg1, arg2);
 }
 
 void mmIODev::Print(i32 arg1)
 {
-    return stub<thiscall_t<void, mmIODev*, i32>>(0xE5670_Offset, this, arg1);
+    return stub<thiscall_t<void, mmIODev*, i32>>(0x4E5670, this, arg1);
 }
 
 i32 mmIODev::Read(class Stream* arg1)
 {
-    return stub<thiscall_t<i32, mmIODev*, class Stream*>>(0xE57F0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmIODev*, class Stream*>>(0x4E57F0, this, arg1);
 }
 
 i32 mmIODev::ReadBinary(class Stream* arg1)
 {
-    return stub<thiscall_t<i32, mmIODev*, class Stream*>>(0xE5850_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmIODev*, class Stream*>>(0x4E5850, this, arg1);
 }
 
 i32 mmIODev::SanityCheckioType(i32 arg1, i32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<i32, mmIODev*, i32, i32, i32>>(0xE55F0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, mmIODev*, i32, i32, i32>>(0x4E55F0, this, arg1, arg2, arg3);
 }
 
 i32 mmIODev::Write(class Stream* arg1)
 {
-    return stub<thiscall_t<i32, mmIODev*, class Stream*>>(0xE5740_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmIODev*, class Stream*>>(0x4E5740, this, arg1);
 }
 
 i32 mmIODev::WriteBinary(class Stream* arg1)
 {
-    return stub<thiscall_t<i32, mmIODev*, class Stream*>>(0xE57A0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmIODev*, class Stream*>>(0x4E57A0, this, arg1);
 }
 
 void mmIODev::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xE58A0_Offset);
+    return stub<cdecl_t<void>>(0x4E58A0);
 }
 
 i32 ConvertDItoString(i32 arg1, char* arg2, i32 arg3)
 {
-    return stub<cdecl_t<i32, i32, char*, i32>>(0xE5260_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<i32, i32, char*, i32>>(0x4E5260, arg1, arg2, arg3);
 }

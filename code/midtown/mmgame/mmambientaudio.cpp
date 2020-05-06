@@ -32,5 +32,5 @@ mmAmbientAudio::~mmAmbientAudio()
 
 void mmAmbientAudio::Update()
 {
-    return stub<thiscall_t<void, mmAmbientAudio*>>(0x27E60_Offset, this);
+    return stub<thiscall_t<void, mmAmbientAudio*>>(0x427E60, this);
 }

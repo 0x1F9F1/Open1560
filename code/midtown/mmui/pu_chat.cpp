@@ -32,10 +32,10 @@ PUChat::~PUChat()
 
 void PUChat::ChatEntry()
 {
-    return stub<thiscall_t<void, PUChat*>>(0xA98D0_Offset, this);
+    return stub<thiscall_t<void, PUChat*>>(0x4A98D0, this);
 }
 
 void PUChat::ClearChat()
 {
-    return stub<thiscall_t<void, PUChat*>>(0xA9890_Offset, this);
+    return stub<thiscall_t<void, PUChat*>>(0x4A9890, this);
 }

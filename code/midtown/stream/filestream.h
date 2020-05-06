@@ -100,7 +100,7 @@ public:
 check_size(FileStream, 0x28);
 
 // 0x908C08 | ?__stdin@@3VFileStream@@A
-inline extern_var(0x508C08_Offset, class FileStream, __stdin);
+inline extern_var(0x908C08, class FileStream, __stdin);
 
 // 0x908BE0 | ?__stdout@@3VFileStream@@A
-inline extern_var(0x508BE0_Offset, class FileStream, __stdout);
+inline extern_var(0x908BE0, class FileStream, __stdout);

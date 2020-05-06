@@ -32,75 +32,75 @@ mmMultiBlitz::~mmMultiBlitz()
 
 void mmMultiBlitz::GameMessage(struct NETGAME_MSG* arg1)
 {
-    return stub<thiscall_t<void, mmMultiBlitz*, struct NETGAME_MSG*>>(0x1A1C0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmMultiBlitz*, struct NETGAME_MSG*>>(0x41A1C0, this, arg1);
 }
 
 class MetaClass* mmMultiBlitz::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmMultiBlitz*>>(0x1A6D0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmMultiBlitz*>>(0x41A6D0, this);
 }
 
 class mmWaypoints* mmMultiBlitz::GetWaypoints()
 {
-    return stub<thiscall_t<class mmWaypoints*, mmMultiBlitz*>>(0x1A8A0_Offset, this);
+    return stub<thiscall_t<class mmWaypoints*, mmMultiBlitz*>>(0x41A8A0, this);
 }
 
 i32 mmMultiBlitz::Init()
 {
-    return stub<thiscall_t<i32, mmMultiBlitz*>>(0x19010_Offset, this);
+    return stub<thiscall_t<i32, mmMultiBlitz*>>(0x419010, this);
 }
 
 void mmMultiBlitz::InitGameObjects()
 {
-    return stub<thiscall_t<void, mmMultiBlitz*>>(0x19230_Offset, this);
+    return stub<thiscall_t<void, mmMultiBlitz*>>(0x419230, this);
 }
 
 void mmMultiBlitz::InitHUD()
 {
-    return stub<thiscall_t<void, mmMultiBlitz*>>(0x191B0_Offset, this);
+    return stub<thiscall_t<void, mmMultiBlitz*>>(0x4191B0, this);
 }
 
 void mmMultiBlitz::InitMyPlayer()
 {
-    return stub<thiscall_t<void, mmMultiBlitz*>>(0x19140_Offset, this);
+    return stub<thiscall_t<void, mmMultiBlitz*>>(0x419140, this);
 }
 
 void mmMultiBlitz::InitNetworkPlayers()
 {
-    return stub<thiscall_t<void, mmMultiBlitz*>>(0x194C0_Offset, this);
+    return stub<thiscall_t<void, mmMultiBlitz*>>(0x4194C0, this);
 }
 
 void mmMultiBlitz::PlayTimerWarning(f32 arg1)
 {
-    return stub<thiscall_t<void, mmMultiBlitz*, f32>>(0x1A470_Offset, this, arg1);
+    return stub<thiscall_t<void, mmMultiBlitz*, f32>>(0x41A470, this, arg1);
 }
 
 void mmMultiBlitz::Reset()
 {
-    return stub<thiscall_t<void, mmMultiBlitz*>>(0x19820_Offset, this);
+    return stub<thiscall_t<void, mmMultiBlitz*>>(0x419820, this);
 }
 
 void mmMultiBlitz::SystemMessage(struct NETSYS_MSG* arg1)
 {
-    return stub<thiscall_t<void, mmMultiBlitz*, struct NETSYS_MSG*>>(0x1A030_Offset, this, arg1);
+    return stub<thiscall_t<void, mmMultiBlitz*, struct NETSYS_MSG*>>(0x41A030, this, arg1);
 }
 
 void mmMultiBlitz::UpdateGame()
 {
-    return stub<thiscall_t<void, mmMultiBlitz*>>(0x19910_Offset, this);
+    return stub<thiscall_t<void, mmMultiBlitz*>>(0x419910, this);
 }
 
 void mmMultiBlitz::UpdateGameInput(i32 arg1)
 {
-    return stub<thiscall_t<void, mmMultiBlitz*, i32>>(0x198D0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmMultiBlitz*, i32>>(0x4198D0, this, arg1);
 }
 
 void mmMultiBlitz::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x1A550_Offset);
+    return stub<cdecl_t<void>>(0x41A550);
 }
 
 void mmMultiBlitz::SendPlayerFinish()
 {
-    return stub<thiscall_t<void, mmMultiBlitz*>>(0x1A420_Offset, this);
+    return stub<thiscall_t<void, mmMultiBlitz*>>(0x41A420, this);
 }

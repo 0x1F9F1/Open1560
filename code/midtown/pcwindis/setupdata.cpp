@@ -22,20 +22,20 @@ define_dummy_symbol(pcwindis_setupdata);
 
 i32 dxiReadConfigFile()
 {
-    return stub<cdecl_t<i32>>(0x174B00_Offset);
+    return stub<cdecl_t<i32>>(0x574B00);
 }
 
 i32 dxiResClosestMatch(i32 arg1, i32 arg2, i32 arg3)
 {
-    return stub<cdecl_t<i32, i32, i32, i32>>(0x1749B0_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<i32, i32, i32, i32>>(0x5749B0, arg1, arg2, arg3);
 }
 
 i32 dxiResGetRecommended(i32 arg1, i32 arg2)
 {
-    return stub<cdecl_t<i32, i32, i32>>(0x174A60_Offset, arg1, arg2);
+    return stub<cdecl_t<i32, i32, i32>>(0x574A60, arg1, arg2);
 }
 
 void dxiWriteConfigFile()
 {
-    return stub<cdecl_t<void>>(0x174E90_Offset);
+    return stub<cdecl_t<void>>(0x574E90);
 }

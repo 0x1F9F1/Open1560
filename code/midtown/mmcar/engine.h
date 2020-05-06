@@ -98,4 +98,4 @@ public:
 check_size(mmEngine, 0x7C);
 
 // 0x6A8030 | ?mmEngineMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A8030_Offset, class MetaClass, mmEngineMetaClass);
+inline extern_var(0x6A8030, class MetaClass, mmEngineMetaClass);

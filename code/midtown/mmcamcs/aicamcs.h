@@ -69,4 +69,4 @@ public:
 check_size(AICamCS, 0x120);
 
 // 0x719468 | ?AICamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x319468_Offset, class MetaClass, AICamCSMetaClass);
+inline extern_var(0x719468, class MetaClass, AICamCSMetaClass);

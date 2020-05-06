@@ -27,45 +27,45 @@ CDMan::~CDMan()
 
 i32 CDMan::WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4)
 {
-    return stub<thiscall_t<i32, CDMan*, struct HWND__*, u32, u32, i32>>(0xF4690_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<i32, CDMan*, struct HWND__*, u32, u32, i32>>(0x4F4690, this, arg1, arg2, arg3, arg4);
 }
 
 i16 CDMan::GetNumTracks()
 {
-    return stub<thiscall_t<i16, CDMan*>>(0xF4700_Offset, this);
+    return stub<thiscall_t<i16, CDMan*>>(0x4F4700, this);
 }
 
 u32 CDMan::GetPosition(u8* arg1, u8* arg2, u8* arg3, u8* arg4)
 {
-    return stub<thiscall_t<u32, CDMan*, u8*, u8*, u8*, u8*>>(0xF4610_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, CDMan*, u8*, u8*, u8*, u8*>>(0x4F4610, this, arg1, arg2, arg3, arg4);
 }
 
 u32 CDMan::Init(i16 arg1)
 {
-    return stub<thiscall_t<u32, CDMan*, i16>>(0xF4280_Offset, this, arg1);
+    return stub<thiscall_t<u32, CDMan*, i16>>(0x4F4280, this, arg1);
 }
 
 u32 CDMan::PlayTrack(u8 arg1, u8 arg2)
 {
-    return stub<thiscall_t<u32, CDMan*, u8, u8>>(0xF4340_Offset, this, arg1, arg2);
+    return stub<thiscall_t<u32, CDMan*, u8, u8>>(0x4F4340, this, arg1, arg2);
 }
 
 u32 CDMan::PlayTrack(u8 arg1, u8 arg2, u8 arg3, u8 arg4, u8 arg5)
 {
-    return stub<thiscall_t<u32, CDMan*, u8, u8, u8, u8, u8>>(0xF4450_Offset, this, arg1, arg2, arg3, arg4, arg5);
+    return stub<thiscall_t<u32, CDMan*, u8, u8, u8, u8, u8>>(0x4F4450, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 u32 CDMan::ResumePlay()
 {
-    return stub<thiscall_t<u32, CDMan*>>(0xF4430_Offset, this);
+    return stub<thiscall_t<u32, CDMan*>>(0x4F4430, this);
 }
 
 u32 CDMan::SeekTrack(u8 arg1)
 {
-    return stub<thiscall_t<u32, CDMan*, u8>>(0xF45A0_Offset, this, arg1);
+    return stub<thiscall_t<u32, CDMan*, u8>>(0x4F45A0, this, arg1);
 }
 
 u32 CDMan::Stop()
 {
-    return stub<thiscall_t<u32, CDMan*>>(0xF4560_Offset, this);
+    return stub<thiscall_t<u32, CDMan*>>(0x4F4560, this);
 }

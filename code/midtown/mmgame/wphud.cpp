@@ -32,37 +32,37 @@ mmWPHUD::~mmWPHUD()
 
 void mmWPHUD::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmWPHUD*, class Bank*>>(0x24780_Offset, this, arg1);
+    return stub<thiscall_t<void, mmWPHUD*, class Bank*>>(0x424780, this, arg1);
 }
 
 void mmWPHUD::Cull()
 {
-    return stub<thiscall_t<void, mmWPHUD*>>(0x24770_Offset, this);
+    return stub<thiscall_t<void, mmWPHUD*>>(0x424770, this);
 }
 
 void mmWPHUD::Init(i32 arg1, i32* arg2, i32* arg3, i32 arg4)
 {
-    return stub<thiscall_t<void, mmWPHUD*, i32, i32*, i32*, i32>>(0x243F0_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, mmWPHUD*, i32, i32*, i32*, i32>>(0x4243F0, this, arg1, arg2, arg3, arg4);
 }
 
 void mmWPHUD::Reset()
 {
-    return stub<thiscall_t<void, mmWPHUD*>>(0x246E0_Offset, this);
+    return stub<thiscall_t<void, mmWPHUD*>>(0x4246E0, this);
 }
 
 void mmWPHUD::SetStandings(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmWPHUD*, i32, i32>>(0x243B0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmWPHUD*, i32, i32>>(0x4243B0, this, arg1, arg2);
 }
 
 void mmWPHUD::SetWPCleared()
 {
-    return stub<thiscall_t<void, mmWPHUD*>>(0x24360_Offset, this);
+    return stub<thiscall_t<void, mmWPHUD*>>(0x424360, this);
 }
 
 void mmWPHUD::Update()
 {
-    return stub<thiscall_t<void, mmWPHUD*>>(0x24730_Offset, this);
+    return stub<thiscall_t<void, mmWPHUD*>>(0x424730, this);
 }
 
 mmCircuitHUD::mmCircuitHUD()
@@ -77,32 +77,32 @@ mmCircuitHUD::~mmCircuitHUD()
 
 void mmCircuitHUD::Init()
 {
-    return stub<thiscall_t<void, mmCircuitHUD*>>(0x249A0_Offset, this);
+    return stub<thiscall_t<void, mmCircuitHUD*>>(0x4249A0, this);
 }
 
 void mmCircuitHUD::Reset()
 {
-    return stub<thiscall_t<void, mmCircuitHUD*>>(0x25090_Offset, this);
+    return stub<thiscall_t<void, mmCircuitHUD*>>(0x425090, this);
 }
 
 void mmCircuitHUD::SetLapTime(i32 arg1, f32 arg2, char* arg3, i32 arg4)
 {
-    return stub<thiscall_t<void, mmCircuitHUD*, i32, f32, char*, i32>>(0x24FB0_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, mmCircuitHUD*, i32, f32, char*, i32>>(0x424FB0, this, arg1, arg2, arg3, arg4);
 }
 
 void mmCircuitHUD::SetStandings(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmCircuitHUD*, i32, i32>>(0x24F60_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmCircuitHUD*, i32, i32>>(0x424F60, this, arg1, arg2);
 }
 
 void mmCircuitHUD::SetWPCleared(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmCircuitHUD*, i32, i32>>(0x25050_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmCircuitHUD*, i32, i32>>(0x425050, this, arg1, arg2);
 }
 
 void mmCircuitHUD::Update()
 {
-    return stub<thiscall_t<void, mmCircuitHUD*>>(0x24F50_Offset, this);
+    return stub<thiscall_t<void, mmCircuitHUD*>>(0x424F50, this);
 }
 
 mmCRHUD::mmCRHUD()
@@ -117,86 +117,86 @@ mmCRHUD::~mmCRHUD()
 
 void mmCRHUD::ActivateGold()
 {
-    return stub<thiscall_t<void, mmCRHUD*>>(0x26090_Offset, this);
+    return stub<thiscall_t<void, mmCRHUD*>>(0x426090, this);
 }
 
 void mmCRHUD::ActivateRosterGold(u32 arg1)
 {
-    return stub<thiscall_t<void, mmCRHUD*, u32>>(0x260B0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCRHUD*, u32>>(0x4260B0, this, arg1);
 }
 
 void mmCRHUD::AddPlayer(char* arg1, u32 arg2, i32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<void, mmCRHUD*, char*, u32, i32, u32>>(0x25C50_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, mmCRHUD*, char*, u32, i32, u32>>(0x425C50, this, arg1, arg2, arg3, arg4);
 }
 
 void mmCRHUD::DeactivateGold()
 {
-    return stub<thiscall_t<void, mmCRHUD*>>(0x260A0_Offset, this);
+    return stub<thiscall_t<void, mmCRHUD*>>(0x4260A0, this);
 }
 
 void mmCRHUD::DeactivateRosterGold()
 {
-    return stub<thiscall_t<void, mmCRHUD*>>(0x26100_Offset, this);
+    return stub<thiscall_t<void, mmCRHUD*>>(0x426100, this);
 }
 
 void mmCRHUD::Init(class asLinearCS* arg1, char* arg2, enum mmCRGameClass arg3)
 {
     return stub<thiscall_t<void, mmCRHUD*, class asLinearCS*, char*, enum mmCRGameClass>>(
-        0x25410_Offset, this, arg1, arg2, arg3);
+        0x425410, this, arg1, arg2, arg3);
 }
 
 void mmCRHUD::RemovePlayer(u32 arg1)
 {
-    return stub<thiscall_t<void, mmCRHUD*, u32>>(0x25F20_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCRHUD*, u32>>(0x425F20, this, arg1);
 }
 
 void mmCRHUD::Reset()
 {
-    return stub<thiscall_t<void, mmCRHUD*>>(0x26180_Offset, this);
+    return stub<thiscall_t<void, mmCRHUD*>>(0x426180, this);
 }
 
 void mmCRHUD::SetBlueScore(i32 arg1)
 {
-    return stub<thiscall_t<void, mmCRHUD*, i32>>(0x26190_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCRHUD*, i32>>(0x426190, this, arg1);
 }
 
 void mmCRHUD::SetName(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmCRHUD*, char*, i32>>(0x25E30_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmCRHUD*, char*, i32>>(0x425E30, this, arg1, arg2);
 }
 
 void mmCRHUD::SetRedScore(i32 arg1)
 {
-    return stub<thiscall_t<void, mmCRHUD*, i32>>(0x261D0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCRHUD*, i32>>(0x4261D0, this, arg1);
 }
 
 void mmCRHUD::SetScore(char* arg1)
 {
-    return stub<thiscall_t<void, mmCRHUD*, char*>>(0x25E10_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCRHUD*, char*>>(0x425E10, this, arg1);
 }
 
 void mmCRHUD::SetScore(u32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmCRHUD*, u32, i32>>(0x25EB0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmCRHUD*, u32, i32>>(0x425EB0, this, arg1, arg2);
 }
 
 void mmCRHUD::ToggleScores()
 {
-    return stub<thiscall_t<void, mmCRHUD*>>(0x25C20_Offset, this);
+    return stub<thiscall_t<void, mmCRHUD*>>(0x425C20, this);
 }
 
 void mmCRHUD::UnPackColor(u32 arg1, class Vector4& arg2)
 {
-    return stub<thiscall_t<void, mmCRHUD*, u32, class Vector4&>>(0x25D90_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmCRHUD*, u32, class Vector4&>>(0x425D90, this, arg1, arg2);
 }
 
 void mmCRHUD::Update()
 {
-    return stub<thiscall_t<void, mmCRHUD*>>(0x26160_Offset, this);
+    return stub<thiscall_t<void, mmCRHUD*>>(0x426160, this);
 }
 
 void mmCRHUD::UpdateGold()
 {
-    return stub<thiscall_t<void, mmCRHUD*>>(0x26140_Offset, this);
+    return stub<thiscall_t<void, mmCRHUD*>>(0x426140, this);
 }

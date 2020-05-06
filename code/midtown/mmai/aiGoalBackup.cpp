@@ -32,30 +32,30 @@ aiGoalBackup::~aiGoalBackup()
 
 void aiGoalBackup::Init()
 {
-    return stub<thiscall_t<void, aiGoalBackup*>>(0x5F870_Offset, this);
+    return stub<thiscall_t<void, aiGoalBackup*>>(0x45F870, this);
 }
 
 void aiGoalBackup::Reset()
 {
-    return stub<thiscall_t<void, aiGoalBackup*>>(0x5F8A0_Offset, this);
+    return stub<thiscall_t<void, aiGoalBackup*>>(0x45F8A0, this);
 }
 
 i32 aiGoalBackup::Context()
 {
-    return stub<thiscall_t<i32, aiGoalBackup*>>(0x5F880_Offset, this);
+    return stub<thiscall_t<i32, aiGoalBackup*>>(0x45F880, this);
 }
 
 i32 aiGoalBackup::Priority()
 {
-    return stub<thiscall_t<i32, aiGoalBackup*>>(0x5F890_Offset, this);
+    return stub<thiscall_t<i32, aiGoalBackup*>>(0x45F890, this);
 }
 
 void aiGoalBackup::Update()
 {
-    return stub<thiscall_t<void, aiGoalBackup*>>(0x5F8D0_Offset, this);
+    return stub<thiscall_t<void, aiGoalBackup*>>(0x45F8D0, this);
 }
 
 void aiGoalBackup::FinishedBackingUp()
 {
-    return stub<thiscall_t<void, aiGoalBackup*>>(0x5FC10_Offset, this);
+    return stub<thiscall_t<void, aiGoalBackup*>>(0x45FC10, this);
 }

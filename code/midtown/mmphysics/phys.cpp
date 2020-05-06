@@ -27,17 +27,17 @@ mmPhysExec::~mmPhysExec()
 
 void mmPhysExec::DoUpdateAll()
 {
-    return stub<thiscall_t<void, mmPhysExec*>>(0xD3DA0_Offset, this);
+    return stub<thiscall_t<void, mmPhysExec*>>(0x4D3DA0, this);
 }
 
 void mmPhysExec::DoUpdatePlayerOnly()
 {
-    return stub<thiscall_t<void, mmPhysExec*>>(0xD3FF0_Offset, this);
+    return stub<thiscall_t<void, mmPhysExec*>>(0x4D3FF0, this);
 }
 
 void mmPhysExec::Update()
 {
-    return stub<thiscall_t<void, mmPhysExec*>>(0xD9190_Offset, this);
+    return stub<thiscall_t<void, mmPhysExec*>>(0x4D9190, this);
 }
 
 mmPhysicsMGR::mmPhysicsMGR()
@@ -52,145 +52,142 @@ mmPhysicsMGR::~mmPhysicsMGR()
 
 void mmPhysicsMGR::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*, class Bank*>>(0xD8E00_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPhysicsMGR*, class Bank*>>(0x4D8E00, this, arg1);
 }
 
 i32 mmPhysicsMGR::Collide(class mmIntersection* arg1, i32 arg2, i16 arg3, i16 arg4)
 {
     return stub<thiscall_t<i32, mmPhysicsMGR*, class mmIntersection*, i32, i16, i16>>(
-        0xD6460_Offset, this, arg1, arg2, arg3, arg4);
+        0x4D6460, this, arg1, arg2, arg3, arg4);
 }
 
 i32 mmPhysicsMGR::CollideLOS(class mmIntersection* arg1, i32 arg2, i16 arg3, i16 arg4)
 {
     return stub<thiscall_t<i32, mmPhysicsMGR*, class mmIntersection*, i32, i16, i16>>(
-        0xD6580_Offset, this, arg1, arg2, arg3, arg4);
+        0x4D6580, this, arg1, arg2, arg3, arg4);
 }
 
 void mmPhysicsMGR::Cull()
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*>>(0xD5390_Offset, this);
+    return stub<thiscall_t<void, mmPhysicsMGR*>>(0x4D5390, this);
 }
 
 void mmPhysicsMGR::DeclareMover(class mmInstance* arg1, i32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*, i32, i32>>(0xD4540_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*, i32, i32>>(0x4D4540, this, arg1, arg2, arg3);
 }
 
 class MetaClass* mmPhysicsMGR::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmPhysicsMGR*>>(0xD9070_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmPhysicsMGR*>>(0x4D9070, this);
 }
 
 void mmPhysicsMGR::IgnoreMover(class mmInstance* arg1)
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*>>(0xD49E0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*>>(0x4D49E0, this, arg1);
 }
 
 void mmPhysicsMGR::Init(class asInertialCS* arg1, class mmViewCS* arg2)
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*, class asInertialCS*, class mmViewCS*>>(
-        0xD4430_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmPhysicsMGR*, class asInertialCS*, class mmViewCS*>>(0x4D4430, this, arg1, arg2);
 }
 
 void mmPhysicsMGR::NewMover(class mmInstance* arg1)
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*>>(0xD4840_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*>>(0x4D4840, this, arg1);
 }
 
 void mmPhysicsMGR::NewMover(class mmInstance* arg1, class mmInstance* arg2)
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*, class mmInstance*>>(
-        0xD4740_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*, class mmInstance*>>(0x4D4740, this, arg1, arg2);
 }
 
 void mmPhysicsMGR::NewMover(class mmInstance* arg1, class mmInstance* arg2, class mmInstance* arg3)
 {
     return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*, class mmInstance*, class mmInstance*>>(
-        0xD48C0_Offset, this, arg1, arg2, arg3);
+        0x4D48C0, this, arg1, arg2, arg3);
 }
 
 void mmPhysicsMGR::Reset()
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*>>(0xD44D0_Offset, this);
+    return stub<thiscall_t<void, mmPhysicsMGR*>>(0x4D44D0, this);
 }
 
 void mmPhysicsMGR::Shutdown()
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*>>(0xD4520_Offset, this);
+    return stub<thiscall_t<void, mmPhysicsMGR*>>(0x4D4520, this);
 }
 
 void mmPhysicsMGR::Update()
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*>>(0xD4F40_Offset, this);
+    return stub<thiscall_t<void, mmPhysicsMGR*>>(0x4D4F40, this);
 }
 
 void mmPhysicsMGR::UpdateEverythingButPlayer()
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*>>(0xD4D00_Offset, this);
+    return stub<thiscall_t<void, mmPhysicsMGR*>>(0x4D4D00, this);
 }
 
 void mmPhysicsMGR::UpdatePaused()
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*>>(0xD52F0_Offset, this);
+    return stub<thiscall_t<void, mmPhysicsMGR*>>(0x4D52F0, this);
 }
 
 void mmPhysicsMGR::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xD8EF0_Offset);
+    return stub<cdecl_t<void>>(0x4D8EF0);
 }
 
 i32 mmPhysicsMGR::ClosestNeighboringCullRoom(i32 arg1)
 {
-    return stub<thiscall_t<i32, mmPhysicsMGR*, i32>>(0xD4B50_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPhysicsMGR*, i32>>(0x4D4B50, this, arg1);
 }
 
 i32 mmPhysicsMGR::CollideInstances(class mmInstance* arg1, class mmInstance* arg2, i32 arg3, i32 arg4)
 {
     return stub<thiscall_t<i32, mmPhysicsMGR*, class mmInstance*, class mmInstance*, i32, i32>>(
-        0xD5950_Offset, this, arg1, arg2, arg3, arg4);
+        0x4D5950, this, arg1, arg2, arg3, arg4);
 }
 
 i32 mmPhysicsMGR::CollideProbe(i16 arg1, class mmIntersection* arg2, i32 arg3)
 {
-    return stub<thiscall_t<i32, mmPhysicsMGR*, i16, class mmIntersection*, i32>>(
-        0xD62D0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, mmPhysicsMGR*, i16, class mmIntersection*, i32>>(0x4D62D0, this, arg1, arg2, arg3);
 }
 
 void mmPhysicsMGR::CollideTerrain(class mmInstance* arg1)
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*>>(0xD5DF0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPhysicsMGR*, class mmInstance*>>(0x4D5DF0, this, arg1);
 }
 
 void mmPhysicsMGR::DeclareBound(class mmBoundTemplate* arg1)
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*, class mmBoundTemplate*>>(0xD5320_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPhysicsMGR*, class mmBoundTemplate*>>(0x4D5320, this, arg1);
 }
 
 void mmPhysicsMGR::GatherCollidables(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*, i32, i32>>(0xD4CA0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmPhysicsMGR*, i32, i32>>(0x4D4CA0, this, arg1, arg2);
 }
 
 void mmPhysicsMGR::GatherRoomCollidables(i32 arg1, i16 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*, i32, i16, i32>>(0xD4A30_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmPhysicsMGR*, i32, i16, i32>>(0x4D4A30, this, arg1, arg2, arg3);
 }
 
 void mmPhysicsMGR::Stats()
 {
-    return stub<thiscall_t<void, mmPhysicsMGR*>>(0xD5520_Offset, this);
+    return stub<thiscall_t<void, mmPhysicsMGR*>>(0x4D5520, this);
 }
 
 i32 mmPhysicsMGR::TrivialCollideInstances(class mmInstance* arg1, class mmInstance* arg2)
 {
-    return stub<thiscall_t<i32, mmPhysicsMGR*, class mmInstance*, class mmInstance*>>(0xD5730_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmPhysicsMGR*, class mmInstance*, class mmInstance*>>(0x4D5730, this, arg1, arg2);
 }
 
 void DoEdgeEdge(class mmEdgeBodyIsect* arg1, class mmIntersection** arg2, i32* arg3, i32 arg4)
 {
     return stub<cdecl_t<void, class mmEdgeBodyIsect*, class mmIntersection**, i32*, i32>>(
-        0xD8130_Offset, arg1, arg2, arg3, arg4);
+        0x4D8130, arg1, arg2, arg3, arg4);
 }
 
 void DoEndPtSearch(i32 arg1, class Vector3 const& arg2, class mmEdgeBodyIsect* arg3, i32 arg4,
@@ -198,7 +195,7 @@ void DoEndPtSearch(i32 arg1, class Vector3 const& arg2, class mmEdgeBodyIsect* a
 {
     return stub<
         cdecl_t<void, i32, class Vector3 const&, class mmEdgeBodyIsect*, i32, class mmIntersection**, i32*, i32>>(
-        0xD7B10_Offset, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x4D7B10, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 i32 FindIntersections(class mmIntersection* arg1, i32 arg2, class asBound* arg3, class asBound* arg4,
@@ -207,7 +204,7 @@ i32 FindIntersections(class mmIntersection* arg1, i32 arg2, class asBound* arg3,
 {
     return stub<cdecl_t<i32, class mmIntersection*, i32, class asBound*, class asBound*, class mmBoundTemplate*,
         class mmBoundTemplate*, class mmEdgeBodyIsect*, i32, class mmEdgeBodyIsect*, i32>>(
-        0xD66E0_Offset, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
+        0x4D66E0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
 }
 
 i32 GetCollidePolyEdge(class Vector3 const& arg1, class mmPolygon* arg2, class mmBoundTemplate* arg3,
@@ -218,7 +215,7 @@ i32 GetCollidePolyEdge(class Vector3 const& arg1, class mmPolygon* arg2, class m
     return stub<cdecl_t<i32, class Vector3 const&, class mmPolygon*, class mmBoundTemplate*, class asInertialCS*,
         class Vector3 const&, f32, class Vector3 const&, class Vector3 const&, class Vector3 const&,
         class Vector3 const&, class Vector3*, class Vector3*, f32*, i32*, i32*>>(
-        0xD8730_Offset, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15);
+        0x4D8730, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15);
 }
 
 void SegSegDistNorm(class Vector3 const& arg1, class Vector3 const& arg2, class Vector3 const& arg3,
@@ -227,10 +224,10 @@ void SegSegDistNorm(class Vector3 const& arg1, class Vector3 const& arg2, class 
 {
     return stub<cdecl_t<void, class Vector3 const&, class Vector3 const&, class Vector3 const&, class Vector3 const&,
         class Vector3 const&, class Vector3 const&, class Vector3*, class Vector3*, class Vector3*, f32*, i32*>>(
-        0xD8210_Offset, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
+        0x4D8210, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
 }
 
 i32 testNoOverlap(f32 arg1, f32 arg2)
 {
-    return stub<cdecl_t<i32, f32, f32>>(0xD90C0_Offset, arg1, arg2);
+    return stub<cdecl_t<i32, f32, f32>>(0x4D90C0, arg1, arg2);
 }

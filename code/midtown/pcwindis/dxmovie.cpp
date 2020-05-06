@@ -22,5 +22,5 @@ define_dummy_symbol(pcwindis_dxmovie);
 
 void dxiPlayMovie(char* arg1)
 {
-    return stub<cdecl_t<void, char*>>(0x175100_Offset, arg1);
+    return stub<cdecl_t<void, char*>>(0x575100, arg1);
 }

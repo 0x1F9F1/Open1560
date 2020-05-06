@@ -205,13 +205,13 @@ private:
     void Wander();
 
     // 0x6A7A18 | ?s_fAttenuationMult@aiPedestrian@@0MA
-    static inline extern_var(0x2A7A18_Offset, f32, s_fAttenuationMult);
+    static inline extern_var(0x6A7A18, f32, s_fAttenuationMult);
 
     // 0x639374 | ?s_fAudioMaxDistance@aiPedestrian@@0MA
-    static inline extern_var(0x239374_Offset, f32, s_fAudioMaxDistance);
+    static inline extern_var(0x639374, f32, s_fAudioMaxDistance);
 
     // 0x639370 | ?s_fAudioVolume@aiPedestrian@@0MA
-    static inline extern_var(0x239370_Offset, f32, s_fAudioVolume);
+    static inline extern_var(0x639370, f32, s_fAudioVolume);
 };
 
 check_size(aiPedestrian, 0xAC);

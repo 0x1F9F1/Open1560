@@ -63,4 +63,4 @@ check_size(Callback, 0x0);
 // 0x5792D0 | ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z (Skipped: void)
 
 // 0x90B128 | ?NullCallback@@3VCallback@@A
-inline extern_var(0x50B128_Offset, class Callback, NullCallback);
+inline extern_var(0x90B128, class Callback, NullCallback);

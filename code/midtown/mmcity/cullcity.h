@@ -180,7 +180,7 @@ private:
     void UpdateSnowTextures();
 
     // 0x6A8E28 | ?Instance@mmCullCity@@0PAV1@A
-    static inline extern_var(0x2A8E28_Offset, class mmCullCity*, Instance);
+    static inline extern_var(0x6A8E28, class mmCullCity*, Instance);
 };
 
 check_size(mmCullCity, 0x34D6C);
@@ -232,7 +232,7 @@ public:
     class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
 
     // 0x6A8E74 | ?Phase@mmRunwayLight@@2MA
-    static inline extern_var(0x2A8E74_Offset, f32, Phase);
+    static inline extern_var(0x6A8E74, f32, Phase);
 };
 
 check_size(mmRunwayLight, 0x0);
@@ -250,49 +250,49 @@ void fix_lighting();
 void fix_shadow();
 
 // 0x63E4E4 | ?BoneScale@@3MA
-inline extern_var(0x23E4E4_Offset, f32, BoneScale);
+inline extern_var(0x63E4E4, f32, BoneScale);
 
 // 0x6A8E7C | ?DisableUpper@@3HA
-inline extern_var(0x2A8E7C_Offset, i32, DisableUpper);
+inline extern_var(0x6A8E7C, i32, DisableUpper);
 
 // 0x6A8DD0 | ?EnvVel@@3MA
-inline extern_var(0x2A8DD0_Offset, f32, EnvVel);
+inline extern_var(0x6A8DD0, f32, EnvVel);
 
 // 0x6A8E68 | ?FadeConstant@@3MA
-inline extern_var(0x2A8E68_Offset, f32, FadeConstant);
+inline extern_var(0x6A8E68, f32, FadeConstant);
 
 // 0x6A8E78 | ?FadeScale@@3MA
-inline extern_var(0x2A8E78_Offset, f32, FadeScale);
+inline extern_var(0x6A8E78, f32, FadeScale);
 
 // 0x6A8E30 | ?PlaneFudge@@3VVector3@@A
-inline extern_var(0x2A8E30_Offset, class Vector3, PlaneFudge);
+inline extern_var(0x6A8E30, class Vector3, PlaneFudge);
 
 // 0x6A8E70 | ?StaticLog@@3PAVStream@@A
-inline extern_var(0x2A8E70_Offset, class Stream*, StaticLog);
+inline extern_var(0x6A8E70, class Stream*, StaticLog);
 
 // 0x6A8E20 | ?UsePixelFog@@3HA
-inline extern_var(0x2A8E20_Offset, i32, UsePixelFog);
+inline extern_var(0x6A8E20, i32, UsePixelFog);
 
 // 0x6A8DDC | ?ambTriCount@@3HA
-inline extern_var(0x2A8DDC_Offset, i32, ambTriCount);
+inline extern_var(0x6A8DDC, i32, ambTriCount);
 
 // 0x6A8DE4 | ?bangerTriCount@@3HA
-inline extern_var(0x2A8DE4_Offset, i32, bangerTriCount);
+inline extern_var(0x6A8DE4, i32, bangerTriCount);
 
 // 0x6A8DE0 | ?carTriCount@@3HA
-inline extern_var(0x2A8DE0_Offset, i32, carTriCount);
+inline extern_var(0x6A8DE0, i32, carTriCount);
 
 // 0x6A8DCC | ?facadeTriCount@@3HA
-inline extern_var(0x2A8DCC_Offset, i32, facadeTriCount);
+inline extern_var(0x6A8DCC, i32, facadeTriCount);
 
 // 0x6A8E40 | ?mmCullCityMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A8E40_Offset, class MetaClass, mmCullCityMetaClass);
+inline extern_var(0x6A8E40, class MetaClass, mmCullCityMetaClass);
 
 // 0x63E260 | ?mmEnvSetup@@3PAY03Ut_mmEnvSetup@@A
-inline extern_var(0x23E260_Offset, struct t_mmEnvSetup (*)[4], mmEnvSetup);
+inline extern_var(0x63E260, struct t_mmEnvSetup (*)[4], mmEnvSetup);
 
 // 0x6A8E24 | ?pedTriCount@@3HA
-inline extern_var(0x2A8E24_Offset, i32, pedTriCount);
+inline extern_var(0x6A8E24, i32, pedTriCount);
 
 class mmBangerManager : public asNode
 {
@@ -314,7 +314,7 @@ public:
 
 protected:
     // 0x706048 | ?Instance@mmBangerManager@@1PAV1@A
-    static inline extern_var(0x306048_Offset, class mmBangerManager*, Instance);
+    static inline extern_var(0x706048, class mmBangerManager*, Instance);
 };
 
 check_size(mmBangerManager, 0x0);

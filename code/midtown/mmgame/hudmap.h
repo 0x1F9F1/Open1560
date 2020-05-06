@@ -171,7 +171,7 @@ check_size(mmHudMap, 0x2C8);
 // 0x429FE0 | ??_9@$BBE@AE (Skipped: void)
 
 // 0x6A7378 | ?Tris@@3PATagiVtx@@A
-inline extern_var(0x2A7378_Offset, union agiVtx*, Tris);
+inline extern_var(0x6A7378, union agiVtx*, Tris);
 
 // 0x6A7350 | ?mmHudMapMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7350_Offset, class MetaClass, mmHudMapMetaClass);
+inline extern_var(0x6A7350, class MetaClass, mmHudMapMetaClass);

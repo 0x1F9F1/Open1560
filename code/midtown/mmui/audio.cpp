@@ -32,110 +32,110 @@ AudioOptions::~AudioOptions()
 
 void AudioOptions::CancelAction()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D150_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D150, this);
 }
 
 void AudioOptions::DoneAction()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D1D0_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D1D0, this);
 }
 
 i32 AudioOptions::FindDevice(char* arg1)
 {
-    return stub<thiscall_t<i32, AudioOptions*, char*>>(0x9D480_Offset, this, arg1);
+    return stub<thiscall_t<i32, AudioOptions*, char*>>(0x49D480, this, arg1);
 }
 
 char* AudioOptions::GetCurrentDeviceName()
 {
-    return stub<thiscall_t<char*, AudioOptions*>>(0x9D510_Offset, this);
+    return stub<thiscall_t<char*, AudioOptions*>>(0x49D510, this);
 }
 
 void AudioOptions::PreSetup()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9CEF0_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49CEF0, this);
 }
 
 void AudioOptions::ResetCDMusic()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D590_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D590, this);
 }
 
 void AudioOptions::ResetCommentary()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D620_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D620, this);
 }
 
 void AudioOptions::ResetDefaultAction()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D0D0_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D0D0, this);
 }
 
 void AudioOptions::ResetSoundFX()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D560_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D560, this);
 }
 
 void AudioOptions::ResetSoundQuality()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D5C0_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D5C0, this);
 }
 
 void AudioOptions::ResetStereo()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D530_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D530, this);
 }
 
 void AudioOptions::SetAudioState()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D1E0_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D1E0, this);
 }
 
 void AudioOptions::SetBalance()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9CF40_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49CF40, this);
 }
 
 void AudioOptions::SetCDMusic()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D3F0_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D3F0, this);
 }
 
 void AudioOptions::SetCDVolume()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9CF20_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49CF20, this);
 }
 
 void AudioOptions::SetCommentary()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D450_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D450, this);
 }
 
 void AudioOptions::SetDevice(i32 arg1)
 {
-    return stub<thiscall_t<void, AudioOptions*, i32>>(0x9D650_Offset, this, arg1);
+    return stub<thiscall_t<void, AudioOptions*, i32>>(0x49D650, this, arg1);
 }
 
 void AudioOptions::SetQuality()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9CF70_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49CF70, this);
 }
 
 void AudioOptions::SetSoundFX()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D420_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D420, this);
 }
 
 void AudioOptions::SetStereoFX()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D040_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D040, this);
 }
 
 void AudioOptions::SetWaveVolume()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9CF00_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49CF00, this);
 }
 
 void AudioOptions::StoreCurrentSetup()
 {
-    return stub<thiscall_t<void, AudioOptions*>>(0x9D0C0_Offset, this);
+    return stub<thiscall_t<void, AudioOptions*>>(0x49D0C0, this);
 }

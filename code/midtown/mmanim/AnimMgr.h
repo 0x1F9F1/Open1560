@@ -75,4 +75,4 @@ public:
 check_size(mmAnimMgr, 0x26B0);
 
 // 0x705D68 | ?mmAnimMgrMetaClass@@3VMetaClass@@A
-inline extern_var(0x305D68_Offset, class MetaClass, mmAnimMgrMetaClass);
+inline extern_var(0x705D68, class MetaClass, mmAnimMgrMetaClass);

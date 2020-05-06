@@ -277,6 +277,6 @@ i32 __stdcall EnumPlayersCallback(u32 arg1, u32 arg2, struct DPNAME const* arg3,
 i32 __stdcall EnumSessionCallback(struct DPSESSIONDESC2 const* arg1, u32* arg2, u32 arg3, void* arg4);
 
 // 0x6A8918 | ?NETMGR@@3VasNetwork@@A
-inline extern_var(0x2A8918_Offset, class asNetwork, NETMGR);
+inline extern_var(0x6A8918, class asNetwork, NETMGR);
 
 // 0x61CB70 | _MM_GUID (Skipped: void)

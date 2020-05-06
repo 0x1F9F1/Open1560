@@ -49,4 +49,4 @@ void agiPrintShutdown();
 void agiPrintf(i32 arg1, i32 arg2, i32 arg3, char const* arg4, ...);
 
 // 0x656C30 | ?CharSet@@3PAEA
-inline extern_var(0x256C30_Offset, u8*, CharSet);
+inline extern_var(0x656C30, u8*, CharSet);

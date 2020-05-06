@@ -32,25 +32,25 @@ mmShock::~mmShock()
 
 void mmShock::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmShock*, class Bank*>>(0x7D280_Offset, this, arg1);
+    return stub<thiscall_t<void, mmShock*, class Bank*>>(0x47D280, this, arg1);
 }
 
 class MetaClass* mmShock::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmShock*>>(0x7D410_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmShock*>>(0x47D410, this);
 }
 
 void mmShock::Init(char* arg1, char* arg2, class mmWheel* arg3)
 {
-    return stub<thiscall_t<void, mmShock*, char*, char*, class mmWheel*>>(0x7D210_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmShock*, char*, char*, class mmWheel*>>(0x47D210, this, arg1, arg2, arg3);
 }
 
 void mmShock::Update()
 {
-    return stub<thiscall_t<void, mmShock*>>(0x7D270_Offset, this);
+    return stub<thiscall_t<void, mmShock*>>(0x47D270, this);
 }
 
 void mmShock::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x7D2A0_Offset);
+    return stub<cdecl_t<void>>(0x47D2A0);
 }

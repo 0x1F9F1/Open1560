@@ -32,12 +32,12 @@ mmOpponentSurfaceAudio::~mmOpponentSurfaceAudio()
 
 void mmOpponentSurfaceAudio::Disable3DMode()
 {
-    return stub<thiscall_t<void, mmOpponentSurfaceAudio*>>(0x863A0_Offset, this);
+    return stub<thiscall_t<void, mmOpponentSurfaceAudio*>>(0x4863A0, this);
 }
 
 void mmOpponentSurfaceAudio::Enable3DMode(class Vector3* arg1)
 {
-    return stub<thiscall_t<void, mmOpponentSurfaceAudio*, class Vector3*>>(0x86380_Offset, this, arg1);
+    return stub<thiscall_t<void, mmOpponentSurfaceAudio*, class Vector3*>>(0x486380, this, arg1);
 }
 
 void mmOpponentSurfaceAudio::SetWheelPointers(
@@ -45,20 +45,20 @@ void mmOpponentSurfaceAudio::SetWheelPointers(
 {
     return stub<
         thiscall_t<void, mmOpponentSurfaceAudio*, class mmWheel*, class mmWheel*, class mmWheel*, class mmWheel*>>(
-        0x85E40_Offset, this, arg1, arg2, arg3, arg4);
+        0x485E40, this, arg1, arg2, arg3, arg4);
 }
 
 void mmOpponentSurfaceAudio::Update(f32 arg1)
 {
-    return stub<thiscall_t<void, mmOpponentSurfaceAudio*, f32>>(0x85E60_Offset, this, arg1);
+    return stub<thiscall_t<void, mmOpponentSurfaceAudio*, f32>>(0x485E60, this, arg1);
 }
 
 void mmOpponentSurfaceAudio::UpdateSkid(f32 arg1)
 {
-    return stub<thiscall_t<void, mmOpponentSurfaceAudio*, f32>>(0x85EA0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmOpponentSurfaceAudio*, f32>>(0x485EA0, this, arg1);
 }
 
 void mmOpponentSurfaceAudio::UpdateSkidSnow(f32 arg1)
 {
-    return stub<thiscall_t<void, mmOpponentSurfaceAudio*, f32>>(0x86120_Offset, this, arg1);
+    return stub<thiscall_t<void, mmOpponentSurfaceAudio*, f32>>(0x486120, this, arg1);
 }

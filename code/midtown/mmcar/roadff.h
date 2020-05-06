@@ -90,4 +90,4 @@ public:
 check_size(mmCarRoadFF, 0x44);
 
 // 0x6A8170 | ?mmCarRoadFFMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A8170_Offset, class MetaClass, mmCarRoadFFMetaClass);
+inline extern_var(0x6A8170, class MetaClass, mmCarRoadFFMetaClass);

@@ -65,4 +65,4 @@ public:
 check_size(mmShock, 0x98);
 
 // 0x6A8058 | ?mmShockMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A8058_Offset, class MetaClass, mmShockMetaClass);
+inline extern_var(0x6A8058, class MetaClass, mmShockMetaClass);

@@ -22,10 +22,10 @@ define_dummy_symbol(agi_physdef);
 
 void agiPhysParameters::Load(class Stream* arg1)
 {
-    return stub<thiscall_t<void, agiPhysParameters*, class Stream*>>(0x156F90_Offset, this, arg1);
+    return stub<thiscall_t<void, agiPhysParameters*, class Stream*>>(0x556F90, this, arg1);
 }
 
 void agiPhysParameters::Save(class Stream* arg1)
 {
-    return stub<thiscall_t<void, agiPhysParameters*, class Stream*>>(0x157040_Offset, this, arg1);
+    return stub<thiscall_t<void, agiPhysParameters*, class Stream*>>(0x557040, this, arg1);
 }

@@ -32,12 +32,12 @@ void agiRefreshable::EndGfx()
 
 void agiRefreshable::Restore()
 {
-    return stub<thiscall_t<void, agiRefreshable*>>(0x157AD0_Offset, this);
+    return stub<thiscall_t<void, agiRefreshable*>>(0x557AD0, this);
 }
 
 char* agiRefreshable::GetName()
 {
-    return stub<thiscall_t<char*, agiRefreshable*>>(0x157B90_Offset, this);
+    return stub<thiscall_t<char*, agiRefreshable*>>(0x557B90, this);
 }
 
 agiRefreshable::~agiRefreshable()
@@ -52,25 +52,25 @@ i32 agiRefreshable::BeginGfx()
 
 i32 agiRefreshable::IsTexture()
 {
-    return stub<thiscall_t<i32, agiRefreshable*>>(0x157BA0_Offset, this);
+    return stub<thiscall_t<i32, agiRefreshable*>>(0x557BA0, this);
 }
 
 void agiRefreshable::AddRef()
 {
-    return stub<thiscall_t<void, agiRefreshable*>>(0x157AE0_Offset, this);
+    return stub<thiscall_t<void, agiRefreshable*>>(0x557AE0, this);
 }
 
 i32 agiRefreshable::Release()
 {
-    return stub<thiscall_t<i32, agiRefreshable*>>(0x157B00_Offset, this);
+    return stub<thiscall_t<i32, agiRefreshable*>>(0x557B00, this);
 }
 
 i32 agiRefreshable::SafeBeginGfx()
 {
-    return stub<thiscall_t<i32, agiRefreshable*>>(0x157AA0_Offset, this);
+    return stub<thiscall_t<i32, agiRefreshable*>>(0x557AA0, this);
 }
 
 void agiRefreshable::ValidatePtr(char* arg1)
 {
-    return stub<thiscall_t<void, agiRefreshable*, char*>>(0x157B30_Offset, this, arg1);
+    return stub<thiscall_t<void, agiRefreshable*, char*>>(0x557B30, this, arg1);
 }

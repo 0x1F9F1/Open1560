@@ -119,4 +119,4 @@ public:
 check_size(TextDropWidget, 0x38);
 
 // 0x705C78 | ?TextDropWidgetMetaClass@@3VMetaClass@@A
-inline extern_var(0x305C78_Offset, class MetaClass, TextDropWidgetMetaClass);
+inline extern_var(0x705C78, class MetaClass, TextDropWidgetMetaClass);

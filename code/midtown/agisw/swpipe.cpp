@@ -32,99 +32,99 @@ agiSWPipeline::~agiSWPipeline()
 
 void agiSWPipeline::BeginFrame()
 {
-    return stub<thiscall_t<void, agiSWPipeline*>>(0x134030_Offset, this);
+    return stub<thiscall_t<void, agiSWPipeline*>>(0x534030, this);
 }
 
 i32 agiSWPipeline::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiSWPipeline*>>(0x133E60_Offset, this);
+    return stub<thiscall_t<i32, agiSWPipeline*>>(0x533E60, this);
 }
 
 void agiSWPipeline::BeginScene()
 {
-    return stub<thiscall_t<void, agiSWPipeline*>>(0x134070_Offset, this);
+    return stub<thiscall_t<void, agiSWPipeline*>>(0x534070, this);
 }
 
 void agiSWPipeline::ClearAll(i32 arg1)
 {
-    return stub<thiscall_t<void, agiSWPipeline*, i32>>(0x1341A0_Offset, this, arg1);
+    return stub<thiscall_t<void, agiSWPipeline*, i32>>(0x5341A0, this, arg1);
 }
 
 void agiSWPipeline::ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5)
 {
     return stub<thiscall_t<void, agiSWPipeline*, i32, i32, i32, i32, u32>>(
-        0x134230_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x534230, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void agiSWPipeline::CopyBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7)
 {
     return stub<thiscall_t<void, agiSWPipeline*, i32, i32, class agiBitmap*, i32, i32, i32, i32>>(
-        0x1344C0_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x5344C0, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 class agiBitmap* agiSWPipeline::CreateBitmap()
 {
-    return stub<thiscall_t<class agiBitmap*, agiSWPipeline*>>(0x134450_Offset, this);
+    return stub<thiscall_t<class agiBitmap*, agiSWPipeline*>>(0x534450, this);
 }
 
 class DLP* agiSWPipeline::CreateDLP()
 {
-    return stub<thiscall_t<class DLP*, agiSWPipeline*>>(0x1340E0_Offset, this);
+    return stub<thiscall_t<class DLP*, agiSWPipeline*>>(0x5340E0, this);
 }
 
 class agiLight* agiSWPipeline::CreateLight()
 {
-    return stub<thiscall_t<class agiLight*, agiSWPipeline*>>(0x134140_Offset, this);
+    return stub<thiscall_t<class agiLight*, agiSWPipeline*>>(0x534140, this);
 }
 
 class agiLightModel* agiSWPipeline::CreateLightModel()
 {
-    return stub<thiscall_t<class agiLightModel*, agiSWPipeline*>>(0x134320_Offset, this);
+    return stub<thiscall_t<class agiLightModel*, agiSWPipeline*>>(0x534320, this);
 }
 
 class agiMtlDef* agiSWPipeline::CreateMtlDef()
 {
-    return stub<thiscall_t<class agiMtlDef*, agiSWPipeline*>>(0x134440_Offset, this);
+    return stub<thiscall_t<class agiMtlDef*, agiSWPipeline*>>(0x534440, this);
 }
 
 class agiTexDef* agiSWPipeline::CreateTexDef()
 {
-    return stub<thiscall_t<class agiTexDef*, agiSWPipeline*>>(0x134380_Offset, this);
+    return stub<thiscall_t<class agiTexDef*, agiSWPipeline*>>(0x534380, this);
 }
 
 class agiTexLut* agiSWPipeline::CreateTexLut()
 {
-    return stub<thiscall_t<class agiTexLut*, agiSWPipeline*>>(0x1343E0_Offset, this);
+    return stub<thiscall_t<class agiTexLut*, agiSWPipeline*>>(0x5343E0, this);
 }
 
 class agiViewport* agiSWPipeline::CreateViewport()
 {
-    return stub<thiscall_t<class agiViewport*, agiSWPipeline*>>(0x134290_Offset, this);
+    return stub<thiscall_t<class agiViewport*, agiSWPipeline*>>(0x534290, this);
 }
 
 void agiSWPipeline::EndFrame()
 {
-    return stub<thiscall_t<void, agiSWPipeline*>>(0x1340C0_Offset, this);
+    return stub<thiscall_t<void, agiSWPipeline*>>(0x5340C0, this);
 }
 
 void agiSWPipeline::EndGfx()
 {
-    return stub<thiscall_t<void, agiSWPipeline*>>(0x134010_Offset, this);
+    return stub<thiscall_t<void, agiSWPipeline*>>(0x534010, this);
 }
 
 void agiSWPipeline::EndScene()
 {
-    return stub<thiscall_t<void, agiSWPipeline*>>(0x1340A0_Offset, this);
+    return stub<thiscall_t<void, agiSWPipeline*>>(0x5340A0, this);
 }
 
 i32 agiSWPipeline::Validate()
 {
-    return stub<thiscall_t<i32, agiSWPipeline*>>(0x133DC0_Offset, this);
+    return stub<thiscall_t<i32, agiSWPipeline*>>(0x533DC0, this);
 }
 
 class agiPipeline* swCreatePipeline(i32 arg1, char** arg2)
 {
-    return stub<cdecl_t<class agiPipeline*, i32, char**>>(0x134690_Offset, arg1, arg2);
+    return stub<cdecl_t<class agiPipeline*, i32, char**>>(0x534690, arg1, arg2);
 }
 
 agiSWViewport::~agiSWViewport()
@@ -134,27 +134,27 @@ agiSWViewport::~agiSWViewport()
 
 void agiSWViewport::Activate()
 {
-    return stub<thiscall_t<void, agiSWViewport*>>(0x134930_Offset, this);
+    return stub<thiscall_t<void, agiSWViewport*>>(0x534930, this);
 }
 
 i32 agiSWViewport::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiSWViewport*>>(0x134BC0_Offset, this);
+    return stub<thiscall_t<i32, agiSWViewport*>>(0x534BC0, this);
 }
 
 void agiSWViewport::Clear(i32 arg1)
 {
-    return stub<thiscall_t<void, agiSWViewport*, i32>>(0x1349B0_Offset, this, arg1);
+    return stub<thiscall_t<void, agiSWViewport*, i32>>(0x5349B0, this, arg1);
 }
 
 void agiSWViewport::EndGfx()
 {
-    return stub<thiscall_t<void, agiSWViewport*>>(0x134BD0_Offset, this);
+    return stub<thiscall_t<void, agiSWViewport*>>(0x534BD0, this);
 }
 
 void agiSWViewport::SetBackground(class Vector3& arg1)
 {
-    return stub<thiscall_t<void, agiSWViewport*, class Vector3&>>(0x134950_Offset, this, arg1);
+    return stub<thiscall_t<void, agiSWViewport*, class Vector3&>>(0x534950, this, arg1);
 }
 
 agiSWBitmap::~agiSWBitmap()
@@ -164,20 +164,20 @@ agiSWBitmap::~agiSWBitmap()
 
 i32 agiSWBitmap::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiSWBitmap*>>(0x134C20_Offset, this);
+    return stub<thiscall_t<i32, agiSWBitmap*>>(0x534C20, this);
 }
 
 void agiSWBitmap::EndGfx()
 {
-    return stub<thiscall_t<void, agiSWBitmap*>>(0x134DC0_Offset, this);
+    return stub<thiscall_t<void, agiSWBitmap*>>(0x534DC0, this);
 }
 
 void agiSWBitmap::Restore()
 {
-    return stub<thiscall_t<void, agiSWBitmap*>>(0x134DE0_Offset, this);
+    return stub<thiscall_t<void, agiSWBitmap*>>(0x534DE0, this);
 }
 
 void agiSWBitmap::UpdateFlags()
 {
-    return stub<thiscall_t<void, agiSWBitmap*>>(0x134DA0_Offset, this);
+    return stub<thiscall_t<void, agiSWBitmap*>>(0x534DA0, this);
 }

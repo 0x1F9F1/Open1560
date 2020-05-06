@@ -22,5 +22,5 @@ define_dummy_symbol(mmdjpeg_jmemmgr);
 
 void jinit_memory_mgr(struct jpeg_common_struct* arg1)
 {
-    return stub<cdecl_t<void, struct jpeg_common_struct*>>(0x17FD10_Offset, arg1);
+    return stub<cdecl_t<void, struct jpeg_common_struct*>>(0x57FD10, arg1);
 }

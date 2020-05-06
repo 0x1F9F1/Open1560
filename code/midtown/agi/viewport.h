@@ -72,10 +72,10 @@ public:
     i32 SphereVisible(class Vector3& arg1, f32 arg2);
 
     // 0x8FF044 | ?MtxSerial@agiViewParameters@@2IA
-    static inline extern_var(0x4FF044_Offset, u32, MtxSerial);
+    static inline extern_var(0x8FF044, u32, MtxSerial);
 
     // 0x8FF040 | ?ViewSerial@agiViewParameters@@2IA
-    static inline extern_var(0x4FF040_Offset, u32, ViewSerial);
+    static inline extern_var(0x8FF040, u32, ViewSerial);
 };
 
 check_size(agiViewParameters, 0x0);
@@ -109,7 +109,7 @@ protected:
     ~agiViewport() override;
 
     // 0x8FF048 | ?Active@agiViewport@@1PAV1@A
-    static inline extern_var(0x4FF048_Offset, class agiViewport*, Active);
+    static inline extern_var(0x8FF048, class agiViewport*, Active);
 };
 
 check_size(agiViewport, 0x14C);

@@ -86,4 +86,4 @@ public:
 check_size(EngineAudio, 0x90);
 
 // 0x6A82A0 | ?EngineAudioMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A82A0_Offset, class MetaClass, EngineAudioMetaClass);
+inline extern_var(0x6A82A0, class MetaClass, EngineAudioMetaClass);

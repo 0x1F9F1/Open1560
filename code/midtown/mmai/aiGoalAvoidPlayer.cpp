@@ -32,35 +32,35 @@ aiGoalAvoidPlayer::~aiGoalAvoidPlayer()
 
 void aiGoalAvoidPlayer::Init()
 {
-    return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x6A3B0_Offset, this);
+    return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x46A3B0, this);
 }
 
 void aiGoalAvoidPlayer::Reset()
 {
-    return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x6A3C0_Offset, this);
+    return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x46A3C0, this);
 }
 
 i32 aiGoalAvoidPlayer::Context()
 {
-    return stub<thiscall_t<i32, aiGoalAvoidPlayer*>>(0x6A970_Offset, this);
+    return stub<thiscall_t<i32, aiGoalAvoidPlayer*>>(0x46A970, this);
 }
 
 i32 aiGoalAvoidPlayer::Priority()
 {
-    return stub<thiscall_t<i32, aiGoalAvoidPlayer*>>(0x6A990_Offset, this);
+    return stub<thiscall_t<i32, aiGoalAvoidPlayer*>>(0x46A990, this);
 }
 
 void aiGoalAvoidPlayer::Update()
 {
-    return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x6A530_Offset, this);
+    return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x46A530, this);
 }
 
 void aiGoalAvoidPlayer::Dump()
 {
-    return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x6A9A0_Offset, this);
+    return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x46A9A0, this);
 }
 
 void aiGoalAvoidPlayer::AvoidPlayer()
 {
-    return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x6A700_Offset, this);
+    return stub<thiscall_t<void, aiGoalAvoidPlayer*>>(0x46A700, this);
 }

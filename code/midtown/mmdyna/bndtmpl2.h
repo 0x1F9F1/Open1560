@@ -54,10 +54,10 @@
 bool EdgeInList(i32 arg1, i32 arg2, i32 arg3, i32* arg4, i32* arg5);
 
 // 0x77EE30 | ?BoundBytesPaged@@3HA
-inline extern_var(0x37EE30_Offset, i32, BoundBytesPaged);
+inline extern_var(0x77EE30, i32, BoundBytesPaged);
 
 // 0x77EE44 | ?BoundsPaged@@3HA
-inline extern_var(0x37EE44_Offset, i32, BoundsPaged);
+inline extern_var(0x77EE44, i32, BoundsPaged);
 
 // 0x77EED8 | ?MakeTableStats@@3PAVStream@@A
-inline extern_var(0x37EED8_Offset, class Stream*, MakeTableStats);
+inline extern_var(0x77EED8, class Stream*, MakeTableStats);

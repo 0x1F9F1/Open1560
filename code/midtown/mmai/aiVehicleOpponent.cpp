@@ -32,108 +32,107 @@ aiVehicleOpponent::~aiVehicleOpponent()
 
 class MetaClass* aiVehicleOpponent::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, aiVehicleOpponent*>>(0x4E670_Offset, this);
+    return stub<thiscall_t<class MetaClass*, aiVehicleOpponent*>>(0x44E670, this);
 }
 
 void aiVehicleOpponent::AddWidget(class Bank* arg1)
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*, class Bank*>>(0x4E490_Offset, this, arg1);
+    return stub<thiscall_t<void, aiVehicleOpponent*, class Bank*>>(0x44E490, this, arg1);
 }
 
 void aiVehicleOpponent::AssignSounds(
     class AudSound* arg1, class AudSound* arg2, class mmOpponentImpactAudio* arg3, class AudSound* arg4)
 {
     return stub<thiscall_t<void, aiVehicleOpponent*, class AudSound*, class AudSound*, class mmOpponentImpactAudio*,
-        class AudSound*>>(0x4E4B0_Offset, this, arg1, arg2, arg3, arg4);
+        class AudSound*>>(0x44E4B0, this, arg1, arg2, arg3, arg4);
 }
 
 void aiVehicleOpponent::DrawDamage()
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x4E2A0_Offset, this);
+    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x44E2A0, this);
 }
 
 void aiVehicleOpponent::DrawId()
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x4E2B0_Offset, this);
+    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x44E2B0, this);
 }
 
 void aiVehicleOpponent::DrawTargetPt()
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x4E130_Offset, this);
+    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x44E130, this);
 }
 
 void aiVehicleOpponent::Dump()
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x4E060_Offset, this);
+    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x44E060, this);
 }
 
 class mmOpponentCarAudio* aiVehicleOpponent::GetCarAudioPtr()
 {
-    return stub<thiscall_t<class mmOpponentCarAudio*, aiVehicleOpponent*>>(0x4E420_Offset, this);
+    return stub<thiscall_t<class mmOpponentCarAudio*, aiVehicleOpponent*>>(0x44E420, this);
 }
 
 f32 aiVehicleOpponent::GetDistanceToPlayer2()
 {
-    return stub<thiscall_t<f32, aiVehicleOpponent*>>(0x4E3A0_Offset, this);
+    return stub<thiscall_t<f32, aiVehicleOpponent*>>(0x44E3A0, this);
 }
 
 i32 aiVehicleOpponent::GetEngineSoundIndex()
 {
-    return stub<thiscall_t<i32, aiVehicleOpponent*>>(0x4E120_Offset, this);
+    return stub<thiscall_t<i32, aiVehicleOpponent*>>(0x44E120, this);
 }
 
 void aiVehicleOpponent::Init(i32 arg1, class aiRaceData* arg2, char* arg3)
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*, i32, class aiRaceData*, char*>>(
-        0x4DC00_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, aiVehicleOpponent*, i32, class aiRaceData*, char*>>(0x44DC00, this, arg1, arg2, arg3);
 }
 
 void aiVehicleOpponent::Reset()
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x4DE10_Offset, this);
+    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x44DE10, this);
 }
 
 void aiVehicleOpponent::SetAudioCloserMinDistMult(f32 arg1)
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*, f32>>(0x4E400_Offset, this, arg1);
+    return stub<thiscall_t<void, aiVehicleOpponent*, f32>>(0x44E400, this, arg1);
 }
 
 void aiVehicleOpponent::SetAudioMaxDistance(f32 arg1)
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*, f32>>(0x4E3D0_Offset, this, arg1);
+    return stub<thiscall_t<void, aiVehicleOpponent*, f32>>(0x44E3D0, this, arg1);
 }
 
 void aiVehicleOpponent::SetAudioMinDistance(f32 arg1)
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*, f32>>(0x4E3B0_Offset, this, arg1);
+    return stub<thiscall_t<void, aiVehicleOpponent*, f32>>(0x44E3B0, this, arg1);
 }
 
 i32 aiVehicleOpponent::Type()
 {
-    return stub<thiscall_t<i32, aiVehicleOpponent*>>(0x4E7D0_Offset, this);
+    return stub<thiscall_t<i32, aiVehicleOpponent*>>(0x44E7D0, this);
 }
 
 void aiVehicleOpponent::UnAssignSounds()
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x4E100_Offset, this);
+    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x44E100, this);
 }
 
 void aiVehicleOpponent::Update()
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x4DED0_Offset, this);
+    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x44DED0, this);
 }
 
 void aiVehicleOpponent::UpdateAudio()
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x4E300_Offset, this);
+    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x44E300, this);
 }
 
 void aiVehicleOpponent::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x4E4E0_Offset);
+    return stub<cdecl_t<void>>(0x44E4E0);
 }
 
 void aiVehicleOpponent::AddToAiAudMgr()
 {
-    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x4E430_Offset, this);
+    return stub<thiscall_t<void, aiVehicleOpponent*>>(0x44E430, this);
 }

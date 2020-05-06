@@ -32,55 +32,55 @@ mmAnimSpline::~mmAnimSpline()
 
 void mmAnimSpline::AddVector(class Vector3& arg1)
 {
-    return stub<thiscall_t<void, mmAnimSpline*, class Vector3&>>(0xC39F0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmAnimSpline*, class Vector3&>>(0x4C39F0, this, arg1);
 }
 
 void mmAnimSpline::AirlinerSwap()
 {
-    return stub<thiscall_t<void, mmAnimSpline*>>(0xC3C10_Offset, this);
+    return stub<thiscall_t<void, mmAnimSpline*>>(0x4C3C10, this);
 }
 
 void mmAnimSpline::ClearVectors()
 {
-    return stub<thiscall_t<void, mmAnimSpline*>>(0xC39D0_Offset, this);
+    return stub<thiscall_t<void, mmAnimSpline*>>(0x4C39D0, this);
 }
 
 i32 mmAnimSpline::Init(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, mmAnimSpline*, char*, i32>>(0xC3850_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmAnimSpline*, char*, i32>>(0x4C3850, this, arg1, arg2);
 }
 
 i32 mmAnimSpline::InitBoat()
 {
-    return stub<thiscall_t<i32, mmAnimSpline*>>(0xC3A90_Offset, this);
+    return stub<thiscall_t<i32, mmAnimSpline*>>(0x4C3A90, this);
 }
 
 i32 mmAnimSpline::InitPlane()
 {
-    return stub<thiscall_t<i32, mmAnimSpline*>>(0xC3AA0_Offset, this);
+    return stub<thiscall_t<i32, mmAnimSpline*>>(0x4C3AA0, this);
 }
 
 i32 mmAnimSpline::InitTrain()
 {
-    return stub<thiscall_t<i32, mmAnimSpline*>>(0xC3B40_Offset, this);
+    return stub<thiscall_t<i32, mmAnimSpline*>>(0x4C3B40, this);
 }
 
 i32 mmAnimSpline::LoadFile(char* arg1)
 {
-    return stub<thiscall_t<i32, mmAnimSpline*, char*>>(0xC38F0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmAnimSpline*, char*>>(0x4C38F0, this, arg1);
 }
 
 void mmAnimSpline::Reset()
 {
-    return stub<thiscall_t<void, mmAnimSpline*>>(0xC3BF0_Offset, this);
+    return stub<thiscall_t<void, mmAnimSpline*>>(0x4C3BF0, this);
 }
 
 void mmAnimSpline::UFOSwap()
 {
-    return stub<thiscall_t<void, mmAnimSpline*>>(0xC3CC0_Offset, this);
+    return stub<thiscall_t<void, mmAnimSpline*>>(0x4C3CC0, this);
 }
 
 void mmAnimSpline::Update()
 {
-    return stub<thiscall_t<void, mmAnimSpline*>>(0xC3BC0_Offset, this);
+    return stub<thiscall_t<void, mmAnimSpline*>>(0x4C3BC0, this);
 }

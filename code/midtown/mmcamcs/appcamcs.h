@@ -76,4 +76,4 @@ private:
 check_size(AppCamCS, 0x114);
 
 // 0x719520 | ?AppCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x319520_Offset, class MetaClass, AppCamCSMetaClass);
+inline extern_var(0x719520, class MetaClass, AppCamCSMetaClass);

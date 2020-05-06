@@ -108,10 +108,10 @@ check_size(asCullManager, 0x1F8);
 void Statsf(char const* arg1, ...);
 
 // 0x79086C | ?CULLMGR@@3PAVasCullManager@@A
-inline extern_var(0x39086C_Offset, class asCullManager*, CULLMGR);
+inline extern_var(0x79086C, class asCullManager*, CULLMGR);
 
 // 0x7908A8 | ?Update3D@@3MA
-inline extern_var(0x3908A8_Offset, f32, Update3D);
+inline extern_var(0x7908A8, f32, Update3D);
 
 // 0x790880 | ?asCullManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x390880_Offset, class MetaClass, asCullManagerMetaClass);
+inline extern_var(0x790880, class MetaClass, asCullManagerMetaClass);

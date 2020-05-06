@@ -32,25 +32,25 @@ asSafeHeap::~asSafeHeap()
 
 void asSafeHeap::Init(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, asSafeHeap*, i32, i32>>(0x1213B0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, asSafeHeap*, i32, i32>>(0x5213B0, this, arg1, arg2);
 }
 
 void asSafeHeap::Kill()
 {
-    return stub<thiscall_t<void, asSafeHeap*>>(0x121450_Offset, this);
+    return stub<thiscall_t<void, asSafeHeap*>>(0x521450, this);
 }
 
 void asSafeHeap::Restart()
 {
-    return stub<thiscall_t<void, asSafeHeap*>>(0x121420_Offset, this);
+    return stub<thiscall_t<void, asSafeHeap*>>(0x521420, this);
 }
 
 void asSafeHeap::Activate()
 {
-    return stub<thiscall_t<void, asSafeHeap*>>(0x121480_Offset, this);
+    return stub<thiscall_t<void, asSafeHeap*>>(0x521480, this);
 }
 
 void asSafeHeap::Deactivate()
 {
-    return stub<thiscall_t<void, asSafeHeap*>>(0x1214C0_Offset, this);
+    return stub<thiscall_t<void, asSafeHeap*>>(0x5214C0, this);
 }

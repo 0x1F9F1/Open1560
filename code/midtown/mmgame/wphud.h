@@ -209,4 +209,4 @@ public:
 check_size(mmCRHUD, 0x218);
 
 // 0x636A00 | ?fontscalar@@3MA
-inline extern_var(0x236A00_Offset, f32, fontscalar);
+inline extern_var(0x636A00, f32, fontscalar);

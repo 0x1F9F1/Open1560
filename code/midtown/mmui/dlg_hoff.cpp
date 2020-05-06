@@ -33,25 +33,25 @@ Dialog_HallOfFame::~Dialog_HallOfFame()
 void Dialog_HallOfFame::AddRaceRecord(i32 arg1, char* arg2, char* arg3, char* arg4, i32 arg5, char* arg6, char* arg7)
 {
     return stub<thiscall_t<void, Dialog_HallOfFame*, i32, char*, char*, char*, i32, char*, char*>>(
-        0x9E800_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x49E800, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 void Dialog_HallOfFame::InitRaceRecord()
 {
-    return stub<thiscall_t<void, Dialog_HallOfFame*>>(0x9EA50_Offset, this);
+    return stub<thiscall_t<void, Dialog_HallOfFame*>>(0x49EA50, this);
 }
 
 void Dialog_HallOfFame::PreSetup()
 {
-    return stub<thiscall_t<void, Dialog_HallOfFame*>>(0x9E7F0_Offset, this);
+    return stub<thiscall_t<void, Dialog_HallOfFame*>>(0x49E7F0, this);
 }
 
 void Dialog_HallOfFame::ResetRaceRecord()
 {
-    return stub<thiscall_t<void, Dialog_HallOfFame*>>(0x9E940_Offset, this);
+    return stub<thiscall_t<void, Dialog_HallOfFame*>>(0x49E940, this);
 }
 
 void Dialog_HallOfFame::SetSortState()
 {
-    return stub<thiscall_t<void, Dialog_HallOfFame*>>(0x9E9D0_Offset, this);
+    return stub<thiscall_t<void, Dialog_HallOfFame*>>(0x49E9D0, this);
 }

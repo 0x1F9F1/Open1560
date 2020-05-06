@@ -32,75 +32,75 @@ mmTransmission::~mmTransmission()
 
 void mmTransmission::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmTransmission*, class Bank*>>(0x70790_Offset, this, arg1);
+    return stub<thiscall_t<void, mmTransmission*, class Bank*>>(0x470790, this, arg1);
 }
 
 void mmTransmission::Automatic(i32 arg1)
 {
-    return stub<thiscall_t<void, mmTransmission*, i32>>(0x706F0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmTransmission*, i32>>(0x4706F0, this, arg1);
 }
 
 void mmTransmission::CopyTrans()
 {
-    return stub<thiscall_t<void, mmTransmission*>>(0x706C0_Offset, this);
+    return stub<thiscall_t<void, mmTransmission*>>(0x4706C0, this);
 }
 
 i32 mmTransmission::Downshift()
 {
-    return stub<thiscall_t<i32, mmTransmission*>>(0x705A0_Offset, this);
+    return stub<thiscall_t<i32, mmTransmission*>>(0x4705A0, this);
 }
 
 class MetaClass* mmTransmission::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmTransmission*>>(0x70C80_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmTransmission*>>(0x470C80, this);
 }
 
 i32 mmTransmission::GetCurrentGear()
 {
-    return stub<thiscall_t<i32, mmTransmission*>>(0x70740_Offset, this);
+    return stub<thiscall_t<i32, mmTransmission*>>(0x470740, this);
 }
 
 void mmTransmission::Init(class mmCarSim* arg1)
 {
-    return stub<thiscall_t<void, mmTransmission*, class mmCarSim*>>(0x70500_Offset, this, arg1);
+    return stub<thiscall_t<void, mmTransmission*, class mmCarSim*>>(0x470500, this, arg1);
 }
 
 void mmTransmission::Reset()
 {
-    return stub<thiscall_t<void, mmTransmission*>>(0x70540_Offset, this);
+    return stub<thiscall_t<void, mmTransmission*>>(0x470540, this);
 }
 
 i32 mmTransmission::SetCurrentGear(i32 arg1)
 {
-    return stub<thiscall_t<i32, mmTransmission*, i32>>(0x70750_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmTransmission*, i32>>(0x470750, this, arg1);
 }
 
 void mmTransmission::SetDrive()
 {
-    return stub<thiscall_t<void, mmTransmission*>>(0x70720_Offset, this);
+    return stub<thiscall_t<void, mmTransmission*>>(0x470720, this);
 }
 
 void mmTransmission::SetReverse()
 {
-    return stub<thiscall_t<void, mmTransmission*>>(0x70710_Offset, this);
+    return stub<thiscall_t<void, mmTransmission*>>(0x470710, this);
 }
 
 void mmTransmission::Update()
 {
-    return stub<thiscall_t<void, mmTransmission*>>(0x705C0_Offset, this);
+    return stub<thiscall_t<void, mmTransmission*>>(0x4705C0, this);
 }
 
 i32 mmTransmission::Upshift()
 {
-    return stub<thiscall_t<i32, mmTransmission*>>(0x70570_Offset, this);
+    return stub<thiscall_t<i32, mmTransmission*>>(0x470570, this);
 }
 
 void mmTransmission::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x70A30_Offset);
+    return stub<cdecl_t<void>>(0x470A30);
 }
 
 struct MetaType* ArrayOf(struct MetaType* arg1, i32 arg2)
 {
-    return stub<cdecl_t<struct MetaType*, struct MetaType*, i32>>(0x70CC0_Offset, arg1, arg2);
+    return stub<cdecl_t<struct MetaType*, struct MetaType*, i32>>(0x470CC0, arg1, arg2);
 }

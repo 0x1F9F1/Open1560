@@ -57,7 +57,7 @@
 u32 __stdcall ThreadFunc(void* arg1);
 
 // 0x6A7110 | ?mmGameSingleMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7110_Offset, class MetaClass, mmGameSingleMetaClass);
+inline extern_var(0x6A7110, class MetaClass, mmGameSingleMetaClass);
 
 class mmGameSingle : public mmGame
 {

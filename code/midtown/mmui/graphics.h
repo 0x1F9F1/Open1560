@@ -54,28 +54,28 @@
 void AutoDetect(i32 arg1, i32 arg2);
 
 // 0x705820 | ?RenderToSystemMemory@@3HA
-inline extern_var(0x305820_Offset, i32, RenderToSystemMemory);
+inline extern_var(0x705820, i32, RenderToSystemMemory);
 
 // 0x705824 | ?TextureLevel@@3HA
-inline extern_var(0x305824_Offset, i32, TextureLevel);
+inline extern_var(0x705824, i32, TextureLevel);
 
 // 0x7057EC | ?data1@@3HA
-inline extern_var(0x3057EC_Offset, i32, data1);
+inline extern_var(0x7057EC, i32, data1);
 
 // 0x7057F0 | ?data2@@3HA
-inline extern_var(0x3057F0_Offset, i32, data2);
+inline extern_var(0x7057F0, i32, data2);
 
 // 0x7057F4 | ?data3@@3HA
-inline extern_var(0x3057F4_Offset, i32, data3);
+inline extern_var(0x7057F4, i32, data3);
 
 // 0x7057F8 | ?data4@@3HA
-inline extern_var(0x3057F8_Offset, i32, data4);
+inline extern_var(0x7057F8, i32, data4);
 
 // 0x7057FC | ?data5@@3HA
-inline extern_var(0x3057FC_Offset, i32, data5);
+inline extern_var(0x7057FC, i32, data5);
 
 // 0x705800 | ?data6@@3HA
-inline extern_var(0x305800_Offset, i32, data6);
+inline extern_var(0x705800, i32, data6);
 
 class GraphicsOptions : public OptionsBase
 {

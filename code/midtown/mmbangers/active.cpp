@@ -32,37 +32,37 @@ mmBangerActive::~mmBangerActive()
 
 void mmBangerActive::PostUpdate()
 {
-    return stub<thiscall_t<void, mmBangerActive*>>(0xCB350_Offset, this);
+    return stub<thiscall_t<void, mmBangerActive*>>(0x4CB350, this);
 }
 
 class asBound* mmBangerActive::GetBound()
 {
-    return stub<thiscall_t<class asBound*, mmBangerActive*>>(0xCB7B0_Offset, this);
+    return stub<thiscall_t<class asBound*, mmBangerActive*>>(0x4CB7B0, this);
 }
 
 class asInertialCS* mmBangerActive::GetICS()
 {
-    return stub<thiscall_t<class asInertialCS*, mmBangerActive*>>(0xCB7C0_Offset, this);
+    return stub<thiscall_t<class asInertialCS*, mmBangerActive*>>(0x4CB7C0, this);
 }
 
 void mmBangerActive::DetachMe()
 {
-    return stub<thiscall_t<void, mmBangerActive*>>(0xCB280_Offset, this);
+    return stub<thiscall_t<void, mmBangerActive*>>(0x4CB280, this);
 }
 
 void mmBangerActive::Attach(class mmBangerInstance* arg1)
 {
-    return stub<thiscall_t<void, mmBangerActive*, class mmBangerInstance*>>(0xCB030_Offset, this, arg1);
+    return stub<thiscall_t<void, mmBangerActive*, class mmBangerInstance*>>(0x4CB030, this, arg1);
 }
 
 void mmBangerActive::Detach()
 {
-    return stub<thiscall_t<void, mmBangerActive*>>(0xCB220_Offset, this);
+    return stub<thiscall_t<void, mmBangerActive*>>(0x4CB220, this);
 }
 
 void mmBangerActive::Update()
 {
-    return stub<thiscall_t<void, mmBangerActive*>>(0xCB2A0_Offset, this);
+    return stub<thiscall_t<void, mmBangerActive*>>(0x4CB2A0, this);
 }
 
 mmBangerActiveManager::mmBangerActiveManager()
@@ -78,26 +78,26 @@ mmBangerActiveManager::~mmBangerActiveManager()
 class mmBangerActive* mmBangerActiveManager::Attach(class mmBangerInstance* arg1)
 {
     return stub<thiscall_t<class mmBangerActive*, mmBangerActiveManager*, class mmBangerInstance*>>(
-        0xCB520_Offset, this, arg1);
+        0x4CB520, this, arg1);
 }
 
 void mmBangerActiveManager::Detach(class mmBangerActive* arg1)
 {
-    return stub<thiscall_t<void, mmBangerActiveManager*, class mmBangerActive*>>(0xCB5F0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmBangerActiveManager*, class mmBangerActive*>>(0x4CB5F0, this, arg1);
 }
 
 class mmBangerActive* mmBangerActiveManager::GetActive(class mmBangerInstance* arg1)
 {
     return stub<thiscall_t<class mmBangerActive*, mmBangerActiveManager*, class mmBangerInstance*>>(
-        0xCB4F0_Offset, this, arg1);
+        0x4CB4F0, this, arg1);
 }
 
 void mmBangerActiveManager::Reset()
 {
-    return stub<thiscall_t<void, mmBangerActiveManager*>>(0xCB720_Offset, this);
+    return stub<thiscall_t<void, mmBangerActiveManager*>>(0x4CB720, this);
 }
 
 void mmBangerActiveManager::Update()
 {
-    return stub<thiscall_t<void, mmBangerActiveManager*>>(0xCB640_Offset, this);
+    return stub<thiscall_t<void, mmBangerActiveManager*>>(0x4CB640, this);
 }

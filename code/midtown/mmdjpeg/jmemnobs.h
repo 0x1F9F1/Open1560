@@ -57,4 +57,4 @@ void jpeg_mem_term(struct jpeg_common_struct* arg1);
 void jpeg_open_backing_store(struct jpeg_common_struct* arg1, struct backing_store_struct* arg2, i32 arg3);
 
 // 0x90B4C0 | ?jpeg_allocated@@3HA
-inline extern_var(0x50B4C0_Offset, i32, jpeg_allocated);
+inline extern_var(0x90B4C0, i32, jpeg_allocated);

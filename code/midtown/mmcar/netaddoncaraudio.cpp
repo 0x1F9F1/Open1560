@@ -32,20 +32,20 @@ NetAddOnCarAudio::~NetAddOnCarAudio()
 
 i32 NetAddOnCarAudio::AssignSounds(class mmNetworkCarAudio* arg1, i16 arg2)
 {
-    return stub<thiscall_t<i32, NetAddOnCarAudio*, class mmNetworkCarAudio*, i16>>(0x856B0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, NetAddOnCarAudio*, class mmNetworkCarAudio*, i16>>(0x4856B0, this, arg1, arg2);
 }
 
 void NetAddOnCarAudio::EchoOff()
 {
-    return stub<thiscall_t<void, NetAddOnCarAudio*>>(0x857A0_Offset, this);
+    return stub<thiscall_t<void, NetAddOnCarAudio*>>(0x4857A0, this);
 }
 
 void NetAddOnCarAudio::EchoOn(f32 arg1)
 {
-    return stub<thiscall_t<void, NetAddOnCarAudio*, f32>>(0x85740_Offset, this, arg1);
+    return stub<thiscall_t<void, NetAddOnCarAudio*, f32>>(0x485740, this, arg1);
 }
 
 void NetAddOnCarAudio::Update()
 {
-    return stub<thiscall_t<void, NetAddOnCarAudio*>>(0x857D0_Offset, this);
+    return stub<thiscall_t<void, NetAddOnCarAudio*>>(0x4857D0, this);
 }

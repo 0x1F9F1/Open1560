@@ -39,16 +39,16 @@ public:
 check_size(initHaveMMX, 0x0);
 
 // 0x90B4AC | ?HaveKNI@@3HA
-inline extern_var(0x50B4AC_Offset, i32, HaveKNI);
+inline extern_var(0x90B4AC, i32, HaveKNI);
 
 // 0x90B4B0 | ?HaveMMX@@3HA
-inline extern_var(0x50B4B0_Offset, i32, HaveMMX);
+inline extern_var(0x90B4B0, i32, HaveMMX);
 
 // 0x90B4A8 | ?HavePPro@@3HA
-inline extern_var(0x50B4A8_Offset, i32, HavePPro);
+inline extern_var(0x90B4A8, i32, HavePPro);
 
 // 0x90B4A0 | ?UseKNI@@3HA
-inline extern_var(0x50B4A0_Offset, i32, UseKNI);
+inline extern_var(0x90B4A0, i32, UseKNI);
 
 // 0x90B4A4 | ?UseMMX@@3HA
-inline extern_var(0x50B4A4_Offset, i32, UseMMX);
+inline extern_var(0x90B4A4, i32, UseMMX);

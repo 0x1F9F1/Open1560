@@ -22,5 +22,5 @@ define_dummy_symbol(mmdjpeg_jdpostct);
 
 void jinit_d_post_controller(struct jpeg_decompress_struct* arg1, u8 arg2)
 {
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*, u8>>(0x182840_Offset, arg1, arg2);
+    return stub<cdecl_t<void, struct jpeg_decompress_struct*, u8>>(0x582840, arg1, arg2);
 }

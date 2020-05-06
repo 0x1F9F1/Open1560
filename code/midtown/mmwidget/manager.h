@@ -264,7 +264,7 @@ public:
     void Update() override;
 
     // 0x705960 | ?Instance@MenuManager@@2PAV1@A
-    static inline extern_var(0x305960_Offset, class MenuManager*, Instance);
+    static inline extern_var(0x705960, class MenuManager*, Instance);
 
 private:
     // 0x4B1730 | ?PlayMenuSwitchSound@MenuManager@@AAEXXZ
@@ -274,4 +274,4 @@ private:
 check_size(MenuManager, 0x140);
 
 // 0x6418B4 | ?DELAYTTIME@@3MA
-inline extern_var(0x2418B4_Offset, f32, DELAYTTIME);
+inline extern_var(0x6418B4, f32, DELAYTTIME);

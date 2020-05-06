@@ -32,50 +32,50 @@ mmCityList::~mmCityList()
 
 i32 mmCityList::GetCityID(char* arg1)
 {
-    return stub<thiscall_t<i32, mmCityList*, char*>>(0xCBD50_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmCityList*, char*>>(0x4CBD50, this, arg1);
 }
 
 class mmCityInfo* mmCityList::GetCityInfo(char* arg1)
 {
-    return stub<thiscall_t<class mmCityInfo*, mmCityList*, char*>>(0xCBCD0_Offset, this, arg1);
+    return stub<thiscall_t<class mmCityInfo*, mmCityList*, char*>>(0x4CBCD0, this, arg1);
 }
 
 class mmCityInfo* mmCityList::GetCityInfo(i32 arg1)
 {
-    return stub<thiscall_t<class mmCityInfo*, mmCityList*, i32>>(0xCBCA0_Offset, this, arg1);
+    return stub<thiscall_t<class mmCityInfo*, mmCityList*, i32>>(0x4CBCA0, this, arg1);
 }
 
 class mmCityInfo* mmCityList::GetCurrentCity()
 {
-    return stub<thiscall_t<class mmCityInfo*, mmCityList*>>(0xCBE20_Offset, this);
+    return stub<thiscall_t<class mmCityInfo*, mmCityList*>>(0x4CBE20, this);
 }
 
 void mmCityList::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, mmCityList*, i32>>(0xCBC90_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCityList*, i32>>(0x4CBC90, this, arg1);
 }
 
 void mmCityList::Load(char* arg1)
 {
-    return stub<thiscall_t<void, mmCityList*, char*>>(0xCBE30_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCityList*, char*>>(0x4CBE30, this, arg1);
 }
 
 void mmCityList::LoadAll()
 {
-    return stub<thiscall_t<void, mmCityList*>>(0xCBFA0_Offset, this);
+    return stub<thiscall_t<void, mmCityList*>>(0x4CBFA0, this);
 }
 
 void mmCityList::Print()
 {
-    return stub<thiscall_t<void, mmCityList*>>(0xCBF60_Offset, this);
+    return stub<thiscall_t<void, mmCityList*>>(0x4CBF60, this);
 }
 
 void mmCityList::SetCurrentCity(char* arg1)
 {
-    return stub<thiscall_t<void, mmCityList*, char*>>(0xCBDD0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCityList*, char*>>(0x4CBDD0, this, arg1);
 }
 
 void mmCityList::SetCurrentCity(i32 arg1)
 {
-    return stub<thiscall_t<void, mmCityList*, i32>>(0xCBDF0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCityList*, i32>>(0x4CBDF0, this, arg1);
 }

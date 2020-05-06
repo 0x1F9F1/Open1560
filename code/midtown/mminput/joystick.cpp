@@ -32,123 +32,122 @@ mmJoystick::~mmJoystick()
 
 i32 mmJoystick::DisableAutoCenter()
 {
-    return stub<thiscall_t<i32, mmJoystick*>>(0xE66C0_Offset, this);
+    return stub<thiscall_t<i32, mmJoystick*>>(0x4E66C0, this);
 }
 
 f32 mmJoystick::GetAxis(i32 arg1)
 {
-    return stub<thiscall_t<f32, mmJoystick*, i32>>(0xE6850_Offset, this, arg1);
+    return stub<thiscall_t<f32, mmJoystick*, i32>>(0x4E6850, this, arg1);
 }
 
 f32 mmJoystick::GetButton(i32 arg1)
 {
-    return stub<thiscall_t<f32, mmJoystick*, i32>>(0xE6950_Offset, this, arg1);
+    return stub<thiscall_t<f32, mmJoystick*, i32>>(0x4E6950, this, arg1);
 }
 
 class mmEffectFF* mmJoystick::GetFFEffect(i32 arg1)
 {
-    return stub<thiscall_t<class mmEffectFF*, mmJoystick*, i32>>(0xE6D80_Offset, this, arg1);
+    return stub<thiscall_t<class mmEffectFF*, mmJoystick*, i32>>(0x4E6D80, this, arg1);
 }
 
 i32 mmJoystick::Init(struct IDirectInputDevice2A* arg1, struct HWND__* arg2)
 {
-    return stub<thiscall_t<i32, mmJoystick*, struct IDirectInputDevice2A*, struct HWND__*>>(
-        0xE6360_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmJoystick*, struct IDirectInputDevice2A*, struct HWND__*>>(0x4E6360, this, arg1, arg2);
 }
 
 void mmJoystick::InputCreateEffect()
 {
-    return stub<thiscall_t<void, mmJoystick*>>(0xE6A90_Offset, this);
+    return stub<thiscall_t<void, mmJoystick*>>(0x4E6A90, this);
 }
 
 void mmJoystick::InputInitEffect()
 {
-    return stub<thiscall_t<void, mmJoystick*>>(0xE6BB0_Offset, this);
+    return stub<thiscall_t<void, mmJoystick*>>(0x4E6BB0, this);
 }
 
 void mmJoystick::InputStopEffect()
 {
-    return stub<thiscall_t<void, mmJoystick*>>(0xE6BF0_Offset, this);
+    return stub<thiscall_t<void, mmJoystick*>>(0x4E6BF0, this);
 }
 
 i32 mmJoystick::PlayCollision()
 {
-    return stub<thiscall_t<i32, mmJoystick*>>(0xE6CA0_Offset, this);
+    return stub<thiscall_t<i32, mmJoystick*>>(0x4E6CA0, this);
 }
 
 i32 mmJoystick::PlayFriction()
 {
-    return stub<thiscall_t<i32, mmJoystick*>>(0xE6D40_Offset, this);
+    return stub<thiscall_t<i32, mmJoystick*>>(0x4E6D40, this);
 }
 
 i32 mmJoystick::PlayShake()
 {
-    return stub<thiscall_t<i32, mmJoystick*>>(0xE6C60_Offset, this);
+    return stub<thiscall_t<i32, mmJoystick*>>(0x4E6C60, this);
 }
 
 i32 mmJoystick::PlaySteer()
 {
-    return stub<thiscall_t<i32, mmJoystick*>>(0xE6CE0_Offset, this);
+    return stub<thiscall_t<i32, mmJoystick*>>(0x4E6CE0, this);
 }
 
 u32 mmJoystick::Poll()
 {
-    return stub<thiscall_t<u32, mmJoystick*>>(0xE6720_Offset, this);
+    return stub<thiscall_t<u32, mmJoystick*>>(0x4E6720, this);
 }
 
 void mmJoystick::PrintDeviceCaps()
 {
-    return stub<thiscall_t<void, mmJoystick*>>(0xE6DD0_Offset, this);
+    return stub<thiscall_t<void, mmJoystick*>>(0x4E6DD0, this);
 }
 
 void mmJoystick::ResetAxisCapture()
 {
-    return stub<thiscall_t<void, mmJoystick*>>(0xE6A10_Offset, this);
+    return stub<thiscall_t<void, mmJoystick*>>(0x4E6A10, this);
 }
 
 i32 mmJoystick::SetDeadZone(f32 arg1)
 {
-    return stub<thiscall_t<i32, mmJoystick*, f32>>(0xE6620_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmJoystick*, f32>>(0x4E6620, this, arg1);
 }
 
 i32 mmJoystick::SetFriction(i32 arg1)
 {
-    return stub<thiscall_t<i32, mmJoystick*, i32>>(0xE6D20_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmJoystick*, i32>>(0x4E6D20, this, arg1);
 }
 
 i32 mmJoystick::SetShake(u32 arg1, u32 arg2)
 {
-    return stub<thiscall_t<i32, mmJoystick*, u32, u32>>(0xE6C30_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmJoystick*, u32, u32>>(0x4E6C30, this, arg1, arg2);
 }
 
 i32 mmJoystick::SetSteer(i32 arg1)
 {
-    return stub<thiscall_t<i32, mmJoystick*, i32>>(0xE6CC0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmJoystick*, i32>>(0x4E6CC0, this, arg1);
 }
 
 i32 mmJoystick::StopFriction()
 {
-    return stub<thiscall_t<i32, mmJoystick*>>(0xE6D60_Offset, this);
+    return stub<thiscall_t<i32, mmJoystick*>>(0x4E6D60, this);
 }
 
 i32 mmJoystick::StopShake()
 {
-    return stub<thiscall_t<i32, mmJoystick*>>(0xE6C80_Offset, this);
+    return stub<thiscall_t<i32, mmJoystick*>>(0x4E6C80, this);
 }
 
 i32 mmJoystick::StopSteer()
 {
-    return stub<thiscall_t<i32, mmJoystick*>>(0xE6D00_Offset, this);
+    return stub<thiscall_t<i32, mmJoystick*>>(0x4E6D00, this);
 }
 
 void mmJoystick::Update()
 {
-    return stub<thiscall_t<void, mmJoystick*>>(0xE6980_Offset, this);
+    return stub<thiscall_t<void, mmJoystick*>>(0x4E6980, this);
 }
 
 i32 mmJoystick::inputPrepareDevice()
 {
-    return stub<thiscall_t<i32, mmJoystick*>>(0xE6470_Offset, this);
+    return stub<thiscall_t<i32, mmJoystick*>>(0x4E6470, this);
 }
 
 mmJaxis::mmJaxis()
@@ -163,30 +162,30 @@ mmJaxis::~mmJaxis()
 
 i32 mmJaxis::Capture()
 {
-    return stub<thiscall_t<i32, mmJaxis*>>(0xE6130_Offset, this);
+    return stub<thiscall_t<i32, mmJaxis*>>(0x4E6130, this);
 }
 
 void mmJaxis::Normalize(f32 arg1)
 {
-    return stub<thiscall_t<void, mmJaxis*, f32>>(0xE60D0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmJaxis*, f32>>(0x4E60D0, this, arg1);
 }
 
 void mmJaxis::NormalizePOV(u32 arg1)
 {
-    return stub<thiscall_t<void, mmJaxis*, u32>>(0xE60F0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmJaxis*, u32>>(0x4E60F0, this, arg1);
 }
 
 void mmJaxis::ResetCapture()
 {
-    return stub<thiscall_t<void, mmJaxis*>>(0xE6160_Offset, this);
+    return stub<thiscall_t<void, mmJaxis*>>(0x4E6160, this);
 }
 
 void mmJaxis::SetRange(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmJaxis*, f32, f32>>(0xE60B0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmJaxis*, f32, f32>>(0x4E60B0, this, arg1, arg2);
 }
 
 void DecodeDIErrorMFlag(i32 arg1)
 {
-    return stub<cdecl_t<void, i32>>(0xE6FB0_Offset, arg1);
+    return stub<cdecl_t<void, i32>>(0x4E6FB0, arg1);
 }

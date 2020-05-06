@@ -32,25 +32,25 @@ agiDDBitmap::~agiDDBitmap()
 
 i32 agiDDBitmap::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiDDBitmap*>>(0x133A20_Offset, this);
+    return stub<thiscall_t<i32, agiDDBitmap*>>(0x533A20, this);
 }
 
 void agiDDBitmap::EndGfx()
 {
-    return stub<thiscall_t<void, agiDDBitmap*>>(0x133CC0_Offset, this);
+    return stub<thiscall_t<void, agiDDBitmap*>>(0x533CC0, this);
 }
 
 void agiDDBitmap::Restore()
 {
-    return stub<thiscall_t<void, agiDDBitmap*>>(0x133D50_Offset, this);
+    return stub<thiscall_t<void, agiDDBitmap*>>(0x533D50, this);
 }
 
 void agiDDBitmap::UpdateFlags()
 {
-    return stub<thiscall_t<void, agiDDBitmap*>>(0x133C80_Offset, this);
+    return stub<thiscall_t<void, agiDDBitmap*>>(0x533C80, this);
 }
 
 void breakme()
 {
-    return stub<cdecl_t<void>>(0x133D40_Offset);
+    return stub<cdecl_t<void>>(0x533D40);
 }

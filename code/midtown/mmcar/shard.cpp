@@ -33,32 +33,32 @@ mmShard::~mmShard()
 void mmShard::AddShard(class Vector3 arg1, class Vector3 arg2, class Vector3 arg3, f32 arg4)
 {
     return stub<thiscall_t<void, mmShard*, class Vector3, class Vector3, class Vector3, f32>>(
-        0x785E0_Offset, this, arg1, arg2, arg3, arg4);
+        0x4785E0, this, arg1, arg2, arg3, arg4);
 }
 
 void __fastcall mmShard::Draw(i32 arg1)
 {
-    return stub<fastcall_t<void, mmShard*, i32>>(0x78730_Offset, this, arg1);
+    return stub<fastcall_t<void, mmShard*, i32>>(0x478730, this, arg1);
 }
 
 class MetaClass* mmShard::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmShard*>>(0x78F80_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmShard*>>(0x478F80, this);
 }
 
 void mmShard::Init(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmShard*, char*, i32>>(0x785A0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmShard*, char*, i32>>(0x4785A0, this, arg1, arg2);
 }
 
 void mmShard::Update()
 {
-    return stub<thiscall_t<void, mmShard*>>(0x78640_Offset, this);
+    return stub<thiscall_t<void, mmShard*>>(0x478640, this);
 }
 
 void mmShard::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x78E00_Offset);
+    return stub<cdecl_t<void>>(0x478E00);
 }
 
 mmShardManager::mmShardManager()
@@ -73,50 +73,50 @@ mmShardManager::~mmShardManager()
 
 void mmShardManager::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmShardManager*, class Bank*>>(0x78C90_Offset, this, arg1);
+    return stub<thiscall_t<void, mmShardManager*, class Bank*>>(0x478C90, this, arg1);
 }
 
 void mmShardManager::EmitAllShards(class Vector3 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmShardManager*, class Vector3, f32>>(0x78A60_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmShardManager*, class Vector3, f32>>(0x478A60, this, arg1, arg2);
 }
 
 void mmShardManager::EmitShard(class Vector3 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmShardManager*, class Vector3, f32>>(0x78AB0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmShardManager*, class Vector3, f32>>(0x478AB0, this, arg1, arg2);
 }
 
 void mmShardManager::EmitShards(class Vector3 arg1, f32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<void, mmShardManager*, class Vector3, f32, f32>>(0x789F0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmShardManager*, class Vector3, f32, f32>>(0x4789F0, this, arg1, arg2, arg3);
 }
 
 class MetaClass* mmShardManager::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmShardManager*>>(0x79160_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmShardManager*>>(0x479160, this);
 }
 
 void mmShardManager::Init(char* arg1, i32 arg2, class mmCarSim* arg3)
 {
-    return stub<thiscall_t<void, mmShardManager*, char*, i32, class mmCarSim*>>(0x788F0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmShardManager*, char*, i32, class mmCarSim*>>(0x4788F0, this, arg1, arg2, arg3);
 }
 
 void mmShardManager::ReInit(class mmCarSim* arg1)
 {
-    return stub<thiscall_t<void, mmShardManager*, class mmCarSim*>>(0x789E0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmShardManager*, class mmCarSim*>>(0x4789E0, this, arg1);
 }
 
 void mmShardManager::Update()
 {
-    return stub<thiscall_t<void, mmShardManager*>>(0x78C60_Offset, this);
+    return stub<thiscall_t<void, mmShardManager*>>(0x478C60, this);
 }
 
 void mmShardManager::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x78F90_Offset);
+    return stub<cdecl_t<void>>(0x478F90);
 }
 
 class mmShardManager* mmShardManager::GetInstance(i32 arg1)
 {
-    return stub<cdecl_t<class mmShardManager*, i32>>(0x788D0_Offset, arg1);
+    return stub<cdecl_t<class mmShardManager*, i32>>(0x4788D0, arg1);
 }

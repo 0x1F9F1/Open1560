@@ -87,13 +87,13 @@ private:
 check_size(asMemoryAllocator, 0x0);
 
 // 0x7805E8 | ?ALLOCATOR@@3VasMemoryAllocator@@A
-inline extern_var(0x3805E8_Offset, class asMemoryAllocator, ALLOCATOR);
+inline extern_var(0x7805E8, class asMemoryAllocator, ALLOCATOR);
 
 // 0x780690 | ?CRTALLOCATOR@@3VasMemoryAllocator@@A
-inline extern_var(0x380690_Offset, class asMemoryAllocator, CRTALLOCATOR);
+inline extern_var(0x780690, class asMemoryAllocator, CRTALLOCATOR);
 
 // 0x780730 | ?CRTHEAP@@3PAEA
-inline extern_var(0x380730_Offset, u8*, CRTHEAP);
+inline extern_var(0x780730, u8*, CRTHEAP);
 
 // 0x780688 | ?CURHEAP@@3PAVasMemoryAllocator@@A
-inline extern_var(0x380688_Offset, class asMemoryAllocator*, CURHEAP);
+inline extern_var(0x780688, class asMemoryAllocator*, CURHEAP);

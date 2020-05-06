@@ -98,4 +98,4 @@ public:
 check_size(asViewCS, 0x124);
 
 // 0x7909B8 | ?asViewCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x3909B8_Offset, class MetaClass, asViewCSMetaClass);
+inline extern_var(0x7909B8, class MetaClass, asViewCSMetaClass);

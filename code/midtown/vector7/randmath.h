@@ -44,11 +44,11 @@ i32 irand();
 i32 irand(i32 arg1);
 
 // 0x909448 | ?LogRandomCalls@@3P6AXXZA
-inline extern_var(0x509448_Offset, void (*)(void), LogRandomCalls);
+inline extern_var(0x909448, void (*)(void), LogRandomCalls);
 
 // 0x564AB0 | _rand (Skipped: void)
 
 // 0x564AC0 | _srand (Skipped: void)
 
 // 0x658A60 | ?gRandSeed@@3HA
-inline extern_var(0x258A60_Offset, i32, gRandSeed);
+inline extern_var(0x658A60, i32, gRandSeed);

@@ -56,10 +56,10 @@ public:
     static void PreUpdate(f32 arg1);
 
     // 0x7057B4 | ?FrameDelta@mmAnimInstState@@2HA
-    static inline extern_var(0x3057B4_Offset, i32, FrameDelta);
+    static inline extern_var(0x7057B4, i32, FrameDelta);
 
     // 0x7057B0 | ?FrameFraction@mmAnimInstState@@2MA
-    static inline extern_var(0x3057B0_Offset, f32, FrameFraction);
+    static inline extern_var(0x7057B0, f32, FrameFraction);
 };
 
 check_size(mmAnimInstState, 0x0);

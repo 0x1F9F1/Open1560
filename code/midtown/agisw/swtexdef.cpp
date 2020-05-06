@@ -32,37 +32,37 @@ agiSWTexDef::~agiSWTexDef()
 
 i32 agiSWTexDef::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiSWTexDef*>>(0x137730_Offset, this);
+    return stub<thiscall_t<i32, agiSWTexDef*>>(0x537730, this);
 }
 
 void agiSWTexDef::EndGfx()
 {
-    return stub<thiscall_t<void, agiSWTexDef*>>(0x137820_Offset, this);
+    return stub<thiscall_t<void, agiSWTexDef*>>(0x537820, this);
 }
 
 i32 agiSWTexDef::IsAvailable()
 {
-    return stub<thiscall_t<i32, agiSWTexDef*>>(0x137810_Offset, this);
+    return stub<thiscall_t<i32, agiSWTexDef*>>(0x537810, this);
 }
 
 i32 agiSWTexDef::Lock(struct agiTexLock& arg1)
 {
-    return stub<thiscall_t<i32, agiSWTexDef*, struct agiTexLock&>>(0x137870_Offset, this, arg1);
+    return stub<thiscall_t<i32, agiSWTexDef*, struct agiTexLock&>>(0x537870, this, arg1);
 }
 
 void agiSWTexDef::Request()
 {
-    return stub<thiscall_t<void, agiSWTexDef*>>(0x1378D0_Offset, this);
+    return stub<thiscall_t<void, agiSWTexDef*>>(0x5378D0, this);
 }
 
 void agiSWTexDef::Set(class Vector2& arg1, class Vector2& arg2)
 {
-    return stub<thiscall_t<void, agiSWTexDef*, class Vector2&, class Vector2&>>(0x137710_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, agiSWTexDef*, class Vector2&, class Vector2&>>(0x537710, this, arg1, arg2);
 }
 
 void agiSWTexDef::Unlock(struct agiTexLock& arg1)
 {
-    return stub<thiscall_t<void, agiSWTexDef*, struct agiTexLock&>>(0x1378C0_Offset, this, arg1);
+    return stub<thiscall_t<void, agiSWTexDef*, struct agiTexLock&>>(0x5378C0, this, arg1);
 }
 
 agiSWTexLut::agiSWTexLut(class agiSWPipeline* arg1)
@@ -77,10 +77,10 @@ agiSWTexLut::~agiSWTexLut()
 
 i32 agiSWTexLut::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiSWTexLut*>>(0x137950_Offset, this);
+    return stub<thiscall_t<i32, agiSWTexLut*>>(0x537950, this);
 }
 
 void agiSWTexLut::EndGfx()
 {
-    return stub<thiscall_t<void, agiSWTexLut*>>(0x137B30_Offset, this);
+    return stub<thiscall_t<void, agiSWTexLut*>>(0x537B30, this);
 }

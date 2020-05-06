@@ -440,34 +440,34 @@ public:
 check_size(StringType, 0x0);
 
 // 0x90B478 | ?CharInst@@3UCharType@@A
-inline extern_var(0x50B478_Offset, struct CharType, CharInst);
+inline extern_var(0x90B478, struct CharType, CharInst);
 
 // 0x90B480 | ?FloatInst@@3UFloatType@@A
-inline extern_var(0x50B480_Offset, struct FloatType, FloatInst);
+inline extern_var(0x90B480, struct FloatType, FloatInst);
 
 // 0x90B48C | ?SignedCharInst@@3USignedCharType@@A
-inline extern_var(0x50B48C_Offset, struct SignedCharType, SignedCharInst);
+inline extern_var(0x90B48C, struct SignedCharType, SignedCharInst);
 
 // 0x90B498 | ?SignedInt64Inst@@3USignedInt64Type@@A
-inline extern_var(0x50B498_Offset, struct SignedInt64Type, SignedInt64Inst);
+inline extern_var(0x90B498, struct SignedInt64Type, SignedInt64Inst);
 
 // 0x90B47C | ?SignedIntInst@@3USignedIntType@@A
-inline extern_var(0x50B47C_Offset, struct SignedIntType, SignedIntInst);
+inline extern_var(0x90B47C, struct SignedIntType, SignedIntInst);
 
 // 0x90B484 | ?SignedShortInst@@3USignedShortType@@A
-inline extern_var(0x50B484_Offset, struct SignedShortType, SignedShortInst);
+inline extern_var(0x90B484, struct SignedShortType, SignedShortInst);
 
 // 0x90B488 | ?StringInst@@3UStringType@@A
-inline extern_var(0x50B488_Offset, struct StringType, StringInst);
+inline extern_var(0x90B488, struct StringType, StringInst);
 
 // 0x90B474 | ?UnsignedCharInst@@3UUnsignedCharType@@A
-inline extern_var(0x50B474_Offset, struct UnsignedCharType, UnsignedCharInst);
+inline extern_var(0x90B474, struct UnsignedCharType, UnsignedCharInst);
 
 // 0x90B490 | ?UnsignedIntInst@@3UUnsignedIntType@@A
-inline extern_var(0x50B490_Offset, struct UnsignedIntType, UnsignedIntInst);
+inline extern_var(0x90B490, struct UnsignedIntType, UnsignedIntInst);
 
 // 0x90B494 | ?UnsignedShortInst@@3UUnsignedShortType@@A
-inline extern_var(0x50B494_Offset, struct UnsignedShortType, UnsignedShortInst);
+inline extern_var(0x90B494, struct UnsignedShortType, UnsignedShortInst);
 
 struct MetaType
 {

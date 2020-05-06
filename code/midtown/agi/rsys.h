@@ -98,13 +98,13 @@ public:
 check_size(agiRendStateStruct, 0x0);
 
 // 0x8FF0D0 | ?RAST@@3PAVagiRasterizer@@A
-inline extern_var(0x4FF0D0_Offset, class agiRasterizer*, RAST);
+inline extern_var(0x8FF0D0, class agiRasterizer*, RAST);
 
 // 0x656BD0 | ?ROPTS@@3UagiRenderOpts@@A
-inline extern_var(0x256BD0_Offset, struct agiRenderOpts, ROPTS);
+inline extern_var(0x656BD0, struct agiRenderOpts, ROPTS);
 
 // 0x8FF090 | ?agiCurState@@3VagiRendState@@A
-inline extern_var(0x4FF090_Offset, class agiRendState, agiCurState);
+inline extern_var(0x8FF090, class agiRendState, agiCurState);
 
 // 0x8FF050 | ?agiLastState@@3UagiRendStateStruct@@A
-inline extern_var(0x4FF050_Offset, struct agiRendStateStruct, agiLastState);
+inline extern_var(0x8FF050, struct agiRendStateStruct, agiLastState);

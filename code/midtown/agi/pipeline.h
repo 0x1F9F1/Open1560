@@ -219,10 +219,10 @@ public:
     void ValidateObject(class agiRefreshable* arg1);
 
     // 0x8FACB4 | ?CurrentPipe@agiPipeline@@2PAV1@A
-    static inline extern_var(0x4FACB4_Offset, class agiPipeline*, CurrentPipe);
+    static inline extern_var(0x8FACB4, class agiPipeline*, CurrentPipe);
 
     // 0x8FACAC | ?CurrentRenderer@agiPipeline@@2PAVagiRenderer@@A
-    static inline extern_var(0x4FACAC_Offset, class agiRenderer*, CurrentRenderer);
+    static inline extern_var(0x8FACAC, class agiRenderer*, CurrentRenderer);
 
 protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
@@ -241,73 +241,73 @@ void DestroyPipelineAttachableWindow();
 void* GetRootWindow();
 
 // 0x8FACE0 | ?DrawModeAnd@@3HA
-inline extern_var(0x4FACE0_Offset, i32, DrawModeAnd);
+inline extern_var(0x8FACE0, i32, DrawModeAnd);
 
 // 0x8FACDC | ?DrawModeOr@@3HA
-inline extern_var(0x4FACDC_Offset, i32, DrawModeOr);
+inline extern_var(0x8FACDC, i32, DrawModeOr);
 
 // 0x8FACD8 | ?LightCount@@3HA
-inline extern_var(0x4FACD8_Offset, i32, LightCount);
+inline extern_var(0x8FACD8, i32, LightCount);
 
 // 0x8FACC0 | ?PROBER@@3P6AXPAX@ZA
-inline extern_var(0x4FACC0_Offset, void (*)(void*), PROBER);
+inline extern_var(0x8FACC0, void (*)(void*), PROBER);
 
 // 0x8FAC18 | ?STATS@@3UagiStats@@A
-inline extern_var(0x4FAC18_Offset, struct agiStats, STATS);
+inline extern_var(0x8FAC18, struct agiStats, STATS);
 
 // 0x6565B8 | ?ZFill@@3HA
-inline extern_var(0x2565B8_Offset, i32, ZFill);
+inline extern_var(0x6565B8, i32, ZFill);
 
 // 0x8FAC5C | ?agiBeginFrame@@3KA
-inline extern_var(0x4FAC5C_Offset, u32, agiBeginFrame);
+inline extern_var(0x8FAC5C, u32, agiBeginFrame);
 
 // 0x8FACA8 | ?agiBeginScene@@3KA
-inline extern_var(0x4FACA8_Offset, u32, agiBeginScene);
+inline extern_var(0x8FACA8, u32, agiBeginScene);
 
 // 0x8FAC70 | ?agiBitmapCount@@3HA
-inline extern_var(0x4FAC70_Offset, i32, agiBitmapCount);
+inline extern_var(0x8FAC70, i32, agiBitmapCount);
 
 // 0x8FAC68 | ?agiBitmapPixels@@3HA
-inline extern_var(0x4FAC68_Offset, i32, agiBitmapPixels);
+inline extern_var(0x8FAC68, i32, agiBitmapPixels);
 
 // 0x8FACD4 | ?agiClearViewport@@3KA
-inline extern_var(0x4FACD4_Offset, u32, agiClearViewport);
+inline extern_var(0x8FACD4, u32, agiClearViewport);
 
 // 0x8FACCC | ?agiClipTimer@@3KA
-inline extern_var(0x4FACCC_Offset, u32, agiClipTimer);
+inline extern_var(0x8FACCC, u32, agiClipTimer);
 
 // 0x8FAC64 | ?agiCopyBitmap@@3KA
-inline extern_var(0x4FAC64_Offset, u32, agiCopyBitmap);
+inline extern_var(0x8FAC64, u32, agiCopyBitmap);
 
 // 0x6565BC | ?agiEnableZBuffer@@3DA
-inline extern_var(0x2565BC_Offset, char, agiEnableZBuffer);
+inline extern_var(0x6565BC, char, agiEnableZBuffer);
 
 // 0x8FAC6C | ?agiEndFrame@@3KA
-inline extern_var(0x4FAC6C_Offset, u32, agiEndFrame);
+inline extern_var(0x8FAC6C, u32, agiEndFrame);
 
 // 0x8FACA4 | ?agiEndScene@@3KA
-inline extern_var(0x4FACA4_Offset, u32, agiEndScene);
+inline extern_var(0x8FACA4, u32, agiEndScene);
 
 // 0x8FACD0 | ?agiFirstPass@@3KA
-inline extern_var(0x4FACD0_Offset, u32, agiFirstPass);
+inline extern_var(0x8FACD0, u32, agiFirstPass);
 
 // 0x8FACC4 | ?agiInvertTimer@@3KA
-inline extern_var(0x4FACC4_Offset, u32, agiInvertTimer);
+inline extern_var(0x8FACC4, u32, agiInvertTimer);
 
 // 0x8FAC60 | ?agiLightTimer@@3KA
-inline extern_var(0x4FAC60_Offset, u32, agiLightTimer);
+inline extern_var(0x8FAC60, u32, agiLightTimer);
 
 // 0x8FACB0 | ?agiRasterization@@3KA
-inline extern_var(0x4FACB0_Offset, u32, agiRasterization);
+inline extern_var(0x8FACB0, u32, agiRasterization);
 
 // 0x8FACB8 | ?agiSecondPass@@3KA
-inline extern_var(0x4FACB8_Offset, u32, agiSecondPass);
+inline extern_var(0x8FACB8, u32, agiSecondPass);
 
 // 0x8FACC8 | ?agiStateChanges@@3KA
-inline extern_var(0x4FACC8_Offset, u32, agiStateChanges);
+inline extern_var(0x8FACC8, u32, agiStateChanges);
 
 // 0x8FACBC | ?agiTransformTimer@@3KA
-inline extern_var(0x4FACBC_Offset, u32, agiTransformTimer);
+inline extern_var(0x8FACBC, u32, agiTransformTimer);
 
 // 0x8FACA0 | ?agiTraverseTimer@@3KA
-inline extern_var(0x4FACA0_Offset, u32, agiTraverseTimer);
+inline extern_var(0x8FACA0, u32, agiTraverseTimer);

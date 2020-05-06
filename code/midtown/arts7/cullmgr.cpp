@@ -32,68 +32,67 @@ asCullManager::~asCullManager()
 
 void asCullManager::DeclareCamera(class asCamera* arg1)
 {
-    return stub<thiscall_t<void, asCullManager*, class asCamera*>>(0x125440_Offset, this, arg1);
+    return stub<thiscall_t<void, asCullManager*, class asCamera*>>(0x525440, this, arg1);
 }
 
 void asCullManager::DeclareCullable(class asCullable* arg1)
 {
-    return stub<thiscall_t<void, asCullManager*, class asCullable*>>(0x1254A0_Offset, this, arg1);
+    return stub<thiscall_t<void, asCullManager*, class asCullable*>>(0x5254A0, this, arg1);
 }
 
 void asCullManager::DeclareCullable2D(class asCullable* arg1)
 {
-    return stub<thiscall_t<void, asCullManager*, class asCullable*>>(0x125550_Offset, this, arg1);
+    return stub<thiscall_t<void, asCullManager*, class asCullable*>>(0x525550, this, arg1);
 }
 
 void asCullManager::AddPage(class Callback arg1)
 {
-    return stub<thiscall_t<void, asCullManager*, class Callback>>(0x125400_Offset, this, arg1);
+    return stub<thiscall_t<void, asCullManager*, class Callback>>(0x525400, this, arg1);
 }
 
 void asCullManager::DeclareBitmap(class asCullable* arg1, class agiBitmap* arg2)
 {
-    return stub<thiscall_t<void, asCullManager*, class asCullable*, class agiBitmap*>>(
-        0x1255F0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, asCullManager*, class asCullable*, class agiBitmap*>>(0x5255F0, this, arg1, arg2);
 }
 
 void asCullManager::DeclarePrint(class asCullable* arg1)
 {
-    return stub<thiscall_t<void, asCullManager*, class asCullable*>>(0x125660_Offset, this, arg1);
+    return stub<thiscall_t<void, asCullManager*, class asCullable*>>(0x525660, this, arg1);
 }
 
 class MetaClass* asCullManager::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, asCullManager*>>(0x125840_Offset, this);
+    return stub<thiscall_t<class MetaClass*, asCullManager*>>(0x525840, this);
 }
 
 void asCullManager::Reset()
 {
-    return stub<thiscall_t<void, asCullManager*>>(0x124DF0_Offset, this);
+    return stub<thiscall_t<void, asCullManager*>>(0x524DF0, this);
 }
 
 void asCullManager::Update()
 {
-    return stub<thiscall_t<void, asCullManager*>>(0x125090_Offset, this);
+    return stub<thiscall_t<void, asCullManager*>>(0x525090, this);
 }
 
 void asCullManager::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x1256D0_Offset);
+    return stub<cdecl_t<void>>(0x5256D0);
 }
 
 void asCullManager::DisplayVersionString()
 {
-    return stub<thiscall_t<void, asCullManager*>>(0x124E50_Offset, this);
+    return stub<thiscall_t<void, asCullManager*>>(0x524E50, this);
 }
 
 void asCullManager::PrintMiniStats()
 {
-    return stub<thiscall_t<void, asCullManager*>>(0x124F00_Offset, this);
+    return stub<thiscall_t<void, asCullManager*>>(0x524F00, this);
 }
 
 void asCullManager::PrintStats()
 {
-    return stub<thiscall_t<void, asCullManager*>>(0x124F90_Offset, this);
+    return stub<thiscall_t<void, asCullManager*>>(0x524F90, this);
 }
 
 void Statsf(char const* arg1, ...)

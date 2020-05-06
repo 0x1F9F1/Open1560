@@ -96,4 +96,4 @@ private:
 check_size(DataCache, 0x0);
 
 // 0x90A9B0 | ?CACHE@@3VDataCache@@A
-inline extern_var(0x50A9B0_Offset, class DataCache, CACHE);
+inline extern_var(0x90A9B0, class DataCache, CACHE);

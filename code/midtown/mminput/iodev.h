@@ -101,4 +101,4 @@ check_size(mmIODev, 0xA8);
 i32 ConvertDItoString(i32 arg1, char* arg2, i32 arg3);
 
 // 0x719288 | ?mmIODevMetaClass@@3VMetaClass@@A
-inline extern_var(0x319288_Offset, class MetaClass, mmIODevMetaClass);
+inline extern_var(0x719288, class MetaClass, mmIODevMetaClass);

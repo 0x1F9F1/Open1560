@@ -73,4 +73,4 @@ public:
 check_size(mmVehList, 0xC);
 
 // 0x7084EC | ?VehicleListPtr@@3PAVmmVehList@@A
-inline extern_var(0x3084EC_Offset, class mmVehList*, VehicleListPtr);
+inline extern_var(0x7084EC, class mmVehList*, VehicleListPtr);

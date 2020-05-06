@@ -32,25 +32,25 @@ mmAnimExcel::~mmAnimExcel()
 
 void mmAnimExcel::AddFile(char* arg1, char* arg2)
 {
-    return stub<thiscall_t<void, mmAnimExcel*, char*, char*>>(0xC3600_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmAnimExcel*, char*, char*>>(0x4C3600, this, arg1, arg2);
 }
 
 char* mmAnimExcel::GetName(i32 arg1)
 {
-    return stub<thiscall_t<char*, mmAnimExcel*, i32>>(0xC3770_Offset, this, arg1);
+    return stub<thiscall_t<char*, mmAnimExcel*, i32>>(0x4C3770, this, arg1);
 }
 
 char* mmAnimExcel::GetNextName()
 {
-    return stub<thiscall_t<char*, mmAnimExcel*>>(0xC35C0_Offset, this);
+    return stub<thiscall_t<char*, mmAnimExcel*>>(0x4C35C0, this);
 }
 
 char* mmAnimExcel::GetPriorName()
 {
-    return stub<thiscall_t<char*, mmAnimExcel*>>(0xC3740_Offset, this);
+    return stub<thiscall_t<char*, mmAnimExcel*>>(0x4C3740, this);
 }
 
 i32 mmAnimExcel::Init(char* arg1, char* arg2)
 {
-    return stub<thiscall_t<i32, mmAnimExcel*, char*, char*>>(0xC3530_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmAnimExcel*, char*, char*>>(0x4C3530, this, arg1, arg2);
 }

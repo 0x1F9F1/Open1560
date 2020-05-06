@@ -81,4 +81,4 @@ public:
 check_size(mmDrivetrain, 0x48);
 
 // 0x6A80F8 | ?mmDrivetrainMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A80F8_Offset, class MetaClass, mmDrivetrainMetaClass);
+inline extern_var(0x6A80F8, class MetaClass, mmDrivetrainMetaClass);

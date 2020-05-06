@@ -72,7 +72,7 @@ public:
 
 protected:
     // 0x705C1C | ?ToggleBMLoaded@UIToggleButton@@1HA
-    static inline extern_var(0x305C1C_Offset, i32, ToggleBMLoaded);
+    static inline extern_var(0x705C1C, i32, ToggleBMLoaded);
 };
 
 check_size(UIToggleButton, 0xBC);

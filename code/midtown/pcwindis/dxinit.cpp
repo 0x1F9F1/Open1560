@@ -22,62 +22,62 @@ define_dummy_symbol(pcwindis_dxinit);
 
 i32 dxiChangeDisplaySettings(i32 /*width*/, i32 /*height*/, i32 /*bpp*/)
 {
-    export_hook(0x173C60);
+    export_hook(0x573C60);
 
     return 0;
 }
 
 void dxiDirectDrawCreate()
 {
-    return stub<cdecl_t<void>>(0x173CC0_Offset);
+    return stub<cdecl_t<void>>(0x573CC0);
 }
 
 void dxiDirectDrawSurfaceCreate()
 {
-    return stub<cdecl_t<void>>(0x173EC0_Offset);
+    return stub<cdecl_t<void>>(0x573EC0);
 }
 
 void dxiDirectDrawSurfaceDestroy()
 {
-    return stub<cdecl_t<void>>(0x174190_Offset);
+    return stub<cdecl_t<void>>(0x574190);
 }
 
 void dxiDirectInputCreate()
 {
-    return stub<cdecl_t<void>>(0x174200_Offset);
+    return stub<cdecl_t<void>>(0x574200);
 }
 
 void dxiInit(char* arg1, i32 arg2, char** arg3)
 {
-    return stub<cdecl_t<void, char*, i32, char**>>(0x174550_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<void, char*, i32, char**>>(0x574550, arg1, arg2, arg3);
 }
 
 void* dxiMemoryAllocate(struct IDirectDrawSurface4** arg1, u32 arg2)
 {
-    return stub<cdecl_t<void*, struct IDirectDrawSurface4**, u32>>(0x1742C0_Offset, arg1, arg2);
+    return stub<cdecl_t<void*, struct IDirectDrawSurface4**, u32>>(0x5742C0, arg1, arg2);
 }
 
 void dxiMemoryFree(struct IDirectDrawSurface4* arg1)
 {
-    return stub<cdecl_t<void, struct IDirectDrawSurface4*>>(0x1744E0_Offset, arg1);
+    return stub<cdecl_t<void, struct IDirectDrawSurface4*>>(0x5744E0, arg1);
 }
 
 void dxiScreenShot(char* arg1)
 {
-    return stub<cdecl_t<void, char*>>(0x174690_Offset, arg1);
+    return stub<cdecl_t<void, char*>>(0x574690, arg1);
 }
 
 void dxiSetDisplayMode()
 {
-    return stub<cdecl_t<void>>(0x173D80_Offset);
+    return stub<cdecl_t<void>>(0x573D80);
 }
 
 void dxiShutdown()
 {
-    return stub<cdecl_t<void>>(0x174240_Offset);
+    return stub<cdecl_t<void>>(0x574240);
 }
 
 void dxiWindowCreate(char* arg1)
 {
-    return stub<cdecl_t<void, char*>>(0x173B80_Offset, arg1);
+    return stub<cdecl_t<void, char*>>(0x573B80, arg1);
 }

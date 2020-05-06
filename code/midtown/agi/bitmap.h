@@ -65,7 +65,7 @@ protected:
 check_size(agiBitmap, 0x40);
 
 // 0x903140 | ?BitmapHash@@3VHashTable@@A
-inline extern_var(0x503140_Offset, class HashTable, BitmapHash);
+inline extern_var(0x903140, class HashTable, BitmapHash);
 
 // 0x6570F0 | ?BitmapSearchPath@@3PADA
-inline extern_var(0x2570F0_Offset, char*, BitmapSearchPath);
+inline extern_var(0x6570F0, char*, BitmapSearchPath);

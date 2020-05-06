@@ -32,12 +32,12 @@ DLP::~DLP()
 
 void DLP::Cull(i32 arg1)
 {
-    return stub<thiscall_t<void, DLP*, i32>>(0x15E490_Offset, this, arg1);
+    return stub<thiscall_t<void, DLP*, i32>>(0x55E490, this, arg1);
 }
 
 void DLP::FixROpts(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, DLP*, i32, i32>>(0x15E530_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, DLP*, i32, i32>>(0x55E530, this, arg1, arg2);
 }
 
 class DynamicDLP* DLP::GetDynamic(i32 arg1)
@@ -52,36 +52,35 @@ class MultipassDLP* DLP::GetMultipass(i32 arg1)
 
 i32 DLP::BeginGfx()
 {
-    return stub<thiscall_t<i32, DLP*>>(0x15E0D0_Offset, this);
+    return stub<thiscall_t<i32, DLP*>>(0x55E0D0, this);
 }
 
 class DLP* DLP::Clone()
 {
-    return stub<thiscall_t<class DLP*, DLP*>>(0x15E460_Offset, this);
+    return stub<thiscall_t<class DLP*, DLP*>>(0x55E460, this);
 }
 
 void DLP::EndGfx()
 {
-    return stub<thiscall_t<void, DLP*>>(0x15E2F0_Offset, this);
+    return stub<thiscall_t<void, DLP*>>(0x55E2F0, this);
 }
 
 char* DLP::GetName()
 {
-    return stub<thiscall_t<char*, DLP*>>(0x15E4F0_Offset, this);
+    return stub<thiscall_t<char*, DLP*>>(0x55E4F0, this);
 }
 
 i32 DLP::Init(char* arg1, char* arg2, class Vector3* arg3)
 {
-    return stub<thiscall_t<i32, DLP*, char*, char*, class Vector3*>>(0x15E300_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, DLP*, char*, char*, class Vector3*>>(0x55E300, this, arg1, arg2, arg3);
 }
 
 i32 DLP::Init(class DLPTemplate* arg1, char* arg2, class Vector3* arg3)
 {
-    return stub<thiscall_t<i32, DLP*, class DLPTemplate*, char*, class Vector3*>>(
-        0x15E380_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, DLP*, class DLPTemplate*, char*, class Vector3*>>(0x55E380, this, arg1, arg2, arg3);
 }
 
 void DLP::FixTemplateRefs(i32 arg1)
 {
-    return stub<thiscall_t<void, DLP*, i32>>(0x15E000_Offset, this, arg1);
+    return stub<thiscall_t<void, DLP*, i32>>(0x55E000, this, arg1);
 }

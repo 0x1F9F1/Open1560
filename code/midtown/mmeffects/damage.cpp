@@ -32,15 +32,15 @@ mmDamage::~mmDamage()
 
 void mmDamage::Apply(class Vector3& arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmDamage*, class Vector3&, f32>>(0x102470_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmDamage*, class Vector3&, f32>>(0x502470, this, arg1, arg2);
 }
 
 void mmDamage::Init(class agiMeshSet* arg1)
 {
-    return stub<thiscall_t<void, mmDamage*, class agiMeshSet*>>(0x102240_Offset, this, arg1);
+    return stub<thiscall_t<void, mmDamage*, class agiMeshSet*>>(0x502240, this, arg1);
 }
 
 void mmDamage::Reset(i32 arg1)
 {
-    return stub<thiscall_t<void, mmDamage*, i32>>(0x102420_Offset, this, arg1);
+    return stub<thiscall_t<void, mmDamage*, i32>>(0x502420, this, arg1);
 }

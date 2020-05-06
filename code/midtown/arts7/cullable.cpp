@@ -32,20 +32,20 @@ asCullable::~asCullable()
 
 void asCullable::Cull()
 {
-    return stub<thiscall_t<void, asCullable*>>(0x1258C0_Offset, this);
+    return stub<thiscall_t<void, asCullable*>>(0x5258C0, this);
 }
 
 void asCullable::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, asCullable*, class Bank*>>(0x1258D0_Offset, this, arg1);
+    return stub<thiscall_t<void, asCullable*, class Bank*>>(0x5258D0, this, arg1);
 }
 
 class MetaClass* asCullable::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, asCullable*>>(0x125A30_Offset, this);
+    return stub<thiscall_t<class MetaClass*, asCullable*>>(0x525A30, this);
 }
 
 void asCullable::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x1258E0_Offset);
+    return stub<cdecl_t<void>>(0x5258E0);
 }

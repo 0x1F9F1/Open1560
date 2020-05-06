@@ -32,25 +32,25 @@ aiGoalCollision::~aiGoalCollision()
 
 void aiGoalCollision::Init()
 {
-    return stub<thiscall_t<void, aiGoalCollision*>>(0x6B330_Offset, this);
+    return stub<thiscall_t<void, aiGoalCollision*>>(0x46B330, this);
 }
 
 void aiGoalCollision::Reset()
 {
-    return stub<thiscall_t<void, aiGoalCollision*>>(0x6B340_Offset, this);
+    return stub<thiscall_t<void, aiGoalCollision*>>(0x46B340, this);
 }
 
 i32 aiGoalCollision::Context()
 {
-    return stub<thiscall_t<i32, aiGoalCollision*>>(0x6B3D0_Offset, this);
+    return stub<thiscall_t<i32, aiGoalCollision*>>(0x46B3D0, this);
 }
 
 i32 aiGoalCollision::Priority()
 {
-    return stub<thiscall_t<i32, aiGoalCollision*>>(0x6B3F0_Offset, this);
+    return stub<thiscall_t<i32, aiGoalCollision*>>(0x46B3F0, this);
 }
 
 void aiGoalCollision::Update()
 {
-    return stub<thiscall_t<void, aiGoalCollision*>>(0x6B350_Offset, this);
+    return stub<thiscall_t<void, aiGoalCollision*>>(0x46B350, this);
 }

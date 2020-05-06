@@ -32,80 +32,80 @@ mmPopup::~mmPopup()
 
 void mmPopup::ChatCB()
 {
-    return stub<thiscall_t<void, mmPopup*>>(0x27CF0_Offset, this);
+    return stub<thiscall_t<void, mmPopup*>>(0x427CF0, this);
 }
 
 void mmPopup::DisablePU(i32 arg1)
 {
-    return stub<thiscall_t<void, mmPopup*, i32>>(0x27030_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPopup*, i32>>(0x427030, this, arg1);
 }
 
 void mmPopup::ForceRoster()
 {
-    return stub<thiscall_t<void, mmPopup*>>(0x27600_Offset, this);
+    return stub<thiscall_t<void, mmPopup*>>(0x427600, this);
 }
 
 char* mmPopup::GetComment()
 {
-    return stub<thiscall_t<char*, mmPopup*>>(0x27C70_Offset, this);
+    return stub<thiscall_t<char*, mmPopup*>>(0x427C70, this);
 }
 
 i32 mmPopup::IsEnabled()
 {
-    return stub<thiscall_t<i32, mmPopup*>>(0x27020_Offset, this);
+    return stub<thiscall_t<i32, mmPopup*>>(0x427020, this);
 }
 
 void mmPopup::Lock()
 {
-    return stub<thiscall_t<void, mmPopup*>>(0x27CD0_Offset, this);
+    return stub<thiscall_t<void, mmPopup*>>(0x427CD0, this);
 }
 
 void mmPopup::ProcessChat()
 {
-    return stub<thiscall_t<void, mmPopup*>>(0x27250_Offset, this);
+    return stub<thiscall_t<void, mmPopup*>>(0x427250, this);
 }
 
 void mmPopup::ProcessEscape(i32 arg1)
 {
-    return stub<thiscall_t<void, mmPopup*, i32>>(0x27110_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPopup*, i32>>(0x427110, this, arg1);
 }
 
 void mmPopup::ProcessKeymap(i32 arg1)
 {
-    return stub<thiscall_t<void, mmPopup*, i32>>(0x27350_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPopup*, i32>>(0x427350, this, arg1);
 }
 
 void mmPopup::RecordPosition()
 {
-    return stub<thiscall_t<void, mmPopup*>>(0x27CA0_Offset, this);
+    return stub<thiscall_t<void, mmPopup*>>(0x427CA0, this);
 }
 
 void mmPopup::Reset()
 {
-    return stub<thiscall_t<void, mmPopup*>>(0x27C50_Offset, this);
+    return stub<thiscall_t<void, mmPopup*>>(0x427C50, this);
 }
 
 void mmPopup::SetComment(char* arg1)
 {
-    return stub<thiscall_t<void, mmPopup*, char*>>(0x27C80_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPopup*, char*>>(0x427C80, this, arg1);
 }
 
 void mmPopup::ShowResults()
 {
-    return stub<thiscall_t<void, mmPopup*>>(0x274D0_Offset, this);
+    return stub<thiscall_t<void, mmPopup*>>(0x4274D0, this);
 }
 
 void mmPopup::ShowRoster()
 {
-    return stub<thiscall_t<void, mmPopup*>>(0x27560_Offset, this);
+    return stub<thiscall_t<void, mmPopup*>>(0x427560, this);
 }
 
 void mmPopup::Unlock()
 {
-    return stub<thiscall_t<void, mmPopup*>>(0x27CE0_Offset, this);
+    return stub<thiscall_t<void, mmPopup*>>(0x427CE0, this);
 }
 
 void mmPopup::Update()
 {
-    return stub<thiscall_t<void, mmPopup*>>(0x27680_Offset, this);
+    return stub<thiscall_t<void, mmPopup*>>(0x427680, this);
 }

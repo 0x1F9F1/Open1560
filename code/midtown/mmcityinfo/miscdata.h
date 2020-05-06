@@ -108,4 +108,4 @@ public:
 check_size(mmMiscData, 0x173C8);
 
 // 0x7084F8 | ?mmMiscDataMetaClass@@3VMetaClass@@A
-inline extern_var(0x3084F8_Offset, class MetaClass, mmMiscDataMetaClass);
+inline extern_var(0x7084F8, class MetaClass, mmMiscDataMetaClass);

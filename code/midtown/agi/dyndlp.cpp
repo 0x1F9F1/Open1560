@@ -52,10 +52,10 @@ void DynamicDLP::SetTexture(i16 arg1)
 
 i32 DynamicDLP::InitOffsets(class DLP* arg1, char* arg2)
 {
-    return stub<thiscall_t<i32, DynamicDLP*, class DLP*, char*>>(0x15E620_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, DynamicDLP*, class DLP*, char*>>(0x55E620, this, arg1, arg2);
 }
 
 i32 DynamicDLP::Release()
 {
-    return stub<thiscall_t<i32, DynamicDLP*>>(0x15E600_Offset, this);
+    return stub<thiscall_t<i32, DynamicDLP*>>(0x55E600, this);
 }

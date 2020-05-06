@@ -73,4 +73,4 @@ public:
 check_size(PreCamCS, 0x130);
 
 // 0x719400 | ?PreCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x319400_Offset, class MetaClass, PreCamCSMetaClass);
+inline extern_var(0x719400, class MetaClass, PreCamCSMetaClass);

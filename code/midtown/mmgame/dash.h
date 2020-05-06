@@ -149,7 +149,7 @@ public:
 check_size(mmDashView, 0x880);
 
 // 0x636504 | ?MAX_SPEED@@3MA
-inline extern_var(0x236504_Offset, f32, MAX_SPEED);
+inline extern_var(0x636504, f32, MAX_SPEED);
 
 // 0x6A72B8 | ?mmDashViewMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A72B8_Offset, class MetaClass, mmDashViewMetaClass);
+inline extern_var(0x6A72B8, class MetaClass, mmDashViewMetaClass);

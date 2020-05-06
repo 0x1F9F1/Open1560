@@ -93,4 +93,4 @@ public:
 check_size(PointCamCS, 0x144);
 
 // 0x719438 | ?PointCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x319438_Offset, class MetaClass, PointCamCSMetaClass);
+inline extern_var(0x719438, class MetaClass, PointCamCSMetaClass);

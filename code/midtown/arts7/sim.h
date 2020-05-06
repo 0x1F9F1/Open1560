@@ -177,22 +177,22 @@ f64 invert(f64 arg1);
 // 0x5237B0 | ??_9@$BBM@AE (Skipped: void)
 
 // 0x79077C | ?ARTSPTR@@3PAVasSimulation@@A
-inline extern_var(0x39077C_Offset, class asSimulation*, ARTSPTR);
+inline extern_var(0x79077C, class asSimulation*, ARTSPTR);
 
 // 0x790800 | ?Argc@@3HA
-inline extern_var(0x390800_Offset, i32, Argc);
+inline extern_var(0x790800, i32, Argc);
 
 // 0x790804 | ?Argv@@3PAPADA
-inline extern_var(0x390804_Offset, char**, Argv);
+inline extern_var(0x790804, char**, Argv);
 
 // 0x790820 | ?StereoBuffer@@3HA
-inline extern_var(0x390820_Offset, i32, StereoBuffer);
+inline extern_var(0x790820, i32, StereoBuffer);
 
 // 0x790808 | ?VFS@@3PAVVirtualFileSystem@@A
-inline extern_var(0x390808_Offset, class VirtualFileSystem*, VFS);
+inline extern_var(0x790808, class VirtualFileSystem*, VFS);
 
 // 0x790750 | ?asSimulationMetaClass@@3VMetaClass@@A
-inline extern_var(0x390750_Offset, class MetaClass, asSimulationMetaClass);
+inline extern_var(0x790750, class MetaClass, asSimulationMetaClass);
 
 class artsReplayChannel : public eqReplayChannel
 {

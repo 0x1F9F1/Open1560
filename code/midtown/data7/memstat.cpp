@@ -22,10 +22,10 @@ define_dummy_symbol(data7_memstat);
 
 void BeginMemStat(char const* arg1)
 {
-    return stub<cdecl_t<void, char const*>>(0x178B20_Offset, arg1);
+    return stub<cdecl_t<void, char const*>>(0x578B20, arg1);
 }
 
 void EndMemStat()
 {
-    return stub<cdecl_t<void>>(0x178BB0_Offset);
+    return stub<cdecl_t<void>>(0x578BB0);
 }

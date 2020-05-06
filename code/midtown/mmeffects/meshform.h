@@ -65,10 +65,10 @@ public:
     void Update() override;
 
     // 0x649D8C | ?Lighter@asMeshSetForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    static inline extern_var(0x249D8C_Offset, void (*)(u8*, u32*, u32*, class agiMeshSet*), Lighter);
+    static inline extern_var(0x649D8C, void (*)(u8*, u32*, u32*, class agiMeshSet*), Lighter);
 
     // 0x7195A4 | ?SphMapTex@asMeshSetForm@@2PAVagiTexDef@@A
-    static inline extern_var(0x3195A4_Offset, class agiTexDef*, SphMapTex);
+    static inline extern_var(0x7195A4, class agiTexDef*, SphMapTex);
 };
 
 check_size(asMeshSetForm, 0x2C);

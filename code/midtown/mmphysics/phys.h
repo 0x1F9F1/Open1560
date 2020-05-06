@@ -194,7 +194,7 @@ protected:
     i32 TrivialCollideInstances(class mmInstance* arg1, class mmInstance* arg2);
 
     // 0x716F70 | ?Instance@mmPhysicsMGR@@1PAV1@A
-    static inline extern_var(0x316F70_Offset, class mmPhysicsMGR*, Instance);
+    static inline extern_var(0x716F70, class mmPhysicsMGR*, Instance);
 };
 
 check_size(mmPhysicsMGR, 0x224);
@@ -226,34 +226,34 @@ void SegSegDistNorm(class Vector3 const& arg1, class Vector3 const& arg2, class 
 i32 testNoOverlap(f32 arg1, f32 arg2);
 
 // 0x643E6C | ?CallImpactCallbacks@@3HA
-inline extern_var(0x243E6C_Offset, i32, CallImpactCallbacks);
+inline extern_var(0x643E6C, i32, CallImpactCallbacks);
 
 // 0x7086C0 | ?EBISECTS@@3PAVmmEdgeBodyIsect@@A
-inline extern_var(0x3086C0_Offset, class mmEdgeBodyIsect*, EBISECTS);
+inline extern_var(0x7086C0, class mmEdgeBodyIsect*, EBISECTS);
 
 // 0x716F90 | ?ISECTS@@3PAVmmIntersection@@A
-inline extern_var(0x316F90_Offset, class mmIntersection*, ISECTS);
+inline extern_var(0x716F90, class mmIntersection*, ISECTS);
 
 // 0x7188BC | ?ImpactCallbackTime@@3KA
-inline extern_var(0x3188BC_Offset, u32, ImpactCallbackTime);
+inline extern_var(0x7188BC, u32, ImpactCallbackTime);
 
 // 0x716F80 | ?ImpactTime@@3KA
-inline extern_var(0x316F80_Offset, u32, ImpactTime);
+inline extern_var(0x716F80, u32, ImpactTime);
 
 // 0x718698 | ?PHYS@@3VmmPhysicsMGR@@A
-inline extern_var(0x318698_Offset, class mmPhysicsMGR, PHYS);
+inline extern_var(0x718698, class mmPhysicsMGR, PHYS);
 
 // 0x716F88 | ?PhysUpdate@@3MA
-inline extern_var(0x316F88_Offset, f32, PhysUpdate);
+inline extern_var(0x716F88, f32, PhysUpdate);
 
 // 0x70A548 | ?mmPhysicsMGRMetaClass@@3VMetaClass@@A
-inline extern_var(0x30A548_Offset, class MetaClass, mmPhysicsMGRMetaClass);
+inline extern_var(0x70A548, class MetaClass, mmPhysicsMGRMetaClass);
 
 // 0x7188C0 | ?physCollisions@@3KA
-inline extern_var(0x3188C0_Offset, u32, physCollisions);
+inline extern_var(0x7188C0, u32, physCollisions);
 
 // 0x718590 | ?physTerrainCollisions@@3KA
-inline extern_var(0x318590_Offset, u32, physTerrainCollisions);
+inline extern_var(0x718590, u32, physTerrainCollisions);
 
 // 0x7190D0 | ?physUpdate@@3KA
-inline extern_var(0x3190D0_Offset, u32, physUpdate);
+inline extern_var(0x7190D0, u32, physUpdate);

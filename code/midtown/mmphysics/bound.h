@@ -54,4 +54,4 @@ public:
 check_size(asBound, 0x0);
 
 // 0x719194 | ?ImpactCallbackCount@@3HA
-inline extern_var(0x319194_Offset, i32, ImpactCallbackCount);
+inline extern_var(0x719194, i32, ImpactCallbackCount);

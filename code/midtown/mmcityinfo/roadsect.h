@@ -244,10 +244,10 @@ public:
 check_size(mmPropInfo, 0x94);
 
 // 0x708618 | ?mmPropInfoMetaClass@@3VMetaClass@@A
-inline extern_var(0x308618_Offset, class MetaClass, mmPropInfoMetaClass);
+inline extern_var(0x708618, class MetaClass, mmPropInfoMetaClass);
 
 // 0x708668 | ?mmRoadSectMetaClass@@3VMetaClass@@A
-inline extern_var(0x308668_Offset, class MetaClass, mmRoadSectMetaClass);
+inline extern_var(0x708668, class MetaClass, mmRoadSectMetaClass);
 
 // 0x708640 | ?mmRoadSideMetaClass@@3VMetaClass@@A
-inline extern_var(0x308640_Offset, class MetaClass, mmRoadSideMetaClass);
+inline extern_var(0x708640, class MetaClass, mmRoadSideMetaClass);

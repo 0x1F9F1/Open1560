@@ -32,55 +32,55 @@ PURoster::~PURoster()
 
 void PURoster::AddName(char* arg1, u32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, PURoster*, char*, u32, i32>>(0xA8F00_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, PURoster*, char*, u32, i32>>(0x4A8F00, this, arg1, arg2, arg3);
 }
 
 void PURoster::BootButtonCB()
 {
-    return stub<thiscall_t<void, PURoster*>>(0xA8E30_Offset, this);
+    return stub<thiscall_t<void, PURoster*>>(0x4A8E30, this);
 }
 
 void PURoster::ClearNames()
 {
-    return stub<thiscall_t<void, PURoster*>>(0xA9240_Offset, this);
+    return stub<thiscall_t<void, PURoster*>>(0x4A9240, this);
 }
 
 i32 PURoster::FindRosterName(char* arg1)
 {
-    return stub<thiscall_t<i32, PURoster*, char*>>(0xA92F0_Offset, this, arg1);
+    return stub<thiscall_t<i32, PURoster*, char*>>(0x4A92F0, this, arg1);
 }
 
 i32 PURoster::FindRosterName(u32 arg1)
 {
-    return stub<thiscall_t<i32, PURoster*, u32>>(0xA9360_Offset, this, arg1);
+    return stub<thiscall_t<i32, PURoster*, u32>>(0x4A9360, this, arg1);
 }
 
 void PURoster::PostNames()
 {
-    return stub<thiscall_t<void, PURoster*>>(0xA92A0_Offset, this);
+    return stub<thiscall_t<void, PURoster*>>(0x4A92A0, this);
 }
 
 void PURoster::RemoveName(u32 arg1)
 {
-    return stub<thiscall_t<void, PURoster*, u32>>(0xA9110_Offset, this, arg1);
+    return stub<thiscall_t<void, PURoster*, u32>>(0x4A9110, this, arg1);
 }
 
 void PURoster::RemoveName(char* arg1, u32 arg2)
 {
-    return stub<thiscall_t<void, PURoster*, char*, u32>>(0xA8FD0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, PURoster*, char*, u32>>(0x4A8FD0, this, arg1, arg2);
 }
 
 void PURoster::Reset()
 {
-    return stub<thiscall_t<void, PURoster*>>(0xA8E20_Offset, this);
+    return stub<thiscall_t<void, PURoster*>>(0x4A8E20, this);
 }
 
 void PURoster::SetBootCB(class Callback arg1)
 {
-    return stub<thiscall_t<void, PURoster*, class Callback>>(0xA92D0_Offset, this, arg1);
+    return stub<thiscall_t<void, PURoster*, class Callback>>(0x4A92D0, this, arg1);
 }
 
 void PURoster::SetHost(i32 arg1)
 {
-    return stub<thiscall_t<void, PURoster*, i32>>(0xA8E90_Offset, this, arg1);
+    return stub<thiscall_t<void, PURoster*, i32>>(0x4A8E90, this, arg1);
 }

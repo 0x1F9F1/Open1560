@@ -32,20 +32,20 @@ Vehicle::~Vehicle()
 
 void Vehicle::PostSetup()
 {
-    return stub<thiscall_t<void, Vehicle*>>(0xA5310_Offset, this);
+    return stub<thiscall_t<void, Vehicle*>>(0x4A5310, this);
 }
 
 void Vehicle::PreSetup()
 {
-    return stub<thiscall_t<void, Vehicle*>>(0xA5300_Offset, this);
+    return stub<thiscall_t<void, Vehicle*>>(0x4A5300, this);
 }
 
 void Vehicle::SetSubMenu(i32 arg1)
 {
-    return stub<thiscall_t<void, Vehicle*, i32>>(0xA52C0_Offset, this, arg1);
+    return stub<thiscall_t<void, Vehicle*, i32>>(0x4A52C0, this, arg1);
 }
 
 void Vehicle::SetSubMenuButtons()
 {
-    return stub<thiscall_t<void, Vehicle*>>(0xA52E0_Offset, this);
+    return stub<thiscall_t<void, Vehicle*>>(0x4A52E0, this);
 }

@@ -42,5 +42,5 @@ Callback::Callback(void (*arg1)(void*, void*), void* arg2)
 
 void Callback::Call(void* arg1)
 {
-    return stub<thiscall_t<void, Callback*, void*>>(0x179450_Offset, this, arg1);
+    return stub<thiscall_t<void, Callback*, void*>>(0x579450, this, arg1);
 }

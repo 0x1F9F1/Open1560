@@ -29,4 +29,4 @@
 class agiMeshModel* GetModel(char* arg1, char* arg2, char* arg3);
 
 // 0x73E720 | ?MeshModelHash@@3VHashTable@@A
-inline extern_var(0x33E720_Offset, class HashTable, MeshModelHash);
+inline extern_var(0x73E720, class HashTable, MeshModelHash);

@@ -22,5 +22,5 @@ define_dummy_symbol(agisw_swddraw);
 
 void ddAttach(i32 arg1, i32 arg2)
 {
-    return stub<cdecl_t<void, i32, i32>>(0x134E30_Offset, arg1, arg2);
+    return stub<cdecl_t<void, i32, i32>>(0x534E30, arg1, arg2);
 }

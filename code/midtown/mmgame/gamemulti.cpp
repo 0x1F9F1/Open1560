@@ -37,7 +37,7 @@ void mmGameMulti::InitNetworkPlayers()
 
 void mmGameMulti::InitRoster()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x31960_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x431960, this);
 }
 
 void mmGameMulti::SystemMessage(struct NETSYS_MSG* arg1)
@@ -52,161 +52,161 @@ void mmGameMulti::GameMessage(struct NETGAME_MSG* arg1)
 
 void mmGameMulti::ActivateMapNetObject(i32 arg1)
 {
-    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x32030_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x432030, this, arg1);
 }
 
 void mmGameMulti::BootPlayerCB(void* arg1, void* arg2)
 {
-    return stub<thiscall_t<void, mmGameMulti*, void*, void*>>(0x32410_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmGameMulti*, void*, void*>>(0x432410, this, arg1, arg2);
 }
 
 void mmGameMulti::BootStrapCars()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x31480_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x431480, this);
 }
 
 void mmGameMulti::ClearNetObjects()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x316A0_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x4316A0, this);
 }
 
 void mmGameMulti::DeactivateMapNetObject(i32 arg1)
 {
-    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x32000_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x432000, this, arg1);
 }
 
 void mmGameMulti::DropThruCityHandler()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x30A90_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x430A90, this);
 }
 
 void mmGameMulti::FinishMessage(i32 arg1)
 {
-    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x32350_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x432350, this, arg1);
 }
 
 void mmGameMulti::GameMessageCB(void* arg1, void* arg2)
 {
-    return stub<thiscall_t<void, mmGameMulti*, void*, void*>>(0x31100_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmGameMulti*, void*, void*>>(0x431100, this, arg1, arg2);
 }
 
 class MetaClass* mmGameMulti::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmGameMulti*>>(0x325B0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmGameMulti*>>(0x4325B0, this);
 }
 
 void mmGameMulti::HitWaterHandler()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x309A0_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x4309A0, this);
 }
 
 i32 mmGameMulti::Init()
 {
-    return stub<thiscall_t<i32, mmGameMulti*>>(0x30870_Offset, this);
+    return stub<thiscall_t<i32, mmGameMulti*>>(0x430870, this);
 }
 
 void mmGameMulti::InitGameStrings()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x30AA0_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x430AA0, this);
 }
 
 void mmGameMulti::InitOtherPlayers()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x316E0_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x4316E0, this);
 }
 
 void mmGameMulti::NextRace()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x1A890_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x41A890, this);
 }
 
 i32 mmGameMulti::ParseChatMessage(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, mmGameMulti*, char*, i32>>(0x32160_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmGameMulti*, char*, i32>>(0x432160, this, arg1, arg2);
 }
 
 void mmGameMulti::QuitNetwork()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x32140_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x432140, this);
 }
 
 void mmGameMulti::RegisterMapNetObjects(i32 arg1)
 {
-    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x31EE0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x431EE0, this, arg1);
 }
 
 void mmGameMulti::Reset()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x31620_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x431620, this);
 }
 
 void mmGameMulti::SendBootMsg(u32 arg1)
 {
-    return stub<thiscall_t<void, mmGameMulti*, u32>>(0x324D0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameMulti*, u32>>(0x4324D0, this, arg1);
 }
 
 void mmGameMulti::SendChatMessage(char* arg1)
 {
-    return stub<thiscall_t<void, mmGameMulti*, char*>>(0x321D0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameMulti*, char*>>(0x4321D0, this, arg1);
 }
 
 void mmGameMulti::SendMsg(i32 arg1)
 {
-    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x324A0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x4324A0, this, arg1);
 }
 
 void mmGameMulti::SendToChatMessage(char* arg1, u32 arg2)
 {
-    return stub<thiscall_t<void, mmGameMulti*, char*, u32>>(0x32290_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmGameMulti*, char*, u32>>(0x432290, this, arg1, arg2);
 }
 
 void mmGameMulti::SystemMessageCB(void* arg1, void* arg2)
 {
-    return stub<thiscall_t<void, mmGameMulti*, void*, void*>>(0x30EF0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmGameMulti*, void*, void*>>(0x430EF0, this, arg1, arg2);
 }
 
 void mmGameMulti::Update()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x319F0_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x4319F0, this);
 }
 
 void mmGameMulti::UpdateDebugKeyInput(i32 arg1)
 {
-    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x31ED0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameMulti*, i32>>(0x431ED0, this, arg1);
 }
 
 void mmGameMulti::UpdateGame()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x31A10_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x431A10, this);
 }
 
 void mmGameMulti::UpdateNetWorkAudio()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x32450_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x432450, this);
 }
 
 void mmGameMulti::UpdateScore()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x31AA0_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x431AA0, this);
 }
 
 void mmGameMulti::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x32510_Offset);
+    return stub<cdecl_t<void>>(0x432510);
 }
 
 void mmGameMulti::DisableRacers()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x320F0_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x4320F0, this);
 }
 
 void mmGameMulti::EnableRacers()
 {
-    return stub<thiscall_t<void, mmGameMulti*>>(0x32070_Offset, this);
+    return stub<thiscall_t<void, mmGameMulti*>>(0x432070, this);
 }
 
 void mmGameMulti::StartXYZ(i32 arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, f32 arg5)
 {
     return stub<thiscall_t<void, mmGameMulti*, i32, class Vector3&, class Vector3&, f32, f32>>(
-        0x30CC0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x430CC0, this, arg1, arg2, arg3, arg4, arg5);
 }

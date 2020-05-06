@@ -38,103 +38,103 @@ aiGoalFollowWayPts::~aiGoalFollowWayPts()
 
 void aiGoalFollowWayPts::Init()
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x664D0_Offset, this);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x4664D0, this);
 }
 
 void aiGoalFollowWayPts::Reset()
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x669C0_Offset, this);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x4669C0, this);
 }
 
 i32 aiGoalFollowWayPts::Context()
 {
-    return stub<thiscall_t<i32, aiGoalFollowWayPts*>>(0x668C0_Offset, this);
+    return stub<thiscall_t<i32, aiGoalFollowWayPts*>>(0x4668C0, this);
 }
 
 i32 aiGoalFollowWayPts::Priority()
 {
-    return stub<thiscall_t<i32, aiGoalFollowWayPts*>>(0x669B0_Offset, this);
+    return stub<thiscall_t<i32, aiGoalFollowWayPts*>>(0x4669B0, this);
 }
 
 void aiGoalFollowWayPts::Update()
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x66AB0_Offset, this);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x466AB0, this);
 }
 
 class MetaClass* aiGoalFollowWayPts::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, aiGoalFollowWayPts*>>(0x6A2D0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, aiGoalFollowWayPts*>>(0x46A2D0, this);
 }
 
 void aiGoalFollowWayPts::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*, class Bank*>>(0x6A0E0_Offset, this, arg1);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*, class Bank*>>(0x46A0E0, this, arg1);
 }
 
 void aiGoalFollowWayPts::Dump()
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x69E60_Offset, this);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x469E60, this);
 }
 
 void aiGoalFollowWayPts::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x6A140_Offset);
+    return stub<cdecl_t<void>>(0x46A140);
 }
 
 void aiGoalFollowWayPts::AddToBlockedRange(f32 arg1, f32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*, f32, f32, f32>>(0x68B00_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*, f32, f32, f32>>(0x468B00, this, arg1, arg2, arg3);
 }
 
 void aiGoalFollowWayPts::AvoidCollision(i32 arg1)
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*, i32>>(0x68CA0_Offset, this, arg1);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*, i32>>(0x468CA0, this, arg1);
 }
 
 void aiGoalFollowWayPts::AvoidOpponentCollision(class aiVehicleOpponent* arg1)
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*, class aiVehicleOpponent*>>(0x67040_Offset, this, arg1);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*, class aiVehicleOpponent*>>(0x467040, this, arg1);
 }
 
 void aiGoalFollowWayPts::CalcSpeed()
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x69170_Offset, this);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x469170, this);
 }
 
 class aiPath* aiGoalFollowWayPts::DetRdSegBetweenInts(class aiIntersection* arg1, class aiIntersection* arg2)
 {
     return stub<thiscall_t<class aiPath*, aiGoalFollowWayPts*, class aiIntersection*, class aiIntersection*>>(
-        0x67E40_Offset, this, arg1, arg2);
+        0x467E40, this, arg1, arg2);
 }
 
 i32 aiGoalFollowWayPts::DetectCollision(i32* arg1)
 {
-    return stub<thiscall_t<i32, aiGoalFollowWayPts*, i32*>>(0x67ED0_Offset, this, arg1);
+    return stub<thiscall_t<i32, aiGoalFollowWayPts*, i32*>>(0x467ED0, this, arg1);
 }
 
 class aiVehicleOpponent* aiGoalFollowWayPts::DetectOpponentCollision()
 {
-    return stub<thiscall_t<class aiVehicleOpponent*, aiGoalFollowWayPts*>>(0x66EA0_Offset, this);
+    return stub<thiscall_t<class aiVehicleOpponent*, aiGoalFollowWayPts*>>(0x466EA0, this);
 }
 
 i32 aiGoalFollowWayPts::LocateWayPtFromInt(class aiIntersection* arg1, class aiPath** arg2)
 {
     return stub<thiscall_t<i32, aiGoalFollowWayPts*, class aiIntersection*, class aiPath**>>(
-        0x67D60_Offset, this, arg1, arg2);
+        0x467D60, this, arg1, arg2);
 }
 
 i32 aiGoalFollowWayPts::LocateWayPtFromRoad(class aiPath* arg1, class aiPath** arg2, class aiPath** arg3)
 {
     return stub<thiscall_t<i32, aiGoalFollowWayPts*, class aiPath*, class aiPath**, class aiPath**>>(
-        0x676E0_Offset, this, arg1, arg2, arg3);
+        0x4676E0, this, arg1, arg2, arg3);
 }
 
 void aiGoalFollowWayPts::PlanRoute()
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x674B0_Offset, this);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x4674B0, this);
 }
 
 void aiGoalFollowWayPts::SolveTargetPoint()
 {
-    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x69E10_Offset, this);
+    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x469E10, this);
 }

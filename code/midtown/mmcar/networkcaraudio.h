@@ -112,10 +112,10 @@ public:
     static void DeclareFields();
 
     // 0x6A822C | ?s_iPlayingFluctuator@mmNetworkCarAudio@@2FA
-    static inline extern_var(0x2A822C_Offset, i16, s_iPlayingFluctuator);
+    static inline extern_var(0x6A822C, i16, s_iPlayingFluctuator);
 };
 
 check_size(mmNetworkCarAudio, 0xD4);
 
 // 0x6A81F0 | ?mmNetworkCarAudioMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A81F0_Offset, class MetaClass, mmNetworkCarAudioMetaClass);
+inline extern_var(0x6A81F0, class MetaClass, mmNetworkCarAudioMetaClass);

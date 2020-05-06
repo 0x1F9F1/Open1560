@@ -75,4 +75,4 @@ public:
 check_size(aiPedAudioManager, 0x120);
 
 // 0x6A79AC | ?AIPEDAUDMGRPTR@@3PAVaiPedAudioManager@@A
-inline extern_var(0x2A79AC_Offset, class aiPedAudioManager*, AIPEDAUDMGRPTR);
+inline extern_var(0x6A79AC, class aiPedAudioManager*, AIPEDAUDMGRPTR);

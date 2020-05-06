@@ -33,30 +33,30 @@ Dialog_DriverRec::~Dialog_DriverRec()
 i32 Dialog_DriverRec::AddDriverRecord(i32 arg1, char* arg2, i32 arg3, f32 arg4, char* arg5, i32 arg6)
 {
     return stub<thiscall_t<i32, Dialog_DriverRec*, i32, char*, i32, f32, char*, i32>>(
-        0x9F060_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6);
+        0x49F060, this, arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 void Dialog_DriverRec::InitDriverRecord(i32 arg1)
 {
-    return stub<thiscall_t<void, Dialog_DriverRec*, i32>>(0x9EF90_Offset, this, arg1);
+    return stub<thiscall_t<void, Dialog_DriverRec*, i32>>(0x49EF90, this, arg1);
 }
 
 void Dialog_DriverRec::PreSetup()
 {
-    return stub<thiscall_t<void, Dialog_DriverRec*>>(0x9EF80_Offset, this);
+    return stub<thiscall_t<void, Dialog_DriverRec*>>(0x49EF80, this);
 }
 
 void Dialog_DriverRec::ResetDriverRecord()
 {
-    return stub<thiscall_t<void, Dialog_DriverRec*>>(0x9F1A0_Offset, this);
+    return stub<thiscall_t<void, Dialog_DriverRec*>>(0x49F1A0, this);
 }
 
 void Dialog_DriverRec::SetRecordPosition(i32 arg1)
 {
-    return stub<thiscall_t<void, Dialog_DriverRec*, i32>>(0x9F230_Offset, this, arg1);
+    return stub<thiscall_t<void, Dialog_DriverRec*, i32>>(0x49F230, this, arg1);
 }
 
 void Dialog_DriverRec::SetSortState()
 {
-    return stub<thiscall_t<void, Dialog_DriverRec*>>(0x9F250_Offset, this);
+    return stub<thiscall_t<void, Dialog_DriverRec*>>(0x49F250, this);
 }

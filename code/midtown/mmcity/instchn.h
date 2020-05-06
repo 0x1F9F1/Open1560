@@ -75,16 +75,16 @@ public:
 check_size(mmInstChain, 0x0);
 
 // 0x63F6B4 | ?EnableSphereCull@@3HA
-inline extern_var(0x23F6B4_Offset, i32, EnableSphereCull);
+inline extern_var(0x63F6B4, i32, EnableSphereCull);
 
 // 0x6ED4E8 | ?LabelInstances@@3HA
-inline extern_var(0x2ED4E8_Offset, i32, LabelInstances);
+inline extern_var(0x6ED4E8, i32, LabelInstances);
 
 // 0x6ED4F0 | ?NormalsOnInstances@@3HA
-inline extern_var(0x2ED4F0_Offset, i32, NormalsOnInstances);
+inline extern_var(0x6ED4F0, i32, NormalsOnInstances);
 
 // 0x6ED4EC | ?WorstCount@@3HA
-inline extern_var(0x2ED4EC_Offset, i32, WorstCount);
+inline extern_var(0x6ED4EC, i32, WorstCount);
 
 // 0x6ED4E4 | ?WorstRoom@@3HA
-inline extern_var(0x2ED4E4_Offset, i32, WorstRoom);
+inline extern_var(0x6ED4E4, i32, WorstRoom);

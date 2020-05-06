@@ -32,20 +32,20 @@ mmForce::~mmForce()
 
 void mmForce::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmForce*, class Bank*>>(0x80E10_Offset, this, arg1);
+    return stub<thiscall_t<void, mmForce*, class Bank*>>(0x480E10, this, arg1);
 }
 
 class MetaClass* mmForce::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmForce*>>(0x80F80_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmForce*>>(0x480F80, this);
 }
 
 void mmForce::Update()
 {
-    return stub<thiscall_t<void, mmForce*>>(0x80C00_Offset, this);
+    return stub<thiscall_t<void, mmForce*>>(0x480C00, this);
 }
 
 void mmForce::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x80E20_Offset);
+    return stub<cdecl_t<void>>(0x480E20);
 }

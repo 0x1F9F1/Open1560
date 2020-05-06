@@ -32,26 +32,26 @@ mmSplash::~mmSplash()
 
 void mmSplash::Activate(f32 arg1)
 {
-    return stub<thiscall_t<void, mmSplash*, f32>>(0x811C0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSplash*, f32>>(0x4811C0, this, arg1);
 }
 
 void mmSplash::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmSplash*, class Bank*>>(0x81420_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSplash*, class Bank*>>(0x481420, this, arg1);
 }
 
 void mmSplash::Init(class asInertialCS* arg1, class Vector3 arg2, class Vector3 arg3)
 {
     return stub<thiscall_t<void, mmSplash*, class asInertialCS*, class Vector3, class Vector3>>(
-        0x81070_Offset, this, arg1, arg2, arg3);
+        0x481070, this, arg1, arg2, arg3);
 }
 
 void mmSplash::Reset()
 {
-    return stub<thiscall_t<void, mmSplash*>>(0x81060_Offset, this);
+    return stub<thiscall_t<void, mmSplash*>>(0x481060, this);
 }
 
 void mmSplash::Update()
 {
-    return stub<thiscall_t<void, mmSplash*>>(0x811E0_Offset, this);
+    return stub<thiscall_t<void, mmSplash*>>(0x4811E0, this);
 }

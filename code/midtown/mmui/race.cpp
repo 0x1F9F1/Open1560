@@ -32,30 +32,30 @@ RaceMenu::~RaceMenu()
 
 i32 RaceMenu::GetRaceID()
 {
-    return stub<thiscall_t<i32, RaceMenu*>>(0xA4D00_Offset, this);
+    return stub<thiscall_t<i32, RaceMenu*>>(0x4A4D00, this);
 }
 
 char* RaceMenu::GetRaceName(enum mmGameMode arg1, i32 arg2)
 {
-    return stub<thiscall_t<char*, RaceMenu*, enum mmGameMode, i32>>(0xA4E10_Offset, this, arg1, arg2);
+    return stub<thiscall_t<char*, RaceMenu*, enum mmGameMode, i32>>(0x4A4E10, this, arg1, arg2);
 }
 
 void RaceMenu::SetBlitzMask(i32 arg1)
 {
-    return stub<thiscall_t<void, RaceMenu*, i32>>(0xA4DB0_Offset, this, arg1);
+    return stub<thiscall_t<void, RaceMenu*, i32>>(0x4A4DB0, this, arg1);
 }
 
 void RaceMenu::SetCheckpointMask(i32 arg1)
 {
-    return stub<thiscall_t<void, RaceMenu*, i32>>(0xA4DD0_Offset, this, arg1);
+    return stub<thiscall_t<void, RaceMenu*, i32>>(0x4A4DD0, this, arg1);
 }
 
 void RaceMenu::SetCircuitMask(i32 arg1)
 {
-    return stub<thiscall_t<void, RaceMenu*, i32>>(0xA4DF0_Offset, this, arg1);
+    return stub<thiscall_t<void, RaceMenu*, i32>>(0x4A4DF0, this, arg1);
 }
 
 void RaceMenu::SetProgressMask(i32 arg1)
 {
-    return stub<thiscall_t<void, RaceMenu*, i32>>(0xA4D90_Offset, this, arg1);
+    return stub<thiscall_t<void, RaceMenu*, i32>>(0x4A4D90, this, arg1);
 }

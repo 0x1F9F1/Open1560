@@ -32,12 +32,12 @@ aiVehicle::~aiVehicle()
 
 void aiVehicle::Update()
 {
-    return stub<thiscall_t<void, aiVehicle*>>(0x65940_Offset, this);
+    return stub<thiscall_t<void, aiVehicle*>>(0x465940, this);
 }
 
 void aiVehicle::Reset()
 {
-    return stub<thiscall_t<void, aiVehicle*>>(0x65930_Offset, this);
+    return stub<thiscall_t<void, aiVehicle*>>(0x465930, this);
 }
 
 i32 aiVehicle::Type()
@@ -52,5 +52,5 @@ void aiVehicle::DrawId()
 
 void aiVehicle::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, aiVehicle*, i32>>(0x65920_Offset, this, arg1);
+    return stub<thiscall_t<void, aiVehicle*, i32>>(0x465920, this, arg1);
 }

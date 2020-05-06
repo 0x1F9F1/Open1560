@@ -86,13 +86,13 @@ public:
 
 private:
     // 0x6A8DA4 | ?Current@mmLoader@@0PAV1@A
-    static inline extern_var(0x2A8DA4_Offset, class mmLoader*, Current);
+    static inline extern_var(0x6A8DA4, class mmLoader*, Current);
 };
 
 check_size(mmLoader, 0x0);
 
 // 0x6A8DA8 | ?IntroFont@@3PAXA
-inline extern_var(0x2A8DA8_Offset, void*, IntroFont);
+inline extern_var(0x6A8DA8, void*, IntroFont);
 
 // 0x6A8DAC | ?myFont@@3PAXA
-inline extern_var(0x2A8DAC_Offset, void*, myFont);
+inline extern_var(0x6A8DAC, void*, myFont);

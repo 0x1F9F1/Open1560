@@ -170,4 +170,4 @@ public:
 check_size(mmHitBangerInstance, 0x50);
 
 // 0x642C8C | ?ExpensiveShadows@@3HA
-inline extern_var(0x242C8C_Offset, i32, ExpensiveShadows);
+inline extern_var(0x642C8C, i32, ExpensiveShadows);

@@ -181,28 +181,28 @@ private:
     void UpdateDSound3DAudio();
 
     // 0x6A7AA0 | ?s_fAttenuationMult@aiVehicleAmbient@@0MA
-    static inline extern_var(0x2A7AA0_Offset, f32, s_fAttenuationMult);
+    static inline extern_var(0x6A7AA0, f32, s_fAttenuationMult);
 
     // 0x6398B8 | ?s_fAudioMaxDistance@aiVehicleAmbient@@0MA
-    static inline extern_var(0x2398B8_Offset, f32, s_fAudioMaxDistance);
+    static inline extern_var(0x6398B8, f32, s_fAudioMaxDistance);
 
     // 0x6398B0 | ?s_fAudioVolume@aiVehicleAmbient@@0MA
-    static inline extern_var(0x2398B0_Offset, f32, s_fAudioVolume);
+    static inline extern_var(0x6398B0, f32, s_fAudioVolume);
 
     // 0x6398B4 | ?s_fAudioVolumeSemi@aiVehicleAmbient@@0MA
-    static inline extern_var(0x2398B4_Offset, f32, s_fAudioVolumeSemi);
+    static inline extern_var(0x6398B4, f32, s_fAudioVolumeSemi);
 
     // 0x6398BC | ?s_fHornVolume@aiVehicleAmbient@@0MA
-    static inline extern_var(0x2398BC_Offset, f32, s_fHornVolume);
+    static inline extern_var(0x6398BC, f32, s_fHornVolume);
 
     // 0x6398C4 | ?s_fSecsSinceImpactReaction@aiVehicleAmbient@@0MA
-    static inline extern_var(0x2398C4_Offset, f32, s_fSecsSinceImpactReaction);
+    static inline extern_var(0x6398C4, f32, s_fSecsSinceImpactReaction);
 
     // 0x6398C0 | ?s_fVoiceVolume@aiVehicleAmbient@@0MA
-    static inline extern_var(0x2398C0_Offset, f32, s_fVoiceVolume);
+    static inline extern_var(0x6398C0, f32, s_fVoiceVolume);
 
     // 0x6A7AD0 | ?s_iPrevSoundObjIndex@aiVehicleAmbient@@0FA
-    static inline extern_var(0x2A7AD0_Offset, i16, s_iPrevSoundObjIndex);
+    static inline extern_var(0x6A7AD0, i16, s_iPrevSoundObjIndex);
 };
 
 check_size(aiVehicleAmbient, 0x138);

@@ -32,30 +32,30 @@ AICamCS::~AICamCS()
 
 class MetaClass* AICamCS::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, AICamCS*>>(0xFAAC0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, AICamCS*>>(0x4FAAC0, this);
 }
 
 void AICamCS::Init(class mmCar* arg1)
 {
-    return stub<thiscall_t<void, AICamCS*, class mmCar*>>(0xFA4C0_Offset, this, arg1);
+    return stub<thiscall_t<void, AICamCS*, class mmCar*>>(0x4FA4C0, this, arg1);
 }
 
 void AICamCS::MakeActive()
 {
-    return stub<thiscall_t<void, AICamCS*>>(0xFA4E0_Offset, this);
+    return stub<thiscall_t<void, AICamCS*>>(0x4FA4E0, this);
 }
 
 void AICamCS::Reset()
 {
-    return stub<thiscall_t<void, AICamCS*>>(0xFA4D0_Offset, this);
+    return stub<thiscall_t<void, AICamCS*>>(0x4FA4D0, this);
 }
 
 void AICamCS::Update()
 {
-    return stub<thiscall_t<void, AICamCS*>>(0xFA5F0_Offset, this);
+    return stub<thiscall_t<void, AICamCS*>>(0x4FA5F0, this);
 }
 
 void AICamCS::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xFA950_Offset);
+    return stub<cdecl_t<void>>(0x4FA950);
 }

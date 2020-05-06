@@ -32,20 +32,20 @@ StreamMiniParser::~StreamMiniParser()
 
 i32 StreamMiniParser::RawGetCh()
 {
-    return stub<thiscall_t<i32, StreamMiniParser*>>(0x161440_Offset, this);
+    return stub<thiscall_t<i32, StreamMiniParser*>>(0x561440, this);
 }
 
 void StreamMiniParser::RawPutCh(i32 arg1)
 {
-    return stub<thiscall_t<void, StreamMiniParser*, i32>>(0x161400_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamMiniParser*, i32>>(0x561400, this, arg1);
 }
 
 void StreamMiniParser::Load(class MetaClass* arg1, char* arg2, void* arg3)
 {
-    return stub<cdecl_t<void, class MetaClass*, char*, void*>>(0x161470_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<void, class MetaClass*, char*, void*>>(0x561470, arg1, arg2, arg3);
 }
 
 void StreamMiniParser::Save(class MetaClass* arg1, char* arg2, void* arg3)
 {
-    return stub<cdecl_t<void, class MetaClass*, char*, void*>>(0x161520_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<void, class MetaClass*, char*, void*>>(0x561520, arg1, arg2, arg3);
 }

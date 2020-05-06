@@ -55,4 +55,4 @@ public:
 check_size(asPerfGraph, 0x94);
 
 // 0x790984 | ?PGRAPH@@3PAVasPerfGraph@@A
-inline extern_var(0x390984_Offset, class asPerfGraph*, PGRAPH);
+inline extern_var(0x790984, class asPerfGraph*, PGRAPH);

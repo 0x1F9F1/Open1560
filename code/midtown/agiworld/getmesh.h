@@ -38,10 +38,10 @@ void FixTexFlags(class agiTexParameters& arg1);
 class agiMeshSet* GetMeshSet(char* arg1, char* arg2, class Vector3* arg3, i32 arg4);
 
 // 0x73E6E4 | ?IsSnowing@@3HA
-inline extern_var(0x33E6E4_Offset, i32, IsSnowing);
+inline extern_var(0x73E6E4, i32, IsSnowing);
 
 // 0x73E70C | ?MeshCurrentObject@@3PADA
-inline extern_var(0x33E70C_Offset, char*, MeshCurrentObject);
+inline extern_var(0x73E70C, char*, MeshCurrentObject);
 
 struct GetMeshSet::N::operator++ ::DLPVertex2
 {

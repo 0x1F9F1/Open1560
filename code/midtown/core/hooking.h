@@ -21,8 +21,6 @@
 #include <mem/macros.h>
 #include <mem/stub.h>
 
-constexpr std::uintptr_t GAME_BASE = 0x400000;
-
 using namespace mem::conventions;
 using mem::stub;
 
@@ -75,8 +73,3 @@ struct class_proxy
 #endif
 
 #define export_hook(ADDRESS) __pragma(comment(linker, "/EXPORT:Hook_" #ADDRESS "_" __FUNCDNAME__ "=" __FUNCDNAME__))
-
-ARTS_FORCEINLINE constexpr mem::pointer operator"" _Offset(unsigned long long offset) noexcept
-{
-    return static_cast<std::uintptr_t>(GAME_BASE + offset);
-}

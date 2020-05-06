@@ -214,7 +214,7 @@ f32 UnpackAngle(u8 arg1);
 void UnpackNormal(class Vector3& arg1, u16& arg2);
 
 // 0x903130 | ?DLPTemplateHash@@3VHashTable@@A
-inline extern_var(0x503130_Offset, class HashTable, DLPTemplateHash);
+inline extern_var(0x903130, class HashTable, DLPTemplateHash);
 
 struct DLPVertex
 {

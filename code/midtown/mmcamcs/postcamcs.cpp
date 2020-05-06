@@ -32,35 +32,35 @@ PostCamCS::~PostCamCS()
 
 void PostCamCS::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, PostCamCS*, class Bank*>>(0xF97A0_Offset, this, arg1);
+    return stub<thiscall_t<void, PostCamCS*, class Bank*>>(0x4F97A0, this, arg1);
 }
 
 class MetaClass* PostCamCS::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, PostCamCS*>>(0xF9930_Offset, this);
+    return stub<thiscall_t<class MetaClass*, PostCamCS*>>(0x4F9930, this);
 }
 
 void PostCamCS::Init(class mmCar* arg1)
 {
-    return stub<thiscall_t<void, PostCamCS*, class mmCar*>>(0xF95C0_Offset, this, arg1);
+    return stub<thiscall_t<void, PostCamCS*, class mmCar*>>(0x4F95C0, this, arg1);
 }
 
 void PostCamCS::MakeActive()
 {
-    return stub<thiscall_t<void, PostCamCS*>>(0xF95F0_Offset, this);
+    return stub<thiscall_t<void, PostCamCS*>>(0x4F95F0, this);
 }
 
 void PostCamCS::Reset()
 {
-    return stub<thiscall_t<void, PostCamCS*>>(0xF95E0_Offset, this);
+    return stub<thiscall_t<void, PostCamCS*>>(0x4F95E0, this);
 }
 
 void PostCamCS::Update()
 {
-    return stub<thiscall_t<void, PostCamCS*>>(0xF9670_Offset, this);
+    return stub<thiscall_t<void, PostCamCS*>>(0x4F9670, this);
 }
 
 void PostCamCS::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xF97C0_Offset);
+    return stub<cdecl_t<void>>(0x4F97C0);
 }

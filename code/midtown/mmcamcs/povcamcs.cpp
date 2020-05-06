@@ -32,45 +32,45 @@ PovCamCS::~PovCamCS()
 
 void PovCamCS::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, PovCamCS*, class Bank*>>(0xF6460_Offset, this, arg1);
+    return stub<thiscall_t<void, PovCamCS*, class Bank*>>(0x4F6460, this, arg1);
 }
 
 void PovCamCS::AfterLoad()
 {
-    return stub<thiscall_t<void, PovCamCS*>>(0xF6410_Offset, this);
+    return stub<thiscall_t<void, PovCamCS*>>(0x4F6410, this);
 }
 
 class MetaClass* PovCamCS::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, PovCamCS*>>(0xF69B0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, PovCamCS*>>(0x4F69B0, this);
 }
 
 void PovCamCS::MakeActive()
 {
-    return stub<thiscall_t<void, PovCamCS*>>(0xF63C0_Offset, this);
+    return stub<thiscall_t<void, PovCamCS*>>(0x4F63C0, this);
 }
 
 void PovCamCS::Reset()
 {
-    return stub<thiscall_t<void, PovCamCS*>>(0xF6420_Offset, this);
+    return stub<thiscall_t<void, PovCamCS*>>(0x4F6420, this);
 }
 
 void PovCamCS::Update()
 {
-    return stub<thiscall_t<void, PovCamCS*>>(0xF6530_Offset, this);
+    return stub<thiscall_t<void, PovCamCS*>>(0x4F6530, this);
 }
 
 void PovCamCS::UpdateInput()
 {
-    return stub<thiscall_t<void, PovCamCS*>>(0xF6550_Offset, this);
+    return stub<thiscall_t<void, PovCamCS*>>(0x4F6550, this);
 }
 
 void PovCamCS::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xF6800_Offset);
+    return stub<cdecl_t<void>>(0x4F6800);
 }
 
 void PovCamCS::UpdatePOV()
 {
-    return stub<thiscall_t<void, PovCamCS*>>(0xF6560_Offset, this);
+    return stub<thiscall_t<void, PovCamCS*>>(0x4F6560, this);
 }

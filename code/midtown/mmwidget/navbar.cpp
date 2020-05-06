@@ -32,55 +32,55 @@ uiNavBar::~uiNavBar()
 
 void uiNavBar::BackUp()
 {
-    return stub<thiscall_t<void, uiNavBar*>>(0xB2150_Offset, this);
+    return stub<thiscall_t<void, uiNavBar*>>(0x4B2150, this);
 }
 
 void uiNavBar::Help()
 {
-    return stub<thiscall_t<void, uiNavBar*>>(0xB1F10_Offset, this);
+    return stub<thiscall_t<void, uiNavBar*>>(0x4B1F10, this);
 }
 
 void uiNavBar::Minimize()
 {
-    return stub<thiscall_t<void, uiNavBar*>>(0xB1F20_Offset, this);
+    return stub<thiscall_t<void, uiNavBar*>>(0x4B1F20, this);
 }
 
 void uiNavBar::OptionActive()
 {
-    return stub<thiscall_t<void, uiNavBar*>>(0xB1F90_Offset, this);
+    return stub<thiscall_t<void, uiNavBar*>>(0x4B1F90, this);
 }
 
 void uiNavBar::OptionInActive()
 {
-    return stub<thiscall_t<void, uiNavBar*>>(0xB1FB0_Offset, this);
+    return stub<thiscall_t<void, uiNavBar*>>(0x4B1FB0, this);
 }
 
 void uiNavBar::ResetState()
 {
-    return stub<thiscall_t<void, uiNavBar*>>(0xB1F80_Offset, this);
+    return stub<thiscall_t<void, uiNavBar*>>(0x4B1F80, this);
 }
 
 void uiNavBar::SetPrevBitmap(char* arg1)
 {
-    return stub<thiscall_t<void, uiNavBar*, char*>>(0xB2100_Offset, this, arg1);
+    return stub<thiscall_t<void, uiNavBar*, char*>>(0x4B2100, this, arg1);
 }
 
 void uiNavBar::SetPrevPos(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, uiNavBar*, f32, f32>>(0xB2070_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, uiNavBar*, f32, f32>>(0x4B2070, this, arg1, arg2);
 }
 
 void uiNavBar::TurnOffPrev()
 {
-    return stub<thiscall_t<void, uiNavBar*>>(0xB20E0_Offset, this);
+    return stub<thiscall_t<void, uiNavBar*>>(0x4B20E0, this);
 }
 
 void uiNavBar::TurnOnPrev()
 {
-    return stub<thiscall_t<void, uiNavBar*>>(0xB20C0_Offset, this);
+    return stub<thiscall_t<void, uiNavBar*>>(0x4B20C0, this);
 }
 
 void uiNavBar::Update()
 {
-    return stub<thiscall_t<void, uiNavBar*>>(0xB1FD0_Offset, this);
+    return stub<thiscall_t<void, uiNavBar*>>(0x4B1FD0, this);
 }

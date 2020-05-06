@@ -87,16 +87,16 @@ check_size(HierFileSystem, 0x0);
 char* FQN(char* arg1);
 
 // 0x907BC8 | ?HFS@@3VHierFileSystem@@A
-inline extern_var(0x507BC8_Offset, class HierFileSystem, HFS);
+inline extern_var(0x907BC8, class HierFileSystem, HFS);
 
 // 0x907BD0 | ?HierAllowPath@@3PADA
-inline extern_var(0x507BD0_Offset, char*, HierAllowPath);
+inline extern_var(0x907BD0, char*, HierAllowPath);
 
 // 0x907B40 | ?HierPrefix@@3PADA
-inline extern_var(0x507B40_Offset, char*, HierPrefix);
+inline extern_var(0x907B40, char*, HierPrefix);
 
 // 0x907BD4 | ?LogOpenOn@@3HA
-inline extern_var(0x507BD4_Offset, i32, LogOpenOn);
+inline extern_var(0x907BD4, i32, LogOpenOn);
 
 struct PagerInfo_t
 {

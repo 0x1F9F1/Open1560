@@ -88,4 +88,4 @@ public:
 check_size(agiD3DTexDef, 0x88);
 
 // 0x795C38 | ?DontCacheTextures@@3HA
-inline extern_var(0x395C38_Offset, i32, DontCacheTextures);
+inline extern_var(0x795C38, i32, DontCacheTextures);

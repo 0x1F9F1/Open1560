@@ -32,20 +32,20 @@ mmRainAudio::~mmRainAudio()
 
 void mmRainAudio::SetInterior(u8 arg1)
 {
-    return stub<thiscall_t<void, mmRainAudio*, u8>>(0x33440_Offset, this, arg1);
+    return stub<thiscall_t<void, mmRainAudio*, u8>>(0x433440, this, arg1);
 }
 
 void mmRainAudio::ShelterOff()
 {
-    return stub<thiscall_t<void, mmRainAudio*>>(0x33540_Offset, this);
+    return stub<thiscall_t<void, mmRainAudio*>>(0x433540, this);
 }
 
 void mmRainAudio::ShelterOn()
 {
-    return stub<thiscall_t<void, mmRainAudio*>>(0x334D0_Offset, this);
+    return stub<thiscall_t<void, mmRainAudio*>>(0x4334D0, this);
 }
 
 void mmRainAudio::Update()
 {
-    return stub<thiscall_t<void, mmRainAudio*>>(0x335B0_Offset, this);
+    return stub<thiscall_t<void, mmRainAudio*>>(0x4335B0, this);
 }

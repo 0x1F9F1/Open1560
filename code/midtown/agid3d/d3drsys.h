@@ -108,16 +108,16 @@ check_size(agiD3DRasterizer, 0x18);
 void d3d_state_init();
 
 // 0x790DF0 | ?NoOutput@@3HA
-inline extern_var(0x390DF0_Offset, i32, NoOutput);
+inline extern_var(0x790DF0, i32, NoOutput);
 
 // 0x794F18 | ?OneTexture@@3HA
-inline extern_var(0x394F18_Offset, i32, OneTexture);
+inline extern_var(0x794F18, i32, OneTexture);
 
 // 0x794F1C | ?OrthoFix@@3HA
-inline extern_var(0x394F1C_Offset, i32, OrthoFix);
+inline extern_var(0x794F1C, i32, OrthoFix);
 
 // 0x794E10 | ?VtxBase@@3PAXA
-inline extern_var(0x394E10_Offset, void*, VtxBase);
+inline extern_var(0x794E10, void*, VtxBase);
 
 // 0x794DFC | ?d3ddev@@3PAUIDirect3DDevice3@@A
-inline extern_var(0x394DFC_Offset, struct IDirect3DDevice3*, d3ddev);
+inline extern_var(0x794DFC, struct IDirect3DDevice3*, d3ddev);

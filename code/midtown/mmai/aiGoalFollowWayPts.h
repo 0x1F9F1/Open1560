@@ -130,4 +130,4 @@ private:
 check_size(aiGoalFollowWayPts, 0x18C);
 
 // 0x6A7C00 | ?aiGoalFollowWayPtsMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7C00_Offset, class MetaClass, aiGoalFollowWayPtsMetaClass);
+inline extern_var(0x6A7C00, class MetaClass, aiGoalFollowWayPtsMetaClass);

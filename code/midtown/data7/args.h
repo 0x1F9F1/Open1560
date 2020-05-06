@@ -57,4 +57,4 @@ public:
 check_size(ArgSet, 0x0);
 
 // 0x90AEF0 | ?GBArgs@@3VArgSet@@A
-inline extern_var(0x50AEF0_Offset, class ArgSet, GBArgs);
+inline extern_var(0x90AEF0, class ArgSet, GBArgs);

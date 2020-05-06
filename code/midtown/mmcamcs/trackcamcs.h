@@ -120,4 +120,4 @@ private:
 check_size(TrackCamCS, 0x324);
 
 // 0x719380 | ?TrackCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x319380_Offset, class MetaClass, TrackCamCSMetaClass);
+inline extern_var(0x719380, class MetaClass, TrackCamCSMetaClass);

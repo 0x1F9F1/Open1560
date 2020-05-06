@@ -118,4 +118,4 @@ public:
 check_size(mmGameEdit, 0x1E738);
 
 // 0x6A6FE0 | ?mmGameEditMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A6FE0_Offset, class MetaClass, mmGameEditMetaClass);
+inline extern_var(0x6A6FE0, class MetaClass, mmGameEditMetaClass);

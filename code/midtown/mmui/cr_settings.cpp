@@ -32,95 +32,95 @@ CRSettings::~CRSettings()
 
 i32 CRSettings::AddPlayerRecord(char* arg1, i32 arg2, i32 arg3, char* arg4)
 {
-    return stub<thiscall_t<i32, CRSettings*, char*, i32, i32, char*>>(0xA1120_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<i32, CRSettings*, char*, i32, i32, char*>>(0x4A1120, this, arg1, arg2, arg3, arg4);
 }
 
 void CRSettings::DecodeCRData(i32 arg1)
 {
-    return stub<thiscall_t<void, CRSettings*, i32>>(0xA14E0_Offset, this, arg1);
+    return stub<thiscall_t<void, CRSettings*, i32>>(0x4A14E0, this, arg1);
 }
 
 i32 CRSettings::EncodeCRData()
 {
-    return stub<thiscall_t<i32, CRSettings*>>(0xA1490_Offset, this);
+    return stub<thiscall_t<i32, CRSettings*>>(0x4A1490, this);
 }
 
 i32 CRSettings::GetGoldMass()
 {
-    return stub<thiscall_t<i32, CRSettings*>>(0xA1650_Offset, this);
+    return stub<thiscall_t<i32, CRSettings*>>(0x4A1650, this);
 }
 
 i32 CRSettings::GetGoldMassVal()
 {
-    return stub<thiscall_t<i32, CRSettings*>>(0xA16B0_Offset, this);
+    return stub<thiscall_t<i32, CRSettings*>>(0x4A16B0, this);
 }
 
 void CRSettings::GetLimit(i32& arg1, i32& arg2)
 {
-    return stub<thiscall_t<void, CRSettings*, i32&, i32&>>(0xA1550_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, CRSettings*, i32&, i32&>>(0x4A1550, this, arg1, arg2);
 }
 
 i32 CRSettings::GetLimitVal(i32& arg1)
 {
-    return stub<thiscall_t<i32, CRSettings*, i32&>>(0xA1660_Offset, this, arg1);
+    return stub<thiscall_t<i32, CRSettings*, i32&>>(0x4A1660, this, arg1);
 }
 
 void CRSettings::InitPlayerRecord()
 {
-    return stub<thiscall_t<void, CRSettings*>>(0xA1050_Offset, this);
+    return stub<thiscall_t<void, CRSettings*>>(0x4A1050, this);
 }
 
 void CRSettings::ResetPlayerRecord()
 {
-    return stub<thiscall_t<void, CRSettings*>>(0xA12A0_Offset, this);
+    return stub<thiscall_t<void, CRSettings*>>(0x4A12A0, this);
 }
 
 void CRSettings::SetGameClassCallback()
 {
-    return stub<thiscall_t<void, CRSettings*>>(0xA16C0_Offset, this);
+    return stub<thiscall_t<void, CRSettings*>>(0x4A16C0, this);
 }
 
 void CRSettings::SetGoldMass(i32 arg1)
 {
-    return stub<thiscall_t<void, CRSettings*, i32>>(0xA1620_Offset, this, arg1);
+    return stub<thiscall_t<void, CRSettings*, i32>>(0x4A1620, this, arg1);
 }
 
 void CRSettings::SetHost(i32 arg1)
 {
-    return stub<thiscall_t<void, CRSettings*, i32>>(0xA0F50_Offset, this, arg1);
+    return stub<thiscall_t<void, CRSettings*, i32>>(0x4A0F50, this, arg1);
 }
 
 void CRSettings::SetLimit(i32& arg1, i32& arg2)
 {
-    return stub<thiscall_t<void, CRSettings*, i32&, i32&>>(0xA15A0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, CRSettings*, i32&, i32&>>(0x4A15A0, this, arg1, arg2);
 }
 
 void CRSettings::SetLimitControl()
 {
-    return stub<thiscall_t<void, CRSettings*>>(0xA1330_Offset, this);
+    return stub<thiscall_t<void, CRSettings*>>(0x4A1330, this);
 }
 
 void CRSettings::SetPlayerScore(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, CRSettings*, i32, i32>>(0xA1260_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, CRSettings*, i32, i32>>(0x4A1260, this, arg1, arg2);
 }
 
 void CRSettings::SetTeam()
 {
-    return stub<thiscall_t<void, CRSettings*>>(0xA0F20_Offset, this);
+    return stub<thiscall_t<void, CRSettings*>>(0x4A0F20, this);
 }
 
 void CRSettings::SetTeamWidget()
 {
-    return stub<thiscall_t<void, CRSettings*>>(0xA0F40_Offset, this);
+    return stub<thiscall_t<void, CRSettings*>>(0x4A0F40, this);
 }
 
 void CRSettings::SetTeamWidgets()
 {
-    return stub<thiscall_t<void, CRSettings*>>(0xA16E0_Offset, this);
+    return stub<thiscall_t<void, CRSettings*>>(0x4A16E0, this);
 }
 
 void CRSettings::SettingsCB()
 {
-    return stub<thiscall_t<void, CRSettings*>>(0xA0F10_Offset, this);
+    return stub<thiscall_t<void, CRSettings*>>(0x4A0F10, this);
 }

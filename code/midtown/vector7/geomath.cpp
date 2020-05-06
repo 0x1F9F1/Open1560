@@ -25,33 +25,33 @@ i32 CollideTri(class Vector3 const& arg1, class Vector3 const& arg2, class Vecto
 {
     return stub<cdecl_t<i32, class Vector3 const&, class Vector3 const&, class Vector3 const&, class Vector3 const&,
         class Vector3 const&, f32&, class Vector3&, class Vector3&>>(
-        0x171D50_Offset, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
+        0x571D50, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 }
 
 void ComputeMirrorMatrix(class Matrix34& arg1, class Vector4& arg2)
 {
-    return stub<cdecl_t<void, class Matrix34&, class Vector4&>>(0x172360_Offset, arg1, arg2);
+    return stub<cdecl_t<void, class Matrix34&, class Vector4&>>(0x572360, arg1, arg2);
 }
 
 void ComputeShadowMatrix(class Matrix34& arg1, class Vector4& arg2)
 {
-    return stub<cdecl_t<void, class Matrix34&, class Vector4&>>(0x172430_Offset, arg1, arg2);
+    return stub<cdecl_t<void, class Matrix34&, class Vector4&>>(0x572430, arg1, arg2);
 }
 
 void GetBoundInfo(
     i32 arg1, class Vector3* arg2, class Vector3* arg3, class Vector3* arg4, class Vector3* arg5, f32* arg6)
 {
     return stub<cdecl_t<void, i32, class Vector3*, class Vector3*, class Vector3*, class Vector3*, f32*>>(
-        0x171790_Offset, arg1, arg2, arg3, arg4, arg5, arg6);
+        0x571790, arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 class Vector4 GetBoundSphere(i32 arg1, class Vector3* arg2)
 {
-    return stub<cdecl_t<class Vector4, i32, class Vector3*>>(0x171730_Offset, arg1, arg2);
+    return stub<cdecl_t<class Vector4, i32, class Vector3*>>(0x571730, arg1, arg2);
 }
 
 i32 IsQuadCoplanar(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4)
 {
     return stub<cdecl_t<i32, class Vector3&, class Vector3&, class Vector3&, class Vector3&>>(
-        0x172210_Offset, arg1, arg2, arg3, arg4);
+        0x572210, arg1, arg2, arg3, arg4);
 }

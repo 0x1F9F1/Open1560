@@ -114,10 +114,10 @@ public:
 
 protected:
     // 0x706060 | ?Instance@mmBangerActiveManager@@1PAV1@A
-    static inline extern_var(0x306060_Offset, class mmBangerActiveManager*, Instance);
+    static inline extern_var(0x706060, class mmBangerActiveManager*, Instance);
 };
 
 check_size(mmBangerActiveManager, 0x0);
 
 // 0x642E44 | ?ParticleMultiplier@@3MA
-inline extern_var(0x242E44_Offset, f32, ParticleMultiplier);
+inline extern_var(0x642E44, f32, ParticleMultiplier);

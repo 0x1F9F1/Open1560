@@ -69,4 +69,4 @@ public:
 check_size(asAero, 0x74);
 
 // 0x7191F8 | ?asAeroMetaClass@@3VMetaClass@@A
-inline extern_var(0x3191F8_Offset, class MetaClass, asAeroMetaClass);
+inline extern_var(0x7191F8, class MetaClass, asAeroMetaClass);

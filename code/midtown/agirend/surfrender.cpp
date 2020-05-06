@@ -27,52 +27,52 @@ agiSurfRenderer::agiSurfRenderer(class agiRasterizer* arg1)
 
 void agiSurfRenderer::BeginDraw(i32 arg1)
 {
-    return stub<thiscall_t<void, agiSurfRenderer*, i32>>(0x154D70_Offset, this, arg1);
+    return stub<thiscall_t<void, agiSurfRenderer*, i32>>(0x554D70, this, arg1);
 }
 
 void agiSurfRenderer::BeginGroup()
 {
-    return stub<thiscall_t<void, agiSurfRenderer*>>(0x152DC0_Offset, this);
+    return stub<thiscall_t<void, agiSurfRenderer*>>(0x552DC0, this);
 }
 
 void agiSurfRenderer::Draw(class DLP* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, agiSurfRenderer*, class DLP*, i32>>(0x1544F0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, agiSurfRenderer*, class DLP*, i32>>(0x5544F0, this, arg1, arg2);
 }
 
 void agiSurfRenderer::DrawCard(class Vector3& arg1)
 {
-    return stub<thiscall_t<void, agiSurfRenderer*, class Vector3&>>(0x154890_Offset, this, arg1);
+    return stub<thiscall_t<void, agiSurfRenderer*, class Vector3&>>(0x554890, this, arg1);
 }
 
 void agiSurfRenderer::DrawLabel(union agiVtx& arg1, char* arg2)
 {
-    return stub<thiscall_t<void, agiSurfRenderer*, union agiVtx&, char*>>(0x155180_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, agiSurfRenderer*, union agiVtx&, char*>>(0x555180, this, arg1, arg2);
 }
 
 void agiSurfRenderer::DrawLine(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, agiSurfRenderer*, i32, i32>>(0x154EE0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, agiSurfRenderer*, i32, i32>>(0x554EE0, this, arg1, arg2);
 }
 
 void agiSurfRenderer::DrawTri(i32 arg1, i32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, agiSurfRenderer*, i32, i32, i32>>(0x154EB0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, agiSurfRenderer*, i32, i32, i32>>(0x554EB0, this, arg1, arg2, arg3);
 }
 
 void agiSurfRenderer::EndDraw()
 {
-    return stub<thiscall_t<void, agiSurfRenderer*>>(0x1551F0_Offset, this);
+    return stub<thiscall_t<void, agiSurfRenderer*>>(0x5551F0, this);
 }
 
 void agiSurfRenderer::Points(union agiVtx* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, agiSurfRenderer*, union agiVtx*, i32>>(0x154E40_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, agiSurfRenderer*, union agiVtx*, i32>>(0x554E40, this, arg1, arg2);
 }
 
 void agiSurfRenderer::Verts(union agiVtx* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, agiSurfRenderer*, union agiVtx*, i32>>(0x154DA0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, agiSurfRenderer*, union agiVtx*, i32>>(0x554DA0, this, arg1, arg2);
 }
 
 agiSurfRenderer::~agiSurfRenderer()
@@ -82,7 +82,7 @@ agiSurfRenderer::~agiSurfRenderer()
 
 i32 agiSurfRenderer::AddSurface(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
 {
-    return stub<cdecl_t<i32, struct agiPatch*, i32, i32, i32, i32>>(0x152E00_Offset, arg1, arg2, arg3, arg4, arg5);
+    return stub<cdecl_t<i32, struct agiPatch*, i32, i32, i32, i32>>(0x552E00, arg1, arg2, arg3, arg4, arg5);
 }
 
 agiRenderer::agiRenderer()

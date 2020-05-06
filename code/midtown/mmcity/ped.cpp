@@ -32,32 +32,32 @@ mmPed::~mmPed()
 
 void __fastcall mmPed::Draw(i32 arg1)
 {
-    return stub<fastcall_t<void, mmPed*, i32>>(0x978E0_Offset, this, arg1);
+    return stub<fastcall_t<void, mmPed*, i32>>(0x4978E0, this, arg1);
 }
 
 class MetaClass* mmPed::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmPed*>>(0x97C10_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmPed*>>(0x497C10, this);
 }
 
 void mmPed::Init(char* arg1, class Vector3& arg2)
 {
-    return stub<thiscall_t<void, mmPed*, char*, class Vector3&>>(0x97820_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmPed*, char*, class Vector3&>>(0x497820, this, arg1, arg2);
 }
 
 class Matrix34& __fastcall mmPed::ToMatrix(class Matrix34& arg1)
 {
-    return stub<fastcall_t<class Matrix34&, mmPed*, class Matrix34&>>(0x97930_Offset, this, arg1);
+    return stub<fastcall_t<class Matrix34&, mmPed*, class Matrix34&>>(0x497930, this, arg1);
 }
 
 void mmPed::Update()
 {
-    return stub<thiscall_t<void, mmPed*>>(0x978C0_Offset, this);
+    return stub<thiscall_t<void, mmPed*>>(0x4978C0, this);
 }
 
 void mmPed::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x97A90_Offset);
+    return stub<cdecl_t<void>>(0x497A90);
 }
 
 mmPedManager::mmPedManager()
@@ -72,20 +72,20 @@ mmPedManager::~mmPedManager()
 
 class MetaClass* mmPedManager::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmPedManager*>>(0x97D80_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmPedManager*>>(0x497D80, this);
 }
 
 void mmPedManager::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, mmPedManager*, i32>>(0x979B0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPedManager*, i32>>(0x4979B0, this, arg1);
 }
 
 void mmPedManager::Update()
 {
-    return stub<thiscall_t<void, mmPedManager*>>(0x97A60_Offset, this);
+    return stub<thiscall_t<void, mmPedManager*>>(0x497A60, this);
 }
 
 void mmPedManager::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x97C20_Offset);
+    return stub<cdecl_t<void>>(0x497C20);
 }

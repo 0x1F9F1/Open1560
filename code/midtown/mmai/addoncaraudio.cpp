@@ -32,20 +32,20 @@ AddOnCarAudio::~AddOnCarAudio()
 
 void AddOnCarAudio::EchoOff()
 {
-    return stub<thiscall_t<void, AddOnCarAudio*>>(0x5C750_Offset, this);
+    return stub<thiscall_t<void, AddOnCarAudio*>>(0x45C750, this);
 }
 
 void AddOnCarAudio::EchoOn(f32 arg1)
 {
-    return stub<thiscall_t<void, AddOnCarAudio*, f32>>(0x5C700_Offset, this, arg1);
+    return stub<thiscall_t<void, AddOnCarAudio*, f32>>(0x45C700, this, arg1);
 }
 
 class AudSound* AddOnCarAudio::GetEngineSoundPtr(i16 arg1)
 {
-    return stub<thiscall_t<class AudSound*, AddOnCarAudio*, i16>>(0x5C6E0_Offset, this, arg1);
+    return stub<thiscall_t<class AudSound*, AddOnCarAudio*, i16>>(0x45C6E0, this, arg1);
 }
 
 void AddOnCarAudio::Update()
 {
-    return stub<thiscall_t<void, AddOnCarAudio*>>(0x5C780_Offset, this);
+    return stub<thiscall_t<void, AddOnCarAudio*>>(0x45C780, this);
 }

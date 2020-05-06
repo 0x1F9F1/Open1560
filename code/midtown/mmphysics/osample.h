@@ -66,7 +66,7 @@ public:
 check_size(asOverSample, 0x30);
 
 // 0x719188 | ?BenchOSample@@3HA
-inline extern_var(0x319188_Offset, i32, BenchOSample);
+inline extern_var(0x719188, i32, BenchOSample);
 
 // 0x719160 | ?asOverSampleMetaClass@@3VMetaClass@@A
-inline extern_var(0x319160_Offset, class MetaClass, asOverSampleMetaClass);
+inline extern_var(0x719160, class MetaClass, asOverSampleMetaClass);

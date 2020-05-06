@@ -32,15 +32,15 @@ mmSky::~mmSky()
 
 void mmSky::Draw(class Matrix34& arg1)
 {
-    return stub<thiscall_t<void, mmSky*, class Matrix34&>>(0x956A0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSky*, class Matrix34&>>(0x4956A0, this, arg1);
 }
 
 void mmSky::Init(char* arg1)
 {
-    return stub<thiscall_t<void, mmSky*, char*>>(0x95650_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSky*, char*>>(0x495650, this, arg1);
 }
 
 void mmSky::SetTexture(class agiTexDef* arg1)
 {
-    return stub<thiscall_t<void, mmSky*, class agiTexDef*>>(0x95680_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSky*, class agiTexDef*>>(0x495680, this, arg1);
 }

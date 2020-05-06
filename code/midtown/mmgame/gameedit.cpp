@@ -32,90 +32,90 @@ mmGameEdit::~mmGameEdit()
 
 void mmGameEdit::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmGameEdit*, class Bank*>>(0x12860_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameEdit*, class Bank*>>(0x412860, this, arg1);
 }
 
 void mmGameEdit::ChangeWPCallback()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x12B20_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x412B20, this);
 }
 
 class MetaClass* mmGameEdit::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmGameEdit*>>(0x12D00_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmGameEdit*>>(0x412D00, this);
 }
 
 class mmWaypoints* mmGameEdit::GetWaypoints()
 {
-    return stub<thiscall_t<class mmWaypoints*, mmGameEdit*>>(0x12EE0_Offset, this);
+    return stub<thiscall_t<class mmWaypoints*, mmGameEdit*>>(0x412EE0, this);
 }
 
 i32 mmGameEdit::Init()
 {
-    return stub<thiscall_t<i32, mmGameEdit*>>(0x122D0_Offset, this);
+    return stub<thiscall_t<i32, mmGameEdit*>>(0x4122D0, this);
 }
 
 void mmGameEdit::InitGameObjects()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x12430_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x412430, this);
 }
 
 void mmGameEdit::InitHUD()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x123F0_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x4123F0, this);
 }
 
 void mmGameEdit::InitMyPlayer()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x12380_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x412380, this);
 }
 
 void mmGameEdit::InitOtherPlayers()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x12EC0_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x412EC0, this);
 }
 
 void mmGameEdit::NextRace()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x12ED0_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x412ED0, this);
 }
 
 void mmGameEdit::RegisterMapObjects()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x12520_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x412520, this);
 }
 
 void mmGameEdit::Reset()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x12760_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x412760, this);
 }
 
 void mmGameEdit::SetWPCallback()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x12A80_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x412A80, this);
 }
 
 void mmGameEdit::Update()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x127F0_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x4127F0, this);
 }
 
 void mmGameEdit::UpdateDebugKeyInput(i32 arg1)
 {
-    return stub<thiscall_t<void, mmGameEdit*, i32>>(0x12570_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameEdit*, i32>>(0x412570, this, arg1);
 }
 
 void mmGameEdit::UpdateGame()
 {
-    return stub<thiscall_t<void, mmGameEdit*>>(0x12820_Offset, this);
+    return stub<thiscall_t<void, mmGameEdit*>>(0x412820, this);
 }
 
 void mmGameEdit::UpdateGameInput(i32 arg1)
 {
-    return stub<thiscall_t<void, mmGameEdit*, i32>>(0x12810_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameEdit*, i32>>(0x412810, this, arg1);
 }
 
 void mmGameEdit::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x12B80_Offset);
+    return stub<cdecl_t<void>>(0x412B80);
 }

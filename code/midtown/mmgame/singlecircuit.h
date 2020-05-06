@@ -139,4 +139,4 @@ private:
 check_size(mmSingleCircuit, 0x1E600);
 
 // 0x6A70A8 | ?mmSingleCircuitMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A70A8_Offset, class MetaClass, mmSingleCircuitMetaClass);
+inline extern_var(0x6A70A8, class MetaClass, mmSingleCircuitMetaClass);

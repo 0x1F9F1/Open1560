@@ -32,27 +32,27 @@ UISlider::~UISlider()
 
 void UISlider::Action(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UISlider*, union eqEvent>>(0xB3EA0_Offset, this, arg1);
+    return stub<thiscall_t<void, UISlider*, union eqEvent>>(0x4B3EA0, this, arg1);
 }
 
 void UISlider::EvalMouseXY(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, UISlider*, f32, f32>>(0xB40E0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, UISlider*, f32, f32>>(0x4B40E0, this, arg1, arg2);
 }
 
 f32 UISlider::GetFudgeWidth()
 {
-    return stub<thiscall_t<f32, UISlider*>>(0xB4230_Offset, this);
+    return stub<thiscall_t<f32, UISlider*>>(0x4B4230, this);
 }
 
 f32 UISlider::GetScreenHeight()
 {
-    return stub<thiscall_t<f32, UISlider*>>(0xB4270_Offset, this);
+    return stub<thiscall_t<f32, UISlider*>>(0x4B4270, this);
 }
 
 f32 UISlider::GetValue()
 {
-    return stub<thiscall_t<f32, UISlider*>>(0xB4050_Offset, this);
+    return stub<thiscall_t<f32, UISlider*>>(0x4B4050, this);
 }
 
 void UISlider::Init(struct LocString* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8,
@@ -60,55 +60,55 @@ void UISlider::Init(struct LocString* arg1, f32* arg2, f32 arg3, f32 arg4, f32 a
 {
     return stub<thiscall_t<void, UISlider*, struct LocString*, f32*, f32, f32, f32, f32, f32, f32, i32, i32, i32, i32,
         class Callback, class UIMenu*>>(
-        0xB3AB0_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14);
+        0x4B3AB0, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14);
 }
 
 i32 UISlider::IsReadWrite()
 {
-    return stub<thiscall_t<i32, UISlider*>>(0xB4040_Offset, this);
+    return stub<thiscall_t<i32, UISlider*>>(0x4B4040, this);
 }
 
 void UISlider::SetData(f32 arg1)
 {
-    return stub<thiscall_t<void, UISlider*, f32>>(0xB4210_Offset, this, arg1);
+    return stub<thiscall_t<void, UISlider*, f32>>(0x4B4210, this, arg1);
 }
 
 void UISlider::SetMouseParams(f32 arg1)
 {
-    return stub<thiscall_t<void, UISlider*, f32>>(0xB4090_Offset, this, arg1);
+    return stub<thiscall_t<void, UISlider*, f32>>(0x4B4090, this, arg1);
 }
 
 void UISlider::SetPosition(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, UISlider*, f32, f32>>(0xB3CD0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, UISlider*, f32, f32>>(0x4B3CD0, this, arg1, arg2);
 }
 
 void UISlider::SetReadWrite(i32 arg1)
 {
-    return stub<thiscall_t<void, UISlider*, i32>>(0xB3FF0_Offset, this, arg1);
+    return stub<thiscall_t<void, UISlider*, i32>>(0x4B3FF0, this, arg1);
 }
 
 void UISlider::SetText(struct LocString* arg1)
 {
-    return stub<thiscall_t<void, UISlider*, struct LocString*>>(0xB3E30_Offset, this, arg1);
+    return stub<thiscall_t<void, UISlider*, struct LocString*>>(0x4B3E30, this, arg1);
 }
 
 f32 UISlider::SetValue(f32 arg1)
 {
-    return stub<thiscall_t<f32, UISlider*, f32>>(0xB4060_Offset, this, arg1);
+    return stub<thiscall_t<f32, UISlider*, f32>>(0x4B4060, this, arg1);
 }
 
 void UISlider::Switch(i32 arg1)
 {
-    return stub<thiscall_t<void, UISlider*, i32>>(0xB3F70_Offset, this, arg1);
+    return stub<thiscall_t<void, UISlider*, i32>>(0x4B3F70, this, arg1);
 }
 
 i32 UISlider::TestHit(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<i32, UISlider*, f32, f32>>(0xB3FE0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, UISlider*, f32, f32>>(0x4B3FE0, this, arg1, arg2);
 }
 
 void UISlider::Update()
 {
-    return stub<thiscall_t<void, UISlider*>>(0xB3E40_Offset, this);
+    return stub<thiscall_t<void, UISlider*>>(0x4B3E40, this);
 }

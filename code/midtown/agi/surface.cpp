@@ -22,27 +22,27 @@ define_dummy_symbol(agi_surface);
 
 void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, agiSurfaceDesc*, class agiSurfaceDesc*, i32>>(0x15B180_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, agiSurfaceDesc*, class agiSurfaceDesc*, i32>>(0x55B180, this, arg1, arg2);
 }
 
 void agiSurfaceDesc::Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class Stream* arg5, i32 arg6, i32 arg7)
 {
     return stub<thiscall_t<void, agiSurfaceDesc*, char*, char*, i32, i32, class Stream*, i32, i32>>(
-        0x15ADE0_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x55ADE0, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 void agiSurfaceDesc::Unload()
 {
-    return stub<thiscall_t<void, agiSurfaceDesc*>>(0x15B160_Offset, this);
+    return stub<thiscall_t<void, agiSurfaceDesc*>>(0x55B160, this);
 }
 
 class agiSurfaceDesc* agiSurfaceDesc::Init(i32 arg1, i32 arg2, class agiSurfaceDesc& arg3)
 {
-    return stub<cdecl_t<class agiSurfaceDesc*, i32, i32, class agiSurfaceDesc&>>(0x15A720_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<class agiSurfaceDesc*, i32, i32, class agiSurfaceDesc&>>(0x55A720, arg1, arg2, arg3);
 }
 
 class agiSurfaceDesc* agiSurfaceDesc::Load(char* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6)
 {
     return stub<cdecl_t<class agiSurfaceDesc*, char*, char*, i32, i32, i32, i32>>(
-        0x15A7A0_Offset, arg1, arg2, arg3, arg4, arg5, arg6);
+        0x55A7A0, arg1, arg2, arg3, arg4, arg5, arg6);
 }

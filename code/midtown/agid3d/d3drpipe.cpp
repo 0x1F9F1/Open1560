@@ -32,40 +32,40 @@ agiD3DRPipeline::~agiD3DRPipeline()
 
 i32 agiD3DRPipeline::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiD3DRPipeline*>>(0x131630_Offset, this);
+    return stub<thiscall_t<i32, agiD3DRPipeline*>>(0x531630, this);
 }
 
 void agiD3DRPipeline::BeginScene()
 {
-    return stub<thiscall_t<void, agiD3DRPipeline*>>(0x1317F0_Offset, this);
+    return stub<thiscall_t<void, agiD3DRPipeline*>>(0x5317F0, this);
 }
 
 class DLP* agiD3DRPipeline::CreateDLP()
 {
-    return stub<thiscall_t<class DLP*, agiD3DRPipeline*>>(0x131790_Offset, this);
+    return stub<thiscall_t<class DLP*, agiD3DRPipeline*>>(0x531790, this);
 }
 
 class agiLight* agiD3DRPipeline::CreateLight()
 {
-    return stub<thiscall_t<class agiLight*, agiD3DRPipeline*>>(0x131910_Offset, this);
+    return stub<thiscall_t<class agiLight*, agiD3DRPipeline*>>(0x531910, this);
 }
 
 class agiLightModel* agiD3DRPipeline::CreateLightModel()
 {
-    return stub<thiscall_t<class agiLightModel*, agiD3DRPipeline*>>(0x1318B0_Offset, this);
+    return stub<thiscall_t<class agiLightModel*, agiD3DRPipeline*>>(0x5318B0, this);
 }
 
 class agiViewport* agiD3DRPipeline::CreateViewport()
 {
-    return stub<thiscall_t<class agiViewport*, agiD3DRPipeline*>>(0x131730_Offset, this);
+    return stub<thiscall_t<class agiViewport*, agiD3DRPipeline*>>(0x531730, this);
 }
 
 void agiD3DRPipeline::EndGfx()
 {
-    return stub<thiscall_t<void, agiD3DRPipeline*>>(0x131700_Offset, this);
+    return stub<thiscall_t<void, agiD3DRPipeline*>>(0x531700, this);
 }
 
 void agiD3DRPipeline::EndScene()
 {
-    return stub<thiscall_t<void, agiD3DRPipeline*>>(0x131890_Offset, this);
+    return stub<thiscall_t<void, agiD3DRPipeline*>>(0x531890, this);
 }

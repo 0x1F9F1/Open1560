@@ -98,7 +98,7 @@ private:
     void FluctuateSlowSiren();
 
     // 0x6A7FE8 | ?s_iPlayingFluctuator@mmPoliceCarAudio@@0FA
-    static inline extern_var(0x2A7FE8_Offset, i16, s_iPlayingFluctuator);
+    static inline extern_var(0x6A7FE8, i16, s_iPlayingFluctuator);
 };
 
 check_size(mmPoliceCarAudio, 0x114);

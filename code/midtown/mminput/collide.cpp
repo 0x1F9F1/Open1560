@@ -22,25 +22,25 @@ define_dummy_symbol(mminput_collide);
 
 i32 mmCollideFF::Assign(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, mmCollideFF*, i32, i32>>(0xE7660_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmCollideFF*, i32, i32>>(0x4E7660, this, arg1, arg2);
 }
 
 i32 mmCollideFF::Init(struct IDirectInputDevice2A* arg1)
 {
-    return stub<thiscall_t<i32, mmCollideFF*, struct IDirectInputDevice2A*>>(0xE7470_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmCollideFF*, struct IDirectInputDevice2A*>>(0x4E7470, this, arg1);
 }
 
 i32 mmCollideFF::Play()
 {
-    return stub<thiscall_t<i32, mmCollideFF*>>(0xE7760_Offset, this);
+    return stub<thiscall_t<i32, mmCollideFF*>>(0x4E7760, this);
 }
 
 i32 mmCollideFF::SetValues(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<i32, mmCollideFF*, f32, f32>>(0xE7630_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmCollideFF*, f32, f32>>(0x4E7630, this, arg1, arg2);
 }
 
 i32 mmCollideFF::Stop()
 {
-    return stub<thiscall_t<i32, mmCollideFF*>>(0xE77B0_Offset, this);
+    return stub<thiscall_t<i32, mmCollideFF*>>(0x4E77B0, this);
 }

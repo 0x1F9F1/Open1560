@@ -22,22 +22,22 @@ define_dummy_symbol(agi_print);
 
 void agiPrint(i32 arg1, i32 arg2, i32 arg3, char const* arg4)
 {
-    return stub<cdecl_t<void, i32, i32, i32, char const*>>(0x157E70_Offset, arg1, arg2, arg3, arg4);
+    return stub<cdecl_t<void, i32, i32, i32, char const*>>(0x557E70, arg1, arg2, arg3, arg4);
 }
 
 void agiPrintInit()
 {
-    return stub<cdecl_t<void>>(0x157F00_Offset);
+    return stub<cdecl_t<void>>(0x557F00);
 }
 
 i32 agiPrintIs3D()
 {
-    return stub<cdecl_t<i32>>(0x157EF0_Offset);
+    return stub<cdecl_t<i32>>(0x557EF0);
 }
 
 void agiPrintShutdown()
 {
-    return stub<cdecl_t<void>>(0x157F10_Offset);
+    return stub<cdecl_t<void>>(0x557F10);
 }
 
 void agiPrintf(i32 arg1, i32 arg2, i32 arg3, char const* arg4, ...)

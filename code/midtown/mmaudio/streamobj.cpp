@@ -32,136 +32,135 @@ StreamObj::~StreamObj()
 
 i32 StreamObj::DSCreateSoundBuffer()
 {
-    return stub<thiscall_t<i32, StreamObj*>>(0xF4DC0_Offset, this);
+    return stub<thiscall_t<i32, StreamObj*>>(0x4F4DC0, this);
 }
 
 struct IDirectSoundBuffer* StreamObj::DSLoadSoundBuffer(char const* arg1, u32 arg2)
 {
-    return stub<thiscall_t<struct IDirectSoundBuffer*, StreamObj*, char const*, u32>>(0xF4E50_Offset, this, arg1, arg2);
+    return stub<thiscall_t<struct IDirectSoundBuffer*, StreamObj*, char const*, u32>>(0x4F4E50, this, arg1, arg2);
 }
 
 i32 StreamObj::FillDataBuffer(u32 arg1)
 {
-    return stub<thiscall_t<i32, StreamObj*, u32>>(0xF5540_Offset, this, arg1);
+    return stub<thiscall_t<i32, StreamObj*, u32>>(0x4F5540, this, arg1);
 }
 
 class Stream* StreamObj::GetFileStreamPtr()
 {
-    return stub<thiscall_t<class Stream*, StreamObj*>>(0xF6040_Offset, this);
+    return stub<thiscall_t<class Stream*, StreamObj*>>(0x4F6040, this);
 }
 
 i32 StreamObj::Init(char const* arg1, u32 arg2)
 {
-    return stub<thiscall_t<i32, StreamObj*, char const*, u32>>(0xF5200_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, StreamObj*, char const*, u32>>(0x4F5200, this, arg1, arg2);
 }
 
 i16 StreamObj::IsPlaying()
 {
-    return stub<thiscall_t<i16, StreamObj*>>(0xF5750_Offset, this);
+    return stub<thiscall_t<i16, StreamObj*>>(0x4F5750, this);
 }
 
 i32 StreamObj::Play()
 {
-    return stub<thiscall_t<i32, StreamObj*>>(0xF5290_Offset, this);
+    return stub<thiscall_t<i32, StreamObj*>>(0x4F5290, this);
 }
 
 i32 StreamObj::Play(char* arg1)
 {
-    return stub<thiscall_t<i32, StreamObj*, char*>>(0xF5440_Offset, this, arg1);
+    return stub<thiscall_t<i32, StreamObj*, char*>>(0x4F5440, this, arg1);
 }
 
 void StreamObj::ReadInLoopIndex(i16 arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, i16>>(0xF61C0_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, i16>>(0x4F61C0, this, arg1);
 }
 
 void StreamObj::SetFrequency(f32 arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, f32>>(0xF57B0_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, f32>>(0x4F57B0, this, arg1);
 }
 
 void StreamObj::SetFrequencyEvent(f32 arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, f32>>(0xF53E0_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, f32>>(0x4F53E0, this, arg1);
 }
 
 void StreamObj::SetLoopPointInfo(u32 arg1, u32 arg2, u32 arg3, i16 arg4, i16 arg5)
 {
-    return stub<thiscall_t<void, StreamObj*, u32, u32, u32, i16, i16>>(
-        0xF60B0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+    return stub<thiscall_t<void, StreamObj*, u32, u32, u32, i16, i16>>(0x4F60B0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void StreamObj::SetNumLoopIndices(i16 arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, i16>>(0xF6050_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, i16>>(0x4F6050, this, arg1);
 }
 
 void StreamObj::SetPan(f32 arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, f32>>(0xF58A0_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, f32>>(0x4F58A0, this, arg1);
 }
 
 void StreamObj::SetPanEvent(f32 arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, f32>>(0xF5410_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, f32>>(0x4F5410, this, arg1);
 }
 
 void StreamObj::SetPlayOneShotEvent(char* arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, char*>>(0xF5330_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, char*>>(0x4F5330, this, arg1);
 }
 
 void StreamObj::SetPlayPosition(u32 arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, u32>>(0xF5270_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, u32>>(0x4F5270, this, arg1);
 }
 
 void StreamObj::SetPlayingFlag(i16 arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, i16>>(0xF6290_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, i16>>(0x4F6290, this, arg1);
 }
 
 void StreamObj::SetStopEvent()
 {
-    return stub<thiscall_t<void, StreamObj*>>(0xF5390_Offset, this);
+    return stub<thiscall_t<void, StreamObj*>>(0x4F5390, this);
 }
 
 void StreamObj::SetVolume(f32 arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, f32>>(0xF5860_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, f32>>(0x4F5860, this, arg1);
 }
 
 void StreamObj::SetVolumeEvent(f32 arg1)
 {
-    return stub<thiscall_t<void, StreamObj*, f32>>(0xF53B0_Offset, this, arg1);
+    return stub<thiscall_t<void, StreamObj*, f32>>(0x4F53B0, this, arg1);
 }
 
 i32 StreamObj::SetupNotifications()
 {
-    return stub<thiscall_t<i32, StreamObj*>>(0xF58E0_Offset, this);
+    return stub<thiscall_t<i32, StreamObj*>>(0x4F58E0, this);
 }
 
 i32 StreamObj::Stop()
 {
-    return stub<thiscall_t<i32, StreamObj*>>(0xF5510_Offset, this);
+    return stub<thiscall_t<i32, StreamObj*>>(0x4F5510, this);
 }
 
 void StreamObj::Update()
 {
-    return stub<thiscall_t<void, StreamObj*>>(0xF5F80_Offset, this);
+    return stub<thiscall_t<void, StreamObj*>>(0x4F5F80, this);
 }
 
 u32 StreamObj::GetWaveBytesOffset(class Stream* arg1, i16 arg2)
 {
-    return stub<thiscall_t<u32, StreamObj*, class Stream*, i16>>(0xF50C0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<u32, StreamObj*, class Stream*, i16>>(0x4F50C0, this, arg1, arg2);
 }
 
 class Stream* StreamObj::OpenWaveFile(char const* arg1, i16 arg2)
 {
-    return stub<thiscall_t<class Stream*, StreamObj*, char const*, i16>>(0xF4EA0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<class Stream*, StreamObj*, char const*, i16>>(0x4F4EA0, this, arg1, arg2);
 }
 
 u32 HandleNotifications(void* arg1)
 {
-    return stub<cdecl_t<u32, void*>>(0xF5B80_Offset, arg1);
+    return stub<cdecl_t<u32, void*>>(0x4F5B80, arg1);
 }

@@ -154,4 +154,4 @@ public:
 check_size(mmCtrlCFG, 0x0);
 
 // 0x708520 | ?mmPlayerConfigMetaClass@@3VMetaClass@@A
-inline extern_var(0x308520_Offset, class MetaClass, mmPlayerConfigMetaClass);
+inline extern_var(0x708520, class MetaClass, mmPlayerConfigMetaClass);

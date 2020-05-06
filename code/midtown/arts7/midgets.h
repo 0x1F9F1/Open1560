@@ -445,4 +445,4 @@ public:
 check_size(MI, 0x0);
 
 // 0x790928 | ?MIDGETSPTR@@3PAVasMidgets@@A
-inline extern_var(0x390928_Offset, class asMidgets*, MIDGETSPTR);
+inline extern_var(0x790928, class asMidgets*, MIDGETSPTR);

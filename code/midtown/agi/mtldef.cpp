@@ -27,27 +27,27 @@ agiMtlParameters::agiMtlParameters()
 
 void agiMtlParameters::operator=(class agiMtlParameters const& arg1)
 {
-    return stub<thiscall_t<void, agiMtlParameters*, class agiMtlParameters const&>>(0x15DBE0_Offset, this, arg1);
+    return stub<thiscall_t<void, agiMtlParameters*, class agiMtlParameters const&>>(0x55DBE0, this, arg1);
 }
 
 void agiMtlParameters::Load(class Stream* arg1)
 {
-    return stub<thiscall_t<void, agiMtlParameters*, class Stream*>>(0x15DB00_Offset, this, arg1);
+    return stub<thiscall_t<void, agiMtlParameters*, class Stream*>>(0x55DB00, this, arg1);
 }
 
 void agiMtlParameters::Save(class Stream* arg1)
 {
-    return stub<thiscall_t<void, agiMtlParameters*, class Stream*>>(0x15DB70_Offset, this, arg1);
+    return stub<thiscall_t<void, agiMtlParameters*, class Stream*>>(0x55DB70, this, arg1);
 }
 
 char* agiMtlDef::GetName()
 {
-    return stub<thiscall_t<char*, agiMtlDef*>>(0x15DD30_Offset, this);
+    return stub<thiscall_t<char*, agiMtlDef*>>(0x55DD30, this);
 }
 
 i32 agiMtlDef::Init(class agiMtlParameters const& arg1)
 {
-    return stub<thiscall_t<i32, agiMtlDef*, class agiMtlParameters const&>>(0x15DC50_Offset, this, arg1);
+    return stub<thiscall_t<i32, agiMtlDef*, class agiMtlParameters const&>>(0x55DC50, this, arg1);
 }
 
 agiMtlDef::agiMtlDef(class agiPipeline* arg1)

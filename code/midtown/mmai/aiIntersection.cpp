@@ -32,55 +32,55 @@ aiIntersection::~aiIntersection()
 
 void aiIntersection::AddSinkPath(class aiPath* arg1)
 {
-    return stub<thiscall_t<void, aiIntersection*, class aiPath*>>(0x47530_Offset, this, arg1);
+    return stub<thiscall_t<void, aiIntersection*, class aiPath*>>(0x447530, this, arg1);
 }
 
 void aiIntersection::AddSourcePath(class aiPath* arg1)
 {
-    return stub<thiscall_t<void, aiIntersection*, class aiPath*>>(0x475A0_Offset, this, arg1);
+    return stub<thiscall_t<void, aiIntersection*, class aiPath*>>(0x4475A0, this, arg1);
 }
 
 void aiIntersection::CreateRoadMap()
 {
-    return stub<thiscall_t<void, aiIntersection*>>(0x47920_Offset, this);
+    return stub<thiscall_t<void, aiIntersection*>>(0x447920, this);
 }
 
 void aiIntersection::DrawId()
 {
-    return stub<thiscall_t<void, aiIntersection*>>(0x478B0_Offset, this);
+    return stub<thiscall_t<void, aiIntersection*>>(0x4478B0, this);
 }
 
 void aiIntersection::DrawPaths()
 {
-    return stub<thiscall_t<void, aiIntersection*>>(0x47880_Offset, this);
+    return stub<thiscall_t<void, aiIntersection*>>(0x447880, this);
 }
 
 void aiIntersection::Dump()
 {
-    return stub<thiscall_t<void, aiIntersection*>>(0x478F0_Offset, this);
+    return stub<thiscall_t<void, aiIntersection*>>(0x4478F0, this);
 }
 
 void aiIntersection::Init()
 {
-    return stub<thiscall_t<void, aiIntersection*>>(0x47370_Offset, this);
+    return stub<thiscall_t<void, aiIntersection*>>(0x447370, this);
 }
 
 class aiPath* aiIntersection::Path(i32 arg1)
 {
-    return stub<thiscall_t<class aiPath*, aiIntersection*, i32>>(0x47C50_Offset, this, arg1);
+    return stub<thiscall_t<class aiPath*, aiIntersection*, i32>>(0x447C50, this, arg1);
 }
 
 void aiIntersection::ReadBinary(class Stream* arg1)
 {
-    return stub<thiscall_t<void, aiIntersection*, class Stream*>>(0x476E0_Offset, this, arg1);
+    return stub<thiscall_t<void, aiIntersection*, class Stream*>>(0x4476E0, this, arg1);
 }
 
 void aiIntersection::Reset()
 {
-    return stub<thiscall_t<void, aiIntersection*>>(0x47520_Offset, this);
+    return stub<thiscall_t<void, aiIntersection*>>(0x447520, this);
 }
 
 void aiIntersection::SaveBinary(class Stream* arg1)
 {
-    return stub<thiscall_t<void, aiIntersection*, class Stream*>>(0x47610_Offset, this, arg1);
+    return stub<thiscall_t<void, aiIntersection*, class Stream*>>(0x447610, this, arg1);
 }

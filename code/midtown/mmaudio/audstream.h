@@ -154,10 +154,10 @@ public:
 
 private:
     // 0x61FF24 | ?s_DWDefault2DCtrlFlags@AudStream@@0KB
-    static inline extern_var(0x21FF24_Offset, u32 const, s_DWDefault2DCtrlFlags);
+    static inline extern_var(0x61FF24, u32 const, s_DWDefault2DCtrlFlags);
 
     // 0x61FF28 | ?s_DWFreqChange2DCtrlFlags@AudStream@@0KB
-    static inline extern_var(0x21FF28_Offset, u32 const, s_DWFreqChange2DCtrlFlags);
+    static inline extern_var(0x61FF28, u32 const, s_DWFreqChange2DCtrlFlags);
 };
 
 check_size(AudStream, 0x54);

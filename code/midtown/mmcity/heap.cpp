@@ -22,5 +22,5 @@ define_dummy_symbol(mmcity_heap);
 
 void mmHeapError()
 {
-    return stub<cdecl_t<void>>(0x955C0_Offset);
+    return stub<cdecl_t<void>>(0x4955C0);
 }

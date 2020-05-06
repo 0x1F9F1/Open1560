@@ -83,4 +83,4 @@ public:
 check_size(BaseCamCS, 0x9C);
 
 // 0x7194F8 | ?BaseCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x3194F8_Offset, class MetaClass, BaseCamCSMetaClass);
+inline extern_var(0x7194F8, class MetaClass, BaseCamCSMetaClass);

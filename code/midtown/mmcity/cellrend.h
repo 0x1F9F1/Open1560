@@ -61,25 +61,25 @@ public:
 check_size(mmCellRenderer, 0x48);
 
 // 0x7057BC | ?CRPass1Only@@3HA
-inline extern_var(0x3057BC_Offset, i32, CRPass1Only);
+inline extern_var(0x7057BC, i32, CRPass1Only);
 
 // 0x7057DC | ?CRPass3Only@@3HA
-inline extern_var(0x3057DC_Offset, i32, CRPass3Only);
+inline extern_var(0x7057DC, i32, CRPass3Only);
 
 // 0x7057B8 | ?CRPassBoth@@3HA
-inline extern_var(0x3057B8_Offset, i32, CRPassBoth);
+inline extern_var(0x7057B8, i32, CRPassBoth);
 
 // 0x7057C0 | ?CellTriCount@@3PAHA
-inline extern_var(0x3057C0_Offset, i32*, CellTriCount);
+inline extern_var(0x7057C0, i32*, CellTriCount);
 
 // 0x7057D0 | ?CellTypeCount@@3PAHA
-inline extern_var(0x3057D0_Offset, i32*, CellTypeCount);
+inline extern_var(0x7057D0, i32*, CellTypeCount);
 
 // 0x6401E4 | ?EnableSlide@@3HA
-inline extern_var(0x2401E4_Offset, i32, EnableSlide);
+inline extern_var(0x6401E4, i32, EnableSlide);
 
 // 0x6401E0 | ?ObjectMaxDist@@3MA
-inline extern_var(0x2401E0_Offset, f32, ObjectMaxDist);
+inline extern_var(0x6401E0, f32, ObjectMaxDist);
 
 // 0x6401C0 | ?StaticTerrainLodTable@@3PAY01MA
-inline extern_var(0x2401C0_Offset, f32 (*)[2], StaticTerrainLodTable);
+inline extern_var(0x6401C0, f32 (*)[2], StaticTerrainLodTable);

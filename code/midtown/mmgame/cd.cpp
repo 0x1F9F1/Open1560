@@ -32,45 +32,45 @@ mmCDPlayer::~mmCDPlayer()
 
 void mmCDPlayer::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmCDPlayer*, class Bank*>>(0x234C0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCDPlayer*, class Bank*>>(0x4234C0, this, arg1);
 }
 
 void mmCDPlayer::Cull()
 {
-    return stub<thiscall_t<void, mmCDPlayer*>>(0x23210_Offset, this);
+    return stub<thiscall_t<void, mmCDPlayer*>>(0x423210, this);
 }
 
 void mmCDPlayer::Init(class mmHUD* arg1)
 {
-    return stub<thiscall_t<void, mmCDPlayer*, class mmHUD*>>(0x23080_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCDPlayer*, class mmHUD*>>(0x423080, this, arg1);
 }
 
 void mmCDPlayer::NextTrack()
 {
-    return stub<thiscall_t<void, mmCDPlayer*>>(0x23450_Offset, this);
+    return stub<thiscall_t<void, mmCDPlayer*>>(0x423450, this);
 }
 
 void mmCDPlayer::PlayStop()
 {
-    return stub<thiscall_t<void, mmCDPlayer*>>(0x23400_Offset, this);
+    return stub<thiscall_t<void, mmCDPlayer*>>(0x423400, this);
 }
 
 void mmCDPlayer::PrevTrack()
 {
-    return stub<thiscall_t<void, mmCDPlayer*>>(0x23750_Offset, this);
+    return stub<thiscall_t<void, mmCDPlayer*>>(0x423750, this);
 }
 
 void mmCDPlayer::Reset()
 {
-    return stub<thiscall_t<void, mmCDPlayer*>>(0x23190_Offset, this);
+    return stub<thiscall_t<void, mmCDPlayer*>>(0x423190, this);
 }
 
 void mmCDPlayer::Toggle()
 {
-    return stub<thiscall_t<void, mmCDPlayer*>>(0x237C0_Offset, this);
+    return stub<thiscall_t<void, mmCDPlayer*>>(0x4237C0, this);
 }
 
 void mmCDPlayer::Update()
 {
-    return stub<thiscall_t<void, mmCDPlayer*>>(0x231A0_Offset, this);
+    return stub<thiscall_t<void, mmCDPlayer*>>(0x4231A0, this);
 }

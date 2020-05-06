@@ -32,30 +32,30 @@ PolarCamCS::~PolarCamCS()
 
 class MetaClass* PolarCamCS::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, PolarCamCS*>>(0xFB180_Offset, this);
+    return stub<thiscall_t<class MetaClass*, PolarCamCS*>>(0x4FB180, this);
 }
 
 void PolarCamCS::Init(class mmCar* arg1)
 {
-    return stub<thiscall_t<void, PolarCamCS*, class mmCar*>>(0xFABB0_Offset, this, arg1);
+    return stub<thiscall_t<void, PolarCamCS*, class mmCar*>>(0x4FABB0, this, arg1);
 }
 
 void PolarCamCS::MakeActive()
 {
-    return stub<thiscall_t<void, PolarCamCS*>>(0xFABF0_Offset, this);
+    return stub<thiscall_t<void, PolarCamCS*>>(0x4FABF0, this);
 }
 
 void PolarCamCS::Reset()
 {
-    return stub<thiscall_t<void, PolarCamCS*>>(0xFABE0_Offset, this);
+    return stub<thiscall_t<void, PolarCamCS*>>(0x4FABE0, this);
 }
 
 void PolarCamCS::Update()
 {
-    return stub<thiscall_t<void, PolarCamCS*>>(0xFAC20_Offset, this);
+    return stub<thiscall_t<void, PolarCamCS*>>(0x4FAC20, this);
 }
 
 void PolarCamCS::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xFB010_Offset);
+    return stub<cdecl_t<void>>(0x4FB010);
 }

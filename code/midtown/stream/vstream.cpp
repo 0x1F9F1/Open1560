@@ -33,35 +33,35 @@ VirtualStream::~VirtualStream()
 
 void* VirtualStream::GetMapping()
 {
-    return stub<thiscall_t<void*, VirtualStream*>>(0x161D40_Offset, this);
+    return stub<thiscall_t<void*, VirtualStream*>>(0x561D40, this);
 }
 
 i32 VirtualStream::GetPagingInfo(u32& arg1, u32& arg2, u32& arg3)
 {
-    return stub<thiscall_t<i32, VirtualStream*, u32&, u32&, u32&>>(0x161BD0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, VirtualStream*, u32&, u32&, u32&>>(0x561BD0, this, arg1, arg2, arg3);
 }
 
 i32 VirtualStream::RawRead(void* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, VirtualStream*, void*, i32>>(0x161C60_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, VirtualStream*, void*, i32>>(0x561C60, this, arg1, arg2);
 }
 
 i32 VirtualStream::RawSeek(i32 arg1)
 {
-    return stub<thiscall_t<i32, VirtualStream*, i32>>(0x161CE0_Offset, this, arg1);
+    return stub<thiscall_t<i32, VirtualStream*, i32>>(0x561CE0, this, arg1);
 }
 
 i32 VirtualStream::RawSize()
 {
-    return stub<thiscall_t<i32, VirtualStream*>>(0x161D30_Offset, this);
+    return stub<thiscall_t<i32, VirtualStream*>>(0x561D30, this);
 }
 
 i32 VirtualStream::RawTell()
 {
-    return stub<thiscall_t<i32, VirtualStream*>>(0x161D10_Offset, this);
+    return stub<thiscall_t<i32, VirtualStream*>>(0x561D10, this);
 }
 
 i32 VirtualStream::RawWrite(void* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, VirtualStream*, void*, i32>>(0x161CD0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, VirtualStream*, void*, i32>>(0x561CD0, this, arg1, arg2);
 }

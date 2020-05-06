@@ -32,23 +32,23 @@ RadialGauge::~RadialGauge()
 
 void RadialGauge::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, RadialGauge*, class Bank*>>(0x23910_Offset, this, arg1);
+    return stub<thiscall_t<void, RadialGauge*, class Bank*>>(0x423910, this, arg1);
 }
 
 void RadialGauge::Cull()
 {
-    return stub<thiscall_t<void, RadialGauge*>>(0x23A40_Offset, this);
+    return stub<thiscall_t<void, RadialGauge*>>(0x423A40, this);
 }
 
 void RadialGauge::Init(char* arg1, char* arg2, f32* arg3, f32* arg4, f32 arg5)
 {
     return stub<thiscall_t<void, RadialGauge*, char*, char*, f32*, f32*, f32>>(
-        0x238B0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x4238B0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void RadialGauge::Update()
 {
-    return stub<thiscall_t<void, RadialGauge*>>(0x23920_Offset, this);
+    return stub<thiscall_t<void, RadialGauge*>>(0x423920, this);
 }
 
 mmLinearGauge::mmLinearGauge()
@@ -63,49 +63,48 @@ mmLinearGauge::~mmLinearGauge()
 
 void mmLinearGauge::Draw()
 {
-    return stub<thiscall_t<void, mmLinearGauge*>>(0x23BA0_Offset, this);
+    return stub<thiscall_t<void, mmLinearGauge*>>(0x423BA0, this);
 }
 
 void mmLinearGauge::Init(char* arg1, f32* arg2, f32* arg3, f32* arg4, i32 arg5, class mmExternalView* arg6)
 {
     return stub<thiscall_t<void, mmLinearGauge*, char*, f32*, f32*, f32*, i32, class mmExternalView*>>(
-        0x23A90_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6);
+        0x423A90, this, arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 void mmRadGauge::Draw()
 {
-    return stub<thiscall_t<void, mmRadGauge*>>(0x23CB0_Offset, this);
+    return stub<thiscall_t<void, mmRadGauge*>>(0x423CB0, this);
 }
 
 void mmRadGauge::Init(f32* arg1, f32* arg2, class mmExternalView* arg3, i32 arg4, u32 arg5)
 {
     return stub<thiscall_t<void, mmRadGauge*, f32*, f32*, class mmExternalView*, i32, u32>>(
-        0x23C30_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x423C30, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void mmRadGauge::ResChange()
 {
-    return stub<thiscall_t<void, mmRadGauge*>>(0x23C60_Offset, this);
+    return stub<thiscall_t<void, mmRadGauge*>>(0x423C60, this);
 }
 
 void mmGearIndicator::Draw()
 {
-    return stub<thiscall_t<void, mmGearIndicator*>>(0x23F10_Offset, this);
+    return stub<thiscall_t<void, mmGearIndicator*>>(0x423F10, this);
 }
 
 void mmGearIndicator::Init(class mmExternalView* arg1, class mmPlayer* arg2)
 {
-    return stub<thiscall_t<void, mmGearIndicator*, class mmExternalView*, class mmPlayer*>>(
-        0x23DE0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmGearIndicator*, class mmExternalView*, class mmPlayer*>>(0x423DE0, this, arg1, arg2);
 }
 
 void mmSpeedIndicator::Draw()
 {
-    return stub<thiscall_t<void, mmSpeedIndicator*>>(0x24020_Offset, this);
+    return stub<thiscall_t<void, mmSpeedIndicator*>>(0x424020, this);
 }
 
 void mmSpeedIndicator::Init(class mmExternalView* arg1, class mmCarSim* arg2)
 {
     return stub<thiscall_t<void, mmSpeedIndicator*, class mmExternalView*, class mmCarSim*>>(
-        0x23F90_Offset, this, arg1, arg2);
+        0x423F90, this, arg1, arg2);
 }

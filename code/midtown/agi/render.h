@@ -27,7 +27,7 @@
 */
 
 // 0x907898 | ?agiCurCardState@@3VagiCardState@@A
-inline extern_var(0x507898_Offset, class agiCardState, agiCurCardState);
+inline extern_var(0x907898, class agiCardState, agiCurCardState);
 
 // 0x907868 | ?agiLastCardState@@3UagiCardStateStruct@@A
-inline extern_var(0x507868_Offset, struct agiCardStateStruct, agiLastCardState);
+inline extern_var(0x907868, struct agiCardStateStruct, agiLastCardState);

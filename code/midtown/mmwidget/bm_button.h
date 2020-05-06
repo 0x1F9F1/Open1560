@@ -146,10 +146,10 @@ private:
     static void AllocateSounds();
 
     // 0x705A08 | ?s_pSound@UIBMButton@@0PAVAudSound@@A
-    static inline extern_var(0x305A08_Offset, class AudSound*, s_pSound);
+    static inline extern_var(0x705A08, class AudSound*, s_pSound);
 };
 
 check_size(UIBMButton, 0xF0);
 
 // 0x7059D0 | ?UIBMButtonMetaClass@@3VMetaClass@@A
-inline extern_var(0x3059D0_Offset, class MetaClass, UIBMButtonMetaClass);
+inline extern_var(0x7059D0, class MetaClass, UIBMButtonMetaClass);

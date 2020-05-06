@@ -73,43 +73,43 @@ public:
 
 private:
     // 0x63C1E8 | ?m_fBareMinimum@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x23C1E8_Offset, f32, m_fBareMinimum);
+    static inline extern_var(0x63C1E8, f32, m_fBareMinimum);
 
     // 0x6A7FCC | ?m_fHugeVolumeMultiplier@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x2A7FCC_Offset, f32, m_fHugeVolumeMultiplier);
+    static inline extern_var(0x6A7FCC, f32, m_fHugeVolumeMultiplier);
 
     // 0x63C208 | ?m_fMaxHugeVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x23C208_Offset, f32, m_fMaxHugeVolume);
+    static inline extern_var(0x63C208, f32, m_fMaxHugeVolume);
 
     // 0x63C200 | ?m_fMaxMedVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x23C200_Offset, f32, m_fMaxMedVolume);
+    static inline extern_var(0x63C200, f32, m_fMaxMedVolume);
 
     // 0x63C1F8 | ?m_fMaxSoftVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x23C1F8_Offset, f32, m_fMaxSoftVolume);
+    static inline extern_var(0x63C1F8, f32, m_fMaxSoftVolume);
 
     // 0x6A7FC8 | ?m_fMedVolumeMultiplier@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x2A7FC8_Offset, f32, m_fMedVolumeMultiplier);
+    static inline extern_var(0x6A7FC8, f32, m_fMedVolumeMultiplier);
 
     // 0x63C1F0 | ?m_fMedium@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x23C1F0_Offset, f32, m_fMedium);
+    static inline extern_var(0x63C1F0, f32, m_fMedium);
 
     // 0x63C204 | ?m_fMinHugeVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x23C204_Offset, f32, m_fMinHugeVolume);
+    static inline extern_var(0x63C204, f32, m_fMinHugeVolume);
 
     // 0x63C1FC | ?m_fMinMedVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x23C1FC_Offset, f32, m_fMinMedVolume);
+    static inline extern_var(0x63C1FC, f32, m_fMinMedVolume);
 
     // 0x63C1F4 | ?m_fMinSoftVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x23C1F4_Offset, f32, m_fMinSoftVolume);
+    static inline extern_var(0x63C1F4, f32, m_fMinSoftVolume);
 
     // 0x63C1EC | ?m_fSoft@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x23C1EC_Offset, f32, m_fSoft);
+    static inline extern_var(0x63C1EC, f32, m_fSoft);
 
     // 0x6A7FC4 | ?m_fSoftVolumeMultiplier@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x2A7FC4_Offset, f32, m_fSoftVolumeMultiplier);
+    static inline extern_var(0x6A7FC4, f32, m_fSoftVolumeMultiplier);
 
     // 0x6A7FC0 | ?s_fSecondsElapsed@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x2A7FC0_Offset, f32, s_fSecondsElapsed);
+    static inline extern_var(0x6A7FC0, f32, s_fSecondsElapsed);
 };
 
 check_size(mmOpponentImpactAudio, 0x0);

@@ -22,12 +22,12 @@ define_dummy_symbol(agiworld_getmesh);
 
 void FixTexFlags(class agiTexParameters& arg1)
 {
-    return stub<cdecl_t<void, class agiTexParameters&>>(0x112610_Offset, arg1);
+    return stub<cdecl_t<void, class agiTexParameters&>>(0x512610, arg1);
 }
 
 class agiMeshSet* GetMeshSet(char* arg1, char* arg2, class Vector3* arg3, i32 arg4)
 {
-    return stub<cdecl_t<class agiMeshSet*, char*, char*, class Vector3*, i32>>(0x1128A0_Offset, arg1, arg2, arg3, arg4);
+    return stub<cdecl_t<class agiMeshSet*, char*, char*, class Vector3*, i32>>(0x5128A0, arg1, arg2, arg3, arg4);
 }
 
 __cdecl GetMeshSet::N::operator++ ::DLPVertex2::DLPVertex2(char* arg1, char* arg2, class Vector3* arg3, i32 arg4)

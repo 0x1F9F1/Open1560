@@ -82,7 +82,7 @@ private:
     void RemoveMe();
 
     // 0x90AE5C | ?First@HashTable@@0PAV1@A
-    static inline extern_var(0x50AE5C_Offset, class HashTable*, First);
+    static inline extern_var(0x90AE5C, class HashTable*, First);
 };
 
 check_size(HashTable, 0x0);

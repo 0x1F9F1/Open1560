@@ -22,13 +22,12 @@ define_dummy_symbol(agiworld_meshmodel);
 
 i32 agiMeshModel::ModelDraw(u32 arg1, class agiLitAnimation* arg2, i32 arg3)
 {
-    return stub<thiscall_t<i32, agiMeshModel*, u32, class agiLitAnimation*, i32>>(
-        0x1142B0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, agiMeshModel*, u32, class agiLitAnimation*, i32>>(0x5142B0, this, arg1, arg2, arg3);
 }
 
 i32 agiMeshModel::ModelDraw(u32 arg1, class bnAnimation* arg2, i32 arg3)
 {
-    return stub<thiscall_t<i32, agiMeshModel*, u32, class bnAnimation*, i32>>(0x1142D0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, agiMeshModel*, u32, class bnAnimation*, i32>>(0x5142D0, this, arg1, arg2, arg3);
 }
 
 i32 agiMeshModel::ModelDrawLit(
@@ -36,17 +35,17 @@ i32 agiMeshModel::ModelDrawLit(
 {
     return stub<
         thiscall_t<i32, agiMeshModel*, void (*)(u8*, u32*, u32*, class agiMeshSet*), u32, class agiLitAnimation*, i32>>(
-        0x1144F0_Offset, this, arg1, arg2, arg3, arg4);
+        0x5144F0, this, arg1, arg2, arg3, arg4);
 }
 
 i32 agiMeshModel::ModelDrawSkel(u32 arg1, class bnAnimation* arg2, i32 arg3)
 {
-    return stub<thiscall_t<i32, agiMeshModel*, u32, class bnAnimation*, i32>>(0x114330_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, agiMeshModel*, u32, class bnAnimation*, i32>>(0x514330, this, arg1, arg2, arg3);
 }
 
 i32 agiMeshModel::ModelGeometry(u32 arg1, class bnAnimation* arg2, i32 arg3)
 {
-    return stub<thiscall_t<i32, agiMeshModel*, u32, class bnAnimation*, i32>>(0x1141B0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, agiMeshModel*, u32, class bnAnimation*, i32>>(0x5141B0, this, arg1, arg2, arg3);
 }
 
 agiLitAnimation::agiLitAnimation(class agiMeshModel* arg1, class bnAnimation* arg2, class Stream* arg3)

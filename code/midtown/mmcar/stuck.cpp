@@ -32,30 +32,30 @@ mmStuck::~mmStuck()
 
 void mmStuck::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmStuck*, class Bank*>>(0x7C7D0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmStuck*, class Bank*>>(0x47C7D0, this, arg1);
 }
 
 void mmStuck::Impact()
 {
-    return stub<thiscall_t<void, mmStuck*>>(0x7C540_Offset, this);
+    return stub<thiscall_t<void, mmStuck*>>(0x47C540, this);
 }
 
 void mmStuck::Init(class mmCarSim* arg1)
 {
-    return stub<thiscall_t<void, mmStuck*, class mmCarSim*>>(0x7C520_Offset, this, arg1);
+    return stub<thiscall_t<void, mmStuck*, class mmCarSim*>>(0x47C520, this, arg1);
 }
 
 i32 mmStuck::Pegged()
 {
-    return stub<thiscall_t<i32, mmStuck*>>(0x7C560_Offset, this);
+    return stub<thiscall_t<i32, mmStuck*>>(0x47C560, this);
 }
 
 void mmStuck::Reset()
 {
-    return stub<thiscall_t<void, mmStuck*>>(0x7C550_Offset, this);
+    return stub<thiscall_t<void, mmStuck*>>(0x47C550, this);
 }
 
 void mmStuck::Update()
 {
-    return stub<thiscall_t<void, mmStuck*>>(0x7C5B0_Offset, this);
+    return stub<thiscall_t<void, mmStuck*>>(0x47C5B0, this);
 }

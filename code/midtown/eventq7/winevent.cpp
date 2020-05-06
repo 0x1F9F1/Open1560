@@ -32,53 +32,53 @@ WINEventHandler::~WINEventHandler()
 
 void WINEventHandler::AdjustMouse(i32& arg1, i32& arg2)
 {
-    return stub<thiscall_t<void, WINEventHandler*, i32&, i32&>>(0x162660_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, WINEventHandler*, i32&, i32&>>(0x562660, this, arg1, arg2);
 }
 
 i32 WINEventHandler::BeginGfx(i32 arg1, i32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<i32, WINEventHandler*, i32, i32, i32>>(0x161F20_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, WINEventHandler*, i32, i32, i32>>(0x561F20, this, arg1, arg2, arg3);
 }
 
 void WINEventHandler::BeginTracking()
 {
-    return stub<thiscall_t<void, WINEventHandler*>>(0x162610_Offset, this);
+    return stub<thiscall_t<void, WINEventHandler*>>(0x562610, this);
 }
 
 void WINEventHandler::EndGfx()
 {
-    return stub<thiscall_t<void, WINEventHandler*>>(0x161FC0_Offset, this);
+    return stub<thiscall_t<void, WINEventHandler*>>(0x561FC0, this);
 }
 
 void WINEventHandler::EndTracking()
 {
-    return stub<thiscall_t<void, WINEventHandler*>>(0x162640_Offset, this);
+    return stub<thiscall_t<void, WINEventHandler*>>(0x562640, this);
 }
 
 char* WINEventHandler::GKeyName(i32 arg1)
 {
-    return stub<thiscall_t<char*, WINEventHandler*, i32>>(0x161FE0_Offset, this, arg1);
+    return stub<thiscall_t<char*, WINEventHandler*, i32>>(0x561FE0, this, arg1);
 }
 
 void WINEventHandler::Update(i32 arg1)
 {
-    return stub<thiscall_t<void, WINEventHandler*, i32>>(0x162350_Offset, this, arg1);
+    return stub<thiscall_t<void, WINEventHandler*, i32>>(0x562350, this, arg1);
 }
 
 i32 WINEventHandler::WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4)
 {
     return stub<thiscall_t<i32, WINEventHandler*, struct HWND__*, u32, u32, i32>>(
-        0x162720_Offset, this, arg1, arg2, arg3, arg4);
+        0x562720, this, arg1, arg2, arg3, arg4);
 }
 
 void DeallocateEventQueue()
 {
-    return stub<cdecl_t<void>>(0x162E60_Offset);
+    return stub<cdecl_t<void>>(0x562E60);
 }
 
 void InitEventQueue()
 {
-    return stub<cdecl_t<void>>(0x162DF0_Offset);
+    return stub<cdecl_t<void>>(0x562DF0);
 }
 
 i32 Dispatchable::WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4)

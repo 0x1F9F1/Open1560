@@ -32,25 +32,25 @@ Dialog_RaceEnvironment::~Dialog_RaceEnvironment()
 
 void Dialog_RaceEnvironment::CancelCallback()
 {
-    return stub<thiscall_t<void, Dialog_RaceEnvironment*>>(0x9E3A0_Offset, this);
+    return stub<thiscall_t<void, Dialog_RaceEnvironment*>>(0x49E3A0, this);
 }
 
 void Dialog_RaceEnvironment::ControlPedSlider()
 {
-    return stub<thiscall_t<void, Dialog_RaceEnvironment*>>(0x9E2F0_Offset, this);
+    return stub<thiscall_t<void, Dialog_RaceEnvironment*>>(0x49E2F0, this);
 }
 
 void Dialog_RaceEnvironment::DoneCallback()
 {
-    return stub<thiscall_t<void, Dialog_RaceEnvironment*>>(0x9E350_Offset, this);
+    return stub<thiscall_t<void, Dialog_RaceEnvironment*>>(0x49E350, this);
 }
 
 void Dialog_RaceEnvironment::PreSetup()
 {
-    return stub<thiscall_t<void, Dialog_RaceEnvironment*>>(0x9E2A0_Offset, this);
+    return stub<thiscall_t<void, Dialog_RaceEnvironment*>>(0x49E2A0, this);
 }
 
 void Dialog_RaceEnvironment::SetMultiRaceOptions(i32 arg1)
 {
-    return stub<thiscall_t<void, Dialog_RaceEnvironment*, i32>>(0x9E310_Offset, this, arg1);
+    return stub<thiscall_t<void, Dialog_RaceEnvironment*, i32>>(0x49E310, this, arg1);
 }

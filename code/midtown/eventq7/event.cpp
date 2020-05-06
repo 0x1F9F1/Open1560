@@ -62,17 +62,17 @@ char* eqEventHandler::GKeyName(i32 arg1)
 
 void eqEventHandler::AddClient(class eqEventMonitor* arg1)
 {
-    return stub<thiscall_t<void, eqEventHandler*, class eqEventMonitor*>>(0x163200_Offset, this, arg1);
+    return stub<thiscall_t<void, eqEventHandler*, class eqEventMonitor*>>(0x563200, this, arg1);
 }
 
 void eqEventHandler::RemoveClient(class eqEventMonitor* arg1)
 {
-    return stub<thiscall_t<void, eqEventHandler*, class eqEventMonitor*>>(0x163260_Offset, this, arg1);
+    return stub<thiscall_t<void, eqEventHandler*, class eqEventMonitor*>>(0x563260, this, arg1);
 }
 
 char* eqEventHandler::EKeyName(i32 arg1)
 {
-    return stub<cdecl_t<char*, i32>>(0x162F30_Offset, arg1);
+    return stub<cdecl_t<char*, i32>>(0x562F30, arg1);
 }
 
 eqEventMonitor::eqEventMonitor(i32 arg1)
@@ -88,39 +88,39 @@ eqEventMonitor::~eqEventMonitor()
 void eqEventMonitor::Redraw(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
 {
     return stub<thiscall_t<void, eqEventMonitor*, void*, i32, i32, i32, i32>>(
-        0x1632E0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x5632E0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void eqEventMonitor::Refocus(void* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, eqEventMonitor*, void*, i32>>(0x163320_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, eqEventMonitor*, void*, i32>>(0x563320, this, arg1, arg2);
 }
 
 void eqEventMonitor::Mouse(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8)
 {
     return stub<thiscall_t<void, eqEventMonitor*, void*, i32, i32, i32, i32, i32, i32, i32>>(
-        0x163360_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
+        0x563360, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 }
 
 void eqEventMonitor::Keyboard(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
 {
     return stub<thiscall_t<void, eqEventMonitor*, void*, i32, i32, i32, i32>>(
-        0x1633E0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x5633E0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void eqEventMonitor::Destroy(void* arg1)
 {
-    return stub<thiscall_t<void, eqEventMonitor*, void*>>(0x163470_Offset, this, arg1);
+    return stub<thiscall_t<void, eqEventMonitor*, void*>>(0x563470, this, arg1);
 }
 
 void eqEventMonitor::Activate(void* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, eqEventMonitor*, void*, i32>>(0x1634A0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, eqEventMonitor*, void*, i32>>(0x5634A0, this, arg1, arg2);
 }
 
 void eqEventMonitor::SetWantMotion(i32 arg1)
 {
-    return stub<thiscall_t<void, eqEventMonitor*, i32>>(0x1634E0_Offset, this, arg1);
+    return stub<thiscall_t<void, eqEventMonitor*, i32>>(0x5634E0, this, arg1);
 }
 
 eqEventReplayChannelClass::eqEventReplayChannelClass()
@@ -135,22 +135,22 @@ eqEventReplayChannelClass::~eqEventReplayChannelClass()
 
 void eqEventReplayChannelClass::DoPlayback(class Stream* arg1)
 {
-    return stub<thiscall_t<void, eqEventReplayChannelClass*, class Stream*>>(0x163790_Offset, this, arg1);
+    return stub<thiscall_t<void, eqEventReplayChannelClass*, class Stream*>>(0x563790, this, arg1);
 }
 
 void eqEventReplayChannelClass::DoRecord(class Stream* arg1)
 {
-    return stub<thiscall_t<void, eqEventReplayChannelClass*, class Stream*>>(0x163580_Offset, this, arg1);
+    return stub<thiscall_t<void, eqEventReplayChannelClass*, class Stream*>>(0x563580, this, arg1);
 }
 
 void eqEventReplayChannelClass::QueueKeyboard(i32 arg1, i32 arg2, i32 arg3, i32 arg4)
 {
     return stub<thiscall_t<void, eqEventReplayChannelClass*, i32, i32, i32, i32>>(
-        0x163910_Offset, this, arg1, arg2, arg3, arg4);
+        0x563910, this, arg1, arg2, arg3, arg4);
 }
 
 void eqEventReplayChannelClass::QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7)
 {
     return stub<thiscall_t<void, eqEventReplayChannelClass*, i32, i32, i32, i32, i32, i32, i32>>(
-        0x163880_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x563880, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }

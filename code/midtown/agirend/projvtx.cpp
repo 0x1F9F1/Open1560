@@ -22,25 +22,25 @@ define_dummy_symbol(agirend_projvtx);
 
 void agiProjVtx::Init(i32 arg1, class agiLighter* arg2, u32 arg3)
 {
-    return stub<cdecl_t<void, i32, class agiLighter*, u32>>(0x152BA0_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<void, i32, class agiLighter*, u32>>(0x552BA0, arg1, arg2, arg3);
 }
 
 void agiProjVtx::InitMtx(class Matrix34& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 {
-    return stub<cdecl_t<void, class Matrix34&, f32, f32, f32, f32>>(0x1524F0_Offset, arg1, arg2, arg3, arg4, arg5);
+    return stub<cdecl_t<void, class Matrix34&, f32, f32, f32, f32>>(0x5524F0, arg1, arg2, arg3, arg4, arg5);
 }
 
 i32 agiProjVtx::Project(i32 arg1, struct agiLitVtx* arg2)
 {
-    return stub<cdecl_t<i32, i32, struct agiLitVtx*>>(0x152710_Offset, arg1, arg2);
+    return stub<cdecl_t<i32, i32, struct agiLitVtx*>>(0x552710, arg1, arg2);
 }
 
 void agiProjVtx::SetOutcode(i32 arg1)
 {
-    return stub<cdecl_t<void, i32>>(0x152630_Offset, arg1);
+    return stub<cdecl_t<void, i32>>(0x552630, arg1);
 }
 
 void agiProjVtx::ToScreen(i32 arg1)
 {
-    return stub<cdecl_t<void, i32>>(0x152A20_Offset, arg1);
+    return stub<cdecl_t<void, i32>>(0x552A20, arg1);
 }

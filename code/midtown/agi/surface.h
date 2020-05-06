@@ -51,4 +51,4 @@ public:
 check_size(agiSurfaceDesc, 0x0);
 
 // 0x903190 | ?AnnotateTextures@@3HA
-inline extern_var(0x503190_Offset, i32, AnnotateTextures);
+inline extern_var(0x903190, i32, AnnotateTextures);

@@ -161,10 +161,10 @@ void FritzIt(class asCamera* arg1);
 void ViewIt(class asCamera* arg1);
 
 // 0x64DF5C | ?Duration@@3MA
-inline extern_var(0x24DF5C_Offset, f32, Duration);
+inline extern_var(0x64DF5C, f32, Duration);
 
 // 0x790980 | ?VW@@3PAVagiViewport@@A
-inline extern_var(0x390980_Offset, class agiViewport*, VW);
+inline extern_var(0x790980, class agiViewport*, VW);
 
 // 0x790958 | ?asCameraMetaClass@@3VMetaClass@@A
-inline extern_var(0x390958_Offset, class MetaClass, asCameraMetaClass);
+inline extern_var(0x790958, class MetaClass, asCameraMetaClass);

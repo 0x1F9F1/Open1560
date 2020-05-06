@@ -33,15 +33,15 @@ mmWheelCheap::~mmWheelCheap()
 void mmWheelCheap::Init(class Vector3* arg1, class aiVehicleData* arg2, class asInertialCS* arg3)
 {
     return stub<thiscall_t<void, mmWheelCheap*, class Vector3*, class aiVehicleData*, class asInertialCS*>>(
-        0x74950_Offset, this, arg1, arg2, arg3);
+        0x474950, this, arg1, arg2, arg3);
 }
 
 void mmWheelCheap::Reset()
 {
-    return stub<thiscall_t<void, mmWheelCheap*>>(0x75180_Offset, this);
+    return stub<thiscall_t<void, mmWheelCheap*>>(0x475180, this);
 }
 
 void mmWheelCheap::Update()
 {
-    return stub<thiscall_t<void, mmWheelCheap*>>(0x74A20_Offset, this);
+    return stub<thiscall_t<void, mmWheelCheap*>>(0x474A20, this);
 }

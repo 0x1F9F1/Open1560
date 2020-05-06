@@ -32,5 +32,5 @@ MainMenu::~MainMenu()
 
 void MainMenu::PreSetup()
 {
-    return stub<thiscall_t<void, MainMenu*>>(0xA6380_Offset, this);
+    return stub<thiscall_t<void, MainMenu*>>(0x4A6380, this);
 }

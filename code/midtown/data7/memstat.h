@@ -34,7 +34,7 @@ void BeginMemStat(char const* arg1);
 void EndMemStat();
 
 // 0x6620A8 | ?EnableMemStat@@3HA
-inline extern_var(0x2620A8_Offset, i32, EnableMemStat);
+inline extern_var(0x6620A8, i32, EnableMemStat);
 
 // 0x90AEA8 | ?beginStackCount@@3HA
-inline extern_var(0x50AEA8_Offset, i32, beginStackCount);
+inline extern_var(0x90AEA8, i32, beginStackCount);

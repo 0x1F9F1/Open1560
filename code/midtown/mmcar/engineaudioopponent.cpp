@@ -32,45 +32,45 @@ EngineAudioOpponent::~EngineAudioOpponent()
 
 void EngineAudioOpponent::ClearName()
 {
-    return stub<thiscall_t<void, EngineAudioOpponent*>>(0x85A10_Offset, this);
+    return stub<thiscall_t<void, EngineAudioOpponent*>>(0x485A10, this);
 }
 
 void EngineAudioOpponent::Disable3DMode()
 {
-    return stub<thiscall_t<void, EngineAudioOpponent*>>(0x85A50_Offset, this);
+    return stub<thiscall_t<void, EngineAudioOpponent*>>(0x485A50, this);
 }
 
 void EngineAudioOpponent::Enable3DMode(class Vector3* arg1)
 {
-    return stub<thiscall_t<void, EngineAudioOpponent*, class Vector3*>>(0x85A30_Offset, this, arg1);
+    return stub<thiscall_t<void, EngineAudioOpponent*, class Vector3*>>(0x485A30, this, arg1);
 }
 
 class MetaClass* EngineAudioOpponent::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, EngineAudioOpponent*>>(0x85C70_Offset, this);
+    return stub<thiscall_t<class MetaClass*, EngineAudioOpponent*>>(0x485C70, this);
 }
 
 void EngineAudioOpponent::Init()
 {
-    return stub<thiscall_t<void, EngineAudioOpponent*>>(0x85890_Offset, this);
+    return stub<thiscall_t<void, EngineAudioOpponent*>>(0x485890, this);
 }
 
 void EngineAudioOpponent::Init(i16 arg1)
 {
-    return stub<thiscall_t<void, EngineAudioOpponent*, i16>>(0x85900_Offset, this, arg1);
+    return stub<thiscall_t<void, EngineAudioOpponent*, i16>>(0x485900, this, arg1);
 }
 
 void EngineAudioOpponent::SetSoundPtr(class AudSound* arg1)
 {
-    return stub<thiscall_t<void, EngineAudioOpponent*, class AudSound*>>(0x77810_Offset, this, arg1);
+    return stub<thiscall_t<void, EngineAudioOpponent*, class AudSound*>>(0x477810, this, arg1);
 }
 
 void EngineAudioOpponent::UpdateRPM(f32 arg1)
 {
-    return stub<thiscall_t<void, EngineAudioOpponent*, f32>>(0x85940_Offset, this, arg1);
+    return stub<thiscall_t<void, EngineAudioOpponent*, f32>>(0x485940, this, arg1);
 }
 
 void EngineAudioOpponent::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x85A60_Offset);
+    return stub<cdecl_t<void>>(0x485A60);
 }

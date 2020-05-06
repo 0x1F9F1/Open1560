@@ -32,10 +32,10 @@ Dialog_Message::~Dialog_Message()
 
 void Dialog_Message::Init(i32 arg1, char* arg2, char* arg3)
 {
-    return stub<thiscall_t<void, Dialog_Message*, i32, char*, char*>>(0x9F3F0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, Dialog_Message*, i32, char*, char*>>(0x49F3F0, this, arg1, arg2, arg3);
 }
 
 void Dialog_Message::PreSetup()
 {
-    return stub<thiscall_t<void, Dialog_Message*>>(0x9F470_Offset, this);
+    return stub<thiscall_t<void, Dialog_Message*>>(0x49F470, this);
 }

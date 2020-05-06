@@ -32,30 +32,30 @@ asAero::~asAero()
 
 void asAero::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, asAero*, class Bank*>>(0xE0330_Offset, this, arg1);
+    return stub<thiscall_t<void, asAero*, class Bank*>>(0x4E0330, this, arg1);
 }
 
 class MetaClass* asAero::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, asAero*>>(0xE0670_Offset, this);
+    return stub<thiscall_t<class MetaClass*, asAero*>>(0x4E0670, this);
 }
 
 void asAero::Load(class Stream* arg1)
 {
-    return stub<thiscall_t<void, asAero*, class Stream*>>(0xE0130_Offset, this, arg1);
+    return stub<thiscall_t<void, asAero*, class Stream*>>(0x4E0130, this, arg1);
 }
 
 void asAero::Save(class Stream* arg1)
 {
-    return stub<thiscall_t<void, asAero*, class Stream*>>(0xE0200_Offset, this, arg1);
+    return stub<thiscall_t<void, asAero*, class Stream*>>(0x4E0200, this, arg1);
 }
 
 void asAero::Update()
 {
-    return stub<thiscall_t<void, asAero*>>(0xDFC70_Offset, this);
+    return stub<thiscall_t<void, asAero*>>(0x4DFC70, this);
 }
 
 void asAero::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xE0490_Offset);
+    return stub<cdecl_t<void>>(0x4E0490);
 }

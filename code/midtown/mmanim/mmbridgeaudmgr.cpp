@@ -32,30 +32,30 @@ mmBridgeAudMgr::~mmBridgeAudMgr()
 
 i16 mmBridgeAudMgr::Add(class mmBridgeSet* arg1)
 {
-    return stub<thiscall_t<i16, mmBridgeAudMgr*, class mmBridgeSet*>>(0xC3F80_Offset, this, arg1);
+    return stub<thiscall_t<i16, mmBridgeAudMgr*, class mmBridgeSet*>>(0x4C3F80, this, arg1);
 }
 
 void mmBridgeAudMgr::AssignSounds(i16 arg1)
 {
-    return stub<thiscall_t<void, mmBridgeAudMgr*, i16>>(0xC4180_Offset, this, arg1);
+    return stub<thiscall_t<void, mmBridgeAudMgr*, i16>>(0x4C4180, this, arg1);
 }
 
 i16 mmBridgeAudMgr::FindGreatestDistance(class mmBridgeSet* arg1)
 {
-    return stub<thiscall_t<i16, mmBridgeAudMgr*, class mmBridgeSet*>>(0xC4070_Offset, this, arg1);
+    return stub<thiscall_t<i16, mmBridgeAudMgr*, class mmBridgeSet*>>(0x4C4070, this, arg1);
 }
 
 i16 mmBridgeAudMgr::FindUnusedSlot()
 {
-    return stub<thiscall_t<i16, mmBridgeAudMgr*>>(0xC4110_Offset, this);
+    return stub<thiscall_t<i16, mmBridgeAudMgr*>>(0x4C4110, this);
 }
 
 void mmBridgeAudMgr::Remove(class mmBridgeSet* arg1, i16 arg2)
 {
-    return stub<thiscall_t<void, mmBridgeAudMgr*, class mmBridgeSet*, i16>>(0xC4010_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmBridgeAudMgr*, class mmBridgeSet*, i16>>(0x4C4010, this, arg1, arg2);
 }
 
 void mmBridgeAudMgr::Update()
 {
-    return stub<thiscall_t<void, mmBridgeAudMgr*>>(0xC4150_Offset, this);
+    return stub<thiscall_t<void, mmBridgeAudMgr*>>(0x4C4150, this);
 }

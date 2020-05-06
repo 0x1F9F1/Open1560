@@ -108,4 +108,4 @@ private:
 check_size(mmMultiBlitz, 0x1EEB8);
 
 // 0x6A7170 | ?mmMultiBlitzMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7170_Offset, class MetaClass, mmMultiBlitzMetaClass);
+inline extern_var(0x6A7170, class MetaClass, mmMultiBlitzMetaClass);

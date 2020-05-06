@@ -32,15 +32,15 @@ agiD3DLight::~agiD3DLight()
 
 i32 agiD3DLight::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiD3DLight*>>(0x133840_Offset, this);
+    return stub<thiscall_t<i32, agiD3DLight*>>(0x533840, this);
 }
 
 void agiD3DLight::EndGfx()
 {
-    return stub<thiscall_t<void, agiD3DLight*>>(0x1338C0_Offset, this);
+    return stub<thiscall_t<void, agiD3DLight*>>(0x5338C0, this);
 }
 
 i32 agiD3DLight::Update()
 {
-    return stub<thiscall_t<i32, agiD3DLight*>>(0x133910_Offset, this);
+    return stub<thiscall_t<i32, agiD3DLight*>>(0x533910, this);
 }

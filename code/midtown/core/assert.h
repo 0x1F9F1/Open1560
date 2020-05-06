@@ -38,7 +38,7 @@ struct ArAssertData
 };
 
 [[noreturn]] void ArReportAssertion(const ArAssertData& data);
-[[noreturn]] void ArUnimplemented(const ArSourceLocation& location);
+void ArUnimplemented(const ArSourceLocation& location);
 
 #define AR_SOURCE_LOCATION                                             \
     ::ArSourceLocation                                                 \

@@ -61,4 +61,4 @@ public:
 check_size(asBirthRule, 0xB0);
 
 // 0x7195D8 | ?asBirthRuleMetaClass@@3VMetaClass@@A
-inline extern_var(0x3195D8_Offset, class MetaClass, asBirthRuleMetaClass);
+inline extern_var(0x7195D8, class MetaClass, asBirthRuleMetaClass);

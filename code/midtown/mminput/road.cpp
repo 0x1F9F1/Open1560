@@ -22,25 +22,25 @@ define_dummy_symbol(mminput_road);
 
 i32 mmRoadFF::Assign(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, mmRoadFF*, i32, i32>>(0xE78F0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmRoadFF*, i32, i32>>(0x4E78F0, this, arg1, arg2);
 }
 
 i32 mmRoadFF::Init(struct IDirectInputDevice2A* arg1)
 {
-    return stub<thiscall_t<i32, mmRoadFF*, struct IDirectInputDevice2A*>>(0xE77C0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmRoadFF*, struct IDirectInputDevice2A*>>(0x4E77C0, this, arg1);
 }
 
 i32 mmRoadFF::Play()
 {
-    return stub<thiscall_t<i32, mmRoadFF*>>(0xE79E0_Offset, this);
+    return stub<thiscall_t<i32, mmRoadFF*>>(0x4E79E0, this);
 }
 
 i32 mmRoadFF::SetValues(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<i32, mmRoadFF*, f32, f32>>(0xE78C0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmRoadFF*, f32, f32>>(0x4E78C0, this, arg1, arg2);
 }
 
 i32 mmRoadFF::Stop()
 {
-    return stub<thiscall_t<i32, mmRoadFF*>>(0xE7A50_Offset, this);
+    return stub<thiscall_t<i32, mmRoadFF*>>(0x4E7A50, this);
 }

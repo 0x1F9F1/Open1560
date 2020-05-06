@@ -32,117 +32,117 @@ mmPlayerConfig::~mmPlayerConfig()
 
 void mmPlayerConfig::operator=(class mmPlayerConfig& arg1)
 {
-    return stub<thiscall_t<void, mmPlayerConfig*, class mmPlayerConfig&>>(0xCDB10_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPlayerConfig*, class mmPlayerConfig&>>(0x4CDB10, this, arg1);
 }
 
 void mmPlayerConfig::DefaultAudio()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE800_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE800, this);
 }
 
 void mmPlayerConfig::DefaultControls()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE910_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE910, this);
 }
 
 void mmPlayerConfig::DefaultGraphics()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE9C0_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE9C0, this);
 }
 
 void mmPlayerConfig::DefaultViewSettings()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE970_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE970, this);
 }
 
 void mmPlayerConfig::GetAudio()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE650_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE650, this);
 }
 
 class MetaClass* mmPlayerConfig::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmPlayerConfig*>>(0xCEE70_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmPlayerConfig*>>(0x4CEE70, this);
 }
 
 void mmPlayerConfig::GetControls()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE6C0_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE6C0, this);
 }
 
 void mmPlayerConfig::GetGraphics()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE630_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE630, this);
 }
 
 void mmPlayerConfig::GetViewSettings()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE7A0_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE7A0, this);
 }
 
 i32 mmPlayerConfig::Load(char* arg1)
 {
-    return stub<thiscall_t<i32, mmPlayerConfig*, char*>>(0xCDC90_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPlayerConfig*, char*>>(0x4CDC90, this, arg1);
 }
 
 i32 mmPlayerConfig::LoadBinary(char* arg1)
 {
-    return stub<thiscall_t<i32, mmPlayerConfig*, char*>>(0xCDD60_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPlayerConfig*, char*>>(0x4CDD60, this, arg1);
 }
 
 void mmPlayerConfig::Reset()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE9B0_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE9B0, this);
 }
 
 i32 mmPlayerConfig::Save(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, mmPlayerConfig*, char*, i32>>(0xCE240_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmPlayerConfig*, char*, i32>>(0x4CE240, this, arg1, arg2);
 }
 
 i32 mmPlayerConfig::SaveBinary(char* arg1)
 {
-    return stub<thiscall_t<i32, mmPlayerConfig*, char*>>(0xCDFE0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPlayerConfig*, char*>>(0x4CDFE0, this, arg1);
 }
 
 void mmPlayerConfig::SetAudio()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE2E0_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE2E0, this);
 }
 
 void mmPlayerConfig::SetControls()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE450_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE450, this);
 }
 
 void mmPlayerConfig::SetDefaults()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE230_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE230, this);
 }
 
 void mmPlayerConfig::SetGraphics()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE640_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE640, this);
 }
 
 void mmPlayerConfig::SetViewSettings()
 {
-    return stub<thiscall_t<void, mmPlayerConfig*>>(0xCE7D0_Offset, this);
+    return stub<thiscall_t<void, mmPlayerConfig*>>(0x4CE7D0, this);
 }
 
 void mmPlayerConfig::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xCE9E0_Offset);
+    return stub<cdecl_t<void>>(0x4CE9E0);
 }
 
 void mmGfxCFG::Get()
 {
-    return stub<thiscall_t<void, mmGfxCFG*>>(0xCE540_Offset, this);
+    return stub<thiscall_t<void, mmGfxCFG*>>(0x4CE540, this);
 }
 
 void mmGfxCFG::Set()
 {
-    return stub<thiscall_t<void, mmGfxCFG*>>(0xCE5B0_Offset, this);
+    return stub<thiscall_t<void, mmGfxCFG*>>(0x4CE5B0, this);
 }
 
 mmCtrlCFG::~mmCtrlCFG()

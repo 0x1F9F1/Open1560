@@ -69,4 +69,4 @@ public:
 check_size(PolarCamCS, 0x130);
 
 // 0x719498 | ?PolarCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x319498_Offset, class MetaClass, PolarCamCSMetaClass);
+inline extern_var(0x719498, class MetaClass, PolarCamCSMetaClass);

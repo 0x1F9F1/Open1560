@@ -27,30 +27,30 @@ Base::~Base()
 
 class MetaClass* Base::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, Base*>>(0x179290_Offset, this);
+    return stub<thiscall_t<class MetaClass*, Base*>>(0x579290, this);
 }
 
 char* Base::GetTypeNameV()
 {
-    return stub<thiscall_t<char*, Base*>>(0x1791A0_Offset, this);
+    return stub<thiscall_t<char*, Base*>>(0x5791A0, this);
 }
 
 void Base::BeforeSave()
 {
-    return stub<thiscall_t<void, Base*>>(0x1791C0_Offset, this);
+    return stub<thiscall_t<void, Base*>>(0x5791C0, this);
 }
 
 void Base::AfterLoad()
 {
-    return stub<thiscall_t<void, Base*>>(0x1791D0_Offset, this);
+    return stub<thiscall_t<void, Base*>>(0x5791D0, this);
 }
 
 char* Base::GetTypeName()
 {
-    return stub<thiscall_t<char*, Base*>>(0x1791B0_Offset, this);
+    return stub<thiscall_t<char*, Base*>>(0x5791B0, this);
 }
 
 void Base::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x1791F0_Offset);
+    return stub<cdecl_t<void>>(0x5791F0);
 }

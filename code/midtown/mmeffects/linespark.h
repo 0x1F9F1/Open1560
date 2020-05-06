@@ -37,7 +37,7 @@
 class asSparkLut* GetSparkLut(char* arg1);
 
 // 0x719600 | ?SLH@@3VHashTable@@A
-inline extern_var(0x319600_Offset, class HashTable, SLH);
+inline extern_var(0x719600, class HashTable, SLH);
 
 class asSparkLut
 {
@@ -47,7 +47,7 @@ public:
 
 private:
     // 0x64A0D8 | ?BuiltinClut@asSparkLut@@0PAIA
-    static inline extern_var(0x24A0D8_Offset, u32*, BuiltinClut);
+    static inline extern_var(0x64A0D8, u32*, BuiltinClut);
 };
 
 check_size(asSparkLut, 0x0);

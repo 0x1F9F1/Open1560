@@ -32,25 +32,25 @@ agiD3DViewport::~agiD3DViewport()
 
 void agiD3DViewport::Activate()
 {
-    return stub<thiscall_t<void, agiD3DViewport*>>(0x133350_Offset, this);
+    return stub<thiscall_t<void, agiD3DViewport*>>(0x533350, this);
 }
 
 i32 agiD3DViewport::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiD3DViewport*>>(0x133300_Offset, this);
+    return stub<thiscall_t<i32, agiD3DViewport*>>(0x533300, this);
 }
 
 void agiD3DViewport::Clear(i32 arg1)
 {
-    return stub<thiscall_t<void, agiD3DViewport*, i32>>(0x133460_Offset, this, arg1);
+    return stub<thiscall_t<void, agiD3DViewport*, i32>>(0x533460, this, arg1);
 }
 
 void agiD3DViewport::EndGfx()
 {
-    return stub<thiscall_t<void, agiD3DViewport*>>(0x133330_Offset, this);
+    return stub<thiscall_t<void, agiD3DViewport*>>(0x533330, this);
 }
 
 void agiD3DViewport::SetBackground(class Vector3& arg1)
 {
-    return stub<thiscall_t<void, agiD3DViewport*, class Vector3&>>(0x133410_Offset, this, arg1);
+    return stub<thiscall_t<void, agiD3DViewport*, class Vector3&>>(0x533410, this, arg1);
 }

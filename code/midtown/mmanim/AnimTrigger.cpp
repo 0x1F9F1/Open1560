@@ -32,50 +32,50 @@ mmAnimTrigger::~mmAnimTrigger()
 
 i32 mmAnimTrigger::CheckCondition()
 {
-    return stub<thiscall_t<i32, mmAnimTrigger*>>(0xC4290_Offset, this);
+    return stub<thiscall_t<i32, mmAnimTrigger*>>(0x4C4290, this);
 }
 
 i32 mmAnimTrigger::CheckObjectDistance()
 {
-    return stub<thiscall_t<i32, mmAnimTrigger*>>(0xC43B0_Offset, this);
+    return stub<thiscall_t<i32, mmAnimTrigger*>>(0x4C43B0, this);
 }
 
 i32 mmAnimTrigger::CheckObjectHit()
 {
-    return stub<thiscall_t<i32, mmAnimTrigger*>>(0xC4300_Offset, this);
+    return stub<thiscall_t<i32, mmAnimTrigger*>>(0x4C4300, this);
 }
 
 i32 mmAnimTrigger::CheckStateStatus()
 {
-    return stub<thiscall_t<i32, mmAnimTrigger*>>(0xC4350_Offset, this);
+    return stub<thiscall_t<i32, mmAnimTrigger*>>(0x4C4350, this);
 }
 
 i32 mmAnimTrigger::CheckTimeDelay()
 {
-    return stub<thiscall_t<i32, mmAnimTrigger*>>(0xC4320_Offset, this);
+    return stub<thiscall_t<i32, mmAnimTrigger*>>(0x4C4320, this);
 }
 
 void mmAnimTrigger::Init(f32 arg1)
 {
-    return stub<thiscall_t<void, mmAnimTrigger*, f32>>(0xC4270_Offset, this, arg1);
+    return stub<thiscall_t<void, mmAnimTrigger*, f32>>(0x4C4270, this, arg1);
 }
 
 void mmAnimTrigger::Init(class Vector3* arg1, f32* arg2)
 {
-    return stub<thiscall_t<void, mmAnimTrigger*, class Vector3*, f32*>>(0xC4220_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmAnimTrigger*, class Vector3*, f32*>>(0x4C4220, this, arg1, arg2);
 }
 
 void mmAnimTrigger::Init(class mmInstance* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmAnimTrigger*, class mmInstance*, i32>>(0xC4200_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmAnimTrigger*, class mmInstance*, i32>>(0x4C4200, this, arg1, arg2);
 }
 
 void mmAnimTrigger::Init(i32* arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmAnimTrigger*, i32*, f32>>(0xC4240_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmAnimTrigger*, i32*, f32>>(0x4C4240, this, arg1, arg2);
 }
 
 void mmAnimTrigger::Reset()
 {
-    return stub<thiscall_t<void, mmAnimTrigger*>>(0xC43A0_Offset, this);
+    return stub<thiscall_t<void, mmAnimTrigger*>>(0x4C43A0, this);
 }

@@ -22,21 +22,20 @@ define_dummy_symbol(arts7_benchstats);
 
 void asBenchStats::Average(class asBenchStats* arg1, f32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, asBenchStats*, class asBenchStats*, f32, i32>>(
-        0x12CEB0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, asBenchStats*, class asBenchStats*, f32, i32>>(0x52CEB0, this, arg1, arg2, arg3);
 }
 
 void asBenchStats::Current(class asBenchStats* arg1)
 {
-    return stub<thiscall_t<void, asBenchStats*, class asBenchStats*>>(0x12CFD0_Offset, this, arg1);
+    return stub<thiscall_t<void, asBenchStats*, class asBenchStats*>>(0x52CFD0, this, arg1);
 }
 
 void asBenchStats::Print()
 {
-    return stub<thiscall_t<void, asBenchStats*>>(0x12CEA0_Offset, this);
+    return stub<thiscall_t<void, asBenchStats*>>(0x52CEA0, this);
 }
 
 void asBenchStats::Reset()
 {
-    return stub<thiscall_t<void, asBenchStats*>>(0x12CE60_Offset, this);
+    return stub<thiscall_t<void, asBenchStats*>>(0x52CE60, this);
 }

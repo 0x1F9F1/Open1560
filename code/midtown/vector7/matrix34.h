@@ -274,7 +274,7 @@ f32 ATan2f(f32 arg1, f32 arg2);
 f32 asinf_fast(f32 arg1);
 
 // 0x909490 | ?IDENTITY@@3VMatrix34@@A
-inline extern_var(0x509490_Offset, class Matrix34, IDENTITY);
+inline extern_var(0x909490, class Matrix34, IDENTITY);
 
 // 0x9094C0 | ?Matrix34MetaClass@@3VMetaClass@@A
-inline extern_var(0x5094C0_Offset, class MetaClass, Matrix34MetaClass);
+inline extern_var(0x9094C0, class MetaClass, Matrix34MetaClass);

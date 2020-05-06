@@ -52,20 +52,20 @@ public:
     void SetTexture(class agiTexDef* arg1);
 
     // 0x63FC50 | ?Color@mmSky@@2IA
-    static inline extern_var(0x23FC50_Offset, u32, Color);
+    static inline extern_var(0x63FC50, u32, Color);
 
 private:
     // 0x7056FC | ?DoFlash@mmSky@@0HA
-    static inline extern_var(0x3056FC_Offset, i32, DoFlash);
+    static inline extern_var(0x7056FC, i32, DoFlash);
 
     // 0x705704 | ?Instance@mmSky@@0PAV1@A
-    static inline extern_var(0x305704_Offset, class mmSky*, Instance);
+    static inline extern_var(0x705704, class mmSky*, Instance);
 };
 
 check_size(mmSky, 0x0);
 
 // 0x705700 | ?FlashTex@@3PAVagiTexDef@@A
-inline extern_var(0x305700_Offset, class agiTexDef*, FlashTex);
+inline extern_var(0x705700, class agiTexDef*, FlashTex);
 
 // 0x63FC54 | ?SkyScale@@3MA
-inline extern_var(0x23FC54_Offset, f32, SkyScale);
+inline extern_var(0x63FC54, f32, SkyScale);

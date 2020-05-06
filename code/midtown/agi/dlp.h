@@ -88,4 +88,4 @@ protected:
 check_size(DLP, 0x0);
 
 // 0x907950 | ?DLPHash@@3VHashTable@@A
-inline extern_var(0x507950_Offset, class HashTable, DLPHash);
+inline extern_var(0x907950, class HashTable, DLPHash);

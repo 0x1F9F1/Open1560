@@ -110,4 +110,4 @@ public:
 check_size(VSWidget, 0xD0);
 
 // 0x705CC8 | ?VSWidgetMetaClass@@3VMetaClass@@A
-inline extern_var(0x305CC8_Offset, class MetaClass, VSWidgetMetaClass);
+inline extern_var(0x705CC8, class MetaClass, VSWidgetMetaClass);

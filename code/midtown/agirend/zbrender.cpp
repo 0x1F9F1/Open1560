@@ -32,5 +32,5 @@ agiZBufRenderer::~agiZBufRenderer()
 
 void agiZBufRenderer::EndGroup()
 {
-    return stub<thiscall_t<void, agiZBufRenderer*>>(0x14FAA0_Offset, this);
+    return stub<thiscall_t<void, agiZBufRenderer*>>(0x54FAA0, this);
 }

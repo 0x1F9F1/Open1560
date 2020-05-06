@@ -26,4 +26,4 @@
 */
 
 // 0x903198 | ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
-inline extern_var(0x503198_Offset, class agiLib<class agiMtlParameters, class agiMtlDef>, agiMtlLib);
+inline extern_var(0x903198, class agiLib<class agiMtlParameters, class agiMtlDef>, agiMtlLib);

@@ -54,7 +54,7 @@ i32 RecallPosition(i32 arg1, class Matrix34* arg2, i32* arg3, char* arg4);
 i32 RegisterPosition(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
 
 // 0x6A8F18 | ?DontClearPositions@@3HA
-inline extern_var(0x2A8F18_Offset, i32, DontClearPositions);
+inline extern_var(0x6A8F18, i32, DontClearPositions);
 
 struct position_t
 {

@@ -32,20 +32,20 @@ mmVehInfo::~mmVehInfo()
 
 i32 mmVehInfo::HasColorVariations()
 {
-    return stub<thiscall_t<i32, mmVehInfo*>>(0xD3BE0_Offset, this);
+    return stub<thiscall_t<i32, mmVehInfo*>>(0x4D3BE0, this);
 }
 
 i32 mmVehInfo::IsValid()
 {
-    return stub<thiscall_t<i32, mmVehInfo*>>(0x9C590_Offset, this);
+    return stub<thiscall_t<i32, mmVehInfo*>>(0x49C590, this);
 }
 
 i32 mmVehInfo::Load(char* arg1)
 {
-    return stub<thiscall_t<i32, mmVehInfo*, char*>>(0xD3A00_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmVehInfo*, char*>>(0x4D3A00, this, arg1);
 }
 
 void mmVehInfo::Print()
 {
-    return stub<thiscall_t<void, mmVehInfo*>>(0xD3C00_Offset, this);
+    return stub<thiscall_t<void, mmVehInfo*>>(0x4D3C00, this);
 }

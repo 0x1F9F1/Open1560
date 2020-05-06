@@ -32,18 +32,18 @@ mmCompDRecord::~mmCompDRecord()
 
 void mmCompDRecord::Cull()
 {
-    return stub<thiscall_t<void, mmCompDRecord*>>(0xB5FC0_Offset, this);
+    return stub<thiscall_t<void, mmCompDRecord*>>(0x4B5FC0, this);
 }
 
 void mmCompDRecord::DisableBlt()
 {
-    return stub<thiscall_t<void, mmCompDRecord*>>(0xB6090_Offset, this);
+    return stub<thiscall_t<void, mmCompDRecord*>>(0x4B6090, this);
 }
 
 void mmCompDRecord::Init(i32 arg1, char* arg2, f32 arg3, char* arg4, i32 arg5, i32 arg6, i32 arg7)
 {
     return stub<thiscall_t<void, mmCompDRecord*, i32, char*, f32, char*, i32, i32, i32>>(
-        0xB5B70_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x4B5B70, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 void mmCompDRecord::InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
@@ -51,40 +51,40 @@ void mmCompDRecord::InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct Loc
 {
     return stub<thiscall_t<void, mmCompDRecord*, f32, f32, f32, f32, struct LocString*, struct LocString*,
         struct LocString*, struct LocString*, struct LocString*, i32>>(
-        0xB5C60_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
+        0x4B5C60, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
 }
 
 void mmCompDRecord::LoadBitmap(char* arg1)
 {
-    return stub<thiscall_t<void, mmCompDRecord*, char*>>(0xB5CD0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCompDRecord*, char*>>(0x4B5CD0, this, arg1);
 }
 
 void mmCompDRecord::Reset()
 {
-    return stub<thiscall_t<void, mmCompDRecord*>>(0xB5D40_Offset, this);
+    return stub<thiscall_t<void, mmCompDRecord*>>(0x4B5D40, this);
 }
 
 void mmCompDRecord::SetBltXY(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmCompDRecord*, f32, f32>>(0xB5F70_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmCompDRecord*, f32, f32>>(0x4B5F70, this, arg1, arg2);
 }
 
 void mmCompDRecord::SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4)
 {
-    return stub<thiscall_t<void, mmCompDRecord*, f32, f32, f32, f32>>(0xB5F40_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, mmCompDRecord*, f32, f32, f32, f32>>(0x4B5F40, this, arg1, arg2, arg3, arg4);
 }
 
 void mmCompDRecord::SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<void, mmCompDRecord*, class mmTextNode*, i32, f32>>(0xB5EA0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmCompDRecord*, class mmTextNode*, i32, f32>>(0x4B5EA0, this, arg1, arg2, arg3);
 }
 
 void mmCompDRecord::SetSubwidgetGeometry()
 {
-    return stub<thiscall_t<void, mmCompDRecord*>>(0xB5D80_Offset, this);
+    return stub<thiscall_t<void, mmCompDRecord*>>(0x4B5D80, this);
 }
 
 void mmCompDRecord::Update()
 {
-    return stub<thiscall_t<void, mmCompDRecord*>>(0xB5D50_Offset, this);
+    return stub<thiscall_t<void, mmCompDRecord*>>(0x4B5D50, this);
 }

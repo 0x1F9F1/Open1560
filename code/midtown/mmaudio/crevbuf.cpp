@@ -32,30 +32,30 @@ CReverbBuffer::~CReverbBuffer()
 
 void CReverbBuffer::GetAll(struct EAXBUFFER_REVERBPROPERTIES* arg1)
 {
-    return stub<thiscall_t<void, CReverbBuffer*, struct EAXBUFFER_REVERBPROPERTIES*>>(0xF4BE0_Offset, this, arg1);
+    return stub<thiscall_t<void, CReverbBuffer*, struct EAXBUFFER_REVERBPROPERTIES*>>(0x4F4BE0, this, arg1);
 }
 
 f32 CReverbBuffer::GetReverbMix()
 {
-    return stub<thiscall_t<f32, CReverbBuffer*>>(0xF4BA0_Offset, this);
+    return stub<thiscall_t<f32, CReverbBuffer*>>(0x4F4BA0, this);
 }
 
 i32 CReverbBuffer::PropertySetOk()
 {
-    return stub<thiscall_t<i32, CReverbBuffer*>>(0xF4B00_Offset, this);
+    return stub<thiscall_t<i32, CReverbBuffer*>>(0x4F4B00, this);
 }
 
 void CReverbBuffer::SetAll(struct EAXBUFFER_REVERBPROPERTIES* arg1)
 {
-    return stub<thiscall_t<void, CReverbBuffer*, struct EAXBUFFER_REVERBPROPERTIES*>>(0xF4B80_Offset, this, arg1);
+    return stub<thiscall_t<void, CReverbBuffer*, struct EAXBUFFER_REVERBPROPERTIES*>>(0x4F4B80, this, arg1);
 }
 
 void CReverbBuffer::SetReverbMix(f32 arg1)
 {
-    return stub<thiscall_t<void, CReverbBuffer*, f32>>(0xF4B60_Offset, this, arg1);
+    return stub<thiscall_t<void, CReverbBuffer*, f32>>(0x4F4B60, this, arg1);
 }
 
 i32 CReverbBuffer::QueryProperty(u32 arg1)
 {
-    return stub<thiscall_t<i32, CReverbBuffer*, u32>>(0xF4B10_Offset, this, arg1);
+    return stub<thiscall_t<i32, CReverbBuffer*, u32>>(0x4F4B10, this, arg1);
 }

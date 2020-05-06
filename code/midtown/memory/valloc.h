@@ -60,4 +60,4 @@ protected:
 check_size(asSafeHeap, 0x0);
 
 // 0x790730 | ?SAFEHEAP@@3VasSafeHeap@@A
-inline extern_var(0x390730_Offset, class asSafeHeap, SAFEHEAP);
+inline extern_var(0x790730, class asSafeHeap, SAFEHEAP);

@@ -22,20 +22,20 @@ define_dummy_symbol(agi_getdlp);
 
 void CheckLibraries()
 {
-    return stub<cdecl_t<void>>(0x156A30_Offset);
+    return stub<cdecl_t<void>>(0x556A30);
 }
 
 class DLPTemplate* GetDLPTemplate(char* arg1)
 {
-    return stub<cdecl_t<class DLPTemplate*, char*>>(0x156B60_Offset, arg1);
+    return stub<cdecl_t<class DLPTemplate*, char*>>(0x556B60, arg1);
 }
 
 i32 GetGroupVerts(char* arg1, char* arg2, class Vector3* arg3, i32 arg4)
 {
-    return stub<cdecl_t<i32, char*, char*, class Vector3*, i32>>(0x156DF0_Offset, arg1, arg2, arg3, arg4);
+    return stub<cdecl_t<i32, char*, char*, class Vector3*, i32>>(0x556DF0, arg1, arg2, arg3, arg4);
 }
 
 i32 OutOfDate(char* arg1, char* arg2)
 {
-    return stub<cdecl_t<i32, char*, char*>>(0x1569D0_Offset, arg1, arg2);
+    return stub<cdecl_t<i32, char*, char*>>(0x5569D0, arg1, arg2);
 }

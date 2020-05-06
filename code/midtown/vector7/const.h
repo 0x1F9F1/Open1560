@@ -54,10 +54,10 @@ void SetMathSpeedMed();
 void SetMathSpeedSlow();
 
 // 0x909648 | ?MathSpeed@@3HA
-inline extern_var(0x509648_Offset, i32, MathSpeed);
+inline extern_var(0x909648, i32, MathSpeed);
 
 // 0x90964C | ?OldMathSpeed@@3HA
-inline extern_var(0x50964C_Offset, i32, OldMathSpeed);
+inline extern_var(0x90964C, i32, OldMathSpeed);
 
 class IntArray
 {

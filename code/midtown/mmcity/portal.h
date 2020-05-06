@@ -110,7 +110,7 @@ public:
     static void DeclareFields();
 
     // 0x705714 | ?VisitTag@asPortalWeb@@2GA
-    static inline extern_var(0x305714_Offset, u16, VisitTag);
+    static inline extern_var(0x705714, u16, VisitTag);
 };
 
 check_size(asPortalWeb, 0x0);
@@ -122,7 +122,7 @@ struct asPortalCell* LookupCell(char* arg1);
 struct asPortalCell* LookupEdge(char* arg1);
 
 // 0x705718 | ?asPortalWebMetaClass@@3VMetaClass@@A
-inline extern_var(0x305718_Offset, class MetaClass, asPortalWebMetaClass);
+inline extern_var(0x705718, class MetaClass, asPortalWebMetaClass);
 
 struct asPortalPVS
 {

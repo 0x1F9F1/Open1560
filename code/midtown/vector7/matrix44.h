@@ -151,31 +151,31 @@ class Vector3 operator^(class Vector3 const& arg1, class Matrix44 const& arg2);
 class Vector4 operator^(class Vector4 const& arg1, class Matrix44 const& arg2);
 
 // 0x909530 | ?BezierBasis@@3VMatrix44@@A
-inline extern_var(0x509530_Offset, class Matrix44, BezierBasis);
+inline extern_var(0x909530, class Matrix44, BezierBasis);
 
 // 0x9095B0 | ?BezierTranspose@@3VMatrix44@@A
-inline extern_var(0x5095B0_Offset, class Matrix44, BezierTranspose);
+inline extern_var(0x9095B0, class Matrix44, BezierTranspose);
 
 // 0x9094F0 | ?HermiteBasis@@3VMatrix44@@A
-inline extern_var(0x5094F0_Offset, class Matrix44, HermiteBasis);
+inline extern_var(0x9094F0, class Matrix44, HermiteBasis);
 
 // 0x909570 | ?HermiteTranspose@@3VMatrix44@@A
-inline extern_var(0x509570_Offset, class Matrix44, HermiteTranspose);
+inline extern_var(0x909570, class Matrix44, HermiteTranspose);
 
 // 0x9095F0 | ?Identity@@3VMatrix44@@A
-inline extern_var(0x5095F0_Offset, class Matrix44, Identity);
+inline extern_var(0x9095F0, class Matrix44, Identity);
 
 // 0x658DB0 | ?bb@@3PAMA
-inline extern_var(0x258DB0_Offset, f32*, bb);
+inline extern_var(0x658DB0, f32*, bb);
 
 // 0x658DF0 | ?bt@@3PAMA
-inline extern_var(0x258DF0_Offset, f32*, bt);
+inline extern_var(0x658DF0, f32*, bt);
 
 // 0x658E30 | ?hb@@3PAMA
-inline extern_var(0x258E30_Offset, f32*, hb);
+inline extern_var(0x658E30, f32*, hb);
 
 // 0x658E70 | ?ht@@3PAMA
-inline extern_var(0x258E70_Offset, f32*, ht);
+inline extern_var(0x658E70, f32*, ht);
 
 // 0x658D70 | ?id@@3PAMA
-inline extern_var(0x258D70_Offset, f32*, id);
+inline extern_var(0x658D70, f32*, id);

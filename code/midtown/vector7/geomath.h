@@ -53,4 +53,4 @@ class Vector4 GetBoundSphere(i32 arg1, class Vector3* arg2);
 i32 IsQuadCoplanar(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4);
 
 // 0x65A4E0 | ?QuadCoplanarTolerance@@3MA
-inline extern_var(0x25A4E0_Offset, f32, QuadCoplanarTolerance);
+inline extern_var(0x65A4E0, f32, QuadCoplanarTolerance);

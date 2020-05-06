@@ -71,4 +71,4 @@ public:
 check_size(mmBridgeAudMgr, 0x38);
 
 // 0x705E1C | ?MMBRIDGEAUDMGRPTR@@3PAVmmBridgeAudMgr@@A
-inline extern_var(0x305E1C_Offset, class mmBridgeAudMgr*, MMBRIDGEAUDMGRPTR);
+inline extern_var(0x705E1C, class mmBridgeAudMgr*, MMBRIDGEAUDMGRPTR);

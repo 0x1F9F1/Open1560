@@ -22,5 +22,5 @@ define_dummy_symbol(mmcityinfo_crc);
 
 u32 UpdateCrc(u8* arg1, u32 arg2)
 {
-    return stub<cdecl_t<u32, u8*, u32>>(0xD3CC0_Offset, arg1, arg2);
+    return stub<cdecl_t<u32, u8*, u32>>(0x4D3CC0, arg1, arg2);
 }

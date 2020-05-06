@@ -85,61 +85,61 @@ void agiMeshLighterUpdateColors();
 void agiMeshPrelight(u32* arg1, class agiMeshSet* arg2, class Matrix34& arg3);
 
 // 0x73E660 | ?agiMeshLighterAmbient@@3VVector3@@A
-inline extern_var(0x33E660_Offset, class Vector3, agiMeshLighterAmbient);
+inline extern_var(0x73E660, class Vector3, agiMeshLighterAmbient);
 
 // 0x64ABC0 | ?agiMeshLighterConeRange2@@3MA
-inline extern_var(0x24ABC0_Offset, f32, agiMeshLighterConeRange2);
+inline extern_var(0x64ABC0, f32, agiMeshLighterConeRange2);
 
 // 0x73E628 | ?agiMeshLighterFill1@@3VVector3@@A
-inline extern_var(0x33E628_Offset, class Vector3, agiMeshLighterFill1);
+inline extern_var(0x73E628, class Vector3, agiMeshLighterFill1);
 
 // 0x73E6A8 | ?agiMeshLighterFill1Color@@3VVector3@@A
-inline extern_var(0x33E6A8_Offset, class Vector3, agiMeshLighterFill1Color);
+inline extern_var(0x73E6A8, class Vector3, agiMeshLighterFill1Color);
 
 // 0x73E638 | ?agiMeshLighterFill2@@3VVector3@@A
-inline extern_var(0x33E638_Offset, class Vector3, agiMeshLighterFill2);
+inline extern_var(0x73E638, class Vector3, agiMeshLighterFill2);
 
 // 0x73E688 | ?agiMeshLighterFill2Color@@3VVector3@@A
-inline extern_var(0x33E688_Offset, class Vector3, agiMeshLighterFill2Color);
+inline extern_var(0x73E688, class Vector3, agiMeshLighterFill2Color);
 
 // 0x64ABBC | ?agiMeshLighterMax@@3MA
-inline extern_var(0x24ABBC_Offset, f32, agiMeshLighterMax);
+inline extern_var(0x64ABBC, f32, agiMeshLighterMax);
 
 // 0x64ABB8 | ?agiMeshLighterMin@@3MA
-inline extern_var(0x24ABB8_Offset, f32, agiMeshLighterMin);
+inline extern_var(0x64ABB8, f32, agiMeshLighterMin);
 
 // 0x73E648 | ?agiMeshLighterSpecularColor@@3VVector3@@A
-inline extern_var(0x33E648_Offset, class Vector3, agiMeshLighterSpecularColor);
+inline extern_var(0x73E648, class Vector3, agiMeshLighterSpecularColor);
 
 // 0x64ABC8 | ?agiMeshLighterSpecularExponent@@3MA
-inline extern_var(0x24ABC8_Offset, f32, agiMeshLighterSpecularExponent);
+inline extern_var(0x64ABC8, f32, agiMeshLighterSpecularExponent);
 
 // 0x73E618 | ?agiMeshLighterSun@@3VVector3@@A
-inline extern_var(0x33E618_Offset, class Vector3, agiMeshLighterSun);
+inline extern_var(0x73E618, class Vector3, agiMeshLighterSun);
 
 // 0x73D3E0 | ?agiMeshLighterSunColor@@3VVector3@@A
-inline extern_var(0x33D3E0_Offset, class Vector3, agiMeshLighterSunColor);
+inline extern_var(0x73D3E0, class Vector3, agiMeshLighterSunColor);
 
 // 0x73E670 | ?ambColor@@3Tmmx@@A
-inline extern_var(0x33E670_Offset, union mmx, ambColor);
+inline extern_var(0x73E670, union mmx, ambColor);
 
 // 0x73E678 | ?clampSSS_3_10@@3Tmmx@@A
-inline extern_var(0x33E678_Offset, union mmx, clampSSS_3_10);
+inline extern_var(0x73E678, union mmx, clampSSS_3_10);
 
 // 0x73E680 | ?fill1Color@@3Tmmx@@A
-inline extern_var(0x33E680_Offset, union mmx, fill1Color);
+inline extern_var(0x73E680, union mmx, fill1Color);
 
 // 0x73E6B8 | ?fill2Color@@3Tmmx@@A
-inline extern_var(0x33E6B8_Offset, union mmx, fill2Color);
+inline extern_var(0x73E6B8, union mmx, fill2Color);
 
 // 0x73D3F8 | ?keyColor@@3Tmmx@@A
-inline extern_var(0x33D3F8_Offset, union mmx, keyColor);
+inline extern_var(0x73D3F8, union mmx, keyColor);
 
 // 0x73D3D8 | ?minus1@@3Tmmx@@A
-inline extern_var(0x33D3D8_Offset, union mmx, minus1);
+inline extern_var(0x73D3D8, union mmx, minus1);
 
 // 0x73E658 | ?unclampSSS_3_10@@3Tmmx@@A
-inline extern_var(0x33E658_Offset, union mmx, unclampSSS_3_10);
+inline extern_var(0x73E658, union mmx, unclampSSS_3_10);
 
 // 0x73D3F0 | ?zero@@3Tmmx@@A
-inline extern_var(0x33D3F0_Offset, union mmx, zero);
+inline extern_var(0x73D3F0, union mmx, zero);

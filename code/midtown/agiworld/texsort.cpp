@@ -32,46 +32,46 @@ agiTexSorter::~agiTexSorter()
 
 void agiTexSorter::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, agiTexSorter*, class Bank*>>(0x104620_Offset, this, arg1);
+    return stub<thiscall_t<void, agiTexSorter*, class Bank*>>(0x504620, this, arg1);
 }
 
 void agiTexSorter::Cull(i32 arg1)
 {
-    return stub<thiscall_t<void, agiTexSorter*, i32>>(0x104090_Offset, this, arg1);
+    return stub<thiscall_t<void, agiTexSorter*, i32>>(0x504090, this, arg1);
 }
 
 class agiPolySet* agiTexSorter::BeginVerts(class agiTexDef* arg1, i32 arg2, i32 arg3)
 {
-    return stub<cdecl_t<class agiPolySet*, class agiTexDef*, i32, i32>>(0x103B20_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<class agiPolySet*, class agiTexDef*, i32, i32>>(0x503B20, arg1, arg2, arg3);
 }
 
 class agiPolySet* agiTexSorter::BeginVerts2(class agiTexDef* arg1, class agiTexDef* arg2, i32 arg3, i32 arg4)
 {
     return stub<cdecl_t<class agiPolySet*, class agiTexDef*, class agiTexDef*, i32, i32>>(
-        0x103D70_Offset, arg1, arg2, arg3, arg4);
+        0x503D70, arg1, arg2, arg3, arg4);
 }
 
 void agiTexSorter::DoTexture(class agiPolySet* arg1)
 {
-    return stub<cdecl_t<void, class agiPolySet*>>(0x104150_Offset, arg1);
+    return stub<cdecl_t<void, class agiPolySet*>>(0x504150, arg1);
 }
 
 void agiTexSorter::EndVerts()
 {
-    return stub<cdecl_t<void>>(0x103FF0_Offset);
+    return stub<cdecl_t<void>>(0x503FF0);
 }
 
 void agiTexSorter::EndVerts2()
 {
-    return stub<cdecl_t<void>>(0x104040_Offset);
+    return stub<cdecl_t<void>>(0x504040);
 }
 
 class agiPolySet* agiTexSorter::GetEnv(class agiTexDef* arg1, i32 arg2, i32 arg3)
 {
-    return stub<cdecl_t<class agiPolySet*, class agiTexDef*, i32, i32>>(0x103A60_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<class agiPolySet*, class agiTexDef*, i32, i32>>(0x503A60, arg1, arg2, arg3);
 }
 
 class agiTexDef* GetPackedTexture(char* arg1, i32 arg2)
 {
-    return stub<cdecl_t<class agiTexDef*, char*, i32>>(0x1043E0_Offset, arg1, arg2);
+    return stub<cdecl_t<class agiTexDef*, char*, i32>>(0x5043E0, arg1, arg2);
 }

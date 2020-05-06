@@ -22,17 +22,17 @@ define_dummy_symbol(stream_problems);
 
 void DumpProblems()
 {
-    return stub<cdecl_t<void>>(0x160E10_Offset);
+    return stub<cdecl_t<void>>(0x560E10);
 }
 
 void InitProblems()
 {
-    return stub<cdecl_t<void>>(0x160DB0_Offset);
+    return stub<cdecl_t<void>>(0x560DB0);
 }
 
 void RegisterProblem(char* arg1, char* arg2, char* arg3)
 {
-    return stub<cdecl_t<void, char*, char*, char*>>(0x161100_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<void, char*, char*, char*>>(0x561100, arg1, arg2, arg3);
 }
 
 problem_t::~problem_t()

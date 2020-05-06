@@ -32,10 +32,10 @@ PUKey::~PUKey()
 
 void PUKey::PostSetup()
 {
-    return stub<thiscall_t<void, PUKey*>>(0xA9710_Offset, this);
+    return stub<thiscall_t<void, PUKey*>>(0x4A9710, this);
 }
 
 void PUKey::PreSetup()
 {
-    return stub<thiscall_t<void, PUKey*>>(0xA9470_Offset, this);
+    return stub<thiscall_t<void, PUKey*>>(0x4A9470, this);
 }

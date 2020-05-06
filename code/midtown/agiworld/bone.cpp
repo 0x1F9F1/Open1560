@@ -27,30 +27,30 @@ bnBone::bnBone()
 
 void bnBone::AddChild(class bnBone* arg1)
 {
-    return stub<thiscall_t<void, bnBone*, class bnBone*>>(0x116E40_Offset, this, arg1);
+    return stub<thiscall_t<void, bnBone*, class bnBone*>>(0x516E40, this, arg1);
 }
 
 void bnBone::Attach(class Matrix34* const arg1, i32& arg2)
 {
-    return stub<thiscall_t<void, bnBone*, class Matrix34* const, i32&>>(0x116FD0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, bnBone*, class Matrix34* const, i32&>>(0x516FD0, this, arg1, arg2);
 }
 
 void bnBone::Draw()
 {
-    return stub<thiscall_t<void, bnBone*>>(0x116FC0_Offset, this);
+    return stub<thiscall_t<void, bnBone*>>(0x516FC0, this);
 }
 
 i32 bnBone::Load(class Tokenizer* arg1, class bnBone** arg2)
 {
-    return stub<thiscall_t<i32, bnBone*, class Tokenizer*, class bnBone**>>(0x116E80_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, bnBone*, class Tokenizer*, class bnBone**>>(0x516E80, this, arg1, arg2);
 }
 
 void bnBone::Pose(class Vector3 const* arg1, i32& arg2)
 {
-    return stub<thiscall_t<void, bnBone*, class Vector3 const*, i32&>>(0x117030_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, bnBone*, class Vector3 const*, i32&>>(0x517030, this, arg1, arg2);
 }
 
 void bnBone::Transform(class Matrix34* arg1)
 {
-    return stub<thiscall_t<void, bnBone*, class Matrix34*>>(0x116F70_Offset, this, arg1);
+    return stub<thiscall_t<void, bnBone*, class Matrix34*>>(0x516F70, this, arg1);
 }

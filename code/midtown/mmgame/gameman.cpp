@@ -27,12 +27,12 @@ mmScreenClearFlunky::~mmScreenClearFlunky()
 
 void mmScreenClearFlunky::Cull()
 {
-    return stub<thiscall_t<void, mmScreenClearFlunky*>>(0x3D10_Offset, this);
+    return stub<thiscall_t<void, mmScreenClearFlunky*>>(0x403D10, this);
 }
 
 void mmScreenClearFlunky::Update()
 {
-    return stub<thiscall_t<void, mmScreenClearFlunky*>>(0x3CE0_Offset, this);
+    return stub<thiscall_t<void, mmScreenClearFlunky*>>(0x403CE0, this);
 }
 
 mmGameManager::mmGameManager()
@@ -47,65 +47,65 @@ mmGameManager::~mmGameManager()
 
 void mmGameManager::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmGameManager*, class Bank*>>(0x49B0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameManager*, class Bank*>>(0x4049B0, this, arg1);
 }
 
 void mmGameManager::BeDone()
 {
-    return stub<thiscall_t<void, mmGameManager*>>(0x44C0_Offset, this);
+    return stub<thiscall_t<void, mmGameManager*>>(0x4044C0, this);
 }
 
 void mmGameManager::Cull()
 {
-    return stub<thiscall_t<void, mmGameManager*>>(0x4750_Offset, this);
+    return stub<thiscall_t<void, mmGameManager*>>(0x404750, this);
 }
 
 f32 mmGameManager::GetBrakes()
 {
-    return stub<thiscall_t<f32, mmGameManager*>>(0x4920_Offset, this);
+    return stub<thiscall_t<f32, mmGameManager*>>(0x404920, this);
 }
 
 class MetaClass* mmGameManager::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmGameManager*>>(0x4B30_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmGameManager*>>(0x404B30, this);
 }
 
 f32 mmGameManager::GetSteering()
 {
-    return stub<thiscall_t<f32, mmGameManager*>>(0x4950_Offset, this);
+    return stub<thiscall_t<f32, mmGameManager*>>(0x404950, this);
 }
 
 f32 mmGameManager::GetThrottle()
 {
-    return stub<thiscall_t<f32, mmGameManager*>>(0x4980_Offset, this);
+    return stub<thiscall_t<f32, mmGameManager*>>(0x404980, this);
 }
 
 void mmGameManager::LoadReplay(char* arg1)
 {
-    return stub<thiscall_t<void, mmGameManager*, char*>>(0x47B0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameManager*, char*>>(0x4047B0, this, arg1);
 }
 
 void mmGameManager::Reset()
 {
-    return stub<thiscall_t<void, mmGameManager*>>(0x4910_Offset, this);
+    return stub<thiscall_t<void, mmGameManager*>>(0x404910, this);
 }
 
 void mmGameManager::SaveReplay(char* arg1)
 {
-    return stub<thiscall_t<void, mmGameManager*, char*>>(0x4880_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameManager*, char*>>(0x404880, this, arg1);
 }
 
 void mmGameManager::StartReplay()
 {
-    return stub<thiscall_t<void, mmGameManager*>>(0x4790_Offset, this);
+    return stub<thiscall_t<void, mmGameManager*>>(0x404790, this);
 }
 
 void mmGameManager::Update()
 {
-    return stub<thiscall_t<void, mmGameManager*>>(0x44D0_Offset, this);
+    return stub<thiscall_t<void, mmGameManager*>>(0x4044D0, this);
 }
 
 void mmGameManager::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x49C0_Offset);
+    return stub<cdecl_t<void>>(0x4049C0);
 }

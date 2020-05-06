@@ -257,19 +257,19 @@ void TransformVertNorm(class Vector3& arg1, class Vector3& arg2, class Vector3 c
     class Matrix34 const& arg5);
 
 // 0x909450 | ?ORIGIN@@3VVector3@@A
-inline extern_var(0x509450_Offset, class Vector3, ORIGIN);
+inline extern_var(0x909450, class Vector3, ORIGIN);
 
 // 0x90946C | ?Vector3Inst@@3UVector3Type@@A
-inline extern_var(0x50946C_Offset, struct Vector3Type, Vector3Inst);
+inline extern_var(0x90946C, struct Vector3Type, Vector3Inst);
 
 // 0x909460 | ?XAXIS@@3VVector3@@A
-inline extern_var(0x509460_Offset, class Vector3, XAXIS);
+inline extern_var(0x909460, class Vector3, XAXIS);
 
 // 0x909470 | ?YAXIS@@3VVector3@@A
-inline extern_var(0x509470_Offset, class Vector3, YAXIS);
+inline extern_var(0x909470, class Vector3, YAXIS);
 
 // 0x909480 | ?ZAXIS@@3VVector3@@A
-inline extern_var(0x509480_Offset, class Vector3, ZAXIS);
+inline extern_var(0x909480, class Vector3, ZAXIS);
 
 /*
 class Vector3Array

@@ -58,4 +58,4 @@ public:
 check_size(mmWheelCheap, 0x0);
 
 // 0x6A7E7C | ?EggFriction@@3MA
-inline extern_var(0x2A7E7C_Offset, f32, EggFriction);
+inline extern_var(0x6A7E7C, f32, EggFriction);

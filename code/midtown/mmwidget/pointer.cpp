@@ -32,45 +32,45 @@ sfPointer::~sfPointer()
 
 void sfPointer::Cull()
 {
-    return stub<thiscall_t<void, sfPointer*>>(0xBDD30_Offset, this);
+    return stub<thiscall_t<void, sfPointer*>>(0x4BDD30, this);
 }
 
 class MetaClass* sfPointer::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, sfPointer*>>(0xBDF20_Offset, this);
+    return stub<thiscall_t<class MetaClass*, sfPointer*>>(0x4BDF20, this);
 }
 
 f32 sfPointer::GetPointerHeight()
 {
-    return stub<thiscall_t<f32, sfPointer*>>(0xBDA80_Offset, this);
+    return stub<thiscall_t<f32, sfPointer*>>(0x4BDA80, this);
 }
 
 void sfPointer::Init()
 {
-    return stub<thiscall_t<void, sfPointer*>>(0xBDA00_Offset, this);
+    return stub<thiscall_t<void, sfPointer*>>(0x4BDA00, this);
 }
 
 void sfPointer::ResChange(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, sfPointer*, i32, i32>>(0xBDA20_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, sfPointer*, i32, i32>>(0x4BDA20, this, arg1, arg2);
 }
 
 void sfPointer::Update()
 {
-    return stub<thiscall_t<void, sfPointer*>>(0xBDA90_Offset, this);
+    return stub<thiscall_t<void, sfPointer*>>(0x4BDA90, this);
 }
 
 void sfPointer::WaitForRelease()
 {
-    return stub<thiscall_t<void, sfPointer*>>(0xBDD20_Offset, this);
+    return stub<thiscall_t<void, sfPointer*>>(0x4BDD20, this);
 }
 
 void sfPointer::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xBDDB0_Offset);
+    return stub<cdecl_t<void>>(0x4BDDB0);
 }
 
 void sfPointer::UpdateAttached()
 {
-    return stub<thiscall_t<void, sfPointer*>>(0xBDD10_Offset, this);
+    return stub<thiscall_t<void, sfPointer*>>(0x4BDD10, this);
 }

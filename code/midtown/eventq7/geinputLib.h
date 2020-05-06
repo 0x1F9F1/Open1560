@@ -57,4 +57,4 @@ void geinputUnacquireMouse();
 i32 inputSetup(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
 // 0x9092C0 | ?MOUSESTATE@@3U_DIMOUSESTATE@@A
-inline extern_var(0x5092C0_Offset, struct _DIMOUSESTATE, MOUSESTATE);
+inline extern_var(0x9092C0, struct _DIMOUSESTATE, MOUSESTATE);

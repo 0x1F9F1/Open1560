@@ -84,4 +84,4 @@ private:
 check_size(PovCamCS, 0x144);
 
 // 0x719350 | ?PovCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x319350_Offset, class MetaClass, PovCamCSMetaClass);
+inline extern_var(0x719350, class MetaClass, PovCamCSMetaClass);

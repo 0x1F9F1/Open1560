@@ -92,13 +92,13 @@ protected:
     ~agiSurfRenderer() override;
 
     // 0x8BABF8 | ?SurfaceCount@agiSurfRenderer@@1HA
-    static inline extern_var(0x4BABF8_Offset, i32, SurfaceCount);
+    static inline extern_var(0x8BABF8, i32, SurfaceCount);
 
     // 0x8BAC08 | ?SurfaceHeap@agiSurfRenderer@@1PAUagiSurface@@A
-    static inline extern_var(0x4BAC08_Offset, struct agiSurface*, SurfaceHeap);
+    static inline extern_var(0x8BAC08, struct agiSurface*, SurfaceHeap);
 
     // 0x8BABFC | ?VertexCount@agiSurfRenderer@@1HA
-    static inline extern_var(0x4BABFC_Offset, i32, VertexCount);
+    static inline extern_var(0x8BABFC, i32, VertexCount);
 
 private:
     // 0x552E00 | ?AddSurface@agiSurfRenderer@@CAHPAUagiPatch@@HHHH@Z
@@ -146,10 +146,10 @@ public:
 check_size(agiRenderer, 0x0);
 
 // 0x656590 | ?EarlyBackface@@3HA
-inline extern_var(0x256590_Offset, i32, EarlyBackface);
+inline extern_var(0x656590, i32, EarlyBackface);
 
 // 0x8BAC00 | ?NoClip@@3HA
-inline extern_var(0x4BAC00_Offset, i32, NoClip);
+inline extern_var(0x8BAC00, i32, NoClip);
 
 // 0x8FAC14 | ?ZTrick@@3HA
-inline extern_var(0x4FAC14_Offset, i32, ZTrick);
+inline extern_var(0x8FAC14, i32, ZTrick);

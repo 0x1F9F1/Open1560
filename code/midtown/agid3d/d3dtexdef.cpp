@@ -32,50 +32,50 @@ agiD3DTexDef::~agiD3DTexDef()
 
 i32 agiD3DTexDef::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiD3DTexDef*>>(0x1319E0_Offset, this);
+    return stub<thiscall_t<i32, agiD3DTexDef*>>(0x5319E0, this);
 }
 
 void agiD3DTexDef::EndGfx()
 {
-    return stub<thiscall_t<void, agiD3DTexDef*>>(0x131EF0_Offset, this);
+    return stub<thiscall_t<void, agiD3DTexDef*>>(0x531EF0, this);
 }
 
 struct IDirect3DTexture2* agiD3DTexDef::GetHandle(i32 arg1)
 {
-    return stub<thiscall_t<struct IDirect3DTexture2*, agiD3DTexDef*, i32>>(0x131DA0_Offset, this, arg1);
+    return stub<thiscall_t<struct IDirect3DTexture2*, agiD3DTexDef*, i32>>(0x531DA0, this, arg1);
 }
 
 i32 agiD3DTexDef::IsAvailable()
 {
-    return stub<thiscall_t<i32, agiD3DTexDef*>>(0x131F60_Offset, this);
+    return stub<thiscall_t<i32, agiD3DTexDef*>>(0x531F60, this);
 }
 
 i32 agiD3DTexDef::Lock(struct agiTexLock& arg1)
 {
-    return stub<thiscall_t<i32, agiD3DTexDef*, struct agiTexLock&>>(0x131E20_Offset, this, arg1);
+    return stub<thiscall_t<i32, agiD3DTexDef*, struct agiTexLock&>>(0x531E20, this, arg1);
 }
 
 void agiD3DTexDef::Request()
 {
-    return stub<thiscall_t<void, agiD3DTexDef*>>(0x131D40_Offset, this);
+    return stub<thiscall_t<void, agiD3DTexDef*>>(0x531D40, this);
 }
 
 void agiD3DTexDef::Restore()
 {
-    return stub<thiscall_t<void, agiD3DTexDef*>>(0x131F90_Offset, this);
+    return stub<thiscall_t<void, agiD3DTexDef*>>(0x531F90, this);
 }
 
 void agiD3DTexDef::Set(class Vector2& arg1, class Vector2& arg2)
 {
-    return stub<thiscall_t<void, agiD3DTexDef*, class Vector2&, class Vector2&>>(0x131F70_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, agiD3DTexDef*, class Vector2&, class Vector2&>>(0x531F70, this, arg1, arg2);
 }
 
 void agiD3DTexDef::Unlock(struct agiTexLock& arg1)
 {
-    return stub<thiscall_t<void, agiD3DTexDef*, struct agiTexLock&>>(0x131EC0_Offset, this, arg1);
+    return stub<thiscall_t<void, agiD3DTexDef*, struct agiTexLock&>>(0x531EC0, this, arg1);
 }
 
 void agiD3DTexDef::Prober(void* arg1)
 {
-    return stub<cdecl_t<void, void*>>(0x12FA90_Offset, arg1);
+    return stub<cdecl_t<void, void*>>(0x52FA90, arg1);
 }

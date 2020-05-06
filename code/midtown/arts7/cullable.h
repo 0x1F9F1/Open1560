@@ -61,4 +61,4 @@ public:
 check_size(asCullable, 0x4);
 
 // 0x7908B0 | ?asCullableMetaClass@@3VMetaClass@@A
-inline extern_var(0x3908B0_Offset, class MetaClass, asCullableMetaClass);
+inline extern_var(0x7908B0, class MetaClass, asCullableMetaClass);

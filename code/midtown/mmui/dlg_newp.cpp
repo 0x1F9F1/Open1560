@@ -32,10 +32,10 @@ Dialog_NewPlayer::~Dialog_NewPlayer()
 
 void Dialog_NewPlayer::EnterNewPlayer()
 {
-    return stub<thiscall_t<void, Dialog_NewPlayer*>>(0x9F7E0_Offset, this);
+    return stub<thiscall_t<void, Dialog_NewPlayer*>>(0x49F7E0, this);
 }
 
 void Dialog_NewPlayer::PreSetup()
 {
-    return stub<thiscall_t<void, Dialog_NewPlayer*>>(0x9F7F0_Offset, this);
+    return stub<thiscall_t<void, Dialog_NewPlayer*>>(0x49F7F0, this);
 }

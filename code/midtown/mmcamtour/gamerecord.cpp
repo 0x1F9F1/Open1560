@@ -32,37 +32,37 @@ mmGameRecord::~mmGameRecord()
 
 void mmGameRecord::DoScan(class Vector4& arg1)
 {
-    return stub<thiscall_t<void, mmGameRecord*, class Vector4&>>(0xFE070_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameRecord*, class Vector4&>>(0x4FE070, this, arg1);
 }
 
 void mmGameRecord::Dump(char* arg1)
 {
-    return stub<thiscall_t<void, mmGameRecord*, char*>>(0xFDE90_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameRecord*, char*>>(0x4FDE90, this, arg1);
 }
 
 i32 mmGameRecord::GetCount()
 {
-    return stub<thiscall_t<i32, mmGameRecord*>>(0xFDE50_Offset, this);
+    return stub<thiscall_t<i32, mmGameRecord*>>(0x4FDE50, this);
 }
 
 class Vector4& mmGameRecord::GetVector4(i32 arg1)
 {
-    return stub<thiscall_t<class Vector4&, mmGameRecord*, i32>>(0xFDE60_Offset, this, arg1);
+    return stub<thiscall_t<class Vector4&, mmGameRecord*, i32>>(0x4FDE60, this, arg1);
 }
 
 void mmGameRecord::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, mmGameRecord*, i32>>(0xFDDE0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGameRecord*, i32>>(0x4FDDE0, this, arg1);
 }
 
 i32 mmGameRecord::Register(
     class Vector4& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9)
 {
     return stub<thiscall_t<i32, mmGameRecord*, class Vector4&, f32, f32, f32, f32, f32, f32, f32, f32>>(
-        0xFDF90_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
+        0x4FDF90, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
 }
 
 void mmGameRecord::Sim()
 {
-    return stub<thiscall_t<void, mmGameRecord*>>(0xFE140_Offset, this);
+    return stub<thiscall_t<void, mmGameRecord*>>(0x4FE140, this);
 }

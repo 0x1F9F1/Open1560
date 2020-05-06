@@ -107,4 +107,4 @@ private:
 check_size(mmMultiCircuit, 0x1EEB0);
 
 // 0x6A71B8 | ?mmMultiCircuitMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A71B8_Offset, class MetaClass, mmMultiCircuitMetaClass);
+inline extern_var(0x6A71B8, class MetaClass, mmMultiCircuitMetaClass);

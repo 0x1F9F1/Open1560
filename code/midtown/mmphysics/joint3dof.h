@@ -176,10 +176,10 @@ check_size(JointedStruct, 0x0);
 void CrossProdMatrix(class Matrix34* arg1, class Vector3 const& arg2);
 
 // 0x719118 | ?Joint3DofMetaClass@@3VMetaClass@@A
-inline extern_var(0x319118_Offset, class MetaClass, Joint3DofMetaClass);
+inline extern_var(0x719118, class MetaClass, Joint3DofMetaClass);
 
 // 0x719140 | ?Veldiscrepancy@@3VVector3@@A
-inline extern_var(0x319140_Offset, class Vector3, Veldiscrepancy);
+inline extern_var(0x719140, class Vector3, Veldiscrepancy);
 
 // 0x719150 | ?discrepancy@@3VVector3@@A
-inline extern_var(0x319150_Offset, class Vector3, discrepancy);
+inline extern_var(0x719150, class Vector3, discrepancy);

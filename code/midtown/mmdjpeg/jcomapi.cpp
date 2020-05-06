@@ -22,20 +22,20 @@ define_dummy_symbol(mmdjpeg_jcomapi);
 
 void jpeg_abort(struct jpeg_common_struct* arg1)
 {
-    return stub<cdecl_t<void, struct jpeg_common_struct*>>(0x180960_Offset, arg1);
+    return stub<cdecl_t<void, struct jpeg_common_struct*>>(0x580960, arg1);
 }
 
 struct JHUFF_TBL* jpeg_alloc_huff_table(struct jpeg_common_struct* arg1)
 {
-    return stub<cdecl_t<struct JHUFF_TBL*, struct jpeg_common_struct*>>(0x180A00_Offset, arg1);
+    return stub<cdecl_t<struct JHUFF_TBL*, struct jpeg_common_struct*>>(0x580A00, arg1);
 }
 
 struct JQUANT_TBL* jpeg_alloc_quant_table(struct jpeg_common_struct* arg1)
 {
-    return stub<cdecl_t<struct JQUANT_TBL*, struct jpeg_common_struct*>>(0x1809E0_Offset, arg1);
+    return stub<cdecl_t<struct JQUANT_TBL*, struct jpeg_common_struct*>>(0x5809E0, arg1);
 }
 
 void jpeg_destroy(struct jpeg_common_struct* arg1)
 {
-    return stub<cdecl_t<void, struct jpeg_common_struct*>>(0x1809B0_Offset, arg1);
+    return stub<cdecl_t<void, struct jpeg_common_struct*>>(0x5809B0, arg1);
 }

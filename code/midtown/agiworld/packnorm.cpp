@@ -22,10 +22,10 @@ define_dummy_symbol(agiworld_packnorm);
 
 u8 PackNormal(class Vector3& arg1)
 {
-    return stub<cdecl_t<u8, class Vector3&>>(0x1164B0_Offset, arg1);
+    return stub<cdecl_t<u8, class Vector3&>>(0x5164B0, arg1);
 }
 
 u8 PackNormalSlow(class Vector3& arg1)
 {
-    return stub<cdecl_t<u8, class Vector3&>>(0x116400_Offset, arg1);
+    return stub<cdecl_t<u8, class Vector3&>>(0x516400, arg1);
 }

@@ -32,197 +32,197 @@ mmHUD::~mmHUD()
 
 void mmHUD::ActivateDash()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5800_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405800, this);
 }
 
 void mmHUD::ActivateGold()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5FA0_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405FA0, this);
 }
 
 void mmHUD::AddPlayer(char* arg1, u32 arg2, i32 arg3, i32 arg4)
 {
-    return stub<thiscall_t<void, mmHUD*, char*, u32, i32, i32>>(0x5F30_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, mmHUD*, char*, u32, i32, i32>>(0x405F30, this, arg1, arg2, arg3, arg4);
 }
 
 void mmHUD::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmHUD*, class Bank*>>(0x6170_Offset, this, arg1);
+    return stub<thiscall_t<void, mmHUD*, class Bank*>>(0x406170, this, arg1);
 }
 
 void mmHUD::Cull()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5D30_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405D30, this);
 }
 
 void mmHUD::DeactivateDash()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5830_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405830, this);
 }
 
 void mmHUD::DeactivateGold()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5FB0_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405FB0, this);
 }
 
 void mmHUD::Disable(i32 arg1)
 {
-    return stub<thiscall_t<void, mmHUD*, i32>>(0x5700_Offset, this, arg1);
+    return stub<thiscall_t<void, mmHUD*, i32>>(0x405700, this, arg1);
 }
 
 void mmHUD::Enable()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x56C0_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x4056C0, this);
 }
 
 class MetaClass* mmHUD::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmHUD*>>(0x68D0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmHUD*>>(0x4068D0, this);
 }
 
 void mmHUD::GetPosHdg(class Vector4& arg1)
 {
-    return stub<thiscall_t<void, mmHUD*, class Vector4&>>(0x6060_Offset, this, arg1);
+    return stub<thiscall_t<void, mmHUD*, class Vector4&>>(0x406060, this, arg1);
 }
 
 void mmHUD::GetTime(char* arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmHUD*, char*, f32>>(0x5FC0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmHUD*, char*, f32>>(0x405FC0, this, arg1, arg2);
 }
 
 void mmHUD::Init(char* arg1, class mmPlayer* arg2)
 {
-    return stub<thiscall_t<void, mmHUD*, char*, class mmPlayer*>>(0x53E0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmHUD*, char*, class mmPlayer*>>(0x4053E0, this, arg1, arg2);
 }
 
 i32 mmHUD::IsDashActive()
 {
-    return stub<thiscall_t<i32, mmHUD*>>(0x5860_Offset, this);
+    return stub<thiscall_t<i32, mmHUD*>>(0x405860, this);
 }
 
 void mmHUD::PlayNetAlert()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5FE0_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405FE0, this);
 }
 
 void mmHUD::PostChatMessage(char* arg1)
 {
-    return stub<thiscall_t<void, mmHUD*, char*>>(0x5060_Offset, this, arg1);
+    return stub<thiscall_t<void, mmHUD*, char*>>(0x405060, this, arg1);
 }
 
 void mmHUD::RecordPosition(char* arg1)
 {
-    return stub<thiscall_t<void, mmHUD*, char*>>(0x60F0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmHUD*, char*>>(0x4060F0, this, arg1);
 }
 
 void mmHUD::RemovePlayer(u32 arg1)
 {
-    return stub<thiscall_t<void, mmHUD*, u32>>(0x5F80_Offset, this, arg1);
+    return stub<thiscall_t<void, mmHUD*, u32>>(0x405F80, this, arg1);
 }
 
 void mmHUD::ResChange(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmHUD*, i32, i32>>(0x50C0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmHUD*, i32, i32>>(0x4050C0, this, arg1, arg2);
 }
 
 void mmHUD::Reset()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5870_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405870, this);
 }
 
 void mmHUD::ResetTimers()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5360_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405360, this);
 }
 
 void mmHUD::SetLapTime(i32 arg1, f32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, mmHUD*, i32, f32, i32>>(0x5E40_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmHUD*, i32, f32, i32>>(0x405E40, this, arg1, arg2, arg3);
 }
 
 void mmHUD::SetMessage(struct LocString* arg1, f32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, mmHUD*, struct LocString*, f32, i32>>(0x5EA0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmHUD*, struct LocString*, f32, i32>>(0x405EA0, this, arg1, arg2, arg3);
 }
 
 void mmHUD::SetMessage2(struct LocString* arg1)
 {
-    return stub<thiscall_t<void, mmHUD*, struct LocString*>>(0x5EE0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmHUD*, struct LocString*>>(0x405EE0, this, arg1);
 }
 
 void mmHUD::SetScore(char* arg1)
 {
-    return stub<thiscall_t<void, mmHUD*, char*>>(0x5F10_Offset, this, arg1);
+    return stub<thiscall_t<void, mmHUD*, char*>>(0x405F10, this, arg1);
 }
 
 void mmHUD::SetScore(u32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmHUD*, u32, i32>>(0x5F60_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmHUD*, u32, i32>>(0x405F60, this, arg1, arg2);
 }
 
 void mmHUD::SetStandings(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmHUD*, i32, i32>>(0x5E00_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmHUD*, i32, i32>>(0x405E00, this, arg1, arg2);
 }
 
 void mmHUD::SetWPCleared(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmHUD*, i32, i32>>(0x5E80_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmHUD*, i32, i32>>(0x405E80, this, arg1, arg2);
 }
 
 void mmHUD::ShowClockTime()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5390_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405390, this);
 }
 
 void mmHUD::StartTimers()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5320_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405320, this);
 }
 
 void mmHUD::StopTimers()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5340_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405340, this);
 }
 
 void mmHUD::Toggle()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5750_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405750, this);
 }
 
 void mmHUD::ToggleDash()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x57C0_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x4057C0, this);
 }
 
 void mmHUD::ToggleExternalView()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5770_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405770, this);
 }
 
 void mmHUD::ToggleMirror()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5D10_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405D10, this);
 }
 
 void mmHUD::TogglePositionDisplay(i32 arg1)
 {
-    return stub<thiscall_t<void, mmHUD*, i32>>(0x6000_Offset, this, arg1);
+    return stub<thiscall_t<void, mmHUD*, i32>>(0x406000, this, arg1);
 }
 
 void mmHUD::Update()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5910_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405910, this);
 }
 
 void mmHUD::UpdatePaused()
 {
-    return stub<thiscall_t<void, mmHUD*>>(0x5CE0_Offset, this);
+    return stub<thiscall_t<void, mmHUD*>>(0x405CE0, this);
 }
 
 void mmHUD::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x6760_Offset);
+    return stub<cdecl_t<void>>(0x406760);
 }
 
 mmTimer::mmTimer()
@@ -237,37 +237,37 @@ mmTimer::~mmTimer()
 
 f32 mmTimer::GetTime()
 {
-    return stub<thiscall_t<f32, mmTimer*>>(0x6230_Offset, this);
+    return stub<thiscall_t<f32, mmTimer*>>(0x406230, this);
 }
 
 void mmTimer::Init(i32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmTimer*, i32, f32>>(0x6210_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmTimer*, i32, f32>>(0x406210, this, arg1, arg2);
 }
 
 void mmTimer::Reset()
 {
-    return stub<thiscall_t<void, mmTimer*>>(0x6290_Offset, this);
+    return stub<thiscall_t<void, mmTimer*>>(0x406290, this);
 }
 
 void mmTimer::Start()
 {
-    return stub<thiscall_t<void, mmTimer*>>(0x62A0_Offset, this);
+    return stub<thiscall_t<void, mmTimer*>>(0x4062A0, this);
 }
 
 void mmTimer::StartStop()
 {
-    return stub<thiscall_t<void, mmTimer*>>(0x62C0_Offset, this);
+    return stub<thiscall_t<void, mmTimer*>>(0x4062C0, this);
 }
 
 void mmTimer::Stop()
 {
-    return stub<thiscall_t<void, mmTimer*>>(0x62B0_Offset, this);
+    return stub<thiscall_t<void, mmTimer*>>(0x4062B0, this);
 }
 
 void mmTimer::Update()
 {
-    return stub<thiscall_t<void, mmTimer*>>(0x6240_Offset, this);
+    return stub<thiscall_t<void, mmTimer*>>(0x406240, this);
 }
 
 mmArrow::mmArrow()
@@ -282,25 +282,25 @@ mmArrow::~mmArrow()
 
 void mmArrow::Init(class Matrix34* arg1)
 {
-    return stub<thiscall_t<void, mmArrow*, class Matrix34*>>(0x64C0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmArrow*, class Matrix34*>>(0x4064C0, this, arg1);
 }
 
 void mmArrow::Reset()
 {
-    return stub<thiscall_t<void, mmArrow*>>(0x64D0_Offset, this);
+    return stub<thiscall_t<void, mmArrow*>>(0x4064D0, this);
 }
 
 void mmArrow::SetInterest(class Vector3* arg1)
 {
-    return stub<thiscall_t<void, mmArrow*, class Vector3*>>(0x64E0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmArrow*, class Vector3*>>(0x4064E0, this, arg1);
 }
 
 void mmArrow::Update()
 {
-    return stub<thiscall_t<void, mmArrow*>>(0x6560_Offset, this);
+    return stub<thiscall_t<void, mmArrow*>>(0x406560, this);
 }
 
 void mmArrow::ReColorArrow(i32 arg1)
 {
-    return stub<thiscall_t<void, mmArrow*, i32>>(0x64F0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmArrow*, i32>>(0x4064F0, this, arg1);
 }

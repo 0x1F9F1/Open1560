@@ -22,10 +22,10 @@ define_dummy_symbol(data7_speed);
 
 u32 ComputeCpuSpeed()
 {
-    return stub<cdecl_t<u32>>(0x17CF50_Offset);
+    return stub<cdecl_t<u32>>(0x57CF50);
 }
 
 u32 __ComputeCpuSpeed()
 {
-    return stub<cdecl_t<u32>>(0x17CE90_Offset);
+    return stub<cdecl_t<u32>>(0x57CE90);
 }

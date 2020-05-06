@@ -32,15 +32,15 @@ AboutMenu::~AboutMenu()
 
 void AboutMenu::Cull()
 {
-    return stub<thiscall_t<void, AboutMenu*>>(0xA6100_Offset, this);
+    return stub<thiscall_t<void, AboutMenu*>>(0x4A6100, this);
 }
 
 void AboutMenu::PreSetup()
 {
-    return stub<thiscall_t<void, AboutMenu*>>(0xA6060_Offset, this);
+    return stub<thiscall_t<void, AboutMenu*>>(0x4A6060, this);
 }
 
 void AboutMenu::Update()
 {
-    return stub<thiscall_t<void, AboutMenu*>>(0xA6080_Offset, this);
+    return stub<thiscall_t<void, AboutMenu*>>(0x4A6080, this);
 }

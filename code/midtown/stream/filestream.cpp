@@ -37,60 +37,60 @@ FileStream::~FileStream()
 
 i32 FileStream::Close()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x161A20_Offset, this);
+    return stub<thiscall_t<i32, FileStream*>>(0x561A20, this);
 }
 
 i32 FileStream::Create(char* arg1)
 {
-    return stub<thiscall_t<i32, FileStream*, char*>>(0x161840_Offset, this, arg1);
+    return stub<thiscall_t<i32, FileStream*, char*>>(0x561840, this, arg1);
 }
 
 u32 FileStream::GetPagerHandle()
 {
-    return stub<thiscall_t<u32, FileStream*>>(0x161830_Offset, this);
+    return stub<thiscall_t<u32, FileStream*>>(0x561830, this);
 }
 
 i32 FileStream::Open(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, FileStream*, char*, i32>>(0x161870_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, FileStream*, char*, i32>>(0x561870, this, arg1, arg2);
 }
 
 i32 FileStream::RawRead(void* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, FileStream*, void*, i32>>(0x161970_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, FileStream*, void*, i32>>(0x561970, this, arg1, arg2);
 }
 
 i32 FileStream::RawSeek(i32 arg1)
 {
-    return stub<thiscall_t<i32, FileStream*, i32>>(0x1619B0_Offset, this, arg1);
+    return stub<thiscall_t<i32, FileStream*, i32>>(0x5619B0, this, arg1);
 }
 
 i32 FileStream::RawSize()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x1619F0_Offset, this);
+    return stub<thiscall_t<i32, FileStream*>>(0x5619F0, this);
 }
 
 i32 FileStream::RawTell()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x1619D0_Offset, this);
+    return stub<thiscall_t<i32, FileStream*>>(0x5619D0, this);
 }
 
 i32 FileStream::RawWrite(void* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, FileStream*, void*, i32>>(0x161990_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, FileStream*, void*, i32>>(0x561990, this, arg1, arg2);
 }
 
 i32 FileStream::Stderr()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x161950_Offset, this);
+    return stub<thiscall_t<i32, FileStream*>>(0x561950, this);
 }
 
 i32 FileStream::Stdin()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x161910_Offset, this);
+    return stub<thiscall_t<i32, FileStream*>>(0x561910, this);
 }
 
 i32 FileStream::Stdout()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x161930_Offset, this);
+    return stub<thiscall_t<i32, FileStream*>>(0x561930, this);
 }

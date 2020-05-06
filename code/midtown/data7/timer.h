@@ -56,7 +56,7 @@ public:
     static u32 Ticks();
 
     // 0x90A66C | ?TicksToSeconds@Timer@@2MA
-    static inline extern_var(0x50A66C_Offset, f32, TicksToSeconds);
+    static inline extern_var(0x90A66C, f32, TicksToSeconds);
 };
 
 check_size(Timer, 0x0);

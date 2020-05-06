@@ -32,30 +32,29 @@ agiColorModelRGB555::~agiColorModelRGB555()
 
 u32 agiColorModelRGB555::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB555*, u32, u32, u32, u32>>(
-        0x15C560_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModelRGB555*, u32, u32, u32, u32>>(0x55C560, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModelRGB555::FindColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB555*, struct agiRgba>>(0x15C520_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB555*, struct agiRgba>>(0x55C520, this, arg1);
 }
 
 u32 agiColorModelRGB555::GetColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB555*, struct agiRgba>>(0x15C4E0_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB555*, struct agiRgba>>(0x55C4E0, this, arg1);
 }
 
 u32 agiColorModelRGB555::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 {
     return stub<thiscall_t<u32, agiColorModelRGB555*, class agiSurfaceDesc*, i32, i32>>(
-        0x15C5F0_Offset, this, arg1, arg2, arg3);
+        0x55C5F0, this, arg1, arg2, arg3);
 }
 
 void agiColorModelRGB555::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
 {
     return stub<thiscall_t<void, agiColorModelRGB555*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x15C610_Offset, this, arg1, arg2, arg3, arg4);
+        0x55C610, this, arg1, arg2, arg3, arg4);
 }
 
 agiColorModelRGB565::agiColorModelRGB565()
@@ -70,30 +69,29 @@ agiColorModelRGB565::~agiColorModelRGB565()
 
 u32 agiColorModelRGB565::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB565*, u32, u32, u32, u32>>(
-        0x15C740_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModelRGB565*, u32, u32, u32, u32>>(0x55C740, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModelRGB565::FindColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB565*, struct agiRgba>>(0x15C700_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB565*, struct agiRgba>>(0x55C700, this, arg1);
 }
 
 u32 agiColorModelRGB565::GetColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB565*, struct agiRgba>>(0x15C6C0_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB565*, struct agiRgba>>(0x55C6C0, this, arg1);
 }
 
 u32 agiColorModelRGB565::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 {
     return stub<thiscall_t<u32, agiColorModelRGB565*, class agiSurfaceDesc*, i32, i32>>(
-        0x15C7D0_Offset, this, arg1, arg2, arg3);
+        0x55C7D0, this, arg1, arg2, arg3);
 }
 
 void agiColorModelRGB565::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
 {
     return stub<thiscall_t<void, agiColorModelRGB565*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x15C7F0_Offset, this, arg1, arg2, arg3, arg4);
+        0x55C7F0, this, arg1, arg2, arg3, arg4);
 }
 
 agiColorModelRGB555_Rev::agiColorModelRGB555_Rev()
@@ -108,30 +106,29 @@ agiColorModelRGB555_Rev::~agiColorModelRGB555_Rev()
 
 u32 agiColorModelRGB555_Rev::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB555_Rev*, u32, u32, u32, u32>>(
-        0x15C920_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModelRGB555_Rev*, u32, u32, u32, u32>>(0x55C920, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModelRGB555_Rev::FindColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB555_Rev*, struct agiRgba>>(0x15C8E0_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB555_Rev*, struct agiRgba>>(0x55C8E0, this, arg1);
 }
 
 u32 agiColorModelRGB555_Rev::GetColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB555_Rev*, struct agiRgba>>(0x15C8A0_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB555_Rev*, struct agiRgba>>(0x55C8A0, this, arg1);
 }
 
 u32 agiColorModelRGB555_Rev::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 {
     return stub<thiscall_t<u32, agiColorModelRGB555_Rev*, class agiSurfaceDesc*, i32, i32>>(
-        0x15C9B0_Offset, this, arg1, arg2, arg3);
+        0x55C9B0, this, arg1, arg2, arg3);
 }
 
 void agiColorModelRGB555_Rev::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
 {
     return stub<thiscall_t<void, agiColorModelRGB555_Rev*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x15C9D0_Offset, this, arg1, arg2, arg3, arg4);
+        0x55C9D0, this, arg1, arg2, arg3, arg4);
 }
 
 agiColorModelRGB565_Rev::agiColorModelRGB565_Rev()
@@ -146,30 +143,29 @@ agiColorModelRGB565_Rev::~agiColorModelRGB565_Rev()
 
 u32 agiColorModelRGB565_Rev::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB565_Rev*, u32, u32, u32, u32>>(
-        0x15CB00_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModelRGB565_Rev*, u32, u32, u32, u32>>(0x55CB00, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModelRGB565_Rev::FindColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB565_Rev*, struct agiRgba>>(0x15CAC0_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB565_Rev*, struct agiRgba>>(0x55CAC0, this, arg1);
 }
 
 u32 agiColorModelRGB565_Rev::GetColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB565_Rev*, struct agiRgba>>(0x15CA80_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB565_Rev*, struct agiRgba>>(0x55CA80, this, arg1);
 }
 
 u32 agiColorModelRGB565_Rev::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 {
     return stub<thiscall_t<u32, agiColorModelRGB565_Rev*, class agiSurfaceDesc*, i32, i32>>(
-        0x15CB90_Offset, this, arg1, arg2, arg3);
+        0x55CB90, this, arg1, arg2, arg3);
 }
 
 void agiColorModelRGB565_Rev::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
 {
     return stub<thiscall_t<void, agiColorModelRGB565_Rev*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x15CBB0_Offset, this, arg1, arg2, arg3, arg4);
+        0x55CBB0, this, arg1, arg2, arg3, arg4);
 }
 
 agiColorModelRGB888::agiColorModelRGB888()
@@ -184,30 +180,29 @@ agiColorModelRGB888::~agiColorModelRGB888()
 
 u32 agiColorModelRGB888::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB888*, u32, u32, u32, u32>>(
-        0x15CCC0_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModelRGB888*, u32, u32, u32, u32>>(0x55CCC0, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModelRGB888::FindColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB888*, struct agiRgba>>(0x15CC90_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB888*, struct agiRgba>>(0x55CC90, this, arg1);
 }
 
 u32 agiColorModelRGB888::GetColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB888*, struct agiRgba>>(0x15CC60_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB888*, struct agiRgba>>(0x55CC60, this, arg1);
 }
 
 u32 agiColorModelRGB888::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 {
     return stub<thiscall_t<u32, agiColorModelRGB888*, class agiSurfaceDesc*, i32, i32>>(
-        0x15CD40_Offset, this, arg1, arg2, arg3);
+        0x55CD40, this, arg1, arg2, arg3);
 }
 
 void agiColorModelRGB888::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
 {
     return stub<thiscall_t<void, agiColorModelRGB888*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x15CD60_Offset, this, arg1, arg2, arg3, arg4);
+        0x55CD60, this, arg1, arg2, arg3, arg4);
 }
 
 agiColorModelRGB888_Rev::agiColorModelRGB888_Rev()
@@ -222,30 +217,29 @@ agiColorModelRGB888_Rev::~agiColorModelRGB888_Rev()
 
 u32 agiColorModelRGB888_Rev::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB888_Rev*, u32, u32, u32, u32>>(
-        0x15CE60_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModelRGB888_Rev*, u32, u32, u32, u32>>(0x55CE60, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModelRGB888_Rev::FindColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB888_Rev*, struct agiRgba>>(0x15CE30_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB888_Rev*, struct agiRgba>>(0x55CE30, this, arg1);
 }
 
 u32 agiColorModelRGB888_Rev::GetColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGB888_Rev*, struct agiRgba>>(0x15CE00_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGB888_Rev*, struct agiRgba>>(0x55CE00, this, arg1);
 }
 
 u32 agiColorModelRGB888_Rev::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 {
     return stub<thiscall_t<u32, agiColorModelRGB888_Rev*, class agiSurfaceDesc*, i32, i32>>(
-        0x15CEE0_Offset, this, arg1, arg2, arg3);
+        0x55CEE0, this, arg1, arg2, arg3);
 }
 
 void agiColorModelRGB888_Rev::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
 {
     return stub<thiscall_t<void, agiColorModelRGB888_Rev*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x15CF00_Offset, this, arg1, arg2, arg3, arg4);
+        0x55CF00, this, arg1, arg2, arg3, arg4);
 }
 
 agiColorModelRGBA5551::agiColorModelRGBA5551()
@@ -260,30 +254,29 @@ agiColorModelRGBA5551::~agiColorModelRGBA5551()
 
 u32 agiColorModelRGBA5551::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModelRGBA5551*, u32, u32, u32, u32>>(
-        0x15D050_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModelRGBA5551*, u32, u32, u32, u32>>(0x55D050, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModelRGBA5551::FindColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGBA5551*, struct agiRgba>>(0x15D000_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGBA5551*, struct agiRgba>>(0x55D000, this, arg1);
 }
 
 u32 agiColorModelRGBA5551::GetColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGBA5551*, struct agiRgba>>(0x15CFB0_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGBA5551*, struct agiRgba>>(0x55CFB0, this, arg1);
 }
 
 u32 agiColorModelRGBA5551::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 {
     return stub<thiscall_t<u32, agiColorModelRGBA5551*, class agiSurfaceDesc*, i32, i32>>(
-        0x15D110_Offset, this, arg1, arg2, arg3);
+        0x55D110, this, arg1, arg2, arg3);
 }
 
 void agiColorModelRGBA5551::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
 {
     return stub<thiscall_t<void, agiColorModelRGBA5551*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x15D130_Offset, this, arg1, arg2, arg3, arg4);
+        0x55D130, this, arg1, arg2, arg3, arg4);
 }
 
 agiColorModelRGBA4444::agiColorModelRGBA4444()
@@ -298,30 +291,29 @@ agiColorModelRGBA4444::~agiColorModelRGBA4444()
 
 u32 agiColorModelRGBA4444::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModelRGBA4444*, u32, u32, u32, u32>>(
-        0x15D280_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModelRGBA4444*, u32, u32, u32, u32>>(0x55D280, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModelRGBA4444::FindColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGBA4444*, struct agiRgba>>(0x15D230_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGBA4444*, struct agiRgba>>(0x55D230, this, arg1);
 }
 
 u32 agiColorModelRGBA4444::GetColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelRGBA4444*, struct agiRgba>>(0x15D1E0_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelRGBA4444*, struct agiRgba>>(0x55D1E0, this, arg1);
 }
 
 u32 agiColorModelRGBA4444::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 {
     return stub<thiscall_t<u32, agiColorModelRGBA4444*, class agiSurfaceDesc*, i32, i32>>(
-        0x15D340_Offset, this, arg1, arg2, arg3);
+        0x55D340, this, arg1, arg2, arg3);
 }
 
 void agiColorModelRGBA4444::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
 {
     return stub<thiscall_t<void, agiColorModelRGBA4444*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x15D360_Offset, this, arg1, arg2, arg3, arg4);
+        0x55D360, this, arg1, arg2, arg3, arg4);
 }
 
 agiColorModelARGB::agiColorModelARGB()
@@ -336,29 +328,28 @@ agiColorModelARGB::~agiColorModelARGB()
 
 u32 agiColorModelARGB::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModelARGB*, u32, u32, u32, u32>>(0x15D490_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModelARGB*, u32, u32, u32, u32>>(0x55D490, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModelARGB::FindColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelARGB*, struct agiRgba>>(0x15D450_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelARGB*, struct agiRgba>>(0x55D450, this, arg1);
 }
 
 u32 agiColorModelARGB::GetColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelARGB*, struct agiRgba>>(0x15D410_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelARGB*, struct agiRgba>>(0x55D410, this, arg1);
 }
 
 u32 agiColorModelARGB::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<u32, agiColorModelARGB*, class agiSurfaceDesc*, i32, i32>>(
-        0x15D530_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<u32, agiColorModelARGB*, class agiSurfaceDesc*, i32, i32>>(0x55D530, this, arg1, arg2, arg3);
 }
 
 void agiColorModelARGB::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
 {
     return stub<thiscall_t<void, agiColorModelARGB*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x15D550_Offset, this, arg1, arg2, arg3, arg4);
+        0x55D550, this, arg1, arg2, arg3, arg4);
 }
 
 agiColorModelABGR::agiColorModelABGR()
@@ -373,27 +364,26 @@ agiColorModelABGR::~agiColorModelABGR()
 
 u32 agiColorModelABGR::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModelABGR*, u32, u32, u32, u32>>(0x15D670_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModelABGR*, u32, u32, u32, u32>>(0x55D670, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModelABGR::FindColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelABGR*, struct agiRgba>>(0x15D630_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelABGR*, struct agiRgba>>(0x55D630, this, arg1);
 }
 
 u32 agiColorModelABGR::GetColor(struct agiRgba arg1)
 {
-    return stub<thiscall_t<u32, agiColorModelABGR*, struct agiRgba>>(0x15D5F0_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModelABGR*, struct agiRgba>>(0x55D5F0, this, arg1);
 }
 
 u32 agiColorModelABGR::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<u32, agiColorModelABGR*, class agiSurfaceDesc*, i32, i32>>(
-        0x15D720_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<u32, agiColorModelABGR*, class agiSurfaceDesc*, i32, i32>>(0x55D720, this, arg1, arg2, arg3);
 }
 
 void agiColorModelABGR::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
 {
     return stub<thiscall_t<void, agiColorModelABGR*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x15D740_Offset, this, arg1, arg2, arg3, arg4);
+        0x55D740, this, arg1, arg2, arg3, arg4);
 }

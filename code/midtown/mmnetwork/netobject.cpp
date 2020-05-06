@@ -38,10 +38,10 @@ void asNetObject::SetLocalData()
 void asNetObject::PositionUpdate(class Matrix34* arg1, class Vector3 arg2, f32 arg3, f32 arg4, f32 arg5)
 {
     return stub<thiscall_t<void, asNetObject*, class Matrix34*, class Vector3, f32, f32, f32>>(
-        0x8B4D0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x48B4D0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void asNetObject::Update()
 {
-    return stub<thiscall_t<void, asNetObject*>>(0x8B4F0_Offset, this);
+    return stub<thiscall_t<void, asNetObject*>>(0x48B4F0, this);
 }

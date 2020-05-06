@@ -32,70 +32,70 @@ CReverb::~CReverb()
 
 void CReverb::GetAll(struct EAX_REVERBPROPERTIES* arg1)
 {
-    return stub<thiscall_t<void, CReverb*, struct EAX_REVERBPROPERTIES*>>(0xF4A70_Offset, this, arg1);
+    return stub<thiscall_t<void, CReverb*, struct EAX_REVERBPROPERTIES*>>(0x4F4A70, this, arg1);
 }
 
 f32 CReverb::GetDamping()
 {
-    return stub<thiscall_t<f32, CReverb*>>(0xF4A30_Offset, this);
+    return stub<thiscall_t<f32, CReverb*>>(0x4F4A30, this);
 }
 
 f32 CReverb::GetDecayTime()
 {
-    return stub<thiscall_t<f32, CReverb*>>(0xF49F0_Offset, this);
+    return stub<thiscall_t<f32, CReverb*>>(0x4F49F0, this);
 }
 
 u32 CReverb::GetEnvironment()
 {
-    return stub<thiscall_t<u32, CReverb*>>(0xF4970_Offset, this);
+    return stub<thiscall_t<u32, CReverb*>>(0x4F4970, this);
 }
 
 f32 CReverb::GetVolume()
 {
-    return stub<thiscall_t<f32, CReverb*>>(0xF49B0_Offset, this);
+    return stub<thiscall_t<f32, CReverb*>>(0x4F49B0, this);
 }
 
 i32 CReverb::PropertySetOk()
 {
-    return stub<thiscall_t<i32, CReverb*>>(0xF4810_Offset, this);
+    return stub<thiscall_t<i32, CReverb*>>(0x4F4810, this);
 }
 
 void CReverb::SetAll(struct EAX_REVERBPROPERTIES* arg1)
 {
-    return stub<thiscall_t<void, CReverb*, struct EAX_REVERBPROPERTIES*>>(0xF48F0_Offset, this, arg1);
+    return stub<thiscall_t<void, CReverb*, struct EAX_REVERBPROPERTIES*>>(0x4F48F0, this, arg1);
 }
 
 void CReverb::SetDamping(f32 arg1)
 {
-    return stub<thiscall_t<void, CReverb*, f32>>(0xF48D0_Offset, this, arg1);
+    return stub<thiscall_t<void, CReverb*, f32>>(0x4F48D0, this, arg1);
 }
 
 void CReverb::SetDecayTime(f32 arg1)
 {
-    return stub<thiscall_t<void, CReverb*, f32>>(0xF48B0_Offset, this, arg1);
+    return stub<thiscall_t<void, CReverb*, f32>>(0x4F48B0, this, arg1);
 }
 
 void CReverb::SetEnvironment(u32 arg1)
 {
-    return stub<thiscall_t<void, CReverb*, u32>>(0xF4870_Offset, this, arg1);
+    return stub<thiscall_t<void, CReverb*, u32>>(0x4F4870, this, arg1);
 }
 
 void CReverb::SetPreset(struct EAX_REVERBPROPERTIES* arg1)
 {
-    return stub<thiscall_t<void, CReverb*, struct EAX_REVERBPROPERTIES*>>(0xF4950_Offset, this, arg1);
+    return stub<thiscall_t<void, CReverb*, struct EAX_REVERBPROPERTIES*>>(0x4F4950, this, arg1);
 }
 
 void CReverb::SetPreset(u32 arg1, f32 arg2, f32 arg3, f32 arg4)
 {
-    return stub<thiscall_t<void, CReverb*, u32, f32, f32, f32>>(0xF4910_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, CReverb*, u32, f32, f32, f32>>(0x4F4910, this, arg1, arg2, arg3, arg4);
 }
 
 void CReverb::SetVolume(f32 arg1)
 {
-    return stub<thiscall_t<void, CReverb*, f32>>(0xF4890_Offset, this, arg1);
+    return stub<thiscall_t<void, CReverb*, f32>>(0x4F4890, this, arg1);
 }
 
 i32 CReverb::QueryProperty(u32 arg1)
 {
-    return stub<thiscall_t<i32, CReverb*, u32>>(0xF4820_Offset, this, arg1);
+    return stub<thiscall_t<i32, CReverb*, u32>>(0x4F4820, this, arg1);
 }

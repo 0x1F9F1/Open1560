@@ -65,4 +65,4 @@ public:
 check_size(mmInfoBase, 0x88);
 
 // 0x7085C8 | ?mmInfoBaseMetaClass@@3VMetaClass@@A
-inline extern_var(0x3085C8_Offset, class MetaClass, mmInfoBaseMetaClass);
+inline extern_var(0x7085C8, class MetaClass, mmInfoBaseMetaClass);

@@ -78,4 +78,4 @@ public:
 check_size(mmWaypointInstance, 0x44);
 
 // 0x6A7800 | ?mmWaypointInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7800_Offset, class MetaClass, mmWaypointInstanceMetaClass);
+inline extern_var(0x6A7800, class MetaClass, mmWaypointInstanceMetaClass);

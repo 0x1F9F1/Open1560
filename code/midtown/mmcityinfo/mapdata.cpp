@@ -32,35 +32,35 @@ mmMapData::~mmMapData()
 
 void mmMapData::Append(char* arg1)
 {
-    return stub<thiscall_t<void, mmMapData*, char*>>(0xD3380_Offset, this, arg1);
+    return stub<thiscall_t<void, mmMapData*, char*>>(0x4D3380, this, arg1);
 }
 
 class MetaClass* mmMapData::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmMapData*>>(0xD35B0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmMapData*>>(0x4D35B0, this);
 }
 
 char* mmMapData::GetItem(i32 arg1)
 {
-    return stub<thiscall_t<char*, mmMapData*, i32>>(0xD3340_Offset, this, arg1);
+    return stub<thiscall_t<char*, mmMapData*, i32>>(0x4D3340, this, arg1);
 }
 
 i32 mmMapData::GetNumItems()
 {
-    return stub<thiscall_t<i32, mmMapData*>>(0xD3370_Offset, this);
+    return stub<thiscall_t<i32, mmMapData*>>(0x4D3370, this);
 }
 
 void mmMapData::NewItems(i32 arg1)
 {
-    return stub<thiscall_t<void, mmMapData*, i32>>(0xD32F0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmMapData*, i32>>(0x4D32F0, this, arg1);
 }
 
 void mmMapData::SetItem(i32 arg1, char* arg2)
 {
-    return stub<thiscall_t<void, mmMapData*, i32, char*>>(0xD3320_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmMapData*, i32, char*>>(0x4D3320, this, arg1, arg2);
 }
 
 void mmMapData::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xD3400_Offset);
+    return stub<cdecl_t<void>>(0x4D3400);
 }

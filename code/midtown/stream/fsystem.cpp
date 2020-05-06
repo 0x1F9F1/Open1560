@@ -53,7 +53,7 @@ class Stream* FileSystem::CreateOn(char* arg1, void* arg2, i32 arg3)
 
 i32 FileSystem::PagerInfo(char* arg1, struct PagerInfo_t& arg2)
 {
-    return stub<thiscall_t<i32, FileSystem*, char*, struct PagerInfo_t&>>(0x15FEC0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, FileSystem*, char*, struct PagerInfo_t&>>(0x55FEC0, this, arg1, arg2);
 }
 
 i32 FileSystem::ChangeDir(char* arg1)
@@ -78,39 +78,37 @@ struct FileInfo* FileSystem::NextEntry(struct FileInfo* arg1)
 
 void FileSystem::NotifyDelete()
 {
-    return stub<thiscall_t<void, FileSystem*>>(0x15F610_Offset, this);
+    return stub<thiscall_t<void, FileSystem*>>(0x55F610, this);
 }
 
 i32 FileSystem::Search(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5)
 {
     return stub<thiscall_t<i32, FileSystem*, char*, char*, char*, i32, char*>>(
-        0x15F690_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x55F690, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 class Stream* FileSystem::OpenAny(char* arg1, i32 arg2, void* arg3, i32 arg4)
 {
-    return stub<cdecl_t<class Stream*, char*, i32, void*, i32>>(0x15FE60_Offset, arg1, arg2, arg3, arg4);
+    return stub<cdecl_t<class Stream*, char*, i32, void*, i32>>(0x55FE60, arg1, arg2, arg3, arg4);
 }
 
 i32 FileSystem::PagerInfoAny(char* arg1, struct PagerInfo_t& arg2)
 {
-    return stub<cdecl_t<i32, char*, struct PagerInfo_t&>>(0x15FED0_Offset, arg1, arg2);
+    return stub<cdecl_t<i32, char*, struct PagerInfo_t&>>(0x55FED0, arg1, arg2);
 }
 
 class FileSystem* FileSystem::SearchAll(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5)
 {
-    return stub<cdecl_t<class FileSystem*, char*, char*, char*, i32, char*>>(
-        0x15F620_Offset, arg1, arg2, arg3, arg4, arg5);
+    return stub<cdecl_t<class FileSystem*, char*, char*, char*, i32, char*>>(0x55F620, arg1, arg2, arg3, arg4, arg5);
 }
 
 class FileSystem* FindFile(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5)
 {
-    return stub<cdecl_t<class FileSystem*, char*, char*, char*, i32, char*>>(
-        0x15FD30_Offset, arg1, arg2, arg3, arg4, arg5);
+    return stub<cdecl_t<class FileSystem*, char*, char*, char*, i32, char*>>(0x55FD30, arg1, arg2, arg3, arg4, arg5);
 }
 
 class Stream* OpenFile(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5, char* arg6)
 {
     return stub<cdecl_t<class Stream*, char*, char*, char*, i32, char*, char*>>(
-        0x15FD60_Offset, arg1, arg2, arg3, arg4, arg5, arg6);
+        0x55FD60, arg1, arg2, arg3, arg4, arg5, arg6);
 }

@@ -115,7 +115,7 @@ public:
 check_size(RaceMenuBase, 0x0);
 
 // 0x64119C | ?GoldDamageScale@@3MA
-inline extern_var(0x24119C_Offset, f32, GoldDamageScale);
+inline extern_var(0x64119C, f32, GoldDamageScale);
 
 // 0x641198 | ?GoldHPScale@@3MA
-inline extern_var(0x241198_Offset, f32, GoldHPScale);
+inline extern_var(0x641198, f32, GoldHPScale);

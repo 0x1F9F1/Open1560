@@ -22,10 +22,10 @@ define_dummy_symbol(memory_stub);
 
 void operator delete(void* arg1)
 {
-    return stub<cdecl_t<void, void*>>(0x1215C0_Offset, arg1);
+    return stub<cdecl_t<void, void*>>(0x5215C0, arg1);
 }
 
 void* operator new(u32 arg1)
 {
-    return stub<cdecl_t<void*, u32>>(0x1215A0_Offset, arg1);
+    return stub<cdecl_t<void*, u32>>(0x5215A0, arg1);
 }

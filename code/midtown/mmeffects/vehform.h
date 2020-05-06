@@ -56,10 +56,10 @@ public:
     void Update() override;
 
     // 0x64A348 | ?Lighter@mmVehicleForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    static inline extern_var(0x24A348_Offset, void (*)(u8*, u32*, u32*, class agiMeshSet*), Lighter);
+    static inline extern_var(0x64A348, void (*)(u8*, u32*, u32*, class agiMeshSet*), Lighter);
 
     // 0x719610 | ?SphMapTex@mmVehicleForm@@2PAVagiTexDef@@A
-    static inline extern_var(0x319610_Offset, class agiTexDef*, SphMapTex);
+    static inline extern_var(0x719610, class agiTexDef*, SphMapTex);
 };
 
 check_size(mmVehicleForm, 0x54);

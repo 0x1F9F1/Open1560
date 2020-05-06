@@ -55,4 +55,4 @@ public:
 check_size(agiPalette, 0x0);
 
 // 0x907238 | ?agiPal@@3VagiPalette@@A
-inline extern_var(0x507238_Offset, class agiPalette, agiPal);
+inline extern_var(0x907238, class agiPalette, agiPal);

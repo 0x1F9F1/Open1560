@@ -128,14 +128,14 @@ public:
     static void DeclareFields();
 
     // 0x705FD8 | ?FloatClock@mmBangerDataManager@@2MA
-    static inline extern_var(0x305FD8_Offset, f32, FloatClock);
+    static inline extern_var(0x705FD8, f32, FloatClock);
 
     // 0x705FF0 | ?SignalClock@mmBangerDataManager@@2HA
-    static inline extern_var(0x305FF0_Offset, i32, SignalClock);
+    static inline extern_var(0x705FF0, i32, SignalClock);
 
 protected:
     // 0x705FDC | ?Instance@mmBangerDataManager@@1PAV1@A
-    static inline extern_var(0x305FDC_Offset, class mmBangerDataManager*, Instance);
+    static inline extern_var(0x705FDC, class mmBangerDataManager*, Instance);
 };
 
 check_size(mmBangerDataManager, 0x268D0);
@@ -144,7 +144,7 @@ check_size(mmBangerDataManager, 0x268D0);
 struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i16* arg3);
 
 // 0x706008 | ?mmBangerDataManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x306008_Offset, class MetaClass, mmBangerDataManagerMetaClass);
+inline extern_var(0x706008, class MetaClass, mmBangerDataManagerMetaClass);
 
 // 0x705FB0 | ?mmBangerDataMetaClass@@3VMetaClass@@A
-inline extern_var(0x305FB0_Offset, class MetaClass, mmBangerDataMetaClass);
+inline extern_var(0x705FB0, class MetaClass, mmBangerDataMetaClass);

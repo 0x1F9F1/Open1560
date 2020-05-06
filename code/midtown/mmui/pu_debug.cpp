@@ -32,5 +32,5 @@ PUDebug::~PUDebug()
 
 void PUDebug::RecordCB()
 {
-    return stub<thiscall_t<void, PUDebug*>>(0xAA5A0_Offset, this);
+    return stub<thiscall_t<void, PUDebug*>>(0x4AA5A0, this);
 }

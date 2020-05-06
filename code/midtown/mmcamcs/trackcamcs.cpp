@@ -32,90 +32,90 @@ TrackCamCS::~TrackCamCS()
 
 void TrackCamCS::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, TrackCamCS*, class Bank*>>(0xF6DE0_Offset, this, arg1);
+    return stub<thiscall_t<void, TrackCamCS*, class Bank*>>(0x4F6DE0, this, arg1);
 }
 
 void TrackCamCS::AfterLoad()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF6D90_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F6D90, this);
 }
 
 class MetaClass* TrackCamCS::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, TrackCamCS*>>(0xF8F00_Offset, this);
+    return stub<thiscall_t<class MetaClass*, TrackCamCS*>>(0x4F8F00, this);
 }
 
 void TrackCamCS::MakeActive()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF6D50_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F6D50, this);
 }
 
 void TrackCamCS::Reset()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF6DA0_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F6DA0, this);
 }
 
 void TrackCamCS::SwingToRear()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF8A70_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F8A70, this);
 }
 
 void TrackCamCS::Update()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF7270_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F7270, this);
 }
 
 void TrackCamCS::UpdateInput()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF7350_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F7350, this);
 }
 
 void TrackCamCS::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xF8BE0_Offset);
+    return stub<cdecl_t<void>>(0x4F8BE0);
 }
 
 void TrackCamCS::Collide(class Vector3 arg1)
 {
-    return stub<thiscall_t<void, TrackCamCS*, class Vector3>>(0xF85D0_Offset, this, arg1);
+    return stub<thiscall_t<void, TrackCamCS*, class Vector3>>(0x4F85D0, this, arg1);
 }
 
 void TrackCamCS::Front(f32 arg1)
 {
-    return stub<thiscall_t<void, TrackCamCS*, f32>>(0xF8AE0_Offset, this, arg1);
+    return stub<thiscall_t<void, TrackCamCS*, f32>>(0x4F8AE0, this, arg1);
 }
 
 void TrackCamCS::MinMax(class Matrix34 arg1)
 {
-    return stub<thiscall_t<void, TrackCamCS*, class Matrix34>>(0xF8430_Offset, this, arg1);
+    return stub<thiscall_t<void, TrackCamCS*, class Matrix34>>(0x4F8430, this, arg1);
 }
 
 void TrackCamCS::PreApproach()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF8230_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F8230, this);
 }
 
 void TrackCamCS::Rear(f32 arg1)
 {
-    return stub<thiscall_t<void, TrackCamCS*, f32>>(0xF8B60_Offset, this, arg1);
+    return stub<thiscall_t<void, TrackCamCS*, f32>>(0x4F8B60, this, arg1);
 }
 
 void TrackCamCS::UpdateCar()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF7360_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F7360, this);
 }
 
 void TrackCamCS::UpdateHill()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF7500_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F7500, this);
 }
 
 void TrackCamCS::UpdateSwing()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF7E50_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F7E50, this);
 }
 
 void TrackCamCS::UpdateTrack()
 {
-    return stub<thiscall_t<void, TrackCamCS*>>(0xF7510_Offset, this);
+    return stub<thiscall_t<void, TrackCamCS*>>(0x4F7510, this);
 }

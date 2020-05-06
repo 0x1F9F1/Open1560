@@ -32,30 +32,30 @@ aiStuck::~aiStuck()
 
 void aiStuck::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, aiStuck*, class Bank*>>(0x6B770_Offset, this, arg1);
+    return stub<thiscall_t<void, aiStuck*, class Bank*>>(0x46B770, this, arg1);
 }
 
 void aiStuck::Impact()
 {
-    return stub<thiscall_t<void, aiStuck*>>(0x6B4C0_Offset, this);
+    return stub<thiscall_t<void, aiStuck*>>(0x46B4C0, this);
 }
 
 void aiStuck::Init(class mmCarSim* arg1)
 {
-    return stub<thiscall_t<void, aiStuck*, class mmCarSim*>>(0x6B4A0_Offset, this, arg1);
+    return stub<thiscall_t<void, aiStuck*, class mmCarSim*>>(0x46B4A0, this, arg1);
 }
 
 i32 aiStuck::Pegged()
 {
-    return stub<thiscall_t<i32, aiStuck*>>(0x6B4E0_Offset, this);
+    return stub<thiscall_t<i32, aiStuck*>>(0x46B4E0, this);
 }
 
 void aiStuck::Reset()
 {
-    return stub<thiscall_t<void, aiStuck*>>(0x6B4D0_Offset, this);
+    return stub<thiscall_t<void, aiStuck*>>(0x46B4D0, this);
 }
 
 void aiStuck::Update()
 {
-    return stub<thiscall_t<void, aiStuck*>>(0x6B550_Offset, this);
+    return stub<thiscall_t<void, aiStuck*>>(0x46B550, this);
 }

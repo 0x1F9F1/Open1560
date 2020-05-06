@@ -27,25 +27,25 @@ Tokenizer::Tokenizer(char const* arg1, class Stream* arg2)
 
 f32 Tokenizer::GetFloat()
 {
-    return stub<thiscall_t<f32, Tokenizer*>>(0x161770_Offset, this);
+    return stub<thiscall_t<f32, Tokenizer*>>(0x561770, this);
 }
 
 i32 Tokenizer::GetInt()
 {
-    return stub<thiscall_t<i32, Tokenizer*>>(0x161710_Offset, this);
+    return stub<thiscall_t<i32, Tokenizer*>>(0x561710, this);
 }
 
 i32 Tokenizer::GetToken(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, Tokenizer*, char*, i32>>(0x161600_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, Tokenizer*, char*, i32>>(0x561600, this, arg1, arg2);
 }
 
 void Tokenizer::IgnoreToken()
 {
-    return stub<thiscall_t<void, Tokenizer*>>(0x1617D0_Offset, this);
+    return stub<thiscall_t<void, Tokenizer*>>(0x5617D0, this);
 }
 
 void Tokenizer::MatchToken(char* arg1)
 {
-    return stub<thiscall_t<void, Tokenizer*, char*>>(0x161690_Offset, this, arg1);
+    return stub<thiscall_t<void, Tokenizer*, char*>>(0x561690, this, arg1);
 }

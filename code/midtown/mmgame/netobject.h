@@ -95,4 +95,4 @@ public:
 check_size(mmNetObject, 0xF4);
 
 // 0x6A77E8 | ?time_delta@@3MA
-inline extern_var(0x2A77E8_Offset, f32, time_delta);
+inline extern_var(0x6A77E8, f32, time_delta);

@@ -110,10 +110,10 @@ public:
     static void DeclareFields();
 
     // 0x6A8EA8 | ?InvLodFactor@asRenderWeb@@2MA
-    static inline extern_var(0x2A8EA8_Offset, f32, InvLodFactor);
+    static inline extern_var(0x6A8EA8, f32, InvLodFactor);
 
     // 0x6A8EB8 | ?PassMask@asRenderWeb@@2HA
-    static inline extern_var(0x2A8EB8_Offset, i32, PassMask);
+    static inline extern_var(0x6A8EB8, i32, PassMask);
 };
 
 check_size(asRenderWeb, 0x9178);
@@ -122,64 +122,64 @@ check_size(asRenderWeb, 0x9178);
 void DrawMirrorBorder();
 
 // 0x6A8EB0 | ?CachedFullSegmentHits@@3HA
-inline extern_var(0x2A8EB0_Offset, i32, CachedFullSegmentHits);
+inline extern_var(0x6A8EB0, i32, CachedFullSegmentHits);
 
 // 0x6A8E90 | ?CachedFullSegmentTests@@3HA
-inline extern_var(0x2A8E90_Offset, i32, CachedFullSegmentTests);
+inline extern_var(0x6A8E90, i32, CachedFullSegmentTests);
 
 // 0x6A8EAC | ?EnableCachedPoly@@3HA
-inline extern_var(0x2A8EAC_Offset, i32, EnableCachedPoly);
+inline extern_var(0x6A8EAC, i32, EnableCachedPoly);
 
 // 0x63F1E8 | ?EnableSubClip@@3HA
-inline extern_var(0x23F1E8_Offset, i32, EnableSubClip);
+inline extern_var(0x63F1E8, i32, EnableSubClip);
 
 // 0x6A8F14 | ?Front2Back@@3HA
-inline extern_var(0x2A8F14_Offset, i32, Front2Back);
+inline extern_var(0x6A8F14, i32, Front2Back);
 
 // 0x6A8EBC | ?GridMtx@@3PAVMatrix34@@A
-inline extern_var(0x2A8EBC_Offset, class Matrix34*, GridMtx);
+inline extern_var(0x6A8EBC, class Matrix34*, GridMtx);
 
 // 0x63F1E0 | ?MULTIPASS@@3HA
-inline extern_var(0x23F1E0_Offset, i32, MULTIPASS);
+inline extern_var(0x63F1E0, i32, MULTIPASS);
 
 // 0x6A8F10 | ?PopupEnabled@@3HA
-inline extern_var(0x2A8F10_Offset, i32, PopupEnabled);
+inline extern_var(0x6A8F10, i32, PopupEnabled);
 
 // 0x6A8ED8 | ?SC_SVCP@@3HA
-inline extern_var(0x2A8ED8_Offset, i32, SC_SVCP);
+inline extern_var(0x6A8ED8, i32, SC_SVCP);
 
 // 0x6A8EB4 | ?SC_SVP@@3HA
-inline extern_var(0x2A8EB4_Offset, i32, SC_SVP);
+inline extern_var(0x6A8EB4, i32, SC_SVP);
 
 // 0x63F1E4 | ?ScreenClearY@@3MA
-inline extern_var(0x23F1E4_Offset, f32, ScreenClearY);
+inline extern_var(0x63F1E4, f32, ScreenClearY);
 
 // 0x63F1EC | ?ShadowZBias@@3MA
-inline extern_var(0x23F1EC_Offset, f32, ShadowZBias);
+inline extern_var(0x63F1EC, f32, ShadowZBias);
 
 // 0x6A8E94 | ?StartCellCollides@@3HA
-inline extern_var(0x2A8E94_Offset, i32, StartCellCollides);
+inline extern_var(0x6A8E94, i32, StartCellCollides);
 
 // 0x63F1D8 | ?ZREAD@@3HA
-inline extern_var(0x23F1D8_Offset, i32, ZREAD);
+inline extern_var(0x63F1D8, i32, ZREAD);
 
 // 0x63F1DC | ?ZWRITE@@3HA
-inline extern_var(0x23F1DC_Offset, i32, ZWRITE);
+inline extern_var(0x63F1DC, i32, ZWRITE);
 
 // 0x6A8EE8 | ?asRenderWebMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A8EE8_Offset, class MetaClass, asRenderWebMetaClass);
+inline extern_var(0x6A8EE8, class MetaClass, asRenderWebMetaClass);
 
 // 0x6A8EE0 | ?pass1Count@@3HA
-inline extern_var(0x2A8EE0_Offset, i32, pass1Count);
+inline extern_var(0x6A8EE0, i32, pass1Count);
 
 // 0x6A8ED0 | ?pass2Count@@3HA
-inline extern_var(0x2A8ED0_Offset, i32, pass2Count);
+inline extern_var(0x6A8ED0, i32, pass2Count);
 
 // 0x6A8ED4 | ?pass3Count@@3HA
-inline extern_var(0x2A8ED4_Offset, i32, pass3Count);
+inline extern_var(0x6A8ED4, i32, pass3Count);
 
 // 0x6A8EA0 | ?pass4Count@@3HA
-inline extern_var(0x2A8EA0_Offset, i32, pass4Count);
+inline extern_var(0x6A8EA0, i32, pass4Count);
 
 // 0x6A8ECC | ?upperCount@@3HA
-inline extern_var(0x2A8ECC_Offset, i32, upperCount);
+inline extern_var(0x6A8ECC, i32, upperCount);

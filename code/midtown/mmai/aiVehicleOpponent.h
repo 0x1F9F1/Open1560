@@ -131,4 +131,4 @@ private:
 check_size(aiVehicleOpponent, 0x23BC);
 
 // 0x6A7A58 | ?aiVehicleOpponentMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7A58_Offset, class MetaClass, aiVehicleOpponentMetaClass);
+inline extern_var(0x6A7A58, class MetaClass, aiVehicleOpponentMetaClass);

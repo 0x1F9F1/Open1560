@@ -32,8 +32,7 @@ agiLighter::~agiLighter()
 
 void agiLighter::TransformAll(class Matrix34* arg1, class Vector3* arg2, u32 arg3)
 {
-    return stub<thiscall_t<void, agiLighter*, class Matrix34*, class Vector3*, u32>>(
-        0x151800_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, agiLighter*, class Matrix34*, class Vector3*, u32>>(0x551800, this, arg1, arg2, arg3);
 }
 
 u32 agiLighter::LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3)
@@ -44,17 +43,17 @@ u32 agiLighter::LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg
 
 void agiLighter::BeginScene()
 {
-    return stub<cdecl_t<void>>(0x151760_Offset);
+    return stub<cdecl_t<void>>(0x551760);
 }
 
 void agiLighter::DeclareLight(class agiLight* arg1)
 {
-    return stub<cdecl_t<void, class agiLight*>>(0x151780_Offset, arg1);
+    return stub<cdecl_t<void, class agiLight*>>(0x551780, arg1);
 }
 
 void agiLighter::RemoveLight(class agiLight* arg1)
 {
-    return stub<cdecl_t<void, class agiLight*>>(0x1517A0_Offset, arg1);
+    return stub<cdecl_t<void, class agiLight*>>(0x5517A0, arg1);
 }
 
 agiMonoLighter::agiMonoLighter()
@@ -70,7 +69,7 @@ agiMonoLighter::~agiMonoLighter()
 u32 agiMonoLighter::LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3)
 {
     return stub<thiscall_t<u32, agiMonoLighter*, u32, struct agiLitVtx*, class Vector3*>>(
-        0x151A20_Offset, this, arg1, arg2, arg3);
+        0x551A20, this, arg1, arg2, arg3);
 }
 
 agiRGBLighter::agiRGBLighter()
@@ -86,5 +85,5 @@ agiRGBLighter::~agiRGBLighter()
 u32 agiRGBLighter::LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3)
 {
     return stub<thiscall_t<u32, agiRGBLighter*, u32, struct agiLitVtx*, class Vector3*>>(
-        0x151E70_Offset, this, arg1, arg2, arg3);
+        0x551E70, this, arg1, arg2, arg3);
 }

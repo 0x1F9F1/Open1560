@@ -31,10 +31,10 @@
 void ddAttach(i32 arg1, i32 arg2);
 
 // 0x795F40 | ?bRenderToSystem@@3HA
-inline extern_var(0x395F40_Offset, i32, bRenderToSystem);
+inline extern_var(0x795F40, i32, bRenderToSystem);
 
 // 0x795D38 | ?swNibbleLut@@3PAEA
-inline extern_var(0x395D38_Offset, u8*, swNibbleLut);
+inline extern_var(0x795D38, u8*, swNibbleLut);
 
 // 0x795CB0 | ?swScreenDesc@@3VagiSurfaceDesc@@A
-inline extern_var(0x395CB0_Offset, class agiSurfaceDesc, swScreenDesc);
+inline extern_var(0x795CB0, class agiSurfaceDesc, swScreenDesc);

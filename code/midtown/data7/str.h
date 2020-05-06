@@ -149,13 +149,13 @@ check_size(string, 0x8);
 class string operator+(char const* arg1, class string const& arg2);
 
 // 0x90B3D0 | ?ExecPath@@3PADA
-inline extern_var(0x50B3D0_Offset, char*, ExecPath);
+inline extern_var(0x90B3D0, char*, ExecPath);
 
 // 0x90B288 | ?ImageExts@@3PADA
-inline extern_var(0x50B288_Offset, char*, ImageExts);
+inline extern_var(0x90B288, char*, ImageExts);
 
 // 0x90B208 | ?ProjPath@@3PADA
-inline extern_var(0x50B208_Offset, char*, ProjPath);
+inline extern_var(0x90B208, char*, ProjPath);
 
 class StringArray
 {

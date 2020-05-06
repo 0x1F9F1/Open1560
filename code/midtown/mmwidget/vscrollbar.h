@@ -119,4 +119,4 @@ public:
 check_size(UIVScrollBar, 0x10C);
 
 // 0x705C28 | ?UIVScrollBarMetaClass@@3VMetaClass@@A
-inline extern_var(0x305C28_Offset, class MetaClass, UIVScrollBarMetaClass);
+inline extern_var(0x705C28, class MetaClass, UIVScrollBarMetaClass);

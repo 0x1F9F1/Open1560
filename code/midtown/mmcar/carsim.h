@@ -90,19 +90,19 @@ void IMPACTCB(class mmCarSim* arg1, class asBound* arg2, class mmIntersection* a
 struct MetaType* Struct(class MetaClass* arg1);
 
 // 0x6A7C78 | ?HitWaterTimer@@3MA
-inline extern_var(0x2A7C78_Offset, f32, HitWaterTimer);
+inline extern_var(0x6A7C78, f32, HitWaterTimer);
 
 // 0x63ABC0 | ?MetricFactor@@3MA
-inline extern_var(0x23ABC0_Offset, f32, MetricFactor);
+inline extern_var(0x63ABC0, f32, MetricFactor);
 
 // 0x6A7C40 | ?PlayerPos@@3VVector3@@A
-inline extern_var(0x2A7C40_Offset, class Vector3, PlayerPos);
+inline extern_var(0x6A7C40, class Vector3, PlayerPos);
 
 // 0x63ABC4 | ?WeatherFriction@@3MA
-inline extern_var(0x23ABC4_Offset, f32, WeatherFriction);
+inline extern_var(0x63ABC4, f32, WeatherFriction);
 
 // 0x6A7C50 | ?mmCarSimMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7C50_Offset, class MetaClass, mmCarSimMetaClass);
+inline extern_var(0x6A7C50, class MetaClass, mmCarSimMetaClass);
 
 class mmCarSim : public asNode
 {
@@ -210,16 +210,16 @@ public:
     static void SetGlobalTuning(f32 arg1, f32 arg2);
 
     // 0x6A7C94 | ?DirtTex@mmCarSim@@2PAVagiTexDef@@A
-    static inline extern_var(0x2A7C94_Offset, class agiTexDef*, DirtTex);
+    static inline extern_var(0x6A7C94, class agiTexDef*, DirtTex);
 
     // 0x6A7C90 | ?GrassTex@mmCarSim@@2PAVagiTexDef@@A
-    static inline extern_var(0x2A7C90_Offset, class agiTexDef*, GrassTex);
+    static inline extern_var(0x6A7C90, class agiTexDef*, GrassTex);
 
     // 0x6A7C9C | ?PlayerRawSteering@mmCarSim@@2MA
-    static inline extern_var(0x2A7C9C_Offset, f32, PlayerRawSteering);
+    static inline extern_var(0x6A7C9C, f32, PlayerRawSteering);
 
     // 0x6A7C98 | ?SnowTex@mmCarSim@@2PAVagiTexDef@@A
-    static inline extern_var(0x2A7C98_Offset, class agiTexDef*, SnowTex);
+    static inline extern_var(0x6A7C98, class agiTexDef*, SnowTex);
 };
 
 check_size(mmCarSim, 0x1FAC);

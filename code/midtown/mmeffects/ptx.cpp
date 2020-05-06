@@ -32,56 +32,56 @@ asParticles::~asParticles()
 
 void asParticles::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, asParticles*, class Bank*>>(0x100750_Offset, this, arg1);
+    return stub<thiscall_t<void, asParticles*, class Bank*>>(0x500750, this, arg1);
 }
 
 void asParticles::Blast(i32 arg1, class asBirthRule* arg2)
 {
-    return stub<thiscall_t<void, asParticles*, i32, class asBirthRule*>>(0x1005F0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, asParticles*, i32, class asBirthRule*>>(0x5005F0, this, arg1, arg2);
 }
 
 void asParticles::Cull()
 {
-    return stub<thiscall_t<void, asParticles*>>(0x1006B0_Offset, this);
+    return stub<thiscall_t<void, asParticles*>>(0x5006B0, this);
 }
 
 class MetaClass* asParticles::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, asParticles*>>(0x100990_Offset, this);
+    return stub<thiscall_t<class MetaClass*, asParticles*>>(0x500990, this);
 }
 
 void asParticles::Init(i32 arg1, i32 arg2, i32 arg3, i32 arg4, struct agiMeshCardVertex* arg5)
 {
     return stub<thiscall_t<void, asParticles*, i32, i32, i32, i32, struct agiMeshCardVertex*>>(
-        0x1001A0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x5001A0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void asParticles::Reset()
 {
-    return stub<thiscall_t<void, asParticles*>>(0x100210_Offset, this);
+    return stub<thiscall_t<void, asParticles*>>(0x500210, this);
 }
 
 void asParticles::SetTexture(char* arg1)
 {
-    return stub<thiscall_t<void, asParticles*, char*>>(0x100250_Offset, this, arg1);
+    return stub<thiscall_t<void, asParticles*, char*>>(0x500250, this, arg1);
 }
 
 void asParticles::SetTexture(class agiTexDef* arg1)
 {
-    return stub<thiscall_t<void, asParticles*, class agiTexDef*>>(0x100220_Offset, this, arg1);
+    return stub<thiscall_t<void, asParticles*, class agiTexDef*>>(0x500220, this, arg1);
 }
 
 void asParticles::Update()
 {
-    return stub<thiscall_t<void, asParticles*>>(0x1002A0_Offset, this);
+    return stub<thiscall_t<void, asParticles*>>(0x5002A0, this);
 }
 
 void asParticles::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x100830_Offset);
+    return stub<cdecl_t<void>>(0x500830);
 }
 
 i32 cmpPtx(void const* arg1, void const* arg2)
 {
-    return stub<cdecl_t<i32, void const*, void const*>>(0x100690_Offset, arg1, arg2);
+    return stub<cdecl_t<i32, void const*, void const*>>(0x500690, arg1, arg2);
 }

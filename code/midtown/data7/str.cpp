@@ -42,153 +42,153 @@ string::~string()
 
 void string::operator=(char const* arg1)
 {
-    return stub<thiscall_t<void, string*, char const*>>(0x17B320_Offset, this, arg1);
+    return stub<thiscall_t<void, string*, char const*>>(0x57B320, this, arg1);
 }
 
 class string string::operator+(char const* arg1)
 {
-    return stub<thiscall_t<class string, string*, char const*>>(0x179510_Offset, this, arg1);
+    return stub<thiscall_t<class string, string*, char const*>>(0x579510, this, arg1);
 }
 
 class string string::operator+(class string const& arg1)
 {
-    return stub<thiscall_t<class string, string*, class string const&>>(0x17B380_Offset, this, arg1);
+    return stub<thiscall_t<class string, string*, class string const&>>(0x57B380, this, arg1);
 }
 
 void string::operator+=(char arg1)
 {
-    return stub<thiscall_t<void, string*, char>>(0x179860_Offset, this, arg1);
+    return stub<thiscall_t<void, string*, char>>(0x579860, this, arg1);
 }
 
 void string::operator+=(char const* arg1)
 {
-    return stub<thiscall_t<void, string*, char const*>>(0x179770_Offset, this, arg1);
+    return stub<thiscall_t<void, string*, char const*>>(0x579770, this, arg1);
 }
 
 class string string::operator-(char const* arg1)
 {
-    return stub<thiscall_t<class string, string*, char const*>>(0x179900_Offset, this, arg1);
+    return stub<thiscall_t<class string, string*, char const*>>(0x579900, this, arg1);
 }
 
 void string::operator-=(char const* arg1)
 {
-    return stub<thiscall_t<void, string*, char const*>>(0x179A60_Offset, this, arg1);
+    return stub<thiscall_t<void, string*, char const*>>(0x579A60, this, arg1);
 }
 
 void string::ChangeExtension(class string const& arg1)
 {
-    return stub<thiscall_t<void, string*, class string const&>>(0x17A950_Offset, this, arg1);
+    return stub<thiscall_t<void, string*, class string const&>>(0x57A950, this, arg1);
 }
 
 i32 string::CommaFile()
 {
-    return stub<thiscall_t<i32, string*>>(0x17A4A0_Offset, this);
+    return stub<thiscall_t<i32, string*>>(0x57A4A0, this);
 }
 
 i32 string::Contains(class string& arg1)
 {
-    return stub<thiscall_t<i32, string*, class string&>>(0x179C60_Offset, this, arg1);
+    return stub<thiscall_t<i32, string*, class string&>>(0x579C60, this, arg1);
 }
 
 void string::DirFileExt(class string& arg1, class string& arg2, class string& arg3)
 {
     return stub<thiscall_t<void, string*, class string&, class string&, class string&>>(
-        0x17A290_Offset, this, arg1, arg2, arg3);
+        0x57A290, this, arg1, arg2, arg3);
 }
 
 void string::ExpandEnvs()
 {
-    return stub<thiscall_t<void, string*>>(0x17AB10_Offset, this);
+    return stub<thiscall_t<void, string*>>(0x57AB10, this);
 }
 
 class string string::Extension()
 {
-    return stub<thiscall_t<class string, string*>>(0x17A800_Offset, this);
+    return stub<thiscall_t<class string, string*>>(0x57A800, this);
 }
 
 i32 string::FileExists()
 {
-    return stub<thiscall_t<i32, string*>>(0x17A260_Offset, this);
+    return stub<thiscall_t<i32, string*>>(0x57A260, this);
 }
 
 class string string::FileName()
 {
-    return stub<thiscall_t<class string, string*>>(0x17A6A0_Offset, this);
+    return stub<thiscall_t<class string, string*>>(0x57A6A0, this);
 }
 
 i32 string::FindFile(class string const& arg1, i32 arg2, class string const& arg3, class string const& arg4)
 {
     return stub<thiscall_t<i32, string*, class string const&, i32, class string const&, class string const&>>(
-        0x179ED0_Offset, this, arg1, arg2, arg3, arg4);
+        0x579ED0, this, arg1, arg2, arg3, arg4);
 }
 
 void string::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, string*, i32>>(0x9A6F0_Offset, this, arg1);
+    return stub<thiscall_t<void, string*, i32>>(0x49A6F0, this, arg1);
 }
 
 i32 string::IsNumeric()
 {
-    return stub<thiscall_t<i32, string*>>(0x17AE10_Offset, this);
+    return stub<thiscall_t<i32, string*>>(0x57AE10, this);
 }
 
 void string::MinusEqual(char arg1)
 {
-    return stub<thiscall_t<void, string*, char>>(0x179B10_Offset, this, arg1);
+    return stub<thiscall_t<void, string*, char>>(0x579B10, this, arg1);
 }
 
 i32 string::NumSubStrings()
 {
-    return stub<thiscall_t<i32, string*>>(0x17ADC0_Offset, this);
+    return stub<thiscall_t<i32, string*>>(0x57ADC0, this);
 }
 
 void string::RemoveExtension()
 {
-    return stub<thiscall_t<void, string*>>(0x17AAD0_Offset, this);
+    return stub<thiscall_t<void, string*>>(0x57AAD0, this);
 }
 
 void string::SaveName(class string const& arg1, i32 arg2, class string const& arg3, class string const& arg4)
 {
     return stub<thiscall_t<void, string*, class string const&, i32, class string const&, class string const&>>(
-        0x179D00_Offset, this, arg1, arg2, arg3, arg4);
+        0x579D00, this, arg1, arg2, arg3, arg4);
 }
 
 class string string::SubString(i32 arg1)
 {
-    return stub<thiscall_t<class string, string*, i32>>(0x17ACB0_Offset, this, arg1);
+    return stub<thiscall_t<class string, string*, i32>>(0x57ACB0, this, arg1);
 }
 
 class string operator+(char const* arg1, class string const& arg2)
 {
-    return stub<cdecl_t<class string, char const*, class string const&>>(0x179640_Offset, arg1, arg2);
+    return stub<cdecl_t<class string, char const*, class string const&>>(0x579640, arg1, arg2);
 }
 
 void StringArray::operator=(class StringArray& arg1)
 {
-    return stub<thiscall_t<void, StringArray*, class StringArray&>>(0x17B050_Offset, this, arg1);
+    return stub<thiscall_t<void, StringArray*, class StringArray&>>(0x57B050, this, arg1);
 }
 
 class string& StringArray::operator[](i32 arg1)
 {
-    return stub<thiscall_t<class string&, StringArray*, i32>>(0x17AFA0_Offset, this, arg1);
+    return stub<thiscall_t<class string&, StringArray*, i32>>(0x57AFA0, this, arg1);
 }
 
 void StringArray::BlockCopy(class StringArray& arg1)
 {
-    return stub<thiscall_t<void, StringArray*, class StringArray&>>(0x17B1F0_Offset, this, arg1);
+    return stub<thiscall_t<void, StringArray*, class StringArray&>>(0x57B1F0, this, arg1);
 }
 
 void StringArray::Delete()
 {
-    return stub<thiscall_t<void, StringArray*>>(0x17AED0_Offset, this);
+    return stub<thiscall_t<void, StringArray*>>(0x57AED0, this);
 }
 
 void StringArray::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, StringArray*, i32>>(0x17AE60_Offset, this, arg1);
+    return stub<thiscall_t<void, StringArray*, i32>>(0x57AE60, this, arg1);
 }
 
 void StringArray::NewTable(i32 arg1)
 {
-    return stub<thiscall_t<void, StringArray*, i32>>(0x17AF30_Offset, this, arg1);
+    return stub<thiscall_t<void, StringArray*, i32>>(0x57AF30, this, arg1);
 }

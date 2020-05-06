@@ -62,4 +62,4 @@ public:
 check_size(Base, 0x0);
 
 // 0x90B100 | ?BaseMetaClass@@3VMetaClass@@A
-inline extern_var(0x50B100_Offset, class MetaClass, BaseMetaClass);
+inline extern_var(0x90B100, class MetaClass, BaseMetaClass);

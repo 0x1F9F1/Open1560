@@ -27,81 +27,80 @@ mmPolygon::mmPolygon()
 
 f32 mmPolygon::CheckCellXSide(f32 arg1, f32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<f32, mmPolygon*, f32, f32, f32>>(0x11D080_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<f32, mmPolygon*, f32, f32, f32>>(0x51D080, this, arg1, arg2, arg3);
 }
 
 f32 mmPolygon::CheckCellZSide(f32 arg1, f32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<f32, mmPolygon*, f32, f32, f32>>(0x11D170_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<f32, mmPolygon*, f32, f32, f32>>(0x51D170, this, arg1, arg2, arg3);
 }
 
 f32 mmPolygon::CheckCorner(f32 arg1, f32 arg2, f32* arg3, f32* arg4, f32* arg5)
 {
-    return stub<thiscall_t<f32, mmPolygon*, f32, f32, f32*, f32*, f32*>>(
-        0x11CFD0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+    return stub<thiscall_t<f32, mmPolygon*, f32, f32, f32*, f32*, f32*>>(0x51CFD0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 f32 mmPolygon::CornersHeight(f32 arg1, f32 arg2, f32 arg3, f32 arg4)
 {
-    return stub<thiscall_t<f32, mmPolygon*, f32, f32, f32, f32>>(0x11CDB0_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<f32, mmPolygon*, f32, f32, f32, f32>>(0x51CDB0, this, arg1, arg2, arg3, arg4);
 }
 
 void mmPolygon::Draw()
 {
-    return stub<thiscall_t<void, mmPolygon*>>(0x11C2A0_Offset, this);
+    return stub<thiscall_t<void, mmPolygon*>>(0x51C2A0, this);
 }
 
 i32 mmPolygon::FullSegment(class mmEdgeBodyIsect* arg1)
 {
-    return stub<thiscall_t<i32, mmPolygon*, class mmEdgeBodyIsect*>>(0x11AEB0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPolygon*, class mmEdgeBodyIsect*>>(0x51AEB0, this, arg1);
 }
 
 i32 mmPolygon::FullSegment(class mmIntersection* arg1)
 {
-    return stub<thiscall_t<i32, mmPolygon*, class mmIntersection*>>(0x11B440_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPolygon*, class mmIntersection*>>(0x51B440, this, arg1);
 }
 
 i32 mmPolygon::FullSphere(class mmIntersection* arg1)
 {
-    return stub<thiscall_t<i32, mmPolygon*, class mmIntersection*>>(0x11BC80_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPolygon*, class mmIntersection*>>(0x51BC80, this, arg1);
 }
 
 i32 mmPolygon::GetCorner(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
     class Vector3& arg5, class Vector3& arg6, f32& arg7)
 {
     return stub<thiscall_t<i32, mmPolygon*, class Vector3&, class Vector3&, class Vector3&, class Vector3&,
-        class Vector3&, class Vector3&, f32&>>(0x11B990_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        class Vector3&, class Vector3&, f32&>>(0x51B990, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 void mmPolygon::GetST(class Vector3* arg1, class Vector3* arg2, class mmBoundTemplate* arg3)
 {
     return stub<thiscall_t<void, mmPolygon*, class Vector3*, class Vector3*, class mmBoundTemplate*>>(
-        0x11ADA0_Offset, this, arg1, arg2, arg3);
+        0x51ADA0, this, arg1, arg2, arg3);
 }
 
 void mmPolygon::Init()
 {
-    return stub<thiscall_t<void, mmPolygon*>>(0x11A820_Offset, this);
+    return stub<thiscall_t<void, mmPolygon*>>(0x51A820, this);
 }
 
 f32 mmPolygon::MaxY(f32 arg1, f32 arg2, f32 arg3, f32 arg4)
 {
-    return stub<thiscall_t<f32, mmPolygon*, f32, f32, f32, f32>>(0x11CC60_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<f32, mmPolygon*, f32, f32, f32, f32>>(0x51CC60, this, arg1, arg2, arg3, arg4);
 }
 
 void mmPolygon::Plot(class mmBoundTemplate* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmPolygon*, class mmBoundTemplate*, i32>>(0x11C320_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmPolygon*, class mmBoundTemplate*, i32>>(0x51C320, this, arg1, arg2);
 }
 
 void mmPolygon::PlotScan(i32 arg1, i32 arg2, i32 arg3, class mmBoundTemplate* arg4, i32 arg5)
 {
     return stub<thiscall_t<void, mmPolygon*, i32, i32, i32, class mmBoundTemplate*, i32>>(
-        0x11CBD0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x51CBD0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void mmPolygon::PlotTriangle(i32 arg1, i32 arg2, i32 arg3, class mmBoundTemplate* arg4, i32 arg5)
 {
     return stub<thiscall_t<void, mmPolygon*, i32, i32, i32, class mmBoundTemplate*, i32>>(
-        0x11C380_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x51C380, this, arg1, arg2, arg3, arg4, arg5);
 }

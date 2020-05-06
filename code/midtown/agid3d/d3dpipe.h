@@ -130,22 +130,22 @@ i32 __stdcall RestoreCallback(struct IDirectDrawSurface4* arg1, struct _DDSURFAC
 i32 __stdcall callb(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
 
 // 0x795C18 | ?AlphaPalette@@3HA
-inline extern_var(0x395C18_Offset, i32, AlphaPalette);
+inline extern_var(0x795C18, i32, AlphaPalette);
 
 // 0x64E7C8 | ?NoTextureCompression@@3HA
-inline extern_var(0x24E7C8_Offset, i32, NoTextureCompression);
+inline extern_var(0x64E7C8, i32, NoTextureCompression);
 
 // 0x795C20 | ?NotIndependentUV@@3HA
-inline extern_var(0x395C20_Offset, i32, NotIndependentUV);
+inline extern_var(0x795C20, i32, NotIndependentUV);
 
 // 0x795C0C | ?SeparateTextureMemories@@3HA
-inline extern_var(0x395C0C_Offset, i32, SeparateTextureMemories);
+inline extern_var(0x795C0C, i32, SeparateTextureMemories);
 
 // 0x795BD8 | ?agiFOURCC@@3KA
-inline extern_var(0x395BD8_Offset, u32, agiFOURCC);
+inline extern_var(0x795BD8, u32, agiFOURCC);
 
 // 0x795C14 | ?dummyGlobal@@3IA
-inline extern_var(0x395C14_Offset, u32, dummyGlobal);
+inline extern_var(0x795C14, u32, dummyGlobal);
 
 class agiD3DTexLut : public agiTexLut
 {

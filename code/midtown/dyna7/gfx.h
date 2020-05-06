@@ -104,73 +104,73 @@ void DrawWireSphere(class Vector4& arg1);
 void DrawWireSphere(class Vector3& arg1, f32 arg2);
 
 // 0x790A98 | ?ColBlack@@3VVector3@@A
-inline extern_var(0x390A98_Offset, class Vector3, ColBlack);
+inline extern_var(0x790A98, class Vector3, ColBlack);
 
 // 0x790CB8 | ?ColBlue@@3VVector3@@A
-inline extern_var(0x390CB8_Offset, class Vector3, ColBlue);
+inline extern_var(0x790CB8, class Vector3, ColBlue);
 
 // 0x7909F0 | ?ColCyan@@3VVector3@@A
-inline extern_var(0x3909F0_Offset, class Vector3, ColCyan);
+inline extern_var(0x7909F0, class Vector3, ColCyan);
 
 // 0x790B38 | ?ColDarkBlue@@3VVector3@@A
-inline extern_var(0x390B38_Offset, class Vector3, ColDarkBlue);
+inline extern_var(0x790B38, class Vector3, ColDarkBlue);
 
 // 0x790B58 | ?ColDarkCyan@@3VVector3@@A
-inline extern_var(0x390B58_Offset, class Vector3, ColDarkCyan);
+inline extern_var(0x790B58, class Vector3, ColDarkCyan);
 
 // 0x790B78 | ?ColDarkGreen@@3VVector3@@A
-inline extern_var(0x390B78_Offset, class Vector3, ColDarkGreen);
+inline extern_var(0x790B78, class Vector3, ColDarkGreen);
 
 // 0x790B48 | ?ColDarkOrange@@3VVector3@@A
-inline extern_var(0x390B48_Offset, class Vector3, ColDarkOrange);
+inline extern_var(0x790B48, class Vector3, ColDarkOrange);
 
 // 0x790B28 | ?ColDarkPurple@@3VVector3@@A
-inline extern_var(0x390B28_Offset, class Vector3, ColDarkPurple);
+inline extern_var(0x790B28, class Vector3, ColDarkPurple);
 
 // 0x790AA8 | ?ColDarkRed@@3VVector3@@A
-inline extern_var(0x390AA8_Offset, class Vector3, ColDarkRed);
+inline extern_var(0x790AA8, class Vector3, ColDarkRed);
 
 // 0x790AB8 | ?ColDarkYellow@@3VVector3@@A
-inline extern_var(0x390AB8_Offset, class Vector3, ColDarkYellow);
+inline extern_var(0x790AB8, class Vector3, ColDarkYellow);
 
 // 0x790A60 | ?ColGreen@@3VVector3@@A
-inline extern_var(0x390A60_Offset, class Vector3, ColGreen);
+inline extern_var(0x790A60, class Vector3, ColGreen);
 
 // 0x790A80 | ?ColGrey@@3VVector3@@A
-inline extern_var(0x390A80_Offset, class Vector3, ColGrey);
+inline extern_var(0x790A80, class Vector3, ColGrey);
 
 // 0x790C18 | ?ColLightBlue@@3VVector3@@A
-inline extern_var(0x390C18_Offset, class Vector3, ColLightBlue);
+inline extern_var(0x790C18, class Vector3, ColLightBlue);
 
 // 0x7909E0 | ?ColLightCyan@@3VVector3@@A
-inline extern_var(0x3909E0_Offset, class Vector3, ColLightCyan);
+inline extern_var(0x7909E0, class Vector3, ColLightCyan);
 
 // 0x790A70 | ?ColLightGreen@@3VVector3@@A
-inline extern_var(0x390A70_Offset, class Vector3, ColLightGreen);
+inline extern_var(0x790A70, class Vector3, ColLightGreen);
 
 // 0x790AD8 | ?ColLightOrange@@3VVector3@@A
-inline extern_var(0x390AD8_Offset, class Vector3, ColLightOrange);
+inline extern_var(0x790AD8, class Vector3, ColLightOrange);
 
 // 0x790AC8 | ?ColLightPurple@@3VVector3@@A
-inline extern_var(0x390AC8_Offset, class Vector3, ColLightPurple);
+inline extern_var(0x790AC8, class Vector3, ColLightPurple);
 
 // 0x790AE8 | ?ColLightRed@@3VVector3@@A
-inline extern_var(0x390AE8_Offset, class Vector3, ColLightRed);
+inline extern_var(0x790AE8, class Vector3, ColLightRed);
 
 // 0x790BC8 | ?ColLightYellow@@3VVector3@@A
-inline extern_var(0x390BC8_Offset, class Vector3, ColLightYellow);
+inline extern_var(0x790BC8, class Vector3, ColLightYellow);
 
 // 0x790C28 | ?ColOrange@@3VVector3@@A
-inline extern_var(0x390C28_Offset, class Vector3, ColOrange);
+inline extern_var(0x790C28, class Vector3, ColOrange);
 
 // 0x790B68 | ?ColPurple@@3VVector3@@A
-inline extern_var(0x390B68_Offset, class Vector3, ColPurple);
+inline extern_var(0x790B68, class Vector3, ColPurple);
 
 // 0x790BB8 | ?ColRed@@3VVector3@@A
-inline extern_var(0x390BB8_Offset, class Vector3, ColRed);
+inline extern_var(0x790BB8, class Vector3, ColRed);
 
 // 0x790CC8 | ?ColWhite@@3VVector3@@A
-inline extern_var(0x390CC8_Offset, class Vector3, ColWhite);
+inline extern_var(0x790CC8, class Vector3, ColWhite);
 
 // 0x790BA8 | ?ColYellow@@3VVector3@@A
-inline extern_var(0x390BA8_Offset, class Vector3, ColYellow);
+inline extern_var(0x790BA8, class Vector3, ColYellow);

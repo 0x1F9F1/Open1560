@@ -27,12 +27,12 @@ eqReplayChannel::~eqReplayChannel()
 
 void eqReplayChannel::InitRecord()
 {
-    return stub<thiscall_t<void, eqReplayChannel*>>(0x164680_Offset, this);
+    return stub<thiscall_t<void, eqReplayChannel*>>(0x564680, this);
 }
 
 void eqReplayChannel::InitPlayback()
 {
-    return stub<thiscall_t<void, eqReplayChannel*>>(0x164690_Offset, this);
+    return stub<thiscall_t<void, eqReplayChannel*>>(0x564690, this);
 }
 
 void eqReplayChannel::DoRecord(class Stream* arg1)
@@ -47,12 +47,12 @@ void eqReplayChannel::DoPlayback(class Stream* arg1)
 
 void eqReplayChannel::ShutdownRecord()
 {
-    return stub<thiscall_t<void, eqReplayChannel*>>(0x1646A0_Offset, this);
+    return stub<thiscall_t<void, eqReplayChannel*>>(0x5646A0, this);
 }
 
 void eqReplayChannel::ShutdownPlayback()
 {
-    return stub<thiscall_t<void, eqReplayChannel*>>(0x1646B0_Offset, this);
+    return stub<thiscall_t<void, eqReplayChannel*>>(0x5646B0, this);
 }
 
 eqReplayChannel::eqReplayChannel(u32 arg1)
@@ -62,30 +62,30 @@ eqReplayChannel::eqReplayChannel(u32 arg1)
 
 void eqReplay::DoPlayback()
 {
-    return stub<cdecl_t<void>>(0x164920_Offset);
+    return stub<cdecl_t<void>>(0x564920);
 }
 
 void eqReplay::DoRecord()
 {
-    return stub<cdecl_t<void>>(0x1648C0_Offset);
+    return stub<cdecl_t<void>>(0x5648C0);
 }
 
 void eqReplay::InitPlayback(char* arg1)
 {
-    return stub<cdecl_t<void, char*>>(0x164750_Offset, arg1);
+    return stub<cdecl_t<void, char*>>(0x564750, arg1);
 }
 
 void eqReplay::InitRecord(char* arg1)
 {
-    return stub<cdecl_t<void, char*>>(0x1646C0_Offset, arg1);
+    return stub<cdecl_t<void, char*>>(0x5646C0, arg1);
 }
 
 void eqReplay::ShutdownPlayback()
 {
-    return stub<cdecl_t<void>>(0x164860_Offset);
+    return stub<cdecl_t<void>>(0x564860);
 }
 
 void eqReplay::ShutdownRecord()
 {
-    return stub<cdecl_t<void>>(0x164800_Offset);
+    return stub<cdecl_t<void>>(0x564800);
 }

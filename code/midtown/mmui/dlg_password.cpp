@@ -32,10 +32,10 @@ Dialog_Password::~Dialog_Password()
 
 void Dialog_Password::PasswordCallback()
 {
-    return stub<thiscall_t<void, Dialog_Password*>>(0x9DC40_Offset, this);
+    return stub<thiscall_t<void, Dialog_Password*>>(0x49DC40, this);
 }
 
 void Dialog_Password::PreSetup()
 {
-    return stub<thiscall_t<void, Dialog_Password*>>(0x9DC30_Offset, this);
+    return stub<thiscall_t<void, Dialog_Password*>>(0x49DC30, this);
 }

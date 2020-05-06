@@ -32,25 +32,25 @@ mmAnimTrainCar::~mmAnimTrainCar()
 
 void __fastcall mmAnimTrainCar::Draw(i32 arg1)
 {
-    return stub<fastcall_t<void, mmAnimTrainCar*, i32>>(0xC8100_Offset, this, arg1);
+    return stub<fastcall_t<void, mmAnimTrainCar*, i32>>(0x4C8100, this, arg1);
 }
 
 void mmAnimTrainCar::Init(char* arg1, char* arg2)
 {
-    return stub<thiscall_t<void, mmAnimTrainCar*, char*, char*>>(0xC8060_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmAnimTrainCar*, char*, char*>>(0x4C8060, this, arg1, arg2);
 }
 
 void mmAnimTrainCar::Reset()
 {
-    return stub<thiscall_t<void, mmAnimTrainCar*>>(0xC8150_Offset, this);
+    return stub<thiscall_t<void, mmAnimTrainCar*>>(0x4C8150, this);
 }
 
 void mmAnimTrainCar::SetMatrix(class Matrix34& arg1)
 {
-    return stub<thiscall_t<void, mmAnimTrainCar*, class Matrix34&>>(0xC80E0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmAnimTrainCar*, class Matrix34&>>(0x4C80E0, this, arg1);
 }
 
 void mmAnimTrainCar::SetStart(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmAnimTrainCar*, f32, f32>>(0xC8160_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmAnimTrainCar*, f32, f32>>(0x4C8160, this, arg1, arg2);
 }

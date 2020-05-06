@@ -38,31 +38,31 @@
 class agiPipeline* d3dCreatePipeline(i32 arg1, char** arg2);
 
 // 0x790DCC | ?AutoMip@@3HA
-inline extern_var(0x390DCC_Offset, i32, AutoMip);
+inline extern_var(0x790DCC, i32, AutoMip);
 
 // 0x790DD0 | ?DrawLabelFArg@@3HA
-inline extern_var(0x390DD0_Offset, i32, DrawLabelFArg);
+inline extern_var(0x790DD0, i32, DrawLabelFArg);
 
 // 0x790DE8 | ?DrawLabelPArg@@3HA
-inline extern_var(0x390DE8_Offset, i32, DrawLabelPArg);
+inline extern_var(0x790DE8, i32, DrawLabelPArg);
 
 // 0x790DE0 | ?ForceSquare@@3HA
-inline extern_var(0x390DE0_Offset, i32, ForceSquare);
+inline extern_var(0x790DE0, i32, ForceSquare);
 
 // 0x790DDC | ?FullMip@@3HA
-inline extern_var(0x390DDC_Offset, i32, FullMip);
+inline extern_var(0x790DDC, i32, FullMip);
 
 // 0x790DC8 | ?MaxTexMem@@3HA
-inline extern_var(0x390DC8_Offset, i32, MaxTexMem);
+inline extern_var(0x790DC8, i32, MaxTexMem);
 
 // 0x790DE4 | ?NoBlitHack@@3HA
-inline extern_var(0x390DE4_Offset, i32, NoBlitHack);
+inline extern_var(0x790DE4, i32, NoBlitHack);
 
 // 0x790DD4 | ?NoMip@@3HA
-inline extern_var(0x390DD4_Offset, i32, NoMip);
+inline extern_var(0x790DD4, i32, NoMip);
 
 // 0x790DC4 | ?NoMultiTexture@@3HA
-inline extern_var(0x390DC4_Offset, i32, NoMultiTexture);
+inline extern_var(0x790DC4, i32, NoMultiTexture);
 
 // 0x790DD8 | ?NormalizedFog@@3HA
-inline extern_var(0x390DD8_Offset, i32, NormalizedFog);
+inline extern_var(0x790DD8, i32, NormalizedFog);

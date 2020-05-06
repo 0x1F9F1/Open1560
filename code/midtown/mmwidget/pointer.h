@@ -83,4 +83,4 @@ private:
 check_size(sfPointer, 0x54);
 
 // 0x705C50 | ?sfPointerMetaClass@@3VMetaClass@@A
-inline extern_var(0x305C50_Offset, class MetaClass, sfPointerMetaClass);
+inline extern_var(0x705C50, class MetaClass, sfPointerMetaClass);

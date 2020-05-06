@@ -106,4 +106,4 @@ check_size(mmTransmission, 0xD4);
 struct MetaType* ArrayOf(struct MetaType* arg1, i32 arg2);
 
 // 0x6A7CB8 | ?mmTransmissionMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7CB8_Offset, class MetaClass, mmTransmissionMetaClass);
+inline extern_var(0x6A7CB8, class MetaClass, mmTransmissionMetaClass);

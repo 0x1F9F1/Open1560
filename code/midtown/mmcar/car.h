@@ -132,16 +132,16 @@ public:
     static void DeclareFields();
 
     // 0x6A7E6C | ?PostUpdateTime@mmCar@@2MA
-    static inline extern_var(0x2A7E6C_Offset, f32, PostUpdateTime);
+    static inline extern_var(0x6A7E6C, f32, PostUpdateTime);
 
     // 0x6A7E30 | ?ProbeTime@mmCar@@2MA
-    static inline extern_var(0x2A7E30_Offset, f32, ProbeTime);
+    static inline extern_var(0x6A7E30, f32, ProbeTime);
 
     // 0x6A7E34 | ?TotalUpdateTime@mmCar@@2MA
-    static inline extern_var(0x2A7E34_Offset, f32, TotalUpdateTime);
+    static inline extern_var(0x6A7E34, f32, TotalUpdateTime);
 
     // 0x6A7E68 | ?UpdateTime@mmCar@@2MA
-    static inline extern_var(0x2A7E68_Offset, f32, UpdateTime);
+    static inline extern_var(0x6A7E68, f32, UpdateTime);
 };
 
 check_size(mmCar, 0x230C);
@@ -150,7 +150,7 @@ check_size(mmCar, 0x230C);
 i32 EggNameIndex(char* arg1);
 
 // 0x6A7E3C | ?ffval@@3MA
-inline extern_var(0x2A7E3C_Offset, f32, ffval);
+inline extern_var(0x6A7E3C, f32, ffval);
 
 // 0x6A7E40 | ?mmCarMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7E40_Offset, class MetaClass, mmCarMetaClass);
+inline extern_var(0x6A7E40, class MetaClass, mmCarMetaClass);

@@ -32,5 +32,5 @@ mmCityInfo::~mmCityInfo()
 
 i32 mmCityInfo::Load(char* arg1)
 {
-    return stub<thiscall_t<i32, mmCityInfo*, char*>>(0xD3650_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmCityInfo*, char*>>(0x4D3650, this, arg1);
 }

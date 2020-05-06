@@ -107,7 +107,7 @@ public:
 check_size(mmPedManager, 0x2C);
 
 // 0x705740 | ?mmPedManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x305740_Offset, class MetaClass, mmPedManagerMetaClass);
+inline extern_var(0x705740, class MetaClass, mmPedManagerMetaClass);
 
 // 0x705768 | ?mmPedMetaClass@@3VMetaClass@@A
-inline extern_var(0x305768_Offset, class MetaClass, mmPedMetaClass);
+inline extern_var(0x705768, class MetaClass, mmPedMetaClass);

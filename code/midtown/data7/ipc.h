@@ -86,7 +86,7 @@ void ipcWaitSingle(u32 arg1);
 void ipcYield();
 
 // 0x90AE60 | ?SynchronousMessageQueues@@3HA
-inline extern_var(0x50AE60_Offset, i32, SynchronousMessageQueues);
+inline extern_var(0x90AE60, i32, SynchronousMessageQueues);
 
 class ipcMessageQueue
 {

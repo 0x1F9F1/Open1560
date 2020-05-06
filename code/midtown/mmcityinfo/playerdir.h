@@ -131,4 +131,4 @@ check_size(mmPlayerDirectory, 0xE4);
 struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i32* arg3);
 
 // 0x708548 | ?mmPlayerDirectoryMetaClass@@3VMetaClass@@A
-inline extern_var(0x308548_Offset, class MetaClass, mmPlayerDirectoryMetaClass);
+inline extern_var(0x708548, class MetaClass, mmPlayerDirectoryMetaClass);

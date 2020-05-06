@@ -43,10 +43,10 @@ i32 dxiResGetRecommended(i32 arg1, i32 arg2);
 void dxiWriteConfigFile();
 
 // 0x909680 | ?dxiInfo@@3PAUdxiRendererInfo_t@@A
-inline extern_var(0x509680_Offset, struct dxiRendererInfo_t*, dxiInfo);
+inline extern_var(0x909680, struct dxiRendererInfo_t*, dxiInfo);
 
 // 0x661380 | ?dxiRendererChoice@@3HA
-inline extern_var(0x261380_Offset, i32, dxiRendererChoice);
+inline extern_var(0x661380, i32, dxiRendererChoice);
 
 // 0x90A350 | ?dxiRendererCount@@3HA
-inline extern_var(0x50A350_Offset, i32, dxiRendererCount);
+inline extern_var(0x90A350, i32, dxiRendererCount);

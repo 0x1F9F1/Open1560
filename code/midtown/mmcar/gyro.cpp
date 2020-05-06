@@ -32,30 +32,30 @@ VehGyro::~VehGyro()
 
 void VehGyro::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, VehGyro*, class Bank*>>(0x80930_Offset, this, arg1);
+    return stub<thiscall_t<void, VehGyro*, class Bank*>>(0x480930, this, arg1);
 }
 
 class MetaClass* VehGyro::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, VehGyro*>>(0x80B70_Offset, this);
+    return stub<thiscall_t<class MetaClass*, VehGyro*>>(0x480B70, this);
 }
 
 void VehGyro::Load(class Stream* arg1)
 {
-    return stub<thiscall_t<void, VehGyro*, class Stream*>>(0x80690_Offset, this, arg1);
+    return stub<thiscall_t<void, VehGyro*, class Stream*>>(0x480690, this, arg1);
 }
 
 void VehGyro::Save(class Stream* arg1)
 {
-    return stub<thiscall_t<void, VehGyro*, class Stream*>>(0x80700_Offset, this, arg1);
+    return stub<thiscall_t<void, VehGyro*, class Stream*>>(0x480700, this, arg1);
 }
 
 void VehGyro::Update()
 {
-    return stub<thiscall_t<void, VehGyro*>>(0x80780_Offset, this);
+    return stub<thiscall_t<void, VehGyro*>>(0x480780, this);
 }
 
 void VehGyro::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x809E0_Offset);
+    return stub<cdecl_t<void>>(0x4809E0);
 }

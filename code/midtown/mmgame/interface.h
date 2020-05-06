@@ -109,13 +109,13 @@
 void ReportTimeAlloc(f32 arg1);
 
 // 0x6A6EC8 | ?defcarname@@3PADA
-inline extern_var(0x2A6EC8_Offset, char*, defcarname);
+inline extern_var(0x6A6EC8, char*, defcarname);
 
 // 0x6A6E18 | ?mmInterfaceMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A6E18_Offset, class MetaClass, mmInterfaceMetaClass);
+inline extern_var(0x6A6E18, class MetaClass, mmInterfaceMetaClass);
 
 // 0x6A6E40 | ?szSearchPath@@3PADA
-inline extern_var(0x2A6E40_Offset, char*, szSearchPath);
+inline extern_var(0x6A6E40, char*, szSearchPath);
 
 class mmInterface : public asNode
 {

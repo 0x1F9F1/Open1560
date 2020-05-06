@@ -32,100 +32,100 @@ ControlSetup::~ControlSetup()
 
 void ControlSetup::ActivateDeviceOptions()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA3210_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A3210, this);
 }
 
 void ControlSetup::BadAssignCB()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA38A0_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A38A0, this);
 }
 
 void ControlSetup::CancelAction()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA3880_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A3880, this);
 }
 
 void ControlSetup::CancelBadAssignment()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA38E0_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A38E0, this);
 }
 
 void ControlSetup::ClearBadAssignment()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA38D0_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A38D0, this);
 }
 
 void ControlSetup::ControlSelect()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA3530_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A3530, this);
 }
 
 void ControlSetup::CreateDeviceOptions()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA2EF0_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A2EF0, this);
 }
 
 void ControlSetup::DeactivateAllDeviceOptions()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA31B0_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A31B0, this);
 }
 
 void ControlSetup::DoneAction()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA3890_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A3890, this);
 }
 
 void ControlSetup::InitCustomControls()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA35F0_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A35F0, this);
 }
 
 void ControlSetup::LaunchJoyCpl()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA36F0_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A36F0, this);
 }
 
 void ControlSetup::POVCB()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA3510_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A3510, this);
 }
 
 void ControlSetup::PreSetup()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA3580_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A3580, this);
 }
 
 void ControlSetup::ResetDefaultAction()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA36B0_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A36B0, this);
 }
 
 f32 ControlSetup::SetControlPosition(class uiWidget* arg1, f32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<f32, ControlSetup*, class uiWidget*, f32, f32>>(0xA34F0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<f32, ControlSetup*, class uiWidget*, f32, f32>>(0x4A34F0, this, arg1, arg2, arg3);
 }
 
 void ControlSetup::SetFFPermissions()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA35B0_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A35B0, this);
 }
 
 void ControlSetup::SetSensitivityCB()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA3520_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A3520, this);
 }
 
 void ControlSetup::StoreCurrentSetup()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA36A0_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A36A0, this);
 }
 
 void ControlSetup::Update()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA3680_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A3680, this);
 }
 
 void ControlSetup::VerifyBadAssignment()
 {
-    return stub<thiscall_t<void, ControlSetup*>>(0xA3900_Offset, this);
+    return stub<thiscall_t<void, ControlSetup*>>(0x4A3900, this);
 }

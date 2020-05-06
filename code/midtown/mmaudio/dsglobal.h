@@ -197,34 +197,34 @@ public:
 
 private:
     // 0x61FEF0 | ?s_iAlwaysEAXMask@DSGlobal@@0IB
-    static inline extern_var(0x21FEF0_Offset, u32 const, s_iAlwaysEAXMask);
+    static inline extern_var(0x61FEF0, u32 const, s_iAlwaysEAXMask);
 
     // 0x61FEE8 | ?s_iCDMusicOnMask@DSGlobal@@0IB
-    static inline extern_var(0x21FEE8_Offset, u32 const, s_iCDMusicOnMask);
+    static inline extern_var(0x61FEE8, u32 const, s_iCDMusicOnMask);
 
     // 0x61FEF4 | ?s_iCommentaryOnMask@DSGlobal@@0IB
-    static inline extern_var(0x21FEF4_Offset, u32 const, s_iCommentaryOnMask);
+    static inline extern_var(0x61FEF4, u32 const, s_iCommentaryOnMask);
 
     // 0x61FEE0 | ?s_iDSound3DMask@DSGlobal@@0IB
-    static inline extern_var(0x21FEE0_Offset, u32 const, s_iDSound3DMask);
+    static inline extern_var(0x61FEE0, u32 const, s_iDSound3DMask);
 
     // 0x61FEDC | ?s_iEchoOnMask@DSGlobal@@0IB
-    static inline extern_var(0x21FEDC_Offset, u32 const, s_iEchoOnMask);
+    static inline extern_var(0x61FEDC, u32 const, s_iEchoOnMask);
 
     // 0x61FED4 | ?s_iHiResMask@DSGlobal@@0IB
-    static inline extern_var(0x21FED4_Offset, u32 const, s_iHiResMask);
+    static inline extern_var(0x61FED4, u32 const, s_iHiResMask);
 
     // 0x61FED8 | ?s_iHiSampleSizeMask@DSGlobal@@0IB
-    static inline extern_var(0x21FED8_Offset, u32 const, s_iHiSampleSizeMask);
+    static inline extern_var(0x61FED8, u32 const, s_iHiSampleSizeMask);
 
     // 0x61FEE4 | ?s_iSoundFXOnMask@DSGlobal@@0IB
-    static inline extern_var(0x21FEE4_Offset, u32 const, s_iSoundFXOnMask);
+    static inline extern_var(0x61FEE4, u32 const, s_iSoundFXOnMask);
 
     // 0x61FED0 | ?s_iStereoOnMask@DSGlobal@@0IB
-    static inline extern_var(0x21FED0_Offset, u32 const, s_iStereoOnMask);
+    static inline extern_var(0x61FED0, u32 const, s_iStereoOnMask);
 
     // 0x61FEEC | ?s_iUsingEAXMask@DSGlobal@@0IB
-    static inline extern_var(0x21FEEC_Offset, u32 const, s_iUsingEAXMask);
+    static inline extern_var(0x61FEEC, u32 const, s_iUsingEAXMask);
 };
 
 check_size(DSGlobal, 0xB8);
@@ -242,7 +242,7 @@ i32 IsDSDeviceInList(struct _GUID* arg1);
 void UpperCase(char* arg1);
 
 // 0x719334 | ?DSGlobalPtr@@3PAVDSGlobal@@A
-inline extern_var(0x319334_Offset, class DSGlobal*, DSGlobalPtr);
+inline extern_var(0x719334, class DSGlobal*, DSGlobalPtr);
 
 // 0x647DD8 | ?aOutputFormats@@3PAUtag_fd@@A
-inline extern_var(0x247DD8_Offset, struct tag_fd*, aOutputFormats);
+inline extern_var(0x647DD8, struct tag_fd*, aOutputFormats);

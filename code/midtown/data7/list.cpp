@@ -27,20 +27,20 @@ List::~List()
 
 void* List::Access(i32 arg1)
 {
-    return stub<thiscall_t<void*, List*, i32>>(0x17C330_Offset, this, arg1);
+    return stub<thiscall_t<void*, List*, i32>>(0x57C330, this, arg1);
 }
 
 i32 List::Delete(i32 arg1)
 {
-    return stub<thiscall_t<i32, List*, i32>>(0x17C360_Offset, this, arg1);
+    return stub<thiscall_t<i32, List*, i32>>(0x57C360, this, arg1);
 }
 
 i32 List::Insert(i32 arg1, void* arg2)
 {
-    return stub<thiscall_t<i32, List*, i32, void*>>(0x17C2B0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, List*, i32, void*>>(0x57C2B0, this, arg1, arg2);
 }
 
 void List::Kill()
 {
-    return stub<thiscall_t<void, List*>>(0x17C290_Offset, this);
+    return stub<thiscall_t<void, List*>>(0x57C290, this);
 }

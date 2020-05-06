@@ -72,7 +72,7 @@ public:
     void Update() override;
 
     // 0x705A10 | ?TextHeight@UILabel@@2MA
-    static inline extern_var(0x305A10_Offset, f32, TextHeight);
+    static inline extern_var(0x705A10, f32, TextHeight);
 };
 
 check_size(UILabel, 0x88);

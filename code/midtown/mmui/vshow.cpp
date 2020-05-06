@@ -32,10 +32,10 @@ VehShowcase::~VehShowcase()
 
 void VehShowcase::PostSetup()
 {
-    return stub<thiscall_t<void, VehShowcase*>>(0xA5190_Offset, this);
+    return stub<thiscall_t<void, VehShowcase*>>(0x4A5190, this);
 }
 
 void VehShowcase::PreSetup()
 {
-    return stub<thiscall_t<void, VehShowcase*>>(0xA5120_Offset, this);
+    return stub<thiscall_t<void, VehShowcase*>>(0x4A5120, this);
 }

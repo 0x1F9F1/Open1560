@@ -133,4 +133,4 @@ public:
 check_size(mmDofBangerInstance, 0x0);
 
 // 0x705E20 | ?mmAnimDOFMetaClass@@3VMetaClass@@A
-inline extern_var(0x305E20_Offset, class MetaClass, mmAnimDOFMetaClass);
+inline extern_var(0x705E20, class MetaClass, mmAnimDOFMetaClass);

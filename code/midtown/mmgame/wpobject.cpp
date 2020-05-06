@@ -32,30 +32,30 @@ mmWaypointObject::~mmWaypointObject()
 
 void mmWaypointObject::Activate()
 {
-    return stub<thiscall_t<void, mmWaypointObject*>>(0x30540_Offset, this);
+    return stub<thiscall_t<void, mmWaypointObject*>>(0x430540, this);
 }
 
 void mmWaypointObject::Deactivate()
 {
-    return stub<thiscall_t<void, mmWaypointObject*>>(0x30550_Offset, this);
+    return stub<thiscall_t<void, mmWaypointObject*>>(0x430550, this);
 }
 
 void mmWaypointObject::Move()
 {
-    return stub<thiscall_t<void, mmWaypointObject*>>(0x305D0_Offset, this);
+    return stub<thiscall_t<void, mmWaypointObject*>>(0x4305D0, this);
 }
 
 void mmWaypointObject::Reset()
 {
-    return stub<thiscall_t<void, mmWaypointObject*>>(0x30520_Offset, this);
+    return stub<thiscall_t<void, mmWaypointObject*>>(0x430520, this);
 }
 
 void mmWaypointObject::SetHeading(f32 arg1)
 {
-    return stub<thiscall_t<void, mmWaypointObject*, f32>>(0x30560_Offset, this, arg1);
+    return stub<thiscall_t<void, mmWaypointObject*, f32>>(0x430560, this, arg1);
 }
 
 void mmWaypointObject::Update()
 {
-    return stub<thiscall_t<void, mmWaypointObject*>>(0x30530_Offset, this);
+    return stub<thiscall_t<void, mmWaypointObject*>>(0x430530, this);
 }

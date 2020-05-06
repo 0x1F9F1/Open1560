@@ -103,4 +103,4 @@ public:
 check_size(agiSWTexLut, 0x1420);
 
 // 0x652304 | ?swLutInvGamma@@3MA
-inline extern_var(0x252304_Offset, f32, swLutInvGamma);
+inline extern_var(0x652304, f32, swLutInvGamma);

@@ -22,40 +22,40 @@ define_dummy_symbol(memory_stack);
 
 void DebugLog(i32 arg1, void* arg2, i32 arg3)
 {
-    return stub<cdecl_t<void, i32, void*, i32>>(0x120720_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<void, i32, void*, i32>>(0x520720, arg1, arg2, arg3);
 }
 
 void DebugLogInit(i32 arg1)
 {
-    return stub<cdecl_t<void, i32>>(0x1206C0_Offset, arg1);
+    return stub<cdecl_t<void, i32>>(0x5206C0, arg1);
 }
 
 void DebugLogShutdown()
 {
-    return stub<cdecl_t<void>>(0x120700_Offset);
+    return stub<cdecl_t<void>>(0x520700);
 }
 
 void DoStackTraceback(i32 arg1, i32* arg2)
 {
-    return stub<cdecl_t<void, i32, i32*>>(0x1204C0_Offset, arg1, arg2);
+    return stub<cdecl_t<void, i32, i32*>>(0x5204C0, arg1, arg2);
 }
 
 void DumpStackTraceback(i32* arg1, i32 arg2)
 {
-    return stub<cdecl_t<void, i32*, i32>>(0x120670_Offset, arg1, arg2);
+    return stub<cdecl_t<void, i32*, i32>>(0x520670, arg1, arg2);
 }
 
 i32 LogStackTraceback(i32* arg1, i32 arg2)
 {
-    return stub<cdecl_t<i32, i32*, i32>>(0x1205B0_Offset, arg1, arg2);
+    return stub<cdecl_t<i32, i32*, i32>>(0x5205B0, arg1, arg2);
 }
 
 void LookupAddress(char* arg1, i32 arg2)
 {
-    return stub<cdecl_t<void, char*, i32>>(0x120130_Offset, arg1, arg2);
+    return stub<cdecl_t<void, char*, i32>>(0x520130, arg1, arg2);
 }
 
 void StackTraceback(i32 arg1)
 {
-    return stub<cdecl_t<void, i32>>(0x120590_Offset, arg1);
+    return stub<cdecl_t<void, i32>>(0x520590, arg1);
 }

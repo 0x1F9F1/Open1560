@@ -70,7 +70,7 @@ protected:
 
 private:
     // 0x909438 | ?First@eqReplayChannel@@0PAV1@A
-    static inline extern_var(0x509438_Offset, class eqReplayChannel*, First);
+    static inline extern_var(0x909438, class eqReplayChannel*, First);
 };
 
 check_size(eqReplayChannel, 0x0);
@@ -97,12 +97,12 @@ public:
     static void ShutdownRecord();
 
     // 0x909440 | ?Playback@eqReplay@@2HA
-    static inline extern_var(0x509440_Offset, i32, Playback);
+    static inline extern_var(0x909440, i32, Playback);
 
     // 0x909444 | ?Recording@eqReplay@@2HA
-    static inline extern_var(0x509444_Offset, i32, Recording);
+    static inline extern_var(0x909444, i32, Recording);
 
 private:
     // 0x90943C | ?ReplayStream@eqReplay@@0PAVStream@@A
-    static inline extern_var(0x50943C_Offset, class Stream*, ReplayStream);
+    static inline extern_var(0x90943C, class Stream*, ReplayStream);
 };

@@ -154,28 +154,28 @@ void ShutdownLutQueue();
 void UpdateLutQueue();
 
 // 0x656834 | ?MaxTexSize@@3HA
-inline extern_var(0x256834_Offset, i32, MaxTexSize);
+inline extern_var(0x656834, i32, MaxTexSize);
 
 // 0x8FAD28 | ?PackShift@@3HA
-inline extern_var(0x4FAD28_Offset, i32, PackShift);
+inline extern_var(0x8FAD28, i32, PackShift);
 
 // 0x8FAF88 | ?TEXCACHE@@3VDataCache@@A
-inline extern_var(0x4FAF88_Offset, class DataCache, TEXCACHE);
+inline extern_var(0x8FAF88, class DataCache, TEXCACHE);
 
 // 0x8FAD2C | ?TexBytesPaged@@3HA
-inline extern_var(0x4FAD2C_Offset, i32, TexBytesPaged);
+inline extern_var(0x8FAD2C, i32, TexBytesPaged);
 
 // 0x8FAF70 | ?TexLutHash@@3VHashTable@@A
-inline extern_var(0x4FAF70_Offset, class HashTable, TexLutHash);
+inline extern_var(0x8FAF70, class HashTable, TexLutHash);
 
 // 0x656838 | ?TexSearchPath@@3PADA
-inline extern_var(0x256838_Offset, char*, TexSearchPath);
+inline extern_var(0x656838, char*, TexSearchPath);
 
 // 0x8FAFC8 | ?TexsPaged@@3HA
-inline extern_var(0x4FAFC8_Offset, i32, TexsPaged);
+inline extern_var(0x8FAFC8, i32, TexsPaged);
 
 // 0x8FAD70 | ?lutQ@@3PAUlutQentry@@A
-inline extern_var(0x4FAD70_Offset, struct lutQentry*, lutQ);
+inline extern_var(0x8FAD70, struct lutQentry*, lutQ);
 
 class agiTexLut : public agiRefreshable
 {

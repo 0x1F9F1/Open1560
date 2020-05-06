@@ -32,5 +32,5 @@ Dialog_ControlAssign::~Dialog_ControlAssign()
 
 void Dialog_ControlAssign::PreSetup()
 {
-    return stub<thiscall_t<void, Dialog_ControlAssign*>>(0xA0340_Offset, this);
+    return stub<thiscall_t<void, Dialog_ControlAssign*>>(0x4A0340, this);
 }

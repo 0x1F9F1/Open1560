@@ -270,22 +270,22 @@ public:
 
 private:
     // 0x61FD9C | ?s_DWDefault2DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x21FD9C_Offset, u32 const, s_DWDefault2DCtrlFlags);
+    static inline extern_var(0x61FD9C, u32 const, s_DWDefault2DCtrlFlags);
 
     // 0x61FD98 | ?s_DWDefault3DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x21FD98_Offset, u32 const, s_DWDefault3DCtrlFlags);
+    static inline extern_var(0x61FD98, u32 const, s_DWDefault3DCtrlFlags);
 
     // 0x61FDA4 | ?s_DWFreqChange2DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x21FDA4_Offset, u32 const, s_DWFreqChange2DCtrlFlags);
+    static inline extern_var(0x61FDA4, u32 const, s_DWFreqChange2DCtrlFlags);
 
     // 0x61FDA0 | ?s_DWFreqChange3DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x21FDA0_Offset, u32 const, s_DWFreqChange3DCtrlFlags);
+    static inline extern_var(0x61FDA0, u32 const, s_DWFreqChange3DCtrlFlags);
 
     // 0x61FDA8 | ?s_DWSoft2DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x21FDA8_Offset, u32 const, s_DWSoft2DCtrlFlags);
+    static inline extern_var(0x61FDA8, u32 const, s_DWSoft2DCtrlFlags);
 
     // 0x61FDAC | ?s_DWSoftFreqChange2DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x21FDAC_Offset, u32 const, s_DWSoftFreqChange2DCtrlFlags);
+    static inline extern_var(0x61FDAC, u32 const, s_DWSoftFreqChange2DCtrlFlags);
 };
 
 check_size(AudSound, 0xB8);

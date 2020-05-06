@@ -438,31 +438,31 @@ public:
 check_size(agiColorModelABGR, 0x0);
 
 // 0x9076A8 | ?ColorModelABGR@@3VagiColorModelABGR@@A
-inline extern_var(0x5076A8_Offset, class agiColorModelABGR, ColorModelABGR);
+inline extern_var(0x9076A8, class agiColorModelABGR, ColorModelABGR);
 
 // 0x907648 | ?ColorModelARGB@@3VagiColorModelARGB@@A
-inline extern_var(0x507648_Offset, class agiColorModelARGB, ColorModelARGB);
+inline extern_var(0x907648, class agiColorModelARGB, ColorModelARGB);
 
 // 0x9077F8 | ?ColorModelRGB555@@3VagiColorModelRGB555@@A
-inline extern_var(0x5077F8_Offset, class agiColorModelRGB555, ColorModelRGB555);
+inline extern_var(0x9077F8, class agiColorModelRGB555, ColorModelRGB555);
 
 // 0x9076D8 | ?ColorModelRGB555_Rev@@3VagiColorModelRGB555_Rev@@A
-inline extern_var(0x5076D8_Offset, class agiColorModelRGB555_Rev, ColorModelRGB555_Rev);
+inline extern_var(0x9076D8, class agiColorModelRGB555_Rev, ColorModelRGB555_Rev);
 
 // 0x9077C8 | ?ColorModelRGB565@@3VagiColorModelRGB565@@A
-inline extern_var(0x5077C8_Offset, class agiColorModelRGB565, ColorModelRGB565);
+inline extern_var(0x9077C8, class agiColorModelRGB565, ColorModelRGB565);
 
 // 0x907678 | ?ColorModelRGB565_Rev@@3VagiColorModelRGB565_Rev@@A
-inline extern_var(0x507678_Offset, class agiColorModelRGB565_Rev, ColorModelRGB565_Rev);
+inline extern_var(0x907678, class agiColorModelRGB565_Rev, ColorModelRGB565_Rev);
 
 // 0x907798 | ?ColorModelRGB888@@3VagiColorModelRGB888@@A
-inline extern_var(0x507798_Offset, class agiColorModelRGB888, ColorModelRGB888);
+inline extern_var(0x907798, class agiColorModelRGB888, ColorModelRGB888);
 
 // 0x907708 | ?ColorModelRGB888_Rev@@3VagiColorModelRGB888_Rev@@A
-inline extern_var(0x507708_Offset, class agiColorModelRGB888_Rev, ColorModelRGB888_Rev);
+inline extern_var(0x907708, class agiColorModelRGB888_Rev, ColorModelRGB888_Rev);
 
 // 0x907768 | ?ColorModelRGBA4444@@3VagiColorModelRGBA4444@@A
-inline extern_var(0x507768_Offset, class agiColorModelRGBA4444, ColorModelRGBA4444);
+inline extern_var(0x907768, class agiColorModelRGBA4444, ColorModelRGBA4444);
 
 // 0x907738 | ?ColorModelRGBA5551@@3VagiColorModelRGBA5551@@A
-inline extern_var(0x507738_Offset, class agiColorModelRGBA5551, ColorModelRGBA5551);
+inline extern_var(0x907738, class agiColorModelRGBA5551, ColorModelRGBA5551);

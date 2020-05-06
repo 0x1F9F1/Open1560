@@ -22,138 +22,138 @@ define_dummy_symbol(agisw_swrend);
 
 void __fastcall __emitDebug(struct swSurface* arg1, i32 arg2)
 {
-    return stub<fastcall_t<void, struct swSurface*, i32>>(0x1351C0_Offset, arg1, arg2);
+    return stub<fastcall_t<void, struct swSurface*, i32>>(0x5351C0, arg1, arg2);
 }
 
 void __fastcall __emitDepthComplexity(i32 arg1)
 {
-    return stub<fastcall_t<void, i32>>(0x135220_Offset, arg1);
+    return stub<fastcall_t<void, i32>>(0x535220, arg1);
 }
 
 void __fastcall __emitSolid(i32 arg1)
 {
-    return stub<fastcall_t<void, i32>>(0x135260_Offset, arg1);
+    return stub<fastcall_t<void, i32>>(0x535260, arg1);
 }
 
 void __fastcall __emitSolidZ(i32 arg1)
 {
-    return stub<fastcall_t<void, i32>>(0x1352B0_Offset, arg1);
+    return stub<fastcall_t<void, i32>>(0x5352B0, arg1);
 }
 
 void __fastcall __emitWireframe(i32 arg1)
 {
-    return stub<fastcall_t<void, i32>>(0x135320_Offset, arg1);
+    return stub<fastcall_t<void, i32>>(0x535320, arg1);
 }
 
 void __fastcall __setupNone(struct swSurface* arg1)
 {
-    return stub<fastcall_t<void, struct swSurface*>>(0x135890_Offset, arg1);
+    return stub<fastcall_t<void, struct swSurface*>>(0x535890, arg1);
 }
 
 void __fastcall __setupUV(struct swSurface* arg1)
 {
-    return stub<fastcall_t<void, struct swSurface*>>(0x135510_Offset, arg1);
+    return stub<fastcall_t<void, struct swSurface*>>(0x535510, arg1);
 }
 
 void __fastcall __setupUVI(struct swSurface* arg1)
 {
-    return stub<fastcall_t<void, struct swSurface*>>(0x1356E0_Offset, arg1);
+    return stub<fastcall_t<void, struct swSurface*>>(0x5356E0, arg1);
 }
 
 void __fastcall __setupUVIZ(struct swSurface* arg1)
 {
-    return stub<fastcall_t<void, struct swSurface*>>(0x1357B0_Offset, arg1);
+    return stub<fastcall_t<void, struct swSurface*>>(0x5357B0, arg1);
 }
 
 void __fastcall __setupUVZ(struct swSurface* arg1)
 {
-    return stub<fastcall_t<void, struct swSurface*>>(0x1355D0_Offset, arg1);
+    return stub<fastcall_t<void, struct swSurface*>>(0x5355D0, arg1);
 }
 
 void __fastcall __setupZ(struct swSurface* arg1)
 {
-    return stub<fastcall_t<void, struct swSurface*>>(0x1356A0_Offset, arg1);
+    return stub<fastcall_t<void, struct swSurface*>>(0x5356A0, arg1);
 }
 
 void __fastcall __spanLinear(struct swSurface* arg1, i32 arg2)
 {
-    return stub<fastcall_t<void, struct swSurface*, i32>>(0x1358A0_Offset, arg1, arg2);
+    return stub<fastcall_t<void, struct swSurface*, i32>>(0x5358A0, arg1, arg2);
 }
 
 void __fastcall __spanLinearZwrite(struct swSurface* arg1, i32 arg2)
 {
-    return stub<fastcall_t<void, struct swSurface*, i32>>(0x1358D0_Offset, arg1, arg2);
+    return stub<fastcall_t<void, struct swSurface*, i32>>(0x5358D0, arg1, arg2);
 }
 
 void __fastcall __spanPerspXY(struct swSurface* arg1, i32 arg2)
 {
-    return stub<fastcall_t<void, struct swSurface*, i32>>(0x1359D0_Offset, arg1, arg2);
+    return stub<fastcall_t<void, struct swSurface*, i32>>(0x5359D0, arg1, arg2);
 }
 
 void __fastcall __spanPerspXYZwrite(struct swSurface* arg1, i32 arg2)
 {
-    return stub<fastcall_t<void, struct swSurface*, i32>>(0x135BD0_Offset, arg1, arg2);
+    return stub<fastcall_t<void, struct swSurface*, i32>>(0x535BD0, arg1, arg2);
 }
 
 void swAddEdge(i32 arg1, i32 arg2)
 {
-    return stub<cdecl_t<void, i32, i32>>(0x135340_Offset, arg1, arg2);
+    return stub<cdecl_t<void, i32, i32>>(0x535340, arg1, arg2);
 }
 
 void swInit()
 {
-    return stub<cdecl_t<void>>(0x137480_Offset);
+    return stub<cdecl_t<void>>(0x537480);
 }
 
 struct swSurface* swInitSurface(struct agiScreenVtx arg1, struct agiScreenVtx arg2, struct agiScreenVtx arg3, u32 arg4)
 {
     return stub<cdecl_t<struct swSurface*, struct agiScreenVtx, struct agiScreenVtx, struct agiScreenVtx, u32>>(
-        0x135E30_Offset, arg1, arg2, arg3, arg4);
+        0x535E30, arg1, arg2, arg3, arg4);
 }
 
 void swKill()
 {
-    return stub<cdecl_t<void>>(0x137410_Offset);
+    return stub<cdecl_t<void>>(0x537410);
 }
 
 void swLine(struct agiScreenVtx* arg1, struct agiScreenVtx* arg2)
 {
-    return stub<cdecl_t<void, struct agiScreenVtx*, struct agiScreenVtx*>>(0x137360_Offset, arg1, arg2);
+    return stub<cdecl_t<void, struct agiScreenVtx*, struct agiScreenVtx*>>(0x537360, arg1, arg2);
 }
 
 void swLineInt(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
 {
-    return stub<cdecl_t<void, i32, i32, i32, i32, i32>>(0x137270_Offset, arg1, arg2, arg3, arg4, arg5);
+    return stub<cdecl_t<void, i32, i32, i32, i32, i32>>(0x537270, arg1, arg2, arg3, arg4, arg5);
 }
 
 void swPoly(struct agiScreenVtx* arg1, i32 arg2)
 {
-    return stub<cdecl_t<void, struct agiScreenVtx*, i32>>(0x136EE0_Offset, arg1, arg2);
+    return stub<cdecl_t<void, struct agiScreenVtx*, i32>>(0x536EE0, arg1, arg2);
 }
 
 void swQuad(struct agiScreenVtx* arg1, struct agiScreenVtx* arg2, struct agiScreenVtx* arg3, struct agiScreenVtx* arg4)
 {
     return stub<cdecl_t<void, struct agiScreenVtx*, struct agiScreenVtx*, struct agiScreenVtx*, struct agiScreenVtx*>>(
-        0x136B10_Offset, arg1, arg2, arg3, arg4);
+        0x536B10, arg1, arg2, arg3, arg4);
 }
 
 void swScanSurface(struct swSurface* arg1)
 {
-    return stub<cdecl_t<void, struct swSurface*>>(0x135BF0_Offset, arg1);
+    return stub<cdecl_t<void, struct swSurface*>>(0x535BF0, arg1);
 }
 
 void swScanSurfaces()
 {
-    return stub<cdecl_t<void>>(0x136880_Offset);
+    return stub<cdecl_t<void>>(0x536880);
 }
 
 void swSetInterlace(i32 arg1)
 {
-    return stub<cdecl_t<void, i32>>(0x137440_Offset, arg1);
+    return stub<cdecl_t<void, i32>>(0x537440, arg1);
 }
 
 void swTri(struct agiScreenVtx* arg1, struct agiScreenVtx* arg2, struct agiScreenVtx* arg3)
 {
     return stub<cdecl_t<void, struct agiScreenVtx*, struct agiScreenVtx*, struct agiScreenVtx*>>(
-        0x136950_Offset, arg1, arg2, arg3);
+        0x536950, arg1, arg2, arg3);
 }

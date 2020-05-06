@@ -67,4 +67,4 @@ public:
 check_size(PUAudioOptions, 0xC0);
 
 // 0x705958 | ?PUOptionsConfig@@3PAVmmPlayerConfig@@A
-inline extern_var(0x305958_Offset, class mmPlayerConfig*, PUOptionsConfig);
+inline extern_var(0x705958, class mmPlayerConfig*, PUOptionsConfig);

@@ -27,4 +27,4 @@
 */
 
 // 0x8FAFE8 | ?agiPhysLib@@3V?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@A
-inline extern_var(0x4FAFE8_Offset, class agiLib<class agiPhysParameters, class agiPhysDef>, agiPhysLib);
+inline extern_var(0x8FAFE8, class agiLib<class agiPhysParameters, class agiPhysDef>, agiPhysLib);

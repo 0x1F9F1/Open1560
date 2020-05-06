@@ -116,37 +116,37 @@
 void testsuperq();
 
 // 0x719254 | ?GameInputPtr@@3PAVmmInput@@A
-inline extern_var(0x319254_Offset, class mmInput*, GameInputPtr);
+inline extern_var(0x719254, class mmInput*, GameInputPtr);
 
 // 0x719220 | ?IODev@@3PAVmmIODev@@A
-inline extern_var(0x319220_Offset, class mmIODev*, IODev);
+inline extern_var(0x719220, class mmIODev*, IODev);
 
 // 0x719268 | ?InputConfiguration@@3HA
-inline extern_var(0x319268_Offset, i32, InputConfiguration);
+inline extern_var(0x719268, i32, InputConfiguration);
 
 // 0x719258 | ?LocStrButton@@3PADA
-inline extern_var(0x319258_Offset, char*, LocStrButton);
+inline extern_var(0x719258, char*, LocStrButton);
 
 // 0x719260 | ?LocStrJoystick@@3PADA
-inline extern_var(0x319260_Offset, char*, LocStrJoystick);
+inline extern_var(0x719260, char*, LocStrJoystick);
 
 // 0x719250 | ?LocStrKey@@3PADA
-inline extern_var(0x319250_Offset, char*, LocStrKey);
+inline extern_var(0x719250, char*, LocStrKey);
 
 // 0x71925C | ?LocStrUndef@@3PADA
-inline extern_var(0x31925C_Offset, char*, LocStrUndef);
+inline extern_var(0x71925C, char*, LocStrUndef);
 
 // 0x719264 | ?UseDIKey@@3HA
-inline extern_var(0x319264_Offset, i32, UseDIKey);
+inline extern_var(0x719264, i32, UseDIKey);
 
 // 0x71926C | ?gpdi@@3PAUIDirectInputA@@A
-inline extern_var(0x31926C_Offset, struct IDirectInputA*, gpdi);
+inline extern_var(0x71926C, struct IDirectInputA*, gpdi);
 
 // 0x719228 | ?mmInputMetaClass@@3VMetaClass@@A
-inline extern_var(0x319228_Offset, class MetaClass, mmInputMetaClass);
+inline extern_var(0x719228, class MetaClass, mmInputMetaClass);
 
 // 0x719270 | ?testValue@@3MA
-inline extern_var(0x319270_Offset, f32, testValue);
+inline extern_var(0x719270, f32, testValue);
 
 class mmInput : public asNode
 {

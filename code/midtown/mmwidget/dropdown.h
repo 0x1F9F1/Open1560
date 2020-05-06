@@ -91,4 +91,4 @@ private:
 check_size(mmDropDown, 0xC8);
 
 // 0x705D40 | ?mmDropDownMetaClass@@3VMetaClass@@A
-inline extern_var(0x305D40_Offset, class MetaClass, mmDropDownMetaClass);
+inline extern_var(0x705D40, class MetaClass, mmDropDownMetaClass);

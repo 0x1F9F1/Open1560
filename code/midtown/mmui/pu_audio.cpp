@@ -32,25 +32,25 @@ PUAudioOptions::~PUAudioOptions()
 
 void PUAudioOptions::CancelAction()
 {
-    return stub<thiscall_t<void, PUAudioOptions*>>(0xAAA60_Offset, this);
+    return stub<thiscall_t<void, PUAudioOptions*>>(0x4AAA60, this);
 }
 
 void PUAudioOptions::PreSetup()
 {
-    return stub<thiscall_t<void, PUAudioOptions*>>(0xAAA50_Offset, this);
+    return stub<thiscall_t<void, PUAudioOptions*>>(0x4AAA50, this);
 }
 
 void PUAudioOptions::SetBalance()
 {
-    return stub<thiscall_t<void, PUAudioOptions*>>(0xAAA20_Offset, this);
+    return stub<thiscall_t<void, PUAudioOptions*>>(0x4AAA20, this);
 }
 
 void PUAudioOptions::SetCDVolume()
 {
-    return stub<thiscall_t<void, PUAudioOptions*>>(0xAAA00_Offset, this);
+    return stub<thiscall_t<void, PUAudioOptions*>>(0x4AAA00, this);
 }
 
 void PUAudioOptions::SetWaveVolume()
 {
-    return stub<thiscall_t<void, PUAudioOptions*>>(0xAA9E0_Offset, this);
+    return stub<thiscall_t<void, PUAudioOptions*>>(0x4AA9E0, this);
 }

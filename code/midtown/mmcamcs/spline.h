@@ -93,4 +93,4 @@ public:
 check_size(Spline, 0x74);
 
 // 0x719548 | ?SplineMetaClass@@3VMetaClass@@A
-inline extern_var(0x319548_Offset, class MetaClass, SplineMetaClass);
+inline extern_var(0x719548, class MetaClass, SplineMetaClass);

@@ -180,4 +180,4 @@ class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, f32 arg2);
 class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
 
 // 0x7190E8 | ?asInertialCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x3190E8_Offset, class MetaClass, asInertialCSMetaClass);
+inline extern_var(0x7190E8, class MetaClass, asInertialCSMetaClass);

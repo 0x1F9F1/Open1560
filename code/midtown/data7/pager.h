@@ -26,7 +26,7 @@
 */
 
 // 0x90AA18 | ?EnablePaging@@3HA
-inline extern_var(0x50AA18_Offset, i32, EnablePaging);
+inline extern_var(0x90AA18, i32, EnablePaging);
 
 // 0x90A9F0 | ?PAGER@@3VipcMessageQueue@@A
-inline extern_var(0x50A9F0_Offset, class ipcMessageQueue, PAGER);
+inline extern_var(0x90A9F0, class ipcMessageQueue, PAGER);

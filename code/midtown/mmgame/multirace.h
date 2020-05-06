@@ -107,4 +107,4 @@ private:
 check_size(mmMultiRace, 0x1EEB0);
 
 // 0x6A7280 | ?mmMultiRaceMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7280_Offset, class MetaClass, mmMultiRaceMetaClass);
+inline extern_var(0x6A7280, class MetaClass, mmMultiRaceMetaClass);

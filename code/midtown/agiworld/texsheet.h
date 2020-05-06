@@ -37,7 +37,7 @@
 char* mystrtok(char* arg1, char const* arg2);
 
 // 0x73E6C0 | ?TEXSHEET@@3VagiTexSheet@@A
-inline extern_var(0x33E6C0_Offset, class agiTexSheet, TEXSHEET);
+inline extern_var(0x73E6C0, class agiTexSheet, TEXSHEET);
 
 class agiTexSheet
 {

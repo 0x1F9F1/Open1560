@@ -32,82 +32,82 @@ mmBoat::~mmBoat()
 
 void mmBoat::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmBoat*, class Bank*>>(0xC7820_Offset, this, arg1);
+    return stub<thiscall_t<void, mmBoat*, class Bank*>>(0x4C7820, this, arg1);
 }
 
 void mmBoat::AdjustPhaseOffsets()
 {
-    return stub<thiscall_t<void, mmBoat*>>(0xC77A0_Offset, this);
+    return stub<thiscall_t<void, mmBoat*>>(0x4C77A0, this);
 }
 
 void mmBoat::CalculateCubics(i32 arg1)
 {
-    return stub<thiscall_t<void, mmBoat*, i32>>(0xC7910_Offset, this, arg1);
+    return stub<thiscall_t<void, mmBoat*, i32>>(0x4C7910, this, arg1);
 }
 
 void mmBoat::ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4)
 {
     return stub<thiscall_t<void, mmBoat*, class Vector3&, class Vector3&, class Vector3&, class Vector3&>>(
-        0xC7C90_Offset, this, arg1, arg2, arg3, arg4);
+        0x4C7C90, this, arg1, arg2, arg3, arg4);
 }
 
 class MetaClass* mmBoat::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmBoat*>>(0xC7FC0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmBoat*>>(0x4C7FC0, this);
 }
 
 void mmBoat::Init(i32 arg1, char* arg2, char* arg3, class Vector3* arg4, i32 arg5, i32 arg6, f32* arg7)
 {
     return stub<thiscall_t<void, mmBoat*, i32, char*, char*, class Vector3*, i32, i32, f32*>>(
-        0xC7270_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x4C7270, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 void mmBoat::Reset()
 {
-    return stub<thiscall_t<void, mmBoat*>>(0xC7570_Offset, this);
+    return stub<thiscall_t<void, mmBoat*>>(0x4C7570, this);
 }
 
 void mmBoat::ReverseCalcPathSpeed()
 {
-    return stub<thiscall_t<void, mmBoat*>>(0xC76A0_Offset, this);
+    return stub<thiscall_t<void, mmBoat*>>(0x4C76A0, this);
 }
 
 void mmBoat::SetPathSpeed()
 {
-    return stub<thiscall_t<void, mmBoat*>>(0xC7650_Offset, this);
+    return stub<thiscall_t<void, mmBoat*>>(0x4C7650, this);
 }
 
 void mmBoat::SetRock(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmBoat*, f32, f32>>(0xC7670_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmBoat*, f32, f32>>(0x4C7670, this, arg1, arg2);
 }
 
 void mmBoat::SolvePosition(class Vector3& arg1, f32& arg2)
 {
-    return stub<thiscall_t<void, mmBoat*, class Vector3&, f32&>>(0xC76C0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmBoat*, class Vector3&, f32&>>(0x4C76C0, this, arg1, arg2);
 }
 
 void mmBoat::SolveVector(f32 arg1, class Vector3& arg2, class Vector3& arg3)
 {
-    return stub<thiscall_t<void, mmBoat*, f32, class Vector3&, class Vector3&>>(0xC7B20_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmBoat*, f32, class Vector3&, class Vector3&>>(0x4C7B20, this, arg1, arg2, arg3);
 }
 
 void mmBoat::SolveXZCurve(class Vector3& arg1, class Vector3& arg2, f32 arg3)
 {
-    return stub<thiscall_t<void, mmBoat*, class Vector3&, class Vector3&, f32>>(0xC7D80_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmBoat*, class Vector3&, class Vector3&, f32>>(0x4C7D80, this, arg1, arg2, arg3);
 }
 
 void mmBoat::Update()
 {
-    return stub<thiscall_t<void, mmBoat*>>(0xC75D0_Offset, this);
+    return stub<thiscall_t<void, mmBoat*>>(0x4C75D0, this);
 }
 
 void mmBoat::UpdatePathPosition()
 {
-    return stub<thiscall_t<void, mmBoat*>>(0xC7600_Offset, this);
+    return stub<thiscall_t<void, mmBoat*>>(0x4C7600, this);
 }
 
 void mmBoat::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xC7E50_Offset);
+    return stub<cdecl_t<void>>(0x4C7E50);
 }

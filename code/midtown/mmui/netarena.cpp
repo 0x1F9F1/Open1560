@@ -32,97 +32,97 @@ NetArena::~NetArena()
 
 void NetArena::AddGameChatLine(char* arg1)
 {
-    return stub<thiscall_t<void, NetArena*, char*>>(0xA1F30_Offset, this, arg1);
+    return stub<thiscall_t<void, NetArena*, char*>>(0x4A1F30, this, arg1);
 }
 
 void NetArena::AddRosterName(char* arg1)
 {
-    return stub<thiscall_t<void, NetArena*, char*>>(0xA2230_Offset, this, arg1);
+    return stub<thiscall_t<void, NetArena*, char*>>(0x4A2230, this, arg1);
 }
 
 void NetArena::AddRosterName(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3, u32 arg4)
 {
     return stub<thiscall_t<void, NetArena*, struct LocString*, struct LocString*, struct LocString*, u32>>(
-        0xA2250_Offset, this, arg1, arg2, arg3, arg4);
+        0x4A2250, this, arg1, arg2, arg3, arg4);
 }
 
 void NetArena::ChatEntry()
 {
-    return stub<thiscall_t<void, NetArena*>>(0xA20B0_Offset, this);
+    return stub<thiscall_t<void, NetArena*>>(0x4A20B0, this);
 }
 
 void NetArena::DisablePlayButton()
 {
-    return stub<thiscall_t<void, NetArena*>>(0xA1E60_Offset, this);
+    return stub<thiscall_t<void, NetArena*>>(0x4A1E60, this);
 }
 
 void NetArena::EnablePlayButton()
 {
-    return stub<thiscall_t<void, NetArena*>>(0xA1E50_Offset, this);
+    return stub<thiscall_t<void, NetArena*>>(0x4A1E50, this);
 }
 
 i32 NetArena::FindRosterName(char* arg1)
 {
-    return stub<thiscall_t<i32, NetArena*, char*>>(0xA21C0_Offset, this, arg1);
+    return stub<thiscall_t<i32, NetArena*, char*>>(0x4A21C0, this, arg1);
 }
 
 char* NetArena::GetRaceName()
 {
-    return stub<thiscall_t<char*, NetArena*>>(0xA2670_Offset, this);
+    return stub<thiscall_t<char*, NetArena*>>(0x4A2670, this);
 }
 
 void NetArena::PostChatMessages()
 {
-    return stub<thiscall_t<void, NetArena*>>(0xA1FE0_Offset, this);
+    return stub<thiscall_t<void, NetArena*>>(0x4A1FE0, this);
 }
 
 void NetArena::PostHostSettings()
 {
-    return stub<thiscall_t<void, NetArena*>>(0xA2880_Offset, this);
+    return stub<thiscall_t<void, NetArena*>>(0x4A2880, this);
 }
 
 void NetArena::PostPlayerInfo(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3)
 {
     return stub<thiscall_t<void, NetArena*, struct LocString*, struct LocString*, struct LocString*>>(
-        0xA2A40_Offset, this, arg1, arg2, arg3);
+        0x4A2A40, this, arg1, arg2, arg3);
 }
 
 void NetArena::PreSetup()
 {
-    return stub<thiscall_t<void, NetArena*>>(0xA1E40_Offset, this);
+    return stub<thiscall_t<void, NetArena*>>(0x4A1E40, this);
 }
 
 void NetArena::RemoveRosterEntry(i32 arg1)
 {
-    return stub<thiscall_t<void, NetArena*, i32>>(0xA23F0_Offset, this, arg1);
+    return stub<thiscall_t<void, NetArena*, i32>>(0x4A23F0, this, arg1);
 }
 
 void NetArena::RemoveRosterName(char* arg1)
 {
-    return stub<thiscall_t<void, NetArena*, char*>>(0xA25E0_Offset, this, arg1);
+    return stub<thiscall_t<void, NetArena*, char*>>(0x4A25E0, this, arg1);
 }
 
 void NetArena::ResetGameChat()
 {
-    return stub<thiscall_t<void, NetArena*>>(0xA1E70_Offset, this);
+    return stub<thiscall_t<void, NetArena*>>(0x4A1E70, this);
 }
 
 void NetArena::ResetRoster()
 {
-    return stub<thiscall_t<void, NetArena*>>(0xA24C0_Offset, this);
+    return stub<thiscall_t<void, NetArena*>>(0x4A24C0, this);
 }
 
 i32 NetArena::RetrieveChatLine(char* arg1)
 {
-    return stub<thiscall_t<i32, NetArena*, char*>>(0xA2170_Offset, this, arg1);
+    return stub<thiscall_t<i32, NetArena*, char*>>(0x4A2170, this, arg1);
 }
 
 void NetArena::SetHost(i32 arg1)
 {
-    return stub<thiscall_t<void, NetArena*, i32>>(0xA2AF0_Offset, this, arg1);
+    return stub<thiscall_t<void, NetArena*, i32>>(0x4A2AF0, this, arg1);
 }
 
 void NetArena::SetReady(u32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, NetArena*, u32, i32>>(0xA2620_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, NetArena*, u32, i32>>(0x4A2620, this, arg1, arg2);
 }

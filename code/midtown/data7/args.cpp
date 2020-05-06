@@ -27,20 +27,20 @@ asArg::asArg(char arg1, char* arg2)
 
 void asArg::Print(char* arg1)
 {
-    return stub<thiscall_t<void, asArg*, char*>>(0x178C80_Offset, this, arg1);
+    return stub<thiscall_t<void, asArg*, char*>>(0x578C80, this, arg1);
 }
 
 void ArgSet::ParseArgs(i32 arg1, char** arg2)
 {
-    return stub<thiscall_t<void, ArgSet*, i32, char**>>(0x178DD0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, ArgSet*, i32, char**>>(0x578DD0, this, arg1, arg2);
 }
 
 void ArgSet::Print(char* arg1)
 {
-    return stub<thiscall_t<void, ArgSet*, char*>>(0x178D80_Offset, this, arg1);
+    return stub<thiscall_t<void, ArgSet*, char*>>(0x578D80, this, arg1);
 }
 
 void ArgSet::Usage()
 {
-    return stub<thiscall_t<void, ArgSet*>>(0x179010_Offset, this);
+    return stub<thiscall_t<void, ArgSet*>>(0x579010, this);
 }

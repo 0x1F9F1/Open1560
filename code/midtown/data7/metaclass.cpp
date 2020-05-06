@@ -33,45 +33,45 @@ MetaClass::~MetaClass()
 
 void MetaClass::InitFields()
 {
-    return stub<thiscall_t<void, MetaClass*>>(0x177C70_Offset, this);
+    return stub<thiscall_t<void, MetaClass*>>(0x577C70, this);
 }
 
 i32 MetaClass::IsSubclassOf(class MetaClass* arg1)
 {
-    return stub<thiscall_t<i32, MetaClass*, class MetaClass*>>(0x177BB0_Offset, this, arg1);
+    return stub<thiscall_t<i32, MetaClass*, class MetaClass*>>(0x577BB0, this, arg1);
 }
 
 void MetaClass::Load(class MiniParser* arg1, void* arg2)
 {
-    return stub<thiscall_t<void, MetaClass*, class MiniParser*, void*>>(0x177E90_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, MetaClass*, class MiniParser*, void*>>(0x577E90, this, arg1, arg2);
 }
 
 void MetaClass::Save(class MiniParser* arg1, void* arg2)
 {
-    return stub<thiscall_t<void, MetaClass*, class MiniParser*, void*>>(0x177C90_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, MetaClass*, class MiniParser*, void*>>(0x577C90, this, arg1, arg2);
 }
 
 void MetaClass::SkipBlock(class MiniParser* arg1)
 {
-    return stub<thiscall_t<void, MetaClass*, class MiniParser*>>(0x177DE0_Offset, this, arg1);
+    return stub<thiscall_t<void, MetaClass*, class MiniParser*>>(0x577DE0, this, arg1);
 }
 
 void MetaClass::DeclareNamedTypedField(char* arg1, u32 arg2, struct MetaType* arg3)
 {
-    return stub<cdecl_t<void, char*, u32, struct MetaType*>>(0x178000_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<void, char*, u32, struct MetaType*>>(0x578000, arg1, arg2, arg3);
 }
 
 class MetaClass* MetaClass::FindByName(char* arg1, class MetaClass* arg2)
 {
-    return stub<cdecl_t<class MetaClass*, char*, class MetaClass*>>(0x177BE0_Offset, arg1, arg2);
+    return stub<cdecl_t<class MetaClass*, char*, class MetaClass*>>(0x577BE0, arg1, arg2);
 }
 
 void MetaClass::UndeclareAll()
 {
-    return stub<cdecl_t<void>>(0x177B80_Offset);
+    return stub<cdecl_t<void>>(0x577B80);
 }
 
 void __BadSafeCall(char* arg1, class Base* arg2)
 {
-    return stub<cdecl_t<void, char*, class Base*>>(0x177C50_Offset, arg1, arg2);
+    return stub<cdecl_t<void, char*, class Base*>>(0x577C50, arg1, arg2);
 }

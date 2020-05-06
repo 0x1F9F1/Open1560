@@ -114,16 +114,16 @@ public:
 check_size(mmBoat, 0x3A4);
 
 // 0x705F70 | ?CatmullBasis@@3VMatrix44@@A
-inline extern_var(0x305F70_Offset, class Matrix44, CatmullBasis);
+inline extern_var(0x705F70, class Matrix44, CatmullBasis);
 
 // 0x642848 | ?GSFDef@@3MA
-inline extern_var(0x242848_Offset, f32, GSFDef);
+inline extern_var(0x642848, f32, GSFDef);
 
 // 0x705F30 | ?_Hermite@@3VMatrix44@@A
-inline extern_var(0x305F30_Offset, class Matrix44, _Hermite);
+inline extern_var(0x705F30, class Matrix44, _Hermite);
 
 // 0x642808 | ?cb@@3PAMA
-inline extern_var(0x242808_Offset, f32*, cb);
+inline extern_var(0x642808, f32*, cb);
 
 // 0x705F08 | ?mmBoatMetaClass@@3VMetaClass@@A
-inline extern_var(0x305F08_Offset, class MetaClass, mmBoatMetaClass);
+inline extern_var(0x705F08, class MetaClass, mmBoatMetaClass);

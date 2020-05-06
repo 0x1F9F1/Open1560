@@ -32,25 +32,25 @@ aiGoalStop::~aiGoalStop()
 
 void aiGoalStop::Init()
 {
-    return stub<thiscall_t<void, aiGoalStop*>>(0x5F750_Offset, this);
+    return stub<thiscall_t<void, aiGoalStop*>>(0x45F750, this);
 }
 
 void aiGoalStop::Reset()
 {
-    return stub<thiscall_t<void, aiGoalStop*>>(0x5F760_Offset, this);
+    return stub<thiscall_t<void, aiGoalStop*>>(0x45F760, this);
 }
 
 i32 aiGoalStop::Context()
 {
-    return stub<thiscall_t<i32, aiGoalStop*>>(0x5F7D0_Offset, this);
+    return stub<thiscall_t<i32, aiGoalStop*>>(0x45F7D0, this);
 }
 
 i32 aiGoalStop::Priority()
 {
-    return stub<thiscall_t<i32, aiGoalStop*>>(0x5F7F0_Offset, this);
+    return stub<thiscall_t<i32, aiGoalStop*>>(0x45F7F0, this);
 }
 
 void aiGoalStop::Update()
 {
-    return stub<thiscall_t<void, aiGoalStop*>>(0x5F770_Offset, this);
+    return stub<thiscall_t<void, aiGoalStop*>>(0x45F770, this);
 }

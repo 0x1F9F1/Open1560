@@ -75,4 +75,4 @@ private:
 check_size(mmToggle2, 0x40);
 
 // 0x705CF0 | ?mmToggle2MetaClass@@3VMetaClass@@A
-inline extern_var(0x305CF0_Offset, class MetaClass, mmToggle2MetaClass);
+inline extern_var(0x705CF0, class MetaClass, mmToggle2MetaClass);

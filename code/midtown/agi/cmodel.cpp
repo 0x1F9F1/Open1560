@@ -54,30 +54,30 @@ u32 agiColorModel::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
 
 u32 agiColorModel::FindColor(i32 arg1, i32 arg2, i32 arg3, i32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModel*, i32, i32, i32, i32>>(0x15BBB0_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModel*, i32, i32, i32, i32>>(0x55BBB0, this, arg1, arg2, arg3, arg4);
 }
 
 u32 agiColorModel::GetColor(class Vector3 const& arg1)
 {
-    return stub<thiscall_t<u32, agiColorModel*, class Vector3 const&>>(0x15BBE0_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModel*, class Vector3 const&>>(0x55BBE0, this, arg1);
 }
 
 u32 agiColorModel::GetColor(class Vector4 const& arg1)
 {
-    return stub<thiscall_t<u32, agiColorModel*, class Vector4 const&>>(0x15BC40_Offset, this, arg1);
+    return stub<thiscall_t<u32, agiColorModel*, class Vector4 const&>>(0x55BC40, this, arg1);
 }
 
 u32 agiColorModel::GetColor(i32 arg1, i32 arg2, i32 arg3, i32 arg4)
 {
-    return stub<thiscall_t<u32, agiColorModel*, i32, i32, i32, i32>>(0x15BB80_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<u32, agiColorModel*, i32, i32, i32, i32>>(0x55BB80, this, arg1, arg2, arg3, arg4);
 }
 
 class agiColorModel* agiColorModel::FindMatch(class agiSurfaceDesc* arg1)
 {
-    return stub<cdecl_t<class agiColorModel*, class agiSurfaceDesc*>>(0x15D810_Offset, arg1);
+    return stub<cdecl_t<class agiColorModel*, class agiSurfaceDesc*>>(0x55D810, arg1);
 }
 
 class agiColorModel* agiColorModel::FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 arg4)
 {
-    return stub<cdecl_t<class agiColorModel*, i32, i32, i32, i32>>(0x15D760_Offset, arg1, arg2, arg3, arg4);
+    return stub<cdecl_t<class agiColorModel*, i32, i32, i32, i32>>(0x55D760, arg1, arg2, arg3, arg4);
 }

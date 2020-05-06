@@ -32,21 +32,21 @@ UIIconW::~UIIconW()
 
 void UIIconW::Action(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UIIconW*, union eqEvent>>(0xBC300_Offset, this, arg1);
+    return stub<thiscall_t<void, UIIconW*, union eqEvent>>(0x4BC300, this, arg1);
 }
 
 void UIIconW::Init(struct LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class Callback arg7)
 {
     return stub<thiscall_t<void, UIIconW*, struct LocString*, char*, f32, f32, f32, f32, class Callback>>(
-        0xBC220_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x4BC220, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 void UIIconW::Switch(i32 arg1)
 {
-    return stub<thiscall_t<void, UIIconW*, i32>>(0xBC3E0_Offset, this, arg1);
+    return stub<thiscall_t<void, UIIconW*, i32>>(0x4BC3E0, this, arg1);
 }
 
 void UIIconW::Update()
 {
-    return stub<thiscall_t<void, UIIconW*>>(0xBC360_Offset, this);
+    return stub<thiscall_t<void, UIIconW*>>(0x4BC360, this);
 }

@@ -218,7 +218,7 @@ i32 fscanf(class Stream* arg1, char const* arg2, ...);
 i32 fseek(class Stream* arg1, i32 arg2, i32 arg3);
 
 // 0x907960 | ?EnableBinaryFileMapping@@3HA
-inline extern_var(0x507960_Offset, i32, EnableBinaryFileMapping);
+inline extern_var(0x907960, i32, EnableBinaryFileMapping);
 
 // 0x55F3B0 | _printf (Skipped: void)
 

@@ -32,10 +32,10 @@ ControlBase::~ControlBase()
 
 void ControlBase::InitSensitivity()
 {
-    return stub<thiscall_t<void, ControlBase*>>(0xAB720_Offset, this);
+    return stub<thiscall_t<void, ControlBase*>>(0x4AB720, this);
 }
 
 void ControlBase::SetSensitivity()
 {
-    return stub<thiscall_t<void, ControlBase*>>(0xAB780_Offset, this);
+    return stub<thiscall_t<void, ControlBase*>>(0x4AB780, this);
 }

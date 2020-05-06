@@ -90,49 +90,49 @@ public:
     static void RemoveLight(class agiLight* arg1);
 
     // 0x7E0170 | ?ACTIVELIGHTS@agiLighter@@2PAPAVagiLight@@A
-    static inline extern_var(0x3E0170_Offset, class agiLight**, ACTIVELIGHTS);
+    static inline extern_var(0x7E0170, class agiLight**, ACTIVELIGHTS);
 
     // 0x7E0080 | ?Attenuate@agiLighter@@2PADA
-    static inline extern_var(0x3E0080_Offset, char*, Attenuate);
+    static inline extern_var(0x7E0080, char*, Attenuate);
 
     // 0x7E0270 | ?CosSpread@agiLighter@@2PAMA
-    static inline extern_var(0x3E0270_Offset, f32*, CosSpread);
+    static inline extern_var(0x7E0270, f32*, CosSpread);
 
     // 0x7E009C | ?Current@agiLighter@@2HA
-    static inline extern_var(0x3E009C_Offset, i32, Current);
+    static inline extern_var(0x7E009C, i32, Current);
 
     // 0x7E01B0 | ?Dir@agiLighter@@2PAVVector3@@A
-    static inline extern_var(0x3E01B0_Offset, class Vector3*, Dir);
+    static inline extern_var(0x7E01B0, class Vector3*, Dir);
 
     // 0x7E0090 | ?Eye@agiLighter@@2VVector3@@A
-    static inline extern_var(0x3E0090_Offset, class Vector3, Eye);
+    static inline extern_var(0x7E0090, class Vector3, Eye);
 
     // 0x7E0040 | ?LIGHTS@agiLighter@@2PAPAVagiLight@@A
-    static inline extern_var(0x3E0040_Offset, class agiLight**, LIGHTS);
+    static inline extern_var(0x7E0040, class agiLight**, LIGHTS);
 
     // 0x7E00A4 | ?LMODEL@agiLighter@@2PAVagiLightModel@@A
-    static inline extern_var(0x3E00A4_Offset, class agiLightModel*, LMODEL);
+    static inline extern_var(0x7E00A4, class agiLightModel*, LMODEL);
 
     // 0x7E00A8 | ?LocalViewer@agiLighter@@2HA
-    static inline extern_var(0x3E00A8_Offset, i32, LocalViewer);
+    static inline extern_var(0x7E00A8, i32, LocalViewer);
 
     // 0x7E00B0 | ?Pos@agiLighter@@2PAVVector3@@A
-    static inline extern_var(0x3E00B0_Offset, class Vector3*, Pos);
+    static inline extern_var(0x7E00B0, class Vector3*, Pos);
 
     // 0x7E0028 | ?Positional@agiLighter@@2PADA
-    static inline extern_var(0x3E0028_Offset, char*, Positional);
+    static inline extern_var(0x7E0028, char*, Positional);
 
     // 0x7E02B0 | ?SceneActive@agiLighter@@2HA
-    static inline extern_var(0x3E02B0_Offset, i32, SceneActive);
+    static inline extern_var(0x7E02B0, i32, SceneActive);
 
     // 0x7E02B8 | ?SceneAmbient@agiLighter@@2VVector3@@A
-    static inline extern_var(0x3E02B8_Offset, class Vector3, SceneAmbient);
+    static inline extern_var(0x7E02B8, class Vector3, SceneAmbient);
 
     // 0x7E00A0 | ?SceneCurrent@agiLighter@@2HA
-    static inline extern_var(0x3E00A0_Offset, i32, SceneCurrent);
+    static inline extern_var(0x7E00A0, i32, SceneCurrent);
 
     // 0x7E0038 | ?ShadowMap@agiLighter@@2PAVagiShadowMap@@A
-    static inline extern_var(0x3E0038_Offset, class agiShadowMap*, ShadowMap);
+    static inline extern_var(0x7E0038, class agiShadowMap*, ShadowMap);
 };
 
 check_size(agiLighter, 0x0);
@@ -174,7 +174,7 @@ public:
 check_size(agiRGBLighter, 0x0);
 
 // 0x7E02B4 | ?MONOLIGHTER@@3VagiMonoLighter@@A
-inline extern_var(0x3E02B4_Offset, class agiMonoLighter, MONOLIGHTER);
+inline extern_var(0x7E02B4, class agiMonoLighter, MONOLIGHTER);
 
 // 0x7E0020 | ?RGBLIGHTER@@3VagiRGBLighter@@A
-inline extern_var(0x3E0020_Offset, class agiRGBLighter, RGBLIGHTER);
+inline extern_var(0x7E0020, class agiRGBLighter, RGBLIGHTER);

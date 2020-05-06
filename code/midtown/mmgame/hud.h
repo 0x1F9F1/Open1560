@@ -297,16 +297,16 @@ private:
 check_size(mmArrow, 0x0);
 
 // 0x635174 | ?FirstPrintTime@@3HA
-inline extern_var(0x235174_Offset, i32, FirstPrintTime);
+inline extern_var(0x635174, i32, FirstPrintTime);
 
 // 0x6A6DD0 | ?LastResetTime@@3MA
-inline extern_var(0x2A6DD0_Offset, f32, LastResetTime);
+inline extern_var(0x6A6DD0, f32, LastResetTime);
 
 // 0x635170 | ?arotX@@3MA
-inline extern_var(0x235170_Offset, f32, arotX);
+inline extern_var(0x635170, f32, arotX);
 
 // 0x6A6D98 | ?defmass@@3MA
-inline extern_var(0x2A6D98_Offset, f32, defmass);
+inline extern_var(0x6A6D98, f32, defmass);
 
 // 0x6A6DA8 | ?mmHUDMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A6DA8_Offset, class MetaClass, mmHUDMetaClass);
+inline extern_var(0x6A6DA8, class MetaClass, mmHUDMetaClass);

@@ -31,13 +31,13 @@
 */
 
 // 0x706360 | ?CHEATING@@3HA
-inline extern_var(0x306360_Offset, i32, CHEATING);
+inline extern_var(0x706360, i32, CHEATING);
 
 // 0x7084E0 | ?CHICAGO@@3HA
-inline extern_var(0x3084E0_Offset, i32, CHICAGO);
+inline extern_var(0x7084E0, i32, CHICAGO);
 
 // 0x706368 | ?MMCURRPLAYER@@3VmmPlayerData@@A
-inline extern_var(0x306368_Offset, class mmPlayerData, MMCURRPLAYER);
+inline extern_var(0x706368, class mmPlayerData, MMCURRPLAYER);
 
 // 0x706068 | ?MMSTATE@@3UmmStatePack@@A
-inline extern_var(0x306068_Offset, struct mmStatePack, MMSTATE);
+inline extern_var(0x706068, struct mmStatePack, MMSTATE);

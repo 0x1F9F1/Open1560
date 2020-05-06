@@ -32,15 +32,15 @@ agiBILightModel::~agiBILightModel()
 
 i32 agiBILightModel::Activate()
 {
-    return stub<thiscall_t<i32, agiBILightModel*>>(0x155320_Offset, this);
+    return stub<thiscall_t<i32, agiBILightModel*>>(0x555320, this);
 }
 
 i32 agiBILightModel::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiBILightModel*>>(0x1552E0_Offset, this);
+    return stub<thiscall_t<i32, agiBILightModel*>>(0x5552E0, this);
 }
 
 void agiBILightModel::EndGfx()
 {
-    return stub<thiscall_t<void, agiBILightModel*>>(0x155310_Offset, this);
+    return stub<thiscall_t<void, agiBILightModel*>>(0x555310, this);
 }

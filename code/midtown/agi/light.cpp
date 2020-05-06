@@ -27,7 +27,7 @@ agiLightParameters::agiLightParameters()
 
 void agiLightParameters::operator=(class agiLightParameters const& arg1)
 {
-    return stub<thiscall_t<void, agiLightParameters*, class agiLightParameters const&>>(0x15BA60_Offset, this, arg1);
+    return stub<thiscall_t<void, agiLightParameters*, class agiLightParameters const&>>(0x55BA60, this, arg1);
 }
 
 agiLight::agiLight(class agiPipeline* arg1)
@@ -47,15 +47,15 @@ i32 agiLight::Update()
 
 void agiLight::Remove()
 {
-    return stub<thiscall_t<void, agiLight*>>(0x15BB00_Offset, this);
+    return stub<thiscall_t<void, agiLight*>>(0x55BB00, this);
 }
 
 char* agiLight::GetName()
 {
-    return stub<thiscall_t<char*, agiLight*>>(0x15BB20_Offset, this);
+    return stub<thiscall_t<char*, agiLight*>>(0x55BB20, this);
 }
 
 i32 agiLight::Init(class agiLightParameters const& arg1)
 {
-    return stub<thiscall_t<i32, agiLight*, class agiLightParameters const&>>(0x15BAD0_Offset, this, arg1);
+    return stub<thiscall_t<i32, agiLight*, class agiLightParameters const&>>(0x55BAD0, this, arg1);
 }

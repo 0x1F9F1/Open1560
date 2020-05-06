@@ -32,36 +32,35 @@ mmToggle::~mmToggle()
 
 void mmToggle::Cull()
 {
-    return stub<thiscall_t<void, mmToggle*>>(0xC05B0_Offset, this);
+    return stub<thiscall_t<void, mmToggle*>>(0x4C05B0, this);
 }
 
 class MetaClass* mmToggle::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmToggle*>>(0xC07A0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmToggle*>>(0x4C07A0, this);
 }
 
 void mmToggle::Init(char* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 {
-    return stub<thiscall_t<void, mmToggle*, char*, f32, f32, f32, f32>>(
-        0xC03F0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+    return stub<thiscall_t<void, mmToggle*, char*, f32, f32, f32, f32>>(0x4C03F0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void mmToggle::Update()
 {
-    return stub<thiscall_t<void, mmToggle*>>(0xC0590_Offset, this);
+    return stub<thiscall_t<void, mmToggle*>>(0x4C0590, this);
 }
 
 void mmToggle::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xC0630_Offset);
+    return stub<cdecl_t<void>>(0x4C0630);
 }
 
 void mmToggle::LoadBitmap(char* arg1)
 {
-    return stub<thiscall_t<void, mmToggle*, char*>>(0xC0490_Offset, this, arg1);
+    return stub<thiscall_t<void, mmToggle*, char*>>(0x4C0490, this, arg1);
 }
 
 void mmToggle::SetSize(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmToggle*, f32, f32>>(0xC04E0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmToggle*, f32, f32>>(0x4C04E0, this, arg1, arg2);
 }

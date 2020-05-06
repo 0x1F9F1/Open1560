@@ -48,4 +48,4 @@ public:
 check_size(agiLib<class agiTexParameters, class agiTexDef>, 0x0);
 
 // 0x8FF0D8 | ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
-inline extern_var(0x4FF0D8_Offset, class agiLib<class agiTexParameters, class agiTexDef>, agiTexLib);
+inline extern_var(0x8FF0D8, class agiLib<class agiTexParameters, class agiTexDef>, agiTexLib);

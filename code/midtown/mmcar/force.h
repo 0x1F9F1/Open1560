@@ -65,16 +65,16 @@ public:
 check_size(mmForce, 0x2C);
 
 // 0x63C9F8 | ?YDownForceMax@@3MA
-inline extern_var(0x23C9F8_Offset, f32, YDownForceMax);
+inline extern_var(0x63C9F8, f32, YDownForceMax);
 
 // 0x63C9F0 | ?YDownForceMaxHeight@@3MA
-inline extern_var(0x23C9F0_Offset, f32, YDownForceMaxHeight);
+inline extern_var(0x63C9F0, f32, YDownForceMaxHeight);
 
 // 0x63C9F4 | ?YDownForceMin@@3MA
-inline extern_var(0x23C9F4_Offset, f32, YDownForceMin);
+inline extern_var(0x63C9F4, f32, YDownForceMin);
 
 // 0x63C9EC | ?YDownForceMinHeight@@3MA
-inline extern_var(0x23C9EC_Offset, f32, YDownForceMinHeight);
+inline extern_var(0x63C9EC, f32, YDownForceMinHeight);
 
 // 0x6A8148 | ?mmForceMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A8148_Offset, class MetaClass, mmForceMetaClass);
+inline extern_var(0x6A8148, class MetaClass, mmForceMetaClass);

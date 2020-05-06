@@ -32,20 +32,20 @@ agiBILight::~agiBILight()
 
 i32 agiBILight::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiBILight*>>(0x1553E0_Offset, this);
+    return stub<thiscall_t<i32, agiBILight*>>(0x5553E0, this);
 }
 
 void agiBILight::EndGfx()
 {
-    return stub<thiscall_t<void, agiBILight*>>(0x155400_Offset, this);
+    return stub<thiscall_t<void, agiBILight*>>(0x555400, this);
 }
 
 void agiBILight::Remove()
 {
-    return stub<thiscall_t<void, agiBILight*>>(0x155420_Offset, this);
+    return stub<thiscall_t<void, agiBILight*>>(0x555420, this);
 }
 
 i32 agiBILight::Update()
 {
-    return stub<thiscall_t<i32, agiBILight*>>(0x155410_Offset, this);
+    return stub<thiscall_t<i32, agiBILight*>>(0x555410, this);
 }

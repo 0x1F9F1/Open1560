@@ -82,4 +82,4 @@ protected:
 check_size(asDofCS, 0xF8);
 
 // 0x790990 | ?asDofCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x390990_Offset, class MetaClass, asDofCSMetaClass);
+inline extern_var(0x790990, class MetaClass, asDofCSMetaClass);

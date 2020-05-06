@@ -33,15 +33,15 @@ agiLib<class agiTexParameters, class agiTexDef>::~agiLib<class agiTexParameters,
 i32 agiLib<class agiTexParameters, class agiTexDef>::Add(class agiTexParameters& arg1)
 {
     return stub<thiscall_t<i32, agiLib<class agiTexParameters, class agiTexDef>*, class agiTexParameters&>>(
-        0x8FB10_Offset, this, arg1);
+        0x48FB10, this, arg1);
 }
 
 void agiLib<class agiTexParameters, class agiTexDef>::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, agiLib<class agiTexParameters, class agiTexDef>*, i32>>(0x15A190_Offset, this, arg1);
+    return stub<thiscall_t<void, agiLib<class agiTexParameters, class agiTexDef>*, i32>>(0x55A190, this, arg1);
 }
 
 void agiLib<class agiTexParameters, class agiTexDef>::Kill()
 {
-    return stub<thiscall_t<void, agiLib<class agiTexParameters, class agiTexDef>*>>(0x15A140_Offset, this);
+    return stub<thiscall_t<void, agiLib<class agiTexParameters, class agiTexDef>*>>(0x55A140, this);
 }

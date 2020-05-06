@@ -27,30 +27,30 @@ Timer::Timer()
 
 void Timer::Reset()
 {
-    return stub<thiscall_t<void, Timer*>>(0x1768E0_Offset, this);
+    return stub<thiscall_t<void, Timer*>>(0x5768E0, this);
 }
 
 f32 Timer::Time()
 {
-    return stub<thiscall_t<f32, Timer*>>(0x1768F0_Offset, this);
+    return stub<thiscall_t<f32, Timer*>>(0x5768F0, this);
 }
 
 void Timer::BeginBenchmark()
 {
-    return stub<cdecl_t<void>>(0x176920_Offset);
+    return stub<cdecl_t<void>>(0x576920);
 }
 
 void Timer::EndBenchmark()
 {
-    return stub<cdecl_t<void>>(0x176990_Offset);
+    return stub<cdecl_t<void>>(0x576990);
 }
 
 void Timer::Sleep(i32 arg1)
 {
-    return stub<cdecl_t<void, i32>>(0x176860_Offset, arg1);
+    return stub<cdecl_t<void, i32>>(0x576860, arg1);
 }
 
 u32 Timer::Ticks()
 {
-    return stub<cdecl_t<u32>>(0x176830_Offset);
+    return stub<cdecl_t<u32>>(0x576830);
 }

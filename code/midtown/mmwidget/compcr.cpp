@@ -32,13 +32,13 @@ mmCompCRPlayer::~mmCompCRPlayer()
 
 void mmCompCRPlayer::Cull()
 {
-    return stub<thiscall_t<void, mmCompCRPlayer*>>(0xB7770_Offset, this);
+    return stub<thiscall_t<void, mmCompCRPlayer*>>(0x4B7770, this);
 }
 
 void mmCompCRPlayer::Init(char* arg1, i32 arg2, char* arg3, i32 arg4, i32 arg5)
 {
     return stub<thiscall_t<void, mmCompCRPlayer*, char*, i32, char*, i32, i32>>(
-        0xB73D0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x4B73D0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void mmCompCRPlayer::InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
@@ -46,40 +46,40 @@ void mmCompCRPlayer::InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct Lo
 {
     return stub<thiscall_t<void, mmCompCRPlayer*, f32, f32, f32, f32, struct LocString*, struct LocString*,
         struct LocString*, struct LocString*, i32>>(
-        0xB7500_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
+        0x4B7500, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
 }
 
 void mmCompCRPlayer::LoadBitmap(char* arg1)
 {
-    return stub<thiscall_t<void, mmCompCRPlayer*, char*>>(0xB7510_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCompCRPlayer*, char*>>(0x4B7510, this, arg1);
 }
 
 void mmCompCRPlayer::Reset()
 {
-    return stub<thiscall_t<void, mmCompCRPlayer*>>(0xB7570_Offset, this);
+    return stub<thiscall_t<void, mmCompCRPlayer*>>(0x4B7570, this);
 }
 
 void mmCompCRPlayer::SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4)
 {
-    return stub<thiscall_t<void, mmCompCRPlayer*, f32, f32, f32, f32>>(0xB7740_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, mmCompCRPlayer*, f32, f32, f32, f32>>(0x4B7740, this, arg1, arg2, arg3, arg4);
 }
 
 void mmCompCRPlayer::SetPoints(i32 arg1)
 {
-    return stub<thiscall_t<void, mmCompCRPlayer*, i32>>(0xB7590_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCompCRPlayer*, i32>>(0x4B7590, this, arg1);
 }
 
 void mmCompCRPlayer::SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<void, mmCompCRPlayer*, class mmTextNode*, i32, f32>>(0xB76B0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmCompCRPlayer*, class mmTextNode*, i32, f32>>(0x4B76B0, this, arg1, arg2, arg3);
 }
 
 void mmCompCRPlayer::SetSubwidgetGeometry()
 {
-    return stub<thiscall_t<void, mmCompCRPlayer*>>(0xB75B0_Offset, this);
+    return stub<thiscall_t<void, mmCompCRPlayer*>>(0x4B75B0, this);
 }
 
 void mmCompCRPlayer::Update()
 {
-    return stub<thiscall_t<void, mmCompCRPlayer*>>(0xB7580_Offset, this);
+    return stub<thiscall_t<void, mmCompCRPlayer*>>(0x4B7580, this);
 }

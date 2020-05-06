@@ -86,4 +86,4 @@ private:
 check_size(asLamp, 0x30);
 
 // 0x790900 | ?asLampMetaClass@@3VMetaClass@@A
-inline extern_var(0x390900_Offset, class MetaClass, asLampMetaClass);
+inline extern_var(0x790900, class MetaClass, asLampMetaClass);

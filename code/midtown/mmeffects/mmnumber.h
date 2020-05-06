@@ -100,7 +100,7 @@ public:
 check_size(mmNumberFont, 0x0);
 
 // 0x649C9C | ?NUMBERSTRING@@3PADA
-inline extern_var(0x249C9C_Offset, char*, NUMBERSTRING);
+inline extern_var(0x649C9C, char*, NUMBERSTRING);
 
 // 0x719570 | ?mmNumberMetaClass@@3VMetaClass@@A
-inline extern_var(0x319570_Offset, class MetaClass, mmNumberMetaClass);
+inline extern_var(0x719570, class MetaClass, mmNumberMetaClass);

@@ -32,10 +32,10 @@ OptionsMenu::~OptionsMenu()
 
 void OptionsMenu::PostSetup()
 {
-    return stub<thiscall_t<void, OptionsMenu*>>(0xA3B50_Offset, this);
+    return stub<thiscall_t<void, OptionsMenu*>>(0x4A3B50, this);
 }
 
 void OptionsMenu::PreSetup()
 {
-    return stub<thiscall_t<void, OptionsMenu*>>(0xA3B20_Offset, this);
+    return stub<thiscall_t<void, OptionsMenu*>>(0x4A3B20, this);
 }

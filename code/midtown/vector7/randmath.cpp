@@ -22,20 +22,20 @@ define_dummy_symbol(vector7_randmath);
 
 f32 frand()
 {
-    return stub<cdecl_t<f32>>(0x164A70_Offset);
+    return stub<cdecl_t<f32>>(0x564A70);
 }
 
 f32 frand(i32 arg1)
 {
-    return stub<cdecl_t<f32, i32>>(0x164A90_Offset, arg1);
+    return stub<cdecl_t<f32, i32>>(0x564A90, arg1);
 }
 
 i32 irand()
 {
-    return stub<cdecl_t<i32>>(0x164A30_Offset);
+    return stub<cdecl_t<i32>>(0x564A30);
 }
 
 i32 irand(i32 arg1)
 {
-    return stub<cdecl_t<i32, i32>>(0x164A00_Offset, arg1);
+    return stub<cdecl_t<i32, i32>>(0x564A00, arg1);
 }

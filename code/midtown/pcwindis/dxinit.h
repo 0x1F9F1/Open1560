@@ -85,40 +85,40 @@ void dxiShutdown();
 void dxiWindowCreate(char* arg1);
 
 // 0x660F18 | ?dxiDepth@@3HA
-inline extern_var(0x260F18_Offset, i32, dxiDepth);
+inline extern_var(0x660F18, i32, dxiDepth);
 
 // 0x660F1C | ?dxiFlags@@3HA
-inline extern_var(0x260F1C_Offset, i32, dxiFlags);
+inline extern_var(0x660F1C, i32, dxiFlags);
 
 // 0x660F14 | ?dxiHeight@@3HA
-inline extern_var(0x260F14_Offset, i32, dxiHeight);
+inline extern_var(0x660F14, i32, dxiHeight);
 
 // 0x909650 | ?dxiIcon@@3HA
-inline extern_var(0x509650_Offset, i32, dxiIcon);
+inline extern_var(0x909650, i32, dxiIcon);
 
 // 0x660F10 | ?dxiWidth@@3HA
-inline extern_var(0x260F10_Offset, i32, dxiWidth);
+inline extern_var(0x660F10, i32, dxiWidth);
 
 // 0x909668 | ?hwndMain@@3PAUHWND__@@A
-inline extern_var(0x509668_Offset, struct HWND__*, hwndMain);
+inline extern_var(0x909668, struct HWND__*, hwndMain);
 
 // 0x909674 | ?lpClip@@3PAUIDirectDrawClipper@@A
-inline extern_var(0x509674_Offset, struct IDirectDrawClipper*, lpClip);
+inline extern_var(0x909674, struct IDirectDrawClipper*, lpClip);
 
 // 0x909660 | ?lpDD4@@3PAUIDirectDraw4@@A
-inline extern_var(0x509660_Offset, struct IDirectDraw4*, lpDD4);
+inline extern_var(0x909660, struct IDirectDraw4*, lpDD4);
 
 // 0x90965C | ?lpDI@@3PAUIDirectInputA@@A
-inline extern_var(0x50965C_Offset, struct IDirectInputA*, lpDI);
+inline extern_var(0x90965C, struct IDirectInputA*, lpDI);
 
 // 0x909670 | ?lpdsBack@@3PAUIDirectDrawSurface4@@A
-inline extern_var(0x509670_Offset, struct IDirectDrawSurface4*, lpdsBack);
+inline extern_var(0x909670, struct IDirectDrawSurface4*, lpdsBack);
 
 // 0x909658 | ?lpdsBack2@@3PAUIDirectDrawSurface4@@A
-inline extern_var(0x509658_Offset, struct IDirectDrawSurface4*, lpdsBack2);
+inline extern_var(0x909658, struct IDirectDrawSurface4*, lpdsBack2);
 
 // 0x909664 | ?lpdsFront@@3PAUIDirectDrawSurface4@@A
-inline extern_var(0x509664_Offset, struct IDirectDrawSurface4*, lpdsFront);
+inline extern_var(0x909664, struct IDirectDrawSurface4*, lpdsFront);
 
 // 0x909678 | ?lpdsRend@@3PAUIDirectDrawSurface4@@A
-inline extern_var(0x509678_Offset, struct IDirectDrawSurface4*, lpdsRend);
+inline extern_var(0x909678, struct IDirectDrawSurface4*, lpdsRend);

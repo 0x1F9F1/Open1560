@@ -131,16 +131,16 @@ public:
 
 protected:
     // 0x6A7F18 | ?Instances@mmShardManager@@1PAPAV1@A
-    static inline extern_var(0x2A7F18_Offset, class mmShardManager**, Instances);
+    static inline extern_var(0x6A7F18, class mmShardManager**, Instances);
 
     // 0x6A7F90 | ?NumInstances@mmShardManager@@1HA
-    static inline extern_var(0x2A7F90_Offset, i32, NumInstances);
+    static inline extern_var(0x6A7F90, i32, NumInstances);
 };
 
 check_size(mmShardManager, 0x54);
 
 // 0x6A7EF0 | ?mmShardManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7EF0_Offset, class MetaClass, mmShardManagerMetaClass);
+inline extern_var(0x6A7EF0, class MetaClass, mmShardManagerMetaClass);
 
 // 0x6A7F68 | ?mmShardMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7F68_Offset, class MetaClass, mmShardMetaClass);
+inline extern_var(0x6A7F68, class MetaClass, mmShardMetaClass);

@@ -32,37 +32,36 @@ WArray::~WArray()
 
 void WArray::AddWidgetData(i32 arg1, i32 arg2, class Vector4& arg3, char* arg4)
 {
-    return stub<thiscall_t<void, WArray*, i32, i32, class Vector4&, char*>>(
-        0xAC510_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, WArray*, i32, i32, class Vector4&, char*>>(0x4AC510, this, arg1, arg2, arg3, arg4);
 }
 
 void WArray::DumpMenu(class Stream* arg1, class UIMenu* arg2)
 {
-    return stub<thiscall_t<void, WArray*, class Stream*, class UIMenu*>>(0xAC0C0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, WArray*, class Stream*, class UIMenu*>>(0x4AC0C0, this, arg1, arg2);
 }
 
 void WArray::Flush()
 {
-    return stub<thiscall_t<void, WArray*>>(0xAC320_Offset, this);
+    return stub<thiscall_t<void, WArray*>>(0x4AC320, this);
 }
 
 void WArray::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, WArray*, i32>>(0xABE60_Offset, this, arg1);
+    return stub<thiscall_t<void, WArray*, i32>>(0x4ABE60, this, arg1);
 }
 
 void WArray::Read(char* arg1)
 {
-    return stub<thiscall_t<void, WArray*, char*>>(0xAC330_Offset, this, arg1);
+    return stub<thiscall_t<void, WArray*, char*>>(0x4AC330, this, arg1);
 }
 
 i32 WArray::RetrieveWidgetData(i32 arg1, i32 arg2, f32& arg3, f32& arg4, f32& arg5, f32& arg6)
 {
     return stub<thiscall_t<i32, WArray*, i32, i32, f32&, f32&, f32&, f32&>>(
-        0xAC590_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6);
+        0x4AC590, this, arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 void WArray::Write(char* arg1)
 {
-    return stub<thiscall_t<void, WArray*, char*>>(0xABEA0_Offset, this, arg1);
+    return stub<thiscall_t<void, WArray*, char*>>(0x4ABEA0, this, arg1);
 }

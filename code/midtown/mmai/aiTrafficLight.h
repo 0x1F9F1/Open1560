@@ -67,7 +67,7 @@ public:
 
 private:
     // 0x6A7970 | ?ObjCount@aiTrafficLightSet@@0FA
-    static inline extern_var(0x2A7970_Offset, i16, ObjCount);
+    static inline extern_var(0x6A7970, i16, ObjCount);
 };
 
 check_size(aiTrafficLightSet, 0x38);

@@ -85,4 +85,4 @@ public:
 check_size(mmCityList, 0x10);
 
 // 0x7084E4 | ?CityListPtr@@3PAVmmCityList@@A
-inline extern_var(0x3084E4_Offset, class mmCityList*, CityListPtr);
+inline extern_var(0x7084E4, class mmCityList*, CityListPtr);

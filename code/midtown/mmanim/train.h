@@ -113,25 +113,25 @@ private:
     void UpdateAudio();
 
     // 0x705EFC | ?s_fAudioAttenuationMult@mmAnimTrain@@0MA
-    static inline extern_var(0x305EFC_Offset, f32, s_fAudioAttenuationMult);
+    static inline extern_var(0x705EFC, f32, s_fAudioAttenuationMult);
 
     // 0x642788 | ?s_fAudioMaxDistance@mmAnimTrain@@0MA
-    static inline extern_var(0x242788_Offset, f32, s_fAudioMaxDistance);
+    static inline extern_var(0x642788, f32, s_fAudioMaxDistance);
 
     // 0x642780 | ?s_fAudioMinDistance@mmAnimTrain@@0MA
-    static inline extern_var(0x242780_Offset, f32, s_fAudioMinDistance);
+    static inline extern_var(0x642780, f32, s_fAudioMinDistance);
 
     // 0x64278C | ?s_fAudioVolume@mmAnimTrain@@0MA
-    static inline extern_var(0x24278C_Offset, f32, s_fAudioVolume);
+    static inline extern_var(0x64278C, f32, s_fAudioVolume);
 
     // 0x642784 | ?s_fCloserMinDistMult@mmAnimTrain@@0MA
-    static inline extern_var(0x242784_Offset, f32, s_fCloserMinDistMult);
+    static inline extern_var(0x642784, f32, s_fCloserMinDistMult);
 };
 
 check_size(mmAnimTrain, 0x100);
 
 // 0x705EB0 | ?SplineBasis@@3VMatrix44@@A
-inline extern_var(0x305EB0_Offset, class Matrix44, SplineBasis);
+inline extern_var(0x705EB0, class Matrix44, SplineBasis);
 
 // 0x705E70 | ?TrainHermite@@3VMatrix44@@A
-inline extern_var(0x305E70_Offset, class Matrix44, TrainHermite);
+inline extern_var(0x705E70, class Matrix44, TrainHermite);

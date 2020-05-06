@@ -34,65 +34,65 @@ void mmPoliceCarAudio::AssignSounds(class AudSound* arg1, class AudSound* arg2, 
     class AudSound* arg4, class mmOpponentImpactAudio* arg5, class AudSound* arg6)
 {
     return stub<thiscall_t<void, mmPoliceCarAudio*, class AudSound*, class AudSound*, class AudSound*, class AudSound*,
-        class mmOpponentImpactAudio*, class AudSound*>>(0x7B6A0_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6);
+        class mmOpponentImpactAudio*, class AudSound*>>(0x47B6A0, this, arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 void mmPoliceCarAudio::DamageSiren()
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x7AAD0_Offset, this);
+    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x47AAD0, this);
 }
 
 i32 mmPoliceCarAudio::ExplosionIsPlaying()
 {
-    return stub<thiscall_t<i32, mmPoliceCarAudio*>>(0x7A8F0_Offset, this);
+    return stub<thiscall_t<i32, mmPoliceCarAudio*>>(0x47A8F0, this);
 }
 
 void mmPoliceCarAudio::PlayExplosion()
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x7AA20_Offset, this);
+    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x47AA20, this);
 }
 
 void mmPoliceCarAudio::PlayVoice()
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x7B600_Offset, this);
+    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x47B600, this);
 }
 
 void mmPoliceCarAudio::StartSiren()
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x7A910_Offset, this);
+    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x47A910, this);
 }
 
 void mmPoliceCarAudio::StopSiren()
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x7A9C0_Offset, this);
+    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x47A9C0, this);
 }
 
 void mmPoliceCarAudio::UnAssignSounds()
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x7B770_Offset, this);
+    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x47B770, this);
 }
 
 void mmPoliceCarAudio::Update(i32 arg1, f32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*, i32, f32, f32>>(0x7AC30_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmPoliceCarAudio*, i32, f32, f32>>(0x47AC30, this, arg1, arg2, arg3);
 }
 
 void mmPoliceCarAudio::UpdateDoppler()
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x7B400_Offset, this);
+    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x47B400, this);
 }
 
 void mmPoliceCarAudio::UpdateDoppler(f32 arg1)
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*, f32>>(0x7B410_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPoliceCarAudio*, f32>>(0x47B410, this, arg1);
 }
 
 void mmPoliceCarAudio::FluctuateFastSiren()
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x7AFE0_Offset, this);
+    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x47AFE0, this);
 }
 
 void mmPoliceCarAudio::FluctuateSlowSiren()
 {
-    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x7AD50_Offset, this);
+    return stub<thiscall_t<void, mmPoliceCarAudio*>>(0x47AD50, this);
 }

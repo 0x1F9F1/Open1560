@@ -110,4 +110,4 @@ public:
 check_size(mmRecord, 0x108);
 
 // 0x7085F0 | ?mmRecordMetaClass@@3VMetaClass@@A
-inline extern_var(0x3085F0_Offset, class MetaClass, mmRecordMetaClass);
+inline extern_var(0x7085F0, class MetaClass, mmRecordMetaClass);

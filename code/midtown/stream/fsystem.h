@@ -90,10 +90,10 @@ public:
     static class FileSystem* SearchAll(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5);
 
     // 0x907A38 | ?FS@FileSystem@@2PAPAV1@A
-    static inline extern_var(0x507A38_Offset, class FileSystem**, FS);
+    static inline extern_var(0x907A38, class FileSystem**, FS);
 
     // 0x907A30 | ?FSCount@FileSystem@@2HA
-    static inline extern_var(0x507A30_Offset, i32, FSCount);
+    static inline extern_var(0x907A30, i32, FSCount);
 };
 
 check_size(FileSystem, 0x0);
@@ -105,4 +105,4 @@ class FileSystem* FindFile(char* arg1, char* arg2, char* arg3, i32 arg4, char* a
 class Stream* OpenFile(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5, char* arg6);
 
 // 0x907B38 | ?fsVerbose@@3HA
-inline extern_var(0x507B38_Offset, i32, fsVerbose);
+inline extern_var(0x907B38, i32, fsVerbose);

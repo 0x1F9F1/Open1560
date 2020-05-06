@@ -63,4 +63,4 @@ public:
 check_size(CarCamCS, 0x118);
 
 // 0x7194C8 | ?CarCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x3194C8_Offset, class MetaClass, CarCamCSMetaClass);
+inline extern_var(0x7194C8, class MetaClass, CarCamCSMetaClass);

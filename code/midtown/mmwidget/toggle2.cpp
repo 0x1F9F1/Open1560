@@ -32,35 +32,35 @@ mmToggle2::~mmToggle2()
 
 void mmToggle2::Cull()
 {
-    return stub<thiscall_t<void, mmToggle2*>>(0xC00E0_Offset, this);
+    return stub<thiscall_t<void, mmToggle2*>>(0x4C00E0, this);
 }
 
 class MetaClass* mmToggle2::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmToggle2*>>(0xC0300_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmToggle2*>>(0x4C0300, this);
 }
 
 void mmToggle2::Init(char* arg1, f32 arg2, f32 arg3, i32* arg4)
 {
-    return stub<thiscall_t<void, mmToggle2*, char*, f32, f32, i32*>>(0xBFF90_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, mmToggle2*, char*, f32, f32, i32*>>(0x4BFF90, this, arg1, arg2, arg3, arg4);
 }
 
 void mmToggle2::SetPosition(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmToggle2*, f32, f32>>(0xC0020_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmToggle2*, f32, f32>>(0x4C0020, this, arg1, arg2);
 }
 
 void mmToggle2::Update()
 {
-    return stub<thiscall_t<void, mmToggle2*>>(0xC00C0_Offset, this);
+    return stub<thiscall_t<void, mmToggle2*>>(0x4C00C0, this);
 }
 
 void mmToggle2::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xC01A0_Offset);
+    return stub<cdecl_t<void>>(0x4C01A0);
 }
 
 void mmToggle2::LoadBitmap(char* arg1)
 {
-    return stub<thiscall_t<void, mmToggle2*, char*>>(0xBFFC0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmToggle2*, char*>>(0x4BFFC0, this, arg1);
 }

@@ -333,31 +333,31 @@ check_size(CArrayList, 0x8);
 f32 Clamp(f32 arg1, f32 arg2, f32 arg3);
 
 // 0x6A7848 | ?AIMAP@@3VaiMap@@A
-inline extern_var(0x2A7848_Offset, class aiMap, AIMAP);
+inline extern_var(0x6A7848, class aiMap, AIMAP);
 
 // 0x6A7834 | ?_fAmbientUpdate@@3MA
-inline extern_var(0x2A7834_Offset, f32, _fAmbientUpdate);
+inline extern_var(0x6A7834, f32, _fAmbientUpdate);
 
 // 0x6A7838 | ?_fCopUpdate@@3MA
-inline extern_var(0x2A7838_Offset, f32, _fCopUpdate);
+inline extern_var(0x6A7838, f32, _fCopUpdate);
 
 // 0x6A7938 | ?_fOppUpdate@@3MA
-inline extern_var(0x2A7938_Offset, f32, _fOppUpdate);
+inline extern_var(0x6A7938, f32, _fOppUpdate);
 
 // 0x6A7830 | ?_fPedUpdate@@3MA
-inline extern_var(0x2A7830_Offset, f32, _fPedUpdate);
+inline extern_var(0x6A7830, f32, _fPedUpdate);
 
 // 0x6A7948 | ?_fTotUpdate@@3MA
-inline extern_var(0x2A7948_Offset, f32, _fTotUpdate);
+inline extern_var(0x6A7948, f32, _fTotUpdate);
 
 // 0x6A793C | ?_nAmbientQty@@3HA
-inline extern_var(0x2A793C_Offset, i32, _nAmbientQty);
+inline extern_var(0x6A793C, i32, _nAmbientQty);
 
 // 0x6A7840 | ?_nPedQty@@3HA
-inline extern_var(0x2A7840_Offset, i32, _nPedQty);
+inline extern_var(0x6A7840, i32, _nPedQty);
 
 // 0x6A7934 | ?_nRdQty@@3HA
-inline extern_var(0x2A7934_Offset, i32, _nRdQty);
+inline extern_var(0x6A7934, i32, _nRdQty);
 
 // 0x6A7908 | ?aiMapMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7908_Offset, class MetaClass, aiMapMetaClass);
+inline extern_var(0x6A7908, class MetaClass, aiMapMetaClass);

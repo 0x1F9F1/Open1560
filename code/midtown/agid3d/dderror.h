@@ -38,7 +38,7 @@ void __DDRelease(struct IUnknown* arg1, char const* arg2, char const* arg3, i32 
 void __DDTry(i32 arg1, char const* arg2, char const* arg3, i32 arg4);
 
 // 0x795C88 | ?DDIgnoreErrors@@3HA
-inline extern_var(0x395C88_Offset, i32, DDIgnoreErrors);
+inline extern_var(0x795C88, i32, DDIgnoreErrors);
 
 // 0x795C8C | ?DDNeedRestore@@3HA
-inline extern_var(0x395C8C_Offset, i32, DDNeedRestore);
+inline extern_var(0x795C8C, i32, DDNeedRestore);

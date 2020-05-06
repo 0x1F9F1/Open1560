@@ -37,37 +37,37 @@ mmPlayerRecord::~mmPlayerRecord()
 
 void mmPlayerRecord::operator=(class mmPlayerRecord& arg1)
 {
-    return stub<thiscall_t<void, mmPlayerRecord*, class mmPlayerRecord&>>(0xCFC90_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPlayerRecord*, class mmPlayerRecord&>>(0x4CFC90, this, arg1);
 }
 
 u32 mmPlayerRecord::ComputeCRC()
 {
-    return stub<thiscall_t<u32, mmPlayerRecord*>>(0xCFCE0_Offset, this);
+    return stub<thiscall_t<u32, mmPlayerRecord*>>(0x4CFCE0, this);
 }
 
 class MetaClass* mmPlayerRecord::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmPlayerRecord*>>(0xD0010_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmPlayerRecord*>>(0x4D0010, this);
 }
 
 i32 mmPlayerRecord::LoadBinary(class Stream* arg1)
 {
-    return stub<thiscall_t<i32, mmPlayerRecord*, class Stream*>>(0xCFDC0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPlayerRecord*, class Stream*>>(0x4CFDC0, this, arg1);
 }
 
 void mmPlayerRecord::Reset()
 {
-    return stub<thiscall_t<void, mmPlayerRecord*>>(0xCFC60_Offset, this);
+    return stub<thiscall_t<void, mmPlayerRecord*>>(0x4CFC60, this);
 }
 
 i32 mmPlayerRecord::SaveBinary(class Stream* arg1)
 {
-    return stub<thiscall_t<i32, mmPlayerRecord*, class Stream*>>(0xCFD40_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPlayerRecord*, class Stream*>>(0x4CFD40, this, arg1);
 }
 
 void mmPlayerRecord::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xCFE40_Offset);
+    return stub<cdecl_t<void>>(0x4CFE40);
 }
 
 mmPlayerData::mmPlayerData()
@@ -82,135 +82,135 @@ mmPlayerData::~mmPlayerData()
 
 void mmPlayerData::operator=(class mmPlayerData& arg1)
 {
-    return stub<thiscall_t<void, mmPlayerData*, class mmPlayerData&>>(0xD0140_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPlayerData*, class mmPlayerData&>>(0x4D0140, this, arg1);
 }
 
 u32 mmPlayerData::ComputeCRC()
 {
-    return stub<thiscall_t<u32, mmPlayerData*>>(0xD09E0_Offset, this);
+    return stub<thiscall_t<u32, mmPlayerData*>>(0x4D09E0, this);
 }
 
 i32 mmPlayerData::GetBlitzMask()
 {
-    return stub<thiscall_t<i32, mmPlayerData*>>(0xD02B0_Offset, this);
+    return stub<thiscall_t<i32, mmPlayerData*>>(0x4D02B0, this);
 }
 
 i32 mmPlayerData::GetBlitzPassed()
 {
-    return stub<thiscall_t<i32, mmPlayerData*>>(0xD0340_Offset, this);
+    return stub<thiscall_t<i32, mmPlayerData*>>(0x4D0340, this);
 }
 
 i32 mmPlayerData::GetCheckpointMask()
 {
-    return stub<thiscall_t<i32, mmPlayerData*>>(0xD02E0_Offset, this);
+    return stub<thiscall_t<i32, mmPlayerData*>>(0x4D02E0, this);
 }
 
 i32 mmPlayerData::GetCheckpointPassed()
 {
-    return stub<thiscall_t<i32, mmPlayerData*>>(0xD0360_Offset, this);
+    return stub<thiscall_t<i32, mmPlayerData*>>(0x4D0360, this);
 }
 
 i32 mmPlayerData::GetCheckpointProgress(i32 arg1)
 {
-    return stub<thiscall_t<i32, mmPlayerData*, i32>>(0xD0290_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPlayerData*, i32>>(0x4D0290, this, arg1);
 }
 
 i32 mmPlayerData::GetCircuitMask()
 {
-    return stub<thiscall_t<i32, mmPlayerData*>>(0xD0310_Offset, this);
+    return stub<thiscall_t<i32, mmPlayerData*>>(0x4D0310, this);
 }
 
 i32 mmPlayerData::GetCircuitPassed()
 {
-    return stub<thiscall_t<i32, mmPlayerData*>>(0xD0380_Offset, this);
+    return stub<thiscall_t<i32, mmPlayerData*>>(0x4D0380, this);
 }
 
 class MetaClass* mmPlayerData::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmPlayerData*>>(0xD11E0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmPlayerData*>>(0x4D11E0, this);
 }
 
 char* mmPlayerData::GetFileName()
 {
-    return stub<thiscall_t<char*, mmPlayerData*>>(0xD0900_Offset, this);
+    return stub<thiscall_t<char*, mmPlayerData*>>(0x4D0900, this);
 }
 
 char* mmPlayerData::GetName()
 {
-    return stub<thiscall_t<char*, mmPlayerData*>>(0xD0860_Offset, this);
+    return stub<thiscall_t<char*, mmPlayerData*>>(0x4D0860, this);
 }
 
 char* mmPlayerData::GetNetName()
 {
-    return stub<thiscall_t<char*, mmPlayerData*>>(0xD08B0_Offset, this);
+    return stub<thiscall_t<char*, mmPlayerData*>>(0x4D08B0, this);
 }
 
 i32 mmPlayerData::GetTotalPassed()
 {
-    return stub<thiscall_t<i32, mmPlayerData*>>(0xD03A0_Offset, this);
+    return stub<thiscall_t<i32, mmPlayerData*>>(0x4D03A0, this);
 }
 
 i32 mmPlayerData::GetTotalScore()
 {
-    return stub<thiscall_t<i32, mmPlayerData*>>(0xD03C0_Offset, this);
+    return stub<thiscall_t<i32, mmPlayerData*>>(0x4D03C0, this);
 }
 
 i32 mmPlayerData::Load(char* arg1)
 {
-    return stub<thiscall_t<i32, mmPlayerData*, char*>>(0xD0910_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPlayerData*, char*>>(0x4D0910, this, arg1);
 }
 
 i32 mmPlayerData::LoadBinary(char* arg1)
 {
-    return stub<thiscall_t<i32, mmPlayerData*, char*>>(0xD0A90_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPlayerData*, char*>>(0x4D0A90, this, arg1);
 }
 
 i32 mmPlayerData::RegisterFinish(class mmPlayerRecord arg1, i32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<i32, mmPlayerData*, class mmPlayerRecord, i32, i32>>(0xD04A0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, mmPlayerData*, class mmPlayerRecord, i32, i32>>(0x4D04A0, this, arg1, arg2, arg3);
 }
 
 i32 mmPlayerData::RegisterFinish(i32 arg1, f32 arg2, char arg3)
 {
-    return stub<thiscall_t<i32, mmPlayerData*, i32, f32, char>>(0xD0280_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, mmPlayerData*, i32, f32, char>>(0x4D0280, this, arg1, arg2, arg3);
 }
 
 void mmPlayerData::Reset()
 {
-    return stub<thiscall_t<void, mmPlayerData*>>(0xD0750_Offset, this);
+    return stub<thiscall_t<void, mmPlayerData*>>(0x4D0750, this);
 }
 
 void mmPlayerData::ResolveCheckpointProgress()
 {
-    return stub<thiscall_t<void, mmPlayerData*>>(0xD0410_Offset, this);
+    return stub<thiscall_t<void, mmPlayerData*>>(0x4D0410, this);
 }
 
 i32 mmPlayerData::Save(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, mmPlayerData*, char*, i32>>(0xD0940_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmPlayerData*, char*, i32>>(0x4D0940, this, arg1, arg2);
 }
 
 i32 mmPlayerData::SaveBinary(char* arg1)
 {
-    return stub<thiscall_t<i32, mmPlayerData*, char*>>(0xD0CF0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmPlayerData*, char*>>(0x4D0CF0, this, arg1);
 }
 
 void mmPlayerData::SetFileName(char* arg1)
 {
-    return stub<thiscall_t<void, mmPlayerData*, char*>>(0xD08C0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPlayerData*, char*>>(0x4D08C0, this, arg1);
 }
 
 void mmPlayerData::SetName(char* arg1)
 {
-    return stub<thiscall_t<void, mmPlayerData*, char*>>(0xD0820_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPlayerData*, char*>>(0x4D0820, this, arg1);
 }
 
 void mmPlayerData::SetNetName(char* arg1)
 {
-    return stub<thiscall_t<void, mmPlayerData*, char*>>(0xD0870_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPlayerData*, char*>>(0x4D0870, this, arg1);
 }
 
 void mmPlayerData::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xD0F00_Offset);
+    return stub<cdecl_t<void>>(0x4D0F00);
 }

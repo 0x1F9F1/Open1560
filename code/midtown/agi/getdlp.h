@@ -42,7 +42,7 @@ i32 GetGroupVerts(char* arg1, char* arg2, class Vector3* arg3, i32 arg4);
 i32 OutOfDate(char* arg1, char* arg2);
 
 // 0x8FAFD0 | ?DLPTemplateBadHash@@3VHashTable@@A
-inline extern_var(0x4FAFD0_Offset, class HashTable, DLPTemplateBadHash);
+inline extern_var(0x8FAFD0, class HashTable, DLPTemplateBadHash);
 
 // 0x8FAFE0 | ?FlagGetDLPTemplateCalls@@3HA
-inline extern_var(0x4FAFE0_Offset, i32, FlagGetDLPTemplateCalls);
+inline extern_var(0x8FAFE0, i32, FlagGetDLPTemplateCalls);

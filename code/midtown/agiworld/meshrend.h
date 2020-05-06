@@ -269,40 +269,40 @@ public:
     static void SetFog(f32 arg1, i32 arg2);
 
     // 0x64A730 | ?DefaultQuad@agiMeshSet@@2PAUagiMeshCardVertex@@A
-    static inline extern_var(0x24A730_Offset, struct agiMeshCardVertex*, DefaultQuad);
+    static inline extern_var(0x64A730, struct agiMeshCardVertex*, DefaultQuad);
 
     // 0x64A6E0 | ?DepthOffset@agiMeshSet@@2MA
-    static inline extern_var(0x24A6E0_Offset, f32, DepthOffset);
+    static inline extern_var(0x64A6E0, f32, DepthOffset);
 
     // 0x64A6DC | ?DepthScale@agiMeshSet@@2MA
-    static inline extern_var(0x24A6DC_Offset, f32, DepthScale);
+    static inline extern_var(0x64A6DC, f32, DepthScale);
 
     // 0x720ED8 | ?EyePlaneCount@agiMeshSet@@2HA
-    static inline extern_var(0x320ED8_Offset, i32, EyePlaneCount);
+    static inline extern_var(0x720ED8, i32, EyePlaneCount);
 
     // 0x73D398 | ?EyePlanes@agiMeshSet@@2PAVVector4@@A
-    static inline extern_var(0x33D398_Offset, class Vector4*, EyePlanes);
+    static inline extern_var(0x73D398, class Vector4*, EyePlanes);
 
     // 0x725130 | ?EyePlanesHit@agiMeshSet@@2HA
-    static inline extern_var(0x325130_Offset, i32, EyePlanesHit);
+    static inline extern_var(0x725130, i32, EyePlanesHit);
 
     // 0x71DE50 | ?EyePos@agiMeshSet@@2VVector3@@A
-    static inline extern_var(0x31DE50_Offset, class Vector3, EyePos);
+    static inline extern_var(0x71DE50, class Vector3, EyePos);
 
     // 0x72D154 | ?FlipX@agiMeshSet@@2HA
-    static inline extern_var(0x32D154_Offset, i32, FlipX);
+    static inline extern_var(0x72D154, i32, FlipX);
 
     // 0x72D158 | ?FogValue@agiMeshSet@@2MA
-    static inline extern_var(0x32D158_Offset, f32, FogValue);
+    static inline extern_var(0x72D158, f32, FogValue);
 
     // 0x720EB8 | ?HitEyePlanes@agiMeshSet@@2PAVVector4@@A
-    static inline extern_var(0x320EB8_Offset, class Vector4*, HitEyePlanes);
+    static inline extern_var(0x720EB8, class Vector4*, HitEyePlanes);
 
     // 0x7210E4 | ?MirrorMode@agiMeshSet@@2HA
-    static inline extern_var(0x3210E4_Offset, i32, MirrorMode);
+    static inline extern_var(0x7210E4, i32, MirrorMode);
 
     // 0x719E50 | ?codes@agiMeshSet@@2PAEA
-    static inline extern_var(0x319E50_Offset, u8*, codes);
+    static inline extern_var(0x719E50, u8*, codes);
 
 protected:
     // 0x505E40 | ?ClipTri@agiMeshSet@@IAEXHHHH@Z
@@ -333,67 +333,67 @@ protected:
     static u32 __fastcall TransformOutcode(u8* arg1, class Vector4* arg2, class Vector3* arg3, i32 arg4);
 
     // 0x73D3BC | ?AllowEyeBackfacing@agiMeshSet@@1HA
-    static inline extern_var(0x33D3BC_Offset, i32, AllowEyeBackfacing);
+    static inline extern_var(0x73D3BC, i32, AllowEyeBackfacing);
 
     // 0x73D3C0 | ?HalfHeight@agiMeshSet@@1MA
-    static inline extern_var(0x33D3C0_Offset, f32, HalfHeight);
+    static inline extern_var(0x73D3C0, f32, HalfHeight);
 
     // 0x72513C | ?HalfWidth@agiMeshSet@@1MA
-    static inline extern_var(0x32513C_Offset, f32, HalfWidth);
+    static inline extern_var(0x72513C, f32, HalfWidth);
 
     // 0x72D148 | ?LocPos@agiMeshSet@@1VVector3@@A
-    static inline extern_var(0x32D148_Offset, class Vector3, LocPos);
+    static inline extern_var(0x72D148, class Vector3, LocPos);
 
     // 0x71DE60 | ?M@agiMeshSet@@1VMatrix34@@A
-    static inline extern_var(0x31DE60_Offset, class Matrix34, M);
+    static inline extern_var(0x71DE60, class Matrix34, M);
 
     // 0x720EDC | ?MaxX@agiMeshSet@@1MA
-    static inline extern_var(0x320EDC_Offset, f32, MaxX);
+    static inline extern_var(0x720EDC, f32, MaxX);
 
     // 0x720E98 | ?MaxY@agiMeshSet@@1MA
-    static inline extern_var(0x320E98_Offset, f32, MaxY);
+    static inline extern_var(0x720E98, f32, MaxY);
 
     // 0x73D390 | ?MinX@agiMeshSet@@1MA
-    static inline extern_var(0x33D390_Offset, f32, MinX);
+    static inline extern_var(0x73D390, f32, MinX);
 
     // 0x7210E0 | ?MinY@agiMeshSet@@1MA
-    static inline extern_var(0x3210E0_Offset, f32, MinY);
+    static inline extern_var(0x7210E0, f32, MinY);
 
     // 0x719E4C | ?MtxSerial@agiMeshSet@@1IA
-    static inline extern_var(0x319E4C_Offset, u32, MtxSerial);
+    static inline extern_var(0x719E4C, u32, MtxSerial);
 
     // 0x71DE90 | ?OffsX@agiMeshSet@@1MA
-    static inline extern_var(0x31DE90_Offset, f32, OffsX);
+    static inline extern_var(0x71DE90, f32, OffsX);
 
     // 0x73D3B8 | ?OffsY@agiMeshSet@@1MA
-    static inline extern_var(0x33D3B8_Offset, f32, OffsY);
+    static inline extern_var(0x73D3B8, f32, OffsY);
 
     // 0x72512C | ?ProjZW@agiMeshSet@@1MA
-    static inline extern_var(0x32512C_Offset, f32, ProjZW);
+    static inline extern_var(0x72512C, f32, ProjZW);
 
     // 0x72D140 | ?ProjZZ@agiMeshSet@@1MA
-    static inline extern_var(0x32D140_Offset, f32, ProjZZ);
+    static inline extern_var(0x72D140, f32, ProjZZ);
 
     // 0x725128 | ?ViewSerial@agiMeshSet@@1IA
-    static inline extern_var(0x325128_Offset, u32, ViewSerial);
+    static inline extern_var(0x725128, u32, ViewSerial);
 
     // 0x72D160 | ?firstFacet@agiMeshSet@@1PAFA
-    static inline extern_var(0x32D160_Offset, i16*, firstFacet);
+    static inline extern_var(0x72D160, i16*, firstFacet);
 
     // 0x721128 | ?fogout@agiMeshSet@@1PAEA
-    static inline extern_var(0x321128_Offset, u8*, fogout);
+    static inline extern_var(0x721128, u8*, fogout);
 
     // 0x719C48 | ?indexCounts@agiMeshSet@@1PAFA
-    static inline extern_var(0x319C48_Offset, i16*, indexCounts);
+    static inline extern_var(0x719C48, i16*, indexCounts);
 
     // 0x725140 | ?nextFacet@agiMeshSet@@1PAFA
-    static inline extern_var(0x325140_Offset, i16*, nextFacet);
+    static inline extern_var(0x725140, i16*, nextFacet);
 
     // 0x73EE30 | ?out@agiMeshSet@@1PAVVector4@@A
-    static inline extern_var(0x33EE30_Offset, class Vector4*, out);
+    static inline extern_var(0x73EE30, class Vector4*, out);
 
     // 0x720EE0 | ?vertCounts@agiMeshSet@@1PAFA
-    static inline extern_var(0x320EE0_Offset, i16*, vertCounts);
+    static inline extern_var(0x720EE0, i16*, vertCounts);
 
 private:
     // 0x505E20 | ?BeginGfx@agiMeshSet@@AAEXXZ
@@ -429,19 +429,19 @@ void __fastcall begin_invert(class Vector4* arg1);
 void __fastcall end_invert(class Vector4* arg1);
 
 // 0x64A770 | ?MaxCardSize@@3MA
-inline extern_var(0x24A770_Offset, f32, MaxCardSize);
+inline extern_var(0x64A770, f32, MaxCardSize);
 
 // 0x73D3C4 | ?MinCardSize@@3MA
-inline extern_var(0x33D3C4_Offset, f32, MinCardSize);
+inline extern_var(0x73D3C4, f32, MinCardSize);
 
 // 0x64A6E8 | ?ShadowColor@@3IA
-inline extern_var(0x24A6E8_Offset, u32, ShadowColor);
+inline extern_var(0x64A6E8, u32, ShadowColor);
 
 // 0x64A6E4 | ?ShadowFudge@@3MA
-inline extern_var(0x24A6E4_Offset, f32, ShadowFudge);
+inline extern_var(0x64A6E4, f32, ShadowFudge);
 
 // 0x64A6EC | ?SphMapColor@@3IA
-inline extern_var(0x24A6EC_Offset, u32, SphMapColor);
+inline extern_var(0x64A6EC, u32, SphMapColor);
 
 struct agiMeshCardInfo
 {
@@ -475,7 +475,7 @@ public:
     i32 MultiTex {0};
 
     // 0x719738 | ?TriCount@agiPolySet@@2HA
-    static inline extern_var(0x319738_Offset, i32, TriCount);
+    static inline extern_var(0x719738, i32, TriCount);
 };
 
 check_size(agiPolySet, 0x2C);

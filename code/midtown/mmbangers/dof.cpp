@@ -22,15 +22,15 @@ define_dummy_symbol(mmbangers_dof);
 
 class Vector3& __fastcall mmFacadeBangerInstance::GetPos()
 {
-    return stub<fastcall_t<class Vector3&, mmFacadeBangerInstance*>>(0xCB940_Offset, this);
+    return stub<fastcall_t<class Vector3&, mmFacadeBangerInstance*>>(0x4CB940, this);
 }
 
 class Matrix34& __fastcall mmFacadeBangerInstance::ToMatrix(class Matrix34& arg1)
 {
-    return stub<fastcall_t<class Matrix34&, mmFacadeBangerInstance*, class Matrix34&>>(0xCB890_Offset, this, arg1);
+    return stub<fastcall_t<class Matrix34&, mmFacadeBangerInstance*, class Matrix34&>>(0x4CB890, this, arg1);
 }
 
 void __fastcall mmGlassBangerInstance::Draw(i32 arg1)
 {
-    return stub<fastcall_t<void, mmGlassBangerInstance*, i32>>(0xCB9C0_Offset, this, arg1);
+    return stub<fastcall_t<void, mmGlassBangerInstance*, i32>>(0x4CB9C0, this, arg1);
 }

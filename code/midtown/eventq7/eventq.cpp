@@ -32,43 +32,41 @@ eqEventQ::~eqEventQ()
 
 void eqEventQ::Activate(void* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, eqEventQ*, void*, i32>>(0x163CC0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, eqEventQ*, void*, i32>>(0x563CC0, this, arg1, arg2);
 }
 
 void eqEventQ::Destroy(void* arg1)
 {
-    return stub<thiscall_t<void, eqEventQ*, void*>>(0x163C80_Offset, this, arg1);
+    return stub<thiscall_t<void, eqEventQ*, void*>>(0x563C80, this, arg1);
 }
 
 void eqEventQ::Keyboard(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
 {
-    return stub<thiscall_t<void, eqEventQ*, void*, i32, i32, i32, i32>>(
-        0x163C20_Offset, this, arg1, arg2, arg3, arg4, arg5);
+    return stub<thiscall_t<void, eqEventQ*, void*, i32, i32, i32, i32>>(0x563C20, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void eqEventQ::Mouse(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8)
 {
     return stub<thiscall_t<void, eqEventQ*, void*, i32, i32, i32, i32, i32, i32, i32>>(
-        0x163B90_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
+        0x563B90, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 }
 
 i32 eqEventQ::Pop(union eqEvent* arg1)
 {
-    return stub<thiscall_t<i32, eqEventQ*, union eqEvent*>>(0x163D40_Offset, this, arg1);
+    return stub<thiscall_t<i32, eqEventQ*, union eqEvent*>>(0x563D40, this, arg1);
 }
 
 void eqEventQ::Redraw(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
 {
-    return stub<thiscall_t<void, eqEventQ*, void*, i32, i32, i32, i32>>(
-        0x163AF0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+    return stub<thiscall_t<void, eqEventQ*, void*, i32, i32, i32, i32>>(0x563AF0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void eqEventQ::Refocus(void* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, eqEventQ*, void*, i32>>(0x163B50_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, eqEventQ*, void*, i32>>(0x563B50, this, arg1, arg2);
 }
 
 void eqEventQ::Queue(union eqEvent& arg1)
 {
-    return stub<thiscall_t<void, eqEventQ*, union eqEvent&>>(0x163D00_Offset, this, arg1);
+    return stub<thiscall_t<void, eqEventQ*, union eqEvent&>>(0x563D00, this, arg1);
 }

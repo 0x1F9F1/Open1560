@@ -32,101 +32,101 @@ UICWArray::~UICWArray()
 
 void UICWArray::AcceptCapture()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB8560_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B8560, this);
 }
 
 void UICWArray::Action(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UICWArray*, union eqEvent>>(0xB82A0_Offset, this, arg1);
+    return stub<thiscall_t<void, UICWArray*, union eqEvent>>(0x4B82A0, this, arg1);
 }
 
 void UICWArray::CaptureAction(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UICWArray*, union eqEvent>>(0xB83D0_Offset, this, arg1);
+    return stub<thiscall_t<void, UICWArray*, union eqEvent>>(0x4B83D0, this, arg1);
 }
 
 void UICWArray::CheckCapture()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB85E0_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B85E0, this);
 }
 
 void UICWArray::DebugForceSetting()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB8740_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B8740, this);
 }
 
 void UICWArray::DefaultCFG()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB8720_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B8720, this);
 }
 
 void UICWArray::EnterCapture(i32 arg1)
 {
-    return stub<thiscall_t<void, UICWArray*, i32>>(0xB84C0_Offset, this, arg1);
+    return stub<thiscall_t<void, UICWArray*, i32>>(0x4B84C0, this, arg1);
 }
 
 void UICWArray::ForceCapture()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB8530_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B8530, this);
 }
 
 void UICWArray::Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, class Callback arg6)
 {
     return stub<thiscall_t<void, UICWArray*, f32, f32, f32, f32, i32, class Callback>>(
-        0xB7D50_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6);
+        0x4B7D50, this, arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 void UICWArray::LoadCFG()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB86D0_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B86D0, this);
 }
 
 void UICWArray::Redraw()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB8100_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B8100, this);
 }
 
 void UICWArray::Reset()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB7D40_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B7D40, this);
 }
 
 void UICWArray::ResetCapture()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB85B0_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B85B0, this);
 }
 
 void UICWArray::SaveCFG()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB8690_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B8690, this);
 }
 
 void UICWArray::SetStartOffset(i32 arg1)
 {
-    return stub<thiscall_t<void, UICWArray*, i32>>(0xB80C0_Offset, this, arg1);
+    return stub<thiscall_t<void, UICWArray*, i32>>(0x4B80C0, this, arg1);
 }
 
 void UICWArray::SetVScrollPos()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB8090_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B8090, this);
 }
 
 void UICWArray::SetVScrollVals()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB8020_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B8020, this);
 }
 
 void UICWArray::Switch(i32 arg1)
 {
-    return stub<thiscall_t<void, UICWArray*, i32>>(0xB8260_Offset, this, arg1);
+    return stub<thiscall_t<void, UICWArray*, i32>>(0x4B8260, this, arg1);
 }
 
 void UICWArray::Update()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB8440_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B8440, this);
 }
 
 void UICWArray::VScrollCB()
 {
-    return stub<thiscall_t<void, UICWArray*>>(0xB7FB0_Offset, this);
+    return stub<thiscall_t<void, UICWArray*>>(0x4B7FB0, this);
 }

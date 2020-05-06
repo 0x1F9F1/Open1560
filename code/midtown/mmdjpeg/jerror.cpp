@@ -22,5 +22,5 @@ define_dummy_symbol(mmdjpeg_jerror);
 
 struct jpeg_error_mgr* jpeg_std_error(struct jpeg_error_mgr* arg1)
 {
-    return stub<cdecl_t<struct jpeg_error_mgr*, struct jpeg_error_mgr*>>(0x17D930_Offset, arg1);
+    return stub<cdecl_t<struct jpeg_error_mgr*, struct jpeg_error_mgr*>>(0x57D930, arg1);
 }

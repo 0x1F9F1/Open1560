@@ -88,7 +88,7 @@ public:
     static char* EKeyName(i32 arg1);
 
     // 0x909290 | ?SuperQ@eqEventHandler@@2PAV1@A
-    static inline extern_var(0x509290_Offset, class eqEventHandler*, SuperQ);
+    static inline extern_var(0x909290, class eqEventHandler*, SuperQ);
 };
 
 check_size(eqEventHandler, 0x0);
@@ -156,4 +156,4 @@ public:
 check_size(eqEventReplayChannelClass, 0x0);
 
 // 0x908C58 | ?eqEventReplayChannel@@3VeqEventReplayChannelClass@@A
-inline extern_var(0x508C58_Offset, class eqEventReplayChannelClass, eqEventReplayChannel);
+inline extern_var(0x908C58, class eqEventReplayChannelClass, eqEventReplayChannel);

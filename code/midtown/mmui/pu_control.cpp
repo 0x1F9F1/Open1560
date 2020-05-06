@@ -32,25 +32,25 @@ PUControl::~PUControl()
 
 void PUControl::CancelAction()
 {
-    return stub<thiscall_t<void, PUControl*>>(0xAA2D0_Offset, this);
+    return stub<thiscall_t<void, PUControl*>>(0x4AA2D0, this);
 }
 
 void PUControl::ControlSelect()
 {
-    return stub<thiscall_t<void, PUControl*>>(0xAA380_Offset, this);
+    return stub<thiscall_t<void, PUControl*>>(0x4AA380, this);
 }
 
 void PUControl::PreSetup()
 {
-    return stub<thiscall_t<void, PUControl*>>(0xAA2B0_Offset, this);
+    return stub<thiscall_t<void, PUControl*>>(0x4AA2B0, this);
 }
 
 void PUControl::SetRWStates()
 {
-    return stub<thiscall_t<void, PUControl*>>(0xAA2F0_Offset, this);
+    return stub<thiscall_t<void, PUControl*>>(0x4AA2F0, this);
 }
 
 void PUControl::SetSensitivityCB()
 {
-    return stub<thiscall_t<void, PUControl*>>(0xAA3B0_Offset, this);
+    return stub<thiscall_t<void, PUControl*>>(0x4AA3B0, this);
 }

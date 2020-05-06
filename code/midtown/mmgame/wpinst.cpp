@@ -32,30 +32,30 @@ mmWaypointInstance::~mmWaypointInstance()
 
 void mmWaypointInstance::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmWaypointInstance*, class Bank*>>(0x33B90_Offset, this, arg1);
+    return stub<thiscall_t<void, mmWaypointInstance*, class Bank*>>(0x433B90, this, arg1);
 }
 
 i32 mmWaypointInstance::ComputeLod(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<i32, mmWaypointInstance*, f32, f32>>(0x337A0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmWaypointInstance*, f32, f32>>(0x4337A0, this, arg1, arg2);
 }
 
 void __fastcall mmWaypointInstance::Draw(i32 arg1)
 {
-    return stub<fastcall_t<void, mmWaypointInstance*, i32>>(0x337C0_Offset, this, arg1);
+    return stub<fastcall_t<void, mmWaypointInstance*, i32>>(0x4337C0, this, arg1);
 }
 
 class MetaClass* mmWaypointInstance::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmWaypointInstance*>>(0x33D20_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmWaypointInstance*>>(0x433D20, this);
 }
 
 f32 __fastcall mmWaypointInstance::GetScale()
 {
-    return stub<fastcall_t<f32, mmWaypointInstance*>>(0x33790_Offset, this);
+    return stub<fastcall_t<f32, mmWaypointInstance*>>(0x433790, this);
 }
 
 void mmWaypointInstance::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x33BA0_Offset);
+    return stub<cdecl_t<void>>(0x433BA0);
 }

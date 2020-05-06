@@ -22,5 +22,5 @@ define_dummy_symbol(mmdjpeg_jddctmgr);
 
 void jinit_inverse_dct(struct jpeg_decompress_struct* arg1)
 {
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x1825E0_Offset, arg1);
+    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x5825E0, arg1);
 }

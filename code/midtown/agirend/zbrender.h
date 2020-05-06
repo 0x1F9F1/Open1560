@@ -52,7 +52,7 @@ public:
 check_size(agiZBufRenderer, 0x14);
 
 // 0x65634C | ?aa_expansion@@3MA
-inline extern_var(0x25634C_Offset, f32, aa_expansion);
+inline extern_var(0x65634C, f32, aa_expansion);
 
 // 0x656348 | ?twiddle@@3HA
-inline extern_var(0x256348_Offset, i32, twiddle);
+inline extern_var(0x656348, i32, twiddle);

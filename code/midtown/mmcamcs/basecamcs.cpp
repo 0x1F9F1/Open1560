@@ -32,50 +32,50 @@ BaseCamCS::~BaseCamCS()
 
 void BaseCamCS::MakeActive()
 {
-    return stub<thiscall_t<void, BaseCamCS*>>(0xFB4A0_Offset, this);
+    return stub<thiscall_t<void, BaseCamCS*>>(0x4FB4A0, this);
 }
 
 void BaseCamCS::UpdateInput()
 {
-    return stub<thiscall_t<void, BaseCamCS*>>(0xF99D0_Offset, this);
+    return stub<thiscall_t<void, BaseCamCS*>>(0x4F99D0, this);
 }
 
 void BaseCamCS::ForceMatrixDelta(class Vector3 const& arg1)
 {
-    return stub<thiscall_t<void, BaseCamCS*, class Vector3 const&>>(0xFC090_Offset, this, arg1);
+    return stub<thiscall_t<void, BaseCamCS*, class Vector3 const&>>(0x4FC090, this, arg1);
 }
 
 void BaseCamCS::SetST(f32* arg1)
 {
-    return stub<thiscall_t<void, BaseCamCS*, f32*>>(0xF6A50_Offset, this, arg1);
+    return stub<thiscall_t<void, BaseCamCS*, f32*>>(0x4F6A50, this, arg1);
 }
 
 void BaseCamCS::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, BaseCamCS*, class Bank*>>(0xFBF40_Offset, this, arg1);
+    return stub<thiscall_t<void, BaseCamCS*, class Bank*>>(0x4FBF40, this, arg1);
 }
 
 void BaseCamCS::AfterLoad()
 {
-    return stub<thiscall_t<void, BaseCamCS*>>(0xFBEB0_Offset, this);
+    return stub<thiscall_t<void, BaseCamCS*>>(0x4FBEB0, this);
 }
 
 class MetaClass* BaseCamCS::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, BaseCamCS*>>(0xFC2C0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, BaseCamCS*>>(0x4FC2C0, this);
 }
 
 i32 BaseCamCS::IsViewCSInTransition()
 {
-    return stub<thiscall_t<i32, BaseCamCS*>>(0xFBEC0_Offset, this);
+    return stub<thiscall_t<i32, BaseCamCS*>>(0x4FBEC0, this);
 }
 
 void BaseCamCS::UpdateView()
 {
-    return stub<thiscall_t<void, BaseCamCS*>>(0xFBEF0_Offset, this);
+    return stub<thiscall_t<void, BaseCamCS*>>(0x4FBEF0, this);
 }
 
 void BaseCamCS::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xFC0E0_Offset);
+    return stub<cdecl_t<void>>(0x4FC0E0);
 }

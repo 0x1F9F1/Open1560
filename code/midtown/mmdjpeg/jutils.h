@@ -45,4 +45,4 @@ i32 jround_up(i32 arg1, i32 arg2);
 void jzero_far(void* arg1, u32 arg2);
 
 // 0x6220E8 | ?jpeg_natural_order@@3PBHB
-inline extern_var(0x2220E8_Offset, i32 const* const, jpeg_natural_order);
+inline extern_var(0x6220E8, i32 const* const, jpeg_natural_order);

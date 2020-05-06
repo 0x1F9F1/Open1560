@@ -32,35 +32,35 @@ mmVehList::~mmVehList()
 
 i32 mmVehList::GetVehicleID(char* arg1)
 {
-    return stub<thiscall_t<i32, mmVehList*, char*>>(0xCC1C0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmVehList*, char*>>(0x4CC1C0, this, arg1);
 }
 
 class mmVehInfo* mmVehList::GetVehicleInfo(char* arg1)
 {
-    return stub<thiscall_t<class mmVehInfo*, mmVehList*, char*>>(0xCC140_Offset, this, arg1);
+    return stub<thiscall_t<class mmVehInfo*, mmVehList*, char*>>(0x4CC140, this, arg1);
 }
 
 class mmVehInfo* mmVehList::GetVehicleInfo(i32 arg1)
 {
-    return stub<thiscall_t<class mmVehInfo*, mmVehList*, i32>>(0xCC110_Offset, this, arg1);
+    return stub<thiscall_t<class mmVehInfo*, mmVehList*, i32>>(0x4CC110, this, arg1);
 }
 
 void mmVehList::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, mmVehList*, i32>>(0xCC100_Offset, this, arg1);
+    return stub<thiscall_t<void, mmVehList*, i32>>(0x4CC100, this, arg1);
 }
 
 void mmVehList::Load(char* arg1)
 {
-    return stub<thiscall_t<void, mmVehList*, char*>>(0xCC240_Offset, this, arg1);
+    return stub<thiscall_t<void, mmVehList*, char*>>(0x4CC240, this, arg1);
 }
 
 void mmVehList::LoadAll()
 {
-    return stub<thiscall_t<void, mmVehList*>>(0xCC3C0_Offset, this);
+    return stub<thiscall_t<void, mmVehList*>>(0x4CC3C0, this);
 }
 
 void mmVehList::Print()
 {
-    return stub<thiscall_t<void, mmVehList*>>(0xCC370_Offset, this);
+    return stub<thiscall_t<void, mmVehList*>>(0x4CC370, this);
 }

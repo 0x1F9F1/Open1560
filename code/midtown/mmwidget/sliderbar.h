@@ -119,4 +119,4 @@ public:
 check_size(mmSlider, 0xA4);
 
 // 0x705CA0 | ?mmSliderMetaClass@@3VMetaClass@@A
-inline extern_var(0x305CA0_Offset, class MetaClass, mmSliderMetaClass);
+inline extern_var(0x705CA0, class MetaClass, mmSliderMetaClass);

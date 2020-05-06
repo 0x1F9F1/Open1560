@@ -32,55 +32,55 @@ mmCarRoadFF::~mmCarRoadFF()
 
 void mmCarRoadFF::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmCarRoadFF*, class Bank*>>(0x81810_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCarRoadFF*, class Bank*>>(0x481810, this, arg1);
 }
 
 void mmCarRoadFF::AssignProperties(f32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmCarRoadFF*, f32, i32>>(0x81570_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmCarRoadFF*, f32, i32>>(0x481570, this, arg1, arg2);
 }
 
 class MetaClass* mmCarRoadFF::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmCarRoadFF*>>(0x81A90_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmCarRoadFF*>>(0x481A90, this);
 }
 
 i32 mmCarRoadFF::IsPlaying()
 {
-    return stub<thiscall_t<i32, mmCarRoadFF*>>(0x81760_Offset, this);
+    return stub<thiscall_t<i32, mmCarRoadFF*>>(0x481760, this);
 }
 
 void mmCarRoadFF::Reset()
 {
-    return stub<thiscall_t<void, mmCarRoadFF*>>(0x81730_Offset, this);
+    return stub<thiscall_t<void, mmCarRoadFF*>>(0x481730, this);
 }
 
 void mmCarRoadFF::SetFGVals(f32 arg1, f32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<void, mmCarRoadFF*, f32, f32, f32>>(0x81610_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmCarRoadFF*, f32, f32, f32>>(0x481610, this, arg1, arg2, arg3);
 }
 
 void mmCarRoadFF::Start()
 {
-    return stub<thiscall_t<void, mmCarRoadFF*>>(0x81700_Offset, this);
+    return stub<thiscall_t<void, mmCarRoadFF*>>(0x481700, this);
 }
 
 void mmCarRoadFF::Stop()
 {
-    return stub<thiscall_t<void, mmCarRoadFF*>>(0x81720_Offset, this);
+    return stub<thiscall_t<void, mmCarRoadFF*>>(0x481720, this);
 }
 
 void mmCarRoadFF::Update()
 {
-    return stub<thiscall_t<void, mmCarRoadFF*>>(0x81770_Offset, this);
+    return stub<thiscall_t<void, mmCarRoadFF*>>(0x481770, this);
 }
 
 void mmCarRoadFF::UpdateVals()
 {
-    return stub<thiscall_t<void, mmCarRoadFF*>>(0x817C0_Offset, this);
+    return stub<thiscall_t<void, mmCarRoadFF*>>(0x4817C0, this);
 }
 
 void mmCarRoadFF::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x81920_Offset);
+    return stub<cdecl_t<void>>(0x481920);
 }

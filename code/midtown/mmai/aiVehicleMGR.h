@@ -126,16 +126,16 @@ void AMBIENTCB(
     class aiVehicleActive* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4, f32 arg5);
 
 // 0x6A7B40 | ?NoDataWhined@@3VHashTable@@A
-inline extern_var(0x2A7B40_Offset, class HashTable, NoDataWhined);
+inline extern_var(0x6A7B40, class HashTable, NoDataWhined);
 
 // 0x6A7AE0 | ?VehicleDataHash@@3VHashTable@@A
-inline extern_var(0x2A7AE0_Offset, class HashTable, VehicleDataHash);
+inline extern_var(0x6A7AE0, class HashTable, VehicleDataHash);
 
 // 0x6A7AF0 | ?aiVehicleDataMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7AF0_Offset, class MetaClass, aiVehicleDataMetaClass);
+inline extern_var(0x6A7AF0, class MetaClass, aiVehicleDataMetaClass);
 
 // 0x6A7B18 | ?aiVehicleInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7B18_Offset, class MetaClass, aiVehicleInstanceMetaClass);
+inline extern_var(0x6A7B18, class MetaClass, aiVehicleInstanceMetaClass);
 
 class aiVehicleInstance : public mmInstance
 {
@@ -270,13 +270,13 @@ public:
     void Update() override;
 
     // 0x6A7B50 | ?FloatClock@aiVehicleManager@@2MA
-    static inline extern_var(0x2A7B50_Offset, f32, FloatClock);
+    static inline extern_var(0x6A7B50, f32, FloatClock);
 
     // 0x6A7AD8 | ?Instance@aiVehicleManager@@2PAV1@A
-    static inline extern_var(0x2A7AD8_Offset, class aiVehicleManager*, Instance);
+    static inline extern_var(0x6A7AD8, class aiVehicleManager*, Instance);
 
     // 0x6A7B54 | ?SignalClock@aiVehicleManager@@2HA
-    static inline extern_var(0x2A7B54_Offset, i32, SignalClock);
+    static inline extern_var(0x6A7B54, i32, SignalClock);
 };
 
 check_size(aiVehicleManager, 0x16628);

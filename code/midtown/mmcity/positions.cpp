@@ -22,38 +22,37 @@ define_dummy_symbol(mmcity_positions);
 
 void DumpPositions(char* arg1)
 {
-    return stub<cdecl_t<void, char*>>(0x91B40_Offset, arg1);
+    return stub<cdecl_t<void, char*>>(0x491B40, arg1);
 }
 
 i32 GetPositionCount()
 {
-    return stub<cdecl_t<i32>>(0x91B00_Offset);
+    return stub<cdecl_t<i32>>(0x491B00);
 }
 
 class Vector4& GetPositionVector4(i32 arg1)
 {
-    return stub<cdecl_t<class Vector4&, i32>>(0x91B10_Offset, arg1);
+    return stub<cdecl_t<class Vector4&, i32>>(0x491B10, arg1);
 }
 
 void InitPositions()
 {
-    return stub<cdecl_t<void>>(0x91900_Offset);
+    return stub<cdecl_t<void>>(0x491900);
 }
 
 void LoadPositions(char* arg1)
 {
-    return stub<cdecl_t<void, char*>>(0x91940_Offset, arg1);
+    return stub<cdecl_t<void, char*>>(0x491940, arg1);
 }
 
 i32 RecallPosition(i32 arg1, class Matrix34* arg2, i32* arg3, char* arg4)
 {
-    return stub<cdecl_t<i32, i32, class Matrix34*, i32*, char*>>(0x91C00_Offset, arg1, arg2, arg3, arg4);
+    return stub<cdecl_t<i32, i32, class Matrix34*, i32*, char*>>(0x491C00, arg1, arg2, arg3, arg4);
 }
 
 i32 RegisterPosition(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6)
 {
-    return stub<cdecl_t<i32, class Vector4&, i32, i32, i32, i32, char*>>(
-        0x91C90_Offset, arg1, arg2, arg3, arg4, arg5, arg6);
+    return stub<cdecl_t<i32, class Vector4&, i32, i32, i32, i32, char*>>(0x491C90, arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 position_t::~position_t()

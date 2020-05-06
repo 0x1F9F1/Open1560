@@ -22,5 +22,5 @@ define_dummy_symbol(data7_utimer);
 
 u32 utimer()
 {
-    return stub<cdecl_t<u32>>(0x17C4C0_Offset);
+    return stub<cdecl_t<u32>>(0x57C4C0);
 }

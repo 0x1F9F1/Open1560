@@ -167,4 +167,4 @@ public:
 check_size(mmTrailerInstance, 0x0);
 
 // 0x6A7F98 | ?mmTrailerMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7F98_Offset, class MetaClass, mmTrailerMetaClass);
+inline extern_var(0x6A7F98, class MetaClass, mmTrailerMetaClass);

@@ -22,15 +22,15 @@ define_dummy_symbol(mmdjpeg_jdapistd);
 
 u32 jpeg_read_raw_data(struct jpeg_decompress_struct* arg1, u8*** arg2, u32 arg3)
 {
-    return stub<cdecl_t<u32, struct jpeg_decompress_struct*, u8***, u32>>(0x17D720_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<u32, struct jpeg_decompress_struct*, u8***, u32>>(0x57D720, arg1, arg2, arg3);
 }
 
 u32 jpeg_read_scanlines(struct jpeg_decompress_struct* arg1, u8** arg2, u32 arg3)
 {
-    return stub<cdecl_t<u32, struct jpeg_decompress_struct*, u8**, u32>>(0x17D680_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<u32, struct jpeg_decompress_struct*, u8**, u32>>(0x57D680, arg1, arg2, arg3);
 }
 
 u8 jpeg_start_decompress(struct jpeg_decompress_struct* arg1)
 {
-    return stub<cdecl_t<u8, struct jpeg_decompress_struct*>>(0x17D570_Offset, arg1);
+    return stub<cdecl_t<u8, struct jpeg_decompress_struct*>>(0x57D570, arg1);
 }

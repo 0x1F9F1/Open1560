@@ -32,25 +32,25 @@ mmInfoBase::~mmInfoBase()
 
 class MetaClass* mmInfoBase::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmInfoBase*>>(0xD15D0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmInfoBase*>>(0x4D15D0, this);
 }
 
 i32 mmInfoBase::Load(char* arg1)
 {
-    return stub<thiscall_t<i32, mmInfoBase*, char*>>(0xD12E0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmInfoBase*, char*>>(0x4D12E0, this, arg1);
 }
 
 i32 mmInfoBase::Save(char* arg1)
 {
-    return stub<thiscall_t<i32, mmInfoBase*, char*>>(0xD1390_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmInfoBase*, char*>>(0x4D1390, this, arg1);
 }
 
 void mmInfoBase::SetIOPath(char* arg1)
 {
-    return stub<thiscall_t<void, mmInfoBase*, char*>>(0xD1440_Offset, this, arg1);
+    return stub<thiscall_t<void, mmInfoBase*, char*>>(0x4D1440, this, arg1);
 }
 
 void mmInfoBase::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xD1460_Offset);
+    return stub<cdecl_t<void>>(0x4D1460);
 }

@@ -32,10 +32,10 @@ PUGraphics::~PUGraphics()
 
 void PUGraphics::CancelAction()
 {
-    return stub<thiscall_t<void, PUGraphics*>>(0xA9F00_Offset, this);
+    return stub<thiscall_t<void, PUGraphics*>>(0x4A9F00, this);
 }
 
 void PUGraphics::PreSetup()
 {
-    return stub<thiscall_t<void, PUGraphics*>>(0xA9EF0_Offset, this);
+    return stub<thiscall_t<void, PUGraphics*>>(0x4A9EF0, this);
 }

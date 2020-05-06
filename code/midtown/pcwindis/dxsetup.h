@@ -35,4 +35,4 @@ i32 __stdcall MultiMonCallback(struct _GUID* arg1, char* arg2, char* arg3, void*
 void dxiConfig(i32 arg1, char** arg2);
 
 // 0x90A560 | ?dxiCpuSpeed@@3HA
-inline extern_var(0x50A560_Offset, i32, dxiCpuSpeed);
+inline extern_var(0x90A560, i32, dxiCpuSpeed);

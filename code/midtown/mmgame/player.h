@@ -155,7 +155,7 @@ public:
 check_size(mmPlayer, 0x4A98);
 
 // 0x6A7778 | ?RestoreCityCam@@3HA
-inline extern_var(0x2A7778_Offset, i32, RestoreCityCam);
+inline extern_var(0x6A7778, i32, RestoreCityCam);
 
 // 0x6A7750 | ?mmPlayerMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7750_Offset, class MetaClass, mmPlayerMetaClass);
+inline extern_var(0x6A7750, class MetaClass, mmPlayerMetaClass);

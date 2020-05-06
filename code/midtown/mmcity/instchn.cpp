@@ -32,41 +32,40 @@ mmInstChain::~mmInstChain()
 
 void mmInstChain::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmInstChain*, class Bank*>>(0x92980_Offset, this, arg1);
+    return stub<thiscall_t<void, mmInstChain*, class Bank*>>(0x492980, this, arg1);
 }
 
 void mmInstChain::Draw(i16 arg1, i16 arg2, u32 arg3, i32 arg4, f32 arg5)
 {
-    return stub<thiscall_t<void, mmInstChain*, i16, i16, u32, i32, f32>>(
-        0x924C0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+    return stub<thiscall_t<void, mmInstChain*, i16, i16, u32, i32, f32>>(0x4924C0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void mmInstChain::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, mmInstChain*, i32>>(0x922B0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmInstChain*, i32>>(0x4922B0, this, arg1);
 }
 
 void mmInstChain::Parent(class mmInstance* arg1, i16 arg2)
 {
-    return stub<thiscall_t<void, mmInstChain*, class mmInstance*, i16>>(0x92310_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmInstChain*, class mmInstance*, i16>>(0x492310, this, arg1, arg2);
 }
 
 void mmInstChain::Relight(i16 arg1)
 {
-    return stub<thiscall_t<void, mmInstChain*, i16>>(0x92490_Offset, this, arg1);
+    return stub<thiscall_t<void, mmInstChain*, i16>>(0x492490, this, arg1);
 }
 
 void mmInstChain::RelightEverything()
 {
-    return stub<thiscall_t<void, mmInstChain*>>(0x92470_Offset, this);
+    return stub<thiscall_t<void, mmInstChain*>>(0x492470, this);
 }
 
 void mmInstChain::Reparent(class mmInstance* arg1, i16 arg2)
 {
-    return stub<thiscall_t<void, mmInstChain*, class mmInstance*, i16>>(0x92440_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmInstChain*, class mmInstance*, i16>>(0x492440, this, arg1, arg2);
 }
 
 void mmInstChain::Unparent(class mmInstance* arg1)
 {
-    return stub<thiscall_t<void, mmInstChain*, class mmInstance*>>(0x923A0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmInstChain*, class mmInstance*>>(0x4923A0, this, arg1);
 }

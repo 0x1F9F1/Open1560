@@ -99,7 +99,7 @@ void Abortf(char const* format, ...)
     va_end(va);
 }
 
-static extern_var(0x261AA0_Offset, HANDLE, DebugLogFile);
+static extern_var(0x661AA0, HANDLE, DebugLogFile);
 
 static constexpr const char* PrinterPrefixes[5] {
     "",
@@ -188,12 +188,12 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
 
 i32 LogToCommPort(i32 arg1, i32 arg2)
 {
-    return stub<cdecl_t<i32, i32, i32>>(0x176E00_Offset, arg1, arg2);
+    return stub<cdecl_t<i32, i32, i32>>(0x576E00, arg1, arg2);
 }
 
 void LogToFile()
 {
-    export_hook(0x176F00);
+    export_hook(0x576F00);
 
     std::time_t time;
     std::time(&time);
@@ -217,7 +217,7 @@ void LogToFile()
 
 void LogToFile(char* file)
 {
-    export_hook(0x176EA0);
+    export_hook(0x576EA0);
 
     DebugLogFile = CreateFileA(file, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 
@@ -235,10 +235,10 @@ void LogToFile(char* file)
 
 void LogToMonochromeMonitor()
 {
-    return stub<cdecl_t<void>>(0x176E90_Offset);
+    return stub<cdecl_t<void>>(0x576E90);
 }
 
 void Quit(char const* arg1)
 {
-    return stub<cdecl_t<void, char const*>>(0x176DD0_Offset, arg1);
+    return stub<cdecl_t<void, char const*>>(0x576DD0, arg1);
 }

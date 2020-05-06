@@ -89,8 +89,6 @@ void InitExportHooks(HMODULE instance)
                     UnDecorateSymbolName(hook_name, undName, std::size(undName), UNDNAME_NAME_ONLY) ? undName
                                                                                                     : hook_name;
 
-                target += GAME_BASE;
-
                 create_hook(function_name, "", target, address);
             }
         }
@@ -103,7 +101,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
     if (fdwReason == DLL_PROCESS_ATTACH)
     {
-        if (std::strcmp((0x2346BC_Offset).as<const char*>(), "Angel: 1560 / Apr  2 1999 19:10:27") != 0)
+        if (std::strcmp(mem::pointer(0x6346BC).as<const char*>(), "Angel: 1560 / Apr  2 1999 19:10:27") != 0)
         {
             MessageBoxA(NULL, "Invalid MM1 Version Detected", "Fatal Error", MB_OK);
 
@@ -118,9 +116,9 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         }
 
         // Must run first
-        create_hook("DefaultPrinter", "Use a custom printer", 0x1769C0_Offset, &DefaultPrinter);
+        create_hook("DefaultPrinter", "Use a custom printer", 0x5769C0, &DefaultPrinter);
 
-        create_patch("LogToFile Patch", "Disables second LogToFile call", 0x1B68_Offset, "\xEB", 1);
+        create_patch("LogToFile Patch", "Disables second LogToFile call", 0x401B68, "\xEB", 1);
 
         LogToFile("Open1560.log");
 
@@ -128,15 +126,15 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         Displayf("Build: %s", CI_BUILD_STRING " / " __DATE__ " " __TIME__);
 #endif
 
-        // create_hook("WinMain", "Entry Point", 0x1858AA_Offset, &MidtownMain, hook_type::call);
+        // create_hook("WinMain", "Entry Point", 0x5858AA, &MidtownMain, hook_type::call);
 
-        create_patch("HW Menu", "Enable HW Menu Rendering", 0x1DB4_Offset, "\xEB", 1);
+        create_patch("HW Menu", "Enable HW Menu Rendering", 0x401DB4, "\xEB", 1);
 
-        create_patch("Heap Size", "Increase Heap Size", 0x1E11_Offset, "\xb8\x00\x00\x00\x08", 5); // mov eax, 0x8000000
+        create_patch("Heap Size", "Increase Heap Size", 0x401E11, "\xb8\x00\x00\x00\x08", 5); // mov eax, 0x8000000
 
-        create_patch("agiSurfaceDesc::CopyFrom", "Fix Input Pitch Calculation", 0x15B18E_Offset, "\x8b\x4f\x54", 3);
+        create_patch("agiSurfaceDesc::CopyFrom", "Fix Input Pitch Calculation", 0x55B18E, "\x8b\x4f\x54", 3);
 
-        for (mem::pointer address : {0xEE463_Offset, 0xEE697_Offset, 0xEE9A3_Offset})
+        for (mem::pointer address : {0x4EE463, 0x4EE697, 0x4EE9A3})
         {
             // The code writes to the first 2 channels, even when there are less.
             // operator new(4 * pmxl.cChannels) -> operator new(4 * (pmxl.cChannels + 2))

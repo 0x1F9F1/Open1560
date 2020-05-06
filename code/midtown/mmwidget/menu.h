@@ -277,25 +277,25 @@ public:
     void Update() override;
 
     // 0x641854 | ?UI_BOTTOM_MARGIN@UIMenu@@2MA
-    static inline extern_var(0x241854_Offset, f32, UI_BOTTOM_MARGIN);
+    static inline extern_var(0x641854, f32, UI_BOTTOM_MARGIN);
 
     // 0x641848 | ?UI_LEFT_MARGIN@UIMenu@@2MA
-    static inline extern_var(0x241848_Offset, f32, UI_LEFT_MARGIN);
+    static inline extern_var(0x641848, f32, UI_LEFT_MARGIN);
 
     // 0x64184C | ?UI_LEFT_MARGIN2@UIMenu@@2MA
-    static inline extern_var(0x24184C_Offset, f32, UI_LEFT_MARGIN2);
+    static inline extern_var(0x64184C, f32, UI_LEFT_MARGIN2);
 
     // 0x70595C | ?UI_RIGHT_MARGIN@UIMenu@@2MA
-    static inline extern_var(0x30595C_Offset, f32, UI_RIGHT_MARGIN);
+    static inline extern_var(0x70595C, f32, UI_RIGHT_MARGIN);
 
     // 0x641850 | ?UI_TOP_MARGIN@UIMenu@@2MA
-    static inline extern_var(0x241850_Offset, f32, UI_TOP_MARGIN);
+    static inline extern_var(0x641850, f32, UI_TOP_MARGIN);
 
     // 0x64185C | ?WIDGET_HEIGHT@UIMenu@@2MA
-    static inline extern_var(0x24185C_Offset, f32, WIDGET_HEIGHT);
+    static inline extern_var(0x64185C, f32, WIDGET_HEIGHT);
 
     // 0x641858 | ?WIDGET_WIDTH@UIMenu@@2MA
-    static inline extern_var(0x241858_Offset, f32, WIDGET_WIDTH);
+    static inline extern_var(0x641858, f32, WIDGET_WIDTH);
 };
 
 check_size(UIMenu, 0x0);

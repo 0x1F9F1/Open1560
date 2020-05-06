@@ -32,36 +32,36 @@ UILabel::~UILabel()
 
 void UILabel::Action(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UILabel*, union eqEvent>>(0xB98F0_Offset, this, arg1);
+    return stub<thiscall_t<void, UILabel*, union eqEvent>>(0x4B98F0, this, arg1);
 }
 
 void UILabel::Init(struct LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7)
 {
     return stub<thiscall_t<void, UILabel*, struct LocString*, i32, f32, f32, f32, f32, i32>>(
-        0xB96F0_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x4B96F0, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 void UILabel::SetBlink(i32 arg1)
 {
-    return stub<thiscall_t<void, UILabel*, i32>>(0xB9820_Offset, this, arg1);
+    return stub<thiscall_t<void, UILabel*, i32>>(0x4B9820, this, arg1);
 }
 
 void UILabel::SetText(struct LocString* arg1)
 {
-    return stub<thiscall_t<void, UILabel*, struct LocString*>>(0xB97B0_Offset, this, arg1);
+    return stub<thiscall_t<void, UILabel*, struct LocString*>>(0x4B97B0, this, arg1);
 }
 
 void UILabel::Switch(i32 arg1)
 {
-    return stub<thiscall_t<void, UILabel*, i32>>(0xB9850_Offset, this, arg1);
+    return stub<thiscall_t<void, UILabel*, i32>>(0x4B9850, this, arg1);
 }
 
 void UILabel::SwitchState(i32 arg1)
 {
-    return stub<thiscall_t<void, UILabel*, i32>>(0xB9860_Offset, this, arg1);
+    return stub<thiscall_t<void, UILabel*, i32>>(0x4B9860, this, arg1);
 }
 
 void UILabel::Update()
 {
-    return stub<thiscall_t<void, UILabel*>>(0xB97D0_Offset, this);
+    return stub<thiscall_t<void, UILabel*>>(0x4B97D0, this);
 }

@@ -22,5 +22,5 @@ define_dummy_symbol(mmdjpeg_jdcoefct);
 
 void jinit_d_coef_controller(struct jpeg_decompress_struct* arg1, u8 arg2)
 {
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*, u8>>(0x181730_Offset, arg1, arg2);
+    return stub<cdecl_t<void, struct jpeg_decompress_struct*, u8>>(0x581730, arg1, arg2);
 }

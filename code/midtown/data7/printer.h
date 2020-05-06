@@ -89,22 +89,22 @@ void LogToMonochromeMonitor();
 void Quit(char const* arg1);
 
 // 0x661AA8 | ?EnableDebugOutput@@3HA
-inline extern_var(0x261AA8_Offset, i32, EnableDebugOutput);
+inline extern_var(0x661AA8, i32, EnableDebugOutput);
 
 // 0x661AA4 | ?EnableNormalOutput@@3HA
-inline extern_var(0x261AA4_Offset, i32, EnableNormalOutput);
+inline extern_var(0x661AA4, i32, EnableNormalOutput);
 
 // 0x90A688 | ?MessageFifo@@3PAY0FA@DA
-inline extern_var(0x50A688_Offset, char[10][80], MessageFifo);
+inline extern_var(0x90A688, char[10][80], MessageFifo);
 
 // 0x90A680 | ?MessageFirst@@3HA
-inline extern_var(0x50A680_Offset, i32, MessageFirst);
+inline extern_var(0x90A680, i32, MessageFirst);
 
 // 0x90A684 | ?MonoPointer@@3PAGA
-inline extern_var(0x50A684_Offset, u16*, MonoPointer);
+inline extern_var(0x90A684, u16*, MonoPointer);
 
 // 0x661AB8 | ?Printer@@3P6AXHPBDPAD@ZA
-inline extern_var(0x261AB8_Offset, void (*)(i32, char const*, std::va_list), Printer);
+inline extern_var(0x661AB8, void (*)(i32, char const*, std::va_list), Printer);
 
 // 0x661AC0 | ?__assertFailed@@3PADA
-inline extern_var(0x261AC0_Offset, char[], __assertFailed);
+inline extern_var(0x661AC0, char[], __assertFailed);

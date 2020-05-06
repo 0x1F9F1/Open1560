@@ -204,7 +204,7 @@ public:
 check_size(mmPlayerData, 0x2178);
 
 // 0x708570 | ?mmPlayerDataMetaClass@@3VMetaClass@@A
-inline extern_var(0x308570_Offset, class MetaClass, mmPlayerDataMetaClass);
+inline extern_var(0x708570, class MetaClass, mmPlayerDataMetaClass);
 
 // 0x708598 | ?mmPlayerRecordMetaClass@@3VMetaClass@@A
-inline extern_var(0x308598_Offset, class MetaClass, mmPlayerRecordMetaClass);
+inline extern_var(0x708598, class MetaClass, mmPlayerRecordMetaClass);

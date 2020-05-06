@@ -75,19 +75,19 @@ public:
     static void UndeclareAll();
 
     // 0x90AA28 | ?ClassIndex@MetaClass@@2PAPAV1@A
-    static inline extern_var(0x50AA28_Offset, class MetaClass**, ClassIndex);
+    static inline extern_var(0x90AA28, class MetaClass**, ClassIndex);
 
     // 0x90AE28 | ?Current@MetaClass@@2PAV1@A
-    static inline extern_var(0x50AE28_Offset, class MetaClass*, Current);
+    static inline extern_var(0x90AE28, class MetaClass*, Current);
 
     // 0x90AA20 | ?NextSerial@MetaClass@@2HA
-    static inline extern_var(0x50AA20_Offset, i32, NextSerial);
+    static inline extern_var(0x90AA20, i32, NextSerial);
 
     // 0x90AE30 | ?RootMetaClass@MetaClass@@2V1@A
-    static inline extern_var(0x50AE30_Offset, class MetaClass, RootMetaClass);
+    static inline extern_var(0x90AE30, class MetaClass, RootMetaClass);
 
     // 0x90AE2C | ?ppField@MetaClass@@2PAPAUMetaField@@A
-    static inline extern_var(0x50AE2C_Offset, struct MetaField**, ppField);
+    static inline extern_var(0x90AE2C, struct MetaField**, ppField);
 };
 
 check_size(MetaClass, 0x0);
@@ -96,4 +96,4 @@ check_size(MetaClass, 0x0);
 void __BadSafeCall(char* arg1, class Base* arg2);
 
 // 0x661EF8 | ?NoDefault@@3HA
-inline extern_var(0x261EF8_Offset, i32, NoDefault);
+inline extern_var(0x661EF8, i32, NoDefault);

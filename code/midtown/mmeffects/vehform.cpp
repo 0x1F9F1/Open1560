@@ -32,16 +32,16 @@ mmVehicleForm::~mmVehicleForm()
 
 void mmVehicleForm::Cull()
 {
-    return stub<thiscall_t<void, mmVehicleForm*>>(0x1027A0_Offset, this);
+    return stub<thiscall_t<void, mmVehicleForm*>>(0x5027A0, this);
 }
 
 void mmVehicleForm::SetShape(char* arg1, char* arg2, char* arg3, class Vector3* arg4)
 {
     return stub<thiscall_t<void, mmVehicleForm*, char*, char*, char*, class Vector3*>>(
-        0x102710_Offset, this, arg1, arg2, arg3, arg4);
+        0x502710, this, arg1, arg2, arg3, arg4);
 }
 
 void mmVehicleForm::Update()
 {
-    return stub<thiscall_t<void, mmVehicleForm*>>(0x102780_Offset, this);
+    return stub<thiscall_t<void, mmVehicleForm*>>(0x502780, this);
 }

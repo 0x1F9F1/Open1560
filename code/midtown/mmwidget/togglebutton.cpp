@@ -32,22 +32,22 @@ UIToggleButton::~UIToggleButton()
 
 void UIToggleButton::DoToggle()
 {
-    return stub<thiscall_t<void, UIToggleButton*>>(0xBC660_Offset, this);
+    return stub<thiscall_t<void, UIToggleButton*>>(0x4BC660, this);
 }
 
 void UIToggleButton::DrawOff()
 {
-    return stub<thiscall_t<void, UIToggleButton*>>(0xBC620_Offset, this);
+    return stub<thiscall_t<void, UIToggleButton*>>(0x4BC620, this);
 }
 
 void UIToggleButton::DrawOn()
 {
-    return stub<thiscall_t<void, UIToggleButton*>>(0xBC640_Offset, this);
+    return stub<thiscall_t<void, UIToggleButton*>>(0x4BC640, this);
 }
 
 void UIToggleButton::Action(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UIToggleButton*, union eqEvent>>(0xBC680_Offset, this, arg1);
+    return stub<thiscall_t<void, UIToggleButton*, union eqEvent>>(0x4BC680, this, arg1);
 }
 
 void UIToggleButton::Init(
@@ -55,10 +55,10 @@ void UIToggleButton::Init(
 {
     return stub<
         thiscall_t<void, UIToggleButton*, struct LocString*, i32*, f32, f32, f32, f32, i32, i32, class Callback>>(
-        0xBC580_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
+        0x4BC580, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
 }
 
 void UIToggleButton::Update()
 {
-    return stub<thiscall_t<void, UIToggleButton*>>(0xBC720_Offset, this);
+    return stub<thiscall_t<void, UIToggleButton*>>(0x4BC720, this);
 }

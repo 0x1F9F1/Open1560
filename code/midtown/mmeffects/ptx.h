@@ -91,7 +91,7 @@ check_size(asParticles, 0x6C);
 i32 cmpPtx(void const* arg1, void const* arg2);
 
 // 0x7195D0 | ?EnablePtxSorting@@3HA
-inline extern_var(0x3195D0_Offset, i32, EnablePtxSorting);
+inline extern_var(0x7195D0, i32, EnablePtxSorting);
 
 // 0x7195A8 | ?asParticlesMetaClass@@3VMetaClass@@A
-inline extern_var(0x3195A8_Offset, class MetaClass, asParticlesMetaClass);
+inline extern_var(0x7195A8, class MetaClass, asParticlesMetaClass);

@@ -98,4 +98,4 @@ public:
 check_size(asForm, 0xC8);
 
 // 0x790930 | ?asFormMetaClass@@3VMetaClass@@A
-inline extern_var(0x390930_Offset, class MetaClass, asFormMetaClass);
+inline extern_var(0x790930, class MetaClass, asFormMetaClass);

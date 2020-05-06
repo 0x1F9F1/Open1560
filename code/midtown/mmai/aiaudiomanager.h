@@ -192,4 +192,4 @@ private:
 check_size(aiAudioManager, 0x204);
 
 // 0x6A796C | ?AIAUDMGRPTR@@3PAVaiAudioManager@@A
-inline extern_var(0x2A796C_Offset, class aiAudioManager*, AIAUDMGRPTR);
+inline extern_var(0x6A796C, class aiAudioManager*, AIAUDMGRPTR);

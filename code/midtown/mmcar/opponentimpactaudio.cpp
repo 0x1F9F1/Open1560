@@ -32,31 +32,30 @@ mmOpponentImpactAudio::~mmOpponentImpactAudio()
 
 void mmOpponentImpactAudio::Disable3DMode()
 {
-    return stub<thiscall_t<void, mmOpponentImpactAudio*>>(0x7A7E0_Offset, this);
+    return stub<thiscall_t<void, mmOpponentImpactAudio*>>(0x47A7E0, this);
 }
 
 void mmOpponentImpactAudio::Enable3DMode(class Vector3* arg1)
 {
-    return stub<thiscall_t<void, mmOpponentImpactAudio*, class Vector3*>>(0x7A770_Offset, this, arg1);
+    return stub<thiscall_t<void, mmOpponentImpactAudio*, class Vector3*>>(0x47A770, this, arg1);
 }
 
 void mmOpponentImpactAudio::Play(f32 arg1, i16 arg2, f32 arg3, f32 arg4)
 {
-    return stub<thiscall_t<void, mmOpponentImpactAudio*, f32, i16, f32, f32>>(
-        0x7A5A0_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, mmOpponentImpactAudio*, f32, i16, f32, f32>>(0x47A5A0, this, arg1, arg2, arg3, arg4);
 }
 
 void mmOpponentImpactAudio::Update()
 {
-    return stub<thiscall_t<void, mmOpponentImpactAudio*>>(0x7A710_Offset, this);
+    return stub<thiscall_t<void, mmOpponentImpactAudio*>>(0x47A710, this);
 }
 
 f32 mmOpponentImpactAudio::GetSecondsElapsed()
 {
-    return stub<cdecl_t<f32>>(0x7A7D0_Offset);
+    return stub<cdecl_t<f32>>(0x47A7D0);
 }
 
 void mmOpponentImpactAudio::SetSecondsElapsed(f32 arg1)
 {
-    return stub<cdecl_t<void, f32>>(0x7A7C0_Offset, arg1);
+    return stub<cdecl_t<void, f32>>(0x47A7C0, arg1);
 }

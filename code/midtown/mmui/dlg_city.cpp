@@ -32,10 +32,10 @@ Dialog_City::~Dialog_City()
 
 void Dialog_City::DoneCB()
 {
-    return stub<thiscall_t<void, Dialog_City*>>(0x9DA20_Offset, this);
+    return stub<thiscall_t<void, Dialog_City*>>(0x49DA20, this);
 }
 
 void Dialog_City::PreSetup()
 {
-    return stub<thiscall_t<void, Dialog_City*>>(0x9DA10_Offset, this);
+    return stub<thiscall_t<void, Dialog_City*>>(0x49DA10, this);
 }

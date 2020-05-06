@@ -32,27 +32,27 @@ UITextRoller2::~UITextRoller2()
 
 void UITextRoller2::Action(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UITextRoller2*, union eqEvent>>(0xBB4C0_Offset, this, arg1);
+    return stub<thiscall_t<void, UITextRoller2*, union eqEvent>>(0x4BB4C0, this, arg1);
 }
 
 void UITextRoller2::Cull()
 {
-    return stub<thiscall_t<void, UITextRoller2*>>(0xBB980_Offset, this);
+    return stub<thiscall_t<void, UITextRoller2*>>(0x4BB980, this);
 }
 
 i32 UITextRoller2::Dec()
 {
-    return stub<thiscall_t<i32, UITextRoller2*>>(0xBB950_Offset, this);
+    return stub<thiscall_t<i32, UITextRoller2*>>(0x4BB950, this);
 }
 
 void UITextRoller2::EvalMouseXY(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, UITextRoller2*, f32, f32>>(0xBB5A0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, UITextRoller2*, f32, f32>>(0x4BB5A0, this, arg1, arg2);
 }
 
 i32 UITextRoller2::Inc()
 {
-    return stub<thiscall_t<i32, UITextRoller2*>>(0xBB920_Offset, this);
+    return stub<thiscall_t<i32, UITextRoller2*>>(0x4BB920, this);
 }
 
 void UITextRoller2::Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7,
@@ -60,35 +60,35 @@ void UITextRoller2::Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, 
 {
     return stub<thiscall_t<void, UITextRoller2*, struct LocString*, i32*, f32, f32, f32, f32, class string, i32, i32,
         i32, i32, class Callback, class UIMenu*>>(
-        0xBACD0_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13);
+        0x4BACD0, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13);
 }
 
 void UITextRoller2::SetData(i32* arg1)
 {
-    return stub<thiscall_t<void, UITextRoller2*, i32*>>(0xBB890_Offset, this, arg1);
+    return stub<thiscall_t<void, UITextRoller2*, i32*>>(0x4BB890, this, arg1);
 }
 
 void UITextRoller2::SetString(class string arg1)
 {
-    return stub<thiscall_t<void, UITextRoller2*, class string>>(0xBB7C0_Offset, this, arg1);
+    return stub<thiscall_t<void, UITextRoller2*, class string>>(0x4BB7C0, this, arg1);
 }
 
 void UITextRoller2::SetText()
 {
-    return stub<thiscall_t<void, UITextRoller2*>>(0xBB8B0_Offset, this);
+    return stub<thiscall_t<void, UITextRoller2*>>(0x4BB8B0, this);
 }
 
 i32 UITextRoller2::SetValue(i32 arg1)
 {
-    return stub<thiscall_t<i32, UITextRoller2*, i32>>(0xBB710_Offset, this, arg1);
+    return stub<thiscall_t<i32, UITextRoller2*, i32>>(0x4BB710, this, arg1);
 }
 
 void UITextRoller2::Switch(i32 arg1)
 {
-    return stub<thiscall_t<void, UITextRoller2*, i32>>(0xBB420_Offset, this, arg1);
+    return stub<thiscall_t<void, UITextRoller2*, i32>>(0x4BB420, this, arg1);
 }
 
 void UITextRoller2::Update()
 {
-    return stub<thiscall_t<void, UITextRoller2*>>(0xBB3C0_Offset, this);
+    return stub<thiscall_t<void, UITextRoller2*>>(0x4BB3C0, this);
 }

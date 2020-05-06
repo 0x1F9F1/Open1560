@@ -155,7 +155,7 @@ public:
 check_size(mmCarModel, 0x110);
 
 // 0x6A7E2C | ?IsPlayerAutoCam@@3HA
-inline extern_var(0x2A7E2C_Offset, i32, IsPlayerAutoCam);
+inline extern_var(0x6A7E2C, i32, IsPlayerAutoCam);
 
 // 0x6A7DF8 | ?mmCarModelMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7DF8_Offset, class MetaClass, mmCarModelMetaClass);
+inline extern_var(0x6A7DF8, class MetaClass, mmCarModelMetaClass);

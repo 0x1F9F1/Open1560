@@ -57,7 +57,7 @@ constexpr bool WANT_WIDESCREEN = true;
 
 i32 WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
 {
-    export_hook(0x175F40);
+    export_hook(0x575F40);
 
     dxiRendererInfo_t* info = static_cast<dxiRendererInfo_t*>(ctx);
 
@@ -80,21 +80,20 @@ i32 WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
 
 i32 __stdcall MultiMonCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4, void* arg5)
 {
-    return stub<stdcall_t<i32, struct _GUID*, char*, char*, void*, void*>>(
-        0x175320_Offset, arg1, arg2, arg3, arg4, arg5);
+    return stub<stdcall_t<i32, struct _GUID*, char*, char*, void*, void*>>(0x575320, arg1, arg2, arg3, arg4, arg5);
 }
 
 void dxiConfig(i32 arg1, char** arg2)
 {
-    return stub<cdecl_t<void, i32, char**>>(0x175360_Offset, arg1, arg2);
+    return stub<cdecl_t<void, i32, char**>>(0x575360, arg1, arg2);
 }
 
 run_once([] {
-    create_patch("TestResolution", "Unsigned Comparison", 0x175E34_Offset, "\x72", 1);
-    create_patch("TestResolution", "Unsigned Comparison", 0x175E38_Offset, "\x72", 1);
+    create_patch("TestResolution", "Unsigned Comparison", 0x575E34, "\x72", 1);
+    create_patch("TestResolution", "Unsigned Comparison", 0x575E38, "\x72", 1);
 
-    create_patch("Res String", "Unsigned Printf", 0x261890_Offset, "res %d x %d: %u %u / %u %u", 27);
+    create_patch("Res String", "Unsigned Printf", 0x661890, "res %d x %d: %u %u / %u %u", 27);
 
-    create_patch("EliminatingRes String", "Unsigned Printf", 0x2618AC_Offset,
-        "Eliminating res %d x %d; texmem=%u, vidmem=%u", 46);
+    create_patch(
+        "EliminatingRes String", "Unsigned Printf", 0x6618AC, "Eliminating res %d x %d; texmem=%u, vidmem=%u", 46);
 });

@@ -32,111 +32,111 @@ mmCar::~mmCar()
 
 void mmCar::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmCar*, class Bank*>>(0x745E0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCar*, class Bank*>>(0x4745E0, this, arg1);
 }
 
 void mmCar::ClearDamage()
 {
-    return stub<thiscall_t<void, mmCar*>>(0x73E70_Offset, this);
+    return stub<thiscall_t<void, mmCar*>>(0x473E70, this);
 }
 
 void mmCar::EnableDriving(i32 arg1)
 {
-    return stub<thiscall_t<void, mmCar*, i32>>(0x73D70_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCar*, i32>>(0x473D70, this, arg1);
 }
 
 class asBound* mmCar::GetBound()
 {
-    return stub<thiscall_t<class asBound*, mmCar*>>(0x74870_Offset, this);
+    return stub<thiscall_t<class asBound*, mmCar*>>(0x474870, this);
 }
 
 class MetaClass* mmCar::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmCar*>>(0x747C0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmCar*>>(0x4747C0, this);
 }
 
 class asInertialCS* mmCar::GetICS()
 {
-    return stub<thiscall_t<class asInertialCS*, mmCar*>>(0x74860_Offset, this);
+    return stub<thiscall_t<class asInertialCS*, mmCar*>>(0x474860, this);
 }
 
 void mmCar::Impact(class mmIntersection* arg1, class Vector3* arg2, f32 arg3, i32 arg4, class Vector3* arg5)
 {
     return stub<thiscall_t<void, mmCar*, class mmIntersection*, class Vector3*, f32, i32, class Vector3*>>(
-        0x73EB0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x473EB0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void mmCar::Init(char* arg1, i32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, mmCar*, char*, i32, i32>>(0x73530_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmCar*, char*, i32, i32>>(0x473530, this, arg1, arg2, arg3);
 }
 
 i32 mmCar::IsDrivingDisabled()
 {
-    return stub<thiscall_t<i32, mmCar*>>(0x73DE0_Offset, this);
+    return stub<thiscall_t<i32, mmCar*>>(0x473DE0, this);
 }
 
 void mmCar::PostUpdate()
 {
-    return stub<thiscall_t<void, mmCar*>>(0x73C80_Offset, this);
+    return stub<thiscall_t<void, mmCar*>>(0x473C80, this);
 }
 
 void mmCar::ReInit(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmCar*, char*, i32>>(0x73960_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmCar*, char*, i32>>(0x473960, this, arg1, arg2);
 }
 
 void mmCar::ReleaseTrailer()
 {
-    return stub<thiscall_t<void, mmCar*>>(0x73500_Offset, this);
+    return stub<thiscall_t<void, mmCar*>>(0x473500, this);
 }
 
 void mmCar::RemoveVehicleAudio()
 {
-    return stub<thiscall_t<void, mmCar*>>(0x73E60_Offset, this);
+    return stub<thiscall_t<void, mmCar*>>(0x473E60, this);
 }
 
 void mmCar::Reset()
 {
-    return stub<thiscall_t<void, mmCar*>>(0x73B90_Offset, this);
+    return stub<thiscall_t<void, mmCar*>>(0x473B90, this);
 }
 
 void mmCar::StartSiren()
 {
-    return stub<thiscall_t<void, mmCar*>>(0x73E20_Offset, this);
+    return stub<thiscall_t<void, mmCar*>>(0x473E20, this);
 }
 
 void mmCar::StopSiren()
 {
-    return stub<thiscall_t<void, mmCar*>>(0x73E40_Offset, this);
+    return stub<thiscall_t<void, mmCar*>>(0x473E40, this);
 }
 
 void mmCar::ToggleSiren()
 {
-    return stub<thiscall_t<void, mmCar*>>(0x73DF0_Offset, this);
+    return stub<thiscall_t<void, mmCar*>>(0x473DF0, this);
 }
 
 void mmCar::TranslateFlags(i32 arg1)
 {
-    return stub<thiscall_t<void, mmCar*, i32>>(0x734A0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmCar*, i32>>(0x4734A0, this, arg1);
 }
 
 void mmCar::Update()
 {
-    return stub<thiscall_t<void, mmCar*>>(0x73C40_Offset, this);
+    return stub<thiscall_t<void, mmCar*>>(0x473C40, this);
 }
 
 char* mmCar::VehNameRemap(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<char*, mmCar*, char*, i32>>(0x74340_Offset, this, arg1, arg2);
+    return stub<thiscall_t<char*, mmCar*, char*, i32>>(0x474340, this, arg1, arg2);
 }
 
 void mmCar::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x74640_Offset);
+    return stub<cdecl_t<void>>(0x474640);
 }
 
 i32 EggNameIndex(char* arg1)
 {
-    return stub<cdecl_t<i32, char*>>(0x742E0_Offset, arg1);
+    return stub<cdecl_t<i32, char*>>(0x4742E0, arg1);
 }

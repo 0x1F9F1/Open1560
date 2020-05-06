@@ -22,45 +22,45 @@ define_dummy_symbol(agiworld_texsheet);
 
 char* mystrtok(char* arg1, char const* arg2)
 {
-    return stub<cdecl_t<char*, char*, char const*>>(0x111B30_Offset, arg1, arg2);
+    return stub<cdecl_t<char*, char*, char const*>>(0x511B30, arg1, arg2);
 }
 
 void agiTexSheet::Add(char* arg1)
 {
-    return stub<thiscall_t<void, agiTexSheet*, char*>>(0x1124A0_Offset, this, arg1);
+    return stub<thiscall_t<void, agiTexSheet*, char*>>(0x5124A0, this, arg1);
 }
 
 i32 agiTexSheet::GetVariationCount(char* arg1)
 {
-    return stub<thiscall_t<i32, agiTexSheet*, char*>>(0x112410_Offset, this, arg1);
+    return stub<thiscall_t<i32, agiTexSheet*, char*>>(0x512410, this, arg1);
 }
 
 void agiTexSheet::Kill()
 {
-    return stub<thiscall_t<void, agiTexSheet*>>(0x1120A0_Offset, this);
+    return stub<thiscall_t<void, agiTexSheet*>>(0x5120A0, this);
 }
 
 void agiTexSheet::Load(char* arg1)
 {
-    return stub<thiscall_t<void, agiTexSheet*, char*>>(0x111B90_Offset, this, arg1);
+    return stub<thiscall_t<void, agiTexSheet*, char*>>(0x511B90, this, arg1);
 }
 
 struct agiTexProp* agiTexSheet::Lookup(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<struct agiTexProp*, agiTexSheet*, char*, i32>>(0x112340_Offset, this, arg1, arg2);
+    return stub<thiscall_t<struct agiTexProp*, agiTexSheet*, char*, i32>>(0x512340, this, arg1, arg2);
 }
 
 struct agiTexProp* agiTexSheet::LookupAlternate(char* arg1)
 {
-    return stub<thiscall_t<struct agiTexProp*, agiTexSheet*, char*>>(0x1123A0_Offset, this, arg1);
+    return stub<thiscall_t<struct agiTexProp*, agiTexSheet*, char*>>(0x5123A0, this, arg1);
 }
 
 char* agiTexSheet::RemapName(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<char*, agiTexSheet*, char*, i32>>(0x112460_Offset, this, arg1, arg2);
+    return stub<thiscall_t<char*, agiTexSheet*, char*, i32>>(0x512460, this, arg1, arg2);
 }
 
 void agiTexSheet::Save(char* arg1)
 {
-    return stub<thiscall_t<void, agiTexSheet*, char*>>(0x1120D0_Offset, this, arg1);
+    return stub<thiscall_t<void, agiTexSheet*, char*>>(0x5120D0, this, arg1);
 }

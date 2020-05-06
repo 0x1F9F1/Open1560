@@ -70,71 +70,71 @@ public:
     static void ToScreen(i32 arg1);
 
     // 0x8B3220 | ?Adj@agiProjVtx@@2PAUagiAdjunctData@@A
-    static inline extern_var(0x4B3220_Offset, struct agiAdjunctData*, Adj);
+    static inline extern_var(0x8B3220, struct agiAdjunctData*, Adj);
 
     // 0x8B3210 | ?HalfHeight@agiProjVtx@@2MA
-    static inline extern_var(0x4B3210_Offset, f32, HalfHeight);
+    static inline extern_var(0x8B3210, f32, HalfHeight);
 
     // 0x8BABF4 | ?HalfWidth@agiProjVtx@@2MA
-    static inline extern_var(0x4BABF4_Offset, f32, HalfWidth);
+    static inline extern_var(0x8BABF4, f32, HalfWidth);
 
     // 0x8B9B98 | ?LIGHTER@agiProjVtx@@2PAVagiLighter@@A
-    static inline extern_var(0x4B9B98_Offset, class agiLighter*, LIGHTER);
+    static inline extern_var(0x8B9B98, class agiLighter*, LIGHTER);
 
     // 0x8B31D8 | ?M@agiProjVtx@@2VMatrix34@@A
-    static inline extern_var(0x4B31D8_Offset, class Matrix34, M);
+    static inline extern_var(0x8B31D8, class Matrix34, M);
 
     // 0x8B9BA0 | ?M2@agiProjVtx@@2VMatrix34@@A
-    static inline extern_var(0x4B9BA0_Offset, class Matrix34, M2);
+    static inline extern_var(0x8B9BA0, class Matrix34, M2);
 
     // 0x8B9BE0 | ?NeedsClip@agiProjVtx@@2HA
-    static inline extern_var(0x4B9BE0_Offset, i32, NeedsClip);
+    static inline extern_var(0x8B9BE0, i32, NeedsClip);
 
     // 0x7E02CC | ?NoModelView@agiProjVtx@@2HA
-    static inline extern_var(0x3E02CC_Offset, i32, NoModelView);
+    static inline extern_var(0x7E02CC, i32, NoModelView);
 
     // 0x7E02D0 | ?OffsX@agiProjVtx@@2MA
-    static inline extern_var(0x3E02D0_Offset, f32, OffsX);
+    static inline extern_var(0x7E02D0, f32, OffsX);
 
     // 0x8B9BE8 | ?OffsY@agiProjVtx@@2MA
-    static inline extern_var(0x4B9BE8_Offset, f32, OffsY);
+    static inline extern_var(0x8B9BE8, f32, OffsY);
 
     // 0x8B9BD8 | ?Orthographic@agiProjVtx@@2HA
-    static inline extern_var(0x4B9BD8_Offset, i32, Orthographic);
+    static inline extern_var(0x8B9BD8, i32, Orthographic);
 
     // 0x8B3214 | ?ProjX@agiProjVtx@@2MA
-    static inline extern_var(0x4B3214_Offset, f32, ProjX);
+    static inline extern_var(0x8B3214, f32, ProjX);
 
     // 0x8B9BD0 | ?ProjXZ@agiProjVtx@@2MA
-    static inline extern_var(0x4B9BD0_Offset, f32, ProjXZ);
+    static inline extern_var(0x8B9BD0, f32, ProjXZ);
 
     // 0x8B9BDC | ?ProjY@agiProjVtx@@2MA
-    static inline extern_var(0x4B9BDC_Offset, f32, ProjY);
+    static inline extern_var(0x8B9BDC, f32, ProjY);
 
     // 0x8B3208 | ?ProjYZ@agiProjVtx@@2MA
-    static inline extern_var(0x4B3208_Offset, f32, ProjYZ);
+    static inline extern_var(0x8B3208, f32, ProjYZ);
 
     // 0x7E02C8 | ?ProjZW@agiProjVtx@@2MA
-    static inline extern_var(0x3E02C8_Offset, f32, ProjZW);
+    static inline extern_var(0x7E02C8, f32, ProjZW);
 
     // 0x8B9BE4 | ?ProjZZ@agiProjVtx@@2MA
-    static inline extern_var(0x4B9BE4_Offset, f32, ProjZZ);
+    static inline extern_var(0x8B9BE4, f32, ProjZZ);
 
     // 0x8B9BD4 | ?ScreenHeight@agiProjVtx@@2MA
-    static inline extern_var(0x4B9BD4_Offset, f32, ScreenHeight);
+    static inline extern_var(0x8B9BD4, f32, ScreenHeight);
 
     // 0x8BABF0 | ?ScreenWidth@agiProjVtx@@2MA
-    static inline extern_var(0x4BABF0_Offset, f32, ScreenWidth);
+    static inline extern_var(0x8BABF0, f32, ScreenWidth);
 
     // 0x7E02D8 | ?Vtx@agiProjVtx@@2PATagiVtx@@A
-    static inline extern_var(0x3E02D8_Offset, union agiVtx*, Vtx);
+    static inline extern_var(0x7E02D8, union agiVtx*, Vtx);
 };
 
 // 0x656588 | ?DepthOffset@@3MA
-inline extern_var(0x256588_Offset, f32, DepthOffset);
+inline extern_var(0x656588, f32, DepthOffset);
 
 // 0x65658C | ?DepthScale@@3MA
-inline extern_var(0x25658C_Offset, f32, DepthScale);
+inline extern_var(0x65658C, f32, DepthScale);
 
 // 0x8B320C | ?clip_pz@@3HA
-inline extern_var(0x4B320C_Offset, i32, clip_pz);
+inline extern_var(0x8B320C, i32, clip_pz);

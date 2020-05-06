@@ -161,4 +161,4 @@ public:
 check_size(aiVehicleSpline, 0xD8);
 
 // 0x6A7BA0 | ?aiVehicleSplineMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7BA0_Offset, class MetaClass, aiVehicleSplineMetaClass);
+inline extern_var(0x6A7BA0, class MetaClass, aiVehicleSplineMetaClass);

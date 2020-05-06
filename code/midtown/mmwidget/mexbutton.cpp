@@ -32,12 +32,12 @@ UIMexButton::~UIMexButton()
 
 void UIMexButton::Action(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UIMexButton*, union eqEvent>>(0xBCCC0_Offset, this, arg1);
+    return stub<thiscall_t<void, UIMexButton*, union eqEvent>>(0x4BCCC0, this, arg1);
 }
 
 void UIMexButton::DoToggle()
 {
-    return stub<thiscall_t<void, UIMexButton*>>(0xBCCA0_Offset, this);
+    return stub<thiscall_t<void, UIMexButton*>>(0x4BCCA0, this);
 }
 
 void UIMexButton::Init(struct LocString* arg1, i32* arg2, i32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, i32 arg8,
@@ -45,20 +45,20 @@ void UIMexButton::Init(struct LocString* arg1, i32* arg2, i32 arg3, f32 arg4, f3
 {
     return stub<
         thiscall_t<void, UIMexButton*, struct LocString*, i32*, i32, f32, f32, f32, f32, i32, i32, class Callback>>(
-        0xBCB40_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
+        0x4BCB40, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
 }
 
 void UIMexButton::Update()
 {
-    return stub<thiscall_t<void, UIMexButton*>>(0xBCC10_Offset, this);
+    return stub<thiscall_t<void, UIMexButton*>>(0x4BCC10, this);
 }
 
 void UIMexButton::DrawOff()
 {
-    return stub<thiscall_t<void, UIMexButton*>>(0xBCC60_Offset, this);
+    return stub<thiscall_t<void, UIMexButton*>>(0x4BCC60, this);
 }
 
 void UIMexButton::DrawOn()
 {
-    return stub<thiscall_t<void, UIMexButton*>>(0xBCC70_Offset, this);
+    return stub<thiscall_t<void, UIMexButton*>>(0x4BCC70, this);
 }

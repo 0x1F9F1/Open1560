@@ -22,35 +22,35 @@ define_dummy_symbol(midtown);
 
 void Application(i32 arg1, char** arg2)
 {
-    return stub<cdecl_t<void, i32, char**>>(0x30C0_Offset, arg1, arg2);
+    return stub<cdecl_t<void, i32, char**>>(0x4030C0, arg1, arg2);
 }
 
 void ApplicationHelper(i32 arg1, char** arg2)
 {
-    return stub<cdecl_t<void, i32, char**>>(0x1830_Offset, arg1, arg2);
+    return stub<cdecl_t<void, i32, char**>>(0x401830, arg1, arg2);
 }
 
 class agiPipeline* CreatePipeline(i32 arg1, char** arg2)
 {
-    return stub<cdecl_t<class agiPipeline*, i32, char**>>(0x10B0_Offset, arg1, arg2);
+    return stub<cdecl_t<class agiPipeline*, i32, char**>>(0x4010B0, arg1, arg2);
 }
 
 i32 GameFilter(struct _EXCEPTION_POINTERS* arg1)
 {
-    return stub<cdecl_t<i32, struct _EXCEPTION_POINTERS*>>(0x14B0_Offset, arg1);
+    return stub<cdecl_t<i32, struct _EXCEPTION_POINTERS*>>(0x4014B0, arg1);
 }
 
 void GameLoop(class mmInterface* arg1, class mmGameManager* arg2, char* arg3)
 {
-    return stub<cdecl_t<void, class mmInterface*, class mmGameManager*, char*>>(0x15A0_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<void, class mmInterface*, class mmGameManager*, char*>>(0x4015A0, arg1, arg2, arg3);
 }
 
 i32 GenerateLoadScreenName()
 {
-    return stub<cdecl_t<i32>>(0x12D0_Offset);
+    return stub<cdecl_t<i32>>(0x4012D0);
 }
 
 void InitAudioManager()
 {
-    return stub<cdecl_t<void>>(0x2F40_Offset);
+    return stub<cdecl_t<void>>(0x402F40);
 }

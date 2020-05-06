@@ -98,4 +98,4 @@ public:
 check_size(mmViewCS, 0xC0);
 
 // 0x7193A8 | ?mmViewCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x3193A8_Offset, class MetaClass, mmViewCSMetaClass);
+inline extern_var(0x7193A8, class MetaClass, mmViewCSMetaClass);

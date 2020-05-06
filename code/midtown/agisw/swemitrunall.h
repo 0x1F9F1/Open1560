@@ -1233,4 +1233,4 @@ void __fastcall swEmitRun8_NoZOpaqueDecalLinearSolidWUWV(i32 arg1);
 void __fastcall swEmitRun8_ZReadWriteOpaqueDecalLinearSolidWUWV(i32 arg1);
 
 // 0x652348 | ?swCurrentEmitterSet@@3UswEmitterSet@@A
-inline extern_var(0x252348_Offset, struct swEmitterSet, swCurrentEmitterSet);
+inline extern_var(0x652348, struct swEmitterSet, swCurrentEmitterSet);

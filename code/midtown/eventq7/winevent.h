@@ -96,16 +96,16 @@ void DeallocateEventQueue();
 void InitEventQueue();
 
 // 0x657820 | ?ActiveFlag@@3HA
-inline extern_var(0x257820_Offset, i32, ActiveFlag);
+inline extern_var(0x657820, i32, ActiveFlag);
 
 // 0x908C34 | ?CloseCallback@@3P6AXXZA
-inline extern_var(0x508C34_Offset, void (*)(void), CloseCallback);
+inline extern_var(0x908C34, void (*)(void), CloseCallback);
 
 // 0x908C38 | ?InitialCursorState@@3HA
-inline extern_var(0x508C38_Offset, i32, InitialCursorState);
+inline extern_var(0x908C38, i32, InitialCursorState);
 
 // 0x908C48 | ?eqRestoreFlag@@3HA
-inline extern_var(0x508C48_Offset, i32, eqRestoreFlag);
+inline extern_var(0x908C48, i32, eqRestoreFlag);
 
 class Dispatchable
 {

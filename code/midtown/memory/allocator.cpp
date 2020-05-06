@@ -32,55 +32,55 @@ asMemoryAllocator::~asMemoryAllocator()
 
 void* asMemoryAllocator::Allocate(u32 arg1)
 {
-    return stub<thiscall_t<void*, asMemoryAllocator*, u32>>(0x120A20_Offset, this, arg1);
+    return stub<thiscall_t<void*, asMemoryAllocator*, u32>>(0x520A20, this, arg1);
 }
 
 void asMemoryAllocator::CheckPointer(void* arg1)
 {
-    return stub<thiscall_t<void, asMemoryAllocator*, void*>>(0x120C40_Offset, this, arg1);
+    return stub<thiscall_t<void, asMemoryAllocator*, void*>>(0x520C40, this, arg1);
 }
 
 void asMemoryAllocator::Free(void* arg1)
 {
-    return stub<thiscall_t<void, asMemoryAllocator*, void*>>(0x120C90_Offset, this, arg1);
+    return stub<thiscall_t<void, asMemoryAllocator*, void*>>(0x520C90, this, arg1);
 }
 
 void asMemoryAllocator::GetStats(struct asMemStats* arg1)
 {
-    return stub<thiscall_t<void, asMemoryAllocator*, struct asMemStats*>>(0x120FC0_Offset, this, arg1);
+    return stub<thiscall_t<void, asMemoryAllocator*, struct asMemStats*>>(0x520FC0, this, arg1);
 }
 
 void asMemoryAllocator::Init(void* arg1, u32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, asMemoryAllocator*, void*, u32, i32>>(0x1209D0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, asMemoryAllocator*, void*, u32, i32>>(0x5209D0, this, arg1, arg2, arg3);
 }
 
 void asMemoryAllocator::Kill()
 {
-    return stub<thiscall_t<void, asMemoryAllocator*>>(0x120A10_Offset, this);
+    return stub<thiscall_t<void, asMemoryAllocator*>>(0x520A10, this);
 }
 
 void* asMemoryAllocator::Reallocate(void* arg1, u32 arg2)
 {
-    return stub<thiscall_t<void*, asMemoryAllocator*, void*, u32>>(0x120EA0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void*, asMemoryAllocator*, void*, u32>>(0x520EA0, this, arg1, arg2);
 }
 
 void asMemoryAllocator::SanityCheck()
 {
-    return stub<thiscall_t<void, asMemoryAllocator*>>(0x121090_Offset, this);
+    return stub<thiscall_t<void, asMemoryAllocator*>>(0x521090, this);
 }
 
 void asMemoryAllocator::Link(struct asMemoryAllocator::node* arg1)
 {
-    return stub<thiscall_t<void, asMemoryAllocator*, struct asMemoryAllocator::node*>>(0x120E50_Offset, this, arg1);
+    return stub<thiscall_t<void, asMemoryAllocator*, struct asMemoryAllocator::node*>>(0x520E50, this, arg1);
 }
 
 void asMemoryAllocator::Unlink(struct asMemoryAllocator::node* arg1)
 {
-    return stub<thiscall_t<void, asMemoryAllocator*, struct asMemoryAllocator::node*>>(0x120DF0_Offset, this, arg1);
+    return stub<thiscall_t<void, asMemoryAllocator*, struct asMemoryAllocator::node*>>(0x520DF0, this, arg1);
 }
 
 void asMemoryAllocator::Verify(void* arg1)
 {
-    return stub<thiscall_t<void, asMemoryAllocator*, void*>>(0x120F00_Offset, this, arg1);
+    return stub<thiscall_t<void, asMemoryAllocator*, void*>>(0x520F00, this, arg1);
 }

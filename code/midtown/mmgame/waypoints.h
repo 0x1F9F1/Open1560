@@ -186,4 +186,4 @@ public:
 check_size(mmGate, 0x0);
 
 // 0x6A7788 | ?Size@@3VVector3@@A
-inline extern_var(0x2A7788_Offset, class Vector3, Size);
+inline extern_var(0x6A7788, class Vector3, Size);

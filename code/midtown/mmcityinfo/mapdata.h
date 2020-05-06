@@ -74,4 +74,4 @@ public:
 check_size(mmMapData, 0x90);
 
 // 0x708690 | ?mmMapDataMetaClass@@3VMetaClass@@A
-inline extern_var(0x308690_Offset, class MetaClass, mmMapDataMetaClass);
+inline extern_var(0x708690, class MetaClass, mmMapDataMetaClass);

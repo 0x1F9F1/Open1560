@@ -22,41 +22,41 @@ define_dummy_symbol(mmdjpeg_jmemnobs);
 
 void jpeg_free_large(struct jpeg_common_struct* arg1, void* arg2, u32 arg3)
 {
-    return stub<cdecl_t<void, struct jpeg_common_struct*, void*, u32>>(0x181000_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<void, struct jpeg_common_struct*, void*, u32>>(0x581000, arg1, arg2, arg3);
 }
 
 void jpeg_free_small(struct jpeg_common_struct* arg1, void* arg2, u32 arg3)
 {
-    return stub<cdecl_t<void, struct jpeg_common_struct*, void*, u32>>(0x180FC0_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<void, struct jpeg_common_struct*, void*, u32>>(0x580FC0, arg1, arg2, arg3);
 }
 
 void* jpeg_get_large(struct jpeg_common_struct* arg1, u32 arg2)
 {
-    return stub<cdecl_t<void*, struct jpeg_common_struct*, u32>>(0x180FE0_Offset, arg1, arg2);
+    return stub<cdecl_t<void*, struct jpeg_common_struct*, u32>>(0x580FE0, arg1, arg2);
 }
 
 void* jpeg_get_small(struct jpeg_common_struct* arg1, u32 arg2)
 {
-    return stub<cdecl_t<void*, struct jpeg_common_struct*, u32>>(0x180FA0_Offset, arg1, arg2);
+    return stub<cdecl_t<void*, struct jpeg_common_struct*, u32>>(0x580FA0, arg1, arg2);
 }
 
 i32 jpeg_mem_available(struct jpeg_common_struct* arg1, i32 arg2, i32 arg3, i32 arg4)
 {
-    return stub<cdecl_t<i32, struct jpeg_common_struct*, i32, i32, i32>>(0x181020_Offset, arg1, arg2, arg3, arg4);
+    return stub<cdecl_t<i32, struct jpeg_common_struct*, i32, i32, i32>>(0x581020, arg1, arg2, arg3, arg4);
 }
 
 i32 jpeg_mem_init(struct jpeg_common_struct* arg1)
 {
-    return stub<cdecl_t<i32, struct jpeg_common_struct*>>(0x181050_Offset, arg1);
+    return stub<cdecl_t<i32, struct jpeg_common_struct*>>(0x581050, arg1);
 }
 
 void jpeg_mem_term(struct jpeg_common_struct* arg1)
 {
-    return stub<cdecl_t<void, struct jpeg_common_struct*>>(0x181060_Offset, arg1);
+    return stub<cdecl_t<void, struct jpeg_common_struct*>>(0x581060, arg1);
 }
 
 void jpeg_open_backing_store(struct jpeg_common_struct* arg1, struct backing_store_struct* arg2, i32 arg3)
 {
     return stub<cdecl_t<void, struct jpeg_common_struct*, struct backing_store_struct*, i32>>(
-        0x181030_Offset, arg1, arg2, arg3);
+        0x581030, arg1, arg2, arg3);
 }

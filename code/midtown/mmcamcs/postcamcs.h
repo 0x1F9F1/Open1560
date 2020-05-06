@@ -74,4 +74,4 @@ public:
 check_size(PostCamCS, 0x12C);
 
 // 0x7193D8 | ?PostCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x3193D8_Offset, class MetaClass, PostCamCSMetaClass);
+inline extern_var(0x7193D8, class MetaClass, PostCamCSMetaClass);

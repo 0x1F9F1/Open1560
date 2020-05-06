@@ -121,4 +121,4 @@ private:
 check_size(NetAudioManager, 0x74);
 
 // 0x6A7E98 | ?NETAUDMGRPTR@@3PAVNetAudioManager@@A
-inline extern_var(0x2A7E98_Offset, class NetAudioManager*, NETAUDMGRPTR);
+inline extern_var(0x6A7E98, class NetAudioManager*, NETAUDMGRPTR);

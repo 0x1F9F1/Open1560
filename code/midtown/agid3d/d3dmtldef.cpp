@@ -32,20 +32,20 @@ agiD3DMtlDef::~agiD3DMtlDef()
 
 void agiD3DMtlDef::Activate()
 {
-    return stub<thiscall_t<void, agiD3DMtlDef*>>(0x133670_Offset, this);
+    return stub<thiscall_t<void, agiD3DMtlDef*>>(0x533670, this);
 }
 
 i32 agiD3DMtlDef::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiD3DMtlDef*>>(0x133590_Offset, this);
+    return stub<thiscall_t<i32, agiD3DMtlDef*>>(0x533590, this);
 }
 
 void agiD3DMtlDef::EndGfx()
 {
-    return stub<thiscall_t<void, agiD3DMtlDef*>>(0x133620_Offset, this);
+    return stub<thiscall_t<void, agiD3DMtlDef*>>(0x533620, this);
 }
 
 u32 agiD3DMtlDef::GetHandle()
 {
-    return stub<thiscall_t<u32, agiD3DMtlDef*>>(0x133750_Offset, this);
+    return stub<thiscall_t<u32, agiD3DMtlDef*>>(0x533750, this);
 }

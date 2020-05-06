@@ -416,7 +416,7 @@ void DeactivateApplication();
 void RestoreApplication();
 
 // 0x719320 | ?AUDMGRPTR@@3PAVAudManager@@A
-inline extern_var(0x319320_Offset, class AudManager*, AUDMGRPTR);
+inline extern_var(0x719320, class AudManager*, AUDMGRPTR);
 
 // 0x7192F8 | ?AudManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x3192F8_Offset, class MetaClass, AudManagerMetaClass);
+inline extern_var(0x7192F8, class MetaClass, AudManagerMetaClass);

@@ -33,4 +33,4 @@ void agiDisplayf(char const* arg1, ...);
 char* agiGetError(i32 arg1);
 
 // 0x907230 | ?agiVerbose@@3HA
-inline extern_var(0x507230_Offset, i32, agiVerbose);
+inline extern_var(0x907230, i32, agiVerbose);

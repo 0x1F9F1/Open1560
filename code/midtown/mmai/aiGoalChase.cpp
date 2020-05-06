@@ -33,151 +33,151 @@ aiGoalChase::~aiGoalChase()
 
 void aiGoalChase::Init()
 {
-    return stub<thiscall_t<void, aiGoalChase*>>(0x5FDC0_Offset, this);
+    return stub<thiscall_t<void, aiGoalChase*>>(0x45FDC0, this);
 }
 
 void aiGoalChase::Reset()
 {
-    return stub<thiscall_t<void, aiGoalChase*>>(0x5FED0_Offset, this);
+    return stub<thiscall_t<void, aiGoalChase*>>(0x45FED0, this);
 }
 
 i32 aiGoalChase::Context()
 {
-    return stub<thiscall_t<i32, aiGoalChase*>>(0x60080_Offset, this);
+    return stub<thiscall_t<i32, aiGoalChase*>>(0x460080, this);
 }
 
 i32 aiGoalChase::Priority()
 {
-    return stub<thiscall_t<i32, aiGoalChase*>>(0x60760_Offset, this);
+    return stub<thiscall_t<i32, aiGoalChase*>>(0x460760, this);
 }
 
 void aiGoalChase::Update()
 {
-    return stub<thiscall_t<void, aiGoalChase*>>(0x60770_Offset, this);
+    return stub<thiscall_t<void, aiGoalChase*>>(0x460770, this);
 }
 
 void aiGoalChase::Dump()
 {
-    return stub<thiscall_t<void, aiGoalChase*>>(0x655D0_Offset, this);
+    return stub<thiscall_t<void, aiGoalChase*>>(0x4655D0, this);
 }
 
 void aiGoalChase::AddToBlockedRange(f32 arg1, f32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<void, aiGoalChase*, f32, f32, f32>>(0x64F10_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, aiGoalChase*, f32, f32, f32>>(0x464F10, this, arg1, arg2, arg3);
 }
 
 void aiGoalChase::AvoidAmbientCollision(i32 arg1)
 {
-    return stub<thiscall_t<void, aiGoalChase*, i32>>(0x650B0_Offset, this, arg1);
+    return stub<thiscall_t<void, aiGoalChase*, i32>>(0x4650B0, this, arg1);
 }
 
 void aiGoalChase::AvoidCopCollision(class aiVehiclePolice* arg1)
 {
-    return stub<thiscall_t<void, aiGoalChase*, class aiVehiclePolice*>>(0x62030_Offset, this, arg1);
+    return stub<thiscall_t<void, aiGoalChase*, class aiVehiclePolice*>>(0x462030, this, arg1);
 }
 
 void aiGoalChase::Barricade()
 {
-    return stub<thiscall_t<void, aiGoalChase*>>(0x63570_Offset, this);
+    return stub<thiscall_t<void, aiGoalChase*>>(0x463570, this);
 }
 
 void aiGoalChase::Block()
 {
-    return stub<thiscall_t<void, aiGoalChase*>>(0x63A00_Offset, this);
+    return stub<thiscall_t<void, aiGoalChase*>>(0x463A00, this);
 }
 
 void aiGoalChase::CalcSpeed(f32 arg1)
 {
-    return stub<thiscall_t<void, aiGoalChase*, f32>>(0x62430_Offset, this, arg1);
+    return stub<thiscall_t<void, aiGoalChase*, f32>>(0x462430, this, arg1);
 }
 
 void aiGoalChase::CloseInOpenArea()
 {
-    return stub<thiscall_t<void, aiGoalChase*>>(0x63090_Offset, this);
+    return stub<thiscall_t<void, aiGoalChase*>>(0x463090, this);
 }
 
 void aiGoalChase::CloseInRoad()
 {
-    return stub<thiscall_t<void, aiGoalChase*>>(0x62BB0_Offset, this);
+    return stub<thiscall_t<void, aiGoalChase*>>(0x462BB0, this);
 }
 
 i32 aiGoalChase::Collision(class mmCar* arg1)
 {
-    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x60600_Offset, this, arg1);
+    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x460600, this, arg1);
 }
 
 i32 aiGoalChase::DetectAmbientCollision(i32* arg1)
 {
-    return stub<thiscall_t<i32, aiGoalChase*, i32*>>(0x64000_Offset, this, arg1);
+    return stub<thiscall_t<i32, aiGoalChase*, i32*>>(0x464000, this, arg1);
 }
 
 class aiVehiclePolice* aiGoalChase::DetectCopCollision()
 {
-    return stub<thiscall_t<class aiVehiclePolice*, aiGoalChase*>>(0x61EF0_Offset, this);
+    return stub<thiscall_t<class aiVehiclePolice*, aiGoalChase*>>(0x461EF0, this);
 }
 
 i32 aiGoalChase::FindPerp(i32 arg1, i32 arg2, class aiPath* arg3)
 {
-    return stub<thiscall_t<i32, aiGoalChase*, i32, i32, class aiPath*>>(0x61DC0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, aiGoalChase*, i32, i32, class aiPath*>>(0x461DC0, this, arg1, arg2, arg3);
 }
 
 void aiGoalChase::Follow()
 {
-    return stub<thiscall_t<void, aiGoalChase*>>(0x62300_Offset, this);
+    return stub<thiscall_t<void, aiGoalChase*>>(0x462300, this);
 }
 
 i32 aiGoalChase::Fov(class mmCar* arg1)
 {
-    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x60420_Offset, this, arg1);
+    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x460420, this, arg1);
 }
 
 i32 aiGoalChase::HitMe(class mmCar* arg1)
 {
-    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x60620_Offset, this, arg1);
+    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x460620, this, arg1);
 }
 
 i32 aiGoalChase::IsPerpACop(class mmCar* arg1)
 {
-    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x60670_Offset, this, arg1);
+    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x460670, this, arg1);
 }
 
 i32 aiGoalChase::LocatePerpFromInt(class aiIntersection* arg1, class aiPath** arg2)
 {
-    return stub<thiscall_t<i32, aiGoalChase*, class aiIntersection*, class aiPath**>>(0x61B60_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, aiGoalChase*, class aiIntersection*, class aiPath**>>(0x461B60, this, arg1, arg2);
 }
 
 i32 aiGoalChase::LocatePerpFromRoad(class aiPath* arg1, class aiPath** arg2, class aiPath** arg3)
 {
     return stub<thiscall_t<i32, aiGoalChase*, class aiPath*, class aiPath**, class aiPath**>>(
-        0x61490_Offset, this, arg1, arg2, arg3);
+        0x461490, this, arg1, arg2, arg3);
 }
 
 i32 aiGoalChase::OffRoad(class mmCar* arg1)
 {
-    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x60690_Offset, this, arg1);
+    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x460690, this, arg1);
 }
 
 i32 aiGoalChase::PlanRoute()
 {
-    return stub<thiscall_t<i32, aiGoalChase*>>(0x613F0_Offset, this);
+    return stub<thiscall_t<i32, aiGoalChase*>>(0x4613F0, this);
 }
 
 void aiGoalChase::ProcessCollision(i32 arg1)
 {
-    return stub<thiscall_t<void, aiGoalChase*, i32>>(0x65310_Offset, this, arg1);
+    return stub<thiscall_t<void, aiGoalChase*, i32>>(0x465310, this, arg1);
 }
 
 void aiGoalChase::Push()
 {
-    return stub<thiscall_t<void, aiGoalChase*>>(0x63E10_Offset, this);
+    return stub<thiscall_t<void, aiGoalChase*>>(0x463E10, this);
 }
 
 i32 aiGoalChase::Speeding(class mmCar* arg1)
 {
-    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x605B0_Offset, this, arg1);
+    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x4605B0, this, arg1);
 }
 
 i32 aiGoalChase::Stopped(class mmCar* arg1)
 {
-    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x60640_Offset, this, arg1);
+    return stub<thiscall_t<i32, aiGoalChase*, class mmCar*>>(0x460640, this, arg1);
 }

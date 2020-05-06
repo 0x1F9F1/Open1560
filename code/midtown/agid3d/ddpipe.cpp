@@ -32,78 +32,77 @@ agiDDPipeline::~agiDDPipeline()
 
 void agiDDPipeline::BeginFrame()
 {
-    return stub<thiscall_t<void, agiDDPipeline*>>(0x132F40_Offset, this);
+    return stub<thiscall_t<void, agiDDPipeline*>>(0x532F40, this);
 }
 
 i32 agiDDPipeline::BeginGfx()
 {
-    return stub<thiscall_t<i32, agiDDPipeline*>>(0x132AE0_Offset, this);
+    return stub<thiscall_t<i32, agiDDPipeline*>>(0x532AE0, this);
 }
 
 void agiDDPipeline::BeginScene()
 {
-    return stub<thiscall_t<void, agiDDPipeline*>>(0x132FA0_Offset, this);
+    return stub<thiscall_t<void, agiDDPipeline*>>(0x532FA0, this);
 }
 
 void agiDDPipeline::ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5)
 {
     return stub<thiscall_t<void, agiDDPipeline*, i32, i32, i32, i32, u32>>(
-        0x133240_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x533240, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void agiDDPipeline::CopyBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7)
 {
     return stub<thiscall_t<void, agiDDPipeline*, i32, i32, class agiBitmap*, i32, i32, i32, i32>>(
-        0x133070_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x533070, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 class agiBitmap* agiDDPipeline::CreateBitmap()
 {
-    return stub<thiscall_t<class agiBitmap*, agiDDPipeline*>>(0x133010_Offset, this);
+    return stub<thiscall_t<class agiBitmap*, agiDDPipeline*>>(0x533010, this);
 }
 
 void agiDDPipeline::EndFrame()
 {
-    return stub<thiscall_t<void, agiDDPipeline*>>(0x133000_Offset, this);
+    return stub<thiscall_t<void, agiDDPipeline*>>(0x533000, this);
 }
 
 void agiDDPipeline::EndGfx()
 {
-    return stub<thiscall_t<void, agiDDPipeline*>>(0x132E30_Offset, this);
+    return stub<thiscall_t<void, agiDDPipeline*>>(0x532E30, this);
 }
 
 void agiDDPipeline::EndScene()
 {
-    return stub<thiscall_t<void, agiDDPipeline*>>(0x132FF0_Offset, this);
+    return stub<thiscall_t<void, agiDDPipeline*>>(0x532FF0, this);
 }
 
 i32 agiDDPipeline::LockFrameBuffer(class agiSurfaceDesc& arg1)
 {
-    return stub<thiscall_t<i32, agiDDPipeline*, class agiSurfaceDesc&>>(0x1331E0_Offset, this, arg1);
+    return stub<thiscall_t<i32, agiDDPipeline*, class agiSurfaceDesc&>>(0x5331E0, this, arg1);
 }
 
 void agiDDPipeline::UnlockFrameBuffer()
 {
-    return stub<thiscall_t<void, agiDDPipeline*>>(0x133220_Offset, this);
+    return stub<thiscall_t<void, agiDDPipeline*>>(0x533220, this);
 }
 
 i32 agiDDPipeline::Validate()
 {
-    return stub<thiscall_t<i32, agiDDPipeline*>>(0x1328C0_Offset, this);
+    return stub<thiscall_t<i32, agiDDPipeline*>>(0x5328C0, this);
 }
 
 i32 __stdcall DDCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4)
 {
-    return stub<stdcall_t<i32, struct _GUID*, char*, char*, void*>>(0x1328D0_Offset, arg1, arg2, arg3, arg4);
+    return stub<stdcall_t<i32, struct _GUID*, char*, char*, void*>>(0x5328D0, arg1, arg2, arg3, arg4);
 }
 
 i32 __stdcall EnumModesCallback(struct _DDSURFACEDESC2* arg1, void* arg2)
 {
-    return stub<stdcall_t<i32, struct _DDSURFACEDESC2*, void*>>(0x132950_Offset, arg1, arg2);
+    return stub<stdcall_t<i32, struct _DDSURFACEDESC2*, void*>>(0x532950, arg1, arg2);
 }
 
 i32 __stdcall EnumSurfsCallback(struct IDirectDrawSurface* arg1, struct _DDSURFACEDESC* arg2, void* arg3)
 {
-    return stub<stdcall_t<i32, struct IDirectDrawSurface*, struct _DDSURFACEDESC*, void*>>(
-        0x132A00_Offset, arg1, arg2, arg3);
+    return stub<stdcall_t<i32, struct IDirectDrawSurface*, struct _DDSURFACEDESC*, void*>>(0x532A00, arg1, arg2, arg3);
 }

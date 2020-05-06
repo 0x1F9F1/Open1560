@@ -32,102 +32,102 @@ UICompositeScroll::~UICompositeScroll()
 
 void UICompositeScroll::Action(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UICompositeScroll*, union eqEvent>>(0xB57A0_Offset, this, arg1);
+    return stub<thiscall_t<void, UICompositeScroll*, union eqEvent>>(0x4B57A0, this, arg1);
 }
 
 void UICompositeScroll::AddComponent(class mmCompBase* arg1)
 {
-    return stub<thiscall_t<void, UICompositeScroll*, class mmCompBase*>>(0xB5360_Offset, this, arg1);
+    return stub<thiscall_t<void, UICompositeScroll*, class mmCompBase*>>(0x4B5360, this, arg1);
 }
 
 void UICompositeScroll::AddTitle(class mmCompBase* arg1)
 {
-    return stub<thiscall_t<void, UICompositeScroll*, class mmCompBase*>>(0xB5430_Offset, this, arg1);
+    return stub<thiscall_t<void, UICompositeScroll*, class mmCompBase*>>(0x4B5430, this, arg1);
 }
 
 void UICompositeScroll::CaptureAction(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UICompositeScroll*, union eqEvent>>(0xB5920_Offset, this, arg1);
+    return stub<thiscall_t<void, UICompositeScroll*, union eqEvent>>(0x4B5920, this, arg1);
 }
 
 void UICompositeScroll::Clear()
 {
-    return stub<thiscall_t<void, UICompositeScroll*>>(0xB59D0_Offset, this);
+    return stub<thiscall_t<void, UICompositeScroll*>>(0x4B59D0, this);
 }
 
 f32 UICompositeScroll::GetHeight()
 {
-    return stub<thiscall_t<f32, UICompositeScroll*>>(0xB59F0_Offset, this);
+    return stub<thiscall_t<f32, UICompositeScroll*>>(0x4B59F0, this);
 }
 
 i32 UICompositeScroll::GetHit(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<i32, UICompositeScroll*, f32, f32>>(0xB5720_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, UICompositeScroll*, f32, f32>>(0x4B5720, this, arg1, arg2);
 }
 
 i32 UICompositeScroll::GetSelectedCount()
 {
-    return stub<thiscall_t<i32, UICompositeScroll*>>(0xB5450_Offset, this);
+    return stub<thiscall_t<i32, UICompositeScroll*>>(0x4B5450, this);
 }
 
 void UICompositeScroll::Init(
     f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, i32 arg6, i32* arg7, i32 arg8, i32 arg9, class Callback arg10)
 {
     return stub<thiscall_t<void, UICompositeScroll*, f32, f32, f32, f32, f32, i32, i32*, i32, i32, class Callback>>(
-        0xB5050_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
+        0x4B5050, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
 }
 
 void UICompositeScroll::InitVScroll(f32 arg1, f32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<void, UICompositeScroll*, f32, f32, f32>>(0xB5290_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, UICompositeScroll*, f32, f32, f32>>(0x4B5290, this, arg1, arg2, arg3);
 }
 
 void UICompositeScroll::Redraw()
 {
-    return stub<thiscall_t<void, UICompositeScroll*>>(0xB54A0_Offset, this);
+    return stub<thiscall_t<void, UICompositeScroll*>>(0x4B54A0, this);
 }
 
 void UICompositeScroll::RemoveAllComponentChildren()
 {
-    return stub<thiscall_t<void, UICompositeScroll*>>(0xB5310_Offset, this);
+    return stub<thiscall_t<void, UICompositeScroll*>>(0x4B5310, this);
 }
 
 void UICompositeScroll::Reset()
 {
-    return stub<thiscall_t<void, UICompositeScroll*>>(0xB56F0_Offset, this);
+    return stub<thiscall_t<void, UICompositeScroll*>>(0x4B56F0, this);
 }
 
 void UICompositeScroll::SetHightlight()
 {
-    return stub<thiscall_t<void, UICompositeScroll*>>(0xB59E0_Offset, this);
+    return stub<thiscall_t<void, UICompositeScroll*>>(0x4B59E0, this);
 }
 
 void UICompositeScroll::SetPosition(i32 arg1)
 {
-    return stub<thiscall_t<void, UICompositeScroll*, i32>>(0xB5A10_Offset, this, arg1);
+    return stub<thiscall_t<void, UICompositeScroll*, i32>>(0x4B5A10, this, arg1);
 }
 
 void UICompositeScroll::SetVScrollPos()
 {
-    return stub<thiscall_t<void, UICompositeScroll*>>(0xB56B0_Offset, this);
+    return stub<thiscall_t<void, UICompositeScroll*>>(0x4B56B0, this);
 }
 
 void UICompositeScroll::SetVScrollVals()
 {
-    return stub<thiscall_t<void, UICompositeScroll*>>(0xB5660_Offset, this);
+    return stub<thiscall_t<void, UICompositeScroll*>>(0x4B5660, this);
 }
 
 void UICompositeScroll::Switch(i32 arg1)
 {
-    return stub<thiscall_t<void, UICompositeScroll*, i32>>(0xB5990_Offset, this, arg1);
+    return stub<thiscall_t<void, UICompositeScroll*, i32>>(0x4B5990, this, arg1);
 }
 
 void UICompositeScroll::Update()
 {
-    return stub<thiscall_t<void, UICompositeScroll*>>(0xB5710_Offset, this);
+    return stub<thiscall_t<void, UICompositeScroll*>>(0x4B5710, this);
 }
 
 void UICompositeScroll::VScrollCB()
 {
-    return stub<thiscall_t<void, UICompositeScroll*>>(0xB55F0_Offset, this);
+    return stub<thiscall_t<void, UICompositeScroll*>>(0x4B55F0, this);
 }

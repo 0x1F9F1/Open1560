@@ -32,35 +32,35 @@ aiPedAudioManager::~aiPedAudioManager()
 
 i16 aiPedAudioManager::Add(class aiPedestrian* arg1)
 {
-    return stub<thiscall_t<i16, aiPedAudioManager*, class aiPedestrian*>>(0x47030_Offset, this, arg1);
+    return stub<thiscall_t<i16, aiPedAudioManager*, class aiPedestrian*>>(0x447030, this, arg1);
 }
 
 void aiPedAudioManager::AssignSounds(i16 arg1)
 {
-    return stub<thiscall_t<void, aiPedAudioManager*, i16>>(0x47280_Offset, this, arg1);
+    return stub<thiscall_t<void, aiPedAudioManager*, i16>>(0x447280, this, arg1);
 }
 
 i16 aiPedAudioManager::FindGreatestDistance(class aiPedestrian* arg1)
 {
-    return stub<thiscall_t<i16, aiPedAudioManager*, class aiPedestrian*>>(0x47150_Offset, this, arg1);
+    return stub<thiscall_t<i16, aiPedAudioManager*, class aiPedestrian*>>(0x447150, this, arg1);
 }
 
 i16 aiPedAudioManager::FindUnusedSlot()
 {
-    return stub<thiscall_t<i16, aiPedAudioManager*>>(0x471E0_Offset, this);
+    return stub<thiscall_t<i16, aiPedAudioManager*>>(0x4471E0, this);
 }
 
 void aiPedAudioManager::RandomizeSeconds(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, aiPedAudioManager*, f32, f32>>(0x472A0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, aiPedAudioManager*, f32, f32>>(0x4472A0, this, arg1, arg2);
 }
 
 void aiPedAudioManager::Remove(class aiPedestrian* arg1, i16 arg2)
 {
-    return stub<thiscall_t<void, aiPedAudioManager*, class aiPedestrian*, i16>>(0x470E0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, aiPedAudioManager*, class aiPedestrian*, i16>>(0x4470E0, this, arg1, arg2);
 }
 
 void aiPedAudioManager::Update()
 {
-    return stub<thiscall_t<void, aiPedAudioManager*>>(0x47220_Offset, this);
+    return stub<thiscall_t<void, aiPedAudioManager*>>(0x447220, this);
 }

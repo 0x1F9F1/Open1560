@@ -32,31 +32,30 @@ MArray::~MArray()
 
 void MArray::AddMenuData(i32 arg1, class Vector4& arg2, char* arg3)
 {
-    return stub<thiscall_t<void, MArray*, i32, class Vector4&, char*>>(0xABCF0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, MArray*, i32, class Vector4&, char*>>(0x4ABCF0, this, arg1, arg2, arg3);
 }
 
 void MArray::Flush()
 {
-    return stub<thiscall_t<void, MArray*>>(0xABB20_Offset, this);
+    return stub<thiscall_t<void, MArray*>>(0x4ABB20, this);
 }
 
 void MArray::Init(i32 arg1)
 {
-    return stub<thiscall_t<void, MArray*, i32>>(0xAB7D0_Offset, this, arg1);
+    return stub<thiscall_t<void, MArray*, i32>>(0x4AB7D0, this, arg1);
 }
 
 void MArray::Read(char* arg1)
 {
-    return stub<thiscall_t<void, MArray*, char*>>(0xABB30_Offset, this, arg1);
+    return stub<thiscall_t<void, MArray*, char*>>(0x4ABB30, this, arg1);
 }
 
 i32 MArray::RetrieveMenuData(i32 arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5)
 {
-    return stub<thiscall_t<i32, MArray*, i32, f32&, f32&, f32&, f32&>>(
-        0xABD60_Offset, this, arg1, arg2, arg3, arg4, arg5);
+    return stub<thiscall_t<i32, MArray*, i32, f32&, f32&, f32&, f32&>>(0x4ABD60, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void MArray::Write(char* arg1)
 {
-    return stub<thiscall_t<void, MArray*, char*>>(0xAB810_Offset, this, arg1);
+    return stub<thiscall_t<void, MArray*, char*>>(0x4AB810, this, arg1);
 }

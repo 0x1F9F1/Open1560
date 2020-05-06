@@ -32,45 +32,45 @@ asDofCS::~asDofCS()
 
 void asDofCS::operator=(class asDofCS const& arg1)
 {
-    return stub<thiscall_t<void, asDofCS*, class asDofCS const&>>(0x12ADE0_Offset, this, arg1);
+    return stub<thiscall_t<void, asDofCS*, class asDofCS const&>>(0x52ADE0, this, arg1);
 }
 
 void asDofCS::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, asDofCS*, class Bank*>>(0x12B600_Offset, this, arg1);
+    return stub<thiscall_t<void, asDofCS*, class Bank*>>(0x52B600, this, arg1);
 }
 
 void asDofCS::FileIO(class MiniParser* arg1)
 {
-    return stub<thiscall_t<void, asDofCS*, class MiniParser*>>(0x12B5D0_Offset, this, arg1);
+    return stub<thiscall_t<void, asDofCS*, class MiniParser*>>(0x52B5D0, this, arg1);
 }
 
 class MetaClass* asDofCS::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, asDofCS*>>(0x12BB60_Offset, this);
+    return stub<thiscall_t<class MetaClass*, asDofCS*>>(0x52BB60, this);
 }
 
 void asDofCS::Reset()
 {
-    return stub<thiscall_t<void, asDofCS*>>(0x12AF20_Offset, this);
+    return stub<thiscall_t<void, asDofCS*>>(0x52AF20, this);
 }
 
 void asDofCS::SetTime(f32 arg1, f32 arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, asDofCS*, f32, f32, i32>>(0x12AF50_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, asDofCS*, f32, f32, i32>>(0x52AF50, this, arg1, arg2, arg3);
 }
 
 void asDofCS::Update()
 {
-    return stub<thiscall_t<void, asDofCS*>>(0x12AFC0_Offset, this);
+    return stub<thiscall_t<void, asDofCS*>>(0x52AFC0, this);
 }
 
 void asDofCS::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x12B9F0_Offset);
+    return stub<cdecl_t<void>>(0x52B9F0);
 }
 
 void asDofCS::ModeCB()
 {
-    return stub<thiscall_t<void, asDofCS*>>(0x12B5E0_Offset, this);
+    return stub<thiscall_t<void, asDofCS*>>(0x52B5E0, this);
 }

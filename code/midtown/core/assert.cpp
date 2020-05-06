@@ -26,7 +26,7 @@
     std::abort();
 }
 
-[[noreturn]] void ArUnimplemented(const ArSourceLocation& location)
+void ArUnimplemented(const ArSourceLocation& location)
 {
     Abortf("Unimplemented Function: %s in %s:%u", location.function, location.filename, location.linenum);
 }

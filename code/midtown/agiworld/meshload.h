@@ -29,7 +29,7 @@
 */
 
 // 0x719614 | ?MeshBytesPaged@@3HA
-inline extern_var(0x319614_Offset, i32, MeshBytesPaged);
+inline extern_var(0x719614, i32, MeshBytesPaged);
 
 // 0x719618 | ?MeshesPaged@@3HA
-inline extern_var(0x319618_Offset, i32, MeshesPaged);
+inline extern_var(0x719618, i32, MeshesPaged);

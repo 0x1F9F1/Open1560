@@ -32,7 +32,7 @@ mmGame::~mmGame()
 
 void mmGame::InitGameStrings()
 {
-    return stub<thiscall_t<void, mmGame*>>(0xFAC0_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x40FAC0, this);
 }
 
 void mmGame::InitMyPlayer()
@@ -42,7 +42,7 @@ void mmGame::InitMyPlayer()
 
 void mmGame::InitOtherPlayers()
 {
-    return stub<thiscall_t<void, mmGame*>>(0xF8C0_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x40F8C0, this);
 }
 
 void mmGame::InitGameObjects()
@@ -62,7 +62,7 @@ void mmGame::UpdateGameInput(i32 arg1)
 
 void mmGame::UpdateDebugInput()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x104B0_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x4104B0, this);
 }
 
 void mmGame::UpdateDebugKeyInput(i32 arg1)
@@ -82,17 +82,17 @@ void mmGame::NextRace()
 
 void mmGame::HitWaterHandler()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x104A0_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x4104A0, this);
 }
 
 void mmGame::DropThruCityHandler()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x10490_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x410490, this);
 }
 
 void mmGame::SendChatMessage(char* arg1)
 {
-    return stub<thiscall_t<void, mmGame*, char*>>(0x11590_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGame*, char*>>(0x411590, this, arg1);
 }
 
 class mmWaypoints* mmGame::GetWaypoints()
@@ -102,85 +102,85 @@ class mmWaypoints* mmGame::GetWaypoints()
 
 void mmGame::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, mmGame*, class Bank*>>(0x11E30_Offset, this, arg1);
+    return stub<thiscall_t<void, mmGame*, class Bank*>>(0x411E30, this, arg1);
 }
 
 void mmGame::CollideAIOpponents()
 {
-    return stub<thiscall_t<void, mmGame*>>(0xF9C0_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x40F9C0, this);
 }
 
 i32 mmGame::GetCDTrack(i16 arg1)
 {
-    return stub<thiscall_t<i32, mmGame*, i16>>(0x11960_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmGame*, i16>>(0x411960, this, arg1);
 }
 
 class MetaClass* mmGame::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmGame*>>(0x11FC0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmGame*>>(0x411FC0, this);
 }
 
 i32 mmGame::Init()
 {
-    return stub<thiscall_t<i32, mmGame*>>(0xEA00_Offset, this);
+    return stub<thiscall_t<i32, mmGame*>>(0x40EA00, this);
 }
 
 i32 mmGame::IsPopupEnabled()
 {
-    return stub<thiscall_t<i32, mmGame*>>(0x10230_Offset, this);
+    return stub<thiscall_t<i32, mmGame*>>(0x410230, this);
 }
 
 void mmGame::PlayerSetState()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x11420_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x411420, this);
 }
 
 void mmGame::Reset()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x10240_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x410240, this);
 }
 
 void mmGame::SetIconsState()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x11400_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x411400, this);
 }
 
 void mmGame::Stats()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x10050_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x410050, this);
 }
 
 void mmGame::Update()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x102A0_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x4102A0, this);
 }
 
 void mmGame::UpdateGameInput()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x10E90_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x410E90, this);
 }
 
 void mmGame::UpdatePaused()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x10DA0_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x410DA0, this);
 }
 
 void mmGame::UpdateSteeringBrakes()
 {
-    return stub<thiscall_t<void, mmGame*>>(0x11320_Offset, this);
+    return stub<thiscall_t<void, mmGame*>>(0x411320, this);
 }
 
 void mmGame::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x11F20_Offset);
+    return stub<cdecl_t<void>>(0x411F20);
 }
 
 i32 mmGame::CalculateRaceScore(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, mmGame*, i32, i32>>(0x11520_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmGame*, i32, i32>>(0x411520, this, arg1, arg2);
 }
 
 void mmGame::RespawnXYZ(class Vector3& arg1, f32& arg2)
 {
-    return stub<thiscall_t<void, mmGame*, class Vector3&, f32&>>(0x10130_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmGame*, class Vector3&, f32&>>(0x410130, this, arg1, arg2);
 }

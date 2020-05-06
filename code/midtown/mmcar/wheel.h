@@ -113,13 +113,13 @@ public:
     static void DeclareFields();
 
     // 0x63C490 | ?PtxMaxSkidCount@mmWheel@@2MA
-    static inline extern_var(0x23C490_Offset, f32, PtxMaxSkidCount);
+    static inline extern_var(0x63C490, f32, PtxMaxSkidCount);
 };
 
 check_size(mmWheel, 0x268);
 
 // 0x6A80F4 | ?DispLatZeroThresh@@3MA
-inline extern_var(0x2A80F4_Offset, f32, DispLatZeroThresh);
+inline extern_var(0x6A80F4, f32, DispLatZeroThresh);
 
 // 0x6A80B8 | ?mmWheelMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A80B8_Offset, class MetaClass, mmWheelMetaClass);
+inline extern_var(0x6A80B8, class MetaClass, mmWheelMetaClass);

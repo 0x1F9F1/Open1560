@@ -125,19 +125,19 @@ public:
 
 private:
     // 0x6A6D94 | ?Instance@mmGameManager@@0PAV1@A
-    static inline extern_var(0x2A6D94_Offset, class mmGameManager*, Instance);
+    static inline extern_var(0x6A6D94, class mmGameManager*, Instance);
 };
 
 check_size(mmGameManager, 0x5C);
 
 // 0x6A6D60 | ?ReplayLog@@3PAVStream@@A
-inline extern_var(0x2A6D60_Offset, class Stream*, ReplayLog);
+inline extern_var(0x6A6D60, class Stream*, ReplayLog);
 
 // 0x6A6D58 | ?ScreenClearCount@@3HA
-inline extern_var(0x2A6D58_Offset, i32, ScreenClearCount);
+inline extern_var(0x6A6D58, i32, ScreenClearCount);
 
 // 0x67216C | ?dummyGlobal2@@3EA
-inline extern_var(0x27216C_Offset, u8, dummyGlobal2);
+inline extern_var(0x67216C, u8, dummyGlobal2);
 
 // 0x6A6D68 | ?mmGameManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A6D68_Offset, class MetaClass, mmGameManagerMetaClass);
+inline extern_var(0x6A6D68, class MetaClass, mmGameManagerMetaClass);

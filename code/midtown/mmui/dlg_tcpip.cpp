@@ -32,10 +32,10 @@ Dialog_TCPIP::~Dialog_TCPIP()
 
 void Dialog_TCPIP::IPAddressCallback()
 {
-    return stub<thiscall_t<void, Dialog_TCPIP*>>(0xA0510_Offset, this);
+    return stub<thiscall_t<void, Dialog_TCPIP*>>(0x4A0510, this);
 }
 
 void Dialog_TCPIP::PreSetup()
 {
-    return stub<thiscall_t<void, Dialog_TCPIP*>>(0xA0500_Offset, this);
+    return stub<thiscall_t<void, Dialog_TCPIP*>>(0x4A0500, this);
 }

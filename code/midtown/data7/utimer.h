@@ -29,4 +29,4 @@
 u32 utimer();
 
 // 0x90B4B4 | ?ut2float@@3MA
-inline extern_var(0x50B4B4_Offset, f32, ut2float);
+inline extern_var(0x90B4B4, f32, ut2float);

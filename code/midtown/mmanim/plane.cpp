@@ -32,93 +32,92 @@ mmAnimPlane::~mmAnimPlane()
 
 void mmAnimPlane::Activate()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC5330_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C5330, this);
 }
 
 void mmAnimPlane::AdjustPhaseOffsets()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC5630_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C5630, this);
 }
 
 void mmAnimPlane::CalculateCubics(i32 arg1, class Vector4& arg2, class Vector4& arg3, class Vector4& arg4)
 {
     return stub<thiscall_t<void, mmAnimPlane*, i32, class Vector4&, class Vector4&, class Vector4&>>(
-        0xC5770_Offset, this, arg1, arg2, arg3, arg4);
+        0x4C5770, this, arg1, arg2, arg3, arg4);
 }
 
 void mmAnimPlane::Deactivate()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC5340_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C5340, this);
 }
 
 void __fastcall mmAnimPlane::Draw(i32 arg1)
 {
-    return stub<fastcall_t<void, mmAnimPlane*, i32>>(0xC5A70_Offset, this, arg1);
+    return stub<fastcall_t<void, mmAnimPlane*, i32>>(0x4C5A70, this, arg1);
 }
 
 void mmAnimPlane::Init(i32 arg1, char* arg2, char* arg3, class Vector3* arg4, i32 arg5, i32 arg6, f32* arg7)
 {
     return stub<thiscall_t<void, mmAnimPlane*, i32, char*, char*, class Vector3*, i32, i32, f32*>>(
-        0xC50C0_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+        0x4C50C0, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
 void mmAnimPlane::PreCalcCubics()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC56A0_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C56A0, this);
 }
 
 void mmAnimPlane::Reset()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC52C0_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C52C0, this);
 }
 
 void mmAnimPlane::ReverseCalcPathSpeed()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC5550_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C5550, this);
 }
 
 void mmAnimPlane::SetPathSpeed()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC5540_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C5540, this);
 }
 
 void mmAnimPlane::SolvePosition(class Vector3& arg1, f32& arg2)
 {
-    return stub<thiscall_t<void, mmAnimPlane*, class Vector3&, f32&>>(0xC5560_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmAnimPlane*, class Vector3&, f32&>>(0x4C5560, this, arg1, arg2);
 }
 
 void mmAnimPlane::SolveVector(f32 arg1, class Vector3& arg2, class Vector3& arg3)
 {
-    return stub<thiscall_t<void, mmAnimPlane*, f32, class Vector3&, class Vector3&>>(
-        0xC58F0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, mmAnimPlane*, f32, class Vector3&, class Vector3&>>(0x4C58F0, this, arg1, arg2, arg3);
 }
 
 void mmAnimPlane::Update()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC5350_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C5350, this);
 }
 
 void mmAnimPlane::UpdatePathPosition()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC5370_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C5370, this);
 }
 
 void mmAnimPlane::CalculateAudioPanning()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC5CF0_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C5CF0, this);
 }
 
 void mmAnimPlane::CalculateDistToPlayer2()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC5C20_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C5C20, this);
 }
 
 f32 mmAnimPlane::CalculateDoppler(f32 arg1)
 {
-    return stub<thiscall_t<f32, mmAnimPlane*, f32>>(0xC5D40_Offset, this, arg1);
+    return stub<thiscall_t<f32, mmAnimPlane*, f32>>(0x4C5D40, this, arg1);
 }
 
 void mmAnimPlane::UpdateAudio()
 {
-    return stub<thiscall_t<void, mmAnimPlane*>>(0xC5AC0_Offset, this);
+    return stub<thiscall_t<void, mmAnimPlane*>>(0x4C5AC0, this);
 }

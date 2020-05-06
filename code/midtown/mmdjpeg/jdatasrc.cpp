@@ -22,5 +22,5 @@ define_dummy_symbol(mmdjpeg_jdatasrc);
 
 void jpeg_stdio_src(struct jpeg_decompress_struct* arg1, class Stream* arg2)
 {
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*, class Stream*>>(0x17D7E0_Offset, arg1, arg2);
+    return stub<cdecl_t<void, struct jpeg_decompress_struct*, class Stream*>>(0x57D7E0, arg1, arg2);
 }

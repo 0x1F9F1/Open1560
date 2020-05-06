@@ -32,35 +32,35 @@ PreCamCS::~PreCamCS()
 
 void PreCamCS::AddWidgets(class Bank* arg1)
 {
-    return stub<thiscall_t<void, PreCamCS*, class Bank*>>(0xF9B20_Offset, this, arg1);
+    return stub<thiscall_t<void, PreCamCS*, class Bank*>>(0x4F9B20, this, arg1);
 }
 
 class MetaClass* PreCamCS::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, PreCamCS*>>(0xF9D80_Offset, this);
+    return stub<thiscall_t<class MetaClass*, PreCamCS*>>(0x4F9D80, this);
 }
 
 void PreCamCS::Init(class mmCar* arg1)
 {
-    return stub<thiscall_t<void, PreCamCS*, class mmCar*>>(0xF9A30_Offset, this, arg1);
+    return stub<thiscall_t<void, PreCamCS*, class mmCar*>>(0x4F9A30, this, arg1);
 }
 
 void PreCamCS::MakeActive()
 {
-    return stub<thiscall_t<void, PreCamCS*>>(0xF9A70_Offset, this);
+    return stub<thiscall_t<void, PreCamCS*>>(0x4F9A70, this);
 }
 
 void PreCamCS::Reset()
 {
-    return stub<thiscall_t<void, PreCamCS*>>(0xF9A60_Offset, this);
+    return stub<thiscall_t<void, PreCamCS*>>(0x4F9A60, this);
 }
 
 void PreCamCS::Update()
 {
-    return stub<thiscall_t<void, PreCamCS*>>(0xF9AC0_Offset, this);
+    return stub<thiscall_t<void, PreCamCS*>>(0x4F9AC0, this);
 }
 
 void PreCamCS::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xF9C10_Offset);
+    return stub<cdecl_t<void>>(0x4F9C10);
 }

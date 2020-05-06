@@ -112,4 +112,4 @@ public:
 check_size(Vector2Type, 0x0);
 
 // 0x909644 | ?Vector2Inst@@3UVector2Type@@A
-inline extern_var(0x509644_Offset, struct Vector2Type, Vector2Inst);
+inline extern_var(0x909644, struct Vector2Type, Vector2Inst);

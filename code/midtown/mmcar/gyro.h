@@ -69,4 +69,4 @@ public:
 check_size(VehGyro, 0x34);
 
 // 0x6A8120 | ?VehGyroMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A8120_Offset, class MetaClass, VehGyroMetaClass);
+inline extern_var(0x6A8120, class MetaClass, VehGyroMetaClass);

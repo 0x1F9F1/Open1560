@@ -32,92 +32,92 @@ UIVScrollBar::~UIVScrollBar()
 
 void UIVScrollBar::Action(union eqEvent arg1)
 {
-    return stub<thiscall_t<void, UIVScrollBar*, union eqEvent>>(0xBD370_Offset, this, arg1);
+    return stub<thiscall_t<void, UIVScrollBar*, union eqEvent>>(0x4BD370, this, arg1);
 }
 
 void UIVScrollBar::Cull()
 {
-    return stub<thiscall_t<void, UIVScrollBar*>>(0xBD5B0_Offset, this);
+    return stub<thiscall_t<void, UIVScrollBar*>>(0x4BD5B0, this);
 }
 
 f32 UIVScrollBar::Dec()
 {
-    return stub<thiscall_t<f32, UIVScrollBar*>>(0xBD150_Offset, this);
+    return stub<thiscall_t<f32, UIVScrollBar*>>(0x4BD150, this);
 }
 
 void UIVScrollBar::Disable()
 {
-    return stub<thiscall_t<void, UIVScrollBar*>>(0xBD950_Offset, this);
+    return stub<thiscall_t<void, UIVScrollBar*>>(0x4BD950, this);
 }
 
 void UIVScrollBar::Enable()
 {
-    return stub<thiscall_t<void, UIVScrollBar*>>(0xBD930_Offset, this);
+    return stub<thiscall_t<void, UIVScrollBar*>>(0x4BD930, this);
 }
 
 void UIVScrollBar::EvalMouseXY(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, UIVScrollBar*, f32, f32>>(0xBD430_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, UIVScrollBar*, f32, f32>>(0x4BD430, this, arg1, arg2);
 }
 
 class MetaClass* UIVScrollBar::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, UIVScrollBar*>>(0xBD8A0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, UIVScrollBar*>>(0x4BD8A0, this);
 }
 
 f32 UIVScrollBar::Inc()
 {
-    return stub<thiscall_t<f32, UIVScrollBar*>>(0xBD0F0_Offset, this);
+    return stub<thiscall_t<f32, UIVScrollBar*>>(0x4BD0F0, this);
 }
 
 void UIVScrollBar::Init(
     f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, f32 arg6, f32 arg7, i32* arg8, class Callback arg9, i32 arg10)
 {
     return stub<thiscall_t<void, UIVScrollBar*, f32, f32, f32, f32, i32, f32, f32, i32*, class Callback, i32>>(
-        0xBCE90_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
+        0x4BCE90, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
 }
 
 void UIVScrollBar::LoadBitmap()
 {
-    return stub<thiscall_t<void, UIVScrollBar*>>(0xBCF00_Offset, this);
+    return stub<thiscall_t<void, UIVScrollBar*>>(0x4BCF00, this);
 }
 
 void UIVScrollBar::SetHotSpots()
 {
-    return stub<thiscall_t<void, UIVScrollBar*>>(0xBD030_Offset, this);
+    return stub<thiscall_t<void, UIVScrollBar*>>(0x4BD030, this);
 }
 
 void UIVScrollBar::SetPosition(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, UIVScrollBar*, f32, f32>>(0xBD910_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, UIVScrollBar*, f32, f32>>(0x4BD910, this, arg1, arg2);
 }
 
 void UIVScrollBar::SetRange(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, UIVScrollBar*, f32, f32>>(0xBD210_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, UIVScrollBar*, f32, f32>>(0x4BD210, this, arg1, arg2);
 }
 
 void UIVScrollBar::SetStep(i32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, UIVScrollBar*, i32, f32>>(0xBD1B0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, UIVScrollBar*, i32, f32>>(0x4BD1B0, this, arg1, arg2);
 }
 
 void UIVScrollBar::SetTrough(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, UIVScrollBar*, f32, f32>>(0xBD280_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, UIVScrollBar*, f32, f32>>(0x4BD280, this, arg1, arg2);
 }
 
 void UIVScrollBar::Switch(i32 arg1)
 {
-    return stub<thiscall_t<void, UIVScrollBar*, i32>>(0xBD320_Offset, this, arg1);
+    return stub<thiscall_t<void, UIVScrollBar*, i32>>(0x4BD320, this, arg1);
 }
 
 void UIVScrollBar::Update()
 {
-    return stub<thiscall_t<void, UIVScrollBar*>>(0xBD300_Offset, this);
+    return stub<thiscall_t<void, UIVScrollBar*>>(0x4BD300, this);
 }
 
 void UIVScrollBar::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xBD730_Offset);
+    return stub<cdecl_t<void>>(0x4BD730);
 }

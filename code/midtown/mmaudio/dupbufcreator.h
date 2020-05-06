@@ -60,4 +60,4 @@ private:
 check_size(DupBuffCreator, 0x8);
 
 // 0x719330 | ?DUPBUFCREATORPTR@@3PAVDupBuffCreator@@A
-inline extern_var(0x319330_Offset, class DupBuffCreator*, DUPBUFCREATORPTR);
+inline extern_var(0x719330, class DupBuffCreator*, DUPBUFCREATORPTR);

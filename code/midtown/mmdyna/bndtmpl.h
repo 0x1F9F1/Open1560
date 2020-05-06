@@ -212,31 +212,31 @@ public:
     static class mmBoundTemplate* MakeBox(char* arg1, char* arg2, i32 arg3, class Vector3* arg4, class Vector3* arg5);
 
     // 0x77F598 | ?BoundPtr@mmBoundTemplate@@2PAV1@A
-    static inline extern_var(0x37F598_Offset, class mmBoundTemplate*, BoundPtr);
+    static inline extern_var(0x77F598, class mmBoundTemplate*, BoundPtr);
 
     // 0x77EED0 | ?ConstructionTable@mmBoundTemplate@@2PAGA
-    static inline extern_var(0x37EED0_Offset, u16*, ConstructionTable);
+    static inline extern_var(0x77EED0, u16*, ConstructionTable);
 
     // 0x77EE48 | ?DrawGrid@mmBoundTemplate@@2HA
-    static inline extern_var(0x37EE48_Offset, i32, DrawGrid);
+    static inline extern_var(0x77EE48, i32, DrawGrid);
 
     // 0x77F590 | ?IsectCount@mmBoundTemplate@@2GA
-    static inline extern_var(0x37F590_Offset, u16, IsectCount);
+    static inline extern_var(0x77F590, u16, IsectCount);
 
     // 0x77F498 | ?LastIsect@mmBoundTemplate@@2PAGA
-    static inline extern_var(0x37F498_Offset, u16*, LastIsect);
+    static inline extern_var(0x77F498, u16*, LastIsect);
 
     // 0x77EED4 | ?MaxPerBucket@mmBoundTemplate@@2HA
-    static inline extern_var(0x37EED4_Offset, i32, MaxPerBucket);
+    static inline extern_var(0x77EED4, i32, MaxPerBucket);
 
     // 0x77EE3C | ?NumIndexs@mmBoundTemplate@@2HA
-    static inline extern_var(0x37EE3C_Offset, i32, NumIndexs);
+    static inline extern_var(0x77EE3C, i32, NumIndexs);
 
     // 0x77F594 | ?VertPtr@mmBoundTemplate@@2PAVVector3@@A
-    static inline extern_var(0x37F594_Offset, class Vector3*, VertPtr);
+    static inline extern_var(0x77F594, class Vector3*, VertPtr);
 
     // 0x77EE38 | ?WinID@mmBoundTemplate@@2HA
-    static inline extern_var(0x37EE38_Offset, i32, WinID);
+    static inline extern_var(0x77EE38, i32, WinID);
 
 private:
     // 0x519A30 | ?DoMakeTable@mmBoundTemplate@@AAEXHHH@Z
@@ -258,7 +258,7 @@ private:
 check_size(mmBoundTemplate, 0xB4);
 
 // 0x77F4A0 | ?CollidedLines@@3PAPAHA
-inline extern_var(0x37F4A0_Offset, i32**, CollidedLines);
+inline extern_var(0x77F4A0, i32**, CollidedLines);
 
 // 0x77F518 | ?InsideVerts@@3PAHA
-inline extern_var(0x37F518_Offset, i32*, InsideVerts);
+inline extern_var(0x77F518, i32*, InsideVerts);

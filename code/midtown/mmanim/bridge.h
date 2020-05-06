@@ -99,7 +99,7 @@ public:
 
 protected:
     // 0x705DFC | ?Instance@mmBridgeMgr@@1PAV1@A
-    static inline extern_var(0x305DFC_Offset, class mmBridgeMgr*, Instance);
+    static inline extern_var(0x705DFC, class mmBridgeMgr*, Instance);
 };
 
 check_size(mmBridgeMgr, 0x2674);
@@ -166,25 +166,25 @@ private:
     void RampDownBridgeVolume();
 
     // 0x705D98 | ?s_fAudioAttenuationMult@mmBridgeSet@@0MA
-    static inline extern_var(0x305D98_Offset, f32, s_fAudioAttenuationMult);
+    static inline extern_var(0x705D98, f32, s_fAudioAttenuationMult);
 
     // 0x6420EC | ?s_fAudioMaxDistance@mmBridgeSet@@0MA
-    static inline extern_var(0x2420EC_Offset, f32, s_fAudioMaxDistance);
+    static inline extern_var(0x6420EC, f32, s_fAudioMaxDistance);
 
     // 0x6420E4 | ?s_fAudioMinDistance@mmBridgeSet@@0MA
-    static inline extern_var(0x2420E4_Offset, f32, s_fAudioMinDistance);
+    static inline extern_var(0x6420E4, f32, s_fAudioMinDistance);
 
     // 0x6420F0 | ?s_fAudioVolume@mmBridgeSet@@0MA
-    static inline extern_var(0x2420F0_Offset, f32, s_fAudioVolume);
+    static inline extern_var(0x6420F0, f32, s_fAudioVolume);
 
     // 0x6420E8 | ?s_fCloserMinDistMult@mmBridgeSet@@0MA
-    static inline extern_var(0x2420E8_Offset, f32, s_fCloserMinDistMult);
+    static inline extern_var(0x6420E8, f32, s_fCloserMinDistMult);
 };
 
 check_size(mmBridgeSet, 0x438);
 
 // 0x705DA0 | ?mmBridgeMgrMetaClass@@3VMetaClass@@A
-inline extern_var(0x305DA0_Offset, class MetaClass, mmBridgeMgrMetaClass);
+inline extern_var(0x705DA0, class MetaClass, mmBridgeMgrMetaClass);
 
 // 0x705DD0 | ?mmBridgeSetMetaClass@@3VMetaClass@@A
-inline extern_var(0x305DD0_Offset, class MetaClass, mmBridgeSetMetaClass);
+inline extern_var(0x705DD0, class MetaClass, mmBridgeSetMetaClass);

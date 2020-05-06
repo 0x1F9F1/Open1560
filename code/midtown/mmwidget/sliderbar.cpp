@@ -32,93 +32,93 @@ mmSlider::~mmSlider()
 
 void mmSlider::Cull()
 {
-    return stub<thiscall_t<void, mmSlider*>>(0xBED40_Offset, this);
+    return stub<thiscall_t<void, mmSlider*>>(0x4BED40, this);
 }
 
 f32 mmSlider::Dec()
 {
-    return stub<thiscall_t<f32, mmSlider*>>(0xBEC10_Offset, this);
+    return stub<thiscall_t<f32, mmSlider*>>(0x4BEC10, this);
 }
 
 f32 mmSlider::FudgeWidth()
 {
-    return stub<thiscall_t<f32, mmSlider*>>(0xBEAA0_Offset, this);
+    return stub<thiscall_t<f32, mmSlider*>>(0x4BEAA0, this);
 }
 
 class MetaClass* mmSlider::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmSlider*>>(0xBF070_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmSlider*>>(0x4BF070, this);
 }
 
 f32 mmSlider::GetScreenHeight()
 {
-    return stub<thiscall_t<f32, mmSlider*>>(0xBEA70_Offset, this);
+    return stub<thiscall_t<f32, mmSlider*>>(0x4BEA70, this);
 }
 
 void mmSlider::GetSliderHotSpots(f32& arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5, f32& arg6)
 {
     return stub<thiscall_t<void, mmSlider*, f32&, f32&, f32&, f32&, f32&, f32&>>(
-        0xBEAF0_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6);
+        0x4BEAF0, this, arg1, arg2, arg3, arg4, arg5, arg6);
 }
 
 f32 mmSlider::Inc()
 {
-    return stub<thiscall_t<f32, mmSlider*>>(0xBEBF0_Offset, this);
+    return stub<thiscall_t<f32, mmSlider*>>(0x4BEBF0, this);
 }
 
 void mmSlider::Init(char* arg1, class uiWidget* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, f32 arg8,
     f32 arg9, i32 arg10, i32 arg11)
 {
     return stub<thiscall_t<void, mmSlider*, char*, class uiWidget*, f32, f32, f32, f32, i32, f32, f32, i32, i32>>(
-        0xBE7D0_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
+        0x4BE7D0, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
 }
 
 i32 mmSlider::IsReadWrite()
 {
-    return stub<thiscall_t<i32, mmSlider*>>(0xBEA00_Offset, this);
+    return stub<thiscall_t<i32, mmSlider*>>(0x4BEA00, this);
 }
 
 void mmSlider::LoadBitmap(char* arg1)
 {
-    return stub<thiscall_t<void, mmSlider*, char*>>(0xBE830_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSlider*, char*>>(0x4BE830, this, arg1);
 }
 
 void mmSlider::SetPosition(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmSlider*, f32, f32>>(0xBEAD0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmSlider*, f32, f32>>(0x4BEAD0, this, arg1, arg2);
 }
 
 void mmSlider::SetRange(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmSlider*, f32, f32>>(0xBECB0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmSlider*, f32, f32>>(0x4BECB0, this, arg1, arg2);
 }
 
 void mmSlider::SetReadWrite(i32 arg1)
 {
-    return stub<thiscall_t<void, mmSlider*, i32>>(0xBE9E0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSlider*, i32>>(0x4BE9E0, this, arg1);
 }
 
 void mmSlider::SetStep(f32 arg1)
 {
-    return stub<thiscall_t<void, mmSlider*, f32>>(0xBEC30_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSlider*, f32>>(0x4BEC30, this, arg1);
 }
 
 f32 mmSlider::SetValue(f32 arg1)
 {
-    return stub<thiscall_t<f32, mmSlider*, f32>>(0xBEA10_Offset, this, arg1);
+    return stub<thiscall_t<f32, mmSlider*, f32>>(0x4BEA10, this, arg1);
 }
 
 void mmSlider::Update()
 {
-    return stub<thiscall_t<void, mmSlider*>>(0xBED20_Offset, this);
+    return stub<thiscall_t<void, mmSlider*>>(0x4BED20, this);
 }
 
 void mmSlider::UpdatePosition()
 {
-    return stub<thiscall_t<void, mmSlider*>>(0xBEBC0_Offset, this);
+    return stub<thiscall_t<void, mmSlider*>>(0x4BEBC0, this);
 }
 
 void mmSlider::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xBEF00_Offset);
+    return stub<cdecl_t<void>>(0x4BEF00);
 }

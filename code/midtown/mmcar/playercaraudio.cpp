@@ -37,75 +37,75 @@ mmPlayerCarAudio::~mmPlayerCarAudio()
 
 void mmPlayerCarAudio::EchoOff()
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x82140_Offset, this);
+    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x482140, this);
 }
 
 void mmPlayerCarAudio::EchoOn(f32 arg1)
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*, f32>>(0x82020_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPlayerCarAudio*, f32>>(0x482020, this, arg1);
 }
 
 void mmPlayerCarAudio::FluctuateFastSiren()
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x82730_Offset, this);
+    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x482730, this);
 }
 
 void mmPlayerCarAudio::FluctuateSlowSiren()
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x82530_Offset, this);
+    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x482530, this);
 }
 
 class MetaClass* mmPlayerCarAudio::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmPlayerCarAudio*>>(0x83260_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmPlayerCarAudio*>>(0x483260, this);
 }
 
 void mmPlayerCarAudio::Init(class mmCarSim* arg1)
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*, class mmCarSim*>>(0x81BA0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPlayerCarAudio*, class mmCarSim*>>(0x481BA0, this, arg1);
 }
 
 void mmPlayerCarAudio::LoadSucessful()
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x82C20_Offset, this);
+    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x482C20, this);
 }
 
 void mmPlayerCarAudio::PlayHorn()
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x82A90_Offset, this);
+    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x482A90, this);
 }
 
 void mmPlayerCarAudio::PlayReverseBeep()
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x821F0_Offset, this);
+    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x4821F0, this);
 }
 
 void mmPlayerCarAudio::Reset()
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x82A50_Offset, this);
+    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x482A50, this);
 }
 
 void mmPlayerCarAudio::SetUpDefault(class mmCarSim* arg1)
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*, class mmCarSim*>>(0x82AD0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmPlayerCarAudio*, class mmCarSim*>>(0x482AD0, this, arg1);
 }
 
 void mmPlayerCarAudio::StartSiren()
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x82460_Offset, this);
+    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x482460, this);
 }
 
 void mmPlayerCarAudio::StopSiren()
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x824F0_Offset, this);
+    return stub<thiscall_t<void, mmPlayerCarAudio*>>(0x4824F0, this);
 }
 
 void mmPlayerCarAudio::Update(i32 arg1, f32 arg2, f32 arg3, i16 arg4)
 {
-    return stub<thiscall_t<void, mmPlayerCarAudio*, i32, f32, f32, i16>>(0x82250_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, mmPlayerCarAudio*, i32, f32, f32, i16>>(0x482250, this, arg1, arg2, arg3, arg4);
 }
 
 void mmPlayerCarAudio::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x83080_Offset);
+    return stub<cdecl_t<void>>(0x483080);
 }

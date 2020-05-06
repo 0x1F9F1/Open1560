@@ -22,5 +22,5 @@ define_dummy_symbol(mmdjpeg_jdcolor);
 
 void jinit_color_deconverter(struct jpeg_decompress_struct* arg1)
 {
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x183130_Offset, arg1);
+    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x583130, arg1);
 }

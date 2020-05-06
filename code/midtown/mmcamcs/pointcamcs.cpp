@@ -32,60 +32,60 @@ PointCamCS::~PointCamCS()
 
 class MetaClass* PointCamCS::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, PointCamCS*>>(0xFA3F0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, PointCamCS*>>(0x4FA3F0, this);
 }
 
 class Vector3 PointCamCS::GetPos()
 {
-    return stub<thiscall_t<class Vector3, PointCamCS*>>(0xF9F70_Offset, this);
+    return stub<thiscall_t<class Vector3, PointCamCS*>>(0x4F9F70, this);
 }
 
 void PointCamCS::Init(class mmCar* arg1)
 {
-    return stub<thiscall_t<void, PointCamCS*, class mmCar*>>(0xF9E50_Offset, this, arg1);
+    return stub<thiscall_t<void, PointCamCS*, class mmCar*>>(0x4F9E50, this, arg1);
 }
 
 void PointCamCS::MakeActive()
 {
-    return stub<thiscall_t<void, PointCamCS*>>(0xF9E90_Offset, this);
+    return stub<thiscall_t<void, PointCamCS*>>(0x4F9E90, this);
 }
 
 void PointCamCS::Reset()
 {
-    return stub<thiscall_t<void, PointCamCS*>>(0xF9E80_Offset, this);
+    return stub<thiscall_t<void, PointCamCS*>>(0x4F9E80, this);
 }
 
 void PointCamCS::SetAppRate(f32 arg1)
 {
-    return stub<thiscall_t<void, PointCamCS*, f32>>(0xF9F40_Offset, this, arg1);
+    return stub<thiscall_t<void, PointCamCS*, f32>>(0x4F9F40, this, arg1);
 }
 
 void PointCamCS::SetMaxDist(f32 arg1)
 {
-    return stub<thiscall_t<void, PointCamCS*, f32>>(0xF9F00_Offset, this, arg1);
+    return stub<thiscall_t<void, PointCamCS*, f32>>(0x4F9F00, this, arg1);
 }
 
 void PointCamCS::SetMinDist(f32 arg1)
 {
-    return stub<thiscall_t<void, PointCamCS*, f32>>(0xF9F20_Offset, this, arg1);
+    return stub<thiscall_t<void, PointCamCS*, f32>>(0x4F9F20, this, arg1);
 }
 
 void PointCamCS::SetPos(class Vector3& arg1)
 {
-    return stub<thiscall_t<void, PointCamCS*, class Vector3&>>(0xF9EC0_Offset, this, arg1);
+    return stub<thiscall_t<void, PointCamCS*, class Vector3&>>(0x4F9EC0, this, arg1);
 }
 
 void PointCamCS::SetVel(class Vector3& arg1)
 {
-    return stub<thiscall_t<void, PointCamCS*, class Vector3&>>(0xF9F50_Offset, this, arg1);
+    return stub<thiscall_t<void, PointCamCS*, class Vector3&>>(0x4F9F50, this, arg1);
 }
 
 void PointCamCS::Update()
 {
-    return stub<thiscall_t<void, PointCamCS*>>(0xF9FA0_Offset, this);
+    return stub<thiscall_t<void, PointCamCS*>>(0x4F9FA0, this);
 }
 
 void PointCamCS::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xFA280_Offset);
+    return stub<cdecl_t<void>>(0x4FA280);
 }

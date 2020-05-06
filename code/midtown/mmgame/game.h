@@ -164,22 +164,22 @@ protected:
 check_size(mmGame, 0x0);
 
 // 0x6A6FB8 | ?BangerProjectile@@3PAVmmBangerData@@A
-inline extern_var(0x2A6FB8_Offset, class mmBangerData*, BangerProjectile);
+inline extern_var(0x6A6FB8, class mmBangerData*, BangerProjectile);
 
 // 0x635AC8 | ?IconColor@@3PAIA
-inline extern_var(0x235AC8_Offset, u32*, IconColor);
+inline extern_var(0x635AC8, u32*, IconColor);
 
 // 0x6A6F30 | ?LocPlayerName@@3PADA
-inline extern_var(0x2A6F30_Offset, char*, LocPlayerName);
+inline extern_var(0x6A6F30, char*, LocPlayerName);
 
 // 0x6A6F90 | ?ProjectileV@@3VVector3@@A
-inline extern_var(0x2A6F90_Offset, class Vector3, ProjectileV);
+inline extern_var(0x6A6F90, class Vector3, ProjectileV);
 
 // 0x635AC0 | ?ProjectileY@@3MA
-inline extern_var(0x235AC0_Offset, f32, ProjectileY);
+inline extern_var(0x635AC0, f32, ProjectileY);
 
 // 0x6A6FB4 | ?masscycle@@3HA
-inline extern_var(0x2A6FB4_Offset, i32, masscycle);
+inline extern_var(0x6A6FB4, i32, masscycle);
 
 // 0x6A6F60 | ?mmGameMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A6F60_Offset, class MetaClass, mmGameMetaClass);
+inline extern_var(0x6A6F60, class MetaClass, mmGameMetaClass);

@@ -32,57 +32,57 @@ mmDropDown::~mmDropDown()
 
 i32 mmDropDown::FindFirstEnabled()
 {
-    return stub<thiscall_t<i32, mmDropDown*>>(0xC0E30_Offset, this);
+    return stub<thiscall_t<i32, mmDropDown*>>(0x4C0E30, this);
 }
 
 class MetaClass* mmDropDown::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, mmDropDown*>>(0xC10A0_Offset, this);
+    return stub<thiscall_t<class MetaClass*, mmDropDown*>>(0x4C10A0, this);
 }
 
 void mmDropDown::GetCurrentString(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, mmDropDown*, char*, i32>>(0xC0D60_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmDropDown*, char*, i32>>(0x4C0D60, this, arg1, arg2);
 }
 
 i32 mmDropDown::GetHit(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<i32, mmDropDown*, f32, f32>>(0xC0EC0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, mmDropDown*, f32, f32>>(0x4C0EC0, this, arg1, arg2);
 }
 
 void mmDropDown::Init(
     class asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7, i32 arg8)
 {
     return stub<thiscall_t<void, mmDropDown*, class asCamera*, void*, f32, f32, f32, f32, class string, i32>>(
-        0xC08F0_Offset, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
+        0x4C08F0, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 }
 
 void mmDropDown::InitString(class string arg1)
 {
-    return stub<thiscall_t<void, mmDropDown*, class string>>(0xC09F0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmDropDown*, class string>>(0x4C09F0, this, arg1);
 }
 
 void mmDropDown::SetDisabledColors()
 {
-    return stub<thiscall_t<void, mmDropDown*>>(0xC0DB0_Offset, this);
+    return stub<thiscall_t<void, mmDropDown*>>(0x4C0DB0, this);
 }
 
 void mmDropDown::SetHighlight(i32 arg1)
 {
-    return stub<thiscall_t<void, mmDropDown*, i32>>(0xC0E60_Offset, this, arg1);
+    return stub<thiscall_t<void, mmDropDown*, i32>>(0x4C0E60, this, arg1);
 }
 
 void mmDropDown::Update()
 {
-    return stub<thiscall_t<void, mmDropDown*>>(0xC0F20_Offset, this);
+    return stub<thiscall_t<void, mmDropDown*>>(0x4C0F20, this);
 }
 
 void mmDropDown::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0xC0F30_Offset);
+    return stub<cdecl_t<void>>(0x4C0F30);
 }
 
 void mmDropDown::SetString(class string arg1)
 {
-    return stub<thiscall_t<void, mmDropDown*, class string>>(0xC0C70_Offset, this, arg1);
+    return stub<thiscall_t<void, mmDropDown*, class string>>(0x4C0C70, this, arg1);
 }

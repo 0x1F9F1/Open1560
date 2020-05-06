@@ -22,61 +22,59 @@ define_dummy_symbol(vector7_quat);
 
 class Quaternion Quaternion::operator~()
 {
-    return stub<thiscall_t<class Quaternion, Quaternion*>>(0x1727F0_Offset, this);
+    return stub<thiscall_t<class Quaternion, Quaternion*>>(0x5727F0, this);
 }
 
 f32 Quaternion::Angle(class Quaternion const& arg1)
 {
-    return stub<thiscall_t<f32, Quaternion*, class Quaternion const&>>(0x1729C0_Offset, this, arg1);
+    return stub<thiscall_t<f32, Quaternion*, class Quaternion const&>>(0x5729C0, this, arg1);
 }
 
 i32 Quaternion::Approach(class Quaternion const& arg1, f32 arg2, f32 arg3)
 {
-    return stub<thiscall_t<i32, Quaternion*, class Quaternion const&, f32, f32>>(
-        0x173120_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<i32, Quaternion*, class Quaternion const&, f32, f32>>(0x573120, this, arg1, arg2, arg3);
 }
 
 void Quaternion::CatmullRom(f32 arg1, class Quaternion const& arg2, class Quaternion const& arg3,
     class Quaternion const& arg4, class Quaternion const& arg5)
 {
     return stub<thiscall_t<void, Quaternion*, f32, class Quaternion const&, class Quaternion const&,
-        class Quaternion const&, class Quaternion const&>>(0x1731A0_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        class Quaternion const&, class Quaternion const&>>(0x5731A0, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void Quaternion::FromMatrix(class Matrix34 const& arg1)
 {
-    return stub<thiscall_t<void, Quaternion*, class Matrix34 const&>>(0x1726A0_Offset, this, arg1);
+    return stub<thiscall_t<void, Quaternion*, class Matrix34 const&>>(0x5726A0, this, arg1);
 }
 
 void Quaternion::Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4)
 {
-    return stub<thiscall_t<void, Quaternion*, f32, f32, f32, f32>>(0x172550_Offset, this, arg1, arg2, arg3, arg4);
+    return stub<thiscall_t<void, Quaternion*, f32, f32, f32, f32>>(0x572550, this, arg1, arg2, arg3, arg4);
 }
 
 void Quaternion::Lerp(f32 arg1, class Quaternion const& arg2, class Quaternion const& arg3)
 {
     return stub<thiscall_t<void, Quaternion*, f32, class Quaternion const&, class Quaternion const&>>(
-        0x172CE0_Offset, this, arg1, arg2, arg3);
+        0x572CE0, this, arg1, arg2, arg3);
 }
 
 f32 Quaternion::Mag()
 {
-    return stub<thiscall_t<f32, Quaternion*>>(0x172890_Offset, this);
+    return stub<thiscall_t<f32, Quaternion*>>(0x572890, this);
 }
 
 void Quaternion::Normalize()
 {
-    return stub<thiscall_t<void, Quaternion*>>(0x172960_Offset, this);
+    return stub<thiscall_t<void, Quaternion*>>(0x572960, this);
 }
 
 void Quaternion::Slerp(f32 arg1, class Quaternion const& arg2, class Quaternion const& arg3)
 {
     return stub<thiscall_t<void, Quaternion*, f32, class Quaternion const&, class Quaternion const&>>(
-        0x172F60_Offset, this, arg1, arg2, arg3);
+        0x572F60, this, arg1, arg2, arg3);
 }
 
 void Quaternion::TrackBall(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 {
-    return stub<thiscall_t<void, Quaternion*, f32, f32, f32, f32, f32>>(
-        0x172A30_Offset, this, arg1, arg2, arg3, arg4, arg5);
+    return stub<thiscall_t<void, Quaternion*, f32, f32, f32, f32, f32>>(0x572A30, this, arg1, arg2, arg3, arg4, arg5);
 }

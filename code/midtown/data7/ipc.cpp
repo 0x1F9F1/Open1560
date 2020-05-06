@@ -22,95 +22,95 @@ define_dummy_symbol(data7_ipc);
 
 void ipcCloseHandle(u32 arg1)
 {
-    return stub<cdecl_t<void, u32>>(0x178740_Offset, arg1);
+    return stub<cdecl_t<void, u32>>(0x578740, arg1);
 }
 
 void ipcCloseSpinLock(u32* arg1)
 {
-    return stub<cdecl_t<void, u32*>>(0x178B00_Offset, arg1);
+    return stub<cdecl_t<void, u32*>>(0x578B00, arg1);
 }
 
 u32 ipcCreateEvent(i32 arg1)
 {
-    return stub<cdecl_t<u32, i32>>(0x178650_Offset, arg1);
+    return stub<cdecl_t<u32, i32>>(0x578650, arg1);
 }
 
 u32 ipcCreateMutex(i32 arg1)
 {
-    return stub<cdecl_t<u32, i32>>(0x178670_Offset, arg1);
+    return stub<cdecl_t<u32, i32>>(0x578670, arg1);
 }
 
 void ipcCreateSpinLock(u32* arg1)
 {
-    return stub<cdecl_t<void, u32*>>(0x178AF0_Offset, arg1);
+    return stub<cdecl_t<void, u32*>>(0x578AF0, arg1);
 }
 
 u32 ipcCreateThread(u32(__stdcall* arg1)(void*), void* arg2, u32* arg3)
 {
-    return stub<cdecl_t<u32, u32(__stdcall*)(void*), void*, u32*>>(0x178690_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<u32, u32(__stdcall*)(void*), void*, u32*>>(0x578690, arg1, arg2, arg3);
 }
 
 void ipcReleaseMutex(u32 arg1)
 {
-    return stub<cdecl_t<void, u32>>(0x1786D0_Offset, arg1);
+    return stub<cdecl_t<void, u32>>(0x5786D0, arg1);
 }
 
 void ipcSleep(u32 arg1)
 {
-    return stub<cdecl_t<void, u32>>(0x178770_Offset, arg1);
+    return stub<cdecl_t<void, u32>>(0x578770, arg1);
 }
 
 void ipcSpinLock(u32* arg1)
 {
-    return stub<cdecl_t<void, u32*>>(0x178A70_Offset, arg1);
+    return stub<cdecl_t<void, u32*>>(0x578A70, arg1);
 }
 
 void ipcSpunUnlock(u32* arg1)
 {
-    return stub<cdecl_t<void, u32*>>(0x178AC0_Offset, arg1);
+    return stub<cdecl_t<void, u32*>>(0x578AC0, arg1);
 }
 
 void ipcTriggerEvent(u32 arg1)
 {
-    return stub<cdecl_t<void, u32>>(0x1786B0_Offset, arg1);
+    return stub<cdecl_t<void, u32>>(0x5786B0, arg1);
 }
 
 i32 ipcWaitMultiple(i32 arg1, u32* arg2, i32 arg3)
 {
-    return stub<cdecl_t<i32, i32, u32*, i32>>(0x178720_Offset, arg1, arg2, arg3);
+    return stub<cdecl_t<i32, i32, u32*, i32>>(0x578720, arg1, arg2, arg3);
 }
 
 void ipcWaitSingle(u32 arg1)
 {
-    return stub<cdecl_t<void, u32>>(0x1786F0_Offset, arg1);
+    return stub<cdecl_t<void, u32>>(0x5786F0, arg1);
 }
 
 void ipcYield()
 {
-    return stub<cdecl_t<void>>(0x178760_Offset);
+    return stub<cdecl_t<void>>(0x578760);
 }
 
 void ipcMessageQueue::Init(i32 arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, ipcMessageQueue*, i32, i32>>(0x178870_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, ipcMessageQueue*, i32, i32>>(0x578870, this, arg1, arg2);
 }
 
 void ipcMessageQueue::Send(void (*arg1)(void*), void* arg2)
 {
-    return stub<thiscall_t<void, ipcMessageQueue*, void (*)(void*), void*>>(0x178980_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, ipcMessageQueue*, void (*)(void*), void*>>(0x578980, this, arg1, arg2);
 }
 
 void ipcMessageQueue::Shutdown()
 {
-    return stub<thiscall_t<void, ipcMessageQueue*>>(0x178920_Offset, this);
+    return stub<thiscall_t<void, ipcMessageQueue*>>(0x578920, this);
 }
 
 i32 ipcMessageQueue::MessageLoop()
 {
-    return stub<thiscall_t<i32, ipcMessageQueue*>>(0x178790_Offset, this);
+    return stub<thiscall_t<i32, ipcMessageQueue*>>(0x578790, this);
 }
 
 u32 __stdcall ipcMessageQueue::Proc(void* arg1)
 {
-    return stub<stdcall_t<u32, void*>>(0x178780_Offset, arg1);
+    return stub<stdcall_t<u32, void*>>(0x578780, arg1);
 }

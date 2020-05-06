@@ -79,4 +79,4 @@ public:
 check_size(agiD3DRPipeline, 0x49C);
 
 // 0x795C34 | ?UseSimpleRenderer@@3HA
-inline extern_var(0x395C34_Offset, i32, UseSimpleRenderer);
+inline extern_var(0x795C34, i32, UseSimpleRenderer);

@@ -32,113 +32,113 @@ VehicleSelectBase::~VehicleSelectBase()
 
 void VehicleSelectBase::AllSetCar(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<void, VehicleSelectBase*, char*, i32>>(0x9B990_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, VehicleSelectBase*, char*, i32>>(0x49B990, this, arg1, arg2);
 }
 
 void VehicleSelectBase::AssignVehicleStats(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 {
     return stub<thiscall_t<void, VehicleSelectBase*, i32, f32, f32, f32, f32>>(
-        0x9C000_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x49C000, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 void VehicleSelectBase::CarMod(i32& arg1)
 {
-    return stub<thiscall_t<void, VehicleSelectBase*, i32&>>(0x9BC50_Offset, this, arg1);
+    return stub<thiscall_t<void, VehicleSelectBase*, i32&>>(0x49BC50, this, arg1);
 }
 
 void VehicleSelectBase::ColorCB()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9AA70_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49AA70, this);
 }
 
 i32 VehicleSelectBase::CurrentVehicleIsLocked()
 {
-    return stub<thiscall_t<i32, VehicleSelectBase*>>(0x9BBD0_Offset, this);
+    return stub<thiscall_t<i32, VehicleSelectBase*>>(0x49BBD0, this);
 }
 
 void VehicleSelectBase::DecCar()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9C500_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49C500, this);
 }
 
 void VehicleSelectBase::DecColor()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9A9B0_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49A9B0, this);
 }
 
 void VehicleSelectBase::FillStats()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9C1E0_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49C1E0, this);
 }
 
 char* VehicleSelectBase::GetCarTitle(i32 arg1, char* arg2, i16 arg3, class string* arg4)
 {
     return stub<thiscall_t<char*, VehicleSelectBase*, i32, char*, i16, class string*>>(
-        0x9BAA0_Offset, this, arg1, arg2, arg3, arg4);
+        0x49BAA0, this, arg1, arg2, arg3, arg4);
 }
 
 void VehicleSelectBase::IncCar()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9C510_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49C510, this);
 }
 
 void VehicleSelectBase::IncColor()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9A8F0_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49A8F0, this);
 }
 
 void VehicleSelectBase::InitCarSelection(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 {
     return stub<thiscall_t<void, VehicleSelectBase*, i32, f32, f32, f32, f32>>(
-        0x9AA90_Offset, this, arg1, arg2, arg3, arg4, arg5);
+        0x49AA90, this, arg1, arg2, arg3, arg4, arg5);
 }
 
 i32 VehicleSelectBase::LoadStats(char* arg1)
 {
-    return stub<thiscall_t<i32, VehicleSelectBase*, char*>>(0x9BF60_Offset, this, arg1);
+    return stub<thiscall_t<i32, VehicleSelectBase*, char*>>(0x49BF60, this, arg1);
 }
 
 void VehicleSelectBase::PostSetup()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9B960_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49B960, this);
 }
 
 void VehicleSelectBase::PreSetup()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9B870_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49B870, this);
 }
 
 void VehicleSelectBase::Reset()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9B9F0_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49B9F0, this);
 }
 
 void VehicleSelectBase::SetLastUnlockedVehicle()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9BBF0_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49BBF0, this);
 }
 
 void VehicleSelectBase::SetLockedLabel()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9C230_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49C230, this);
 }
 
 void VehicleSelectBase::SetPick(i32 arg1, i16 arg2)
 {
-    return stub<thiscall_t<void, VehicleSelectBase*, i32, i16>>(0x9BC80_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, VehicleSelectBase*, i32, i16>>(0x49BC80, this, arg1, arg2);
 }
 
 void VehicleSelectBase::SetShowcaseFlag()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9C520_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49C520, this);
 }
 
 void VehicleSelectBase::TDPickCB()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9B9E0_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49B9E0, this);
 }
 
 void VehicleSelectBase::Update()
 {
-    return stub<thiscall_t<void, VehicleSelectBase*>>(0x9BA00_Offset, this);
+    return stub<thiscall_t<void, VehicleSelectBase*>>(0x49BA00, this);
 }

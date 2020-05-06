@@ -32,102 +32,102 @@ mmSurfaceAudio::~mmSurfaceAudio()
 
 void mmSurfaceAudio::DisableSurface()
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*>>(0x87B00_Offset, this);
+    return stub<thiscall_t<void, mmSurfaceAudio*>>(0x487B00, this);
 }
 
 void mmSurfaceAudio::EchoOff(class mmCarSim* arg1)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, class mmCarSim*>>(0x87740_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSurfaceAudio*, class mmCarSim*>>(0x487740, this, arg1);
 }
 
 void mmSurfaceAudio::EchoOn(class mmCarSim* arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, class mmCarSim*, f32>>(0x87630_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmSurfaceAudio*, class mmCarSim*, f32>>(0x487630, this, arg1, arg2);
 }
 
 i32 mmSurfaceAudio::EnableAir(class mmCarSim* arg1)
 {
-    return stub<thiscall_t<i32, mmSurfaceAudio*, class mmCarSim*>>(0x877F0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmSurfaceAudio*, class mmCarSim*>>(0x4877F0, this, arg1);
 }
 
 i32 mmSurfaceAudio::EnableSurface(class mmCarSim* arg1)
 {
-    return stub<thiscall_t<i32, mmSurfaceAudio*, class mmCarSim*>>(0x87970_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmSurfaceAudio*, class mmCarSim*>>(0x487970, this, arg1);
 }
 
 i32 mmSurfaceAudio::EnableSuspension(class mmCarSim* arg1)
 {
-    return stub<thiscall_t<i32, mmSurfaceAudio*, class mmCarSim*>>(0x878C0_Offset, this, arg1);
+    return stub<thiscall_t<i32, mmSurfaceAudio*, class mmCarSim*>>(0x4878C0, this, arg1);
 }
 
 void mmSurfaceAudio::EnableTireWobble()
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*>>(0x87580_Offset, this);
+    return stub<thiscall_t<void, mmSurfaceAudio*>>(0x487580, this);
 }
 
 i16 mmSurfaceAudio::OnTwoWheels()
 {
-    return stub<thiscall_t<i16, mmSurfaceAudio*>>(0x88E90_Offset, this);
+    return stub<thiscall_t<i16, mmSurfaceAudio*>>(0x488E90, this);
 }
 
 void mmSurfaceAudio::SetWheelPointers(
     class mmWheel* arg1, class mmWheel* arg2, class mmWheel* arg3, class mmWheel* arg4)
 {
     return stub<thiscall_t<void, mmSurfaceAudio*, class mmWheel*, class mmWheel*, class mmWheel*, class mmWheel*>>(
-        0x87B20_Offset, this, arg1, arg2, arg3, arg4);
+        0x487B20, this, arg1, arg2, arg3, arg4);
 }
 
 void mmSurfaceAudio::SetWobblePitch(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, f32, f32>>(0x88F20_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmSurfaceAudio*, f32, f32>>(0x488F20, this, arg1, arg2);
 }
 
 void mmSurfaceAudio::SetWobbleVol(f32 arg1, f32 arg2)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, f32, f32>>(0x88F40_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, mmSurfaceAudio*, f32, f32>>(0x488F40, this, arg1, arg2);
 }
 
 void mmSurfaceAudio::Update(f32 arg1)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x87B50_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x487B50, this, arg1);
 }
 
 void mmSurfaceAudio::UpdateSkidClear(f32 arg1)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x882C0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x4882C0, this, arg1);
 }
 
 void mmSurfaceAudio::UpdateSkidRain(f32 arg1)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x88680_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x488680, this, arg1);
 }
 
 void mmSurfaceAudio::UpdateSkidSnow(f32 arg1)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x88A50_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x488A50, this, arg1);
 }
 
 void mmSurfaceAudio::UpdateSurface(f32 arg1)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x87D30_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x487D30, this, arg1);
 }
 
 void mmSurfaceAudio::UpdateSurfaceSnow(f32 arg1)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x87FB0_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x487FB0, this, arg1);
 }
 
 void mmSurfaceAudio::UpdateSuspension()
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*>>(0x88D80_Offset, this);
+    return stub<thiscall_t<void, mmSurfaceAudio*>>(0x488D80, this);
 }
 
 void mmSurfaceAudio::UpdateTireWobble()
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*>>(0x87BE0_Offset, this);
+    return stub<thiscall_t<void, mmSurfaceAudio*>>(0x487BE0, this);
 }
 
 void mmSurfaceAudio::PlayCobble(f32 arg1)
 {
-    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x88190_Offset, this, arg1);
+    return stub<thiscall_t<void, mmSurfaceAudio*, f32>>(0x488190, this, arg1);
 }

@@ -167,7 +167,7 @@ public:
     static void DeclareFields();
 
     // 0x790834 | ?TimingCount@asNode@@2HA
-    static inline extern_var(0x390834_Offset, i32, TimingCount);
+    static inline extern_var(0x790834, i32, TimingCount);
 };
 
 check_size(asNode, 0x0);
@@ -180,7 +180,7 @@ struct MetaType* PtrTo(struct MetaType* arg1);
 // 0x5246B0 | ??_9@$BCM@AE (Skipped: void)
 
 // 0x790830 | ?DebugMemory@@3HA
-inline extern_var(0x390830_Offset, i32, DebugMemory);
+inline extern_var(0x790830, i32, DebugMemory);
 
 // 0x790838 | ?asNodeMetaClass@@3VMetaClass@@A
-inline extern_var(0x390838_Offset, class MetaClass, asNodeMetaClass);
+inline extern_var(0x790838, class MetaClass, asNodeMetaClass);

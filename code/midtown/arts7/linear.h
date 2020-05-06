@@ -68,4 +68,4 @@ public:
 check_size(asLinearCS, 0x88);
 
 // 0x7908D8 | ?asLinearCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x3908D8_Offset, class MetaClass, asLinearCSMetaClass);
+inline extern_var(0x7908D8, class MetaClass, asLinearCSMetaClass);

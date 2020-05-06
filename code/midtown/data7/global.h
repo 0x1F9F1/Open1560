@@ -29,4 +29,4 @@
 void HexDump(void* arg1, i32 arg2);
 
 // 0x6622CC | ?DevelopmentMode@@3HA
-inline extern_var(0x2622CC_Offset, i32, DevelopmentMode);
+inline extern_var(0x6622CC, i32, DevelopmentMode);

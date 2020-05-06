@@ -32,51 +32,51 @@ HierFileSystem::~HierFileSystem()
 
 i32 HierFileSystem::ChangeDir(char* arg1)
 {
-    return stub<thiscall_t<i32, HierFileSystem*, char*>>(0x160380_Offset, this, arg1);
+    return stub<thiscall_t<i32, HierFileSystem*, char*>>(0x560380, this, arg1);
 }
 
 class Stream* HierFileSystem::CreateOn(char* arg1, void* arg2, i32 arg3)
 {
-    return stub<thiscall_t<class Stream*, HierFileSystem*, char*, void*, i32>>(0x1602A0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<class Stream*, HierFileSystem*, char*, void*, i32>>(0x5602A0, this, arg1, arg2, arg3);
 }
 
 struct FileInfo* HierFileSystem::FirstEntry(char* arg1)
 {
-    return stub<thiscall_t<struct FileInfo*, HierFileSystem*, char*>>(0x1603C0_Offset, this, arg1);
+    return stub<thiscall_t<struct FileInfo*, HierFileSystem*, char*>>(0x5603C0, this, arg1);
 }
 
 i32 HierFileSystem::GetDir(char* arg1, i32 arg2)
 {
-    return stub<thiscall_t<i32, HierFileSystem*, char*, i32>>(0x1603A0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<i32, HierFileSystem*, char*, i32>>(0x5603A0, this, arg1, arg2);
 }
 
 struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* arg1)
 {
-    return stub<thiscall_t<struct FileInfo*, HierFileSystem*, struct FileInfo*>>(0x160500_Offset, this, arg1);
+    return stub<thiscall_t<struct FileInfo*, HierFileSystem*, struct FileInfo*>>(0x560500, this, arg1);
 }
 
 class Stream* HierFileSystem::OpenOn(char* arg1, i32 arg2, void* arg3, i32 arg4)
 {
     return stub<thiscall_t<class Stream*, HierFileSystem*, char*, i32, void*, i32>>(
-        0x160100_Offset, this, arg1, arg2, arg3, arg4);
+        0x560100, this, arg1, arg2, arg3, arg4);
 }
 
 i32 HierFileSystem::QueryOn(char* arg1)
 {
-    return stub<thiscall_t<i32, HierFileSystem*, char*>>(0x160040_Offset, this, arg1);
+    return stub<thiscall_t<i32, HierFileSystem*, char*>>(0x560040, this, arg1);
 }
 
 i32 HierFileSystem::ValidPath(char* arg1)
 {
-    return stub<thiscall_t<i32, HierFileSystem*, char*>>(0x15FF80_Offset, this, arg1);
+    return stub<thiscall_t<i32, HierFileSystem*, char*>>(0x55FF80, this, arg1);
 }
 
 char* FQN(char* arg1)
 {
-    return stub<cdecl_t<char*, char*>>(0x15FF90_Offset, arg1);
+    return stub<cdecl_t<char*, char*>>(0x55FF90, arg1);
 }
 
 void PagerInfo_t::Read(void* arg1, u32 arg2, u32 arg3)
 {
-    return stub<thiscall_t<void, PagerInfo_t*, void*, u32, u32>>(0x1605D0_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, PagerInfo_t*, void*, u32, u32>>(0x5605D0, this, arg1, arg2, arg3);
 }

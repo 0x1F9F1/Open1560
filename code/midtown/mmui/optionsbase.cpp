@@ -42,20 +42,20 @@ void OptionsBase::DoneAction()
 
 void OptionsBase::ResetDefaultAction()
 {
-    return stub<thiscall_t<void, OptionsBase*>>(0xAB6F0_Offset, this);
+    return stub<thiscall_t<void, OptionsBase*>>(0x4AB6F0, this);
 }
 
 void OptionsBase::StoreCurrentSetup()
 {
-    return stub<thiscall_t<void, OptionsBase*>>(0x9A6D0_Offset, this);
+    return stub<thiscall_t<void, OptionsBase*>>(0x49A6D0, this);
 }
 
 void OptionsBase::CreateTitle(struct LocString* arg1)
 {
-    return stub<thiscall_t<void, OptionsBase*, struct LocString*>>(0xAB620_Offset, this, arg1);
+    return stub<thiscall_t<void, OptionsBase*, struct LocString*>>(0x4AB620, this, arg1);
 }
 
 i32 OptionsBase::IsAnOptionMenu()
 {
-    return stub<thiscall_t<i32, OptionsBase*>>(0x9A6E0_Offset, this);
+    return stub<thiscall_t<i32, OptionsBase*>>(0x49A6E0, this);
 }

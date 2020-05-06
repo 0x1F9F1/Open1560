@@ -232,7 +232,7 @@ private:
 check_size(mmMultiCR, 0x1EF30);
 
 // 0x6A7240 | ?TwoPlayers@@3HA
-inline extern_var(0x2A7240_Offset, i32, TwoPlayers);
+inline extern_var(0x6A7240, i32, TwoPlayers);
 
 // 0x6A7210 | ?mmMultiCRMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7210_Offset, class MetaClass, mmMultiCRMetaClass);
+inline extern_var(0x6A7210, class MetaClass, mmMultiCRMetaClass);

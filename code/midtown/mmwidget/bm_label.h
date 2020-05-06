@@ -79,4 +79,4 @@ private:
 check_size(UIBMLabel, 0xA0);
 
 // 0x7059A0 | ?UIBMLabelMetaClass@@3VMetaClass@@A
-inline extern_var(0x3059A0_Offset, class MetaClass, UIBMLabelMetaClass);
+inline extern_var(0x7059A0, class MetaClass, UIBMLabelMetaClass);

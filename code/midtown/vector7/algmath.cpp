@@ -22,35 +22,35 @@ define_dummy_symbol(vector7_algmath);
 
 f32 Bias(f32 arg1, f32 arg2)
 {
-    return stub<cdecl_t<f32, f32, f32>>(0x170DB0_Offset, arg1, arg2);
+    return stub<cdecl_t<f32, f32, f32>>(0x570DB0, arg1, arg2);
 }
 
 f32 Gain(f32 arg1, f32 arg2)
 {
-    return stub<cdecl_t<f32, f32, f32>>(0x170E00_Offset, arg1, arg2);
+    return stub<cdecl_t<f32, f32, f32>>(0x570E00, arg1, arg2);
 }
 
 f32 expf_fast(f32 arg1)
 {
-    return stub<cdecl_t<f32, f32>>(0x171000_Offset, arg1);
+    return stub<cdecl_t<f32, f32>>(0x571000, arg1);
 }
 
 f32 expf_faster(f32 arg1)
 {
-    return stub<cdecl_t<f32, f32>>(0x171090_Offset, arg1);
+    return stub<cdecl_t<f32, f32>>(0x571090, arg1);
 }
 
 f32 invsqrtf_fast(f32 arg1)
 {
-    return stub<cdecl_t<f32, f32>>(0x170F80_Offset, arg1);
+    return stub<cdecl_t<f32, f32>>(0x570F80, arg1);
 }
 
 f32 logf_fast(f32 arg1)
 {
-    return stub<cdecl_t<f32, f32>>(0x170E80_Offset, arg1);
+    return stub<cdecl_t<f32, f32>>(0x570E80, arg1);
 }
 
 f32 sqrtf_faster(f32 arg1)
 {
-    return stub<cdecl_t<f32, f32>>(0x170F10_Offset, arg1);
+    return stub<cdecl_t<f32, f32>>(0x570F10, arg1);
 }

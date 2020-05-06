@@ -222,28 +222,28 @@ public:
     static void ResetAll();
 
     // 0x6F14F8 | ?DynamicLighter@mmInstance@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    static inline extern_var(0x2F14F8_Offset, void (*)(u8*, u32*, u32*, class agiMeshSet*), DynamicLighter);
+    static inline extern_var(0x6F14F8, void (*)(u8*, u32*, u32*, class agiMeshSet*), DynamicLighter);
 
     // 0x63F828 | ?LodTable@mmInstance@@2PAY132MA
-    static inline extern_var(0x23F828_Offset, f32 (*)[3][4], LodTable);
+    static inline extern_var(0x63F828, f32 (*)[3][4], LodTable);
 
     // 0x7055D0 | ?LodTableIndex@mmInstance@@2HA
-    static inline extern_var(0x3055D0_Offset, i32, LodTableIndex);
+    static inline extern_var(0x7055D0, i32, LodTableIndex);
 
     // 0x6ED4F8 | ?MeshSetNames@mmInstance@@2PAPADA
-    static inline extern_var(0x2ED4F8_Offset, char**, MeshSetNames);
+    static inline extern_var(0x6ED4F8, char**, MeshSetNames);
 
     // 0x7056F8 | ?MeshSetSetCount@mmInstance@@2HA
-    static inline extern_var(0x3056F8_Offset, i32, MeshSetSetCount);
+    static inline extern_var(0x7056F8, i32, MeshSetSetCount);
 
     // 0x6F1538 | ?MeshSetTable@mmInstance@@2PAUMeshSetTableEntry@1@A
-    static inline extern_var(0x2F1538_Offset, struct mmInstance::MeshSetTableEntry*, MeshSetTable);
+    static inline extern_var(0x6F1538, struct mmInstance::MeshSetTableEntry*, MeshSetTable);
 
     // 0x705560 | ?ShowLights@mmInstance@@2HA
-    static inline extern_var(0x305560_Offset, i32, ShowLights);
+    static inline extern_var(0x705560, i32, ShowLights);
 
     // 0x705688 | ?StaticLighter@mmInstance@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    static inline extern_var(0x305688_Offset, void (*)(u8*, u32*, u32*, class agiMeshSet*), StaticLighter);
+    static inline extern_var(0x705688, void (*)(u8*, u32*, u32*, class agiMeshSet*), StaticLighter);
 };
 
 check_size(mmInstance, 0x0);
@@ -323,31 +323,31 @@ i32 GetPolyInfo(class agiMeshSet* arg1);
 char* formatf(char const* arg1, ...);
 
 // 0x63F8B8 | ?EnableFacadeSideClipping@@3HA
-inline extern_var(0x23F8B8_Offset, i32, EnableFacadeSideClipping);
+inline extern_var(0x63F8B8, i32, EnableFacadeSideClipping);
 
 // 0x7055D8 | ?mmBuildingInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x3055D8_Offset, class MetaClass, mmBuildingInstanceMetaClass);
+inline extern_var(0x7055D8, class MetaClass, mmBuildingInstanceMetaClass);
 
 // 0x705578 | ?mmFacadeInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x305578_Offset, class MetaClass, mmFacadeInstanceMetaClass);
+inline extern_var(0x705578, class MetaClass, mmFacadeInstanceMetaClass);
 
 // 0x6F1528 | ?mmInstanceHeap@@3V?$mmHeap@H@@A
-inline extern_var(0x2F1528_Offset, class mmHeap<i32>, mmInstanceHeap);
+inline extern_var(0x6F1528, class mmHeap<i32>, mmInstanceHeap);
 
 // 0x6F1500 | ?mmInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x2F1500_Offset, class MetaClass, mmInstanceMetaClass);
+inline extern_var(0x6F1500, class MetaClass, mmInstanceMetaClass);
 
 // 0x705538 | ?mmMatrixInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x305538_Offset, class MetaClass, mmMatrixInstanceMetaClass);
+inline extern_var(0x705538, class MetaClass, mmMatrixInstanceMetaClass);
 
 // 0x705690 | ?mmShearInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x305690_Offset, class MetaClass, mmShearInstanceMetaClass);
+inline extern_var(0x705690, class MetaClass, mmShearInstanceMetaClass);
 
 // 0x7056C0 | ?mmStaticInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x3056C0_Offset, class MetaClass, mmStaticInstanceMetaClass);
+inline extern_var(0x7056C0, class MetaClass, mmStaticInstanceMetaClass);
 
 // 0x7055A0 | ?mmYInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x3055A0_Offset, class MetaClass, mmYInstanceMetaClass);
+inline extern_var(0x7055A0, class MetaClass, mmYInstanceMetaClass);
 
 class mmYInstance : public mmInstance
 {

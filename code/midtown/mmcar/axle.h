@@ -65,4 +65,4 @@ public:
 check_size(mmAxle, 0x9C);
 
 // 0x6A8080 | ?mmAxleMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A8080_Offset, class MetaClass, mmAxleMetaClass);
+inline extern_var(0x6A8080, class MetaClass, mmAxleMetaClass);

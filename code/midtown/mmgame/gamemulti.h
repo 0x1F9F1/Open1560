@@ -185,4 +185,4 @@ protected:
 check_size(mmGameMulti, 0x0);
 
 // 0x6A77A0 | ?mmGameMultiMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A77A0_Offset, class MetaClass, mmGameMultiMetaClass);
+inline extern_var(0x6A77A0, class MetaClass, mmGameMultiMetaClass);

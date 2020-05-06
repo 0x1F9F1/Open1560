@@ -140,7 +140,7 @@ public:
 check_size(mmSkidManager, 0x68);
 
 // 0x6A7EC8 | ?mmSkidManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7EC8_Offset, class MetaClass, mmSkidManagerMetaClass);
+inline extern_var(0x6A7EC8, class MetaClass, mmSkidManagerMetaClass);
 
 // 0x6A7EA0 | ?mmSkidMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A7EA0_Offset, class MetaClass, mmSkidMetaClass);
+inline extern_var(0x6A7EA0, class MetaClass, mmSkidMetaClass);

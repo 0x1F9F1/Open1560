@@ -32,60 +32,60 @@ PUResults::~PUResults()
 
 void PUResults::AddName(i32 arg1, char* arg2, f32 arg3)
 {
-    return stub<thiscall_t<void, PUResults*, i32, char*, f32>>(0xA8A50_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, PUResults*, i32, char*, f32>>(0x4A8A50, this, arg1, arg2, arg3);
 }
 
 void PUResults::AddName(i32 arg1, char* arg2, i32 arg3)
 {
-    return stub<thiscall_t<void, PUResults*, i32, char*, i32>>(0xA8B00_Offset, this, arg1, arg2, arg3);
+    return stub<thiscall_t<void, PUResults*, i32, char*, i32>>(0x4A8B00, this, arg1, arg2, arg3);
 }
 
 void PUResults::AddTitle(struct LocString* arg1, struct LocString* arg2)
 {
-    return stub<thiscall_t<void, PUResults*, struct LocString*, struct LocString*>>(0xA89D0_Offset, this, arg1, arg2);
+    return stub<thiscall_t<void, PUResults*, struct LocString*, struct LocString*>>(0x4A89D0, this, arg1, arg2);
 }
 
 void PUResults::ClearNames()
 {
-    return stub<thiscall_t<void, PUResults*>>(0xA8BC0_Offset, this);
+    return stub<thiscall_t<void, PUResults*>>(0x4A8BC0, this);
 }
 
 void PUResults::DisableNextRace()
 {
-    return stub<thiscall_t<void, PUResults*>>(0xA8C30_Offset, this);
+    return stub<thiscall_t<void, PUResults*>>(0x4A8C30, this);
 }
 
 void PUResults::EnableNextRace()
 {
-    return stub<thiscall_t<void, PUResults*>>(0xA8C40_Offset, this);
+    return stub<thiscall_t<void, PUResults*>>(0x4A8C40, this);
 }
 
 void PUResults::Init320()
 {
-    return stub<thiscall_t<void, PUResults*>>(0xA81B0_Offset, this);
+    return stub<thiscall_t<void, PUResults*>>(0x4A81B0, this);
 }
 
 void PUResults::Init640()
 {
-    return stub<thiscall_t<void, PUResults*>>(0xA8590_Offset, this);
+    return stub<thiscall_t<void, PUResults*>>(0x4A8590, this);
 }
 
 void PUResults::Reset()
 {
-    return stub<thiscall_t<void, PUResults*>>(0xA8A00_Offset, this);
+    return stub<thiscall_t<void, PUResults*>>(0x4A8A00, this);
 }
 
 void PUResults::RestartRO(i32 arg1)
 {
-    return stub<thiscall_t<void, PUResults*, i32>>(0xA8A30_Offset, this, arg1);
+    return stub<thiscall_t<void, PUResults*, i32>>(0x4A8A30, this, arg1);
 }
 
 void PUResults::RosterRO(i32 arg1)
 {
-    return stub<thiscall_t<void, PUResults*, i32>>(0xA8A10_Offset, this, arg1);
+    return stub<thiscall_t<void, PUResults*, i32>>(0x4A8A10, this, arg1);
 }
 
 void PUResults::SetMessage(struct LocString* arg1)
 {
-    return stub<thiscall_t<void, PUResults*, struct LocString*>>(0xA8C50_Offset, this, arg1);
+    return stub<thiscall_t<void, PUResults*, struct LocString*>>(0x4A8C50, this, arg1);
 }

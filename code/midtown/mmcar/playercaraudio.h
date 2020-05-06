@@ -110,4 +110,4 @@ public:
 check_size(mmPlayerCarAudio, 0x100);
 
 // 0x6A8198 | ?mmPlayerCarAudioMetaClass@@3VMetaClass@@A
-inline extern_var(0x2A8198_Offset, class MetaClass, mmPlayerCarAudioMetaClass);
+inline extern_var(0x6A8198, class MetaClass, mmPlayerCarAudioMetaClass);
