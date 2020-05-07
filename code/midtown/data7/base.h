@@ -38,13 +38,13 @@ class Base
 public:
     // 0x414AD0 | ??_GBase@@UAEPAXI@Z
     // 0x5791E0 | ??1Base@@UAE@XZ
-    virtual ~Base();
+    virtual ~Base() = default;
 
     // 0x579290 | ?GetClass@Base@@UAEPAVMetaClass@@XZ
     virtual class MetaClass* GetClass();
 
     // 0x5791A0 | ?GetTypeNameV@Base@@UAEPADXZ
-    virtual char* GetTypeNameV();
+    virtual const char* GetTypeNameV();
 
     // 0x5791C0 | ?BeforeSave@Base@@UAEXXZ
     virtual void BeforeSave();
@@ -53,13 +53,13 @@ public:
     virtual void AfterLoad();
 
     // 0x5791B0 | ?GetTypeName@Base@@QAEPADXZ
-    char* GetTypeName();
+    const char* GetTypeName();
 
     // 0x5791F0 | ?DeclareFields@Base@@SAXXZ
     static void DeclareFields();
 };
 
-check_size(Base, 0x0);
+check_size(Base, 0x4);
 
 // 0x90B100 | ?BaseMetaClass@@3VMetaClass@@A
 inline extern_var(0x90B100, class MetaClass, BaseMetaClass);

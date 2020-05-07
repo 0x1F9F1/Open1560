@@ -73,7 +73,11 @@ public:
     // 0x521090 | ?SanityCheck@asMemoryAllocator@@QAEXXZ
     void SanityCheck();
 
+    usize SizeOf(void* ptr);
+
 private:
+    struct node;
+
     // 0x520E50 | ?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z
     void Link(struct asMemoryAllocator::node* arg1);
 
@@ -82,9 +86,19 @@ private:
 
     // 0x520F00 | ?Verify@asMemoryAllocator@@AAEXPAX@Z
     void Verify(void* arg1);
+
+    b32 initialized_ {false};
+    b32 debug_ {false};
+    u8* heap_ {nullptr};
+    u32 heap_size_ {0};
+    u32 heap_offset_ {0};
+    u32 lock_count_ {0};
+    b32 use_nodes_ {false};
+    struct asMemoryAllocator::node* buckets_[32] {};
+    struct asMemoryAllocator::node* last_ {nullptr};
 };
 
-check_size(asMemoryAllocator, 0x0);
+check_size(asMemoryAllocator, 0xA0);
 
 // 0x7805E8 | ?ALLOCATOR@@3VasMemoryAllocator@@A
 inline extern_var(0x7805E8, class asMemoryAllocator, ALLOCATOR);

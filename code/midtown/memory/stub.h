@@ -30,10 +30,8 @@
 */
 
 // 0x5215C0 | ??3@YAXPAX@Z
-void operator delete(void* arg1);
 
 // 0x5215A0 | ??2@YAPAXI@Z
-void* operator new(u32 arg1);
 
 // 0x521530 | _calloc (Skipped: void)
 

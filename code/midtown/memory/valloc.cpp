@@ -20,37 +20,86 @@ define_dummy_symbol(memory_valloc);
 
 #include "valloc.h"
 
+#include "core/minwin.h"
+
+#include "allocator.h"
+
+constexpr usize MultiHeapCount = 4;
+
 asSafeHeap::asSafeHeap()
-{
-    unimplemented();
-}
+{}
 
 asSafeHeap::~asSafeHeap()
 {
-    unimplemented();
+    Kill();
 }
 
-void asSafeHeap::Init(i32 arg1, i32 arg2)
+void asSafeHeap::Init(i32 heap_size, b32 multi_heap)
 {
-    return stub<thiscall_t<void, asSafeHeap*, i32, i32>>(0x5213B0, this, arg1, arg2);
+    SYSTEM_INFO sys_info;
+    GetSystemInfo(&sys_info);
+
+    heap_size = (heap_size + sys_info.dwPageSize - 1) & ~(sys_info.dwPageSize - 1);
+
+    heap_size_ = heap_size;
+    multi_heap_ = multi_heap_;
+
+    if (multi_heap)
+        heap_size *= MultiHeapCount;
+
+    heap_ = static_cast<u8*>(VirtualAlloc(
+        nullptr, heap_size, multi_heap ? MEM_RESERVE : MEM_COMMIT, multi_heap ? PAGE_NOACCESS : PAGE_READWRITE));
+
+    Activate();
 }
 
 void asSafeHeap::Kill()
 {
-    return stub<thiscall_t<void, asSafeHeap*>>(0x521450, this);
+    if (heap_)
+    {
+        Deactivate();
+
+        if (multi_heap_)
+        {
+            VirtualFree(heap_, 0, MEM_RELEASE);
+        }
+
+        heap_ = nullptr;
+    }
 }
 
 void asSafeHeap::Restart()
 {
-    return stub<thiscall_t<void, asSafeHeap*>>(0x521420, this);
+    Deactivate();
+
+    if (multi_heap_)
+    {
+        heap_index_ = (heap_index_ + 1) % MultiHeapCount;
+    }
+
+    Activate();
 }
 
 void asSafeHeap::Activate()
 {
-    return stub<thiscall_t<void, asSafeHeap*>>(0x521480, this);
+    current_heap_ = heap_ + (heap_size_ * heap_index_);
+
+    if (multi_heap_)
+    {
+        VirtualAlloc(current_heap_, heap_size_, MEM_COMMIT, PAGE_READWRITE);
+    }
+
+    ALLOCATOR.Init(current_heap_, heap_size_, true);
 }
 
 void asSafeHeap::Deactivate()
 {
-    return stub<thiscall_t<void, asSafeHeap*>>(0x5214C0, this);
+    if (multi_heap_)
+    {
+        VirtualFree(current_heap_, heap_size_, MEM_DECOMMIT);
+    }
+
+    current_heap_ = 0;
+
+    ALLOCATOR.Kill();
 }

@@ -141,9 +141,6 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
             create_patch("MixerCT", "Fix paDetails allocation", address + 3, "\x08", 1);
         }
 
-        //create_patch("PolarCamCS", "Increase Max XCAM Distance", 0x594D84, "\x00\x00\x7A\x43", 4);
-        // create_patch("PolarCamCS", "No Collision", 0x4ED51E, "\xEB", 1);
-
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();
@@ -244,7 +241,7 @@ include_dummy_symbol(agiworld_texsort);
 
 // include_dummy_symbol(data7_args);
 // include_dummy_symbol(data7_b2f);
-// include_dummy_symbol(data7_base);
+include_dummy_symbol(data7_base);
 // include_dummy_symbol(data7_cache);
 // include_dummy_symbol(data7_callback);
 // include_dummy_symbol(data7_global);
@@ -253,7 +250,7 @@ include_dummy_symbol(agiworld_texsort);
 // include_dummy_symbol(data7_list);
 include_dummy_symbol(data7_machname);
 // include_dummy_symbol(data7_memstat);
-// include_dummy_symbol(data7_metaclass);
+include_dummy_symbol(data7_metaclass);
 // include_dummy_symbol(data7_metatype);
 // include_dummy_symbol(data7_miniparser);
 // include_dummy_symbol(data7_mmx);
@@ -276,10 +273,10 @@ include_dummy_symbol(data7_printer);
 
 // include_dummy_symbol(localize_localize);
 
-// include_dummy_symbol(memory_allocator);
+include_dummy_symbol(memory_allocator);
 // include_dummy_symbol(memory_stack);
-// include_dummy_symbol(memory_stub);
-// include_dummy_symbol(memory_valloc);
+include_dummy_symbol(memory_stub);
+include_dummy_symbol(memory_valloc);
 
 // include_dummy_symbol(mmai_addoncaraudio);
 // include_dummy_symbol(mmai_aiData);

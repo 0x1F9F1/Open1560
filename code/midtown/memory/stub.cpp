@@ -20,12 +20,42 @@ define_dummy_symbol(memory_stub);
 
 #include "stub.h"
 
-void operator delete(void* arg1)
+#include "allocator.h"
+
+void* operator new(std::size_t size)
 {
-    return stub<cdecl_t<void, void*>>(0x5215C0, arg1);
+    export_hook(0x5215A0);
+
+    return CURHEAP->Allocate(size);
 }
 
-void* operator new(u32 arg1)
+void* operator new[](std::size_t size)
 {
-    return stub<cdecl_t<void*, u32>>(0x5215A0, arg1);
+    return CURHEAP->Allocate(size);
+}
+
+void operator delete(void* ptr) noexcept
+{
+    export_hook(0x5215C0);
+
+    CURHEAP->Free(ptr);
+}
+
+void operator delete[](void* ptr) noexcept
+{
+    CURHEAP->Free(ptr);
+}
+
+void operator delete(void* ptr, std::size_t sz) noexcept
+{
+    ArDebugAssert(CURHEAP->SizeOf(ptr) == sz, "Allocation Size Mismatch");
+
+    CURHEAP->Free(ptr);
+}
+
+void operator delete[](void* ptr, std::size_t sz) noexcept
+{
+    ArDebugAssert(CURHEAP->SizeOf(ptr) == sz, "Allocation Size Mismatch");
+
+    CURHEAP->Free(ptr);
 }

@@ -18,10 +18,12 @@
 
 #include "assert.h"
 
-[[noreturn]] void ArReportAssertion(const ArAssertData* data)
+[[noreturn]] void ArReportAssertion(const ArAssertData& data)
 {
-    Abortf("Assertion Failure: %s (%s) in %s (%s:%u)", data->message, data->condition, data->location.function,
-        data->location.filename, data->location.linenum);
+    const ArSourceLocation& location = data.location;
+
+    Abortf("Assertion Failure: %s (%s) in %s (%s:%u)", data.message, data.condition, location.function,
+        location.filename, location.linenum);
 
     std::abort();
 }

@@ -20,15 +20,49 @@ define_dummy_symbol(data7_metaclass);
 
 #include "metaclass.h"
 
-MetaClass::MetaClass(
-    char* arg1, u32 arg2, void* (*arg3)(i32), void (*arg4)(void*, i32), void (*arg5)(void), class MetaClass* arg6)
+// TODO: Figure out why ClassIndex starts at index 1
+
+MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32),
+    void (*declare)(void), class MetaClass* parent)
+    : name_(name)
+    , size_(size)
+    , allocate_(allocate)
+    , free_(free)
+    , declare_(declare)
+    , parent_(parent)
 {
-    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
+    if (parent_)
+        next_child_ = std::exchange(parent_->children_, this);
+
+    if (NextSerial == MAX_CLASSES - 1)
+        Abortf("Too many classes, raise MAX_CLASSES (data7/metaclass.cpp)");
+
+    index_ = ++NextSerial;
+    ClassIndex[NextSerial] = nullptr;
 }
 
 MetaClass::~MetaClass()
 {
-    unimplemented();
+    if (index_ != NextSerial)
+        Abortf("MetaClass destructed in wrong order, rebuild arts6 up");
+
+    ClassIndex[NextSerial] = nullptr;
+    --NextSerial;
+
+    if (parent_)
+    {
+        MetaClass** i = &parent_->children_;
+
+        for (; *i; i = &(*i)->next_child_)
+        {
+            if (*i == this)
+            {
+                *i = next_child_;
+
+                break;
+            }
+        }
+    }
 }
 
 void MetaClass::InitFields()

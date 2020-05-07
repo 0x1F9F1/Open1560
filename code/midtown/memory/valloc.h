@@ -41,7 +41,7 @@ public:
     ~asSafeHeap();
 
     // 0x5213B0 | ?Init@asSafeHeap@@QAEXHH@Z
-    void Init(i32 arg1, i32 arg2);
+    void Init(i32 heap_size, b32 multi_heap);
 
     // 0x521450 | ?Kill@asSafeHeap@@QAEXXZ
     void Kill();
@@ -55,9 +55,16 @@ protected:
 
     // 0x5214C0 | ?Deactivate@asSafeHeap@@IAEXXZ
     void Deactivate();
+
+private:
+    u8* current_heap_ {nullptr};
+    u8* heap_ {nullptr};
+    u32 heap_index_ {0};
+    u32 heap_size_ {0};
+    b32 multi_heap_ {false};
 };
 
-check_size(asSafeHeap, 0x0);
+check_size(asSafeHeap, 0x14);
 
 // 0x790730 | ?SAFEHEAP@@3VasSafeHeap@@A
 inline extern_var(0x790730, class asSafeHeap, SAFEHEAP);

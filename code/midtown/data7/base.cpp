@@ -20,37 +20,28 @@ define_dummy_symbol(data7_base);
 
 #include "base.h"
 
-Base::~Base()
-{
-    unimplemented(arg1);
-}
+#include "metaclass.h"
 
 class MetaClass* Base::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, Base*>>(0x579290, this);
+    return &BaseMetaClass;
 }
 
-char* Base::GetTypeNameV()
+const char* Base::GetTypeNameV()
 {
-    return stub<thiscall_t<char*, Base*>>(0x5791A0, this);
+    return GetClass()->GetName();
 }
 
 void Base::BeforeSave()
-{
-    return stub<thiscall_t<void, Base*>>(0x5791C0, this);
-}
+{}
 
 void Base::AfterLoad()
-{
-    return stub<thiscall_t<void, Base*>>(0x5791D0, this);
-}
+{}
 
-char* Base::GetTypeName()
+const char* Base::GetTypeName()
 {
-    return stub<thiscall_t<char*, Base*>>(0x5791B0, this);
+    return this ? GetTypeNameV() : "*NULL*";
 }
 
 void Base::DeclareFields()
-{
-    return stub<cdecl_t<void>>(0x5791F0);
-}
+{}

@@ -49,7 +49,7 @@ void ArUnimplemented(const ArSourceLocation& location);
 #define ArEnabledAssert(CONDITION, MESSAGE)                                                       \
     do                                                                                            \
     {                                                                                             \
-        if (IR_UNLIKELY(!(CONDITION)))                                                            \
+        if (ARTS_UNLIKELY(!(CONDITION)))                                                          \
         {                                                                                         \
             static const ::ArAssertData ar_assert_data {#CONDITION, MESSAGE, AR_SOURCE_LOCATION}; \
             ArReportAssertion(ar_assert_data);                                                    \

@@ -40,12 +40,26 @@
     0x90AE30 | public: static class MetaClass MetaClass::RootMetaClass | ?RootMetaClass@MetaClass@@2V1@A
 */
 
+struct MetaType;
+
+struct MetaField
+{
+    MetaField* Next {nullptr};
+    const char* Name {nullptr};
+    u32 Offset {0};
+    MetaType* Type {nullptr};
+};
+
+check_size(MetaField, 0x10);
+
+constexpr usize MAX_CLASSES = 256;
+
 class MetaClass
 {
 public:
     // 0x577AA0 | ??0MetaClass@@QAE@PADIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z
-    MetaClass(
-        char* arg1, u32 arg2, void* (*arg3)(i32), void (*arg4)(void*, i32), void (*arg5)(void), class MetaClass* arg6);
+    MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32), void (*declare)(void),
+        class MetaClass* parent);
 
     // 0x577B20 | ??1MetaClass@@QAE@XZ
     ~MetaClass();
@@ -64,6 +78,11 @@ public:
 
     // 0x577DE0 | ?SkipBlock@MetaClass@@QAEXPAVMiniParser@@@Z
     void SkipBlock(class MiniParser* arg1);
+
+    const char* GetName() const
+    {
+        return name_;
+    }
 
     // 0x578000 | ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z
     static void DeclareNamedTypedField(char* arg1, u32 arg2, struct MetaType* arg3);
@@ -88,9 +107,23 @@ public:
 
     // 0x90AE2C | ?ppField@MetaClass@@2PAPAUMetaField@@A
     static inline extern_var(0x90AE2C, struct MetaField**, ppField);
+
+private:
+    const char* name_ {nullptr};
+    u32 size_ {0};
+    void* (*allocate_)(i32) {nullptr};
+    void (*free_)(void*, i32) {nullptr};
+    void (*declare_)() {nullptr};
+    MetaClass* parent_ {nullptr};
+
+    // FIXME: If a child class is constructed before the parent, initializing children_ will reset it back to null (which breaks stuff).
+    MetaClass* children_ /*{nullptr}*/;
+    MetaClass* next_child_ {nullptr};
+    MetaField* fields_ {nullptr};
+    i32 index_ {0};
 };
 
-check_size(MetaClass, 0x0);
+check_size(MetaClass, 0x28);
 
 // 0x577C50 | ?__BadSafeCall@@YAXPADPAVBase@@@Z
 void __BadSafeCall(char* arg1, class Base* arg2);

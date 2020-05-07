@@ -20,15 +20,22 @@ define_dummy_symbol(memory_allocator);
 
 #include "allocator.h"
 
-asMemoryAllocator::asMemoryAllocator()
+struct asMemoryAllocator::node
 {
-    unimplemented();
-}
+    u32 Status;
+    u32 Size;
+
+    static node* from(void* ptr, b32 debug) noexcept
+    {
+        return reinterpret_cast<node*>(static_cast<u8*>(ptr) - (sizeof(node) + (debug ? 8 : 0)));
+    }
+};
+
+asMemoryAllocator::asMemoryAllocator()
+{}
 
 asMemoryAllocator::~asMemoryAllocator()
-{
-    unimplemented();
-}
+{}
 
 void* asMemoryAllocator::Allocate(u32 arg1)
 {
@@ -68,6 +75,11 @@ void* asMemoryAllocator::Reallocate(void* arg1, u32 arg2)
 void asMemoryAllocator::SanityCheck()
 {
     return stub<thiscall_t<void, asMemoryAllocator*>>(0x521090, this);
+}
+
+usize asMemoryAllocator::SizeOf(void* ptr)
+{
+    return asMemoryAllocator::node::from(ptr, debug_)->Size;
 }
 
 void asMemoryAllocator::Link(struct asMemoryAllocator::node* arg1)

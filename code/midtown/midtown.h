@@ -53,6 +53,11 @@
     0x672094 | int AllCars | ?AllCars@@3HA
 */
 
+#include "core/minwin.h"
+
+// 0x4031A0 | _WinMain@16 (Skipped: void)
+int WINAPI MidtownMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
+
 // 0x4030C0 | ?Application@@YAXHPAPAD@Z
 void Application(i32 arg1, char** arg2);
 
@@ -123,8 +128,6 @@ inline extern_var(0x672044, class mmGameRecord*, SystemStatsRecord);
 
 // 0x634690 | ?VERSION_STRING@@3PADA
 inline extern_var(0x634690, char*, VERSION_STRING);
-
-// 0x4031A0 | _WinMain@16 (Skipped: void)
 
 // 0x672040 | ?__VtPauseSampling@@3P6AHXZA
 inline extern_var(0x672040, i32 (*)(void), __VtPauseSampling);
