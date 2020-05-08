@@ -20,32 +20,18 @@ define_dummy_symbol(arts7_cullable);
 
 #include "cullable.h"
 
-asCullable::asCullable()
-{
-    unimplemented();
-}
-
-asCullable::~asCullable()
-{
-    unimplemented(arg1);
-}
-
 void asCullable::Cull()
-{
-    return stub<thiscall_t<void, asCullable*>>(0x5258C0, this);
-}
+{}
 
-void asCullable::AddWidgets(class Bank* arg1)
-{
-    return stub<thiscall_t<void, asCullable*, class Bank*>>(0x5258D0, this, arg1);
-}
+void asCullable::AddWidgets(class Bank* /*arg1*/)
+{}
 
 class MetaClass* asCullable::GetClass()
 {
-    return stub<thiscall_t<class MetaClass*, asCullable*>>(0x525A30, this);
+    return &asCullableMetaClass;
 }
 
 void asCullable::DeclareFields()
 {
-    return stub<cdecl_t<void>>(0x5258E0);
+    Base::DeclareFields();
 }

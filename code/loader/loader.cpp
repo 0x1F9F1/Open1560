@@ -227,14 +227,14 @@ include_dummy_symbol(agiworld_texsort);
 
 // include_dummy_symbol(arts7_benchstats);
 // include_dummy_symbol(arts7_camera);
-// include_dummy_symbol(arts7_cullable);
+include_dummy_symbol(arts7_cullable);
 // include_dummy_symbol(arts7_cullmgr);
 // include_dummy_symbol(arts7_dof);
 // include_dummy_symbol(arts7_form);
 // include_dummy_symbol(arts7_lamp);
 // include_dummy_symbol(arts7_linear);
 // include_dummy_symbol(arts7_midgets);
-// include_dummy_symbol(arts7_node);
+include_dummy_symbol(arts7_node);
 // include_dummy_symbol(arts7_pgraph);
 // include_dummy_symbol(arts7_sim);
 // include_dummy_symbol(arts7_view);

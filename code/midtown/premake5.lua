@@ -5,7 +5,7 @@ include "core"
 -- include "agirend"
 -- include "agisw"
 include "agiworld"
--- include "arts7"
+include "arts7"
 include "data7"
 -- include "dyna7"
 -- include "eventq7"
@@ -47,7 +47,7 @@ arts_component "midtown"
         -- "arts_agirend",
         -- "arts_agisw",
         "arts_agiworld",
-        -- "arts_arts7",
+        "arts_arts7",
         "arts_data7",
         -- "arts_dyna7",
         -- "arts_eventq7",

@@ -4,8 +4,8 @@ arts_component "arts7"
         -- "benchstats.h",
         -- "camera.cpp",
         -- "camera.h",
-        -- "cullable.cpp",
-        -- "cullable.h",
+        "cullable.cpp",
+        "cullable.h",
         -- "cullmgr.cpp",
         -- "cullmgr.h",
         -- "dof.cpp",
@@ -18,8 +18,8 @@ arts_component "arts7"
         -- "linear.h",
         -- "midgets.cpp",
         -- "midgets.h",
-        -- "node.cpp",
-        -- "node.h",
+        "node.cpp",
+        "node.h",
         -- "pgraph.cpp",
         -- "pgraph.h",
         -- "sim.cpp",
@@ -27,4 +27,3 @@ arts_component "arts7"
         -- "view.cpp",
         -- "view.h",
     }
-

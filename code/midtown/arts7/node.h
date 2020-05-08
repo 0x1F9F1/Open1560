@@ -70,7 +70,7 @@ class asNode : public asCullable
 
 public:
     // 0x5237C0 | ??0asNode@@QAE@XZ
-    asNode();
+    asNode() = default;
 
     // 0x524640 | ??_EasNode@@UAEPAXI@Z
     // 0x5237F0 | ??1asNode@@UAE@XZ
@@ -168,9 +168,22 @@ public:
 
     // 0x790834 | ?TimingCount@asNode@@2HA
     static inline extern_var(0x790834, i32, TimingCount);
+
+private:
+    float update_time_ {0.0f};
+
+    asNode* next_node_ {nullptr};
+    asNode* child_node_ {nullptr};
+    asNode* parent_node_ {nullptr};
+
+    char* node_name_ {nullptr}; // TODO: Use cstring wrapper
+
+    i32 active_ {0x3};
+
+    class Bank* current_bank_ {nullptr};
 };
 
-check_size(asNode, 0x0);
+check_size(asNode, 0x20);
 
 // 0x524610 | ?PtrTo@@YAPAUMetaType@@PAU1@@Z
 struct MetaType* PtrTo(struct MetaType* arg1);

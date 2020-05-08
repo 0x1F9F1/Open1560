@@ -20,14 +20,14 @@ define_dummy_symbol(arts7_node);
 
 #include "node.h"
 
-asNode::asNode()
-{
-    unimplemented();
-}
-
 asNode::~asNode()
 {
-    unimplemented(arg1);
+    if (parent_node_)
+        parent_node_->RemoveChild(this);
+
+    RemoveAllChildren();
+
+    delete[] node_name_;
 }
 
 void asNode::Update()
