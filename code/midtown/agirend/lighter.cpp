@@ -35,12 +35,6 @@ void agiLighter::TransformAll(class Matrix34* arg1, class Vector3* arg2, u32 arg
     return stub<thiscall_t<void, agiLighter*, class Matrix34*, class Vector3*, u32>>(0x551800, this, arg1, arg2, arg3);
 }
 
-u32 agiLighter::LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3)
-{
-    return stub<thiscall_t<u32, agiLighter*, u32, struct agiLitVtx*, class Vector3*>>(
-        0x - 400000_Offset, this, arg1, arg2, arg3);
-}
-
 void agiLighter::BeginScene()
 {
     return stub<cdecl_t<void>>(0x551760);

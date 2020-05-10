@@ -31,19 +31,19 @@ aiGoalChase::~aiGoalChase()
     unimplemented();
 }
 
-void aiGoalChase::Init()
-{
-    return stub<thiscall_t<void, aiGoalChase*>>(0x45FDC0, this);
-}
-
-void aiGoalChase::Reset()
-{
-    return stub<thiscall_t<void, aiGoalChase*>>(0x45FED0, this);
-}
-
 i32 aiGoalChase::Context()
 {
     return stub<thiscall_t<i32, aiGoalChase*>>(0x460080, this);
+}
+
+void aiGoalChase::Dump()
+{
+    return stub<thiscall_t<void, aiGoalChase*>>(0x4655D0, this);
+}
+
+void aiGoalChase::Init()
+{
+    return stub<thiscall_t<void, aiGoalChase*>>(0x45FDC0, this);
 }
 
 i32 aiGoalChase::Priority()
@@ -51,14 +51,14 @@ i32 aiGoalChase::Priority()
     return stub<thiscall_t<i32, aiGoalChase*>>(0x460760, this);
 }
 
+void aiGoalChase::Reset()
+{
+    return stub<thiscall_t<void, aiGoalChase*>>(0x45FED0, this);
+}
+
 void aiGoalChase::Update()
 {
     return stub<thiscall_t<void, aiGoalChase*>>(0x460770, this);
-}
-
-void aiGoalChase::Dump()
-{
-    return stub<thiscall_t<void, aiGoalChase*>>(0x4655D0, this);
 }
 
 void aiGoalChase::AddToBlockedRange(f32 arg1, f32 arg2, f32 arg3)

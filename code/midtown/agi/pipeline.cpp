@@ -20,24 +20,9 @@ define_dummy_symbol(agi_pipeline);
 
 #include "pipeline.h"
 
-agiPipeline::~agiPipeline()
-{
-    unimplemented(arg1);
-}
-
 i32 agiPipeline::Validate()
 {
     return stub<thiscall_t<i32, agiPipeline*>>(0x555540, this);
-}
-
-i32 agiPipeline::BeginGfx()
-{
-    return stub<thiscall_t<i32, agiPipeline*>>(0x - 400000_Offset, this);
-}
-
-void agiPipeline::EndGfx()
-{
-    return stub<thiscall_t<void, agiPipeline*>>(0x - 400000_Offset, this);
 }
 
 void agiPipeline::BeginFrame()
@@ -60,29 +45,9 @@ void agiPipeline::EndFrame()
     return stub<thiscall_t<void, agiPipeline*>>(0x556030, this);
 }
 
-class agiTexDef* agiPipeline::CreateTexDef()
-{
-    return stub<thiscall_t<class agiTexDef*, agiPipeline*>>(0x - 400000_Offset, this);
-}
-
-class agiTexLut* agiPipeline::CreateTexLut()
-{
-    return stub<thiscall_t<class agiTexLut*, agiPipeline*>>(0x - 400000_Offset, this);
-}
-
 class agiMtlDef* agiPipeline::CreateMtlDef()
 {
     return stub<thiscall_t<class agiMtlDef*, agiPipeline*>>(0x555B10, this);
-}
-
-class DLP* agiPipeline::CreateDLP()
-{
-    return stub<thiscall_t<class DLP*, agiPipeline*>>(0x - 400000_Offset, this);
-}
-
-class agiViewport* agiPipeline::CreateViewport()
-{
-    return stub<thiscall_t<class agiViewport*, agiPipeline*>>(0x - 400000_Offset, this);
 }
 
 class agiLight* agiPipeline::CreateLight()
@@ -104,11 +69,6 @@ void agiPipeline::CopyBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4
 {
     return stub<thiscall_t<void, agiPipeline*, i32, i32, class agiBitmap*, i32, i32, i32, i32>>(
         0x555D40, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
-}
-
-void agiPipeline::ClearAll(i32 arg1)
-{
-    return stub<thiscall_t<void, agiPipeline*, i32>>(0x - 400000_Offset, this, arg1);
 }
 
 void agiPipeline::ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5)

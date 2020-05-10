@@ -30,11 +30,6 @@ asNetObject::~asNetObject()
     unimplemented(arg1);
 }
 
-void asNetObject::SetLocalData()
-{
-    return stub<thiscall_t<void, asNetObject*>>(0x - 400000_Offset, this);
-}
-
 void asNetObject::PositionUpdate(class Matrix34* arg1, class Vector3 arg2, f32 arg3, f32 arg4, f32 arg5)
 {
     return stub<thiscall_t<void, asNetObject*, class Matrix34*, class Vector3, f32, f32, f32>>(

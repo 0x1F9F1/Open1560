@@ -134,11 +134,6 @@ void mmCompBase::SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4)
     return stub<thiscall_t<void, mmCompBase*, f32, f32, f32, f32>>(0x4B4EA0, this, arg1, arg2, arg3, arg4);
 }
 
-void mmCompBase::SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3)
-{
-    return stub<thiscall_t<void, mmCompBase*, class mmTextNode*, i32, f32>>(0x - 400000_Offset, this, arg1, arg2, arg3);
-}
-
 void mmCompBase::Reset()
 {
     return stub<thiscall_t<void, mmCompBase*>>(0x4BF2D0, this);

@@ -35,11 +35,6 @@ mmEffectFF::~mmEffectFF()
     unimplemented();
 }
 
-i32 mmEffectFF::Init(struct IDirectInputDevice2A* arg1)
-{
-    return stub<thiscall_t<i32, mmEffectFF*, struct IDirectInputDevice2A*>>(0x - 400000_Offset, this, arg1);
-}
-
 i32 mmEffectFF::Play()
 {
     return stub<thiscall_t<i32, mmEffectFF*>>(0x4E7440, this);

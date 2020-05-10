@@ -49,7 +49,9 @@
     0x6A7C00 | class MetaClass aiGoalFollowWayPtsMetaClass | ?aiGoalFollowWayPtsMetaClass@@3VMetaClass@@A
 */
 
-struct aiGoalFollowWayPts
+#include "aiGoalRandomDrive.h"
+
+struct aiGoalFollowWayPts : aiGoal
 {
     // const aiGoalFollowWayPts::`vftable' @ 0x61BCD0
 
@@ -65,29 +67,29 @@ public:
     // 0x46A310 | ??_EaiGoalFollowWayPts@@QAEPAXI@Z
     ~aiGoalFollowWayPts();
 
-    // 0x4664D0 | ?Init@aiGoalFollowWayPts@@UAEXXZ
-    virtual void Init();
-
-    // 0x4669C0 | ?Reset@aiGoalFollowWayPts@@UAEXXZ
-    virtual void Reset();
-
-    // 0x4668C0 | ?Context@aiGoalFollowWayPts@@UAEHXZ
-    virtual i32 Context();
-
-    // 0x4669B0 | ?Priority@aiGoalFollowWayPts@@UAEHXZ
-    virtual i32 Priority();
-
-    // 0x466AB0 | ?Update@aiGoalFollowWayPts@@UAEXXZ
-    virtual void Update();
-
     // 0x46A2D0 | ?GetClass@aiGoalFollowWayPts@@UAEPAVMetaClass@@XZ
     virtual class MetaClass* GetClass();
 
     // 0x46A0E0 | ?AddWidgets@aiGoalFollowWayPts@@QAEXPAVBank@@@Z
     void AddWidgets(class Bank* arg1);
 
+    // 0x4668C0 | ?Context@aiGoalFollowWayPts@@UAEHXZ
+    i32 Context() override;
+
     // 0x469E60 | ?Dump@aiGoalFollowWayPts@@QAEXXZ
     void Dump();
+
+    // 0x4664D0 | ?Init@aiGoalFollowWayPts@@UAEXXZ
+    void Init() override;
+
+    // 0x4669B0 | ?Priority@aiGoalFollowWayPts@@UAEHXZ
+    i32 Priority() override;
+
+    // 0x4669C0 | ?Reset@aiGoalFollowWayPts@@UAEXXZ
+    void Reset() override;
+
+    // 0x466AB0 | ?Update@aiGoalFollowWayPts@@UAEXXZ
+    void Update() override;
 
     // 0x46A140 | ?DeclareFields@aiGoalFollowWayPts@@SAXXZ
     static void DeclareFields();

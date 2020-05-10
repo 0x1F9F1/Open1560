@@ -30,16 +30,6 @@ MiniParser::~MiniParser()
     unimplemented();
 }
 
-i32 MiniParser::RawGetCh()
-{
-    return stub<thiscall_t<i32, MiniParser*>>(0x - 400000_Offset, this);
-}
-
-void MiniParser::RawPutCh(i32 arg1)
-{
-    return stub<thiscall_t<void, MiniParser*, i32>>(0x - 400000_Offset, this, arg1);
-}
-
 void MiniParser::Commentf(char const* arg1, ...)
 {
     unimplemented(arg1);

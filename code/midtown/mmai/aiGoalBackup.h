@@ -32,7 +32,9 @@
     0x61BB50 | const aiGoalBackup::`vftable' | ??_7aiGoalBackup@@6B@
 */
 
-struct aiGoalBackup
+#include "aiGoalRandomDrive.h"
+
+struct aiGoalBackup : aiGoal
 {
     // const aiGoalBackup::`vftable' @ 0x61BB50
 
@@ -43,20 +45,20 @@ public:
     // 0x45F860 | ??1aiGoalBackup@@QAE@XZ
     ~aiGoalBackup();
 
-    // 0x45F870 | ?Init@aiGoalBackup@@UAEXXZ
-    virtual void Init();
-
-    // 0x45F8A0 | ?Reset@aiGoalBackup@@UAEXXZ
-    virtual void Reset();
-
     // 0x45F880 | ?Context@aiGoalBackup@@UAEHXZ
-    virtual i32 Context();
+    i32 Context() override;
+
+    // 0x45F870 | ?Init@aiGoalBackup@@UAEXXZ
+    void Init() override;
 
     // 0x45F890 | ?Priority@aiGoalBackup@@UAEHXZ
-    virtual i32 Priority();
+    i32 Priority() override;
+
+    // 0x45F8A0 | ?Reset@aiGoalBackup@@UAEXXZ
+    void Reset() override;
 
     // 0x45F8D0 | ?Update@aiGoalBackup@@UAEXXZ
-    virtual void Update();
+    void Update() override;
 
 private:
     // 0x45FC10 | ?FinishedBackingUp@aiGoalBackup@@AAEXXZ

@@ -57,7 +57,9 @@
     0x61BC28 | const aiGoalChase::`vftable' | ??_7aiGoalChase@@6B@
 */
 
-struct aiGoalChase
+#include "aiGoalRandomDrive.h"
+
+struct aiGoalChase : aiGoal
 {
     // const aiGoalChase::`vftable' @ 0x61BC28
 
@@ -69,23 +71,23 @@ public:
     // 0x45FD70 | ??1aiGoalChase@@QAE@XZ
     ~aiGoalChase();
 
-    // 0x45FDC0 | ?Init@aiGoalChase@@UAEXXZ
-    virtual void Init();
-
-    // 0x45FED0 | ?Reset@aiGoalChase@@UAEXXZ
-    virtual void Reset();
-
     // 0x460080 | ?Context@aiGoalChase@@UAEHXZ
-    virtual i32 Context();
-
-    // 0x460760 | ?Priority@aiGoalChase@@UAEHXZ
-    virtual i32 Priority();
-
-    // 0x460770 | ?Update@aiGoalChase@@UAEXXZ
-    virtual void Update();
+    i32 Context() override;
 
     // 0x4655D0 | ?Dump@aiGoalChase@@QAEXXZ
     void Dump();
+
+    // 0x45FDC0 | ?Init@aiGoalChase@@UAEXXZ
+    void Init() override;
+
+    // 0x460760 | ?Priority@aiGoalChase@@UAEHXZ
+    i32 Priority() override;
+
+    // 0x45FED0 | ?Reset@aiGoalChase@@UAEXXZ
+    void Reset() override;
+
+    // 0x460770 | ?Update@aiGoalChase@@UAEXXZ
+    void Update() override;
 
 private:
     // 0x464F10 | ?AddToBlockedRange@aiGoalChase@@AAEXMMM@Z

@@ -36,31 +36,6 @@ aiGoalFollowWayPts::~aiGoalFollowWayPts()
     unimplemented();
 }
 
-void aiGoalFollowWayPts::Init()
-{
-    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x4664D0, this);
-}
-
-void aiGoalFollowWayPts::Reset()
-{
-    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x4669C0, this);
-}
-
-i32 aiGoalFollowWayPts::Context()
-{
-    return stub<thiscall_t<i32, aiGoalFollowWayPts*>>(0x4668C0, this);
-}
-
-i32 aiGoalFollowWayPts::Priority()
-{
-    return stub<thiscall_t<i32, aiGoalFollowWayPts*>>(0x4669B0, this);
-}
-
-void aiGoalFollowWayPts::Update()
-{
-    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x466AB0, this);
-}
-
 class MetaClass* aiGoalFollowWayPts::GetClass()
 {
     return stub<thiscall_t<class MetaClass*, aiGoalFollowWayPts*>>(0x46A2D0, this);
@@ -71,9 +46,34 @@ void aiGoalFollowWayPts::AddWidgets(class Bank* arg1)
     return stub<thiscall_t<void, aiGoalFollowWayPts*, class Bank*>>(0x46A0E0, this, arg1);
 }
 
+i32 aiGoalFollowWayPts::Context()
+{
+    return stub<thiscall_t<i32, aiGoalFollowWayPts*>>(0x4668C0, this);
+}
+
 void aiGoalFollowWayPts::Dump()
 {
     return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x469E60, this);
+}
+
+void aiGoalFollowWayPts::Init()
+{
+    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x4664D0, this);
+}
+
+i32 aiGoalFollowWayPts::Priority()
+{
+    return stub<thiscall_t<i32, aiGoalFollowWayPts*>>(0x4669B0, this);
+}
+
+void aiGoalFollowWayPts::Reset()
+{
+    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x4669C0, this);
+}
+
+void aiGoalFollowWayPts::Update()
+{
+    return stub<thiscall_t<void, aiGoalFollowWayPts*>>(0x466AB0, this);
 }
 
 void aiGoalFollowWayPts::DeclareFields()

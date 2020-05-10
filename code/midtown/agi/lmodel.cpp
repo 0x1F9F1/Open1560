@@ -40,11 +40,6 @@ agiLightModel::~agiLightModel()
     unimplemented(arg1);
 }
 
-i32 agiLightModel::Activate()
-{
-    return stub<thiscall_t<i32, agiLightModel*>>(0x - 400000_Offset, this);
-}
-
 char* agiLightModel::GetName()
 {
     return stub<thiscall_t<char*, agiLightModel*>>(0x55BDD0, this);

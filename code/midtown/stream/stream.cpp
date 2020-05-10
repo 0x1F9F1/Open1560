@@ -45,31 +45,6 @@ i32 Stream::GetPagingInfo(u32& arg1, u32& arg2, u32& arg3)
     return stub<thiscall_t<i32, Stream*, u32&, u32&, u32&>>(0x55EDA0, this, arg1, arg2, arg3);
 }
 
-i32 Stream::RawRead(void* arg1, i32 arg2)
-{
-    return stub<thiscall_t<i32, Stream*, void*, i32>>(0x - 400000_Offset, this, arg1, arg2);
-}
-
-i32 Stream::RawWrite(void* arg1, i32 arg2)
-{
-    return stub<thiscall_t<i32, Stream*, void*, i32>>(0x - 400000_Offset, this, arg1, arg2);
-}
-
-i32 Stream::RawSeek(i32 arg1)
-{
-    return stub<thiscall_t<i32, Stream*, i32>>(0x - 400000_Offset, this, arg1);
-}
-
-i32 Stream::RawTell()
-{
-    return stub<thiscall_t<i32, Stream*>>(0x - 400000_Offset, this);
-}
-
-i32 Stream::RawSize()
-{
-    return stub<thiscall_t<i32, Stream*>>(0x - 400000_Offset, this);
-}
-
 void Stream::RawDebug()
 {
     return stub<thiscall_t<void, Stream*>>(0x55EE90, this);

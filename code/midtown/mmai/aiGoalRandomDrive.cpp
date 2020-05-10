@@ -30,29 +30,9 @@ aiGoalRandomDrive::~aiGoalRandomDrive()
     unimplemented();
 }
 
-void aiGoalRandomDrive::Init()
-{
-    return stub<thiscall_t<void, aiGoalRandomDrive*>>(0x45C8B0, this);
-}
-
-void aiGoalRandomDrive::Reset()
-{
-    return stub<thiscall_t<void, aiGoalRandomDrive*>>(0x45C8D0, this);
-}
-
 i32 aiGoalRandomDrive::Context()
 {
     return stub<thiscall_t<i32, aiGoalRandomDrive*>>(0x45D440, this);
-}
-
-i32 aiGoalRandomDrive::Priority()
-{
-    return stub<thiscall_t<i32, aiGoalRandomDrive*>>(0x45D460, this);
-}
-
-void aiGoalRandomDrive::Update()
-{
-    return stub<thiscall_t<void, aiGoalRandomDrive*>>(0x45D320, this);
 }
 
 void aiGoalRandomDrive::Dump()
@@ -60,9 +40,29 @@ void aiGoalRandomDrive::Dump()
     return stub<thiscall_t<void, aiGoalRandomDrive*>>(0x45F690, this);
 }
 
+void aiGoalRandomDrive::Init()
+{
+    return stub<thiscall_t<void, aiGoalRandomDrive*>>(0x45C8B0, this);
+}
+
+i32 aiGoalRandomDrive::Priority()
+{
+    return stub<thiscall_t<i32, aiGoalRandomDrive*>>(0x45D460, this);
+}
+
+void aiGoalRandomDrive::Reset()
+{
+    return stub<thiscall_t<void, aiGoalRandomDrive*>>(0x45C8D0, this);
+}
+
 void aiGoalRandomDrive::SolvePosition(class Vector3& arg1, f32 arg2)
 {
     return stub<thiscall_t<void, aiGoalRandomDrive*, class Vector3&, f32>>(0x45E250, this, arg1, arg2);
+}
+
+void aiGoalRandomDrive::Update()
+{
+    return stub<thiscall_t<void, aiGoalRandomDrive*>>(0x45D320, this);
 }
 
 i32 aiGoalRandomDrive::AnyVehiclesComingThisWay()
@@ -103,6 +103,26 @@ void aiGoalRandomDrive::SolveVelocity()
 aiGoal::~aiGoal()
 {
     unimplemented();
+}
+
+void aiGoal::Init()
+{
+    return stub<thiscall_t<void, aiGoal*>>(0x0, this);
+}
+
+void aiGoal::Reset()
+{
+    return stub<thiscall_t<void, aiGoal*>>(0x0, this);
+}
+
+i32 aiGoal::Context()
+{
+    return stub<thiscall_t<i32, aiGoal*>>(0x0, this);
+}
+
+i32 aiGoal::Priority()
+{
+    return stub<thiscall_t<i32, aiGoal*>>(0x0, this);
 }
 
 void aiGoal::Update()

@@ -830,8 +830,8 @@ def choose_best_dtor(class_symbols):
     return all_dtors
 
 def format_address(address):
-    # return '0x{:X}'.format(value.address)
-    return '0x{:X}_Offset'.format(value.address - 0x400000)
+    return '0x{:X}'.format(value.address)
+    # return '0x{:X}_Offset'.format(value.address - 0x400000)
 
 print('Loading MAP')
 # Load symbols from .map, but using addresses from the .idc
@@ -950,6 +950,15 @@ class_hier = compute_hierarchy(class_hier, {
     'MixerCTL': ['Dispatchable', 'Base'],
     'asMidgets': ['Bank', 'asCullable'],
     'WINEventHandler': ['eqEventHandler', 'Dispatchable'],
+
+    'aiGoalAvoidPlayer': ['aiGoal'],
+    'aiGoalBackup': ['aiGoal'],
+    'aiGoalChase': ['aiGoal'],
+    'aiGoalCollision': ['aiGoal'],
+    'aiGoalFollowWayPts': ['aiGoal'],
+    'aiGoalRandomDrive': ['aiGoal'],
+    'aiGoalRegainRail': ['aiGoal'],
+    'aiGoalStop': ['aiGoal'],
 }, {
     'Timer',
     'Callback'
@@ -966,7 +975,7 @@ type_classes = collect_symbol_type_classes(all_symbols, class_hier)
 # print(type_classes)
 
 type_classes.update({
-    # 'Base': 'class'
+    'aiGoal': 'class',
 })
 
 print('Backporting vftable purecalls')
@@ -1014,6 +1023,11 @@ for lib, paths in grouped_symbols.items():
         continue
 
     if any((lib.startswith(v) for v in IGNORED_LIB_PREFIXES)):
+        continue
+
+    if lib not in [
+
+    ]:
         continue
 
     if lib in [
@@ -1184,73 +1198,75 @@ for lib, paths in grouped_symbols.items():
 
                 if value.raw_name == '__purecall':
                     tokens.append(' = 0')
-
-                src_tokens = []
-
-                if value.static and not value.is_member:
-                    src_tokens.append('static')
-
-                if value.member_type not in ['ctor', 'dtor']:
-                    src_tokens.extend([beautify_type(v) for v in value.type.get_tokens_before_name()])
-
-                if cc_name is not None:
-                    src_tokens.append(cc_name)
-
-                src_tokens.append('::'.join(sym_name))
-
-                if value.member_type != 'dtor':
-                    src_tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
                 else:
-                    src_tokens.extend(['(', ')'])
+                    assert value.address != 0
 
-                src_tokens.append('{')
+                    src_tokens = []
 
-                if (value.member_type not in ['ctor', 'dtor']) and not value.type.has_variable_arguments:
-                    src_tokens.append('return')
+                    if value.static and not value.is_member:
+                        src_tokens.append('static')
 
-                    src_tokens.append('stub')
-                    src_tokens.append('<')
+                    if value.member_type not in ['ctor', 'dtor']:
+                        src_tokens.extend([beautify_type(v) for v in value.type.get_tokens_before_name()])
 
-                    src_tokens.append('{}_t'.format(value.type.calling_convention.name))
-                    src_tokens.append('<')
+                    if cc_name is not None:
+                        src_tokens.append(cc_name)
 
-                    src_tokens.append(beautify_type(value.type.return_value))
+                    src_tokens.append('::'.join(sym_name))
 
-                    if add_this_ptr:
-                        src_tokens.append(',')
-                        src_tokens.append(value.parts[-2])
-                        src_tokens.append('*')
+                    if value.member_type != 'dtor':
+                        src_tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
+                    else:
+                        src_tokens.extend(['(', ')'])
 
-                    for param in value.type.parameters:
-                        src_tokens.append(',')
-                        src_tokens.append(beautify_type(param.type))
+                    src_tokens.append('{')
 
-                    src_tokens.append('>')
-                    src_tokens.append('>')
+                    if (value.member_type not in ['ctor', 'dtor']) and not value.type.has_variable_arguments:
+                        src_tokens.append('return')
 
-                    src_tokens.append('(')
+                        src_tokens.append('stub')
+                        src_tokens.append('<')
 
-                    src_tokens.append(format_address(value.address))
+                        src_tokens.append('{}_t'.format(value.type.calling_convention.name))
+                        src_tokens.append('<')
 
-                    if add_this_ptr:
-                        src_tokens.append(',')
-                        src_tokens.append('this')
+                        src_tokens.append(beautify_type(value.type.return_value))
 
-                    for param in value.type.parameters:
-                        src_tokens.append(',')
-                        src_tokens.append(param.name)
+                        if add_this_ptr:
+                            src_tokens.append(',')
+                            src_tokens.append(value.parts[-2])
+                            src_tokens.append('*')
 
-                    src_tokens.append(')')
-                else:
-                    src_tokens.append('unimplemented({})'.format(', '.join( p.name for p in value.type.parameters )))
+                        for param in value.type.parameters:
+                            src_tokens.append(',')
+                            src_tokens.append(beautify_type(param.type))
 
-                src_tokens.append(';')
+                        src_tokens.append('>')
+                        src_tokens.append('>')
 
-                src_tokens.append('}')
+                        src_tokens.append('(')
 
-                if src_tokens:
-                    lib_source += ' '.join(src_tokens)
-                    lib_source += '\n\n'
+                        src_tokens.append(format_address(value.address))
+
+                        if add_this_ptr:
+                            src_tokens.append(',')
+                            src_tokens.append('this')
+
+                        for param in value.type.parameters:
+                            src_tokens.append(',')
+                            src_tokens.append(param.name)
+
+                        src_tokens.append(')')
+                    else:
+                        src_tokens.append('unimplemented({})'.format(', '.join( p.name for p in value.type.parameters )))
+
+                    src_tokens.append(';')
+
+                    src_tokens.append('}')
+
+                    if src_tokens:
+                        lib_source += ' '.join(src_tokens)
+                        lib_source += '\n\n'
             else:
                 if value.static:
                     tokens.append('static')

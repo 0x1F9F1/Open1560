@@ -30,36 +30,6 @@ eqEventHandler::~eqEventHandler()
     unimplemented(arg1);
 }
 
-i32 eqEventHandler::BeginGfx(i32 arg1, i32 arg2, i32 arg3)
-{
-    return stub<thiscall_t<i32, eqEventHandler*, i32, i32, i32>>(0x - 400000_Offset, this, arg1, arg2, arg3);
-}
-
-void eqEventHandler::EndGfx()
-{
-    return stub<thiscall_t<void, eqEventHandler*>>(0x - 400000_Offset, this);
-}
-
-void eqEventHandler::Update(i32 arg1)
-{
-    return stub<thiscall_t<void, eqEventHandler*, i32>>(0x - 400000_Offset, this, arg1);
-}
-
-void eqEventHandler::BeginTracking()
-{
-    return stub<thiscall_t<void, eqEventHandler*>>(0x - 400000_Offset, this);
-}
-
-void eqEventHandler::EndTracking()
-{
-    return stub<thiscall_t<void, eqEventHandler*>>(0x - 400000_Offset, this);
-}
-
-char* eqEventHandler::GKeyName(i32 arg1)
-{
-    return stub<thiscall_t<char*, eqEventHandler*, i32>>(0x - 400000_Offset, this, arg1);
-}
-
 void eqEventHandler::AddClient(class eqEventMonitor* arg1)
 {
     return stub<thiscall_t<void, eqEventHandler*, class eqEventMonitor*>>(0x563200, this, arg1);

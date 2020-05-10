@@ -40,11 +40,6 @@ agiLight::~agiLight()
     unimplemented(arg1);
 }
 
-i32 agiLight::Update()
-{
-    return stub<thiscall_t<i32, agiLight*>>(0x - 400000_Offset, this);
-}
-
 void agiLight::Remove()
 {
     return stub<thiscall_t<void, agiLight*>>(0x55BB00, this);

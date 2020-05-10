@@ -30,13 +30,6 @@ asPortalWeb::~asPortalWeb()
     unimplemented(arg1);
 }
 
-struct asPortalCell* asPortalWeb::GetStartCell(class Vector3& arg1, struct asPortalCell* arg2, class mmPolygon** arg3)
-{
-    return stub<
-        thiscall_t<struct asPortalCell*, asPortalWeb*, class Vector3&, struct asPortalCell*, class mmPolygon**>>(
-        0x - 400000_Offset, this, arg1, arg2, arg3);
-}
-
 struct asPortalCell* asPortalWeb::AddCell(char* arg1, class asPortalRenderable* arg2, u32 arg3)
 {
     return stub<thiscall_t<struct asPortalCell*, asPortalWeb*, char*, class asPortalRenderable*, u32>>(

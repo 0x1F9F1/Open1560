@@ -30,50 +30,9 @@ FileSystem::~FileSystem()
     unimplemented(arg1);
 }
 
-i32 FileSystem::ValidPath(char* arg1)
-{
-    return stub<thiscall_t<i32, FileSystem*, char*>>(0x - 400000_Offset, this, arg1);
-}
-
-i32 FileSystem::QueryOn(char* arg1)
-{
-    return stub<thiscall_t<i32, FileSystem*, char*>>(0x - 400000_Offset, this, arg1);
-}
-
-class Stream* FileSystem::OpenOn(char* arg1, i32 arg2, void* arg3, i32 arg4)
-{
-    return stub<thiscall_t<class Stream*, FileSystem*, char*, i32, void*, i32>>(
-        0x - 400000_Offset, this, arg1, arg2, arg3, arg4);
-}
-
-class Stream* FileSystem::CreateOn(char* arg1, void* arg2, i32 arg3)
-{
-    return stub<thiscall_t<class Stream*, FileSystem*, char*, void*, i32>>(0x - 400000_Offset, this, arg1, arg2, arg3);
-}
-
 i32 FileSystem::PagerInfo(char* arg1, struct PagerInfo_t& arg2)
 {
     return stub<thiscall_t<i32, FileSystem*, char*, struct PagerInfo_t&>>(0x55FEC0, this, arg1, arg2);
-}
-
-i32 FileSystem::ChangeDir(char* arg1)
-{
-    return stub<thiscall_t<i32, FileSystem*, char*>>(0x - 400000_Offset, this, arg1);
-}
-
-i32 FileSystem::GetDir(char* arg1, i32 arg2)
-{
-    return stub<thiscall_t<i32, FileSystem*, char*, i32>>(0x - 400000_Offset, this, arg1, arg2);
-}
-
-struct FileInfo* FileSystem::FirstEntry(char* arg1)
-{
-    return stub<thiscall_t<struct FileInfo*, FileSystem*, char*>>(0x - 400000_Offset, this, arg1);
-}
-
-struct FileInfo* FileSystem::NextEntry(struct FileInfo* arg1)
-{
-    return stub<thiscall_t<struct FileInfo*, FileSystem*, struct FileInfo*>>(0x - 400000_Offset, this, arg1);
 }
 
 void FileSystem::NotifyDelete()

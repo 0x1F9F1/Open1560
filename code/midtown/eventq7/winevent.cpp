@@ -80,9 +80,3 @@ void InitEventQueue()
 {
     return stub<cdecl_t<void>>(0x562DF0);
 }
-
-i32 Dispatchable::WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4)
-{
-    return stub<thiscall_t<i32, Dispatchable*, struct HWND__*, u32, u32, i32>>(
-        0x - 400000_Offset, this, arg1, arg2, arg3, arg4);
-}

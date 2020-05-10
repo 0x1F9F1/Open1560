@@ -30,26 +30,6 @@ DynamicDLP::~DynamicDLP()
     unimplemented(arg1);
 }
 
-i32 DynamicDLP::Init(char* arg1)
-{
-    return stub<thiscall_t<i32, DynamicDLP*, char*>>(0x - 400000_Offset, this, arg1);
-}
-
-void DynamicDLP::Lock()
-{
-    return stub<thiscall_t<void, DynamicDLP*>>(0x - 400000_Offset, this);
-}
-
-void DynamicDLP::Unlock()
-{
-    return stub<thiscall_t<void, DynamicDLP*>>(0x - 400000_Offset, this);
-}
-
-void DynamicDLP::SetTexture(i16 arg1)
-{
-    return stub<thiscall_t<void, DynamicDLP*, i16>>(0x - 400000_Offset, this, arg1);
-}
-
 i32 DynamicDLP::InitOffsets(class DLP* arg1, char* arg2)
 {
     return stub<thiscall_t<i32, DynamicDLP*, class DLP*, char*>>(0x55E620, this, arg1, arg2);

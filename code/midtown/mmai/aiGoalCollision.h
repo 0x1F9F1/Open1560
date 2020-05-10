@@ -31,7 +31,9 @@
     0x61BD48 | const aiGoalCollision::`vftable' | ??_7aiGoalCollision@@6B@
 */
 
-struct aiGoalCollision
+#include "aiGoalRandomDrive.h"
+
+struct aiGoalCollision : aiGoal
 {
     // const aiGoalCollision::`vftable' @ 0x61BD48
 
@@ -42,20 +44,20 @@ public:
     // 0x46B320 | ??1aiGoalCollision@@QAE@XZ
     ~aiGoalCollision();
 
-    // 0x46B330 | ?Init@aiGoalCollision@@UAEXXZ
-    virtual void Init();
-
-    // 0x46B340 | ?Reset@aiGoalCollision@@UAEXXZ
-    virtual void Reset();
-
     // 0x46B3D0 | ?Context@aiGoalCollision@@UAEHXZ
-    virtual i32 Context();
+    i32 Context() override;
+
+    // 0x46B330 | ?Init@aiGoalCollision@@UAEXXZ
+    void Init() override;
 
     // 0x46B3F0 | ?Priority@aiGoalCollision@@UAEHXZ
-    virtual i32 Priority();
+    i32 Priority() override;
+
+    // 0x46B340 | ?Reset@aiGoalCollision@@UAEXXZ
+    void Reset() override;
 
     // 0x46B350 | ?Update@aiGoalCollision@@UAEXXZ
-    virtual void Update();
+    void Update() override;
 };
 
 check_size(aiGoalCollision, 0x10);

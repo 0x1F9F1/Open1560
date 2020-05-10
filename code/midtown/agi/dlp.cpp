@@ -40,16 +40,6 @@ void DLP::FixROpts(i32 arg1, i32 arg2)
     return stub<thiscall_t<void, DLP*, i32, i32>>(0x55E530, this, arg1, arg2);
 }
 
-class DynamicDLP* DLP::GetDynamic(i32 arg1)
-{
-    return stub<thiscall_t<class DynamicDLP*, DLP*, i32>>(0x - 400000_Offset, this, arg1);
-}
-
-class MultipassDLP* DLP::GetMultipass(i32 arg1)
-{
-    return stub<thiscall_t<class MultipassDLP*, DLP*, i32>>(0x - 400000_Offset, this, arg1);
-}
-
 i32 DLP::BeginGfx()
 {
     return stub<thiscall_t<i32, DLP*>>(0x55E0D0, this);

@@ -30,16 +30,6 @@ OptionsBase::~OptionsBase()
     unimplemented(arg1);
 }
 
-void OptionsBase::CancelAction()
-{
-    return stub<thiscall_t<void, OptionsBase*>>(0x - 400000_Offset, this);
-}
-
-void OptionsBase::DoneAction()
-{
-    return stub<thiscall_t<void, OptionsBase*>>(0x - 400000_Offset, this);
-}
-
 void OptionsBase::ResetDefaultAction()
 {
     return stub<thiscall_t<void, OptionsBase*>>(0x4AB6F0, this);

@@ -40,11 +40,6 @@ i32 agiTexDef::IsAvailable()
     return stub<thiscall_t<i32, agiTexDef*>>(0x5567F0, this);
 }
 
-void agiTexDef::Set(class Vector2& arg1, class Vector2& arg2)
-{
-    return stub<thiscall_t<void, agiTexDef*, class Vector2&, class Vector2&>>(0x - 400000_Offset, this, arg1, arg2);
-}
-
 i32 agiTexDef::Lock(struct agiTexLock& arg1)
 {
     return stub<thiscall_t<i32, agiTexDef*, struct agiTexLock&>>(0x556440, this, arg1);

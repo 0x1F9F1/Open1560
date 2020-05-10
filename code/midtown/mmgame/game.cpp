@@ -35,49 +35,14 @@ void mmGame::InitGameStrings()
     return stub<thiscall_t<void, mmGame*>>(0x40FAC0, this);
 }
 
-void mmGame::InitMyPlayer()
-{
-    return stub<thiscall_t<void, mmGame*>>(0x - 400000_Offset, this);
-}
-
 void mmGame::InitOtherPlayers()
 {
     return stub<thiscall_t<void, mmGame*>>(0x40F8C0, this);
 }
 
-void mmGame::InitGameObjects()
-{
-    return stub<thiscall_t<void, mmGame*>>(0x - 400000_Offset, this);
-}
-
-void mmGame::InitHUD()
-{
-    return stub<thiscall_t<void, mmGame*>>(0x - 400000_Offset, this);
-}
-
-void mmGame::UpdateGameInput(i32 arg1)
-{
-    return stub<thiscall_t<void, mmGame*, i32>>(0x - 400000_Offset, this, arg1);
-}
-
 void mmGame::UpdateDebugInput()
 {
     return stub<thiscall_t<void, mmGame*>>(0x4104B0, this);
-}
-
-void mmGame::UpdateDebugKeyInput(i32 arg1)
-{
-    return stub<thiscall_t<void, mmGame*, i32>>(0x - 400000_Offset, this, arg1);
-}
-
-void mmGame::UpdateGame()
-{
-    return stub<thiscall_t<void, mmGame*>>(0x - 400000_Offset, this);
-}
-
-void mmGame::NextRace()
-{
-    return stub<thiscall_t<void, mmGame*>>(0x - 400000_Offset, this);
 }
 
 void mmGame::HitWaterHandler()
@@ -93,11 +58,6 @@ void mmGame::DropThruCityHandler()
 void mmGame::SendChatMessage(char* arg1)
 {
     return stub<thiscall_t<void, mmGame*, char*>>(0x411590, this, arg1);
-}
-
-class mmWaypoints* mmGame::GetWaypoints()
-{
-    return stub<thiscall_t<class mmWaypoints*, mmGame*>>(0x - 400000_Offset, this);
 }
 
 void mmGame::AddWidgets(class Bank* arg1)

@@ -43,7 +43,7 @@
     0x61BAF8 | const aiGoal::`vftable' | ??_7aiGoal@@6B@
 */
 
-struct aiGoalRandomDrive
+struct aiGoalRandomDrive : aiGoal
 {
     // const aiGoalRandomDrive::`vftable' @ 0x61BAE0
 
@@ -54,26 +54,26 @@ public:
     // 0x45C8A0 | ??1aiGoalRandomDrive@@QAE@XZ
     ~aiGoalRandomDrive();
 
-    // 0x45C8B0 | ?Init@aiGoalRandomDrive@@UAEXXZ
-    virtual void Init();
-
-    // 0x45C8D0 | ?Reset@aiGoalRandomDrive@@UAEXXZ
-    virtual void Reset();
-
     // 0x45D440 | ?Context@aiGoalRandomDrive@@UAEHXZ
-    virtual i32 Context();
-
-    // 0x45D460 | ?Priority@aiGoalRandomDrive@@UAEHXZ
-    virtual i32 Priority();
-
-    // 0x45D320 | ?Update@aiGoalRandomDrive@@UAEXXZ
-    virtual void Update();
+    i32 Context() override;
 
     // 0x45F690 | ?Dump@aiGoalRandomDrive@@QAEXXZ
     void Dump();
 
+    // 0x45C8B0 | ?Init@aiGoalRandomDrive@@UAEXXZ
+    void Init() override;
+
+    // 0x45D460 | ?Priority@aiGoalRandomDrive@@UAEHXZ
+    i32 Priority() override;
+
+    // 0x45C8D0 | ?Reset@aiGoalRandomDrive@@UAEXXZ
+    void Reset() override;
+
     // 0x45E250 | ?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z
     void SolvePosition(class Vector3& arg1, f32 arg2);
+
+    // 0x45D320 | ?Update@aiGoalRandomDrive@@UAEXXZ
+    void Update() override;
 
 private:
     // 0x45DE10 | ?AnyVehiclesComingThisWay@aiGoalRandomDrive@@AAEHXZ
@@ -100,7 +100,7 @@ private:
 
 check_size(aiGoalRandomDrive, 0x14);
 
-struct aiGoal
+class aiGoal
 {
     // const aiGoal::`vftable' @ 0x61BAF8
 
@@ -108,16 +108,16 @@ public:
     // 0x45F6F0 | ??1aiGoal@@QAE@XZ
     ~aiGoal();
 
+    virtual void Init() = 0;
+
+    virtual void Reset() = 0;
+
+    virtual i32 Context() = 0;
+
+    virtual i32 Priority() = 0;
+
     // 0x45F700 | ?Update@aiGoal@@UAEXXZ
     virtual void Update();
-
-    // 0x585F30 | __purecall (Skipped: void)
-
-    // 0x585F30 | __purecall (Skipped: void)
-
-    // 0x585F30 | __purecall (Skipped: void)
-
-    // 0x585F30 | __purecall (Skipped: void)
 };
 
 check_size(aiGoal, 0x0);

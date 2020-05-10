@@ -35,16 +35,6 @@ void eqReplayChannel::InitPlayback()
     return stub<thiscall_t<void, eqReplayChannel*>>(0x564690, this);
 }
 
-void eqReplayChannel::DoRecord(class Stream* arg1)
-{
-    return stub<thiscall_t<void, eqReplayChannel*, class Stream*>>(0x - 400000_Offset, this, arg1);
-}
-
-void eqReplayChannel::DoPlayback(class Stream* arg1)
-{
-    return stub<thiscall_t<void, eqReplayChannel*, class Stream*>>(0x - 400000_Offset, this, arg1);
-}
-
 void eqReplayChannel::ShutdownRecord()
 {
     return stub<thiscall_t<void, eqReplayChannel*>>(0x5646A0, this);

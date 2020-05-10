@@ -25,11 +25,6 @@ agiRefreshable::agiRefreshable(class agiPipeline* arg1)
     unimplemented(arg1);
 }
 
-void agiRefreshable::EndGfx()
-{
-    return stub<thiscall_t<void, agiRefreshable*>>(0x - 400000_Offset, this);
-}
-
 void agiRefreshable::Restore()
 {
     return stub<thiscall_t<void, agiRefreshable*>>(0x557AD0, this);
@@ -43,11 +38,6 @@ char* agiRefreshable::GetName()
 agiRefreshable::~agiRefreshable()
 {
     unimplemented(arg1);
-}
-
-i32 agiRefreshable::BeginGfx()
-{
-    return stub<thiscall_t<i32, agiRefreshable*>>(0x - 400000_Offset, this);
 }
 
 i32 agiRefreshable::IsTexture()

@@ -374,28 +374,3 @@ u32 StringType::SizeOf()
 {
     return stub<thiscall_t<u32, StringType*>>(0x57C270, this);
 }
-
-void MetaType::Save(class MiniParser* arg1, void* arg2)
-{
-    return stub<thiscall_t<void, MetaType*, class MiniParser*, void*>>(0x - 400000_Offset, this, arg1, arg2);
-}
-
-void MetaType::Load(class MiniParser* arg1, void* arg2)
-{
-    return stub<thiscall_t<void, MetaType*, class MiniParser*, void*>>(0x - 400000_Offset, this, arg1, arg2);
-}
-
-u32 MetaType::SizeOf()
-{
-    return stub<thiscall_t<u32, MetaType*>>(0x - 400000_Offset, this);
-}
-
-void* MetaType::New(i32 arg1)
-{
-    return stub<thiscall_t<void*, MetaType*, i32>>(0x - 400000_Offset, this, arg1);
-}
-
-void MetaType::Delete(void* arg1, i32 arg2)
-{
-    return stub<thiscall_t<void, MetaType*, void*, i32>>(0x - 400000_Offset, this, arg1, arg2);
-}

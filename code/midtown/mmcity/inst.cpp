@@ -30,21 +30,6 @@ mmInstance::~mmInstance()
     unimplemented(arg1);
 }
 
-void __fastcall mmInstance::FromMatrix(class Matrix34 const& arg1)
-{
-    return stub<fastcall_t<void, mmInstance*, class Matrix34 const&>>(0x - 400000_Offset, this, arg1);
-}
-
-class Matrix34& __fastcall mmInstance::ToMatrix(class Matrix34& arg1)
-{
-    return stub<fastcall_t<class Matrix34&, mmInstance*, class Matrix34&>>(0x - 400000_Offset, this, arg1);
-}
-
-class Vector3& __fastcall mmInstance::GetPos()
-{
-    return stub<fastcall_t<class Vector3&, mmInstance*>>(0x - 400000_Offset, this);
-}
-
 class mmPhysEntity* mmInstance::GetEntity()
 {
     return stub<thiscall_t<class mmPhysEntity*, mmInstance*>>(0x433DB0, this);
@@ -98,11 +83,6 @@ u32 mmInstance::SizeOf()
 void mmInstance::Reset()
 {
     return stub<thiscall_t<void, mmInstance*>>(0x493130, this);
-}
-
-void mmInstance::AddWidgets(class Bank* arg1)
-{
-    return stub<thiscall_t<void, mmInstance*, class Bank*>>(0x - 400000_Offset, this, arg1);
 }
 
 i32 mmInstance::Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5)

@@ -20,38 +20,6 @@ define_dummy_symbol(agi_cmodel);
 
 #include "cmodel.h"
 
-agiColorModel::~agiColorModel()
-{
-    unimplemented(arg1);
-}
-
-u32 agiColorModel::GetColor(struct agiRgba arg1)
-{
-    return stub<thiscall_t<u32, agiColorModel*, struct agiRgba>>(0x - 400000_Offset, this, arg1);
-}
-
-u32 agiColorModel::FindColor(struct agiRgba arg1)
-{
-    return stub<thiscall_t<u32, agiColorModel*, struct agiRgba>>(0x - 400000_Offset, this, arg1);
-}
-
-u32 agiColorModel::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
-{
-    return stub<thiscall_t<u32, agiColorModel*, u32, u32, u32, u32>>(0x - 400000_Offset, this, arg1, arg2, arg3, arg4);
-}
-
-void agiColorModel::SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4)
-{
-    return stub<thiscall_t<void, agiColorModel*, class agiSurfaceDesc*, i32, i32, u32>>(
-        0x - 400000_Offset, this, arg1, arg2, arg3, arg4);
-}
-
-u32 agiColorModel::GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3)
-{
-    return stub<thiscall_t<u32, agiColorModel*, class agiSurfaceDesc*, i32, i32>>(
-        0x - 400000_Offset, this, arg1, arg2, arg3);
-}
-
 u32 agiColorModel::FindColor(i32 arg1, i32 arg2, i32 arg3, i32 arg4)
 {
     return stub<thiscall_t<u32, agiColorModel*, i32, i32, i32, i32>>(0x55BBB0, this, arg1, arg2, arg3, arg4);

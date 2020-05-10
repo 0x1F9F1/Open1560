@@ -30,24 +30,9 @@ mmGameMulti::~mmGameMulti()
     unimplemented(arg1);
 }
 
-void mmGameMulti::InitNetworkPlayers()
-{
-    return stub<thiscall_t<void, mmGameMulti*>>(0x - 400000_Offset, this);
-}
-
 void mmGameMulti::InitRoster()
 {
     return stub<thiscall_t<void, mmGameMulti*>>(0x431960, this);
-}
-
-void mmGameMulti::SystemMessage(struct NETSYS_MSG* arg1)
-{
-    return stub<thiscall_t<void, mmGameMulti*, struct NETSYS_MSG*>>(0x - 400000_Offset, this, arg1);
-}
-
-void mmGameMulti::GameMessage(struct NETGAME_MSG* arg1)
-{
-    return stub<thiscall_t<void, mmGameMulti*, struct NETGAME_MSG*>>(0x - 400000_Offset, this, arg1);
 }
 
 void mmGameMulti::ActivateMapNetObject(i32 arg1)

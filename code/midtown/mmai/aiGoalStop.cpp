@@ -30,24 +30,24 @@ aiGoalStop::~aiGoalStop()
     unimplemented();
 }
 
-void aiGoalStop::Init()
-{
-    return stub<thiscall_t<void, aiGoalStop*>>(0x45F750, this);
-}
-
-void aiGoalStop::Reset()
-{
-    return stub<thiscall_t<void, aiGoalStop*>>(0x45F760, this);
-}
-
 i32 aiGoalStop::Context()
 {
     return stub<thiscall_t<i32, aiGoalStop*>>(0x45F7D0, this);
 }
 
+void aiGoalStop::Init()
+{
+    return stub<thiscall_t<void, aiGoalStop*>>(0x45F750, this);
+}
+
 i32 aiGoalStop::Priority()
 {
     return stub<thiscall_t<i32, aiGoalStop*>>(0x45F7F0, this);
+}
+
+void aiGoalStop::Reset()
+{
+    return stub<thiscall_t<void, aiGoalStop*>>(0x45F760, this);
 }
 
 void aiGoalStop::Update()

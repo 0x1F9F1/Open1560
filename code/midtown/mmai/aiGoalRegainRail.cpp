@@ -30,19 +30,19 @@ aiGoalRegainRail::~aiGoalRegainRail()
     unimplemented();
 }
 
-void aiGoalRegainRail::Init()
-{
-    return stub<thiscall_t<void, aiGoalRegainRail*>>(0x46AA60, this);
-}
-
-void aiGoalRegainRail::Reset()
-{
-    return stub<thiscall_t<void, aiGoalRegainRail*>>(0x46AA80, this);
-}
-
 i32 aiGoalRegainRail::Context()
 {
     return stub<thiscall_t<i32, aiGoalRegainRail*>>(0x46B240, this);
+}
+
+void aiGoalRegainRail::Dump()
+{
+    return stub<thiscall_t<void, aiGoalRegainRail*>>(0x46B270, this);
+}
+
+void aiGoalRegainRail::Init()
+{
+    return stub<thiscall_t<void, aiGoalRegainRail*>>(0x46AA60, this);
 }
 
 i32 aiGoalRegainRail::Priority()
@@ -50,12 +50,12 @@ i32 aiGoalRegainRail::Priority()
     return stub<thiscall_t<i32, aiGoalRegainRail*>>(0x46B260, this);
 }
 
+void aiGoalRegainRail::Reset()
+{
+    return stub<thiscall_t<void, aiGoalRegainRail*>>(0x46AA80, this);
+}
+
 void aiGoalRegainRail::Update()
 {
     return stub<thiscall_t<void, aiGoalRegainRail*>>(0x46B130, this);
-}
-
-void aiGoalRegainRail::Dump()
-{
-    return stub<thiscall_t<void, aiGoalRegainRail*>>(0x46B270, this);
 }

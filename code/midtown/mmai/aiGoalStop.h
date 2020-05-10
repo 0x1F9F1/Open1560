@@ -31,7 +31,9 @@
     0x61BB18 | const aiGoalStop::`vftable' | ??_7aiGoalStop@@6B@
 */
 
-struct aiGoalStop
+#include "aiGoalRandomDrive.h"
+
+struct aiGoalStop : aiGoal
 {
     // const aiGoalStop::`vftable' @ 0x61BB18
 
@@ -42,20 +44,20 @@ public:
     // 0x45F740 | ??1aiGoalStop@@QAE@XZ
     ~aiGoalStop();
 
-    // 0x45F750 | ?Init@aiGoalStop@@UAEXXZ
-    virtual void Init();
-
-    // 0x45F760 | ?Reset@aiGoalStop@@UAEXXZ
-    virtual void Reset();
-
     // 0x45F7D0 | ?Context@aiGoalStop@@UAEHXZ
-    virtual i32 Context();
+    i32 Context() override;
+
+    // 0x45F750 | ?Init@aiGoalStop@@UAEXXZ
+    void Init() override;
 
     // 0x45F7F0 | ?Priority@aiGoalStop@@UAEHXZ
-    virtual i32 Priority();
+    i32 Priority() override;
+
+    // 0x45F760 | ?Reset@aiGoalStop@@UAEXXZ
+    void Reset() override;
 
     // 0x45F770 | ?Update@aiGoalStop@@UAEXXZ
-    virtual void Update();
+    void Update() override;
 };
 
 check_size(aiGoalStop, 0x10);

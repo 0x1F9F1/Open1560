@@ -61,21 +61,6 @@ i32 agiViewParameters::SphereVisible(class Vector3& arg1, f32 arg2)
     return stub<thiscall_t<i32, agiViewParameters*, class Vector3&, f32>>(0x557490, this, arg1, arg2);
 }
 
-void agiViewport::Activate()
-{
-    return stub<thiscall_t<void, agiViewport*>>(0x - 400000_Offset, this);
-}
-
-void agiViewport::SetBackground(class Vector3& arg1)
-{
-    return stub<thiscall_t<void, agiViewport*, class Vector3&>>(0x - 400000_Offset, this, arg1);
-}
-
-void agiViewport::Clear(i32 arg1)
-{
-    return stub<thiscall_t<void, agiViewport*, i32>>(0x - 400000_Offset, this, arg1);
-}
-
 void agiViewport::SetWorld(class Matrix34& arg1)
 {
     return stub<thiscall_t<void, agiViewport*, class Matrix34&>>(0x5578A0, this, arg1);

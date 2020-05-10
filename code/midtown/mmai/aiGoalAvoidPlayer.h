@@ -33,7 +33,9 @@
     0x61BD10 | const aiGoalAvoidPlayer::`vftable' | ??_7aiGoalAvoidPlayer@@6B@
 */
 
-struct aiGoalAvoidPlayer
+#include "aiGoalRandomDrive.h"
+
+struct aiGoalAvoidPlayer : aiGoal
 {
     // const aiGoalAvoidPlayer::`vftable' @ 0x61BD10
 
@@ -44,23 +46,23 @@ public:
     // 0x46A3A0 | ??1aiGoalAvoidPlayer@@QAE@XZ
     ~aiGoalAvoidPlayer();
 
-    // 0x46A3B0 | ?Init@aiGoalAvoidPlayer@@UAEXXZ
-    virtual void Init();
-
-    // 0x46A3C0 | ?Reset@aiGoalAvoidPlayer@@UAEXXZ
-    virtual void Reset();
-
     // 0x46A970 | ?Context@aiGoalAvoidPlayer@@UAEHXZ
-    virtual i32 Context();
-
-    // 0x46A990 | ?Priority@aiGoalAvoidPlayer@@UAEHXZ
-    virtual i32 Priority();
-
-    // 0x46A530 | ?Update@aiGoalAvoidPlayer@@UAEXXZ
-    virtual void Update();
+    i32 Context() override;
 
     // 0x46A9A0 | ?Dump@aiGoalAvoidPlayer@@QAEXXZ
     void Dump();
+
+    // 0x46A3B0 | ?Init@aiGoalAvoidPlayer@@UAEXXZ
+    void Init() override;
+
+    // 0x46A990 | ?Priority@aiGoalAvoidPlayer@@UAEHXZ
+    i32 Priority() override;
+
+    // 0x46A3C0 | ?Reset@aiGoalAvoidPlayer@@UAEXXZ
+    void Reset() override;
+
+    // 0x46A530 | ?Update@aiGoalAvoidPlayer@@UAEXXZ
+    void Update() override;
 
 private:
     // 0x46A700 | ?AvoidPlayer@aiGoalAvoidPlayer@@AAEXXZ

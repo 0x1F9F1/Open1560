@@ -32,7 +32,9 @@
     0x61BD28 | const aiGoalRegainRail::`vftable' | ??_7aiGoalRegainRail@@6B@
 */
 
-struct aiGoalRegainRail
+#include "aiGoalRandomDrive.h"
+
+struct aiGoalRegainRail : aiGoal
 {
     // const aiGoalRegainRail::`vftable' @ 0x61BD28
 
@@ -43,23 +45,23 @@ public:
     // 0x46AA50 | ??1aiGoalRegainRail@@QAE@XZ
     ~aiGoalRegainRail();
 
-    // 0x46AA60 | ?Init@aiGoalRegainRail@@UAEXXZ
-    virtual void Init();
-
-    // 0x46AA80 | ?Reset@aiGoalRegainRail@@UAEXXZ
-    virtual void Reset();
-
     // 0x46B240 | ?Context@aiGoalRegainRail@@UAEHXZ
-    virtual i32 Context();
-
-    // 0x46B260 | ?Priority@aiGoalRegainRail@@UAEHXZ
-    virtual i32 Priority();
-
-    // 0x46B130 | ?Update@aiGoalRegainRail@@UAEXXZ
-    virtual void Update();
+    i32 Context() override;
 
     // 0x46B270 | ?Dump@aiGoalRegainRail@@QAEXXZ
     void Dump();
+
+    // 0x46AA60 | ?Init@aiGoalRegainRail@@UAEXXZ
+    void Init() override;
+
+    // 0x46B260 | ?Priority@aiGoalRegainRail@@UAEHXZ
+    i32 Priority() override;
+
+    // 0x46AA80 | ?Reset@aiGoalRegainRail@@UAEXXZ
+    void Reset() override;
+
+    // 0x46B130 | ?Update@aiGoalRegainRail@@UAEXXZ
+    void Update() override;
 };
 
 check_size(aiGoalRegainRail, 0x28);
