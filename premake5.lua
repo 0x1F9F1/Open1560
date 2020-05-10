@@ -38,6 +38,8 @@ workspace "Open1560"
         defines { "CI_BUILD_STRING=\"" .. ci_build_string .. "\"" }
     end
 
+    editAndContinue "Off"
+
     filter "configurations:Debug"
         optimize "Debug"
         symbols "On"
