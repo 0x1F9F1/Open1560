@@ -23,10 +23,10 @@
 
 // #include "midtown.h"
 
-#include <dinput.h>
-#include <mem/module.h>
-
 #include <DbgHelp.h>
+#include <dinput.h>
+
+#include <mem/module.h>
 
 static decltype(&DirectInputCreateA) DirectInputCreateA_Orig = nullptr;
 
@@ -123,8 +123,6 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 #if defined(CI_BUILD_STRING)
         Displayf("Build: %s", CI_BUILD_STRING " / " __DATE__ " " __TIME__);
 #endif
-
-        // create_hook("WinMain", "Entry Point", 0x5858AA, &MidtownMain, hook_type::call);
 
         create_patch("HW Menu", "Enable HW Menu Rendering", 0x401DB4, "\xEB", 1);
 
@@ -255,7 +253,7 @@ include_dummy_symbol(data7_metaclass);
 // include_dummy_symbol(data7_pager);
 // include_dummy_symbol(data7_perfstat);
 include_dummy_symbol(data7_printer);
-// include_dummy_symbol(data7_quitf);
+include_dummy_symbol(data7_quitf);
 // include_dummy_symbol(data7_speed);
 // include_dummy_symbol(data7_str);
 // include_dummy_symbol(data7_timer);
@@ -272,7 +270,7 @@ include_dummy_symbol(data7_printer);
 // include_dummy_symbol(localize_localize);
 
 include_dummy_symbol(memory_allocator);
-// include_dummy_symbol(memory_stack);
+include_dummy_symbol(memory_stack);
 include_dummy_symbol(memory_stub);
 include_dummy_symbol(memory_valloc);
 

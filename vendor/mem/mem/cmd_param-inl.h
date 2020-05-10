@@ -23,6 +23,10 @@
 
 #define MEM_CMD_PARAM_INL_BRICK_H
 
+#if !defined(CMD_ALLOC_BUFFER_CAPACITY)
+#    define CMD_ALLOC_BUFFER_CAPACITY 0x1000
+#endif
+
 #include "cmd_param.h"
 
 #include <cctype>
@@ -32,76 +36,64 @@ namespace mem
 {
     cmd_param* cmd_param::ROOT {nullptr};
 
-    static inline bool cmd_is_digit(char c)
-    {
-        return (c >= '0') && (c <= '9');
-    }
-
-    static inline int cmd_to_lower(char c)
-    {
-        int v = static_cast<unsigned char>(c);
-
-        if ((v >= 'A') && (v <= 'Z'))
-        {
-            v += ('a' - 'A');
-        }
-
-        return v;
-    }
-
     static inline bool cmd_is_option(const char* arg)
     {
-        return (arg[0] == '-') && !cmd_is_digit(arg[1]);
+        return (arg[0] == '-') && (static_cast<unsigned char>(arg[1] - '0') > 9);
     }
 
-    static char* cmd_unquote(char* arg)
+    static inline bool cmd_chr_equal(char lhs, char rhs)
     {
+        const char x = rhs ^ lhs;
+
+        return (x == 0) || ((x == 0x20) && (static_cast<unsigned char>((lhs | 0x20) - 'a') < 26));
+    }
+
+    static char cmd_alloc_buffer[CMD_ALLOC_BUFFER_CAPACITY];
+    static std::size_t cmd_alloc_buffer_len {0};
+
+    static char* cmd_strdup(const char* value, std::size_t len)
+    {
+        if (cmd_alloc_buffer_len + len >= CMD_ALLOC_BUFFER_CAPACITY)
+            return nullptr;
+
+        char* result = &cmd_alloc_buffer[cmd_alloc_buffer_len];
+        std::memcpy(result, value, len);
+        result[len] = '\0';
+
+        cmd_alloc_buffer_len += len + 1;
+
+        return result;
+    }
+
+    static char* cmd_unquote(const char* arg)
+    {
+        std::size_t len = std::strlen(arg);
+
         if (arg[0] == '"')
         {
             ++arg;
+            --len;
 
-            char* last = arg + std::strlen(arg) - 1;
-
-            if (last[0] == '"')
-                last[0] = '\0';
+            if (arg[len - 1] == '"')
+                --len;
         }
 
-        return arg;
+        return cmd_strdup(arg, len);
     }
 
-    static int cmd_strcmp(const char* lhs, const char* rhs)
+    static bool cmd_arg_equal(const char* lhs, const char* rhs)
     {
-        int a, b;
-
-        do
+        while (true)
         {
-            a = cmd_to_lower(*lhs++);
-            b = cmd_to_lower(*rhs++);
-        } while (a && a == b);
+            char a = *lhs++;
+            char b = *rhs++;
 
-        if (a == '\0' && b == '=')
-            b = '\0';
+            if (a == '\0')
+                return (b == '\0') || (b == '=');
 
-        return a - b;
-    }
-
-    static char* cmd_strdup(const char* value)
-    {
-        char* result = nullptr;
-
-        if (value)
-        {
-            size_t length = std::strlen(value) + 1;
-
-            result = new char[length];
-
-            if (result)
-            {
-                std::memcpy(result, value, length);
-            }
+            if (!cmd_chr_equal(a, b))
+                return false;
         }
-
-        return result;
     }
 
     void cmd_param::init(const char* const* argv)
@@ -109,30 +101,18 @@ namespace mem
         int argc = 0;
 
         while (argv[argc])
-        {
             ++argc;
-        }
 
         init(argc, argv);
     }
 
     void cmd_param::init(int argc, const char* const* argv)
     {
-        if (argc < 2)
-            return;
-
-        char** args = new char*[argc];
-
-        args[0] = nullptr;
-
-        for (int i = 1; i < argc; ++i)
-            args[i] = cmd_strdup(argv[i]);
-
         bool done_positionals = false;
 
         for (int i = 1; i < argc; ++i)
         {
-            char* arg = args[i];
+            const char* arg = argv[i];
 
             if (cmd_is_option(arg))
             {
@@ -141,68 +121,70 @@ namespace mem
 
                 done_positionals = true;
 
-                bool used = false;
+                const char* value = nullptr;
 
                 for (cmd_param* j = ROOT; j; j = j->next_)
                 {
-                    if (j->name_)
+                    if (!j->name_ || !cmd_arg_equal(j->name_, arg))
+                        continue;
+
+                    if (!value)
                     {
-                        if (!cmd_strcmp(j->name_, arg))
-                        {
-                            const char* value = "";
+                        if (const char* val = std::strchr(arg, '='))
+                            value = cmd_unquote(val + 1);
+                        else if (i + 1 < argc && !cmd_is_option(argv[i + 1]))
+                            value = cmd_unquote(argv[i + 1]);
 
-                            if (char* val = std::strchr(arg, '='))
-                            {
-                                value = cmd_unquote(val + 1);
-                            }
-                            else if (i + 1 < argc)
-                            {
-                                char* next_arg = args[i + 1];
-
-                                if (!cmd_is_option(next_arg))
-                                {
-                                    value = cmd_unquote(next_arg);
-                                }
-                            }
-
-                            j->value_ = value;
-
-                            used = true;
-                        }
+                        if (!value)
+                            value = "";
                     }
+
+                    j->value_ = value;
                 }
 
-                if (!used)
+                if (!value)
                 {
                     for (cmd_param* j = ROOT; j; j = j->next_)
                     {
-                        if (j->name_)
-                        { // clang-format off
-                            if ((!std::strncmp(arg,      "no", 2) && !cmd_strcmp(j->name_, arg + 2)) ||
-                                (!std::strncmp(j->name_, "no", 2) && !cmd_strcmp(j->name_ + 2, arg)))
-                            {
-                                j->value_ = "false";
+                        if (!j->name_)
+                            continue;
 
-                                used = true;
-                            }
-                        } // clang-format on
+                        // clang-format off
+                        if ((!std::strncmp("no", arg,      2) && cmd_arg_equal(j->name_, arg + 2)) ||
+                            (!std::strncmp("no", j->name_, 2) && cmd_arg_equal(j->name_ + 2, arg)))
+                            j->value_ = "false";
+                        // clang-format on
                     }
                 }
             }
             else if (!done_positionals)
             {
+                const char* value = nullptr;
+
                 for (cmd_param* j = ROOT; j; j = j->next_)
                 {
-                    if (j->pos_ == i)
-                    {
-                        const char* value = cmd_unquote(arg);
+                    if (j->pos_ != i)
+                        continue;
 
-                        j->value_ = value;
+                    if (!value)
+                    {
+                        value = cmd_unquote(arg);
+
+                        if (!value)
+                            value = "";
                     }
+
+                    j->value_ = value;
                 }
             }
         }
+    }
 
-        delete[] args;
+    void cmd_param::reset()
+    {
+        for (cmd_param* j = ROOT; j; j = j->next_)
+            j->value_ = nullptr;
+
+        cmd_alloc_buffer_len = 0;
     }
 } // namespace mem

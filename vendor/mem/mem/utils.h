@@ -183,11 +183,13 @@ namespace mem
                         return {};
                     }
                 }
-                else if (current == 'u')
+                else if (current == 'u' || current == 'U')
                 {
                     result = 0;
                     count = 0;
                     output_utf8 = true;
+
+                    std::size_t limit = (current == 'U') ? 8 : 4;
 
                     while ((temp = xctoi(input.peek())) != -1)
                     {
@@ -195,36 +197,13 @@ namespace mem
                         result = (result * 16) + static_cast<std::size_t>(temp);
                         ++count;
 
-                        if (count == 4)
+                        if (count == limit)
                         {
                             break;
                         }
                     }
 
-                    if (strict && (count != 4))
-                    {
-                        return {};
-                    }
-                }
-                else if (current == 'U')
-                {
-                    result = 0;
-                    count = 0;
-                    output_utf8 = true;
-
-                    while ((temp = xctoi(input.peek())) != -1)
-                    {
-                        input.pop();
-                        result = (result * 16) + static_cast<std::size_t>(temp);
-                        ++count;
-
-                        if (count == 8)
-                        {
-                            break;
-                        }
-                    }
-
-                    if (strict && (count != 8))
+                    if (strict && (count != limit))
                     {
                         return {};
                     }

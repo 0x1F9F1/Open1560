@@ -31,14 +31,6 @@ namespace mem
 {
     class cmd_param
     {
-    private:
-        static cmd_param* ROOT;
-
-        const char* name_ {nullptr};
-        int pos_ {0};
-        const char* value_ {nullptr};
-        cmd_param* next_ {nullptr};
-
     public:
         cmd_param(const char* name, int pos = 0) noexcept;
         ~cmd_param();
@@ -57,6 +49,15 @@ namespace mem
 
         static void init(const char* const* argv);
         static void init(int argc, const char* const* argv);
+        static void reset();
+
+    private:
+        const char* name_ {nullptr};
+        int pos_ {0};
+        const char* value_ {nullptr};
+        cmd_param* next_ {nullptr};
+
+        static cmd_param* ROOT;
     };
 
     MEM_STRONG_INLINE cmd_param::cmd_param(const char* name, int pos) noexcept
@@ -67,7 +68,7 @@ namespace mem
         ROOT = this;
     }
 
-    MEM_STRONG_INLINE cmd_param::~cmd_param()
+    inline cmd_param::~cmd_param()
     {
         for (cmd_param** i = &ROOT; *i; i = &(*i)->next_)
         {

@@ -18,6 +18,7 @@
 
 #pragma once
 
+#include <mem/cmd_param.h>
 #include <mem/macros.h>
 #include <mem/stub.h>
 

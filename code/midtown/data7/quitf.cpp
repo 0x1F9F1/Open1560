@@ -20,7 +20,16 @@ define_dummy_symbol(data7_quitf);
 
 #include "quitf.h"
 
-void Quitf(char const* arg1, ...)
+#include "printer.h"
+
+#include <cstdlib>
+
+[[noreturn]] void Quitf(char const* format, ...)
 {
-    unimplemented(arg1);
+    std::va_list va;
+    va_start(va, format);
+    Printer(3, format, va);
+    va_end(va);
+
+    std::exit(1);
 }

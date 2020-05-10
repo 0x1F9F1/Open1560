@@ -20,19 +20,17 @@ define_dummy_symbol(midtown);
 
 #include "midtown.h"
 
-#include "memory/allocator.h"
+#include <mem/cmd_param-inl.h>
+
+#include "memory/stack.h"
+#include "pcwindis/dxinit.h"
 
 static char Main_ExecPath[1024] {};
 static char* Main_Argv[128] {};
-static u8 Main_InitHeap[0x10000];
 
 int WINAPI MidtownMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR lpCmdLine, int /*nShowCmd*/)
 {
     export_hook(0x4031A0);
-
-    asMemoryAllocator init_alloc;
-    init_alloc.Init(Main_InitHeap, sizeof(Main_InitHeap), 1);
-    CURHEAP = &init_alloc;
 
     GetModuleFileNameA(0, Main_ExecPath, std::size(Main_ExecPath));
 
@@ -80,6 +78,8 @@ int WINAPI MidtownMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPS
     ArAssert(argc < std::size(Main_Argv), "Too Many CMD arguments");
     Main_Argv[argc] = nullptr;
 
+    mem::cmd_param::init(static_cast<int>(argc), Main_Argv);
+
     Application(static_cast<int>(argc), Main_Argv);
 
     Displayf("Good bye.");
@@ -89,9 +89,22 @@ int WINAPI MidtownMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPS
     return 0;
 }
 
-void Application(i32 arg1, char** arg2)
+void Application(i32 argc, char** argv)
 {
-    return stub<cdecl_t<void, i32, char**>>(0x4030C0, arg1, arg2);
+    dxiIcon = 111;
+
+    SetProcessAffinityMask(GetCurrentProcess(), 1);
+
+    __try
+    {
+        ApplicationHelper(argc, argv);
+    }
+    __except (GameFilter(GetExceptionInformation()))
+    {
+        // AIMAP.Dump()
+
+        Quitf("Exception caught during init.");
+    }
 }
 
 void ApplicationHelper(i32 arg1, char** arg2)
@@ -104,9 +117,60 @@ class agiPipeline* CreatePipeline(i32 arg1, char** arg2)
     return stub<cdecl_t<class agiPipeline*, i32, char**>>(0x4010B0, arg1, arg2);
 }
 
-i32 GameFilter(struct _EXCEPTION_POINTERS* arg1)
+static const char* GetExceptionCodeString(DWORD code)
 {
-    return stub<cdecl_t<i32, struct _EXCEPTION_POINTERS*>>(0x4014B0, arg1);
+    switch (code)
+    {
+        case EXCEPTION_ACCESS_VIOLATION: return "ACCESS_VIOLATION";
+        case EXCEPTION_ARRAY_BOUNDS_EXCEEDED: return "ARRAY_BOUNDS_EXCEEDED";
+        case EXCEPTION_BREAKPOINT: return "BREAKPOINT";
+        case EXCEPTION_DATATYPE_MISALIGNMENT: return "DATATYPE_MISALIGNMENT";
+        case EXCEPTION_FLT_DENORMAL_OPERAND: return "FLT_DENORMAL_OPERAND";
+        case EXCEPTION_FLT_DIVIDE_BY_ZERO: return "FLT_DIVIDE_BY_ZERO";
+        case EXCEPTION_FLT_INEXACT_RESULT: return "FLT_INEXACT_RESULT";
+        case EXCEPTION_FLT_INVALID_OPERATION: return "FLT_INVALID_OPERATION";
+        case EXCEPTION_FLT_OVERFLOW: return "FLT_OVERFLOW";
+        case EXCEPTION_FLT_STACK_CHECK: return "FLT_STACK_CHECK";
+        case EXCEPTION_FLT_UNDERFLOW: return "FLT_UNDERFLOW";
+        case EXCEPTION_ILLEGAL_INSTRUCTION: return "ILLEGAL_INSTRUCTION";
+        case EXCEPTION_IN_PAGE_ERROR: return "IN_PAGE_ERROR";
+        case EXCEPTION_INT_DIVIDE_BY_ZERO: return "INT_DIVIDE_BY_ZERO";
+        case EXCEPTION_INT_OVERFLOW: return "INT_OVERFLOW";
+        case EXCEPTION_INVALID_DISPOSITION: return "INVALID_DISPOSITION";
+        case EXCEPTION_NONCONTINUABLE_EXCEPTION: return "NONCONTINUABLE_EXCEPTION";
+        case EXCEPTION_PRIV_INSTRUCTION: return "PRIV_INSTRUCTION";
+        case EXCEPTION_SINGLE_STEP: return "SINGLE_STEP";
+        case EXCEPTION_STACK_OVERFLOW: return "STACK_OVERFLOW";
+    };
+
+    return nullptr;
+}
+
+i32 GameFilter(EXCEPTION_POINTERS* exception)
+{
+    CONTEXT* context = exception->ContextRecord;
+    EXCEPTION_RECORD* record = exception->ExceptionRecord;
+
+    char source[128]; // [esp+8h] [ebp-80h]
+    LookupAddress(source, context->Eip);
+
+    const char* error_code_string = GetExceptionCodeString(record->ExceptionCode);
+
+    if (error_code_string)
+    {
+        Displayf("%s at EIP=%s", error_code_string, source);
+    }
+    else
+    {
+        Displayf("Exception 0x%08X at EIP=%s", record->ExceptionCode, source);
+    }
+
+    Displayf("EAX=%08X EBX=%08X ECX=%08X EDX=%08X", context->Eax, context->Ebx, context->Ecx, context->Edx);
+    Displayf("ESI=%08X EDI=%08X EBP=%08X ESP=%08X", context->Esi, context->Edi, context->Ebp, context->Esp);
+
+    DoStackTraceback(16, (int*) context->Ebp);
+
+    return EXCEPTION_EXECUTE_HANDLER;
 }
 
 void GameLoop(class mmInterface* arg1, class mmGameManager* arg2, char* arg3)
