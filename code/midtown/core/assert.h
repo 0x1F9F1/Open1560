@@ -37,8 +37,10 @@ struct ArAssertData
     ArSourceLocation location;
 };
 
-[[noreturn]] void ArReportAssertion(const ArAssertData& data);
-void ArUnimplemented(const ArSourceLocation& location);
+#define AR_FASTCALL __fastcall
+
+[[noreturn]] ARTS_NOINLINE void AR_FASTCALL ArReportAssertion(const ArAssertData& data);
+[[noreturn]] ARTS_NOINLINE void AR_FASTCALL ArUnimplemented(const ArSourceLocation& location);
 
 #define AR_SOURCE_LOCATION                                             \
     ::ArSourceLocation                                                 \
@@ -46,14 +48,14 @@ void ArUnimplemented(const ArSourceLocation& location);
         ARTS_FILE, ARTS_FUNCTION, static_cast<unsigned int>(ARTS_LINE) \
     }
 
-#define ArEnabledAssert(CONDITION, MESSAGE)                                                       \
-    do                                                                                            \
-    {                                                                                             \
-        if (ARTS_UNLIKELY(!(CONDITION)))                                                          \
-        {                                                                                         \
-            static const ::ArAssertData ar_assert_data {#CONDITION, MESSAGE, AR_SOURCE_LOCATION}; \
-            ArReportAssertion(ar_assert_data);                                                    \
-        }                                                                                         \
+#define ArEnabledAssert(CONDITION, MESSAGE)                                                           \
+    do                                                                                                \
+    {                                                                                                 \
+        if (ARTS_UNLIKELY(!(CONDITION)))                                                              \
+        {                                                                                             \
+            static constexpr ::ArAssertData ar_assert_data {#CONDITION, MESSAGE, AR_SOURCE_LOCATION}; \
+            ArReportAssertion(ar_assert_data);                                                        \
+        }                                                                                             \
     } while (false)
 
 #define ArDisabledAssert(CONDITION, MESSAGE) static_cast<void>(sizeof(!(CONDITION)))
@@ -66,10 +68,10 @@ void ArUnimplemented(const ArSourceLocation& location);
 
 #define ArAssert ArEnabledAssert
 
-#define unimplemented(...)                                                       \
-    do                                                                           \
-    {                                                                            \
-        static_cast<void>(0, __VA_ARGS__);                                       \
-        static const ::ArSourceLocation ar_unimpl_location {AR_SOURCE_LOCATION}; \
-        ArUnimplemented(ar_unimpl_location);                                     \
+#define unimplemented(...)                                                           \
+    do                                                                               \
+    {                                                                                \
+        static_cast<void>(0, __VA_ARGS__);                                           \
+        static constexpr ::ArSourceLocation ar_unimpl_location {AR_SOURCE_LOCATION}; \
+        ArUnimplemented(ar_unimpl_location);                                         \
     } while (false)

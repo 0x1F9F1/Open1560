@@ -38,7 +38,7 @@ class Base
 public:
     // 0x414AD0 | ??_GBase@@UAEPAXI@Z
     // 0x5791E0 | ??1Base@@UAE@XZ
-    virtual ~Base() = default;
+    virtual ~Base() = 0;
 
     // 0x579290 | ?GetClass@Base@@UAEPAVMetaClass@@XZ
     virtual class MetaClass* GetClass();
@@ -58,6 +58,8 @@ public:
     // 0x5791F0 | ?DeclareFields@Base@@SAXXZ
     static void DeclareFields();
 };
+
+inline Base::~Base() = default;
 
 check_size(Base, 0x4);
 

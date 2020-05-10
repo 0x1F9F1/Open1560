@@ -71,9 +71,7 @@ extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
 
 void InitExportHooks(HMODULE instance)
 {
-    mem::module self = mem::module::nt(instance);
-
-    self.enum_exports([](const char* name, std::uint32_t /*ordinal*/, mem::pointer address) {
+    mem::module::nt(instance).enum_exports([](const char* name, std::uint32_t /*ordinal*/, mem::pointer address) {
         if (name != nullptr)
         {
             std::uint32_t target = 0;

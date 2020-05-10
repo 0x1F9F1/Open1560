@@ -18,7 +18,7 @@
 
 #include "assert.h"
 
-[[noreturn]] void ArReportAssertion(const ArAssertData& data)
+[[noreturn]] ARTS_NOINLINE void AR_FASTCALL ArReportAssertion(const ArAssertData& data)
 {
     const ArSourceLocation& location = data.location;
 
@@ -28,7 +28,9 @@
     std::abort();
 }
 
-void ArUnimplemented(const ArSourceLocation& location)
+[[noreturn]] ARTS_NOINLINE void AR_FASTCALL ArUnimplemented(const ArSourceLocation& location)
 {
     Abortf("Unimplemented Function: %s in %s:%u", location.function, location.filename, location.linenum);
+
+    std::abort();
 }
