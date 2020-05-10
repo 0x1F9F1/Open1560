@@ -34,6 +34,8 @@
 #include "data7/printer.h"
 #include "data7/quitf.h"
 
+#include "data7/metadeclare.h"
+
 #include "arts7/node.h"
 
 #include <sol/sol.hpp>

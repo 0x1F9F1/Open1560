@@ -16,17 +16,14 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(arts7_cullable);
+#pragma once
 
-#include "cullable.h"
+#define META_DECLARE static void DeclareFields()
 
-#include "data7/metadefine.h"
+#define STATIC_META_DECLARE             \
+    static class MetaClass* GetClass(); \
+    META_DECLARE
 
-void asCullable::Cull()
-{}
-
-void asCullable::AddWidgets(class Bank* /*arg1*/)
-{}
-
-META_DEFINE_CHILD(asCullable, Base)
-{}
+#define VIRTUAL_META_DECLARE              \
+    class MetaClass* GetClass() override; \
+    META_DECLARE

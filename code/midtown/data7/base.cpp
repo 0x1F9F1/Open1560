@@ -20,12 +20,7 @@ define_dummy_symbol(data7_base);
 
 #include "base.h"
 
-#include "metaclass.h"
-
-class MetaClass* Base::GetClass()
-{
-    return &BaseMetaClass;
-}
+#include "metadefine.h"
 
 const char* Base::GetTypeNameV()
 {
@@ -43,5 +38,5 @@ const char* Base::GetTypeName()
     return this ? GetTypeNameV() : "*NULL*";
 }
 
-void Base::DeclareFields()
+META_DEFINE(Base)
 {}

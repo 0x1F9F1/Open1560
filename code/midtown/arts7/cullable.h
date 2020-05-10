@@ -51,14 +51,10 @@ public:
     // 0x5258D0 | ?AddWidgets@asCullable@@QAEXPAVBank@@@Z
     void AddWidgets(class Bank* arg1);
 
-    // 0x525A30 | ?GetClass@asCullable@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
-
-    // 0x5258E0 | ?DeclareFields@asCullable@@SAXXZ
-    static void DeclareFields();
+    VIRTUAL_META_DECLARE;
 };
 
 check_size(asCullable, 0x4);
 
 // 0x7908B0 | ?asCullableMetaClass@@3VMetaClass@@A
-inline extern_var(0x7908B0, class MetaClass, asCullableMetaClass);
+// inline extern_var(0x7908B0, class MetaClass, asCullableMetaClass);

@@ -55,8 +55,7 @@ public:
     // 0x5791B0 | ?GetTypeName@Base@@QAEPADXZ
     const char* GetTypeName();
 
-    // 0x5791F0 | ?DeclareFields@Base@@SAXXZ
-    static void DeclareFields();
+    META_DECLARE;
 };
 
 inline Base::~Base() = default;
@@ -64,4 +63,4 @@ inline Base::~Base() = default;
 check_size(Base, 0x4);
 
 // 0x90B100 | ?BaseMetaClass@@3VMetaClass@@A
-inline extern_var(0x90B100, class MetaClass, BaseMetaClass);
+// inline extern_var(0x90B100, class MetaClass, BaseMetaClass);

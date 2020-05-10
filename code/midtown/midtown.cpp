@@ -22,15 +22,24 @@ define_dummy_symbol(midtown);
 
 #include <mem/cmd_param-inl.h>
 
+#include "data7/metaclass.h"
+#include "memory/allocator.h"
 #include "memory/stack.h"
 #include "pcwindis/dxinit.h"
 
 static char Main_ExecPath[1024] {};
 static char* Main_Argv[128] {};
+static u8 Main_InitHeap[0x10000];
 
 int WINAPI MidtownMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR lpCmdLine, int /*nShowCmd*/)
 {
     export_hook(0x4031A0);
+
+    asMemoryAllocator init_alloc;
+    init_alloc.Init(Main_InitHeap, sizeof(Main_InitHeap), 1);
+    CURHEAP = &init_alloc;
+
+    MetaClass::FixupClasses();
 
     GetModuleFileNameA(0, Main_ExecPath, std::size(Main_ExecPath));
 

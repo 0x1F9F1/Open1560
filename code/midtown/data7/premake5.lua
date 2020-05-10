@@ -46,4 +46,7 @@ arts_component "data7"
         -- "timer.h",
         -- "utimer.cpp",
         -- "utimer.h",
+
+        "metadeclare.h",
+        "metadefine.h",
     }

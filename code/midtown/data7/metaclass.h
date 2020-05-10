@@ -52,7 +52,7 @@ struct MetaField
 
 check_size(MetaField, 0x10);
 
-constexpr usize MAX_CLASSES = 256;
+constexpr usize MAX_CLASSES = 512;
 
 class MetaClass
 {
@@ -84,6 +84,8 @@ public:
         return name_;
     }
 
+    static void FixupClasses();
+
     // 0x578000 | ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z
     static void DeclareNamedTypedField(char* arg1, u32 arg2, struct MetaType* arg3);
 
@@ -94,16 +96,16 @@ public:
     static void UndeclareAll();
 
     // 0x90AA28 | ?ClassIndex@MetaClass@@2PAPAV1@A
-    static inline extern_var(0x90AA28, class MetaClass**, ClassIndex);
+    static class MetaClass* ClassIndex[MAX_CLASSES];
 
     // 0x90AE28 | ?Current@MetaClass@@2PAV1@A
     static inline extern_var(0x90AE28, class MetaClass*, Current);
 
     // 0x90AA20 | ?NextSerial@MetaClass@@2HA
-    static inline extern_var(0x90AA20, i32, NextSerial);
+    static i32 NextSerial;
 
     // 0x90AE30 | ?RootMetaClass@MetaClass@@2V1@A
-    static inline extern_var(0x90AE30, class MetaClass, RootMetaClass);
+    static class MetaClass RootMetaClass;
 
     // 0x90AE2C | ?ppField@MetaClass@@2PAPAUMetaField@@A
     static inline extern_var(0x90AE2C, struct MetaField**, ppField);
@@ -116,10 +118,10 @@ private:
     void (*declare_)() {nullptr};
     MetaClass* parent_ {nullptr};
 
-    // FIXME: If a child class is constructed before the parent, initializing children_ will reset it back to null (which breaks stuff).
-    MetaClass* children_ /*{nullptr}*/;
+    MetaClass* children_ {nullptr};
     MetaClass* next_child_ {nullptr};
     MetaField* fields_ {nullptr};
+
     i32 index_ {0};
 };
 

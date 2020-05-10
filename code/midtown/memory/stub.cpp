@@ -22,38 +22,38 @@ define_dummy_symbol(memory_stub);
 
 #include "allocator.h"
 
-void* operator new(std::size_t size)
+ARTS_NOINLINE void* operator new(std::size_t size)
 {
     export_hook(0x5215A0);
 
     return CURHEAP->Allocate(size);
 }
 
-void* operator new[](std::size_t size)
+ARTS_NOINLINE void* operator new[](std::size_t size)
 {
     return CURHEAP->Allocate(size);
 }
 
-void operator delete(void* ptr) noexcept
+ARTS_NOINLINE void operator delete(void* ptr) noexcept
 {
     export_hook(0x5215C0);
 
     CURHEAP->Free(ptr);
 }
 
-void operator delete[](void* ptr) noexcept
+ARTS_NOINLINE void operator delete[](void* ptr) noexcept
 {
     CURHEAP->Free(ptr);
 }
 
-void operator delete(void* ptr, std::size_t sz) noexcept
+ARTS_NOINLINE void operator delete(void* ptr, std::size_t sz) noexcept
 {
     ArDebugAssert(CURHEAP->SizeOf(ptr) == sz, "Allocation Size Mismatch");
 
     CURHEAP->Free(ptr);
 }
 
-void operator delete[](void* ptr, std::size_t sz) noexcept
+ARTS_NOINLINE void operator delete[](void* ptr, std::size_t sz) noexcept
 {
     ArDebugAssert(CURHEAP->SizeOf(ptr) == sz, "Allocation Size Mismatch");
 

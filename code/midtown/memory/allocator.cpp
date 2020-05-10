@@ -79,7 +79,7 @@ void asMemoryAllocator::SanityCheck()
 
 usize asMemoryAllocator::SizeOf(void* ptr)
 {
-    return asMemoryAllocator::node::from(ptr, debug_)->Size;
+    return asMemoryAllocator::node::from(ptr, debug_)->Size - (debug_ ? 12 : 0);
 }
 
 void asMemoryAllocator::Link(struct asMemoryAllocator::node* arg1)
