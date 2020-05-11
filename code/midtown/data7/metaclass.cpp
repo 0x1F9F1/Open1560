@@ -81,6 +81,8 @@ void MetaClass::InitFields()
 {
     export_hook(0x577C70);
 
+    ArAssert(Current == nullptr, "Cannot declare nested fields");
+
     Current = this;
     ppField = &fields_;
 
@@ -180,6 +182,8 @@ void MetaClass::FixupClasses()
 
 void MetaClass::DeclareNamedTypedField(const char* name, u32 offset, struct MetaType* type)
 {
+    export_hook(0x578000);
+
     MetaField* field = new MetaField {nullptr, name, offset, type};
     *ppField = field;
     ppField = &field->Next;
@@ -205,10 +209,10 @@ void MetaClass::UndeclareAll()
 
     for (i32 i = 0; i < NextSerial; ++i)
     {
-        for (MetaField* j = std::exchange(ClassIndex[i]->fields_, nullptr); j; delete std::exchange(j, j->Next))
-        {
-            // TODO: Free non-static field types
-        }
+        MetaClass* cls = ClassIndex[i];
+
+        // All fields/types should be "freed" as part of asSafeHeap restarting
+        cls->fields_ = nullptr;
     }
 }
 

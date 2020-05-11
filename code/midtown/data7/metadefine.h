@@ -56,6 +56,10 @@ inline void ptrDelete(void* ptr, i32 len)
 template <typename T>
 inline void MetaDeclareStaticFields()
 {
+    // TODO: Avoid having to declare parent fields
+    if (MetaClass* parent = MetaClass::Current->GetParent())
+        parent->DeclareFields();
+
     MetaClass::DeclareStaticFields(MetaFieldStore<T>::Fields);
 }
 

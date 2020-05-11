@@ -22,6 +22,8 @@ define_dummy_symbol(arts7_node);
 
 #include "data7/metadefine.h"
 
+#include "bank.h"
+
 asNode::~asNode()
 {
     if (parent_node_)
@@ -39,18 +41,18 @@ void asNode::Update()
 
 void asNode::Reset()
 {
-    return stub<thiscall_t<void, asNode*>>(0x523960, this);
+    for (asNode* i = child_node_; i; i = i->next_node_)
+        i->Reset();
 }
 
-void asNode::ResChange(i32 arg1, i32 arg2)
+void asNode::ResChange(i32 width, i32 height)
 {
-    return stub<thiscall_t<void, asNode*, i32, i32>>(0x523980, this, arg1, arg2);
+    for (asNode* i = child_node_; i; i = i->next_node_)
+        i->ResChange(width, height);
 }
 
 void asNode::UpdatePaused()
-{
-    return stub<thiscall_t<void, asNode*>>(0x404BB0, this);
-}
+{}
 
 void asNode::Load()
 {
@@ -67,20 +69,17 @@ void asNode::AddWidgets(class Bank* arg1)
     return stub<thiscall_t<void, asNode*, class Bank*>>(0x524330, this, arg1);
 }
 
-void asNode::OpenWidgets(char* arg1, class bkWindow* arg2)
-{
-    return stub<thiscall_t<void, asNode*, char*, class bkWindow*>>(0x5243E0, this, arg1, arg2);
-}
+void asNode::OpenWidgets(char* /*arg1*/, class bkWindow* /*arg2*/)
+{}
 
 void asNode::CloseWidgets()
 {
-    return stub<thiscall_t<void, asNode*>>(0x5243F0, this);
+    if (current_bank_)
+        current_bank_->Off();
 }
 
-void asNode::AddButton(class Bank* arg1, i32& arg2)
-{
-    return stub<thiscall_t<void, asNode*, class Bank*, i32&>>(0x524400, this, arg1, arg2);
-}
+void asNode::AddButton(class Bank* /*arg1*/, i32& /*arg2*/)
+{}
 
 i32 asNode::AddChild(class asNode* arg1)
 {
@@ -99,12 +98,12 @@ class asNode* asNode::GetLastChild()
 
 class asNode* asNode::GetNext()
 {
-    return stub<thiscall_t<class asNode*, asNode*>>(0x523CB0, this);
+    return next_node_;
 }
 
 char* asNode::GetNodeType()
 {
-    return stub<thiscall_t<char*, asNode*>>(0x523DC0, this);
+    return const_cast<char*>(GetClass()->GetName());
 }
 
 class asNode* asNode::GetParent(class MetaClass* arg1)

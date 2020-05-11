@@ -91,6 +91,16 @@ public:
         return name_;
     }
 
+    MetaClass* GetParent() const
+    {
+        return parent_;
+    }
+
+    void DeclareFields()
+    {
+        declare_();
+    }
+
     static void FixupClasses();
 
     // 0x578000 | ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z

@@ -98,6 +98,7 @@
     0x790928 | class asMidgets * MIDGETSPTR | ?MIDGETSPTR@@3PAVasMidgets@@A
 */
 
+#include "bank.h"
 #include "cullable.h"
 
 class asMidgets
@@ -371,66 +372,6 @@ public:
 };
 
 check_size(SBMI, 0x0);
-
-class Bank
-{
-    // const Bank::`vftable' @ 0x620C40
-
-public:
-    virtual void SetLabel(char* arg1) = 0;
-
-    virtual class bkWindow* AddTitle(char* arg1) = 0;
-
-    virtual class bkButton* AddButton(char* arg1, class Callback arg2) = 0;
-
-    virtual class bkButton* AddToggle(char* arg1, i32* arg2, i32 arg3, class Callback arg4) = 0;
-
-    virtual class bkButton* AddMex(char* arg1, i32* arg2, i32 arg3, class Callback arg4) = 0;
-
-    virtual class bkButton* AddText(char* arg1, class Callback arg2) = 0;
-
-    virtual class bkButton* AddText(class Callback arg1) = 0;
-
-    virtual class bkSlider* AddSlider(char* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) = 0;
-
-    virtual class bkSlider* AddSlider(char* arg1, u32* arg2, u32 arg3, u32 arg4, f32 arg5, class Callback arg6) = 0;
-
-    virtual class bkSlider* AddSlider(char* arg1, i32* arg2, i32 arg3, i32 arg4, f32 arg5, class Callback arg6) = 0;
-
-    virtual class bkSlider* AddSlider(char* arg1, u16* arg2, u16 arg3, u16 arg4, f32 arg5, class Callback arg6) = 0;
-
-    virtual class bkSlider* AddSlider(char* arg1, i16* arg2, i16 arg3, i16 arg4, f32 arg5, class Callback arg6) = 0;
-
-    virtual class bkSlider* AddSlider(char* arg1, u8* arg2, u8 arg3, u8 arg4, f32 arg5, class Callback arg6) = 0;
-
-    virtual class bkSlider* AddSlider(char* arg1, char* arg2, char arg3, char arg4, f32 arg5, class Callback arg6) = 0;
-
-    virtual class bkSlider* AddTextSlider(char* arg1, char* arg2, i32* arg3, f32 arg4, class Callback arg5) = 0;
-
-    virtual void AddVector(char* arg1, class Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) = 0;
-
-    virtual void AddVector(char* arg1, class Vector3* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) = 0;
-
-    virtual void AddVector(char* arg1, class Vector2* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) = 0;
-
-    virtual void AddColor(char* arg1, class Vector4* arg2, class Callback arg3) = 0;
-
-    virtual void AddColor(char* arg1, class Vector3* arg2, class Callback arg3) = 0;
-
-    virtual void AddFileButton(char* arg1, class Callback arg2) = 0;
-
-    virtual void PushSection(char* arg1, i32 arg2) = 0;
-
-    virtual void PopSection() = 0;
-
-    virtual void PushColumn(i32 arg1) = 0;
-
-    virtual void PopColumn() = 0;
-
-    virtual void Off() = 0;
-};
-
-check_size(Bank, 0x0);
 
 class MI
 {

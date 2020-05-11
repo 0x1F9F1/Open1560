@@ -135,18 +135,9 @@ struct MetaTypeStore_
 };
 
 template <typename T>
-ARTS_NOINLINE inline const MetaType* MetaTypeStore_<T>::Instance()
+inline const MetaType* MetaTypeStore_<T>::Instance()
 {
-    static const MetaType* s_Instance {nullptr};
-
-    if (s_Instance == nullptr)
-    {
-        s_Instance = MetaTypeFactory<T>::Create();
-
-        ArDebugAssert(s_Instance != nullptr, "MetaTypeFactory returns null type");
-    }
-
-    return s_Instance;
+    return MetaTypeFactory<T>::Create(); // TODO: Cache types
 }
 
 template <>

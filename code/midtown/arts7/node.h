@@ -83,7 +83,7 @@ public:
     virtual void Reset();
 
     // 0x523980 | ?ResChange@asNode@@UAEXHH@Z
-    virtual void ResChange(i32 arg1, i32 arg2);
+    virtual void ResChange(i32 width, i32 height);
 
     // 0x404BB0 | ?UpdatePaused@asNode@@UAEXXZ
     virtual void UpdatePaused();

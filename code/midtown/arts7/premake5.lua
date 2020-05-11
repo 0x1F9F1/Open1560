@@ -26,4 +26,6 @@ arts_component "arts7"
         -- "sim.h",
         -- "view.cpp",
         -- "view.h",
+
+        "bank.h",
     }
