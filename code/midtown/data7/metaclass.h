@@ -141,7 +141,10 @@ private:
     MetaClass* next_child_ {nullptr};
     MetaField* fields_ {nullptr};
 
-    i32 index_ {0};
+    i32 index_ {-1};
+
+    void Register();
+    void Unregister();
 };
 
 check_size(MetaClass, 0x28);

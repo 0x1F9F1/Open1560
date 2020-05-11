@@ -36,7 +36,7 @@ class MetaClass MetaClass::RootMetaClass
     "Root", 0, nullptr, nullptr, nullptr, nullptr
 };
 
-ARTS_NOINLINE MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32),
+MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32),
     void (*declare)(void), class MetaClass* parent)
     : name_(name)
     , size_(size)
@@ -47,6 +47,18 @@ ARTS_NOINLINE MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)
 {
     export_hook(0x577AA0);
 
+    Register();
+}
+
+MetaClass::~MetaClass()
+{
+    export_hook(0x577B20);
+
+    Unregister();
+}
+
+ARTS_NOINLINE void MetaClass::Register()
+{
     ArAssert(NextSerial < MAX_CLASSES, "Too many classes, raise MAX_CLASSES");
 
     ClassIndex[NextSerial] = this;
@@ -54,10 +66,8 @@ ARTS_NOINLINE MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)
     ++NextSerial;
 }
 
-ARTS_NOINLINE MetaClass::~MetaClass()
+ARTS_NOINLINE void MetaClass::Unregister()
 {
-    export_hook(0x577B20);
-
     if (index_ != -1)
     {
         ArAssert(index_ + 1 == NextSerial, "MetaClass destructed in wrong order");
@@ -76,6 +86,7 @@ ARTS_NOINLINE MetaClass::~MetaClass()
         }
     }
 }
+
 
 void MetaClass::InitFields()
 {
