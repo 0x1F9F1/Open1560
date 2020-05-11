@@ -112,9 +112,6 @@ public:
     // 0x523C80 | ?GetChild@asNode@@QAEPAV1@H@Z
     class asNode* GetChild(i32 arg1);
 
-    // 0x524600 | ?GetClass@asNode@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
-
     // 0x523CC0 | ?GetLastChild@asNode@@QAEPAV1@XZ
     class asNode* GetLastChild();
 
@@ -163,8 +160,7 @@ public:
     // 0x523440 | ?VerifyTree@asNode@@QAEPADXZ
     char* VerifyTree();
 
-    // 0x524410 | ?DeclareFields@asNode@@SAXXZ
-    static void DeclareFields();
+    VIRTUAL_META_DECLARE;
 
     // 0x790834 | ?TimingCount@asNode@@2HA
     static inline extern_var(0x790834, i32, TimingCount);
@@ -178,15 +174,12 @@ private:
 
     char* node_name_ {nullptr}; // TODO: Use cstring wrapper
 
-    i32 active_ {0x3};
+    i32 flags_ {0x3};
 
     class Bank* current_bank_ {nullptr};
 };
 
 check_size(asNode, 0x20);
-
-// 0x524610 | ?PtrTo@@YAPAUMetaType@@PAU1@@Z
-struct MetaType* PtrTo(struct MetaType* arg1);
 
 // 0x5246A0 | ??_9@$BCI@AE (Skipped: void)
 

@@ -1,3 +1,4 @@
+#include "metaclass.h"
 /*
     Open1560 - An Open Source Re-Implementation of Midtown Madness 1 Beta
     Copyright (C) 2020 Brick
@@ -35,7 +36,7 @@ class MetaClass MetaClass::RootMetaClass
     "Root", 0, nullptr, nullptr, nullptr, nullptr
 };
 
-MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32),
+ARTS_NOINLINE MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32),
     void (*declare)(void), class MetaClass* parent)
     : name_(name)
     , size_(size)
@@ -53,7 +54,7 @@ MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*
     ++NextSerial;
 }
 
-MetaClass::~MetaClass()
+ARTS_NOINLINE MetaClass::~MetaClass()
 {
     export_hook(0x577B20);
 
@@ -111,13 +112,13 @@ void MetaClass::SkipBlock(class MiniParser* arg1)
 
 void MetaClass::FixupClasses()
 {
-    create_hook(
-        "MetaClass::Load Base", "Point to correct BaseMetaclass", 0x577FD2, &MetaClassStore<Base>::I, hook_type::push);
+    create_hook("MetaClass::Load Base", "Point to correct BaseMetaclass", 0x577FD2, &MetaClassStore<Base>::Instance,
+        hook_type::push);
 
     create_hook("MetaClass::Load Root", "Point to correct RootMetaClass", 0x577EBA, &RootMetaClass, hook_type::push);
 
-    create_hook(
-        "MetaClass::Save Base", "Point to correct BaseMetaclass", 0x577CAA, &MetaClassStore<Base>::I, hook_type::push);
+    create_hook("MetaClass::Save Base", "Point to correct BaseMetaclass", 0x577CAA, &MetaClassStore<Base>::Instance,
+        hook_type::push);
 
     mem::module main_module = mem::module::main();
 
@@ -177,9 +178,20 @@ void MetaClass::FixupClasses()
     }
 }
 
-void MetaClass::DeclareNamedTypedField(char* arg1, u32 arg2, struct MetaType* arg3)
+void MetaClass::DeclareNamedTypedField(const char* name, u32 offset, struct MetaType* type)
 {
-    return stub<cdecl_t<void, char*, u32, struct MetaType*>>(0x578000, arg1, arg2, arg3);
+    MetaField* field = new MetaField {nullptr, name, offset, type};
+    *ppField = field;
+    ppField = &field->Next;
+}
+
+ARTS_NOINLINE void ARTS_FASTCALL MetaClass::DeclareStaticFields(
+    const std::initializer_list<const StaticMetaField>& fields)
+{
+    for (const StaticMetaField& field : fields)
+    {
+        DeclareNamedTypedField(field.Name, static_cast<u32>(field.Offset), const_cast<MetaType*>(field.Getter()));
+    }
 }
 
 class MetaClass* MetaClass::FindByName(char* arg1, class MetaClass* arg2)

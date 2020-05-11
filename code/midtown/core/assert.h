@@ -37,10 +37,8 @@ struct ArAssertData
     ArSourceLocation location;
 };
 
-#define AR_FASTCALL __fastcall
-
-[[noreturn]] ARTS_NOINLINE void AR_FASTCALL ArReportAssertion(const ArAssertData& data);
-[[noreturn]] ARTS_NOINLINE void AR_FASTCALL ArUnimplemented(const ArSourceLocation& location);
+[[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArReportAssertion(const ArAssertData& data);
+[[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArUnimplemented(const ArSourceLocation& location);
 
 #define AR_SOURCE_LOCATION                                             \
     ::ArSourceLocation                                                 \

@@ -114,29 +114,60 @@
     0x90B498 | struct SignedInt64Type SignedInt64Inst | ?SignedInt64Inst@@3USignedInt64Type@@A
 */
 
-struct PtrToType : MetaType
+struct MetaType
 {
-    // const PtrToType::`vftable' @ 0x620AB8
-
-public:
-    // 0x57B5E0 | ?Delete@PtrToType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
-
-    // 0x57B5B0 | ?Load@PtrToType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
-
-    // 0x57B5D0 | ?New@PtrToType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
-
-    // 0x57B590 | ?Save@PtrToType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
-
-    // 0x57B5F0 | ?SizeOf@PtrToType@@UAEIXZ
-    u32 SizeOf() override;
+    virtual void Save(class MiniParser* parser, void* ptr) = 0;
+    virtual void Load(class MiniParser* parser, void* ptr) = 0;
+    virtual u32 SizeOf() = 0;
+    virtual void* New(i32 count) = 0;
+    virtual void Delete(void* ptr, i32 count) = 0;
 };
 
-check_size(PtrToType, 0x0);
+check_size(MetaType, 0x4);
 
+template <typename T, typename = void>
+struct MetaTypeFactory;
+
+template <typename T>
+struct MetaTypeStore_
+{
+    static const MetaType* Instance();
+};
+
+template <typename T>
+ARTS_NOINLINE inline const MetaType* MetaTypeStore_<T>::Instance()
+{
+    static const MetaType* s_Instance {nullptr};
+
+    if (s_Instance == nullptr)
+    {
+        s_Instance = MetaTypeFactory<T>::Create();
+
+        ArDebugAssert(s_Instance != nullptr, "MetaTypeFactory returns null type");
+    }
+
+    return s_Instance;
+}
+
+template <>
+const MetaType* MetaTypeStore_<void>::Instance() = delete;
+
+template <typename T>
+using MetaTypeStore = MetaTypeStore_<typename std::remove_cv<T>::type>;
+
+// 0x524610 | ?PtrTo@@YAPAUMetaType@@PAU1@@Z
+struct MetaType* PtrTo(struct MetaType* target);
+
+template <typename T>
+struct MetaTypeFactory<T*>
+{
+    static inline MetaType* Create()
+    {
+        return PtrTo(const_cast<MetaType*>(MetaTypeStore<T>::Instance()));
+    }
+};
+
+/*
 struct RefToType : MetaType
 {
     // const RefToType::`vftable' @ 0x61F720
@@ -185,30 +216,21 @@ public:
 };
 
 check_size(ArrayOfType, 0x0);
+*/
 
-struct StructType : MetaType
+// 0x4703A0 | ?Struct@@YAPAUMetaType@@PAVMetaClass@@@Z
+struct MetaType* Struct(class MetaClass* target);
+
+template <typename T>
+struct MetaTypeFactory<T, std::enable_if_t<std::is_class_v<T>>>
 {
-    // const StructType::`vftable' @ 0x61BEE8
-
-public:
-    // 0x57B9D0 | ?Delete@StructType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
-
-    // 0x57B980 | ?Load@StructType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
-
-    // 0x57B9B0 | ?New@StructType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
-
-    // 0x57B960 | ?Save@StructType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
-
-    // 0x57B9A0 | ?SizeOf@StructType@@UAEIXZ
-    u32 SizeOf() override;
+    static inline MetaType* Create()
+    {
+        return Struct(&MetaClassStore<T>::Instance);
+    }
 };
 
-check_size(StructType, 0x0);
-
+/*
 struct CharType : MetaType
 {
     // const CharType::`vftable' @ 0x621DB0
@@ -323,30 +345,11 @@ public:
 };
 
 check_size(UnsignedShortType, 0x0);
+*/
 
-struct SignedIntType : MetaType
-{
-    // const SignedIntType::`vftable' @ 0x621E28
+extern template MetaTypeStore_<signed int>;
 
-public:
-    // 0x57BE90 | ?Delete@SignedIntType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
-
-    // 0x57BE30 | ?Load@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
-
-    // 0x57BE60 | ?New@SignedIntType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
-
-    // 0x57BE10 | ?Save@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
-
-    // 0x57BE50 | ?SizeOf@SignedIntType@@UAEIXZ
-    u32 SizeOf() override;
-};
-
-check_size(SignedIntType, 0x0);
-
+/*
 struct SignedInt64Type : MetaType
 {
     // const SignedInt64Type::`vftable' @ 0x621E40
@@ -415,29 +418,9 @@ public:
 };
 
 check_size(FloatType, 0x0);
+*/
 
-struct StringType : MetaType
-{
-    // const StringType::`vftable' @ 0x621E88
-
-public:
-    // 0x57C260 | ?Delete@StringType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
-
-    // 0x57C1D0 | ?Load@StringType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
-
-    // 0x57C220 | ?New@StringType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
-
-    // 0x57C190 | ?Save@StringType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
-
-    // 0x57C270 | ?SizeOf@StringType@@UAEIXZ
-    u32 SizeOf() override;
-};
-
-check_size(StringType, 0x0);
+extern template MetaTypeStore_<char*>;
 
 // 0x90B478 | ?CharInst@@3UCharType@@A
 inline extern_var(0x90B478, struct CharType, CharInst);
@@ -452,13 +435,13 @@ inline extern_var(0x90B48C, struct SignedCharType, SignedCharInst);
 inline extern_var(0x90B498, struct SignedInt64Type, SignedInt64Inst);
 
 // 0x90B47C | ?SignedIntInst@@3USignedIntType@@A
-inline extern_var(0x90B47C, struct SignedIntType, SignedIntInst);
+// inline extern_var(0x90B47C, struct SignedIntType, SignedIntInst);
 
 // 0x90B484 | ?SignedShortInst@@3USignedShortType@@A
 inline extern_var(0x90B484, struct SignedShortType, SignedShortInst);
 
 // 0x90B488 | ?StringInst@@3UStringType@@A
-inline extern_var(0x90B488, struct StringType, StringInst);
+// inline extern_var(0x90B488, struct StringType, StringInst);
 
 // 0x90B474 | ?UnsignedCharInst@@3UUnsignedCharType@@A
 inline extern_var(0x90B474, struct UnsignedCharType, UnsignedCharInst);
@@ -468,19 +451,3 @@ inline extern_var(0x90B490, struct UnsignedIntType, UnsignedIntInst);
 
 // 0x90B494 | ?UnsignedShortInst@@3UUnsignedShortType@@A
 inline extern_var(0x90B494, struct UnsignedShortType, UnsignedShortInst);
-
-struct MetaType
-{
-public:
-    virtual void Save(class MiniParser* arg1, void* arg2) = 0;
-
-    virtual void Load(class MiniParser* arg1, void* arg2) = 0;
-
-    virtual u32 SizeOf() = 0;
-
-    virtual void* New(i32 arg1) = 0;
-
-    virtual void Delete(void* arg1, i32 arg2) = 0;
-};
-
-check_size(MetaType, 0x0);

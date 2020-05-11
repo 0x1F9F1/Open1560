@@ -38,5 +38,4 @@ const char* Base::GetTypeName()
     return this ? GetTypeNameV() : "*NULL*";
 }
 
-META_DEFINE(Base)
-{}
+META_DEFINE("Base", Base) {};

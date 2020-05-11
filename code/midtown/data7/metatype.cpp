@@ -20,31 +20,55 @@ define_dummy_symbol(data7_metatype);
 
 #include "metatype.h"
 
-void PtrToType::Delete(void* arg1, i32 arg2)
+struct PtrToType : MetaType
 {
-    return stub<thiscall_t<void, PtrToType*, void*, i32>>(0x57B5E0, this, arg1, arg2);
+    // const PtrToType::`vftable' @ 0x620AB8
+
+    PtrToType(MetaType* target)
+        : TargetType(target)
+    {}
+
+    MetaType* TargetType {nullptr};
+
+    // 0x57B5E0 | ?Delete@PtrToType@@UAEXPAXH@Z
+    void Delete(void* arg1, i32 arg2) override
+    {
+        return stub<thiscall_t<void, PtrToType*, void*, i32>>(0x57B5E0, this, arg1, arg2);
+    }
+
+    // 0x57B5B0 | ?Load@PtrToType@@UAEXPAVMiniParser@@PAX@Z
+    void Load(class MiniParser* arg1, void* arg2) override
+    {
+        return stub<thiscall_t<void, PtrToType*, class MiniParser*, void*>>(0x57B5B0, this, arg1, arg2);
+    }
+
+    // 0x57B5D0 | ?New@PtrToType@@UAEPAXH@Z
+    void* New(i32 arg1) override
+    {
+        return stub<thiscall_t<void*, PtrToType*, i32>>(0x57B5D0, this, arg1);
+    }
+
+    // 0x57B590 | ?Save@PtrToType@@UAEXPAVMiniParser@@PAX@Z
+    void Save(class MiniParser* arg1, void* arg2) override
+    {
+        return stub<thiscall_t<void, PtrToType*, class MiniParser*, void*>>(0x57B590, this, arg1, arg2);
+    }
+
+    // 0x57B5F0 | ?SizeOf@PtrToType@@UAEIXZ
+    u32 SizeOf() override
+    {
+        return stub<thiscall_t<u32, PtrToType*>>(0x57B5F0, this);
+    }
+};
+
+check_size(PtrToType, 0x8);
+
+struct MetaType* PtrTo(struct MetaType* target)
+{
+    return new PtrToType {target};
 }
 
-void PtrToType::Load(class MiniParser* arg1, void* arg2)
-{
-    return stub<thiscall_t<void, PtrToType*, class MiniParser*, void*>>(0x57B5B0, this, arg1, arg2);
-}
-
-void* PtrToType::New(i32 arg1)
-{
-    return stub<thiscall_t<void*, PtrToType*, i32>>(0x57B5D0, this, arg1);
-}
-
-void PtrToType::Save(class MiniParser* arg1, void* arg2)
-{
-    return stub<thiscall_t<void, PtrToType*, class MiniParser*, void*>>(0x57B590, this, arg1, arg2);
-}
-
-u32 PtrToType::SizeOf()
-{
-    return stub<thiscall_t<u32, PtrToType*>>(0x57B5F0, this);
-}
-
+/*
 void RefToType::Delete(void* arg1, i32 arg2)
 {
     return stub<thiscall_t<void, RefToType*, void*, i32>>(0x57B7B0, this, arg1, arg2);
@@ -99,32 +123,57 @@ u32 ArrayOfType::SizeOf()
 {
     return stub<thiscall_t<u32, ArrayOfType*>>(0x57B900, this);
 }
+*/
 
-void StructType::Delete(void* arg1, i32 arg2)
+struct StructType : MetaType
 {
-    return stub<thiscall_t<void, StructType*, void*, i32>>(0x57B9D0, this, arg1, arg2);
+    // const StructType::`vftable' @ 0x61BEE8
+
+    StructType(MetaClass* target)
+        : TargetClass(target)
+    {}
+
+    MetaClass* TargetClass {nullptr};
+
+    // 0x57B9D0 | ?Delete@StructType@@UAEXPAXH@Z
+    void Delete(void* arg1, i32 arg2) override
+    {
+        return stub<thiscall_t<void, StructType*, void*, i32>>(0x57B9D0, this, arg1, arg2);
+    }
+
+    // 0x57B980 | ?Load@StructType@@UAEXPAVMiniParser@@PAX@Z
+    void Load(class MiniParser* arg1, void* arg2) override
+    {
+        return stub<thiscall_t<void, StructType*, class MiniParser*, void*>>(0x57B980, this, arg1, arg2);
+    }
+
+    // 0x57B9B0 | ?New@StructType@@UAEPAXH@Z
+    void* New(i32 arg1) override
+    {
+        return stub<thiscall_t<void*, StructType*, i32>>(0x57B9B0, this, arg1);
+    }
+
+    // 0x57B960 | ?Save@StructType@@UAEXPAVMiniParser@@PAX@Z
+    void Save(class MiniParser* arg1, void* arg2) override
+    {
+        return stub<thiscall_t<void, StructType*, class MiniParser*, void*>>(0x57B960, this, arg1, arg2);
+    }
+
+    // 0x57B9A0 | ?SizeOf@StructType@@UAEIXZ
+    u32 SizeOf() override
+    {
+        return stub<thiscall_t<u32, StructType*>>(0x57B9A0, this);
+    }
+};
+
+check_size(StructType, 0x8);
+
+struct MetaType* Struct(class MetaClass* target)
+{
+    return new StructType {target};
 }
 
-void StructType::Load(class MiniParser* arg1, void* arg2)
-{
-    return stub<thiscall_t<void, StructType*, class MiniParser*, void*>>(0x57B980, this, arg1, arg2);
-}
-
-void* StructType::New(i32 arg1)
-{
-    return stub<thiscall_t<void*, StructType*, i32>>(0x57B9B0, this, arg1);
-}
-
-void StructType::Save(class MiniParser* arg1, void* arg2)
-{
-    return stub<thiscall_t<void, StructType*, class MiniParser*, void*>>(0x57B960, this, arg1, arg2);
-}
-
-u32 StructType::SizeOf()
-{
-    return stub<thiscall_t<u32, StructType*>>(0x57B9A0, this);
-}
-
+/*
 void CharType::Delete(void* arg1, i32 arg2)
 {
     return stub<thiscall_t<void, CharType*, void*, i32>>(0x57BA70, this, arg1, arg2);
@@ -249,32 +298,54 @@ u32 UnsignedShortType::SizeOf()
 {
     return stub<thiscall_t<u32, UnsignedShortType*>>(0x57BD80, this);
 }
+*/
 
-void SignedIntType::Delete(void* arg1, i32 arg2)
+struct SignedIntType : MetaType
 {
-    return stub<thiscall_t<void, SignedIntType*, void*, i32>>(0x57BE90, this, arg1, arg2);
+    // const SignedIntType::`vftable' @ 0x621E28
+
+public:
+    // 0x57BE90 | ?Delete@SignedIntType@@UAEXPAXH@Z
+    void Delete(void* arg1, i32 arg2) override
+    {
+        return stub<thiscall_t<void, SignedIntType*, void*, i32>>(0x57BE90, this, arg1, arg2);
+    }
+
+    // 0x57BE30 | ?Load@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
+    void Load(class MiniParser* arg1, void* arg2) override
+    {
+        return stub<thiscall_t<void, SignedIntType*, class MiniParser*, void*>>(0x57BE30, this, arg1, arg2);
+    }
+
+    // 0x57BE60 | ?New@SignedIntType@@UAEPAXH@Z
+    void* New(i32 arg1) override
+    {
+        return stub<thiscall_t<void*, SignedIntType*, i32>>(0x57BE60, this, arg1);
+    }
+
+    // 0x57BE10 | ?Save@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
+    void Save(class MiniParser* arg1, void* arg2) override
+    {
+        return stub<thiscall_t<void, SignedIntType*, class MiniParser*, void*>>(0x57BE10, this, arg1, arg2);
+    }
+
+    // 0x57BE50 | ?SizeOf@SignedIntType@@UAEIXZ
+    u32 SizeOf() override
+    {
+        return stub<thiscall_t<u32, SignedIntType*>>(0x57BE50, this);
+    }
+};
+
+check_size(SignedIntType, 0x4);
+
+static const SignedIntType SignedIntInst;
+
+const MetaType* MetaTypeStore_<signed int>::Instance()
+{
+    return &SignedIntInst;
 }
 
-void SignedIntType::Load(class MiniParser* arg1, void* arg2)
-{
-    return stub<thiscall_t<void, SignedIntType*, class MiniParser*, void*>>(0x57BE30, this, arg1, arg2);
-}
-
-void* SignedIntType::New(i32 arg1)
-{
-    return stub<thiscall_t<void*, SignedIntType*, i32>>(0x57BE60, this, arg1);
-}
-
-void SignedIntType::Save(class MiniParser* arg1, void* arg2)
-{
-    return stub<thiscall_t<void, SignedIntType*, class MiniParser*, void*>>(0x57BE10, this, arg1, arg2);
-}
-
-u32 SignedIntType::SizeOf()
-{
-    return stub<thiscall_t<u32, SignedIntType*>>(0x57BE50, this);
-}
-
+/*
 void SignedInt64Type::Delete(void* arg1, i32 arg2)
 {
     return stub<thiscall_t<void, SignedInt64Type*, void*, i32>>(0x57BF70, this, arg1, arg2);
@@ -349,28 +420,49 @@ u32 FloatType::SizeOf()
 {
     return stub<thiscall_t<u32, FloatType*>>(0x57C0E0, this);
 }
+*/
 
-void StringType::Delete(void* arg1, i32 arg2)
+struct StringType : MetaType
 {
-    return stub<thiscall_t<void, StringType*, void*, i32>>(0x57C260, this, arg1, arg2);
-}
+    // const StringType::`vftable' @ 0x621E88
 
-void StringType::Load(class MiniParser* arg1, void* arg2)
-{
-    return stub<thiscall_t<void, StringType*, class MiniParser*, void*>>(0x57C1D0, this, arg1, arg2);
-}
+public:
+    // 0x57C260 | ?Delete@StringType@@UAEXPAXH@Z
+    void Delete(void* arg1, i32 arg2) override
+    {
+        return stub<thiscall_t<void, StringType*, void*, i32>>(0x57C260, this, arg1, arg2);
+    }
 
-void* StringType::New(i32 arg1)
-{
-    return stub<thiscall_t<void*, StringType*, i32>>(0x57C220, this, arg1);
-}
+    // 0x57C1D0 | ?Load@StringType@@UAEXPAVMiniParser@@PAX@Z
+    void Load(class MiniParser* arg1, void* arg2) override
+    {
+        return stub<thiscall_t<void, StringType*, class MiniParser*, void*>>(0x57C1D0, this, arg1, arg2);
+    }
 
-void StringType::Save(class MiniParser* arg1, void* arg2)
-{
-    return stub<thiscall_t<void, StringType*, class MiniParser*, void*>>(0x57C190, this, arg1, arg2);
-}
+    // 0x57C220 | ?New@StringType@@UAEPAXH@Z
+    void* New(i32 arg1) override
+    {
+        return stub<thiscall_t<void*, StringType*, i32>>(0x57C220, this, arg1);
+    }
 
-u32 StringType::SizeOf()
+    // 0x57C190 | ?Save@StringType@@UAEXPAVMiniParser@@PAX@Z
+    void Save(class MiniParser* arg1, void* arg2) override
+    {
+        return stub<thiscall_t<void, StringType*, class MiniParser*, void*>>(0x57C190, this, arg1, arg2);
+    }
+
+    // 0x57C270 | ?SizeOf@StringType@@UAEIXZ
+    u32 SizeOf() override
+    {
+        return stub<thiscall_t<u32, StringType*>>(0x57C270, this);
+    }
+};
+
+check_size(StringType, 0x4);
+
+static const StringType StringInst;
+
+const MetaType* MetaTypeStore_<char*>::Instance()
 {
-    return stub<thiscall_t<u32, StringType*>>(0x57C270, this);
+    return &StringInst;
 }

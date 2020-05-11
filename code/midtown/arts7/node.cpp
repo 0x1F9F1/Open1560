@@ -20,6 +20,8 @@ define_dummy_symbol(arts7_node);
 
 #include "node.h"
 
+#include "data7/metadefine.h"
+
 asNode::~asNode()
 {
     if (parent_node_)
@@ -88,11 +90,6 @@ i32 asNode::AddChild(class asNode* arg1)
 class asNode* asNode::GetChild(i32 arg1)
 {
     return stub<thiscall_t<class asNode*, asNode*, i32>>(0x523C80, this, arg1);
-}
-
-class MetaClass* asNode::GetClass()
-{
-    return stub<thiscall_t<class MetaClass*, asNode*>>(0x524600, this);
 }
 
 class asNode* asNode::GetLastChild()
@@ -175,12 +172,10 @@ char* asNode::VerifyTree()
     return stub<thiscall_t<char*, asNode*>>(0x523440, this);
 }
 
-void asNode::DeclareFields()
-{
-    return stub<cdecl_t<void>>(0x524410);
-}
-
-struct MetaType* PtrTo(struct MetaType* arg1)
-{
-    return stub<cdecl_t<struct MetaType*, struct MetaType*>>(0x524610, arg1);
-}
+META_DEFINE_CHILD("asNode", asNode, asCullable) {
+    META_FIELD("Flags", flags_),
+    META_FIELD("NextNode", next_node_),
+    META_FIELD("ChildNode", child_node_),
+    META_FIELD("ParentNode", parent_node_),
+    META_FIELD("NodeName", node_name_),
+};

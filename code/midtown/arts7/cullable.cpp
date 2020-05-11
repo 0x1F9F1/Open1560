@@ -28,5 +28,4 @@ void asCullable::Cull()
 void asCullable::AddWidgets(class Bank* /*arg1*/)
 {}
 
-META_DEFINE_CHILD(asCullable, Base)
-{}
+META_DEFINE_CHILD("asCullable", asCullable, Base) {};

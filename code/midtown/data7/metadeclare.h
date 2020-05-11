@@ -18,7 +18,12 @@
 
 #pragma once
 
-#define META_DECLARE static void DeclareFields()
+template <typename T>
+struct MetaFieldStore;
+
+#define META_DECLARE      \
+    template <typename T> \
+    friend struct MetaFieldStore
 
 #define STATIC_META_DECLARE             \
     static class MetaClass* GetClass(); \

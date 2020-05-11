@@ -19,11 +19,20 @@
 #pragma once
 
 #include "metaclass.h"
+#include "metatype.h"
 
 template <typename T>
 struct MetaClassStore
 {
-    static MetaClass I;
+    static MetaClass Instance;
+};
+
+template <typename T>
+struct MetaFieldStore
+{
+    using MetaThis = T;
+
+    static const std::initializer_list<const StaticMetaField> Fields;
 };
 
 template <typename T>
@@ -44,7 +53,13 @@ inline void ptrDelete(void* ptr, i32 len)
         delete static_cast<T*>(ptr);
 }
 
-template <typename T, bool Abstract = std::is_abstract_v<T> || !std::is_default_constructible_v<T>>
+template <typename T>
+inline void MetaDeclareStaticFields()
+{
+    MetaClass::DeclareStaticFields(MetaFieldStore<T>::Fields);
+}
+
+template <typename T, bool Abstract = !std::is_default_constructible_v<T>>
 struct MetaAllocator;
 
 template <typename T>
@@ -61,22 +76,32 @@ struct MetaAllocator<T, true>
     static constexpr auto Delete {ptrDelete<T>};
 };
 
-#define META_DEFINE_STORE(TYPE, PARENT, ALLOCATOR)                                             \
-    class MetaClass* TYPE::GetClass()                                                          \
-    {                                                                                          \
-        return &MetaClassStore<TYPE>::I;                                                       \
-    }                                                                                          \
-    template <>                                                                                \
-    MetaClass MetaClassStore<TYPE>::I                                                          \
-    {                                                                                          \
-        (#TYPE), sizeof(TYPE), ALLOCATOR::New, ALLOCATOR::Delete, &TYPE::DeclareFields, PARENT \
+#define META_DEFINE_CLASS_STORE(NAME, TYPE, PARENT, ALLOCATOR)                                        \
+    class MetaClass* TYPE::GetClass()                                                                 \
+    {                                                                                                 \
+        return &MetaClassStore<TYPE>::Instance;                                                       \
+    }                                                                                                 \
+    template <>                                                                                       \
+    MetaClass MetaClassStore<TYPE>::Instance                                                          \
+    {                                                                                                 \
+        NAME, sizeof(TYPE), ALLOCATOR::New, ALLOCATOR::Delete, &MetaDeclareStaticFields<TYPE>, PARENT \
     }
 
-#define META_DEFINE(TYPE)                                                    \
-    META_DEFINE_STORE(TYPE, &MetaClass::RootMetaClass, MetaAllocator<TYPE>); \
-    void TYPE::DeclareFields()
+#define META_DEFINE(NAME, TYPE)                                                          \
+    META_DEFINE_CLASS_STORE(NAME, TYPE, &MetaClass::RootMetaClass, MetaAllocator<TYPE>); \
+    META_DECLARE_FIELDS(TYPE)
 
-#define META_DEFINE_CHILD(TYPE, PARENT)                                       \
-    META_DEFINE_STORE(TYPE, &MetaClassStore<PARENT>::I, MetaAllocator<TYPE>); \
-    static_assert(std::is_base_of_v<PARENT, TYPE>, "Invalid Parent");         \
-    void TYPE::DeclareFields()
+#define META_DEFINE_CHILD(NAME, TYPE, PARENT)                                                    \
+    META_DEFINE_CLASS_STORE(NAME, TYPE, &MetaClassStore<PARENT>::Instance, MetaAllocator<TYPE>); \
+    static_assert(std::is_base_of_v<PARENT, TYPE>, "Invalid Parent");                            \
+    META_DECLARE_FIELDS(TYPE)
+
+#define META_DECLARE_FIELDS(TYPE) \
+    template <>                   \
+    constexpr std::initializer_list<const StaticMetaField> MetaFieldStore<TYPE>::Fields
+
+#define META_FIELD(NAME, MEMBER)                                                               \
+    StaticMetaField                                                                            \
+    {                                                                                          \
+        NAME, offsetof(MetaThis, MEMBER), &MetaTypeStore<decltype(MetaThis::MEMBER)>::Instance \
+    }

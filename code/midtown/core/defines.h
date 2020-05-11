@@ -48,3 +48,5 @@
 #ifndef ARTS_LINE
 #    define ARTS_LINE ARTS_CONCAT(__LINE__, L) // Workaround Edit and Continue
 #endif
+
+#define ARTS_FASTCALL __fastcall
