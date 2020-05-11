@@ -412,6 +412,7 @@ check_size(FloatType, 0x0);
 */
 
 extern template MetaTypeStore_<char*>;
+extern template MetaTypeStore_<CString>;
 
 // 0x90B478 | ?CharInst@@3UCharType@@A
 inline extern_var(0x90B478, struct CharType, CharInst);

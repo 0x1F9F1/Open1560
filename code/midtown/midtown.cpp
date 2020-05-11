@@ -112,7 +112,7 @@ void Application(i32 argc, char** argv)
     {
         // AIMAP.Dump()
 
-        Quitf("Exception caught during init.");
+        Abortf("Exception caught during init.");
     }
 }
 

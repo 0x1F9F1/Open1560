@@ -30,8 +30,6 @@ asNode::~asNode()
         parent_node_->RemoveChild(this);
 
     RemoveAllChildren();
-
-    delete[] node_name_;
 }
 
 void asNode::Update()

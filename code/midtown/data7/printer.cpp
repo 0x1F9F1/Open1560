@@ -72,7 +72,7 @@ void PErrorf(char const* format, ...)
     char buffer[256];
     std::va_list va;
     va_start(va, format);
-    vsprintf_s(buffer, format, va);
+    arts_vsprintf(buffer, format, va);
     va_end(va);
 
     char error[256];
@@ -84,7 +84,7 @@ void PDebug(char const* format, ...)
     char buffer[256];
     std::va_list va;
     va_start(va, format);
-    vsprintf_s(buffer, format, va);
+    arts_vsprintf(buffer, format, va);
     va_end(va);
 
     char error[256];
@@ -120,21 +120,21 @@ static constexpr u8 PrinterColors[5] {
 void DefaultPrinter(i32 level, char const* format, std::va_list args)
 {
     char buffer[512];
-    strcpy_s(buffer, PrinterPrefixes[level]);
+    arts_strcpy(buffer, PrinterPrefixes[level]);
 
     {
         char buffer2[512];
-        vsprintf_s(buffer2, format, args);
+        arts_vsprintf(buffer2, format, args);
 
         if (!strcmp(buffer2, "DirectInput problem, code = -2147024884(8007000c) [not acquired]"))
             return;
 
-        strcat_s(buffer, buffer2);
+        arts_strcat(buffer, buffer2);
     }
 
     strncpy_s(MessageFifo[(++MessageFirst + 9) % 10], buffer, 79);
 
-    strcat_s(buffer, "\n");
+    arts_strcat(buffer, "\n");
 
     if (EnableNormalOutput || true)
     {
@@ -160,6 +160,8 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
         if (level >= 3)
         {
             CloseHandle(DebugLogFile);
+
+            DebugLogFile = INVALID_HANDLE_VALUE;
         }
     }
     else if (EnableDebugOutput)
@@ -173,17 +175,18 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
         {
             DebugBreak();
         }
-
-        MessageBoxA(NULL, buffer, "Fatal Error", MB_OK);
+        else
+        {
+            MessageBoxA(NULL, buffer, "Fatal Error", MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
+        }
 
         if (level == 3)
         {
             _exit(1);
         }
-
-        if (level == 4)
+        else
         {
-            *static_cast<volatile i32*>(0) = 0xDEADBEEF;
+            std::abort();
         }
     }
 }
@@ -206,12 +209,10 @@ void LogToFile()
         return LogToFile("Open1560.log");
 
     char machname[128];
-
     GetMachineName(machname, 128);
 
     char filename[128];
-
-    sprintf_s(filename, "%s-%04d%02d%02d-%02d%02d%02d.log", machname, tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
+    arts_sprintf(filename, "%s-%04d%02d%02d-%02d%02d%02d.log", machname, tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
         tm.tm_hour, tm.tm_min, tm.tm_sec);
 
     LogToFile(filename);

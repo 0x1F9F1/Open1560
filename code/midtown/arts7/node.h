@@ -172,7 +172,7 @@ private:
     asNode* child_node_ {nullptr};
     asNode* parent_node_ {nullptr};
 
-    char* node_name_ {nullptr}; // TODO: Use cstring wrapper
+    CString node_name_ {};
 
     i32 flags_ {0x3};
 

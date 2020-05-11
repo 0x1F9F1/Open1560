@@ -16,28 +16,24 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
 
-#define DIRECTX_VERSION 0x0600
+#include "string.h"
 
-#define DIRECT3D_VERSION DIRECTX_VERSION
-#define DIRECTDRAW_VERSION DIRECTX_VERSION
-#define DIRECTINPUT_VERSION DIRECTX_VERSION
-#define DIRECTSOUND_VERSION DIRECTX_VERSION
+char* CString::StrDup(const char* value)
+{
+    char* result = nullptr;
 
-#include "core/defines.h"
-#include "core/hooking.h"
-#include "core/primitives.h"
+    if (value)
+    {
+        usize length = std::strlen(value) + 1;
 
-#include "core/assert.h"
+        result = new char[length];
 
-#include "core/string.h"
+        if (result)
+        {
+            std::memcpy(result, value, length);
+        }
+    }
 
-#include "data7/printer.h"
-#include "data7/quitf.h"
-
-#include "data7/metadeclare.h"
-
-#include "arts7/node.h"
-
-#include <sol/sol.hpp>
+    return result;
+}

@@ -8,4 +8,7 @@ arts_component "core"
 
         "assert.cpp",
         "assert.h",
+
+        "string.h",
+        "string.cpp"
     }

@@ -470,3 +470,8 @@ const MetaType* MetaTypeStore_<char*>::Instance()
 {
     return &StringInst;
 }
+
+const MetaType* MetaTypeStore_<CString>::Instance()
+{
+    return &StringInst;
+}

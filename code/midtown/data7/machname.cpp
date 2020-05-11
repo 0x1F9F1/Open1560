@@ -24,5 +24,5 @@ void GetMachineName(char* buffer, i32 buffer_len)
 {
     export_hook(0x57CDC0);
 
-    strcpy_s(buffer, buffer_len, "Open1560");
+    arts_strcpy(buffer, buffer_len, "Open1560");
 }
