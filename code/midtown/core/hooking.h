@@ -73,4 +73,14 @@ struct class_proxy
 #    define __FUNCDNAME__ "INVALID_FUNCTION"
 #endif
 
-#define export_hook(ADDRESS) __pragma(comment(linker, "/EXPORT:Hook_" #ADDRESS "_" __FUNCDNAME__ "=" __FUNCDNAME__))
+#define export_hook(ADDRESS) __pragma(comment(linker, "/EXPORT:" __FUNCDNAME__ ":Hook_" #ADDRESS "=" __FUNCDNAME__))
+
+#pragma const_seg(".rdata")
+
+// Custom extern_var to force MSVC to mark the references as constant
+#undef extern_var
+#define extern_var(ADDRESS, TYPE, NAME)                                                  \
+    __declspec(allocate(".rdata")) typename std::add_lvalue_reference<TYPE>::type NAME = \
+        *reinterpret_cast<typename std::add_pointer<TYPE>::type>(usize(ADDRESS));
+
+#pragma warning(disable: 4505) // unreferenced local function has been removed

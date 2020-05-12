@@ -69,15 +69,17 @@ extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
     return DirectInputCreateA_Orig(hinst, dwVersion, ppDI, punkOuter);
 }
 
-void InitExportHooks(HMODULE instance)
+static std::size_t InitExportHooks(HMODULE instance)
 {
-    mem::module::nt(instance).enum_exports([](const char* name, std::uint32_t /*ordinal*/, mem::pointer address) {
+    std::size_t total = 0;
+
+    mem::module::nt(instance).enum_exports([&total](const char* name, std::uint32_t /*ordinal*/, mem::pointer address) {
         if (name != nullptr)
         {
             std::uint32_t target = 0;
             char hook_name[256];
 
-            if (sscanf_s(name, "Hook_%x_%s", &target, hook_name, 256) == 2)
+            if (sscanf_s(name, "%[^:]:Hook_%x", hook_name, 256, &target) == 2)
             {
                 hook_name[255] = '\0';
 
@@ -88,11 +90,15 @@ void InitExportHooks(HMODULE instance)
                                                                                                     : hook_name;
 
                 create_hook(function_name, "", target, address);
+
+                ++total;
             }
         }
 
         return false;
     });
+
+    return total;
 }
 
 BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
@@ -144,7 +150,9 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         Displayf("Processed %zu Init Functions", init_count);
 
-        InitExportHooks(hinstDLL);
+        std::size_t export_hook_count = InitExportHooks(hinstDLL);
+
+        Displayf("Processed %zu Export Hooks", export_hook_count);
     }
 
     return TRUE;
