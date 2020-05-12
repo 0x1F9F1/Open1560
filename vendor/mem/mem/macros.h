@@ -26,9 +26,15 @@
 #define decl_extern(TYPE, NAME) typename std::add_lvalue_reference<TYPE>::type NAME
 #define defn_extern(ADDRESS, NAME) decltype(NAME) NAME = mem::pointer(ADDRESS).as<decltype(NAME)>()
 
-#define extern_var(ADDRESS, TYPE, NAME)                   \
-    typename std::add_lvalue_reference<TYPE>::type NAME = \
-        mem::pointer(ADDRESS).as<typename std::add_lvalue_reference<TYPE>::type>()
+#ifdef __INTELLISENSE__
+#    define extern_var(ADDRESS, TYPE, NAME)                   \
+        typename std::add_lvalue_reference<TYPE>::type NAME = \
+            *static_cast<typename std::add_pointer<TYPE>::type>(nullptr)
+#else
+#    define extern_var(ADDRESS, TYPE, NAME)                   \
+        typename std::add_lvalue_reference<TYPE>::type NAME = \
+            mem::pointer(ADDRESS).as<typename std::add_lvalue_reference<TYPE>::type>()
+#endif
 
 #define check_size(type, size)                                           \
     static_assert(sizeof(type) >= (size), "sizeof(" #type ") < " #size); \

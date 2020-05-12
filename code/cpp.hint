@@ -1,0 +1,18 @@
+#define extern_var(ADDRESS, TYPE, NAME) typename std::add_lvalue_reference<TYPE>::type NAME = *static_cast<typename std::add_pointer<TYPE>::type>(nullptr)
+#define check_size(type, size)
+#define define_dummy_symbol(NAME)
+
+#define ARTS_FORCEINLINE
+#define ARTS_NOINLINE
+#define ARTS_FASTCALL
+
+#define META_DECLARE
+#define STATIC_META_DECLARE
+#define VIRTUAL_META_DECLARE
+
+#define META_DEFINE_CLASS_STORE(NAME, TYPE, PARENT, ALLOCATOR)
+#define META_DEFINE(NAME, TYPE)
+#define META_DEFINE_CHILD(NAME, TYPE, PARENT)
+#define META_DECLARE_FIELDS(TYPE)
+
+#define META_FIELD(NAME, MEMBER) {}

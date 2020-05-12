@@ -101,9 +101,10 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
     {
         if (std::strcmp(mem::pointer(0x6346BC).as<const char*>(), "Angel: 1560 / Apr  2 1999 19:10:27") != 0)
         {
-            MessageBoxA(NULL, "Invalid MM1 Version Detected", "Fatal Error", MB_OK);
+            MessageBoxA(NULL, "Invalid MM1 Version Detected", "Fatal Error",
+                MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
 
-            exit(1);
+            std::exit(1);
         }
 
         if (GetConsoleWindow() == NULL)

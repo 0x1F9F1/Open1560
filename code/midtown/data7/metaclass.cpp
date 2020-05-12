@@ -87,7 +87,6 @@ ARTS_NOINLINE void MetaClass::Unregister()
     }
 }
 
-
 void MetaClass::InitFields()
 {
     export_hook(0x577C70);
