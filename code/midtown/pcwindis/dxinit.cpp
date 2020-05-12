@@ -81,3 +81,13 @@ void dxiWindowCreate(char* arg1)
 {
     return stub<cdecl_t<void, char*>>(0x573B80, arg1);
 }
+
+static void translate555(u8* arg1, u16* arg2, u32 arg3)
+{
+    return stub<cdecl_t<void, u8*, u16*, u32>>(0x574940, arg1, arg2, arg3);
+}
+
+static void translate565(u8* arg1, u16* arg2, u32 arg3)
+{
+    return stub<cdecl_t<void, u8*, u16*, u32>>(0x5748D0, arg1, arg2, arg3);
+}

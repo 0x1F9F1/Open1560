@@ -35,6 +35,11 @@ void RegisterProblem(char* arg1, char* arg2, char* arg3)
     return stub<cdecl_t<void, char*, char*, char*>>(0x561100, arg1, arg2, arg3);
 }
 
+static i32 cmpProblem(void const* arg1, void const* arg2)
+{
+    return stub<cdecl_t<i32, void const*, void const*>>(0x561050, arg1, arg2);
+}
+
 problem_t::~problem_t()
 {
     unimplemented();

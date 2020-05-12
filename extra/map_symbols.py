@@ -849,6 +849,121 @@ print('Processing Symbols')
 for symbol in all_symbols:
     symbol.process(view.arch)
 
+for sym in [
+    MapSymbol("?TouchMemory@@YAXPAXH@Z", 0x402E70, "test"),
+    MapSymbol("?exeDirFile@@YAPADPAD0@Z", 0x402EC0, "test"),
+    MapSymbol("?GameCloseCallback@@YAXXZ", 0x402F20, "test"),
+    MapSymbol("?IsModemDialin@@YA_NXZ", 0x409CD0, "mmgame:interface"),
+    MapSymbol("?ZoneWatcher@@YGKPAX@Z", 0x409D50, "mmgame:interface"),
+    MapSymbol("?randcall@@YAXXZ", 0x404390, "mmgame:gameman"),
+    MapSymbol("?DoScan@@YAXPAX@Z", 0x4046D0, "mmgame:gameman"),
+    MapSymbol("?StuckCB@@YAXPAVaiStuck@@@Z", 0x46B470, "mmai:aiStuck"),
+    MapSymbol("?SplashCB@@YAXPAVmmSplash@@@Z", 0x481050, "mmcar:splash"),
+    MapSymbol("?StuckCB@@YAXPAVmmStuck@@@Z", 0x47C4F0, "mmcar:stuck"),
+    MapSymbol("?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z", 0x493670, "mmcity:inst"),
+    MapSymbol("?fix_sun@@YAXXZ", 0x48E1B0, "mmcity:cullcity"),
+    MapSymbol("?fix_fill1@@YAXXZ", 0x48E220, "mmcity:cullcity"),
+    MapSymbol("?fix_fill2@@YAXXZ", 0x48E290, "mmcity:cullcity"),
+    MapSymbol("?parseFloat@@YAXAAM@Z", 0x48E300, "mmcity:cullcity"),
+    MapSymbol("?parseVector3@@YAXAAVVector3@@@Z", 0x48E330, "mmcity:cullcity"),
+    MapSymbol("?parseRGB@@YAXAAI@Z", 0x48E360, "mmcity:cullcity"),
+    MapSymbol("?parseARGB@@YAXAAI@Z", 0x48E3D0, "mmcity:cullcity"),
+    MapSymbol("?toggle_interlace@@YAXXZ", 0x4A9E70, "mmui:pu_graphics"),
+    MapSymbol("?toggle_filter@@YAXXZ", 0x4A9E90, "mmui:pu_graphics"),
+    MapSymbol("?fix_lighting_lame@@YAXXZ", 0x4A9EC0, "mmui:pu_graphics"),
+    MapSymbol("?CalibrateWatcher@@YGKPAX@Z", 0x4A37A0, "mmui:control"),
+    MapSymbol("?SetTexQualString@@YAXXZ", 0x49A050, "mmui:graphics"),
+    MapSymbol("?HelpWatcher@@YGKPAX@Z", 0x4B1B30, "mmwidget:manager"),
+    MapSymbol("?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z", 0x517090, "agiworld:bone"),
+    MapSymbol("?cmpTex@@YAHPBX0@Z", 0x512080, "agiworld:texsheet"),
+    MapSymbol("?mmxTriple@@YAXPAI0HPAEH@Z", 0x510EE0, "agiworld:meshlight"),
+    MapSymbol("?agiInitCones@@YAXAAVMatrix34@@M@Z", 0x5116B0, "agiworld:meshlight"),
+    MapSymbol("?FullClip@@YAHPAUCV@@0H@Z", 0x5061B0, "agiworld:meshrend"),
+    MapSymbol("?ClipNX@@YAHPAUCV@@0H@Z", 0x506260, "agiworld:meshrend"),
+    MapSymbol("?ClipNX@@YIXAAUCV@@0@Z", 0x506380, "agiworld:meshrend"),
+    MapSymbol("?ClipPX@@YAHPAUCV@@0H@Z", 0x506470, "agiworld:meshrend"),
+    MapSymbol("?ClipPX@@YIXAAUCV@@0@Z", 0x506590, "agiworld:meshrend"),
+    MapSymbol("?ClipNY@@YAHPAUCV@@0H@Z", 0x506680, "agiworld:meshrend"),
+    MapSymbol("?ClipNY@@YIXAAUCV@@0@Z", 0x5067A0, "agiworld:meshrend"),
+    MapSymbol("?ClipPY@@YAHPAUCV@@0H@Z", 0x506890, "agiworld:meshrend"),
+    MapSymbol("?ClipPY@@YIXAAUCV@@0@Z", 0x5069B0, "agiworld:meshrend"),
+    MapSymbol("?ClipNZ@@YAHPAUCV@@0H@Z", 0x506A90, "agiworld:meshrend"),
+    MapSymbol("?ClipNZ@@YIXAAUCV@@0@Z", 0x506BB0, "agiworld:meshrend"),
+    MapSymbol("?ClipPZ@@YAHPAUCV@@0H@Z", 0x506CA0, "agiworld:meshrend"),
+    MapSymbol("?ClipPZ@@YIXAAUCV@@0@Z", 0x506DC0, "agiworld:meshrend"),
+    MapSymbol("?ZClipOnly@@YAHPAUCV@@0H@Z", 0x506EA0, "agiworld:meshrend"),
+    MapSymbol("?HeapAssert@@YAHPAXHPADH@Z", 0x521250, "memory:allocator"),
+    MapSymbol("?InitMap@@YAXXZ", 0x5201C0, "memory:stack"),
+    MapSymbol("?QuietPrinter@@YAXHPBDPAD@Z", 0x521C20, "arts7:sim"),
+    MapSymbol("?IsValidPointer@@YAHPAXIH@Z", 0x523510, "arts7:sim"),
+    MapSymbol("?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z", 0x533720, "agid3d:d3dmtldef"),
+    MapSymbol("?EnumCallback@@YGJPAU_GUID@@PAD1PAU_D3DDeviceDesc@@2PAX@Z", 0x5307B0, "agid3d:d3dpipe"),
+    MapSymbol("?EnumTextureCallback@@YGJPAU_DDPIXELFORMAT@@PAX@Z", 0x5308B0, "agid3d:d3dpipe"),
+    MapSymbol("?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z", 0x530980, "pcwindis:dxsetup"),
+    MapSymbol("?swSetupEdgeScan@@YAXPAUswEdge@@HH@Z", 0x535460, "agisw:swrend"),
+    MapSymbol("?__emitZwrite@@YIXPAUswSurface@@H@Z", 0x535910, "agisw:swrend"),
+    MapSymbol("?__emitSemiBlack@@YIXH@Z", 0x5367C0, "agisw:swrend"),
+    MapSymbol("?__emitStippleBlack@@YIXH@Z", 0x536800, "agisw:swrend"),
+    MapSymbol("?swComputeIntensity@@YAHAAUagiScreenVtx@@@Z", 0x536840, "agisw:swrend"),
+    MapSymbol("?emms@@YAXXZ", 0x536940, "agisw:swrend"),
+    MapSymbol("?swFindColor555@@YAII@Z", 0x537550, "agisw:swrend"),
+    MapSymbol("?swFindColor565@@YAII@Z", 0x537590, "agisw:swrend"),
+    MapSymbol("?swClampAddColor565@@YIII@Z", 0x5375D0, "agisw:swrend"),
+    MapSymbol("?swClampAddColor555@@YIII@Z", 0x537610, "agisw:swrend"),
+    MapSymbol("?swClampAdd565@@YIIII@Z", 0x537650, "agisw:swrend"),
+    MapSymbol("?swClampAdd555@@YIIII@Z", 0x537690, "agisw:swrend"),
+    MapSymbol("?ddStart@@YAXXZ", 0x534EA0, "agisw:swddraw"),
+    MapSymbol("?ddEnd@@YAXXZ", 0x534FA0, "agisw:swddraw"),
+    MapSymbol("?ddStartFrame@@YAXXZ", 0x534FC0, "agisw:swddraw"),
+    MapSymbol("?ddStartScene@@YAXXZ", 0x534FD0, "agisw:swddraw"),
+    MapSymbol("?ddEndScene@@YAXXZ", 0x535030, "agisw:swddraw"),
+    MapSymbol("?ddEndFrame@@YAXXZ", 0x535070, "agisw:swddraw"),
+    MapSymbol("?zmemset@@YAXPAGI@Z", 0x5342F0, "agisw:swpipe"),
+    MapSymbol("?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z", 0x55AAE0, "agi:surface"),
+    MapSymbol("?copyrow565_to_555@@YAXPAX0II@Z", 0x55B510, "agi:surface"),
+    MapSymbol("?copyrow565_to_5551@@YAXPAX0II@Z", 0x55B560, "agi:surface"),
+    MapSymbol("?copyrow565_to_888@@YAXPAX0II@Z", 0x55B5C0, "agi:surface"),
+    MapSymbol("?copyrow565_to_888rev@@YAXPAX0II@Z", 0x55B640, "agi:surface"),
+    MapSymbol("?copyrow4444_to_8888@@YAXPAX0II@Z", 0x55B6C0, "agi:surface"),
+    MapSymbol("?copyrow4444_to_8888rev@@YAXPAX0II@Z", 0x55B750, "agi:surface"),
+    MapSymbol("?copyrow4444_to_555@@YAXPAX0II@Z", 0x55B7E0, "agi:surface"),
+    MapSymbol("?copyrow4444_to_565@@YAXPAX0II@Z", 0x55B860, "agi:surface"),
+    MapSymbol("?copyrow4444_to_5551@@YAXPAX0II@Z", 0x55B8E0, "agi:surface"),
+    MapSymbol("?InitBuiltin@@YAXXZ", 0x557FE0, "agi:print"),
+    MapSymbol("?LibOutOfDate@@YAHPAD0@Z", 0x556AD0, "agi:getdlp"),
+    MapSymbol("?cmpProblem@@YAHPBX0@Z", 0x561050, "stream:problems"),
+    MapSymbol("?SubString@@YAPADHPAD@Z", 0x55FAF0, "stream:fsystem"),
+    MapSymbol("?NumSubStrings@@YAHPAD@Z", 0x55FB70, "stream:fsystem"),
+    MapSymbol("?Contains@@YAHPAD0@Z", 0x55FBA0, "stream:fsystem"),
+    MapSymbol("?ExpandEnvs@@YAXPAD@Z", 0x55FC20, "stream:fsystem"),
+    MapSymbol("?DIError@@YAPADH@Z", 0x564050, "eventq7:geinputLib"),
+    MapSymbol("?NeedDX6@@YAXXZ", 0x575710, "pcwindis:dxsetup"),
+    MapSymbol("?EnumCounter@@YGHPAU_GUID@@PAD1PAX@Z", 0x575740, "pcwindis:dxsetup"),
+    MapSymbol("?MyDirectDrawEnumerate@@YAXP6GHPAU_GUID@@PAD1PAX@Z2@Z", 0x575760, "pcwindis:dxsetup"),
+    MapSymbol("?EnumerateRenderers2@@YAXXZ", 0x5757D0, "pcwindis:dxsetup"),
+    MapSymbol("?CheckSoftwareRenderer@@YAHPAUIDirectDraw4@@PAU_GUID@@@Z", 0x575920, "pcwindis:dxsetup"),
+    MapSymbol("?LockScreen@@YAJPAUIDirectDraw4@@@Z", 0x575A10, "pcwindis:dxsetup"),
+    MapSymbol("?UnlockScreen@@YAXXZ", 0x575AD0, "pcwindis:dxsetup"),
+    MapSymbol("?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z", 0x575AF0, "pcwindis:dxsetup"),
+    MapSymbol("?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z", 0x575F40, "pcwindis:dxsetup"),
+    MapSymbol("?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z", 0x576000, "pcwindis:dxsetup"),
+    MapSymbol("?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z", 0x576470, "pcwindis:dxsetup"),
+    MapSymbol("?NotLameChipset@@YAHKK@Z", 0x5764A0, "pcwindis:dxsetup"),
+    MapSymbol("?GetSpecialFlags@@YAIKK@Z", 0x5764B0, "pcwindis:dxsetup"),
+    MapSymbol("?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z", 0x576580, "pcwindis:dxsetup"),
+    MapSymbol("?strtoguid@@YAXPAU_GUID@@PAD@Z", 0x574DF0, "pcwindis:setupdata"),
+    MapSymbol("?guidtostr@@YAXPADPAU_GUID@@@Z", 0x575090, "pcwindis:setupdata"),
+    MapSymbol("?translate565@@YAXPAEPAGI@Z", 0x5748D0, "pcwindis:dxinit"),
+    MapSymbol("?translate555@@YAXPAEPAGI@Z", 0x574940, "pcwindis:dxinit"),
+    MapSymbol("?rdtsc@@YAIXZ", 0x57CF40, "data7:speed"),
+    MapSymbol("?cpuid@@YAHXZ", 0x57C400, "data7:mmx"),
+    MapSymbol("?getMem@@YAHXZ", 0x578B80, "data7:memstat"),
+    MapSymbol("?compareExchange@@YIHPAIH@Z", 0x578AB0, "data7:ipc"),
+]:
+    sym.process(view.arch)
+    sym.static = True
+    all_symbols.append(sym)
+
 # for symbol in all_symbols:
 #     if symbol.address is None:
 #         print('{:40} | {:80} | {}'.format(symbol.library, symbol.undec_name or '', symbol.raw_name))
@@ -1025,21 +1140,10 @@ for lib, paths in grouped_symbols.items():
     if any((lib.startswith(v) for v in IGNORED_LIB_PREFIXES)):
         continue
 
-    if lib not in [
+    # if lib not in {}:
+    #     continue
 
-    ]:
-        continue
-
-    if lib in [
-        'test',
-        'data7:machname',
-        'data7:printer',
-        'pcwindis:dxinit',
-        'pcwindis:dxsetup',
-        'vector7:vector3',
-        'agiworld:meshrend',
-        'agiworld:texsort',
-        ]:
+    if lib in {'agiworld:meshrend', 'agiworld:texsort', 'arts7:cullable', 'arts7:node', 'data7:base', 'data7:machname', 'data7:metaclass', 'data7:metatype', 'data7:printer', 'data7:quitf', 'memory:allocator', 'memory:stack', 'memory:stub', 'memory:valloc', 'pcwindis:dxinit', 'pcwindis:dxsetup', 'vector7:vector3'}:
         continue
 
     lib_header = ''
@@ -1174,31 +1278,36 @@ for lib, paths in grouped_symbols.items():
                 if value.member_type == 'dtor':
                     sym_name[-1] = '~' + sym_name[-2]
 
-                if value.static:
-                    tokens.append('static')
+                skip_declaration = value.static and not value.is_member
+                skip_definition = value.raw_name == '__purecall'
 
-                if value.is_virtual and not value.override:
-                    tokens.append('virtual')
+                if not skip_declaration:
+                    if value.static:
+                        tokens.append('static')
 
-                if value.member_type not in ['ctor', 'dtor']:
-                    tokens.extend([beautify_type(v) for v in value.type.get_tokens_before_name()])
+                    if value.is_virtual and not value.override:
+                        tokens.append('virtual')
 
-                if cc_name is not None:
-                    tokens.append(cc_name)
+                    if value.member_type not in ['ctor', 'dtor']:
+                        tokens.extend([beautify_type(v) for v in value.type.get_tokens_before_name()])
 
-                tokens.append(sym_name[-1])
+                    if cc_name is not None:
+                        tokens.append(cc_name)
 
-                if value.member_type != 'dtor':
-                    tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
-                else:
-                    tokens.extend(['(', ')'])
+                    tokens.append(sym_name[-1])
 
-                if value.override:
-                    tokens.append('override')
+                    if value.member_type != 'dtor':
+                        tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
+                    else:
+                        tokens.extend(['(', ')'])
 
-                if value.raw_name == '__purecall':
-                    tokens.append(' = 0')
-                else:
+                    if value.override:
+                        tokens.append('override')
+
+                    if value.raw_name == '__purecall':
+                        tokens.append(' = 0')
+
+                if not skip_definition:
                     assert value.address != 0
 
                     src_tokens = []

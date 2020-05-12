@@ -370,6 +370,76 @@ void __fastcall end_invert(class Vector4* arg1)
     return stub<fastcall_t<void, class Vector4*>>(0x505E10, arg1);
 }
 
+static void __fastcall ClipNX(struct CV& arg1, struct CV& arg2)
+{
+    return stub<fastcall_t<void, struct CV&, struct CV&>>(0x506380, arg1, arg2);
+}
+
+static i32 ClipNX(struct CV* arg1, struct CV* arg2, i32 arg3)
+{
+    return stub<cdecl_t<i32, struct CV*, struct CV*, i32>>(0x506260, arg1, arg2, arg3);
+}
+
+static void __fastcall ClipNY(struct CV& arg1, struct CV& arg2)
+{
+    return stub<fastcall_t<void, struct CV&, struct CV&>>(0x5067A0, arg1, arg2);
+}
+
+static i32 ClipNY(struct CV* arg1, struct CV* arg2, i32 arg3)
+{
+    return stub<cdecl_t<i32, struct CV*, struct CV*, i32>>(0x506680, arg1, arg2, arg3);
+}
+
+static void __fastcall ClipNZ(struct CV& arg1, struct CV& arg2)
+{
+    return stub<fastcall_t<void, struct CV&, struct CV&>>(0x506BB0, arg1, arg2);
+}
+
+static i32 ClipNZ(struct CV* arg1, struct CV* arg2, i32 arg3)
+{
+    return stub<cdecl_t<i32, struct CV*, struct CV*, i32>>(0x506A90, arg1, arg2, arg3);
+}
+
+static void __fastcall ClipPX(struct CV& arg1, struct CV& arg2)
+{
+    return stub<fastcall_t<void, struct CV&, struct CV&>>(0x506590, arg1, arg2);
+}
+
+static i32 ClipPX(struct CV* arg1, struct CV* arg2, i32 arg3)
+{
+    return stub<cdecl_t<i32, struct CV*, struct CV*, i32>>(0x506470, arg1, arg2, arg3);
+}
+
+static void __fastcall ClipPY(struct CV& arg1, struct CV& arg2)
+{
+    return stub<fastcall_t<void, struct CV&, struct CV&>>(0x5069B0, arg1, arg2);
+}
+
+static i32 ClipPY(struct CV* arg1, struct CV* arg2, i32 arg3)
+{
+    return stub<cdecl_t<i32, struct CV*, struct CV*, i32>>(0x506890, arg1, arg2, arg3);
+}
+
+static void __fastcall ClipPZ(struct CV& arg1, struct CV& arg2)
+{
+    return stub<fastcall_t<void, struct CV&, struct CV&>>(0x506DC0, arg1, arg2);
+}
+
+static i32 ClipPZ(struct CV* arg1, struct CV* arg2, i32 arg3)
+{
+    return stub<cdecl_t<i32, struct CV*, struct CV*, i32>>(0x506CA0, arg1, arg2, arg3);
+}
+
+static i32 FullClip(struct CV* arg1, struct CV* arg2, i32 arg3)
+{
+    return stub<cdecl_t<i32, struct CV*, struct CV*, i32>>(0x5061B0, arg1, arg2, arg3);
+}
+
+static i32 ZClipOnly(struct CV* arg1, struct CV* arg2, i32 arg3)
+{
+    return stub<cdecl_t<i32, struct CV*, struct CV*, i32>>(0x506EA0, arg1, arg2, arg3);
+}
+
 void agiMeshCardInfo::Init(i32 arg1, struct agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5)
 {
     return stub<thiscall_t<void, agiMeshCardInfo*, i32, struct agiMeshCardVertex*, i32, i32, i32>>(

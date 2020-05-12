@@ -176,6 +176,16 @@ f64 invert(f64 arg1)
     return stub<cdecl_t<f64, f64>>(0x5225F0, arg1);
 }
 
+static i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3)
+{
+    return stub<cdecl_t<i32, void*, u32, i32>>(0x523510, arg1, arg2, arg3);
+}
+
+static void QuietPrinter(i32 arg1, char const* arg2, char* arg3)
+{
+    return stub<cdecl_t<void, i32, char const*, char*>>(0x521C20, arg1, arg2, arg3);
+}
+
 artsReplayChannel::artsReplayChannel()
 {
     unimplemented();

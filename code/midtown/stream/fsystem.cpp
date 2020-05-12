@@ -71,3 +71,23 @@ class Stream* OpenFile(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5,
     return stub<cdecl_t<class Stream*, char*, char*, char*, i32, char*, char*>>(
         0x55FD60, arg1, arg2, arg3, arg4, arg5, arg6);
 }
+
+static i32 Contains(char* arg1, char* arg2)
+{
+    return stub<cdecl_t<i32, char*, char*>>(0x55FBA0, arg1, arg2);
+}
+
+static void ExpandEnvs(char* arg1)
+{
+    return stub<cdecl_t<void, char*>>(0x55FC20, arg1);
+}
+
+static i32 NumSubStrings(char* arg1)
+{
+    return stub<cdecl_t<i32, char*>>(0x55FB70, arg1);
+}
+
+static char* SubString(i32 arg1, char* arg2)
+{
+    return stub<cdecl_t<char*, i32, char*>>(0x55FAF0, arg1, arg2);
+}

@@ -39,3 +39,8 @@ i32 OutOfDate(char* arg1, char* arg2)
 {
     return stub<cdecl_t<i32, char*, char*>>(0x5569D0, arg1, arg2);
 }
+
+static i32 LibOutOfDate(char* arg1, char* arg2)
+{
+    return stub<cdecl_t<i32, char*, char*>>(0x556AD0, arg1, arg2);
+}

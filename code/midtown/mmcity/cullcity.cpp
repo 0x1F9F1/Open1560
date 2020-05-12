@@ -208,6 +208,41 @@ void fix_shadow()
     return stub<cdecl_t<void>>(0x48E480);
 }
 
+static void fix_fill1()
+{
+    return stub<cdecl_t<void>>(0x48E220);
+}
+
+static void fix_fill2()
+{
+    return stub<cdecl_t<void>>(0x48E290);
+}
+
+static void fix_sun()
+{
+    return stub<cdecl_t<void>>(0x48E1B0);
+}
+
+static void parseARGB(u32& arg1)
+{
+    return stub<cdecl_t<void, u32&>>(0x48E3D0, arg1);
+}
+
+static void parseFloat(f32& arg1)
+{
+    return stub<cdecl_t<void, f32&>>(0x48E300, arg1);
+}
+
+static void parseRGB(u32& arg1)
+{
+    return stub<cdecl_t<void, u32&>>(0x48E360, arg1);
+}
+
+static void parseVector3(class Vector3& arg1)
+{
+    return stub<cdecl_t<void, class Vector3&>>(0x48E330, arg1);
+}
+
 mmBangerManager::~mmBangerManager()
 {
     unimplemented(arg1);

@@ -127,6 +127,11 @@ class agiPipeline* swCreatePipeline(i32 arg1, char** arg2)
     return stub<cdecl_t<class agiPipeline*, i32, char**>>(0x534690, arg1, arg2);
 }
 
+static void zmemset(u16* arg1, u32 arg2)
+{
+    return stub<cdecl_t<void, u16*, u32>>(0x5342F0, arg1, arg2);
+}
+
 agiSWViewport::~agiSWViewport()
 {
     unimplemented(arg1);

@@ -24,3 +24,33 @@ void ddAttach(i32 arg1, i32 arg2)
 {
     return stub<cdecl_t<void, i32, i32>>(0x534E30, arg1, arg2);
 }
+
+static void ddEnd()
+{
+    return stub<cdecl_t<void>>(0x534FA0);
+}
+
+static void ddEndFrame()
+{
+    return stub<cdecl_t<void>>(0x535070);
+}
+
+static void ddEndScene()
+{
+    return stub<cdecl_t<void>>(0x535030);
+}
+
+static void ddStart()
+{
+    return stub<cdecl_t<void>>(0x534EA0);
+}
+
+static void ddStartFrame()
+{
+    return stub<cdecl_t<void>>(0x534FC0);
+}
+
+static void ddStartScene()
+{
+    return stub<cdecl_t<void>>(0x534FD0);
+}

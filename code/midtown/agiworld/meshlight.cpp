@@ -71,3 +71,13 @@ void agiMeshPrelight(u32* arg1, class agiMeshSet* arg2, class Matrix34& arg3)
 {
     return stub<cdecl_t<void, u32*, class agiMeshSet*, class Matrix34&>>(0x511010, arg1, arg2, arg3);
 }
+
+static void agiInitCones(class Matrix34& arg1, f32 arg2)
+{
+    return stub<cdecl_t<void, class Matrix34&, f32>>(0x5116B0, arg1, arg2);
+}
+
+static void mmxTriple(u32* arg1, u32* arg2, i32 arg3, u8* arg4, i32 arg5)
+{
+    return stub<cdecl_t<void, u32*, u32*, i32, u8*, i32>>(0x510EE0, arg1, arg2, arg3, arg4, arg5);
+}

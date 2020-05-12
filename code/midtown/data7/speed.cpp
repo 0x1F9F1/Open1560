@@ -29,3 +29,8 @@ u32 __ComputeCpuSpeed()
 {
     return stub<cdecl_t<u32>>(0x57CE90);
 }
+
+static u32 rdtsc()
+{
+    return stub<cdecl_t<u32>>(0x57CF40);
+}

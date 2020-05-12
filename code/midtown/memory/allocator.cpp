@@ -96,3 +96,8 @@ void asMemoryAllocator::Verify(void* arg1)
 {
     return stub<thiscall_t<void, asMemoryAllocator*, void*>>(0x520F00, this, arg1);
 }
+
+static i32 HeapAssert(void* arg1, i32 arg2, char* arg3, i32 arg4)
+{
+    return stub<cdecl_t<i32, void*, i32, char*, i32>>(0x521250, arg1, arg2, arg3, arg4);
+}

@@ -123,6 +123,18 @@ i32 __stdcall callb(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* ar
         0x530D30, arg1, arg2, arg3);
 }
 
+static i32 __stdcall EnumCallback(
+    struct _GUID* arg1, char* arg2, char* arg3, struct _D3DDeviceDesc* arg4, struct _D3DDeviceDesc* arg5, void* arg6)
+{
+    return stub<stdcall_t<i32, struct _GUID*, char*, char*, struct _D3DDeviceDesc*, struct _D3DDeviceDesc*, void*>>(
+        0x5307B0, arg1, arg2, arg3, arg4, arg5, arg6);
+}
+
+static i32 __stdcall EnumTextureCallback(struct _DDPIXELFORMAT* arg1, void* arg2)
+{
+    return stub<stdcall_t<i32, struct _DDPIXELFORMAT*, void*>>(0x5308B0, arg1, arg2);
+}
+
 agiD3DTexLut::~agiD3DTexLut()
 {
     unimplemented(arg1);

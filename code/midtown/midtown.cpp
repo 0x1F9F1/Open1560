@@ -196,3 +196,18 @@ void InitAudioManager()
 {
     return stub<cdecl_t<void>>(0x402F40);
 }
+
+static void GameCloseCallback()
+{
+    return stub<cdecl_t<void>>(0x402F20);
+}
+
+static void TouchMemory(void* arg1, i32 arg2)
+{
+    return stub<cdecl_t<void, void*, i32>>(0x402E70, arg1, arg2);
+}
+
+static char* exeDirFile(char* arg1, char* arg2)
+{
+    return stub<cdecl_t<char*, char*, char*>>(0x402EC0, arg1, arg2);
+}

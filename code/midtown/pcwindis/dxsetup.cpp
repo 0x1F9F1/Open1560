@@ -89,6 +89,76 @@ void dxiConfig(i32 arg1, char** arg2)
     return stub<cdecl_t<void, i32, char**>>(0x575360, arg1, arg2);
 }
 
+static void AddRenderer(struct IDirectDraw4* arg1, struct _GUID* arg2, char* arg3)
+{
+    return stub<cdecl_t<void, struct IDirectDraw4*, struct _GUID*, char*>>(0x576000, arg1, arg2, arg3);
+}
+
+static i32 CheckSoftwareRenderer(struct IDirectDraw4* arg1, struct _GUID* arg2)
+{
+    return stub<cdecl_t<i32, struct IDirectDraw4*, struct _GUID*>>(0x575920, arg1, arg2);
+}
+
+static i32 __stdcall EnumCounter(struct _GUID* arg1, char* arg2, char* arg3, void* arg4)
+{
+    return stub<stdcall_t<i32, struct _GUID*, char*, char*, void*>>(0x575740, arg1, arg2, arg3, arg4);
+}
+
+static i32 __stdcall EnumTextures(struct _DDPIXELFORMAT* arg1, void* arg2)
+{
+    return stub<stdcall_t<i32, struct _DDPIXELFORMAT*, void*>>(0x576470, arg1, arg2);
+}
+
+static i32 __stdcall EnumZ(struct _DDPIXELFORMAT* arg1, void* arg2)
+{
+    return stub<stdcall_t<i32, struct _DDPIXELFORMAT*, void*>>(0x530980, arg1, arg2);
+}
+
+static void EnumerateRenderers2()
+{
+    return stub<cdecl_t<void>>(0x5757D0);
+}
+
+static i32 __stdcall Enumerator(struct _GUID* arg1, char* arg2, char* arg3, void* arg4)
+{
+    return stub<stdcall_t<i32, struct _GUID*, char*, char*, void*>>(0x576580, arg1, arg2, arg3, arg4);
+}
+
+static u32 GetSpecialFlags(u32 arg1, u32 arg2)
+{
+    return stub<cdecl_t<u32, u32, u32>>(0x5764B0, arg1, arg2);
+}
+
+static i32 LockScreen(struct IDirectDraw4* arg1)
+{
+    return stub<cdecl_t<i32, struct IDirectDraw4*>>(0x575A10, arg1);
+}
+
+static void MyDirectDrawEnumerate(i32(__stdcall* arg1)(struct _GUID*, char*, char*, void*), void* arg2)
+{
+    return stub<cdecl_t<void, i32(__stdcall*)(struct _GUID*, char*, char*, void*), void*>>(0x575760, arg1, arg2);
+}
+
+static void NeedDX6()
+{
+    return stub<cdecl_t<void>>(0x575710);
+}
+
+static i32 NotLameChipset(u32 arg1, u32 arg2)
+{
+    return stub<cdecl_t<i32, u32, u32>>(0x5764A0, arg1, arg2);
+}
+
+static i32 TestResolution(struct IDirectDraw4* arg1, struct dxiRendererInfo_t& arg2)
+{
+    return stub<cdecl_t<i32, struct IDirectDraw4*, struct dxiRendererInfo_t&>>(0x575AF0, arg1, arg2);
+}
+
+static void UnlockScreen()
+{
+    return stub<cdecl_t<void>>(0x575AD0);
+}
+
 run_once([] {
     create_patch("TestResolution", "Unsigned Comparison", 0x575E34, "\x72", 1);
     create_patch("TestResolution", "Unsigned Comparison", 0x575E38, "\x72", 1);

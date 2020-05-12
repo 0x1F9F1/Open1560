@@ -49,3 +49,8 @@ u32 agiD3DMtlDef::GetHandle()
 {
     return stub<thiscall_t<u32, agiD3DMtlDef*>>(0x533750, this);
 }
+
+static void xlat(struct _D3DCOLORVALUE& arg1, class Vector4& arg2)
+{
+    return stub<cdecl_t<void, struct _D3DCOLORVALUE&, class Vector4&>>(0x533720, arg1, arg2);
+}

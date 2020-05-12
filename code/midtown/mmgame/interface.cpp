@@ -25,6 +25,16 @@ void ReportTimeAlloc(f32 arg1)
     return stub<cdecl_t<void, f32>>(0x406A80, arg1);
 }
 
+static bool IsModemDialin()
+{
+    return stub<cdecl_t<bool>>(0x409CD0);
+}
+
+static u32 __stdcall ZoneWatcher(void* arg1)
+{
+    return stub<stdcall_t<u32, void*>>(0x409D50, arg1);
+}
+
 mmInterface::mmInterface()
 {
     unimplemented();

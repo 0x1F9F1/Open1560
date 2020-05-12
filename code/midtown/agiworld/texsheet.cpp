@@ -25,6 +25,11 @@ char* mystrtok(char* arg1, char const* arg2)
     return stub<cdecl_t<char*, char*, char const*>>(0x511B30, arg1, arg2);
 }
 
+static i32 cmpTex(void const* arg1, void const* arg2)
+{
+    return stub<cdecl_t<i32, void const*, void const*>>(0x512080, arg1, arg2);
+}
+
 void agiTexSheet::Add(char* arg1)
 {
     return stub<thiscall_t<void, agiTexSheet*, char*>>(0x5124A0, this, arg1);

@@ -157,3 +157,63 @@ void swTri(struct agiScreenVtx* arg1, struct agiScreenVtx* arg2, struct agiScree
     return stub<cdecl_t<void, struct agiScreenVtx*, struct agiScreenVtx*, struct agiScreenVtx*>>(
         0x536950, arg1, arg2, arg3);
 }
+
+static void __fastcall __emitSemiBlack(i32 arg1)
+{
+    return stub<fastcall_t<void, i32>>(0x5367C0, arg1);
+}
+
+static void __fastcall __emitStippleBlack(i32 arg1)
+{
+    return stub<fastcall_t<void, i32>>(0x536800, arg1);
+}
+
+static void __fastcall __emitZwrite(struct swSurface* arg1, i32 arg2)
+{
+    return stub<fastcall_t<void, struct swSurface*, i32>>(0x535910, arg1, arg2);
+}
+
+static void emms()
+{
+    return stub<cdecl_t<void>>(0x536940);
+}
+
+static u32 __fastcall swClampAdd555(u32 arg1, u32 arg2)
+{
+    return stub<fastcall_t<u32, u32, u32>>(0x537690, arg1, arg2);
+}
+
+static u32 __fastcall swClampAdd565(u32 arg1, u32 arg2)
+{
+    return stub<fastcall_t<u32, u32, u32>>(0x537650, arg1, arg2);
+}
+
+static u32 __fastcall swClampAddColor555(u32 arg1)
+{
+    return stub<fastcall_t<u32, u32>>(0x537610, arg1);
+}
+
+static u32 __fastcall swClampAddColor565(u32 arg1)
+{
+    return stub<fastcall_t<u32, u32>>(0x5375D0, arg1);
+}
+
+static i32 swComputeIntensity(struct agiScreenVtx& arg1)
+{
+    return stub<cdecl_t<i32, struct agiScreenVtx&>>(0x536840, arg1);
+}
+
+static u32 swFindColor555(u32 arg1)
+{
+    return stub<cdecl_t<u32, u32>>(0x537550, arg1);
+}
+
+static u32 swFindColor565(u32 arg1)
+{
+    return stub<cdecl_t<u32, u32>>(0x537590, arg1);
+}
+
+static void swSetupEdgeScan(struct swEdge* arg1, i32 arg2, i32 arg3)
+{
+    return stub<cdecl_t<void, struct swEdge*, i32, i32>>(0x535460, arg1, arg2, arg3);
+}

@@ -90,6 +90,11 @@ void ipcYield()
     return stub<cdecl_t<void>>(0x578760);
 }
 
+static i32 __fastcall compareExchange(u32* arg1, i32 arg2)
+{
+    return stub<fastcall_t<i32, u32*, i32>>(0x578AB0, arg1, arg2);
+}
+
 void ipcMessageQueue::Init(i32 arg1, i32 arg2)
 {
     return stub<thiscall_t<void, ipcMessageQueue*, i32, i32>>(0x578870, this, arg1, arg2);

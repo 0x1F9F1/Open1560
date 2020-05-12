@@ -240,6 +240,11 @@ char* formatf(char const* arg1, ...)
     unimplemented(arg1);
 }
 
+static void MatrixFromPoints(class Matrix34& arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4)
+{
+    return stub<cdecl_t<void, class Matrix34&, class Vector3&, class Vector3&, f32>>(0x493670, arg1, arg2, arg3, arg4);
+}
+
 mmYInstance::mmYInstance()
 {
     unimplemented();

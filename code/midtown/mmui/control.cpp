@@ -129,3 +129,8 @@ void ControlSetup::VerifyBadAssignment()
 {
     return stub<thiscall_t<void, ControlSetup*>>(0x4A3900, this);
 }
+
+static u32 __stdcall CalibrateWatcher(void* arg1)
+{
+    return stub<stdcall_t<u32, void*>>(0x4A37A0, arg1);
+}

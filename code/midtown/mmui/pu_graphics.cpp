@@ -39,3 +39,18 @@ void PUGraphics::PreSetup()
 {
     return stub<thiscall_t<void, PUGraphics*>>(0x4A9EF0, this);
 }
+
+static void fix_lighting_lame()
+{
+    return stub<cdecl_t<void>>(0x4A9EC0);
+}
+
+static void toggle_filter()
+{
+    return stub<cdecl_t<void>>(0x4A9E90);
+}
+
+static void toggle_interlace()
+{
+    return stub<cdecl_t<void>>(0x4A9E70);
+}

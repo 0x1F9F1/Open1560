@@ -24,3 +24,8 @@ initHaveMMX::initHaveMMX()
 {
     unimplemented();
 }
+
+static i32 cpuid()
+{
+    return stub<cdecl_t<i32>>(0x57C400);
+}

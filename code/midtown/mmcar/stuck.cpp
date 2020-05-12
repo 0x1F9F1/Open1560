@@ -59,3 +59,8 @@ void mmStuck::Update()
 {
     return stub<thiscall_t<void, mmStuck*>>(0x47C5B0, this);
 }
+
+static void StuckCB(class mmStuck* arg1)
+{
+    return stub<cdecl_t<void, class mmStuck*>>(0x47C4F0, arg1);
+}

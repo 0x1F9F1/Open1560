@@ -39,3 +39,13 @@ void dxiWriteConfigFile()
 {
     return stub<cdecl_t<void>>(0x574E90);
 }
+
+static void guidtostr(char* arg1, struct _GUID* arg2)
+{
+    return stub<cdecl_t<void, char*, struct _GUID*>>(0x575090, arg1, arg2);
+}
+
+static void strtoguid(struct _GUID* arg1, char* arg2)
+{
+    return stub<cdecl_t<void, struct _GUID*, char*>>(0x574DF0, arg1, arg2);
+}

@@ -54,3 +54,8 @@ void bnBone::Transform(class Matrix34* arg1)
 {
     return stub<thiscall_t<void, bnBone*, class Matrix34*>>(0x516F70, this, arg1);
 }
+
+static void Matrix34__FromEulersXZY(class Matrix34& arg1, class Vector3 const& arg2)
+{
+    return stub<cdecl_t<void, class Matrix34&, class Vector3 const&>>(0x517090, arg1, arg2);
+}

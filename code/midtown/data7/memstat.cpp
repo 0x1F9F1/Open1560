@@ -29,3 +29,8 @@ void EndMemStat()
 {
     return stub<cdecl_t<void>>(0x578BB0);
 }
+
+static i32 getMem()
+{
+    return stub<cdecl_t<i32>>(0x578B80);
+}

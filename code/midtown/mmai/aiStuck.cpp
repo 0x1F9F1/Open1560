@@ -59,3 +59,8 @@ void aiStuck::Update()
 {
     return stub<thiscall_t<void, aiStuck*>>(0x46B550, this);
 }
+
+static void StuckCB(class aiStuck* arg1)
+{
+    return stub<cdecl_t<void, class aiStuck*>>(0x46B470, arg1);
+}

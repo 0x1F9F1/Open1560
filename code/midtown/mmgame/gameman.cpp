@@ -109,3 +109,13 @@ void mmGameManager::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x4049C0);
 }
+
+static void DoScan(void* arg1)
+{
+    return stub<cdecl_t<void, void*>>(0x4046D0, arg1);
+}
+
+static void randcall()
+{
+    return stub<cdecl_t<void>>(0x404390);
+}

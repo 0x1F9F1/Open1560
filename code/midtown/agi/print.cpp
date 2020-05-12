@@ -44,3 +44,8 @@ void agiPrintf(i32 arg1, i32 arg2, i32 arg3, char const* arg4, ...)
 {
     unimplemented(arg1, arg2, arg3, arg4);
 }
+
+static void InitBuiltin()
+{
+    return stub<cdecl_t<void>>(0x557FE0);
+}

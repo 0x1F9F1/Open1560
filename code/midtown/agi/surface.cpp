@@ -46,3 +46,53 @@ class agiSurfaceDesc* agiSurfaceDesc::Load(char* arg1, char* arg2, i32 arg3, i32
     return stub<cdecl_t<class agiSurfaceDesc*, char*, char*, i32, i32, i32, i32>>(
         0x55A7A0, arg1, arg2, arg3, arg4, arg5, arg6);
 }
+
+static void RescaleJpeg(u32 arg1, u32 arg2, u8* arg3, struct jpeg_decompress_struct& arg4)
+{
+    return stub<cdecl_t<void, u32, u32, u8*, struct jpeg_decompress_struct&>>(0x55AAE0, arg1, arg2, arg3, arg4);
+}
+
+static void copyrow4444_to_555(void* arg1, void* arg2, u32 arg3, u32 arg4)
+{
+    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B7E0, arg1, arg2, arg3, arg4);
+}
+
+static void copyrow4444_to_5551(void* arg1, void* arg2, u32 arg3, u32 arg4)
+{
+    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B8E0, arg1, arg2, arg3, arg4);
+}
+
+static void copyrow4444_to_565(void* arg1, void* arg2, u32 arg3, u32 arg4)
+{
+    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B860, arg1, arg2, arg3, arg4);
+}
+
+static void copyrow4444_to_8888(void* arg1, void* arg2, u32 arg3, u32 arg4)
+{
+    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B6C0, arg1, arg2, arg3, arg4);
+}
+
+static void copyrow4444_to_8888rev(void* arg1, void* arg2, u32 arg3, u32 arg4)
+{
+    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B750, arg1, arg2, arg3, arg4);
+}
+
+static void copyrow565_to_555(void* arg1, void* arg2, u32 arg3, u32 arg4)
+{
+    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B510, arg1, arg2, arg3, arg4);
+}
+
+static void copyrow565_to_5551(void* arg1, void* arg2, u32 arg3, u32 arg4)
+{
+    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B560, arg1, arg2, arg3, arg4);
+}
+
+static void copyrow565_to_888(void* arg1, void* arg2, u32 arg3, u32 arg4)
+{
+    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B5C0, arg1, arg2, arg3, arg4);
+}
+
+static void copyrow565_to_888rev(void* arg1, void* arg2, u32 arg3, u32 arg4)
+{
+    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B640, arg1, arg2, arg3, arg4);
+}

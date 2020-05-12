@@ -55,3 +55,8 @@ void mmSplash::Update()
 {
     return stub<thiscall_t<void, mmSplash*>>(0x4811E0, this);
 }
+
+static void SplashCB(class mmSplash* arg1)
+{
+    return stub<cdecl_t<void, class mmSplash*>>(0x481050, arg1);
+}

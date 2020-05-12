@@ -25,6 +25,11 @@ void AutoDetect(i32 arg1, i32 arg2)
     return stub<cdecl_t<void, i32, i32>>(0x499710, arg1, arg2);
 }
 
+static void SetTexQualString()
+{
+    return stub<cdecl_t<void>>(0x49A050);
+}
+
 GraphicsOptions::GraphicsOptions(i32 arg1)
 {
     unimplemented(arg1);

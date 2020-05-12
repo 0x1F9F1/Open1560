@@ -307,3 +307,8 @@ void MenuManager::PlayMenuSwitchSound()
 {
     return stub<thiscall_t<void, MenuManager*>>(0x4B1730, this);
 }
+
+static u32 __stdcall HelpWatcher(void* arg1)
+{
+    return stub<stdcall_t<u32, void*>>(0x4B1B30, arg1);
+}

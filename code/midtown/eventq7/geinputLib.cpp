@@ -60,3 +60,8 @@ i32 inputSetup(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
 {
     return stub<cdecl_t<i32, i32, i32, i32, i32, i32>>(0x563DE0, arg1, arg2, arg3, arg4, arg5);
 }
+
+static char* DIError(i32 arg1)
+{
+    return stub<cdecl_t<char*, i32>>(0x564050, arg1);
+}
