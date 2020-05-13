@@ -18,9 +18,6 @@
 
 #pragma once
 
-template <typename T>
-struct MetaFieldStore;
-
 #define META_DECLARE      \
     template <typename T> \
     friend struct MetaFieldStore

@@ -169,7 +169,18 @@ void MetaClass::FixupClasses()
         cls->index_ = -1;
 
         if (auto find = fixups.find(cls->name_); find != fixups.end() && find->second != cls)
+        {
+            if (cls->declare_ && find->second->declare_)
+                create_hook("DeclareFields", cls->name_, cls->declare_, find->second->declare_, hook_type::jmp);
+
+            ArAssert(cls->size_ == find->second->size_, "Class Size Mismatch");
+
+            cls->allocate_ = find->second->allocate_;
+            cls->free_ = find->second->free_;
+            cls->declare_ = find->second->declare_;
+
             continue;
+        }
 
         cls->index_ = total;
         ClassIndex[total] = cls;

@@ -57,6 +57,7 @@ workspace "Open1560"
 
     filter "platforms:Win32"
         architecture "x86"
+        vectorextensions "SSE2"
 
     -- filter "platforms:Win64"
     --     architecture "x86_64"
