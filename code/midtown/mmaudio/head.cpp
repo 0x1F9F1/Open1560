@@ -27,7 +27,7 @@ AudHead::AudHead(class Matrix34* arg1)
 
 AudHead::~AudHead()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void AudHead::AddWidgets(class Bank* arg1)

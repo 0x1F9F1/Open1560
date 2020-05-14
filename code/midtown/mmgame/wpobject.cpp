@@ -27,7 +27,7 @@ mmWaypointObject::mmWaypointObject(class Vector4& arg1, char* arg2, i32 arg3, f3
 
 mmWaypointObject::~mmWaypointObject()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmWaypointObject::Activate()

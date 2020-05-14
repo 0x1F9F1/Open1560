@@ -27,7 +27,7 @@ mmAnimPlane::mmAnimPlane()
 
 mmAnimPlane::~mmAnimPlane()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmAnimPlane::Activate()

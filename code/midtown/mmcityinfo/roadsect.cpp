@@ -27,7 +27,7 @@ mmRoadSide::mmRoadSide()
 
 mmRoadSide::~mmRoadSide()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class MetaClass* mmRoadSide::GetClass()
@@ -47,7 +47,7 @@ mmRoadSect::mmRoadSect()
 
 mmRoadSect::~mmRoadSect()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class MetaClass* mmRoadSect::GetClass()
@@ -203,7 +203,7 @@ mmPropInfo::mmPropInfo()
 
 mmPropInfo::~mmPropInfo()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPropInfo::Append(char* arg1)

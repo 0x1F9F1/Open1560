@@ -27,7 +27,7 @@ mmIODev::mmIODev()
 
 mmIODev::~mmIODev()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmIODev::operator==(union eqEvent* arg1)

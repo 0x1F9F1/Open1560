@@ -27,7 +27,7 @@ mmBangerActive::mmBangerActive()
 
 mmBangerActive::~mmBangerActive()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmBangerActive::PostUpdate()
@@ -72,7 +72,7 @@ mmBangerActiveManager::mmBangerActiveManager()
 
 mmBangerActiveManager::~mmBangerActiveManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class mmBangerActive* mmBangerActiveManager::Attach(class mmBangerInstance* arg1)

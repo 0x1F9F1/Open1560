@@ -27,7 +27,7 @@ mmGameEdit::mmGameEdit()
 
 mmGameEdit::~mmGameEdit()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmGameEdit::AddWidgets(class Bank* arg1)

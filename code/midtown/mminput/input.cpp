@@ -32,7 +32,7 @@ mmInput::mmInput()
 
 mmInput::~mmInput()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmInput::AssignIO(class mmIO* arg1, i32 arg2, i32 arg3)

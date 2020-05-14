@@ -27,7 +27,7 @@ BaseCamCS::BaseCamCS()
 
 BaseCamCS::~BaseCamCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void BaseCamCS::MakeActive()

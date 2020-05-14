@@ -27,7 +27,7 @@ asNetObject::asNetObject()
 
 asNetObject::~asNetObject()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asNetObject::PositionUpdate(class Matrix34* arg1, class Vector3 arg2, f32 arg3, f32 arg4, f32 arg5)

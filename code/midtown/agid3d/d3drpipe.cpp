@@ -27,7 +27,7 @@ agiD3DRPipeline::agiD3DRPipeline()
 
 agiD3DRPipeline::~agiD3DRPipeline()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiD3DRPipeline::BeginGfx()

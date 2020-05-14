@@ -27,7 +27,7 @@ agiZBufRenderer::agiZBufRenderer(class agiRasterizer* arg1)
 
 agiZBufRenderer::~agiZBufRenderer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void agiZBufRenderer::EndGroup()

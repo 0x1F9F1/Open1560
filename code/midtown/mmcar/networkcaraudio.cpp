@@ -32,7 +32,7 @@ mmNetworkCarAudio::mmNetworkCarAudio(class mmCarSim* arg1)
 
 mmNetworkCarAudio::~mmNetworkCarAudio()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmNetworkCarAudio::CalculateDistToPlayer2()

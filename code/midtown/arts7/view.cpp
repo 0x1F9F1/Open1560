@@ -27,7 +27,7 @@ asViewCS::asViewCS()
 
 asViewCS::~asViewCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asViewCS::AddWidgets(class Bank* arg1)

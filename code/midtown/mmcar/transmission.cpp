@@ -27,7 +27,7 @@ mmTransmission::mmTransmission()
 
 mmTransmission::~mmTransmission()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmTransmission::AddWidgets(class Bank* arg1)

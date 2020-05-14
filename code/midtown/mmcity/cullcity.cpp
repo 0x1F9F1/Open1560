@@ -27,7 +27,7 @@ mmCullCity::mmCullCity()
 
 mmCullCity::~mmCullCity()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCullCity::AddWidgets(class Bank* arg1)
@@ -140,7 +140,7 @@ void mmCullCity::UpdateSnowTextures()
 
 mmUpperInstance::~mmUpperInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void __fastcall mmUpperInstance::Draw(i32 arg1)
@@ -155,7 +155,7 @@ mmRunwayLight::mmRunwayLight(char* arg1, class Vector3& arg2, class Vector3& arg
 
 mmRunwayLight::~mmRunwayLight()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmRunwayLight::AddWidgets(class Bank* arg1)
@@ -245,7 +245,7 @@ static void parseVector3(class Vector3& arg1)
 
 mmBangerManager::~mmBangerManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class mmHitBangerInstance* mmBangerManager::GetBanger()

@@ -57,5 +57,5 @@ agiMtlDef::agiMtlDef(class agiPipeline* arg1)
 
 agiMtlDef::~agiMtlDef()
 {
-    unimplemented(arg1);
+    unimplemented();
 }

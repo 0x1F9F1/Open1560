@@ -27,7 +27,7 @@ mmCompRoster::mmCompRoster()
 
 mmCompRoster::~mmCompRoster()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCompRoster::Cull()

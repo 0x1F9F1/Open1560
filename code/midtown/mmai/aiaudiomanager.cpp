@@ -27,7 +27,7 @@ aiAudioManager::aiAudioManager()
 
 aiAudioManager::~aiAudioManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i16 aiAudioManager::AddVehicle(class aiVehicleAmbient* arg1)

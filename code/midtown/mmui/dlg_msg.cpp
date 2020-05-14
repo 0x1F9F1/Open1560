@@ -27,7 +27,7 @@ Dialog_Message::Dialog_Message(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5,
 
 Dialog_Message::~Dialog_Message()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void Dialog_Message::Init(i32 arg1, char* arg2, char* arg3)

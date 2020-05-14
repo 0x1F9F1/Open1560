@@ -27,7 +27,7 @@ mmTrailer::mmTrailer()
 
 mmTrailer::~mmTrailer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmTrailer::Activate()
@@ -112,7 +112,7 @@ void mmTrailer::DeclareFields()
 
 mmTrailerInstance::~mmTrailerInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmTrailerInstance::AddWidgets(class Bank* arg1)

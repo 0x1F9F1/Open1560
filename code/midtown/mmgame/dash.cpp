@@ -27,7 +27,7 @@ mmExternalView::mmExternalView()
 
 mmExternalView::~mmExternalView()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmExternalView::AddWidgets(class Bank* arg1)
@@ -72,7 +72,7 @@ mmDashView::mmDashView()
 
 mmDashView::~mmDashView()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmDashView::Activate()

@@ -27,7 +27,7 @@ mmCDPlayer::mmCDPlayer()
 
 mmCDPlayer::~mmCDPlayer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCDPlayer::AddWidgets(class Bank* arg1)

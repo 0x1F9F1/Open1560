@@ -27,7 +27,7 @@ UITextField::UITextField()
 
 UITextField::~UITextField()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UITextField::Action(union eqEvent arg1)
@@ -110,7 +110,7 @@ uiWidget::uiWidget()
 
 uiWidget::~uiWidget()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void uiWidget::Disable()

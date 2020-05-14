@@ -27,7 +27,7 @@ asDofCS::asDofCS()
 
 asDofCS::~asDofCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asDofCS::operator=(class asDofCS const& arg1)

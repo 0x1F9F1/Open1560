@@ -27,7 +27,7 @@ mmSplash::mmSplash()
 
 mmSplash::~mmSplash()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmSplash::Activate(f32 arg1)

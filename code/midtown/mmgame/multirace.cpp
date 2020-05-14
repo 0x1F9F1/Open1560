@@ -27,7 +27,7 @@ mmMultiRace::mmMultiRace()
 
 mmMultiRace::~mmMultiRace()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmMultiRace::ChangePlayerData()

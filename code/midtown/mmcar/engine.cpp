@@ -27,7 +27,7 @@ mmEngine::mmEngine()
 
 mmEngine::~mmEngine()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmEngine::AddWidgets(class Bank* arg1)

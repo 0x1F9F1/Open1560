@@ -27,7 +27,7 @@ AudSound::AudSound(u32 arg1, i32 arg2, i16 arg3)
 
 AudSound::~AudSound()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void AudSound::AddWidgets(class Bank* arg1)

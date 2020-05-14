@@ -27,7 +27,7 @@ PUMenuBase::PUMenuBase(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* a
 
 PUMenuBase::~PUMenuBase()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 f32 PUMenuBase::AddExit(f32 arg1, f32 arg2, f32 arg3, f32 arg4)

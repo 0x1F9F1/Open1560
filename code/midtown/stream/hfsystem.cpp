@@ -27,7 +27,7 @@ HierFileSystem::HierFileSystem()
 
 HierFileSystem::~HierFileSystem()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 HierFileSystem::ChangeDir(char* arg1)

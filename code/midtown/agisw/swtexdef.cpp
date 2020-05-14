@@ -27,7 +27,7 @@ agiSWTexDef::agiSWTexDef(class agiSWPipeline* arg1)
 
 agiSWTexDef::~agiSWTexDef()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiSWTexDef::BeginGfx()
@@ -72,7 +72,7 @@ agiSWTexLut::agiSWTexLut(class agiSWPipeline* arg1)
 
 agiSWTexLut::~agiSWTexLut()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiSWTexLut::BeginGfx()

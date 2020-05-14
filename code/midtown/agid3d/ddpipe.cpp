@@ -27,7 +27,7 @@ agiDDPipeline::agiDDPipeline()
 
 agiDDPipeline::~agiDDPipeline()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void agiDDPipeline::BeginFrame()

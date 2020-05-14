@@ -27,7 +27,7 @@ mmInstance::mmInstance()
 
 mmInstance::~mmInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class mmPhysEntity* mmInstance::GetEntity()
@@ -155,7 +155,7 @@ mmShearInstance::mmShearInstance()
 
 mmShearInstance::~mmShearInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void __fastcall mmShearInstance::Draw(i32 arg1)
@@ -196,7 +196,7 @@ mmBuildingInstance::mmBuildingInstance()
 
 mmBuildingInstance::~mmBuildingInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void __fastcall mmBuildingInstance::Draw(i32 arg1)
@@ -252,7 +252,7 @@ mmYInstance::mmYInstance()
 
 mmYInstance::~mmYInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmYInstance::AddWidgets(class Bank* arg1)
@@ -297,7 +297,7 @@ mmMatrixInstance::mmMatrixInstance()
 
 mmMatrixInstance::~mmMatrixInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmMatrixInstance::Hit(class mmInstance* arg1)
@@ -354,7 +354,7 @@ mmStaticInstance::mmStaticInstance()
 
 mmStaticInstance::~mmStaticInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmStaticInstance::AddWidgets(class Bank* arg1)
@@ -400,7 +400,7 @@ mmFacadeInstance::mmFacadeInstance()
 
 mmFacadeInstance::~mmFacadeInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void __fastcall mmFacadeInstance::Draw(i32 arg1)

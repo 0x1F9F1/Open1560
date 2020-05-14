@@ -27,7 +27,7 @@ mmToolTip::mmToolTip()
 
 mmToolTip::~mmToolTip()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmToolTip::Init(class UIMenu* arg1, struct LocString* arg2)

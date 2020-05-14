@@ -27,7 +27,7 @@ asOverSample::asOverSample()
 
 asOverSample::~asOverSample()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asOverSample::AddWidgets(class Bank* arg1)

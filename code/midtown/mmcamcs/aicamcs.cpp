@@ -27,7 +27,7 @@ AICamCS::AICamCS()
 
 AICamCS::~AICamCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class MetaClass* AICamCS::GetClass()

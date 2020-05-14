@@ -27,7 +27,7 @@ asBirthRule::asBirthRule()
 
 asBirthRule::~asBirthRule()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asBirthRule::AddWidgets(class Bank* arg1)

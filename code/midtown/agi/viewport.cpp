@@ -83,5 +83,5 @@ agiViewport::agiViewport(class agiPipeline* arg1)
 
 agiViewport::~agiViewport()
 {
-    unimplemented(arg1);
+    unimplemented();
 }

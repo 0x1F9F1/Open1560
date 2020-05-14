@@ -28,7 +28,7 @@ VirtualStream::VirtualStream(
 
 VirtualStream::~VirtualStream()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void* VirtualStream::GetMapping()

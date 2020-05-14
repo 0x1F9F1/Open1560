@@ -37,7 +37,7 @@ u32 VolumeDW::Value()
 
 MixerCTL::~MixerCTL()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void MixerCTL::AssignCDBalance(f32 arg1)

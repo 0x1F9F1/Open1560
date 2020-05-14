@@ -27,7 +27,7 @@ agiD3DRasterizer::agiD3DRasterizer(class agiPipeline* arg1)
 
 agiD3DRasterizer::~agiD3DRasterizer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiD3DRasterizer::BeginGfx()

@@ -27,7 +27,7 @@ mmStuck::mmStuck()
 
 mmStuck::~mmStuck()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmStuck::AddWidgets(class Bank* arg1)

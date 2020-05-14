@@ -27,7 +27,7 @@ mmPed::mmPed()
 
 mmPed::~mmPed()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void __fastcall mmPed::Draw(i32 arg1)
@@ -67,7 +67,7 @@ mmPedManager::mmPedManager()
 
 mmPedManager::~mmPedManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class MetaClass* mmPedManager::GetClass()

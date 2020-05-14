@@ -27,7 +27,7 @@ aiPedAudioManager::aiPedAudioManager()
 
 aiPedAudioManager::~aiPedAudioManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i16 aiPedAudioManager::Add(class aiPedestrian* arg1)

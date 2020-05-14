@@ -27,7 +27,7 @@ agiLighter::agiLighter()
 
 agiLighter::~agiLighter()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void agiLighter::TransformAll(class Matrix34* arg1, class Vector3* arg2, u32 arg3)
@@ -57,7 +57,7 @@ agiMonoLighter::agiMonoLighter()
 
 agiMonoLighter::~agiMonoLighter()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiMonoLighter::LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3)
@@ -73,7 +73,7 @@ agiRGBLighter::agiRGBLighter()
 
 agiRGBLighter::~agiRGBLighter()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiRGBLighter::LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3)

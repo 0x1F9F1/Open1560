@@ -27,7 +27,7 @@ mmHUD::mmHUD()
 
 mmHUD::~mmHUD()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmHUD::ActivateDash()
@@ -232,7 +232,7 @@ mmTimer::mmTimer()
 
 mmTimer::~mmTimer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 f32 mmTimer::GetTime()
@@ -277,7 +277,7 @@ mmArrow::mmArrow()
 
 mmArrow::~mmArrow()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmArrow::Init(class Matrix34* arg1)

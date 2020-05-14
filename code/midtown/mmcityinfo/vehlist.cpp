@@ -27,7 +27,7 @@ mmVehList::mmVehList()
 
 mmVehList::~mmVehList()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmVehList::GetVehicleID(char* arg1)

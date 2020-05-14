@@ -27,7 +27,7 @@ mmBoat::mmBoat()
 
 mmBoat::~mmBoat()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmBoat::AddWidgets(class Bank* arg1)

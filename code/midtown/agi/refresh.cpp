@@ -37,7 +37,7 @@ char* agiRefreshable::GetName()
 
 agiRefreshable::~agiRefreshable()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiRefreshable::IsTexture()

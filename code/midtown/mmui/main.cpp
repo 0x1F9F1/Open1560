@@ -27,7 +27,7 @@ MainMenu::MainMenu(i32 arg1)
 
 MainMenu::~MainMenu()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void MainMenu::PreSetup()

@@ -27,7 +27,7 @@ AudioOptions::AudioOptions(i32 arg1)
 
 AudioOptions::~AudioOptions()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void AudioOptions::CancelAction()

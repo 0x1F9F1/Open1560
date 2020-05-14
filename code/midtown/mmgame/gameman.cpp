@@ -22,7 +22,7 @@ define_dummy_symbol(mmgame_gameman);
 
 mmScreenClearFlunky::~mmScreenClearFlunky()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmScreenClearFlunky::Cull()
@@ -42,7 +42,7 @@ mmGameManager::mmGameManager()
 
 mmGameManager::~mmGameManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmGameManager::AddWidgets(class Bank* arg1)

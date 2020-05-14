@@ -27,7 +27,7 @@ DriverMenu::DriverMenu(i32 arg1)
 
 DriverMenu::~DriverMenu()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void DriverMenu::AddPlayer(char* arg1)

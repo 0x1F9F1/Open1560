@@ -32,7 +32,7 @@ mmPlayerRecord::mmPlayerRecord(class mmPlayerRecord const& arg1)
 
 mmPlayerRecord::~mmPlayerRecord()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPlayerRecord::operator=(class mmPlayerRecord& arg1)
@@ -77,7 +77,7 @@ mmPlayerData::mmPlayerData()
 
 mmPlayerData::~mmPlayerData()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPlayerData::operator=(class mmPlayerData& arg1)

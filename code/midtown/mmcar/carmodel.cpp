@@ -27,7 +27,7 @@ mmCarModel::mmCarModel()
 
 mmCarModel::~mmCarModel()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCarModel::Activate()

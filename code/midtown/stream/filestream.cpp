@@ -32,7 +32,7 @@ FileStream::FileStream(void* arg1, i32 arg2, class FileSystem* arg3)
 
 FileStream::~FileStream()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 FileStream::Close()

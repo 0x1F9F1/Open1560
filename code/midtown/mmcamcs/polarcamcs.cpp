@@ -27,7 +27,7 @@ PolarCamCS::PolarCamCS()
 
 PolarCamCS::~PolarCamCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class MetaClass* PolarCamCS::GetClass()

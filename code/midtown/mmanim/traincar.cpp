@@ -27,7 +27,7 @@ mmAnimTrainCar::mmAnimTrainCar()
 
 mmAnimTrainCar::~mmAnimTrainCar()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void __fastcall mmAnimTrainCar::Draw(i32 arg1)

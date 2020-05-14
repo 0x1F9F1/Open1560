@@ -122,7 +122,7 @@ agiTexDef::agiTexDef(class agiPipeline* arg1)
 
 agiTexDef::~agiTexDef()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void ShutdownLutQueue()
@@ -152,5 +152,5 @@ agiTexLut::agiTexLut(class agiPipeline* arg1)
 
 agiTexLut::~agiTexLut()
 {
-    unimplemented(arg1);
+    unimplemented();
 }

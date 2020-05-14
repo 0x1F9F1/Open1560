@@ -27,7 +27,7 @@ mmCompDRecord::mmCompDRecord()
 
 mmCompDRecord::~mmCompDRecord()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCompDRecord::Cull()

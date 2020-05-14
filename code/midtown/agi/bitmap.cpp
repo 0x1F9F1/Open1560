@@ -47,5 +47,5 @@ void agiBitmap::SetTransparency(i32 arg1)
 
 agiBitmap::~agiBitmap()
 {
-    unimplemented(arg1);
+    unimplemented();
 }

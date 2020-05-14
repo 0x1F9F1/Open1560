@@ -27,7 +27,7 @@ mmWheel::mmWheel()
 
 mmWheel::~mmWheel()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmWheel::AddWidgets(class Bank* arg1)

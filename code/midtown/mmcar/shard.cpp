@@ -27,7 +27,7 @@ mmShard::mmShard()
 
 mmShard::~mmShard()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmShard::AddShard(class Vector3 arg1, class Vector3 arg2, class Vector3 arg3, f32 arg4)
@@ -68,7 +68,7 @@ mmShardManager::mmShardManager()
 
 mmShardManager::~mmShardManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmShardManager::AddWidgets(class Bank* arg1)

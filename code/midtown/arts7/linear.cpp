@@ -27,7 +27,7 @@ asLinearCS::asLinearCS()
 
 asLinearCS::~asLinearCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asLinearCS::AddWidgets(class Bank* arg1)

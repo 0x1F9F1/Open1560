@@ -22,7 +22,7 @@ define_dummy_symbol(mmai_aiVehicleMGR);
 
 mmPhysEntity::~mmPhysEntity()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPhysEntity::PostUpdate()
@@ -59,7 +59,7 @@ void AMBIENTCB(
 
 aiVehicleInstance::~aiVehicleInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void aiVehicleInstance::AddWidgets(class Bank* arg1)
@@ -139,7 +139,7 @@ aiVehicleActive::aiVehicleActive()
 
 aiVehicleActive::~aiVehicleActive()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void aiVehicleActive::PostUpdate()
@@ -194,7 +194,7 @@ aiVehicleManager::aiVehicleManager()
 
 aiVehicleManager::~aiVehicleManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 aiVehicleManager::AddVehicleDataEntry(char* arg1)
@@ -244,7 +244,7 @@ aiVehicleData::aiVehicleData()
 
 aiVehicleData::~aiVehicleData()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void aiVehicleData::AddWidgets(class Bank* arg1)

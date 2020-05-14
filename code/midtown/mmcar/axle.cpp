@@ -27,7 +27,7 @@ mmAxle::mmAxle()
 
 mmAxle::~mmAxle()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmAxle::AddWidgets(class Bank* arg1)

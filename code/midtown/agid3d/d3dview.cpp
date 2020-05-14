@@ -27,7 +27,7 @@ agiD3DViewport::agiD3DViewport(class agiPipeline* arg1)
 
 agiD3DViewport::~agiD3DViewport()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void agiD3DViewport::Activate()

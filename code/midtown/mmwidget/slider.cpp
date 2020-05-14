@@ -27,7 +27,7 @@ UISlider::UISlider()
 
 UISlider::~UISlider()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UISlider::Action(union eqEvent arg1)

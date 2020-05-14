@@ -27,7 +27,7 @@ agiSWRasterizer::agiSWRasterizer(class agiPipeline* arg1)
 
 agiSWRasterizer::~agiSWRasterizer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiSWRasterizer::BeginGfx()

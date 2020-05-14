@@ -27,7 +27,7 @@ UIBMLabel::UIBMLabel()
 
 UIBMLabel::~UIBMLabel()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class agiBitmap* UIBMLabel::CreateDummyBitmap()

@@ -27,7 +27,7 @@ UITextRoller2::UITextRoller2()
 
 UITextRoller2::~UITextRoller2()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UITextRoller2::Action(union eqEvent arg1)

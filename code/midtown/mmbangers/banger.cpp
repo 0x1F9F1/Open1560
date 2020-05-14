@@ -27,7 +27,7 @@ mmBangerInstance::mmBangerInstance()
 
 mmBangerInstance::~mmBangerInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmBangerInstance::AddWidgets(class Bank* arg1)
@@ -82,7 +82,7 @@ mmUnhitBangerInstance::mmUnhitBangerInstance()
 
 mmUnhitBangerInstance::~mmUnhitBangerInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void __fastcall mmUnhitBangerInstance::FromMatrix(class Matrix34 const& arg1)
@@ -135,7 +135,7 @@ mmHitBangerInstance::mmHitBangerInstance()
 
 mmHitBangerInstance::~mmHitBangerInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmHitBangerInstance::Detach()

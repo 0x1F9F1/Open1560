@@ -27,7 +27,7 @@ RDLP::RDLP(class agiPipeline* arg1)
 
 RDLP::~RDLP()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 RDLP::BeginGfx()
@@ -68,7 +68,7 @@ RDynamicDLP::RDynamicDLP(i32 arg1, class RDLP* arg2)
 
 RDynamicDLP::~RDynamicDLP()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 RDynamicDLP::Init(char* arg1)

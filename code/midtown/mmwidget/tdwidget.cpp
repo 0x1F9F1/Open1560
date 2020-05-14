@@ -27,7 +27,7 @@ TextDropWidget::TextDropWidget()
 
 TextDropWidget::~TextDropWidget()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 TextDropWidget::Capture(f32 arg1, f32 arg2)

@@ -27,7 +27,7 @@ Dialog_ControlAssign::Dialog_ControlAssign(i32 arg1, f32 arg2, f32 arg3, f32 arg
 
 Dialog_ControlAssign::~Dialog_ControlAssign()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void Dialog_ControlAssign::PreSetup()

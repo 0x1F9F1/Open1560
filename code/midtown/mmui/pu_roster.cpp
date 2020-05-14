@@ -27,7 +27,7 @@ PURoster::PURoster(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 
 PURoster::~PURoster()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void PURoster::AddName(char* arg1, u32 arg2, i32 arg3)

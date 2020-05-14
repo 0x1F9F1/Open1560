@@ -27,7 +27,7 @@ HostRaceMenu::HostRaceMenu(i32 arg1)
 
 HostRaceMenu::~HostRaceMenu()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void HostRaceMenu::DisableStart()

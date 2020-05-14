@@ -27,7 +27,7 @@ agiColorModelRGB555::agiColorModelRGB555()
 
 agiColorModelRGB555::~agiColorModelRGB555()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModelRGB555::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -64,7 +64,7 @@ agiColorModelRGB565::agiColorModelRGB565()
 
 agiColorModelRGB565::~agiColorModelRGB565()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModelRGB565::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -101,7 +101,7 @@ agiColorModelRGB555_Rev::agiColorModelRGB555_Rev()
 
 agiColorModelRGB555_Rev::~agiColorModelRGB555_Rev()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModelRGB555_Rev::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -138,7 +138,7 @@ agiColorModelRGB565_Rev::agiColorModelRGB565_Rev()
 
 agiColorModelRGB565_Rev::~agiColorModelRGB565_Rev()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModelRGB565_Rev::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -175,7 +175,7 @@ agiColorModelRGB888::agiColorModelRGB888()
 
 agiColorModelRGB888::~agiColorModelRGB888()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModelRGB888::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -212,7 +212,7 @@ agiColorModelRGB888_Rev::agiColorModelRGB888_Rev()
 
 agiColorModelRGB888_Rev::~agiColorModelRGB888_Rev()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModelRGB888_Rev::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -249,7 +249,7 @@ agiColorModelRGBA5551::agiColorModelRGBA5551()
 
 agiColorModelRGBA5551::~agiColorModelRGBA5551()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModelRGBA5551::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -286,7 +286,7 @@ agiColorModelRGBA4444::agiColorModelRGBA4444()
 
 agiColorModelRGBA4444::~agiColorModelRGBA4444()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModelRGBA4444::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -323,7 +323,7 @@ agiColorModelARGB::agiColorModelARGB()
 
 agiColorModelARGB::~agiColorModelARGB()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModelARGB::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)
@@ -359,7 +359,7 @@ agiColorModelABGR::agiColorModelABGR()
 
 agiColorModelABGR::~agiColorModelABGR()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModelABGR::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)

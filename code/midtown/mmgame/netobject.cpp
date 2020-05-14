@@ -27,7 +27,7 @@ mmNetObject::mmNetObject()
 
 mmNetObject::~mmNetObject()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmNetObject::Activate()

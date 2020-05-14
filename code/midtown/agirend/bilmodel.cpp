@@ -27,7 +27,7 @@ agiBILightModel::agiBILightModel(class agiPipeline* arg1)
 
 agiBILightModel::~agiBILightModel()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiBILightModel::Activate()

@@ -27,7 +27,7 @@ mmNumber::mmNumber()
 
 mmNumber::~mmNumber()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmNumber::AddWidgets(class Bank* arg1)

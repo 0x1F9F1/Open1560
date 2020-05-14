@@ -27,7 +27,7 @@ mmCompRaceRecord::mmCompRaceRecord()
 
 mmCompRaceRecord::~mmCompRaceRecord()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCompRaceRecord::Cull()
@@ -86,7 +86,7 @@ void mmCompRaceRecord::Update()
 
 mmCompBase::~mmCompBase()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCompBase::DisableBlt()

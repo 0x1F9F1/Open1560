@@ -27,7 +27,7 @@ agiD3DTexDef::agiD3DTexDef(class agiPipeline* arg1)
 
 agiD3DTexDef::~agiD3DTexDef()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiD3DTexDef::BeginGfx()

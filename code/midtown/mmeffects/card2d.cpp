@@ -27,7 +27,7 @@ Card2D::Card2D()
 
 Card2D::~Card2D()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void Card2D::Init(class asCamera* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6)

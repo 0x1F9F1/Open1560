@@ -27,7 +27,7 @@ asLamp::asLamp()
 
 asLamp::~asLamp()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asLamp::AddWidgets(class Bank* arg1)

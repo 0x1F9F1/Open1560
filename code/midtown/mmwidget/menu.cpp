@@ -27,7 +27,7 @@ UIMenu::UIMenu(i32 arg1)
 
 UIMenu::~UIMenu()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UIMenu::PreSetup()

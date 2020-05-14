@@ -27,7 +27,7 @@ PUControl::PUControl(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 
 PUControl::~PUControl()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void PUControl::CancelAction()

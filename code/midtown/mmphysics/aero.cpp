@@ -27,7 +27,7 @@ asAero::asAero()
 
 asAero::~asAero()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asAero::AddWidgets(class Bank* arg1)

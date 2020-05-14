@@ -27,7 +27,7 @@ mmPoliceCarAudio::mmPoliceCarAudio(class mmCarSim* arg1, f32 arg2)
 
 mmPoliceCarAudio::~mmPoliceCarAudio()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPoliceCarAudio::AssignSounds(class AudSound* arg1, class AudSound* arg2, class AudSound* arg3,

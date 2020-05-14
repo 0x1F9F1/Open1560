@@ -27,7 +27,7 @@ mmAnimExcel::mmAnimExcel()
 
 mmAnimExcel::~mmAnimExcel()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmAnimExcel::AddFile(char* arg1, char* arg2)

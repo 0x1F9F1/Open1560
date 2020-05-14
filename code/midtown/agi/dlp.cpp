@@ -27,7 +27,7 @@ DLP::DLP(class agiPipeline* arg1)
 
 DLP::~DLP()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void DLP::Cull(i32 arg1)

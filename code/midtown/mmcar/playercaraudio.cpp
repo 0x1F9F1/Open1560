@@ -32,7 +32,7 @@ mmPlayerCarAudio::mmPlayerCarAudio(class mmCarSim* arg1)
 
 mmPlayerCarAudio::~mmPlayerCarAudio()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPlayerCarAudio::EchoOff()

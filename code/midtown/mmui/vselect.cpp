@@ -27,7 +27,7 @@ VehicleSelectBase::VehicleSelectBase(i32 arg1)
 
 VehicleSelectBase::~VehicleSelectBase()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void VehicleSelectBase::AllSetCar(char* arg1, i32 arg2)

@@ -27,7 +27,7 @@ UIMexButton::UIMexButton()
 
 UIMexButton::~UIMexButton()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UIMexButton::Action(union eqEvent arg1)

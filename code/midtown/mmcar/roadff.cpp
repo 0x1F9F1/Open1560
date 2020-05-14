@@ -27,7 +27,7 @@ mmCarRoadFF::mmCarRoadFF()
 
 mmCarRoadFF::~mmCarRoadFF()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCarRoadFF::AddWidgets(class Bank* arg1)

@@ -27,7 +27,7 @@ mmRecord::mmRecord()
 
 mmRecord::~mmRecord()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmRecord::operator=(class mmRecord& arg1)

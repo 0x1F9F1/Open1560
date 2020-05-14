@@ -27,7 +27,7 @@ TrackCamCS::TrackCamCS()
 
 TrackCamCS::~TrackCamCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void TrackCamCS::AddWidgets(class Bank* arg1)

@@ -27,7 +27,7 @@ Spline::Spline()
 
 Spline::~Spline()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void Spline::AddWidgets(class Bank* arg1)

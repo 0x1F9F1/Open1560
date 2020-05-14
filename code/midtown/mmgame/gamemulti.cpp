@@ -27,7 +27,7 @@ mmGameMulti::mmGameMulti()
 
 mmGameMulti::~mmGameMulti()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmGameMulti::InitRoster()

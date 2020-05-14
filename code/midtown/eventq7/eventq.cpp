@@ -27,7 +27,7 @@ eqEventQ::eqEventQ(i32 arg1, i32 arg2, i32 arg3)
 
 eqEventQ::~eqEventQ()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void eqEventQ::Activate(void* arg1, i32 arg2)

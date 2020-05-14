@@ -27,7 +27,7 @@ Vehicle::Vehicle(i32 arg1)
 
 Vehicle::~Vehicle()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void Vehicle::PostSetup()

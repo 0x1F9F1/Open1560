@@ -37,7 +37,7 @@ GraphicsOptions::GraphicsOptions(i32 arg1)
 
 GraphicsOptions::~GraphicsOptions()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void GraphicsOptions::CancelAction()

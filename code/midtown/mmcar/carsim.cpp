@@ -40,7 +40,7 @@ mmCarSim::mmCarSim()
 
 mmCarSim::~mmCarSim()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCarSim::AddPlayerSpecifics()

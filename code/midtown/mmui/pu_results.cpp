@@ -27,7 +27,7 @@ PUResults::PUResults(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg
 
 PUResults::~PUResults()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void PUResults::AddName(i32 arg1, char* arg2, f32 arg3)

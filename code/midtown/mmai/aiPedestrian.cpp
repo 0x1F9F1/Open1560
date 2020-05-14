@@ -223,7 +223,7 @@ void aiPedestrian::Wander()
 
 aiPedestrianInstance::~aiPedestrianInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void aiPedestrianInstance::AddWidgets(class Bank* arg1)

@@ -32,7 +32,7 @@ mmGameSingle::mmGameSingle()
 
 mmGameSingle::~mmGameSingle()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmGameSingle::AddWidgets(class Bank* arg1)

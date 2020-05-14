@@ -27,7 +27,7 @@ AppCamCS::AppCamCS()
 
 AppCamCS::~AppCamCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void AppCamCS::AddWidgets(class Bank* arg1)

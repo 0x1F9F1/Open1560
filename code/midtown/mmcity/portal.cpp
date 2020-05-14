@@ -27,7 +27,7 @@ asPortalWeb::asPortalWeb()
 
 asPortalWeb::~asPortalWeb()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 struct asPortalCell* asPortalWeb::AddCell(char* arg1, class asPortalRenderable* arg2, u32 arg3)

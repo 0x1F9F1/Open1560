@@ -27,7 +27,7 @@ mmMiscData::mmMiscData()
 
 mmMiscData::~mmMiscData()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmMiscData::CheckBlitz(char* arg1, f32 arg2, i32 arg3, char* arg4, i32 arg5, i32 arg6)

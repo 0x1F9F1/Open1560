@@ -27,7 +27,7 @@ agiDDBitmap::agiDDBitmap(class agiPipeline* arg1)
 
 agiDDBitmap::~agiDDBitmap()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiDDBitmap::BeginGfx()

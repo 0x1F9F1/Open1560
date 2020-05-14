@@ -27,7 +27,7 @@ mmMultiCircuit::mmMultiCircuit()
 
 mmMultiCircuit::~mmMultiCircuit()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmMultiCircuit::GameMessage(struct NETGAME_MSG* arg1)

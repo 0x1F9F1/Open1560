@@ -27,7 +27,7 @@ FileSystem::FileSystem()
 
 FileSystem::~FileSystem()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 FileSystem::PagerInfo(char* arg1, struct PagerInfo_t& arg2)

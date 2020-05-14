@@ -27,7 +27,7 @@ mmAnimMgr::mmAnimMgr()
 
 mmAnimMgr::~mmAnimMgr()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmAnimMgr::AirlinerSwap()

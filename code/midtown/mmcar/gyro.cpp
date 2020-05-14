@@ -27,7 +27,7 @@ VehGyro::VehGyro()
 
 VehGyro::~VehGyro()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void VehGyro::AddWidgets(class Bank* arg1)

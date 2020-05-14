@@ -27,7 +27,7 @@ agiColorModel8::agiColorModel8(class agiPalette* arg1)
 
 agiColorModel8::~agiColorModel8()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 u32 agiColorModel8::Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4)

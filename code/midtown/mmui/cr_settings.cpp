@@ -27,7 +27,7 @@ CRSettings::CRSettings(i32 arg1)
 
 CRSettings::~CRSettings()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 CRSettings::AddPlayerRecord(char* arg1, i32 arg2, i32 arg3, char* arg4)

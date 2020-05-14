@@ -27,7 +27,7 @@ mmIcons::mmIcons()
 
 mmIcons::~mmIcons()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmIcons::Cull()

@@ -27,7 +27,7 @@ PostCamCS::PostCamCS()
 
 PostCamCS::~PostCamCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void PostCamCS::AddWidgets(class Bank* arg1)

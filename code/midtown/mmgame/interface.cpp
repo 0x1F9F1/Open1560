@@ -42,7 +42,7 @@ mmInterface::mmInterface()
 
 mmInterface::~mmInterface()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmInterface::BeDone()

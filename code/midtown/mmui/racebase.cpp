@@ -27,7 +27,7 @@ RaceMenuBase::RaceMenuBase(i32 arg1)
 
 RaceMenuBase::~RaceMenuBase()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void RaceMenuBase::UsesLobby(i32 arg1)

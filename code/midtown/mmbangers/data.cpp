@@ -27,7 +27,7 @@ mmBangerData::mmBangerData()
 
 mmBangerData::~mmBangerData()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmBangerData::AddWidgets(class Bank* arg1)
@@ -87,7 +87,7 @@ mmBangerDataManager::mmBangerDataManager()
 
 mmBangerDataManager::~mmBangerDataManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmBangerDataManager::AddBangerDataEntry(char* arg1, char* arg2)

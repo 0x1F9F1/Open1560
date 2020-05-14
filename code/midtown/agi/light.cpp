@@ -37,7 +37,7 @@ agiLight::agiLight(class agiPipeline* arg1)
 
 agiLight::~agiLight()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void agiLight::Remove()

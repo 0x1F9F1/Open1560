@@ -27,7 +27,7 @@ mmPlayerConfig::mmPlayerConfig()
 
 mmPlayerConfig::~mmPlayerConfig()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPlayerConfig::operator=(class mmPlayerConfig& arg1)

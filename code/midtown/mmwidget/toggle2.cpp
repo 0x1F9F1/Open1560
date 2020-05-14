@@ -27,7 +27,7 @@ mmToggle2::mmToggle2()
 
 mmToggle2::~mmToggle2()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmToggle2::Cull()

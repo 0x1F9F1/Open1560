@@ -32,7 +32,7 @@ mmOpponentCarAudio::mmOpponentCarAudio(class mmCarSim* arg1)
 
 mmOpponentCarAudio::~mmOpponentCarAudio()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmOpponentCarAudio::AssignSounds(

@@ -27,7 +27,7 @@ asParticles::asParticles()
 
 asParticles::~asParticles()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asParticles::AddWidgets(class Bank* arg1)

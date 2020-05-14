@@ -27,7 +27,7 @@ Stream::Stream(void* arg1, i32 arg2, class FileSystem* arg3)
 
 Stream::~Stream()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void* Stream::GetMapping()

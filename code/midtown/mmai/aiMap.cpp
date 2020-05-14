@@ -27,7 +27,7 @@ aiMap::aiMap()
 
 aiMap::~aiMap()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void aiMap::AddAmbient(class aiVehicleSpline* arg1)

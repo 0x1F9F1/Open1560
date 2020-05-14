@@ -27,7 +27,7 @@ DynamicDLP::DynamicDLP(i32 arg1)
 
 DynamicDLP::~DynamicDLP()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 DynamicDLP::InitOffsets(class DLP* arg1, char* arg2)

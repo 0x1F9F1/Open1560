@@ -27,7 +27,7 @@ UIIconW::UIIconW()
 
 UIIconW::~UIIconW()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UIIconW::Action(union eqEvent arg1)

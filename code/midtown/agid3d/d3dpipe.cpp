@@ -27,7 +27,7 @@ agiD3DPipeline::agiD3DPipeline()
 
 agiD3DPipeline::~agiD3DPipeline()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void agiD3DPipeline::BeginFrame()
@@ -137,7 +137,7 @@ static i32 __stdcall EnumTextureCallback(struct _DDPIXELFORMAT* arg1, void* arg2
 
 agiD3DTexLut::~agiD3DTexLut()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiD3DTexLut::BeginGfx()

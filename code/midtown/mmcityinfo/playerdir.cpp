@@ -27,7 +27,7 @@ mmPlayerDirectory::mmPlayerDirectory()
 
 mmPlayerDirectory::~mmPlayerDirectory()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmPlayerDirectory::AddPlayer(char* arg1)

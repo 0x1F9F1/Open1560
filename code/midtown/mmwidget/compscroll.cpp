@@ -27,7 +27,7 @@ UICompositeScroll::UICompositeScroll()
 
 UICompositeScroll::~UICompositeScroll()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UICompositeScroll::Action(union eqEvent arg1)

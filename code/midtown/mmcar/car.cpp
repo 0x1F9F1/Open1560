@@ -27,7 +27,7 @@ mmCar::mmCar()
 
 mmCar::~mmCar()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCar::AddWidgets(class Bank* arg1)

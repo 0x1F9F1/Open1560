@@ -27,7 +27,7 @@ WINEventHandler::WINEventHandler()
 
 WINEventHandler::~WINEventHandler()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void WINEventHandler::AdjustMouse(i32& arg1, i32& arg2)

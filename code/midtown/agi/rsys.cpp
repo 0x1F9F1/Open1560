@@ -27,7 +27,7 @@ agiRasterizer::agiRasterizer(class agiPipeline* arg1)
 
 agiRasterizer::~agiRasterizer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void agiRasterizer::BeginGroup()

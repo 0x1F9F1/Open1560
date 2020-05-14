@@ -27,7 +27,7 @@ UITextScroll::UITextScroll()
 
 UITextScroll::~UITextScroll()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UITextScroll::Action(union eqEvent arg1)

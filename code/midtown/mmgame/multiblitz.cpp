@@ -27,7 +27,7 @@ mmMultiBlitz::mmMultiBlitz()
 
 mmMultiBlitz::~mmMultiBlitz()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmMultiBlitz::GameMessage(struct NETGAME_MSG* arg1)

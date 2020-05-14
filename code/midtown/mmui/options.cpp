@@ -27,7 +27,7 @@ OptionsMenu::OptionsMenu(i32 arg1)
 
 OptionsMenu::~OptionsMenu()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void OptionsMenu::PostSetup()

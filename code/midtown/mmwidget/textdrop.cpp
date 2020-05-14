@@ -27,7 +27,7 @@ UITextDropdown::UITextDropdown()
 
 UITextDropdown::~UITextDropdown()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UITextDropdown::Action(union eqEvent arg1)

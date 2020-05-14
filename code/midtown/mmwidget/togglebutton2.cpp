@@ -27,7 +27,7 @@ UIToggleButton2::UIToggleButton2()
 
 UIToggleButton2::~UIToggleButton2()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UIToggleButton2::DoToggle()

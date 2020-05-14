@@ -27,7 +27,7 @@ PreCamCS::PreCamCS()
 
 PreCamCS::~PreCamCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void PreCamCS::AddWidgets(class Bank* arg1)

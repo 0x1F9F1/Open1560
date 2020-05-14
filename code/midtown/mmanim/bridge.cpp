@@ -27,7 +27,7 @@ mmBridgeMgr::mmBridgeMgr()
 
 mmBridgeMgr::~mmBridgeMgr()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmBridgeMgr::AddWidgets(class Bank* arg1)
@@ -73,7 +73,7 @@ mmBridgeSet::mmBridgeSet()
 
 mmBridgeSet::~mmBridgeSet()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmBridgeSet::AddWidgets(class Bank* arg1)

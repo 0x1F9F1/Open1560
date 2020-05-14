@@ -27,7 +27,7 @@ UIBMButton::UIBMButton()
 
 UIBMButton::~UIBMButton()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UIBMButton::Action(union eqEvent arg1)

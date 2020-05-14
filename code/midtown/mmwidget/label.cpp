@@ -27,7 +27,7 @@ UILabel::UILabel()
 
 UILabel::~UILabel()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UILabel::Action(union eqEvent arg1)

@@ -27,7 +27,7 @@ UIControlWidget::UIControlWidget()
 
 UIControlWidget::~UIControlWidget()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UIControlWidget::Action(union eqEvent arg1)

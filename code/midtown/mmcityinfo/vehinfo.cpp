@@ -27,7 +27,7 @@ mmVehInfo::mmVehInfo()
 
 mmVehInfo::~mmVehInfo()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmVehInfo::HasColorVariations()

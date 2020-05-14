@@ -27,7 +27,7 @@ PovCamCS::PovCamCS()
 
 PovCamCS::~PovCamCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void PovCamCS::AddWidgets(class Bank* arg1)

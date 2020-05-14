@@ -27,7 +27,7 @@ mmWaypointInstance::mmWaypointInstance(i32 arg1, f32 arg2, f32 arg3)
 
 mmWaypointInstance::~mmWaypointInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmWaypointInstance::AddWidgets(class Bank* arg1)

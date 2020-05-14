@@ -27,7 +27,7 @@ PointCamCS::PointCamCS()
 
 PointCamCS::~PointCamCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class MetaClass* PointCamCS::GetClass()

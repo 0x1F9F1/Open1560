@@ -27,7 +27,7 @@ asRenderWeb::asRenderWeb()
 
 asRenderWeb::~asRenderWeb()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asRenderWeb::AddWidgets(class Bank* arg1)

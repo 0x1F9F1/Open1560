@@ -27,7 +27,7 @@ mmPopup::mmPopup(class mmGame* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
 
 mmPopup::~mmPopup()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPopup::ChatCB()

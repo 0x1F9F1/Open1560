@@ -27,7 +27,7 @@ EngineAudio::EngineAudio()
 
 EngineAudio::~EngineAudio()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void EngineAudio::UpdateRPM(f32 arg1)

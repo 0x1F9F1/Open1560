@@ -27,7 +27,7 @@ mmSingleCircuit::mmSingleCircuit()
 
 mmSingleCircuit::~mmSingleCircuit()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmSingleCircuit::AddWidgets(class Bank* arg1)

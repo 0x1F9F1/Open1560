@@ -27,7 +27,7 @@ mmWheelCheap::mmWheelCheap()
 
 mmWheelCheap::~mmWheelCheap()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmWheelCheap::Init(class Vector3* arg1, class aiVehicleData* arg2, class asInertialCS* arg3)

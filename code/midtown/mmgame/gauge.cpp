@@ -27,7 +27,7 @@ RadialGauge::RadialGauge()
 
 RadialGauge::~RadialGauge()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void RadialGauge::AddWidgets(class Bank* arg1)

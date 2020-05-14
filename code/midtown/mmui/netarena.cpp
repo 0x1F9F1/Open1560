@@ -27,7 +27,7 @@ NetArena::NetArena(i32 arg1)
 
 NetArena::~NetArena()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void NetArena::AddGameChatLine(char* arg1)

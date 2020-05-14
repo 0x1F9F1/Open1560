@@ -27,7 +27,7 @@ mmVehicleForm::mmVehicleForm()
 
 mmVehicleForm::~mmVehicleForm()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmVehicleForm::Cull()

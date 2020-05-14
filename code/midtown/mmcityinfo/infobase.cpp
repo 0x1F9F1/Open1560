@@ -27,7 +27,7 @@ mmInfoBase::mmInfoBase()
 
 mmInfoBase::~mmInfoBase()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class MetaClass* mmInfoBase::GetClass()

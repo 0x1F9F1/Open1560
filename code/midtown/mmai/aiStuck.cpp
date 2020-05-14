@@ -27,7 +27,7 @@ aiStuck::aiStuck()
 
 aiStuck::~aiStuck()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void aiStuck::AddWidgets(class Bank* arg1)

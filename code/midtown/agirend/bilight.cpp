@@ -27,7 +27,7 @@ agiBILight::agiBILight(class agiPipeline* arg1)
 
 agiBILight::~agiBILight()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiBILight::BeginGfx()

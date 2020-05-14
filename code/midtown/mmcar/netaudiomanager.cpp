@@ -27,7 +27,7 @@ NetAudioManager::NetAudioManager()
 
 NetAudioManager::~NetAudioManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i16 NetAudioManager::AddVehicle(class mmNetworkCarAudio* arg1)

@@ -27,7 +27,7 @@ uiNavBar::uiNavBar(i32 arg1)
 
 uiNavBar::~uiNavBar()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void uiNavBar::BackUp()

@@ -27,7 +27,7 @@ asMeshSetForm::asMeshSetForm()
 
 asMeshSetForm::~asMeshSetForm()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asMeshSetForm::Cull()

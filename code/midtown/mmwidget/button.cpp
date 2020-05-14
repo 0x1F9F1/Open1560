@@ -27,7 +27,7 @@ UIButton::UIButton()
 
 UIButton::~UIButton()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UIButton::Action(union eqEvent arg1)

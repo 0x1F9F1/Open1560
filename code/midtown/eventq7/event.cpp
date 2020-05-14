@@ -27,7 +27,7 @@ eqEventHandler::eqEventHandler()
 
 eqEventHandler::~eqEventHandler()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void eqEventHandler::AddClient(class eqEventMonitor* arg1)
@@ -52,7 +52,7 @@ eqEventMonitor::eqEventMonitor(i32 arg1)
 
 eqEventMonitor::~eqEventMonitor()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void eqEventMonitor::Redraw(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)

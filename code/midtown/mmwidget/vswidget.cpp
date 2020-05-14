@@ -27,7 +27,7 @@ VSWidget::VSWidget()
 
 VSWidget::~VSWidget()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 VSWidget::Action(union eqEvent arg1, f32 arg2, f32 arg3, i32 arg4)

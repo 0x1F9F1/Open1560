@@ -27,7 +27,7 @@ TransitionCS::TransitionCS()
 
 TransitionCS::~TransitionCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void TransitionCS::ForceMatrixDelta(class Vector3 const& arg1)

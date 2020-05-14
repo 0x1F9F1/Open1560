@@ -27,7 +27,7 @@ EngineAudioOpponent::EngineAudioOpponent()
 
 EngineAudioOpponent::~EngineAudioOpponent()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void EngineAudioOpponent::ClearName()

@@ -27,7 +27,7 @@ AudStream::AudStream(u32 arg1, i32 arg2, i16 arg3)
 
 AudStream::~AudStream()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void AudStream::DeallocateStreamObjs()

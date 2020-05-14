@@ -27,7 +27,7 @@ agiSWPipeline::agiSWPipeline(i32 arg1, char** arg2)
 
 agiSWPipeline::~agiSWPipeline()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void agiSWPipeline::BeginFrame()
@@ -134,7 +134,7 @@ static void zmemset(u16* arg1, u32 arg2)
 
 agiSWViewport::~agiSWViewport()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void agiSWViewport::Activate()
@@ -164,7 +164,7 @@ void agiSWViewport::SetBackground(class Vector3& arg1)
 
 agiSWBitmap::~agiSWBitmap()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiSWBitmap::BeginGfx()

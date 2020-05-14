@@ -27,7 +27,7 @@ mmCityList::mmCityList()
 
 mmCityList::~mmCityList()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmCityList::GetCityID(char* arg1)

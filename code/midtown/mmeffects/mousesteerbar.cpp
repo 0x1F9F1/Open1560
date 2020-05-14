@@ -27,7 +27,7 @@ mmMouseSteerBar::mmMouseSteerBar()
 
 mmMouseSteerBar::~mmMouseSteerBar()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmMouseSteerBar::AddWidgets(class Bank* arg1)

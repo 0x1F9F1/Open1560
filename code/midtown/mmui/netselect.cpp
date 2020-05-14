@@ -27,7 +27,7 @@ NetSelectMenu::NetSelectMenu(i32 arg1)
 
 NetSelectMenu::~NetSelectMenu()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void NetSelectMenu::AddModem(char* arg1, i32 arg2)

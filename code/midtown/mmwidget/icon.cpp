@@ -27,7 +27,7 @@ UIIcon::UIIcon()
 
 UIIcon::~UIIcon()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class agiBitmap* UIIcon::CreateDummyBitmap()

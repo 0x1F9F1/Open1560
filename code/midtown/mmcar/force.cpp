@@ -27,7 +27,7 @@ mmForce::mmForce()
 
 mmForce::~mmForce()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmForce::AddWidgets(class Bank* arg1)

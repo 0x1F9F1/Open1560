@@ -27,7 +27,7 @@ agiD3DMtlDef::agiD3DMtlDef(class agiPipeline* arg1)
 
 agiD3DMtlDef::~agiD3DMtlDef()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void agiD3DMtlDef::Activate()

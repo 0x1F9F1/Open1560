@@ -27,7 +27,7 @@ mmAnimSpline::mmAnimSpline()
 
 mmAnimSpline::~mmAnimSpline()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmAnimSpline::AddVector(class Vector3& arg1)

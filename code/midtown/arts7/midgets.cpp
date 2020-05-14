@@ -27,7 +27,7 @@ asMidgets::asMidgets()
 
 asMidgets::~asMidgets()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class bkButton* asMidgets::AddButton(char* arg1, class Callback arg2)

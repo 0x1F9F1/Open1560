@@ -27,7 +27,7 @@ mmHudMap::mmHudMap()
 
 mmHudMap::~mmHudMap()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmHudMap::Activate()

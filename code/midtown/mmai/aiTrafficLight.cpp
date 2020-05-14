@@ -27,7 +27,7 @@ aiTrafficLightSet::aiTrafficLightSet(class aiIntersection* arg1)
 
 aiTrafficLightSet::~aiTrafficLightSet()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void aiTrafficLightSet::Reset()
@@ -42,7 +42,7 @@ void aiTrafficLightSet::Update()
 
 aiTrafficLightInstance::~aiTrafficLightInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void __fastcall aiTrafficLightInstance::Draw(i32 arg1)

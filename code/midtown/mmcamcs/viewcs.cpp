@@ -27,7 +27,7 @@ mmViewCS::mmViewCS()
 
 mmViewCS::~mmViewCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmViewCS::AddWidgets(class Bank* arg1)

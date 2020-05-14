@@ -27,7 +27,7 @@ AudManager::AudManager()
 
 AudManager::~AudManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 AudManager::AddSound(class AudSound* arg1)

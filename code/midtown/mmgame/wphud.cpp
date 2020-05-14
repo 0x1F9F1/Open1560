@@ -27,7 +27,7 @@ mmWPHUD::mmWPHUD()
 
 mmWPHUD::~mmWPHUD()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmWPHUD::AddWidgets(class Bank* arg1)
@@ -72,7 +72,7 @@ mmCircuitHUD::mmCircuitHUD()
 
 mmCircuitHUD::~mmCircuitHUD()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCircuitHUD::Init()
@@ -112,7 +112,7 @@ mmCRHUD::mmCRHUD()
 
 mmCRHUD::~mmCRHUD()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCRHUD::ActivateGold()

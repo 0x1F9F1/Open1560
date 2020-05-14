@@ -27,7 +27,7 @@ CarCamCS::CarCamCS()
 
 CarCamCS::~CarCamCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void CarCamCS::AddWidgets(class Bank* arg1)

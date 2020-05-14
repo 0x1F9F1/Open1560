@@ -27,7 +27,7 @@ mmPlayer::mmPlayer()
 
 mmPlayer::~mmPlayer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPlayer::AddWidgets(class Bank* arg1)

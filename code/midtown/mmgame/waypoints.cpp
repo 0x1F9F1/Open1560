@@ -27,7 +27,7 @@ mmWaypoints::mmWaypoints()
 
 mmWaypoints::~mmWaypoints()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmWaypoints::AIWPHit(i32 arg1, i32 arg2, class Matrix34 arg3, class Vector3 arg4, f32 arg5)

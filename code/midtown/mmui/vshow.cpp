@@ -27,7 +27,7 @@ VehShowcase::VehShowcase(i32 arg1)
 
 VehShowcase::~VehShowcase()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void VehShowcase::PostSetup()

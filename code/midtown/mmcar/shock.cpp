@@ -27,7 +27,7 @@ mmShock::mmShock()
 
 mmShock::~mmShock()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmShock::AddWidgets(class Bank* arg1)

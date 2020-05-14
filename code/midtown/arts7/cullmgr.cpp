@@ -27,7 +27,7 @@ asCullManager::asCullManager(i32 arg1, i32 arg2)
 
 asCullManager::~asCullManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asCullManager::DeclareCamera(class asCamera* arg1)

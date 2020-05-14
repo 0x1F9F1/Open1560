@@ -27,7 +27,7 @@ mmCompCRPlayer::mmCompCRPlayer()
 
 mmCompCRPlayer::~mmCompCRPlayer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmCompCRPlayer::Cull()

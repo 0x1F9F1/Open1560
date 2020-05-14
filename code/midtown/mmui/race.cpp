@@ -27,7 +27,7 @@ RaceMenu::RaceMenu(i32 arg1)
 
 RaceMenu::~RaceMenu()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 RaceMenu::GetRaceID()

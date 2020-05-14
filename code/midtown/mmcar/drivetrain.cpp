@@ -27,7 +27,7 @@ mmDrivetrain::mmDrivetrain()
 
 mmDrivetrain::~mmDrivetrain()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmDrivetrain::AddWheel(class mmWheel* arg1)

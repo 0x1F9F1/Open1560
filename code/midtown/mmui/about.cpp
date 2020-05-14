@@ -27,7 +27,7 @@ AboutMenu::AboutMenu(i32 arg1)
 
 AboutMenu::~AboutMenu()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void AboutMenu::Cull()

@@ -22,7 +22,7 @@ define_dummy_symbol(mmgame_singleblitz);
 
 foobar::~foobar()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void foobar::Update()
@@ -42,7 +42,7 @@ mmSingleBlitz::mmSingleBlitz()
 
 mmSingleBlitz::~mmSingleBlitz()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class MetaClass* mmSingleBlitz::GetClass()

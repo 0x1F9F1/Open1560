@@ -27,7 +27,7 @@ asInertialCS::asInertialCS()
 
 asInertialCS::~asInertialCS()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asInertialCS::ApplyPush(class Vector3 const& arg1, class Vector3 const& arg2)

@@ -27,7 +27,7 @@ mmMapData::mmMapData()
 
 mmMapData::~mmMapData()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmMapData::Append(char* arg1)

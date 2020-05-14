@@ -27,7 +27,7 @@ UIVScrollBar::UIVScrollBar()
 
 UIVScrollBar::~UIVScrollBar()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UIVScrollBar::Action(union eqEvent arg1)

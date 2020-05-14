@@ -27,7 +27,7 @@ Dialog_DriverRec::Dialog_DriverRec(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 a
 
 Dialog_DriverRec::~Dialog_DriverRec()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 Dialog_DriverRec::AddDriverRecord(i32 arg1, char* arg2, i32 arg3, f32 arg4, char* arg5, i32 arg6)

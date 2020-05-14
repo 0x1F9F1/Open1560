@@ -27,7 +27,7 @@ ControlSetup::ControlSetup(i32 arg1)
 
 ControlSetup::~ControlSetup()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void ControlSetup::ActivateDeviceOptions()

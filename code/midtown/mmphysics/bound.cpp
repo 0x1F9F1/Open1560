@@ -27,7 +27,7 @@ asBound::asBound()
 
 asBound::~asBound()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class agiPhysParameters& asBound::GetPhysMtl(class mmPolygon const& arg1)

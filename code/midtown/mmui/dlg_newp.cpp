@@ -27,7 +27,7 @@ Dialog_NewPlayer::Dialog_NewPlayer(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 a
 
 Dialog_NewPlayer::~Dialog_NewPlayer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void Dialog_NewPlayer::EnterNewPlayer()

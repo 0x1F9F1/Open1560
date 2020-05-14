@@ -27,7 +27,7 @@ asSimulation::asSimulation()
 
 asSimulation::~asSimulation()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asSimulation::AddWidgets(class Bank* arg1)

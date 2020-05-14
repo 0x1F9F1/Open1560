@@ -27,7 +27,7 @@ Joint3Dof::Joint3Dof()
 
 Joint3Dof::~Joint3Dof()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void Joint3Dof::GetCMatrix(

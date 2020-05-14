@@ -27,7 +27,7 @@ VirtualFileSystem::VirtualFileSystem(class Stream* arg1)
 
 VirtualFileSystem::~VirtualFileSystem()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 VirtualFileSystem::ChangeDir(char* arg1)

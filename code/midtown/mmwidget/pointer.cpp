@@ -27,7 +27,7 @@ sfPointer::sfPointer()
 
 sfPointer::~sfPointer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void sfPointer::Cull()

@@ -22,7 +22,7 @@ define_dummy_symbol(mmphysics_phys);
 
 mmPhysExec::~mmPhysExec()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPhysExec::DoUpdateAll()
@@ -47,7 +47,7 @@ mmPhysicsMGR::mmPhysicsMGR()
 
 mmPhysicsMGR::~mmPhysicsMGR()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmPhysicsMGR::AddWidgets(class Bank* arg1)

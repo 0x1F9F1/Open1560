@@ -22,7 +22,7 @@ define_dummy_symbol(mmanim_AnimDOF);
 
 mmDrawbridgeInstance::~mmDrawbridgeInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void __fastcall mmDrawbridgeInstance::Draw(i32 arg1)
@@ -85,7 +85,7 @@ void mmAnimDOF::DeclareFields()
 
 mmDofBangerInstance::~mmDofBangerInstance()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void __fastcall mmDofBangerInstance::FromMatrix(class Matrix34 const& arg1)

@@ -27,7 +27,7 @@ mmSlider::mmSlider()
 
 mmSlider::~mmSlider()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmSlider::Cull()

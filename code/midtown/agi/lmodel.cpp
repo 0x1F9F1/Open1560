@@ -37,7 +37,7 @@ void agiLightModelParameters::operator=(class agiLightModelParameters const& arg
 
 agiLightModel::~agiLightModel()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 char* agiLightModel::GetName()

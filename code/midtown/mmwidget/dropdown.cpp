@@ -27,7 +27,7 @@ mmDropDown::mmDropDown()
 
 mmDropDown::~mmDropDown()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmDropDown::FindFirstEnabled()

@@ -27,7 +27,7 @@ mmSkid::mmSkid()
 
 mmSkid::~mmSkid()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmSkid::AddSkid(class Matrix34& arg1, class Vector3* arg2, class agiPhysParameters* arg3, f32 arg4)
@@ -93,7 +93,7 @@ mmSkidManager::mmSkidManager()
 
 mmSkidManager::~mmSkidManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 class MetaClass* mmSkidManager::GetClass()

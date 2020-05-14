@@ -27,7 +27,7 @@ mmBridgeAudMgr::mmBridgeAudMgr()
 
 mmBridgeAudMgr::~mmBridgeAudMgr()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i16 mmBridgeAudMgr::Add(class mmBridgeSet* arg1)

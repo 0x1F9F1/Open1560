@@ -27,7 +27,7 @@ mmCityInfo::mmCityInfo()
 
 mmCityInfo::~mmCityInfo()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmCityInfo::Load(char* arg1)

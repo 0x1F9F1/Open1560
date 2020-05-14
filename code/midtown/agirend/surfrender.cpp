@@ -77,7 +77,7 @@ void agiSurfRenderer::Verts(union agiVtx* arg1, i32 arg2)
 
 agiSurfRenderer::~agiSurfRenderer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiSurfRenderer::AddSurface(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
@@ -92,5 +92,5 @@ agiRenderer::agiRenderer()
 
 agiRenderer::~agiRenderer()
 {
-    unimplemented(arg1);
+    unimplemented();
 }

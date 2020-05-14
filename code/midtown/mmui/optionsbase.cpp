@@ -27,7 +27,7 @@ OptionsBase::OptionsBase(i32 arg1)
 
 OptionsBase::~OptionsBase()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void OptionsBase::ResetDefaultAction()

@@ -27,7 +27,7 @@ UICWArray::UICWArray()
 
 UICWArray::~UICWArray()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void UICWArray::AcceptCapture()

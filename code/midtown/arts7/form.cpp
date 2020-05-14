@@ -27,7 +27,7 @@ asForm::asForm()
 
 asForm::~asForm()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asForm::AddWidgets(class Bank* arg1)

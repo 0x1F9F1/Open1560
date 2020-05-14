@@ -27,7 +27,7 @@ MenuManager::MenuManager()
 
 MenuManager::~MenuManager()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 MenuManager::ActionID(i32 arg1)

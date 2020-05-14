@@ -27,7 +27,7 @@ mmMultiCR::mmMultiCR()
 
 mmMultiCR::~mmMultiCR()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmMultiCR::ChangePlayerData()

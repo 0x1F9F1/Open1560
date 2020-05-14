@@ -27,7 +27,7 @@ mmGame::mmGame()
 
 mmGame::~mmGame()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmGame::InitGameStrings()

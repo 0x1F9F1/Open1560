@@ -27,7 +27,7 @@ agiD3DLight::agiD3DLight(class agiPipeline* arg1)
 
 agiD3DLight::~agiD3DLight()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 agiD3DLight::BeginGfx()
