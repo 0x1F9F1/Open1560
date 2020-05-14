@@ -10,14 +10,9 @@ project "Open1560"
 
     targetname "dinput"
 
-    files {
-        "loader.cpp"
-    }
+    files { "loader.cpp" }
 
-    links {
-        "arts_midtown",
-        "DbgHelp",
-    }
+    links { "arts_midtown", "DbgHelp", "Winmm" }
 
     if MM1_GAME_DIRECTORY ~= nil then
         local game_files = path.join(ROOT_DIR, "game")

@@ -45,8 +45,9 @@ SHIFT+F2 : toggles some render debug mode (depth?)
 SHIFT+F3 : toggle render mode (solid, wire, textured)
 SHIFT+F4 : toggle physics debug mode
 SHIFT+F5 : make BMP screenshot
-SHIFT+F7 : toggle mipmaps
+SHIFT+F7 : Texture Filter
 SHIFT+F12 : advance frame by frame
+SHIFT+PAUSE : Pause
 P : show coordinates
 
 Midgets (CTRL+M) controls:
@@ -62,7 +63,7 @@ Enter: Select
 P: Return to parent menu
 1-9: Go to child menu+
 
-& 1 = PRESSED?
-& 2 = SHIFT?
+& 1 = PRESSED
+& 2 = SHIFT
 & 4 = CTRL
 & 8 = ALT

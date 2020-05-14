@@ -20,37 +20,65 @@ define_dummy_symbol(data7_timer);
 
 #include "timer.h"
 
+#include "core/minwin.h"
+
+#include <timeapi.h>
+
+static extern_var(0x90A674, i32, TimerMode);
+
 Timer::Timer()
 {
-    unimplemented();
+    if (TicksToSeconds == 0.0f)
+    {
+        LARGE_INTEGER frequency;
+
+        TimerMode = QueryPerformanceFrequency(&frequency) ? 2 : 1;
+
+        if (TimerMode == 1)
+            TicksToSeconds = 0.001f;
+        else
+            TicksToSeconds = 1.0f / frequency.QuadPart;
+    }
+
+    Reset();
 }
 
-void Timer::Reset()
-{
-    return stub<thiscall_t<void, Timer*>>(0x5768E0, this);
-}
-
-f32 Timer::Time()
-{
-    return stub<thiscall_t<f32, Timer*>>(0x5768F0, this);
-}
+static extern_var(0x90A670, u32, TimerOldPriorityClass);
+static extern_var(0x90A678, u32, TimerOldPriority);
 
 void Timer::BeginBenchmark()
 {
-    return stub<cdecl_t<void>>(0x576920);
+    TimerOldPriorityClass = GetPriorityClass(GetCurrentProcess());
+    TimerOldPriority = GetThreadPriority(GetCurrentThread());
+
+    if (!SetPriorityClass(GetCurrentProcess(), REALTIME_PRIORITY_CLASS))
+        Errorf("SetPriorityClass failed.");
+
+    if (!SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_TIME_CRITICAL))
+        Errorf("SetThreadPriority failed.");
 }
 
 void Timer::EndBenchmark()
 {
-    return stub<cdecl_t<void>>(0x576990);
+    SetPriorityClass(GetCurrentProcess(), TimerOldPriorityClass);
+    SetThreadPriority(GetCurrentThread(), TimerOldPriority);
 }
 
-void Timer::Sleep(i32 arg1)
+void Timer::Sleep(i32 ms)
 {
-    return stub<cdecl_t<void, i32>>(0x576860, arg1);
+    ::Sleep(ms);
 }
 
 u32 Timer::Ticks()
 {
-    return stub<cdecl_t<u32>>(0x576830);
+    if (TimerMode == 1)
+    {
+        return timeGetTime();
+    }
+    else
+    {
+        LARGE_INTEGER perf_count;
+        QueryPerformanceCounter(&perf_count);
+        return perf_count.LowPart;
+    }
 }

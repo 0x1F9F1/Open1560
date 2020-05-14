@@ -160,7 +160,7 @@ i32 GameFilter(EXCEPTION_POINTERS* exception)
     CONTEXT* context = exception->ContextRecord;
     EXCEPTION_RECORD* record = exception->ExceptionRecord;
 
-    char source[128]; // [esp+8h] [ebp-80h]
+    char source[128];
     LookupAddress(source, context->Eip);
 
     const char* error_code_string = GetExceptionCodeString(record->ExceptionCode);

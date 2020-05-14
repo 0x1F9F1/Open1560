@@ -38,10 +38,16 @@ public:
     Timer();
 
     // 0x5768E0 | ?Reset@Timer@@QAEXXZ
-    void Reset();
+    void Reset()
+    {
+        start_ticks_ = Ticks();
+    }
 
     // 0x5768F0 | ?Time@Timer@@QAEMXZ
-    f32 Time();
+    f32 Time()
+    {
+        return (Ticks() - start_ticks_) * TicksToSeconds;
+    }
 
     // 0x576920 | ?BeginBenchmark@Timer@@SAXXZ
     static void BeginBenchmark();
@@ -50,13 +56,16 @@ public:
     static void EndBenchmark();
 
     // 0x576860 | ?Sleep@Timer@@SAXH@Z
-    static void Sleep(i32 arg1);
+    static void Sleep(i32 ms);
 
     // 0x576830 | ?Ticks@Timer@@SAKXZ
     static u32 Ticks();
 
     // 0x90A66C | ?TicksToSeconds@Timer@@2MA
     static inline extern_var(0x90A66C, f32, TicksToSeconds);
+
+private:
+    u32 start_ticks_ {0};
 };
 
-check_size(Timer, 0x0);
+check_size(Timer, 0x4);

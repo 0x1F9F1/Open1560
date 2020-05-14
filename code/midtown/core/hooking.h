@@ -78,9 +78,12 @@ struct class_proxy
 #pragma const_seg(".rdata")
 
 // Custom extern_var to force MSVC to mark the references as constant
-#undef extern_var
-#define extern_var(ADDRESS, TYPE, NAME)                                                  \
-    __declspec(allocate(".rdata")) typename std::add_lvalue_reference<TYPE>::type NAME = \
-        *reinterpret_cast<typename std::add_pointer<TYPE>::type>(usize(ADDRESS));
+#ifndef __INTELLISENSE__
+#    undef extern_var
+#    define extern_var(ADDRESS, TYPE, NAME)                                                  \
+        __declspec(allocate(".rdata")) typename std::add_lvalue_reference<TYPE>::type NAME = \
+            *reinterpret_cast<typename std::add_pointer<TYPE>::type>(usize(ADDRESS));
+#endif
 
-#pragma warning(disable: 4505) // unreferenced local function has been removed
+#pragma warning(disable : 4505) // unreferenced local function has been removed
+#pragma warning(disable : 4722) // destructor never returns, potential memory leak

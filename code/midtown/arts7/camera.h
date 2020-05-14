@@ -93,6 +93,15 @@ public:
     // 0x52A810 | ?GetClass@asCamera@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
+    enum kNearClip
+    {
+        kNearClip0,
+        kNearClip1,
+        kNearClip2,
+        kNearClip3,
+        kNearClip4,
+    };
+
     // 0x529270 | ?GetNearClip@asCamera@@QAEXPAVVector3@@AAVMatrix34@@W4kNearClip@1@@Z
     void GetNearClip(class Vector3* arg1, class Matrix34& arg2, enum asCamera::kNearClip arg3);
 
@@ -144,6 +153,8 @@ public:
 private:
     // 0x529FB0 | ?Regen@asCamera@@AAEXXZ
     void Regen();
+
+    char gap20[0x16C];
 };
 
 check_size(asCamera, 0x18C);

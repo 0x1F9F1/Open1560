@@ -27,7 +27,7 @@ mmTextNode::mmTextNode()
 
 mmTextNode::~mmTextNode()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 i32 mmTextNode::AddText(void* arg1, struct LocString* arg2, i32 arg3, f32 arg4, f32 arg5)

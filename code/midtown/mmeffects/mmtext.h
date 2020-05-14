@@ -54,6 +54,46 @@
 
 #include "arts7/node.h"
 
+struct mmText
+{
+public:
+    // 0x4FEE40 | ??0mmText@@QAE@XZ
+    mmText();
+
+    // 0x4FEE50 | ??1mmText@@QAE@XZ
+    ~mmText();
+
+    // 0x4FF2D0 | ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z
+    void Draw(class agiSurfaceDesc* arg1, f32 arg2, f32 arg3, char* arg4, void* arg5);
+
+    // 0x4FF360 | ?Draw2@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAXI@Z
+    void Draw2(class agiSurfaceDesc* arg1, f32 arg2, f32 arg3, char* arg4, void* arg5, u32 arg6);
+
+    // 0x4FF0C0 | ?CreateFitBitmap@mmText@@SAPAVagiBitmap@@PADPAXHH@Z
+    static class agiBitmap* CreateFitBitmap(char* arg1, void* arg2, i32 arg3, i32 arg4);
+
+    // 0x4FEF30 | ?CreateFont@mmText@@SAPAXPADH@Z
+    static void* CreateFont(char* arg1, i32 arg2);
+
+    // 0x4FEE60 | ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
+    static void* CreateLocFont(struct LocString* arg1, i32 arg2);
+
+    // 0x4FEF60 | ?DeleteFont@mmText@@SAXPAX@Z
+    static void DeleteFont(void* arg1);
+
+    // 0x4FEF70 | ?GetDC@mmText@@SAPAXPAVagiSurfaceDesc@@@Z
+    static void* GetDC(class agiSurfaceDesc* arg1);
+
+    // 0x4FF010 | ?ReleaseDC@mmText@@SAXXZ
+    static void ReleaseDC();
+
+private:
+    u8 byte0 {1};
+    u8 byte1 {0};
+};
+
+check_size(mmText, 0x2);
+
 class mmTextNode : public asNode
 {
     // const mmTextNode::`vftable' @ 0x620658
@@ -108,45 +148,24 @@ public:
 
     // 0x4FFB30 | ?Update@mmTextNode@@UAEXXZ
     void Update() override;
+
+private:
+    f32 x_ {0.0f};
+    f32 y_ {0.0f};
+    i32 line_count_ {0};
+    i32 max_lines_ {0};
+    u32 enabled_lines_ {0xFFFFFFFF};
+    mmText int30_ {};
+    mmTextData* lines_ {nullptr};
+    agiBitmap* text_bitmap_ {nullptr};
+    u32 touched_ {1};
+    u32 hidden_ {0};
+    u32 dword44_ {0};
+    u32 fg_color_ {0xFFFFFF};
+    u32 bg_color_ {0};
 };
 
 check_size(mmTextNode, 0x54);
 
 // 0x4FEE30 | ?ddGDIFlip@@YAXXZ
 void ddGDIFlip();
-
-struct mmText
-{
-public:
-    // 0x4FEE40 | ??0mmText@@QAE@XZ
-    mmText();
-
-    // 0x4FEE50 | ??1mmText@@QAE@XZ
-    ~mmText();
-
-    // 0x4FF2D0 | ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z
-    void Draw(class agiSurfaceDesc* arg1, f32 arg2, f32 arg3, char* arg4, void* arg5);
-
-    // 0x4FF360 | ?Draw2@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAXI@Z
-    void Draw2(class agiSurfaceDesc* arg1, f32 arg2, f32 arg3, char* arg4, void* arg5, u32 arg6);
-
-    // 0x4FF0C0 | ?CreateFitBitmap@mmText@@SAPAVagiBitmap@@PADPAXHH@Z
-    static class agiBitmap* CreateFitBitmap(char* arg1, void* arg2, i32 arg3, i32 arg4);
-
-    // 0x4FEF30 | ?CreateFont@mmText@@SAPAXPADH@Z
-    static void* CreateFont(char* arg1, i32 arg2);
-
-    // 0x4FEE60 | ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
-    static void* CreateLocFont(struct LocString* arg1, i32 arg2);
-
-    // 0x4FEF60 | ?DeleteFont@mmText@@SAXPAX@Z
-    static void DeleteFont(void* arg1);
-
-    // 0x4FEF70 | ?GetDC@mmText@@SAPAXPAVagiSurfaceDesc@@@Z
-    static void* GetDC(class agiSurfaceDesc* arg1);
-
-    // 0x4FF010 | ?ReleaseDC@mmText@@SAXXZ
-    static void ReleaseDC();
-};
-
-check_size(mmText, 0x2);

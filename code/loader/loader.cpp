@@ -137,6 +137,10 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("agiSurfaceDesc::CopyFrom", "Fix Input Pitch Calculation", 0x55B18E, "\x8b\x4f\x54", 3);
 
+        create_patch("mmLoader::Update", "Enable Task String", 0x48BA2D, "\x90\x90", 2);
+        create_patch("mmLoader::Update", "Enable Task String", 0x48BA4B, "\x90\x90", 2);
+        create_patch("mmLoader::Init", "Enable Text Transparency", 0x48B766 + 1, "\x01", 1);
+
         for (mem::pointer address : {0x4EE463, 0x4EE697, 0x4EE9A3})
         {
             // The code writes to the first 2 channels, even when there are less.
@@ -231,7 +235,7 @@ include_dummy_symbol(agiworld_meshrend);
 include_dummy_symbol(agiworld_texsort);
 
 // include_dummy_symbol(arts7_benchstats);
-// include_dummy_symbol(arts7_camera);
+include_dummy_symbol(arts7_camera);
 include_dummy_symbol(arts7_cullable);
 // include_dummy_symbol(arts7_cullmgr);
 // include_dummy_symbol(arts7_dof);
@@ -265,7 +269,7 @@ include_dummy_symbol(data7_printer);
 include_dummy_symbol(data7_quitf);
 // include_dummy_symbol(data7_speed);
 // include_dummy_symbol(data7_str);
-// include_dummy_symbol(data7_timer);
+include_dummy_symbol(data7_timer);
 // include_dummy_symbol(data7_utimer);
 // include_dummy_symbol(dyna7_dyna);
 // include_dummy_symbol(dyna7_gfx);
@@ -396,7 +400,7 @@ include_dummy_symbol(memory_valloc);
 // include_dummy_symbol(mmcity_heap);
 // include_dummy_symbol(mmcity_inst);
 // include_dummy_symbol(mmcity_instchn);
-// include_dummy_symbol(mmcity_loader);
+include_dummy_symbol(mmcity_loader);
 // include_dummy_symbol(mmcity_ped);
 // include_dummy_symbol(mmcity_portal);
 // include_dummy_symbol(mmcity_position);
@@ -453,7 +457,7 @@ include_dummy_symbol(memory_valloc);
 // include_dummy_symbol(mmeffects_linespark);
 // include_dummy_symbol(mmeffects_meshform);
 // include_dummy_symbol(mmeffects_mmnumber);
-// include_dummy_symbol(mmeffects_mmtext);
+include_dummy_symbol(mmeffects_mmtext);
 // include_dummy_symbol(mmeffects_mousesteerbar);
 // include_dummy_symbol(mmeffects_ptx);
 // include_dummy_symbol(mmeffects_vehform);

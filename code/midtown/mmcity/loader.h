@@ -43,7 +43,10 @@
     0x6A8DAC | void * myFont | ?myFont@@3PAXA
 */
 
+#include "arts7/camera.h"
 #include "arts7/cullable.h"
+#include "data7/timer.h"
+#include "mmeffects/mmtext.h"
 
 class mmLoader : public asCullable
 {
@@ -87,9 +90,28 @@ public:
 private:
     // 0x6A8DA4 | ?Current@mmLoader@@0PAV1@A
     static inline extern_var(0x6A8DA4, class mmLoader*, Current);
+
+    i32 task_percent_ {0};
+    i32 field_8_ {0};
+    i32 bar_x_ {0};
+    i32 bar_y_ {0};
+    i32 field_14_ {0};
+    i32 field_18_ {0};
+    asCamera camera_ {};
+    Timer timer_ {};
+    mmTextNode task_text_ {};
+    mmTextNode intro_text_ {};
+    mmTextNode text_node3_ {};
+    class agiBitmap* bar_active_ {nullptr};
+    class agiBitmap* bar_inactive_ {nullptr};
+    i32 field_2b0_ {0};
+    f32 task_start_percent_ {0.0f};
+    i32 field_2b8_ {0};
+    f32 current_task_percent_ {0.0f};
+    f32 task_start_time_ {0.0f};
 };
 
-check_size(mmLoader, 0x0);
+check_size(mmLoader, 0x2C4);
 
 // 0x6A8DA8 | ?IntroFont@@3PAXA
 inline extern_var(0x6A8DA8, void*, IntroFont);

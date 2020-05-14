@@ -27,7 +27,7 @@ mmLoader::mmLoader()
 
 mmLoader::~mmLoader()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void mmLoader::BeginTask(struct LocString* arg1, f32 arg2)

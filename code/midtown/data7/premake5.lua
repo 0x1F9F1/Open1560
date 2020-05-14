@@ -42,8 +42,8 @@ arts_component "data7"
         -- "speed.h",
         -- "str.cpp",
         -- "str.h",
-        -- "timer.cpp",
-        -- "timer.h",
+        "timer.cpp",
+        "timer.h",
         -- "utimer.cpp",
         -- "utimer.h",
 

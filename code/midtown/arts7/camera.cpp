@@ -27,7 +27,7 @@ asCamera::asCamera()
 
 asCamera::~asCamera()
 {
-    unimplemented(arg1);
+    unimplemented();
 }
 
 void asCamera::AddWidgets(class Bank* arg1)

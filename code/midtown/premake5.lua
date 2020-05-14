@@ -18,11 +18,11 @@ include "memory"
 -- include "mmcamcs"
 -- include "mmcamtour"
 -- include "mmcar"
--- include "mmcity"
+include "mmcity"
 -- include "mmcityinfo"
 -- include "mmdjpeg"
 -- include "mmdyna"
--- include "mmeffects"
+include "mmeffects"
 -- include "mmgame"
 -- include "mminput"
 -- include "mmnetwork"
@@ -60,11 +60,11 @@ arts_component "midtown"
         -- "arts_mmcamcs",
         -- "arts_mmcamtour",
         -- "arts_mmcar",
-        -- "arts_mmcity",
+        "arts_mmcity",
         -- "arts_mmcityinfo",
         -- "arts_mmdjpeg",
         -- "arts_mmdyna",
-        -- "arts_mmeffects",
+        "arts_mmeffects",
         -- "arts_mmgame",
         -- "arts_mminput",
         -- "arts_mmnetwork",

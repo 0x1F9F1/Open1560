@@ -12,8 +12,8 @@ arts_component "mmcity"
         -- "inst.h",
         -- "instchn.cpp",
         -- "instchn.h",
-        -- "loader.cpp",
-        -- "loader.h",
+        "loader.cpp",
+        "loader.h",
         -- "ped.cpp",
         -- "ped.h",
         -- "portal.cpp",
@@ -27,4 +27,3 @@ arts_component "mmcity"
         -- "sky.cpp",
         -- "sky.h",
     }
-

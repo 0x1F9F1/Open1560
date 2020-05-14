@@ -2,8 +2,8 @@ arts_component "arts7"
     files {
         -- "benchstats.cpp",
         -- "benchstats.h",
-        -- "camera.cpp",
-        -- "camera.h",
+        "camera.cpp",
+        "camera.h",
         "cullable.cpp",
         "cullable.h",
         -- "cullmgr.cpp",

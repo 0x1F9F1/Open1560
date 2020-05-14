@@ -12,8 +12,8 @@ arts_component "mmeffects"
         -- "meshform.h",
         -- "mmnumber.cpp",
         -- "mmnumber.h",
-        -- "mmtext.cpp",
-        -- "mmtext.h",
+        "mmtext.cpp",
+        "mmtext.h",
         -- "mousesteerbar.cpp",
         -- "mousesteerbar.h",
         -- "ptx.cpp",
@@ -21,4 +21,3 @@ arts_component "mmeffects"
         -- "vehform.cpp",
         -- "vehform.h",
     }
-
