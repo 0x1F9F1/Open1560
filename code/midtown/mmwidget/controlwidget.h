@@ -48,8 +48,8 @@ public:
     UIControlWidget();
 
     // 0x4B8790 | ??_EUIControlWidget@@UAEPAXI@Z
-    // 0x4BBBA0 | ??1UIControlWidget@@UAE@XZ
     // 0x4BC0A0 | ??_GUIControlWidget@@UAEPAXI@Z
+    // 0x4BBBA0 | ??1UIControlWidget@@UAE@XZ
     ~UIControlWidget() override;
 
     // 0x4BBF10 | ?Action@UIControlWidget@@UAEXTeqEvent@@@Z

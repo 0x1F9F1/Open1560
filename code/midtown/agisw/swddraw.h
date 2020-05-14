@@ -25,6 +25,12 @@
     0x795CB0 | class agiSurfaceDesc swScreenDesc | ?swScreenDesc@@3VagiSurfaceDesc@@A
     0x795D38 | unsigned char * swNibbleLut | ?swNibbleLut@@3PAEA
     0x795F40 | int bRenderToSystem | ?bRenderToSystem@@3HA
+    0x534EA0 | void __cdecl ddStart(void) | ?ddStart@@YAXXZ
+    0x534FA0 | void __cdecl ddEnd(void) | ?ddEnd@@YAXXZ
+    0x534FC0 | void __cdecl ddStartFrame(void) | ?ddStartFrame@@YAXXZ
+    0x534FD0 | void __cdecl ddStartScene(void) | ?ddStartScene@@YAXXZ
+    0x535030 | void __cdecl ddEndScene(void) | ?ddEndScene@@YAXXZ
+    0x535070 | void __cdecl ddEndFrame(void) | ?ddEndFrame@@YAXXZ
 */
 
 // 0x534E30 | ?ddAttach@@YAXHH@Z

@@ -319,8 +319,8 @@ public:
     // 0x43C180 | ??0CArrayList@@QAE@XZ
     CArrayList();
 
-    // 0x446C00 | ??1CArrayList@@QAE@XZ
     // 0x43C070 | ??_ECArrayList@@QAEPAXI@Z
+    // 0x446C00 | ??1CArrayList@@QAE@XZ
     ~CArrayList();
 
     // 0x446C20 | ?Append@CArrayList@@QAEXH@Z

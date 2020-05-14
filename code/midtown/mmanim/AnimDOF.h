@@ -77,8 +77,8 @@ public:
     // 0x4C4550 | ??0mmAnimDOF@@QAE@XZ
     mmAnimDOF();
 
-    // 0x4C4570 | ??1mmAnimDOF@@QAE@XZ
     // 0x4C4DC0 | ??_EmmAnimDOF@@QAEPAXI@Z
+    // 0x4C4570 | ??1mmAnimDOF@@QAE@XZ
     ~mmAnimDOF();
 
     // 0x4C4D80 | ?GetClass@mmAnimDOF@@UAEPAVMetaClass@@XZ

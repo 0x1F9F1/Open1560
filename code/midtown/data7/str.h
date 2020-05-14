@@ -69,8 +69,8 @@ public:
     // 0x49A730 | ??0string@@QAE@ABV0@@Z
     string(class string const& arg1);
 
-    // 0x40E7E0 | ??1string@@QAE@XZ
     // 0x57B3B0 | ??_Estring@@QAEPAXI@Z
+    // 0x40E7E0 | ??1string@@QAE@XZ
     ~string();
 
     // 0x57B320 | ??4string@@QAEXPBD@Z

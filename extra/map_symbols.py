@@ -225,6 +225,9 @@ class MapSymbol:
             elif self.parts[-1] in ['`vector deleting destructor\'', '`scalar deleting destructor\'']:
                 self.member_type = 'dtor'
 
+            if self.member_type == 'dtor':
+                param_types = []
+
         self.type = Type.function(return_type, param_types, arch.calling_conventions[cc_name], is_variadic)
 
 type_class_to_str = {
@@ -1143,7 +1146,7 @@ for lib, paths in grouped_symbols.items():
     # if lib not in {}:
     #     continue
 
-    if lib in {'agiworld:meshrend', 'agiworld:texsort', 'arts7:cullable', 'arts7:node', 'data7:base', 'data7:machname', 'data7:metaclass', 'data7:metatype', 'data7:printer', 'data7:quitf', 'memory:allocator', 'memory:stack', 'memory:stub', 'memory:valloc', 'pcwindis:dxinit', 'pcwindis:dxsetup', 'vector7:vector3'}:
+    if lib in {'test', 'agiworld:meshrend', 'agiworld:texsort', 'arts7:camera', 'arts7:cullable', 'arts7:node', 'data7:base', 'data7:machname', 'data7:metaclass', 'data7:metatype', 'data7:printer', 'data7:quitf', 'data7:timer', 'memory:allocator', 'memory:stack', 'memory:stub', 'memory:valloc', 'mmcity:loader', 'mmeffects:mmtext', 'pcwindis:dxinit', 'pcwindis:dxsetup', 'vector7:vector3'}:
         continue
 
     lib_header = ''
@@ -1260,7 +1263,7 @@ for lib, paths in grouped_symbols.items():
                 for dtor in sym_dtors:
                     if dtor.raw_name != '__purecall':
                         lib_header += '// 0x{:X} | {}\n'.format(dtor.address, dtor.raw_name)
-            elif value.raw_name != '__purecall':
+            elif (value.raw_name != '__purecall') and not (value.type.type_class == TypeClass.FunctionTypeClass and value.static and not value.is_member):
                 lib_header += '// 0x{:X} | {}\n'.format(value.address, value.raw_name)
 
             sym_name = value.parts[:]
@@ -1296,10 +1299,7 @@ for lib, paths in grouped_symbols.items():
 
                     tokens.append(sym_name[-1])
 
-                    if value.member_type != 'dtor':
-                        tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
-                    else:
-                        tokens.extend(['(', ')'])
+                    tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
 
                     if value.override:
                         tokens.append('override')
@@ -1323,10 +1323,7 @@ for lib, paths in grouped_symbols.items():
 
                     src_tokens.append('::'.join(sym_name))
 
-                    if value.member_type != 'dtor':
-                        src_tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
-                    else:
-                        src_tokens.extend(['(', ')'])
+                    src_tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
 
                     src_tokens.append('{')
 

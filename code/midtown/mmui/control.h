@@ -46,6 +46,7 @@
     0x4A3920 | public: virtual void * __thiscall ControlSetup::`scalar deleting destructor'(unsigned int) | ??_GControlSetup@@UAEPAXI@Z
     0x4A3920 | public: virtual void * __thiscall ControlSetup::`vector deleting destructor'(unsigned int) | ??_EControlSetup@@UAEPAXI@Z
     0x61D9A0 | const ControlSetup::`vftable' | ??_7ControlSetup@@6B@
+    0x4A37A0 | unsigned long __stdcall CalibrateWatcher(void *) | ?CalibrateWatcher@@YGKPAX@Z
 */
 
 #include "optionsbase.h"

@@ -37,6 +37,10 @@
     0x907A30 | public: static int FileSystem::FSCount | ?FSCount@FileSystem@@2HA
     0x907A38 | public: static class FileSystem * * FileSystem::FS | ?FS@FileSystem@@2PAPAV1@A
     0x907B38 | int fsVerbose | ?fsVerbose@@3HA
+    0x55FAF0 | char * __cdecl SubString(int,char *) | ?SubString@@YAPADHPAD@Z
+    0x55FB70 | int __cdecl NumSubStrings(char *) | ?NumSubStrings@@YAHPAD@Z
+    0x55FBA0 | int __cdecl Contains(char *,char *) | ?Contains@@YAHPAD0@Z
+    0x55FC20 | void __cdecl ExpandEnvs(char *) | ?ExpandEnvs@@YAXPAD@Z
 */
 
 #include "data7/base.h"

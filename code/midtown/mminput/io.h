@@ -41,8 +41,8 @@ public:
     // 0x4E4B60 | ??0mmIO@@QAE@XZ
     mmIO();
 
-    // 0x4E4B80 | ??1mmIO@@QAE@XZ
     // 0x4E4A40 | ??_EmmIO@@QAEPAXI@Z
+    // 0x4E4B80 | ??1mmIO@@QAE@XZ
     ~mmIO();
 
     // 0x4E4D20 | ??8mmIO@@QAEHPATeqEvent@@@Z

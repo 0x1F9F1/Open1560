@@ -31,6 +31,7 @@
     0x512460 | public: char * __thiscall agiTexSheet::RemapName(char *,int) | ?RemapName@agiTexSheet@@QAEPADPADH@Z
     0x5124A0 | public: void __thiscall agiTexSheet::Add(char *) | ?Add@agiTexSheet@@QAEXPAD@Z
     0x73E6C0 | class agiTexSheet TEXSHEET | ?TEXSHEET@@3VagiTexSheet@@A
+    0x512080 | int __cdecl cmpTex(void const *,void const *) | ?cmpTex@@YAHPBX0@Z
 */
 
 // 0x511B30 | ?mystrtok@@YAPADPADPBD@Z

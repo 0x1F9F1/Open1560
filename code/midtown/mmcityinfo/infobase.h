@@ -42,8 +42,8 @@ public:
     mmInfoBase();
 
     // 0x4D15E0 | ??_EmmInfoBase@@UAEPAXI@Z
-    // 0x414BC0 | ??1mmInfoBase@@UAE@XZ
     // 0x414B90 | ??_GmmInfoBase@@UAEPAXI@Z
+    // 0x414BC0 | ??1mmInfoBase@@UAE@XZ
     ~mmInfoBase() override;
 
     // 0x4D15D0 | ?GetClass@mmInfoBase@@UAEPAVMetaClass@@XZ

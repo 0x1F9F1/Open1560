@@ -51,4 +51,4 @@ public:
     void Update();
 };
 
-check_size(mmRainAudio, 0x0);
+check_size(mmRainAudio, 0x1C);

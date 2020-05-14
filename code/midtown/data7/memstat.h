@@ -25,6 +25,7 @@
     0x578BB0 | void __cdecl EndMemStat(void) | ?EndMemStat@@YAXXZ
     0x6620A8 | int EnableMemStat | ?EnableMemStat@@3HA
     0x90AEA8 | int beginStackCount | ?beginStackCount@@3HA
+    0x578B80 | int __cdecl getMem(void) | ?getMem@@YAHXZ
 */
 
 // 0x578B20 | ?BeginMemStat@@YAXPBD@Z

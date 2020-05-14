@@ -51,6 +51,8 @@
     0x73E688 | class Vector3 agiMeshLighterFill2Color | ?agiMeshLighterFill2Color@@3VVector3@@A
     0x73E6A8 | class Vector3 agiMeshLighterFill1Color | ?agiMeshLighterFill1Color@@3VVector3@@A
     0x73E6B8 | union mmx fill2Color | ?fill2Color@@3Tmmx@@A
+    0x510EE0 | void __cdecl mmxTriple(unsigned int *,unsigned int *,int,unsigned char *,int) | ?mmxTriple@@YAXPAI0HPAEH@Z
+    0x5116B0 | void __cdecl agiInitCones(class Matrix34 &,float) | ?agiInitCones@@YAXAAVMatrix34@@M@Z
 */
 
 // 0x5111E0 | ?agiBeginCones@@YAXXZ

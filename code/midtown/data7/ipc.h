@@ -41,6 +41,7 @@
     0x578AF0 | void __cdecl ipcCreateSpinLock(unsigned int *) | ?ipcCreateSpinLock@@YAXPAI@Z
     0x578B00 | void __cdecl ipcCloseSpinLock(unsigned int *) | ?ipcCloseSpinLock@@YAXPAI@Z
     0x90AE60 | int SynchronousMessageQueues | ?SynchronousMessageQueues@@3HA
+    0x578AB0 | int __fastcall compareExchange(unsigned int *,int) | ?compareExchange@@YIHPAIH@Z
 */
 
 // 0x578740 | ?ipcCloseHandle@@YAXI@Z

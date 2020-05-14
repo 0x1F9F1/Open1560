@@ -105,26 +105,6 @@ aiGoal::~aiGoal()
     unimplemented();
 }
 
-void aiGoal::Init()
-{
-    return stub<thiscall_t<void, aiGoal*>>(0x0, this);
-}
-
-void aiGoal::Reset()
-{
-    return stub<thiscall_t<void, aiGoal*>>(0x0, this);
-}
-
-i32 aiGoal::Context()
-{
-    return stub<thiscall_t<i32, aiGoal*>>(0x0, this);
-}
-
-i32 aiGoal::Priority()
-{
-    return stub<thiscall_t<i32, aiGoal*>>(0x0, this);
-}
-
 void aiGoal::Update()
 {
     return stub<thiscall_t<void, aiGoal*>>(0x45F700, this);

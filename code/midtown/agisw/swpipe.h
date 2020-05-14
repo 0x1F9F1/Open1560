@@ -62,6 +62,7 @@
     0x6211D8 | const agiSWPipeline::`vftable' | ??_7agiSWPipeline@@6B@
     0x621248 | const agiSWViewport::`vftable' | ??_7agiSWViewport@@6B@
     0x621288 | const agiSWBitmap::`vftable' | ??_7agiSWBitmap@@6B@
+    0x5342F0 | void __cdecl zmemset(unsigned short *,unsigned int) | ?zmemset@@YAXPAGI@Z
 */
 
 #include "agi/bitmap.h"

@@ -31,6 +31,7 @@
     0x47C900 | public: virtual void * __thiscall mmStuck::`vector deleting destructor'(unsigned int) | ??_EmmStuck@@UAEPAXI@Z
     0x47C900 | public: virtual void * __thiscall mmStuck::`scalar deleting destructor'(unsigned int) | ??_GmmStuck@@UAEPAXI@Z
     0x61C540 | const mmStuck::`vftable' | ??_7mmStuck@@6B@
+    0x47C4F0 | void __cdecl StuckCB(class mmStuck *) | ?StuckCB@@YAXPAVmmStuck@@@Z
 */
 
 #include "arts7/node.h"

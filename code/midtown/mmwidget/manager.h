@@ -85,6 +85,7 @@
     0x61E338 | const MenuManager::`vftable' | ??_7MenuManager@@6B@
     0x6418B4 | float DELAYTTIME | ?DELAYTTIME@@3MA
     0x705960 | public: static class MenuManager * MenuManager::Instance | ?Instance@MenuManager@@2PAV1@A
+    0x4B1B30 | unsigned long __stdcall HelpWatcher(void *) | ?HelpWatcher@@YGKPAX@Z
 */
 
 #include "arts7/node.h"

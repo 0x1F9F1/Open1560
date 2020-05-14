@@ -49,8 +49,8 @@ public:
     mmAnimSpline();
 
     // 0x4C15C0 | ??_EmmAnimSpline@@UAEPAXI@Z
-    // 0x4C37F0 | ??1mmAnimSpline@@UAE@XZ
     // 0x4C3CE0 | ??_GmmAnimSpline@@UAEPAXI@Z
+    // 0x4C37F0 | ??1mmAnimSpline@@UAE@XZ
     ~mmAnimSpline() override;
 
     // 0x4C39F0 | ?AddVector@mmAnimSpline@@QAEXAAVVector3@@@Z

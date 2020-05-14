@@ -54,8 +54,8 @@ public:
     mmRecord();
 
     // 0x4D1B60 | ??_EmmRecord@@UAEPAXI@Z
-    // 0x4D1680 | ??1mmRecord@@UAE@XZ
     // 0x4CD970 | ??_GmmRecord@@UAEPAXI@Z
+    // 0x4D1680 | ??1mmRecord@@UAE@XZ
     ~mmRecord() override;
 
     // 0x4D1780 | ??4mmRecord@@QAEXAAV0@@Z

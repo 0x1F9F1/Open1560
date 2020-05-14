@@ -30,6 +30,7 @@
     0x533770 | public: virtual void * __thiscall agiD3DMtlDef::`vector deleting destructor'(unsigned int) | ??_EagiD3DMtlDef@@UAEPAXI@Z
     0x533770 | public: virtual void * __thiscall agiD3DMtlDef::`scalar deleting destructor'(unsigned int) | ??_GagiD3DMtlDef@@UAEPAXI@Z
     0x621170 | const agiD3DMtlDef::`vftable' | ??_7agiD3DMtlDef@@6B@
+    0x533720 | void __cdecl xlat(struct _D3DCOLORVALUE &,class Vector4 &) | ?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z
 */
 
 #include "agi/mtldef.h"

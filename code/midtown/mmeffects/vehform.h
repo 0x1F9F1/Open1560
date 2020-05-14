@@ -42,8 +42,8 @@ public:
     mmVehicleForm();
 
     // 0x49C440 | ??_EmmVehicleForm@@UAEPAXI@Z
-    // 0x49C4A0 | ??1mmVehicleForm@@UAE@XZ
     // 0x502900 | ??_GmmVehicleForm@@UAEPAXI@Z
+    // 0x49C4A0 | ??1mmVehicleForm@@UAE@XZ
     ~mmVehicleForm() override;
 
     // 0x5027A0 | ?Cull@mmVehicleForm@@UAEXXZ

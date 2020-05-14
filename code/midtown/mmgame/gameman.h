@@ -50,6 +50,8 @@
     0x6A6D60 | class Stream * ReplayLog | ?ReplayLog@@3PAVStream@@A
     0x6A6D68 | class MetaClass mmGameManagerMetaClass | ?mmGameManagerMetaClass@@3VMetaClass@@A
     0x6A6D94 | private: static class mmGameManager * mmGameManager::Instance | ?Instance@mmGameManager@@0PAV1@A
+    0x404390 | void __cdecl randcall(void) | ?randcall@@YAXXZ
+    0x4046D0 | void __cdecl DoScan(void *) | ?DoScan@@YAXPAX@Z
 */
 
 #include "arts7/node.h"

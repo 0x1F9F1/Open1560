@@ -47,8 +47,8 @@
 #include "event.h"
 
 struct WINEventHandler
-    : Dispatchable
-    , eqEventHandler /* Warning: Unordered Multiple Inheritance */
+    : eqEventHandler
+    , Dispatchable /* Warning: Unordered Multiple Inheritance */
 {
     // const WINEventHandler::`vftable'{for `Dispatchable'} @ 0x621A78
     // const WINEventHandler::`vftable'{for `eqEventHandler'} @ 0x621A80

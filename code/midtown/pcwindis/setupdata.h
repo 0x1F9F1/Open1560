@@ -28,6 +28,8 @@
     0x661380 | int dxiRendererChoice | ?dxiRendererChoice@@3HA
     0x909680 | struct dxiRendererInfo_t * dxiInfo | ?dxiInfo@@3PAUdxiRendererInfo_t@@A
     0x90A350 | int dxiRendererCount | ?dxiRendererCount@@3HA
+    0x574DF0 | void __cdecl strtoguid(struct _GUID *,char *) | ?strtoguid@@YAXPAU_GUID@@PAD@Z
+    0x575090 | void __cdecl guidtostr(char *,struct _GUID *) | ?guidtostr@@YAXPADPAU_GUID@@@Z
 */
 
 // 0x574B00 | ?dxiReadConfigFile@@YAHXZ

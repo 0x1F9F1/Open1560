@@ -46,6 +46,7 @@
     0x705800 | int data6 | ?data6@@3HA
     0x705820 | int RenderToSystemMemory | ?RenderToSystemMemory@@3HA
     0x705824 | int TextureLevel | ?TextureLevel@@3HA
+    0x49A050 | void __cdecl SetTexQualString(void) | ?SetTexQualString@@YAXXZ
 */
 
 #include "optionsbase.h"

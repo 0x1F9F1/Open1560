@@ -67,6 +67,8 @@
     0x790804 | char * * Argv | ?Argv@@3PAPADA
     0x790808 | class VirtualFileSystem * VFS | ?VFS@@3PAVVirtualFileSystem@@A
     0x790820 | int StereoBuffer | ?StereoBuffer@@3HA
+    0x521C20 | void __cdecl QuietPrinter(int,char const *,char *) | ?QuietPrinter@@YAXHPBDPAD@Z
+    0x523510 | int __cdecl IsValidPointer(void *,unsigned int,int) | ?IsValidPointer@@YAHPAXIH@Z
 */
 
 #include "eventq7/replay.h"

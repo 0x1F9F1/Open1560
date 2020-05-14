@@ -112,4 +112,4 @@ private:
     static inline extern_var(0x6A7FC0, f32, s_fSecondsElapsed);
 };
 
-check_size(mmOpponentImpactAudio, 0x0);
+check_size(mmOpponentImpactAudio, 0x18);

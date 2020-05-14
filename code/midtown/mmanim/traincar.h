@@ -43,8 +43,8 @@ public:
     mmAnimTrainCar();
 
     // 0x4C7060 | ??_EmmAnimTrainCar@@UAEPAXI@Z
-    // 0x4C8050 | ??1mmAnimTrainCar@@UAE@XZ
     // 0x4C8190 | ??_GmmAnimTrainCar@@UAEPAXI@Z
+    // 0x4C8050 | ??1mmAnimTrainCar@@UAE@XZ
     ~mmAnimTrainCar() override;
 
     // 0x4C8100 | ?Draw@mmAnimTrainCar@@UAIXH@Z

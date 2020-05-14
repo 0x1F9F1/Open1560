@@ -108,6 +108,18 @@
     0x79FF08 | int swFbX | ?swFbX@@3HA
     0x79FF0C | int swFbY | ?swFbY@@3HA
     0x79FF10 | int LODBIAS | ?LODBIAS@@3HA
+    0x535460 | void __cdecl swSetupEdgeScan(struct swEdge *,int,int) | ?swSetupEdgeScan@@YAXPAUswEdge@@HH@Z
+    0x535910 | void __fastcall __emitZwrite(struct swSurface *,int) | ?__emitZwrite@@YIXPAUswSurface@@H@Z
+    0x5367C0 | void __fastcall __emitSemiBlack(int) | ?__emitSemiBlack@@YIXH@Z
+    0x536800 | void __fastcall __emitStippleBlack(int) | ?__emitStippleBlack@@YIXH@Z
+    0x536840 | int __cdecl swComputeIntensity(struct agiScreenVtx &) | ?swComputeIntensity@@YAHAAUagiScreenVtx@@@Z
+    0x536940 | void __cdecl emms(void) | ?emms@@YAXXZ
+    0x537550 | unsigned int __cdecl swFindColor555(unsigned int) | ?swFindColor555@@YAII@Z
+    0x537590 | unsigned int __cdecl swFindColor565(unsigned int) | ?swFindColor565@@YAII@Z
+    0x5375D0 | unsigned int __fastcall swClampAddColor565(unsigned int) | ?swClampAddColor565@@YIII@Z
+    0x537610 | unsigned int __fastcall swClampAddColor555(unsigned int) | ?swClampAddColor555@@YIII@Z
+    0x537650 | unsigned int __fastcall swClampAdd565(unsigned int,unsigned int) | ?swClampAdd565@@YIIII@Z
+    0x537690 | unsigned int __fastcall swClampAdd555(unsigned int,unsigned int) | ?swClampAdd555@@YIIII@Z
 */
 
 // 0x5351C0 | ?__emitDebug@@YIXPAUswSurface@@H@Z

@@ -128,6 +128,7 @@
     0x705690 | class MetaClass mmShearInstanceMetaClass | ?mmShearInstanceMetaClass@@3VMetaClass@@A
     0x7056C0 | class MetaClass mmStaticInstanceMetaClass | ?mmStaticInstanceMetaClass@@3VMetaClass@@A
     0x7056F8 | public: static int mmInstance::MeshSetSetCount | ?MeshSetSetCount@mmInstance@@2HA
+    0x493670 | void __cdecl MatrixFromPoints(class Matrix34 &,class Vector3 &,class Vector3 &,float) | ?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z
 */
 
 #include "data7/base.h"
@@ -257,8 +258,8 @@ public:
     mmShearInstance();
 
     // 0x495400 | ??_EmmShearInstance@@UAEPAXI@Z
-    // 0x48FC10 | ??1mmShearInstance@@UAE@XZ
     // 0x48FBF0 | ??_GmmShearInstance@@UAEPAXI@Z
+    // 0x48FC10 | ??1mmShearInstance@@UAE@XZ
     ~mmShearInstance() override;
 
     // 0x494460 | ?Draw@mmShearInstance@@UAIXH@Z
@@ -291,8 +292,8 @@ public:
     mmBuildingInstance();
 
     // 0x495480 | ??_EmmBuildingInstance@@UAEPAXI@Z
-    // 0x48FC40 | ??1mmBuildingInstance@@UAE@XZ
     // 0x48FC20 | ??_GmmBuildingInstance@@UAEPAXI@Z
+    // 0x48FC40 | ??1mmBuildingInstance@@UAE@XZ
     ~mmBuildingInstance() override;
 
     // 0x4945F0 | ?Draw@mmBuildingInstance@@UAIXH@Z

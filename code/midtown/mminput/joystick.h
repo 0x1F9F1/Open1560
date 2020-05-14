@@ -67,8 +67,8 @@ public:
     // 0x4E6180 | ??0mmJoystick@@QAE@XZ
     mmJoystick();
 
-    // 0x4E6240 | ??1mmJoystick@@QAE@XZ
     // 0x4E6020 | ??_EmmJoystick@@QAEPAXI@Z
+    // 0x4E6240 | ??1mmJoystick@@QAE@XZ
     ~mmJoystick();
 
     // 0x4E66C0 | ?DisableAutoCenter@mmJoystick@@QAEHXZ

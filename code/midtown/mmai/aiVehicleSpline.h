@@ -69,8 +69,8 @@ public:
     // 0x459EE0 | ??0aiVehicleSpline@@QAE@XZ
     aiVehicleSpline();
 
-    // 0x459F50 | ??1aiVehicleSpline@@QAE@XZ
     // 0x45C4A0 | ??_EaiVehicleSpline@@QAEPAXI@Z
+    // 0x459F50 | ??1aiVehicleSpline@@QAE@XZ
     ~aiVehicleSpline();
 
     // 0x45BD00 | ?Impact@aiVehicleSpline@@UAEXH@Z

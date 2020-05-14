@@ -97,6 +97,13 @@
     0x6A8E74 | public: static float mmRunwayLight::Phase | ?Phase@mmRunwayLight@@2MA
     0x6A8E78 | float FadeScale | ?FadeScale@@3MA
     0x6A8E7C | int DisableUpper | ?DisableUpper@@3HA
+    0x48E1B0 | void __cdecl fix_sun(void) | ?fix_sun@@YAXXZ
+    0x48E220 | void __cdecl fix_fill1(void) | ?fix_fill1@@YAXXZ
+    0x48E290 | void __cdecl fix_fill2(void) | ?fix_fill2@@YAXXZ
+    0x48E300 | void __cdecl parseFloat(float &) | ?parseFloat@@YAXAAM@Z
+    0x48E330 | void __cdecl parseVector3(class Vector3 &) | ?parseVector3@@YAXAAVVector3@@@Z
+    0x48E360 | void __cdecl parseRGB(unsigned int &) | ?parseRGB@@YAXAAI@Z
+    0x48E3D0 | void __cdecl parseARGB(unsigned int &) | ?parseARGB@@YAXAAI@Z
 */
 
 #include "arts7/node.h"

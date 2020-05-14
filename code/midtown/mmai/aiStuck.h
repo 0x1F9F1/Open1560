@@ -31,6 +31,7 @@
     0x46B8A0 | public: virtual void * __thiscall aiStuck::`vector deleting destructor'(unsigned int) | ??_EaiStuck@@UAEPAXI@Z
     0x46B8A0 | public: virtual void * __thiscall aiStuck::`scalar deleting destructor'(unsigned int) | ??_GaiStuck@@UAEPAXI@Z
     0x61BD60 | const aiStuck::`vftable' | ??_7aiStuck@@6B@
+    0x46B470 | void __cdecl StuckCB(class aiStuck *) | ?StuckCB@@YAXPAVaiStuck@@@Z
 */
 
 #include "arts7/node.h"

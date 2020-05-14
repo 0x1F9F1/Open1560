@@ -30,6 +30,7 @@
     0x4814A0 | public: virtual void * __thiscall mmSplash::`vector deleting destructor'(unsigned int) | ??_EmmSplash@@UAEPAXI@Z
     0x4814A0 | public: virtual void * __thiscall mmSplash::`scalar deleting destructor'(unsigned int) | ??_GmmSplash@@UAEPAXI@Z
     0x61C8B0 | const mmSplash::`vftable' | ??_7mmSplash@@6B@
+    0x481050 | void __cdecl SplashCB(class mmSplash *) | ?SplashCB@@YAXPAVmmSplash@@@Z
 */
 
 #include "arts7/node.h"

@@ -25,6 +25,7 @@
     0x560E10 | void __cdecl DumpProblems(void) | ?DumpProblems@@YAXXZ
     0x561100 | void __cdecl RegisterProblem(char *,char *,char *) | ?RegisterProblem@@YAXPAD00@Z
     0x561340 | public: __thiscall problem_t::~problem_t(void) | ??1problem_t@@QAE@XZ
+    0x561050 | int __cdecl cmpProblem(void const *,void const *) | ?cmpProblem@@YAHPBX0@Z
 */
 
 // 0x560E10 | ?DumpProblems@@YAXXZ

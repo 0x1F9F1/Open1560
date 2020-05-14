@@ -31,6 +31,7 @@
     0x558130 | public: virtual void __thiscall agiPipeline::PrintInit(void) | ?PrintInit@agiPipeline@@UAEXXZ
     0x558140 | public: virtual void __thiscall agiPipeline::PrintShutdown(void) | ?PrintShutdown@agiPipeline@@UAEXXZ
     0x656C30 | unsigned char * CharSet | ?CharSet@@3PAEA
+    0x557FE0 | void __cdecl InitBuiltin(void) | ?InitBuiltin@@YAXXZ
 */
 
 // 0x557E70 | ?agiPrint@@YAXHHHPBD@Z

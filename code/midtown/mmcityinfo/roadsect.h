@@ -85,8 +85,8 @@ public:
     mmRoadSide();
 
     // 0x4D31B0 | ??_EmmRoadSide@@UAEPAXI@Z
-    // 0x43C190 | ??1mmRoadSide@@UAE@XZ
     // 0x43C220 | ??_GmmRoadSide@@UAEPAXI@Z
+    // 0x43C190 | ??1mmRoadSide@@UAE@XZ
     ~mmRoadSide() override;
 
     // 0x4D2D80 | ?GetClass@mmRoadSide@@UAEPAVMetaClass@@XZ
@@ -107,8 +107,8 @@ public:
     mmRoadSect();
 
     // 0x4D3210 | ??_EmmRoadSect@@UAEPAXI@Z
-    // 0x43C250 | ??1mmRoadSect@@UAE@XZ
     // 0x43C360 | ??_GmmRoadSect@@UAEPAXI@Z
+    // 0x43C250 | ??1mmRoadSect@@UAE@XZ
     ~mmRoadSect() override;
 
     // 0x4D3140 | ?GetClass@mmRoadSect@@UAEPAVMetaClass@@XZ

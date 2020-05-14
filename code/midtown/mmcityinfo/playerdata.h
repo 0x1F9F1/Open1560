@@ -78,8 +78,8 @@ public:
     mmPlayerRecord(class mmPlayerRecord const& arg1);
 
     // 0x4D11F0 | ??_EmmPlayerRecord@@UAEPAXI@Z
-    // 0x4CFC50 | ??1mmPlayerRecord@@UAE@XZ
     // 0x414B00 | ??_GmmPlayerRecord@@UAEPAXI@Z
+    // 0x4CFC50 | ??1mmPlayerRecord@@UAE@XZ
     ~mmPlayerRecord() override;
 
     // 0x4CFC90 | ??4mmPlayerRecord@@QAEXAAV0@@Z
@@ -115,8 +115,8 @@ public:
     mmPlayerData();
 
     // 0x4D1250 | ??_EmmPlayerData@@UAEPAXI@Z
-    // 0x4CBB40 | ??1mmPlayerData@@UAE@XZ
     // 0x4CBBE0 | ??_GmmPlayerData@@UAEPAXI@Z
+    // 0x4CBB40 | ??1mmPlayerData@@UAE@XZ
     ~mmPlayerData() override;
 
     // 0x4D0140 | ??4mmPlayerData@@QAEXAAV0@@Z

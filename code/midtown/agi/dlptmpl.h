@@ -154,8 +154,8 @@ public:
     // 0x55A310 | ??0DLPPatch@@QAE@XZ
     DLPPatch();
 
-    // 0x55A320 | ??1DLPPatch@@QAE@XZ
     // 0x559C80 | ??_EDLPPatch@@QAEPAXI@Z
+    // 0x55A320 | ??1DLPPatch@@QAE@XZ
     ~DLPPatch();
 
     // 0x558990 | ?GetProp@DLPPatch@@QAEPADPAD@Z
@@ -182,8 +182,8 @@ public:
     // 0x558CB0 | ??0DLPGroup@@QAE@PAVDLPTemplate@@PAV0@@Z
     DLPGroup(class DLPTemplate* arg1, class DLPGroup* arg2);
 
-    // 0x558E90 | ??1DLPGroup@@QAE@XZ
     // 0x559C20 | ??_EDLPGroup@@QAEPAXI@Z
+    // 0x558E90 | ??1DLPGroup@@QAE@XZ
     ~DLPGroup();
 
     // 0x559040 | ?Init@DLPGroup@@QAEXHH@Z

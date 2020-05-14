@@ -68,8 +68,8 @@ public:
     // 0x444790 | ??0aiVehiclePolice@@QAE@XZ
     aiVehiclePolice();
 
-    // 0x4447F0 | ??1aiVehiclePolice@@QAE@XZ
     // 0x43BF50 | ??_EaiVehiclePolice@@QAEPAXI@Z
+    // 0x4447F0 | ??1aiVehiclePolice@@QAE@XZ
     ~aiVehiclePolice();
 
     // 0x446370 | ?AssignSounds@aiVehiclePolice@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z

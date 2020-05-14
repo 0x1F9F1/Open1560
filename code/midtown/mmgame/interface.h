@@ -101,6 +101,8 @@
     0x6A6E18 | class MetaClass mmInterfaceMetaClass | ?mmInterfaceMetaClass@@3VMetaClass@@A
     0x6A6E40 | char * szSearchPath | ?szSearchPath@@3PADA
     0x6A6EC8 | char * defcarname | ?defcarname@@3PADA
+    0x409CD0 | bool __cdecl IsModemDialin(void) | ?IsModemDialin@@YA_NXZ
+    0x409D50 | unsigned long __stdcall ZoneWatcher(void *) | ?ZoneWatcher@@YGKPAX@Z
 */
 
 #include "arts7/node.h"

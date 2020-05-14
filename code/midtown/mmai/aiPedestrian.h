@@ -85,8 +85,8 @@ public:
     // 0x447CC0 | ??0aiPedestrian@@QAE@XZ
     aiPedestrian();
 
-    // 0x447DA0 | ??1aiPedestrian@@QAE@XZ
     // 0x43C010 | ??_EaiPedestrian@@QAEPAXI@Z
+    // 0x447DA0 | ??1aiPedestrian@@QAE@XZ
     ~aiPedestrian();
 
     // 0x44CFC0 | ?CalculateAudioPanning@aiPedestrian@@QAEXXZ

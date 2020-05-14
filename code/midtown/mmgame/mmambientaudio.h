@@ -39,4 +39,4 @@ public:
     void Update();
 };
 
-check_size(mmAmbientAudio, 0x0);
+check_size(mmAmbientAudio, 0x14);

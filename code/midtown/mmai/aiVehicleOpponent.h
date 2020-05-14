@@ -58,8 +58,8 @@ public:
     // 0x44DA70 | ??0aiVehicleOpponent@@QAE@XZ
     aiVehicleOpponent();
 
-    // 0x44DAD0 | ??1aiVehicleOpponent@@QAE@XZ
     // 0x43BFB0 | ??_EaiVehicleOpponent@@QAEPAXI@Z
+    // 0x44DAD0 | ??1aiVehicleOpponent@@QAE@XZ
     ~aiVehicleOpponent();
 
     // 0x44E670 | ?GetClass@aiVehicleOpponent@@UAEPAVMetaClass@@XZ

@@ -28,6 +28,7 @@
     0x516FC0 | public: void __thiscall bnBone::Draw(void) | ?Draw@bnBone@@QAEXXZ
     0x516FD0 | public: void __thiscall bnBone::Attach(class Matrix34 * const,int &) | ?Attach@bnBone@@QAEXQAVMatrix34@@AAH@Z
     0x517030 | public: void __thiscall bnBone::Pose(class Vector3 const *,int &) | ?Pose@bnBone@@QAEXPBVVector3@@AAH@Z
+    0x517090 | void __cdecl Matrix34__FromEulersXZY(class Matrix34 &,class Vector3 const &) | ?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z
 */
 
 class bnBone

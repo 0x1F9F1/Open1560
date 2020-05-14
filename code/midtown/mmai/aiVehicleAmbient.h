@@ -78,8 +78,8 @@ public:
     // 0x44EC60 | ??0aiVehicleAmbient@@QAE@XZ
     aiVehicleAmbient();
 
-    // 0x44ED40 | ??1aiVehicleAmbient@@QAE@XZ
     // 0x43BEF0 | ??_EaiVehicleAmbient@@QAEPAXI@Z
+    // 0x44ED40 | ??1aiVehicleAmbient@@QAE@XZ
     ~aiVehicleAmbient();
 
     // 0x451000 | ?AssignSounds@aiVehicleAmbient@@QAEXPAVAudSound@@00PAVmmOpponentImpactAudio@@@Z
