@@ -344,7 +344,8 @@ check_size(SignedIntType, 0x4);
 
 static const SignedIntType SignedIntInst;
 
-const MetaType* MetaTypeStore_<signed int>::Instance()
+template <>
+const MetaType* CreateMetaType_<signed int>()
 {
     return &SignedIntInst;
 }
@@ -466,12 +467,14 @@ check_size(StringType, 0x4);
 
 static const StringType StringInst;
 
-const MetaType* MetaTypeStore_<char*>::Instance()
+template <>
+const MetaType* CreateMetaType_<char*>()
 {
     return &StringInst;
 }
 
-const MetaType* MetaTypeStore_<CString>::Instance()
+template <>
+const MetaType* CreateMetaType_<CString>()
 {
     return &StringInst;
 }

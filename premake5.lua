@@ -29,6 +29,8 @@ workspace "Open1560"
     configurations { "Debug", "Release", "Final" }
     platforms { "Win32" }
 
+    buildoptions { "/permissive-" }
+
     filter "kind:*App or SharedLib"
         targetdir "bin/%{prj.name}/%{cfg.platform}_%{cfg.buildcfg}"
 

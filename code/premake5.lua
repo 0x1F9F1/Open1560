@@ -27,10 +27,13 @@ function arts_component(name)
     language "C++"
     cppdialect "C++17"
     warnings "Extra"
-    flags "FatalWarnings"
 
     useARTSPCH()
     includeARTS()
+
+    filter "configurations:Final"
+        flags "FatalWarnings"
+    filter {}
 end
 
 include "midtown"

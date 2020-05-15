@@ -89,7 +89,7 @@ public:
     static class agiPolySet* GetEnv(class agiTexDef* arg1, i32 arg2, i32 arg3);
 
     // 0x719788 | ?AlphaPolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    static inline extern_var(0x719788, class agiPolySet * [32], AlphaPolySets);
+    static inline extern_var(0x719788, class agiPolySet* [32], AlphaPolySets);
 
     // 0x719780 | ?AlphaSetCount@agiTexSorter@@2HA
     static inline extern_var(0x719780, i32, AlphaSetCount);
@@ -119,7 +119,7 @@ public:
     static inline extern_var(0x64A3E8, i32, MaxVertsPerSet);
 
     // 0x719630 | ?OpaquePolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    static inline extern_var(0x719630, class agiPolySet * [64], OpaquePolySets);
+    static inline extern_var(0x719630, class agiPolySet* [64], OpaquePolySets);
 
     // 0x719744 | ?OpaqueSetCount@agiTexSorter@@2HA
     static inline extern_var(0x719744, i32, OpaqueSetCount);

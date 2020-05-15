@@ -88,9 +88,9 @@ namespace mem
     };
 
 #if defined(_WIN32)
-    extern "C" namespace internal
+    namespace internal
     {
-        IMAGE_DOS_HEADER __ImageBase;
+        extern "C" IMAGE_DOS_HEADER __ImageBase;
     }
 
     struct PEB

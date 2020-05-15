@@ -80,13 +80,13 @@ i32 LogToCommPort(i32 arg1, i32 arg2);
 void LogToFile();
 
 // 0x576EA0 | ?LogToFile@@YAXPAD@Z
-void LogToFile(char* arg1);
+void LogToFile(const char* file);
 
 // 0x576E90 | ?LogToMonochromeMonitor@@YAXXZ
 void LogToMonochromeMonitor();
 
 // 0x576DD0 | ?Quit@@YAXPBD@Z
-void Quit(char const* arg1);
+void Quit(char const* message);
 
 // 0x661AA8 | ?EnableDebugOutput@@3HA
 inline extern_var(0x661AA8, i32, EnableDebugOutput);

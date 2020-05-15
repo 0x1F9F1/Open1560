@@ -129,22 +129,19 @@ template <typename T, typename = void>
 struct MetaTypeFactory;
 
 template <typename T>
-struct MetaTypeStore_
+const MetaType* CreateMetaType_()
 {
-    static const MetaType* Instance();
-};
+    return MetaTypeFactory<T>::Create();
+}
 
 template <typename T>
-inline const MetaType* MetaTypeStore_<T>::Instance()
+ARTS_FORCEINLINE const MetaType* CreateMetaType()
 {
-    return MetaTypeFactory<T>::Create(); // TODO: Cache types
+    return CreateMetaType_<typename std::remove_cv<T>::type>();
 }
 
 template <>
-const MetaType* MetaTypeStore_<void>::Instance() = delete;
-
-template <typename T>
-using MetaTypeStore = MetaTypeStore_<typename std::remove_cv<T>::type>;
+const MetaType* CreateMetaType<void>() = delete;
 
 // 0x524610 | ?PtrTo@@YAPAUMetaType@@PAU1@@Z
 struct MetaType* PtrTo(struct MetaType* target);
@@ -154,7 +151,7 @@ struct MetaTypeFactory<T*>
 {
     static inline MetaType* Create()
     {
-        return PtrTo(const_cast<MetaType*>(MetaTypeStore<T>::Instance()));
+        return PtrTo(const_cast<MetaType*>(CreateMetaType<T>()));
     }
 };
 
@@ -217,7 +214,7 @@ struct MetaTypeFactory<T, std::enable_if_t<std::is_class_v<T>>>
 {
     static inline MetaType* Create()
     {
-        return Struct(&MetaClassStore<T>::Instance);
+        return Struct(GetMetaClass<T>());
     }
 };
 
@@ -338,7 +335,10 @@ public:
 check_size(UnsignedShortType, 0x0);
 */
 
-extern template MetaTypeStore_<signed int>;
+template <>
+const MetaType* CreateMetaType_<signed int>();
+
+// extern template struct MetaTypeStore_<signed int>;
 
 /*
 struct SignedInt64Type : MetaType
@@ -411,8 +411,11 @@ public:
 check_size(FloatType, 0x0);
 */
 
-extern template MetaTypeStore_<char*>;
-extern template MetaTypeStore_<CString>;
+template <>
+const MetaType* CreateMetaType_<char*>();
+
+template <>
+const MetaType* CreateMetaType_<CString>();
 
 // 0x90B478 | ?CharInst@@3UCharType@@A
 inline extern_var(0x90B478, struct CharType, CharInst);

@@ -106,13 +106,12 @@ namespace mem
         typename std::enable_if<std::is_lvalue_reference<T>::value, T>::type as() const noexcept;
 
         template <typename T>
-        typename std::enable_if<std::is_array<T>::value, typename std::add_lvalue_reference<T>::type>::type as() const
-            noexcept;
+        typename std::enable_if<std::is_array<T>::value, typename std::add_lvalue_reference<T>::type>::type
+        as() const noexcept;
 
         template <typename T>
-            typename std::enable_if<!std::is_reference<T>::value, typename std::add_lvalue_reference<T>::type>::type
-            rcast() &
-            noexcept;
+        typename std::enable_if<!std::is_reference<T>::value, typename std::add_lvalue_reference<T>::type>::type
+        rcast() & noexcept;
 
         template <typename Func>
         constexpr pointer and_then(Func&& func) const;
@@ -341,8 +340,8 @@ namespace mem
     }
 
     template <typename T>
-    MEM_STRONG_INLINE constexpr typename std::enable_if<std::is_integral<T>::value, T>::type pointer::as() const
-        noexcept
+    MEM_STRONG_INLINE constexpr typename std::enable_if<std::is_integral<T>::value, T>::type
+    pointer::as() const noexcept
     {
         static_assert(
             std::is_same<typename std::make_unsigned<T>::type, std::uintptr_t>::value, "Invalid Integer Type");
@@ -383,10 +382,9 @@ namespace mem
     }
 
     template <typename T>
-        MEM_STRONG_INLINE
+    MEM_STRONG_INLINE
         typename std::enable_if<!std::is_reference<T>::value, typename std::add_lvalue_reference<T>::type>::type
-        pointer::rcast() &
-        noexcept
+        pointer::rcast() & noexcept
     {
         static_assert(sizeof(T) == sizeof(pointer), "That's no pointer. It's a space station.");
 

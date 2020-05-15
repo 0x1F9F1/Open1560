@@ -69,21 +69,18 @@ struct class_proxy
 
 #define auto_hook_dtor(ADDRESS, TYPE) create_hook(#TYPE "::~" #TYPE, "", ADDRESS, &class_proxy<TYPE>::dtor)
 
-#ifndef __FUNCDNAME__ // Just to shut up IntelliSense
-#    define __FUNCDNAME__ "INVALID_FUNCTION"
-#endif
-
-#define export_hook(ADDRESS) __pragma(comment(linker, "/EXPORT:" __FUNCDNAME__ ":Hook_" #ADDRESS "=" __FUNCDNAME__))
-
-#pragma const_seg(".rdata")
-
 // Custom extern_var to force MSVC to mark the references as constant
-#ifndef __INTELLISENSE__
+#if defined(_MSC_VER) && !defined(__INTELLISENSE__) && !defined(__clang__)
+#    pragma const_seg(".rdata")
 #    undef extern_var
 #    define extern_var(ADDRESS, TYPE, NAME)                                                  \
         __declspec(allocate(".rdata")) typename std::add_lvalue_reference<TYPE>::type NAME = \
             *reinterpret_cast<typename std::add_pointer<TYPE>::type>(usize(ADDRESS));
+#    define export_hook(ADDRESS) __pragma(comment(linker, "/EXPORT:" __FUNCDNAME__ ":Hook_" #    ADDRESS "=" __FUNCDNAME__))
+#else
+#    define export_hook(ADDRESS)
 #endif
 
 #pragma warning(disable : 4505) // unreferenced local function has been removed
 #pragma warning(disable : 4722) // destructor never returns, potential memory leak
+#pragma warning(disable : 4702) // unreachable code

@@ -109,7 +109,7 @@ void LookupAddress(char* buffer, usize buflen, usize address)
         pSymbol->SizeOfStruct = sizeof(SYMBOL_INFO);
         pSymbol->MaxNameLen = MAX_SYM_NAME;
 
-        IMAGEHLP_MODULE module {0};
+        IMAGEHLP_MODULE module {};
         module.SizeOfStruct = sizeof(IMAGEHLP_MODULE);
 
         if (SymFromAddr(GetCurrentProcess(), address, &dwDisplacement, pSymbol) &&

@@ -18,14 +18,17 @@
 
 #pragma once
 
-#define META_DECLARE      \
-    template <typename T> \
-    friend struct MetaFieldStore
+class MetaClass;
 
-#define STATIC_META_DECLARE             \
-    static class MetaClass* GetClass(); \
-    META_DECLARE
+template <typename T>
+MetaClass* GetMetaClass();
 
-#define VIRTUAL_META_DECLARE              \
-    class MetaClass* GetClass() override; \
-    META_DECLARE
+#define META_DECLARE struct MetaData
+
+#define STATIC_META_DECLARE \
+    META_DECLARE;           \
+    static MetaClass* GetClass()
+
+#define VIRTUAL_META_DECLARE \
+    META_DECLARE;            \
+    MetaClass* GetClass() override

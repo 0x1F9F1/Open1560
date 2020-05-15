@@ -218,7 +218,7 @@ void LogToFile()
     LogToFile(filename);
 }
 
-void LogToFile(char* file)
+void LogToFile(const char* file)
 {
     export_hook(0x576EA0);
 
@@ -241,7 +241,10 @@ void LogToMonochromeMonitor()
     return stub<cdecl_t<void>>(0x576E90);
 }
 
-void Quit(char const* arg1)
+void Quit(char const* message)
 {
-    return stub<cdecl_t<void, char const*>>(0x576DD0, arg1);
+    if (message)
+        Quitf("%s", message);
+    else
+        std::exit(0);
 }

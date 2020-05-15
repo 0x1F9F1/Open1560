@@ -117,17 +117,17 @@ public:
     // 0x90AA28 | ?ClassIndex@MetaClass@@2PAPAV1@A
     static class MetaClass* ClassIndex[MAX_CLASSES];
 
-    // 0x90AE28 | ?Current@MetaClass@@2PAV1@A
-    static inline extern_var(0x90AE28, class MetaClass*, Current);
-
     // 0x90AA20 | ?NextSerial@MetaClass@@2HA
     static i32 NextSerial;
 
-    // 0x90AE30 | ?RootMetaClass@MetaClass@@2V1@A
-    static class MetaClass RootMetaClass;
+    // 0x90AE28 | ?Current@MetaClass@@2PAV1@A
+    static MetaClass* Current;
 
     // 0x90AE2C | ?ppField@MetaClass@@2PAPAUMetaField@@A
-    static inline extern_var(0x90AE2C, struct MetaField**, ppField);
+    static MetaField** ppField;
+
+    // 0x90AE30 | ?RootMetaClass@MetaClass@@2V1@A
+    static class MetaClass RootMetaClass;
 
 private:
     const char* name_ {nullptr};

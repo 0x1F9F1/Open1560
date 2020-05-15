@@ -43,8 +43,7 @@ void create_hook(const char* name, const char* description, mem::pointer pHook, 
 
     switch (type)
     {
-        case hook_type::jmp:
-        {
+        case hook_type::jmp: {
             std::uint8_t buffer[5] = {0xE9};
 
             reinterpret_cast<int&>(buffer[1]) = rva;
@@ -54,8 +53,7 @@ void create_hook(const char* name, const char* description, mem::pointer pHook, 
             break;
         }
 
-        case hook_type::call:
-        {
+        case hook_type::call: {
             std::uint8_t buffer[5] = {0xE8};
             reinterpret_cast<int&>(buffer[1]) = rva;
 
@@ -64,8 +62,7 @@ void create_hook(const char* name, const char* description, mem::pointer pHook, 
             break;
         }
 
-        case hook_type::push:
-        {
+        case hook_type::push: {
             std::uint8_t buffer[5] = {0x68};
             reinterpret_cast<int&>(buffer[1]) = pDetour.as<int>();
 
@@ -74,8 +71,7 @@ void create_hook(const char* name, const char* description, mem::pointer pHook, 
             break;
         }
 
-        case hook_type::pointer:
-        {
+        case hook_type::pointer: {
             write_protected(pHook, &pDetour, sizeof(pDetour));
 
             break;

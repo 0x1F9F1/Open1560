@@ -42,7 +42,7 @@ void asSafeHeap::Init(i32 heap_size, b32 multi_heap)
     heap_size = (heap_size + sys_info.dwPageSize - 1) & ~(sys_info.dwPageSize - 1);
 
     heap_size_ = heap_size;
-    multi_heap_ = multi_heap_;
+    multi_heap_ = multi_heap;
 
     if (multi_heap)
         heap_size *= MultiHeapCount;

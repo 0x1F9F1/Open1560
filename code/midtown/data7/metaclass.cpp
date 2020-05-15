@@ -27,14 +27,13 @@ define_dummy_symbol(data7_metaclass);
 
 #include <unordered_map>
 
-class MetaClass* MetaClass::ClassIndex[MAX_CLASSES] {};
-
+MetaClass* MetaClass::ClassIndex[MAX_CLASSES] {};
 i32 MetaClass::NextSerial {0};
 
-class MetaClass MetaClass::RootMetaClass
-{
-    "Root", 0, nullptr, nullptr, nullptr, nullptr
-};
+MetaClass* MetaClass::Current {nullptr};
+MetaField** MetaClass::ppField {nullptr};
+
+MetaClass MetaClass::RootMetaClass {"Root", 0, nullptr, nullptr, nullptr, nullptr};
 
 MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32),
     void (*declare)(void), class MetaClass* parent)
@@ -59,7 +58,7 @@ MetaClass::~MetaClass()
 
 ARTS_NOINLINE void MetaClass::Register()
 {
-    ArAssert(NextSerial < MAX_CLASSES, "Too many classes, raise MAX_CLASSES");
+    ArAssert(NextSerial < i32(MAX_CLASSES), "Too many classes, raise MAX_CLASSES");
 
     ClassIndex[NextSerial] = this;
     index_ = NextSerial;
@@ -124,13 +123,13 @@ void MetaClass::SkipBlock(class MiniParser* arg1)
 
 void MetaClass::FixupClasses()
 {
-    create_hook("MetaClass::Load Base", "Point to correct BaseMetaclass", 0x577FD2, &MetaClassStore<Base>::Instance,
-        hook_type::push);
+    create_hook(
+        "MetaClass::Load Base", "Point to correct BaseMetaclass", 0x577FD2, GetMetaClass<Base>(), hook_type::push);
 
     create_hook("MetaClass::Load Root", "Point to correct RootMetaClass", 0x577EBA, &RootMetaClass, hook_type::push);
 
-    create_hook("MetaClass::Save Base", "Point to correct BaseMetaclass", 0x577CAA, &MetaClassStore<Base>::Instance,
-        hook_type::push);
+    create_hook(
+        "MetaClass::Save Base", "Point to correct BaseMetaclass", 0x577CAA, GetMetaClass<Base>(), hook_type::push);
 
     mem::module main_module = mem::module::main();
 
