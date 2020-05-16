@@ -62,12 +62,33 @@ struct class_proxy
     {
         reinterpret_cast<Class*>(this)->~Class();
     }
+
+    template <typename F, typename... Args>
+    struct function_proxy : F
+    {
+        inline decltype(auto) invoke(Args... args)
+        {
+            return F::operator()(reinterpret_cast<Class*>(this), std::forward<Args>(args)...);
+        }
+    };
+
+    template <typename... Args, typename F>
+    static constexpr auto func(F) -> decltype(&function_proxy<F, Args...>::invoke)
+    {
+        return &function_proxy<F, Args...>::invoke;
+    }
 };
 
 #define auto_hook_ctor(ADDRESS, TYPE, ...) \
     create_hook(#TYPE "::" #TYPE, "", ADDRESS, &class_proxy<TYPE>::ctor<__VA_ARGS__>)
 
 #define auto_hook_dtor(ADDRESS, TYPE) create_hook(#TYPE "::~" #TYPE, "", ADDRESS, &class_proxy<TYPE>::dtor)
+
+#define auto_hook_mfunc(ADDRESS, TYPE, NAME, ...)                                            \
+    create_hook(#TYPE "::" #NAME, "", ADDRESS,                                               \
+        class_proxy<TYPE>::func<__VA_ARGS__>([](auto* ptr, auto... args) -> decltype(auto) { \
+            return ptr->TYPE::NAME(std::forward<decltype(args)>(args)...);                   \
+        }))
 
 // Custom extern_var to force MSVC to mark the references as constant
 #if defined(_MSC_VER) && !defined(__INTELLISENSE__) && !defined(__clang__)

@@ -38,12 +38,12 @@ class asCullable : public Base
 
 public:
     // 0x525AA0 | ??0asCullable@@QAE@XZ
-    asCullable() = default;
+    asCullable() noexcept = default;
 
     // 0x525A40 | ??_EasCullable@@UAEPAXI@Z
     // 0x48BB80 | ??1asCullable@@UAE@XZ
     // 0x48BB50 | ??_GasCullable@@UAEPAXI@Z
-    ~asCullable() override = default;
+    ~asCullable() noexcept override = default;
 
     // 0x5258C0 | ?Cull@asCullable@@UAEXXZ
     virtual void Cull();

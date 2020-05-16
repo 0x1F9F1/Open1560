@@ -94,8 +94,8 @@ private:
     u32 heap_offset_ {0};
     u32 lock_count_ {0};
     b32 use_nodes_ {false};
-    struct asMemoryAllocator::node* buckets_[32] {};
-    struct asMemoryAllocator::node* last_ {nullptr};
+    asMemoryAllocator::node* buckets_[32] {};
+    asMemoryAllocator::node* last_ {nullptr};
 };
 
 check_size(asMemoryAllocator, 0xA0);

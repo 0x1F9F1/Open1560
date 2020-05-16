@@ -38,7 +38,7 @@ class Base
 public:
     // 0x414AD0 | ??_GBase@@UAEPAXI@Z
     // 0x5791E0 | ??1Base@@UAE@XZ
-    virtual ~Base() = 0;
+    virtual ~Base() noexcept = 0;
 
     // 0x579290 | ?GetClass@Base@@UAEPAVMetaClass@@XZ
     virtual class MetaClass* GetClass();
