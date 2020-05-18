@@ -141,11 +141,13 @@ static const char* GetExceptionCodeString(DWORD code)
         case EXCEPTION_FLT_OVERFLOW: return "FLT_OVERFLOW";
         case EXCEPTION_FLT_STACK_CHECK: return "FLT_STACK_CHECK";
         case EXCEPTION_FLT_UNDERFLOW: return "FLT_UNDERFLOW";
+        case EXCEPTION_GUARD_PAGE: return "GUARD_PAGE";
         case EXCEPTION_ILLEGAL_INSTRUCTION: return "ILLEGAL_INSTRUCTION";
         case EXCEPTION_IN_PAGE_ERROR: return "IN_PAGE_ERROR";
         case EXCEPTION_INT_DIVIDE_BY_ZERO: return "INT_DIVIDE_BY_ZERO";
         case EXCEPTION_INT_OVERFLOW: return "INT_OVERFLOW";
         case EXCEPTION_INVALID_DISPOSITION: return "INVALID_DISPOSITION";
+        case EXCEPTION_INVALID_HANDLE: return "INVALID_HANDLE";
         case EXCEPTION_NONCONTINUABLE_EXCEPTION: return "NONCONTINUABLE_EXCEPTION";
         case EXCEPTION_PRIV_INSTRUCTION: return "PRIV_INSTRUCTION";
         case EXCEPTION_SINGLE_STEP: return "SINGLE_STEP";
@@ -165,14 +167,8 @@ i32 GameFilter(EXCEPTION_POINTERS* exception)
 
     const char* error_code_string = GetExceptionCodeString(record->ExceptionCode);
 
-    if (error_code_string)
-    {
-        Displayf("%s at EIP=%s", error_code_string, source);
-    }
-    else
-    {
-        Displayf("Exception 0x%08X at EIP=%s", record->ExceptionCode, source);
-    }
+    Displayf("%s (0x%08X) at EIP=%s", error_code_string ? error_code_string : "UNKNOWN",
+        record->ExceptionCode, source);
 
     Displayf("EAX=%08X EBX=%08X ECX=%08X EDX=%08X", context->Eax, context->Ebx, context->Ecx, context->Edx);
     Displayf("ESI=%08X EDI=%08X EBP=%08X ESP=%08X", context->Esi, context->Edi, context->Ebp, context->Esp);

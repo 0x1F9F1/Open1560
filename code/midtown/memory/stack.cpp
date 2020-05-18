@@ -23,6 +23,7 @@ define_dummy_symbol(memory_stack);
 #include "core/minwin.h"
 
 #include <DbgHelp.h>
+#include <intrin.h>
 
 struct MapSymbol
 {
@@ -176,9 +177,30 @@ void DebugLogShutdown()
     return stub<cdecl_t<void>>(0x520700);
 }
 
-void DoStackTraceback(i32 arg1, i32* arg2)
+void DoStackTraceback(i32 depth, i32* frame)
 {
-    return stub<cdecl_t<void, i32, i32*>>(0x5204C0, arg1, arg2);
+    export_hook(0x5204C0);
+
+    while (depth--)
+    {
+        __try
+        {
+            i32 ret_addr = frame[1];
+            frame = *reinterpret_cast<i32**>(frame);
+
+            if (ret_addr <= 0)
+                break;
+
+            char symbol[256];
+            LookupAddress(symbol, std::size(symbol), usize(ret_addr));
+
+            Displayf("%s", symbol);
+        }
+        __except (EXCEPTION_EXECUTE_HANDLER)
+        {
+            break;
+        }
+    }
 }
 
 void DumpStackTraceback(i32* arg1, i32 arg2)
@@ -256,7 +278,11 @@ void LookupAddress(char* buffer, i32 addr)
     LookupAddress(buffer, 128, usize(addr));
 }
 
-void StackTraceback(i32 arg1)
+void StackTraceback(i32 depth)
 {
-    return stub<cdecl_t<void, i32>>(0x520590, arg1);
+    export_hook(0x520590);
+
+    i32* frame = reinterpret_cast<i32*>(_AddressOfReturnAddress()) - 1;
+
+    DoStackTraceback(depth, frame);
 }
