@@ -76,13 +76,14 @@ public:
     usize SizeOf(void* ptr);
 
 private:
-    struct node;
+    struct Node;
+    struct FreeNode;
 
     // 0x520E50 | ?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z
-    void Link(struct asMemoryAllocator::node* arg1);
+    void Link(FreeNode* n);
 
     // 0x520DF0 | ?Unlink@asMemoryAllocator@@AAEXPAUnode@1@@Z
-    void Unlink(struct asMemoryAllocator::node* arg1);
+    void Unlink(FreeNode* n);
 
     // 0x520F00 | ?Verify@asMemoryAllocator@@AAEXPAX@Z
     void Verify(void* arg1);
@@ -94,8 +95,8 @@ private:
     u32 heap_offset_ {0};
     u32 lock_count_ {0};
     b32 use_nodes_ {false};
-    asMemoryAllocator::node* buckets_[32] {};
-    asMemoryAllocator::node* last_ {nullptr};
+    FreeNode* buckets_[32] {};
+    Node* last_ {nullptr};
 };
 
 check_size(asMemoryAllocator, 0xA0);

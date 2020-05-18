@@ -22,15 +22,17 @@ define_dummy_symbol(data7_speed);
 
 u32 ComputeCpuSpeed()
 {
-    return stub<cdecl_t<u32>>(0x57CF50);
+    export_hook(0x57CF50);
+
+    return 1000;
 }
 
-u32 __ComputeCpuSpeed()
-{
-    return stub<cdecl_t<u32>>(0x57CE90);
-}
+// u32 __ComputeCpuSpeed()
+// {
+//     return stub<cdecl_t<u32>>(0x57CE90);
+// }
 
-static u32 rdtsc()
-{
-    return stub<cdecl_t<u32>>(0x57CF40);
-}
+// static u32 rdtsc()
+// {
+//     return stub<cdecl_t<u32>>(0x57CF40);
+// }

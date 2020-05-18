@@ -159,6 +159,8 @@ static const char* GetExceptionCodeString(DWORD code)
 
 i32 GameFilter(EXCEPTION_POINTERS* exception)
 {
+    export_hook(0x4014B0);
+
     CONTEXT* context = exception->ContextRecord;
     EXCEPTION_RECORD* record = exception->ExceptionRecord;
 
@@ -167,8 +169,7 @@ i32 GameFilter(EXCEPTION_POINTERS* exception)
 
     const char* error_code_string = GetExceptionCodeString(record->ExceptionCode);
 
-    Displayf("%s (0x%08X) at EIP=%s", error_code_string ? error_code_string : "UNKNOWN",
-        record->ExceptionCode, source);
+    Displayf("%s (0x%08X) at EIP=%s", error_code_string ? error_code_string : "UNKNOWN", record->ExceptionCode, source);
 
     Displayf("EAX=%08X EBX=%08X ECX=%08X EDX=%08X", context->Eax, context->Ebx, context->Ecx, context->Edx);
     Displayf("ESI=%08X EDI=%08X EBP=%08X ESP=%08X", context->Esi, context->Edi, context->Ebp, context->Esp);

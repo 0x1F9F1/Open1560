@@ -267,7 +267,7 @@ include_dummy_symbol(data7_metatype);
 // include_dummy_symbol(data7_perfstat);
 include_dummy_symbol(data7_printer);
 include_dummy_symbol(data7_quitf);
-// include_dummy_symbol(data7_speed);
+include_dummy_symbol(data7_speed);
 // include_dummy_symbol(data7_str);
 include_dummy_symbol(data7_timer);
 // include_dummy_symbol(data7_utimer);
