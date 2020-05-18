@@ -158,11 +158,7 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
         WriteFile(DebugLogFile, buffer, std::strlen(buffer), &written, 0);
 
         if (level >= 3)
-        {
             FlushFileBuffers(DebugLogFile);
-            CloseHandle(DebugLogFile);
-            DebugLogFile = INVALID_HANDLE_VALUE;
-        }
     }
     else if (EnableDebugOutput)
     {

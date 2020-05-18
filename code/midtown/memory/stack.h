@@ -52,7 +52,7 @@ i32 LogStackTraceback(i32* arg1, i32 arg2);
 void LookupAddress(char* buffer, usize buflen, usize address);
 
 // 0x520130 | ?LookupAddress@@YAXPADH@Z
-void LookupAddress(char* buffer, i32 address);
+// void LookupAddress(char* buffer, i32 address);
 
 // 0x520590 | ?StackTraceback@@YAXH@Z
 void StackTraceback(i32 depth);

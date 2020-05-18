@@ -165,7 +165,7 @@ i32 GameFilter(EXCEPTION_POINTERS* exception)
     EXCEPTION_RECORD* record = exception->ExceptionRecord;
 
     char source[128];
-    LookupAddress(source, context->Eip);
+    LookupAddress(source, std::size(source), context->Eip);
 
     const char* error_code_string = GetExceptionCodeString(record->ExceptionCode);
 
@@ -174,7 +174,7 @@ i32 GameFilter(EXCEPTION_POINTERS* exception)
     Displayf("EAX=%08X EBX=%08X ECX=%08X EDX=%08X", context->Eax, context->Ebx, context->Ecx, context->Edx);
     Displayf("ESI=%08X EDI=%08X EBP=%08X ESP=%08X", context->Esi, context->Edi, context->Ebp, context->Esp);
 
-    DoStackTraceback(16, (int*) context->Ebp);
+    DoStackTraceback(16, reinterpret_cast<i32*>(context->Ebp));
 
     return EXCEPTION_EXECUTE_HANDLER;
 }

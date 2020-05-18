@@ -62,7 +62,7 @@ public:
     void GetStats(struct asMemStats* arg1);
 
     // 0x5209D0 | ?Init@asMemoryAllocator@@QAEXPAXIH@Z
-    void Init(void* arg1, u32 arg2, i32 arg3);
+    void Init(void* heap, u32 heap_size, i32 use_nodes);
 
     // 0x520A10 | ?Kill@asMemoryAllocator@@QAEXXZ
     void Kill();
@@ -86,7 +86,7 @@ private:
     void Unlink(FreeNode* n);
 
     // 0x520F00 | ?Verify@asMemoryAllocator@@AAEXPAX@Z
-    void Verify(void* arg1);
+    void Verify(void* ptr);
 
     b32 initialized_ {false};
     b32 debug_ {false};

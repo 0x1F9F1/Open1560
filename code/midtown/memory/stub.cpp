@@ -24,7 +24,7 @@ define_dummy_symbol(memory_stub);
 
 ARTS_NOINLINE void* operator new(std::size_t size)
 {
-    export_hook(0x5215A0);
+    // export_hook(0x5215A0);
 
     return CURHEAP->Allocate(size);
 }
@@ -36,7 +36,7 @@ ARTS_NOINLINE void* operator new[](std::size_t size)
 
 ARTS_NOINLINE void operator delete(void* ptr) noexcept
 {
-    export_hook(0x5215C0);
+    // export_hook(0x5215C0);
 
     CURHEAP->Free(ptr);
 }
