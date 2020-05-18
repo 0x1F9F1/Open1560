@@ -70,7 +70,6 @@ class asNode : public asCullable
 
 public:
     // 0x5237C0 | ??0asNode@@QAE@XZ
-    asNode() = default;
 
     // 0x524640 | ??_EasNode@@UAEPAXI@Z
     // 0x5237F0 | ??1asNode@@UAE@XZ
@@ -174,6 +173,9 @@ private:
 
     CString node_name_ {};
 
+    // 0x1 | Active
+    // 0x4 | LoadError
+    // 0x400 | Update While Paused
     i32 flags_ {0x3};
 
     class Bank* current_bank_ {nullptr};

@@ -30,11 +30,11 @@ struct MapSymbol
     usize Address {0};
 };
 
-static extern_var(0x7805E0, b32, MapSymbolsLoaded);
-static extern_var(0x7805DC, MapSymbol*, MapSymbols);
-static extern_var(0x7805D4, i32, MapSymbolCount);
+static bool MapSymbolsLoaded = false;
+static MapSymbol* MapSymbols = nullptr;
+static i32 MapSymbolCount = 0;
 
-const MapSymbol* LookupMapSymbol(usize address)
+static const MapSymbol* LookupMapSymbol(usize address)
 {
     const MapSymbol* first = MapSymbols;
     const MapSymbol* last = first + MapSymbolCount;
@@ -52,7 +52,113 @@ const MapSymbol* LookupMapSymbol(usize address)
 
 static void InitMap()
 {
-    return stub<cdecl_t<void>>(0x5201C0);
+    HANDLE map_file = INVALID_HANDLE_VALUE;
+
+    {
+        char map_name[256];
+        GetModuleFileNameA(NULL, map_name, std::size(map_name));
+
+        if (char* map_ext = std::strrchr(map_name, '.'))
+            *map_ext = '\0';
+
+        arts_strcat(map_name, ".MAP");
+
+        map_file =
+            CreateFileA(map_name, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_FLAG_RANDOM_ACCESS, NULL);
+
+        if (map_file == INVALID_HANDLE_VALUE)
+        {
+            Errorf("Map file '%s' not found.", map_name);
+            return;
+        }
+    }
+
+    DWORD file_size = GetFileSize(map_file, NULL);
+    HANDLE map_file_mapping = CreateFileMappingA(map_file, NULL, PAGE_READONLY, 0, 0, NULL);
+
+    CloseHandle(map_file);
+    map_file = INVALID_HANDLE_VALUE;
+
+    if (map_file_mapping == NULL)
+    {
+        Errorf("CreateFileMapping failed.");
+        return;
+    }
+
+    void* map_file_view = MapViewOfFile(map_file_mapping, FILE_MAP_READ, 0, 0, 0);
+
+    CloseHandle(map_file_mapping);
+    map_file_mapping = NULL;
+
+    if (map_file_view == NULL)
+    {
+        Errorf("MapViewOfFile failed.");
+        return;
+    }
+
+    char* map_data_end = static_cast<char*>(map_file_view) + file_size;
+    char* symbol_data = nullptr;
+
+    for (i32 state = 1; state <= 2; ++state)
+    {
+        char* map_data = static_cast<char*>(map_file_view);
+
+        bool in_publics = false;
+        usize symbols_size = 0;
+        MapSymbolCount = 0;
+
+        for (char* line_end = nullptr;; map_data = line_end + 1)
+        {
+            line_end = static_cast<char*>(std::memchr(map_data, '\n', map_data_end - map_data));
+
+            if (line_end == nullptr)
+                break;
+
+            char line_buffer[256];
+            arts_strncpy(line_buffer, map_data, line_end - map_data);
+
+            if (std::strstr(line_buffer, "Publics by Value"))
+                in_publics = true;
+
+            if (!in_publics)
+                continue;
+
+            char sym_name[256];
+            u32 sym_addr = 0;
+
+            if (!std::strncmp(line_buffer, " 0001:", 6) &&
+                arts_sscanf(line_buffer, "%*s %s %x", sym_name, std::size(sym_name), &sym_addr))
+            {
+                usize sym_len = std::strlen(sym_name);
+
+                if (state == 2)
+                {
+                    char* symbol = &symbol_data[symbols_size];
+                    std::memcpy(symbol, sym_name, sym_len + 1);
+
+                    MapSymbols[MapSymbolCount].Name = symbol;
+                    MapSymbols[MapSymbolCount].Address = sym_addr;
+                }
+
+                symbols_size += sym_len + 1;
+                ++MapSymbolCount;
+            }
+            else if (!std::strncmp(line_buffer, " 0002:", 6))
+            {
+                break;
+            }
+        }
+
+        if (state == 1)
+        {
+            MapSymbols = static_cast<MapSymbol*>(GlobalAlloc(GMEM_ZEROINIT, MapSymbolCount * sizeof(MapSymbol)));
+            symbol_data = static_cast<char*>(GlobalAlloc(GMEM_ZEROINIT, symbols_size));
+            Errorf("%d symbols parsed from map file.", MapSymbolCount);
+        }
+    }
+
+    UnmapViewOfFile(map_file_view);
+    map_file_view = NULL;
 }
 
 void DebugLog(i32 arg1, void* arg2, i32 arg3)

@@ -186,7 +186,7 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
         }
         else
         {
-            std::abort();
+            TerminateProcess(GetCurrentProcess(), 1);
         }
     }
 }
