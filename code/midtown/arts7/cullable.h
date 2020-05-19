@@ -47,7 +47,7 @@ public:
     virtual void Cull();
 
     // 0x5258D0 | ?AddWidgets@asCullable@@QAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1);
+    void AddWidgets(class Bank* bank);
 
     VIRTUAL_META_DECLARE;
 };

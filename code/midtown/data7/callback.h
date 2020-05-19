@@ -36,31 +36,72 @@
 class Callback
 {
 public:
+    using Static0 = void (*)();
+    using Static1 = void (*)(void*);
+    using Static2 = void (*)(void*, void*);
+
+    using Member0 = void (Base::*)();
+    using Member1 = void (Base::*)(void*);
+    using Member2 = void (Base::*)(void*, void*);
+
     // 0x5792C0 | ??0Callback@@QAE@XZ
-    Callback();
+    constexpr Callback() noexcept = default;
 
     // 0x5793D0 | ??0Callback@@QAE@P6AXXZ@Z
-    Callback(void (*arg1)(void));
+    Callback(Static0 func) noexcept;
 
     // 0x5793F0 | ??0Callback@@QAE@P6AXPAX@Z0@Z
-    Callback(void (*arg1)(void*), void* arg2);
+    Callback(Static1 func, void* param) noexcept;
 
     // 0x579420 | ??0Callback@@QAE@P6AXPAX0@Z0@Z
-    Callback(void (*arg1)(void*, void*), void* arg2);
+    Callback(Static2 func, void* param) noexcept;
+
+    // 0x5792D0 | ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z
+    Callback(Member0 func, class Base* param) noexcept;
+
+    // 0x579310 | ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z
+    Callback(Member1 func, class Base* param1, void* param2) noexcept;
+
+    // 0x579350 | ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
+    Callback(Member2 func, class Base* param1, void* param2) noexcept;
+
+    // 0x579390 | ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z
+    Callback(Member2 func, class Base* param1, void* param2, void* param3) noexcept;
 
     // 0x579450 | ?Call@Callback@@QAEXPAX@Z
-    void Call(void* arg1);
+    void Call(void* param);
+
+private:
+    i32 type_ {0};
+    Base* this_param_ {nullptr};
+
+    union
+    {
+        void* address;
+
+        Static0 static0;
+        Static1 static1;
+        Static2 static2;
+
+        Member0 member0;
+        Member1 member1;
+        Member2 member2;
+    } func_ {nullptr};
+
+    void* first_param_ {nullptr};
+    void* second_param_ {nullptr};
 };
 
-check_size(Callback, 0x0);
+#define CFA(FUNC) static_cast<Callback::Static0>(FUNC)
+#define CFA1(FUNC) static_cast<Callback::Static1>(FUNC)
+#define CFA2(FUNC) static_cast<Callback::Static2>(FUNC)
 
-// 0x579390 | ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z (Skipped: void)
+#define MFA(FUNC) static_cast<Callback::Member0>(&FUNC)
+#define MFA1(FUNC) static_cast<Callback::Member1>(&FUNC)
+#define MFA2(FUNC) static_cast<Callback::Member2>(&FUNC)
 
-// 0x579350 | ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z (Skipped: void)
-
-// 0x579310 | ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z (Skipped: void)
-
-// 0x5792D0 | ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z (Skipped: void)
+check_size(Callback, 0x14);
 
 // 0x90B128 | ?NullCallback@@3VCallback@@A
-inline extern_var(0x90B128, class Callback, NullCallback);
+// inline extern_var(0x90B128, class Callback, NullCallback);
+constexpr Callback NullCallback;

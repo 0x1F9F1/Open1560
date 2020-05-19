@@ -94,7 +94,7 @@ public:
     virtual void Save();
 
     // 0x524330 | ?AddWidgets@asNode@@UAEXPAVBank@@@Z
-    virtual void AddWidgets(class Bank* arg1);
+    virtual void AddWidgets(class Bank* bank);
 
     // 0x5243E0 | ?OpenWidgets@asNode@@UAEXPADPAVbkWindow@@@Z
     virtual void OpenWidgets(char* arg1, class bkWindow* arg2);
@@ -106,25 +106,28 @@ public:
     void AddButton(class Bank* arg1, i32& arg2);
 
     // 0x523A70 | ?AddChild@asNode@@QAEHPAV1@@Z
-    i32 AddChild(class asNode* arg1);
+    b32 AddChild(class asNode* child);
 
     // 0x523C80 | ?GetChild@asNode@@QAEPAV1@H@Z
-    class asNode* GetChild(i32 arg1);
+    class asNode* GetChild(i32 index);
 
     // 0x523CC0 | ?GetLastChild@asNode@@QAEPAV1@XZ
     class asNode* GetLastChild();
 
     // 0x523CB0 | ?GetNext@asNode@@QAEPAV1@XZ
-    class asNode* GetNext();
+    class asNode* GetNext()
+    {
+        return next_node_;
+    }
 
     // 0x523DC0 | ?GetNodeType@asNode@@QAEPADXZ
-    char* GetNodeType();
+    const char* GetNodeType();
 
     // 0x523D80 | ?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z
-    class asNode* GetParent(class MetaClass* arg1);
+    class asNode* GetParent(class MetaClass* cls);
 
     // 0x523AF0 | ?InsertChild@asNode@@QAEHHPAV1@@Z
-    i32 InsertChild(i32 arg1, class asNode* arg2);
+    b32 InsertChild(i32 index, class asNode* child);
 
     // 0x523DD0 | ?Load@asNode@@QAEHPAD@Z
     i32 Load(char* arg1);
@@ -139,7 +142,7 @@ public:
     void RemoveAllChildren();
 
     // 0x523C20 | ?RemoveChild@asNode@@QAEHPAV1@@Z
-    i32 RemoveChild(class asNode* arg1);
+    i32 RemoveChild(class asNode* child);
 
     // 0x523B80 | ?RemoveChild@asNode@@QAEHH@Z
     i32 RemoveChild(i32 arg1);
@@ -159,6 +162,11 @@ public:
     // 0x523440 | ?VerifyTree@asNode@@QAEPADXZ
     char* VerifyTree();
 
+    bool IsActive() const
+    {
+        return node_flags_ & 1;
+    }
+
     VIRTUAL_META_DECLARE;
 
     // 0x790834 | ?TimingCount@asNode@@2HA
@@ -176,7 +184,7 @@ private:
     // 0x1 | Active
     // 0x4 | LoadError
     // 0x400 | Update While Paused
-    i32 flags_ {0x3};
+    i32 node_flags_ {0x3};
 
     class Bank* current_bank_ {nullptr};
 };
@@ -188,6 +196,10 @@ check_size(asNode, 0x20);
 // 0x5246B0 | ??_9@$BCM@AE (Skipped: void)
 
 // 0x790830 | ?DebugMemory@@3HA
+
+// 0x1 | SanityCheck in asSimulation::Simulate | -simdbg
+// 0x2 | SanityCheck in asNode::Update         | -updatememdbg
+// 0x4 | VerifyTree  in asNode::Update         | -updatedbg
 inline extern_var(0x790830, i32, DebugMemory);
 
 // 0x790838 | ?asNodeMetaClass@@3VMetaClass@@A

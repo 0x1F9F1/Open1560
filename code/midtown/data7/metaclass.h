@@ -98,7 +98,8 @@ public:
 
     void DeclareFields()
     {
-        declare_();
+        if (declare_)
+            declare_();
     }
 
     static void FixupClasses();

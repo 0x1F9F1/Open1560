@@ -25,7 +25,7 @@ define_dummy_symbol(arts7_cullable);
 void asCullable::Cull()
 {}
 
-void asCullable::AddWidgets(class Bank* /*arg1*/)
+void asCullable::AddWidgets(class Bank* /*bank*/)
 {}
 
 META_DEFINE_CHILD("asCullable", asCullable, Base) {};

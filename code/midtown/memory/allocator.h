@@ -62,7 +62,7 @@ public:
     void GetStats(struct asMemStats* arg1);
 
     // 0x5209D0 | ?Init@asMemoryAllocator@@QAEXPAXIH@Z
-    void Init(void* heap, u32 heap_size, i32 use_nodes);
+    void Init(void* heap, u32 heap_size, b32 use_nodes);
 
     // 0x520A10 | ?Kill@asMemoryAllocator@@QAEXXZ
     void Kill();

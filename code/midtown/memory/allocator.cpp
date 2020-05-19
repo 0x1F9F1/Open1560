@@ -206,21 +206,23 @@ void asMemoryAllocator::GetStats(struct asMemStats* arg1)
     return stub<thiscall_t<void, asMemoryAllocator*, struct asMemStats*>>(0x520FC0, this, arg1);
 }
 
-void asMemoryAllocator::Init(void* heap, u32 heap_size, i32 use_nodes)
+void asMemoryAllocator::Init(void* heap, u32 heap_size, b32 use_nodes)
 {
     export_hook(0x5209D0);
+
+    ArAssert(!initialized_, "Allocator already initialized");
+    ArAssert(use_nodes, "Linear allocator not supported");
 
     heap_ = static_cast<u8*>(heap);
     heap_size_ = heap_size;
     heap_offset_ = 0;
-    initialized_ = true;
     use_nodes_ = use_nodes;
     last_ = nullptr;
 
-    ArAssert(use_nodes, "Linear allocator not supported");
-
     if (use_nodes)
         std::memset(buckets_, 0, sizeof(buckets_));
+
+    initialized_ = true;
 }
 
 void asMemoryAllocator::Kill()
