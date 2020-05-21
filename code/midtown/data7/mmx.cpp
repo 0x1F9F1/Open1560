@@ -20,12 +20,26 @@ define_dummy_symbol(data7_mmx);
 
 #include "mmx.h"
 
-initHaveMMX::initHaveMMX()
-{
-    unimplemented();
-}
+#include <intrin.h>
 
 static i32 cpuid()
 {
-    return stub<cdecl_t<i32>>(0x57C400);
+    int values[4];
+    __cpuid(values, 1);
+    return values[3];
+}
+
+initHaveMMX::initHaveMMX()
+{
+    export_hook(0x57C410);
+
+    i32 flags = cpuid();
+
+    HavePPro = (flags >> 15) & 1;
+
+    HaveMMX = (flags >> 23) & 1;
+    UseMMX = HaveMMX;
+
+    HaveKNI = (flags >> 25) & 1;
+    UseKNI = HaveKNI;
 }

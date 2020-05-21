@@ -37,19 +37,19 @@ public:
     initHaveMMX();
 };
 
-check_size(initHaveMMX, 0x0);
+check_size(initHaveMMX, 0x1);
 
 // 0x90B4AC | ?HaveKNI@@3HA
-inline extern_var(0x90B4AC, i32, HaveKNI);
+inline extern_var(0x90B4AC, b32, HaveKNI);
 
 // 0x90B4B0 | ?HaveMMX@@3HA
-inline extern_var(0x90B4B0, i32, HaveMMX);
+inline extern_var(0x90B4B0, b32, HaveMMX);
 
 // 0x90B4A8 | ?HavePPro@@3HA
-inline extern_var(0x90B4A8, i32, HavePPro);
+inline extern_var(0x90B4A8, b32, HavePPro);
 
 // 0x90B4A0 | ?UseKNI@@3HA
-inline extern_var(0x90B4A0, i32, UseKNI);
+inline extern_var(0x90B4A0, b32, UseKNI);
 
 // 0x90B4A4 | ?UseMMX@@3HA
-inline extern_var(0x90B4A4, i32, UseMMX);
+inline extern_var(0x90B4A4, b32, UseMMX);

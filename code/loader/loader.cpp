@@ -262,7 +262,7 @@ include_dummy_symbol(data7_machname);
 include_dummy_symbol(data7_metaclass);
 include_dummy_symbol(data7_metatype);
 // include_dummy_symbol(data7_miniparser);
-// include_dummy_symbol(data7_mmx);
+include_dummy_symbol(data7_mmx);
 // include_dummy_symbol(data7_pager);
 // include_dummy_symbol(data7_perfstat);
 include_dummy_symbol(data7_printer);
