@@ -152,6 +152,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         create_patch("AutoDetect", "Additive Blending Check", 0x49994B, "\xEB\x05", 2);
         create_patch("SetTexQualString", "Additive Blending Check", 0x49A29F, "\x90\x90", 2);
 
+        create_patch("agiD3DTexDef::BeginGfx", "Clear DDSD_PITCH", 0x531B33, "\x24\xD7", 2);
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();
