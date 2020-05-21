@@ -44,8 +44,8 @@ arts_component "agi"
         -- "rsys.h",
         -- "smap.cpp",
         -- "smap.h",
-        -- "surface.cpp",
-        -- "surface.h",
+        "surface.cpp",
+        "surface.h",
         -- "texdef.cpp",
         -- "texdef.h",
         -- "texlib.cpp",
@@ -53,4 +53,3 @@ arts_component "agi"
         -- "viewport.cpp",
         -- "viewport.h",
     }
-

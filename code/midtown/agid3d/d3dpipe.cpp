@@ -135,6 +135,11 @@ static i32 __stdcall EnumTextureCallback(struct _DDPIXELFORMAT* arg1, void* arg2
     return stub<stdcall_t<i32, struct _DDPIXELFORMAT*, void*>>(0x5308B0, arg1, arg2);
 }
 
+static i32 __stdcall EnumZ(struct _DDPIXELFORMAT* arg1, void* arg2)
+{
+    return stub<stdcall_t<i32, struct _DDPIXELFORMAT*, void*>>(0x530980, arg1, arg2);
+}
+
 agiD3DTexLut::~agiD3DTexLut()
 {
     unimplemented();

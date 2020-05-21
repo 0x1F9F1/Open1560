@@ -135,8 +135,6 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("Heap Size", "Increase Heap Size", 0x401E11, "\xb8\x00\x00\x00\x08", 5); // mov eax, 0x8000000
 
-        create_patch("agiSurfaceDesc::CopyFrom", "Fix Input Pitch Calculation", 0x55B18E, "\x8b\x4f\x54", 3);
-
         create_patch("mmLoader::Update", "Enable Task String", 0x48BA2D, "\x90\x90", 2);
         create_patch("mmLoader::Update", "Enable Task String", 0x48BA4B, "\x90\x90", 2);
         create_patch("mmLoader::Init", "Enable Text Transparency", 0x48B766 + 1, "\x01", 1);
@@ -147,6 +145,12 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
             // operator new(4 * pmxl.cChannels) -> operator new(4 * (pmxl.cChannels + 2))
             create_patch("MixerCT", "Fix paDetails allocation", address + 3, "\x08", 1);
         }
+
+        create_patch("agiDDPipeline::CopyBitmap", "Disable Manual Blit", 0x005330AE, "\xE9\x8B\x00\x00\x00\x90", 6);
+
+        create_patch("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, "\xEB\x06", 2);
+        create_patch("AutoDetect", "Additive Blending Check", 0x49994B, "\xEB\x05", 2);
+        create_patch("SetTexQualString", "Additive Blending Check", 0x49A29F, "\x90\x90", 2);
 
         Displayf("Begin Init Functions");
 
@@ -186,7 +190,7 @@ include_dummy_symbol(midtown);
 // include_dummy_symbol(agi_render);
 // include_dummy_symbol(agi_rsys);
 // include_dummy_symbol(agi_smap);
-// include_dummy_symbol(agi_surface);
+include_dummy_symbol(agi_surface);
 // include_dummy_symbol(agi_texdef);
 // include_dummy_symbol(agi_texlib);
 // include_dummy_symbol(agi_viewport);

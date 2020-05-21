@@ -39,11 +39,40 @@
     0x55B8E0 | void __cdecl copyrow4444_to_5551(void *,void *,unsigned int,unsigned int) | ?copyrow4444_to_5551@@YAXPAX0II@Z
 */
 
-class agiSurfaceDesc
+struct agiColorKey
+{
+    u32 dwColorSpaceLowValue {0};
+    u32 dwColorSpaceHighValue {0};
+};
+
+struct agiPixelFormat
+{
+    u32 dwSize {0};
+    u32 dwFlags {0};
+    u32 dwFourCC {0};
+    u32 dwRGBBitCount {0};
+    u32 dwRBitMask {0};
+    u32 dwGBitMask {0};
+    u32 dwBBitMask {0};
+    u32 dwRGBAlphaBitMask {0};
+};
+
+struct agiDDSCAPS2
+{
+    u32 dwCaps {0};
+    u32 dwCaps2 {0};
+    u32 dwCaps3 {0};
+    u32 dwCaps4 {0};
+};
+
+#define AGISD_HEIGHT 0x00000002l
+#define AGISD_WIDTH 0x00000004l
+
+class agiSurfaceDesc // DDSURFACEDESC2
 {
 public:
     // 0x55B180 | ?CopyFrom@agiSurfaceDesc@@QAEXPAV1@H@Z
-    void CopyFrom(class agiSurfaceDesc* arg1, i32 arg2);
+    void CopyFrom(class agiSurfaceDesc* src, i32 lod);
 
     // 0x55ADE0 | ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
     void Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class Stream* arg5, i32 arg6, i32 arg7);
@@ -52,13 +81,37 @@ public:
     void Unload();
 
     // 0x55A720 | ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
-    static class agiSurfaceDesc* Init(i32 arg1, i32 arg2, class agiSurfaceDesc& arg3);
+    static class agiSurfaceDesc* Init(i32 width, i32 height, class agiSurfaceDesc& desc);
 
     // 0x55A7A0 | ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
     static class agiSurfaceDesc* Load(char* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);
+
+    u32 dwSize {0};
+    u32 dwFlags {0};
+    u32 dwHeight {0};
+    u32 dwWidth {0};
+    i32 lPitch {0};
+    u32 dwBackBufferCount {0};
+    u32 dwMipMapCount {0};
+    u32 dwAlphaBitDepth {0};
+
+    union
+    {
+        struct agiTexLut* lpLut {0};
+        char szLut[4];
+    };
+
+    void* lpSurface {nullptr};
+    agiColorKey ddckCKDestOverlay {};
+    agiColorKey ddckCKDestBlt {};
+    agiColorKey ddckCKSrcOverlay {};
+    agiColorKey ddckCKSrcBlt {};
+    agiPixelFormat ddpfPixelFormat {};
+    agiDDSCAPS2 ddsCaps {};
+    u32 dwTextureStage {0};
 };
 
-check_size(agiSurfaceDesc, 0x0);
+check_size(agiSurfaceDesc, 0x7C);
 
 // 0x903190 | ?AnnotateTextures@@3HA
 inline extern_var(0x903190, i32, AnnotateTextures);

@@ -41,6 +41,10 @@ struct dxiRendererInfo_t
     i32 bMultiTexture;
     i32 bTexturePalette;
     i32 bHaveMipmaps;
+
+    // 0x2 | TextureQuality = 0, FogDistance = 450
+    // 0x4 | PixelFog
+    // 0x8 | agiMeshSet::HalfHeight *= 1.01
     i32 uSpecialFlags;
     char Name[64];
     GUID InterfaceGuid;
@@ -109,9 +113,14 @@ static i32 __stdcall EnumTextures(struct _DDPIXELFORMAT* arg1, void* arg2)
     return stub<stdcall_t<i32, struct _DDPIXELFORMAT*, void*>>(0x576470, arg1, arg2);
 }
 
-static i32 __stdcall EnumZ(struct _DDPIXELFORMAT* arg1, void* arg2)
+i32 __stdcall EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
 {
-    return stub<stdcall_t<i32, struct _DDPIXELFORMAT*, void*>>(0x530980, arg1, arg2);
+    export_hook(0x575FD0);
+
+    if (ddpf->dwRGBBitCount == 32)
+        std::memcpy(ctx, ddpf, sizeof(*ddpf));
+
+    return 1;
 }
 
 static void EnumerateRenderers2()

@@ -1,6 +1,6 @@
 include "core"
 
--- include "agi"
+include "agi"
 -- include "agid3d"
 -- include "agirend"
 -- include "agisw"
@@ -42,7 +42,7 @@ arts_component "midtown"
     links {
         "arts_core",
 
-        -- "arts_agi",
+        "arts_agi",
         -- "arts_agid3d",
         -- "arts_agirend",
         -- "arts_agisw",
