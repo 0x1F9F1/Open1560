@@ -191,7 +191,7 @@ public:
 
 check_size(aiVehicleInstance, 0x0);
 
-class aiVehicleActive : public asNode
+class aiVehicleActive : public mmPhysEntity
 {
     // const aiVehicleActive::`vftable' @ 0x61B850
 
@@ -203,26 +203,26 @@ public:
     // 0x452450 | ??1aiVehicleActive@@UAE@XZ
     ~aiVehicleActive() override;
 
-    // 0x452950 | ?PostUpdate@aiVehicleActive@@UAEXXZ
-    virtual void PostUpdate();
-
-    // 0x453BA0 | ?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ
-    virtual class asBound* GetBound();
-
-    // 0x453BB0 | ?GetICS@aiVehicleActive@@UAEPAVasInertialCS@@XZ
-    virtual class asInertialCS* GetICS();
-
-    // 0x4526F0 | ?DetachMe@aiVehicleActive@@UAEXXZ
-    virtual void DetachMe();
-
     // 0x452540 | ?Attach@aiVehicleActive@@QAEXPAVaiVehicleInstance@@@Z
     void Attach(class aiVehicleInstance* arg1);
 
     // 0x452710 | ?Detach@aiVehicleActive@@QAEXXZ
     void Detach();
 
+    // 0x4526F0 | ?DetachMe@aiVehicleActive@@UAEXXZ
+    void DetachMe() override;
+
+    // 0x453BA0 | ?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ
+    class asBound* GetBound() override;
+
+    // 0x453BB0 | ?GetICS@aiVehicleActive@@UAEPAVasInertialCS@@XZ
+    class asInertialCS* GetICS() override;
+
     // 0x4521A0 | ?Init@aiVehicleActive@@QAEXPAD@Z
     void Init(char* arg1);
+
+    // 0x452950 | ?PostUpdate@aiVehicleActive@@UAEXXZ
+    void PostUpdate() override;
 
     // 0x4528E0 | ?Update@aiVehicleActive@@UAEXXZ
     void Update() override;

@@ -48,8 +48,9 @@
 */
 
 #include "arts7/node.h"
+#include "mmai/aiVehicleMGR.h"
 
-class mmBangerActive : public asNode
+class mmBangerActive : public mmPhysEntity
 {
     // const mmBangerActive::`vftable' @ 0x61F800
 
@@ -61,23 +62,23 @@ public:
     // 0x4CAFC0 | ??1mmBangerActive@@UAE@XZ
     ~mmBangerActive() override;
 
-    // 0x4CB350 | ?PostUpdate@mmBangerActive@@UAEXXZ
-    virtual void PostUpdate();
-
-    // 0x4CB7B0 | ?GetBound@mmBangerActive@@UAEPAVasBound@@XZ
-    virtual class asBound* GetBound();
-
-    // 0x4CB7C0 | ?GetICS@mmBangerActive@@UAEPAVasInertialCS@@XZ
-    virtual class asInertialCS* GetICS();
-
-    // 0x4CB280 | ?DetachMe@mmBangerActive@@UAEXXZ
-    virtual void DetachMe();
-
     // 0x4CB030 | ?Attach@mmBangerActive@@QAEXPAVmmBangerInstance@@@Z
     void Attach(class mmBangerInstance* arg1);
 
     // 0x4CB220 | ?Detach@mmBangerActive@@QAEXXZ
     void Detach();
+
+    // 0x4CB280 | ?DetachMe@mmBangerActive@@UAEXXZ
+    void DetachMe() override;
+
+    // 0x4CB7B0 | ?GetBound@mmBangerActive@@UAEPAVasBound@@XZ
+    class asBound* GetBound() override;
+
+    // 0x4CB7C0 | ?GetICS@mmBangerActive@@UAEPAVasInertialCS@@XZ
+    class asInertialCS* GetICS() override;
+
+    // 0x4CB350 | ?PostUpdate@mmBangerActive@@UAEXXZ
+    void PostUpdate() override;
 
     // 0x4CB2A0 | ?Update@mmBangerActive@@UAEXXZ
     void Update() override;

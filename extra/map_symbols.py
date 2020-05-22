@@ -1078,6 +1078,11 @@ class_hier = compute_hierarchy(class_hier, {
     'aiGoalRandomDrive': ['aiGoal'],
     'aiGoalRegainRail': ['aiGoal'],
     'aiGoalStop': ['aiGoal'],
+
+    'aiVehicleActive': ['mmPhysEntity'],
+    'mmCar': ['mmPhysEntity'],
+    'mmTrailer': ['mmPhysEntity'],
+    'mmBangerActive': ['mmPhysEntity'],
 }, {
     'Timer',
     'Callback'
@@ -1147,7 +1152,10 @@ for lib, paths in grouped_symbols.items():
     # if lib not in {}:
     #     continue
 
-    if lib in {'test', 'agiworld:meshrend', 'agiworld:texsort', 'arts7:camera', 'arts7:cullable', 'arts7:node', 'data7:base', 'data7:machname', 'data7:metaclass', 'data7:metatype', 'data7:printer', 'data7:quitf', 'data7:timer', 'memory:allocator', 'memory:stack', 'memory:stub', 'memory:valloc', 'mmcity:loader', 'mmeffects:mmtext', 'pcwindis:dxinit', 'pcwindis:dxsetup', 'vector7:vector3'}:
+    if lib == 'test':
+        continue
+
+    if lib in {'agi:surface','agiworld:meshrend','agiworld:texsort','arts7:camera','arts7:cullable','arts7:node','data7:base','data7:callback','data7:machname','data7:metaclass','data7:metatype','data7:mmx','data7:printer','data7:quitf','data7:speed','data7:timer','memory:allocator','memory:stack','memory:stub','memory:valloc','mmcity:loader','mmeffects:mmtext','pcwindis:dxinit','pcwindis:dxsetup','vector7:vector3'}:
         continue
 
     lib_header = ''

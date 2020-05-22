@@ -142,9 +142,19 @@ aiVehicleActive::~aiVehicleActive()
     unimplemented();
 }
 
-void aiVehicleActive::PostUpdate()
+void aiVehicleActive::Attach(class aiVehicleInstance* arg1)
 {
-    return stub<thiscall_t<void, aiVehicleActive*>>(0x452950, this);
+    return stub<thiscall_t<void, aiVehicleActive*, class aiVehicleInstance*>>(0x452540, this, arg1);
+}
+
+void aiVehicleActive::Detach()
+{
+    return stub<thiscall_t<void, aiVehicleActive*>>(0x452710, this);
+}
+
+void aiVehicleActive::DetachMe()
+{
+    return stub<thiscall_t<void, aiVehicleActive*>>(0x4526F0, this);
 }
 
 class asBound* aiVehicleActive::GetBound()
@@ -157,24 +167,14 @@ class asInertialCS* aiVehicleActive::GetICS()
     return stub<thiscall_t<class asInertialCS*, aiVehicleActive*>>(0x453BB0, this);
 }
 
-void aiVehicleActive::DetachMe()
-{
-    return stub<thiscall_t<void, aiVehicleActive*>>(0x4526F0, this);
-}
-
-void aiVehicleActive::Attach(class aiVehicleInstance* arg1)
-{
-    return stub<thiscall_t<void, aiVehicleActive*, class aiVehicleInstance*>>(0x452540, this, arg1);
-}
-
-void aiVehicleActive::Detach()
-{
-    return stub<thiscall_t<void, aiVehicleActive*>>(0x452710, this);
-}
-
 void aiVehicleActive::Init(char* arg1)
 {
     return stub<thiscall_t<void, aiVehicleActive*, char*>>(0x4521A0, this, arg1);
+}
+
+void aiVehicleActive::PostUpdate()
+{
+    return stub<thiscall_t<void, aiVehicleActive*>>(0x452950, this);
 }
 
 void aiVehicleActive::Update()

@@ -30,9 +30,19 @@ mmBangerActive::~mmBangerActive()
     unimplemented();
 }
 
-void mmBangerActive::PostUpdate()
+void mmBangerActive::Attach(class mmBangerInstance* arg1)
 {
-    return stub<thiscall_t<void, mmBangerActive*>>(0x4CB350, this);
+    return stub<thiscall_t<void, mmBangerActive*, class mmBangerInstance*>>(0x4CB030, this, arg1);
+}
+
+void mmBangerActive::Detach()
+{
+    return stub<thiscall_t<void, mmBangerActive*>>(0x4CB220, this);
+}
+
+void mmBangerActive::DetachMe()
+{
+    return stub<thiscall_t<void, mmBangerActive*>>(0x4CB280, this);
 }
 
 class asBound* mmBangerActive::GetBound()
@@ -45,19 +55,9 @@ class asInertialCS* mmBangerActive::GetICS()
     return stub<thiscall_t<class asInertialCS*, mmBangerActive*>>(0x4CB7C0, this);
 }
 
-void mmBangerActive::DetachMe()
+void mmBangerActive::PostUpdate()
 {
-    return stub<thiscall_t<void, mmBangerActive*>>(0x4CB280, this);
-}
-
-void mmBangerActive::Attach(class mmBangerInstance* arg1)
-{
-    return stub<thiscall_t<void, mmBangerActive*, class mmBangerInstance*>>(0x4CB030, this, arg1);
-}
-
-void mmBangerActive::Detach()
-{
-    return stub<thiscall_t<void, mmBangerActive*>>(0x4CB220, this);
+    return stub<thiscall_t<void, mmBangerActive*>>(0x4CB350, this);
 }
 
 void mmBangerActive::Update()
