@@ -152,7 +152,16 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         create_patch("AutoDetect", "Additive Blending Check", 0x49994B, "\xEB\x05", 2);
         create_patch("SetTexQualString", "Additive Blending Check", 0x49A29F, "\x90\x90", 2);
 
+        // Checked in GetPackedTexture, only necessary if agiRQ.TextureQuality <= 2
+        // create_patch("aiVehicleOpponent::Init", "agiRQ.TextureQuality", 0x44DC2A, "\xEB\x06", 2);
+
         create_patch("agiD3DTexDef::BeginGfx", "Clear DDSD_PITCH", 0x531B33, "\x24\xD7", 2);
+
+        create_patch("CACHE", "Capacity", 0x4029DA + 1, "\x00\x10\x00\x00", 4);
+        create_patch("CACHE", "HeapSize", 0x4029DF + 1, "\x00\x00\x20\x00", 4);
+
+        create_patch("TEXCACHE", "Capacity", 0x4029F3 + 1, "\x00\x02\x00\x00", 4);
+        create_patch("TEXCACHE", "HeapSize", 0x4029F8 + 1, "\x00\x00\x00\x02", 4);
 
         Displayf("Begin Init Functions");
 
