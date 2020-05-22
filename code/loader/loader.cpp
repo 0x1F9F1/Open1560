@@ -163,6 +163,13 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         create_patch("TEXCACHE", "Capacity", 0x4029F3 + 1, "\x00\x02\x00\x00", 4);
         create_patch("TEXCACHE", "HeapSize", 0x4029F8 + 1, "\x00\x00\x00\x02", 4);
 
+        if (false) // Hack, replaces 16-bit handler with 32-bit handler
+        {
+            create_patch("mmCullCity::UpdateSnowTextures", "32-bit snow", 0x48D419, "\x83\x79\x04\x04", 4);
+            create_patch("mmCullCity::UpdateSnowTextures", "32-bit snow", 0x48D439, "\x8D\x04\xBA", 3);
+            create_patch("mmCullCity::UpdateSnowTextures", "32-bit snow", 0x48D47E, "\x8B\x00\x89\x04\x93\x90\x90", 7);
+        }
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();
