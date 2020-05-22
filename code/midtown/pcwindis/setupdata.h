@@ -32,6 +32,54 @@
     0x575090 | void __cdecl guidtostr(char *,struct _GUID *) | ?guidtostr@@YAXPADPAU_GUID@@@Z
 */
 
+#include <guiddef.h>
+
+struct dxiResolution
+{
+    u16 uWidth;
+    u16 uHeight;
+    u32 uTexMem;
+};
+
+check_size(dxiResolution, 8);
+
+struct dxiRendererInfo_t
+{
+    b32 Valid;
+    i32 CurrentIndex;
+    i32 Hardware2;
+    i32 field_C;
+    b32 SmoothAlpha;
+    b32 AdditiveBlending;
+    b32 VertexFog;
+    b32 MultiTexture;
+    b32 TexturePalette;
+    b32 HaveMipmaps;
+
+    // 0x2 | TextureQuality = 0, FogDistance = 450
+    // 0x4 | PixelFog
+    // 0x8 | agiMeshSet::HalfHeight *= 1.01
+    u32 uSpecialFlags;
+    char Name[64];
+    GUID InterfaceGuid;
+    GUID DriverGuid;
+
+    // 0 | None
+    // 1 | Software
+    // 2 | Hardware
+    i32 Type;
+    dxiResolution Resolutions[32];
+    i32 ResCount;
+    i32 ResChoice;
+
+    bool IsHardware() const
+    {
+        return Type == 2;
+    }
+};
+
+check_size(dxiRendererInfo_t, 0x198);
+
 // 0x574B00 | ?dxiReadConfigFile@@YAHXZ
 i32 dxiReadConfigFile();
 
@@ -45,10 +93,15 @@ i32 dxiResGetRecommended(i32 arg1, i32 arg2);
 void dxiWriteConfigFile();
 
 // 0x909680 | ?dxiInfo@@3PAUdxiRendererInfo_t@@A
-inline extern_var(0x909680, struct dxiRendererInfo_t*, dxiInfo);
+inline extern_var(0x909680, struct dxiRendererInfo_t[8], dxiInfo);
 
 // 0x661380 | ?dxiRendererChoice@@3HA
 inline extern_var(0x661380, i32, dxiRendererChoice);
 
 // 0x90A350 | ?dxiRendererCount@@3HA
 inline extern_var(0x90A350, i32, dxiRendererCount);
+
+inline dxiRendererInfo_t& GetRendererInfo()
+{
+    return dxiInfo[dxiRendererChoice];
+}

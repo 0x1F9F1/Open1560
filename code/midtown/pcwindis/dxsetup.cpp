@@ -19,43 +19,7 @@
 define_dummy_symbol(pcwindis_dxsetup);
 
 #include "dxsetup.h"
-
-struct dxiResolution
-{
-    u16 uWidth;
-    u16 uHeight;
-    u32 uTexMem;
-};
-
-check_size(dxiResolution, 8);
-
-struct dxiRendererInfo_t
-{
-    b32 Valid;
-    i32 CurrentIndex;
-    i32 Hardware2;
-    i32 field_C;
-    i32 bSmoothAlpha;
-    i32 bAdditiveBlending;
-    i32 bVertexFog;
-    i32 bMultiTexture;
-    i32 bTexturePalette;
-    i32 bHaveMipmaps;
-
-    // 0x2 | TextureQuality = 0, FogDistance = 450
-    // 0x4 | PixelFog
-    // 0x8 | agiMeshSet::HalfHeight *= 1.01
-    i32 uSpecialFlags;
-    char Name[64];
-    GUID InterfaceGuid;
-    GUID DriverGuid;
-    u32 Type;
-    dxiResolution Resolutions[32];
-    i32 ResCount;
-    u32 ResolutionIndex;
-};
-
-check_size(dxiRendererInfo_t, 0x198);
+#include "setupdata.h"
 
 static mem::cmd_param PARAM_min_aspect {"minaspect"};
 static mem::cmd_param PARAM_max_aspect {"maxaspect"};

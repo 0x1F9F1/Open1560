@@ -20,17 +20,91 @@ define_dummy_symbol(pcwindis_pcwindis);
 
 #include "pcwindis.h"
 
-i32 __stdcall MasterWindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4)
+#include "eventq7/dispatchable.h"
+
+struct MapEntry
 {
-    return stub<stdcall_t<i32, struct HWND__*, u32, u32, i32>>(0x5765F0, arg1, arg2, arg3, arg4);
+    const char* Name;
+    u32* Msgs;
+    i32 NumMsgs;
+    Dispatchable* Handler;
+};
+
+static constexpr usize MAX_MAP_ENTRIES = 16;
+
+static MapEntry MapEntries[MAX_MAP_ENTRIES] {};
+static i32 NumMapEntries = 0;
+
+LRESULT __stdcall MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    export_hook(0x5765F0);
+
+    for (i32 i = NumMapEntries; i > 0; --i)
+    {
+        MapEntry& entry = MapEntries[i - 1];
+
+        for (i32 j = 0; j < entry.NumMsgs; ++j)
+        {
+            if (entry.Msgs[j] == uMsg)
+                return entry.Handler->WindowProc(hwnd, uMsg, wParam, lParam);
+        }
+    }
+
+    return DefWindowProcA(hwnd, uMsg, wParam, lParam);
 }
 
-void RegisterMap(char* arg1, u32* arg2, i32 arg3, class Dispatchable* arg4)
+void RegisterMap(const char* name, u32* msgs, i32 num_msgs, class Dispatchable* handler)
 {
-    return stub<cdecl_t<void, char*, u32*, i32, class Dispatchable*>>(0x576670, arg1, arg2, arg3, arg4);
+    export_hook(0x576670);
+
+    if (NumMapEntries == MAX_MAP_ENTRIES)
+    {
+        Errorf("Out of maps in NumMapEntries");
+        return;
+    }
+
+    for (i32 i = 0; i < num_msgs; ++i)
+    {
+        for (i32 j = 0; j < NumMapEntries; ++j)
+        {
+            MapEntry& entry = MapEntries[j];
+
+            for (i32 k = 0; k < entry.NumMsgs; ++k)
+            {
+                if (entry.Msgs[k] == msgs[i])
+                    Warningf("'%s' message %d hides '%s' version!", name, msgs[i], entry.Name);
+            }
+        }
+    }
+
+    MapEntry& entry = MapEntries[NumMapEntries++];
+
+    entry.Name = name;
+    entry.Msgs = msgs;
+    entry.NumMsgs = num_msgs;
+    entry.Handler = handler;
 }
 
-void UnregisterMap(char* arg1)
+void UnregisterMap(const char* name)
 {
-    return stub<cdecl_t<void, char*>>(0x576750, arg1);
+    export_hook(0x576750);
+
+    for (i32 i = 0; i < NumMapEntries; ++i)
+    {
+        MapEntry& entry = MapEntries[i];
+
+        if (std::strcmp(name, entry.Name))
+            continue;
+
+        --NumMapEntries;
+
+        for (; i < NumMapEntries; ++i)
+            MapEntries[i] = MapEntries[i + 1];
+
+        MapEntries[i] = {};
+
+        return;
+    }
+
+    Errorf("Map '%s' not found in UnregisterMap", name);
 }

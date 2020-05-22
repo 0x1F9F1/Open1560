@@ -18,16 +18,12 @@
 
 #pragma once
 
-/*
-    data7:speed
+#include "core/minwin.h"
 
-    0x57CE90 | unsigned int __cdecl __ComputeCpuSpeed(void) | ?__ComputeCpuSpeed@@YAIXZ
-    0x57CF50 | unsigned int __cdecl ComputeCpuSpeed(void) | ?ComputeCpuSpeed@@YAIXZ
-    0x57CF40 | unsigned int __cdecl rdtsc(void) | ?rdtsc@@YAIXZ
-*/
+class Dispatchable
+{
+public:
+    virtual i32 WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) = 0;
+};
 
-// 0x57CF50 | ?ComputeCpuSpeed@@YAIXZ
-u32 ComputeCpuSpeed();
-
-// 0x57CE90 | ?__ComputeCpuSpeed@@YAIXZ
-// u32 __ComputeCpuSpeed();
+check_size(Dispatchable, 0x4);

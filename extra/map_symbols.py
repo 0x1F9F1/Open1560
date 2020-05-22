@@ -621,6 +621,10 @@ def backport_vftable_purecalls(raw_vftables, hiers, overrides):
                     new_symbol.undec_name = None
                     new_symbol.raw_name = '__purecall'
                     new_symbol.parts = parent.split('::') + new_symbol.parts[-1:]
+
+                    if new_symbol.visibility == 'private':
+                        new_symbol.visibility = 'public'
+
                     parent_table[i] = new_symbol
 
                     changed = True
@@ -1014,6 +1018,10 @@ if True:
 else:
     class_sizes = {}
 
+class_sizes.extend({
+    'mmVoiceCommentary': 0x158,
+})
+
 # print(class_sizes)
 
 # print(class_hier)
@@ -1155,7 +1163,7 @@ for lib, paths in grouped_symbols.items():
     if lib == 'test':
         continue
 
-    if lib in {'agi:surface','agiworld:meshrend','agiworld:texsort','arts7:camera','arts7:cullable','arts7:node','data7:base','data7:callback','data7:machname','data7:metaclass','data7:metatype','data7:mmx','data7:printer','data7:quitf','data7:speed','data7:timer','memory:allocator','memory:stack','memory:stub','memory:valloc','mmcity:loader','mmeffects:mmtext','pcwindis:dxinit','pcwindis:dxsetup','vector7:vector3'}:
+    if lib in {'midtown','agi:surface','agiworld:meshrend','agiworld:texsort','arts7:camera','arts7:cullable','arts7:node','data7:base','data7:callback','data7:machname','data7:metaclass','data7:metatype','data7:mmx','data7:printer','data7:quitf','data7:speed','data7:timer','memory:allocator','memory:stack','memory:stub','memory:valloc','mmcity:loader','mmeffects:mmtext','pcwindis:dxinit','pcwindis:dxsetup','pcwindis:pcwindis','pcwindis:setupdata','vector7:vector3'}:
         continue
 
     lib_header = ''

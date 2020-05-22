@@ -10,5 +10,6 @@ arts_component "eventq7"
         -- "replay.h",
         -- "winevent.cpp",
         -- "winevent.h",
-    }
 
+        "dispatchable.h",
+    }

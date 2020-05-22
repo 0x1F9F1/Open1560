@@ -26,11 +26,13 @@
     0x576750 | void __cdecl UnregisterMap(char *) | ?UnregisterMap@@YAXPAD@Z
 */
 
+#include "core/minwin.h"
+
 // 0x5765F0 | ?MasterWindowProc@@YGJPAUHWND__@@IIJ@Z
-i32 __stdcall MasterWindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4);
+LRESULT __stdcall MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 // 0x576670 | ?RegisterMap@@YAXPADPAIHPAVDispatchable@@@Z
-void RegisterMap(char* arg1, u32* arg2, i32 arg3, class Dispatchable* arg4);
+void RegisterMap(const char* name, u32* msgs, i32 num_msgs, class Dispatchable* handler);
 
 // 0x576750 | ?UnregisterMap@@YAXPAD@Z
-void UnregisterMap(char* arg1);
+void UnregisterMap(const char* name);

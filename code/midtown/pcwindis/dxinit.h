@@ -82,13 +82,18 @@ void dxiSetDisplayMode();
 void dxiShutdown();
 
 // 0x573B80 | ?dxiWindowCreate@@YAXPAD@Z
-void dxiWindowCreate(char* arg1);
+void dxiWindowCreate(const char* title);
 
 // 0x660F18 | ?dxiDepth@@3HA
 inline extern_var(0x660F18, i32, dxiDepth);
 
 // 0x660F1C | ?dxiFlags@@3HA
 inline extern_var(0x660F1C, i32, dxiFlags);
+
+inline bool dxiIsFullScreen()
+{
+    return (dxiFlags & 0x1);
+}
 
 // 0x660F14 | ?dxiHeight@@3HA
 inline extern_var(0x660F14, i32, dxiHeight);

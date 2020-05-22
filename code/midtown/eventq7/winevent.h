@@ -46,6 +46,8 @@
 
 #include "event.h"
 
+#include "dispatchable.h"
+
 struct WINEventHandler
     : eqEventHandler
     , Dispatchable /* Warning: Unordered Multiple Inheritance */
@@ -106,13 +108,3 @@ inline extern_var(0x908C38, i32, InitialCursorState);
 
 // 0x908C48 | ?eqRestoreFlag@@3HA
 inline extern_var(0x908C48, i32, eqRestoreFlag);
-
-class Dispatchable
-{
-    // const Dispatchable::`vftable' @ 0x621A9C
-
-private:
-    virtual i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) = 0;
-};
-
-check_size(Dispatchable, 0x0);

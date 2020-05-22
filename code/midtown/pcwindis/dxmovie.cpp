@@ -20,7 +20,9 @@ define_dummy_symbol(pcwindis_dxmovie);
 
 #include "dxmovie.h"
 
-void dxiPlayMovie(char* arg1)
+void dxiPlayMovie(const char* path)
 {
-    return stub<cdecl_t<void, char*>>(0x575100, arg1);
+    export_hook(0x575100);
+
+    Displayf("Skipping movie '%s'", path);
 }
