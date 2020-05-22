@@ -608,10 +608,10 @@ include_dummy_symbol(mmeffects_mmtext);
 // include_dummy_symbol(mmwidget_wstore);
 
 include_dummy_symbol(pcwindis_dxinit);
-// include_dummy_symbol(pcwindis_dxmovie);
+include_dummy_symbol(pcwindis_dxmovie);
 include_dummy_symbol(pcwindis_dxsetup);
-// include_dummy_symbol(pcwindis_pcwindis);
-// include_dummy_symbol(pcwindis_setupdata);
+include_dummy_symbol(pcwindis_pcwindis);
+include_dummy_symbol(pcwindis_setupdata);
 
 // include_dummy_symbol(stream_filestream);
 // include_dummy_symbol(stream_fsystem);
