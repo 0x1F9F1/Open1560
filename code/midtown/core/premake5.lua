@@ -11,4 +11,6 @@ arts_component "core"
 
         "string.h",
         "string.cpp"
+
+        "pointer.h"
     }

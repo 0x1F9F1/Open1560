@@ -105,6 +105,8 @@ private:
     char* data_ {nullptr};
 };
 
+static_assert(sizeof(CString) == sizeof(char*));
+
 template <usize N>
 class CStringBuffer
 {

@@ -254,7 +254,13 @@ void agiSurfaceDesc::Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class St
 
 void agiSurfaceDesc::Unload()
 {
-    return stub<thiscall_t<void, agiSurfaceDesc*>>(0x55B160, this);
+    export_hook(0x55B160);
+
+    if (lpSurface)
+    {
+        delete[] static_cast<u8*>(lpSurface);
+        lpSurface = nullptr;
+    }
 }
 
 class agiSurfaceDesc* agiSurfaceDesc::Init(i32 width, i32 height, class agiSurfaceDesc& desc)

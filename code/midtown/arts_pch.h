@@ -26,8 +26,11 @@
 #define DIRECTSOUND_VERSION DIRECTX_VERSION
 
 #include "core/defines.h"
+
 #include "core/hooking.h"
 #include "core/primitives.h"
+
+#include "core/pointer.h"
 
 #include "core/assert.h"
 

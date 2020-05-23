@@ -91,6 +91,11 @@ public:
         return name_;
     }
 
+    usize GetSize() const
+    {
+        return size_;
+    }
+
     MetaClass* GetParent() const
     {
         return parent_;
