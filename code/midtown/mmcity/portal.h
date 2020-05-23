@@ -113,7 +113,7 @@ public:
     static inline extern_var(0x705714, u16, VisitTag);
 };
 
-check_size(asPortalWeb, 0x0);
+check_size(asPortalWeb, 0x904C);
 
 // 0x4959B0 | ?LookupCell@@YAPAUasPortalCell@@PAD@Z
 struct asPortalCell* LookupCell(char* arg1);
@@ -147,3 +147,11 @@ public:
 };
 
 check_size(asPortalEdge, 0x30);
+
+class asPortalRenderable
+{
+public:
+    virtual void Cull(i32 arg1) = 0;
+};
+
+check_size(asPortalRenderable, 0x0);

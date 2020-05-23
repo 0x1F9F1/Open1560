@@ -182,7 +182,7 @@ protected:
     void StartXYZ(i32 arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, f32 arg5);
 };
 
-check_size(mmGameMulti, 0x0);
+check_size(mmGameMulti, 0x1EEA8);
 
 // 0x6A77A0 | ?mmGameMultiMetaClass@@3VMetaClass@@A
 inline extern_var(0x6A77A0, class MetaClass, mmGameMultiMetaClass);

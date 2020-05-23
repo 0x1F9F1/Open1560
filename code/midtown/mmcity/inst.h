@@ -247,7 +247,7 @@ public:
     static inline extern_var(0x705688, void (*)(u8*, u32*, u32*, class agiMeshSet*), StaticLighter);
 };
 
-check_size(mmInstance, 0x0);
+check_size(mmInstance, 0x14);
 
 class mmShearInstance : public mmMatrixInstance
 {
@@ -384,7 +384,7 @@ public:
     static void DeclareFields();
 };
 
-check_size(mmYInstance, 0x0);
+check_size(mmYInstance, 0x2C);
 
 class mmMatrixInstance : public mmInstance
 {

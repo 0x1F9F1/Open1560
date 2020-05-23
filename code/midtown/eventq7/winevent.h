@@ -50,7 +50,7 @@
 
 struct WINEventHandler
     : eqEventHandler
-    , Dispatchable /* Warning: Unordered Multiple Inheritance */
+    , Dispatchable
 {
     // const WINEventHandler::`vftable'{for `Dispatchable'} @ 0x621A78
     // const WINEventHandler::`vftable'{for `eqEventHandler'} @ 0x621A80

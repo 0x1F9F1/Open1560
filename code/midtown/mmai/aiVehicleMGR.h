@@ -189,7 +189,7 @@ public:
     static void DeclareFields();
 };
 
-check_size(aiVehicleInstance, 0x0);
+check_size(aiVehicleInstance, 0x24);
 
 class aiVehicleActive : public mmPhysEntity
 {

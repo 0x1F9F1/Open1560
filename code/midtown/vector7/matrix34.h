@@ -259,7 +259,7 @@ private:
     void ArbitraryRotation(class Vector3 const& arg1, f32 arg2);
 };
 
-check_size(Matrix34, 0x0);
+check_size(Matrix34, 0x30);
 
 // 0x56A7F0 | ??D@YA?AVMatrix34@@MABV0@@Z
 class Matrix34 operator*(f32 arg1, class Matrix34 const& arg2);

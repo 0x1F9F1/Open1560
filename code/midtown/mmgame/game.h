@@ -161,7 +161,7 @@ protected:
     void RespawnXYZ(class Vector3& arg1, f32& arg2);
 };
 
-check_size(mmGame, 0x0);
+check_size(mmGame, 0x1E570);
 
 // 0x6A6FB8 | ?BangerProjectile@@3PAVmmBangerData@@A
 inline extern_var(0x6A6FB8, class mmBangerData*, BangerProjectile);

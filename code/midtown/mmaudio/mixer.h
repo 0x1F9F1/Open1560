@@ -66,8 +66,8 @@ public:
 check_size(VolumeDW, 0x0);
 
 class MixerCTL
-    : public Base
-    , public Dispatchable /* Warning: Unordered Multiple Inheritance */
+    : public Dispatchable
+    , public Base
 {
     // const MixerCTL::`vftable'{for `Base'} @ 0x61FEB8
     // const MixerCTL::`vftable'{for `Dispatchable'} @ 0x61FECC

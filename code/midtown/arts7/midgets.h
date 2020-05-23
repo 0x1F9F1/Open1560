@@ -102,8 +102,8 @@
 #include "cullable.h"
 
 class asMidgets
-    : public asCullable
-    , public Bank /* Warning: Unordered Multiple Inheritance */
+    : public Bank
+    , public asCullable
 {
     // const asMidgets::`vftable'{for `asCullable'} @ 0x620BC0
     // const asMidgets::`vftable'{for `Bank'} @ 0x620BD8

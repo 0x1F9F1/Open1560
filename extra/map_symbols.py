@@ -979,7 +979,8 @@ for sym in [
 print('Grouping symbol libs')
 path_libs = group_stray_symbols(all_symbols)
 path_libs.update({
-    'MetaType': 'data7:metatype'
+    'MetaType': 'data7:metatype',
+    'asPortalRenderable': 'mmcity:portal',
 })
 
 # print(path_libs)
@@ -1018,8 +1019,129 @@ if True:
 else:
     class_sizes = {}
 
-class_sizes.extend({
+class_sizes.update({
+    'AICamCS': 0x120,
     'mmVoiceCommentary': 0x158,
+    'AppCamCS': 0x114,
+    'AudManager': 0xA0,
+    'Base': 0x4,
+    'BaseCamCS': 0x9C,
+    'CarCamCS': 0x118,
+    'EngineAudio': 0x90,
+    'EngineAudioOpponent': 0x54,
+    'Joint3Dof': 0xE0,
+    'Matrix34': 0x30,
+    'PointCamCS': 0x144,
+    'PolarCamCS': 0x130,
+    'PostCamCS': 0x12C,
+    'PovCamCS': 0x144,
+    'PreCamCS': 0x130,
+    'Root': 0x0,
+    'Spline': 0x74,
+    'TextDropWidget': 0x38,
+    'TrackCamCS': 0x324,
+    'UIBMButton': 0xF0,
+    'UIBMLabel': 0xA0,
+    'UIVScrollBar': 0x10C,
+    'VSWidget': 0xD0,
+    'VehGyro': 0x34,
+    'aiGoalFollowWayPts': 0x18C,
+    'aiMap': 0xBC,
+    'aiVehicleData': 0xC0,
+    'aiVehicleInstance': 0x24,
+    'aiVehicleOpponent': 0x23BC,
+    'aiVehicleSpline': 0xD8,
+    'asAero': 0x74,
+    'asBirthRule': 0xB0,
+    'asCamera': 0x18C,
+    'asCullManager': 0x1F8,
+    'asCullable': 0x4,
+    'asDofCS': 0xF8,
+    'asForm': 0xC8,
+    'asInertialCS': 0x1A8,
+    'asLamp': 0x30,
+    'asLinearCS': 0x88,
+    'asNode': 0x20,
+    'asOverSample': 0x30,
+    'asParticles': 0x6C,
+    'asPortalWeb': 0x904C,
+    'asRenderWeb': 0x9178,
+    'asSimulation': 0x2B0,
+    'asViewCS': 0x124,
+    'mmAnimDOF': 0x98,
+    'mmAnimMgr': 0x26B0,
+    'mmAxle': 0x9C,
+    'mmBangerData': 0x134,
+    'mmBangerDataManager': 0x268D0,
+    'mmBoat': 0x3A4,
+    'mmBridgeMgr': 0x2674,
+    'mmBridgeSet': 0x438,
+    'mmBuildingInstance': 0x48,
+    'mmCar': 0x230C,
+    'mmCarModel': 0x110,
+    'mmCarRoadFF': 0x44,
+    'mmCarSim': 0x1FAC,
+    'mmCullCity': 0x34D6C,
+    'mmDashView': 0x880,
+    'mmDrivetrain': 0x48,
+    'mmDropDown': 0xC8,
+    'mmEngine': 0x7C,
+    'mmFacadeInstance': 0x44,
+    'mmForce': 0x2C,
+    'mmGame': 0x1E570,
+    'mmGameEdit': 0x1E738,
+    'mmGameManager': 0x5C,
+    'mmGameMulti': 0x1EEA8,
+    'mmGameSingle': 0x1E5F0,
+    'mmHUD': 0xE94,
+    'mmHudMap': 0x2C8,
+    'mmIODev': 0xA8,
+    'mmInfoBase': 0x88,
+    'mmInput': 0x248,
+    'mmInstance': 0x14,
+    'mmInterface': 0x35830,
+    'mmMapData': 0x90,
+    'mmMatrixInstance': 0x44,
+    'mmMiscData': 0x173C8,
+    'mmMultiBlitz': 0x1EEB8,
+    'mmMultiCR': 0x1EF30,
+    'mmMultiCircuit': 0x1EEB0,
+    'mmMultiRace': 0x1EEB0,
+    'mmNetworkCarAudio': 0xD4,
+    'mmNumber': 0x80,
+    'mmOpponentCarAudio': 0xE0,
+    'mmPed': 0x34,
+    'mmPedManager': 0x2C,
+    'mmPhysicsMGR': 0x224,
+    'mmPlayer': 0x4A98,
+    'mmPlayerCarAudio': 0x100,
+    'mmPlayerConfig': 0x6E30,
+    'mmPlayerData': 0x2178,
+    'mmPlayerDirectory': 0xE4,
+    'mmPlayerRecord': 0xE4,
+    'mmPropInfo': 0x94,
+    'mmRecord': 0x108,
+    'mmRoadSect': 0x6CC,
+    'mmRoadSide': 0x2E0,
+    'mmShard': 0x64,
+    'mmShardManager': 0x54,
+    'mmShearInstance': 0x48,
+    'mmShock': 0x98,
+    'mmSingleBlitz': 0x1E5B8,
+    'mmSingleCircuit': 0x1E600,
+    'mmSkid': 0x48,
+    'mmSkidManager': 0x68,
+    'mmSlider': 0xA4,
+    'mmStaticInstance': 0x38,
+    'mmToggle': 0x38,
+    'mmToggle2': 0x40,
+    'mmTrailer': 0x1204,
+    'mmTransmission': 0xD4,
+    'mmViewCS': 0xC0,
+    'mmWaypointInstance': 0x44,
+    'mmWheel': 0x268,
+    'mmYInstance': 0x2C,
+    'sfPointer': 0x54,
 })
 
 # print(class_sizes)
@@ -1091,6 +1213,8 @@ class_hier = compute_hierarchy(class_hier, {
     'mmCar': ['mmPhysEntity'],
     'mmTrailer': ['mmPhysEntity'],
     'mmBangerActive': ['mmPhysEntity'],
+
+    'mmCellRenderer': ['asPortalRenderable'],
 }, {
     'Timer',
     'Callback'
@@ -1113,6 +1237,7 @@ type_classes.update({
 print('Backporting vftable purecalls')
 vftables = backport_vftable_purecalls(vftables, class_hier, {
     'MetaType':  { None: 5 },
+    'asPortalRenderable': { None: 1 },
 })
 # print(vftables)
 
@@ -1163,7 +1288,7 @@ for lib, paths in grouped_symbols.items():
     if lib == 'test':
         continue
 
-    if lib in {'midtown','agi:surface','agiworld:meshrend','agiworld:texsort','arts7:camera','arts7:cullable','arts7:node','data7:base','data7:callback','data7:machname','data7:metaclass','data7:metatype','data7:mmx','data7:printer','data7:quitf','data7:speed','data7:timer','memory:allocator','memory:stack','memory:stub','memory:valloc','mmcity:loader','mmeffects:mmtext','pcwindis:dxinit','pcwindis:dxsetup','pcwindis:pcwindis','pcwindis:setupdata','vector7:vector3'}:
+    if lib in {'midtown','agi:surface','agiworld:meshrend','agiworld:texsort','arts7:camera','arts7:cullable','arts7:node','data7:base','data7:callback','data7:machname','data7:metaclass','data7:metatype','data7:mmx','data7:printer','data7:quitf','data7:speed','data7:timer','memory:allocator','memory:stack','memory:stub','memory:valloc','mmcity:loader','mmeffects:mmtext','pcwindis:dxinit','pcwindis:dxmovie','pcwindis:dxsetup','pcwindis:pcwindis','pcwindis:setupdata','vector7:vector3'}:
         continue
 
     lib_header = ''

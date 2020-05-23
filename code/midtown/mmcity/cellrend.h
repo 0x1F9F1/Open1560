@@ -37,7 +37,9 @@
     0x7057DC | int CRPass3Only | ?CRPass3Only@@3HA
 */
 
-struct mmCellRenderer
+#include "portal.h"
+
+class mmCellRenderer : public asPortalRenderable
 {
     // const mmCellRenderer::`vftable' @ 0x61D320
 
@@ -49,7 +51,7 @@ public:
     ~mmCellRenderer();
 
     // 0x498FA0 | ?Cull@mmCellRenderer@@UAEXH@Z
-    virtual void Cull(i32 arg1);
+    void Cull(i32 arg1) override;
 
     // 0x4989E0 | ?Init@mmCellRenderer@@QAEXPADHHHHPAH@Z
     void Init(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32* arg6);
