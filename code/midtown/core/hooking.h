@@ -37,6 +37,12 @@ enum class hook_type
     count
 };
 
+enum class jump_type
+{
+    always,
+    never,
+};
+
 extern size_t HookCount;
 extern size_t PatchCount;
 
@@ -45,6 +51,8 @@ void write_protected(mem::pointer dest, mem::pointer src, size_t length);
 void create_hook(const char* name, const char* description, mem::pointer target, mem::pointer detour,
     hook_type type = hook_type::jmp);
 void create_patch(const char* name, const char* description, mem::pointer dest, mem::pointer src, size_t size);
+
+void patch_jmp(const char* name, const char* description, mem::pointer target, jump_type mode);
 
 #define auto_hook(ADDRESS, FUNC) create_hook(#FUNC, "", ADDRESS, &FUNC)
 #define auto_hook_typed(ADDRESS, FUNC, TYPE) create_hook(#FUNC, "", ADDRESS, static_cast<TYPE>(&FUNC))

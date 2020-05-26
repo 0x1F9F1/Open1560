@@ -92,3 +92,52 @@ void create_patch(const char* name, const char* description, mem::pointer dest, 
 
     ++PatchCount;
 }
+
+void patch_jmp(const char* name, const char* description, mem::pointer target, jump_type mode)
+{
+    const void* patch = nullptr;
+    usize len = 0;
+
+    u8 op = target.as<u8&>();
+
+    if (op == 0x0F)
+    {
+        op = target.add(1).as<u8&>();
+
+        if (op >= 0x80 && op <= 0x8F)
+        {
+            switch (mode)
+            {
+                case jump_type::always:
+                    patch = "\x90\xE9";
+                    len = 2;
+                    break;
+
+                case jump_type::never:
+                    patch = "\x90\x90\x90\x90\x90\x90";
+                    len = 6;
+                    break;
+            }
+        }
+    }
+    else if (op >= 0x70 && op <= 0x7F)
+    {
+        switch (mode)
+        {
+            case jump_type::always:
+                patch = "\xEB";
+                len = 1;
+                break;
+
+            case jump_type::never:
+                patch = "\x90\x90";
+                len = 2;
+                break;
+        }
+    }
+
+    if (patch)
+        create_patch(name, description, target, patch, len);
+    else
+        Errorf("Unrecognized jmp at 0x%zX", target.as<uintptr_t>());
+}

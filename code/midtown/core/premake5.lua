@@ -10,7 +10,7 @@ arts_component "core"
         "assert.h",
 
         "string.h",
-        "string.cpp"
+        "string.cpp",
 
-        "pointer.h"
+        "pointer.h",
     }

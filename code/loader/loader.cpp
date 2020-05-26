@@ -123,7 +123,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         // Must run first
         create_hook("DefaultPrinter", "Use a custom printer", 0x5769C0, &DefaultPrinter);
 
-        create_patch("LogToFile Patch", "Disables second LogToFile call", 0x401B68, "\xEB", 1);
+        patch_jmp("LogToFile Patch", "Disables second LogToFile call", 0x401B68, jump_type::always);
 
         LogToFile("Open1560.log");
 
@@ -131,12 +131,13 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         Displayf("Build: %s", CI_BUILD_STRING " / " __DATE__ " " __TIME__);
 #endif
 
-        create_patch("HW Menu", "Enable HW Menu Rendering", 0x401DB4, "\xEB", 1);
+        patch_jmp("HW Menu", "Enable HW Menu Rendering", 0x401DB4, jump_type::always);
 
         create_patch("Heap Size", "Increase Heap Size", 0x401E11, "\xb8\x00\x00\x00\x08", 5); // mov eax, 0x8000000
 
-        create_patch("mmLoader::Update", "Enable Task String", 0x48BA2D, "\x90\x90", 2);
-        create_patch("mmLoader::Update", "Enable Task String", 0x48BA4B, "\x90\x90", 2);
+        patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
+        patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
+
         create_patch("mmLoader::Init", "Enable Text Transparency", 0x48B766 + 1, "\x01", 1);
 
         for (mem::pointer address : {0x4EE463, 0x4EE697, 0x4EE9A3})
@@ -146,11 +147,11 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
             create_patch("MixerCT", "Fix paDetails allocation", address + 3, "\x08", 1);
         }
 
-        create_patch("agiDDPipeline::CopyBitmap", "Disable Manual Blit", 0x005330AE, "\xE9\x8B\x00\x00\x00\x90", 6);
+        patch_jmp("agiDDPipeline::CopyBitmap", "Disable Manual Blit", 0x5330AE, jump_type::always);
 
-        create_patch("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, "\xEB\x06", 2);
-        create_patch("AutoDetect", "Additive Blending Check", 0x49994B, "\xEB\x05", 2);
-        create_patch("SetTexQualString", "Additive Blending Check", 0x49A29F, "\x90\x90", 2);
+        patch_jmp("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, jump_type::always);
+        patch_jmp("AutoDetect", "Additive Blending Check", 0x49994B, jump_type::always);
+        patch_jmp("SetTexQualString", "Additive Blending Check", 0x49A29F, jump_type::never);
 
         // Checked in GetPackedTexture, only necessary if agiRQ.TextureQuality <= 2
         // create_patch("aiVehicleOpponent::Init", "agiRQ.TextureQuality", 0x44DC2A, "\xEB\x06", 2);
@@ -169,6 +170,11 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
             create_patch("mmCullCity::UpdateSnowTextures", "32-bit snow", 0x48D439, "\x8D\x04\xBA", 3);
             create_patch("mmCullCity::UpdateSnowTextures", "32-bit snow", 0x48D47E, "\x8B\x00\x89\x04\x93\x90\x90", 7);
         }
+
+        // Allocates 2 extra agiTexDef slots instead of 1, in case TextureCount == 0 (Assumes new memory is zeroed out)
+        // Won't avoid some crashes, but should help avoid any out of bounds reads or writes
+        // This also needs to be patched in agiMeshSet::DoPageIn
+        create_patch("agiMeshSet::BinaryLoad", "Avoid empty texdefs", 0x502D43, "\x8D\x14\x8D\x08\x00\x00\x00", 7);
 
         Displayf("Begin Init Functions");
 
