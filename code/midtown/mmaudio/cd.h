@@ -41,11 +41,6 @@ public:
     // 0x4F4240 | ??1CDMan@@QAE@XZ
     ~CDMan();
 
-private:
-    // 0x4F4690 | ?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z
-    virtual i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4);
-
-public:
     // 0x4F4700 | ?GetNumTracks@CDMan@@QAEFXZ
     i16 GetNumTracks();
 
@@ -69,6 +64,10 @@ public:
 
     // 0x4F4560 | ?Stop@CDMan@@QAEKXZ
     u32 Stop();
+
+private:
+    // 0x4F4690 | ?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z
+    virtual i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4);
 };
 
 check_size(CDMan, 0x0);

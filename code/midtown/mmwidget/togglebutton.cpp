@@ -35,16 +35,6 @@ void UIToggleButton::DoToggle()
     return stub<thiscall_t<void, UIToggleButton*>>(0x4BC660, this);
 }
 
-void UIToggleButton::DrawOff()
-{
-    return stub<thiscall_t<void, UIToggleButton*>>(0x4BC620, this);
-}
-
-void UIToggleButton::DrawOn()
-{
-    return stub<thiscall_t<void, UIToggleButton*>>(0x4BC640, this);
-}
-
 void UIToggleButton::Action(union eqEvent arg1)
 {
     return stub<thiscall_t<void, UIToggleButton*, union eqEvent>>(0x4BC680, this, arg1);
@@ -61,4 +51,14 @@ void UIToggleButton::Init(
 void UIToggleButton::Update()
 {
     return stub<thiscall_t<void, UIToggleButton*>>(0x4BC720, this);
+}
+
+void UIToggleButton::DrawOff()
+{
+    return stub<thiscall_t<void, UIToggleButton*>>(0x4BC620, this);
+}
+
+void UIToggleButton::DrawOn()
+{
+    return stub<thiscall_t<void, UIToggleButton*>>(0x4BC640, this);
 }

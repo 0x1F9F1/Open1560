@@ -40,11 +40,6 @@ agiRefreshable::~agiRefreshable()
     unimplemented();
 }
 
-i32 agiRefreshable::IsTexture()
-{
-    return stub<thiscall_t<i32, agiRefreshable*>>(0x557BA0, this);
-}
-
 void agiRefreshable::AddRef()
 {
     return stub<thiscall_t<void, agiRefreshable*>>(0x557AE0, this);
@@ -58,6 +53,11 @@ i32 agiRefreshable::Release()
 i32 agiRefreshable::SafeBeginGfx()
 {
     return stub<thiscall_t<i32, agiRefreshable*>>(0x557AA0, this);
+}
+
+i32 agiRefreshable::IsTexture()
+{
+    return stub<thiscall_t<i32, agiRefreshable*>>(0x557BA0, this);
 }
 
 void agiRefreshable::ValidatePtr(char* arg1)

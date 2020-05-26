@@ -1,4 +1,3 @@
-#include "metaclass.h"
 /*
     Open1560 - An Open Source Re-Implementation of Midtown Madness 1 Beta
     Copyright (C) 2020 Brick

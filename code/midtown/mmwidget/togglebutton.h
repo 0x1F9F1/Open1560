@@ -52,14 +52,6 @@ public:
     // 0x4BC660 | ?DoToggle@UIToggleButton@@UAEXXZ
     virtual void DoToggle();
 
-protected:
-    // 0x4BC620 | ?DrawOff@UIToggleButton@@MAEXXZ
-    virtual void DrawOff();
-
-    // 0x4BC640 | ?DrawOn@UIToggleButton@@MAEXXZ
-    virtual void DrawOn();
-
-public:
     // 0x4BC680 | ?Action@UIToggleButton@@UAEXTeqEvent@@@Z
     void Action(union eqEvent arg1) override;
 
@@ -71,6 +63,12 @@ public:
     void Update() override;
 
 protected:
+    // 0x4BC620 | ?DrawOff@UIToggleButton@@MAEXXZ
+    virtual void DrawOff();
+
+    // 0x4BC640 | ?DrawOn@UIToggleButton@@MAEXXZ
+    virtual void DrawOn();
+
     // 0x705C1C | ?ToggleBMLoaded@UIToggleButton@@1HA
     static inline extern_var(0x705C1C, i32, ToggleBMLoaded);
 };

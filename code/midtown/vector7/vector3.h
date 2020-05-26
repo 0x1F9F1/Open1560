@@ -82,6 +82,7 @@ class Vector3
 public:
     constexpr Vector3() = default;
 
+    // 0x43C100 | ??0Vector3@@QAE@MMM@Z
     constexpr Vector3(f32 x, f32 y, f32 z)
         : x(x)
         , y(y)

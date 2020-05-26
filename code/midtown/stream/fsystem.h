@@ -86,13 +86,6 @@ public:
 
     virtual struct FileInfo* NextEntry(struct FileInfo* arg1) = 0;
 
-protected:
-    friend class Stream;
-
-    // 0x55F610 | ?NotifyDelete@FileSystem@@MAEXXZ
-    virtual void NotifyDelete();
-
-public:
     // 0x55F690 | ?Search@FileSystem@@QAEHPAD00H0@Z
     i32 Search(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5);
 
@@ -112,6 +105,12 @@ public:
 
     // 0x907A30 | ?FSCount@FileSystem@@2HA
     static inline extern_var(0x907A30, i32, FSCount);
+
+protected:
+    friend class Stream;
+
+    // 0x55F610 | ?NotifyDelete@FileSystem@@MAEXXZ
+    virtual void NotifyDelete();
 
 private:
     i32 fs_index_ {0};

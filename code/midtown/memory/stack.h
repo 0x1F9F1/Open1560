@@ -29,6 +29,7 @@
     0x5206C0 | void __cdecl DebugLogInit(int) | ?DebugLogInit@@YAXH@Z
     0x520700 | void __cdecl DebugLogShutdown(void) | ?DebugLogShutdown@@YAXXZ
     0x520720 | void __cdecl DebugLog(int,void *,int) | ?DebugLog@@YAXHPAXH@Z
+    0x5201C0 | void __cdecl InitMap(void) | ?InitMap@@YAXXZ
 */
 
 // 0x520720 | ?DebugLog@@YAXHPAXH@Z

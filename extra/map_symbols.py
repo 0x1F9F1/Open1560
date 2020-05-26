@@ -734,7 +734,7 @@ def symbol_sort_order(symbol):
 
     if symbol.is_vftable:
         primary_order = -1
-    elif (symbol.visibility == 'public') or (vftable_index is not None):
+    elif symbol.visibility == 'public':
         primary_order = 0
     elif symbol.visibility == 'protected':
         primary_order = 1
@@ -754,15 +754,6 @@ def symbol_sort_order(symbol):
     else:
         secondary_order = 10
 
-    visiblity_level = 0
-
-    if symbol.visibility == 'public':
-        visiblity_level = 0
-    elif symbol.visibility == 'protected':
-        visiblity_level = 1
-    elif symbol.visibility == 'private':
-        visiblity_level = 2
-
     assert symbol.name is not None, (symbol)
 
     if symbol.member_type == 'ctor':
@@ -781,8 +772,6 @@ def symbol_sort_order(symbol):
         symbol.static, # non static -> static
         symbol.type.type_class != TypeClass.FunctionTypeClass, # functions -> non functions
         secondary_order,
-        vftable_index or (),
-        visiblity_level,
         third_order, # Ctor, Dtor, Virtual Functions, Regular functions
         symbol.name,
         len(symbol.type.parameters) if symbol.type.type_class == TypeClass.FunctionTypeClass else 0,
@@ -1021,35 +1010,154 @@ else:
 
 class_sizes.update({
     'AICamCS': 0x120,
-    'mmVoiceCommentary': 0x158,
+    'AboutMenu': 0xB0,
     'AppCamCS': 0x114,
+    'AudHead': 0x50,
     'AudManager': 0xA0,
+    'AudSound': 0xB8,
+    'AudStream': 0x54,
+    'AudioOptions': 0x6F00,
+    'Bank': 0x4,
     'Base': 0x4,
     'BaseCamCS': 0x9C,
+    'CArrayList': 0x8,
+    'CRSettings': 0x140,
+    'CReverb': 0x4,
+    'CReverbBuffer': 0x4,
     'CarCamCS': 0x118,
+    'Card2D': 0x38,
+    'ControlSetup': 0x6F08,
+    'DLPGroup': 0x30,
+    'DLPPatch': 0x18,
+    'DLPTemplate': 0x3C,
+    'DSGlobal': 0xB8,
+    'Dialog_City': 0xCC,
+    'Dialog_ControlAssign': 0xC0,
+    'Dialog_DriverRec': 0xE4,
+    'Dialog_HallOfFame': 0xE4,
+    'Dialog_Message': 0xD0,
+    'Dialog_NewPlayer': 0x110,
+    'Dialog_Password': 0xEC,
+    'Dialog_RaceEnvironment': 0xF0,
+    'Dialog_Serial': 0x148,
+    'Dialog_TCPIP': 0xEC,
+    'Dispatchable': 0x4,
+    'DriverMenu': 0x12C,
+    'DupBuffCreator': 0x8,
     'EngineAudio': 0x90,
     'EngineAudioOpponent': 0x54,
+    'FileStream': 0x28,
+    'GraphicsOptions': 0x6EE8,
+    'HostRaceMenu': 0xF98,
     'Joint3Dof': 0xE0,
+    'MArray': 0xC,
+    'MainMenu': 0x90,
     'Matrix34': 0x30,
+    'MenuManager': 0x140,
+    'NetArena': 0x130,
+    'NetAudioManager': 0x74,
+    'NetSelectMenu': 0x27C,
+    'OptionsMenu': 0x98,
+    'PUAudioOptions': 0xC0,
+    'PUChat': 0x128,
+    'PUControl': 0xD8,
+    'PUDebug': 0x128,
+    'PUExit': 0xC0,
+    'PUGraphics': 0xC0,
+    'PUKey': 0xCC,
+    'PUMain': 0xC0,
+    'PUOptions': 0xC0,
+    'PUQuit': 0xC0,
+    'PURoster': 0x240,
     'PointCamCS': 0x144,
     'PolarCamCS': 0x130,
     'PostCamCS': 0x12C,
     'PovCamCS': 0x144,
     'PreCamCS': 0x130,
+    'RDLP': 0xAC,
+    'RDynamicDLP': 0x28,
+    'RaceMenu': 0xF94,
     'Root': 0x0,
+    'SoundObj': 0x88,
     'Spline': 0x74,
+    'StreamObj': 0x138,
     'TextDropWidget': 0x38,
     'TrackCamCS': 0x324,
+    'TransitionCS': 0x130,
     'UIBMButton': 0xF0,
     'UIBMLabel': 0xA0,
+    'UIButton': 0xB4,
+    'UICWArray': 0xDC,
+    'UICompositeScroll': 0xE4,
+    'UIControlWidget': 0xB8,
+    'UIIcon': 0x94,
+    'UIIconW': 0xBC,
+    'UILabel': 0x88,
+    'UIMexButton': 0xCC,
+    'UISlider': 0xCC,
+    'UITextDropdown': 0x104,
+    'UITextField': 0x144,
+    'UITextRoller': 0x110,
+    'UITextRoller2': 0x144,
+    'UITextScroll': 0xE4,
+    'UIToggleButton': 0xBC,
+    'UIToggleButton2': 0xC0,
     'UIVScrollBar': 0x10C,
     'VSWidget': 0xD0,
     'VehGyro': 0x34,
+    'VehShowcase': 0x98,
+    'Vehicle': 0x184,
+    'VirtualFileSystem': 0x24,
+    'VirtualStream': 0x30,
+    'WArray': 0xC,
+    'WINEventHandler': 0x16C,
+    'agiBILight': 0x88,
+    'agiBILightModel': 0x40,
+    'agiBitmap': 0x40,
+    'agiColorModel8': 0x30,
+    'agiD3DLight': 0x8C,
+    'agiD3DMtlDef': 0x88,
+    'agiD3DRPipeline': 0x49C,
+    'agiD3DRasterizer': 0x18,
+    'agiD3DTexDef': 0x88,
+    'agiD3DViewport': 0x14C,
+    'agiDDBitmap': 0x40,
+    'agiLightModelParameters': 0x28,
+    'agiLightParameters': 0x70,
+    'agiLitAnimation': 0x10,
+    'agiMtlParameters': 0x68,
+    'agiSWPipeline': 0x2F0,
+    'agiSWRasterizer': 0x18,
+    'agiSWTexDef': 0x9C,
+    'agiSWTexLut': 0x1420,
+    'agiTexLut': 0x420,
+    'agiTexParameters': 0x30,
+    'agiViewport': 0x14C,
+    'agiZBufRenderer': 0x14,
+    'aiAudioManager': 0x204,
+    'aiGoalAvoidPlayer': 0x1C,
+    'aiGoalBackup': 0x14,
+    'aiGoalChase': 0x1AC,
+    'aiGoalCollision': 0x10,
     'aiGoalFollowWayPts': 0x18C,
+    'aiGoalRandomDrive': 0x14,
+    'aiGoalRegainRail': 0x28,
+    'aiGoalStop': 0x10,
+    'aiIntersection': 0x2C,
     'aiMap': 0xBC,
+    'aiPath': 0x104,
+    'aiPedAudioManager': 0x120,
+    'aiPedestrian': 0xAC,
+    'aiPoliceForce': 0x3C,
+    'aiRaceData': 0x2C,
+    'aiTrafficLightSet': 0x38,
+    'aiVehicleActive': 0xA6C,
+    'aiVehicleAmbient': 0x138,
     'aiVehicleData': 0xC0,
     'aiVehicleInstance': 0x24,
+    'aiVehicleManager': 0x16628,
     'aiVehicleOpponent': 0x23BC,
+    'aiVehiclePolice': 0x241C,
     'aiVehicleSpline': 0xD8,
     'asAero': 0x74,
     'asBirthRule': 0xB0,
@@ -1061,26 +1169,46 @@ class_sizes.update({
     'asInertialCS': 0x1A8,
     'asLamp': 0x30,
     'asLinearCS': 0x88,
+    'asMeshSetForm': 0x2C,
+    'asMidgets': 0x87C,
     'asNode': 0x20,
     'asOverSample': 0x30,
     'asParticles': 0x6C,
+    'asPerfGraph': 0x94,
+    'asPortalEdge': 0x30,
     'asPortalWeb': 0x904C,
     'asRenderWeb': 0x9178,
     'asSimulation': 0x2B0,
     'asViewCS': 0x124,
+    'eqEventQ': 0x2C,
+    'mmAmbientAudio': 0x14,
     'mmAnimDOF': 0x98,
     'mmAnimMgr': 0x26B0,
+    'mmAnimSpline': 0x34,
+    'mmAnimTrain': 0x100,
+    'mmAnimTrainCar': 0x58,
     'mmAxle': 0x9C,
+    'mmBangerActive': 0x27C,
     'mmBangerData': 0x134,
     'mmBangerDataManager': 0x268D0,
     'mmBoat': 0x3A4,
+    'mmBoundTemplate': 0xB4,
+    'mmBridgeAudMgr': 0x38,
     'mmBridgeMgr': 0x2674,
     'mmBridgeSet': 0x438,
     'mmBuildingInstance': 0x48,
+    'mmCRHUD': 0x218,
     'mmCar': 0x230C,
     'mmCarModel': 0x110,
     'mmCarRoadFF': 0x44,
     'mmCarSim': 0x1FAC,
+    'mmCellRenderer': 0x48,
+    'mmCityInfo': 0xA0,
+    'mmCityList': 0x10,
+    'mmCompCRPlayer': 0x98,
+    'mmCompDRecord': 0xA4,
+    'mmCompRaceRecord': 0xA8,
+    'mmCompRoster': 0x90,
     'mmCullCity': 0x34D6C,
     'mmDashView': 0x880,
     'mmDrivetrain': 0x48,
@@ -1094,22 +1222,32 @@ class_sizes.update({
     'mmGameMulti': 0x1EEA8,
     'mmGameSingle': 0x1E5F0,
     'mmHUD': 0xE94,
+    'mmHitBangerInstance': 0x50,
     'mmHudMap': 0x2C8,
+    'mmIO': 0x1C,
     'mmIODev': 0xA8,
+    'mmImpactAudio': 0x1EC,
     'mmInfoBase': 0x88,
     'mmInput': 0x248,
     'mmInstance': 0x14,
     'mmInterface': 0x35830,
+    'mmJoyMan': 0x48,
+    'mmJoystick': 0x3A8,
+    'mmLoader': 0x2C4,
     'mmMapData': 0x90,
     'mmMatrixInstance': 0x44,
     'mmMiscData': 0x173C8,
+    'mmMouseSteerBar': 0x44,
     'mmMultiBlitz': 0x1EEB8,
     'mmMultiCR': 0x1EF30,
     'mmMultiCircuit': 0x1EEB0,
     'mmMultiRace': 0x1EEB0,
+    'mmNetObject': 0xF4,
     'mmNetworkCarAudio': 0xD4,
     'mmNumber': 0x80,
     'mmOpponentCarAudio': 0xE0,
+    'mmOpponentImpactAudio': 0x18,
+    'mmOpponentSurfaceAudio': 0x2C,
     'mmPed': 0x34,
     'mmPedManager': 0x2C,
     'mmPhysicsMGR': 0x224,
@@ -1119,7 +1257,12 @@ class_sizes.update({
     'mmPlayerData': 0x2178,
     'mmPlayerDirectory': 0xE4,
     'mmPlayerRecord': 0xE4,
+    'mmPoliceCarAudio': 0x114,
+    'mmPopup': 0x60,
+    'mmPositions': 0xC,
     'mmPropInfo': 0x94,
+    'mmRaceData': 0x4B4,
+    'mmRainAudio': 0x1C,
     'mmRecord': 0x108,
     'mmRoadSect': 0x6CC,
     'mmRoadSide': 0x2E0,
@@ -1133,15 +1276,27 @@ class_sizes.update({
     'mmSkidManager': 0x68,
     'mmSlider': 0xA4,
     'mmStaticInstance': 0x38,
+    'mmSurfaceAudio': 0xAC,
+    'mmText': 0x2,
+    'mmTextNode': 0x54,
     'mmToggle': 0x38,
     'mmToggle2': 0x40,
     'mmTrailer': 0x1204,
     'mmTransmission': 0xD4,
+    'mmVehInfo': 0xF8,
+    'mmVehList': 0xC,
+    'mmVehicleForm': 0x54,
     'mmViewCS': 0xC0,
+    'mmVoiceCommentary': 0x158,
     'mmWaypointInstance': 0x44,
+    'mmWaypointObject': 0x4C,
+    'mmWaypoints': 0xAC,
     'mmWheel': 0x268,
     'mmYInstance': 0x2C,
     'sfPointer': 0x54,
+    'string': 0x8,
+    'uiNavBar': 0xC0,
+    'uiWidget': 0x74,
 })
 
 # print(class_sizes)
@@ -1361,6 +1516,30 @@ for lib, paths in grouped_symbols.items():
 
         values.sort(key=symbol_sort_order)
 
+        i = len(values)
+        while i > 0:
+            i -= 1
+            v = values[i]
+            if v.vftable_index is None:
+                continue
+            if v.override:
+                continue
+
+            j = i - 1
+            while j > 0:
+                w = values[j]
+                j -= 1
+                if w.vftable_index is None:
+                    continue
+                if w.override:
+                    continue
+                if w.vftable_index < v.vftable_index:
+                    continue
+                del values[i]
+                i += 1
+                values.insert(j + 1, v)
+                break
+
         visibility = None
 
         sym_dtors = choose_best_dtor(values)
@@ -1375,7 +1554,7 @@ for lib, paths in grouped_symbols.items():
             if value.member_type == 'dtor':
                  if value != sym_dtors[0]:
                     continue
-            elif (value.type.type_class == TypeClass.VoidTypeClass):
+            elif value.type.type_class == TypeClass.VoidTypeClass:
                 skip_reason = 'void'
             elif value.is_thunk:
                 skip_reason = 'thunk'

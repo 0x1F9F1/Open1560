@@ -103,35 +103,6 @@ public:
 
     virtual i32 RawSize() = 0;
 
-protected:
-    // 0x55EE90 | ?RawDebug@Stream@@MAEXXZ
-    virtual void RawDebug();
-
-    // 0x55ED30 | ?AlignSize@Stream@@MAEHXZ
-    virtual i32 AlignSize();
-
-    // 0x55ED40 | ?GetError@Stream@@MAEHPADH@Z
-    virtual i32 GetError(char* buf, i32 buf_len);
-
-    u8* buffer_ {nullptr};
-
-    // TODO: Use u64
-    u32 position_ {0};
-
-    i32 buffer_head_ {0};
-    i32 buffer_read_ {0};
-    i32 buffer_capacity_ {0};
-
-    FileSystem* file_system_ {nullptr};
-
-    // 0x1 | Allocated Buffer
-    u8 flags_ {0};
-
-    u8 swap_endian_ {false};
-    u8 little_endian_ {false};
-    u8 initialized_ {false};
-
-public:
     // 0x55EEA0 | ?Debug@Stream@@QAEXXZ
     void Debug();
 
@@ -211,6 +182,34 @@ public:
 
     // 0x55EB00 | ?Write@Stream@@QAEHPAXH@Z
     i32 Write(void* arg1, i32 arg2);
+
+protected:
+    // 0x55EE90 | ?RawDebug@Stream@@MAEXXZ
+    virtual void RawDebug();
+
+    // 0x55ED30 | ?AlignSize@Stream@@MAEHXZ
+    virtual i32 AlignSize();
+
+    // 0x55ED40 | ?GetError@Stream@@MAEHPADH@Z
+    virtual i32 GetError(char* buf, i32 buf_len);
+
+    u8* buffer_ {nullptr};
+
+    // TODO: Use u64
+    u32 position_ {0};
+
+    i32 buffer_head_ {0};
+    i32 buffer_read_ {0};
+    i32 buffer_capacity_ {0};
+
+    FileSystem* file_system_ {nullptr};
+
+    // 0x1 | Allocated Buffer
+    u8 flags_ {0};
+
+    u8 swap_endian_ {false};
+    u8 little_endian_ {false};
+    u8 initialized_ {false};
 
 private:
     // 0x55F240 | ?SwapLongs@Stream@@CAXPAKH@Z

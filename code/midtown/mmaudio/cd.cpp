@@ -25,11 +25,6 @@ CDMan::~CDMan()
     unimplemented();
 }
 
-i32 CDMan::WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4)
-{
-    return stub<thiscall_t<i32, CDMan*, struct HWND__*, u32, u32, i32>>(0x4F4690, this, arg1, arg2, arg3, arg4);
-}
-
 i16 CDMan::GetNumTracks()
 {
     return stub<thiscall_t<i16, CDMan*>>(0x4F4700, this);
@@ -68,4 +63,9 @@ u32 CDMan::SeekTrack(u8 arg1)
 u32 CDMan::Stop()
 {
     return stub<thiscall_t<u32, CDMan*>>(0x4F4560, this);
+}
+
+i32 CDMan::WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4)
+{
+    return stub<thiscall_t<i32, CDMan*, struct HWND__*, u32, u32, i32>>(0x4F4690, this, arg1, arg2, arg3, arg4);
 }

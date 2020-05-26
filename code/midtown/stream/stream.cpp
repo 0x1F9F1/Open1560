@@ -74,21 +74,6 @@ i32 Stream::GetPagingInfo(u32&, u32&, u32&)
     return false;
 }
 
-void Stream::RawDebug()
-{}
-
-i32 Stream::AlignSize()
-{
-    return 1;
-}
-
-i32 Stream::GetError(char* buf, i32 buf_len)
-{
-    i32 error = errno;
-    strerror_s(buf, usize(buf_len), error);
-    return error;
-}
-
 void Stream::Debug()
 {}
 
@@ -140,6 +125,8 @@ i32 Stream::Get(u8* arg1, i32 arg2)
 
 i32 Stream::GetCh()
 {
+    export_hook(0x55EC00);
+
     if (buffer_head_ < buffer_read_)
         return buffer_[buffer_head_++];
 
@@ -265,6 +252,21 @@ i32 Stream::Vprintf(char const* format, std::va_list va)
 i32 Stream::Write(void* arg1, i32 arg2)
 {
     return stub<thiscall_t<i32, Stream*, void*, i32>>(0x55EB00, this, arg1, arg2);
+}
+
+void Stream::RawDebug()
+{}
+
+i32 Stream::AlignSize()
+{
+    return 1;
+}
+
+i32 Stream::GetError(char* buf, i32 buf_len)
+{
+    i32 error = errno;
+    strerror_s(buf, usize(buf_len), error);
+    return error;
 }
 
 void Stream::SwapLongs(u32* arg1, i32 arg2)

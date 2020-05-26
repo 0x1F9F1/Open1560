@@ -47,11 +47,6 @@ b32 FileSystem::PagerInfo(const char*, struct PagerInfo_t&)
     return false;
 }
 
-void FileSystem::NotifyDelete()
-{
-    return stub<thiscall_t<void, FileSystem*>>(0x55F610, this);
-}
-
 i32 FileSystem::Search(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5)
 {
     return stub<thiscall_t<i32, FileSystem*, char*, char*, char*, i32, char*>>(
@@ -71,6 +66,11 @@ i32 FileSystem::PagerInfoAny(char* arg1, struct PagerInfo_t& arg2)
 class FileSystem* FileSystem::SearchAll(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5)
 {
     return stub<cdecl_t<class FileSystem*, char*, char*, char*, i32, char*>>(0x55F620, arg1, arg2, arg3, arg4, arg5);
+}
+
+void FileSystem::NotifyDelete()
+{
+    return stub<thiscall_t<void, FileSystem*>>(0x55F610, this);
 }
 
 class FileSystem* FindFile(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5)

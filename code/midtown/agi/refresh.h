@@ -59,11 +59,6 @@ protected:
 public:
     virtual i32 BeginGfx() = 0;
 
-protected:
-    // 0x557BA0 | ?IsTexture@agiRefreshable@@MAEHXZ
-    virtual i32 IsTexture();
-
-public:
     // 0x557AE0 | ?AddRef@agiRefreshable@@QAEXXZ
     void AddRef();
 
@@ -72,6 +67,10 @@ public:
 
     // 0x557AA0 | ?SafeBeginGfx@agiRefreshable@@QAEHXZ
     i32 SafeBeginGfx();
+
+protected:
+    // 0x557BA0 | ?IsTexture@agiRefreshable@@MAEHXZ
+    virtual i32 IsTexture();
 
 private:
     // 0x557B30 | ?ValidatePtr@agiRefreshable@@AAEXPAD@Z

@@ -38,6 +38,7 @@
     0x780688 | class asMemoryAllocator * CURHEAP | ?CURHEAP@@3PAVasMemoryAllocator@@A
     0x780690 | class asMemoryAllocator CRTALLOCATOR | ?CRTALLOCATOR@@3VasMemoryAllocator@@A
     0x780730 | unsigned char * CRTHEAP | ?CRTHEAP@@3PAEA
+    0x521250 | int __cdecl HeapAssert(void *,int,char *,int) | ?HeapAssert@@YAHPAXHPADH@Z
 */
 
 class asMemoryAllocator
