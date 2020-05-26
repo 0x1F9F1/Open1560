@@ -78,7 +78,7 @@ class Stream : public Base
 
 public:
     // 0x55E8B0 | ??0Stream@@QAE@PAXHPAVFileSystem@@@Z
-    Stream(void* arg1, i32 arg2, class FileSystem* arg3);
+    Stream(void* buffer, i32 buffer_size, class FileSystem* file_system);
 
     // 0x55F500 | ??_GStream@@UAEPAXI@Z
     // 0x55E940 | ??1Stream@@UAE@XZ
@@ -91,7 +91,7 @@ public:
     virtual u32 GetPagerHandle();
 
     // 0x55EDA0 | ?GetPagingInfo@Stream@@UAEHAAI00@Z
-    virtual i32 GetPagingInfo(u32& arg1, u32& arg2, u32& arg3);
+    virtual i32 GetPagingInfo(u32& handle, u32& offset, u32& size);
 
     virtual i32 RawRead(void* arg1, i32 arg2) = 0;
 
@@ -111,14 +111,32 @@ protected:
     virtual i32 AlignSize();
 
     // 0x55ED40 | ?GetError@Stream@@MAEHPADH@Z
-    virtual i32 GetError(char* arg1, i32 arg2);
+    virtual i32 GetError(char* buf, i32 buf_len);
+
+    u8* buffer_ {nullptr};
+
+    // TODO: Use u64
+    u32 position_ {0};
+
+    i32 buffer_head_ {0};
+    i32 buffer_read_ {0};
+    i32 buffer_capacity_ {0};
+
+    FileSystem* file_system_ {nullptr};
+
+    // 0x1 | Allocated Buffer
+    u8 flags_ {0};
+
+    u8 swap_endian_ {false};
+    u8 little_endian_ {false};
+    u8 initialized_ {false};
 
 public:
     // 0x55EEA0 | ?Debug@Stream@@QAEXXZ
     void Debug();
 
     // 0x55EDB0 | ?Error@Stream@@QAEXPAD@Z
-    void Error(char* arg1);
+    void Error(const char* msg);
 
     // 0x55ECC0 | ?Flush@Stream@@QAEHXZ
     i32 Flush();
@@ -135,6 +153,8 @@ public:
     // 0x55EC00 | ?GetCh@Stream@@QAEHXZ
     i32 GetCh();
 
+    i32 UnGetCh(i32 ch);
+
     // 0x55F2B0 | ?GetLong@Stream@@QAEKXZ
     u32 GetLong();
 
@@ -145,7 +165,7 @@ public:
     i32 GetString(char* arg1, i32 arg2);
 
     // 0x55EDF0 | ?Printf@Stream@@QAAHPBDZZ
-    i32 Printf(char const* arg1, ...);
+    i32 Printf(char const* format, ...);
 
     // 0x55F020 | ?Put@Stream@@QAEHM@Z
     i32 Put(f32 arg1);
@@ -187,7 +207,7 @@ public:
     i32 Tell();
 
     // 0x55EE40 | ?Vprintf@Stream@@QAEHPBDPAD@Z
-    i32 Vprintf(char const* arg1, char* arg2);
+    i32 Vprintf(char const* format, std::va_list va);
 
     // 0x55EB00 | ?Write@Stream@@QAEHPAXH@Z
     i32 Write(void* arg1, i32 arg2);
@@ -200,22 +220,22 @@ private:
     static void SwapShorts(u16* arg1, i32 arg2);
 };
 
-check_size(Stream, 0x0);
+check_size(Stream, 0x20);
 
 // 0x55F3E0 | ?fgets@@YAHPADHPAVStream@@@Z
-i32 fgets(char* arg1, i32 arg2, class Stream* arg3);
+i32 arts_fgets(char* arg1, i32 arg2, class Stream* arg3);
 
 // 0x55F2F0 | ?fopen@@YAPAVStream@@PAD0@Z
-class Stream* fopen(char* arg1, char* arg2);
+class Stream* arts_fopen(char* arg1, char* arg2);
 
 // 0x55F2D0 | ?fprintf@@YAXPAVStream@@PBDZZ
-void fprintf(class Stream* arg1, char const* arg2, ...);
+void arts_fprintf(class Stream* stream, char const* format, ...);
 
 // 0x55F450 | ?fscanf@@YAHPAVStream@@PBDZZ
-i32 fscanf(class Stream* arg1, char const* arg2, ...);
+i32 arts_fscanf(class Stream* stream, char const* format, ...);
 
 // 0x55F330 | ?fseek@@YAHPAVStream@@HH@Z
-i32 fseek(class Stream* arg1, i32 arg2, i32 arg3);
+i32 arts_fseek(class Stream* arg1, i32 arg2, i32 arg3);
 
 // 0x907960 | ?EnableBinaryFileMapping@@3HA
 inline extern_var(0x907960, i32, EnableBinaryFileMapping);

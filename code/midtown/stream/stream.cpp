@@ -20,59 +20,107 @@ define_dummy_symbol(stream_stream);
 
 #include "stream.h"
 
-Stream::Stream(void* arg1, i32 arg2, class FileSystem* arg3)
+#include "fsystem.h"
+
+Stream::Stream(void* buffer, i32 buffer_size, class FileSystem* file_system)
+    : buffer_(static_cast<u8*>(buffer))
+    , buffer_capacity_(buffer_size)
+    , file_system_(file_system)
+    , little_endian_(true)
 {
-    unimplemented(arg1, arg2, arg3);
+    export_hook(0x55E8B0);
+
+    if (buffer_ == nullptr && buffer_capacity_ != 0)
+    {
+        buffer_ = new u8[buffer_capacity_];
+        flags_ |= 0x1;
+    }
+
+    swap_endian_ = little_endian_;
+
+    initialized_ = true;
 }
 
 Stream::~Stream()
 {
-    unimplemented();
+    export_hook(0x55E940);
+
+    Flush();
+
+    if (file_system_)
+        file_system_->NotifyDelete();
+
+    if (flags_ & 0x1)
+        delete[] buffer_;
+
+    buffer_ = nullptr;
+    initialized_ = false;
 }
 
 void* Stream::GetMapping()
 {
-    return stub<thiscall_t<void*, Stream*>>(0x55ED80, this);
+    return nullptr;
 }
 
+// TODO: Use usize
 u32 Stream::GetPagerHandle()
 {
-    return stub<thiscall_t<u32, Stream*>>(0x55ED90, this);
+    return 0;
 }
 
-i32 Stream::GetPagingInfo(u32& arg1, u32& arg2, u32& arg3)
+// TODO: Use bool
+i32 Stream::GetPagingInfo(u32&, u32&, u32&)
 {
-    return stub<thiscall_t<i32, Stream*, u32&, u32&, u32&>>(0x55EDA0, this, arg1, arg2, arg3);
+    return false;
 }
 
 void Stream::RawDebug()
-{
-    return stub<thiscall_t<void, Stream*>>(0x55EE90, this);
-}
+{}
 
 i32 Stream::AlignSize()
 {
-    return stub<thiscall_t<i32, Stream*>>(0x55ED30, this);
+    return 1;
 }
 
-i32 Stream::GetError(char* arg1, i32 arg2)
+i32 Stream::GetError(char* buf, i32 buf_len)
 {
-    return stub<thiscall_t<i32, Stream*, char*, i32>>(0x55ED40, this, arg1, arg2);
+    i32 error = errno;
+    strerror_s(buf, usize(buf_len), error);
+    return error;
 }
 
 void Stream::Debug()
-{
-    return stub<thiscall_t<void, Stream*>>(0x55EEA0, this);
-}
+{}
 
-void Stream::Error(char* arg1)
+void Stream::Error(const char* msg)
 {
-    return stub<thiscall_t<void, Stream*, char*>>(0x55EDB0, this, arg1);
+    char buffer[128];
+    GetError(buffer, std::size(buffer));
+    Errorf("%s: %s", msg, buffer);
 }
 
 i32 Stream::Flush()
 {
-    return stub<thiscall_t<i32, Stream*>>(0x55ECC0, this);
+    i32 count = 0;
+
+    if (buffer_read_)
+    {
+        if (buffer_head_ != buffer_read_)
+            count = RawSeek(position_ + buffer_head_);
+    }
+    else if (buffer_head_)
+    {
+        count = RawWrite(buffer_, buffer_head_);
+    }
+
+    position_ += buffer_head_;
+    buffer_read_ = 0;
+    buffer_head_ = 0;
+
+    if (count == -1)
+        Error("Stream::Flush()");
+
+    return count;
 }
 
 i32 Stream::Get(u16* arg1, i32 arg2)
@@ -92,7 +140,27 @@ i32 Stream::Get(u8* arg1, i32 arg2)
 
 i32 Stream::GetCh()
 {
-    return stub<thiscall_t<i32, Stream*>>(0x55EC00, this);
+    if (buffer_head_ < buffer_read_)
+        return buffer_[buffer_head_++];
+
+    u8 result = 0;
+
+    if (Read(&result, 1) == 1)
+        return result;
+
+    return -1;
+}
+
+i32 Stream::UnGetCh(i32 ch)
+{
+    if (buffer_read_ != 0 && buffer_head_ != 0)
+    {
+        buffer_[--buffer_head_] = static_cast<u8>(ch);
+
+        return ch;
+    }
+
+    return -1;
 }
 
 u32 Stream::GetLong()
@@ -110,9 +178,14 @@ i32 Stream::GetString(char* arg1, i32 arg2)
     return stub<thiscall_t<i32, Stream*, char*, i32>>(0x55EEF0, this, arg1, arg2);
 }
 
-i32 Stream::Printf(char const* arg1, ...)
+i32 Stream::Printf(char const* format, ...)
 {
-    unimplemented(arg1);
+    export_hook(0x55EDF0);
+    std::va_list va;
+    va_start(va, format);
+    i32 result = Vprintf(format, va);
+    va_end(va);
+    return result;
 }
 
 i32 Stream::Put(f32 arg1)
@@ -180,9 +253,13 @@ i32 Stream::Tell()
     return stub<thiscall_t<i32, Stream*>>(0x55EC90, this);
 }
 
-i32 Stream::Vprintf(char const* arg1, char* arg2)
+i32 Stream::Vprintf(char const* format, std::va_list va)
 {
-    return stub<thiscall_t<i32, Stream*, char const*, char*>>(0x55EE40, this, arg1, arg2);
+    export_hook(0x55EE40);
+
+    char buffer[256];
+    arts_vsprintf(buffer, format, va);
+    return Write(buffer, std::strlen(buffer));
 }
 
 i32 Stream::Write(void* arg1, i32 arg2)
@@ -200,27 +277,60 @@ void Stream::SwapShorts(u16* arg1, i32 arg2)
     return stub<cdecl_t<void, u16*, i32>>(0x55F210, arg1, arg2);
 }
 
-i32 fgets(char* arg1, i32 arg2, class Stream* arg3)
+i32 arts_fgets(char* arg1, i32 arg2, class Stream* arg3)
 {
     return stub<cdecl_t<i32, char*, i32, class Stream*>>(0x55F3E0, arg1, arg2, arg3);
 }
 
-class Stream* fopen(char* arg1, char* arg2)
+class Stream* arts_fopen(char* arg1, char* arg2)
 {
     return stub<cdecl_t<class Stream*, char*, char*>>(0x55F2F0, arg1, arg2);
 }
 
-void fprintf(class Stream* arg1, char const* arg2, ...)
+void arts_fprintf(class Stream* stream, char const* format, ...)
 {
-    unimplemented(arg1, arg2);
+    export_hook(0x55F2D0);
+
+    std::va_list va;
+    va_start(va, format);
+    stream->Vprintf(format, va);
+    va_end(va);
 }
 
-i32 fscanf(class Stream* arg1, char const* arg2, ...)
+i32 arts_fscanf(class Stream* stream, char const* format, ...)
 {
-    unimplemented(arg1, arg2);
+    export_hook(0x55F450);
+
+    i32 ch = -1;
+
+    do
+    {
+        ch = stream->GetCh();
+    } while (ch == ' ' || ch == '\t' || ch == '\n');
+
+    stream->UnGetCh(ch);
+
+    char buffer[256];
+    i32 length = arts_fgets(buffer, std::size(buffer), stream);
+
+    if (!length)
+        return 0;
+
+    std::va_list va;
+    va_start(va, format);
+
+    // NOTE: This can not be vsscanf_s because it has to support the game's unsafe format strings.
+    // TODO: Replace this with vsscanf_s when possible
+    i32 result = vsscanf(static_cast<const char*>(buffer), format, va);
+    va_end(va);
+
+    if (!result)
+        Errorf("scan of '%s' == '%s' failed", format, buffer);
+
+    return result;
 }
 
-i32 fseek(class Stream* arg1, i32 arg2, i32 arg3)
+i32 arts_fseek(class Stream* arg1, i32 arg2, i32 arg3)
 {
     return stub<cdecl_t<i32, class Stream*, i32, i32>>(0x55F330, arg1, arg2, arg3);
 }

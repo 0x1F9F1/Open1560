@@ -331,9 +331,9 @@ namespace mem
         return named(nullptr);
     }
 
-    extern "C" namespace internal
+    namespace internal
     {
-        ElfW(Ehdr) __attribute__((weak)) __ehdr_start;
+        extern "C" ElfW(Ehdr) __ehdr_start;
     }
 
     MEM_STRONG_INLINE module module::self()

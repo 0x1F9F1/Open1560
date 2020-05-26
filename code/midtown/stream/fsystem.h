@@ -45,6 +45,16 @@
 
 #include "data7/base.h"
 
+struct PagerInfo_t
+{
+    void* Handle {nullptr};
+    u32 Offset {0};
+    u32 Size {0};
+    char* Name {nullptr};
+};
+
+check_size(PagerInfo_t, 0x10);
+
 class FileSystem : public Base
 {
     // const FileSystem::`vftable' @ 0x621928
@@ -66,7 +76,7 @@ public:
     virtual class Stream* CreateOn(char* arg1, void* arg2, i32 arg3) = 0;
 
     // 0x55FEC0 | ?PagerInfo@FileSystem@@UAEHPADAAUPagerInfo_t@@@Z
-    virtual i32 PagerInfo(char* arg1, struct PagerInfo_t& arg2);
+    virtual b32 PagerInfo(const char* path, struct PagerInfo_t& pager);
 
     virtual i32 ChangeDir(char* arg1) = 0;
 
@@ -77,6 +87,8 @@ public:
     virtual struct FileInfo* NextEntry(struct FileInfo* arg1) = 0;
 
 protected:
+    friend class Stream;
+
     // 0x55F610 | ?NotifyDelete@FileSystem@@MAEXXZ
     virtual void NotifyDelete();
 
@@ -93,14 +105,19 @@ public:
     // 0x55F620 | ?SearchAll@FileSystem@@SAPAV1@PAD00H0@Z
     static class FileSystem* SearchAll(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5);
 
+    static constexpr i32 MAX_FILESYSTEMS = 64;
+
     // 0x907A38 | ?FS@FileSystem@@2PAPAV1@A
-    static inline extern_var(0x907A38, class FileSystem**, FS);
+    static inline extern_var(0x907A38, class FileSystem* [MAX_FILESYSTEMS], FS);
 
     // 0x907A30 | ?FSCount@FileSystem@@2HA
     static inline extern_var(0x907A30, i32, FSCount);
+
+private:
+    i32 fs_index_ {0};
 };
 
-check_size(FileSystem, 0x0);
+check_size(FileSystem, 0x8);
 
 // 0x55FD30 | ?FindFile@@YAPAVFileSystem@@PAD00H0@Z
 class FileSystem* FindFile(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5);

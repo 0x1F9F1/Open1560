@@ -22,17 +22,29 @@ define_dummy_symbol(stream_fsystem);
 
 FileSystem::FileSystem()
 {
-    unimplemented();
+    export_hook(0x55F530);
+
+    if (FSCount >= MAX_FILESYSTEMS)
+        Abortf("Out of FileSystems, raise MAX_FILESYSTEMS");
+
+    FS[FSCount++] = this;
+
+    fs_index_ = FSCount;
 }
 
 FileSystem::~FileSystem()
 {
-    unimplemented();
+    export_hook(0x55F5A0);
+
+    if (fs_index_ != FSCount)
+        Errorf("FileSystems destructed out of order.");
+
+    --FSCount;
 }
 
-i32 FileSystem::PagerInfo(char* arg1, struct PagerInfo_t& arg2)
+b32 FileSystem::PagerInfo(const char*, struct PagerInfo_t&)
 {
-    return stub<thiscall_t<i32, FileSystem*, char*, struct PagerInfo_t&>>(0x55FEC0, this, arg1, arg2);
+    return false;
 }
 
 void FileSystem::NotifyDelete()

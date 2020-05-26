@@ -30,7 +30,7 @@ include "mmeffects"
 -- include "mmui"
 -- include "mmwidget"
 include "pcwindis"
--- include "stream"
+include "stream"
 include "vector7"
 
 arts_component "midtown"
@@ -72,7 +72,7 @@ arts_component "midtown"
         -- "arts_mmui",
         -- "arts_mmwidget",
         "arts_pcwindis",
-        -- "arts_stream",
+        "arts_stream",
         "arts_vector7",
 
         "lua",

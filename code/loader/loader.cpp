@@ -79,7 +79,7 @@ static std::size_t InitExportHooks(HMODULE instance)
             std::uint32_t target = 0;
             char hook_name[256];
 
-            if (sscanf_s(name, "%[^:]:Hook_%x", hook_name, 256, &target) == 2)
+            if (arts_sscanf(name, "%[^:]:Hook_%x", hook_name, 256, &target) == 2)
             {
                 hook_name[255] = '\0';
 
@@ -627,11 +627,11 @@ include_dummy_symbol(pcwindis_pcwindis);
 include_dummy_symbol(pcwindis_setupdata);
 
 // include_dummy_symbol(stream_filestream);
-// include_dummy_symbol(stream_fsystem);
+include_dummy_symbol(stream_fsystem);
 // include_dummy_symbol(stream_hfsystem);
 // include_dummy_symbol(stream_problems);
 // include_dummy_symbol(stream_sparser);
-// include_dummy_symbol(stream_stream);
+include_dummy_symbol(stream_stream);
 // include_dummy_symbol(stream_token);
 // include_dummy_symbol(stream_vfsystem);
 // include_dummy_symbol(stream_vstream);

@@ -22,10 +22,13 @@
 
 #define arts_vsprintf vsprintf_s
 #define arts_sprintf sprintf_s
+
+#define arts_vsscanf vsscanf_s
+#define arts_sscanf sscanf_s
+
 #define arts_strcpy strcpy_s
 #define arts_strncpy strncpy_s
 #define arts_strcat strcat_s
-#define arts_sscanf sscanf_s
 
 #define arts_stricmp _stricmp
 

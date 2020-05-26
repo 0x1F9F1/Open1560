@@ -2,16 +2,16 @@ arts_component "stream"
     files {
         -- "filestream.cpp",
         -- "filestream.h",
-        -- "fsystem.cpp",
-        -- "fsystem.h",
+        "fsystem.cpp",
+        "fsystem.h",
         -- "hfsystem.cpp",
         -- "hfsystem.h",
         -- "problems.cpp",
         -- "problems.h",
         -- "sparser.cpp",
         -- "sparser.h",
-        -- "stream.cpp",
-        -- "stream.h",
+        "stream.cpp",
+        "stream.h",
         -- "token.cpp",
         -- "token.h",
         -- "vfsystem.cpp",
@@ -19,4 +19,3 @@ arts_component "stream"
         -- "vstream.cpp",
         -- "vstream.h",
     }
-
