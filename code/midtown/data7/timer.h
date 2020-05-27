@@ -44,10 +44,7 @@ public:
     }
 
     // 0x5768F0 | ?Time@Timer@@QAEMXZ
-    f32 Time()
-    {
-        return (Ticks() - start_ticks_) * TicksToSeconds;
-    }
+    f32 Time();
 
     // 0x576920 | ?BeginBenchmark@Timer@@SAXXZ
     static void BeginBenchmark();
@@ -62,7 +59,7 @@ public:
     static u32 Ticks();
 
     // 0x90A66C | ?TicksToSeconds@Timer@@2MA
-    static inline extern_var(0x90A66C, f32, TicksToSeconds);
+    static f32 TicksToSeconds;
 
 private:
     u32 start_ticks_ {0};

@@ -24,10 +24,17 @@ define_dummy_symbol(data7_timer);
 
 #include <timeapi.h>
 
-static extern_var(0x90A674, i32, TimerMode);
+static i32 TimerMode = 0;
 
-Timer::Timer()
+static u32 TimerOldPriorityClass = 0;
+static u32 TimerOldPriority = 0;
+
+f32 Timer::TicksToSeconds = 0.0f;
+
+ARTS_NOINLINE Timer::Timer()
 {
+    export_hook(0x576870);
+
     if (TicksToSeconds == 0.0f)
     {
         LARGE_INTEGER frequency;
@@ -43,11 +50,17 @@ Timer::Timer()
     Reset();
 }
 
-static extern_var(0x90A670, u32, TimerOldPriorityClass);
-static extern_var(0x90A678, u32, TimerOldPriority);
+ARTS_NOINLINE f32 Timer::Time()
+{
+    export_hook(0x5768F0);
+
+    return (Ticks() - start_ticks_) * TicksToSeconds;
+}
 
 void Timer::BeginBenchmark()
 {
+    export_hook(0x576920);
+
     TimerOldPriorityClass = GetPriorityClass(GetCurrentProcess());
     TimerOldPriority = GetThreadPriority(GetCurrentThread());
 
@@ -60,6 +73,8 @@ void Timer::BeginBenchmark()
 
 void Timer::EndBenchmark()
 {
+    export_hook(0x576990);
+
     SetPriorityClass(GetCurrentProcess(), TimerOldPriorityClass);
     SetThreadPriority(GetCurrentThread(), TimerOldPriority);
 }
@@ -71,6 +86,8 @@ void Timer::Sleep(i32 ms)
 
 u32 Timer::Ticks()
 {
+    export_hook(0x576830);
+
     if (TimerMode == 1)
     {
         return timeGetTime();
