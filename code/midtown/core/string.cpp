@@ -18,21 +18,19 @@
 
 #include "string.h"
 
-char* CString::StrDup(const char* value)
+ARTS_NOINLINE char* arts_strdup(const char* str)
 {
-    char* result = nullptr;
+    char* ptr = nullptr;
 
-    if (value)
+    if (str)
     {
-        usize length = std::strlen(value) + 1;
+        usize length = std::strlen(str) + 1;
 
-        result = new char[length];
+        ptr = static_cast<char*>(arts_malloc(length));
 
-        if (result)
-        {
-            std::memcpy(result, value, length);
-        }
+        if (ptr)
+            std::memcpy(ptr, str, length);
     }
 
-    return result;
+    return ptr;
 }

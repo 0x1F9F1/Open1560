@@ -59,3 +59,38 @@ ARTS_NOINLINE void operator delete[](void* ptr, std::size_t sz) noexcept
 
     CURHEAP->Free(ptr);
 }
+
+ARTS_NOINLINE void* arts_calloc(std::size_t num, std::size_t size)
+{
+    // export_hook(0x521530);
+
+    std::size_t len = num * size;
+
+    void* ptr = CURHEAP->Allocate(len);
+
+    if (ptr)
+        std::memset(ptr, 0, len);
+
+    return ptr;
+}
+
+ARTS_NOINLINE void arts_free(void* ptr)
+{
+    // export_hook(0x521570);
+
+    CURHEAP->Free(ptr);
+}
+
+ARTS_NOINLINE void* arts_malloc(std::size_t size)
+{
+    // export_hook(0x5214F0);
+
+    return CURHEAP->Allocate(size);
+}
+
+ARTS_NOINLINE void* arts_realloc(void* ptr, std::size_t size)
+{
+    export_hook(0x521510);
+
+    return CURHEAP->Reallocate(ptr, size);
+}

@@ -45,6 +45,7 @@ Stream::~Stream()
 {
     export_hook(0x55E940);
 
+    // FIXME: If the file actually requires flushing, this will result in purecalls
     Flush();
 
     if (file_system_)

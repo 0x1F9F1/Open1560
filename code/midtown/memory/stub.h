@@ -33,10 +33,14 @@
 
 // 0x5215A0 | ??2@YAPAXI@Z
 
-// 0x521530 | _calloc (Skipped: void)
+// 0x521530 | _calloc
+void* arts_calloc(std::size_t num, std::size_t size);
 
-// 0x521570 | _free (Skipped: void)
+// 0x521570 | _free
+void arts_free(void* ptr);
 
-// 0x5214F0 | _malloc (Skipped: void)
+// 0x5214F0 | _malloc
+void* arts_malloc(std::size_t size);
 
-// 0x521510 | _realloc (Skipped: void)
+// 0x521510 | _realloc
+void* arts_realloc(void* ptr, std::size_t size);

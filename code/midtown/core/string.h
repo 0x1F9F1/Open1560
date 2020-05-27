@@ -20,6 +20,8 @@
 
 #include <cstdarg>
 
+#include "memory/stub.h"
+
 #define arts_vsprintf vsprintf_s
 #define arts_sprintf sprintf_s
 
@@ -31,6 +33,8 @@
 #define arts_strcat strcat_s
 
 #define arts_stricmp _stricmp
+
+char* arts_strdup(const char* str);
 
 class CString
 {
@@ -60,7 +64,7 @@ public:
 
     ~CString()
     {
-        delete[] data_;
+        arts_free(data_);
     }
 
     CString& operator=(const char* value)
@@ -79,7 +83,7 @@ public:
 
     CString& operator=(CString&& value)
     {
-        delete[] data_;
+        arts_free(data_);
         data_ = value.data_;
         value.data_ = nullptr;
 
@@ -88,8 +92,8 @@ public:
 
     void assign(const char* value)
     {
-        delete[] data_;
-        data_ = CString::StrDup(value);
+        arts_free(data_);
+        data_ = arts_strdup(value);
     }
 
     char* get()
@@ -101,8 +105,6 @@ public:
     {
         return data_;
     }
-
-    static char* StrDup(const char* value);
 
 private:
     char* data_ {nullptr};
