@@ -1394,7 +1394,54 @@ vftables = backport_vftable_purecalls(vftables, class_hier, {
     'MetaType':  { None: 5 },
     'asPortalRenderable': { None: 1 },
 })
-# print(vftables)
+
+'''
+Comment out the following code in fixup_func_type to create a proper vftable dump
+if self.member_type == 'dtor':
+    param_types = []
+'''
+# with open('vftables.h', 'w') as f:
+#     for class_name, tables in vftables.items():
+#         if len(tables) != 1:
+#             continue
+
+#         table = next(iter(tables.values()))
+
+#         f.write('struct {};\n'.format(class_name))
+
+#         f.write('struct {}_vftable'.format(class_name))
+#         f.write('\n{\n')
+
+#         seen = set()
+
+#         for sym in table:
+#             if sym.member_type == 'dtor':
+#                 sym_name = 'Dtor'
+#             else:
+#                 sym_name = sym.name
+
+#             if sym_name in seen:
+#                 for i in range(1, 1000):
+#                     test_sym_name = '{}{}'.format(sym_name, i)
+#                     if test_sym_name not in seen:
+#                         sym_name = test_sym_name
+#                         break
+
+#             seen.add(sym_name)
+
+#             params = []
+
+#             params.append('{}*'.format(class_name))
+
+#             for param in sym.type.parameters:
+#                 params.append(beautify_type(param.type))
+
+#             if sym.type.has_variable_arguments:
+#                 params.append('...')
+
+#             f.write('    {} (__{}*{})({});\n'.format(beautify_type(sym.type.return_value), sym.type.calling_convention.name, sym_name, ','.join(params)))
+
+#         f.write('};\n\n')
 
 grouped_symbols = defaultdict(lambda: defaultdict(lambda: list()))
 
