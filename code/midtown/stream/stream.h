@@ -91,7 +91,7 @@ public:
     virtual u32 GetPagerHandle();
 
     // 0x55EDA0 | ?GetPagingInfo@Stream@@UAEHAAI00@Z
-    virtual i32 GetPagingInfo(u32& handle, u32& offset, u32& size);
+    virtual b32 GetPagingInfo(u32& handle, u32& offset, u32& size);
 
     virtual i32 RawRead(void* arg1, i32 arg2) = 0;
 
@@ -113,13 +113,16 @@ public:
     i32 Flush();
 
     // 0x55F190 | ?Get@Stream@@QAEHPAGH@Z
-    i32 Get(u16* arg1, i32 arg2);
+    i32 Get(u16* values, i32 count);
 
     // 0x55F1D0 | ?Get@Stream@@QAEHPAKH@Z
-    i32 Get(u32* arg1, i32 arg2);
+    i32 Get(u32* values, i32 count);
 
     // 0x55F170 | ?Get@Stream@@QAEHPAEH@Z
-    i32 Get(u8* arg1, i32 arg2);
+    i32 Get(u8* values, i32 count)
+    {
+        return Read(values, count);
+    }
 
     // 0x55EC00 | ?GetCh@Stream@@QAEHXZ
     i32 GetCh()
@@ -148,13 +151,23 @@ public:
     }
 
     // 0x55F2B0 | ?GetLong@Stream@@QAEKXZ
-    u32 GetLong();
+    u32 GetLong()
+    {
+        u32 result = 0;
+        Get(&result, 1);
+        return result;
+    }
 
     // 0x55F290 | ?GetShort@Stream@@QAEGXZ
-    u16 GetShort();
+    u16 GetShort()
+    {
+        u16 result = 0;
+        Get(&result, 1);
+        return result;
+    }
 
     // 0x55EEF0 | ?GetString@Stream@@QAEHPADH@Z
-    i32 GetString(char* arg1, i32 arg2);
+    i32 GetString(char* buffer, i32 buffer_len);
 
     // 0x55EDF0 | ?Printf@Stream@@QAAHPBDZZ
     i32 Printf(char const* format, ...);
@@ -248,10 +261,10 @@ protected:
 
 private:
     // 0x55F240 | ?SwapLongs@Stream@@CAXPAKH@Z
-    static void SwapLongs(u32* arg1, i32 arg2);
+    static void SwapLongs(u32* values, i32 count);
 
     // 0x55F210 | ?SwapShorts@Stream@@CAXPAGH@Z
-    static void SwapShorts(u16* arg1, i32 arg2);
+    static void SwapShorts(u16* values, i32 count);
 };
 
 check_size(Stream, 0x20);

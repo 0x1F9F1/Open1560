@@ -13,4 +13,5 @@ arts_component "core"
         "string.cpp",
 
         "pointer.h",
+        "endian.h",
     }

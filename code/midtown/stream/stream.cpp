@@ -22,6 +22,8 @@ define_dummy_symbol(stream_stream);
 
 #include "fsystem.h"
 
+#include "core/endian.h"
+
 Stream::Stream(void* buffer, i32 buffer_size, class FileSystem* file_system)
     : buffer_(static_cast<u8*>(buffer))
     , buffer_capacity_(buffer_size)
@@ -63,14 +65,13 @@ void* Stream::GetMapping()
     return nullptr;
 }
 
-// TODO: Use usize
+// TODO: Use usize/void*
 u32 Stream::GetPagerHandle()
 {
     return 0;
 }
 
-// TODO: Use bool
-i32 Stream::GetPagingInfo(u32&, u32&, u32&)
+b32 Stream::GetPagingInfo(u32&, u32&, u32&)
 {
     return false;
 }
@@ -109,39 +110,56 @@ i32 Stream::Flush()
     return count;
 }
 
-i32 Stream::Get(u16* arg1, i32 arg2)
+i32 Stream::Get(u16* values, i32 count)
 {
-    return stub<thiscall_t<i32, Stream*, u16*, i32>>(0x55F190, this, arg1, arg2);
+    export_hook(0x55F190);
+
+    count = Read(values, count * sizeof(*values)) / sizeof(*values);
+
+    if (swap_endian_)
+        SwapShorts(values, count);
+
+    return count;
 }
 
-i32 Stream::Get(u32* arg1, i32 arg2)
+i32 Stream::Get(u32* values, i32 count)
 {
-    return stub<thiscall_t<i32, Stream*, u32*, i32>>(0x55F1D0, this, arg1, arg2);
+    export_hook(0x55F1D0);
+
+    count = Read(values, count * sizeof(*values)) / sizeof(*values);
+
+    if (swap_endian_)
+        SwapLongs(values, count);
+
+    return count;
 }
 
-i32 Stream::Get(u8* arg1, i32 arg2)
+i32 Stream::GetString(char* buffer, i32 buffer_len)
 {
-    return stub<thiscall_t<i32, Stream*, u8*, i32>>(0x55F170, this, arg1, arg2);
-}
+    export_hook(0x55EEF0);
 
-u32 Stream::GetLong()
-{
-    return stub<thiscall_t<u32, Stream*>>(0x55F2B0, this);
-}
+    u32 len = GetLong();
 
-u16 Stream::GetShort()
-{
-    return stub<thiscall_t<u16, Stream*>>(0x55F290, this);
-}
+    if (len <= static_cast<u32>(buffer_len)) // TODO: Should this be "<" to ensure a null terminator?
+        return Get(reinterpret_cast<u8*>(buffer), len);
 
-i32 Stream::GetString(char* arg1, i32 arg2)
-{
-    return stub<thiscall_t<i32, Stream*, char*, i32>>(0x55EEF0, this, arg1, arg2);
+    // TODO: Check result of Get()
+    Get(reinterpret_cast<u8*>(buffer), buffer_len - 1);
+    buffer[buffer_len - 1] = '\0';
+
+    len -= buffer_len - 1;
+
+    // TODO: Use seek?
+    for (; len; --len)
+        GetCh();
+
+    return buffer_len;
 }
 
 i32 Stream::Printf(char const* format, ...)
 {
     export_hook(0x55EDF0);
+
     std::va_list va;
     va_start(va, format);
     i32 result = Vprintf(format, va);
@@ -238,14 +256,20 @@ i32 Stream::GetError(char* buf, i32 buf_len)
     return error;
 }
 
-void Stream::SwapLongs(u32* arg1, i32 arg2)
+void Stream::SwapLongs(u32* values, i32 count)
 {
-    return stub<cdecl_t<void, u32*, i32>>(0x55F240, arg1, arg2);
+    export_hook(0x55F240);
+
+    for (i32 i = 0; i < count; ++i)
+        ByteSwap(values[i]);
 }
 
-void Stream::SwapShorts(u16* arg1, i32 arg2)
+void Stream::SwapShorts(u16* values, i32 count)
 {
-    return stub<cdecl_t<void, u16*, i32>>(0x55F210, arg1, arg2);
+    export_hook(0x55F210);
+
+    for (i32 i = 0; i < count; ++i)
+        ByteSwap(values[i]);
 }
 
 i32 arts_fgets(char* arg1, i32 arg2, class Stream* arg3)
