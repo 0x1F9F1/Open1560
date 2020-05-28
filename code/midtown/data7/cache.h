@@ -40,6 +40,8 @@
     0x90A9B0 | class DataCache CACHE | ?CACHE@@3VDataCache@@A
 */
 
+#include "mutex.h"
+
 using DataCacheCallback = void (*)(void* ctx, i32 delta);
 
 struct DataCacheObject;
@@ -120,8 +122,8 @@ private:
 
     u32 lock_count_ {0};
 
-    u32 write_mutex_ {0};
-    u32 read_mutex_ {0};
+    Mutex write_lock_ {};
+    Mutex read_lock_ {};
 
     const char* name_ {nullptr};
 };

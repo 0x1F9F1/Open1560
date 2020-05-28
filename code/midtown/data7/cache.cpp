@@ -68,7 +68,7 @@ void DataCache::Age()
 {
     export_hook(0x577750);
 
-    ipcWaitSingle(write_mutex_);
+    write_lock_.lock();
 
     ++age_;
 
@@ -136,7 +136,7 @@ void DataCache::Age()
         heap_used_ = heap - heap_;
     }
 
-    ipcReleaseMutex(write_mutex_);
+    write_lock_.unlock();
 }
 
 void* DataCache::Allocate(i32 handle, u32 size)
@@ -164,7 +164,7 @@ i32 DataCache::BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* co
 {
     export_hook(0x577410);
 
-    ipcWaitSingle(write_mutex_);
+    write_lock_.lock();
 
     maxsize = AlignSize(maxsize);
 
@@ -208,7 +208,7 @@ i32 DataCache::BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* co
             waste);
         fragmented_ = true;
 
-        ipcReleaseMutex(write_mutex_);
+        write_lock_.unlock();
 
         return false;
     }
@@ -234,17 +234,17 @@ void DataCache::EndObject(i32 handle)
     dco.nLockCount = 0;
 
     if (--lock_count_ == 0)
-        ipcReleaseMutex(read_mutex_);
+        read_lock_.unlock();
 
-    ipcReleaseMutex(write_mutex_);
+    write_lock_.unlock();
 }
 
 void DataCache::Flush()
 {
     export_hook(0x5776D0);
 
-    ipcWaitSingle(write_mutex_);
-    ipcWaitSingle(read_mutex_);
+    write_lock_.lock();
+    read_lock_.lock();
 
     for (i32 i = 1; i <= cur_objects_; ++i)
     {
@@ -258,8 +258,8 @@ void DataCache::Flush()
 
     heap_used_ = 0;
 
-    ipcReleaseMutex(read_mutex_);
-    ipcReleaseMutex(write_mutex_);
+    read_lock_.unlock();
+    write_lock_.unlock();
 }
 
 void DataCache::GetStatus(u32& objects, u32& bytes, u32& waste)
@@ -296,8 +296,8 @@ void DataCache::Init(u32 heap_size, i32 handle_count, const char* name)
     age_ = 0;
     lock_count_ = 0;
 
-    write_mutex_ = ipcCreateMutex(0);
-    read_mutex_ = ipcCreateMutex(0);
+    write_lock_.init();
+    read_lock_.init();
 
     name_ = name;
 }
@@ -308,11 +308,11 @@ b32 DataCache::Lock(i32* handle)
 
     ArAssert(*handle != 0, "Invalid Handle");
 
-    ipcWaitSingle(write_mutex_);
+    write_lock_.lock();
 
     if (*handle == -1)
     {
-        ipcReleaseMutex(write_mutex_);
+        write_lock_.unlock();
         return false;
     }
 
@@ -321,11 +321,11 @@ b32 DataCache::Lock(i32* handle)
     ++dco.nLockCount;
 
     if (lock_count_++ == 0)
-        ipcWaitSingle(read_mutex_);
+        read_lock_.lock();
 
     dco.nAge = age_;
 
-    ipcReleaseMutex(write_mutex_);
+    write_lock_.unlock();
 
     return true;
 }
@@ -334,49 +334,52 @@ void DataCache::Shutdown()
 {
     export_hook(0x577070);
 
-    ipcWaitSingle(write_mutex_);
-    ipcWaitSingle(read_mutex_);
+    // TODO: These locks should probably be removed, because Flush() also tries to lock
+    write_lock_.lock();
+    read_lock_.lock();
 
     Flush();
 
-    ipcCloseHandle(write_mutex_);
-    ipcCloseHandle(read_mutex_);
+    write_lock_.close();
+    read_lock_.close();
+
+    // TODO: Free heap_ and objects_
 }
 
 void DataCache::Unlock(i32 handle)
 {
     export_hook(0x577290);
 
-    ipcWaitSingle(write_mutex_);
+    write_lock_.lock();
 
     DataCacheObject& dco = GetObject(handle);
 
     --dco.nLockCount;
 
     if (--lock_count_ == 0)
-        ipcReleaseMutex(read_mutex_);
+        read_lock_.unlock();
 
-    ipcReleaseMutex(write_mutex_);
+    write_lock_.unlock();
 }
 
 void DataCache::UnlockAndFree(i32 handle)
 {
     export_hook(0x577300);
 
-    ipcWaitSingle(write_mutex_);
+    write_lock_.lock();
 
     DataCacheObject& dco = GetObject(handle);
 
     --dco.nLockCount;
 
     if (--lock_count_ == 0)
-        ipcReleaseMutex(read_mutex_);
+        read_lock_.unlock();
 
     cur_waste_ += dco.nMaxSize;
 
     Unload(handle);
     CleanEndOfHeap();
-    ipcReleaseMutex(write_mutex_);
+    write_lock_.unlock();
 }
 
 void DataCache::CleanEndOfHeap()
@@ -425,7 +428,7 @@ void DataCache::InitObject(
     dco.nMaxSize = maxsize;
 
     if (lock_count_++ == 0)
-        ipcWaitSingle(read_mutex_);
+        read_lock_.lock();
 }
 
 void DataCache::Relocate(DataCacheObject& dco, u8* ptr)
