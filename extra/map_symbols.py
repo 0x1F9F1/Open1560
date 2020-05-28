@@ -1409,14 +1409,15 @@ if self.member_type == 'dtor':
 
 #         f.write('struct {};\n'.format(class_name))
 
-#         f.write('struct {}_vftable'.format(class_name))
+#         f.write('struct {}_vtbl'.format(class_name))
+
 #         f.write('\n{\n')
 
 #         seen = set()
 
 #         for sym in table:
 #             if sym.member_type == 'dtor':
-#                 sym_name = 'Dtor'
+#                 sym_name = 'Destructor'
 #             else:
 #                 sym_name = sym.name
 
@@ -1431,7 +1432,7 @@ if self.member_type == 'dtor':
 
 #             params = []
 
-#             params.append('{}*'.format(class_name))
+#             params.append('{} * __hidden this'.format(class_name))
 
 #             for param in sym.type.parameters:
 #                 params.append(beautify_type(param.type))

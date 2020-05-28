@@ -1,7093 +1,7093 @@
 struct mmScreenClearFlunky;
-struct mmScreenClearFlunky_vftable
+struct mmScreenClearFlunky_vtbl
 {
-    void* (__thiscall*Dtor)(mmScreenClearFlunky*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmScreenClearFlunky*);
-    char* (__thiscall*GetTypeNameV)(mmScreenClearFlunky*);
-    void (__thiscall*BeforeSave)(mmScreenClearFlunky*);
-    void (__thiscall*AfterLoad)(mmScreenClearFlunky*);
-    void (__thiscall*Cull)(mmScreenClearFlunky*);
-    void (__thiscall*Update)(mmScreenClearFlunky*);
-    void (__thiscall*Reset)(mmScreenClearFlunky*);
-    void (__thiscall*ResChange)(mmScreenClearFlunky*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmScreenClearFlunky*);
-    void (__thiscall*Load)(mmScreenClearFlunky*);
-    void (__thiscall*Save)(mmScreenClearFlunky*);
-    void (__thiscall*AddWidgets)(mmScreenClearFlunky*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmScreenClearFlunky*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmScreenClearFlunky*);
+    void* (__thiscall*Destructor)(mmScreenClearFlunky * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmScreenClearFlunky * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmScreenClearFlunky * __hidden this);
+    void (__thiscall*BeforeSave)(mmScreenClearFlunky * __hidden this);
+    void (__thiscall*AfterLoad)(mmScreenClearFlunky * __hidden this);
+    void (__thiscall*Cull)(mmScreenClearFlunky * __hidden this);
+    void (__thiscall*Update)(mmScreenClearFlunky * __hidden this);
+    void (__thiscall*Reset)(mmScreenClearFlunky * __hidden this);
+    void (__thiscall*ResChange)(mmScreenClearFlunky * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmScreenClearFlunky * __hidden this);
+    void (__thiscall*Load)(mmScreenClearFlunky * __hidden this);
+    void (__thiscall*Save)(mmScreenClearFlunky * __hidden this);
+    void (__thiscall*AddWidgets)(mmScreenClearFlunky * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmScreenClearFlunky * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmScreenClearFlunky * __hidden this);
 };
 
 struct mmGameManager;
-struct mmGameManager_vftable
+struct mmGameManager_vtbl
 {
-    void* (__thiscall*Dtor)(mmGameManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmGameManager*);
-    char* (__thiscall*GetTypeNameV)(mmGameManager*);
-    void (__thiscall*BeforeSave)(mmGameManager*);
-    void (__thiscall*AfterLoad)(mmGameManager*);
-    void (__thiscall*Cull)(mmGameManager*);
-    void (__thiscall*Update)(mmGameManager*);
-    void (__thiscall*Reset)(mmGameManager*);
-    void (__thiscall*ResChange)(mmGameManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmGameManager*);
-    void (__thiscall*Load)(mmGameManager*);
-    void (__thiscall*Save)(mmGameManager*);
-    void (__thiscall*AddWidgets)(mmGameManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmGameManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmGameManager*);
+    void* (__thiscall*Destructor)(mmGameManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmGameManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmGameManager * __hidden this);
+    void (__thiscall*BeforeSave)(mmGameManager * __hidden this);
+    void (__thiscall*AfterLoad)(mmGameManager * __hidden this);
+    void (__thiscall*Cull)(mmGameManager * __hidden this);
+    void (__thiscall*Update)(mmGameManager * __hidden this);
+    void (__thiscall*Reset)(mmGameManager * __hidden this);
+    void (__thiscall*ResChange)(mmGameManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmGameManager * __hidden this);
+    void (__thiscall*Load)(mmGameManager * __hidden this);
+    void (__thiscall*Save)(mmGameManager * __hidden this);
+    void (__thiscall*AddWidgets)(mmGameManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmGameManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmGameManager * __hidden this);
 };
 
 struct mmHUD;
-struct mmHUD_vftable
+struct mmHUD_vtbl
 {
-    void* (__thiscall*Dtor)(mmHUD*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmHUD*);
-    char* (__thiscall*GetTypeNameV)(mmHUD*);
-    void (__thiscall*BeforeSave)(mmHUD*);
-    void (__thiscall*AfterLoad)(mmHUD*);
-    void (__thiscall*Cull)(mmHUD*);
-    void (__thiscall*Update)(mmHUD*);
-    void (__thiscall*Reset)(mmHUD*);
-    void (__thiscall*ResChange)(mmHUD*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmHUD*);
-    void (__thiscall*Load)(mmHUD*);
-    void (__thiscall*Save)(mmHUD*);
-    void (__thiscall*AddWidgets)(mmHUD*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmHUD*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmHUD*);
+    void* (__thiscall*Destructor)(mmHUD * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmHUD * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmHUD * __hidden this);
+    void (__thiscall*BeforeSave)(mmHUD * __hidden this);
+    void (__thiscall*AfterLoad)(mmHUD * __hidden this);
+    void (__thiscall*Cull)(mmHUD * __hidden this);
+    void (__thiscall*Update)(mmHUD * __hidden this);
+    void (__thiscall*Reset)(mmHUD * __hidden this);
+    void (__thiscall*ResChange)(mmHUD * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmHUD * __hidden this);
+    void (__thiscall*Load)(mmHUD * __hidden this);
+    void (__thiscall*Save)(mmHUD * __hidden this);
+    void (__thiscall*AddWidgets)(mmHUD * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmHUD * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmHUD * __hidden this);
 };
 
 struct mmTimer;
-struct mmTimer_vftable
+struct mmTimer_vtbl
 {
-    void* (__thiscall*Dtor)(mmTimer*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmTimer*);
-    char* (__thiscall*GetTypeNameV)(mmTimer*);
-    void (__thiscall*BeforeSave)(mmTimer*);
-    void (__thiscall*AfterLoad)(mmTimer*);
-    void (__thiscall*Cull)(mmTimer*);
-    void (__thiscall*Update)(mmTimer*);
-    void (__thiscall*Reset)(mmTimer*);
-    void (__thiscall*ResChange)(mmTimer*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmTimer*);
-    void (__thiscall*Load)(mmTimer*);
-    void (__thiscall*Save)(mmTimer*);
-    void (__thiscall*AddWidgets)(mmTimer*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmTimer*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmTimer*);
+    void* (__thiscall*Destructor)(mmTimer * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmTimer * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmTimer * __hidden this);
+    void (__thiscall*BeforeSave)(mmTimer * __hidden this);
+    void (__thiscall*AfterLoad)(mmTimer * __hidden this);
+    void (__thiscall*Cull)(mmTimer * __hidden this);
+    void (__thiscall*Update)(mmTimer * __hidden this);
+    void (__thiscall*Reset)(mmTimer * __hidden this);
+    void (__thiscall*ResChange)(mmTimer * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmTimer * __hidden this);
+    void (__thiscall*Load)(mmTimer * __hidden this);
+    void (__thiscall*Save)(mmTimer * __hidden this);
+    void (__thiscall*AddWidgets)(mmTimer * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmTimer * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmTimer * __hidden this);
 };
 
 struct mmArrow;
-struct mmArrow_vftable
+struct mmArrow_vtbl
 {
-    void* (__thiscall*Dtor)(mmArrow*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmArrow*);
-    char* (__thiscall*GetTypeNameV)(mmArrow*);
-    void (__thiscall*BeforeSave)(mmArrow*);
-    void (__thiscall*AfterLoad)(mmArrow*);
-    void (__thiscall*Cull)(mmArrow*);
-    void (__thiscall*Update)(mmArrow*);
-    void (__thiscall*Reset)(mmArrow*);
-    void (__thiscall*ResChange)(mmArrow*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmArrow*);
-    void (__thiscall*Load)(mmArrow*);
-    void (__thiscall*Save)(mmArrow*);
-    void (__thiscall*AddWidgets)(mmArrow*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmArrow*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmArrow*);
+    void* (__thiscall*Destructor)(mmArrow * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmArrow * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmArrow * __hidden this);
+    void (__thiscall*BeforeSave)(mmArrow * __hidden this);
+    void (__thiscall*AfterLoad)(mmArrow * __hidden this);
+    void (__thiscall*Cull)(mmArrow * __hidden this);
+    void (__thiscall*Update)(mmArrow * __hidden this);
+    void (__thiscall*Reset)(mmArrow * __hidden this);
+    void (__thiscall*ResChange)(mmArrow * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmArrow * __hidden this);
+    void (__thiscall*Load)(mmArrow * __hidden this);
+    void (__thiscall*Save)(mmArrow * __hidden this);
+    void (__thiscall*AddWidgets)(mmArrow * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmArrow * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmArrow * __hidden this);
 };
 
 struct mmInterface;
-struct mmInterface_vftable
+struct mmInterface_vtbl
 {
-    void* (__thiscall*Dtor)(mmInterface*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmInterface*);
-    char* (__thiscall*GetTypeNameV)(mmInterface*);
-    void (__thiscall*BeforeSave)(mmInterface*);
-    void (__thiscall*AfterLoad)(mmInterface*);
-    void (__thiscall*Cull)(mmInterface*);
-    void (__thiscall*Update)(mmInterface*);
-    void (__thiscall*Reset)(mmInterface*);
-    void (__thiscall*ResChange)(mmInterface*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmInterface*);
-    void (__thiscall*Load)(mmInterface*);
-    void (__thiscall*Save)(mmInterface*);
-    void (__thiscall*AddWidgets)(mmInterface*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmInterface*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmInterface*);
+    void* (__thiscall*Destructor)(mmInterface * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmInterface * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmInterface * __hidden this);
+    void (__thiscall*BeforeSave)(mmInterface * __hidden this);
+    void (__thiscall*AfterLoad)(mmInterface * __hidden this);
+    void (__thiscall*Cull)(mmInterface * __hidden this);
+    void (__thiscall*Update)(mmInterface * __hidden this);
+    void (__thiscall*Reset)(mmInterface * __hidden this);
+    void (__thiscall*ResChange)(mmInterface * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmInterface * __hidden this);
+    void (__thiscall*Load)(mmInterface * __hidden this);
+    void (__thiscall*Save)(mmInterface * __hidden this);
+    void (__thiscall*AddWidgets)(mmInterface * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmInterface * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmInterface * __hidden this);
 };
 
 struct mmGame;
-struct mmGame_vftable
+struct mmGame_vtbl
 {
-    void* (__thiscall*Dtor)(mmGame*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmGame*);
-    char* (__thiscall*GetTypeNameV)(mmGame*);
-    void (__thiscall*BeforeSave)(mmGame*);
-    void (__thiscall*AfterLoad)(mmGame*);
-    void (__thiscall*Cull)(mmGame*);
-    void (__thiscall*Update)(mmGame*);
-    void (__thiscall*Reset)(mmGame*);
-    void (__thiscall*ResChange)(mmGame*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmGame*);
-    void (__thiscall*Load)(mmGame*);
-    void (__thiscall*Save)(mmGame*);
-    void (__thiscall*AddWidgets)(mmGame*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmGame*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmGame*);
-    void (__thiscall*InitGameStrings)(mmGame*);
-    void (__thiscall*InitMyPlayer)(mmGame*);
-    void (__thiscall*InitOtherPlayers)(mmGame*);
-    void (__thiscall*InitGameObjects)(mmGame*);
-    void (__thiscall*InitHUD)(mmGame*);
-    void (__thiscall*UpdateGameInput)(mmGame*,i32);
-    void (__thiscall*UpdateDebugInput)(mmGame*);
-    void (__thiscall*UpdateDebugKeyInput)(mmGame*,i32);
-    void (__thiscall*UpdateGame)(mmGame*);
-    void (__thiscall*NextRace)(mmGame*);
-    void (__thiscall*HitWaterHandler)(mmGame*);
-    void (__thiscall*DropThruCityHandler)(mmGame*);
-    void (__thiscall*SendChatMessage)(mmGame*,char*);
-    class mmWaypoints* (__thiscall*GetWaypoints)(mmGame*);
+    void* (__thiscall*Destructor)(mmGame * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmGame * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmGame * __hidden this);
+    void (__thiscall*BeforeSave)(mmGame * __hidden this);
+    void (__thiscall*AfterLoad)(mmGame * __hidden this);
+    void (__thiscall*Cull)(mmGame * __hidden this);
+    void (__thiscall*Update)(mmGame * __hidden this);
+    void (__thiscall*Reset)(mmGame * __hidden this);
+    void (__thiscall*ResChange)(mmGame * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmGame * __hidden this);
+    void (__thiscall*Load)(mmGame * __hidden this);
+    void (__thiscall*Save)(mmGame * __hidden this);
+    void (__thiscall*AddWidgets)(mmGame * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmGame * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmGame * __hidden this);
+    void (__thiscall*InitGameStrings)(mmGame * __hidden this);
+    void (__thiscall*InitMyPlayer)(mmGame * __hidden this);
+    void (__thiscall*InitOtherPlayers)(mmGame * __hidden this);
+    void (__thiscall*InitGameObjects)(mmGame * __hidden this);
+    void (__thiscall*InitHUD)(mmGame * __hidden this);
+    void (__thiscall*UpdateGameInput)(mmGame * __hidden this,i32);
+    void (__thiscall*UpdateDebugInput)(mmGame * __hidden this);
+    void (__thiscall*UpdateDebugKeyInput)(mmGame * __hidden this,i32);
+    void (__thiscall*UpdateGame)(mmGame * __hidden this);
+    void (__thiscall*NextRace)(mmGame * __hidden this);
+    void (__thiscall*HitWaterHandler)(mmGame * __hidden this);
+    void (__thiscall*DropThruCityHandler)(mmGame * __hidden this);
+    void (__thiscall*SendChatMessage)(mmGame * __hidden this,char*);
+    class mmWaypoints* (__thiscall*GetWaypoints)(mmGame * __hidden this);
 };
 
 struct mmGameEdit;
-struct mmGameEdit_vftable
+struct mmGameEdit_vtbl
 {
-    void* (__thiscall*Dtor)(mmGameEdit*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmGameEdit*);
-    char* (__thiscall*GetTypeNameV)(mmGameEdit*);
-    void (__thiscall*BeforeSave)(mmGameEdit*);
-    void (__thiscall*AfterLoad)(mmGameEdit*);
-    void (__thiscall*Cull)(mmGameEdit*);
-    void (__thiscall*Update)(mmGameEdit*);
-    void (__thiscall*Reset)(mmGameEdit*);
-    void (__thiscall*ResChange)(mmGameEdit*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmGameEdit*);
-    void (__thiscall*Load)(mmGameEdit*);
-    void (__thiscall*Save)(mmGameEdit*);
-    void (__thiscall*AddWidgets)(mmGameEdit*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmGameEdit*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmGameEdit*);
-    void (__thiscall*InitGameStrings)(mmGameEdit*);
-    void (__thiscall*InitMyPlayer)(mmGameEdit*);
-    void (__thiscall*InitOtherPlayers)(mmGameEdit*);
-    void (__thiscall*InitGameObjects)(mmGameEdit*);
-    void (__thiscall*InitHUD)(mmGameEdit*);
-    void (__thiscall*UpdateGameInput)(mmGameEdit*,i32);
-    void (__thiscall*UpdateDebugInput)(mmGameEdit*);
-    void (__thiscall*UpdateDebugKeyInput)(mmGameEdit*,i32);
-    void (__thiscall*UpdateGame)(mmGameEdit*);
-    void (__thiscall*NextRace)(mmGameEdit*);
-    void (__thiscall*HitWaterHandler)(mmGameEdit*);
-    void (__thiscall*DropThruCityHandler)(mmGameEdit*);
-    void (__thiscall*SendChatMessage)(mmGameEdit*,char*);
-    class mmWaypoints* (__thiscall*GetWaypoints)(mmGameEdit*);
+    void* (__thiscall*Destructor)(mmGameEdit * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmGameEdit * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmGameEdit * __hidden this);
+    void (__thiscall*BeforeSave)(mmGameEdit * __hidden this);
+    void (__thiscall*AfterLoad)(mmGameEdit * __hidden this);
+    void (__thiscall*Cull)(mmGameEdit * __hidden this);
+    void (__thiscall*Update)(mmGameEdit * __hidden this);
+    void (__thiscall*Reset)(mmGameEdit * __hidden this);
+    void (__thiscall*ResChange)(mmGameEdit * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmGameEdit * __hidden this);
+    void (__thiscall*Load)(mmGameEdit * __hidden this);
+    void (__thiscall*Save)(mmGameEdit * __hidden this);
+    void (__thiscall*AddWidgets)(mmGameEdit * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmGameEdit * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmGameEdit * __hidden this);
+    void (__thiscall*InitGameStrings)(mmGameEdit * __hidden this);
+    void (__thiscall*InitMyPlayer)(mmGameEdit * __hidden this);
+    void (__thiscall*InitOtherPlayers)(mmGameEdit * __hidden this);
+    void (__thiscall*InitGameObjects)(mmGameEdit * __hidden this);
+    void (__thiscall*InitHUD)(mmGameEdit * __hidden this);
+    void (__thiscall*UpdateGameInput)(mmGameEdit * __hidden this,i32);
+    void (__thiscall*UpdateDebugInput)(mmGameEdit * __hidden this);
+    void (__thiscall*UpdateDebugKeyInput)(mmGameEdit * __hidden this,i32);
+    void (__thiscall*UpdateGame)(mmGameEdit * __hidden this);
+    void (__thiscall*NextRace)(mmGameEdit * __hidden this);
+    void (__thiscall*HitWaterHandler)(mmGameEdit * __hidden this);
+    void (__thiscall*DropThruCityHandler)(mmGameEdit * __hidden this);
+    void (__thiscall*SendChatMessage)(mmGameEdit * __hidden this,char*);
+    class mmWaypoints* (__thiscall*GetWaypoints)(mmGameEdit * __hidden this);
 };
 
 struct mmSingleBlitz;
-struct mmSingleBlitz_vftable
+struct mmSingleBlitz_vtbl
 {
-    void* (__thiscall*Dtor)(mmSingleBlitz*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmSingleBlitz*);
-    char* (__thiscall*GetTypeNameV)(mmSingleBlitz*);
-    void (__thiscall*BeforeSave)(mmSingleBlitz*);
-    void (__thiscall*AfterLoad)(mmSingleBlitz*);
-    void (__thiscall*Cull)(mmSingleBlitz*);
-    void (__thiscall*Update)(mmSingleBlitz*);
-    void (__thiscall*Reset)(mmSingleBlitz*);
-    void (__thiscall*ResChange)(mmSingleBlitz*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmSingleBlitz*);
-    void (__thiscall*Load)(mmSingleBlitz*);
-    void (__thiscall*Save)(mmSingleBlitz*);
-    void (__thiscall*AddWidgets)(mmSingleBlitz*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmSingleBlitz*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmSingleBlitz*);
-    void (__thiscall*InitGameStrings)(mmSingleBlitz*);
-    void (__thiscall*InitMyPlayer)(mmSingleBlitz*);
-    void (__thiscall*InitOtherPlayers)(mmSingleBlitz*);
-    void (__thiscall*InitGameObjects)(mmSingleBlitz*);
-    void (__thiscall*InitHUD)(mmSingleBlitz*);
-    void (__thiscall*UpdateGameInput)(mmSingleBlitz*,i32);
-    void (__thiscall*UpdateDebugInput)(mmSingleBlitz*);
-    void (__thiscall*UpdateDebugKeyInput)(mmSingleBlitz*,i32);
-    void (__thiscall*UpdateGame)(mmSingleBlitz*);
-    void (__thiscall*NextRace)(mmSingleBlitz*);
-    void (__thiscall*HitWaterHandler)(mmSingleBlitz*);
-    void (__thiscall*DropThruCityHandler)(mmSingleBlitz*);
-    void (__thiscall*SendChatMessage)(mmSingleBlitz*,char*);
-    class mmWaypoints* (__thiscall*GetWaypoints)(mmSingleBlitz*);
+    void* (__thiscall*Destructor)(mmSingleBlitz * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmSingleBlitz * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmSingleBlitz * __hidden this);
+    void (__thiscall*BeforeSave)(mmSingleBlitz * __hidden this);
+    void (__thiscall*AfterLoad)(mmSingleBlitz * __hidden this);
+    void (__thiscall*Cull)(mmSingleBlitz * __hidden this);
+    void (__thiscall*Update)(mmSingleBlitz * __hidden this);
+    void (__thiscall*Reset)(mmSingleBlitz * __hidden this);
+    void (__thiscall*ResChange)(mmSingleBlitz * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmSingleBlitz * __hidden this);
+    void (__thiscall*Load)(mmSingleBlitz * __hidden this);
+    void (__thiscall*Save)(mmSingleBlitz * __hidden this);
+    void (__thiscall*AddWidgets)(mmSingleBlitz * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmSingleBlitz * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmSingleBlitz * __hidden this);
+    void (__thiscall*InitGameStrings)(mmSingleBlitz * __hidden this);
+    void (__thiscall*InitMyPlayer)(mmSingleBlitz * __hidden this);
+    void (__thiscall*InitOtherPlayers)(mmSingleBlitz * __hidden this);
+    void (__thiscall*InitGameObjects)(mmSingleBlitz * __hidden this);
+    void (__thiscall*InitHUD)(mmSingleBlitz * __hidden this);
+    void (__thiscall*UpdateGameInput)(mmSingleBlitz * __hidden this,i32);
+    void (__thiscall*UpdateDebugInput)(mmSingleBlitz * __hidden this);
+    void (__thiscall*UpdateDebugKeyInput)(mmSingleBlitz * __hidden this,i32);
+    void (__thiscall*UpdateGame)(mmSingleBlitz * __hidden this);
+    void (__thiscall*NextRace)(mmSingleBlitz * __hidden this);
+    void (__thiscall*HitWaterHandler)(mmSingleBlitz * __hidden this);
+    void (__thiscall*DropThruCityHandler)(mmSingleBlitz * __hidden this);
+    void (__thiscall*SendChatMessage)(mmSingleBlitz * __hidden this,char*);
+    class mmWaypoints* (__thiscall*GetWaypoints)(mmSingleBlitz * __hidden this);
 };
 
 struct foobar;
-struct foobar_vftable
+struct foobar_vtbl
 {
-    void* (__thiscall*Dtor)(foobar*,u32);
-    class MetaClass* (__thiscall*GetClass)(foobar*);
-    char* (__thiscall*GetTypeNameV)(foobar*);
-    void (__thiscall*BeforeSave)(foobar*);
-    void (__thiscall*AfterLoad)(foobar*);
-    void (__thiscall*Cull)(foobar*);
-    void (__thiscall*Update)(foobar*);
-    void (__thiscall*Reset)(foobar*);
-    void (__thiscall*ResChange)(foobar*,i32,i32);
-    void (__thiscall*UpdatePaused)(foobar*);
-    void (__thiscall*Load)(foobar*);
-    void (__thiscall*Save)(foobar*);
-    void (__thiscall*AddWidgets)(foobar*,class Bank*);
-    void (__thiscall*OpenWidgets)(foobar*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(foobar*);
+    void* (__thiscall*Destructor)(foobar * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(foobar * __hidden this);
+    char* (__thiscall*GetTypeNameV)(foobar * __hidden this);
+    void (__thiscall*BeforeSave)(foobar * __hidden this);
+    void (__thiscall*AfterLoad)(foobar * __hidden this);
+    void (__thiscall*Cull)(foobar * __hidden this);
+    void (__thiscall*Update)(foobar * __hidden this);
+    void (__thiscall*Reset)(foobar * __hidden this);
+    void (__thiscall*ResChange)(foobar * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(foobar * __hidden this);
+    void (__thiscall*Load)(foobar * __hidden this);
+    void (__thiscall*Save)(foobar * __hidden this);
+    void (__thiscall*AddWidgets)(foobar * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(foobar * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(foobar * __hidden this);
 };
 
 struct mmPlayerRecord;
-struct mmPlayerRecord_vftable
+struct mmPlayerRecord_vtbl
 {
-    void* (__thiscall*Dtor)(mmPlayerRecord*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPlayerRecord*);
-    char* (__thiscall*GetTypeNameV)(mmPlayerRecord*);
-    void (__thiscall*BeforeSave)(mmPlayerRecord*);
-    void (__thiscall*AfterLoad)(mmPlayerRecord*);
+    void* (__thiscall*Destructor)(mmPlayerRecord * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPlayerRecord * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPlayerRecord * __hidden this);
+    void (__thiscall*BeforeSave)(mmPlayerRecord * __hidden this);
+    void (__thiscall*AfterLoad)(mmPlayerRecord * __hidden this);
 };
 
 struct mmInfoBase;
-struct mmInfoBase_vftable
+struct mmInfoBase_vtbl
 {
-    void* (__thiscall*Dtor)(mmInfoBase*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmInfoBase*);
-    char* (__thiscall*GetTypeNameV)(mmInfoBase*);
-    void (__thiscall*BeforeSave)(mmInfoBase*);
-    void (__thiscall*AfterLoad)(mmInfoBase*);
+    void* (__thiscall*Destructor)(mmInfoBase * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmInfoBase * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmInfoBase * __hidden this);
+    void (__thiscall*BeforeSave)(mmInfoBase * __hidden this);
+    void (__thiscall*AfterLoad)(mmInfoBase * __hidden this);
 };
 
 struct Base;
-struct Base_vftable
+struct Base_vtbl
 {
-    void* (__thiscall*Dtor)(Base*,u32);
-    class MetaClass* (__thiscall*GetClass)(Base*);
-    char* (__thiscall*GetTypeNameV)(Base*);
-    void (__thiscall*BeforeSave)(Base*);
-    void (__thiscall*AfterLoad)(Base*);
+    void* (__thiscall*Destructor)(Base * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Base * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Base * __hidden this);
+    void (__thiscall*BeforeSave)(Base * __hidden this);
+    void (__thiscall*AfterLoad)(Base * __hidden this);
 };
 
 struct mmSingleCircuit;
-struct mmSingleCircuit_vftable
+struct mmSingleCircuit_vtbl
 {
-    void* (__thiscall*Dtor)(mmSingleCircuit*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmSingleCircuit*);
-    char* (__thiscall*GetTypeNameV)(mmSingleCircuit*);
-    void (__thiscall*BeforeSave)(mmSingleCircuit*);
-    void (__thiscall*AfterLoad)(mmSingleCircuit*);
-    void (__thiscall*Cull)(mmSingleCircuit*);
-    void (__thiscall*Update)(mmSingleCircuit*);
-    void (__thiscall*Reset)(mmSingleCircuit*);
-    void (__thiscall*ResChange)(mmSingleCircuit*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmSingleCircuit*);
-    void (__thiscall*Load)(mmSingleCircuit*);
-    void (__thiscall*Save)(mmSingleCircuit*);
-    void (__thiscall*AddWidgets)(mmSingleCircuit*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmSingleCircuit*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmSingleCircuit*);
-    void (__thiscall*InitGameStrings)(mmSingleCircuit*);
-    void (__thiscall*InitMyPlayer)(mmSingleCircuit*);
-    void (__thiscall*InitOtherPlayers)(mmSingleCircuit*);
-    void (__thiscall*InitGameObjects)(mmSingleCircuit*);
-    void (__thiscall*InitHUD)(mmSingleCircuit*);
-    void (__thiscall*UpdateGameInput)(mmSingleCircuit*,i32);
-    void (__thiscall*UpdateDebugInput)(mmSingleCircuit*);
-    void (__thiscall*UpdateDebugKeyInput)(mmSingleCircuit*,i32);
-    void (__thiscall*UpdateGame)(mmSingleCircuit*);
-    void (__thiscall*NextRace)(mmSingleCircuit*);
-    void (__thiscall*HitWaterHandler)(mmSingleCircuit*);
-    void (__thiscall*DropThruCityHandler)(mmSingleCircuit*);
-    void (__thiscall*SendChatMessage)(mmSingleCircuit*,char*);
-    class mmWaypoints* (__thiscall*GetWaypoints)(mmSingleCircuit*);
+    void* (__thiscall*Destructor)(mmSingleCircuit * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmSingleCircuit * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmSingleCircuit * __hidden this);
+    void (__thiscall*BeforeSave)(mmSingleCircuit * __hidden this);
+    void (__thiscall*AfterLoad)(mmSingleCircuit * __hidden this);
+    void (__thiscall*Cull)(mmSingleCircuit * __hidden this);
+    void (__thiscall*Update)(mmSingleCircuit * __hidden this);
+    void (__thiscall*Reset)(mmSingleCircuit * __hidden this);
+    void (__thiscall*ResChange)(mmSingleCircuit * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmSingleCircuit * __hidden this);
+    void (__thiscall*Load)(mmSingleCircuit * __hidden this);
+    void (__thiscall*Save)(mmSingleCircuit * __hidden this);
+    void (__thiscall*AddWidgets)(mmSingleCircuit * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmSingleCircuit * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmSingleCircuit * __hidden this);
+    void (__thiscall*InitGameStrings)(mmSingleCircuit * __hidden this);
+    void (__thiscall*InitMyPlayer)(mmSingleCircuit * __hidden this);
+    void (__thiscall*InitOtherPlayers)(mmSingleCircuit * __hidden this);
+    void (__thiscall*InitGameObjects)(mmSingleCircuit * __hidden this);
+    void (__thiscall*InitHUD)(mmSingleCircuit * __hidden this);
+    void (__thiscall*UpdateGameInput)(mmSingleCircuit * __hidden this,i32);
+    void (__thiscall*UpdateDebugInput)(mmSingleCircuit * __hidden this);
+    void (__thiscall*UpdateDebugKeyInput)(mmSingleCircuit * __hidden this,i32);
+    void (__thiscall*UpdateGame)(mmSingleCircuit * __hidden this);
+    void (__thiscall*NextRace)(mmSingleCircuit * __hidden this);
+    void (__thiscall*HitWaterHandler)(mmSingleCircuit * __hidden this);
+    void (__thiscall*DropThruCityHandler)(mmSingleCircuit * __hidden this);
+    void (__thiscall*SendChatMessage)(mmSingleCircuit * __hidden this,char*);
+    class mmWaypoints* (__thiscall*GetWaypoints)(mmSingleCircuit * __hidden this);
 };
 
 struct mmGameSingle;
-struct mmGameSingle_vftable
+struct mmGameSingle_vtbl
 {
-    void* (__thiscall*Dtor)(mmGameSingle*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmGameSingle*);
-    char* (__thiscall*GetTypeNameV)(mmGameSingle*);
-    void (__thiscall*BeforeSave)(mmGameSingle*);
-    void (__thiscall*AfterLoad)(mmGameSingle*);
-    void (__thiscall*Cull)(mmGameSingle*);
-    void (__thiscall*Update)(mmGameSingle*);
-    void (__thiscall*Reset)(mmGameSingle*);
-    void (__thiscall*ResChange)(mmGameSingle*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmGameSingle*);
-    void (__thiscall*Load)(mmGameSingle*);
-    void (__thiscall*Save)(mmGameSingle*);
-    void (__thiscall*AddWidgets)(mmGameSingle*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmGameSingle*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmGameSingle*);
-    void (__thiscall*InitGameStrings)(mmGameSingle*);
-    void (__thiscall*InitMyPlayer)(mmGameSingle*);
-    void (__thiscall*InitOtherPlayers)(mmGameSingle*);
-    void (__thiscall*InitGameObjects)(mmGameSingle*);
-    void (__thiscall*InitHUD)(mmGameSingle*);
-    void (__thiscall*UpdateGameInput)(mmGameSingle*,i32);
-    void (__thiscall*UpdateDebugInput)(mmGameSingle*);
-    void (__thiscall*UpdateDebugKeyInput)(mmGameSingle*,i32);
-    void (__thiscall*UpdateGame)(mmGameSingle*);
-    void (__thiscall*NextRace)(mmGameSingle*);
-    void (__thiscall*HitWaterHandler)(mmGameSingle*);
-    void (__thiscall*DropThruCityHandler)(mmGameSingle*);
-    void (__thiscall*SendChatMessage)(mmGameSingle*,char*);
-    class mmWaypoints* (__thiscall*GetWaypoints)(mmGameSingle*);
+    void* (__thiscall*Destructor)(mmGameSingle * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmGameSingle * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmGameSingle * __hidden this);
+    void (__thiscall*BeforeSave)(mmGameSingle * __hidden this);
+    void (__thiscall*AfterLoad)(mmGameSingle * __hidden this);
+    void (__thiscall*Cull)(mmGameSingle * __hidden this);
+    void (__thiscall*Update)(mmGameSingle * __hidden this);
+    void (__thiscall*Reset)(mmGameSingle * __hidden this);
+    void (__thiscall*ResChange)(mmGameSingle * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmGameSingle * __hidden this);
+    void (__thiscall*Load)(mmGameSingle * __hidden this);
+    void (__thiscall*Save)(mmGameSingle * __hidden this);
+    void (__thiscall*AddWidgets)(mmGameSingle * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmGameSingle * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmGameSingle * __hidden this);
+    void (__thiscall*InitGameStrings)(mmGameSingle * __hidden this);
+    void (__thiscall*InitMyPlayer)(mmGameSingle * __hidden this);
+    void (__thiscall*InitOtherPlayers)(mmGameSingle * __hidden this);
+    void (__thiscall*InitGameObjects)(mmGameSingle * __hidden this);
+    void (__thiscall*InitHUD)(mmGameSingle * __hidden this);
+    void (__thiscall*UpdateGameInput)(mmGameSingle * __hidden this,i32);
+    void (__thiscall*UpdateDebugInput)(mmGameSingle * __hidden this);
+    void (__thiscall*UpdateDebugKeyInput)(mmGameSingle * __hidden this,i32);
+    void (__thiscall*UpdateGame)(mmGameSingle * __hidden this);
+    void (__thiscall*NextRace)(mmGameSingle * __hidden this);
+    void (__thiscall*HitWaterHandler)(mmGameSingle * __hidden this);
+    void (__thiscall*DropThruCityHandler)(mmGameSingle * __hidden this);
+    void (__thiscall*SendChatMessage)(mmGameSingle * __hidden this,char*);
+    class mmWaypoints* (__thiscall*GetWaypoints)(mmGameSingle * __hidden this);
 };
 
 struct mmMultiBlitz;
-struct mmMultiBlitz_vftable
+struct mmMultiBlitz_vtbl
 {
-    void* (__thiscall*Dtor)(mmMultiBlitz*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmMultiBlitz*);
-    char* (__thiscall*GetTypeNameV)(mmMultiBlitz*);
-    void (__thiscall*BeforeSave)(mmMultiBlitz*);
-    void (__thiscall*AfterLoad)(mmMultiBlitz*);
-    void (__thiscall*Cull)(mmMultiBlitz*);
-    void (__thiscall*Update)(mmMultiBlitz*);
-    void (__thiscall*Reset)(mmMultiBlitz*);
-    void (__thiscall*ResChange)(mmMultiBlitz*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmMultiBlitz*);
-    void (__thiscall*Load)(mmMultiBlitz*);
-    void (__thiscall*Save)(mmMultiBlitz*);
-    void (__thiscall*AddWidgets)(mmMultiBlitz*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmMultiBlitz*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmMultiBlitz*);
-    void (__thiscall*InitGameStrings)(mmMultiBlitz*);
-    void (__thiscall*InitMyPlayer)(mmMultiBlitz*);
-    void (__thiscall*InitOtherPlayers)(mmMultiBlitz*);
-    void (__thiscall*InitGameObjects)(mmMultiBlitz*);
-    void (__thiscall*InitHUD)(mmMultiBlitz*);
-    void (__thiscall*UpdateGameInput)(mmMultiBlitz*,i32);
-    void (__thiscall*UpdateDebugInput)(mmMultiBlitz*);
-    void (__thiscall*UpdateDebugKeyInput)(mmMultiBlitz*,i32);
-    void (__thiscall*UpdateGame)(mmMultiBlitz*);
-    void (__thiscall*NextRace)(mmMultiBlitz*);
-    void (__thiscall*HitWaterHandler)(mmMultiBlitz*);
-    void (__thiscall*DropThruCityHandler)(mmMultiBlitz*);
-    void (__thiscall*SendChatMessage)(mmMultiBlitz*,char*);
-    class mmWaypoints* (__thiscall*GetWaypoints)(mmMultiBlitz*);
-    void (__thiscall*InitNetworkPlayers)(mmMultiBlitz*);
-    void (__thiscall*InitRoster)(mmMultiBlitz*);
-    void (__thiscall*SystemMessage)(mmMultiBlitz*,struct NETSYS_MSG*);
-    void (__thiscall*GameMessage)(mmMultiBlitz*,struct NETGAME_MSG*);
+    void* (__thiscall*Destructor)(mmMultiBlitz * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmMultiBlitz * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmMultiBlitz * __hidden this);
+    void (__thiscall*BeforeSave)(mmMultiBlitz * __hidden this);
+    void (__thiscall*AfterLoad)(mmMultiBlitz * __hidden this);
+    void (__thiscall*Cull)(mmMultiBlitz * __hidden this);
+    void (__thiscall*Update)(mmMultiBlitz * __hidden this);
+    void (__thiscall*Reset)(mmMultiBlitz * __hidden this);
+    void (__thiscall*ResChange)(mmMultiBlitz * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmMultiBlitz * __hidden this);
+    void (__thiscall*Load)(mmMultiBlitz * __hidden this);
+    void (__thiscall*Save)(mmMultiBlitz * __hidden this);
+    void (__thiscall*AddWidgets)(mmMultiBlitz * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmMultiBlitz * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmMultiBlitz * __hidden this);
+    void (__thiscall*InitGameStrings)(mmMultiBlitz * __hidden this);
+    void (__thiscall*InitMyPlayer)(mmMultiBlitz * __hidden this);
+    void (__thiscall*InitOtherPlayers)(mmMultiBlitz * __hidden this);
+    void (__thiscall*InitGameObjects)(mmMultiBlitz * __hidden this);
+    void (__thiscall*InitHUD)(mmMultiBlitz * __hidden this);
+    void (__thiscall*UpdateGameInput)(mmMultiBlitz * __hidden this,i32);
+    void (__thiscall*UpdateDebugInput)(mmMultiBlitz * __hidden this);
+    void (__thiscall*UpdateDebugKeyInput)(mmMultiBlitz * __hidden this,i32);
+    void (__thiscall*UpdateGame)(mmMultiBlitz * __hidden this);
+    void (__thiscall*NextRace)(mmMultiBlitz * __hidden this);
+    void (__thiscall*HitWaterHandler)(mmMultiBlitz * __hidden this);
+    void (__thiscall*DropThruCityHandler)(mmMultiBlitz * __hidden this);
+    void (__thiscall*SendChatMessage)(mmMultiBlitz * __hidden this,char*);
+    class mmWaypoints* (__thiscall*GetWaypoints)(mmMultiBlitz * __hidden this);
+    void (__thiscall*InitNetworkPlayers)(mmMultiBlitz * __hidden this);
+    void (__thiscall*InitRoster)(mmMultiBlitz * __hidden this);
+    void (__thiscall*SystemMessage)(mmMultiBlitz * __hidden this,struct NETSYS_MSG*);
+    void (__thiscall*GameMessage)(mmMultiBlitz * __hidden this,struct NETGAME_MSG*);
 };
 
 struct mmMultiCircuit;
-struct mmMultiCircuit_vftable
+struct mmMultiCircuit_vtbl
 {
-    void* (__thiscall*Dtor)(mmMultiCircuit*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmMultiCircuit*);
-    char* (__thiscall*GetTypeNameV)(mmMultiCircuit*);
-    void (__thiscall*BeforeSave)(mmMultiCircuit*);
-    void (__thiscall*AfterLoad)(mmMultiCircuit*);
-    void (__thiscall*Cull)(mmMultiCircuit*);
-    void (__thiscall*Update)(mmMultiCircuit*);
-    void (__thiscall*Reset)(mmMultiCircuit*);
-    void (__thiscall*ResChange)(mmMultiCircuit*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmMultiCircuit*);
-    void (__thiscall*Load)(mmMultiCircuit*);
-    void (__thiscall*Save)(mmMultiCircuit*);
-    void (__thiscall*AddWidgets)(mmMultiCircuit*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmMultiCircuit*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmMultiCircuit*);
-    void (__thiscall*InitGameStrings)(mmMultiCircuit*);
-    void (__thiscall*InitMyPlayer)(mmMultiCircuit*);
-    void (__thiscall*InitOtherPlayers)(mmMultiCircuit*);
-    void (__thiscall*InitGameObjects)(mmMultiCircuit*);
-    void (__thiscall*InitHUD)(mmMultiCircuit*);
-    void (__thiscall*UpdateGameInput)(mmMultiCircuit*,i32);
-    void (__thiscall*UpdateDebugInput)(mmMultiCircuit*);
-    void (__thiscall*UpdateDebugKeyInput)(mmMultiCircuit*,i32);
-    void (__thiscall*UpdateGame)(mmMultiCircuit*);
-    void (__thiscall*NextRace)(mmMultiCircuit*);
-    void (__thiscall*HitWaterHandler)(mmMultiCircuit*);
-    void (__thiscall*DropThruCityHandler)(mmMultiCircuit*);
-    void (__thiscall*SendChatMessage)(mmMultiCircuit*,char*);
-    class mmWaypoints* (__thiscall*GetWaypoints)(mmMultiCircuit*);
-    void (__thiscall*InitNetworkPlayers)(mmMultiCircuit*);
-    void (__thiscall*InitRoster)(mmMultiCircuit*);
-    void (__thiscall*SystemMessage)(mmMultiCircuit*,struct NETSYS_MSG*);
-    void (__thiscall*GameMessage)(mmMultiCircuit*,struct NETGAME_MSG*);
+    void* (__thiscall*Destructor)(mmMultiCircuit * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmMultiCircuit * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmMultiCircuit * __hidden this);
+    void (__thiscall*BeforeSave)(mmMultiCircuit * __hidden this);
+    void (__thiscall*AfterLoad)(mmMultiCircuit * __hidden this);
+    void (__thiscall*Cull)(mmMultiCircuit * __hidden this);
+    void (__thiscall*Update)(mmMultiCircuit * __hidden this);
+    void (__thiscall*Reset)(mmMultiCircuit * __hidden this);
+    void (__thiscall*ResChange)(mmMultiCircuit * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmMultiCircuit * __hidden this);
+    void (__thiscall*Load)(mmMultiCircuit * __hidden this);
+    void (__thiscall*Save)(mmMultiCircuit * __hidden this);
+    void (__thiscall*AddWidgets)(mmMultiCircuit * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmMultiCircuit * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmMultiCircuit * __hidden this);
+    void (__thiscall*InitGameStrings)(mmMultiCircuit * __hidden this);
+    void (__thiscall*InitMyPlayer)(mmMultiCircuit * __hidden this);
+    void (__thiscall*InitOtherPlayers)(mmMultiCircuit * __hidden this);
+    void (__thiscall*InitGameObjects)(mmMultiCircuit * __hidden this);
+    void (__thiscall*InitHUD)(mmMultiCircuit * __hidden this);
+    void (__thiscall*UpdateGameInput)(mmMultiCircuit * __hidden this,i32);
+    void (__thiscall*UpdateDebugInput)(mmMultiCircuit * __hidden this);
+    void (__thiscall*UpdateDebugKeyInput)(mmMultiCircuit * __hidden this,i32);
+    void (__thiscall*UpdateGame)(mmMultiCircuit * __hidden this);
+    void (__thiscall*NextRace)(mmMultiCircuit * __hidden this);
+    void (__thiscall*HitWaterHandler)(mmMultiCircuit * __hidden this);
+    void (__thiscall*DropThruCityHandler)(mmMultiCircuit * __hidden this);
+    void (__thiscall*SendChatMessage)(mmMultiCircuit * __hidden this,char*);
+    class mmWaypoints* (__thiscall*GetWaypoints)(mmMultiCircuit * __hidden this);
+    void (__thiscall*InitNetworkPlayers)(mmMultiCircuit * __hidden this);
+    void (__thiscall*InitRoster)(mmMultiCircuit * __hidden this);
+    void (__thiscall*SystemMessage)(mmMultiCircuit * __hidden this,struct NETSYS_MSG*);
+    void (__thiscall*GameMessage)(mmMultiCircuit * __hidden this,struct NETGAME_MSG*);
 };
 
 struct mmMultiCR;
-struct mmMultiCR_vftable
+struct mmMultiCR_vtbl
 {
-    void* (__thiscall*Dtor)(mmMultiCR*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmMultiCR*);
-    char* (__thiscall*GetTypeNameV)(mmMultiCR*);
-    void (__thiscall*BeforeSave)(mmMultiCR*);
-    void (__thiscall*AfterLoad)(mmMultiCR*);
-    void (__thiscall*Cull)(mmMultiCR*);
-    void (__thiscall*Update)(mmMultiCR*);
-    void (__thiscall*Reset)(mmMultiCR*);
-    void (__thiscall*ResChange)(mmMultiCR*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmMultiCR*);
-    void (__thiscall*Load)(mmMultiCR*);
-    void (__thiscall*Save)(mmMultiCR*);
-    void (__thiscall*AddWidgets)(mmMultiCR*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmMultiCR*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmMultiCR*);
-    void (__thiscall*InitGameStrings)(mmMultiCR*);
-    void (__thiscall*InitMyPlayer)(mmMultiCR*);
-    void (__thiscall*InitOtherPlayers)(mmMultiCR*);
-    void (__thiscall*InitGameObjects)(mmMultiCR*);
-    void (__thiscall*InitHUD)(mmMultiCR*);
-    void (__thiscall*UpdateGameInput)(mmMultiCR*,i32);
-    void (__thiscall*UpdateDebugInput)(mmMultiCR*);
-    void (__thiscall*UpdateDebugKeyInput)(mmMultiCR*,i32);
-    void (__thiscall*UpdateGame)(mmMultiCR*);
-    void (__thiscall*NextRace)(mmMultiCR*);
-    void (__thiscall*HitWaterHandler)(mmMultiCR*);
-    void (__thiscall*DropThruCityHandler)(mmMultiCR*);
-    void (__thiscall*SendChatMessage)(mmMultiCR*,char*);
-    class mmWaypoints* (__thiscall*GetWaypoints)(mmMultiCR*);
-    void (__thiscall*InitNetworkPlayers)(mmMultiCR*);
-    void (__thiscall*InitRoster)(mmMultiCR*);
-    void (__thiscall*SystemMessage)(mmMultiCR*,struct NETSYS_MSG*);
-    void (__thiscall*GameMessage)(mmMultiCR*,struct NETGAME_MSG*);
+    void* (__thiscall*Destructor)(mmMultiCR * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmMultiCR * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmMultiCR * __hidden this);
+    void (__thiscall*BeforeSave)(mmMultiCR * __hidden this);
+    void (__thiscall*AfterLoad)(mmMultiCR * __hidden this);
+    void (__thiscall*Cull)(mmMultiCR * __hidden this);
+    void (__thiscall*Update)(mmMultiCR * __hidden this);
+    void (__thiscall*Reset)(mmMultiCR * __hidden this);
+    void (__thiscall*ResChange)(mmMultiCR * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmMultiCR * __hidden this);
+    void (__thiscall*Load)(mmMultiCR * __hidden this);
+    void (__thiscall*Save)(mmMultiCR * __hidden this);
+    void (__thiscall*AddWidgets)(mmMultiCR * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmMultiCR * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmMultiCR * __hidden this);
+    void (__thiscall*InitGameStrings)(mmMultiCR * __hidden this);
+    void (__thiscall*InitMyPlayer)(mmMultiCR * __hidden this);
+    void (__thiscall*InitOtherPlayers)(mmMultiCR * __hidden this);
+    void (__thiscall*InitGameObjects)(mmMultiCR * __hidden this);
+    void (__thiscall*InitHUD)(mmMultiCR * __hidden this);
+    void (__thiscall*UpdateGameInput)(mmMultiCR * __hidden this,i32);
+    void (__thiscall*UpdateDebugInput)(mmMultiCR * __hidden this);
+    void (__thiscall*UpdateDebugKeyInput)(mmMultiCR * __hidden this,i32);
+    void (__thiscall*UpdateGame)(mmMultiCR * __hidden this);
+    void (__thiscall*NextRace)(mmMultiCR * __hidden this);
+    void (__thiscall*HitWaterHandler)(mmMultiCR * __hidden this);
+    void (__thiscall*DropThruCityHandler)(mmMultiCR * __hidden this);
+    void (__thiscall*SendChatMessage)(mmMultiCR * __hidden this,char*);
+    class mmWaypoints* (__thiscall*GetWaypoints)(mmMultiCR * __hidden this);
+    void (__thiscall*InitNetworkPlayers)(mmMultiCR * __hidden this);
+    void (__thiscall*InitRoster)(mmMultiCR * __hidden this);
+    void (__thiscall*SystemMessage)(mmMultiCR * __hidden this,struct NETSYS_MSG*);
+    void (__thiscall*GameMessage)(mmMultiCR * __hidden this,struct NETGAME_MSG*);
 };
 
 struct mmMultiRace;
-struct mmMultiRace_vftable
+struct mmMultiRace_vtbl
 {
-    void* (__thiscall*Dtor)(mmMultiRace*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmMultiRace*);
-    char* (__thiscall*GetTypeNameV)(mmMultiRace*);
-    void (__thiscall*BeforeSave)(mmMultiRace*);
-    void (__thiscall*AfterLoad)(mmMultiRace*);
-    void (__thiscall*Cull)(mmMultiRace*);
-    void (__thiscall*Update)(mmMultiRace*);
-    void (__thiscall*Reset)(mmMultiRace*);
-    void (__thiscall*ResChange)(mmMultiRace*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmMultiRace*);
-    void (__thiscall*Load)(mmMultiRace*);
-    void (__thiscall*Save)(mmMultiRace*);
-    void (__thiscall*AddWidgets)(mmMultiRace*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmMultiRace*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmMultiRace*);
-    void (__thiscall*InitGameStrings)(mmMultiRace*);
-    void (__thiscall*InitMyPlayer)(mmMultiRace*);
-    void (__thiscall*InitOtherPlayers)(mmMultiRace*);
-    void (__thiscall*InitGameObjects)(mmMultiRace*);
-    void (__thiscall*InitHUD)(mmMultiRace*);
-    void (__thiscall*UpdateGameInput)(mmMultiRace*,i32);
-    void (__thiscall*UpdateDebugInput)(mmMultiRace*);
-    void (__thiscall*UpdateDebugKeyInput)(mmMultiRace*,i32);
-    void (__thiscall*UpdateGame)(mmMultiRace*);
-    void (__thiscall*NextRace)(mmMultiRace*);
-    void (__thiscall*HitWaterHandler)(mmMultiRace*);
-    void (__thiscall*DropThruCityHandler)(mmMultiRace*);
-    void (__thiscall*SendChatMessage)(mmMultiRace*,char*);
-    class mmWaypoints* (__thiscall*GetWaypoints)(mmMultiRace*);
-    void (__thiscall*InitNetworkPlayers)(mmMultiRace*);
-    void (__thiscall*InitRoster)(mmMultiRace*);
-    void (__thiscall*SystemMessage)(mmMultiRace*,struct NETSYS_MSG*);
-    void (__thiscall*GameMessage)(mmMultiRace*,struct NETGAME_MSG*);
+    void* (__thiscall*Destructor)(mmMultiRace * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmMultiRace * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmMultiRace * __hidden this);
+    void (__thiscall*BeforeSave)(mmMultiRace * __hidden this);
+    void (__thiscall*AfterLoad)(mmMultiRace * __hidden this);
+    void (__thiscall*Cull)(mmMultiRace * __hidden this);
+    void (__thiscall*Update)(mmMultiRace * __hidden this);
+    void (__thiscall*Reset)(mmMultiRace * __hidden this);
+    void (__thiscall*ResChange)(mmMultiRace * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmMultiRace * __hidden this);
+    void (__thiscall*Load)(mmMultiRace * __hidden this);
+    void (__thiscall*Save)(mmMultiRace * __hidden this);
+    void (__thiscall*AddWidgets)(mmMultiRace * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmMultiRace * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmMultiRace * __hidden this);
+    void (__thiscall*InitGameStrings)(mmMultiRace * __hidden this);
+    void (__thiscall*InitMyPlayer)(mmMultiRace * __hidden this);
+    void (__thiscall*InitOtherPlayers)(mmMultiRace * __hidden this);
+    void (__thiscall*InitGameObjects)(mmMultiRace * __hidden this);
+    void (__thiscall*InitHUD)(mmMultiRace * __hidden this);
+    void (__thiscall*UpdateGameInput)(mmMultiRace * __hidden this,i32);
+    void (__thiscall*UpdateDebugInput)(mmMultiRace * __hidden this);
+    void (__thiscall*UpdateDebugKeyInput)(mmMultiRace * __hidden this,i32);
+    void (__thiscall*UpdateGame)(mmMultiRace * __hidden this);
+    void (__thiscall*NextRace)(mmMultiRace * __hidden this);
+    void (__thiscall*HitWaterHandler)(mmMultiRace * __hidden this);
+    void (__thiscall*DropThruCityHandler)(mmMultiRace * __hidden this);
+    void (__thiscall*SendChatMessage)(mmMultiRace * __hidden this,char*);
+    class mmWaypoints* (__thiscall*GetWaypoints)(mmMultiRace * __hidden this);
+    void (__thiscall*InitNetworkPlayers)(mmMultiRace * __hidden this);
+    void (__thiscall*InitRoster)(mmMultiRace * __hidden this);
+    void (__thiscall*SystemMessage)(mmMultiRace * __hidden this,struct NETSYS_MSG*);
+    void (__thiscall*GameMessage)(mmMultiRace * __hidden this,struct NETGAME_MSG*);
 };
 
 struct mmDashView;
-struct mmDashView_vftable
+struct mmDashView_vtbl
 {
-    void* (__thiscall*Dtor)(mmDashView*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmDashView*);
-    char* (__thiscall*GetTypeNameV)(mmDashView*);
-    void (__thiscall*BeforeSave)(mmDashView*);
-    void (__thiscall*AfterLoad)(mmDashView*);
-    void (__thiscall*Cull)(mmDashView*);
-    void (__thiscall*Update)(mmDashView*);
-    void (__thiscall*Reset)(mmDashView*);
-    void (__thiscall*ResChange)(mmDashView*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmDashView*);
-    void (__thiscall*Load)(mmDashView*);
-    void (__thiscall*Save)(mmDashView*);
-    void (__thiscall*AddWidgets)(mmDashView*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmDashView*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmDashView*);
+    void* (__thiscall*Destructor)(mmDashView * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmDashView * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmDashView * __hidden this);
+    void (__thiscall*BeforeSave)(mmDashView * __hidden this);
+    void (__thiscall*AfterLoad)(mmDashView * __hidden this);
+    void (__thiscall*Cull)(mmDashView * __hidden this);
+    void (__thiscall*Update)(mmDashView * __hidden this);
+    void (__thiscall*Reset)(mmDashView * __hidden this);
+    void (__thiscall*ResChange)(mmDashView * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmDashView * __hidden this);
+    void (__thiscall*Load)(mmDashView * __hidden this);
+    void (__thiscall*Save)(mmDashView * __hidden this);
+    void (__thiscall*AddWidgets)(mmDashView * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmDashView * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmDashView * __hidden this);
 };
 
 struct mmExternalView;
-struct mmExternalView_vftable
+struct mmExternalView_vtbl
 {
-    void* (__thiscall*Dtor)(mmExternalView*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmExternalView*);
-    char* (__thiscall*GetTypeNameV)(mmExternalView*);
-    void (__thiscall*BeforeSave)(mmExternalView*);
-    void (__thiscall*AfterLoad)(mmExternalView*);
-    void (__thiscall*Cull)(mmExternalView*);
-    void (__thiscall*Update)(mmExternalView*);
-    void (__thiscall*Reset)(mmExternalView*);
-    void (__thiscall*ResChange)(mmExternalView*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmExternalView*);
-    void (__thiscall*Load)(mmExternalView*);
-    void (__thiscall*Save)(mmExternalView*);
-    void (__thiscall*AddWidgets)(mmExternalView*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmExternalView*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmExternalView*);
+    void* (__thiscall*Destructor)(mmExternalView * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmExternalView * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmExternalView * __hidden this);
+    void (__thiscall*BeforeSave)(mmExternalView * __hidden this);
+    void (__thiscall*AfterLoad)(mmExternalView * __hidden this);
+    void (__thiscall*Cull)(mmExternalView * __hidden this);
+    void (__thiscall*Update)(mmExternalView * __hidden this);
+    void (__thiscall*Reset)(mmExternalView * __hidden this);
+    void (__thiscall*ResChange)(mmExternalView * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmExternalView * __hidden this);
+    void (__thiscall*Load)(mmExternalView * __hidden this);
+    void (__thiscall*Save)(mmExternalView * __hidden this);
+    void (__thiscall*AddWidgets)(mmExternalView * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmExternalView * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmExternalView * __hidden this);
 };
 
 struct mmCDPlayer;
-struct mmCDPlayer_vftable
+struct mmCDPlayer_vtbl
 {
-    void* (__thiscall*Dtor)(mmCDPlayer*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCDPlayer*);
-    char* (__thiscall*GetTypeNameV)(mmCDPlayer*);
-    void (__thiscall*BeforeSave)(mmCDPlayer*);
-    void (__thiscall*AfterLoad)(mmCDPlayer*);
-    void (__thiscall*Cull)(mmCDPlayer*);
-    void (__thiscall*Update)(mmCDPlayer*);
-    void (__thiscall*Reset)(mmCDPlayer*);
-    void (__thiscall*ResChange)(mmCDPlayer*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCDPlayer*);
-    void (__thiscall*Load)(mmCDPlayer*);
-    void (__thiscall*Save)(mmCDPlayer*);
-    void (__thiscall*AddWidgets)(mmCDPlayer*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCDPlayer*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCDPlayer*);
+    void* (__thiscall*Destructor)(mmCDPlayer * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCDPlayer * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCDPlayer * __hidden this);
+    void (__thiscall*BeforeSave)(mmCDPlayer * __hidden this);
+    void (__thiscall*AfterLoad)(mmCDPlayer * __hidden this);
+    void (__thiscall*Cull)(mmCDPlayer * __hidden this);
+    void (__thiscall*Update)(mmCDPlayer * __hidden this);
+    void (__thiscall*Reset)(mmCDPlayer * __hidden this);
+    void (__thiscall*ResChange)(mmCDPlayer * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCDPlayer * __hidden this);
+    void (__thiscall*Load)(mmCDPlayer * __hidden this);
+    void (__thiscall*Save)(mmCDPlayer * __hidden this);
+    void (__thiscall*AddWidgets)(mmCDPlayer * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCDPlayer * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCDPlayer * __hidden this);
 };
 
 struct RadialGauge;
-struct RadialGauge_vftable
+struct RadialGauge_vtbl
 {
-    void* (__thiscall*Dtor)(RadialGauge*,u32);
-    class MetaClass* (__thiscall*GetClass)(RadialGauge*);
-    char* (__thiscall*GetTypeNameV)(RadialGauge*);
-    void (__thiscall*BeforeSave)(RadialGauge*);
-    void (__thiscall*AfterLoad)(RadialGauge*);
-    void (__thiscall*Cull)(RadialGauge*);
-    void (__thiscall*Update)(RadialGauge*);
-    void (__thiscall*Reset)(RadialGauge*);
-    void (__thiscall*ResChange)(RadialGauge*,i32,i32);
-    void (__thiscall*UpdatePaused)(RadialGauge*);
-    void (__thiscall*Load)(RadialGauge*);
-    void (__thiscall*Save)(RadialGauge*);
-    void (__thiscall*AddWidgets)(RadialGauge*,class Bank*);
-    void (__thiscall*OpenWidgets)(RadialGauge*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(RadialGauge*);
+    void* (__thiscall*Destructor)(RadialGauge * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(RadialGauge * __hidden this);
+    char* (__thiscall*GetTypeNameV)(RadialGauge * __hidden this);
+    void (__thiscall*BeforeSave)(RadialGauge * __hidden this);
+    void (__thiscall*AfterLoad)(RadialGauge * __hidden this);
+    void (__thiscall*Cull)(RadialGauge * __hidden this);
+    void (__thiscall*Update)(RadialGauge * __hidden this);
+    void (__thiscall*Reset)(RadialGauge * __hidden this);
+    void (__thiscall*ResChange)(RadialGauge * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(RadialGauge * __hidden this);
+    void (__thiscall*Load)(RadialGauge * __hidden this);
+    void (__thiscall*Save)(RadialGauge * __hidden this);
+    void (__thiscall*AddWidgets)(RadialGauge * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(RadialGauge * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(RadialGauge * __hidden this);
 };
 
 struct mmWPHUD;
-struct mmWPHUD_vftable
+struct mmWPHUD_vtbl
 {
-    void* (__thiscall*Dtor)(mmWPHUD*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmWPHUD*);
-    char* (__thiscall*GetTypeNameV)(mmWPHUD*);
-    void (__thiscall*BeforeSave)(mmWPHUD*);
-    void (__thiscall*AfterLoad)(mmWPHUD*);
-    void (__thiscall*Cull)(mmWPHUD*);
-    void (__thiscall*Update)(mmWPHUD*);
-    void (__thiscall*Reset)(mmWPHUD*);
-    void (__thiscall*ResChange)(mmWPHUD*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmWPHUD*);
-    void (__thiscall*Load)(mmWPHUD*);
-    void (__thiscall*Save)(mmWPHUD*);
-    void (__thiscall*AddWidgets)(mmWPHUD*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmWPHUD*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmWPHUD*);
+    void* (__thiscall*Destructor)(mmWPHUD * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmWPHUD * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmWPHUD * __hidden this);
+    void (__thiscall*BeforeSave)(mmWPHUD * __hidden this);
+    void (__thiscall*AfterLoad)(mmWPHUD * __hidden this);
+    void (__thiscall*Cull)(mmWPHUD * __hidden this);
+    void (__thiscall*Update)(mmWPHUD * __hidden this);
+    void (__thiscall*Reset)(mmWPHUD * __hidden this);
+    void (__thiscall*ResChange)(mmWPHUD * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmWPHUD * __hidden this);
+    void (__thiscall*Load)(mmWPHUD * __hidden this);
+    void (__thiscall*Save)(mmWPHUD * __hidden this);
+    void (__thiscall*AddWidgets)(mmWPHUD * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmWPHUD * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmWPHUD * __hidden this);
 };
 
 struct mmCircuitHUD;
-struct mmCircuitHUD_vftable
+struct mmCircuitHUD_vtbl
 {
-    void* (__thiscall*Dtor)(mmCircuitHUD*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCircuitHUD*);
-    char* (__thiscall*GetTypeNameV)(mmCircuitHUD*);
-    void (__thiscall*BeforeSave)(mmCircuitHUD*);
-    void (__thiscall*AfterLoad)(mmCircuitHUD*);
-    void (__thiscall*Cull)(mmCircuitHUD*);
-    void (__thiscall*Update)(mmCircuitHUD*);
-    void (__thiscall*Reset)(mmCircuitHUD*);
-    void (__thiscall*ResChange)(mmCircuitHUD*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCircuitHUD*);
-    void (__thiscall*Load)(mmCircuitHUD*);
-    void (__thiscall*Save)(mmCircuitHUD*);
-    void (__thiscall*AddWidgets)(mmCircuitHUD*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCircuitHUD*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCircuitHUD*);
+    void* (__thiscall*Destructor)(mmCircuitHUD * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCircuitHUD * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCircuitHUD * __hidden this);
+    void (__thiscall*BeforeSave)(mmCircuitHUD * __hidden this);
+    void (__thiscall*AfterLoad)(mmCircuitHUD * __hidden this);
+    void (__thiscall*Cull)(mmCircuitHUD * __hidden this);
+    void (__thiscall*Update)(mmCircuitHUD * __hidden this);
+    void (__thiscall*Reset)(mmCircuitHUD * __hidden this);
+    void (__thiscall*ResChange)(mmCircuitHUD * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCircuitHUD * __hidden this);
+    void (__thiscall*Load)(mmCircuitHUD * __hidden this);
+    void (__thiscall*Save)(mmCircuitHUD * __hidden this);
+    void (__thiscall*AddWidgets)(mmCircuitHUD * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCircuitHUD * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCircuitHUD * __hidden this);
 };
 
 struct mmCRHUD;
-struct mmCRHUD_vftable
+struct mmCRHUD_vtbl
 {
-    void* (__thiscall*Dtor)(mmCRHUD*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCRHUD*);
-    char* (__thiscall*GetTypeNameV)(mmCRHUD*);
-    void (__thiscall*BeforeSave)(mmCRHUD*);
-    void (__thiscall*AfterLoad)(mmCRHUD*);
-    void (__thiscall*Cull)(mmCRHUD*);
-    void (__thiscall*Update)(mmCRHUD*);
-    void (__thiscall*Reset)(mmCRHUD*);
-    void (__thiscall*ResChange)(mmCRHUD*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCRHUD*);
-    void (__thiscall*Load)(mmCRHUD*);
-    void (__thiscall*Save)(mmCRHUD*);
-    void (__thiscall*AddWidgets)(mmCRHUD*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCRHUD*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCRHUD*);
+    void* (__thiscall*Destructor)(mmCRHUD * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCRHUD * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCRHUD * __hidden this);
+    void (__thiscall*BeforeSave)(mmCRHUD * __hidden this);
+    void (__thiscall*AfterLoad)(mmCRHUD * __hidden this);
+    void (__thiscall*Cull)(mmCRHUD * __hidden this);
+    void (__thiscall*Update)(mmCRHUD * __hidden this);
+    void (__thiscall*Reset)(mmCRHUD * __hidden this);
+    void (__thiscall*ResChange)(mmCRHUD * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCRHUD * __hidden this);
+    void (__thiscall*Load)(mmCRHUD * __hidden this);
+    void (__thiscall*Save)(mmCRHUD * __hidden this);
+    void (__thiscall*AddWidgets)(mmCRHUD * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCRHUD * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCRHUD * __hidden this);
 };
 
 struct mmIcons;
-struct mmIcons_vftable
+struct mmIcons_vtbl
 {
-    void* (__thiscall*Dtor)(mmIcons*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmIcons*);
-    char* (__thiscall*GetTypeNameV)(mmIcons*);
-    void (__thiscall*BeforeSave)(mmIcons*);
-    void (__thiscall*AfterLoad)(mmIcons*);
-    void (__thiscall*Cull)(mmIcons*);
-    void (__thiscall*Update)(mmIcons*);
-    void (__thiscall*Reset)(mmIcons*);
-    void (__thiscall*ResChange)(mmIcons*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmIcons*);
-    void (__thiscall*Load)(mmIcons*);
-    void (__thiscall*Save)(mmIcons*);
-    void (__thiscall*AddWidgets)(mmIcons*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmIcons*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmIcons*);
+    void* (__thiscall*Destructor)(mmIcons * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmIcons * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmIcons * __hidden this);
+    void (__thiscall*BeforeSave)(mmIcons * __hidden this);
+    void (__thiscall*AfterLoad)(mmIcons * __hidden this);
+    void (__thiscall*Cull)(mmIcons * __hidden this);
+    void (__thiscall*Update)(mmIcons * __hidden this);
+    void (__thiscall*Reset)(mmIcons * __hidden this);
+    void (__thiscall*ResChange)(mmIcons * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmIcons * __hidden this);
+    void (__thiscall*Load)(mmIcons * __hidden this);
+    void (__thiscall*Save)(mmIcons * __hidden this);
+    void (__thiscall*AddWidgets)(mmIcons * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmIcons * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmIcons * __hidden this);
 };
 
 struct mmPopup;
-struct mmPopup_vftable
+struct mmPopup_vtbl
 {
-    void* (__thiscall*Dtor)(mmPopup*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPopup*);
-    char* (__thiscall*GetTypeNameV)(mmPopup*);
-    void (__thiscall*BeforeSave)(mmPopup*);
-    void (__thiscall*AfterLoad)(mmPopup*);
-    void (__thiscall*Cull)(mmPopup*);
-    void (__thiscall*Update)(mmPopup*);
-    void (__thiscall*Reset)(mmPopup*);
-    void (__thiscall*ResChange)(mmPopup*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmPopup*);
-    void (__thiscall*Load)(mmPopup*);
-    void (__thiscall*Save)(mmPopup*);
-    void (__thiscall*AddWidgets)(mmPopup*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmPopup*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmPopup*);
+    void* (__thiscall*Destructor)(mmPopup * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPopup * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPopup * __hidden this);
+    void (__thiscall*BeforeSave)(mmPopup * __hidden this);
+    void (__thiscall*AfterLoad)(mmPopup * __hidden this);
+    void (__thiscall*Cull)(mmPopup * __hidden this);
+    void (__thiscall*Update)(mmPopup * __hidden this);
+    void (__thiscall*Reset)(mmPopup * __hidden this);
+    void (__thiscall*ResChange)(mmPopup * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmPopup * __hidden this);
+    void (__thiscall*Load)(mmPopup * __hidden this);
+    void (__thiscall*Save)(mmPopup * __hidden this);
+    void (__thiscall*AddWidgets)(mmPopup * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmPopup * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmPopup * __hidden this);
 };
 
 struct mmHudMap;
-struct mmHudMap_vftable
+struct mmHudMap_vtbl
 {
-    void* (__thiscall*Dtor)(mmHudMap*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmHudMap*);
-    char* (__thiscall*GetTypeNameV)(mmHudMap*);
-    void (__thiscall*BeforeSave)(mmHudMap*);
-    void (__thiscall*AfterLoad)(mmHudMap*);
-    void (__thiscall*Cull)(mmHudMap*);
-    void (__thiscall*Update)(mmHudMap*);
-    void (__thiscall*Reset)(mmHudMap*);
-    void (__thiscall*ResChange)(mmHudMap*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmHudMap*);
-    void (__thiscall*Load)(mmHudMap*);
-    void (__thiscall*Save)(mmHudMap*);
-    void (__thiscall*AddWidgets)(mmHudMap*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmHudMap*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmHudMap*);
+    void* (__thiscall*Destructor)(mmHudMap * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmHudMap * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmHudMap * __hidden this);
+    void (__thiscall*BeforeSave)(mmHudMap * __hidden this);
+    void (__thiscall*AfterLoad)(mmHudMap * __hidden this);
+    void (__thiscall*Cull)(mmHudMap * __hidden this);
+    void (__thiscall*Update)(mmHudMap * __hidden this);
+    void (__thiscall*Reset)(mmHudMap * __hidden this);
+    void (__thiscall*ResChange)(mmHudMap * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmHudMap * __hidden this);
+    void (__thiscall*Load)(mmHudMap * __hidden this);
+    void (__thiscall*Save)(mmHudMap * __hidden this);
+    void (__thiscall*AddWidgets)(mmHudMap * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmHudMap * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmHudMap * __hidden this);
 };
 
 struct mmPlayer;
-struct mmPlayer_vftable
+struct mmPlayer_vtbl
 {
-    void* (__thiscall*Dtor)(mmPlayer*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPlayer*);
-    char* (__thiscall*GetTypeNameV)(mmPlayer*);
-    void (__thiscall*BeforeSave)(mmPlayer*);
-    void (__thiscall*AfterLoad)(mmPlayer*);
-    void (__thiscall*Cull)(mmPlayer*);
-    void (__thiscall*Update)(mmPlayer*);
-    void (__thiscall*Reset)(mmPlayer*);
-    void (__thiscall*ResChange)(mmPlayer*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmPlayer*);
-    void (__thiscall*Load)(mmPlayer*);
-    void (__thiscall*Save)(mmPlayer*);
-    void (__thiscall*AddWidgets)(mmPlayer*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmPlayer*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmPlayer*);
+    void* (__thiscall*Destructor)(mmPlayer * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPlayer * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPlayer * __hidden this);
+    void (__thiscall*BeforeSave)(mmPlayer * __hidden this);
+    void (__thiscall*AfterLoad)(mmPlayer * __hidden this);
+    void (__thiscall*Cull)(mmPlayer * __hidden this);
+    void (__thiscall*Update)(mmPlayer * __hidden this);
+    void (__thiscall*Reset)(mmPlayer * __hidden this);
+    void (__thiscall*ResChange)(mmPlayer * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmPlayer * __hidden this);
+    void (__thiscall*Load)(mmPlayer * __hidden this);
+    void (__thiscall*Save)(mmPlayer * __hidden this);
+    void (__thiscall*AddWidgets)(mmPlayer * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmPlayer * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmPlayer * __hidden this);
 };
 
 struct mmWaypoints;
-struct mmWaypoints_vftable
+struct mmWaypoints_vtbl
 {
-    void* (__thiscall*Dtor)(mmWaypoints*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmWaypoints*);
-    char* (__thiscall*GetTypeNameV)(mmWaypoints*);
-    void (__thiscall*BeforeSave)(mmWaypoints*);
-    void (__thiscall*AfterLoad)(mmWaypoints*);
-    void (__thiscall*Cull)(mmWaypoints*);
-    void (__thiscall*Update)(mmWaypoints*);
-    void (__thiscall*Reset)(mmWaypoints*);
-    void (__thiscall*ResChange)(mmWaypoints*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmWaypoints*);
-    void (__thiscall*Load)(mmWaypoints*);
-    void (__thiscall*Save)(mmWaypoints*);
-    void (__thiscall*AddWidgets)(mmWaypoints*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmWaypoints*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmWaypoints*);
+    void* (__thiscall*Destructor)(mmWaypoints * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmWaypoints * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmWaypoints * __hidden this);
+    void (__thiscall*BeforeSave)(mmWaypoints * __hidden this);
+    void (__thiscall*AfterLoad)(mmWaypoints * __hidden this);
+    void (__thiscall*Cull)(mmWaypoints * __hidden this);
+    void (__thiscall*Update)(mmWaypoints * __hidden this);
+    void (__thiscall*Reset)(mmWaypoints * __hidden this);
+    void (__thiscall*ResChange)(mmWaypoints * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmWaypoints * __hidden this);
+    void (__thiscall*Load)(mmWaypoints * __hidden this);
+    void (__thiscall*Save)(mmWaypoints * __hidden this);
+    void (__thiscall*AddWidgets)(mmWaypoints * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmWaypoints * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmWaypoints * __hidden this);
 };
 
 struct mmWaypointObject;
-struct mmWaypointObject_vftable
+struct mmWaypointObject_vtbl
 {
-    void* (__thiscall*Dtor)(mmWaypointObject*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmWaypointObject*);
-    char* (__thiscall*GetTypeNameV)(mmWaypointObject*);
-    void (__thiscall*BeforeSave)(mmWaypointObject*);
-    void (__thiscall*AfterLoad)(mmWaypointObject*);
-    void (__thiscall*Cull)(mmWaypointObject*);
-    void (__thiscall*Update)(mmWaypointObject*);
-    void (__thiscall*Reset)(mmWaypointObject*);
-    void (__thiscall*ResChange)(mmWaypointObject*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmWaypointObject*);
-    void (__thiscall*Load)(mmWaypointObject*);
-    void (__thiscall*Save)(mmWaypointObject*);
-    void (__thiscall*AddWidgets)(mmWaypointObject*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmWaypointObject*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmWaypointObject*);
+    void* (__thiscall*Destructor)(mmWaypointObject * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmWaypointObject * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmWaypointObject * __hidden this);
+    void (__thiscall*BeforeSave)(mmWaypointObject * __hidden this);
+    void (__thiscall*AfterLoad)(mmWaypointObject * __hidden this);
+    void (__thiscall*Cull)(mmWaypointObject * __hidden this);
+    void (__thiscall*Update)(mmWaypointObject * __hidden this);
+    void (__thiscall*Reset)(mmWaypointObject * __hidden this);
+    void (__thiscall*ResChange)(mmWaypointObject * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmWaypointObject * __hidden this);
+    void (__thiscall*Load)(mmWaypointObject * __hidden this);
+    void (__thiscall*Save)(mmWaypointObject * __hidden this);
+    void (__thiscall*AddWidgets)(mmWaypointObject * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmWaypointObject * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmWaypointObject * __hidden this);
 };
 
 struct mmGameMulti;
-struct mmGameMulti_vftable
+struct mmGameMulti_vtbl
 {
-    void* (__thiscall*Dtor)(mmGameMulti*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmGameMulti*);
-    char* (__thiscall*GetTypeNameV)(mmGameMulti*);
-    void (__thiscall*BeforeSave)(mmGameMulti*);
-    void (__thiscall*AfterLoad)(mmGameMulti*);
-    void (__thiscall*Cull)(mmGameMulti*);
-    void (__thiscall*Update)(mmGameMulti*);
-    void (__thiscall*Reset)(mmGameMulti*);
-    void (__thiscall*ResChange)(mmGameMulti*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmGameMulti*);
-    void (__thiscall*Load)(mmGameMulti*);
-    void (__thiscall*Save)(mmGameMulti*);
-    void (__thiscall*AddWidgets)(mmGameMulti*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmGameMulti*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmGameMulti*);
-    void (__thiscall*InitGameStrings)(mmGameMulti*);
-    void (__thiscall*InitMyPlayer)(mmGameMulti*);
-    void (__thiscall*InitOtherPlayers)(mmGameMulti*);
-    void (__thiscall*InitGameObjects)(mmGameMulti*);
-    void (__thiscall*InitHUD)(mmGameMulti*);
-    void (__thiscall*UpdateGameInput)(mmGameMulti*,i32);
-    void (__thiscall*UpdateDebugInput)(mmGameMulti*);
-    void (__thiscall*UpdateDebugKeyInput)(mmGameMulti*,i32);
-    void (__thiscall*UpdateGame)(mmGameMulti*);
-    void (__thiscall*NextRace)(mmGameMulti*);
-    void (__thiscall*HitWaterHandler)(mmGameMulti*);
-    void (__thiscall*DropThruCityHandler)(mmGameMulti*);
-    void (__thiscall*SendChatMessage)(mmGameMulti*,char*);
-    class mmWaypoints* (__thiscall*GetWaypoints)(mmGameMulti*);
-    void (__thiscall*InitNetworkPlayers)(mmGameMulti*);
-    void (__thiscall*InitRoster)(mmGameMulti*);
-    void (__thiscall*SystemMessage)(mmGameMulti*,struct NETSYS_MSG*);
-    void (__thiscall*GameMessage)(mmGameMulti*,struct NETGAME_MSG*);
+    void* (__thiscall*Destructor)(mmGameMulti * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmGameMulti * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmGameMulti * __hidden this);
+    void (__thiscall*BeforeSave)(mmGameMulti * __hidden this);
+    void (__thiscall*AfterLoad)(mmGameMulti * __hidden this);
+    void (__thiscall*Cull)(mmGameMulti * __hidden this);
+    void (__thiscall*Update)(mmGameMulti * __hidden this);
+    void (__thiscall*Reset)(mmGameMulti * __hidden this);
+    void (__thiscall*ResChange)(mmGameMulti * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmGameMulti * __hidden this);
+    void (__thiscall*Load)(mmGameMulti * __hidden this);
+    void (__thiscall*Save)(mmGameMulti * __hidden this);
+    void (__thiscall*AddWidgets)(mmGameMulti * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmGameMulti * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmGameMulti * __hidden this);
+    void (__thiscall*InitGameStrings)(mmGameMulti * __hidden this);
+    void (__thiscall*InitMyPlayer)(mmGameMulti * __hidden this);
+    void (__thiscall*InitOtherPlayers)(mmGameMulti * __hidden this);
+    void (__thiscall*InitGameObjects)(mmGameMulti * __hidden this);
+    void (__thiscall*InitHUD)(mmGameMulti * __hidden this);
+    void (__thiscall*UpdateGameInput)(mmGameMulti * __hidden this,i32);
+    void (__thiscall*UpdateDebugInput)(mmGameMulti * __hidden this);
+    void (__thiscall*UpdateDebugKeyInput)(mmGameMulti * __hidden this,i32);
+    void (__thiscall*UpdateGame)(mmGameMulti * __hidden this);
+    void (__thiscall*NextRace)(mmGameMulti * __hidden this);
+    void (__thiscall*HitWaterHandler)(mmGameMulti * __hidden this);
+    void (__thiscall*DropThruCityHandler)(mmGameMulti * __hidden this);
+    void (__thiscall*SendChatMessage)(mmGameMulti * __hidden this,char*);
+    class mmWaypoints* (__thiscall*GetWaypoints)(mmGameMulti * __hidden this);
+    void (__thiscall*InitNetworkPlayers)(mmGameMulti * __hidden this);
+    void (__thiscall*InitRoster)(mmGameMulti * __hidden this);
+    void (__thiscall*SystemMessage)(mmGameMulti * __hidden this,struct NETSYS_MSG*);
+    void (__thiscall*GameMessage)(mmGameMulti * __hidden this,struct NETGAME_MSG*);
 };
 
 struct mmNetObject;
-struct mmNetObject_vftable
+struct mmNetObject_vtbl
 {
-    void* (__thiscall*Dtor)(mmNetObject*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmNetObject*);
-    char* (__thiscall*GetTypeNameV)(mmNetObject*);
-    void (__thiscall*BeforeSave)(mmNetObject*);
-    void (__thiscall*AfterLoad)(mmNetObject*);
-    void (__thiscall*Cull)(mmNetObject*);
-    void (__thiscall*Update)(mmNetObject*);
-    void (__thiscall*Reset)(mmNetObject*);
-    void (__thiscall*ResChange)(mmNetObject*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmNetObject*);
-    void (__thiscall*Load)(mmNetObject*);
-    void (__thiscall*Save)(mmNetObject*);
-    void (__thiscall*AddWidgets)(mmNetObject*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmNetObject*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmNetObject*);
-    void (__thiscall*SetLocalData)(mmNetObject*);
-    void (__thiscall*PositionUpdate)(mmNetObject*,class Matrix34*,class Vector3,f32,f32,f32);
+    void* (__thiscall*Destructor)(mmNetObject * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmNetObject * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmNetObject * __hidden this);
+    void (__thiscall*BeforeSave)(mmNetObject * __hidden this);
+    void (__thiscall*AfterLoad)(mmNetObject * __hidden this);
+    void (__thiscall*Cull)(mmNetObject * __hidden this);
+    void (__thiscall*Update)(mmNetObject * __hidden this);
+    void (__thiscall*Reset)(mmNetObject * __hidden this);
+    void (__thiscall*ResChange)(mmNetObject * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmNetObject * __hidden this);
+    void (__thiscall*Load)(mmNetObject * __hidden this);
+    void (__thiscall*Save)(mmNetObject * __hidden this);
+    void (__thiscall*AddWidgets)(mmNetObject * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmNetObject * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmNetObject * __hidden this);
+    void (__thiscall*SetLocalData)(mmNetObject * __hidden this);
+    void (__thiscall*PositionUpdate)(mmNetObject * __hidden this,class Matrix34*,class Vector3,f32,f32,f32);
 };
 
 struct mmWaypointInstance;
-struct mmWaypointInstance_vftable
+struct mmWaypointInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmWaypointInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmWaypointInstance*);
-    char* (__thiscall*GetTypeNameV)(mmWaypointInstance*);
-    void (__thiscall*BeforeSave)(mmWaypointInstance*);
-    void (__thiscall*AfterLoad)(mmWaypointInstance*);
-    void (__fastcall*FromMatrix)(mmWaypointInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmWaypointInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmWaypointInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmWaypointInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmWaypointInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmWaypointInstance*);
-    void (__thiscall*Impact)(mmWaypointInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmWaypointInstance*);
-    void (__fastcall*Draw)(mmWaypointInstance*,i32);
-    void (__fastcall*DrawShadow)(mmWaypointInstance*);
-    void (__fastcall*DrawGlow)(mmWaypointInstance*);
-    void (__fastcall*Relight)(mmWaypointInstance*);
-    u32 (__thiscall*SizeOf)(mmWaypointInstance*);
-    void (__thiscall*Reset)(mmWaypointInstance*);
-    void (__thiscall*AddWidgets)(mmWaypointInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmWaypointInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmWaypointInstance*);
-    i32 (__thiscall*ComputeLod)(mmWaypointInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmWaypointInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmWaypointInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmWaypointInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmWaypointInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmWaypointInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmWaypointInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmWaypointInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmWaypointInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmWaypointInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmWaypointInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmWaypointInstance * __hidden this);
+    void (__thiscall*Impact)(mmWaypointInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmWaypointInstance * __hidden this);
+    void (__fastcall*Draw)(mmWaypointInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmWaypointInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmWaypointInstance * __hidden this);
+    void (__fastcall*Relight)(mmWaypointInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmWaypointInstance * __hidden this);
+    void (__thiscall*Reset)(mmWaypointInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmWaypointInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmWaypointInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmWaypointInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmWaypointInstance * __hidden this,f32,f32);
 };
 
 struct aiMap;
-struct aiMap_vftable
+struct aiMap_vtbl
 {
-    void* (__thiscall*Dtor)(aiMap*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiMap*);
-    char* (__thiscall*GetTypeNameV)(aiMap*);
-    void (__thiscall*BeforeSave)(aiMap*);
-    void (__thiscall*AfterLoad)(aiMap*);
-    void (__thiscall*Cull)(aiMap*);
-    void (__thiscall*Update)(aiMap*);
-    void (__thiscall*Reset)(aiMap*);
-    void (__thiscall*ResChange)(aiMap*,i32,i32);
-    void (__thiscall*UpdatePaused)(aiMap*);
-    void (__thiscall*Load)(aiMap*);
-    void (__thiscall*Save)(aiMap*);
-    void (__thiscall*AddWidgets)(aiMap*,class Bank*);
-    void (__thiscall*OpenWidgets)(aiMap*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(aiMap*);
+    void* (__thiscall*Destructor)(aiMap * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiMap * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiMap * __hidden this);
+    void (__thiscall*BeforeSave)(aiMap * __hidden this);
+    void (__thiscall*AfterLoad)(aiMap * __hidden this);
+    void (__thiscall*Cull)(aiMap * __hidden this);
+    void (__thiscall*Update)(aiMap * __hidden this);
+    void (__thiscall*Reset)(aiMap * __hidden this);
+    void (__thiscall*ResChange)(aiMap * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(aiMap * __hidden this);
+    void (__thiscall*Load)(aiMap * __hidden this);
+    void (__thiscall*Save)(aiMap * __hidden this);
+    void (__thiscall*AddWidgets)(aiMap * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(aiMap * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(aiMap * __hidden this);
 };
 
 struct mmRoadSide;
-struct mmRoadSide_vftable
+struct mmRoadSide_vtbl
 {
-    void* (__thiscall*Dtor)(mmRoadSide*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmRoadSide*);
-    char* (__thiscall*GetTypeNameV)(mmRoadSide*);
-    void (__thiscall*BeforeSave)(mmRoadSide*);
-    void (__thiscall*AfterLoad)(mmRoadSide*);
+    void* (__thiscall*Destructor)(mmRoadSide * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmRoadSide * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmRoadSide * __hidden this);
+    void (__thiscall*BeforeSave)(mmRoadSide * __hidden this);
+    void (__thiscall*AfterLoad)(mmRoadSide * __hidden this);
 };
 
 struct mmRoadSect;
-struct mmRoadSect_vftable
+struct mmRoadSect_vtbl
 {
-    void* (__thiscall*Dtor)(mmRoadSect*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmRoadSect*);
-    char* (__thiscall*GetTypeNameV)(mmRoadSect*);
-    void (__thiscall*BeforeSave)(mmRoadSect*);
-    void (__thiscall*AfterLoad)(mmRoadSect*);
+    void* (__thiscall*Destructor)(mmRoadSect * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmRoadSect * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmRoadSect * __hidden this);
+    void (__thiscall*BeforeSave)(mmRoadSect * __hidden this);
+    void (__thiscall*AfterLoad)(mmRoadSect * __hidden this);
 };
 
 struct aiAudioManager;
-struct aiAudioManager_vftable
+struct aiAudioManager_vtbl
 {
-    void* (__thiscall*Dtor)(aiAudioManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiAudioManager*);
-    char* (__thiscall*GetTypeNameV)(aiAudioManager*);
-    void (__thiscall*BeforeSave)(aiAudioManager*);
-    void (__thiscall*AfterLoad)(aiAudioManager*);
-    void (__thiscall*Cull)(aiAudioManager*);
-    void (__thiscall*Update)(aiAudioManager*);
-    void (__thiscall*Reset)(aiAudioManager*);
-    void (__thiscall*ResChange)(aiAudioManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(aiAudioManager*);
-    void (__thiscall*Load)(aiAudioManager*);
-    void (__thiscall*Save)(aiAudioManager*);
-    void (__thiscall*AddWidgets)(aiAudioManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(aiAudioManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(aiAudioManager*);
+    void* (__thiscall*Destructor)(aiAudioManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiAudioManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiAudioManager * __hidden this);
+    void (__thiscall*BeforeSave)(aiAudioManager * __hidden this);
+    void (__thiscall*AfterLoad)(aiAudioManager * __hidden this);
+    void (__thiscall*Cull)(aiAudioManager * __hidden this);
+    void (__thiscall*Update)(aiAudioManager * __hidden this);
+    void (__thiscall*Reset)(aiAudioManager * __hidden this);
+    void (__thiscall*ResChange)(aiAudioManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(aiAudioManager * __hidden this);
+    void (__thiscall*Load)(aiAudioManager * __hidden this);
+    void (__thiscall*Save)(aiAudioManager * __hidden this);
+    void (__thiscall*AddWidgets)(aiAudioManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(aiAudioManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(aiAudioManager * __hidden this);
 };
 
 struct aiTrafficLightInstance;
-struct aiTrafficLightInstance_vftable
+struct aiTrafficLightInstance_vtbl
 {
-    void* (__thiscall*Dtor)(aiTrafficLightInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiTrafficLightInstance*);
-    char* (__thiscall*GetTypeNameV)(aiTrafficLightInstance*);
-    void (__thiscall*BeforeSave)(aiTrafficLightInstance*);
-    void (__thiscall*AfterLoad)(aiTrafficLightInstance*);
-    void (__fastcall*FromMatrix)(aiTrafficLightInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(aiTrafficLightInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(aiTrafficLightInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(aiTrafficLightInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(aiTrafficLightInstance*);
-    class Vector3 (__thiscall*GetVelocity)(aiTrafficLightInstance*);
-    void (__thiscall*Impact)(aiTrafficLightInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(aiTrafficLightInstance*);
-    void (__fastcall*Draw)(aiTrafficLightInstance*,i32);
-    void (__fastcall*DrawShadow)(aiTrafficLightInstance*);
-    void (__fastcall*DrawGlow)(aiTrafficLightInstance*);
-    void (__fastcall*Relight)(aiTrafficLightInstance*);
-    u32 (__thiscall*SizeOf)(aiTrafficLightInstance*);
-    void (__thiscall*Reset)(aiTrafficLightInstance*);
-    void (__thiscall*AddWidgets)(aiTrafficLightInstance*,class Bank*);
-    i32 (__thiscall*Init)(aiTrafficLightInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(aiTrafficLightInstance*);
-    i32 (__thiscall*ComputeLod)(aiTrafficLightInstance*,f32,f32);
+    void* (__thiscall*Destructor)(aiTrafficLightInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiTrafficLightInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiTrafficLightInstance * __hidden this);
+    void (__thiscall*BeforeSave)(aiTrafficLightInstance * __hidden this);
+    void (__thiscall*AfterLoad)(aiTrafficLightInstance * __hidden this);
+    void (__fastcall*FromMatrix)(aiTrafficLightInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(aiTrafficLightInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(aiTrafficLightInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(aiTrafficLightInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(aiTrafficLightInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(aiTrafficLightInstance * __hidden this);
+    void (__thiscall*Impact)(aiTrafficLightInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(aiTrafficLightInstance * __hidden this);
+    void (__fastcall*Draw)(aiTrafficLightInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(aiTrafficLightInstance * __hidden this);
+    void (__fastcall*DrawGlow)(aiTrafficLightInstance * __hidden this);
+    void (__fastcall*Relight)(aiTrafficLightInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(aiTrafficLightInstance * __hidden this);
+    void (__thiscall*Reset)(aiTrafficLightInstance * __hidden this);
+    void (__thiscall*AddWidgets)(aiTrafficLightInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(aiTrafficLightInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(aiTrafficLightInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(aiTrafficLightInstance * __hidden this,f32,f32);
 };
 
 struct aiTrafficLightSet;
-struct aiTrafficLightSet_vftable
+struct aiTrafficLightSet_vtbl
 {
-    void* (__thiscall*Dtor)(aiTrafficLightSet*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiTrafficLightSet*);
-    char* (__thiscall*GetTypeNameV)(aiTrafficLightSet*);
-    void (__thiscall*BeforeSave)(aiTrafficLightSet*);
-    void (__thiscall*AfterLoad)(aiTrafficLightSet*);
-    void (__thiscall*Cull)(aiTrafficLightSet*);
-    void (__thiscall*Update)(aiTrafficLightSet*);
-    void (__thiscall*Reset)(aiTrafficLightSet*);
-    void (__thiscall*ResChange)(aiTrafficLightSet*,i32,i32);
-    void (__thiscall*UpdatePaused)(aiTrafficLightSet*);
-    void (__thiscall*Load)(aiTrafficLightSet*);
-    void (__thiscall*Save)(aiTrafficLightSet*);
-    void (__thiscall*AddWidgets)(aiTrafficLightSet*,class Bank*);
-    void (__thiscall*OpenWidgets)(aiTrafficLightSet*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(aiTrafficLightSet*);
+    void* (__thiscall*Destructor)(aiTrafficLightSet * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiTrafficLightSet * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiTrafficLightSet * __hidden this);
+    void (__thiscall*BeforeSave)(aiTrafficLightSet * __hidden this);
+    void (__thiscall*AfterLoad)(aiTrafficLightSet * __hidden this);
+    void (__thiscall*Cull)(aiTrafficLightSet * __hidden this);
+    void (__thiscall*Update)(aiTrafficLightSet * __hidden this);
+    void (__thiscall*Reset)(aiTrafficLightSet * __hidden this);
+    void (__thiscall*ResChange)(aiTrafficLightSet * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(aiTrafficLightSet * __hidden this);
+    void (__thiscall*Load)(aiTrafficLightSet * __hidden this);
+    void (__thiscall*Save)(aiTrafficLightSet * __hidden this);
+    void (__thiscall*AddWidgets)(aiTrafficLightSet * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(aiTrafficLightSet * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(aiTrafficLightSet * __hidden this);
 };
 
 struct mmBangerInstance;
-struct mmBangerInstance_vftable
+struct mmBangerInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmBangerInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBangerInstance*);
-    char* (__thiscall*GetTypeNameV)(mmBangerInstance*);
-    void (__thiscall*BeforeSave)(mmBangerInstance*);
-    void (__thiscall*AfterLoad)(mmBangerInstance*);
-    void (__fastcall*FromMatrix)(mmBangerInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmBangerInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmBangerInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmBangerInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmBangerInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmBangerInstance*);
-    void (__thiscall*Impact)(mmBangerInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmBangerInstance*);
-    void (__fastcall*Draw)(mmBangerInstance*,i32);
-    void (__fastcall*DrawShadow)(mmBangerInstance*);
-    void (__fastcall*DrawGlow)(mmBangerInstance*);
-    void (__fastcall*Relight)(mmBangerInstance*);
-    u32 (__thiscall*SizeOf)(mmBangerInstance*);
-    void (__thiscall*Reset)(mmBangerInstance*);
-    void (__thiscall*AddWidgets)(mmBangerInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmBangerInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmBangerInstance*);
-    i32 (__thiscall*ComputeLod)(mmBangerInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmBangerInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBangerInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBangerInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmBangerInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmBangerInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmBangerInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmBangerInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmBangerInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmBangerInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmBangerInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmBangerInstance * __hidden this);
+    void (__thiscall*Impact)(mmBangerInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmBangerInstance * __hidden this);
+    void (__fastcall*Draw)(mmBangerInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmBangerInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmBangerInstance * __hidden this);
+    void (__fastcall*Relight)(mmBangerInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmBangerInstance * __hidden this);
+    void (__thiscall*Reset)(mmBangerInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmBangerInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmBangerInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmBangerInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmBangerInstance * __hidden this,f32,f32);
 };
 
 struct aiVehiclePolice;
-struct aiVehiclePolice_vftable
+struct aiVehiclePolice_vtbl
 {
-    void (__thiscall*Update)(aiVehiclePolice*);
-    void (__thiscall*Reset)(aiVehiclePolice*);
-    i32 (__thiscall*Type)(aiVehiclePolice*);
-    void (__thiscall*DrawId)(aiVehiclePolice*);
-    void (__thiscall*Impact)(aiVehiclePolice*,i32);
-    class mmOpponentImpactAudio* (__thiscall*GetImpactAudioPtr)(aiVehiclePolice*);
-    void (__thiscall*PlayHorn)(aiVehiclePolice*,f32,f32);
-    void (__thiscall*ImpactAudioReaction)(aiVehiclePolice*,f32);
-    void (__thiscall*StopVoice)(aiVehiclePolice*);
-    class MetaClass* (__thiscall*GetClass)(aiVehiclePolice*);
+    void (__thiscall*Update)(aiVehiclePolice * __hidden this);
+    void (__thiscall*Reset)(aiVehiclePolice * __hidden this);
+    i32 (__thiscall*Type)(aiVehiclePolice * __hidden this);
+    void (__thiscall*DrawId)(aiVehiclePolice * __hidden this);
+    void (__thiscall*Impact)(aiVehiclePolice * __hidden this,i32);
+    class mmOpponentImpactAudio* (__thiscall*GetImpactAudioPtr)(aiVehiclePolice * __hidden this);
+    void (__thiscall*PlayHorn)(aiVehiclePolice * __hidden this,f32,f32);
+    void (__thiscall*ImpactAudioReaction)(aiVehiclePolice * __hidden this,f32);
+    void (__thiscall*StopVoice)(aiVehiclePolice * __hidden this);
+    class MetaClass* (__thiscall*GetClass)(aiVehiclePolice * __hidden this);
 };
 
 struct aiPedAudioManager;
-struct aiPedAudioManager_vftable
+struct aiPedAudioManager_vtbl
 {
-    void* (__thiscall*Dtor)(aiPedAudioManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiPedAudioManager*);
-    char* (__thiscall*GetTypeNameV)(aiPedAudioManager*);
-    void (__thiscall*BeforeSave)(aiPedAudioManager*);
-    void (__thiscall*AfterLoad)(aiPedAudioManager*);
-    void (__thiscall*Cull)(aiPedAudioManager*);
-    void (__thiscall*Update)(aiPedAudioManager*);
-    void (__thiscall*Reset)(aiPedAudioManager*);
-    void (__thiscall*ResChange)(aiPedAudioManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(aiPedAudioManager*);
-    void (__thiscall*Load)(aiPedAudioManager*);
-    void (__thiscall*Save)(aiPedAudioManager*);
-    void (__thiscall*AddWidgets)(aiPedAudioManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(aiPedAudioManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(aiPedAudioManager*);
+    void* (__thiscall*Destructor)(aiPedAudioManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiPedAudioManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiPedAudioManager * __hidden this);
+    void (__thiscall*BeforeSave)(aiPedAudioManager * __hidden this);
+    void (__thiscall*AfterLoad)(aiPedAudioManager * __hidden this);
+    void (__thiscall*Cull)(aiPedAudioManager * __hidden this);
+    void (__thiscall*Update)(aiPedAudioManager * __hidden this);
+    void (__thiscall*Reset)(aiPedAudioManager * __hidden this);
+    void (__thiscall*ResChange)(aiPedAudioManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(aiPedAudioManager * __hidden this);
+    void (__thiscall*Load)(aiPedAudioManager * __hidden this);
+    void (__thiscall*Save)(aiPedAudioManager * __hidden this);
+    void (__thiscall*AddWidgets)(aiPedAudioManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(aiPedAudioManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(aiPedAudioManager * __hidden this);
 };
 
 struct aiPedestrianInstance;
-struct aiPedestrianInstance_vftable
+struct aiPedestrianInstance_vtbl
 {
-    void* (__thiscall*Dtor)(aiPedestrianInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiPedestrianInstance*);
-    char* (__thiscall*GetTypeNameV)(aiPedestrianInstance*);
-    void (__thiscall*BeforeSave)(aiPedestrianInstance*);
-    void (__thiscall*AfterLoad)(aiPedestrianInstance*);
-    void (__fastcall*FromMatrix)(aiPedestrianInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(aiPedestrianInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(aiPedestrianInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(aiPedestrianInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(aiPedestrianInstance*);
-    class Vector3 (__thiscall*GetVelocity)(aiPedestrianInstance*);
-    void (__thiscall*Impact)(aiPedestrianInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(aiPedestrianInstance*);
-    void (__fastcall*Draw)(aiPedestrianInstance*,i32);
-    void (__fastcall*DrawShadow)(aiPedestrianInstance*);
-    void (__fastcall*DrawGlow)(aiPedestrianInstance*);
-    void (__fastcall*Relight)(aiPedestrianInstance*);
-    u32 (__thiscall*SizeOf)(aiPedestrianInstance*);
-    void (__thiscall*Reset)(aiPedestrianInstance*);
-    void (__thiscall*AddWidgets)(aiPedestrianInstance*,class Bank*);
-    i32 (__thiscall*Init)(aiPedestrianInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(aiPedestrianInstance*);
-    i32 (__thiscall*ComputeLod)(aiPedestrianInstance*,f32,f32);
+    void* (__thiscall*Destructor)(aiPedestrianInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiPedestrianInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiPedestrianInstance * __hidden this);
+    void (__thiscall*BeforeSave)(aiPedestrianInstance * __hidden this);
+    void (__thiscall*AfterLoad)(aiPedestrianInstance * __hidden this);
+    void (__fastcall*FromMatrix)(aiPedestrianInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(aiPedestrianInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(aiPedestrianInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(aiPedestrianInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(aiPedestrianInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(aiPedestrianInstance * __hidden this);
+    void (__thiscall*Impact)(aiPedestrianInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(aiPedestrianInstance * __hidden this);
+    void (__fastcall*Draw)(aiPedestrianInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(aiPedestrianInstance * __hidden this);
+    void (__fastcall*DrawGlow)(aiPedestrianInstance * __hidden this);
+    void (__fastcall*Relight)(aiPedestrianInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(aiPedestrianInstance * __hidden this);
+    void (__thiscall*Reset)(aiPedestrianInstance * __hidden this);
+    void (__thiscall*AddWidgets)(aiPedestrianInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(aiPedestrianInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(aiPedestrianInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(aiPedestrianInstance * __hidden this,f32,f32);
 };
 
 struct aiVehicleOpponent;
-struct aiVehicleOpponent_vftable
+struct aiVehicleOpponent_vtbl
 {
-    void (__thiscall*Update)(aiVehicleOpponent*);
-    void (__thiscall*Reset)(aiVehicleOpponent*);
-    i32 (__thiscall*Type)(aiVehicleOpponent*);
-    void (__thiscall*DrawId)(aiVehicleOpponent*);
-    class MetaClass* (__thiscall*GetClass)(aiVehicleOpponent*);
+    void (__thiscall*Update)(aiVehicleOpponent * __hidden this);
+    void (__thiscall*Reset)(aiVehicleOpponent * __hidden this);
+    i32 (__thiscall*Type)(aiVehicleOpponent * __hidden this);
+    void (__thiscall*DrawId)(aiVehicleOpponent * __hidden this);
+    class MetaClass* (__thiscall*GetClass)(aiVehicleOpponent * __hidden this);
 };
 
 struct aiVehicleAmbient;
-struct aiVehicleAmbient_vftable
+struct aiVehicleAmbient_vtbl
 {
-    void (__thiscall*Update)(aiVehicleAmbient*);
-    void (__thiscall*Reset)(aiVehicleAmbient*);
-    i32 (__thiscall*Type)(aiVehicleAmbient*);
-    void (__thiscall*DrawId)(aiVehicleAmbient*);
-    void (__thiscall*Impact)(aiVehicleAmbient*,i32);
-    class mmOpponentImpactAudio* (__thiscall*GetImpactAudioPtr)(aiVehicleAmbient*);
-    void (__thiscall*PlayHorn)(aiVehicleAmbient*,f32,f32);
-    void (__thiscall*ImpactAudioReaction)(aiVehicleAmbient*,f32);
-    void (__thiscall*StopVoice)(aiVehicleAmbient*);
-    class MetaClass* (__thiscall*GetClass)(aiVehicleAmbient*);
+    void (__thiscall*Update)(aiVehicleAmbient * __hidden this);
+    void (__thiscall*Reset)(aiVehicleAmbient * __hidden this);
+    i32 (__thiscall*Type)(aiVehicleAmbient * __hidden this);
+    void (__thiscall*DrawId)(aiVehicleAmbient * __hidden this);
+    void (__thiscall*Impact)(aiVehicleAmbient * __hidden this,i32);
+    class mmOpponentImpactAudio* (__thiscall*GetImpactAudioPtr)(aiVehicleAmbient * __hidden this);
+    void (__thiscall*PlayHorn)(aiVehicleAmbient * __hidden this,f32,f32);
+    void (__thiscall*ImpactAudioReaction)(aiVehicleAmbient * __hidden this,f32);
+    void (__thiscall*StopVoice)(aiVehicleAmbient * __hidden this);
+    class MetaClass* (__thiscall*GetClass)(aiVehicleAmbient * __hidden this);
 };
 
 struct aiVehicleActive;
-struct aiVehicleActive_vftable
+struct aiVehicleActive_vtbl
 {
-    void* (__thiscall*Dtor)(aiVehicleActive*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiVehicleActive*);
-    char* (__thiscall*GetTypeNameV)(aiVehicleActive*);
-    void (__thiscall*BeforeSave)(aiVehicleActive*);
-    void (__thiscall*AfterLoad)(aiVehicleActive*);
-    void (__thiscall*Cull)(aiVehicleActive*);
-    void (__thiscall*Update)(aiVehicleActive*);
-    void (__thiscall*Reset)(aiVehicleActive*);
-    void (__thiscall*ResChange)(aiVehicleActive*,i32,i32);
-    void (__thiscall*UpdatePaused)(aiVehicleActive*);
-    void (__thiscall*Load)(aiVehicleActive*);
-    void (__thiscall*Save)(aiVehicleActive*);
-    void (__thiscall*AddWidgets)(aiVehicleActive*,class Bank*);
-    void (__thiscall*OpenWidgets)(aiVehicleActive*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(aiVehicleActive*);
-    void (__thiscall*PostUpdate)(aiVehicleActive*);
-    class asBound* (__thiscall*GetBound)(aiVehicleActive*);
-    class asInertialCS* (__thiscall*GetICS)(aiVehicleActive*);
-    void (__thiscall*DetachMe)(aiVehicleActive*);
+    void* (__thiscall*Destructor)(aiVehicleActive * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiVehicleActive * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiVehicleActive * __hidden this);
+    void (__thiscall*BeforeSave)(aiVehicleActive * __hidden this);
+    void (__thiscall*AfterLoad)(aiVehicleActive * __hidden this);
+    void (__thiscall*Cull)(aiVehicleActive * __hidden this);
+    void (__thiscall*Update)(aiVehicleActive * __hidden this);
+    void (__thiscall*Reset)(aiVehicleActive * __hidden this);
+    void (__thiscall*ResChange)(aiVehicleActive * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(aiVehicleActive * __hidden this);
+    void (__thiscall*Load)(aiVehicleActive * __hidden this);
+    void (__thiscall*Save)(aiVehicleActive * __hidden this);
+    void (__thiscall*AddWidgets)(aiVehicleActive * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(aiVehicleActive * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(aiVehicleActive * __hidden this);
+    void (__thiscall*PostUpdate)(aiVehicleActive * __hidden this);
+    class asBound* (__thiscall*GetBound)(aiVehicleActive * __hidden this);
+    class asInertialCS* (__thiscall*GetICS)(aiVehicleActive * __hidden this);
+    void (__thiscall*DetachMe)(aiVehicleActive * __hidden this);
 };
 
 struct mmPhysEntity;
-struct mmPhysEntity_vftable
+struct mmPhysEntity_vtbl
 {
-    void* (__thiscall*Dtor)(mmPhysEntity*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPhysEntity*);
-    char* (__thiscall*GetTypeNameV)(mmPhysEntity*);
-    void (__thiscall*BeforeSave)(mmPhysEntity*);
-    void (__thiscall*AfterLoad)(mmPhysEntity*);
-    void (__thiscall*Cull)(mmPhysEntity*);
-    void (__thiscall*Update)(mmPhysEntity*);
-    void (__thiscall*Reset)(mmPhysEntity*);
-    void (__thiscall*ResChange)(mmPhysEntity*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmPhysEntity*);
-    void (__thiscall*Load)(mmPhysEntity*);
-    void (__thiscall*Save)(mmPhysEntity*);
-    void (__thiscall*AddWidgets)(mmPhysEntity*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmPhysEntity*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmPhysEntity*);
-    void (__thiscall*PostUpdate)(mmPhysEntity*);
-    class asBound* (__thiscall*GetBound)(mmPhysEntity*);
-    class asInertialCS* (__thiscall*GetICS)(mmPhysEntity*);
-    void (__thiscall*DetachMe)(mmPhysEntity*);
+    void* (__thiscall*Destructor)(mmPhysEntity * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPhysEntity * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPhysEntity * __hidden this);
+    void (__thiscall*BeforeSave)(mmPhysEntity * __hidden this);
+    void (__thiscall*AfterLoad)(mmPhysEntity * __hidden this);
+    void (__thiscall*Cull)(mmPhysEntity * __hidden this);
+    void (__thiscall*Update)(mmPhysEntity * __hidden this);
+    void (__thiscall*Reset)(mmPhysEntity * __hidden this);
+    void (__thiscall*ResChange)(mmPhysEntity * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmPhysEntity * __hidden this);
+    void (__thiscall*Load)(mmPhysEntity * __hidden this);
+    void (__thiscall*Save)(mmPhysEntity * __hidden this);
+    void (__thiscall*AddWidgets)(mmPhysEntity * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmPhysEntity * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmPhysEntity * __hidden this);
+    void (__thiscall*PostUpdate)(mmPhysEntity * __hidden this);
+    class asBound* (__thiscall*GetBound)(mmPhysEntity * __hidden this);
+    class asInertialCS* (__thiscall*GetICS)(mmPhysEntity * __hidden this);
+    void (__thiscall*DetachMe)(mmPhysEntity * __hidden this);
 };
 
 struct aiVehicleManager;
-struct aiVehicleManager_vftable
+struct aiVehicleManager_vtbl
 {
-    void* (__thiscall*Dtor)(aiVehicleManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiVehicleManager*);
-    char* (__thiscall*GetTypeNameV)(aiVehicleManager*);
-    void (__thiscall*BeforeSave)(aiVehicleManager*);
-    void (__thiscall*AfterLoad)(aiVehicleManager*);
-    void (__thiscall*Cull)(aiVehicleManager*);
-    void (__thiscall*Update)(aiVehicleManager*);
-    void (__thiscall*Reset)(aiVehicleManager*);
-    void (__thiscall*ResChange)(aiVehicleManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(aiVehicleManager*);
-    void (__thiscall*Load)(aiVehicleManager*);
-    void (__thiscall*Save)(aiVehicleManager*);
-    void (__thiscall*AddWidgets)(aiVehicleManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(aiVehicleManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(aiVehicleManager*);
+    void* (__thiscall*Destructor)(aiVehicleManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiVehicleManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiVehicleManager * __hidden this);
+    void (__thiscall*BeforeSave)(aiVehicleManager * __hidden this);
+    void (__thiscall*AfterLoad)(aiVehicleManager * __hidden this);
+    void (__thiscall*Cull)(aiVehicleManager * __hidden this);
+    void (__thiscall*Update)(aiVehicleManager * __hidden this);
+    void (__thiscall*Reset)(aiVehicleManager * __hidden this);
+    void (__thiscall*ResChange)(aiVehicleManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(aiVehicleManager * __hidden this);
+    void (__thiscall*Load)(aiVehicleManager * __hidden this);
+    void (__thiscall*Save)(aiVehicleManager * __hidden this);
+    void (__thiscall*AddWidgets)(aiVehicleManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(aiVehicleManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(aiVehicleManager * __hidden this);
 };
 
 struct aiVehicleData;
-struct aiVehicleData_vftable
+struct aiVehicleData_vtbl
 {
-    void* (__thiscall*Dtor)(aiVehicleData*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiVehicleData*);
-    char* (__thiscall*GetTypeNameV)(aiVehicleData*);
-    void (__thiscall*BeforeSave)(aiVehicleData*);
-    void (__thiscall*AfterLoad)(aiVehicleData*);
-    void (__thiscall*Cull)(aiVehicleData*);
-    void (__thiscall*Update)(aiVehicleData*);
-    void (__thiscall*Reset)(aiVehicleData*);
-    void (__thiscall*ResChange)(aiVehicleData*,i32,i32);
-    void (__thiscall*UpdatePaused)(aiVehicleData*);
-    void (__thiscall*Load)(aiVehicleData*);
-    void (__thiscall*Save)(aiVehicleData*);
-    void (__thiscall*AddWidgets)(aiVehicleData*,class Bank*);
-    void (__thiscall*OpenWidgets)(aiVehicleData*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(aiVehicleData*);
+    void* (__thiscall*Destructor)(aiVehicleData * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiVehicleData * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiVehicleData * __hidden this);
+    void (__thiscall*BeforeSave)(aiVehicleData * __hidden this);
+    void (__thiscall*AfterLoad)(aiVehicleData * __hidden this);
+    void (__thiscall*Cull)(aiVehicleData * __hidden this);
+    void (__thiscall*Update)(aiVehicleData * __hidden this);
+    void (__thiscall*Reset)(aiVehicleData * __hidden this);
+    void (__thiscall*ResChange)(aiVehicleData * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(aiVehicleData * __hidden this);
+    void (__thiscall*Load)(aiVehicleData * __hidden this);
+    void (__thiscall*Save)(aiVehicleData * __hidden this);
+    void (__thiscall*AddWidgets)(aiVehicleData * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(aiVehicleData * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(aiVehicleData * __hidden this);
 };
 
 struct aiVehicleSpline;
-struct aiVehicleSpline_vftable
+struct aiVehicleSpline_vtbl
 {
-    void (__thiscall*Update)(aiVehicleSpline*);
-    void (__thiscall*Reset)(aiVehicleSpline*);
-    i32 (__thiscall*Type)(aiVehicleSpline*);
-    void (__thiscall*DrawId)(aiVehicleSpline*);
-    void (__thiscall*Impact)(aiVehicleSpline*,i32);
-    class mmOpponentImpactAudio* (__thiscall*GetImpactAudioPtr)(aiVehicleSpline*);
-    void (__thiscall*PlayHorn)(aiVehicleSpline*,f32,f32);
-    void (__thiscall*ImpactAudioReaction)(aiVehicleSpline*,f32);
-    void (__thiscall*StopVoice)(aiVehicleSpline*);
-    class MetaClass* (__thiscall*GetClass)(aiVehicleSpline*);
+    void (__thiscall*Update)(aiVehicleSpline * __hidden this);
+    void (__thiscall*Reset)(aiVehicleSpline * __hidden this);
+    i32 (__thiscall*Type)(aiVehicleSpline * __hidden this);
+    void (__thiscall*DrawId)(aiVehicleSpline * __hidden this);
+    void (__thiscall*Impact)(aiVehicleSpline * __hidden this,i32);
+    class mmOpponentImpactAudio* (__thiscall*GetImpactAudioPtr)(aiVehicleSpline * __hidden this);
+    void (__thiscall*PlayHorn)(aiVehicleSpline * __hidden this,f32,f32);
+    void (__thiscall*ImpactAudioReaction)(aiVehicleSpline * __hidden this,f32);
+    void (__thiscall*StopVoice)(aiVehicleSpline * __hidden this);
+    class MetaClass* (__thiscall*GetClass)(aiVehicleSpline * __hidden this);
 };
 
 struct aiVehicleInstance;
-struct aiVehicleInstance_vftable
+struct aiVehicleInstance_vtbl
 {
-    void* (__thiscall*Dtor)(aiVehicleInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiVehicleInstance*);
-    char* (__thiscall*GetTypeNameV)(aiVehicleInstance*);
-    void (__thiscall*BeforeSave)(aiVehicleInstance*);
-    void (__thiscall*AfterLoad)(aiVehicleInstance*);
-    void (__fastcall*FromMatrix)(aiVehicleInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(aiVehicleInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(aiVehicleInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(aiVehicleInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(aiVehicleInstance*);
-    class Vector3 (__thiscall*GetVelocity)(aiVehicleInstance*);
-    void (__thiscall*Impact)(aiVehicleInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(aiVehicleInstance*);
-    void (__fastcall*Draw)(aiVehicleInstance*,i32);
-    void (__fastcall*DrawShadow)(aiVehicleInstance*);
-    void (__fastcall*DrawGlow)(aiVehicleInstance*);
-    void (__fastcall*Relight)(aiVehicleInstance*);
-    u32 (__thiscall*SizeOf)(aiVehicleInstance*);
-    void (__thiscall*Reset)(aiVehicleInstance*);
-    void (__thiscall*AddWidgets)(aiVehicleInstance*,class Bank*);
-    i32 (__thiscall*Init)(aiVehicleInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(aiVehicleInstance*);
-    i32 (__thiscall*ComputeLod)(aiVehicleInstance*,f32,f32);
+    void* (__thiscall*Destructor)(aiVehicleInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiVehicleInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiVehicleInstance * __hidden this);
+    void (__thiscall*BeforeSave)(aiVehicleInstance * __hidden this);
+    void (__thiscall*AfterLoad)(aiVehicleInstance * __hidden this);
+    void (__fastcall*FromMatrix)(aiVehicleInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(aiVehicleInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(aiVehicleInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(aiVehicleInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(aiVehicleInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(aiVehicleInstance * __hidden this);
+    void (__thiscall*Impact)(aiVehicleInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(aiVehicleInstance * __hidden this);
+    void (__fastcall*Draw)(aiVehicleInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(aiVehicleInstance * __hidden this);
+    void (__fastcall*DrawGlow)(aiVehicleInstance * __hidden this);
+    void (__fastcall*Relight)(aiVehicleInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(aiVehicleInstance * __hidden this);
+    void (__thiscall*Reset)(aiVehicleInstance * __hidden this);
+    void (__thiscall*AddWidgets)(aiVehicleInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(aiVehicleInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(aiVehicleInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(aiVehicleInstance * __hidden this,f32,f32);
 };
 
 struct aiGoalRandomDrive;
-struct aiGoalRandomDrive_vftable
+struct aiGoalRandomDrive_vtbl
 {
-    void (__thiscall*Init)(aiGoalRandomDrive*);
-    void (__thiscall*Reset)(aiGoalRandomDrive*);
-    i32 (__thiscall*Context)(aiGoalRandomDrive*);
-    i32 (__thiscall*Priority)(aiGoalRandomDrive*);
-    void (__thiscall*Update)(aiGoalRandomDrive*);
+    void (__thiscall*Init)(aiGoalRandomDrive * __hidden this);
+    void (__thiscall*Reset)(aiGoalRandomDrive * __hidden this);
+    i32 (__thiscall*Context)(aiGoalRandomDrive * __hidden this);
+    i32 (__thiscall*Priority)(aiGoalRandomDrive * __hidden this);
+    void (__thiscall*Update)(aiGoalRandomDrive * __hidden this);
 };
 
 struct aiGoal;
-struct aiGoal_vftable
+struct aiGoal_vtbl
 {
-    void (__thiscall*Init)(aiGoal*);
-    void (__thiscall*Reset)(aiGoal*);
-    i32 (__thiscall*Context)(aiGoal*);
-    i32 (__thiscall*Priority)(aiGoal*);
-    void (__thiscall*Update)(aiGoal*);
+    void (__thiscall*Init)(aiGoal * __hidden this);
+    void (__thiscall*Reset)(aiGoal * __hidden this);
+    i32 (__thiscall*Context)(aiGoal * __hidden this);
+    i32 (__thiscall*Priority)(aiGoal * __hidden this);
+    void (__thiscall*Update)(aiGoal * __hidden this);
 };
 
 struct aiGoalStop;
-struct aiGoalStop_vftable
+struct aiGoalStop_vtbl
 {
-    void (__thiscall*Init)(aiGoalStop*);
-    void (__thiscall*Reset)(aiGoalStop*);
-    i32 (__thiscall*Context)(aiGoalStop*);
-    i32 (__thiscall*Priority)(aiGoalStop*);
-    void (__thiscall*Update)(aiGoalStop*);
+    void (__thiscall*Init)(aiGoalStop * __hidden this);
+    void (__thiscall*Reset)(aiGoalStop * __hidden this);
+    i32 (__thiscall*Context)(aiGoalStop * __hidden this);
+    i32 (__thiscall*Priority)(aiGoalStop * __hidden this);
+    void (__thiscall*Update)(aiGoalStop * __hidden this);
 };
 
 struct aiGoalBackup;
-struct aiGoalBackup_vftable
+struct aiGoalBackup_vtbl
 {
-    void (__thiscall*Init)(aiGoalBackup*);
-    void (__thiscall*Reset)(aiGoalBackup*);
-    i32 (__thiscall*Context)(aiGoalBackup*);
-    i32 (__thiscall*Priority)(aiGoalBackup*);
-    void (__thiscall*Update)(aiGoalBackup*);
+    void (__thiscall*Init)(aiGoalBackup * __hidden this);
+    void (__thiscall*Reset)(aiGoalBackup * __hidden this);
+    i32 (__thiscall*Context)(aiGoalBackup * __hidden this);
+    i32 (__thiscall*Priority)(aiGoalBackup * __hidden this);
+    void (__thiscall*Update)(aiGoalBackup * __hidden this);
 };
 
 struct aiGoalChase;
-struct aiGoalChase_vftable
+struct aiGoalChase_vtbl
 {
-    void (__thiscall*Init)(aiGoalChase*);
-    void (__thiscall*Reset)(aiGoalChase*);
-    i32 (__thiscall*Context)(aiGoalChase*);
-    i32 (__thiscall*Priority)(aiGoalChase*);
-    void (__thiscall*Update)(aiGoalChase*);
+    void (__thiscall*Init)(aiGoalChase * __hidden this);
+    void (__thiscall*Reset)(aiGoalChase * __hidden this);
+    i32 (__thiscall*Context)(aiGoalChase * __hidden this);
+    i32 (__thiscall*Priority)(aiGoalChase * __hidden this);
+    void (__thiscall*Update)(aiGoalChase * __hidden this);
 };
 
 struct aiVehicle;
-struct aiVehicle_vftable
+struct aiVehicle_vtbl
 {
-    void (__thiscall*Update)(aiVehicle*);
-    void (__thiscall*Reset)(aiVehicle*);
-    i32 (__thiscall*Type)(aiVehicle*);
-    void (__thiscall*DrawId)(aiVehicle*);
+    void (__thiscall*Update)(aiVehicle * __hidden this);
+    void (__thiscall*Reset)(aiVehicle * __hidden this);
+    i32 (__thiscall*Type)(aiVehicle * __hidden this);
+    void (__thiscall*DrawId)(aiVehicle * __hidden this);
 };
 
 struct aiGoalFollowWayPts;
-struct aiGoalFollowWayPts_vftable
+struct aiGoalFollowWayPts_vtbl
 {
-    void (__thiscall*Init)(aiGoalFollowWayPts*);
-    void (__thiscall*Reset)(aiGoalFollowWayPts*);
-    i32 (__thiscall*Context)(aiGoalFollowWayPts*);
-    i32 (__thiscall*Priority)(aiGoalFollowWayPts*);
-    void (__thiscall*Update)(aiGoalFollowWayPts*);
-    class MetaClass* (__thiscall*GetClass)(aiGoalFollowWayPts*);
+    void (__thiscall*Init)(aiGoalFollowWayPts * __hidden this);
+    void (__thiscall*Reset)(aiGoalFollowWayPts * __hidden this);
+    i32 (__thiscall*Context)(aiGoalFollowWayPts * __hidden this);
+    i32 (__thiscall*Priority)(aiGoalFollowWayPts * __hidden this);
+    void (__thiscall*Update)(aiGoalFollowWayPts * __hidden this);
+    class MetaClass* (__thiscall*GetClass)(aiGoalFollowWayPts * __hidden this);
 };
 
 struct aiGoalAvoidPlayer;
-struct aiGoalAvoidPlayer_vftable
+struct aiGoalAvoidPlayer_vtbl
 {
-    void (__thiscall*Init)(aiGoalAvoidPlayer*);
-    void (__thiscall*Reset)(aiGoalAvoidPlayer*);
-    i32 (__thiscall*Context)(aiGoalAvoidPlayer*);
-    i32 (__thiscall*Priority)(aiGoalAvoidPlayer*);
-    void (__thiscall*Update)(aiGoalAvoidPlayer*);
+    void (__thiscall*Init)(aiGoalAvoidPlayer * __hidden this);
+    void (__thiscall*Reset)(aiGoalAvoidPlayer * __hidden this);
+    i32 (__thiscall*Context)(aiGoalAvoidPlayer * __hidden this);
+    i32 (__thiscall*Priority)(aiGoalAvoidPlayer * __hidden this);
+    void (__thiscall*Update)(aiGoalAvoidPlayer * __hidden this);
 };
 
 struct aiGoalRegainRail;
-struct aiGoalRegainRail_vftable
+struct aiGoalRegainRail_vtbl
 {
-    void (__thiscall*Init)(aiGoalRegainRail*);
-    void (__thiscall*Reset)(aiGoalRegainRail*);
-    i32 (__thiscall*Context)(aiGoalRegainRail*);
-    i32 (__thiscall*Priority)(aiGoalRegainRail*);
-    void (__thiscall*Update)(aiGoalRegainRail*);
+    void (__thiscall*Init)(aiGoalRegainRail * __hidden this);
+    void (__thiscall*Reset)(aiGoalRegainRail * __hidden this);
+    i32 (__thiscall*Context)(aiGoalRegainRail * __hidden this);
+    i32 (__thiscall*Priority)(aiGoalRegainRail * __hidden this);
+    void (__thiscall*Update)(aiGoalRegainRail * __hidden this);
 };
 
 struct aiGoalCollision;
-struct aiGoalCollision_vftable
+struct aiGoalCollision_vtbl
 {
-    void (__thiscall*Init)(aiGoalCollision*);
-    void (__thiscall*Reset)(aiGoalCollision*);
-    i32 (__thiscall*Context)(aiGoalCollision*);
-    i32 (__thiscall*Priority)(aiGoalCollision*);
-    void (__thiscall*Update)(aiGoalCollision*);
+    void (__thiscall*Init)(aiGoalCollision * __hidden this);
+    void (__thiscall*Reset)(aiGoalCollision * __hidden this);
+    i32 (__thiscall*Context)(aiGoalCollision * __hidden this);
+    i32 (__thiscall*Priority)(aiGoalCollision * __hidden this);
+    void (__thiscall*Update)(aiGoalCollision * __hidden this);
 };
 
 struct aiStuck;
-struct aiStuck_vftable
+struct aiStuck_vtbl
 {
-    void* (__thiscall*Dtor)(aiStuck*,u32);
-    class MetaClass* (__thiscall*GetClass)(aiStuck*);
-    char* (__thiscall*GetTypeNameV)(aiStuck*);
-    void (__thiscall*BeforeSave)(aiStuck*);
-    void (__thiscall*AfterLoad)(aiStuck*);
-    void (__thiscall*Cull)(aiStuck*);
-    void (__thiscall*Update)(aiStuck*);
-    void (__thiscall*Reset)(aiStuck*);
-    void (__thiscall*ResChange)(aiStuck*,i32,i32);
-    void (__thiscall*UpdatePaused)(aiStuck*);
-    void (__thiscall*Load)(aiStuck*);
-    void (__thiscall*Save)(aiStuck*);
-    void (__thiscall*AddWidgets)(aiStuck*,class Bank*);
-    void (__thiscall*OpenWidgets)(aiStuck*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(aiStuck*);
+    void* (__thiscall*Destructor)(aiStuck * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(aiStuck * __hidden this);
+    char* (__thiscall*GetTypeNameV)(aiStuck * __hidden this);
+    void (__thiscall*BeforeSave)(aiStuck * __hidden this);
+    void (__thiscall*AfterLoad)(aiStuck * __hidden this);
+    void (__thiscall*Cull)(aiStuck * __hidden this);
+    void (__thiscall*Update)(aiStuck * __hidden this);
+    void (__thiscall*Reset)(aiStuck * __hidden this);
+    void (__thiscall*ResChange)(aiStuck * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(aiStuck * __hidden this);
+    void (__thiscall*Load)(aiStuck * __hidden this);
+    void (__thiscall*Save)(aiStuck * __hidden this);
+    void (__thiscall*AddWidgets)(aiStuck * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(aiStuck * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(aiStuck * __hidden this);
 };
 
 struct mmCarSim;
-struct mmCarSim_vftable
+struct mmCarSim_vtbl
 {
-    void* (__thiscall*Dtor)(mmCarSim*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCarSim*);
-    char* (__thiscall*GetTypeNameV)(mmCarSim*);
-    void (__thiscall*BeforeSave)(mmCarSim*);
-    void (__thiscall*AfterLoad)(mmCarSim*);
-    void (__thiscall*Cull)(mmCarSim*);
-    void (__thiscall*Update)(mmCarSim*);
-    void (__thiscall*Reset)(mmCarSim*);
-    void (__thiscall*ResChange)(mmCarSim*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCarSim*);
-    void (__thiscall*Load)(mmCarSim*);
-    void (__thiscall*Save)(mmCarSim*);
-    void (__thiscall*AddWidgets)(mmCarSim*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCarSim*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCarSim*);
+    void* (__thiscall*Destructor)(mmCarSim * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCarSim * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCarSim * __hidden this);
+    void (__thiscall*BeforeSave)(mmCarSim * __hidden this);
+    void (__thiscall*AfterLoad)(mmCarSim * __hidden this);
+    void (__thiscall*Cull)(mmCarSim * __hidden this);
+    void (__thiscall*Update)(mmCarSim * __hidden this);
+    void (__thiscall*Reset)(mmCarSim * __hidden this);
+    void (__thiscall*ResChange)(mmCarSim * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCarSim * __hidden this);
+    void (__thiscall*Load)(mmCarSim * __hidden this);
+    void (__thiscall*Save)(mmCarSim * __hidden this);
+    void (__thiscall*AddWidgets)(mmCarSim * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCarSim * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCarSim * __hidden this);
 };
 
 struct StructType;
-struct StructType_vftable
+struct StructType_vtbl
 {
-    void (__thiscall*Save)(StructType*,class MiniParser*,void*);
-    void (__thiscall*Load)(StructType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(StructType*);
-    void* (__thiscall*New)(StructType*,i32);
-    void (__thiscall*Delete)(StructType*,void*,i32);
+    void (__thiscall*Save)(StructType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(StructType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(StructType * __hidden this);
+    void* (__thiscall*New)(StructType * __hidden this,i32);
+    void (__thiscall*Delete)(StructType * __hidden this,void*,i32);
 };
 
 struct mmTransmission;
-struct mmTransmission_vftable
+struct mmTransmission_vtbl
 {
-    void* (__thiscall*Dtor)(mmTransmission*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmTransmission*);
-    char* (__thiscall*GetTypeNameV)(mmTransmission*);
-    void (__thiscall*BeforeSave)(mmTransmission*);
-    void (__thiscall*AfterLoad)(mmTransmission*);
-    void (__thiscall*Cull)(mmTransmission*);
-    void (__thiscall*Update)(mmTransmission*);
-    void (__thiscall*Reset)(mmTransmission*);
-    void (__thiscall*ResChange)(mmTransmission*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmTransmission*);
-    void (__thiscall*Load)(mmTransmission*);
-    void (__thiscall*Save)(mmTransmission*);
-    void (__thiscall*AddWidgets)(mmTransmission*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmTransmission*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmTransmission*);
+    void* (__thiscall*Destructor)(mmTransmission * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmTransmission * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmTransmission * __hidden this);
+    void (__thiscall*BeforeSave)(mmTransmission * __hidden this);
+    void (__thiscall*AfterLoad)(mmTransmission * __hidden this);
+    void (__thiscall*Cull)(mmTransmission * __hidden this);
+    void (__thiscall*Update)(mmTransmission * __hidden this);
+    void (__thiscall*Reset)(mmTransmission * __hidden this);
+    void (__thiscall*ResChange)(mmTransmission * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmTransmission * __hidden this);
+    void (__thiscall*Load)(mmTransmission * __hidden this);
+    void (__thiscall*Save)(mmTransmission * __hidden this);
+    void (__thiscall*AddWidgets)(mmTransmission * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmTransmission * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmTransmission * __hidden this);
 };
 
 struct ArrayOfType;
-struct ArrayOfType_vftable
+struct ArrayOfType_vtbl
 {
-    void (__thiscall*Save)(ArrayOfType*,class MiniParser*,void*);
-    void (__thiscall*Load)(ArrayOfType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(ArrayOfType*);
-    void* (__thiscall*New)(ArrayOfType*,i32);
-    void (__thiscall*Delete)(ArrayOfType*,void*,i32);
+    void (__thiscall*Save)(ArrayOfType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(ArrayOfType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(ArrayOfType * __hidden this);
+    void* (__thiscall*New)(ArrayOfType * __hidden this,i32);
+    void (__thiscall*Delete)(ArrayOfType * __hidden this,void*,i32);
 };
 
 struct mmCarModel;
-struct mmCarModel_vftable
+struct mmCarModel_vtbl
 {
-    void* (__thiscall*Dtor)(mmCarModel*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCarModel*);
-    char* (__thiscall*GetTypeNameV)(mmCarModel*);
-    void (__thiscall*BeforeSave)(mmCarModel*);
-    void (__thiscall*AfterLoad)(mmCarModel*);
-    void (__fastcall*FromMatrix)(mmCarModel*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmCarModel*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmCarModel*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmCarModel*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmCarModel*);
-    class Vector3 (__thiscall*GetVelocity)(mmCarModel*);
-    void (__thiscall*Impact)(mmCarModel*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmCarModel*);
-    void (__fastcall*Draw)(mmCarModel*,i32);
-    void (__fastcall*DrawShadow)(mmCarModel*);
-    void (__fastcall*DrawGlow)(mmCarModel*);
-    void (__fastcall*Relight)(mmCarModel*);
-    u32 (__thiscall*SizeOf)(mmCarModel*);
-    void (__thiscall*Reset)(mmCarModel*);
-    void (__thiscall*AddWidgets)(mmCarModel*,class Bank*);
-    i32 (__thiscall*Init)(mmCarModel*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmCarModel*);
-    i32 (__thiscall*ComputeLod)(mmCarModel*,f32,f32);
+    void* (__thiscall*Destructor)(mmCarModel * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCarModel * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCarModel * __hidden this);
+    void (__thiscall*BeforeSave)(mmCarModel * __hidden this);
+    void (__thiscall*AfterLoad)(mmCarModel * __hidden this);
+    void (__fastcall*FromMatrix)(mmCarModel * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmCarModel * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmCarModel * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmCarModel * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmCarModel * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmCarModel * __hidden this);
+    void (__thiscall*Impact)(mmCarModel * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmCarModel * __hidden this);
+    void (__fastcall*Draw)(mmCarModel * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmCarModel * __hidden this);
+    void (__fastcall*DrawGlow)(mmCarModel * __hidden this);
+    void (__fastcall*Relight)(mmCarModel * __hidden this);
+    u32 (__thiscall*SizeOf)(mmCarModel * __hidden this);
+    void (__thiscall*Reset)(mmCarModel * __hidden this);
+    void (__thiscall*AddWidgets)(mmCarModel * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmCarModel * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmCarModel * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmCarModel * __hidden this,f32,f32);
 };
 
 struct mmCar;
-struct mmCar_vftable
+struct mmCar_vtbl
 {
-    void* (__thiscall*Dtor)(mmCar*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCar*);
-    char* (__thiscall*GetTypeNameV)(mmCar*);
-    void (__thiscall*BeforeSave)(mmCar*);
-    void (__thiscall*AfterLoad)(mmCar*);
-    void (__thiscall*Cull)(mmCar*);
-    void (__thiscall*Update)(mmCar*);
-    void (__thiscall*Reset)(mmCar*);
-    void (__thiscall*ResChange)(mmCar*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCar*);
-    void (__thiscall*Load)(mmCar*);
-    void (__thiscall*Save)(mmCar*);
-    void (__thiscall*AddWidgets)(mmCar*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCar*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCar*);
-    void (__thiscall*PostUpdate)(mmCar*);
-    class asBound* (__thiscall*GetBound)(mmCar*);
-    class asInertialCS* (__thiscall*GetICS)(mmCar*);
-    void (__thiscall*DetachMe)(mmCar*);
+    void* (__thiscall*Destructor)(mmCar * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCar * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCar * __hidden this);
+    void (__thiscall*BeforeSave)(mmCar * __hidden this);
+    void (__thiscall*AfterLoad)(mmCar * __hidden this);
+    void (__thiscall*Cull)(mmCar * __hidden this);
+    void (__thiscall*Update)(mmCar * __hidden this);
+    void (__thiscall*Reset)(mmCar * __hidden this);
+    void (__thiscall*ResChange)(mmCar * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCar * __hidden this);
+    void (__thiscall*Load)(mmCar * __hidden this);
+    void (__thiscall*Save)(mmCar * __hidden this);
+    void (__thiscall*AddWidgets)(mmCar * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCar * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCar * __hidden this);
+    void (__thiscall*PostUpdate)(mmCar * __hidden this);
+    class asBound* (__thiscall*GetBound)(mmCar * __hidden this);
+    class asInertialCS* (__thiscall*GetICS)(mmCar * __hidden this);
+    void (__thiscall*DetachMe)(mmCar * __hidden this);
 };
 
 struct mmWheelCheap;
-struct mmWheelCheap_vftable
+struct mmWheelCheap_vtbl
 {
-    void* (__thiscall*Dtor)(mmWheelCheap*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmWheelCheap*);
-    char* (__thiscall*GetTypeNameV)(mmWheelCheap*);
-    void (__thiscall*BeforeSave)(mmWheelCheap*);
-    void (__thiscall*AfterLoad)(mmWheelCheap*);
-    void (__thiscall*Cull)(mmWheelCheap*);
-    void (__thiscall*Update)(mmWheelCheap*);
-    void (__thiscall*Reset)(mmWheelCheap*);
-    void (__thiscall*ResChange)(mmWheelCheap*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmWheelCheap*);
-    void (__thiscall*Load)(mmWheelCheap*);
-    void (__thiscall*Save)(mmWheelCheap*);
-    void (__thiscall*AddWidgets)(mmWheelCheap*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmWheelCheap*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmWheelCheap*);
+    void* (__thiscall*Destructor)(mmWheelCheap * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmWheelCheap * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmWheelCheap * __hidden this);
+    void (__thiscall*BeforeSave)(mmWheelCheap * __hidden this);
+    void (__thiscall*AfterLoad)(mmWheelCheap * __hidden this);
+    void (__thiscall*Cull)(mmWheelCheap * __hidden this);
+    void (__thiscall*Update)(mmWheelCheap * __hidden this);
+    void (__thiscall*Reset)(mmWheelCheap * __hidden this);
+    void (__thiscall*ResChange)(mmWheelCheap * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmWheelCheap * __hidden this);
+    void (__thiscall*Load)(mmWheelCheap * __hidden this);
+    void (__thiscall*Save)(mmWheelCheap * __hidden this);
+    void (__thiscall*AddWidgets)(mmWheelCheap * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmWheelCheap * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmWheelCheap * __hidden this);
 };
 
 struct NetAudioManager;
-struct NetAudioManager_vftable
+struct NetAudioManager_vtbl
 {
-    void* (__thiscall*Dtor)(NetAudioManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(NetAudioManager*);
-    char* (__thiscall*GetTypeNameV)(NetAudioManager*);
-    void (__thiscall*BeforeSave)(NetAudioManager*);
-    void (__thiscall*AfterLoad)(NetAudioManager*);
-    void (__thiscall*Cull)(NetAudioManager*);
-    void (__thiscall*Update)(NetAudioManager*);
-    void (__thiscall*Reset)(NetAudioManager*);
-    void (__thiscall*ResChange)(NetAudioManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(NetAudioManager*);
-    void (__thiscall*Load)(NetAudioManager*);
-    void (__thiscall*Save)(NetAudioManager*);
-    void (__thiscall*AddWidgets)(NetAudioManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(NetAudioManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(NetAudioManager*);
+    void* (__thiscall*Destructor)(NetAudioManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(NetAudioManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(NetAudioManager * __hidden this);
+    void (__thiscall*BeforeSave)(NetAudioManager * __hidden this);
+    void (__thiscall*AfterLoad)(NetAudioManager * __hidden this);
+    void (__thiscall*Cull)(NetAudioManager * __hidden this);
+    void (__thiscall*Update)(NetAudioManager * __hidden this);
+    void (__thiscall*Reset)(NetAudioManager * __hidden this);
+    void (__thiscall*ResChange)(NetAudioManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(NetAudioManager * __hidden this);
+    void (__thiscall*Load)(NetAudioManager * __hidden this);
+    void (__thiscall*Save)(NetAudioManager * __hidden this);
+    void (__thiscall*AddWidgets)(NetAudioManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(NetAudioManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(NetAudioManager * __hidden this);
 };
 
 struct mmSkid;
-struct mmSkid_vftable
+struct mmSkid_vtbl
 {
-    void* (__thiscall*Dtor)(mmSkid*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmSkid*);
-    char* (__thiscall*GetTypeNameV)(mmSkid*);
-    void (__thiscall*BeforeSave)(mmSkid*);
-    void (__thiscall*AfterLoad)(mmSkid*);
-    void (__fastcall*FromMatrix)(mmSkid*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmSkid*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmSkid*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmSkid*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmSkid*);
-    class Vector3 (__thiscall*GetVelocity)(mmSkid*);
-    void (__thiscall*Impact)(mmSkid*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmSkid*);
-    void (__fastcall*Draw)(mmSkid*,i32);
-    void (__fastcall*DrawShadow)(mmSkid*);
-    void (__fastcall*DrawGlow)(mmSkid*);
-    void (__fastcall*Relight)(mmSkid*);
-    u32 (__thiscall*SizeOf)(mmSkid*);
-    void (__thiscall*Reset)(mmSkid*);
-    void (__thiscall*AddWidgets)(mmSkid*,class Bank*);
-    i32 (__thiscall*Init)(mmSkid*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmSkid*);
-    i32 (__thiscall*ComputeLod)(mmSkid*,f32,f32);
+    void* (__thiscall*Destructor)(mmSkid * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmSkid * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmSkid * __hidden this);
+    void (__thiscall*BeforeSave)(mmSkid * __hidden this);
+    void (__thiscall*AfterLoad)(mmSkid * __hidden this);
+    void (__fastcall*FromMatrix)(mmSkid * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmSkid * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmSkid * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmSkid * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmSkid * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmSkid * __hidden this);
+    void (__thiscall*Impact)(mmSkid * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmSkid * __hidden this);
+    void (__fastcall*Draw)(mmSkid * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmSkid * __hidden this);
+    void (__fastcall*DrawGlow)(mmSkid * __hidden this);
+    void (__fastcall*Relight)(mmSkid * __hidden this);
+    u32 (__thiscall*SizeOf)(mmSkid * __hidden this);
+    void (__thiscall*Reset)(mmSkid * __hidden this);
+    void (__thiscall*AddWidgets)(mmSkid * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmSkid * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmSkid * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmSkid * __hidden this,f32,f32);
 };
 
 struct mmSkidManager;
-struct mmSkidManager_vftable
+struct mmSkidManager_vtbl
 {
-    void* (__thiscall*Dtor)(mmSkidManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmSkidManager*);
-    char* (__thiscall*GetTypeNameV)(mmSkidManager*);
-    void (__thiscall*BeforeSave)(mmSkidManager*);
-    void (__thiscall*AfterLoad)(mmSkidManager*);
-    void (__thiscall*Cull)(mmSkidManager*);
-    void (__thiscall*Update)(mmSkidManager*);
-    void (__thiscall*Reset)(mmSkidManager*);
-    void (__thiscall*ResChange)(mmSkidManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmSkidManager*);
-    void (__thiscall*Load)(mmSkidManager*);
-    void (__thiscall*Save)(mmSkidManager*);
-    void (__thiscall*AddWidgets)(mmSkidManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmSkidManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmSkidManager*);
+    void* (__thiscall*Destructor)(mmSkidManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmSkidManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmSkidManager * __hidden this);
+    void (__thiscall*BeforeSave)(mmSkidManager * __hidden this);
+    void (__thiscall*AfterLoad)(mmSkidManager * __hidden this);
+    void (__thiscall*Cull)(mmSkidManager * __hidden this);
+    void (__thiscall*Update)(mmSkidManager * __hidden this);
+    void (__thiscall*Reset)(mmSkidManager * __hidden this);
+    void (__thiscall*ResChange)(mmSkidManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmSkidManager * __hidden this);
+    void (__thiscall*Load)(mmSkidManager * __hidden this);
+    void (__thiscall*Save)(mmSkidManager * __hidden this);
+    void (__thiscall*AddWidgets)(mmSkidManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmSkidManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmSkidManager * __hidden this);
 };
 
 struct mmShard;
-struct mmShard_vftable
+struct mmShard_vtbl
 {
-    void* (__thiscall*Dtor)(mmShard*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmShard*);
-    char* (__thiscall*GetTypeNameV)(mmShard*);
-    void (__thiscall*BeforeSave)(mmShard*);
-    void (__thiscall*AfterLoad)(mmShard*);
-    void (__fastcall*FromMatrix)(mmShard*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmShard*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmShard*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmShard*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmShard*);
-    class Vector3 (__thiscall*GetVelocity)(mmShard*);
-    void (__thiscall*Impact)(mmShard*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmShard*);
-    void (__fastcall*Draw)(mmShard*,i32);
-    void (__fastcall*DrawShadow)(mmShard*);
-    void (__fastcall*DrawGlow)(mmShard*);
-    void (__fastcall*Relight)(mmShard*);
-    u32 (__thiscall*SizeOf)(mmShard*);
-    void (__thiscall*Reset)(mmShard*);
-    void (__thiscall*AddWidgets)(mmShard*,class Bank*);
-    i32 (__thiscall*Init)(mmShard*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmShard*);
-    i32 (__thiscall*ComputeLod)(mmShard*,f32,f32);
-    void (__thiscall*Hit)(mmShard*,class mmInstance*);
+    void* (__thiscall*Destructor)(mmShard * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmShard * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmShard * __hidden this);
+    void (__thiscall*BeforeSave)(mmShard * __hidden this);
+    void (__thiscall*AfterLoad)(mmShard * __hidden this);
+    void (__fastcall*FromMatrix)(mmShard * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmShard * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmShard * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmShard * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmShard * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmShard * __hidden this);
+    void (__thiscall*Impact)(mmShard * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmShard * __hidden this);
+    void (__fastcall*Draw)(mmShard * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmShard * __hidden this);
+    void (__fastcall*DrawGlow)(mmShard * __hidden this);
+    void (__fastcall*Relight)(mmShard * __hidden this);
+    u32 (__thiscall*SizeOf)(mmShard * __hidden this);
+    void (__thiscall*Reset)(mmShard * __hidden this);
+    void (__thiscall*AddWidgets)(mmShard * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmShard * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmShard * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmShard * __hidden this,f32,f32);
+    void (__thiscall*Hit)(mmShard * __hidden this,class mmInstance*);
 };
 
 struct mmShardManager;
-struct mmShardManager_vftable
+struct mmShardManager_vtbl
 {
-    void* (__thiscall*Dtor)(mmShardManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmShardManager*);
-    char* (__thiscall*GetTypeNameV)(mmShardManager*);
-    void (__thiscall*BeforeSave)(mmShardManager*);
-    void (__thiscall*AfterLoad)(mmShardManager*);
-    void (__thiscall*Cull)(mmShardManager*);
-    void (__thiscall*Update)(mmShardManager*);
-    void (__thiscall*Reset)(mmShardManager*);
-    void (__thiscall*ResChange)(mmShardManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmShardManager*);
-    void (__thiscall*Load)(mmShardManager*);
-    void (__thiscall*Save)(mmShardManager*);
-    void (__thiscall*AddWidgets)(mmShardManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmShardManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmShardManager*);
+    void* (__thiscall*Destructor)(mmShardManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmShardManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmShardManager * __hidden this);
+    void (__thiscall*BeforeSave)(mmShardManager * __hidden this);
+    void (__thiscall*AfterLoad)(mmShardManager * __hidden this);
+    void (__thiscall*Cull)(mmShardManager * __hidden this);
+    void (__thiscall*Update)(mmShardManager * __hidden this);
+    void (__thiscall*Reset)(mmShardManager * __hidden this);
+    void (__thiscall*ResChange)(mmShardManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmShardManager * __hidden this);
+    void (__thiscall*Load)(mmShardManager * __hidden this);
+    void (__thiscall*Save)(mmShardManager * __hidden this);
+    void (__thiscall*AddWidgets)(mmShardManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmShardManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmShardManager * __hidden this);
 };
 
 struct mmTrailer;
-struct mmTrailer_vftable
+struct mmTrailer_vtbl
 {
-    void* (__thiscall*Dtor)(mmTrailer*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmTrailer*);
-    char* (__thiscall*GetTypeNameV)(mmTrailer*);
-    void (__thiscall*BeforeSave)(mmTrailer*);
-    void (__thiscall*AfterLoad)(mmTrailer*);
-    void (__thiscall*Cull)(mmTrailer*);
-    void (__thiscall*Update)(mmTrailer*);
-    void (__thiscall*Reset)(mmTrailer*);
-    void (__thiscall*ResChange)(mmTrailer*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmTrailer*);
-    void (__thiscall*Load)(mmTrailer*);
-    void (__thiscall*Save)(mmTrailer*);
-    void (__thiscall*AddWidgets)(mmTrailer*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmTrailer*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmTrailer*);
-    void (__thiscall*PostUpdate)(mmTrailer*);
-    class asBound* (__thiscall*GetBound)(mmTrailer*);
-    class asInertialCS* (__thiscall*GetICS)(mmTrailer*);
-    void (__thiscall*DetachMe)(mmTrailer*);
+    void* (__thiscall*Destructor)(mmTrailer * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmTrailer * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmTrailer * __hidden this);
+    void (__thiscall*BeforeSave)(mmTrailer * __hidden this);
+    void (__thiscall*AfterLoad)(mmTrailer * __hidden this);
+    void (__thiscall*Cull)(mmTrailer * __hidden this);
+    void (__thiscall*Update)(mmTrailer * __hidden this);
+    void (__thiscall*Reset)(mmTrailer * __hidden this);
+    void (__thiscall*ResChange)(mmTrailer * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmTrailer * __hidden this);
+    void (__thiscall*Load)(mmTrailer * __hidden this);
+    void (__thiscall*Save)(mmTrailer * __hidden this);
+    void (__thiscall*AddWidgets)(mmTrailer * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmTrailer * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmTrailer * __hidden this);
+    void (__thiscall*PostUpdate)(mmTrailer * __hidden this);
+    class asBound* (__thiscall*GetBound)(mmTrailer * __hidden this);
+    class asInertialCS* (__thiscall*GetICS)(mmTrailer * __hidden this);
+    void (__thiscall*DetachMe)(mmTrailer * __hidden this);
 };
 
 struct mmTrailerInstance;
-struct mmTrailerInstance_vftable
+struct mmTrailerInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmTrailerInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmTrailerInstance*);
-    char* (__thiscall*GetTypeNameV)(mmTrailerInstance*);
-    void (__thiscall*BeforeSave)(mmTrailerInstance*);
-    void (__thiscall*AfterLoad)(mmTrailerInstance*);
-    void (__fastcall*FromMatrix)(mmTrailerInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmTrailerInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmTrailerInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmTrailerInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmTrailerInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmTrailerInstance*);
-    void (__thiscall*Impact)(mmTrailerInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmTrailerInstance*);
-    void (__fastcall*Draw)(mmTrailerInstance*,i32);
-    void (__fastcall*DrawShadow)(mmTrailerInstance*);
-    void (__fastcall*DrawGlow)(mmTrailerInstance*);
-    void (__fastcall*Relight)(mmTrailerInstance*);
-    u32 (__thiscall*SizeOf)(mmTrailerInstance*);
-    void (__thiscall*Reset)(mmTrailerInstance*);
-    void (__thiscall*AddWidgets)(mmTrailerInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmTrailerInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmTrailerInstance*);
-    i32 (__thiscall*ComputeLod)(mmTrailerInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmTrailerInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmTrailerInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmTrailerInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmTrailerInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmTrailerInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmTrailerInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmTrailerInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmTrailerInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmTrailerInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmTrailerInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmTrailerInstance * __hidden this);
+    void (__thiscall*Impact)(mmTrailerInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmTrailerInstance * __hidden this);
+    void (__fastcall*Draw)(mmTrailerInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmTrailerInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmTrailerInstance * __hidden this);
+    void (__fastcall*Relight)(mmTrailerInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmTrailerInstance * __hidden this);
+    void (__thiscall*Reset)(mmTrailerInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmTrailerInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmTrailerInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmTrailerInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmTrailerInstance * __hidden this,f32,f32);
 };
 
 struct mmPoliceCarAudio;
-struct mmPoliceCarAudio_vftable
+struct mmPoliceCarAudio_vtbl
 {
-    void* (__thiscall*Dtor)(mmPoliceCarAudio*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPoliceCarAudio*);
-    char* (__thiscall*GetTypeNameV)(mmPoliceCarAudio*);
-    void (__thiscall*BeforeSave)(mmPoliceCarAudio*);
-    void (__thiscall*AfterLoad)(mmPoliceCarAudio*);
-    void (__thiscall*Cull)(mmPoliceCarAudio*);
-    void (__thiscall*Update)(mmPoliceCarAudio*);
-    void (__thiscall*Reset)(mmPoliceCarAudio*);
-    void (__thiscall*ResChange)(mmPoliceCarAudio*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmPoliceCarAudio*);
-    void (__thiscall*Load)(mmPoliceCarAudio*);
-    void (__thiscall*Save)(mmPoliceCarAudio*);
-    void (__thiscall*AddWidgets)(mmPoliceCarAudio*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmPoliceCarAudio*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmPoliceCarAudio*);
+    void* (__thiscall*Destructor)(mmPoliceCarAudio * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPoliceCarAudio * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPoliceCarAudio * __hidden this);
+    void (__thiscall*BeforeSave)(mmPoliceCarAudio * __hidden this);
+    void (__thiscall*AfterLoad)(mmPoliceCarAudio * __hidden this);
+    void (__thiscall*Cull)(mmPoliceCarAudio * __hidden this);
+    void (__thiscall*Update)(mmPoliceCarAudio * __hidden this);
+    void (__thiscall*Reset)(mmPoliceCarAudio * __hidden this);
+    void (__thiscall*ResChange)(mmPoliceCarAudio * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmPoliceCarAudio * __hidden this);
+    void (__thiscall*Load)(mmPoliceCarAudio * __hidden this);
+    void (__thiscall*Save)(mmPoliceCarAudio * __hidden this);
+    void (__thiscall*AddWidgets)(mmPoliceCarAudio * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmPoliceCarAudio * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmPoliceCarAudio * __hidden this);
 };
 
 struct mmOpponentCarAudio;
-struct mmOpponentCarAudio_vftable
+struct mmOpponentCarAudio_vtbl
 {
-    void* (__thiscall*Dtor)(mmOpponentCarAudio*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmOpponentCarAudio*);
-    char* (__thiscall*GetTypeNameV)(mmOpponentCarAudio*);
-    void (__thiscall*BeforeSave)(mmOpponentCarAudio*);
-    void (__thiscall*AfterLoad)(mmOpponentCarAudio*);
-    void (__thiscall*Cull)(mmOpponentCarAudio*);
-    void (__thiscall*Update)(mmOpponentCarAudio*);
-    void (__thiscall*Reset)(mmOpponentCarAudio*);
-    void (__thiscall*ResChange)(mmOpponentCarAudio*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmOpponentCarAudio*);
-    void (__thiscall*Load)(mmOpponentCarAudio*);
-    void (__thiscall*Save)(mmOpponentCarAudio*);
-    void (__thiscall*AddWidgets)(mmOpponentCarAudio*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmOpponentCarAudio*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmOpponentCarAudio*);
+    void* (__thiscall*Destructor)(mmOpponentCarAudio * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmOpponentCarAudio * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmOpponentCarAudio * __hidden this);
+    void (__thiscall*BeforeSave)(mmOpponentCarAudio * __hidden this);
+    void (__thiscall*AfterLoad)(mmOpponentCarAudio * __hidden this);
+    void (__thiscall*Cull)(mmOpponentCarAudio * __hidden this);
+    void (__thiscall*Update)(mmOpponentCarAudio * __hidden this);
+    void (__thiscall*Reset)(mmOpponentCarAudio * __hidden this);
+    void (__thiscall*ResChange)(mmOpponentCarAudio * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmOpponentCarAudio * __hidden this);
+    void (__thiscall*Load)(mmOpponentCarAudio * __hidden this);
+    void (__thiscall*Save)(mmOpponentCarAudio * __hidden this);
+    void (__thiscall*AddWidgets)(mmOpponentCarAudio * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmOpponentCarAudio * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmOpponentCarAudio * __hidden this);
 };
 
 struct mmStuck;
-struct mmStuck_vftable
+struct mmStuck_vtbl
 {
-    void* (__thiscall*Dtor)(mmStuck*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmStuck*);
-    char* (__thiscall*GetTypeNameV)(mmStuck*);
-    void (__thiscall*BeforeSave)(mmStuck*);
-    void (__thiscall*AfterLoad)(mmStuck*);
-    void (__thiscall*Cull)(mmStuck*);
-    void (__thiscall*Update)(mmStuck*);
-    void (__thiscall*Reset)(mmStuck*);
-    void (__thiscall*ResChange)(mmStuck*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmStuck*);
-    void (__thiscall*Load)(mmStuck*);
-    void (__thiscall*Save)(mmStuck*);
-    void (__thiscall*AddWidgets)(mmStuck*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmStuck*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmStuck*);
+    void* (__thiscall*Destructor)(mmStuck * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmStuck * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmStuck * __hidden this);
+    void (__thiscall*BeforeSave)(mmStuck * __hidden this);
+    void (__thiscall*AfterLoad)(mmStuck * __hidden this);
+    void (__thiscall*Cull)(mmStuck * __hidden this);
+    void (__thiscall*Update)(mmStuck * __hidden this);
+    void (__thiscall*Reset)(mmStuck * __hidden this);
+    void (__thiscall*ResChange)(mmStuck * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmStuck * __hidden this);
+    void (__thiscall*Load)(mmStuck * __hidden this);
+    void (__thiscall*Save)(mmStuck * __hidden this);
+    void (__thiscall*AddWidgets)(mmStuck * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmStuck * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmStuck * __hidden this);
 };
 
 struct mmEngine;
-struct mmEngine_vftable
+struct mmEngine_vtbl
 {
-    void* (__thiscall*Dtor)(mmEngine*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmEngine*);
-    char* (__thiscall*GetTypeNameV)(mmEngine*);
-    void (__thiscall*BeforeSave)(mmEngine*);
-    void (__thiscall*AfterLoad)(mmEngine*);
-    void (__thiscall*Cull)(mmEngine*);
-    void (__thiscall*Update)(mmEngine*);
-    void (__thiscall*Reset)(mmEngine*);
-    void (__thiscall*ResChange)(mmEngine*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmEngine*);
-    void (__thiscall*Load)(mmEngine*);
-    void (__thiscall*Save)(mmEngine*);
-    void (__thiscall*AddWidgets)(mmEngine*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmEngine*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmEngine*);
+    void* (__thiscall*Destructor)(mmEngine * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmEngine * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmEngine * __hidden this);
+    void (__thiscall*BeforeSave)(mmEngine * __hidden this);
+    void (__thiscall*AfterLoad)(mmEngine * __hidden this);
+    void (__thiscall*Cull)(mmEngine * __hidden this);
+    void (__thiscall*Update)(mmEngine * __hidden this);
+    void (__thiscall*Reset)(mmEngine * __hidden this);
+    void (__thiscall*ResChange)(mmEngine * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmEngine * __hidden this);
+    void (__thiscall*Load)(mmEngine * __hidden this);
+    void (__thiscall*Save)(mmEngine * __hidden this);
+    void (__thiscall*AddWidgets)(mmEngine * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmEngine * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmEngine * __hidden this);
 };
 
 struct mmShock;
-struct mmShock_vftable
+struct mmShock_vtbl
 {
-    void* (__thiscall*Dtor)(mmShock*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmShock*);
-    char* (__thiscall*GetTypeNameV)(mmShock*);
-    void (__thiscall*BeforeSave)(mmShock*);
-    void (__thiscall*AfterLoad)(mmShock*);
-    void (__thiscall*Cull)(mmShock*);
-    void (__thiscall*Update)(mmShock*);
-    void (__thiscall*Reset)(mmShock*);
-    void (__thiscall*ResChange)(mmShock*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmShock*);
-    void (__thiscall*Load)(mmShock*);
-    void (__thiscall*Save)(mmShock*);
-    void (__thiscall*AddWidgets)(mmShock*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmShock*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmShock*);
+    void* (__thiscall*Destructor)(mmShock * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmShock * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmShock * __hidden this);
+    void (__thiscall*BeforeSave)(mmShock * __hidden this);
+    void (__thiscall*AfterLoad)(mmShock * __hidden this);
+    void (__thiscall*Cull)(mmShock * __hidden this);
+    void (__thiscall*Update)(mmShock * __hidden this);
+    void (__thiscall*Reset)(mmShock * __hidden this);
+    void (__thiscall*ResChange)(mmShock * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmShock * __hidden this);
+    void (__thiscall*Load)(mmShock * __hidden this);
+    void (__thiscall*Save)(mmShock * __hidden this);
+    void (__thiscall*AddWidgets)(mmShock * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmShock * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmShock * __hidden this);
 };
 
 struct mmAxle;
-struct mmAxle_vftable
+struct mmAxle_vtbl
 {
-    void* (__thiscall*Dtor)(mmAxle*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmAxle*);
-    char* (__thiscall*GetTypeNameV)(mmAxle*);
-    void (__thiscall*BeforeSave)(mmAxle*);
-    void (__thiscall*AfterLoad)(mmAxle*);
-    void (__thiscall*Cull)(mmAxle*);
-    void (__thiscall*Update)(mmAxle*);
-    void (__thiscall*Reset)(mmAxle*);
-    void (__thiscall*ResChange)(mmAxle*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmAxle*);
-    void (__thiscall*Load)(mmAxle*);
-    void (__thiscall*Save)(mmAxle*);
-    void (__thiscall*AddWidgets)(mmAxle*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmAxle*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmAxle*);
+    void* (__thiscall*Destructor)(mmAxle * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmAxle * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmAxle * __hidden this);
+    void (__thiscall*BeforeSave)(mmAxle * __hidden this);
+    void (__thiscall*AfterLoad)(mmAxle * __hidden this);
+    void (__thiscall*Cull)(mmAxle * __hidden this);
+    void (__thiscall*Update)(mmAxle * __hidden this);
+    void (__thiscall*Reset)(mmAxle * __hidden this);
+    void (__thiscall*ResChange)(mmAxle * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmAxle * __hidden this);
+    void (__thiscall*Load)(mmAxle * __hidden this);
+    void (__thiscall*Save)(mmAxle * __hidden this);
+    void (__thiscall*AddWidgets)(mmAxle * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmAxle * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmAxle * __hidden this);
 };
 
 struct mmWheel;
-struct mmWheel_vftable
+struct mmWheel_vtbl
 {
-    void* (__thiscall*Dtor)(mmWheel*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmWheel*);
-    char* (__thiscall*GetTypeNameV)(mmWheel*);
-    void (__thiscall*BeforeSave)(mmWheel*);
-    void (__thiscall*AfterLoad)(mmWheel*);
-    void (__thiscall*Cull)(mmWheel*);
-    void (__thiscall*Update)(mmWheel*);
-    void (__thiscall*Reset)(mmWheel*);
-    void (__thiscall*ResChange)(mmWheel*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmWheel*);
-    void (__thiscall*Load)(mmWheel*);
-    void (__thiscall*Save)(mmWheel*);
-    void (__thiscall*AddWidgets)(mmWheel*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmWheel*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmWheel*);
+    void* (__thiscall*Destructor)(mmWheel * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmWheel * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmWheel * __hidden this);
+    void (__thiscall*BeforeSave)(mmWheel * __hidden this);
+    void (__thiscall*AfterLoad)(mmWheel * __hidden this);
+    void (__thiscall*Cull)(mmWheel * __hidden this);
+    void (__thiscall*Update)(mmWheel * __hidden this);
+    void (__thiscall*Reset)(mmWheel * __hidden this);
+    void (__thiscall*ResChange)(mmWheel * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmWheel * __hidden this);
+    void (__thiscall*Load)(mmWheel * __hidden this);
+    void (__thiscall*Save)(mmWheel * __hidden this);
+    void (__thiscall*AddWidgets)(mmWheel * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmWheel * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmWheel * __hidden this);
 };
 
 struct mmDrivetrain;
-struct mmDrivetrain_vftable
+struct mmDrivetrain_vtbl
 {
-    void* (__thiscall*Dtor)(mmDrivetrain*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmDrivetrain*);
-    char* (__thiscall*GetTypeNameV)(mmDrivetrain*);
-    void (__thiscall*BeforeSave)(mmDrivetrain*);
-    void (__thiscall*AfterLoad)(mmDrivetrain*);
-    void (__thiscall*Cull)(mmDrivetrain*);
-    void (__thiscall*Update)(mmDrivetrain*);
-    void (__thiscall*Reset)(mmDrivetrain*);
-    void (__thiscall*ResChange)(mmDrivetrain*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmDrivetrain*);
-    void (__thiscall*Load)(mmDrivetrain*);
-    void (__thiscall*Save)(mmDrivetrain*);
-    void (__thiscall*AddWidgets)(mmDrivetrain*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmDrivetrain*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmDrivetrain*);
+    void* (__thiscall*Destructor)(mmDrivetrain * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmDrivetrain * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmDrivetrain * __hidden this);
+    void (__thiscall*BeforeSave)(mmDrivetrain * __hidden this);
+    void (__thiscall*AfterLoad)(mmDrivetrain * __hidden this);
+    void (__thiscall*Cull)(mmDrivetrain * __hidden this);
+    void (__thiscall*Update)(mmDrivetrain * __hidden this);
+    void (__thiscall*Reset)(mmDrivetrain * __hidden this);
+    void (__thiscall*ResChange)(mmDrivetrain * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmDrivetrain * __hidden this);
+    void (__thiscall*Load)(mmDrivetrain * __hidden this);
+    void (__thiscall*Save)(mmDrivetrain * __hidden this);
+    void (__thiscall*AddWidgets)(mmDrivetrain * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmDrivetrain * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmDrivetrain * __hidden this);
 };
 
 struct VehGyro;
-struct VehGyro_vftable
+struct VehGyro_vtbl
 {
-    void* (__thiscall*Dtor)(VehGyro*,u32);
-    class MetaClass* (__thiscall*GetClass)(VehGyro*);
-    char* (__thiscall*GetTypeNameV)(VehGyro*);
-    void (__thiscall*BeforeSave)(VehGyro*);
-    void (__thiscall*AfterLoad)(VehGyro*);
-    void (__thiscall*Cull)(VehGyro*);
-    void (__thiscall*Update)(VehGyro*);
-    void (__thiscall*Reset)(VehGyro*);
-    void (__thiscall*ResChange)(VehGyro*,i32,i32);
-    void (__thiscall*UpdatePaused)(VehGyro*);
-    void (__thiscall*Load)(VehGyro*);
-    void (__thiscall*Save)(VehGyro*);
-    void (__thiscall*AddWidgets)(VehGyro*,class Bank*);
-    void (__thiscall*OpenWidgets)(VehGyro*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(VehGyro*);
+    void* (__thiscall*Destructor)(VehGyro * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(VehGyro * __hidden this);
+    char* (__thiscall*GetTypeNameV)(VehGyro * __hidden this);
+    void (__thiscall*BeforeSave)(VehGyro * __hidden this);
+    void (__thiscall*AfterLoad)(VehGyro * __hidden this);
+    void (__thiscall*Cull)(VehGyro * __hidden this);
+    void (__thiscall*Update)(VehGyro * __hidden this);
+    void (__thiscall*Reset)(VehGyro * __hidden this);
+    void (__thiscall*ResChange)(VehGyro * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(VehGyro * __hidden this);
+    void (__thiscall*Load)(VehGyro * __hidden this);
+    void (__thiscall*Save)(VehGyro * __hidden this);
+    void (__thiscall*AddWidgets)(VehGyro * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(VehGyro * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(VehGyro * __hidden this);
 };
 
 struct mmForce;
-struct mmForce_vftable
+struct mmForce_vtbl
 {
-    void* (__thiscall*Dtor)(mmForce*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmForce*);
-    char* (__thiscall*GetTypeNameV)(mmForce*);
-    void (__thiscall*BeforeSave)(mmForce*);
-    void (__thiscall*AfterLoad)(mmForce*);
-    void (__thiscall*Cull)(mmForce*);
-    void (__thiscall*Update)(mmForce*);
-    void (__thiscall*Reset)(mmForce*);
-    void (__thiscall*ResChange)(mmForce*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmForce*);
-    void (__thiscall*Load)(mmForce*);
-    void (__thiscall*Save)(mmForce*);
-    void (__thiscall*AddWidgets)(mmForce*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmForce*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmForce*);
+    void* (__thiscall*Destructor)(mmForce * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmForce * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmForce * __hidden this);
+    void (__thiscall*BeforeSave)(mmForce * __hidden this);
+    void (__thiscall*AfterLoad)(mmForce * __hidden this);
+    void (__thiscall*Cull)(mmForce * __hidden this);
+    void (__thiscall*Update)(mmForce * __hidden this);
+    void (__thiscall*Reset)(mmForce * __hidden this);
+    void (__thiscall*ResChange)(mmForce * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmForce * __hidden this);
+    void (__thiscall*Load)(mmForce * __hidden this);
+    void (__thiscall*Save)(mmForce * __hidden this);
+    void (__thiscall*AddWidgets)(mmForce * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmForce * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmForce * __hidden this);
 };
 
 struct mmSplash;
-struct mmSplash_vftable
+struct mmSplash_vtbl
 {
-    void* (__thiscall*Dtor)(mmSplash*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmSplash*);
-    char* (__thiscall*GetTypeNameV)(mmSplash*);
-    void (__thiscall*BeforeSave)(mmSplash*);
-    void (__thiscall*AfterLoad)(mmSplash*);
-    void (__thiscall*Cull)(mmSplash*);
-    void (__thiscall*Update)(mmSplash*);
-    void (__thiscall*Reset)(mmSplash*);
-    void (__thiscall*ResChange)(mmSplash*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmSplash*);
-    void (__thiscall*Load)(mmSplash*);
-    void (__thiscall*Save)(mmSplash*);
-    void (__thiscall*AddWidgets)(mmSplash*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmSplash*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmSplash*);
+    void* (__thiscall*Destructor)(mmSplash * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmSplash * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmSplash * __hidden this);
+    void (__thiscall*BeforeSave)(mmSplash * __hidden this);
+    void (__thiscall*AfterLoad)(mmSplash * __hidden this);
+    void (__thiscall*Cull)(mmSplash * __hidden this);
+    void (__thiscall*Update)(mmSplash * __hidden this);
+    void (__thiscall*Reset)(mmSplash * __hidden this);
+    void (__thiscall*ResChange)(mmSplash * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmSplash * __hidden this);
+    void (__thiscall*Load)(mmSplash * __hidden this);
+    void (__thiscall*Save)(mmSplash * __hidden this);
+    void (__thiscall*AddWidgets)(mmSplash * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmSplash * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmSplash * __hidden this);
 };
 
 struct mmCarRoadFF;
-struct mmCarRoadFF_vftable
+struct mmCarRoadFF_vtbl
 {
-    void* (__thiscall*Dtor)(mmCarRoadFF*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCarRoadFF*);
-    char* (__thiscall*GetTypeNameV)(mmCarRoadFF*);
-    void (__thiscall*BeforeSave)(mmCarRoadFF*);
-    void (__thiscall*AfterLoad)(mmCarRoadFF*);
-    void (__thiscall*Cull)(mmCarRoadFF*);
-    void (__thiscall*Update)(mmCarRoadFF*);
-    void (__thiscall*Reset)(mmCarRoadFF*);
-    void (__thiscall*ResChange)(mmCarRoadFF*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCarRoadFF*);
-    void (__thiscall*Load)(mmCarRoadFF*);
-    void (__thiscall*Save)(mmCarRoadFF*);
-    void (__thiscall*AddWidgets)(mmCarRoadFF*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCarRoadFF*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCarRoadFF*);
+    void* (__thiscall*Destructor)(mmCarRoadFF * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCarRoadFF * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCarRoadFF * __hidden this);
+    void (__thiscall*BeforeSave)(mmCarRoadFF * __hidden this);
+    void (__thiscall*AfterLoad)(mmCarRoadFF * __hidden this);
+    void (__thiscall*Cull)(mmCarRoadFF * __hidden this);
+    void (__thiscall*Update)(mmCarRoadFF * __hidden this);
+    void (__thiscall*Reset)(mmCarRoadFF * __hidden this);
+    void (__thiscall*ResChange)(mmCarRoadFF * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCarRoadFF * __hidden this);
+    void (__thiscall*Load)(mmCarRoadFF * __hidden this);
+    void (__thiscall*Save)(mmCarRoadFF * __hidden this);
+    void (__thiscall*AddWidgets)(mmCarRoadFF * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCarRoadFF * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCarRoadFF * __hidden this);
 };
 
 struct mmPlayerCarAudio;
-struct mmPlayerCarAudio_vftable
+struct mmPlayerCarAudio_vtbl
 {
-    void* (__thiscall*Dtor)(mmPlayerCarAudio*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPlayerCarAudio*);
-    char* (__thiscall*GetTypeNameV)(mmPlayerCarAudio*);
-    void (__thiscall*BeforeSave)(mmPlayerCarAudio*);
-    void (__thiscall*AfterLoad)(mmPlayerCarAudio*);
-    void (__thiscall*Cull)(mmPlayerCarAudio*);
-    void (__thiscall*Update)(mmPlayerCarAudio*);
-    void (__thiscall*Reset)(mmPlayerCarAudio*);
-    void (__thiscall*ResChange)(mmPlayerCarAudio*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmPlayerCarAudio*);
-    void (__thiscall*Load)(mmPlayerCarAudio*);
-    void (__thiscall*Save)(mmPlayerCarAudio*);
-    void (__thiscall*AddWidgets)(mmPlayerCarAudio*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmPlayerCarAudio*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmPlayerCarAudio*);
+    void* (__thiscall*Destructor)(mmPlayerCarAudio * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPlayerCarAudio * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPlayerCarAudio * __hidden this);
+    void (__thiscall*BeforeSave)(mmPlayerCarAudio * __hidden this);
+    void (__thiscall*AfterLoad)(mmPlayerCarAudio * __hidden this);
+    void (__thiscall*Cull)(mmPlayerCarAudio * __hidden this);
+    void (__thiscall*Update)(mmPlayerCarAudio * __hidden this);
+    void (__thiscall*Reset)(mmPlayerCarAudio * __hidden this);
+    void (__thiscall*ResChange)(mmPlayerCarAudio * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmPlayerCarAudio * __hidden this);
+    void (__thiscall*Load)(mmPlayerCarAudio * __hidden this);
+    void (__thiscall*Save)(mmPlayerCarAudio * __hidden this);
+    void (__thiscall*AddWidgets)(mmPlayerCarAudio * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmPlayerCarAudio * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmPlayerCarAudio * __hidden this);
 };
 
 struct mmNetworkCarAudio;
-struct mmNetworkCarAudio_vftable
+struct mmNetworkCarAudio_vtbl
 {
-    void* (__thiscall*Dtor)(mmNetworkCarAudio*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmNetworkCarAudio*);
-    char* (__thiscall*GetTypeNameV)(mmNetworkCarAudio*);
-    void (__thiscall*BeforeSave)(mmNetworkCarAudio*);
-    void (__thiscall*AfterLoad)(mmNetworkCarAudio*);
-    void (__thiscall*Cull)(mmNetworkCarAudio*);
-    void (__thiscall*Update)(mmNetworkCarAudio*);
-    void (__thiscall*Reset)(mmNetworkCarAudio*);
-    void (__thiscall*ResChange)(mmNetworkCarAudio*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmNetworkCarAudio*);
-    void (__thiscall*Load)(mmNetworkCarAudio*);
-    void (__thiscall*Save)(mmNetworkCarAudio*);
-    void (__thiscall*AddWidgets)(mmNetworkCarAudio*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmNetworkCarAudio*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmNetworkCarAudio*);
+    void* (__thiscall*Destructor)(mmNetworkCarAudio * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmNetworkCarAudio * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmNetworkCarAudio * __hidden this);
+    void (__thiscall*BeforeSave)(mmNetworkCarAudio * __hidden this);
+    void (__thiscall*AfterLoad)(mmNetworkCarAudio * __hidden this);
+    void (__thiscall*Cull)(mmNetworkCarAudio * __hidden this);
+    void (__thiscall*Update)(mmNetworkCarAudio * __hidden this);
+    void (__thiscall*Reset)(mmNetworkCarAudio * __hidden this);
+    void (__thiscall*ResChange)(mmNetworkCarAudio * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmNetworkCarAudio * __hidden this);
+    void (__thiscall*Load)(mmNetworkCarAudio * __hidden this);
+    void (__thiscall*Save)(mmNetworkCarAudio * __hidden this);
+    void (__thiscall*AddWidgets)(mmNetworkCarAudio * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmNetworkCarAudio * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmNetworkCarAudio * __hidden this);
 };
 
 struct EngineAudioOpponent;
-struct EngineAudioOpponent_vftable
+struct EngineAudioOpponent_vtbl
 {
-    void* (__thiscall*Dtor)(EngineAudioOpponent*,u32);
-    class MetaClass* (__thiscall*GetClass)(EngineAudioOpponent*);
-    char* (__thiscall*GetTypeNameV)(EngineAudioOpponent*);
-    void (__thiscall*BeforeSave)(EngineAudioOpponent*);
-    void (__thiscall*AfterLoad)(EngineAudioOpponent*);
-    void (__thiscall*Cull)(EngineAudioOpponent*);
-    void (__thiscall*Update)(EngineAudioOpponent*);
-    void (__thiscall*Reset)(EngineAudioOpponent*);
-    void (__thiscall*ResChange)(EngineAudioOpponent*,i32,i32);
-    void (__thiscall*UpdatePaused)(EngineAudioOpponent*);
-    void (__thiscall*Load)(EngineAudioOpponent*);
-    void (__thiscall*Save)(EngineAudioOpponent*);
-    void (__thiscall*AddWidgets)(EngineAudioOpponent*,class Bank*);
-    void (__thiscall*OpenWidgets)(EngineAudioOpponent*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(EngineAudioOpponent*);
+    void* (__thiscall*Destructor)(EngineAudioOpponent * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(EngineAudioOpponent * __hidden this);
+    char* (__thiscall*GetTypeNameV)(EngineAudioOpponent * __hidden this);
+    void (__thiscall*BeforeSave)(EngineAudioOpponent * __hidden this);
+    void (__thiscall*AfterLoad)(EngineAudioOpponent * __hidden this);
+    void (__thiscall*Cull)(EngineAudioOpponent * __hidden this);
+    void (__thiscall*Update)(EngineAudioOpponent * __hidden this);
+    void (__thiscall*Reset)(EngineAudioOpponent * __hidden this);
+    void (__thiscall*ResChange)(EngineAudioOpponent * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(EngineAudioOpponent * __hidden this);
+    void (__thiscall*Load)(EngineAudioOpponent * __hidden this);
+    void (__thiscall*Save)(EngineAudioOpponent * __hidden this);
+    void (__thiscall*AddWidgets)(EngineAudioOpponent * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(EngineAudioOpponent * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(EngineAudioOpponent * __hidden this);
 };
 
 struct EngineAudio;
-struct EngineAudio_vftable
+struct EngineAudio_vtbl
 {
-    void* (__thiscall*Dtor)(EngineAudio*,u32);
-    class MetaClass* (__thiscall*GetClass)(EngineAudio*);
-    char* (__thiscall*GetTypeNameV)(EngineAudio*);
-    void (__thiscall*BeforeSave)(EngineAudio*);
-    void (__thiscall*AfterLoad)(EngineAudio*);
-    void (__thiscall*Cull)(EngineAudio*);
-    void (__thiscall*Update)(EngineAudio*);
-    void (__thiscall*Reset)(EngineAudio*);
-    void (__thiscall*ResChange)(EngineAudio*,i32,i32);
-    void (__thiscall*UpdatePaused)(EngineAudio*);
-    void (__thiscall*Load)(EngineAudio*);
-    void (__thiscall*Save)(EngineAudio*);
-    void (__thiscall*AddWidgets)(EngineAudio*,class Bank*);
-    void (__thiscall*OpenWidgets)(EngineAudio*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(EngineAudio*);
-    void (__thiscall*UpdateRPM)(EngineAudio*,f32);
+    void* (__thiscall*Destructor)(EngineAudio * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(EngineAudio * __hidden this);
+    char* (__thiscall*GetTypeNameV)(EngineAudio * __hidden this);
+    void (__thiscall*BeforeSave)(EngineAudio * __hidden this);
+    void (__thiscall*AfterLoad)(EngineAudio * __hidden this);
+    void (__thiscall*Cull)(EngineAudio * __hidden this);
+    void (__thiscall*Update)(EngineAudio * __hidden this);
+    void (__thiscall*Reset)(EngineAudio * __hidden this);
+    void (__thiscall*ResChange)(EngineAudio * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(EngineAudio * __hidden this);
+    void (__thiscall*Load)(EngineAudio * __hidden this);
+    void (__thiscall*Save)(EngineAudio * __hidden this);
+    void (__thiscall*AddWidgets)(EngineAudio * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(EngineAudio * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(EngineAudio * __hidden this);
+    void (__thiscall*UpdateRPM)(EngineAudio * __hidden this,f32);
 };
 
 struct asNetObject;
-struct asNetObject_vftable
+struct asNetObject_vtbl
 {
-    void* (__thiscall*Dtor)(asNetObject*,u32);
-    class MetaClass* (__thiscall*GetClass)(asNetObject*);
-    char* (__thiscall*GetTypeNameV)(asNetObject*);
-    void (__thiscall*BeforeSave)(asNetObject*);
-    void (__thiscall*AfterLoad)(asNetObject*);
-    void (__thiscall*Cull)(asNetObject*);
-    void (__thiscall*Update)(asNetObject*);
-    void (__thiscall*Reset)(asNetObject*);
-    void (__thiscall*ResChange)(asNetObject*,i32,i32);
-    void (__thiscall*UpdatePaused)(asNetObject*);
-    void (__thiscall*Load)(asNetObject*);
-    void (__thiscall*Save)(asNetObject*);
-    void (__thiscall*AddWidgets)(asNetObject*,class Bank*);
-    void (__thiscall*OpenWidgets)(asNetObject*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asNetObject*);
-    void (__thiscall*SetLocalData)(asNetObject*);
-    void (__thiscall*PositionUpdate)(asNetObject*,class Matrix34*,class Vector3,f32,f32,f32);
+    void* (__thiscall*Destructor)(asNetObject * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asNetObject * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asNetObject * __hidden this);
+    void (__thiscall*BeforeSave)(asNetObject * __hidden this);
+    void (__thiscall*AfterLoad)(asNetObject * __hidden this);
+    void (__thiscall*Cull)(asNetObject * __hidden this);
+    void (__thiscall*Update)(asNetObject * __hidden this);
+    void (__thiscall*Reset)(asNetObject * __hidden this);
+    void (__thiscall*ResChange)(asNetObject * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asNetObject * __hidden this);
+    void (__thiscall*Load)(asNetObject * __hidden this);
+    void (__thiscall*Save)(asNetObject * __hidden this);
+    void (__thiscall*AddWidgets)(asNetObject * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asNetObject * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asNetObject * __hidden this);
+    void (__thiscall*SetLocalData)(asNetObject * __hidden this);
+    void (__thiscall*PositionUpdate)(asNetObject * __hidden this,class Matrix34*,class Vector3,f32,f32,f32);
 };
 
 struct mmLoader;
-struct mmLoader_vftable
+struct mmLoader_vtbl
 {
-    void* (__thiscall*Dtor)(mmLoader*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmLoader*);
-    char* (__thiscall*GetTypeNameV)(mmLoader*);
-    void (__thiscall*BeforeSave)(mmLoader*);
-    void (__thiscall*AfterLoad)(mmLoader*);
-    void (__thiscall*Cull)(mmLoader*);
+    void* (__thiscall*Destructor)(mmLoader * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmLoader * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmLoader * __hidden this);
+    void (__thiscall*BeforeSave)(mmLoader * __hidden this);
+    void (__thiscall*AfterLoad)(mmLoader * __hidden this);
+    void (__thiscall*Cull)(mmLoader * __hidden this);
 };
 
 struct asCullable;
-struct asCullable_vftable
+struct asCullable_vtbl
 {
-    void* (__thiscall*Dtor)(asCullable*,u32);
-    class MetaClass* (__thiscall*GetClass)(asCullable*);
-    char* (__thiscall*GetTypeNameV)(asCullable*);
-    void (__thiscall*BeforeSave)(asCullable*);
-    void (__thiscall*AfterLoad)(asCullable*);
-    void (__thiscall*Cull)(asCullable*);
+    void* (__thiscall*Destructor)(asCullable * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asCullable * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asCullable * __hidden this);
+    void (__thiscall*BeforeSave)(asCullable * __hidden this);
+    void (__thiscall*AfterLoad)(asCullable * __hidden this);
+    void (__thiscall*Cull)(asCullable * __hidden this);
 };
 
 struct mmCullCity;
-struct mmCullCity_vftable
+struct mmCullCity_vtbl
 {
-    void* (__thiscall*Dtor)(mmCullCity*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCullCity*);
-    char* (__thiscall*GetTypeNameV)(mmCullCity*);
-    void (__thiscall*BeforeSave)(mmCullCity*);
-    void (__thiscall*AfterLoad)(mmCullCity*);
-    void (__thiscall*Cull)(mmCullCity*);
-    void (__thiscall*Update)(mmCullCity*);
-    void (__thiscall*Reset)(mmCullCity*);
-    void (__thiscall*ResChange)(mmCullCity*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCullCity*);
-    void (__thiscall*Load)(mmCullCity*);
-    void (__thiscall*Save)(mmCullCity*);
-    void (__thiscall*AddWidgets)(mmCullCity*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCullCity*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCullCity*);
+    void* (__thiscall*Destructor)(mmCullCity * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCullCity * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCullCity * __hidden this);
+    void (__thiscall*BeforeSave)(mmCullCity * __hidden this);
+    void (__thiscall*AfterLoad)(mmCullCity * __hidden this);
+    void (__thiscall*Cull)(mmCullCity * __hidden this);
+    void (__thiscall*Update)(mmCullCity * __hidden this);
+    void (__thiscall*Reset)(mmCullCity * __hidden this);
+    void (__thiscall*ResChange)(mmCullCity * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCullCity * __hidden this);
+    void (__thiscall*Load)(mmCullCity * __hidden this);
+    void (__thiscall*Save)(mmCullCity * __hidden this);
+    void (__thiscall*AddWidgets)(mmCullCity * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCullCity * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCullCity * __hidden this);
 };
 
 struct mmBangerManager;
-struct mmBangerManager_vftable
+struct mmBangerManager_vtbl
 {
-    void* (__thiscall*Dtor)(mmBangerManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBangerManager*);
-    char* (__thiscall*GetTypeNameV)(mmBangerManager*);
-    void (__thiscall*BeforeSave)(mmBangerManager*);
-    void (__thiscall*AfterLoad)(mmBangerManager*);
-    void (__thiscall*Cull)(mmBangerManager*);
-    void (__thiscall*Update)(mmBangerManager*);
-    void (__thiscall*Reset)(mmBangerManager*);
-    void (__thiscall*ResChange)(mmBangerManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmBangerManager*);
-    void (__thiscall*Load)(mmBangerManager*);
-    void (__thiscall*Save)(mmBangerManager*);
-    void (__thiscall*AddWidgets)(mmBangerManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmBangerManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmBangerManager*);
+    void* (__thiscall*Destructor)(mmBangerManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBangerManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBangerManager * __hidden this);
+    void (__thiscall*BeforeSave)(mmBangerManager * __hidden this);
+    void (__thiscall*AfterLoad)(mmBangerManager * __hidden this);
+    void (__thiscall*Cull)(mmBangerManager * __hidden this);
+    void (__thiscall*Update)(mmBangerManager * __hidden this);
+    void (__thiscall*Reset)(mmBangerManager * __hidden this);
+    void (__thiscall*ResChange)(mmBangerManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmBangerManager * __hidden this);
+    void (__thiscall*Load)(mmBangerManager * __hidden this);
+    void (__thiscall*Save)(mmBangerManager * __hidden this);
+    void (__thiscall*AddWidgets)(mmBangerManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmBangerManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmBangerManager * __hidden this);
 };
 
 struct mmRunwayLight;
-struct mmRunwayLight_vftable
+struct mmRunwayLight_vtbl
 {
-    void* (__thiscall*Dtor)(mmRunwayLight*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmRunwayLight*);
-    char* (__thiscall*GetTypeNameV)(mmRunwayLight*);
-    void (__thiscall*BeforeSave)(mmRunwayLight*);
-    void (__thiscall*AfterLoad)(mmRunwayLight*);
-    void (__fastcall*FromMatrix)(mmRunwayLight*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmRunwayLight*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmRunwayLight*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmRunwayLight*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmRunwayLight*);
-    class Vector3 (__thiscall*GetVelocity)(mmRunwayLight*);
-    void (__thiscall*Impact)(mmRunwayLight*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmRunwayLight*);
-    void (__fastcall*Draw)(mmRunwayLight*,i32);
-    void (__fastcall*DrawShadow)(mmRunwayLight*);
-    void (__fastcall*DrawGlow)(mmRunwayLight*);
-    void (__fastcall*Relight)(mmRunwayLight*);
-    u32 (__thiscall*SizeOf)(mmRunwayLight*);
-    void (__thiscall*Reset)(mmRunwayLight*);
-    void (__thiscall*AddWidgets)(mmRunwayLight*,class Bank*);
-    i32 (__thiscall*Init)(mmRunwayLight*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmRunwayLight*);
-    i32 (__thiscall*ComputeLod)(mmRunwayLight*,f32,f32);
+    void* (__thiscall*Destructor)(mmRunwayLight * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmRunwayLight * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmRunwayLight * __hidden this);
+    void (__thiscall*BeforeSave)(mmRunwayLight * __hidden this);
+    void (__thiscall*AfterLoad)(mmRunwayLight * __hidden this);
+    void (__fastcall*FromMatrix)(mmRunwayLight * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmRunwayLight * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmRunwayLight * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmRunwayLight * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmRunwayLight * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmRunwayLight * __hidden this);
+    void (__thiscall*Impact)(mmRunwayLight * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmRunwayLight * __hidden this);
+    void (__fastcall*Draw)(mmRunwayLight * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmRunwayLight * __hidden this);
+    void (__fastcall*DrawGlow)(mmRunwayLight * __hidden this);
+    void (__fastcall*Relight)(mmRunwayLight * __hidden this);
+    u32 (__thiscall*SizeOf)(mmRunwayLight * __hidden this);
+    void (__thiscall*Reset)(mmRunwayLight * __hidden this);
+    void (__thiscall*AddWidgets)(mmRunwayLight * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmRunwayLight * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmRunwayLight * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmRunwayLight * __hidden this,f32,f32);
 };
 
 struct mmUpperInstance;
-struct mmUpperInstance_vftable
+struct mmUpperInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmUpperInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmUpperInstance*);
-    char* (__thiscall*GetTypeNameV)(mmUpperInstance*);
-    void (__thiscall*BeforeSave)(mmUpperInstance*);
-    void (__thiscall*AfterLoad)(mmUpperInstance*);
-    void (__fastcall*FromMatrix)(mmUpperInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmUpperInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmUpperInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmUpperInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmUpperInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmUpperInstance*);
-    void (__thiscall*Impact)(mmUpperInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmUpperInstance*);
-    void (__fastcall*Draw)(mmUpperInstance*,i32);
-    void (__fastcall*DrawShadow)(mmUpperInstance*);
-    void (__fastcall*DrawGlow)(mmUpperInstance*);
-    void (__fastcall*Relight)(mmUpperInstance*);
-    u32 (__thiscall*SizeOf)(mmUpperInstance*);
-    void (__thiscall*Reset)(mmUpperInstance*);
-    void (__thiscall*AddWidgets)(mmUpperInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmUpperInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmUpperInstance*);
-    i32 (__thiscall*ComputeLod)(mmUpperInstance*,f32,f32);
-    void (__thiscall*Hit)(mmUpperInstance*,class mmInstance*);
+    void* (__thiscall*Destructor)(mmUpperInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmUpperInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmUpperInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmUpperInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmUpperInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmUpperInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmUpperInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmUpperInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmUpperInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmUpperInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmUpperInstance * __hidden this);
+    void (__thiscall*Impact)(mmUpperInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmUpperInstance * __hidden this);
+    void (__fastcall*Draw)(mmUpperInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmUpperInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmUpperInstance * __hidden this);
+    void (__fastcall*Relight)(mmUpperInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmUpperInstance * __hidden this);
+    void (__thiscall*Reset)(mmUpperInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmUpperInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmUpperInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmUpperInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmUpperInstance * __hidden this,f32,f32);
+    void (__thiscall*Hit)(mmUpperInstance * __hidden this,class mmInstance*);
 };
 
 struct mmBuildingInstance;
-struct mmBuildingInstance_vftable
+struct mmBuildingInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmBuildingInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBuildingInstance*);
-    char* (__thiscall*GetTypeNameV)(mmBuildingInstance*);
-    void (__thiscall*BeforeSave)(mmBuildingInstance*);
-    void (__thiscall*AfterLoad)(mmBuildingInstance*);
-    void (__fastcall*FromMatrix)(mmBuildingInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmBuildingInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmBuildingInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmBuildingInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmBuildingInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmBuildingInstance*);
-    void (__thiscall*Impact)(mmBuildingInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmBuildingInstance*);
-    void (__fastcall*Draw)(mmBuildingInstance*,i32);
-    void (__fastcall*DrawShadow)(mmBuildingInstance*);
-    void (__fastcall*DrawGlow)(mmBuildingInstance*);
-    void (__fastcall*Relight)(mmBuildingInstance*);
-    u32 (__thiscall*SizeOf)(mmBuildingInstance*);
-    void (__thiscall*Reset)(mmBuildingInstance*);
-    void (__thiscall*AddWidgets)(mmBuildingInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmBuildingInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmBuildingInstance*);
-    i32 (__thiscall*ComputeLod)(mmBuildingInstance*,f32,f32);
-    void (__thiscall*Hit)(mmBuildingInstance*,class mmInstance*);
+    void* (__thiscall*Destructor)(mmBuildingInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBuildingInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBuildingInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmBuildingInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmBuildingInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmBuildingInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmBuildingInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmBuildingInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmBuildingInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmBuildingInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmBuildingInstance * __hidden this);
+    void (__thiscall*Impact)(mmBuildingInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmBuildingInstance * __hidden this);
+    void (__fastcall*Draw)(mmBuildingInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmBuildingInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmBuildingInstance * __hidden this);
+    void (__fastcall*Relight)(mmBuildingInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmBuildingInstance * __hidden this);
+    void (__thiscall*Reset)(mmBuildingInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmBuildingInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmBuildingInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmBuildingInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmBuildingInstance * __hidden this,f32,f32);
+    void (__thiscall*Hit)(mmBuildingInstance * __hidden this,class mmInstance*);
 };
 
 struct mmShearInstance;
-struct mmShearInstance_vftable
+struct mmShearInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmShearInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmShearInstance*);
-    char* (__thiscall*GetTypeNameV)(mmShearInstance*);
-    void (__thiscall*BeforeSave)(mmShearInstance*);
-    void (__thiscall*AfterLoad)(mmShearInstance*);
-    void (__fastcall*FromMatrix)(mmShearInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmShearInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmShearInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmShearInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmShearInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmShearInstance*);
-    void (__thiscall*Impact)(mmShearInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmShearInstance*);
-    void (__fastcall*Draw)(mmShearInstance*,i32);
-    void (__fastcall*DrawShadow)(mmShearInstance*);
-    void (__fastcall*DrawGlow)(mmShearInstance*);
-    void (__fastcall*Relight)(mmShearInstance*);
-    u32 (__thiscall*SizeOf)(mmShearInstance*);
-    void (__thiscall*Reset)(mmShearInstance*);
-    void (__thiscall*AddWidgets)(mmShearInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmShearInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmShearInstance*);
-    i32 (__thiscall*ComputeLod)(mmShearInstance*,f32,f32);
-    void (__thiscall*Hit)(mmShearInstance*,class mmInstance*);
+    void* (__thiscall*Destructor)(mmShearInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmShearInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmShearInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmShearInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmShearInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmShearInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmShearInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmShearInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmShearInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmShearInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmShearInstance * __hidden this);
+    void (__thiscall*Impact)(mmShearInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmShearInstance * __hidden this);
+    void (__fastcall*Draw)(mmShearInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmShearInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmShearInstance * __hidden this);
+    void (__fastcall*Relight)(mmShearInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmShearInstance * __hidden this);
+    void (__thiscall*Reset)(mmShearInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmShearInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmShearInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmShearInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmShearInstance * __hidden this,f32,f32);
+    void (__thiscall*Hit)(mmShearInstance * __hidden this,class mmInstance*);
 };
 
 struct mmUnhitBangerInstance;
-struct mmUnhitBangerInstance_vftable
+struct mmUnhitBangerInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmUnhitBangerInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmUnhitBangerInstance*);
-    char* (__thiscall*GetTypeNameV)(mmUnhitBangerInstance*);
-    void (__thiscall*BeforeSave)(mmUnhitBangerInstance*);
-    void (__thiscall*AfterLoad)(mmUnhitBangerInstance*);
-    void (__fastcall*FromMatrix)(mmUnhitBangerInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmUnhitBangerInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmUnhitBangerInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmUnhitBangerInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmUnhitBangerInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmUnhitBangerInstance*);
-    void (__thiscall*Impact)(mmUnhitBangerInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmUnhitBangerInstance*);
-    void (__fastcall*Draw)(mmUnhitBangerInstance*,i32);
-    void (__fastcall*DrawShadow)(mmUnhitBangerInstance*);
-    void (__fastcall*DrawGlow)(mmUnhitBangerInstance*);
-    void (__fastcall*Relight)(mmUnhitBangerInstance*);
-    u32 (__thiscall*SizeOf)(mmUnhitBangerInstance*);
-    void (__thiscall*Reset)(mmUnhitBangerInstance*);
-    void (__thiscall*AddWidgets)(mmUnhitBangerInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmUnhitBangerInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmUnhitBangerInstance*);
-    i32 (__thiscall*ComputeLod)(mmUnhitBangerInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmUnhitBangerInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmUnhitBangerInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmUnhitBangerInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmUnhitBangerInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmUnhitBangerInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmUnhitBangerInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmUnhitBangerInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmUnhitBangerInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmUnhitBangerInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmUnhitBangerInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmUnhitBangerInstance * __hidden this);
+    void (__thiscall*Impact)(mmUnhitBangerInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmUnhitBangerInstance * __hidden this);
+    void (__fastcall*Draw)(mmUnhitBangerInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmUnhitBangerInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmUnhitBangerInstance * __hidden this);
+    void (__fastcall*Relight)(mmUnhitBangerInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmUnhitBangerInstance * __hidden this);
+    void (__thiscall*Reset)(mmUnhitBangerInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmUnhitBangerInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmUnhitBangerInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmUnhitBangerInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmUnhitBangerInstance * __hidden this,f32,f32);
 };
 
 struct asRenderWeb;
-struct asRenderWeb_vftable
+struct asRenderWeb_vtbl
 {
-    void* (__thiscall*Dtor)(asRenderWeb*,u32);
-    class MetaClass* (__thiscall*GetClass)(asRenderWeb*);
-    char* (__thiscall*GetTypeNameV)(asRenderWeb*);
-    void (__thiscall*BeforeSave)(asRenderWeb*);
-    void (__thiscall*AfterLoad)(asRenderWeb*);
-    void (__thiscall*Cull)(asRenderWeb*);
-    void (__thiscall*Update)(asRenderWeb*);
-    void (__thiscall*Reset)(asRenderWeb*);
-    void (__thiscall*ResChange)(asRenderWeb*,i32,i32);
-    void (__thiscall*UpdatePaused)(asRenderWeb*);
-    void (__thiscall*Load)(asRenderWeb*);
-    void (__thiscall*Save)(asRenderWeb*);
-    void (__thiscall*AddWidgets)(asRenderWeb*,class Bank*);
-    void (__thiscall*OpenWidgets)(asRenderWeb*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asRenderWeb*);
-    struct asPortalCell* (__thiscall*GetStartCell)(asRenderWeb*,class Vector3&,struct asPortalCell*,class mmPolygon**);
+    void* (__thiscall*Destructor)(asRenderWeb * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asRenderWeb * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asRenderWeb * __hidden this);
+    void (__thiscall*BeforeSave)(asRenderWeb * __hidden this);
+    void (__thiscall*AfterLoad)(asRenderWeb * __hidden this);
+    void (__thiscall*Cull)(asRenderWeb * __hidden this);
+    void (__thiscall*Update)(asRenderWeb * __hidden this);
+    void (__thiscall*Reset)(asRenderWeb * __hidden this);
+    void (__thiscall*ResChange)(asRenderWeb * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asRenderWeb * __hidden this);
+    void (__thiscall*Load)(asRenderWeb * __hidden this);
+    void (__thiscall*Save)(asRenderWeb * __hidden this);
+    void (__thiscall*AddWidgets)(asRenderWeb * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asRenderWeb * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asRenderWeb * __hidden this);
+    struct asPortalCell* (__thiscall*GetStartCell)(asRenderWeb * __hidden this,class Vector3&,struct asPortalCell*,class mmPolygon**);
 };
 
 struct mmInstance;
-struct mmInstance_vftable
+struct mmInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmInstance*);
-    char* (__thiscall*GetTypeNameV)(mmInstance*);
-    void (__thiscall*BeforeSave)(mmInstance*);
-    void (__thiscall*AfterLoad)(mmInstance*);
-    void (__fastcall*FromMatrix)(mmInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmInstance*);
-    void (__thiscall*Impact)(mmInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmInstance*);
-    void (__fastcall*Draw)(mmInstance*,i32);
-    void (__fastcall*DrawShadow)(mmInstance*);
-    void (__fastcall*DrawGlow)(mmInstance*);
-    void (__fastcall*Relight)(mmInstance*);
-    u32 (__thiscall*SizeOf)(mmInstance*);
-    void (__thiscall*Reset)(mmInstance*);
-    void (__thiscall*AddWidgets)(mmInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmInstance*);
-    i32 (__thiscall*ComputeLod)(mmInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmInstance * __hidden this);
+    void (__thiscall*Impact)(mmInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmInstance * __hidden this);
+    void (__fastcall*Draw)(mmInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmInstance * __hidden this);
+    void (__fastcall*Relight)(mmInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmInstance * __hidden this);
+    void (__thiscall*Reset)(mmInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmInstance * __hidden this,f32,f32);
 };
 
 struct mmYInstance;
-struct mmYInstance_vftable
+struct mmYInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmYInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmYInstance*);
-    char* (__thiscall*GetTypeNameV)(mmYInstance*);
-    void (__thiscall*BeforeSave)(mmYInstance*);
-    void (__thiscall*AfterLoad)(mmYInstance*);
-    void (__fastcall*FromMatrix)(mmYInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmYInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmYInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmYInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmYInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmYInstance*);
-    void (__thiscall*Impact)(mmYInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmYInstance*);
-    void (__fastcall*Draw)(mmYInstance*,i32);
-    void (__fastcall*DrawShadow)(mmYInstance*);
-    void (__fastcall*DrawGlow)(mmYInstance*);
-    void (__fastcall*Relight)(mmYInstance*);
-    u32 (__thiscall*SizeOf)(mmYInstance*);
-    void (__thiscall*Reset)(mmYInstance*);
-    void (__thiscall*AddWidgets)(mmYInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmYInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmYInstance*);
-    i32 (__thiscall*ComputeLod)(mmYInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmYInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmYInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmYInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmYInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmYInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmYInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmYInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmYInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmYInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmYInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmYInstance * __hidden this);
+    void (__thiscall*Impact)(mmYInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmYInstance * __hidden this);
+    void (__fastcall*Draw)(mmYInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmYInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmYInstance * __hidden this);
+    void (__fastcall*Relight)(mmYInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmYInstance * __hidden this);
+    void (__thiscall*Reset)(mmYInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmYInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmYInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmYInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmYInstance * __hidden this,f32,f32);
 };
 
 struct mmMatrixInstance;
-struct mmMatrixInstance_vftable
+struct mmMatrixInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmMatrixInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmMatrixInstance*);
-    char* (__thiscall*GetTypeNameV)(mmMatrixInstance*);
-    void (__thiscall*BeforeSave)(mmMatrixInstance*);
-    void (__thiscall*AfterLoad)(mmMatrixInstance*);
-    void (__fastcall*FromMatrix)(mmMatrixInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmMatrixInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmMatrixInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmMatrixInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmMatrixInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmMatrixInstance*);
-    void (__thiscall*Impact)(mmMatrixInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmMatrixInstance*);
-    void (__fastcall*Draw)(mmMatrixInstance*,i32);
-    void (__fastcall*DrawShadow)(mmMatrixInstance*);
-    void (__fastcall*DrawGlow)(mmMatrixInstance*);
-    void (__fastcall*Relight)(mmMatrixInstance*);
-    u32 (__thiscall*SizeOf)(mmMatrixInstance*);
-    void (__thiscall*Reset)(mmMatrixInstance*);
-    void (__thiscall*AddWidgets)(mmMatrixInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmMatrixInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmMatrixInstance*);
-    i32 (__thiscall*ComputeLod)(mmMatrixInstance*,f32,f32);
-    void (__thiscall*Hit)(mmMatrixInstance*,class mmInstance*);
+    void* (__thiscall*Destructor)(mmMatrixInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmMatrixInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmMatrixInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmMatrixInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmMatrixInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmMatrixInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmMatrixInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmMatrixInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmMatrixInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmMatrixInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmMatrixInstance * __hidden this);
+    void (__thiscall*Impact)(mmMatrixInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmMatrixInstance * __hidden this);
+    void (__fastcall*Draw)(mmMatrixInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmMatrixInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmMatrixInstance * __hidden this);
+    void (__fastcall*Relight)(mmMatrixInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmMatrixInstance * __hidden this);
+    void (__thiscall*Reset)(mmMatrixInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmMatrixInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmMatrixInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmMatrixInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmMatrixInstance * __hidden this,f32,f32);
+    void (__thiscall*Hit)(mmMatrixInstance * __hidden this,class mmInstance*);
 };
 
 struct mmStaticInstance;
-struct mmStaticInstance_vftable
+struct mmStaticInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmStaticInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmStaticInstance*);
-    char* (__thiscall*GetTypeNameV)(mmStaticInstance*);
-    void (__thiscall*BeforeSave)(mmStaticInstance*);
-    void (__thiscall*AfterLoad)(mmStaticInstance*);
-    void (__fastcall*FromMatrix)(mmStaticInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmStaticInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmStaticInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmStaticInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmStaticInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmStaticInstance*);
-    void (__thiscall*Impact)(mmStaticInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmStaticInstance*);
-    void (__fastcall*Draw)(mmStaticInstance*,i32);
-    void (__fastcall*DrawShadow)(mmStaticInstance*);
-    void (__fastcall*DrawGlow)(mmStaticInstance*);
-    void (__fastcall*Relight)(mmStaticInstance*);
-    u32 (__thiscall*SizeOf)(mmStaticInstance*);
-    void (__thiscall*Reset)(mmStaticInstance*);
-    void (__thiscall*AddWidgets)(mmStaticInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmStaticInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmStaticInstance*);
-    i32 (__thiscall*ComputeLod)(mmStaticInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmStaticInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmStaticInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmStaticInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmStaticInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmStaticInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmStaticInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmStaticInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmStaticInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmStaticInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmStaticInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmStaticInstance * __hidden this);
+    void (__thiscall*Impact)(mmStaticInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmStaticInstance * __hidden this);
+    void (__fastcall*Draw)(mmStaticInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmStaticInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmStaticInstance * __hidden this);
+    void (__fastcall*Relight)(mmStaticInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmStaticInstance * __hidden this);
+    void (__thiscall*Reset)(mmStaticInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmStaticInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmStaticInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmStaticInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmStaticInstance * __hidden this,f32,f32);
 };
 
 struct mmFacadeInstance;
-struct mmFacadeInstance_vftable
+struct mmFacadeInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmFacadeInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmFacadeInstance*);
-    char* (__thiscall*GetTypeNameV)(mmFacadeInstance*);
-    void (__thiscall*BeforeSave)(mmFacadeInstance*);
-    void (__thiscall*AfterLoad)(mmFacadeInstance*);
-    void (__fastcall*FromMatrix)(mmFacadeInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmFacadeInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmFacadeInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmFacadeInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmFacadeInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmFacadeInstance*);
-    void (__thiscall*Impact)(mmFacadeInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmFacadeInstance*);
-    void (__fastcall*Draw)(mmFacadeInstance*,i32);
-    void (__fastcall*DrawShadow)(mmFacadeInstance*);
-    void (__fastcall*DrawGlow)(mmFacadeInstance*);
-    void (__fastcall*Relight)(mmFacadeInstance*);
-    u32 (__thiscall*SizeOf)(mmFacadeInstance*);
-    void (__thiscall*Reset)(mmFacadeInstance*);
-    void (__thiscall*AddWidgets)(mmFacadeInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmFacadeInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmFacadeInstance*);
-    i32 (__thiscall*ComputeLod)(mmFacadeInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmFacadeInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmFacadeInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmFacadeInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmFacadeInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmFacadeInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmFacadeInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmFacadeInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmFacadeInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmFacadeInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmFacadeInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmFacadeInstance * __hidden this);
+    void (__thiscall*Impact)(mmFacadeInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmFacadeInstance * __hidden this);
+    void (__fastcall*Draw)(mmFacadeInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmFacadeInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmFacadeInstance * __hidden this);
+    void (__fastcall*Relight)(mmFacadeInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmFacadeInstance * __hidden this);
+    void (__thiscall*Reset)(mmFacadeInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmFacadeInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmFacadeInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmFacadeInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmFacadeInstance * __hidden this,f32,f32);
 };
 
 struct asPortalWeb;
-struct asPortalWeb_vftable
+struct asPortalWeb_vtbl
 {
-    void* (__thiscall*Dtor)(asPortalWeb*,u32);
-    class MetaClass* (__thiscall*GetClass)(asPortalWeb*);
-    char* (__thiscall*GetTypeNameV)(asPortalWeb*);
-    void (__thiscall*BeforeSave)(asPortalWeb*);
-    void (__thiscall*AfterLoad)(asPortalWeb*);
-    void (__thiscall*Cull)(asPortalWeb*);
-    void (__thiscall*Update)(asPortalWeb*);
-    void (__thiscall*Reset)(asPortalWeb*);
-    void (__thiscall*ResChange)(asPortalWeb*,i32,i32);
-    void (__thiscall*UpdatePaused)(asPortalWeb*);
-    void (__thiscall*Load)(asPortalWeb*);
-    void (__thiscall*Save)(asPortalWeb*);
-    void (__thiscall*AddWidgets)(asPortalWeb*,class Bank*);
-    void (__thiscall*OpenWidgets)(asPortalWeb*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asPortalWeb*);
-    struct asPortalCell* (__thiscall*GetStartCell)(asPortalWeb*,class Vector3&,struct asPortalCell*,class mmPolygon**);
+    void* (__thiscall*Destructor)(asPortalWeb * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asPortalWeb * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asPortalWeb * __hidden this);
+    void (__thiscall*BeforeSave)(asPortalWeb * __hidden this);
+    void (__thiscall*AfterLoad)(asPortalWeb * __hidden this);
+    void (__thiscall*Cull)(asPortalWeb * __hidden this);
+    void (__thiscall*Update)(asPortalWeb * __hidden this);
+    void (__thiscall*Reset)(asPortalWeb * __hidden this);
+    void (__thiscall*ResChange)(asPortalWeb * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asPortalWeb * __hidden this);
+    void (__thiscall*Load)(asPortalWeb * __hidden this);
+    void (__thiscall*Save)(asPortalWeb * __hidden this);
+    void (__thiscall*AddWidgets)(asPortalWeb * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asPortalWeb * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asPortalWeb * __hidden this);
+    struct asPortalCell* (__thiscall*GetStartCell)(asPortalWeb * __hidden this,class Vector3&,struct asPortalCell*,class mmPolygon**);
 };
 
 struct mmPed;
-struct mmPed_vftable
+struct mmPed_vtbl
 {
-    void* (__thiscall*Dtor)(mmPed*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPed*);
-    char* (__thiscall*GetTypeNameV)(mmPed*);
-    void (__thiscall*BeforeSave)(mmPed*);
-    void (__thiscall*AfterLoad)(mmPed*);
-    void (__fastcall*FromMatrix)(mmPed*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmPed*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmPed*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmPed*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmPed*);
-    class Vector3 (__thiscall*GetVelocity)(mmPed*);
-    void (__thiscall*Impact)(mmPed*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmPed*);
-    void (__fastcall*Draw)(mmPed*,i32);
-    void (__fastcall*DrawShadow)(mmPed*);
-    void (__fastcall*DrawGlow)(mmPed*);
-    void (__fastcall*Relight)(mmPed*);
-    u32 (__thiscall*SizeOf)(mmPed*);
-    void (__thiscall*Reset)(mmPed*);
-    void (__thiscall*AddWidgets)(mmPed*,class Bank*);
-    i32 (__thiscall*Init)(mmPed*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmPed*);
-    i32 (__thiscall*ComputeLod)(mmPed*,f32,f32);
+    void* (__thiscall*Destructor)(mmPed * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPed * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPed * __hidden this);
+    void (__thiscall*BeforeSave)(mmPed * __hidden this);
+    void (__thiscall*AfterLoad)(mmPed * __hidden this);
+    void (__fastcall*FromMatrix)(mmPed * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmPed * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmPed * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmPed * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmPed * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmPed * __hidden this);
+    void (__thiscall*Impact)(mmPed * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmPed * __hidden this);
+    void (__fastcall*Draw)(mmPed * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmPed * __hidden this);
+    void (__fastcall*DrawGlow)(mmPed * __hidden this);
+    void (__fastcall*Relight)(mmPed * __hidden this);
+    u32 (__thiscall*SizeOf)(mmPed * __hidden this);
+    void (__thiscall*Reset)(mmPed * __hidden this);
+    void (__thiscall*AddWidgets)(mmPed * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmPed * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmPed * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmPed * __hidden this,f32,f32);
 };
 
 struct mmPedManager;
-struct mmPedManager_vftable
+struct mmPedManager_vtbl
 {
-    void* (__thiscall*Dtor)(mmPedManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPedManager*);
-    char* (__thiscall*GetTypeNameV)(mmPedManager*);
-    void (__thiscall*BeforeSave)(mmPedManager*);
-    void (__thiscall*AfterLoad)(mmPedManager*);
-    void (__thiscall*Cull)(mmPedManager*);
-    void (__thiscall*Update)(mmPedManager*);
-    void (__thiscall*Reset)(mmPedManager*);
-    void (__thiscall*ResChange)(mmPedManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmPedManager*);
-    void (__thiscall*Load)(mmPedManager*);
-    void (__thiscall*Save)(mmPedManager*);
-    void (__thiscall*AddWidgets)(mmPedManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmPedManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmPedManager*);
+    void* (__thiscall*Destructor)(mmPedManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPedManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPedManager * __hidden this);
+    void (__thiscall*BeforeSave)(mmPedManager * __hidden this);
+    void (__thiscall*AfterLoad)(mmPedManager * __hidden this);
+    void (__thiscall*Cull)(mmPedManager * __hidden this);
+    void (__thiscall*Update)(mmPedManager * __hidden this);
+    void (__thiscall*Reset)(mmPedManager * __hidden this);
+    void (__thiscall*ResChange)(mmPedManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmPedManager * __hidden this);
+    void (__thiscall*Load)(mmPedManager * __hidden this);
+    void (__thiscall*Save)(mmPedManager * __hidden this);
+    void (__thiscall*AddWidgets)(mmPedManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmPedManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmPedManager * __hidden this);
 };
 
 struct mmCellRenderer;
-struct mmCellRenderer_vftable
+struct mmCellRenderer_vtbl
 {
-    void (__thiscall*Cull)(mmCellRenderer*,i32);
+    void (__thiscall*Cull)(mmCellRenderer * __hidden this,i32);
 };
 
 struct GraphicsOptions;
-struct GraphicsOptions_vftable
+struct GraphicsOptions_vtbl
 {
-    void* (__thiscall*Dtor)(GraphicsOptions*,u32);
-    class MetaClass* (__thiscall*GetClass)(GraphicsOptions*);
-    char* (__thiscall*GetTypeNameV)(GraphicsOptions*);
-    void (__thiscall*BeforeSave)(GraphicsOptions*);
-    void (__thiscall*AfterLoad)(GraphicsOptions*);
-    void (__thiscall*Cull)(GraphicsOptions*);
-    void (__thiscall*Update)(GraphicsOptions*);
-    void (__thiscall*Reset)(GraphicsOptions*);
-    void (__thiscall*ResChange)(GraphicsOptions*,i32,i32);
-    void (__thiscall*UpdatePaused)(GraphicsOptions*);
-    void (__thiscall*Load)(GraphicsOptions*);
-    void (__thiscall*Save)(GraphicsOptions*);
-    void (__thiscall*AddWidgets)(GraphicsOptions*,class Bank*);
-    void (__thiscall*OpenWidgets)(GraphicsOptions*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(GraphicsOptions*);
-    void (__thiscall*PreSetup)(GraphicsOptions*);
-    void (__thiscall*PostSetup)(GraphicsOptions*);
-    void (__thiscall*BackUp)(GraphicsOptions*);
-    void (__thiscall*CheckInput)(GraphicsOptions*);
-    i32 (__thiscall*IsAnOptionMenu)(GraphicsOptions*);
-    void (__thiscall*CancelAction)(GraphicsOptions*);
-    void (__thiscall*DoneAction)(GraphicsOptions*);
-    void (__thiscall*ResetDefaultAction)(GraphicsOptions*);
-    void (__thiscall*StoreCurrentSetup)(GraphicsOptions*);
+    void* (__thiscall*Destructor)(GraphicsOptions * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(GraphicsOptions * __hidden this);
+    char* (__thiscall*GetTypeNameV)(GraphicsOptions * __hidden this);
+    void (__thiscall*BeforeSave)(GraphicsOptions * __hidden this);
+    void (__thiscall*AfterLoad)(GraphicsOptions * __hidden this);
+    void (__thiscall*Cull)(GraphicsOptions * __hidden this);
+    void (__thiscall*Update)(GraphicsOptions * __hidden this);
+    void (__thiscall*Reset)(GraphicsOptions * __hidden this);
+    void (__thiscall*ResChange)(GraphicsOptions * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(GraphicsOptions * __hidden this);
+    void (__thiscall*Load)(GraphicsOptions * __hidden this);
+    void (__thiscall*Save)(GraphicsOptions * __hidden this);
+    void (__thiscall*AddWidgets)(GraphicsOptions * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(GraphicsOptions * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(GraphicsOptions * __hidden this);
+    void (__thiscall*PreSetup)(GraphicsOptions * __hidden this);
+    void (__thiscall*PostSetup)(GraphicsOptions * __hidden this);
+    void (__thiscall*BackUp)(GraphicsOptions * __hidden this);
+    void (__thiscall*CheckInput)(GraphicsOptions * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(GraphicsOptions * __hidden this);
+    void (__thiscall*CancelAction)(GraphicsOptions * __hidden this);
+    void (__thiscall*DoneAction)(GraphicsOptions * __hidden this);
+    void (__thiscall*ResetDefaultAction)(GraphicsOptions * __hidden this);
+    void (__thiscall*StoreCurrentSetup)(GraphicsOptions * __hidden this);
 };
 
 struct VehicleSelectBase;
-struct VehicleSelectBase_vftable
+struct VehicleSelectBase_vtbl
 {
-    void* (__thiscall*Dtor)(VehicleSelectBase*,u32);
-    class MetaClass* (__thiscall*GetClass)(VehicleSelectBase*);
-    char* (__thiscall*GetTypeNameV)(VehicleSelectBase*);
-    void (__thiscall*BeforeSave)(VehicleSelectBase*);
-    void (__thiscall*AfterLoad)(VehicleSelectBase*);
-    void (__thiscall*Cull)(VehicleSelectBase*);
-    void (__thiscall*Update)(VehicleSelectBase*);
-    void (__thiscall*Reset)(VehicleSelectBase*);
-    void (__thiscall*ResChange)(VehicleSelectBase*,i32,i32);
-    void (__thiscall*UpdatePaused)(VehicleSelectBase*);
-    void (__thiscall*Load)(VehicleSelectBase*);
-    void (__thiscall*Save)(VehicleSelectBase*);
-    void (__thiscall*AddWidgets)(VehicleSelectBase*,class Bank*);
-    void (__thiscall*OpenWidgets)(VehicleSelectBase*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(VehicleSelectBase*);
-    void (__thiscall*PreSetup)(VehicleSelectBase*);
-    void (__thiscall*PostSetup)(VehicleSelectBase*);
-    void (__thiscall*BackUp)(VehicleSelectBase*);
-    void (__thiscall*CheckInput)(VehicleSelectBase*);
-    i32 (__thiscall*IsAnOptionMenu)(VehicleSelectBase*);
+    void* (__thiscall*Destructor)(VehicleSelectBase * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(VehicleSelectBase * __hidden this);
+    char* (__thiscall*GetTypeNameV)(VehicleSelectBase * __hidden this);
+    void (__thiscall*BeforeSave)(VehicleSelectBase * __hidden this);
+    void (__thiscall*AfterLoad)(VehicleSelectBase * __hidden this);
+    void (__thiscall*Cull)(VehicleSelectBase * __hidden this);
+    void (__thiscall*Update)(VehicleSelectBase * __hidden this);
+    void (__thiscall*Reset)(VehicleSelectBase * __hidden this);
+    void (__thiscall*ResChange)(VehicleSelectBase * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(VehicleSelectBase * __hidden this);
+    void (__thiscall*Load)(VehicleSelectBase * __hidden this);
+    void (__thiscall*Save)(VehicleSelectBase * __hidden this);
+    void (__thiscall*AddWidgets)(VehicleSelectBase * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(VehicleSelectBase * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(VehicleSelectBase * __hidden this);
+    void (__thiscall*PreSetup)(VehicleSelectBase * __hidden this);
+    void (__thiscall*PostSetup)(VehicleSelectBase * __hidden this);
+    void (__thiscall*BackUp)(VehicleSelectBase * __hidden this);
+    void (__thiscall*CheckInput)(VehicleSelectBase * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(VehicleSelectBase * __hidden this);
 };
 
 struct AudioOptions;
-struct AudioOptions_vftable
+struct AudioOptions_vtbl
 {
-    void* (__thiscall*Dtor)(AudioOptions*,u32);
-    class MetaClass* (__thiscall*GetClass)(AudioOptions*);
-    char* (__thiscall*GetTypeNameV)(AudioOptions*);
-    void (__thiscall*BeforeSave)(AudioOptions*);
-    void (__thiscall*AfterLoad)(AudioOptions*);
-    void (__thiscall*Cull)(AudioOptions*);
-    void (__thiscall*Update)(AudioOptions*);
-    void (__thiscall*Reset)(AudioOptions*);
-    void (__thiscall*ResChange)(AudioOptions*,i32,i32);
-    void (__thiscall*UpdatePaused)(AudioOptions*);
-    void (__thiscall*Load)(AudioOptions*);
-    void (__thiscall*Save)(AudioOptions*);
-    void (__thiscall*AddWidgets)(AudioOptions*,class Bank*);
-    void (__thiscall*OpenWidgets)(AudioOptions*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(AudioOptions*);
-    void (__thiscall*PreSetup)(AudioOptions*);
-    void (__thiscall*PostSetup)(AudioOptions*);
-    void (__thiscall*BackUp)(AudioOptions*);
-    void (__thiscall*CheckInput)(AudioOptions*);
-    i32 (__thiscall*IsAnOptionMenu)(AudioOptions*);
-    void (__thiscall*CancelAction)(AudioOptions*);
-    void (__thiscall*DoneAction)(AudioOptions*);
-    void (__thiscall*ResetDefaultAction)(AudioOptions*);
-    void (__thiscall*StoreCurrentSetup)(AudioOptions*);
+    void* (__thiscall*Destructor)(AudioOptions * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(AudioOptions * __hidden this);
+    char* (__thiscall*GetTypeNameV)(AudioOptions * __hidden this);
+    void (__thiscall*BeforeSave)(AudioOptions * __hidden this);
+    void (__thiscall*AfterLoad)(AudioOptions * __hidden this);
+    void (__thiscall*Cull)(AudioOptions * __hidden this);
+    void (__thiscall*Update)(AudioOptions * __hidden this);
+    void (__thiscall*Reset)(AudioOptions * __hidden this);
+    void (__thiscall*ResChange)(AudioOptions * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(AudioOptions * __hidden this);
+    void (__thiscall*Load)(AudioOptions * __hidden this);
+    void (__thiscall*Save)(AudioOptions * __hidden this);
+    void (__thiscall*AddWidgets)(AudioOptions * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(AudioOptions * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(AudioOptions * __hidden this);
+    void (__thiscall*PreSetup)(AudioOptions * __hidden this);
+    void (__thiscall*PostSetup)(AudioOptions * __hidden this);
+    void (__thiscall*BackUp)(AudioOptions * __hidden this);
+    void (__thiscall*CheckInput)(AudioOptions * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(AudioOptions * __hidden this);
+    void (__thiscall*CancelAction)(AudioOptions * __hidden this);
+    void (__thiscall*DoneAction)(AudioOptions * __hidden this);
+    void (__thiscall*ResetDefaultAction)(AudioOptions * __hidden this);
+    void (__thiscall*StoreCurrentSetup)(AudioOptions * __hidden this);
 };
 
 struct Dialog_City;
-struct Dialog_City_vftable
+struct Dialog_City_vtbl
 {
-    void* (__thiscall*Dtor)(Dialog_City*,u32);
-    class MetaClass* (__thiscall*GetClass)(Dialog_City*);
-    char* (__thiscall*GetTypeNameV)(Dialog_City*);
-    void (__thiscall*BeforeSave)(Dialog_City*);
-    void (__thiscall*AfterLoad)(Dialog_City*);
-    void (__thiscall*Cull)(Dialog_City*);
-    void (__thiscall*Update)(Dialog_City*);
-    void (__thiscall*Reset)(Dialog_City*);
-    void (__thiscall*ResChange)(Dialog_City*,i32,i32);
-    void (__thiscall*UpdatePaused)(Dialog_City*);
-    void (__thiscall*Load)(Dialog_City*);
-    void (__thiscall*Save)(Dialog_City*);
-    void (__thiscall*AddWidgets)(Dialog_City*,class Bank*);
-    void (__thiscall*OpenWidgets)(Dialog_City*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Dialog_City*);
-    void (__thiscall*PreSetup)(Dialog_City*);
-    void (__thiscall*PostSetup)(Dialog_City*);
-    void (__thiscall*BackUp)(Dialog_City*);
-    void (__thiscall*CheckInput)(Dialog_City*);
-    i32 (__thiscall*IsAnOptionMenu)(Dialog_City*);
+    void* (__thiscall*Destructor)(Dialog_City * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Dialog_City * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Dialog_City * __hidden this);
+    void (__thiscall*BeforeSave)(Dialog_City * __hidden this);
+    void (__thiscall*AfterLoad)(Dialog_City * __hidden this);
+    void (__thiscall*Cull)(Dialog_City * __hidden this);
+    void (__thiscall*Update)(Dialog_City * __hidden this);
+    void (__thiscall*Reset)(Dialog_City * __hidden this);
+    void (__thiscall*ResChange)(Dialog_City * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Dialog_City * __hidden this);
+    void (__thiscall*Load)(Dialog_City * __hidden this);
+    void (__thiscall*Save)(Dialog_City * __hidden this);
+    void (__thiscall*AddWidgets)(Dialog_City * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Dialog_City * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Dialog_City * __hidden this);
+    void (__thiscall*PreSetup)(Dialog_City * __hidden this);
+    void (__thiscall*PostSetup)(Dialog_City * __hidden this);
+    void (__thiscall*BackUp)(Dialog_City * __hidden this);
+    void (__thiscall*CheckInput)(Dialog_City * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Dialog_City * __hidden this);
 };
 
 struct Dialog_Password;
-struct Dialog_Password_vftable
+struct Dialog_Password_vtbl
 {
-    void* (__thiscall*Dtor)(Dialog_Password*,u32);
-    class MetaClass* (__thiscall*GetClass)(Dialog_Password*);
-    char* (__thiscall*GetTypeNameV)(Dialog_Password*);
-    void (__thiscall*BeforeSave)(Dialog_Password*);
-    void (__thiscall*AfterLoad)(Dialog_Password*);
-    void (__thiscall*Cull)(Dialog_Password*);
-    void (__thiscall*Update)(Dialog_Password*);
-    void (__thiscall*Reset)(Dialog_Password*);
-    void (__thiscall*ResChange)(Dialog_Password*,i32,i32);
-    void (__thiscall*UpdatePaused)(Dialog_Password*);
-    void (__thiscall*Load)(Dialog_Password*);
-    void (__thiscall*Save)(Dialog_Password*);
-    void (__thiscall*AddWidgets)(Dialog_Password*,class Bank*);
-    void (__thiscall*OpenWidgets)(Dialog_Password*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Dialog_Password*);
-    void (__thiscall*PreSetup)(Dialog_Password*);
-    void (__thiscall*PostSetup)(Dialog_Password*);
-    void (__thiscall*BackUp)(Dialog_Password*);
-    void (__thiscall*CheckInput)(Dialog_Password*);
-    i32 (__thiscall*IsAnOptionMenu)(Dialog_Password*);
+    void* (__thiscall*Destructor)(Dialog_Password * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Dialog_Password * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Dialog_Password * __hidden this);
+    void (__thiscall*BeforeSave)(Dialog_Password * __hidden this);
+    void (__thiscall*AfterLoad)(Dialog_Password * __hidden this);
+    void (__thiscall*Cull)(Dialog_Password * __hidden this);
+    void (__thiscall*Update)(Dialog_Password * __hidden this);
+    void (__thiscall*Reset)(Dialog_Password * __hidden this);
+    void (__thiscall*ResChange)(Dialog_Password * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Dialog_Password * __hidden this);
+    void (__thiscall*Load)(Dialog_Password * __hidden this);
+    void (__thiscall*Save)(Dialog_Password * __hidden this);
+    void (__thiscall*AddWidgets)(Dialog_Password * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Dialog_Password * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Dialog_Password * __hidden this);
+    void (__thiscall*PreSetup)(Dialog_Password * __hidden this);
+    void (__thiscall*PostSetup)(Dialog_Password * __hidden this);
+    void (__thiscall*BackUp)(Dialog_Password * __hidden this);
+    void (__thiscall*CheckInput)(Dialog_Password * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Dialog_Password * __hidden this);
 };
 
 struct Dialog_RaceEnvironment;
-struct Dialog_RaceEnvironment_vftable
+struct Dialog_RaceEnvironment_vtbl
 {
-    void* (__thiscall*Dtor)(Dialog_RaceEnvironment*,u32);
-    class MetaClass* (__thiscall*GetClass)(Dialog_RaceEnvironment*);
-    char* (__thiscall*GetTypeNameV)(Dialog_RaceEnvironment*);
-    void (__thiscall*BeforeSave)(Dialog_RaceEnvironment*);
-    void (__thiscall*AfterLoad)(Dialog_RaceEnvironment*);
-    void (__thiscall*Cull)(Dialog_RaceEnvironment*);
-    void (__thiscall*Update)(Dialog_RaceEnvironment*);
-    void (__thiscall*Reset)(Dialog_RaceEnvironment*);
-    void (__thiscall*ResChange)(Dialog_RaceEnvironment*,i32,i32);
-    void (__thiscall*UpdatePaused)(Dialog_RaceEnvironment*);
-    void (__thiscall*Load)(Dialog_RaceEnvironment*);
-    void (__thiscall*Save)(Dialog_RaceEnvironment*);
-    void (__thiscall*AddWidgets)(Dialog_RaceEnvironment*,class Bank*);
-    void (__thiscall*OpenWidgets)(Dialog_RaceEnvironment*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Dialog_RaceEnvironment*);
-    void (__thiscall*PreSetup)(Dialog_RaceEnvironment*);
-    void (__thiscall*PostSetup)(Dialog_RaceEnvironment*);
-    void (__thiscall*BackUp)(Dialog_RaceEnvironment*);
-    void (__thiscall*CheckInput)(Dialog_RaceEnvironment*);
-    i32 (__thiscall*IsAnOptionMenu)(Dialog_RaceEnvironment*);
+    void* (__thiscall*Destructor)(Dialog_RaceEnvironment * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Dialog_RaceEnvironment * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*BeforeSave)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*AfterLoad)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*Cull)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*Update)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*Reset)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*ResChange)(Dialog_RaceEnvironment * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*Load)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*Save)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*AddWidgets)(Dialog_RaceEnvironment * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Dialog_RaceEnvironment * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*PreSetup)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*PostSetup)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*BackUp)(Dialog_RaceEnvironment * __hidden this);
+    void (__thiscall*CheckInput)(Dialog_RaceEnvironment * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Dialog_RaceEnvironment * __hidden this);
 };
 
 struct Dialog_HallOfFame;
-struct Dialog_HallOfFame_vftable
+struct Dialog_HallOfFame_vtbl
 {
-    void* (__thiscall*Dtor)(Dialog_HallOfFame*,u32);
-    class MetaClass* (__thiscall*GetClass)(Dialog_HallOfFame*);
-    char* (__thiscall*GetTypeNameV)(Dialog_HallOfFame*);
-    void (__thiscall*BeforeSave)(Dialog_HallOfFame*);
-    void (__thiscall*AfterLoad)(Dialog_HallOfFame*);
-    void (__thiscall*Cull)(Dialog_HallOfFame*);
-    void (__thiscall*Update)(Dialog_HallOfFame*);
-    void (__thiscall*Reset)(Dialog_HallOfFame*);
-    void (__thiscall*ResChange)(Dialog_HallOfFame*,i32,i32);
-    void (__thiscall*UpdatePaused)(Dialog_HallOfFame*);
-    void (__thiscall*Load)(Dialog_HallOfFame*);
-    void (__thiscall*Save)(Dialog_HallOfFame*);
-    void (__thiscall*AddWidgets)(Dialog_HallOfFame*,class Bank*);
-    void (__thiscall*OpenWidgets)(Dialog_HallOfFame*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Dialog_HallOfFame*);
-    void (__thiscall*PreSetup)(Dialog_HallOfFame*);
-    void (__thiscall*PostSetup)(Dialog_HallOfFame*);
-    void (__thiscall*BackUp)(Dialog_HallOfFame*);
-    void (__thiscall*CheckInput)(Dialog_HallOfFame*);
-    i32 (__thiscall*IsAnOptionMenu)(Dialog_HallOfFame*);
+    void* (__thiscall*Destructor)(Dialog_HallOfFame * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Dialog_HallOfFame * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*BeforeSave)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*AfterLoad)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*Cull)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*Update)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*Reset)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*ResChange)(Dialog_HallOfFame * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*Load)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*Save)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*AddWidgets)(Dialog_HallOfFame * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Dialog_HallOfFame * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*PreSetup)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*PostSetup)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*BackUp)(Dialog_HallOfFame * __hidden this);
+    void (__thiscall*CheckInput)(Dialog_HallOfFame * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Dialog_HallOfFame * __hidden this);
 };
 
 struct Dialog_DriverRec;
-struct Dialog_DriverRec_vftable
+struct Dialog_DriverRec_vtbl
 {
-    void* (__thiscall*Dtor)(Dialog_DriverRec*,u32);
-    class MetaClass* (__thiscall*GetClass)(Dialog_DriverRec*);
-    char* (__thiscall*GetTypeNameV)(Dialog_DriverRec*);
-    void (__thiscall*BeforeSave)(Dialog_DriverRec*);
-    void (__thiscall*AfterLoad)(Dialog_DriverRec*);
-    void (__thiscall*Cull)(Dialog_DriverRec*);
-    void (__thiscall*Update)(Dialog_DriverRec*);
-    void (__thiscall*Reset)(Dialog_DriverRec*);
-    void (__thiscall*ResChange)(Dialog_DriverRec*,i32,i32);
-    void (__thiscall*UpdatePaused)(Dialog_DriverRec*);
-    void (__thiscall*Load)(Dialog_DriverRec*);
-    void (__thiscall*Save)(Dialog_DriverRec*);
-    void (__thiscall*AddWidgets)(Dialog_DriverRec*,class Bank*);
-    void (__thiscall*OpenWidgets)(Dialog_DriverRec*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Dialog_DriverRec*);
-    void (__thiscall*PreSetup)(Dialog_DriverRec*);
-    void (__thiscall*PostSetup)(Dialog_DriverRec*);
-    void (__thiscall*BackUp)(Dialog_DriverRec*);
-    void (__thiscall*CheckInput)(Dialog_DriverRec*);
-    i32 (__thiscall*IsAnOptionMenu)(Dialog_DriverRec*);
+    void* (__thiscall*Destructor)(Dialog_DriverRec * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Dialog_DriverRec * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*BeforeSave)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*AfterLoad)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*Cull)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*Update)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*Reset)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*ResChange)(Dialog_DriverRec * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*Load)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*Save)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*AddWidgets)(Dialog_DriverRec * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Dialog_DriverRec * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*PreSetup)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*PostSetup)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*BackUp)(Dialog_DriverRec * __hidden this);
+    void (__thiscall*CheckInput)(Dialog_DriverRec * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Dialog_DriverRec * __hidden this);
 };
 
 struct Dialog_Message;
-struct Dialog_Message_vftable
+struct Dialog_Message_vtbl
 {
-    void* (__thiscall*Dtor)(Dialog_Message*,u32);
-    class MetaClass* (__thiscall*GetClass)(Dialog_Message*);
-    char* (__thiscall*GetTypeNameV)(Dialog_Message*);
-    void (__thiscall*BeforeSave)(Dialog_Message*);
-    void (__thiscall*AfterLoad)(Dialog_Message*);
-    void (__thiscall*Cull)(Dialog_Message*);
-    void (__thiscall*Update)(Dialog_Message*);
-    void (__thiscall*Reset)(Dialog_Message*);
-    void (__thiscall*ResChange)(Dialog_Message*,i32,i32);
-    void (__thiscall*UpdatePaused)(Dialog_Message*);
-    void (__thiscall*Load)(Dialog_Message*);
-    void (__thiscall*Save)(Dialog_Message*);
-    void (__thiscall*AddWidgets)(Dialog_Message*,class Bank*);
-    void (__thiscall*OpenWidgets)(Dialog_Message*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Dialog_Message*);
-    void (__thiscall*PreSetup)(Dialog_Message*);
-    void (__thiscall*PostSetup)(Dialog_Message*);
-    void (__thiscall*BackUp)(Dialog_Message*);
-    void (__thiscall*CheckInput)(Dialog_Message*);
-    i32 (__thiscall*IsAnOptionMenu)(Dialog_Message*);
+    void* (__thiscall*Destructor)(Dialog_Message * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Dialog_Message * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Dialog_Message * __hidden this);
+    void (__thiscall*BeforeSave)(Dialog_Message * __hidden this);
+    void (__thiscall*AfterLoad)(Dialog_Message * __hidden this);
+    void (__thiscall*Cull)(Dialog_Message * __hidden this);
+    void (__thiscall*Update)(Dialog_Message * __hidden this);
+    void (__thiscall*Reset)(Dialog_Message * __hidden this);
+    void (__thiscall*ResChange)(Dialog_Message * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Dialog_Message * __hidden this);
+    void (__thiscall*Load)(Dialog_Message * __hidden this);
+    void (__thiscall*Save)(Dialog_Message * __hidden this);
+    void (__thiscall*AddWidgets)(Dialog_Message * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Dialog_Message * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Dialog_Message * __hidden this);
+    void (__thiscall*PreSetup)(Dialog_Message * __hidden this);
+    void (__thiscall*PostSetup)(Dialog_Message * __hidden this);
+    void (__thiscall*BackUp)(Dialog_Message * __hidden this);
+    void (__thiscall*CheckInput)(Dialog_Message * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Dialog_Message * __hidden this);
 };
 
 struct Dialog_NewPlayer;
-struct Dialog_NewPlayer_vftable
+struct Dialog_NewPlayer_vtbl
 {
-    void* (__thiscall*Dtor)(Dialog_NewPlayer*,u32);
-    class MetaClass* (__thiscall*GetClass)(Dialog_NewPlayer*);
-    char* (__thiscall*GetTypeNameV)(Dialog_NewPlayer*);
-    void (__thiscall*BeforeSave)(Dialog_NewPlayer*);
-    void (__thiscall*AfterLoad)(Dialog_NewPlayer*);
-    void (__thiscall*Cull)(Dialog_NewPlayer*);
-    void (__thiscall*Update)(Dialog_NewPlayer*);
-    void (__thiscall*Reset)(Dialog_NewPlayer*);
-    void (__thiscall*ResChange)(Dialog_NewPlayer*,i32,i32);
-    void (__thiscall*UpdatePaused)(Dialog_NewPlayer*);
-    void (__thiscall*Load)(Dialog_NewPlayer*);
-    void (__thiscall*Save)(Dialog_NewPlayer*);
-    void (__thiscall*AddWidgets)(Dialog_NewPlayer*,class Bank*);
-    void (__thiscall*OpenWidgets)(Dialog_NewPlayer*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Dialog_NewPlayer*);
-    void (__thiscall*PreSetup)(Dialog_NewPlayer*);
-    void (__thiscall*PostSetup)(Dialog_NewPlayer*);
-    void (__thiscall*BackUp)(Dialog_NewPlayer*);
-    void (__thiscall*CheckInput)(Dialog_NewPlayer*);
-    i32 (__thiscall*IsAnOptionMenu)(Dialog_NewPlayer*);
+    void* (__thiscall*Destructor)(Dialog_NewPlayer * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Dialog_NewPlayer * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*BeforeSave)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*AfterLoad)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*Cull)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*Update)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*Reset)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*ResChange)(Dialog_NewPlayer * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*Load)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*Save)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*AddWidgets)(Dialog_NewPlayer * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Dialog_NewPlayer * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*PreSetup)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*PostSetup)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*BackUp)(Dialog_NewPlayer * __hidden this);
+    void (__thiscall*CheckInput)(Dialog_NewPlayer * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Dialog_NewPlayer * __hidden this);
 };
 
 struct Dialog_Serial;
-struct Dialog_Serial_vftable
+struct Dialog_Serial_vtbl
 {
-    void* (__thiscall*Dtor)(Dialog_Serial*,u32);
-    class MetaClass* (__thiscall*GetClass)(Dialog_Serial*);
-    char* (__thiscall*GetTypeNameV)(Dialog_Serial*);
-    void (__thiscall*BeforeSave)(Dialog_Serial*);
-    void (__thiscall*AfterLoad)(Dialog_Serial*);
-    void (__thiscall*Cull)(Dialog_Serial*);
-    void (__thiscall*Update)(Dialog_Serial*);
-    void (__thiscall*Reset)(Dialog_Serial*);
-    void (__thiscall*ResChange)(Dialog_Serial*,i32,i32);
-    void (__thiscall*UpdatePaused)(Dialog_Serial*);
-    void (__thiscall*Load)(Dialog_Serial*);
-    void (__thiscall*Save)(Dialog_Serial*);
-    void (__thiscall*AddWidgets)(Dialog_Serial*,class Bank*);
-    void (__thiscall*OpenWidgets)(Dialog_Serial*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Dialog_Serial*);
-    void (__thiscall*PreSetup)(Dialog_Serial*);
-    void (__thiscall*PostSetup)(Dialog_Serial*);
-    void (__thiscall*BackUp)(Dialog_Serial*);
-    void (__thiscall*CheckInput)(Dialog_Serial*);
-    i32 (__thiscall*IsAnOptionMenu)(Dialog_Serial*);
+    void* (__thiscall*Destructor)(Dialog_Serial * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Dialog_Serial * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Dialog_Serial * __hidden this);
+    void (__thiscall*BeforeSave)(Dialog_Serial * __hidden this);
+    void (__thiscall*AfterLoad)(Dialog_Serial * __hidden this);
+    void (__thiscall*Cull)(Dialog_Serial * __hidden this);
+    void (__thiscall*Update)(Dialog_Serial * __hidden this);
+    void (__thiscall*Reset)(Dialog_Serial * __hidden this);
+    void (__thiscall*ResChange)(Dialog_Serial * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Dialog_Serial * __hidden this);
+    void (__thiscall*Load)(Dialog_Serial * __hidden this);
+    void (__thiscall*Save)(Dialog_Serial * __hidden this);
+    void (__thiscall*AddWidgets)(Dialog_Serial * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Dialog_Serial * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Dialog_Serial * __hidden this);
+    void (__thiscall*PreSetup)(Dialog_Serial * __hidden this);
+    void (__thiscall*PostSetup)(Dialog_Serial * __hidden this);
+    void (__thiscall*BackUp)(Dialog_Serial * __hidden this);
+    void (__thiscall*CheckInput)(Dialog_Serial * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Dialog_Serial * __hidden this);
 };
 
 struct Dialog_ControlAssign;
-struct Dialog_ControlAssign_vftable
+struct Dialog_ControlAssign_vtbl
 {
-    void* (__thiscall*Dtor)(Dialog_ControlAssign*,u32);
-    class MetaClass* (__thiscall*GetClass)(Dialog_ControlAssign*);
-    char* (__thiscall*GetTypeNameV)(Dialog_ControlAssign*);
-    void (__thiscall*BeforeSave)(Dialog_ControlAssign*);
-    void (__thiscall*AfterLoad)(Dialog_ControlAssign*);
-    void (__thiscall*Cull)(Dialog_ControlAssign*);
-    void (__thiscall*Update)(Dialog_ControlAssign*);
-    void (__thiscall*Reset)(Dialog_ControlAssign*);
-    void (__thiscall*ResChange)(Dialog_ControlAssign*,i32,i32);
-    void (__thiscall*UpdatePaused)(Dialog_ControlAssign*);
-    void (__thiscall*Load)(Dialog_ControlAssign*);
-    void (__thiscall*Save)(Dialog_ControlAssign*);
-    void (__thiscall*AddWidgets)(Dialog_ControlAssign*,class Bank*);
-    void (__thiscall*OpenWidgets)(Dialog_ControlAssign*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Dialog_ControlAssign*);
-    void (__thiscall*PreSetup)(Dialog_ControlAssign*);
-    void (__thiscall*PostSetup)(Dialog_ControlAssign*);
-    void (__thiscall*BackUp)(Dialog_ControlAssign*);
-    void (__thiscall*CheckInput)(Dialog_ControlAssign*);
-    i32 (__thiscall*IsAnOptionMenu)(Dialog_ControlAssign*);
+    void* (__thiscall*Destructor)(Dialog_ControlAssign * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Dialog_ControlAssign * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*BeforeSave)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*AfterLoad)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*Cull)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*Update)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*Reset)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*ResChange)(Dialog_ControlAssign * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*Load)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*Save)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*AddWidgets)(Dialog_ControlAssign * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Dialog_ControlAssign * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*PreSetup)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*PostSetup)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*BackUp)(Dialog_ControlAssign * __hidden this);
+    void (__thiscall*CheckInput)(Dialog_ControlAssign * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Dialog_ControlAssign * __hidden this);
 };
 
 struct Dialog_TCPIP;
-struct Dialog_TCPIP_vftable
+struct Dialog_TCPIP_vtbl
 {
-    void* (__thiscall*Dtor)(Dialog_TCPIP*,u32);
-    class MetaClass* (__thiscall*GetClass)(Dialog_TCPIP*);
-    char* (__thiscall*GetTypeNameV)(Dialog_TCPIP*);
-    void (__thiscall*BeforeSave)(Dialog_TCPIP*);
-    void (__thiscall*AfterLoad)(Dialog_TCPIP*);
-    void (__thiscall*Cull)(Dialog_TCPIP*);
-    void (__thiscall*Update)(Dialog_TCPIP*);
-    void (__thiscall*Reset)(Dialog_TCPIP*);
-    void (__thiscall*ResChange)(Dialog_TCPIP*,i32,i32);
-    void (__thiscall*UpdatePaused)(Dialog_TCPIP*);
-    void (__thiscall*Load)(Dialog_TCPIP*);
-    void (__thiscall*Save)(Dialog_TCPIP*);
-    void (__thiscall*AddWidgets)(Dialog_TCPIP*,class Bank*);
-    void (__thiscall*OpenWidgets)(Dialog_TCPIP*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Dialog_TCPIP*);
-    void (__thiscall*PreSetup)(Dialog_TCPIP*);
-    void (__thiscall*PostSetup)(Dialog_TCPIP*);
-    void (__thiscall*BackUp)(Dialog_TCPIP*);
-    void (__thiscall*CheckInput)(Dialog_TCPIP*);
-    i32 (__thiscall*IsAnOptionMenu)(Dialog_TCPIP*);
+    void* (__thiscall*Destructor)(Dialog_TCPIP * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Dialog_TCPIP * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*BeforeSave)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*AfterLoad)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*Cull)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*Update)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*Reset)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*ResChange)(Dialog_TCPIP * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*Load)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*Save)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*AddWidgets)(Dialog_TCPIP * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Dialog_TCPIP * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*PreSetup)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*PostSetup)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*BackUp)(Dialog_TCPIP * __hidden this);
+    void (__thiscall*CheckInput)(Dialog_TCPIP * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Dialog_TCPIP * __hidden this);
 };
 
 struct CRSettings;
-struct CRSettings_vftable
+struct CRSettings_vtbl
 {
-    void* (__thiscall*Dtor)(CRSettings*,u32);
-    class MetaClass* (__thiscall*GetClass)(CRSettings*);
-    char* (__thiscall*GetTypeNameV)(CRSettings*);
-    void (__thiscall*BeforeSave)(CRSettings*);
-    void (__thiscall*AfterLoad)(CRSettings*);
-    void (__thiscall*Cull)(CRSettings*);
-    void (__thiscall*Update)(CRSettings*);
-    void (__thiscall*Reset)(CRSettings*);
-    void (__thiscall*ResChange)(CRSettings*,i32,i32);
-    void (__thiscall*UpdatePaused)(CRSettings*);
-    void (__thiscall*Load)(CRSettings*);
-    void (__thiscall*Save)(CRSettings*);
-    void (__thiscall*AddWidgets)(CRSettings*,class Bank*);
-    void (__thiscall*OpenWidgets)(CRSettings*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(CRSettings*);
-    void (__thiscall*PreSetup)(CRSettings*);
-    void (__thiscall*PostSetup)(CRSettings*);
-    void (__thiscall*BackUp)(CRSettings*);
-    void (__thiscall*CheckInput)(CRSettings*);
-    i32 (__thiscall*IsAnOptionMenu)(CRSettings*);
+    void* (__thiscall*Destructor)(CRSettings * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(CRSettings * __hidden this);
+    char* (__thiscall*GetTypeNameV)(CRSettings * __hidden this);
+    void (__thiscall*BeforeSave)(CRSettings * __hidden this);
+    void (__thiscall*AfterLoad)(CRSettings * __hidden this);
+    void (__thiscall*Cull)(CRSettings * __hidden this);
+    void (__thiscall*Update)(CRSettings * __hidden this);
+    void (__thiscall*Reset)(CRSettings * __hidden this);
+    void (__thiscall*ResChange)(CRSettings * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(CRSettings * __hidden this);
+    void (__thiscall*Load)(CRSettings * __hidden this);
+    void (__thiscall*Save)(CRSettings * __hidden this);
+    void (__thiscall*AddWidgets)(CRSettings * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(CRSettings * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(CRSettings * __hidden this);
+    void (__thiscall*PreSetup)(CRSettings * __hidden this);
+    void (__thiscall*PostSetup)(CRSettings * __hidden this);
+    void (__thiscall*BackUp)(CRSettings * __hidden this);
+    void (__thiscall*CheckInput)(CRSettings * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(CRSettings * __hidden this);
 };
 
 struct NetArena;
-struct NetArena_vftable
+struct NetArena_vtbl
 {
-    void* (__thiscall*Dtor)(NetArena*,u32);
-    class MetaClass* (__thiscall*GetClass)(NetArena*);
-    char* (__thiscall*GetTypeNameV)(NetArena*);
-    void (__thiscall*BeforeSave)(NetArena*);
-    void (__thiscall*AfterLoad)(NetArena*);
-    void (__thiscall*Cull)(NetArena*);
-    void (__thiscall*Update)(NetArena*);
-    void (__thiscall*Reset)(NetArena*);
-    void (__thiscall*ResChange)(NetArena*,i32,i32);
-    void (__thiscall*UpdatePaused)(NetArena*);
-    void (__thiscall*Load)(NetArena*);
-    void (__thiscall*Save)(NetArena*);
-    void (__thiscall*AddWidgets)(NetArena*,class Bank*);
-    void (__thiscall*OpenWidgets)(NetArena*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(NetArena*);
-    void (__thiscall*PreSetup)(NetArena*);
-    void (__thiscall*PostSetup)(NetArena*);
-    void (__thiscall*BackUp)(NetArena*);
-    void (__thiscall*CheckInput)(NetArena*);
-    i32 (__thiscall*IsAnOptionMenu)(NetArena*);
+    void* (__thiscall*Destructor)(NetArena * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(NetArena * __hidden this);
+    char* (__thiscall*GetTypeNameV)(NetArena * __hidden this);
+    void (__thiscall*BeforeSave)(NetArena * __hidden this);
+    void (__thiscall*AfterLoad)(NetArena * __hidden this);
+    void (__thiscall*Cull)(NetArena * __hidden this);
+    void (__thiscall*Update)(NetArena * __hidden this);
+    void (__thiscall*Reset)(NetArena * __hidden this);
+    void (__thiscall*ResChange)(NetArena * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(NetArena * __hidden this);
+    void (__thiscall*Load)(NetArena * __hidden this);
+    void (__thiscall*Save)(NetArena * __hidden this);
+    void (__thiscall*AddWidgets)(NetArena * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(NetArena * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(NetArena * __hidden this);
+    void (__thiscall*PreSetup)(NetArena * __hidden this);
+    void (__thiscall*PostSetup)(NetArena * __hidden this);
+    void (__thiscall*BackUp)(NetArena * __hidden this);
+    void (__thiscall*CheckInput)(NetArena * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(NetArena * __hidden this);
 };
 
 struct HostRaceMenu;
-struct HostRaceMenu_vftable
+struct HostRaceMenu_vtbl
 {
-    void* (__thiscall*Dtor)(HostRaceMenu*,u32);
-    class MetaClass* (__thiscall*GetClass)(HostRaceMenu*);
-    char* (__thiscall*GetTypeNameV)(HostRaceMenu*);
-    void (__thiscall*BeforeSave)(HostRaceMenu*);
-    void (__thiscall*AfterLoad)(HostRaceMenu*);
-    void (__thiscall*Cull)(HostRaceMenu*);
-    void (__thiscall*Update)(HostRaceMenu*);
-    void (__thiscall*Reset)(HostRaceMenu*);
-    void (__thiscall*ResChange)(HostRaceMenu*,i32,i32);
-    void (__thiscall*UpdatePaused)(HostRaceMenu*);
-    void (__thiscall*Load)(HostRaceMenu*);
-    void (__thiscall*Save)(HostRaceMenu*);
-    void (__thiscall*AddWidgets)(HostRaceMenu*,class Bank*);
-    void (__thiscall*OpenWidgets)(HostRaceMenu*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(HostRaceMenu*);
-    void (__thiscall*PreSetup)(HostRaceMenu*);
-    void (__thiscall*PostSetup)(HostRaceMenu*);
-    void (__thiscall*BackUp)(HostRaceMenu*);
-    void (__thiscall*CheckInput)(HostRaceMenu*);
-    i32 (__thiscall*IsAnOptionMenu)(HostRaceMenu*);
-    void (__thiscall*UsesLobby)(HostRaceMenu*,i32);
+    void* (__thiscall*Destructor)(HostRaceMenu * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(HostRaceMenu * __hidden this);
+    char* (__thiscall*GetTypeNameV)(HostRaceMenu * __hidden this);
+    void (__thiscall*BeforeSave)(HostRaceMenu * __hidden this);
+    void (__thiscall*AfterLoad)(HostRaceMenu * __hidden this);
+    void (__thiscall*Cull)(HostRaceMenu * __hidden this);
+    void (__thiscall*Update)(HostRaceMenu * __hidden this);
+    void (__thiscall*Reset)(HostRaceMenu * __hidden this);
+    void (__thiscall*ResChange)(HostRaceMenu * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(HostRaceMenu * __hidden this);
+    void (__thiscall*Load)(HostRaceMenu * __hidden this);
+    void (__thiscall*Save)(HostRaceMenu * __hidden this);
+    void (__thiscall*AddWidgets)(HostRaceMenu * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(HostRaceMenu * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(HostRaceMenu * __hidden this);
+    void (__thiscall*PreSetup)(HostRaceMenu * __hidden this);
+    void (__thiscall*PostSetup)(HostRaceMenu * __hidden this);
+    void (__thiscall*BackUp)(HostRaceMenu * __hidden this);
+    void (__thiscall*CheckInput)(HostRaceMenu * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(HostRaceMenu * __hidden this);
+    void (__thiscall*UsesLobby)(HostRaceMenu * __hidden this,i32);
 };
 
 struct ControlSetup;
-struct ControlSetup_vftable
+struct ControlSetup_vtbl
 {
-    void* (__thiscall*Dtor)(ControlSetup*,u32);
-    class MetaClass* (__thiscall*GetClass)(ControlSetup*);
-    char* (__thiscall*GetTypeNameV)(ControlSetup*);
-    void (__thiscall*BeforeSave)(ControlSetup*);
-    void (__thiscall*AfterLoad)(ControlSetup*);
-    void (__thiscall*Cull)(ControlSetup*);
-    void (__thiscall*Update)(ControlSetup*);
-    void (__thiscall*Reset)(ControlSetup*);
-    void (__thiscall*ResChange)(ControlSetup*,i32,i32);
-    void (__thiscall*UpdatePaused)(ControlSetup*);
-    void (__thiscall*Load)(ControlSetup*);
-    void (__thiscall*Save)(ControlSetup*);
-    void (__thiscall*AddWidgets)(ControlSetup*,class Bank*);
-    void (__thiscall*OpenWidgets)(ControlSetup*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(ControlSetup*);
-    void (__thiscall*PreSetup)(ControlSetup*);
-    void (__thiscall*PostSetup)(ControlSetup*);
-    void (__thiscall*BackUp)(ControlSetup*);
-    void (__thiscall*CheckInput)(ControlSetup*);
-    i32 (__thiscall*IsAnOptionMenu)(ControlSetup*);
-    void (__thiscall*CancelAction)(ControlSetup*);
-    void (__thiscall*DoneAction)(ControlSetup*);
-    void (__thiscall*ResetDefaultAction)(ControlSetup*);
-    void (__thiscall*StoreCurrentSetup)(ControlSetup*);
+    void* (__thiscall*Destructor)(ControlSetup * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(ControlSetup * __hidden this);
+    char* (__thiscall*GetTypeNameV)(ControlSetup * __hidden this);
+    void (__thiscall*BeforeSave)(ControlSetup * __hidden this);
+    void (__thiscall*AfterLoad)(ControlSetup * __hidden this);
+    void (__thiscall*Cull)(ControlSetup * __hidden this);
+    void (__thiscall*Update)(ControlSetup * __hidden this);
+    void (__thiscall*Reset)(ControlSetup * __hidden this);
+    void (__thiscall*ResChange)(ControlSetup * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(ControlSetup * __hidden this);
+    void (__thiscall*Load)(ControlSetup * __hidden this);
+    void (__thiscall*Save)(ControlSetup * __hidden this);
+    void (__thiscall*AddWidgets)(ControlSetup * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(ControlSetup * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(ControlSetup * __hidden this);
+    void (__thiscall*PreSetup)(ControlSetup * __hidden this);
+    void (__thiscall*PostSetup)(ControlSetup * __hidden this);
+    void (__thiscall*BackUp)(ControlSetup * __hidden this);
+    void (__thiscall*CheckInput)(ControlSetup * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(ControlSetup * __hidden this);
+    void (__thiscall*CancelAction)(ControlSetup * __hidden this);
+    void (__thiscall*DoneAction)(ControlSetup * __hidden this);
+    void (__thiscall*ResetDefaultAction)(ControlSetup * __hidden this);
+    void (__thiscall*StoreCurrentSetup)(ControlSetup * __hidden this);
 };
 
 struct OptionsMenu;
-struct OptionsMenu_vftable
+struct OptionsMenu_vtbl
 {
-    void* (__thiscall*Dtor)(OptionsMenu*,u32);
-    class MetaClass* (__thiscall*GetClass)(OptionsMenu*);
-    char* (__thiscall*GetTypeNameV)(OptionsMenu*);
-    void (__thiscall*BeforeSave)(OptionsMenu*);
-    void (__thiscall*AfterLoad)(OptionsMenu*);
-    void (__thiscall*Cull)(OptionsMenu*);
-    void (__thiscall*Update)(OptionsMenu*);
-    void (__thiscall*Reset)(OptionsMenu*);
-    void (__thiscall*ResChange)(OptionsMenu*,i32,i32);
-    void (__thiscall*UpdatePaused)(OptionsMenu*);
-    void (__thiscall*Load)(OptionsMenu*);
-    void (__thiscall*Save)(OptionsMenu*);
-    void (__thiscall*AddWidgets)(OptionsMenu*,class Bank*);
-    void (__thiscall*OpenWidgets)(OptionsMenu*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(OptionsMenu*);
-    void (__thiscall*PreSetup)(OptionsMenu*);
-    void (__thiscall*PostSetup)(OptionsMenu*);
-    void (__thiscall*BackUp)(OptionsMenu*);
-    void (__thiscall*CheckInput)(OptionsMenu*);
-    i32 (__thiscall*IsAnOptionMenu)(OptionsMenu*);
+    void* (__thiscall*Destructor)(OptionsMenu * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(OptionsMenu * __hidden this);
+    char* (__thiscall*GetTypeNameV)(OptionsMenu * __hidden this);
+    void (__thiscall*BeforeSave)(OptionsMenu * __hidden this);
+    void (__thiscall*AfterLoad)(OptionsMenu * __hidden this);
+    void (__thiscall*Cull)(OptionsMenu * __hidden this);
+    void (__thiscall*Update)(OptionsMenu * __hidden this);
+    void (__thiscall*Reset)(OptionsMenu * __hidden this);
+    void (__thiscall*ResChange)(OptionsMenu * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(OptionsMenu * __hidden this);
+    void (__thiscall*Load)(OptionsMenu * __hidden this);
+    void (__thiscall*Save)(OptionsMenu * __hidden this);
+    void (__thiscall*AddWidgets)(OptionsMenu * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(OptionsMenu * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(OptionsMenu * __hidden this);
+    void (__thiscall*PreSetup)(OptionsMenu * __hidden this);
+    void (__thiscall*PostSetup)(OptionsMenu * __hidden this);
+    void (__thiscall*BackUp)(OptionsMenu * __hidden this);
+    void (__thiscall*CheckInput)(OptionsMenu * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(OptionsMenu * __hidden this);
 };
 
 struct NetSelectMenu;
-struct NetSelectMenu_vftable
+struct NetSelectMenu_vtbl
 {
-    void* (__thiscall*Dtor)(NetSelectMenu*,u32);
-    class MetaClass* (__thiscall*GetClass)(NetSelectMenu*);
-    char* (__thiscall*GetTypeNameV)(NetSelectMenu*);
-    void (__thiscall*BeforeSave)(NetSelectMenu*);
-    void (__thiscall*AfterLoad)(NetSelectMenu*);
-    void (__thiscall*Cull)(NetSelectMenu*);
-    void (__thiscall*Update)(NetSelectMenu*);
-    void (__thiscall*Reset)(NetSelectMenu*);
-    void (__thiscall*ResChange)(NetSelectMenu*,i32,i32);
-    void (__thiscall*UpdatePaused)(NetSelectMenu*);
-    void (__thiscall*Load)(NetSelectMenu*);
-    void (__thiscall*Save)(NetSelectMenu*);
-    void (__thiscall*AddWidgets)(NetSelectMenu*,class Bank*);
-    void (__thiscall*OpenWidgets)(NetSelectMenu*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(NetSelectMenu*);
-    void (__thiscall*PreSetup)(NetSelectMenu*);
-    void (__thiscall*PostSetup)(NetSelectMenu*);
-    void (__thiscall*BackUp)(NetSelectMenu*);
-    void (__thiscall*CheckInput)(NetSelectMenu*);
-    i32 (__thiscall*IsAnOptionMenu)(NetSelectMenu*);
+    void* (__thiscall*Destructor)(NetSelectMenu * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(NetSelectMenu * __hidden this);
+    char* (__thiscall*GetTypeNameV)(NetSelectMenu * __hidden this);
+    void (__thiscall*BeforeSave)(NetSelectMenu * __hidden this);
+    void (__thiscall*AfterLoad)(NetSelectMenu * __hidden this);
+    void (__thiscall*Cull)(NetSelectMenu * __hidden this);
+    void (__thiscall*Update)(NetSelectMenu * __hidden this);
+    void (__thiscall*Reset)(NetSelectMenu * __hidden this);
+    void (__thiscall*ResChange)(NetSelectMenu * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(NetSelectMenu * __hidden this);
+    void (__thiscall*Load)(NetSelectMenu * __hidden this);
+    void (__thiscall*Save)(NetSelectMenu * __hidden this);
+    void (__thiscall*AddWidgets)(NetSelectMenu * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(NetSelectMenu * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(NetSelectMenu * __hidden this);
+    void (__thiscall*PreSetup)(NetSelectMenu * __hidden this);
+    void (__thiscall*PostSetup)(NetSelectMenu * __hidden this);
+    void (__thiscall*BackUp)(NetSelectMenu * __hidden this);
+    void (__thiscall*CheckInput)(NetSelectMenu * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(NetSelectMenu * __hidden this);
 };
 
 struct RaceMenu;
-struct RaceMenu_vftable
+struct RaceMenu_vtbl
 {
-    void* (__thiscall*Dtor)(RaceMenu*,u32);
-    class MetaClass* (__thiscall*GetClass)(RaceMenu*);
-    char* (__thiscall*GetTypeNameV)(RaceMenu*);
-    void (__thiscall*BeforeSave)(RaceMenu*);
-    void (__thiscall*AfterLoad)(RaceMenu*);
-    void (__thiscall*Cull)(RaceMenu*);
-    void (__thiscall*Update)(RaceMenu*);
-    void (__thiscall*Reset)(RaceMenu*);
-    void (__thiscall*ResChange)(RaceMenu*,i32,i32);
-    void (__thiscall*UpdatePaused)(RaceMenu*);
-    void (__thiscall*Load)(RaceMenu*);
-    void (__thiscall*Save)(RaceMenu*);
-    void (__thiscall*AddWidgets)(RaceMenu*,class Bank*);
-    void (__thiscall*OpenWidgets)(RaceMenu*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(RaceMenu*);
-    void (__thiscall*PreSetup)(RaceMenu*);
-    void (__thiscall*PostSetup)(RaceMenu*);
-    void (__thiscall*BackUp)(RaceMenu*);
-    void (__thiscall*CheckInput)(RaceMenu*);
-    i32 (__thiscall*IsAnOptionMenu)(RaceMenu*);
-    void (__thiscall*UsesLobby)(RaceMenu*,i32);
+    void* (__thiscall*Destructor)(RaceMenu * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(RaceMenu * __hidden this);
+    char* (__thiscall*GetTypeNameV)(RaceMenu * __hidden this);
+    void (__thiscall*BeforeSave)(RaceMenu * __hidden this);
+    void (__thiscall*AfterLoad)(RaceMenu * __hidden this);
+    void (__thiscall*Cull)(RaceMenu * __hidden this);
+    void (__thiscall*Update)(RaceMenu * __hidden this);
+    void (__thiscall*Reset)(RaceMenu * __hidden this);
+    void (__thiscall*ResChange)(RaceMenu * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(RaceMenu * __hidden this);
+    void (__thiscall*Load)(RaceMenu * __hidden this);
+    void (__thiscall*Save)(RaceMenu * __hidden this);
+    void (__thiscall*AddWidgets)(RaceMenu * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(RaceMenu * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(RaceMenu * __hidden this);
+    void (__thiscall*PreSetup)(RaceMenu * __hidden this);
+    void (__thiscall*PostSetup)(RaceMenu * __hidden this);
+    void (__thiscall*BackUp)(RaceMenu * __hidden this);
+    void (__thiscall*CheckInput)(RaceMenu * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(RaceMenu * __hidden this);
+    void (__thiscall*UsesLobby)(RaceMenu * __hidden this,i32);
 };
 
 struct VehShowcase;
-struct VehShowcase_vftable
+struct VehShowcase_vtbl
 {
-    void* (__thiscall*Dtor)(VehShowcase*,u32);
-    class MetaClass* (__thiscall*GetClass)(VehShowcase*);
-    char* (__thiscall*GetTypeNameV)(VehShowcase*);
-    void (__thiscall*BeforeSave)(VehShowcase*);
-    void (__thiscall*AfterLoad)(VehShowcase*);
-    void (__thiscall*Cull)(VehShowcase*);
-    void (__thiscall*Update)(VehShowcase*);
-    void (__thiscall*Reset)(VehShowcase*);
-    void (__thiscall*ResChange)(VehShowcase*,i32,i32);
-    void (__thiscall*UpdatePaused)(VehShowcase*);
-    void (__thiscall*Load)(VehShowcase*);
-    void (__thiscall*Save)(VehShowcase*);
-    void (__thiscall*AddWidgets)(VehShowcase*,class Bank*);
-    void (__thiscall*OpenWidgets)(VehShowcase*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(VehShowcase*);
-    void (__thiscall*PreSetup)(VehShowcase*);
-    void (__thiscall*PostSetup)(VehShowcase*);
-    void (__thiscall*BackUp)(VehShowcase*);
-    void (__thiscall*CheckInput)(VehShowcase*);
-    i32 (__thiscall*IsAnOptionMenu)(VehShowcase*);
+    void* (__thiscall*Destructor)(VehShowcase * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(VehShowcase * __hidden this);
+    char* (__thiscall*GetTypeNameV)(VehShowcase * __hidden this);
+    void (__thiscall*BeforeSave)(VehShowcase * __hidden this);
+    void (__thiscall*AfterLoad)(VehShowcase * __hidden this);
+    void (__thiscall*Cull)(VehShowcase * __hidden this);
+    void (__thiscall*Update)(VehShowcase * __hidden this);
+    void (__thiscall*Reset)(VehShowcase * __hidden this);
+    void (__thiscall*ResChange)(VehShowcase * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(VehShowcase * __hidden this);
+    void (__thiscall*Load)(VehShowcase * __hidden this);
+    void (__thiscall*Save)(VehShowcase * __hidden this);
+    void (__thiscall*AddWidgets)(VehShowcase * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(VehShowcase * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(VehShowcase * __hidden this);
+    void (__thiscall*PreSetup)(VehShowcase * __hidden this);
+    void (__thiscall*PostSetup)(VehShowcase * __hidden this);
+    void (__thiscall*BackUp)(VehShowcase * __hidden this);
+    void (__thiscall*CheckInput)(VehShowcase * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(VehShowcase * __hidden this);
 };
 
 struct Vehicle;
-struct Vehicle_vftable
+struct Vehicle_vtbl
 {
-    void* (__thiscall*Dtor)(Vehicle*,u32);
-    class MetaClass* (__thiscall*GetClass)(Vehicle*);
-    char* (__thiscall*GetTypeNameV)(Vehicle*);
-    void (__thiscall*BeforeSave)(Vehicle*);
-    void (__thiscall*AfterLoad)(Vehicle*);
-    void (__thiscall*Cull)(Vehicle*);
-    void (__thiscall*Update)(Vehicle*);
-    void (__thiscall*Reset)(Vehicle*);
-    void (__thiscall*ResChange)(Vehicle*,i32,i32);
-    void (__thiscall*UpdatePaused)(Vehicle*);
-    void (__thiscall*Load)(Vehicle*);
-    void (__thiscall*Save)(Vehicle*);
-    void (__thiscall*AddWidgets)(Vehicle*,class Bank*);
-    void (__thiscall*OpenWidgets)(Vehicle*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Vehicle*);
-    void (__thiscall*PreSetup)(Vehicle*);
-    void (__thiscall*PostSetup)(Vehicle*);
-    void (__thiscall*BackUp)(Vehicle*);
-    void (__thiscall*CheckInput)(Vehicle*);
-    i32 (__thiscall*IsAnOptionMenu)(Vehicle*);
+    void* (__thiscall*Destructor)(Vehicle * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Vehicle * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Vehicle * __hidden this);
+    void (__thiscall*BeforeSave)(Vehicle * __hidden this);
+    void (__thiscall*AfterLoad)(Vehicle * __hidden this);
+    void (__thiscall*Cull)(Vehicle * __hidden this);
+    void (__thiscall*Update)(Vehicle * __hidden this);
+    void (__thiscall*Reset)(Vehicle * __hidden this);
+    void (__thiscall*ResChange)(Vehicle * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Vehicle * __hidden this);
+    void (__thiscall*Load)(Vehicle * __hidden this);
+    void (__thiscall*Save)(Vehicle * __hidden this);
+    void (__thiscall*AddWidgets)(Vehicle * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Vehicle * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Vehicle * __hidden this);
+    void (__thiscall*PreSetup)(Vehicle * __hidden this);
+    void (__thiscall*PostSetup)(Vehicle * __hidden this);
+    void (__thiscall*BackUp)(Vehicle * __hidden this);
+    void (__thiscall*CheckInput)(Vehicle * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(Vehicle * __hidden this);
 };
 
 struct DriverMenu;
-struct DriverMenu_vftable
+struct DriverMenu_vtbl
 {
-    void* (__thiscall*Dtor)(DriverMenu*,u32);
-    class MetaClass* (__thiscall*GetClass)(DriverMenu*);
-    char* (__thiscall*GetTypeNameV)(DriverMenu*);
-    void (__thiscall*BeforeSave)(DriverMenu*);
-    void (__thiscall*AfterLoad)(DriverMenu*);
-    void (__thiscall*Cull)(DriverMenu*);
-    void (__thiscall*Update)(DriverMenu*);
-    void (__thiscall*Reset)(DriverMenu*);
-    void (__thiscall*ResChange)(DriverMenu*,i32,i32);
-    void (__thiscall*UpdatePaused)(DriverMenu*);
-    void (__thiscall*Load)(DriverMenu*);
-    void (__thiscall*Save)(DriverMenu*);
-    void (__thiscall*AddWidgets)(DriverMenu*,class Bank*);
-    void (__thiscall*OpenWidgets)(DriverMenu*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(DriverMenu*);
-    void (__thiscall*PreSetup)(DriverMenu*);
-    void (__thiscall*PostSetup)(DriverMenu*);
-    void (__thiscall*BackUp)(DriverMenu*);
-    void (__thiscall*CheckInput)(DriverMenu*);
-    i32 (__thiscall*IsAnOptionMenu)(DriverMenu*);
+    void* (__thiscall*Destructor)(DriverMenu * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(DriverMenu * __hidden this);
+    char* (__thiscall*GetTypeNameV)(DriverMenu * __hidden this);
+    void (__thiscall*BeforeSave)(DriverMenu * __hidden this);
+    void (__thiscall*AfterLoad)(DriverMenu * __hidden this);
+    void (__thiscall*Cull)(DriverMenu * __hidden this);
+    void (__thiscall*Update)(DriverMenu * __hidden this);
+    void (__thiscall*Reset)(DriverMenu * __hidden this);
+    void (__thiscall*ResChange)(DriverMenu * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(DriverMenu * __hidden this);
+    void (__thiscall*Load)(DriverMenu * __hidden this);
+    void (__thiscall*Save)(DriverMenu * __hidden this);
+    void (__thiscall*AddWidgets)(DriverMenu * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(DriverMenu * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(DriverMenu * __hidden this);
+    void (__thiscall*PreSetup)(DriverMenu * __hidden this);
+    void (__thiscall*PostSetup)(DriverMenu * __hidden this);
+    void (__thiscall*BackUp)(DriverMenu * __hidden this);
+    void (__thiscall*CheckInput)(DriverMenu * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(DriverMenu * __hidden this);
 };
 
 struct AboutMenu;
-struct AboutMenu_vftable
+struct AboutMenu_vtbl
 {
-    void* (__thiscall*Dtor)(AboutMenu*,u32);
-    class MetaClass* (__thiscall*GetClass)(AboutMenu*);
-    char* (__thiscall*GetTypeNameV)(AboutMenu*);
-    void (__thiscall*BeforeSave)(AboutMenu*);
-    void (__thiscall*AfterLoad)(AboutMenu*);
-    void (__thiscall*Cull)(AboutMenu*);
-    void (__thiscall*Update)(AboutMenu*);
-    void (__thiscall*Reset)(AboutMenu*);
-    void (__thiscall*ResChange)(AboutMenu*,i32,i32);
-    void (__thiscall*UpdatePaused)(AboutMenu*);
-    void (__thiscall*Load)(AboutMenu*);
-    void (__thiscall*Save)(AboutMenu*);
-    void (__thiscall*AddWidgets)(AboutMenu*,class Bank*);
-    void (__thiscall*OpenWidgets)(AboutMenu*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(AboutMenu*);
-    void (__thiscall*PreSetup)(AboutMenu*);
-    void (__thiscall*PostSetup)(AboutMenu*);
-    void (__thiscall*BackUp)(AboutMenu*);
-    void (__thiscall*CheckInput)(AboutMenu*);
-    i32 (__thiscall*IsAnOptionMenu)(AboutMenu*);
+    void* (__thiscall*Destructor)(AboutMenu * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(AboutMenu * __hidden this);
+    char* (__thiscall*GetTypeNameV)(AboutMenu * __hidden this);
+    void (__thiscall*BeforeSave)(AboutMenu * __hidden this);
+    void (__thiscall*AfterLoad)(AboutMenu * __hidden this);
+    void (__thiscall*Cull)(AboutMenu * __hidden this);
+    void (__thiscall*Update)(AboutMenu * __hidden this);
+    void (__thiscall*Reset)(AboutMenu * __hidden this);
+    void (__thiscall*ResChange)(AboutMenu * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(AboutMenu * __hidden this);
+    void (__thiscall*Load)(AboutMenu * __hidden this);
+    void (__thiscall*Save)(AboutMenu * __hidden this);
+    void (__thiscall*AddWidgets)(AboutMenu * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(AboutMenu * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(AboutMenu * __hidden this);
+    void (__thiscall*PreSetup)(AboutMenu * __hidden this);
+    void (__thiscall*PostSetup)(AboutMenu * __hidden this);
+    void (__thiscall*BackUp)(AboutMenu * __hidden this);
+    void (__thiscall*CheckInput)(AboutMenu * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(AboutMenu * __hidden this);
 };
 
 struct MainMenu;
-struct MainMenu_vftable
+struct MainMenu_vtbl
 {
-    void* (__thiscall*Dtor)(MainMenu*,u32);
-    class MetaClass* (__thiscall*GetClass)(MainMenu*);
-    char* (__thiscall*GetTypeNameV)(MainMenu*);
-    void (__thiscall*BeforeSave)(MainMenu*);
-    void (__thiscall*AfterLoad)(MainMenu*);
-    void (__thiscall*Cull)(MainMenu*);
-    void (__thiscall*Update)(MainMenu*);
-    void (__thiscall*Reset)(MainMenu*);
-    void (__thiscall*ResChange)(MainMenu*,i32,i32);
-    void (__thiscall*UpdatePaused)(MainMenu*);
-    void (__thiscall*Load)(MainMenu*);
-    void (__thiscall*Save)(MainMenu*);
-    void (__thiscall*AddWidgets)(MainMenu*,class Bank*);
-    void (__thiscall*OpenWidgets)(MainMenu*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(MainMenu*);
-    void (__thiscall*PreSetup)(MainMenu*);
-    void (__thiscall*PostSetup)(MainMenu*);
-    void (__thiscall*BackUp)(MainMenu*);
-    void (__thiscall*CheckInput)(MainMenu*);
-    i32 (__thiscall*IsAnOptionMenu)(MainMenu*);
+    void* (__thiscall*Destructor)(MainMenu * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(MainMenu * __hidden this);
+    char* (__thiscall*GetTypeNameV)(MainMenu * __hidden this);
+    void (__thiscall*BeforeSave)(MainMenu * __hidden this);
+    void (__thiscall*AfterLoad)(MainMenu * __hidden this);
+    void (__thiscall*Cull)(MainMenu * __hidden this);
+    void (__thiscall*Update)(MainMenu * __hidden this);
+    void (__thiscall*Reset)(MainMenu * __hidden this);
+    void (__thiscall*ResChange)(MainMenu * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(MainMenu * __hidden this);
+    void (__thiscall*Load)(MainMenu * __hidden this);
+    void (__thiscall*Save)(MainMenu * __hidden this);
+    void (__thiscall*AddWidgets)(MainMenu * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(MainMenu * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(MainMenu * __hidden this);
+    void (__thiscall*PreSetup)(MainMenu * __hidden this);
+    void (__thiscall*PostSetup)(MainMenu * __hidden this);
+    void (__thiscall*BackUp)(MainMenu * __hidden this);
+    void (__thiscall*CheckInput)(MainMenu * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(MainMenu * __hidden this);
 };
 
 struct RaceMenuBase;
-struct RaceMenuBase_vftable
+struct RaceMenuBase_vtbl
 {
-    void* (__thiscall*Dtor)(RaceMenuBase*,u32);
-    class MetaClass* (__thiscall*GetClass)(RaceMenuBase*);
-    char* (__thiscall*GetTypeNameV)(RaceMenuBase*);
-    void (__thiscall*BeforeSave)(RaceMenuBase*);
-    void (__thiscall*AfterLoad)(RaceMenuBase*);
-    void (__thiscall*Cull)(RaceMenuBase*);
-    void (__thiscall*Update)(RaceMenuBase*);
-    void (__thiscall*Reset)(RaceMenuBase*);
-    void (__thiscall*ResChange)(RaceMenuBase*,i32,i32);
-    void (__thiscall*UpdatePaused)(RaceMenuBase*);
-    void (__thiscall*Load)(RaceMenuBase*);
-    void (__thiscall*Save)(RaceMenuBase*);
-    void (__thiscall*AddWidgets)(RaceMenuBase*,class Bank*);
-    void (__thiscall*OpenWidgets)(RaceMenuBase*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(RaceMenuBase*);
-    void (__thiscall*PreSetup)(RaceMenuBase*);
-    void (__thiscall*PostSetup)(RaceMenuBase*);
-    void (__thiscall*BackUp)(RaceMenuBase*);
-    void (__thiscall*CheckInput)(RaceMenuBase*);
-    i32 (__thiscall*IsAnOptionMenu)(RaceMenuBase*);
-    void (__thiscall*UsesLobby)(RaceMenuBase*,i32);
+    void* (__thiscall*Destructor)(RaceMenuBase * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(RaceMenuBase * __hidden this);
+    char* (__thiscall*GetTypeNameV)(RaceMenuBase * __hidden this);
+    void (__thiscall*BeforeSave)(RaceMenuBase * __hidden this);
+    void (__thiscall*AfterLoad)(RaceMenuBase * __hidden this);
+    void (__thiscall*Cull)(RaceMenuBase * __hidden this);
+    void (__thiscall*Update)(RaceMenuBase * __hidden this);
+    void (__thiscall*Reset)(RaceMenuBase * __hidden this);
+    void (__thiscall*ResChange)(RaceMenuBase * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(RaceMenuBase * __hidden this);
+    void (__thiscall*Load)(RaceMenuBase * __hidden this);
+    void (__thiscall*Save)(RaceMenuBase * __hidden this);
+    void (__thiscall*AddWidgets)(RaceMenuBase * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(RaceMenuBase * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(RaceMenuBase * __hidden this);
+    void (__thiscall*PreSetup)(RaceMenuBase * __hidden this);
+    void (__thiscall*PostSetup)(RaceMenuBase * __hidden this);
+    void (__thiscall*BackUp)(RaceMenuBase * __hidden this);
+    void (__thiscall*CheckInput)(RaceMenuBase * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(RaceMenuBase * __hidden this);
+    void (__thiscall*UsesLobby)(RaceMenuBase * __hidden this,i32);
 };
 
 struct PUResults;
-struct PUResults_vftable
+struct PUResults_vtbl
 {
-    void* (__thiscall*Dtor)(PUResults*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUResults*);
-    char* (__thiscall*GetTypeNameV)(PUResults*);
-    void (__thiscall*BeforeSave)(PUResults*);
-    void (__thiscall*AfterLoad)(PUResults*);
-    void (__thiscall*Cull)(PUResults*);
-    void (__thiscall*Update)(PUResults*);
-    void (__thiscall*Reset)(PUResults*);
-    void (__thiscall*ResChange)(PUResults*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUResults*);
-    void (__thiscall*Load)(PUResults*);
-    void (__thiscall*Save)(PUResults*);
-    void (__thiscall*AddWidgets)(PUResults*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUResults*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUResults*);
-    void (__thiscall*PreSetup)(PUResults*);
-    void (__thiscall*PostSetup)(PUResults*);
-    void (__thiscall*BackUp)(PUResults*);
-    void (__thiscall*CheckInput)(PUResults*);
-    i32 (__thiscall*IsAnOptionMenu)(PUResults*);
+    void* (__thiscall*Destructor)(PUResults * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUResults * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUResults * __hidden this);
+    void (__thiscall*BeforeSave)(PUResults * __hidden this);
+    void (__thiscall*AfterLoad)(PUResults * __hidden this);
+    void (__thiscall*Cull)(PUResults * __hidden this);
+    void (__thiscall*Update)(PUResults * __hidden this);
+    void (__thiscall*Reset)(PUResults * __hidden this);
+    void (__thiscall*ResChange)(PUResults * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUResults * __hidden this);
+    void (__thiscall*Load)(PUResults * __hidden this);
+    void (__thiscall*Save)(PUResults * __hidden this);
+    void (__thiscall*AddWidgets)(PUResults * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUResults * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUResults * __hidden this);
+    void (__thiscall*PreSetup)(PUResults * __hidden this);
+    void (__thiscall*PostSetup)(PUResults * __hidden this);
+    void (__thiscall*BackUp)(PUResults * __hidden this);
+    void (__thiscall*CheckInput)(PUResults * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUResults * __hidden this);
 };
 
 struct PURoster;
-struct PURoster_vftable
+struct PURoster_vtbl
 {
-    void* (__thiscall*Dtor)(PURoster*,u32);
-    class MetaClass* (__thiscall*GetClass)(PURoster*);
-    char* (__thiscall*GetTypeNameV)(PURoster*);
-    void (__thiscall*BeforeSave)(PURoster*);
-    void (__thiscall*AfterLoad)(PURoster*);
-    void (__thiscall*Cull)(PURoster*);
-    void (__thiscall*Update)(PURoster*);
-    void (__thiscall*Reset)(PURoster*);
-    void (__thiscall*ResChange)(PURoster*,i32,i32);
-    void (__thiscall*UpdatePaused)(PURoster*);
-    void (__thiscall*Load)(PURoster*);
-    void (__thiscall*Save)(PURoster*);
-    void (__thiscall*AddWidgets)(PURoster*,class Bank*);
-    void (__thiscall*OpenWidgets)(PURoster*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PURoster*);
-    void (__thiscall*PreSetup)(PURoster*);
-    void (__thiscall*PostSetup)(PURoster*);
-    void (__thiscall*BackUp)(PURoster*);
-    void (__thiscall*CheckInput)(PURoster*);
-    i32 (__thiscall*IsAnOptionMenu)(PURoster*);
+    void* (__thiscall*Destructor)(PURoster * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PURoster * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PURoster * __hidden this);
+    void (__thiscall*BeforeSave)(PURoster * __hidden this);
+    void (__thiscall*AfterLoad)(PURoster * __hidden this);
+    void (__thiscall*Cull)(PURoster * __hidden this);
+    void (__thiscall*Update)(PURoster * __hidden this);
+    void (__thiscall*Reset)(PURoster * __hidden this);
+    void (__thiscall*ResChange)(PURoster * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PURoster * __hidden this);
+    void (__thiscall*Load)(PURoster * __hidden this);
+    void (__thiscall*Save)(PURoster * __hidden this);
+    void (__thiscall*AddWidgets)(PURoster * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PURoster * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PURoster * __hidden this);
+    void (__thiscall*PreSetup)(PURoster * __hidden this);
+    void (__thiscall*PostSetup)(PURoster * __hidden this);
+    void (__thiscall*BackUp)(PURoster * __hidden this);
+    void (__thiscall*CheckInput)(PURoster * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PURoster * __hidden this);
 };
 
 struct PUKey;
-struct PUKey_vftable
+struct PUKey_vtbl
 {
-    void* (__thiscall*Dtor)(PUKey*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUKey*);
-    char* (__thiscall*GetTypeNameV)(PUKey*);
-    void (__thiscall*BeforeSave)(PUKey*);
-    void (__thiscall*AfterLoad)(PUKey*);
-    void (__thiscall*Cull)(PUKey*);
-    void (__thiscall*Update)(PUKey*);
-    void (__thiscall*Reset)(PUKey*);
-    void (__thiscall*ResChange)(PUKey*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUKey*);
-    void (__thiscall*Load)(PUKey*);
-    void (__thiscall*Save)(PUKey*);
-    void (__thiscall*AddWidgets)(PUKey*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUKey*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUKey*);
-    void (__thiscall*PreSetup)(PUKey*);
-    void (__thiscall*PostSetup)(PUKey*);
-    void (__thiscall*BackUp)(PUKey*);
-    void (__thiscall*CheckInput)(PUKey*);
-    i32 (__thiscall*IsAnOptionMenu)(PUKey*);
+    void* (__thiscall*Destructor)(PUKey * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUKey * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUKey * __hidden this);
+    void (__thiscall*BeforeSave)(PUKey * __hidden this);
+    void (__thiscall*AfterLoad)(PUKey * __hidden this);
+    void (__thiscall*Cull)(PUKey * __hidden this);
+    void (__thiscall*Update)(PUKey * __hidden this);
+    void (__thiscall*Reset)(PUKey * __hidden this);
+    void (__thiscall*ResChange)(PUKey * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUKey * __hidden this);
+    void (__thiscall*Load)(PUKey * __hidden this);
+    void (__thiscall*Save)(PUKey * __hidden this);
+    void (__thiscall*AddWidgets)(PUKey * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUKey * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUKey * __hidden this);
+    void (__thiscall*PreSetup)(PUKey * __hidden this);
+    void (__thiscall*PostSetup)(PUKey * __hidden this);
+    void (__thiscall*BackUp)(PUKey * __hidden this);
+    void (__thiscall*CheckInput)(PUKey * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUKey * __hidden this);
 };
 
 struct PUChat;
-struct PUChat_vftable
+struct PUChat_vtbl
 {
-    void* (__thiscall*Dtor)(PUChat*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUChat*);
-    char* (__thiscall*GetTypeNameV)(PUChat*);
-    void (__thiscall*BeforeSave)(PUChat*);
-    void (__thiscall*AfterLoad)(PUChat*);
-    void (__thiscall*Cull)(PUChat*);
-    void (__thiscall*Update)(PUChat*);
-    void (__thiscall*Reset)(PUChat*);
-    void (__thiscall*ResChange)(PUChat*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUChat*);
-    void (__thiscall*Load)(PUChat*);
-    void (__thiscall*Save)(PUChat*);
-    void (__thiscall*AddWidgets)(PUChat*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUChat*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUChat*);
-    void (__thiscall*PreSetup)(PUChat*);
-    void (__thiscall*PostSetup)(PUChat*);
-    void (__thiscall*BackUp)(PUChat*);
-    void (__thiscall*CheckInput)(PUChat*);
-    i32 (__thiscall*IsAnOptionMenu)(PUChat*);
+    void* (__thiscall*Destructor)(PUChat * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUChat * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUChat * __hidden this);
+    void (__thiscall*BeforeSave)(PUChat * __hidden this);
+    void (__thiscall*AfterLoad)(PUChat * __hidden this);
+    void (__thiscall*Cull)(PUChat * __hidden this);
+    void (__thiscall*Update)(PUChat * __hidden this);
+    void (__thiscall*Reset)(PUChat * __hidden this);
+    void (__thiscall*ResChange)(PUChat * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUChat * __hidden this);
+    void (__thiscall*Load)(PUChat * __hidden this);
+    void (__thiscall*Save)(PUChat * __hidden this);
+    void (__thiscall*AddWidgets)(PUChat * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUChat * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUChat * __hidden this);
+    void (__thiscall*PreSetup)(PUChat * __hidden this);
+    void (__thiscall*PostSetup)(PUChat * __hidden this);
+    void (__thiscall*BackUp)(PUChat * __hidden this);
+    void (__thiscall*CheckInput)(PUChat * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUChat * __hidden this);
 };
 
 struct PUGraphics;
-struct PUGraphics_vftable
+struct PUGraphics_vtbl
 {
-    void* (__thiscall*Dtor)(PUGraphics*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUGraphics*);
-    char* (__thiscall*GetTypeNameV)(PUGraphics*);
-    void (__thiscall*BeforeSave)(PUGraphics*);
-    void (__thiscall*AfterLoad)(PUGraphics*);
-    void (__thiscall*Cull)(PUGraphics*);
-    void (__thiscall*Update)(PUGraphics*);
-    void (__thiscall*Reset)(PUGraphics*);
-    void (__thiscall*ResChange)(PUGraphics*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUGraphics*);
-    void (__thiscall*Load)(PUGraphics*);
-    void (__thiscall*Save)(PUGraphics*);
-    void (__thiscall*AddWidgets)(PUGraphics*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUGraphics*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUGraphics*);
-    void (__thiscall*PreSetup)(PUGraphics*);
-    void (__thiscall*PostSetup)(PUGraphics*);
-    void (__thiscall*BackUp)(PUGraphics*);
-    void (__thiscall*CheckInput)(PUGraphics*);
-    i32 (__thiscall*IsAnOptionMenu)(PUGraphics*);
+    void* (__thiscall*Destructor)(PUGraphics * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUGraphics * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUGraphics * __hidden this);
+    void (__thiscall*BeforeSave)(PUGraphics * __hidden this);
+    void (__thiscall*AfterLoad)(PUGraphics * __hidden this);
+    void (__thiscall*Cull)(PUGraphics * __hidden this);
+    void (__thiscall*Update)(PUGraphics * __hidden this);
+    void (__thiscall*Reset)(PUGraphics * __hidden this);
+    void (__thiscall*ResChange)(PUGraphics * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUGraphics * __hidden this);
+    void (__thiscall*Load)(PUGraphics * __hidden this);
+    void (__thiscall*Save)(PUGraphics * __hidden this);
+    void (__thiscall*AddWidgets)(PUGraphics * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUGraphics * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUGraphics * __hidden this);
+    void (__thiscall*PreSetup)(PUGraphics * __hidden this);
+    void (__thiscall*PostSetup)(PUGraphics * __hidden this);
+    void (__thiscall*BackUp)(PUGraphics * __hidden this);
+    void (__thiscall*CheckInput)(PUGraphics * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUGraphics * __hidden this);
 };
 
 struct PUControl;
-struct PUControl_vftable
+struct PUControl_vtbl
 {
-    void* (__thiscall*Dtor)(PUControl*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUControl*);
-    char* (__thiscall*GetTypeNameV)(PUControl*);
-    void (__thiscall*BeforeSave)(PUControl*);
-    void (__thiscall*AfterLoad)(PUControl*);
-    void (__thiscall*Cull)(PUControl*);
-    void (__thiscall*Update)(PUControl*);
-    void (__thiscall*Reset)(PUControl*);
-    void (__thiscall*ResChange)(PUControl*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUControl*);
-    void (__thiscall*Load)(PUControl*);
-    void (__thiscall*Save)(PUControl*);
-    void (__thiscall*AddWidgets)(PUControl*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUControl*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUControl*);
-    void (__thiscall*PreSetup)(PUControl*);
-    void (__thiscall*PostSetup)(PUControl*);
-    void (__thiscall*BackUp)(PUControl*);
-    void (__thiscall*CheckInput)(PUControl*);
-    i32 (__thiscall*IsAnOptionMenu)(PUControl*);
+    void* (__thiscall*Destructor)(PUControl * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUControl * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUControl * __hidden this);
+    void (__thiscall*BeforeSave)(PUControl * __hidden this);
+    void (__thiscall*AfterLoad)(PUControl * __hidden this);
+    void (__thiscall*Cull)(PUControl * __hidden this);
+    void (__thiscall*Update)(PUControl * __hidden this);
+    void (__thiscall*Reset)(PUControl * __hidden this);
+    void (__thiscall*ResChange)(PUControl * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUControl * __hidden this);
+    void (__thiscall*Load)(PUControl * __hidden this);
+    void (__thiscall*Save)(PUControl * __hidden this);
+    void (__thiscall*AddWidgets)(PUControl * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUControl * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUControl * __hidden this);
+    void (__thiscall*PreSetup)(PUControl * __hidden this);
+    void (__thiscall*PostSetup)(PUControl * __hidden this);
+    void (__thiscall*BackUp)(PUControl * __hidden this);
+    void (__thiscall*CheckInput)(PUControl * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUControl * __hidden this);
 };
 
 struct PUDebug;
-struct PUDebug_vftable
+struct PUDebug_vtbl
 {
-    void* (__thiscall*Dtor)(PUDebug*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUDebug*);
-    char* (__thiscall*GetTypeNameV)(PUDebug*);
-    void (__thiscall*BeforeSave)(PUDebug*);
-    void (__thiscall*AfterLoad)(PUDebug*);
-    void (__thiscall*Cull)(PUDebug*);
-    void (__thiscall*Update)(PUDebug*);
-    void (__thiscall*Reset)(PUDebug*);
-    void (__thiscall*ResChange)(PUDebug*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUDebug*);
-    void (__thiscall*Load)(PUDebug*);
-    void (__thiscall*Save)(PUDebug*);
-    void (__thiscall*AddWidgets)(PUDebug*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUDebug*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUDebug*);
-    void (__thiscall*PreSetup)(PUDebug*);
-    void (__thiscall*PostSetup)(PUDebug*);
-    void (__thiscall*BackUp)(PUDebug*);
-    void (__thiscall*CheckInput)(PUDebug*);
-    i32 (__thiscall*IsAnOptionMenu)(PUDebug*);
+    void* (__thiscall*Destructor)(PUDebug * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUDebug * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUDebug * __hidden this);
+    void (__thiscall*BeforeSave)(PUDebug * __hidden this);
+    void (__thiscall*AfterLoad)(PUDebug * __hidden this);
+    void (__thiscall*Cull)(PUDebug * __hidden this);
+    void (__thiscall*Update)(PUDebug * __hidden this);
+    void (__thiscall*Reset)(PUDebug * __hidden this);
+    void (__thiscall*ResChange)(PUDebug * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUDebug * __hidden this);
+    void (__thiscall*Load)(PUDebug * __hidden this);
+    void (__thiscall*Save)(PUDebug * __hidden this);
+    void (__thiscall*AddWidgets)(PUDebug * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUDebug * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUDebug * __hidden this);
+    void (__thiscall*PreSetup)(PUDebug * __hidden this);
+    void (__thiscall*PostSetup)(PUDebug * __hidden this);
+    void (__thiscall*BackUp)(PUDebug * __hidden this);
+    void (__thiscall*CheckInput)(PUDebug * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUDebug * __hidden this);
 };
 
 struct PUOptions;
-struct PUOptions_vftable
+struct PUOptions_vtbl
 {
-    void* (__thiscall*Dtor)(PUOptions*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUOptions*);
-    char* (__thiscall*GetTypeNameV)(PUOptions*);
-    void (__thiscall*BeforeSave)(PUOptions*);
-    void (__thiscall*AfterLoad)(PUOptions*);
-    void (__thiscall*Cull)(PUOptions*);
-    void (__thiscall*Update)(PUOptions*);
-    void (__thiscall*Reset)(PUOptions*);
-    void (__thiscall*ResChange)(PUOptions*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUOptions*);
-    void (__thiscall*Load)(PUOptions*);
-    void (__thiscall*Save)(PUOptions*);
-    void (__thiscall*AddWidgets)(PUOptions*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUOptions*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUOptions*);
-    void (__thiscall*PreSetup)(PUOptions*);
-    void (__thiscall*PostSetup)(PUOptions*);
-    void (__thiscall*BackUp)(PUOptions*);
-    void (__thiscall*CheckInput)(PUOptions*);
-    i32 (__thiscall*IsAnOptionMenu)(PUOptions*);
+    void* (__thiscall*Destructor)(PUOptions * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUOptions * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUOptions * __hidden this);
+    void (__thiscall*BeforeSave)(PUOptions * __hidden this);
+    void (__thiscall*AfterLoad)(PUOptions * __hidden this);
+    void (__thiscall*Cull)(PUOptions * __hidden this);
+    void (__thiscall*Update)(PUOptions * __hidden this);
+    void (__thiscall*Reset)(PUOptions * __hidden this);
+    void (__thiscall*ResChange)(PUOptions * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUOptions * __hidden this);
+    void (__thiscall*Load)(PUOptions * __hidden this);
+    void (__thiscall*Save)(PUOptions * __hidden this);
+    void (__thiscall*AddWidgets)(PUOptions * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUOptions * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUOptions * __hidden this);
+    void (__thiscall*PreSetup)(PUOptions * __hidden this);
+    void (__thiscall*PostSetup)(PUOptions * __hidden this);
+    void (__thiscall*BackUp)(PUOptions * __hidden this);
+    void (__thiscall*CheckInput)(PUOptions * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUOptions * __hidden this);
 };
 
 struct PUAudioOptions;
-struct PUAudioOptions_vftable
+struct PUAudioOptions_vtbl
 {
-    void* (__thiscall*Dtor)(PUAudioOptions*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUAudioOptions*);
-    char* (__thiscall*GetTypeNameV)(PUAudioOptions*);
-    void (__thiscall*BeforeSave)(PUAudioOptions*);
-    void (__thiscall*AfterLoad)(PUAudioOptions*);
-    void (__thiscall*Cull)(PUAudioOptions*);
-    void (__thiscall*Update)(PUAudioOptions*);
-    void (__thiscall*Reset)(PUAudioOptions*);
-    void (__thiscall*ResChange)(PUAudioOptions*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUAudioOptions*);
-    void (__thiscall*Load)(PUAudioOptions*);
-    void (__thiscall*Save)(PUAudioOptions*);
-    void (__thiscall*AddWidgets)(PUAudioOptions*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUAudioOptions*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUAudioOptions*);
-    void (__thiscall*PreSetup)(PUAudioOptions*);
-    void (__thiscall*PostSetup)(PUAudioOptions*);
-    void (__thiscall*BackUp)(PUAudioOptions*);
-    void (__thiscall*CheckInput)(PUAudioOptions*);
-    i32 (__thiscall*IsAnOptionMenu)(PUAudioOptions*);
+    void* (__thiscall*Destructor)(PUAudioOptions * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUAudioOptions * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUAudioOptions * __hidden this);
+    void (__thiscall*BeforeSave)(PUAudioOptions * __hidden this);
+    void (__thiscall*AfterLoad)(PUAudioOptions * __hidden this);
+    void (__thiscall*Cull)(PUAudioOptions * __hidden this);
+    void (__thiscall*Update)(PUAudioOptions * __hidden this);
+    void (__thiscall*Reset)(PUAudioOptions * __hidden this);
+    void (__thiscall*ResChange)(PUAudioOptions * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUAudioOptions * __hidden this);
+    void (__thiscall*Load)(PUAudioOptions * __hidden this);
+    void (__thiscall*Save)(PUAudioOptions * __hidden this);
+    void (__thiscall*AddWidgets)(PUAudioOptions * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUAudioOptions * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUAudioOptions * __hidden this);
+    void (__thiscall*PreSetup)(PUAudioOptions * __hidden this);
+    void (__thiscall*PostSetup)(PUAudioOptions * __hidden this);
+    void (__thiscall*BackUp)(PUAudioOptions * __hidden this);
+    void (__thiscall*CheckInput)(PUAudioOptions * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUAudioOptions * __hidden this);
 };
 
 struct PUExit;
-struct PUExit_vftable
+struct PUExit_vtbl
 {
-    void* (__thiscall*Dtor)(PUExit*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUExit*);
-    char* (__thiscall*GetTypeNameV)(PUExit*);
-    void (__thiscall*BeforeSave)(PUExit*);
-    void (__thiscall*AfterLoad)(PUExit*);
-    void (__thiscall*Cull)(PUExit*);
-    void (__thiscall*Update)(PUExit*);
-    void (__thiscall*Reset)(PUExit*);
-    void (__thiscall*ResChange)(PUExit*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUExit*);
-    void (__thiscall*Load)(PUExit*);
-    void (__thiscall*Save)(PUExit*);
-    void (__thiscall*AddWidgets)(PUExit*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUExit*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUExit*);
-    void (__thiscall*PreSetup)(PUExit*);
-    void (__thiscall*PostSetup)(PUExit*);
-    void (__thiscall*BackUp)(PUExit*);
-    void (__thiscall*CheckInput)(PUExit*);
-    i32 (__thiscall*IsAnOptionMenu)(PUExit*);
+    void* (__thiscall*Destructor)(PUExit * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUExit * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUExit * __hidden this);
+    void (__thiscall*BeforeSave)(PUExit * __hidden this);
+    void (__thiscall*AfterLoad)(PUExit * __hidden this);
+    void (__thiscall*Cull)(PUExit * __hidden this);
+    void (__thiscall*Update)(PUExit * __hidden this);
+    void (__thiscall*Reset)(PUExit * __hidden this);
+    void (__thiscall*ResChange)(PUExit * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUExit * __hidden this);
+    void (__thiscall*Load)(PUExit * __hidden this);
+    void (__thiscall*Save)(PUExit * __hidden this);
+    void (__thiscall*AddWidgets)(PUExit * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUExit * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUExit * __hidden this);
+    void (__thiscall*PreSetup)(PUExit * __hidden this);
+    void (__thiscall*PostSetup)(PUExit * __hidden this);
+    void (__thiscall*BackUp)(PUExit * __hidden this);
+    void (__thiscall*CheckInput)(PUExit * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUExit * __hidden this);
 };
 
 struct PUQuit;
-struct PUQuit_vftable
+struct PUQuit_vtbl
 {
-    void* (__thiscall*Dtor)(PUQuit*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUQuit*);
-    char* (__thiscall*GetTypeNameV)(PUQuit*);
-    void (__thiscall*BeforeSave)(PUQuit*);
-    void (__thiscall*AfterLoad)(PUQuit*);
-    void (__thiscall*Cull)(PUQuit*);
-    void (__thiscall*Update)(PUQuit*);
-    void (__thiscall*Reset)(PUQuit*);
-    void (__thiscall*ResChange)(PUQuit*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUQuit*);
-    void (__thiscall*Load)(PUQuit*);
-    void (__thiscall*Save)(PUQuit*);
-    void (__thiscall*AddWidgets)(PUQuit*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUQuit*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUQuit*);
-    void (__thiscall*PreSetup)(PUQuit*);
-    void (__thiscall*PostSetup)(PUQuit*);
-    void (__thiscall*BackUp)(PUQuit*);
-    void (__thiscall*CheckInput)(PUQuit*);
-    i32 (__thiscall*IsAnOptionMenu)(PUQuit*);
+    void* (__thiscall*Destructor)(PUQuit * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUQuit * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUQuit * __hidden this);
+    void (__thiscall*BeforeSave)(PUQuit * __hidden this);
+    void (__thiscall*AfterLoad)(PUQuit * __hidden this);
+    void (__thiscall*Cull)(PUQuit * __hidden this);
+    void (__thiscall*Update)(PUQuit * __hidden this);
+    void (__thiscall*Reset)(PUQuit * __hidden this);
+    void (__thiscall*ResChange)(PUQuit * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUQuit * __hidden this);
+    void (__thiscall*Load)(PUQuit * __hidden this);
+    void (__thiscall*Save)(PUQuit * __hidden this);
+    void (__thiscall*AddWidgets)(PUQuit * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUQuit * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUQuit * __hidden this);
+    void (__thiscall*PreSetup)(PUQuit * __hidden this);
+    void (__thiscall*PostSetup)(PUQuit * __hidden this);
+    void (__thiscall*BackUp)(PUQuit * __hidden this);
+    void (__thiscall*CheckInput)(PUQuit * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUQuit * __hidden this);
 };
 
 struct PUMain;
-struct PUMain_vftable
+struct PUMain_vtbl
 {
-    void* (__thiscall*Dtor)(PUMain*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUMain*);
-    char* (__thiscall*GetTypeNameV)(PUMain*);
-    void (__thiscall*BeforeSave)(PUMain*);
-    void (__thiscall*AfterLoad)(PUMain*);
-    void (__thiscall*Cull)(PUMain*);
-    void (__thiscall*Update)(PUMain*);
-    void (__thiscall*Reset)(PUMain*);
-    void (__thiscall*ResChange)(PUMain*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUMain*);
-    void (__thiscall*Load)(PUMain*);
-    void (__thiscall*Save)(PUMain*);
-    void (__thiscall*AddWidgets)(PUMain*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUMain*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUMain*);
-    void (__thiscall*PreSetup)(PUMain*);
-    void (__thiscall*PostSetup)(PUMain*);
-    void (__thiscall*BackUp)(PUMain*);
-    void (__thiscall*CheckInput)(PUMain*);
-    i32 (__thiscall*IsAnOptionMenu)(PUMain*);
+    void* (__thiscall*Destructor)(PUMain * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUMain * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUMain * __hidden this);
+    void (__thiscall*BeforeSave)(PUMain * __hidden this);
+    void (__thiscall*AfterLoad)(PUMain * __hidden this);
+    void (__thiscall*Cull)(PUMain * __hidden this);
+    void (__thiscall*Update)(PUMain * __hidden this);
+    void (__thiscall*Reset)(PUMain * __hidden this);
+    void (__thiscall*ResChange)(PUMain * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUMain * __hidden this);
+    void (__thiscall*Load)(PUMain * __hidden this);
+    void (__thiscall*Save)(PUMain * __hidden this);
+    void (__thiscall*AddWidgets)(PUMain * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUMain * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUMain * __hidden this);
+    void (__thiscall*PreSetup)(PUMain * __hidden this);
+    void (__thiscall*PostSetup)(PUMain * __hidden this);
+    void (__thiscall*BackUp)(PUMain * __hidden this);
+    void (__thiscall*CheckInput)(PUMain * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUMain * __hidden this);
 };
 
 struct PUMenuBase;
-struct PUMenuBase_vftable
+struct PUMenuBase_vtbl
 {
-    void* (__thiscall*Dtor)(PUMenuBase*,u32);
-    class MetaClass* (__thiscall*GetClass)(PUMenuBase*);
-    char* (__thiscall*GetTypeNameV)(PUMenuBase*);
-    void (__thiscall*BeforeSave)(PUMenuBase*);
-    void (__thiscall*AfterLoad)(PUMenuBase*);
-    void (__thiscall*Cull)(PUMenuBase*);
-    void (__thiscall*Update)(PUMenuBase*);
-    void (__thiscall*Reset)(PUMenuBase*);
-    void (__thiscall*ResChange)(PUMenuBase*,i32,i32);
-    void (__thiscall*UpdatePaused)(PUMenuBase*);
-    void (__thiscall*Load)(PUMenuBase*);
-    void (__thiscall*Save)(PUMenuBase*);
-    void (__thiscall*AddWidgets)(PUMenuBase*,class Bank*);
-    void (__thiscall*OpenWidgets)(PUMenuBase*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PUMenuBase*);
-    void (__thiscall*PreSetup)(PUMenuBase*);
-    void (__thiscall*PostSetup)(PUMenuBase*);
-    void (__thiscall*BackUp)(PUMenuBase*);
-    void (__thiscall*CheckInput)(PUMenuBase*);
-    i32 (__thiscall*IsAnOptionMenu)(PUMenuBase*);
+    void* (__thiscall*Destructor)(PUMenuBase * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PUMenuBase * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PUMenuBase * __hidden this);
+    void (__thiscall*BeforeSave)(PUMenuBase * __hidden this);
+    void (__thiscall*AfterLoad)(PUMenuBase * __hidden this);
+    void (__thiscall*Cull)(PUMenuBase * __hidden this);
+    void (__thiscall*Update)(PUMenuBase * __hidden this);
+    void (__thiscall*Reset)(PUMenuBase * __hidden this);
+    void (__thiscall*ResChange)(PUMenuBase * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PUMenuBase * __hidden this);
+    void (__thiscall*Load)(PUMenuBase * __hidden this);
+    void (__thiscall*Save)(PUMenuBase * __hidden this);
+    void (__thiscall*AddWidgets)(PUMenuBase * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PUMenuBase * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PUMenuBase * __hidden this);
+    void (__thiscall*PreSetup)(PUMenuBase * __hidden this);
+    void (__thiscall*PostSetup)(PUMenuBase * __hidden this);
+    void (__thiscall*BackUp)(PUMenuBase * __hidden this);
+    void (__thiscall*CheckInput)(PUMenuBase * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(PUMenuBase * __hidden this);
 };
 
 struct OptionsBase;
-struct OptionsBase_vftable
+struct OptionsBase_vtbl
 {
-    void* (__thiscall*Dtor)(OptionsBase*,u32);
-    class MetaClass* (__thiscall*GetClass)(OptionsBase*);
-    char* (__thiscall*GetTypeNameV)(OptionsBase*);
-    void (__thiscall*BeforeSave)(OptionsBase*);
-    void (__thiscall*AfterLoad)(OptionsBase*);
-    void (__thiscall*Cull)(OptionsBase*);
-    void (__thiscall*Update)(OptionsBase*);
-    void (__thiscall*Reset)(OptionsBase*);
-    void (__thiscall*ResChange)(OptionsBase*,i32,i32);
-    void (__thiscall*UpdatePaused)(OptionsBase*);
-    void (__thiscall*Load)(OptionsBase*);
-    void (__thiscall*Save)(OptionsBase*);
-    void (__thiscall*AddWidgets)(OptionsBase*,class Bank*);
-    void (__thiscall*OpenWidgets)(OptionsBase*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(OptionsBase*);
-    void (__thiscall*PreSetup)(OptionsBase*);
-    void (__thiscall*PostSetup)(OptionsBase*);
-    void (__thiscall*BackUp)(OptionsBase*);
-    void (__thiscall*CheckInput)(OptionsBase*);
-    i32 (__thiscall*IsAnOptionMenu)(OptionsBase*);
-    void (__thiscall*CancelAction)(OptionsBase*);
-    void (__thiscall*DoneAction)(OptionsBase*);
-    void (__thiscall*ResetDefaultAction)(OptionsBase*);
-    void (__thiscall*StoreCurrentSetup)(OptionsBase*);
+    void* (__thiscall*Destructor)(OptionsBase * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(OptionsBase * __hidden this);
+    char* (__thiscall*GetTypeNameV)(OptionsBase * __hidden this);
+    void (__thiscall*BeforeSave)(OptionsBase * __hidden this);
+    void (__thiscall*AfterLoad)(OptionsBase * __hidden this);
+    void (__thiscall*Cull)(OptionsBase * __hidden this);
+    void (__thiscall*Update)(OptionsBase * __hidden this);
+    void (__thiscall*Reset)(OptionsBase * __hidden this);
+    void (__thiscall*ResChange)(OptionsBase * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(OptionsBase * __hidden this);
+    void (__thiscall*Load)(OptionsBase * __hidden this);
+    void (__thiscall*Save)(OptionsBase * __hidden this);
+    void (__thiscall*AddWidgets)(OptionsBase * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(OptionsBase * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(OptionsBase * __hidden this);
+    void (__thiscall*PreSetup)(OptionsBase * __hidden this);
+    void (__thiscall*PostSetup)(OptionsBase * __hidden this);
+    void (__thiscall*BackUp)(OptionsBase * __hidden this);
+    void (__thiscall*CheckInput)(OptionsBase * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(OptionsBase * __hidden this);
+    void (__thiscall*CancelAction)(OptionsBase * __hidden this);
+    void (__thiscall*DoneAction)(OptionsBase * __hidden this);
+    void (__thiscall*ResetDefaultAction)(OptionsBase * __hidden this);
+    void (__thiscall*StoreCurrentSetup)(OptionsBase * __hidden this);
 };
 
 struct UIMenu;
-struct UIMenu_vftable
+struct UIMenu_vtbl
 {
-    void* (__thiscall*Dtor)(UIMenu*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIMenu*);
-    char* (__thiscall*GetTypeNameV)(UIMenu*);
-    void (__thiscall*BeforeSave)(UIMenu*);
-    void (__thiscall*AfterLoad)(UIMenu*);
-    void (__thiscall*Cull)(UIMenu*);
-    void (__thiscall*Update)(UIMenu*);
-    void (__thiscall*Reset)(UIMenu*);
-    void (__thiscall*ResChange)(UIMenu*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIMenu*);
-    void (__thiscall*Load)(UIMenu*);
-    void (__thiscall*Save)(UIMenu*);
-    void (__thiscall*AddWidgets)(UIMenu*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIMenu*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIMenu*);
-    void (__thiscall*PreSetup)(UIMenu*);
-    void (__thiscall*PostSetup)(UIMenu*);
-    void (__thiscall*BackUp)(UIMenu*);
-    void (__thiscall*CheckInput)(UIMenu*);
-    i32 (__thiscall*IsAnOptionMenu)(UIMenu*);
+    void* (__thiscall*Destructor)(UIMenu * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIMenu * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIMenu * __hidden this);
+    void (__thiscall*BeforeSave)(UIMenu * __hidden this);
+    void (__thiscall*AfterLoad)(UIMenu * __hidden this);
+    void (__thiscall*Cull)(UIMenu * __hidden this);
+    void (__thiscall*Update)(UIMenu * __hidden this);
+    void (__thiscall*Reset)(UIMenu * __hidden this);
+    void (__thiscall*ResChange)(UIMenu * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIMenu * __hidden this);
+    void (__thiscall*Load)(UIMenu * __hidden this);
+    void (__thiscall*Save)(UIMenu * __hidden this);
+    void (__thiscall*AddWidgets)(UIMenu * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIMenu * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIMenu * __hidden this);
+    void (__thiscall*PreSetup)(UIMenu * __hidden this);
+    void (__thiscall*PostSetup)(UIMenu * __hidden this);
+    void (__thiscall*BackUp)(UIMenu * __hidden this);
+    void (__thiscall*CheckInput)(UIMenu * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(UIMenu * __hidden this);
 };
 
 struct MenuManager;
-struct MenuManager_vftable
+struct MenuManager_vtbl
 {
-    void* (__thiscall*Dtor)(MenuManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(MenuManager*);
-    char* (__thiscall*GetTypeNameV)(MenuManager*);
-    void (__thiscall*BeforeSave)(MenuManager*);
-    void (__thiscall*AfterLoad)(MenuManager*);
-    void (__thiscall*Cull)(MenuManager*);
-    void (__thiscall*Update)(MenuManager*);
-    void (__thiscall*Reset)(MenuManager*);
-    void (__thiscall*ResChange)(MenuManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(MenuManager*);
-    void (__thiscall*Load)(MenuManager*);
-    void (__thiscall*Save)(MenuManager*);
-    void (__thiscall*AddWidgets)(MenuManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(MenuManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(MenuManager*);
+    void* (__thiscall*Destructor)(MenuManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(MenuManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(MenuManager * __hidden this);
+    void (__thiscall*BeforeSave)(MenuManager * __hidden this);
+    void (__thiscall*AfterLoad)(MenuManager * __hidden this);
+    void (__thiscall*Cull)(MenuManager * __hidden this);
+    void (__thiscall*Update)(MenuManager * __hidden this);
+    void (__thiscall*Reset)(MenuManager * __hidden this);
+    void (__thiscall*ResChange)(MenuManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(MenuManager * __hidden this);
+    void (__thiscall*Load)(MenuManager * __hidden this);
+    void (__thiscall*Save)(MenuManager * __hidden this);
+    void (__thiscall*AddWidgets)(MenuManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(MenuManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(MenuManager * __hidden this);
 };
 
 struct uiNavBar;
-struct uiNavBar_vftable
+struct uiNavBar_vtbl
 {
-    void* (__thiscall*Dtor)(uiNavBar*,u32);
-    class MetaClass* (__thiscall*GetClass)(uiNavBar*);
-    char* (__thiscall*GetTypeNameV)(uiNavBar*);
-    void (__thiscall*BeforeSave)(uiNavBar*);
-    void (__thiscall*AfterLoad)(uiNavBar*);
-    void (__thiscall*Cull)(uiNavBar*);
-    void (__thiscall*Update)(uiNavBar*);
-    void (__thiscall*Reset)(uiNavBar*);
-    void (__thiscall*ResChange)(uiNavBar*,i32,i32);
-    void (__thiscall*UpdatePaused)(uiNavBar*);
-    void (__thiscall*Load)(uiNavBar*);
-    void (__thiscall*Save)(uiNavBar*);
-    void (__thiscall*AddWidgets)(uiNavBar*,class Bank*);
-    void (__thiscall*OpenWidgets)(uiNavBar*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(uiNavBar*);
-    void (__thiscall*PreSetup)(uiNavBar*);
-    void (__thiscall*PostSetup)(uiNavBar*);
-    void (__thiscall*BackUp)(uiNavBar*);
-    void (__thiscall*CheckInput)(uiNavBar*);
-    i32 (__thiscall*IsAnOptionMenu)(uiNavBar*);
+    void* (__thiscall*Destructor)(uiNavBar * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(uiNavBar * __hidden this);
+    char* (__thiscall*GetTypeNameV)(uiNavBar * __hidden this);
+    void (__thiscall*BeforeSave)(uiNavBar * __hidden this);
+    void (__thiscall*AfterLoad)(uiNavBar * __hidden this);
+    void (__thiscall*Cull)(uiNavBar * __hidden this);
+    void (__thiscall*Update)(uiNavBar * __hidden this);
+    void (__thiscall*Reset)(uiNavBar * __hidden this);
+    void (__thiscall*ResChange)(uiNavBar * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(uiNavBar * __hidden this);
+    void (__thiscall*Load)(uiNavBar * __hidden this);
+    void (__thiscall*Save)(uiNavBar * __hidden this);
+    void (__thiscall*AddWidgets)(uiNavBar * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(uiNavBar * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(uiNavBar * __hidden this);
+    void (__thiscall*PreSetup)(uiNavBar * __hidden this);
+    void (__thiscall*PostSetup)(uiNavBar * __hidden this);
+    void (__thiscall*BackUp)(uiNavBar * __hidden this);
+    void (__thiscall*CheckInput)(uiNavBar * __hidden this);
+    i32 (__thiscall*IsAnOptionMenu)(uiNavBar * __hidden this);
 };
 
 struct UITextField;
-struct UITextField_vftable
+struct UITextField_vtbl
 {
-    void* (__thiscall*Dtor)(UITextField*,u32);
-    class MetaClass* (__thiscall*GetClass)(UITextField*);
-    char* (__thiscall*GetTypeNameV)(UITextField*);
-    void (__thiscall*BeforeSave)(UITextField*);
-    void (__thiscall*AfterLoad)(UITextField*);
-    void (__thiscall*Cull)(UITextField*);
-    void (__thiscall*Update)(UITextField*);
-    void (__thiscall*Reset)(UITextField*);
-    void (__thiscall*ResChange)(UITextField*,i32,i32);
-    void (__thiscall*UpdatePaused)(UITextField*);
-    void (__thiscall*Load)(UITextField*);
-    void (__thiscall*Save)(UITextField*);
-    void (__thiscall*AddWidgets)(UITextField*,class Bank*);
-    void (__thiscall*OpenWidgets)(UITextField*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UITextField*);
-    void (__thiscall*Disable)(UITextField*);
-    void (__thiscall*Enable)(UITextField*);
-    void (__thiscall*TurnOn)(UITextField*);
-    void (__thiscall*TurnOff)(UITextField*);
-    void (__thiscall*SetReadOnly)(UITextField*,i32);
-    void (__thiscall*Action)(UITextField*,union eqEvent);
-    void (__thiscall*CaptureAction)(UITextField*,union eqEvent);
-    void (__thiscall*Switch)(UITextField*,i32);
-    void (__thiscall*EvalMouseX)(UITextField*,f32);
-    char* (__thiscall*ReturnDescription)(UITextField*);
-    void (__thiscall*SetPosition)(UITextField*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UITextField*);
+    void* (__thiscall*Destructor)(UITextField * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UITextField * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UITextField * __hidden this);
+    void (__thiscall*BeforeSave)(UITextField * __hidden this);
+    void (__thiscall*AfterLoad)(UITextField * __hidden this);
+    void (__thiscall*Cull)(UITextField * __hidden this);
+    void (__thiscall*Update)(UITextField * __hidden this);
+    void (__thiscall*Reset)(UITextField * __hidden this);
+    void (__thiscall*ResChange)(UITextField * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UITextField * __hidden this);
+    void (__thiscall*Load)(UITextField * __hidden this);
+    void (__thiscall*Save)(UITextField * __hidden this);
+    void (__thiscall*AddWidgets)(UITextField * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UITextField * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UITextField * __hidden this);
+    void (__thiscall*Disable)(UITextField * __hidden this);
+    void (__thiscall*Enable)(UITextField * __hidden this);
+    void (__thiscall*TurnOn)(UITextField * __hidden this);
+    void (__thiscall*TurnOff)(UITextField * __hidden this);
+    void (__thiscall*SetReadOnly)(UITextField * __hidden this,i32);
+    void (__thiscall*Action)(UITextField * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UITextField * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UITextField * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UITextField * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UITextField * __hidden this);
+    void (__thiscall*SetPosition)(UITextField * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UITextField * __hidden this);
 };
 
 struct uiWidget;
-struct uiWidget_vftable
+struct uiWidget_vtbl
 {
-    void* (__thiscall*Dtor)(uiWidget*,u32);
-    class MetaClass* (__thiscall*GetClass)(uiWidget*);
-    char* (__thiscall*GetTypeNameV)(uiWidget*);
-    void (__thiscall*BeforeSave)(uiWidget*);
-    void (__thiscall*AfterLoad)(uiWidget*);
-    void (__thiscall*Cull)(uiWidget*);
-    void (__thiscall*Update)(uiWidget*);
-    void (__thiscall*Reset)(uiWidget*);
-    void (__thiscall*ResChange)(uiWidget*,i32,i32);
-    void (__thiscall*UpdatePaused)(uiWidget*);
-    void (__thiscall*Load)(uiWidget*);
-    void (__thiscall*Save)(uiWidget*);
-    void (__thiscall*AddWidgets)(uiWidget*,class Bank*);
-    void (__thiscall*OpenWidgets)(uiWidget*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(uiWidget*);
-    void (__thiscall*Disable)(uiWidget*);
-    void (__thiscall*Enable)(uiWidget*);
-    void (__thiscall*TurnOn)(uiWidget*);
-    void (__thiscall*TurnOff)(uiWidget*);
-    void (__thiscall*SetReadOnly)(uiWidget*,i32);
-    void (__thiscall*Action)(uiWidget*,union eqEvent);
-    void (__thiscall*CaptureAction)(uiWidget*,union eqEvent);
-    void (__thiscall*Switch)(uiWidget*,i32);
-    void (__thiscall*EvalMouseX)(uiWidget*,f32);
-    char* (__thiscall*ReturnDescription)(uiWidget*);
-    void (__thiscall*SetPosition)(uiWidget*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(uiWidget*);
+    void* (__thiscall*Destructor)(uiWidget * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(uiWidget * __hidden this);
+    char* (__thiscall*GetTypeNameV)(uiWidget * __hidden this);
+    void (__thiscall*BeforeSave)(uiWidget * __hidden this);
+    void (__thiscall*AfterLoad)(uiWidget * __hidden this);
+    void (__thiscall*Cull)(uiWidget * __hidden this);
+    void (__thiscall*Update)(uiWidget * __hidden this);
+    void (__thiscall*Reset)(uiWidget * __hidden this);
+    void (__thiscall*ResChange)(uiWidget * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(uiWidget * __hidden this);
+    void (__thiscall*Load)(uiWidget * __hidden this);
+    void (__thiscall*Save)(uiWidget * __hidden this);
+    void (__thiscall*AddWidgets)(uiWidget * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(uiWidget * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(uiWidget * __hidden this);
+    void (__thiscall*Disable)(uiWidget * __hidden this);
+    void (__thiscall*Enable)(uiWidget * __hidden this);
+    void (__thiscall*TurnOn)(uiWidget * __hidden this);
+    void (__thiscall*TurnOff)(uiWidget * __hidden this);
+    void (__thiscall*SetReadOnly)(uiWidget * __hidden this,i32);
+    void (__thiscall*Action)(uiWidget * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(uiWidget * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(uiWidget * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(uiWidget * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(uiWidget * __hidden this);
+    void (__thiscall*SetPosition)(uiWidget * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(uiWidget * __hidden this);
 };
 
 struct UITextDropdown;
-struct UITextDropdown_vftable
+struct UITextDropdown_vtbl
 {
-    void* (__thiscall*Dtor)(UITextDropdown*,u32);
-    class MetaClass* (__thiscall*GetClass)(UITextDropdown*);
-    char* (__thiscall*GetTypeNameV)(UITextDropdown*);
-    void (__thiscall*BeforeSave)(UITextDropdown*);
-    void (__thiscall*AfterLoad)(UITextDropdown*);
-    void (__thiscall*Cull)(UITextDropdown*);
-    void (__thiscall*Update)(UITextDropdown*);
-    void (__thiscall*Reset)(UITextDropdown*);
-    void (__thiscall*ResChange)(UITextDropdown*,i32,i32);
-    void (__thiscall*UpdatePaused)(UITextDropdown*);
-    void (__thiscall*Load)(UITextDropdown*);
-    void (__thiscall*Save)(UITextDropdown*);
-    void (__thiscall*AddWidgets)(UITextDropdown*,class Bank*);
-    void (__thiscall*OpenWidgets)(UITextDropdown*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UITextDropdown*);
-    void (__thiscall*Disable)(UITextDropdown*);
-    void (__thiscall*Enable)(UITextDropdown*);
-    void (__thiscall*TurnOn)(UITextDropdown*);
-    void (__thiscall*TurnOff)(UITextDropdown*);
-    void (__thiscall*SetReadOnly)(UITextDropdown*,i32);
-    void (__thiscall*Action)(UITextDropdown*,union eqEvent);
-    void (__thiscall*CaptureAction)(UITextDropdown*,union eqEvent);
-    void (__thiscall*Switch)(UITextDropdown*,i32);
-    void (__thiscall*EvalMouseX)(UITextDropdown*,f32);
-    char* (__thiscall*ReturnDescription)(UITextDropdown*);
-    void (__thiscall*SetPosition)(UITextDropdown*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UITextDropdown*);
+    void* (__thiscall*Destructor)(UITextDropdown * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UITextDropdown * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UITextDropdown * __hidden this);
+    void (__thiscall*BeforeSave)(UITextDropdown * __hidden this);
+    void (__thiscall*AfterLoad)(UITextDropdown * __hidden this);
+    void (__thiscall*Cull)(UITextDropdown * __hidden this);
+    void (__thiscall*Update)(UITextDropdown * __hidden this);
+    void (__thiscall*Reset)(UITextDropdown * __hidden this);
+    void (__thiscall*ResChange)(UITextDropdown * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UITextDropdown * __hidden this);
+    void (__thiscall*Load)(UITextDropdown * __hidden this);
+    void (__thiscall*Save)(UITextDropdown * __hidden this);
+    void (__thiscall*AddWidgets)(UITextDropdown * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UITextDropdown * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UITextDropdown * __hidden this);
+    void (__thiscall*Disable)(UITextDropdown * __hidden this);
+    void (__thiscall*Enable)(UITextDropdown * __hidden this);
+    void (__thiscall*TurnOn)(UITextDropdown * __hidden this);
+    void (__thiscall*TurnOff)(UITextDropdown * __hidden this);
+    void (__thiscall*SetReadOnly)(UITextDropdown * __hidden this,i32);
+    void (__thiscall*Action)(UITextDropdown * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UITextDropdown * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UITextDropdown * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UITextDropdown * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UITextDropdown * __hidden this);
+    void (__thiscall*SetPosition)(UITextDropdown * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UITextDropdown * __hidden this);
 };
 
 struct UISlider;
-struct UISlider_vftable
+struct UISlider_vtbl
 {
-    void* (__thiscall*Dtor)(UISlider*,u32);
-    class MetaClass* (__thiscall*GetClass)(UISlider*);
-    char* (__thiscall*GetTypeNameV)(UISlider*);
-    void (__thiscall*BeforeSave)(UISlider*);
-    void (__thiscall*AfterLoad)(UISlider*);
-    void (__thiscall*Cull)(UISlider*);
-    void (__thiscall*Update)(UISlider*);
-    void (__thiscall*Reset)(UISlider*);
-    void (__thiscall*ResChange)(UISlider*,i32,i32);
-    void (__thiscall*UpdatePaused)(UISlider*);
-    void (__thiscall*Load)(UISlider*);
-    void (__thiscall*Save)(UISlider*);
-    void (__thiscall*AddWidgets)(UISlider*,class Bank*);
-    void (__thiscall*OpenWidgets)(UISlider*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UISlider*);
-    void (__thiscall*Disable)(UISlider*);
-    void (__thiscall*Enable)(UISlider*);
-    void (__thiscall*TurnOn)(UISlider*);
-    void (__thiscall*TurnOff)(UISlider*);
-    void (__thiscall*SetReadOnly)(UISlider*,i32);
-    void (__thiscall*Action)(UISlider*,union eqEvent);
-    void (__thiscall*CaptureAction)(UISlider*,union eqEvent);
-    void (__thiscall*Switch)(UISlider*,i32);
-    void (__thiscall*EvalMouseX)(UISlider*,f32);
-    char* (__thiscall*ReturnDescription)(UISlider*);
-    void (__thiscall*SetPosition)(UISlider*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UISlider*);
+    void* (__thiscall*Destructor)(UISlider * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UISlider * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UISlider * __hidden this);
+    void (__thiscall*BeforeSave)(UISlider * __hidden this);
+    void (__thiscall*AfterLoad)(UISlider * __hidden this);
+    void (__thiscall*Cull)(UISlider * __hidden this);
+    void (__thiscall*Update)(UISlider * __hidden this);
+    void (__thiscall*Reset)(UISlider * __hidden this);
+    void (__thiscall*ResChange)(UISlider * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UISlider * __hidden this);
+    void (__thiscall*Load)(UISlider * __hidden this);
+    void (__thiscall*Save)(UISlider * __hidden this);
+    void (__thiscall*AddWidgets)(UISlider * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UISlider * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UISlider * __hidden this);
+    void (__thiscall*Disable)(UISlider * __hidden this);
+    void (__thiscall*Enable)(UISlider * __hidden this);
+    void (__thiscall*TurnOn)(UISlider * __hidden this);
+    void (__thiscall*TurnOff)(UISlider * __hidden this);
+    void (__thiscall*SetReadOnly)(UISlider * __hidden this,i32);
+    void (__thiscall*Action)(UISlider * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UISlider * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UISlider * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UISlider * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UISlider * __hidden this);
+    void (__thiscall*SetPosition)(UISlider * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UISlider * __hidden this);
 };
 
 struct UIBMLabel;
-struct UIBMLabel_vftable
+struct UIBMLabel_vtbl
 {
-    void* (__thiscall*Dtor)(UIBMLabel*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIBMLabel*);
-    char* (__thiscall*GetTypeNameV)(UIBMLabel*);
-    void (__thiscall*BeforeSave)(UIBMLabel*);
-    void (__thiscall*AfterLoad)(UIBMLabel*);
-    void (__thiscall*Cull)(UIBMLabel*);
-    void (__thiscall*Update)(UIBMLabel*);
-    void (__thiscall*Reset)(UIBMLabel*);
-    void (__thiscall*ResChange)(UIBMLabel*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIBMLabel*);
-    void (__thiscall*Load)(UIBMLabel*);
-    void (__thiscall*Save)(UIBMLabel*);
-    void (__thiscall*AddWidgets)(UIBMLabel*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIBMLabel*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIBMLabel*);
-    void (__thiscall*Disable)(UIBMLabel*);
-    void (__thiscall*Enable)(UIBMLabel*);
-    void (__thiscall*TurnOn)(UIBMLabel*);
-    void (__thiscall*TurnOff)(UIBMLabel*);
-    void (__thiscall*SetReadOnly)(UIBMLabel*,i32);
-    void (__thiscall*Action)(UIBMLabel*,union eqEvent);
-    void (__thiscall*CaptureAction)(UIBMLabel*,union eqEvent);
-    void (__thiscall*Switch)(UIBMLabel*,i32);
-    void (__thiscall*EvalMouseX)(UIBMLabel*,f32);
-    char* (__thiscall*ReturnDescription)(UIBMLabel*);
-    void (__thiscall*SetPosition)(UIBMLabel*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UIBMLabel*);
+    void* (__thiscall*Destructor)(UIBMLabel * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIBMLabel * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIBMLabel * __hidden this);
+    void (__thiscall*BeforeSave)(UIBMLabel * __hidden this);
+    void (__thiscall*AfterLoad)(UIBMLabel * __hidden this);
+    void (__thiscall*Cull)(UIBMLabel * __hidden this);
+    void (__thiscall*Update)(UIBMLabel * __hidden this);
+    void (__thiscall*Reset)(UIBMLabel * __hidden this);
+    void (__thiscall*ResChange)(UIBMLabel * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIBMLabel * __hidden this);
+    void (__thiscall*Load)(UIBMLabel * __hidden this);
+    void (__thiscall*Save)(UIBMLabel * __hidden this);
+    void (__thiscall*AddWidgets)(UIBMLabel * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIBMLabel * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIBMLabel * __hidden this);
+    void (__thiscall*Disable)(UIBMLabel * __hidden this);
+    void (__thiscall*Enable)(UIBMLabel * __hidden this);
+    void (__thiscall*TurnOn)(UIBMLabel * __hidden this);
+    void (__thiscall*TurnOff)(UIBMLabel * __hidden this);
+    void (__thiscall*SetReadOnly)(UIBMLabel * __hidden this,i32);
+    void (__thiscall*Action)(UIBMLabel * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UIBMLabel * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UIBMLabel * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UIBMLabel * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UIBMLabel * __hidden this);
+    void (__thiscall*SetPosition)(UIBMLabel * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UIBMLabel * __hidden this);
 };
 
 struct mmCompRaceRecord;
-struct mmCompRaceRecord_vftable
+struct mmCompRaceRecord_vtbl
 {
-    void* (__thiscall*Dtor)(mmCompRaceRecord*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCompRaceRecord*);
-    char* (__thiscall*GetTypeNameV)(mmCompRaceRecord*);
-    void (__thiscall*BeforeSave)(mmCompRaceRecord*);
-    void (__thiscall*AfterLoad)(mmCompRaceRecord*);
-    void (__thiscall*Cull)(mmCompRaceRecord*);
-    void (__thiscall*Update)(mmCompRaceRecord*);
-    void (__thiscall*Reset)(mmCompRaceRecord*);
-    void (__thiscall*ResChange)(mmCompRaceRecord*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCompRaceRecord*);
-    void (__thiscall*Load)(mmCompRaceRecord*);
-    void (__thiscall*Save)(mmCompRaceRecord*);
-    void (__thiscall*AddWidgets)(mmCompRaceRecord*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCompRaceRecord*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCompRaceRecord*);
-    void (__thiscall*DisableBlt)(mmCompRaceRecord*);
-    void (__thiscall*SetBltXY)(mmCompRaceRecord*,f32,f32);
-    void (__thiscall*Action)(mmCompRaceRecord*,union eqEvent,f32,f32,i32);
-    void (__thiscall*Action1)(mmCompRaceRecord*,union eqEvent);
-    void (__thiscall*CaptureAction)(mmCompRaceRecord*,union eqEvent);
-    void (__thiscall*Switch)(mmCompRaceRecord*,i32);
-    void (__thiscall*EvalMouseXY)(mmCompRaceRecord*,f32,f32);
-    void (__thiscall*Highlight)(mmCompRaceRecord*,class mmTextNode*,i32);
-    void (__thiscall*SetGeometry)(mmCompRaceRecord*,f32,f32,f32,f32);
-    void (__thiscall*SetPosition)(mmCompRaceRecord*,class mmTextNode*,i32,f32);
+    void* (__thiscall*Destructor)(mmCompRaceRecord * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCompRaceRecord * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*BeforeSave)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*AfterLoad)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*Cull)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*Update)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*Reset)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*ResChange)(mmCompRaceRecord * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*Load)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*Save)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*AddWidgets)(mmCompRaceRecord * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCompRaceRecord * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*DisableBlt)(mmCompRaceRecord * __hidden this);
+    void (__thiscall*SetBltXY)(mmCompRaceRecord * __hidden this,f32,f32);
+    void (__thiscall*Action)(mmCompRaceRecord * __hidden this,union eqEvent,f32,f32,i32);
+    void (__thiscall*Action1)(mmCompRaceRecord * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(mmCompRaceRecord * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(mmCompRaceRecord * __hidden this,i32);
+    void (__thiscall*EvalMouseXY)(mmCompRaceRecord * __hidden this,f32,f32);
+    void (__thiscall*Highlight)(mmCompRaceRecord * __hidden this,class mmTextNode*,i32);
+    void (__thiscall*SetGeometry)(mmCompRaceRecord * __hidden this,f32,f32,f32,f32);
+    void (__thiscall*SetPosition)(mmCompRaceRecord * __hidden this,class mmTextNode*,i32,f32);
 };
 
 struct mmCompBase;
-struct mmCompBase_vftable
+struct mmCompBase_vtbl
 {
-    void* (__thiscall*Dtor)(mmCompBase*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCompBase*);
-    char* (__thiscall*GetTypeNameV)(mmCompBase*);
-    void (__thiscall*BeforeSave)(mmCompBase*);
-    void (__thiscall*AfterLoad)(mmCompBase*);
-    void (__thiscall*Cull)(mmCompBase*);
-    void (__thiscall*Update)(mmCompBase*);
-    void (__thiscall*Reset)(mmCompBase*);
-    void (__thiscall*ResChange)(mmCompBase*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCompBase*);
-    void (__thiscall*Load)(mmCompBase*);
-    void (__thiscall*Save)(mmCompBase*);
-    void (__thiscall*AddWidgets)(mmCompBase*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCompBase*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCompBase*);
-    void (__thiscall*DisableBlt)(mmCompBase*);
-    void (__thiscall*SetBltXY)(mmCompBase*,f32,f32);
-    void (__thiscall*Action)(mmCompBase*,union eqEvent,f32,f32,i32);
-    void (__thiscall*Action1)(mmCompBase*,union eqEvent);
-    void (__thiscall*CaptureAction)(mmCompBase*,union eqEvent);
-    void (__thiscall*Switch)(mmCompBase*,i32);
-    void (__thiscall*EvalMouseXY)(mmCompBase*,f32,f32);
-    void (__thiscall*Highlight)(mmCompBase*,class mmTextNode*,i32);
-    void (__thiscall*SetGeometry)(mmCompBase*,f32,f32,f32,f32);
-    void (__thiscall*SetPosition)(mmCompBase*,class mmTextNode*,i32,f32);
+    void* (__thiscall*Destructor)(mmCompBase * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCompBase * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCompBase * __hidden this);
+    void (__thiscall*BeforeSave)(mmCompBase * __hidden this);
+    void (__thiscall*AfterLoad)(mmCompBase * __hidden this);
+    void (__thiscall*Cull)(mmCompBase * __hidden this);
+    void (__thiscall*Update)(mmCompBase * __hidden this);
+    void (__thiscall*Reset)(mmCompBase * __hidden this);
+    void (__thiscall*ResChange)(mmCompBase * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCompBase * __hidden this);
+    void (__thiscall*Load)(mmCompBase * __hidden this);
+    void (__thiscall*Save)(mmCompBase * __hidden this);
+    void (__thiscall*AddWidgets)(mmCompBase * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCompBase * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCompBase * __hidden this);
+    void (__thiscall*DisableBlt)(mmCompBase * __hidden this);
+    void (__thiscall*SetBltXY)(mmCompBase * __hidden this,f32,f32);
+    void (__thiscall*Action)(mmCompBase * __hidden this,union eqEvent,f32,f32,i32);
+    void (__thiscall*Action1)(mmCompBase * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(mmCompBase * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(mmCompBase * __hidden this,i32);
+    void (__thiscall*EvalMouseXY)(mmCompBase * __hidden this,f32,f32);
+    void (__thiscall*Highlight)(mmCompBase * __hidden this,class mmTextNode*,i32);
+    void (__thiscall*SetGeometry)(mmCompBase * __hidden this,f32,f32,f32,f32);
+    void (__thiscall*SetPosition)(mmCompBase * __hidden this,class mmTextNode*,i32,f32);
 };
 
 struct UICompositeScroll;
-struct UICompositeScroll_vftable
+struct UICompositeScroll_vtbl
 {
-    void* (__thiscall*Dtor)(UICompositeScroll*,u32);
-    class MetaClass* (__thiscall*GetClass)(UICompositeScroll*);
-    char* (__thiscall*GetTypeNameV)(UICompositeScroll*);
-    void (__thiscall*BeforeSave)(UICompositeScroll*);
-    void (__thiscall*AfterLoad)(UICompositeScroll*);
-    void (__thiscall*Cull)(UICompositeScroll*);
-    void (__thiscall*Update)(UICompositeScroll*);
-    void (__thiscall*Reset)(UICompositeScroll*);
-    void (__thiscall*ResChange)(UICompositeScroll*,i32,i32);
-    void (__thiscall*UpdatePaused)(UICompositeScroll*);
-    void (__thiscall*Load)(UICompositeScroll*);
-    void (__thiscall*Save)(UICompositeScroll*);
-    void (__thiscall*AddWidgets)(UICompositeScroll*,class Bank*);
-    void (__thiscall*OpenWidgets)(UICompositeScroll*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UICompositeScroll*);
-    void (__thiscall*Disable)(UICompositeScroll*);
-    void (__thiscall*Enable)(UICompositeScroll*);
-    void (__thiscall*TurnOn)(UICompositeScroll*);
-    void (__thiscall*TurnOff)(UICompositeScroll*);
-    void (__thiscall*SetReadOnly)(UICompositeScroll*,i32);
-    void (__thiscall*Action)(UICompositeScroll*,union eqEvent);
-    void (__thiscall*CaptureAction)(UICompositeScroll*,union eqEvent);
-    void (__thiscall*Switch)(UICompositeScroll*,i32);
-    void (__thiscall*EvalMouseX)(UICompositeScroll*,f32);
-    char* (__thiscall*ReturnDescription)(UICompositeScroll*);
-    void (__thiscall*SetPosition)(UICompositeScroll*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UICompositeScroll*);
+    void* (__thiscall*Destructor)(UICompositeScroll * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UICompositeScroll * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UICompositeScroll * __hidden this);
+    void (__thiscall*BeforeSave)(UICompositeScroll * __hidden this);
+    void (__thiscall*AfterLoad)(UICompositeScroll * __hidden this);
+    void (__thiscall*Cull)(UICompositeScroll * __hidden this);
+    void (__thiscall*Update)(UICompositeScroll * __hidden this);
+    void (__thiscall*Reset)(UICompositeScroll * __hidden this);
+    void (__thiscall*ResChange)(UICompositeScroll * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UICompositeScroll * __hidden this);
+    void (__thiscall*Load)(UICompositeScroll * __hidden this);
+    void (__thiscall*Save)(UICompositeScroll * __hidden this);
+    void (__thiscall*AddWidgets)(UICompositeScroll * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UICompositeScroll * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UICompositeScroll * __hidden this);
+    void (__thiscall*Disable)(UICompositeScroll * __hidden this);
+    void (__thiscall*Enable)(UICompositeScroll * __hidden this);
+    void (__thiscall*TurnOn)(UICompositeScroll * __hidden this);
+    void (__thiscall*TurnOff)(UICompositeScroll * __hidden this);
+    void (__thiscall*SetReadOnly)(UICompositeScroll * __hidden this,i32);
+    void (__thiscall*Action)(UICompositeScroll * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UICompositeScroll * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UICompositeScroll * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UICompositeScroll * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UICompositeScroll * __hidden this);
+    void (__thiscall*SetPosition)(UICompositeScroll * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UICompositeScroll * __hidden this);
 };
 
 struct mmCompDRecord;
-struct mmCompDRecord_vftable
+struct mmCompDRecord_vtbl
 {
-    void* (__thiscall*Dtor)(mmCompDRecord*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCompDRecord*);
-    char* (__thiscall*GetTypeNameV)(mmCompDRecord*);
-    void (__thiscall*BeforeSave)(mmCompDRecord*);
-    void (__thiscall*AfterLoad)(mmCompDRecord*);
-    void (__thiscall*Cull)(mmCompDRecord*);
-    void (__thiscall*Update)(mmCompDRecord*);
-    void (__thiscall*Reset)(mmCompDRecord*);
-    void (__thiscall*ResChange)(mmCompDRecord*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCompDRecord*);
-    void (__thiscall*Load)(mmCompDRecord*);
-    void (__thiscall*Save)(mmCompDRecord*);
-    void (__thiscall*AddWidgets)(mmCompDRecord*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCompDRecord*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCompDRecord*);
-    void (__thiscall*DisableBlt)(mmCompDRecord*);
-    void (__thiscall*SetBltXY)(mmCompDRecord*,f32,f32);
-    void (__thiscall*Action)(mmCompDRecord*,union eqEvent,f32,f32,i32);
-    void (__thiscall*Action1)(mmCompDRecord*,union eqEvent);
-    void (__thiscall*CaptureAction)(mmCompDRecord*,union eqEvent);
-    void (__thiscall*Switch)(mmCompDRecord*,i32);
-    void (__thiscall*EvalMouseXY)(mmCompDRecord*,f32,f32);
-    void (__thiscall*Highlight)(mmCompDRecord*,class mmTextNode*,i32);
-    void (__thiscall*SetGeometry)(mmCompDRecord*,f32,f32,f32,f32);
-    void (__thiscall*SetPosition)(mmCompDRecord*,class mmTextNode*,i32,f32);
+    void* (__thiscall*Destructor)(mmCompDRecord * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCompDRecord * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCompDRecord * __hidden this);
+    void (__thiscall*BeforeSave)(mmCompDRecord * __hidden this);
+    void (__thiscall*AfterLoad)(mmCompDRecord * __hidden this);
+    void (__thiscall*Cull)(mmCompDRecord * __hidden this);
+    void (__thiscall*Update)(mmCompDRecord * __hidden this);
+    void (__thiscall*Reset)(mmCompDRecord * __hidden this);
+    void (__thiscall*ResChange)(mmCompDRecord * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCompDRecord * __hidden this);
+    void (__thiscall*Load)(mmCompDRecord * __hidden this);
+    void (__thiscall*Save)(mmCompDRecord * __hidden this);
+    void (__thiscall*AddWidgets)(mmCompDRecord * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCompDRecord * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCompDRecord * __hidden this);
+    void (__thiscall*DisableBlt)(mmCompDRecord * __hidden this);
+    void (__thiscall*SetBltXY)(mmCompDRecord * __hidden this,f32,f32);
+    void (__thiscall*Action)(mmCompDRecord * __hidden this,union eqEvent,f32,f32,i32);
+    void (__thiscall*Action1)(mmCompDRecord * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(mmCompDRecord * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(mmCompDRecord * __hidden this,i32);
+    void (__thiscall*EvalMouseXY)(mmCompDRecord * __hidden this,f32,f32);
+    void (__thiscall*Highlight)(mmCompDRecord * __hidden this,class mmTextNode*,i32);
+    void (__thiscall*SetGeometry)(mmCompDRecord * __hidden this,f32,f32,f32,f32);
+    void (__thiscall*SetPosition)(mmCompDRecord * __hidden this,class mmTextNode*,i32,f32);
 };
 
 struct UIBMButton;
-struct UIBMButton_vftable
+struct UIBMButton_vtbl
 {
-    void* (__thiscall*Dtor)(UIBMButton*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIBMButton*);
-    char* (__thiscall*GetTypeNameV)(UIBMButton*);
-    void (__thiscall*BeforeSave)(UIBMButton*);
-    void (__thiscall*AfterLoad)(UIBMButton*);
-    void (__thiscall*Cull)(UIBMButton*);
-    void (__thiscall*Update)(UIBMButton*);
-    void (__thiscall*Reset)(UIBMButton*);
-    void (__thiscall*ResChange)(UIBMButton*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIBMButton*);
-    void (__thiscall*Load)(UIBMButton*);
-    void (__thiscall*Save)(UIBMButton*);
-    void (__thiscall*AddWidgets)(UIBMButton*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIBMButton*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIBMButton*);
-    void (__thiscall*Disable)(UIBMButton*);
-    void (__thiscall*Enable)(UIBMButton*);
-    void (__thiscall*TurnOn)(UIBMButton*);
-    void (__thiscall*TurnOff)(UIBMButton*);
-    void (__thiscall*SetReadOnly)(UIBMButton*,i32);
-    void (__thiscall*Action)(UIBMButton*,union eqEvent);
-    void (__thiscall*CaptureAction)(UIBMButton*,union eqEvent);
-    void (__thiscall*Switch)(UIBMButton*,i32);
-    void (__thiscall*EvalMouseX)(UIBMButton*,f32);
-    char* (__thiscall*ReturnDescription)(UIBMButton*);
-    void (__thiscall*SetPosition)(UIBMButton*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UIBMButton*);
+    void* (__thiscall*Destructor)(UIBMButton * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIBMButton * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIBMButton * __hidden this);
+    void (__thiscall*BeforeSave)(UIBMButton * __hidden this);
+    void (__thiscall*AfterLoad)(UIBMButton * __hidden this);
+    void (__thiscall*Cull)(UIBMButton * __hidden this);
+    void (__thiscall*Update)(UIBMButton * __hidden this);
+    void (__thiscall*Reset)(UIBMButton * __hidden this);
+    void (__thiscall*ResChange)(UIBMButton * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIBMButton * __hidden this);
+    void (__thiscall*Load)(UIBMButton * __hidden this);
+    void (__thiscall*Save)(UIBMButton * __hidden this);
+    void (__thiscall*AddWidgets)(UIBMButton * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIBMButton * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIBMButton * __hidden this);
+    void (__thiscall*Disable)(UIBMButton * __hidden this);
+    void (__thiscall*Enable)(UIBMButton * __hidden this);
+    void (__thiscall*TurnOn)(UIBMButton * __hidden this);
+    void (__thiscall*TurnOff)(UIBMButton * __hidden this);
+    void (__thiscall*SetReadOnly)(UIBMButton * __hidden this,i32);
+    void (__thiscall*Action)(UIBMButton * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UIBMButton * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UIBMButton * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UIBMButton * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UIBMButton * __hidden this);
+    void (__thiscall*SetPosition)(UIBMButton * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UIBMButton * __hidden this);
 };
 
 struct mmCompCRPlayer;
-struct mmCompCRPlayer_vftable
+struct mmCompCRPlayer_vtbl
 {
-    void* (__thiscall*Dtor)(mmCompCRPlayer*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCompCRPlayer*);
-    char* (__thiscall*GetTypeNameV)(mmCompCRPlayer*);
-    void (__thiscall*BeforeSave)(mmCompCRPlayer*);
-    void (__thiscall*AfterLoad)(mmCompCRPlayer*);
-    void (__thiscall*Cull)(mmCompCRPlayer*);
-    void (__thiscall*Update)(mmCompCRPlayer*);
-    void (__thiscall*Reset)(mmCompCRPlayer*);
-    void (__thiscall*ResChange)(mmCompCRPlayer*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCompCRPlayer*);
-    void (__thiscall*Load)(mmCompCRPlayer*);
-    void (__thiscall*Save)(mmCompCRPlayer*);
-    void (__thiscall*AddWidgets)(mmCompCRPlayer*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCompCRPlayer*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCompCRPlayer*);
-    void (__thiscall*DisableBlt)(mmCompCRPlayer*);
-    void (__thiscall*SetBltXY)(mmCompCRPlayer*,f32,f32);
-    void (__thiscall*Action)(mmCompCRPlayer*,union eqEvent,f32,f32,i32);
-    void (__thiscall*Action1)(mmCompCRPlayer*,union eqEvent);
-    void (__thiscall*CaptureAction)(mmCompCRPlayer*,union eqEvent);
-    void (__thiscall*Switch)(mmCompCRPlayer*,i32);
-    void (__thiscall*EvalMouseXY)(mmCompCRPlayer*,f32,f32);
-    void (__thiscall*Highlight)(mmCompCRPlayer*,class mmTextNode*,i32);
-    void (__thiscall*SetGeometry)(mmCompCRPlayer*,f32,f32,f32,f32);
-    void (__thiscall*SetPosition)(mmCompCRPlayer*,class mmTextNode*,i32,f32);
+    void* (__thiscall*Destructor)(mmCompCRPlayer * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCompCRPlayer * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*BeforeSave)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*AfterLoad)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*Cull)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*Update)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*Reset)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*ResChange)(mmCompCRPlayer * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*Load)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*Save)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*AddWidgets)(mmCompCRPlayer * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCompCRPlayer * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*DisableBlt)(mmCompCRPlayer * __hidden this);
+    void (__thiscall*SetBltXY)(mmCompCRPlayer * __hidden this,f32,f32);
+    void (__thiscall*Action)(mmCompCRPlayer * __hidden this,union eqEvent,f32,f32,i32);
+    void (__thiscall*Action1)(mmCompCRPlayer * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(mmCompCRPlayer * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(mmCompCRPlayer * __hidden this,i32);
+    void (__thiscall*EvalMouseXY)(mmCompCRPlayer * __hidden this,f32,f32);
+    void (__thiscall*Highlight)(mmCompCRPlayer * __hidden this,class mmTextNode*,i32);
+    void (__thiscall*SetGeometry)(mmCompCRPlayer * __hidden this,f32,f32,f32,f32);
+    void (__thiscall*SetPosition)(mmCompCRPlayer * __hidden this,class mmTextNode*,i32,f32);
 };
 
 struct mmCompRoster;
-struct mmCompRoster_vftable
+struct mmCompRoster_vtbl
 {
-    void* (__thiscall*Dtor)(mmCompRoster*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmCompRoster*);
-    char* (__thiscall*GetTypeNameV)(mmCompRoster*);
-    void (__thiscall*BeforeSave)(mmCompRoster*);
-    void (__thiscall*AfterLoad)(mmCompRoster*);
-    void (__thiscall*Cull)(mmCompRoster*);
-    void (__thiscall*Update)(mmCompRoster*);
-    void (__thiscall*Reset)(mmCompRoster*);
-    void (__thiscall*ResChange)(mmCompRoster*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmCompRoster*);
-    void (__thiscall*Load)(mmCompRoster*);
-    void (__thiscall*Save)(mmCompRoster*);
-    void (__thiscall*AddWidgets)(mmCompRoster*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmCompRoster*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmCompRoster*);
-    void (__thiscall*DisableBlt)(mmCompRoster*);
-    void (__thiscall*SetBltXY)(mmCompRoster*,f32,f32);
-    void (__thiscall*Action)(mmCompRoster*,union eqEvent,f32,f32,i32);
-    void (__thiscall*Action1)(mmCompRoster*,union eqEvent);
-    void (__thiscall*CaptureAction)(mmCompRoster*,union eqEvent);
-    void (__thiscall*Switch)(mmCompRoster*,i32);
-    void (__thiscall*EvalMouseXY)(mmCompRoster*,f32,f32);
-    void (__thiscall*Highlight)(mmCompRoster*,class mmTextNode*,i32);
-    void (__thiscall*SetGeometry)(mmCompRoster*,f32,f32,f32,f32);
-    void (__thiscall*SetPosition)(mmCompRoster*,class mmTextNode*,i32,f32);
+    void* (__thiscall*Destructor)(mmCompRoster * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmCompRoster * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmCompRoster * __hidden this);
+    void (__thiscall*BeforeSave)(mmCompRoster * __hidden this);
+    void (__thiscall*AfterLoad)(mmCompRoster * __hidden this);
+    void (__thiscall*Cull)(mmCompRoster * __hidden this);
+    void (__thiscall*Update)(mmCompRoster * __hidden this);
+    void (__thiscall*Reset)(mmCompRoster * __hidden this);
+    void (__thiscall*ResChange)(mmCompRoster * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmCompRoster * __hidden this);
+    void (__thiscall*Load)(mmCompRoster * __hidden this);
+    void (__thiscall*Save)(mmCompRoster * __hidden this);
+    void (__thiscall*AddWidgets)(mmCompRoster * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmCompRoster * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmCompRoster * __hidden this);
+    void (__thiscall*DisableBlt)(mmCompRoster * __hidden this);
+    void (__thiscall*SetBltXY)(mmCompRoster * __hidden this,f32,f32);
+    void (__thiscall*Action)(mmCompRoster * __hidden this,union eqEvent,f32,f32,i32);
+    void (__thiscall*Action1)(mmCompRoster * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(mmCompRoster * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(mmCompRoster * __hidden this,i32);
+    void (__thiscall*EvalMouseXY)(mmCompRoster * __hidden this,f32,f32);
+    void (__thiscall*Highlight)(mmCompRoster * __hidden this,class mmTextNode*,i32);
+    void (__thiscall*SetGeometry)(mmCompRoster * __hidden this,f32,f32,f32,f32);
+    void (__thiscall*SetPosition)(mmCompRoster * __hidden this,class mmTextNode*,i32,f32);
 };
 
 struct UICWArray;
-struct UICWArray_vftable
+struct UICWArray_vtbl
 {
-    void* (__thiscall*Dtor)(UICWArray*,u32);
-    class MetaClass* (__thiscall*GetClass)(UICWArray*);
-    char* (__thiscall*GetTypeNameV)(UICWArray*);
-    void (__thiscall*BeforeSave)(UICWArray*);
-    void (__thiscall*AfterLoad)(UICWArray*);
-    void (__thiscall*Cull)(UICWArray*);
-    void (__thiscall*Update)(UICWArray*);
-    void (__thiscall*Reset)(UICWArray*);
-    void (__thiscall*ResChange)(UICWArray*,i32,i32);
-    void (__thiscall*UpdatePaused)(UICWArray*);
-    void (__thiscall*Load)(UICWArray*);
-    void (__thiscall*Save)(UICWArray*);
-    void (__thiscall*AddWidgets)(UICWArray*,class Bank*);
-    void (__thiscall*OpenWidgets)(UICWArray*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UICWArray*);
-    void (__thiscall*Disable)(UICWArray*);
-    void (__thiscall*Enable)(UICWArray*);
-    void (__thiscall*TurnOn)(UICWArray*);
-    void (__thiscall*TurnOff)(UICWArray*);
-    void (__thiscall*SetReadOnly)(UICWArray*,i32);
-    void (__thiscall*Action)(UICWArray*,union eqEvent);
-    void (__thiscall*CaptureAction)(UICWArray*,union eqEvent);
-    void (__thiscall*Switch)(UICWArray*,i32);
-    void (__thiscall*EvalMouseX)(UICWArray*,f32);
-    char* (__thiscall*ReturnDescription)(UICWArray*);
-    void (__thiscall*SetPosition)(UICWArray*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UICWArray*);
+    void* (__thiscall*Destructor)(UICWArray * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UICWArray * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UICWArray * __hidden this);
+    void (__thiscall*BeforeSave)(UICWArray * __hidden this);
+    void (__thiscall*AfterLoad)(UICWArray * __hidden this);
+    void (__thiscall*Cull)(UICWArray * __hidden this);
+    void (__thiscall*Update)(UICWArray * __hidden this);
+    void (__thiscall*Reset)(UICWArray * __hidden this);
+    void (__thiscall*ResChange)(UICWArray * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UICWArray * __hidden this);
+    void (__thiscall*Load)(UICWArray * __hidden this);
+    void (__thiscall*Save)(UICWArray * __hidden this);
+    void (__thiscall*AddWidgets)(UICWArray * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UICWArray * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UICWArray * __hidden this);
+    void (__thiscall*Disable)(UICWArray * __hidden this);
+    void (__thiscall*Enable)(UICWArray * __hidden this);
+    void (__thiscall*TurnOn)(UICWArray * __hidden this);
+    void (__thiscall*TurnOff)(UICWArray * __hidden this);
+    void (__thiscall*SetReadOnly)(UICWArray * __hidden this,i32);
+    void (__thiscall*Action)(UICWArray * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UICWArray * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UICWArray * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UICWArray * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UICWArray * __hidden this);
+    void (__thiscall*SetPosition)(UICWArray * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UICWArray * __hidden this);
 };
 
 struct UITextScroll;
-struct UITextScroll_vftable
+struct UITextScroll_vtbl
 {
-    void* (__thiscall*Dtor)(UITextScroll*,u32);
-    class MetaClass* (__thiscall*GetClass)(UITextScroll*);
-    char* (__thiscall*GetTypeNameV)(UITextScroll*);
-    void (__thiscall*BeforeSave)(UITextScroll*);
-    void (__thiscall*AfterLoad)(UITextScroll*);
-    void (__thiscall*Cull)(UITextScroll*);
-    void (__thiscall*Update)(UITextScroll*);
-    void (__thiscall*Reset)(UITextScroll*);
-    void (__thiscall*ResChange)(UITextScroll*,i32,i32);
-    void (__thiscall*UpdatePaused)(UITextScroll*);
-    void (__thiscall*Load)(UITextScroll*);
-    void (__thiscall*Save)(UITextScroll*);
-    void (__thiscall*AddWidgets)(UITextScroll*,class Bank*);
-    void (__thiscall*OpenWidgets)(UITextScroll*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UITextScroll*);
-    void (__thiscall*Disable)(UITextScroll*);
-    void (__thiscall*Enable)(UITextScroll*);
-    void (__thiscall*TurnOn)(UITextScroll*);
-    void (__thiscall*TurnOff)(UITextScroll*);
-    void (__thiscall*SetReadOnly)(UITextScroll*,i32);
-    void (__thiscall*Action)(UITextScroll*,union eqEvent);
-    void (__thiscall*CaptureAction)(UITextScroll*,union eqEvent);
-    void (__thiscall*Switch)(UITextScroll*,i32);
-    void (__thiscall*EvalMouseX)(UITextScroll*,f32);
-    char* (__thiscall*ReturnDescription)(UITextScroll*);
-    void (__thiscall*SetPosition)(UITextScroll*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UITextScroll*);
+    void* (__thiscall*Destructor)(UITextScroll * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UITextScroll * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UITextScroll * __hidden this);
+    void (__thiscall*BeforeSave)(UITextScroll * __hidden this);
+    void (__thiscall*AfterLoad)(UITextScroll * __hidden this);
+    void (__thiscall*Cull)(UITextScroll * __hidden this);
+    void (__thiscall*Update)(UITextScroll * __hidden this);
+    void (__thiscall*Reset)(UITextScroll * __hidden this);
+    void (__thiscall*ResChange)(UITextScroll * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UITextScroll * __hidden this);
+    void (__thiscall*Load)(UITextScroll * __hidden this);
+    void (__thiscall*Save)(UITextScroll * __hidden this);
+    void (__thiscall*AddWidgets)(UITextScroll * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UITextScroll * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UITextScroll * __hidden this);
+    void (__thiscall*Disable)(UITextScroll * __hidden this);
+    void (__thiscall*Enable)(UITextScroll * __hidden this);
+    void (__thiscall*TurnOn)(UITextScroll * __hidden this);
+    void (__thiscall*TurnOff)(UITextScroll * __hidden this);
+    void (__thiscall*SetReadOnly)(UITextScroll * __hidden this,i32);
+    void (__thiscall*Action)(UITextScroll * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UITextScroll * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UITextScroll * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UITextScroll * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UITextScroll * __hidden this);
+    void (__thiscall*SetPosition)(UITextScroll * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UITextScroll * __hidden this);
 };
 
 struct UILabel;
-struct UILabel_vftable
+struct UILabel_vtbl
 {
-    void* (__thiscall*Dtor)(UILabel*,u32);
-    class MetaClass* (__thiscall*GetClass)(UILabel*);
-    char* (__thiscall*GetTypeNameV)(UILabel*);
-    void (__thiscall*BeforeSave)(UILabel*);
-    void (__thiscall*AfterLoad)(UILabel*);
-    void (__thiscall*Cull)(UILabel*);
-    void (__thiscall*Update)(UILabel*);
-    void (__thiscall*Reset)(UILabel*);
-    void (__thiscall*ResChange)(UILabel*,i32,i32);
-    void (__thiscall*UpdatePaused)(UILabel*);
-    void (__thiscall*Load)(UILabel*);
-    void (__thiscall*Save)(UILabel*);
-    void (__thiscall*AddWidgets)(UILabel*,class Bank*);
-    void (__thiscall*OpenWidgets)(UILabel*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UILabel*);
-    void (__thiscall*Disable)(UILabel*);
-    void (__thiscall*Enable)(UILabel*);
-    void (__thiscall*TurnOn)(UILabel*);
-    void (__thiscall*TurnOff)(UILabel*);
-    void (__thiscall*SetReadOnly)(UILabel*,i32);
-    void (__thiscall*Action)(UILabel*,union eqEvent);
-    void (__thiscall*CaptureAction)(UILabel*,union eqEvent);
-    void (__thiscall*Switch)(UILabel*,i32);
-    void (__thiscall*EvalMouseX)(UILabel*,f32);
-    char* (__thiscall*ReturnDescription)(UILabel*);
-    void (__thiscall*SetPosition)(UILabel*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UILabel*);
+    void* (__thiscall*Destructor)(UILabel * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UILabel * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UILabel * __hidden this);
+    void (__thiscall*BeforeSave)(UILabel * __hidden this);
+    void (__thiscall*AfterLoad)(UILabel * __hidden this);
+    void (__thiscall*Cull)(UILabel * __hidden this);
+    void (__thiscall*Update)(UILabel * __hidden this);
+    void (__thiscall*Reset)(UILabel * __hidden this);
+    void (__thiscall*ResChange)(UILabel * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UILabel * __hidden this);
+    void (__thiscall*Load)(UILabel * __hidden this);
+    void (__thiscall*Save)(UILabel * __hidden this);
+    void (__thiscall*AddWidgets)(UILabel * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UILabel * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UILabel * __hidden this);
+    void (__thiscall*Disable)(UILabel * __hidden this);
+    void (__thiscall*Enable)(UILabel * __hidden this);
+    void (__thiscall*TurnOn)(UILabel * __hidden this);
+    void (__thiscall*TurnOff)(UILabel * __hidden this);
+    void (__thiscall*SetReadOnly)(UILabel * __hidden this,i32);
+    void (__thiscall*Action)(UILabel * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UILabel * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UILabel * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UILabel * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UILabel * __hidden this);
+    void (__thiscall*SetPosition)(UILabel * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UILabel * __hidden this);
 };
 
 struct UIIcon;
-struct UIIcon_vftable
+struct UIIcon_vtbl
 {
-    void* (__thiscall*Dtor)(UIIcon*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIIcon*);
-    char* (__thiscall*GetTypeNameV)(UIIcon*);
-    void (__thiscall*BeforeSave)(UIIcon*);
-    void (__thiscall*AfterLoad)(UIIcon*);
-    void (__thiscall*Cull)(UIIcon*);
-    void (__thiscall*Update)(UIIcon*);
-    void (__thiscall*Reset)(UIIcon*);
-    void (__thiscall*ResChange)(UIIcon*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIIcon*);
-    void (__thiscall*Load)(UIIcon*);
-    void (__thiscall*Save)(UIIcon*);
-    void (__thiscall*AddWidgets)(UIIcon*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIIcon*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIIcon*);
-    void (__thiscall*Disable)(UIIcon*);
-    void (__thiscall*Enable)(UIIcon*);
-    void (__thiscall*TurnOn)(UIIcon*);
-    void (__thiscall*TurnOff)(UIIcon*);
-    void (__thiscall*SetReadOnly)(UIIcon*,i32);
-    void (__thiscall*Action)(UIIcon*,union eqEvent);
-    void (__thiscall*CaptureAction)(UIIcon*,union eqEvent);
-    void (__thiscall*Switch)(UIIcon*,i32);
-    void (__thiscall*EvalMouseX)(UIIcon*,f32);
-    char* (__thiscall*ReturnDescription)(UIIcon*);
-    void (__thiscall*SetPosition)(UIIcon*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UIIcon*);
+    void* (__thiscall*Destructor)(UIIcon * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIIcon * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIIcon * __hidden this);
+    void (__thiscall*BeforeSave)(UIIcon * __hidden this);
+    void (__thiscall*AfterLoad)(UIIcon * __hidden this);
+    void (__thiscall*Cull)(UIIcon * __hidden this);
+    void (__thiscall*Update)(UIIcon * __hidden this);
+    void (__thiscall*Reset)(UIIcon * __hidden this);
+    void (__thiscall*ResChange)(UIIcon * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIIcon * __hidden this);
+    void (__thiscall*Load)(UIIcon * __hidden this);
+    void (__thiscall*Save)(UIIcon * __hidden this);
+    void (__thiscall*AddWidgets)(UIIcon * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIIcon * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIIcon * __hidden this);
+    void (__thiscall*Disable)(UIIcon * __hidden this);
+    void (__thiscall*Enable)(UIIcon * __hidden this);
+    void (__thiscall*TurnOn)(UIIcon * __hidden this);
+    void (__thiscall*TurnOff)(UIIcon * __hidden this);
+    void (__thiscall*SetReadOnly)(UIIcon * __hidden this,i32);
+    void (__thiscall*Action)(UIIcon * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UIIcon * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UIIcon * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UIIcon * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UIIcon * __hidden this);
+    void (__thiscall*SetPosition)(UIIcon * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UIIcon * __hidden this);
 };
 
 struct UIButton;
-struct UIButton_vftable
+struct UIButton_vtbl
 {
-    void* (__thiscall*Dtor)(UIButton*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIButton*);
-    char* (__thiscall*GetTypeNameV)(UIButton*);
-    void (__thiscall*BeforeSave)(UIButton*);
-    void (__thiscall*AfterLoad)(UIButton*);
-    void (__thiscall*Cull)(UIButton*);
-    void (__thiscall*Update)(UIButton*);
-    void (__thiscall*Reset)(UIButton*);
-    void (__thiscall*ResChange)(UIButton*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIButton*);
-    void (__thiscall*Load)(UIButton*);
-    void (__thiscall*Save)(UIButton*);
-    void (__thiscall*AddWidgets)(UIButton*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIButton*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIButton*);
-    void (__thiscall*Disable)(UIButton*);
-    void (__thiscall*Enable)(UIButton*);
-    void (__thiscall*TurnOn)(UIButton*);
-    void (__thiscall*TurnOff)(UIButton*);
-    void (__thiscall*SetReadOnly)(UIButton*,i32);
-    void (__thiscall*Action)(UIButton*,union eqEvent);
-    void (__thiscall*CaptureAction)(UIButton*,union eqEvent);
-    void (__thiscall*Switch)(UIButton*,i32);
-    void (__thiscall*EvalMouseX)(UIButton*,f32);
-    char* (__thiscall*ReturnDescription)(UIButton*);
-    void (__thiscall*SetPosition)(UIButton*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UIButton*);
+    void* (__thiscall*Destructor)(UIButton * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIButton * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIButton * __hidden this);
+    void (__thiscall*BeforeSave)(UIButton * __hidden this);
+    void (__thiscall*AfterLoad)(UIButton * __hidden this);
+    void (__thiscall*Cull)(UIButton * __hidden this);
+    void (__thiscall*Update)(UIButton * __hidden this);
+    void (__thiscall*Reset)(UIButton * __hidden this);
+    void (__thiscall*ResChange)(UIButton * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIButton * __hidden this);
+    void (__thiscall*Load)(UIButton * __hidden this);
+    void (__thiscall*Save)(UIButton * __hidden this);
+    void (__thiscall*AddWidgets)(UIButton * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIButton * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIButton * __hidden this);
+    void (__thiscall*Disable)(UIButton * __hidden this);
+    void (__thiscall*Enable)(UIButton * __hidden this);
+    void (__thiscall*TurnOn)(UIButton * __hidden this);
+    void (__thiscall*TurnOff)(UIButton * __hidden this);
+    void (__thiscall*SetReadOnly)(UIButton * __hidden this,i32);
+    void (__thiscall*Action)(UIButton * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UIButton * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UIButton * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UIButton * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UIButton * __hidden this);
+    void (__thiscall*SetPosition)(UIButton * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UIButton * __hidden this);
 };
 
 struct UITextRoller;
-struct UITextRoller_vftable
+struct UITextRoller_vtbl
 {
-    void* (__thiscall*Dtor)(UITextRoller*,u32);
-    class MetaClass* (__thiscall*GetClass)(UITextRoller*);
-    char* (__thiscall*GetTypeNameV)(UITextRoller*);
-    void (__thiscall*BeforeSave)(UITextRoller*);
-    void (__thiscall*AfterLoad)(UITextRoller*);
-    void (__thiscall*Cull)(UITextRoller*);
-    void (__thiscall*Update)(UITextRoller*);
-    void (__thiscall*Reset)(UITextRoller*);
-    void (__thiscall*ResChange)(UITextRoller*,i32,i32);
-    void (__thiscall*UpdatePaused)(UITextRoller*);
-    void (__thiscall*Load)(UITextRoller*);
-    void (__thiscall*Save)(UITextRoller*);
-    void (__thiscall*AddWidgets)(UITextRoller*,class Bank*);
-    void (__thiscall*OpenWidgets)(UITextRoller*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UITextRoller*);
-    void (__thiscall*Disable)(UITextRoller*);
-    void (__thiscall*Enable)(UITextRoller*);
-    void (__thiscall*TurnOn)(UITextRoller*);
-    void (__thiscall*TurnOff)(UITextRoller*);
-    void (__thiscall*SetReadOnly)(UITextRoller*,i32);
-    void (__thiscall*Action)(UITextRoller*,union eqEvent);
-    void (__thiscall*CaptureAction)(UITextRoller*,union eqEvent);
-    void (__thiscall*Switch)(UITextRoller*,i32);
-    void (__thiscall*EvalMouseX)(UITextRoller*,f32);
-    char* (__thiscall*ReturnDescription)(UITextRoller*);
-    void (__thiscall*SetPosition)(UITextRoller*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UITextRoller*);
+    void* (__thiscall*Destructor)(UITextRoller * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UITextRoller * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UITextRoller * __hidden this);
+    void (__thiscall*BeforeSave)(UITextRoller * __hidden this);
+    void (__thiscall*AfterLoad)(UITextRoller * __hidden this);
+    void (__thiscall*Cull)(UITextRoller * __hidden this);
+    void (__thiscall*Update)(UITextRoller * __hidden this);
+    void (__thiscall*Reset)(UITextRoller * __hidden this);
+    void (__thiscall*ResChange)(UITextRoller * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UITextRoller * __hidden this);
+    void (__thiscall*Load)(UITextRoller * __hidden this);
+    void (__thiscall*Save)(UITextRoller * __hidden this);
+    void (__thiscall*AddWidgets)(UITextRoller * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UITextRoller * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UITextRoller * __hidden this);
+    void (__thiscall*Disable)(UITextRoller * __hidden this);
+    void (__thiscall*Enable)(UITextRoller * __hidden this);
+    void (__thiscall*TurnOn)(UITextRoller * __hidden this);
+    void (__thiscall*TurnOff)(UITextRoller * __hidden this);
+    void (__thiscall*SetReadOnly)(UITextRoller * __hidden this,i32);
+    void (__thiscall*Action)(UITextRoller * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UITextRoller * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UITextRoller * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UITextRoller * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UITextRoller * __hidden this);
+    void (__thiscall*SetPosition)(UITextRoller * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UITextRoller * __hidden this);
 };
 
 struct UITextRoller2;
-struct UITextRoller2_vftable
+struct UITextRoller2_vtbl
 {
-    void* (__thiscall*Dtor)(UITextRoller2*,u32);
-    class MetaClass* (__thiscall*GetClass)(UITextRoller2*);
-    char* (__thiscall*GetTypeNameV)(UITextRoller2*);
-    void (__thiscall*BeforeSave)(UITextRoller2*);
-    void (__thiscall*AfterLoad)(UITextRoller2*);
-    void (__thiscall*Cull)(UITextRoller2*);
-    void (__thiscall*Update)(UITextRoller2*);
-    void (__thiscall*Reset)(UITextRoller2*);
-    void (__thiscall*ResChange)(UITextRoller2*,i32,i32);
-    void (__thiscall*UpdatePaused)(UITextRoller2*);
-    void (__thiscall*Load)(UITextRoller2*);
-    void (__thiscall*Save)(UITextRoller2*);
-    void (__thiscall*AddWidgets)(UITextRoller2*,class Bank*);
-    void (__thiscall*OpenWidgets)(UITextRoller2*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UITextRoller2*);
-    void (__thiscall*Disable)(UITextRoller2*);
-    void (__thiscall*Enable)(UITextRoller2*);
-    void (__thiscall*TurnOn)(UITextRoller2*);
-    void (__thiscall*TurnOff)(UITextRoller2*);
-    void (__thiscall*SetReadOnly)(UITextRoller2*,i32);
-    void (__thiscall*Action)(UITextRoller2*,union eqEvent);
-    void (__thiscall*CaptureAction)(UITextRoller2*,union eqEvent);
-    void (__thiscall*Switch)(UITextRoller2*,i32);
-    void (__thiscall*EvalMouseX)(UITextRoller2*,f32);
-    char* (__thiscall*ReturnDescription)(UITextRoller2*);
-    void (__thiscall*SetPosition)(UITextRoller2*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UITextRoller2*);
+    void* (__thiscall*Destructor)(UITextRoller2 * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UITextRoller2 * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UITextRoller2 * __hidden this);
+    void (__thiscall*BeforeSave)(UITextRoller2 * __hidden this);
+    void (__thiscall*AfterLoad)(UITextRoller2 * __hidden this);
+    void (__thiscall*Cull)(UITextRoller2 * __hidden this);
+    void (__thiscall*Update)(UITextRoller2 * __hidden this);
+    void (__thiscall*Reset)(UITextRoller2 * __hidden this);
+    void (__thiscall*ResChange)(UITextRoller2 * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UITextRoller2 * __hidden this);
+    void (__thiscall*Load)(UITextRoller2 * __hidden this);
+    void (__thiscall*Save)(UITextRoller2 * __hidden this);
+    void (__thiscall*AddWidgets)(UITextRoller2 * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UITextRoller2 * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UITextRoller2 * __hidden this);
+    void (__thiscall*Disable)(UITextRoller2 * __hidden this);
+    void (__thiscall*Enable)(UITextRoller2 * __hidden this);
+    void (__thiscall*TurnOn)(UITextRoller2 * __hidden this);
+    void (__thiscall*TurnOff)(UITextRoller2 * __hidden this);
+    void (__thiscall*SetReadOnly)(UITextRoller2 * __hidden this,i32);
+    void (__thiscall*Action)(UITextRoller2 * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UITextRoller2 * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UITextRoller2 * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UITextRoller2 * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UITextRoller2 * __hidden this);
+    void (__thiscall*SetPosition)(UITextRoller2 * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UITextRoller2 * __hidden this);
 };
 
 struct UIControlWidget;
-struct UIControlWidget_vftable
+struct UIControlWidget_vtbl
 {
-    void* (__thiscall*Dtor)(UIControlWidget*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIControlWidget*);
-    char* (__thiscall*GetTypeNameV)(UIControlWidget*);
-    void (__thiscall*BeforeSave)(UIControlWidget*);
-    void (__thiscall*AfterLoad)(UIControlWidget*);
-    void (__thiscall*Cull)(UIControlWidget*);
-    void (__thiscall*Update)(UIControlWidget*);
-    void (__thiscall*Reset)(UIControlWidget*);
-    void (__thiscall*ResChange)(UIControlWidget*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIControlWidget*);
-    void (__thiscall*Load)(UIControlWidget*);
-    void (__thiscall*Save)(UIControlWidget*);
-    void (__thiscall*AddWidgets)(UIControlWidget*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIControlWidget*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIControlWidget*);
-    void (__thiscall*Disable)(UIControlWidget*);
-    void (__thiscall*Enable)(UIControlWidget*);
-    void (__thiscall*TurnOn)(UIControlWidget*);
-    void (__thiscall*TurnOff)(UIControlWidget*);
-    void (__thiscall*SetReadOnly)(UIControlWidget*,i32);
-    void (__thiscall*Action)(UIControlWidget*,union eqEvent);
-    void (__thiscall*CaptureAction)(UIControlWidget*,union eqEvent);
-    void (__thiscall*Switch)(UIControlWidget*,i32);
-    void (__thiscall*EvalMouseX)(UIControlWidget*,f32);
-    char* (__thiscall*ReturnDescription)(UIControlWidget*);
-    void (__thiscall*SetPosition)(UIControlWidget*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UIControlWidget*);
+    void* (__thiscall*Destructor)(UIControlWidget * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIControlWidget * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIControlWidget * __hidden this);
+    void (__thiscall*BeforeSave)(UIControlWidget * __hidden this);
+    void (__thiscall*AfterLoad)(UIControlWidget * __hidden this);
+    void (__thiscall*Cull)(UIControlWidget * __hidden this);
+    void (__thiscall*Update)(UIControlWidget * __hidden this);
+    void (__thiscall*Reset)(UIControlWidget * __hidden this);
+    void (__thiscall*ResChange)(UIControlWidget * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIControlWidget * __hidden this);
+    void (__thiscall*Load)(UIControlWidget * __hidden this);
+    void (__thiscall*Save)(UIControlWidget * __hidden this);
+    void (__thiscall*AddWidgets)(UIControlWidget * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIControlWidget * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIControlWidget * __hidden this);
+    void (__thiscall*Disable)(UIControlWidget * __hidden this);
+    void (__thiscall*Enable)(UIControlWidget * __hidden this);
+    void (__thiscall*TurnOn)(UIControlWidget * __hidden this);
+    void (__thiscall*TurnOff)(UIControlWidget * __hidden this);
+    void (__thiscall*SetReadOnly)(UIControlWidget * __hidden this,i32);
+    void (__thiscall*Action)(UIControlWidget * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UIControlWidget * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UIControlWidget * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UIControlWidget * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UIControlWidget * __hidden this);
+    void (__thiscall*SetPosition)(UIControlWidget * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UIControlWidget * __hidden this);
 };
 
 struct UIIconW;
-struct UIIconW_vftable
+struct UIIconW_vtbl
 {
-    void* (__thiscall*Dtor)(UIIconW*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIIconW*);
-    char* (__thiscall*GetTypeNameV)(UIIconW*);
-    void (__thiscall*BeforeSave)(UIIconW*);
-    void (__thiscall*AfterLoad)(UIIconW*);
-    void (__thiscall*Cull)(UIIconW*);
-    void (__thiscall*Update)(UIIconW*);
-    void (__thiscall*Reset)(UIIconW*);
-    void (__thiscall*ResChange)(UIIconW*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIIconW*);
-    void (__thiscall*Load)(UIIconW*);
-    void (__thiscall*Save)(UIIconW*);
-    void (__thiscall*AddWidgets)(UIIconW*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIIconW*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIIconW*);
-    void (__thiscall*Disable)(UIIconW*);
-    void (__thiscall*Enable)(UIIconW*);
-    void (__thiscall*TurnOn)(UIIconW*);
-    void (__thiscall*TurnOff)(UIIconW*);
-    void (__thiscall*SetReadOnly)(UIIconW*,i32);
-    void (__thiscall*Action)(UIIconW*,union eqEvent);
-    void (__thiscall*CaptureAction)(UIIconW*,union eqEvent);
-    void (__thiscall*Switch)(UIIconW*,i32);
-    void (__thiscall*EvalMouseX)(UIIconW*,f32);
-    char* (__thiscall*ReturnDescription)(UIIconW*);
-    void (__thiscall*SetPosition)(UIIconW*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UIIconW*);
+    void* (__thiscall*Destructor)(UIIconW * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIIconW * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIIconW * __hidden this);
+    void (__thiscall*BeforeSave)(UIIconW * __hidden this);
+    void (__thiscall*AfterLoad)(UIIconW * __hidden this);
+    void (__thiscall*Cull)(UIIconW * __hidden this);
+    void (__thiscall*Update)(UIIconW * __hidden this);
+    void (__thiscall*Reset)(UIIconW * __hidden this);
+    void (__thiscall*ResChange)(UIIconW * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIIconW * __hidden this);
+    void (__thiscall*Load)(UIIconW * __hidden this);
+    void (__thiscall*Save)(UIIconW * __hidden this);
+    void (__thiscall*AddWidgets)(UIIconW * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIIconW * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIIconW * __hidden this);
+    void (__thiscall*Disable)(UIIconW * __hidden this);
+    void (__thiscall*Enable)(UIIconW * __hidden this);
+    void (__thiscall*TurnOn)(UIIconW * __hidden this);
+    void (__thiscall*TurnOff)(UIIconW * __hidden this);
+    void (__thiscall*SetReadOnly)(UIIconW * __hidden this,i32);
+    void (__thiscall*Action)(UIIconW * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UIIconW * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UIIconW * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UIIconW * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UIIconW * __hidden this);
+    void (__thiscall*SetPosition)(UIIconW * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UIIconW * __hidden this);
 };
 
 struct UIToggleButton;
-struct UIToggleButton_vftable
+struct UIToggleButton_vtbl
 {
-    void* (__thiscall*Dtor)(UIToggleButton*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIToggleButton*);
-    char* (__thiscall*GetTypeNameV)(UIToggleButton*);
-    void (__thiscall*BeforeSave)(UIToggleButton*);
-    void (__thiscall*AfterLoad)(UIToggleButton*);
-    void (__thiscall*Cull)(UIToggleButton*);
-    void (__thiscall*Update)(UIToggleButton*);
-    void (__thiscall*Reset)(UIToggleButton*);
-    void (__thiscall*ResChange)(UIToggleButton*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIToggleButton*);
-    void (__thiscall*Load)(UIToggleButton*);
-    void (__thiscall*Save)(UIToggleButton*);
-    void (__thiscall*AddWidgets)(UIToggleButton*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIToggleButton*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIToggleButton*);
-    void (__thiscall*Disable)(UIToggleButton*);
-    void (__thiscall*Enable)(UIToggleButton*);
-    void (__thiscall*TurnOn)(UIToggleButton*);
-    void (__thiscall*TurnOff)(UIToggleButton*);
-    void (__thiscall*SetReadOnly)(UIToggleButton*,i32);
-    void (__thiscall*Action)(UIToggleButton*,union eqEvent);
-    void (__thiscall*CaptureAction)(UIToggleButton*,union eqEvent);
-    void (__thiscall*Switch)(UIToggleButton*,i32);
-    void (__thiscall*EvalMouseX)(UIToggleButton*,f32);
-    char* (__thiscall*ReturnDescription)(UIToggleButton*);
-    void (__thiscall*SetPosition)(UIToggleButton*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UIToggleButton*);
-    void (__thiscall*DoToggle)(UIToggleButton*);
-    void (__thiscall*DrawOff)(UIToggleButton*);
-    void (__thiscall*DrawOn)(UIToggleButton*);
+    void* (__thiscall*Destructor)(UIToggleButton * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIToggleButton * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIToggleButton * __hidden this);
+    void (__thiscall*BeforeSave)(UIToggleButton * __hidden this);
+    void (__thiscall*AfterLoad)(UIToggleButton * __hidden this);
+    void (__thiscall*Cull)(UIToggleButton * __hidden this);
+    void (__thiscall*Update)(UIToggleButton * __hidden this);
+    void (__thiscall*Reset)(UIToggleButton * __hidden this);
+    void (__thiscall*ResChange)(UIToggleButton * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIToggleButton * __hidden this);
+    void (__thiscall*Load)(UIToggleButton * __hidden this);
+    void (__thiscall*Save)(UIToggleButton * __hidden this);
+    void (__thiscall*AddWidgets)(UIToggleButton * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIToggleButton * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIToggleButton * __hidden this);
+    void (__thiscall*Disable)(UIToggleButton * __hidden this);
+    void (__thiscall*Enable)(UIToggleButton * __hidden this);
+    void (__thiscall*TurnOn)(UIToggleButton * __hidden this);
+    void (__thiscall*TurnOff)(UIToggleButton * __hidden this);
+    void (__thiscall*SetReadOnly)(UIToggleButton * __hidden this,i32);
+    void (__thiscall*Action)(UIToggleButton * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UIToggleButton * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UIToggleButton * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UIToggleButton * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UIToggleButton * __hidden this);
+    void (__thiscall*SetPosition)(UIToggleButton * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UIToggleButton * __hidden this);
+    void (__thiscall*DoToggle)(UIToggleButton * __hidden this);
+    void (__thiscall*DrawOff)(UIToggleButton * __hidden this);
+    void (__thiscall*DrawOn)(UIToggleButton * __hidden this);
 };
 
 struct UIToggleButton2;
-struct UIToggleButton2_vftable
+struct UIToggleButton2_vtbl
 {
-    void* (__thiscall*Dtor)(UIToggleButton2*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIToggleButton2*);
-    char* (__thiscall*GetTypeNameV)(UIToggleButton2*);
-    void (__thiscall*BeforeSave)(UIToggleButton2*);
-    void (__thiscall*AfterLoad)(UIToggleButton2*);
-    void (__thiscall*Cull)(UIToggleButton2*);
-    void (__thiscall*Update)(UIToggleButton2*);
-    void (__thiscall*Reset)(UIToggleButton2*);
-    void (__thiscall*ResChange)(UIToggleButton2*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIToggleButton2*);
-    void (__thiscall*Load)(UIToggleButton2*);
-    void (__thiscall*Save)(UIToggleButton2*);
-    void (__thiscall*AddWidgets)(UIToggleButton2*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIToggleButton2*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIToggleButton2*);
-    void (__thiscall*Disable)(UIToggleButton2*);
-    void (__thiscall*Enable)(UIToggleButton2*);
-    void (__thiscall*TurnOn)(UIToggleButton2*);
-    void (__thiscall*TurnOff)(UIToggleButton2*);
-    void (__thiscall*SetReadOnly)(UIToggleButton2*,i32);
-    void (__thiscall*Action)(UIToggleButton2*,union eqEvent);
-    void (__thiscall*CaptureAction)(UIToggleButton2*,union eqEvent);
-    void (__thiscall*Switch)(UIToggleButton2*,i32);
-    void (__thiscall*EvalMouseX)(UIToggleButton2*,f32);
-    char* (__thiscall*ReturnDescription)(UIToggleButton2*);
-    void (__thiscall*SetPosition)(UIToggleButton2*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UIToggleButton2*);
-    void (__thiscall*DoToggle)(UIToggleButton2*);
-    void (__thiscall*DrawOff)(UIToggleButton2*);
-    void (__thiscall*DrawOn)(UIToggleButton2*);
+    void* (__thiscall*Destructor)(UIToggleButton2 * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIToggleButton2 * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIToggleButton2 * __hidden this);
+    void (__thiscall*BeforeSave)(UIToggleButton2 * __hidden this);
+    void (__thiscall*AfterLoad)(UIToggleButton2 * __hidden this);
+    void (__thiscall*Cull)(UIToggleButton2 * __hidden this);
+    void (__thiscall*Update)(UIToggleButton2 * __hidden this);
+    void (__thiscall*Reset)(UIToggleButton2 * __hidden this);
+    void (__thiscall*ResChange)(UIToggleButton2 * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIToggleButton2 * __hidden this);
+    void (__thiscall*Load)(UIToggleButton2 * __hidden this);
+    void (__thiscall*Save)(UIToggleButton2 * __hidden this);
+    void (__thiscall*AddWidgets)(UIToggleButton2 * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIToggleButton2 * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIToggleButton2 * __hidden this);
+    void (__thiscall*Disable)(UIToggleButton2 * __hidden this);
+    void (__thiscall*Enable)(UIToggleButton2 * __hidden this);
+    void (__thiscall*TurnOn)(UIToggleButton2 * __hidden this);
+    void (__thiscall*TurnOff)(UIToggleButton2 * __hidden this);
+    void (__thiscall*SetReadOnly)(UIToggleButton2 * __hidden this,i32);
+    void (__thiscall*Action)(UIToggleButton2 * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UIToggleButton2 * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UIToggleButton2 * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UIToggleButton2 * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UIToggleButton2 * __hidden this);
+    void (__thiscall*SetPosition)(UIToggleButton2 * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UIToggleButton2 * __hidden this);
+    void (__thiscall*DoToggle)(UIToggleButton2 * __hidden this);
+    void (__thiscall*DrawOff)(UIToggleButton2 * __hidden this);
+    void (__thiscall*DrawOn)(UIToggleButton2 * __hidden this);
 };
 
 struct UIMexButton;
-struct UIMexButton_vftable
+struct UIMexButton_vtbl
 {
-    void* (__thiscall*Dtor)(UIMexButton*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIMexButton*);
-    char* (__thiscall*GetTypeNameV)(UIMexButton*);
-    void (__thiscall*BeforeSave)(UIMexButton*);
-    void (__thiscall*AfterLoad)(UIMexButton*);
-    void (__thiscall*Cull)(UIMexButton*);
-    void (__thiscall*Update)(UIMexButton*);
-    void (__thiscall*Reset)(UIMexButton*);
-    void (__thiscall*ResChange)(UIMexButton*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIMexButton*);
-    void (__thiscall*Load)(UIMexButton*);
-    void (__thiscall*Save)(UIMexButton*);
-    void (__thiscall*AddWidgets)(UIMexButton*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIMexButton*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIMexButton*);
-    void (__thiscall*Disable)(UIMexButton*);
-    void (__thiscall*Enable)(UIMexButton*);
-    void (__thiscall*TurnOn)(UIMexButton*);
-    void (__thiscall*TurnOff)(UIMexButton*);
-    void (__thiscall*SetReadOnly)(UIMexButton*,i32);
-    void (__thiscall*Action)(UIMexButton*,union eqEvent);
-    void (__thiscall*CaptureAction)(UIMexButton*,union eqEvent);
-    void (__thiscall*Switch)(UIMexButton*,i32);
-    void (__thiscall*EvalMouseX)(UIMexButton*,f32);
-    char* (__thiscall*ReturnDescription)(UIMexButton*);
-    void (__thiscall*SetPosition)(UIMexButton*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UIMexButton*);
-    void (__thiscall*DoToggle)(UIMexButton*);
-    void (__thiscall*DrawOff)(UIMexButton*);
-    void (__thiscall*DrawOn)(UIMexButton*);
+    void* (__thiscall*Destructor)(UIMexButton * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIMexButton * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIMexButton * __hidden this);
+    void (__thiscall*BeforeSave)(UIMexButton * __hidden this);
+    void (__thiscall*AfterLoad)(UIMexButton * __hidden this);
+    void (__thiscall*Cull)(UIMexButton * __hidden this);
+    void (__thiscall*Update)(UIMexButton * __hidden this);
+    void (__thiscall*Reset)(UIMexButton * __hidden this);
+    void (__thiscall*ResChange)(UIMexButton * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIMexButton * __hidden this);
+    void (__thiscall*Load)(UIMexButton * __hidden this);
+    void (__thiscall*Save)(UIMexButton * __hidden this);
+    void (__thiscall*AddWidgets)(UIMexButton * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIMexButton * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIMexButton * __hidden this);
+    void (__thiscall*Disable)(UIMexButton * __hidden this);
+    void (__thiscall*Enable)(UIMexButton * __hidden this);
+    void (__thiscall*TurnOn)(UIMexButton * __hidden this);
+    void (__thiscall*TurnOff)(UIMexButton * __hidden this);
+    void (__thiscall*SetReadOnly)(UIMexButton * __hidden this,i32);
+    void (__thiscall*Action)(UIMexButton * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UIMexButton * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UIMexButton * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UIMexButton * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UIMexButton * __hidden this);
+    void (__thiscall*SetPosition)(UIMexButton * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UIMexButton * __hidden this);
+    void (__thiscall*DoToggle)(UIMexButton * __hidden this);
+    void (__thiscall*DrawOff)(UIMexButton * __hidden this);
+    void (__thiscall*DrawOn)(UIMexButton * __hidden this);
 };
 
 struct UIVScrollBar;
-struct UIVScrollBar_vftable
+struct UIVScrollBar_vtbl
 {
-    void* (__thiscall*Dtor)(UIVScrollBar*,u32);
-    class MetaClass* (__thiscall*GetClass)(UIVScrollBar*);
-    char* (__thiscall*GetTypeNameV)(UIVScrollBar*);
-    void (__thiscall*BeforeSave)(UIVScrollBar*);
-    void (__thiscall*AfterLoad)(UIVScrollBar*);
-    void (__thiscall*Cull)(UIVScrollBar*);
-    void (__thiscall*Update)(UIVScrollBar*);
-    void (__thiscall*Reset)(UIVScrollBar*);
-    void (__thiscall*ResChange)(UIVScrollBar*,i32,i32);
-    void (__thiscall*UpdatePaused)(UIVScrollBar*);
-    void (__thiscall*Load)(UIVScrollBar*);
-    void (__thiscall*Save)(UIVScrollBar*);
-    void (__thiscall*AddWidgets)(UIVScrollBar*,class Bank*);
-    void (__thiscall*OpenWidgets)(UIVScrollBar*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(UIVScrollBar*);
-    void (__thiscall*Disable)(UIVScrollBar*);
-    void (__thiscall*Enable)(UIVScrollBar*);
-    void (__thiscall*TurnOn)(UIVScrollBar*);
-    void (__thiscall*TurnOff)(UIVScrollBar*);
-    void (__thiscall*SetReadOnly)(UIVScrollBar*,i32);
-    void (__thiscall*Action)(UIVScrollBar*,union eqEvent);
-    void (__thiscall*CaptureAction)(UIVScrollBar*,union eqEvent);
-    void (__thiscall*Switch)(UIVScrollBar*,i32);
-    void (__thiscall*EvalMouseX)(UIVScrollBar*,f32);
-    char* (__thiscall*ReturnDescription)(UIVScrollBar*);
-    void (__thiscall*SetPosition)(UIVScrollBar*,f32,f32);
-    f32 (__thiscall*GetScreenHeight)(UIVScrollBar*);
+    void* (__thiscall*Destructor)(UIVScrollBar * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(UIVScrollBar * __hidden this);
+    char* (__thiscall*GetTypeNameV)(UIVScrollBar * __hidden this);
+    void (__thiscall*BeforeSave)(UIVScrollBar * __hidden this);
+    void (__thiscall*AfterLoad)(UIVScrollBar * __hidden this);
+    void (__thiscall*Cull)(UIVScrollBar * __hidden this);
+    void (__thiscall*Update)(UIVScrollBar * __hidden this);
+    void (__thiscall*Reset)(UIVScrollBar * __hidden this);
+    void (__thiscall*ResChange)(UIVScrollBar * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(UIVScrollBar * __hidden this);
+    void (__thiscall*Load)(UIVScrollBar * __hidden this);
+    void (__thiscall*Save)(UIVScrollBar * __hidden this);
+    void (__thiscall*AddWidgets)(UIVScrollBar * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(UIVScrollBar * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(UIVScrollBar * __hidden this);
+    void (__thiscall*Disable)(UIVScrollBar * __hidden this);
+    void (__thiscall*Enable)(UIVScrollBar * __hidden this);
+    void (__thiscall*TurnOn)(UIVScrollBar * __hidden this);
+    void (__thiscall*TurnOff)(UIVScrollBar * __hidden this);
+    void (__thiscall*SetReadOnly)(UIVScrollBar * __hidden this,i32);
+    void (__thiscall*Action)(UIVScrollBar * __hidden this,union eqEvent);
+    void (__thiscall*CaptureAction)(UIVScrollBar * __hidden this,union eqEvent);
+    void (__thiscall*Switch)(UIVScrollBar * __hidden this,i32);
+    void (__thiscall*EvalMouseX)(UIVScrollBar * __hidden this,f32);
+    char* (__thiscall*ReturnDescription)(UIVScrollBar * __hidden this);
+    void (__thiscall*SetPosition)(UIVScrollBar * __hidden this,f32,f32);
+    f32 (__thiscall*GetScreenHeight)(UIVScrollBar * __hidden this);
 };
 
 struct sfPointer;
-struct sfPointer_vftable
+struct sfPointer_vtbl
 {
-    void* (__thiscall*Dtor)(sfPointer*,u32);
-    class MetaClass* (__thiscall*GetClass)(sfPointer*);
-    char* (__thiscall*GetTypeNameV)(sfPointer*);
-    void (__thiscall*BeforeSave)(sfPointer*);
-    void (__thiscall*AfterLoad)(sfPointer*);
-    void (__thiscall*Cull)(sfPointer*);
-    void (__thiscall*Update)(sfPointer*);
-    void (__thiscall*Reset)(sfPointer*);
-    void (__thiscall*ResChange)(sfPointer*,i32,i32);
-    void (__thiscall*UpdatePaused)(sfPointer*);
-    void (__thiscall*Load)(sfPointer*);
-    void (__thiscall*Save)(sfPointer*);
-    void (__thiscall*AddWidgets)(sfPointer*,class Bank*);
-    void (__thiscall*OpenWidgets)(sfPointer*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(sfPointer*);
+    void* (__thiscall*Destructor)(sfPointer * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(sfPointer * __hidden this);
+    char* (__thiscall*GetTypeNameV)(sfPointer * __hidden this);
+    void (__thiscall*BeforeSave)(sfPointer * __hidden this);
+    void (__thiscall*AfterLoad)(sfPointer * __hidden this);
+    void (__thiscall*Cull)(sfPointer * __hidden this);
+    void (__thiscall*Update)(sfPointer * __hidden this);
+    void (__thiscall*Reset)(sfPointer * __hidden this);
+    void (__thiscall*ResChange)(sfPointer * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(sfPointer * __hidden this);
+    void (__thiscall*Load)(sfPointer * __hidden this);
+    void (__thiscall*Save)(sfPointer * __hidden this);
+    void (__thiscall*AddWidgets)(sfPointer * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(sfPointer * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(sfPointer * __hidden this);
 };
 
 struct TextDropWidget;
-struct TextDropWidget_vftable
+struct TextDropWidget_vtbl
 {
-    void* (__thiscall*Dtor)(TextDropWidget*,u32);
-    class MetaClass* (__thiscall*GetClass)(TextDropWidget*);
-    char* (__thiscall*GetTypeNameV)(TextDropWidget*);
-    void (__thiscall*BeforeSave)(TextDropWidget*);
-    void (__thiscall*AfterLoad)(TextDropWidget*);
-    void (__thiscall*Cull)(TextDropWidget*);
-    void (__thiscall*Update)(TextDropWidget*);
-    void (__thiscall*Reset)(TextDropWidget*);
-    void (__thiscall*ResChange)(TextDropWidget*,i32,i32);
-    void (__thiscall*UpdatePaused)(TextDropWidget*);
-    void (__thiscall*Load)(TextDropWidget*);
-    void (__thiscall*Save)(TextDropWidget*);
-    void (__thiscall*AddWidgets)(TextDropWidget*,class Bank*);
-    void (__thiscall*OpenWidgets)(TextDropWidget*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(TextDropWidget*);
+    void* (__thiscall*Destructor)(TextDropWidget * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(TextDropWidget * __hidden this);
+    char* (__thiscall*GetTypeNameV)(TextDropWidget * __hidden this);
+    void (__thiscall*BeforeSave)(TextDropWidget * __hidden this);
+    void (__thiscall*AfterLoad)(TextDropWidget * __hidden this);
+    void (__thiscall*Cull)(TextDropWidget * __hidden this);
+    void (__thiscall*Update)(TextDropWidget * __hidden this);
+    void (__thiscall*Reset)(TextDropWidget * __hidden this);
+    void (__thiscall*ResChange)(TextDropWidget * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(TextDropWidget * __hidden this);
+    void (__thiscall*Load)(TextDropWidget * __hidden this);
+    void (__thiscall*Save)(TextDropWidget * __hidden this);
+    void (__thiscall*AddWidgets)(TextDropWidget * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(TextDropWidget * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(TextDropWidget * __hidden this);
 };
 
 struct mmSlider;
-struct mmSlider_vftable
+struct mmSlider_vtbl
 {
-    void* (__thiscall*Dtor)(mmSlider*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmSlider*);
-    char* (__thiscall*GetTypeNameV)(mmSlider*);
-    void (__thiscall*BeforeSave)(mmSlider*);
-    void (__thiscall*AfterLoad)(mmSlider*);
-    void (__thiscall*Cull)(mmSlider*);
-    void (__thiscall*Update)(mmSlider*);
-    void (__thiscall*Reset)(mmSlider*);
-    void (__thiscall*ResChange)(mmSlider*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmSlider*);
-    void (__thiscall*Load)(mmSlider*);
-    void (__thiscall*Save)(mmSlider*);
-    void (__thiscall*AddWidgets)(mmSlider*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmSlider*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmSlider*);
+    void* (__thiscall*Destructor)(mmSlider * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmSlider * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmSlider * __hidden this);
+    void (__thiscall*BeforeSave)(mmSlider * __hidden this);
+    void (__thiscall*AfterLoad)(mmSlider * __hidden this);
+    void (__thiscall*Cull)(mmSlider * __hidden this);
+    void (__thiscall*Update)(mmSlider * __hidden this);
+    void (__thiscall*Reset)(mmSlider * __hidden this);
+    void (__thiscall*ResChange)(mmSlider * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmSlider * __hidden this);
+    void (__thiscall*Load)(mmSlider * __hidden this);
+    void (__thiscall*Save)(mmSlider * __hidden this);
+    void (__thiscall*AddWidgets)(mmSlider * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmSlider * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmSlider * __hidden this);
 };
 
 struct mmToolTip;
-struct mmToolTip_vftable
+struct mmToolTip_vtbl
 {
-    void* (__thiscall*Dtor)(mmToolTip*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmToolTip*);
-    char* (__thiscall*GetTypeNameV)(mmToolTip*);
-    void (__thiscall*BeforeSave)(mmToolTip*);
-    void (__thiscall*AfterLoad)(mmToolTip*);
-    void (__thiscall*Cull)(mmToolTip*);
-    void (__thiscall*Update)(mmToolTip*);
-    void (__thiscall*Reset)(mmToolTip*);
-    void (__thiscall*ResChange)(mmToolTip*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmToolTip*);
-    void (__thiscall*Load)(mmToolTip*);
-    void (__thiscall*Save)(mmToolTip*);
-    void (__thiscall*AddWidgets)(mmToolTip*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmToolTip*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmToolTip*);
+    void* (__thiscall*Destructor)(mmToolTip * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmToolTip * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmToolTip * __hidden this);
+    void (__thiscall*BeforeSave)(mmToolTip * __hidden this);
+    void (__thiscall*AfterLoad)(mmToolTip * __hidden this);
+    void (__thiscall*Cull)(mmToolTip * __hidden this);
+    void (__thiscall*Update)(mmToolTip * __hidden this);
+    void (__thiscall*Reset)(mmToolTip * __hidden this);
+    void (__thiscall*ResChange)(mmToolTip * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmToolTip * __hidden this);
+    void (__thiscall*Load)(mmToolTip * __hidden this);
+    void (__thiscall*Save)(mmToolTip * __hidden this);
+    void (__thiscall*AddWidgets)(mmToolTip * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmToolTip * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmToolTip * __hidden this);
 };
 
 struct VSWidget;
-struct VSWidget_vftable
+struct VSWidget_vtbl
 {
-    void* (__thiscall*Dtor)(VSWidget*,u32);
-    class MetaClass* (__thiscall*GetClass)(VSWidget*);
-    char* (__thiscall*GetTypeNameV)(VSWidget*);
-    void (__thiscall*BeforeSave)(VSWidget*);
-    void (__thiscall*AfterLoad)(VSWidget*);
-    void (__thiscall*Cull)(VSWidget*);
-    void (__thiscall*Update)(VSWidget*);
-    void (__thiscall*Reset)(VSWidget*);
-    void (__thiscall*ResChange)(VSWidget*,i32,i32);
-    void (__thiscall*UpdatePaused)(VSWidget*);
-    void (__thiscall*Load)(VSWidget*);
-    void (__thiscall*Save)(VSWidget*);
-    void (__thiscall*AddWidgets)(VSWidget*,class Bank*);
-    void (__thiscall*OpenWidgets)(VSWidget*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(VSWidget*);
+    void* (__thiscall*Destructor)(VSWidget * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(VSWidget * __hidden this);
+    char* (__thiscall*GetTypeNameV)(VSWidget * __hidden this);
+    void (__thiscall*BeforeSave)(VSWidget * __hidden this);
+    void (__thiscall*AfterLoad)(VSWidget * __hidden this);
+    void (__thiscall*Cull)(VSWidget * __hidden this);
+    void (__thiscall*Update)(VSWidget * __hidden this);
+    void (__thiscall*Reset)(VSWidget * __hidden this);
+    void (__thiscall*ResChange)(VSWidget * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(VSWidget * __hidden this);
+    void (__thiscall*Load)(VSWidget * __hidden this);
+    void (__thiscall*Save)(VSWidget * __hidden this);
+    void (__thiscall*AddWidgets)(VSWidget * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(VSWidget * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(VSWidget * __hidden this);
 };
 
 struct mmToggle2;
-struct mmToggle2_vftable
+struct mmToggle2_vtbl
 {
-    void* (__thiscall*Dtor)(mmToggle2*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmToggle2*);
-    char* (__thiscall*GetTypeNameV)(mmToggle2*);
-    void (__thiscall*BeforeSave)(mmToggle2*);
-    void (__thiscall*AfterLoad)(mmToggle2*);
-    void (__thiscall*Cull)(mmToggle2*);
-    void (__thiscall*Update)(mmToggle2*);
-    void (__thiscall*Reset)(mmToggle2*);
-    void (__thiscall*ResChange)(mmToggle2*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmToggle2*);
-    void (__thiscall*Load)(mmToggle2*);
-    void (__thiscall*Save)(mmToggle2*);
-    void (__thiscall*AddWidgets)(mmToggle2*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmToggle2*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmToggle2*);
+    void* (__thiscall*Destructor)(mmToggle2 * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmToggle2 * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmToggle2 * __hidden this);
+    void (__thiscall*BeforeSave)(mmToggle2 * __hidden this);
+    void (__thiscall*AfterLoad)(mmToggle2 * __hidden this);
+    void (__thiscall*Cull)(mmToggle2 * __hidden this);
+    void (__thiscall*Update)(mmToggle2 * __hidden this);
+    void (__thiscall*Reset)(mmToggle2 * __hidden this);
+    void (__thiscall*ResChange)(mmToggle2 * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmToggle2 * __hidden this);
+    void (__thiscall*Load)(mmToggle2 * __hidden this);
+    void (__thiscall*Save)(mmToggle2 * __hidden this);
+    void (__thiscall*AddWidgets)(mmToggle2 * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmToggle2 * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmToggle2 * __hidden this);
 };
 
 struct mmToggle;
-struct mmToggle_vftable
+struct mmToggle_vtbl
 {
-    void* (__thiscall*Dtor)(mmToggle*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmToggle*);
-    char* (__thiscall*GetTypeNameV)(mmToggle*);
-    void (__thiscall*BeforeSave)(mmToggle*);
-    void (__thiscall*AfterLoad)(mmToggle*);
-    void (__thiscall*Cull)(mmToggle*);
-    void (__thiscall*Update)(mmToggle*);
-    void (__thiscall*Reset)(mmToggle*);
-    void (__thiscall*ResChange)(mmToggle*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmToggle*);
-    void (__thiscall*Load)(mmToggle*);
-    void (__thiscall*Save)(mmToggle*);
-    void (__thiscall*AddWidgets)(mmToggle*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmToggle*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmToggle*);
+    void* (__thiscall*Destructor)(mmToggle * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmToggle * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmToggle * __hidden this);
+    void (__thiscall*BeforeSave)(mmToggle * __hidden this);
+    void (__thiscall*AfterLoad)(mmToggle * __hidden this);
+    void (__thiscall*Cull)(mmToggle * __hidden this);
+    void (__thiscall*Update)(mmToggle * __hidden this);
+    void (__thiscall*Reset)(mmToggle * __hidden this);
+    void (__thiscall*ResChange)(mmToggle * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmToggle * __hidden this);
+    void (__thiscall*Load)(mmToggle * __hidden this);
+    void (__thiscall*Save)(mmToggle * __hidden this);
+    void (__thiscall*AddWidgets)(mmToggle * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmToggle * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmToggle * __hidden this);
 };
 
 struct mmDropDown;
-struct mmDropDown_vftable
+struct mmDropDown_vtbl
 {
-    void* (__thiscall*Dtor)(mmDropDown*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmDropDown*);
-    char* (__thiscall*GetTypeNameV)(mmDropDown*);
-    void (__thiscall*BeforeSave)(mmDropDown*);
-    void (__thiscall*AfterLoad)(mmDropDown*);
-    void (__thiscall*Cull)(mmDropDown*);
-    void (__thiscall*Update)(mmDropDown*);
-    void (__thiscall*Reset)(mmDropDown*);
-    void (__thiscall*ResChange)(mmDropDown*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmDropDown*);
-    void (__thiscall*Load)(mmDropDown*);
-    void (__thiscall*Save)(mmDropDown*);
-    void (__thiscall*AddWidgets)(mmDropDown*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmDropDown*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmDropDown*);
+    void* (__thiscall*Destructor)(mmDropDown * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmDropDown * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmDropDown * __hidden this);
+    void (__thiscall*BeforeSave)(mmDropDown * __hidden this);
+    void (__thiscall*AfterLoad)(mmDropDown * __hidden this);
+    void (__thiscall*Cull)(mmDropDown * __hidden this);
+    void (__thiscall*Update)(mmDropDown * __hidden this);
+    void (__thiscall*Reset)(mmDropDown * __hidden this);
+    void (__thiscall*ResChange)(mmDropDown * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmDropDown * __hidden this);
+    void (__thiscall*Load)(mmDropDown * __hidden this);
+    void (__thiscall*Save)(mmDropDown * __hidden this);
+    void (__thiscall*AddWidgets)(mmDropDown * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmDropDown * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmDropDown * __hidden this);
 };
 
 struct mmAnimMgr;
-struct mmAnimMgr_vftable
+struct mmAnimMgr_vtbl
 {
-    void* (__thiscall*Dtor)(mmAnimMgr*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmAnimMgr*);
-    char* (__thiscall*GetTypeNameV)(mmAnimMgr*);
-    void (__thiscall*BeforeSave)(mmAnimMgr*);
-    void (__thiscall*AfterLoad)(mmAnimMgr*);
-    void (__thiscall*Cull)(mmAnimMgr*);
-    void (__thiscall*Update)(mmAnimMgr*);
-    void (__thiscall*Reset)(mmAnimMgr*);
-    void (__thiscall*ResChange)(mmAnimMgr*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmAnimMgr*);
-    void (__thiscall*Load)(mmAnimMgr*);
-    void (__thiscall*Save)(mmAnimMgr*);
-    void (__thiscall*AddWidgets)(mmAnimMgr*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmAnimMgr*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmAnimMgr*);
+    void* (__thiscall*Destructor)(mmAnimMgr * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmAnimMgr * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmAnimMgr * __hidden this);
+    void (__thiscall*BeforeSave)(mmAnimMgr * __hidden this);
+    void (__thiscall*AfterLoad)(mmAnimMgr * __hidden this);
+    void (__thiscall*Cull)(mmAnimMgr * __hidden this);
+    void (__thiscall*Update)(mmAnimMgr * __hidden this);
+    void (__thiscall*Reset)(mmAnimMgr * __hidden this);
+    void (__thiscall*ResChange)(mmAnimMgr * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmAnimMgr * __hidden this);
+    void (__thiscall*Load)(mmAnimMgr * __hidden this);
+    void (__thiscall*Save)(mmAnimMgr * __hidden this);
+    void (__thiscall*AddWidgets)(mmAnimMgr * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmAnimMgr * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmAnimMgr * __hidden this);
 };
 
 struct mmBridgeMgr;
-struct mmBridgeMgr_vftable
+struct mmBridgeMgr_vtbl
 {
-    void* (__thiscall*Dtor)(mmBridgeMgr*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBridgeMgr*);
-    char* (__thiscall*GetTypeNameV)(mmBridgeMgr*);
-    void (__thiscall*BeforeSave)(mmBridgeMgr*);
-    void (__thiscall*AfterLoad)(mmBridgeMgr*);
-    void (__thiscall*Cull)(mmBridgeMgr*);
-    void (__thiscall*Update)(mmBridgeMgr*);
-    void (__thiscall*Reset)(mmBridgeMgr*);
-    void (__thiscall*ResChange)(mmBridgeMgr*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmBridgeMgr*);
-    void (__thiscall*Load)(mmBridgeMgr*);
-    void (__thiscall*Save)(mmBridgeMgr*);
-    void (__thiscall*AddWidgets)(mmBridgeMgr*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmBridgeMgr*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmBridgeMgr*);
+    void* (__thiscall*Destructor)(mmBridgeMgr * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBridgeMgr * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBridgeMgr * __hidden this);
+    void (__thiscall*BeforeSave)(mmBridgeMgr * __hidden this);
+    void (__thiscall*AfterLoad)(mmBridgeMgr * __hidden this);
+    void (__thiscall*Cull)(mmBridgeMgr * __hidden this);
+    void (__thiscall*Update)(mmBridgeMgr * __hidden this);
+    void (__thiscall*Reset)(mmBridgeMgr * __hidden this);
+    void (__thiscall*ResChange)(mmBridgeMgr * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmBridgeMgr * __hidden this);
+    void (__thiscall*Load)(mmBridgeMgr * __hidden this);
+    void (__thiscall*Save)(mmBridgeMgr * __hidden this);
+    void (__thiscall*AddWidgets)(mmBridgeMgr * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmBridgeMgr * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmBridgeMgr * __hidden this);
 };
 
 struct mmBridgeSet;
-struct mmBridgeSet_vftable
+struct mmBridgeSet_vtbl
 {
-    void* (__thiscall*Dtor)(mmBridgeSet*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBridgeSet*);
-    char* (__thiscall*GetTypeNameV)(mmBridgeSet*);
-    void (__thiscall*BeforeSave)(mmBridgeSet*);
-    void (__thiscall*AfterLoad)(mmBridgeSet*);
-    void (__thiscall*Cull)(mmBridgeSet*);
-    void (__thiscall*Update)(mmBridgeSet*);
-    void (__thiscall*Reset)(mmBridgeSet*);
-    void (__thiscall*ResChange)(mmBridgeSet*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmBridgeSet*);
-    void (__thiscall*Load)(mmBridgeSet*);
-    void (__thiscall*Save)(mmBridgeSet*);
-    void (__thiscall*AddWidgets)(mmBridgeSet*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmBridgeSet*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmBridgeSet*);
+    void* (__thiscall*Destructor)(mmBridgeSet * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBridgeSet * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBridgeSet * __hidden this);
+    void (__thiscall*BeforeSave)(mmBridgeSet * __hidden this);
+    void (__thiscall*AfterLoad)(mmBridgeSet * __hidden this);
+    void (__thiscall*Cull)(mmBridgeSet * __hidden this);
+    void (__thiscall*Update)(mmBridgeSet * __hidden this);
+    void (__thiscall*Reset)(mmBridgeSet * __hidden this);
+    void (__thiscall*ResChange)(mmBridgeSet * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmBridgeSet * __hidden this);
+    void (__thiscall*Load)(mmBridgeSet * __hidden this);
+    void (__thiscall*Save)(mmBridgeSet * __hidden this);
+    void (__thiscall*AddWidgets)(mmBridgeSet * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmBridgeSet * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmBridgeSet * __hidden this);
 };
 
 struct mmAnimExcel;
-struct mmAnimExcel_vftable
+struct mmAnimExcel_vtbl
 {
-    void* (__thiscall*Dtor)(mmAnimExcel*,u32);
+    void* (__thiscall*Destructor)(mmAnimExcel * __hidden this,u32);
 };
 
 struct mmAnimSpline;
-struct mmAnimSpline_vftable
+struct mmAnimSpline_vtbl
 {
-    void* (__thiscall*Dtor)(mmAnimSpline*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmAnimSpline*);
-    char* (__thiscall*GetTypeNameV)(mmAnimSpline*);
-    void (__thiscall*BeforeSave)(mmAnimSpline*);
-    void (__thiscall*AfterLoad)(mmAnimSpline*);
-    void (__thiscall*Cull)(mmAnimSpline*);
-    void (__thiscall*Update)(mmAnimSpline*);
-    void (__thiscall*Reset)(mmAnimSpline*);
-    void (__thiscall*ResChange)(mmAnimSpline*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmAnimSpline*);
-    void (__thiscall*Load)(mmAnimSpline*);
-    void (__thiscall*Save)(mmAnimSpline*);
-    void (__thiscall*AddWidgets)(mmAnimSpline*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmAnimSpline*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmAnimSpline*);
+    void* (__thiscall*Destructor)(mmAnimSpline * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmAnimSpline * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmAnimSpline * __hidden this);
+    void (__thiscall*BeforeSave)(mmAnimSpline * __hidden this);
+    void (__thiscall*AfterLoad)(mmAnimSpline * __hidden this);
+    void (__thiscall*Cull)(mmAnimSpline * __hidden this);
+    void (__thiscall*Update)(mmAnimSpline * __hidden this);
+    void (__thiscall*Reset)(mmAnimSpline * __hidden this);
+    void (__thiscall*ResChange)(mmAnimSpline * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmAnimSpline * __hidden this);
+    void (__thiscall*Load)(mmAnimSpline * __hidden this);
+    void (__thiscall*Save)(mmAnimSpline * __hidden this);
+    void (__thiscall*AddWidgets)(mmAnimSpline * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmAnimSpline * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmAnimSpline * __hidden this);
 };
 
 struct mmBridgeAudMgr;
-struct mmBridgeAudMgr_vftable
+struct mmBridgeAudMgr_vtbl
 {
-    void* (__thiscall*Dtor)(mmBridgeAudMgr*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBridgeAudMgr*);
-    char* (__thiscall*GetTypeNameV)(mmBridgeAudMgr*);
-    void (__thiscall*BeforeSave)(mmBridgeAudMgr*);
-    void (__thiscall*AfterLoad)(mmBridgeAudMgr*);
-    void (__thiscall*Cull)(mmBridgeAudMgr*);
-    void (__thiscall*Update)(mmBridgeAudMgr*);
-    void (__thiscall*Reset)(mmBridgeAudMgr*);
-    void (__thiscall*ResChange)(mmBridgeAudMgr*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmBridgeAudMgr*);
-    void (__thiscall*Load)(mmBridgeAudMgr*);
-    void (__thiscall*Save)(mmBridgeAudMgr*);
-    void (__thiscall*AddWidgets)(mmBridgeAudMgr*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmBridgeAudMgr*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmBridgeAudMgr*);
+    void* (__thiscall*Destructor)(mmBridgeAudMgr * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBridgeAudMgr * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBridgeAudMgr * __hidden this);
+    void (__thiscall*BeforeSave)(mmBridgeAudMgr * __hidden this);
+    void (__thiscall*AfterLoad)(mmBridgeAudMgr * __hidden this);
+    void (__thiscall*Cull)(mmBridgeAudMgr * __hidden this);
+    void (__thiscall*Update)(mmBridgeAudMgr * __hidden this);
+    void (__thiscall*Reset)(mmBridgeAudMgr * __hidden this);
+    void (__thiscall*ResChange)(mmBridgeAudMgr * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmBridgeAudMgr * __hidden this);
+    void (__thiscall*Load)(mmBridgeAudMgr * __hidden this);
+    void (__thiscall*Save)(mmBridgeAudMgr * __hidden this);
+    void (__thiscall*AddWidgets)(mmBridgeAudMgr * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmBridgeAudMgr * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmBridgeAudMgr * __hidden this);
 };
 
 struct mmAnimDOF;
-struct mmAnimDOF_vftable
+struct mmAnimDOF_vtbl
 {
-    class MetaClass* (__thiscall*GetClass)(mmAnimDOF*);
+    class MetaClass* (__thiscall*GetClass)(mmAnimDOF * __hidden this);
 };
 
 struct mmDofBangerInstance;
-struct mmDofBangerInstance_vftable
+struct mmDofBangerInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmDofBangerInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmDofBangerInstance*);
-    char* (__thiscall*GetTypeNameV)(mmDofBangerInstance*);
-    void (__thiscall*BeforeSave)(mmDofBangerInstance*);
-    void (__thiscall*AfterLoad)(mmDofBangerInstance*);
-    void (__fastcall*FromMatrix)(mmDofBangerInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmDofBangerInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmDofBangerInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmDofBangerInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmDofBangerInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmDofBangerInstance*);
-    void (__thiscall*Impact)(mmDofBangerInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmDofBangerInstance*);
-    void (__fastcall*Draw)(mmDofBangerInstance*,i32);
-    void (__fastcall*DrawShadow)(mmDofBangerInstance*);
-    void (__fastcall*DrawGlow)(mmDofBangerInstance*);
-    void (__fastcall*Relight)(mmDofBangerInstance*);
-    u32 (__thiscall*SizeOf)(mmDofBangerInstance*);
-    void (__thiscall*Reset)(mmDofBangerInstance*);
-    void (__thiscall*AddWidgets)(mmDofBangerInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmDofBangerInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmDofBangerInstance*);
-    i32 (__thiscall*ComputeLod)(mmDofBangerInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmDofBangerInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmDofBangerInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmDofBangerInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmDofBangerInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmDofBangerInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmDofBangerInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmDofBangerInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmDofBangerInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmDofBangerInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmDofBangerInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmDofBangerInstance * __hidden this);
+    void (__thiscall*Impact)(mmDofBangerInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmDofBangerInstance * __hidden this);
+    void (__fastcall*Draw)(mmDofBangerInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmDofBangerInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmDofBangerInstance * __hidden this);
+    void (__fastcall*Relight)(mmDofBangerInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmDofBangerInstance * __hidden this);
+    void (__thiscall*Reset)(mmDofBangerInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmDofBangerInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmDofBangerInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmDofBangerInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmDofBangerInstance * __hidden this,f32,f32);
 };
 
 struct mmDrawbridgeInstance;
-struct mmDrawbridgeInstance_vftable
+struct mmDrawbridgeInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmDrawbridgeInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmDrawbridgeInstance*);
-    char* (__thiscall*GetTypeNameV)(mmDrawbridgeInstance*);
-    void (__thiscall*BeforeSave)(mmDrawbridgeInstance*);
-    void (__thiscall*AfterLoad)(mmDrawbridgeInstance*);
-    void (__fastcall*FromMatrix)(mmDrawbridgeInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmDrawbridgeInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmDrawbridgeInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmDrawbridgeInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmDrawbridgeInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmDrawbridgeInstance*);
-    void (__thiscall*Impact)(mmDrawbridgeInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmDrawbridgeInstance*);
-    void (__fastcall*Draw)(mmDrawbridgeInstance*,i32);
-    void (__fastcall*DrawShadow)(mmDrawbridgeInstance*);
-    void (__fastcall*DrawGlow)(mmDrawbridgeInstance*);
-    void (__fastcall*Relight)(mmDrawbridgeInstance*);
-    u32 (__thiscall*SizeOf)(mmDrawbridgeInstance*);
-    void (__thiscall*Reset)(mmDrawbridgeInstance*);
-    void (__thiscall*AddWidgets)(mmDrawbridgeInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmDrawbridgeInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmDrawbridgeInstance*);
-    i32 (__thiscall*ComputeLod)(mmDrawbridgeInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmDrawbridgeInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmDrawbridgeInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmDrawbridgeInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmDrawbridgeInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmDrawbridgeInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmDrawbridgeInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmDrawbridgeInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmDrawbridgeInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmDrawbridgeInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmDrawbridgeInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmDrawbridgeInstance * __hidden this);
+    void (__thiscall*Impact)(mmDrawbridgeInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmDrawbridgeInstance * __hidden this);
+    void (__fastcall*Draw)(mmDrawbridgeInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmDrawbridgeInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmDrawbridgeInstance * __hidden this);
+    void (__fastcall*Relight)(mmDrawbridgeInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmDrawbridgeInstance * __hidden this);
+    void (__thiscall*Reset)(mmDrawbridgeInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmDrawbridgeInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmDrawbridgeInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmDrawbridgeInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmDrawbridgeInstance * __hidden this,f32,f32);
 };
 
 struct mmAnimPlane;
-struct mmAnimPlane_vftable
+struct mmAnimPlane_vtbl
 {
-    void* (__thiscall*Dtor)(mmAnimPlane*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmAnimPlane*);
-    char* (__thiscall*GetTypeNameV)(mmAnimPlane*);
-    void (__thiscall*BeforeSave)(mmAnimPlane*);
-    void (__thiscall*AfterLoad)(mmAnimPlane*);
-    void (__fastcall*FromMatrix)(mmAnimPlane*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmAnimPlane*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmAnimPlane*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmAnimPlane*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmAnimPlane*);
-    class Vector3 (__thiscall*GetVelocity)(mmAnimPlane*);
-    void (__thiscall*Impact)(mmAnimPlane*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmAnimPlane*);
-    void (__fastcall*Draw)(mmAnimPlane*,i32);
-    void (__fastcall*DrawShadow)(mmAnimPlane*);
-    void (__fastcall*DrawGlow)(mmAnimPlane*);
-    void (__fastcall*Relight)(mmAnimPlane*);
-    u32 (__thiscall*SizeOf)(mmAnimPlane*);
-    void (__thiscall*Reset)(mmAnimPlane*);
-    void (__thiscall*AddWidgets)(mmAnimPlane*,class Bank*);
-    i32 (__thiscall*Init)(mmAnimPlane*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmAnimPlane*);
-    i32 (__thiscall*ComputeLod)(mmAnimPlane*,f32,f32);
-    void (__thiscall*Hit)(mmAnimPlane*,class mmInstance*);
+    void* (__thiscall*Destructor)(mmAnimPlane * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmAnimPlane * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmAnimPlane * __hidden this);
+    void (__thiscall*BeforeSave)(mmAnimPlane * __hidden this);
+    void (__thiscall*AfterLoad)(mmAnimPlane * __hidden this);
+    void (__fastcall*FromMatrix)(mmAnimPlane * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmAnimPlane * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmAnimPlane * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmAnimPlane * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmAnimPlane * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmAnimPlane * __hidden this);
+    void (__thiscall*Impact)(mmAnimPlane * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmAnimPlane * __hidden this);
+    void (__fastcall*Draw)(mmAnimPlane * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmAnimPlane * __hidden this);
+    void (__fastcall*DrawGlow)(mmAnimPlane * __hidden this);
+    void (__fastcall*Relight)(mmAnimPlane * __hidden this);
+    u32 (__thiscall*SizeOf)(mmAnimPlane * __hidden this);
+    void (__thiscall*Reset)(mmAnimPlane * __hidden this);
+    void (__thiscall*AddWidgets)(mmAnimPlane * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmAnimPlane * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmAnimPlane * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmAnimPlane * __hidden this,f32,f32);
+    void (__thiscall*Hit)(mmAnimPlane * __hidden this,class mmInstance*);
 };
 
 struct mmBoat;
-struct mmBoat_vftable
+struct mmBoat_vtbl
 {
-    void* (__thiscall*Dtor)(mmBoat*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBoat*);
-    char* (__thiscall*GetTypeNameV)(mmBoat*);
-    void (__thiscall*BeforeSave)(mmBoat*);
-    void (__thiscall*AfterLoad)(mmBoat*);
-    void (__thiscall*Cull)(mmBoat*);
-    void (__thiscall*Update)(mmBoat*);
-    void (__thiscall*Reset)(mmBoat*);
-    void (__thiscall*ResChange)(mmBoat*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmBoat*);
-    void (__thiscall*Load)(mmBoat*);
-    void (__thiscall*Save)(mmBoat*);
-    void (__thiscall*AddWidgets)(mmBoat*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmBoat*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmBoat*);
+    void* (__thiscall*Destructor)(mmBoat * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBoat * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBoat * __hidden this);
+    void (__thiscall*BeforeSave)(mmBoat * __hidden this);
+    void (__thiscall*AfterLoad)(mmBoat * __hidden this);
+    void (__thiscall*Cull)(mmBoat * __hidden this);
+    void (__thiscall*Update)(mmBoat * __hidden this);
+    void (__thiscall*Reset)(mmBoat * __hidden this);
+    void (__thiscall*ResChange)(mmBoat * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmBoat * __hidden this);
+    void (__thiscall*Load)(mmBoat * __hidden this);
+    void (__thiscall*Save)(mmBoat * __hidden this);
+    void (__thiscall*AddWidgets)(mmBoat * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmBoat * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmBoat * __hidden this);
 };
 
 struct mmAnimTrainCar;
-struct mmAnimTrainCar_vftable
+struct mmAnimTrainCar_vtbl
 {
-    void* (__thiscall*Dtor)(mmAnimTrainCar*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmAnimTrainCar*);
-    char* (__thiscall*GetTypeNameV)(mmAnimTrainCar*);
-    void (__thiscall*BeforeSave)(mmAnimTrainCar*);
-    void (__thiscall*AfterLoad)(mmAnimTrainCar*);
-    void (__fastcall*FromMatrix)(mmAnimTrainCar*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmAnimTrainCar*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmAnimTrainCar*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmAnimTrainCar*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmAnimTrainCar*);
-    class Vector3 (__thiscall*GetVelocity)(mmAnimTrainCar*);
-    void (__thiscall*Impact)(mmAnimTrainCar*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmAnimTrainCar*);
-    void (__fastcall*Draw)(mmAnimTrainCar*,i32);
-    void (__fastcall*DrawShadow)(mmAnimTrainCar*);
-    void (__fastcall*DrawGlow)(mmAnimTrainCar*);
-    void (__fastcall*Relight)(mmAnimTrainCar*);
-    u32 (__thiscall*SizeOf)(mmAnimTrainCar*);
-    void (__thiscall*Reset)(mmAnimTrainCar*);
-    void (__thiscall*AddWidgets)(mmAnimTrainCar*,class Bank*);
-    i32 (__thiscall*Init)(mmAnimTrainCar*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmAnimTrainCar*);
-    i32 (__thiscall*ComputeLod)(mmAnimTrainCar*,f32,f32);
-    void (__thiscall*Hit)(mmAnimTrainCar*,class mmInstance*);
+    void* (__thiscall*Destructor)(mmAnimTrainCar * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmAnimTrainCar * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmAnimTrainCar * __hidden this);
+    void (__thiscall*BeforeSave)(mmAnimTrainCar * __hidden this);
+    void (__thiscall*AfterLoad)(mmAnimTrainCar * __hidden this);
+    void (__fastcall*FromMatrix)(mmAnimTrainCar * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmAnimTrainCar * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmAnimTrainCar * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmAnimTrainCar * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmAnimTrainCar * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmAnimTrainCar * __hidden this);
+    void (__thiscall*Impact)(mmAnimTrainCar * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmAnimTrainCar * __hidden this);
+    void (__fastcall*Draw)(mmAnimTrainCar * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmAnimTrainCar * __hidden this);
+    void (__fastcall*DrawGlow)(mmAnimTrainCar * __hidden this);
+    void (__fastcall*Relight)(mmAnimTrainCar * __hidden this);
+    u32 (__thiscall*SizeOf)(mmAnimTrainCar * __hidden this);
+    void (__thiscall*Reset)(mmAnimTrainCar * __hidden this);
+    void (__thiscall*AddWidgets)(mmAnimTrainCar * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmAnimTrainCar * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmAnimTrainCar * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmAnimTrainCar * __hidden this,f32,f32);
+    void (__thiscall*Hit)(mmAnimTrainCar * __hidden this,class mmInstance*);
 };
 
 struct mmBangerDataManager;
-struct mmBangerDataManager_vftable
+struct mmBangerDataManager_vtbl
 {
-    void* (__thiscall*Dtor)(mmBangerDataManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBangerDataManager*);
-    char* (__thiscall*GetTypeNameV)(mmBangerDataManager*);
-    void (__thiscall*BeforeSave)(mmBangerDataManager*);
-    void (__thiscall*AfterLoad)(mmBangerDataManager*);
-    void (__thiscall*Cull)(mmBangerDataManager*);
-    void (__thiscall*Update)(mmBangerDataManager*);
-    void (__thiscall*Reset)(mmBangerDataManager*);
-    void (__thiscall*ResChange)(mmBangerDataManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmBangerDataManager*);
-    void (__thiscall*Load)(mmBangerDataManager*);
-    void (__thiscall*Save)(mmBangerDataManager*);
-    void (__thiscall*AddWidgets)(mmBangerDataManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmBangerDataManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmBangerDataManager*);
+    void* (__thiscall*Destructor)(mmBangerDataManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBangerDataManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBangerDataManager * __hidden this);
+    void (__thiscall*BeforeSave)(mmBangerDataManager * __hidden this);
+    void (__thiscall*AfterLoad)(mmBangerDataManager * __hidden this);
+    void (__thiscall*Cull)(mmBangerDataManager * __hidden this);
+    void (__thiscall*Update)(mmBangerDataManager * __hidden this);
+    void (__thiscall*Reset)(mmBangerDataManager * __hidden this);
+    void (__thiscall*ResChange)(mmBangerDataManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmBangerDataManager * __hidden this);
+    void (__thiscall*Load)(mmBangerDataManager * __hidden this);
+    void (__thiscall*Save)(mmBangerDataManager * __hidden this);
+    void (__thiscall*AddWidgets)(mmBangerDataManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmBangerDataManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmBangerDataManager * __hidden this);
 };
 
 struct RefToType;
-struct RefToType_vftable
+struct RefToType_vtbl
 {
-    void (__thiscall*Save)(RefToType*,class MiniParser*,void*);
-    void (__thiscall*Load)(RefToType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(RefToType*);
-    void* (__thiscall*New)(RefToType*,i32);
-    void (__thiscall*Delete)(RefToType*,void*,i32);
+    void (__thiscall*Save)(RefToType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(RefToType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(RefToType * __hidden this);
+    void* (__thiscall*New)(RefToType * __hidden this,i32);
+    void (__thiscall*Delete)(RefToType * __hidden this,void*,i32);
 };
 
 struct mmBangerData;
-struct mmBangerData_vftable
+struct mmBangerData_vtbl
 {
-    void* (__thiscall*Dtor)(mmBangerData*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBangerData*);
-    char* (__thiscall*GetTypeNameV)(mmBangerData*);
-    void (__thiscall*BeforeSave)(mmBangerData*);
-    void (__thiscall*AfterLoad)(mmBangerData*);
-    void (__thiscall*Cull)(mmBangerData*);
-    void (__thiscall*Update)(mmBangerData*);
-    void (__thiscall*Reset)(mmBangerData*);
-    void (__thiscall*ResChange)(mmBangerData*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmBangerData*);
-    void (__thiscall*Load)(mmBangerData*);
-    void (__thiscall*Save)(mmBangerData*);
-    void (__thiscall*AddWidgets)(mmBangerData*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmBangerData*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmBangerData*);
+    void* (__thiscall*Destructor)(mmBangerData * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBangerData * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBangerData * __hidden this);
+    void (__thiscall*BeforeSave)(mmBangerData * __hidden this);
+    void (__thiscall*AfterLoad)(mmBangerData * __hidden this);
+    void (__thiscall*Cull)(mmBangerData * __hidden this);
+    void (__thiscall*Update)(mmBangerData * __hidden this);
+    void (__thiscall*Reset)(mmBangerData * __hidden this);
+    void (__thiscall*ResChange)(mmBangerData * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmBangerData * __hidden this);
+    void (__thiscall*Load)(mmBangerData * __hidden this);
+    void (__thiscall*Save)(mmBangerData * __hidden this);
+    void (__thiscall*AddWidgets)(mmBangerData * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmBangerData * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmBangerData * __hidden this);
 };
 
 struct mmHitBangerInstance;
-struct mmHitBangerInstance_vftable
+struct mmHitBangerInstance_vtbl
 {
-    void* (__thiscall*Dtor)(mmHitBangerInstance*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmHitBangerInstance*);
-    char* (__thiscall*GetTypeNameV)(mmHitBangerInstance*);
-    void (__thiscall*BeforeSave)(mmHitBangerInstance*);
-    void (__thiscall*AfterLoad)(mmHitBangerInstance*);
-    void (__fastcall*FromMatrix)(mmHitBangerInstance*,class Matrix34 const&);
-    class Matrix34& (__fastcall*ToMatrix)(mmHitBangerInstance*,class Matrix34&);
-    class Vector3& (__fastcall*GetPos)(mmHitBangerInstance*);
-    class mmPhysEntity* (__thiscall*GetEntity)(mmHitBangerInstance*);
-    class mmPhysEntity* (__thiscall*AttachEntity)(mmHitBangerInstance*);
-    class Vector3 (__thiscall*GetVelocity)(mmHitBangerInstance*);
-    void (__thiscall*Impact)(mmHitBangerInstance*,class mmInstance*,class Vector3*);
-    void (__thiscall*Detach)(mmHitBangerInstance*);
-    void (__fastcall*Draw)(mmHitBangerInstance*,i32);
-    void (__fastcall*DrawShadow)(mmHitBangerInstance*);
-    void (__fastcall*DrawGlow)(mmHitBangerInstance*);
-    void (__fastcall*Relight)(mmHitBangerInstance*);
-    u32 (__thiscall*SizeOf)(mmHitBangerInstance*);
-    void (__thiscall*Reset)(mmHitBangerInstance*);
-    void (__thiscall*AddWidgets)(mmHitBangerInstance*,class Bank*);
-    i32 (__thiscall*Init)(mmHitBangerInstance*,char*,class Vector3&,class Vector3&,i32,char*);
-    f32 (__fastcall*GetScale)(mmHitBangerInstance*);
-    i32 (__thiscall*ComputeLod)(mmHitBangerInstance*,f32,f32);
+    void* (__thiscall*Destructor)(mmHitBangerInstance * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmHitBangerInstance * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmHitBangerInstance * __hidden this);
+    void (__thiscall*BeforeSave)(mmHitBangerInstance * __hidden this);
+    void (__thiscall*AfterLoad)(mmHitBangerInstance * __hidden this);
+    void (__fastcall*FromMatrix)(mmHitBangerInstance * __hidden this,class Matrix34 const&);
+    class Matrix34& (__fastcall*ToMatrix)(mmHitBangerInstance * __hidden this,class Matrix34&);
+    class Vector3& (__fastcall*GetPos)(mmHitBangerInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*GetEntity)(mmHitBangerInstance * __hidden this);
+    class mmPhysEntity* (__thiscall*AttachEntity)(mmHitBangerInstance * __hidden this);
+    class Vector3 (__thiscall*GetVelocity)(mmHitBangerInstance * __hidden this);
+    void (__thiscall*Impact)(mmHitBangerInstance * __hidden this,class mmInstance*,class Vector3*);
+    void (__thiscall*Detach)(mmHitBangerInstance * __hidden this);
+    void (__fastcall*Draw)(mmHitBangerInstance * __hidden this,i32);
+    void (__fastcall*DrawShadow)(mmHitBangerInstance * __hidden this);
+    void (__fastcall*DrawGlow)(mmHitBangerInstance * __hidden this);
+    void (__fastcall*Relight)(mmHitBangerInstance * __hidden this);
+    u32 (__thiscall*SizeOf)(mmHitBangerInstance * __hidden this);
+    void (__thiscall*Reset)(mmHitBangerInstance * __hidden this);
+    void (__thiscall*AddWidgets)(mmHitBangerInstance * __hidden this,class Bank*);
+    i32 (__thiscall*Init)(mmHitBangerInstance * __hidden this,char*,class Vector3&,class Vector3&,i32,char*);
+    f32 (__fastcall*GetScale)(mmHitBangerInstance * __hidden this);
+    i32 (__thiscall*ComputeLod)(mmHitBangerInstance * __hidden this,f32,f32);
 };
 
 struct mmBangerActive;
-struct mmBangerActive_vftable
+struct mmBangerActive_vtbl
 {
-    void* (__thiscall*Dtor)(mmBangerActive*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBangerActive*);
-    char* (__thiscall*GetTypeNameV)(mmBangerActive*);
-    void (__thiscall*BeforeSave)(mmBangerActive*);
-    void (__thiscall*AfterLoad)(mmBangerActive*);
-    void (__thiscall*Cull)(mmBangerActive*);
-    void (__thiscall*Update)(mmBangerActive*);
-    void (__thiscall*Reset)(mmBangerActive*);
-    void (__thiscall*ResChange)(mmBangerActive*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmBangerActive*);
-    void (__thiscall*Load)(mmBangerActive*);
-    void (__thiscall*Save)(mmBangerActive*);
-    void (__thiscall*AddWidgets)(mmBangerActive*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmBangerActive*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmBangerActive*);
-    void (__thiscall*PostUpdate)(mmBangerActive*);
-    class asBound* (__thiscall*GetBound)(mmBangerActive*);
-    class asInertialCS* (__thiscall*GetICS)(mmBangerActive*);
-    void (__thiscall*DetachMe)(mmBangerActive*);
+    void* (__thiscall*Destructor)(mmBangerActive * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBangerActive * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBangerActive * __hidden this);
+    void (__thiscall*BeforeSave)(mmBangerActive * __hidden this);
+    void (__thiscall*AfterLoad)(mmBangerActive * __hidden this);
+    void (__thiscall*Cull)(mmBangerActive * __hidden this);
+    void (__thiscall*Update)(mmBangerActive * __hidden this);
+    void (__thiscall*Reset)(mmBangerActive * __hidden this);
+    void (__thiscall*ResChange)(mmBangerActive * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmBangerActive * __hidden this);
+    void (__thiscall*Load)(mmBangerActive * __hidden this);
+    void (__thiscall*Save)(mmBangerActive * __hidden this);
+    void (__thiscall*AddWidgets)(mmBangerActive * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmBangerActive * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmBangerActive * __hidden this);
+    void (__thiscall*PostUpdate)(mmBangerActive * __hidden this);
+    class asBound* (__thiscall*GetBound)(mmBangerActive * __hidden this);
+    class asInertialCS* (__thiscall*GetICS)(mmBangerActive * __hidden this);
+    void (__thiscall*DetachMe)(mmBangerActive * __hidden this);
 };
 
 struct mmBangerActiveManager;
-struct mmBangerActiveManager_vftable
+struct mmBangerActiveManager_vtbl
 {
-    void* (__thiscall*Dtor)(mmBangerActiveManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmBangerActiveManager*);
-    char* (__thiscall*GetTypeNameV)(mmBangerActiveManager*);
-    void (__thiscall*BeforeSave)(mmBangerActiveManager*);
-    void (__thiscall*AfterLoad)(mmBangerActiveManager*);
-    void (__thiscall*Cull)(mmBangerActiveManager*);
-    void (__thiscall*Update)(mmBangerActiveManager*);
-    void (__thiscall*Reset)(mmBangerActiveManager*);
-    void (__thiscall*ResChange)(mmBangerActiveManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmBangerActiveManager*);
-    void (__thiscall*Load)(mmBangerActiveManager*);
-    void (__thiscall*Save)(mmBangerActiveManager*);
-    void (__thiscall*AddWidgets)(mmBangerActiveManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmBangerActiveManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmBangerActiveManager*);
+    void* (__thiscall*Destructor)(mmBangerActiveManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmBangerActiveManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmBangerActiveManager * __hidden this);
+    void (__thiscall*BeforeSave)(mmBangerActiveManager * __hidden this);
+    void (__thiscall*AfterLoad)(mmBangerActiveManager * __hidden this);
+    void (__thiscall*Cull)(mmBangerActiveManager * __hidden this);
+    void (__thiscall*Update)(mmBangerActiveManager * __hidden this);
+    void (__thiscall*Reset)(mmBangerActiveManager * __hidden this);
+    void (__thiscall*ResChange)(mmBangerActiveManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmBangerActiveManager * __hidden this);
+    void (__thiscall*Load)(mmBangerActiveManager * __hidden this);
+    void (__thiscall*Save)(mmBangerActiveManager * __hidden this);
+    void (__thiscall*AddWidgets)(mmBangerActiveManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmBangerActiveManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmBangerActiveManager * __hidden this);
 };
 
 struct mmPlayerData;
-struct mmPlayerData_vftable
+struct mmPlayerData_vtbl
 {
-    void* (__thiscall*Dtor)(mmPlayerData*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPlayerData*);
-    char* (__thiscall*GetTypeNameV)(mmPlayerData*);
-    void (__thiscall*BeforeSave)(mmPlayerData*);
-    void (__thiscall*AfterLoad)(mmPlayerData*);
+    void* (__thiscall*Destructor)(mmPlayerData * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPlayerData * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPlayerData * __hidden this);
+    void (__thiscall*BeforeSave)(mmPlayerData * __hidden this);
+    void (__thiscall*AfterLoad)(mmPlayerData * __hidden this);
 };
 
 struct mmCityList;
-struct mmCityList_vftable
+struct mmCityList_vtbl
 {
-    void* (__thiscall*Dtor)(mmCityList*,u32);
+    void* (__thiscall*Destructor)(mmCityList * __hidden this,u32);
 };
 
 struct mmVehList;
-struct mmVehList_vftable
+struct mmVehList_vtbl
 {
-    void* (__thiscall*Dtor)(mmVehList*,u32);
+    void* (__thiscall*Destructor)(mmVehList * __hidden this,u32);
 };
 
 struct mmMiscData;
-struct mmMiscData_vftable
+struct mmMiscData_vtbl
 {
-    void* (__thiscall*Dtor)(mmMiscData*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmMiscData*);
-    char* (__thiscall*GetTypeNameV)(mmMiscData*);
-    void (__thiscall*BeforeSave)(mmMiscData*);
-    void (__thiscall*AfterLoad)(mmMiscData*);
+    void* (__thiscall*Destructor)(mmMiscData * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmMiscData * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmMiscData * __hidden this);
+    void (__thiscall*BeforeSave)(mmMiscData * __hidden this);
+    void (__thiscall*AfterLoad)(mmMiscData * __hidden this);
 };
 
 struct mmRecord;
-struct mmRecord_vftable
+struct mmRecord_vtbl
 {
-    void* (__thiscall*Dtor)(mmRecord*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmRecord*);
-    char* (__thiscall*GetTypeNameV)(mmRecord*);
-    void (__thiscall*BeforeSave)(mmRecord*);
-    void (__thiscall*AfterLoad)(mmRecord*);
+    void* (__thiscall*Destructor)(mmRecord * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmRecord * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmRecord * __hidden this);
+    void (__thiscall*BeforeSave)(mmRecord * __hidden this);
+    void (__thiscall*AfterLoad)(mmRecord * __hidden this);
 };
 
 struct mmPlayerConfig;
-struct mmPlayerConfig_vftable
+struct mmPlayerConfig_vtbl
 {
-    void* (__thiscall*Dtor)(mmPlayerConfig*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPlayerConfig*);
-    char* (__thiscall*GetTypeNameV)(mmPlayerConfig*);
-    void (__thiscall*BeforeSave)(mmPlayerConfig*);
-    void (__thiscall*AfterLoad)(mmPlayerConfig*);
+    void* (__thiscall*Destructor)(mmPlayerConfig * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPlayerConfig * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPlayerConfig * __hidden this);
+    void (__thiscall*BeforeSave)(mmPlayerConfig * __hidden this);
+    void (__thiscall*AfterLoad)(mmPlayerConfig * __hidden this);
 };
 
 struct mmPlayerDirectory;
-struct mmPlayerDirectory_vftable
+struct mmPlayerDirectory_vtbl
 {
-    void* (__thiscall*Dtor)(mmPlayerDirectory*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPlayerDirectory*);
-    char* (__thiscall*GetTypeNameV)(mmPlayerDirectory*);
-    void (__thiscall*BeforeSave)(mmPlayerDirectory*);
-    void (__thiscall*AfterLoad)(mmPlayerDirectory*);
+    void* (__thiscall*Destructor)(mmPlayerDirectory * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPlayerDirectory * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPlayerDirectory * __hidden this);
+    void (__thiscall*BeforeSave)(mmPlayerDirectory * __hidden this);
+    void (__thiscall*AfterLoad)(mmPlayerDirectory * __hidden this);
 };
 
 struct mmPropInfo;
-struct mmPropInfo_vftable
+struct mmPropInfo_vtbl
 {
-    void* (__thiscall*Dtor)(mmPropInfo*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPropInfo*);
-    char* (__thiscall*GetTypeNameV)(mmPropInfo*);
-    void (__thiscall*BeforeSave)(mmPropInfo*);
-    void (__thiscall*AfterLoad)(mmPropInfo*);
+    void* (__thiscall*Destructor)(mmPropInfo * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPropInfo * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPropInfo * __hidden this);
+    void (__thiscall*BeforeSave)(mmPropInfo * __hidden this);
+    void (__thiscall*AfterLoad)(mmPropInfo * __hidden this);
 };
 
 struct mmMapData;
-struct mmMapData_vftable
+struct mmMapData_vtbl
 {
-    void* (__thiscall*Dtor)(mmMapData*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmMapData*);
-    char* (__thiscall*GetTypeNameV)(mmMapData*);
-    void (__thiscall*BeforeSave)(mmMapData*);
-    void (__thiscall*AfterLoad)(mmMapData*);
+    void* (__thiscall*Destructor)(mmMapData * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmMapData * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmMapData * __hidden this);
+    void (__thiscall*BeforeSave)(mmMapData * __hidden this);
+    void (__thiscall*AfterLoad)(mmMapData * __hidden this);
 };
 
 struct mmCityInfo;
-struct mmCityInfo_vftable
+struct mmCityInfo_vtbl
 {
-    void* (__thiscall*Dtor)(mmCityInfo*,u32);
+    void* (__thiscall*Destructor)(mmCityInfo * __hidden this,u32);
 };
 
 struct mmVehInfo;
-struct mmVehInfo_vftable
+struct mmVehInfo_vtbl
 {
-    void* (__thiscall*Dtor)(mmVehInfo*,u32);
+    void* (__thiscall*Destructor)(mmVehInfo * __hidden this,u32);
 };
 
 struct mmPhysicsMGR;
-struct mmPhysicsMGR_vftable
+struct mmPhysicsMGR_vtbl
 {
-    void* (__thiscall*Dtor)(mmPhysicsMGR*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPhysicsMGR*);
-    char* (__thiscall*GetTypeNameV)(mmPhysicsMGR*);
-    void (__thiscall*BeforeSave)(mmPhysicsMGR*);
-    void (__thiscall*AfterLoad)(mmPhysicsMGR*);
-    void (__thiscall*Cull)(mmPhysicsMGR*);
-    void (__thiscall*Update)(mmPhysicsMGR*);
-    void (__thiscall*Reset)(mmPhysicsMGR*);
-    void (__thiscall*ResChange)(mmPhysicsMGR*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmPhysicsMGR*);
-    void (__thiscall*Load)(mmPhysicsMGR*);
-    void (__thiscall*Save)(mmPhysicsMGR*);
-    void (__thiscall*AddWidgets)(mmPhysicsMGR*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmPhysicsMGR*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmPhysicsMGR*);
+    void* (__thiscall*Destructor)(mmPhysicsMGR * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPhysicsMGR * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPhysicsMGR * __hidden this);
+    void (__thiscall*BeforeSave)(mmPhysicsMGR * __hidden this);
+    void (__thiscall*AfterLoad)(mmPhysicsMGR * __hidden this);
+    void (__thiscall*Cull)(mmPhysicsMGR * __hidden this);
+    void (__thiscall*Update)(mmPhysicsMGR * __hidden this);
+    void (__thiscall*Reset)(mmPhysicsMGR * __hidden this);
+    void (__thiscall*ResChange)(mmPhysicsMGR * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmPhysicsMGR * __hidden this);
+    void (__thiscall*Load)(mmPhysicsMGR * __hidden this);
+    void (__thiscall*Save)(mmPhysicsMGR * __hidden this);
+    void (__thiscall*AddWidgets)(mmPhysicsMGR * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmPhysicsMGR * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmPhysicsMGR * __hidden this);
 };
 
 struct mmPhysExec;
-struct mmPhysExec_vftable
+struct mmPhysExec_vtbl
 {
-    void* (__thiscall*Dtor)(mmPhysExec*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmPhysExec*);
-    char* (__thiscall*GetTypeNameV)(mmPhysExec*);
-    void (__thiscall*BeforeSave)(mmPhysExec*);
-    void (__thiscall*AfterLoad)(mmPhysExec*);
-    void (__thiscall*Cull)(mmPhysExec*);
-    void (__thiscall*Update)(mmPhysExec*);
-    void (__thiscall*Reset)(mmPhysExec*);
-    void (__thiscall*ResChange)(mmPhysExec*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmPhysExec*);
-    void (__thiscall*Load)(mmPhysExec*);
-    void (__thiscall*Save)(mmPhysExec*);
-    void (__thiscall*AddWidgets)(mmPhysExec*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmPhysExec*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmPhysExec*);
+    void* (__thiscall*Destructor)(mmPhysExec * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmPhysExec * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmPhysExec * __hidden this);
+    void (__thiscall*BeforeSave)(mmPhysExec * __hidden this);
+    void (__thiscall*AfterLoad)(mmPhysExec * __hidden this);
+    void (__thiscall*Cull)(mmPhysExec * __hidden this);
+    void (__thiscall*Update)(mmPhysExec * __hidden this);
+    void (__thiscall*Reset)(mmPhysExec * __hidden this);
+    void (__thiscall*ResChange)(mmPhysExec * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmPhysExec * __hidden this);
+    void (__thiscall*Load)(mmPhysExec * __hidden this);
+    void (__thiscall*Save)(mmPhysExec * __hidden this);
+    void (__thiscall*AddWidgets)(mmPhysExec * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmPhysExec * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmPhysExec * __hidden this);
 };
 
 struct asInertialCS;
-struct asInertialCS_vftable
+struct asInertialCS_vtbl
 {
-    void* (__thiscall*Dtor)(asInertialCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(asInertialCS*);
-    char* (__thiscall*GetTypeNameV)(asInertialCS*);
-    void (__thiscall*BeforeSave)(asInertialCS*);
-    void (__thiscall*AfterLoad)(asInertialCS*);
-    void (__thiscall*Cull)(asInertialCS*);
-    void (__thiscall*Update)(asInertialCS*);
-    void (__thiscall*Reset)(asInertialCS*);
-    void (__thiscall*ResChange)(asInertialCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(asInertialCS*);
-    void (__thiscall*Load)(asInertialCS*);
-    void (__thiscall*Save)(asInertialCS*);
-    void (__thiscall*AddWidgets)(asInertialCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(asInertialCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asInertialCS*);
-    void (__thiscall*ApplyPush)(asInertialCS*,class Vector3 const&,class Vector3 const&);
-    void (__thiscall*GetCMatrix)(asInertialCS*,class Matrix34&,class Vector3 const&);
+    void* (__thiscall*Destructor)(asInertialCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asInertialCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asInertialCS * __hidden this);
+    void (__thiscall*BeforeSave)(asInertialCS * __hidden this);
+    void (__thiscall*AfterLoad)(asInertialCS * __hidden this);
+    void (__thiscall*Cull)(asInertialCS * __hidden this);
+    void (__thiscall*Update)(asInertialCS * __hidden this);
+    void (__thiscall*Reset)(asInertialCS * __hidden this);
+    void (__thiscall*ResChange)(asInertialCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asInertialCS * __hidden this);
+    void (__thiscall*Load)(asInertialCS * __hidden this);
+    void (__thiscall*Save)(asInertialCS * __hidden this);
+    void (__thiscall*AddWidgets)(asInertialCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asInertialCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asInertialCS * __hidden this);
+    void (__thiscall*ApplyPush)(asInertialCS * __hidden this,class Vector3 const&,class Vector3 const&);
+    void (__thiscall*GetCMatrix)(asInertialCS * __hidden this,class Matrix34&,class Vector3 const&);
 };
 
 struct Joint3Dof;
-struct Joint3Dof_vftable
+struct Joint3Dof_vtbl
 {
-    void* (__thiscall*Dtor)(Joint3Dof*,u32);
-    class MetaClass* (__thiscall*GetClass)(Joint3Dof*);
-    char* (__thiscall*GetTypeNameV)(Joint3Dof*);
-    void (__thiscall*BeforeSave)(Joint3Dof*);
-    void (__thiscall*AfterLoad)(Joint3Dof*);
-    void (__thiscall*Cull)(Joint3Dof*);
-    void (__thiscall*Update)(Joint3Dof*);
-    void (__thiscall*Reset)(Joint3Dof*);
-    void (__thiscall*ResChange)(Joint3Dof*,i32,i32);
-    void (__thiscall*UpdatePaused)(Joint3Dof*);
-    void (__thiscall*Load)(Joint3Dof*);
-    void (__thiscall*Save)(Joint3Dof*);
-    void (__thiscall*AddWidgets)(Joint3Dof*,class Bank*);
-    void (__thiscall*OpenWidgets)(Joint3Dof*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Joint3Dof*);
-    void (__thiscall*GetCMatrix)(Joint3Dof*,class asInertialCS const*,class asInertialCS const*,class Matrix34&,class Vector3 const&);
-    void (__thiscall*GetCMatrix1)(Joint3Dof*,class asInertialCS const*,class Matrix34&,class Vector3 const&);
+    void* (__thiscall*Destructor)(Joint3Dof * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Joint3Dof * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Joint3Dof * __hidden this);
+    void (__thiscall*BeforeSave)(Joint3Dof * __hidden this);
+    void (__thiscall*AfterLoad)(Joint3Dof * __hidden this);
+    void (__thiscall*Cull)(Joint3Dof * __hidden this);
+    void (__thiscall*Update)(Joint3Dof * __hidden this);
+    void (__thiscall*Reset)(Joint3Dof * __hidden this);
+    void (__thiscall*ResChange)(Joint3Dof * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Joint3Dof * __hidden this);
+    void (__thiscall*Load)(Joint3Dof * __hidden this);
+    void (__thiscall*Save)(Joint3Dof * __hidden this);
+    void (__thiscall*AddWidgets)(Joint3Dof * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Joint3Dof * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Joint3Dof * __hidden this);
+    void (__thiscall*GetCMatrix)(Joint3Dof * __hidden this,class asInertialCS const*,class asInertialCS const*,class Matrix34&,class Vector3 const&);
+    void (__thiscall*GetCMatrix1)(Joint3Dof * __hidden this,class asInertialCS const*,class Matrix34&,class Vector3 const&);
 };
 
 struct asOverSample;
-struct asOverSample_vftable
+struct asOverSample_vtbl
 {
-    void* (__thiscall*Dtor)(asOverSample*,u32);
-    class MetaClass* (__thiscall*GetClass)(asOverSample*);
-    char* (__thiscall*GetTypeNameV)(asOverSample*);
-    void (__thiscall*BeforeSave)(asOverSample*);
-    void (__thiscall*AfterLoad)(asOverSample*);
-    void (__thiscall*Cull)(asOverSample*);
-    void (__thiscall*Update)(asOverSample*);
-    void (__thiscall*Reset)(asOverSample*);
-    void (__thiscall*ResChange)(asOverSample*,i32,i32);
-    void (__thiscall*UpdatePaused)(asOverSample*);
-    void (__thiscall*Load)(asOverSample*);
-    void (__thiscall*Save)(asOverSample*);
-    void (__thiscall*AddWidgets)(asOverSample*,class Bank*);
-    void (__thiscall*OpenWidgets)(asOverSample*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asOverSample*);
+    void* (__thiscall*Destructor)(asOverSample * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asOverSample * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asOverSample * __hidden this);
+    void (__thiscall*BeforeSave)(asOverSample * __hidden this);
+    void (__thiscall*AfterLoad)(asOverSample * __hidden this);
+    void (__thiscall*Cull)(asOverSample * __hidden this);
+    void (__thiscall*Update)(asOverSample * __hidden this);
+    void (__thiscall*Reset)(asOverSample * __hidden this);
+    void (__thiscall*ResChange)(asOverSample * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asOverSample * __hidden this);
+    void (__thiscall*Load)(asOverSample * __hidden this);
+    void (__thiscall*Save)(asOverSample * __hidden this);
+    void (__thiscall*AddWidgets)(asOverSample * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asOverSample * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asOverSample * __hidden this);
 };
 
 struct asBound;
-struct asBound_vftable
+struct asBound_vtbl
 {
-    void* (__thiscall*Dtor)(asBound*,u32);
-    class MetaClass* (__thiscall*GetClass)(asBound*);
-    char* (__thiscall*GetTypeNameV)(asBound*);
-    void (__thiscall*BeforeSave)(asBound*);
-    void (__thiscall*AfterLoad)(asBound*);
-    void (__thiscall*Cull)(asBound*);
-    void (__thiscall*Update)(asBound*);
-    void (__thiscall*Reset)(asBound*);
-    void (__thiscall*ResChange)(asBound*,i32,i32);
-    void (__thiscall*UpdatePaused)(asBound*);
-    void (__thiscall*Load)(asBound*);
-    void (__thiscall*Save)(asBound*);
-    void (__thiscall*AddWidgets)(asBound*,class Bank*);
-    void (__thiscall*OpenWidgets)(asBound*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asBound*);
+    void* (__thiscall*Destructor)(asBound * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asBound * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asBound * __hidden this);
+    void (__thiscall*BeforeSave)(asBound * __hidden this);
+    void (__thiscall*AfterLoad)(asBound * __hidden this);
+    void (__thiscall*Cull)(asBound * __hidden this);
+    void (__thiscall*Update)(asBound * __hidden this);
+    void (__thiscall*Reset)(asBound * __hidden this);
+    void (__thiscall*ResChange)(asBound * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asBound * __hidden this);
+    void (__thiscall*Load)(asBound * __hidden this);
+    void (__thiscall*Save)(asBound * __hidden this);
+    void (__thiscall*AddWidgets)(asBound * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asBound * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asBound * __hidden this);
 };
 
 struct asAero;
-struct asAero_vftable
+struct asAero_vtbl
 {
-    void* (__thiscall*Dtor)(asAero*,u32);
-    class MetaClass* (__thiscall*GetClass)(asAero*);
-    char* (__thiscall*GetTypeNameV)(asAero*);
-    void (__thiscall*BeforeSave)(asAero*);
-    void (__thiscall*AfterLoad)(asAero*);
-    void (__thiscall*Cull)(asAero*);
-    void (__thiscall*Update)(asAero*);
-    void (__thiscall*Reset)(asAero*);
-    void (__thiscall*ResChange)(asAero*,i32,i32);
-    void (__thiscall*UpdatePaused)(asAero*);
-    void (__thiscall*Load)(asAero*);
-    void (__thiscall*Save)(asAero*);
-    void (__thiscall*AddWidgets)(asAero*,class Bank*);
-    void (__thiscall*OpenWidgets)(asAero*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asAero*);
+    void* (__thiscall*Destructor)(asAero * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asAero * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asAero * __hidden this);
+    void (__thiscall*BeforeSave)(asAero * __hidden this);
+    void (__thiscall*AfterLoad)(asAero * __hidden this);
+    void (__thiscall*Cull)(asAero * __hidden this);
+    void (__thiscall*Update)(asAero * __hidden this);
+    void (__thiscall*Reset)(asAero * __hidden this);
+    void (__thiscall*ResChange)(asAero * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asAero * __hidden this);
+    void (__thiscall*Load)(asAero * __hidden this);
+    void (__thiscall*Save)(asAero * __hidden this);
+    void (__thiscall*AddWidgets)(asAero * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asAero * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asAero * __hidden this);
 };
 
 struct mmInput;
-struct mmInput_vftable
+struct mmInput_vtbl
 {
-    void* (__thiscall*Dtor)(mmInput*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmInput*);
-    char* (__thiscall*GetTypeNameV)(mmInput*);
-    void (__thiscall*BeforeSave)(mmInput*);
-    void (__thiscall*AfterLoad)(mmInput*);
-    void (__thiscall*Cull)(mmInput*);
-    void (__thiscall*Update)(mmInput*);
-    void (__thiscall*Reset)(mmInput*);
-    void (__thiscall*ResChange)(mmInput*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmInput*);
-    void (__thiscall*Load)(mmInput*);
-    void (__thiscall*Save)(mmInput*);
-    void (__thiscall*AddWidgets)(mmInput*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmInput*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmInput*);
+    void* (__thiscall*Destructor)(mmInput * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmInput * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmInput * __hidden this);
+    void (__thiscall*BeforeSave)(mmInput * __hidden this);
+    void (__thiscall*AfterLoad)(mmInput * __hidden this);
+    void (__thiscall*Cull)(mmInput * __hidden this);
+    void (__thiscall*Update)(mmInput * __hidden this);
+    void (__thiscall*Reset)(mmInput * __hidden this);
+    void (__thiscall*ResChange)(mmInput * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmInput * __hidden this);
+    void (__thiscall*Load)(mmInput * __hidden this);
+    void (__thiscall*Save)(mmInput * __hidden this);
+    void (__thiscall*AddWidgets)(mmInput * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmInput * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmInput * __hidden this);
 };
 
 struct mmIODev;
-struct mmIODev_vftable
+struct mmIODev_vtbl
 {
-    void* (__thiscall*Dtor)(mmIODev*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmIODev*);
-    char* (__thiscall*GetTypeNameV)(mmIODev*);
-    void (__thiscall*BeforeSave)(mmIODev*);
-    void (__thiscall*AfterLoad)(mmIODev*);
+    void* (__thiscall*Destructor)(mmIODev * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmIODev * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmIODev * __hidden this);
+    void (__thiscall*BeforeSave)(mmIODev * __hidden this);
+    void (__thiscall*AfterLoad)(mmIODev * __hidden this);
 };
 
 struct mmFrictionFF;
-struct mmFrictionFF_vftable
+struct mmFrictionFF_vtbl
 {
-    i32 (__thiscall*Init)(mmFrictionFF*,struct IDirectInputDevice2A*);
-    i32 (__thiscall*Play)(mmFrictionFF*);
-    i32 (__thiscall*Stop)(mmFrictionFF*);
-    i32 (__thiscall*SetValues)(mmFrictionFF*,f32,f32);
+    i32 (__thiscall*Init)(mmFrictionFF * __hidden this,struct IDirectInputDevice2A*);
+    i32 (__thiscall*Play)(mmFrictionFF * __hidden this);
+    i32 (__thiscall*Stop)(mmFrictionFF * __hidden this);
+    i32 (__thiscall*SetValues)(mmFrictionFF * __hidden this,f32,f32);
 };
 
 struct mmCollideFF;
-struct mmCollideFF_vftable
+struct mmCollideFF_vtbl
 {
-    i32 (__thiscall*Init)(mmCollideFF*,struct IDirectInputDevice2A*);
-    i32 (__thiscall*Play)(mmCollideFF*);
-    i32 (__thiscall*Stop)(mmCollideFF*);
-    i32 (__thiscall*SetValues)(mmCollideFF*,f32,f32);
+    i32 (__thiscall*Init)(mmCollideFF * __hidden this,struct IDirectInputDevice2A*);
+    i32 (__thiscall*Play)(mmCollideFF * __hidden this);
+    i32 (__thiscall*Stop)(mmCollideFF * __hidden this);
+    i32 (__thiscall*SetValues)(mmCollideFF * __hidden this,f32,f32);
 };
 
 struct mmSpringFF;
-struct mmSpringFF_vftable
+struct mmSpringFF_vtbl
 {
-    i32 (__thiscall*Init)(mmSpringFF*,struct IDirectInputDevice2A*);
-    i32 (__thiscall*Play)(mmSpringFF*);
-    i32 (__thiscall*Stop)(mmSpringFF*);
-    i32 (__thiscall*SetValues)(mmSpringFF*,f32,f32);
+    i32 (__thiscall*Init)(mmSpringFF * __hidden this,struct IDirectInputDevice2A*);
+    i32 (__thiscall*Play)(mmSpringFF * __hidden this);
+    i32 (__thiscall*Stop)(mmSpringFF * __hidden this);
+    i32 (__thiscall*SetValues)(mmSpringFF * __hidden this,f32,f32);
 };
 
 struct mmRoadFF;
-struct mmRoadFF_vftable
+struct mmRoadFF_vtbl
 {
-    i32 (__thiscall*Init)(mmRoadFF*,struct IDirectInputDevice2A*);
-    i32 (__thiscall*Play)(mmRoadFF*);
-    i32 (__thiscall*Stop)(mmRoadFF*);
-    i32 (__thiscall*SetValues)(mmRoadFF*,f32,f32);
+    i32 (__thiscall*Init)(mmRoadFF * __hidden this,struct IDirectInputDevice2A*);
+    i32 (__thiscall*Play)(mmRoadFF * __hidden this);
+    i32 (__thiscall*Stop)(mmRoadFF * __hidden this);
+    i32 (__thiscall*SetValues)(mmRoadFF * __hidden this,f32,f32);
 };
 
 struct mmEffectFF;
-struct mmEffectFF_vftable
+struct mmEffectFF_vtbl
 {
-    i32 (__thiscall*Init)(mmEffectFF*,struct IDirectInputDevice2A*);
-    i32 (__thiscall*Play)(mmEffectFF*);
-    i32 (__thiscall*Stop)(mmEffectFF*);
-    i32 (__thiscall*SetValues)(mmEffectFF*,f32,f32);
+    i32 (__thiscall*Init)(mmEffectFF * __hidden this,struct IDirectInputDevice2A*);
+    i32 (__thiscall*Play)(mmEffectFF * __hidden this);
+    i32 (__thiscall*Stop)(mmEffectFF * __hidden this);
+    i32 (__thiscall*SetValues)(mmEffectFF * __hidden this,f32,f32);
 };
 
 struct AudManager;
-struct AudManager_vftable
+struct AudManager_vtbl
 {
-    void* (__thiscall*Dtor)(AudManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(AudManager*);
-    char* (__thiscall*GetTypeNameV)(AudManager*);
-    void (__thiscall*BeforeSave)(AudManager*);
-    void (__thiscall*AfterLoad)(AudManager*);
-    void (__thiscall*Cull)(AudManager*);
-    void (__thiscall*Update)(AudManager*);
-    void (__thiscall*Reset)(AudManager*);
-    void (__thiscall*ResChange)(AudManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(AudManager*);
-    void (__thiscall*Load)(AudManager*);
-    void (__thiscall*Save)(AudManager*);
-    void (__thiscall*AddWidgets)(AudManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(AudManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(AudManager*);
+    void* (__thiscall*Destructor)(AudManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(AudManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(AudManager * __hidden this);
+    void (__thiscall*BeforeSave)(AudManager * __hidden this);
+    void (__thiscall*AfterLoad)(AudManager * __hidden this);
+    void (__thiscall*Cull)(AudManager * __hidden this);
+    void (__thiscall*Update)(AudManager * __hidden this);
+    void (__thiscall*Reset)(AudManager * __hidden this);
+    void (__thiscall*ResChange)(AudManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(AudManager * __hidden this);
+    void (__thiscall*Load)(AudManager * __hidden this);
+    void (__thiscall*Save)(AudManager * __hidden this);
+    void (__thiscall*AddWidgets)(AudManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(AudManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(AudManager * __hidden this);
 };
 
 struct AudSound;
-struct AudSound_vftable
+struct AudSound_vtbl
 {
-    void* (__thiscall*Dtor)(AudSound*,u32);
-    class MetaClass* (__thiscall*GetClass)(AudSound*);
-    char* (__thiscall*GetTypeNameV)(AudSound*);
-    void (__thiscall*BeforeSave)(AudSound*);
-    void (__thiscall*AfterLoad)(AudSound*);
-    void (__thiscall*Cull)(AudSound*);
-    void (__thiscall*Update)(AudSound*);
-    void (__thiscall*Reset)(AudSound*);
-    void (__thiscall*ResChange)(AudSound*,i32,i32);
-    void (__thiscall*UpdatePaused)(AudSound*);
-    void (__thiscall*Load)(AudSound*);
-    void (__thiscall*Save)(AudSound*);
-    void (__thiscall*AddWidgets)(AudSound*,class Bank*);
-    void (__thiscall*OpenWidgets)(AudSound*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(AudSound*);
+    void* (__thiscall*Destructor)(AudSound * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(AudSound * __hidden this);
+    char* (__thiscall*GetTypeNameV)(AudSound * __hidden this);
+    void (__thiscall*BeforeSave)(AudSound * __hidden this);
+    void (__thiscall*AfterLoad)(AudSound * __hidden this);
+    void (__thiscall*Cull)(AudSound * __hidden this);
+    void (__thiscall*Update)(AudSound * __hidden this);
+    void (__thiscall*Reset)(AudSound * __hidden this);
+    void (__thiscall*ResChange)(AudSound * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(AudSound * __hidden this);
+    void (__thiscall*Load)(AudSound * __hidden this);
+    void (__thiscall*Save)(AudSound * __hidden this);
+    void (__thiscall*AddWidgets)(AudSound * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(AudSound * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(AudSound * __hidden this);
 };
 
 struct AudHead;
-struct AudHead_vftable
+struct AudHead_vtbl
 {
-    void* (__thiscall*Dtor)(AudHead*,u32);
-    class MetaClass* (__thiscall*GetClass)(AudHead*);
-    char* (__thiscall*GetTypeNameV)(AudHead*);
-    void (__thiscall*BeforeSave)(AudHead*);
-    void (__thiscall*AfterLoad)(AudHead*);
-    void (__thiscall*Cull)(AudHead*);
-    void (__thiscall*Update)(AudHead*);
-    void (__thiscall*Reset)(AudHead*);
-    void (__thiscall*ResChange)(AudHead*,i32,i32);
-    void (__thiscall*UpdatePaused)(AudHead*);
-    void (__thiscall*Load)(AudHead*);
-    void (__thiscall*Save)(AudHead*);
-    void (__thiscall*AddWidgets)(AudHead*,class Bank*);
-    void (__thiscall*OpenWidgets)(AudHead*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(AudHead*);
+    void* (__thiscall*Destructor)(AudHead * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(AudHead * __hidden this);
+    char* (__thiscall*GetTypeNameV)(AudHead * __hidden this);
+    void (__thiscall*BeforeSave)(AudHead * __hidden this);
+    void (__thiscall*AfterLoad)(AudHead * __hidden this);
+    void (__thiscall*Cull)(AudHead * __hidden this);
+    void (__thiscall*Update)(AudHead * __hidden this);
+    void (__thiscall*Reset)(AudHead * __hidden this);
+    void (__thiscall*ResChange)(AudHead * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(AudHead * __hidden this);
+    void (__thiscall*Load)(AudHead * __hidden this);
+    void (__thiscall*Save)(AudHead * __hidden this);
+    void (__thiscall*AddWidgets)(AudHead * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(AudHead * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(AudHead * __hidden this);
 };
 
 struct CDMan;
-struct CDMan_vftable
+struct CDMan_vtbl
 {
-    i32 (__thiscall*WindowProc)(CDMan*,struct HWND__*,u32,u32,i32);
+    i32 (__thiscall*WindowProc)(CDMan * __hidden this,struct HWND__*,u32,u32,i32);
 };
 
 struct AudStream;
-struct AudStream_vftable
+struct AudStream_vtbl
 {
-    void* (__thiscall*Dtor)(AudStream*,u32);
-    class MetaClass* (__thiscall*GetClass)(AudStream*);
-    char* (__thiscall*GetTypeNameV)(AudStream*);
-    void (__thiscall*BeforeSave)(AudStream*);
-    void (__thiscall*AfterLoad)(AudStream*);
-    void (__thiscall*Cull)(AudStream*);
-    void (__thiscall*Update)(AudStream*);
-    void (__thiscall*Reset)(AudStream*);
-    void (__thiscall*ResChange)(AudStream*,i32,i32);
-    void (__thiscall*UpdatePaused)(AudStream*);
-    void (__thiscall*Load)(AudStream*);
-    void (__thiscall*Save)(AudStream*);
-    void (__thiscall*AddWidgets)(AudStream*,class Bank*);
-    void (__thiscall*OpenWidgets)(AudStream*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(AudStream*);
+    void* (__thiscall*Destructor)(AudStream * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(AudStream * __hidden this);
+    char* (__thiscall*GetTypeNameV)(AudStream * __hidden this);
+    void (__thiscall*BeforeSave)(AudStream * __hidden this);
+    void (__thiscall*AfterLoad)(AudStream * __hidden this);
+    void (__thiscall*Cull)(AudStream * __hidden this);
+    void (__thiscall*Update)(AudStream * __hidden this);
+    void (__thiscall*Reset)(AudStream * __hidden this);
+    void (__thiscall*ResChange)(AudStream * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(AudStream * __hidden this);
+    void (__thiscall*Load)(AudStream * __hidden this);
+    void (__thiscall*Save)(AudStream * __hidden this);
+    void (__thiscall*AddWidgets)(AudStream * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(AudStream * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(AudStream * __hidden this);
 };
 
 struct PovCamCS;
-struct PovCamCS_vftable
+struct PovCamCS_vtbl
 {
-    void* (__thiscall*Dtor)(PovCamCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(PovCamCS*);
-    char* (__thiscall*GetTypeNameV)(PovCamCS*);
-    void (__thiscall*BeforeSave)(PovCamCS*);
-    void (__thiscall*AfterLoad)(PovCamCS*);
-    void (__thiscall*Cull)(PovCamCS*);
-    void (__thiscall*Update)(PovCamCS*);
-    void (__thiscall*Reset)(PovCamCS*);
-    void (__thiscall*ResChange)(PovCamCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(PovCamCS*);
-    void (__thiscall*Load)(PovCamCS*);
-    void (__thiscall*Save)(PovCamCS*);
-    void (__thiscall*AddWidgets)(PovCamCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(PovCamCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PovCamCS*);
-    void (__thiscall*MakeActive)(PovCamCS*);
-    void (__thiscall*UpdateInput)(PovCamCS*);
-    void (__thiscall*ForceMatrixDelta)(PovCamCS*,class Vector3 const&);
-    void (__thiscall*SetST)(PovCamCS*,f32*);
+    void* (__thiscall*Destructor)(PovCamCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PovCamCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PovCamCS * __hidden this);
+    void (__thiscall*BeforeSave)(PovCamCS * __hidden this);
+    void (__thiscall*AfterLoad)(PovCamCS * __hidden this);
+    void (__thiscall*Cull)(PovCamCS * __hidden this);
+    void (__thiscall*Update)(PovCamCS * __hidden this);
+    void (__thiscall*Reset)(PovCamCS * __hidden this);
+    void (__thiscall*ResChange)(PovCamCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PovCamCS * __hidden this);
+    void (__thiscall*Load)(PovCamCS * __hidden this);
+    void (__thiscall*Save)(PovCamCS * __hidden this);
+    void (__thiscall*AddWidgets)(PovCamCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PovCamCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PovCamCS * __hidden this);
+    void (__thiscall*MakeActive)(PovCamCS * __hidden this);
+    void (__thiscall*UpdateInput)(PovCamCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(PovCamCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(PovCamCS * __hidden this,f32*);
 };
 
 struct TrackCamCS;
-struct TrackCamCS_vftable
+struct TrackCamCS_vtbl
 {
-    void* (__thiscall*Dtor)(TrackCamCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(TrackCamCS*);
-    char* (__thiscall*GetTypeNameV)(TrackCamCS*);
-    void (__thiscall*BeforeSave)(TrackCamCS*);
-    void (__thiscall*AfterLoad)(TrackCamCS*);
-    void (__thiscall*Cull)(TrackCamCS*);
-    void (__thiscall*Update)(TrackCamCS*);
-    void (__thiscall*Reset)(TrackCamCS*);
-    void (__thiscall*ResChange)(TrackCamCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(TrackCamCS*);
-    void (__thiscall*Load)(TrackCamCS*);
-    void (__thiscall*Save)(TrackCamCS*);
-    void (__thiscall*AddWidgets)(TrackCamCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(TrackCamCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(TrackCamCS*);
-    void (__thiscall*MakeActive)(TrackCamCS*);
-    void (__thiscall*UpdateInput)(TrackCamCS*);
-    void (__thiscall*ForceMatrixDelta)(TrackCamCS*,class Vector3 const&);
-    void (__thiscall*SetST)(TrackCamCS*,f32*);
+    void* (__thiscall*Destructor)(TrackCamCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(TrackCamCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(TrackCamCS * __hidden this);
+    void (__thiscall*BeforeSave)(TrackCamCS * __hidden this);
+    void (__thiscall*AfterLoad)(TrackCamCS * __hidden this);
+    void (__thiscall*Cull)(TrackCamCS * __hidden this);
+    void (__thiscall*Update)(TrackCamCS * __hidden this);
+    void (__thiscall*Reset)(TrackCamCS * __hidden this);
+    void (__thiscall*ResChange)(TrackCamCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(TrackCamCS * __hidden this);
+    void (__thiscall*Load)(TrackCamCS * __hidden this);
+    void (__thiscall*Save)(TrackCamCS * __hidden this);
+    void (__thiscall*AddWidgets)(TrackCamCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(TrackCamCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(TrackCamCS * __hidden this);
+    void (__thiscall*MakeActive)(TrackCamCS * __hidden this);
+    void (__thiscall*UpdateInput)(TrackCamCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(TrackCamCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(TrackCamCS * __hidden this,f32*);
 };
 
 struct mmViewCS;
-struct mmViewCS_vftable
+struct mmViewCS_vtbl
 {
-    void* (__thiscall*Dtor)(mmViewCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmViewCS*);
-    char* (__thiscall*GetTypeNameV)(mmViewCS*);
-    void (__thiscall*BeforeSave)(mmViewCS*);
-    void (__thiscall*AfterLoad)(mmViewCS*);
-    void (__thiscall*Cull)(mmViewCS*);
-    void (__thiscall*Update)(mmViewCS*);
-    void (__thiscall*Reset)(mmViewCS*);
-    void (__thiscall*ResChange)(mmViewCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmViewCS*);
-    void (__thiscall*Load)(mmViewCS*);
-    void (__thiscall*Save)(mmViewCS*);
-    void (__thiscall*AddWidgets)(mmViewCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmViewCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmViewCS*);
+    void* (__thiscall*Destructor)(mmViewCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmViewCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmViewCS * __hidden this);
+    void (__thiscall*BeforeSave)(mmViewCS * __hidden this);
+    void (__thiscall*AfterLoad)(mmViewCS * __hidden this);
+    void (__thiscall*Cull)(mmViewCS * __hidden this);
+    void (__thiscall*Update)(mmViewCS * __hidden this);
+    void (__thiscall*Reset)(mmViewCS * __hidden this);
+    void (__thiscall*ResChange)(mmViewCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmViewCS * __hidden this);
+    void (__thiscall*Load)(mmViewCS * __hidden this);
+    void (__thiscall*Save)(mmViewCS * __hidden this);
+    void (__thiscall*AddWidgets)(mmViewCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmViewCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmViewCS * __hidden this);
 };
 
 struct PostCamCS;
-struct PostCamCS_vftable
+struct PostCamCS_vtbl
 {
-    void* (__thiscall*Dtor)(PostCamCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(PostCamCS*);
-    char* (__thiscall*GetTypeNameV)(PostCamCS*);
-    void (__thiscall*BeforeSave)(PostCamCS*);
-    void (__thiscall*AfterLoad)(PostCamCS*);
-    void (__thiscall*Cull)(PostCamCS*);
-    void (__thiscall*Update)(PostCamCS*);
-    void (__thiscall*Reset)(PostCamCS*);
-    void (__thiscall*ResChange)(PostCamCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(PostCamCS*);
-    void (__thiscall*Load)(PostCamCS*);
-    void (__thiscall*Save)(PostCamCS*);
-    void (__thiscall*AddWidgets)(PostCamCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(PostCamCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PostCamCS*);
-    void (__thiscall*MakeActive)(PostCamCS*);
-    void (__thiscall*UpdateInput)(PostCamCS*);
-    void (__thiscall*ForceMatrixDelta)(PostCamCS*,class Vector3 const&);
-    void (__thiscall*SetST)(PostCamCS*,f32*);
+    void* (__thiscall*Destructor)(PostCamCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PostCamCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PostCamCS * __hidden this);
+    void (__thiscall*BeforeSave)(PostCamCS * __hidden this);
+    void (__thiscall*AfterLoad)(PostCamCS * __hidden this);
+    void (__thiscall*Cull)(PostCamCS * __hidden this);
+    void (__thiscall*Update)(PostCamCS * __hidden this);
+    void (__thiscall*Reset)(PostCamCS * __hidden this);
+    void (__thiscall*ResChange)(PostCamCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PostCamCS * __hidden this);
+    void (__thiscall*Load)(PostCamCS * __hidden this);
+    void (__thiscall*Save)(PostCamCS * __hidden this);
+    void (__thiscall*AddWidgets)(PostCamCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PostCamCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PostCamCS * __hidden this);
+    void (__thiscall*MakeActive)(PostCamCS * __hidden this);
+    void (__thiscall*UpdateInput)(PostCamCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(PostCamCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(PostCamCS * __hidden this,f32*);
 };
 
 struct PreCamCS;
-struct PreCamCS_vftable
+struct PreCamCS_vtbl
 {
-    void* (__thiscall*Dtor)(PreCamCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(PreCamCS*);
-    char* (__thiscall*GetTypeNameV)(PreCamCS*);
-    void (__thiscall*BeforeSave)(PreCamCS*);
-    void (__thiscall*AfterLoad)(PreCamCS*);
-    void (__thiscall*Cull)(PreCamCS*);
-    void (__thiscall*Update)(PreCamCS*);
-    void (__thiscall*Reset)(PreCamCS*);
-    void (__thiscall*ResChange)(PreCamCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(PreCamCS*);
-    void (__thiscall*Load)(PreCamCS*);
-    void (__thiscall*Save)(PreCamCS*);
-    void (__thiscall*AddWidgets)(PreCamCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(PreCamCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PreCamCS*);
-    void (__thiscall*MakeActive)(PreCamCS*);
-    void (__thiscall*UpdateInput)(PreCamCS*);
-    void (__thiscall*ForceMatrixDelta)(PreCamCS*,class Vector3 const&);
-    void (__thiscall*SetST)(PreCamCS*,f32*);
+    void* (__thiscall*Destructor)(PreCamCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PreCamCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PreCamCS * __hidden this);
+    void (__thiscall*BeforeSave)(PreCamCS * __hidden this);
+    void (__thiscall*AfterLoad)(PreCamCS * __hidden this);
+    void (__thiscall*Cull)(PreCamCS * __hidden this);
+    void (__thiscall*Update)(PreCamCS * __hidden this);
+    void (__thiscall*Reset)(PreCamCS * __hidden this);
+    void (__thiscall*ResChange)(PreCamCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PreCamCS * __hidden this);
+    void (__thiscall*Load)(PreCamCS * __hidden this);
+    void (__thiscall*Save)(PreCamCS * __hidden this);
+    void (__thiscall*AddWidgets)(PreCamCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PreCamCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PreCamCS * __hidden this);
+    void (__thiscall*MakeActive)(PreCamCS * __hidden this);
+    void (__thiscall*UpdateInput)(PreCamCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(PreCamCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(PreCamCS * __hidden this,f32*);
 };
 
 struct PointCamCS;
-struct PointCamCS_vftable
+struct PointCamCS_vtbl
 {
-    void* (__thiscall*Dtor)(PointCamCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(PointCamCS*);
-    char* (__thiscall*GetTypeNameV)(PointCamCS*);
-    void (__thiscall*BeforeSave)(PointCamCS*);
-    void (__thiscall*AfterLoad)(PointCamCS*);
-    void (__thiscall*Cull)(PointCamCS*);
-    void (__thiscall*Update)(PointCamCS*);
-    void (__thiscall*Reset)(PointCamCS*);
-    void (__thiscall*ResChange)(PointCamCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(PointCamCS*);
-    void (__thiscall*Load)(PointCamCS*);
-    void (__thiscall*Save)(PointCamCS*);
-    void (__thiscall*AddWidgets)(PointCamCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(PointCamCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PointCamCS*);
-    void (__thiscall*MakeActive)(PointCamCS*);
-    void (__thiscall*UpdateInput)(PointCamCS*);
-    void (__thiscall*ForceMatrixDelta)(PointCamCS*,class Vector3 const&);
-    void (__thiscall*SetST)(PointCamCS*,f32*);
+    void* (__thiscall*Destructor)(PointCamCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PointCamCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PointCamCS * __hidden this);
+    void (__thiscall*BeforeSave)(PointCamCS * __hidden this);
+    void (__thiscall*AfterLoad)(PointCamCS * __hidden this);
+    void (__thiscall*Cull)(PointCamCS * __hidden this);
+    void (__thiscall*Update)(PointCamCS * __hidden this);
+    void (__thiscall*Reset)(PointCamCS * __hidden this);
+    void (__thiscall*ResChange)(PointCamCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PointCamCS * __hidden this);
+    void (__thiscall*Load)(PointCamCS * __hidden this);
+    void (__thiscall*Save)(PointCamCS * __hidden this);
+    void (__thiscall*AddWidgets)(PointCamCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PointCamCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PointCamCS * __hidden this);
+    void (__thiscall*MakeActive)(PointCamCS * __hidden this);
+    void (__thiscall*UpdateInput)(PointCamCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(PointCamCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(PointCamCS * __hidden this,f32*);
 };
 
 struct AICamCS;
-struct AICamCS_vftable
+struct AICamCS_vtbl
 {
-    void* (__thiscall*Dtor)(AICamCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(AICamCS*);
-    char* (__thiscall*GetTypeNameV)(AICamCS*);
-    void (__thiscall*BeforeSave)(AICamCS*);
-    void (__thiscall*AfterLoad)(AICamCS*);
-    void (__thiscall*Cull)(AICamCS*);
-    void (__thiscall*Update)(AICamCS*);
-    void (__thiscall*Reset)(AICamCS*);
-    void (__thiscall*ResChange)(AICamCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(AICamCS*);
-    void (__thiscall*Load)(AICamCS*);
-    void (__thiscall*Save)(AICamCS*);
-    void (__thiscall*AddWidgets)(AICamCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(AICamCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(AICamCS*);
-    void (__thiscall*MakeActive)(AICamCS*);
-    void (__thiscall*UpdateInput)(AICamCS*);
-    void (__thiscall*ForceMatrixDelta)(AICamCS*,class Vector3 const&);
-    void (__thiscall*SetST)(AICamCS*,f32*);
+    void* (__thiscall*Destructor)(AICamCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(AICamCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(AICamCS * __hidden this);
+    void (__thiscall*BeforeSave)(AICamCS * __hidden this);
+    void (__thiscall*AfterLoad)(AICamCS * __hidden this);
+    void (__thiscall*Cull)(AICamCS * __hidden this);
+    void (__thiscall*Update)(AICamCS * __hidden this);
+    void (__thiscall*Reset)(AICamCS * __hidden this);
+    void (__thiscall*ResChange)(AICamCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(AICamCS * __hidden this);
+    void (__thiscall*Load)(AICamCS * __hidden this);
+    void (__thiscall*Save)(AICamCS * __hidden this);
+    void (__thiscall*AddWidgets)(AICamCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(AICamCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(AICamCS * __hidden this);
+    void (__thiscall*MakeActive)(AICamCS * __hidden this);
+    void (__thiscall*UpdateInput)(AICamCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(AICamCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(AICamCS * __hidden this,f32*);
 };
 
 struct PolarCamCS;
-struct PolarCamCS_vftable
+struct PolarCamCS_vtbl
 {
-    void* (__thiscall*Dtor)(PolarCamCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(PolarCamCS*);
-    char* (__thiscall*GetTypeNameV)(PolarCamCS*);
-    void (__thiscall*BeforeSave)(PolarCamCS*);
-    void (__thiscall*AfterLoad)(PolarCamCS*);
-    void (__thiscall*Cull)(PolarCamCS*);
-    void (__thiscall*Update)(PolarCamCS*);
-    void (__thiscall*Reset)(PolarCamCS*);
-    void (__thiscall*ResChange)(PolarCamCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(PolarCamCS*);
-    void (__thiscall*Load)(PolarCamCS*);
-    void (__thiscall*Save)(PolarCamCS*);
-    void (__thiscall*AddWidgets)(PolarCamCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(PolarCamCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(PolarCamCS*);
-    void (__thiscall*MakeActive)(PolarCamCS*);
-    void (__thiscall*UpdateInput)(PolarCamCS*);
-    void (__thiscall*ForceMatrixDelta)(PolarCamCS*,class Vector3 const&);
-    void (__thiscall*SetST)(PolarCamCS*,f32*);
+    void* (__thiscall*Destructor)(PolarCamCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(PolarCamCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(PolarCamCS * __hidden this);
+    void (__thiscall*BeforeSave)(PolarCamCS * __hidden this);
+    void (__thiscall*AfterLoad)(PolarCamCS * __hidden this);
+    void (__thiscall*Cull)(PolarCamCS * __hidden this);
+    void (__thiscall*Update)(PolarCamCS * __hidden this);
+    void (__thiscall*Reset)(PolarCamCS * __hidden this);
+    void (__thiscall*ResChange)(PolarCamCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(PolarCamCS * __hidden this);
+    void (__thiscall*Load)(PolarCamCS * __hidden this);
+    void (__thiscall*Save)(PolarCamCS * __hidden this);
+    void (__thiscall*AddWidgets)(PolarCamCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(PolarCamCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(PolarCamCS * __hidden this);
+    void (__thiscall*MakeActive)(PolarCamCS * __hidden this);
+    void (__thiscall*UpdateInput)(PolarCamCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(PolarCamCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(PolarCamCS * __hidden this,f32*);
 };
 
 struct CarCamCS;
-struct CarCamCS_vftable
+struct CarCamCS_vtbl
 {
-    void* (__thiscall*Dtor)(CarCamCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(CarCamCS*);
-    char* (__thiscall*GetTypeNameV)(CarCamCS*);
-    void (__thiscall*BeforeSave)(CarCamCS*);
-    void (__thiscall*AfterLoad)(CarCamCS*);
-    void (__thiscall*Cull)(CarCamCS*);
-    void (__thiscall*Update)(CarCamCS*);
-    void (__thiscall*Reset)(CarCamCS*);
-    void (__thiscall*ResChange)(CarCamCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(CarCamCS*);
-    void (__thiscall*Load)(CarCamCS*);
-    void (__thiscall*Save)(CarCamCS*);
-    void (__thiscall*AddWidgets)(CarCamCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(CarCamCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(CarCamCS*);
-    void (__thiscall*MakeActive)(CarCamCS*);
-    void (__thiscall*UpdateInput)(CarCamCS*);
-    void (__thiscall*ForceMatrixDelta)(CarCamCS*,class Vector3 const&);
-    void (__thiscall*SetST)(CarCamCS*,f32*);
+    void* (__thiscall*Destructor)(CarCamCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(CarCamCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(CarCamCS * __hidden this);
+    void (__thiscall*BeforeSave)(CarCamCS * __hidden this);
+    void (__thiscall*AfterLoad)(CarCamCS * __hidden this);
+    void (__thiscall*Cull)(CarCamCS * __hidden this);
+    void (__thiscall*Update)(CarCamCS * __hidden this);
+    void (__thiscall*Reset)(CarCamCS * __hidden this);
+    void (__thiscall*ResChange)(CarCamCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(CarCamCS * __hidden this);
+    void (__thiscall*Load)(CarCamCS * __hidden this);
+    void (__thiscall*Save)(CarCamCS * __hidden this);
+    void (__thiscall*AddWidgets)(CarCamCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(CarCamCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(CarCamCS * __hidden this);
+    void (__thiscall*MakeActive)(CarCamCS * __hidden this);
+    void (__thiscall*UpdateInput)(CarCamCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(CarCamCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(CarCamCS * __hidden this,f32*);
 };
 
 struct TransitionCS;
-struct TransitionCS_vftable
+struct TransitionCS_vtbl
 {
-    void* (__thiscall*Dtor)(TransitionCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(TransitionCS*);
-    char* (__thiscall*GetTypeNameV)(TransitionCS*);
-    void (__thiscall*BeforeSave)(TransitionCS*);
-    void (__thiscall*AfterLoad)(TransitionCS*);
-    void (__thiscall*Cull)(TransitionCS*);
-    void (__thiscall*Update)(TransitionCS*);
-    void (__thiscall*Reset)(TransitionCS*);
-    void (__thiscall*ResChange)(TransitionCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(TransitionCS*);
-    void (__thiscall*Load)(TransitionCS*);
-    void (__thiscall*Save)(TransitionCS*);
-    void (__thiscall*AddWidgets)(TransitionCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(TransitionCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(TransitionCS*);
-    void (__thiscall*MakeActive)(TransitionCS*);
-    void (__thiscall*UpdateInput)(TransitionCS*);
-    void (__thiscall*ForceMatrixDelta)(TransitionCS*,class Vector3 const&);
-    void (__thiscall*SetST)(TransitionCS*,f32*);
+    void* (__thiscall*Destructor)(TransitionCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(TransitionCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(TransitionCS * __hidden this);
+    void (__thiscall*BeforeSave)(TransitionCS * __hidden this);
+    void (__thiscall*AfterLoad)(TransitionCS * __hidden this);
+    void (__thiscall*Cull)(TransitionCS * __hidden this);
+    void (__thiscall*Update)(TransitionCS * __hidden this);
+    void (__thiscall*Reset)(TransitionCS * __hidden this);
+    void (__thiscall*ResChange)(TransitionCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(TransitionCS * __hidden this);
+    void (__thiscall*Load)(TransitionCS * __hidden this);
+    void (__thiscall*Save)(TransitionCS * __hidden this);
+    void (__thiscall*AddWidgets)(TransitionCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(TransitionCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(TransitionCS * __hidden this);
+    void (__thiscall*MakeActive)(TransitionCS * __hidden this);
+    void (__thiscall*UpdateInput)(TransitionCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(TransitionCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(TransitionCS * __hidden this,f32*);
 };
 
 struct BaseCamCS;
-struct BaseCamCS_vftable
+struct BaseCamCS_vtbl
 {
-    void* (__thiscall*Dtor)(BaseCamCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(BaseCamCS*);
-    char* (__thiscall*GetTypeNameV)(BaseCamCS*);
-    void (__thiscall*BeforeSave)(BaseCamCS*);
-    void (__thiscall*AfterLoad)(BaseCamCS*);
-    void (__thiscall*Cull)(BaseCamCS*);
-    void (__thiscall*Update)(BaseCamCS*);
-    void (__thiscall*Reset)(BaseCamCS*);
-    void (__thiscall*ResChange)(BaseCamCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(BaseCamCS*);
-    void (__thiscall*Load)(BaseCamCS*);
-    void (__thiscall*Save)(BaseCamCS*);
-    void (__thiscall*AddWidgets)(BaseCamCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(BaseCamCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(BaseCamCS*);
-    void (__thiscall*MakeActive)(BaseCamCS*);
-    void (__thiscall*UpdateInput)(BaseCamCS*);
-    void (__thiscall*ForceMatrixDelta)(BaseCamCS*,class Vector3 const&);
-    void (__thiscall*SetST)(BaseCamCS*,f32*);
+    void* (__thiscall*Destructor)(BaseCamCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(BaseCamCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(BaseCamCS * __hidden this);
+    void (__thiscall*BeforeSave)(BaseCamCS * __hidden this);
+    void (__thiscall*AfterLoad)(BaseCamCS * __hidden this);
+    void (__thiscall*Cull)(BaseCamCS * __hidden this);
+    void (__thiscall*Update)(BaseCamCS * __hidden this);
+    void (__thiscall*Reset)(BaseCamCS * __hidden this);
+    void (__thiscall*ResChange)(BaseCamCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(BaseCamCS * __hidden this);
+    void (__thiscall*Load)(BaseCamCS * __hidden this);
+    void (__thiscall*Save)(BaseCamCS * __hidden this);
+    void (__thiscall*AddWidgets)(BaseCamCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(BaseCamCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(BaseCamCS * __hidden this);
+    void (__thiscall*MakeActive)(BaseCamCS * __hidden this);
+    void (__thiscall*UpdateInput)(BaseCamCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(BaseCamCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(BaseCamCS * __hidden this,f32*);
 };
 
 struct AppCamCS;
-struct AppCamCS_vftable
+struct AppCamCS_vtbl
 {
-    void* (__thiscall*Dtor)(AppCamCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(AppCamCS*);
-    char* (__thiscall*GetTypeNameV)(AppCamCS*);
-    void (__thiscall*BeforeSave)(AppCamCS*);
-    void (__thiscall*AfterLoad)(AppCamCS*);
-    void (__thiscall*Cull)(AppCamCS*);
-    void (__thiscall*Update)(AppCamCS*);
-    void (__thiscall*Reset)(AppCamCS*);
-    void (__thiscall*ResChange)(AppCamCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(AppCamCS*);
-    void (__thiscall*Load)(AppCamCS*);
-    void (__thiscall*Save)(AppCamCS*);
-    void (__thiscall*AddWidgets)(AppCamCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(AppCamCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(AppCamCS*);
-    void (__thiscall*MakeActive)(AppCamCS*);
-    void (__thiscall*UpdateInput)(AppCamCS*);
-    void (__thiscall*ForceMatrixDelta)(AppCamCS*,class Vector3 const&);
-    void (__thiscall*SetST)(AppCamCS*,f32*);
+    void* (__thiscall*Destructor)(AppCamCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(AppCamCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(AppCamCS * __hidden this);
+    void (__thiscall*BeforeSave)(AppCamCS * __hidden this);
+    void (__thiscall*AfterLoad)(AppCamCS * __hidden this);
+    void (__thiscall*Cull)(AppCamCS * __hidden this);
+    void (__thiscall*Update)(AppCamCS * __hidden this);
+    void (__thiscall*Reset)(AppCamCS * __hidden this);
+    void (__thiscall*ResChange)(AppCamCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(AppCamCS * __hidden this);
+    void (__thiscall*Load)(AppCamCS * __hidden this);
+    void (__thiscall*Save)(AppCamCS * __hidden this);
+    void (__thiscall*AddWidgets)(AppCamCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(AppCamCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(AppCamCS * __hidden this);
+    void (__thiscall*MakeActive)(AppCamCS * __hidden this);
+    void (__thiscall*UpdateInput)(AppCamCS * __hidden this);
+    void (__thiscall*ForceMatrixDelta)(AppCamCS * __hidden this,class Vector3 const&);
+    void (__thiscall*SetST)(AppCamCS * __hidden this,f32*);
 };
 
 struct Spline;
-struct Spline_vftable
+struct Spline_vtbl
 {
-    void* (__thiscall*Dtor)(Spline*,u32);
-    class MetaClass* (__thiscall*GetClass)(Spline*);
-    char* (__thiscall*GetTypeNameV)(Spline*);
-    void (__thiscall*BeforeSave)(Spline*);
-    void (__thiscall*AfterLoad)(Spline*);
-    void (__thiscall*Cull)(Spline*);
-    void (__thiscall*Update)(Spline*);
-    void (__thiscall*Reset)(Spline*);
-    void (__thiscall*ResChange)(Spline*,i32,i32);
-    void (__thiscall*UpdatePaused)(Spline*);
-    void (__thiscall*Load)(Spline*);
-    void (__thiscall*Save)(Spline*);
-    void (__thiscall*AddWidgets)(Spline*,class Bank*);
-    void (__thiscall*OpenWidgets)(Spline*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Spline*);
+    void* (__thiscall*Destructor)(Spline * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Spline * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Spline * __hidden this);
+    void (__thiscall*BeforeSave)(Spline * __hidden this);
+    void (__thiscall*AfterLoad)(Spline * __hidden this);
+    void (__thiscall*Cull)(Spline * __hidden this);
+    void (__thiscall*Update)(Spline * __hidden this);
+    void (__thiscall*Reset)(Spline * __hidden this);
+    void (__thiscall*ResChange)(Spline * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Spline * __hidden this);
+    void (__thiscall*Load)(Spline * __hidden this);
+    void (__thiscall*Save)(Spline * __hidden this);
+    void (__thiscall*AddWidgets)(Spline * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Spline * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Spline * __hidden this);
 };
 
 struct Card2D;
-struct Card2D_vftable
+struct Card2D_vtbl
 {
-    void* (__thiscall*Dtor)(Card2D*,u32);
-    class MetaClass* (__thiscall*GetClass)(Card2D*);
-    char* (__thiscall*GetTypeNameV)(Card2D*);
-    void (__thiscall*BeforeSave)(Card2D*);
-    void (__thiscall*AfterLoad)(Card2D*);
-    void (__thiscall*Cull)(Card2D*);
-    void (__thiscall*Update)(Card2D*);
-    void (__thiscall*Reset)(Card2D*);
-    void (__thiscall*ResChange)(Card2D*,i32,i32);
-    void (__thiscall*UpdatePaused)(Card2D*);
-    void (__thiscall*Load)(Card2D*);
-    void (__thiscall*Save)(Card2D*);
-    void (__thiscall*AddWidgets)(Card2D*,class Bank*);
-    void (__thiscall*OpenWidgets)(Card2D*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(Card2D*);
+    void* (__thiscall*Destructor)(Card2D * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Card2D * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Card2D * __hidden this);
+    void (__thiscall*BeforeSave)(Card2D * __hidden this);
+    void (__thiscall*AfterLoad)(Card2D * __hidden this);
+    void (__thiscall*Cull)(Card2D * __hidden this);
+    void (__thiscall*Update)(Card2D * __hidden this);
+    void (__thiscall*Reset)(Card2D * __hidden this);
+    void (__thiscall*ResChange)(Card2D * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(Card2D * __hidden this);
+    void (__thiscall*Load)(Card2D * __hidden this);
+    void (__thiscall*Save)(Card2D * __hidden this);
+    void (__thiscall*AddWidgets)(Card2D * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(Card2D * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(Card2D * __hidden this);
 };
 
 struct mmNumber;
-struct mmNumber_vftable
+struct mmNumber_vtbl
 {
-    void* (__thiscall*Dtor)(mmNumber*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmNumber*);
-    char* (__thiscall*GetTypeNameV)(mmNumber*);
-    void (__thiscall*BeforeSave)(mmNumber*);
-    void (__thiscall*AfterLoad)(mmNumber*);
-    void (__thiscall*Cull)(mmNumber*);
-    void (__thiscall*Update)(mmNumber*);
-    void (__thiscall*Reset)(mmNumber*);
-    void (__thiscall*ResChange)(mmNumber*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmNumber*);
-    void (__thiscall*Load)(mmNumber*);
-    void (__thiscall*Save)(mmNumber*);
-    void (__thiscall*AddWidgets)(mmNumber*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmNumber*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmNumber*);
+    void* (__thiscall*Destructor)(mmNumber * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmNumber * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmNumber * __hidden this);
+    void (__thiscall*BeforeSave)(mmNumber * __hidden this);
+    void (__thiscall*AfterLoad)(mmNumber * __hidden this);
+    void (__thiscall*Cull)(mmNumber * __hidden this);
+    void (__thiscall*Update)(mmNumber * __hidden this);
+    void (__thiscall*Reset)(mmNumber * __hidden this);
+    void (__thiscall*ResChange)(mmNumber * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmNumber * __hidden this);
+    void (__thiscall*Load)(mmNumber * __hidden this);
+    void (__thiscall*Save)(mmNumber * __hidden this);
+    void (__thiscall*AddWidgets)(mmNumber * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmNumber * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmNumber * __hidden this);
 };
 
 struct mmTextNode;
-struct mmTextNode_vftable
+struct mmTextNode_vtbl
 {
-    void* (__thiscall*Dtor)(mmTextNode*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmTextNode*);
-    char* (__thiscall*GetTypeNameV)(mmTextNode*);
-    void (__thiscall*BeforeSave)(mmTextNode*);
-    void (__thiscall*AfterLoad)(mmTextNode*);
-    void (__thiscall*Cull)(mmTextNode*);
-    void (__thiscall*Update)(mmTextNode*);
-    void (__thiscall*Reset)(mmTextNode*);
-    void (__thiscall*ResChange)(mmTextNode*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmTextNode*);
-    void (__thiscall*Load)(mmTextNode*);
-    void (__thiscall*Save)(mmTextNode*);
-    void (__thiscall*AddWidgets)(mmTextNode*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmTextNode*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmTextNode*);
+    void* (__thiscall*Destructor)(mmTextNode * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmTextNode * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmTextNode * __hidden this);
+    void (__thiscall*BeforeSave)(mmTextNode * __hidden this);
+    void (__thiscall*AfterLoad)(mmTextNode * __hidden this);
+    void (__thiscall*Cull)(mmTextNode * __hidden this);
+    void (__thiscall*Update)(mmTextNode * __hidden this);
+    void (__thiscall*Reset)(mmTextNode * __hidden this);
+    void (__thiscall*ResChange)(mmTextNode * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmTextNode * __hidden this);
+    void (__thiscall*Load)(mmTextNode * __hidden this);
+    void (__thiscall*Save)(mmTextNode * __hidden this);
+    void (__thiscall*AddWidgets)(mmTextNode * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmTextNode * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmTextNode * __hidden this);
 };
 
 struct asMeshSetForm;
-struct asMeshSetForm_vftable
+struct asMeshSetForm_vtbl
 {
-    void* (__thiscall*Dtor)(asMeshSetForm*,u32);
-    class MetaClass* (__thiscall*GetClass)(asMeshSetForm*);
-    char* (__thiscall*GetTypeNameV)(asMeshSetForm*);
-    void (__thiscall*BeforeSave)(asMeshSetForm*);
-    void (__thiscall*AfterLoad)(asMeshSetForm*);
-    void (__thiscall*Cull)(asMeshSetForm*);
-    void (__thiscall*Update)(asMeshSetForm*);
-    void (__thiscall*Reset)(asMeshSetForm*);
-    void (__thiscall*ResChange)(asMeshSetForm*,i32,i32);
-    void (__thiscall*UpdatePaused)(asMeshSetForm*);
-    void (__thiscall*Load)(asMeshSetForm*);
-    void (__thiscall*Save)(asMeshSetForm*);
-    void (__thiscall*AddWidgets)(asMeshSetForm*,class Bank*);
-    void (__thiscall*OpenWidgets)(asMeshSetForm*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asMeshSetForm*);
+    void* (__thiscall*Destructor)(asMeshSetForm * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asMeshSetForm * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asMeshSetForm * __hidden this);
+    void (__thiscall*BeforeSave)(asMeshSetForm * __hidden this);
+    void (__thiscall*AfterLoad)(asMeshSetForm * __hidden this);
+    void (__thiscall*Cull)(asMeshSetForm * __hidden this);
+    void (__thiscall*Update)(asMeshSetForm * __hidden this);
+    void (__thiscall*Reset)(asMeshSetForm * __hidden this);
+    void (__thiscall*ResChange)(asMeshSetForm * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asMeshSetForm * __hidden this);
+    void (__thiscall*Load)(asMeshSetForm * __hidden this);
+    void (__thiscall*Save)(asMeshSetForm * __hidden this);
+    void (__thiscall*AddWidgets)(asMeshSetForm * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asMeshSetForm * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asMeshSetForm * __hidden this);
 };
 
 struct asParticles;
-struct asParticles_vftable
+struct asParticles_vtbl
 {
-    void* (__thiscall*Dtor)(asParticles*,u32);
-    class MetaClass* (__thiscall*GetClass)(asParticles*);
-    char* (__thiscall*GetTypeNameV)(asParticles*);
-    void (__thiscall*BeforeSave)(asParticles*);
-    void (__thiscall*AfterLoad)(asParticles*);
-    void (__thiscall*Cull)(asParticles*);
-    void (__thiscall*Update)(asParticles*);
-    void (__thiscall*Reset)(asParticles*);
-    void (__thiscall*ResChange)(asParticles*,i32,i32);
-    void (__thiscall*UpdatePaused)(asParticles*);
-    void (__thiscall*Load)(asParticles*);
-    void (__thiscall*Save)(asParticles*);
-    void (__thiscall*AddWidgets)(asParticles*,class Bank*);
-    void (__thiscall*OpenWidgets)(asParticles*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asParticles*);
+    void* (__thiscall*Destructor)(asParticles * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asParticles * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asParticles * __hidden this);
+    void (__thiscall*BeforeSave)(asParticles * __hidden this);
+    void (__thiscall*AfterLoad)(asParticles * __hidden this);
+    void (__thiscall*Cull)(asParticles * __hidden this);
+    void (__thiscall*Update)(asParticles * __hidden this);
+    void (__thiscall*Reset)(asParticles * __hidden this);
+    void (__thiscall*ResChange)(asParticles * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asParticles * __hidden this);
+    void (__thiscall*Load)(asParticles * __hidden this);
+    void (__thiscall*Save)(asParticles * __hidden this);
+    void (__thiscall*AddWidgets)(asParticles * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asParticles * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asParticles * __hidden this);
 };
 
 struct asBirthRule;
-struct asBirthRule_vftable
+struct asBirthRule_vtbl
 {
-    void* (__thiscall*Dtor)(asBirthRule*,u32);
-    class MetaClass* (__thiscall*GetClass)(asBirthRule*);
-    char* (__thiscall*GetTypeNameV)(asBirthRule*);
-    void (__thiscall*BeforeSave)(asBirthRule*);
-    void (__thiscall*AfterLoad)(asBirthRule*);
-    void (__thiscall*Cull)(asBirthRule*);
-    void (__thiscall*Update)(asBirthRule*);
-    void (__thiscall*Reset)(asBirthRule*);
-    void (__thiscall*ResChange)(asBirthRule*,i32,i32);
-    void (__thiscall*UpdatePaused)(asBirthRule*);
-    void (__thiscall*Load)(asBirthRule*);
-    void (__thiscall*Save)(asBirthRule*);
-    void (__thiscall*AddWidgets)(asBirthRule*,class Bank*);
-    void (__thiscall*OpenWidgets)(asBirthRule*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asBirthRule*);
+    void* (__thiscall*Destructor)(asBirthRule * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asBirthRule * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asBirthRule * __hidden this);
+    void (__thiscall*BeforeSave)(asBirthRule * __hidden this);
+    void (__thiscall*AfterLoad)(asBirthRule * __hidden this);
+    void (__thiscall*Cull)(asBirthRule * __hidden this);
+    void (__thiscall*Update)(asBirthRule * __hidden this);
+    void (__thiscall*Reset)(asBirthRule * __hidden this);
+    void (__thiscall*ResChange)(asBirthRule * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asBirthRule * __hidden this);
+    void (__thiscall*Load)(asBirthRule * __hidden this);
+    void (__thiscall*Save)(asBirthRule * __hidden this);
+    void (__thiscall*AddWidgets)(asBirthRule * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asBirthRule * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asBirthRule * __hidden this);
 };
 
 struct mmVehicleForm;
-struct mmVehicleForm_vftable
+struct mmVehicleForm_vtbl
 {
-    void* (__thiscall*Dtor)(mmVehicleForm*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmVehicleForm*);
-    char* (__thiscall*GetTypeNameV)(mmVehicleForm*);
-    void (__thiscall*BeforeSave)(mmVehicleForm*);
-    void (__thiscall*AfterLoad)(mmVehicleForm*);
-    void (__thiscall*Cull)(mmVehicleForm*);
-    void (__thiscall*Update)(mmVehicleForm*);
-    void (__thiscall*Reset)(mmVehicleForm*);
-    void (__thiscall*ResChange)(mmVehicleForm*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmVehicleForm*);
-    void (__thiscall*Load)(mmVehicleForm*);
-    void (__thiscall*Save)(mmVehicleForm*);
-    void (__thiscall*AddWidgets)(mmVehicleForm*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmVehicleForm*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmVehicleForm*);
+    void* (__thiscall*Destructor)(mmVehicleForm * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmVehicleForm * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmVehicleForm * __hidden this);
+    void (__thiscall*BeforeSave)(mmVehicleForm * __hidden this);
+    void (__thiscall*AfterLoad)(mmVehicleForm * __hidden this);
+    void (__thiscall*Cull)(mmVehicleForm * __hidden this);
+    void (__thiscall*Update)(mmVehicleForm * __hidden this);
+    void (__thiscall*Reset)(mmVehicleForm * __hidden this);
+    void (__thiscall*ResChange)(mmVehicleForm * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmVehicleForm * __hidden this);
+    void (__thiscall*Load)(mmVehicleForm * __hidden this);
+    void (__thiscall*Save)(mmVehicleForm * __hidden this);
+    void (__thiscall*AddWidgets)(mmVehicleForm * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmVehicleForm * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmVehicleForm * __hidden this);
 };
 
 struct mmMouseSteerBar;
-struct mmMouseSteerBar_vftable
+struct mmMouseSteerBar_vtbl
 {
-    void* (__thiscall*Dtor)(mmMouseSteerBar*,u32);
-    class MetaClass* (__thiscall*GetClass)(mmMouseSteerBar*);
-    char* (__thiscall*GetTypeNameV)(mmMouseSteerBar*);
-    void (__thiscall*BeforeSave)(mmMouseSteerBar*);
-    void (__thiscall*AfterLoad)(mmMouseSteerBar*);
-    void (__thiscall*Cull)(mmMouseSteerBar*);
-    void (__thiscall*Update)(mmMouseSteerBar*);
-    void (__thiscall*Reset)(mmMouseSteerBar*);
-    void (__thiscall*ResChange)(mmMouseSteerBar*,i32,i32);
-    void (__thiscall*UpdatePaused)(mmMouseSteerBar*);
-    void (__thiscall*Load)(mmMouseSteerBar*);
-    void (__thiscall*Save)(mmMouseSteerBar*);
-    void (__thiscall*AddWidgets)(mmMouseSteerBar*,class Bank*);
-    void (__thiscall*OpenWidgets)(mmMouseSteerBar*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(mmMouseSteerBar*);
+    void* (__thiscall*Destructor)(mmMouseSteerBar * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(mmMouseSteerBar * __hidden this);
+    char* (__thiscall*GetTypeNameV)(mmMouseSteerBar * __hidden this);
+    void (__thiscall*BeforeSave)(mmMouseSteerBar * __hidden this);
+    void (__thiscall*AfterLoad)(mmMouseSteerBar * __hidden this);
+    void (__thiscall*Cull)(mmMouseSteerBar * __hidden this);
+    void (__thiscall*Update)(mmMouseSteerBar * __hidden this);
+    void (__thiscall*Reset)(mmMouseSteerBar * __hidden this);
+    void (__thiscall*ResChange)(mmMouseSteerBar * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(mmMouseSteerBar * __hidden this);
+    void (__thiscall*Load)(mmMouseSteerBar * __hidden this);
+    void (__thiscall*Save)(mmMouseSteerBar * __hidden this);
+    void (__thiscall*AddWidgets)(mmMouseSteerBar * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(mmMouseSteerBar * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(mmMouseSteerBar * __hidden this);
 };
 
 struct asSimulation;
-struct asSimulation_vftable
+struct asSimulation_vtbl
 {
-    void* (__thiscall*Dtor)(asSimulation*,u32);
-    class MetaClass* (__thiscall*GetClass)(asSimulation*);
-    char* (__thiscall*GetTypeNameV)(asSimulation*);
-    void (__thiscall*BeforeSave)(asSimulation*);
-    void (__thiscall*AfterLoad)(asSimulation*);
-    void (__thiscall*Cull)(asSimulation*);
-    void (__thiscall*Update)(asSimulation*);
-    void (__thiscall*Reset)(asSimulation*);
-    void (__thiscall*ResChange)(asSimulation*,i32,i32);
-    void (__thiscall*UpdatePaused)(asSimulation*);
-    void (__thiscall*Load)(asSimulation*);
-    void (__thiscall*Save)(asSimulation*);
-    void (__thiscall*AddWidgets)(asSimulation*,class Bank*);
-    void (__thiscall*OpenWidgets)(asSimulation*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asSimulation*);
+    void* (__thiscall*Destructor)(asSimulation * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asSimulation * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asSimulation * __hidden this);
+    void (__thiscall*BeforeSave)(asSimulation * __hidden this);
+    void (__thiscall*AfterLoad)(asSimulation * __hidden this);
+    void (__thiscall*Cull)(asSimulation * __hidden this);
+    void (__thiscall*Update)(asSimulation * __hidden this);
+    void (__thiscall*Reset)(asSimulation * __hidden this);
+    void (__thiscall*ResChange)(asSimulation * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asSimulation * __hidden this);
+    void (__thiscall*Load)(asSimulation * __hidden this);
+    void (__thiscall*Save)(asSimulation * __hidden this);
+    void (__thiscall*AddWidgets)(asSimulation * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asSimulation * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asSimulation * __hidden this);
 };
 
 struct artsReplayChannel;
-struct artsReplayChannel_vftable
+struct artsReplayChannel_vtbl
 {
-    void (__thiscall*InitRecord)(artsReplayChannel*);
-    void (__thiscall*InitPlayback)(artsReplayChannel*);
-    void (__thiscall*DoRecord)(artsReplayChannel*,class Stream*);
-    void (__thiscall*DoPlayback)(artsReplayChannel*,class Stream*);
-    void (__thiscall*ShutdownRecord)(artsReplayChannel*);
-    void (__thiscall*ShutdownPlayback)(artsReplayChannel*);
+    void (__thiscall*InitRecord)(artsReplayChannel * __hidden this);
+    void (__thiscall*InitPlayback)(artsReplayChannel * __hidden this);
+    void (__thiscall*DoRecord)(artsReplayChannel * __hidden this,class Stream*);
+    void (__thiscall*DoPlayback)(artsReplayChannel * __hidden this,class Stream*);
+    void (__thiscall*ShutdownRecord)(artsReplayChannel * __hidden this);
+    void (__thiscall*ShutdownPlayback)(artsReplayChannel * __hidden this);
 };
 
 struct asNode;
-struct asNode_vftable
+struct asNode_vtbl
 {
-    void* (__thiscall*Dtor)(asNode*,u32);
-    class MetaClass* (__thiscall*GetClass)(asNode*);
-    char* (__thiscall*GetTypeNameV)(asNode*);
-    void (__thiscall*BeforeSave)(asNode*);
-    void (__thiscall*AfterLoad)(asNode*);
-    void (__thiscall*Cull)(asNode*);
-    void (__thiscall*Update)(asNode*);
-    void (__thiscall*Reset)(asNode*);
-    void (__thiscall*ResChange)(asNode*,i32,i32);
-    void (__thiscall*UpdatePaused)(asNode*);
-    void (__thiscall*Load)(asNode*);
-    void (__thiscall*Save)(asNode*);
-    void (__thiscall*AddWidgets)(asNode*,class Bank*);
-    void (__thiscall*OpenWidgets)(asNode*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asNode*);
+    void* (__thiscall*Destructor)(asNode * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asNode * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asNode * __hidden this);
+    void (__thiscall*BeforeSave)(asNode * __hidden this);
+    void (__thiscall*AfterLoad)(asNode * __hidden this);
+    void (__thiscall*Cull)(asNode * __hidden this);
+    void (__thiscall*Update)(asNode * __hidden this);
+    void (__thiscall*Reset)(asNode * __hidden this);
+    void (__thiscall*ResChange)(asNode * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asNode * __hidden this);
+    void (__thiscall*Load)(asNode * __hidden this);
+    void (__thiscall*Save)(asNode * __hidden this);
+    void (__thiscall*AddWidgets)(asNode * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asNode * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asNode * __hidden this);
 };
 
 struct PtrToType;
-struct PtrToType_vftable
+struct PtrToType_vtbl
 {
-    void (__thiscall*Save)(PtrToType*,class MiniParser*,void*);
-    void (__thiscall*Load)(PtrToType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(PtrToType*);
-    void* (__thiscall*New)(PtrToType*,i32);
-    void (__thiscall*Delete)(PtrToType*,void*,i32);
+    void (__thiscall*Save)(PtrToType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(PtrToType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(PtrToType * __hidden this);
+    void* (__thiscall*New)(PtrToType * __hidden this,i32);
+    void (__thiscall*Delete)(PtrToType * __hidden this,void*,i32);
 };
 
 struct asCullManager;
-struct asCullManager_vftable
+struct asCullManager_vtbl
 {
-    void* (__thiscall*Dtor)(asCullManager*,u32);
-    class MetaClass* (__thiscall*GetClass)(asCullManager*);
-    char* (__thiscall*GetTypeNameV)(asCullManager*);
-    void (__thiscall*BeforeSave)(asCullManager*);
-    void (__thiscall*AfterLoad)(asCullManager*);
-    void (__thiscall*Cull)(asCullManager*);
-    void (__thiscall*Update)(asCullManager*);
-    void (__thiscall*Reset)(asCullManager*);
-    void (__thiscall*ResChange)(asCullManager*,i32,i32);
-    void (__thiscall*UpdatePaused)(asCullManager*);
-    void (__thiscall*Load)(asCullManager*);
-    void (__thiscall*Save)(asCullManager*);
-    void (__thiscall*AddWidgets)(asCullManager*,class Bank*);
-    void (__thiscall*OpenWidgets)(asCullManager*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asCullManager*);
-    void (__thiscall*DeclareCamera)(asCullManager*,class asCamera*);
-    void (__thiscall*DeclareCullable)(asCullManager*,class asCullable*);
-    void (__thiscall*DeclareCullable2D)(asCullManager*,class asCullable*);
+    void* (__thiscall*Destructor)(asCullManager * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asCullManager * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asCullManager * __hidden this);
+    void (__thiscall*BeforeSave)(asCullManager * __hidden this);
+    void (__thiscall*AfterLoad)(asCullManager * __hidden this);
+    void (__thiscall*Cull)(asCullManager * __hidden this);
+    void (__thiscall*Update)(asCullManager * __hidden this);
+    void (__thiscall*Reset)(asCullManager * __hidden this);
+    void (__thiscall*ResChange)(asCullManager * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asCullManager * __hidden this);
+    void (__thiscall*Load)(asCullManager * __hidden this);
+    void (__thiscall*Save)(asCullManager * __hidden this);
+    void (__thiscall*AddWidgets)(asCullManager * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asCullManager * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asCullManager * __hidden this);
+    void (__thiscall*DeclareCamera)(asCullManager * __hidden this,class asCamera*);
+    void (__thiscall*DeclareCullable)(asCullManager * __hidden this,class asCullable*);
+    void (__thiscall*DeclareCullable2D)(asCullManager * __hidden this,class asCullable*);
 };
 
 struct asLinearCS;
-struct asLinearCS_vftable
+struct asLinearCS_vtbl
 {
-    void* (__thiscall*Dtor)(asLinearCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(asLinearCS*);
-    char* (__thiscall*GetTypeNameV)(asLinearCS*);
-    void (__thiscall*BeforeSave)(asLinearCS*);
-    void (__thiscall*AfterLoad)(asLinearCS*);
-    void (__thiscall*Cull)(asLinearCS*);
-    void (__thiscall*Update)(asLinearCS*);
-    void (__thiscall*Reset)(asLinearCS*);
-    void (__thiscall*ResChange)(asLinearCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(asLinearCS*);
-    void (__thiscall*Load)(asLinearCS*);
-    void (__thiscall*Save)(asLinearCS*);
-    void (__thiscall*AddWidgets)(asLinearCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(asLinearCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asLinearCS*);
+    void* (__thiscall*Destructor)(asLinearCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asLinearCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asLinearCS * __hidden this);
+    void (__thiscall*BeforeSave)(asLinearCS * __hidden this);
+    void (__thiscall*AfterLoad)(asLinearCS * __hidden this);
+    void (__thiscall*Cull)(asLinearCS * __hidden this);
+    void (__thiscall*Update)(asLinearCS * __hidden this);
+    void (__thiscall*Reset)(asLinearCS * __hidden this);
+    void (__thiscall*ResChange)(asLinearCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asLinearCS * __hidden this);
+    void (__thiscall*Load)(asLinearCS * __hidden this);
+    void (__thiscall*Save)(asLinearCS * __hidden this);
+    void (__thiscall*AddWidgets)(asLinearCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asLinearCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asLinearCS * __hidden this);
 };
 
 struct asLamp;
-struct asLamp_vftable
+struct asLamp_vtbl
 {
-    void* (__thiscall*Dtor)(asLamp*,u32);
-    class MetaClass* (__thiscall*GetClass)(asLamp*);
-    char* (__thiscall*GetTypeNameV)(asLamp*);
-    void (__thiscall*BeforeSave)(asLamp*);
-    void (__thiscall*AfterLoad)(asLamp*);
-    void (__thiscall*Cull)(asLamp*);
-    void (__thiscall*Update)(asLamp*);
-    void (__thiscall*Reset)(asLamp*);
-    void (__thiscall*ResChange)(asLamp*,i32,i32);
-    void (__thiscall*UpdatePaused)(asLamp*);
-    void (__thiscall*Load)(asLamp*);
-    void (__thiscall*Save)(asLamp*);
-    void (__thiscall*AddWidgets)(asLamp*,class Bank*);
-    void (__thiscall*OpenWidgets)(asLamp*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asLamp*);
+    void* (__thiscall*Destructor)(asLamp * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asLamp * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asLamp * __hidden this);
+    void (__thiscall*BeforeSave)(asLamp * __hidden this);
+    void (__thiscall*AfterLoad)(asLamp * __hidden this);
+    void (__thiscall*Cull)(asLamp * __hidden this);
+    void (__thiscall*Update)(asLamp * __hidden this);
+    void (__thiscall*Reset)(asLamp * __hidden this);
+    void (__thiscall*ResChange)(asLamp * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asLamp * __hidden this);
+    void (__thiscall*Load)(asLamp * __hidden this);
+    void (__thiscall*Save)(asLamp * __hidden this);
+    void (__thiscall*AddWidgets)(asLamp * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asLamp * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asLamp * __hidden this);
 };
 
 struct Bank;
-struct Bank_vftable
+struct Bank_vtbl
 {
-    void (__thiscall*SetLabel)(Bank*,char*);
-    class bkWindow* (__thiscall*AddTitle)(Bank*,char*);
-    class bkButton* (__thiscall*AddButton)(Bank*,char*,class Callback);
-    class bkButton* (__thiscall*AddToggle)(Bank*,char*,i32*,i32,class Callback);
-    class bkButton* (__thiscall*AddMex)(Bank*,char*,i32*,i32,class Callback);
-    class bkButton* (__thiscall*AddText)(Bank*,char*,class Callback);
-    class bkButton* (__thiscall*AddText1)(Bank*,class Callback);
-    class bkSlider* (__thiscall*AddSlider)(Bank*,char*,f32*,f32,f32,f32,class Callback);
-    class bkSlider* (__thiscall*AddSlider1)(Bank*,char*,u32*,u32,u32,f32,class Callback);
-    class bkSlider* (__thiscall*AddSlider2)(Bank*,char*,i32*,i32,i32,f32,class Callback);
-    class bkSlider* (__thiscall*AddSlider3)(Bank*,char*,u16*,u16,u16,f32,class Callback);
-    class bkSlider* (__thiscall*AddSlider4)(Bank*,char*,i16*,i16,i16,f32,class Callback);
-    class bkSlider* (__thiscall*AddSlider5)(Bank*,char*,u8*,u8,u8,f32,class Callback);
-    class bkSlider* (__thiscall*AddSlider6)(Bank*,char*,char*,char,char,f32,class Callback);
-    class bkSlider* (__thiscall*AddTextSlider)(Bank*,char*,char*,i32*,f32,class Callback);
-    void (__thiscall*AddVector)(Bank*,char*,class Vector4*,f32,f32,f32,class Callback);
-    void (__thiscall*AddVector1)(Bank*,char*,class Vector3*,f32,f32,f32,class Callback);
-    void (__thiscall*AddVector2)(Bank*,char*,class Vector2*,f32,f32,f32,class Callback);
-    void (__thiscall*AddColor)(Bank*,char*,class Vector4*,class Callback);
-    void (__thiscall*AddColor1)(Bank*,char*,class Vector3*,class Callback);
-    void (__thiscall*AddFileButton)(Bank*,char*,class Callback);
-    void (__thiscall*PushSection)(Bank*,char*,i32);
-    void (__thiscall*PopSection)(Bank*);
-    void (__thiscall*PushColumn)(Bank*,i32);
-    void (__thiscall*PopColumn)(Bank*);
-    void (__thiscall*Off)(Bank*);
+    void (__thiscall*SetLabel)(Bank * __hidden this,char*);
+    class bkWindow* (__thiscall*AddTitle)(Bank * __hidden this,char*);
+    class bkButton* (__thiscall*AddButton)(Bank * __hidden this,char*,class Callback);
+    class bkButton* (__thiscall*AddToggle)(Bank * __hidden this,char*,i32*,i32,class Callback);
+    class bkButton* (__thiscall*AddMex)(Bank * __hidden this,char*,i32*,i32,class Callback);
+    class bkButton* (__thiscall*AddText)(Bank * __hidden this,char*,class Callback);
+    class bkButton* (__thiscall*AddText1)(Bank * __hidden this,class Callback);
+    class bkSlider* (__thiscall*AddSlider)(Bank * __hidden this,char*,f32*,f32,f32,f32,class Callback);
+    class bkSlider* (__thiscall*AddSlider1)(Bank * __hidden this,char*,u32*,u32,u32,f32,class Callback);
+    class bkSlider* (__thiscall*AddSlider2)(Bank * __hidden this,char*,i32*,i32,i32,f32,class Callback);
+    class bkSlider* (__thiscall*AddSlider3)(Bank * __hidden this,char*,u16*,u16,u16,f32,class Callback);
+    class bkSlider* (__thiscall*AddSlider4)(Bank * __hidden this,char*,i16*,i16,i16,f32,class Callback);
+    class bkSlider* (__thiscall*AddSlider5)(Bank * __hidden this,char*,u8*,u8,u8,f32,class Callback);
+    class bkSlider* (__thiscall*AddSlider6)(Bank * __hidden this,char*,char*,char,char,f32,class Callback);
+    class bkSlider* (__thiscall*AddTextSlider)(Bank * __hidden this,char*,char*,i32*,f32,class Callback);
+    void (__thiscall*AddVector)(Bank * __hidden this,char*,class Vector4*,f32,f32,f32,class Callback);
+    void (__thiscall*AddVector1)(Bank * __hidden this,char*,class Vector3*,f32,f32,f32,class Callback);
+    void (__thiscall*AddVector2)(Bank * __hidden this,char*,class Vector2*,f32,f32,f32,class Callback);
+    void (__thiscall*AddColor)(Bank * __hidden this,char*,class Vector4*,class Callback);
+    void (__thiscall*AddColor1)(Bank * __hidden this,char*,class Vector3*,class Callback);
+    void (__thiscall*AddFileButton)(Bank * __hidden this,char*,class Callback);
+    void (__thiscall*PushSection)(Bank * __hidden this,char*,i32);
+    void (__thiscall*PopSection)(Bank * __hidden this);
+    void (__thiscall*PushColumn)(Bank * __hidden this,i32);
+    void (__thiscall*PopColumn)(Bank * __hidden this);
+    void (__thiscall*Off)(Bank * __hidden this);
 };
 
 struct MI;
-struct MI_vftable
+struct MI_vtbl
 {
-    i32 (__thiscall*Update)(MI*,i32);
-    void (__thiscall*Key)(MI*,i32,i32);
+    i32 (__thiscall*Update)(MI * __hidden this,i32);
+    void (__thiscall*Key)(MI * __hidden this,i32,i32);
 };
 
 struct SMI;
-struct SMI_vftable
+struct SMI_vtbl
 {
-    i32 (__thiscall*Update)(SMI*,i32);
-    void (__thiscall*Key)(SMI*,i32,i32);
+    i32 (__thiscall*Update)(SMI * __hidden this,i32);
+    void (__thiscall*Key)(SMI * __hidden this,i32,i32);
 };
 
 struct BMI;
-struct BMI_vftable
+struct BMI_vtbl
 {
-    i32 (__thiscall*Update)(BMI*,i32);
-    void (__thiscall*Key)(BMI*,i32,i32);
+    i32 (__thiscall*Update)(BMI * __hidden this,i32);
+    void (__thiscall*Key)(BMI * __hidden this,i32,i32);
 };
 
 struct TMI;
-struct TMI_vftable
+struct TMI_vtbl
 {
-    i32 (__thiscall*Update)(TMI*,i32);
-    void (__thiscall*Key)(TMI*,i32,i32);
+    i32 (__thiscall*Update)(TMI * __hidden this,i32);
+    void (__thiscall*Key)(TMI * __hidden this,i32,i32);
 };
 
 struct scharMI;
-struct scharMI_vftable
+struct scharMI_vtbl
 {
-    i32 (__thiscall*Update)(scharMI*,i32);
-    void (__thiscall*Key)(scharMI*,i32,i32);
+    i32 (__thiscall*Update)(scharMI * __hidden this,i32);
+    void (__thiscall*Key)(scharMI * __hidden this,i32,i32);
 };
 
 struct ucharMI;
-struct ucharMI_vftable
+struct ucharMI_vtbl
 {
-    i32 (__thiscall*Update)(ucharMI*,i32);
-    void (__thiscall*Key)(ucharMI*,i32,i32);
+    i32 (__thiscall*Update)(ucharMI * __hidden this,i32);
+    void (__thiscall*Key)(ucharMI * __hidden this,i32,i32);
 };
 
 struct shortMI;
-struct shortMI_vftable
+struct shortMI_vtbl
 {
-    i32 (__thiscall*Update)(shortMI*,i32);
-    void (__thiscall*Key)(shortMI*,i32,i32);
+    i32 (__thiscall*Update)(shortMI * __hidden this,i32);
+    void (__thiscall*Key)(shortMI * __hidden this,i32,i32);
 };
 
 struct ushortMI;
-struct ushortMI_vftable
+struct ushortMI_vtbl
 {
-    i32 (__thiscall*Update)(ushortMI*,i32);
-    void (__thiscall*Key)(ushortMI*,i32,i32);
+    i32 (__thiscall*Update)(ushortMI * __hidden this,i32);
+    void (__thiscall*Key)(ushortMI * __hidden this,i32,i32);
 };
 
 struct intMI;
-struct intMI_vftable
+struct intMI_vtbl
 {
-    i32 (__thiscall*Update)(intMI*,i32);
-    void (__thiscall*Key)(intMI*,i32,i32);
+    i32 (__thiscall*Update)(intMI * __hidden this,i32);
+    void (__thiscall*Key)(intMI * __hidden this,i32,i32);
 };
 
 struct uintMI;
-struct uintMI_vftable
+struct uintMI_vtbl
 {
-    i32 (__thiscall*Update)(uintMI*,i32);
-    void (__thiscall*Key)(uintMI*,i32,i32);
+    i32 (__thiscall*Update)(uintMI * __hidden this,i32);
+    void (__thiscall*Key)(uintMI * __hidden this,i32,i32);
 };
 
 struct floatMI;
-struct floatMI_vftable
+struct floatMI_vtbl
 {
-    i32 (__thiscall*Update)(floatMI*,i32);
-    void (__thiscall*Key)(floatMI*,i32,i32);
+    i32 (__thiscall*Update)(floatMI * __hidden this,i32);
+    void (__thiscall*Key)(floatMI * __hidden this,i32,i32);
 };
 
 struct SBMI;
-struct SBMI_vftable
+struct SBMI_vtbl
 {
-    i32 (__thiscall*Update)(SBMI*,i32);
-    void (__thiscall*Key)(SBMI*,i32,i32);
+    i32 (__thiscall*Update)(SBMI * __hidden this,i32);
+    void (__thiscall*Key)(SBMI * __hidden this,i32,i32);
 };
 
 struct asForm;
-struct asForm_vftable
+struct asForm_vtbl
 {
-    void* (__thiscall*Dtor)(asForm*,u32);
-    class MetaClass* (__thiscall*GetClass)(asForm*);
-    char* (__thiscall*GetTypeNameV)(asForm*);
-    void (__thiscall*BeforeSave)(asForm*);
-    void (__thiscall*AfterLoad)(asForm*);
-    void (__thiscall*Cull)(asForm*);
-    void (__thiscall*Update)(asForm*);
-    void (__thiscall*Reset)(asForm*);
-    void (__thiscall*ResChange)(asForm*,i32,i32);
-    void (__thiscall*UpdatePaused)(asForm*);
-    void (__thiscall*Load)(asForm*);
-    void (__thiscall*Save)(asForm*);
-    void (__thiscall*AddWidgets)(asForm*,class Bank*);
-    void (__thiscall*OpenWidgets)(asForm*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asForm*);
+    void* (__thiscall*Destructor)(asForm * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asForm * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asForm * __hidden this);
+    void (__thiscall*BeforeSave)(asForm * __hidden this);
+    void (__thiscall*AfterLoad)(asForm * __hidden this);
+    void (__thiscall*Cull)(asForm * __hidden this);
+    void (__thiscall*Update)(asForm * __hidden this);
+    void (__thiscall*Reset)(asForm * __hidden this);
+    void (__thiscall*ResChange)(asForm * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asForm * __hidden this);
+    void (__thiscall*Load)(asForm * __hidden this);
+    void (__thiscall*Save)(asForm * __hidden this);
+    void (__thiscall*AddWidgets)(asForm * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asForm * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asForm * __hidden this);
 };
 
 struct asCamera;
-struct asCamera_vftable
+struct asCamera_vtbl
 {
-    void* (__thiscall*Dtor)(asCamera*,u32);
-    class MetaClass* (__thiscall*GetClass)(asCamera*);
-    char* (__thiscall*GetTypeNameV)(asCamera*);
-    void (__thiscall*BeforeSave)(asCamera*);
-    void (__thiscall*AfterLoad)(asCamera*);
-    void (__thiscall*Cull)(asCamera*);
-    void (__thiscall*Update)(asCamera*);
-    void (__thiscall*Reset)(asCamera*);
-    void (__thiscall*ResChange)(asCamera*,i32,i32);
-    void (__thiscall*UpdatePaused)(asCamera*);
-    void (__thiscall*Load)(asCamera*);
-    void (__thiscall*Save)(asCamera*);
-    void (__thiscall*AddWidgets)(asCamera*,class Bank*);
-    void (__thiscall*OpenWidgets)(asCamera*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asCamera*);
+    void* (__thiscall*Destructor)(asCamera * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asCamera * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asCamera * __hidden this);
+    void (__thiscall*BeforeSave)(asCamera * __hidden this);
+    void (__thiscall*AfterLoad)(asCamera * __hidden this);
+    void (__thiscall*Cull)(asCamera * __hidden this);
+    void (__thiscall*Update)(asCamera * __hidden this);
+    void (__thiscall*Reset)(asCamera * __hidden this);
+    void (__thiscall*ResChange)(asCamera * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asCamera * __hidden this);
+    void (__thiscall*Load)(asCamera * __hidden this);
+    void (__thiscall*Save)(asCamera * __hidden this);
+    void (__thiscall*AddWidgets)(asCamera * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asCamera * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asCamera * __hidden this);
 };
 
 struct asDofCS;
-struct asDofCS_vftable
+struct asDofCS_vtbl
 {
-    void* (__thiscall*Dtor)(asDofCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(asDofCS*);
-    char* (__thiscall*GetTypeNameV)(asDofCS*);
-    void (__thiscall*BeforeSave)(asDofCS*);
-    void (__thiscall*AfterLoad)(asDofCS*);
-    void (__thiscall*Cull)(asDofCS*);
-    void (__thiscall*Update)(asDofCS*);
-    void (__thiscall*Reset)(asDofCS*);
-    void (__thiscall*ResChange)(asDofCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(asDofCS*);
-    void (__thiscall*Load)(asDofCS*);
-    void (__thiscall*Save)(asDofCS*);
-    void (__thiscall*AddWidgets)(asDofCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(asDofCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asDofCS*);
+    void* (__thiscall*Destructor)(asDofCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asDofCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asDofCS * __hidden this);
+    void (__thiscall*BeforeSave)(asDofCS * __hidden this);
+    void (__thiscall*AfterLoad)(asDofCS * __hidden this);
+    void (__thiscall*Cull)(asDofCS * __hidden this);
+    void (__thiscall*Update)(asDofCS * __hidden this);
+    void (__thiscall*Reset)(asDofCS * __hidden this);
+    void (__thiscall*ResChange)(asDofCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asDofCS * __hidden this);
+    void (__thiscall*Load)(asDofCS * __hidden this);
+    void (__thiscall*Save)(asDofCS * __hidden this);
+    void (__thiscall*AddWidgets)(asDofCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asDofCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asDofCS * __hidden this);
 };
 
 struct asViewCS;
-struct asViewCS_vftable
+struct asViewCS_vtbl
 {
-    void* (__thiscall*Dtor)(asViewCS*,u32);
-    class MetaClass* (__thiscall*GetClass)(asViewCS*);
-    char* (__thiscall*GetTypeNameV)(asViewCS*);
-    void (__thiscall*BeforeSave)(asViewCS*);
-    void (__thiscall*AfterLoad)(asViewCS*);
-    void (__thiscall*Cull)(asViewCS*);
-    void (__thiscall*Update)(asViewCS*);
-    void (__thiscall*Reset)(asViewCS*);
-    void (__thiscall*ResChange)(asViewCS*,i32,i32);
-    void (__thiscall*UpdatePaused)(asViewCS*);
-    void (__thiscall*Load)(asViewCS*);
-    void (__thiscall*Save)(asViewCS*);
-    void (__thiscall*AddWidgets)(asViewCS*,class Bank*);
-    void (__thiscall*OpenWidgets)(asViewCS*,char*,class bkWindow*);
-    void (__thiscall*CloseWidgets)(asViewCS*);
+    void* (__thiscall*Destructor)(asViewCS * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(asViewCS * __hidden this);
+    char* (__thiscall*GetTypeNameV)(asViewCS * __hidden this);
+    void (__thiscall*BeforeSave)(asViewCS * __hidden this);
+    void (__thiscall*AfterLoad)(asViewCS * __hidden this);
+    void (__thiscall*Cull)(asViewCS * __hidden this);
+    void (__thiscall*Update)(asViewCS * __hidden this);
+    void (__thiscall*Reset)(asViewCS * __hidden this);
+    void (__thiscall*ResChange)(asViewCS * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(asViewCS * __hidden this);
+    void (__thiscall*Load)(asViewCS * __hidden this);
+    void (__thiscall*Save)(asViewCS * __hidden this);
+    void (__thiscall*AddWidgets)(asViewCS * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(asViewCS * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(asViewCS * __hidden this);
 };
 
 struct agiD3DRasterizer;
-struct agiD3DRasterizer_vftable
+struct agiD3DRasterizer_vtbl
 {
-    void (__thiscall*EndGfx)(agiD3DRasterizer*);
-    void (__thiscall*Restore)(agiD3DRasterizer*);
-    char* (__thiscall*GetName)(agiD3DRasterizer*);
-    void* (__thiscall*Dtor)(agiD3DRasterizer*,u32);
-    i32 (__thiscall*BeginGfx)(agiD3DRasterizer*);
-    i32 (__thiscall*IsTexture)(agiD3DRasterizer*);
-    void (__thiscall*BeginGroup)(agiD3DRasterizer*);
-    void (__thiscall*EndGroup)(agiD3DRasterizer*);
-    void (__thiscall*Verts)(agiD3DRasterizer*,enum agiVtxType,union agiVtx*,i32);
-    void (__thiscall*Points)(agiD3DRasterizer*,enum agiVtxType,union agiVtx*,i32);
-    void (__thiscall*SetVertCount)(agiD3DRasterizer*,i32);
-    void (__thiscall*Triangle)(agiD3DRasterizer*,i32,i32,i32);
-    void (__thiscall*Quad)(agiD3DRasterizer*,i32,i32,i32,i32);
-    void (__thiscall*Poly)(agiD3DRasterizer*,i32*,i32);
-    void (__thiscall*Line)(agiD3DRasterizer*,i32,i32);
-    void (__thiscall*Card)(agiD3DRasterizer*,i32,i32);
-    void (__thiscall*Mesh)(agiD3DRasterizer*,enum agiVtxType,union agiVtx*,i32,u16*,i32);
-    void (__thiscall*Mesh2)(agiD3DRasterizer*,struct agiScreenVtx2*,i32,u16*,i32);
-    void (__thiscall*LineList)(agiD3DRasterizer*,enum agiVtxType,union agiVtx*,i32);
+    void (__thiscall*EndGfx)(agiD3DRasterizer * __hidden this);
+    void (__thiscall*Restore)(agiD3DRasterizer * __hidden this);
+    char* (__thiscall*GetName)(agiD3DRasterizer * __hidden this);
+    void* (__thiscall*Destructor)(agiD3DRasterizer * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiD3DRasterizer * __hidden this);
+    i32 (__thiscall*IsTexture)(agiD3DRasterizer * __hidden this);
+    void (__thiscall*BeginGroup)(agiD3DRasterizer * __hidden this);
+    void (__thiscall*EndGroup)(agiD3DRasterizer * __hidden this);
+    void (__thiscall*Verts)(agiD3DRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32);
+    void (__thiscall*Points)(agiD3DRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32);
+    void (__thiscall*SetVertCount)(agiD3DRasterizer * __hidden this,i32);
+    void (__thiscall*Triangle)(agiD3DRasterizer * __hidden this,i32,i32,i32);
+    void (__thiscall*Quad)(agiD3DRasterizer * __hidden this,i32,i32,i32,i32);
+    void (__thiscall*Poly)(agiD3DRasterizer * __hidden this,i32*,i32);
+    void (__thiscall*Line)(agiD3DRasterizer * __hidden this,i32,i32);
+    void (__thiscall*Card)(agiD3DRasterizer * __hidden this,i32,i32);
+    void (__thiscall*Mesh)(agiD3DRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32,u16*,i32);
+    void (__thiscall*Mesh2)(agiD3DRasterizer * __hidden this,struct agiScreenVtx2*,i32,u16*,i32);
+    void (__thiscall*LineList)(agiD3DRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32);
 };
 
 struct agiD3DPipeline;
-struct agiD3DPipeline_vftable
+struct agiD3DPipeline_vtbl
 {
-    void* (__thiscall*Dtor)(agiD3DPipeline*,u32);
-    i32 (__thiscall*Validate)(agiD3DPipeline*);
-    i32 (__thiscall*BeginGfx)(agiD3DPipeline*);
-    void (__thiscall*EndGfx)(agiD3DPipeline*);
-    void (__thiscall*BeginFrame)(agiD3DPipeline*);
-    void (__thiscall*BeginScene)(agiD3DPipeline*);
-    void (__thiscall*EndScene)(agiD3DPipeline*);
-    void (__thiscall*EndFrame)(agiD3DPipeline*);
-    class agiTexDef* (__thiscall*CreateTexDef)(agiD3DPipeline*);
-    class agiTexLut* (__thiscall*CreateTexLut)(agiD3DPipeline*);
-    class agiMtlDef* (__thiscall*CreateMtlDef)(agiD3DPipeline*);
-    class DLP* (__thiscall*CreateDLP)(agiD3DPipeline*);
-    class agiViewport* (__thiscall*CreateViewport)(agiD3DPipeline*);
-    class agiLight* (__thiscall*CreateLight)(agiD3DPipeline*);
-    class agiLightModel* (__thiscall*CreateLightModel)(agiD3DPipeline*);
-    class agiBitmap* (__thiscall*CreateBitmap)(agiD3DPipeline*);
-    void (__thiscall*CopyBitmap)(agiD3DPipeline*,i32,i32,class agiBitmap*,i32,i32,i32,i32);
-    void (__thiscall*ClearAll)(agiD3DPipeline*,i32);
-    void (__thiscall*ClearRect)(agiD3DPipeline*,i32,i32,i32,i32,u32);
-    void (__thiscall*Print)(agiD3DPipeline*,i32,i32,i32,char const*);
-    i32 (__thiscall*PrintIs3D)(agiD3DPipeline*);
-    void (__thiscall*PrintInit)(agiD3DPipeline*);
-    void (__thiscall*PrintShutdown)(agiD3DPipeline*);
-    void (__thiscall*Defragment)(agiD3DPipeline*);
-    i32 (__thiscall*LockFrameBuffer)(agiD3DPipeline*,class agiSurfaceDesc&);
-    void (__thiscall*UnlockFrameBuffer)(agiD3DPipeline*);
-    void (__thiscall*DumpStatus)(agiD3DPipeline*,struct agiMemStatus&);
+    void* (__thiscall*Destructor)(agiD3DPipeline * __hidden this,u32);
+    i32 (__thiscall*Validate)(agiD3DPipeline * __hidden this);
+    i32 (__thiscall*BeginGfx)(agiD3DPipeline * __hidden this);
+    void (__thiscall*EndGfx)(agiD3DPipeline * __hidden this);
+    void (__thiscall*BeginFrame)(agiD3DPipeline * __hidden this);
+    void (__thiscall*BeginScene)(agiD3DPipeline * __hidden this);
+    void (__thiscall*EndScene)(agiD3DPipeline * __hidden this);
+    void (__thiscall*EndFrame)(agiD3DPipeline * __hidden this);
+    class agiTexDef* (__thiscall*CreateTexDef)(agiD3DPipeline * __hidden this);
+    class agiTexLut* (__thiscall*CreateTexLut)(agiD3DPipeline * __hidden this);
+    class agiMtlDef* (__thiscall*CreateMtlDef)(agiD3DPipeline * __hidden this);
+    class DLP* (__thiscall*CreateDLP)(agiD3DPipeline * __hidden this);
+    class agiViewport* (__thiscall*CreateViewport)(agiD3DPipeline * __hidden this);
+    class agiLight* (__thiscall*CreateLight)(agiD3DPipeline * __hidden this);
+    class agiLightModel* (__thiscall*CreateLightModel)(agiD3DPipeline * __hidden this);
+    class agiBitmap* (__thiscall*CreateBitmap)(agiD3DPipeline * __hidden this);
+    void (__thiscall*CopyBitmap)(agiD3DPipeline * __hidden this,i32,i32,class agiBitmap*,i32,i32,i32,i32);
+    void (__thiscall*ClearAll)(agiD3DPipeline * __hidden this,i32);
+    void (__thiscall*ClearRect)(agiD3DPipeline * __hidden this,i32,i32,i32,i32,u32);
+    void (__thiscall*Print)(agiD3DPipeline * __hidden this,i32,i32,i32,char const*);
+    i32 (__thiscall*PrintIs3D)(agiD3DPipeline * __hidden this);
+    void (__thiscall*PrintInit)(agiD3DPipeline * __hidden this);
+    void (__thiscall*PrintShutdown)(agiD3DPipeline * __hidden this);
+    void (__thiscall*Defragment)(agiD3DPipeline * __hidden this);
+    i32 (__thiscall*LockFrameBuffer)(agiD3DPipeline * __hidden this,class agiSurfaceDesc&);
+    void (__thiscall*UnlockFrameBuffer)(agiD3DPipeline * __hidden this);
+    void (__thiscall*DumpStatus)(agiD3DPipeline * __hidden this,struct agiMemStatus&);
 };
 
 struct agiD3DTexLut;
-struct agiD3DTexLut_vftable
+struct agiD3DTexLut_vtbl
 {
-    void (__thiscall*EndGfx)(agiD3DTexLut*);
-    void (__thiscall*Restore)(agiD3DTexLut*);
-    char* (__thiscall*GetName)(agiD3DTexLut*);
-    void* (__thiscall*Dtor)(agiD3DTexLut*,u32);
-    i32 (__thiscall*BeginGfx)(agiD3DTexLut*);
-    i32 (__thiscall*IsTexture)(agiD3DTexLut*);
+    void (__thiscall*EndGfx)(agiD3DTexLut * __hidden this);
+    void (__thiscall*Restore)(agiD3DTexLut * __hidden this);
+    char* (__thiscall*GetName)(agiD3DTexLut * __hidden this);
+    void* (__thiscall*Destructor)(agiD3DTexLut * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiD3DTexLut * __hidden this);
+    i32 (__thiscall*IsTexture)(agiD3DTexLut * __hidden this);
 };
 
 struct agiD3DRPipeline;
-struct agiD3DRPipeline_vftable
+struct agiD3DRPipeline_vtbl
 {
-    void* (__thiscall*Dtor)(agiD3DRPipeline*,u32);
-    i32 (__thiscall*Validate)(agiD3DRPipeline*);
-    i32 (__thiscall*BeginGfx)(agiD3DRPipeline*);
-    void (__thiscall*EndGfx)(agiD3DRPipeline*);
-    void (__thiscall*BeginFrame)(agiD3DRPipeline*);
-    void (__thiscall*BeginScene)(agiD3DRPipeline*);
-    void (__thiscall*EndScene)(agiD3DRPipeline*);
-    void (__thiscall*EndFrame)(agiD3DRPipeline*);
-    class agiTexDef* (__thiscall*CreateTexDef)(agiD3DRPipeline*);
-    class agiTexLut* (__thiscall*CreateTexLut)(agiD3DRPipeline*);
-    class agiMtlDef* (__thiscall*CreateMtlDef)(agiD3DRPipeline*);
-    class DLP* (__thiscall*CreateDLP)(agiD3DRPipeline*);
-    class agiViewport* (__thiscall*CreateViewport)(agiD3DRPipeline*);
-    class agiLight* (__thiscall*CreateLight)(agiD3DRPipeline*);
-    class agiLightModel* (__thiscall*CreateLightModel)(agiD3DRPipeline*);
-    class agiBitmap* (__thiscall*CreateBitmap)(agiD3DRPipeline*);
-    void (__thiscall*CopyBitmap)(agiD3DRPipeline*,i32,i32,class agiBitmap*,i32,i32,i32,i32);
-    void (__thiscall*ClearAll)(agiD3DRPipeline*,i32);
-    void (__thiscall*ClearRect)(agiD3DRPipeline*,i32,i32,i32,i32,u32);
-    void (__thiscall*Print)(agiD3DRPipeline*,i32,i32,i32,char const*);
-    i32 (__thiscall*PrintIs3D)(agiD3DRPipeline*);
-    void (__thiscall*PrintInit)(agiD3DRPipeline*);
-    void (__thiscall*PrintShutdown)(agiD3DRPipeline*);
-    void (__thiscall*Defragment)(agiD3DRPipeline*);
-    i32 (__thiscall*LockFrameBuffer)(agiD3DRPipeline*,class agiSurfaceDesc&);
-    void (__thiscall*UnlockFrameBuffer)(agiD3DRPipeline*);
-    void (__thiscall*DumpStatus)(agiD3DRPipeline*,struct agiMemStatus&);
+    void* (__thiscall*Destructor)(agiD3DRPipeline * __hidden this,u32);
+    i32 (__thiscall*Validate)(agiD3DRPipeline * __hidden this);
+    i32 (__thiscall*BeginGfx)(agiD3DRPipeline * __hidden this);
+    void (__thiscall*EndGfx)(agiD3DRPipeline * __hidden this);
+    void (__thiscall*BeginFrame)(agiD3DRPipeline * __hidden this);
+    void (__thiscall*BeginScene)(agiD3DRPipeline * __hidden this);
+    void (__thiscall*EndScene)(agiD3DRPipeline * __hidden this);
+    void (__thiscall*EndFrame)(agiD3DRPipeline * __hidden this);
+    class agiTexDef* (__thiscall*CreateTexDef)(agiD3DRPipeline * __hidden this);
+    class agiTexLut* (__thiscall*CreateTexLut)(agiD3DRPipeline * __hidden this);
+    class agiMtlDef* (__thiscall*CreateMtlDef)(agiD3DRPipeline * __hidden this);
+    class DLP* (__thiscall*CreateDLP)(agiD3DRPipeline * __hidden this);
+    class agiViewport* (__thiscall*CreateViewport)(agiD3DRPipeline * __hidden this);
+    class agiLight* (__thiscall*CreateLight)(agiD3DRPipeline * __hidden this);
+    class agiLightModel* (__thiscall*CreateLightModel)(agiD3DRPipeline * __hidden this);
+    class agiBitmap* (__thiscall*CreateBitmap)(agiD3DRPipeline * __hidden this);
+    void (__thiscall*CopyBitmap)(agiD3DRPipeline * __hidden this,i32,i32,class agiBitmap*,i32,i32,i32,i32);
+    void (__thiscall*ClearAll)(agiD3DRPipeline * __hidden this,i32);
+    void (__thiscall*ClearRect)(agiD3DRPipeline * __hidden this,i32,i32,i32,i32,u32);
+    void (__thiscall*Print)(agiD3DRPipeline * __hidden this,i32,i32,i32,char const*);
+    i32 (__thiscall*PrintIs3D)(agiD3DRPipeline * __hidden this);
+    void (__thiscall*PrintInit)(agiD3DRPipeline * __hidden this);
+    void (__thiscall*PrintShutdown)(agiD3DRPipeline * __hidden this);
+    void (__thiscall*Defragment)(agiD3DRPipeline * __hidden this);
+    i32 (__thiscall*LockFrameBuffer)(agiD3DRPipeline * __hidden this,class agiSurfaceDesc&);
+    void (__thiscall*UnlockFrameBuffer)(agiD3DRPipeline * __hidden this);
+    void (__thiscall*DumpStatus)(agiD3DRPipeline * __hidden this,struct agiMemStatus&);
 };
 
 struct agiD3DTexDef;
-struct agiD3DTexDef_vftable
+struct agiD3DTexDef_vtbl
 {
-    void (__thiscall*EndGfx)(agiD3DTexDef*);
-    void (__thiscall*Restore)(agiD3DTexDef*);
-    char* (__thiscall*GetName)(agiD3DTexDef*);
-    void* (__thiscall*Dtor)(agiD3DTexDef*,u32);
-    i32 (__thiscall*BeginGfx)(agiD3DTexDef*);
-    i32 (__thiscall*IsTexture)(agiD3DTexDef*);
-    i32 (__thiscall*IsAvailable)(agiD3DTexDef*);
-    void (__thiscall*Set)(agiD3DTexDef*,class Vector2&,class Vector2&);
-    i32 (__thiscall*Lock)(agiD3DTexDef*,struct agiTexLock&);
-    void (__thiscall*Unlock)(agiD3DTexDef*,struct agiTexLock&);
-    void (__thiscall*Request)(agiD3DTexDef*);
+    void (__thiscall*EndGfx)(agiD3DTexDef * __hidden this);
+    void (__thiscall*Restore)(agiD3DTexDef * __hidden this);
+    char* (__thiscall*GetName)(agiD3DTexDef * __hidden this);
+    void* (__thiscall*Destructor)(agiD3DTexDef * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiD3DTexDef * __hidden this);
+    i32 (__thiscall*IsTexture)(agiD3DTexDef * __hidden this);
+    i32 (__thiscall*IsAvailable)(agiD3DTexDef * __hidden this);
+    void (__thiscall*Set)(agiD3DTexDef * __hidden this,class Vector2&,class Vector2&);
+    i32 (__thiscall*Lock)(agiD3DTexDef * __hidden this,struct agiTexLock&);
+    void (__thiscall*Unlock)(agiD3DTexDef * __hidden this,struct agiTexLock&);
+    void (__thiscall*Request)(agiD3DTexDef * __hidden this);
 };
 
 struct agiDDPipeline;
-struct agiDDPipeline_vftable
+struct agiDDPipeline_vtbl
 {
-    void* (__thiscall*Dtor)(agiDDPipeline*,u32);
-    i32 (__thiscall*Validate)(agiDDPipeline*);
-    i32 (__thiscall*BeginGfx)(agiDDPipeline*);
-    void (__thiscall*EndGfx)(agiDDPipeline*);
-    void (__thiscall*BeginFrame)(agiDDPipeline*);
-    void (__thiscall*BeginScene)(agiDDPipeline*);
-    void (__thiscall*EndScene)(agiDDPipeline*);
-    void (__thiscall*EndFrame)(agiDDPipeline*);
-    class agiTexDef* (__thiscall*CreateTexDef)(agiDDPipeline*);
-    class agiTexLut* (__thiscall*CreateTexLut)(agiDDPipeline*);
-    class agiMtlDef* (__thiscall*CreateMtlDef)(agiDDPipeline*);
-    class DLP* (__thiscall*CreateDLP)(agiDDPipeline*);
-    class agiViewport* (__thiscall*CreateViewport)(agiDDPipeline*);
-    class agiLight* (__thiscall*CreateLight)(agiDDPipeline*);
-    class agiLightModel* (__thiscall*CreateLightModel)(agiDDPipeline*);
-    class agiBitmap* (__thiscall*CreateBitmap)(agiDDPipeline*);
-    void (__thiscall*CopyBitmap)(agiDDPipeline*,i32,i32,class agiBitmap*,i32,i32,i32,i32);
-    void (__thiscall*ClearAll)(agiDDPipeline*,i32);
-    void (__thiscall*ClearRect)(agiDDPipeline*,i32,i32,i32,i32,u32);
-    void (__thiscall*Print)(agiDDPipeline*,i32,i32,i32,char const*);
-    i32 (__thiscall*PrintIs3D)(agiDDPipeline*);
-    void (__thiscall*PrintInit)(agiDDPipeline*);
-    void (__thiscall*PrintShutdown)(agiDDPipeline*);
-    void (__thiscall*Defragment)(agiDDPipeline*);
-    i32 (__thiscall*LockFrameBuffer)(agiDDPipeline*,class agiSurfaceDesc&);
-    void (__thiscall*UnlockFrameBuffer)(agiDDPipeline*);
-    void (__thiscall*DumpStatus)(agiDDPipeline*,struct agiMemStatus&);
+    void* (__thiscall*Destructor)(agiDDPipeline * __hidden this,u32);
+    i32 (__thiscall*Validate)(agiDDPipeline * __hidden this);
+    i32 (__thiscall*BeginGfx)(agiDDPipeline * __hidden this);
+    void (__thiscall*EndGfx)(agiDDPipeline * __hidden this);
+    void (__thiscall*BeginFrame)(agiDDPipeline * __hidden this);
+    void (__thiscall*BeginScene)(agiDDPipeline * __hidden this);
+    void (__thiscall*EndScene)(agiDDPipeline * __hidden this);
+    void (__thiscall*EndFrame)(agiDDPipeline * __hidden this);
+    class agiTexDef* (__thiscall*CreateTexDef)(agiDDPipeline * __hidden this);
+    class agiTexLut* (__thiscall*CreateTexLut)(agiDDPipeline * __hidden this);
+    class agiMtlDef* (__thiscall*CreateMtlDef)(agiDDPipeline * __hidden this);
+    class DLP* (__thiscall*CreateDLP)(agiDDPipeline * __hidden this);
+    class agiViewport* (__thiscall*CreateViewport)(agiDDPipeline * __hidden this);
+    class agiLight* (__thiscall*CreateLight)(agiDDPipeline * __hidden this);
+    class agiLightModel* (__thiscall*CreateLightModel)(agiDDPipeline * __hidden this);
+    class agiBitmap* (__thiscall*CreateBitmap)(agiDDPipeline * __hidden this);
+    void (__thiscall*CopyBitmap)(agiDDPipeline * __hidden this,i32,i32,class agiBitmap*,i32,i32,i32,i32);
+    void (__thiscall*ClearAll)(agiDDPipeline * __hidden this,i32);
+    void (__thiscall*ClearRect)(agiDDPipeline * __hidden this,i32,i32,i32,i32,u32);
+    void (__thiscall*Print)(agiDDPipeline * __hidden this,i32,i32,i32,char const*);
+    i32 (__thiscall*PrintIs3D)(agiDDPipeline * __hidden this);
+    void (__thiscall*PrintInit)(agiDDPipeline * __hidden this);
+    void (__thiscall*PrintShutdown)(agiDDPipeline * __hidden this);
+    void (__thiscall*Defragment)(agiDDPipeline * __hidden this);
+    i32 (__thiscall*LockFrameBuffer)(agiDDPipeline * __hidden this,class agiSurfaceDesc&);
+    void (__thiscall*UnlockFrameBuffer)(agiDDPipeline * __hidden this);
+    void (__thiscall*DumpStatus)(agiDDPipeline * __hidden this,struct agiMemStatus&);
 };
 
 struct agiD3DViewport;
-struct agiD3DViewport_vftable
+struct agiD3DViewport_vtbl
 {
-    void (__thiscall*EndGfx)(agiD3DViewport*);
-    void (__thiscall*Restore)(agiD3DViewport*);
-    char* (__thiscall*GetName)(agiD3DViewport*);
-    void* (__thiscall*Dtor)(agiD3DViewport*,u32);
-    i32 (__thiscall*BeginGfx)(agiD3DViewport*);
-    i32 (__thiscall*IsTexture)(agiD3DViewport*);
-    void (__thiscall*Activate)(agiD3DViewport*);
-    void (__thiscall*SetBackground)(agiD3DViewport*,class Vector3&);
-    void (__thiscall*Clear)(agiD3DViewport*,i32);
-    void (__thiscall*SetWorld)(agiD3DViewport*,class Matrix34&);
+    void (__thiscall*EndGfx)(agiD3DViewport * __hidden this);
+    void (__thiscall*Restore)(agiD3DViewport * __hidden this);
+    char* (__thiscall*GetName)(agiD3DViewport * __hidden this);
+    void* (__thiscall*Destructor)(agiD3DViewport * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiD3DViewport * __hidden this);
+    i32 (__thiscall*IsTexture)(agiD3DViewport * __hidden this);
+    void (__thiscall*Activate)(agiD3DViewport * __hidden this);
+    void (__thiscall*SetBackground)(agiD3DViewport * __hidden this,class Vector3&);
+    void (__thiscall*Clear)(agiD3DViewport * __hidden this,i32);
+    void (__thiscall*SetWorld)(agiD3DViewport * __hidden this,class Matrix34&);
 };
 
 struct agiD3DMtlDef;
-struct agiD3DMtlDef_vftable
+struct agiD3DMtlDef_vtbl
 {
-    void (__thiscall*EndGfx)(agiD3DMtlDef*);
-    void (__thiscall*Restore)(agiD3DMtlDef*);
-    char* (__thiscall*GetName)(agiD3DMtlDef*);
-    void* (__thiscall*Dtor)(agiD3DMtlDef*,u32);
-    i32 (__thiscall*BeginGfx)(agiD3DMtlDef*);
-    i32 (__thiscall*IsTexture)(agiD3DMtlDef*);
+    void (__thiscall*EndGfx)(agiD3DMtlDef * __hidden this);
+    void (__thiscall*Restore)(agiD3DMtlDef * __hidden this);
+    char* (__thiscall*GetName)(agiD3DMtlDef * __hidden this);
+    void* (__thiscall*Destructor)(agiD3DMtlDef * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiD3DMtlDef * __hidden this);
+    i32 (__thiscall*IsTexture)(agiD3DMtlDef * __hidden this);
 };
 
 struct agiD3DLight;
-struct agiD3DLight_vftable
+struct agiD3DLight_vtbl
 {
-    void (__thiscall*EndGfx)(agiD3DLight*);
-    void (__thiscall*Restore)(agiD3DLight*);
-    char* (__thiscall*GetName)(agiD3DLight*);
-    void* (__thiscall*Dtor)(agiD3DLight*,u32);
-    i32 (__thiscall*BeginGfx)(agiD3DLight*);
-    i32 (__thiscall*IsTexture)(agiD3DLight*);
-    i32 (__thiscall*Update)(agiD3DLight*);
-    void (__thiscall*Remove)(agiD3DLight*);
+    void (__thiscall*EndGfx)(agiD3DLight * __hidden this);
+    void (__thiscall*Restore)(agiD3DLight * __hidden this);
+    char* (__thiscall*GetName)(agiD3DLight * __hidden this);
+    void* (__thiscall*Destructor)(agiD3DLight * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiD3DLight * __hidden this);
+    i32 (__thiscall*IsTexture)(agiD3DLight * __hidden this);
+    i32 (__thiscall*Update)(agiD3DLight * __hidden this);
+    void (__thiscall*Remove)(agiD3DLight * __hidden this);
 };
 
 struct agiDDBitmap;
-struct agiDDBitmap_vftable
+struct agiDDBitmap_vtbl
 {
-    void (__thiscall*EndGfx)(agiDDBitmap*);
-    void (__thiscall*Restore)(agiDDBitmap*);
-    char* (__thiscall*GetName)(agiDDBitmap*);
-    void* (__thiscall*Dtor)(agiDDBitmap*,u32);
-    i32 (__thiscall*BeginGfx)(agiDDBitmap*);
-    i32 (__thiscall*IsTexture)(agiDDBitmap*);
-    void (__thiscall*UpdateFlags)(agiDDBitmap*);
+    void (__thiscall*EndGfx)(agiDDBitmap * __hidden this);
+    void (__thiscall*Restore)(agiDDBitmap * __hidden this);
+    char* (__thiscall*GetName)(agiDDBitmap * __hidden this);
+    void* (__thiscall*Destructor)(agiDDBitmap * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiDDBitmap * __hidden this);
+    i32 (__thiscall*IsTexture)(agiDDBitmap * __hidden this);
+    void (__thiscall*UpdateFlags)(agiDDBitmap * __hidden this);
 };
 
 struct agiSWPipeline;
-struct agiSWPipeline_vftable
+struct agiSWPipeline_vtbl
 {
-    void* (__thiscall*Dtor)(agiSWPipeline*,u32);
-    i32 (__thiscall*Validate)(agiSWPipeline*);
-    i32 (__thiscall*BeginGfx)(agiSWPipeline*);
-    void (__thiscall*EndGfx)(agiSWPipeline*);
-    void (__thiscall*BeginFrame)(agiSWPipeline*);
-    void (__thiscall*BeginScene)(agiSWPipeline*);
-    void (__thiscall*EndScene)(agiSWPipeline*);
-    void (__thiscall*EndFrame)(agiSWPipeline*);
-    class agiTexDef* (__thiscall*CreateTexDef)(agiSWPipeline*);
-    class agiTexLut* (__thiscall*CreateTexLut)(agiSWPipeline*);
-    class agiMtlDef* (__thiscall*CreateMtlDef)(agiSWPipeline*);
-    class DLP* (__thiscall*CreateDLP)(agiSWPipeline*);
-    class agiViewport* (__thiscall*CreateViewport)(agiSWPipeline*);
-    class agiLight* (__thiscall*CreateLight)(agiSWPipeline*);
-    class agiLightModel* (__thiscall*CreateLightModel)(agiSWPipeline*);
-    class agiBitmap* (__thiscall*CreateBitmap)(agiSWPipeline*);
-    void (__thiscall*CopyBitmap)(agiSWPipeline*,i32,i32,class agiBitmap*,i32,i32,i32,i32);
-    void (__thiscall*ClearAll)(agiSWPipeline*,i32);
-    void (__thiscall*ClearRect)(agiSWPipeline*,i32,i32,i32,i32,u32);
-    void (__thiscall*Print)(agiSWPipeline*,i32,i32,i32,char const*);
-    i32 (__thiscall*PrintIs3D)(agiSWPipeline*);
-    void (__thiscall*PrintInit)(agiSWPipeline*);
-    void (__thiscall*PrintShutdown)(agiSWPipeline*);
-    void (__thiscall*Defragment)(agiSWPipeline*);
-    i32 (__thiscall*LockFrameBuffer)(agiSWPipeline*,class agiSurfaceDesc&);
-    void (__thiscall*UnlockFrameBuffer)(agiSWPipeline*);
-    void (__thiscall*DumpStatus)(agiSWPipeline*,struct agiMemStatus&);
+    void* (__thiscall*Destructor)(agiSWPipeline * __hidden this,u32);
+    i32 (__thiscall*Validate)(agiSWPipeline * __hidden this);
+    i32 (__thiscall*BeginGfx)(agiSWPipeline * __hidden this);
+    void (__thiscall*EndGfx)(agiSWPipeline * __hidden this);
+    void (__thiscall*BeginFrame)(agiSWPipeline * __hidden this);
+    void (__thiscall*BeginScene)(agiSWPipeline * __hidden this);
+    void (__thiscall*EndScene)(agiSWPipeline * __hidden this);
+    void (__thiscall*EndFrame)(agiSWPipeline * __hidden this);
+    class agiTexDef* (__thiscall*CreateTexDef)(agiSWPipeline * __hidden this);
+    class agiTexLut* (__thiscall*CreateTexLut)(agiSWPipeline * __hidden this);
+    class agiMtlDef* (__thiscall*CreateMtlDef)(agiSWPipeline * __hidden this);
+    class DLP* (__thiscall*CreateDLP)(agiSWPipeline * __hidden this);
+    class agiViewport* (__thiscall*CreateViewport)(agiSWPipeline * __hidden this);
+    class agiLight* (__thiscall*CreateLight)(agiSWPipeline * __hidden this);
+    class agiLightModel* (__thiscall*CreateLightModel)(agiSWPipeline * __hidden this);
+    class agiBitmap* (__thiscall*CreateBitmap)(agiSWPipeline * __hidden this);
+    void (__thiscall*CopyBitmap)(agiSWPipeline * __hidden this,i32,i32,class agiBitmap*,i32,i32,i32,i32);
+    void (__thiscall*ClearAll)(agiSWPipeline * __hidden this,i32);
+    void (__thiscall*ClearRect)(agiSWPipeline * __hidden this,i32,i32,i32,i32,u32);
+    void (__thiscall*Print)(agiSWPipeline * __hidden this,i32,i32,i32,char const*);
+    i32 (__thiscall*PrintIs3D)(agiSWPipeline * __hidden this);
+    void (__thiscall*PrintInit)(agiSWPipeline * __hidden this);
+    void (__thiscall*PrintShutdown)(agiSWPipeline * __hidden this);
+    void (__thiscall*Defragment)(agiSWPipeline * __hidden this);
+    i32 (__thiscall*LockFrameBuffer)(agiSWPipeline * __hidden this,class agiSurfaceDesc&);
+    void (__thiscall*UnlockFrameBuffer)(agiSWPipeline * __hidden this);
+    void (__thiscall*DumpStatus)(agiSWPipeline * __hidden this,struct agiMemStatus&);
 };
 
 struct agiSWViewport;
-struct agiSWViewport_vftable
+struct agiSWViewport_vtbl
 {
-    void (__thiscall*EndGfx)(agiSWViewport*);
-    void (__thiscall*Restore)(agiSWViewport*);
-    char* (__thiscall*GetName)(agiSWViewport*);
-    void* (__thiscall*Dtor)(agiSWViewport*,u32);
-    i32 (__thiscall*BeginGfx)(agiSWViewport*);
-    i32 (__thiscall*IsTexture)(agiSWViewport*);
-    void (__thiscall*Activate)(agiSWViewport*);
-    void (__thiscall*SetBackground)(agiSWViewport*,class Vector3&);
-    void (__thiscall*Clear)(agiSWViewport*,i32);
-    void (__thiscall*SetWorld)(agiSWViewport*,class Matrix34&);
+    void (__thiscall*EndGfx)(agiSWViewport * __hidden this);
+    void (__thiscall*Restore)(agiSWViewport * __hidden this);
+    char* (__thiscall*GetName)(agiSWViewport * __hidden this);
+    void* (__thiscall*Destructor)(agiSWViewport * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiSWViewport * __hidden this);
+    i32 (__thiscall*IsTexture)(agiSWViewport * __hidden this);
+    void (__thiscall*Activate)(agiSWViewport * __hidden this);
+    void (__thiscall*SetBackground)(agiSWViewport * __hidden this,class Vector3&);
+    void (__thiscall*Clear)(agiSWViewport * __hidden this,i32);
+    void (__thiscall*SetWorld)(agiSWViewport * __hidden this,class Matrix34&);
 };
 
 struct agiSWBitmap;
-struct agiSWBitmap_vftable
+struct agiSWBitmap_vtbl
 {
-    void (__thiscall*EndGfx)(agiSWBitmap*);
-    void (__thiscall*Restore)(agiSWBitmap*);
-    char* (__thiscall*GetName)(agiSWBitmap*);
-    void* (__thiscall*Dtor)(agiSWBitmap*,u32);
-    i32 (__thiscall*BeginGfx)(agiSWBitmap*);
-    i32 (__thiscall*IsTexture)(agiSWBitmap*);
-    void (__thiscall*UpdateFlags)(agiSWBitmap*);
+    void (__thiscall*EndGfx)(agiSWBitmap * __hidden this);
+    void (__thiscall*Restore)(agiSWBitmap * __hidden this);
+    char* (__thiscall*GetName)(agiSWBitmap * __hidden this);
+    void* (__thiscall*Destructor)(agiSWBitmap * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiSWBitmap * __hidden this);
+    i32 (__thiscall*IsTexture)(agiSWBitmap * __hidden this);
+    void (__thiscall*UpdateFlags)(agiSWBitmap * __hidden this);
 };
 
 struct agiSWTexDef;
-struct agiSWTexDef_vftable
+struct agiSWTexDef_vtbl
 {
-    void (__thiscall*EndGfx)(agiSWTexDef*);
-    void (__thiscall*Restore)(agiSWTexDef*);
-    char* (__thiscall*GetName)(agiSWTexDef*);
-    void* (__thiscall*Dtor)(agiSWTexDef*,u32);
-    i32 (__thiscall*BeginGfx)(agiSWTexDef*);
-    i32 (__thiscall*IsTexture)(agiSWTexDef*);
-    i32 (__thiscall*IsAvailable)(agiSWTexDef*);
-    void (__thiscall*Set)(agiSWTexDef*,class Vector2&,class Vector2&);
-    i32 (__thiscall*Lock)(agiSWTexDef*,struct agiTexLock&);
-    void (__thiscall*Unlock)(agiSWTexDef*,struct agiTexLock&);
-    void (__thiscall*Request)(agiSWTexDef*);
+    void (__thiscall*EndGfx)(agiSWTexDef * __hidden this);
+    void (__thiscall*Restore)(agiSWTexDef * __hidden this);
+    char* (__thiscall*GetName)(agiSWTexDef * __hidden this);
+    void* (__thiscall*Destructor)(agiSWTexDef * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiSWTexDef * __hidden this);
+    i32 (__thiscall*IsTexture)(agiSWTexDef * __hidden this);
+    i32 (__thiscall*IsAvailable)(agiSWTexDef * __hidden this);
+    void (__thiscall*Set)(agiSWTexDef * __hidden this,class Vector2&,class Vector2&);
+    i32 (__thiscall*Lock)(agiSWTexDef * __hidden this,struct agiTexLock&);
+    void (__thiscall*Unlock)(agiSWTexDef * __hidden this,struct agiTexLock&);
+    void (__thiscall*Request)(agiSWTexDef * __hidden this);
 };
 
 struct agiSWTexLut;
-struct agiSWTexLut_vftable
+struct agiSWTexLut_vtbl
 {
-    void (__thiscall*EndGfx)(agiSWTexLut*);
-    void (__thiscall*Restore)(agiSWTexLut*);
-    char* (__thiscall*GetName)(agiSWTexLut*);
-    void* (__thiscall*Dtor)(agiSWTexLut*,u32);
-    i32 (__thiscall*BeginGfx)(agiSWTexLut*);
-    i32 (__thiscall*IsTexture)(agiSWTexLut*);
+    void (__thiscall*EndGfx)(agiSWTexLut * __hidden this);
+    void (__thiscall*Restore)(agiSWTexLut * __hidden this);
+    char* (__thiscall*GetName)(agiSWTexLut * __hidden this);
+    void* (__thiscall*Destructor)(agiSWTexLut * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiSWTexLut * __hidden this);
+    i32 (__thiscall*IsTexture)(agiSWTexLut * __hidden this);
 };
 
 struct agiSWRasterizer;
-struct agiSWRasterizer_vftable
+struct agiSWRasterizer_vtbl
 {
-    void (__thiscall*EndGfx)(agiSWRasterizer*);
-    void (__thiscall*Restore)(agiSWRasterizer*);
-    char* (__thiscall*GetName)(agiSWRasterizer*);
-    void* (__thiscall*Dtor)(agiSWRasterizer*,u32);
-    i32 (__thiscall*BeginGfx)(agiSWRasterizer*);
-    i32 (__thiscall*IsTexture)(agiSWRasterizer*);
-    void (__thiscall*BeginGroup)(agiSWRasterizer*);
-    void (__thiscall*EndGroup)(agiSWRasterizer*);
-    void (__thiscall*Verts)(agiSWRasterizer*,enum agiVtxType,union agiVtx*,i32);
-    void (__thiscall*Points)(agiSWRasterizer*,enum agiVtxType,union agiVtx*,i32);
-    void (__thiscall*SetVertCount)(agiSWRasterizer*,i32);
-    void (__thiscall*Triangle)(agiSWRasterizer*,i32,i32,i32);
-    void (__thiscall*Quad)(agiSWRasterizer*,i32,i32,i32,i32);
-    void (__thiscall*Poly)(agiSWRasterizer*,i32*,i32);
-    void (__thiscall*Line)(agiSWRasterizer*,i32,i32);
-    void (__thiscall*Card)(agiSWRasterizer*,i32,i32);
-    void (__thiscall*Mesh)(agiSWRasterizer*,enum agiVtxType,union agiVtx*,i32,u16*,i32);
-    void (__thiscall*Mesh2)(agiSWRasterizer*,struct agiScreenVtx2*,i32,u16*,i32);
-    void (__thiscall*LineList)(agiSWRasterizer*,enum agiVtxType,union agiVtx*,i32);
+    void (__thiscall*EndGfx)(agiSWRasterizer * __hidden this);
+    void (__thiscall*Restore)(agiSWRasterizer * __hidden this);
+    char* (__thiscall*GetName)(agiSWRasterizer * __hidden this);
+    void* (__thiscall*Destructor)(agiSWRasterizer * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiSWRasterizer * __hidden this);
+    i32 (__thiscall*IsTexture)(agiSWRasterizer * __hidden this);
+    void (__thiscall*BeginGroup)(agiSWRasterizer * __hidden this);
+    void (__thiscall*EndGroup)(agiSWRasterizer * __hidden this);
+    void (__thiscall*Verts)(agiSWRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32);
+    void (__thiscall*Points)(agiSWRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32);
+    void (__thiscall*SetVertCount)(agiSWRasterizer * __hidden this,i32);
+    void (__thiscall*Triangle)(agiSWRasterizer * __hidden this,i32,i32,i32);
+    void (__thiscall*Quad)(agiSWRasterizer * __hidden this,i32,i32,i32,i32);
+    void (__thiscall*Poly)(agiSWRasterizer * __hidden this,i32*,i32);
+    void (__thiscall*Line)(agiSWRasterizer * __hidden this,i32,i32);
+    void (__thiscall*Card)(agiSWRasterizer * __hidden this,i32,i32);
+    void (__thiscall*Mesh)(agiSWRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32,u16*,i32);
+    void (__thiscall*Mesh2)(agiSWRasterizer * __hidden this,struct agiScreenVtx2*,i32,u16*,i32);
+    void (__thiscall*LineList)(agiSWRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32);
 };
 
 struct agiZBufRenderer;
-struct agiZBufRenderer_vftable
+struct agiZBufRenderer_vtbl
 {
-    void* (__thiscall*Dtor)(agiZBufRenderer*,u32);
-    void (__thiscall*BeginGroup)(agiZBufRenderer*);
-    void (__thiscall*Draw)(agiZBufRenderer*,class DLP*,i32);
-    void (__thiscall*DrawCard)(agiZBufRenderer*,class Vector3&);
-    void (__thiscall*EndGroup)(agiZBufRenderer*);
-    void (__thiscall*BeginDraw)(agiZBufRenderer*,i32);
-    void (__thiscall*Verts)(agiZBufRenderer*,union agiVtx*,i32);
-    void (__thiscall*Points)(agiZBufRenderer*,union agiVtx*,i32);
-    void (__thiscall*DrawTri)(agiZBufRenderer*,i32,i32,i32);
-    void (__thiscall*DrawLine)(agiZBufRenderer*,i32,i32);
-    void (__thiscall*DrawLabel)(agiZBufRenderer*,union agiVtx&,char*);
-    void (__thiscall*EndDraw)(agiZBufRenderer*);
+    void* (__thiscall*Destructor)(agiZBufRenderer * __hidden this,u32);
+    void (__thiscall*BeginGroup)(agiZBufRenderer * __hidden this);
+    void (__thiscall*Draw)(agiZBufRenderer * __hidden this,class DLP*,i32);
+    void (__thiscall*DrawCard)(agiZBufRenderer * __hidden this,class Vector3&);
+    void (__thiscall*EndGroup)(agiZBufRenderer * __hidden this);
+    void (__thiscall*BeginDraw)(agiZBufRenderer * __hidden this,i32);
+    void (__thiscall*Verts)(agiZBufRenderer * __hidden this,union agiVtx*,i32);
+    void (__thiscall*Points)(agiZBufRenderer * __hidden this,union agiVtx*,i32);
+    void (__thiscall*DrawTri)(agiZBufRenderer * __hidden this,i32,i32,i32);
+    void (__thiscall*DrawLine)(agiZBufRenderer * __hidden this,i32,i32);
+    void (__thiscall*DrawLabel)(agiZBufRenderer * __hidden this,union agiVtx&,char*);
+    void (__thiscall*EndDraw)(agiZBufRenderer * __hidden this);
 };
 
 struct RDLP;
-struct RDLP_vftable
+struct RDLP_vtbl
 {
-    void (__thiscall*EndGfx)(RDLP*);
-    void (__thiscall*Restore)(RDLP*);
-    char* (__thiscall*GetName)(RDLP*);
-    void* (__thiscall*Dtor)(RDLP*,u32);
-    i32 (__thiscall*BeginGfx)(RDLP*);
-    i32 (__thiscall*IsTexture)(RDLP*);
-    void (__thiscall*Cull)(RDLP*,i32);
-    void (__thiscall*FixROpts)(RDLP*,i32,i32);
-    class DynamicDLP* (__thiscall*GetDynamic)(RDLP*,i32);
-    class MultipassDLP* (__thiscall*GetMultipass)(RDLP*,i32);
+    void (__thiscall*EndGfx)(RDLP * __hidden this);
+    void (__thiscall*Restore)(RDLP * __hidden this);
+    char* (__thiscall*GetName)(RDLP * __hidden this);
+    void* (__thiscall*Destructor)(RDLP * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(RDLP * __hidden this);
+    i32 (__thiscall*IsTexture)(RDLP * __hidden this);
+    void (__thiscall*Cull)(RDLP * __hidden this,i32);
+    void (__thiscall*FixROpts)(RDLP * __hidden this,i32,i32);
+    class DynamicDLP* (__thiscall*GetDynamic)(RDLP * __hidden this,i32);
+    class MultipassDLP* (__thiscall*GetMultipass)(RDLP * __hidden this,i32);
 };
 
 struct RDynamicDLP;
-struct RDynamicDLP_vftable
+struct RDynamicDLP_vtbl
 {
-    void* (__thiscall*Dtor)(RDynamicDLP*,u32);
-    i32 (__thiscall*Init)(RDynamicDLP*,char*);
-    void (__thiscall*Lock)(RDynamicDLP*);
-    void (__thiscall*Unlock)(RDynamicDLP*);
-    void (__thiscall*SetTexture)(RDynamicDLP*,i16);
+    void* (__thiscall*Destructor)(RDynamicDLP * __hidden this,u32);
+    i32 (__thiscall*Init)(RDynamicDLP * __hidden this,char*);
+    void (__thiscall*Lock)(RDynamicDLP * __hidden this);
+    void (__thiscall*Unlock)(RDynamicDLP * __hidden this);
+    void (__thiscall*SetTexture)(RDynamicDLP * __hidden this,i16);
 };
 
 struct agiLighter;
-struct agiLighter_vftable
+struct agiLighter_vtbl
 {
-    void* (__thiscall*Dtor)(agiLighter*,u32);
-    void (__thiscall*TransformAll)(agiLighter*,class Matrix34*,class Vector3*,u32);
-    u32 (__thiscall*LightVertex)(agiLighter*,u32,struct agiLitVtx*,class Vector3*);
+    void* (__thiscall*Destructor)(agiLighter * __hidden this,u32);
+    void (__thiscall*TransformAll)(agiLighter * __hidden this,class Matrix34*,class Vector3*,u32);
+    u32 (__thiscall*LightVertex)(agiLighter * __hidden this,u32,struct agiLitVtx*,class Vector3*);
 };
 
 struct agiMonoLighter;
-struct agiMonoLighter_vftable
+struct agiMonoLighter_vtbl
 {
-    void* (__thiscall*Dtor)(agiMonoLighter*,u32);
-    void (__thiscall*TransformAll)(agiMonoLighter*,class Matrix34*,class Vector3*,u32);
-    u32 (__thiscall*LightVertex)(agiMonoLighter*,u32,struct agiLitVtx*,class Vector3*);
+    void* (__thiscall*Destructor)(agiMonoLighter * __hidden this,u32);
+    void (__thiscall*TransformAll)(agiMonoLighter * __hidden this,class Matrix34*,class Vector3*,u32);
+    u32 (__thiscall*LightVertex)(agiMonoLighter * __hidden this,u32,struct agiLitVtx*,class Vector3*);
 };
 
 struct agiRGBLighter;
-struct agiRGBLighter_vftable
+struct agiRGBLighter_vtbl
 {
-    void* (__thiscall*Dtor)(agiRGBLighter*,u32);
-    void (__thiscall*TransformAll)(agiRGBLighter*,class Matrix34*,class Vector3*,u32);
-    u32 (__thiscall*LightVertex)(agiRGBLighter*,u32,struct agiLitVtx*,class Vector3*);
+    void* (__thiscall*Destructor)(agiRGBLighter * __hidden this,u32);
+    void (__thiscall*TransformAll)(agiRGBLighter * __hidden this,class Matrix34*,class Vector3*,u32);
+    u32 (__thiscall*LightVertex)(agiRGBLighter * __hidden this,u32,struct agiLitVtx*,class Vector3*);
 };
 
 struct agiSurfRenderer;
-struct agiSurfRenderer_vftable
+struct agiSurfRenderer_vtbl
 {
-    void* (__thiscall*Dtor)(agiSurfRenderer*,u32);
-    void (__thiscall*BeginGroup)(agiSurfRenderer*);
-    void (__thiscall*Draw)(agiSurfRenderer*,class DLP*,i32);
-    void (__thiscall*DrawCard)(agiSurfRenderer*,class Vector3&);
-    void (__thiscall*EndGroup)(agiSurfRenderer*);
-    void (__thiscall*BeginDraw)(agiSurfRenderer*,i32);
-    void (__thiscall*Verts)(agiSurfRenderer*,union agiVtx*,i32);
-    void (__thiscall*Points)(agiSurfRenderer*,union agiVtx*,i32);
-    void (__thiscall*DrawTri)(agiSurfRenderer*,i32,i32,i32);
-    void (__thiscall*DrawLine)(agiSurfRenderer*,i32,i32);
-    void (__thiscall*DrawLabel)(agiSurfRenderer*,union agiVtx&,char*);
-    void (__thiscall*EndDraw)(agiSurfRenderer*);
+    void* (__thiscall*Destructor)(agiSurfRenderer * __hidden this,u32);
+    void (__thiscall*BeginGroup)(agiSurfRenderer * __hidden this);
+    void (__thiscall*Draw)(agiSurfRenderer * __hidden this,class DLP*,i32);
+    void (__thiscall*DrawCard)(agiSurfRenderer * __hidden this,class Vector3&);
+    void (__thiscall*EndGroup)(agiSurfRenderer * __hidden this);
+    void (__thiscall*BeginDraw)(agiSurfRenderer * __hidden this,i32);
+    void (__thiscall*Verts)(agiSurfRenderer * __hidden this,union agiVtx*,i32);
+    void (__thiscall*Points)(agiSurfRenderer * __hidden this,union agiVtx*,i32);
+    void (__thiscall*DrawTri)(agiSurfRenderer * __hidden this,i32,i32,i32);
+    void (__thiscall*DrawLine)(agiSurfRenderer * __hidden this,i32,i32);
+    void (__thiscall*DrawLabel)(agiSurfRenderer * __hidden this,union agiVtx&,char*);
+    void (__thiscall*EndDraw)(agiSurfRenderer * __hidden this);
 };
 
 struct agiRenderer;
-struct agiRenderer_vftable
+struct agiRenderer_vtbl
 {
-    void* (__thiscall*Dtor)(agiRenderer*,u32);
-    void (__thiscall*BeginGroup)(agiRenderer*);
-    void (__thiscall*Draw)(agiRenderer*,class DLP*,i32);
-    void (__thiscall*DrawCard)(agiRenderer*,class Vector3&);
-    void (__thiscall*EndGroup)(agiRenderer*);
-    void (__thiscall*BeginDraw)(agiRenderer*,i32);
-    void (__thiscall*Verts)(agiRenderer*,union agiVtx*,i32);
-    void (__thiscall*Points)(agiRenderer*,union agiVtx*,i32);
-    void (__thiscall*DrawTri)(agiRenderer*,i32,i32,i32);
-    void (__thiscall*DrawLine)(agiRenderer*,i32,i32);
-    void (__thiscall*DrawLabel)(agiRenderer*,union agiVtx&,char*);
-    void (__thiscall*EndDraw)(agiRenderer*);
+    void* (__thiscall*Destructor)(agiRenderer * __hidden this,u32);
+    void (__thiscall*BeginGroup)(agiRenderer * __hidden this);
+    void (__thiscall*Draw)(agiRenderer * __hidden this,class DLP*,i32);
+    void (__thiscall*DrawCard)(agiRenderer * __hidden this,class Vector3&);
+    void (__thiscall*EndGroup)(agiRenderer * __hidden this);
+    void (__thiscall*BeginDraw)(agiRenderer * __hidden this,i32);
+    void (__thiscall*Verts)(agiRenderer * __hidden this,union agiVtx*,i32);
+    void (__thiscall*Points)(agiRenderer * __hidden this,union agiVtx*,i32);
+    void (__thiscall*DrawTri)(agiRenderer * __hidden this,i32,i32,i32);
+    void (__thiscall*DrawLine)(agiRenderer * __hidden this,i32,i32);
+    void (__thiscall*DrawLabel)(agiRenderer * __hidden this,union agiVtx&,char*);
+    void (__thiscall*EndDraw)(agiRenderer * __hidden this);
 };
 
 struct agiBILightModel;
-struct agiBILightModel_vftable
+struct agiBILightModel_vtbl
 {
-    void (__thiscall*EndGfx)(agiBILightModel*);
-    void (__thiscall*Restore)(agiBILightModel*);
-    char* (__thiscall*GetName)(agiBILightModel*);
-    void* (__thiscall*Dtor)(agiBILightModel*,u32);
-    i32 (__thiscall*BeginGfx)(agiBILightModel*);
-    i32 (__thiscall*IsTexture)(agiBILightModel*);
-    i32 (__thiscall*Activate)(agiBILightModel*);
+    void (__thiscall*EndGfx)(agiBILightModel * __hidden this);
+    void (__thiscall*Restore)(agiBILightModel * __hidden this);
+    char* (__thiscall*GetName)(agiBILightModel * __hidden this);
+    void* (__thiscall*Destructor)(agiBILightModel * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiBILightModel * __hidden this);
+    i32 (__thiscall*IsTexture)(agiBILightModel * __hidden this);
+    i32 (__thiscall*Activate)(agiBILightModel * __hidden this);
 };
 
 struct agiBILight;
-struct agiBILight_vftable
+struct agiBILight_vtbl
 {
-    void (__thiscall*EndGfx)(agiBILight*);
-    void (__thiscall*Restore)(agiBILight*);
-    char* (__thiscall*GetName)(agiBILight*);
-    void* (__thiscall*Dtor)(agiBILight*,u32);
-    i32 (__thiscall*BeginGfx)(agiBILight*);
-    i32 (__thiscall*IsTexture)(agiBILight*);
-    i32 (__thiscall*Update)(agiBILight*);
-    void (__thiscall*Remove)(agiBILight*);
+    void (__thiscall*EndGfx)(agiBILight * __hidden this);
+    void (__thiscall*Restore)(agiBILight * __hidden this);
+    char* (__thiscall*GetName)(agiBILight * __hidden this);
+    void* (__thiscall*Destructor)(agiBILight * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiBILight * __hidden this);
+    i32 (__thiscall*IsTexture)(agiBILight * __hidden this);
+    i32 (__thiscall*Update)(agiBILight * __hidden this);
+    void (__thiscall*Remove)(agiBILight * __hidden this);
 };
 
 struct agiPipeline;
-struct agiPipeline_vftable
+struct agiPipeline_vtbl
 {
-    void* (__thiscall*Dtor)(agiPipeline*,u32);
-    i32 (__thiscall*Validate)(agiPipeline*);
-    i32 (__thiscall*BeginGfx)(agiPipeline*);
-    void (__thiscall*EndGfx)(agiPipeline*);
-    void (__thiscall*BeginFrame)(agiPipeline*);
-    void (__thiscall*BeginScene)(agiPipeline*);
-    void (__thiscall*EndScene)(agiPipeline*);
-    void (__thiscall*EndFrame)(agiPipeline*);
-    class agiTexDef* (__thiscall*CreateTexDef)(agiPipeline*);
-    class agiTexLut* (__thiscall*CreateTexLut)(agiPipeline*);
-    class agiMtlDef* (__thiscall*CreateMtlDef)(agiPipeline*);
-    class DLP* (__thiscall*CreateDLP)(agiPipeline*);
-    class agiViewport* (__thiscall*CreateViewport)(agiPipeline*);
-    class agiLight* (__thiscall*CreateLight)(agiPipeline*);
-    class agiLightModel* (__thiscall*CreateLightModel)(agiPipeline*);
-    class agiBitmap* (__thiscall*CreateBitmap)(agiPipeline*);
-    void (__thiscall*CopyBitmap)(agiPipeline*,i32,i32,class agiBitmap*,i32,i32,i32,i32);
-    void (__thiscall*ClearAll)(agiPipeline*,i32);
-    void (__thiscall*ClearRect)(agiPipeline*,i32,i32,i32,i32,u32);
-    void (__thiscall*Print)(agiPipeline*,i32,i32,i32,char const*);
-    i32 (__thiscall*PrintIs3D)(agiPipeline*);
-    void (__thiscall*PrintInit)(agiPipeline*);
-    void (__thiscall*PrintShutdown)(agiPipeline*);
-    void (__thiscall*Defragment)(agiPipeline*);
-    i32 (__thiscall*LockFrameBuffer)(agiPipeline*,class agiSurfaceDesc&);
-    void (__thiscall*UnlockFrameBuffer)(agiPipeline*);
-    void (__thiscall*DumpStatus)(agiPipeline*,struct agiMemStatus&);
+    void* (__thiscall*Destructor)(agiPipeline * __hidden this,u32);
+    i32 (__thiscall*Validate)(agiPipeline * __hidden this);
+    i32 (__thiscall*BeginGfx)(agiPipeline * __hidden this);
+    void (__thiscall*EndGfx)(agiPipeline * __hidden this);
+    void (__thiscall*BeginFrame)(agiPipeline * __hidden this);
+    void (__thiscall*BeginScene)(agiPipeline * __hidden this);
+    void (__thiscall*EndScene)(agiPipeline * __hidden this);
+    void (__thiscall*EndFrame)(agiPipeline * __hidden this);
+    class agiTexDef* (__thiscall*CreateTexDef)(agiPipeline * __hidden this);
+    class agiTexLut* (__thiscall*CreateTexLut)(agiPipeline * __hidden this);
+    class agiMtlDef* (__thiscall*CreateMtlDef)(agiPipeline * __hidden this);
+    class DLP* (__thiscall*CreateDLP)(agiPipeline * __hidden this);
+    class agiViewport* (__thiscall*CreateViewport)(agiPipeline * __hidden this);
+    class agiLight* (__thiscall*CreateLight)(agiPipeline * __hidden this);
+    class agiLightModel* (__thiscall*CreateLightModel)(agiPipeline * __hidden this);
+    class agiBitmap* (__thiscall*CreateBitmap)(agiPipeline * __hidden this);
+    void (__thiscall*CopyBitmap)(agiPipeline * __hidden this,i32,i32,class agiBitmap*,i32,i32,i32,i32);
+    void (__thiscall*ClearAll)(agiPipeline * __hidden this,i32);
+    void (__thiscall*ClearRect)(agiPipeline * __hidden this,i32,i32,i32,i32,u32);
+    void (__thiscall*Print)(agiPipeline * __hidden this,i32,i32,i32,char const*);
+    i32 (__thiscall*PrintIs3D)(agiPipeline * __hidden this);
+    void (__thiscall*PrintInit)(agiPipeline * __hidden this);
+    void (__thiscall*PrintShutdown)(agiPipeline * __hidden this);
+    void (__thiscall*Defragment)(agiPipeline * __hidden this);
+    i32 (__thiscall*LockFrameBuffer)(agiPipeline * __hidden this,class agiSurfaceDesc&);
+    void (__thiscall*UnlockFrameBuffer)(agiPipeline * __hidden this);
+    void (__thiscall*DumpStatus)(agiPipeline * __hidden this,struct agiMemStatus&);
 };
 
 struct agiTexDef;
-struct agiTexDef_vftable
+struct agiTexDef_vtbl
 {
-    void (__thiscall*EndGfx)(agiTexDef*);
-    void (__thiscall*Restore)(agiTexDef*);
-    char* (__thiscall*GetName)(agiTexDef*);
-    void* (__thiscall*Dtor)(agiTexDef*,u32);
-    i32 (__thiscall*BeginGfx)(agiTexDef*);
-    i32 (__thiscall*IsTexture)(agiTexDef*);
-    i32 (__thiscall*IsAvailable)(agiTexDef*);
-    void (__thiscall*Set)(agiTexDef*,class Vector2&,class Vector2&);
-    i32 (__thiscall*Lock)(agiTexDef*,struct agiTexLock&);
-    void (__thiscall*Unlock)(agiTexDef*,struct agiTexLock&);
-    void (__thiscall*Request)(agiTexDef*);
+    void (__thiscall*EndGfx)(agiTexDef * __hidden this);
+    void (__thiscall*Restore)(agiTexDef * __hidden this);
+    char* (__thiscall*GetName)(agiTexDef * __hidden this);
+    void* (__thiscall*Destructor)(agiTexDef * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiTexDef * __hidden this);
+    i32 (__thiscall*IsTexture)(agiTexDef * __hidden this);
+    i32 (__thiscall*IsAvailable)(agiTexDef * __hidden this);
+    void (__thiscall*Set)(agiTexDef * __hidden this,class Vector2&,class Vector2&);
+    i32 (__thiscall*Lock)(agiTexDef * __hidden this,struct agiTexLock&);
+    void (__thiscall*Unlock)(agiTexDef * __hidden this,struct agiTexLock&);
+    void (__thiscall*Request)(agiTexDef * __hidden this);
 };
 
 struct agiTexLut;
-struct agiTexLut_vftable
+struct agiTexLut_vtbl
 {
-    void (__thiscall*EndGfx)(agiTexLut*);
-    void (__thiscall*Restore)(agiTexLut*);
-    char* (__thiscall*GetName)(agiTexLut*);
-    void* (__thiscall*Dtor)(agiTexLut*,u32);
-    i32 (__thiscall*BeginGfx)(agiTexLut*);
-    i32 (__thiscall*IsTexture)(agiTexLut*);
+    void (__thiscall*EndGfx)(agiTexLut * __hidden this);
+    void (__thiscall*Restore)(agiTexLut * __hidden this);
+    char* (__thiscall*GetName)(agiTexLut * __hidden this);
+    void* (__thiscall*Destructor)(agiTexLut * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiTexLut * __hidden this);
+    i32 (__thiscall*IsTexture)(agiTexLut * __hidden this);
 };
 
 struct agiViewport;
-struct agiViewport_vftable
+struct agiViewport_vtbl
 {
-    void (__thiscall*EndGfx)(agiViewport*);
-    void (__thiscall*Restore)(agiViewport*);
-    char* (__thiscall*GetName)(agiViewport*);
-    void* (__thiscall*Dtor)(agiViewport*,u32);
-    i32 (__thiscall*BeginGfx)(agiViewport*);
-    i32 (__thiscall*IsTexture)(agiViewport*);
-    void (__thiscall*Activate)(agiViewport*);
-    void (__thiscall*SetBackground)(agiViewport*,class Vector3&);
-    void (__thiscall*Clear)(agiViewport*,i32);
-    void (__thiscall*SetWorld)(agiViewport*,class Matrix34&);
+    void (__thiscall*EndGfx)(agiViewport * __hidden this);
+    void (__thiscall*Restore)(agiViewport * __hidden this);
+    char* (__thiscall*GetName)(agiViewport * __hidden this);
+    void* (__thiscall*Destructor)(agiViewport * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiViewport * __hidden this);
+    i32 (__thiscall*IsTexture)(agiViewport * __hidden this);
+    void (__thiscall*Activate)(agiViewport * __hidden this);
+    void (__thiscall*SetBackground)(agiViewport * __hidden this,class Vector3&);
+    void (__thiscall*Clear)(agiViewport * __hidden this,i32);
+    void (__thiscall*SetWorld)(agiViewport * __hidden this,class Matrix34&);
 };
 
 struct agiRefreshable;
-struct agiRefreshable_vftable
+struct agiRefreshable_vtbl
 {
-    void (__thiscall*EndGfx)(agiRefreshable*);
-    void (__thiscall*Restore)(agiRefreshable*);
-    char* (__thiscall*GetName)(agiRefreshable*);
-    void* (__thiscall*Dtor)(agiRefreshable*,u32);
-    i32 (__thiscall*BeginGfx)(agiRefreshable*);
-    i32 (__thiscall*IsTexture)(agiRefreshable*);
+    void (__thiscall*EndGfx)(agiRefreshable * __hidden this);
+    void (__thiscall*Restore)(agiRefreshable * __hidden this);
+    char* (__thiscall*GetName)(agiRefreshable * __hidden this);
+    void* (__thiscall*Destructor)(agiRefreshable * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiRefreshable * __hidden this);
+    i32 (__thiscall*IsTexture)(agiRefreshable * __hidden this);
 };
 
 struct agiRasterizer;
-struct agiRasterizer_vftable
+struct agiRasterizer_vtbl
 {
-    void (__thiscall*EndGfx)(agiRasterizer*);
-    void (__thiscall*Restore)(agiRasterizer*);
-    char* (__thiscall*GetName)(agiRasterizer*);
-    void* (__thiscall*Dtor)(agiRasterizer*,u32);
-    i32 (__thiscall*BeginGfx)(agiRasterizer*);
-    i32 (__thiscall*IsTexture)(agiRasterizer*);
-    void (__thiscall*BeginGroup)(agiRasterizer*);
-    void (__thiscall*EndGroup)(agiRasterizer*);
-    void (__thiscall*Verts)(agiRasterizer*,enum agiVtxType,union agiVtx*,i32);
-    void (__thiscall*Points)(agiRasterizer*,enum agiVtxType,union agiVtx*,i32);
-    void (__thiscall*SetVertCount)(agiRasterizer*,i32);
-    void (__thiscall*Triangle)(agiRasterizer*,i32,i32,i32);
-    void (__thiscall*Quad)(agiRasterizer*,i32,i32,i32,i32);
-    void (__thiscall*Poly)(agiRasterizer*,i32*,i32);
-    void (__thiscall*Line)(agiRasterizer*,i32,i32);
-    void (__thiscall*Card)(agiRasterizer*,i32,i32);
-    void (__thiscall*Mesh)(agiRasterizer*,enum agiVtxType,union agiVtx*,i32,u16*,i32);
-    void (__thiscall*Mesh2)(agiRasterizer*,struct agiScreenVtx2*,i32,u16*,i32);
-    void (__thiscall*LineList)(agiRasterizer*,enum agiVtxType,union agiVtx*,i32);
+    void (__thiscall*EndGfx)(agiRasterizer * __hidden this);
+    void (__thiscall*Restore)(agiRasterizer * __hidden this);
+    char* (__thiscall*GetName)(agiRasterizer * __hidden this);
+    void* (__thiscall*Destructor)(agiRasterizer * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiRasterizer * __hidden this);
+    i32 (__thiscall*IsTexture)(agiRasterizer * __hidden this);
+    void (__thiscall*BeginGroup)(agiRasterizer * __hidden this);
+    void (__thiscall*EndGroup)(agiRasterizer * __hidden this);
+    void (__thiscall*Verts)(agiRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32);
+    void (__thiscall*Points)(agiRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32);
+    void (__thiscall*SetVertCount)(agiRasterizer * __hidden this,i32);
+    void (__thiscall*Triangle)(agiRasterizer * __hidden this,i32,i32,i32);
+    void (__thiscall*Quad)(agiRasterizer * __hidden this,i32,i32,i32,i32);
+    void (__thiscall*Poly)(agiRasterizer * __hidden this,i32*,i32);
+    void (__thiscall*Line)(agiRasterizer * __hidden this,i32,i32);
+    void (__thiscall*Card)(agiRasterizer * __hidden this,i32,i32);
+    void (__thiscall*Mesh)(agiRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32,u16*,i32);
+    void (__thiscall*Mesh2)(agiRasterizer * __hidden this,struct agiScreenVtx2*,i32,u16*,i32);
+    void (__thiscall*LineList)(agiRasterizer * __hidden this,enum agiVtxType,union agiVtx*,i32);
 };
 
 struct agiBitmap;
-struct agiBitmap_vftable
+struct agiBitmap_vtbl
 {
-    void (__thiscall*EndGfx)(agiBitmap*);
-    void (__thiscall*Restore)(agiBitmap*);
-    char* (__thiscall*GetName)(agiBitmap*);
-    void* (__thiscall*Dtor)(agiBitmap*,u32);
-    i32 (__thiscall*BeginGfx)(agiBitmap*);
-    i32 (__thiscall*IsTexture)(agiBitmap*);
-    void (__thiscall*UpdateFlags)(agiBitmap*);
+    void (__thiscall*EndGfx)(agiBitmap * __hidden this);
+    void (__thiscall*Restore)(agiBitmap * __hidden this);
+    char* (__thiscall*GetName)(agiBitmap * __hidden this);
+    void* (__thiscall*Destructor)(agiBitmap * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiBitmap * __hidden this);
+    i32 (__thiscall*IsTexture)(agiBitmap * __hidden this);
+    void (__thiscall*UpdateFlags)(agiBitmap * __hidden this);
 };
 
 struct agiLight;
-struct agiLight_vftable
+struct agiLight_vtbl
 {
-    void (__thiscall*EndGfx)(agiLight*);
-    void (__thiscall*Restore)(agiLight*);
-    char* (__thiscall*GetName)(agiLight*);
-    void* (__thiscall*Dtor)(agiLight*,u32);
-    i32 (__thiscall*BeginGfx)(agiLight*);
-    i32 (__thiscall*IsTexture)(agiLight*);
-    i32 (__thiscall*Update)(agiLight*);
-    void (__thiscall*Remove)(agiLight*);
+    void (__thiscall*EndGfx)(agiLight * __hidden this);
+    void (__thiscall*Restore)(agiLight * __hidden this);
+    char* (__thiscall*GetName)(agiLight * __hidden this);
+    void* (__thiscall*Destructor)(agiLight * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiLight * __hidden this);
+    i32 (__thiscall*IsTexture)(agiLight * __hidden this);
+    i32 (__thiscall*Update)(agiLight * __hidden this);
+    void (__thiscall*Remove)(agiLight * __hidden this);
 };
 
 struct agiColorModel;
-struct agiColorModel_vftable
+struct agiColorModel_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModel*,u32);
-    u32 (__thiscall*GetColor)(agiColorModel*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModel*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModel*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModel*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModel*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModel * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModel * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModel * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModel * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModel * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModel * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiLightModel;
-struct agiLightModel_vftable
+struct agiLightModel_vtbl
 {
-    void (__thiscall*EndGfx)(agiLightModel*);
-    void (__thiscall*Restore)(agiLightModel*);
-    char* (__thiscall*GetName)(agiLightModel*);
-    void* (__thiscall*Dtor)(agiLightModel*,u32);
-    i32 (__thiscall*BeginGfx)(agiLightModel*);
-    i32 (__thiscall*IsTexture)(agiLightModel*);
-    i32 (__thiscall*Activate)(agiLightModel*);
+    void (__thiscall*EndGfx)(agiLightModel * __hidden this);
+    void (__thiscall*Restore)(agiLightModel * __hidden this);
+    char* (__thiscall*GetName)(agiLightModel * __hidden this);
+    void* (__thiscall*Destructor)(agiLightModel * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiLightModel * __hidden this);
+    i32 (__thiscall*IsTexture)(agiLightModel * __hidden this);
+    i32 (__thiscall*Activate)(agiLightModel * __hidden this);
 };
 
 struct agiColorModel8;
-struct agiColorModel8_vftable
+struct agiColorModel8_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModel8*,u32);
-    u32 (__thiscall*GetColor)(agiColorModel8*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModel8*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModel8*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModel8*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModel8*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModel8 * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModel8 * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModel8 * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModel8 * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModel8 * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModel8 * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiColorModelRGB555;
-struct agiColorModelRGB555_vftable
+struct agiColorModelRGB555_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModelRGB555*,u32);
-    u32 (__thiscall*GetColor)(agiColorModelRGB555*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModelRGB555*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModelRGB555*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModelRGB555*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModelRGB555*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModelRGB555 * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModelRGB555 * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModelRGB555 * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModelRGB555 * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModelRGB555 * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModelRGB555 * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiColorModelRGB565;
-struct agiColorModelRGB565_vftable
+struct agiColorModelRGB565_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModelRGB565*,u32);
-    u32 (__thiscall*GetColor)(agiColorModelRGB565*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModelRGB565*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModelRGB565*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModelRGB565*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModelRGB565*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModelRGB565 * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModelRGB565 * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModelRGB565 * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModelRGB565 * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModelRGB565 * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModelRGB565 * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiColorModelRGB555_Rev;
-struct agiColorModelRGB555_Rev_vftable
+struct agiColorModelRGB555_Rev_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModelRGB555_Rev*,u32);
-    u32 (__thiscall*GetColor)(agiColorModelRGB555_Rev*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModelRGB555_Rev*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModelRGB555_Rev*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModelRGB555_Rev*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModelRGB555_Rev*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModelRGB555_Rev * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModelRGB555_Rev * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModelRGB555_Rev * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModelRGB555_Rev * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModelRGB555_Rev * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModelRGB555_Rev * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiColorModelRGB565_Rev;
-struct agiColorModelRGB565_Rev_vftable
+struct agiColorModelRGB565_Rev_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModelRGB565_Rev*,u32);
-    u32 (__thiscall*GetColor)(agiColorModelRGB565_Rev*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModelRGB565_Rev*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModelRGB565_Rev*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModelRGB565_Rev*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModelRGB565_Rev*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModelRGB565_Rev * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModelRGB565_Rev * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModelRGB565_Rev * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModelRGB565_Rev * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModelRGB565_Rev * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModelRGB565_Rev * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiColorModelRGB888;
-struct agiColorModelRGB888_vftable
+struct agiColorModelRGB888_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModelRGB888*,u32);
-    u32 (__thiscall*GetColor)(agiColorModelRGB888*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModelRGB888*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModelRGB888*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModelRGB888*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModelRGB888*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModelRGB888 * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModelRGB888 * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModelRGB888 * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModelRGB888 * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModelRGB888 * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModelRGB888 * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiColorModelRGB888_Rev;
-struct agiColorModelRGB888_Rev_vftable
+struct agiColorModelRGB888_Rev_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModelRGB888_Rev*,u32);
-    u32 (__thiscall*GetColor)(agiColorModelRGB888_Rev*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModelRGB888_Rev*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModelRGB888_Rev*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModelRGB888_Rev*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModelRGB888_Rev*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModelRGB888_Rev * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModelRGB888_Rev * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModelRGB888_Rev * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModelRGB888_Rev * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModelRGB888_Rev * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModelRGB888_Rev * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiColorModelRGBA5551;
-struct agiColorModelRGBA5551_vftable
+struct agiColorModelRGBA5551_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModelRGBA5551*,u32);
-    u32 (__thiscall*GetColor)(agiColorModelRGBA5551*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModelRGBA5551*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModelRGBA5551*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModelRGBA5551*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModelRGBA5551*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModelRGBA5551 * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModelRGBA5551 * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModelRGBA5551 * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModelRGBA5551 * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModelRGBA5551 * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModelRGBA5551 * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiColorModelRGBA4444;
-struct agiColorModelRGBA4444_vftable
+struct agiColorModelRGBA4444_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModelRGBA4444*,u32);
-    u32 (__thiscall*GetColor)(agiColorModelRGBA4444*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModelRGBA4444*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModelRGBA4444*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModelRGBA4444*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModelRGBA4444*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModelRGBA4444 * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModelRGBA4444 * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModelRGBA4444 * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModelRGBA4444 * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModelRGBA4444 * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModelRGBA4444 * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiColorModelARGB;
-struct agiColorModelARGB_vftable
+struct agiColorModelARGB_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModelARGB*,u32);
-    u32 (__thiscall*GetColor)(agiColorModelARGB*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModelARGB*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModelARGB*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModelARGB*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModelARGB*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModelARGB * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModelARGB * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModelARGB * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModelARGB * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModelARGB * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModelARGB * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiColorModelABGR;
-struct agiColorModelABGR_vftable
+struct agiColorModelABGR_vtbl
 {
-    void* (__thiscall*Dtor)(agiColorModelABGR*,u32);
-    u32 (__thiscall*GetColor)(agiColorModelABGR*,struct agiRgba);
-    u32 (__thiscall*FindColor)(agiColorModelABGR*,struct agiRgba);
-    u32 (__thiscall*Filter)(agiColorModelABGR*,u32,u32,u32,u32);
-    void (__thiscall*SetPixel)(agiColorModelABGR*,class agiSurfaceDesc*,i32,i32,u32);
-    u32 (__thiscall*GetPixel)(agiColorModelABGR*,class agiSurfaceDesc*,i32,i32);
+    void* (__thiscall*Destructor)(agiColorModelABGR * __hidden this,u32);
+    u32 (__thiscall*GetColor)(agiColorModelABGR * __hidden this,struct agiRgba);
+    u32 (__thiscall*FindColor)(agiColorModelABGR * __hidden this,struct agiRgba);
+    u32 (__thiscall*Filter)(agiColorModelABGR * __hidden this,u32,u32,u32,u32);
+    void (__thiscall*SetPixel)(agiColorModelABGR * __hidden this,class agiSurfaceDesc*,i32,i32,u32);
+    u32 (__thiscall*GetPixel)(agiColorModelABGR * __hidden this,class agiSurfaceDesc*,i32,i32);
 };
 
 struct agiMtlDef;
-struct agiMtlDef_vftable
+struct agiMtlDef_vtbl
 {
-    void (__thiscall*EndGfx)(agiMtlDef*);
-    void (__thiscall*Restore)(agiMtlDef*);
-    char* (__thiscall*GetName)(agiMtlDef*);
-    void* (__thiscall*Dtor)(agiMtlDef*,u32);
-    i32 (__thiscall*BeginGfx)(agiMtlDef*);
-    i32 (__thiscall*IsTexture)(agiMtlDef*);
+    void (__thiscall*EndGfx)(agiMtlDef * __hidden this);
+    void (__thiscall*Restore)(agiMtlDef * __hidden this);
+    char* (__thiscall*GetName)(agiMtlDef * __hidden this);
+    void* (__thiscall*Destructor)(agiMtlDef * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(agiMtlDef * __hidden this);
+    i32 (__thiscall*IsTexture)(agiMtlDef * __hidden this);
 };
 
 struct DLP;
-struct DLP_vftable
+struct DLP_vtbl
 {
-    void (__thiscall*EndGfx)(DLP*);
-    void (__thiscall*Restore)(DLP*);
-    char* (__thiscall*GetName)(DLP*);
-    void* (__thiscall*Dtor)(DLP*,u32);
-    i32 (__thiscall*BeginGfx)(DLP*);
-    i32 (__thiscall*IsTexture)(DLP*);
-    void (__thiscall*Cull)(DLP*,i32);
-    void (__thiscall*FixROpts)(DLP*,i32,i32);
-    class DynamicDLP* (__thiscall*GetDynamic)(DLP*,i32);
-    class MultipassDLP* (__thiscall*GetMultipass)(DLP*,i32);
+    void (__thiscall*EndGfx)(DLP * __hidden this);
+    void (__thiscall*Restore)(DLP * __hidden this);
+    char* (__thiscall*GetName)(DLP * __hidden this);
+    void* (__thiscall*Destructor)(DLP * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(DLP * __hidden this);
+    i32 (__thiscall*IsTexture)(DLP * __hidden this);
+    void (__thiscall*Cull)(DLP * __hidden this,i32);
+    void (__thiscall*FixROpts)(DLP * __hidden this,i32,i32);
+    class DynamicDLP* (__thiscall*GetDynamic)(DLP * __hidden this,i32);
+    class MultipassDLP* (__thiscall*GetMultipass)(DLP * __hidden this,i32);
 };
 
 struct DynamicDLP;
-struct DynamicDLP_vftable
+struct DynamicDLP_vtbl
 {
-    void* (__thiscall*Dtor)(DynamicDLP*,u32);
-    i32 (__thiscall*Init)(DynamicDLP*,char*);
-    void (__thiscall*Lock)(DynamicDLP*);
-    void (__thiscall*Unlock)(DynamicDLP*);
-    void (__thiscall*SetTexture)(DynamicDLP*,i16);
+    void* (__thiscall*Destructor)(DynamicDLP * __hidden this,u32);
+    i32 (__thiscall*Init)(DynamicDLP * __hidden this,char*);
+    void (__thiscall*Lock)(DynamicDLP * __hidden this);
+    void (__thiscall*Unlock)(DynamicDLP * __hidden this);
+    void (__thiscall*SetTexture)(DynamicDLP * __hidden this,i16);
 };
 
 struct Stream;
-struct Stream_vftable
+struct Stream_vtbl
 {
-    void* (__thiscall*Dtor)(Stream*,u32);
-    class MetaClass* (__thiscall*GetClass)(Stream*);
-    char* (__thiscall*GetTypeNameV)(Stream*);
-    void (__thiscall*BeforeSave)(Stream*);
-    void (__thiscall*AfterLoad)(Stream*);
-    void* (__thiscall*GetMapping)(Stream*);
-    u32 (__thiscall*GetPagerHandle)(Stream*);
-    i32 (__thiscall*GetPagingInfo)(Stream*,u32&,u32&,u32&);
-    i32 (__thiscall*RawRead)(Stream*,void*,i32);
-    i32 (__thiscall*RawWrite)(Stream*,void*,i32);
-    i32 (__thiscall*RawSeek)(Stream*,i32);
-    i32 (__thiscall*RawTell)(Stream*);
-    i32 (__thiscall*RawSize)(Stream*);
-    void (__thiscall*RawDebug)(Stream*);
-    i32 (__thiscall*AlignSize)(Stream*);
-    i32 (__thiscall*GetError)(Stream*,char*,i32);
+    void* (__thiscall*Destructor)(Stream * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(Stream * __hidden this);
+    char* (__thiscall*GetTypeNameV)(Stream * __hidden this);
+    void (__thiscall*BeforeSave)(Stream * __hidden this);
+    void (__thiscall*AfterLoad)(Stream * __hidden this);
+    void* (__thiscall*GetMapping)(Stream * __hidden this);
+    u32 (__thiscall*GetPagerHandle)(Stream * __hidden this);
+    i32 (__thiscall*GetPagingInfo)(Stream * __hidden this,u32&,u32&,u32&);
+    i32 (__thiscall*RawRead)(Stream * __hidden this,void*,i32);
+    i32 (__thiscall*RawWrite)(Stream * __hidden this,void*,i32);
+    i32 (__thiscall*RawSeek)(Stream * __hidden this,i32);
+    i32 (__thiscall*RawTell)(Stream * __hidden this);
+    i32 (__thiscall*RawSize)(Stream * __hidden this);
+    void (__thiscall*RawDebug)(Stream * __hidden this);
+    i32 (__thiscall*AlignSize)(Stream * __hidden this);
+    i32 (__thiscall*GetError)(Stream * __hidden this,char*,i32);
 };
 
 struct FileSystem;
-struct FileSystem_vftable
+struct FileSystem_vtbl
 {
-    void* (__thiscall*Dtor)(FileSystem*,u32);
-    class MetaClass* (__thiscall*GetClass)(FileSystem*);
-    char* (__thiscall*GetTypeNameV)(FileSystem*);
-    void (__thiscall*BeforeSave)(FileSystem*);
-    void (__thiscall*AfterLoad)(FileSystem*);
-    i32 (__thiscall*ValidPath)(FileSystem*,char*);
-    i32 (__thiscall*QueryOn)(FileSystem*,char*);
-    class Stream* (__thiscall*OpenOn)(FileSystem*,char*,i32,void*,i32);
-    class Stream* (__thiscall*CreateOn)(FileSystem*,char*,void*,i32);
-    i32 (__thiscall*PagerInfo)(FileSystem*,char*,struct PagerInfo_t&);
-    i32 (__thiscall*ChangeDir)(FileSystem*,char*);
-    i32 (__thiscall*GetDir)(FileSystem*,char*,i32);
-    struct FileInfo* (__thiscall*FirstEntry)(FileSystem*,char*);
-    struct FileInfo* (__thiscall*NextEntry)(FileSystem*,struct FileInfo*);
-    void (__thiscall*NotifyDelete)(FileSystem*);
+    void* (__thiscall*Destructor)(FileSystem * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(FileSystem * __hidden this);
+    char* (__thiscall*GetTypeNameV)(FileSystem * __hidden this);
+    void (__thiscall*BeforeSave)(FileSystem * __hidden this);
+    void (__thiscall*AfterLoad)(FileSystem * __hidden this);
+    i32 (__thiscall*ValidPath)(FileSystem * __hidden this,char*);
+    i32 (__thiscall*QueryOn)(FileSystem * __hidden this,char*);
+    class Stream* (__thiscall*OpenOn)(FileSystem * __hidden this,char*,i32,void*,i32);
+    class Stream* (__thiscall*CreateOn)(FileSystem * __hidden this,char*,void*,i32);
+    i32 (__thiscall*PagerInfo)(FileSystem * __hidden this,char*,struct PagerInfo_t&);
+    i32 (__thiscall*ChangeDir)(FileSystem * __hidden this,char*);
+    i32 (__thiscall*GetDir)(FileSystem * __hidden this,char*,i32);
+    struct FileInfo* (__thiscall*FirstEntry)(FileSystem * __hidden this,char*);
+    struct FileInfo* (__thiscall*NextEntry)(FileSystem * __hidden this,struct FileInfo*);
+    void (__thiscall*NotifyDelete)(FileSystem * __hidden this);
 };
 
 struct HierFileSystem;
-struct HierFileSystem_vftable
+struct HierFileSystem_vtbl
 {
-    void* (__thiscall*Dtor)(HierFileSystem*,u32);
-    class MetaClass* (__thiscall*GetClass)(HierFileSystem*);
-    char* (__thiscall*GetTypeNameV)(HierFileSystem*);
-    void (__thiscall*BeforeSave)(HierFileSystem*);
-    void (__thiscall*AfterLoad)(HierFileSystem*);
-    i32 (__thiscall*ValidPath)(HierFileSystem*,char*);
-    i32 (__thiscall*QueryOn)(HierFileSystem*,char*);
-    class Stream* (__thiscall*OpenOn)(HierFileSystem*,char*,i32,void*,i32);
-    class Stream* (__thiscall*CreateOn)(HierFileSystem*,char*,void*,i32);
-    i32 (__thiscall*PagerInfo)(HierFileSystem*,char*,struct PagerInfo_t&);
-    i32 (__thiscall*ChangeDir)(HierFileSystem*,char*);
-    i32 (__thiscall*GetDir)(HierFileSystem*,char*,i32);
-    struct FileInfo* (__thiscall*FirstEntry)(HierFileSystem*,char*);
-    struct FileInfo* (__thiscall*NextEntry)(HierFileSystem*,struct FileInfo*);
-    void (__thiscall*NotifyDelete)(HierFileSystem*);
+    void* (__thiscall*Destructor)(HierFileSystem * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(HierFileSystem * __hidden this);
+    char* (__thiscall*GetTypeNameV)(HierFileSystem * __hidden this);
+    void (__thiscall*BeforeSave)(HierFileSystem * __hidden this);
+    void (__thiscall*AfterLoad)(HierFileSystem * __hidden this);
+    i32 (__thiscall*ValidPath)(HierFileSystem * __hidden this,char*);
+    i32 (__thiscall*QueryOn)(HierFileSystem * __hidden this,char*);
+    class Stream* (__thiscall*OpenOn)(HierFileSystem * __hidden this,char*,i32,void*,i32);
+    class Stream* (__thiscall*CreateOn)(HierFileSystem * __hidden this,char*,void*,i32);
+    i32 (__thiscall*PagerInfo)(HierFileSystem * __hidden this,char*,struct PagerInfo_t&);
+    i32 (__thiscall*ChangeDir)(HierFileSystem * __hidden this,char*);
+    i32 (__thiscall*GetDir)(HierFileSystem * __hidden this,char*,i32);
+    struct FileInfo* (__thiscall*FirstEntry)(HierFileSystem * __hidden this,char*);
+    struct FileInfo* (__thiscall*NextEntry)(HierFileSystem * __hidden this,struct FileInfo*);
+    void (__thiscall*NotifyDelete)(HierFileSystem * __hidden this);
 };
 
 struct VirtualFileSystem;
-struct VirtualFileSystem_vftable
+struct VirtualFileSystem_vtbl
 {
-    void* (__thiscall*Dtor)(VirtualFileSystem*,u32);
-    class MetaClass* (__thiscall*GetClass)(VirtualFileSystem*);
-    char* (__thiscall*GetTypeNameV)(VirtualFileSystem*);
-    void (__thiscall*BeforeSave)(VirtualFileSystem*);
-    void (__thiscall*AfterLoad)(VirtualFileSystem*);
-    i32 (__thiscall*ValidPath)(VirtualFileSystem*,char*);
-    i32 (__thiscall*QueryOn)(VirtualFileSystem*,char*);
-    class Stream* (__thiscall*OpenOn)(VirtualFileSystem*,char*,i32,void*,i32);
-    class Stream* (__thiscall*CreateOn)(VirtualFileSystem*,char*,void*,i32);
-    i32 (__thiscall*PagerInfo)(VirtualFileSystem*,char*,struct PagerInfo_t&);
-    i32 (__thiscall*ChangeDir)(VirtualFileSystem*,char*);
-    i32 (__thiscall*GetDir)(VirtualFileSystem*,char*,i32);
-    struct FileInfo* (__thiscall*FirstEntry)(VirtualFileSystem*,char*);
-    struct FileInfo* (__thiscall*NextEntry)(VirtualFileSystem*,struct FileInfo*);
-    void (__thiscall*NotifyDelete)(VirtualFileSystem*);
+    void* (__thiscall*Destructor)(VirtualFileSystem * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(VirtualFileSystem * __hidden this);
+    char* (__thiscall*GetTypeNameV)(VirtualFileSystem * __hidden this);
+    void (__thiscall*BeforeSave)(VirtualFileSystem * __hidden this);
+    void (__thiscall*AfterLoad)(VirtualFileSystem * __hidden this);
+    i32 (__thiscall*ValidPath)(VirtualFileSystem * __hidden this,char*);
+    i32 (__thiscall*QueryOn)(VirtualFileSystem * __hidden this,char*);
+    class Stream* (__thiscall*OpenOn)(VirtualFileSystem * __hidden this,char*,i32,void*,i32);
+    class Stream* (__thiscall*CreateOn)(VirtualFileSystem * __hidden this,char*,void*,i32);
+    i32 (__thiscall*PagerInfo)(VirtualFileSystem * __hidden this,char*,struct PagerInfo_t&);
+    i32 (__thiscall*ChangeDir)(VirtualFileSystem * __hidden this,char*);
+    i32 (__thiscall*GetDir)(VirtualFileSystem * __hidden this,char*,i32);
+    struct FileInfo* (__thiscall*FirstEntry)(VirtualFileSystem * __hidden this,char*);
+    struct FileInfo* (__thiscall*NextEntry)(VirtualFileSystem * __hidden this,struct FileInfo*);
+    void (__thiscall*NotifyDelete)(VirtualFileSystem * __hidden this);
 };
 
 struct StreamMiniParser;
-struct StreamMiniParser_vftable
+struct StreamMiniParser_vtbl
 {
-    i32 (__thiscall*RawGetCh)(StreamMiniParser*);
-    void (__thiscall*RawPutCh)(StreamMiniParser*,i32);
+    i32 (__thiscall*RawGetCh)(StreamMiniParser * __hidden this);
+    void (__thiscall*RawPutCh)(StreamMiniParser * __hidden this,i32);
 };
 
 struct FileStream;
-struct FileStream_vftable
+struct FileStream_vtbl
 {
-    void* (__thiscall*Dtor)(FileStream*,u32);
-    class MetaClass* (__thiscall*GetClass)(FileStream*);
-    char* (__thiscall*GetTypeNameV)(FileStream*);
-    void (__thiscall*BeforeSave)(FileStream*);
-    void (__thiscall*AfterLoad)(FileStream*);
-    void* (__thiscall*GetMapping)(FileStream*);
-    u32 (__thiscall*GetPagerHandle)(FileStream*);
-    i32 (__thiscall*GetPagingInfo)(FileStream*,u32&,u32&,u32&);
-    i32 (__thiscall*RawRead)(FileStream*,void*,i32);
-    i32 (__thiscall*RawWrite)(FileStream*,void*,i32);
-    i32 (__thiscall*RawSeek)(FileStream*,i32);
-    i32 (__thiscall*RawTell)(FileStream*);
-    i32 (__thiscall*RawSize)(FileStream*);
-    void (__thiscall*RawDebug)(FileStream*);
-    i32 (__thiscall*AlignSize)(FileStream*);
-    i32 (__thiscall*GetError)(FileStream*,char*,i32);
+    void* (__thiscall*Destructor)(FileStream * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(FileStream * __hidden this);
+    char* (__thiscall*GetTypeNameV)(FileStream * __hidden this);
+    void (__thiscall*BeforeSave)(FileStream * __hidden this);
+    void (__thiscall*AfterLoad)(FileStream * __hidden this);
+    void* (__thiscall*GetMapping)(FileStream * __hidden this);
+    u32 (__thiscall*GetPagerHandle)(FileStream * __hidden this);
+    i32 (__thiscall*GetPagingInfo)(FileStream * __hidden this,u32&,u32&,u32&);
+    i32 (__thiscall*RawRead)(FileStream * __hidden this,void*,i32);
+    i32 (__thiscall*RawWrite)(FileStream * __hidden this,void*,i32);
+    i32 (__thiscall*RawSeek)(FileStream * __hidden this,i32);
+    i32 (__thiscall*RawTell)(FileStream * __hidden this);
+    i32 (__thiscall*RawSize)(FileStream * __hidden this);
+    void (__thiscall*RawDebug)(FileStream * __hidden this);
+    i32 (__thiscall*AlignSize)(FileStream * __hidden this);
+    i32 (__thiscall*GetError)(FileStream * __hidden this,char*,i32);
 };
 
 struct VirtualStream;
-struct VirtualStream_vftable
+struct VirtualStream_vtbl
 {
-    void* (__thiscall*Dtor)(VirtualStream*,u32);
-    class MetaClass* (__thiscall*GetClass)(VirtualStream*);
-    char* (__thiscall*GetTypeNameV)(VirtualStream*);
-    void (__thiscall*BeforeSave)(VirtualStream*);
-    void (__thiscall*AfterLoad)(VirtualStream*);
-    void* (__thiscall*GetMapping)(VirtualStream*);
-    u32 (__thiscall*GetPagerHandle)(VirtualStream*);
-    i32 (__thiscall*GetPagingInfo)(VirtualStream*,u32&,u32&,u32&);
-    i32 (__thiscall*RawRead)(VirtualStream*,void*,i32);
-    i32 (__thiscall*RawWrite)(VirtualStream*,void*,i32);
-    i32 (__thiscall*RawSeek)(VirtualStream*,i32);
-    i32 (__thiscall*RawTell)(VirtualStream*);
-    i32 (__thiscall*RawSize)(VirtualStream*);
-    void (__thiscall*RawDebug)(VirtualStream*);
-    i32 (__thiscall*AlignSize)(VirtualStream*);
-    i32 (__thiscall*GetError)(VirtualStream*,char*,i32);
+    void* (__thiscall*Destructor)(VirtualStream * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(VirtualStream * __hidden this);
+    char* (__thiscall*GetTypeNameV)(VirtualStream * __hidden this);
+    void (__thiscall*BeforeSave)(VirtualStream * __hidden this);
+    void (__thiscall*AfterLoad)(VirtualStream * __hidden this);
+    void* (__thiscall*GetMapping)(VirtualStream * __hidden this);
+    u32 (__thiscall*GetPagerHandle)(VirtualStream * __hidden this);
+    i32 (__thiscall*GetPagingInfo)(VirtualStream * __hidden this,u32&,u32&,u32&);
+    i32 (__thiscall*RawRead)(VirtualStream * __hidden this,void*,i32);
+    i32 (__thiscall*RawWrite)(VirtualStream * __hidden this,void*,i32);
+    i32 (__thiscall*RawSeek)(VirtualStream * __hidden this,i32);
+    i32 (__thiscall*RawTell)(VirtualStream * __hidden this);
+    i32 (__thiscall*RawSize)(VirtualStream * __hidden this);
+    void (__thiscall*RawDebug)(VirtualStream * __hidden this);
+    i32 (__thiscall*AlignSize)(VirtualStream * __hidden this);
+    i32 (__thiscall*GetError)(VirtualStream * __hidden this,char*,i32);
 };
 
 struct Dispatchable;
-struct Dispatchable_vftable
+struct Dispatchable_vtbl
 {
-    i32 (__thiscall*WindowProc)(Dispatchable*,struct HWND__*,u32,u32,i32);
+    i32 (__thiscall*WindowProc)(Dispatchable * __hidden this,struct HWND__*,u32,u32,i32);
 };
 
 struct eqEventHandler;
-struct eqEventHandler_vftable
+struct eqEventHandler_vtbl
 {
-    void* (__thiscall*Dtor)(eqEventHandler*,u32);
-    i32 (__thiscall*BeginGfx)(eqEventHandler*,i32,i32,i32);
-    void (__thiscall*EndGfx)(eqEventHandler*);
-    void (__thiscall*Update)(eqEventHandler*,i32);
-    void (__thiscall*BeginTracking)(eqEventHandler*);
-    void (__thiscall*EndTracking)(eqEventHandler*);
-    char* (__thiscall*GKeyName)(eqEventHandler*,i32);
+    void* (__thiscall*Destructor)(eqEventHandler * __hidden this,u32);
+    i32 (__thiscall*BeginGfx)(eqEventHandler * __hidden this,i32,i32,i32);
+    void (__thiscall*EndGfx)(eqEventHandler * __hidden this);
+    void (__thiscall*Update)(eqEventHandler * __hidden this,i32);
+    void (__thiscall*BeginTracking)(eqEventHandler * __hidden this);
+    void (__thiscall*EndTracking)(eqEventHandler * __hidden this);
+    char* (__thiscall*GKeyName)(eqEventHandler * __hidden this,i32);
 };
 
 struct eqEventMonitor;
-struct eqEventMonitor_vftable
+struct eqEventMonitor_vtbl
 {
-    void* (__thiscall*Dtor)(eqEventMonitor*,u32);
-    void (__thiscall*Redraw)(eqEventMonitor*,void*,i32,i32,i32,i32);
-    void (__thiscall*Refocus)(eqEventMonitor*,void*,i32);
-    void (__thiscall*Mouse)(eqEventMonitor*,void*,i32,i32,i32,i32,i32,i32,i32);
-    void (__thiscall*Keyboard)(eqEventMonitor*,void*,i32,i32,i32,i32);
-    void (__thiscall*Destroy)(eqEventMonitor*,void*);
-    void (__thiscall*Activate)(eqEventMonitor*,void*,i32);
+    void* (__thiscall*Destructor)(eqEventMonitor * __hidden this,u32);
+    void (__thiscall*Redraw)(eqEventMonitor * __hidden this,void*,i32,i32,i32,i32);
+    void (__thiscall*Refocus)(eqEventMonitor * __hidden this,void*,i32);
+    void (__thiscall*Mouse)(eqEventMonitor * __hidden this,void*,i32,i32,i32,i32,i32,i32,i32);
+    void (__thiscall*Keyboard)(eqEventMonitor * __hidden this,void*,i32,i32,i32,i32);
+    void (__thiscall*Destroy)(eqEventMonitor * __hidden this,void*);
+    void (__thiscall*Activate)(eqEventMonitor * __hidden this,void*,i32);
 };
 
 struct eqEventReplayChannelClass;
-struct eqEventReplayChannelClass_vftable
+struct eqEventReplayChannelClass_vtbl
 {
-    void (__thiscall*InitRecord)(eqEventReplayChannelClass*);
-    void (__thiscall*InitPlayback)(eqEventReplayChannelClass*);
-    void (__thiscall*DoRecord)(eqEventReplayChannelClass*,class Stream*);
-    void (__thiscall*DoPlayback)(eqEventReplayChannelClass*,class Stream*);
-    void (__thiscall*ShutdownRecord)(eqEventReplayChannelClass*);
-    void (__thiscall*ShutdownPlayback)(eqEventReplayChannelClass*);
+    void (__thiscall*InitRecord)(eqEventReplayChannelClass * __hidden this);
+    void (__thiscall*InitPlayback)(eqEventReplayChannelClass * __hidden this);
+    void (__thiscall*DoRecord)(eqEventReplayChannelClass * __hidden this,class Stream*);
+    void (__thiscall*DoPlayback)(eqEventReplayChannelClass * __hidden this,class Stream*);
+    void (__thiscall*ShutdownRecord)(eqEventReplayChannelClass * __hidden this);
+    void (__thiscall*ShutdownPlayback)(eqEventReplayChannelClass * __hidden this);
 };
 
 struct eqEventQ;
-struct eqEventQ_vftable
+struct eqEventQ_vtbl
 {
-    void* (__thiscall*Dtor)(eqEventQ*,u32);
-    void (__thiscall*Redraw)(eqEventQ*,void*,i32,i32,i32,i32);
-    void (__thiscall*Refocus)(eqEventQ*,void*,i32);
-    void (__thiscall*Mouse)(eqEventQ*,void*,i32,i32,i32,i32,i32,i32,i32);
-    void (__thiscall*Keyboard)(eqEventQ*,void*,i32,i32,i32,i32);
-    void (__thiscall*Destroy)(eqEventQ*,void*);
-    void (__thiscall*Activate)(eqEventQ*,void*,i32);
+    void* (__thiscall*Destructor)(eqEventQ * __hidden this,u32);
+    void (__thiscall*Redraw)(eqEventQ * __hidden this,void*,i32,i32,i32,i32);
+    void (__thiscall*Refocus)(eqEventQ * __hidden this,void*,i32);
+    void (__thiscall*Mouse)(eqEventQ * __hidden this,void*,i32,i32,i32,i32,i32,i32,i32);
+    void (__thiscall*Keyboard)(eqEventQ * __hidden this,void*,i32,i32,i32,i32);
+    void (__thiscall*Destroy)(eqEventQ * __hidden this,void*);
+    void (__thiscall*Activate)(eqEventQ * __hidden this,void*,i32);
 };
 
 struct eqReplayChannel;
-struct eqReplayChannel_vftable
+struct eqReplayChannel_vtbl
 {
-    void (__thiscall*InitRecord)(eqReplayChannel*);
-    void (__thiscall*InitPlayback)(eqReplayChannel*);
-    void (__thiscall*DoRecord)(eqReplayChannel*,class Stream*);
-    void (__thiscall*DoPlayback)(eqReplayChannel*,class Stream*);
-    void (__thiscall*ShutdownRecord)(eqReplayChannel*);
-    void (__thiscall*ShutdownPlayback)(eqReplayChannel*);
+    void (__thiscall*InitRecord)(eqReplayChannel * __hidden this);
+    void (__thiscall*InitPlayback)(eqReplayChannel * __hidden this);
+    void (__thiscall*DoRecord)(eqReplayChannel * __hidden this,class Stream*);
+    void (__thiscall*DoPlayback)(eqReplayChannel * __hidden this,class Stream*);
+    void (__thiscall*ShutdownRecord)(eqReplayChannel * __hidden this);
+    void (__thiscall*ShutdownPlayback)(eqReplayChannel * __hidden this);
 };
 
 struct Vector3Type;
-struct Vector3Type_vftable
+struct Vector3Type_vtbl
 {
-    void (__thiscall*Save)(Vector3Type*,class MiniParser*,void*);
-    void (__thiscall*Load)(Vector3Type*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(Vector3Type*);
-    void* (__thiscall*New)(Vector3Type*,i32);
-    void (__thiscall*Delete)(Vector3Type*,void*,i32);
+    void (__thiscall*Save)(Vector3Type * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(Vector3Type * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(Vector3Type * __hidden this);
+    void* (__thiscall*New)(Vector3Type * __hidden this,i32);
+    void (__thiscall*Delete)(Vector3Type * __hidden this,void*,i32);
 };
 
 struct Vector4Type;
-struct Vector4Type_vftable
+struct Vector4Type_vtbl
 {
-    void (__thiscall*Save)(Vector4Type*,class MiniParser*,void*);
-    void (__thiscall*Load)(Vector4Type*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(Vector4Type*);
-    void* (__thiscall*New)(Vector4Type*,i32);
-    void (__thiscall*Delete)(Vector4Type*,void*,i32);
+    void (__thiscall*Save)(Vector4Type * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(Vector4Type * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(Vector4Type * __hidden this);
+    void* (__thiscall*New)(Vector4Type * __hidden this,i32);
+    void (__thiscall*Delete)(Vector4Type * __hidden this,void*,i32);
 };
 
 struct Vector2Type;
-struct Vector2Type_vftable
+struct Vector2Type_vtbl
 {
-    void (__thiscall*Save)(Vector2Type*,class MiniParser*,void*);
-    void (__thiscall*Load)(Vector2Type*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(Vector2Type*);
-    void* (__thiscall*New)(Vector2Type*,i32);
-    void (__thiscall*Delete)(Vector2Type*,void*,i32);
+    void (__thiscall*Save)(Vector2Type * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(Vector2Type * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(Vector2Type * __hidden this);
+    void* (__thiscall*New)(Vector2Type * __hidden this,i32);
+    void (__thiscall*Delete)(Vector2Type * __hidden this,void*,i32);
 };
 
 struct CharType;
-struct CharType_vftable
+struct CharType_vtbl
 {
-    void (__thiscall*Save)(CharType*,class MiniParser*,void*);
-    void (__thiscall*Load)(CharType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(CharType*);
-    void* (__thiscall*New)(CharType*,i32);
-    void (__thiscall*Delete)(CharType*,void*,i32);
+    void (__thiscall*Save)(CharType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(CharType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(CharType * __hidden this);
+    void* (__thiscall*New)(CharType * __hidden this,i32);
+    void (__thiscall*Delete)(CharType * __hidden this,void*,i32);
 };
 
 struct SignedCharType;
-struct SignedCharType_vftable
+struct SignedCharType_vtbl
 {
-    void (__thiscall*Save)(SignedCharType*,class MiniParser*,void*);
-    void (__thiscall*Load)(SignedCharType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(SignedCharType*);
-    void* (__thiscall*New)(SignedCharType*,i32);
-    void (__thiscall*Delete)(SignedCharType*,void*,i32);
+    void (__thiscall*Save)(SignedCharType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(SignedCharType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(SignedCharType * __hidden this);
+    void* (__thiscall*New)(SignedCharType * __hidden this,i32);
+    void (__thiscall*Delete)(SignedCharType * __hidden this,void*,i32);
 };
 
 struct UnsignedCharType;
-struct UnsignedCharType_vftable
+struct UnsignedCharType_vtbl
 {
-    void (__thiscall*Save)(UnsignedCharType*,class MiniParser*,void*);
-    void (__thiscall*Load)(UnsignedCharType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(UnsignedCharType*);
-    void* (__thiscall*New)(UnsignedCharType*,i32);
-    void (__thiscall*Delete)(UnsignedCharType*,void*,i32);
+    void (__thiscall*Save)(UnsignedCharType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(UnsignedCharType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(UnsignedCharType * __hidden this);
+    void* (__thiscall*New)(UnsignedCharType * __hidden this,i32);
+    void (__thiscall*Delete)(UnsignedCharType * __hidden this,void*,i32);
 };
 
 struct SignedShortType;
-struct SignedShortType_vftable
+struct SignedShortType_vtbl
 {
-    void (__thiscall*Save)(SignedShortType*,class MiniParser*,void*);
-    void (__thiscall*Load)(SignedShortType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(SignedShortType*);
-    void* (__thiscall*New)(SignedShortType*,i32);
-    void (__thiscall*Delete)(SignedShortType*,void*,i32);
+    void (__thiscall*Save)(SignedShortType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(SignedShortType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(SignedShortType * __hidden this);
+    void* (__thiscall*New)(SignedShortType * __hidden this,i32);
+    void (__thiscall*Delete)(SignedShortType * __hidden this,void*,i32);
 };
 
 struct UnsignedShortType;
-struct UnsignedShortType_vftable
+struct UnsignedShortType_vtbl
 {
-    void (__thiscall*Save)(UnsignedShortType*,class MiniParser*,void*);
-    void (__thiscall*Load)(UnsignedShortType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(UnsignedShortType*);
-    void* (__thiscall*New)(UnsignedShortType*,i32);
-    void (__thiscall*Delete)(UnsignedShortType*,void*,i32);
+    void (__thiscall*Save)(UnsignedShortType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(UnsignedShortType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(UnsignedShortType * __hidden this);
+    void* (__thiscall*New)(UnsignedShortType * __hidden this,i32);
+    void (__thiscall*Delete)(UnsignedShortType * __hidden this,void*,i32);
 };
 
 struct SignedIntType;
-struct SignedIntType_vftable
+struct SignedIntType_vtbl
 {
-    void (__thiscall*Save)(SignedIntType*,class MiniParser*,void*);
-    void (__thiscall*Load)(SignedIntType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(SignedIntType*);
-    void* (__thiscall*New)(SignedIntType*,i32);
-    void (__thiscall*Delete)(SignedIntType*,void*,i32);
+    void (__thiscall*Save)(SignedIntType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(SignedIntType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(SignedIntType * __hidden this);
+    void* (__thiscall*New)(SignedIntType * __hidden this,i32);
+    void (__thiscall*Delete)(SignedIntType * __hidden this,void*,i32);
 };
 
 struct SignedInt64Type;
-struct SignedInt64Type_vftable
+struct SignedInt64Type_vtbl
 {
-    void (__thiscall*Save)(SignedInt64Type*,class MiniParser*,void*);
-    void (__thiscall*Load)(SignedInt64Type*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(SignedInt64Type*);
-    void* (__thiscall*New)(SignedInt64Type*,i32);
-    void (__thiscall*Delete)(SignedInt64Type*,void*,i32);
+    void (__thiscall*Save)(SignedInt64Type * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(SignedInt64Type * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(SignedInt64Type * __hidden this);
+    void* (__thiscall*New)(SignedInt64Type * __hidden this,i32);
+    void (__thiscall*Delete)(SignedInt64Type * __hidden this,void*,i32);
 };
 
 struct UnsignedIntType;
-struct UnsignedIntType_vftable
+struct UnsignedIntType_vtbl
 {
-    void (__thiscall*Save)(UnsignedIntType*,class MiniParser*,void*);
-    void (__thiscall*Load)(UnsignedIntType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(UnsignedIntType*);
-    void* (__thiscall*New)(UnsignedIntType*,i32);
-    void (__thiscall*Delete)(UnsignedIntType*,void*,i32);
+    void (__thiscall*Save)(UnsignedIntType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(UnsignedIntType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(UnsignedIntType * __hidden this);
+    void* (__thiscall*New)(UnsignedIntType * __hidden this,i32);
+    void (__thiscall*Delete)(UnsignedIntType * __hidden this,void*,i32);
 };
 
 struct FloatType;
-struct FloatType_vftable
+struct FloatType_vtbl
 {
-    void (__thiscall*Save)(FloatType*,class MiniParser*,void*);
-    void (__thiscall*Load)(FloatType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(FloatType*);
-    void* (__thiscall*New)(FloatType*,i32);
-    void (__thiscall*Delete)(FloatType*,void*,i32);
+    void (__thiscall*Save)(FloatType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(FloatType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(FloatType * __hidden this);
+    void* (__thiscall*New)(FloatType * __hidden this,i32);
+    void (__thiscall*Delete)(FloatType * __hidden this,void*,i32);
 };
 
 struct StringType;
-struct StringType_vftable
+struct StringType_vtbl
 {
-    void (__thiscall*Save)(StringType*,class MiniParser*,void*);
-    void (__thiscall*Load)(StringType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(StringType*);
-    void* (__thiscall*New)(StringType*,i32);
-    void (__thiscall*Delete)(StringType*,void*,i32);
+    void (__thiscall*Save)(StringType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(StringType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(StringType * __hidden this);
+    void* (__thiscall*New)(StringType * __hidden this,i32);
+    void (__thiscall*Delete)(StringType * __hidden this,void*,i32);
 };
 
 struct MiniParser;
-struct MiniParser_vftable
+struct MiniParser_vtbl
 {
-    i32 (__thiscall*RawGetCh)(MiniParser*);
-    void (__thiscall*RawPutCh)(MiniParser*,i32);
+    i32 (__thiscall*RawGetCh)(MiniParser * __hidden this);
+    void (__thiscall*RawPutCh)(MiniParser * __hidden this,i32);
 };
 
 struct MetaType;
-struct MetaType_vftable
+struct MetaType_vtbl
 {
-    void (__thiscall*Save)(MetaType*,class MiniParser*,void*);
-    void (__thiscall*Load)(MetaType*,class MiniParser*,void*);
-    u32 (__thiscall*SizeOf)(MetaType*);
-    void* (__thiscall*New)(MetaType*,i32);
-    void (__thiscall*Delete)(MetaType*,void*,i32);
+    void (__thiscall*Save)(MetaType * __hidden this,class MiniParser*,void*);
+    void (__thiscall*Load)(MetaType * __hidden this,class MiniParser*,void*);
+    u32 (__thiscall*SizeOf)(MetaType * __hidden this);
+    void* (__thiscall*New)(MetaType * __hidden this,i32);
+    void (__thiscall*Delete)(MetaType * __hidden this,void*,i32);
 };
 
 struct asPortalRenderable;
-struct asPortalRenderable_vftable
+struct asPortalRenderable_vtbl
 {
-    void (__thiscall*Cull)(asPortalRenderable*,i32);
+    void (__thiscall*Cull)(asPortalRenderable * __hidden this,i32);
 };
 
