@@ -40,6 +40,10 @@
     0x90A9B0 | class DataCache CACHE | ?CACHE@@3VDataCache@@A
 */
 
+using DataCacheCallback = void (*)(void* ctx, i32 delta);
+
+struct DataCacheObject;
+
 class DataCache
 {
 public:
@@ -50,50 +54,79 @@ public:
     void Age();
 
     // 0x577920 | ?Allocate@DataCache@@QAEPAXHI@Z
-    void* Allocate(i32 arg1, u32 arg2);
+    void* Allocate(i32 handle, u32 size);
 
     // 0x577410 | ?BeginObject@DataCache@@QAEHPAHP6AXPAXH@Z1I@Z
-    i32 BeginObject(i32* arg1, void (*arg2)(void*, i32), void* arg3, u32 arg4);
+    i32 BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* context, u32 maxsize);
 
     // 0x577690 | ?EndObject@DataCache@@QAEXH@Z
-    void EndObject(i32 arg1);
+    void EndObject(i32 handle);
 
     // 0x5776D0 | ?Flush@DataCache@@QAEXXZ
     void Flush();
 
     // 0x5779D0 | ?GetStatus@DataCache@@QAEXAAI00@Z
-    void GetStatus(u32& arg1, u32& arg2, u32& arg3);
+    void GetStatus(u32& objects, u32& bytes, u32& waste);
 
     // 0x576FD0 | ?Init@DataCache@@QAEXIHPAD@Z
-    void Init(u32 arg1, i32 arg2, char* arg3);
+    void Init(u32 heap_size, i32 handle_count, const char* name);
 
     // 0x5771F0 | ?Lock@DataCache@@QAEHPAH@Z
-    i32 Lock(i32* arg1);
+    b32 Lock(i32* handle);
 
     // 0x577070 | ?Shutdown@DataCache@@QAEXXZ
     void Shutdown();
 
     // 0x577290 | ?Unlock@DataCache@@QAEXH@Z
-    void Unlock(i32 arg1);
+    void Unlock(i32 handle);
 
     // 0x577300 | ?UnlockAndFree@DataCache@@QAEXH@Z
-    void UnlockAndFree(i32 arg1);
+    void UnlockAndFree(i32 handle);
 
 private:
     // 0x5773A0 | ?CleanEndOfHeap@DataCache@@AAEXXZ
     void CleanEndOfHeap();
 
     // 0x5775C0 | ?InitObject@DataCache@@AAEXHPAHP6AXPAXH@Z1PAEI@Z
-    void InitObject(i32 arg1, i32* arg2, void (*arg3)(void*, i32), void* arg4, u8* arg5, u32 arg6);
+    void InitObject(i32 handle, i32* handle_ptr, DataCacheCallback relocate, void* context, u8* data, u32 maxsize);
 
     // 0x5771A0 | ?Relocate@DataCache@@AAEXPAUDataCacheObject@@PAE@Z
-    void Relocate(struct DataCacheObject* arg1, u8* arg2);
+    void Relocate(DataCacheObject& dco, u8* ptr);
 
     // 0x5770B0 | ?Unload@DataCache@@AAEXH@Z
-    void Unload(i32 arg1);
+    void Unload(i32 handle);
+
+    DataCacheObject& GetObject(i32 handle);
+
+    u32 aged_objects_ {0};
+    u32 aged_bytes_ {0};
+
+    // Must always be indexed by > 0
+    DataCacheObject* objects_ {nullptr}; // pObjects
+
+    i32 max_objects_ {0};
+    i32 cur_objects_ {0}; // nMaxHandles
+
+    i32 cur_waste_ {0};
+    i32 max_waste_ {0};
+
+    b32 fragmented_ {false};
+
+    u8* heap_ {nullptr}; // pHeap
+    u32 heap_size_ {0};
+    u32 heap_used_ {0}; // nTotalAllocated
+
+    u32 age_ {0};
+
+    u32 lock_count_ {0};
+
+    u32 write_mutex_ {0};
+    u32 read_mutex_ {0};
+
+    const char* name_ {nullptr};
 };
 
-check_size(DataCache, 0x0);
+check_size(DataCache, 0x40);
 
 // 0x90A9B0 | ?CACHE@@3VDataCache@@A
 inline extern_var(0x90A9B0, class DataCache, CACHE);

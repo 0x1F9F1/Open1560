@@ -107,6 +107,8 @@ private:
 
     // 0x578780 | ?Proc@ipcMessageQueue@@CGKPAX@Z
     static u32 __stdcall Proc(void* arg1);
+
+    char gap0[0x28];
 };
 
-check_size(ipcMessageQueue, 0x0);
+check_size(ipcMessageQueue, 0x28);

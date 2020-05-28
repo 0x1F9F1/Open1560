@@ -25,6 +25,19 @@
     0x90AA18 | int EnablePaging | ?EnablePaging@@3HA
 */
 
+struct PagerInfo_t
+{
+    void* Handle {nullptr};
+    u32 Offset {0};
+    u32 Size {0};
+    char* Name {nullptr};
+
+    // 0x5605D0 | ?Read@PagerInfo_t@@QAEXPAXII@Z
+    void Read(void* buffer, u32 offset, u32 size);
+};
+
+check_size(PagerInfo_t, 0x10);
+
 // 0x90AA18 | ?EnablePaging@@3HA
 inline extern_var(0x90AA18, i32, EnablePaging);
 

@@ -45,16 +45,6 @@
 
 #include "data7/base.h"
 
-struct PagerInfo_t
-{
-    void* Handle {nullptr};
-    u32 Offset {0};
-    u32 Size {0};
-    char* Name {nullptr};
-};
-
-check_size(PagerInfo_t, 0x10);
-
 class FileSystem : public Base
 {
     // const FileSystem::`vftable' @ 0x621928

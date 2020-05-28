@@ -97,12 +97,3 @@ inline extern_var(0x907B40, char*, HierPrefix);
 
 // 0x907BD4 | ?LogOpenOn@@3HA
 inline extern_var(0x907BD4, i32, LogOpenOn);
-
-struct PagerInfo_t
-{
-public:
-    // 0x5605D0 | ?Read@PagerInfo_t@@QAEXPAXII@Z
-    void Read(void* arg1, u32 arg2, u32 arg3);
-};
-
-check_size(PagerInfo_t, 0x0);
