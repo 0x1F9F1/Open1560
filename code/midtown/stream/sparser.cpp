@@ -20,6 +20,7 @@ define_dummy_symbol(stream_sparser);
 
 #include "sparser.h"
 
+#include "data7/metaclass.h"
 #include "stream.h"
 
 StreamMiniParser::StreamMiniParser(const char* name, class Stream* stream)
@@ -36,20 +37,56 @@ StreamMiniParser::~StreamMiniParser()
 
 i32 StreamMiniParser::RawGetCh()
 {
-    return stub<thiscall_t<i32, StreamMiniParser*>>(0x561440, this);
+    export_hook(0x561440);
+
+    return stream_->GetCh();
 }
 
-void StreamMiniParser::RawPutCh(i32 arg1)
+void StreamMiniParser::RawPutCh(i32 value)
 {
-    return stub<thiscall_t<void, StreamMiniParser*, i32>>(0x561400, this, arg1);
+    export_hook(0x561400);
+
+    stream_->PutCh(static_cast<u8>(value));
 }
 
-void StreamMiniParser::Load(class MetaClass* arg1, char* arg2, void* arg3)
+void StreamMiniParser::Load(class MetaClass* cls, const char* path, void* ptr)
 {
-    return stub<cdecl_t<void, class MetaClass*, char*, void*>>(0x561470, arg1, arg2, arg3);
+    export_hook(0x561470);
+
+    Ptr<Stream> input(arts_fopen(path, "r"));
+
+    if (input)
+    {
+        StreamMiniParser parser(path, input.release());
+
+        cls->Load(&parser, ptr);
+
+        if (i32 errors = parser.GetErrorCount())
+            ::Errorf("%d error(s) during load of '%s'", errors, path);
+    }
+    else
+    {
+        ::Errorf("Load: '%s' not found.", path);
+    }
 }
 
-void StreamMiniParser::Save(class MetaClass* arg1, char* arg2, void* arg3)
+void StreamMiniParser::Save(class MetaClass* cls, const char* path, void* ptr)
 {
-    return stub<cdecl_t<void, class MetaClass*, char*, void*>>(0x561520, arg1, arg2, arg3);
+    export_hook(0x561520);
+
+    Ptr<Stream> output(arts_fopen(path, "w"));
+
+    if (output)
+    {
+        StreamMiniParser parser(path, output.release());
+
+        cls->Save(&parser, ptr);
+
+        if (i32 errors = parser.GetErrorCount(); errors != 0)
+            ::Errorf("%d error(s) during save of '%s'", errors, path);
+    }
+    else
+    {
+        ::Errorf("Save: Cannot create '%s'.", path);
+    }
 }

@@ -124,33 +124,6 @@ i32 Stream::Get(u8* arg1, i32 arg2)
     return stub<thiscall_t<i32, Stream*, u8*, i32>>(0x55F170, this, arg1, arg2);
 }
 
-i32 Stream::GetCh()
-{
-    export_hook(0x55EC00);
-
-    if (buffer_head_ < buffer_read_)
-        return buffer_[buffer_head_++];
-
-    u8 result = 0;
-
-    if (Read(&result, 1) == 1)
-        return result;
-
-    return -1;
-}
-
-i32 Stream::UnGetCh(i32 ch)
-{
-    if (buffer_read_ != 0 && buffer_head_ != 0)
-    {
-        buffer_[--buffer_head_] = static_cast<u8>(ch);
-
-        return ch;
-    }
-
-    return -1;
-}
-
 u32 Stream::GetLong()
 {
     return stub<thiscall_t<u32, Stream*>>(0x55F2B0, this);
@@ -209,11 +182,6 @@ i32 Stream::Put(u32* arg1, i32 arg2)
 i32 Stream::Put(u8* arg1, i32 arg2)
 {
     return stub<thiscall_t<i32, Stream*, u8*, i32>>(0x55F080, this, arg1, arg2);
-}
-
-i32 Stream::PutCh(u8 arg1)
-{
-    return stub<thiscall_t<i32, Stream*, u8>>(0x55EC30, this, arg1);
 }
 
 i32 Stream::PutString(char* arg1)

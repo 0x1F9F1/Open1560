@@ -48,6 +48,17 @@ class MiniParser
     // const MiniParser::`vftable' @ 0x621EC8
 
 public:
+    enum Token : i32
+    {
+        EndToken = -1,
+        IntegerToken = 256,
+        StringToken = 257,
+        IdentToken = 258,
+        LabelToken = 259,
+        LabelRefToken = 260,
+        FloatToken = 261,
+    };
+
     // 0x57C5E0 | ??0MiniParser@@QAE@PAD@Z
     MiniParser(const char* name);
 
@@ -59,10 +70,10 @@ public:
     virtual void RawPutCh(i32 arg1) = 0;
 
     // 0x57C7B0 | ?Commentf@MiniParser@@QAAXPBDZZ
-    void Commentf(char const* arg1, ...);
+    void Commentf(char const* format, ...);
 
     // 0x57C710 | ?Errorf@MiniParser@@QAAXPBDZZ
-    void Errorf(char const* arg1, ...);
+    void Errorf(char const* format, ...);
 
     // 0x57CD80 | ?FloatVal@MiniParser@@QAEMXZ
     f32 FloatVal();
@@ -71,7 +82,7 @@ public:
     i32 GetCh();
 
     // 0x57C880 | ?Indent@MiniParser@@QAEXH@Z
-    void Indent(i32 arg1);
+    void Indent(i32 amount);
 
     // 0x57CD40 | ?Int64Val@MiniParser@@QAE_JXZ
     i64 Int64Val();
@@ -80,45 +91,45 @@ public:
     i32 IntVal();
 
     // 0x57C8A0 | ?Match@MiniParser@@QAEXH@Z
-    void Match(i32 arg1);
+    void Match(i32 expected);
 
     // 0x57CB00 | ?NextToken@MiniParser@@QAEHXZ
     i32 NextToken();
 
     // 0x57CA80 | ?PlaceLabel@MiniParser@@QAEXPAX@Z
-    void PlaceLabel(void* arg1);
+    void PlaceLabel(void* ptr);
 
     // 0x57CAA0 | ?PlaceLabelRef@MiniParser@@QAEXPAX@Z
-    void PlaceLabelRef(void* arg1);
+    void PlaceLabelRef(void* ptr);
 
     // 0x57C6B0 | ?PrintString@MiniParser@@QAEXPADH@Z
-    void PrintString(char* arg1, i32 arg2);
+    void PrintString(const char* str, i32 len);
 
     // 0x57C660 | ?Printf@MiniParser@@QAAXPBDZZ
-    void Printf(char const* arg1, ...);
+    void Printf(char const* format, ...);
 
     // 0x57CAD0 | ?PutBack@MiniParser@@QAEXH@Z
-    void PutBack(i32 arg1);
+    void PutBack(i32 token);
 
     // 0x57C830 | ?PutCh@MiniParser@@QAEXH@Z
-    void PutCh(i32 arg1);
+    void PutCh(i32 value);
 
     // 0x57CAC0 | ?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z
     void* ResolveLabel(char* arg1, void** arg2);
 
-    bool HasErrors()
+    i32 GetErrorCount()
     {
-        return error_count_ != 0;
+        return error_count_;
     }
 
     // 0x57C8E0 | ?TokenName@MiniParser@@SAPADH@Z
-    static char* TokenName(i32 arg1);
+    static const char* TokenName(i32 token);
 
 private:
     char buffer_[256] {};
     i32 error_count_ {0};
     CString name_ {};
-    i32 current_token_ {' '};
+    i32 current_char_ {' '};
     i32 indentation_ {0};
     i32 current_line_ {1};
     i32 put_back_ {0};

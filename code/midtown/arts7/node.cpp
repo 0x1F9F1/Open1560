@@ -309,7 +309,7 @@ b32 asNode::Load(const char* path)
 
     GetClass()->Load(&parser, this);
 
-    if (parser.HasErrors())
+    if (parser.GetErrorCount() != 0)
     {
         node_flags_ |= 0x4;
         return false;

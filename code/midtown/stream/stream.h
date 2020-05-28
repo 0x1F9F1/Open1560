@@ -122,9 +122,30 @@ public:
     i32 Get(u8* arg1, i32 arg2);
 
     // 0x55EC00 | ?GetCh@Stream@@QAEHXZ
-    i32 GetCh();
+    i32 GetCh()
+    {
+        if (buffer_head_ < buffer_read_)
+            return buffer_[buffer_head_++];
 
-    i32 UnGetCh(i32 ch);
+        u8 result = 0;
+
+        if (Read(&result, 1) == 1)
+            return result;
+
+        return -1;
+    }
+
+    i32 UnGetCh(i32 ch)
+    {
+        if (buffer_read_ != 0 && buffer_head_ != 0)
+        {
+            buffer_[--buffer_head_] = static_cast<u8>(ch);
+
+            return ch;
+        }
+
+        return -1;
+    }
 
     // 0x55F2B0 | ?GetLong@Stream@@QAEKXZ
     u32 GetLong();
@@ -160,7 +181,21 @@ public:
     i32 Put(u8* arg1, i32 arg2);
 
     // 0x55EC30 | ?PutCh@Stream@@QAEHE@Z
-    i32 PutCh(u8 arg1);
+    i32 PutCh(u8 value)
+    {
+        if ((buffer_head_ == 0) && (buffer_read_ < buffer_capacity_))
+        {
+            buffer_[buffer_read_++] = value;
+            return value;
+        }
+
+        if (Write(&value, 1) == 1)
+        {
+            return value;
+        }
+
+        return -1;
+    }
 
     // 0x55EEB0 | ?PutString@Stream@@QAEHPAD@Z
     i32 PutString(char* arg1);

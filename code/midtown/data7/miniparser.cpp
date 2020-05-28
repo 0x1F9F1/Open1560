@@ -31,87 +31,346 @@ MiniParser::~MiniParser()
     export_hook(0x57C640);
 }
 
-void MiniParser::Commentf(char const* arg1, ...)
+void MiniParser::Commentf(char const* format, ...)
 {
-    unimplemented(arg1);
+    export_hook(0x57C7B0);
+
+    char buffer[1024];
+
+    std::va_list va;
+    va_start(va, format);
+    arts_vsprintf(buffer, format, va);
+    va_end(va);
+
+    PutCh(';');
+    PutCh(' ');
+
+    for (char* s = buffer; *s; ++s)
+        PutCh(*s);
 }
 
-void MiniParser::Errorf(char const* arg1, ...)
+static i32 TotalParserErrors = 0;
+
+void MiniParser::Errorf(char const* format, ...)
 {
-    unimplemented(arg1);
+    export_hook(0x57C710);
+
+    ++TotalParserErrors;
+
+    if (TotalParserErrors < 25)
+    {
+        char buffer[1024];
+
+        std::va_list va;
+        va_start(va, format);
+        arts_vsprintf(buffer, format, va);
+        va_end(va);
+
+        ++error_count_;
+
+        if (error_count_ < 10)
+            Errorf("Parser(%s,%d): %s", name_.get(), current_line_, buffer);
+        else if (error_count_ == 10)
+            Errorf("This file sucks, change it!");
+    }
+    else if (TotalParserErrors == 25)
+    {
+        Errorf("Too many errors in metaclass files, ignoring all others");
+    }
 }
 
 f32 MiniParser::FloatVal()
 {
-    return stub<thiscall_t<f32, MiniParser*>>(0x57CD80, this);
+    export_hook(0x57CD80);
+
+    if (i32 token = NextToken(); token != IntegerToken && token != FloatToken)
+        Errorf("Expected integer or floating-point literal");
+
+    return static_cast<f32>(std::atof(buffer_));
 }
 
 i32 MiniParser::GetCh()
 {
-    return stub<thiscall_t<i32, MiniParser*>>(0x57C810, this);
+    export_hook(0x57C810);
+
+    i32 ch = current_char_ = RawGetCh();
+
+    if (ch == '\n')
+        ++current_line_;
+
+    return ch;
 }
 
-void MiniParser::Indent(i32 arg1)
+void MiniParser::Indent(i32 amount)
 {
-    return stub<thiscall_t<void, MiniParser*, i32>>(0x57C880, this, arg1);
+    export_hook(0x57C880);
+
+    indentation_ += amount;
 }
 
 i64 MiniParser::Int64Val()
 {
-    return stub<thiscall_t<i64, MiniParser*>>(0x57CD40, this);
+    export_hook(0x57CD40);
+
+    if (i32 token = NextToken(); token != IntegerToken && token != FloatToken)
+        Errorf("Expected integer or floating-point literal");
+
+    return std::atoll(buffer_);
 }
 
 i32 MiniParser::IntVal()
 {
-    return stub<thiscall_t<i32, MiniParser*>>(0x57CD00, this);
+    export_hook(0x57CD00);
+
+    if (i32 token = NextToken(); token != IntegerToken && token != FloatToken)
+        Errorf("Expected integer or floating-point literal");
+
+    return std::atoi(buffer_);
 }
 
-void MiniParser::Match(i32 arg1)
+void MiniParser::Match(i32 expected)
 {
-    return stub<thiscall_t<void, MiniParser*, i32>>(0x57C8A0, this, arg1);
+    export_hook(0x57C8A0);
+
+    if (i32 token = NextToken(); token != expected)
+        Errorf("Expected '%s', got '%s'", TokenName(expected), TokenName(token));
 }
 
 i32 MiniParser::NextToken()
 {
-    return stub<thiscall_t<i32, MiniParser*>>(0x57CB00, this);
+    export_hook(0x57CB00);
+
+    if (put_back_)
+    {
+        i32 result = put_back_;
+        put_back_ = 0;
+        return result;
+    }
+
+    i32 v = current_char_;
+
+    while (true)
+    {
+        while (v == '\t' || v == '\n' || v == '\r' || v == ' ')
+            v = GetCh();
+
+        if (v == EndToken)
+            return '\0';
+
+        if (v != ';')
+            break;
+
+        do
+        {
+            v = GetCh();
+        } while (v != '\n' && v != EndToken);
+    }
+
+    if (v == '\'')
+    {
+        // TODO: Is this GetCh() needed? Should it be after the sprintf?
+        GetCh();
+
+        v = GetCh();
+        arts_sprintf(buffer_, "%d", v);
+
+        return IntegerToken;
+    }
+
+    if (v == '"')
+    {
+        i32 len = 0;
+
+        while ((v = GetCh()) != '"')
+        {
+            if (v == '\n')
+            {
+                Errorf("Newline in string.");
+                break;
+            }
+
+            if (v == '\\')
+                v = GetCh();
+
+            if (v == EndToken)
+            {
+                Errorf("EOF in string");
+                break;
+            }
+
+            if (len < 255)
+                buffer_[len++] = static_cast<char>(v);
+        }
+
+        // TODO: Is this GetCh() needed?
+        GetCh();
+
+        buffer_[len] = '\0';
+
+        return StringToken;
+    }
+
+    i32 token = 0;
+
+    if (v == '$')
+    {
+        token = LabelRefToken;
+    }
+    else if (v == ':')
+    {
+        token = LabelToken;
+    }
+    else if (v == '.')
+    {
+        token = FloatToken;
+    }
+    else if (v == '-' || (v >= '0' && v <= '9'))
+    {
+        token = IntegerToken;
+    }
+    else if ((v >= 'A' && v <= 'Z') || (v >= 'a' && v <= 'z') || (v == '_'))
+    {
+        token = IdentToken;
+    }
+    else
+    {
+        buffer_[0] = static_cast<char>(v);
+        buffer_[1] = '\0';
+
+        GetCh();
+
+        return v;
+    }
+
+    i32 len = 0;
+
+    for (; v != '\t' && v != ' ' && v != '\n' && v != '\r' && v != ';'; v = GetCh())
+    {
+        if (len < 255)
+            buffer_[len++] = static_cast<char>(v);
+    }
+
+    buffer_[len] = '\0';
+
+    return token;
 }
 
-void MiniParser::PlaceLabel(void* arg1)
+void MiniParser::PlaceLabel(void* ptr)
 {
-    return stub<thiscall_t<void, MiniParser*, void*>>(0x57CA80, this, arg1);
+    export_hook(0x57CA80);
+
+    Printf(":%08x", u32(ptr));
 }
 
-void MiniParser::PlaceLabelRef(void* arg1)
+void MiniParser::PlaceLabelRef(void* ptr)
 {
-    return stub<thiscall_t<void, MiniParser*, void*>>(0x57CAA0, this, arg1);
+    export_hook(0x57CAA0);
+
+    Printf("$%08x", u32(ptr));
 }
 
-void MiniParser::PrintString(char* arg1, i32 arg2)
+void MiniParser::PrintString(const char* str, i32 len)
 {
-    return stub<thiscall_t<void, MiniParser*, char*, i32>>(0x57C6B0, this, arg1, arg2);
+    export_hook(0x57C6B0);
+
+    if (str)
+    {
+        RawPutCh('"');
+
+        if (len)
+        {
+            for (char v; (v = *str) != '\0'; ++str)
+            {
+                if (v < ' ' || v == '"')
+                    RawPutCh('\\');
+
+                RawPutCh(v);
+            }
+        }
+
+        RawPutCh('"');
+    }
+    else
+    {
+        RawPutCh('0');
+    }
 }
 
-void MiniParser::Printf(char const* arg1, ...)
+void MiniParser::Printf(char const* format, ...)
 {
-    unimplemented(arg1);
+    export_hook(0x57C660);
+
+    char buffer[1024];
+
+    std::va_list va;
+    va_start(va, format);
+    arts_vsprintf(buffer, format, va);
+    va_end(va);
+
+    for (char* s = buffer; *s; ++s)
+        PutCh(*s);
 }
 
-void MiniParser::PutBack(i32 arg1)
+void MiniParser::PutBack(i32 token)
 {
-    return stub<thiscall_t<void, MiniParser*, i32>>(0x57CAD0, this, arg1);
+    export_hook(0x57CAD0);
+
+    if (put_back_)
+        Errorf("PutBack already called.");
+
+    put_back_ = token;
 }
 
-void MiniParser::PutCh(i32 arg1)
+void MiniParser::PutCh(i32 value)
 {
-    return stub<thiscall_t<void, MiniParser*, i32>>(0x57C830, this, arg1);
+    export_hook(0x57C830);
+
+    if (current_char_ == '\n')
+    {
+        for (i32 i = indentation_; i; --i)
+            RawPutCh(' ');
+    }
+
+    current_char_ = value;
+
+    RawPutCh(value);
 }
 
-void* MiniParser::ResolveLabel(char* arg1, void** arg2)
+void* MiniParser::ResolveLabel(char*, void**)
 {
-    return stub<thiscall_t<void*, MiniParser*, char*, void**>>(0x57CAC0, this, arg1, arg2);
+    export_hook(0x57CAC0);
+
+    return nullptr;
 }
 
-char* MiniParser::TokenName(i32 arg1)
+static char TokenNameBuffer[2] {};
+
+const char* MiniParser::TokenName(i32 token)
 {
-    return stub<cdecl_t<char*, i32>>(0x57C8E0, arg1);
+    export_hook(0x57C8E0);
+
+    switch (token)
+    {
+        case '\0':
+        case EndToken: return "end-of-file";
+
+        case '(': return "(";
+        case ')': return ")";
+        case '[': return "[";
+        case '{': return "{";
+        case '}': return "}";
+        case ',': return ",";
+
+        case IntegerToken: return "integer literal";
+        case StringToken: return "string literal";
+        case IdentToken: return "identifier";
+        case LabelToken: return "label definition";
+        case LabelRefToken: return "reference to label";
+        case FloatToken: return "float literal";
+    }
+
+    // TODO: This is a bad idea
+    TokenNameBuffer[0] = static_cast<char>(token);
+
+    return TokenNameBuffer;
 }

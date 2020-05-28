@@ -52,10 +52,10 @@ public:
     void RawPutCh(i32 arg1) override;
 
     // 0x561470 | ?Load@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z
-    static void Load(class MetaClass* arg1, char* arg2, void* arg3);
+    static void Load(class MetaClass* cls, const char* path, void* ptr);
 
     // 0x561520 | ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z
-    static void Save(class MetaClass* arg1, char* arg2, void* arg3);
+    static void Save(class MetaClass* cls, const char* path, void* ptr);
 
 private:
     Ptr<Stream> stream_;
