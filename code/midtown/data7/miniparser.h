@@ -117,6 +117,11 @@ public:
     // 0x57CAC0 | ?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z
     void* ResolveLabel(char* arg1, void** arg2);
 
+    const char* GetBuffer() const
+    {
+        return buffer_;
+    }
+
     i32 GetErrorCount()
     {
         return error_count_;

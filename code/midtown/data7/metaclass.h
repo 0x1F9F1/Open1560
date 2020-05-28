@@ -96,6 +96,16 @@ public:
         return size_;
     }
 
+    void* Allocate(i32 count)
+    {
+        return allocate_ ? allocate_(count) : nullptr;
+    }
+
+    void Free(void* ptr, i32 count)
+    {
+        free_(ptr, count);
+    }
+
     MetaClass* GetParent() const
     {
         return parent_;

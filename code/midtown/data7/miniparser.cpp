@@ -277,7 +277,7 @@ void MiniParser::PrintString(const char* str, i32 len)
     {
         RawPutCh('"');
 
-        if (len)
+        if (len) // TODO: Is this actually a max length?
         {
             for (char v; (v = *str) != '\0'; ++str)
             {

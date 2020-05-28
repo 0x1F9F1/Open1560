@@ -20,6 +20,12 @@ define_dummy_symbol(data7_metatype);
 
 #include "metatype.h"
 
+#include <cinttypes>
+
+#include "metaclass.h"
+#include "metadefine.h"
+#include "miniparser.h"
+
 struct PtrToType : MetaType
 {
     // const PtrToType::`vftable' @ 0x620AB8
@@ -31,33 +37,31 @@ struct PtrToType : MetaType
     MetaType* TargetType {nullptr};
 
     // 0x57B5E0 | ?Delete@PtrToType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override
-    {
-        return stub<thiscall_t<void, PtrToType*, void*, i32>>(0x57B5E0, this, arg1, arg2);
-    }
+    void Delete(void*, i32) override
+    {}
 
     // 0x57B5B0 | ?Load@PtrToType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override
+    void Load(class MiniParser* parser, void*) override
     {
-        return stub<thiscall_t<void, PtrToType*, class MiniParser*, void*>>(0x57B5B0, this, arg1, arg2);
+        parser->Match(MiniParser::LabelRefToken);
     }
 
     // 0x57B5D0 | ?New@PtrToType@@UAEPAXH@Z
-    void* New(i32 arg1) override
+    void* New(i32) override
     {
-        return stub<thiscall_t<void*, PtrToType*, i32>>(0x57B5D0, this, arg1);
+        return nullptr;
     }
 
     // 0x57B590 | ?Save@PtrToType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override
+    void Save(class MiniParser* parser, void* ptr) override
     {
-        return stub<thiscall_t<void, PtrToType*, class MiniParser*, void*>>(0x57B590, this, arg1, arg2);
+        parser->PlaceLabelRef(*static_cast<void**>(ptr));
     }
 
     // 0x57B5F0 | ?SizeOf@PtrToType@@UAEIXZ
     u32 SizeOf() override
     {
-        return stub<thiscall_t<u32, PtrToType*>>(0x57B5F0, this);
+        return sizeof(void*);
     }
 };
 
@@ -138,33 +142,33 @@ struct StructType : MetaType
     MetaClass* TargetClass {nullptr};
 
     // 0x57B9D0 | ?Delete@StructType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override
+    void Delete(void* ptr, i32 count) override
     {
-        return stub<thiscall_t<void, StructType*, void*, i32>>(0x57B9D0, this, arg1, arg2);
+        TargetClass->Free(ptr, count);
     }
 
     // 0x57B980 | ?Load@StructType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override
+    void Load(class MiniParser* parser, void* ptr) override
     {
-        return stub<thiscall_t<void, StructType*, class MiniParser*, void*>>(0x57B980, this, arg1, arg2);
+        TargetClass->Load(parser, ptr);
     }
 
     // 0x57B9B0 | ?New@StructType@@UAEPAXH@Z
-    void* New(i32 arg1) override
+    void* New(i32 count) override
     {
-        return stub<thiscall_t<void*, StructType*, i32>>(0x57B9B0, this, arg1);
+        return TargetClass->Allocate(count);
     }
 
     // 0x57B960 | ?Save@StructType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override
+    void Save(class MiniParser* parser, void* ptr) override
     {
-        return stub<thiscall_t<void, StructType*, class MiniParser*, void*>>(0x57B960, this, arg1, arg2);
+        TargetClass->Save(parser, ptr);
     }
 
     // 0x57B9A0 | ?SizeOf@StructType@@UAEIXZ
     u32 SizeOf() override
     {
-        return stub<thiscall_t<u32, StructType*>>(0x57B9A0, this);
+        return TargetClass->GetSize();
     }
 };
 
@@ -310,33 +314,33 @@ struct SignedIntType : MetaType
 
 public:
     // 0x57BE90 | ?Delete@SignedIntType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override
+    void Delete(void* ptr, i32 len) override
     {
-        return stub<thiscall_t<void, SignedIntType*, void*, i32>>(0x57BE90, this, arg1, arg2);
+        MetaDelete<i32>(ptr, len);
     }
 
     // 0x57BE30 | ?Load@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override
+    void Load(class MiniParser* parser, void* ptr) override
     {
-        return stub<thiscall_t<void, SignedIntType*, class MiniParser*, void*>>(0x57BE30, this, arg1, arg2);
+        *static_cast<i32*>(ptr) = parser->IntVal();
     }
 
     // 0x57BE60 | ?New@SignedIntType@@UAEPAXH@Z
-    void* New(i32 arg1) override
+    void* New(i32 count) override
     {
-        return stub<thiscall_t<void*, SignedIntType*, i32>>(0x57BE60, this, arg1);
+        return MetaNew<i32>(count);
     }
 
     // 0x57BE10 | ?Save@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override
+    void Save(class MiniParser* parser, void* ptr) override
     {
-        return stub<thiscall_t<void, SignedIntType*, class MiniParser*, void*>>(0x57BE10, this, arg1, arg2);
+        parser->Printf("%" PRIi32 " ", *static_cast<i32*>(ptr));
     }
 
     // 0x57BE50 | ?SizeOf@SignedIntType@@UAEIXZ
     u32 SizeOf() override
     {
-        return stub<thiscall_t<u32, SignedIntType*>>(0x57BE50, this);
+        return sizeof(i32);
     }
 };
 
@@ -433,33 +437,47 @@ struct StringType : MetaType
 
 public:
     // 0x57C260 | ?Delete@StringType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override
+    void Delete(void*, i32) override
     {
-        return stub<thiscall_t<void, StringType*, void*, i32>>(0x57C260, this, arg1, arg2);
+        // TODO: Implement this?
     }
 
     // 0x57C1D0 | ?Load@StringType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override
+    void Load(class MiniParser* parser, void* ptr) override
     {
-        return stub<thiscall_t<void, StringType*, class MiniParser*, void*>>(0x57C1D0, this, arg1, arg2);
+        char*& str = *static_cast<char**>(ptr);
+
+        if (str)
+            arts_free(str);
+
+        if (parser->NextToken() != MiniParser::LabelRefToken) // TODO: Are all other tokens really valid?
+            str = arts_strdup(parser->GetBuffer());
+        else
+            str = nullptr;
     }
 
     // 0x57C220 | ?New@StringType@@UAEPAXH@Z
-    void* New(i32 arg1) override
+    void* New(i32 count) override
     {
-        return stub<thiscall_t<void*, StringType*, i32>>(0x57C220, this, arg1);
+        if (count)
+            return new char*[count]();
+        else
+            return new char*();
     }
 
     // 0x57C190 | ?Save@StringType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override
+    void Save(class MiniParser* parser, void* ptr) override
     {
-        return stub<thiscall_t<void, StringType*, class MiniParser*, void*>>(0x57C190, this, arg1, arg2);
+        if (char* str = *static_cast<char**>(ptr))
+            parser->PrintString(str, 1024);
+        else
+            parser->Printf("$0");
     }
 
     // 0x57C270 | ?SizeOf@StringType@@UAEIXZ
     u32 SizeOf() override
     {
-        return stub<thiscall_t<u32, StringType*>>(0x57C270, this);
+        return sizeof(char*);
     }
 };
 

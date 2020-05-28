@@ -61,7 +61,8 @@ public:
 
     ~CString()
     {
-        arts_free(data_);
+        if (data_)
+            arts_free(data_);
     }
 
     CString& operator=(const char* value)
@@ -80,7 +81,9 @@ public:
 
     CString& operator=(CString&& value)
     {
-        arts_free(data_);
+        if (data_)
+            arts_free(data_);
+
         data_ = value.data_;
         value.data_ = nullptr;
 
@@ -89,8 +92,19 @@ public:
 
     void assign(const char* value)
     {
-        arts_free(data_);
-        data_ = arts_strdup(value);
+        if (data_)
+            arts_free(data_);
+
+        data_ = value ? arts_strdup(value) : nullptr;
+    }
+
+    void reset()
+    {
+        if (data_)
+        {
+            arts_free(data_);
+            data_ = nullptr;
+        }
     }
 
     char* get()
