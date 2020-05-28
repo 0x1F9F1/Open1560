@@ -225,7 +225,7 @@ check_size(Stream, 0x20);
 i32 arts_fgets(char* arg1, i32 arg2, class Stream* arg3);
 
 // 0x55F2F0 | ?fopen@@YAPAVStream@@PAD0@Z
-class Stream* arts_fopen(char* arg1, char* arg2);
+class Stream* arts_fopen(const char* path, const char* mode);
 
 // 0x55F2D0 | ?fprintf@@YAXPAVStream@@PBDZZ
 void arts_fprintf(class Stream* stream, char const* format, ...);

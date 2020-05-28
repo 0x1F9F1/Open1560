@@ -285,9 +285,9 @@ i32 arts_fgets(char* arg1, i32 arg2, class Stream* arg3)
     return stub<cdecl_t<i32, char*, i32, class Stream*>>(0x55F3E0, arg1, arg2, arg3);
 }
 
-class Stream* arts_fopen(char* arg1, char* arg2)
+class Stream* arts_fopen(const char* path, const char* mode)
 {
-    return stub<cdecl_t<class Stream*, char*, char*>>(0x55F2F0, arg1, arg2);
+    return stub<cdecl_t<class Stream*, const char*, const char*>>(0x55F2F0, path, mode);
 }
 
 void arts_fprintf(class Stream* stream, char const* format, ...)

@@ -20,14 +20,15 @@ define_dummy_symbol(data7_miniparser);
 
 #include "miniparser.h"
 
-MiniParser::MiniParser(char* arg1)
+MiniParser::MiniParser(const char* name)
+    : name_(name)
 {
-    unimplemented(arg1);
+    export_hook(0x57C5E0);
 }
 
 MiniParser::~MiniParser()
 {
-    unimplemented();
+    export_hook(0x57C640);
 }
 
 void MiniParser::Commentf(char const* arg1, ...)

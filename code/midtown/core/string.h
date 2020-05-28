@@ -39,18 +39,15 @@ char* arts_strdup(const char* str);
 class CString
 {
 public:
-    CString()
-        : data_(nullptr)
-    {}
+    constexpr CString() = default;
 
-    CString(std::nullptr_t)
+    constexpr CString(std::nullptr_t)
         : data_(nullptr)
     {}
 
     CString(const char* value)
-    {
-        assign(value);
-    }
+        : data_(arts_strdup(value))
+    {}
 
     CString(const CString& other)
         : CString(other.data_)

@@ -20,14 +20,18 @@ define_dummy_symbol(stream_sparser);
 
 #include "sparser.h"
 
-StreamMiniParser::StreamMiniParser(char* arg1, class Stream* arg2)
+#include "stream.h"
+
+StreamMiniParser::StreamMiniParser(const char* name, class Stream* stream)
+    : MiniParser(name)
+    , stream_(stream)
 {
-    unimplemented(arg1, arg2);
+    export_hook(0x561370);
 }
 
 StreamMiniParser::~StreamMiniParser()
 {
-    unimplemented();
+    export_hook(0x5613A0);
 }
 
 i32 StreamMiniParser::RawGetCh()

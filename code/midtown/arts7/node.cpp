@@ -20,12 +20,16 @@ define_dummy_symbol(arts7_node);
 
 #include "node.h"
 
-#include "data7/metadefine.h"
-
 #include "bank.h"
 #include "data7/callback.h"
+#include "data7/metadefine.h"
+#include "data7/str.h"
 #include "data7/timer.h"
 #include "memory/allocator.h"
+#include "stream/sparser.h"
+#include "stream/stream.h"
+
+// TODO: Optimize node methods
 
 asNode::~asNode()
 {
@@ -93,12 +97,38 @@ void asNode::UpdatePaused()
 
 void asNode::Load()
 {
-    return stub<thiscall_t<void, asNode*>>(0x524150, this);
+    export_hook(0x524150);
+
+    const char* name = node_name_.get();
+
+    if (!name || !std::strncmp(name, "_", 1))
+        name = "default";
+
+    char buffer[100];
+    arts_sprintf(buffer, ".%s", GetClass()->GetName());
+
+    string path;
+    path.SaveName(name, 0, "tune", buffer);
+
+    Load(path.get());
 }
 
 void asNode::Save()
 {
-    return stub<thiscall_t<void, asNode*>>(0x523F70, this);
+    export_hook(0x523F70);
+
+    const char* name = node_name_.get();
+
+    if (!name || !std::strncmp(name, "_", 1))
+        name = "default";
+
+    char buffer[100];
+    arts_sprintf(buffer, ".%s", GetClass()->GetName());
+
+    string path;
+    path.SaveName(name, 0, "tune", buffer);
+
+    Save(path.get());
 }
 
 void asNode::AddWidgets(class Bank* bank)
@@ -108,6 +138,7 @@ void asNode::AddWidgets(class Bank* bank)
     current_bank_ = bank;
 
     bank->AddToggle("Active", &node_flags_, 0x1, NullCallback);
+
     bank->AddButton("Save", Callback(MFA(asNode::Save), this));
     bank->AddButton("Load", Callback(MFA(asNode::Load), this));
 
@@ -184,7 +215,7 @@ class asNode* asNode::GetLastChild()
 
     if (!parent_node_)
     {
-        Errorf("LastasNode() - Need ParentNode set.");
+        Errorf("GetLastChild() - Need ParentNode set.");
 
         return nullptr;
     }
@@ -262,9 +293,32 @@ b32 asNode::InsertChild(i32 index, class asNode* child)
     return true;
 }
 
-i32 asNode::Load(char* arg1)
+b32 asNode::Load(const char* path)
 {
-    return stub<thiscall_t<i32, asNode*, char*>>(0x523DD0, this, arg1);
+    export_hook(0x523DD0);
+
+    Ptr<Stream> input(arts_fopen(path, "r"));
+
+    if (!input)
+    {
+        Errorf("asNode::Load(%s) failed.", path);
+        return false;
+    }
+
+    StreamMiniParser parser(path, input.release());
+
+    GetClass()->Load(&parser, this);
+
+    if (parser.HasErrors())
+    {
+        node_flags_ |= 0x4;
+        return false;
+    }
+    else
+    {
+        node_flags_ &= ~0x4;
+        return true;
+    }
 }
 
 i32 asNode::NumChildren()
@@ -279,9 +333,23 @@ i32 asNode::NumChildren()
     return count;
 }
 
-void asNode::PerfReport(class Stream* arg1, i32 arg2)
+void asNode::PerfReport(class Stream* output, i32 indent)
 {
-    return stub<thiscall_t<void, asNode*, class Stream*, i32>>(0x5239D0, this, arg1, arg2);
+    export_hook(0x5239D0);
+
+    f32 self_update = update_time_;
+
+    for (asNode* n = child_node_; n; n = n->next_node_)
+        self_update -= n->update_time_;
+
+    for (i32 i = 0; i < indent; ++i)
+        arts_fprintf(output, "  ");
+
+    arts_fprintf(
+        output, "%s %s Total %6.3f Myself %6.3f\n", GetClass()->GetName(), node_name_.get(), update_time_, self_update);
+
+    for (asNode* n = child_node_; n; n = n->next_node_)
+        n->PerfReport(output, indent + 1);
 }
 
 void asNode::RemoveAllChildren()
@@ -292,49 +360,135 @@ void asNode::RemoveAllChildren()
         RemoveChild(1);
 }
 
-i32 asNode::RemoveChild(class asNode* child)
+b32 asNode::RemoveChild(class asNode* child)
 {
     export_hook(0x523C20);
 
-    i32 count = 1;
-
-    for (asNode* n = child_node_; n; n = n->next_node_, ++count)
+    i32 i = 1;
+    for (asNode* n = child_node_; n; n = n->next_node_, ++i)
     {
         if (n == child)
-            return RemoveChild(count);
+            return RemoveChild(i);
     }
 
-    return 0;
+    return false;
 }
 
-i32 asNode::RemoveChild(i32 arg1)
+b32 asNode::RemoveChild(i32 idx)
 {
-    return stub<thiscall_t<i32, asNode*, i32>>(0x523B80, this, arg1);
+    export_hook(0x523B80);
+
+    if (!child_node_)
+    {
+        Errorf("asNode::RemoveChild()- No children!");
+        return false;
+    }
+
+    if (idx < 1 || idx > NumChildren())
+    {
+        Errorf("asNode::RemoveChild()- Bad child num");
+        return false;
+    }
+
+    asNode* n = GetChild(idx);
+
+    if (idx == 1)
+        child_node_ = n->next_node_;
+    else
+        GetChild(idx - 1)->next_node_ = n->next_node_;
+
+    n->next_node_ = nullptr;
+    n->parent_node_ = nullptr;
+
+    return true;
 }
 
 void asNode::ResetTime()
 {
-    return stub<thiscall_t<void, asNode*>>(0x5239B0, this);
+    export_hook(0x5239B0);
+
+    update_time_ = 0.0f;
+
+    for (asNode* n = child_node_; n; n = n->next_node_)
+        n->ResetTime();
 }
 
-i32 asNode::Save(char* arg1)
+b32 asNode::Save(const char* path)
 {
-    return stub<thiscall_t<i32, asNode*, char*>>(0x523EC0, this, arg1);
+    export_hook(0x523EC0);
+
+    Ptr<Stream> output(arts_fopen(path, "w"));
+
+    if (!output)
+    {
+        Errorf("asNode::Save(%s) failed.", path);
+        return false;
+    }
+
+    StreamMiniParser parser(path, output.release());
+
+    GetClass()->Save(&parser, this);
+
+    return true;
 }
 
-void asNode::SetName(char* arg1)
+void asNode::SetName(const char* name)
 {
-    return stub<thiscall_t<void, asNode*, char*>>(0x523860, this, arg1);
+    export_hook(0x523860);
+
+    node_name_ = name;
 }
 
-void asNode::SwitchTo(i32 arg1)
+void asNode::SwitchTo(i32 idx)
 {
-    return stub<thiscall_t<void, asNode*, i32>>(0x523D20, this, arg1);
+    export_hook(0x523D20);
+
+    idx = std::clamp(idx, -1, NumChildren());
+
+    i32 i = 1;
+    for (asNode* n = child_node_; n; n = n->next_node_, ++i)
+    {
+        if (idx == -1 || idx == i)
+            n->node_flags_ |= 0x1;
+        else
+            n->node_flags_ &= ~0x1;
+    }
 }
 
-char* asNode::VerifyTree()
+static b32 IsValidPointer(void* ptr, u32 len, b32 writeable)
 {
-    return stub<thiscall_t<char*, asNode*>>(0x523440, this);
+    // FIXME: Relies on IsBadReadPtr and IsBadWritePtr, which are deprecated
+    return stub<cdecl_t<i32, void*, u32, i32>>(0x523510, ptr, len, writeable);
+}
+
+const char* asNode::VerifyTree()
+{
+    export_hook(0x523440);
+
+    if (!IsValidPointer(this, sizeof(*this), true))
+        return "Bad 'this'";
+
+    if (!IsValidPointer(*reinterpret_cast<void**>(this), 8 * sizeof(void*), false))
+        return "Bad virtual table";
+
+    if (!IsValidPointer(parent_node_, sizeof(*this), 1) && (this != parent_node_))
+        return "Bad parent";
+
+    const char* msg = nullptr;
+
+    int32_t i = 1;
+    for (asNode* n = child_node_; n; n = n->next_node_, ++i)
+    {
+        msg = n->VerifyTree();
+
+        if (msg)
+        {
+            Errorf("Kid %d(%x) of type %s name %s: %s", i, n, GetClass()->GetName(), node_name_.get(), msg);
+            break;
+        }
+    }
+
+    return msg;
 }
 
 META_DEFINE_CHILD("asNode", asNode, asCullable) {

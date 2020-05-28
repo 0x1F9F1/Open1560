@@ -130,37 +130,37 @@ public:
     b32 InsertChild(i32 index, class asNode* child);
 
     // 0x523DD0 | ?Load@asNode@@QAEHPAD@Z
-    i32 Load(char* arg1);
+    b32 Load(const char* path);
 
     // 0x523D00 | ?NumChildren@asNode@@QAEHXZ
     i32 NumChildren();
 
     // 0x5239D0 | ?PerfReport@asNode@@QAEXPAVStream@@H@Z
-    void PerfReport(class Stream* arg1, i32 arg2);
+    void PerfReport(class Stream* output, i32 indent);
 
     // 0x523C60 | ?RemoveAllChildren@asNode@@QAEXXZ
     void RemoveAllChildren();
 
     // 0x523C20 | ?RemoveChild@asNode@@QAEHPAV1@@Z
-    i32 RemoveChild(class asNode* child);
+    b32 RemoveChild(class asNode* child);
 
     // 0x523B80 | ?RemoveChild@asNode@@QAEHH@Z
-    i32 RemoveChild(i32 arg1);
+    b32 RemoveChild(i32 idx);
 
     // 0x5239B0 | ?ResetTime@asNode@@QAEXXZ
     void ResetTime();
 
     // 0x523EC0 | ?Save@asNode@@QAEHPAD@Z
-    i32 Save(char* arg1);
+    b32 Save(const char* path);
 
     // 0x523860 | ?SetName@asNode@@QAEXPAD@Z
-    void SetName(char* arg1);
+    void SetName(const char* name);
 
     // 0x523D20 | ?SwitchTo@asNode@@QAEXH@Z
-    void SwitchTo(i32 arg1);
+    void SwitchTo(i32 idx);
 
     // 0x523440 | ?VerifyTree@asNode@@QAEPADXZ
-    char* VerifyTree();
+    const char* VerifyTree();
 
     bool IsActive() const
     {

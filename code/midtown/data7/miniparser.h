@@ -49,7 +49,7 @@ class MiniParser
 
 public:
     // 0x57C5E0 | ??0MiniParser@@QAE@PAD@Z
-    MiniParser(char* arg1);
+    MiniParser(const char* name);
 
     // 0x57C640 | ??1MiniParser@@QAE@XZ
     ~MiniParser();
@@ -106,8 +106,22 @@ public:
     // 0x57CAC0 | ?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z
     void* ResolveLabel(char* arg1, void** arg2);
 
+    bool HasErrors()
+    {
+        return error_count_ != 0;
+    }
+
     // 0x57C8E0 | ?TokenName@MiniParser@@SAPADH@Z
     static char* TokenName(i32 arg1);
+
+private:
+    char buffer_[256] {};
+    i32 error_count_ {0};
+    CString name_ {};
+    i32 current_token_ {' '};
+    i32 indentation_ {0};
+    i32 current_line_ {1};
+    i32 put_back_ {0};
 };
 
-check_size(MiniParser, 0x0);
+check_size(MiniParser, 0x11C);

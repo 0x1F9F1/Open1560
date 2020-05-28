@@ -32,13 +32,15 @@
 
 #include "data7/miniparser.h"
 
+class Stream;
+
 class StreamMiniParser : public MiniParser
 {
     // const StreamMiniParser::`vftable' @ 0x6219E8
 
 public:
     // 0x561370 | ??0StreamMiniParser@@QAE@PADPAVStream@@@Z
-    StreamMiniParser(char* arg1, class Stream* arg2);
+    StreamMiniParser(const char* name, class Stream* stream);
 
     // 0x5613A0 | ??1StreamMiniParser@@QAE@XZ
     ~StreamMiniParser();
@@ -54,6 +56,9 @@ public:
 
     // 0x561520 | ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z
     static void Save(class MetaClass* arg1, char* arg2, void* arg3);
+
+private:
+    Ptr<Stream> stream_;
 };
 
-check_size(StreamMiniParser, 0x0);
+check_size(StreamMiniParser, 0x120);

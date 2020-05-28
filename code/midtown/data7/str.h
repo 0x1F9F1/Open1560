@@ -64,10 +64,12 @@ public:
     string();
 
     // 0x4A4BA0 | ??0string@@QAE@PBD@Z
-    string(char const* arg1);
+    string(char const* str);
 
     // 0x49A730 | ??0string@@QAE@ABV0@@Z
-    string(class string const& arg1);
+    string(class string const& other);
+
+    string(string&& other);
 
     // 0x57B3B0 | ??_Estring@@QAEPAXI@Z
     // 0x40E7E0 | ??1string@@QAE@XZ
@@ -141,6 +143,20 @@ public:
 
     // 0x57ACB0 | ?SubString@string@@QBE?AV1@H@Z
     class string SubString(i32 arg1);
+
+    char* get()
+    {
+        return data_;
+    }
+
+    const char* get() const
+    {
+        return data_;
+    }
+
+private:
+    char* data_ {nullptr};
+    i32 capacity_ {0};
 };
 
 check_size(string, 0x8);
@@ -157,6 +173,7 @@ inline extern_var(0x90B288, char*, ImageExts);
 // 0x90B208 | ?ProjPath@@3PADA
 inline extern_var(0x90B208, char*, ProjPath);
 
+#if 0
 class StringArray
 {
 public:
@@ -181,3 +198,4 @@ private:
 };
 
 check_size(StringArray, 0x0);
+#endif
