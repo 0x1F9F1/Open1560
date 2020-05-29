@@ -24,11 +24,13 @@ define_dummy_symbol(stream_stream);
 
 #include "core/endian.h"
 
+constexpr bool IsLittleEndian = true;
+
 Stream::Stream(void* buffer, i32 buffer_size, class FileSystem* file_system)
     : buffer_(static_cast<u8*>(buffer))
     , buffer_capacity_(buffer_size)
     , file_system_(file_system)
-    , little_endian_(true)
+    , little_endian_(IsLittleEndian)
 {
     export_hook(0x55E8B0);
 
@@ -259,9 +261,69 @@ i32 Stream::PutString(const char* str)
     return Put(reinterpret_cast<const u8*>(str), len);
 }
 
-i32 Stream::Read(void* arg1, i32 arg2)
+i32 Stream::Read(void* ptr, i32 size)
 {
-    return stub<thiscall_t<i32, Stream*, void*, i32>>(0x55E9C0, this, arg1, arg2);
+    export_hook(0x55E9C0);
+
+    if ((buffer_read_ == 0) && (buffer_head_ != 0) && (Flush() < 0))
+        return -1;
+
+    i32 total = 0;
+    i32 buffered = buffer_read_ - buffer_head_;
+
+    if (size > buffered)
+    {
+        if (buffered != 0)
+        {
+            std::memcpy(ptr, buffer_ + buffer_head_, buffered);
+
+            ptr = static_cast<u8*>(ptr) + buffered;
+            size -= buffered;
+            total += buffered;
+
+            buffer_head_ = buffer_read_;
+        }
+
+        position_ += buffer_head_;
+
+        if (size > buffer_capacity_)
+        {
+            i32 raw_read = RawRead(ptr, size);
+
+            buffer_head_ = 0;
+            buffer_read_ = 0;
+
+            if (raw_read < 0)
+                return -1;
+
+            position_ += raw_read;
+            total += raw_read;
+
+            return total;
+        }
+
+        i32 raw_read = RawRead(buffer_, buffer_capacity_);
+
+        buffer_head_ = 0;
+        buffer_read_ = raw_read;
+
+        if (raw_read < 0)
+        {
+            buffer_read_ = 0;
+            return -1;
+        }
+    }
+
+    buffered = buffer_read_ - buffer_head_;
+
+    if (size > buffered)
+        size = buffered;
+
+    std::memcpy(ptr, buffer_ + buffer_head_, size);
+    buffer_head_ += size;
+    total += size;
+
+    return total;
 }
 
 i32 Stream::Seek(i32 position)

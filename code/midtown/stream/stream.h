@@ -214,7 +214,7 @@ public:
     i32 PutString(const char* str);
 
     // 0x55E9C0 | ?Read@Stream@@QAEHPAXH@Z
-    i32 Read(void* arg1, i32 arg2);
+    i32 Read(void* ptr, i32 size);
 
     // 0x55EC60 | ?Seek@Stream@@QAEHH@Z
     i32 Seek(i32 position);
