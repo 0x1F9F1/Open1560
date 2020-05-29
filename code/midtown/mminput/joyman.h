@@ -100,7 +100,7 @@ public:
     // 0x4E5D40 | ?PollJoyButtons@mmJoyMan@@QAEHXZ
     i32 PollJoyButtons();
 
-    // 0x4E5C70 | ?QJoystick@mmJoyMan@@QAEHXZ
+    // 0x4E5C70 | ?QJoystick@mmJoyMan@@QAEHXZ | unused
     i32 QJoystick();
 
     // 0x4E5DE0 | ?SetCapture@mmJoyMan@@QAEXH@Z

@@ -58,7 +58,7 @@ public:
     // 0x52C780 | ?AddWidgets@asViewCS@@UAEXPAVBank@@@Z
     void AddWidgets(class Bank* arg1) override;
 
-    // 0x52C770 | ?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z
+    // 0x52C770 | ?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z | unused
     void FileIO(class MiniParser* arg1);
 
     // 0x52CDE0 | ?GetClass@asViewCS@@UAEPAVMetaClass@@XZ

@@ -95,16 +95,16 @@ public:
     // 0x4E6BF0 | ?InputStopEffect@mmJoystick@@QAEXXZ
     void InputStopEffect();
 
-    // 0x4E6CA0 | ?PlayCollision@mmJoystick@@QAEHXZ
+    // 0x4E6CA0 | ?PlayCollision@mmJoystick@@QAEHXZ | unused
     i32 PlayCollision();
 
-    // 0x4E6D40 | ?PlayFriction@mmJoystick@@QAEHXZ
+    // 0x4E6D40 | ?PlayFriction@mmJoystick@@QAEHXZ | unused
     i32 PlayFriction();
 
-    // 0x4E6C60 | ?PlayShake@mmJoystick@@QAEHXZ
+    // 0x4E6C60 | ?PlayShake@mmJoystick@@QAEHXZ | unused
     i32 PlayShake();
 
-    // 0x4E6CE0 | ?PlaySteer@mmJoystick@@QAEHXZ
+    // 0x4E6CE0 | ?PlaySteer@mmJoystick@@QAEHXZ | unused
     i32 PlaySteer();
 
     // 0x4E6720 | ?Poll@mmJoystick@@QAEKXZ
@@ -119,22 +119,22 @@ public:
     // 0x4E6620 | ?SetDeadZone@mmJoystick@@QAEHM@Z
     i32 SetDeadZone(f32 arg1);
 
-    // 0x4E6D20 | ?SetFriction@mmJoystick@@QAEHJ@Z
+    // 0x4E6D20 | ?SetFriction@mmJoystick@@QAEHJ@Z | unused
     i32 SetFriction(i32 arg1);
 
-    // 0x4E6C30 | ?SetShake@mmJoystick@@QAEHKK@Z
+    // 0x4E6C30 | ?SetShake@mmJoystick@@QAEHKK@Z | unused
     i32 SetShake(u32 arg1, u32 arg2);
 
-    // 0x4E6CC0 | ?SetSteer@mmJoystick@@QAEHJ@Z
+    // 0x4E6CC0 | ?SetSteer@mmJoystick@@QAEHJ@Z | unused
     i32 SetSteer(i32 arg1);
 
-    // 0x4E6D60 | ?StopFriction@mmJoystick@@QAEHXZ
+    // 0x4E6D60 | ?StopFriction@mmJoystick@@QAEHXZ | unused
     i32 StopFriction();
 
-    // 0x4E6C80 | ?StopShake@mmJoystick@@QAEHXZ
+    // 0x4E6C80 | ?StopShake@mmJoystick@@QAEHXZ | unused
     i32 StopShake();
 
-    // 0x4E6D00 | ?StopSteer@mmJoystick@@QAEHXZ
+    // 0x4E6D00 | ?StopSteer@mmJoystick@@QAEHXZ | unused
     i32 StopSteer();
 
     // 0x4E6980 | ?Update@mmJoystick@@QAEXXZ

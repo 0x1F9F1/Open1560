@@ -115,7 +115,7 @@ public:
     // 0x479D60 | ?Update@mmTrailer@@UAEXXZ
     void Update() override;
 
-    // 0x479C00 | ?UpdateICSParams@mmTrailer@@QAEXXZ
+    // 0x479C00 | ?UpdateICSParams@mmTrailer@@QAEXXZ | unused
     void UpdateICSParams();
 
     // 0x479F30 | ?DeclareFields@mmTrailer@@SAXXZ

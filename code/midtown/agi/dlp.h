@@ -65,7 +65,7 @@ public:
     // 0x55E0D0 | ?BeginGfx@DLP@@UAEHXZ
     i32 BeginGfx() override;
 
-    // 0x55E460 | ?Clone@DLP@@QAEPAV1@XZ
+    // 0x55E460 | ?Clone@DLP@@QAEPAV1@XZ | unused
     class DLP* Clone();
 
     // 0x55E2F0 | ?EndGfx@DLP@@UAEXXZ

@@ -53,13 +53,13 @@ public:
     // 0x4AB6F0 | ?ResetDefaultAction@OptionsBase@@UAEXXZ
     virtual void ResetDefaultAction();
 
-    // 0x49A6D0 | ?StoreCurrentSetup@OptionsBase@@UAEXXZ
+    // 0x49A6D0 | ?StoreCurrentSetup@OptionsBase@@UAEXXZ | inline
     virtual void StoreCurrentSetup();
 
-    // 0x4AB620 | ?CreateTitle@OptionsBase@@QAEXPAULocString@@@Z
+    // 0x4AB620 | ?CreateTitle@OptionsBase@@QAEXPAULocString@@@Z | unused
     void CreateTitle(struct LocString* arg1);
 
-    // 0x49A6E0 | ?IsAnOptionMenu@OptionsBase@@UAEHXZ
+    // 0x49A6E0 | ?IsAnOptionMenu@OptionsBase@@UAEHXZ | inline
     i32 IsAnOptionMenu() override;
 };
 

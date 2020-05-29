@@ -51,10 +51,10 @@ public:
     // 0x4C3770 | ?GetName@mmAnimExcel@@QAEPADH@Z
     char* GetName(i32 arg1);
 
-    // 0x4C35C0 | ?GetNextName@mmAnimExcel@@QAEPADXZ
+    // 0x4C35C0 | ?GetNextName@mmAnimExcel@@QAEPADXZ | unused
     char* GetNextName();
 
-    // 0x4C3740 | ?GetPriorName@mmAnimExcel@@QAEPADXZ
+    // 0x4C3740 | ?GetPriorName@mmAnimExcel@@QAEPADXZ | unused
     char* GetPriorName();
 
     // 0x4C3530 | ?Init@mmAnimExcel@@QAEHPAD0@Z

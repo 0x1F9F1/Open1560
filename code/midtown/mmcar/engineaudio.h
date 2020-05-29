@@ -76,7 +76,7 @@ public:
     // 0x486D90 | ?ResetVolume@EngineAudio@@QAEXXZ
     void ResetVolume();
 
-    // 0x486DB0 | ?Stop@EngineAudio@@QAEXXZ
+    // 0x486DB0 | ?Stop@EngineAudio@@QAEXXZ | unused
     void Stop();
 
     // 0x486DF0 | ?DeclareFields@EngineAudio@@SAXXZ

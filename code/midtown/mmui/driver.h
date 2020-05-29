@@ -61,7 +61,7 @@ public:
     // 0x4A5B80 | ?AddPlayer@DriverMenu@@QAEXPAD@Z
     void AddPlayer(char* arg1);
 
-    // 0x4A5B10 | ?DecPlayer@DriverMenu@@QAEXXZ
+    // 0x4A5B10 | ?DecPlayer@DriverMenu@@QAEXXZ | unused
     void DecPlayer();
 
     // 0x4A5CA0 | ?DeleteCB@DriverMenu@@QAEXXZ
@@ -70,19 +70,19 @@ public:
     // 0x4A5CE0 | ?DisplayDriverInfo@DriverMenu@@QAEXPAD0000H@Z
     void DisplayDriverInfo(char* arg1, char* arg2, char* arg3, char* arg4, char* arg5, i32 arg6);
 
-    // 0x4A5CD0 | ?EnterNewPlayer@DriverMenu@@QAEXXZ
+    // 0x4A5CD0 | ?EnterNewPlayer@DriverMenu@@QAEXXZ | unused
     void EnterNewPlayer();
 
-    // 0x4A5CC0 | ?GetNewDriverName@DriverMenu@@QAEPADXZ
+    // 0x4A5CC0 | ?GetNewDriverName@DriverMenu@@QAEPADXZ | unused
     char* GetNewDriverName();
 
-    // 0x4A5B40 | ?IncPlayer@DriverMenu@@QAEXXZ
+    // 0x4A5B40 | ?IncPlayer@DriverMenu@@QAEXXZ | unused
     void IncPlayer();
 
     // 0x4A5460 | ?InitPlayerSelection@DriverMenu@@QAEXXZ
     void InitPlayerSelection();
 
-    // 0x4A5CB0 | ?NewPlayer@DriverMenu@@QAEXXZ
+    // 0x4A5CB0 | ?NewPlayer@DriverMenu@@QAEXXZ | unused
     void NewPlayer();
 
     // 0x4A5430 | ?PreSetup@DriverMenu@@UAEXXZ

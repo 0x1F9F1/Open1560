@@ -112,7 +112,7 @@ public:
     // 0x4715A0 | ?FromMatrix@mmCarModel@@UAIXABVMatrix34@@@Z
     void __fastcall FromMatrix(class Matrix34 const& arg1) override;
 
-    // 0x472BE0 | ?GetCarFlags@mmCarModel@@QAEHPAD@Z
+    // 0x472BE0 | ?GetCarFlags@mmCarModel@@QAEHPAD@Z | unused
     i32 GetCarFlags(char* arg1);
 
     // 0x473280 | ?GetClass@mmCarModel@@UAEPAVMetaClass@@XZ
@@ -121,7 +121,7 @@ public:
     // 0x473320 | ?GetEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ
     class mmPhysEntity* GetEntity() override;
 
-    // 0x472C50 | ?GetPart@mmCarModel@@QAEPAVmmHitBangerInstance@@H@Z
+    // 0x472C50 | ?GetPart@mmCarModel@@QAEPAVmmHitBangerInstance@@H@Z | unused
     class mmHitBangerInstance* GetPart(i32 arg1);
 
     // 0x4715D0 | ?GetPos@mmCarModel@@UAIAAVVector3@@XZ
@@ -139,7 +139,7 @@ public:
     // 0x472BF0 | ?InitDamage@mmCarModel@@QAEXXZ
     void InitDamage();
 
-    // 0x4730D0 | ?Kill@mmCarModel@@QAEXXZ
+    // 0x4730D0 | ?Kill@mmCarModel@@QAEXXZ | unused
     void Kill();
 
     // 0x473370 | ?Reset@mmCarModel@@UAEXXZ

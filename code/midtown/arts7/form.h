@@ -61,16 +61,16 @@ public:
     // 0x528520 | ?Cull@asForm@@UAEXXZ
     void Cull() override;
 
-    // 0x5288D0 | ?FileIO@asForm@@QAEXPAVMiniParser@@@Z
+    // 0x5288D0 | ?FileIO@asForm@@QAEXPAVMiniParser@@@Z | unused
     void FileIO(class MiniParser* arg1);
 
-    // 0x528820 | ?GetBoundMax@asForm@@QAE?AVVector3@@XZ
+    // 0x528820 | ?GetBoundMax@asForm@@QAE?AVVector3@@XZ | unused
     class Vector3 GetBoundMax();
 
-    // 0x5287D0 | ?GetBoundMin@asForm@@QAE?AVVector3@@XZ
+    // 0x5287D0 | ?GetBoundMin@asForm@@QAE?AVVector3@@XZ | unused
     class Vector3 GetBoundMin();
 
-    // 0x528870 | ?GetBoundSphere@asForm@@QAE?AVVector4@@XZ
+    // 0x528870 | ?GetBoundSphere@asForm@@QAE?AVVector4@@XZ | unused
     class Vector4 GetBoundSphere();
 
     // 0x528B40 | ?GetClass@asForm@@UAEPAVMetaClass@@XZ
@@ -79,7 +79,7 @@ public:
     // 0x5284D0 | ?SetCull@asForm@@QAEXHM@Z
     void SetCull(i32 arg1, f32 arg2);
 
-    // 0x528420 | ?SetDLP@asForm@@QAEXPAVDLP@@@Z
+    // 0x528420 | ?SetDLP@asForm@@QAEXPAVDLP@@@Z | unused
     void SetDLP(class DLP* arg1);
 
     // 0x528450 | ?SetShape@asForm@@QAEXPAD0PAVVector3@@HH@Z

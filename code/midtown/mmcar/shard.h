@@ -117,7 +117,7 @@ public:
     // 0x4788F0 | ?Init@mmShardManager@@QAEXPADHPAVmmCarSim@@@Z
     void Init(char* arg1, i32 arg2, class mmCarSim* arg3);
 
-    // 0x4789E0 | ?ReInit@mmShardManager@@QAEXPAVmmCarSim@@@Z
+    // 0x4789E0 | ?ReInit@mmShardManager@@QAEXPAVmmCarSim@@@Z | unused
     void ReInit(class mmCarSim* arg1);
 
     // 0x478C60 | ?Update@mmShardManager@@UAEXXZ

@@ -58,10 +58,10 @@ public:
     // 0x4F9560 | ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z
     void AddWidgets(class Bank* arg1) override;
 
-    // 0x4F9320 | ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z
+    // 0x4F9320 | ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z | unused
     void ForceMatrixDelta(class Matrix34 const& arg1);
 
-    // 0x4F9340 | ?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z
+    // 0x4F9340 | ?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z | unused
     void ForceMatrixDelta(class Vector3 const& arg1);
 
     // 0x4F94F0 | ?GetClass@mmViewCS@@UAEPAVMetaClass@@XZ
@@ -73,7 +73,7 @@ public:
     // 0x4F9180 | ?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z
     i32 NewCam(class CarCamCS* arg1, i32 arg2, f32 arg3, class Callback arg4);
 
-    // 0x4F9360 | ?OneShot@mmViewCS@@QAEXXZ
+    // 0x4F9360 | ?OneShot@mmViewCS@@QAEXXZ | unused
     void OneShot();
 
     // 0x4F92C0 | ?Reset@mmViewCS@@UAEXXZ

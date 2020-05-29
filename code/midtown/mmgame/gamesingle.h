@@ -53,7 +53,7 @@
 
 #include "game.h"
 
-// 0x416C90 | ?ThreadFunc@@YGKPAX@Z
+// 0x416C90 | ?ThreadFunc@@YGKPAX@Z | unused
 u32 __stdcall ThreadFunc(void* arg1);
 
 // 0x6A7110 | ?mmGameSingleMetaClass@@3VMetaClass@@A

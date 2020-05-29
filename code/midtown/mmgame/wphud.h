@@ -193,7 +193,7 @@ public:
     // 0x425EB0 | ?SetScore@mmCRHUD@@QAEXKH@Z
     void SetScore(u32 arg1, i32 arg2);
 
-    // 0x425C20 | ?ToggleScores@mmCRHUD@@QAEXXZ
+    // 0x425C20 | ?ToggleScores@mmCRHUD@@QAEXXZ | unused
     void ToggleScores();
 
     // 0x425D90 | ?UnPackColor@mmCRHUD@@QAEXIAAVVector4@@@Z

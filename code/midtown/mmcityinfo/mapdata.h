@@ -49,7 +49,7 @@ public:
     // 0x4D3290 | ??1mmMapData@@UAE@XZ
     ~mmMapData() override;
 
-    // 0x4D3380 | ?Append@mmMapData@@QAEXPAD@Z
+    // 0x4D3380 | ?Append@mmMapData@@QAEXPAD@Z | unused
     void Append(char* arg1);
 
     // 0x4D35B0 | ?GetClass@mmMapData@@UAEPAVMetaClass@@XZ

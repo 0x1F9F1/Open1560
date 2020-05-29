@@ -74,7 +74,7 @@ public:
     // 0x4CFC30 | ??0mmPlayerRecord@@QAE@XZ
     mmPlayerRecord();
 
-    // 0x414A50 | ??0mmPlayerRecord@@QAE@ABV0@@Z
+    // 0x414A50 | ??0mmPlayerRecord@@QAE@ABV0@@Z | inline
     mmPlayerRecord(class mmPlayerRecord const& arg1);
 
     // 0x4D11F0 | ??_EmmPlayerRecord@@UAEPAXI@Z
@@ -119,7 +119,7 @@ public:
     // 0x4CBB40 | ??1mmPlayerData@@UAE@XZ
     ~mmPlayerData() override;
 
-    // 0x4D0140 | ??4mmPlayerData@@QAEXAAV0@@Z
+    // 0x4D0140 | ??4mmPlayerData@@QAEXAAV0@@Z | unused
     void operator=(class mmPlayerData& arg1);
 
     // 0x4D09E0 | ?ComputeCRC@mmPlayerData@@QAEIXZ
@@ -173,7 +173,7 @@ public:
     // 0x4D04A0 | ?RegisterFinish@mmPlayerData@@QAEHVmmPlayerRecord@@HH@Z
     i32 RegisterFinish(class mmPlayerRecord arg1, i32 arg2, i32 arg3);
 
-    // 0x4D0280 | ?RegisterFinish@mmPlayerData@@QAEHHMD@Z
+    // 0x4D0280 | ?RegisterFinish@mmPlayerData@@QAEHHMD@Z | unused
     i32 RegisterFinish(i32 arg1, f32 arg2, char arg3);
 
     // 0x4D0750 | ?Reset@mmPlayerData@@QAEXXZ

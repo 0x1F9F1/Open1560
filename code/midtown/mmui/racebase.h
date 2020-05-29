@@ -60,7 +60,7 @@ public:
     // 0x4A72C0 | ??1RaceMenuBase@@UAE@XZ
     ~RaceMenuBase() override;
 
-    // 0x4A4F60 | ?UsesLobby@RaceMenuBase@@UAEXH@Z
+    // 0x4A4F60 | ?UsesLobby@RaceMenuBase@@UAEXH@Z | inline
     virtual void UsesLobby(i32 arg1);
 
     // 0x4A79B0 | ?AICallback@RaceMenuBase@@QAEXXZ
@@ -69,7 +69,7 @@ public:
     // 0x4A7A20 | ?ChangeLocalVals@RaceMenuBase@@QAEXXZ
     void ChangeLocalVals();
 
-    // 0x4A7690 | ?CheatCallback@RaceMenuBase@@QAEXXZ
+    // 0x4A7690 | ?CheatCallback@RaceMenuBase@@QAEXXZ | unused
     void CheatCallback();
 
     // 0x4A7750 | ?CityChange@RaceMenuBase@@QAEXXZ
@@ -99,13 +99,13 @@ public:
     // 0x4A76A0 | ?SyncRaceState@RaceMenuBase@@QAEXXZ
     void SyncRaceState();
 
-    // 0x4A7A10 | ?TimeCallback@RaceMenuBase@@QAEXXZ
+    // 0x4A7A10 | ?TimeCallback@RaceMenuBase@@QAEXXZ | unused
     void TimeCallback();
 
     // 0x4A7960 | ?WPCallback@RaceMenuBase@@QAEXXZ
     void WPCallback();
 
-    // 0x4A7A00 | ?WeatherCallback@RaceMenuBase@@QAEXXZ
+    // 0x4A7A00 | ?WeatherCallback@RaceMenuBase@@QAEXXZ | unused
     void WeatherCallback();
 
     // 0x4A7370 | ?WidgetOnOff@RaceMenuBase@@QAEXHPAVuiWidget@@@Z

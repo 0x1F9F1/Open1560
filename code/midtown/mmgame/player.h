@@ -112,7 +112,7 @@ public:
     // 0x42C420 | ?SetCamInterest@mmPlayer@@QAEXPAVasInertialCS@@@Z
     void SetCamInterest(class asInertialCS* arg1);
 
-    // 0x42A9A0 | ?SetMirrorFOV@mmPlayer@@QAEXXZ
+    // 0x42A9A0 | ?SetMirrorFOV@mmPlayer@@QAEXXZ | unused
     void SetMirrorFOV();
 
     // 0x42AAF0 | ?SetPostRaceCam@mmPlayer@@QAEXXZ

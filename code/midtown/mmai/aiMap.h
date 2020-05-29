@@ -137,10 +137,10 @@ public:
     // 0x43BBE0 | ?AddWidgets@aiMap@@UAEXPAVBank@@@Z
     void AddWidgets(class Bank* arg1) override;
 
-    // 0x436CF0 | ?AllwaysGreen@aiMap@@QAEXXZ
+    // 0x436CF0 | ?AllwaysGreen@aiMap@@QAEXXZ | unused
     void AllwaysGreen();
 
-    // 0x436D30 | ?AllwaysRed@aiMap@@QAEXXZ
+    // 0x436D30 | ?AllwaysRed@aiMap@@QAEXXZ | unused
     void AllwaysRed();
 
     // 0x43AE90 | ?ChooseNextFreewayLink@aiMap@@QAEHPAVaiRailSet@@@Z
@@ -170,7 +170,7 @@ public:
     // 0x436680 | ?Cull@aiMap@@UAEXXZ
     void Cull() override;
 
-    // 0x43BB10 | ?DetRdSegBetweenInts@aiMap@@QAEPAVaiPath@@PAVaiIntersection@@0@Z
+    // 0x43BB10 | ?DetRdSegBetweenInts@aiMap@@QAEPAVaiPath@@PAVaiIntersection@@0@Z | unused
     class aiPath* DetRdSegBetweenInts(class aiIntersection* arg1, class aiIntersection* arg2);
 
     // 0x437310 | ?DetermineOppMapComponent@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAF2PAM323MFF@Z
@@ -204,7 +204,7 @@ public:
     // 0x438DE0 | ?FindPedAppRoad@aiMap@@QAEHH@Z
     i32 FindPedAppRoad(i32 arg1);
 
-    // 0x439540 | ?GetCameraPos@aiMap@@QAEXXZ
+    // 0x439540 | ?GetCameraPos@aiMap@@QAEXXZ | unused
     void GetCameraPos();
 
     // 0x43BD90 | ?GetClass@aiMap@@UAEPAVMetaClass@@XZ
@@ -228,10 +228,10 @@ public:
     // 0x433E50 | ?Path@aiMap@@QAEPAVaiPath@@H@Z
     class aiPath* Path(i32 arg1);
 
-    // 0x433F70 | ?Pedestrian@aiMap@@QAEPAVaiPedestrian@@H@Z
+    // 0x433F70 | ?Pedestrian@aiMap@@QAEPAVaiPedestrian@@H@Z | unused
     class aiPedestrian* Pedestrian(i32 arg1);
 
-    // 0x433FB0 | ?PlayerPos@aiMap@@QAEAAVVector3@@XZ
+    // 0x433FB0 | ?PlayerPos@aiMap@@QAEAAVVector3@@XZ | unused
     class Vector3& PlayerPos();
 
     // 0x433EF0 | ?Police@aiMap@@QAEPAVaiVehiclePolice@@H@Z
@@ -264,7 +264,7 @@ public:
     // 0x436670 | ?UpdatePaused@aiMap@@UAEXXZ
     void UpdatePaused() override;
 
-    // 0x433EB0 | ?Vehicle@aiMap@@QAEPAVaiVehicleAmbient@@H@Z
+    // 0x433EB0 | ?Vehicle@aiMap@@QAEPAVaiVehicleAmbient@@H@Z | unused
     class aiVehicleAmbient* Vehicle(i32 arg1);
 
     // 0x43BC20 | ?DeclareFields@aiMap@@SAXXZ
@@ -301,7 +301,7 @@ private:
     // 0x4359B0 | ?ReadBinary@aiMap@@AAEXPAD@Z
     void ReadBinary(char* arg1);
 
-    // 0x43A380 | ?RoadDensity@aiMap@@AAEMHMH@Z
+    // 0x43A380 | ?RoadDensity@aiMap@@AAEMHMH@Z | unused
     f32 RoadDensity(i32 arg1, f32 arg2, i32 arg3);
 
     // 0x435830 | ?SaveBinary@aiMap@@AAEXPAD@Z
@@ -323,7 +323,7 @@ public:
     // 0x446C00 | ??1CArrayList@@QAE@XZ
     ~CArrayList();
 
-    // 0x446C20 | ?Append@CArrayList@@QAEXH@Z
+    // 0x446C20 | ?Append@CArrayList@@QAEXH@Z | inline
     void Append(i32 arg1);
 };
 

@@ -49,16 +49,16 @@ public:
     // 0x4FBEA0 | ??1BaseCamCS@@UAE@XZ
     ~BaseCamCS() override;
 
-    // 0x4FB4A0 | ?MakeActive@BaseCamCS@@UAEXXZ
+    // 0x4FB4A0 | ?MakeActive@BaseCamCS@@UAEXXZ | inline
     virtual void MakeActive();
 
-    // 0x4F99D0 | ?UpdateInput@BaseCamCS@@UAEXXZ
+    // 0x4F99D0 | ?UpdateInput@BaseCamCS@@UAEXXZ | inline
     virtual void UpdateInput();
 
     // 0x4FC090 | ?ForceMatrixDelta@BaseCamCS@@UAEXABVVector3@@@Z
     virtual void ForceMatrixDelta(class Vector3 const& arg1);
 
-    // 0x4F6A50 | ?SetST@BaseCamCS@@UAEXPAM@Z
+    // 0x4F6A50 | ?SetST@BaseCamCS@@UAEXPAM@Z | inline
     virtual void SetST(f32* arg1);
 
     // 0x4FBF40 | ?AddWidgets@BaseCamCS@@UAEXPAVBank@@@Z

@@ -120,7 +120,7 @@ public:
     // 0x4D2790 | ?GetNormal@mmRoadSect@@QAEPAVVector3@@H@Z
     class Vector3* GetNormal(i32 arg1);
 
-    // 0x4D27B0 | ?GetRoomId@mmRoadSect@@QAEHH@Z
+    // 0x4D27B0 | ?GetRoomId@mmRoadSect@@QAEHH@Z | unused
     i32 GetRoomId(i32 arg1);
 
     // 0x4D26E0 | ?GetSidewalkVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
@@ -147,52 +147,52 @@ public:
     // 0x4D28F0 | ?IsPedBlocked@mmRoadSect@@QAEHH@Z
     i32 IsPedBlocked(i32 arg1);
 
-    // 0x4D2550 | ?NewVertexs@mmRoadSect@@QAEXHHHHH@Z
+    // 0x4D2550 | ?NewVertexs@mmRoadSect@@QAEXHHHHH@Z | unused
     void NewVertexs(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
-    // 0x4D2980 | ?SetAlley@mmRoadSect@@QAEXH@Z
+    // 0x4D2980 | ?SetAlley@mmRoadSect@@QAEXH@Z | unused
     void SetAlley(i32 arg1);
 
-    // 0x4D2890 | ?SetBlocked@mmRoadSect@@QAEXHH@Z
+    // 0x4D2890 | ?SetBlocked@mmRoadSect@@QAEXHH@Z | unused
     void SetBlocked(i32 arg1, i32 arg2);
 
-    // 0x4D2960 | ?SetDivided@mmRoadSect@@QAEXH@Z
+    // 0x4D2960 | ?SetDivided@mmRoadSect@@QAEXH@Z | unused
     void SetDivided(i32 arg1);
 
-    // 0x4D2770 | ?SetIntersectionType@mmRoadSect@@QAEXHH@Z
+    // 0x4D2770 | ?SetIntersectionType@mmRoadSect@@QAEXHH@Z | unused
     void SetIntersectionType(i32 arg1, i32 arg2);
 
-    // 0x4D2530 | ?SetLSidewalk@mmRoadSect@@QAEXMM@Z
+    // 0x4D2530 | ?SetLSidewalk@mmRoadSect@@QAEXMM@Z | unused
     void SetLSidewalk(f32 arg1, f32 arg2);
 
-    // 0x4D28D0 | ?SetPedBlocked@mmRoadSect@@QAEXHH@Z
+    // 0x4D28D0 | ?SetPedBlocked@mmRoadSect@@QAEXHH@Z | unused
     void SetPedBlocked(i32 arg1, i32 arg2);
 
-    // 0x4D2510 | ?SetRSidewalk@mmRoadSect@@QAEXMM@Z
+    // 0x4D2510 | ?SetRSidewalk@mmRoadSect@@QAEXMM@Z | unused
     void SetRSidewalk(f32 arg1, f32 arg2);
 
-    // 0x4D2720 | ?SetRoadNormal@mmRoadSect@@QAEXHAAVVector3@@@Z
+    // 0x4D2720 | ?SetRoadNormal@mmRoadSect@@QAEXHAAVVector3@@@Z | unused
     void SetRoadNormal(i32 arg1, class Vector3& arg2);
 
-    // 0x4D2600 | ?SetRoadVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z
+    // 0x4D2600 | ?SetRoadVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z | unused
     void SetRoadVertex(i32 arg1, i32 arg2, i32 arg3, class Vector3& arg4);
 
-    // 0x4D2750 | ?SetRoomId@mmRoadSect@@QAEXHH@Z
+    // 0x4D2750 | ?SetRoomId@mmRoadSect@@QAEXHH@Z | unused
     void SetRoomId(i32 arg1, i32 arg2);
 
-    // 0x4D2650 | ?SetSidewalkVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z
+    // 0x4D2650 | ?SetSidewalkVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z | unused
     void SetSidewalkVertex(i32 arg1, i32 arg2, i32 arg3, class Vector3& arg4);
 
-    // 0x4D2910 | ?SetStopLightName@mmRoadSect@@QAEXHPAD@Z
+    // 0x4D2910 | ?SetStopLightName@mmRoadSect@@QAEXHPAD@Z | unused
     void SetStopLightName(i32 arg1, char* arg2);
 
-    // 0x4D27F0 | ?SetStopLightPos@mmRoadSect@@QAEXHABVVector3@@0@Z
+    // 0x4D27F0 | ?SetStopLightPos@mmRoadSect@@QAEXHABVVector3@@0@Z | unused
     void SetStopLightPos(i32 arg1, class Vector3 const& arg2, class Vector3 const& arg3);
 
-    // 0x4D2500 | ?SetStreetType@mmRoadSect@@QAEXPAD@Z
+    // 0x4D2500 | ?SetStreetType@mmRoadSect@@QAEXPAD@Z | unused
     void SetStreetType(char* arg1);
 
-    // 0x4D24F0 | ?SetStreetWidth@mmRoadSect@@QAEXM@Z
+    // 0x4D24F0 | ?SetStreetWidth@mmRoadSect@@QAEXM@Z | unused
     void SetStreetWidth(f32 arg1);
 
     // 0x4D2D90 | ?DeclareFields@mmRoadSect@@SAXXZ
@@ -213,19 +213,19 @@ public:
     // 0x4D2190 | ??1mmPropInfo@@UAE@XZ
     ~mmPropInfo() override;
 
-    // 0x4D22A0 | ?Append@mmPropInfo@@QAEXPAD@Z
+    // 0x4D22A0 | ?Append@mmPropInfo@@QAEXPAD@Z | unused
     void Append(char* arg1);
 
     // 0x4D2B60 | ?GetClass@mmPropInfo@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x4D2250 | ?GetItem@mmPropInfo@@QAEPADH@Z
+    // 0x4D2250 | ?GetItem@mmPropInfo@@QAEPADH@Z | unused
     char* GetItem(i32 arg1);
 
-    // 0x4D2290 | ?GetNumItems@mmPropInfo@@QAEHXZ
+    // 0x4D2290 | ?GetNumItems@mmPropInfo@@QAEHXZ | unused
     i32 GetNumItems();
 
-    // 0x4D2280 | ?GetSpacing@mmPropInfo@@QAEMXZ
+    // 0x4D2280 | ?GetSpacing@mmPropInfo@@QAEMXZ | unused
     f32 GetSpacing();
 
     // 0x4D21F0 | ?NewItems@mmPropInfo@@QAEXH@Z
@@ -234,7 +234,7 @@ public:
     // 0x4D2220 | ?SetItem@mmPropInfo@@QAEXHPAD@Z
     void SetItem(i32 arg1, char* arg2);
 
-    // 0x4D2240 | ?SetSpacing@mmPropInfo@@QAEXM@Z
+    // 0x4D2240 | ?SetSpacing@mmPropInfo@@QAEXM@Z | unused
     void SetSpacing(f32 arg1);
 
     // 0x4D29A0 | ?DeclareFields@mmPropInfo@@SAXXZ

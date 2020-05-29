@@ -45,10 +45,10 @@ public:
     // 0x4A2C30 | ??1HostRaceMenu@@UAE@XZ
     ~HostRaceMenu() override;
 
-    // 0x4A2C50 | ?DisableStart@HostRaceMenu@@QAEXXZ
+    // 0x4A2C50 | ?DisableStart@HostRaceMenu@@QAEXXZ | unused
     void DisableStart();
 
-    // 0x4A2C40 | ?EnableStart@HostRaceMenu@@QAEXXZ
+    // 0x4A2C40 | ?EnableStart@HostRaceMenu@@QAEXXZ | unused
     void EnableStart();
 
     // 0x4A2C60 | ?UsesLobby@HostRaceMenu@@UAEXH@Z

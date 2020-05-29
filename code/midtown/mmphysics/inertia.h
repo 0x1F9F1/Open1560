@@ -94,7 +94,7 @@ public:
     // 0x4DA290 | ?ApplyForce@asInertialCS@@QAEXABVVector3@@0@Z
     void ApplyForce(class Vector3 const& arg1, class Vector3 const& arg2);
 
-    // 0x4DA430 | ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@@Z
+    // 0x4DA430 | ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@@Z | unused
     void ApplyImpulse(class Vector3 const& arg1);
 
     // 0x4DA4C0 | ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@0@Z
@@ -106,7 +106,7 @@ public:
     // 0x4DA3A0 | ?ApplyTorque@asInertialCS@@QAEXABVVector3@@@Z
     void ApplyTorque(class Vector3 const& arg1);
 
-    // 0x4DA940 | ?ApplyTurn@asInertialCS@@QAEXABVVector3@@@Z
+    // 0x4DA940 | ?ApplyTurn@asInertialCS@@QAEXABVVector3@@@Z | unused
     void ApplyTurn(class Vector3 const& arg1);
 
     // 0x4DABA0 | ?CalcCMatrix@asInertialCS@@QBEXAAVMatrix34@@ABVVector3@@@Z
@@ -115,7 +115,7 @@ public:
     // 0x4DAA20 | ?DoConstrain@asInertialCS@@QAEXXZ
     void DoConstrain();
 
-    // 0x4DB180 | ?FileIO@asInertialCS@@QAEXPAVMiniParser@@@Z
+    // 0x4DB180 | ?FileIO@asInertialCS@@QAEXPAVMiniParser@@@Z | unused
     void FileIO(class MiniParser* arg1);
 
     // 0x4D9740 | ?FinishForces@asInertialCS@@QAEXXZ
@@ -130,7 +130,7 @@ public:
     // 0x4DAAD0 | ?GetVelocity@asInertialCS@@QAE?AVVector3@@PBV2@@Z
     class Vector3 GetVelocity(class Vector3 const* arg1);
 
-    // 0x4DAEF0 | ?MatricesToMomenta@asInertialCS@@QAEXABVMatrix34@@0M@Z
+    // 0x4DAEF0 | ?MatricesToMomenta@asInertialCS@@QAEXABVMatrix34@@0M@Z | unused
     void MatricesToMomenta(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
 
     // 0x4D9AE0 | ?MoveICS@asInertialCS@@QAEXXZ
@@ -145,13 +145,13 @@ public:
     // 0x4D92F0 | ?SetMass@asInertialCS@@QAEXMMMM@Z
     void SetMass(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x4D9450 | ?SetZeroDOF@asInertialCS@@QAEXMM@Z
+    // 0x4D9450 | ?SetZeroDOF@asInertialCS@@QAEXMM@Z | unused
     void SetZeroDOF(f32 arg1, f32 arg2);
 
     // 0x4D9680 | ?Update@asInertialCS@@UAEXXZ
     void Update() override;
 
-    // 0x4D9650 | ?UpdateKids@asInertialCS@@QAEXXZ
+    // 0x4D9650 | ?UpdateKids@asInertialCS@@QAEXXZ | unused
     void UpdateKids();
 
     // 0x4D9510 | ?Zero@asInertialCS@@QAEXXZ
@@ -170,13 +170,13 @@ private:
 
 check_size(asInertialCS, 0x1A8);
 
-// 0x4DADE0 | ?InertiaAxis@@YAMABVVector3@@0@Z
+// 0x4DADE0 | ?InertiaAxis@@YAMABVVector3@@0@Z | unused
 f32 InertiaAxis(class Vector3 const& arg1, class Vector3 const& arg2);
 
 // 0x4DAE20 | ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@M@Z
 class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, f32 arg2);
 
-// 0x4DB120 | ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@0M@Z
+// 0x4DB120 | ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@0M@Z | unused
 class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
 
 // 0x7190E8 | ?asInertialCSMetaClass@@3VMetaClass@@A

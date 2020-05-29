@@ -50,13 +50,13 @@ public:
     // 0x49C430 | ??1asDofCS@@UAE@XZ
     ~asDofCS() override;
 
-    // 0x52ADE0 | ??4asDofCS@@QAEXABV0@@Z
+    // 0x52ADE0 | ??4asDofCS@@QAEXABV0@@Z | unused
     void operator=(class asDofCS const& arg1);
 
     // 0x52B600 | ?AddWidgets@asDofCS@@UAEXPAVBank@@@Z
     void AddWidgets(class Bank* arg1) override;
 
-    // 0x52B5D0 | ?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z
+    // 0x52B5D0 | ?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z | unused
     void FileIO(class MiniParser* arg1);
 
     // 0x52BB60 | ?GetClass@asDofCS@@UAEPAVMetaClass@@XZ
@@ -65,7 +65,7 @@ public:
     // 0x52AF20 | ?Reset@asDofCS@@UAEXXZ
     void Reset() override;
 
-    // 0x52AF50 | ?SetTime@asDofCS@@QAEXMMH@Z
+    // 0x52AF50 | ?SetTime@asDofCS@@QAEXMMH@Z | unused
     void SetTime(f32 arg1, f32 arg2, i32 arg3);
 
     // 0x52AFC0 | ?Update@asDofCS@@UAEXXZ

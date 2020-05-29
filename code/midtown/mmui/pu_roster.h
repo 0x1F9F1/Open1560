@@ -62,7 +62,7 @@ public:
     // 0x4A9240 | ?ClearNames@PURoster@@QAEXXZ
     void ClearNames();
 
-    // 0x4A92F0 | ?FindRosterName@PURoster@@QAEHPAD@Z
+    // 0x4A92F0 | ?FindRosterName@PURoster@@QAEHPAD@Z | unused
     i32 FindRosterName(char* arg1);
 
     // 0x4A9360 | ?FindRosterName@PURoster@@QAEHK@Z
@@ -83,7 +83,7 @@ public:
     // 0x4A92D0 | ?SetBootCB@PURoster@@QAEXVCallback@@@Z
     void SetBootCB(class Callback arg1);
 
-    // 0x4A8E90 | ?SetHost@PURoster@@QAEXH@Z
+    // 0x4A8E90 | ?SetHost@PURoster@@QAEXH@Z | unused
     void SetHost(i32 arg1);
 };
 

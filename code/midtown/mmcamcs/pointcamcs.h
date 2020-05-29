@@ -56,7 +56,7 @@ public:
     // 0x4FA3F0 | ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x4F9F70 | ?GetPos@PointCamCS@@QAE?AVVector3@@XZ
+    // 0x4F9F70 | ?GetPos@PointCamCS@@QAE?AVVector3@@XZ | unused
     class Vector3 GetPos();
 
     // 0x4F9E50 | ?Init@PointCamCS@@QAEXPAVmmCar@@@Z

@@ -309,7 +309,7 @@ private:
     // 0x40AE90 | ?RequestProverb@mmInterface@@AAEXXZ
     void RequestProverb();
 
-    // 0x40E330 | ?SendBootMsg@mmInterface@@AAEXK@Z
+    // 0x40E330 | ?SendBootMsg@mmInterface@@AAEXK@Z | unused
     void SendBootMsg(u32 arg1);
 
     // 0x40E250 | ?SendChatMessage@mmInterface@@AAEXPAX@Z
@@ -336,10 +336,10 @@ private:
     // 0x40DDC0 | ?SetSessionData@mmInterface@@AAEXPAUNETSESSION_DESC@@@Z
     void SetSessionData(struct NETSESSION_DESC* arg1);
 
-    // 0x40CC00 | ?SetStateDefaults@mmInterface@@AAEXXZ
+    // 0x40CC00 | ?SetStateDefaults@mmInterface@@AAEXXZ | unused
     void SetStateDefaults();
 
-    // 0x40CBF0 | ?SetStateRace@mmInterface@@AAEXH@Z
+    // 0x40CBF0 | ?SetStateRace@mmInterface@@AAEXH@Z | unused
     void SetStateRace(i32 arg1);
 
     // 0x40CDA0 | ?ShowSessions@mmInterface@@AAEXXZ

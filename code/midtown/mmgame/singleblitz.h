@@ -75,10 +75,10 @@ public:
     ~foobar() override;
 
 private:
-    // 0x411EE0 | ?Update@foobar@@EAEXXZ
+    // 0x411EE0 | ?Update@foobar@@EAEXXZ | inline
     void Update() override;
 
-    // 0x411F10 | ?UpdatePaused@foobar@@EAEXXZ
+    // 0x411F10 | ?UpdatePaused@foobar@@EAEXXZ | inline
     void UpdatePaused() override;
 };
 

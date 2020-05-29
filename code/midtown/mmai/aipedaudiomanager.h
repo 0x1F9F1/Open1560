@@ -62,7 +62,7 @@ public:
     // 0x4471E0 | ?FindUnusedSlot@aiPedAudioManager@@QAEFXZ
     i16 FindUnusedSlot();
 
-    // 0x4472A0 | ?RandomizeSeconds@aiPedAudioManager@@QAEXMM@Z
+    // 0x4472A0 | ?RandomizeSeconds@aiPedAudioManager@@QAEXMM@Z | unused
     void RandomizeSeconds(f32 arg1, f32 arg2);
 
     // 0x4470E0 | ?Remove@aiPedAudioManager@@QAEXPAVaiPedestrian@@F@Z

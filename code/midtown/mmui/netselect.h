@@ -78,10 +78,10 @@ public:
     // 0x4A42F0 | ??1NetSelectMenu@@UAE@XZ
     ~NetSelectMenu() override;
 
-    // 0x4A4960 | ?AddModem@NetSelectMenu@@QAEXPADH@Z
+    // 0x4A4960 | ?AddModem@NetSelectMenu@@QAEXPADH@Z | unused
     void AddModem(char* arg1, i32 arg2);
 
-    // 0x4A4950 | ?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z
+    // 0x4A4950 | ?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z | unused
     void AddWidgetToList(i32 arg1, class uiWidget* arg2);
 
     // 0x4A4690 | ?BuildAllTheIPXWidgets@NetSelectMenu@@QAEXMMMM@Z
@@ -141,7 +141,7 @@ public:
     // 0x4A44E0 | ?ProtocolBack@NetSelectMenu@@QAEXXZ
     void ProtocolBack();
 
-    // 0x4A4930 | ?ReparentWidgets@NetSelectMenu@@QAEXH@Z
+    // 0x4A4930 | ?ReparentWidgets@NetSelectMenu@@QAEXH@Z | unused
     void ReparentWidgets(i32 arg1);
 
     // 0x4A4820 | ?SetComs@NetSelectMenu@@QAEXXZ

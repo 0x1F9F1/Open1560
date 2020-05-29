@@ -48,7 +48,7 @@ f32 atanf_fast_large_values(f32 arg1);
 // 0x573370 | ?atanf_faster@@YAMM@Z
 f32 atanf_faster(f32 arg1);
 
-// 0x573250 | ?tanf_fast@@YAMM@Z
+// 0x573250 | ?tanf_fast@@YAMM@Z | unused
 f32 tanf_fast(f32 arg1);
 
 // 0x6608C8 | ?TRIGMATH_ATANTABLE@@3PAMA

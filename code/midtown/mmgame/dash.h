@@ -136,7 +136,7 @@ public:
     // 0x421C10 | ?Reset@mmDashView@@UAEXXZ
     void Reset() override;
 
-    // 0x421DC0 | ?TempDeactivate@mmDashView@@QAEXXZ
+    // 0x421DC0 | ?TempDeactivate@mmDashView@@QAEXXZ | unused
     void TempDeactivate();
 
     // 0x421DD0 | ?Update@mmDashView@@UAEXXZ

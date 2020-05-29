@@ -70,10 +70,10 @@ void DrawColor(class Vector3& arg1);
 // 0x52D0D0 | ?DrawColor@@YAXAAVVector4@@@Z
 void DrawColor(class Vector4& arg1);
 
-// 0x52D080 | ?DrawColor2@@YAXAAVVector3@@@Z
+// 0x52D080 | ?DrawColor2@@YAXAAVVector3@@@Z | unused
 void DrawColor2(class Vector3& arg1);
 
-// 0x52D130 | ?DrawColor2@@YAXAAVVector4@@@Z
+// 0x52D130 | ?DrawColor2@@YAXAAVVector4@@@Z | unused
 void DrawColor2(class Vector4& arg1);
 
 // 0x52DA30 | ?DrawEnd@@YAXXZ

@@ -72,7 +72,7 @@ public:
     // 0x4A1490 | ?EncodeCRData@CRSettings@@QAEHXZ
     i32 EncodeCRData();
 
-    // 0x4A1650 | ?GetGoldMass@CRSettings@@QAEHXZ
+    // 0x4A1650 | ?GetGoldMass@CRSettings@@QAEHXZ | unused
     i32 GetGoldMass();
 
     // 0x4A16B0 | ?GetGoldMassVal@CRSettings@@QAEHXZ
@@ -93,7 +93,7 @@ public:
     // 0x4A16C0 | ?SetGameClassCallback@CRSettings@@QAEXXZ
     void SetGameClassCallback();
 
-    // 0x4A1620 | ?SetGoldMass@CRSettings@@QAEXH@Z
+    // 0x4A1620 | ?SetGoldMass@CRSettings@@QAEXH@Z | unused
     void SetGoldMass(i32 arg1);
 
     // 0x4A0F50 | ?SetHost@CRSettings@@QAEXH@Z
@@ -117,7 +117,7 @@ public:
     // 0x4A16E0 | ?SetTeamWidgets@CRSettings@@QAEXXZ
     void SetTeamWidgets();
 
-    // 0x4A0F10 | ?SettingsCB@CRSettings@@QAEXXZ
+    // 0x4A0F10 | ?SettingsCB@CRSettings@@QAEXXZ | unused
     void SettingsCB();
 };
 

@@ -70,14 +70,14 @@ public:
     // 0x4B4270 | ?GetScreenHeight@UISlider@@UAEMXZ
     f32 GetScreenHeight() override;
 
-    // 0x4B4050 | ?GetValue@UISlider@@QAEMXZ
+    // 0x4B4050 | ?GetValue@UISlider@@QAEMXZ | unused
     f32 GetValue();
 
     // 0x4B3AB0 | ?Init@UISlider@@QAEXPAULocString@@PAMMMMMMMHHHHVCallback@@PAVUIMenu@@@Z
     void Init(struct LocString* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, i32 arg9,
         i32 arg10, i32 arg11, i32 arg12, class Callback arg13, class UIMenu* arg14);
 
-    // 0x4B4040 | ?IsReadWrite@UISlider@@QAEHXZ
+    // 0x4B4040 | ?IsReadWrite@UISlider@@QAEHXZ | unused
     i32 IsReadWrite();
 
     // 0x4B4210 | ?SetData@UISlider@@QAEXM@Z
@@ -92,7 +92,7 @@ public:
     // 0x4B3FF0 | ?SetReadWrite@UISlider@@QAEXH@Z
     void SetReadWrite(i32 arg1);
 
-    // 0x4B3E30 | ?SetText@UISlider@@QAEXPAULocString@@@Z
+    // 0x4B3E30 | ?SetText@UISlider@@QAEXPAULocString@@@Z | unused
     void SetText(struct LocString* arg1);
 
     // 0x4B4060 | ?SetValue@UISlider@@QAEMM@Z
@@ -101,7 +101,7 @@ public:
     // 0x4B3F70 | ?Switch@UISlider@@UAEXH@Z
     void Switch(i32 arg1) override;
 
-    // 0x4B3FE0 | ?TestHit@UISlider@@QAEHMM@Z
+    // 0x4B3FE0 | ?TestHit@UISlider@@QAEHMM@Z | unused
     i32 TestHit(f32 arg1, f32 arg2);
 
     // 0x4B3E40 | ?Update@UISlider@@UAEXXZ

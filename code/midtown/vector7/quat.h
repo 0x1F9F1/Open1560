@@ -37,16 +37,16 @@
 class Quaternion
 {
 public:
-    // 0x5727F0 | ??SQuaternion@@QBE?AV0@XZ
+    // 0x5727F0 | ??SQuaternion@@QBE?AV0@XZ | unused
     class Quaternion operator~();
 
     // 0x5729C0 | ?Angle@Quaternion@@QBEMABV1@@Z
     f32 Angle(class Quaternion const& arg1);
 
-    // 0x573120 | ?Approach@Quaternion@@QAEHABV1@MM@Z
+    // 0x573120 | ?Approach@Quaternion@@QAEHABV1@MM@Z | unused
     i32 Approach(class Quaternion const& arg1, f32 arg2, f32 arg3);
 
-    // 0x5731A0 | ?CatmullRom@Quaternion@@QAEXMABV1@000@Z
+    // 0x5731A0 | ?CatmullRom@Quaternion@@QAEXMABV1@000@Z | unused
     void CatmullRom(f32 arg1, class Quaternion const& arg2, class Quaternion const& arg3, class Quaternion const& arg4,
         class Quaternion const& arg5);
 
@@ -65,10 +65,10 @@ public:
     // 0x572960 | ?Normalize@Quaternion@@QAEXXZ
     void Normalize();
 
-    // 0x572F60 | ?Slerp@Quaternion@@QAEXMABV1@0@Z
+    // 0x572F60 | ?Slerp@Quaternion@@QAEXMABV1@0@Z | unused
     void Slerp(f32 arg1, class Quaternion const& arg2, class Quaternion const& arg3);
 
-    // 0x572A30 | ?TrackBall@Quaternion@@QAEXMMMMM@Z
+    // 0x572A30 | ?TrackBall@Quaternion@@QAEXMMMMM@Z | unused
     void TrackBall(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 };
 

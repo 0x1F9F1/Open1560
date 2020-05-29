@@ -41,14 +41,14 @@ public:
     // 0x51A1B0 | ??0mmIntersection@@QAE@XZ
     mmIntersection();
 
-    // 0x51A5A0 | ?Draw@mmIntersection@@QAEXXZ
+    // 0x51A5A0 | ?Draw@mmIntersection@@QAEXXZ | unused
     void Draw();
 
     // 0x51A1C0 | ?InitSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
     void InitSegment(
         class Vector3 const& arg1, class Vector3 const& arg2, class mmBoundTemplate* arg3, i32 arg4, i32 arg5);
 
-    // 0x51A3B0 | ?InitSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z
+    // 0x51A3B0 | ?InitSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z | unused
     void InitSphere(class Vector3 const& arg1, f32 arg2, class mmBoundTemplate* arg3, i32 arg4);
 
     // 0x51A2D0 | ?InitTransformedSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
@@ -73,7 +73,7 @@ public:
     // 0x51A650 | ??0mmEdgeBodyIsect@@QAE@XZ
     mmEdgeBodyIsect();
 
-    // 0x51A720 | ?Draw@mmEdgeBodyIsect@@QAEXXZ
+    // 0x51A720 | ?Draw@mmEdgeBodyIsect@@QAEXXZ | unused
     void Draw();
 
     // 0x51A680 | ?InitSegment@mmEdgeBodyIsect@@QAEXABVVector3@@0HH0M@Z

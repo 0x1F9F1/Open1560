@@ -87,7 +87,7 @@ public:
     // 0x561990 | ?RawWrite@FileStream@@UAEHPAXH@Z
     i32 RawWrite(void* arg1, i32 arg2) override;
 
-    // 0x561950 | ?Stderr@FileStream@@QAEHXZ
+    // 0x561950 | ?Stderr@FileStream@@QAEHXZ | unused
     i32 Stderr();
 
     // 0x561910 | ?Stdin@FileStream@@QAEHXZ

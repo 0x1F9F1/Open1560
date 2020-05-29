@@ -146,7 +146,7 @@ public:
     // 0x45C550 | ??1aiVehicleInstance@@UAE@XZ
     ~aiVehicleInstance() override;
 
-    // 0x45C510 | ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z
+    // 0x45C510 | ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z | inline
     void AddWidgets(class Bank* arg1) override;
 
     // 0x451F70 | ?AttachEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ

@@ -65,7 +65,7 @@ void agiConeLighter(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4);
 void agiDeclareCone(
     class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, f32 arg5, class Vector3& arg6, i32 arg7);
 
-// 0x5118F0 | ?agiDrawCones@@YAXXZ
+// 0x5118F0 | ?agiDrawCones@@YAXXZ | unused
 void agiDrawCones();
 
 // 0x510730 | ?agiMeshLighterQuarter@@YAXPAEPAI1PAVagiMeshSet@@@Z
@@ -74,7 +74,7 @@ void agiMeshLighterQuarter(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg
 // 0x510640 | ?agiMeshLighterReset@@YAXXZ
 void agiMeshLighterReset();
 
-// 0x5119F0 | ?agiMeshLighterSpecular@@YAXPAEPAI1PAVagiMeshSet@@@Z
+// 0x5119F0 | ?agiMeshLighterSpecular@@YAXPAEPAI1PAVagiMeshSet@@@Z | unused
 void agiMeshLighterSpecular(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4);
 
 // 0x510AE0 | ?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z
@@ -83,7 +83,7 @@ void agiMeshLighterTriple(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4
 // 0x5108F0 | ?agiMeshLighterUpdateColors@@YAXXZ
 void agiMeshLighterUpdateColors();
 
-// 0x511010 | ?agiMeshPrelight@@YAXPAIPAVagiMeshSet@@AAVMatrix34@@@Z
+// 0x511010 | ?agiMeshPrelight@@YAXPAIPAVagiMeshSet@@AAVMatrix34@@@Z | unused
 void agiMeshPrelight(u32* arg1, class agiMeshSet* arg2, class Matrix34& arg3);
 
 // 0x73E660 | ?agiMeshLighterAmbient@@3VVector3@@A

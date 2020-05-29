@@ -51,29 +51,29 @@ public:
     // 0x56DD00 | ??7Vector4@@QBE?AV0@XZ
     class Vector4 operator!();
 
-    // 0x56DC70 | ??KVector4@@QBE?AV0@M@Z
+    // 0x56DC70 | ??KVector4@@QBE?AV0@M@Z | unused
     class Vector4 operator/(f32 arg1);
 
-    // 0x570D70 | ??TVector4@@QBEMABV0@@Z
+    // 0x570D70 | ??TVector4@@QBEMABV0@@Z | inline
     f32 operator^(class Vector4 const& arg1);
 
-    // 0x56DD80 | ?Bilinear@Vector4@@QAEXMMABV1@000@Z
+    // 0x56DD80 | ?Bilinear@Vector4@@QAEXMMABV1@000@Z | unused
     void Bilinear(f32 arg1, f32 arg2, class Vector4 const& arg3, class Vector4 const& arg4, class Vector4 const& arg5,
         class Vector4 const& arg6);
 
     // 0x56DDD0 | ?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z
     void CalculatePlane(class Vector3 const& arg1, class Vector3 const& arg2, class Vector3 const& arg3);
 
-    // 0x56DED0 | ?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z
+    // 0x56DED0 | ?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z | unused
     void GetLookAt(class Vector3 const& arg1, class Vector3* arg2, class Vector3* arg3);
 
     // 0x56DF50 | ?Lerp@Vector4@@QAEXMABV1@0@Z
     void Lerp(f32 arg1, class Vector4 const& arg2, class Vector4 const& arg3);
 
-    // 0x56DBA0 | ?Mag@Vector4@@QBEMXZ
+    // 0x56DBA0 | ?Mag@Vector4@@QBEMXZ | unused
     f32 Mag();
 
-    // 0x570D50 | ?Set@Vector4@@QAEXMMMM@Z
+    // 0x570D50 | ?Set@Vector4@@QAEXMMMM@Z | inline
     void Set(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 };
 
@@ -82,19 +82,19 @@ check_size(Vector4, 0x0);
 class Vector4Array
 {
 public:
-    // 0x56E1F0 | ??4Vector4Array@@QAEXAAV0@@Z
+    // 0x56E1F0 | ??4Vector4Array@@QAEXAAV0@@Z | unused
     void operator=(class Vector4Array& arg1);
 
-    // 0x56E170 | ??AVector4Array@@QAEAAVVector4@@H@Z
+    // 0x56E170 | ??AVector4Array@@QAEAAVVector4@@H@Z | unused
     class Vector4& operator[](i32 arg1);
 
-    // 0x56E2F0 | ?BlockCopy@Vector4Array@@QAEXAAV1@@Z
+    // 0x56E2F0 | ?BlockCopy@Vector4Array@@QAEXAAV1@@Z | unused
     void BlockCopy(class Vector4Array& arg1);
 
     // 0x56E0B0 | ?Delete@Vector4Array@@QAEXXZ
     void Delete();
 
-    // 0x56E040 | ?Init@Vector4Array@@QAEXH@Z
+    // 0x56E040 | ?Init@Vector4Array@@QAEXH@Z | unused
     void Init(i32 arg1);
 
 private:

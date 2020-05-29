@@ -77,7 +77,7 @@ public:
     // 0x4C7FC0 | ?GetClass@mmBoat@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x4C7270 | ?Init@mmBoat@@QAEXHPAD0PAVVector3@@HHPAM@Z
+    // 0x4C7270 | ?Init@mmBoat@@QAEXHPAD0PAVVector3@@HHPAM@Z | unused
     void Init(i32 arg1, char* arg2, char* arg3, class Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
 
     // 0x4C7570 | ?Reset@mmBoat@@UAEXXZ
@@ -89,13 +89,13 @@ public:
     // 0x4C7650 | ?SetPathSpeed@mmBoat@@QAEXXZ
     void SetPathSpeed();
 
-    // 0x4C7670 | ?SetRock@mmBoat@@QAEXMM@Z
+    // 0x4C7670 | ?SetRock@mmBoat@@QAEXMM@Z | unused
     void SetRock(f32 arg1, f32 arg2);
 
     // 0x4C76C0 | ?SolvePosition@mmBoat@@QAEXAAVVector3@@AAM@Z
     void SolvePosition(class Vector3& arg1, f32& arg2);
 
-    // 0x4C7B20 | ?SolveVector@mmBoat@@QAEXMAAVVector3@@0@Z
+    // 0x4C7B20 | ?SolveVector@mmBoat@@QAEXMAAVVector3@@0@Z | unused
     void SolveVector(f32 arg1, class Vector3& arg2, class Vector3& arg3);
 
     // 0x4C7D80 | ?SolveXZCurve@mmBoat@@QAEXAAVVector3@@0M@Z

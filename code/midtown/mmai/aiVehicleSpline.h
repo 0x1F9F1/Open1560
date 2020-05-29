@@ -76,16 +76,16 @@ public:
     // 0x45BD00 | ?Impact@aiVehicleSpline@@UAEXH@Z
     virtual void Impact(i32 arg1);
 
-    // 0x4465E0 | ?GetImpactAudioPtr@aiVehicleSpline@@UAEPAVmmOpponentImpactAudio@@XZ
+    // 0x4465E0 | ?GetImpactAudioPtr@aiVehicleSpline@@UAEPAVmmOpponentImpactAudio@@XZ | inline
     virtual class mmOpponentImpactAudio* GetImpactAudioPtr();
 
-    // 0x4465F0 | ?PlayHorn@aiVehicleSpline@@UAEXMM@Z
+    // 0x4465F0 | ?PlayHorn@aiVehicleSpline@@UAEXMM@Z | inline
     virtual void PlayHorn(f32 arg1, f32 arg2);
 
-    // 0x446600 | ?ImpactAudioReaction@aiVehicleSpline@@UAEXM@Z
+    // 0x446600 | ?ImpactAudioReaction@aiVehicleSpline@@UAEXM@Z | inline
     virtual void ImpactAudioReaction(f32 arg1);
 
-    // 0x446610 | ?StopVoice@aiVehicleSpline@@UAEXXZ
+    // 0x446610 | ?StopVoice@aiVehicleSpline@@UAEXXZ | inline
     virtual void StopVoice();
 
     // 0x45C3E0 | ?GetClass@aiVehicleSpline@@UAEPAVMetaClass@@XZ
@@ -94,16 +94,16 @@ public:
     // 0x45C1F0 | ?AddWidgets@aiVehicleSpline@@QAEXPAVBank@@@Z
     void AddWidgets(class Bank* arg1);
 
-    // 0x45BC50 | ?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ
+    // 0x45BC50 | ?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ | unused
     void AvoidPlayerCollision();
 
-    // 0x45B270 | ?DetectPlayerCollision@aiVehicleSpline@@QAEHHM@Z
+    // 0x45B270 | ?DetectPlayerCollision@aiVehicleSpline@@QAEHHM@Z | unused
     i32 DetectPlayerCollision(i32 arg1, f32 arg2);
 
-    // 0x45B040 | ?DetectPlayerForwardCollision@aiVehicleSpline@@QAEHXZ
+    // 0x45B040 | ?DetectPlayerForwardCollision@aiVehicleSpline@@QAEHXZ | unused
     i32 DetectPlayerForwardCollision();
 
-    // 0x45B130 | ?DetectPlayerTargetPtCollision@aiVehicleSpline@@QAEHXZ
+    // 0x45B130 | ?DetectPlayerTargetPtCollision@aiVehicleSpline@@QAEHXZ | unused
     i32 DetectPlayerTargetPtCollision();
 
     // 0x45B870 | ?DetectPlayerZoneCollision@aiVehicleSpline@@QAEHXZ
@@ -151,7 +151,7 @@ public:
     // 0x45A2F0 | ?Update@aiVehicleSpline@@UAEXXZ
     void Update() override;
 
-    // 0x45BCD0 | ?WaitTime@aiVehicleSpline@@QAEHXZ
+    // 0x45BCD0 | ?WaitTime@aiVehicleSpline@@QAEHXZ | unused
     i32 WaitTime();
 
     // 0x45C250 | ?DeclareFields@aiVehicleSpline@@SAXXZ

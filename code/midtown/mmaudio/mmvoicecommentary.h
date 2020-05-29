@@ -85,7 +85,7 @@ public:
     // 0x4ED190 | ?CatName@mmVoiceCommentary@@QAEPADPADHH@Z
     char* CatName(char* arg1, i32 arg2, i32 arg3);
 
-    // 0x4ED390 | ?GetLapName@mmVoiceCommentary@@QAEPADF@Z
+    // 0x4ED390 | ?GetLapName@mmVoiceCommentary@@QAEPADF@Z | unused
     char* GetLapName(i16 arg1);
 
     // 0x4ED830 | ?GetRandomBlueCR@mmVoiceCommentary@@QAEPADF@Z
@@ -136,7 +136,7 @@ public:
     // 0x4EC410 | ?Play@mmVoiceCommentary@@QAEXPAD@Z
     void Play(char* arg1);
 
-    // 0x4EC1F0 | ?PlayAirBorne@mmVoiceCommentary@@QAEXXZ
+    // 0x4EC1F0 | ?PlayAirBorne@mmVoiceCommentary@@QAEXXZ | unused
     void PlayAirBorne();
 
     // 0x4EDDE0 | ?PlayBulletUnlocked@mmVoiceCommentary@@QAEXXZ
@@ -151,10 +151,10 @@ public:
     // 0x4ED4C0 | ?PlayCRPreRace@mmVoiceCommentary@@QAEXXZ
     void PlayCRPreRace();
 
-    // 0x4EC2D0 | ?PlayCheckPoint@mmVoiceCommentary@@QAEXXZ
+    // 0x4EC2D0 | ?PlayCheckPoint@mmVoiceCommentary@@QAEXXZ | unused
     void PlayCheckPoint();
 
-    // 0x4ED5C0 | ?PlayCollision@mmVoiceCommentary@@QAEXXZ
+    // 0x4ED5C0 | ?PlayCollision@mmVoiceCommentary@@QAEXXZ | unused
     void PlayCollision();
 
     // 0x4EDCE0 | ?PlayCopCarUnlocked@mmVoiceCommentary@@QAEXXZ
@@ -172,19 +172,19 @@ public:
     // 0x4EDC20 | ?PlayGTUnlocked@mmVoiceCommentary@@QAEXXZ
     void PlayGTUnlocked();
 
-    // 0x4EC390 | ?PlayLap@mmVoiceCommentary@@QAEXF@Z
+    // 0x4EC390 | ?PlayLap@mmVoiceCommentary@@QAEXF@Z | unused
     void PlayLap(i16 arg1);
 
-    // 0x4EC990 | ?PlayMidResults@mmVoiceCommentary@@QAEXXZ
+    // 0x4EC990 | ?PlayMidResults@mmVoiceCommentary@@QAEXXZ | unused
     void PlayMidResults();
 
-    // 0x4ED450 | ?PlayNetworkPreRace@mmVoiceCommentary@@QAEXXZ
+    // 0x4ED450 | ?PlayNetworkPreRace@mmVoiceCommentary@@QAEXXZ | unused
     void PlayNetworkPreRace();
 
     // 0x4EDEA0 | ?PlayNextRacesUnlocked@mmVoiceCommentary@@QAEXXZ
     void PlayNextRacesUnlocked();
 
-    // 0x4ED930 | ?PlayOpponentFinish@mmVoiceCommentary@@QAEXF@Z
+    // 0x4ED930 | ?PlayOpponentFinish@mmVoiceCommentary@@QAEXF@Z | unused
     void PlayOpponentFinish(i16 arg1);
 
     // 0x4EC460 | ?PlayPreRace@mmVoiceCommentary@@QAEXXZ
@@ -214,7 +214,7 @@ public:
     // 0x4EC170 | ?SetFrequency@mmVoiceCommentary@@QAEXM@Z
     void SetFrequency(f32 arg1);
 
-    // 0x4EC190 | ?Stop@mmVoiceCommentary@@QAEXXZ
+    // 0x4EC190 | ?Stop@mmVoiceCommentary@@QAEXXZ | unused
     void Stop();
 
     // 0x4EC1A0 | ?StopNow@mmVoiceCommentary@@QAEXXZ

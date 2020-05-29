@@ -92,7 +92,7 @@ private:
     // 0x4F85D0 | ?Collide@TrackCamCS@@AAEXVVector3@@@Z
     void Collide(class Vector3 arg1);
 
-    // 0x4F8AE0 | ?Front@TrackCamCS@@AAEXM@Z
+    // 0x4F8AE0 | ?Front@TrackCamCS@@AAEXM@Z | unused
     void Front(f32 arg1);
 
     // 0x4F8430 | ?MinMax@TrackCamCS@@AAEXVMatrix34@@@Z

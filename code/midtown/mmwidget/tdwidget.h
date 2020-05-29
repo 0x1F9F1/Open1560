@@ -63,7 +63,7 @@ public:
     // 0x4BE400 | ?Capture@TextDropWidget@@QAEHMM@Z
     i32 Capture(f32 arg1, f32 arg2);
 
-    // 0x4BE390 | ?Dec@TextDropWidget@@QAEHXZ
+    // 0x4BE390 | ?Dec@TextDropWidget@@QAEHXZ | unused
     i32 Dec();
 
     // 0x4BE3D0 | ?DecDrop@TextDropWidget@@QAEHXZ
@@ -72,13 +72,13 @@ public:
     // 0x4BE630 | ?GetClass@TextDropWidget@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x4BE1A0 | ?GetCount@TextDropWidget@@QAEHXZ
+    // 0x4BE1A0 | ?GetCount@TextDropWidget@@QAEHXZ | unused
     i32 GetCount();
 
     // 0x4BE4B0 | ?GetDisabledMask@TextDropWidget@@QAEJXZ
     i32 GetDisabledMask();
 
-    // 0x4BE380 | ?Inc@TextDropWidget@@QAEHXZ
+    // 0x4BE380 | ?Inc@TextDropWidget@@QAEHXZ | unused
     i32 Inc();
 
     // 0x4BE3A0 | ?IncDrop@TextDropWidget@@QAEHXZ

@@ -76,7 +76,7 @@ public:
     static void DeclareFields();
 
 private:
-    // 0x4BDD10 | ?UpdateAttached@sfPointer@@AAEXXZ
+    // 0x4BDD10 | ?UpdateAttached@sfPointer@@AAEXXZ | unused
     void UpdateAttached();
 };
 

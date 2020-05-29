@@ -88,10 +88,10 @@ public:
     // 0x496FE0 | ?Cull@asPortalWeb@@QAEXH@Z
     void Cull(i32 arg1);
 
-    // 0x495830 | ?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z
+    // 0x495830 | ?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z | unused
     void DeleteCell(struct asPortalCell* arg1);
 
-    // 0x4959A0 | ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z
+    // 0x4959A0 | ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z | unused
     void DeleteEdge(struct asPortalEdge* arg1);
 
     // 0x497770 | ?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ
@@ -115,10 +115,10 @@ public:
 
 check_size(asPortalWeb, 0x904C);
 
-// 0x4959B0 | ?LookupCell@@YAPAUasPortalCell@@PAD@Z
+// 0x4959B0 | ?LookupCell@@YAPAUasPortalCell@@PAD@Z | unused
 struct asPortalCell* LookupCell(char* arg1);
 
-// 0x4959C0 | ?LookupEdge@@YAPAUasPortalCell@@PAD@Z
+// 0x4959C0 | ?LookupEdge@@YAPAUasPortalCell@@PAD@Z | unused
 struct asPortalCell* LookupEdge(char* arg1);
 
 // 0x705718 | ?asPortalWebMetaClass@@3VMetaClass@@A
@@ -133,7 +133,7 @@ public:
     // 0x495AB0 | ?SetVisible@asPortalPVS@@QAEXI@Z
     void SetVisible(u32 arg1);
 
-    // 0x495A30 | ?Create@asPortalPVS@@SAPAU1@HZZ
+    // 0x495A30 | ?Create@asPortalPVS@@SAPAU1@HZZ | unused
     static struct asPortalPVS* Create(i32 arg1, ...);
 };
 

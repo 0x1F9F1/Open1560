@@ -59,7 +59,7 @@ public:
     // 0x4C6010 | ??1mmAnimTrain@@QAE@XZ
     ~mmAnimTrain();
 
-    // 0x4C66D0 | ?AdjustPhaseOffsets@mmAnimTrain@@QAEXXZ
+    // 0x4C66D0 | ?AdjustPhaseOffsets@mmAnimTrain@@QAEXXZ | unused
     void AdjustPhaseOffsets();
 
     // 0x4C6890 | ?CalculateCubics@mmAnimTrain@@QAEXHAAVVector4@@00@Z
@@ -81,7 +81,7 @@ public:
     // 0x4C6350 | ?Reset@mmAnimTrain@@QAEXXZ
     void Reset();
 
-    // 0x4C65C0 | ?ReverseCalcPathSpeed@mmAnimTrain@@QAEXXZ
+    // 0x4C65C0 | ?ReverseCalcPathSpeed@mmAnimTrain@@QAEXXZ | unused
     void ReverseCalcPathSpeed();
 
     // 0x4C65B0 | ?SetPathSpeed@mmAnimTrain@@QAEXXZ

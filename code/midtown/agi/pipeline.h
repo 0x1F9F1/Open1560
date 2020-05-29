@@ -142,16 +142,16 @@ public:
     // 0x556070 | ?ClearRect@agiPipeline@@UAEXHHHHI@Z
     virtual void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5);
 
-    // 0x557F20 | ?Print@agiPipeline@@UAEXHHHPBD@Z
+    // 0x557F20 | ?Print@agiPipeline@@UAEXHHHPBD@Z | inline
     virtual void Print(i32 arg1, i32 arg2, i32 arg3, char const* arg4);
 
-    // 0x558110 | ?PrintIs3D@agiPipeline@@UAEHXZ
+    // 0x558110 | ?PrintIs3D@agiPipeline@@UAEHXZ | inline
     virtual i32 PrintIs3D();
 
-    // 0x558130 | ?PrintInit@agiPipeline@@UAEXXZ
+    // 0x558130 | ?PrintInit@agiPipeline@@UAEXXZ | inline
     virtual void PrintInit();
 
-    // 0x558140 | ?PrintShutdown@agiPipeline@@UAEXXZ
+    // 0x558140 | ?PrintShutdown@agiPipeline@@UAEXXZ | inline
     virtual void PrintShutdown();
 
     // 0x556080 | ?Defragment@agiPipeline@@UAEXXZ
@@ -176,7 +176,7 @@ public:
     i32 CopyClippedBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8,
         i32 arg9, i32 arg10, i32 arg11);
 
-    // 0x555F00 | ?DumpStatus@agiPipeline@@QAEXXZ
+    // 0x555F00 | ?DumpStatus@agiPipeline@@QAEXXZ | unused
     void DumpStatus();
 
     // 0x555C40 | ?EndAllGfx@agiPipeline@@QAEXXZ
@@ -188,7 +188,7 @@ public:
     // 0x555950 | ?GetDLP@agiPipeline@@QAEPAVDLP@@PAD0PAVVector3@@HH@Z
     class DLP* GetDLP(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
 
-    // 0x555860 | ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@PAD@Z
+    // 0x555860 | ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@PAD@Z | unused
     class agiMtlDef* GetMaterial(char* arg1);
 
     // 0x5558C0 | ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@H@Z
@@ -203,7 +203,7 @@ public:
     // 0x555620 | ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z
     class agiTexDef* GetTexture(i32 arg1, i32 arg2);
 
-    // 0x555550 | ?Init@agiPipeline@@QAEHPADHHHHHHPAX@Z
+    // 0x555550 | ?Init@agiPipeline@@QAEHPADHHHHHHPAX@Z | unused
     i32 Init(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, void* arg8);
 
     // 0x555E70 | ?NotifyDelete@agiPipeline@@QAEXPAVagiRefreshable@@@Z
@@ -215,7 +215,7 @@ public:
     // 0x555CD0 | ?RestoreAll@agiPipeline@@QAEXXZ
     void RestoreAll();
 
-    // 0x555EB0 | ?ValidateObject@agiPipeline@@QAEXPAVagiRefreshable@@@Z
+    // 0x555EB0 | ?ValidateObject@agiPipeline@@QAEXPAVagiRefreshable@@@Z | unused
     void ValidateObject(class agiRefreshable* arg1);
 
     // 0x8FACB4 | ?CurrentPipe@agiPipeline@@2PAV1@A

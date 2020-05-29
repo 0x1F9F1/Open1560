@@ -94,7 +94,7 @@ public:
     // 0x497D80 | ?GetClass@mmPedManager@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x4979B0 | ?Init@mmPedManager@@QAEXH@Z
+    // 0x4979B0 | ?Init@mmPedManager@@QAEXH@Z | unused
     void Init(i32 arg1);
 
     // 0x497A60 | ?Update@mmPedManager@@UAEXXZ

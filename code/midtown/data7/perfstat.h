@@ -30,11 +30,11 @@
 // 0x57B530 | ?PerfGetValue@@YAIH@Z
 u32 PerfGetValue(i32 arg1);
 
-// 0x57B410 | ?PerfInit@@YAXXZ
+// 0x57B410 | ?PerfInit@@YAXXZ | unused
 void PerfInit();
 
-// 0x57B470 | ?PerfLookup@@YAHPAD@Z
+// 0x57B470 | ?PerfLookup@@YAHPAD@Z | unused
 i32 PerfLookup(char* arg1);
 
-// 0x57B450 | ?PerfShutdown@@YAXXZ
+// 0x57B450 | ?PerfShutdown@@YAXXZ | unused
 void PerfShutdown();

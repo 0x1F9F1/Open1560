@@ -39,7 +39,7 @@
     0x61E978 | const mmCompRoster::`vftable' | ??_7mmCompRoster@@6B@
 */
 
-#include "comprrec.h"
+#include "compbase.h"
 
 class mmCompRoster : public mmCompBase
 {
@@ -59,7 +59,7 @@ public:
     // 0x4B7940 | ?Init@mmCompRoster@@QAEXPAD00K@Z
     void Init(char* arg1, char* arg2, char* arg3, u32 arg4);
 
-    // 0x4B79C0 | ?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z
+    // 0x4B79C0 | ?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z | unused
     void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
         struct LocString* arg7, struct LocString* arg8, i32 arg9);
 

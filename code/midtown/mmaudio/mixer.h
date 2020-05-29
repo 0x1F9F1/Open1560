@@ -56,10 +56,10 @@ public:
     // 0x4EEB80 | ??1VolumeDW@@QAE@XZ
     ~VolumeDW();
 
-    // 0x4EE040 | ?Set@VolumeDW@@QAEXMM@Z
+    // 0x4EE040 | ?Set@VolumeDW@@QAEXMM@Z | unused
     void Set(f32 arg1, f32 arg2);
 
-    // 0x4EE110 | ?Value@VolumeDW@@QAEKXZ
+    // 0x4EE110 | ?Value@VolumeDW@@QAEKXZ | unused
     u32 Value();
 };
 
@@ -113,7 +113,7 @@ public:
     // 0x4EE140 | ?Init@MixerCTL@@QAEKXZ
     u32 Init();
 
-    // 0x4EE290 | ?RefreshAll@MixerCTL@@QAEXK@Z
+    // 0x4EE290 | ?RefreshAll@MixerCTL@@QAEXK@Z | unused
     void RefreshAll(u32 arg1);
 
     // 0x4EEAB0 | ?SetDeviceNum@MixerCTL@@QAEXI@Z

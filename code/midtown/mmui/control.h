@@ -96,7 +96,7 @@ public:
     // 0x4A36F0 | ?LaunchJoyCpl@ControlSetup@@QAEXXZ
     void LaunchJoyCpl();
 
-    // 0x4A3510 | ?POVCB@ControlSetup@@QAEXXZ
+    // 0x4A3510 | ?POVCB@ControlSetup@@QAEXXZ | unused
     void POVCB();
 
     // 0x4A3580 | ?PreSetup@ControlSetup@@UAEXXZ

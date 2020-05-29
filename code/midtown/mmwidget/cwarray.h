@@ -75,7 +75,7 @@ public:
     // 0x4B85E0 | ?CheckCapture@UICWArray@@QAEXXZ
     void CheckCapture();
 
-    // 0x4B8740 | ?DebugForceSetting@UICWArray@@QAEXXZ
+    // 0x4B8740 | ?DebugForceSetting@UICWArray@@QAEXXZ | unused
     void DebugForceSetting();
 
     // 0x4B8720 | ?DefaultCFG@UICWArray@@QAEXXZ
@@ -90,7 +90,7 @@ public:
     // 0x4B7D50 | ?Init@UICWArray@@QAEXMMMMHVCallback@@@Z
     void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, class Callback arg6);
 
-    // 0x4B86D0 | ?LoadCFG@UICWArray@@QAEXXZ
+    // 0x4B86D0 | ?LoadCFG@UICWArray@@QAEXXZ | unused
     void LoadCFG();
 
     // 0x4B8100 | ?Redraw@UICWArray@@QAEXXZ
@@ -102,10 +102,10 @@ public:
     // 0x4B85B0 | ?ResetCapture@UICWArray@@QAEXXZ
     void ResetCapture();
 
-    // 0x4B8690 | ?SaveCFG@UICWArray@@QAEXXZ
+    // 0x4B8690 | ?SaveCFG@UICWArray@@QAEXXZ | unused
     void SaveCFG();
 
-    // 0x4B80C0 | ?SetStartOffset@UICWArray@@QAEXH@Z
+    // 0x4B80C0 | ?SetStartOffset@UICWArray@@QAEXH@Z | unused
     void SetStartOffset(i32 arg1);
 
     // 0x4B8090 | ?SetVScrollPos@UICWArray@@QAEXXZ

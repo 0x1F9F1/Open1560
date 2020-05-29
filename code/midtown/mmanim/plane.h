@@ -65,7 +65,7 @@ public:
     // 0x4C5010 | ??1mmAnimPlane@@UAE@XZ
     ~mmAnimPlane() override;
 
-    // 0x4C5330 | ?Activate@mmAnimPlane@@QAEXXZ
+    // 0x4C5330 | ?Activate@mmAnimPlane@@QAEXXZ | unused
     void Activate();
 
     // 0x4C5630 | ?AdjustPhaseOffsets@mmAnimPlane@@QAEXXZ
@@ -74,7 +74,7 @@ public:
     // 0x4C5770 | ?CalculateCubics@mmAnimPlane@@QAEXHAAVVector4@@00@Z
     void CalculateCubics(i32 arg1, class Vector4& arg2, class Vector4& arg3, class Vector4& arg4);
 
-    // 0x4C5340 | ?Deactivate@mmAnimPlane@@QAEXXZ
+    // 0x4C5340 | ?Deactivate@mmAnimPlane@@QAEXXZ | unused
     void Deactivate();
 
     // 0x4C5A70 | ?Draw@mmAnimPlane@@UAIXH@Z
@@ -89,7 +89,7 @@ public:
     // 0x4C52C0 | ?Reset@mmAnimPlane@@UAEXXZ
     void Reset() override;
 
-    // 0x4C5550 | ?ReverseCalcPathSpeed@mmAnimPlane@@QAEXXZ
+    // 0x4C5550 | ?ReverseCalcPathSpeed@mmAnimPlane@@QAEXXZ | unused
     void ReverseCalcPathSpeed();
 
     // 0x4C5540 | ?SetPathSpeed@mmAnimPlane@@QAEXXZ

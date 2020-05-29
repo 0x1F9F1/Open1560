@@ -53,10 +53,10 @@ public:
     // 0x4E0670 | ?GetClass@asAero@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x4E0130 | ?Load@asAero@@QAEXPAVStream@@@Z
+    // 0x4E0130 | ?Load@asAero@@QAEXPAVStream@@@Z | unused
     void Load(class Stream* arg1);
 
-    // 0x4E0200 | ?Save@asAero@@QAEXPAVStream@@@Z
+    // 0x4E0200 | ?Save@asAero@@QAEXPAVStream@@@Z | unused
     void Save(class Stream* arg1);
 
     // 0x4DFC70 | ?Update@asAero@@UAEXXZ

@@ -57,7 +57,7 @@ public:
     // 0x4CC110 | ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@H@Z
     class mmVehInfo* GetVehicleInfo(i32 arg1);
 
-    // 0x4CC100 | ?Init@mmVehList@@QAEXH@Z
+    // 0x4CC100 | ?Init@mmVehList@@QAEXH@Z | unused
     void Init(i32 arg1);
 
     // 0x4CC240 | ?Load@mmVehList@@QAEXPAD@Z
@@ -66,7 +66,7 @@ public:
     // 0x4CC3C0 | ?LoadAll@mmVehList@@QAEXXZ
     void LoadAll();
 
-    // 0x4CC370 | ?Print@mmVehList@@QAEXXZ
+    // 0x4CC370 | ?Print@mmVehList@@QAEXXZ | unused
     void Print();
 };
 

@@ -95,7 +95,7 @@ public:
     // 0x489010 | ??1asNetwork@@QAE@XZ
     ~asNetwork();
 
-    // 0x48AE30 | ?ChatMessage@asNetwork@@QAEXKPAD@Z
+    // 0x48AE30 | ?ChatMessage@asNetwork@@QAEXKPAD@Z | unused
     void ChatMessage(u32 arg1, char* arg2);
 
     // 0x48A3A0 | ?CloseSession@asNetwork@@QAEXXZ
@@ -119,7 +119,7 @@ public:
     // 0x489910 | ?Disconnect@asNetwork@@QAEXXZ
     void Disconnect();
 
-    // 0x48B2D0 | ?GetEnumModem@asNetwork@@QAEPADH@Z
+    // 0x48B2D0 | ?GetEnumModem@asNetwork@@QAEPADH@Z | unused
     char* GetEnumModem(i32 arg1);
 
     // 0x489AD0 | ?GetEnumPlayer@asNetwork@@QAEPADH@Z
@@ -128,25 +128,25 @@ public:
     // 0x489E40 | ?GetEnumPlayerData@asNetwork@@QAEHHPAXH@Z
     i32 GetEnumPlayerData(i32 arg1, void* arg2, i32 arg3);
 
-    // 0x489960 | ?GetEnumProtocol@asNetwork@@QAEPADH@Z
+    // 0x489960 | ?GetEnumProtocol@asNetwork@@QAEPADH@Z | unused
     char* GetEnumProtocol(i32 arg1);
 
     // 0x48A3E0 | ?GetEnumSession@asNetwork@@QAEPADH@Z
     char* GetEnumSession(i32 arg1);
 
-    // 0x48A410 | ?GetEnumSessionID@asNetwork@@QAEHH@Z
+    // 0x48A410 | ?GetEnumSessionID@asNetwork@@QAEHH@Z | unused
     i32 GetEnumSessionID(i32 arg1);
 
     // 0x48B060 | ?GetEnumSessionLock@asNetwork@@QAEHH@Z
     i32 GetEnumSessionLock(i32 arg1);
 
-    // 0x48B030 | ?GetEnumSessionStatus@asNetwork@@QAEHH@Z
+    // 0x48B030 | ?GetEnumSessionStatus@asNetwork@@QAEHH@Z | unused
     i32 GetEnumSessionStatus(i32 arg1);
 
     // 0x48B000 | ?GetGameVersion@asNetwork@@QAEHH@Z
     i32 GetGameVersion(i32 arg1);
 
-    // 0x48AFC0 | ?GetMyLogicalIndex@asNetwork@@QAEHXZ
+    // 0x48AFC0 | ?GetMyLogicalIndex@asNetwork@@QAEHXZ | unused
     i32 GetMyLogicalIndex();
 
     // 0x489490 | ?GetNetworkCaps@asNetwork@@QAEHXZ
@@ -158,7 +158,7 @@ public:
     // 0x489B40 | ?GetNumPlayers@asNetwork@@QAEHXZ
     i32 GetNumPlayers();
 
-    // 0x489990 | ?GetNumProtocols@asNetwork@@QAEHXZ
+    // 0x489990 | ?GetNumProtocols@asNetwork@@QAEHXZ | unused
     i32 GetNumProtocols();
 
     // 0x48A440 | ?GetNumSessions@asNetwork@@QAEHXZ
@@ -215,7 +215,7 @@ public:
     // 0x489360 | ?Logout@asNetwork@@QAEXXZ
     void Logout();
 
-    // 0x489FB0 | ?Ping@asNetwork@@QAEKK@Z
+    // 0x489FB0 | ?Ping@asNetwork@@QAEKK@Z | unused
     u32 Ping(u32 arg1);
 
     // 0x48AA20 | ?PollLobby@asNetwork@@QAEHXZ
@@ -230,7 +230,7 @@ public:
     // 0x48AEF0 | ?Send@asNetwork@@QAEXKPAXKH@Z
     void Send(u32 arg1, void* arg2, u32 arg3, i32 arg4);
 
-    // 0x489280 | ?SendLobbyProperty@asNetwork@@QAEXPAXH@Z
+    // 0x489280 | ?SendLobbyProperty@asNetwork@@QAEXPAXH@Z | unused
     void SendLobbyProperty(void* arg1, i32 arg2);
 
     // 0x48B090 | ?SetEnumSessionLock@asNetwork@@QAEXHH@Z

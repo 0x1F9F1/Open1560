@@ -193,7 +193,7 @@ public:
     // 0x405E80 | ?SetWPCleared@mmHUD@@QAEXHH@Z
     void SetWPCleared(i32 arg1, i32 arg2);
 
-    // 0x405390 | ?ShowClockTime@mmHUD@@QAEXXZ
+    // 0x405390 | ?ShowClockTime@mmHUD@@QAEXXZ | unused
     void ShowClockTime();
 
     // 0x405320 | ?StartTimers@mmHUD@@QAEXXZ
@@ -202,7 +202,7 @@ public:
     // 0x405340 | ?StopTimers@mmHUD@@QAEXXZ
     void StopTimers();
 
-    // 0x405750 | ?Toggle@mmHUD@@QAEXXZ
+    // 0x405750 | ?Toggle@mmHUD@@QAEXXZ | unused
     void Toggle();
 
     // 0x4057C0 | ?ToggleDash@mmHUD@@QAEXXZ
@@ -253,7 +253,7 @@ public:
     // 0x4062A0 | ?Start@mmTimer@@QAEXXZ
     void Start();
 
-    // 0x4062C0 | ?StartStop@mmTimer@@QAEXXZ
+    // 0x4062C0 | ?StartStop@mmTimer@@QAEXXZ | unused
     void StartStop();
 
     // 0x4062B0 | ?Stop@mmTimer@@QAEXXZ

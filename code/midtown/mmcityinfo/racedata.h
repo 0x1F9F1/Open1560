@@ -50,7 +50,7 @@ public:
     // 0x4D2100 | ?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
     f32 GetAmbientDensity(i32 arg1, enum mmSkillLevel arg2);
 
-    // 0x4D1F80 | ?GetCarType@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
+    // 0x4D1F80 | ?GetCarType@mmRaceData@@QAEHHW4mmSkillLevel@@@Z | unused
     i32 GetCarType(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D2130 | ?GetDifficulty@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
@@ -71,7 +71,7 @@ public:
     // 0x4D20D0 | ?GetPedDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
     f32 GetPedDensity(i32 arg1, enum mmSkillLevel arg2);
 
-    // 0x4D1F70 | ?GetRaceName@mmRaceData@@QAEPADH@Z
+    // 0x4D1F70 | ?GetRaceName@mmRaceData@@QAEPADH@Z | unused
     char* GetRaceName(i32 arg1);
 
     // 0x4D1FE0 | ?GetTimeLimit@mmRaceData@@QAEMHW4mmSkillLevel@@@Z

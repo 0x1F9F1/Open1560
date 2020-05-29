@@ -26,7 +26,7 @@
     0x57D720 | unsigned int __cdecl jpeg_read_raw_data(struct jpeg_decompress_struct *,unsigned char * * *,unsigned int) | ?jpeg_read_raw_data@@YAIPAUjpeg_decompress_struct@@PAPAPAEI@Z
 */
 
-// 0x57D720 | ?jpeg_read_raw_data@@YAIPAUjpeg_decompress_struct@@PAPAPAEI@Z
+// 0x57D720 | ?jpeg_read_raw_data@@YAIPAUjpeg_decompress_struct@@PAPAPAEI@Z | unused
 u32 jpeg_read_raw_data(struct jpeg_decompress_struct* arg1, u8*** arg2, u32 arg3);
 
 // 0x57D680 | ?jpeg_read_scanlines@@YAIPAUjpeg_decompress_struct@@PAPAEI@Z

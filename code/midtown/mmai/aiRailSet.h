@@ -73,7 +73,7 @@ public:
     // 0x457660 | ?CalcTurnIntersection@aiRailSet@@QAEXAAVVector3@@HPAVaiPath@@1@Z
     void CalcTurnIntersection(class Vector3& arg1, i32 arg2, class aiPath* arg3, class aiPath* arg4);
 
-    // 0x459740 | ?CalcXZDirection@aiRailSet@@QAEXAAVVector3@@0000M@Z
+    // 0x459740 | ?CalcXZDirection@aiRailSet@@QAEXAAVVector3@@0000M@Z | unused
     void CalcXZDirection(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
         class Vector3& arg5, f32 arg6);
 
@@ -98,7 +98,7 @@ public:
     // 0x459BC0 | ?Dump@aiRailSet@@QAEXXZ
     void Dump();
 
-    // 0x4593F0 | ?SolveNextLane@aiRailSet@@QAEXXZ
+    // 0x4593F0 | ?SolveNextLane@aiRailSet@@QAEXXZ | unused
     void SolveNextLane();
 
     // 0x459470 | ?SolveTurnType@aiRailSet@@QAEHPAVaiPath@@0@Z
@@ -107,7 +107,7 @@ public:
     // 0x459AF0 | ?SolveXZCurve@aiRailSet@@QAEXAAVVector3@@0M@Z
     void SolveXZCurve(class Vector3& arg1, class Vector3& arg2, f32 arg3);
 
-    // 0x459B80 | ?SolveXZPosition@aiRailSet@@QAEXAAVVector3@@M@Z
+    // 0x459B80 | ?SolveXZPosition@aiRailSet@@QAEXAAVVector3@@M@Z | unused
     void SolveXZPosition(class Vector3& arg1, f32 arg2);
 };
 

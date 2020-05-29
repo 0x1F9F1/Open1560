@@ -126,7 +126,7 @@ public:
 
 check_size(agiD3DPipeline, 0x0);
 
-// 0x530A20 | ?RestoreCallback@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z
+// 0x530A20 | ?RestoreCallback@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z | unused
 i32 __stdcall RestoreCallback(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
 
 // 0x530D30 | ?callb@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z
@@ -159,10 +159,10 @@ public:
     // 0x5315F0 | ??1agiD3DTexLut@@UAE@XZ
     ~agiD3DTexLut() override;
 
-    // 0x531FD0 | ?BeginGfx@agiD3DTexLut@@UAEHXZ
+    // 0x531FD0 | ?BeginGfx@agiD3DTexLut@@UAEHXZ | inline
     i32 BeginGfx() override;
 
-    // 0x532020 | ?EndGfx@agiD3DTexLut@@UAEXXZ
+    // 0x532020 | ?EndGfx@agiD3DTexLut@@UAEXXZ | inline
     void EndGfx() override;
 };
 

@@ -56,7 +56,7 @@ public:
     // 0x533620 | ?EndGfx@agiD3DMtlDef@@UAEXXZ
     void EndGfx() override;
 
-    // 0x533750 | ?GetHandle@agiD3DMtlDef@@QAEKXZ
+    // 0x533750 | ?GetHandle@agiD3DMtlDef@@QAEKXZ | unused
     u32 GetHandle();
 };
 

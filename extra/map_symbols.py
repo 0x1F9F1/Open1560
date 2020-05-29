@@ -970,6 +970,9 @@ path_libs = group_stray_symbols(all_symbols)
 path_libs.update({
     'MetaType': 'data7:metatype',
     'asPortalRenderable': 'mmcity:portal',
+    'mmCompBase': 'mmwidget:compbase',
+    'Dispatchable': 'eventq7:dispatchable',
+    'Bank': 'arts7:bank',
 })
 
 # print(path_libs)
@@ -1478,6 +1481,26 @@ all_files = {}
 
 # assert False
 
+SKIPPED_LIBS = set()
+
+SKIPPED_LIBS.update({
+    'stream:hfsystem', # PagerInfo_t
+    'mmcar:carsim', # Struct
+    'eventq7:dispatchable', # Dispatchable
+    'eventq7:winevent',
+    'arts7:bank',
+    'arts7:midgets',
+    'mmaudio:mixer',
+})
+
+with open('../code/loader/loader.cpp', 'r') as f:
+    dummy_symbol_regex = re.compile(r'^include_dummy_symbol\((.+)\)')
+    for line in f.readlines():
+        match = dummy_symbol_regex.match(line)
+        if not match:
+            continue
+        SKIPPED_LIBS.add(match[1].replace('_', ':'))
+
 for lib, paths in grouped_symbols.items():
     if 'purevirt' in lib:
         continue
@@ -1491,7 +1514,7 @@ for lib, paths in grouped_symbols.items():
     if lib == 'test':
         continue
 
-    if lib in {'midtown','agi:surface','agiworld:meshrend','agiworld:texsort','arts7:camera','arts7:cullable','arts7:node','data7:base','data7:callback','data7:machname','data7:metaclass','data7:metatype','data7:mmx','data7:printer','data7:quitf','data7:speed','data7:timer','memory:allocator','memory:stack','memory:stub','memory:valloc','mmcity:loader','mmeffects:mmtext','pcwindis:dxinit','pcwindis:dxmovie','pcwindis:dxsetup','pcwindis:pcwindis','pcwindis:setupdata','vector7:vector3'}:
+    if lib in SKIPPED_LIBS:
         continue
 
     lib_header = ''
@@ -1633,7 +1656,16 @@ for lib, paths in grouped_symbols.items():
                     if dtor.raw_name != '__purecall':
                         lib_header += '// 0x{:X} | {}\n'.format(dtor.address, dtor.raw_name)
             elif (value.raw_name != '__purecall') and not (value.type.type_class == TypeClass.FunctionTypeClass and value.static and not value.is_member):
-                lib_header += '// 0x{:X} | {}\n'.format(value.address, value.raw_name)
+                lib_header += '// 0x{:X} | {}'.format(value.address, value.raw_name)
+
+                if value.library != lib:
+                    lib_header += ' | inline'
+
+                if (value.type.type_class == TypeClass.FunctionTypeClass) and (value.address != 0):
+                    if not (view.get_code_refs(value.address) or view.get_data_refs(value.address)):
+                        lib_header += ' | unused'
+
+                lib_header += '\n'
 
             sym_name = value.parts[:]
 

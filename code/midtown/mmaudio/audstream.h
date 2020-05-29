@@ -74,16 +74,16 @@ public:
     // 0x4F3800 | ?DeallocateStreamObjs@AudStream@@QAEXXZ
     void DeallocateStreamObjs();
 
-    // 0x4F3AC0 | ?Disable@AudStream@@QAEXXZ
+    // 0x4F3AC0 | ?Disable@AudStream@@QAEXXZ | unused
     void Disable();
 
-    // 0x4F3AB0 | ?Enable@AudStream@@QAEXXZ
+    // 0x4F3AB0 | ?Enable@AudStream@@QAEXXZ | unused
     void Enable();
 
-    // 0x4F4140 | ?GetCurrentSoundObj@AudStream@@QAEPAVStreamObj@@XZ
+    // 0x4F4140 | ?GetCurrentSoundObj@AudStream@@QAEPAVStreamObj@@XZ | unused
     class StreamObj* GetCurrentSoundObj();
 
-    // 0x4F3FA0 | ?GetFrequency@AudStream@@QAEMH@Z
+    // 0x4F3FA0 | ?GetFrequency@AudStream@@QAEMH@Z | unused
     f32 GetFrequency(i32 arg1);
 
     // 0x4F40E0 | ?IsPlaying@AudStream@@QAEHXZ
@@ -92,13 +92,13 @@ public:
     // 0x4F3910 | ?Load@AudStream@@QAEHPADH@Z
     i32 Load(char* arg1, i32 arg2);
 
-    // 0x4F3E40 | ?PlayLoop@AudStream@@QAEXMM@Z
+    // 0x4F3E40 | ?PlayLoop@AudStream@@QAEXMM@Z | unused
     void PlayLoop(f32 arg1, f32 arg2);
 
-    // 0x4F3D20 | ?PlayLoop@AudStream@@QAEXPADMM@Z
+    // 0x4F3D20 | ?PlayLoop@AudStream@@QAEXPADMM@Z | unused
     void PlayLoop(char* arg1, f32 arg2, f32 arg3);
 
-    // 0x4F3B60 | ?PlayOnce@AudStream@@QAEXMM@Z
+    // 0x4F3B60 | ?PlayOnce@AudStream@@QAEXMM@Z | unused
     void PlayOnce(f32 arg1, f32 arg2);
 
     // 0x4F3C10 | ?PlayOnce@AudStream@@QAEXPADMM@Z
@@ -113,19 +113,19 @@ public:
     // 0x4F3F30 | ?SetFrequency@AudStream@@QAEXMH@Z
     void SetFrequency(f32 arg1, i32 arg2);
 
-    // 0x4F4180 | ?SetLoopIndex@AudStream@@QAEXF@Z
+    // 0x4F4180 | ?SetLoopIndex@AudStream@@QAEXF@Z | unused
     void SetLoopIndex(i16 arg1);
 
-    // 0x4F41B0 | ?SetLoopPointInfo@AudStream@@QAEXKKIFF@Z
+    // 0x4F41B0 | ?SetLoopPointInfo@AudStream@@QAEXKKIFF@Z | unused
     void SetLoopPointInfo(u32 arg1, u32 arg2, u32 arg3, i16 arg4, i16 arg5);
 
-    // 0x4F4150 | ?SetNumLoopIndices@AudStream@@QAEXF@Z
+    // 0x4F4150 | ?SetNumLoopIndices@AudStream@@QAEXF@Z | unused
     void SetNumLoopIndices(i16 arg1);
 
     // 0x4F4050 | ?SetPan@AudStream@@QAEXMH@Z
     void SetPan(f32 arg1, i32 arg2);
 
-    // 0x4F3B50 | ?SetPlayPosition@AudStream@@QAEXK@Z
+    // 0x4F3B50 | ?SetPlayPosition@AudStream@@QAEXK@Z | unused
     void SetPlayPosition(u32 arg1);
 
     // 0x4F37E0 | ?SetPriority@AudStream@@QAEXH@Z
@@ -134,19 +134,19 @@ public:
     // 0x4F3FE0 | ?SetVolume@AudStream@@QAEXMH@Z
     void SetVolume(f32 arg1, i32 arg2);
 
-    // 0x4F41F0 | ?SetupNotifications@AudStream@@QAEXXZ
+    // 0x4F41F0 | ?SetupNotifications@AudStream@@QAEXXZ | unused
     void SetupNotifications();
 
     // 0x4F3EF0 | ?Stop@AudStream@@QAEXXZ
     void Stop();
 
-    // 0x4F3F10 | ?StopNow@AudStream@@QAEXXZ
+    // 0x4F3F10 | ?StopNow@AudStream@@QAEXXZ | unused
     void StopNow();
 
     // 0x4F3B00 | ?Update@AudStream@@UAEXXZ
     void Update() override;
 
-    // 0x4F4100 | ?Get2DFlags@AudStream@@SA?BKXZ
+    // 0x4F4100 | ?Get2DFlags@AudStream@@SA?BKXZ | unused
     static u32 const Get2DFlags();
 
     // 0x4F4120 | ?GetFreqChange2DFlags@AudStream@@SA?BKXZ

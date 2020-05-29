@@ -131,7 +131,7 @@ public:
     // 0x44F200 | ?Reset@aiVehicleAmbient@@UAEXXZ
     void Reset() override;
 
-    // 0x4500F0 | ?StopHorn@aiVehicleAmbient@@QAEXXZ
+    // 0x4500F0 | ?StopHorn@aiVehicleAmbient@@QAEXXZ | unused
     void StopHorn();
 
     // 0x450A30 | ?StopVoice@aiVehicleAmbient@@UAEXXZ

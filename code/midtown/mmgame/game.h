@@ -135,7 +135,7 @@ public:
     // 0x411400 | ?SetIconsState@mmGame@@QAEXXZ
     void SetIconsState();
 
-    // 0x410050 | ?Stats@mmGame@@QAEXXZ
+    // 0x410050 | ?Stats@mmGame@@QAEXXZ | unused
     void Stats();
 
     // 0x4102A0 | ?Update@mmGame@@UAEXXZ

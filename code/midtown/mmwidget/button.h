@@ -78,17 +78,17 @@ public:
     // 0x4B9E50 | ?Switch@UIButton@@UAEXH@Z
     void Switch(i32 arg1) override;
 
-    // 0x4B9F20 | ?TestHit@UIButton@@QAEHMM@Z
+    // 0x4B9F20 | ?TestHit@UIButton@@QAEHMM@Z | unused
     i32 TestHit(f32 arg1, f32 arg2);
 
     // 0x4B9D20 | ?Update@UIButton@@UAEXXZ
     void Update() override;
 
 private:
-    // 0x4B9D50 | ?DrawOff@UIButton@@AAEXXZ
+    // 0x4B9D50 | ?DrawOff@UIButton@@AAEXXZ | unused
     void DrawOff();
 
-    // 0x4B9D80 | ?DrawOn@UIButton@@AAEXXZ
+    // 0x4B9D80 | ?DrawOn@UIButton@@AAEXXZ | unused
     void DrawOn();
 };
 

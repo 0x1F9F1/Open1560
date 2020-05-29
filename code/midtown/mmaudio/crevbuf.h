@@ -40,7 +40,7 @@ public:
     // 0x4F4AF0 | ??1CReverbBuffer@@QAE@XZ
     ~CReverbBuffer();
 
-    // 0x4F4BE0 | ?GetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z
+    // 0x4F4BE0 | ?GetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z | unused
     void GetAll(struct EAXBUFFER_REVERBPROPERTIES* arg1);
 
     // 0x4F4BA0 | ?GetReverbMix@CReverbBuffer@@QAEMXZ
@@ -49,7 +49,7 @@ public:
     // 0x4F4B00 | ?PropertySetOk@CReverbBuffer@@QAEHXZ
     i32 PropertySetOk();
 
-    // 0x4F4B80 | ?SetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z
+    // 0x4F4B80 | ?SetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z | unused
     void SetAll(struct EAXBUFFER_REVERBPROPERTIES* arg1);
 
     // 0x4F4B60 | ?SetReverbMix@CReverbBuffer@@QAEXM@Z

@@ -135,7 +135,7 @@ public:
     // 0x4F0F20 | ?FreeOneShotLayerBuffers@SoundObj@@QAEXXZ
     void FreeOneShotLayerBuffers();
 
-    // 0x4F34D0 | ?GetFormat@SoundObj@@QAEPAUtWAVEFORMATEX@@XZ
+    // 0x4F34D0 | ?GetFormat@SoundObj@@QAEPAUtWAVEFORMATEX@@XZ | unused
     struct tWAVEFORMATEX* GetFormat();
 
     // 0x4F1BD0 | ?Init@SoundObj@@QAEHPBDKF@Z
@@ -204,7 +204,7 @@ public:
     // 0x4F2920 | ?SetVolume@SoundObj@@QAEXM@Z
     void SetVolume(f32 arg1);
 
-    // 0x4F2CC0 | ?SetupDuplicateBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PAD@Z
+    // 0x4F2CC0 | ?SetupDuplicateBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PAD@Z | unused
     struct IDirectSoundBuffer* SetupDuplicateBuffer(char* arg1);
 
     // 0x4F2D70 | ?SetupEchoBuffer@SoundObj@@QAEXPAD@Z

@@ -51,7 +51,7 @@ public:
     // 0x4E4CC0 | ?Assign@mmIO@@QAEXHH@Z
     void Assign(i32 arg1, i32 arg2);
 
-    // 0x4E4B90 | ?Clear@mmIO@@QAEXXZ
+    // 0x4E4B90 | ?Clear@mmIO@@QAEXXZ | unused
     void Clear();
 
     // 0x4E4ED0 | ?CompareComponent@mmIO@@QAEHH@Z

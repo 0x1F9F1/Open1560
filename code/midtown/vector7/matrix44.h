@@ -72,19 +72,19 @@ public:
     // 0x570C80 | ??0Matrix44@@QAE@ABV0@@Z
     Matrix44(class Matrix44 const& arg1);
 
-    // 0x56EA80 | ??DMatrix44@@QBE?AV0@M@Z
+    // 0x56EA80 | ??DMatrix44@@QBE?AV0@M@Z | unused
     class Matrix44 operator*(f32 arg1);
 
-    // 0x56E570 | ??HMatrix44@@QBE?AV0@ABV0@@Z
+    // 0x56E570 | ??HMatrix44@@QBE?AV0@ABV0@@Z | unused
     class Matrix44 operator+(class Matrix44 const& arg1);
 
-    // 0x56E820 | ??GMatrix44@@QBE?AV0@XZ
+    // 0x56E820 | ??GMatrix44@@QBE?AV0@XZ | unused
     class Matrix44 operator-();
 
-    // 0x56E6D0 | ??GMatrix44@@QBE?AV0@ABV0@@Z
+    // 0x56E6D0 | ??GMatrix44@@QBE?AV0@ABV0@@Z | unused
     class Matrix44 operator-(class Matrix44 const& arg1);
 
-    // 0x56EBD0 | ??KMatrix44@@QBE?AV0@M@Z
+    // 0x56EBD0 | ??KMatrix44@@QBE?AV0@M@Z | unused
     class Matrix44 operator/(f32 arg1);
 
     // 0x56EDB0 | ??TMatrix44@@QBE?AV0@ABV0@@Z
@@ -105,34 +105,34 @@ public:
     // 0x570460 | ?Identity@Matrix44@@QAEXXZ
     void Identity();
 
-    // 0x56F8E0 | ?Inverse@Matrix44@@QBE?AV1@XZ
+    // 0x56F8E0 | ?Inverse@Matrix44@@QBE?AV1@XZ | unused
     class Matrix44 Inverse();
 
-    // 0x56F580 | ?Ortho@Matrix44@@QAEXMMMMMM@Z
+    // 0x56F580 | ?Ortho@Matrix44@@QAEXMMMMMM@Z | unused
     void Ortho(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
 
-    // 0x56F490 | ?Perspective@Matrix44@@QAEXMMMM@Z
+    // 0x56F490 | ?Perspective@Matrix44@@QAEXMMMM@Z | unused
     void Perspective(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x570B10 | ?Print@Matrix44@@QBEXXZ
+    // 0x570B10 | ?Print@Matrix44@@QBEXXZ | unused
     void Print();
 
-    // 0x5704A0 | ?Rotate@Matrix44@@QAEXDM@Z
+    // 0x5704A0 | ?Rotate@Matrix44@@QAEXDM@Z | unused
     void Rotate(char arg1, f32 arg2);
 
     // 0x570680 | ?Rotate@Matrix44@@QAEXABVVector3@@0@Z
     void Rotate(class Vector3 const& arg1, class Vector3 const& arg2);
 
-    // 0x570620 | ?Rotate@Matrix44@@QAEXABVVector3@@M@Z
+    // 0x570620 | ?Rotate@Matrix44@@QAEXABVVector3@@M@Z | unused
     void Rotate(class Vector3 const& arg1, f32 arg2);
 
-    // 0x570970 | ?Scale@Matrix44@@QAEXABVVector3@@M@Z
+    // 0x570970 | ?Scale@Matrix44@@QAEXABVVector3@@M@Z | unused
     void Scale(class Vector3 const& arg1, f32 arg2);
 
     // 0x570920 | ?Scale@Matrix44@@QAEXMMM@Z
     void Scale(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x5708D0 | ?Translate@Matrix44@@QAEXMMM@Z
+    // 0x5708D0 | ?Translate@Matrix44@@QAEXMMM@Z | unused
     void Translate(f32 arg1, f32 arg2, f32 arg3);
 
     // 0x570380 | ?Transpose@Matrix44@@QBE?AV1@XZ
@@ -141,10 +141,10 @@ public:
 
 check_size(Matrix44, 0x0);
 
-// 0x56E920 | ??D@YA?AVMatrix44@@MABV0@@Z
+// 0x56E920 | ??D@YA?AVMatrix44@@MABV0@@Z | unused
 class Matrix44 operator*(f32 arg1, class Matrix44 const& arg2);
 
-// 0x56F3F0 | ??T@YA?AVVector3@@ABV0@ABVMatrix44@@@Z
+// 0x56F3F0 | ??T@YA?AVVector3@@ABV0@ABVMatrix44@@@Z | unused
 class Vector3 operator^(class Vector3 const& arg1, class Matrix44 const& arg2);
 
 // 0x56F460 | ??T@YA?AVVector4@@ABV0@ABVMatrix44@@@Z

@@ -87,7 +87,7 @@ public:
     // 0x4CF060 | ?GetPlayer@mmPlayerDirectory@@QAEPADH@Z
     char* GetPlayer(i32 arg1);
 
-    // 0x4CF420 | ?GetPlayerName@mmPlayerDirectory@@QAEPADPAD@Z
+    // 0x4CF420 | ?GetPlayerName@mmPlayerDirectory@@QAEPADPAD@Z | unused
     char* GetPlayerName(char* arg1);
 
     // 0x4CF6A0 | ?Load@mmPlayerDirectory@@QAEHPAD@Z
@@ -118,7 +118,7 @@ public:
     static void DeclareFields();
 
 private:
-    // 0x4CF210 | ?CreatePlayer@mmPlayerDirectory@@AAEXPAD0@Z
+    // 0x4CF210 | ?CreatePlayer@mmPlayerDirectory@@AAEXPAD0@Z | unused
     void CreatePlayer(char* arg1, char* arg2);
 
     // 0x4CF4E0 | ?MakeFileName@mmPlayerDirectory@@AAEPADXZ

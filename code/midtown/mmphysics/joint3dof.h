@@ -115,7 +115,7 @@ public:
     // 0x4DBCE0 | ?Reset@Joint3Dof@@UAEXXZ
     void Reset() override;
 
-    // 0x4DC040 | ?SetForceLimit@Joint3Dof@@QAEXM@Z
+    // 0x4DC040 | ?SetForceLimit@Joint3Dof@@QAEXM@Z | unused
     void SetForceLimit(f32 arg1);
 
     // 0x4DBE90 | ?SetFrictionLean@Joint3Dof@@QAEXMMM@Z
@@ -139,16 +139,16 @@ public:
     // 0x4DBFF0 | ?SetRestOrientMat@Joint3Dof@@QAEXABVMatrix34@@0@Z
     void SetRestOrientMat(class Matrix34 const& arg1, class Matrix34 const& arg2);
 
-    // 0x4DBF40 | ?SetRestOrientation@Joint3Dof@@QAEXXZ
+    // 0x4DBF40 | ?SetRestOrientation@Joint3Dof@@QAEXXZ | unused
     void SetRestOrientation();
 
     // 0x4DBF10 | ?SetRollLimit@Joint3Dof@@QAEXMMM@Z
     void SetRollLimit(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4DBE50 | ?SetRotate1@Joint3Dof@@QAEXABVMatrix34@@@Z
+    // 0x4DBE50 | ?SetRotate1@Joint3Dof@@QAEXABVMatrix34@@@Z | unused
     void SetRotate1(class Matrix34 const& arg1);
 
-    // 0x4DBE70 | ?SetRotate2@Joint3Dof@@QAEXABVMatrix34@@@Z
+    // 0x4DBE70 | ?SetRotate2@Joint3Dof@@QAEXABVMatrix34@@@Z | unused
     void SetRotate2(class Matrix34 const& arg1);
 
     // 0x4DD3D0 | ?UnbreakJoint@Joint3Dof@@QAEXXZ

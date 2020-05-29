@@ -29,7 +29,7 @@
 struct Random
 {
 public:
-    // 0x56DB10 | ?Normal@Random@@QAEMMM@Z
+    // 0x56DB10 | ?Normal@Random@@QAEMMM@Z | unused
     f32 Normal(f32 arg1, f32 arg2);
 
     // 0x56DAB0 | ?Number@Random@@QAEMXZ

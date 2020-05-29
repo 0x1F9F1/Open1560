@@ -114,7 +114,7 @@ public:
     // 0x4B6A60 | ?MexOn@UIBMButton@@QAEXXZ
     void MexOn();
 
-    // 0x4B6AA0 | ?MexToggle@UIBMButton@@QAEXXZ
+    // 0x4B6AA0 | ?MexToggle@UIBMButton@@QAEXXZ | unused
     void MexToggle();
 
     // 0x4B6C60 | ?ReturnDescription@UIBMButton@@UAEPADXZ

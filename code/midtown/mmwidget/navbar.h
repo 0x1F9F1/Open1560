@@ -68,10 +68,10 @@ public:
     // 0x4B1FB0 | ?OptionInActive@uiNavBar@@QAEXXZ
     void OptionInActive();
 
-    // 0x4B1F80 | ?ResetState@uiNavBar@@QAEXXZ
+    // 0x4B1F80 | ?ResetState@uiNavBar@@QAEXXZ | unused
     void ResetState();
 
-    // 0x4B2100 | ?SetPrevBitmap@uiNavBar@@QAEXPAD@Z
+    // 0x4B2100 | ?SetPrevBitmap@uiNavBar@@QAEXPAD@Z | unused
     void SetPrevBitmap(char* arg1);
 
     // 0x4B2070 | ?SetPrevPos@uiNavBar@@QAEXMM@Z

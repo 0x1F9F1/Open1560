@@ -79,13 +79,13 @@ public:
     // 0x47C9A0 | ?Init@mmEngine@@QAEXPAVmmCarSim@@@Z
     void Init(class mmCarSim* arg1);
 
-    // 0x47C9E0 | ?Load@mmEngine@@QAEXPAVStream@@@Z
+    // 0x47C9E0 | ?Load@mmEngine@@QAEXPAVStream@@@Z | unused
     void Load(class Stream* arg1);
 
     // 0x47CC60 | ?Reset@mmEngine@@UAEXXZ
     void Reset() override;
 
-    // 0x47CBE0 | ?Save@mmEngine@@QAEXPAVStream@@@Z
+    // 0x47CBE0 | ?Save@mmEngine@@QAEXPAVStream@@@Z | unused
     void Save(class Stream* arg1);
 
     // 0x47CC90 | ?Update@mmEngine@@UAEXXZ

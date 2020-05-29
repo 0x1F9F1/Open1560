@@ -83,7 +83,7 @@ public:
     // 0x47BF20 | ?LoadSucessful@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
     void LoadSucessful(class mmCarSim* arg1);
 
-    // 0x47BB80 | ?PlayReverseBeep@mmOpponentCarAudio@@QAEXXZ
+    // 0x47BB80 | ?PlayReverseBeep@mmOpponentCarAudio@@QAEXXZ | unused
     void PlayReverseBeep();
 
     // 0x47BF00 | ?Reset@mmOpponentCarAudio@@UAEXXZ

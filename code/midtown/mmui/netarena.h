@@ -64,7 +64,7 @@ public:
     // 0x4A1F30 | ?AddGameChatLine@NetArena@@QAEXPAD@Z
     void AddGameChatLine(char* arg1);
 
-    // 0x4A2230 | ?AddRosterName@NetArena@@QAEXPAD@Z
+    // 0x4A2230 | ?AddRosterName@NetArena@@QAEXPAD@Z | unused
     void AddRosterName(char* arg1);
 
     // 0x4A2250 | ?AddRosterName@NetArena@@QAEXPAULocString@@00K@Z
@@ -73,10 +73,10 @@ public:
     // 0x4A20B0 | ?ChatEntry@NetArena@@QAEXXZ
     void ChatEntry();
 
-    // 0x4A1E60 | ?DisablePlayButton@NetArena@@QAEXXZ
+    // 0x4A1E60 | ?DisablePlayButton@NetArena@@QAEXXZ | unused
     void DisablePlayButton();
 
-    // 0x4A1E50 | ?EnablePlayButton@NetArena@@QAEXXZ
+    // 0x4A1E50 | ?EnablePlayButton@NetArena@@QAEXXZ | unused
     void EnablePlayButton();
 
     // 0x4A21C0 | ?FindRosterName@NetArena@@QAEHPAD@Z
@@ -100,7 +100,7 @@ public:
     // 0x4A23F0 | ?RemoveRosterEntry@NetArena@@QAEXH@Z
     void RemoveRosterEntry(i32 arg1);
 
-    // 0x4A25E0 | ?RemoveRosterName@NetArena@@QAEXPAD@Z
+    // 0x4A25E0 | ?RemoveRosterName@NetArena@@QAEXPAD@Z | unused
     void RemoveRosterName(char* arg1);
 
     // 0x4A1E70 | ?ResetGameChat@NetArena@@QAEXXZ

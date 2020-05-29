@@ -43,7 +43,7 @@ public:
     // 0x4ABCF0 | ?AddMenuData@MArray@@QAEXHAAVVector4@@PAD@Z
     void AddMenuData(i32 arg1, class Vector4& arg2, char* arg3);
 
-    // 0x4ABB20 | ?Flush@MArray@@QAEXXZ
+    // 0x4ABB20 | ?Flush@MArray@@QAEXXZ | unused
     void Flush();
 
     // 0x4AB7D0 | ?Init@MArray@@QAEXH@Z
@@ -52,7 +52,7 @@ public:
     // 0x4ABB30 | ?Read@MArray@@QAEXPAD@Z
     void Read(char* arg1);
 
-    // 0x4ABD60 | ?RetrieveMenuData@MArray@@QAEHHAAM000@Z
+    // 0x4ABD60 | ?RetrieveMenuData@MArray@@QAEHHAAM000@Z | unused
     i32 RetrieveMenuData(i32 arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5);
 
     // 0x4AB810 | ?Write@MArray@@QAEXPAD@Z

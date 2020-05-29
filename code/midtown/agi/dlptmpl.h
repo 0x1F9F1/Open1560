@@ -73,7 +73,7 @@
 class agiLib<class agiPhysParameters, class agiPhysDef>
 {
 public:
-    // 0x557120 | ??0?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ
+    // 0x557120 | ??0?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ | inline
     agiLib<class agiPhysParameters, class agiPhysDef>();
 
     // 0x557150 | ??1?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ
@@ -106,10 +106,10 @@ public:
     // 0x559930 | ?GetCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z
     i32 GetCentroid(class Vector3& arg1, char* arg2);
 
-    // 0x5599B0 | ?GetGroupVertex@DLPTemplate@@QAEPAVVector3@@PAD@Z
+    // 0x5599B0 | ?GetGroupVertex@DLPTemplate@@QAEPAVVector3@@PAD@Z | unused
     class Vector3* GetGroupVertex(char* arg1);
 
-    // 0x559800 | ?GetVertexCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z
+    // 0x559800 | ?GetVertexCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z | unused
     i32 GetVertexCentroid(class Vector3& arg1, char* arg2);
 
     // 0x559630 | ?GroupExists@DLPTemplate@@QAEPAVDLPGroup@@PAD@Z
@@ -123,13 +123,13 @@ public:
         class agiLib<class agiTexParameters, class agiTexDef>& arg2,
         class agiLib<class agiPhysParameters, class agiPhysDef>& arg3);
 
-    // 0x558B60 | ?Load@DLPTemplate@@QAEHPAD@Z
+    // 0x558B60 | ?Load@DLPTemplate@@QAEHPAD@Z | unused
     i32 Load(char* arg1);
 
     // 0x558640 | ?Load@DLPTemplate@@QAEXPAVStream@@@Z
     void Load(class Stream* arg1);
 
-    // 0x558BA0 | ?Print@DLPTemplate@@QAEXPAVStream@@@Z
+    // 0x558BA0 | ?Print@DLPTemplate@@QAEXPAVStream@@@Z | unused
     void Print(class Stream* arg1);
 
     // 0x5597D0 | ?Release@DLPTemplate@@QAEHXZ
@@ -138,7 +138,7 @@ public:
     // 0x5596B0 | ?Restrict@DLPTemplate@@QAEHPAD@Z
     i32 Restrict(char* arg1);
 
-    // 0x558500 | ?Save@DLPTemplate@@QAEXPAVStream@@@Z
+    // 0x558500 | ?Save@DLPTemplate@@QAEXPAVStream@@@Z | unused
     void Save(class Stream* arg1);
 
 private:
@@ -158,7 +158,7 @@ public:
     // 0x55A320 | ??1DLPPatch@@QAE@XZ
     ~DLPPatch();
 
-    // 0x558990 | ?GetProp@DLPPatch@@QAEPADPAD@Z
+    // 0x558990 | ?GetProp@DLPPatch@@QAEPADPAD@Z | unused
     char* GetProp(char* arg1);
 
     // 0x559080 | ?Load@DLPPatch@@QAEXPAVStream@@@Z
@@ -204,13 +204,13 @@ check_size(DLPGroup, 0x30);
 // 0x5593A0 | ?PackAngle@@YAIM@Z
 u32 PackAngle(f32 arg1);
 
-// 0x559400 | ?PackNormal@@YAXAAGAAVVector3@@@Z
+// 0x559400 | ?PackNormal@@YAXAAGAAVVector3@@@Z | unused
 void PackNormal(u16& arg1, class Vector3& arg2);
 
 // 0x559310 | ?UnpackAngle@@YAME@Z
 f32 UnpackAngle(u8 arg1);
 
-// 0x559340 | ?UnpackNormal@@YAXAAVVector3@@AAG@Z
+// 0x559340 | ?UnpackNormal@@YAXAAVVector3@@AAG@Z | unused
 void UnpackNormal(class Vector3& arg1, u16& arg2);
 
 // 0x903130 | ?DLPTemplateHash@@3VHashTable@@A
@@ -231,7 +231,7 @@ check_size(DLPVertex, 0x0);
 class agiLib<class agiMtlParameters, class agiMtlDef>
 {
 public:
-    // 0x55B9B0 | ??0?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ
+    // 0x55B9B0 | ??0?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ | inline
     agiLib<class agiMtlParameters, class agiMtlDef>();
 
     // 0x559CF0 | ??1?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ

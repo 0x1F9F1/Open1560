@@ -47,7 +47,7 @@ public:
     // 0x49E290 | ??1Dialog_RaceEnvironment@@UAE@XZ
     ~Dialog_RaceEnvironment() override;
 
-    // 0x49E3A0 | ?CancelCallback@Dialog_RaceEnvironment@@QAEXXZ
+    // 0x49E3A0 | ?CancelCallback@Dialog_RaceEnvironment@@QAEXXZ | unused
     void CancelCallback();
 
     // 0x49E2F0 | ?ControlPedSlider@Dialog_RaceEnvironment@@QAEXXZ

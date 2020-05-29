@@ -76,13 +76,13 @@ public:
     void AssignSounds(class AudSound* arg1, class AudSound* arg2, class AudSound* arg3, class AudSound* arg4,
         class mmOpponentImpactAudio* arg5, class AudSound* arg6);
 
-    // 0x445F20 | ?Backup@aiVehiclePolice@@QAEXXZ
+    // 0x445F20 | ?Backup@aiVehiclePolice@@QAEXXZ | unused
     void Backup();
 
     // 0x445E20 | ?ConfigCar@aiVehiclePolice@@QAEXXZ
     void ConfigCar();
 
-    // 0x4460B0 | ?DrawDamage@aiVehiclePolice@@QAEXXZ
+    // 0x4460B0 | ?DrawDamage@aiVehiclePolice@@QAEXXZ | unused
     void DrawDamage();
 
     // 0x446100 | ?DrawId@aiVehiclePolice@@UAEXXZ
@@ -112,7 +112,7 @@ public:
     // 0x444930 | ?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z
     void Init(i32 arg1, class aiRaceData* arg2);
 
-    // 0x445A00 | ?IsPerpInRange@aiVehiclePolice@@QAEHPAVmmCar@@@Z
+    // 0x445A00 | ?IsPerpInRange@aiVehiclePolice@@QAEHPAVmmCar@@@Z | unused
     i32 IsPerpInRange(class mmCar* arg1);
 
     // 0x445DB0 | ?PerpEscapes@aiVehiclePolice@@QAEXE@Z

@@ -30,7 +30,7 @@
 // 0x5164B0 | ?PackNormal@@YAEAAVVector3@@@Z
 u8 PackNormal(class Vector3& arg1);
 
-// 0x516400 | ?PackNormalSlow@@YAEAAVVector3@@@Z
+// 0x516400 | ?PackNormalSlow@@YAEAAVVector3@@@Z | unused
 u8 PackNormalSlow(class Vector3& arg1);
 
 // 0x64B6A0 | ?UnpackNormal@@3PAVVector3@@A

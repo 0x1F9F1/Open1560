@@ -122,7 +122,7 @@
     0x537690 | unsigned int __fastcall swClampAdd555(unsigned int,unsigned int) | ?swClampAdd555@@YIIII@Z
 */
 
-// 0x5351C0 | ?__emitDebug@@YIXPAUswSurface@@H@Z
+// 0x5351C0 | ?__emitDebug@@YIXPAUswSurface@@H@Z | unused
 void __fastcall __emitDebug(struct swSurface* arg1, i32 arg2);
 
 // 0x535220 | ?__emitDepthComplexity@@YIXH@Z
@@ -143,10 +143,10 @@ void __fastcall __setupNone(struct swSurface* arg1);
 // 0x535510 | ?__setupUV@@YIXPAUswSurface@@@Z
 void __fastcall __setupUV(struct swSurface* arg1);
 
-// 0x5356E0 | ?__setupUVI@@YIXPAUswSurface@@@Z
+// 0x5356E0 | ?__setupUVI@@YIXPAUswSurface@@@Z | unused
 void __fastcall __setupUVI(struct swSurface* arg1);
 
-// 0x5357B0 | ?__setupUVIZ@@YIXPAUswSurface@@@Z
+// 0x5357B0 | ?__setupUVIZ@@YIXPAUswSurface@@@Z | unused
 void __fastcall __setupUVIZ(struct swSurface* arg1);
 
 // 0x5355D0 | ?__setupUVZ@@YIXPAUswSurface@@@Z

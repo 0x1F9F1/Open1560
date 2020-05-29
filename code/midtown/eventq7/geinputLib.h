@@ -33,13 +33,13 @@
     0x564050 | char * __cdecl DIError(int) | ?DIError@@YAPADH@Z
 */
 
-// 0x564200 | ?geinputAcquireMouse@@YAXXZ
+// 0x564200 | ?geinputAcquireMouse@@YAXXZ | unused
 void geinputAcquireMouse();
 
 // 0x564570 | ?geinputCleanup@@YAXXZ
 void geinputCleanup();
 
-// 0x564610 | ?geinputClearCache@@YAXXZ
+// 0x564610 | ?geinputClearCache@@YAXXZ | unused
 void geinputClearCache();
 
 // 0x564220 | ?geinputGetBufferedKeyboard@@YAHPAD@Z
@@ -51,7 +51,7 @@ char* geinputGetKeyboard();
 // 0x564320 | ?geinputGetMouse@@YAXPAJ0PAD10001@Z
 void geinputGetMouse(i32* arg1, i32* arg2, char* arg3, char* arg4, i32* arg5, i32* arg6, i32* arg7, char* arg8);
 
-// 0x564210 | ?geinputUnacquireMouse@@YAXXZ
+// 0x564210 | ?geinputUnacquireMouse@@YAXXZ | unused
 void geinputUnacquireMouse();
 
 // 0x563DE0 | ?inputSetup@@YAHHHHHH@Z

@@ -47,10 +47,10 @@ public:
     // 0x4FDE90 | ?Dump@mmGameRecord@@QAEXPAD@Z
     void Dump(char* arg1);
 
-    // 0x4FDE50 | ?GetCount@mmGameRecord@@QAEHXZ
+    // 0x4FDE50 | ?GetCount@mmGameRecord@@QAEHXZ | unused
     i32 GetCount();
 
-    // 0x4FDE60 | ?GetVector4@mmGameRecord@@QAEAAVVector4@@H@Z
+    // 0x4FDE60 | ?GetVector4@mmGameRecord@@QAEAAVVector4@@H@Z | unused
     class Vector4& GetVector4(i32 arg1);
 
     // 0x4FDDE0 | ?Init@mmGameRecord@@QAEXH@Z

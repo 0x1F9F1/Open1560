@@ -73,7 +73,7 @@ public:
     // 0x4D16B0 | ?GetName@mmRecord@@QAEPADXZ
     char* GetName();
 
-    // 0x4D16C0 | ?GetPassed@mmRecord@@QAEHXZ
+    // 0x4D16C0 | ?GetPassed@mmRecord@@QAEHXZ | unused
     i32 GetPassed();
 
     // 0x4D16D0 | ?GetScore@mmRecord@@QAEHXZ

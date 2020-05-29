@@ -34,7 +34,7 @@
 // 0x564A70 | ?frand@@YAMXZ
 f32 frand();
 
-// 0x564A90 | ?frand@@YAMH@Z
+// 0x564A90 | ?frand@@YAMH@Z | unused
 f32 frand(i32 arg1);
 
 // 0x564A30 | ?irand@@YAHXZ

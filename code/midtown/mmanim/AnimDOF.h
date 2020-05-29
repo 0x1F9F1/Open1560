@@ -120,10 +120,10 @@ public:
     // 0x4C4E90 | ?GetPos@mmDofBangerInstance@@UAIAAVVector3@@XZ
     class Vector3& __fastcall GetPos() override;
 
-    // 0x4CB7E0 | ?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
+    // 0x4CB7E0 | ?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z | inline
     i32 Init(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
 
-    // 0x4CB7D0 | ?SizeOf@mmDofBangerInstance@@UAEIXZ
+    // 0x4CB7D0 | ?SizeOf@mmDofBangerInstance@@UAEIXZ | inline
     u32 SizeOf() override;
 
     // 0x4C4E60 | ?ToMatrix@mmDofBangerInstance@@UAIAAVMatrix34@@AAV2@@Z

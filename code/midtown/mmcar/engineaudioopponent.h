@@ -65,10 +65,10 @@ public:
     // 0x485890 | ?Init@EngineAudioOpponent@@QAEXXZ
     void Init();
 
-    // 0x485900 | ?Init@EngineAudioOpponent@@QAEXF@Z
+    // 0x485900 | ?Init@EngineAudioOpponent@@QAEXF@Z | unused
     void Init(i16 arg1);
 
-    // 0x477810 | ?SetSoundPtr@EngineAudioOpponent@@QAEXPAVAudSound@@@Z
+    // 0x477810 | ?SetSoundPtr@EngineAudioOpponent@@QAEXPAVAudSound@@@Z | inline
     void SetSoundPtr(class AudSound* arg1);
 
     // 0x485940 | ?UpdateRPM@EngineAudioOpponent@@QAEXM@Z

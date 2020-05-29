@@ -121,7 +121,7 @@ public:
     // 0x4EBAA0 | ?DisableEffect@AudSound@@QAEXH@Z
     void DisableEffect(i32 arg1);
 
-    // 0x4EB800 | ?EchoPending@AudSound@@QAEEXZ
+    // 0x4EB800 | ?EchoPending@AudSound@@QAEEXZ | unused
     u8 EchoPending();
 
     // 0x4EAD30 | ?Enable@AudSound@@QAEXXZ
@@ -133,19 +133,19 @@ public:
     // 0x4EAD10 | ?EnabledAction@AudSound@@QAEXXZ
     void EnabledAction();
 
-    // 0x4EBC40 | ?GetCurrentSoundObj@AudSound@@QAEPAVSoundObj@@XZ
+    // 0x4EBC40 | ?GetCurrentSoundObj@AudSound@@QAEPAVSoundObj@@XZ | unused
     class SoundObj* GetCurrentSoundObj();
 
-    // 0x4EB3B0 | ?GetEAXReverbMix@AudSound@@QAEMH@Z
+    // 0x4EB3B0 | ?GetEAXReverbMix@AudSound@@QAEMH@Z | unused
     f32 GetEAXReverbMix(i32 arg1);
 
     // 0x4EBA10 | ?GetEffect@AudSound@@QAEHXZ
     i32 GetEffect();
 
-    // 0x4EB290 | ?GetFrequency@AudSound@@QAEMH@Z
+    // 0x4EB290 | ?GetFrequency@AudSound@@QAEMH@Z | unused
     f32 GetFrequency(i32 arg1);
 
-    // 0x4EB6C0 | ?GetSampleTime@AudSound@@QAEMXZ
+    // 0x4EB6C0 | ?GetSampleTime@AudSound@@QAEMXZ | unused
     f32 GetSampleTime();
 
     // 0x4EBB90 | ?GetSecondaryEAXObj@AudSound@@QAEPAVCReverbBuffer@@H@Z
@@ -178,25 +178,25 @@ public:
     // 0x4EAD60 | ?Reset@AudSound@@UAEXXZ
     void Reset() override;
 
-    // 0x4EB660 | ?Set3DMode@AudSound@@QAEXK@Z
+    // 0x4EB660 | ?Set3DMode@AudSound@@QAEXK@Z | unused
     void Set3DMode(u32 arg1);
 
-    // 0x4EB820 | ?SetChorusAttenuation@AudSound@@QAEXM@Z
+    // 0x4EB820 | ?SetChorusAttenuation@AudSound@@QAEXM@Z | unused
     void SetChorusAttenuation(f32 arg1);
 
-    // 0x4EB860 | ?SetChorusPitchMult@AudSound@@QAEXM@Z
+    // 0x4EB860 | ?SetChorusPitchMult@AudSound@@QAEXM@Z | unused
     void SetChorusPitchMult(f32 arg1);
 
-    // 0x4EB8A0 | ?SetChorusPitchMult@AudSound@@QAEXMM@Z
+    // 0x4EB8A0 | ?SetChorusPitchMult@AudSound@@QAEXMM@Z | unused
     void SetChorusPitchMult(f32 arg1, f32 arg2);
 
-    // 0x4EB730 | ?SetConeAngles@AudSound@@QAEXKK@Z
+    // 0x4EB730 | ?SetConeAngles@AudSound@@QAEXKK@Z | unused
     void SetConeAngles(u32 arg1, u32 arg2);
 
-    // 0x4EB790 | ?SetConeOrientation@AudSound@@QAEXPAVVector3@@@Z
+    // 0x4EB790 | ?SetConeOrientation@AudSound@@QAEXPAVVector3@@@Z | unused
     void SetConeOrientation(class Vector3* arg1);
 
-    // 0x4EB760 | ?SetConeOutsideVolume@AudSound@@QAEXJ@Z
+    // 0x4EB760 | ?SetConeOutsideVolume@AudSound@@QAEXJ@Z | unused
     void SetConeOutsideVolume(i32 arg1);
 
     // 0x4EB8F0 | ?SetDelayTime@AudSound@@QAEXM@Z
@@ -211,7 +211,7 @@ public:
     // 0x4EB510 | ?SetEchoFrequency@AudSound@@QAEXMH@Z
     void SetEchoFrequency(f32 arg1, i32 arg2);
 
-    // 0x4EB4B0 | ?SetEchoPan@AudSound@@QAEXM@Z
+    // 0x4EB4B0 | ?SetEchoPan@AudSound@@QAEXM@Z | unused
     void SetEchoPan(f32 arg1);
 
     // 0x4EBA30 | ?SetEffect@AudSound@@QAEXH@Z
@@ -265,7 +265,7 @@ public:
     // 0x4EBB10 | ?GetSoft2DFlags@AudSound@@SA?BKXZ
     static u32 const GetSoft2DFlags();
 
-    // 0x4EBB50 | ?GetSoftFreqChange2DFlags@AudSound@@SA?BKXZ
+    // 0x4EBB50 | ?GetSoftFreqChange2DFlags@AudSound@@SA?BKXZ | unused
     static u32 const GetSoftFreqChange2DFlags();
 
 private:

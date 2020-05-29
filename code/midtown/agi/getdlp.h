@@ -36,7 +36,7 @@ void CheckLibraries();
 // 0x556B60 | ?GetDLPTemplate@@YAPAVDLPTemplate@@PAD@Z
 class DLPTemplate* GetDLPTemplate(char* arg1);
 
-// 0x556DF0 | ?GetGroupVerts@@YAHPAD0PAVVector3@@H@Z
+// 0x556DF0 | ?GetGroupVerts@@YAHPAD0PAVVector3@@H@Z | unused
 i32 GetGroupVerts(char* arg1, char* arg2, class Vector3* arg3, i32 arg4);
 
 // 0x5569D0 | ?OutOfDate@@YAHPAD0@Z

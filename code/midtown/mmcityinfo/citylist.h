@@ -63,7 +63,7 @@ public:
     // 0x4CBE20 | ?GetCurrentCity@mmCityList@@QAEPAVmmCityInfo@@XZ
     class mmCityInfo* GetCurrentCity();
 
-    // 0x4CBC90 | ?Init@mmCityList@@QAEXH@Z
+    // 0x4CBC90 | ?Init@mmCityList@@QAEXH@Z | unused
     void Init(i32 arg1);
 
     // 0x4CBE30 | ?Load@mmCityList@@QAEXPAD@Z
@@ -72,7 +72,7 @@ public:
     // 0x4CBFA0 | ?LoadAll@mmCityList@@QAEXXZ
     void LoadAll();
 
-    // 0x4CBF60 | ?Print@mmCityList@@QAEXXZ
+    // 0x4CBF60 | ?Print@mmCityList@@QAEXXZ | unused
     void Print();
 
     // 0x4CBDD0 | ?SetCurrentCity@mmCityList@@QAEXPAD@Z

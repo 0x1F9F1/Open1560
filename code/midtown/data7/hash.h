@@ -44,13 +44,13 @@ public:
     // 0x498950 | ??1HashTable@@QAE@XZ
     ~HashTable();
 
-    // 0x578180 | ??4HashTable@@QAEXAAV0@@Z
+    // 0x578180 | ??4HashTable@@QAEXAAV0@@Z | unused
     void operator=(class HashTable& arg1);
 
     // 0x578430 | ?Access@HashTable@@QAEPAXPAD@Z
     void* Access(char* arg1);
 
-    // 0x5783F0 | ?Change@HashTable@@QAEHPAD0@Z
+    // 0x5783F0 | ?Change@HashTable@@QAEHPAD0@Z | unused
     i32 Change(char* arg1, char* arg2);
 
     // 0x5782B0 | ?Delete@HashTable@@QAEHPAD@Z

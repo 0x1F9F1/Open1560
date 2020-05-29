@@ -126,7 +126,7 @@ public:
     // 0x4F09C0 | ?GetDeviceNames@DSGlobal@@QAEPAPADXZ
     char** GetDeviceNames();
 
-    // 0x4F09F0 | ?GetNum3DHallBufs@DSGlobal@@QAEKXZ
+    // 0x4F09F0 | ?GetNum3DHallBufs@DSGlobal@@QAEKXZ | unused
     u32 GetNum3DHallBufs();
 
     // 0x4EF550 | ?Init@DSGlobal@@QAEHKEPAIPADFF@Z
@@ -153,7 +153,7 @@ public:
     // 0x4EFE10 | ?LoadUIADF@DSGlobal@@QAEHPAD@Z
     i32 LoadUIADF(char* arg1);
 
-    // 0x4F0670 | ?ScanAvailableDSFormats@DSGlobal@@QAEXXZ
+    // 0x4F0670 | ?ScanAvailableDSFormats@DSGlobal@@QAEXXZ | unused
     void ScanAvailableDSFormats();
 
     // 0x4F0990 | ?SetBitDepth@DSGlobal@@QAEXH@Z

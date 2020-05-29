@@ -66,7 +66,7 @@ public:
     // 0x4EBFB0 | ?SetDoppler@AudHead@@QAEXM@Z
     void SetDoppler(f32 arg1);
 
-    // 0x4EC020 | ?SetHeadPtr@AudHead@@QAEXPAVMatrix34@@@Z
+    // 0x4EC020 | ?SetHeadPtr@AudHead@@QAEXPAVMatrix34@@@Z | unused
     void SetHeadPtr(class Matrix34* arg1);
 
     // 0x4EBF50 | ?SetRolloff@AudHead@@QAEXM@Z

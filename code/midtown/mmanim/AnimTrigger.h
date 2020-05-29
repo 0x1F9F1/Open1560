@@ -59,16 +59,16 @@ public:
     // 0x4C4320 | ?CheckTimeDelay@mmAnimTrigger@@QAEHXZ
     i32 CheckTimeDelay();
 
-    // 0x4C4270 | ?Init@mmAnimTrigger@@QAEXM@Z
+    // 0x4C4270 | ?Init@mmAnimTrigger@@QAEXM@Z | unused
     void Init(f32 arg1);
 
     // 0x4C4220 | ?Init@mmAnimTrigger@@QAEXPAVVector3@@PAM@Z
     void Init(class Vector3* arg1, f32* arg2);
 
-    // 0x4C4200 | ?Init@mmAnimTrigger@@QAEXPAVmmInstance@@H@Z
+    // 0x4C4200 | ?Init@mmAnimTrigger@@QAEXPAVmmInstance@@H@Z | unused
     void Init(class mmInstance* arg1, i32 arg2);
 
-    // 0x4C4240 | ?Init@mmAnimTrigger@@QAEXPAHM@Z
+    // 0x4C4240 | ?Init@mmAnimTrigger@@QAEXPAHM@Z | unused
     void Init(i32* arg1, f32 arg2);
 
     // 0x4C43A0 | ?Reset@mmAnimTrigger@@QAEXXZ

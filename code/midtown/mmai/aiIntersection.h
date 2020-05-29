@@ -60,7 +60,7 @@ public:
     // 0x447880 | ?DrawPaths@aiIntersection@@QAEXXZ
     void DrawPaths();
 
-    // 0x4478F0 | ?Dump@aiIntersection@@QAEXXZ
+    // 0x4478F0 | ?Dump@aiIntersection@@QAEXXZ | unused
     void Dump();
 
     // 0x447370 | ?Init@aiIntersection@@QAEXXZ

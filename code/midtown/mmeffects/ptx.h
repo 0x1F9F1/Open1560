@@ -87,7 +87,7 @@ public:
 
 check_size(asParticles, 0x6C);
 
-// 0x500690 | ?cmpPtx@@YAHPBX0@Z
+// 0x500690 | ?cmpPtx@@YAHPBX0@Z | unused
 i32 cmpPtx(void const* arg1, void const* arg2);
 
 // 0x7195D0 | ?EnablePtxSorting@@3HA

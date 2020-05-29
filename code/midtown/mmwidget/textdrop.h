@@ -61,7 +61,7 @@ public:
     // 0x4B3680 | ?Action@UITextDropdown@@UAEXTeqEvent@@@Z
     void Action(union eqEvent arg1) override;
 
-    // 0x4B3910 | ?AnyEnabled@UITextDropdown@@QAEHXZ
+    // 0x4B3910 | ?AnyEnabled@UITextDropdown@@QAEHXZ | unused
     i32 AnyEnabled();
 
     // 0x4B33B0 | ?AssignString@UITextDropdown@@QAEXVstring@@@Z
@@ -76,7 +76,7 @@ public:
     // 0x4B3390 | ?GetScreenHeight@UITextDropdown@@UAEMXZ
     f32 GetScreenHeight() override;
 
-    // 0x4B38B0 | ?GetValue@UITextDropdown@@QAEHXZ
+    // 0x4B38B0 | ?GetValue@UITextDropdown@@QAEHXZ | unused
     i32 GetValue();
 
     // 0x4B2FD0 | ?Init@UITextDropdown@@QAEXPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z
@@ -89,13 +89,13 @@ public:
     // 0x4B38F0 | ?SetDisabledMask@UITextDropdown@@QAEXJ@Z
     void SetDisabledMask(i32 arg1);
 
-    // 0x4B33A0 | ?SetPos@UITextDropdown@@QAEXMM@Z
+    // 0x4B33A0 | ?SetPos@UITextDropdown@@QAEXMM@Z | unused
     void SetPos(f32 arg1, f32 arg2);
 
     // 0x4B3830 | ?SetSliderFocus@UITextDropdown@@QAEXH@Z
     void SetSliderFocus(i32 arg1);
 
-    // 0x4B3500 | ?SetText@UITextDropdown@@QAEXPAULocString@@@Z
+    // 0x4B3500 | ?SetText@UITextDropdown@@QAEXPAULocString@@@Z | unused
     void SetText(struct LocString* arg1);
 
     // 0x4B38C0 | ?SetValue@UITextDropdown@@QAEHH@Z

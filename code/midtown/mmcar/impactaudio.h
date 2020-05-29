@@ -49,10 +49,10 @@ public:
     // 0x484D80 | ??1mmImpactAudio@@QAE@XZ
     ~mmImpactAudio();
 
-    // 0x484E70 | ?EchoOff@mmImpactAudio@@QAEXPAVmmCarSim@@@Z
+    // 0x484E70 | ?EchoOff@mmImpactAudio@@QAEXPAVmmCarSim@@@Z | unused
     void EchoOff(class mmCarSim* arg1);
 
-    // 0x484E60 | ?EchoOn@mmImpactAudio@@QAEXPAVmmCarSim@@@Z
+    // 0x484E60 | ?EchoOn@mmImpactAudio@@QAEXPAVmmCarSim@@@Z | unused
     void EchoOn(class mmCarSim* arg1);
 
     // 0x485020 | ?GetBangerPtrs@mmImpactAudio@@QAEXFPAPAVAudSound@@0@Z

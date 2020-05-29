@@ -86,34 +86,34 @@
 class Matrix34
 {
 public:
-    // 0x478540 | ??0Matrix34@@QAE@XZ
+    // 0x478540 | ??0Matrix34@@QAE@XZ | inline
     Matrix34();
 
-    // 0x567450 | ??0Matrix34@@QAE@ABVMatrix44@@@Z
+    // 0x567450 | ??0Matrix34@@QAE@ABVMatrix44@@@Z | unused
     Matrix34(class Matrix44 const& arg1);
 
-    // 0x56A6F0 | ??DMatrix34@@QBE?AV0@M@Z
+    // 0x56A6F0 | ??DMatrix34@@QBE?AV0@M@Z | unused
     class Matrix34 operator*(f32 arg1);
 
-    // 0x5674E0 | ??HMatrix34@@QAE?AV0@ABV0@@Z
+    // 0x5674E0 | ??HMatrix34@@QAE?AV0@ABV0@@Z | unused
     class Matrix34 operator+(class Matrix34 const& arg1);
 
-    // 0x5675B0 | ??GMatrix34@@QAE?AV0@ABV0@@Z
+    // 0x5675B0 | ??GMatrix34@@QAE?AV0@ABV0@@Z | unused
     class Matrix34 operator-(class Matrix34 const& arg1);
 
-    // 0x56D460 | ?Approach@Matrix34@@QAEHABV1@MM@Z
+    // 0x56D460 | ?Approach@Matrix34@@QAEHABV1@MM@Z | unused
     i32 Approach(class Matrix34 const& arg1, f32 arg2, f32 arg3);
 
     // 0x56D310 | ?Approach@Matrix34@@QAEHABV1@MMM@Z
     i32 Approach(class Matrix34 const& arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x56B2B0 | ?Atan3@Matrix34@@QBEMDD@Z
+    // 0x56B2B0 | ?Atan3@Matrix34@@QBEMDD@Z | unused
     f32 Atan3(char arg1, char arg2);
 
-    // 0x56D220 | ?CalcAppRates@Matrix34@@QAEXAAM0ABV1@MM@Z
+    // 0x56D220 | ?CalcAppRates@Matrix34@@QAEXAAM0ABV1@MM@Z | unused
     void CalcAppRates(f32& arg1, f32& arg2, class Matrix34 const& arg3, f32 arg4, f32 arg5);
 
-    // 0x5686F0 | ?Determinant@Matrix34@@QBEMXZ
+    // 0x5686F0 | ?Determinant@Matrix34@@QBEMXZ | unused
     f32 Determinant();
 
     // 0x567680 | ?Dot@Matrix34@@QAEXABV1@0@Z
@@ -122,13 +122,13 @@ public:
     // 0x5678A0 | ?Dot3x3@Matrix34@@QAEXABV1@0@Z
     void Dot3x3(class Matrix34 const& arg1, class Matrix34 const& arg2);
 
-    // 0x56D1E0 | ?Equal@Matrix34@@QBEIABV1@M@Z
+    // 0x56D1E0 | ?Equal@Matrix34@@QBEIABV1@M@Z | unused
     u32 Equal(class Matrix34 const& arg1, f32 arg2);
 
     // 0x568980 | ?FastInverse@Matrix34@@QAEXABV1@@Z
     void FastInverse(class Matrix34 const& arg1);
 
-    // 0x568A80 | ?FastInverseFull@Matrix34@@QAEXABV1@@Z
+    // 0x568A80 | ?FastInverseFull@Matrix34@@QAEXABV1@@Z | unused
     void FastInverseFull(class Matrix34 const& arg1);
 
     // 0x56C7E0 | ?FromEulers@Matrix34@@QAEXABVVector3@@@Z
@@ -155,7 +155,7 @@ public:
     // 0x5674B0 | ?Identity@Matrix34@@QAEXXZ
     void Identity();
 
-    // 0x56D5B0 | ?Interpolate@Matrix34@@QAEXABV1@0M@Z
+    // 0x56D5B0 | ?Interpolate@Matrix34@@QAEXABV1@0M@Z | unused
     void Interpolate(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
 
     // 0x5687A0 | ?Inverse@Matrix34@@QBE?AV1@XZ
@@ -173,10 +173,10 @@ public:
     // 0x56CFD0 | ?PolarView@Matrix34@@QAEXMMMM@Z
     void PolarView(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x56D030 | ?PolarView2@Matrix34@@QAEXMMMM@Z
+    // 0x56D030 | ?PolarView2@Matrix34@@QAEXMMMM@Z | unused
     void PolarView2(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x56D6A0 | ?Print@Matrix34@@QBEXXZ
+    // 0x56D6A0 | ?Print@Matrix34@@QBEXXZ | unused
     void Print();
 
     // 0x56D180 | ?RotEqual@Matrix34@@QBEIABV1@M@Z
@@ -191,7 +191,7 @@ public:
     // 0x569D20 | ?RotateFull@Matrix34@@QAEXABVVector3@@M@Z
     void RotateFull(class Vector3 const& arg1, f32 arg2);
 
-    // 0x4DEC70 | ?RotateNoTrans@Matrix34@@QBE?AVVector3@@ABV2@@Z
+    // 0x4DEC70 | ?RotateNoTrans@Matrix34@@QBE?AVVector3@@ABV2@@Z | inline
     class Vector3 RotateNoTrans(class Vector3 const& arg1);
 
     // 0x56A6C0 | ?RotateTo@Matrix34@@QAEXABVVector3@@0M@Z
@@ -200,7 +200,7 @@ public:
     // 0x56A400 | ?RotateToAbs@Matrix34@@QAEXABVVector3@@0M@Z
     void RotateToAbs(class Vector3 const& arg1, class Vector3 const& arg2, f32 arg3);
 
-    // 0x56A670 | ?RotateToFull@Matrix34@@QAEXABVVector3@@0M@Z
+    // 0x56A670 | ?RotateToFull@Matrix34@@QAEXABVVector3@@0M@Z | unused
     void RotateToFull(class Vector3 const& arg1, class Vector3 const& arg2, f32 arg3);
 
     // 0x56A9A0 | ?Scale@Matrix34@@QAEXM@Z
@@ -209,40 +209,40 @@ public:
     // 0x56A8F0 | ?Scale@Matrix34@@QAEXMMM@Z
     void Scale(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x56AA20 | ?ScaleAbs@Matrix34@@QAEXM@Z
+    // 0x56AA20 | ?ScaleAbs@Matrix34@@QAEXM@Z | unused
     void ScaleAbs(f32 arg1);
 
     // 0x56A970 | ?ScaleAbs@Matrix34@@QAEXMMM@Z
     void ScaleAbs(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x56AB30 | ?ScaleFull@Matrix34@@QAEXM@Z
+    // 0x56AB30 | ?ScaleFull@Matrix34@@QAEXM@Z | unused
     void ScaleFull(f32 arg1);
 
-    // 0x56AA50 | ?ScaleFull@Matrix34@@QAEXMMM@Z
+    // 0x56AA50 | ?ScaleFull@Matrix34@@QAEXMMM@Z | unused
     void ScaleFull(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x56ABD0 | ?ScaleFullAbs@Matrix34@@QAEXM@Z
+    // 0x56ABD0 | ?ScaleFullAbs@Matrix34@@QAEXM@Z | unused
     void ScaleFullAbs(f32 arg1);
 
     // 0x56AAF0 | ?ScaleFullAbs@Matrix34@@QAEXMMM@Z
     void ScaleFullAbs(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x56AC10 | ?ScaleVolume@Matrix34@@QAEXMD@Z
+    // 0x56AC10 | ?ScaleVolume@Matrix34@@QAEXMD@Z | unused
     void ScaleVolume(f32 arg1, char arg2);
 
-    // 0x56AD10 | ?ScaleVolumeAbs@Matrix34@@QAEXMD@Z
+    // 0x56AD10 | ?ScaleVolumeAbs@Matrix34@@QAEXMD@Z | unused
     void ScaleVolumeAbs(f32 arg1, char arg2);
 
     // 0x567A30 | ?SolveSVD@Matrix34@@QBE?AVVector3@@ABV2@@Z
     class Vector3 SolveSVD(class Vector3 const& arg1);
 
-    // 0x56AFA0 | ?TrackBall@Matrix34@@QAEXMMMMM@Z
+    // 0x56AFA0 | ?TrackBall@Matrix34@@QAEXMMMMM@Z | unused
     void TrackBall(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x56AE10 | ?Transform@Matrix34@@QAEXABVVector3@@0M@Z
+    // 0x56AE10 | ?Transform@Matrix34@@QAEXABVVector3@@0M@Z | unused
     void Transform(class Vector3 const& arg1, class Vector3 const& arg2, f32 arg3);
 
-    // 0x4DECA0 | ?Transpose@Matrix34@@QBE?AV1@XZ
+    // 0x4DECA0 | ?Transpose@Matrix34@@QBE?AV1@XZ | inline
     class Matrix34 Transpose();
 
     // 0x56B250 | ?Transpose@Matrix34@@QAEXABV1@@Z
@@ -251,7 +251,7 @@ public:
     // 0x56D760 | ?DeclareFields@Matrix34@@SAXXZ
     static void DeclareFields();
 
-    // 0x56D8A0 | ?GetClass@Matrix34@@SAPAVMetaClass@@XZ
+    // 0x56D8A0 | ?GetClass@Matrix34@@SAPAVMetaClass@@XZ | unused
     static class MetaClass* GetClass();
 
 private:
@@ -261,7 +261,7 @@ private:
 
 check_size(Matrix34, 0x30);
 
-// 0x56A7F0 | ??D@YA?AVMatrix34@@MABV0@@Z
+// 0x56A7F0 | ??D@YA?AVMatrix34@@MABV0@@Z | unused
 class Matrix34 operator*(f32 arg1, class Matrix34 const& arg2);
 
 // 0x56D8B0 | ?ASinf@@YAMM@Z

@@ -47,22 +47,22 @@ public:
 
     virtual u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) = 0;
 
-    // 0x55BBB0 | ?FindColor@agiColorModel@@QAEIHHHH@Z
+    // 0x55BBB0 | ?FindColor@agiColorModel@@QAEIHHHH@Z | unused
     u32 FindColor(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
 
     // 0x55BBE0 | ?GetColor@agiColorModel@@QAEIABVVector3@@@Z
     u32 GetColor(class Vector3 const& arg1);
 
-    // 0x55BC40 | ?GetColor@agiColorModel@@QAEIABVVector4@@@Z
+    // 0x55BC40 | ?GetColor@agiColorModel@@QAEIABVVector4@@@Z | unused
     u32 GetColor(class Vector4 const& arg1);
 
     // 0x55BB80 | ?GetColor@agiColorModel@@QAEIHHHH@Z
     u32 GetColor(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
 
-    // 0x55D810 | ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z
+    // 0x55D810 | ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z | inline
     static class agiColorModel* FindMatch(class agiSurfaceDesc* arg1);
 
-    // 0x55D760 | ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z
+    // 0x55D760 | ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z | inline
     static class agiColorModel* FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
 };
 

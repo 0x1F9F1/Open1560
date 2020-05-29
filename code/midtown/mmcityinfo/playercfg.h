@@ -66,7 +66,7 @@ public:
     // 0x4CDAA0 | ??1mmPlayerConfig@@UAE@XZ
     ~mmPlayerConfig() override;
 
-    // 0x4CDB10 | ??4mmPlayerConfig@@QAEXAAV0@@Z
+    // 0x4CDB10 | ??4mmPlayerConfig@@QAEXAAV0@@Z | unused
     void operator=(class mmPlayerConfig& arg1);
 
     // 0x4CE800 | ?DefaultAudio@mmPlayerConfig@@QAEXXZ
@@ -75,7 +75,7 @@ public:
     // 0x4CE910 | ?DefaultControls@mmPlayerConfig@@QAEXXZ
     void DefaultControls();
 
-    // 0x4CE9C0 | ?DefaultGraphics@mmPlayerConfig@@QAEXXZ
+    // 0x4CE9C0 | ?DefaultGraphics@mmPlayerConfig@@QAEXXZ | unused
     void DefaultGraphics();
 
     // 0x4CE970 | ?DefaultViewSettings@mmPlayerConfig@@QAEXXZ
@@ -117,7 +117,7 @@ public:
     // 0x4CE450 | ?SetControls@mmPlayerConfig@@QAEXXZ
     void SetControls();
 
-    // 0x4CE230 | ?SetDefaults@mmPlayerConfig@@QAEXXZ
+    // 0x4CE230 | ?SetDefaults@mmPlayerConfig@@QAEXXZ | unused
     void SetDefaults();
 
     // 0x4CE640 | ?SetGraphics@mmPlayerConfig@@QAEXXZ

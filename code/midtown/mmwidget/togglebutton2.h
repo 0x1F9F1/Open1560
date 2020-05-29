@@ -72,7 +72,7 @@ public:
     // 0x4BC9E0 | ?Switch@UIToggleButton2@@UAEXH@Z
     void Switch(i32 arg1) override;
 
-    // 0x4BC910 | ?Unkill@UIToggleButton2@@QAEXXZ
+    // 0x4BC910 | ?Unkill@UIToggleButton2@@QAEXXZ | unused
     void Unkill();
 
     // 0x4BCA80 | ?Update@UIToggleButton2@@UAEXXZ

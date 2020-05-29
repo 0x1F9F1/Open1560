@@ -72,7 +72,7 @@ public:
     void AssignSounds(
         class AudSound* arg1, class AudSound* arg2, class mmOpponentImpactAudio* arg3, class AudSound* arg4);
 
-    // 0x44E2A0 | ?DrawDamage@aiVehicleOpponent@@QAEXXZ
+    // 0x44E2A0 | ?DrawDamage@aiVehicleOpponent@@QAEXXZ | unused
     void DrawDamage();
 
     // 0x44E2B0 | ?DrawId@aiVehicleOpponent@@UAEXXZ

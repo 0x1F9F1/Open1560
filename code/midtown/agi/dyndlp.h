@@ -55,7 +55,7 @@ public:
     // 0x55E620 | ?InitOffsets@DynamicDLP@@QAEHPAVDLP@@PAD@Z
     i32 InitOffsets(class DLP* arg1, char* arg2);
 
-    // 0x55E600 | ?Release@DynamicDLP@@QAEHXZ
+    // 0x55E600 | ?Release@DynamicDLP@@QAEHXZ | unused
     i32 Release();
 };
 

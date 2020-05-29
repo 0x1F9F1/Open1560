@@ -66,7 +66,7 @@ public:
     // 0x4F4810 | ?PropertySetOk@CReverb@@QAEHXZ
     i32 PropertySetOk();
 
-    // 0x4F48F0 | ?SetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
+    // 0x4F48F0 | ?SetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z | unused
     void SetAll(struct EAX_REVERBPROPERTIES* arg1);
 
     // 0x4F48D0 | ?SetDamping@CReverb@@QAEXM@Z

@@ -51,7 +51,7 @@
     0x61E6E8 | const mmCompBase::`vftable' | ??_7mmCompBase@@6B@
 */
 
-#include "arts7/node.h"
+#include "compbase.h"
 
 class mmCompRaceRecord : public mmCompBase
 {
@@ -98,50 +98,3 @@ public:
 };
 
 check_size(mmCompRaceRecord, 0xA8);
-
-class mmCompBase : public asNode
-{
-    // const mmCompBase::`vftable' @ 0x61E6E8
-
-public:
-    // 0x4B4EC0 | ??_GmmCompBase@@UAEPAXI@Z
-    // 0x4B4DF0 | ??1mmCompBase@@UAE@XZ
-    ~mmCompBase() override;
-
-    // 0x4B4E00 | ?DisableBlt@mmCompBase@@UAEXXZ
-    virtual void DisableBlt();
-
-    // 0x4B4E10 | ?SetBltXY@mmCompBase@@UAEXMM@Z
-    virtual void SetBltXY(f32 arg1, f32 arg2);
-
-    // 0x4B4E70 | ?Action@mmCompBase@@UAEXTeqEvent@@MMH@Z
-    virtual void Action(union eqEvent arg1, f32 arg2, f32 arg3, i32 arg4);
-
-    // 0x4B4E40 | ?Action@mmCompBase@@UAEXTeqEvent@@@Z
-    virtual void Action(union eqEvent arg1);
-
-    // 0x4B4E50 | ?CaptureAction@mmCompBase@@UAEXTeqEvent@@@Z
-    virtual void CaptureAction(union eqEvent arg1);
-
-    // 0x4B4E60 | ?Switch@mmCompBase@@UAEXH@Z
-    virtual void Switch(i32 arg1);
-
-    // 0x4B4E80 | ?EvalMouseXY@mmCompBase@@UAEXMM@Z
-    virtual void EvalMouseXY(f32 arg1, f32 arg2);
-
-    // 0x4B4E90 | ?Highlight@mmCompBase@@UAEXPAVmmTextNode@@H@Z
-    virtual void Highlight(class mmTextNode* arg1, i32 arg2);
-
-    // 0x4B4EA0 | ?SetGeometry@mmCompBase@@UAEXMMMM@Z
-    virtual void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
-
-    virtual void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) = 0;
-
-    // 0x4BF2D0 | ?Reset@mmCompBase@@UAEXXZ
-    void Reset() override;
-
-    // 0x4BF2E0 | ?Update@mmCompBase@@UAEXXZ
-    void Update() override;
-};
-
-check_size(mmCompBase, 0x0);

@@ -85,7 +85,7 @@ public:
     // 0x432A80 | ?SetLocalData@mmNetObject@@UAEXXZ
     void SetLocalData() override;
 
-    // 0x432A70 | ?SetScore@mmNetObject@@QAEXH@Z
+    // 0x432A70 | ?SetScore@mmNetObject@@QAEXH@Z | unused
     void SetScore(i32 arg1);
 
     // 0x433130 | ?Update@mmNetObject@@UAEXXZ

@@ -43,7 +43,7 @@ inline extern_var(0x73E6C0, class agiTexSheet, TEXSHEET);
 class agiTexSheet
 {
 public:
-    // 0x5124A0 | ?Add@agiTexSheet@@QAEXPAD@Z
+    // 0x5124A0 | ?Add@agiTexSheet@@QAEXPAD@Z | unused
     void Add(char* arg1);
 
     // 0x512410 | ?GetVariationCount@agiTexSheet@@QAEHPAD@Z
@@ -58,13 +58,13 @@ public:
     // 0x512340 | ?Lookup@agiTexSheet@@QAEPAUagiTexProp@@PADH@Z
     struct agiTexProp* Lookup(char* arg1, i32 arg2);
 
-    // 0x5123A0 | ?LookupAlternate@agiTexSheet@@QAEPAUagiTexProp@@PAD@Z
+    // 0x5123A0 | ?LookupAlternate@agiTexSheet@@QAEPAUagiTexProp@@PAD@Z | unused
     struct agiTexProp* LookupAlternate(char* arg1);
 
     // 0x512460 | ?RemapName@agiTexSheet@@QAEPADPADH@Z
     char* RemapName(char* arg1, i32 arg2);
 
-    // 0x5120D0 | ?Save@agiTexSheet@@QAEXPAD@Z
+    // 0x5120D0 | ?Save@agiTexSheet@@QAEXPAD@Z | unused
     void Save(char* arg1);
 };
 

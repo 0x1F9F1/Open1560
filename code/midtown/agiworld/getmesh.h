@@ -61,7 +61,7 @@ public:
     // 0x514150 | ??0nbuf@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@XZ
     __cdecl nbuf(char* arg1, char* arg2, class Vector3* arg3, i32 arg4);
 
-    // 0x514170 | ??0nbuf@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@ABU0@@Z
+    // 0x514170 | ??0nbuf@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@ABU0@@Z | unused
     __cdecl nbuf(char* arg1, char* arg2, class Vector3* arg3, i32 arg4);
 };
 

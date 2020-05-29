@@ -53,10 +53,10 @@ public:
     // 0x480B70 | ?GetClass@VehGyro@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x480690 | ?Load@VehGyro@@QAEXPAVStream@@@Z
+    // 0x480690 | ?Load@VehGyro@@QAEXPAVStream@@@Z | unused
     void Load(class Stream* arg1);
 
-    // 0x480700 | ?Save@VehGyro@@QAEXPAVStream@@@Z
+    // 0x480700 | ?Save@VehGyro@@QAEXPAVStream@@@Z | unused
     void Save(class Stream* arg1);
 
     // 0x480780 | ?Update@VehGyro@@UAEXXZ

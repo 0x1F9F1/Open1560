@@ -52,7 +52,7 @@ public:
     // 0x47D410 | ?GetClass@mmShock@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x47D210 | ?Init@mmShock@@QAEXPAD0PAVmmWheel@@@Z
+    // 0x47D210 | ?Init@mmShock@@QAEXPAD0PAVmmWheel@@@Z | unused
     void Init(char* arg1, char* arg2, class mmWheel* arg3);
 
     // 0x47D270 | ?Update@mmShock@@UAEXXZ

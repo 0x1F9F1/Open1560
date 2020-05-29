@@ -112,7 +112,7 @@
 
 #include "arts7/node.h"
 
-// 0x4E06E0 | ?testsuperq@@YAXXZ
+// 0x4E06E0 | ?testsuperq@@YAXXZ | unused
 void testsuperq();
 
 // 0x719254 | ?GameInputPtr@@3PAVmmInput@@A
@@ -256,10 +256,10 @@ public:
     // 0x4E3A00 | ?JoystickHasCoolie@mmInput@@QAEHXZ
     i32 JoystickHasCoolie();
 
-    // 0x4E3A10 | ?JoystickHasThrottle@mmInput@@QAEHXZ
+    // 0x4E3A10 | ?JoystickHasThrottle@mmInput@@QAEHXZ | unused
     i32 JoystickHasThrottle();
 
-    // 0x4E3C50 | ?LoadConfig@mmInput@@QAEHPAVStream@@@Z
+    // 0x4E3C50 | ?LoadConfig@mmInput@@QAEHPAVStream@@@Z | unused
     i32 LoadConfig(class Stream* arg1);
 
     // 0x4E2370 | ?PollStates@mmInput@@QAEHXZ
@@ -271,7 +271,7 @@ public:
     // 0x4E3C20 | ?PopEvent@mmInput@@QAEHPAH@Z
     i32 PopEvent(i32* arg1);
 
-    // 0x4E42A0 | ?PrintIODev@mmInput@@QAEXXZ
+    // 0x4E42A0 | ?PrintIODev@mmInput@@QAEXXZ | unused
     void PrintIODev();
 
     // 0x4E0EA0 | ?Reset@mmInput@@UAEXXZ
@@ -292,19 +292,19 @@ public:
     // 0x4E4370 | ?SaveCodeConfig@mmInput@@QAEHPAVStream@@@Z
     i32 SaveCodeConfig(class Stream* arg1);
 
-    // 0x4E3DA0 | ?SaveConfig@mmInput@@QAEHPAVStream@@@Z
+    // 0x4E3DA0 | ?SaveConfig@mmInput@@QAEHPAVStream@@@Z | unused
     i32 SaveConfig(class Stream* arg1);
 
-    // 0x4E39D0 | ?SetDeadZone@mmInput@@QAEXM@Z
+    // 0x4E39D0 | ?SetDeadZone@mmInput@@QAEXM@Z | unused
     void SetDeadZone(f32 arg1);
 
     // 0x4E1070 | ?SetDefaultConfig@mmInput@@QAEXH@Z
     void SetDefaultConfig(i32 arg1);
 
-    // 0x4E3AA0 | ?SetForceFeedbackScale@mmInput@@QAEXM@Z
+    // 0x4E3AA0 | ?SetForceFeedbackScale@mmInput@@QAEXM@Z | unused
     void SetForceFeedbackScale(f32 arg1);
 
-    // 0x4E3AF0 | ?SetRoadForceScale@mmInput@@QAEXM@Z
+    // 0x4E3AF0 | ?SetRoadForceScale@mmInput@@QAEXM@Z | unused
     void SetRoadForceScale(f32 arg1);
 
     // 0x4E3A90 | ?StopAllFF@mmInput@@QAEXXZ
@@ -319,7 +319,7 @@ public:
     // 0x4E39C0 | ?WheelConnected@mmInput@@QAEHXZ
     i32 WheelConnected();
 
-    // 0x4E3A20 | ?WheelHas3Axis@mmInput@@QAEHXZ
+    // 0x4E3A20 | ?WheelHas3Axis@mmInput@@QAEHXZ | unused
     i32 WheelHas3Axis();
 
     // 0x4E40E0 | ?DeclareFields@mmInput@@SAXXZ
@@ -329,7 +329,7 @@ private:
     // 0x4E3EB0 | ?AddWidgets@mmInput@@EAEXPAVBank@@@Z
     void AddWidgets(class Bank* arg1) override;
 
-    // 0x4E2890 | ?EventToButton@mmInput@@AAEHH@Z
+    // 0x4E2890 | ?EventToButton@mmInput@@AAEHH@Z | unused
     i32 EventToButton(i32 arg1);
 
     // 0x4E34B0 | ?FilterDiscreteSteering@mmInput@@AAEMM@Z

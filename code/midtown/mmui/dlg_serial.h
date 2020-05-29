@@ -52,7 +52,7 @@ public:
     // 0x4A01F0 | ?GetCommPack@Dialog_Serial@@QAEPAUNETCOMMPACK@@XZ
     struct NETCOMMPACK* GetCommPack();
 
-    // 0x4A0120 | ?IPAddressCallback@Dialog_Serial@@QAEXXZ
+    // 0x4A0120 | ?IPAddressCallback@Dialog_Serial@@QAEXXZ | unused
     void IPAddressCallback();
 
     // 0x4A0110 | ?PreSetup@Dialog_Serial@@UAEXXZ

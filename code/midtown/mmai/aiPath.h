@@ -118,13 +118,13 @@ public:
     // 0x43E670 | ?CenterLength@aiPath@@QAEMHH@Z
     f32 CenterLength(i32 arg1, i32 arg2);
 
-    // 0x43E8E0 | ?CenterPosition@aiPath@@QAEXMAAVVector3@@@Z
+    // 0x43E8E0 | ?CenterPosition@aiPath@@QAEXMAAVVector3@@@Z | unused
     void CenterPosition(f32 arg1, class Vector3& arg2);
 
     // 0x440020 | ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z
     class Vector3* CenterVertice(i32 arg1);
 
-    // 0x43F9D0 | ?ContinuityError@aiPath@@QAEHH@Z
+    // 0x43F9D0 | ?ContinuityError@aiPath@@QAEHH@Z | unused
     i32 ContinuityError(i32 arg1);
 
     // 0x43E0C0 | ?Draw@aiPath@@QAEXXZ
@@ -136,10 +136,10 @@ public:
     // 0x43E280 | ?DrawNormals@aiPath@@QAEXXZ
     void DrawNormals();
 
-    // 0x43E3E0 | ?DrawVehicleIds@aiPath@@QAEXXZ
+    // 0x43E3E0 | ?DrawVehicleIds@aiPath@@QAEXXZ | unused
     void DrawVehicleIds();
 
-    // 0x43E450 | ?Dump@aiPath@@QAEXXZ
+    // 0x43E450 | ?Dump@aiPath@@QAEXXZ | unused
     void Dump();
 
     // 0x43E6B0 | ?GetHeading@aiPath@@QAEMMH@Z
@@ -160,7 +160,7 @@ public:
     // 0x43F910 | ?IntersectionExitVector@aiPath@@QAEXAAVVector3@@M@Z
     void IntersectionExitVector(class Vector3& arg1, f32 arg2);
 
-    // 0x459E90 | ?LBoundary@aiPath@@QAEPAVVector3@@H@Z
+    // 0x459E90 | ?LBoundary@aiPath@@QAEPAVVector3@@H@Z | inline
     class Vector3* LBoundary(i32 arg1);
 
     // 0x43F980 | ?NumVehiclesAfterDist@aiPath@@QAEHHM@Z
@@ -199,7 +199,7 @@ public:
     // 0x43E5D0 | ?StopDestinationSources@aiPath@@QAEXH@Z
     void StopDestinationSources(i32 arg1);
 
-    // 0x43E510 | ?StopIncomingRoads@aiPath@@QAEXH@Z
+    // 0x43E510 | ?StopIncomingRoads@aiPath@@QAEXH@Z | unused
     void StopIncomingRoads(i32 arg1);
 
     // 0x43F780 | ?SubSectionDir@aiPath@@QAEXAAVVector3@@HHM@Z

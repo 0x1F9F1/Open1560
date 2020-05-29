@@ -68,10 +68,10 @@ public:
     // 0x4FD550 | ?InRange@Spline@@QAEHXZ
     i32 InRange();
 
-    // 0x4FD420 | ?Init@Spline@@QAEXPAMH@Z
+    // 0x4FD420 | ?Init@Spline@@QAEXPAMH@Z | unused
     void Init(f32* arg1, i32 arg2);
 
-    // 0x4FD9F0 | ?Print@Spline@@QAEXH@Z
+    // 0x4FD9F0 | ?Print@Spline@@QAEXH@Z | unused
     void Print(i32 arg1);
 
     // 0x4FD790 | ?SetGoal@Spline@@QAEXPAMM@Z

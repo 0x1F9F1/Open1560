@@ -169,7 +169,7 @@ public:
     // 0x48F8C0 | ?DeclareFields@mmCullCity@@SAXXZ
     static void DeclareFields();
 
-    // 0x4A9F40 | ?GetInstance@mmCullCity@@SAPAV1@XZ
+    // 0x4A9F40 | ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
     static class mmCullCity* GetInstance();
 
 private:
@@ -310,17 +310,17 @@ public:
     // 0x48FCB0 | ??1mmBangerManager@@UAE@XZ
     ~mmBangerManager() override;
 
-    // 0x4CAC70 | ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ
+    // 0x4CAC70 | ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ | inline
     class mmHitBangerInstance* GetBanger();
 
-    // 0x4CACD0 | ?Init@mmBangerManager@@QAEXH@Z
+    // 0x4CACD0 | ?Init@mmBangerManager@@QAEXH@Z | inline
     void Init(i32 arg1);
 
-    // 0x4CAD90 | ?Reset@mmBangerManager@@UAEXXZ
+    // 0x4CAD90 | ?Reset@mmBangerManager@@UAEXXZ | inline
     void Reset() override;
 
 protected:
-    // 0x706048 | ?Instance@mmBangerManager@@1PAV1@A
+    // 0x706048 | ?Instance@mmBangerManager@@1PAV1@A | inline
     static inline extern_var(0x706048, class mmBangerManager*, Instance);
 };
 

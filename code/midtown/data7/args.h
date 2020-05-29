@@ -47,7 +47,7 @@ public:
     // 0x578DD0 | ?ParseArgs@ArgSet@@QAEXHPAPAD@Z
     void ParseArgs(i32 arg1, char** arg2);
 
-    // 0x578D80 | ?Print@ArgSet@@QAEXPAD@Z
+    // 0x578D80 | ?Print@ArgSet@@QAEXPAD@Z | unused
     void Print(char* arg1);
 
     // 0x579010 | ?Usage@ArgSet@@QAEXXZ

@@ -37,13 +37,13 @@ public:
     // 0x491E00 | ??0mmPositions@@QAE@XZ
     mmPositions();
 
-    // 0x492050 | ?Dump@mmPositions@@QAEXPAD@Z
+    // 0x492050 | ?Dump@mmPositions@@QAEXPAD@Z | unused
     void Dump(char* arg1);
 
     // 0x492010 | ?GetCount@mmPositions@@QAEHXZ
     i32 GetCount();
 
-    // 0x492020 | ?GetVector4@mmPositions@@QAEAAVVector4@@H@Z
+    // 0x492020 | ?GetVector4@mmPositions@@QAEAAVVector4@@H@Z | unused
     class Vector4& GetVector4(i32 arg1);
 
     // 0x491E10 | ?Init@mmPositions@@QAEXH@Z

@@ -74,7 +74,7 @@ private:
     i32 GetCorner(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
         class Vector3& arg5, class Vector3& arg6, f32& arg7);
 
-    // 0x51ADA0 | ?GetST@mmPolygon@@AAEXPAVVector3@@0PAVmmBoundTemplate@@@Z
+    // 0x51ADA0 | ?GetST@mmPolygon@@AAEXPAVVector3@@0PAVmmBoundTemplate@@@Z | unused
     void GetST(class Vector3* arg1, class Vector3* arg2, class mmBoundTemplate* arg3);
 
     // 0x51A820 | ?Init@mmPolygon@@AAEXXZ

@@ -68,7 +68,7 @@ public:
     // 0x4B5360 | ?AddComponent@UICompositeScroll@@QAEXPAVmmCompBase@@@Z
     void AddComponent(class mmCompBase* arg1);
 
-    // 0x4B5430 | ?AddTitle@UICompositeScroll@@QAEXPAVmmCompBase@@@Z
+    // 0x4B5430 | ?AddTitle@UICompositeScroll@@QAEXPAVmmCompBase@@@Z | unused
     void AddTitle(class mmCompBase* arg1);
 
     // 0x4B5920 | ?CaptureAction@UICompositeScroll@@UAEXTeqEvent@@@Z
@@ -77,7 +77,7 @@ public:
     // 0x4B59D0 | ?Clear@UICompositeScroll@@QAEXXZ
     void Clear();
 
-    // 0x4B59F0 | ?GetHeight@UICompositeScroll@@QAEMXZ
+    // 0x4B59F0 | ?GetHeight@UICompositeScroll@@QAEMXZ | unused
     f32 GetHeight();
 
     // 0x4B5720 | ?GetHit@UICompositeScroll@@QAEHMM@Z

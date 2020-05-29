@@ -39,7 +39,7 @@
     0x61E800 | const mmCompDRecord::`vftable' | ??_7mmCompDRecord@@6B@
 */
 
-#include "comprrec.h"
+#include "compbase.h"
 
 class mmCompDRecord : public mmCompBase
 {

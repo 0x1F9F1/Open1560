@@ -31,10 +31,10 @@
 struct mmFacadeBangerInstance
 {
 public:
-    // 0x4CB940 | ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ
+    // 0x4CB940 | ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ | unused
     class Vector3& __fastcall GetPos();
 
-    // 0x4CB890 | ?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
+    // 0x4CB890 | ?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | unused
     class Matrix34& __fastcall ToMatrix(class Matrix34& arg1);
 };
 
@@ -43,7 +43,7 @@ check_size(mmFacadeBangerInstance, 0x0);
 struct mmGlassBangerInstance
 {
 private:
-    // 0x4CB9C0 | ?Draw@mmGlassBangerInstance@@EAIXH@Z
+    // 0x4CB9C0 | ?Draw@mmGlassBangerInstance@@EAIXH@Z | unused
     void __fastcall Draw(i32 arg1);
 };
 

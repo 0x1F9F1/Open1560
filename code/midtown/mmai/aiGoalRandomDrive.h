@@ -69,7 +69,7 @@ public:
     // 0x45C8D0 | ?Reset@aiGoalRandomDrive@@UAEXXZ
     void Reset() override;
 
-    // 0x45E250 | ?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z
+    // 0x45E250 | ?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z | unused
     void SolvePosition(class Vector3& arg1, f32 arg2);
 
     // 0x45D320 | ?Update@aiGoalRandomDrive@@UAEXXZ

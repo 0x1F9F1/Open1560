@@ -151,19 +151,19 @@ public:
 
     virtual class Vector3& __fastcall GetPos() = 0;
 
-    // 0x433DB0 | ?GetEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ
+    // 0x433DB0 | ?GetEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ | inline
     virtual class mmPhysEntity* GetEntity();
 
-    // 0x433DC0 | ?AttachEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ
+    // 0x433DC0 | ?AttachEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ | inline
     virtual class mmPhysEntity* AttachEntity();
 
-    // 0x433DD0 | ?GetVelocity@mmInstance@@UAE?AVVector3@@XZ
+    // 0x433DD0 | ?GetVelocity@mmInstance@@UAE?AVVector3@@XZ | inline
     virtual class Vector3 GetVelocity();
 
-    // 0x433DF0 | ?Impact@mmInstance@@UAEXPAV1@PAVVector3@@@Z
+    // 0x433DF0 | ?Impact@mmInstance@@UAEXPAV1@PAVVector3@@@Z | inline
     virtual void Impact(class mmInstance* arg1, class Vector3* arg2);
 
-    // 0x433E00 | ?Detach@mmInstance@@UAEXXZ
+    // 0x433E00 | ?Detach@mmInstance@@UAEXXZ | inline
     virtual void Detach();
 
     // 0x492AA0 | ?Draw@mmInstance@@UAIXH@Z
@@ -210,7 +210,7 @@ public:
     // 0x493250 | ?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
     void InitMeshes(char* arg1, i32 arg2, char* arg3, class Vector3* arg4);
 
-    // 0x430690 | ??3mmInstance@@SAXPAX@Z
+    // 0x430690 | ??3mmInstance@@SAXPAX@Z | inline
     static void operator delete(void* arg1);
 
     // 0x494A10 | ?DeclareFields@mmInstance@@SAXXZ
@@ -449,7 +449,7 @@ public:
     // 0x4951C0 | ?GetClass@mmStaticInstance@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x493610 | ?Init@mmStaticInstance@@QAEHPADAAVVector3@@1MH0@Z
+    // 0x493610 | ?Init@mmStaticInstance@@QAEHPADAAVVector3@@1MH0@Z | unused
     i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, i32 arg5, char* arg6);
 
     // 0x494220 | ?Relight@mmStaticInstance@@UAIXXZ

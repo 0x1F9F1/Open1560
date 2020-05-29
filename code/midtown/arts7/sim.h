@@ -104,7 +104,7 @@ public:
     // 0x522600 | ?Device@asSimulation@@QAEXXZ
     void Device();
 
-    // 0x522D30 | ?EndOverSample@asSimulation@@QAEXXZ
+    // 0x522D30 | ?EndOverSample@asSimulation@@QAEXXZ | unused
     void EndOverSample();
 
     // 0x522D60 | ?EndOverSample@asSimulation@@QAEXH@Z
@@ -113,10 +113,10 @@ public:
     // 0x5222A0 | ?FirstUpdate@asSimulation@@QAEXXZ
     void FirstUpdate();
 
-    // 0x522DF0 | ?FixedFrame@asSimulation@@QAEXMH@Z
+    // 0x522DF0 | ?FixedFrame@asSimulation@@QAEXMH@Z | unused
     void FixedFrame(f32 arg1, i32 arg2);
 
-    // 0x522E30 | ?FrameLock@asSimulation@@QAEXHH@Z
+    // 0x522E30 | ?FrameLock@asSimulation@@QAEXHH@Z | unused
     void FrameLock(i32 arg1, i32 arg2);
 
     // 0x5236A0 | ?GetClass@asSimulation@@UAEPAVMetaClass@@XZ
@@ -125,7 +125,7 @@ public:
     // 0x521C40 | ?Init@asSimulation@@QAEXPADHPAPAD@Z
     void Init(char* arg1, i32 arg2, char** arg3);
 
-    // 0x522FA0 | ?OpenPhysicsBank@asSimulation@@QAEXXZ
+    // 0x522FA0 | ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
     void OpenPhysicsBank();
 
     // 0x522EC0 | ?Pause@asSimulation@@QAEXXZ
@@ -161,19 +161,19 @@ public:
 
 check_size(asSimulation, 0x2B0);
 
-// 0x522FC0 | ?InitBank@@YAXHPAPAD@Z
+// 0x522FC0 | ?InitBank@@YAXHPAPAD@Z | unused
 void InitBank(i32 arg1, char** arg2);
 
 // 0x523210 | ?InitPipeline@@YAHPADHPAPAD@Z
 i32 InitPipeline(char* arg1, i32 arg2, char** arg3);
 
-// 0x523340 | ?RestartPipeline@@YAHHHHHH@Z
+// 0x523340 | ?RestartPipeline@@YAHHHHHH@Z | unused
 i32 RestartPipeline(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
 // 0x5232D0 | ?ShutdownPipeline@@YAXXZ
 void ShutdownPipeline();
 
-// 0x5225F0 | ?invert@@YANN@Z
+// 0x5225F0 | ?invert@@YANN@Z | unused
 f64 invert(f64 arg1);
 
 // 0x5237B0 | ??_9@$BBM@AE (Skipped: void)

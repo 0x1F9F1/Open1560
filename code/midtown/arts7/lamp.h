@@ -57,7 +57,7 @@ public:
     // 0x526290 | ?Cull@asLamp@@UAEXXZ
     void Cull() override;
 
-    // 0x5262E0 | ?FileIO@asLamp@@QAEXPAVMiniParser@@@Z
+    // 0x5262E0 | ?FileIO@asLamp@@QAEXPAVMiniParser@@@Z | unused
     void FileIO(class MiniParser* arg1);
 
     // 0x5267E0 | ?GetClass@asLamp@@UAEPAVMetaClass@@XZ
@@ -69,7 +69,7 @@ public:
     // 0x526170 | ?SetDistant@asLamp@@QAEXXZ
     void SetDistant();
 
-    // 0x526180 | ?SetPoint@asLamp@@QAEXXZ
+    // 0x526180 | ?SetPoint@asLamp@@QAEXXZ | unused
     void SetPoint();
 
     // 0x526190 | ?Update@asLamp@@UAEXXZ

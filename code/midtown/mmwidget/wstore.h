@@ -47,7 +47,7 @@ public:
     // 0x4AC0C0 | ?DumpMenu@WArray@@QAEXPAVStream@@PAVUIMenu@@@Z
     void DumpMenu(class Stream* arg1, class UIMenu* arg2);
 
-    // 0x4AC320 | ?Flush@WArray@@QAEXXZ
+    // 0x4AC320 | ?Flush@WArray@@QAEXXZ | unused
     void Flush();
 
     // 0x4ABE60 | ?Init@WArray@@QAEXH@Z

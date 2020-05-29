@@ -60,14 +60,14 @@ class mmBangerInstance : public mmInstance
     // const mmBangerInstance::`vftable' @ 0x61B480
 
 public:
-    // 0x4446F0 | ??0mmBangerInstance@@QAE@XZ
+    // 0x4446F0 | ??0mmBangerInstance@@QAE@XZ | inline
     mmBangerInstance();
 
     // 0x444720 | ??_EmmBangerInstance@@UAEPAXI@Z
     // 0x444740 | ??1mmBangerInstance@@UAE@XZ
     ~mmBangerInstance() override;
 
-    // 0x444710 | ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z
+    // 0x444710 | ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z | inline
     void AddWidgets(class Bank* arg1) override;
 
     // 0x4CA490 | ?AttachEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
@@ -102,7 +102,7 @@ class mmUnhitBangerInstance : public mmBangerInstance
     // const mmUnhitBangerInstance::`vftable' @ 0x61CED8
 
 public:
-    // 0x4C4E20 | ??0mmUnhitBangerInstance@@QAE@XZ
+    // 0x4C4E20 | ??0mmUnhitBangerInstance@@QAE@XZ | inline
     mmUnhitBangerInstance();
 
     // 0x48FC50 | ??_GmmUnhitBangerInstance@@UAEPAXI@Z
@@ -127,7 +127,7 @@ public:
     // 0x4CA830 | ?Reset@mmUnhitBangerInstance@@UAEXXZ
     void Reset() override;
 
-    // 0x444750 | ?SizeOf@mmUnhitBangerInstance@@UAEIXZ
+    // 0x444750 | ?SizeOf@mmUnhitBangerInstance@@UAEIXZ | inline
     u32 SizeOf() override;
 
     // 0x4CA880 | ?ToMatrix@mmUnhitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z

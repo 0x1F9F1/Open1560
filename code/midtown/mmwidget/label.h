@@ -56,7 +56,7 @@ public:
     // 0x4B96F0 | ?Init@UILabel@@QAEXPAULocString@@HMMMMH@Z
     void Init(struct LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7);
 
-    // 0x4B9820 | ?SetBlink@UILabel@@QAEXH@Z
+    // 0x4B9820 | ?SetBlink@UILabel@@QAEXH@Z | unused
     void SetBlink(i32 arg1);
 
     // 0x4B97B0 | ?SetText@UILabel@@QAEXPAULocString@@@Z

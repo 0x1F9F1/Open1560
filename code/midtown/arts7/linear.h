@@ -52,7 +52,7 @@ public:
     // 0x525C00 | ?Cull@asLinearCS@@UAEXXZ
     void Cull() override;
 
-    // 0x525CB0 | ?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z
+    // 0x525CB0 | ?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z | unused
     void FileIO(class MiniParser* arg1);
 
     // 0x525FF0 | ?GetClass@asLinearCS@@UAEPAVMetaClass@@XZ

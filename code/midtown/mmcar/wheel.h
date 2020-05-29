@@ -88,13 +88,13 @@ public:
     void Init(char* arg1, char* arg2, class Vector3 arg3, class asInertialCS* arg4, i32 arg5,
         class mmBoundTemplate* arg6, i32 arg7);
 
-    // 0x47F3B0 | ?Load@mmWheel@@QAEXPAVStream@@@Z
+    // 0x47F3B0 | ?Load@mmWheel@@QAEXPAVStream@@@Z | unused
     void Load(class Stream* arg1);
 
     // 0x47F2D0 | ?Reset@mmWheel@@UAEXXZ
     void Reset() override;
 
-    // 0x47F4B0 | ?Save@mmWheel@@QAEXPAVStream@@@Z
+    // 0x47F4B0 | ?Save@mmWheel@@QAEXPAVStream@@@Z | unused
     void Save(class Stream* arg1);
 
     // 0x47F380 | ?SetFricMultiplier@mmWheel@@QAEXM@Z

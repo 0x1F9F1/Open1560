@@ -94,7 +94,7 @@ public:
     // 0x477A70 | ?ToMatrix@mmSkid@@UAIAAVMatrix34@@AAV2@@Z
     class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
 
-    // 0x477A90 | ?Update@mmSkid@@QAEXXZ
+    // 0x477A90 | ?Update@mmSkid@@QAEXXZ | unused
     void Update();
 
     // 0x478180 | ?DeclareFields@mmSkid@@SAXXZ

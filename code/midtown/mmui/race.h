@@ -49,10 +49,10 @@ public:
     // 0x4A4CF0 | ??1RaceMenu@@UAE@XZ
     ~RaceMenu() override;
 
-    // 0x4A4D00 | ?GetRaceID@RaceMenu@@QAEHXZ
+    // 0x4A4D00 | ?GetRaceID@RaceMenu@@QAEHXZ | unused
     i32 GetRaceID();
 
-    // 0x4A4E10 | ?GetRaceName@RaceMenu@@QAEPADW4mmGameMode@@H@Z
+    // 0x4A4E10 | ?GetRaceName@RaceMenu@@QAEPADW4mmGameMode@@H@Z | unused
     char* GetRaceName(enum mmGameMode arg1, i32 arg2);
 
     // 0x4A4DB0 | ?SetBlitzMask@RaceMenu@@QAEXH@Z

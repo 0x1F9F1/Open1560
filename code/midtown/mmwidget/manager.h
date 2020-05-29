@@ -102,7 +102,7 @@ public:
     // 0x4AEF20 | ??1MenuManager@@UAE@XZ
     ~MenuManager() override;
 
-    // 0x4B14E0 | ?ActionID@MenuManager@@QAEHH@Z
+    // 0x4B14E0 | ?ActionID@MenuManager@@QAEHH@Z | unused
     i32 ActionID(i32 arg1);
 
     // 0x4B1980 | ?AddBrackets@MenuManager@@QAEXPAVUIIcon@@0PAVuiWidget@@MM@Z
@@ -141,7 +141,7 @@ public:
     // 0x4B0DC0 | ?DeclareLastDrawn@MenuManager@@QAEXPAVasNode@@@Z
     void DeclareLastDrawn(class asNode* arg1);
 
-    // 0x4B16D0 | ?DeleteMenu@MenuManager@@QAEXPAVUIMenu@@@Z
+    // 0x4B16D0 | ?DeleteMenu@MenuManager@@QAEXPAVUIMenu@@@Z | unused
     void DeleteMenu(class UIMenu* arg1);
 
     // 0x4B0C00 | ?Disable@MenuManager@@QAEXH@Z
@@ -258,7 +258,7 @@ public:
     // 0x4B0EE0 | ?ToggleFocus@MenuManager@@QAEXH@Z
     void ToggleFocus(i32 arg1);
 
-    // 0x4B09B0 | ?TogglePU@MenuManager@@QAEXXZ
+    // 0x4B09B0 | ?TogglePU@MenuManager@@QAEXXZ | unused
     void TogglePU();
 
     // 0x4B0E00 | ?Update@MenuManager@@UAEXXZ

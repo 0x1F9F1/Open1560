@@ -73,7 +73,7 @@ public:
     void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7, i32 arg8,
         i32 arg9, i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
 
-    // 0x4BB890 | ?SetData@UITextRoller2@@QAEXPAH@Z
+    // 0x4BB890 | ?SetData@UITextRoller2@@QAEXPAH@Z | unused
     void SetData(i32* arg1);
 
     // 0x4BB7C0 | ?SetString@UITextRoller2@@QAEXVstring@@@Z

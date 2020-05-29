@@ -132,7 +132,7 @@ private:
     // 0x429BC0 | ?BitmapToScreen@mmHudMap@@AAEHPAUPoint@@U2@@Z
     i32 BitmapToScreen(struct Point* arg1, struct Point arg2);
 
-    // 0x428FE0 | ?DrawCentered@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@@Z
+    // 0x428FE0 | ?DrawCentered@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@@Z | unused
     void DrawCentered(class agiBitmap* arg1, struct Point arg2);
 
     // 0x429050 | ?DrawClipped@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@MMMM@Z
@@ -147,7 +147,7 @@ private:
     // 0x4295F0 | ?DrawOpponents@mmHudMap@@AAEXXZ
     void DrawOpponents();
 
-    // 0x429410 | ?DrawOriented@mmHudMap@@AAEXPAVMatrix34@@I@Z
+    // 0x429410 | ?DrawOriented@mmHudMap@@AAEXPAVMatrix34@@I@Z | unused
     void DrawOriented(class Matrix34* arg1, u32 arg2);
 
     // 0x4291F0 | ?DrawOrientedBitmap@mmHudMap@@AAEXPAVMatrix34@@PAVagiBitmap@@@Z
@@ -156,7 +156,7 @@ private:
     // 0x429720 | ?DrawWaypoints@mmHudMap@@AAEXXZ
     void DrawWaypoints();
 
-    // 0x4299A0 | ?FlushVerts@mmHudMap@@AAEXXZ
+    // 0x4299A0 | ?FlushVerts@mmHudMap@@AAEXXZ | unused
     void FlushVerts();
 
     // 0x428BF0 | ?GetCurrentMap@mmHudMap@@AAEPAVagiBitmap@@XZ

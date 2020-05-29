@@ -43,10 +43,10 @@ public:
     // 0x4D39F0 | ??1mmVehInfo@@UAE@XZ
     virtual ~mmVehInfo();
 
-    // 0x4D3BE0 | ?HasColorVariations@mmVehInfo@@QAEHXZ
+    // 0x4D3BE0 | ?HasColorVariations@mmVehInfo@@QAEHXZ | unused
     i32 HasColorVariations();
 
-    // 0x49C590 | ?IsValid@mmVehInfo@@QAEHXZ
+    // 0x49C590 | ?IsValid@mmVehInfo@@QAEHXZ | inline
     i32 IsValid();
 
     // 0x4D3A00 | ?Load@mmVehInfo@@QAEHPAD@Z

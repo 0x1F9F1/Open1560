@@ -55,7 +55,7 @@ public:
     // 0x4FE2C0 | ?SetAlpha@Card2D@@QAEXM@Z
     void SetAlpha(f32 arg1);
 
-    // 0x49C530 | ?SetColor@Card2D@@QAEXVVector4@@@Z
+    // 0x49C530 | ?SetColor@Card2D@@QAEXVVector4@@@Z | inline
     void SetColor(class Vector4 arg1);
 
     // 0x4FE1B0 | ?SetDimensions@Card2D@@QAEXMMMM@Z

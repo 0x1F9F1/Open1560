@@ -45,13 +45,13 @@
 class Vector2
 {
 public:
-    // 0x430350 | ??0Vector2@@QAE@ABV0@@Z
+    // 0x430350 | ??0Vector2@@QAE@ABV0@@Z | inline
     Vector2(class Vector2 const& arg1);
 
-    // 0x571110 | ??KVector2@@QBE?AV0@M@Z
+    // 0x571110 | ??KVector2@@QBE?AV0@M@Z | unused
     class Vector2 operator/(f32 arg1);
 
-    // 0x571170 | ??SVector2@@QBE?AV0@XZ
+    // 0x571170 | ??SVector2@@QBE?AV0@XZ | unused
     class Vector2 operator~();
 
     // 0x571260 | ?InvMag@Vector2@@QBEMXZ
@@ -66,19 +66,19 @@ check_size(Vector2, 0x0);
 class Vector2Array
 {
 public:
-    // 0x571460 | ??4Vector2Array@@QAEXAAV0@@Z
+    // 0x571460 | ??4Vector2Array@@QAEXAAV0@@Z | unused
     void operator=(class Vector2Array& arg1);
 
-    // 0x5713F0 | ??AVector2Array@@QAEAAVVector2@@H@Z
+    // 0x5713F0 | ??AVector2Array@@QAEAAVVector2@@H@Z | unused
     class Vector2& operator[](i32 arg1);
 
-    // 0x571540 | ?BlockCopy@Vector2Array@@QAEXAAV1@@Z
+    // 0x571540 | ?BlockCopy@Vector2Array@@QAEXAAV1@@Z | unused
     void BlockCopy(class Vector2Array& arg1);
 
     // 0x571330 | ?Delete@Vector2Array@@QAEXXZ
     void Delete();
 
-    // 0x5712C0 | ?Init@Vector2Array@@QAEXH@Z
+    // 0x5712C0 | ?Init@Vector2Array@@QAEXH@Z | unused
     void Init(i32 arg1);
 
 private:

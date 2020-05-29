@@ -96,11 +96,11 @@ public:
 
 check_size(agiDDPipeline, 0x0);
 
-// 0x5328D0 | ?DDCallback@@YGHPAU_GUID@@PAD1PAX@Z
+// 0x5328D0 | ?DDCallback@@YGHPAU_GUID@@PAD1PAX@Z | unused
 i32 __stdcall DDCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
 
-// 0x532950 | ?EnumModesCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z
+// 0x532950 | ?EnumModesCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z | unused
 i32 __stdcall EnumModesCallback(struct _DDSURFACEDESC2* arg1, void* arg2);
 
-// 0x532A00 | ?EnumSurfsCallback@@YGJPAUIDirectDrawSurface@@PAU_DDSURFACEDESC@@PAX@Z
+// 0x532A00 | ?EnumSurfsCallback@@YGJPAUIDirectDrawSurface@@PAU_DDSURFACEDESC@@PAX@Z | unused
 i32 __stdcall EnumSurfsCallback(struct IDirectDrawSurface* arg1, struct _DDSURFACEDESC* arg2, void* arg3);

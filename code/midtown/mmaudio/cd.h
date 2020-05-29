@@ -59,7 +59,7 @@ public:
     // 0x4F4430 | ?ResumePlay@CDMan@@QAEKXZ
     u32 ResumePlay();
 
-    // 0x4F45A0 | ?SeekTrack@CDMan@@QAEKE@Z
+    // 0x4F45A0 | ?SeekTrack@CDMan@@QAEKE@Z | unused
     u32 SeekTrack(u8 arg1);
 
     // 0x4F4560 | ?Stop@CDMan@@QAEKXZ

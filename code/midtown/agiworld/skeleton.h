@@ -44,16 +44,16 @@ public:
     // 0x514C50 | ??1bnSkeleton@@QAE@XZ
     ~bnSkeleton();
 
-    // 0x515080 | ?Attach@bnSkeleton@@QAEXQAVMatrix34@@@Z
+    // 0x515080 | ?Attach@bnSkeleton@@QAEXQAVMatrix34@@@Z | unused
     void Attach(class Matrix34* const arg1);
 
-    // 0x515070 | ?Draw@bnSkeleton@@QAEXXZ
+    // 0x515070 | ?Draw@bnSkeleton@@QAEXXZ | unused
     void Draw();
 
     // 0x515100 | ?FindBone@bnSkeleton@@QAEPAVbnBone@@PADHD@Z
     class bnBone* FindBone(char* arg1, i32 arg2, char arg3);
 
-    // 0x515220 | ?HowMany@bnSkeleton@@QAEHPADD@Z
+    // 0x515220 | ?HowMany@bnSkeleton@@QAEHPADD@Z | unused
     i32 HowMany(char* arg1, char arg2);
 
     // 0x514C70 | ?Load@bnSkeleton@@QAEHPBD@Z
@@ -62,7 +62,7 @@ public:
     // 0x5150B0 | ?Pose@bnSkeleton@@QAEXPBVVector3@@@Z
     void Pose(class Vector3 const* arg1);
 
-    // 0x514FA0 | ?Save@bnSkeleton@@QAEHPBD@Z
+    // 0x514FA0 | ?Save@bnSkeleton@@QAEHPBD@Z | unused
     i32 Save(char const* arg1);
 
     // 0x515050 | ?Transform@bnSkeleton@@QAEXPAVMatrix34@@@Z
@@ -77,7 +77,7 @@ public:
     // 0x515260 | ?Load@bnAnimation@@QAEHPAD@Z
     i32 Load(char* arg1);
 
-    // 0x5153F0 | ?Lookup@bnAnimation@@SAPAV1@PAD@Z
+    // 0x5153F0 | ?Lookup@bnAnimation@@SAPAV1@PAD@Z | unused
     static class bnAnimation* Lookup(char* arg1);
 };
 

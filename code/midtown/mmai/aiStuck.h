@@ -51,7 +51,7 @@ public:
     // 0x46B770 | ?AddWidgets@aiStuck@@UAEXPAVBank@@@Z
     void AddWidgets(class Bank* arg1) override;
 
-    // 0x46B4C0 | ?Impact@aiStuck@@QAEXXZ
+    // 0x46B4C0 | ?Impact@aiStuck@@QAEXXZ | unused
     void Impact();
 
     // 0x46B4A0 | ?Init@aiStuck@@QAEXPAVmmCarSim@@@Z

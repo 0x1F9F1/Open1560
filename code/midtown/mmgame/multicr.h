@@ -156,7 +156,7 @@ public:
     static void DeclareFields();
 
 private:
-    // 0x41F570 | ?CycleInterest@mmMultiCR@@AAEXH@Z
+    // 0x41F570 | ?CycleInterest@mmMultiCR@@AAEXH@Z | unused
     void CycleInterest(i32 arg1);
 
     // 0x41F130 | ?DisplayTimeWarning@mmMultiCR@@AAEXH@Z
@@ -180,10 +180,10 @@ private:
     // 0x41F530 | ?Score@mmMultiCR@@AAEXH@Z
     void Score(i32 arg1);
 
-    // 0x41D330 | ?SelectTeams@mmMultiCR@@AAEHXZ
+    // 0x41D330 | ?SelectTeams@mmMultiCR@@AAEHXZ | unused
     i32 SelectTeams();
 
-    // 0x41F350 | ?SendChangeSet@mmMultiCR@@AAEXH@Z
+    // 0x41F350 | ?SendChangeSet@mmMultiCR@@AAEXH@Z | unused
     void SendChangeSet(i32 arg1);
 
     // 0x41F1C0 | ?SendGameState@mmMultiCR@@AAEXK@Z
@@ -201,7 +201,7 @@ private:
     // 0x41F390 | ?SendLimitReached@mmMultiCR@@AAEXH@Z
     void SendLimitReached(i32 arg1);
 
-    // 0x41F260 | ?SendSetup@mmMultiCR@@AAEXK@Z
+    // 0x41F260 | ?SendSetup@mmMultiCR@@AAEXK@Z | unused
     void SendSetup(u32 arg1);
 
     // 0x41F3D0 | ?SendTimeWarning@mmMultiCR@@AAEXH@Z

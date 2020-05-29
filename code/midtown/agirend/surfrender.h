@@ -112,7 +112,7 @@ class agiRenderer
     // const agiRenderer::`vftable' @ 0x6214D0
 
 public:
-    // 0x55DD80 | ??0agiRenderer@@QAE@XZ
+    // 0x55DD80 | ??0agiRenderer@@QAE@XZ | inline
     agiRenderer();
 
 protected:

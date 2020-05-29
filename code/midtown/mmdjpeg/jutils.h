@@ -29,7 +29,7 @@
     0x6220E8 | int const * const jpeg_natural_order | ?jpeg_natural_order@@3PBHB
 */
 
-// 0x580F50 | ?jcopy_block_row@@YAXPAY0EA@F0I@Z
+// 0x580F50 | ?jcopy_block_row@@YAXPAY0EA@F0I@Z | unused
 void jcopy_block_row(i16 (*arg1)[64], i16 (*arg2)[64], u32 arg3);
 
 // 0x580F00 | ?jcopy_sample_rows@@YAXPAPAEH0HHI@Z

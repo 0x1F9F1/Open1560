@@ -55,7 +55,7 @@ check_size(asSparkLut, 0x0);
 struct asLineSparks
 {
 public:
-    // 0x501A10 | ?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z
+    // 0x501A10 | ?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z | unused
     void AddWidgets(class Bank* arg1);
 
     // 0x502190 | ?Draw@asLineSparks@@QAEXXZ

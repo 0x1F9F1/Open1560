@@ -113,7 +113,7 @@ public:
     // 0x4ACE80 | ?CheckInput@UIMenu@@UAEXXZ
     virtual void CheckInput();
 
-    // 0x49C4F0 | ?IsAnOptionMenu@UIMenu@@UAEHXZ
+    // 0x49C4F0 | ?IsAnOptionMenu@UIMenu@@UAEHXZ | inline
     virtual i32 IsAnOptionMenu();
 
     // 0x4AE3F0 | ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
@@ -137,10 +137,10 @@ public:
     // 0x4ACF60 | ?AddHotSpot@UIMenu@@QAEPAVuiWidget@@HPADMMMMVCallback@@@Z
     class uiWidget* AddHotSpot(i32 arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class Callback arg7);
 
-    // 0x4ADE70 | ?AddIcon@UIMenu@@QAEPAVUIIcon@@HPADMM@Z
+    // 0x4ADE70 | ?AddIcon@UIMenu@@QAEPAVUIIcon@@HPADMM@Z | unused
     class UIIcon* AddIcon(i32 arg1, char* arg2, f32 arg3, f32 arg4);
 
-    // 0x4ADF80 | ?AddIconW@UIMenu@@QAEPAVUIIconW@@HPAULocString@@PADMMMMVCallback@@@Z
+    // 0x4ADF80 | ?AddIconW@UIMenu@@QAEPAVUIIconW@@HPAULocString@@PADMMMMVCallback@@@Z | unused
     class UIIconW* AddIconW(
         i32 arg1, struct LocString* arg2, char* arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, class Callback arg8);
 
@@ -148,7 +148,7 @@ public:
     class UILabel* AddLabel(
         i32 arg1, struct LocString* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8);
 
-    // 0x4AE2D0 | ?AddMex@UIMenu@@QAEPAVUIMexButton@@HPAULocString@@PAHHMMMMHHVCallback@@@Z
+    // 0x4AE2D0 | ?AddMex@UIMenu@@QAEPAVUIMexButton@@HPAULocString@@PAHHMMMMHHVCallback@@@Z | unused
     class UIMexButton* AddMex(i32 arg1, struct LocString* arg2, i32* arg3, i32 arg4, f32 arg5, f32 arg6, f32 arg7,
         f32 arg8, i32 arg9, i32 arg10, class Callback arg11);
 
@@ -164,7 +164,7 @@ public:
     class UITextField* AddTextField(i32 arg1, struct LocString* arg2, char* arg3, f32 arg4, f32 arg5, f32 arg6,
         f32 arg7, i32 arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, class Callback arg13);
 
-    // 0x4AD1C0 | ?AddTextRoller@UIMenu@@QAEPAVUITextRoller@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z
+    // 0x4AD1C0 | ?AddTextRoller@UIMenu@@QAEPAVUITextRoller@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z | unused
     class UITextRoller* AddTextRoller(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5, f32 arg6,
         f32 arg7, class string arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, class Callback arg13);
 
@@ -176,7 +176,7 @@ public:
     class UITextScroll* AddTextScroll(i32 arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7,
         i32 arg8, i32* arg9, class Callback arg10);
 
-    // 0x4AE090 | ?AddToggle@UIMenu@@QAEPAVUIToggleButton@@HPAULocString@@PAHMMMMHHVCallback@@@Z
+    // 0x4AE090 | ?AddToggle@UIMenu@@QAEPAVUIToggleButton@@HPAULocString@@PAHMMMMHHVCallback@@@Z | unused
     class UIToggleButton* AddToggle(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7,
         i32 arg8, i32 arg9, class Callback arg10);
 
@@ -184,11 +184,11 @@ public:
     class UIToggleButton2* AddToggle2(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5, f32 arg6,
         f32 arg7, i32 arg8, i32 arg9, class Callback arg10);
 
-    // 0x4AD920 | ?AddUIControl@UIMenu@@QAEPAVUIControlWidget@@HMMMMMPAVmmIO@@VCallback@@@Z
+    // 0x4AD920 | ?AddUIControl@UIMenu@@QAEPAVUIControlWidget@@HMMMMMPAVmmIO@@VCallback@@@Z | unused
     class UIControlWidget* AddUIControl(
         i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class mmIO* arg7, class Callback arg8);
 
-    // 0x4AE6C0 | ?AddVScrollBar@UIMenu@@QAEPAVUIVScrollBar@@HPAHMMMMMMHHVCallback@@@Z
+    // 0x4AE6C0 | ?AddVScrollBar@UIMenu@@QAEPAVUIVScrollBar@@HPAHMMMMMMHHVCallback@@@Z | unused
     class UIVScrollBar* AddVScrollBar(i32 arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8,
         i32 arg9, i32 arg10, class Callback arg11);
 
@@ -231,7 +231,7 @@ public:
     // 0x4ACC90 | ?FindTheFirstFocusWidget@UIMenu@@QAEHXZ
     i32 FindTheFirstFocusWidget();
 
-    // 0x4ACB40 | ?ForceWidgetAction@UIMenu@@QAEXH@Z
+    // 0x4ACB40 | ?ForceWidgetAction@UIMenu@@QAEXH@Z | unused
     void ForceWidgetAction(i32 arg1);
 
     // 0x4ACC30 | ?GetBstate@UIMenu@@QAEHXZ

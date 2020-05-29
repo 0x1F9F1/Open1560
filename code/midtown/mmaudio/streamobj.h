@@ -85,7 +85,7 @@ public:
     // 0x4F5440 | ?Play@StreamObj@@QAEHPAD@Z
     i32 Play(char* arg1);
 
-    // 0x4F61C0 | ?ReadInLoopIndex@StreamObj@@QAEXF@Z
+    // 0x4F61C0 | ?ReadInLoopIndex@StreamObj@@QAEXF@Z | unused
     void ReadInLoopIndex(i16 arg1);
 
     // 0x4F57B0 | ?SetFrequency@StreamObj@@QAEXM@Z
@@ -109,7 +109,7 @@ public:
     // 0x4F5330 | ?SetPlayOneShotEvent@StreamObj@@QAEXPAD@Z
     void SetPlayOneShotEvent(char* arg1);
 
-    // 0x4F5270 | ?SetPlayPosition@StreamObj@@QAEXK@Z
+    // 0x4F5270 | ?SetPlayPosition@StreamObj@@QAEXK@Z | unused
     void SetPlayPosition(u32 arg1);
 
     // 0x4F6290 | ?SetPlayingFlag@StreamObj@@QAEXF@Z

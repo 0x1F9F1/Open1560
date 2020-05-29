@@ -77,7 +77,7 @@ public:
     // 0x4B2670 | ?CaptureAction@UITextField@@UAEXTeqEvent@@@Z
     void CaptureAction(union eqEvent arg1) override;
 
-    // 0x4B26D0 | ?ClearField@UITextField@@QAEXXZ
+    // 0x4B26D0 | ?ClearField@UITextField@@QAEXXZ | unused
     void ClearField();
 
     // 0x4B22E0 | ?Init@UITextField@@QAEXPAULocString@@PADMMMMHHHHHVCallback@@PAVUIMenu@@@Z
@@ -96,7 +96,7 @@ public:
     // 0x4B2610 | ?SetField@UITextField@@QAEXPAD@Z
     void SetField(char* arg1);
 
-    // 0x4B25F0 | ?SetText@UITextField@@QAEXPAULocString@@@Z
+    // 0x4B25F0 | ?SetText@UITextField@@QAEXPAULocString@@@Z | unused
     void SetText(struct LocString* arg1);
 
     // 0x4B2730 | ?SetTextField@UITextField@@QAEXXZ
@@ -122,7 +122,7 @@ class uiWidget : public asNode
     // const uiWidget::`vftable' @ 0x61E478
 
 public:
-    // 0x4B4860 | ??0uiWidget@@QAE@XZ
+    // 0x4B4860 | ??0uiWidget@@QAE@XZ | inline
     uiWidget();
 
     // 0x4B2E90 | ??_GuiWidget@@UAEPAXI@Z
@@ -150,7 +150,7 @@ public:
     // 0x4B2E40 | ?CaptureAction@uiWidget@@UAEXTeqEvent@@@Z
     virtual void CaptureAction(union eqEvent arg1);
 
-    // 0x4B48A0 | ?Switch@uiWidget@@UAEXH@Z
+    // 0x4B48A0 | ?Switch@uiWidget@@UAEXH@Z | inline
     virtual void Switch(i32 arg1);
 
     // 0x4B2E50 | ?EvalMouseX@uiWidget@@UAEXM@Z
@@ -165,13 +165,13 @@ public:
     // 0x4B2E80 | ?GetScreenHeight@uiWidget@@UAEMXZ
     virtual f32 GetScreenHeight();
 
-    // 0x4B4890 | ?AddToolTip@uiWidget@@QAEXPAVUIMenu@@PAULocString@@@Z
+    // 0x4B4890 | ?AddToolTip@uiWidget@@QAEXPAVUIMenu@@PAULocString@@@Z | inline
     void AddToolTip(class UIMenu* arg1, struct LocString* arg2);
 
-    // 0x4B48C0 | ?ResetToolTip@uiWidget@@QAEXXZ
+    // 0x4B48C0 | ?ResetToolTip@uiWidget@@QAEXXZ | inline
     void ResetToolTip();
 
-    // 0x4B48D0 | ?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z
+    // 0x4B48D0 | ?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z | inline
     void SetToolTipText(struct LocString* arg1);
 };
 

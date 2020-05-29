@@ -64,7 +64,7 @@ public:
     // 0x4B9160 | ?Action@UITextScroll@@UAEXTeqEvent@@@Z
     void Action(union eqEvent arg1) override;
 
-    // 0x4B8FE0 | ?GetCurrentString@UITextScroll@@QAEXPADH@Z
+    // 0x4B8FE0 | ?GetCurrentString@UITextScroll@@QAEXPADH@Z | unused
     void GetCurrentString(char* arg1, i32 arg2);
 
     // 0x4B9080 | ?GetHit@UITextScroll@@QAEHMM@Z
@@ -80,7 +80,7 @@ public:
     // 0x4B8D90 | ?Recalc@UITextScroll@@QAEXVstring@@@Z
     void Recalc(class string arg1);
 
-    // 0x4B9030 | ?SetHighlight@UITextScroll@@QAEXH@Z
+    // 0x4B9030 | ?SetHighlight@UITextScroll@@QAEXH@Z | unused
     void SetHighlight(i32 arg1);
 
     // 0x4B92B0 | ?SetText@UITextScroll@@QAEXHPAULocString@@@Z
@@ -99,7 +99,7 @@ public:
     void VScrollCB();
 
 private:
-    // 0x4B9530 | ?AddTextScrollLine@UITextScroll@@AAEXPAD@Z
+    // 0x4B9530 | ?AddTextScrollLine@UITextScroll@@AAEXPAD@Z | unused
     void AddTextScrollLine(char* arg1);
 
     // 0x4B94A0 | ?AddTextScrollLine@UITextScroll@@AAEXPADH@Z
@@ -111,7 +111,7 @@ private:
     // 0x4B9370 | ?InitTextScroll@UITextScroll@@AAEXVstring@@@Z
     void InitTextScroll(class string arg1);
 
-    // 0x4B9100 | ?KeyAction@UITextScroll@@AAEXXZ
+    // 0x4B9100 | ?KeyAction@UITextScroll@@AAEXXZ | unused
     void KeyAction();
 
     // 0x4B92F0 | ?ResetTextScroll@UITextScroll@@AAEXXZ

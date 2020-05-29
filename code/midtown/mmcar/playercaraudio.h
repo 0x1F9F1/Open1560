@@ -85,13 +85,13 @@ public:
     // 0x482A90 | ?PlayHorn@mmPlayerCarAudio@@QAEXXZ
     void PlayHorn();
 
-    // 0x4821F0 | ?PlayReverseBeep@mmPlayerCarAudio@@QAEXXZ
+    // 0x4821F0 | ?PlayReverseBeep@mmPlayerCarAudio@@QAEXXZ | unused
     void PlayReverseBeep();
 
     // 0x482A50 | ?Reset@mmPlayerCarAudio@@UAEXXZ
     void Reset() override;
 
-    // 0x482AD0 | ?SetUpDefault@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z
+    // 0x482AD0 | ?SetUpDefault@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z | unused
     void SetUpDefault(class mmCarSim* arg1);
 
     // 0x482460 | ?StartSiren@mmPlayerCarAudio@@QAEXXZ

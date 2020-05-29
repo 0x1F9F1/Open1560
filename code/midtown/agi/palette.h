@@ -36,7 +36,7 @@ public:
     // 0x55C090 | ??0agiPalette@@QAE@XZ
     agiPalette();
 
-    // 0x55C0F0 | ?Cube@agiPalette@@QAEXXZ
+    // 0x55C0F0 | ?Cube@agiPalette@@QAEXXZ | unused
     void Cube();
 
     // 0x55C3A0 | ?FindColor@agiPalette@@QAEIUagiRgba@@@Z
@@ -48,7 +48,7 @@ public:
     // 0x55C0B0 | ?Kill@agiPalette@@QAEXXZ
     void Kill();
 
-    // 0x55C180 | ?Load@agiPalette@@QAEXPAD@Z
+    // 0x55C180 | ?Load@agiPalette@@QAEXPAD@Z | unused
     void Load(char* arg1);
 };
 

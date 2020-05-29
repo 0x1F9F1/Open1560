@@ -123,7 +123,7 @@ public:
     // 0x4316E0 | ?InitOtherPlayers@mmGameMulti@@UAEXXZ
     void InitOtherPlayers() override;
 
-    // 0x41A890 | ?NextRace@mmGameMulti@@UAEXXZ
+    // 0x41A890 | ?NextRace@mmGameMulti@@UAEXXZ | inline
     void NextRace() override;
 
     // 0x432160 | ?ParseChatMessage@mmGameMulti@@QAEHPADH@Z

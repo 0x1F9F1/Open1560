@@ -84,7 +84,7 @@ public:
     // 0x563260 | ?RemoveClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
     void RemoveClient(class eqEventMonitor* arg1);
 
-    // 0x562F30 | ?EKeyName@eqEventHandler@@SAPADH@Z
+    // 0x562F30 | ?EKeyName@eqEventHandler@@SAPADH@Z | unused
     static char* EKeyName(i32 arg1);
 
     // 0x909290 | ?SuperQ@eqEventHandler@@2PAV1@A
@@ -123,7 +123,7 @@ public:
     // 0x5634A0 | ?Activate@eqEventMonitor@@UAEXPAXH@Z
     virtual void Activate(void* arg1, i32 arg2);
 
-    // 0x5634E0 | ?SetWantMotion@eqEventMonitor@@QAEXH@Z
+    // 0x5634E0 | ?SetWantMotion@eqEventMonitor@@QAEXH@Z | unused
     void SetWantMotion(i32 arg1);
 };
 

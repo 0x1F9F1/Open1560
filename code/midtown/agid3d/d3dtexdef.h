@@ -81,7 +81,7 @@ public:
     // 0x531EC0 | ?Unlock@agiD3DTexDef@@UAEXAAUagiTexLock@@@Z
     void Unlock(struct agiTexLock& arg1) override;
 
-    // 0x52FA90 | ?Prober@agiD3DTexDef@@SAXPAX@Z
+    // 0x52FA90 | ?Prober@agiD3DTexDef@@SAXPAX@Z | inline
     static void Prober(void* arg1);
 };
 
