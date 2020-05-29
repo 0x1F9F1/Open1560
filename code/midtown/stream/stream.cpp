@@ -167,44 +167,96 @@ i32 Stream::Printf(char const* format, ...)
     return result;
 }
 
-i32 Stream::Put(f32 arg1)
+i32 Stream::Put(f32 value)
 {
-    return stub<thiscall_t<i32, Stream*, f32>>(0x55F020, this, arg1);
+    export_hook(0x55F020);
+
+    if (swap_endian_)
+        ByteSwap(value);
+
+    return Write(&value, sizeof(value)) / sizeof(value);
 }
 
-i32 Stream::Put(u16 arg1)
+i32 Stream::Put(u16 value)
 {
-    return stub<thiscall_t<i32, Stream*, u16>>(0x55EFA0, this, arg1);
+    export_hook(0x55EFA0);
+
+    if (swap_endian_)
+        ByteSwap(value);
+
+    return Write(&value, sizeof(value)) / sizeof(value);
 }
 
-i32 Stream::Put(u32 arg1)
+i32 Stream::Put(u32 value)
 {
-    return stub<thiscall_t<i32, Stream*, u32>>(0x55EFD0, this, arg1);
+    export_hook(0x55EFD0);
+
+    if (swap_endian_)
+        ByteSwap(value);
+
+    return Write(&value, sizeof(value)) / sizeof(value);
 }
 
-i32 Stream::Put(u8 arg1)
+i32 Stream::Put(u8 value)
 {
-    return stub<thiscall_t<i32, Stream*, u8>>(0x55EF80, this, arg1);
+    export_hook(0x55EF80);
+
+    return Write(&value, sizeof(value)) / sizeof(value);
 }
 
-i32 Stream::Put(u16* arg1, i32 arg2)
+i32 Stream::Put(const u16* values, i32 count)
 {
-    return stub<thiscall_t<i32, Stream*, u16*, i32>>(0x55F0A0, this, arg1, arg2);
+    export_hook(0x55F0A0);
+
+    if (swap_endian_)
+    {
+        i32 result = 0;
+
+        for (i32 i = 0; i < count; ++i)
+            result += Put(values[i]);
+
+        return result;
+    }
+    else
+    {
+        return Write(values, sizeof(*values) * count) / sizeof(*values);
+    }
 }
 
-i32 Stream::Put(u32* arg1, i32 arg2)
+i32 Stream::Put(const u32* values, i32 count)
 {
-    return stub<thiscall_t<i32, Stream*, u32*, i32>>(0x55F100, this, arg1, arg2);
+    export_hook(0x55F100);
+
+    if (swap_endian_)
+    {
+        i32 result = 0;
+
+        for (i32 i = 0; i < count; ++i)
+            result += Put(values[i]);
+
+        return result;
+    }
+    else
+    {
+        return Write(values, sizeof(*values) * count) / sizeof(*values);
+    }
 }
 
-i32 Stream::Put(u8* arg1, i32 arg2)
+i32 Stream::Put(const u8* values, i32 count)
 {
-    return stub<thiscall_t<i32, Stream*, u8*, i32>>(0x55F080, this, arg1, arg2);
+    export_hook(0x55F080);
+
+    return Write(values, sizeof(*values) * count) / sizeof(*values);
 }
 
-i32 Stream::PutString(char* arg1)
+i32 Stream::PutString(const char* str)
 {
-    return stub<thiscall_t<i32, Stream*, char*>>(0x55EEB0, this, arg1);
+    export_hook(0x55EEB0);
+
+    u32 len = std::strlen(str) + 1;
+
+    Put(len);
+    return Put(reinterpret_cast<const u8*>(str), len);
 }
 
 i32 Stream::Read(void* arg1, i32 arg2)
@@ -212,19 +264,34 @@ i32 Stream::Read(void* arg1, i32 arg2)
     return stub<thiscall_t<i32, Stream*, void*, i32>>(0x55E9C0, this, arg1, arg2);
 }
 
-i32 Stream::Seek(i32 arg1)
+i32 Stream::Seek(i32 position)
 {
-    return stub<thiscall_t<i32, Stream*, i32>>(0x55EC60, this, arg1);
+    export_hook(0x55EC60);
+
+    // TODO: Avoid Flush/RawSeek when position is inside the buffer
+    // TODO: Add origin param, similar to fseek
+
+    if (Flush() < 0)
+        return -1;
+
+    position_ = position;
+
+    return RawSeek(position);
 }
 
 i32 Stream::Size()
 {
-    return stub<thiscall_t<i32, Stream*>>(0x55ECA0, this);
+    export_hook(0x55ECA0);
+
+    if (Flush() < 0)
+        return -1;
+
+    return RawSize();
 }
 
 i32 Stream::Tell()
 {
-    return stub<thiscall_t<i32, Stream*>>(0x55EC90, this);
+    return position_ + buffer_head_;
 }
 
 i32 Stream::Vprintf(char const* format, std::va_list va)
@@ -236,9 +303,44 @@ i32 Stream::Vprintf(char const* format, std::va_list va)
     return Write(buffer, std::strlen(buffer));
 }
 
-i32 Stream::Write(void* arg1, i32 arg2)
+i32 Stream::Write(const void* ptr, i32 size)
 {
-    return stub<thiscall_t<i32, Stream*, void*, i32>>(0x55EB00, this, arg1, arg2);
+    export_hook(0x55EB00);
+
+    if ((buffer_read_ != 0) && (Flush() < 0))
+        return -1;
+
+    if (size >= buffer_capacity_)
+    {
+        if (Flush() < 0)
+            return -1;
+
+        i32 written = RawWrite(ptr, size);
+
+        if (written < 0)
+            written = -1;
+
+        return written;
+    }
+
+    i32 pending = size;
+
+    if (i32 avail = buffer_capacity_ - buffer_head_; pending >= avail)
+    {
+        std::memcpy(buffer_ + buffer_head_, ptr, avail);
+        buffer_head_ = buffer_capacity_;
+
+        ptr = static_cast<const u8*>(ptr) + avail;
+        pending -= avail;
+
+        if (Flush() < 0)
+            return -1;
+    }
+
+    std::memcpy(buffer_ + buffer_head_, ptr, pending);
+    buffer_head_ += pending;
+
+    return size;
 }
 
 void Stream::RawDebug()
@@ -272,9 +374,33 @@ void Stream::SwapShorts(u16* values, i32 count)
         ByteSwap(values[i]);
 }
 
-i32 arts_fgets(char* arg1, i32 arg2, class Stream* arg3)
+i32 arts_fgets(char* buffer, i32 buffer_len, class Stream* stream)
 {
-    return stub<cdecl_t<i32, char*, i32, class Stream*>>(0x55F3E0, arg1, arg2, arg3);
+    export_hook(0x55F3E0);
+
+    if (buffer_len == 0)
+        return 0;
+
+    buffer_len -= 1;
+
+    i32 total = 0;
+
+    while (total < buffer_len)
+    {
+        i32 v = stream->GetCh();
+
+        if (v == -1)
+            break;
+
+        buffer[total++] = static_cast<char>(v);
+
+        if (v == '\n')
+            break;
+    }
+
+    buffer[total] = '\0';
+
+    return total;
 }
 
 class Stream* arts_fopen(const char* path, const char* mode)
@@ -325,7 +451,17 @@ i32 arts_fscanf(class Stream* stream, char const* format, ...)
     return result;
 }
 
-i32 arts_fseek(class Stream* arg1, i32 arg2, i32 arg3)
+i32 arts_fseek(class Stream* stream, i32 offset, i32 origin)
 {
-    return stub<cdecl_t<i32, class Stream*, i32, i32>>(0x55F330, arg1, arg2, arg3);
+    export_hook(0x55F330);
+
+    switch (origin)
+    {
+        case 0: break;
+        case 1: offset += stream->Tell(); break;
+        case 2: offset += stream->Size(); break;
+        default: return -1;
+    }
+
+    return stream->Seek(offset);
 }

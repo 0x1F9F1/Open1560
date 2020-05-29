@@ -95,7 +95,7 @@ public:
 
     virtual i32 RawRead(void* arg1, i32 arg2) = 0;
 
-    virtual i32 RawWrite(void* arg1, i32 arg2) = 0;
+    virtual i32 RawWrite(const void* arg1, i32 arg2) = 0;
 
     virtual i32 RawSeek(i32 arg1) = 0;
 
@@ -173,25 +173,25 @@ public:
     i32 Printf(char const* format, ...);
 
     // 0x55F020 | ?Put@Stream@@QAEHM@Z
-    i32 Put(f32 arg1);
+    i32 Put(f32 value);
 
     // 0x55EFA0 | ?Put@Stream@@QAEHG@Z
-    i32 Put(u16 arg1);
+    i32 Put(u16 value);
 
     // 0x55EFD0 | ?Put@Stream@@QAEHK@Z
-    i32 Put(u32 arg1);
+    i32 Put(u32 value);
 
     // 0x55EF80 | ?Put@Stream@@QAEHE@Z
-    i32 Put(u8 arg1);
+    i32 Put(u8 value);
 
     // 0x55F0A0 | ?Put@Stream@@QAEHPAGH@Z
-    i32 Put(u16* arg1, i32 arg2);
+    i32 Put(const u16* values, i32 count);
 
     // 0x55F100 | ?Put@Stream@@QAEHPAKH@Z
-    i32 Put(u32* arg1, i32 arg2);
+    i32 Put(const u32* values, i32 count);
 
     // 0x55F080 | ?Put@Stream@@QAEHPAEH@Z
-    i32 Put(u8* arg1, i32 arg2);
+    i32 Put(const u8* values, i32 count);
 
     // 0x55EC30 | ?PutCh@Stream@@QAEHE@Z
     i32 PutCh(u8 value)
@@ -211,13 +211,13 @@ public:
     }
 
     // 0x55EEB0 | ?PutString@Stream@@QAEHPAD@Z
-    i32 PutString(char* arg1);
+    i32 PutString(const char* str);
 
     // 0x55E9C0 | ?Read@Stream@@QAEHPAXH@Z
     i32 Read(void* arg1, i32 arg2);
 
     // 0x55EC60 | ?Seek@Stream@@QAEHH@Z
-    i32 Seek(i32 arg1);
+    i32 Seek(i32 position);
 
     // 0x55ECA0 | ?Size@Stream@@QAEHXZ
     i32 Size();
@@ -229,7 +229,7 @@ public:
     i32 Vprintf(char const* format, std::va_list va);
 
     // 0x55EB00 | ?Write@Stream@@QAEHPAXH@Z
-    i32 Write(void* arg1, i32 arg2);
+    i32 Write(const void* ptr, i32 size);
 
 protected:
     // 0x55EE90 | ?RawDebug@Stream@@MAEXXZ
@@ -270,7 +270,7 @@ private:
 check_size(Stream, 0x20);
 
 // 0x55F3E0 | ?fgets@@YAHPADHPAVStream@@@Z
-i32 arts_fgets(char* arg1, i32 arg2, class Stream* arg3);
+i32 arts_fgets(char* buffer, i32 buffer_len, class Stream* stream);
 
 // 0x55F2F0 | ?fopen@@YAPAVStream@@PAD0@Z
 class Stream* arts_fopen(const char* path, const char* mode);
@@ -282,7 +282,7 @@ void arts_fprintf(class Stream* stream, char const* format, ...);
 i32 arts_fscanf(class Stream* stream, char const* format, ...);
 
 // 0x55F330 | ?fseek@@YAHPAVStream@@HH@Z
-i32 arts_fseek(class Stream* arg1, i32 arg2, i32 arg3);
+i32 arts_fseek(class Stream* stream, i32 offset, i32 origin);
 
 // 0x907960 | ?EnableBinaryFileMapping@@3HA
 inline extern_var(0x907960, i32, EnableBinaryFileMapping);

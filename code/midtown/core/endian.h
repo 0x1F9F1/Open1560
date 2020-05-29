@@ -31,7 +31,7 @@ ARTS_FORCEINLINE void ByteSwap(Args&... args) noexcept
     (ByteSwap<Args>(args), ...);
 }
 
-// TODO: Add i8, i16, i32, i64, f32, f64
+// TODO: Add i8, i16, i32, i64
 
 template <>
 ARTS_FORCEINLINE void ByteSwap<u8>(u8&) noexcept
@@ -67,4 +67,20 @@ ARTS_FORCEINLINE void ByteSwap<u64>(u64& value) noexcept
         ((value & 0x000000FF00000000) << 8) | ((value & 0x00000000FF000000) >> 8) |
         ((value & 0x0000000000FF0000) >> 24) | ((value & 0x000000000000FF00) >> 40) | (value << 56);
 #endif
+}
+
+template <>
+ARTS_FORCEINLINE void ByteSwap<f32>(f32& value) noexcept
+{
+    u32 uvalue = mem::bit_cast<u32>(value);
+    ByteSwap(uvalue);
+    value = mem::bit_cast<f32>(uvalue);
+}
+
+template <>
+ARTS_FORCEINLINE void ByteSwap<f64>(f64& value) noexcept
+{
+    u64 uvalue = mem::bit_cast<u64>(value);
+    ByteSwap(uvalue);
+    value = mem::bit_cast<f64>(uvalue);
 }
