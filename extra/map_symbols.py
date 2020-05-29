@@ -973,6 +973,7 @@ path_libs.update({
     'mmCompBase': 'mmwidget:compbase',
     'Dispatchable': 'eventq7:dispatchable',
     'Bank': 'arts7:bank',
+    'agiMeshSet': 'agiworld:meshset',
 })
 
 # print(path_libs)
