@@ -57,11 +57,11 @@ public:
     // 0x55F5A0 | ??1FileSystem@@UAE@XZ
     ~FileSystem() override;
 
-    virtual i32 ValidPath(char* arg1) = 0;
+    virtual b32 ValidPath(const char* path) = 0;
 
-    virtual i32 QueryOn(char* arg1) = 0;
+    virtual b32 QueryOn(const char* path) = 0;
 
-    virtual class Stream* OpenOn(char* arg1, i32 arg2, void* arg3, i32 arg4) = 0;
+    virtual class Stream* OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len) = 0;
 
     virtual class Stream* CreateOn(char* arg1, void* arg2, i32 arg3) = 0;
 
@@ -77,21 +77,22 @@ public:
     virtual struct FileInfo* NextEntry(struct FileInfo* arg1) = 0;
 
     // 0x55F690 | ?Search@FileSystem@@QAEHPAD00H0@Z
-    i32 Search(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5);
+    b32 Search(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len);
 
     // 0x55FE60 | ?OpenAny@FileSystem@@SAPAVStream@@PADHPAXH@Z
-    static class Stream* OpenAny(char* arg1, i32 arg2, void* arg3, i32 arg4);
+    static class Stream* OpenAny(const char* path, i32 mode, void* buffer, i32 buffer_len);
 
     // 0x55FED0 | ?PagerInfoAny@FileSystem@@SAHPADAAUPagerInfo_t@@@Z
-    static i32 PagerInfoAny(char* arg1, struct PagerInfo_t& arg2);
+    static b32 PagerInfoAny(const char* path, struct PagerInfo_t& pager);
 
     // 0x55F620 | ?SearchAll@FileSystem@@SAPAV1@PAD00H0@Z
-    static class FileSystem* SearchAll(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5);
+    static class FileSystem* SearchAll(
+        const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len);
 
-    static constexpr i32 MAX_FILESYSTEMS = 64;
+    static constexpr i32 MAX_FILESYSTEMS = 128;
 
     // 0x907A38 | ?FS@FileSystem@@2PAPAV1@A
-    static inline extern_var(0x907A38, class FileSystem* [MAX_FILESYSTEMS], FS);
+    static class FileSystem* FS[MAX_FILESYSTEMS];
 
     // 0x907A30 | ?FSCount@FileSystem@@2HA
     static inline extern_var(0x907A30, i32, FSCount);
@@ -109,10 +110,17 @@ private:
 check_size(FileSystem, 0x8);
 
 // 0x55FD30 | ?FindFile@@YAPAVFileSystem@@PAD00H0@Z
-class FileSystem* FindFile(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5);
+class FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer);
+
+class FileSystem* FindFile(
+    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len);
 
 // 0x55FD60 | ?OpenFile@@YAPAVStream@@PAD00H00@Z
-class Stream* OpenFile(char* arg1, char* arg2, char* arg3, i32 arg4, char* arg5, char* arg6);
+class Stream* OpenFile(
+    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, const char* desc);
+
+class Stream* OpenFile(
+    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len, const char* desc);
 
 // 0x907B38 | ?fsVerbose@@3HA
 inline extern_var(0x907B38, i32, fsVerbose);

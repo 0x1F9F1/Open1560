@@ -503,8 +503,27 @@ i32 arts_fscanf(class Stream* stream, char const* format, ...)
     va_start(va, format);
 
     // NOTE: This can not be vsscanf_s because it has to support the game's unsafe format strings.
+    //
+    // mmCityInfo::Load:
+    //     "LocalizedName=%[^\r]"
+    //     "MapName=%s"
+    //     "RaceDir=%s"
+    //     "BlitzNames=%[^\r]"
+    //     "CircuitNames=%[^\r]"
+    //     "CheckpointNames=%[^\r]"
+    //
+    // mmVehInfo::Load:
+    //     "BaseName=%s",
+    //     "Description=%[^\r]"
+    //     "Colors=%[^\r]"
+    //
+    // dxiReadConfigFile:
+    //     "InterfaceGuid=%s"
+    //     "DriverGuid=%s"
+    //
     // TODO: Replace this with vsscanf_s when possible
     i32 result = vsscanf(static_cast<const char*>(buffer), format, va);
+
     va_end(va);
 
     if (!result)
