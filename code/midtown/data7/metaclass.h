@@ -75,16 +75,16 @@ public:
     void InitFields();
 
     // 0x577BB0 | ?IsSubclassOf@MetaClass@@QAEHPAV1@@Z
-    i32 IsSubclassOf(class MetaClass* arg1);
+    b32 IsSubclassOf(class MetaClass* parent);
 
     // 0x577E90 | ?Load@MetaClass@@QAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2);
+    void Load(class MiniParser* parser, void* ptr);
 
     // 0x577C90 | ?Save@MetaClass@@QAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2);
+    void Save(class MiniParser* parser, void* ptr);
 
     // 0x577DE0 | ?SkipBlock@MetaClass@@QAEXPAVMiniParser@@@Z
-    void SkipBlock(class MiniParser* arg1);
+    void SkipBlock(class MiniParser* parser);
 
     const char* GetName() const
     {
@@ -125,7 +125,7 @@ public:
     static void ARTS_FASTCALL DeclareStaticFields(const std::initializer_list<const StaticMetaField>& fields);
 
     // 0x577BE0 | ?FindByName@MetaClass@@SAPAV1@PADPAV1@@Z
-    static class MetaClass* FindByName(char* arg1, class MetaClass* arg2);
+    static class MetaClass* FindByName(const char* name, class MetaClass* root);
 
     // 0x577B80 | ?UndeclareAll@MetaClass@@SAXXZ
     static void UndeclareAll();
@@ -166,7 +166,7 @@ private:
 check_size(MetaClass, 0x28);
 
 // 0x577C50 | ?__BadSafeCall@@YAXPADPAVBase@@@Z
-void __BadSafeCall(char* arg1, class Base* arg2);
+void __BadSafeCall(const char* name, class Base* ptr);
 
 // 0x661EF8 | ?NoDefault@@3HA
 inline extern_var(0x661EF8, i32, NoDefault);

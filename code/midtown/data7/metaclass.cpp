@@ -21,6 +21,7 @@ define_dummy_symbol(data7_metaclass);
 #include "metaclass.h"
 
 #include "metadefine.h"
+#include "miniparser.h"
 
 #include <mem/module.h>
 
@@ -100,24 +101,161 @@ void MetaClass::InitFields()
     Current = nullptr;
 }
 
-i32 MetaClass::IsSubclassOf(class MetaClass* arg1)
+b32 MetaClass::IsSubclassOf(class MetaClass* parent)
 {
-    return stub<thiscall_t<i32, MetaClass*, class MetaClass*>>(0x577BB0, this, arg1);
+    export_hook(0x577BB0);
+
+    for (MetaClass* cls = this; cls; cls = cls->parent_)
+    {
+        if (cls == parent)
+            return true;
+    }
+
+    return false;
 }
 
-void MetaClass::Load(class MiniParser* arg1, void* arg2)
+void MetaClass::Load(class MiniParser* parser, void* ptr)
 {
-    return stub<thiscall_t<void, MetaClass*, class MiniParser*, void*>>(0x577E90, this, arg1, arg2);
+    export_hook(0x577E90);
+
+    if (fields_ == nullptr)
+        InitFields();
+
+    parser->Match(MiniParser::IdentToken);
+
+    MetaClass* cls = FindByName(parser->GetBuffer(), &RootMetaClass);
+
+    if (cls == nullptr)
+    {
+        parser->Errorf("Unknown metaclass name '%s', skipping block", parser->GetBuffer());
+        SkipBlock(parser);
+        return;
+    }
+
+    if (!cls->IsSubclassOf(this))
+    {
+        parser->Errorf("Expected subclass of '%s', got '%s' instead, skipping block", GetName(), parser->GetBuffer());
+        SkipBlock(parser);
+        return;
+    }
+
+    parser->Match(MiniParser::LabelToken);
+    parser->Match('{');
+
+    while (true)
+    {
+        i32 token = parser->NextToken();
+
+        if (token == '\0')
+            break; // TODO: Handle unexpected EOF
+
+        if (token == '}')
+            break;
+
+        if (token != MiniParser::IdentToken)
+        {
+            parser->Errorf("Expected field name here.");
+            continue;
+        }
+
+        MetaField* field = fields_;
+
+        for (; field; field = field->Next)
+        {
+            if (!std::strcmp(field->Name, parser->GetBuffer()))
+                break;
+        }
+
+        if (field != nullptr)
+            field->Type->Load(parser, static_cast<u8*>(ptr) + field->Offset);
+        else
+            SkipBlock(parser);
+    }
+
+    if (IsSubclassOf(GetMetaClass<Base>()))
+        static_cast<Base*>(ptr)->AfterLoad();
 }
 
-void MetaClass::Save(class MiniParser* arg1, void* arg2)
+void MetaClass::Save(class MiniParser* parser, void* ptr)
 {
-    return stub<thiscall_t<void, MetaClass*, class MiniParser*, void*>>(0x577C90, this, arg1, arg2);
+    export_hook(0x577C90);
+
+    if (fields_ == nullptr)
+        InitFields();
+
+    if (IsSubclassOf(GetMetaClass<Base>()))
+        static_cast<Base*>(ptr)->BeforeSave();
+
+    void* default_ptr = nullptr;
+
+    if (!NoDefault)
+        default_ptr = Allocate(0);
+
+    parser->Printf("%s ", GetName());
+    parser->PlaceLabel(ptr);
+    parser->Printf(" {\n");
+    parser->Indent(4);
+
+    for (MetaField* field = fields_; field; field = field->Next)
+    {
+        void* member = static_cast<u8*>(ptr) + field->Offset;
+
+        if (NoDefault || std::memcmp(member, static_cast<u8*>(default_ptr) + field->Offset, field->Type->SizeOf()))
+        {
+            parser->Printf("%s ", field->Name);
+            parser->Indent(4);
+            field->Type->Save(parser, member);
+            parser->Indent(-4);
+            parser->Printf("\n");
+        }
+    }
+
+    parser->Indent(-4);
+    parser->Printf("}");
+
+    if (!NoDefault)
+        Free(default_ptr, 0);
 }
 
-void MetaClass::SkipBlock(class MiniParser* arg1)
+void MetaClass::SkipBlock(class MiniParser* parser)
 {
-    return stub<thiscall_t<void, MetaClass*, class MiniParser*>>(0x577DE0, this, arg1);
+    export_hook(0x577DE0);
+
+    parser->Errorf("'%s' is not a valid field name in %s.", parser->GetBuffer(), GetName());
+
+    bool has_values = false;
+    i32 depth = 0;
+
+    i32 token = 0;
+
+    while ((token = parser->NextToken()) != '\0')
+    {
+        if (token == '{' || token == '[')
+        {
+            ++depth;
+        }
+        else if (token == '}' || token == ']')
+        {
+            if (depth == 0)
+                break;
+
+            --depth;
+        }
+        else if (token == MiniParser::IdentToken && has_values && depth == 0)
+        {
+            break;
+        }
+        else if (token == MiniParser::IntegerToken || token == MiniParser::StringToken ||
+            token == MiniParser::FloatToken)
+        {
+            has_values = true;
+        }
+    }
+
+    if (token)
+        parser->PutBack(token);
+
+    parser->Errorf("Resuming parsing here.");
 }
 
 void MetaClass::FixupClasses()
@@ -217,9 +355,21 @@ ARTS_NOINLINE void ARTS_FASTCALL MetaClass::DeclareStaticFields(
     }
 }
 
-class MetaClass* MetaClass::FindByName(char* arg1, class MetaClass* arg2)
+class MetaClass* MetaClass::FindByName(const char* name, class MetaClass* root)
 {
-    return stub<cdecl_t<class MetaClass*, char*, class MetaClass*>>(0x577BE0, arg1, arg2);
+    export_hook(0x577BE0);
+
+    for (MetaClass* cls = root; cls; cls = cls->next_child_)
+    {
+        // NOTE: Original implementation also checks `cls->GetName() != nullptr`, but that seems unncessary.
+        if (!std::strcmp(cls->GetName(), name))
+            return cls;
+
+        if (MetaClass* result = FindByName(name, cls->children_))
+            return result;
+    }
+
+    return nullptr;
 }
 
 void MetaClass::UndeclareAll()
@@ -235,7 +385,9 @@ void MetaClass::UndeclareAll()
     }
 }
 
-void __BadSafeCall(char* arg1, class Base* arg2)
+void __BadSafeCall(const char* name, class Base* ptr)
 {
-    return stub<cdecl_t<void, char*, class Base*>>(0x577C50, arg1, arg2);
+    export_hook(0x577C50);
+
+    Quitf("SafeCall failed: '%s' is not a '%s'.", ptr->GetTypeName(), name);
 }
