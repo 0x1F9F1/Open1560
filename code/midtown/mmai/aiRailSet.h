@@ -113,5 +113,5 @@ public:
 
 check_size(aiRailSet, 0x0);
 
-// 0x459E00 | ??D@YA?AVVector3@@MABV0@@Z
+// 0x459E00 | ??D@YA?AVVector3@@MABV0@@Z | inline
 class Vector3 operator*(f32 arg1, class Vector3 const& arg2);

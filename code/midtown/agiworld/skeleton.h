@@ -41,7 +41,7 @@ public:
     // 0x514C40 | ??0bnSkeleton@@QAE@XZ
     bnSkeleton();
 
-    // 0x514C50 | ??1bnSkeleton@@QAE@XZ
+    // 0x514C50 | ??1bnSkeleton@@QAE@XZ | unused
     ~bnSkeleton();
 
     // 0x515080 | ?Attach@bnSkeleton@@QAEXQAVMatrix34@@@Z | unused

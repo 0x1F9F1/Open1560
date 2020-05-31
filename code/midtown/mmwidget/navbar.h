@@ -53,7 +53,7 @@ public:
     // 0x4B1F70 | ??1uiNavBar@@UAE@XZ
     ~uiNavBar() override;
 
-    // 0x4B2150 | ?BackUp@uiNavBar@@UAEXXZ
+    // 0x4B2150 | ?BackUp@uiNavBar@@UAEXXZ | inline
     void BackUp() override;
 
     // 0x4B1F10 | ?Help@uiNavBar@@QAEXXZ

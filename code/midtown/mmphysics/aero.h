@@ -44,7 +44,7 @@ public:
     asAero();
 
     // 0x4E0680 | ??_EasAero@@UAEPAXI@Z
-    // 0x470320 | ??1asAero@@UAE@XZ
+    // 0x470320 | ??1asAero@@UAE@XZ | inline
     ~asAero() override;
 
     // 0x4E0330 | ?AddWidgets@asAero@@UAEXPAVBank@@@Z

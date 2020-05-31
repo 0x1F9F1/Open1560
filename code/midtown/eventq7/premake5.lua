@@ -1,5 +1,7 @@
 arts_component "eventq7"
     files {
+        -- "dispatchable.cpp",
+        -- "dispatchable.h",
         -- "event.cpp",
         -- "event.h",
         -- "eventq.cpp",
@@ -10,6 +12,4 @@ arts_component "eventq7"
         -- "replay.h",
         -- "winevent.cpp",
         -- "winevent.h",
-
-        "dispatchable.h",
     }

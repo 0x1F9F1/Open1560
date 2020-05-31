@@ -137,7 +137,7 @@ public:
     // 0x563560 | ??0eqEventReplayChannelClass@@QAE@XZ
     eqEventReplayChannelClass();
 
-    // 0x5639E0 | ??1eqEventReplayChannelClass@@QAE@XZ
+    // 0x5639E0 | ??1eqEventReplayChannelClass@@QAE@XZ | inline
     ~eqEventReplayChannelClass();
 
     // 0x563790 | ?DoPlayback@eqEventReplayChannelClass@@UAEXPAVStream@@@Z

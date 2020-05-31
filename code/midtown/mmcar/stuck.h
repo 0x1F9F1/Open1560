@@ -45,7 +45,7 @@ public:
     mmStuck();
 
     // 0x47C900 | ??_GmmStuck@@UAEPAXI@Z
-    // 0x470300 | ??1mmStuck@@UAE@XZ
+    // 0x470300 | ??1mmStuck@@UAE@XZ | inline
     ~mmStuck() override;
 
     // 0x47C7D0 | ?AddWidgets@mmStuck@@UAEXPAVBank@@@Z

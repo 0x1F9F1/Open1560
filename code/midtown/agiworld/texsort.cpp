@@ -75,3 +75,8 @@ class agiTexDef* GetPackedTexture(char* arg1, i32 arg2)
 {
     return stub<cdecl_t<class agiTexDef*, char*, i32>>(0x5043E0, arg1, arg2);
 }
+
+void agiPolySet::Triangle(i32 arg1, i32 arg2, i32 arg3)
+{
+    return stub<thiscall_t<void, agiPolySet*, i32, i32, i32>>(0x510480, this, arg1, arg2, arg3);
+}

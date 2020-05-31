@@ -46,10 +46,10 @@ public:
     // 0x5768F0 | ?Time@Timer@@QAEMXZ
     f32 Time();
 
-    // 0x576920 | ?BeginBenchmark@Timer@@SAXXZ
+    // 0x576920 | ?BeginBenchmark@Timer@@SAXXZ | unused
     static void BeginBenchmark();
 
-    // 0x576990 | ?EndBenchmark@Timer@@SAXXZ
+    // 0x576990 | ?EndBenchmark@Timer@@SAXXZ | unused
     static void EndBenchmark();
 
     // 0x576860 | ?Sleep@Timer@@SAXH@Z

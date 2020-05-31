@@ -52,7 +52,7 @@ public:
     asViewCS();
 
     // 0x52CDF0 | ??_EasViewCS@@UAEPAXI@Z
-    // 0x52CE50 | ??1asViewCS@@UAE@XZ
+    // 0x52CE50 | ??1asViewCS@@UAE@XZ | inline
     ~asViewCS() override;
 
     // 0x52C780 | ?AddWidgets@asViewCS@@UAEXPAVBank@@@Z

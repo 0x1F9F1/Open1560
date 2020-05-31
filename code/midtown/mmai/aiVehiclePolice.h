@@ -68,7 +68,7 @@ public:
     // 0x444790 | ??0aiVehiclePolice@@QAE@XZ
     aiVehiclePolice();
 
-    // 0x43BF50 | ??_EaiVehiclePolice@@QAEPAXI@Z
+    // 0x43BF50 | ??_EaiVehiclePolice@@QAEPAXI@Z | unused
     // 0x4447F0 | ??1aiVehiclePolice@@QAE@XZ
     ~aiVehiclePolice();
 
@@ -139,7 +139,7 @@ public:
     // 0x446190 | ?SetMainSirenLoop@aiVehiclePolice@@QAEXH@Z
     void SetMainSirenLoop(i32 arg1);
 
-    // 0x446620 | ?Type@aiVehiclePolice@@UAEHXZ
+    // 0x446620 | ?Type@aiVehiclePolice@@UAEHXZ | inline
     i32 Type() override;
 
     // 0x446150 | ?UnAssignSounds@aiVehiclePolice@@QAEXXZ

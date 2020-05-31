@@ -85,7 +85,7 @@ public:
     // 0x447CC0 | ??0aiPedestrian@@QAE@XZ
     aiPedestrian();
 
-    // 0x43C010 | ??_EaiPedestrian@@QAEPAXI@Z
+    // 0x43C010 | ??_EaiPedestrian@@QAEPAXI@Z | unused
     // 0x447DA0 | ??1aiPedestrian@@QAE@XZ
     ~aiPedestrian();
 
@@ -222,28 +222,28 @@ class aiPedestrianInstance : public mmInstance
 
 public:
     // 0x44DA40 | ??_EaiPedestrianInstance@@UAEPAXI@Z
-    // 0x44DA60 | ??1aiPedestrianInstance@@UAE@XZ
+    // 0x44DA60 | ??1aiPedestrianInstance@@UAE@XZ | inline
     ~aiPedestrianInstance() override;
 
-    // 0x44DA30 | ?AddWidgets@aiPedestrianInstance@@UAEXPAVBank@@@Z
+    // 0x44DA30 | ?AddWidgets@aiPedestrianInstance@@UAEXPAVBank@@@Z | inline
     void AddWidgets(class Bank* arg1) override;
 
-    // 0x44D820 | ?ComputeLod@aiPedestrianInstance@@UAEHMM@Z
+    // 0x44D820 | ?ComputeLod@aiPedestrianInstance@@UAEHMM@Z | inline
     i32 ComputeLod(f32 arg1, f32 arg2) override;
 
-    // 0x44D850 | ?Draw@aiPedestrianInstance@@UAIXH@Z
+    // 0x44D850 | ?Draw@aiPedestrianInstance@@UAIXH@Z | inline
     void __fastcall Draw(i32 arg1) override;
 
-    // 0x44D960 | ?DrawShadow@aiPedestrianInstance@@UAIXXZ
+    // 0x44D960 | ?DrawShadow@aiPedestrianInstance@@UAIXXZ | inline
     void __fastcall DrawShadow() override;
 
-    // 0x44D800 | ?FromMatrix@aiPedestrianInstance@@UAIXABVMatrix34@@@Z
+    // 0x44D800 | ?FromMatrix@aiPedestrianInstance@@UAIXABVMatrix34@@@Z | inline
     void __fastcall FromMatrix(class Matrix34 const& arg1) override;
 
-    // 0x44D810 | ?GetPos@aiPedestrianInstance@@UAIAAVVector3@@XZ
+    // 0x44D810 | ?GetPos@aiPedestrianInstance@@UAIAAVVector3@@XZ | inline
     class Vector3& __fastcall GetPos() override;
 
-    // 0x44D7F0 | ?ToMatrix@aiPedestrianInstance@@UAIAAVMatrix34@@AAV2@@Z
+    // 0x44D7F0 | ?ToMatrix@aiPedestrianInstance@@UAIAAVMatrix34@@AAV2@@Z | inline
     class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
 };
 

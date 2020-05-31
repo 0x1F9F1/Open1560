@@ -43,7 +43,7 @@ public:
     asLinearCS();
 
     // 0x4B1CA0 | ??_EasLinearCS@@UAEPAXI@Z
-    // 0x422F00 | ??1asLinearCS@@UAE@XZ
+    // 0x422F00 | ??1asLinearCS@@UAE@XZ | inline
     ~asLinearCS() override;
 
     // 0x525CC0 | ?AddWidgets@asLinearCS@@UAEXPAVBank@@@Z

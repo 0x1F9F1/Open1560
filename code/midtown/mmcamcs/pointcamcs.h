@@ -50,7 +50,7 @@ public:
     PointCamCS();
 
     // 0x4FA430 | ??_EPointCamCS@@UAEPAXI@Z
-    // 0x42D2D0 | ??1PointCamCS@@UAE@XZ
+    // 0x42D2D0 | ??1PointCamCS@@UAE@XZ | inline
     ~PointCamCS() override;
 
     // 0x4FA3F0 | ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ

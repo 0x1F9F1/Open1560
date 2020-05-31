@@ -50,7 +50,7 @@ public:
     Spline();
 
     // 0x4FDD10 | ??_ESpline@@UAEPAXI@Z
-    // 0x4F8F40 | ??1Spline@@UAE@XZ
+    // 0x4F8F40 | ??1Spline@@UAE@XZ | inline
     ~Spline() override;
 
     // 0x4FDB80 | ?AddWidgets@Spline@@UAEXPAVBank@@@Z

@@ -44,7 +44,7 @@ public:
     AICamCS();
 
     // 0x4FAB00 | ??_EAICamCS@@UAEPAXI@Z
-    // 0x42D2C0 | ??1AICamCS@@UAE@XZ
+    // 0x42D2C0 | ??1AICamCS@@UAE@XZ | inline
     ~AICamCS() override;
 
     // 0x4FAAC0 | ?GetClass@AICamCS@@UAEPAVMetaClass@@XZ

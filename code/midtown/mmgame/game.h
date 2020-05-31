@@ -163,6 +163,25 @@ protected:
 
 check_size(mmGame, 0x1E570);
 
+class foobar : public asNode
+{
+    // const foobar::`vftable' @ 0x61A5C8
+
+public:
+    // 0x414A20 | ??_Gfoobar@@UAEPAXI@Z
+    // 0x414A10 | ??1foobar@@UAE@XZ | inline
+    ~foobar() override;
+
+private:
+    // 0x411EE0 | ?Update@foobar@@EAEXXZ
+    void Update() override;
+
+    // 0x411F10 | ?UpdatePaused@foobar@@EAEXXZ
+    void UpdatePaused() override;
+};
+
+check_size(foobar, 0x0);
+
 // 0x6A6FB8 | ?BangerProjectile@@3PAVmmBangerData@@A
 inline extern_var(0x6A6FB8, class mmBangerData*, BangerProjectile);
 

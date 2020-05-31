@@ -47,7 +47,7 @@ public:
     mmDrivetrain();
 
     // 0x4805F0 | ??_EmmDrivetrain@@UAEPAXI@Z
-    // 0x470350 | ??1mmDrivetrain@@UAE@XZ
+    // 0x470350 | ??1mmDrivetrain@@UAE@XZ | inline
     ~mmDrivetrain() override;
 
     // 0x47FEF0 | ?AddWheel@mmDrivetrain@@QAEHPAVmmWheel@@@Z
@@ -68,7 +68,7 @@ public:
     // 0x47FE90 | ?Init@mmDrivetrain@@QAEXPAVmmCarSim@@@Z
     void Init(class mmCarSim* arg1);
 
-    // 0x480650 | ?Reset@mmDrivetrain@@UAEXXZ
+    // 0x480650 | ?Reset@mmDrivetrain@@UAEXXZ | inline
     void Reset() override;
 
     // 0x47FF30 | ?Update@mmDrivetrain@@UAEXXZ

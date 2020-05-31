@@ -43,7 +43,7 @@ public:
     mmShock();
 
     // 0x47D420 | ??_EmmShock@@UAEPAXI@Z
-    // 0x470380 | ??1mmShock@@UAE@XZ
+    // 0x470380 | ??1mmShock@@UAE@XZ | inline
     ~mmShock() override;
 
     // 0x47D280 | ?AddWidgets@mmShock@@UAEXPAVBank@@@Z

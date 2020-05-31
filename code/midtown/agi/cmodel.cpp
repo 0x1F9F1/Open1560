@@ -39,13 +39,3 @@ u32 agiColorModel::GetColor(i32 arg1, i32 arg2, i32 arg3, i32 arg4)
 {
     return stub<thiscall_t<u32, agiColorModel*, i32, i32, i32, i32>>(0x55BB80, this, arg1, arg2, arg3, arg4);
 }
-
-class agiColorModel* agiColorModel::FindMatch(class agiSurfaceDesc* arg1)
-{
-    return stub<cdecl_t<class agiColorModel*, class agiSurfaceDesc*>>(0x55D810, arg1);
-}
-
-class agiColorModel* agiColorModel::FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 arg4)
-{
-    return stub<cdecl_t<class agiColorModel*, i32, i32, i32, i32>>(0x55D760, arg1, arg2, arg3, arg4);
-}

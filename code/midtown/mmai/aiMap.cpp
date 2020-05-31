@@ -341,21 +341,6 @@ class aiIntersection* aiMap::ScanIntersections(class Vector3& arg1)
     return stub<thiscall_t<class aiIntersection*, aiMap*, class Vector3&>>(0x4396A0, this, arg1);
 }
 
-CArrayList::CArrayList()
-{
-    unimplemented();
-}
-
-CArrayList::~CArrayList()
-{
-    unimplemented();
-}
-
-void CArrayList::Append(i32 arg1)
-{
-    return stub<thiscall_t<void, CArrayList*, i32>>(0x446C20, this, arg1);
-}
-
 f32 Clamp(f32 arg1, f32 arg2, f32 arg3)
 {
     return stub<cdecl_t<f32, f32, f32, f32>>(0x43C0D0, arg1, arg2, arg3);

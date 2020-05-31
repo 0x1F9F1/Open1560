@@ -128,6 +128,26 @@ class Matrix34& __fastcall mmUnhitBangerInstance::ToMatrix(class Matrix34& arg1)
     return stub<fastcall_t<class Matrix34&, mmUnhitBangerInstance*, class Matrix34&>>(0x4CA880, this, arg1);
 }
 
+mmBangerManager::~mmBangerManager()
+{
+    unimplemented();
+}
+
+class mmHitBangerInstance* mmBangerManager::GetBanger()
+{
+    return stub<thiscall_t<class mmHitBangerInstance*, mmBangerManager*>>(0x4CAC70, this);
+}
+
+void mmBangerManager::Init(i32 arg1)
+{
+    return stub<thiscall_t<void, mmBangerManager*, i32>>(0x4CACD0, this, arg1);
+}
+
+void mmBangerManager::Reset()
+{
+    return stub<thiscall_t<void, mmBangerManager*>>(0x4CAD90, this);
+}
+
 mmHitBangerInstance::mmHitBangerInstance()
 {
     unimplemented();

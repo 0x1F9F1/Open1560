@@ -45,7 +45,7 @@ public:
     PreCamCS();
 
     // 0x4F9DC0 | ??_EPreCamCS@@UAEPAXI@Z
-    // 0x42D2E0 | ??1PreCamCS@@UAE@XZ
+    // 0x42D2E0 | ??1PreCamCS@@UAE@XZ | inline
     ~PreCamCS() override;
 
     // 0x4F9B20 | ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z

@@ -41,7 +41,7 @@
 class HashTable
 {
 public:
-    // 0x498950 | ??1HashTable@@QAE@XZ
+    // 0x498950 | ??1HashTable@@QAE@XZ | inline
     ~HashTable();
 
     // 0x578180 | ??4HashTable@@QAEXAAV0@@Z | unused

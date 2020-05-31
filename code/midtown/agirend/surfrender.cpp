@@ -84,13 +84,3 @@ i32 agiSurfRenderer::AddSurface(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 a
 {
     return stub<cdecl_t<i32, struct agiPatch*, i32, i32, i32, i32>>(0x552E00, arg1, arg2, arg3, arg4, arg5);
 }
-
-agiRenderer::agiRenderer()
-{
-    unimplemented();
-}
-
-agiRenderer::~agiRenderer()
-{
-    unimplemented();
-}

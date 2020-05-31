@@ -103,7 +103,7 @@
 
 class asMidgets
     : public Bank
-    , public asCullable
+    , public asCullable /* Warning: Unordered Multiple Inheritance */
 {
     // const asMidgets::`vftable'{for `asCullable'} @ 0x620BC0
     // const asMidgets::`vftable'{for `Bank'} @ 0x620BD8
@@ -224,10 +224,10 @@ class SMI : public MI
     // const SMI::`vftable' @ 0x620CB0
 
 public:
-    // 0x527BD0 | ?Key@SMI@@UAEXHH@Z
+    // 0x527BD0 | ?Key@SMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x527BE0 | ?Update@SMI@@UAEHH@Z
+    // 0x527BE0 | ?Update@SMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 
@@ -238,10 +238,10 @@ class BMI : public MI
     // const BMI::`vftable' @ 0x620CB8
 
 public:
-    // 0x527C00 | ?Key@BMI@@UAEXHH@Z
+    // 0x527C00 | ?Key@BMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x527C20 | ?Update@BMI@@UAEHH@Z
+    // 0x527C20 | ?Update@BMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 
@@ -252,10 +252,10 @@ class TMI : public MI
     // const TMI::`vftable' @ 0x620CC0
 
 public:
-    // 0x527C40 | ?Key@TMI@@UAEXHH@Z
+    // 0x527C40 | ?Key@TMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x527CA0 | ?Update@TMI@@UAEHH@Z
+    // 0x527CA0 | ?Update@TMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 
@@ -266,10 +266,10 @@ class scharMI : public MI
     // const scharMI::`vftable' @ 0x620CC8
 
 public:
-    // 0x527CF0 | ?Key@scharMI@@UAEXHH@Z
+    // 0x527CF0 | ?Key@scharMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x527D80 | ?Update@scharMI@@UAEHH@Z
+    // 0x527D80 | ?Update@scharMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 
@@ -280,10 +280,10 @@ class ucharMI : public MI
     // const ucharMI::`vftable' @ 0x620CD8
 
 public:
-    // 0x527DD0 | ?Key@ucharMI@@UAEXHH@Z
+    // 0x527DD0 | ?Key@ucharMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x527E60 | ?Update@ucharMI@@UAEHH@Z
+    // 0x527E60 | ?Update@ucharMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 
@@ -294,10 +294,10 @@ class shortMI : public MI
     // const shortMI::`vftable' @ 0x620CE0
 
 public:
-    // 0x527EB0 | ?Key@shortMI@@UAEXHH@Z
+    // 0x527EB0 | ?Key@shortMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x527F50 | ?Update@shortMI@@UAEHH@Z
+    // 0x527F50 | ?Update@shortMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 
@@ -308,10 +308,10 @@ class ushortMI : public MI
     // const ushortMI::`vftable' @ 0x620CE8
 
 public:
-    // 0x527FA0 | ?Key@ushortMI@@UAEXHH@Z
+    // 0x527FA0 | ?Key@ushortMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x528040 | ?Update@ushortMI@@UAEHH@Z
+    // 0x528040 | ?Update@ushortMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 
@@ -322,10 +322,10 @@ class intMI : public MI
     // const intMI::`vftable' @ 0x620CF0
 
 public:
-    // 0x528090 | ?Key@intMI@@UAEXHH@Z
+    // 0x528090 | ?Key@intMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x528120 | ?Update@intMI@@UAEHH@Z
+    // 0x528120 | ?Update@intMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 
@@ -336,10 +336,10 @@ class uintMI : public MI
     // const uintMI::`vftable' @ 0x620CF8
 
 public:
-    // 0x528170 | ?Key@uintMI@@UAEXHH@Z
+    // 0x528170 | ?Key@uintMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x528210 | ?Update@uintMI@@UAEHH@Z
+    // 0x528210 | ?Update@uintMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 
@@ -350,10 +350,10 @@ class floatMI : public MI
     // const floatMI::`vftable' @ 0x620D00
 
 public:
-    // 0x528260 | ?Key@floatMI@@UAEXHH@Z
+    // 0x528260 | ?Key@floatMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x5282F0 | ?Update@floatMI@@UAEHH@Z
+    // 0x5282F0 | ?Update@floatMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 
@@ -364,10 +364,10 @@ class SBMI : public MI
     // const SBMI::`vftable' @ 0x620D08
 
 public:
-    // 0x528340 | ?Key@SBMI@@UAEXHH@Z
+    // 0x528340 | ?Key@SBMI@@UAEXHH@Z | inline
     void Key(i32 arg1, i32 arg2) override;
 
-    // 0x528360 | ?Update@SBMI@@UAEHH@Z
+    // 0x528360 | ?Update@SBMI@@UAEHH@Z | inline
     i32 Update(i32 arg1) override;
 };
 

@@ -147,22 +147,22 @@ class agiSWViewport : public agiViewport
 
 public:
     // 0x534BE0 | ??_EagiSWViewport@@UAEPAXI@Z
-    // 0x534C10 | ??1agiSWViewport@@UAE@XZ
+    // 0x534C10 | ??1agiSWViewport@@UAE@XZ | inline
     ~agiSWViewport() override;
 
-    // 0x534930 | ?Activate@agiSWViewport@@UAEXXZ
+    // 0x534930 | ?Activate@agiSWViewport@@UAEXXZ | inline
     void Activate() override;
 
-    // 0x534BC0 | ?BeginGfx@agiSWViewport@@UAEHXZ
+    // 0x534BC0 | ?BeginGfx@agiSWViewport@@UAEHXZ | inline
     i32 BeginGfx() override;
 
-    // 0x5349B0 | ?Clear@agiSWViewport@@UAEXH@Z
+    // 0x5349B0 | ?Clear@agiSWViewport@@UAEXH@Z | inline
     void Clear(i32 arg1) override;
 
-    // 0x534BD0 | ?EndGfx@agiSWViewport@@UAEXXZ
+    // 0x534BD0 | ?EndGfx@agiSWViewport@@UAEXXZ | inline
     void EndGfx() override;
 
-    // 0x534950 | ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z
+    // 0x534950 | ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z | inline
     void SetBackground(class Vector3& arg1) override;
 };
 
@@ -174,19 +174,19 @@ class agiSWBitmap : public agiBitmap
 
 public:
     // 0x534DF0 | ??_GagiSWBitmap@@UAEPAXI@Z
-    // 0x534E20 | ??1agiSWBitmap@@UAE@XZ
+    // 0x534E20 | ??1agiSWBitmap@@UAE@XZ | inline
     ~agiSWBitmap() override;
 
-    // 0x534C20 | ?BeginGfx@agiSWBitmap@@UAEHXZ
+    // 0x534C20 | ?BeginGfx@agiSWBitmap@@UAEHXZ | inline
     i32 BeginGfx() override;
 
-    // 0x534DC0 | ?EndGfx@agiSWBitmap@@UAEXXZ
+    // 0x534DC0 | ?EndGfx@agiSWBitmap@@UAEXXZ | inline
     void EndGfx() override;
 
-    // 0x534DE0 | ?Restore@agiSWBitmap@@UAEXXZ
+    // 0x534DE0 | ?Restore@agiSWBitmap@@UAEXXZ | inline
     void Restore() override;
 
-    // 0x534DA0 | ?UpdateFlags@agiSWBitmap@@UAEXXZ
+    // 0x534DA0 | ?UpdateFlags@agiSWBitmap@@UAEXXZ | inline
     void UpdateFlags() override;
 };
 

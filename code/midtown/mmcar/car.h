@@ -65,7 +65,7 @@ public:
     mmCar();
 
     // 0x474800 | ??_EmmCar@@UAEPAXI@Z
-    // 0x42D1F0 | ??1mmCar@@UAE@XZ
+    // 0x42D1F0 | ??1mmCar@@UAE@XZ | inline
     ~mmCar() override;
 
     // 0x4745E0 | ?AddWidgets@mmCar@@UAEXPAVBank@@@Z
@@ -77,13 +77,13 @@ public:
     // 0x473D70 | ?EnableDriving@mmCar@@QAEXH@Z
     void EnableDriving(i32 arg1);
 
-    // 0x474870 | ?GetBound@mmCar@@UAEPAVasBound@@XZ
+    // 0x474870 | ?GetBound@mmCar@@UAEPAVasBound@@XZ | inline
     class asBound* GetBound() override;
 
     // 0x4747C0 | ?GetClass@mmCar@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x474860 | ?GetICS@mmCar@@UAEPAVasInertialCS@@XZ
+    // 0x474860 | ?GetICS@mmCar@@UAEPAVasInertialCS@@XZ | inline
     class asInertialCS* GetICS() override;
 
     // 0x473EB0 | ?Impact@mmCar@@QAEXPAVmmIntersection@@PAVVector3@@MH1@Z

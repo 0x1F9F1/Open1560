@@ -144,3 +144,18 @@ void mmGame::RespawnXYZ(class Vector3& arg1, f32& arg2)
 {
     return stub<thiscall_t<void, mmGame*, class Vector3&, f32&>>(0x410130, this, arg1, arg2);
 }
+
+foobar::~foobar()
+{
+    unimplemented();
+}
+
+void foobar::Update()
+{
+    return stub<thiscall_t<void, foobar*>>(0x411EE0, this);
+}
+
+void foobar::UpdatePaused()
+{
+    return stub<thiscall_t<void, foobar*>>(0x411F10, this);
+}

@@ -42,7 +42,7 @@ public:
     mmWheelCheap();
 
     // 0x4751A0 | ??_EmmWheelCheap@@UAEPAXI@Z
-    // 0x453A50 | ??1mmWheelCheap@@UAE@XZ
+    // 0x453A50 | ??1mmWheelCheap@@UAE@XZ | inline
     ~mmWheelCheap() override;
 
     // 0x474950 | ?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z

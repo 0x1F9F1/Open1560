@@ -68,10 +68,10 @@ void dxiDirectInputCreate();
 // 0x574550 | ?dxiInit@@YAXPADHPAPAD@Z
 void dxiInit(char* arg1, i32 arg2, char** arg3);
 
-// 0x5742C0 | ?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z
+// 0x5742C0 | ?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z | unused
 void* dxiMemoryAllocate(struct IDirectDrawSurface4** arg1, u32 arg2);
 
-// 0x5744E0 | ?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z
+// 0x5744E0 | ?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z | unused
 void dxiMemoryFree(struct IDirectDrawSurface4* arg1);
 
 // 0x574690 | ?dxiScreenShot@@YAXPAD@Z

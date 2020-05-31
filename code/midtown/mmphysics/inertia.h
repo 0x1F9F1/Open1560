@@ -73,7 +73,7 @@ public:
     asInertialCS();
 
     // 0x4DBB80 | ??_EasInertialCS@@UAEPAXI@Z
-    // 0x453A30 | ??1asInertialCS@@UAE@XZ
+    // 0x453A30 | ??1asInertialCS@@UAE@XZ | inline
     ~asInertialCS() override;
 
     // 0x4DA660 | ?ApplyPush@asInertialCS@@UAEXABVVector3@@0@Z

@@ -74,7 +74,7 @@ public:
     Joint3Dof();
 
     // 0x4DEC00 | ??_EJoint3Dof@@UAEPAXI@Z
-    // 0x4DEC60 | ??1Joint3Dof@@UAE@XZ
+    // 0x4DEC60 | ??1Joint3Dof@@UAE@XZ | inline
     ~Joint3Dof() override;
 
     // 0x4DE3B0 | ?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@0AAVMatrix34@@ABVVector3@@@Z
@@ -166,13 +166,13 @@ check_size(Joint3Dof, 0xE0);
 class JointedStruct : public asNode
 {
 public:
-    // 0x4DEB60 | ??1JointedStruct@@UAE@XZ
+    // 0x4DEB60 | ??1JointedStruct@@UAE@XZ | inline
     ~JointedStruct();
 };
 
 check_size(JointedStruct, 0x0);
 
-// 0x4DECD0 | ?CrossProdMatrix@@YAXPAVMatrix34@@ABVVector3@@@Z
+// 0x4DECD0 | ?CrossProdMatrix@@YAXPAVMatrix34@@ABVVector3@@@Z | inline
 void CrossProdMatrix(class Matrix34* arg1, class Vector3 const& arg2);
 
 // 0x719118 | ?Joint3DofMetaClass@@3VMetaClass@@A

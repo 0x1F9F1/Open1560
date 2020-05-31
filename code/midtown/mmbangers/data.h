@@ -60,11 +60,11 @@ class mmBangerData : public asNode
     // const mmBangerData::`vftable' @ 0x61F738
 
 public:
-    // 0x4C9B50 | ??0mmBangerData@@QAE@XZ
+    // 0x4C9B50 | ??0mmBangerData@@QAE@XZ | inline
     mmBangerData();
 
     // 0x4C9A90 | ??_EmmBangerData@@UAEPAXI@Z
-    // 0x4C9BE0 | ??1mmBangerData@@UAE@XZ
+    // 0x4C9BE0 | ??1mmBangerData@@UAE@XZ | inline
     ~mmBangerData() override;
 
     // 0x4C85E0 | ?AddWidgets@mmBangerData@@UAEXPAVBank@@@Z
@@ -140,7 +140,7 @@ protected:
 
 check_size(mmBangerDataManager, 0x268D0);
 
-// 0x4C9A50 | ?RefTo@@YAPAUMetaType@@PAU1@HPAF@Z
+// 0x4C9A50 | ?RefTo@@YAPAUMetaType@@PAU1@HPAF@Z | inline
 struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i16* arg3);
 
 // 0x706008 | ?mmBangerDataManagerMetaClass@@3VMetaClass@@A

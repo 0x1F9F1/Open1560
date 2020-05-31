@@ -1,5 +1,7 @@
 arts_component "arts7"
     files {
+        "bank.cpp",
+        "bank.h",
         -- "benchstats.cpp",
         -- "benchstats.h",
         "camera.cpp",

@@ -53,6 +53,7 @@
     0x706048 | protected: static class mmBangerManager * mmBangerManager::Instance | ?Instance@mmBangerManager@@1PAV1@A
 */
 
+#include "arts7/node.h"
 #include "mmcity/inst.h"
 
 class mmBangerInstance : public mmInstance
@@ -64,7 +65,7 @@ public:
     mmBangerInstance();
 
     // 0x444720 | ??_EmmBangerInstance@@UAEPAXI@Z
-    // 0x444740 | ??1mmBangerInstance@@UAE@XZ
+    // 0x444740 | ??1mmBangerInstance@@UAE@XZ | inline
     ~mmBangerInstance() override;
 
     // 0x444710 | ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z | inline
@@ -106,7 +107,7 @@ public:
     mmUnhitBangerInstance();
 
     // 0x48FC50 | ??_GmmUnhitBangerInstance@@UAEPAXI@Z
-    // 0x48FC70 | ??1mmUnhitBangerInstance@@UAE@XZ
+    // 0x48FC70 | ??1mmUnhitBangerInstance@@UAE@XZ | inline
     ~mmUnhitBangerInstance() override;
 
     // 0x4CA810 | ?FromMatrix@mmUnhitBangerInstance@@UAIXABVMatrix34@@@Z
@@ -136,16 +137,41 @@ public:
 
 check_size(mmUnhitBangerInstance, 0x0);
 
+class mmBangerManager : public asNode
+{
+    // const mmBangerManager::`vftable' @ 0x61CD18
+
+public:
+    // 0x48FC80 | ??_GmmBangerManager@@UAEPAXI@Z
+    // 0x48FCB0 | ??1mmBangerManager@@UAE@XZ | inline
+    ~mmBangerManager() override;
+
+    // 0x4CAC70 | ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ
+    class mmHitBangerInstance* GetBanger();
+
+    // 0x4CACD0 | ?Init@mmBangerManager@@QAEXH@Z
+    void Init(i32 arg1);
+
+    // 0x4CAD90 | ?Reset@mmBangerManager@@UAEXXZ
+    void Reset() override;
+
+protected:
+    // 0x706048 | ?Instance@mmBangerManager@@1PAV1@A
+    static inline extern_var(0x706048, class mmBangerManager*, Instance);
+};
+
+check_size(mmBangerManager, 0x0);
+
 class mmHitBangerInstance : public mmBangerInstance
 {
     // const mmHitBangerInstance::`vftable' @ 0x61F7A0
 
 public:
-    // 0x4CAE60 | ??0mmHitBangerInstance@@QAE@XZ
+    // 0x4CAE60 | ??0mmHitBangerInstance@@QAE@XZ | inline
     mmHitBangerInstance();
 
     // 0x4CAE00 | ??_EmmHitBangerInstance@@UAEPAXI@Z
-    // 0x4CAED0 | ??1mmHitBangerInstance@@UAE@XZ
+    // 0x4CAED0 | ??1mmHitBangerInstance@@UAE@XZ | inline
     ~mmHitBangerInstance() override;
 
     // 0x4CAC40 | ?Detach@mmHitBangerInstance@@UAEXXZ
@@ -160,7 +186,7 @@ public:
     // 0x4CA550 | ?GetPos@mmHitBangerInstance@@UAIAAVVector3@@XZ
     class Vector3& __fastcall GetPos() override;
 
-    // 0x4CAEC0 | ?SizeOf@mmHitBangerInstance@@UAEIXZ
+    // 0x4CAEC0 | ?SizeOf@mmHitBangerInstance@@UAEIXZ | inline
     u32 SizeOf() override;
 
     // 0x4CA540 | ?ToMatrix@mmHitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z

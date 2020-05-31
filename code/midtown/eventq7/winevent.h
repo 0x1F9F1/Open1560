@@ -44,13 +44,12 @@
     0x908C48 | int eqRestoreFlag | ?eqRestoreFlag@@3HA
 */
 
-#include "event.h"
-
 #include "dispatchable.h"
+#include "event.h"
 
 struct WINEventHandler
     : eqEventHandler
-    , Dispatchable
+    , Dispatchable /* Warning: Unordered Multiple Inheritance */
 {
     // const WINEventHandler::`vftable'{for `Dispatchable'} @ 0x621A78
     // const WINEventHandler::`vftable'{for `eqEventHandler'} @ 0x621A80

@@ -62,27 +62,7 @@
     0x6A7040 | class MetaClass mmSingleBlitzMetaClass | ?mmSingleBlitzMetaClass@@3VMetaClass@@A
 */
 
-#include "arts7/node.h"
 #include "game.h"
-
-class foobar : public asNode
-{
-    // const foobar::`vftable' @ 0x61A5C8
-
-public:
-    // 0x414A20 | ??_Gfoobar@@UAEPAXI@Z
-    // 0x414A10 | ??1foobar@@UAE@XZ
-    ~foobar() override;
-
-private:
-    // 0x411EE0 | ?Update@foobar@@EAEXXZ | inline
-    void Update() override;
-
-    // 0x411F10 | ?UpdatePaused@foobar@@EAEXXZ | inline
-    void UpdatePaused() override;
-};
-
-check_size(foobar, 0x0);
 
 class mmSingleBlitz : public mmGame
 {
@@ -99,7 +79,7 @@ public:
     // 0x4148B0 | ?GetClass@mmSingleBlitz@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x414BE0 | ?GetWaypoints@mmSingleBlitz@@UAEPAVmmWaypoints@@XZ
+    // 0x414BE0 | ?GetWaypoints@mmSingleBlitz@@UAEPAVmmWaypoints@@XZ | inline
     class mmWaypoints* GetWaypoints() override;
 
     // 0x413760 | ?HitWaterHandler@mmSingleBlitz@@UAEXXZ
@@ -132,7 +112,7 @@ public:
     // 0x413800 | ?Update@mmSingleBlitz@@UAEXXZ
     void Update() override;
 
-    // 0x414BD0 | ?UpdateDebugKeyInput@mmSingleBlitz@@UAEXH@Z
+    // 0x414BD0 | ?UpdateDebugKeyInput@mmSingleBlitz@@UAEXH@Z | inline
     void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x413860 | ?UpdateGame@mmSingleBlitz@@UAEXXZ

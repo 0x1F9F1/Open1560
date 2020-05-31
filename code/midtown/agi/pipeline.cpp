@@ -76,26 +76,6 @@ void agiPipeline::ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5)
     return stub<thiscall_t<void, agiPipeline*, i32, i32, i32, i32, u32>>(0x556070, this, arg1, arg2, arg3, arg4, arg5);
 }
 
-void agiPipeline::Print(i32 arg1, i32 arg2, i32 arg3, char const* arg4)
-{
-    return stub<thiscall_t<void, agiPipeline*, i32, i32, i32, char const*>>(0x557F20, this, arg1, arg2, arg3, arg4);
-}
-
-i32 agiPipeline::PrintIs3D()
-{
-    return stub<thiscall_t<i32, agiPipeline*>>(0x558110, this);
-}
-
-void agiPipeline::PrintInit()
-{
-    return stub<thiscall_t<void, agiPipeline*>>(0x558130, this);
-}
-
-void agiPipeline::PrintShutdown()
-{
-    return stub<thiscall_t<void, agiPipeline*>>(0x558140, this);
-}
-
 void agiPipeline::Defragment()
 {
     return stub<thiscall_t<void, agiPipeline*>>(0x556080, this);

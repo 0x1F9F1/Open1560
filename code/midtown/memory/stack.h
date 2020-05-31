@@ -35,7 +35,7 @@
 // 0x520720 | ?DebugLog@@YAXHPAXH@Z
 void DebugLog(i32 arg1, void* arg2, i32 arg3);
 
-// 0x5206C0 | ?DebugLogInit@@YAXH@Z
+// 0x5206C0 | ?DebugLogInit@@YAXH@Z | unused
 void DebugLogInit(i32 arg1);
 
 // 0x520700 | ?DebugLogShutdown@@YAXXZ

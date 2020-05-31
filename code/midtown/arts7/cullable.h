@@ -37,11 +37,11 @@ class asCullable : public Base
     // const asCullable::`vftable' @ 0x61CBE0
 
 public:
-    // 0x525AA0 | ??0asCullable@@QAE@XZ
+    // 0x525AA0 | ??0asCullable@@QAE@XZ | inline
 
     // 0x525A40 | ??_EasCullable@@UAEPAXI@Z
-    // 0x48BB80 | ??1asCullable@@UAE@XZ
-    // 0x48BB50 | ??_GasCullable@@UAEPAXI@Z
+    // 0x48BB50 | ??_GasCullable@@UAEPAXI@Z | unused
+    // 0x48BB80 | ??1asCullable@@UAE@XZ | inline
 
     // 0x5258C0 | ?Cull@asCullable@@UAEXXZ
     virtual void Cull();

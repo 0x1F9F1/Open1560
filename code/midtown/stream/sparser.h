@@ -51,10 +51,10 @@ public:
     // 0x561400 | ?RawPutCh@StreamMiniParser@@UAEXH@Z
     void RawPutCh(i32 arg1) override;
 
-    // 0x561470 | ?Load@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z
+    // 0x561470 | ?Load@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z | unused
     static void Load(class MetaClass* cls, const char* path, void* ptr);
 
-    // 0x561520 | ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z
+    // 0x561520 | ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z | unused
     static void Save(class MetaClass* cls, const char* path, void* ptr);
 
 private:

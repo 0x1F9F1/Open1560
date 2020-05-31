@@ -58,7 +58,7 @@ public:
     // 0x44DA70 | ??0aiVehicleOpponent@@QAE@XZ
     aiVehicleOpponent();
 
-    // 0x43BFB0 | ??_EaiVehicleOpponent@@QAEPAXI@Z
+    // 0x43BFB0 | ??_EaiVehicleOpponent@@QAEPAXI@Z | unused
     // 0x44DAD0 | ??1aiVehicleOpponent@@QAE@XZ
     ~aiVehicleOpponent();
 
@@ -108,7 +108,7 @@ public:
     // 0x44E3B0 | ?SetAudioMinDistance@aiVehicleOpponent@@QAEXM@Z
     void SetAudioMinDistance(f32 arg1);
 
-    // 0x44E7D0 | ?Type@aiVehicleOpponent@@UAEHXZ
+    // 0x44E7D0 | ?Type@aiVehicleOpponent@@UAEHXZ | inline
     i32 Type() override;
 
     // 0x44E100 | ?UnAssignSounds@aiVehicleOpponent@@QAEXXZ

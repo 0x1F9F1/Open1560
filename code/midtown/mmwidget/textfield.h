@@ -57,7 +57,7 @@
     0x61E478 | const uiWidget::`vftable' | ??_7uiWidget@@6B@
 */
 
-#include "arts7/node.h"
+#include "widget.h"
 
 class UITextField : public uiWidget
 {
@@ -108,7 +108,7 @@ public:
     // 0x4B2780 | ?ToggleField@UITextField@@QAEXH@Z
     void ToggleField(i32 arg1);
 
-    // 0x4B2EC0 | ?Update@UITextField@@UAEXXZ
+    // 0x4B2EC0 | ?Update@UITextField@@UAEXXZ | inline
     void Update() override;
 
     // 0x4B2A10 | ?WmCharHandler@UITextField@@QAEXE@Z
@@ -116,63 +116,3 @@ public:
 };
 
 check_size(UITextField, 0x144);
-
-class uiWidget : public asNode
-{
-    // const uiWidget::`vftable' @ 0x61E478
-
-public:
-    // 0x4B4860 | ??0uiWidget@@QAE@XZ | inline
-    uiWidget();
-
-    // 0x4B2E90 | ??_GuiWidget@@UAEPAXI@Z
-    // 0x4B2DB0 | ??1uiWidget@@UAE@XZ
-    ~uiWidget() override;
-
-    // 0x4B2DC0 | ?Disable@uiWidget@@UAEXXZ
-    virtual void Disable();
-
-    // 0x4B2DD0 | ?Enable@uiWidget@@UAEXXZ
-    virtual void Enable();
-
-    // 0x4B2DE0 | ?TurnOn@uiWidget@@UAEXXZ
-    virtual void TurnOn();
-
-    // 0x4B2E00 | ?TurnOff@uiWidget@@UAEXXZ
-    virtual void TurnOff();
-
-    // 0x4B2E10 | ?SetReadOnly@uiWidget@@UAEXH@Z
-    virtual void SetReadOnly(i32 arg1);
-
-    // 0x4B2E30 | ?Action@uiWidget@@UAEXTeqEvent@@@Z
-    virtual void Action(union eqEvent arg1);
-
-    // 0x4B2E40 | ?CaptureAction@uiWidget@@UAEXTeqEvent@@@Z
-    virtual void CaptureAction(union eqEvent arg1);
-
-    // 0x4B48A0 | ?Switch@uiWidget@@UAEXH@Z | inline
-    virtual void Switch(i32 arg1);
-
-    // 0x4B2E50 | ?EvalMouseX@uiWidget@@UAEXM@Z
-    virtual void EvalMouseX(f32 arg1);
-
-    // 0x4B2E60 | ?ReturnDescription@uiWidget@@UAEPADXZ
-    virtual char* ReturnDescription();
-
-    // 0x4B2E70 | ?SetPosition@uiWidget@@UAEXMM@Z
-    virtual void SetPosition(f32 arg1, f32 arg2);
-
-    // 0x4B2E80 | ?GetScreenHeight@uiWidget@@UAEMXZ
-    virtual f32 GetScreenHeight();
-
-    // 0x4B4890 | ?AddToolTip@uiWidget@@QAEXPAVUIMenu@@PAULocString@@@Z | inline
-    void AddToolTip(class UIMenu* arg1, struct LocString* arg2);
-
-    // 0x4B48C0 | ?ResetToolTip@uiWidget@@QAEXXZ | inline
-    void ResetToolTip();
-
-    // 0x4B48D0 | ?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z | inline
-    void SetToolTipText(struct LocString* arg1);
-};
-
-check_size(uiWidget, 0x74);

@@ -20,6 +20,16 @@ define_dummy_symbol(agi_cmodelx);
 
 #include "cmodelx.h"
 
+class agiColorModel* agiColorModel::FindMatch(class agiSurfaceDesc* arg1)
+{
+    return stub<cdecl_t<class agiColorModel*, class agiSurfaceDesc*>>(0x55D810, arg1);
+}
+
+class agiColorModel* agiColorModel::FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 arg4)
+{
+    return stub<cdecl_t<class agiColorModel*, i32, i32, i32, i32>>(0x55D760, arg1, arg2, arg3, arg4);
+}
+
 agiColorModelRGB555::agiColorModelRGB555()
 {
     unimplemented();

@@ -79,7 +79,7 @@ public:
     // 0x472D90 | ?ApplyDamage@mmCarModel@@QAEXAAVVector3@@M@Z
     void ApplyDamage(class Vector3& arg1, f32 arg2);
 
-    // 0x473330 | ?AttachEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ
+    // 0x473330 | ?AttachEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ | inline
     class mmPhysEntity* AttachEntity() override;
 
     // 0x472CA0 | ?ClearDamage@mmCarModel@@QAEXH@Z
@@ -118,7 +118,7 @@ public:
     // 0x473280 | ?GetClass@mmCarModel@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x473320 | ?GetEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ
+    // 0x473320 | ?GetEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ | inline
     class mmPhysEntity* GetEntity() override;
 
     // 0x472C50 | ?GetPart@mmCarModel@@QAEPAVmmHitBangerInstance@@H@Z | unused
@@ -127,7 +127,7 @@ public:
     // 0x4715D0 | ?GetPos@mmCarModel@@UAIAAVVector3@@XZ
     class Vector3& __fastcall GetPos() override;
 
-    // 0x473340 | ?GetVelocity@mmCarModel@@UAE?AVVector3@@XZ
+    // 0x473340 | ?GetVelocity@mmCarModel@@UAE?AVVector3@@XZ | inline
     class Vector3 GetVelocity() override;
 
     // 0x471640 | ?Impact@mmCarModel@@QAEXPAVVector3@@@Z
@@ -142,7 +142,7 @@ public:
     // 0x4730D0 | ?Kill@mmCarModel@@QAEXXZ | unused
     void Kill();
 
-    // 0x473370 | ?Reset@mmCarModel@@UAEXXZ
+    // 0x473370 | ?Reset@mmCarModel@@UAEXXZ | inline
     void Reset() override;
 
     // 0x4715C0 | ?ToMatrix@mmCarModel@@UAIAAVMatrix34@@AAV2@@Z

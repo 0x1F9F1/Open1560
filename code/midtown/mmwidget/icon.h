@@ -35,7 +35,7 @@
     0x61EBA8 | const UIIcon::`vftable' | ??_7UIIcon@@6B@
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UIIcon : public uiWidget
 {

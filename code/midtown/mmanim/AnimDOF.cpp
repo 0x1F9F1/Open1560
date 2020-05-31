@@ -82,34 +82,3 @@ void mmAnimDOF::DeclareFields()
 {
     return stub<cdecl_t<void>>(0x4C4BF0);
 }
-
-mmDofBangerInstance::~mmDofBangerInstance()
-{
-    unimplemented();
-}
-
-void __fastcall mmDofBangerInstance::FromMatrix(class Matrix34 const& arg1)
-{
-    return stub<fastcall_t<void, mmDofBangerInstance*, class Matrix34 const&>>(0x4C4E50, this, arg1);
-}
-
-class Vector3& __fastcall mmDofBangerInstance::GetPos()
-{
-    return stub<fastcall_t<class Vector3&, mmDofBangerInstance*>>(0x4C4E90, this);
-}
-
-i32 mmDofBangerInstance::Init(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5)
-{
-    return stub<thiscall_t<i32, mmDofBangerInstance*, char*, char*, i32, class Matrix34*, class Vector3*>>(
-        0x4CB7E0, this, arg1, arg2, arg3, arg4, arg5);
-}
-
-u32 mmDofBangerInstance::SizeOf()
-{
-    return stub<thiscall_t<u32, mmDofBangerInstance*>>(0x4CB7D0, this);
-}
-
-class Matrix34& __fastcall mmDofBangerInstance::ToMatrix(class Matrix34& arg1)
-{
-    return stub<fastcall_t<class Matrix34&, mmDofBangerInstance*, class Matrix34&>>(0x4C4E60, this, arg1);
-}

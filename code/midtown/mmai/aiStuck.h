@@ -45,7 +45,7 @@ public:
     aiStuck();
 
     // 0x46B8A0 | ??_GaiStuck@@UAEPAXI@Z
-    // 0x4658E0 | ??1aiStuck@@UAE@XZ
+    // 0x4658E0 | ??1aiStuck@@UAE@XZ | inline
     ~aiStuck() override;
 
     // 0x46B770 | ?AddWidgets@aiStuck@@UAEXPAVBank@@@Z

@@ -48,7 +48,7 @@
     0x61E778 | const UICompositeScroll::`vftable' | ??_7UICompositeScroll@@6B@
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UICompositeScroll : public uiWidget
 {

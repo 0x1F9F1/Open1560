@@ -147,7 +147,7 @@ check_size(mmGfxCFG, 0x0);
 struct mmCtrlCFG
 {
 public:
-    // 0x4CEE80 | ??1mmCtrlCFG@@QAE@XZ
+    // 0x4CEE80 | ??1mmCtrlCFG@@QAE@XZ | inline
     ~mmCtrlCFG();
 };
 

@@ -47,7 +47,7 @@ public:
     mmCDPlayer();
 
     // 0x423810 | ??_GmmCDPlayer@@UAEPAXI@Z
-    // 0x406960 | ??1mmCDPlayer@@UAE@XZ
+    // 0x406960 | ??1mmCDPlayer@@UAE@XZ | inline
     ~mmCDPlayer() override;
 
     // 0x4234C0 | ?AddWidgets@mmCDPlayer@@UAEXPAVBank@@@Z

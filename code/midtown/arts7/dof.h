@@ -47,7 +47,7 @@ public:
     asDofCS();
 
     // 0x49C3D0 | ??_EasDofCS@@UAEPAXI@Z
-    // 0x49C430 | ??1asDofCS@@UAE@XZ
+    // 0x49C430 | ??1asDofCS@@UAE@XZ | inline
     ~asDofCS() override;
 
     // 0x52ADE0 | ??4asDofCS@@QAEXABV0@@Z | unused

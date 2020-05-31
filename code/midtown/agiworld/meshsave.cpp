@@ -19,3 +19,10 @@
 define_dummy_symbol(agiworld_meshsave);
 
 #include "meshsave.h"
+
+#include "meshset.h"
+
+void agiMeshSet::BinarySave(class Stream* arg1)
+{
+    return stub<thiscall_t<void, agiMeshSet*, class Stream*>>(0x516B30, this, arg1);
+}

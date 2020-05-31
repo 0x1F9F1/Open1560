@@ -198,7 +198,7 @@ class mmUpperInstance : public mmMatrixInstance
 
 public:
     // 0x48FA80 | ??_GmmUpperInstance@@UAEPAXI@Z
-    // 0x48FAA0 | ??1mmUpperInstance@@UAE@XZ
+    // 0x48FAA0 | ??1mmUpperInstance@@UAE@XZ | inline
     ~mmUpperInstance() override;
 
 private:
@@ -217,10 +217,10 @@ public:
     mmRunwayLight(char* arg1, class Vector3& arg2, class Vector3& arg3);
 
     // 0x48FA50 | ??_EmmRunwayLight@@UAEPAXI@Z
-    // 0x48FA70 | ??1mmRunwayLight@@UAE@XZ
+    // 0x48FA70 | ??1mmRunwayLight@@UAE@XZ | inline
     ~mmRunwayLight() override;
 
-    // 0x48FA40 | ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z
+    // 0x48FA40 | ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z | inline
     void AddWidgets(class Bank* arg1) override;
 
     // 0x48C1B0 | ?Draw@mmRunwayLight@@UAIXH@Z
@@ -300,28 +300,3 @@ inline extern_var(0x63E260, struct t_mmEnvSetup (*)[4], mmEnvSetup);
 
 // 0x6A8E24 | ?pedTriCount@@3HA
 inline extern_var(0x6A8E24, i32, pedTriCount);
-
-class mmBangerManager : public asNode
-{
-    // const mmBangerManager::`vftable' @ 0x61CD18
-
-public:
-    // 0x48FC80 | ??_GmmBangerManager@@UAEPAXI@Z
-    // 0x48FCB0 | ??1mmBangerManager@@UAE@XZ
-    ~mmBangerManager() override;
-
-    // 0x4CAC70 | ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ | inline
-    class mmHitBangerInstance* GetBanger();
-
-    // 0x4CACD0 | ?Init@mmBangerManager@@QAEXH@Z | inline
-    void Init(i32 arg1);
-
-    // 0x4CAD90 | ?Reset@mmBangerManager@@UAEXXZ | inline
-    void Reset() override;
-
-protected:
-    // 0x706048 | ?Instance@mmBangerManager@@1PAV1@A | inline
-    static inline extern_var(0x706048, class mmBangerManager*, Instance);
-};
-
-check_size(mmBangerManager, 0x0);

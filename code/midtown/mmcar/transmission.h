@@ -54,7 +54,7 @@ public:
     mmTransmission();
 
     // 0x470CF0 | ??_EmmTransmission@@UAEPAXI@Z
-    // 0x470390 | ??1mmTransmission@@UAE@XZ
+    // 0x470390 | ??1mmTransmission@@UAE@XZ | inline
     ~mmTransmission() override;
 
     // 0x470790 | ?AddWidgets@mmTransmission@@UAEXPAVBank@@@Z
@@ -102,7 +102,7 @@ public:
 
 check_size(mmTransmission, 0xD4);
 
-// 0x470CC0 | ?ArrayOf@@YAPAUMetaType@@PAU1@H@Z
+// 0x470CC0 | ?ArrayOf@@YAPAUMetaType@@PAU1@H@Z | inline
 struct MetaType* ArrayOf(struct MetaType* arg1, i32 arg2);
 
 // 0x6A7CB8 | ?mmTransmissionMetaClass@@3VMetaClass@@A

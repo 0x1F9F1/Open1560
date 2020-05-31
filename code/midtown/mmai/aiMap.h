@@ -313,23 +313,7 @@ private:
 
 check_size(aiMap, 0xBC);
 
-class CArrayList
-{
-public:
-    // 0x43C180 | ??0CArrayList@@QAE@XZ
-    CArrayList();
-
-    // 0x43C070 | ??_ECArrayList@@QAEPAXI@Z
-    // 0x446C00 | ??1CArrayList@@QAE@XZ
-    ~CArrayList();
-
-    // 0x446C20 | ?Append@CArrayList@@QAEXH@Z | inline
-    void Append(i32 arg1);
-};
-
-check_size(CArrayList, 0x8);
-
-// 0x43C0D0 | ?Clamp@@YAMMMM@Z
+// 0x43C0D0 | ?Clamp@@YAMMMM@Z | inline
 f32 Clamp(f32 arg1, f32 arg2, f32 arg3);
 
 // 0x6A7848 | ?AIMAP@@3VaiMap@@A

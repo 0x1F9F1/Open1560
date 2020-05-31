@@ -78,7 +78,7 @@ class aiTrafficLightInstance : public mmUnhitBangerInstance
 
 public:
     // 0x444760 | ??_EaiTrafficLightInstance@@UAEPAXI@Z
-    // 0x444780 | ??1aiTrafficLightInstance@@UAE@XZ
+    // 0x444780 | ??1aiTrafficLightInstance@@UAE@XZ | inline
     ~aiTrafficLightInstance() override;
 
     // 0x444530 | ?Draw@aiTrafficLightInstance@@UAIXH@Z

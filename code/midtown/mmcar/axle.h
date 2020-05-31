@@ -43,7 +43,7 @@ public:
     mmAxle();
 
     // 0x47D730 | ??_EmmAxle@@UAEPAXI@Z
-    // 0x470370 | ??1mmAxle@@UAE@XZ
+    // 0x470370 | ??1mmAxle@@UAE@XZ | inline
     ~mmAxle() override;
 
     // 0x47D590 | ?AddWidgets@mmAxle@@UAEXPAVBank@@@Z

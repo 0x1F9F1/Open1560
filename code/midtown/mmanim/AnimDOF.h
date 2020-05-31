@@ -49,7 +49,7 @@
     0x705E20 | class MetaClass mmAnimDOFMetaClass | ?mmAnimDOFMetaClass@@3VMetaClass@@A
 */
 
-#include "mmbangers/banger.h"
+#include "mmbangers/dof.h"
 
 class mmDrawbridgeInstance : public mmDofBangerInstance
 {
@@ -57,7 +57,7 @@ class mmDrawbridgeInstance : public mmDofBangerInstance
 
 public:
     // 0x4C4D90 | ??_GmmDrawbridgeInstance@@UAEPAXI@Z
-    // 0x4C4DB0 | ??1mmDrawbridgeInstance@@UAE@XZ
+    // 0x4C4DB0 | ??1mmDrawbridgeInstance@@UAE@XZ | inline
     ~mmDrawbridgeInstance() override;
 
     // 0x4C4460 | ?Draw@mmDrawbridgeInstance@@UAIXH@Z
@@ -77,7 +77,7 @@ public:
     // 0x4C4550 | ??0mmAnimDOF@@QAE@XZ
     mmAnimDOF();
 
-    // 0x4C4DC0 | ??_EmmAnimDOF@@QAEPAXI@Z
+    // 0x4C4DC0 | ??_EmmAnimDOF@@QAEPAXI@Z | unused
     // 0x4C4570 | ??1mmAnimDOF@@QAE@XZ
     ~mmAnimDOF();
 
@@ -104,33 +104,6 @@ public:
 };
 
 check_size(mmAnimDOF, 0x98);
-
-class mmDofBangerInstance : public mmUnhitBangerInstance
-{
-    // const mmDofBangerInstance::`vftable' @ 0x61F478
-
-public:
-    // 0x4C4EC0 | ??_GmmDofBangerInstance@@UAEPAXI@Z
-    // 0x4C4EE0 | ??1mmDofBangerInstance@@UAE@XZ
-    ~mmDofBangerInstance() override;
-
-    // 0x4C4E50 | ?FromMatrix@mmDofBangerInstance@@UAIXABVMatrix34@@@Z
-    void __fastcall FromMatrix(class Matrix34 const& arg1) override;
-
-    // 0x4C4E90 | ?GetPos@mmDofBangerInstance@@UAIAAVVector3@@XZ
-    class Vector3& __fastcall GetPos() override;
-
-    // 0x4CB7E0 | ?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z | inline
-    i32 Init(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
-
-    // 0x4CB7D0 | ?SizeOf@mmDofBangerInstance@@UAEIXZ | inline
-    u32 SizeOf() override;
-
-    // 0x4C4E60 | ?ToMatrix@mmDofBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
-    class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
-};
-
-check_size(mmDofBangerInstance, 0x0);
 
 // 0x705E20 | ?mmAnimDOFMetaClass@@3VMetaClass@@A
 inline extern_var(0x705E20, class MetaClass, mmAnimDOFMetaClass);

@@ -59,7 +59,7 @@ inline extern_var(0x6A8F18, i32, DontClearPositions);
 struct position_t
 {
 public:
-    // 0x491DF0 | ??1position_t@@QAE@XZ
+    // 0x491DF0 | ??1position_t@@QAE@XZ | inline
     ~position_t();
 };
 

@@ -19,3 +19,10 @@
 define_dummy_symbol(agiworld_mrkni);
 
 #include "mrkni.h"
+
+#include "meshset.h"
+
+void __fastcall agiMeshSet::ToScreen(u8* arg1, class Vector4* arg2, i32 arg3)
+{
+    return stub<fastcall_t<void, u8*, class Vector4*, i32>>(0x516620, arg1, arg2, arg3);
+}

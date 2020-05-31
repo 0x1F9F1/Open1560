@@ -59,10 +59,10 @@ public:
     // 0x4BC960 | ?Action@UIToggleButton2@@UAEXTeqEvent@@@Z
     void Action(union eqEvent arg1) override;
 
-    // 0x4BCAA0 | ?Disable@UIToggleButton2@@UAEXXZ
+    // 0x4BCAA0 | ?Disable@UIToggleButton2@@UAEXXZ | inline
     void Disable() override;
 
-    // 0x4BCA90 | ?Enable@UIToggleButton2@@UAEXXZ
+    // 0x4BCA90 | ?Enable@UIToggleButton2@@UAEXXZ | inline
     void Enable() override;
 
     // 0x4BC7C0 | ?Init@UIToggleButton2@@QAEXPAULocString@@PAHMMMMHHVCallback@@@Z
@@ -75,7 +75,7 @@ public:
     // 0x4BC910 | ?Unkill@UIToggleButton2@@QAEXXZ | unused
     void Unkill();
 
-    // 0x4BCA80 | ?Update@UIToggleButton2@@UAEXXZ
+    // 0x4BCA80 | ?Update@UIToggleButton2@@UAEXXZ | inline
     void Update() override;
 
 protected:

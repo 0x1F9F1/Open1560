@@ -36,7 +36,7 @@
     0x7059A0 | class MetaClass UIBMLabelMetaClass | ?UIBMLabelMetaClass@@3VMetaClass@@A
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UIBMLabel : public uiWidget
 {

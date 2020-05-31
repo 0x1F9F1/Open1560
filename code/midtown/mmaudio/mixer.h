@@ -48,12 +48,12 @@
 */
 
 #include "data7/base.h"
-#include "eventq7/winevent.h"
+#include "eventq7/dispatchable.h"
 
 struct VolumeDW
 {
 public:
-    // 0x4EEB80 | ??1VolumeDW@@QAE@XZ
+    // 0x4EEB80 | ??1VolumeDW@@QAE@XZ | inline
     ~VolumeDW();
 
     // 0x4EE040 | ?Set@VolumeDW@@QAEXMM@Z | unused
@@ -67,7 +67,7 @@ check_size(VolumeDW, 0x0);
 
 class MixerCTL
     : public Dispatchable
-    , public Base
+    , public Base /* Warning: Unordered Multiple Inheritance */
 {
     // const MixerCTL::`vftable'{for `Base'} @ 0x61FEB8
     // const MixerCTL::`vftable'{for `Dispatchable'} @ 0x61FECC

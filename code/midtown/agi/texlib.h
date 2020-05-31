@@ -29,10 +29,10 @@
 class agiLib<class agiTexParameters, class agiTexDef>
 {
 public:
-    // 0x5581A0 | ??0?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ
+    // 0x5581A0 | ??0?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ | inline
     agiLib<class agiTexParameters, class agiTexDef>();
 
-    // 0x5581D0 | ??1?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ
+    // 0x5581D0 | ??1?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ | inline
     ~agiLib<class agiTexParameters, class agiTexDef>();
 
     // 0x48FB10 | ?Add@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEHAAVagiTexParameters@@@Z | inline

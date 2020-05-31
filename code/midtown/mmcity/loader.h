@@ -72,7 +72,7 @@ public:
     // 0x48B720 | ?Init@mmLoader@@QAEXPADMM@Z
     void Init(char* arg1, f32 arg2, f32 arg3);
 
-    // 0x48B970 | ?Percent@mmLoader@@QAEXH@Z
+    // 0x48B970 | ?Percent@mmLoader@@QAEXH@Z | unused
     void Percent(i32 arg1);
 
     // 0x48B9C0 | ?Reset@mmLoader@@QAEXXZ
@@ -81,7 +81,7 @@ public:
     // 0x48B820 | ?SetIntroText@mmLoader@@QAEXPAULocString@@@Z
     void SetIntroText(struct LocString* arg1);
 
-    // 0x48B810 | ?Shutdown@mmLoader@@QAEXXZ
+    // 0x48B810 | ?Shutdown@mmLoader@@QAEXXZ | unused
     void Shutdown();
 
     // 0x48B9E0 | ?Update@mmLoader@@QAEXXZ

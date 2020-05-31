@@ -33,6 +33,8 @@
     0x90B128 | class Callback NullCallback | ?NullCallback@@3VCallback@@A
 */
 
+#include "base.h"
+
 class Callback
 {
 public:

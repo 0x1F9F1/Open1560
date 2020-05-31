@@ -55,7 +55,7 @@ public:
     // 0x4F9070 | ??1mmViewCS@@UAE@XZ
     ~mmViewCS() override;
 
-    // 0x4F9560 | ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z
+    // 0x4F9560 | ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z | inline
     void AddWidgets(class Bank* arg1) override;
 
     // 0x4F9320 | ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z | unused

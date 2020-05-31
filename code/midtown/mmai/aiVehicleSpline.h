@@ -69,7 +69,7 @@ public:
     // 0x459EE0 | ??0aiVehicleSpline@@QAE@XZ
     aiVehicleSpline();
 
-    // 0x45C4A0 | ??_EaiVehicleSpline@@QAEPAXI@Z
+    // 0x45C4A0 | ??_EaiVehicleSpline@@QAEPAXI@Z | unused
     // 0x459F50 | ??1aiVehicleSpline@@QAE@XZ
     ~aiVehicleSpline();
 
@@ -145,7 +145,7 @@ public:
     // 0x45BCF0 | ?TotLength@aiVehicleSpline@@QAEMXZ
     f32 TotLength();
 
-    // 0x45C500 | ?Type@aiVehicleSpline@@UAEHXZ
+    // 0x45C500 | ?Type@aiVehicleSpline@@UAEHXZ | inline
     i32 Type() override;
 
     // 0x45A2F0 | ?Update@aiVehicleSpline@@UAEXXZ

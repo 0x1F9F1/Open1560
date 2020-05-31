@@ -107,7 +107,7 @@ public:
     void Update() override;
 };
 
-check_size(mmWPHUD, 0x98);
+check_size(mmWPHUD, 0x0);
 
 class mmCircuitHUD : public asNode
 {
@@ -140,7 +140,7 @@ public:
     void Update() override;
 };
 
-check_size(mmCircuitHUD, 0x9C);
+check_size(mmCircuitHUD, 0x0);
 
 class mmCRHUD : public asNode
 {

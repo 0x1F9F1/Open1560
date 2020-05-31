@@ -18,7 +18,10 @@
 
 #pragma once
 
-#include "data7/base.h"
+/*
+    arts7:bank
+*/
+
 #include "data7/callback.h"
 
 class Bank

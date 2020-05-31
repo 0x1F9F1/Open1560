@@ -142,7 +142,7 @@ check_size(asPortalPVS, 0x0);
 struct asPortalEdge
 {
 public:
-    // 0x4977B0 | ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z
+    // 0x4977B0 | ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z | inline
     asPortalEdge(struct asPortalCell* arg1, struct asPortalCell* arg2, i32 arg3);
 };
 

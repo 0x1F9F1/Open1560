@@ -63,7 +63,7 @@ public:
     aiGoalFollowWayPts(char* arg1, class aiRailSet* arg2, class aiVehicleOpponent* arg3, i16* arg4, i16* arg5,
         i16* arg6, char* arg7, f32 arg8);
 
-    // 0x46A310 | ??_EaiGoalFollowWayPts@@QAEPAXI@Z
+    // 0x46A310 | ??_EaiGoalFollowWayPts@@QAEPAXI@Z | unused
     // 0x466420 | ??1aiGoalFollowWayPts@@QAE@XZ
     ~aiGoalFollowWayPts();
 

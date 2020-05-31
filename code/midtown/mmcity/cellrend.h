@@ -47,7 +47,7 @@ public:
     // 0x498970 | ??0mmCellRenderer@@QAE@XZ
     mmCellRenderer();
 
-    // 0x4989A0 | ??1mmCellRenderer@@QAE@XZ
+    // 0x4989A0 | ??1mmCellRenderer@@QAE@XZ | unused
     ~mmCellRenderer();
 
     // 0x498FA0 | ?Cull@mmCellRenderer@@UAEXH@Z

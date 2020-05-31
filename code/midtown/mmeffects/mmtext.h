@@ -63,7 +63,7 @@ public:
     // 0x4FEE50 | ??1mmText@@QAE@XZ
     ~mmText();
 
-    // 0x4FF2D0 | ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z
+    // 0x4FF2D0 | ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z | unused
     void Draw(class agiSurfaceDesc* arg1, f32 arg2, f32 arg3, char* arg4, void* arg5);
 
     // 0x4FF360 | ?Draw2@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAXI@Z
@@ -103,8 +103,8 @@ public:
     mmTextNode();
 
     // 0x426300 | ??_EmmTextNode@@UAEPAXI@Z
+    // 0x4FFE70 | ??_GmmTextNode@@UAEPAXI@Z | unused
     // 0x4FF4D0 | ??1mmTextNode@@UAE@XZ
-    // 0x4FFE70 | ??_GmmTextNode@@UAEPAXI@Z
     ~mmTextNode() override;
 
     // 0x4FF930 | ?AddText@mmTextNode@@QAEHPAXPAULocString@@HMM@Z
@@ -122,13 +122,13 @@ public:
     // 0x4FF540 | ?Init@mmTextNode@@QAEXMMMMHH@Z
     void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, i32 arg6);
 
-    // 0x4FFB00 | ?Printf@mmTextNode@@QAAXPBDZZ
+    // 0x4FFB00 | ?Printf@mmTextNode@@QAAXPBDZZ | unused
     void Printf(char const* arg1, ...);
 
     // 0x4FFB60 | ?RenderText@mmTextNode@@QAEXPAVagiSurfaceDesc@@PAUmmTextData@@HI@Z
     void RenderText(class agiSurfaceDesc* arg1, struct mmTextData* arg2, i32 arg3, u32 arg4);
 
-    // 0x4FF690 | ?SetBGColor@mmTextNode@@QAEXAAVVector4@@@Z
+    // 0x4FF690 | ?SetBGColor@mmTextNode@@QAEXAAVVector4@@@Z | unused
     void SetBGColor(class Vector4& arg1);
 
     // 0x4FF760 | ?SetEffects@mmTextNode@@QAEXHH@Z
@@ -167,5 +167,5 @@ private:
 
 check_size(mmTextNode, 0x54);
 
-// 0x4FEE30 | ?ddGDIFlip@@YAXXZ
+// 0x4FEE30 | ?ddGDIFlip@@YAXXZ | unused
 void ddGDIFlip();

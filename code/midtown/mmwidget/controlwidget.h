@@ -37,7 +37,7 @@
     0x61ED88 | const UIControlWidget::`vftable' | ??_7UIControlWidget@@6B@
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UIControlWidget : public uiWidget
 {
@@ -48,7 +48,7 @@ public:
     UIControlWidget();
 
     // 0x4B8790 | ??_EUIControlWidget@@UAEPAXI@Z
-    // 0x4BC0A0 | ??_GUIControlWidget@@UAEPAXI@Z
+    // 0x4BC0A0 | ??_GUIControlWidget@@UAEPAXI@Z | unused
     // 0x4BBBA0 | ??1UIControlWidget@@UAE@XZ
     ~UIControlWidget() override;
 
@@ -70,10 +70,10 @@ public:
     // 0x4BBF60 | ?Switch@UIControlWidget@@UAEXH@Z
     void Switch(i32 arg1) override;
 
-    // 0x4BC0E0 | ?TurnOff@UIControlWidget@@UAEXXZ
+    // 0x4BC0E0 | ?TurnOff@UIControlWidget@@UAEXXZ | inline
     void TurnOff() override;
 
-    // 0x4BC0D0 | ?TurnOn@UIControlWidget@@UAEXXZ
+    // 0x4BC0D0 | ?TurnOn@UIControlWidget@@UAEXXZ | inline
     void TurnOn() override;
 
     // 0x4BBEC0 | ?Update@UIControlWidget@@UAEXXZ

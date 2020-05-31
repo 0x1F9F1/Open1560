@@ -47,7 +47,7 @@
 // 0x578740 | ?ipcCloseHandle@@YAXI@Z
 void ipcCloseHandle(u32 arg1);
 
-// 0x578B00 | ?ipcCloseSpinLock@@YAXPAI@Z
+// 0x578B00 | ?ipcCloseSpinLock@@YAXPAI@Z | unused
 void ipcCloseSpinLock(u32* arg1);
 
 // 0x578650 | ?ipcCreateEvent@@YAIH@Z
@@ -56,7 +56,7 @@ u32 ipcCreateEvent(i32 arg1);
 // 0x578670 | ?ipcCreateMutex@@YAIH@Z
 u32 ipcCreateMutex(i32 arg1);
 
-// 0x578AF0 | ?ipcCreateSpinLock@@YAXPAI@Z
+// 0x578AF0 | ?ipcCreateSpinLock@@YAXPAI@Z | unused
 void ipcCreateSpinLock(u32* arg1);
 
 // 0x578690 | ?ipcCreateThread@@YAIP6GKPAX@Z0PAK@Z
@@ -65,19 +65,19 @@ u32 ipcCreateThread(u32(__stdcall* arg1)(void*), void* arg2, u32* arg3);
 // 0x5786D0 | ?ipcReleaseMutex@@YAXI@Z
 void ipcReleaseMutex(u32 arg1);
 
-// 0x578770 | ?ipcSleep@@YAXI@Z
+// 0x578770 | ?ipcSleep@@YAXI@Z | unused
 void ipcSleep(u32 arg1);
 
 // 0x578A70 | ?ipcSpinLock@@YAXPAI@Z
 void ipcSpinLock(u32* arg1);
 
-// 0x578AC0 | ?ipcSpunUnlock@@YAXPAI@Z
+// 0x578AC0 | ?ipcSpunUnlock@@YAXPAI@Z | unused
 void ipcSpunUnlock(u32* arg1);
 
 // 0x5786B0 | ?ipcTriggerEvent@@YAXI@Z
 void ipcTriggerEvent(u32 arg1);
 
-// 0x578720 | ?ipcWaitMultiple@@YAHHPAIH@Z
+// 0x578720 | ?ipcWaitMultiple@@YAHHPAIH@Z | unused
 i32 ipcWaitMultiple(i32 arg1, u32* arg2, i32 arg3);
 
 // 0x5786F0 | ?ipcWaitSingle@@YAXI@Z

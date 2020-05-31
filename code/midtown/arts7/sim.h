@@ -74,144 +74,144 @@
 #include "eventq7/replay.h"
 #include "node.h"
 
-class asSimulation : public asNode
-{
-    // const asSimulation::`vftable' @ 0x620A00
+class asSimulation: public asNode {
+// const asSimulation::`vftable' @ 0x620A00
 
 public:
-    // 0x521800 | ??0asSimulation@@QAE@XZ
-    asSimulation();
+// 0x521800 | ??0asSimulation@@QAE@XZ
+asSimulation ( ) ;
 
-    // 0x523750 | ??_EasSimulation@@UAEPAXI@Z
-    // 0x521A60 | ??1asSimulation@@UAE@XZ
-    ~asSimulation() override;
+// 0x523750 | ??_EasSimulation@@UAEPAXI@Z
+// 0x521A60 | ??1asSimulation@@UAE@XZ
+~asSimulation ( ) override ;
 
-    // 0x522FD0 | ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+// 0x522FD0 | ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
+void   AddWidgets ( class   Bank *   arg1 ) override ;
 
-    // 0x522CF0 | ?BeginOverSample@asSimulation@@QAEXH@Z
-    void BeginOverSample(i32 arg1);
+// 0x522CF0 | ?BeginOverSample@asSimulation@@QAEXH@Z
+void   BeginOverSample ( i32   arg1 ) ;
 
-    // 0x522E40 | ?Benchmark@asSimulation@@QAEXXZ
-    void Benchmark();
+// 0x522E40 | ?Benchmark@asSimulation@@QAEXXZ
+void   Benchmark ( ) ;
 
-    // 0x522C20 | ?Cull@asSimulation@@UAEXXZ
-    void Cull() override;
+// 0x522C20 | ?Cull@asSimulation@@UAEXXZ
+void   Cull ( ) override ;
 
-    // 0x522B80 | ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
-    void DeclareVector(class Vector3 const* arg1, class Vector3 const* arg2, class Vector3 const* arg3);
+// 0x522B80 | ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
+void   DeclareVector ( class   Vector3   const *   arg1 ,  class   Vector3   const *   arg2 ,  class   Vector3   const *   arg3 ) ;
 
-    // 0x522600 | ?Device@asSimulation@@QAEXXZ
-    void Device();
+// 0x522600 | ?Device@asSimulation@@QAEXXZ
+void   Device ( ) ;
 
-    // 0x522D30 | ?EndOverSample@asSimulation@@QAEXXZ | unused
-    void EndOverSample();
+// 0x522D30 | ?EndOverSample@asSimulation@@QAEXXZ | unused
+void   EndOverSample ( ) ;
 
-    // 0x522D60 | ?EndOverSample@asSimulation@@QAEXH@Z
-    void EndOverSample(i32 arg1);
+// 0x522D60 | ?EndOverSample@asSimulation@@QAEXH@Z
+void   EndOverSample ( i32   arg1 ) ;
 
-    // 0x5222A0 | ?FirstUpdate@asSimulation@@QAEXXZ
-    void FirstUpdate();
+// 0x5222A0 | ?FirstUpdate@asSimulation@@QAEXXZ
+void   FirstUpdate ( ) ;
 
-    // 0x522DF0 | ?FixedFrame@asSimulation@@QAEXMH@Z | unused
-    void FixedFrame(f32 arg1, i32 arg2);
+// 0x522DF0 | ?FixedFrame@asSimulation@@QAEXMH@Z | unused
+void   FixedFrame ( f32   arg1 ,  i32   arg2 ) ;
 
-    // 0x522E30 | ?FrameLock@asSimulation@@QAEXHH@Z | unused
-    void FrameLock(i32 arg1, i32 arg2);
+// 0x522E30 | ?FrameLock@asSimulation@@QAEXHH@Z | unused
+void   FrameLock ( i32   arg1 ,  i32   arg2 ) ;
 
-    // 0x5236A0 | ?GetClass@asSimulation@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+// 0x5236A0 | ?GetClass@asSimulation@@UAEPAVMetaClass@@XZ
+class   MetaClass *   GetClass ( ) override ;
 
-    // 0x521C40 | ?Init@asSimulation@@QAEXPADHPAPAD@Z
-    void Init(char* arg1, i32 arg2, char** arg3);
+// 0x521C40 | ?Init@asSimulation@@QAEXPADHPAPAD@Z
+void   Init ( char *   arg1 ,  i32   arg2 ,  char * *   arg3 ) ;
 
-    // 0x522FA0 | ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
-    void OpenPhysicsBank();
+// 0x522FA0 | ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
+void   OpenPhysicsBank ( ) ;
 
-    // 0x522EC0 | ?Pause@asSimulation@@QAEXXZ
-    void Pause();
+// 0x522EC0 | ?Pause@asSimulation@@QAEXXZ
+void   Pause ( ) ;
 
-    // 0x521C10 | ?Quiet@asSimulation@@QAEXXZ
-    void Quiet();
+// 0x521C10 | ?Quiet@asSimulation@@QAEXXZ
+void   Quiet ( ) ;
 
-    // 0x522D90 | ?RealTime@asSimulation@@QAEXM@Z
-    void RealTime(f32 arg1);
+// 0x522D90 | ?RealTime@asSimulation@@QAEXM@Z
+void   RealTime ( f32   arg1 ) ;
 
-    // 0x522290 | ?Reset@asSimulation@@UAEXXZ
-    void Reset() override;
+// 0x522290 | ?Reset@asSimulation@@UAEXXZ
+void   Reset ( ) override ;
 
-    // 0x522CA0 | ?ResetClock@asSimulation@@QAEXXZ
-    void ResetClock();
+// 0x522CA0 | ?ResetClock@asSimulation@@QAEXXZ
+void   ResetClock ( ) ;
 
-    // 0x522A60 | ?Simulate@asSimulation@@QAEXXZ
-    void Simulate();
+// 0x522A60 | ?Simulate@asSimulation@@QAEXXZ
+void   Simulate ( ) ;
 
-    // 0x5222C0 | ?Update@asSimulation@@UAEXXZ
-    void Update() override;
+// 0x5222C0 | ?Update@asSimulation@@UAEXXZ
+void   Update ( ) override ;
 
-    // 0x522B10 | ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
-    void UpdatePaused(class asNode* arg1);
+// 0x522B10 | ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
+void   UpdatePaused ( class   asNode *   arg1 ) ;
 
-    // 0x5229C0 | ?Widgets@asSimulation@@QAEXXZ
-    void Widgets();
+// 0x5229C0 | ?Widgets@asSimulation@@QAEXXZ
+void   Widgets ( ) ;
 
-    // 0x523530 | ?DeclareFields@asSimulation@@SAXXZ
-    static void DeclareFields();
+// 0x523530 | ?DeclareFields@asSimulation@@SAXXZ
+static void   DeclareFields ( ) ;
+
 };
 
 check_size(asSimulation, 0x2B0);
 
 // 0x522FC0 | ?InitBank@@YAXHPAPAD@Z | unused
-void InitBank(i32 arg1, char** arg2);
+void   InitBank ( i32   arg1 ,  char * *   arg2 ) ;
 
 // 0x523210 | ?InitPipeline@@YAHPADHPAPAD@Z
-i32 InitPipeline(char* arg1, i32 arg2, char** arg3);
+i32   InitPipeline ( char *   arg1 ,  i32   arg2 ,  char * *   arg3 ) ;
 
 // 0x523340 | ?RestartPipeline@@YAHHHHHH@Z | unused
-i32 RestartPipeline(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+i32   RestartPipeline ( i32   arg1 ,  i32   arg2 ,  i32   arg3 ,  i32   arg4 ,  i32   arg5 ) ;
 
 // 0x5232D0 | ?ShutdownPipeline@@YAXXZ
-void ShutdownPipeline();
+void   ShutdownPipeline ( ) ;
 
 // 0x5225F0 | ?invert@@YANN@Z | unused
-f64 invert(f64 arg1);
+f64   invert ( f64   arg1 ) ;
 
 // 0x5237B0 | ??_9@$BBM@AE (Skipped: void)
 
 // 0x79077C | ?ARTSPTR@@3PAVasSimulation@@A
-inline extern_var(0x79077C, class asSimulation*, ARTSPTR);
+inline extern_var ( 0x79077C ,  class asSimulation* ,  ARTSPTR ) ;
 
 // 0x790800 | ?Argc@@3HA
-inline extern_var(0x790800, i32, Argc);
+inline extern_var ( 0x790800 ,  i32 ,  Argc ) ;
 
 // 0x790804 | ?Argv@@3PAPADA
-inline extern_var(0x790804, char**, Argv);
+inline extern_var ( 0x790804 ,  char** ,  Argv ) ;
 
 // 0x790820 | ?StereoBuffer@@3HA
-inline extern_var(0x790820, i32, StereoBuffer);
+inline extern_var ( 0x790820 ,  i32 ,  StereoBuffer ) ;
 
 // 0x790808 | ?VFS@@3PAVVirtualFileSystem@@A
-inline extern_var(0x790808, class VirtualFileSystem*, VFS);
+inline extern_var ( 0x790808 ,  class VirtualFileSystem* ,  VFS ) ;
 
 // 0x790750 | ?asSimulationMetaClass@@3VMetaClass@@A
-inline extern_var(0x790750, class MetaClass, asSimulationMetaClass);
+inline extern_var ( 0x790750 ,  class MetaClass ,  asSimulationMetaClass ) ;
 
-class artsReplayChannel : public eqReplayChannel
-{
-    // const artsReplayChannel::`vftable' @ 0x620A60
+class artsReplayChannel: public eqReplayChannel {
+// const artsReplayChannel::`vftable' @ 0x620A60
 
 public:
-    // 0x5236B0 | ??0artsReplayChannel@@QAE@XZ
-    artsReplayChannel();
+// 0x5236B0 | ??0artsReplayChannel@@QAE@XZ | inline
+artsReplayChannel ( ) ;
 
-    // 0x523740 | ??1artsReplayChannel@@QAE@XZ
-    ~artsReplayChannel();
+// 0x523740 | ??1artsReplayChannel@@QAE@XZ | inline
+~artsReplayChannel ( ) ;
 
-    // 0x523710 | ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z
-    void DoPlayback(class Stream* arg1) override;
+// 0x523710 | ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z | inline
+void   DoPlayback ( class   Stream *   arg1 ) override ;
 
-    // 0x5236D0 | ?DoRecord@artsReplayChannel@@UAEXPAVStream@@@Z
-    void DoRecord(class Stream* arg1) override;
+// 0x5236D0 | ?DoRecord@artsReplayChannel@@UAEXPAVStream@@@Z | inline
+void   DoRecord ( class   Stream *   arg1 ) override ;
+
 };
 
 check_size(artsReplayChannel, 0x0);

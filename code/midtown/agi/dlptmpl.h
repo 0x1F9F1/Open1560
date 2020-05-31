@@ -70,27 +70,6 @@
     0x903130 | class HashTable DLPTemplateHash | ?DLPTemplateHash@@3VHashTable@@A
 */
 
-class agiLib<class agiPhysParameters, class agiPhysDef>
-{
-public:
-    // 0x557120 | ??0?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ | inline
-    agiLib<class agiPhysParameters, class agiPhysDef>();
-
-    // 0x557150 | ??1?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ
-    ~agiLib<class agiPhysParameters, class agiPhysDef>();
-
-    // 0x559EF0 | ?Add@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEHAAVagiPhysParameters@@@Z
-    i32 Add(class agiPhysParameters& arg1);
-
-    // 0x55A290 | ?Init@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXH@Z
-    void Init(i32 arg1);
-
-    // 0x55A250 | ?Kill@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXXZ
-    void Kill();
-};
-
-check_size(agiLib<class agiPhysParameters, class agiPhysDef>, 0x0);
-
 class DLPTemplate
 {
 public:
@@ -151,11 +130,11 @@ check_size(DLPTemplate, 0x3C);
 struct DLPPatch
 {
 public:
-    // 0x55A310 | ??0DLPPatch@@QAE@XZ
+    // 0x55A310 | ??0DLPPatch@@QAE@XZ | inline
     DLPPatch();
 
-    // 0x559C80 | ??_EDLPPatch@@QAEPAXI@Z
-    // 0x55A320 | ??1DLPPatch@@QAE@XZ
+    // 0x559C80 | ??_EDLPPatch@@QAEPAXI@Z | unused
+    // 0x55A320 | ??1DLPPatch@@QAE@XZ | inline
     ~DLPPatch();
 
     // 0x558990 | ?GetProp@DLPPatch@@QAEPADPAD@Z | unused
@@ -182,7 +161,7 @@ public:
     // 0x558CB0 | ??0DLPGroup@@QAE@PAVDLPTemplate@@PAV0@@Z
     DLPGroup(class DLPTemplate* arg1, class DLPGroup* arg2);
 
-    // 0x559C20 | ??_EDLPGroup@@QAEPAXI@Z
+    // 0x559C20 | ??_EDLPGroup@@QAEPAXI@Z | unused
     // 0x558E90 | ??1DLPGroup@@QAE@XZ
     ~DLPGroup();
 
@@ -227,24 +206,3 @@ public:
 };
 
 check_size(DLPVertex, 0x0);
-
-class agiLib<class agiMtlParameters, class agiMtlDef>
-{
-public:
-    // 0x55B9B0 | ??0?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ | inline
-    agiLib<class agiMtlParameters, class agiMtlDef>();
-
-    // 0x559CF0 | ??1?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ
-    ~agiLib<class agiMtlParameters, class agiMtlDef>();
-
-    // 0x559D90 | ?Add@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEHAAVagiMtlParameters@@@Z
-    i32 Add(class agiMtlParameters& arg1);
-
-    // 0x55A080 | ?Init@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXH@Z
-    void Init(i32 arg1);
-
-    // 0x55A030 | ?Kill@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXXZ
-    void Kill();
-};
-
-check_size(agiLib<class agiMtlParameters, class agiMtlDef>, 0x0);

@@ -70,7 +70,7 @@ public:
     // 0x4778A0 | ?AddSkid@mmSkid@@QAEXAAVMatrix34@@PAVVector3@@PAVagiPhysParameters@@M@Z
     void AddSkid(class Matrix34& arg1, class Vector3* arg2, class agiPhysParameters* arg3, f32 arg4);
 
-    // 0x478550 | ?AddWidgets@mmSkid@@UAEXPAVBank@@@Z
+    // 0x478550 | ?AddWidgets@mmSkid@@UAEXPAVBank@@@Z | inline
     void AddWidgets(class Bank* arg1) override;
 
     // 0x477AA0 | ?Draw@mmSkid@@UAIXH@Z

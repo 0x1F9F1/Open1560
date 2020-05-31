@@ -46,7 +46,7 @@ public:
     PostCamCS();
 
     // 0x4F9970 | ??_EPostCamCS@@UAEPAXI@Z
-    // 0x42D2F0 | ??1PostCamCS@@UAE@XZ
+    // 0x42D2F0 | ??1PostCamCS@@UAE@XZ | inline
     ~PostCamCS() override;
 
     // 0x4F97A0 | ?AddWidgets@PostCamCS@@UAEXPAVBank@@@Z

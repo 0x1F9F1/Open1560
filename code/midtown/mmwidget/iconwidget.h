@@ -32,7 +32,7 @@
     0x61EE18 | const UIIconW::`vftable' | ??_7UIIconW@@6B@
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UIIconW : public uiWidget
 {

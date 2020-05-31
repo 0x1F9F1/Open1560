@@ -121,7 +121,7 @@ public:
     // 0x43E8E0 | ?CenterPosition@aiPath@@QAEXMAAVVector3@@@Z | unused
     void CenterPosition(f32 arg1, class Vector3& arg2);
 
-    // 0x440020 | ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z
+    // 0x440020 | ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z | inline
     class Vector3* CenterVertice(i32 arg1);
 
     // 0x43F9D0 | ?ContinuityError@aiPath@@QAEHH@Z | unused
@@ -220,10 +220,10 @@ public:
     // 0x43C5A0 | ?UpdatePedestrians@aiPath@@QAEXXZ
     void UpdatePedestrians();
 
-    // 0x43FF50 | ?VertXDir@aiPath@@QAEPAVVector3@@H@Z
+    // 0x43FF50 | ?VertXDir@aiPath@@QAEPAVVector3@@H@Z | inline
     class Vector3* VertXDir(i32 arg1);
 
-    // 0x43FFD0 | ?VertZDir@aiPath@@QAEPAVVector3@@H@Z
+    // 0x43FFD0 | ?VertZDir@aiPath@@QAEPAVVector3@@H@Z | inline
     class Vector3* VertZDir(i32 arg1);
 };
 

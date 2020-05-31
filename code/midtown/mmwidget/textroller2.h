@@ -40,7 +40,7 @@
     0x61ED08 | const UITextRoller2::`vftable' | ??_7UITextRoller2@@6B@
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UITextRoller2 : public uiWidget
 {

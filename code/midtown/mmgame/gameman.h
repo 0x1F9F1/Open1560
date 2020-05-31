@@ -62,7 +62,7 @@ class mmScreenClearFlunky : public asNode
 
 public:
     // 0x404B70 | ??_EmmScreenClearFlunky@@UAEPAXI@Z
-    // 0x404BA0 | ??1mmScreenClearFlunky@@UAE@XZ
+    // 0x404BA0 | ??1mmScreenClearFlunky@@UAE@XZ | inline
     ~mmScreenClearFlunky() override;
 
     // 0x403D10 | ?Cull@mmScreenClearFlunky@@UAEXXZ

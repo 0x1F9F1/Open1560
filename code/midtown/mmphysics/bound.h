@@ -41,7 +41,7 @@ public:
     asBound();
 
     // 0x4DFBE0 | ??_GasBound@@UAEPAXI@Z
-    // 0x453A40 | ??1asBound@@UAE@XZ
+    // 0x453A40 | ??1asBound@@UAE@XZ | inline
     ~asBound() override;
 
     // 0x4DFAF0 | ?GetPhysMtl@asBound@@QAEAAVagiPhysParameters@@ABVmmPolygon@@@Z

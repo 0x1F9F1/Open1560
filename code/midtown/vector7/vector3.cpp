@@ -302,7 +302,7 @@ void TransformVertNorm(class Vector3& arg1, class Vector3& arg2, class Vector3 c
         0x566A80, arg1, arg2, arg3, arg4, arg5);
 }
 
-/*
+#if 0
 void Vector3Array::operator=(class Vector3Array& arg1)
 {
     return stub<thiscall_t<void, Vector3Array*, class Vector3Array&>>(0x567030, this, arg1);
@@ -357,4 +357,4 @@ u32 Vector3Type::SizeOf()
 {
     return stub<thiscall_t<u32, Vector3Type*>>(0x567390, this);
 }
-*/
+#endif

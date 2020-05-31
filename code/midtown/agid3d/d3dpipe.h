@@ -60,7 +60,6 @@
     0x530980 | long __stdcall EnumZ(struct _DDPIXELFORMAT *,void *) | ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
 */
 
-#include "agi/texdef.h"
 #include "ddpipe.h"
 
 class agiD3DPipeline : public agiDDPipeline
@@ -149,21 +148,3 @@ inline extern_var(0x795BD8, u32, agiFOURCC);
 
 // 0x795C14 | ?dummyGlobal@@3IA
 inline extern_var(0x795C14, u32, dummyGlobal);
-
-class agiD3DTexLut : public agiTexLut
-{
-    // const agiD3DTexLut::`vftable' @ 0x620FF8
-
-public:
-    // 0x5315C0 | ??_GagiD3DTexLut@@UAEPAXI@Z
-    // 0x5315F0 | ??1agiD3DTexLut@@UAE@XZ
-    ~agiD3DTexLut() override;
-
-    // 0x531FD0 | ?BeginGfx@agiD3DTexLut@@UAEHXZ | inline
-    i32 BeginGfx() override;
-
-    // 0x532020 | ?EndGfx@agiD3DTexLut@@UAEXXZ | inline
-    void EndGfx() override;
-};
-
-check_size(agiD3DTexLut, 0x0);

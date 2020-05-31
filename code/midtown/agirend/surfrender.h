@@ -48,6 +48,8 @@
     0x8FAC14 | int ZTrick | ?ZTrick@@3HA
 */
 
+#include "agi/render.h"
+
 class agiSurfRenderer : public agiRenderer
 {
     // const agiSurfRenderer::`vftable' @ 0x6214A0
@@ -106,44 +108,6 @@ private:
 };
 
 check_size(agiSurfRenderer, 0x0);
-
-class agiRenderer
-{
-    // const agiRenderer::`vftable' @ 0x6214D0
-
-public:
-    // 0x55DD80 | ??0agiRenderer@@QAE@XZ | inline
-    agiRenderer();
-
-protected:
-    // 0x555230 | ??_GagiRenderer@@MAEPAXI@Z
-    virtual ~agiRenderer();
-
-public:
-    virtual void BeginGroup() = 0;
-
-    virtual void Draw(class DLP* arg1, i32 arg2) = 0;
-
-    virtual void DrawCard(class Vector3& arg1) = 0;
-
-    virtual void EndGroup() = 0;
-
-    virtual void BeginDraw(i32 arg1) = 0;
-
-    virtual void Verts(union agiVtx* arg1, i32 arg2) = 0;
-
-    virtual void Points(union agiVtx* arg1, i32 arg2) = 0;
-
-    virtual void DrawTri(i32 arg1, i32 arg2, i32 arg3) = 0;
-
-    virtual void DrawLine(i32 arg1, i32 arg2) = 0;
-
-    virtual void DrawLabel(union agiVtx& arg1, char* arg2) = 0;
-
-    virtual void EndDraw() = 0;
-};
-
-check_size(agiRenderer, 0x0);
 
 // 0x656590 | ?EarlyBackface@@3HA
 inline extern_var(0x656590, i32, EarlyBackface);

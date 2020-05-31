@@ -86,6 +86,9 @@
 void IMPACTCB(class mmCarSim* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4, f32 arg5,
     class Vector3* arg6);
 
+// 0x4703A0 | ?Struct@@YAPAUMetaType@@PAVMetaClass@@@Z | inline
+struct MetaType* Struct(class MetaClass* arg1);
+
 // 0x6A7C78 | ?HitWaterTimer@@3MA
 inline extern_var(0x6A7C78, f32, HitWaterTimer);
 

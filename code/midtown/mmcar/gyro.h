@@ -44,7 +44,7 @@ public:
     VehGyro();
 
     // 0x480B80 | ??_EVehGyro@@UAEPAXI@Z
-    // 0x470340 | ??1VehGyro@@UAE@XZ
+    // 0x470340 | ??1VehGyro@@UAE@XZ | inline
     ~VehGyro() override;
 
     // 0x480930 | ?AddWidgets@VehGyro@@UAEXPAVBank@@@Z

@@ -86,7 +86,7 @@ public:
     // 0x49BBD0 | ?CurrentVehicleIsLocked@VehicleSelectBase@@QAEHXZ
     i32 CurrentVehicleIsLocked();
 
-    // 0x49C500 | ?DecCar@VehicleSelectBase@@QAEXXZ
+    // 0x49C500 | ?DecCar@VehicleSelectBase@@QAEXXZ | inline
     void DecCar();
 
     // 0x49A9B0 | ?DecColor@VehicleSelectBase@@QAEXXZ
@@ -98,7 +98,7 @@ public:
     // 0x49BAA0 | ?GetCarTitle@VehicleSelectBase@@QAEPADHPADFPAVstring@@@Z
     char* GetCarTitle(i32 arg1, char* arg2, i16 arg3, class string* arg4);
 
-    // 0x49C510 | ?IncCar@VehicleSelectBase@@QAEXXZ
+    // 0x49C510 | ?IncCar@VehicleSelectBase@@QAEXXZ | inline
     void IncCar();
 
     // 0x49A8F0 | ?IncColor@VehicleSelectBase@@QAEXXZ
@@ -128,7 +128,7 @@ public:
     // 0x49BC80 | ?SetPick@VehicleSelectBase@@QAEXHF@Z
     void SetPick(i32 arg1, i16 arg2);
 
-    // 0x49C520 | ?SetShowcaseFlag@VehicleSelectBase@@QAEXXZ
+    // 0x49C520 | ?SetShowcaseFlag@VehicleSelectBase@@QAEXXZ | inline
     void SetShowcaseFlag();
 
     // 0x49B9E0 | ?TDPickCB@VehicleSelectBase@@QAEXXZ

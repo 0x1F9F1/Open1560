@@ -56,7 +56,7 @@ public:
     // 0x4B5FC0 | ?Cull@mmCompDRecord@@UAEXXZ
     void Cull() override;
 
-    // 0x4B6090 | ?DisableBlt@mmCompDRecord@@UAEXXZ
+    // 0x4B6090 | ?DisableBlt@mmCompDRecord@@UAEXXZ | inline
     void DisableBlt() override;
 
     // 0x4B5B70 | ?Init@mmCompDRecord@@QAEXHPADM0HHH@Z

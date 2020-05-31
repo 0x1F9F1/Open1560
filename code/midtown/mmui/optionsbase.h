@@ -50,7 +50,7 @@ public:
 
     virtual void DoneAction() = 0;
 
-    // 0x4AB6F0 | ?ResetDefaultAction@OptionsBase@@UAEXXZ
+    // 0x4AB6F0 | ?ResetDefaultAction@OptionsBase@@UAEXXZ | inline
     virtual void ResetDefaultAction();
 
     // 0x49A6D0 | ?StoreCurrentSetup@OptionsBase@@UAEXXZ | inline

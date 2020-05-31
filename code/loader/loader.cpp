@@ -252,7 +252,7 @@ include_dummy_symbol(agi_surface);
 // include_dummy_symbol(agiworld_meshlight);
 // include_dummy_symbol(agiworld_meshload);
 // include_dummy_symbol(agiworld_meshmodel);
-include_dummy_symbol(agiworld_meshrend);
+// include_dummy_symbol(agiworld_meshrend);
 // include_dummy_symbol(agiworld_meshsave);
 // include_dummy_symbol(agiworld_meshset);
 // include_dummy_symbol(agiworld_mrkni);
@@ -262,6 +262,7 @@ include_dummy_symbol(agiworld_meshrend);
 // include_dummy_symbol(agiworld_texsheet);
 include_dummy_symbol(agiworld_texsort);
 
+include_dummy_symbol(arts7_bank);
 // include_dummy_symbol(arts7_benchstats);
 include_dummy_symbol(arts7_camera);
 include_dummy_symbol(arts7_cullable);
@@ -302,6 +303,7 @@ include_dummy_symbol(data7_timer);
 // include_dummy_symbol(dyna7_dyna);
 // include_dummy_symbol(dyna7_gfx);
 
+// include_dummy_symbol(eventq7_dispatchable);
 // include_dummy_symbol(eventq7_event);
 // include_dummy_symbol(eventq7_eventq);
 // include_dummy_symbol(eventq7_geinputLib);

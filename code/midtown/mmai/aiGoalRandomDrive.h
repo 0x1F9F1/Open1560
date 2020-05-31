@@ -105,7 +105,7 @@ class aiGoal
     // const aiGoal::`vftable' @ 0x61BAF8
 
 public:
-    // 0x45F6F0 | ??1aiGoal@@QAE@XZ
+    // 0x45F6F0 | ??1aiGoal@@QAE@XZ | inline
     ~aiGoal();
 
     virtual void Init() = 0;
@@ -116,7 +116,7 @@ public:
 
     virtual i32 Priority() = 0;
 
-    // 0x45F700 | ?Update@aiGoal@@UAEXXZ
+    // 0x45F700 | ?Update@aiGoal@@UAEXXZ | inline
     virtual void Update();
 };
 

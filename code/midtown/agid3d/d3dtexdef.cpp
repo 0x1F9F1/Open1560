@@ -75,7 +75,17 @@ void agiD3DTexDef::Unlock(struct agiTexLock& arg1)
     return stub<thiscall_t<void, agiD3DTexDef*, struct agiTexLock&>>(0x531EC0, this, arg1);
 }
 
-void agiD3DTexDef::Prober(void* arg1)
+agiD3DTexLut::~agiD3DTexLut()
 {
-    return stub<cdecl_t<void, void*>>(0x52FA90, arg1);
+    unimplemented();
+}
+
+i32 agiD3DTexLut::BeginGfx()
+{
+    return stub<thiscall_t<i32, agiD3DTexLut*>>(0x531FD0, this);
+}
+
+void agiD3DTexLut::EndGfx()
+{
+    return stub<thiscall_t<void, agiD3DTexLut*>>(0x532020, this);
 }

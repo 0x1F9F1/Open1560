@@ -47,7 +47,7 @@
     0x61EA98 | const UITextScroll::`vftable' | ??_7UITextScroll@@6B@
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UITextScroll : public uiWidget
 {

@@ -44,7 +44,7 @@ public:
     PolarCamCS();
 
     // 0x4FB1C0 | ??_EPolarCamCS@@UAEPAXI@Z
-    // 0x42D2B0 | ??1PolarCamCS@@UAE@XZ
+    // 0x42D2B0 | ??1PolarCamCS@@UAE@XZ | inline
     ~PolarCamCS() override;
 
     // 0x4FB180 | ?GetClass@PolarCamCS@@UAEPAVMetaClass@@XZ

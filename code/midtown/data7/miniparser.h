@@ -69,7 +69,7 @@ public:
 
     virtual void RawPutCh(i32 arg1) = 0;
 
-    // 0x57C7B0 | ?Commentf@MiniParser@@QAAXPBDZZ
+    // 0x57C7B0 | ?Commentf@MiniParser@@QAAXPBDZZ | unused
     void Commentf(char const* format, ...);
 
     // 0x57C710 | ?Errorf@MiniParser@@QAAXPBDZZ
@@ -114,7 +114,7 @@ public:
     // 0x57C830 | ?PutCh@MiniParser@@QAEXH@Z
     void PutCh(i32 value);
 
-    // 0x57CAC0 | ?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z
+    // 0x57CAC0 | ?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z | unused
     void* ResolveLabel(char* arg1, void** arg2);
 
     const char* GetBuffer() const

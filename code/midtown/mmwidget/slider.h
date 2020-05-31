@@ -44,7 +44,7 @@
     0x61E590 | const UISlider::`vftable' | ??_7UISlider@@6B@
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UISlider : public uiWidget
 {
@@ -67,7 +67,7 @@ public:
     // 0x4B4230 | ?GetFudgeWidth@UISlider@@QAEMXZ
     f32 GetFudgeWidth();
 
-    // 0x4B4270 | ?GetScreenHeight@UISlider@@UAEMXZ
+    // 0x4B4270 | ?GetScreenHeight@UISlider@@UAEMXZ | inline
     f32 GetScreenHeight() override;
 
     // 0x4B4050 | ?GetValue@UISlider@@QAEMXZ | unused

@@ -40,7 +40,7 @@ void RegisterProblem(char* arg1, char* arg2, char* arg3);
 struct problem_t
 {
 public:
-    // 0x561340 | ??1problem_t@@QAE@XZ
+    // 0x561340 | ??1problem_t@@QAE@XZ | inline
     ~problem_t();
 };
 

@@ -142,16 +142,16 @@ public:
     // 0x556070 | ?ClearRect@agiPipeline@@UAEXHHHHI@Z
     virtual void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5);
 
-    // 0x557F20 | ?Print@agiPipeline@@UAEXHHHPBD@Z | inline
+    // 0x557F20 | ?Print@agiPipeline@@UAEXHHHPBD@Z | agi:print
     virtual void Print(i32 arg1, i32 arg2, i32 arg3, char const* arg4);
 
-    // 0x558110 | ?PrintIs3D@agiPipeline@@UAEHXZ | inline
+    // 0x558110 | ?PrintIs3D@agiPipeline@@UAEHXZ | agi:print
     virtual i32 PrintIs3D();
 
-    // 0x558130 | ?PrintInit@agiPipeline@@UAEXXZ | inline
+    // 0x558130 | ?PrintInit@agiPipeline@@UAEXXZ | agi:print
     virtual void PrintInit();
 
-    // 0x558140 | ?PrintShutdown@agiPipeline@@UAEXXZ | inline
+    // 0x558140 | ?PrintShutdown@agiPipeline@@UAEXXZ | agi:print
     virtual void PrintShutdown();
 
     // 0x556080 | ?Defragment@agiPipeline@@UAEXXZ

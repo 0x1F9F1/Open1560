@@ -24,3 +24,19 @@
     0x446C00 | public: __thiscall CArrayList::~CArrayList(void) | ??1CArrayList@@QAE@XZ
     0x446C20 | public: void __thiscall CArrayList::Append(int) | ?Append@CArrayList@@QAEXH@Z
 */
+
+class CArrayList
+{
+public:
+    // 0x43C180 | ??0CArrayList@@QAE@XZ | inline
+    CArrayList();
+
+    // 0x43C070 | ??_ECArrayList@@QAEPAXI@Z | unused
+    // 0x446C00 | ??1CArrayList@@QAE@XZ
+    ~CArrayList();
+
+    // 0x446C20 | ?Append@CArrayList@@QAEXH@Z
+    void Append(i32 arg1);
+};
+
+check_size(CArrayList, 0x8);

@@ -87,7 +87,7 @@ public:
     // 0x529CE0 | ?FadeOut@asCamera@@QAEXMH@Z
     void FadeOut(f32 arg1, i32 arg2);
 
-    // 0x529DA0 | ?FileIO@asCamera@@QAEXPAVMiniParser@@@Z
+    // 0x529DA0 | ?FileIO@asCamera@@QAEXPAVMiniParser@@@Z | unused
     void FileIO(class MiniParser* arg1);
 
     // 0x52A810 | ?GetClass@asCamera@@UAEPAVMetaClass@@XZ
@@ -102,16 +102,16 @@ public:
         kNearClip4,
     };
 
-    // 0x529270 | ?GetNearClip@asCamera@@QAEXPAVVector3@@AAVMatrix34@@W4kNearClip@1@@Z
+    // 0x529270 | ?GetNearClip@asCamera@@QAEXPAVVector3@@AAVMatrix34@@W4kNearClip@1@@Z | unused
     void GetNearClip(class Vector3* arg1, class Matrix34& arg2, enum asCamera::kNearClip arg3);
 
-    // 0x529CC0 | ?GetViewportHeight@asCamera@@QAEHXZ
+    // 0x529CC0 | ?GetViewportHeight@asCamera@@QAEHXZ | unused
     i32 GetViewportHeight();
 
-    // 0x529CA0 | ?GetViewportWidth@asCamera@@QAEHXZ
+    // 0x529CA0 | ?GetViewportWidth@asCamera@@QAEHXZ | unused
     i32 GetViewportWidth();
 
-    // 0x529F50 | ?SetAmbient@asCamera@@QAEXABVVector3@@@Z
+    // 0x529F50 | ?SetAmbient@asCamera@@QAEXABVVector3@@@Z | unused
     void SetAmbient(class Vector3 const& arg1);
 
     // 0x529100 | ?SetClipArea@asCamera@@QAEXMMMM@Z
@@ -123,7 +123,7 @@ public:
     // 0x529230 | ?SetLighting@asCamera@@QAEXH@Z
     void SetLighting(i32 arg1);
 
-    // 0x529F90 | ?SetMonochrome@asCamera@@QAEXH@Z
+    // 0x529F90 | ?SetMonochrome@asCamera@@QAEXH@Z | unused
     void SetMonochrome(i32 arg1);
 
     // 0x529C40 | ?SetUnderlay@asCamera@@QAEXPAD@Z
@@ -141,7 +141,7 @@ public:
     // 0x529250 | ?SetWorld@asCamera@@QAEXAAVMatrix34@@@Z
     void SetWorld(class Matrix34& arg1);
 
-    // 0x529DB0 | ?SphereVisible@asCamera@@QAEMABVVector3@@MPAM@Z
+    // 0x529DB0 | ?SphereVisible@asCamera@@QAEMABVVector3@@MPAM@Z | unused
     f32 SphereVisible(class Vector3 const& arg1, f32 arg2, f32* arg3);
 
     // 0x528DF0 | ?Update@asCamera@@UAEXXZ

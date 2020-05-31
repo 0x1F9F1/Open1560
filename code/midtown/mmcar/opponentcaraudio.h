@@ -51,7 +51,7 @@ class mmOpponentCarAudio : public asNode
     // const mmOpponentCarAudio::`vftable' @ 0x61C500
 
 public:
-    // 0x47C430 | ??0mmOpponentCarAudio@@QAE@XZ
+    // 0x47C430 | ??0mmOpponentCarAudio@@QAE@XZ | inline
     mmOpponentCarAudio();
 
     // 0x47B950 | ??0mmOpponentCarAudio@@QAE@PAVmmCarSim@@@Z

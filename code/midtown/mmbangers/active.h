@@ -71,10 +71,10 @@ public:
     // 0x4CB280 | ?DetachMe@mmBangerActive@@UAEXXZ
     void DetachMe() override;
 
-    // 0x4CB7B0 | ?GetBound@mmBangerActive@@UAEPAVasBound@@XZ
+    // 0x4CB7B0 | ?GetBound@mmBangerActive@@UAEPAVasBound@@XZ | inline
     class asBound* GetBound() override;
 
-    // 0x4CB7C0 | ?GetICS@mmBangerActive@@UAEPAVasInertialCS@@XZ
+    // 0x4CB7C0 | ?GetICS@mmBangerActive@@UAEPAVasInertialCS@@XZ | inline
     class asInertialCS* GetICS() override;
 
     // 0x4CB350 | ?PostUpdate@mmBangerActive@@UAEXXZ

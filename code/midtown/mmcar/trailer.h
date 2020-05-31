@@ -70,7 +70,7 @@ public:
     mmTrailer();
 
     // 0x47A170 | ??_EmmTrailer@@UAEPAXI@Z
-    // 0x47A1D0 | ??1mmTrailer@@UAE@XZ
+    // 0x47A1D0 | ??1mmTrailer@@UAE@XZ | inline
     ~mmTrailer() override;
 
     // 0x479BB0 | ?Activate@mmTrailer@@QAEXXZ
@@ -88,13 +88,13 @@ public:
     // 0x479BC0 | ?Deactivate@mmTrailer@@QAEXXZ
     void Deactivate();
 
-    // 0x47A320 | ?GetBound@mmTrailer@@UAEPAVasBound@@XZ
+    // 0x47A320 | ?GetBound@mmTrailer@@UAEPAVasBound@@XZ | inline
     class asBound* GetBound() override;
 
     // 0x47A130 | ?GetClass@mmTrailer@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x47A310 | ?GetICS@mmTrailer@@UAEPAVasInertialCS@@XZ
+    // 0x47A310 | ?GetICS@mmTrailer@@UAEPAVasInertialCS@@XZ | inline
     class asInertialCS* GetICS() override;
 
     // 0x479480 | ?Init@mmTrailer@@QAEXPADPAVmmCarSim@@VVector3@@@Z
@@ -130,10 +130,10 @@ class mmTrailerInstance : public mmInstance
 
 public:
     // 0x47A150 | ??_GmmTrailerInstance@@UAEPAXI@Z
-    // 0x47A140 | ??1mmTrailerInstance@@UAE@XZ
+    // 0x47A140 | ??1mmTrailerInstance@@UAE@XZ | inline
     ~mmTrailerInstance() override;
 
-    // 0x47A300 | ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z
+    // 0x47A300 | ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z | inline
     void AddWidgets(class Bank* arg1) override;
 
     // 0x479730 | ?AttachEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ

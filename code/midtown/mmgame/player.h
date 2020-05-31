@@ -73,7 +73,7 @@ public:
     mmPlayer();
 
     // 0x42D310 | ??_EmmPlayer@@UAEPAXI@Z
-    // 0x42D370 | ??1mmPlayer@@UAE@XZ
+    // 0x42D370 | ??1mmPlayer@@UAE@XZ | inline
     ~mmPlayer() override;
 
     // 0x42C590 | ?AddWidgets@mmPlayer@@UAEXPAVBank@@@Z

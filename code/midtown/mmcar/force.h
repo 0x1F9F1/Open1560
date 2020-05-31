@@ -46,7 +46,7 @@ public:
     mmForce();
 
     // 0x480F90 | ??_EmmForce@@UAEPAXI@Z
-    // 0x470330 | ??1mmForce@@UAE@XZ
+    // 0x470330 | ??1mmForce@@UAE@XZ | inline
     ~mmForce() override;
 
     // 0x480E10 | ?AddWidgets@mmForce@@UAEXPAVBank@@@Z

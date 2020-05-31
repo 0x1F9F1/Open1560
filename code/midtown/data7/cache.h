@@ -76,7 +76,7 @@ public:
     // 0x5771F0 | ?Lock@DataCache@@QAEHPAH@Z
     b32 Lock(i32* handle);
 
-    // 0x577070 | ?Shutdown@DataCache@@QAEXXZ
+    // 0x577070 | ?Shutdown@DataCache@@QAEXXZ | unused
     void Shutdown();
 
     // 0x577290 | ?Unlock@DataCache@@QAEXH@Z

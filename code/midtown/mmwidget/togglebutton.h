@@ -59,7 +59,7 @@ public:
     void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8,
         class Callback arg9);
 
-    // 0x4BC720 | ?Update@UIToggleButton@@UAEXXZ
+    // 0x4BC720 | ?Update@UIToggleButton@@UAEXXZ | inline
     void Update() override;
 
 protected:

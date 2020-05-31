@@ -81,11 +81,29 @@ public:
     // 0x531EC0 | ?Unlock@agiD3DTexDef@@UAEXAAUagiTexLock@@@Z
     void Unlock(struct agiTexLock& arg1) override;
 
-    // 0x52FA90 | ?Prober@agiD3DTexDef@@SAXPAX@Z | inline
+    // 0x52FA90 | ?Prober@agiD3DTexDef@@SAXPAX@Z | agid3d:d3dpipe
     static void Prober(void* arg1);
 };
 
 check_size(agiD3DTexDef, 0x88);
+
+class agiD3DTexLut : public agiTexLut
+{
+    // const agiD3DTexLut::`vftable' @ 0x620FF8
+
+public:
+    // 0x5315C0 | ??_GagiD3DTexLut@@UAEPAXI@Z
+    // 0x5315F0 | ??1agiD3DTexLut@@UAE@XZ | inline
+    ~agiD3DTexLut() override;
+
+    // 0x531FD0 | ?BeginGfx@agiD3DTexLut@@UAEHXZ
+    i32 BeginGfx() override;
+
+    // 0x532020 | ?EndGfx@agiD3DTexLut@@UAEXXZ
+    void EndGfx() override;
+};
+
+check_size(agiD3DTexLut, 0x0);
 
 // 0x795C38 | ?DontCacheTextures@@3HA
 inline extern_var(0x795C38, i32, DontCacheTextures);

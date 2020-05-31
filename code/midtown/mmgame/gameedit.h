@@ -69,7 +69,7 @@ public:
     // 0x412D00 | ?GetClass@mmGameEdit@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x412EE0 | ?GetWaypoints@mmGameEdit@@UAEPAVmmWaypoints@@XZ
+    // 0x412EE0 | ?GetWaypoints@mmGameEdit@@UAEPAVmmWaypoints@@XZ | inline
     class mmWaypoints* GetWaypoints() override;
 
     // 0x4122D0 | ?Init@mmGameEdit@@QAEHXZ
@@ -84,10 +84,10 @@ public:
     // 0x412380 | ?InitMyPlayer@mmGameEdit@@UAEXXZ
     void InitMyPlayer() override;
 
-    // 0x412EC0 | ?InitOtherPlayers@mmGameEdit@@UAEXXZ
+    // 0x412EC0 | ?InitOtherPlayers@mmGameEdit@@UAEXXZ | inline
     void InitOtherPlayers() override;
 
-    // 0x412ED0 | ?NextRace@mmGameEdit@@UAEXXZ
+    // 0x412ED0 | ?NextRace@mmGameEdit@@UAEXXZ | inline
     void NextRace() override;
 
     // 0x412520 | ?RegisterMapObjects@mmGameEdit@@QAEXXZ

@@ -84,7 +84,7 @@ public:
     // 0x523980 | ?ResChange@asNode@@UAEXHH@Z
     virtual void ResChange(i32 width, i32 height);
 
-    // 0x404BB0 | ?UpdatePaused@asNode@@UAEXXZ
+    // 0x404BB0 | ?UpdatePaused@asNode@@UAEXXZ | inline
     virtual void UpdatePaused();
 
     // 0x524150 | ?Load@asNode@@UAEXXZ
@@ -102,7 +102,7 @@ public:
     // 0x5243F0 | ?CloseWidgets@asNode@@UAEXXZ
     virtual void CloseWidgets();
 
-    // 0x524400 | ?AddButton@asNode@@QAEXPAVBank@@AAH@Z
+    // 0x524400 | ?AddButton@asNode@@QAEXPAVBank@@AAH@Z | unused
     void AddButton(class Bank* arg1, i32& arg2);
 
     // 0x523A70 | ?AddChild@asNode@@QAEHPAV1@@Z
@@ -111,19 +111,19 @@ public:
     // 0x523C80 | ?GetChild@asNode@@QAEPAV1@H@Z
     class asNode* GetChild(i32 index);
 
-    // 0x523CC0 | ?GetLastChild@asNode@@QAEPAV1@XZ
+    // 0x523CC0 | ?GetLastChild@asNode@@QAEPAV1@XZ | unused
     class asNode* GetLastChild();
 
-    // 0x523CB0 | ?GetNext@asNode@@QAEPAV1@XZ
+    // 0x523CB0 | ?GetNext@asNode@@QAEPAV1@XZ | unused
     class asNode* GetNext()
     {
         return next_node_;
     }
 
-    // 0x523DC0 | ?GetNodeType@asNode@@QAEPADXZ
+    // 0x523DC0 | ?GetNodeType@asNode@@QAEPADXZ | unused
     const char* GetNodeType();
 
-    // 0x523D80 | ?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z
+    // 0x523D80 | ?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z | unused
     class asNode* GetParent(class MetaClass* cls);
 
     // 0x523AF0 | ?InsertChild@asNode@@QAEHHPAV1@@Z
@@ -156,10 +156,10 @@ public:
     // 0x523860 | ?SetName@asNode@@QAEXPAD@Z
     void SetName(const char* name);
 
-    // 0x523D20 | ?SwitchTo@asNode@@QAEXH@Z
+    // 0x523D20 | ?SwitchTo@asNode@@QAEXH@Z | unused
     void SwitchTo(i32 idx);
 
-    // 0x523440 | ?VerifyTree@asNode@@QAEPADXZ
+    // 0x523440 | ?VerifyTree@asNode@@QAEPADXZ | arts7:sim
     const char* VerifyTree();
 
     bool IsActive() const

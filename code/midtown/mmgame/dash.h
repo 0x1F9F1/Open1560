@@ -67,7 +67,7 @@ public:
     mmExternalView();
 
     // 0x422F60 | ??_EmmExternalView@@UAEPAXI@Z
-    // 0x406910 | ??1mmExternalView@@UAE@XZ
+    // 0x406910 | ??1mmExternalView@@UAE@XZ | inline
     ~mmExternalView() override;
 
     // 0x4224E0 | ?AddWidgets@mmExternalView@@UAEXPAVBank@@@Z

@@ -44,7 +44,7 @@ public:
     asOverSample();
 
     // 0x4DF070 | ??_EasOverSample@@UAEPAXI@Z
-    // 0x42D300 | ??1asOverSample@@UAE@XZ
+    // 0x42D300 | ??1asOverSample@@UAE@XZ | inline
     ~asOverSample() override;
 
     // 0x4DEE30 | ?AddWidgets@asOverSample@@UAEXPAVBank@@@Z

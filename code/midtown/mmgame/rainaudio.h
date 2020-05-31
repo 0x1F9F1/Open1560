@@ -35,7 +35,7 @@ public:
     // 0x433200 | ??0mmRainAudio@@QAE@XZ
     mmRainAudio();
 
-    // 0x433400 | ??1mmRainAudio@@QAE@XZ
+    // 0x433400 | ??1mmRainAudio@@QAE@XZ | unused
     ~mmRainAudio();
 
     // 0x433440 | ?SetInterior@mmRainAudio@@QAEXE@Z

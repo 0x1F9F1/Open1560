@@ -44,7 +44,7 @@
     0x61E4F8 | const UITextDropdown::`vftable' | ??_7UITextDropdown@@6B@
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UITextDropdown : public uiWidget
 {

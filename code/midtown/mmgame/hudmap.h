@@ -71,7 +71,7 @@ public:
     mmHudMap();
 
     // 0x429F70 | ??_EmmHudMap@@UAEPAXI@Z
-    // 0x429FD0 | ??1mmHudMap@@UAE@XZ
+    // 0x429FD0 | ??1mmHudMap@@UAE@XZ | inline
     ~mmHudMap() override;
 
     // 0x428810 | ?Activate@mmHudMap@@QAEXXZ

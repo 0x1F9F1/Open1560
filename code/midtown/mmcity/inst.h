@@ -254,12 +254,12 @@ class mmShearInstance : public mmMatrixInstance
     // const mmShearInstance::`vftable' @ 0x61CE78
 
 public:
-    // 0x495460 | ??0mmShearInstance@@QAE@XZ
+    // 0x495460 | ??0mmShearInstance@@QAE@XZ | inline
     mmShearInstance();
 
     // 0x495400 | ??_EmmShearInstance@@UAEPAXI@Z
-    // 0x48FBF0 | ??_GmmShearInstance@@UAEPAXI@Z
-    // 0x48FC10 | ??1mmShearInstance@@UAE@XZ
+    // 0x48FBF0 | ??_GmmShearInstance@@UAEPAXI@Z | unused
+    // 0x48FC10 | ??1mmShearInstance@@UAE@XZ | inline
     ~mmShearInstance() override;
 
     // 0x494460 | ?Draw@mmShearInstance@@UAIXH@Z
@@ -288,12 +288,12 @@ class mmBuildingInstance : public mmMatrixInstance
     // const mmBuildingInstance::`vftable' @ 0x61CE18
 
 public:
-    // 0x4954E0 | ??0mmBuildingInstance@@QAE@XZ
+    // 0x4954E0 | ??0mmBuildingInstance@@QAE@XZ | inline
     mmBuildingInstance();
 
     // 0x495480 | ??_EmmBuildingInstance@@UAEPAXI@Z
-    // 0x48FC20 | ??_GmmBuildingInstance@@UAEPAXI@Z
-    // 0x48FC40 | ??1mmBuildingInstance@@UAE@XZ
+    // 0x48FC20 | ??_GmmBuildingInstance@@UAEPAXI@Z | unused
+    // 0x48FC40 | ??1mmBuildingInstance@@UAE@XZ | inline
     ~mmBuildingInstance() override;
 
     // 0x4945F0 | ?Draw@mmBuildingInstance@@UAIXH@Z

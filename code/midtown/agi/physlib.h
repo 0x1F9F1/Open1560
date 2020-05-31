@@ -26,5 +26,26 @@
     0x8FAFE8 | class agiLib<class agiPhysParameters,class agiPhysDef> agiPhysLib | ?agiPhysLib@@3V?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@A
 */
 
+class agiLib<class agiPhysParameters, class agiPhysDef>
+{
+public:
+    // 0x557120 | ??0?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ | inline
+    agiLib<class agiPhysParameters, class agiPhysDef>();
+
+    // 0x557150 | ??1?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ | inline
+    ~agiLib<class agiPhysParameters, class agiPhysDef>();
+
+    // 0x559EF0 | ?Add@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEHAAVagiPhysParameters@@@Z | inline
+    i32 Add(class agiPhysParameters& arg1);
+
+    // 0x55A290 | ?Init@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXH@Z | inline
+    void Init(i32 arg1);
+
+    // 0x55A250 | ?Kill@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXXZ | inline
+    void Kill();
+};
+
+check_size(agiLib<class agiPhysParameters, class agiPhysDef>, 0x0);
+
 // 0x8FAFE8 | ?agiPhysLib@@3V?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@A
 inline extern_var(0x8FAFE8, class agiLib<class agiPhysParameters, class agiPhysDef>, agiPhysLib);

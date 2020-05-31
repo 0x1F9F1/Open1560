@@ -46,7 +46,7 @@
     0x705C28 | class MetaClass UIVScrollBarMetaClass | ?UIVScrollBarMetaClass@@3VMetaClass@@A
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UIVScrollBar : public uiWidget
 {
@@ -69,10 +69,10 @@ public:
     // 0x4BD150 | ?Dec@UIVScrollBar@@QAEMXZ
     f32 Dec();
 
-    // 0x4BD950 | ?Disable@UIVScrollBar@@UAEXXZ
+    // 0x4BD950 | ?Disable@UIVScrollBar@@UAEXXZ | inline
     void Disable() override;
 
-    // 0x4BD930 | ?Enable@UIVScrollBar@@UAEXXZ
+    // 0x4BD930 | ?Enable@UIVScrollBar@@UAEXXZ | inline
     void Enable() override;
 
     // 0x4BD430 | ?EvalMouseXY@UIVScrollBar@@QAEXMM@Z
@@ -94,7 +94,7 @@ public:
     // 0x4BD030 | ?SetHotSpots@UIVScrollBar@@QAEXXZ
     void SetHotSpots();
 
-    // 0x4BD910 | ?SetPosition@UIVScrollBar@@UAEXMM@Z
+    // 0x4BD910 | ?SetPosition@UIVScrollBar@@UAEXMM@Z | inline
     void SetPosition(f32 arg1, f32 arg2) override;
 
     // 0x4BD210 | ?SetRange@UIVScrollBar@@QAEXMM@Z

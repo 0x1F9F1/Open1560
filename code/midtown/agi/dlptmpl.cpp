@@ -20,32 +20,6 @@ define_dummy_symbol(agi_dlptmpl);
 
 #include "dlptmpl.h"
 
-agiLib<class agiPhysParameters, class agiPhysDef>::agiLib<class agiPhysParameters, class agiPhysDef>()
-{
-    unimplemented();
-}
-
-agiLib<class agiPhysParameters, class agiPhysDef>::~agiLib<class agiPhysParameters, class agiPhysDef>()
-{
-    unimplemented();
-}
-
-i32 agiLib<class agiPhysParameters, class agiPhysDef>::Add(class agiPhysParameters& arg1)
-{
-    return stub<thiscall_t<i32, agiLib<class agiPhysParameters, class agiPhysDef>*, class agiPhysParameters&>>(
-        0x559EF0, this, arg1);
-}
-
-void agiLib<class agiPhysParameters, class agiPhysDef>::Init(i32 arg1)
-{
-    return stub<thiscall_t<void, agiLib<class agiPhysParameters, class agiPhysDef>*, i32>>(0x55A290, this, arg1);
-}
-
-void agiLib<class agiPhysParameters, class agiPhysDef>::Kill()
-{
-    return stub<thiscall_t<void, agiLib<class agiPhysParameters, class agiPhysDef>*>>(0x55A250, this);
-}
-
 DLPTemplate::DLPTemplate(char* arg1)
 {
     unimplemented(arg1);
@@ -223,30 +197,4 @@ void DLPVertex::Load(class Stream* arg1)
 void DLPVertex::Save(class Stream* arg1)
 {
     return stub<thiscall_t<void, DLPVertex*, class Stream*>>(0x5595A0, this, arg1);
-}
-
-agiLib<class agiMtlParameters, class agiMtlDef>::agiLib<class agiMtlParameters, class agiMtlDef>()
-{
-    unimplemented();
-}
-
-agiLib<class agiMtlParameters, class agiMtlDef>::~agiLib<class agiMtlParameters, class agiMtlDef>()
-{
-    unimplemented();
-}
-
-i32 agiLib<class agiMtlParameters, class agiMtlDef>::Add(class agiMtlParameters& arg1)
-{
-    return stub<thiscall_t<i32, agiLib<class agiMtlParameters, class agiMtlDef>*, class agiMtlParameters&>>(
-        0x559D90, this, arg1);
-}
-
-void agiLib<class agiMtlParameters, class agiMtlDef>::Init(i32 arg1)
-{
-    return stub<thiscall_t<void, agiLib<class agiMtlParameters, class agiMtlDef>*, i32>>(0x55A080, this, arg1);
-}
-
-void agiLib<class agiMtlParameters, class agiMtlDef>::Kill()
-{
-    return stub<thiscall_t<void, agiLib<class agiMtlParameters, class agiMtlDef>*>>(0x55A030, this);
 }

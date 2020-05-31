@@ -19,3 +19,18 @@
 define_dummy_symbol(mmai_arraylist);
 
 #include "arraylist.h"
+
+CArrayList::CArrayList()
+{
+    unimplemented();
+}
+
+CArrayList::~CArrayList()
+{
+    unimplemented();
+}
+
+void CArrayList::Append(i32 arg1)
+{
+    return stub<thiscall_t<void, CArrayList*, i32>>(0x446C20, this, arg1);
+}

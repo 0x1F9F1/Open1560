@@ -28,7 +28,7 @@ def parse_idc_symbols(lines):
 
     return results
 
-MAP_REGEX = re.compile(r'[0-9a-fA-F]+:[0-9a-fA-F]+\s+(\S+)\s+([0-9a-fA-F]+).* (\S+)')
+MAP_REGEX = re.compile(r'[0-9a-fA-F]+:[0-9a-fA-F]+\s+(\S+)\s+([0-9a-fA-F]+)([fi ]{5})(\S+)')
 
 IGNORED_LIB_PREFIXES = [
     'LIBCMTD',
@@ -56,7 +56,8 @@ def parse_map_symbols(lines, addrs, ignored):
                 continue
 
         sym_addr = result[2]
-        lib_name = result[3]
+        sym_attribs = result[3].split()
+        lib_name = result[4]
 
         sym_addr = int(sym_addr, 16)
 
@@ -76,7 +77,7 @@ def parse_map_symbols(lines, addrs, ignored):
         if addrs is not None:
             sym_addr = addrs[sym_name] if sym_name in addrs else None
 
-        symbol = MapSymbol(sym_name, sym_addr, lib_name)
+        symbol = MapSymbol(sym_name, sym_addr, lib_name, sym_attribs)
 
         results.append(symbol)
 
@@ -101,10 +102,11 @@ def undecorate_symbol(symbol):
     return result
 
 class MapSymbol:
-    def __init__(self, raw_name, address, library):
+    def __init__(self, raw_name, address, library, map_attribs = []):
         self.raw_name = raw_name
         self.address = address
         self.library = library
+        self.map_attribs = map_attribs
 
         self.undec_name = undecorate_symbol(self.raw_name)
         self.visibility = None
@@ -546,6 +548,9 @@ def compute_hierarchy(raw_hierarchy, extra, ignored):
         # assert len(new_parents) <= 1
         done[key] = new_parents
 
+    for a, b in extra.items():
+        done[a] = b
+
     return dict(done)
 
 def backport_vftable_purecalls(raw_vftables, hiers, overrides):
@@ -631,19 +636,39 @@ def backport_vftable_purecalls(raw_vftables, hiers, overrides):
 
     return vftables
 
-def group_stray_symbols(symbols):
+def group_stray_symbols(symbols, overrides):
     path_libs = defaultdict(lambda: defaultdict(lambda: 0))
 
+    inline_symbols = []
+
     for symbol in symbols:
-        if 'purevirt' not in symbol.library:
-            path_libs[symbol.path][symbol.library] += 1
+        if not symbol.path:
+            continue
+
+        if symbol.library == 'purevirt':
+            continue
+
+        if 'i' in symbol.map_attribs:
+            inline_symbols.append(symbol)
+            continue
+
+        path_libs[symbol.path][symbol.library] += 1
 
     path_libs = dict((k, max(v.items(), key = lambda x: x[1])[0]) for k, v in path_libs.items() if k)
 
-    # Group Stray Symbols
-    # for symbol in symbols:
-    #     if symbol.path:
-    #         symbol.library = path_libs[symbol.path]
+    path_libs.update(overrides)
+
+    inline_path_libs = dict()
+
+    for symbol in inline_symbols:
+        if symbol.path in inline_path_libs:
+            if symbol.library != inline_path_libs[symbol.path]:
+                print('Unsure of symbol library: {}'.format(symbol))
+
+        if symbol.path not in path_libs:
+            inline_path_libs[symbol.path] = symbol.library
+
+    path_libs.update(inline_path_libs)
 
     return path_libs
 
@@ -966,14 +991,17 @@ for sym in [
 #         print('{:40} | {:80} | {}'.format(symbol.library, symbol.undec_name or '', symbol.raw_name))
 
 print('Grouping symbol libs')
-path_libs = group_stray_symbols(all_symbols)
-path_libs.update({
+path_libs = group_stray_symbols(all_symbols, {
     'MetaType': 'data7:metatype',
     'asPortalRenderable': 'mmcity:portal',
     'mmCompBase': 'mmwidget:compbase',
     'Dispatchable': 'eventq7:dispatchable',
     'Bank': 'arts7:bank',
     'agiMeshSet': 'agiworld:meshset',
+    'agiLib<class agiMtlParameters,class agiMtlDef>': 'agi:mtllib',
+    'agiLib<class agiPhysParameters,class agiPhysDef>': 'agi:physlib',
+    'agiLib<class agiTexParameters,class agiTexDef>': 'agi:texlib',
+    'PagerInfo_t': 'data7:pager',
 })
 
 # print(path_libs)
@@ -1454,7 +1482,12 @@ for symbol in symbols.values():
     _ = grouped_symbols[symbol.library] # Touch All Libraries
 
 for symbol in symbols.values():
-    grouped_symbols[path_libs[symbol.path] if symbol.path else symbol.library][symbol.path].append(symbol)
+    if (symbol.path) and (symbol.path in path_libs):
+        lib = path_libs[symbol.path]
+    else:
+        lib = symbol.library
+
+    grouped_symbols[lib][symbol.path].append(symbol)
 
 fixup_vftable_symbols(grouped_symbols, vftables)
 
@@ -1485,13 +1518,7 @@ all_files = {}
 SKIPPED_LIBS = set()
 
 SKIPPED_LIBS.update({
-    'stream:hfsystem', # PagerInfo_t
-    'mmcar:carsim', # Struct
-    'eventq7:dispatchable', # Dispatchable
-    'eventq7:winevent',
-    'arts7:bank',
-    'arts7:midgets',
-    'mmaudio:mixer',
+
 })
 
 with open('../code/loader/loader.cpp', 'r') as f:
@@ -1502,70 +1529,37 @@ with open('../code/loader/loader.cpp', 'r') as f:
             continue
         SKIPPED_LIBS.add(match[1].replace('_', ':'))
 
-for lib, paths in grouped_symbols.items():
+def is_ignored_lib(lib):
     if 'purevirt' in lib:
-        continue
+        return True
 
     if any((lib.startswith(v) for v in IGNORED_LIB_PREFIXES)):
-        continue
-
-    # if lib not in {}:
-    #     continue
+        return True
 
     if lib == 'test':
-        continue
+        return True
 
     if lib in SKIPPED_LIBS:
-        continue
+        return True
 
-    lib_header = ''
-    lib_header_includes = set()
-    lib_source = ''
+    return False
 
-    lib_path = lib.replace(':', '\\')
-    output_dir = os.path.normpath(SOURCE_DIR + '\\' + lib_path)
-    parent_dir = os.path.dirname(output_dir)
+class LibOutput:
+    def __init__(self):
+        self.header = ''
+        self.source = ''
+        self.includes = set()
+        self.src_includes = set()
 
-    if parent_dir not in all_files:
-        lib_name = parent_dir[len(SOURCE_DIR) + 1:].replace(':', '/')
-        all_files[parent_dir] = (lib_name, [ ])
+lib_outputs = defaultdict(lambda: LibOutput())
 
-    all_files[parent_dir][1].append(output_dir + '.cpp')
-    all_files[parent_dir][1].append(output_dir + '.h')
-
-    base_name = os.path.basename(output_dir)
-
-    if not os.path.exists(parent_dir):
-        try:
-            os.makedirs(parent_dir)
-        except:
-            pass
-
-    sym_comment = ''
-    sym_comment += '/*\n'
-    sym_comment += '    ' + lib + '\n\n'
-
-    for sym in all_symbols:
-        if sym.library != lib:
-            continue
-
-        sym_comment += '    '
-
-        if sym.address is not None:
-            sym_comment += '0x%06X | ' % (sym.address)
-
-        if sym.undec_name is not None:
-            sym_comment += sym.undec_name + ' | '
-
-        sym_comment += sym.raw_name
-        sym_comment += '\n'
-
-    sym_comment += '*/'
+for lib, paths in grouped_symbols.items():
+    output = lib_outputs[lib]
 
     for path, values in paths.items():
         if path:
             path_type = type_classes[path]
-            lib_header += '{} {}'.format(path_type, path)
+            output.header += '{} {}'.format(path_type, path)
 
             if path in class_hier:
                 parents = class_hier[path]
@@ -1574,17 +1568,17 @@ for lib, paths in grouped_symbols.items():
                         if parent in path_libs:
                             parent_lib = path_libs[parent]
                             if parent_lib != lib:
-                                lib_header_includes.add(parent_lib.replace(':', '/'))
+                                output.includes.add(parent_lib)
 
-                    lib_header += ': '
-                    lib_header += ', '.join(
+                    output.header += ': '
+                    output.header += ', '.join(
                         ('public ' if path_type == 'class' else '') + v for v in parents
                     )
 
                     if len(parents) > 1:
-                        lib_header += '/* Warning: Unordered Multiple Inheritance */'
+                        output.header += '/* Warning: Unordered Multiple Inheritance */'
 
-            lib_header += ' {\n'
+            output.header += ' {\n'
 
         values.sort(key=symbol_sort_order)
 
@@ -1618,7 +1612,7 @@ for lib, paths in grouped_symbols.items():
 
         for value in values:
             if value.is_vftable:
-                lib_header += '// {} @ 0x{:X}\n'.format(value.undec_name, value.address)
+                output.header += '// {} @ 0x{:X}\n'.format(value.undec_name, value.address)
                 continue
 
             skip_reason = None
@@ -1634,39 +1628,46 @@ for lib, paths in grouped_symbols.items():
                 skip_reason = 'invalid name'
 
             if skip_reason is not None:
-                lib_header += '// 0x{:X} | {} (Skipped: {})\n\n'.format(value.address, value.raw_name, skip_reason)
+                output.header += '// 0x{:X} | {} (Skipped: {})\n\n'.format(value.address, value.raw_name, skip_reason)
                 continue
 
             if value.visibility != visibility:
                 visibility = value.visibility
 
                 if visibility is not None:
-                    lib_header += '\n'
-                    lib_header += visibility
-                    lib_header += ': \n'
+                    output.header += '\n'
+                    output.header += visibility
+                    output.header += ': \n'
 
             tokens = []
+            src_tokens = []
 
             show_calling_convention = False
             add_this_ptr = False
             cc_name = None
 
+            def add_sym_info(sym):
+                output.header += '// 0x{:X} | {}'.format(sym.address, sym.raw_name)
+
+                if 'i' in sym.map_attribs:
+                    if not sym.parts[-1] in ['`vector deleting destructor\'', '`scalar deleting destructor\'']:
+                        output.header += ' | inline'
+                elif sym.library != lib:
+                    output.header += ' | ' + sym.library
+
+                if (sym.type.type_class == TypeClass.FunctionTypeClass) and (sym.address != 0):
+                    if not (view.get_code_refs(sym.address) or view.get_data_refs(sym.address)):
+                        output.header += ' | unused'
+
+                output.header += '\n'
+
             if value.member_type == 'dtor':
                 assert value == sym_dtors[0]
                 for dtor in sym_dtors:
                     if dtor.raw_name != '__purecall':
-                        lib_header += '// 0x{:X} | {}\n'.format(dtor.address, dtor.raw_name)
+                        add_sym_info(dtor)
             elif (value.raw_name != '__purecall') and not (value.type.type_class == TypeClass.FunctionTypeClass and value.static and not value.is_member):
-                lib_header += '// 0x{:X} | {}'.format(value.address, value.raw_name)
-
-                if value.library != lib:
-                    lib_header += ' | inline'
-
-                if (value.type.type_class == TypeClass.FunctionTypeClass) and (value.address != 0):
-                    if not (view.get_code_refs(value.address) or view.get_data_refs(value.address)):
-                        lib_header += ' | unused'
-
-                lib_header += '\n'
+                add_sym_info(value)
 
             sym_name = value.parts[:]
 
@@ -1685,6 +1686,51 @@ for lib, paths in grouped_symbols.items():
 
                 skip_declaration = value.static and not value.is_member
                 skip_definition = value.raw_name == '__purecall'
+
+                body_tokens = []
+                body_tokens.append('{')
+
+                if (value.member_type not in ['ctor', 'dtor']) and not value.type.has_variable_arguments:
+                    body_tokens.append('return')
+
+                    body_tokens.append('stub')
+                    body_tokens.append('<')
+
+                    body_tokens.append('{}_t'.format(value.type.calling_convention.name))
+                    body_tokens.append('<')
+
+                    body_tokens.append(beautify_type(value.type.return_value))
+
+                    if add_this_ptr:
+                        body_tokens.append(',')
+                        body_tokens.append(value.parts[-2])
+                        body_tokens.append('*')
+
+                    for param in value.type.parameters:
+                        body_tokens.append(',')
+                        body_tokens.append(beautify_type(param.type))
+
+                    body_tokens.append('>')
+                    body_tokens.append('>')
+
+                    body_tokens.append('(')
+
+                    body_tokens.append(format_address(value.address))
+
+                    if add_this_ptr:
+                        body_tokens.append(',')
+                        body_tokens.append('this')
+
+                    for param in value.type.parameters:
+                        body_tokens.append(',')
+                        body_tokens.append(param.name)
+
+                    body_tokens.append(')')
+                else:
+                    body_tokens.append('unimplemented({})'.format(', '.join(p.name for p in value.type.parameters)))
+
+                body_tokens.append(';')
+                body_tokens.append('}')
 
                 if not skip_declaration:
                     if value.static:
@@ -1709,10 +1755,14 @@ for lib, paths in grouped_symbols.items():
                     if value.raw_name == '__purecall':
                         tokens.append(' = 0')
 
+                    if False and 'i' in value.map_attribs:
+                        tokens.extend(body_tokens)
+                        skip_definition = True
+                    else:
+                        tokens.append(';')
+
                 if not skip_definition:
                     assert value.address != 0
-
-                    src_tokens = []
 
                     if value.static and not value.is_member:
                         src_tokens.append('static')
@@ -1724,57 +1774,8 @@ for lib, paths in grouped_symbols.items():
                         src_tokens.append(cc_name)
 
                     src_tokens.append('::'.join(sym_name))
-
                     src_tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
-
-                    src_tokens.append('{')
-
-                    if (value.member_type not in ['ctor', 'dtor']) and not value.type.has_variable_arguments:
-                        src_tokens.append('return')
-
-                        src_tokens.append('stub')
-                        src_tokens.append('<')
-
-                        src_tokens.append('{}_t'.format(value.type.calling_convention.name))
-                        src_tokens.append('<')
-
-                        src_tokens.append(beautify_type(value.type.return_value))
-
-                        if add_this_ptr:
-                            src_tokens.append(',')
-                            src_tokens.append(value.parts[-2])
-                            src_tokens.append('*')
-
-                        for param in value.type.parameters:
-                            src_tokens.append(',')
-                            src_tokens.append(beautify_type(param.type))
-
-                        src_tokens.append('>')
-                        src_tokens.append('>')
-
-                        src_tokens.append('(')
-
-                        src_tokens.append(format_address(value.address))
-
-                        if add_this_ptr:
-                            src_tokens.append(',')
-                            src_tokens.append('this')
-
-                        for param in value.type.parameters:
-                            src_tokens.append(',')
-                            src_tokens.append(param.name)
-
-                        src_tokens.append(')')
-                    else:
-                        src_tokens.append('unimplemented({})'.format(', '.join( p.name for p in value.type.parameters )))
-
-                    src_tokens.append(';')
-
-                    src_tokens.append('}')
-
-                    if src_tokens:
-                        lib_source += ' '.join(src_tokens)
-                        lib_source += '\n\n'
+                    src_tokens.extend(body_tokens)
             else:
                 if value.static:
                     tokens.append('static')
@@ -1792,19 +1793,90 @@ for lib, paths in grouped_symbols.items():
 
                 tokens.append(value.name)
                 tokens.append(')')
+                tokens.append(';')
 
             if tokens:
-                lib_header += ' '.join(tokens)
-                lib_header += ';';
-                lib_header += '\n\n'
+                output.header += ' '.join(tokens)
+                output.header += '\n\n'
+
+            if src_tokens:
+                if ('i' not in value.map_attribs) and (value.library != lib):
+                    print('Moved Symbol', value, lib, value.library)
+                    lib_outputs[value.library].source += ' '.join(src_tokens)
+                    lib_outputs[value.library].source += '\n\n'
+                    lib_outputs[value.library].src_includes.add(lib)
+                else:
+                    output.source += ' '.join(src_tokens)
+                    output.source += '\n\n'
 
         if path:
-            lib_header += '};\n\n'
+            output.header += '};\n\n'
 
             if (any(not v.static for v in values)):
-                lib_header += 'check_size({}, 0x{:X});\n\n'.format(path, class_sizes.get(path, 0))
+                output.header += 'check_size({}, 0x{:X});\n\n'.format(path, class_sizes.get(path, 0))
 
-    # print(lib_header)
+for lib, output in lib_outputs.items():
+    output_dir = os.path.normpath(SOURCE_DIR + '\\' + lib.replace(':', '\\'))
+    parent_dir = os.path.dirname(output_dir)
+
+    if parent_dir not in all_files:
+        lib_name = parent_dir[len(SOURCE_DIR) + 1:].replace(':', '/')
+        all_files[parent_dir] = (lib_name, [ ])
+
+    all_files[parent_dir][1].append(output_dir + '.cpp')
+    all_files[parent_dir][1].append(output_dir + '.h')
+
+    base_name = os.path.basename(output_dir)
+
+    if not os.path.exists(parent_dir):
+        try:
+            os.makedirs(parent_dir)
+        except:
+            pass
+
+    sym_comment = ''
+    sym_comment += '/*\n'
+    sym_comment += '    ' + lib + '\n'
+
+    first_sym = True
+
+    for sym in all_symbols:
+        if sym.library != lib:
+            continue
+
+        if first_sym:
+            first_sym = False
+            sym_comment += '\n'
+
+        sym_comment += '    '
+
+        if sym.address is not None:
+            sym_comment += '0x%06X | ' % (sym.address)
+
+        if sym.undec_name is not None:
+            sym_comment += sym.undec_name + ' | '
+
+        sym_comment += sym.raw_name
+        sym_comment += '\n'
+
+    sym_comment += '*/'
+
+    def process_includes(includes):
+        includes = [ inc.replace(':', '/') for inc in includes ]
+        lib_parts = lib.split(':')
+
+        for i, include in enumerate(includes):
+            include_parts = include.split('/')
+            if include_parts[:-1] == lib_parts[:-1]:
+                includes[i] = include_parts[-1]
+
+        includes.sort()
+        return includes
+
+    if is_ignored_lib(lib):
+        continue
+
+    output.src_includes -= output.includes
 
     with open(output_dir + '.h', 'w') as f:
         f.write(LICENSE_TXT)
@@ -1814,25 +1886,13 @@ for lib, paths in grouped_symbols.items():
         f.write(sym_comment)
         f.write('\n\n')
 
-        if lib_header_includes:
-            lib_header_includes = list(lib_header_includes)
-
-            lib_parts = lib.split(':')
-
-            for i, include in enumerate(lib_header_includes):
-                include_parts = include.split('/')
-
-                if include_parts[:-1] == lib_parts[:-1]:
-                    lib_header_includes[i] = include_parts[-1]
-
-            lib_header_includes.sort()
-
-            for include in lib_header_includes:
+        if output.includes:
+            for include in process_includes(output.includes):
                 f.write('#include "{}.h"\n'.format(include))
 
             f.write('\n')
 
-        f.write(lib_header)
+        f.write(output.header)
 
     with open(output_dir + '.cpp', 'w') as f:
         f.write(LICENSE_TXT)
@@ -1841,7 +1901,14 @@ for lib, paths in grouped_symbols.items():
         f.write('\n')
         f.write('#include "{}.h"\n'.format(base_name))
         f.write('\n')
-        f.write(lib_source)
+
+        if output.src_includes:
+            for include in process_includes(output.src_includes):
+                f.write('#include "{}.h"\n'.format(include))
+
+            f.write('\n')
+
+        f.write(output.source)
 
 if False:
     for lib_dir, (lib_name, files) in all_files.items():

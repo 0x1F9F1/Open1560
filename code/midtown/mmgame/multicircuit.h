@@ -63,7 +63,7 @@ public:
     // 0x41BDE0 | ?GetClass@mmMultiCircuit@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x41BFA0 | ?GetWaypoints@mmMultiCircuit@@UAEPAVmmWaypoints@@XZ
+    // 0x41BFA0 | ?GetWaypoints@mmMultiCircuit@@UAEPAVmmWaypoints@@XZ | inline
     class mmWaypoints* GetWaypoints() override;
 
     // 0x41A9E0 | ?Init@mmMultiCircuit@@QAEHXZ

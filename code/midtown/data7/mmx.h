@@ -33,7 +33,7 @@
 struct initHaveMMX
 {
 public:
-    // 0x57C410 | ??0initHaveMMX@@QAE@XZ
+    // 0x57C410 | ??0initHaveMMX@@QAE@XZ | inline
     initHaveMMX();
 };
 

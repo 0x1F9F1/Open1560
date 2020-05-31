@@ -53,7 +53,7 @@ class mmNetworkCarAudio : public asNode
     // const mmNetworkCarAudio::`vftable' @ 0x61CA30
 
 public:
-    // 0x484700 | ??0mmNetworkCarAudio@@QAE@XZ
+    // 0x484700 | ??0mmNetworkCarAudio@@QAE@XZ | inline
     mmNetworkCarAudio();
 
     // 0x483440 | ??0mmNetworkCarAudio@@QAE@PAVmmCarSim@@@Z

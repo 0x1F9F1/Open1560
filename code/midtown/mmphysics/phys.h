@@ -87,7 +87,7 @@ class mmPhysExec : public asNode
 
 public:
     // 0x4D91B0 | ??_GmmPhysExec@@UAEPAXI@Z
-    // 0x4D91E0 | ??1mmPhysExec@@UAE@XZ
+    // 0x4D91E0 | ??1mmPhysExec@@UAE@XZ | inline
     ~mmPhysExec() override;
 
     // 0x4D3DA0 | ?DoUpdateAll@mmPhysExec@@QAEXXZ
@@ -96,7 +96,7 @@ public:
     // 0x4D3FF0 | ?DoUpdatePlayerOnly@mmPhysExec@@QAEXXZ
     void DoUpdatePlayerOnly();
 
-    // 0x4D9190 | ?Update@mmPhysExec@@UAEXXZ
+    // 0x4D9190 | ?Update@mmPhysExec@@UAEXXZ | inline
     void Update() override;
 };
 
@@ -222,7 +222,7 @@ void SegSegDistNorm(class Vector3 const& arg1, class Vector3 const& arg2, class 
     class Vector3 const& arg4, class Vector3 const& arg5, class Vector3 const& arg6, class Vector3* arg7,
     class Vector3* arg8, class Vector3* arg9, f32* arg10, i32* arg11);
 
-// 0x4D90C0 | ?testNoOverlap@@YAHMM@Z
+// 0x4D90C0 | ?testNoOverlap@@YAHMM@Z | inline
 i32 testNoOverlap(f32 arg1, f32 arg2);
 
 // 0x643E6C | ?CallImpactCallbacks@@3HA

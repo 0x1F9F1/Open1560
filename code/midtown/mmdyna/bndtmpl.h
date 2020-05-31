@@ -72,16 +72,16 @@ public:
     // 0x51DA60 | ??1mmBoundTemplate@@QAE@XZ
     ~mmBoundTemplate();
 
-    // 0x519F70 | ?AddIndex@mmBoundTemplate@@QAEXHHH@Z | inline
+    // 0x519F70 | ?AddIndex@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
     void AddIndex(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x517370 | ?AddQuad@mmBoundTemplate@@QAEXHHHHHH@Z | inline
+    // 0x517370 | ?AddQuad@mmBoundTemplate@@QAEXHHHHHH@Z | mmdyna:bndtmpl2
     void AddQuad(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);
 
     // 0x51D8F0 | ?AddRef@mmBoundTemplate@@QAEXXZ
     void AddRef();
 
-    // 0x517280 | ?AddTriangle@mmBoundTemplate@@QAEXHHHHH@Z | inline
+    // 0x517280 | ?AddTriangle@mmBoundTemplate@@QAEXHHHHH@Z | mmdyna:bndtmpl2
     void AddTriangle(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     // 0x51E550 | ?Collide@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
@@ -99,13 +99,13 @@ public:
     i32 CollideTerrains(
         class mmBoundTemplate** arg1, class Matrix34& arg2, class mmEdgeBodyIsect* arg3, i32 arg4, i32 arg5);
 
-    // 0x5175E0 | ?ComputeBounds@mmBoundTemplate@@QAEXXZ | inline
+    // 0x5175E0 | ?ComputeBounds@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     void ComputeBounds();
 
-    // 0x5193A0 | ?ComputeEdgeNormals@mmBoundTemplate@@QAEXXZ | inline
+    // 0x5193A0 | ?ComputeEdgeNormals@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     void ComputeEdgeNormals();
 
-    // 0x517680 | ?ComputeEdges@mmBoundTemplate@@QAEXXZ | inline
+    // 0x517680 | ?ComputeEdges@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     void ComputeEdges();
 
     // 0x51FCF0 | ?Draw@mmBoundTemplate@@QAEXXZ
@@ -126,7 +126,7 @@ public:
     // 0x51FE00 | ?DrawTable@mmBoundTemplate@@QAEXXZ
     void DrawTable();
 
-    // 0x5171D0 | ?InitGeometry@mmBoundTemplate@@QAEXHH@Z | inline
+    // 0x5171D0 | ?InitGeometry@mmBoundTemplate@@QAEXHH@Z | mmdyna:bndtmpl2
     void InitGeometry(i32 arg1, i32 arg2);
 
     // 0x51F670 | ?LineGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
@@ -150,19 +150,19 @@ public:
     // 0x51F1E0 | ?LineTable@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
     i32 LineTable(class mmEdgeBodyIsect* arg1, i32 arg2);
 
-    // 0x517850 | ?Load@mmBoundTemplate@@QAEHPAD0PAVVector3@@HHHHHH@Z | inline
+    // 0x517850 | ?Load@mmBoundTemplate@@QAEHPAD0PAVVector3@@HHHHHH@Z | mmdyna:bndtmpl2
     i32 Load(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8, i32 arg9);
 
-    // 0x519320 | ?LockIfResident@mmBoundTemplate@@QAEHXZ | inline
+    // 0x519320 | ?LockIfResident@mmBoundTemplate@@QAEHXZ | mmdyna:bndtmpl2
     i32 LockIfResident();
 
-    // 0x519300 | ?PageIn@mmBoundTemplate@@QAEXXZ | inline
+    // 0x519300 | ?PageIn@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     void PageIn();
 
-    // 0x51A090 | ?PlotLine@mmBoundTemplate@@QAEXVVector3@@0@Z | inline | unused
+    // 0x51A090 | ?PlotLine@mmBoundTemplate@@QAEXVVector3@@0@Z | mmdyna:bndtmpl2 | unused
     void PlotLine(class Vector3 arg1, class Vector3 arg2);
 
-    // 0x51A1A0 | ?PlotSpan@mmBoundTemplate@@QAEXHHH@Z | inline
+    // 0x51A1A0 | ?PlotSpan@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
     void PlotSpan(i32 arg1, i32 arg2, i32 arg3);
 
     // 0x51EA00 | ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
@@ -198,7 +198,7 @@ public:
     // 0x51EEB0 | ?SphereTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     i32 SphereTable(class mmIntersection* arg1);
 
-    // 0x519380 | ?Unlock@mmBoundTemplate@@QAEXXZ | inline
+    // 0x519380 | ?Unlock@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     void Unlock();
 
     // 0x51D940 | ?ValidatePtr@mmBoundTemplate@@QAEXPAD@Z
@@ -214,10 +214,10 @@ public:
     // 0x77F598 | ?BoundPtr@mmBoundTemplate@@2PAV1@A
     static inline extern_var(0x77F598, class mmBoundTemplate*, BoundPtr);
 
-    // 0x77EED0 | ?ConstructionTable@mmBoundTemplate@@2PAGA | inline
+    // 0x77EED0 | ?ConstructionTable@mmBoundTemplate@@2PAGA | mmdyna:bndtmpl2
     static inline extern_var(0x77EED0, u16*, ConstructionTable);
 
-    // 0x77EE48 | ?DrawGrid@mmBoundTemplate@@2HA | inline
+    // 0x77EE48 | ?DrawGrid@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
     static inline extern_var(0x77EE48, i32, DrawGrid);
 
     // 0x77F590 | ?IsectCount@mmBoundTemplate@@2GA
@@ -226,32 +226,32 @@ public:
     // 0x77F498 | ?LastIsect@mmBoundTemplate@@2PAGA
     static inline extern_var(0x77F498, u16*, LastIsect);
 
-    // 0x77EED4 | ?MaxPerBucket@mmBoundTemplate@@2HA | inline
+    // 0x77EED4 | ?MaxPerBucket@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
     static inline extern_var(0x77EED4, i32, MaxPerBucket);
 
-    // 0x77EE3C | ?NumIndexs@mmBoundTemplate@@2HA | inline
+    // 0x77EE3C | ?NumIndexs@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
     static inline extern_var(0x77EE3C, i32, NumIndexs);
 
     // 0x77F594 | ?VertPtr@mmBoundTemplate@@2PAVVector3@@A
     static inline extern_var(0x77F594, class Vector3*, VertPtr);
 
-    // 0x77EE38 | ?WinID@mmBoundTemplate@@2HA | inline
+    // 0x77EE38 | ?WinID@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
     static inline extern_var(0x77EE38, i32, WinID);
 
 private:
-    // 0x519A30 | ?DoMakeTable@mmBoundTemplate@@AAEXHHH@Z | inline
+    // 0x519A30 | ?DoMakeTable@mmBoundTemplate@@AAEXHHH@Z | mmdyna:bndtmpl2
     void DoMakeTable(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x518E90 | ?DoPageIn@mmBoundTemplate@@AAEXXZ | inline
+    // 0x518E90 | ?DoPageIn@mmBoundTemplate@@AAEXXZ | mmdyna:bndtmpl2
     void DoPageIn();
 
-    // 0x519830 | ?MakeTable@mmBoundTemplate@@AAEXHHH@Z | inline
+    // 0x519830 | ?MakeTable@mmBoundTemplate@@AAEXHHH@Z | mmdyna:bndtmpl2
     void MakeTable(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x5192F0 | ?PageInCallback@mmBoundTemplate@@CAXPAX@Z | inline
+    // 0x5192F0 | ?PageInCallback@mmBoundTemplate@@CAXPAX@Z | mmdyna:bndtmpl2
     static void PageInCallback(void* arg1);
 
-    // 0x518D40 | ?PageOutCallback@mmBoundTemplate@@CAXPAXH@Z | inline
+    // 0x518D40 | ?PageOutCallback@mmBoundTemplate@@CAXPAXH@Z | mmdyna:bndtmpl2
     static void PageOutCallback(void* arg1, i32 arg2);
 };
 

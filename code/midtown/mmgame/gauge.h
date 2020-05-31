@@ -53,7 +53,7 @@ public:
     RadialGauge();
 
     // 0x424170 | ??_ERadialGauge@@UAEPAXI@Z
-    // 0x422F10 | ??1RadialGauge@@UAE@XZ
+    // 0x422F10 | ??1RadialGauge@@UAE@XZ | inline
     ~RadialGauge() override;
 
     // 0x423910 | ?AddWidgets@RadialGauge@@UAEXPAVBank@@@Z

@@ -90,7 +90,7 @@ public:
     agiSWTexLut(class agiSWPipeline* arg1);
 
     // 0x537B70 | ??_GagiSWTexLut@@UAEPAXI@Z
-    // 0x537BA0 | ??1agiSWTexLut@@UAE@XZ
+    // 0x537BA0 | ??1agiSWTexLut@@UAE@XZ | inline
     ~agiSWTexLut() override;
 
     // 0x537950 | ?BeginGfx@agiSWTexLut@@UAEHXZ

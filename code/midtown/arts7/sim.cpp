@@ -205,3 +205,8 @@ void artsReplayChannel::DoRecord(class Stream* arg1)
 {
     return stub<thiscall_t<void, artsReplayChannel*, class Stream*>>(0x5236D0, this, arg1);
 }
+
+char* asNode::VerifyTree()
+{
+    return stub<thiscall_t<char*, asNode*>>(0x523440, this);
+}

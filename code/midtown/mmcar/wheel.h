@@ -57,7 +57,7 @@ public:
     mmWheel();
 
     // 0x47FE00 | ??_EmmWheel@@UAEPAXI@Z
-    // 0x470360 | ??1mmWheel@@UAE@XZ
+    // 0x470360 | ??1mmWheel@@UAE@XZ | inline
     ~mmWheel() override;
 
     // 0x47F6D0 | ?AddWidgets@mmWheel@@UAEXPAVBank@@@Z

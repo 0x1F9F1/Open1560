@@ -78,7 +78,7 @@ public:
     // 0x44EC60 | ??0aiVehicleAmbient@@QAE@XZ
     aiVehicleAmbient();
 
-    // 0x43BEF0 | ??_EaiVehicleAmbient@@QAEPAXI@Z
+    // 0x43BEF0 | ??_EaiVehicleAmbient@@QAEPAXI@Z | unused
     // 0x44ED40 | ??1aiVehicleAmbient@@QAE@XZ
     ~aiVehicleAmbient();
 
@@ -101,7 +101,7 @@ public:
     // 0x451160 | ?Dump@aiVehicleAmbient@@QAEXXZ
     void Dump();
 
-    // 0x451360 | ?GetImpactAudioPtr@aiVehicleAmbient@@UAEPAVmmOpponentImpactAudio@@XZ
+    // 0x451360 | ?GetImpactAudioPtr@aiVehicleAmbient@@UAEPAVmmOpponentImpactAudio@@XZ | inline
     class mmOpponentImpactAudio* GetImpactAudioPtr() override;
 
     // 0x44F490 | ?Impact@aiVehicleAmbient@@UAEXH@Z
@@ -137,7 +137,7 @@ public:
     // 0x450A30 | ?StopVoice@aiVehicleAmbient@@UAEXXZ
     void StopVoice() override;
 
-    // 0x451350 | ?Type@aiVehicleAmbient@@UAEHXZ
+    // 0x451350 | ?Type@aiVehicleAmbient@@UAEHXZ | inline
     i32 Type() override;
 
     // 0x44F540 | ?UnAssignSounds@aiVehicleAmbient@@QAEXXZ

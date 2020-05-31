@@ -242,23 +242,3 @@ static void parseVector3(class Vector3& arg1)
 {
     return stub<cdecl_t<void, class Vector3&>>(0x48E330, arg1);
 }
-
-mmBangerManager::~mmBangerManager()
-{
-    unimplemented();
-}
-
-class mmHitBangerInstance* mmBangerManager::GetBanger()
-{
-    return stub<thiscall_t<class mmHitBangerInstance*, mmBangerManager*>>(0x4CAC70, this);
-}
-
-void mmBangerManager::Init(i32 arg1)
-{
-    return stub<thiscall_t<void, mmBangerManager*, i32>>(0x4CACD0, this, arg1);
-}
-
-void mmBangerManager::Reset()
-{
-    return stub<thiscall_t<void, mmBangerManager*>>(0x4CAD90, this);
-}

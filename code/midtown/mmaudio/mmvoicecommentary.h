@@ -79,7 +79,7 @@ public:
     // 0x4EC070 | ??0mmVoiceCommentary@@QAE@XZ
     mmVoiceCommentary();
 
-    // 0x4EC110 | ??1mmVoiceCommentary@@QAE@XZ
+    // 0x4EC110 | ??1mmVoiceCommentary@@QAE@XZ | unused
     ~mmVoiceCommentary();
 
     // 0x4ED190 | ?CatName@mmVoiceCommentary@@QAEPADPADHH@Z

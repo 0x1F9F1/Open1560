@@ -127,7 +127,7 @@ private:
 
 check_size(mmPlayerDirectory, 0xE4);
 
-// 0x4CFB90 | ?RefTo@@YAPAUMetaType@@PAU1@HPAH@Z
+// 0x4CFB90 | ?RefTo@@YAPAUMetaType@@PAU1@HPAH@Z | inline
 struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i32* arg3);
 
 // 0x708548 | ?mmPlayerDirectoryMetaClass@@3VMetaClass@@A

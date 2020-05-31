@@ -20,6 +20,8 @@ define_dummy_symbol(agid3d_d3dpipe);
 
 #include "d3dpipe.h"
 
+#include "d3dtexdef.h"
+
 agiD3DPipeline::agiD3DPipeline()
 {
     unimplemented();
@@ -140,17 +142,7 @@ static i32 __stdcall EnumZ(struct _DDPIXELFORMAT* arg1, void* arg2)
     return stub<stdcall_t<i32, struct _DDPIXELFORMAT*, void*>>(0x530980, arg1, arg2);
 }
 
-agiD3DTexLut::~agiD3DTexLut()
+void agiD3DTexDef::Prober(void* arg1)
 {
-    unimplemented();
-}
-
-i32 agiD3DTexLut::BeginGfx()
-{
-    return stub<thiscall_t<i32, agiD3DTexLut*>>(0x531FD0, this);
-}
-
-void agiD3DTexLut::EndGfx()
-{
-    return stub<thiscall_t<void, agiD3DTexLut*>>(0x532020, this);
+    return stub<cdecl_t<void, void*>>(0x52FA90, arg1);
 }

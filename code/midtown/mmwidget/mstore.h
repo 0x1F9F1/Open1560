@@ -37,7 +37,7 @@ public:
     // 0x4AB7B0 | ??0MArray@@QAE@XZ
     MArray();
 
-    // 0x4AB7C0 | ??1MArray@@QAE@XZ
+    // 0x4AB7C0 | ??1MArray@@QAE@XZ | unused
     ~MArray();
 
     // 0x4ABCF0 | ?AddMenuData@MArray@@QAEXHAAVVector4@@PAD@Z

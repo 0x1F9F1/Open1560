@@ -46,7 +46,7 @@ public:
     Card2D();
 
     // 0x4FE620 | ??_ECard2D@@UAEPAXI@Z
-    // 0x4FE650 | ??1Card2D@@UAE@XZ
+    // 0x4FE650 | ??1Card2D@@UAE@XZ | inline
     ~Card2D() override;
 
     // 0x4FE170 | ?Init@Card2D@@QAEXPAVasCamera@@MMMMM@Z

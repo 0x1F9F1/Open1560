@@ -69,7 +69,7 @@ public:
     // 0x56E500 | ??0Matrix44@@QAE@ABVMatrix34@@@Z
     Matrix44(class Matrix34 const& arg1);
 
-    // 0x570C80 | ??0Matrix44@@QAE@ABV0@@Z
+    // 0x570C80 | ??0Matrix44@@QAE@ABV0@@Z | inline
     Matrix44(class Matrix44 const& arg1);
 
     // 0x56EA80 | ??DMatrix44@@QBE?AV0@M@Z | unused

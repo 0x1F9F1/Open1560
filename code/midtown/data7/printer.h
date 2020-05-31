@@ -49,7 +49,7 @@
 // 0x576C70 | ?Displayf@@YAXPBDZZ
 void Displayf(char const* format, ...);
 
-// 0x576C90 | ?Printf@@YAXPBDZZ
+// 0x576C90 | ?Printf@@YAXPBDZZ | unused
 void Printf(char const* format, ...);
 
 // 0x576CB0 | ?Debugf@@YAXPBDZZ
@@ -61,10 +61,10 @@ void Warningf(char const* format, ...);
 // 0x576CF0 | ?Errorf@@YAXPBDZZ
 void Errorf(char const* format, ...);
 
-// 0x576D10 | ?PErrorf@@YAXPBDZZ
+// 0x576D10 | ?PErrorf@@YAXPBDZZ | unused
 void PErrorf(char const* format, ...);
 
-// 0x576D60 | ?PDebug@@YAXPBDZZ
+// 0x576D60 | ?PDebug@@YAXPBDZZ | unused
 void PDebug(char const* format, ...);
 
 // 0x576DB0 | ?Abortf@@YAXPBDZZ

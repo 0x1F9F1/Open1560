@@ -465,6 +465,8 @@ const char* asNode::VerifyTree()
 {
     export_hook(0x523440);
 
+    // TODO: Move to arts7:sim
+
     if (!IsValidPointer(this, sizeof(*this), true))
         return "Bad 'this'";
 

@@ -146,7 +146,7 @@ public:
     agiColorModelRGB555();
 
     // 0x55D840 | ??_EagiColorModelRGB555@@UAEPAXI@Z
-    // 0x55D830 | ??1agiColorModelRGB555@@UAE@XZ
+    // 0x55D830 | ??1agiColorModelRGB555@@UAE@XZ | inline
     ~agiColorModelRGB555() override;
 
     // 0x55C560 | ?Filter@agiColorModelRGB555@@UAEIIIII@Z
@@ -176,7 +176,7 @@ public:
     agiColorModelRGB565();
 
     // 0x55D880 | ??_EagiColorModelRGB565@@UAEPAXI@Z
-    // 0x55D870 | ??1agiColorModelRGB565@@UAE@XZ
+    // 0x55D870 | ??1agiColorModelRGB565@@UAE@XZ | inline
     ~agiColorModelRGB565() override;
 
     // 0x55C740 | ?Filter@agiColorModelRGB565@@UAEIIIII@Z
@@ -206,7 +206,7 @@ public:
     agiColorModelRGB555_Rev();
 
     // 0x55D8C0 | ??_EagiColorModelRGB555_Rev@@UAEPAXI@Z
-    // 0x55D8B0 | ??1agiColorModelRGB555_Rev@@UAE@XZ
+    // 0x55D8B0 | ??1agiColorModelRGB555_Rev@@UAE@XZ | inline
     ~agiColorModelRGB555_Rev() override;
 
     // 0x55C920 | ?Filter@agiColorModelRGB555_Rev@@UAEIIIII@Z
@@ -236,7 +236,7 @@ public:
     agiColorModelRGB565_Rev();
 
     // 0x55D900 | ??_GagiColorModelRGB565_Rev@@UAEPAXI@Z
-    // 0x55D8F0 | ??1agiColorModelRGB565_Rev@@UAE@XZ
+    // 0x55D8F0 | ??1agiColorModelRGB565_Rev@@UAE@XZ | inline
     ~agiColorModelRGB565_Rev() override;
 
     // 0x55CB00 | ?Filter@agiColorModelRGB565_Rev@@UAEIIIII@Z
@@ -266,7 +266,7 @@ public:
     agiColorModelRGB888();
 
     // 0x55D940 | ??_GagiColorModelRGB888@@UAEPAXI@Z
-    // 0x55D930 | ??1agiColorModelRGB888@@UAE@XZ
+    // 0x55D930 | ??1agiColorModelRGB888@@UAE@XZ | inline
     ~agiColorModelRGB888() override;
 
     // 0x55CCC0 | ?Filter@agiColorModelRGB888@@UAEIIIII@Z
@@ -296,7 +296,7 @@ public:
     agiColorModelRGB888_Rev();
 
     // 0x55D980 | ??_GagiColorModelRGB888_Rev@@UAEPAXI@Z
-    // 0x55D970 | ??1agiColorModelRGB888_Rev@@UAE@XZ
+    // 0x55D970 | ??1agiColorModelRGB888_Rev@@UAE@XZ | inline
     ~agiColorModelRGB888_Rev() override;
 
     // 0x55CE60 | ?Filter@agiColorModelRGB888_Rev@@UAEIIIII@Z
@@ -326,7 +326,7 @@ public:
     agiColorModelRGBA5551();
 
     // 0x55D9C0 | ??_EagiColorModelRGBA5551@@UAEPAXI@Z
-    // 0x55D9B0 | ??1agiColorModelRGBA5551@@UAE@XZ
+    // 0x55D9B0 | ??1agiColorModelRGBA5551@@UAE@XZ | inline
     ~agiColorModelRGBA5551() override;
 
     // 0x55D050 | ?Filter@agiColorModelRGBA5551@@UAEIIIII@Z
@@ -356,7 +356,7 @@ public:
     agiColorModelRGBA4444();
 
     // 0x55DA00 | ??_EagiColorModelRGBA4444@@UAEPAXI@Z
-    // 0x55D9F0 | ??1agiColorModelRGBA4444@@UAE@XZ
+    // 0x55D9F0 | ??1agiColorModelRGBA4444@@UAE@XZ | inline
     ~agiColorModelRGBA4444() override;
 
     // 0x55D280 | ?Filter@agiColorModelRGBA4444@@UAEIIIII@Z
@@ -386,7 +386,7 @@ public:
     agiColorModelARGB();
 
     // 0x55DA40 | ??_EagiColorModelARGB@@UAEPAXI@Z
-    // 0x55DA30 | ??1agiColorModelARGB@@UAE@XZ
+    // 0x55DA30 | ??1agiColorModelARGB@@UAE@XZ | inline
     ~agiColorModelARGB() override;
 
     // 0x55D490 | ?Filter@agiColorModelARGB@@UAEIIIII@Z
@@ -416,7 +416,7 @@ public:
     agiColorModelABGR();
 
     // 0x55DA80 | ??_GagiColorModelABGR@@UAEPAXI@Z
-    // 0x55DA70 | ??1agiColorModelABGR@@UAE@XZ
+    // 0x55DA70 | ??1agiColorModelABGR@@UAE@XZ | inline
     ~agiColorModelABGR() override;
 
     // 0x55D670 | ?Filter@agiColorModelABGR@@UAEIIIII@Z

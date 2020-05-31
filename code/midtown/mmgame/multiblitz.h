@@ -64,7 +64,7 @@ public:
     // 0x41A6D0 | ?GetClass@mmMultiBlitz@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x41A8A0 | ?GetWaypoints@mmMultiBlitz@@UAEPAVmmWaypoints@@XZ
+    // 0x41A8A0 | ?GetWaypoints@mmMultiBlitz@@UAEPAVmmWaypoints@@XZ | inline
     class mmWaypoints* GetWaypoints() override;
 
     // 0x419010 | ?Init@mmMultiBlitz@@QAEHXZ

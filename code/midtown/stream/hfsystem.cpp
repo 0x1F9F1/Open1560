@@ -20,6 +20,8 @@ define_dummy_symbol(stream_hfsystem);
 
 #include "hfsystem.h"
 
+#include "data7/pager.h"
+
 HierFileSystem::HierFileSystem()
 {
     unimplemented();
@@ -74,4 +76,9 @@ i32 HierFileSystem::ValidPath(char* arg1)
 char* FQN(char* arg1)
 {
     return stub<cdecl_t<char*, char*>>(0x55FF90, arg1);
+}
+
+void PagerInfo_t::Read(void* arg1, u32 arg2, u32 arg3)
+{
+    return stub<thiscall_t<void, PagerInfo_t*, void*, u32, u32>>(0x5605D0, this, arg1, arg2, arg3);
 }

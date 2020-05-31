@@ -100,22 +100,22 @@ class mmPhysEntity : public asNode
 
 public:
     // 0x453B40 | ??_GmmPhysEntity@@UAEPAXI@Z
-    // 0x42D510 | ??1mmPhysEntity@@UAE@XZ
+    // 0x42D510 | ??1mmPhysEntity@@UAE@XZ | inline
     ~mmPhysEntity() override;
 
-    // 0x453B00 | ?PostUpdate@mmPhysEntity@@UAEXXZ
+    // 0x453B00 | ?PostUpdate@mmPhysEntity@@UAEXXZ | inline
     virtual void PostUpdate();
 
-    // 0x453B10 | ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ
+    // 0x453B10 | ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ | inline
     virtual class asBound* GetBound();
 
-    // 0x453B20 | ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ
+    // 0x453B20 | ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ | inline
     virtual class asInertialCS* GetICS();
 
-    // 0x453B30 | ?DetachMe@mmPhysEntity@@UAEXXZ
+    // 0x453B30 | ?DetachMe@mmPhysEntity@@UAEXXZ | inline
     virtual void DetachMe();
 
-    // 0x453AF0 | ?Update@mmPhysEntity@@UAEXXZ
+    // 0x453AF0 | ?Update@mmPhysEntity@@UAEXXZ | inline
     void Update() override;
 };
 
@@ -143,7 +143,7 @@ class aiVehicleInstance : public mmInstance
 
 public:
     // 0x45C530 | ??_GaiVehicleInstance@@UAEPAXI@Z
-    // 0x45C550 | ??1aiVehicleInstance@@UAE@XZ
+    // 0x45C550 | ??1aiVehicleInstance@@UAE@XZ | inline
     ~aiVehicleInstance() override;
 
     // 0x45C510 | ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z | inline
@@ -212,10 +212,10 @@ public:
     // 0x4526F0 | ?DetachMe@aiVehicleActive@@UAEXXZ
     void DetachMe() override;
 
-    // 0x453BA0 | ?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ
+    // 0x453BA0 | ?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ | inline
     class asBound* GetBound() override;
 
-    // 0x453BB0 | ?GetICS@aiVehicleActive@@UAEPAVasInertialCS@@XZ
+    // 0x453BB0 | ?GetICS@aiVehicleActive@@UAEPAVasInertialCS@@XZ | inline
     class asInertialCS* GetICS() override;
 
     // 0x4521A0 | ?Init@aiVehicleActive@@QAEXPAD@Z
@@ -286,11 +286,11 @@ class aiVehicleData : public asNode
     // const aiVehicleData::`vftable' @ 0x61B930
 
 public:
-    // 0x453B70 | ??0aiVehicleData@@QAE@XZ
+    // 0x453B70 | ??0aiVehicleData@@QAE@XZ | inline
     aiVehicleData();
 
     // 0x453A90 | ??_EaiVehicleData@@UAEPAXI@Z
-    // 0x453B90 | ??1aiVehicleData@@UAE@XZ
+    // 0x453B90 | ??1aiVehicleData@@UAE@XZ | inline
     ~aiVehicleData() override;
 
     // 0x453390 | ?AddWidgets@aiVehicleData@@UAEXPAVBank@@@Z

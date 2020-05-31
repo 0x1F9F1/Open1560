@@ -103,7 +103,7 @@ public:
 
     virtual i32 RawSize() = 0;
 
-    // 0x55EEA0 | ?Debug@Stream@@QAEXXZ
+    // 0x55EEA0 | ?Debug@Stream@@QAEXXZ | unused
     void Debug();
 
     // 0x55EDB0 | ?Error@Stream@@QAEXPAD@Z
@@ -150,7 +150,7 @@ public:
         return -1;
     }
 
-    // 0x55F2B0 | ?GetLong@Stream@@QAEKXZ
+    // 0x55F2B0 | ?GetLong@Stream@@QAEKXZ | unused
     u32 GetLong()
     {
         u32 result = 0;
@@ -158,7 +158,7 @@ public:
         return result;
     }
 
-    // 0x55F290 | ?GetShort@Stream@@QAEGXZ
+    // 0x55F290 | ?GetShort@Stream@@QAEGXZ | unused
     u16 GetShort()
     {
         u16 result = 0;
@@ -166,10 +166,10 @@ public:
         return result;
     }
 
-    // 0x55EEF0 | ?GetString@Stream@@QAEHPADH@Z
+    // 0x55EEF0 | ?GetString@Stream@@QAEHPADH@Z | unused
     i32 GetString(char* buffer, i32 buffer_len);
 
-    // 0x55EDF0 | ?Printf@Stream@@QAAHPBDZZ
+    // 0x55EDF0 | ?Printf@Stream@@QAAHPBDZZ | unused
     i32 Printf(char const* format, ...);
 
     // 0x55F020 | ?Put@Stream@@QAEHM@Z

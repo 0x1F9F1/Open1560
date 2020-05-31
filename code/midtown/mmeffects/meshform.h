@@ -46,7 +46,7 @@ public:
     asMeshSetForm();
 
     // 0x500070 | ??_GasMeshSetForm@@UAEPAXI@Z
-    // 0x5000A0 | ??1asMeshSetForm@@UAE@XZ
+    // 0x5000A0 | ??1asMeshSetForm@@UAE@XZ | inline
     ~asMeshSetForm() override;
 
     // 0x4FFF60 | ?Cull@asMeshSetForm@@UAEXXZ

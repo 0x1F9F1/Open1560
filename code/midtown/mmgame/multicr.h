@@ -104,7 +104,7 @@ public:
     // 0x41F760 | ?GetClass@mmMultiCR@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x41F920 | ?GetWaypoints@mmMultiCR@@UAEPAVmmWaypoints@@XZ
+    // 0x41F920 | ?GetWaypoints@mmMultiCR@@UAEPAVmmWaypoints@@XZ | inline
     class mmWaypoints* GetWaypoints() override;
 
     // 0x41D760 | ?HitWaterHandler@mmMultiCR@@UAEXXZ

@@ -71,7 +71,7 @@ public:
     // 0x416AB0 | ?GetClass@mmSingleCircuit@@UAEPAVMetaClass@@XZ
     class MetaClass* GetClass() override;
 
-    // 0x416C80 | ?GetWaypoints@mmSingleCircuit@@UAEPAVmmWaypoints@@XZ
+    // 0x416C80 | ?GetWaypoints@mmSingleCircuit@@UAEPAVmmWaypoints@@XZ | inline
     class mmWaypoints* GetWaypoints() override;
 
     // 0x4152E0 | ?HitWaterHandler@mmSingleCircuit@@UAEXXZ
@@ -101,7 +101,7 @@ public:
     // 0x415490 | ?Update@mmSingleCircuit@@UAEXXZ
     void Update() override;
 
-    // 0x416C70 | ?UpdateDebugKeyInput@mmSingleCircuit@@UAEXH@Z
+    // 0x416C70 | ?UpdateDebugKeyInput@mmSingleCircuit@@UAEXH@Z | inline
     void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x415850 | ?UpdateGame@mmSingleCircuit@@UAEXXZ

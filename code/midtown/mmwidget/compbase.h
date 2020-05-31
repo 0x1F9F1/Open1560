@@ -33,7 +33,7 @@ class mmCompBase : public asNode
 
 public:
     // 0x4B4EC0 | ??_GmmCompBase@@UAEPAXI@Z
-    // 0x4B4DF0 | ??1mmCompBase@@UAE@XZ
+    // 0x4B4DF0 | ??1mmCompBase@@UAE@XZ | inline
     ~mmCompBase() override;
 
     // 0x4B4E00 | ?DisableBlt@mmCompBase@@UAEXXZ | inline

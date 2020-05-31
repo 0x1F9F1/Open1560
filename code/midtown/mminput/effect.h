@@ -46,13 +46,13 @@ public:
 
     virtual i32 Init(struct IDirectInputDevice2A* arg1) = 0;
 
-    // 0x4E7440 | ?Play@mmEffectFF@@UAEHXZ
+    // 0x4E7440 | ?Play@mmEffectFF@@UAEHXZ | inline
     virtual i32 Play();
 
-    // 0x4E7450 | ?Stop@mmEffectFF@@UAEHXZ
+    // 0x4E7450 | ?Stop@mmEffectFF@@UAEHXZ | inline
     virtual i32 Stop();
 
-    // 0x4E7460 | ?SetValues@mmEffectFF@@UAEHMM@Z
+    // 0x4E7460 | ?SetValues@mmEffectFF@@UAEHMM@Z | inline
     virtual i32 SetValues(f32 arg1, f32 arg2);
 };
 

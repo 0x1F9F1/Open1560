@@ -54,7 +54,7 @@
     0x705A08 | private: static class AudSound * UIBMButton::s_pSound | ?s_pSound@UIBMButton@@0PAVAudSound@@A
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UIBMButton : public uiWidget
 {
@@ -77,13 +77,13 @@ public:
     // 0x4B6D20 | ?Cull@UIBMButton@@UAEXXZ
     void Cull() override;
 
-    // 0x4B7290 | ?Disable@UIBMButton@@UAEXXZ
+    // 0x4B7290 | ?Disable@UIBMButton@@UAEXXZ | inline
     void Disable() override;
 
     // 0x4B6750 | ?DoToggle@UIBMButton@@QAEXXZ
     void DoToggle();
 
-    // 0x4B7270 | ?Enable@UIBMButton@@UAEXXZ
+    // 0x4B7270 | ?Enable@UIBMButton@@UAEXXZ | inline
     void Enable() override;
 
     // 0x4B7260 | ?GetClass@UIBMButton@@UAEPAVMetaClass@@XZ

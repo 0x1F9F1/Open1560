@@ -165,7 +165,7 @@ private:
 
 check_size(MetaClass, 0x28);
 
-// 0x577C50 | ?__BadSafeCall@@YAXPADPAVBase@@@Z
+// 0x577C50 | ?__BadSafeCall@@YAXPADPAVBase@@@Z | unused
 void __BadSafeCall(const char* name, class Base* ptr);
 
 // 0x661EF8 | ?NoDefault@@3HA

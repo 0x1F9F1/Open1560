@@ -49,7 +49,7 @@
     0x61E9F0 | const UICWArray::`vftable' | ??_7UICWArray@@6B@
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UICWArray : public uiWidget
 {

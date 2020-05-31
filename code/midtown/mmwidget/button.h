@@ -40,7 +40,7 @@
     0x61EC18 | const UIButton::`vftable' | ??_7UIButton@@6B@
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UIButton : public uiWidget
 {
@@ -57,10 +57,10 @@ public:
     // 0x4B9DB0 | ?Action@UIButton@@UAEXTeqEvent@@@Z
     void Action(union eqEvent arg1) override;
 
-    // 0x4B9F80 | ?Disable@UIButton@@UAEXXZ
+    // 0x4B9F80 | ?Disable@UIButton@@UAEXXZ | inline
     void Disable() override;
 
-    // 0x4B9F60 | ?Enable@UIButton@@UAEXXZ
+    // 0x4B9F60 | ?Enable@UIButton@@UAEXXZ | inline
     void Enable() override;
 
     // 0x4B9C50 | ?Init@UIButton@@QAEXPAULocString@@HMMMMHVCallback@@@Z

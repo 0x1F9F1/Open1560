@@ -18,12 +18,16 @@
 
 #pragma once
 
-#include "core/minwin.h"
+/*
+    eventq7:dispatchable
+*/
 
 class Dispatchable
 {
+    // const Dispatchable::`vftable' @ 0x621A9C
+
 public:
-    virtual i32 WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) = 0;
+    virtual i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) = 0;
 };
 
 check_size(Dispatchable, 0x4);

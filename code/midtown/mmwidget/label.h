@@ -36,7 +36,7 @@
     0x705A10 | public: static float UILabel::TextHeight | ?TextHeight@UILabel@@2MA
 */
 
-#include "textfield.h"
+#include "widget.h"
 
 class UILabel : public uiWidget
 {
@@ -50,7 +50,7 @@ public:
     // 0x4B9690 | ??1UILabel@@UAE@XZ
     ~UILabel() override;
 
-    // 0x4B98F0 | ?Action@UILabel@@UAEXTeqEvent@@@Z
+    // 0x4B98F0 | ?Action@UILabel@@UAEXTeqEvent@@@Z | inline
     void Action(union eqEvent arg1) override;
 
     // 0x4B96F0 | ?Init@UILabel@@QAEXPAULocString@@HMMMMH@Z

@@ -20,21 +20,6 @@ define_dummy_symbol(mmgame_singleblitz);
 
 #include "singleblitz.h"
 
-foobar::~foobar()
-{
-    unimplemented();
-}
-
-void foobar::Update()
-{
-    return stub<thiscall_t<void, foobar*>>(0x411EE0, this);
-}
-
-void foobar::UpdatePaused()
-{
-    return stub<thiscall_t<void, foobar*>>(0x411F10, this);
-}
-
 mmSingleBlitz::mmSingleBlitz()
 {
     unimplemented();

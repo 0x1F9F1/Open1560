@@ -42,7 +42,7 @@ public:
     asBirthRule();
 
     // 0x501630 | ??_EasBirthRule@@UAEPAXI@Z
-    // 0x453BC0 | ??1asBirthRule@@UAE@XZ
+    // 0x453BC0 | ??1asBirthRule@@UAE@XZ | inline
     ~asBirthRule() override;
 
     // 0x500D30 | ?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z

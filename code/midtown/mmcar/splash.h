@@ -44,7 +44,7 @@ public:
     mmSplash();
 
     // 0x4814A0 | ??_GmmSplash@@UAEPAXI@Z
-    // 0x470310 | ??1mmSplash@@UAE@XZ
+    // 0x470310 | ??1mmSplash@@UAE@XZ | inline
     ~mmSplash() override;
 
     // 0x4811C0 | ?Activate@mmSplash@@QAEXM@Z
