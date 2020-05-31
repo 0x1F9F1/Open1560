@@ -44,38 +44,26 @@ static void copyrow4444_to_8888(void* dst, void* src, u32 len, u32 step)
 
     if (step == 0x10000 && len >= 8)
     {
-        const __m128i mask_000F = _mm_set1_epi32(0x000F);
-        const __m128i mask_00F0 = _mm_set1_epi32(0x00F0);
-        const __m128i mask_0F00 = _mm_set1_epi32(0x0F00);
-        const __m128i mask_F000 = _mm_set1_epi32(0xF000);
+        const __m128i mask_lo = _mm_set1_epi32(0x0F0F0F0F);
+        const __m128i mask_hi = _mm_slli_epi32(mask_lo, 4);
 
         do
         {
             len -= 8;
 
-            const __m128i src_raw = _mm_loadu_si128((const __m128i*) (src16));
+            __m128i dst_lo = _mm_loadu_si128((const __m128i*) (src16));
             src16 += 8;
 
-            __m128i src_lo = _mm_unpacklo_epi16(src_raw, _mm_setzero_si128());
-            __m128i src_hi = _mm_unpackhi_epi16(src_raw, _mm_setzero_si128());
+            __m128i dst_hi = dst_lo;
 
-            __m128i dst_lo = _mm_and_si128(src_lo, mask_000F);
-            __m128i dst_hi = _mm_and_si128(src_hi, mask_000F);
+            dst_lo = _mm_and_si128(dst_lo, mask_lo);
+            dst_hi = _mm_and_si128(dst_hi, mask_hi);
 
-            dst_lo = _mm_or_si128(dst_lo, _mm_slli_epi32(_mm_and_si128(src_lo, mask_00F0), 4));
-            dst_hi = _mm_or_si128(dst_hi, _mm_slli_epi32(_mm_and_si128(src_hi, mask_00F0), 4));
+            dst_lo = _mm_or_si128(dst_lo, _mm_slli_epi16(dst_lo, 4));
+            dst_hi = _mm_or_si128(dst_hi, _mm_srli_epi16(dst_hi, 4));
 
-            dst_lo = _mm_or_si128(dst_lo, _mm_slli_epi32(_mm_and_si128(src_lo, mask_0F00), 8));
-            dst_hi = _mm_or_si128(dst_hi, _mm_slli_epi32(_mm_and_si128(src_hi, mask_0F00), 8));
-
-            dst_lo = _mm_or_si128(dst_lo, _mm_slli_epi32(_mm_and_si128(src_lo, mask_F000), 12));
-            dst_hi = _mm_or_si128(dst_hi, _mm_slli_epi32(_mm_and_si128(src_hi, mask_F000), 12));
-
-            dst_lo = _mm_or_si128(dst_lo, _mm_slli_epi32(dst_lo, 4));
-            dst_hi = _mm_or_si128(dst_hi, _mm_slli_epi32(dst_hi, 4));
-
-            _mm_storeu_si128((__m128i*) (dst32 + 0), dst_lo);
-            _mm_storeu_si128((__m128i*) (dst32 + 4), dst_hi);
+            _mm_storeu_si128((__m128i*) (dst32 + 0), _mm_unpacklo_epi8(dst_lo, dst_hi));
+            _mm_storeu_si128((__m128i*) (dst32 + 4), _mm_unpackhi_epi8(dst_lo, dst_hi));
 
             dst32 += 8;
         } while (len >= 8);
@@ -105,9 +93,47 @@ static void copyrow565_to_5551(void* arg1, void* arg2, u32 arg3, u32 arg4)
     return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B560, arg1, arg2, arg3, arg4);
 }
 
-static void copyrow565_to_888(void* arg1, void* arg2, u32 arg3, u32 arg4)
+static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
 {
-    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B5C0, arg1, arg2, arg3, arg4);
+    u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
+    u16* ARTS_RESTRICT src16 = static_cast<u16*>(src);
+
+    if (step == 0x10000 && len >= 8)
+    {
+        const __m128i mult_0108 = _mm_set1_epi32(0x01080108);
+        const __m128i mult_2080 = _mm_set1_epi32(0x20802080);
+
+        const __m128i mask_07E0 = _mm_set1_epi32(0x07E007E0);
+        const __m128i mask_F800 = _mm_set1_epi32(0xF800F800);
+
+        do
+        {
+            len -= 8;
+
+            __m128i dst_lo = _mm_loadu_si128((const __m128i*) (src16));
+
+            src16 += 8;
+
+            __m128i dst_r = _mm_slli_epi16(_mm_mulhi_epu16(_mm_and_si128(dst_lo, mask_F800), mult_0108), 8);
+            __m128i dst_b = _mm_mulhi_epu16(_mm_slli_epi16(dst_lo, 11), mult_0108);
+            __m128i dst_g = _mm_mulhi_epu16(_mm_and_si128(dst_lo, mask_07E0), mult_2080);
+
+            dst_lo = _mm_or_si128(dst_r, dst_b);
+
+            _mm_storeu_si128((__m128i*) (dst32 + 0), _mm_unpacklo_epi8(dst_lo, dst_g));
+            _mm_storeu_si128((__m128i*) (dst32 + 4), _mm_unpackhi_epi8(dst_lo, dst_g));
+
+            dst32 += 8;
+        } while (len >= 8);
+    }
+
+    for (u32 src_off = 0; len; --len)
+    {
+        u32 v = src16[src_off >> 16];
+        src_off += step;
+        *dst32++ =
+            ((v & 0xF800) << 8) | ((v & 0x07E0) << 5) | ((v & 0xE01F) << 3) | ((v & 0x0600) >> 1) | ((v & 0x001C) >> 2);
+    }
 }
 
 static void copyrow565_to_888rev(void* arg1, void* arg2, u32 arg3, u32 arg4)
