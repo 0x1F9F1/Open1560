@@ -478,14 +478,14 @@ const char* asNode::VerifyTree()
 
     const char* msg = nullptr;
 
-    int32_t i = 1;
+    i32 i = 1;
     for (asNode* n = child_node_; n; n = n->next_node_, ++i)
     {
         msg = n->VerifyTree();
 
         if (msg)
         {
-            Errorf("Kid %d(%x) of type %s name %s: %s", i, n, GetClass()->GetName(), node_name_.get(), msg);
+            Errorf("Kid %d(%p) of type %s name %s: %s", i, n, GetClass()->GetName(), node_name_.get(), msg);
             break;
         }
     }

@@ -47,28 +47,28 @@
 #include <cstdarg>
 
 // 0x576C70 | ?Displayf@@YAXPBDZZ
-void Displayf(char const* format, ...);
+void Displayf(ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x576C90 | ?Printf@@YAXPBDZZ | unused
-void Printf(char const* format, ...);
+void Printf(ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x576CB0 | ?Debugf@@YAXPBDZZ
-void Debugf(char const* format, ...);
+void Debugf(ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x576CD0 | ?Warningf@@YAXPBDZZ
-void Warningf(char const* format, ...);
+void Warningf(ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x576CF0 | ?Errorf@@YAXPBDZZ
-void Errorf(char const* format, ...);
+void Errorf(ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x576D10 | ?PErrorf@@YAXPBDZZ | unused
-void PErrorf(char const* format, ...);
+void PErrorf(ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x576D60 | ?PDebug@@YAXPBDZZ | unused
-void PDebug(char const* format, ...);
+void PDebug(ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x576DB0 | ?Abortf@@YAXPBDZZ
-void Abortf(char const* format, ...);
+[[noreturn]] void Abortf(ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x5769C0 | ?DefaultPrinter@@YAXHPBDPAD@Z
 void DefaultPrinter(i32 level, char const* format, std::va_list args);

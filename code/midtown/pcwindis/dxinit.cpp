@@ -104,7 +104,7 @@ void dxiDirectInputCreate()
 
     HRESULT err = DirectInputCreateA_Stub(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
 
-    if (err)
+    if (err != 0)
         Quitf("DirectInputCreate failed, code %x", u16(err));
 }
 

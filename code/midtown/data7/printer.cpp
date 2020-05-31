@@ -27,7 +27,7 @@ define_dummy_symbol(data7_printer);
 
 #include "machname.h"
 
-void Displayf(char const* format, ...)
+void Displayf(ARTS_FORMAT_STRING char const* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -35,7 +35,7 @@ void Displayf(char const* format, ...)
     va_end(va);
 }
 
-void Printf(char const* format, ...)
+void Printf(ARTS_FORMAT_STRING char const* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -43,7 +43,7 @@ void Printf(char const* format, ...)
     va_end(va);
 }
 
-void Debugf(char const* format, ...)
+void Debugf(ARTS_FORMAT_STRING char const* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -51,7 +51,7 @@ void Debugf(char const* format, ...)
     va_end(va);
 }
 
-void Warningf(char const* format, ...)
+void Warningf(ARTS_FORMAT_STRING char const* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -59,7 +59,7 @@ void Warningf(char const* format, ...)
     va_end(va);
 }
 
-void Errorf(char const* format, ...)
+void Errorf(ARTS_FORMAT_STRING char const* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -67,7 +67,7 @@ void Errorf(char const* format, ...)
     va_end(va);
 }
 
-void PErrorf(char const* format, ...)
+void PErrorf(ARTS_FORMAT_STRING char const* format, ...)
 {
     char buffer[256];
     std::va_list va;
@@ -79,7 +79,7 @@ void PErrorf(char const* format, ...)
     Errorf("%s: %s", (strerror_s(error, errno) == 0) ? error : "Unknown Error", buffer);
 }
 
-void PDebug(char const* format, ...)
+void PDebug(ARTS_FORMAT_STRING char const* format, ...)
 {
     char buffer[256];
     std::va_list va;
@@ -91,12 +91,14 @@ void PDebug(char const* format, ...)
     Warningf("%s: %s", (strerror_s(error, errno) == 0) ? error : "Unknown Error", buffer);
 }
 
-void Abortf(char const* format, ...)
+[[noreturn]] void Abortf(ARTS_FORMAT_STRING char const* format, ...)
 {
     std::va_list va;
     va_start(va, format);
     Printer(4, format, va);
     va_end(va);
+
+    ArDebugBreak();
 }
 
 static extern_var(0x661AA0, HANDLE, DebugLogFile);

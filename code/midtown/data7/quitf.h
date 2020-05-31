@@ -25,4 +25,4 @@
 */
 
 // 0x576F80 | ?Quitf@@YAXPBDZZ
-[[noreturn]] void Quitf(char const* format, ...);
+[[noreturn]] void Quitf(ARTS_FORMAT_STRING char const* format, ...);

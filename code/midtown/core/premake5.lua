@@ -9,9 +9,11 @@ arts_component "core"
         "assert.cpp",
         "assert.h",
 
-        "string.h",
         "string.cpp",
+        "string.h",
 
         "pointer.h",
         "endian.h",
+        "defines.h",
+        "minwin.h",
     }

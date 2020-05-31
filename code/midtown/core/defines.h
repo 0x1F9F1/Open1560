@@ -52,3 +52,10 @@
 #endif
 
 #define ARTS_FASTCALL __fastcall
+
+#if _MSC_VER > 1400
+#    include <sal.h>
+#    define ARTS_FORMAT_STRING _In_z_ _Printf_format_string_
+#else
+#    define ARTS_FORMAT_STRING NAME
+#endif /* _MSC_VER */

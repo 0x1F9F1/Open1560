@@ -170,7 +170,7 @@ public:
     i32 GetString(char* buffer, i32 buffer_len);
 
     // 0x55EDF0 | ?Printf@Stream@@QAAHPBDZZ | unused
-    i32 Printf(char const* format, ...);
+    i32 Printf(ARTS_FORMAT_STRING char const* format, ...);
 
     // 0x55F020 | ?Put@Stream@@QAEHM@Z
     i32 Put(f32 value);
@@ -276,7 +276,7 @@ i32 arts_fgets(char* buffer, i32 buffer_len, class Stream* stream);
 class Stream* arts_fopen(const char* path, const char* mode);
 
 // 0x55F2D0 | ?fprintf@@YAXPAVStream@@PBDZZ
-void arts_fprintf(class Stream* stream, char const* format, ...);
+void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x55F450 | ?fscanf@@YAHPAVStream@@PBDZZ
 i32 arts_fscanf(class Stream* stream, char const* format, ...);

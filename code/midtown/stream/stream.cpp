@@ -158,7 +158,7 @@ i32 Stream::GetString(char* buffer, i32 buffer_len)
     return buffer_len;
 }
 
-i32 Stream::Printf(char const* format, ...)
+i32 Stream::Printf(ARTS_FORMAT_STRING char const* format, ...)
 {
     export_hook(0x55EDF0);
 
@@ -470,7 +470,7 @@ class Stream* arts_fopen(const char* path, const char* mode)
     return stub<cdecl_t<class Stream*, const char*, const char*>>(0x55F2F0, path, mode);
 }
 
-void arts_fprintf(class Stream* stream, char const* format, ...)
+void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, ...)
 {
     export_hook(0x55F2D0);
 
