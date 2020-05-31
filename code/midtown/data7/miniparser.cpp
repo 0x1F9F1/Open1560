@@ -69,13 +69,13 @@ void MiniParser::Errorf(char const* format, ...)
         ++error_count_;
 
         if (error_count_ < 10)
-            Errorf("Parser(%s,%d): %s", name_.get(), current_line_, buffer);
+            ::Errorf("Parser(%s,%d): %s", name_.get(), current_line_, buffer);
         else if (error_count_ == 10)
-            Errorf("This file sucks, change it!");
+            ::Errorf("This file sucks, change it!");
     }
     else if (TotalParserErrors == 25)
     {
-        Errorf("Too many errors in metaclass files, ignoring all others");
+        ::Errorf("Too many errors in metaclass files, ignoring all others");
     }
 }
 
