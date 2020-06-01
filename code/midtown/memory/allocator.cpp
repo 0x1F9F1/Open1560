@@ -24,7 +24,9 @@ define_dummy_symbol(memory_allocator);
 
 #include "core/minwin.h"
 
-static inline constexpr u32 AlignSize(u32 value) noexcept
+#include <intrin.h>
+
+static ARTS_FORCEINLINE constexpr u32 AlignSize(u32 value) noexcept
 {
     return (value + 7) & 0xFFFFFFF8;
 }
@@ -147,9 +149,15 @@ struct asMemoryAllocator::Node
         std::memcpy(data + Size - 4, &UPPER_GUARD, sizeof(UPPER_GUARD));
     }
 
+    static constexpr usize DebugLowerGuardSize = sizeof(u32) * 2;
+    static constexpr usize DebugUpperGuardSize = sizeof(u32) * 1;
+
+    static constexpr usize DebugGuardOverhead = DebugLowerGuardSize + DebugUpperGuardSize;
+
     static ARTS_FORCEINLINE Node* From(void* ptr, bool debug) noexcept
     {
-        return reinterpret_cast<Node*>(static_cast<u8*>(ptr) - (debug ? (sizeof(Node) + 8) : sizeof(Node)));
+        return reinterpret_cast<Node*>(
+            static_cast<u8*>(ptr) - (debug ? (sizeof(Node) + DebugLowerGuardSize) : sizeof(Node)));
     }
 };
 
@@ -188,22 +196,191 @@ asMemoryAllocator::~asMemoryAllocator() = default;
 
 void* asMemoryAllocator::Allocate(u32 size)
 {
-    return stub<thiscall_t<void*, asMemoryAllocator*, u32>>(0x520A20, this, size);
+    export_hook(0x520A20);
+
+    if (size == 0)
+        return nullptr;
+
+    if (debug_)
+        size += Node::DebugGuardOverhead;
+
+    Verify(nullptr);
+
+    u32 asize = AlignSize(size);
+
+    FreeNode* n = nullptr;
+
+    for (u32 i = GetBucketIndex(size); i < std::size(buckets_); ++i)
+    {
+        for (n = buckets_[i]; n; n = n->NextFree)
+        {
+            if ((n->Size == asize) || (n->Size > asize + sizeof(Node)))
+                break;
+        }
+
+        if (n)
+            break;
+    }
+
+    if (n)
+    {
+        ArAssert(!n->IsAllocated(), "Node not free");
+
+        u32 split_size = n->Size - asize;
+
+        ArDebugAssert(split_size == 0 || split_size > sizeof(Node), "Invalid node split");
+
+        Unlink(n);
+
+        n->SetAllocated(true);
+        n->Size = size;
+
+        if (split_size > sizeof(Node))
+        {
+            Node* next = n->GetNext();
+
+            next->Clear();
+            next->SetPrev(n);
+            next->Size = split_size - sizeof(Node);
+
+            if (Node* after = next->GetNext(); reinterpret_cast<u8*>(after) < (heap_ + heap_offset_))
+                after->SetPrev(next);
+
+            Link(static_cast<FreeNode*>(next));
+
+            if (last_ == n)
+                last_ = next;
+        }
+    }
+    else
+    {
+        n = reinterpret_cast<FreeNode*>(heap_ + heap_offset_);
+        heap_offset_ += sizeof(Node) + asize;
+
+        if (heap_offset_ > heap_size_)
+            Quitf("Heap overrun");
+
+        n->Clear();
+        n->SetPrev(last_);
+        n->Size = size;
+        n->SetAllocated(true);
+
+        last_ = n;
+    }
+
+    u8* result = n->GetData();
+
+    std::memset(result, 0, size);
+
+    if (debug_)
+    {
+        void** ebp = static_cast<void***>(_AddressOfReturnAddress())[-1];
+        ebp = static_cast<void**>(*ebp);
+        n->SetDebugGuards(reinterpret_cast<u32>(ebp[1]));
+
+        result += Node::DebugLowerGuardSize;
+    }
+
+    return result;
 }
 
-void asMemoryAllocator::CheckPointer(void* arg1)
+void asMemoryAllocator::CheckPointer(void* ptr)
 {
-    return stub<thiscall_t<void, asMemoryAllocator*, void*>>(0x520C40, this, arg1);
+    export_hook(0x520C40);
+
+    if (initialized_ && debug_ && ptr)
+    {
+        Node* n = Node::From(ptr, debug_);
+
+        if (!n->CheckLowerGuard() || !n->CheckUpperGuard())
+        {
+            Errorf("CheckPointer failed!");
+
+            SanityCheck();
+        }
+    }
 }
 
-void asMemoryAllocator::Free(void* arg1)
+void asMemoryAllocator::Free(void* ptr)
 {
-    return stub<thiscall_t<void, asMemoryAllocator*, void*>>(0x520C90, this, arg1);
+    export_hook(0x520C90);
+
+    if (!ptr || !initialized_)
+        return;
+
+    Verify(ptr);
+
+    FreeNode* n = static_cast<FreeNode*>(Node::From(ptr, debug_));
+
+    if (debug_)
+        std::memset(n->GetData(), 0xDD, n->Size);
+
+    n->SetAllocated(false);
+    n->Size = AlignSize(n->Size);
+
+    if (FreeNode* prev = static_cast<FreeNode*>(n->GetPrev()); prev && !prev->IsAllocated())
+    {
+        Unlink(prev);
+
+        if (last_ == n)
+            last_ = prev;
+
+        prev->MergeNext();
+
+        n = prev;
+    }
+
+    if (last_ == n)
+    {
+        last_ = n->GetPrev();
+        heap_offset_ = reinterpret_cast<u8*>(n) - heap_;
+    }
+    else
+    {
+        if (FreeNode* const next = static_cast<FreeNode*>(n->GetNext()); !next->IsAllocated())
+        {
+            Unlink(next);
+
+            if (last_ == next)
+                last_ = n;
+
+            n->MergeNext();
+        }
+
+        Link(n);
+    }
 }
 
-void asMemoryAllocator::GetStats(struct asMemStats* arg1)
+void asMemoryAllocator::GetStats(struct asMemStats* stats)
 {
-    return stub<thiscall_t<void, asMemoryAllocator*, struct asMemStats*>>(0x520FC0, this, arg1);
+    export_hook(0x520FC0);
+
+    *stats = {};
+
+    u8* const heap = heap_;
+    u8* const heap_end = heap_ + heap_offset_;
+
+    for (Node* n = reinterpret_cast<Node*>(heap); n->GetData() < heap_end; n = n->GetNext())
+    {
+        ++stats->nTotalNodes;
+
+        u32 size = n->Size;
+
+        stats->cbOverhead += (AlignSize(size) - size) + sizeof(Node);
+
+        if (n->IsAllocated())
+        {
+            ++stats->nUsedNodes;
+            stats->cbUsed += size;
+        }
+        else
+        {
+            ++stats->nFreeNodes;
+            stats->cbFree += size;
+        }
+    }
+
+    ArAssert(stats->cbFree + stats->cbUsed + stats->cbOverhead == heap_offset_, "Invalid Node Sizes");
 }
 
 void asMemoryAllocator::Init(void* heap, u32 heap_size, b32 use_nodes)
@@ -233,9 +410,47 @@ void asMemoryAllocator::Kill()
     initialized_ = false;
 }
 
-void* asMemoryAllocator::Reallocate(void* arg1, u32 arg2)
+void* asMemoryAllocator::Reallocate(void* ptr, u32 size)
 {
-    return stub<thiscall_t<void*, asMemoryAllocator*, void*, u32>>(0x520EA0, this, arg1, arg2);
+    export_hook(0x520EA0);
+
+    if (initialized_)
+        Verify(ptr);
+
+    u32 old_size = 0;
+
+    if (ptr)
+    {
+        if (size == 0)
+        {
+            Free(ptr);
+            return nullptr;
+        }
+
+        old_size = SizeOf(ptr);
+
+        if (size > old_size)
+        {
+            size = std::max(size, old_size + (old_size >> 1));
+        }
+        else
+        {
+            if (size > (old_size >> 1))
+                return ptr;
+
+            old_size = size;
+        }
+    }
+
+    void* new_ptr = Allocate(size);
+
+    if (ptr && new_ptr)
+    {
+        std::memcpy(new_ptr, ptr, old_size);
+        Free(ptr);
+    }
+
+    return new_ptr;
 }
 
 static inline void ARTS_FASTCALL HexDump16(char (&buffer)[65], const u8* data)
@@ -267,7 +482,7 @@ static inline void ARTS_FASTCALL HexDump16(char (&buffer)[65], const u8* data)
     buffer[64] = '\0';
 }
 
-static ARTS_NOINLINE i32 ARTS_FASTCALL HeapAssert(void* address, const char* message, i32 source = 0)
+static ARTS_NOINLINE b32 ARTS_FASTCALL HeapAssert(void* address, const char* message, i32 source = 0)
 {
     char address_string[128];
 
@@ -283,7 +498,7 @@ static ARTS_NOINLINE i32 ARTS_FASTCALL HeapAssert(void* address, const char* mes
         Displayf((pending != 80) ? " %08X : %s" : "[%08X]: %s", reinterpret_cast<usize>(current), hex_string);
     }
 
-    return 1;
+    return true;
 }
 
 void asMemoryAllocator::SanityCheck()
@@ -371,7 +586,7 @@ void asMemoryAllocator::SanityCheck()
 
 usize asMemoryAllocator::SizeOf(void* ptr)
 {
-    return Node::From(ptr, debug_)->Size - (debug_ ? 12 : 0);
+    return Node::From(ptr, debug_)->Size - (debug_ ? Node::DebugGuardOverhead : 0);
 }
 
 void asMemoryAllocator::Link(FreeNode* n)
@@ -431,7 +646,7 @@ void asMemoryAllocator::Verify(void* ptr)
 
         if (use_nodes_)
         {
-            Node* const n = Node::From(ptr, debug_ && false);
+            Node* const n = Node::From(ptr, debug_);
 
             ArAssert(n->IsAllocated(), "Pointer not allocated");
 

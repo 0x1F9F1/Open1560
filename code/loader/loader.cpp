@@ -176,6 +176,10 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         // This also needs to be patched in agiMeshSet::DoPageIn
         create_patch("agiMeshSet::BinaryLoad", "Avoid empty texdefs", 0x502D43, "\x8D\x14\x8D\x08\x00\x00\x00", 7);
 
+        // Hack, avoids attempting to access freed memory (https://github.com/0x1F9F1/Open1560/issues/15)
+        // Luckily the aiVehicleSpline destructor doesn't do actually do anything anyway (apart from set mmInstanceHeap.HeapHead, which we want to avoid anyway)
+        patch_jmp("aiVehicleSpline::~aiVehicleSpline", "Avoid freeing aiVehicleInstance", 0x459F84, jump_type::always);
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();

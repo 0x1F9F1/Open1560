@@ -41,6 +41,19 @@
     0x521250 | int __cdecl HeapAssert(void *,int,char *,int) | ?HeapAssert@@YAHPAXHPADH@Z
 */
 
+struct asMemStats
+{
+    u32 nTotalNodes {0};
+    u32 nFreeNodes {0};
+    u32 nUsedNodes {0};
+
+    u32 cbOverhead {0};
+    u32 cbFree {0};
+    u32 cbUsed {0};
+};
+
+check_size(asMemStats, 0x18);
+
 class asMemoryAllocator
 {
 public:
@@ -54,13 +67,13 @@ public:
     void* Allocate(u32 arg1);
 
     // 0x520C40 | ?CheckPointer@asMemoryAllocator@@QAEXPAX@Z
-    void CheckPointer(void* arg1);
+    void CheckPointer(void* ptr);
 
     // 0x520C90 | ?Free@asMemoryAllocator@@QAEXPAX@Z
-    void Free(void* arg1);
+    void Free(void* ptr);
 
     // 0x520FC0 | ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
-    void GetStats(struct asMemStats* arg1);
+    void GetStats(struct asMemStats* stats);
 
     // 0x5209D0 | ?Init@asMemoryAllocator@@QAEXPAXIH@Z
     void Init(void* heap, u32 heap_size, b32 use_nodes);
@@ -69,7 +82,7 @@ public:
     void Kill();
 
     // 0x520EA0 | ?Reallocate@asMemoryAllocator@@QAEPAXPAXI@Z
-    void* Reallocate(void* arg1, u32 arg2);
+    void* Reallocate(void* ptr, u32 size);
 
     // 0x521090 | ?SanityCheck@asMemoryAllocator@@QAEXXZ
     void SanityCheck();
