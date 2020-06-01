@@ -27,6 +27,7 @@
 
 struct PagerInfo_t
 {
+    // TODO: Fix GetPagerHandle() to match Handle type
     void* Handle {nullptr};
     u32 Offset {0};
     u32 Size {0};

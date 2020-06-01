@@ -37,13 +37,15 @@
 
 #include "stream.h"
 
+#include "data7/mutex.h"
+
 class VirtualStream : public Stream
 {
     // const VirtualStream::`vftable' @ 0x621A38
 
 public:
     // 0x561B40 | ??0VirtualStream@@QAE@PAVStream@@PAUVirtualFileInode@@PAXHPAVFileSystem@@@Z
-    VirtualStream(class Stream* arg1, struct VirtualFileInode* arg2, void* arg3, i32 arg4, class FileSystem* arg5);
+    VirtualStream(class Stream* base_stream, struct VirtualFileInode* file_node, void* buffer, i32 buffer_size, class FileSystem* file_system);
 
     // 0x561D60 | ??_EVirtualStream@@UAEPAXI@Z
     // 0x561C00 | ??1VirtualStream@@UAE@XZ
@@ -53,13 +55,13 @@ public:
     void* GetMapping() override;
 
     // 0x561BD0 | ?GetPagingInfo@VirtualStream@@UAEHAAI00@Z
-    i32 GetPagingInfo(u32& arg1, u32& arg2, u32& arg3) override;
+    b32 GetPagingInfo(u32& handle, u32& offset, u32& size) override;
 
     // 0x561C60 | ?RawRead@VirtualStream@@UAEHPAXH@Z
-    i32 RawRead(void* arg1, i32 arg2) override;
+    i32 RawRead(void* ptr, i32 size) override;
 
     // 0x561CE0 | ?RawSeek@VirtualStream@@UAEHH@Z
-    i32 RawSeek(i32 arg1) override;
+    i32 RawSeek(i32 pos) override;
 
     // 0x561D30 | ?RawSize@VirtualStream@@UAEHXZ
     i32 RawSize() override;
@@ -68,7 +70,13 @@ public:
     i32 RawTell() override;
 
     // 0x561CD0 | ?RawWrite@VirtualStream@@UAEHPAXH@Z
-    i32 RawWrite(void* arg1, i32 arg2) override;
+    i32 RawWrite(const void* ptr, i32 size) override;
+
+private:
+    Stream* base_stream_ {nullptr};
+    u32 data_offset_ {0};
+    u32 data_size_ {0};
+    Mutex lock_ {};
 };
 
 check_size(VirtualStream, 0x30);

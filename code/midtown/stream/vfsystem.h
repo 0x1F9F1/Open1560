@@ -42,44 +42,145 @@
 
 #include "fsystem.h"
 
+static constexpr u32 AresMagic = 0x53455241;
+
+struct AresHeader
+{
+    u32 Magic {0};
+    u32 FileCount {0};
+    u32 RootCount {0};
+    u32 NamesSize {0};
+};
+
+check_size(AresHeader, 0x10);
+
+struct VirtualFileInode
+{
+    u32 dword0 {0};
+    u32 dword4 {0};
+    u32 dword8 {0};
+
+    u32 GetOffset() const
+    {
+        return dword0;
+    }
+
+    u32 GetSize() const
+    {
+        return dword4 & 0x7FFFFF;
+    }
+
+    u32 GetEntryIndex() const
+    {
+        return dword0;
+    }
+
+    u32 GetEntryCount() const
+    {
+        return dword4 & 0x7FFFFF;
+    }
+
+    bool IsDirectory() const
+    {
+        return (dword8 & 1) != 0;
+    }
+
+    u32 GetNameOffset() const
+    {
+        return (dword8 >> 14) & 0x3FFFF;
+    }
+
+    u32 GetExtOffset() const
+    {
+        return (dword4 >> 23) & 0x1FF;
+    }
+
+    u32 GetNameInteger() const
+    {
+        return (dword8 >> 1) & 0x1FFF;
+    }
+
+    void SetOffset(u32 offset)
+    {
+        dword0 = offset;
+    }
+
+    void SetSize(u32 size)
+    {
+        dword4 = (dword4 & 0xFF800000) | (size);
+    }
+
+    void SetEntryIndex(u32 index)
+    {
+        dword0 = index;
+    }
+
+    void SetEntryCount(u32 size)
+    {
+        dword4 = (dword4 & 0xFF800000) | (size);
+    }
+
+    void SetIsDirectory(bool is_dir)
+    {
+        dword8 = (dword8 & 0xFFFFFFFE) | u32(is_dir);
+    }
+
+    void SetNameOffset(u32 offset)
+    {
+        dword8 = (dword8 & 0x00003FFF) | (offset << 14);
+    }
+
+    void SetExtOffset(u32 offset)
+    {
+        dword4 = (dword4 & 0x007FFFFF) | (offset << 23);
+    }
+
+    void SetNameInteger(u32 value)
+    {
+        dword8 = (dword8 & 0xFFFFC001) | (value << 1);
+    }
+};
+
+check_size(VirtualFileInode, 0xC);
+
 class VirtualFileSystem : public FileSystem
 {
     // const VirtualFileSystem::`vftable' @ 0x6219A8
 
 public:
     // 0x560650 | ??0VirtualFileSystem@@QAE@PAVStream@@@Z
-    VirtualFileSystem(class Stream* arg1);
+    VirtualFileSystem(class Stream* stream);
 
     // 0x560D80 | ??_EVirtualFileSystem@@UAEPAXI@Z
     // 0x560710 | ??1VirtualFileSystem@@UAE@XZ
     ~VirtualFileSystem() override;
 
     // 0x560B90 | ?ChangeDir@VirtualFileSystem@@UAEHPAD@Z
-    i32 ChangeDir(char* arg1) override;
+    b32 ChangeDir(const char* path) override;
 
     // 0x560B80 | ?CreateOn@VirtualFileSystem@@UAEPAVStream@@PADPAXH@Z
-    class Stream* CreateOn(char* arg1, void* arg2, i32 arg3) override;
+    class Stream* CreateOn(const char* path, void* buffer, i32 buffer_len) override;
 
     // 0x560BB0 | ?FirstEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAD@Z
-    struct FileInfo* FirstEntry(char* arg1) override;
+    struct FileInfo* FirstEntry(const char* arg1) override;
 
     // 0x560BA0 | ?GetDir@VirtualFileSystem@@UAEHPADH@Z
-    i32 GetDir(char* arg1, i32 arg2) override;
+    b32 GetDir(char* buffer, i32 buffer_len) override;
 
     // 0x560D00 | ?NextEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAU2@@Z
     struct FileInfo* NextEntry(struct FileInfo* arg1) override;
 
     // 0x560AD0 | ?OpenOn@VirtualFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    class Stream* OpenOn(char* arg1, i32 arg2, void* arg3, i32 arg4) override;
+    class Stream* OpenOn(const char* arg1, i32 arg2, void* arg3, i32 arg4) override;
 
     // 0x560A50 | ?PagerInfo@VirtualFileSystem@@UAEHPADAAUPagerInfo_t@@@Z
-    i32 PagerInfo(char* arg1, struct PagerInfo_t& arg2) override;
+    i32 PagerInfo(const char* arg1, struct PagerInfo_t& arg2) override;
 
     // 0x560A00 | ?QueryOn@VirtualFileSystem@@UAEHPAD@Z
-    i32 QueryOn(char* arg1) override;
+    i32 QueryOn(const char* arg1) override;
 
     // 0x560780 | ?ValidPath@VirtualFileSystem@@UAEHPAD@Z
-    i32 ValidPath(char* arg1) override;
+    i32 ValidPath(const char* arg1) override;
 
     // 0x560800 | ?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@0@Z
     static void ExpandName(char* arg1, struct VirtualFileInode* arg2, char* arg3);
@@ -89,6 +190,12 @@ public:
 
     // 0x560790 | ?NormalizeName@VirtualFileSystem@@SAXPAD0@Z
     static void NormalizeName(char* arg1, char* arg2);
+
+private:
+    Ptr<Stream> base_stream_ {nullptr};
+    AresHeader file_header_ {};
+    Ptr<VirtualFileInode[]> file_nodes_ {nullptr};
+    Ptr<char[]> file_names_ {nullptr};
 };
 
 check_size(VirtualFileSystem, 0x24);

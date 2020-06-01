@@ -20,48 +20,95 @@ define_dummy_symbol(stream_vstream);
 
 #include "vstream.h"
 
-VirtualStream::VirtualStream(
-    class Stream* arg1, struct VirtualFileInode* arg2, void* arg3, i32 arg4, class FileSystem* arg5)
+#include "vfsystem.h"
+
+VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode* file_node, void* buffer,
+    i32 buffer_size, class FileSystem* file_system)
+    : Stream(buffer, buffer_size, file_system)
+    , base_stream_(base_stream)
+    , data_offset_(file_node->GetOffset())
+    , data_size_(file_node->GetSize())
 {
-    unimplemented(arg1, arg2, arg3, arg4, arg5);
+    export_hook(0x561B40);
+
+    RawSeek(0);
+    flags_ |= 0x2;
+    lock_.init();
 }
 
 VirtualStream::~VirtualStream()
 {
-    unimplemented();
+    export_hook(0x561C00);
+
+    lock_.close(); // TODO: Should this be closed after flushing?
+
+    Flush();
 }
 
 void* VirtualStream::GetMapping()
 {
-    return stub<thiscall_t<void*, VirtualStream*>>(0x561D40, this);
+    export_hook(0x561D40);
+
+    if (void* mapping = base_stream_->GetMapping())
+        return static_cast<u8*>(mapping) + data_offset_;
+
+    return nullptr;
 }
 
-i32 VirtualStream::GetPagingInfo(u32& arg1, u32& arg2, u32& arg3)
+i32 VirtualStream::GetPagingInfo(u32& handle, u32& offset, u32& size)
 {
-    return stub<thiscall_t<i32, VirtualStream*, u32&, u32&, u32&>>(0x561BD0, this, arg1, arg2, arg3);
+    export_hook(0x561BD0);
+
+    handle = base_stream_->GetPagerHandle();
+    offset = data_offset_;
+    size = data_size_;
+
+    return true;
 }
 
-i32 VirtualStream::RawRead(void* arg1, i32 arg2)
+i32 VirtualStream::RawRead(void* ptr, i32 size)
 {
-    return stub<thiscall_t<i32, VirtualStream*, void*, i32>>(0x561C60, this, arg1, arg2);
+    export_hook(0x561C60);
+
+    lock_.lock();
+
+    i32 here = RawTell();
+
+    if (here < 0 || u32(here) > data_size_)
+    {
+        here = position_; // TODO: Should this be `here = Tell()`?
+        Seek(here);
+    }
+
+    i32 result = base_stream_->Read(ptr, std::min<i32>(size, i32(data_size_) - here));
+
+    lock_.unlock();
+
+    return result;
 }
 
-i32 VirtualStream::RawSeek(i32 arg1)
+i32 VirtualStream::RawSeek(i32 pos)
 {
-    return stub<thiscall_t<i32, VirtualStream*, i32>>(0x561CE0, this, arg1);
+    export_hook(0x561CE0);
+
+    return base_stream_->Seek(data_offset_ + pos) - data_offset_;
 }
 
 i32 VirtualStream::RawSize()
 {
-    return stub<thiscall_t<i32, VirtualStream*>>(0x561D30, this);
+    export_hook(0x561D30);
+
+    return data_size_;
 }
 
 i32 VirtualStream::RawTell()
 {
-    return stub<thiscall_t<i32, VirtualStream*>>(0x561D10, this);
+    export_hook(0x561D10);
+
+    return base_stream_->Tell() - data_offset_;
 }
 
-i32 VirtualStream::RawWrite(void* arg1, i32 arg2)
+i32 VirtualStream::RawWrite(const void*, i32)
 {
-    return stub<thiscall_t<i32, VirtualStream*, void*, i32>>(0x561CD0, this, arg1, arg2);
+    return -1;
 }

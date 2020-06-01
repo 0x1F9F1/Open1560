@@ -14,8 +14,8 @@ arts_component "stream"
         "stream.h",
         -- "token.cpp",
         -- "token.h",
-        -- "vfsystem.cpp",
-        -- "vfsystem.h",
-        -- "vstream.cpp",
-        -- "vstream.h",
+        "vfsystem.cpp",
+        "vfsystem.h",
+        "vstream.cpp",
+        "vstream.h",
     }
