@@ -51,10 +51,10 @@ class FileStream : public Stream
 
 public:
     // 0x5618E0 | ??0FileStream@@QAE@H@Z
-    FileStream(i32 arg1);
+    FileStream(i32 handle);
 
     // 0x5617F0 | ??0FileStream@@QAE@PAXHPAVFileSystem@@@Z
-    FileStream(void* arg1, i32 arg2, class FileSystem* arg3);
+    FileStream(void* buffer, i32 buffer_size, class FileSystem* file_system);
 
     // 0x561B10 | ??_EFileStream@@UAEPAXI@Z
     // 0x561A60 | ??1FileStream@@UAE@XZ
@@ -64,19 +64,19 @@ public:
     i32 Close();
 
     // 0x561840 | ?Create@FileStream@@QAEHPAD@Z
-    i32 Create(char* arg1);
+    i32 Create(const char* path);
 
     // 0x561830 | ?GetPagerHandle@FileStream@@UAEIXZ
     u32 GetPagerHandle() override;
 
     // 0x561870 | ?Open@FileStream@@QAEHPADH@Z
-    i32 Open(char* arg1, i32 arg2);
+    i32 Open(const char* path, b32 paged);
 
     // 0x561970 | ?RawRead@FileStream@@UAEHPAXH@Z
-    i32 RawRead(void* arg1, i32 arg2) override;
+    i32 RawRead(void* ptr, i32 size) override;
 
     // 0x5619B0 | ?RawSeek@FileStream@@UAEHH@Z
-    i32 RawSeek(i32 arg1) override;
+    i32 RawSeek(i32 pos) override;
 
     // 0x5619F0 | ?RawSize@FileStream@@UAEHXZ
     i32 RawSize() override;
@@ -85,7 +85,7 @@ public:
     i32 RawTell() override;
 
     // 0x561990 | ?RawWrite@FileStream@@UAEHPAXH@Z
-    i32 RawWrite(void* arg1, i32 arg2) override;
+    i32 RawWrite(const void* ptr, i32 size) override;
 
     // 0x561950 | ?Stderr@FileStream@@QAEHXZ | unused
     i32 Stderr();
@@ -95,6 +95,10 @@ public:
 
     // 0x561930 | ?Stdout@FileStream@@QAEHXZ
     i32 Stdout();
+
+private:
+    i32 file_handle_ {-1};
+    void* pager_handle_ {nullptr};
 };
 
 check_size(FileStream, 0x28);

@@ -1,7 +1,7 @@
 arts_component "stream"
     files {
-        -- "filestream.cpp",
-        -- "filestream.h",
+        "filestream.cpp",
+        "filestream.h",
         "fsystem.cpp",
         "fsystem.h",
         "hfsystem.cpp",

@@ -20,77 +20,167 @@ define_dummy_symbol(stream_filestream);
 
 #include "filestream.h"
 
-FileStream::FileStream(i32 arg1)
+// TODO: Avoid using io.h functions
+
+#include "core/minwin.h"
+#include <fcntl.h>
+#include <io.h>
+
+FileStream::FileStream(i32 handle)
+    : Stream(nullptr, 0, nullptr)
+    , file_handle_(handle)
 {
-    unimplemented(arg1);
+    export_hook(0x5618E0);
 }
 
-FileStream::FileStream(void* arg1, i32 arg2, class FileSystem* arg3)
+FileStream::FileStream(void* buffer, i32 buffer_size, class FileSystem* file_system)
+    : Stream(buffer, buffer_size, file_system)
 {
-    unimplemented(arg1, arg2, arg3);
+    export_hook(0x5617F0);
 }
 
 FileStream::~FileStream()
 {
-    unimplemented();
+    export_hook(0x561A60);
+
+    Close();
 }
 
 i32 FileStream::Close()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x561A20, this);
+    export_hook(0x561A20);
+
+    Flush();
+
+    i32 result = -1;
+
+    if (file_handle_ != -1)
+    {
+        result = _close(file_handle_);
+        file_handle_ = -1;
+    }
+
+    if (pager_handle_)
+    {
+        CloseHandle(pager_handle_);
+        pager_handle_ = nullptr;
+    }
+
+    return -1;
 }
 
-i32 FileStream::Create(char* arg1)
+i32 FileStream::Create(const char* path)
 {
-    return stub<thiscall_t<i32, FileStream*, char*>>(0x561840, this, arg1);
+    export_hook(0x561840);
+
+    if (file_handle_ != -1)
+        return -1;
+
+    if (_sopen_s(&file_handle_, path, _O_WRONLY | _O_TRUNC | _O_CREAT | _O_BINARY, _SH_DENYNO, _S_IREAD | _S_IWRITE) !=
+        0)
+        file_handle_ = -1;
+
+    return file_handle_;
 }
 
 u32 FileStream::GetPagerHandle()
 {
-    return stub<thiscall_t<u32, FileStream*>>(0x561830, this);
+    export_hook(0x561830);
+
+    // TODO: Use usize/void*
+    return reinterpret_cast<u32>(pager_handle_);
 }
 
-i32 FileStream::Open(char* arg1, i32 arg2)
+i32 FileStream::Open(const char* path, b32 paged)
 {
-    return stub<thiscall_t<i32, FileStream*, char*, i32>>(0x561870, this, arg1, arg2);
+    export_hook(0x561870);
+
+    if (file_handle_ != -1)
+        return -1;
+
+    pager_handle_ = paged
+        ? CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr)
+        : nullptr;
+
+    if (_sopen_s(&file_handle_, path, (paged ? _O_RDONLY : _O_RDWR) | _O_BINARY, _SH_DENYNO, _S_IREAD | _S_IWRITE) != 0)
+        file_handle_ = -1;
+
+    return file_handle_;
 }
 
-i32 FileStream::RawRead(void* arg1, i32 arg2)
+i32 FileStream::RawRead(void* ptr, i32 size)
 {
-    return stub<thiscall_t<i32, FileStream*, void*, i32>>(0x561970, this, arg1, arg2);
+    export_hook(0x561970);
+
+    return _read(file_handle_, ptr, size);
 }
 
-i32 FileStream::RawSeek(i32 arg1)
+i32 FileStream::RawSeek(i32 pos)
 {
-    return stub<thiscall_t<i32, FileStream*, i32>>(0x5619B0, this, arg1);
+    export_hook(0x5619B0);
+
+    return _lseek(file_handle_, pos, SEEK_SET);
 }
 
 i32 FileStream::RawSize()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x5619F0, this);
+    export_hook(0x5619F0);
+
+    i32 pos = RawTell();
+    i32 end = _lseek(file_handle_, 0, SEEK_END);
+
+    if (pos != end)
+        RawSeek(pos);
+
+    return end;
 }
 
 i32 FileStream::RawTell()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x5619D0, this);
+    export_hook(0x5619D0);
+
+    return _lseek(file_handle_, 0, SEEK_CUR);
 }
 
-i32 FileStream::RawWrite(void* arg1, i32 arg2)
+i32 FileStream::RawWrite(const void* ptr, i32 size)
 {
-    return stub<thiscall_t<i32, FileStream*, void*, i32>>(0x561990, this, arg1, arg2);
+    export_hook(0x561990);
+
+    return _write(file_handle_, ptr, size);
 }
 
 i32 FileStream::Stderr()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x561950, this);
+    export_hook(0x561950);
+
+    if (file_handle_ != -1)
+        return -1;
+
+    file_handle_ = 2;
+
+    return file_handle_;
 }
 
 i32 FileStream::Stdin()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x561910, this);
+    export_hook(0x561910);
+
+    if (file_handle_ != -1)
+        return -1;
+
+    file_handle_ = 0;
+
+    return file_handle_;
 }
 
 i32 FileStream::Stdout()
 {
-    return stub<thiscall_t<i32, FileStream*>>(0x561930, this);
+    export_hook(0x561930);
+
+    if (file_handle_ != -1)
+        return -1;
+
+    file_handle_ = 1;
+
+    return file_handle_;
 }
