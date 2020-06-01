@@ -19,26 +19,3 @@
 define_dummy_symbol(data7_pager);
 
 #include "pager.h"
-
-#include "core/minwin.h"
-
-void PagerInfo_t::Read(void* buffer, u32 offset, u32 size)
-{
-    export_hook(0x5605D0);
-
-    // TODO: Move to stream:hfsystem
-
-    if (size == 0)
-        size = Size - offset;
-
-    offset += Offset;
-
-    OVERLAPPED overlapped {};
-    overlapped.Offset = offset;
-    overlapped.OffsetHigh = 0;
-
-    DWORD bytes_read = 0;
-
-    if (!ReadFile(static_cast<HANDLE>(Handle), buffer, size, &bytes_read, &overlapped) || (bytes_read != size))
-        Errorf("PagerInfo_t(%s)::Read - Failed to read 0x%X bytes @ 0x%X: 0x%08X", Name, size, offset, GetLastError());
-}

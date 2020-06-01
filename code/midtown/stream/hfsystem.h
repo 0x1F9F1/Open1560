@@ -57,34 +57,34 @@ public:
     ~HierFileSystem() override;
 
     // 0x560380 | ?ChangeDir@HierFileSystem@@UAEHPAD@Z
-    i32 ChangeDir(char* arg1) override;
+    b32 ChangeDir(const char* path) override;
 
     // 0x5602A0 | ?CreateOn@HierFileSystem@@UAEPAVStream@@PADPAXH@Z
-    class Stream* CreateOn(char* arg1, void* arg2, i32 arg3) override;
+    class Stream* CreateOn(const char* path, void* buffer, i32 buffer_len) override;
 
     // 0x5603C0 | ?FirstEntry@HierFileSystem@@UAEPAUFileInfo@@PAD@Z
-    struct FileInfo* FirstEntry(char* arg1) override;
+    struct FileInfo* FirstEntry(const char* path) override;
 
     // 0x5603A0 | ?GetDir@HierFileSystem@@UAEHPADH@Z
-    i32 GetDir(char* arg1, i32 arg2) override;
+    b32 GetDir(char* buffer, i32 buffer_len) override;
 
     // 0x560500 | ?NextEntry@HierFileSystem@@UAEPAUFileInfo@@PAU2@@Z
-    struct FileInfo* NextEntry(struct FileInfo* arg1) override;
+    struct FileInfo* NextEntry(struct FileInfo* info) override;
 
     // 0x560100 | ?OpenOn@HierFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    class Stream* OpenOn(char* arg1, i32 arg2, void* arg3, i32 arg4) override;
+    class Stream* OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len) override;
 
     // 0x560040 | ?QueryOn@HierFileSystem@@UAEHPAD@Z
-    i32 QueryOn(char* arg1) override;
+    b32 QueryOn(const char* path) override;
 
     // 0x55FF80 | ?ValidPath@HierFileSystem@@UAEHPAD@Z
-    i32 ValidPath(char* arg1) override;
+    b32 ValidPath(const char* path) override;
 };
 
-check_size(HierFileSystem, 0x0);
+check_size(HierFileSystem, 0x8);
 
 // 0x55FF90 | ?FQN@@YAPADPAD@Z
-char* FQN(char* arg1);
+const char* FQN(const char* path);
 
 // 0x907BC8 | ?HFS@@3VHierFileSystem@@A
 inline extern_var(0x907BC8, class HierFileSystem, HFS);

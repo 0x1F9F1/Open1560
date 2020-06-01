@@ -22,63 +22,183 @@ define_dummy_symbol(stream_hfsystem);
 
 #include "data7/pager.h"
 
-HierFileSystem::HierFileSystem()
+#include "core/minwin.h"
+
+#include <direct.h>
+#include <io.h>
+
+HierFileSystem::HierFileSystem() = default;
+HierFileSystem::~HierFileSystem() = default;
+
+// TODO: Use wide char versions of winapi
+
+b32 HierFileSystem::ChangeDir(const char* path)
 {
-    unimplemented();
+    export_hook(0x560380);
+
+    return _chdir(path) >= 0;
 }
 
-HierFileSystem::~HierFileSystem()
+class Stream* HierFileSystem::CreateOn(const char* path, void* buffer, i32 buffer_len)
 {
-    unimplemented();
+    return stub<thiscall_t<class Stream*, HierFileSystem*, const char*, void*, i32>>(
+        0x5602A0, this, path, buffer, buffer_len);
 }
 
-i32 HierFileSystem::ChangeDir(char* arg1)
+struct HierFileEntry
 {
-    return stub<thiscall_t<i32, HierFileSystem*, char*>>(0x560380, this, arg1);
+    HANDLE Handle {INVALID_HANDLE_VALUE};
+    WIN32_FIND_DATAA Data {};
+
+    void inline FillInfo(FileInfo* info)
+    {
+        arts_strcpy(info->Path, Data.cFileName);
+        info->IsDirectory = (Data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0;
+    }
+};
+
+check_size(HierFileEntry, 0x144);
+
+struct FileInfo* HierFileSystem::FirstEntry(const char* path)
+{
+    export_hook(0x5603C0);
+
+    if (!QueryOn(path))
+        return nullptr;
+
+    char needle[256];
+    arts_strcpy(needle, path);
+    arts_strcat(needle, "/*");
+
+    // TODO: Skip "." and ".." files
+    WIN32_FIND_DATAA data {};
+    HANDLE handle = FindFirstFileA(FQN(needle), &data);
+
+    if (handle == INVALID_HANDLE_VALUE)
+        return nullptr;
+
+    FileInfo* result = new FileInfo {};
+
+    HierFileEntry* context = new HierFileEntry {handle, data};
+    context->FillInfo(result);
+
+    result->Context = context;
+
+    return result;
 }
 
-class Stream* HierFileSystem::CreateOn(char* arg1, void* arg2, i32 arg3)
+i32 HierFileSystem::GetDir(char* buffer, i32 buffer_len)
 {
-    return stub<thiscall_t<class Stream*, HierFileSystem*, char*, void*, i32>>(0x5602A0, this, arg1, arg2, arg3);
+    export_hook(0x5603A0);
+
+    _getcwd(buffer, buffer_len);
+
+    return true;
 }
 
-struct FileInfo* HierFileSystem::FirstEntry(char* arg1)
+struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* info)
 {
-    return stub<thiscall_t<struct FileInfo*, HierFileSystem*, char*>>(0x5603C0, this, arg1);
+    export_hook(0x560500);
+
+    HierFileEntry* context = static_cast<HierFileEntry*>(info->Context);
+
+    if (!FindNextFileA(context->Handle, &context->Data))
+    {
+        FindClose(context->Handle);
+
+        delete context;
+        delete info;
+
+        return nullptr;
+    }
+
+    context->FillInfo(info);
+
+    return info;
 }
 
-i32 HierFileSystem::GetDir(char* arg1, i32 arg2)
+class Stream* HierFileSystem::OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len)
 {
-    return stub<thiscall_t<i32, HierFileSystem*, char*, i32>>(0x5603A0, this, arg1, arg2);
+    return stub<thiscall_t<class Stream*, HierFileSystem*, const char*, i32, void*, i32>>(
+        0x560100, this, path, mode, buffer, buffer_len);
 }
 
-struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* arg1)
+b32 HierFileSystem::QueryOn(const char* path)
 {
-    return stub<thiscall_t<struct FileInfo*, HierFileSystem*, struct FileInfo*>>(0x560500, this, arg1);
+    export_hook(0x560040);
+
+    if (const char* allowed = HierAllowPath)
+    {
+        if (!IsPhysicalPath(path))
+        {
+            usize folder_name_len = std::strcspn(path, "/\\:");
+
+            while (*allowed)
+            {
+                usize allowed_len = std::strlen(allowed);
+
+                if (!std::memcmp(path, allowed, std::min(allowed_len, folder_name_len)))
+                    break;
+
+                allowed += allowed_len + 1;
+            }
+        }
+
+        if (*allowed == '\0')
+            return false;
+
+        Warningf("Allowing access to real file: '%s'", path);
+    }
+
+    return _access(FQN(path), 4) == 0;
 }
 
-class Stream* HierFileSystem::OpenOn(char* arg1, i32 arg2, void* arg3, i32 arg4)
+b32 HierFileSystem::ValidPath(const char*)
 {
-    return stub<thiscall_t<class Stream*, HierFileSystem*, char*, i32, void*, i32>>(
-        0x560100, this, arg1, arg2, arg3, arg4);
+    export_hook(0x55FF80);
+
+    return true;
 }
 
-i32 HierFileSystem::QueryOn(char* arg1)
+static char FQNPathBuffer[128] {};
+
+const char* FQN(const char* path)
 {
-    return stub<thiscall_t<i32, HierFileSystem*, char*>>(0x560040, this, arg1);
+    export_hook(0x55FF90);
+
+    const char* prefix = HierPrefix;
+
+    if (!prefix || !*prefix)
+        return path;
+
+    if (FileSystem::IsPhysicalPath(path))
+        return path;
+
+    arts_strcpy(FQNPathBuffer, prefix);
+
+    if (!FileSystem::IsPathSeparator(prefix[std::strlen(prefix) - 1]))
+        arts_strcat(FQNPathBuffer, "\\");
+
+    arts_strcat(FQNPathBuffer, path);
+
+    return FQNPathBuffer;
 }
 
-i32 HierFileSystem::ValidPath(char* arg1)
+void PagerInfo_t::Read(void* buffer, u32 offset, u32 size)
 {
-    return stub<thiscall_t<i32, HierFileSystem*, char*>>(0x55FF80, this, arg1);
-}
+    export_hook(0x5605D0);
 
-char* FQN(char* arg1)
-{
-    return stub<cdecl_t<char*, char*>>(0x55FF90, arg1);
-}
+    if (size == 0)
+        size = Size - offset;
 
-void PagerInfo_t::Read(void* arg1, u32 arg2, u32 arg3)
-{
-    return stub<thiscall_t<void, PagerInfo_t*, void*, u32, u32>>(0x5605D0, this, arg1, arg2, arg3);
+    offset += Offset;
+
+    OVERLAPPED overlapped {};
+    overlapped.Offset = offset;
+    overlapped.OffsetHigh = 0;
+
+    DWORD bytes_read = 0;
+
+    if (!ReadFile(static_cast<HANDLE>(Handle), buffer, size, &bytes_read, &overlapped) || (bytes_read != size))
+        Errorf("PagerInfo_t(%s)::Read - Failed to read 0x%X bytes @ 0x%X: 0x%08X", Name, size, offset, GetLastError());
 }

@@ -45,6 +45,15 @@
 
 #include "data7/base.h"
 
+struct FileInfo
+{
+    char Path[256] {};
+    b32 IsDirectory {false};
+    void* Context {nullptr};
+};
+
+check_size(FileInfo, 0x108);
+
 class FileSystem : public Base
 {
     // const FileSystem::`vftable' @ 0x621928
@@ -63,18 +72,18 @@ public:
 
     virtual class Stream* OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len) = 0;
 
-    virtual class Stream* CreateOn(char* arg1, void* arg2, i32 arg3) = 0;
+    virtual class Stream* CreateOn(const char* path, void* buffer, i32 buffer_len) = 0;
 
     // 0x55FEC0 | ?PagerInfo@FileSystem@@UAEHPADAAUPagerInfo_t@@@Z
     virtual b32 PagerInfo(const char* path, struct PagerInfo_t& pager);
 
-    virtual i32 ChangeDir(char* arg1) = 0;
+    virtual b32 ChangeDir(const char* path) = 0;
 
-    virtual i32 GetDir(char* arg1, i32 arg2) = 0;
+    virtual b32 GetDir(char* buffer, i32 buffer_len) = 0;
 
-    virtual struct FileInfo* FirstEntry(char* arg1) = 0;
+    virtual struct FileInfo* FirstEntry(const char* path) = 0;
 
-    virtual struct FileInfo* NextEntry(struct FileInfo* arg1) = 0;
+    virtual struct FileInfo* NextEntry(struct FileInfo* info) = 0;
 
     // 0x55F690 | ?Search@FileSystem@@QAEHPAD00H0@Z
     b32 Search(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len);
@@ -96,6 +105,18 @@ public:
 
     // 0x907A30 | ?FSCount@FileSystem@@2HA
     static inline extern_var(0x907A30, i32, FSCount);
+
+    static inline constexpr bool IsPathSeparator(char c) noexcept
+    {
+        return (c == '/') || (c == '\\');
+    }
+
+    static inline constexpr bool IsPhysicalPath(const char* path) noexcept
+    {
+        return IsPathSeparator(path[0])                     // "/foo", "\foo"
+            || (path[0] == '.' && IsPathSeparator(path[1])) // "./foo", ".\foo"
+            || (path[0] != '\0' && path[1] == ':');         // "X:"
+    }
 
 protected:
     friend class Stream;

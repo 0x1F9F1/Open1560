@@ -634,7 +634,7 @@ include_dummy_symbol(pcwindis_setupdata);
 
 // include_dummy_symbol(stream_filestream);
 include_dummy_symbol(stream_fsystem);
-// include_dummy_symbol(stream_hfsystem);
+include_dummy_symbol(stream_hfsystem);
 // include_dummy_symbol(stream_problems);
 include_dummy_symbol(stream_sparser);
 include_dummy_symbol(stream_stream);

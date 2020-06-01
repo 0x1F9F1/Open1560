@@ -134,12 +134,11 @@ b32 FileSystem::Search(const char* file, const char* folder, const char* ext, i3
     char file_name[256];
     arts_strcpy(file_name, file);
 
-    if ((file_name[0] == '\\') || (file_name[0] == '.' && file_name[1] == '\\') || (file_name[0] == '/') ||
-        (file_name[0] == '.' && file_name[1] == '/') || (file_name[1] == ':'))
+    if (IsPhysicalPath(file_name))
     {
         for (i32 i = std::strlen(file) - 1; i >= 0; --i)
         {
-            if (file[i] == '\\' || file[i] == '/')
+            if (IsPathSeparator(file[i]))
             {
                 arts_strncpy(file_path, file, i);
                 arts_strcpy(file_name, file + i + 1);

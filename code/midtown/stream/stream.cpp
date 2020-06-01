@@ -21,6 +21,7 @@ define_dummy_symbol(stream_stream);
 #include "stream.h"
 
 #include "fsystem.h"
+#include "hfsystem.h"
 
 #include "core/endian.h"
 
@@ -467,7 +468,9 @@ i32 arts_fgets(char* buffer, i32 buffer_len, class Stream* stream)
 
 class Stream* arts_fopen(const char* path, const char* mode)
 {
-    return stub<cdecl_t<class Stream*, const char*, const char*>>(0x55F2F0, path, mode);
+    export_hook(0x55F2F0);
+
+    return (mode[0] == 'r') ? FileSystem::OpenAny(path, mode[1] != '+', 0, 4096) : HFS.CreateOn(path, 0, 4096);
 }
 
 void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, ...)
