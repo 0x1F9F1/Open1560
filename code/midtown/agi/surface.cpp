@@ -289,13 +289,13 @@ void agiSurfaceDesc::Unload()
     }
 }
 
-class agiSurfaceDesc* agiSurfaceDesc::Init(i32 width, i32 height, class agiSurfaceDesc& desc)
+Owner<class agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, class agiSurfaceDesc& desc)
 {
     export_hook(0x55A720);
 
     u32 pixel_size = (desc.ddpfPixelFormat.dwRGBBitCount + 7) / 8;
 
-    agiSurfaceDesc* result = new agiSurfaceDesc(desc);
+    Ptr<agiSurfaceDesc> result = MakeUnique<agiSurfaceDesc>(desc);
 
     result->dwFlags = AGISD_WIDTH | AGISD_HEIGHT;
     result->dwWidth = width;
@@ -307,7 +307,7 @@ class agiSurfaceDesc* agiSurfaceDesc::Init(i32 width, i32 height, class agiSurfa
     result->lpSurface = new u8[surface_size];
     std::memset(result->lpSurface, 0, surface_size);
 
-    return result;
+    return result.release();
 }
 
 class agiSurfaceDesc* agiSurfaceDesc::Load(char* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6)

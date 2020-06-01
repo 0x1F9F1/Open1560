@@ -60,19 +60,19 @@ public:
     b32 ChangeDir(const char* path) override;
 
     // 0x5602A0 | ?CreateOn@HierFileSystem@@UAEPAVStream@@PADPAXH@Z
-    class Stream* CreateOn(const char* path, void* buffer, i32 buffer_len) override;
+    Owner<class Stream*> CreateOn(const char* path, void* buffer, i32 buffer_len) override;
 
     // 0x5603C0 | ?FirstEntry@HierFileSystem@@UAEPAUFileInfo@@PAD@Z
-    struct FileInfo* FirstEntry(const char* path) override;
+    Owner<struct FileInfo*> FirstEntry(const char* path) override;
 
     // 0x5603A0 | ?GetDir@HierFileSystem@@UAEHPADH@Z
     b32 GetDir(char* buffer, i32 buffer_len) override;
 
     // 0x560500 | ?NextEntry@HierFileSystem@@UAEPAUFileInfo@@PAU2@@Z
-    struct FileInfo* NextEntry(struct FileInfo* info) override;
+    Owner<struct FileInfo*> NextEntry(Owner<struct FileInfo*> info) override;
 
     // 0x560100 | ?OpenOn@HierFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    class Stream* OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
+    Owner<class Stream*> OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
 
     // 0x560040 | ?QueryOn@HierFileSystem@@UAEHPAD@Z
     b32 QueryOn(const char* path) override;

@@ -20,9 +20,8 @@ define_dummy_symbol(memory_allocator);
 
 #include "allocator.h"
 
-#include "stack.h"
-
 #include "core/minwin.h"
+#include "stack.h"
 
 #include <intrin.h>
 

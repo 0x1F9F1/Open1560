@@ -44,11 +44,11 @@ static inline constexpr bool IsStdPath(const char* path) noexcept
     return (path[0] == '-') && !path[1];
 }
 
-class Stream* HierFileSystem::CreateOn(const char* path, void* buffer, i32 buffer_len)
+Owner<class Stream*> HierFileSystem::CreateOn(const char* path, void* buffer, i32 buffer_len)
 {
     export_hook(0x5602A0);
 
-    FileStream* result = new FileStream(buffer, buffer_len, this);
+    Ptr<FileStream> result = MakeUnique<FileStream>(buffer, buffer_len, this);
 
     path = FQN(path);
 
@@ -62,11 +62,10 @@ class Stream* HierFileSystem::CreateOn(const char* path, void* buffer, i32 buffe
     else
     {
         result->Error("CreateOn.FileStream.Create");
-        delete result;
-        result = nullptr;
+        result.reset();
     }
 
-    return result;
+    return result.release();
 }
 
 struct HierFileEntry
@@ -74,25 +73,25 @@ struct HierFileEntry
     HANDLE Handle {INVALID_HANDLE_VALUE};
     WIN32_FIND_DATAA Data {};
 
-    void inline FillInfo(FileInfo* info)
+    void inline FillInfo(FileInfo& info)
     {
-        arts_strcpy(info->Path, Data.cFileName);
-        info->IsDirectory = (Data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0;
+        arts_strcpy(info.Path, Data.cFileName);
+        info.IsDirectory = (Data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0;
     }
 };
 
 check_size(HierFileEntry, 0x144);
 
-struct FileInfo* HierFileSystem::FirstEntry(const char* path)
+Owner<struct FileInfo*> HierFileSystem::FirstEntry(const char* path)
 {
     export_hook(0x5603C0);
 
     if (!QueryOn(path))
         return nullptr;
 
-    char needle[256];
-    arts_strcpy(needle, path);
-    arts_strcat(needle, "/*");
+    CStringBuffer<256> needle;
+    needle.assign(path);
+    needle.append("/*");
 
     // TODO: Skip "." and ".." files
     WIN32_FIND_DATAA data {};
@@ -101,17 +100,20 @@ struct FileInfo* HierFileSystem::FirstEntry(const char* path)
     if (handle == INVALID_HANDLE_VALUE)
         return nullptr;
 
-    FileInfo* result = new FileInfo {};
+    Ptr<FileInfo> result = MakeUnique<FileInfo>();
 
-    HierFileEntry* context = new HierFileEntry {handle, data};
-    context->FillInfo(result);
+    Ptr<HierFileEntry> context = MakeUnique<HierFileEntry>();
 
-    result->Context = context;
+    context->Handle = handle;
+    context->Data = data;
+    context->FillInfo(*result);
 
-    return result;
+    result->Context = context.release();
+
+    return result.release();
 }
 
-i32 HierFileSystem::GetDir(char* buffer, i32 buffer_len)
+b32 HierFileSystem::GetDir(char* buffer, i32 buffer_len)
 {
     export_hook(0x5603A0);
 
@@ -120,7 +122,7 @@ i32 HierFileSystem::GetDir(char* buffer, i32 buffer_len)
     return true;
 }
 
-struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* info)
+Owner<struct FileInfo*> HierFileSystem::NextEntry(Owner<struct FileInfo*> info)
 {
     export_hook(0x560500);
 
@@ -136,18 +138,18 @@ struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* info)
         return nullptr;
     }
 
-    context->FillInfo(info);
+    context->FillInfo(*info);
 
     return info;
 }
 
-class Stream* HierFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
+Owner<class Stream*> HierFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
     export_hook(0x560100);
 
     path = FQN(path);
 
-    FileStream* result = new FileStream(buffer, buffer_len, this);
+    Ptr<FileStream> result = MakeUnique<FileStream>(buffer, buffer_len, this);
 
     i32 error = 0;
 
@@ -166,11 +168,10 @@ class Stream* HierFileSystem::OpenOn(const char* path, b32 read_only, void* buff
     if (error < 0)
     {
         result->Error("OpenOn.FileStream.Open");
-        delete result;
-        result = nullptr;
+        result.reset();
     }
 
-    return result;
+    return result.release();
 }
 
 b32 HierFileSystem::QueryOn(const char* path)

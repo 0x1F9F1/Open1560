@@ -81,7 +81,7 @@ public:
     void Unload();
 
     // 0x55A720 | ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
-    static class agiSurfaceDesc* Init(i32 width, i32 height, class agiSurfaceDesc& desc);
+    static Owner<class agiSurfaceDesc*> Init(i32 width, i32 height, class agiSurfaceDesc& desc);
 
     // 0x55A7A0 | ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
     static class agiSurfaceDesc* Load(char* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);

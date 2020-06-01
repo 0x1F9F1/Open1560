@@ -131,6 +131,8 @@ public:
     static const char* TokenName(i32 token);
 
 private:
+    void PutString(const char* str);
+
     char buffer_[256] {};
     i32 error_count_ {0};
     CString name_ {};

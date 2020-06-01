@@ -35,18 +35,17 @@ void MiniParser::Commentf(char const* format, ...)
 {
     export_hook(0x57C7B0);
 
-    char buffer[1024];
+    CStringBuffer<1024> buffer;
 
     std::va_list va;
     va_start(va, format);
-    arts_vsprintf(buffer, format, va);
+    buffer.vsprintf(format, va);
     va_end(va);
 
     PutCh(';');
     PutCh(' ');
 
-    for (char* s = buffer; *s; ++s)
-        PutCh(*s);
+    PutString(buffer);
 }
 
 static i32 TotalParserErrors = 0;
@@ -59,11 +58,11 @@ void MiniParser::Errorf(char const* format, ...)
 
     if (TotalParserErrors < 25)
     {
-        char buffer[1024];
+        CStringBuffer<1024> buffer;
 
         std::va_list va;
         va_start(va, format);
-        arts_vsprintf(buffer, format, va);
+        buffer.vsprintf(format, va);
         va_end(va);
 
         ++error_count_;
@@ -300,15 +299,14 @@ void MiniParser::Printf(char const* format, ...)
 {
     export_hook(0x57C660);
 
-    char buffer[1024];
+    CStringBuffer<1024> buffer;
 
     std::va_list va;
     va_start(va, format);
-    arts_vsprintf(buffer, format, va);
+    buffer.vsprintf(format, va);
     va_end(va);
 
-    for (char* s = buffer; *s; ++s)
-        PutCh(*s);
+    PutString(buffer);
 }
 
 void MiniParser::PutBack(i32 token)
@@ -373,4 +371,10 @@ const char* MiniParser::TokenName(i32 token)
     TokenNameBuffer[0] = static_cast<char>(token);
 
     return TokenNameBuffer;
+}
+
+void MiniParser::PutString(const char* str)
+{
+    for (; *str; ++str)
+        PutCh(*str);
 }

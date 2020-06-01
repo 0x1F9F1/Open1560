@@ -67,7 +67,7 @@ struct PtrToType : MetaType
 
 check_size(PtrToType, 0x8);
 
-struct MetaType* PtrTo(struct MetaType* target)
+Owner<struct MetaType*> PtrTo(struct MetaType* target)
 {
     export_hook(0x524610);
 
@@ -174,7 +174,7 @@ struct StructType : MetaType
 
 check_size(StructType, 0x8);
 
-struct MetaType* Struct(class MetaClass* target)
+Owner<struct MetaType*> Struct(class MetaClass* target)
 {
     export_hook(0x4703A0);
 

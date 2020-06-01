@@ -34,27 +34,13 @@ VirtualFileSystem::VirtualFileSystem(class Stream* stream)
     if (file_header_.Magic != AresMagic)
         Quitf("VFS::VFS: Not a valid AngelRes file.");
 
-    file_nodes_.reset(new VirtualFileInode[file_header_.FileCount]);
-    base_stream_->Read(file_nodes_.get(), file_header_.FileCount * sizeof(VirtualFileInode));
+    file_nodes_ = MakeUnique<VirtualFileInode[]>(file_header_.NodeCount);
+    base_stream_->Read(file_nodes_.get(), file_header_.NodeCount * sizeof(VirtualFileInode));
 
-    file_names_.reset(new char[file_header_.NamesSize]);
+    file_names_ = MakeUnique<char[]>(file_header_.NamesSize);
     base_stream_->Read(file_names_.get(), file_header_.NamesSize);
 
-    u32 file_size = base_stream_->Size();
-
-    for (u32 i = 0; i < file_header_.FileCount; ++i)
-    {
-        VirtualFileInode* node = &file_nodes_[i];
-
-        // TODO: Validate name/directory offsets/sizes of nodes
-
-        if ((node->GetSize() == 0x4DCDCD) || (node->GetOffset() + node->GetSize() > file_size))
-        {
-            char buffer[256];
-            ExpandName(buffer, 256, node, file_names_.get());
-            Errorf("Invalid/Corrupt Archive Entry '%s'", buffer);
-        }
-    }
+    ValidateNodes();
 }
 
 VirtualFileSystem::~VirtualFileSystem()
@@ -69,7 +55,7 @@ b32 VirtualFileSystem::ChangeDir(const char*)
     return false;
 }
 
-class Stream* VirtualFileSystem::CreateOn(const char*, void*, i32)
+Owner<class Stream*> VirtualFileSystem::CreateOn(const char*, void*, i32)
 {
     export_hook(0x560B80);
 
@@ -81,14 +67,14 @@ struct VirtualFileEntry
     VirtualFileInode* Nodes {nullptr};
     u32 NodeCount {0};
 
-    void inline FillInfo(VirtualFileSystem* fs, FileInfo* info)
+    void inline FillInfo(VirtualFileSystem* fs, FileInfo& info)
     {
-        fs->ExpandName(info->Path, std::size(info->Path), Nodes);
-        info->IsDirectory = Nodes->IsDirectory();
+        fs->ExpandName(info.Path, std::size(info.Path), Nodes);
+        info.IsDirectory = Nodes->IsDirectory();
     }
 };
 
-struct FileInfo* VirtualFileSystem::FirstEntry(const char* path)
+Owner<struct FileInfo*> VirtualFileSystem::FirstEntry(const char* path)
 {
     export_hook(0x560BB0);
 
@@ -111,14 +97,16 @@ struct FileInfo* VirtualFileSystem::FirstEntry(const char* path)
         node_count = file_header_.RootCount;
     }
 
-    FileInfo* result = new FileInfo {};
+    Ptr<FileInfo> result = MakeUnique<FileInfo>();
 
-    VirtualFileEntry* context = new VirtualFileEntry {nodes, node_count};
-    context->FillInfo(this, result);
+    Ptr<VirtualFileEntry> context = MakeUnique<VirtualFileEntry>();
+    context->Nodes = nodes;
+    context->NodeCount = node_count;
+    context->FillInfo(this, *result);
 
-    result->Context = context;
+    result->Context = context.release();
 
-    return result;
+    return result.release();
 }
 
 b32 VirtualFileSystem::GetDir(char*, i32)
@@ -128,7 +116,7 @@ b32 VirtualFileSystem::GetDir(char*, i32)
     return false;
 }
 
-struct FileInfo* VirtualFileSystem::NextEntry(struct FileInfo* info)
+Owner<struct FileInfo*> VirtualFileSystem::NextEntry(Owner<struct FileInfo*> info)
 {
     export_hook(0x560D00);
 
@@ -143,12 +131,12 @@ struct FileInfo* VirtualFileSystem::NextEntry(struct FileInfo* info)
     }
 
     ++context->Nodes;
-    context->FillInfo(this, info);
+    context->FillInfo(this, *info);
 
     return info;
 }
 
-class Stream* VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
+Owner<class Stream*> VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
     export_hook(0x560AD0);
 
@@ -205,13 +193,11 @@ void VirtualFileSystem::ExpandName(char* buf, struct VirtualFileInode* node, con
 
 void VirtualFileSystem::ExpandName(char* buf, i32 buf_len, VirtualFileInode* node, const char* names)
 {
-    buf_len -= 1;
+    CStringBuilder builder(buf, buf_len);
 
-    const char* name = &names[node->GetNameOffset()];
-
-    while (*name && buf_len)
+    for (const char* name = &names[node->GetNameOffset()]; *name; ++name)
     {
-        char c = *name++;
+        char c = *name;
 
         if (c == '\1')
         {
@@ -221,61 +207,35 @@ void VirtualFileSystem::ExpandName(char* buf, i32 buf_len, VirtualFileInode* nod
 
             if (value >= 1000)
             {
-                *buf++ = char(value / 1000) + '0';
-
-                if (--buf_len == 0)
-                    break;
-
+                builder += char(value / 1000) + '0';
                 value %= 1000;
                 pad = true;
             }
 
             if (pad || value >= 100)
             {
-                *buf++ = char(value / 100) + '0';
-
-                if (--buf_len == 0)
-                    break;
-
+                builder += char(value / 100) + '0';
                 value %= 100;
                 pad = true;
             }
 
             if (pad || value >= 10)
             {
-                *buf++ = char(value / 10) + '0';
-
-                if (--buf_len == 0)
-                    break;
-
+                builder += char(value / 10) + '0';
                 value %= 10;
             }
 
             c = char(value) + '0';
         }
 
-        *buf++ = c;
-        --buf_len;
+        builder += c;
     }
 
     if (u32 ext_offset = node->GetExtOffset())
     {
-        const char* ext = &names[ext_offset];
-
-        if (buf_len)
-        {
-            *buf++ = '.';
-            --buf_len;
-        }
-
-        while (*ext && buf_len)
-        {
-            *buf++ = *ext++;
-            --buf_len;
-        }
+        builder += '.';
+        builder += &names[ext_offset];
     }
-
-    *buf = '\0';
 }
 
 struct VirtualFileInode* VirtualFileSystem::Lookup(
@@ -307,8 +267,8 @@ struct VirtualFileInode* VirtualFileSystem::Lookup(
 
             node = &nodes[here];
 
-            char buf[256];
-            ExpandName(buf, 256, node, names);
+            CStringBuffer<256> buf;
+            ExpandName(buf.get(), buf.capacity(), node, names);
 
             i32 cmp = std::strcmp(path, buf);
 
@@ -347,9 +307,9 @@ void VirtualFileSystem::NormalizeName(char* buf, i32 buf_len, const char* path)
     while (IsPathSeparator(*path))
         ++path;
 
-    buf_len -= 1;
+    CStringBuilder builder(buf, buf_len);
 
-    while (*path && buf_len)
+    while (*path)
     {
         char c = *path++;
 
@@ -360,21 +320,56 @@ void VirtualFileSystem::NormalizeName(char* buf, i32 buf_len, const char* path)
         else if (c < 0x20)
             continue;
 
-        *buf++ = c;
-        --buf_len;
+        builder += c;
     }
-
-    *buf = '\0';
 }
 
 inline VirtualFileInode* VirtualFileSystem::Lookup(const char* path)
 {
-    char buffer[256];
-    NormalizeName(buffer, 256, path);
-    return Lookup(file_nodes_.get(), file_header_.RootCount, file_names_.get(), buffer);
+    CStringBuffer<128> buffer;
+    NormalizeName(buffer.get(), buffer.capacity(), path);
+    return Lookup(file_nodes_.get(), file_header_.RootCount, file_names_.get(), buffer.get());
 }
 
 void VirtualFileSystem::ExpandName(char* buf, i32 buf_len, VirtualFileInode* node)
 {
     ExpandName(buf, buf_len, node, file_names_.get());
+}
+
+void VirtualFileSystem::ValidateNodes()
+{
+    if (file_header_.RootCount > file_header_.NodeCount)
+        Quitf("Invalid Archive: More roots than nodes (%u > %u)", file_header_.RootCount, file_header_.NodeCount);
+
+    u32 file_size = base_stream_->Size();
+
+    for (u32 i = 0; i < file_header_.NodeCount; ++i)
+    {
+        VirtualFileInode* node = &file_nodes_[i];
+
+        if (node->GetNameOffset() >= file_header_.NamesSize)
+            Quitf("Invalid Archive: Entry Name Offset for node %u", i);
+
+        if (node->GetExtOffset() >= file_header_.NamesSize)
+            Quitf("Invalid Archive: Entry Extension Offset for node %u", i);
+
+        if (node->IsDirectory())
+        {
+            if (node->GetEntryIndex() + node->GetEntryCount() > file_header_.NodeCount)
+            {
+                CStringBuffer<256> buffer;
+                ExpandName(buffer.get(), buffer.capacity(), node);
+                Quitf("Invalid Archive Directory '%s'", buffer.get());
+            }
+        }
+        else
+        {
+            if ((node->GetSize() == 0x4DCDCD) || (node->GetOffset() + node->GetSize() > file_size))
+            {
+                CStringBuffer<256> buffer;
+                ExpandName(buffer.get(), buffer.capacity(), node);
+                Quitf("Invalid Archive Entry '%s'", buffer.get());
+            }
+        }
+    }
 }

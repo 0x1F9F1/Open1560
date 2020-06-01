@@ -24,6 +24,9 @@
 template <typename T>
 using Ptr = std::unique_ptr<T>;
 
+template <typename T, typename = std::enable_if_t<std::is_pointer_v<T>>>
+using Owner = T;
+
 template <typename T, typename... Args>
 [[nodiscard]] ARTS_FORCEINLINE std::enable_if_t<!std::is_array_v<T>, Ptr<T>> MakeUnique(Args&&... args)
 {

@@ -47,13 +47,18 @@ b32 FileSystem::PagerInfo(const char*, struct PagerInfo_t&)
     return false;
 }
 
+static inline constexpr bool IsSubStringBorder(char c)
+{
+    return (c == '|') || (c == ';');
+}
+
 static i32 NumSubStrings(const char* strs)
 {
     i32 num = 1;
 
     for (; *strs; ++strs)
     {
-        if (*strs == '|' || *strs == ';')
+        if (IsSubStringBorder(*strs))
             ++num;
     }
 
@@ -75,7 +80,7 @@ static const char* SubString(i32 idx, const char* strs)
         if (c == '\0')
             break;
 
-        if (c == '|' || c == ';')
+        if (IsSubStringBorder(c))
             ++num;
     }
 
@@ -91,7 +96,7 @@ static const char* SubString(i32 idx, const char* strs)
                 break;
 
             // TODO: Is this check correct? It was originally `(c == '|' && c != ';')`, but that doesn't make much sense
-            if (c == '|' || c == ';')
+            if (IsSubStringBorder(c))
                 break;
 
             SubStringBuffer[i] = c;
@@ -210,7 +215,7 @@ b32 FileSystem::Search(const char* file, const char* folder, const char* ext, i3
     return false;
 }
 
-class Stream* FileSystem::OpenAny(const char* path, b32 read_only, void* buffer, i32 buffer_len)
+Owner<class Stream*> FileSystem::OpenAny(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
     export_hook(0x55FE60);
 
@@ -275,7 +280,7 @@ class FileSystem* FindFile(const char* file, const char* folder, const char* ext
     return FindFile(file, folder, ext, ext_id, buffer, 120);
 }
 
-class Stream* OpenFile(
+Owner<class Stream*> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, const char* desc)
 {
     export_hook(0x55FD60);
@@ -284,7 +289,7 @@ class Stream* OpenFile(
     return OpenFile(file, folder, ext, ext_id, buffer, 128, desc);
 }
 
-class Stream* OpenFile(
+Owner<class Stream*> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len, const char* desc)
 {
     // NOTE: Incompatible

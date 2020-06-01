@@ -47,7 +47,7 @@ static constexpr u32 AresMagic = 0x53455241;
 struct AresHeader
 {
     u32 Magic {0};
-    u32 FileCount {0};
+    u32 NodeCount {0};
     u32 RootCount {0};
     u32 NamesSize {0};
 };
@@ -159,19 +159,19 @@ public:
     b32 ChangeDir(const char* path) override;
 
     // 0x560B80 | ?CreateOn@VirtualFileSystem@@UAEPAVStream@@PADPAXH@Z
-    class Stream* CreateOn(const char* path, void* buffer, i32 buffer_len) override;
+    Owner<class Stream*> CreateOn(const char* path, void* buffer, i32 buffer_len) override;
 
     // 0x560BB0 | ?FirstEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAD@Z
-    struct FileInfo* FirstEntry(const char* path) override;
+    Owner<struct FileInfo*> FirstEntry(const char* path) override;
 
     // 0x560BA0 | ?GetDir@VirtualFileSystem@@UAEHPADH@Z
     b32 GetDir(char* buffer, i32 buffer_len) override;
 
     // 0x560D00 | ?NextEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAU2@@Z
-    struct FileInfo* NextEntry(struct FileInfo* info) override;
+    Owner<struct FileInfo*> NextEntry(Owner<struct FileInfo*> info) override;
 
     // 0x560AD0 | ?OpenOn@VirtualFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    class Stream* OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
+    Owner<class Stream*> OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
 
     // 0x560A50 | ?PagerInfo@VirtualFileSystem@@UAEHPADAAUPagerInfo_t@@@Z
     b32 PagerInfo(const char* path, struct PagerInfo_t& info) override;
@@ -201,6 +201,8 @@ private:
 
     VirtualFileInode* Lookup(const char* path);
     void ExpandName(char* buf, i32 buf_len, struct VirtualFileInode* node);
+
+    void ValidateNodes();
 
     Ptr<Stream> base_stream_ {nullptr};
     AresHeader file_header_ {};

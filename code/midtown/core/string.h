@@ -130,8 +130,9 @@ public:
     static_assert(N != 0, "Cannot have an empty string buffer");
 
     CStringBuffer()
-        : buffer_ {}
-    {}
+    {
+        buffer_[0] = '\0';
+    }
 
     CStringBuffer(const char* value)
     {
@@ -145,9 +146,19 @@ public:
         return *this;
     }
 
+    void clear()
+    {
+        buffer_[0] = '\0';
+    }
+
     void assign(const char* value)
     {
         arts_strcpy(buffer_, value);
+    }
+
+    void assign(const char* value, usize len)
+    {
+        arts_strncpy(buffer_, value, len);
     }
 
     void append(const char* value)
@@ -155,12 +166,22 @@ public:
         arts_strcat(buffer_, value);
     }
 
-    void formatf(const char* format, ...)
+    void append(const char* value, usize len)
+    {
+        arts_strncat(buffer_, value, len);
+    }
+
+    void sprintf(const char* format, ...)
     {
         std::va_list va;
         va_start(va, format);
         arts_vsprintf(buffer_, format, va);
         va_end(va);
+    }
+
+    void vsprintf(const char* format, std::va_list va)
+    {
+        arts_vsprintf(buffer_, format, va);
     }
 
     char* get()
@@ -173,6 +194,60 @@ public:
         return buffer_;
     }
 
+    operator const char*() const
+    {
+        return buffer_;
+    }
+
+    static inline constexpr usize capacity()
+    {
+        return N;
+    }
+
 private:
     char buffer_[N] {};
+};
+
+class CStringBuilder
+{
+public:
+    inline CStringBuilder(char* buffer, usize capacity)
+        : buffer_(buffer)
+        , capacity_(capacity)
+    {}
+
+    inline ~CStringBuilder()
+    {
+        buffer_[(written_ < capacity_) ? written_ : 0] = '\0';
+    }
+
+    inline void operator+=(const char* str)
+    {
+        append(str, std::strlen(str));
+    }
+
+    inline void operator+=(char c)
+    {
+        if (written_ < capacity_)
+        {
+            buffer_[written_++] = c;
+        }
+    }
+
+    inline void append(const char* str, usize len)
+    {
+        if (written_ + len >= capacity_)
+        {
+            written_ = capacity_;
+
+            return;
+        }
+
+        std::memcpy(buffer_ + written_, str, len);
+        written_ += len;
+    }
+
+    char* buffer_ {nullptr};
+    usize capacity_ {0};
+    usize written_ {0};
 };

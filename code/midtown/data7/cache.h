@@ -104,7 +104,7 @@ private:
     u32 aged_bytes_ {0};
 
     // Must always be indexed by > 0
-    DataCacheObject* objects_ {nullptr}; // pObjects
+    Owner<DataCacheObject*> objects_ {nullptr}; // pObjects
 
     i32 max_objects_ {0};
     i32 cur_objects_ {0}; // nMaxHandles
@@ -114,7 +114,7 @@ private:
 
     b32 fragmented_ {false};
 
-    u8* heap_ {nullptr}; // pHeap
+    Owner<u8*> heap_ {nullptr}; // pHeap
     u32 heap_size_ {0};
     u32 heap_used_ {0}; // nTotalAllocated
 

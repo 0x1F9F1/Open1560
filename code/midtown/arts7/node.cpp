@@ -104,11 +104,11 @@ void asNode::Load()
     if (!name || !std::strncmp(name, "_", 1))
         name = "default";
 
-    char buffer[100];
-    arts_sprintf(buffer, ".%s", GetClass()->GetName());
+    CStringBuffer<128> buffer;
+    buffer.sprintf(".%s", GetNodeType());
 
     string path;
-    path.SaveName(name, 0, "tune", buffer);
+    path.SaveName(name, 0, "tune", buffer.get());
 
     Load(path.get());
 }
@@ -122,11 +122,11 @@ void asNode::Save()
     if (!name || !std::strncmp(name, "_", 1))
         name = "default";
 
-    char buffer[100];
-    arts_sprintf(buffer, ".%s", GetClass()->GetName());
+    CStringBuffer<128> buffer;
+    buffer.sprintf(".%s", GetNodeType());
 
     string path;
-    path.SaveName(name, 0, "tune", buffer);
+    path.SaveName(name, 0, "tune", buffer.get());
 
     Save(path.get());
 }
@@ -346,7 +346,7 @@ void asNode::PerfReport(class Stream* output, i32 indent)
         arts_fprintf(output, "  ");
 
     arts_fprintf(
-        output, "%s %s Total %6.3f Myself %6.3f\n", GetClass()->GetName(), node_name_.get(), update_time_, self_update);
+        output, "%s %s Total %6.3f Myself %6.3f\n", GetNodeType(), node_name_.get(), update_time_, self_update);
 
     for (asNode* n = child_node_; n; n = n->next_node_)
         n->PerfReport(output, indent + 1);
@@ -485,7 +485,7 @@ const char* asNode::VerifyTree()
 
         if (msg)
         {
-            Errorf("Kid %d(%p) of type %s name %s: %s", i, n, GetClass()->GetName(), node_name_.get(), msg);
+            Errorf("Kid %d(%p) of type %s name %s: %s", i, n, GetNodeType(), node_name_.get(), msg);
             break;
         }
     }
