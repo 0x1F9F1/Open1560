@@ -68,8 +68,7 @@ void* Stream::GetMapping()
     return nullptr;
 }
 
-// TODO: Use usize/void*
-u32 Stream::GetPagerHandle()
+usize Stream::GetPagerHandle()
 {
     return 0;
 }

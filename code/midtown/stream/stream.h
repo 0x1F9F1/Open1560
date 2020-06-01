@@ -88,7 +88,7 @@ public:
     virtual void* GetMapping();
 
     // 0x55ED90 | ?GetPagerHandle@Stream@@UAEIXZ
-    virtual u32 GetPagerHandle();
+    virtual usize GetPagerHandle();
 
     // 0x55EDA0 | ?GetPagingInfo@Stream@@UAEHAAI00@Z
     virtual b32 GetPagingInfo(u32& handle, u32& offset, u32& size);

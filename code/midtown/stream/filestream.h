@@ -67,7 +67,7 @@ public:
     i32 Create(const char* path);
 
     // 0x561830 | ?GetPagerHandle@FileStream@@UAEIXZ
-    u32 GetPagerHandle() override;
+    usize GetPagerHandle() override;
 
     // 0x561870 | ?Open@FileStream@@QAEHPADH@Z
     i32 Open(const char* path, b32 paged);

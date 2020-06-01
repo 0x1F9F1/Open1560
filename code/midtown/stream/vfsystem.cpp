@@ -20,7 +20,9 @@ define_dummy_symbol(stream_vfsystem);
 
 #include "vfsystem.h"
 
+#include "data7/pager.h"
 #include "stream.h"
+#include "vstream.h"
 
 VirtualFileSystem::VirtualFileSystem(class Stream* stream)
     : base_stream_(stream)
@@ -44,10 +46,12 @@ VirtualFileSystem::VirtualFileSystem(class Stream* stream)
     {
         VirtualFileInode* node = &file_nodes_[i];
 
+        // TODO: Validate name/directory offsets/sizes of nodes
+
         if ((node->GetSize() == 0x4DCDCD) || (node->GetOffset() + node->GetSize() > file_size))
         {
             char buffer[256];
-            ExpandName(buffer, node, file_names_.get());
+            ExpandName(buffer, 256, node, file_names_.get());
             Errorf("Invalid/Corrupt Archive Entry '%s'", buffer);
         }
     }
@@ -72,9 +76,49 @@ class Stream* VirtualFileSystem::CreateOn(const char*, void*, i32)
     return nullptr;
 }
 
-struct FileInfo* VirtualFileSystem::FirstEntry(const char* arg1)
+struct VirtualFileEntry
 {
-    return stub<thiscall_t<struct FileInfo*, VirtualFileSystem*, const char*>>(0x560BB0, this, arg1);
+    VirtualFileInode* Nodes {nullptr};
+    u32 NodeCount {0};
+
+    void inline FillInfo(VirtualFileSystem* fs, FileInfo* info)
+    {
+        fs->ExpandName(info->Path, std::size(info->Path), Nodes);
+        info->IsDirectory = Nodes->IsDirectory();
+    }
+};
+
+struct FileInfo* VirtualFileSystem::FirstEntry(const char* path)
+{
+    export_hook(0x560BB0);
+
+    VirtualFileInode* nodes = nullptr;
+    u32 node_count = 0;
+
+    if (*path)
+    {
+        VirtualFileInode* node = Lookup(path);
+
+        if (!node || !node->IsDirectory())
+            return nullptr;
+
+        nodes = &file_nodes_[node->GetEntryIndex()];
+        node_count = node->GetEntryCount();
+    }
+    else
+    {
+        nodes = file_nodes_.get();
+        node_count = file_header_.RootCount;
+    }
+
+    FileInfo* result = new FileInfo {};
+
+    VirtualFileEntry* context = new VirtualFileEntry {nodes, node_count};
+    context->FillInfo(this, result);
+
+    result->Context = context;
+
+    return result;
 }
 
 b32 VirtualFileSystem::GetDir(char*, i32)
@@ -84,48 +128,253 @@ b32 VirtualFileSystem::GetDir(char*, i32)
     return false;
 }
 
-struct FileInfo* VirtualFileSystem::NextEntry(struct FileInfo* arg1)
+struct FileInfo* VirtualFileSystem::NextEntry(struct FileInfo* info)
 {
-    return stub<thiscall_t<struct FileInfo*, VirtualFileSystem*, struct FileInfo*>>(0x560D00, this, arg1);
+    export_hook(0x560D00);
+
+    VirtualFileEntry* context = static_cast<VirtualFileEntry*>(info->Context);
+
+    if (!--context->NodeCount)
+    {
+        delete context;
+        delete info;
+
+        return nullptr;
+    }
+
+    ++context->Nodes;
+    context->FillInfo(this, info);
+
+    return info;
 }
 
-class Stream* VirtualFileSystem::OpenOn(const char* arg1, i32 arg2, void* arg3, i32 arg4)
+class Stream* VirtualFileSystem::OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len)
 {
-    return stub<thiscall_t<class Stream*, VirtualFileSystem*, const char*, i32, void*, i32>>(
-        0x560AD0, this, arg1, arg2, arg3, arg4);
+    export_hook(0x560AD0);
+
+    if (mode == 0)
+        return nullptr;
+
+    VirtualFileInode* node = Lookup(path);
+
+    if (!node || node->IsDirectory())
+        return nullptr;
+
+    return new VirtualStream(base_stream_.get(), node, buffer, buffer_len, this);
 }
 
-i32 VirtualFileSystem::PagerInfo(const char* arg1, struct PagerInfo_t& arg2)
+b32 VirtualFileSystem::PagerInfo(const char* path, struct PagerInfo_t& info)
 {
-    return stub<thiscall_t<i32, VirtualFileSystem*, const char*, struct PagerInfo_t&>>(0x560A50, this, arg1, arg2);
+    export_hook(0x560A50);
+
+    VirtualFileInode* node = Lookup(path);
+
+    if (!node || node->IsDirectory())
+        return false;
+
+    info.Handle = base_stream_->GetPagerHandle();
+    info.Offset = node->GetOffset();
+    info.Size = node->GetSize();
+    info.Name = &file_names_[node->GetNameOffset()]; // FIXME: This points to a packed name
+
+    return true;
 }
 
-i32 VirtualFileSystem::QueryOn(const char* arg1)
+b32 VirtualFileSystem::QueryOn(const char* path)
 {
-    return stub<thiscall_t<i32, VirtualFileSystem*, const char*>>(0x560A00, this, arg1);
+    export_hook(0x560A00);
+
+    VirtualFileInode* node = Lookup(path);
+
+    return node && !node->IsDirectory();
 }
 
-i32 VirtualFileSystem::ValidPath(const char* arg1)
+b32 VirtualFileSystem::ValidPath(const char*)
 {
-    return stub<thiscall_t<i32, VirtualFileSystem*, const char*>>(0x560780, this, arg1);
+    export_hook(0x560780);
+
+    return true;
 }
 
-void VirtualFileSystem::ExpandName(char* arg1, struct VirtualFileInode* arg2, char* arg3)
+void VirtualFileSystem::ExpandName(char* buf, struct VirtualFileInode* node, const char* names)
 {
-    // TODO: Pass buffer size
+    export_hook(0x560800);
 
-    return stub<cdecl_t<void, char*, struct VirtualFileInode*, char*>>(0x560800, arg1, arg2, arg3);
+    ExpandName(buf, 56, node, names);
 }
 
-struct VirtualFileInode* VirtualFileSystem::Lookup(struct VirtualFileInode* arg1, i32 arg2, char* arg3, char* arg4)
+void VirtualFileSystem::ExpandName(char* buf, i32 buf_len, VirtualFileInode* node, const char* names)
 {
-    return stub<cdecl_t<struct VirtualFileInode*, struct VirtualFileInode*, i32, char*, char*>>(
-        0x560920, arg1, arg2, arg3, arg4);
+    buf_len -= 1;
+
+    const char* name = &names[node->GetNameOffset()];
+
+    while (*name && buf_len)
+    {
+        char c = *name++;
+
+        if (c == '\1')
+        {
+            // Max Value: 8191
+            u32 value = node->GetNameInteger();
+            bool pad = false;
+
+            if (value >= 1000)
+            {
+                *buf++ = char(value / 1000) + '0';
+
+                if (--buf_len == 0)
+                    break;
+
+                value %= 1000;
+                pad = true;
+            }
+
+            if (pad || value >= 100)
+            {
+                *buf++ = char(value / 100) + '0';
+
+                if (--buf_len == 0)
+                    break;
+
+                value %= 100;
+                pad = true;
+            }
+
+            if (pad || value >= 10)
+            {
+                *buf++ = char(value / 10) + '0';
+
+                if (--buf_len == 0)
+                    break;
+
+                value %= 10;
+            }
+
+            c = char(value) + '0';
+        }
+
+        *buf++ = c;
+        --buf_len;
+    }
+
+    if (u32 ext_offset = node->GetExtOffset())
+    {
+        const char* ext = &names[ext_offset];
+
+        if (buf_len)
+        {
+            *buf++ = '.';
+            --buf_len;
+        }
+
+        while (*ext && buf_len)
+        {
+            *buf++ = *ext++;
+            --buf_len;
+        }
+    }
+
+    *buf = '\0';
 }
 
-void VirtualFileSystem::NormalizeName(char* arg1, char* arg2)
+struct VirtualFileInode* VirtualFileSystem::Lookup(
+    struct VirtualFileInode* nodes, i32 node_count, const char* names, char* path)
 {
-    // TODO: Pass buffer size
+    export_hook(0x560920);
 
-    return stub<cdecl_t<void, char*, char*>>(0x560790, arg1, arg2);
+    if (node_count == 0)
+        return nullptr;
+
+    i32 start = 0;
+    i32 end = node_count - 1;
+
+    while (true)
+    {
+        char* dir_end = std::strchr(path, '/');
+
+        if (dir_end)
+            *dir_end = '\0';
+
+        VirtualFileInode* node = nullptr;
+
+        while (true)
+        {
+            if (start > end)
+                return nullptr;
+
+            i32 here = (start + end) >> 1;
+
+            node = &nodes[here];
+
+            char buf[256];
+            ExpandName(buf, 256, node, names);
+
+            i32 cmp = std::strcmp(path, buf);
+
+            if (cmp > 0)
+                start = here + 1;
+            else if (cmp < 0)
+                end = here - 1;
+            else
+                break;
+        }
+
+        if (dir_end == nullptr)
+            return node;
+
+        if (!node->IsDirectory())
+            return nullptr;
+
+        start = node->GetEntryIndex();
+        end = start + node->GetEntryCount() - 1;
+        path = dir_end + 1;
+    }
+}
+
+void VirtualFileSystem::NormalizeName(char* buf, const char* path)
+{
+    export_hook(0x560790);
+
+    NormalizeName(buf, 56, path);
+}
+
+void VirtualFileSystem::NormalizeName(char* buf, i32 buf_len, const char* path)
+{
+    if (!std::strncmp(path, "/VFS/", 5))
+        path += 5;
+
+    while (IsPathSeparator(*path))
+        ++path;
+
+    buf_len -= 1;
+
+    while (*path && buf_len)
+    {
+        char c = *path++;
+
+        if (c >= 'a' && c <= 'z')
+            c += 'A' - 'a';
+        else if (c == '\\')
+            c = '/';
+        else if (c < 0x20)
+            continue;
+
+        *buf++ = c;
+        --buf_len;
+    }
+
+    *buf = '\0';
+}
+
+inline VirtualFileInode* VirtualFileSystem::Lookup(const char* path)
+{
+    char buffer[256];
+    NormalizeName(buffer, 256, path);
+    return Lookup(file_nodes_.get(), file_header_.RootCount, file_names_.get(), buffer);
+}
+
+void VirtualFileSystem::ExpandName(char* buf, i32 buf_len, VirtualFileInode* node)
+{
+    ExpandName(buf, buf_len, node, file_names_.get());
 }

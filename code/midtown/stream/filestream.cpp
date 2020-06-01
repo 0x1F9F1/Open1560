@@ -83,12 +83,11 @@ i32 FileStream::Create(const char* path)
     return file_handle_;
 }
 
-u32 FileStream::GetPagerHandle()
+usize FileStream::GetPagerHandle()
 {
     export_hook(0x561830);
 
-    // TODO: Use usize/void*
-    return reinterpret_cast<u32>(pager_handle_);
+    return reinterpret_cast<usize>(pager_handle_);
 }
 
 i32 FileStream::Open(const char* path, b32 paged)

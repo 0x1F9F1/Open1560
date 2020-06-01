@@ -50,6 +50,8 @@ struct FileInfo
     char Path[256] {};
     b32 IsDirectory {false};
     void* Context {nullptr};
+
+    // TODO: Use inheritance instead of Context pointer
 };
 
 check_size(FileInfo, 0x108);

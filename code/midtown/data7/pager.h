@@ -27,11 +27,10 @@
 
 struct PagerInfo_t
 {
-    // TODO: Fix GetPagerHandle() to match Handle type
-    void* Handle {nullptr};
+    usize Handle {0};
     u32 Offset {0};
     u32 Size {0};
-    char* Name {nullptr};
+    const char* Name {nullptr};
 
     // 0x5605D0 | ?Read@PagerInfo_t@@QAEXPAXII@Z
     void Read(void* buffer, u32 offset, u32 size);

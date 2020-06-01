@@ -162,36 +162,46 @@ public:
     class Stream* CreateOn(const char* path, void* buffer, i32 buffer_len) override;
 
     // 0x560BB0 | ?FirstEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAD@Z
-    struct FileInfo* FirstEntry(const char* arg1) override;
+    struct FileInfo* FirstEntry(const char* path) override;
 
     // 0x560BA0 | ?GetDir@VirtualFileSystem@@UAEHPADH@Z
     b32 GetDir(char* buffer, i32 buffer_len) override;
 
     // 0x560D00 | ?NextEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAU2@@Z
-    struct FileInfo* NextEntry(struct FileInfo* arg1) override;
+    struct FileInfo* NextEntry(struct FileInfo* info) override;
 
     // 0x560AD0 | ?OpenOn@VirtualFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    class Stream* OpenOn(const char* arg1, i32 arg2, void* arg3, i32 arg4) override;
+    class Stream* OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len) override;
 
     // 0x560A50 | ?PagerInfo@VirtualFileSystem@@UAEHPADAAUPagerInfo_t@@@Z
-    i32 PagerInfo(const char* arg1, struct PagerInfo_t& arg2) override;
+    b32 PagerInfo(const char* path, struct PagerInfo_t& info) override;
 
     // 0x560A00 | ?QueryOn@VirtualFileSystem@@UAEHPAD@Z
-    i32 QueryOn(const char* arg1) override;
+    b32 QueryOn(const char* path) override;
 
     // 0x560780 | ?ValidPath@VirtualFileSystem@@UAEHPAD@Z
-    i32 ValidPath(const char* arg1) override;
+    b32 ValidPath(const char* path) override;
 
     // 0x560800 | ?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@0@Z
-    static void ExpandName(char* arg1, struct VirtualFileInode* arg2, char* arg3);
+    [[deprecated]] static void ExpandName(char* buf, struct VirtualFileInode* node, const char* names);
+
+    static void ExpandName(char* buf, i32 buf_len, struct VirtualFileInode* node, const char* names);
 
     // 0x560920 | ?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPAD1@Z
-    static struct VirtualFileInode* Lookup(struct VirtualFileInode* arg1, i32 arg2, char* arg3, char* arg4);
+    static struct VirtualFileInode* Lookup(
+        struct VirtualFileInode* nodes, i32 node_count, const char* names, char* path);
 
     // 0x560790 | ?NormalizeName@VirtualFileSystem@@SAXPAD0@Z
-    static void NormalizeName(char* arg1, char* arg2);
+    [[deprecated]] static void NormalizeName(char* buf, const char* path);
+
+    static void NormalizeName(char* buf, i32 buf_len, const char* path);
 
 private:
+    friend struct VirtualFileEntry;
+
+    VirtualFileInode* Lookup(const char* path);
+    void ExpandName(char* buf, i32 buf_len, struct VirtualFileInode* node);
+
     Ptr<Stream> base_stream_ {nullptr};
     AresHeader file_header_ {};
     Ptr<VirtualFileInode[]> file_nodes_ {nullptr};
