@@ -72,7 +72,7 @@ public:
     struct FileInfo* NextEntry(struct FileInfo* info) override;
 
     // 0x560100 | ?OpenOn@HierFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    class Stream* OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len) override;
+    class Stream* OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
 
     // 0x560040 | ?QueryOn@HierFileSystem@@UAEHPAD@Z
     b32 QueryOn(const char* path) override;

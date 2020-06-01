@@ -90,18 +90,19 @@ usize FileStream::GetPagerHandle()
     return reinterpret_cast<usize>(pager_handle_);
 }
 
-i32 FileStream::Open(const char* path, b32 paged)
+i32 FileStream::Open(const char* path, b32 read_only)
 {
     export_hook(0x561870);
 
     if (file_handle_ != -1)
         return -1;
 
-    pager_handle_ = paged
+    pager_handle_ = read_only
         ? CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr)
         : nullptr;
 
-    if (_sopen_s(&file_handle_, path, (paged ? _O_RDONLY : _O_RDWR) | _O_BINARY, _SH_DENYNO, _S_IREAD | _S_IWRITE) != 0)
+    if (_sopen_s(
+            &file_handle_, path, (read_only ? _O_RDONLY : _O_RDWR) | _O_BINARY, _SH_DENYNO, _S_IREAD | _S_IWRITE) != 0)
         file_handle_ = -1;
 
     return file_handle_;

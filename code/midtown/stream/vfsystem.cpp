@@ -148,11 +148,11 @@ struct FileInfo* VirtualFileSystem::NextEntry(struct FileInfo* info)
     return info;
 }
 
-class Stream* VirtualFileSystem::OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len)
+class Stream* VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
     export_hook(0x560AD0);
 
-    if (mode == 0)
+    if (!read_only)
         return nullptr;
 
     VirtualFileInode* node = Lookup(path);

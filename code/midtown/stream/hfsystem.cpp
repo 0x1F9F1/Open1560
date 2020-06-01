@@ -20,9 +20,9 @@ define_dummy_symbol(stream_hfsystem);
 
 #include "hfsystem.h"
 
-#include "data7/pager.h"
-
 #include "core/minwin.h"
+#include "data7/pager.h"
+#include "filestream.h"
 
 #include <direct.h>
 #include <io.h>
@@ -39,10 +39,34 @@ b32 HierFileSystem::ChangeDir(const char* path)
     return _chdir(path) >= 0;
 }
 
+static inline constexpr bool IsStdPath(const char* path) noexcept
+{
+    return (path[0] == '-') && !path[1];
+}
+
 class Stream* HierFileSystem::CreateOn(const char* path, void* buffer, i32 buffer_len)
 {
-    return stub<thiscall_t<class Stream*, HierFileSystem*, const char*, void*, i32>>(
-        0x5602A0, this, path, buffer, buffer_len);
+    export_hook(0x5602A0);
+
+    FileStream* result = new FileStream(buffer, buffer_len, this);
+
+    path = FQN(path);
+
+    i32 error = IsStdPath(path) ? result->Stdout() : result->Create(path);
+
+    if (error >= 0)
+    {
+        if (LogOpenOn)
+            Displayf("::OPEN::%s", path);
+    }
+    else
+    {
+        result->Error("CreateOn.FileStream.Create");
+        delete result;
+        result = nullptr;
+    }
+
+    return result;
 }
 
 struct HierFileEntry
@@ -117,10 +141,36 @@ struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* info)
     return info;
 }
 
-class Stream* HierFileSystem::OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len)
+class Stream* HierFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
-    return stub<thiscall_t<class Stream*, HierFileSystem*, const char*, i32, void*, i32>>(
-        0x560100, this, path, mode, buffer, buffer_len);
+    export_hook(0x560100);
+
+    path = FQN(path);
+
+    FileStream* result = new FileStream(buffer, buffer_len, this);
+
+    i32 error = 0;
+
+    if (read_only && IsStdPath(path))
+    {
+        error = result->Stdin();
+    }
+    else
+    {
+        if (read_only && LogOpenOn)
+            Displayf("::OPEN::%s", path);
+
+        error = result->Open(path, read_only);
+    }
+
+    if (error < 0)
+    {
+        result->Error("OpenOn.FileStream.Open");
+        delete result;
+        result = nullptr;
+    }
+
+    return result;
 }
 
 b32 HierFileSystem::QueryOn(const char* path)
@@ -160,6 +210,7 @@ b32 HierFileSystem::ValidPath(const char*)
     return true;
 }
 
+// TODO: Avoid this static buffer
 static char FQNPathBuffer[128] {};
 
 const char* FQN(const char* path)

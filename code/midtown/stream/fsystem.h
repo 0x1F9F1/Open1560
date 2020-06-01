@@ -72,7 +72,7 @@ public:
 
     virtual b32 QueryOn(const char* path) = 0;
 
-    virtual class Stream* OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len) = 0;
+    virtual class Stream* OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) = 0;
 
     virtual class Stream* CreateOn(const char* path, void* buffer, i32 buffer_len) = 0;
 
@@ -91,7 +91,7 @@ public:
     b32 Search(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len);
 
     // 0x55FE60 | ?OpenAny@FileSystem@@SAPAVStream@@PADHPAXH@Z
-    static class Stream* OpenAny(const char* path, i32 mode, void* buffer, i32 buffer_len);
+    static class Stream* OpenAny(const char* path, b32 read_only, void* buffer, i32 buffer_len);
 
     // 0x55FED0 | ?PagerInfoAny@FileSystem@@SAHPADAAUPagerInfo_t@@@Z
     static b32 PagerInfoAny(const char* path, struct PagerInfo_t& pager);

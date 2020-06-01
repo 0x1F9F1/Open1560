@@ -171,7 +171,7 @@ public:
     struct FileInfo* NextEntry(struct FileInfo* info) override;
 
     // 0x560AD0 | ?OpenOn@VirtualFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    class Stream* OpenOn(const char* path, i32 mode, void* buffer, i32 buffer_len) override;
+    class Stream* OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
 
     // 0x560A50 | ?PagerInfo@VirtualFileSystem@@UAEHPADAAUPagerInfo_t@@@Z
     b32 PagerInfo(const char* path, struct PagerInfo_t& info) override;

@@ -70,7 +70,7 @@ public:
     usize GetPagerHandle() override;
 
     // 0x561870 | ?Open@FileStream@@QAEHPADH@Z
-    i32 Open(const char* path, b32 paged);
+    i32 Open(const char* path, b32 read_only);
 
     // 0x561970 | ?RawRead@FileStream@@UAEHPAXH@Z
     i32 RawRead(void* ptr, i32 size) override;

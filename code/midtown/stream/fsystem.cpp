@@ -120,9 +120,7 @@ static i32 Contains(const char* strs, const char* str)
 }
 
 static void ExpandEnvs(char* /*str*/)
-{
-    // return stub<cdecl_t<void, char*>>(0x55FC20, str);
-}
+{}
 
 b32 FileSystem::Search(const char* file, const char* folder, const char* ext, i32 ext_id, char* output, i32 buffer_len)
 {
@@ -212,7 +210,7 @@ b32 FileSystem::Search(const char* file, const char* folder, const char* ext, i3
     return false;
 }
 
-class Stream* FileSystem::OpenAny(const char* path, i32 mode, void* buffer, i32 buffer_len)
+class Stream* FileSystem::OpenAny(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
     export_hook(0x55FE60);
 
@@ -221,7 +219,7 @@ class Stream* FileSystem::OpenAny(const char* path, i32 mode, void* buffer, i32 
         FileSystem* f = FS[i];
 
         if (f->QueryOn(path))
-            return f->OpenOn(path, mode, buffer, buffer_len);
+            return f->OpenOn(path, read_only, buffer, buffer_len);
     }
 
     return nullptr;
