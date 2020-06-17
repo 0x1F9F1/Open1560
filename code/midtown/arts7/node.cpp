@@ -41,8 +41,6 @@ asNode::~asNode()
 
 void asNode::Update()
 {
-    export_hook(0x523890);
-
     if (DebugMemory & 0x2)
         ALLOCATOR.SanityCheck();
 
@@ -97,8 +95,6 @@ void asNode::UpdatePaused()
 
 void asNode::Load()
 {
-    export_hook(0x524150);
-
     const char* name = node_name_.get();
 
     if (!name || !std::strncmp(name, "_", 1))
@@ -115,8 +111,6 @@ void asNode::Load()
 
 void asNode::Save()
 {
-    export_hook(0x523F70);
-
     const char* name = node_name_.get();
 
     if (!name || !std::strncmp(name, "_", 1))
@@ -133,8 +127,6 @@ void asNode::Save()
 
 void asNode::AddWidgets(class Bank* bank)
 {
-    export_hook(0x524330);
-
     current_bank_ = bank;
 
     bank->AddToggle("Active", &node_flags_, 0x1, NullCallback);
@@ -146,27 +138,19 @@ void asNode::AddWidgets(class Bank* bank)
 }
 
 void asNode::OpenWidgets(char* /*arg1*/, class bkWindow* /*arg2*/)
-{
-    export_hook(0x5243E0);
-}
+{}
 
 void asNode::CloseWidgets()
 {
-    export_hook(0x5243F0);
-
     if (current_bank_)
         current_bank_->Off();
 }
 
 void asNode::AddButton(class Bank* /*arg1*/, i32& /*arg2*/)
-{
-    export_hook(0x524400);
-}
+{}
 
 b32 asNode::AddChild(class asNode* child)
 {
-    export_hook(0x523A70);
-
     if (!child)
     {
         Errorf("asNode::AddChild() - N=0");
@@ -194,8 +178,6 @@ b32 asNode::AddChild(class asNode* child)
 
 class asNode* asNode::GetChild(i32 index)
 {
-    export_hook(0x523C80);
-
     asNode* child = child_node_;
 
     for (i32 i = 1; i < index; ++i)
@@ -211,8 +193,6 @@ class asNode* asNode::GetChild(i32 index)
 
 class asNode* asNode::GetLastChild()
 {
-    export_hook(0x523CC0);
-
     if (!parent_node_)
     {
         Errorf("GetLastChild() - Need ParentNode set.");
@@ -240,15 +220,11 @@ class asNode* asNode::GetLastChild()
 
 const char* asNode::GetNodeType()
 {
-    export_hook(0x523DC0);
-
     return GetClass()->GetName();
 }
 
 class asNode* asNode::GetParent(class MetaClass* cls)
 {
-    export_hook(0x523D80);
-
     asNode* n = parent_node_;
 
     for (; n; n = n->parent_node_)
@@ -262,8 +238,6 @@ class asNode* asNode::GetParent(class MetaClass* cls)
 
 b32 asNode::InsertChild(i32 index, class asNode* child)
 {
-    export_hook(0x523AF0);
-
     if (!child)
     {
         Errorf("asNode::InsertChild()- N==0");
@@ -295,8 +269,6 @@ b32 asNode::InsertChild(i32 index, class asNode* child)
 
 b32 asNode::Load(const char* path)
 {
-    export_hook(0x523DD0);
-
     Ptr<Stream> input(arts_fopen(path, "r"));
 
     if (!input)
@@ -323,8 +295,6 @@ b32 asNode::Load(const char* path)
 
 i32 asNode::NumChildren()
 {
-    export_hook(0x523D00);
-
     i32 count = 0;
 
     for (asNode* n = child_node_; n; n = n->next_node_)
@@ -335,8 +305,6 @@ i32 asNode::NumChildren()
 
 void asNode::PerfReport(class Stream* output, i32 indent)
 {
-    export_hook(0x5239D0);
-
     f32 self_update = update_time_;
 
     for (asNode* n = child_node_; n; n = n->next_node_)
@@ -354,16 +322,12 @@ void asNode::PerfReport(class Stream* output, i32 indent)
 
 void asNode::RemoveAllChildren()
 {
-    export_hook(0x523C60);
-
     while (child_node_)
         RemoveChild(1);
 }
 
 b32 asNode::RemoveChild(class asNode* child)
 {
-    export_hook(0x523C20);
-
     i32 i = 1;
     for (asNode* n = child_node_; n; n = n->next_node_, ++i)
     {
@@ -376,8 +340,6 @@ b32 asNode::RemoveChild(class asNode* child)
 
 b32 asNode::RemoveChild(i32 idx)
 {
-    export_hook(0x523B80);
-
     if (!child_node_)
     {
         Errorf("asNode::RemoveChild()- No children!");
@@ -405,8 +367,6 @@ b32 asNode::RemoveChild(i32 idx)
 
 void asNode::ResetTime()
 {
-    export_hook(0x5239B0);
-
     update_time_ = 0.0f;
 
     for (asNode* n = child_node_; n; n = n->next_node_)
@@ -415,8 +375,6 @@ void asNode::ResetTime()
 
 b32 asNode::Save(const char* path)
 {
-    export_hook(0x523EC0);
-
     Ptr<Stream> output(arts_fopen(path, "w"));
 
     if (!output)
@@ -434,15 +392,11 @@ b32 asNode::Save(const char* path)
 
 void asNode::SetName(const char* name)
 {
-    export_hook(0x523860);
-
     node_name_ = name;
 }
 
 void asNode::SwitchTo(i32 idx)
 {
-    export_hook(0x523D20);
-
     idx = std::clamp(idx, -1, NumChildren());
 
     i32 i = 1;
@@ -463,8 +417,6 @@ static b32 IsValidPointer(void* ptr, u32 len, b32 writeable)
 
 const char* asNode::VerifyTree()
 {
-    export_hook(0x523440);
-
     // TODO: Move to arts7:sim
 
     if (!IsValidPointer(this, sizeof(*this), true))

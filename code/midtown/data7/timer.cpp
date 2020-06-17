@@ -33,8 +33,6 @@ f32 Timer::TicksToSeconds = 0.0f;
 
 ARTS_NOINLINE Timer::Timer()
 {
-    export_hook(0x576870);
-
     if (TicksToSeconds == 0.0f)
     {
         LARGE_INTEGER frequency;
@@ -52,15 +50,11 @@ ARTS_NOINLINE Timer::Timer()
 
 ARTS_NOINLINE f32 Timer::Time()
 {
-    export_hook(0x5768F0);
-
     return (Ticks() - start_ticks_) * TicksToSeconds;
 }
 
 void Timer::BeginBenchmark()
 {
-    export_hook(0x576920);
-
     TimerOldPriorityClass = GetPriorityClass(GetCurrentProcess());
     TimerOldPriority = GetThreadPriority(GetCurrentThread());
 
@@ -73,8 +67,6 @@ void Timer::BeginBenchmark()
 
 void Timer::EndBenchmark()
 {
-    export_hook(0x576990);
-
     SetPriorityClass(GetCurrentProcess(), TimerOldPriorityClass);
     SetThreadPriority(GetCurrentThread(), TimerOldPriority);
 }
@@ -84,10 +76,8 @@ void Timer::Sleep(i32 ms)
     ::Sleep(ms);
 }
 
-u32 Timer::Ticks()
+ulong Timer::Ticks()
 {
-    export_hook(0x576830);
-
     if (TimerMode == 1)
     {
         return timeGetTime();

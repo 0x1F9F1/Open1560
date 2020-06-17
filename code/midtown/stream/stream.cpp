@@ -33,8 +33,6 @@ Stream::Stream(void* buffer, i32 buffer_size, class FileSystem* file_system)
     , file_system_(file_system)
     , little_endian_(IsLittleEndian)
 {
-    export_hook(0x55E8B0);
-
     if (buffer_ == nullptr && buffer_capacity_ != 0)
     {
         buffer_ = new u8[buffer_capacity_];
@@ -48,8 +46,6 @@ Stream::Stream(void* buffer, i32 buffer_size, class FileSystem* file_system)
 
 Stream::~Stream()
 {
-    export_hook(0x55E940);
-
     // FIXME: If the file actually requires flushing, this will result in purecalls
     Flush();
 
@@ -114,8 +110,6 @@ i32 Stream::Flush()
 
 i32 Stream::Get(u16* values, i32 count)
 {
-    export_hook(0x55F190);
-
     count = Read(values, count * sizeof(*values)) / sizeof(*values);
 
     if (swap_endian_)
@@ -126,8 +120,6 @@ i32 Stream::Get(u16* values, i32 count)
 
 i32 Stream::Get(u32* values, i32 count)
 {
-    export_hook(0x55F1D0);
-
     count = Read(values, count * sizeof(*values)) / sizeof(*values);
 
     if (swap_endian_)
@@ -138,8 +130,6 @@ i32 Stream::Get(u32* values, i32 count)
 
 i32 Stream::GetString(char* buffer, i32 buffer_len)
 {
-    export_hook(0x55EEF0);
-
     u32 len = GetLong();
 
     if (len <= static_cast<u32>(buffer_len)) // TODO: Should this be "<" to ensure a null terminator?
@@ -160,8 +150,6 @@ i32 Stream::GetString(char* buffer, i32 buffer_len)
 
 i32 Stream::Printf(ARTS_FORMAT_STRING char const* format, ...)
 {
-    export_hook(0x55EDF0);
-
     std::va_list va;
     va_start(va, format);
     i32 result = Vprintf(format, va);
@@ -171,8 +159,6 @@ i32 Stream::Printf(ARTS_FORMAT_STRING char const* format, ...)
 
 i32 Stream::Put(f32 value)
 {
-    export_hook(0x55F020);
-
     if (swap_endian_)
         ByteSwap(value);
 
@@ -181,8 +167,6 @@ i32 Stream::Put(f32 value)
 
 i32 Stream::Put(u16 value)
 {
-    export_hook(0x55EFA0);
-
     if (swap_endian_)
         ByteSwap(value);
 
@@ -191,8 +175,6 @@ i32 Stream::Put(u16 value)
 
 i32 Stream::Put(u32 value)
 {
-    export_hook(0x55EFD0);
-
     if (swap_endian_)
         ByteSwap(value);
 
@@ -201,15 +183,11 @@ i32 Stream::Put(u32 value)
 
 i32 Stream::Put(u8 value)
 {
-    export_hook(0x55EF80);
-
     return Write(&value, sizeof(value)) / sizeof(value);
 }
 
 i32 Stream::Put(const u16* values, i32 count)
 {
-    export_hook(0x55F0A0);
-
     if (swap_endian_)
     {
         i32 result = 0;
@@ -227,8 +205,6 @@ i32 Stream::Put(const u16* values, i32 count)
 
 i32 Stream::Put(const u32* values, i32 count)
 {
-    export_hook(0x55F100);
-
     if (swap_endian_)
     {
         i32 result = 0;
@@ -246,15 +222,11 @@ i32 Stream::Put(const u32* values, i32 count)
 
 i32 Stream::Put(const u8* values, i32 count)
 {
-    export_hook(0x55F080);
-
     return Write(values, sizeof(*values) * count) / sizeof(*values);
 }
 
 i32 Stream::PutString(const char* str)
 {
-    export_hook(0x55EEB0);
-
     u32 len = std::strlen(str) + 1;
 
     Put(len);
@@ -263,8 +235,6 @@ i32 Stream::PutString(const char* str)
 
 i32 Stream::Read(void* ptr, i32 size)
 {
-    export_hook(0x55E9C0);
-
     if ((buffer_read_ == 0) && (buffer_head_ != 0) && (Flush() < 0))
         return -1;
 
@@ -328,8 +298,6 @@ i32 Stream::Read(void* ptr, i32 size)
 
 i32 Stream::Seek(i32 position)
 {
-    export_hook(0x55EC60);
-
     // TODO: Avoid Flush/RawSeek when position is inside the buffer
     // TODO: Add origin param, similar to fseek
 
@@ -343,8 +311,6 @@ i32 Stream::Seek(i32 position)
 
 i32 Stream::Size()
 {
-    export_hook(0x55ECA0);
-
     if (Flush() < 0)
         return -1;
 
@@ -358,8 +324,6 @@ i32 Stream::Tell()
 
 i32 Stream::Vprintf(char const* format, std::va_list va)
 {
-    export_hook(0x55EE40);
-
     char buffer[256];
     arts_vsprintf(buffer, format, va);
     return Write(buffer, std::strlen(buffer));
@@ -367,8 +331,6 @@ i32 Stream::Vprintf(char const* format, std::va_list va)
 
 i32 Stream::Write(const void* ptr, i32 size)
 {
-    export_hook(0x55EB00);
-
     if ((buffer_read_ != 0) && (Flush() < 0))
         return -1;
 
@@ -422,24 +384,18 @@ i32 Stream::GetError(char* buf, i32 buf_len)
 
 void Stream::SwapLongs(u32* values, i32 count)
 {
-    export_hook(0x55F240);
-
     for (i32 i = 0; i < count; ++i)
         ByteSwap(values[i]);
 }
 
 void Stream::SwapShorts(u16* values, i32 count)
 {
-    export_hook(0x55F210);
-
     for (i32 i = 0; i < count; ++i)
         ByteSwap(values[i]);
 }
 
 i32 arts_fgets(char* buffer, i32 buffer_len, class Stream* stream)
 {
-    export_hook(0x55F3E0);
-
     if (buffer_len == 0)
         return 0;
 
@@ -467,15 +423,11 @@ i32 arts_fgets(char* buffer, i32 buffer_len, class Stream* stream)
 
 class Stream* arts_fopen(const char* path, const char* mode)
 {
-    export_hook(0x55F2F0);
-
     return (mode[0] == 'r') ? FileSystem::OpenAny(path, mode[1] != '+', 0, 4096) : HFS.CreateOn(path, 0, 4096);
 }
 
 void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, ...)
 {
-    export_hook(0x55F2D0);
-
     std::va_list va;
     va_start(va, format);
     stream->Vprintf(format, va);
@@ -484,8 +436,6 @@ void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, .
 
 i32 arts_fscanf(class Stream* stream, char const* format, ...)
 {
-    export_hook(0x55F450);
-
     i32 ch = -1;
 
     do
@@ -536,8 +486,6 @@ i32 arts_fscanf(class Stream* stream, char const* format, ...)
 
 i32 arts_fseek(class Stream* stream, i32 offset, i32 origin)
 {
-    export_hook(0x55F330);
-
     switch (origin)
     {
         case 0: break;

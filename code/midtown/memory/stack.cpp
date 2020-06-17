@@ -179,8 +179,6 @@ void DebugLogShutdown()
 
 void DoStackTraceback(i32 depth, i32* frame)
 {
-    export_hook(0x5204C0);
-
     while (depth--)
     {
         __try
@@ -271,17 +269,13 @@ void LookupAddress(char* buffer, usize buflen, usize address)
     arts_sprintf(buffer, buflen, "0x%X (Unknown)", address);
 }
 
-void LookupAddress(char* buffer, i32 addr)
+ARTS_EXPORT void LookupAddress(char* buffer, i32 addr)
 {
-    export_hook(0x520130);
-
     LookupAddress(buffer, 128, usize(addr));
 }
 
 void StackTraceback(i32 depth)
 {
-    export_hook(0x520590);
-
     i32* frame = reinterpret_cast<i32*>(_AddressOfReturnAddress()) - 1;
 
     DoStackTraceback(depth, frame);

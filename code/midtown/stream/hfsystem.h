@@ -50,41 +50,41 @@ class HierFileSystem : public FileSystem
 
 public:
     // 0x55FF50 | ??0HierFileSystem@@QAE@XZ
-    HierFileSystem();
+    ARTS_EXPORT HierFileSystem();
 
     // 0x560620 | ??_GHierFileSystem@@UAEPAXI@Z
     // 0x55FF70 | ??1HierFileSystem@@UAE@XZ
-    ~HierFileSystem() override;
+    ARTS_EXPORT ~HierFileSystem() override;
 
     // 0x560380 | ?ChangeDir@HierFileSystem@@UAEHPAD@Z
-    b32 ChangeDir(const char* path) override;
+    ARTS_EXPORT b32 ChangeDir(const char* path) override;
 
     // 0x5602A0 | ?CreateOn@HierFileSystem@@UAEPAVStream@@PADPAXH@Z
-    Owner<class Stream*> CreateOn(const char* path, void* buffer, i32 buffer_len) override;
+    ARTS_EXPORT Owner<class Stream*> CreateOn(const char* path, void* buffer, i32 buffer_len) override;
 
     // 0x5603C0 | ?FirstEntry@HierFileSystem@@UAEPAUFileInfo@@PAD@Z
-    Owner<struct FileInfo*> FirstEntry(const char* path) override;
+    ARTS_EXPORT Owner<struct FileInfo*> FirstEntry(const char* path) override;
 
     // 0x5603A0 | ?GetDir@HierFileSystem@@UAEHPADH@Z
-    b32 GetDir(char* buffer, i32 buffer_len) override;
+    ARTS_EXPORT b32 GetDir(char* buffer, i32 buffer_len) override;
 
     // 0x560500 | ?NextEntry@HierFileSystem@@UAEPAUFileInfo@@PAU2@@Z
-    Owner<struct FileInfo*> NextEntry(Owner<struct FileInfo*> info) override;
+    ARTS_EXPORT Owner<struct FileInfo*> NextEntry(Owner<struct FileInfo*> info) override;
 
     // 0x560100 | ?OpenOn@HierFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    Owner<class Stream*> OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
+    ARTS_EXPORT Owner<class Stream*> OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
 
     // 0x560040 | ?QueryOn@HierFileSystem@@UAEHPAD@Z
-    b32 QueryOn(const char* path) override;
+    ARTS_EXPORT b32 QueryOn(const char* path) override;
 
     // 0x55FF80 | ?ValidPath@HierFileSystem@@UAEHPAD@Z
-    b32 ValidPath(const char* path) override;
+    ARTS_EXPORT b32 ValidPath(const char* path) override;
 };
 
 check_size(HierFileSystem, 0x8);
 
 // 0x55FF90 | ?FQN@@YAPADPAD@Z
-const char* FQN(const char* path);
+ARTS_EXPORT const char* FQN(const char* path);
 
 // 0x907BC8 | ?HFS@@3VHierFileSystem@@A
 inline extern_var(0x907BC8, class HierFileSystem, HFS);

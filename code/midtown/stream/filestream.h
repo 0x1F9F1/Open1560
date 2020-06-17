@@ -51,50 +51,50 @@ class FileStream : public Stream
 
 public:
     // 0x5618E0 | ??0FileStream@@QAE@H@Z
-    FileStream(i32 handle);
+    ARTS_EXPORT FileStream(i32 handle);
 
     // 0x5617F0 | ??0FileStream@@QAE@PAXHPAVFileSystem@@@Z
-    FileStream(void* buffer, i32 buffer_size, class FileSystem* file_system);
+    ARTS_EXPORT FileStream(void* buffer, i32 buffer_size, class FileSystem* file_system);
 
     // 0x561B10 | ??_EFileStream@@UAEPAXI@Z
     // 0x561A60 | ??1FileStream@@UAE@XZ
-    ~FileStream() override;
+    ARTS_EXPORT ~FileStream() override;
 
     // 0x561A20 | ?Close@FileStream@@QAEHXZ
-    i32 Close();
+    ARTS_EXPORT i32 Close();
 
     // 0x561840 | ?Create@FileStream@@QAEHPAD@Z
-    i32 Create(const char* path);
+    ARTS_EXPORT i32 Create(const char* path);
 
     // 0x561830 | ?GetPagerHandle@FileStream@@UAEIXZ
-    usize GetPagerHandle() override;
+    ARTS_EXPORT usize GetPagerHandle() override;
 
     // 0x561870 | ?Open@FileStream@@QAEHPADH@Z
-    i32 Open(const char* path, b32 read_only);
+    ARTS_EXPORT i32 Open(const char* path, b32 read_only);
 
     // 0x561970 | ?RawRead@FileStream@@UAEHPAXH@Z
-    i32 RawRead(void* ptr, i32 size) override;
+    ARTS_EXPORT i32 RawRead(void* ptr, i32 size) override;
 
     // 0x5619B0 | ?RawSeek@FileStream@@UAEHH@Z
-    i32 RawSeek(i32 pos) override;
+    ARTS_EXPORT i32 RawSeek(i32 pos) override;
 
     // 0x5619F0 | ?RawSize@FileStream@@UAEHXZ
-    i32 RawSize() override;
+    ARTS_EXPORT i32 RawSize() override;
 
     // 0x5619D0 | ?RawTell@FileStream@@UAEHXZ
-    i32 RawTell() override;
+    ARTS_EXPORT i32 RawTell() override;
 
     // 0x561990 | ?RawWrite@FileStream@@UAEHPAXH@Z
-    i32 RawWrite(const void* ptr, i32 size) override;
+    ARTS_EXPORT i32 RawWrite(const void* ptr, i32 size) override;
 
     // 0x561950 | ?Stderr@FileStream@@QAEHXZ | unused
-    i32 Stderr();
+    ARTS_EXPORT i32 Stderr();
 
     // 0x561910 | ?Stdin@FileStream@@QAEHXZ
-    i32 Stdin();
+    ARTS_EXPORT i32 Stdin();
 
     // 0x561930 | ?Stdout@FileStream@@QAEHXZ
-    i32 Stdout();
+    ARTS_EXPORT i32 Stdout();
 
 private:
     i32 file_handle_ {-1};

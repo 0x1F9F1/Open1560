@@ -143,8 +143,6 @@ static void copyrow565_to_888rev(void* arg1, void* arg2, u32 arg3, u32 arg4)
 
 void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
 {
-    export_hook(0x55B180);
-
     u32 dst_width = dwWidth;
     u32 dst_height = dwHeight;
     u32 dst_pixel_size = (ddpfPixelFormat.dwRGBBitCount + 7) >> 3;
@@ -280,8 +278,6 @@ void agiSurfaceDesc::Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class St
 
 void agiSurfaceDesc::Unload()
 {
-    export_hook(0x55B160);
-
     if (lpSurface)
     {
         delete[] static_cast<u8*>(lpSurface);
@@ -291,8 +287,6 @@ void agiSurfaceDesc::Unload()
 
 Owner<class agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, class agiSurfaceDesc& desc)
 {
-    export_hook(0x55A720);
-
     u32 pixel_size = (desc.ddpfPixelFormat.dwRGBBitCount + 7) / 8;
 
     Ptr<agiSurfaceDesc> result = MakeUnique<agiSurfaceDesc>(desc);

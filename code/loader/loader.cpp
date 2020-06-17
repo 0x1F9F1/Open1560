@@ -21,7 +21,14 @@
 
 #include "data7/printer.h"
 
+#include "memory/allocator.h"
+#include "memory/valloc.h"
+
 // #include "midtown.h"
+
+#include "loader.h"
+
+#include <charconv>
 
 #include <DbgHelp.h>
 #include <dinput.h>
@@ -71,35 +78,148 @@ extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
 
 static std::size_t InitExportHooks(HMODULE instance)
 {
-    std::size_t total = 0;
+    std::vector<HGLOBAL> resources;
+    std::unordered_map<std::string_view, std::uintptr_t> symbols;
 
-    mem::module::nt(instance).enum_exports([&total](const char* name, std::uint32_t /*ordinal*/, mem::pointer address) {
-        if (name != nullptr)
+    for (int idr : {IDR_RESOURCES_BASE_SYMBOLS, IDR_RESOURCES_NEW_SYMBOLS})
+    {
+        HRSRC hResInfo = FindResource(instance, MAKEINTRESOURCE(idr), TEXT("TXT"));
+        HGLOBAL hResData = LoadResource(instance, hResInfo);
+
+        resources.emplace_back(hResData);
+
+        DWORD nResSize = SizeofResource(instance, hResInfo);
+        LPVOID lpResLock = LockResource(hResData);
+
+        std::string_view symbols_txt(static_cast<const char*>(lpResLock), nResSize);
+
+        for (usize idx = 0; idx < symbols_txt.size();)
         {
-            std::uint32_t target = 0;
-            char hook_name[256];
+            usize line_end = symbols_txt.find_first_of("\r\n", idx);
 
-            if (arts_sscanf(name, "%[^:]:Hook_%x", hook_name, 256, &target) == 2)
+            if (line_end == SIZE_MAX)
+                line_end = symbols_txt.size();
+
+            std::string_view line = symbols_txt.substr(idx, line_end - idx);
+            idx = symbols_txt.find_first_not_of("\r\n", line_end);
+
+            usize split = line.find('=');
+
+            if (split == SIZE_MAX)
             {
-                hook_name[255] = '\0';
+                Errorf("Invalid Symbol Mapping: '%.*s'", line.size(), line.data());
 
-                char undName[256];
+                continue;
+            }
 
-                const char* function_name =
-                    UnDecorateSymbolName(hook_name, undName, std::size(undName), UNDNAME_NAME_ONLY) ? undName
-                                                                                                    : hook_name;
+            std::string_view symbol = line.substr(0, split);
+            std::string_view value = line.substr(split + 1);
 
-                create_hook(function_name, "", target, address);
+            std::uintptr_t address = 0;
 
-                ++total;
+            if (value.compare(0, 2, "0x") == 0)
+            {
+                value = value.substr(2);
+
+                if (std::from_chars(value.data(), value.data() + value.size(), address, 16).ec != std::errc())
+                {
+                    Errorf("Invalid Symbol Address: '%.*s' = '%.*s'", symbol.size(), symbol.data(), value.size(),
+                        value.data());
+
+                    continue;
+                }
+            }
+            else
+            {
+                auto find = symbols.find(value);
+
+                if (find == symbols.end())
+                {
+                    Errorf("Invalid Symbol Alias: '%.*s' -> '%.*s'", symbol.size(), symbol.data(), value.size(),
+                        value.data());
+
+                    continue;
+                }
+
+                address = find->second;
+            }
+
+            if (!symbols.try_emplace(symbol, address).second)
+            {
+                Errorf("Duplicate Symbol: '%.*s'", symbol.size(), symbol.data());
             }
         }
+    }
 
-        return false;
-    });
+    std::size_t total = 0;
+
+    mem::module::nt(instance).enum_exports(
+        [&total, &symbols](const char* name, std::uint32_t /*ordinal*/, mem::pointer address) {
+            if (name != nullptr)
+            {
+                std::uint32_t target = 0;
+                char hook_name[256];
+
+                if (arts_sscanf(name, "%[^:]:Hook_%x", hook_name, 256, &target) == 2)
+                {
+                    hook_name[255] = '\0';
+                }
+                else if (auto find = symbols.find(name); find != symbols.end())
+                {
+                    arts_strcpy(hook_name, name);
+                    target = find->second;
+                }
+                else
+                {
+                    char replaced[256];
+                    arts_strcpy(replaced, name);
+
+                    // Hacky replacement of mangled const char* -> char*
+                    while (char* s = std::strstr(replaced, "PBD"))
+                        std::memcpy(s, "PAD", 3);
+
+                    // Hacky replacement of mangled const void* -> void*
+                    while (char* s = std::strstr(replaced, "PBX"))
+                        std::memcpy(s, "PAX", 3);
+
+                    if (find = symbols.find(replaced); find != symbols.end())
+                    {
+                        arts_strcpy(hook_name, replaced);
+                        target = find->second;
+                    }
+                    else
+                    {
+                        Errorf("Unrecogized Symbol '%s'", name);
+                    }
+                }
+
+                if (target != 0)
+                {
+                    char undName[256];
+
+                    const char* function_name =
+                        UnDecorateSymbolName(hook_name, undName, std::size(undName), UNDNAME_NAME_ONLY) ? undName
+                                                                                                        : hook_name;
+
+                    create_hook(function_name, "", target, address);
+
+                    ++total;
+                }
+            }
+
+            return false;
+        });
+
+    for (HGLOBAL hResData : resources)
+    {
+        UnlockResource(hResData);
+        FreeResource(hResData);
+    }
 
     return total;
 }
+
+static u8 Main_InitHeap[0x80000];
 
 BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
@@ -186,7 +306,17 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         Displayf("Processed %zu Init Functions", init_count);
 
+        asMemoryAllocator init_alloc;
+        usize init_heap_size = 0x80000;
+        void* init_heap = std::malloc(init_heap_size);
+        init_alloc.Init(init_heap, init_heap_size, true);
+
+        CURHEAP = &init_alloc;
         std::size_t export_hook_count = InitExportHooks(hinstDLL);
+        CURHEAP = nullptr;
+
+        init_alloc.Kill();
+        std::free(init_heap);
 
         Displayf("Processed %zu Export Hooks", export_hook_count);
     }

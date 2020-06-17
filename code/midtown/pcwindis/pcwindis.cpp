@@ -37,8 +37,6 @@ static i32 NumMapEntries = 0;
 
 LRESULT __stdcall MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-    export_hook(0x5765F0);
-
     for (i32 i = NumMapEntries; i > 0; --i)
     {
         MapEntry& entry = MapEntries[i - 1];
@@ -55,8 +53,6 @@ LRESULT __stdcall MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM l
 
 void RegisterMap(const char* name, u32* msgs, i32 num_msgs, class Dispatchable* handler)
 {
-    export_hook(0x576670);
-
     if (NumMapEntries == MAX_MAP_ENTRIES)
     {
         Errorf("Out of maps in NumMapEntries");
@@ -87,8 +83,6 @@ void RegisterMap(const char* name, u32* msgs, i32 num_msgs, class Dispatchable* 
 
 void UnregisterMap(const char* name)
 {
-    export_hook(0x576750);
-
     for (i32 i = 0; i < NumMapEntries; ++i)
     {
         MapEntry& entry = MapEntries[i];

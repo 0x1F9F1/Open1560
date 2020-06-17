@@ -22,7 +22,5 @@ define_dummy_symbol(data7_machname);
 
 void GetMachineName(char* buffer, i32 buffer_len)
 {
-    export_hook(0x57CDC0);
-
     arts_strcpy(buffer, buffer_len, "Open1560");
 }

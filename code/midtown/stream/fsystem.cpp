@@ -22,8 +22,6 @@ define_dummy_symbol(stream_fsystem);
 
 FileSystem::FileSystem()
 {
-    export_hook(0x55F530);
-
     if (FSCount >= MAX_FILESYSTEMS)
         Abortf("Out of FileSystems, raise MAX_FILESYSTEMS");
 
@@ -34,8 +32,6 @@ FileSystem::FileSystem()
 
 FileSystem::~FileSystem()
 {
-    export_hook(0x55F5A0);
-
     if (fs_index_ != FSCount)
         Errorf("FileSystems destructed out of order.");
 
@@ -217,8 +213,6 @@ b32 FileSystem::Search(const char* file, const char* folder, const char* ext, i3
 
 Owner<class Stream*> FileSystem::OpenAny(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
-    export_hook(0x55FE60);
-
     for (i32 i = 0; i < FSCount; ++i)
     {
         FileSystem* f = FS[i];
@@ -232,8 +226,6 @@ Owner<class Stream*> FileSystem::OpenAny(const char* path, b32 read_only, void* 
 
 b32 FileSystem::PagerInfoAny(const char* path, struct PagerInfo_t& pager)
 {
-    export_hook(0x55FED0);
-
     for (i32 i = 0; i < FSCount; ++i)
     {
         FileSystem* f = FS[i];
@@ -274,8 +266,6 @@ class FileSystem* FindFile(
 
 class FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer)
 {
-    export_hook(0x55FD30);
-
     // TODO: Avoid hardcoded buffer size (chosen as smallest buffer buffer size passed by the game)
     return FindFile(file, folder, ext, ext_id, buffer, 120);
 }
@@ -283,8 +273,6 @@ class FileSystem* FindFile(const char* file, const char* folder, const char* ext
 Owner<class Stream*> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, const char* desc)
 {
-    export_hook(0x55FD60);
-
     // TODO: Avoid hardcoded buffer size (chosen as smallest buffer buffer size passed by the game)
     return OpenFile(file, folder, ext, ext_id, buffer, 128, desc);
 }

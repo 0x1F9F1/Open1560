@@ -51,19 +51,19 @@
 */
 
 // 0x573C60 | ?dxiChangeDisplaySettings@@YAHHHH@Z
-i32 dxiChangeDisplaySettings(i32 width, i32 height, i32 bpp);
+ARTS_EXPORT i32 dxiChangeDisplaySettings(i32 width, i32 height, i32 bpp);
 
 // 0x573CC0 | ?dxiDirectDrawCreate@@YAXXZ
-void dxiDirectDrawCreate();
+ARTS_EXPORT void dxiDirectDrawCreate();
 
 // 0x573EC0 | ?dxiDirectDrawSurfaceCreate@@YAXXZ
 void dxiDirectDrawSurfaceCreate();
 
 // 0x574190 | ?dxiDirectDrawSurfaceDestroy@@YAXXZ
-void dxiDirectDrawSurfaceDestroy();
+ARTS_EXPORT void dxiDirectDrawSurfaceDestroy();
 
 // 0x574200 | ?dxiDirectInputCreate@@YAXXZ
-void dxiDirectInputCreate();
+ARTS_EXPORT void dxiDirectInputCreate();
 
 // 0x574550 | ?dxiInit@@YAXPADHPAPAD@Z
 void dxiInit(char* arg1, i32 arg2, char** arg3);
@@ -78,13 +78,13 @@ void dxiMemoryFree(struct IDirectDrawSurface4* arg1);
 void dxiScreenShot(char* arg1);
 
 // 0x573D80 | ?dxiSetDisplayMode@@YAXXZ
-void dxiSetDisplayMode();
+ARTS_EXPORT void dxiSetDisplayMode();
 
 // 0x574240 | ?dxiShutdown@@YAXXZ
-void dxiShutdown();
+ARTS_EXPORT void dxiShutdown();
 
 // 0x573B80 | ?dxiWindowCreate@@YAXPAD@Z
-void dxiWindowCreate(const char* title);
+ARTS_EXPORT void dxiWindowCreate(const char* title);
 
 // 0x660F18 | ?dxiDepth@@3HA
 inline extern_var(0x660F18, i32, dxiDepth);

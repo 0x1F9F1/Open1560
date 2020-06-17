@@ -60,14 +60,10 @@ static inline constexpr u32 AlignSize(u32 value) noexcept
 }
 
 DataCache::DataCache()
-{
-    export_hook(0x576FC0);
-}
+{}
 
 void DataCache::Age()
 {
-    export_hook(0x577750);
-
     write_lock_.lock();
 
     ++age_;
@@ -114,7 +110,7 @@ void DataCache::Age()
                 *dco.pHandle = j;
             }
 
-            Relocate(dco, heap);
+            Relocate(&dco, heap);
             heap += dco.nTotalSize;
 
             dco.nMaxSize = dco.nTotalSize;
@@ -141,8 +137,6 @@ void DataCache::Age()
 
 void* DataCache::Allocate(i32 handle, u32 size)
 {
-    export_hook(0x577920);
-
     if (size == 0)
         return nullptr;
 
@@ -162,8 +156,6 @@ void* DataCache::Allocate(i32 handle, u32 size)
 
 i32 DataCache::BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* context, u32 maxsize)
 {
-    export_hook(0x577410);
-
     write_lock_.lock();
 
     maxsize = AlignSize(maxsize);
@@ -227,8 +219,6 @@ i32 DataCache::BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* co
 
 void DataCache::EndObject(i32 handle)
 {
-    export_hook(0x577690);
-
     DataCacheObject& dco = GetObject(handle);
 
     dco.nLockCount = 0;
@@ -241,8 +231,6 @@ void DataCache::EndObject(i32 handle)
 
 void DataCache::Flush()
 {
-    export_hook(0x5776D0);
-
     write_lock_.lock();
     read_lock_.lock();
 
@@ -264,8 +252,6 @@ void DataCache::Flush()
 
 void DataCache::GetStatus(u32& objects, u32& bytes, u32& waste)
 {
-    export_hook(0x5779D0);
-
     objects = 100 * cur_objects_ / max_objects_;
     bytes = 100 * heap_used_ / heap_size_;
     waste = 100 * cur_waste_ / max_waste_;
@@ -273,8 +259,6 @@ void DataCache::GetStatus(u32& objects, u32& bytes, u32& waste)
 
 void DataCache::Init(u32 heap_size, i32 handle_count, const char* name)
 {
-    export_hook(0x576FD0);
-
     aged_objects_ = 0;
     aged_bytes_ = 0;
 
@@ -304,8 +288,6 @@ void DataCache::Init(u32 heap_size, i32 handle_count, const char* name)
 
 b32 DataCache::Lock(i32* handle)
 {
-    export_hook(0x5771F0);
-
     ArAssert(*handle != 0, "Invalid Handle");
 
     write_lock_.lock();
@@ -332,8 +314,6 @@ b32 DataCache::Lock(i32* handle)
 
 void DataCache::Shutdown()
 {
-    export_hook(0x577070);
-
     // TODO: These locks should probably be removed, because Flush() also tries to lock
     write_lock_.lock();
     read_lock_.lock();
@@ -348,8 +328,6 @@ void DataCache::Shutdown()
 
 void DataCache::Unlock(i32 handle)
 {
-    export_hook(0x577290);
-
     write_lock_.lock();
 
     DataCacheObject& dco = GetObject(handle);
@@ -364,8 +342,6 @@ void DataCache::Unlock(i32 handle)
 
 void DataCache::UnlockAndFree(i32 handle)
 {
-    export_hook(0x577300);
-
     write_lock_.lock();
 
     DataCacheObject& dco = GetObject(handle);
@@ -384,8 +360,6 @@ void DataCache::UnlockAndFree(i32 handle)
 
 void DataCache::CleanEndOfHeap()
 {
-    export_hook(0x5773A0);
-
     for (; cur_objects_; --cur_objects_)
     {
         DataCacheObject& dco = objects_[cur_objects_];
@@ -405,8 +379,6 @@ void DataCache::CleanEndOfHeap()
 void DataCache::InitObject(
     i32 handle, i32* handle_ptr, DataCacheCallback relocate, void* context, u8* data, u32 maxsize)
 {
-    export_hook(0x5775C0);
-
     DataCacheObject& dco = GetObject(handle);
 
     dco.nLockCount = 1;
@@ -431,22 +403,18 @@ void DataCache::InitObject(
         read_lock_.lock();
 }
 
-void DataCache::Relocate(DataCacheObject& dco, u8* ptr)
+void DataCache::Relocate(DataCacheObject* dco, u8* ptr)
 {
-    export_hook(0x5771A0);
-
-    if (i32 delta = ptr - dco.pBase)
+    if (i32 delta = ptr - dco->pBase)
     {
-        dco.Relocate(dco.Context, delta);
-        std::memcpy(ptr, dco.pBase, dco.nTotalSize);
-        dco.pBase = ptr;
+        dco->Relocate(dco->Context, delta);
+        std::memcpy(ptr, dco->pBase, dco->nTotalSize);
+        dco->pBase = ptr;
     }
 }
 
 void DataCache::Unload(i32 handle)
 {
-    export_hook(0x5770B0);
-
     DataCacheObject& dco = GetObject(handle);
 
     if (dco.nLockCount)

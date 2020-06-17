@@ -110,9 +110,9 @@ struct class_proxy
 #    define extern_var(ADDRESS, TYPE, NAME)                                                  \
         __declspec(allocate(".rdata")) typename std::add_lvalue_reference<TYPE>::type NAME = \
             *reinterpret_cast<typename std::add_pointer<TYPE>::type>(usize(ADDRESS));
-#    define export_hook(ADDRESS) __pragma(comment(linker, "/EXPORT:" __FUNCDNAME__ ":Hook_" #    ADDRESS "=" __FUNCDNAME__))
+// #    define export_hook(ADDRESS) __pragma(comment(linker, "/EXPORT:" __FUNCDNAME__ ":Hook_" #    ADDRESS "=" __FUNCDNAME__))
 #else
-#    define export_hook(ADDRESS)
+// #    define export_hook(ADDRESS)
 #    define extern_var mem_extern_var
 #endif
 

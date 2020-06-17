@@ -22,7 +22,5 @@ define_dummy_symbol(pcwindis_dxmovie);
 
 void dxiPlayMovie(const char* path)
 {
-    export_hook(0x575100);
-
     Displayf("Skipping movie '%s'", path);
 }

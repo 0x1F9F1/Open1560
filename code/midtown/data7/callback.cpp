@@ -32,8 +32,6 @@ define_dummy_symbol(data7_callback);
 Callback::Callback(Static0 func) noexcept
     : type_(TYPE_CFA)
 {
-    export_hook(0x5793D0);
-
     func_.static0 = func;
 }
 
@@ -41,8 +39,6 @@ Callback::Callback(Static1 func, void* param) noexcept
     : type_(TYPE_CFA1)
     , first_param_(param)
 {
-    export_hook(0x5793F0);
-
     func_.static1 = func;
 }
 
@@ -50,8 +46,6 @@ Callback::Callback(Static2 func, void* param) noexcept
     : type_(TYPE_CFA2)
     , first_param_(param)
 {
-    export_hook(0x579420);
-
     func_.static2 = func;
 }
 
@@ -59,8 +53,6 @@ Callback::Callback(Member0 func, Base* param) noexcept
     : type_(TYPE_MFA)
     , this_param_(param)
 {
-    export_hook(0x5792D0);
-
     func_.member0 = func;
 
     if (!param)
@@ -72,8 +64,6 @@ Callback::Callback(Member1 func, Base* param1, void* param2) noexcept
     , this_param_(param1)
     , first_param_(param2)
 {
-    export_hook(0x579310);
-
     func_.member1 = func;
 
     if (!param1)
@@ -85,8 +75,6 @@ Callback::Callback(Member2 func, Base* param1, void* param2) noexcept
     , this_param_(param1)
     , first_param_(param2)
 {
-    export_hook(0x579350);
-
     func_.member2 = func;
 
     if (!param1)
@@ -99,8 +87,6 @@ Callback::Callback(Member2 func, Base* param1, void* param2, void* param3) noexc
     , first_param_(param2)
     , second_param_(param3)
 {
-    export_hook(0x579390);
-
     func_.member2 = func;
 
     if (!param1)
@@ -109,8 +95,6 @@ Callback::Callback(Member2 func, Base* param1, void* param2, void* param3) noexc
 
 void Callback::Call(void* param)
 {
-    export_hook(0x579450);
-
     if (type_)
     {
         if (this_param_)

@@ -47,31 +47,31 @@ public:
     using Member2 = void (Base::*)(void*, void*);
 
     // 0x5792C0 | ??0Callback@@QAE@XZ
-    constexpr Callback() noexcept = default;
+    ARTS_EXPORT constexpr Callback() noexcept = default;
 
     // 0x5793D0 | ??0Callback@@QAE@P6AXXZ@Z
-    Callback(Static0 func) noexcept;
+    ARTS_EXPORT Callback(Static0 func) noexcept;
 
     // 0x5793F0 | ??0Callback@@QAE@P6AXPAX@Z0@Z
-    Callback(Static1 func, void* param) noexcept;
+    ARTS_EXPORT Callback(Static1 func, void* param) noexcept;
 
     // 0x579420 | ??0Callback@@QAE@P6AXPAX0@Z0@Z
-    Callback(Static2 func, void* param) noexcept;
+    ARTS_EXPORT Callback(Static2 func, void* param) noexcept;
 
     // 0x5792D0 | ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z
-    Callback(Member0 func, class Base* param) noexcept;
+    ARTS_EXPORT Callback(Member0 func, class Base* param) noexcept;
 
     // 0x579310 | ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z
-    Callback(Member1 func, class Base* param1, void* param2) noexcept;
+    ARTS_EXPORT Callback(Member1 func, class Base* param1, void* param2) noexcept;
 
     // 0x579350 | ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
-    Callback(Member2 func, class Base* param1, void* param2) noexcept;
+    ARTS_EXPORT Callback(Member2 func, class Base* param1, void* param2) noexcept;
 
     // 0x579390 | ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z
-    Callback(Member2 func, class Base* param1, void* param2, void* param3) noexcept;
+    ARTS_EXPORT Callback(Member2 func, class Base* param1, void* param2, void* param3) noexcept;
 
     // 0x579450 | ?Call@Callback@@QAEXPAX@Z
-    void Call(void* param);
+    ARTS_EXPORT void Call(void* param);
 
 private:
     i32 type_ {0};

@@ -25,4 +25,4 @@
 */
 
 // 0x575100 | ?dxiPlayMovie@@YAXPAD@Z
-void dxiPlayMovie(const char* path);
+ARTS_EXPORT void dxiPlayMovie(const char* path);

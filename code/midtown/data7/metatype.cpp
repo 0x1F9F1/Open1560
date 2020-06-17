@@ -69,8 +69,6 @@ check_size(PtrToType, 0x8);
 
 Owner<struct MetaType*> PtrTo(struct MetaType* target)
 {
-    export_hook(0x524610);
-
     return new PtrToType {target};
 }
 
@@ -176,8 +174,6 @@ check_size(StructType, 0x8);
 
 Owner<struct MetaType*> Struct(class MetaClass* target)
 {
-    export_hook(0x4703A0);
-
     return new StructType {target};
 }
 

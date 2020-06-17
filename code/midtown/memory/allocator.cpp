@@ -189,14 +189,13 @@ static ARTS_FORCEINLINE u32 GetBucketIndex(u32 size) noexcept
 #endif
 }
 
+// NOTE: Don't hook this
 asMemoryAllocator::asMemoryAllocator() = default;
 
 asMemoryAllocator::~asMemoryAllocator() = default;
 
 void* asMemoryAllocator::Allocate(u32 size)
 {
-    export_hook(0x520A20);
-
     if (size == 0)
         return nullptr;
 
@@ -285,8 +284,6 @@ void* asMemoryAllocator::Allocate(u32 size)
 
 void asMemoryAllocator::CheckPointer(void* ptr)
 {
-    export_hook(0x520C40);
-
     if (initialized_ && debug_ && ptr)
     {
         Node* n = Node::From(ptr, debug_);
@@ -302,8 +299,6 @@ void asMemoryAllocator::CheckPointer(void* ptr)
 
 void asMemoryAllocator::Free(void* ptr)
 {
-    export_hook(0x520C90);
-
     if (!ptr || !initialized_)
         return;
 
@@ -352,8 +347,6 @@ void asMemoryAllocator::Free(void* ptr)
 
 void asMemoryAllocator::GetStats(struct asMemStats* stats)
 {
-    export_hook(0x520FC0);
-
     *stats = {};
 
     u8* const heap = heap_;
@@ -384,8 +377,6 @@ void asMemoryAllocator::GetStats(struct asMemStats* stats)
 
 void asMemoryAllocator::Init(void* heap, u32 heap_size, b32 use_nodes)
 {
-    export_hook(0x5209D0);
-
     ArAssert(!initialized_, "Allocator already initialized");
     ArAssert(use_nodes, "Linear allocator not supported");
 
@@ -403,16 +394,12 @@ void asMemoryAllocator::Init(void* heap, u32 heap_size, b32 use_nodes)
 
 void asMemoryAllocator::Kill()
 {
-    export_hook(0x520A10);
-
     heap_ = nullptr;
     initialized_ = false;
 }
 
 void* asMemoryAllocator::Reallocate(void* ptr, u32 size)
 {
-    export_hook(0x520EA0);
-
     if (initialized_)
         Verify(ptr);
 
@@ -502,8 +489,6 @@ static ARTS_NOINLINE b32 ARTS_FASTCALL HeapAssert(void* address, const char* mes
 
 void asMemoryAllocator::SanityCheck()
 {
-    export_hook(0x521090);
-
     if (!initialized_)
         return;
 
@@ -590,8 +575,6 @@ usize asMemoryAllocator::SizeOf(void* ptr)
 
 void asMemoryAllocator::Link(FreeNode* n)
 {
-    export_hook(0x520E50);
-
     u32 const bucket = GetBucketIndex(n->Size);
 
     FreeNode* const next = buckets_[bucket];
@@ -607,8 +590,6 @@ void asMemoryAllocator::Link(FreeNode* n)
 
 void asMemoryAllocator::Unlink(FreeNode* n)
 {
-    export_hook(0x520DF0);
-
     FreeNode* const prev = n->PrevFree;
     FreeNode* const next = n->NextFree;
 
@@ -626,8 +607,6 @@ void asMemoryAllocator::Unlink(FreeNode* n)
 
 void asMemoryAllocator::Verify(void* ptr)
 {
-    export_hook(0x520F00);
-
     ArAssert(heap_ && heap_size_, "Heap not initialized");
 
     if (u32 const lock_count = lock_count_)

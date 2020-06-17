@@ -65,26 +65,26 @@ class MetaClass
 {
 public:
     // 0x577AA0 | ??0MetaClass@@QAE@PADIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z
-    MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32), void (*declare)(void),
-        class MetaClass* parent);
+    ARTS_EXPORT MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32),
+        void (*declare)(void), class MetaClass* parent);
 
     // 0x577B20 | ??1MetaClass@@QAE@XZ
-    ~MetaClass();
+    ARTS_EXPORT ~MetaClass();
 
     // 0x577C70 | ?InitFields@MetaClass@@QAEXXZ
-    void InitFields();
+    ARTS_EXPORT void InitFields();
 
     // 0x577BB0 | ?IsSubclassOf@MetaClass@@QAEHPAV1@@Z
-    b32 IsSubclassOf(class MetaClass* parent);
+    ARTS_EXPORT b32 IsSubclassOf(class MetaClass* parent);
 
     // 0x577E90 | ?Load@MetaClass@@QAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* parser, void* ptr);
+    ARTS_EXPORT void Load(class MiniParser* parser, void* ptr);
 
     // 0x577C90 | ?Save@MetaClass@@QAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* parser, void* ptr);
+    ARTS_EXPORT void Save(class MiniParser* parser, void* ptr);
 
     // 0x577DE0 | ?SkipBlock@MetaClass@@QAEXPAVMiniParser@@@Z
-    void SkipBlock(class MiniParser* parser);
+    ARTS_EXPORT void SkipBlock(class MiniParser* parser);
 
     const char* GetName() const
     {
@@ -120,15 +120,15 @@ public:
     static void FixupClasses();
 
     // 0x578000 | ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z
-    static void DeclareNamedTypedField(const char* name, u32 offset, struct MetaType* type);
+    ARTS_EXPORT static void DeclareNamedTypedField(const char* name, u32 offset, struct MetaType* type);
 
     static void ARTS_FASTCALL DeclareStaticFields(const std::initializer_list<const StaticMetaField>& fields);
 
     // 0x577BE0 | ?FindByName@MetaClass@@SAPAV1@PADPAV1@@Z
-    static class MetaClass* FindByName(const char* name, class MetaClass* root);
+    ARTS_EXPORT static class MetaClass* FindByName(const char* name, class MetaClass* root);
 
     // 0x577B80 | ?UndeclareAll@MetaClass@@SAXXZ
-    static void UndeclareAll();
+    ARTS_EXPORT static void UndeclareAll();
 
     // 0x90AA28 | ?ClassIndex@MetaClass@@2PAPAV1@A
     static class MetaClass* ClassIndex[MAX_CLASSES];
@@ -166,7 +166,7 @@ private:
 check_size(MetaClass, 0x28);
 
 // 0x577C50 | ?__BadSafeCall@@YAXPADPAVBase@@@Z | unused
-void __BadSafeCall(const char* name, class Base* ptr);
+ARTS_EXPORT void __BadSafeCall(const char* name, class Base* ptr);
 
 // 0x661EF8 | ?NoDefault@@3HA
 inline extern_var(0x661EF8, i32, NoDefault);

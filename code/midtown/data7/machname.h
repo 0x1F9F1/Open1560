@@ -25,4 +25,4 @@
 */
 
 // 0x57CDC0 | ?GetMachineName@@YAXPADH@Z
-void GetMachineName(char* buffer, i32 buffer_len);
+ARTS_EXPORT void GetMachineName(char* buffer, i32 buffer_len);

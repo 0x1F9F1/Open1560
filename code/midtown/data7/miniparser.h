@@ -60,62 +60,62 @@ public:
     };
 
     // 0x57C5E0 | ??0MiniParser@@QAE@PAD@Z
-    MiniParser(const char* name);
+    ARTS_EXPORT MiniParser(const char* name);
 
     // 0x57C640 | ??1MiniParser@@QAE@XZ
-    ~MiniParser();
+    ARTS_EXPORT ~MiniParser();
 
     virtual i32 RawGetCh() = 0;
 
     virtual void RawPutCh(i32 arg1) = 0;
 
     // 0x57C7B0 | ?Commentf@MiniParser@@QAAXPBDZZ | unused
-    void Commentf(char const* format, ...);
+    ARTS_EXPORT void Commentf(char const* format, ...);
 
     // 0x57C710 | ?Errorf@MiniParser@@QAAXPBDZZ
-    void Errorf(char const* format, ...);
+    ARTS_EXPORT void Errorf(char const* format, ...);
 
     // 0x57CD80 | ?FloatVal@MiniParser@@QAEMXZ
-    f32 FloatVal();
+    ARTS_EXPORT f32 FloatVal();
 
     // 0x57C810 | ?GetCh@MiniParser@@QAEHXZ
-    i32 GetCh();
+    ARTS_EXPORT i32 GetCh();
 
     // 0x57C880 | ?Indent@MiniParser@@QAEXH@Z
-    void Indent(i32 amount);
+    ARTS_EXPORT void Indent(i32 amount);
 
     // 0x57CD40 | ?Int64Val@MiniParser@@QAE_JXZ
-    i64 Int64Val();
+    ARTS_EXPORT i64 Int64Val();
 
     // 0x57CD00 | ?IntVal@MiniParser@@QAEHXZ
-    i32 IntVal();
+    ARTS_EXPORT i32 IntVal();
 
     // 0x57C8A0 | ?Match@MiniParser@@QAEXH@Z
-    void Match(i32 expected);
+    ARTS_EXPORT void Match(i32 expected);
 
     // 0x57CB00 | ?NextToken@MiniParser@@QAEHXZ
-    i32 NextToken();
+    ARTS_EXPORT i32 NextToken();
 
     // 0x57CA80 | ?PlaceLabel@MiniParser@@QAEXPAX@Z
-    void PlaceLabel(void* ptr);
+    ARTS_EXPORT void PlaceLabel(void* ptr);
 
     // 0x57CAA0 | ?PlaceLabelRef@MiniParser@@QAEXPAX@Z
-    void PlaceLabelRef(void* ptr);
+    ARTS_EXPORT void PlaceLabelRef(void* ptr);
 
     // 0x57C6B0 | ?PrintString@MiniParser@@QAEXPADH@Z
-    void PrintString(const char* str, i32 len);
+    ARTS_EXPORT void PrintString(const char* str, i32 len);
 
     // 0x57C660 | ?Printf@MiniParser@@QAAXPBDZZ
-    void Printf(char const* format, ...);
+    ARTS_EXPORT void Printf(char const* format, ...);
 
     // 0x57CAD0 | ?PutBack@MiniParser@@QAEXH@Z
-    void PutBack(i32 token);
+    ARTS_EXPORT void PutBack(i32 token);
 
     // 0x57C830 | ?PutCh@MiniParser@@QAEXH@Z
-    void PutCh(i32 value);
+    ARTS_EXPORT void PutCh(i32 value);
 
     // 0x57CAC0 | ?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z | unused
-    void* ResolveLabel(char* arg1, void** arg2);
+    ARTS_EXPORT void* ResolveLabel(char* arg1, void** arg2);
 
     const char* GetBuffer() const
     {
@@ -128,7 +128,7 @@ public:
     }
 
     // 0x57C8E0 | ?TokenName@MiniParser@@SAPADH@Z
-    static const char* TokenName(i32 token);
+    ARTS_EXPORT static const char* TokenName(i32 token);
 
 private:
     void PutString(const char* str);

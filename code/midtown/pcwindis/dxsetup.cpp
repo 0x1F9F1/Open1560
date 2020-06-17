@@ -24,10 +24,8 @@ define_dummy_symbol(pcwindis_dxsetup);
 static mem::cmd_param PARAM_min_aspect {"minaspect"};
 static mem::cmd_param PARAM_max_aspect {"maxaspect"};
 
-i32 WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
+ARTS_EXPORT long WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
 {
-    export_hook(0x575F40);
-
     dxiRendererInfo_t* info = static_cast<dxiRendererInfo_t*>(ctx);
 
     if (info->ResCount < 32)
@@ -77,10 +75,8 @@ static i32 __stdcall EnumTextures(struct _DDPIXELFORMAT* arg1, void* arg2)
     return stub<stdcall_t<i32, struct _DDPIXELFORMAT*, void*>>(0x576470, arg1, arg2);
 }
 
-i32 __stdcall EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
+long __stdcall EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
 {
-    export_hook(0x575FD0);
-
     if (ddpf->dwRGBBitCount == 32)
         std::memcpy(ctx, ddpf, sizeof(*ddpf));
 
@@ -133,6 +129,8 @@ static void UnlockScreen()
 }
 
 run_once([] {
+    auto_hook(0x575FD0, EnumZ);
+
     create_patch("TestResolution", "Unsigned Comparison", 0x575E34, "\x72", 1);
     create_patch("TestResolution", "Unsigned Comparison", 0x575E38, "\x72", 1);
 

@@ -35,34 +35,34 @@ class Timer
 {
 public:
     // 0x576870 | ??0Timer@@QAE@XZ
-    Timer();
+    ARTS_EXPORT Timer();
 
     // 0x5768E0 | ?Reset@Timer@@QAEXXZ
-    void Reset()
+    ARTS_EXPORT void Reset()
     {
         start_ticks_ = Ticks();
     }
 
     // 0x5768F0 | ?Time@Timer@@QAEMXZ
-    f32 Time();
+    ARTS_EXPORT f32 Time();
 
     // 0x576920 | ?BeginBenchmark@Timer@@SAXXZ | unused
-    static void BeginBenchmark();
+    ARTS_EXPORT static void BeginBenchmark();
 
     // 0x576990 | ?EndBenchmark@Timer@@SAXXZ | unused
-    static void EndBenchmark();
+    ARTS_EXPORT static void EndBenchmark();
 
     // 0x576860 | ?Sleep@Timer@@SAXH@Z
-    static void Sleep(i32 ms);
+    ARTS_EXPORT static void Sleep(i32 ms);
 
     // 0x576830 | ?Ticks@Timer@@SAKXZ
-    static u32 Ticks();
+    ARTS_EXPORT static ulong Ticks();
 
     // 0x90A66C | ?TicksToSeconds@Timer@@2MA
     static f32 TicksToSeconds;
 
 private:
-    u32 start_ticks_ {0};
+    ulong start_ticks_ {0};
 };
 
 check_size(Timer, 0x4);

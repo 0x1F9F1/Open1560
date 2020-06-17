@@ -61,31 +61,31 @@ public:
     asMemoryAllocator();
 
     // 0x5209C0 | ??1asMemoryAllocator@@QAE@XZ
-    ~asMemoryAllocator();
+    ARTS_EXPORT ~asMemoryAllocator();
 
     // 0x520A20 | ?Allocate@asMemoryAllocator@@QAEPAXI@Z
-    void* Allocate(u32 arg1);
+    ARTS_EXPORT void* Allocate(u32 arg1);
 
     // 0x520C40 | ?CheckPointer@asMemoryAllocator@@QAEXPAX@Z
-    void CheckPointer(void* ptr);
+    ARTS_EXPORT void CheckPointer(void* ptr);
 
     // 0x520C90 | ?Free@asMemoryAllocator@@QAEXPAX@Z
-    void Free(void* ptr);
+    ARTS_EXPORT void Free(void* ptr);
 
     // 0x520FC0 | ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
-    void GetStats(struct asMemStats* stats);
+    ARTS_EXPORT void GetStats(struct asMemStats* stats);
 
     // 0x5209D0 | ?Init@asMemoryAllocator@@QAEXPAXIH@Z
-    void Init(void* heap, u32 heap_size, b32 use_nodes);
+    ARTS_EXPORT void Init(void* heap, u32 heap_size, b32 use_nodes);
 
     // 0x520A10 | ?Kill@asMemoryAllocator@@QAEXXZ
-    void Kill();
+    ARTS_EXPORT void Kill();
 
     // 0x520EA0 | ?Reallocate@asMemoryAllocator@@QAEPAXPAXI@Z
-    void* Reallocate(void* ptr, u32 size);
+    ARTS_EXPORT void* Reallocate(void* ptr, u32 size);
 
     // 0x521090 | ?SanityCheck@asMemoryAllocator@@QAEXXZ
-    void SanityCheck();
+    ARTS_EXPORT void SanityCheck();
 
     usize SizeOf(void* ptr);
 
@@ -94,13 +94,13 @@ private:
     struct FreeNode;
 
     // 0x520E50 | ?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z
-    void Link(FreeNode* n);
+    ARTS_EXPORT void Link(FreeNode* n);
 
     // 0x520DF0 | ?Unlink@asMemoryAllocator@@AAEXPAUnode@1@@Z
-    void Unlink(FreeNode* n);
+    ARTS_EXPORT void Unlink(FreeNode* n);
 
     // 0x520F00 | ?Verify@asMemoryAllocator@@AAEXPAX@Z
-    void Verify(void* ptr);
+    ARTS_EXPORT void Verify(void* ptr);
 
     b32 initialized_ {false};
     b32 debug_ {false};

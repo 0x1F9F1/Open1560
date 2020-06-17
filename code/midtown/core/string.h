@@ -205,7 +205,7 @@ public:
     }
 
 private:
-    char buffer_[N] {};
+    char buffer_[N];
 };
 
 class CStringBuilder

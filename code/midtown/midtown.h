@@ -56,7 +56,7 @@
 #include "core/minwin.h"
 
 // 0x4031A0 | _WinMain@16 (Skipped: void)
-int WINAPI MidtownMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
+ARTS_EXPORT int WINAPI MidtownMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
 
 // 0x4030C0 | ?Application@@YAXHPAPAD@Z
 void Application(i32 arg1, char** arg2);
@@ -68,7 +68,7 @@ void ApplicationHelper(i32 arg1, char** arg2);
 class agiPipeline* CreatePipeline(i32 arg1, char** arg2);
 
 // 0x4014B0 | ?GameFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z
-i32 GameFilter(struct _EXCEPTION_POINTERS* arg1);
+ARTS_EXPORT i32 GameFilter(struct _EXCEPTION_POINTERS* arg1);
 
 // 0x4015A0 | ?GameLoop@@YAXPAVmmInterface@@PAVmmGameManager@@PAD@Z
 void GameLoop(class mmInterface* arg1, class mmGameManager* arg2, char* arg3);

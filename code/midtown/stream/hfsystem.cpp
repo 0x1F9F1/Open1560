@@ -34,8 +34,6 @@ HierFileSystem::~HierFileSystem() = default;
 
 b32 HierFileSystem::ChangeDir(const char* path)
 {
-    export_hook(0x560380);
-
     return _chdir(path) >= 0;
 }
 
@@ -46,8 +44,6 @@ static inline constexpr bool IsStdPath(const char* path) noexcept
 
 Owner<class Stream*> HierFileSystem::CreateOn(const char* path, void* buffer, i32 buffer_len)
 {
-    export_hook(0x5602A0);
-
     Ptr<FileStream> result = MakeUnique<FileStream>(buffer, buffer_len, this);
 
     path = FQN(path);
@@ -84,8 +80,6 @@ check_size(HierFileEntry, 0x144);
 
 Owner<struct FileInfo*> HierFileSystem::FirstEntry(const char* path)
 {
-    export_hook(0x5603C0);
-
     if (!QueryOn(path))
         return nullptr;
 
@@ -115,8 +109,6 @@ Owner<struct FileInfo*> HierFileSystem::FirstEntry(const char* path)
 
 b32 HierFileSystem::GetDir(char* buffer, i32 buffer_len)
 {
-    export_hook(0x5603A0);
-
     _getcwd(buffer, buffer_len);
 
     return true;
@@ -124,8 +116,6 @@ b32 HierFileSystem::GetDir(char* buffer, i32 buffer_len)
 
 Owner<struct FileInfo*> HierFileSystem::NextEntry(Owner<struct FileInfo*> info)
 {
-    export_hook(0x560500);
-
     HierFileEntry* context = static_cast<HierFileEntry*>(info->Context);
 
     if (!FindNextFileA(context->Handle, &context->Data))
@@ -145,8 +135,6 @@ Owner<struct FileInfo*> HierFileSystem::NextEntry(Owner<struct FileInfo*> info)
 
 Owner<class Stream*> HierFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
-    export_hook(0x560100);
-
     path = FQN(path);
 
     Ptr<FileStream> result = MakeUnique<FileStream>(buffer, buffer_len, this);
@@ -176,8 +164,6 @@ Owner<class Stream*> HierFileSystem::OpenOn(const char* path, b32 read_only, voi
 
 b32 HierFileSystem::QueryOn(const char* path)
 {
-    export_hook(0x560040);
-
     if (const char* allowed = HierAllowPath)
     {
         if (!IsPhysicalPath(path))
@@ -206,8 +192,6 @@ b32 HierFileSystem::QueryOn(const char* path)
 
 b32 HierFileSystem::ValidPath(const char*)
 {
-    export_hook(0x55FF80);
-
     return true;
 }
 
@@ -216,8 +200,6 @@ static char FQNPathBuffer[128] {};
 
 const char* FQN(const char* path)
 {
-    export_hook(0x55FF90);
-
     const char* prefix = HierPrefix;
 
     if (!prefix || !*prefix)
@@ -238,8 +220,6 @@ const char* FQN(const char* path)
 
 void PagerInfo_t::Read(void* buffer, u32 offset, u32 size)
 {
-    export_hook(0x5605D0);
-
     if (size == 0)
         size = Size - offset;
 

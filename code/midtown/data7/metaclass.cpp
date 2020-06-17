@@ -44,15 +44,11 @@ MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*
     , declare_(declare)
     , parent_(parent)
 {
-    export_hook(0x577AA0);
-
     Register();
 }
 
 MetaClass::~MetaClass()
 {
-    export_hook(0x577B20);
-
     Unregister();
 }
 
@@ -88,8 +84,6 @@ ARTS_NOINLINE void MetaClass::Unregister()
 
 void MetaClass::InitFields()
 {
-    export_hook(0x577C70);
-
     ArAssert(Current == nullptr, "Cannot declare nested fields");
 
     Current = this;
@@ -103,8 +97,6 @@ void MetaClass::InitFields()
 
 b32 MetaClass::IsSubclassOf(class MetaClass* parent)
 {
-    export_hook(0x577BB0);
-
     for (MetaClass* cls = this; cls; cls = cls->parent_)
     {
         if (cls == parent)
@@ -116,8 +108,6 @@ b32 MetaClass::IsSubclassOf(class MetaClass* parent)
 
 void MetaClass::Load(class MiniParser* parser, void* ptr)
 {
-    export_hook(0x577E90);
-
     if (fields_ == nullptr)
         InitFields();
 
@@ -178,8 +168,6 @@ void MetaClass::Load(class MiniParser* parser, void* ptr)
 
 void MetaClass::Save(class MiniParser* parser, void* ptr)
 {
-    export_hook(0x577C90);
-
     if (fields_ == nullptr)
         InitFields();
 
@@ -219,8 +207,6 @@ void MetaClass::Save(class MiniParser* parser, void* ptr)
 
 void MetaClass::SkipBlock(class MiniParser* parser)
 {
-    export_hook(0x577DE0);
-
     parser->Errorf("'%s' is not a valid field name in %s.", parser->GetBuffer(), GetName());
 
     bool has_values = false;
@@ -339,8 +325,6 @@ void MetaClass::FixupClasses()
 
 void MetaClass::DeclareNamedTypedField(const char* name, u32 offset, struct MetaType* type)
 {
-    export_hook(0x578000);
-
     MetaField* field = new MetaField {nullptr, name, offset, type};
     *ppField = field;
     ppField = &field->Next;
@@ -357,8 +341,6 @@ ARTS_NOINLINE void ARTS_FASTCALL MetaClass::DeclareStaticFields(
 
 class MetaClass* MetaClass::FindByName(const char* name, class MetaClass* root)
 {
-    export_hook(0x577BE0);
-
     for (MetaClass* cls = root; cls; cls = cls->next_child_)
     {
         // NOTE: Original implementation also checks `cls->GetName() != nullptr`, but that seems unncessary.
@@ -374,8 +356,6 @@ class MetaClass* MetaClass::FindByName(const char* name, class MetaClass* root)
 
 void MetaClass::UndeclareAll()
 {
-    export_hook(0x577B80);
-
     for (i32 i = 0; i < NextSerial; ++i)
     {
         MetaClass* cls = ClassIndex[i];
@@ -387,7 +367,5 @@ void MetaClass::UndeclareAll()
 
 void __BadSafeCall(const char* name, class Base* ptr)
 {
-    export_hook(0x577C50);
-
     Quitf("SafeCall failed: '%s' is not a '%s'.", ptr->GetTypeName(), name);
 }

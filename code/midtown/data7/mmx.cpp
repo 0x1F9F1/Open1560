@@ -31,8 +31,6 @@ static i32 cpuid()
 
 initHaveMMX::initHaveMMX()
 {
-    export_hook(0x57C410);
-
     i32 flags = cpuid();
 
     HavePPro = (flags >> 15) & 1;

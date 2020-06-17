@@ -33,8 +33,6 @@ static u8 Main_InitHeap[0x10000];
 
 int WINAPI MidtownMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR lpCmdLine, int /*nShowCmd*/)
 {
-    export_hook(0x4031A0);
-
     asMemoryAllocator init_alloc;
     init_alloc.Init(Main_InitHeap, sizeof(Main_InitHeap), 1);
     CURHEAP = &init_alloc;
@@ -159,8 +157,6 @@ static const char* GetExceptionCodeString(DWORD code)
 
 i32 GameFilter(EXCEPTION_POINTERS* exception)
 {
-    export_hook(0x4014B0);
-
     CONTEXT* context = exception->ContextRecord;
     EXCEPTION_RECORD* record = exception->ExceptionRecord;
 

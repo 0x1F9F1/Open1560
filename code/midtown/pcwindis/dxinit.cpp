@@ -38,8 +38,6 @@ inline void SafeRelease(T*& ptr)
 
 i32 dxiChangeDisplaySettings(i32 /*width*/, i32 /*height*/, i32 /*bpp*/)
 {
-    export_hook(0x573C60);
-
     return 0;
 }
 
@@ -54,8 +52,6 @@ static GUID* dxiCurrentInterfaceGUID = nullptr;
 
 void dxiDirectDrawCreate()
 {
-    export_hook(0x573CC0);
-
     dxiCurrentInterfaceGUID = dxiGetInterfaceGUID();
 
     IDirectDraw* lpDD = nullptr;
@@ -82,8 +78,6 @@ void dxiDirectDrawSurfaceCreate()
 
 void dxiDirectDrawSurfaceDestroy()
 {
-    export_hook(0x574190);
-
     SafeRelease(lpClip);
     SafeRelease(lpdsRend);
     SafeRelease(lpdsBack2);
@@ -100,8 +94,6 @@ static HRESULT __stdcall DirectInputCreateA_Stub(
 
 void dxiDirectInputCreate()
 {
-    export_hook(0x574200);
-
     HRESULT err = DirectInputCreateA_Stub(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
 
     if (err != 0)
@@ -139,8 +131,6 @@ static inline void dxiRestoreDisplayMode()
 
 void dxiSetDisplayMode()
 {
-    export_hook(0x573D80);
-
     dxiDirectDrawSurfaceDestroy();
 
     if (dxiCurrentInterfaceGUID != dxiGetInterfaceGUID())
@@ -172,8 +162,6 @@ void dxiSetDisplayMode()
 
 void dxiShutdown()
 {
-    export_hook(0x574240);
-
     SafeRelease(lpDI);
 
     dxiDirectDrawSurfaceDestroy();
@@ -192,8 +180,6 @@ static ATOM dxiWindowClass = 0;
 
 void dxiWindowCreate(const char* title)
 {
-    export_hook(0x573B80);
-
     if (hwndMain != NULL)
         return;
 

@@ -29,10 +29,10 @@
 #include "core/minwin.h"
 
 // 0x5765F0 | ?MasterWindowProc@@YGJPAUHWND__@@IIJ@Z
-LRESULT __stdcall MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+ARTS_EXPORT LRESULT __stdcall MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 // 0x576670 | ?RegisterMap@@YAXPADPAIHPAVDispatchable@@@Z
-void RegisterMap(const char* name, u32* msgs, i32 num_msgs, class Dispatchable* handler);
+ARTS_EXPORT void RegisterMap(const char* name, u32* msgs, i32 num_msgs, class Dispatchable* handler);
 
 // 0x576750 | ?UnregisterMap@@YAXPAD@Z
-void UnregisterMap(const char* name);
+ARTS_EXPORT void UnregisterMap(const char* name);

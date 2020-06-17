@@ -22,19 +22,13 @@ define_dummy_symbol(data7_miniparser);
 
 MiniParser::MiniParser(const char* name)
     : name_(name)
-{
-    export_hook(0x57C5E0);
-}
+{}
 
 MiniParser::~MiniParser()
-{
-    export_hook(0x57C640);
-}
+{}
 
 void MiniParser::Commentf(char const* format, ...)
 {
-    export_hook(0x57C7B0);
-
     CStringBuffer<1024> buffer;
 
     std::va_list va;
@@ -52,8 +46,6 @@ static i32 TotalParserErrors = 0;
 
 void MiniParser::Errorf(char const* format, ...)
 {
-    export_hook(0x57C710);
-
     ++TotalParserErrors;
 
     if (TotalParserErrors < 25)
@@ -80,8 +72,6 @@ void MiniParser::Errorf(char const* format, ...)
 
 f32 MiniParser::FloatVal()
 {
-    export_hook(0x57CD80);
-
     if (i32 token = NextToken(); token != IntegerToken && token != FloatToken)
         Errorf("Expected integer or floating-point literal");
 
@@ -90,8 +80,6 @@ f32 MiniParser::FloatVal()
 
 i32 MiniParser::GetCh()
 {
-    export_hook(0x57C810);
-
     i32 ch = current_char_ = RawGetCh();
 
     if (ch == '\n')
@@ -102,15 +90,11 @@ i32 MiniParser::GetCh()
 
 void MiniParser::Indent(i32 amount)
 {
-    export_hook(0x57C880);
-
     indentation_ += amount;
 }
 
 i64 MiniParser::Int64Val()
 {
-    export_hook(0x57CD40);
-
     if (i32 token = NextToken(); token != IntegerToken && token != FloatToken)
         Errorf("Expected integer or floating-point literal");
 
@@ -119,8 +103,6 @@ i64 MiniParser::Int64Val()
 
 i32 MiniParser::IntVal()
 {
-    export_hook(0x57CD00);
-
     if (i32 token = NextToken(); token != IntegerToken && token != FloatToken)
         Errorf("Expected integer or floating-point literal");
 
@@ -129,16 +111,12 @@ i32 MiniParser::IntVal()
 
 void MiniParser::Match(i32 expected)
 {
-    export_hook(0x57C8A0);
-
     if (i32 token = NextToken(); token != expected)
         Errorf("Expected '%s', got '%s'", TokenName(expected), TokenName(token));
 }
 
 i32 MiniParser::NextToken()
 {
-    export_hook(0x57CB00);
-
     if (put_back_)
     {
         i32 result = put_back_;
@@ -256,22 +234,16 @@ i32 MiniParser::NextToken()
 
 void MiniParser::PlaceLabel(void* ptr)
 {
-    export_hook(0x57CA80);
-
     Printf(":%08x", u32(ptr));
 }
 
 void MiniParser::PlaceLabelRef(void* ptr)
 {
-    export_hook(0x57CAA0);
-
     Printf("$%08x", u32(ptr));
 }
 
 void MiniParser::PrintString(const char* str, i32 len)
 {
-    export_hook(0x57C6B0);
-
     if (str)
     {
         RawPutCh('"');
@@ -297,8 +269,6 @@ void MiniParser::PrintString(const char* str, i32 len)
 
 void MiniParser::Printf(char const* format, ...)
 {
-    export_hook(0x57C660);
-
     CStringBuffer<1024> buffer;
 
     std::va_list va;
@@ -311,8 +281,6 @@ void MiniParser::Printf(char const* format, ...)
 
 void MiniParser::PutBack(i32 token)
 {
-    export_hook(0x57CAD0);
-
     if (put_back_)
         Errorf("PutBack already called.");
 
@@ -321,8 +289,6 @@ void MiniParser::PutBack(i32 token)
 
 void MiniParser::PutCh(i32 value)
 {
-    export_hook(0x57C830);
-
     if (current_char_ == '\n')
     {
         for (i32 i = indentation_; i; --i)
@@ -336,8 +302,6 @@ void MiniParser::PutCh(i32 value)
 
 void* MiniParser::ResolveLabel(char*, void**)
 {
-    export_hook(0x57CAC0);
-
     return nullptr;
 }
 
@@ -345,8 +309,6 @@ static char TokenNameBuffer[2] {};
 
 const char* MiniParser::TokenName(i32 token)
 {
-    export_hook(0x57C8E0);
-
     switch (token)
     {
         case '\0':

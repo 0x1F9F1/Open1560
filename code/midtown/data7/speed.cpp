@@ -22,8 +22,6 @@ define_dummy_symbol(data7_speed);
 
 u32 ComputeCpuSpeed()
 {
-    export_hook(0x57CF50);
-
     return 1000;
 }
 

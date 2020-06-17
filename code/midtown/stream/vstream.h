@@ -45,32 +45,33 @@ class VirtualStream : public Stream
 
 public:
     // 0x561B40 | ??0VirtualStream@@QAE@PAVStream@@PAUVirtualFileInode@@PAXHPAVFileSystem@@@Z
-    VirtualStream(class Stream* base_stream, struct VirtualFileInode* file_node, void* buffer, i32 buffer_size, class FileSystem* file_system);
+    ARTS_EXPORT VirtualStream(class Stream* base_stream, struct VirtualFileInode* file_node, void* buffer,
+        i32 buffer_size, class FileSystem* file_system);
 
     // 0x561D60 | ??_EVirtualStream@@UAEPAXI@Z
     // 0x561C00 | ??1VirtualStream@@UAE@XZ
-    ~VirtualStream() override;
+    ARTS_EXPORT ~VirtualStream() override;
 
     // 0x561D40 | ?GetMapping@VirtualStream@@UAEPAXXZ
-    void* GetMapping() override;
+    ARTS_EXPORT void* GetMapping() override;
 
     // 0x561BD0 | ?GetPagingInfo@VirtualStream@@UAEHAAI00@Z
-    b32 GetPagingInfo(u32& handle, u32& offset, u32& size) override;
+    ARTS_EXPORT b32 GetPagingInfo(u32& handle, u32& offset, u32& size) override;
 
     // 0x561C60 | ?RawRead@VirtualStream@@UAEHPAXH@Z
-    i32 RawRead(void* ptr, i32 size) override;
+    ARTS_EXPORT i32 RawRead(void* ptr, i32 size) override;
 
     // 0x561CE0 | ?RawSeek@VirtualStream@@UAEHH@Z
-    i32 RawSeek(i32 pos) override;
+    ARTS_EXPORT i32 RawSeek(i32 pos) override;
 
     // 0x561D30 | ?RawSize@VirtualStream@@UAEHXZ
-    i32 RawSize() override;
+    ARTS_EXPORT i32 RawSize() override;
 
     // 0x561D10 | ?RawTell@VirtualStream@@UAEHXZ
-    i32 RawTell() override;
+    ARTS_EXPORT i32 RawTell() override;
 
     // 0x561CD0 | ?RawWrite@VirtualStream@@UAEHPAXH@Z
-    i32 RawWrite(const void* ptr, i32 size) override;
+    ARTS_EXPORT i32 RawWrite(const void* ptr, i32 size) override;
 
 private:
     Stream* base_stream_ {nullptr};

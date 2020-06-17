@@ -10,7 +10,11 @@ project "Open1560"
 
     targetname "dinput"
 
-    files { "loader.cpp" }
+    files {
+        "loader.cpp",
+        "loader.h",
+        "loader.rc",
+    }
 
     links { "arts_midtown", "DbgHelp", "Winmm" }
 

@@ -5,6 +5,7 @@
 #define ARTS_FORCEINLINE
 #define ARTS_NOINLINE
 #define ARTS_FASTCALL
+#define ARTS_EXPORT
 
 #define META_DECLARE
 #define STATIC_META_DECLARE

@@ -73,94 +73,94 @@ public:
 
     // 0x524640 | ??_EasNode@@UAEPAXI@Z
     // 0x5237F0 | ??1asNode@@UAE@XZ
-    ~asNode() override;
+    ARTS_EXPORT ~asNode() override;
 
     // 0x523890 | ?Update@asNode@@UAEXXZ
-    virtual void Update();
+    ARTS_EXPORT virtual void Update();
 
     // 0x523960 | ?Reset@asNode@@UAEXXZ
-    virtual void Reset();
+    ARTS_EXPORT virtual void Reset();
 
     // 0x523980 | ?ResChange@asNode@@UAEXHH@Z
-    virtual void ResChange(i32 width, i32 height);
+    ARTS_EXPORT virtual void ResChange(i32 width, i32 height);
 
     // 0x404BB0 | ?UpdatePaused@asNode@@UAEXXZ | inline
-    virtual void UpdatePaused();
+    ARTS_EXPORT virtual void UpdatePaused();
 
     // 0x524150 | ?Load@asNode@@UAEXXZ
-    virtual void Load();
+    ARTS_EXPORT virtual void Load();
 
     // 0x523F70 | ?Save@asNode@@UAEXXZ
-    virtual void Save();
+    ARTS_EXPORT virtual void Save();
 
     // 0x524330 | ?AddWidgets@asNode@@UAEXPAVBank@@@Z
-    virtual void AddWidgets(class Bank* bank);
+    ARTS_EXPORT virtual void AddWidgets(class Bank* bank);
 
     // 0x5243E0 | ?OpenWidgets@asNode@@UAEXPADPAVbkWindow@@@Z
-    virtual void OpenWidgets(char* arg1, class bkWindow* arg2);
+    ARTS_EXPORT virtual void OpenWidgets(char* arg1, class bkWindow* arg2);
 
     // 0x5243F0 | ?CloseWidgets@asNode@@UAEXXZ
-    virtual void CloseWidgets();
+    ARTS_EXPORT virtual void CloseWidgets();
 
     // 0x524400 | ?AddButton@asNode@@QAEXPAVBank@@AAH@Z | unused
-    void AddButton(class Bank* arg1, i32& arg2);
+    ARTS_EXPORT void AddButton(class Bank* arg1, i32& arg2);
 
     // 0x523A70 | ?AddChild@asNode@@QAEHPAV1@@Z
-    b32 AddChild(class asNode* child);
+    ARTS_EXPORT b32 AddChild(class asNode* child);
 
     // 0x523C80 | ?GetChild@asNode@@QAEPAV1@H@Z
-    class asNode* GetChild(i32 index);
+    ARTS_EXPORT class asNode* GetChild(i32 index);
 
     // 0x523CC0 | ?GetLastChild@asNode@@QAEPAV1@XZ | unused
-    class asNode* GetLastChild();
+    ARTS_EXPORT class asNode* GetLastChild();
 
     // 0x523CB0 | ?GetNext@asNode@@QAEPAV1@XZ | unused
-    class asNode* GetNext()
+    ARTS_EXPORT class asNode* GetNext()
     {
         return next_node_;
     }
 
     // 0x523DC0 | ?GetNodeType@asNode@@QAEPADXZ | unused
-    const char* GetNodeType();
+    ARTS_EXPORT const char* GetNodeType();
 
     // 0x523D80 | ?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z | unused
-    class asNode* GetParent(class MetaClass* cls);
+    ARTS_EXPORT class asNode* GetParent(class MetaClass* cls);
 
     // 0x523AF0 | ?InsertChild@asNode@@QAEHHPAV1@@Z
-    b32 InsertChild(i32 index, class asNode* child);
+    ARTS_EXPORT b32 InsertChild(i32 index, class asNode* child);
 
     // 0x523DD0 | ?Load@asNode@@QAEHPAD@Z
-    b32 Load(const char* path);
+    ARTS_EXPORT b32 Load(const char* path);
 
     // 0x523D00 | ?NumChildren@asNode@@QAEHXZ
-    i32 NumChildren();
+    ARTS_EXPORT i32 NumChildren();
 
     // 0x5239D0 | ?PerfReport@asNode@@QAEXPAVStream@@H@Z
-    void PerfReport(class Stream* output, i32 indent);
+    ARTS_EXPORT void PerfReport(class Stream* output, i32 indent);
 
     // 0x523C60 | ?RemoveAllChildren@asNode@@QAEXXZ
-    void RemoveAllChildren();
+    ARTS_EXPORT void RemoveAllChildren();
 
     // 0x523C20 | ?RemoveChild@asNode@@QAEHPAV1@@Z
-    b32 RemoveChild(class asNode* child);
+    ARTS_EXPORT b32 RemoveChild(class asNode* child);
 
     // 0x523B80 | ?RemoveChild@asNode@@QAEHH@Z
-    b32 RemoveChild(i32 idx);
+    ARTS_EXPORT b32 RemoveChild(i32 idx);
 
     // 0x5239B0 | ?ResetTime@asNode@@QAEXXZ
-    void ResetTime();
+    ARTS_EXPORT void ResetTime();
 
     // 0x523EC0 | ?Save@asNode@@QAEHPAD@Z
-    b32 Save(const char* path);
+    ARTS_EXPORT b32 Save(const char* path);
 
     // 0x523860 | ?SetName@asNode@@QAEXPAD@Z
-    void SetName(const char* name);
+    ARTS_EXPORT void SetName(const char* name);
 
     // 0x523D20 | ?SwitchTo@asNode@@QAEXH@Z | unused
-    void SwitchTo(i32 idx);
+    ARTS_EXPORT void SwitchTo(i32 idx);
 
     // 0x523440 | ?VerifyTree@asNode@@QAEPADXZ | arts7:sim
-    const char* VerifyTree();
+    ARTS_EXPORT const char* VerifyTree();
 
     bool IsActive() const
     {

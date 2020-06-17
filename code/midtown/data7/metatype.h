@@ -144,7 +144,7 @@ template <>
 const MetaType* CreateMetaType<void>() = delete;
 
 // 0x524610 | ?PtrTo@@YAPAUMetaType@@PAU1@@Z
-struct MetaType* PtrTo(struct MetaType* target);
+ARTS_EXPORT struct MetaType* PtrTo(struct MetaType* target);
 
 template <typename T>
 struct MetaTypeFactory<T*>
@@ -207,7 +207,7 @@ check_size(ArrayOfType, 0x0);
 */
 
 // 0x4703A0 | ?Struct@@YAPAUMetaType@@PAVMetaClass@@@Z
-struct MetaType* Struct(class MetaClass* target);
+ARTS_EXPORT struct MetaType* Struct(class MetaClass* target);
 
 template <typename T>
 struct MetaTypeFactory<T, std::enable_if_t<std::is_class_v<T>>>

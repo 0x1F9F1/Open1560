@@ -72,16 +72,16 @@ class agiSurfaceDesc // DDSURFACEDESC2
 {
 public:
     // 0x55B180 | ?CopyFrom@agiSurfaceDesc@@QAEXPAV1@H@Z
-    void CopyFrom(class agiSurfaceDesc* src, i32 lod);
+    ARTS_EXPORT void CopyFrom(class agiSurfaceDesc* src, i32 lod);
 
     // 0x55ADE0 | ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
     void Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class Stream* arg5, i32 arg6, i32 arg7);
 
     // 0x55B160 | ?Unload@agiSurfaceDesc@@QAEXXZ
-    void Unload();
+    ARTS_EXPORT void Unload();
 
     // 0x55A720 | ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
-    static Owner<class agiSurfaceDesc*> Init(i32 width, i32 height, class agiSurfaceDesc& desc);
+    ARTS_EXPORT static Owner<class agiSurfaceDesc*> Init(i32 width, i32 height, class agiSurfaceDesc& desc);
 
     // 0x55A7A0 | ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
     static class agiSurfaceDesc* Load(char* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);

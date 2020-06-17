@@ -38,22 +38,22 @@ class Base
 public:
     // 0x414AD0 | ??_GBase@@UAEPAXI@Z
     // 0x5791E0 | ??1Base@@UAE@XZ
-    virtual ~Base() noexcept = 0;
+    ARTS_EXPORT virtual ~Base() noexcept = 0;
 
     // 0x579290 | ?GetClass@Base@@UAEPAVMetaClass@@XZ
-    virtual class MetaClass* GetClass();
+    ARTS_EXPORT virtual class MetaClass* GetClass();
 
     // 0x5791A0 | ?GetTypeNameV@Base@@UAEPADXZ
-    virtual const char* GetTypeNameV();
+    ARTS_EXPORT virtual const char* GetTypeNameV();
 
     // 0x5791C0 | ?BeforeSave@Base@@UAEXXZ
-    virtual void BeforeSave();
+    ARTS_EXPORT virtual void BeforeSave();
 
     // 0x5791D0 | ?AfterLoad@Base@@UAEXXZ
-    virtual void AfterLoad();
+    ARTS_EXPORT virtual void AfterLoad();
 
     // 0x5791B0 | ?GetTypeName@Base@@QAEPADXZ
-    const char* GetTypeName();
+    ARTS_EXPORT const char* GetTypeName();
 
     META_DECLARE;
 };

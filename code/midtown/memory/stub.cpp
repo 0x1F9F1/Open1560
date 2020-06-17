@@ -24,8 +24,11 @@ define_dummy_symbol(memory_stub);
 
 ARTS_NOINLINE void* operator new(std::size_t size)
 {
-    export_hook(0x5215A0);
+    return CURHEAP->Allocate(size);
+}
 
+ARTS_EXPORT ARTS_NOINLINE void* arts_operator_new(std::size_t size)
+{
     return CURHEAP->Allocate(size);
 }
 
@@ -36,8 +39,11 @@ ARTS_NOINLINE void* operator new[](std::size_t size)
 
 ARTS_NOINLINE void operator delete(void* ptr) noexcept
 {
-    export_hook(0x5215C0);
+    CURHEAP->Free(ptr);
+}
 
+ARTS_EXPORT ARTS_NOINLINE void arts_operator_delete(void* ptr) noexcept
+{
     CURHEAP->Free(ptr);
 }
 
@@ -62,8 +68,6 @@ ARTS_NOINLINE void operator delete[](void* ptr, std::size_t sz) noexcept
 
 ARTS_NOINLINE void* arts_calloc(std::size_t num, std::size_t size)
 {
-    export_hook(0x521530);
-
     std::size_t len = num * size;
 
     void* ptr = CURHEAP->Allocate(len);
@@ -76,21 +80,15 @@ ARTS_NOINLINE void* arts_calloc(std::size_t num, std::size_t size)
 
 ARTS_NOINLINE void arts_free(void* ptr)
 {
-    export_hook(0x521570);
-
     CURHEAP->Free(ptr);
 }
 
 ARTS_NOINLINE void* arts_malloc(std::size_t size)
 {
-    export_hook(0x5214F0);
-
     return CURHEAP->Allocate(size);
 }
 
 ARTS_NOINLINE void* arts_realloc(void* ptr, std::size_t size)
 {
-    export_hook(0x521510);
-
     return CURHEAP->Reallocate(ptr, size);
 }

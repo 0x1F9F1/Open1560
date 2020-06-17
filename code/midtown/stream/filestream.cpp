@@ -29,27 +29,19 @@ define_dummy_symbol(stream_filestream);
 FileStream::FileStream(i32 handle)
     : Stream(nullptr, 0, nullptr)
     , file_handle_(handle)
-{
-    export_hook(0x5618E0);
-}
+{}
 
 FileStream::FileStream(void* buffer, i32 buffer_size, class FileSystem* file_system)
     : Stream(buffer, buffer_size, file_system)
-{
-    export_hook(0x5617F0);
-}
+{}
 
 FileStream::~FileStream()
 {
-    export_hook(0x561A60);
-
     Close();
 }
 
 i32 FileStream::Close()
 {
-    export_hook(0x561A20);
-
     Flush();
 
     i32 result = -1;
@@ -71,8 +63,6 @@ i32 FileStream::Close()
 
 i32 FileStream::Create(const char* path)
 {
-    export_hook(0x561840);
-
     if (file_handle_ != -1)
         return -1;
 
@@ -85,15 +75,11 @@ i32 FileStream::Create(const char* path)
 
 usize FileStream::GetPagerHandle()
 {
-    export_hook(0x561830);
-
     return reinterpret_cast<usize>(pager_handle_);
 }
 
 i32 FileStream::Open(const char* path, b32 read_only)
 {
-    export_hook(0x561870);
-
     if (file_handle_ != -1)
         return -1;
 
@@ -110,22 +96,16 @@ i32 FileStream::Open(const char* path, b32 read_only)
 
 i32 FileStream::RawRead(void* ptr, i32 size)
 {
-    export_hook(0x561970);
-
     return _read(file_handle_, ptr, size);
 }
 
 i32 FileStream::RawSeek(i32 pos)
 {
-    export_hook(0x5619B0);
-
     return _lseek(file_handle_, pos, SEEK_SET);
 }
 
 i32 FileStream::RawSize()
 {
-    export_hook(0x5619F0);
-
     i32 pos = RawTell();
     i32 end = _lseek(file_handle_, 0, SEEK_END);
 
@@ -137,22 +117,16 @@ i32 FileStream::RawSize()
 
 i32 FileStream::RawTell()
 {
-    export_hook(0x5619D0);
-
     return _lseek(file_handle_, 0, SEEK_CUR);
 }
 
 i32 FileStream::RawWrite(const void* ptr, i32 size)
 {
-    export_hook(0x561990);
-
     return _write(file_handle_, ptr, size);
 }
 
 i32 FileStream::Stderr()
 {
-    export_hook(0x561950);
-
     if (file_handle_ != -1)
         return -1;
 
@@ -163,8 +137,6 @@ i32 FileStream::Stderr()
 
 i32 FileStream::Stdin()
 {
-    export_hook(0x561910);
-
     if (file_handle_ != -1)
         return -1;
 
@@ -175,8 +147,6 @@ i32 FileStream::Stdin()
 
 i32 FileStream::Stdout()
 {
-    export_hook(0x561930);
-
     if (file_handle_ != -1)
         return -1;
 

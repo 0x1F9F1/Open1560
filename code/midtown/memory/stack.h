@@ -42,7 +42,7 @@ void DebugLogInit(i32 arg1);
 void DebugLogShutdown();
 
 // 0x5204C0 | ?DoStackTraceback@@YAXHPAH@Z
-void DoStackTraceback(i32 depth, i32* frame);
+ARTS_EXPORT void DoStackTraceback(i32 depth, i32* frame);
 
 // 0x520670 | ?DumpStackTraceback@@YAXPAHH@Z
 void DumpStackTraceback(i32* arg1, i32 arg2);
@@ -56,4 +56,4 @@ void LookupAddress(char* buffer, usize buflen, usize address);
 // void LookupAddress(char* buffer, i32 address);
 
 // 0x520590 | ?StackTraceback@@YAXH@Z
-void StackTraceback(i32 depth);
+ARTS_EXPORT void StackTraceback(i32 depth);

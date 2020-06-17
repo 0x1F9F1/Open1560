@@ -25,6 +25,8 @@
 #define DIRECTINPUT_VERSION DIRECTX_VERSION
 #define DIRECTSOUND_VERSION DIRECTX_VERSION
 
+#include <algorithm>
+
 #include "core/defines.h"
 
 #include "core/hooking.h"
@@ -43,4 +45,4 @@
 
 #include "arts7/node.h"
 
-#include <sol/sol.hpp>
+// #include <sol/sol.hpp>

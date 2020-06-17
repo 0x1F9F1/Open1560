@@ -40,22 +40,22 @@ class StreamMiniParser : public MiniParser
 
 public:
     // 0x561370 | ??0StreamMiniParser@@QAE@PADPAVStream@@@Z
-    StreamMiniParser(const char* name, class Stream* stream);
+    ARTS_EXPORT StreamMiniParser(const char* name, class Stream* stream);
 
     // 0x5613A0 | ??1StreamMiniParser@@QAE@XZ
-    ~StreamMiniParser();
+    ARTS_EXPORT ~StreamMiniParser();
 
     // 0x561440 | ?RawGetCh@StreamMiniParser@@UAEHXZ
-    i32 RawGetCh() override;
+    ARTS_EXPORT i32 RawGetCh() override;
 
     // 0x561400 | ?RawPutCh@StreamMiniParser@@UAEXH@Z
-    void RawPutCh(i32 arg1) override;
+    ARTS_EXPORT void RawPutCh(i32 arg1) override;
 
     // 0x561470 | ?Load@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z | unused
-    static void Load(class MetaClass* cls, const char* path, void* ptr);
+    ARTS_EXPORT static void Load(class MetaClass* cls, const char* path, void* ptr);
 
     // 0x561520 | ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z | unused
-    static void Save(class MetaClass* cls, const char* path, void* ptr);
+    ARTS_EXPORT static void Save(class MetaClass* cls, const char* path, void* ptr);
 
 private:
     Ptr<Stream> stream_;

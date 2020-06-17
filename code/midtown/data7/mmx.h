@@ -34,7 +34,7 @@ struct initHaveMMX
 {
 public:
     // 0x57C410 | ??0initHaveMMX@@QAE@XZ | inline
-    initHaveMMX();
+    ARTS_EXPORT initHaveMMX();
 };
 
 check_size(initHaveMMX, 0x1);

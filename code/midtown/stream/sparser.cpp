@@ -26,33 +26,23 @@ define_dummy_symbol(stream_sparser);
 StreamMiniParser::StreamMiniParser(const char* name, class Stream* stream)
     : MiniParser(name)
     , stream_(stream)
-{
-    export_hook(0x561370);
-}
+{}
 
 StreamMiniParser::~StreamMiniParser()
-{
-    export_hook(0x5613A0);
-}
+{}
 
 i32 StreamMiniParser::RawGetCh()
 {
-    export_hook(0x561440);
-
     return stream_->GetCh();
 }
 
 void StreamMiniParser::RawPutCh(i32 value)
 {
-    export_hook(0x561400);
-
     stream_->PutCh(static_cast<u8>(value));
 }
 
 void StreamMiniParser::Load(class MetaClass* cls, const char* path, void* ptr)
 {
-    export_hook(0x561470);
-
     Ptr<Stream> input(arts_fopen(path, "r"));
 
     if (input)
@@ -72,8 +62,6 @@ void StreamMiniParser::Load(class MetaClass* cls, const char* path, void* ptr)
 
 void StreamMiniParser::Save(class MetaClass* cls, const char* path, void* ptr)
 {
-    export_hook(0x561520);
-
     Ptr<Stream> output(arts_fopen(path, "w"));
 
     if (output)

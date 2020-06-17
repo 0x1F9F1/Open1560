@@ -77,10 +77,10 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args);
 i32 LogToCommPort(i32 arg1, i32 arg2);
 
 // 0x576F00 | ?LogToFile@@YAXXZ
-void LogToFile();
+ARTS_EXPORT void LogToFile();
 
 // 0x576EA0 | ?LogToFile@@YAXPAD@Z
-void LogToFile(const char* file);
+ARTS_EXPORT void LogToFile(const char* file);
 
 // 0x576E90 | ?LogToMonochromeMonitor@@YAXXZ
 void LogToMonochromeMonitor();

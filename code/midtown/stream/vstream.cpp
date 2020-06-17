@@ -29,8 +29,6 @@ VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode*
     , data_offset_(file_node->GetOffset())
     , data_size_(file_node->GetSize())
 {
-    export_hook(0x561B40);
-
     RawSeek(0);
     flags_ |= 0x2;
     lock_.init();
@@ -38,8 +36,6 @@ VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode*
 
 VirtualStream::~VirtualStream()
 {
-    export_hook(0x561C00);
-
     lock_.close(); // TODO: Should this be closed after flushing?
 
     Flush();
@@ -47,8 +43,6 @@ VirtualStream::~VirtualStream()
 
 void* VirtualStream::GetMapping()
 {
-    export_hook(0x561D40);
-
     if (void* mapping = base_stream_->GetMapping())
         return static_cast<u8*>(mapping) + data_offset_;
 
@@ -57,8 +51,6 @@ void* VirtualStream::GetMapping()
 
 i32 VirtualStream::GetPagingInfo(u32& handle, u32& offset, u32& size)
 {
-    export_hook(0x561BD0);
-
     handle = base_stream_->GetPagerHandle();
     offset = data_offset_;
     size = data_size_;
@@ -68,8 +60,6 @@ i32 VirtualStream::GetPagingInfo(u32& handle, u32& offset, u32& size)
 
 i32 VirtualStream::RawRead(void* ptr, i32 size)
 {
-    export_hook(0x561C60);
-
     lock_.lock();
 
     i32 here = RawTell();
@@ -89,22 +79,16 @@ i32 VirtualStream::RawRead(void* ptr, i32 size)
 
 i32 VirtualStream::RawSeek(i32 pos)
 {
-    export_hook(0x561CE0);
-
     return base_stream_->Seek(data_offset_ + pos) - data_offset_;
 }
 
 i32 VirtualStream::RawSize()
 {
-    export_hook(0x561D30);
-
     return data_size_;
 }
 
 i32 VirtualStream::RawTell()
 {
-    export_hook(0x561D10);
-
     return base_stream_->Tell() - data_offset_;
 }
 

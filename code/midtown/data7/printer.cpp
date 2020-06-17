@@ -196,8 +196,6 @@ i32 LogToCommPort(i32 arg1, i32 arg2)
 
 void LogToFile()
 {
-    export_hook(0x576F00);
-
     std::time_t time;
     std::time(&time);
 
@@ -218,8 +216,6 @@ void LogToFile()
 
 void LogToFile(const char* file)
 {
-    export_hook(0x576EA0);
-
     DebugLogFile = CreateFileA(file, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (DebugLogFile == INVALID_HANDLE_VALUE)

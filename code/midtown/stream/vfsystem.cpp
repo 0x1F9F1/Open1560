@@ -27,8 +27,6 @@ define_dummy_symbol(stream_vfsystem);
 VirtualFileSystem::VirtualFileSystem(class Stream* stream)
     : base_stream_(stream)
 {
-    export_hook(0x560650);
-
     base_stream_->Read(&file_header_, sizeof(file_header_));
 
     if (file_header_.Magic != AresMagic)
@@ -44,21 +42,15 @@ VirtualFileSystem::VirtualFileSystem(class Stream* stream)
 }
 
 VirtualFileSystem::~VirtualFileSystem()
-{
-    export_hook(0x560710);
-}
+{}
 
 b32 VirtualFileSystem::ChangeDir(const char*)
 {
-    export_hook(0x560B90);
-
     return false;
 }
 
 Owner<class Stream*> VirtualFileSystem::CreateOn(const char*, void*, i32)
 {
-    export_hook(0x560B80);
-
     return nullptr;
 }
 
@@ -76,8 +68,6 @@ struct VirtualFileEntry
 
 Owner<struct FileInfo*> VirtualFileSystem::FirstEntry(const char* path)
 {
-    export_hook(0x560BB0);
-
     VirtualFileInode* nodes = nullptr;
     u32 node_count = 0;
 
@@ -111,15 +101,11 @@ Owner<struct FileInfo*> VirtualFileSystem::FirstEntry(const char* path)
 
 b32 VirtualFileSystem::GetDir(char*, i32)
 {
-    export_hook(0x560BA0);
-
     return false;
 }
 
 Owner<struct FileInfo*> VirtualFileSystem::NextEntry(Owner<struct FileInfo*> info)
 {
-    export_hook(0x560D00);
-
     VirtualFileEntry* context = static_cast<VirtualFileEntry*>(info->Context);
 
     if (!--context->NodeCount)
@@ -138,8 +124,6 @@ Owner<struct FileInfo*> VirtualFileSystem::NextEntry(Owner<struct FileInfo*> inf
 
 Owner<class Stream*> VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
-    export_hook(0x560AD0);
-
     if (!read_only)
         return nullptr;
 
@@ -153,8 +137,6 @@ Owner<class Stream*> VirtualFileSystem::OpenOn(const char* path, b32 read_only, 
 
 b32 VirtualFileSystem::PagerInfo(const char* path, struct PagerInfo_t& info)
 {
-    export_hook(0x560A50);
-
     VirtualFileInode* node = Lookup(path);
 
     if (!node || node->IsDirectory())
@@ -170,8 +152,6 @@ b32 VirtualFileSystem::PagerInfo(const char* path, struct PagerInfo_t& info)
 
 b32 VirtualFileSystem::QueryOn(const char* path)
 {
-    export_hook(0x560A00);
-
     VirtualFileInode* node = Lookup(path);
 
     return node && !node->IsDirectory();
@@ -179,15 +159,11 @@ b32 VirtualFileSystem::QueryOn(const char* path)
 
 b32 VirtualFileSystem::ValidPath(const char*)
 {
-    export_hook(0x560780);
-
     return true;
 }
 
 void VirtualFileSystem::ExpandName(char* buf, struct VirtualFileInode* node, const char* names)
 {
-    export_hook(0x560800);
-
     ExpandName(buf, 56, node, names);
 }
 
@@ -241,8 +217,6 @@ void VirtualFileSystem::ExpandName(char* buf, i32 buf_len, VirtualFileInode* nod
 struct VirtualFileInode* VirtualFileSystem::Lookup(
     struct VirtualFileInode* nodes, i32 node_count, const char* names, char* path)
 {
-    export_hook(0x560920);
-
     if (node_count == 0)
         return nullptr;
 
@@ -294,8 +268,6 @@ struct VirtualFileInode* VirtualFileSystem::Lookup(
 
 void VirtualFileSystem::NormalizeName(char* buf, const char* path)
 {
-    export_hook(0x560790);
-
     NormalizeName(buf, 56, path);
 }
 

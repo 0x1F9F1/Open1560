@@ -33,6 +33,8 @@
 
 #define ARTS_RESTRICT HEDLEY_RESTRICT
 
+#define ARTS_EXPORT HEDLEY_PUBLIC
+
 #ifndef ARTS_FUNCTION
 #    if defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)
 #        define ARTS_FUNCTION __func__

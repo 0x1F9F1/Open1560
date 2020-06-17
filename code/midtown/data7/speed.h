@@ -27,7 +27,7 @@
 */
 
 // 0x57CF50 | ?ComputeCpuSpeed@@YAIXZ
-u32 ComputeCpuSpeed();
+ARTS_EXPORT u32 ComputeCpuSpeed();
 
 // 0x57CE90 | ?__ComputeCpuSpeed@@YAIXZ
 // u32 __ComputeCpuSpeed();
