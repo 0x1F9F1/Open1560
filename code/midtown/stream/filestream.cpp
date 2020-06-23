@@ -58,7 +58,7 @@ i32 FileStream::Close()
         pager_handle_ = nullptr;
     }
 
-    return -1;
+    return result;
 }
 
 i32 FileStream::Create(const char* path)

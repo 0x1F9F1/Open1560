@@ -28,8 +28,7 @@ StreamMiniParser::StreamMiniParser(const char* name, class Stream* stream)
     , stream_(stream)
 {}
 
-StreamMiniParser::~StreamMiniParser()
-{}
+StreamMiniParser::~StreamMiniParser() = default;
 
 i32 StreamMiniParser::RawGetCh()
 {

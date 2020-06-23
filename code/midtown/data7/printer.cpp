@@ -171,7 +171,7 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
     {
         if (IsDebuggerPresent())
         {
-            DebugBreak();
+            ArDebugBreak();
         }
         else
         {

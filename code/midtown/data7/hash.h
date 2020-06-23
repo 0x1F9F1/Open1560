@@ -38,26 +38,35 @@
     0x90AE5C | private: static class HashTable * HashTable::First | ?First@HashTable@@0PAV1@A
 */
 
+struct HashEntry
+{
+    CString Key {nullptr};
+    void* Value {nullptr};
+    HashEntry* Next {nullptr};
+};
+
+check_size(HashEntry, 0xC);
+
 class HashTable
 {
 public:
     // 0x498950 | ??1HashTable@@QAE@XZ | inline
-    ~HashTable();
+    ARTS_EXPORT ~HashTable();
 
     // 0x578180 | ??4HashTable@@QAEXAAV0@@Z | unused
-    void operator=(class HashTable& arg1);
+    ARTS_EXPORT void operator=(class HashTable& other);
 
     // 0x578430 | ?Access@HashTable@@QAEPAXPAD@Z
-    void* Access(char* arg1);
+    ARTS_EXPORT void* Access(const char* key);
 
     // 0x5783F0 | ?Change@HashTable@@QAEHPAD0@Z | unused
-    i32 Change(char* arg1, char* arg2);
+    ARTS_EXPORT b32 Change(const char* old_key, const char* new_key);
 
     // 0x5782B0 | ?Delete@HashTable@@QAEHPAD@Z
-    i32 Delete(char* arg1);
+    ARTS_EXPORT i32 Delete(const char* key);
 
     // 0x5780A0 | ?Init@HashTable@@QAEXH@Z
-    void Init(i32 arg1);
+    ARTS_EXPORT void Init(i32 bucket_count);
 
     // 0x5781D0 | ?Insert@HashTable@@QAEHPADPAX@Z
     i32 Insert(char* arg1, void* arg2);
@@ -73,7 +82,7 @@ private:
     i32 ComputePrime(i32 arg1);
 
     // 0x5784C0 | ?Hash@HashTable@@AAEHPAD@Z
-    i32 Hash(char* arg1);
+    ARTS_EXPORT u32 Hash(const char* key);
 
     // 0x578550 | ?Recompute@HashTable@@AAEXH@Z
     void Recompute(i32 arg1);
@@ -83,9 +92,14 @@ private:
 
     // 0x90AE5C | ?First@HashTable@@0PAV1@A
     static inline extern_var(0x90AE5C, class HashTable*, First);
+
+    i32 bucket_count_ {0};
+    i32 value_count_ {0};
+    Ptr<HashEntry*[]> buckets_ {nullptr};
+    HashTable* next_table_ {nullptr};
 };
 
-check_size(HashTable, 0x0);
+check_size(HashTable, 0x10);
 
 struct HashIterator
 {
@@ -95,6 +109,10 @@ public:
 
     // 0x578050 | ?Next@HashIterator@@QAEHXZ
     i32 Next();
+
+    HashTable* Table {nullptr};
+    i32 Index {0};
+    HashEntry* Current {nullptr};
 };
 
-check_size(HashIterator, 0x0);
+check_size(HashIterator, 0xC);

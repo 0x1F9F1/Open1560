@@ -221,8 +221,12 @@ static std::size_t InitExportHooks(HMODULE instance)
 
 static u8 Main_InitHeap[0x80000];
 
+#include <mmsystem.h>
+
 BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
+    MCI_OPEN;
+
     if (fdwReason == DLL_PROCESS_ATTACH)
     {
         if (std::strcmp(mem::pointer(0x6346BC).as<const char*>(), "Angel: 1560 / Apr  2 1999 19:10:27") != 0)
@@ -299,6 +303,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         // Hack, avoids attempting to access freed memory (https://github.com/0x1F9F1/Open1560/issues/15)
         // Luckily the aiVehicleSpline destructor doesn't do actually do anything anyway (apart from set mmInstanceHeap.HeapHead, which we want to avoid anyway)
         patch_jmp("aiVehicleSpline::~aiVehicleSpline", "Avoid freeing aiVehicleInstance", 0x459F84, jump_type::always);
+
+        create_patch("sfPointer::ResChange", "Use Old Cursor", 0x641F2C, "pointer", 8);
 
         Displayf("Begin Init Functions");
 
@@ -417,7 +423,7 @@ include_dummy_symbol(data7_base);
 include_dummy_symbol(data7_cache);
 include_dummy_symbol(data7_callback);
 // include_dummy_symbol(data7_global);
-// include_dummy_symbol(data7_hash);
+include_dummy_symbol(data7_hash);
 include_dummy_symbol(data7_ipc);
 // include_dummy_symbol(data7_list);
 include_dummy_symbol(data7_machname);

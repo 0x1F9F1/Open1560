@@ -20,11 +20,12 @@
 
 #include "data7/printer.h"
 
-#include <mem/protect.h>
+#include "core/minwin.h"
 
 void write_protected(mem::pointer dest, mem::pointer src, size_t length)
 {
-    mem::protect({dest, length}).copy(src);
+    SIZE_T copied = 0;
+    WriteProcessMemory(GetCurrentProcess(), dest.as<void*>(), src.as<const void*>(), length, &copied);
 }
 
 const char* const HookTypeNames[static_cast<size_t>(hook_type::count)] = {
@@ -41,41 +42,37 @@ void create_hook(const char* name, const char* description, mem::pointer pHook, 
 {
     intptr_t rva = pDetour.as<intptr_t>() - pHook.add(5).as<intptr_t>();
 
+    unsigned char buffer[16];
+
     switch (type)
     {
         case hook_type::jmp: {
-            std::uint8_t buffer[5] = {0xE9};
-
-            reinterpret_cast<int&>(buffer[1]) = rva;
-
-            write_protected(pHook, buffer, sizeof(buffer));
-
+            buffer[0] = 0xE9;
+            std::memcpy(&buffer[1], &rva, sizeof(rva));
+            write_protected(pHook, buffer, 5);
             break;
         }
 
         case hook_type::call: {
-            std::uint8_t buffer[5] = {0xE8};
-            reinterpret_cast<int&>(buffer[1]) = rva;
-
-            write_protected(pHook, buffer, sizeof(buffer));
-
+            buffer[0] = 0xE8;
+            std::memcpy(&buffer[1], &rva, sizeof(rva));
+            write_protected(pHook, buffer, 5);
             break;
         }
 
         case hook_type::push: {
-            std::uint8_t buffer[5] = {0x68};
-            reinterpret_cast<int&>(buffer[1]) = pDetour.as<int>();
-
-            write_protected(pHook, buffer, sizeof(buffer));
-
+            buffer[0] = 0xE9;
+            std::memcpy(&buffer[1], &pDetour, sizeof(pDetour));
+            write_protected(pHook, buffer, 5);
             break;
         }
 
         case hook_type::pointer: {
             write_protected(pHook, &pDetour, sizeof(pDetour));
-
             break;
         }
+
+        default: return;
     }
 
     Displayf("Created %s hook '%s' from 0x%zX to 0x%zX: %s", HookTypeNames[static_cast<size_t>(type)], name,

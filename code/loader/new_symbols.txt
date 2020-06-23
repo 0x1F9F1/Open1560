@@ -27,3 +27,4 @@ DirectInputCreateA=0x0
 ?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@PBD@Z=?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@0@Z
 ?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPBDPAD@Z=?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPAD1@Z
 ?NormalizeName@VirtualFileSystem@@SAXPADPBD@Z=?NormalizeName@VirtualFileSystem@@SAXPAD0@Z
+?Hash@HashTable@@AAEIPBD@Z=?Hash@HashTable@@AAEHPAD@Z

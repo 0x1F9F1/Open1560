@@ -22,32 +22,75 @@ define_dummy_symbol(data7_hash);
 
 HashTable::~HashTable()
 {
-    unimplemented();
+    Kill();
+    RemoveMe();
 }
 
-void HashTable::operator=(class HashTable& arg1)
+void HashTable::operator=(class HashTable& other)
 {
-    return stub<thiscall_t<void, HashTable*, class HashTable&>>(0x578180, this, arg1);
+    Init(bucket_count_ - 1);
+
+    for (i32 i = 0; i < other.bucket_count_; ++i)
+    {
+        for (HashEntry* j = other.buckets_[i]; j; j = j->Next)
+            Insert(j->Key.get(), j->Value);
+    }
 }
 
-void* HashTable::Access(char* arg1)
+void* HashTable::Access(const char* key)
 {
-    return stub<thiscall_t<void*, HashTable*, char*>>(0x578430, this, arg1);
+    if (buckets_ == nullptr && bucket_count_ != 0)
+        Init(bucket_count_);
+
+    for (HashEntry* i = buckets_[Hash(key)]; i; i = i->Next)
+    {
+        if (!std::strcmp(i->Key.get(), key))
+            return i->Value;
+    }
+
+    return nullptr;
 }
 
-i32 HashTable::Change(char* arg1, char* arg2)
+b32 HashTable::Change(const char* old_key, const char* new_key)
 {
-    return stub<thiscall_t<i32, HashTable*, char*, char*>>(0x5783F0, this, arg1, arg2);
+    // TODO: Reuse existing entry
+
+    void* value = Access(old_key);
+
+    b32 result = Delete((char*) old_key);
+
+    if (result)
+        result = Insert((char*) new_key, value);
+
+    return result;
 }
 
-i32 HashTable::Delete(char* arg1)
+i32 HashTable::Delete(const char* key)
 {
-    return stub<thiscall_t<i32, HashTable*, char*>>(0x5782B0, this, arg1);
+    if (buckets_ == nullptr)
+        return false;
+
+    for (HashEntry** i = &buckets_[Hash(key)]; *i; i = &(*i)->Next)
+    {
+        HashEntry* v = *i;
+
+        if (!std::strcmp(v->Key.get(), key))
+        {
+            *i = v->Next;
+            delete v;
+            --value_count_;
+            return true;
+        }
+    }
+
+    return false;
 }
 
-void HashTable::Init(i32 arg1)
+void HashTable::Init(i32 bucket_count)
 {
-    return stub<thiscall_t<void, HashTable*, i32>>(0x5780A0, this, arg1);
+    Kill();
+    bucket_count_ = ComputePrime(std::max(bucket_count, 100));
+    buckets_ = MakeUnique<HashEntry*[]>(bucket_count_);
 }
 
 i32 HashTable::Insert(char* arg1, void* arg2)
@@ -70,9 +113,19 @@ i32 HashTable::ComputePrime(i32 arg1)
     return stub<thiscall_t<i32, HashTable*, i32>>(0x578500, this, arg1);
 }
 
-i32 HashTable::Hash(char* arg1)
+u32 HashTable::Hash(const char* key)
 {
-    return stub<thiscall_t<i32, HashTable*, char*>>(0x5784C0, this, arg1);
+    u32 hash = 0;
+
+    for (char c; (c = *key) != '\0'; ++key)
+    {
+        hash = (hash << 4) + c;
+
+        if (u32 upper = hash & 0xF0000000)
+            hash ^= upper ^ (upper >> 24);
+    }
+
+    return hash % u32(bucket_count_);
 }
 
 void HashTable::Recompute(i32 arg1)

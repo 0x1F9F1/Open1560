@@ -18,6 +18,8 @@
 
 #include "assert.h"
 
+#include "core/minwin.h"
+
 [[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArReportAssertion(const ArAssertData& data)
 {
     const ArSourceLocation& location = data.location;
@@ -25,12 +27,18 @@
     Abortf("Assertion Failure: %s (%s) in %s (%s:%u)", data.message, data.condition, location.function,
         location.filename, location.linenum);
 
+    if (IsDebuggerPresent())
+        ArDebugBreak();
+
     std::abort();
 }
 
 [[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArUnimplemented(const ArSourceLocation& location)
 {
     Abortf("Unimplemented Function: %s in %s:%u", location.function, location.filename, location.linenum);
+
+    if (IsDebuggerPresent())
+        ArDebugBreak();
 
     std::abort();
 }
