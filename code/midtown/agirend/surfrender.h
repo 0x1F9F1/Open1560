@@ -97,7 +97,7 @@ protected:
     static inline extern_var(0x8BABF8, i32, SurfaceCount);
 
     // 0x8BAC08 | ?SurfaceHeap@agiSurfRenderer@@1PAUagiSurface@@A
-    static inline extern_var(0x8BAC08, struct agiSurface*, SurfaceHeap);
+    static inline extern_var(0x8BAC08, struct agiSurface[16384], SurfaceHeap);
 
     // 0x8BABFC | ?VertexCount@agiSurfRenderer@@1HA
     static inline extern_var(0x8BABFC, i32, VertexCount);

@@ -22,6 +22,7 @@
     mmcar:splash
 
     0x480FF0 | public: __thiscall mmSplash::mmSplash(void) | ??0mmSplash@@QAE@XZ
+    0x481050 | void __cdecl SplashCB(class mmSplash *) | ?SplashCB@@YAXPAVmmSplash@@@Z
     0x481060 | public: virtual void __thiscall mmSplash::Reset(void) | ?Reset@mmSplash@@UAEXXZ
     0x481070 | public: void __thiscall mmSplash::Init(class asInertialCS *,class Vector3,class Vector3) | ?Init@mmSplash@@QAEXPAVasInertialCS@@VVector3@@1@Z
     0x4811C0 | public: void __thiscall mmSplash::Activate(float) | ?Activate@mmSplash@@QAEXM@Z
@@ -30,7 +31,6 @@
     0x4814A0 | public: virtual void * __thiscall mmSplash::`vector deleting destructor'(unsigned int) | ??_EmmSplash@@UAEPAXI@Z
     0x4814A0 | public: virtual void * __thiscall mmSplash::`scalar deleting destructor'(unsigned int) | ??_GmmSplash@@UAEPAXI@Z
     0x61C8B0 | const mmSplash::`vftable' | ??_7mmSplash@@6B@
-    0x481050 | void __cdecl SplashCB(class mmSplash *) | ?SplashCB@@YAXPAVmmSplash@@@Z
 */
 
 #include "arts7/node.h"

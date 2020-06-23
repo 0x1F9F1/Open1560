@@ -27,11 +27,11 @@
     0x557F00 | void __cdecl agiPrintInit(void) | ?agiPrintInit@@YAXXZ
     0x557F10 | void __cdecl agiPrintShutdown(void) | ?agiPrintShutdown@@YAXXZ
     0x557F20 | public: virtual void __thiscall agiPipeline::Print(int,int,int,char const *) | ?Print@agiPipeline@@UAEXHHHPBD@Z
+    0x557FE0 | void __cdecl InitBuiltin(void) | ?InitBuiltin@@YAXXZ
     0x558110 | public: virtual int __thiscall agiPipeline::PrintIs3D(void) | ?PrintIs3D@agiPipeline@@UAEHXZ
     0x558130 | public: virtual void __thiscall agiPipeline::PrintInit(void) | ?PrintInit@agiPipeline@@UAEXXZ
     0x558140 | public: virtual void __thiscall agiPipeline::PrintShutdown(void) | ?PrintShutdown@agiPipeline@@UAEXXZ
     0x656C30 | unsigned char * CharSet | ?CharSet@@3PAEA
-    0x557FE0 | void __cdecl InitBuiltin(void) | ?InitBuiltin@@YAXXZ
 */
 
 // 0x557E70 | ?agiPrint@@YAXHHHPBD@Z
@@ -50,4 +50,4 @@ void agiPrintShutdown();
 void agiPrintf(i32 arg1, i32 arg2, i32 arg3, char const* arg4, ...);
 
 // 0x656C30 | ?CharSet@@3PAEA
-inline extern_var(0x656C30, u8*, CharSet);
+inline extern_var(0x656C30, u8[768], CharSet);

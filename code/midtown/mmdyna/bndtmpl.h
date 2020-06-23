@@ -258,7 +258,7 @@ private:
 check_size(mmBoundTemplate, 0xB4);
 
 // 0x77F4A0 | ?CollidedLines@@3PAPAHA
-inline extern_var(0x77F4A0, i32**, CollidedLines);
+inline extern_var(0x77F4A0, i32* [30], CollidedLines);
 
 // 0x77F518 | ?InsideVerts@@3PAHA
-inline extern_var(0x77F518, i32*, InsideVerts);
+inline extern_var(0x77F518, i32[30], InsideVerts);

@@ -124,7 +124,7 @@ public:
 check_size(CRSettings, 0x140);
 
 // 0x640A60 | ?GameType_PenaltyTable@@3PAHA
-inline extern_var(0x640A60, i32*, GameType_PenaltyTable);
+inline extern_var(0x640A60, i32[10], GameType_PenaltyTable);
 
 // 0x640A88 | ?Limit_ValueTable@@3PAHA
-inline extern_var(0x640A88, i32*, Limit_ValueTable);
+inline extern_var(0x640A88, i32[12], Limit_ValueTable);

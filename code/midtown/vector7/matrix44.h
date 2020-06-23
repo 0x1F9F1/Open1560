@@ -166,16 +166,16 @@ inline extern_var(0x909570, class Matrix44, HermiteTranspose);
 inline extern_var(0x9095F0, class Matrix44, Identity);
 
 // 0x658DB0 | ?bb@@3PAMA
-inline extern_var(0x658DB0, f32*, bb);
+inline extern_var(0x658DB0, f32[16], bb);
 
 // 0x658DF0 | ?bt@@3PAMA
-inline extern_var(0x658DF0, f32*, bt);
+inline extern_var(0x658DF0, f32[16], bt);
 
 // 0x658E30 | ?hb@@3PAMA
-inline extern_var(0x658E30, f32*, hb);
+inline extern_var(0x658E30, f32[16], hb);
 
 // 0x658E70 | ?ht@@3PAMA
-inline extern_var(0x658E70, f32*, ht);
+inline extern_var(0x658E70, f32[16], ht);
 
 // 0x658D70 | ?id@@3PAMA
-inline extern_var(0x658D70, f32*, id);
+inline extern_var(0x658D70, f32[16], id);

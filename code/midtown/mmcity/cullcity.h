@@ -49,6 +49,13 @@
     0x48DA00 | void __cdecl fix_clip(void) | ?fix_clip@@YAXXZ
     0x48DA70 | void __cdecl fix_lighting(void) | ?fix_lighting@@YAXXZ
     0x48DB10 | private: void __thiscall mmCullCity::InitTimeOfDayAndWeather(void) | ?InitTimeOfDayAndWeather@mmCullCity@@AAEXXZ
+    0x48E1B0 | void __cdecl fix_sun(void) | ?fix_sun@@YAXXZ
+    0x48E220 | void __cdecl fix_fill1(void) | ?fix_fill1@@YAXXZ
+    0x48E290 | void __cdecl fix_fill2(void) | ?fix_fill2@@YAXXZ
+    0x48E300 | void __cdecl parseFloat(float &) | ?parseFloat@@YAXAAM@Z
+    0x48E330 | void __cdecl parseVector3(class Vector3 &) | ?parseVector3@@YAXAAVVector3@@@Z
+    0x48E360 | void __cdecl parseRGB(unsigned int &) | ?parseRGB@@YAXAAI@Z
+    0x48E3D0 | void __cdecl parseARGB(unsigned int &) | ?parseARGB@@YAXAAI@Z
     0x48E450 | void __cdecl fix_fog(void) | ?fix_fog@@YAXXZ
     0x48E480 | void __cdecl fix_shadow(void) | ?fix_shadow@@YAXXZ
     0x48E4B0 | public: virtual void __thiscall mmCullCity::AddWidgets(class Bank *) | ?AddWidgets@mmCullCity@@UAEXPAVBank@@@Z
@@ -97,13 +104,6 @@
     0x6A8E74 | public: static float mmRunwayLight::Phase | ?Phase@mmRunwayLight@@2MA
     0x6A8E78 | float FadeScale | ?FadeScale@@3MA
     0x6A8E7C | int DisableUpper | ?DisableUpper@@3HA
-    0x48E1B0 | void __cdecl fix_sun(void) | ?fix_sun@@YAXXZ
-    0x48E220 | void __cdecl fix_fill1(void) | ?fix_fill1@@YAXXZ
-    0x48E290 | void __cdecl fix_fill2(void) | ?fix_fill2@@YAXXZ
-    0x48E300 | void __cdecl parseFloat(float &) | ?parseFloat@@YAXAAM@Z
-    0x48E330 | void __cdecl parseVector3(class Vector3 &) | ?parseVector3@@YAXAAVVector3@@@Z
-    0x48E360 | void __cdecl parseRGB(unsigned int &) | ?parseRGB@@YAXAAI@Z
-    0x48E3D0 | void __cdecl parseARGB(unsigned int &) | ?parseARGB@@YAXAAI@Z
 */
 
 #include "arts7/node.h"
@@ -296,7 +296,7 @@ inline extern_var(0x6A8DCC, i32, facadeTriCount);
 inline extern_var(0x6A8E40, class MetaClass, mmCullCityMetaClass);
 
 // 0x63E260 | ?mmEnvSetup@@3PAY03Ut_mmEnvSetup@@A
-inline extern_var(0x63E260, struct t_mmEnvSetup (*)[4], mmEnvSetup);
+inline extern_var(0x63E260, struct t_mmEnvSetup[4][4], mmEnvSetup);
 
 // 0x6A8E24 | ?pedTriCount@@3HA
 inline extern_var(0x6A8E24, i32, pedTriCount);

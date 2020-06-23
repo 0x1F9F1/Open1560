@@ -32,6 +32,8 @@
     0x408790 | public: void __thiscall mmInterface::ShowLockedVehicleMessage(void) | ?ShowLockedVehicleMessage@mmInterface@@QAEXXZ
     0x4087B0 | public: void __thiscall mmInterface::BeDone(void) | ?BeDone@mmInterface@@QAEXXZ
     0x4088A0 | public: virtual void __thiscall mmInterface::Update(void) | ?Update@mmInterface@@UAEXXZ
+    0x409CD0 | bool __cdecl IsModemDialin(void) | ?IsModemDialin@@YA_NXZ
+    0x409D50 | unsigned long __stdcall ZoneWatcher(void *) | ?ZoneWatcher@@YGKPAX@Z
     0x409F00 | private: void __thiscall mmInterface::NetJoinCB(void) | ?NetJoinCB@mmInterface@@AAEXXZ
     0x409F60 | private: void __thiscall mmInterface::NetNameCB(void) | ?NetNameCB@mmInterface@@AAEXXZ
     0x409F90 | private: void __thiscall mmInterface::JoinGame(void) | ?JoinGame@mmInterface@@AAEXXZ
@@ -101,8 +103,6 @@
     0x6A6E18 | class MetaClass mmInterfaceMetaClass | ?mmInterfaceMetaClass@@3VMetaClass@@A
     0x6A6E40 | char * szSearchPath | ?szSearchPath@@3PADA
     0x6A6EC8 | char * defcarname | ?defcarname@@3PADA
-    0x409CD0 | bool __cdecl IsModemDialin(void) | ?IsModemDialin@@YA_NXZ
-    0x409D50 | unsigned long __stdcall ZoneWatcher(void *) | ?ZoneWatcher@@YGKPAX@Z
 */
 
 #include "arts7/node.h"
@@ -111,13 +111,13 @@
 void ReportTimeAlloc(f32 arg1);
 
 // 0x6A6EC8 | ?defcarname@@3PADA
-inline extern_var(0x6A6EC8, char*, defcarname);
+inline extern_var(0x6A6EC8, char[80], defcarname);
 
 // 0x6A6E18 | ?mmInterfaceMetaClass@@3VMetaClass@@A
 inline extern_var(0x6A6E18, class MetaClass, mmInterfaceMetaClass);
 
 // 0x6A6E40 | ?szSearchPath@@3PADA
-inline extern_var(0x6A6E40, char*, szSearchPath);
+inline extern_var(0x6A6E40, char[128], szSearchPath);
 
 class mmInterface : public asNode
 {

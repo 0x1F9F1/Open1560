@@ -78,6 +78,7 @@
     0x4B1950 | public: void __thiscall MenuManager::PlayRecordsSound(void) | ?PlayRecordsSound@MenuManager@@QAEXXZ
     0x4B1980 | public: void __thiscall MenuManager::AddBrackets(class UIIcon *,class UIIcon *,class uiWidget *,float,float) | ?AddBrackets@MenuManager@@QAEXPAVUIIcon@@0PAVuiWidget@@MM@Z
     0x4B1A60 | public: void __thiscall MenuManager::Help(void) | ?Help@MenuManager@@QAEXXZ
+    0x4B1B30 | unsigned long __stdcall HelpWatcher(void *) | ?HelpWatcher@@YGKPAX@Z
     0x4B1C10 | public: virtual void * __thiscall MenuManager::`scalar deleting destructor'(unsigned int) | ??_GMenuManager@@UAEPAXI@Z
     0x4B1C10 | public: virtual void * __thiscall MenuManager::`vector deleting destructor'(unsigned int) | ??_EMenuManager@@UAEPAXI@Z
     0x4B1C40 | public: virtual void * __thiscall asLamp::`vector deleting destructor'(unsigned int) | ??_EasLamp@@UAEPAXI@Z
@@ -85,7 +86,6 @@
     0x61E338 | const MenuManager::`vftable' | ??_7MenuManager@@6B@
     0x6418B4 | float DELAYTTIME | ?DELAYTTIME@@3MA
     0x705960 | public: static class MenuManager * MenuManager::Instance | ?Instance@MenuManager@@2PAV1@A
-    0x4B1B30 | unsigned long __stdcall HelpWatcher(void *) | ?HelpWatcher@@YGKPAX@Z
 */
 
 #include "arts7/node.h"

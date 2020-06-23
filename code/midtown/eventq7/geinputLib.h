@@ -22,6 +22,7 @@
     eventq7:geinputLib
 
     0x563DE0 | int __cdecl inputSetup(int,int,int,int,int) | ?inputSetup@@YAHHHHHH@Z
+    0x564050 | char * __cdecl DIError(int) | ?DIError@@YAPADH@Z
     0x564200 | void __cdecl geinputAcquireMouse(void) | ?geinputAcquireMouse@@YAXXZ
     0x564210 | void __cdecl geinputUnacquireMouse(void) | ?geinputUnacquireMouse@@YAXXZ
     0x564220 | int __cdecl geinputGetBufferedKeyboard(char *) | ?geinputGetBufferedKeyboard@@YAHPAD@Z
@@ -30,7 +31,6 @@
     0x564570 | void __cdecl geinputCleanup(void) | ?geinputCleanup@@YAXXZ
     0x564610 | void __cdecl geinputClearCache(void) | ?geinputClearCache@@YAXXZ
     0x9092C0 | struct _DIMOUSESTATE MOUSESTATE | ?MOUSESTATE@@3U_DIMOUSESTATE@@A
-    0x564050 | char * __cdecl DIError(int) | ?DIError@@YAPADH@Z
 */
 
 // 0x564200 | ?geinputAcquireMouse@@YAXXZ | unused

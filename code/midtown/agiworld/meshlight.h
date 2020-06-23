@@ -25,10 +25,12 @@
     0x510730 | void __cdecl agiMeshLighterQuarter(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?agiMeshLighterQuarter@@YAXPAEPAI1PAVagiMeshSet@@@Z
     0x5108F0 | void __cdecl agiMeshLighterUpdateColors(void) | ?agiMeshLighterUpdateColors@@YAXXZ
     0x510AE0 | void __cdecl agiMeshLighterTriple(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z
+    0x510EE0 | void __cdecl mmxTriple(unsigned int *,unsigned int *,int,unsigned char *,int) | ?mmxTriple@@YAXPAI0HPAEH@Z
     0x511010 | void __cdecl agiMeshPrelight(unsigned int *,class agiMeshSet *,class Matrix34 &) | ?agiMeshPrelight@@YAXPAIPAVagiMeshSet@@AAVMatrix34@@@Z
     0x5111E0 | void __cdecl agiBeginCones(void) | ?agiBeginCones@@YAXXZ
     0x5111F0 | void __cdecl agiDeclareCone(class Vector3 &,class Vector3 &,class Vector3 &,float,float,class Vector3 &,int) | ?agiDeclareCone@@YAXAAVVector3@@00MM0H@Z
     0x5112C0 | void __cdecl agiConeLighter(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?agiConeLighter@@YAXPAEPAI1PAVagiMeshSet@@@Z
+    0x5116B0 | void __cdecl agiInitCones(class Matrix34 &,float) | ?agiInitCones@@YAXAAVMatrix34@@M@Z
     0x5118F0 | void __cdecl agiDrawCones(void) | ?agiDrawCones@@YAXXZ
     0x5119F0 | void __cdecl agiMeshLighterSpecular(unsigned char *,unsigned int *,unsigned int *,class agiMeshSet *) | ?agiMeshLighterSpecular@@YAXPAEPAI1PAVagiMeshSet@@@Z
     0x64ABB8 | float agiMeshLighterMin | ?agiMeshLighterMin@@3MA
@@ -51,8 +53,6 @@
     0x73E688 | class Vector3 agiMeshLighterFill2Color | ?agiMeshLighterFill2Color@@3VVector3@@A
     0x73E6A8 | class Vector3 agiMeshLighterFill1Color | ?agiMeshLighterFill1Color@@3VVector3@@A
     0x73E6B8 | union mmx fill2Color | ?fill2Color@@3Tmmx@@A
-    0x510EE0 | void __cdecl mmxTriple(unsigned int *,unsigned int *,int,unsigned char *,int) | ?mmxTriple@@YAXPAI0HPAEH@Z
-    0x5116B0 | void __cdecl agiInitCones(class Matrix34 &,float) | ?agiInitCones@@YAXAAVMatrix34@@M@Z
 */
 
 // 0x5111E0 | ?agiBeginCones@@YAXXZ

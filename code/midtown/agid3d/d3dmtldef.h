@@ -26,11 +26,11 @@
     0x533620 | public: virtual void __thiscall agiD3DMtlDef::EndGfx(void) | ?EndGfx@agiD3DMtlDef@@UAEXXZ
     0x533660 | public: virtual __thiscall agiD3DMtlDef::~agiD3DMtlDef(void) | ??1agiD3DMtlDef@@UAE@XZ
     0x533670 | public: void __thiscall agiD3DMtlDef::Activate(void) | ?Activate@agiD3DMtlDef@@QAEXXZ
+    0x533720 | void __cdecl xlat(struct _D3DCOLORVALUE &,class Vector4 &) | ?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z
     0x533750 | public: unsigned long __thiscall agiD3DMtlDef::GetHandle(void) | ?GetHandle@agiD3DMtlDef@@QAEKXZ
     0x533770 | public: virtual void * __thiscall agiD3DMtlDef::`vector deleting destructor'(unsigned int) | ??_EagiD3DMtlDef@@UAEPAXI@Z
     0x533770 | public: virtual void * __thiscall agiD3DMtlDef::`scalar deleting destructor'(unsigned int) | ??_GagiD3DMtlDef@@UAEPAXI@Z
     0x621170 | const agiD3DMtlDef::`vftable' | ??_7agiD3DMtlDef@@6B@
-    0x533720 | void __cdecl xlat(struct _D3DCOLORVALUE &,class Vector4 &) | ?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z
 */
 
 #include "agi/mtldef.h"

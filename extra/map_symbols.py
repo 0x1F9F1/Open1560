@@ -986,6 +986,19 @@ for sym in [
     sym.static = True
     all_symbols.append(sym)
 
+all_symbols.sort(key = lambda x: x.address)
+
+# for i in range(len(all_symbols) - 1):
+#     sym = all_symbols[i]
+#     if sym.type.type_class != TypeClass.PointerTypeClass:
+#         continue
+#     if sym.type.target.type_class == TypeClass.VoidTypeClass:
+#         continue
+#     if all_symbols[i + 1].address < sym.address + 12:
+#         continue
+#     print(sym)
+# assert False
+
 # for symbol in all_symbols:
 #     if symbol.address is None:
 #         print('{:40} | {:80} | {}'.format(symbol.library, symbol.undec_name or '', symbol.raw_name))
@@ -1012,6 +1025,84 @@ path_libs = group_stray_symbols(all_symbols, {
 # Create a dictionary from the valid symbols
 symbols = dict((symbol.address, symbol) for symbol in all_symbols if symbol.address is not None)
 # print(symbols)
+
+for array_sym_addr, array_sym_len in [
+    (0x634690, 0),
+    (0x635AC8, 7),
+    (0x63E260, 4),
+    (0x63F828, 3),
+    (0x6401C0, 4),
+    (0x640A60, 10),
+    (0x640A88, 12),
+    (0x642808, 16),
+    (0x647DD8, 16),
+    (0x64A0D8, 32),
+    (0x64A730, 4),
+    (0x64B6A0, 198),
+    (0x656C30, 768),
+    (0x658D70, 16),
+    (0x658DB0, 16),
+    (0x658DF0, 16),
+    (0x658E30, 16),
+    (0x658E70, 16),
+    (0x65A548, 4300),
+    (0x65E878, 1034),
+    (0x65F8A0, 1034),
+    (0x6608C8, 401),
+    (0x661AC0, 0),
+    (0x662478, 256),
+    (0x671D08, 40),
+    (0x672050, 40),
+    (0x6A6E40, 128),
+    (0x6A6EC8, 80),
+    (0x6A6F30, 20),
+    (0x6A7378, 30),
+    (0x6A7CE0, 6),
+    (0x6A7F18, 20),
+    (0x6ED4F8, 4096),
+    (0x6F1538, 4096),
+    (0x7057C0, 3),
+    (0x7057D0, 3),
+    (0x7086C0, 32),
+    (0x716F90, 32),
+    (0x719630, 64),
+    (0x719788, 32),
+    (0x719C48, 256),
+    (0x719E50, 16384),
+    (0x720EB8, 2),
+    (0x720EE0, 256),
+    (0x721128, 16384),
+    (0x725140, 16384),
+    (0x72D160, 256),
+    (0x73D398, 2),
+    (0x73E738, 198),
+    (0x73EE30, 16384),
+    (0x77F4A0, 30),
+    (0x77F518, 30),
+    (0x780730, 16384),
+    (0x795D38, 256),
+    (0x7E0028, 16),
+    (0x7E0040, 16),
+    (0x7E0080, 16),
+    (0x7E00B0, 16),
+    (0x7E0170, 16),
+    (0x7E01B0, 16),
+    (0x7E0270, 16),
+    (0x7E02D8, 6968),
+    (0x8B3220, 6968),
+    (0x8BAC08, 16384),
+    (0x8FAD70, 64),
+    (0x907A38, 64),
+    (0x909680, 8),
+    (0x90A688, 10),
+    (0x90AA28, 256),
+    (0x90B208, 128),
+    (0x90B288, 128),
+    (0x90B3D0, 128),
+]:
+    sym = symbols[array_sym_addr]
+    assert sym.type.type_class == TypeClass.PointerTypeClass
+    sym.type = Type.array(sym.type.target, array_sym_len)
 
 # for name, addr in idc_symbols.items():
 #     if name.endswith('_SEH'):

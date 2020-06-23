@@ -24,6 +24,7 @@
     0x521800 | public: __thiscall asSimulation::asSimulation(void) | ??0asSimulation@@QAE@XZ
     0x521A60 | public: virtual __thiscall asSimulation::~asSimulation(void) | ??1asSimulation@@UAE@XZ
     0x521C10 | public: void __thiscall asSimulation::Quiet(void) | ?Quiet@asSimulation@@QAEXXZ
+    0x521C20 | void __cdecl QuietPrinter(int,char const *,char *) | ?QuietPrinter@@YAXHPBDPAD@Z
     0x521C40 | public: void __thiscall asSimulation::Init(char *,int,char * *) | ?Init@asSimulation@@QAEXPADHPAPAD@Z
     0x522290 | public: virtual void __thiscall asSimulation::Reset(void) | ?Reset@asSimulation@@UAEXXZ
     0x5222A0 | public: void __thiscall asSimulation::FirstUpdate(void) | ?FirstUpdate@asSimulation@@QAEXXZ
@@ -51,6 +52,7 @@
     0x5232D0 | void __cdecl ShutdownPipeline(void) | ?ShutdownPipeline@@YAXXZ
     0x523340 | int __cdecl RestartPipeline(int,int,int,int,int) | ?RestartPipeline@@YAHHHHHH@Z
     0x523440 | public: char * __thiscall asNode::VerifyTree(void) | ?VerifyTree@asNode@@QAEPADXZ
+    0x523510 | int __cdecl IsValidPointer(void *,unsigned int,int) | ?IsValidPointer@@YAHPAXIH@Z
     0x523530 | public: static void __cdecl asSimulation::DeclareFields(void) | ?DeclareFields@asSimulation@@SAXXZ
     0x5236A0 | public: virtual class MetaClass * __thiscall asSimulation::GetClass(void) | ?GetClass@asSimulation@@UAEPAVMetaClass@@XZ
     0x5236B0 | public: __thiscall artsReplayChannel::artsReplayChannel(void) | ??0artsReplayChannel@@QAE@XZ
@@ -67,8 +69,6 @@
     0x790804 | char * * Argv | ?Argv@@3PAPADA
     0x790808 | class VirtualFileSystem * VFS | ?VFS@@3PAVVirtualFileSystem@@A
     0x790820 | int StereoBuffer | ?StereoBuffer@@3HA
-    0x521C20 | void __cdecl QuietPrinter(int,char const *,char *) | ?QuietPrinter@@YAXHPBDPAD@Z
-    0x523510 | int __cdecl IsValidPointer(void *,unsigned int,int) | ?IsValidPointer@@YAHPAXIH@Z
 */
 
 #include "eventq7/replay.h"

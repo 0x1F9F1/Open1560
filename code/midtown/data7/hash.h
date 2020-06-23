@@ -95,7 +95,7 @@ private:
 
     i32 bucket_count_ {0};
     i32 value_count_ {0};
-    Ptr<HashEntry*[]> buckets_ {nullptr};
+    Ptr<HashEntry* []> buckets_ { nullptr };
     HashTable* next_table_ {nullptr};
 };
 

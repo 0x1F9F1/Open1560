@@ -229,10 +229,10 @@ i32 testNoOverlap(f32 arg1, f32 arg2);
 inline extern_var(0x643E6C, i32, CallImpactCallbacks);
 
 // 0x7086C0 | ?EBISECTS@@3PAVmmEdgeBodyIsect@@A
-inline extern_var(0x7086C0, class mmEdgeBodyIsect*, EBISECTS);
+inline extern_var(0x7086C0, class mmEdgeBodyIsect[32], EBISECTS);
 
 // 0x716F90 | ?ISECTS@@3PAVmmIntersection@@A
-inline extern_var(0x716F90, class mmIntersection*, ISECTS);
+inline extern_var(0x716F90, class mmIntersection[32], ISECTS);
 
 // 0x7188BC | ?ImpactCallbackTime@@3KA
 inline extern_var(0x7188BC, u32, ImpactCallbackTime);

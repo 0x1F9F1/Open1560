@@ -123,7 +123,7 @@ inline extern_var(0x642848, f32, GSFDef);
 inline extern_var(0x705F30, class Matrix44, _Hermite);
 
 // 0x642808 | ?cb@@3PAMA
-inline extern_var(0x642808, f32*, cb);
+inline extern_var(0x642808, f32[16], cb);
 
 // 0x705F08 | ?mmBoatMetaClass@@3VMetaClass@@A
 inline extern_var(0x705F08, class MetaClass, mmBoatMetaClass);

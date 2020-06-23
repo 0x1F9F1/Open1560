@@ -23,11 +23,11 @@
 
     0x5569D0 | int __cdecl OutOfDate(char *,char *) | ?OutOfDate@@YAHPAD0@Z
     0x556A30 | void __cdecl CheckLibraries(void) | ?CheckLibraries@@YAXXZ
+    0x556AD0 | int __cdecl LibOutOfDate(char *,char *) | ?LibOutOfDate@@YAHPAD0@Z
     0x556B60 | class DLPTemplate * __cdecl GetDLPTemplate(char *) | ?GetDLPTemplate@@YAPAVDLPTemplate@@PAD@Z
     0x556DF0 | int __cdecl GetGroupVerts(char *,char *,class Vector3 *,int) | ?GetGroupVerts@@YAHPAD0PAVVector3@@H@Z
     0x8FAFD0 | class HashTable DLPTemplateBadHash | ?DLPTemplateBadHash@@3VHashTable@@A
     0x8FAFE0 | int FlagGetDLPTemplateCalls | ?FlagGetDLPTemplateCalls@@3HA
-    0x556AD0 | int __cdecl LibOutOfDate(char *,char *) | ?LibOutOfDate@@YAHPAD0@Z
 */
 
 // 0x556A30 | ?CheckLibraries@@YAXXZ

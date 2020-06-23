@@ -37,6 +37,7 @@
     0x4A36A0 | public: virtual void __thiscall ControlSetup::StoreCurrentSetup(void) | ?StoreCurrentSetup@ControlSetup@@UAEXXZ
     0x4A36B0 | public: virtual void __thiscall ControlSetup::ResetDefaultAction(void) | ?ResetDefaultAction@ControlSetup@@UAEXXZ
     0x4A36F0 | public: void __thiscall ControlSetup::LaunchJoyCpl(void) | ?LaunchJoyCpl@ControlSetup@@QAEXXZ
+    0x4A37A0 | unsigned long __stdcall CalibrateWatcher(void *) | ?CalibrateWatcher@@YGKPAX@Z
     0x4A3880 | public: virtual void __thiscall ControlSetup::CancelAction(void) | ?CancelAction@ControlSetup@@UAEXXZ
     0x4A3890 | public: virtual void __thiscall ControlSetup::DoneAction(void) | ?DoneAction@ControlSetup@@UAEXXZ
     0x4A38A0 | public: void __thiscall ControlSetup::BadAssignCB(void) | ?BadAssignCB@ControlSetup@@QAEXXZ
@@ -46,7 +47,6 @@
     0x4A3920 | public: virtual void * __thiscall ControlSetup::`scalar deleting destructor'(unsigned int) | ??_GControlSetup@@UAEPAXI@Z
     0x4A3920 | public: virtual void * __thiscall ControlSetup::`vector deleting destructor'(unsigned int) | ??_EControlSetup@@UAEPAXI@Z
     0x61D9A0 | const ControlSetup::`vftable' | ??_7ControlSetup@@6B@
-    0x4A37A0 | unsigned long __stdcall CalibrateWatcher(void *) | ?CalibrateWatcher@@YGKPAX@Z
 */
 
 #include "optionsbase.h"

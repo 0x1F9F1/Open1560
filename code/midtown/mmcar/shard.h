@@ -131,7 +131,7 @@ public:
 
 protected:
     // 0x6A7F18 | ?Instances@mmShardManager@@1PAPAV1@A
-    static inline extern_var(0x6A7F18, class mmShardManager**, Instances);
+    static inline extern_var(0x6A7F18, class mmShardManager* [20], Instances);
 
     // 0x6A7F90 | ?NumInstances@mmShardManager@@1HA
     static inline extern_var(0x6A7F90, i32, NumInstances);

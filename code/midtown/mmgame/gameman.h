@@ -24,9 +24,11 @@
     0x403CE0 | public: virtual void __thiscall mmScreenClearFlunky::Update(void) | ?Update@mmScreenClearFlunky@@UAEXXZ
     0x403D10 | public: virtual void __thiscall mmScreenClearFlunky::Cull(void) | ?Cull@mmScreenClearFlunky@@UAEXXZ
     0x403E50 | public: __thiscall mmGameManager::mmGameManager(void) | ??0mmGameManager@@QAE@XZ
+    0x404390 | void __cdecl randcall(void) | ?randcall@@YAXXZ
     0x4043B0 | public: virtual __thiscall mmGameManager::~mmGameManager(void) | ??1mmGameManager@@UAE@XZ
     0x4044C0 | public: void __thiscall mmGameManager::BeDone(void) | ?BeDone@mmGameManager@@QAEXXZ
     0x4044D0 | public: virtual void __thiscall mmGameManager::Update(void) | ?Update@mmGameManager@@UAEXXZ
+    0x4046D0 | void __cdecl DoScan(void *) | ?DoScan@@YAXPAX@Z
     0x404750 | public: virtual void __thiscall mmGameManager::Cull(void) | ?Cull@mmGameManager@@UAEXXZ
     0x404790 | public: void __thiscall mmGameManager::StartReplay(void) | ?StartReplay@mmGameManager@@QAEXXZ
     0x4047B0 | public: void __thiscall mmGameManager::LoadReplay(char *) | ?LoadReplay@mmGameManager@@QAEXPAD@Z
@@ -50,8 +52,6 @@
     0x6A6D60 | class Stream * ReplayLog | ?ReplayLog@@3PAVStream@@A
     0x6A6D68 | class MetaClass mmGameManagerMetaClass | ?mmGameManagerMetaClass@@3VMetaClass@@A
     0x6A6D94 | private: static class mmGameManager * mmGameManager::Instance | ?Instance@mmGameManager@@0PAV1@A
-    0x404390 | void __cdecl randcall(void) | ?randcall@@YAXXZ
-    0x4046D0 | void __cdecl DoScan(void *) | ?DoScan@@YAXPAX@Z
 */
 
 #include "arts7/node.h"

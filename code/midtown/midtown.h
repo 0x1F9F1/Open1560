@@ -127,7 +127,7 @@ inline extern_var(0x67207C, i32, SampleStats);
 inline extern_var(0x672044, class mmGameRecord*, SystemStatsRecord);
 
 // 0x634690 | ?VERSION_STRING@@3PADA
-inline extern_var(0x634690, char*, VERSION_STRING);
+inline extern_var(0x634690, char[], VERSION_STRING);
 
 // 0x672040 | ?__VtPauseSampling@@3P6AHXZA
 inline extern_var(0x672040, i32 (*)(void), __VtPauseSampling);

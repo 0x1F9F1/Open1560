@@ -90,25 +90,25 @@ public:
     static void RemoveLight(class agiLight* arg1);
 
     // 0x7E0170 | ?ACTIVELIGHTS@agiLighter@@2PAPAVagiLight@@A
-    static inline extern_var(0x7E0170, class agiLight**, ACTIVELIGHTS);
+    static inline extern_var(0x7E0170, class agiLight* [16], ACTIVELIGHTS);
 
     // 0x7E0080 | ?Attenuate@agiLighter@@2PADA
-    static inline extern_var(0x7E0080, char*, Attenuate);
+    static inline extern_var(0x7E0080, char[16], Attenuate);
 
     // 0x7E0270 | ?CosSpread@agiLighter@@2PAMA
-    static inline extern_var(0x7E0270, f32*, CosSpread);
+    static inline extern_var(0x7E0270, f32[16], CosSpread);
 
     // 0x7E009C | ?Current@agiLighter@@2HA
     static inline extern_var(0x7E009C, i32, Current);
 
     // 0x7E01B0 | ?Dir@agiLighter@@2PAVVector3@@A
-    static inline extern_var(0x7E01B0, class Vector3*, Dir);
+    static inline extern_var(0x7E01B0, class Vector3[16], Dir);
 
     // 0x7E0090 | ?Eye@agiLighter@@2VVector3@@A
     static inline extern_var(0x7E0090, class Vector3, Eye);
 
     // 0x7E0040 | ?LIGHTS@agiLighter@@2PAPAVagiLight@@A
-    static inline extern_var(0x7E0040, class agiLight**, LIGHTS);
+    static inline extern_var(0x7E0040, class agiLight* [16], LIGHTS);
 
     // 0x7E00A4 | ?LMODEL@agiLighter@@2PAVagiLightModel@@A
     static inline extern_var(0x7E00A4, class agiLightModel*, LMODEL);
@@ -117,10 +117,10 @@ public:
     static inline extern_var(0x7E00A8, i32, LocalViewer);
 
     // 0x7E00B0 | ?Pos@agiLighter@@2PAVVector3@@A
-    static inline extern_var(0x7E00B0, class Vector3*, Pos);
+    static inline extern_var(0x7E00B0, class Vector3[16], Pos);
 
     // 0x7E0028 | ?Positional@agiLighter@@2PADA
-    static inline extern_var(0x7E0028, char*, Positional);
+    static inline extern_var(0x7E0028, char[16], Positional);
 
     // 0x7E02B0 | ?SceneActive@agiLighter@@2HA
     static inline extern_var(0x7E02B0, i32, SceneActive);

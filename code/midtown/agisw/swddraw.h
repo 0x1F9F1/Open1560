@@ -22,15 +22,15 @@
     agisw:swddraw
 
     0x534E30 | void __cdecl ddAttach(int,int) | ?ddAttach@@YAXHH@Z
-    0x795CB0 | class agiSurfaceDesc swScreenDesc | ?swScreenDesc@@3VagiSurfaceDesc@@A
-    0x795D38 | unsigned char * swNibbleLut | ?swNibbleLut@@3PAEA
-    0x795F40 | int bRenderToSystem | ?bRenderToSystem@@3HA
     0x534EA0 | void __cdecl ddStart(void) | ?ddStart@@YAXXZ
     0x534FA0 | void __cdecl ddEnd(void) | ?ddEnd@@YAXXZ
     0x534FC0 | void __cdecl ddStartFrame(void) | ?ddStartFrame@@YAXXZ
     0x534FD0 | void __cdecl ddStartScene(void) | ?ddStartScene@@YAXXZ
     0x535030 | void __cdecl ddEndScene(void) | ?ddEndScene@@YAXXZ
     0x535070 | void __cdecl ddEndFrame(void) | ?ddEndFrame@@YAXXZ
+    0x795CB0 | class agiSurfaceDesc swScreenDesc | ?swScreenDesc@@3VagiSurfaceDesc@@A
+    0x795D38 | unsigned char * swNibbleLut | ?swNibbleLut@@3PAEA
+    0x795F40 | int bRenderToSystem | ?bRenderToSystem@@3HA
 */
 
 // 0x534E30 | ?ddAttach@@YAXHH@Z
@@ -40,7 +40,7 @@ void ddAttach(i32 arg1, i32 arg2);
 inline extern_var(0x795F40, i32, bRenderToSystem);
 
 // 0x795D38 | ?swNibbleLut@@3PAEA
-inline extern_var(0x795D38, u8*, swNibbleLut);
+inline extern_var(0x795D38, u8[256], swNibbleLut);
 
 // 0x795CB0 | ?swScreenDesc@@3VagiSurfaceDesc@@A
 inline extern_var(0x795CB0, class agiSurfaceDesc, swScreenDesc);

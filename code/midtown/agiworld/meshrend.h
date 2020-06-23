@@ -40,6 +40,20 @@
     0x505E20 | private: void __thiscall agiMeshSet::BeginGfx(void) | ?BeginGfx@agiMeshSet@@AAEXXZ
     0x505E30 | private: void __thiscall agiMeshSet::EndGfx(void) | ?EndGfx@agiMeshSet@@AAEXXZ
     0x505E40 | protected: void __thiscall agiMeshSet::ClipTri(int,int,int,int) | ?ClipTri@agiMeshSet@@IAEXHHHH@Z
+    0x5061B0 | int __cdecl FullClip(struct CV *,struct CV *,int) | ?FullClip@@YAHPAUCV@@0H@Z
+    0x506260 | int __cdecl ClipNX(struct CV *,struct CV *,int) | ?ClipNX@@YAHPAUCV@@0H@Z
+    0x506380 | void __fastcall ClipNX(struct CV &,struct CV &) | ?ClipNX@@YIXAAUCV@@0@Z
+    0x506470 | int __cdecl ClipPX(struct CV *,struct CV *,int) | ?ClipPX@@YAHPAUCV@@0H@Z
+    0x506590 | void __fastcall ClipPX(struct CV &,struct CV &) | ?ClipPX@@YIXAAUCV@@0@Z
+    0x506680 | int __cdecl ClipNY(struct CV *,struct CV *,int) | ?ClipNY@@YAHPAUCV@@0H@Z
+    0x5067A0 | void __fastcall ClipNY(struct CV &,struct CV &) | ?ClipNY@@YIXAAUCV@@0@Z
+    0x506890 | int __cdecl ClipPY(struct CV *,struct CV *,int) | ?ClipPY@@YAHPAUCV@@0H@Z
+    0x5069B0 | void __fastcall ClipPY(struct CV &,struct CV &) | ?ClipPY@@YIXAAUCV@@0@Z
+    0x506A90 | int __cdecl ClipNZ(struct CV *,struct CV *,int) | ?ClipNZ@@YAHPAUCV@@0H@Z
+    0x506BB0 | void __fastcall ClipNZ(struct CV &,struct CV &) | ?ClipNZ@@YIXAAUCV@@0@Z
+    0x506CA0 | int __cdecl ClipPZ(struct CV *,struct CV *,int) | ?ClipPZ@@YAHPAUCV@@0H@Z
+    0x506DC0 | void __fastcall ClipPZ(struct CV &,struct CV &) | ?ClipPZ@@YIXAAUCV@@0@Z
+    0x506EA0 | int __cdecl ZClipOnly(struct CV *,struct CV *,int) | ?ZClipOnly@@YAHPAUCV@@0H@Z
     0x506ED0 | public: int __thiscall agiMeshSet::Draw(unsigned int) | ?Draw@agiMeshSet@@QAEHI@Z
     0x506F40 | public: void __thiscall agiMeshSet::DrawShadow(unsigned int,class Vector4 const &,class Vector3 const &) | ?DrawShadow@agiMeshSet@@QAEXIABVVector4@@ABVVector3@@@Z
     0x506FD0 | public: int __thiscall agiMeshSet::DrawColor(unsigned int,unsigned int) | ?DrawColor@agiMeshSet@@QAEHII@Z
@@ -112,20 +126,6 @@
     0x73D3BC | protected: static int agiMeshSet::AllowEyeBackfacing | ?AllowEyeBackfacing@agiMeshSet@@1HA
     0x73D3C0 | protected: static float agiMeshSet::HalfHeight | ?HalfHeight@agiMeshSet@@1MA
     0x73D3C4 | float MinCardSize | ?MinCardSize@@3MA
-    0x5061B0 | int __cdecl FullClip(struct CV *,struct CV *,int) | ?FullClip@@YAHPAUCV@@0H@Z
-    0x506260 | int __cdecl ClipNX(struct CV *,struct CV *,int) | ?ClipNX@@YAHPAUCV@@0H@Z
-    0x506380 | void __fastcall ClipNX(struct CV &,struct CV &) | ?ClipNX@@YIXAAUCV@@0@Z
-    0x506470 | int __cdecl ClipPX(struct CV *,struct CV *,int) | ?ClipPX@@YAHPAUCV@@0H@Z
-    0x506590 | void __fastcall ClipPX(struct CV &,struct CV &) | ?ClipPX@@YIXAAUCV@@0@Z
-    0x506680 | int __cdecl ClipNY(struct CV *,struct CV *,int) | ?ClipNY@@YAHPAUCV@@0H@Z
-    0x5067A0 | void __fastcall ClipNY(struct CV &,struct CV &) | ?ClipNY@@YIXAAUCV@@0@Z
-    0x506890 | int __cdecl ClipPY(struct CV *,struct CV *,int) | ?ClipPY@@YAHPAUCV@@0H@Z
-    0x5069B0 | void __fastcall ClipPY(struct CV &,struct CV &) | ?ClipPY@@YIXAAUCV@@0@Z
-    0x506A90 | int __cdecl ClipNZ(struct CV *,struct CV *,int) | ?ClipNZ@@YAHPAUCV@@0H@Z
-    0x506BB0 | void __fastcall ClipNZ(struct CV &,struct CV &) | ?ClipNZ@@YIXAAUCV@@0@Z
-    0x506CA0 | int __cdecl ClipPZ(struct CV *,struct CV *,int) | ?ClipPZ@@YAHPAUCV@@0H@Z
-    0x506DC0 | void __fastcall ClipPZ(struct CV &,struct CV &) | ?ClipPZ@@YIXAAUCV@@0@Z
-    0x506EA0 | int __cdecl ZClipOnly(struct CV *,struct CV *,int) | ?ZClipOnly@@YAHPAUCV@@0H@Z
 */
 
 // 0x505990 | ?EyePlaneOutcode@@YAIPAEEAAVVector4@@PAVVector3@@H@Z | unused

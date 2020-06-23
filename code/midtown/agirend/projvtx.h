@@ -70,7 +70,7 @@ public:
     static void ToScreen(i32 arg1);
 
     // 0x8B3220 | ?Adj@agiProjVtx@@2PAUagiAdjunctData@@A
-    static inline extern_var(0x8B3220, struct agiAdjunctData*, Adj);
+    static inline extern_var(0x8B3220, struct agiAdjunctData[6968], Adj);
 
     // 0x8B3210 | ?HalfHeight@agiProjVtx@@2MA
     static inline extern_var(0x8B3210, f32, HalfHeight);
@@ -127,7 +127,7 @@ public:
     static inline extern_var(0x8BABF0, f32, ScreenWidth);
 
     // 0x7E02D8 | ?Vtx@agiProjVtx@@2PATagiVtx@@A
-    static inline extern_var(0x7E02D8, union agiVtx*, Vtx);
+    static inline extern_var(0x7E02D8, union agiVtx[6968], Vtx);
 };
 
 // 0x656588 | ?DepthOffset@@3MA

@@ -186,10 +186,10 @@ check_size(foobar, 0x0);
 inline extern_var(0x6A6FB8, class mmBangerData*, BangerProjectile);
 
 // 0x635AC8 | ?IconColor@@3PAIA
-inline extern_var(0x635AC8, u32*, IconColor);
+inline extern_var(0x635AC8, u32[7], IconColor);
 
 // 0x6A6F30 | ?LocPlayerName@@3PADA
-inline extern_var(0x6A6F30, char*, LocPlayerName);
+inline extern_var(0x6A6F30, char[20], LocPlayerName);
 
 // 0x6A6F90 | ?ProjectileV@@3VVector3@@A
 inline extern_var(0x6A6F90, class Vector3, ProjectileV);

@@ -52,13 +52,13 @@ f32 atanf_faster(f32 arg1);
 f32 tanf_fast(f32 arg1);
 
 // 0x6608C8 | ?TRIGMATH_ATANTABLE@@3PAMA
-inline extern_var(0x6608C8, f32*, TRIGMATH_ATANTABLE);
+inline extern_var(0x6608C8, f32[401], TRIGMATH_ATANTABLE);
 
 // 0x65E878 | ?TRIGMATH_COSTABLE@@3PAMA
-inline extern_var(0x65E878, f32*, TRIGMATH_COSTABLE);
+inline extern_var(0x65E878, f32[1034], TRIGMATH_COSTABLE);
 
 // 0x65F8A0 | ?TRIGMATH_TANTABLE@@3PAMA
-inline extern_var(0x65F8A0, f32*, TRIGMATH_TANTABLE);
+inline extern_var(0x65F8A0, f32[1034], TRIGMATH_TANTABLE);
 
 // 0x65A548 | ?asintable@@3PAMA
-inline extern_var(0x65A548, f32*, asintable);
+inline extern_var(0x65A548, f32[4300], asintable);

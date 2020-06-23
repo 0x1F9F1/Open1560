@@ -25,4 +25,4 @@
 */
 
 // 0x662478 | ?ByteToFloatTable@@3PAMA
-inline extern_var(0x662478, f32*, ByteToFloatTable);
+inline extern_var(0x662478, f32[256], ByteToFloatTable);

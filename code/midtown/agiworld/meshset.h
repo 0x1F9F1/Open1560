@@ -189,7 +189,7 @@ public:
     static void SetFog(f32 arg1, i32 arg2);
 
     // 0x64A730 | ?DefaultQuad@agiMeshSet@@2PAUagiMeshCardVertex@@A | agiworld:meshrend
-    static inline extern_var(0x64A730, struct agiMeshCardVertex*, DefaultQuad);
+    static inline extern_var(0x64A730, struct agiMeshCardVertex[4], DefaultQuad);
 
     // 0x64A6E0 | ?DepthOffset@agiMeshSet@@2MA | agiworld:meshrend
     static inline extern_var(0x64A6E0, f32, DepthOffset);
@@ -201,7 +201,7 @@ public:
     static inline extern_var(0x720ED8, i32, EyePlaneCount);
 
     // 0x73D398 | ?EyePlanes@agiMeshSet@@2PAVVector4@@A | agiworld:meshrend
-    static inline extern_var(0x73D398, class Vector4*, EyePlanes);
+    static inline extern_var(0x73D398, class Vector4[2], EyePlanes);
 
     // 0x725130 | ?EyePlanesHit@agiMeshSet@@2HA | agiworld:meshrend
     static inline extern_var(0x725130, i32, EyePlanesHit);
@@ -216,13 +216,13 @@ public:
     static inline extern_var(0x72D158, f32, FogValue);
 
     // 0x720EB8 | ?HitEyePlanes@agiMeshSet@@2PAVVector4@@A | agiworld:meshrend
-    static inline extern_var(0x720EB8, class Vector4*, HitEyePlanes);
+    static inline extern_var(0x720EB8, class Vector4[2], HitEyePlanes);
 
     // 0x7210E4 | ?MirrorMode@agiMeshSet@@2HA | agiworld:meshrend
     static inline extern_var(0x7210E4, i32, MirrorMode);
 
     // 0x719E50 | ?codes@agiMeshSet@@2PAEA | agiworld:meshrend
-    static inline extern_var(0x719E50, u8*, codes);
+    static inline extern_var(0x719E50, u8[16384], codes);
 
 protected:
     // 0x505E40 | ?ClipTri@agiMeshSet@@IAEXHHHH@Z | agiworld:meshrend
@@ -298,22 +298,22 @@ protected:
     static inline extern_var(0x725128, u32, ViewSerial);
 
     // 0x72D160 | ?firstFacet@agiMeshSet@@1PAFA | agiworld:meshrend
-    static inline extern_var(0x72D160, i16*, firstFacet);
+    static inline extern_var(0x72D160, i16[256], firstFacet);
 
     // 0x721128 | ?fogout@agiMeshSet@@1PAEA | agiworld:meshrend
-    static inline extern_var(0x721128, u8*, fogout);
+    static inline extern_var(0x721128, u8[16384], fogout);
 
     // 0x719C48 | ?indexCounts@agiMeshSet@@1PAFA | agiworld:meshrend
-    static inline extern_var(0x719C48, i16*, indexCounts);
+    static inline extern_var(0x719C48, i16[256], indexCounts);
 
     // 0x725140 | ?nextFacet@agiMeshSet@@1PAFA | agiworld:meshrend
-    static inline extern_var(0x725140, i16*, nextFacet);
+    static inline extern_var(0x725140, i16[16384], nextFacet);
 
     // 0x73EE30 | ?out@agiMeshSet@@1PAVVector4@@A | agiworld:mrkni
-    static inline extern_var(0x73EE30, class Vector4*, out);
+    static inline extern_var(0x73EE30, class Vector4[16384], out);
 
     // 0x720EE0 | ?vertCounts@agiMeshSet@@1PAFA | agiworld:meshrend
-    static inline extern_var(0x720EE0, i16*, vertCounts);
+    static inline extern_var(0x720EE0, i16[256], vertCounts);
 
 private:
     // 0x505E20 | ?BeginGfx@agiMeshSet@@AAEXXZ | agiworld:meshrend | unused

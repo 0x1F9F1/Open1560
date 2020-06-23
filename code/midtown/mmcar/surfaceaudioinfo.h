@@ -37,4 +37,4 @@ void SetRainSurfaceAudioInfos();
 void SetSnowSurfaceAudioInfos();
 
 // 0x6A7CE0 | ?SURFACEAUDIOINFO@@3PAUtagSurfaceAudioInfo@@A
-inline extern_var(0x6A7CE0, struct tagSurfaceAudioInfo*, SURFACEAUDIOINFO);
+inline extern_var(0x6A7CE0, struct tagSurfaceAudioInfo[6], SURFACEAUDIOINFO);

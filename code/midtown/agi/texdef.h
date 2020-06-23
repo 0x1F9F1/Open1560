@@ -175,7 +175,7 @@ inline extern_var(0x656838, char*, TexSearchPath);
 inline extern_var(0x8FAFC8, i32, TexsPaged);
 
 // 0x8FAD70 | ?lutQ@@3PAUlutQentry@@A
-inline extern_var(0x8FAD70, struct lutQentry*, lutQ);
+inline extern_var(0x8FAD70, struct lutQentry[64], lutQ);
 
 class agiTexLut : public agiRefreshable
 {

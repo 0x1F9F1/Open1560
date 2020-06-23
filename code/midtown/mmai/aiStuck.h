@@ -22,6 +22,7 @@
     mmai:aiStuck
 
     0x46B400 | public: __thiscall aiStuck::aiStuck(void) | ??0aiStuck@@QAE@XZ
+    0x46B470 | void __cdecl StuckCB(class aiStuck *) | ?StuckCB@@YAXPAVaiStuck@@@Z
     0x46B4A0 | public: void __thiscall aiStuck::Init(class mmCarSim *) | ?Init@aiStuck@@QAEXPAVmmCarSim@@@Z
     0x46B4C0 | public: void __thiscall aiStuck::Impact(void) | ?Impact@aiStuck@@QAEXXZ
     0x46B4D0 | public: virtual void __thiscall aiStuck::Reset(void) | ?Reset@aiStuck@@UAEXXZ
@@ -31,7 +32,6 @@
     0x46B8A0 | public: virtual void * __thiscall aiStuck::`vector deleting destructor'(unsigned int) | ??_EaiStuck@@UAEPAXI@Z
     0x46B8A0 | public: virtual void * __thiscall aiStuck::`scalar deleting destructor'(unsigned int) | ??_GaiStuck@@UAEPAXI@Z
     0x61BD60 | const aiStuck::`vftable' | ??_7aiStuck@@6B@
-    0x46B470 | void __cdecl StuckCB(class aiStuck *) | ?StuckCB@@YAXPAVaiStuck@@@Z
 */
 
 #include "arts7/node.h"

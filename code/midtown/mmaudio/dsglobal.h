@@ -245,4 +245,4 @@ void UpperCase(char* arg1);
 inline extern_var(0x719334, class DSGlobal*, DSGlobalPtr);
 
 // 0x647DD8 | ?aOutputFormats@@3PAUtag_fd@@A
-inline extern_var(0x647DD8, struct tag_fd*, aOutputFormats);
+inline extern_var(0x647DD8, struct tag_fd[16], aOutputFormats);

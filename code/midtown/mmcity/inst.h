@@ -58,6 +58,7 @@
     0x4935E0 | public: __thiscall mmStaticInstance::mmStaticInstance(void) | ??0mmStaticInstance@@QAE@XZ
     0x493600 | public: virtual __thiscall mmStaticInstance::~mmStaticInstance(void) | ??1mmStaticInstance@@UAE@XZ
     0x493610 | public: int __thiscall mmStaticInstance::Init(char *,class Vector3 &,class Vector3 &,float,int,char *) | ?Init@mmStaticInstance@@QAEHPADAAVVector3@@1MH0@Z
+    0x493670 | void __cdecl MatrixFromPoints(class Matrix34 &,class Vector3 &,class Vector3 &,float) | ?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z
     0x493790 | public: __thiscall mmFacadeInstance::mmFacadeInstance(void) | ??0mmFacadeInstance@@QAE@XZ
     0x4937B0 | public: virtual __thiscall mmFacadeInstance::~mmFacadeInstance(void) | ??1mmFacadeInstance@@UAE@XZ
     0x4937C0 | public: static float __cdecl mmFacadeQuad::DoubleArea(class agiMeshSet *) | ?DoubleArea@mmFacadeQuad@@SAMPAVagiMeshSet@@@Z
@@ -128,7 +129,6 @@
     0x705690 | class MetaClass mmShearInstanceMetaClass | ?mmShearInstanceMetaClass@@3VMetaClass@@A
     0x7056C0 | class MetaClass mmStaticInstanceMetaClass | ?mmStaticInstanceMetaClass@@3VMetaClass@@A
     0x7056F8 | public: static int mmInstance::MeshSetSetCount | ?MeshSetSetCount@mmInstance@@2HA
-    0x493670 | void __cdecl MatrixFromPoints(class Matrix34 &,class Vector3 &,class Vector3 &,float) | ?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z
 */
 
 #include "data7/base.h"
@@ -226,19 +226,19 @@ public:
     static inline extern_var(0x6F14F8, void (*)(u8*, u32*, u32*, class agiMeshSet*), DynamicLighter);
 
     // 0x63F828 | ?LodTable@mmInstance@@2PAY132MA
-    static inline extern_var(0x63F828, f32 (*)[3][4], LodTable);
+    static inline extern_var(0x63F828, f32[3][3][4], LodTable);
 
     // 0x7055D0 | ?LodTableIndex@mmInstance@@2HA
     static inline extern_var(0x7055D0, i32, LodTableIndex);
 
     // 0x6ED4F8 | ?MeshSetNames@mmInstance@@2PAPADA
-    static inline extern_var(0x6ED4F8, char**, MeshSetNames);
+    static inline extern_var(0x6ED4F8, char* [4096], MeshSetNames);
 
     // 0x7056F8 | ?MeshSetSetCount@mmInstance@@2HA
     static inline extern_var(0x7056F8, i32, MeshSetSetCount);
 
     // 0x6F1538 | ?MeshSetTable@mmInstance@@2PAUMeshSetTableEntry@1@A
-    static inline extern_var(0x6F1538, struct mmInstance::MeshSetTableEntry*, MeshSetTable);
+    static inline extern_var(0x6F1538, struct mmInstance::MeshSetTableEntry[4096], MeshSetTable);
 
     // 0x705560 | ?ShowLights@mmInstance@@2HA
     static inline extern_var(0x705560, i32, ShowLights);

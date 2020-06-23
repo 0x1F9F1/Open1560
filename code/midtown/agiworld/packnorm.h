@@ -34,7 +34,7 @@ u8 PackNormal(class Vector3& arg1);
 u8 PackNormalSlow(class Vector3& arg1);
 
 // 0x64B6A0 | ?UnpackNormal@@3PAVVector3@@A
-inline extern_var(0x64B6A0, class Vector3*, UnpackNormal);
+inline extern_var(0x64B6A0, class Vector3[198], UnpackNormal);
 
 // 0x73E738 | ?UnpackNormalMMX@@3PATmmx@@A
-inline extern_var(0x73E738, union mmx*, UnpackNormalMMX);
+inline extern_var(0x73E738, union mmx[198], UnpackNormalMMX);

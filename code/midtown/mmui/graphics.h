@@ -23,6 +23,7 @@
 
     0x499710 | void __cdecl AutoDetect(int,int) | ?AutoDetect@@YAXHH@Z
     0x499970 | public: __thiscall GraphicsOptions::GraphicsOptions(int) | ??0GraphicsOptions@@QAE@H@Z
+    0x49A050 | void __cdecl SetTexQualString(void) | ?SetTexQualString@@YAXXZ
     0x49A2F0 | public: virtual __thiscall GraphicsOptions::~GraphicsOptions(void) | ??1GraphicsOptions@@UAE@XZ
     0x49A350 | public: void __thiscall GraphicsOptions::SetResolution(void) | ?SetResolution@GraphicsOptions@@QAEXXZ
     0x49A370 | public: void __thiscall GraphicsOptions::SetLightQuality(void) | ?SetLightQuality@GraphicsOptions@@QAEXXZ
@@ -46,7 +47,6 @@
     0x705800 | int data6 | ?data6@@3HA
     0x705820 | int RenderToSystemMemory | ?RenderToSystemMemory@@3HA
     0x705824 | int TextureLevel | ?TextureLevel@@3HA
-    0x49A050 | void __cdecl SetTexQualString(void) | ?SetTexQualString@@YAXXZ
 */
 
 #include "optionsbase.h"
