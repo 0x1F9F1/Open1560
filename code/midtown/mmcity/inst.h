@@ -226,7 +226,7 @@ public:
     static inline extern_var(0x6F14F8, void (*)(u8*, u32*, u32*, class agiMeshSet*), DynamicLighter);
 
     // 0x63F828 | ?LodTable@mmInstance@@2PAY132MA
-    static inline extern_var(0x63F828, f32[3][3][4], LodTable);
+    static inline extern_var(0x63F828, f32[3][4][3], LodTable);
 
     // 0x7055D0 | ?LodTableIndex@mmInstance@@2HA
     static inline extern_var(0x7055D0, i32, LodTableIndex);

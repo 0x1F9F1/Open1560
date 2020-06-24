@@ -1104,6 +1104,8 @@ for array_sym_addr, array_sym_len in [
     assert sym.type.type_class == TypeClass.PointerTypeClass
     sym.type = Type.array(sym.type.target, array_sym_len)
 
+symbols[0x63F828].type = Type.array(Type.array(Type.array(Type.float(4), 3), 4), 3)
+
 # for name, addr in idc_symbols.items():
 #     if name.endswith('_SEH'):
 #         continue
@@ -1326,6 +1328,7 @@ class_sizes.update({
     'mmCarRoadFF': 0x44,
     'mmCarSim': 0x1FAC,
     'mmCellRenderer': 0x48,
+    'mmCircuitHUD': 0x9C,
     'mmCityInfo': 0xA0,
     'mmCityList': 0x10,
     'mmCompCRPlayer': 0x98,
@@ -1411,6 +1414,7 @@ class_sizes.update({
     'mmVehicleForm': 0x54,
     'mmViewCS': 0xC0,
     'mmVoiceCommentary': 0x158,
+    'mmWPHUD': 0x98,
     'mmWaypointInstance': 0x44,
     'mmWaypointObject': 0x4C,
     'mmWaypoints': 0xAC,
