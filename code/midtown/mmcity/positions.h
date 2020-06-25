@@ -33,34 +33,34 @@
 */
 
 // 0x491B40 | ?DumpPositions@@YAXPAD@Z
-void DumpPositions(char* arg1);
+ARTS_IMPORT void DumpPositions(char* arg1);
 
 // 0x491B00 | ?GetPositionCount@@YAHXZ
-i32 GetPositionCount();
+ARTS_IMPORT i32 GetPositionCount();
 
 // 0x491B10 | ?GetPositionVector4@@YAAAVVector4@@H@Z
-class Vector4& GetPositionVector4(i32 arg1);
+ARTS_IMPORT class Vector4& GetPositionVector4(i32 arg1);
 
 // 0x491900 | ?InitPositions@@YAXXZ
-void InitPositions();
+ARTS_IMPORT void InitPositions();
 
 // 0x491940 | ?LoadPositions@@YAXPAD@Z
-void LoadPositions(char* arg1);
+ARTS_IMPORT void LoadPositions(char* arg1);
 
 // 0x491C00 | ?RecallPosition@@YAHHPAVMatrix34@@PAHPAD@Z
-i32 RecallPosition(i32 arg1, class Matrix34* arg2, i32* arg3, char* arg4);
+ARTS_IMPORT i32 RecallPosition(i32 arg1, class Matrix34* arg2, i32* arg3, char* arg4);
 
 // 0x491C90 | ?RegisterPosition@@YAHAAVVector4@@HHHHPAD@Z
-i32 RegisterPosition(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
+ARTS_IMPORT i32 RegisterPosition(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
 
 // 0x6A8F18 | ?DontClearPositions@@3HA
-inline extern_var(0x6A8F18, i32, DontClearPositions);
+ARTS_IMPORT extern i32 DontClearPositions;
 
 struct position_t
 {
 public:
     // 0x491DF0 | ??1position_t@@QAE@XZ | inline
-    ~position_t();
+    ARTS_IMPORT ~position_t();
 };
 
 check_size(position_t, 0x0);

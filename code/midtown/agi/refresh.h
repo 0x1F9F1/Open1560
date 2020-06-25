@@ -41,40 +41,40 @@ class agiRefreshable
 
 public:
     // 0x557A20 | ??0agiRefreshable@@QAE@PAVagiPipeline@@@Z
-    agiRefreshable(class agiPipeline* arg1);
+    ARTS_IMPORT agiRefreshable(class agiPipeline* arg1);
 
     virtual void EndGfx() = 0;
 
     // 0x557AD0 | ?Restore@agiRefreshable@@UAEXXZ
-    virtual void Restore();
+    ARTS_IMPORT virtual void Restore();
 
     // 0x557B90 | ?GetName@agiRefreshable@@UAEPADXZ
-    virtual char* GetName();
+    ARTS_IMPORT virtual char* GetName();
 
 protected:
     // 0x557BB0 | ??_EagiRefreshable@@MAEPAXI@Z
     // 0x557A60 | ??1agiRefreshable@@MAE@XZ
-    virtual ~agiRefreshable();
+    ARTS_IMPORT virtual ~agiRefreshable();
 
 public:
     virtual i32 BeginGfx() = 0;
 
     // 0x557AE0 | ?AddRef@agiRefreshable@@QAEXXZ
-    void AddRef();
+    ARTS_IMPORT void AddRef();
 
     // 0x557B00 | ?Release@agiRefreshable@@QAEHXZ
-    i32 Release();
+    ARTS_IMPORT i32 Release();
 
     // 0x557AA0 | ?SafeBeginGfx@agiRefreshable@@QAEHXZ
-    i32 SafeBeginGfx();
+    ARTS_IMPORT i32 SafeBeginGfx();
 
 protected:
     // 0x557BA0 | ?IsTexture@agiRefreshable@@MAEHXZ
-    virtual i32 IsTexture();
+    ARTS_IMPORT virtual i32 IsTexture();
 
 private:
     // 0x557B30 | ?ValidatePtr@agiRefreshable@@AAEXPAD@Z
-    void ValidatePtr(char* arg1);
+    ARTS_IMPORT void ValidatePtr(char* arg1);
 };
 
 check_size(agiRefreshable, 0x0);

@@ -19,33 +19,3 @@
 define_dummy_symbol(mmui_vehicle);
 
 #include "vehicle.h"
-
-Vehicle::Vehicle(i32 arg1)
-{
-    unimplemented(arg1);
-}
-
-Vehicle::~Vehicle()
-{
-    unimplemented();
-}
-
-void Vehicle::PostSetup()
-{
-    return stub<thiscall_t<void, Vehicle*>>(0x4A5310, this);
-}
-
-void Vehicle::PreSetup()
-{
-    return stub<thiscall_t<void, Vehicle*>>(0x4A5300, this);
-}
-
-void Vehicle::SetSubMenu(i32 arg1)
-{
-    return stub<thiscall_t<void, Vehicle*, i32>>(0x4A52C0, this, arg1);
-}
-
-void Vehicle::SetSubMenuButtons()
-{
-    return stub<thiscall_t<void, Vehicle*>>(0x4A52E0, this);
-}

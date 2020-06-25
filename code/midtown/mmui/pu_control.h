@@ -41,26 +41,26 @@ class PUControl : public PUMenuBase
 
 public:
     // 0x4A9F50 | ??0PUControl@@QAE@HMMMM@Z
-    PUControl(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT PUControl(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4AA3C0 | ??_EPUControl@@UAEPAXI@Z
     // 0x4AA250 | ??1PUControl@@UAE@XZ
-    ~PUControl() override;
+    ARTS_IMPORT ~PUControl() override;
 
     // 0x4AA2D0 | ?CancelAction@PUControl@@QAEXXZ
-    void CancelAction();
+    ARTS_IMPORT void CancelAction();
 
     // 0x4AA380 | ?ControlSelect@PUControl@@QAEXXZ
-    void ControlSelect();
+    ARTS_IMPORT void ControlSelect();
 
     // 0x4AA2B0 | ?PreSetup@PUControl@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x4AA2F0 | ?SetRWStates@PUControl@@QAEXXZ
-    void SetRWStates();
+    ARTS_IMPORT void SetRWStates();
 
     // 0x4AA3B0 | ?SetSensitivityCB@PUControl@@QAEXXZ
-    void SetSensitivityCB();
+    ARTS_IMPORT void SetSensitivityCB();
 };
 
 check_size(PUControl, 0xD8);

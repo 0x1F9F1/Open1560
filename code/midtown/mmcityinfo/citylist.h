@@ -45,44 +45,44 @@ class mmCityList
 
 public:
     // 0x4CBC10 | ??0mmCityList@@QAE@XZ
-    mmCityList();
+    ARTS_IMPORT mmCityList();
 
     // 0x4CC050 | ??_GmmCityList@@UAEPAXI@Z
     // 0x4CBC30 | ??1mmCityList@@UAE@XZ
-    virtual ~mmCityList();
+    ARTS_IMPORT virtual ~mmCityList();
 
     // 0x4CBD50 | ?GetCityID@mmCityList@@QAEHPAD@Z
-    i32 GetCityID(char* arg1);
+    ARTS_IMPORT i32 GetCityID(char* arg1);
 
     // 0x4CBCD0 | ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@PAD@Z
-    class mmCityInfo* GetCityInfo(char* arg1);
+    ARTS_IMPORT class mmCityInfo* GetCityInfo(char* arg1);
 
     // 0x4CBCA0 | ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@H@Z
-    class mmCityInfo* GetCityInfo(i32 arg1);
+    ARTS_IMPORT class mmCityInfo* GetCityInfo(i32 arg1);
 
     // 0x4CBE20 | ?GetCurrentCity@mmCityList@@QAEPAVmmCityInfo@@XZ
-    class mmCityInfo* GetCurrentCity();
+    ARTS_IMPORT class mmCityInfo* GetCurrentCity();
 
     // 0x4CBC90 | ?Init@mmCityList@@QAEXH@Z | unused
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
     // 0x4CBE30 | ?Load@mmCityList@@QAEXPAD@Z
-    void Load(char* arg1);
+    ARTS_IMPORT void Load(char* arg1);
 
     // 0x4CBFA0 | ?LoadAll@mmCityList@@QAEXXZ
-    void LoadAll();
+    ARTS_IMPORT void LoadAll();
 
     // 0x4CBF60 | ?Print@mmCityList@@QAEXXZ | unused
-    void Print();
+    ARTS_IMPORT void Print();
 
     // 0x4CBDD0 | ?SetCurrentCity@mmCityList@@QAEXPAD@Z
-    void SetCurrentCity(char* arg1);
+    ARTS_IMPORT void SetCurrentCity(char* arg1);
 
     // 0x4CBDF0 | ?SetCurrentCity@mmCityList@@QAEXH@Z
-    void SetCurrentCity(i32 arg1);
+    ARTS_IMPORT void SetCurrentCity(i32 arg1);
 };
 
 check_size(mmCityList, 0x10);
 
 // 0x7084E4 | ?CityListPtr@@3PAVmmCityList@@A
-inline extern_var(0x7084E4, class mmCityList*, CityListPtr);
+ARTS_IMPORT extern class mmCityList* CityListPtr;

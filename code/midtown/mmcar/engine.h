@@ -49,53 +49,53 @@ class mmEngine : public asNode
 
 public:
     // 0x47C930 | ??0mmEngine@@QAE@XZ
-    mmEngine();
+    ARTS_IMPORT mmEngine();
 
     // 0x47D190 | ??_EmmEngine@@UAEPAXI@Z
     // 0x47C990 | ??1mmEngine@@UAE@XZ
-    ~mmEngine() override;
+    ARTS_IMPORT ~mmEngine() override;
 
     // 0x47CE70 | ?AddWidgets@mmEngine@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x47C9D0 | ?AfterLoad@mmEngine@@UAEXXZ
-    void AfterLoad() override;
+    ARTS_IMPORT void AfterLoad() override;
 
     // 0x47CBB0 | ?CalcTorque@mmEngine@@QAEMM@Z
-    f32 CalcTorque(f32 arg1);
+    ARTS_IMPORT f32 CalcTorque(f32 arg1);
 
     // 0x47CAE0 | ?CalcTorqueAtFullThrottle@mmEngine@@QAEMXZ
-    f32 CalcTorqueAtFullThrottle();
+    ARTS_IMPORT f32 CalcTorqueAtFullThrottle();
 
     // 0x47CB70 | ?CalcTorqueAtZeroThrottle@mmEngine@@QAEMXZ
-    f32 CalcTorqueAtZeroThrottle();
+    ARTS_IMPORT f32 CalcTorqueAtZeroThrottle();
 
     // 0x47CA60 | ?ComputeConstants@mmEngine@@QAEXXZ
-    void ComputeConstants();
+    ARTS_IMPORT void ComputeConstants();
 
     // 0x47D180 | ?GetClass@mmEngine@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x47C9A0 | ?Init@mmEngine@@QAEXPAVmmCarSim@@@Z
-    void Init(class mmCarSim* arg1);
+    ARTS_IMPORT void Init(class mmCarSim* arg1);
 
     // 0x47C9E0 | ?Load@mmEngine@@QAEXPAVStream@@@Z | unused
-    void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(class Stream* arg1);
 
     // 0x47CC60 | ?Reset@mmEngine@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x47CBE0 | ?Save@mmEngine@@QAEXPAVStream@@@Z | unused
-    void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(class Stream* arg1);
 
     // 0x47CC90 | ?Update@mmEngine@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x47CFC0 | ?DeclareFields@mmEngine@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmEngine, 0x7C);
 
 // 0x6A8030 | ?mmEngineMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A8030, class MetaClass, mmEngineMetaClass);
+// ARTS_IMPORT extern class MetaClass mmEngineMetaClass;

@@ -42,29 +42,29 @@ class aiStuck : public asNode
 
 public:
     // 0x46B400 | ??0aiStuck@@QAE@XZ
-    aiStuck();
+    ARTS_IMPORT aiStuck();
 
     // 0x46B8A0 | ??_GaiStuck@@UAEPAXI@Z
     // 0x4658E0 | ??1aiStuck@@UAE@XZ | inline
-    ~aiStuck() override;
+    ARTS_IMPORT ~aiStuck() override;
 
     // 0x46B770 | ?AddWidgets@aiStuck@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x46B4C0 | ?Impact@aiStuck@@QAEXXZ | unused
-    void Impact();
+    ARTS_IMPORT void Impact();
 
     // 0x46B4A0 | ?Init@aiStuck@@QAEXPAVmmCarSim@@@Z
-    void Init(class mmCarSim* arg1);
+    ARTS_IMPORT void Init(class mmCarSim* arg1);
 
     // 0x46B4E0 | ?Pegged@aiStuck@@QAEHXZ
-    i32 Pegged();
+    ARTS_IMPORT i32 Pegged();
 
     // 0x46B4D0 | ?Reset@aiStuck@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x46B550 | ?Update@aiStuck@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(aiStuck, 0x0);

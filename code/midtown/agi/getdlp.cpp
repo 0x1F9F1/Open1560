@@ -20,27 +20,5 @@ define_dummy_symbol(agi_getdlp);
 
 #include "getdlp.h"
 
-void CheckLibraries()
-{
-    return stub<cdecl_t<void>>(0x556A30);
-}
-
-class DLPTemplate* GetDLPTemplate(char* arg1)
-{
-    return stub<cdecl_t<class DLPTemplate*, char*>>(0x556B60, arg1);
-}
-
-i32 GetGroupVerts(char* arg1, char* arg2, class Vector3* arg3, i32 arg4)
-{
-    return stub<cdecl_t<i32, char*, char*, class Vector3*, i32>>(0x556DF0, arg1, arg2, arg3, arg4);
-}
-
-i32 OutOfDate(char* arg1, char* arg2)
-{
-    return stub<cdecl_t<i32, char*, char*>>(0x5569D0, arg1, arg2);
-}
-
-static i32 LibOutOfDate(char* arg1, char* arg2)
-{
-    return stub<cdecl_t<i32, char*, char*>>(0x556AD0, arg1, arg2);
-}
+// 0x556AD0 | ?LibOutOfDate@@YAHPAD0@Z
+ARTS_IMPORT /*static*/ i32 LibOutOfDate(char* arg1, char* arg2);

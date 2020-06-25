@@ -41,26 +41,26 @@ class mmSplash : public asNode
 
 public:
     // 0x480FF0 | ??0mmSplash@@QAE@XZ
-    mmSplash();
+    ARTS_IMPORT mmSplash();
 
     // 0x4814A0 | ??_GmmSplash@@UAEPAXI@Z
     // 0x470310 | ??1mmSplash@@UAE@XZ | inline
-    ~mmSplash() override;
+    ARTS_IMPORT ~mmSplash() override;
 
     // 0x4811C0 | ?Activate@mmSplash@@QAEXM@Z
-    void Activate(f32 arg1);
+    ARTS_IMPORT void Activate(f32 arg1);
 
     // 0x481420 | ?AddWidgets@mmSplash@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x481070 | ?Init@mmSplash@@QAEXPAVasInertialCS@@VVector3@@1@Z
-    void Init(class asInertialCS* arg1, class Vector3 arg2, class Vector3 arg3);
+    ARTS_IMPORT void Init(class asInertialCS* arg1, class Vector3 arg2, class Vector3 arg3);
 
     // 0x481060 | ?Reset@mmSplash@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4811E0 | ?Update@mmSplash@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmSplash, 0x0);

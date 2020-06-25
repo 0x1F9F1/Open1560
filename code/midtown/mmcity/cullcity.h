@@ -115,79 +115,79 @@ class mmCullCity : public asNode
 
 public:
     // 0x48BB90 | ??0mmCullCity@@QAE@XZ
-    mmCullCity();
+    ARTS_IMPORT mmCullCity();
 
     // 0x48FAB0 | ??_EmmCullCity@@UAEPAXI@Z
     // 0x48BD70 | ??1mmCullCity@@UAE@XZ
-    ~mmCullCity() override;
+    ARTS_IMPORT ~mmCullCity() override;
 
     // 0x48E4B0 | ?AddWidgets@mmCullCity@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x48D820 | ?Cull@mmCullCity@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x48FA30 | ?GetClass@mmCullCity@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x48BF10 | ?GetHitId@mmCullCity@@QAEFAAVVector3@@@Z
-    i16 GetHitId(class Vector3& arg1);
+    ARTS_IMPORT i16 GetHitId(class Vector3& arg1);
 
     // 0x48D960 | ?GetRoomFlags@mmCullCity@@QAEFF@Z
-    i16 GetRoomFlags(i16 arg1);
+    ARTS_IMPORT i16 GetRoomFlags(i16 arg1);
 
     // 0x48C6D0 | ?Init@mmCullCity@@QAEXPADPAVasCamera@@@Z
-    void Init(char* arg1, class asCamera* arg2);
+    ARTS_IMPORT void Init(char* arg1, class asCamera* arg2);
 
     // 0x48CEA0 | ?InitObjectDetail@mmCullCity@@QAEXXZ
-    void InitObjectDetail();
+    ARTS_IMPORT void InitObjectDetail();
 
     // 0x48D590 | ?IsPolyWater@mmCullCity@@QAEHPAVmmPolygon@@@Z
-    i32 IsPolyWater(class mmPolygon* arg1);
+    ARTS_IMPORT i32 IsPolyWater(class mmPolygon* arg1);
 
     // 0x48CED0 | ?LoadBangers@mmCullCity@@QAEXPAD@Z
-    void LoadBangers(char* arg1);
+    ARTS_IMPORT void LoadBangers(char* arg1);
 
     // 0x48CFF0 | ?LoadFacades@mmCullCity@@QAEXPAD@Z
-    void LoadFacades(char* arg1);
+    ARTS_IMPORT void LoadFacades(char* arg1);
 
     // 0x48D9A0 | ?RelightEverything@mmCullCity@@QAEXXZ
-    void RelightEverything();
+    ARTS_IMPORT void RelightEverything();
 
     // 0x48C640 | ?ReparentObject@mmCullCity@@QAEXPAVmmInstance@@@Z
-    void ReparentObject(class mmInstance* arg1);
+    ARTS_IMPORT void ReparentObject(class mmInstance* arg1);
 
     // 0x48CDD0 | ?Reset@mmCullCity@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x48D950 | ?ToggleSky@mmCullCity@@QAEXXZ
-    void ToggleSky();
+    ARTS_IMPORT void ToggleSky();
 
     // 0x48D5D0 | ?Update@mmCullCity@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x48F8C0 | ?DeclareFields@mmCullCity@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
     // 0x4A9F40 | ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
-    static class mmCullCity* GetInstance();
+    ARTS_IMPORT static class mmCullCity* GetInstance();
 
 private:
     // 0x48C2C0 | ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
-    void AddInstance(i32 arg1, char* arg2, char* arg3, i32 arg4, class Vector3* arg5, class Vector3* arg6,
+    ARTS_IMPORT void AddInstance(i32 arg1, char* arg2, char* arg3, i32 arg4, class Vector3* arg5, class Vector3* arg6,
         class Vector3* arg7, f32 arg8);
 
     // 0x48D100 | ?InitSnowTextures@mmCullCity@@AAEXXZ
-    void InitSnowTextures();
+    ARTS_IMPORT void InitSnowTextures();
 
     // 0x48DB10 | ?InitTimeOfDayAndWeather@mmCullCity@@AAEXXZ
-    void InitTimeOfDayAndWeather();
+    ARTS_IMPORT void InitTimeOfDayAndWeather();
 
     // 0x48D2F0 | ?UpdateSnowTextures@mmCullCity@@AAEXXZ
-    void UpdateSnowTextures();
+    ARTS_IMPORT void UpdateSnowTextures();
 
     // 0x6A8E28 | ?Instance@mmCullCity@@0PAV1@A
-    static inline extern_var(0x6A8E28, class mmCullCity*, Instance);
+    ARTS_IMPORT static class mmCullCity* Instance;
 };
 
 check_size(mmCullCity, 0x34D6C);
@@ -199,11 +199,11 @@ class mmUpperInstance : public mmMatrixInstance
 public:
     // 0x48FA80 | ??_GmmUpperInstance@@UAEPAXI@Z
     // 0x48FAA0 | ??1mmUpperInstance@@UAE@XZ | inline
-    ~mmUpperInstance() override;
+    ARTS_IMPORT ~mmUpperInstance() override;
 
 private:
     // 0x48BF40 | ?Draw@mmUpperInstance@@EAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 };
 
 check_size(mmUpperInstance, 0x0);
@@ -214,89 +214,89 @@ class mmRunwayLight : public mmInstance
 
 public:
     // 0x48BFA0 | ??0mmRunwayLight@@QAE@PADAAVVector3@@1@Z
-    mmRunwayLight(char* arg1, class Vector3& arg2, class Vector3& arg3);
+    ARTS_IMPORT mmRunwayLight(char* arg1, class Vector3& arg2, class Vector3& arg3);
 
     // 0x48FA50 | ??_EmmRunwayLight@@UAEPAXI@Z
     // 0x48FA70 | ??1mmRunwayLight@@UAE@XZ | inline
-    ~mmRunwayLight() override;
+    ARTS_IMPORT ~mmRunwayLight() override;
 
     // 0x48FA40 | ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z | inline
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x48C1B0 | ?Draw@mmRunwayLight@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x48C170 | ?FromMatrix@mmRunwayLight@@UAIXABVMatrix34@@@Z
-    void __fastcall FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
     // 0x48C160 | ?GetPos@mmRunwayLight@@UAIAAVVector3@@XZ
-    class Vector3& __fastcall GetPos() override;
+    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
     // 0x48C2B0 | ?GetScale@mmRunwayLight@@UAIMXZ
-    f32 __fastcall GetScale() override;
+    ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
     // 0x48C180 | ?ToMatrix@mmRunwayLight@@UAIAAVMatrix34@@AAV2@@Z
-    class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
     // 0x6A8E74 | ?Phase@mmRunwayLight@@2MA
-    static inline extern_var(0x6A8E74, f32, Phase);
+    ARTS_IMPORT static f32 Phase;
 };
 
 check_size(mmRunwayLight, 0x0);
 
 // 0x48DA00 | ?fix_clip@@YAXXZ
-void fix_clip();
+ARTS_IMPORT void fix_clip();
 
 // 0x48E450 | ?fix_fog@@YAXXZ
-void fix_fog();
+ARTS_IMPORT void fix_fog();
 
 // 0x48DA70 | ?fix_lighting@@YAXXZ
-void fix_lighting();
+ARTS_IMPORT void fix_lighting();
 
 // 0x48E480 | ?fix_shadow@@YAXXZ
-void fix_shadow();
+ARTS_IMPORT void fix_shadow();
 
 // 0x63E4E4 | ?BoneScale@@3MA
-inline extern_var(0x63E4E4, f32, BoneScale);
+ARTS_IMPORT extern f32 BoneScale;
 
 // 0x6A8E7C | ?DisableUpper@@3HA
-inline extern_var(0x6A8E7C, i32, DisableUpper);
+ARTS_IMPORT extern i32 DisableUpper;
 
 // 0x6A8DD0 | ?EnvVel@@3MA
-inline extern_var(0x6A8DD0, f32, EnvVel);
+ARTS_IMPORT extern f32 EnvVel;
 
 // 0x6A8E68 | ?FadeConstant@@3MA
-inline extern_var(0x6A8E68, f32, FadeConstant);
+ARTS_IMPORT extern f32 FadeConstant;
 
 // 0x6A8E78 | ?FadeScale@@3MA
-inline extern_var(0x6A8E78, f32, FadeScale);
+ARTS_IMPORT extern f32 FadeScale;
 
 // 0x6A8E30 | ?PlaneFudge@@3VVector3@@A
-inline extern_var(0x6A8E30, class Vector3, PlaneFudge);
+ARTS_IMPORT extern class Vector3 PlaneFudge;
 
 // 0x6A8E70 | ?StaticLog@@3PAVStream@@A
-inline extern_var(0x6A8E70, class Stream*, StaticLog);
+ARTS_IMPORT extern class Stream* StaticLog;
 
 // 0x6A8E20 | ?UsePixelFog@@3HA
-inline extern_var(0x6A8E20, i32, UsePixelFog);
+ARTS_IMPORT extern i32 UsePixelFog;
 
 // 0x6A8DDC | ?ambTriCount@@3HA
-inline extern_var(0x6A8DDC, i32, ambTriCount);
+ARTS_IMPORT extern i32 ambTriCount;
 
 // 0x6A8DE4 | ?bangerTriCount@@3HA
-inline extern_var(0x6A8DE4, i32, bangerTriCount);
+ARTS_IMPORT extern i32 bangerTriCount;
 
 // 0x6A8DE0 | ?carTriCount@@3HA
-inline extern_var(0x6A8DE0, i32, carTriCount);
+ARTS_IMPORT extern i32 carTriCount;
 
 // 0x6A8DCC | ?facadeTriCount@@3HA
-inline extern_var(0x6A8DCC, i32, facadeTriCount);
+ARTS_IMPORT extern i32 facadeTriCount;
 
 // 0x6A8E40 | ?mmCullCityMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A8E40, class MetaClass, mmCullCityMetaClass);
+// ARTS_IMPORT extern class MetaClass mmCullCityMetaClass;
 
 // 0x63E260 | ?mmEnvSetup@@3PAY03Ut_mmEnvSetup@@A
-inline extern_var(0x63E260, struct t_mmEnvSetup[4][4], mmEnvSetup);
+ARTS_IMPORT extern struct t_mmEnvSetup mmEnvSetup[4][4];
 
 // 0x6A8E24 | ?pedTriCount@@3HA
-inline extern_var(0x6A8E24, i32, pedTriCount);
+ARTS_IMPORT extern i32 pedTriCount;

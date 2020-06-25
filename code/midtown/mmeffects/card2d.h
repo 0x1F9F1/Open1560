@@ -43,36 +43,36 @@ class Card2D : public asNode
 
 public:
     // 0x4FE150 | ??0Card2D@@QAE@XZ
-    Card2D();
+    ARTS_IMPORT Card2D();
 
     // 0x4FE620 | ??_ECard2D@@UAEPAXI@Z
     // 0x4FE650 | ??1Card2D@@UAE@XZ | inline
-    ~Card2D() override;
+    ARTS_IMPORT ~Card2D() override;
 
     // 0x4FE170 | ?Init@Card2D@@QAEXPAVasCamera@@MMMMM@Z
-    void Init(class asCamera* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
+    ARTS_IMPORT void Init(class asCamera* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
 
     // 0x4FE2C0 | ?SetAlpha@Card2D@@QAEXM@Z
-    void SetAlpha(f32 arg1);
+    ARTS_IMPORT void SetAlpha(f32 arg1);
 
     // 0x49C530 | ?SetColor@Card2D@@QAEXVVector4@@@Z | inline
-    void SetColor(class Vector4 arg1);
+    ARTS_IMPORT void SetColor(class Vector4 arg1);
 
     // 0x4FE1B0 | ?SetDimensions@Card2D@@QAEXMMMM@Z
-    void SetDimensions(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT void SetDimensions(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4FE2A0 | ?SetPosition@Card2D@@QAEXMM@Z
-    void SetPosition(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2);
 
     // 0x4FE320 | ?Update@Card2D@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
 private:
     // 0x4FE540 | ?AddWidgets@Card2D@@EAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4FE330 | ?Cull@Card2D@@EAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 };
 
 check_size(Card2D, 0x38);

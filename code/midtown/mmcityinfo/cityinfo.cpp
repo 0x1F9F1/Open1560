@@ -19,18 +19,3 @@
 define_dummy_symbol(mmcityinfo_cityinfo);
 
 #include "cityinfo.h"
-
-mmCityInfo::mmCityInfo()
-{
-    unimplemented();
-}
-
-mmCityInfo::~mmCityInfo()
-{
-    unimplemented();
-}
-
-i32 mmCityInfo::Load(char* arg1)
-{
-    return stub<thiscall_t<i32, mmCityInfo*, char*>>(0x4D3650, this, arg1);
-}

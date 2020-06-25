@@ -36,19 +36,19 @@ class mmSpringFF : public mmEffectFF
 
 public:
     // 0x4E7E80 | ?Assign@mmSpringFF@@QAEHJ@Z
-    i32 Assign(i32 arg1);
+    ARTS_IMPORT i32 Assign(i32 arg1);
 
     // 0x4E7D50 | ?Init@mmSpringFF@@UAEHPAUIDirectInputDevice2A@@@Z
-    i32 Init(struct IDirectInputDevice2A* arg1) override;
+    ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;
 
     // 0x4E7F70 | ?Play@mmSpringFF@@UAEHXZ
-    i32 Play() override;
+    ARTS_IMPORT i32 Play() override;
 
     // 0x4E7E50 | ?SetValues@mmSpringFF@@UAEHMM@Z
-    i32 SetValues(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT i32 SetValues(f32 arg1, f32 arg2) override;
 
     // 0x4E7FE0 | ?Stop@mmSpringFF@@UAEHXZ
-    i32 Stop() override;
+    ARTS_IMPORT i32 Stop() override;
 };
 
 check_size(mmSpringFF, 0x0);

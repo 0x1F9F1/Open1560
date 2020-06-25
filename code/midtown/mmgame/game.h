@@ -68,19 +68,19 @@ class mmGame : public asNode
 
 public:
     // 0x40E880 | ??0mmGame@@QAE@XZ
-    mmGame();
+    ARTS_IMPORT mmGame();
 
     // 0x412120 | ??_GmmGame@@UAEPAXI@Z
     // 0x40FDB0 | ??1mmGame@@UAE@XZ
-    ~mmGame() override;
+    ARTS_IMPORT ~mmGame() override;
 
     // 0x40FAC0 | ?InitGameStrings@mmGame@@UAEXXZ
-    virtual void InitGameStrings();
+    ARTS_IMPORT virtual void InitGameStrings();
 
     virtual void InitMyPlayer() = 0;
 
     // 0x40F8C0 | ?InitOtherPlayers@mmGame@@UAEXXZ
-    virtual void InitOtherPlayers();
+    ARTS_IMPORT virtual void InitOtherPlayers();
 
     virtual void InitGameObjects() = 0;
 
@@ -89,7 +89,7 @@ public:
     virtual void UpdateGameInput(i32 arg1) = 0;
 
     // 0x4104B0 | ?UpdateDebugInput@mmGame@@UAEXXZ
-    virtual void UpdateDebugInput();
+    ARTS_IMPORT virtual void UpdateDebugInput();
 
     virtual void UpdateDebugKeyInput(i32 arg1) = 0;
 
@@ -98,67 +98,67 @@ public:
     virtual void NextRace() = 0;
 
     // 0x4104A0 | ?HitWaterHandler@mmGame@@UAEXXZ
-    virtual void HitWaterHandler();
+    ARTS_IMPORT virtual void HitWaterHandler();
 
     // 0x410490 | ?DropThruCityHandler@mmGame@@UAEXXZ
-    virtual void DropThruCityHandler();
+    ARTS_IMPORT virtual void DropThruCityHandler();
 
     // 0x411590 | ?SendChatMessage@mmGame@@UAEXPAD@Z
-    virtual void SendChatMessage(char* arg1);
+    ARTS_IMPORT virtual void SendChatMessage(char* arg1);
 
     virtual class mmWaypoints* GetWaypoints() = 0;
 
     // 0x411E30 | ?AddWidgets@mmGame@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x40F9C0 | ?CollideAIOpponents@mmGame@@QAEXXZ
-    void CollideAIOpponents();
+    ARTS_IMPORT void CollideAIOpponents();
 
     // 0x411960 | ?GetCDTrack@mmGame@@QAEHF@Z
-    i32 GetCDTrack(i16 arg1);
+    ARTS_IMPORT i32 GetCDTrack(i16 arg1);
 
     // 0x411FC0 | ?GetClass@mmGame@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x40EA00 | ?Init@mmGame@@QAEHXZ
-    i32 Init();
+    ARTS_IMPORT i32 Init();
 
     // 0x410230 | ?IsPopupEnabled@mmGame@@QAEHXZ
-    i32 IsPopupEnabled();
+    ARTS_IMPORT i32 IsPopupEnabled();
 
     // 0x411420 | ?PlayerSetState@mmGame@@QAEXXZ
-    void PlayerSetState();
+    ARTS_IMPORT void PlayerSetState();
 
     // 0x410240 | ?Reset@mmGame@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x411400 | ?SetIconsState@mmGame@@QAEXXZ
-    void SetIconsState();
+    ARTS_IMPORT void SetIconsState();
 
     // 0x410050 | ?Stats@mmGame@@QAEXXZ | unused
-    void Stats();
+    ARTS_IMPORT void Stats();
 
     // 0x4102A0 | ?Update@mmGame@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x410E90 | ?UpdateGameInput@mmGame@@QAEXXZ
-    void UpdateGameInput();
+    ARTS_IMPORT void UpdateGameInput();
 
     // 0x410DA0 | ?UpdatePaused@mmGame@@UAEXXZ
-    void UpdatePaused() override;
+    ARTS_IMPORT void UpdatePaused() override;
 
     // 0x411320 | ?UpdateSteeringBrakes@mmGame@@QAEXXZ
-    void UpdateSteeringBrakes();
+    ARTS_IMPORT void UpdateSteeringBrakes();
 
     // 0x411F20 | ?DeclareFields@mmGame@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 protected:
     // 0x411520 | ?CalculateRaceScore@mmGame@@IAEHHH@Z
-    i32 CalculateRaceScore(i32 arg1, i32 arg2);
+    ARTS_IMPORT i32 CalculateRaceScore(i32 arg1, i32 arg2);
 
     // 0x410130 | ?RespawnXYZ@mmGame@@IAEXAAVVector3@@AAM@Z
-    void RespawnXYZ(class Vector3& arg1, f32& arg2);
+    ARTS_IMPORT void RespawnXYZ(class Vector3& arg1, f32& arg2);
 };
 
 check_size(mmGame, 0x1E570);
@@ -170,35 +170,35 @@ class foobar : public asNode
 public:
     // 0x414A20 | ??_Gfoobar@@UAEPAXI@Z
     // 0x414A10 | ??1foobar@@UAE@XZ | inline
-    ~foobar() override;
+    ARTS_IMPORT ~foobar() override;
 
 private:
     // 0x411EE0 | ?Update@foobar@@EAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x411F10 | ?UpdatePaused@foobar@@EAEXXZ
-    void UpdatePaused() override;
+    ARTS_IMPORT void UpdatePaused() override;
 };
 
 check_size(foobar, 0x0);
 
 // 0x6A6FB8 | ?BangerProjectile@@3PAVmmBangerData@@A
-inline extern_var(0x6A6FB8, class mmBangerData*, BangerProjectile);
+ARTS_IMPORT extern class mmBangerData* BangerProjectile;
 
 // 0x635AC8 | ?IconColor@@3PAIA
-inline extern_var(0x635AC8, u32[7], IconColor);
+ARTS_IMPORT extern u32 IconColor[7];
 
 // 0x6A6F30 | ?LocPlayerName@@3PADA
-inline extern_var(0x6A6F30, char[20], LocPlayerName);
+ARTS_IMPORT extern char LocPlayerName[20];
 
 // 0x6A6F90 | ?ProjectileV@@3VVector3@@A
-inline extern_var(0x6A6F90, class Vector3, ProjectileV);
+ARTS_IMPORT extern class Vector3 ProjectileV;
 
 // 0x635AC0 | ?ProjectileY@@3MA
-inline extern_var(0x635AC0, f32, ProjectileY);
+ARTS_IMPORT extern f32 ProjectileY;
 
 // 0x6A6FB4 | ?masscycle@@3HA
-inline extern_var(0x6A6FB4, i32, masscycle);
+ARTS_IMPORT extern i32 masscycle;
 
 // 0x6A6F60 | ?mmGameMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A6F60, class MetaClass, mmGameMetaClass);
+// ARTS_IMPORT extern class MetaClass mmGameMetaClass;

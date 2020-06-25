@@ -19,13 +19,3 @@
 define_dummy_symbol(agi_physdef);
 
 #include "physdef.h"
-
-void agiPhysParameters::Load(class Stream* arg1)
-{
-    return stub<thiscall_t<void, agiPhysParameters*, class Stream*>>(0x556F90, this, arg1);
-}
-
-void agiPhysParameters::Save(class Stream* arg1)
-{
-    return stub<thiscall_t<void, agiPhysParameters*, class Stream*>>(0x557040, this, arg1);
-}

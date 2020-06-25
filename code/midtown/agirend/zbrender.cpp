@@ -19,18 +19,3 @@
 define_dummy_symbol(agirend_zbrender);
 
 #include "zbrender.h"
-
-agiZBufRenderer::agiZBufRenderer(class agiRasterizer* arg1)
-{
-    unimplemented(arg1);
-}
-
-agiZBufRenderer::~agiZBufRenderer()
-{
-    unimplemented();
-}
-
-void agiZBufRenderer::EndGroup()
-{
-    return stub<thiscall_t<void, agiZBufRenderer*>>(0x54FAA0, this);
-}

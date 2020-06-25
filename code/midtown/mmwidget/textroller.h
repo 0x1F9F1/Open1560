@@ -47,45 +47,45 @@ class UITextRoller : public uiWidget
 
 public:
     // 0x4B9F90 | ??0UITextRoller@@QAE@XZ
-    UITextRoller();
+    ARTS_IMPORT UITextRoller();
 
     // 0x4BAB80 | ??_GUITextRoller@@UAEPAXI@Z
     // 0x4BA070 | ??1UITextRoller@@UAE@XZ
-    ~UITextRoller() override;
+    ARTS_IMPORT ~UITextRoller() override;
 
     // 0x4BA640 | ?Action@UITextRoller@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4BAAD0 | ?Cull@UITextRoller@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4BAAB0 | ?Dec@UITextRoller@@QAEHXZ
-    i32 Dec();
+    ARTS_IMPORT i32 Dec();
 
     // 0x4BA720 | ?EvalMouseXY@UITextRoller@@QAEXMM@Z
-    void EvalMouseXY(f32 arg1, f32 arg2);
+    ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2);
 
     // 0x4BAA90 | ?Inc@UITextRoller@@QAEHXZ
-    i32 Inc();
+    ARTS_IMPORT i32 Inc();
 
     // 0x4BA0E0 | ?Init@UITextRoller@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z
-    void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7, i32 arg8,
-        i32 arg9, i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
+    ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7,
+        i32 arg8, i32 arg9, i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
 
     // 0x4BA950 | ?SetString@UITextRoller@@QAEXVstring@@@Z
-    void SetString(class string arg1);
+    ARTS_IMPORT void SetString(class string arg1);
 
     // 0x4BAA20 | ?SetText@UITextRoller@@QAEXXZ
-    void SetText();
+    ARTS_IMPORT void SetText();
 
     // 0x4BA8B0 | ?SetValue@UITextRoller@@QAEHH@Z
-    i32 SetValue(i32 arg1);
+    ARTS_IMPORT i32 SetValue(i32 arg1);
 
     // 0x4BA610 | ?Switch@UITextRoller@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4BA5B0 | ?Update@UITextRoller@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(UITextRoller, 0x110);

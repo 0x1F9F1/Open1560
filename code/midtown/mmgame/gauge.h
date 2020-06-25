@@ -50,23 +50,23 @@ class RadialGauge : public asNode
 
 public:
     // 0x423840 | ??0RadialGauge@@QAE@XZ
-    RadialGauge();
+    ARTS_IMPORT RadialGauge();
 
     // 0x424170 | ??_ERadialGauge@@UAEPAXI@Z
     // 0x422F10 | ??1RadialGauge@@UAE@XZ | inline
-    ~RadialGauge() override;
+    ARTS_IMPORT ~RadialGauge() override;
 
     // 0x423910 | ?AddWidgets@RadialGauge@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x423A40 | ?Cull@RadialGauge@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4238B0 | ?Init@RadialGauge@@QAEXPAD0PAM1M@Z
-    void Init(char* arg1, char* arg2, f32* arg3, f32* arg4, f32 arg5);
+    ARTS_IMPORT void Init(char* arg1, char* arg2, f32* arg3, f32* arg4, f32 arg5);
 
     // 0x423920 | ?Update@RadialGauge@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(RadialGauge, 0x0);
@@ -75,16 +75,16 @@ struct mmLinearGauge
 {
 public:
     // 0x423A70 | ??0mmLinearGauge@@QAE@XZ
-    mmLinearGauge();
+    ARTS_IMPORT mmLinearGauge();
 
     // 0x423A80 | ??1mmLinearGauge@@QAE@XZ
-    ~mmLinearGauge();
+    ARTS_IMPORT ~mmLinearGauge();
 
     // 0x423BA0 | ?Draw@mmLinearGauge@@QAEXXZ
-    void Draw();
+    ARTS_IMPORT void Draw();
 
     // 0x423A90 | ?Init@mmLinearGauge@@QAEXPADPAM11HPAVmmExternalView@@@Z
-    void Init(char* arg1, f32* arg2, f32* arg3, f32* arg4, i32 arg5, class mmExternalView* arg6);
+    ARTS_IMPORT void Init(char* arg1, f32* arg2, f32* arg3, f32* arg4, i32 arg5, class mmExternalView* arg6);
 };
 
 check_size(mmLinearGauge, 0x0);
@@ -93,13 +93,13 @@ struct mmRadGauge
 {
 public:
     // 0x423CB0 | ?Draw@mmRadGauge@@QAEXXZ | unused
-    void Draw();
+    ARTS_IMPORT void Draw();
 
     // 0x423C30 | ?Init@mmRadGauge@@QAEXPAM0PAVmmExternalView@@HI@Z | unused
-    void Init(f32* arg1, f32* arg2, class mmExternalView* arg3, i32 arg4, u32 arg5);
+    ARTS_IMPORT void Init(f32* arg1, f32* arg2, class mmExternalView* arg3, i32 arg4, u32 arg5);
 
     // 0x423C60 | ?ResChange@mmRadGauge@@QAEXXZ
-    void ResChange();
+    ARTS_IMPORT void ResChange();
 };
 
 check_size(mmRadGauge, 0x0);
@@ -108,10 +108,10 @@ struct mmGearIndicator
 {
 public:
     // 0x423F10 | ?Draw@mmGearIndicator@@QAEXXZ
-    void Draw();
+    ARTS_IMPORT void Draw();
 
     // 0x423DE0 | ?Init@mmGearIndicator@@QAEXPAVmmExternalView@@PAVmmPlayer@@@Z
-    void Init(class mmExternalView* arg1, class mmPlayer* arg2);
+    ARTS_IMPORT void Init(class mmExternalView* arg1, class mmPlayer* arg2);
 };
 
 check_size(mmGearIndicator, 0x0);
@@ -120,10 +120,10 @@ struct mmSpeedIndicator
 {
 public:
     // 0x424020 | ?Draw@mmSpeedIndicator@@QAEXXZ
-    void Draw();
+    ARTS_IMPORT void Draw();
 
     // 0x423F90 | ?Init@mmSpeedIndicator@@QAEXPAVmmExternalView@@PAVmmCarSim@@@Z
-    void Init(class mmExternalView* arg1, class mmCarSim* arg2);
+    ARTS_IMPORT void Init(class mmExternalView* arg1, class mmCarSim* arg2);
 };
 
 check_size(mmSpeedIndicator, 0x0);

@@ -42,29 +42,29 @@ class Dialog_DriverRec : public PUMenuBase
 
 public:
     // 0x49EC10 | ??0Dialog_DriverRec@@QAE@HMMMMPAD@Z
-    Dialog_DriverRec(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT Dialog_DriverRec(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49F2B0 | ??_GDialog_DriverRec@@UAEPAXI@Z
     // 0x49EF70 | ??1Dialog_DriverRec@@UAE@XZ
-    ~Dialog_DriverRec() override;
+    ARTS_IMPORT ~Dialog_DriverRec() override;
 
     // 0x49F060 | ?AddDriverRecord@Dialog_DriverRec@@QAEHHPADHM0H@Z
-    i32 AddDriverRecord(i32 arg1, char* arg2, i32 arg3, f32 arg4, char* arg5, i32 arg6);
+    ARTS_IMPORT i32 AddDriverRecord(i32 arg1, char* arg2, i32 arg3, f32 arg4, char* arg5, i32 arg6);
 
     // 0x49EF90 | ?InitDriverRecord@Dialog_DriverRec@@QAEXH@Z
-    void InitDriverRecord(i32 arg1);
+    ARTS_IMPORT void InitDriverRecord(i32 arg1);
 
     // 0x49EF80 | ?PreSetup@Dialog_DriverRec@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x49F1A0 | ?ResetDriverRecord@Dialog_DriverRec@@QAEXXZ
-    void ResetDriverRecord();
+    ARTS_IMPORT void ResetDriverRecord();
 
     // 0x49F230 | ?SetRecordPosition@Dialog_DriverRec@@QAEXH@Z
-    void SetRecordPosition(i32 arg1);
+    ARTS_IMPORT void SetRecordPosition(i32 arg1);
 
     // 0x49F250 | ?SetSortState@Dialog_DriverRec@@QAEXXZ
-    void SetSortState();
+    ARTS_IMPORT void SetSortState();
 };
 
 check_size(Dialog_DriverRec, 0xE4);

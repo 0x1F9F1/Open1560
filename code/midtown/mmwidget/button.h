@@ -48,48 +48,49 @@ class UIButton : public uiWidget
 
 public:
     // 0x4B9B50 | ??0UIButton@@QAE@XZ
-    UIButton();
+    ARTS_IMPORT UIButton();
 
     // 0x4B9F30 | ??_GUIButton@@UAEPAXI@Z
     // 0x4B9BE0 | ??1UIButton@@UAE@XZ
-    ~UIButton() override;
+    ARTS_IMPORT ~UIButton() override;
 
     // 0x4B9DB0 | ?Action@UIButton@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4B9F80 | ?Disable@UIButton@@UAEXXZ | inline
-    void Disable() override;
+    ARTS_IMPORT void Disable() override;
 
     // 0x4B9F60 | ?Enable@UIButton@@UAEXXZ | inline
-    void Enable() override;
+    ARTS_IMPORT void Enable() override;
 
     // 0x4B9C50 | ?Init@UIButton@@QAEXPAULocString@@HMMMMHVCallback@@@Z
-    void Init(struct LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, class Callback arg8);
+    ARTS_IMPORT void Init(
+        struct LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, class Callback arg8);
 
     // 0x4B9E00 | ?SetReadOnly@UIButton@@UAEXH@Z
-    void SetReadOnly(i32 arg1) override;
+    ARTS_IMPORT void SetReadOnly(i32 arg1) override;
 
     // 0x4B9D30 | ?SetString@UIButton@@QAEXPAULocString@@@Z
-    void SetString(struct LocString* arg1);
+    ARTS_IMPORT void SetString(struct LocString* arg1);
 
     // 0x4B9ED0 | ?SetType@UIButton@@QAEXH@Z
-    void SetType(i32 arg1);
+    ARTS_IMPORT void SetType(i32 arg1);
 
     // 0x4B9E50 | ?Switch@UIButton@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4B9F20 | ?TestHit@UIButton@@QAEHMM@Z | unused
-    i32 TestHit(f32 arg1, f32 arg2);
+    ARTS_IMPORT i32 TestHit(f32 arg1, f32 arg2);
 
     // 0x4B9D20 | ?Update@UIButton@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
 private:
     // 0x4B9D50 | ?DrawOff@UIButton@@AAEXXZ | unused
-    void DrawOff();
+    ARTS_IMPORT void DrawOff();
 
     // 0x4B9D80 | ?DrawOn@UIButton@@AAEXXZ | unused
-    void DrawOn();
+    ARTS_IMPORT void DrawOn();
 };
 
 check_size(UIButton, 0xB4);

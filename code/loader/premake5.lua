@@ -14,6 +14,7 @@ project "Open1560"
         "loader.cpp",
         "loader.h",
         "loader.rc",
+        "import_stubs.asm",
     }
 
     links { "arts_midtown", "DbgHelp", "Winmm" }

@@ -19,33 +19,3 @@
 define_dummy_symbol(mmeffects_birth);
 
 #include "birth.h"
-
-asBirthRule::asBirthRule()
-{
-    unimplemented();
-}
-
-asBirthRule::~asBirthRule()
-{
-    unimplemented();
-}
-
-void asBirthRule::AddWidgets(class Bank* arg1)
-{
-    return stub<thiscall_t<void, asBirthRule*, class Bank*>>(0x500D30, this, arg1);
-}
-
-class MetaClass* asBirthRule::GetClass()
-{
-    return stub<thiscall_t<class MetaClass*, asBirthRule*>>(0x501620, this);
-}
-
-void asBirthRule::InitSpark(struct asSparkInfo* arg1, struct asSparkPos* arg2)
-{
-    return stub<thiscall_t<void, asBirthRule*, struct asSparkInfo*, struct asSparkPos*>>(0x500AB0, this, arg1, arg2);
-}
-
-void asBirthRule::DeclareFields()
-{
-    return stub<cdecl_t<void>>(0x5012A0);
-}

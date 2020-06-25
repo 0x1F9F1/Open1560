@@ -35,28 +35,28 @@ struct mmPositions
 {
 public:
     // 0x491E00 | ??0mmPositions@@QAE@XZ
-    mmPositions();
+    ARTS_IMPORT mmPositions();
 
     // 0x492050 | ?Dump@mmPositions@@QAEXPAD@Z | unused
-    void Dump(char* arg1);
+    ARTS_IMPORT void Dump(char* arg1);
 
     // 0x492010 | ?GetCount@mmPositions@@QAEHXZ
-    i32 GetCount();
+    ARTS_IMPORT i32 GetCount();
 
     // 0x492020 | ?GetVector4@mmPositions@@QAEAAVVector4@@H@Z | unused
-    class Vector4& GetVector4(i32 arg1);
+    ARTS_IMPORT class Vector4& GetVector4(i32 arg1);
 
     // 0x491E10 | ?Init@mmPositions@@QAEXH@Z
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
     // 0x491E40 | ?Load@mmPositions@@QAEHPAD@Z
-    i32 Load(char* arg1);
+    ARTS_IMPORT i32 Load(char* arg1);
 
     // 0x4920F0 | ?Recall@mmPositions@@QAEHHPAVMatrix34@@PAHPAD@Z
-    i32 Recall(i32 arg1, class Matrix34* arg2, i32* arg3, char* arg4);
+    ARTS_IMPORT i32 Recall(i32 arg1, class Matrix34* arg2, i32* arg3, char* arg4);
 
     // 0x492180 | ?Register@mmPositions@@QAEHAAVVector4@@HHHHPAD@Z
-    i32 Register(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
+    ARTS_IMPORT i32 Register(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
 };
 
 check_size(mmPositions, 0xC);

@@ -38,18 +38,18 @@ class PUKey : public PUMenuBase
 
 public:
     // 0x4A93C0 | ??0PUKey@@QAE@HMMMM@Z
-    PUKey(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT PUKey(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4A9750 | ??_GPUKey@@UAEPAXI@Z
     // 0x4A9460 | ??1PUKey@@UAE@XZ
-    ~PUKey() override;
+    ARTS_IMPORT ~PUKey() override;
 
 private:
     // 0x4A9710 | ?PostSetup@PUKey@@EAEXXZ
-    void PostSetup() override;
+    ARTS_IMPORT void PostSetup() override;
 
     // 0x4A9470 | ?PreSetup@PUKey@@EAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(PUKey, 0xCC);

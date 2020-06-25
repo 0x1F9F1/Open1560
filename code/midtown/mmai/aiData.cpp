@@ -19,13 +19,3 @@
 define_dummy_symbol(mmai_aiData);
 
 #include "aiData.h"
-
-aiRaceData::aiRaceData(char* arg1, char* arg2)
-{
-    unimplemented(arg1, arg2);
-}
-
-aiRaceData::~aiRaceData()
-{
-    unimplemented();
-}

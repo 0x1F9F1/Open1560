@@ -47,44 +47,44 @@ class PURoster : public PUMenuBase
 
 public:
     // 0x4A8CA0 | ??0PURoster@@QAE@HMMMM@Z
-    PURoster(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT PURoster(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4A9390 | ??_GPURoster@@UAEPAXI@Z
     // 0x4A8E10 | ??1PURoster@@UAE@XZ
-    ~PURoster() override;
+    ARTS_IMPORT ~PURoster() override;
 
     // 0x4A8F00 | ?AddName@PURoster@@QAEXPADKH@Z
-    void AddName(char* arg1, u32 arg2, i32 arg3);
+    ARTS_IMPORT void AddName(char* arg1, u32 arg2, i32 arg3);
 
     // 0x4A8E30 | ?BootButtonCB@PURoster@@QAEXXZ
-    void BootButtonCB();
+    ARTS_IMPORT void BootButtonCB();
 
     // 0x4A9240 | ?ClearNames@PURoster@@QAEXXZ
-    void ClearNames();
+    ARTS_IMPORT void ClearNames();
 
     // 0x4A92F0 | ?FindRosterName@PURoster@@QAEHPAD@Z | unused
-    i32 FindRosterName(char* arg1);
+    ARTS_IMPORT i32 FindRosterName(char* arg1);
 
     // 0x4A9360 | ?FindRosterName@PURoster@@QAEHK@Z
-    i32 FindRosterName(u32 arg1);
+    ARTS_IMPORT i32 FindRosterName(u32 arg1);
 
     // 0x4A92A0 | ?PostNames@PURoster@@QAEXXZ
-    void PostNames();
+    ARTS_IMPORT void PostNames();
 
     // 0x4A9110 | ?RemoveName@PURoster@@QAEXK@Z
-    void RemoveName(u32 arg1);
+    ARTS_IMPORT void RemoveName(u32 arg1);
 
     // 0x4A8FD0 | ?RemoveName@PURoster@@QAEXPADK@Z
-    void RemoveName(char* arg1, u32 arg2);
+    ARTS_IMPORT void RemoveName(char* arg1, u32 arg2);
 
     // 0x4A8E20 | ?Reset@PURoster@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4A92D0 | ?SetBootCB@PURoster@@QAEXVCallback@@@Z
-    void SetBootCB(class Callback arg1);
+    ARTS_IMPORT void SetBootCB(class Callback arg1);
 
     // 0x4A8E90 | ?SetHost@PURoster@@QAEXH@Z | unused
-    void SetHost(i32 arg1);
+    ARTS_IMPORT void SetHost(i32 arg1);
 };
 
 check_size(PURoster, 0x240);

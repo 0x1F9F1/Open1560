@@ -19,38 +19,3 @@
 define_dummy_symbol(mmai_aiGoalCollision);
 
 #include "aiGoalCollision.h"
-
-aiGoalCollision::aiGoalCollision(class aiRailSet* arg1, class aiVehicleSpline* arg2)
-{
-    unimplemented(arg1, arg2);
-}
-
-aiGoalCollision::~aiGoalCollision()
-{
-    unimplemented();
-}
-
-i32 aiGoalCollision::Context()
-{
-    return stub<thiscall_t<i32, aiGoalCollision*>>(0x46B3D0, this);
-}
-
-void aiGoalCollision::Init()
-{
-    return stub<thiscall_t<void, aiGoalCollision*>>(0x46B330, this);
-}
-
-i32 aiGoalCollision::Priority()
-{
-    return stub<thiscall_t<i32, aiGoalCollision*>>(0x46B3F0, this);
-}
-
-void aiGoalCollision::Reset()
-{
-    return stub<thiscall_t<void, aiGoalCollision*>>(0x46B340, this);
-}
-
-void aiGoalCollision::Update()
-{
-    return stub<thiscall_t<void, aiGoalCollision*>>(0x46B350, this);
-}

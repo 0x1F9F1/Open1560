@@ -34,11 +34,11 @@
     0x520F00 | private: void __thiscall asMemoryAllocator::Verify(void *) | ?Verify@asMemoryAllocator@@AAEXPAX@Z
     0x520FC0 | public: void __thiscall asMemoryAllocator::GetStats(struct asMemStats *) | ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
     0x521090 | public: void __thiscall asMemoryAllocator::SanityCheck(void) | ?SanityCheck@asMemoryAllocator@@QAEXXZ
+    0x521250 | int __cdecl HeapAssert(void *,int,char *,int) | ?HeapAssert@@YAHPAXHPADH@Z
     0x7805E8 | class asMemoryAllocator ALLOCATOR | ?ALLOCATOR@@3VasMemoryAllocator@@A
     0x780688 | class asMemoryAllocator * CURHEAP | ?CURHEAP@@3PAVasMemoryAllocator@@A
     0x780690 | class asMemoryAllocator CRTALLOCATOR | ?CRTALLOCATOR@@3VasMemoryAllocator@@A
     0x780730 | unsigned char * CRTHEAP | ?CRTHEAP@@3PAEA
-    0x521250 | int __cdecl HeapAssert(void *,int,char *,int) | ?HeapAssert@@YAHPAXHPADH@Z
 */
 
 struct asMemStats
@@ -116,13 +116,13 @@ private:
 check_size(asMemoryAllocator, 0xA0);
 
 // 0x7805E8 | ?ALLOCATOR@@3VasMemoryAllocator@@A
-inline extern_var(0x7805E8, class asMemoryAllocator, ALLOCATOR);
+ARTS_IMPORT extern class asMemoryAllocator ALLOCATOR;
 
 // 0x780690 | ?CRTALLOCATOR@@3VasMemoryAllocator@@A
-inline extern_var(0x780690, class asMemoryAllocator, CRTALLOCATOR);
+ARTS_IMPORT extern class asMemoryAllocator CRTALLOCATOR;
 
 // 0x780730 | ?CRTHEAP@@3PAEA
-inline extern_var(0x780730, u8*, CRTHEAP);
+ARTS_IMPORT extern u8 CRTHEAP[16384];
 
 // 0x780688 | ?CURHEAP@@3PAVasMemoryAllocator@@A
-inline extern_var(0x780688, class asMemoryAllocator*, CURHEAP);
+ARTS_IMPORT extern class asMemoryAllocator* CURHEAP;

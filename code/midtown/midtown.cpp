@@ -27,6 +27,15 @@ define_dummy_symbol(midtown);
 #include "memory/stack.h"
 #include "pcwindis/dxinit.h"
 
+// 0x402F20 | ?GameCloseCallback@@YAXXZ
+ARTS_IMPORT /*static*/ void GameCloseCallback();
+
+// 0x402E70 | ?TouchMemory@@YAXPAXH@Z
+ARTS_IMPORT /*static*/ void TouchMemory(void* arg1, i32 arg2);
+
+// 0x402EC0 | ?exeDirFile@@YAPADPAD0@Z
+ARTS_IMPORT /*static*/ char* exeDirFile(char* arg1, char* arg2);
+
 static char Main_ExecPath[1024] {};
 static char* Main_Argv[128] {};
 static u8 Main_InitHeap[0x10000];
@@ -114,16 +123,6 @@ void Application(i32 argc, char** argv)
     }
 }
 
-void ApplicationHelper(i32 arg1, char** arg2)
-{
-    return stub<cdecl_t<void, i32, char**>>(0x401830, arg1, arg2);
-}
-
-class agiPipeline* CreatePipeline(i32 arg1, char** arg2)
-{
-    return stub<cdecl_t<class agiPipeline*, i32, char**>>(0x4010B0, arg1, arg2);
-}
-
 static const char* GetExceptionCodeString(DWORD code)
 {
     switch (code)
@@ -173,34 +172,4 @@ i32 GameFilter(EXCEPTION_POINTERS* exception)
     DoStackTraceback(16, reinterpret_cast<i32*>(context->Ebp));
 
     return EXCEPTION_EXECUTE_HANDLER;
-}
-
-void GameLoop(class mmInterface* arg1, class mmGameManager* arg2, char* arg3)
-{
-    return stub<cdecl_t<void, class mmInterface*, class mmGameManager*, char*>>(0x4015A0, arg1, arg2, arg3);
-}
-
-i32 GenerateLoadScreenName()
-{
-    return stub<cdecl_t<i32>>(0x4012D0);
-}
-
-void InitAudioManager()
-{
-    return stub<cdecl_t<void>>(0x402F40);
-}
-
-static void GameCloseCallback()
-{
-    return stub<cdecl_t<void>>(0x402F20);
-}
-
-static void TouchMemory(void* arg1, i32 arg2)
-{
-    return stub<cdecl_t<void, void*, i32>>(0x402E70, arg1, arg2);
-}
-
-static char* exeDirFile(char* arg1, char* arg2)
-{
-    return stub<cdecl_t<char*, char*, char*>>(0x402EC0, arg1, arg2);
 }

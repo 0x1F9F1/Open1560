@@ -38,17 +38,17 @@ class OptionsMenu : public UIMenu
 
 public:
     // 0x4A3950 | ??0OptionsMenu@@QAE@H@Z
-    OptionsMenu(i32 arg1);
+    ARTS_IMPORT OptionsMenu(i32 arg1);
 
     // 0x4A3B70 | ??_EOptionsMenu@@UAEPAXI@Z
     // 0x4A3B10 | ??1OptionsMenu@@UAE@XZ
-    ~OptionsMenu() override;
+    ARTS_IMPORT ~OptionsMenu() override;
 
     // 0x4A3B50 | ?PostSetup@OptionsMenu@@UAEXXZ
-    void PostSetup() override;
+    ARTS_IMPORT void PostSetup() override;
 
     // 0x4A3B20 | ?PreSetup@OptionsMenu@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(OptionsMenu, 0x98);

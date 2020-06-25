@@ -75,71 +75,72 @@ class agiSWPipeline : public agiPipeline
 
 public:
     // 0x533DD0 | ??0agiSWPipeline@@QAE@HPAPAD@Z
-    agiSWPipeline(i32 arg1, char** arg2);
+    ARTS_IMPORT agiSWPipeline(i32 arg1, char** arg2);
 
     // 0x534900 | ??_GagiSWPipeline@@UAEPAXI@Z
     // 0x533E50 | ??1agiSWPipeline@@UAE@XZ
-    ~agiSWPipeline() override;
+    ARTS_IMPORT ~agiSWPipeline() override;
 
     // 0x534030 | ?BeginFrame@agiSWPipeline@@UAEXXZ
-    void BeginFrame() override;
+    ARTS_IMPORT void BeginFrame() override;
 
     // 0x533E60 | ?BeginGfx@agiSWPipeline@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x534070 | ?BeginScene@agiSWPipeline@@UAEXXZ
-    void BeginScene() override;
+    ARTS_IMPORT void BeginScene() override;
 
     // 0x5341A0 | ?ClearAll@agiSWPipeline@@UAEXH@Z
-    void ClearAll(i32 arg1) override;
+    ARTS_IMPORT void ClearAll(i32 arg1) override;
 
     // 0x534230 | ?ClearRect@agiSWPipeline@@UAEXHHHHI@Z
-    void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5) override;
+    ARTS_IMPORT void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5) override;
 
     // 0x5344C0 | ?CopyBitmap@agiSWPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
-    void CopyBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7) override;
+    ARTS_IMPORT void CopyBitmap(
+        i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7) override;
 
     // 0x534450 | ?CreateBitmap@agiSWPipeline@@UAEPAVagiBitmap@@XZ
-    class agiBitmap* CreateBitmap() override;
+    ARTS_IMPORT class agiBitmap* CreateBitmap() override;
 
     // 0x5340E0 | ?CreateDLP@agiSWPipeline@@UAEPAVDLP@@XZ
-    class DLP* CreateDLP() override;
+    ARTS_IMPORT class DLP* CreateDLP() override;
 
     // 0x534140 | ?CreateLight@agiSWPipeline@@UAEPAVagiLight@@XZ
-    class agiLight* CreateLight() override;
+    ARTS_IMPORT class agiLight* CreateLight() override;
 
     // 0x534320 | ?CreateLightModel@agiSWPipeline@@UAEPAVagiLightModel@@XZ
-    class agiLightModel* CreateLightModel() override;
+    ARTS_IMPORT class agiLightModel* CreateLightModel() override;
 
     // 0x534440 | ?CreateMtlDef@agiSWPipeline@@UAEPAVagiMtlDef@@XZ
-    class agiMtlDef* CreateMtlDef() override;
+    ARTS_IMPORT class agiMtlDef* CreateMtlDef() override;
 
     // 0x534380 | ?CreateTexDef@agiSWPipeline@@UAEPAVagiTexDef@@XZ
-    class agiTexDef* CreateTexDef() override;
+    ARTS_IMPORT class agiTexDef* CreateTexDef() override;
 
     // 0x5343E0 | ?CreateTexLut@agiSWPipeline@@UAEPAVagiTexLut@@XZ
-    class agiTexLut* CreateTexLut() override;
+    ARTS_IMPORT class agiTexLut* CreateTexLut() override;
 
     // 0x534290 | ?CreateViewport@agiSWPipeline@@UAEPAVagiViewport@@XZ
-    class agiViewport* CreateViewport() override;
+    ARTS_IMPORT class agiViewport* CreateViewport() override;
 
     // 0x5340C0 | ?EndFrame@agiSWPipeline@@UAEXXZ
-    void EndFrame() override;
+    ARTS_IMPORT void EndFrame() override;
 
     // 0x534010 | ?EndGfx@agiSWPipeline@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x5340A0 | ?EndScene@agiSWPipeline@@UAEXXZ
-    void EndScene() override;
+    ARTS_IMPORT void EndScene() override;
 
     // 0x533DC0 | ?Validate@agiSWPipeline@@UAEHXZ
-    i32 Validate() override;
+    ARTS_IMPORT i32 Validate() override;
 };
 
 check_size(agiSWPipeline, 0x2F0);
 
 // 0x534690 | ?swCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-class agiPipeline* swCreatePipeline(i32 arg1, char** arg2);
+ARTS_IMPORT class agiPipeline* swCreatePipeline(i32 arg1, char** arg2);
 
 class agiSWViewport : public agiViewport
 {
@@ -148,22 +149,22 @@ class agiSWViewport : public agiViewport
 public:
     // 0x534BE0 | ??_EagiSWViewport@@UAEPAXI@Z
     // 0x534C10 | ??1agiSWViewport@@UAE@XZ | inline
-    ~agiSWViewport() override;
+    ARTS_IMPORT ~agiSWViewport() override;
 
     // 0x534930 | ?Activate@agiSWViewport@@UAEXXZ | inline
-    void Activate() override;
+    ARTS_IMPORT void Activate() override;
 
     // 0x534BC0 | ?BeginGfx@agiSWViewport@@UAEHXZ | inline
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x5349B0 | ?Clear@agiSWViewport@@UAEXH@Z | inline
-    void Clear(i32 arg1) override;
+    ARTS_IMPORT void Clear(i32 arg1) override;
 
     // 0x534BD0 | ?EndGfx@agiSWViewport@@UAEXXZ | inline
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x534950 | ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z | inline
-    void SetBackground(class Vector3& arg1) override;
+    ARTS_IMPORT void SetBackground(class Vector3& arg1) override;
 };
 
 check_size(agiSWViewport, 0x0);
@@ -175,19 +176,19 @@ class agiSWBitmap : public agiBitmap
 public:
     // 0x534DF0 | ??_GagiSWBitmap@@UAEPAXI@Z
     // 0x534E20 | ??1agiSWBitmap@@UAE@XZ | inline
-    ~agiSWBitmap() override;
+    ARTS_IMPORT ~agiSWBitmap() override;
 
     // 0x534C20 | ?BeginGfx@agiSWBitmap@@UAEHXZ | inline
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x534DC0 | ?EndGfx@agiSWBitmap@@UAEXXZ | inline
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x534DE0 | ?Restore@agiSWBitmap@@UAEXXZ | inline
-    void Restore() override;
+    ARTS_IMPORT void Restore() override;
 
     // 0x534DA0 | ?UpdateFlags@agiSWBitmap@@UAEXXZ | inline
-    void UpdateFlags() override;
+    ARTS_IMPORT void UpdateFlags() override;
 };
 
 check_size(agiSWBitmap, 0x0);

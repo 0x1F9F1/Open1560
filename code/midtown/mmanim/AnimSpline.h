@@ -46,45 +46,45 @@ class mmAnimSpline : public asNode
 
 public:
     // 0x4C37D0 | ??0mmAnimSpline@@QAE@XZ
-    mmAnimSpline();
+    ARTS_IMPORT mmAnimSpline();
 
     // 0x4C15C0 | ??_EmmAnimSpline@@UAEPAXI@Z
     // 0x4C3CE0 | ??_GmmAnimSpline@@UAEPAXI@Z | unused
     // 0x4C37F0 | ??1mmAnimSpline@@UAE@XZ
-    ~mmAnimSpline() override;
+    ARTS_IMPORT ~mmAnimSpline() override;
 
     // 0x4C39F0 | ?AddVector@mmAnimSpline@@QAEXAAVVector3@@@Z
-    void AddVector(class Vector3& arg1);
+    ARTS_IMPORT void AddVector(class Vector3& arg1);
 
     // 0x4C3C10 | ?AirlinerSwap@mmAnimSpline@@QAEXXZ
-    void AirlinerSwap();
+    ARTS_IMPORT void AirlinerSwap();
 
     // 0x4C39D0 | ?ClearVectors@mmAnimSpline@@QAEXXZ
-    void ClearVectors();
+    ARTS_IMPORT void ClearVectors();
 
     // 0x4C3850 | ?Init@mmAnimSpline@@QAEHPADH@Z
-    i32 Init(char* arg1, i32 arg2);
+    ARTS_IMPORT i32 Init(char* arg1, i32 arg2);
 
     // 0x4C3A90 | ?InitBoat@mmAnimSpline@@QAEHXZ
-    i32 InitBoat();
+    ARTS_IMPORT i32 InitBoat();
 
     // 0x4C3AA0 | ?InitPlane@mmAnimSpline@@QAEHXZ
-    i32 InitPlane();
+    ARTS_IMPORT i32 InitPlane();
 
     // 0x4C3B40 | ?InitTrain@mmAnimSpline@@QAEHXZ
-    i32 InitTrain();
+    ARTS_IMPORT i32 InitTrain();
 
     // 0x4C38F0 | ?LoadFile@mmAnimSpline@@QAEHPAD@Z
-    i32 LoadFile(char* arg1);
+    ARTS_IMPORT i32 LoadFile(char* arg1);
 
     // 0x4C3BF0 | ?Reset@mmAnimSpline@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4C3CC0 | ?UFOSwap@mmAnimSpline@@QAEXXZ
-    void UFOSwap();
+    ARTS_IMPORT void UFOSwap();
 
     // 0x4C3BC0 | ?Update@mmAnimSpline@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmAnimSpline, 0x34);

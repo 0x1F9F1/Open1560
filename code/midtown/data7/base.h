@@ -63,4 +63,4 @@ inline Base::~Base() = default;
 check_size(Base, 0x4);
 
 // 0x90B100 | ?BaseMetaClass@@3VMetaClass@@A
-// inline extern_var(0x90B100, class MetaClass, BaseMetaClass);
+// ARTS_IMPORT extern class MetaClass BaseMetaClass;

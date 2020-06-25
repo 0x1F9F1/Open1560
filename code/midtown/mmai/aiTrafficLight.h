@@ -53,21 +53,21 @@ class aiTrafficLightSet : public asNode
 
 public:
     // 0x443F60 | ??0aiTrafficLightSet@@QAE@PAVaiIntersection@@@Z
-    aiTrafficLightSet(class aiIntersection* arg1);
+    ARTS_IMPORT aiTrafficLightSet(class aiIntersection* arg1);
 
     // 0x4446C0 | ??_GaiTrafficLightSet@@UAEPAXI@Z
     // 0x444150 | ??1aiTrafficLightSet@@UAE@XZ
-    ~aiTrafficLightSet() override;
+    ARTS_IMPORT ~aiTrafficLightSet() override;
 
     // 0x4441B0 | ?Reset@aiTrafficLightSet@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x444250 | ?Update@aiTrafficLightSet@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
 private:
     // 0x6A7970 | ?ObjCount@aiTrafficLightSet@@0FA
-    static inline extern_var(0x6A7970, i16, ObjCount);
+    ARTS_IMPORT static i16 ObjCount;
 };
 
 check_size(aiTrafficLightSet, 0x38);
@@ -79,13 +79,13 @@ class aiTrafficLightInstance : public mmUnhitBangerInstance
 public:
     // 0x444760 | ??_EaiTrafficLightInstance@@UAEPAXI@Z
     // 0x444780 | ??1aiTrafficLightInstance@@UAE@XZ | inline
-    ~aiTrafficLightInstance() override;
+    ARTS_IMPORT ~aiTrafficLightInstance() override;
 
     // 0x444530 | ?Draw@aiTrafficLightInstance@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x444330 | ?Init@aiTrafficLightInstance@@UAEHPADAAVVector3@@1H0@Z
-    i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5) override;
+    ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5) override;
 };
 
 check_size(aiTrafficLightInstance, 0x0);

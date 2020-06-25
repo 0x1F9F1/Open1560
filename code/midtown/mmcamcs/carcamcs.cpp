@@ -19,33 +19,3 @@
 define_dummy_symbol(mmcamcs_carcamcs);
 
 #include "carcamcs.h"
-
-CarCamCS::CarCamCS()
-{
-    unimplemented();
-}
-
-CarCamCS::~CarCamCS()
-{
-    unimplemented();
-}
-
-void CarCamCS::AddWidgets(class Bank* arg1)
-{
-    return stub<thiscall_t<void, CarCamCS*, class Bank*>>(0x4FB280, this, arg1);
-}
-
-class MetaClass* CarCamCS::GetClass()
-{
-    return stub<thiscall_t<class MetaClass*, CarCamCS*>>(0x4FB400, this);
-}
-
-void CarCamCS::Init(class mmCar* arg1, char* arg2)
-{
-    return stub<thiscall_t<void, CarCamCS*, class mmCar*, char*>>(0x4FB250, this, arg1, arg2);
-}
-
-void CarCamCS::DeclareFields()
-{
-    return stub<cdecl_t<void>>(0x4FB290);
-}

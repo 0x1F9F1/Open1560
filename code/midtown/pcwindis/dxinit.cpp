@@ -71,11 +71,6 @@ void dxiDirectDrawCreate()
     }
 }
 
-void dxiDirectDrawSurfaceCreate()
-{
-    return stub<cdecl_t<void>>(0x573EC0);
-}
-
 void dxiDirectDrawSurfaceDestroy()
 {
     SafeRelease(lpClip);
@@ -85,39 +80,15 @@ void dxiDirectDrawSurfaceDestroy()
     SafeRelease(lpdsFront);
 }
 
-static HRESULT __stdcall DirectInputCreateA_Stub(
-    HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA* ppDI, LPUNKNOWN punkOuter)
-{
-    return stub<stdcall_t<HRESULT, HINSTANCE, DWORD, LPDIRECTINPUTA*, LPUNKNOWN>>(
-        0x5A4288, hinst, dwVersion, ppDI, punkOuter);
-}
+extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
+    HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA* ppDI, LPUNKNOWN punkOuter);
 
 void dxiDirectInputCreate()
 {
-    HRESULT err = DirectInputCreateA_Stub(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
+    HRESULT err = DirectInputCreateA_Impl(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
 
     if (err != 0)
         Quitf("DirectInputCreate failed, code %x", u16(err));
-}
-
-void dxiInit(char* arg1, i32 arg2, char** arg3)
-{
-    return stub<cdecl_t<void, char*, i32, char**>>(0x574550, arg1, arg2, arg3);
-}
-
-void* dxiMemoryAllocate(struct IDirectDrawSurface4** arg1, u32 arg2)
-{
-    return stub<cdecl_t<void*, struct IDirectDrawSurface4**, u32>>(0x5742C0, arg1, arg2);
-}
-
-void dxiMemoryFree(struct IDirectDrawSurface4* arg1)
-{
-    return stub<cdecl_t<void, struct IDirectDrawSurface4*>>(0x5744E0, arg1);
-}
-
-void dxiScreenShot(char* arg1)
-{
-    return stub<cdecl_t<void, char*>>(0x574690, arg1);
 }
 
 static inline void dxiRestoreDisplayMode()
@@ -212,12 +183,8 @@ void dxiWindowCreate(const char* title)
     UpdateWindow(hwndMain);
 }
 
-static void translate555(u8* arg1, u16* arg2, u32 arg3)
-{
-    return stub<cdecl_t<void, u8*, u16*, u32>>(0x574940, arg1, arg2, arg3);
-}
+// 0x574940 | ?translate555@@YAXPAEPAGI@Z
+ARTS_IMPORT /*static*/ void translate555(u8* arg1, u16* arg2, u32 arg3);
 
-static void translate565(u8* arg1, u16* arg2, u32 arg3)
-{
-    return stub<cdecl_t<void, u8*, u16*, u32>>(0x5748D0, arg1, arg2, arg3);
-}
+// 0x5748D0 | ?translate565@@YAXPAEPAGI@Z
+ARTS_IMPORT /*static*/ void translate565(u8* arg1, u16* arg2, u32 arg3);

@@ -41,26 +41,26 @@ class agiD3DViewport : public agiViewport
 
 public:
     // 0x5332D0 | ??0agiD3DViewport@@QAE@PAVagiPipeline@@@Z
-    agiD3DViewport(class agiPipeline* arg1);
+    ARTS_IMPORT agiD3DViewport(class agiPipeline* arg1);
 
     // 0x533530 | ??_EagiD3DViewport@@UAEPAXI@Z
     // 0x533340 | ??1agiD3DViewport@@UAE@XZ
-    ~agiD3DViewport() override;
+    ARTS_IMPORT ~agiD3DViewport() override;
 
     // 0x533350 | ?Activate@agiD3DViewport@@UAEXXZ
-    void Activate() override;
+    ARTS_IMPORT void Activate() override;
 
     // 0x533300 | ?BeginGfx@agiD3DViewport@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x533460 | ?Clear@agiD3DViewport@@UAEXH@Z
-    void Clear(i32 arg1) override;
+    ARTS_IMPORT void Clear(i32 arg1) override;
 
     // 0x533330 | ?EndGfx@agiD3DViewport@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x533410 | ?SetBackground@agiD3DViewport@@UAEXAAVVector3@@@Z
-    void SetBackground(class Vector3& arg1) override;
+    ARTS_IMPORT void SetBackground(class Vector3& arg1) override;
 };
 
 check_size(agiD3DViewport, 0x14C);

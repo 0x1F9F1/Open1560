@@ -23,11 +23,10 @@
 
     0x55A720 | public: static class agiSurfaceDesc * __cdecl agiSurfaceDesc::Init(int,int,class agiSurfaceDesc &) | ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
     0x55A7A0 | public: static class agiSurfaceDesc * __cdecl agiSurfaceDesc::Load(char *,char *,int,int,int,int) | ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
+    0x55AAE0 | void __cdecl RescaleJpeg(unsigned int,unsigned int,unsigned char *,struct jpeg_decompress_struct &) | ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
     0x55ADE0 | public: void __thiscall agiSurfaceDesc::Reload(char *,char *,int,int,class Stream *,int,int) | ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
     0x55B160 | public: void __thiscall agiSurfaceDesc::Unload(void) | ?Unload@agiSurfaceDesc@@QAEXXZ
     0x55B180 | public: void __thiscall agiSurfaceDesc::CopyFrom(class agiSurfaceDesc *,int) | ?CopyFrom@agiSurfaceDesc@@QAEXPAV1@H@Z
-    0x903190 | int AnnotateTextures | ?AnnotateTextures@@3HA
-    0x55AAE0 | void __cdecl RescaleJpeg(unsigned int,unsigned int,unsigned char *,struct jpeg_decompress_struct &) | ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
     0x55B510 | void __cdecl copyrow565_to_555(void *,void *,unsigned int,unsigned int) | ?copyrow565_to_555@@YAXPAX0II@Z
     0x55B560 | void __cdecl copyrow565_to_5551(void *,void *,unsigned int,unsigned int) | ?copyrow565_to_5551@@YAXPAX0II@Z
     0x55B5C0 | void __cdecl copyrow565_to_888(void *,void *,unsigned int,unsigned int) | ?copyrow565_to_888@@YAXPAX0II@Z
@@ -37,6 +36,7 @@
     0x55B7E0 | void __cdecl copyrow4444_to_555(void *,void *,unsigned int,unsigned int) | ?copyrow4444_to_555@@YAXPAX0II@Z
     0x55B860 | void __cdecl copyrow4444_to_565(void *,void *,unsigned int,unsigned int) | ?copyrow4444_to_565@@YAXPAX0II@Z
     0x55B8E0 | void __cdecl copyrow4444_to_5551(void *,void *,unsigned int,unsigned int) | ?copyrow4444_to_5551@@YAXPAX0II@Z
+    0x903190 | int AnnotateTextures | ?AnnotateTextures@@3HA
 */
 
 struct agiColorKey
@@ -75,7 +75,7 @@ public:
     ARTS_EXPORT void CopyFrom(class agiSurfaceDesc* src, i32 lod);
 
     // 0x55ADE0 | ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
-    void Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class Stream* arg5, i32 arg6, i32 arg7);
+    ARTS_IMPORT void Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class Stream* arg5, i32 arg6, i32 arg7);
 
     // 0x55B160 | ?Unload@agiSurfaceDesc@@QAEXXZ
     ARTS_EXPORT void Unload();
@@ -84,7 +84,7 @@ public:
     ARTS_EXPORT static Owner<class agiSurfaceDesc*> Init(i32 width, i32 height, class agiSurfaceDesc& desc);
 
     // 0x55A7A0 | ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
-    static class agiSurfaceDesc* Load(char* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);
+    ARTS_IMPORT static class agiSurfaceDesc* Load(char* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);
 
     u32 dwSize {0};
     u32 dwFlags {0};
@@ -114,4 +114,4 @@ public:
 check_size(agiSurfaceDesc, 0x7C);
 
 // 0x903190 | ?AnnotateTextures@@3HA
-inline extern_var(0x903190, i32, AnnotateTextures);
+ARTS_IMPORT extern i32 AnnotateTextures;

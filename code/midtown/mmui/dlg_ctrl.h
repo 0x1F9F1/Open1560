@@ -37,14 +37,14 @@ class Dialog_ControlAssign : public PUMenuBase
 
 public:
     // 0x4A0230 | ??0Dialog_ControlAssign@@QAE@HMMMMPAD@Z
-    Dialog_ControlAssign(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT Dialog_ControlAssign(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4A0350 | ??_GDialog_ControlAssign@@UAEPAXI@Z
     // 0x4A0330 | ??1Dialog_ControlAssign@@UAE@XZ
-    ~Dialog_ControlAssign() override;
+    ARTS_IMPORT ~Dialog_ControlAssign() override;
 
     // 0x4A0340 | ?PreSetup@Dialog_ControlAssign@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(Dialog_ControlAssign, 0xC0);

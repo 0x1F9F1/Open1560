@@ -19,28 +19,3 @@
 define_dummy_symbol(mmui_about);
 
 #include "about.h"
-
-AboutMenu::AboutMenu(i32 arg1)
-{
-    unimplemented(arg1);
-}
-
-AboutMenu::~AboutMenu()
-{
-    unimplemented();
-}
-
-void AboutMenu::Cull()
-{
-    return stub<thiscall_t<void, AboutMenu*>>(0x4A6100, this);
-}
-
-void AboutMenu::PreSetup()
-{
-    return stub<thiscall_t<void, AboutMenu*>>(0x4A6060, this);
-}
-
-void AboutMenu::Update()
-{
-    return stub<thiscall_t<void, AboutMenu*>>(0x4A6080, this);
-}

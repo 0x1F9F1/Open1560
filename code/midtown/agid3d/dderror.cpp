@@ -19,18 +19,3 @@
 define_dummy_symbol(agid3d_dderror);
 
 #include "dderror.h"
-
-char* DDErrorToString(i32 arg1)
-{
-    return stub<cdecl_t<char*, i32>>(0x532090, arg1);
-}
-
-void __DDRelease(struct IUnknown* arg1, char const* arg2, char const* arg3, i32 arg4)
-{
-    return stub<cdecl_t<void, struct IUnknown*, char const*, char const*, i32>>(0x532890, arg1, arg2, arg3, arg4);
-}
-
-void __DDTry(i32 arg1, char const* arg2, char const* arg3, i32 arg4)
-{
-    return stub<cdecl_t<void, i32, char const*, char const*, i32>>(0x5327B0, arg1, arg2, arg3, arg4);
-}

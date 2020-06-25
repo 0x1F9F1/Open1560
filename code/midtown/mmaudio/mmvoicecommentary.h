@@ -77,154 +77,154 @@ class mmVoiceCommentary
 {
 public:
     // 0x4EC070 | ??0mmVoiceCommentary@@QAE@XZ
-    mmVoiceCommentary();
+    ARTS_IMPORT mmVoiceCommentary();
 
     // 0x4EC110 | ??1mmVoiceCommentary@@QAE@XZ | unused
-    ~mmVoiceCommentary();
+    ARTS_IMPORT ~mmVoiceCommentary();
 
     // 0x4ED190 | ?CatName@mmVoiceCommentary@@QAEPADPADHH@Z
-    char* CatName(char* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT char* CatName(char* arg1, i32 arg2, i32 arg3);
 
     // 0x4ED390 | ?GetLapName@mmVoiceCommentary@@QAEPADF@Z | unused
-    char* GetLapName(i16 arg1);
+    ARTS_IMPORT char* GetLapName(i16 arg1);
 
     // 0x4ED830 | ?GetRandomBlueCR@mmVoiceCommentary@@QAEPADF@Z
-    char* GetRandomBlueCR(i16 arg1);
+    ARTS_IMPORT char* GetRandomBlueCR(i16 arg1);
 
     // 0x4ED8B0 | ?GetRandomCop@mmVoiceCommentary@@QAEPADF@Z
-    char* GetRandomCop(i16 arg1);
+    ARTS_IMPORT char* GetRandomCop(i16 arg1);
 
     // 0x4EC650 | ?GetRandomPreBlitz@mmVoiceCommentary@@QAEPADXZ
-    char* GetRandomPreBlitz();
+    ARTS_IMPORT char* GetRandomPreBlitz();
 
     // 0x4EC810 | ?GetRandomPreCheckPoint@mmVoiceCommentary@@QAEPADXZ
-    char* GetRandomPreCheckPoint();
+    ARTS_IMPORT char* GetRandomPreCheckPoint();
 
     // 0x4EC730 | ?GetRandomPreCircuit@mmVoiceCommentary@@QAEPADXZ
-    char* GetRandomPreCircuit();
+    ARTS_IMPORT char* GetRandomPreCircuit();
 
     // 0x4EC4D0 | ?GetRandomPreRace@mmVoiceCommentary@@QAEPADXZ
-    char* GetRandomPreRace();
+    ARTS_IMPORT char* GetRandomPreRace();
 
     // 0x4ECB50 | ?GetRandomPreRaceVeh@mmVoiceCommentary@@QAEPADXZ
-    char* GetRandomPreRaceVeh();
+    ARTS_IMPORT char* GetRandomPreRaceVeh();
 
     // 0x4ED7B0 | ?GetRandomRedCR@mmVoiceCommentary@@QAEPADF@Z
-    char* GetRandomRedCR(i16 arg1);
+    ARTS_IMPORT char* GetRandomRedCR(i16 arg1);
 
     // 0x4ECA70 | ?GetRandomResults@mmVoiceCommentary@@QAEPADF@Z
-    char* GetRandomResults(i16 arg1);
+    ARTS_IMPORT char* GetRandomResults(i16 arg1);
 
     // 0x4ECEF0 | ?GetRandomResultsMid@mmVoiceCommentary@@QAEPADXZ
-    char* GetRandomResultsMid();
+    ARTS_IMPORT char* GetRandomResultsMid();
 
     // 0x4ECD50 | ?GetRandomResultsPoor@mmVoiceCommentary@@QAEPADXZ
-    char* GetRandomResultsPoor();
+    ARTS_IMPORT char* GetRandomResultsPoor();
 
     // 0x4ECBB0 | ?GetRandomResultsWin@mmVoiceCommentary@@QAEPADXZ
-    char* GetRandomResultsWin();
+    ARTS_IMPORT char* GetRandomResultsWin();
 
     // 0x4ED730 | ?GetRandomRobber@mmVoiceCommentary@@QAEPADF@Z
-    char* GetRandomRobber(i16 arg1);
+    ARTS_IMPORT char* GetRandomRobber(i16 arg1);
 
     // 0x4ED090 | ?GetRandomTOD@mmVoiceCommentary@@QAEPADXZ
-    char* GetRandomTOD();
+    ARTS_IMPORT char* GetRandomTOD();
 
     // 0x4ED0F0 | ?GetRandomWeather@mmVoiceCommentary@@QAEPADXZ
-    char* GetRandomWeather();
+    ARTS_IMPORT char* GetRandomWeather();
 
     // 0x4EC410 | ?Play@mmVoiceCommentary@@QAEXPAD@Z
-    void Play(char* arg1);
+    ARTS_IMPORT void Play(char* arg1);
 
     // 0x4EC1F0 | ?PlayAirBorne@mmVoiceCommentary@@QAEXXZ | unused
-    void PlayAirBorne();
+    ARTS_IMPORT void PlayAirBorne();
 
     // 0x4EDDE0 | ?PlayBulletUnlocked@mmVoiceCommentary@@QAEXXZ
-    void PlayBulletUnlocked();
+    ARTS_IMPORT void PlayBulletUnlocked();
 
     // 0x4EDC80 | ?PlayBusUnlocked@mmVoiceCommentary@@QAEXXZ
-    void PlayBusUnlocked();
+    ARTS_IMPORT void PlayBusUnlocked();
 
     // 0x4ED630 | ?PlayCR@mmVoiceCommentary@@QAEXFF@Z
-    void PlayCR(i16 arg1, i16 arg2);
+    ARTS_IMPORT void PlayCR(i16 arg1, i16 arg2);
 
     // 0x4ED4C0 | ?PlayCRPreRace@mmVoiceCommentary@@QAEXXZ
-    void PlayCRPreRace();
+    ARTS_IMPORT void PlayCRPreRace();
 
     // 0x4EC2D0 | ?PlayCheckPoint@mmVoiceCommentary@@QAEXXZ | unused
-    void PlayCheckPoint();
+    ARTS_IMPORT void PlayCheckPoint();
 
     // 0x4ED5C0 | ?PlayCollision@mmVoiceCommentary@@QAEXXZ | unused
-    void PlayCollision();
+    ARTS_IMPORT void PlayCollision();
 
     // 0x4EDCE0 | ?PlayCopCarUnlocked@mmVoiceCommentary@@QAEXXZ
-    void PlayCopCarUnlocked();
+    ARTS_IMPORT void PlayCopCarUnlocked();
 
     // 0x4EDB60 | ?PlayEndRaceDamage@mmVoiceCommentary@@QAEXXZ
-    void PlayEndRaceDamage();
+    ARTS_IMPORT void PlayEndRaceDamage();
 
     // 0x4EC320 | ?PlayFinalCheckPoint@mmVoiceCommentary@@QAEXXZ
-    void PlayFinalCheckPoint();
+    ARTS_IMPORT void PlayFinalCheckPoint();
 
     // 0x4EC3A0 | ?PlayFinalLap@mmVoiceCommentary@@QAEXXZ
-    void PlayFinalLap();
+    ARTS_IMPORT void PlayFinalLap();
 
     // 0x4EDC20 | ?PlayGTUnlocked@mmVoiceCommentary@@QAEXXZ
-    void PlayGTUnlocked();
+    ARTS_IMPORT void PlayGTUnlocked();
 
     // 0x4EC390 | ?PlayLap@mmVoiceCommentary@@QAEXF@Z | unused
-    void PlayLap(i16 arg1);
+    ARTS_IMPORT void PlayLap(i16 arg1);
 
     // 0x4EC990 | ?PlayMidResults@mmVoiceCommentary@@QAEXXZ | unused
-    void PlayMidResults();
+    ARTS_IMPORT void PlayMidResults();
 
     // 0x4ED450 | ?PlayNetworkPreRace@mmVoiceCommentary@@QAEXXZ | unused
-    void PlayNetworkPreRace();
+    ARTS_IMPORT void PlayNetworkPreRace();
 
     // 0x4EDEA0 | ?PlayNextRacesUnlocked@mmVoiceCommentary@@QAEXXZ
-    void PlayNextRacesUnlocked();
+    ARTS_IMPORT void PlayNextRacesUnlocked();
 
     // 0x4ED930 | ?PlayOpponentFinish@mmVoiceCommentary@@QAEXF@Z | unused
-    void PlayOpponentFinish(i16 arg1);
+    ARTS_IMPORT void PlayOpponentFinish(i16 arg1);
 
     // 0x4EC460 | ?PlayPreRace@mmVoiceCommentary@@QAEXXZ
-    void PlayPreRace();
+    ARTS_IMPORT void PlayPreRace();
 
     // 0x4ECA00 | ?PlayResults@mmVoiceCommentary@@QAEXF@Z
-    void PlayResults(i16 arg1);
+    ARTS_IMPORT void PlayResults(i16 arg1);
 
     // 0x4EC260 | ?PlayRoam@mmVoiceCommentary@@QAEXXZ
-    void PlayRoam();
+    ARTS_IMPORT void PlayRoam();
 
     // 0x4EDE40 | ?PlaySemiUnlocked@mmVoiceCommentary@@QAEXXZ
-    void PlaySemiUnlocked();
+    ARTS_IMPORT void PlaySemiUnlocked();
 
     // 0x4ED6C0 | ?PlayTeamCR@mmVoiceCommentary@@QAEXFF@Z
-    void PlayTeamCR(i16 arg1, i16 arg2);
+    ARTS_IMPORT void PlayTeamCR(i16 arg1, i16 arg2);
 
     // 0x4EDA90 | ?PlayTimePenalty@mmVoiceCommentary@@QAEXXZ
-    void PlayTimePenalty();
+    ARTS_IMPORT void PlayTimePenalty();
 
     // 0x4EDBD0 | ?PlayUnlock@mmVoiceCommentary@@QAEXH@Z
-    void PlayUnlock(i32 arg1);
+    ARTS_IMPORT void PlayUnlock(i32 arg1);
 
     // 0x4EC920 | ?PlayWinResults@mmVoiceCommentary@@QAEXXZ
-    void PlayWinResults();
+    ARTS_IMPORT void PlayWinResults();
 
     // 0x4EC170 | ?SetFrequency@mmVoiceCommentary@@QAEXM@Z
-    void SetFrequency(f32 arg1);
+    ARTS_IMPORT void SetFrequency(f32 arg1);
 
     // 0x4EC190 | ?Stop@mmVoiceCommentary@@QAEXXZ | unused
-    void Stop();
+    ARTS_IMPORT void Stop();
 
     // 0x4EC1A0 | ?StopNow@mmVoiceCommentary@@QAEXXZ
-    void StopNow();
+    ARTS_IMPORT void StopNow();
 
     // 0x4EDF70 | ?Update@mmVoiceCommentary@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x4EC130 | ?ValidateCity@mmVoiceCommentary@@QAEXPAD@Z
-    void ValidateCity(char* arg1);
+    ARTS_IMPORT void ValidateCity(char* arg1);
 };
 
 check_size(mmVoiceCommentary, 0x158);

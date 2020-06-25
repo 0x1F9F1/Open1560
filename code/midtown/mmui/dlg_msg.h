@@ -38,17 +38,17 @@ class Dialog_Message : public PUMenuBase
 
 public:
     // 0x49F2E0 | ??0Dialog_Message@@QAE@HMMMMPAD@Z
-    Dialog_Message(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT Dialog_Message(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49F480 | ??_GDialog_Message@@UAEPAXI@Z
     // 0x49F460 | ??1Dialog_Message@@UAE@XZ
-    ~Dialog_Message() override;
+    ARTS_IMPORT ~Dialog_Message() override;
 
     // 0x49F3F0 | ?Init@Dialog_Message@@QAEXHPAD0@Z
-    void Init(i32 arg1, char* arg2, char* arg3);
+    ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3);
 
     // 0x49F470 | ?PreSetup@Dialog_Message@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(Dialog_Message, 0xD0);

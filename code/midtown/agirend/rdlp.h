@@ -52,30 +52,30 @@ class RDLP : public DLP
 
 public:
     // 0x550800 | ??0RDLP@@QAE@PAVagiPipeline@@@Z
-    RDLP(class agiPipeline* arg1);
+    ARTS_IMPORT RDLP(class agiPipeline* arg1);
 
     // 0x5515E0 | ??_ERDLP@@UAEPAXI@Z
     // 0x550850 | ??1RDLP@@UAE@XZ
-    ~RDLP() override;
+    ARTS_IMPORT ~RDLP() override;
 
     // 0x550C40 | ?BeginGfx@RDLP@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x551200 | ?EndGfx@RDLP@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x551540 | ?FixROpts@RDLP@@UAEXHH@Z
-    void FixROpts(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void FixROpts(i32 arg1, i32 arg2) override;
 
     // 0x551490 | ?GetDynamic@RDLP@@UAEPAVDynamicDLP@@H@Z
-    class DynamicDLP* GetDynamic(i32 arg1) override;
+    ARTS_IMPORT class DynamicDLP* GetDynamic(i32 arg1) override;
 
     // 0x551530 | ?GetMultipass@RDLP@@UAEPAVMultipassDLP@@H@Z
-    class MultipassDLP* GetMultipass(i32 arg1) override;
+    ARTS_IMPORT class MultipassDLP* GetMultipass(i32 arg1) override;
 
 private:
     // 0x5508A0 | ?InitFacet@RDLP@@AAEHPAUagiPatch@@HHHH@Z
-    i32 InitFacet(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT i32 InitFacet(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 };
 
 check_size(RDLP, 0xAC);
@@ -86,23 +86,23 @@ class RDynamicDLP : public DynamicDLP
 
 public:
     // 0x551290 | ??0RDynamicDLP@@QAE@HPAVRDLP@@@Z
-    RDynamicDLP(i32 arg1, class RDLP* arg2);
+    ARTS_IMPORT RDynamicDLP(i32 arg1, class RDLP* arg2);
 
     // 0x551610 | ??_ERDynamicDLP@@UAEPAXI@Z
     // 0x5512F0 | ??1RDynamicDLP@@UAE@XZ
-    ~RDynamicDLP() override;
+    ARTS_IMPORT ~RDynamicDLP() override;
 
     // 0x551360 | ?Init@RDynamicDLP@@UAEHPAD@Z
-    i32 Init(char* arg1) override;
+    ARTS_IMPORT i32 Init(char* arg1) override;
 
     // 0x551440 | ?Lock@RDynamicDLP@@UAEXXZ
-    void Lock() override;
+    ARTS_IMPORT void Lock() override;
 
     // 0x5513B0 | ?SetTexture@RDynamicDLP@@UAEXF@Z
-    void SetTexture(i16 arg1) override;
+    ARTS_IMPORT void SetTexture(i16 arg1) override;
 
     // 0x551480 | ?Unlock@RDynamicDLP@@UAEXXZ
-    void Unlock() override;
+    ARTS_IMPORT void Unlock() override;
 };
 
 check_size(RDynamicDLP, 0x28);

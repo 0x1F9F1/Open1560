@@ -44,35 +44,35 @@ class UILabel : public uiWidget
 
 public:
     // 0x4B9600 | ??0UILabel@@QAE@XZ
-    UILabel();
+    ARTS_IMPORT UILabel();
 
     // 0x4B98C0 | ??_GUILabel@@UAEPAXI@Z
     // 0x4B9690 | ??1UILabel@@UAE@XZ
-    ~UILabel() override;
+    ARTS_IMPORT ~UILabel() override;
 
     // 0x4B98F0 | ?Action@UILabel@@UAEXTeqEvent@@@Z | inline
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4B96F0 | ?Init@UILabel@@QAEXPAULocString@@HMMMMH@Z
-    void Init(struct LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7);
+    ARTS_IMPORT void Init(struct LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7);
 
     // 0x4B9820 | ?SetBlink@UILabel@@QAEXH@Z | unused
-    void SetBlink(i32 arg1);
+    ARTS_IMPORT void SetBlink(i32 arg1);
 
     // 0x4B97B0 | ?SetText@UILabel@@QAEXPAULocString@@@Z
-    void SetText(struct LocString* arg1);
+    ARTS_IMPORT void SetText(struct LocString* arg1);
 
     // 0x4B9850 | ?Switch@UILabel@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4B9860 | ?SwitchState@UILabel@@QAEXH@Z
-    void SwitchState(i32 arg1);
+    ARTS_IMPORT void SwitchState(i32 arg1);
 
     // 0x4B97D0 | ?Update@UILabel@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x705A10 | ?TextHeight@UILabel@@2MA
-    static inline extern_var(0x705A10, f32, TextHeight);
+    ARTS_IMPORT static f32 TextHeight;
 };
 
 check_size(UILabel, 0x88);

@@ -40,23 +40,23 @@ class agiBILight : public agiLight
 
 public:
     // 0x555370 | ??0agiBILight@@QAE@PAVagiPipeline@@@Z
-    agiBILight(class agiPipeline* arg1);
+    ARTS_IMPORT agiBILight(class agiPipeline* arg1);
 
     // 0x555430 | ??_EagiBILight@@UAEPAXI@Z
     // 0x555390 | ??1agiBILight@@UAE@XZ
-    ~agiBILight() override;
+    ARTS_IMPORT ~agiBILight() override;
 
     // 0x5553E0 | ?BeginGfx@agiBILight@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x555400 | ?EndGfx@agiBILight@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x555420 | ?Remove@agiBILight@@UAEXXZ
-    void Remove() override;
+    ARTS_IMPORT void Remove() override;
 
     // 0x555410 | ?Update@agiBILight@@UAEHXZ
-    i32 Update() override;
+    ARTS_IMPORT i32 Update() override;
 };
 
 check_size(agiBILight, 0x88);

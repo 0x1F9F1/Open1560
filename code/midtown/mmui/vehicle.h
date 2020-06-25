@@ -40,23 +40,23 @@ class Vehicle : public VehicleSelectBase
 
 public:
     // 0x4A51D0 | ??0Vehicle@@QAE@H@Z
-    Vehicle(i32 arg1);
+    ARTS_IMPORT Vehicle(i32 arg1);
 
     // 0x4A5320 | ??_EVehicle@@UAEPAXI@Z
     // 0x4A52B0 | ??1Vehicle@@UAE@XZ
-    ~Vehicle() override;
+    ARTS_IMPORT ~Vehicle() override;
 
     // 0x4A5310 | ?PostSetup@Vehicle@@UAEXXZ
-    void PostSetup() override;
+    ARTS_IMPORT void PostSetup() override;
 
     // 0x4A5300 | ?PreSetup@Vehicle@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x4A52C0 | ?SetSubMenu@Vehicle@@QAEXH@Z
-    void SetSubMenu(i32 arg1);
+    ARTS_IMPORT void SetSubMenu(i32 arg1);
 
     // 0x4A52E0 | ?SetSubMenuButtons@Vehicle@@QAEXXZ
-    void SetSubMenuButtons();
+    ARTS_IMPORT void SetSubMenuButtons();
 };
 
 check_size(Vehicle, 0x184);

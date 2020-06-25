@@ -30,13 +30,13 @@ struct mmAmbientAudio
 {
 public:
     // 0x427DB0 | ??0mmAmbientAudio@@QAE@PAVmmPlayer@@@Z
-    mmAmbientAudio(class mmPlayer* arg1);
+    ARTS_IMPORT mmAmbientAudio(class mmPlayer* arg1);
 
     // 0x427E50 | ??1mmAmbientAudio@@QAE@XZ
-    ~mmAmbientAudio();
+    ARTS_IMPORT ~mmAmbientAudio();
 
     // 0x427E60 | ?Update@mmAmbientAudio@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 };
 
 check_size(mmAmbientAudio, 0x14);

@@ -19,23 +19,3 @@
 define_dummy_symbol(mmui_options);
 
 #include "options.h"
-
-OptionsMenu::OptionsMenu(i32 arg1)
-{
-    unimplemented(arg1);
-}
-
-OptionsMenu::~OptionsMenu()
-{
-    unimplemented();
-}
-
-void OptionsMenu::PostSetup()
-{
-    return stub<thiscall_t<void, OptionsMenu*>>(0x4A3B50, this);
-}
-
-void OptionsMenu::PreSetup()
-{
-    return stub<thiscall_t<void, OptionsMenu*>>(0x4A3B20, this);
-}

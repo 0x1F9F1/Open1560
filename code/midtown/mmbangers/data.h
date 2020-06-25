@@ -61,41 +61,41 @@ class mmBangerData : public asNode
 
 public:
     // 0x4C9B50 | ??0mmBangerData@@QAE@XZ | inline
-    mmBangerData();
+    ARTS_IMPORT mmBangerData();
 
     // 0x4C9A90 | ??_EmmBangerData@@UAEPAXI@Z
     // 0x4C9BE0 | ??1mmBangerData@@UAE@XZ | inline
-    ~mmBangerData() override;
+    ARTS_IMPORT ~mmBangerData() override;
 
     // 0x4C85E0 | ?AddWidgets@mmBangerData@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4C8E70 | ?Bootstrap@mmBangerData@@QAEHPAD0@Z
-    i32 Bootstrap(char* arg1, char* arg2);
+    ARTS_IMPORT i32 Bootstrap(char* arg1, char* arg2);
 
     // 0x4C8ED0 | ?BootstrapBreakablesOnly@mmBangerData@@QAEXPAD@Z
-    void BootstrapBreakablesOnly(char* arg1);
+    ARTS_IMPORT void BootstrapBreakablesOnly(char* arg1);
 
     // 0x4C93D0 | ?ComputeYRadius@mmBangerData@@QAEXPAD@Z
-    void ComputeYRadius(char* arg1);
+    ARTS_IMPORT void ComputeYRadius(char* arg1);
 
     // 0x4C98C0 | ?GetClass@mmBangerData@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4C8F10 | ?InitBreakables@mmBangerData@@QAEXPAD@Z
-    void InitBreakables(char* arg1);
+    ARTS_IMPORT void InitBreakables(char* arg1);
 
     // 0x4C9150 | ?InitPhysics@mmBangerData@@QAEHPAD0@Z
-    i32 InitPhysics(char* arg1, char* arg2);
+    ARTS_IMPORT i32 InitPhysics(char* arg1, char* arg2);
 
     // 0x4C8370 | ?LaunchInstance@mmBangerData@@QAEXMPAVVector3@@@Z
-    void LaunchInstance(f32 arg1, class Vector3* arg2);
+    ARTS_IMPORT void LaunchInstance(f32 arg1, class Vector3* arg2);
 
     // 0x4C81B0 | ?LoadEntry@mmBangerData@@QAEHPAD@Z
-    i32 LoadEntry(char* arg1);
+    ARTS_IMPORT i32 LoadEntry(char* arg1);
 
     // 0x4C9540 | ?DeclareFields@mmBangerData@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmBangerData, 0x134);
@@ -106,45 +106,45 @@ class mmBangerDataManager : public asNode
 
 public:
     // 0x4C8A30 | ??0mmBangerDataManager@@QAE@XZ
-    mmBangerDataManager();
+    ARTS_IMPORT mmBangerDataManager();
 
     // 0x4C9AF0 | ??_EmmBangerDataManager@@UAEPAXI@Z
     // 0x4C8B50 | ??1mmBangerDataManager@@UAE@XZ
-    ~mmBangerDataManager() override;
+    ARTS_IMPORT ~mmBangerDataManager() override;
 
     // 0x4C8C10 | ?AddBangerDataEntry@mmBangerDataManager@@QAEHPAD0@Z
-    i32 AddBangerDataEntry(char* arg1, char* arg2);
+    ARTS_IMPORT i32 AddBangerDataEntry(char* arg1, char* arg2);
 
     // 0x4C8550 | ?AddWidgets@mmBangerDataManager@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4C9A40 | ?GetClass@mmBangerDataManager@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4C9510 | ?Save@mmBangerDataManager@@UAEXXZ
-    void Save() override;
+    ARTS_IMPORT void Save() override;
 
     // 0x4C98D0 | ?DeclareFields@mmBangerDataManager@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
     // 0x705FD8 | ?FloatClock@mmBangerDataManager@@2MA
-    static inline extern_var(0x705FD8, f32, FloatClock);
+    ARTS_IMPORT static f32 FloatClock;
 
     // 0x705FF0 | ?SignalClock@mmBangerDataManager@@2HA
-    static inline extern_var(0x705FF0, i32, SignalClock);
+    ARTS_IMPORT static i32 SignalClock;
 
 protected:
     // 0x705FDC | ?Instance@mmBangerDataManager@@1PAV1@A
-    static inline extern_var(0x705FDC, class mmBangerDataManager*, Instance);
+    ARTS_IMPORT static class mmBangerDataManager* Instance;
 };
 
 check_size(mmBangerDataManager, 0x268D0);
 
 // 0x4C9A50 | ?RefTo@@YAPAUMetaType@@PAU1@HPAF@Z | inline
-struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i16* arg3);
+ARTS_IMPORT struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i16* arg3);
 
 // 0x706008 | ?mmBangerDataManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x706008, class MetaClass, mmBangerDataManagerMetaClass);
+// ARTS_IMPORT extern class MetaClass mmBangerDataManagerMetaClass;
 
 // 0x705FB0 | ?mmBangerDataMetaClass@@3VMetaClass@@A
-inline extern_var(0x705FB0, class MetaClass, mmBangerDataMetaClass);
+// ARTS_IMPORT extern class MetaClass mmBangerDataMetaClass;

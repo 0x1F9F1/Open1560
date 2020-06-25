@@ -27,11 +27,11 @@
 */
 
 // 0x57E380 | ?jinit_marker_reader@@YAXPAUjpeg_decompress_struct@@@Z
-void jinit_marker_reader(struct jpeg_decompress_struct* arg1);
+ARTS_IMPORT void jinit_marker_reader(struct jpeg_decompress_struct* arg1);
 
 // 0x57E150 | ?jpeg_resync_to_restart@@YAEPAUjpeg_decompress_struct@@H@Z
-u8 jpeg_resync_to_restart(struct jpeg_decompress_struct* arg1, i32 arg2);
+ARTS_IMPORT u8 jpeg_resync_to_restart(struct jpeg_decompress_struct* arg1, i32 arg2);
 
 // 0x57FCB0 | ?jpeg_set_marker_processor@@YAXPAUjpeg_decompress_struct@@HP6AE0@Z@Z | unused
-void jpeg_set_marker_processor(
+ARTS_IMPORT void jpeg_set_marker_processor(
     struct jpeg_decompress_struct* arg1, i32 arg2, u8 (*arg3)(struct jpeg_decompress_struct*));

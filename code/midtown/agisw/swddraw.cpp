@@ -20,37 +20,20 @@ define_dummy_symbol(agisw_swddraw);
 
 #include "swddraw.h"
 
-void ddAttach(i32 arg1, i32 arg2)
-{
-    return stub<cdecl_t<void, i32, i32>>(0x534E30, arg1, arg2);
-}
+// 0x534FA0 | ?ddEnd@@YAXXZ
+ARTS_IMPORT /*static*/ void ddEnd();
 
-static void ddEnd()
-{
-    return stub<cdecl_t<void>>(0x534FA0);
-}
+// 0x535070 | ?ddEndFrame@@YAXXZ
+ARTS_IMPORT /*static*/ void ddEndFrame();
 
-static void ddEndFrame()
-{
-    return stub<cdecl_t<void>>(0x535070);
-}
+// 0x535030 | ?ddEndScene@@YAXXZ
+ARTS_IMPORT /*static*/ void ddEndScene();
 
-static void ddEndScene()
-{
-    return stub<cdecl_t<void>>(0x535030);
-}
+// 0x534EA0 | ?ddStart@@YAXXZ
+ARTS_IMPORT /*static*/ void ddStart();
 
-static void ddStart()
-{
-    return stub<cdecl_t<void>>(0x534EA0);
-}
+// 0x534FC0 | ?ddStartFrame@@YAXXZ
+ARTS_IMPORT /*static*/ void ddStartFrame();
 
-static void ddStartFrame()
-{
-    return stub<cdecl_t<void>>(0x534FC0);
-}
-
-static void ddStartScene()
-{
-    return stub<cdecl_t<void>>(0x534FD0);
-}
+// 0x534FD0 | ?ddStartScene@@YAXXZ
+ARTS_IMPORT /*static*/ void ddStartScene();

@@ -40,23 +40,23 @@ class Dialog_Serial : public PUMenuBase
 
 public:
     // 0x49F850 | ??0Dialog_Serial@@QAE@HMMMMPAD@Z
-    Dialog_Serial(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT Dialog_Serial(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4A0200 | ??_GDialog_Serial@@UAEPAXI@Z
     // 0x4A00B0 | ??1Dialog_Serial@@UAE@XZ
-    ~Dialog_Serial() override;
+    ARTS_IMPORT ~Dialog_Serial() override;
 
     // 0x4A0130 | ?BuildComs@Dialog_Serial@@QAEXXZ
-    void BuildComs();
+    ARTS_IMPORT void BuildComs();
 
     // 0x4A01F0 | ?GetCommPack@Dialog_Serial@@QAEPAUNETCOMMPACK@@XZ
-    struct NETCOMMPACK* GetCommPack();
+    ARTS_IMPORT struct NETCOMMPACK* GetCommPack();
 
     // 0x4A0120 | ?IPAddressCallback@Dialog_Serial@@QAEXXZ | unused
-    void IPAddressCallback();
+    ARTS_IMPORT void IPAddressCallback();
 
     // 0x4A0110 | ?PreSetup@Dialog_Serial@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(Dialog_Serial, 0x148);

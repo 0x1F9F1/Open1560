@@ -39,26 +39,26 @@ class asBirthRule : public asNode
 
 public:
     // 0x500A00 | ??0asBirthRule@@QAE@XZ
-    asBirthRule();
+    ARTS_IMPORT asBirthRule();
 
     // 0x501630 | ??_EasBirthRule@@UAEPAXI@Z
     // 0x453BC0 | ??1asBirthRule@@UAE@XZ | inline
-    ~asBirthRule() override;
+    ARTS_IMPORT ~asBirthRule() override;
 
     // 0x500D30 | ?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x501620 | ?GetClass@asBirthRule@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x500AB0 | ?InitSpark@asBirthRule@@QAEXPAUasSparkInfo@@PAUasSparkPos@@@Z
-    void InitSpark(struct asSparkInfo* arg1, struct asSparkPos* arg2);
+    ARTS_IMPORT void InitSpark(struct asSparkInfo* arg1, struct asSparkPos* arg2);
 
     // 0x5012A0 | ?DeclareFields@asBirthRule@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(asBirthRule, 0xB0);
 
 // 0x7195D8 | ?asBirthRuleMetaClass@@3VMetaClass@@A
-inline extern_var(0x7195D8, class MetaClass, asBirthRuleMetaClass);
+// ARTS_IMPORT extern class MetaClass asBirthRuleMetaClass;

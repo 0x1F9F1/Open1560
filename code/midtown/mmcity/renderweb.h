@@ -70,116 +70,117 @@ class asRenderWeb : public asPortalWeb
 
 public:
     // 0x48FCC0 | ??0asRenderWeb@@QAE@XZ
-    asRenderWeb();
+    ARTS_IMPORT asRenderWeb();
 
     // 0x4918A0 | ??_EasRenderWeb@@UAEPAXI@Z
     // 0x48FD40 | ??1asRenderWeb@@UAE@XZ
-    ~asRenderWeb() override;
+    ARTS_IMPORT ~asRenderWeb() override;
 
     // 0x491690 | ?AddWidgets@asRenderWeb@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x490FF0 | ?Cull@asRenderWeb@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x491610 | ?DrawAllBounds@asRenderWeb@@QAEXXZ
-    void DrawAllBounds();
+    ARTS_IMPORT void DrawAllBounds();
 
     // 0x4915A0 | ?GetCellNeighbors@asRenderWeb@@QAEHHPAPAUasPortalCell@@H@Z
-    i32 GetCellNeighbors(i32 arg1, struct asPortalCell** arg2, i32 arg3);
+    ARTS_IMPORT i32 GetCellNeighbors(i32 arg1, struct asPortalCell** arg2, i32 arg3);
 
     // 0x491890 | ?GetClass@asRenderWeb@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x48FDD0 | ?GetStartCell@asRenderWeb@@UAEPAUasPortalCell@@AAVVector3@@PAU2@PAPAVmmPolygon@@@Z
-    struct asPortalCell* GetStartCell(class Vector3& arg1, struct asPortalCell* arg2, class mmPolygon** arg3) override;
+    ARTS_IMPORT struct asPortalCell* GetStartCell(
+        class Vector3& arg1, struct asPortalCell* arg2, class mmPolygon** arg3) override;
 
     // 0x48FFF0 | ?Load@asRenderWeb@@QAEHPADH@Z
-    i32 Load(char* arg1, i32 arg2);
+    ARTS_IMPORT i32 Load(char* arg1, i32 arg2);
 
     // 0x490E70 | ?SetMirrorPos@asRenderWeb@@QAEXMMMMM@Z
-    void SetMirrorPos(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT void SetMirrorPos(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x490CD0 | ?Update@asRenderWeb@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x490D60 | ?UpdateMirror@asRenderWeb@@QAEXXZ
-    void UpdateMirror();
+    ARTS_IMPORT void UpdateMirror();
 
     // 0x491710 | ?DeclareFields@asRenderWeb@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
     // 0x6A8EA8 | ?InvLodFactor@asRenderWeb@@2MA
-    static inline extern_var(0x6A8EA8, f32, InvLodFactor);
+    ARTS_IMPORT static f32 InvLodFactor;
 
     // 0x6A8EB8 | ?PassMask@asRenderWeb@@2HA
-    static inline extern_var(0x6A8EB8, i32, PassMask);
+    ARTS_IMPORT static i32 PassMask;
 };
 
 check_size(asRenderWeb, 0x9178);
 
 // 0x490F40 | ?DrawMirrorBorder@@YAXXZ
-void DrawMirrorBorder();
+ARTS_IMPORT void DrawMirrorBorder();
 
 // 0x6A8EB0 | ?CachedFullSegmentHits@@3HA
-inline extern_var(0x6A8EB0, i32, CachedFullSegmentHits);
+ARTS_IMPORT extern i32 CachedFullSegmentHits;
 
 // 0x6A8E90 | ?CachedFullSegmentTests@@3HA
-inline extern_var(0x6A8E90, i32, CachedFullSegmentTests);
+ARTS_IMPORT extern i32 CachedFullSegmentTests;
 
 // 0x6A8EAC | ?EnableCachedPoly@@3HA
-inline extern_var(0x6A8EAC, i32, EnableCachedPoly);
+ARTS_IMPORT extern i32 EnableCachedPoly;
 
 // 0x63F1E8 | ?EnableSubClip@@3HA
-inline extern_var(0x63F1E8, i32, EnableSubClip);
+ARTS_IMPORT extern i32 EnableSubClip;
 
 // 0x6A8F14 | ?Front2Back@@3HA
-inline extern_var(0x6A8F14, i32, Front2Back);
+ARTS_IMPORT extern i32 Front2Back;
 
 // 0x6A8EBC | ?GridMtx@@3PAVMatrix34@@A
-inline extern_var(0x6A8EBC, class Matrix34*, GridMtx);
+ARTS_IMPORT extern class Matrix34* GridMtx;
 
 // 0x63F1E0 | ?MULTIPASS@@3HA
-inline extern_var(0x63F1E0, i32, MULTIPASS);
+ARTS_IMPORT extern i32 MULTIPASS;
 
 // 0x6A8F10 | ?PopupEnabled@@3HA
-inline extern_var(0x6A8F10, i32, PopupEnabled);
+ARTS_IMPORT extern i32 PopupEnabled;
 
 // 0x6A8ED8 | ?SC_SVCP@@3HA
-inline extern_var(0x6A8ED8, i32, SC_SVCP);
+ARTS_IMPORT extern i32 SC_SVCP;
 
 // 0x6A8EB4 | ?SC_SVP@@3HA
-inline extern_var(0x6A8EB4, i32, SC_SVP);
+ARTS_IMPORT extern i32 SC_SVP;
 
 // 0x63F1E4 | ?ScreenClearY@@3MA
-inline extern_var(0x63F1E4, f32, ScreenClearY);
+ARTS_IMPORT extern f32 ScreenClearY;
 
 // 0x63F1EC | ?ShadowZBias@@3MA
-inline extern_var(0x63F1EC, f32, ShadowZBias);
+ARTS_IMPORT extern f32 ShadowZBias;
 
 // 0x6A8E94 | ?StartCellCollides@@3HA
-inline extern_var(0x6A8E94, i32, StartCellCollides);
+ARTS_IMPORT extern i32 StartCellCollides;
 
 // 0x63F1D8 | ?ZREAD@@3HA
-inline extern_var(0x63F1D8, i32, ZREAD);
+ARTS_IMPORT extern i32 ZREAD;
 
 // 0x63F1DC | ?ZWRITE@@3HA
-inline extern_var(0x63F1DC, i32, ZWRITE);
+ARTS_IMPORT extern i32 ZWRITE;
 
 // 0x6A8EE8 | ?asRenderWebMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A8EE8, class MetaClass, asRenderWebMetaClass);
+// ARTS_IMPORT extern class MetaClass asRenderWebMetaClass;
 
 // 0x6A8EE0 | ?pass1Count@@3HA
-inline extern_var(0x6A8EE0, i32, pass1Count);
+ARTS_IMPORT extern i32 pass1Count;
 
 // 0x6A8ED0 | ?pass2Count@@3HA
-inline extern_var(0x6A8ED0, i32, pass2Count);
+ARTS_IMPORT extern i32 pass2Count;
 
 // 0x6A8ED4 | ?pass3Count@@3HA
-inline extern_var(0x6A8ED4, i32, pass3Count);
+ARTS_IMPORT extern i32 pass3Count;
 
 // 0x6A8EA0 | ?pass4Count@@3HA
-inline extern_var(0x6A8EA0, i32, pass4Count);
+ARTS_IMPORT extern i32 pass4Count;
 
 // 0x6A8ECC | ?upperCount@@3HA
-inline extern_var(0x6A8ECC, i32, upperCount);
+ARTS_IMPORT extern i32 upperCount;

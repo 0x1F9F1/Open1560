@@ -48,50 +48,50 @@ class asParticles : public asNode
 
 public:
     // 0x5000B0 | ??0asParticles@@QAE@XZ
-    asParticles();
+    ARTS_IMPORT asParticles();
 
     // 0x5009A0 | ??_EasParticles@@UAEPAXI@Z
     // 0x500120 | ??1asParticles@@UAE@XZ
-    ~asParticles() override;
+    ARTS_IMPORT ~asParticles() override;
 
     // 0x500750 | ?AddWidgets@asParticles@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x5005F0 | ?Blast@asParticles@@QAEXHPAVasBirthRule@@@Z
-    void Blast(i32 arg1, class asBirthRule* arg2);
+    ARTS_IMPORT void Blast(i32 arg1, class asBirthRule* arg2);
 
     // 0x5006B0 | ?Cull@asParticles@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x500990 | ?GetClass@asParticles@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x5001A0 | ?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z
-    void Init(i32 arg1, i32 arg2, i32 arg3, i32 arg4, struct agiMeshCardVertex* arg5);
+    ARTS_IMPORT void Init(i32 arg1, i32 arg2, i32 arg3, i32 arg4, struct agiMeshCardVertex* arg5);
 
     // 0x500210 | ?Reset@asParticles@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x500250 | ?SetTexture@asParticles@@QAEXPAD@Z
-    void SetTexture(char* arg1);
+    ARTS_IMPORT void SetTexture(char* arg1);
 
     // 0x500220 | ?SetTexture@asParticles@@QAEXPAVagiTexDef@@@Z
-    void SetTexture(class agiTexDef* arg1);
+    ARTS_IMPORT void SetTexture(class agiTexDef* arg1);
 
     // 0x5002A0 | ?Update@asParticles@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x500830 | ?DeclareFields@asParticles@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(asParticles, 0x6C);
 
 // 0x500690 | ?cmpPtx@@YAHPBX0@Z | unused
-i32 cmpPtx(void const* arg1, void const* arg2);
+ARTS_IMPORT i32 cmpPtx(void const* arg1, void const* arg2);
 
 // 0x7195D0 | ?EnablePtxSorting@@3HA
-inline extern_var(0x7195D0, i32, EnablePtxSorting);
+ARTS_IMPORT extern i32 EnablePtxSorting;
 
 // 0x7195A8 | ?asParticlesMetaClass@@3VMetaClass@@A
-inline extern_var(0x7195A8, class MetaClass, asParticlesMetaClass);
+// ARTS_IMPORT extern class MetaClass asParticlesMetaClass;

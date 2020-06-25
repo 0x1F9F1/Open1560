@@ -104,7 +104,7 @@ private:
 check_size(FileStream, 0x28);
 
 // 0x908C08 | ?__stdin@@3VFileStream@@A
-inline extern_var(0x908C08, class FileStream, __stdin);
+ARTS_IMPORT extern class FileStream __stdin;
 
 // 0x908BE0 | ?__stdout@@3VFileStream@@A
-inline extern_var(0x908BE0, class FileStream, __stdout);
+ARTS_IMPORT extern class FileStream __stdout;

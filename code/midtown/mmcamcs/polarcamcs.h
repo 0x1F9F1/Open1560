@@ -41,32 +41,32 @@ class PolarCamCS : public CarCamCS
 
 public:
     // 0x4FAB60 | ??0PolarCamCS@@QAE@XZ
-    PolarCamCS();
+    ARTS_IMPORT PolarCamCS();
 
     // 0x4FB1C0 | ??_EPolarCamCS@@UAEPAXI@Z
     // 0x42D2B0 | ??1PolarCamCS@@UAE@XZ | inline
-    ~PolarCamCS() override;
+    ARTS_IMPORT ~PolarCamCS() override;
 
     // 0x4FB180 | ?GetClass@PolarCamCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4FABB0 | ?Init@PolarCamCS@@QAEXPAVmmCar@@@Z
-    void Init(class mmCar* arg1);
+    ARTS_IMPORT void Init(class mmCar* arg1);
 
     // 0x4FABF0 | ?MakeActive@PolarCamCS@@UAEXXZ
-    void MakeActive() override;
+    ARTS_IMPORT void MakeActive() override;
 
     // 0x4FABE0 | ?Reset@PolarCamCS@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4FAC20 | ?Update@PolarCamCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4FB010 | ?DeclareFields@PolarCamCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(PolarCamCS, 0x130);
 
 // 0x719498 | ?PolarCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x719498, class MetaClass, PolarCamCSMetaClass);
+// ARTS_IMPORT extern class MetaClass PolarCamCSMetaClass;

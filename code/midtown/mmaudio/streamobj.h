@@ -56,92 +56,92 @@ class StreamObj
 {
 public:
     // 0x4F4C10 | ??0StreamObj@@QAE@XZ
-    StreamObj();
+    ARTS_IMPORT StreamObj();
 
     // 0x4F4CA0 | ??1StreamObj@@QAE@XZ
-    ~StreamObj();
+    ARTS_IMPORT ~StreamObj();
 
     // 0x4F4DC0 | ?DSCreateSoundBuffer@StreamObj@@QAEHXZ
-    i32 DSCreateSoundBuffer();
+    ARTS_IMPORT i32 DSCreateSoundBuffer();
 
     // 0x4F4E50 | ?DSLoadSoundBuffer@StreamObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
-    struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, u32 arg2);
+    ARTS_IMPORT struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, u32 arg2);
 
     // 0x4F5540 | ?FillDataBuffer@StreamObj@@QAEHI@Z
-    i32 FillDataBuffer(u32 arg1);
+    ARTS_IMPORT i32 FillDataBuffer(u32 arg1);
 
     // 0x4F6040 | ?GetFileStreamPtr@StreamObj@@QAEPAVStream@@XZ
-    class Stream* GetFileStreamPtr();
+    ARTS_IMPORT class Stream* GetFileStreamPtr();
 
     // 0x4F5200 | ?Init@StreamObj@@QAEHPBDK@Z
-    i32 Init(char const* arg1, u32 arg2);
+    ARTS_IMPORT i32 Init(char const* arg1, u32 arg2);
 
     // 0x4F5750 | ?IsPlaying@StreamObj@@QAEFXZ
-    i16 IsPlaying();
+    ARTS_IMPORT i16 IsPlaying();
 
     // 0x4F5290 | ?Play@StreamObj@@QAEHXZ
-    i32 Play();
+    ARTS_IMPORT i32 Play();
 
     // 0x4F5440 | ?Play@StreamObj@@QAEHPAD@Z
-    i32 Play(char* arg1);
+    ARTS_IMPORT i32 Play(char* arg1);
 
     // 0x4F61C0 | ?ReadInLoopIndex@StreamObj@@QAEXF@Z | unused
-    void ReadInLoopIndex(i16 arg1);
+    ARTS_IMPORT void ReadInLoopIndex(i16 arg1);
 
     // 0x4F57B0 | ?SetFrequency@StreamObj@@QAEXM@Z
-    void SetFrequency(f32 arg1);
+    ARTS_IMPORT void SetFrequency(f32 arg1);
 
     // 0x4F53E0 | ?SetFrequencyEvent@StreamObj@@QAEXM@Z
-    void SetFrequencyEvent(f32 arg1);
+    ARTS_IMPORT void SetFrequencyEvent(f32 arg1);
 
     // 0x4F60B0 | ?SetLoopPointInfo@StreamObj@@QAEXKKIFF@Z
-    void SetLoopPointInfo(u32 arg1, u32 arg2, u32 arg3, i16 arg4, i16 arg5);
+    ARTS_IMPORT void SetLoopPointInfo(u32 arg1, u32 arg2, u32 arg3, i16 arg4, i16 arg5);
 
     // 0x4F6050 | ?SetNumLoopIndices@StreamObj@@QAEXF@Z
-    void SetNumLoopIndices(i16 arg1);
+    ARTS_IMPORT void SetNumLoopIndices(i16 arg1);
 
     // 0x4F58A0 | ?SetPan@StreamObj@@QAEXM@Z
-    void SetPan(f32 arg1);
+    ARTS_IMPORT void SetPan(f32 arg1);
 
     // 0x4F5410 | ?SetPanEvent@StreamObj@@QAEXM@Z
-    void SetPanEvent(f32 arg1);
+    ARTS_IMPORT void SetPanEvent(f32 arg1);
 
     // 0x4F5330 | ?SetPlayOneShotEvent@StreamObj@@QAEXPAD@Z
-    void SetPlayOneShotEvent(char* arg1);
+    ARTS_IMPORT void SetPlayOneShotEvent(char* arg1);
 
     // 0x4F5270 | ?SetPlayPosition@StreamObj@@QAEXK@Z | unused
-    void SetPlayPosition(u32 arg1);
+    ARTS_IMPORT void SetPlayPosition(u32 arg1);
 
     // 0x4F6290 | ?SetPlayingFlag@StreamObj@@QAEXF@Z
-    void SetPlayingFlag(i16 arg1);
+    ARTS_IMPORT void SetPlayingFlag(i16 arg1);
 
     // 0x4F5390 | ?SetStopEvent@StreamObj@@QAEXXZ
-    void SetStopEvent();
+    ARTS_IMPORT void SetStopEvent();
 
     // 0x4F5860 | ?SetVolume@StreamObj@@QAEXM@Z
-    void SetVolume(f32 arg1);
+    ARTS_IMPORT void SetVolume(f32 arg1);
 
     // 0x4F53B0 | ?SetVolumeEvent@StreamObj@@QAEXM@Z
-    void SetVolumeEvent(f32 arg1);
+    ARTS_IMPORT void SetVolumeEvent(f32 arg1);
 
     // 0x4F58E0 | ?SetupNotifications@StreamObj@@QAEHXZ
-    i32 SetupNotifications();
+    ARTS_IMPORT i32 SetupNotifications();
 
     // 0x4F5510 | ?Stop@StreamObj@@QAEHXZ
-    i32 Stop();
+    ARTS_IMPORT i32 Stop();
 
     // 0x4F5F80 | ?Update@StreamObj@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
 private:
     // 0x4F50C0 | ?GetWaveBytesOffset@StreamObj@@AAEIPAVStream@@F@Z
-    u32 GetWaveBytesOffset(class Stream* arg1, i16 arg2);
+    ARTS_IMPORT u32 GetWaveBytesOffset(class Stream* arg1, i16 arg2);
 
     // 0x4F4EA0 | ?OpenWaveFile@StreamObj@@AAEPAVStream@@PBDF@Z
-    class Stream* OpenWaveFile(char const* arg1, i16 arg2);
+    ARTS_IMPORT class Stream* OpenWaveFile(char const* arg1, i16 arg2);
 };
 
 check_size(StreamObj, 0x138);
 
 // 0x4F5B80 | ?HandleNotifications@@YAKPAX@Z
-u32 HandleNotifications(void* arg1);
+ARTS_IMPORT u32 HandleNotifications(void* arg1);

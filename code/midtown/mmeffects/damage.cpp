@@ -19,28 +19,3 @@
 define_dummy_symbol(mmeffects_damage);
 
 #include "damage.h"
-
-mmDamage::mmDamage()
-{
-    unimplemented();
-}
-
-mmDamage::~mmDamage()
-{
-    unimplemented();
-}
-
-void mmDamage::Apply(class Vector3& arg1, f32 arg2)
-{
-    return stub<thiscall_t<void, mmDamage*, class Vector3&, f32>>(0x502470, this, arg1, arg2);
-}
-
-void mmDamage::Init(class agiMeshSet* arg1)
-{
-    return stub<thiscall_t<void, mmDamage*, class agiMeshSet*>>(0x502240, this, arg1);
-}
-
-void mmDamage::Reset(i32 arg1)
-{
-    return stub<thiscall_t<void, mmDamage*, i32>>(0x502420, this, arg1);
-}

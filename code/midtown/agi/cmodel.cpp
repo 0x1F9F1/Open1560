@@ -19,23 +19,3 @@
 define_dummy_symbol(agi_cmodel);
 
 #include "cmodel.h"
-
-u32 agiColorModel::FindColor(i32 arg1, i32 arg2, i32 arg3, i32 arg4)
-{
-    return stub<thiscall_t<u32, agiColorModel*, i32, i32, i32, i32>>(0x55BBB0, this, arg1, arg2, arg3, arg4);
-}
-
-u32 agiColorModel::GetColor(class Vector3 const& arg1)
-{
-    return stub<thiscall_t<u32, agiColorModel*, class Vector3 const&>>(0x55BBE0, this, arg1);
-}
-
-u32 agiColorModel::GetColor(class Vector4 const& arg1)
-{
-    return stub<thiscall_t<u32, agiColorModel*, class Vector4 const&>>(0x55BC40, this, arg1);
-}
-
-u32 agiColorModel::GetColor(i32 arg1, i32 arg2, i32 arg3, i32 arg4)
-{
-    return stub<thiscall_t<u32, agiColorModel*, i32, i32, i32, i32>>(0x55BB80, this, arg1, arg2, arg3, arg4);
-}

@@ -29,10 +29,10 @@ class agiPhysParameters
 {
 public:
     // 0x556F90 | ?Load@agiPhysParameters@@QAEXPAVStream@@@Z
-    void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(class Stream* arg1);
 
     // 0x557040 | ?Save@agiPhysParameters@@QAEXPAVStream@@@Z
-    void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(class Stream* arg1);
 };
 
 check_size(agiPhysParameters, 0x0);

@@ -43,32 +43,32 @@ class UIIcon : public uiWidget
 
 public:
     // 0x4B9900 | ??0UIIcon@@QAE@XZ
-    UIIcon();
+    ARTS_IMPORT UIIcon();
 
     // 0x4B9B20 | ??_EUIIcon@@UAEPAXI@Z
     // 0x4B9950 | ??1UIIcon@@UAE@XZ
-    ~UIIcon() override;
+    ARTS_IMPORT ~UIIcon() override;
 
     // 0x4B9A10 | ?CreateDummyBitmap@UIIcon@@QAEPAVagiBitmap@@XZ
-    class agiBitmap* CreateDummyBitmap();
+    ARTS_IMPORT class agiBitmap* CreateDummyBitmap();
 
     // 0x4B9AF0 | ?Cull@UIIcon@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4B9A60 | ?GetHitArea@UIIcon@@QAEXAAM0@Z
-    void GetHitArea(f32& arg1, f32& arg2);
+    ARTS_IMPORT void GetHitArea(f32& arg1, f32& arg2);
 
     // 0x4B9960 | ?Init@UIIcon@@QAEXPADMM@Z
-    void Init(char* arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void Init(char* arg1, f32 arg2, f32 arg3);
 
     // 0x4B99A0 | ?LoadBitmap@UIIcon@@QAEXPAD@Z
-    void LoadBitmap(char* arg1);
+    ARTS_IMPORT void LoadBitmap(char* arg1);
 
     // 0x4B9A90 | ?Switch@UIIcon@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4B9AD0 | ?Update@UIIcon@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(UIIcon, 0x94);

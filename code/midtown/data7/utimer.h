@@ -26,7 +26,7 @@
 */
 
 // 0x57C4C0 | ?utimer@@YAKXZ
-u32 utimer();
+ARTS_IMPORT u32 utimer();
 
 // 0x90B4B4 | ?ut2float@@3MA
-inline extern_var(0x90B4B4, f32, ut2float);
+ARTS_IMPORT extern f32 ut2float;

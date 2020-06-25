@@ -60,74 +60,74 @@ class mmPlayerConfig : public mmInfoBase
 
 public:
     // 0x4CDA00 | ??0mmPlayerConfig@@QAE@XZ
-    mmPlayerConfig();
+    ARTS_IMPORT mmPlayerConfig();
 
     // 0x4CEEA0 | ??_EmmPlayerConfig@@UAEPAXI@Z
     // 0x4CDAA0 | ??1mmPlayerConfig@@UAE@XZ
-    ~mmPlayerConfig() override;
+    ARTS_IMPORT ~mmPlayerConfig() override;
 
     // 0x4CDB10 | ??4mmPlayerConfig@@QAEXAAV0@@Z | unused
-    void operator=(class mmPlayerConfig& arg1);
+    ARTS_IMPORT void operator=(class mmPlayerConfig& arg1);
 
     // 0x4CE800 | ?DefaultAudio@mmPlayerConfig@@QAEXXZ
-    void DefaultAudio();
+    ARTS_IMPORT void DefaultAudio();
 
     // 0x4CE910 | ?DefaultControls@mmPlayerConfig@@QAEXXZ
-    void DefaultControls();
+    ARTS_IMPORT void DefaultControls();
 
     // 0x4CE9C0 | ?DefaultGraphics@mmPlayerConfig@@QAEXXZ | unused
-    void DefaultGraphics();
+    ARTS_IMPORT void DefaultGraphics();
 
     // 0x4CE970 | ?DefaultViewSettings@mmPlayerConfig@@QAEXXZ
-    void DefaultViewSettings();
+    ARTS_IMPORT void DefaultViewSettings();
 
     // 0x4CE650 | ?GetAudio@mmPlayerConfig@@QAEXXZ
-    void GetAudio();
+    ARTS_IMPORT void GetAudio();
 
     // 0x4CEE70 | ?GetClass@mmPlayerConfig@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4CE6C0 | ?GetControls@mmPlayerConfig@@QAEXXZ
-    void GetControls();
+    ARTS_IMPORT void GetControls();
 
     // 0x4CE630 | ?GetGraphics@mmPlayerConfig@@QAEXXZ
-    void GetGraphics();
+    ARTS_IMPORT void GetGraphics();
 
     // 0x4CE7A0 | ?GetViewSettings@mmPlayerConfig@@QAEXXZ
-    void GetViewSettings();
+    ARTS_IMPORT void GetViewSettings();
 
     // 0x4CDC90 | ?Load@mmPlayerConfig@@QAEHPAD@Z
-    i32 Load(char* arg1);
+    ARTS_IMPORT i32 Load(char* arg1);
 
     // 0x4CDD60 | ?LoadBinary@mmPlayerConfig@@QAEHPAD@Z
-    i32 LoadBinary(char* arg1);
+    ARTS_IMPORT i32 LoadBinary(char* arg1);
 
     // 0x4CE9B0 | ?Reset@mmPlayerConfig@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 
     // 0x4CE240 | ?Save@mmPlayerConfig@@QAEHPADH@Z
-    i32 Save(char* arg1, i32 arg2);
+    ARTS_IMPORT i32 Save(char* arg1, i32 arg2);
 
     // 0x4CDFE0 | ?SaveBinary@mmPlayerConfig@@QAEHPAD@Z
-    i32 SaveBinary(char* arg1);
+    ARTS_IMPORT i32 SaveBinary(char* arg1);
 
     // 0x4CE2E0 | ?SetAudio@mmPlayerConfig@@QAEXXZ
-    void SetAudio();
+    ARTS_IMPORT void SetAudio();
 
     // 0x4CE450 | ?SetControls@mmPlayerConfig@@QAEXXZ
-    void SetControls();
+    ARTS_IMPORT void SetControls();
 
     // 0x4CE230 | ?SetDefaults@mmPlayerConfig@@QAEXXZ | unused
-    void SetDefaults();
+    ARTS_IMPORT void SetDefaults();
 
     // 0x4CE640 | ?SetGraphics@mmPlayerConfig@@QAEXXZ
-    void SetGraphics();
+    ARTS_IMPORT void SetGraphics();
 
     // 0x4CE7D0 | ?SetViewSettings@mmPlayerConfig@@QAEXXZ
-    void SetViewSettings();
+    ARTS_IMPORT void SetViewSettings();
 
     // 0x4CE9E0 | ?DeclareFields@mmPlayerConfig@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmPlayerConfig, 0x6E30);
@@ -136,10 +136,10 @@ struct mmGfxCFG
 {
 public:
     // 0x4CE540 | ?Get@mmGfxCFG@@QAEXXZ
-    void Get();
+    ARTS_IMPORT void Get();
 
     // 0x4CE5B0 | ?Set@mmGfxCFG@@QAEXXZ
-    void Set();
+    ARTS_IMPORT void Set();
 };
 
 check_size(mmGfxCFG, 0x0);
@@ -148,10 +148,10 @@ struct mmCtrlCFG
 {
 public:
     // 0x4CEE80 | ??1mmCtrlCFG@@QAE@XZ | inline
-    ~mmCtrlCFG();
+    ARTS_IMPORT ~mmCtrlCFG();
 };
 
 check_size(mmCtrlCFG, 0x0);
 
 // 0x708520 | ?mmPlayerConfigMetaClass@@3VMetaClass@@A
-inline extern_var(0x708520, class MetaClass, mmPlayerConfigMetaClass);
+// ARTS_IMPORT extern class MetaClass mmPlayerConfigMetaClass;

@@ -25,4 +25,4 @@
 */
 
 // 0x581730 | ?jinit_d_coef_controller@@YAXPAUjpeg_decompress_struct@@E@Z
-void jinit_d_coef_controller(struct jpeg_decompress_struct* arg1, u8 arg2);
+ARTS_IMPORT void jinit_d_coef_controller(struct jpeg_decompress_struct* arg1, u8 arg2);

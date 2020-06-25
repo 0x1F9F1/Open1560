@@ -41,32 +41,32 @@ class VehGyro : public asNode
 
 public:
     // 0x480660 | ??0VehGyro@@QAE@XZ
-    VehGyro();
+    ARTS_IMPORT VehGyro();
 
     // 0x480B80 | ??_EVehGyro@@UAEPAXI@Z
     // 0x470340 | ??1VehGyro@@UAE@XZ | inline
-    ~VehGyro() override;
+    ARTS_IMPORT ~VehGyro() override;
 
     // 0x480930 | ?AddWidgets@VehGyro@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x480B70 | ?GetClass@VehGyro@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x480690 | ?Load@VehGyro@@QAEXPAVStream@@@Z | unused
-    void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(class Stream* arg1);
 
     // 0x480700 | ?Save@VehGyro@@QAEXPAVStream@@@Z | unused
-    void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(class Stream* arg1);
 
     // 0x480780 | ?Update@VehGyro@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4809E0 | ?DeclareFields@VehGyro@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(VehGyro, 0x34);
 
 // 0x6A8120 | ?VehGyroMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A8120, class MetaClass, VehGyroMetaClass);
+// ARTS_IMPORT extern class MetaClass VehGyroMetaClass;

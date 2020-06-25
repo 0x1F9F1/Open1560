@@ -19,28 +19,3 @@
 define_dummy_symbol(agid3d_d3dlight);
 
 #include "d3dlight.h"
-
-agiD3DLight::agiD3DLight(class agiPipeline* arg1)
-{
-    unimplemented(arg1);
-}
-
-agiD3DLight::~agiD3DLight()
-{
-    unimplemented();
-}
-
-i32 agiD3DLight::BeginGfx()
-{
-    return stub<thiscall_t<i32, agiD3DLight*>>(0x533840, this);
-}
-
-void agiD3DLight::EndGfx()
-{
-    return stub<thiscall_t<void, agiD3DLight*>>(0x5338C0, this);
-}
-
-i32 agiD3DLight::Update()
-{
-    return stub<thiscall_t<i32, agiD3DLight*>>(0x533910, this);
-}

@@ -42,17 +42,17 @@ class PUGraphics : public PUMenuBase
 
 public:
     // 0x4A9960 | ??0PUGraphics@@QAE@HMMMM@Z
-    PUGraphics(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT PUGraphics(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4A9F10 | ??_GPUGraphics@@UAEPAXI@Z
     // 0x4A9EE0 | ??1PUGraphics@@UAE@XZ
-    ~PUGraphics() override;
+    ARTS_IMPORT ~PUGraphics() override;
 
     // 0x4A9F00 | ?CancelAction@PUGraphics@@QAEXXZ
-    void CancelAction();
+    ARTS_IMPORT void CancelAction();
 
     // 0x4A9EF0 | ?PreSetup@PUGraphics@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(PUGraphics, 0xC0);

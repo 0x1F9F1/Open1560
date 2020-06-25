@@ -28,13 +28,13 @@
 */
 
 // 0x57B530 | ?PerfGetValue@@YAIH@Z
-u32 PerfGetValue(i32 arg1);
+ARTS_IMPORT u32 PerfGetValue(i32 arg1);
 
 // 0x57B410 | ?PerfInit@@YAXXZ | unused
-void PerfInit();
+ARTS_IMPORT void PerfInit();
 
 // 0x57B470 | ?PerfLookup@@YAHPAD@Z | unused
-i32 PerfLookup(char* arg1);
+ARTS_IMPORT i32 PerfLookup(char* arg1);
 
 // 0x57B450 | ?PerfShutdown@@YAXXZ | unused
-void PerfShutdown();
+ARTS_IMPORT void PerfShutdown();

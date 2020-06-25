@@ -47,45 +47,45 @@ class mmCompDRecord : public mmCompBase
 
 public:
     // 0x4B5A80 | ??0mmCompDRecord@@QAE@XZ
-    mmCompDRecord();
+    ARTS_IMPORT mmCompDRecord();
 
     // 0x4B6060 | ??_EmmCompDRecord@@UAEPAXI@Z
     // 0x4B5AC0 | ??1mmCompDRecord@@UAE@XZ
-    ~mmCompDRecord() override;
+    ARTS_IMPORT ~mmCompDRecord() override;
 
     // 0x4B5FC0 | ?Cull@mmCompDRecord@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4B6090 | ?DisableBlt@mmCompDRecord@@UAEXXZ | inline
-    void DisableBlt() override;
+    ARTS_IMPORT void DisableBlt() override;
 
     // 0x4B5B70 | ?Init@mmCompDRecord@@QAEXHPADM0HHH@Z
-    void Init(i32 arg1, char* arg2, f32 arg3, char* arg4, i32 arg5, i32 arg6, i32 arg7);
+    ARTS_IMPORT void Init(i32 arg1, char* arg2, f32 arg3, char* arg4, i32 arg5, i32 arg6, i32 arg7);
 
     // 0x4B5C60 | ?InitTitle@mmCompDRecord@@QAEXMMMMPAULocString@@0000H@Z
-    void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
+    ARTS_IMPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
         struct LocString* arg7, struct LocString* arg8, struct LocString* arg9, i32 arg10);
 
     // 0x4B5CD0 | ?LoadBitmap@mmCompDRecord@@QAEXPAD@Z
-    void LoadBitmap(char* arg1);
+    ARTS_IMPORT void LoadBitmap(char* arg1);
 
     // 0x4B5D40 | ?Reset@mmCompDRecord@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4B5F70 | ?SetBltXY@mmCompDRecord@@UAEXMM@Z
-    void SetBltXY(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT void SetBltXY(f32 arg1, f32 arg2) override;
 
     // 0x4B5F40 | ?SetGeometry@mmCompDRecord@@UAEXMMMM@Z
-    void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
+    ARTS_IMPORT void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
 
     // 0x4B5EA0 | ?SetPosition@mmCompDRecord@@UAEXPAVmmTextNode@@HM@Z
-    void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
+    ARTS_IMPORT void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
 
     // 0x4B5D80 | ?SetSubwidgetGeometry@mmCompDRecord@@QAEXXZ
-    void SetSubwidgetGeometry();
+    ARTS_IMPORT void SetSubwidgetGeometry();
 
     // 0x4B5D50 | ?Update@mmCompDRecord@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmCompDRecord, 0xA4);

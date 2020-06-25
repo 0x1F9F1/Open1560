@@ -162,21 +162,6 @@ static void InitMap()
     map_file_view = NULL;
 }
 
-void DebugLog(i32 arg1, void* arg2, i32 arg3)
-{
-    return stub<cdecl_t<void, i32, void*, i32>>(0x520720, arg1, arg2, arg3);
-}
-
-void DebugLogInit(i32 arg1)
-{
-    return stub<cdecl_t<void, i32>>(0x5206C0, arg1);
-}
-
-void DebugLogShutdown()
-{
-    return stub<cdecl_t<void>>(0x520700);
-}
-
 void DoStackTraceback(i32 depth, i32* frame)
 {
     while (depth--)
@@ -199,16 +184,6 @@ void DoStackTraceback(i32 depth, i32* frame)
             break;
         }
     }
-}
-
-void DumpStackTraceback(i32* arg1, i32 arg2)
-{
-    return stub<cdecl_t<void, i32*, i32>>(0x520670, arg1, arg2);
-}
-
-i32 LogStackTraceback(i32* arg1, i32 arg2)
-{
-    return stub<cdecl_t<i32, i32*, i32>>(0x5205B0, arg1, arg2);
 }
 
 static bool DbgHelpLoaded = false;

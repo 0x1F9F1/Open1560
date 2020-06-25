@@ -41,23 +41,23 @@ class agiD3DMtlDef : public agiMtlDef
 
 public:
     // 0x533560 | ??0agiD3DMtlDef@@QAE@PAVagiPipeline@@@Z
-    agiD3DMtlDef(class agiPipeline* arg1);
+    ARTS_IMPORT agiD3DMtlDef(class agiPipeline* arg1);
 
     // 0x533770 | ??_GagiD3DMtlDef@@UAEPAXI@Z
     // 0x533660 | ??1agiD3DMtlDef@@UAE@XZ
-    ~agiD3DMtlDef() override;
+    ARTS_IMPORT ~agiD3DMtlDef() override;
 
     // 0x533670 | ?Activate@agiD3DMtlDef@@QAEXXZ
-    void Activate();
+    ARTS_IMPORT void Activate();
 
     // 0x533590 | ?BeginGfx@agiD3DMtlDef@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x533620 | ?EndGfx@agiD3DMtlDef@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x533750 | ?GetHandle@agiD3DMtlDef@@QAEKXZ | unused
-    u32 GetHandle();
+    ARTS_IMPORT u32 GetHandle();
 };
 
 check_size(agiD3DMtlDef, 0x88);

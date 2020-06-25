@@ -19,8 +19,3 @@
 define_dummy_symbol(agiworld_getmodel);
 
 #include "getmodel.h"
-
-class agiMeshModel* GetModel(char* arg1, char* arg2, char* arg3)
-{
-    return stub<cdecl_t<class agiMeshModel*, char*, char*, char*>>(0x5154C0, arg1, arg2, arg3);
-}

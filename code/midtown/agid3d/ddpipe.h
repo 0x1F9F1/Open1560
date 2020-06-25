@@ -51,56 +51,58 @@ class agiDDPipeline : public agiPipeline
 
 public:
     // 0x532A40 | ??0agiDDPipeline@@QAE@XZ
-    agiDDPipeline();
+    ARTS_IMPORT agiDDPipeline();
 
     // 0x5332A0 | ??_GagiDDPipeline@@UAEPAXI@Z
     // 0x532EF0 | ??1agiDDPipeline@@UAE@XZ
-    ~agiDDPipeline() override;
+    ARTS_IMPORT ~agiDDPipeline() override;
 
     // 0x532F40 | ?BeginFrame@agiDDPipeline@@UAEXXZ
-    void BeginFrame() override;
+    ARTS_IMPORT void BeginFrame() override;
 
     // 0x532AE0 | ?BeginGfx@agiDDPipeline@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x532FA0 | ?BeginScene@agiDDPipeline@@UAEXXZ
-    void BeginScene() override;
+    ARTS_IMPORT void BeginScene() override;
 
     // 0x533240 | ?ClearRect@agiDDPipeline@@UAEXHHHHI@Z
-    void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5) override;
+    ARTS_IMPORT void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5) override;
 
     // 0x533070 | ?CopyBitmap@agiDDPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
-    void CopyBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7) override;
+    ARTS_IMPORT void CopyBitmap(
+        i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7) override;
 
     // 0x533010 | ?CreateBitmap@agiDDPipeline@@UAEPAVagiBitmap@@XZ
-    class agiBitmap* CreateBitmap() override;
+    ARTS_IMPORT class agiBitmap* CreateBitmap() override;
 
     // 0x533000 | ?EndFrame@agiDDPipeline@@UAEXXZ
-    void EndFrame() override;
+    ARTS_IMPORT void EndFrame() override;
 
     // 0x532E30 | ?EndGfx@agiDDPipeline@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x532FF0 | ?EndScene@agiDDPipeline@@UAEXXZ
-    void EndScene() override;
+    ARTS_IMPORT void EndScene() override;
 
     // 0x5331E0 | ?LockFrameBuffer@agiDDPipeline@@UAEHAAVagiSurfaceDesc@@@Z
-    i32 LockFrameBuffer(class agiSurfaceDesc& arg1) override;
+    ARTS_IMPORT i32 LockFrameBuffer(class agiSurfaceDesc& arg1) override;
 
     // 0x533220 | ?UnlockFrameBuffer@agiDDPipeline@@UAEXXZ
-    void UnlockFrameBuffer() override;
+    ARTS_IMPORT void UnlockFrameBuffer() override;
 
     // 0x5328C0 | ?Validate@agiDDPipeline@@UAEHXZ
-    i32 Validate() override;
+    ARTS_IMPORT i32 Validate() override;
 };
 
 check_size(agiDDPipeline, 0x0);
 
 // 0x5328D0 | ?DDCallback@@YGHPAU_GUID@@PAD1PAX@Z | unused
-i32 __stdcall DDCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
+ARTS_IMPORT i32 ARTS_STDCALL DDCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
 
 // 0x532950 | ?EnumModesCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z | unused
-i32 __stdcall EnumModesCallback(struct _DDSURFACEDESC2* arg1, void* arg2);
+ARTS_IMPORT i32 ARTS_STDCALL EnumModesCallback(struct _DDSURFACEDESC2* arg1, void* arg2);
 
 // 0x532A00 | ?EnumSurfsCallback@@YGJPAUIDirectDrawSurface@@PAU_DDSURFACEDESC@@PAX@Z | unused
-i32 __stdcall EnumSurfsCallback(struct IDirectDrawSurface* arg1, struct _DDSURFACEDESC* arg2, void* arg3);
+ARTS_IMPORT i32 ARTS_STDCALL EnumSurfsCallback(
+    struct IDirectDrawSurface* arg1, struct _DDSURFACEDESC* arg2, void* arg3);

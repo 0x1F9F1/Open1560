@@ -19,38 +19,3 @@
 define_dummy_symbol(mmanim_traincar);
 
 #include "traincar.h"
-
-mmAnimTrainCar::mmAnimTrainCar()
-{
-    unimplemented();
-}
-
-mmAnimTrainCar::~mmAnimTrainCar()
-{
-    unimplemented();
-}
-
-void __fastcall mmAnimTrainCar::Draw(i32 arg1)
-{
-    return stub<fastcall_t<void, mmAnimTrainCar*, i32>>(0x4C8100, this, arg1);
-}
-
-void mmAnimTrainCar::Init(char* arg1, char* arg2)
-{
-    return stub<thiscall_t<void, mmAnimTrainCar*, char*, char*>>(0x4C8060, this, arg1, arg2);
-}
-
-void mmAnimTrainCar::Reset()
-{
-    return stub<thiscall_t<void, mmAnimTrainCar*>>(0x4C8150, this);
-}
-
-void mmAnimTrainCar::SetMatrix(class Matrix34& arg1)
-{
-    return stub<thiscall_t<void, mmAnimTrainCar*, class Matrix34&>>(0x4C80E0, this, arg1);
-}
-
-void mmAnimTrainCar::SetStart(f32 arg1, f32 arg2)
-{
-    return stub<thiscall_t<void, mmAnimTrainCar*, f32, f32>>(0x4C8160, this, arg1, arg2);
-}

@@ -38,17 +38,17 @@ class Dialog_TCPIP : public PUMenuBase
 
 public:
     // 0x4A0380 | ??0Dialog_TCPIP@@QAE@HMMMMPAD@Z
-    Dialog_TCPIP(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT Dialog_TCPIP(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4A0520 | ??_GDialog_TCPIP@@UAEPAXI@Z
     // 0x4A04F0 | ??1Dialog_TCPIP@@UAE@XZ
-    ~Dialog_TCPIP() override;
+    ARTS_IMPORT ~Dialog_TCPIP() override;
 
     // 0x4A0510 | ?IPAddressCallback@Dialog_TCPIP@@QAEXXZ
-    void IPAddressCallback();
+    ARTS_IMPORT void IPAddressCallback();
 
     // 0x4A0500 | ?PreSetup@Dialog_TCPIP@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(Dialog_TCPIP, 0xEC);

@@ -42,31 +42,31 @@ class UIMexButton : public UIToggleButton2
 
 public:
     // 0x4BCAB0 | ??0UIMexButton@@QAE@XZ
-    UIMexButton();
+    ARTS_IMPORT UIMexButton();
 
     // 0x4BCD30 | ??_EUIMexButton@@UAEPAXI@Z
     // 0x4BCB30 | ??1UIMexButton@@UAE@XZ
-    ~UIMexButton() override;
+    ARTS_IMPORT ~UIMexButton() override;
 
     // 0x4BCCC0 | ?Action@UIMexButton@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4BCCA0 | ?DoToggle@UIMexButton@@UAEXXZ
-    void DoToggle() override;
+    ARTS_IMPORT void DoToggle() override;
 
     // 0x4BCB40 | ?Init@UIMexButton@@QAEXPAULocString@@PAHHMMMMHHVCallback@@@Z
-    void Init(struct LocString* arg1, i32* arg2, i32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, i32 arg8, i32 arg9,
-        class Callback arg10);
+    ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, i32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, i32 arg8,
+        i32 arg9, class Callback arg10);
 
     // 0x4BCC10 | ?Update@UIMexButton@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
 private:
     // 0x4BCC60 | ?DrawOff@UIMexButton@@EAEXXZ
-    void DrawOff() override;
+    ARTS_IMPORT void DrawOff() override;
 
     // 0x4BCC70 | ?DrawOn@UIMexButton@@EAEXXZ
-    void DrawOn() override;
+    ARTS_IMPORT void DrawOn() override;
 };
 
 check_size(UIMexButton, 0xCC);

@@ -54,68 +54,68 @@ class mmNetworkCarAudio : public asNode
 
 public:
     // 0x484700 | ??0mmNetworkCarAudio@@QAE@XZ | inline
-    mmNetworkCarAudio();
+    ARTS_IMPORT mmNetworkCarAudio();
 
     // 0x483440 | ??0mmNetworkCarAudio@@QAE@PAVmmCarSim@@@Z
-    mmNetworkCarAudio(class mmCarSim* arg1);
+    ARTS_IMPORT mmNetworkCarAudio(class mmCarSim* arg1);
 
     // 0x4846A0 | ??_EmmNetworkCarAudio@@UAEPAXI@Z
     // 0x483630 | ??1mmNetworkCarAudio@@UAE@XZ
-    ~mmNetworkCarAudio() override;
+    ARTS_IMPORT ~mmNetworkCarAudio() override;
 
     // 0x483EC0 | ?CalculateDistToPlayer2@mmNetworkCarAudio@@QAEXXZ
-    void CalculateDistToPlayer2();
+    ARTS_IMPORT void CalculateDistToPlayer2();
 
     // 0x483F80 | ?CalculateDoppler@mmNetworkCarAudio@@QAEXXZ
-    void CalculateDoppler();
+    ARTS_IMPORT void CalculateDoppler();
 
     // 0x483E10 | ?DeactivateAudio@mmNetworkCarAudio@@QAEXXZ
-    void DeactivateAudio();
+    ARTS_IMPORT void DeactivateAudio();
 
     // 0x483A60 | ?FluctuateFastSiren@mmNetworkCarAudio@@QAEXXZ
-    void FluctuateFastSiren();
+    ARTS_IMPORT void FluctuateFastSiren();
 
     // 0x483810 | ?FluctuateSlowSiren@mmNetworkCarAudio@@QAEXXZ
-    void FluctuateSlowSiren();
+    ARTS_IMPORT void FluctuateSlowSiren();
 
     // 0x484570 | ?GetClass@mmNetworkCarAudio@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4834A0 | ?Init@mmNetworkCarAudio@@QAEXPAVmmCarSim@@G@Z
-    void Init(class mmCarSim* arg1, u16 arg2);
+    ARTS_IMPORT void Init(class mmCarSim* arg1, u16 arg2);
 
     // 0x484320 | ?LoadSucessful@mmNetworkCarAudio@@QAEXPAVmmCarSim@@@Z
-    void LoadSucessful(class mmCarSim* arg1);
+    ARTS_IMPORT void LoadSucessful(class mmCarSim* arg1);
 
     // 0x484300 | ?RemoveFromManager@mmNetworkCarAudio@@QAEXXZ
-    void RemoveFromManager();
+    ARTS_IMPORT void RemoveFromManager();
 
     // 0x4842E0 | ?Reset@mmNetworkCarAudio@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x484290 | ?StartSiren@mmNetworkCarAudio@@QAEXXZ
-    void StartSiren();
+    ARTS_IMPORT void StartSiren();
 
     // 0x484250 | ?StopSiren@mmNetworkCarAudio@@QAEXXZ
-    void StopSiren();
+    ARTS_IMPORT void StopSiren();
 
     // 0x4836A0 | ?Update@mmNetworkCarAudio@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4836E0 | ?UpdateAudio@mmNetworkCarAudio@@QAEXXZ
-    void UpdateAudio();
+    ARTS_IMPORT void UpdateAudio();
 
     // 0x483FA0 | ?UpdateDoppler@mmNetworkCarAudio@@QAEXXZ
-    void UpdateDoppler();
+    ARTS_IMPORT void UpdateDoppler();
 
     // 0x4843A0 | ?DeclareFields@mmNetworkCarAudio@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
     // 0x6A822C | ?s_iPlayingFluctuator@mmNetworkCarAudio@@2FA
-    static inline extern_var(0x6A822C, i16, s_iPlayingFluctuator);
+    ARTS_IMPORT static i16 s_iPlayingFluctuator;
 };
 
 check_size(mmNetworkCarAudio, 0xD4);
 
 // 0x6A81F0 | ?mmNetworkCarAudioMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A81F0, class MetaClass, mmNetworkCarAudioMetaClass);
+// ARTS_IMPORT extern class MetaClass mmNetworkCarAudioMetaClass;

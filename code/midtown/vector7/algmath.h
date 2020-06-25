@@ -31,22 +31,22 @@
 */
 
 // 0x570DB0 | ?Bias@@YAMMM@Z | unused
-f32 Bias(f32 arg1, f32 arg2);
+ARTS_IMPORT f32 Bias(f32 arg1, f32 arg2);
 
 // 0x570E00 | ?Gain@@YAMMM@Z | unused
-f32 Gain(f32 arg1, f32 arg2);
+ARTS_IMPORT f32 Gain(f32 arg1, f32 arg2);
 
 // 0x571000 | ?expf_fast@@YAMM@Z | unused
-f32 expf_fast(f32 arg1);
+ARTS_IMPORT f32 expf_fast(f32 arg1);
 
 // 0x571090 | ?expf_faster@@YAMM@Z | unused
-f32 expf_faster(f32 arg1);
+ARTS_IMPORT f32 expf_faster(f32 arg1);
 
 // 0x570F80 | ?invsqrtf_fast@@YAMM@Z
-f32 invsqrtf_fast(f32 arg1);
+ARTS_IMPORT f32 invsqrtf_fast(f32 arg1);
 
 // 0x570E80 | ?logf_fast@@YAMM@Z
-f32 logf_fast(f32 arg1);
+ARTS_IMPORT f32 logf_fast(f32 arg1);
 
 // 0x570F10 | ?sqrtf_faster@@YAMM@Z
-f32 sqrtf_faster(f32 arg1);
+ARTS_IMPORT f32 sqrtf_faster(f32 arg1);

@@ -35,34 +35,34 @@
 */
 
 // 0x52DFC0 | ?d3dCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-class agiPipeline* d3dCreatePipeline(i32 arg1, char** arg2);
+ARTS_IMPORT class agiPipeline* d3dCreatePipeline(i32 arg1, char** arg2);
 
 // 0x790DCC | ?AutoMip@@3HA
-inline extern_var(0x790DCC, i32, AutoMip);
+ARTS_IMPORT extern i32 AutoMip;
 
 // 0x790DD0 | ?DrawLabelFArg@@3HA
-inline extern_var(0x790DD0, i32, DrawLabelFArg);
+ARTS_IMPORT extern i32 DrawLabelFArg;
 
 // 0x790DE8 | ?DrawLabelPArg@@3HA
-inline extern_var(0x790DE8, i32, DrawLabelPArg);
+ARTS_IMPORT extern i32 DrawLabelPArg;
 
 // 0x790DE0 | ?ForceSquare@@3HA
-inline extern_var(0x790DE0, i32, ForceSquare);
+ARTS_IMPORT extern i32 ForceSquare;
 
 // 0x790DDC | ?FullMip@@3HA
-inline extern_var(0x790DDC, i32, FullMip);
+ARTS_IMPORT extern i32 FullMip;
 
 // 0x790DC8 | ?MaxTexMem@@3HA
-inline extern_var(0x790DC8, i32, MaxTexMem);
+ARTS_IMPORT extern i32 MaxTexMem;
 
 // 0x790DE4 | ?NoBlitHack@@3HA
-inline extern_var(0x790DE4, i32, NoBlitHack);
+ARTS_IMPORT extern i32 NoBlitHack;
 
 // 0x790DD4 | ?NoMip@@3HA
-inline extern_var(0x790DD4, i32, NoMip);
+ARTS_IMPORT extern i32 NoMip;
 
 // 0x790DC4 | ?NoMultiTexture@@3HA
-inline extern_var(0x790DC4, i32, NoMultiTexture);
+ARTS_IMPORT extern i32 NoMultiTexture;
 
 // 0x790DD8 | ?NormalizedFog@@3HA
-inline extern_var(0x790DD8, i32, NormalizedFog);
+ARTS_IMPORT extern i32 NormalizedFog;

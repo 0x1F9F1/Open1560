@@ -57,74 +57,74 @@ class CRSettings : public UIMenu
 
 public:
     // 0x4A0550 | ??0CRSettings@@QAE@H@Z
-    CRSettings(i32 arg1);
+    ARTS_IMPORT CRSettings(i32 arg1);
 
     // 0x4A1760 | ??_ECRSettings@@UAEPAXI@Z
     // 0x4A0E90 | ??1CRSettings@@UAE@XZ
-    ~CRSettings() override;
+    ARTS_IMPORT ~CRSettings() override;
 
     // 0x4A1120 | ?AddPlayerRecord@CRSettings@@QAEHPADHH0@Z
-    i32 AddPlayerRecord(char* arg1, i32 arg2, i32 arg3, char* arg4);
+    ARTS_IMPORT i32 AddPlayerRecord(char* arg1, i32 arg2, i32 arg3, char* arg4);
 
     // 0x4A14E0 | ?DecodeCRData@CRSettings@@QAEXH@Z
-    void DecodeCRData(i32 arg1);
+    ARTS_IMPORT void DecodeCRData(i32 arg1);
 
     // 0x4A1490 | ?EncodeCRData@CRSettings@@QAEHXZ
-    i32 EncodeCRData();
+    ARTS_IMPORT i32 EncodeCRData();
 
     // 0x4A1650 | ?GetGoldMass@CRSettings@@QAEHXZ | unused
-    i32 GetGoldMass();
+    ARTS_IMPORT i32 GetGoldMass();
 
     // 0x4A16B0 | ?GetGoldMassVal@CRSettings@@QAEHXZ
-    i32 GetGoldMassVal();
+    ARTS_IMPORT i32 GetGoldMassVal();
 
     // 0x4A1550 | ?GetLimit@CRSettings@@QAEXAAH0@Z
-    void GetLimit(i32& arg1, i32& arg2);
+    ARTS_IMPORT void GetLimit(i32& arg1, i32& arg2);
 
     // 0x4A1660 | ?GetLimitVal@CRSettings@@QAEHAAH@Z
-    i32 GetLimitVal(i32& arg1);
+    ARTS_IMPORT i32 GetLimitVal(i32& arg1);
 
     // 0x4A1050 | ?InitPlayerRecord@CRSettings@@QAEXXZ
-    void InitPlayerRecord();
+    ARTS_IMPORT void InitPlayerRecord();
 
     // 0x4A12A0 | ?ResetPlayerRecord@CRSettings@@QAEXXZ
-    void ResetPlayerRecord();
+    ARTS_IMPORT void ResetPlayerRecord();
 
     // 0x4A16C0 | ?SetGameClassCallback@CRSettings@@QAEXXZ
-    void SetGameClassCallback();
+    ARTS_IMPORT void SetGameClassCallback();
 
     // 0x4A1620 | ?SetGoldMass@CRSettings@@QAEXH@Z | unused
-    void SetGoldMass(i32 arg1);
+    ARTS_IMPORT void SetGoldMass(i32 arg1);
 
     // 0x4A0F50 | ?SetHost@CRSettings@@QAEXH@Z
-    void SetHost(i32 arg1);
+    ARTS_IMPORT void SetHost(i32 arg1);
 
     // 0x4A15A0 | ?SetLimit@CRSettings@@QAEXAAH0@Z
-    void SetLimit(i32& arg1, i32& arg2);
+    ARTS_IMPORT void SetLimit(i32& arg1, i32& arg2);
 
     // 0x4A1330 | ?SetLimitControl@CRSettings@@QAEXXZ
-    void SetLimitControl();
+    ARTS_IMPORT void SetLimitControl();
 
     // 0x4A1260 | ?SetPlayerScore@CRSettings@@QAEXHH@Z
-    void SetPlayerScore(i32 arg1, i32 arg2);
+    ARTS_IMPORT void SetPlayerScore(i32 arg1, i32 arg2);
 
     // 0x4A0F20 | ?SetTeam@CRSettings@@QAEXXZ
-    void SetTeam();
+    ARTS_IMPORT void SetTeam();
 
     // 0x4A0F40 | ?SetTeamWidget@CRSettings@@QAEXXZ
-    void SetTeamWidget();
+    ARTS_IMPORT void SetTeamWidget();
 
     // 0x4A16E0 | ?SetTeamWidgets@CRSettings@@QAEXXZ
-    void SetTeamWidgets();
+    ARTS_IMPORT void SetTeamWidgets();
 
     // 0x4A0F10 | ?SettingsCB@CRSettings@@QAEXXZ | unused
-    void SettingsCB();
+    ARTS_IMPORT void SettingsCB();
 };
 
 check_size(CRSettings, 0x140);
 
 // 0x640A60 | ?GameType_PenaltyTable@@3PAHA
-inline extern_var(0x640A60, i32[10], GameType_PenaltyTable);
+ARTS_IMPORT extern i32 GameType_PenaltyTable[10];
 
 // 0x640A88 | ?Limit_ValueTable@@3PAHA
-inline extern_var(0x640A88, i32[12], Limit_ValueTable);
+ARTS_IMPORT extern i32 Limit_ValueTable[12];

@@ -19,33 +19,3 @@
 define_dummy_symbol(mmui_dlg_serial);
 
 #include "dlg_serial.h"
-
-Dialog_Serial::Dialog_Serial(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6)
-{
-    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
-}
-
-Dialog_Serial::~Dialog_Serial()
-{
-    unimplemented();
-}
-
-void Dialog_Serial::BuildComs()
-{
-    return stub<thiscall_t<void, Dialog_Serial*>>(0x4A0130, this);
-}
-
-struct NETCOMMPACK* Dialog_Serial::GetCommPack()
-{
-    return stub<thiscall_t<struct NETCOMMPACK*, Dialog_Serial*>>(0x4A01F0, this);
-}
-
-void Dialog_Serial::IPAddressCallback()
-{
-    return stub<thiscall_t<void, Dialog_Serial*>>(0x4A0120, this);
-}
-
-void Dialog_Serial::PreSetup()
-{
-    return stub<thiscall_t<void, Dialog_Serial*>>(0x4A0110, this);
-}

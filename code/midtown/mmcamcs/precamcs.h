@@ -42,35 +42,35 @@ class PreCamCS : public CarCamCS
 
 public:
     // 0x4F99E0 | ??0PreCamCS@@QAE@XZ
-    PreCamCS();
+    ARTS_IMPORT PreCamCS();
 
     // 0x4F9DC0 | ??_EPreCamCS@@UAEPAXI@Z
     // 0x42D2E0 | ??1PreCamCS@@UAE@XZ | inline
-    ~PreCamCS() override;
+    ARTS_IMPORT ~PreCamCS() override;
 
     // 0x4F9B20 | ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4F9D80 | ?GetClass@PreCamCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4F9A30 | ?Init@PreCamCS@@QAEXPAVmmCar@@@Z
-    void Init(class mmCar* arg1);
+    ARTS_IMPORT void Init(class mmCar* arg1);
 
     // 0x4F9A70 | ?MakeActive@PreCamCS@@UAEXXZ
-    void MakeActive() override;
+    ARTS_IMPORT void MakeActive() override;
 
     // 0x4F9A60 | ?Reset@PreCamCS@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4F9AC0 | ?Update@PreCamCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4F9C10 | ?DeclareFields@PreCamCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(PreCamCS, 0x130);
 
 // 0x719400 | ?PreCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x719400, class MetaClass, PreCamCSMetaClass);
+// ARTS_IMPORT extern class MetaClass PreCamCSMetaClass;

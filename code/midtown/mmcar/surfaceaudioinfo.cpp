@@ -19,18 +19,3 @@
 define_dummy_symbol(mmcar_surfaceaudioinfo);
 
 #include "surfaceaudioinfo.h"
-
-void SetClearSurfaceAudioInfos()
-{
-    return stub<cdecl_t<void>>(0x470D50);
-}
-
-void SetRainSurfaceAudioInfos()
-{
-    return stub<cdecl_t<void>>(0x470FB0);
-}
-
-void SetSnowSurfaceAudioInfos()
-{
-    return stub<cdecl_t<void>>(0x471210);
-}

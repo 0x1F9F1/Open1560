@@ -93,26 +93,6 @@ void HashTable::Init(i32 bucket_count)
     buckets_ = MakeUnique<HashEntry*[]>(bucket_count_);
 }
 
-i32 HashTable::Insert(char* arg1, void* arg2)
-{
-    return stub<thiscall_t<i32, HashTable*, char*, void*>>(0x5781D0, this, arg1, arg2);
-}
-
-void HashTable::Kill()
-{
-    return stub<thiscall_t<void, HashTable*>>(0x578110, this);
-}
-
-void HashTable::KillAll()
-{
-    return stub<cdecl_t<void>>(0x578610);
-}
-
-i32 HashTable::ComputePrime(i32 arg1)
-{
-    return stub<thiscall_t<i32, HashTable*, i32>>(0x578500, this, arg1);
-}
-
 u32 HashTable::Hash(const char* key)
 {
     u32 hash = 0;
@@ -126,24 +106,4 @@ u32 HashTable::Hash(const char* key)
     }
 
     return hash % u32(bucket_count_);
-}
-
-void HashTable::Recompute(i32 arg1)
-{
-    return stub<thiscall_t<void, HashTable*, i32>>(0x578550, this, arg1);
-}
-
-void HashTable::RemoveMe()
-{
-    return stub<thiscall_t<void, HashTable*>>(0x578630, this);
-}
-
-void HashIterator::Begin()
-{
-    return stub<thiscall_t<void, HashIterator*>>(0x578040, this);
-}
-
-i32 HashIterator::Next()
-{
-    return stub<thiscall_t<i32, HashIterator*>>(0x578050, this);
 }

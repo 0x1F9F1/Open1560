@@ -19,23 +19,3 @@
 define_dummy_symbol(mmui_pu_key);
 
 #include "pu_key.h"
-
-PUKey::PUKey(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
-{
-    unimplemented(arg1, arg2, arg3, arg4, arg5);
-}
-
-PUKey::~PUKey()
-{
-    unimplemented();
-}
-
-void PUKey::PostSetup()
-{
-    return stub<thiscall_t<void, PUKey*>>(0x4A9710, this);
-}
-
-void PUKey::PreSetup()
-{
-    return stub<thiscall_t<void, PUKey*>>(0x4A9470, this);
-}

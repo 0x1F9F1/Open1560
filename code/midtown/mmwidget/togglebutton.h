@@ -43,34 +43,34 @@ class UIToggleButton : public UIButton
 
 public:
     // 0x4BC490 | ??0UIToggleButton@@QAE@XZ
-    UIToggleButton();
+    ARTS_IMPORT UIToggleButton();
 
     // 0x4BC6F0 | ??_EUIToggleButton@@UAEPAXI@Z
     // 0x4BC510 | ??1UIToggleButton@@UAE@XZ
-    ~UIToggleButton() override;
+    ARTS_IMPORT ~UIToggleButton() override;
 
     // 0x4BC660 | ?DoToggle@UIToggleButton@@UAEXXZ
-    virtual void DoToggle();
+    ARTS_IMPORT virtual void DoToggle();
 
     // 0x4BC680 | ?Action@UIToggleButton@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4BC580 | ?Init@UIToggleButton@@QAEXPAULocString@@PAHMMMMHHVCallback@@@Z
-    void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8,
+    ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8,
         class Callback arg9);
 
     // 0x4BC720 | ?Update@UIToggleButton@@UAEXXZ | inline
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
 protected:
     // 0x4BC620 | ?DrawOff@UIToggleButton@@MAEXXZ
-    virtual void DrawOff();
+    ARTS_IMPORT virtual void DrawOff();
 
     // 0x4BC640 | ?DrawOn@UIToggleButton@@MAEXXZ
-    virtual void DrawOn();
+    ARTS_IMPORT virtual void DrawOn();
 
     // 0x705C1C | ?ToggleBMLoaded@UIToggleButton@@1HA
-    static inline extern_var(0x705C1C, i32, ToggleBMLoaded);
+    ARTS_IMPORT static i32 ToggleBMLoaded;
 };
 
 check_size(UIToggleButton, 0xBC);

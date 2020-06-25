@@ -19,20 +19,3 @@
 define_dummy_symbol(mmdjpeg_jdmarker);
 
 #include "jdmarker.h"
-
-void jinit_marker_reader(struct jpeg_decompress_struct* arg1)
-{
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x57E380, arg1);
-}
-
-u8 jpeg_resync_to_restart(struct jpeg_decompress_struct* arg1, i32 arg2)
-{
-    return stub<cdecl_t<u8, struct jpeg_decompress_struct*, i32>>(0x57E150, arg1, arg2);
-}
-
-void jpeg_set_marker_processor(
-    struct jpeg_decompress_struct* arg1, i32 arg2, u8 (*arg3)(struct jpeg_decompress_struct*))
-{
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*, i32, u8 (*)(struct jpeg_decompress_struct*)>>(
-        0x57FCB0, arg1, arg2, arg3);
-}

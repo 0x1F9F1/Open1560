@@ -19,13 +19,3 @@
 define_dummy_symbol(agi_error);
 
 #include "error.h"
-
-void agiDisplayf(char const* arg1, ...)
-{
-    unimplemented(arg1);
-}
-
-char* agiGetError(i32 arg1)
-{
-    return stub<cdecl_t<char*, i32>>(0x55BE20, arg1);
-}

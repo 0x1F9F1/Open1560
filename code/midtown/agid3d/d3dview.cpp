@@ -19,38 +19,3 @@
 define_dummy_symbol(agid3d_d3dview);
 
 #include "d3dview.h"
-
-agiD3DViewport::agiD3DViewport(class agiPipeline* arg1)
-{
-    unimplemented(arg1);
-}
-
-agiD3DViewport::~agiD3DViewport()
-{
-    unimplemented();
-}
-
-void agiD3DViewport::Activate()
-{
-    return stub<thiscall_t<void, agiD3DViewport*>>(0x533350, this);
-}
-
-i32 agiD3DViewport::BeginGfx()
-{
-    return stub<thiscall_t<i32, agiD3DViewport*>>(0x533300, this);
-}
-
-void agiD3DViewport::Clear(i32 arg1)
-{
-    return stub<thiscall_t<void, agiD3DViewport*, i32>>(0x533460, this, arg1);
-}
-
-void agiD3DViewport::EndGfx()
-{
-    return stub<thiscall_t<void, agiD3DViewport*>>(0x533330, this);
-}
-
-void agiD3DViewport::SetBackground(class Vector3& arg1)
-{
-    return stub<thiscall_t<void, agiD3DViewport*, class Vector3&>>(0x533410, this, arg1);
-}

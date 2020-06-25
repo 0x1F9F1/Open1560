@@ -54,42 +54,42 @@ class mmLoader : public asCullable
 
 public:
     // 0x48B530 | ??0mmLoader@@QAE@XZ
-    mmLoader();
+    ARTS_IMPORT mmLoader();
 
     // 0x48BB20 | ??_EmmLoader@@UAEPAXI@Z
     // 0x48B680 | ??1mmLoader@@UAE@XZ
-    ~mmLoader() override;
+    ARTS_IMPORT ~mmLoader() override;
 
     // 0x48B850 | ?BeginTask@mmLoader@@QAEXPAULocString@@M@Z
-    void BeginTask(struct LocString* arg1, f32 arg2);
+    ARTS_IMPORT void BeginTask(struct LocString* arg1, f32 arg2);
 
     // 0x48BA70 | ?Cull@mmLoader@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x48B8D0 | ?EndTask@mmLoader@@QAEXM@Z
-    void EndTask(f32 arg1);
+    ARTS_IMPORT void EndTask(f32 arg1);
 
     // 0x48B720 | ?Init@mmLoader@@QAEXPADMM@Z
-    void Init(char* arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void Init(char* arg1, f32 arg2, f32 arg3);
 
     // 0x48B970 | ?Percent@mmLoader@@QAEXH@Z | unused
-    void Percent(i32 arg1);
+    ARTS_IMPORT void Percent(i32 arg1);
 
     // 0x48B9C0 | ?Reset@mmLoader@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 
     // 0x48B820 | ?SetIntroText@mmLoader@@QAEXPAULocString@@@Z
-    void SetIntroText(struct LocString* arg1);
+    ARTS_IMPORT void SetIntroText(struct LocString* arg1);
 
     // 0x48B810 | ?Shutdown@mmLoader@@QAEXXZ | unused
-    void Shutdown();
+    ARTS_IMPORT void Shutdown();
 
     // 0x48B9E0 | ?Update@mmLoader@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
 private:
     // 0x6A8DA4 | ?Current@mmLoader@@0PAV1@A
-    static inline extern_var(0x6A8DA4, class mmLoader*, Current);
+    ARTS_IMPORT static class mmLoader* Current;
 
     i32 task_percent_ {0};
     i32 field_8_ {0};
@@ -114,7 +114,7 @@ private:
 check_size(mmLoader, 0x2C4);
 
 // 0x6A8DA8 | ?IntroFont@@3PAXA
-inline extern_var(0x6A8DA8, void*, IntroFont);
+ARTS_IMPORT extern void* IntroFont;
 
 // 0x6A8DAC | ?myFont@@3PAXA
-inline extern_var(0x6A8DAC, void*, myFont);
+ARTS_IMPORT extern void* myFont;

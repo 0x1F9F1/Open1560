@@ -43,29 +43,29 @@ class mmWaypointObject : public asNode
 
 public:
     // 0x430370 | ??0mmWaypointObject@@QAE@AAVVector4@@PADHMHM@Z
-    mmWaypointObject(class Vector4& arg1, char* arg2, i32 arg3, f32 arg4, i32 arg5, f32 arg6);
+    ARTS_IMPORT mmWaypointObject(class Vector4& arg1, char* arg2, i32 arg3, f32 arg4, i32 arg5, f32 arg6);
 
     // 0x430660 | ??_EmmWaypointObject@@UAEPAXI@Z
     // 0x430510 | ??1mmWaypointObject@@UAE@XZ
-    ~mmWaypointObject() override;
+    ARTS_IMPORT ~mmWaypointObject() override;
 
     // 0x430540 | ?Activate@mmWaypointObject@@QAEXXZ
-    void Activate();
+    ARTS_IMPORT void Activate();
 
     // 0x430550 | ?Deactivate@mmWaypointObject@@QAEXXZ
-    void Deactivate();
+    ARTS_IMPORT void Deactivate();
 
     // 0x4305D0 | ?Move@mmWaypointObject@@QAEXXZ
-    void Move();
+    ARTS_IMPORT void Move();
 
     // 0x430520 | ?Reset@mmWaypointObject@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x430560 | ?SetHeading@mmWaypointObject@@QAEXM@Z
-    void SetHeading(f32 arg1);
+    ARTS_IMPORT void SetHeading(f32 arg1);
 
     // 0x430530 | ?Update@mmWaypointObject@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmWaypointObject, 0x4C);

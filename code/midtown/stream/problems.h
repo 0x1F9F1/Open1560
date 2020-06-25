@@ -29,19 +29,19 @@
 */
 
 // 0x560E10 | ?DumpProblems@@YAXXZ
-void DumpProblems();
+ARTS_IMPORT void DumpProblems();
 
 // 0x560DB0 | ?InitProblems@@YAXXZ
-void InitProblems();
+ARTS_IMPORT void InitProblems();
 
 // 0x561100 | ?RegisterProblem@@YAXPAD00@Z
-void RegisterProblem(char* arg1, char* arg2, char* arg3);
+ARTS_IMPORT void RegisterProblem(char* arg1, char* arg2, char* arg3);
 
 struct problem_t
 {
 public:
     // 0x561340 | ??1problem_t@@QAE@XZ | inline
-    ~problem_t();
+    ARTS_IMPORT ~problem_t();
 };
 
 check_size(problem_t, 0x0);

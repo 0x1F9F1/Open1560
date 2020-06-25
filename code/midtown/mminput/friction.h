@@ -36,19 +36,19 @@ class mmFrictionFF : public mmEffectFF
 
 public:
     // 0x4E7BE0 | ?Assign@mmFrictionFF@@QAEHJ@Z
-    i32 Assign(i32 arg1);
+    ARTS_IMPORT i32 Assign(i32 arg1);
 
     // 0x4E7AA0 | ?Init@mmFrictionFF@@UAEHPAUIDirectInputDevice2A@@@Z
-    i32 Init(struct IDirectInputDevice2A* arg1) override;
+    ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;
 
     // 0x4E7CB0 | ?Play@mmFrictionFF@@UAEHXZ
-    i32 Play() override;
+    ARTS_IMPORT i32 Play() override;
 
     // 0x4E7BB0 | ?SetValues@mmFrictionFF@@UAEHMM@Z
-    i32 SetValues(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT i32 SetValues(f32 arg1, f32 arg2) override;
 
     // 0x4E7D10 | ?Stop@mmFrictionFF@@UAEHXZ
-    i32 Stop() override;
+    ARTS_IMPORT i32 Stop() override;
 };
 
 check_size(mmFrictionFF, 0x0);

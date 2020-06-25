@@ -45,39 +45,39 @@ class AudHead : public asNode
 
 public:
     // 0x4EBCB0 | ??0AudHead@@QAE@PAVMatrix34@@@Z
-    AudHead(class Matrix34* arg1);
+    ARTS_IMPORT AudHead(class Matrix34* arg1);
 
     // 0x4EC040 | ??_EAudHead@@UAEPAXI@Z
     // 0x4EBD00 | ??1AudHead@@UAE@XZ
-    ~AudHead() override;
+    ARTS_IMPORT ~AudHead() override;
 
     // 0x4EBEF0 | ?AddWidgets@AudHead@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4EC030 | ?GetHeadPtr@AudHead@@QAEPAVMatrix34@@XZ
-    class Matrix34* GetHeadPtr();
+    ARTS_IMPORT class Matrix34* GetHeadPtr();
 
     // 0x4EC010 | ?GetPositionPtr@AudHead@@QAEPAVVector3@@XZ
-    class Vector3* GetPositionPtr();
+    ARTS_IMPORT class Vector3* GetPositionPtr();
 
     // 0x4EBD10 | ?Init@AudHead@@QAEHXZ
-    i32 Init();
+    ARTS_IMPORT i32 Init();
 
     // 0x4EBFB0 | ?SetDoppler@AudHead@@QAEXM@Z
-    void SetDoppler(f32 arg1);
+    ARTS_IMPORT void SetDoppler(f32 arg1);
 
     // 0x4EC020 | ?SetHeadPtr@AudHead@@QAEXPAVMatrix34@@@Z | unused
-    void SetHeadPtr(class Matrix34* arg1);
+    ARTS_IMPORT void SetHeadPtr(class Matrix34* arg1);
 
     // 0x4EBF50 | ?SetRolloff@AudHead@@QAEXM@Z
-    void SetRolloff(f32 arg1);
+    ARTS_IMPORT void SetRolloff(f32 arg1);
 
     // 0x4EBEE0 | ?WidgetSetRolloff@AudHead@@QAEXXZ
-    void WidgetSetRolloff();
+    ARTS_IMPORT void WidgetSetRolloff();
 
 private:
     // 0x4EBD60 | ?Update@AudHead@@EAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(AudHead, 0x50);

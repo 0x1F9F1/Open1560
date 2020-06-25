@@ -35,23 +35,23 @@ struct aiVehicle
 
 public:
     // 0x4658F0 | ??0aiVehicle@@QAE@XZ
-    aiVehicle();
+    ARTS_IMPORT aiVehicle();
 
     // 0x465910 | ??1aiVehicle@@QAE@XZ
-    ~aiVehicle();
+    ARTS_IMPORT ~aiVehicle();
 
     // 0x465940 | ?Update@aiVehicle@@UAEXXZ
-    virtual void Update();
+    ARTS_IMPORT virtual void Update();
 
     // 0x465930 | ?Reset@aiVehicle@@UAEXXZ
-    virtual void Reset();
+    ARTS_IMPORT virtual void Reset();
 
     virtual i32 Type() = 0;
 
     virtual void DrawId() = 0;
 
     // 0x465920 | ?Init@aiVehicle@@QAEXH@Z
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 };
 
 check_size(aiVehicle, 0x0);

@@ -43,29 +43,29 @@ class RaceMenu : public RaceMenuBase
 
 public:
     // 0x4A4C30 | ??0RaceMenu@@QAE@H@Z
-    RaceMenu(i32 arg1);
+    ARTS_IMPORT RaceMenu(i32 arg1);
 
     // 0x4A4F30 | ??_ERaceMenu@@UAEPAXI@Z
     // 0x4A4CF0 | ??1RaceMenu@@UAE@XZ
-    ~RaceMenu() override;
+    ARTS_IMPORT ~RaceMenu() override;
 
     // 0x4A4D00 | ?GetRaceID@RaceMenu@@QAEHXZ | unused
-    i32 GetRaceID();
+    ARTS_IMPORT i32 GetRaceID();
 
     // 0x4A4E10 | ?GetRaceName@RaceMenu@@QAEPADW4mmGameMode@@H@Z | unused
-    char* GetRaceName(enum mmGameMode arg1, i32 arg2);
+    ARTS_IMPORT char* GetRaceName(enum mmGameMode arg1, i32 arg2);
 
     // 0x4A4DB0 | ?SetBlitzMask@RaceMenu@@QAEXH@Z
-    void SetBlitzMask(i32 arg1);
+    ARTS_IMPORT void SetBlitzMask(i32 arg1);
 
     // 0x4A4DD0 | ?SetCheckpointMask@RaceMenu@@QAEXH@Z
-    void SetCheckpointMask(i32 arg1);
+    ARTS_IMPORT void SetCheckpointMask(i32 arg1);
 
     // 0x4A4DF0 | ?SetCircuitMask@RaceMenu@@QAEXH@Z
-    void SetCircuitMask(i32 arg1);
+    ARTS_IMPORT void SetCircuitMask(i32 arg1);
 
     // 0x4A4D90 | ?SetProgressMask@RaceMenu@@QAEXH@Z
-    void SetProgressMask(i32 arg1);
+    ARTS_IMPORT void SetProgressMask(i32 arg1);
 };
 
 check_size(RaceMenu, 0xF94);

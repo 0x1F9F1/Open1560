@@ -54,84 +54,84 @@ struct mmAnimTrain
 {
 public:
     // 0x4C5F20 | ??0mmAnimTrain@@QAE@XZ
-    mmAnimTrain();
+    ARTS_IMPORT mmAnimTrain();
 
     // 0x4C6010 | ??1mmAnimTrain@@QAE@XZ
-    ~mmAnimTrain();
+    ARTS_IMPORT ~mmAnimTrain();
 
     // 0x4C66D0 | ?AdjustPhaseOffsets@mmAnimTrain@@QAEXXZ | unused
-    void AdjustPhaseOffsets();
+    ARTS_IMPORT void AdjustPhaseOffsets();
 
     // 0x4C6890 | ?CalculateCubics@mmAnimTrain@@QAEXHAAVVector4@@00@Z
-    void CalculateCubics(i32 arg1, class Vector4& arg2, class Vector4& arg3, class Vector4& arg4);
+    ARTS_IMPORT void CalculateCubics(i32 arg1, class Vector4& arg2, class Vector4& arg3, class Vector4& arg4);
 
     // 0x4C6A90 | ?ComputeXZCurve@mmAnimTrain@@QAEXAAVVector3@@000AAVVector4@@11@Z
-    void ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
+    ARTS_IMPORT void ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
         class Vector4& arg5, class Vector4& arg6, class Vector4& arg7);
 
     // 0x4C6740 | ?GetStart@mmAnimTrain@@QAEXMAAHAAM@Z
-    void GetStart(f32 arg1, i32& arg2, f32& arg3);
+    ARTS_IMPORT void GetStart(f32 arg1, i32& arg2, f32& arg3);
 
     // 0x4C6080 | ?Init@mmAnimTrain@@QAEXHPAD0PAVVector3@@HHPAM@Z
-    void Init(i32 arg1, char* arg2, char* arg3, class Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
+    ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3, class Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
 
     // 0x4C67C0 | ?PreCalcCubics@mmAnimTrain@@QAEXXZ
-    void PreCalcCubics();
+    ARTS_IMPORT void PreCalcCubics();
 
     // 0x4C6350 | ?Reset@mmAnimTrain@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 
     // 0x4C65C0 | ?ReverseCalcPathSpeed@mmAnimTrain@@QAEXXZ | unused
-    void ReverseCalcPathSpeed();
+    ARTS_IMPORT void ReverseCalcPathSpeed();
 
     // 0x4C65B0 | ?SetPathSpeed@mmAnimTrain@@QAEXXZ
-    void SetPathSpeed();
+    ARTS_IMPORT void SetPathSpeed();
 
     // 0x4C65D0 | ?SolvePosition@mmAnimTrain@@QAEXAAVVector3@@AAM@Z
-    void SolvePosition(class Vector3& arg1, f32& arg2);
+    ARTS_IMPORT void SolvePosition(class Vector3& arg1, f32& arg2);
 
     // 0x4C6B70 | ?SolveXZCurve@mmAnimTrain@@QAEXAAVVector3@@0M@Z
-    void SolveXZCurve(class Vector3& arg1, class Vector3& arg2, f32 arg3);
+    ARTS_IMPORT void SolveXZCurve(class Vector3& arg1, class Vector3& arg2, f32 arg3);
 
     // 0x4C63C0 | ?Update@mmAnimTrain@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x4C6460 | ?UpdatePathPosition@mmAnimTrain@@QAEXXZ
-    void UpdatePathPosition();
+    ARTS_IMPORT void UpdatePathPosition();
 
 private:
     // 0x4C6ED0 | ?CalculateAudioPanning@mmAnimTrain@@AAEXXZ
-    void CalculateAudioPanning();
+    ARTS_IMPORT void CalculateAudioPanning();
 
     // 0x4C6E00 | ?CalculateDistToPlayer2@mmAnimTrain@@AAEXXZ
-    void CalculateDistToPlayer2();
+    ARTS_IMPORT void CalculateDistToPlayer2();
 
     // 0x4C6F20 | ?CalculateDoppler@mmAnimTrain@@AAEMM@Z
-    f32 CalculateDoppler(f32 arg1);
+    ARTS_IMPORT f32 CalculateDoppler(f32 arg1);
 
     // 0x4C6CA0 | ?UpdateAudio@mmAnimTrain@@AAEXXZ
-    void UpdateAudio();
+    ARTS_IMPORT void UpdateAudio();
 
     // 0x705EFC | ?s_fAudioAttenuationMult@mmAnimTrain@@0MA
-    static inline extern_var(0x705EFC, f32, s_fAudioAttenuationMult);
+    ARTS_IMPORT static f32 s_fAudioAttenuationMult;
 
     // 0x642788 | ?s_fAudioMaxDistance@mmAnimTrain@@0MA
-    static inline extern_var(0x642788, f32, s_fAudioMaxDistance);
+    ARTS_IMPORT static f32 s_fAudioMaxDistance;
 
     // 0x642780 | ?s_fAudioMinDistance@mmAnimTrain@@0MA
-    static inline extern_var(0x642780, f32, s_fAudioMinDistance);
+    ARTS_IMPORT static f32 s_fAudioMinDistance;
 
     // 0x64278C | ?s_fAudioVolume@mmAnimTrain@@0MA
-    static inline extern_var(0x64278C, f32, s_fAudioVolume);
+    ARTS_IMPORT static f32 s_fAudioVolume;
 
     // 0x642784 | ?s_fCloserMinDistMult@mmAnimTrain@@0MA
-    static inline extern_var(0x642784, f32, s_fCloserMinDistMult);
+    ARTS_IMPORT static f32 s_fCloserMinDistMult;
 };
 
 check_size(mmAnimTrain, 0x100);
 
 // 0x705EB0 | ?SplineBasis@@3VMatrix44@@A
-inline extern_var(0x705EB0, class Matrix44, SplineBasis);
+ARTS_IMPORT extern class Matrix44 SplineBasis;
 
 // 0x705E70 | ?TrainHermite@@3VMatrix44@@A
-inline extern_var(0x705E70, class Matrix44, TrainHermite);
+ARTS_IMPORT extern class Matrix44 TrainHermite;

@@ -40,29 +40,29 @@ struct aiGoalBackup : aiGoal
 
 public:
     // 0x45F830 | ??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z
-    aiGoalBackup(class aiRailSet* arg1, class mmCar* arg2, i16* arg3);
+    ARTS_IMPORT aiGoalBackup(class aiRailSet* arg1, class mmCar* arg2, i16* arg3);
 
     // 0x45F860 | ??1aiGoalBackup@@QAE@XZ
-    ~aiGoalBackup();
+    ARTS_IMPORT ~aiGoalBackup();
 
     // 0x45F880 | ?Context@aiGoalBackup@@UAEHXZ
-    i32 Context() override;
+    ARTS_IMPORT i32 Context() override;
 
     // 0x45F870 | ?Init@aiGoalBackup@@UAEXXZ
-    void Init() override;
+    ARTS_IMPORT void Init() override;
 
     // 0x45F890 | ?Priority@aiGoalBackup@@UAEHXZ
-    i32 Priority() override;
+    ARTS_IMPORT i32 Priority() override;
 
     // 0x45F8A0 | ?Reset@aiGoalBackup@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x45F8D0 | ?Update@aiGoalBackup@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
 private:
     // 0x45FC10 | ?FinishedBackingUp@aiGoalBackup@@AAEXXZ
-    void FinishedBackingUp();
+    ARTS_IMPORT void FinishedBackingUp();
 };
 
 check_size(aiGoalBackup, 0x14);

@@ -25,5 +25,5 @@
 */
 
 // 0x5841B0 | ?jpeg_idct_float@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z
-void jpeg_idct_float(
+ARTS_IMPORT void jpeg_idct_float(
     struct jpeg_decompress_struct* arg1, struct jpeg_component_info* arg2, i16* arg3, u8** arg4, u32 arg5);

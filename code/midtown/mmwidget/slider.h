@@ -52,60 +52,60 @@ class UISlider : public uiWidget
 
 public:
     // 0x4B39B0 | ??0UISlider@@QAE@XZ
-    UISlider();
+    ARTS_IMPORT UISlider();
 
     // 0x4B4240 | ??_EUISlider@@UAEPAXI@Z
     // 0x4B3A40 | ??1UISlider@@UAE@XZ
-    ~UISlider() override;
+    ARTS_IMPORT ~UISlider() override;
 
     // 0x4B3EA0 | ?Action@UISlider@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4B40E0 | ?EvalMouseXY@UISlider@@QAEXMM@Z
-    void EvalMouseXY(f32 arg1, f32 arg2);
+    ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2);
 
     // 0x4B4230 | ?GetFudgeWidth@UISlider@@QAEMXZ
-    f32 GetFudgeWidth();
+    ARTS_IMPORT f32 GetFudgeWidth();
 
     // 0x4B4270 | ?GetScreenHeight@UISlider@@UAEMXZ | inline
-    f32 GetScreenHeight() override;
+    ARTS_IMPORT f32 GetScreenHeight() override;
 
     // 0x4B4050 | ?GetValue@UISlider@@QAEMXZ | unused
-    f32 GetValue();
+    ARTS_IMPORT f32 GetValue();
 
     // 0x4B3AB0 | ?Init@UISlider@@QAEXPAULocString@@PAMMMMMMMHHHHVCallback@@PAVUIMenu@@@Z
-    void Init(struct LocString* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, i32 arg9,
-        i32 arg10, i32 arg11, i32 arg12, class Callback arg13, class UIMenu* arg14);
+    ARTS_IMPORT void Init(struct LocString* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8,
+        i32 arg9, i32 arg10, i32 arg11, i32 arg12, class Callback arg13, class UIMenu* arg14);
 
     // 0x4B4040 | ?IsReadWrite@UISlider@@QAEHXZ | unused
-    i32 IsReadWrite();
+    ARTS_IMPORT i32 IsReadWrite();
 
     // 0x4B4210 | ?SetData@UISlider@@QAEXM@Z
-    void SetData(f32 arg1);
+    ARTS_IMPORT void SetData(f32 arg1);
 
     // 0x4B4090 | ?SetMouseParams@UISlider@@QAEXM@Z
-    void SetMouseParams(f32 arg1);
+    ARTS_IMPORT void SetMouseParams(f32 arg1);
 
     // 0x4B3CD0 | ?SetPosition@UISlider@@UAEXMM@Z
-    void SetPosition(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2) override;
 
     // 0x4B3FF0 | ?SetReadWrite@UISlider@@QAEXH@Z
-    void SetReadWrite(i32 arg1);
+    ARTS_IMPORT void SetReadWrite(i32 arg1);
 
     // 0x4B3E30 | ?SetText@UISlider@@QAEXPAULocString@@@Z | unused
-    void SetText(struct LocString* arg1);
+    ARTS_IMPORT void SetText(struct LocString* arg1);
 
     // 0x4B4060 | ?SetValue@UISlider@@QAEMM@Z
-    f32 SetValue(f32 arg1);
+    ARTS_IMPORT f32 SetValue(f32 arg1);
 
     // 0x4B3F70 | ?Switch@UISlider@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4B3FE0 | ?TestHit@UISlider@@QAEHMM@Z | unused
-    i32 TestHit(f32 arg1, f32 arg2);
+    ARTS_IMPORT i32 TestHit(f32 arg1, f32 arg2);
 
     // 0x4B3E40 | ?Update@UISlider@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(UISlider, 0xCC);

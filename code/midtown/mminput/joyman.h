@@ -47,73 +47,73 @@
 */
 
 // 0x4E5A60 | ?inputEnumDeviceProc@@YGHPAUDIDEVICEINSTANCEA@@PAX@Z
-i32 __stdcall inputEnumDeviceProc(struct DIDEVICEINSTANCEA* arg1, void* arg2);
+ARTS_IMPORT i32 ARTS_STDCALL inputEnumDeviceProc(struct DIDEVICEINSTANCEA* arg1, void* arg2);
 
 struct mmJoyMan
 {
 public:
     // 0x4E5A90 | ??0mmJoyMan@@QAE@XZ
-    mmJoyMan();
+    ARTS_IMPORT mmJoyMan();
 
     // 0x4E5AA0 | ??1mmJoyMan@@QAE@XZ
-    ~mmJoyMan();
+    ARTS_IMPORT ~mmJoyMan();
 
     // 0x4E5C40 | ?ButtonToBit@mmJoyMan@@QAEHH@Z
-    i32 ButtonToBit(i32 arg1);
+    ARTS_IMPORT i32 ButtonToBit(i32 arg1);
 
     // 0x4E5F50 | ?FFIsPlaying@mmJoyMan@@QAEHH@Z
-    i32 FFIsPlaying(i32 arg1);
+    ARTS_IMPORT i32 FFIsPlaying(i32 arg1);
 
     // 0x4E5EF0 | ?FFPlay@mmJoyMan@@QAEHH@Z
-    i32 FFPlay(i32 arg1);
+    ARTS_IMPORT i32 FFPlay(i32 arg1);
 
     // 0x4E5F80 | ?FFSetValues@mmJoyMan@@QAEHHMM@Z
-    i32 FFSetValues(i32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT i32 FFSetValues(i32 arg1, f32 arg2, f32 arg3);
 
     // 0x4E5F20 | ?FFStop@mmJoyMan@@QAEHH@Z
-    i32 FFStop(i32 arg1);
+    ARTS_IMPORT i32 FFStop(i32 arg1);
 
     // 0x4E5E80 | ?GetFFEffect@mmJoyMan@@QAEPAVmmEffectFF@@H@Z
-    class mmEffectFF* GetFFEffect(i32 arg1);
+    ARTS_IMPORT class mmEffectFF* GetFFEffect(i32 arg1);
 
     // 0x4E5CB0 | ?GetJoyAxis@mmJoyMan@@QAEMHH@Z
-    f32 GetJoyAxis(i32 arg1, i32 arg2);
+    ARTS_IMPORT f32 GetJoyAxis(i32 arg1, i32 arg2);
 
     // 0x4E5CF0 | ?GetJoyButton@mmJoyMan@@QAEHHH@Z
-    i32 GetJoyButton(i32 arg1, i32 arg2);
+    ARTS_IMPORT i32 GetJoyButton(i32 arg1, i32 arg2);
 
     // 0x4E5E50 | ?GetOneButton@mmJoyMan@@QAEHJ@Z
-    i32 GetOneButton(i32 arg1);
+    ARTS_IMPORT i32 GetOneButton(i32 arg1);
 
     // 0x4E5FE0 | ?HasCoolie@mmJoyMan@@QAEHXZ
-    i32 HasCoolie();
+    ARTS_IMPORT i32 HasCoolie();
 
     // 0x4E6000 | ?HasThrottle@mmJoyMan@@QAEHXZ
-    i32 HasThrottle();
+    ARTS_IMPORT i32 HasThrottle();
 
     // 0x4E5AE0 | ?Init@mmJoyMan@@QAEHPAUHINSTANCE__@@PAUHWND__@@@Z
-    i32 Init(struct HINSTANCE__* arg1, struct HWND__* arg2);
+    ARTS_IMPORT i32 Init(struct HINSTANCE__* arg1, struct HWND__* arg2);
 
     // 0x4E5DA0 | ?PollJoyAxes@mmJoyMan@@QAEHXZ
-    i32 PollJoyAxes();
+    ARTS_IMPORT i32 PollJoyAxes();
 
     // 0x4E5D40 | ?PollJoyButtons@mmJoyMan@@QAEHXZ
-    i32 PollJoyButtons();
+    ARTS_IMPORT i32 PollJoyButtons();
 
     // 0x4E5C70 | ?QJoystick@mmJoyMan@@QAEHXZ | unused
-    i32 QJoystick();
+    ARTS_IMPORT i32 QJoystick();
 
     // 0x4E5DE0 | ?SetCapture@mmJoyMan@@QAEXH@Z
-    void SetCapture(i32 arg1);
+    ARTS_IMPORT void SetCapture(i32 arg1);
 
     // 0x4E5FC0 | ?StopAllFF@mmJoyMan@@QAEXXZ
-    void StopAllFF();
+    ARTS_IMPORT void StopAllFF();
 
     // 0x4E5EB0 | ?ToggleEnabled@mmJoyMan@@QAEHH@Z
-    i32 ToggleEnabled(i32 arg1);
+    ARTS_IMPORT i32 ToggleEnabled(i32 arg1);
 
     // 0x4E5C80 | ?Update@mmJoyMan@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 };
 
 check_size(mmJoyMan, 0x48);

@@ -19,8 +19,3 @@
 define_dummy_symbol(data7_global);
 
 #include "global.h"
-
-void HexDump(void* arg1, i32 arg2)
-{
-    return stub<cdecl_t<void, void*, i32>>(0x5790A0, arg1, arg2);
-}

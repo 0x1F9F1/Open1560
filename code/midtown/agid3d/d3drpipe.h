@@ -45,38 +45,38 @@ class agiD3DRPipeline : public agiD3DPipeline
 
 public:
     // 0x531600 | ??0agiD3DRPipeline@@QAE@XZ
-    agiD3DRPipeline();
+    ARTS_IMPORT agiD3DRPipeline();
 
     // 0x531970 | ??_GagiD3DRPipeline@@UAEPAXI@Z
     // 0x531620 | ??1agiD3DRPipeline@@UAE@XZ
-    ~agiD3DRPipeline() override;
+    ARTS_IMPORT ~agiD3DRPipeline() override;
 
     // 0x531630 | ?BeginGfx@agiD3DRPipeline@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x5317F0 | ?BeginScene@agiD3DRPipeline@@UAEXXZ
-    void BeginScene() override;
+    ARTS_IMPORT void BeginScene() override;
 
     // 0x531790 | ?CreateDLP@agiD3DRPipeline@@UAEPAVDLP@@XZ
-    class DLP* CreateDLP() override;
+    ARTS_IMPORT class DLP* CreateDLP() override;
 
     // 0x531910 | ?CreateLight@agiD3DRPipeline@@UAEPAVagiLight@@XZ
-    class agiLight* CreateLight() override;
+    ARTS_IMPORT class agiLight* CreateLight() override;
 
     // 0x5318B0 | ?CreateLightModel@agiD3DRPipeline@@UAEPAVagiLightModel@@XZ
-    class agiLightModel* CreateLightModel() override;
+    ARTS_IMPORT class agiLightModel* CreateLightModel() override;
 
     // 0x531730 | ?CreateViewport@agiD3DRPipeline@@UAEPAVagiViewport@@XZ
-    class agiViewport* CreateViewport() override;
+    ARTS_IMPORT class agiViewport* CreateViewport() override;
 
     // 0x531700 | ?EndGfx@agiD3DRPipeline@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x531890 | ?EndScene@agiD3DRPipeline@@UAEXXZ
-    void EndScene() override;
+    ARTS_IMPORT void EndScene() override;
 };
 
 check_size(agiD3DRPipeline, 0x49C);
 
 // 0x795C34 | ?UseSimpleRenderer@@3HA
-inline extern_var(0x795C34, i32, UseSimpleRenderer);
+ARTS_IMPORT extern i32 UseSimpleRenderer;

@@ -54,68 +54,68 @@ class mmGameEdit : public mmGame
 
 public:
     // 0x412150 | ??0mmGameEdit@@QAE@XZ
-    mmGameEdit();
+    ARTS_IMPORT mmGameEdit();
 
     // 0x412E60 | ??_EmmGameEdit@@UAEPAXI@Z
     // 0x412220 | ??1mmGameEdit@@UAE@XZ
-    ~mmGameEdit() override;
+    ARTS_IMPORT ~mmGameEdit() override;
 
     // 0x412860 | ?AddWidgets@mmGameEdit@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x412B20 | ?ChangeWPCallback@mmGameEdit@@QAEXXZ
-    void ChangeWPCallback();
+    ARTS_IMPORT void ChangeWPCallback();
 
     // 0x412D00 | ?GetClass@mmGameEdit@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x412EE0 | ?GetWaypoints@mmGameEdit@@UAEPAVmmWaypoints@@XZ | inline
-    class mmWaypoints* GetWaypoints() override;
+    ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
 
     // 0x4122D0 | ?Init@mmGameEdit@@QAEHXZ
-    i32 Init();
+    ARTS_IMPORT i32 Init();
 
     // 0x412430 | ?InitGameObjects@mmGameEdit@@UAEXXZ
-    void InitGameObjects() override;
+    ARTS_IMPORT void InitGameObjects() override;
 
     // 0x4123F0 | ?InitHUD@mmGameEdit@@UAEXXZ
-    void InitHUD() override;
+    ARTS_IMPORT void InitHUD() override;
 
     // 0x412380 | ?InitMyPlayer@mmGameEdit@@UAEXXZ
-    void InitMyPlayer() override;
+    ARTS_IMPORT void InitMyPlayer() override;
 
     // 0x412EC0 | ?InitOtherPlayers@mmGameEdit@@UAEXXZ | inline
-    void InitOtherPlayers() override;
+    ARTS_IMPORT void InitOtherPlayers() override;
 
     // 0x412ED0 | ?NextRace@mmGameEdit@@UAEXXZ | inline
-    void NextRace() override;
+    ARTS_IMPORT void NextRace() override;
 
     // 0x412520 | ?RegisterMapObjects@mmGameEdit@@QAEXXZ
-    void RegisterMapObjects();
+    ARTS_IMPORT void RegisterMapObjects();
 
     // 0x412760 | ?Reset@mmGameEdit@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x412A80 | ?SetWPCallback@mmGameEdit@@QAEXXZ
-    void SetWPCallback();
+    ARTS_IMPORT void SetWPCallback();
 
     // 0x4127F0 | ?Update@mmGameEdit@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x412570 | ?UpdateDebugKeyInput@mmGameEdit@@UAEXH@Z
-    void UpdateDebugKeyInput(i32 arg1) override;
+    ARTS_IMPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x412820 | ?UpdateGame@mmGameEdit@@UAEXXZ
-    void UpdateGame() override;
+    ARTS_IMPORT void UpdateGame() override;
 
     // 0x412810 | ?UpdateGameInput@mmGameEdit@@UAEXH@Z
-    void UpdateGameInput(i32 arg1) override;
+    ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
 
     // 0x412B80 | ?DeclareFields@mmGameEdit@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmGameEdit, 0x1E738);
 
 // 0x6A6FE0 | ?mmGameEditMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A6FE0, class MetaClass, mmGameEditMetaClass);
+// ARTS_IMPORT extern class MetaClass mmGameEditMetaClass;

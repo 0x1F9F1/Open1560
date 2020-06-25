@@ -48,47 +48,47 @@ class PUResults : public PUMenuBase
 
 public:
     // 0x4A8080 | ??0PUResults@@QAE@HMMMMPAD@Z
-    PUResults(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT PUResults(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4A8C70 | ??_GPUResults@@UAEPAXI@Z
     // 0x4A89C0 | ??1PUResults@@UAE@XZ
-    ~PUResults() override;
+    ARTS_IMPORT ~PUResults() override;
 
     // 0x4A8A50 | ?AddName@PUResults@@QAEXHPADM@Z
-    void AddName(i32 arg1, char* arg2, f32 arg3);
+    ARTS_IMPORT void AddName(i32 arg1, char* arg2, f32 arg3);
 
     // 0x4A8B00 | ?AddName@PUResults@@QAEXHPADH@Z
-    void AddName(i32 arg1, char* arg2, i32 arg3);
+    ARTS_IMPORT void AddName(i32 arg1, char* arg2, i32 arg3);
 
     // 0x4A89D0 | ?AddTitle@PUResults@@QAEXPAULocString@@0@Z
-    void AddTitle(struct LocString* arg1, struct LocString* arg2);
+    ARTS_IMPORT void AddTitle(struct LocString* arg1, struct LocString* arg2);
 
     // 0x4A8BC0 | ?ClearNames@PUResults@@QAEXXZ
-    void ClearNames();
+    ARTS_IMPORT void ClearNames();
 
     // 0x4A8C30 | ?DisableNextRace@PUResults@@QAEXXZ
-    void DisableNextRace();
+    ARTS_IMPORT void DisableNextRace();
 
     // 0x4A8C40 | ?EnableNextRace@PUResults@@QAEXXZ
-    void EnableNextRace();
+    ARTS_IMPORT void EnableNextRace();
 
     // 0x4A81B0 | ?Init320@PUResults@@QAEXXZ
-    void Init320();
+    ARTS_IMPORT void Init320();
 
     // 0x4A8590 | ?Init640@PUResults@@QAEXXZ
-    void Init640();
+    ARTS_IMPORT void Init640();
 
     // 0x4A8A00 | ?Reset@PUResults@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4A8A30 | ?RestartRO@PUResults@@QAEXH@Z
-    void RestartRO(i32 arg1);
+    ARTS_IMPORT void RestartRO(i32 arg1);
 
     // 0x4A8A10 | ?RosterRO@PUResults@@QAEXH@Z
-    void RosterRO(i32 arg1);
+    ARTS_IMPORT void RosterRO(i32 arg1);
 
     // 0x4A8C50 | ?SetMessage@PUResults@@QAEXPAULocString@@@Z
-    void SetMessage(struct LocString* arg1);
+    ARTS_IMPORT void SetMessage(struct LocString* arg1);
 };
 
 check_size(PUResults, 0x0);

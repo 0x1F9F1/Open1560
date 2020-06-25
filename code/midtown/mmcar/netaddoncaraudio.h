@@ -33,22 +33,22 @@ struct NetAddOnCarAudio
 {
 public:
     // 0x485540 | ??0NetAddOnCarAudio@@QAE@PADF@Z
-    NetAddOnCarAudio(char* arg1, i16 arg2);
+    ARTS_IMPORT NetAddOnCarAudio(char* arg1, i16 arg2);
 
     // 0x485660 | ??1NetAddOnCarAudio@@QAE@XZ
-    ~NetAddOnCarAudio();
+    ARTS_IMPORT ~NetAddOnCarAudio();
 
     // 0x4856B0 | ?AssignSounds@NetAddOnCarAudio@@QAEHPAVmmNetworkCarAudio@@F@Z
-    i32 AssignSounds(class mmNetworkCarAudio* arg1, i16 arg2);
+    ARTS_IMPORT i32 AssignSounds(class mmNetworkCarAudio* arg1, i16 arg2);
 
     // 0x4857A0 | ?EchoOff@NetAddOnCarAudio@@QAEXXZ
-    void EchoOff();
+    ARTS_IMPORT void EchoOff();
 
     // 0x485740 | ?EchoOn@NetAddOnCarAudio@@QAEXM@Z
-    void EchoOn(f32 arg1);
+    ARTS_IMPORT void EchoOn(f32 arg1);
 
     // 0x4857D0 | ?Update@NetAddOnCarAudio@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 };
 
 check_size(NetAddOnCarAudio, 0x0);

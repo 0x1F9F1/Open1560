@@ -20,17 +20,10 @@ define_dummy_symbol(data7_speed);
 
 #include "speed.h"
 
+// 0x57CF40 | ?rdtsc@@YAIXZ
+// ARTS_IMPORT /*static*/ u32 rdtsc();
+
 u32 ComputeCpuSpeed()
 {
     return 1000;
 }
-
-// u32 __ComputeCpuSpeed()
-// {
-//     return stub<cdecl_t<u32>>(0x57CE90);
-// }
-
-// static u32 rdtsc()
-// {
-//     return stub<cdecl_t<u32>>(0x57CF40);
-// }

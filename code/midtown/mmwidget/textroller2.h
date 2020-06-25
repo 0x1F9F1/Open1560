@@ -48,48 +48,48 @@ class UITextRoller2 : public uiWidget
 
 public:
     // 0x4BABB0 | ??0UITextRoller2@@QAE@XZ
-    UITextRoller2();
+    ARTS_IMPORT UITextRoller2();
 
     // 0x4BBA50 | ??_EUITextRoller2@@UAEPAXI@Z
     // 0x4BAC60 | ??1UITextRoller2@@UAE@XZ
-    ~UITextRoller2() override;
+    ARTS_IMPORT ~UITextRoller2() override;
 
     // 0x4BB4C0 | ?Action@UITextRoller2@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4BB980 | ?Cull@UITextRoller2@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4BB950 | ?Dec@UITextRoller2@@QAEHXZ
-    i32 Dec();
+    ARTS_IMPORT i32 Dec();
 
     // 0x4BB5A0 | ?EvalMouseXY@UITextRoller2@@QAEXMM@Z
-    void EvalMouseXY(f32 arg1, f32 arg2);
+    ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2);
 
     // 0x4BB920 | ?Inc@UITextRoller2@@QAEHXZ
-    i32 Inc();
+    ARTS_IMPORT i32 Inc();
 
     // 0x4BACD0 | ?Init@UITextRoller2@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z
-    void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7, i32 arg8,
-        i32 arg9, i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
+    ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7,
+        i32 arg8, i32 arg9, i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
 
     // 0x4BB890 | ?SetData@UITextRoller2@@QAEXPAH@Z | unused
-    void SetData(i32* arg1);
+    ARTS_IMPORT void SetData(i32* arg1);
 
     // 0x4BB7C0 | ?SetString@UITextRoller2@@QAEXVstring@@@Z
-    void SetString(class string arg1);
+    ARTS_IMPORT void SetString(class string arg1);
 
     // 0x4BB8B0 | ?SetText@UITextRoller2@@QAEXXZ
-    void SetText();
+    ARTS_IMPORT void SetText();
 
     // 0x4BB710 | ?SetValue@UITextRoller2@@QAEHH@Z
-    i32 SetValue(i32 arg1);
+    ARTS_IMPORT i32 SetValue(i32 arg1);
 
     // 0x4BB420 | ?Switch@UITextRoller2@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4BB3C0 | ?Update@UITextRoller2@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(UITextRoller2, 0x144);

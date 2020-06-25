@@ -36,19 +36,19 @@ class mmCollideFF : public mmEffectFF
 
 public:
     // 0x4E7660 | ?Assign@mmCollideFF@@QAEHJJ@Z
-    i32 Assign(i32 arg1, i32 arg2);
+    ARTS_IMPORT i32 Assign(i32 arg1, i32 arg2);
 
     // 0x4E7470 | ?Init@mmCollideFF@@UAEHPAUIDirectInputDevice2A@@@Z
-    i32 Init(struct IDirectInputDevice2A* arg1) override;
+    ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;
 
     // 0x4E7760 | ?Play@mmCollideFF@@UAEHXZ
-    i32 Play() override;
+    ARTS_IMPORT i32 Play() override;
 
     // 0x4E7630 | ?SetValues@mmCollideFF@@UAEHMM@Z
-    i32 SetValues(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT i32 SetValues(f32 arg1, f32 arg2) override;
 
     // 0x4E77B0 | ?Stop@mmCollideFF@@UAEHXZ
-    i32 Stop() override;
+    ARTS_IMPORT i32 Stop() override;
 };
 
 check_size(mmCollideFF, 0x0);

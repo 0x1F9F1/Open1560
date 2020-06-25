@@ -38,17 +38,17 @@ class Dialog_NewPlayer : public PUMenuBase
 
 public:
     // 0x49F4B0 | ??0Dialog_NewPlayer@@QAE@HMMMMPAD@Z
-    Dialog_NewPlayer(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT Dialog_NewPlayer(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49F820 | ??_EDialog_NewPlayer@@UAEPAXI@Z
     // 0x49F7D0 | ??1Dialog_NewPlayer@@UAE@XZ
-    ~Dialog_NewPlayer() override;
+    ARTS_IMPORT ~Dialog_NewPlayer() override;
 
     // 0x49F7E0 | ?EnterNewPlayer@Dialog_NewPlayer@@QAEXXZ
-    void EnterNewPlayer();
+    ARTS_IMPORT void EnterNewPlayer();
 
     // 0x49F7F0 | ?PreSetup@Dialog_NewPlayer@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(Dialog_NewPlayer, 0x110);

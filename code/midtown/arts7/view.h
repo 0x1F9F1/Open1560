@@ -49,53 +49,53 @@ class asViewCS : public asLinearCS
 
 public:
     // 0x52BBA0 | ??0asViewCS@@QAE@XZ
-    asViewCS();
+    ARTS_IMPORT asViewCS();
 
     // 0x52CDF0 | ??_EasViewCS@@UAEPAXI@Z
     // 0x52CE50 | ??1asViewCS@@UAE@XZ | inline
-    ~asViewCS() override;
+    ARTS_IMPORT ~asViewCS() override;
 
     // 0x52C780 | ?AddWidgets@asViewCS@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x52C770 | ?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z | unused
-    void FileIO(class MiniParser* arg1);
+    ARTS_IMPORT void FileIO(class MiniParser* arg1);
 
     // 0x52CDE0 | ?GetClass@asViewCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x52BD30 | ?Reset@asViewCS@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x52BCD0 | ?SetAzimuth@asViewCS@@QAEXXZ
-    void SetAzimuth();
+    ARTS_IMPORT void SetAzimuth();
 
     // 0x52BF00 | ?Update@asViewCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x52C220 | ?UpdateLookAt@asViewCS@@QAEXXZ
-    void UpdateLookAt();
+    ARTS_IMPORT void UpdateLookAt();
 
     // 0x52C1D0 | ?UpdatePOV@asViewCS@@QAEXXZ
-    void UpdatePOV();
+    ARTS_IMPORT void UpdatePOV();
 
     // 0x52BF80 | ?UpdatePolar@asViewCS@@QAEXXZ
-    void UpdatePolar();
+    ARTS_IMPORT void UpdatePolar();
 
     // 0x52C0C0 | ?UpdateRoam@asViewCS@@QAEXXZ
-    void UpdateRoam();
+    ARTS_IMPORT void UpdateRoam();
 
     // 0x52C640 | ?UpdateStereo@asViewCS@@QAEXXZ
-    void UpdateStereo();
+    ARTS_IMPORT void UpdateStereo();
 
     // 0x52C280 | ?UpdateTrack@asViewCS@@QAEXXZ
-    void UpdateTrack();
+    ARTS_IMPORT void UpdateTrack();
 
     // 0x52CC70 | ?DeclareFields@asViewCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(asViewCS, 0x124);
 
 // 0x7909B8 | ?asViewCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x7909B8, class MetaClass, asViewCSMetaClass);
+// ARTS_IMPORT extern class MetaClass asViewCSMetaClass;

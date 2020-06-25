@@ -35,29 +35,29 @@ class DupBuffCreator
 {
 public:
     // 0x4EEBC0 | ??0DupBuffCreator@@QAE@XZ
-    DupBuffCreator();
+    ARTS_IMPORT DupBuffCreator();
 
     // 0x4EEC00 | ??1DupBuffCreator@@QAE@XZ
-    ~DupBuffCreator();
+    ARTS_IMPORT ~DupBuffCreator();
 
     // 0x4EED60 | ?Add@DupBuffCreator@@QAEXPADPAUIDirectSoundBuffer@@@Z
-    void Add(char* arg1, struct IDirectSoundBuffer* arg2);
+    ARTS_IMPORT void Add(char* arg1, struct IDirectSoundBuffer* arg2);
 
     // 0x4EEC60 | ?Create@DupBuffCreator@@QAEPAUIDirectSoundBuffer@@PADPAFPAH@Z
-    struct IDirectSoundBuffer* Create(char* arg1, i16* arg2, i32* arg3);
+    ARTS_IMPORT struct IDirectSoundBuffer* Create(char* arg1, i16* arg2, i32* arg3);
 
     // 0x4EEF00 | ?FindOriginal@DupBuffCreator@@QAEPAUIDirectSoundBuffer@@PADPAF@Z
-    struct IDirectSoundBuffer* FindOriginal(char* arg1, i16* arg2);
+    ARTS_IMPORT struct IDirectSoundBuffer* FindOriginal(char* arg1, i16* arg2);
 
 private:
     // 0x4EEF90 | ?GetWAVEFORMATEX@DupBuffCreator@@AAEPAUtWAVEFORMATEX@@PAUIDirectSoundBuffer@@@Z
-    struct tWAVEFORMATEX* GetWAVEFORMATEX(struct IDirectSoundBuffer* arg1);
+    ARTS_IMPORT struct tWAVEFORMATEX* GetWAVEFORMATEX(struct IDirectSoundBuffer* arg1);
 
     // 0x4EF010 | ?IntegrityCheck@DupBuffCreator@@AAEHPAUIDirectSoundBuffer@@0PAH@Z
-    i32 IntegrityCheck(struct IDirectSoundBuffer* arg1, struct IDirectSoundBuffer* arg2, i32* arg3);
+    ARTS_IMPORT i32 IntegrityCheck(struct IDirectSoundBuffer* arg1, struct IDirectSoundBuffer* arg2, i32* arg3);
 };
 
 check_size(DupBuffCreator, 0x8);
 
 // 0x719330 | ?DUPBUFCREATORPTR@@3PAVDupBuffCreator@@A
-inline extern_var(0x719330, class DupBuffCreator*, DUPBUFCREATORPTR);
+ARTS_IMPORT extern class DupBuffCreator* DUPBUFCREATORPTR;

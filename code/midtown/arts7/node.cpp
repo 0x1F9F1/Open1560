@@ -409,11 +409,9 @@ void asNode::SwitchTo(i32 idx)
     }
 }
 
-static b32 IsValidPointer(void* ptr, u32 len, b32 writeable)
-{
-    // FIXME: Relies on IsBadReadPtr and IsBadWritePtr, which are deprecated
-    return stub<cdecl_t<i32, void*, u32, i32>>(0x523510, ptr, len, writeable);
-}
+// 0x523510 | ?IsValidPointer@@YAHPAXIH@Z
+// FIXME: Relies on IsBadReadPtr and IsBadWritePtr, which are deprecated
+ARTS_IMPORT /*static*/ b32 IsValidPointer(void* ptr, u32 len, b32 writeable);
 
 const char* asNode::VerifyTree()
 {

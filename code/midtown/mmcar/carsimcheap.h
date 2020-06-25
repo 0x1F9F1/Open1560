@@ -39,23 +39,23 @@ class mmWheelCheap : public asLinearCS
 
 public:
     // 0x474880 | ??0mmWheelCheap@@QAE@XZ
-    mmWheelCheap();
+    ARTS_IMPORT mmWheelCheap();
 
     // 0x4751A0 | ??_EmmWheelCheap@@UAEPAXI@Z
     // 0x453A50 | ??1mmWheelCheap@@UAE@XZ | inline
-    ~mmWheelCheap() override;
+    ARTS_IMPORT ~mmWheelCheap() override;
 
     // 0x474950 | ?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z
-    void Init(class Vector3* arg1, class aiVehicleData* arg2, class asInertialCS* arg3);
+    ARTS_IMPORT void Init(class Vector3* arg1, class aiVehicleData* arg2, class asInertialCS* arg3);
 
     // 0x475180 | ?Reset@mmWheelCheap@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x474A20 | ?Update@mmWheelCheap@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmWheelCheap, 0x0);
 
 // 0x6A7E7C | ?EggFriction@@3MA
-inline extern_var(0x6A7E7C, f32, EggFriction);
+ARTS_IMPORT extern f32 EggFriction;

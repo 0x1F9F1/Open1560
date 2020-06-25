@@ -19,28 +19,3 @@
 define_dummy_symbol(mminput_spring);
 
 #include "spring.h"
-
-i32 mmSpringFF::Assign(i32 arg1)
-{
-    return stub<thiscall_t<i32, mmSpringFF*, i32>>(0x4E7E80, this, arg1);
-}
-
-i32 mmSpringFF::Init(struct IDirectInputDevice2A* arg1)
-{
-    return stub<thiscall_t<i32, mmSpringFF*, struct IDirectInputDevice2A*>>(0x4E7D50, this, arg1);
-}
-
-i32 mmSpringFF::Play()
-{
-    return stub<thiscall_t<i32, mmSpringFF*>>(0x4E7F70, this);
-}
-
-i32 mmSpringFF::SetValues(f32 arg1, f32 arg2)
-{
-    return stub<thiscall_t<i32, mmSpringFF*, f32, f32>>(0x4E7E50, this, arg1, arg2);
-}
-
-i32 mmSpringFF::Stop()
-{
-    return stub<thiscall_t<i32, mmSpringFF*>>(0x4E7FE0, this);
-}

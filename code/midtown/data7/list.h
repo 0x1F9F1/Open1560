@@ -32,19 +32,19 @@ struct List
 {
 public:
     // 0x57C280 | ??1List@@QAE@XZ
-    ~List();
+    ARTS_IMPORT ~List();
 
     // 0x57C330 | ?Access@List@@QAEPAXH@Z
-    void* Access(i32 arg1);
+    ARTS_IMPORT void* Access(i32 arg1);
 
     // 0x57C360 | ?Delete@List@@QAEHH@Z
-    i32 Delete(i32 arg1);
+    ARTS_IMPORT i32 Delete(i32 arg1);
 
     // 0x57C2B0 | ?Insert@List@@QAEHHPAX@Z
-    i32 Insert(i32 arg1, void* arg2);
+    ARTS_IMPORT i32 Insert(i32 arg1, void* arg2);
 
     // 0x57C290 | ?Kill@List@@QAEXXZ
-    void Kill();
+    ARTS_IMPORT void Kill();
 };
 
 check_size(List, 0x0);

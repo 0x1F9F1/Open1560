@@ -69,120 +69,120 @@ class mmGameMulti : public mmGame
 
 public:
     // 0x4306A0 | ??0mmGameMulti@@QAE@XZ
-    mmGameMulti();
+    ARTS_IMPORT mmGameMulti();
 
     // 0x432710 | ??_EmmGameMulti@@UAEPAXI@Z
     // 0x4307B0 | ??1mmGameMulti@@UAE@XZ
-    ~mmGameMulti() override;
+    ARTS_IMPORT ~mmGameMulti() override;
 
     virtual void InitNetworkPlayers() = 0;
 
     // 0x431960 | ?InitRoster@mmGameMulti@@UAEXXZ
-    virtual void InitRoster();
+    ARTS_IMPORT virtual void InitRoster();
 
     virtual void SystemMessage(struct NETSYS_MSG* arg1) = 0;
 
     virtual void GameMessage(struct NETGAME_MSG* arg1) = 0;
 
     // 0x432030 | ?ActivateMapNetObject@mmGameMulti@@QAEXH@Z
-    void ActivateMapNetObject(i32 arg1);
+    ARTS_IMPORT void ActivateMapNetObject(i32 arg1);
 
     // 0x432410 | ?BootPlayerCB@mmGameMulti@@QAEXPAX0@Z
-    void BootPlayerCB(void* arg1, void* arg2);
+    ARTS_IMPORT void BootPlayerCB(void* arg1, void* arg2);
 
     // 0x431480 | ?BootStrapCars@mmGameMulti@@QAEXXZ
-    void BootStrapCars();
+    ARTS_IMPORT void BootStrapCars();
 
     // 0x4316A0 | ?ClearNetObjects@mmGameMulti@@QAEXXZ
-    void ClearNetObjects();
+    ARTS_IMPORT void ClearNetObjects();
 
     // 0x432000 | ?DeactivateMapNetObject@mmGameMulti@@QAEXH@Z
-    void DeactivateMapNetObject(i32 arg1);
+    ARTS_IMPORT void DeactivateMapNetObject(i32 arg1);
 
     // 0x430A90 | ?DropThruCityHandler@mmGameMulti@@UAEXXZ
-    void DropThruCityHandler() override;
+    ARTS_IMPORT void DropThruCityHandler() override;
 
     // 0x432350 | ?FinishMessage@mmGameMulti@@QAEXH@Z
-    void FinishMessage(i32 arg1);
+    ARTS_IMPORT void FinishMessage(i32 arg1);
 
     // 0x431100 | ?GameMessageCB@mmGameMulti@@QAEXPAX0@Z
-    void GameMessageCB(void* arg1, void* arg2);
+    ARTS_IMPORT void GameMessageCB(void* arg1, void* arg2);
 
     // 0x4325B0 | ?GetClass@mmGameMulti@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4309A0 | ?HitWaterHandler@mmGameMulti@@UAEXXZ
-    void HitWaterHandler() override;
+    ARTS_IMPORT void HitWaterHandler() override;
 
     // 0x430870 | ?Init@mmGameMulti@@QAEHXZ
-    i32 Init();
+    ARTS_IMPORT i32 Init();
 
     // 0x430AA0 | ?InitGameStrings@mmGameMulti@@UAEXXZ
-    void InitGameStrings() override;
+    ARTS_IMPORT void InitGameStrings() override;
 
     // 0x4316E0 | ?InitOtherPlayers@mmGameMulti@@UAEXXZ
-    void InitOtherPlayers() override;
+    ARTS_IMPORT void InitOtherPlayers() override;
 
     // 0x41A890 | ?NextRace@mmGameMulti@@UAEXXZ | inline
-    void NextRace() override;
+    ARTS_IMPORT void NextRace() override;
 
     // 0x432160 | ?ParseChatMessage@mmGameMulti@@QAEHPADH@Z
-    i32 ParseChatMessage(char* arg1, i32 arg2);
+    ARTS_IMPORT i32 ParseChatMessage(char* arg1, i32 arg2);
 
     // 0x432140 | ?QuitNetwork@mmGameMulti@@QAEXXZ
-    void QuitNetwork();
+    ARTS_IMPORT void QuitNetwork();
 
     // 0x431EE0 | ?RegisterMapNetObjects@mmGameMulti@@QAEXH@Z
-    void RegisterMapNetObjects(i32 arg1);
+    ARTS_IMPORT void RegisterMapNetObjects(i32 arg1);
 
     // 0x431620 | ?Reset@mmGameMulti@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4324D0 | ?SendBootMsg@mmGameMulti@@QAEXK@Z
-    void SendBootMsg(u32 arg1);
+    ARTS_IMPORT void SendBootMsg(u32 arg1);
 
     // 0x4321D0 | ?SendChatMessage@mmGameMulti@@UAEXPAD@Z
-    void SendChatMessage(char* arg1) override;
+    ARTS_IMPORT void SendChatMessage(char* arg1) override;
 
     // 0x4324A0 | ?SendMsg@mmGameMulti@@QAEXH@Z
-    void SendMsg(i32 arg1);
+    ARTS_IMPORT void SendMsg(i32 arg1);
 
     // 0x432290 | ?SendToChatMessage@mmGameMulti@@QAEXPADK@Z
-    void SendToChatMessage(char* arg1, u32 arg2);
+    ARTS_IMPORT void SendToChatMessage(char* arg1, u32 arg2);
 
     // 0x430EF0 | ?SystemMessageCB@mmGameMulti@@QAEXPAX0@Z
-    void SystemMessageCB(void* arg1, void* arg2);
+    ARTS_IMPORT void SystemMessageCB(void* arg1, void* arg2);
 
     // 0x4319F0 | ?Update@mmGameMulti@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x431ED0 | ?UpdateDebugKeyInput@mmGameMulti@@UAEXH@Z
-    void UpdateDebugKeyInput(i32 arg1) override;
+    ARTS_IMPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x431A10 | ?UpdateGame@mmGameMulti@@UAEXXZ
-    void UpdateGame() override;
+    ARTS_IMPORT void UpdateGame() override;
 
     // 0x432450 | ?UpdateNetWorkAudio@mmGameMulti@@QAEXXZ
-    void UpdateNetWorkAudio();
+    ARTS_IMPORT void UpdateNetWorkAudio();
 
     // 0x431AA0 | ?UpdateScore@mmGameMulti@@QAEXXZ
-    void UpdateScore();
+    ARTS_IMPORT void UpdateScore();
 
     // 0x432510 | ?DeclareFields@mmGameMulti@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 protected:
     // 0x4320F0 | ?DisableRacers@mmGameMulti@@IAEXXZ
-    void DisableRacers();
+    ARTS_IMPORT void DisableRacers();
 
     // 0x432070 | ?EnableRacers@mmGameMulti@@IAEXXZ
-    void EnableRacers();
+    ARTS_IMPORT void EnableRacers();
 
     // 0x430CC0 | ?StartXYZ@mmGameMulti@@IAEXHAAVVector3@@0MM@Z
-    void StartXYZ(i32 arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT void StartXYZ(i32 arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, f32 arg5);
 };
 
 check_size(mmGameMulti, 0x1EEA8);
 
 // 0x6A77A0 | ?mmGameMultiMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A77A0, class MetaClass, mmGameMultiMetaClass);
+// ARTS_IMPORT extern class MetaClass mmGameMultiMetaClass;

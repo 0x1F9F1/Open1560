@@ -58,77 +58,77 @@ class AudioOptions : public OptionsBase
 
 public:
     // 0x49C5A0 | ??0AudioOptions@@QAE@H@Z
-    AudioOptions(i32 arg1);
+    ARTS_IMPORT AudioOptions(i32 arg1);
 
     // 0x49D700 | ??_GAudioOptions@@UAEPAXI@Z
     // 0x49CE60 | ??1AudioOptions@@UAE@XZ
-    ~AudioOptions() override;
+    ARTS_IMPORT ~AudioOptions() override;
 
     // 0x49D150 | ?CancelAction@AudioOptions@@UAEXXZ
-    void CancelAction() override;
+    ARTS_IMPORT void CancelAction() override;
 
     // 0x49D1D0 | ?DoneAction@AudioOptions@@UAEXXZ
-    void DoneAction() override;
+    ARTS_IMPORT void DoneAction() override;
 
     // 0x49D480 | ?FindDevice@AudioOptions@@QAEHPAD@Z
-    i32 FindDevice(char* arg1);
+    ARTS_IMPORT i32 FindDevice(char* arg1);
 
     // 0x49D510 | ?GetCurrentDeviceName@AudioOptions@@QAEPADXZ
-    char* GetCurrentDeviceName();
+    ARTS_IMPORT char* GetCurrentDeviceName();
 
     // 0x49CEF0 | ?PreSetup@AudioOptions@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x49D590 | ?ResetCDMusic@AudioOptions@@QAEXXZ
-    void ResetCDMusic();
+    ARTS_IMPORT void ResetCDMusic();
 
     // 0x49D620 | ?ResetCommentary@AudioOptions@@QAEXXZ
-    void ResetCommentary();
+    ARTS_IMPORT void ResetCommentary();
 
     // 0x49D0D0 | ?ResetDefaultAction@AudioOptions@@UAEXXZ
-    void ResetDefaultAction() override;
+    ARTS_IMPORT void ResetDefaultAction() override;
 
     // 0x49D560 | ?ResetSoundFX@AudioOptions@@QAEXXZ
-    void ResetSoundFX();
+    ARTS_IMPORT void ResetSoundFX();
 
     // 0x49D5C0 | ?ResetSoundQuality@AudioOptions@@QAEXXZ
-    void ResetSoundQuality();
+    ARTS_IMPORT void ResetSoundQuality();
 
     // 0x49D530 | ?ResetStereo@AudioOptions@@QAEXXZ
-    void ResetStereo();
+    ARTS_IMPORT void ResetStereo();
 
     // 0x49D1E0 | ?SetAudioState@AudioOptions@@QAEXXZ
-    void SetAudioState();
+    ARTS_IMPORT void SetAudioState();
 
     // 0x49CF40 | ?SetBalance@AudioOptions@@QAEXXZ
-    void SetBalance();
+    ARTS_IMPORT void SetBalance();
 
     // 0x49D3F0 | ?SetCDMusic@AudioOptions@@QAEXXZ
-    void SetCDMusic();
+    ARTS_IMPORT void SetCDMusic();
 
     // 0x49CF20 | ?SetCDVolume@AudioOptions@@QAEXXZ
-    void SetCDVolume();
+    ARTS_IMPORT void SetCDVolume();
 
     // 0x49D450 | ?SetCommentary@AudioOptions@@QAEXXZ
-    void SetCommentary();
+    ARTS_IMPORT void SetCommentary();
 
     // 0x49D650 | ?SetDevice@AudioOptions@@QAEXH@Z
-    void SetDevice(i32 arg1);
+    ARTS_IMPORT void SetDevice(i32 arg1);
 
     // 0x49CF70 | ?SetQuality@AudioOptions@@QAEXXZ
-    void SetQuality();
+    ARTS_IMPORT void SetQuality();
 
     // 0x49D420 | ?SetSoundFX@AudioOptions@@QAEXXZ
-    void SetSoundFX();
+    ARTS_IMPORT void SetSoundFX();
 
     // 0x49D040 | ?SetStereoFX@AudioOptions@@QAEXXZ
-    void SetStereoFX();
+    ARTS_IMPORT void SetStereoFX();
 
     // 0x49CF00 | ?SetWaveVolume@AudioOptions@@QAEXXZ
-    void SetWaveVolume();
+    ARTS_IMPORT void SetWaveVolume();
 
     // 0x49D0C0 | ?StoreCurrentSetup@AudioOptions@@UAEXXZ
-    void StoreCurrentSetup() override;
+    ARTS_IMPORT void StoreCurrentSetup() override;
 };
 
 check_size(AudioOptions, 0x6F00);

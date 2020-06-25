@@ -129,37 +129,37 @@
 */
 
 // 0x505990 | ?EyePlaneOutcode@@YAIPAEEAAVVector4@@PAVVector3@@H@Z | unused
-u32 EyePlaneOutcode(u8* arg1, u8 arg2, class Vector4& arg3, class Vector3* arg4, i32 arg5);
+ARTS_IMPORT u32 EyePlaneOutcode(u8* arg1, u8 arg2, class Vector4& arg3, class Vector3* arg4, i32 arg5);
 
 // 0x504690 | ?SetClipMode@@YAXH@Z | unused
-void SetClipMode(i32 arg1);
+ARTS_IMPORT void SetClipMode(i32 arg1);
 
 // 0x505E00 | ?begin_invert@@YIXPAVVector4@@@Z | unused
-void __fastcall begin_invert(class Vector4* arg1);
+ARTS_IMPORT void ARTS_FASTCALL begin_invert(class Vector4* arg1);
 
 // 0x505E10 | ?end_invert@@YIXPAVVector4@@@Z | unused
-void __fastcall end_invert(class Vector4* arg1);
+ARTS_IMPORT void ARTS_FASTCALL end_invert(class Vector4* arg1);
 
 // 0x64A770 | ?MaxCardSize@@3MA
-inline extern_var(0x64A770, f32, MaxCardSize);
+ARTS_IMPORT extern f32 MaxCardSize;
 
 // 0x73D3C4 | ?MinCardSize@@3MA
-inline extern_var(0x73D3C4, f32, MinCardSize);
+ARTS_IMPORT extern f32 MinCardSize;
 
 // 0x64A6E8 | ?ShadowColor@@3IA
-inline extern_var(0x64A6E8, u32, ShadowColor);
+ARTS_IMPORT extern u32 ShadowColor;
 
 // 0x64A6E4 | ?ShadowFudge@@3MA
-inline extern_var(0x64A6E4, f32, ShadowFudge);
+ARTS_IMPORT extern f32 ShadowFudge;
 
 // 0x64A6EC | ?SphMapColor@@3IA
-inline extern_var(0x64A6EC, u32, SphMapColor);
+ARTS_IMPORT extern u32 SphMapColor;
 
 struct agiMeshCardInfo
 {
 public:
     // 0x50EC90 | ?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z
-    void Init(i32 arg1, struct agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT void Init(i32 arg1, struct agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
 };
 
 check_size(agiMeshCardInfo, 0x0);

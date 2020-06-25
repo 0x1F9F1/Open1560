@@ -38,17 +38,17 @@ class Dialog_Password : public PUMenuBase
 
 public:
     // 0x49DAB0 | ??0Dialog_Password@@QAE@HMMMMPAD@Z
-    Dialog_Password(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT Dialog_Password(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49DC50 | ??_GDialog_Password@@UAEPAXI@Z
     // 0x49DC20 | ??1Dialog_Password@@UAE@XZ
-    ~Dialog_Password() override;
+    ARTS_IMPORT ~Dialog_Password() override;
 
     // 0x49DC40 | ?PasswordCallback@Dialog_Password@@QAEXXZ
-    void PasswordCallback();
+    ARTS_IMPORT void PasswordCallback();
 
     // 0x49DC30 | ?PreSetup@Dialog_Password@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(Dialog_Password, 0xEC);

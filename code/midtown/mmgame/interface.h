@@ -108,16 +108,16 @@
 #include "arts7/node.h"
 
 // 0x406A80 | ?ReportTimeAlloc@@YAXM@Z
-void ReportTimeAlloc(f32 arg1);
+ARTS_IMPORT void ReportTimeAlloc(f32 arg1);
 
 // 0x6A6EC8 | ?defcarname@@3PADA
-inline extern_var(0x6A6EC8, char[80], defcarname);
+ARTS_IMPORT extern char defcarname[80];
 
 // 0x6A6E18 | ?mmInterfaceMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A6E18, class MetaClass, mmInterfaceMetaClass);
+// ARTS_IMPORT extern class MetaClass mmInterfaceMetaClass;
 
 // 0x6A6E40 | ?szSearchPath@@3PADA
-inline extern_var(0x6A6E40, char[128], szSearchPath);
+ARTS_IMPORT extern char szSearchPath[128];
 
 class mmInterface : public asNode
 {
@@ -125,225 +125,225 @@ class mmInterface : public asNode
 
 public:
     // 0x406AC0 | ??0mmInterface@@QAE@XZ
-    mmInterface();
+    ARTS_IMPORT mmInterface();
 
     // 0x40E7F0 | ??_EmmInterface@@UAEPAXI@Z
     // 0x407E00 | ??1mmInterface@@UAE@XZ
-    ~mmInterface() override;
+    ARTS_IMPORT ~mmInterface() override;
 
     // 0x4087B0 | ?BeDone@mmInterface@@QAEXXZ
-    void BeDone();
+    ARTS_IMPORT void BeDone();
 
     // 0x40E7D0 | ?GetClass@mmInterface@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x40CD10 | ?InitLobby@mmInterface@@QAEXXZ
-    void InitLobby();
+    ARTS_IMPORT void InitLobby();
 
     // 0x407A90 | ?InitPlayerInfo@mmInterface@@QAEXXZ
-    void InitPlayerInfo();
+    ARTS_IMPORT void InitPlayerInfo();
 
     // 0x40AB70 | ?LobbySwitch@mmInterface@@QAEXHH@Z
-    void LobbySwitch(i32 arg1, i32 arg2);
+    ARTS_IMPORT void LobbySwitch(i32 arg1, i32 arg2);
 
     // 0x407F70 | ?MessageCallback@mmInterface@@QAEXPAX0@Z
-    void MessageCallback(void* arg1, void* arg2);
+    ARTS_IMPORT void MessageCallback(void* arg1, void* arg2);
 
     // 0x408440 | ?MessageCallback2@mmInterface@@QAEXPAX0@Z
-    void MessageCallback2(void* arg1, void* arg2);
+    ARTS_IMPORT void MessageCallback2(void* arg1, void* arg2);
 
     // 0x408660 | ?Reset@mmInterface@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x40E3E0 | ?SetupArchiveTest@mmInterface@@QAEXAAH@Z
-    void SetupArchiveTest(i32& arg1);
+    ARTS_IMPORT void SetupArchiveTest(i32& arg1);
 
     // 0x408790 | ?ShowLockedVehicleMessage@mmInterface@@QAEXXZ
-    void ShowLockedVehicleMessage();
+    ARTS_IMPORT void ShowLockedVehicleMessage();
 
     // 0x408670 | ?ShowMain@mmInterface@@QAEXH@Z
-    void ShowMain(i32 arg1);
+    ARTS_IMPORT void ShowMain(i32 arg1);
 
     // 0x40A7D0 | ?Switch@mmInterface@@QAEXHH@Z
-    void Switch(i32 arg1, i32 arg2);
+    ARTS_IMPORT void Switch(i32 arg1, i32 arg2);
 
     // 0x4088A0 | ?Update@mmInterface@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x40A1F0 | ?UpdateLobby@mmInterface@@QAEXXZ
-    void UpdateLobby();
+    ARTS_IMPORT void UpdateLobby();
 
     // 0x40E660 | ?DeclareFields@mmInterface@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x40D8B0 | ?ChangePlayerData@mmInterface@@AAEXXZ
-    void ChangePlayerData();
+    ARTS_IMPORT void ChangePlayerData();
 
     // 0x40B6D0 | ?CitySetupCB@mmInterface@@AAEXXZ
-    void CitySetupCB();
+    ARTS_IMPORT void CitySetupCB();
 
     // 0x40CFA0 | ?ClearSessions@mmInterface@@AAEXXZ
-    void ClearSessions();
+    ARTS_IMPORT void ClearSessions();
 
     // 0x40D540 | ?CreatePlayer@mmInterface@@AAEHH@Z
-    i32 CreatePlayer(i32 arg1);
+    ARTS_IMPORT i32 CreatePlayer(i32 arg1);
 
     // 0x40DC40 | ?CreateSession@mmInterface@@AAEHXZ
-    i32 CreateSession();
+    ARTS_IMPORT i32 CreateSession();
 
     // 0x40AD40 | ?FillCRRoster@mmInterface@@AAEXXZ
-    void FillCRRoster();
+    ARTS_IMPORT void FillCRRoster();
 
     // 0x40D760 | ?GetHostPlayerData@mmInterface@@AAEHAAUmmPlayerInfo@@@Z
-    i32 GetHostPlayerData(struct mmPlayerInfo& arg1);
+    ARTS_IMPORT i32 GetHostPlayerData(struct mmPlayerInfo& arg1);
 
     // 0x40B890 | ?GetRaceName@mmInterface@@AAEPADW4mmGameMode@@H@Z
-    char* GetRaceName(enum mmGameMode arg1, i32 arg2);
+    ARTS_IMPORT char* GetRaceName(enum mmGameMode arg1, i32 arg2);
 
     // 0x40B830 | ?GetRaceString@mmInterface@@AAEXHPAD@Z
-    void GetRaceString(i32 arg1, char* arg2);
+    ARTS_IMPORT void GetRaceString(i32 arg1, char* arg2);
 
     // 0x40B7F0 | ?GetScoreString@mmInterface@@AAEXHPAD@Z
-    void GetScoreString(i32 arg1, char* arg2);
+    ARTS_IMPORT void GetScoreString(i32 arg1, char* arg2);
 
     // 0x40DB80 | ?GetSessionData@mmInterface@@AAEXUNETSESSION_DESC@@@Z
-    void GetSessionData(struct NETSESSION_DESC arg1);
+    ARTS_IMPORT void GetSessionData(struct NETSESSION_DESC arg1);
 
     // 0x40B790 | ?GetTimeString@mmInterface@@AAEXMPAD@Z
-    void GetTimeString(f32 arg1, char* arg2);
+    ARTS_IMPORT void GetTimeString(f32 arg1, char* arg2);
 
     // 0x40D7C0 | ?GetUniquePlayerName@mmInterface@@AAEXXZ
-    void GetUniquePlayerName();
+    ARTS_IMPORT void GetUniquePlayerName();
 
     // 0x40AE40 | ?GetUnlockedCar@mmInterface@@AAEXXZ
-    void GetUnlockedCar();
+    ARTS_IMPORT void GetUnlockedCar();
 
     // 0x40CC20 | ?InitNetwork@mmInterface@@AAEXXZ
-    void InitNetwork();
+    ARTS_IMPORT void InitNetwork();
 
     // 0x40CD80 | ?InitProtocols@mmInterface@@AAEXXZ
-    void InitProtocols();
+    ARTS_IMPORT void InitProtocols();
 
     // 0x409F90 | ?JoinGame@mmInterface@@AAEXXZ
-    void JoinGame();
+    ARTS_IMPORT void JoinGame();
 
     // 0x40A010 | ?JoinLAN@mmInterface@@AAEXXZ
-    void JoinLAN();
+    ARTS_IMPORT void JoinLAN();
 
     // 0x40A100 | ?JoinModem@mmInterface@@AAEHXZ
-    i32 JoinModem();
+    ARTS_IMPORT i32 JoinModem();
 
     // 0x40D200 | ?JoinPasswordSession@mmInterface@@AAEHH@Z
-    i32 JoinPasswordSession(i32 arg1);
+    ARTS_IMPORT i32 JoinPasswordSession(i32 arg1);
 
     // 0x40A070 | ?JoinSerial@mmInterface@@AAEHXZ
-    i32 JoinSerial();
+    ARTS_IMPORT i32 JoinSerial();
 
     // 0x40D000 | ?JoinSession@mmInterface@@AAEHH@Z
-    i32 JoinSession(i32 arg1);
+    ARTS_IMPORT i32 JoinSession(i32 arg1);
 
     // 0x40DEF0 | ?LobbyCreate@mmInterface@@AAEXXZ
-    void LobbyCreate();
+    ARTS_IMPORT void LobbyCreate();
 
     // 0x40D3B0 | ?MultiStartGame@mmInterface@@AAEXXZ
-    void MultiStartGame();
+    ARTS_IMPORT void MultiStartGame();
 
     // 0x409F00 | ?NetJoinCB@mmInterface@@AAEXXZ
-    void NetJoinCB();
+    ARTS_IMPORT void NetJoinCB();
 
     // 0x409F60 | ?NetNameCB@mmInterface@@AAEXXZ
-    void NetNameCB();
+    ARTS_IMPORT void NetNameCB();
 
     // 0x40B200 | ?PlayerCreate@mmInterface@@AAEHPAD@Z
-    i32 PlayerCreate(char* arg1);
+    ARTS_IMPORT i32 PlayerCreate(char* arg1);
 
     // 0x40B1B0 | ?PlayerCreateCB@mmInterface@@AAEXXZ
-    void PlayerCreateCB();
+    ARTS_IMPORT void PlayerCreateCB();
 
     // 0x40C2E0 | ?PlayerFillStats@mmInterface@@AAEXXZ
-    void PlayerFillStats();
+    ARTS_IMPORT void PlayerFillStats();
 
     // 0x40B3C0 | ?PlayerGraphicsCB@mmInterface@@AAEXXZ
-    void PlayerGraphicsCB();
+    ARTS_IMPORT void PlayerGraphicsCB();
 
     // 0x40B430 | ?PlayerLoad@mmInterface@@AAEXPAD@Z
-    void PlayerLoad(char* arg1);
+    ARTS_IMPORT void PlayerLoad(char* arg1);
 
     // 0x40B390 | ?PlayerLoadCB@mmInterface@@AAEXXZ
-    void PlayerLoadCB();
+    ARTS_IMPORT void PlayerLoadCB();
 
     // 0x40CB20 | ?PlayerReadState@mmInterface@@AAEXXZ
-    void PlayerReadState();
+    ARTS_IMPORT void PlayerReadState();
 
     // 0x40B020 | ?PlayerRemove@mmInterface@@AAEXPAD@Z
-    void PlayerRemove(char* arg1);
+    ARTS_IMPORT void PlayerRemove(char* arg1);
 
     // 0x40AFF0 | ?PlayerRemoveCB@mmInterface@@AAEXXZ
-    void PlayerRemoveCB();
+    ARTS_IMPORT void PlayerRemoveCB();
 
     // 0x40C950 | ?PlayerResolveCars@mmInterface@@AAEXXZ
-    void PlayerResolveCars();
+    ARTS_IMPORT void PlayerResolveCars();
 
     // 0x40C810 | ?PlayerResolveScore@mmInterface@@AAEXXZ
-    void PlayerResolveScore();
+    ARTS_IMPORT void PlayerResolveScore();
 
     // 0x40B4E0 | ?PlayerSetState@mmInterface@@AAEXXZ
-    void PlayerSetState();
+    ARTS_IMPORT void PlayerSetState();
 
     // 0x40B9F0 | ?RaceFillRecords@mmInterface@@AAEXXZ
-    void RaceFillRecords();
+    ARTS_IMPORT void RaceFillRecords();
 
     // 0x40ACA0 | ?RefreshCRPlayers@mmInterface@@AAEXXZ
-    void RefreshCRPlayers();
+    ARTS_IMPORT void RefreshCRPlayers();
 
     // 0x40CB40 | ?RefreshDriverList@mmInterface@@AAEXXZ
-    void RefreshDriverList();
+    ARTS_IMPORT void RefreshDriverList();
 
     // 0x40D980 | ?RefreshPlayers@mmInterface@@AAEXXZ
-    void RefreshPlayers();
+    ARTS_IMPORT void RefreshPlayers();
 
     // 0x40CFC0 | ?RefreshSessions@mmInterface@@AAEXXZ
-    void RefreshSessions();
+    ARTS_IMPORT void RefreshSessions();
 
     // 0x40AE90 | ?RequestProverb@mmInterface@@AAEXXZ
-    void RequestProverb();
+    ARTS_IMPORT void RequestProverb();
 
     // 0x40E330 | ?SendBootMsg@mmInterface@@AAEXK@Z | unused
-    void SendBootMsg(u32 arg1);
+    ARTS_IMPORT void SendBootMsg(u32 arg1);
 
     // 0x40E250 | ?SendChatMessage@mmInterface@@AAEXPAX@Z
-    void SendChatMessage(void* arg1);
+    ARTS_IMPORT void SendChatMessage(void* arg1);
 
     // 0x40E2F0 | ?SendMsg@mmInterface@@AAEXH@Z
-    void SendMsg(i32 arg1);
+    ARTS_IMPORT void SendMsg(i32 arg1);
 
     // 0x40E3B0 | ?SendReadyReq@mmInterface@@AAEXXZ
-    void SendReadyReq();
+    ARTS_IMPORT void SendReadyReq();
 
     // 0x40E370 | ?SendReadyStatus@mmInterface@@AAEXXZ
-    void SendReadyStatus();
+    ARTS_IMPORT void SendReadyStatus();
 
     // 0x40DE80 | ?SetCRStateData@mmInterface@@AAEXXZ
-    void SetCRStateData();
+    ARTS_IMPORT void SetCRStateData();
 
     // 0x40D440 | ?SetProtocol@mmInterface@@AAEXXZ
-    void SetProtocol();
+    ARTS_IMPORT void SetProtocol();
 
     // 0x40D4F0 | ?SetProtocol2@mmInterface@@AAEHXZ
-    i32 SetProtocol2();
+    ARTS_IMPORT i32 SetProtocol2();
 
     // 0x40DDC0 | ?SetSessionData@mmInterface@@AAEXPAUNETSESSION_DESC@@@Z
-    void SetSessionData(struct NETSESSION_DESC* arg1);
+    ARTS_IMPORT void SetSessionData(struct NETSESSION_DESC* arg1);
 
     // 0x40CC00 | ?SetStateDefaults@mmInterface@@AAEXXZ | unused
-    void SetStateDefaults();
+    ARTS_IMPORT void SetStateDefaults();
 
     // 0x40CBF0 | ?SetStateRace@mmInterface@@AAEXH@Z | unused
-    void SetStateRace(i32 arg1);
+    ARTS_IMPORT void SetStateRace(i32 arg1);
 
     // 0x40CDA0 | ?ShowSessions@mmInterface@@AAEXXZ
-    void ShowSessions();
+    ARTS_IMPORT void ShowSessions();
 };
 
 check_size(mmInterface, 0x35830);

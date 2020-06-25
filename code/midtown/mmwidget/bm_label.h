@@ -44,39 +44,39 @@ class UIBMLabel : public uiWidget
 
 public:
     // 0x4B4280 | ??0UIBMLabel@@QAE@XZ
-    UIBMLabel();
+    ARTS_IMPORT UIBMLabel();
 
     // 0x4B4800 | ??_EUIBMLabel@@UAEPAXI@Z
     // 0x4B42F0 | ??1UIBMLabel@@UAE@XZ
-    ~UIBMLabel() override;
+    ARTS_IMPORT ~UIBMLabel() override;
 
     // 0x4B45C0 | ?CreateDummyBitmap@UIBMLabel@@QAEPAVagiBitmap@@XZ
-    class agiBitmap* CreateDummyBitmap();
+    ARTS_IMPORT class agiBitmap* CreateDummyBitmap();
 
     // 0x4B4640 | ?Cull@UIBMLabel@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4B47F0 | ?GetClass@UIBMLabel@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4B4360 | ?Init@UIBMLabel@@QAEXPAVstring@@MMPAH@Z
-    void Init(class string* arg1, f32 arg2, f32 arg3, i32* arg4);
+    ARTS_IMPORT void Init(class string* arg1, f32 arg2, f32 arg3, i32* arg4);
 
     // 0x4B4440 | ?SetBitmapName@UIBMLabel@@QAEXPAVstring@@@Z
-    void SetBitmapName(class string* arg1);
+    ARTS_IMPORT void SetBitmapName(class string* arg1);
 
     // 0x4B4610 | ?Update@UIBMLabel@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4B4680 | ?DeclareFields@UIBMLabel@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x4B44E0 | ?LoadBitmap@UIBMLabel@@AAEXXZ
-    void LoadBitmap();
+    ARTS_IMPORT void LoadBitmap();
 };
 
 check_size(UIBMLabel, 0xA0);
 
 // 0x7059A0 | ?UIBMLabelMetaClass@@3VMetaClass@@A
-inline extern_var(0x7059A0, class MetaClass, UIBMLabelMetaClass);
+// ARTS_IMPORT extern class MetaClass UIBMLabelMetaClass;

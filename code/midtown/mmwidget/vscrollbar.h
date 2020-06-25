@@ -54,69 +54,69 @@ class UIVScrollBar : public uiWidget
 
 public:
     // 0x4BCD60 | ??0UIVScrollBar@@QAE@XZ
-    UIVScrollBar();
+    ARTS_IMPORT UIVScrollBar();
 
     // 0x4BD8B0 | ??_EUIVScrollBar@@UAEPAXI@Z
     // 0x4BCE00 | ??1UIVScrollBar@@UAE@XZ
-    ~UIVScrollBar() override;
+    ARTS_IMPORT ~UIVScrollBar() override;
 
     // 0x4BD370 | ?Action@UIVScrollBar@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4BD5B0 | ?Cull@UIVScrollBar@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4BD150 | ?Dec@UIVScrollBar@@QAEMXZ
-    f32 Dec();
+    ARTS_IMPORT f32 Dec();
 
     // 0x4BD950 | ?Disable@UIVScrollBar@@UAEXXZ | inline
-    void Disable() override;
+    ARTS_IMPORT void Disable() override;
 
     // 0x4BD930 | ?Enable@UIVScrollBar@@UAEXXZ | inline
-    void Enable() override;
+    ARTS_IMPORT void Enable() override;
 
     // 0x4BD430 | ?EvalMouseXY@UIVScrollBar@@QAEXMM@Z
-    void EvalMouseXY(f32 arg1, f32 arg2);
+    ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2);
 
     // 0x4BD8A0 | ?GetClass@UIVScrollBar@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4BD0F0 | ?Inc@UIVScrollBar@@QAEMXZ
-    f32 Inc();
+    ARTS_IMPORT f32 Inc();
 
     // 0x4BCE90 | ?Init@UIVScrollBar@@QAEXMMMMHMMPAHVCallback@@H@Z
-    void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, f32 arg6, f32 arg7, i32* arg8, class Callback arg9,
-        i32 arg10);
+    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, f32 arg6, f32 arg7, i32* arg8,
+        class Callback arg9, i32 arg10);
 
     // 0x4BCF00 | ?LoadBitmap@UIVScrollBar@@QAEXXZ
-    void LoadBitmap();
+    ARTS_IMPORT void LoadBitmap();
 
     // 0x4BD030 | ?SetHotSpots@UIVScrollBar@@QAEXXZ
-    void SetHotSpots();
+    ARTS_IMPORT void SetHotSpots();
 
     // 0x4BD910 | ?SetPosition@UIVScrollBar@@UAEXMM@Z | inline
-    void SetPosition(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2) override;
 
     // 0x4BD210 | ?SetRange@UIVScrollBar@@QAEXMM@Z
-    void SetRange(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetRange(f32 arg1, f32 arg2);
 
     // 0x4BD1B0 | ?SetStep@UIVScrollBar@@QAEXHM@Z
-    void SetStep(i32 arg1, f32 arg2);
+    ARTS_IMPORT void SetStep(i32 arg1, f32 arg2);
 
     // 0x4BD280 | ?SetTrough@UIVScrollBar@@QAEXMM@Z
-    void SetTrough(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetTrough(f32 arg1, f32 arg2);
 
     // 0x4BD320 | ?Switch@UIVScrollBar@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4BD300 | ?Update@UIVScrollBar@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4BD730 | ?DeclareFields@UIVScrollBar@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(UIVScrollBar, 0x10C);
 
 // 0x705C28 | ?UIVScrollBarMetaClass@@3VMetaClass@@A
-inline extern_var(0x705C28, class MetaClass, UIVScrollBarMetaClass);
+// ARTS_IMPORT extern class MetaClass UIVScrollBarMetaClass;

@@ -20,43 +20,5 @@ define_dummy_symbol(mmcar_splash);
 
 #include "splash.h"
 
-mmSplash::mmSplash()
-{
-    unimplemented();
-}
-
-mmSplash::~mmSplash()
-{
-    unimplemented();
-}
-
-void mmSplash::Activate(f32 arg1)
-{
-    return stub<thiscall_t<void, mmSplash*, f32>>(0x4811C0, this, arg1);
-}
-
-void mmSplash::AddWidgets(class Bank* arg1)
-{
-    return stub<thiscall_t<void, mmSplash*, class Bank*>>(0x481420, this, arg1);
-}
-
-void mmSplash::Init(class asInertialCS* arg1, class Vector3 arg2, class Vector3 arg3)
-{
-    return stub<thiscall_t<void, mmSplash*, class asInertialCS*, class Vector3, class Vector3>>(
-        0x481070, this, arg1, arg2, arg3);
-}
-
-void mmSplash::Reset()
-{
-    return stub<thiscall_t<void, mmSplash*>>(0x481060, this);
-}
-
-void mmSplash::Update()
-{
-    return stub<thiscall_t<void, mmSplash*>>(0x4811E0, this);
-}
-
-static void SplashCB(class mmSplash* arg1)
-{
-    return stub<cdecl_t<void, class mmSplash*>>(0x481050, arg1);
-}
+// 0x481050 | ?SplashCB@@YAXPAVmmSplash@@@Z
+ARTS_IMPORT /*static*/ void SplashCB(class mmSplash* arg1);

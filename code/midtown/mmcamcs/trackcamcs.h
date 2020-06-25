@@ -55,69 +55,69 @@ class TrackCamCS : public CarCamCS
 
 public:
     // 0x4F6A60 | ??0TrackCamCS@@QAE@XZ
-    TrackCamCS();
+    ARTS_IMPORT TrackCamCS();
 
     // 0x4F8F50 | ??_ETrackCamCS@@UAEPAXI@Z
     // 0x4F6D00 | ??1TrackCamCS@@UAE@XZ
-    ~TrackCamCS() override;
+    ARTS_IMPORT ~TrackCamCS() override;
 
     // 0x4F6DE0 | ?AddWidgets@TrackCamCS@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4F6D90 | ?AfterLoad@TrackCamCS@@UAEXXZ
-    void AfterLoad() override;
+    ARTS_IMPORT void AfterLoad() override;
 
     // 0x4F8F00 | ?GetClass@TrackCamCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4F6D50 | ?MakeActive@TrackCamCS@@UAEXXZ
-    void MakeActive() override;
+    ARTS_IMPORT void MakeActive() override;
 
     // 0x4F6DA0 | ?Reset@TrackCamCS@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4F8A70 | ?SwingToRear@TrackCamCS@@QAEXXZ
-    void SwingToRear();
+    ARTS_IMPORT void SwingToRear();
 
     // 0x4F7270 | ?Update@TrackCamCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4F7350 | ?UpdateInput@TrackCamCS@@UAEXXZ
-    void UpdateInput() override;
+    ARTS_IMPORT void UpdateInput() override;
 
     // 0x4F8BE0 | ?DeclareFields@TrackCamCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x4F85D0 | ?Collide@TrackCamCS@@AAEXVVector3@@@Z
-    void Collide(class Vector3 arg1);
+    ARTS_IMPORT void Collide(class Vector3 arg1);
 
     // 0x4F8AE0 | ?Front@TrackCamCS@@AAEXM@Z | unused
-    void Front(f32 arg1);
+    ARTS_IMPORT void Front(f32 arg1);
 
     // 0x4F8430 | ?MinMax@TrackCamCS@@AAEXVMatrix34@@@Z
-    void MinMax(class Matrix34 arg1);
+    ARTS_IMPORT void MinMax(class Matrix34 arg1);
 
     // 0x4F8230 | ?PreApproach@TrackCamCS@@AAEXXZ
-    void PreApproach();
+    ARTS_IMPORT void PreApproach();
 
     // 0x4F8B60 | ?Rear@TrackCamCS@@AAEXM@Z
-    void Rear(f32 arg1);
+    ARTS_IMPORT void Rear(f32 arg1);
 
     // 0x4F7360 | ?UpdateCar@TrackCamCS@@AAEXXZ
-    void UpdateCar();
+    ARTS_IMPORT void UpdateCar();
 
     // 0x4F7500 | ?UpdateHill@TrackCamCS@@AAEXXZ
-    void UpdateHill();
+    ARTS_IMPORT void UpdateHill();
 
     // 0x4F7E50 | ?UpdateSwing@TrackCamCS@@AAEXXZ
-    void UpdateSwing();
+    ARTS_IMPORT void UpdateSwing();
 
     // 0x4F7510 | ?UpdateTrack@TrackCamCS@@AAEXXZ
-    void UpdateTrack();
+    ARTS_IMPORT void UpdateTrack();
 };
 
 check_size(TrackCamCS, 0x324);
 
 // 0x719380 | ?TrackCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x719380, class MetaClass, TrackCamCSMetaClass);
+// ARTS_IMPORT extern class MetaClass TrackCamCSMetaClass;

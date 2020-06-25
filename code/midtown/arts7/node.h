@@ -170,7 +170,7 @@ public:
     VIRTUAL_META_DECLARE;
 
     // 0x790834 | ?TimingCount@asNode@@2HA
-    static inline extern_var(0x790834, i32, TimingCount);
+    ARTS_IMPORT static i32 TimingCount;
 
 private:
     float update_time_ {0.0f};
@@ -195,12 +195,11 @@ check_size(asNode, 0x20);
 
 // 0x5246B0 | ??_9@$BCM@AE (Skipped: void)
 
-// 0x790830 | ?DebugMemory@@3HA
-
 // 0x1 | SanityCheck in asSimulation::Simulate | -simdbg
 // 0x2 | SanityCheck in asNode::Update         | -updatememdbg
 // 0x4 | VerifyTree  in asNode::Update         | -updatedbg
-inline extern_var(0x790830, i32, DebugMemory);
+// 0x790830 | ?DebugMemory@@3HA
+ARTS_IMPORT extern i32 DebugMemory;
 
 // 0x790838 | ?asNodeMetaClass@@3VMetaClass@@A
-inline extern_var(0x790838, class MetaClass, asNodeMetaClass);
+// ARTS_IMPORT extern class MetaClass asNodeMetaClass;

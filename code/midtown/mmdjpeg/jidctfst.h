@@ -25,5 +25,5 @@
 */
 
 // 0x583D40 | ?jpeg_idct_ifast@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z
-void jpeg_idct_ifast(
+ARTS_IMPORT void jpeg_idct_ifast(
     struct jpeg_decompress_struct* arg1, struct jpeg_component_info* arg2, i16* arg3, u8** arg4, u32 arg5);

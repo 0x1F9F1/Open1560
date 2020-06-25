@@ -20,17 +20,5 @@ define_dummy_symbol(data7_memstat);
 
 #include "memstat.h"
 
-void BeginMemStat(char const* arg1)
-{
-    return stub<cdecl_t<void, char const*>>(0x578B20, arg1);
-}
-
-void EndMemStat()
-{
-    return stub<cdecl_t<void>>(0x578BB0);
-}
-
-static i32 getMem()
-{
-    return stub<cdecl_t<i32>>(0x578B80);
-}
+// 0x578B80 | ?getMem@@YAHXZ
+ARTS_IMPORT /*static*/ i32 getMem();

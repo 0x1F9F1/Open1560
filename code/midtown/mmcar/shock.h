@@ -40,29 +40,29 @@ class mmShock : public asLinearCS
 
 public:
     // 0x47D1F0 | ??0mmShock@@QAE@XZ
-    mmShock();
+    ARTS_IMPORT mmShock();
 
     // 0x47D420 | ??_EmmShock@@UAEPAXI@Z
     // 0x470380 | ??1mmShock@@UAE@XZ | inline
-    ~mmShock() override;
+    ARTS_IMPORT ~mmShock() override;
 
     // 0x47D280 | ?AddWidgets@mmShock@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x47D410 | ?GetClass@mmShock@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x47D210 | ?Init@mmShock@@QAEXPAD0PAVmmWheel@@@Z | unused
-    void Init(char* arg1, char* arg2, class mmWheel* arg3);
+    ARTS_IMPORT void Init(char* arg1, char* arg2, class mmWheel* arg3);
 
     // 0x47D270 | ?Update@mmShock@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x47D2A0 | ?DeclareFields@mmShock@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmShock, 0x98);
 
 // 0x6A8058 | ?mmShockMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A8058, class MetaClass, mmShockMetaClass);
+// ARTS_IMPORT extern class MetaClass mmShockMetaClass;

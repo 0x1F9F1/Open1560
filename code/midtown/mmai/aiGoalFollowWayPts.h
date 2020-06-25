@@ -57,79 +57,79 @@ struct aiGoalFollowWayPts : aiGoal
 
 public:
     // 0x4659B0 | ??0aiGoalFollowWayPts@@QAE@XZ
-    aiGoalFollowWayPts();
+    ARTS_IMPORT aiGoalFollowWayPts();
 
     // 0x465A10 | ??0aiGoalFollowWayPts@@QAE@PADPAVaiRailSet@@PAVaiVehicleOpponent@@PAF330M@Z
-    aiGoalFollowWayPts(char* arg1, class aiRailSet* arg2, class aiVehicleOpponent* arg3, i16* arg4, i16* arg5,
-        i16* arg6, char* arg7, f32 arg8);
+    ARTS_IMPORT aiGoalFollowWayPts(char* arg1, class aiRailSet* arg2, class aiVehicleOpponent* arg3, i16* arg4,
+        i16* arg5, i16* arg6, char* arg7, f32 arg8);
 
     // 0x46A310 | ??_EaiGoalFollowWayPts@@QAEPAXI@Z | unused
     // 0x466420 | ??1aiGoalFollowWayPts@@QAE@XZ
-    ~aiGoalFollowWayPts();
+    ARTS_IMPORT ~aiGoalFollowWayPts();
 
     // 0x46A2D0 | ?GetClass@aiGoalFollowWayPts@@UAEPAVMetaClass@@XZ
-    virtual class MetaClass* GetClass();
+    ARTS_IMPORT virtual class MetaClass* GetClass();
 
     // 0x46A0E0 | ?AddWidgets@aiGoalFollowWayPts@@QAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1);
+    ARTS_IMPORT void AddWidgets(class Bank* arg1);
 
     // 0x4668C0 | ?Context@aiGoalFollowWayPts@@UAEHXZ
-    i32 Context() override;
+    ARTS_IMPORT i32 Context() override;
 
     // 0x469E60 | ?Dump@aiGoalFollowWayPts@@QAEXXZ
-    void Dump();
+    ARTS_IMPORT void Dump();
 
     // 0x4664D0 | ?Init@aiGoalFollowWayPts@@UAEXXZ
-    void Init() override;
+    ARTS_IMPORT void Init() override;
 
     // 0x4669B0 | ?Priority@aiGoalFollowWayPts@@UAEHXZ
-    i32 Priority() override;
+    ARTS_IMPORT i32 Priority() override;
 
     // 0x4669C0 | ?Reset@aiGoalFollowWayPts@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x466AB0 | ?Update@aiGoalFollowWayPts@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x46A140 | ?DeclareFields@aiGoalFollowWayPts@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x468B00 | ?AddToBlockedRange@aiGoalFollowWayPts@@AAEXMMM@Z
-    void AddToBlockedRange(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void AddToBlockedRange(f32 arg1, f32 arg2, f32 arg3);
 
     // 0x468CA0 | ?AvoidCollision@aiGoalFollowWayPts@@AAEXH@Z
-    void AvoidCollision(i32 arg1);
+    ARTS_IMPORT void AvoidCollision(i32 arg1);
 
     // 0x467040 | ?AvoidOpponentCollision@aiGoalFollowWayPts@@AAEXPAVaiVehicleOpponent@@@Z
-    void AvoidOpponentCollision(class aiVehicleOpponent* arg1);
+    ARTS_IMPORT void AvoidOpponentCollision(class aiVehicleOpponent* arg1);
 
     // 0x469170 | ?CalcSpeed@aiGoalFollowWayPts@@AAEXXZ
-    void CalcSpeed();
+    ARTS_IMPORT void CalcSpeed();
 
     // 0x467E40 | ?DetRdSegBetweenInts@aiGoalFollowWayPts@@AAEPAVaiPath@@PAVaiIntersection@@0@Z
-    class aiPath* DetRdSegBetweenInts(class aiIntersection* arg1, class aiIntersection* arg2);
+    ARTS_IMPORT class aiPath* DetRdSegBetweenInts(class aiIntersection* arg1, class aiIntersection* arg2);
 
     // 0x467ED0 | ?DetectCollision@aiGoalFollowWayPts@@AAEHPAH@Z
-    i32 DetectCollision(i32* arg1);
+    ARTS_IMPORT i32 DetectCollision(i32* arg1);
 
     // 0x466EA0 | ?DetectOpponentCollision@aiGoalFollowWayPts@@AAEPAVaiVehicleOpponent@@XZ
-    class aiVehicleOpponent* DetectOpponentCollision();
+    ARTS_IMPORT class aiVehicleOpponent* DetectOpponentCollision();
 
     // 0x467D60 | ?LocateWayPtFromInt@aiGoalFollowWayPts@@AAEHPAVaiIntersection@@PAPAVaiPath@@@Z
-    i32 LocateWayPtFromInt(class aiIntersection* arg1, class aiPath** arg2);
+    ARTS_IMPORT i32 LocateWayPtFromInt(class aiIntersection* arg1, class aiPath** arg2);
 
     // 0x4676E0 | ?LocateWayPtFromRoad@aiGoalFollowWayPts@@AAEHPAVaiPath@@PAPAV2@1@Z
-    i32 LocateWayPtFromRoad(class aiPath* arg1, class aiPath** arg2, class aiPath** arg3);
+    ARTS_IMPORT i32 LocateWayPtFromRoad(class aiPath* arg1, class aiPath** arg2, class aiPath** arg3);
 
     // 0x4674B0 | ?PlanRoute@aiGoalFollowWayPts@@AAEXXZ
-    void PlanRoute();
+    ARTS_IMPORT void PlanRoute();
 
     // 0x469E10 | ?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ
-    void SolveTargetPoint();
+    ARTS_IMPORT void SolveTargetPoint();
 };
 
 check_size(aiGoalFollowWayPts, 0x18C);
 
 // 0x6A7C00 | ?aiGoalFollowWayPtsMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7C00, class MetaClass, aiGoalFollowWayPtsMetaClass);
+// ARTS_IMPORT extern class MetaClass aiGoalFollowWayPtsMetaClass;

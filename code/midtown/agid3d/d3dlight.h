@@ -39,20 +39,20 @@ class agiD3DLight : public agiLight
 
 public:
     // 0x5337A0 | ??0agiD3DLight@@QAE@PAVagiPipeline@@@Z
-    agiD3DLight(class agiPipeline* arg1);
+    ARTS_IMPORT agiD3DLight(class agiPipeline* arg1);
 
     // 0x5339C0 | ??_GagiD3DLight@@UAEPAXI@Z
     // 0x5337E0 | ??1agiD3DLight@@UAE@XZ
-    ~agiD3DLight() override;
+    ARTS_IMPORT ~agiD3DLight() override;
 
     // 0x533840 | ?BeginGfx@agiD3DLight@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x5338C0 | ?EndGfx@agiD3DLight@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x533910 | ?Update@agiD3DLight@@UAEHXZ
-    i32 Update() override;
+    ARTS_IMPORT i32 Update() override;
 };
 
 check_size(agiD3DLight, 0x8C);

@@ -54,10 +54,10 @@
 #include "game.h"
 
 // 0x416C90 | ?ThreadFunc@@YGKPAX@Z | unused
-u32 __stdcall ThreadFunc(void* arg1);
+ARTS_IMPORT u32 ARTS_STDCALL ThreadFunc(void* arg1);
 
 // 0x6A7110 | ?mmGameSingleMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7110, class MetaClass, mmGameSingleMetaClass);
+// ARTS_IMPORT extern class MetaClass mmGameSingleMetaClass;
 
 class mmGameSingle : public mmGame
 {
@@ -65,78 +65,78 @@ class mmGameSingle : public mmGame
 
 public:
     // 0x416CA0 | ??0mmGameSingle@@QAE@XZ
-    mmGameSingle();
+    ARTS_IMPORT mmGameSingle();
 
     // 0x418E60 | ??_EmmGameSingle@@UAEPAXI@Z
     // 0x416D30 | ??1mmGameSingle@@UAE@XZ
-    ~mmGameSingle() override;
+    ARTS_IMPORT ~mmGameSingle() override;
 
     // 0x4189E0 | ?AddWidgets@mmGameSingle@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x418D00 | ?GetClass@mmGameSingle@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x418ED0 | ?GetWaypoints@mmGameSingle@@UAEPAVmmWaypoints@@XZ | inline
-    class mmWaypoints* GetWaypoints() override;
+    ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
 
     // 0x4175A0 | ?HitWaterHandler@mmGameSingle@@UAEXXZ
-    void HitWaterHandler() override;
+    ARTS_IMPORT void HitWaterHandler() override;
 
     // 0x416DF0 | ?Init@mmGameSingle@@QAEHXZ
-    i32 Init();
+    ARTS_IMPORT i32 Init();
 
     // 0x417040 | ?InitGameObjects@mmGameSingle@@UAEXXZ
-    void InitGameObjects() override;
+    ARTS_IMPORT void InitGameObjects() override;
 
     // 0x416FE0 | ?InitHUD@mmGameSingle@@UAEXXZ
-    void InitHUD() override;
+    ARTS_IMPORT void InitHUD() override;
 
     // 0x416F70 | ?InitMyPlayer@mmGameSingle@@UAEXXZ
-    void InitMyPlayer() override;
+    ARTS_IMPORT void InitMyPlayer() override;
 
     // 0x417340 | ?InitOtherPlayers@mmGameSingle@@UAEXXZ
-    void InitOtherPlayers() override;
+    ARTS_IMPORT void InitOtherPlayers() override;
 
     // 0x418840 | ?NextRace@mmGameSingle@@UAEXXZ
-    void NextRace() override;
+    ARTS_IMPORT void NextRace() override;
 
     // 0x4173A0 | ?Reset@mmGameSingle@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x417640 | ?Update@mmGameSingle@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x418EC0 | ?UpdateDebugKeyInput@mmGameSingle@@UAEXH@Z | inline
-    void UpdateDebugKeyInput(i32 arg1) override;
+    ARTS_IMPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x4176A0 | ?UpdateGame@mmGameSingle@@UAEXXZ
-    void UpdateGame() override;
+    ARTS_IMPORT void UpdateGame() override;
 
     // 0x417660 | ?UpdateGameInput@mmGameSingle@@UAEXH@Z
-    void UpdateGameInput(i32 arg1) override;
+    ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
 
     // 0x417EF0 | ?UpdateScore@mmGameSingle@@QAEXXZ
-    void UpdateScore();
+    ARTS_IMPORT void UpdateScore();
 
     // 0x418B90 | ?DeclareFields@mmGameSingle@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x417530 | ?DisableRacers@mmGameSingle@@AAEXXZ
-    void DisableRacers();
+    ARTS_IMPORT void DisableRacers();
 
     // 0x4174A0 | ?EnableRacers@mmGameSingle@@AAEXXZ
-    void EnableRacers();
+    ARTS_IMPORT void EnableRacers();
 
     // 0x418270 | ?FinishMessage@mmGameSingle@@AAEXHH@Z
-    void FinishMessage(i32 arg1, i32 arg2);
+    ARTS_IMPORT void FinishMessage(i32 arg1, i32 arg2);
 
     // 0x4187F0 | ?ProgressCheck@mmGameSingle@@AAEHHH@Z
-    i32 ProgressCheck(i32 arg1, i32 arg2);
+    ARTS_IMPORT i32 ProgressCheck(i32 arg1, i32 arg2);
 
     // 0x4183F0 | ?RegisterFinish@mmGameSingle@@AAEHXZ
-    i32 RegisterFinish();
+    ARTS_IMPORT i32 RegisterFinish();
 };
 
 check_size(mmGameSingle, 0x1E5F0);

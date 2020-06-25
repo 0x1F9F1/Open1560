@@ -19,23 +19,3 @@
 define_dummy_symbol(mmui_vshow);
 
 #include "vshow.h"
-
-VehShowcase::VehShowcase(i32 arg1)
-{
-    unimplemented(arg1);
-}
-
-VehShowcase::~VehShowcase()
-{
-    unimplemented();
-}
-
-void VehShowcase::PostSetup()
-{
-    return stub<thiscall_t<void, VehShowcase*>>(0x4A5190, this);
-}
-
-void VehShowcase::PreSetup()
-{
-    return stub<thiscall_t<void, VehShowcase*>>(0x4A5120, this);
-}

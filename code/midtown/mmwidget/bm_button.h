@@ -62,94 +62,94 @@ class UIBMButton : public uiWidget
 
 public:
     // 0x4B60A0 | ??0UIBMButton@@QAE@XZ
-    UIBMButton();
+    ARTS_IMPORT UIBMButton();
 
     // 0x4B72B0 | ??_EUIBMButton@@UAEPAXI@Z
     // 0x4B6140 | ??1UIBMButton@@UAE@XZ
-    ~UIBMButton() override;
+    ARTS_IMPORT ~UIBMButton() override;
 
     // 0x4B69A0 | ?Action@UIBMButton@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4B64F0 | ?CreateDummyBitmap@UIBMButton@@QAEPAVagiBitmap@@XZ
-    class agiBitmap* CreateDummyBitmap();
+    ARTS_IMPORT class agiBitmap* CreateDummyBitmap();
 
     // 0x4B6D20 | ?Cull@UIBMButton@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4B7290 | ?Disable@UIBMButton@@UAEXXZ | inline
-    void Disable() override;
+    ARTS_IMPORT void Disable() override;
 
     // 0x4B6750 | ?DoToggle@UIBMButton@@QAEXXZ
-    void DoToggle();
+    ARTS_IMPORT void DoToggle();
 
     // 0x4B7270 | ?Enable@UIBMButton@@UAEXXZ | inline
-    void Enable() override;
+    ARTS_IMPORT void Enable() override;
 
     // 0x4B7260 | ?GetClass@UIBMButton@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4B64C0 | ?GetDiv@UIBMButton@@QAEHXZ
-    i32 GetDiv();
+    ARTS_IMPORT i32 GetDiv();
 
     // 0x4B66F0 | ?GetHitArea@UIBMButton@@QAEXAAM0@Z
-    void GetHitArea(f32& arg1, f32& arg2);
+    ARTS_IMPORT void GetHitArea(f32& arg1, f32& arg2);
 
     // 0x4B6D10 | ?GetScreenHeight@UIBMButton@@UAEMXZ
-    f32 GetScreenHeight() override;
+    ARTS_IMPORT f32 GetScreenHeight() override;
 
     // 0x4B61C0 | ?Init@UIBMButton@@QAEXPADMMHHPAHHHPAULocString@@VCallback@@3@Z
-    void Init(char* arg1, f32 arg2, f32 arg3, i32 arg4, i32 arg5, i32* arg6, i32 arg7, i32 arg8, struct LocString* arg9,
-        class Callback arg10, class Callback arg11);
+    ARTS_IMPORT void Init(char* arg1, f32 arg2, f32 arg3, i32 arg4, i32 arg5, i32* arg6, i32 arg7, i32 arg8,
+        struct LocString* arg9, class Callback arg10, class Callback arg11);
 
     // 0x4B6810 | ?Kill@UIBMButton@@QAEXXZ
-    void Kill();
+    ARTS_IMPORT void Kill();
 
     // 0x4B6450 | ?LoadBitmap@UIBMButton@@QAEXPAD@Z
-    void LoadBitmap(char* arg1);
+    ARTS_IMPORT void LoadBitmap(char* arg1);
 
     // 0x4B6A50 | ?MexOff@UIBMButton@@QAEXXZ
-    void MexOff();
+    ARTS_IMPORT void MexOff();
 
     // 0x4B6A60 | ?MexOn@UIBMButton@@QAEXXZ
-    void MexOn();
+    ARTS_IMPORT void MexOn();
 
     // 0x4B6AA0 | ?MexToggle@UIBMButton@@QAEXXZ | unused
-    void MexToggle();
+    ARTS_IMPORT void MexToggle();
 
     // 0x4B6C60 | ?ReturnDescription@UIBMButton@@UAEPADXZ
-    char* ReturnDescription() override;
+    ARTS_IMPORT char* ReturnDescription() override;
 
     // 0x4B6580 | ?SetPosition@UIBMButton@@UAEXMM@Z
-    void SetPosition(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2) override;
 
     // 0x4B6870 | ?Switch@UIBMButton@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4B6830 | ?Unkill@UIBMButton@@QAEXXZ
-    void Unkill();
+    ARTS_IMPORT void Unkill();
 
     // 0x4B6AD0 | ?Update@UIBMButton@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4B70F0 | ?DeclareFields@UIBMButton@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x4B6550 | ?GetSize@UIBMButton@@AAEXXZ
-    void GetSize();
+    ARTS_IMPORT void GetSize();
 
     // 0x4B70C0 | ?PlaySound@UIBMButton@@AAEXXZ
-    void PlaySound();
+    ARTS_IMPORT void PlaySound();
 
     // 0x4B6ED0 | ?AllocateSounds@UIBMButton@@CAXXZ
-    static void AllocateSounds();
+    ARTS_IMPORT static void AllocateSounds();
 
     // 0x705A08 | ?s_pSound@UIBMButton@@0PAVAudSound@@A
-    static inline extern_var(0x705A08, class AudSound*, s_pSound);
+    ARTS_IMPORT static class AudSound* s_pSound;
 };
 
 check_size(UIBMButton, 0xF0);
 
 // 0x7059D0 | ?UIBMButtonMetaClass@@3VMetaClass@@A
-inline extern_var(0x7059D0, class MetaClass, UIBMButtonMetaClass);
+// ARTS_IMPORT extern class MetaClass UIBMButtonMetaClass;

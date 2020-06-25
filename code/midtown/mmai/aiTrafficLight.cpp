@@ -19,39 +19,3 @@
 define_dummy_symbol(mmai_aiTrafficLight);
 
 #include "aiTrafficLight.h"
-
-aiTrafficLightSet::aiTrafficLightSet(class aiIntersection* arg1)
-{
-    unimplemented(arg1);
-}
-
-aiTrafficLightSet::~aiTrafficLightSet()
-{
-    unimplemented();
-}
-
-void aiTrafficLightSet::Reset()
-{
-    return stub<thiscall_t<void, aiTrafficLightSet*>>(0x4441B0, this);
-}
-
-void aiTrafficLightSet::Update()
-{
-    return stub<thiscall_t<void, aiTrafficLightSet*>>(0x444250, this);
-}
-
-aiTrafficLightInstance::~aiTrafficLightInstance()
-{
-    unimplemented();
-}
-
-void __fastcall aiTrafficLightInstance::Draw(i32 arg1)
-{
-    return stub<fastcall_t<void, aiTrafficLightInstance*, i32>>(0x444530, this, arg1);
-}
-
-i32 aiTrafficLightInstance::Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5)
-{
-    return stub<thiscall_t<i32, aiTrafficLightInstance*, char*, class Vector3&, class Vector3&, i32, char*>>(
-        0x444330, this, arg1, arg2, arg3, arg4, arg5);
-}

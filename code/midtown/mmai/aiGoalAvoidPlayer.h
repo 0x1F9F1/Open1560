@@ -41,32 +41,32 @@ struct aiGoalAvoidPlayer : aiGoal
 
 public:
     // 0x46A370 | ??0aiGoalAvoidPlayer@@QAE@PAVaiRailSet@@PAVaiVehicleAmbient@@@Z
-    aiGoalAvoidPlayer(class aiRailSet* arg1, class aiVehicleAmbient* arg2);
+    ARTS_IMPORT aiGoalAvoidPlayer(class aiRailSet* arg1, class aiVehicleAmbient* arg2);
 
     // 0x46A3A0 | ??1aiGoalAvoidPlayer@@QAE@XZ
-    ~aiGoalAvoidPlayer();
+    ARTS_IMPORT ~aiGoalAvoidPlayer();
 
     // 0x46A970 | ?Context@aiGoalAvoidPlayer@@UAEHXZ
-    i32 Context() override;
+    ARTS_IMPORT i32 Context() override;
 
     // 0x46A9A0 | ?Dump@aiGoalAvoidPlayer@@QAEXXZ
-    void Dump();
+    ARTS_IMPORT void Dump();
 
     // 0x46A3B0 | ?Init@aiGoalAvoidPlayer@@UAEXXZ
-    void Init() override;
+    ARTS_IMPORT void Init() override;
 
     // 0x46A990 | ?Priority@aiGoalAvoidPlayer@@UAEHXZ
-    i32 Priority() override;
+    ARTS_IMPORT i32 Priority() override;
 
     // 0x46A3C0 | ?Reset@aiGoalAvoidPlayer@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x46A530 | ?Update@aiGoalAvoidPlayer@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
 private:
     // 0x46A700 | ?AvoidPlayer@aiGoalAvoidPlayer@@AAEXXZ
-    void AvoidPlayer();
+    ARTS_IMPORT void AvoidPlayer();
 };
 
 check_size(aiGoalAvoidPlayer, 0x1C);

@@ -32,23 +32,23 @@
 */
 
 // 0x564A70 | ?frand@@YAMXZ
-f32 frand();
+ARTS_IMPORT f32 frand();
 
 // 0x564A90 | ?frand@@YAMH@Z | unused
-f32 frand(i32 arg1);
+ARTS_IMPORT f32 frand(i32 arg1);
 
 // 0x564A30 | ?irand@@YAHXZ
-i32 irand();
+ARTS_IMPORT i32 irand();
 
 // 0x564A00 | ?irand@@YAHH@Z
-i32 irand(i32 arg1);
+ARTS_IMPORT i32 irand(i32 arg1);
 
 // 0x909448 | ?LogRandomCalls@@3P6AXXZA
-inline extern_var(0x909448, void (*)(void), LogRandomCalls);
+ARTS_IMPORT extern void (*LogRandomCalls)(void);
 
 // 0x564AB0 | _rand (Skipped: void)
 
 // 0x564AC0 | _srand (Skipped: void)
 
 // 0x658A60 | ?gRandSeed@@3HA
-inline extern_var(0x658A60, i32, gRandSeed);
+ARTS_IMPORT extern i32 gRandSeed;

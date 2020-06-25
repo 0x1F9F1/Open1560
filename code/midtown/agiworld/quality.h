@@ -25,4 +25,4 @@
 */
 
 // 0x64ACD8 | ?agiRQ@@3UagiWorldRenderQuality@@A
-inline extern_var(0x64ACD8, struct agiWorldRenderQuality, agiRQ);
+ARTS_IMPORT extern struct agiWorldRenderQuality agiRQ;

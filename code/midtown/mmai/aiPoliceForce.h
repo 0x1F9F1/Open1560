@@ -35,28 +35,28 @@ struct aiPoliceForce
 {
 public:
     // 0x44E7E0 | ??0aiPoliceForce@@QAE@XZ
-    aiPoliceForce();
+    ARTS_IMPORT aiPoliceForce();
 
     // 0x44E800 | ??1aiPoliceForce@@QAE@XZ
-    ~aiPoliceForce();
+    ARTS_IMPORT ~aiPoliceForce();
 
     // 0x44E860 | ?Find@aiPoliceForce@@QAEHPAVmmCar@@0@Z
-    i32 Find(class mmCar* arg1, class mmCar* arg2);
+    ARTS_IMPORT i32 Find(class mmCar* arg1, class mmCar* arg2);
 
     // 0x44E8D0 | ?RegisterPerp@aiPoliceForce@@QAEHPAVmmCar@@0@Z
-    i32 RegisterPerp(class mmCar* arg1, class mmCar* arg2);
+    ARTS_IMPORT i32 RegisterPerp(class mmCar* arg1, class mmCar* arg2);
 
     // 0x44E810 | ?Reset@aiPoliceForce@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 
     // 0x44EA60 | ?State@aiPoliceForce@@QAEHPAVmmCar@@0M@Z
-    i32 State(class mmCar* arg1, class mmCar* arg2, f32 arg3);
+    ARTS_IMPORT i32 State(class mmCar* arg1, class mmCar* arg2, f32 arg3);
 
     // 0x44E970 | ?UnRegisterCop@aiPoliceForce@@QAEHPAVmmCar@@0@Z
-    i32 UnRegisterCop(class mmCar* arg1, class mmCar* arg2);
+    ARTS_IMPORT i32 UnRegisterCop(class mmCar* arg1, class mmCar* arg2);
 
     // 0x44E850 | ?Update@aiPoliceForce@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 };
 
 check_size(aiPoliceForce, 0x3C);

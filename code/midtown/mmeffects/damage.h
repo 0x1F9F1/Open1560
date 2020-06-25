@@ -32,19 +32,19 @@ struct mmDamage
 {
 public:
     // 0x502220 | ??0mmDamage@@QAE@XZ
-    mmDamage();
+    ARTS_IMPORT mmDamage();
 
     // 0x502230 | ??1mmDamage@@QAE@XZ
-    ~mmDamage();
+    ARTS_IMPORT ~mmDamage();
 
     // 0x502470 | ?Apply@mmDamage@@QAEXAAVVector3@@M@Z
-    void Apply(class Vector3& arg1, f32 arg2);
+    ARTS_IMPORT void Apply(class Vector3& arg1, f32 arg2);
 
     // 0x502240 | ?Init@mmDamage@@QAEXPAVagiMeshSet@@@Z
-    void Init(class agiMeshSet* arg1);
+    ARTS_IMPORT void Init(class agiMeshSet* arg1);
 
     // 0x502420 | ?Reset@mmDamage@@QAEXH@Z
-    void Reset(i32 arg1);
+    ARTS_IMPORT void Reset(i32 arg1);
 };
 
 check_size(mmDamage, 0x0);

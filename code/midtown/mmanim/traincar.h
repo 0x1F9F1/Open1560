@@ -40,27 +40,27 @@ class mmAnimTrainCar : public mmMatrixInstance
 
 public:
     // 0x4C8030 | ??0mmAnimTrainCar@@QAE@XZ
-    mmAnimTrainCar();
+    ARTS_IMPORT mmAnimTrainCar();
 
     // 0x4C7060 | ??_EmmAnimTrainCar@@UAEPAXI@Z
     // 0x4C8190 | ??_GmmAnimTrainCar@@UAEPAXI@Z | unused
     // 0x4C8050 | ??1mmAnimTrainCar@@UAE@XZ
-    ~mmAnimTrainCar() override;
+    ARTS_IMPORT ~mmAnimTrainCar() override;
 
     // 0x4C8100 | ?Draw@mmAnimTrainCar@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x4C8060 | ?Init@mmAnimTrainCar@@QAEXPAD0@Z
-    void Init(char* arg1, char* arg2);
+    ARTS_IMPORT void Init(char* arg1, char* arg2);
 
     // 0x4C8150 | ?Reset@mmAnimTrainCar@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4C80E0 | ?SetMatrix@mmAnimTrainCar@@QAEXAAVMatrix34@@@Z
-    void SetMatrix(class Matrix34& arg1);
+    ARTS_IMPORT void SetMatrix(class Matrix34& arg1);
 
     // 0x4C8160 | ?SetStart@mmAnimTrainCar@@QAEXMM@Z
-    void SetStart(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetStart(f32 arg1, f32 arg2);
 };
 
 check_size(mmAnimTrainCar, 0x58);

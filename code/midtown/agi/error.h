@@ -27,10 +27,10 @@
 */
 
 // 0x55BE80 | ?agiDisplayf@@YAXPBDZZ
-void agiDisplayf(char const* arg1, ...);
+ARTS_IMPORT void agiDisplayf(char const* arg1, ...);
 
 // 0x55BE20 | ?agiGetError@@YAPADH@Z
-char* agiGetError(i32 arg1);
+ARTS_IMPORT char* agiGetError(i32 arg1);
 
 // 0x907230 | ?agiVerbose@@3HA
-inline extern_var(0x907230, i32, agiVerbose);
+ARTS_IMPORT extern i32 agiVerbose;

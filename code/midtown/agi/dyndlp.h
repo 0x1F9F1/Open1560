@@ -36,12 +36,12 @@ class DynamicDLP
 
 public:
     // 0x55E5B0 | ??0DynamicDLP@@QAE@H@Z
-    DynamicDLP(i32 arg1);
+    ARTS_IMPORT DynamicDLP(i32 arg1);
 
 protected:
     // 0x55E880 | ??_EDynamicDLP@@MAEPAXI@Z
     // 0x55E5E0 | ??1DynamicDLP@@MAE@XZ
-    virtual ~DynamicDLP();
+    ARTS_IMPORT virtual ~DynamicDLP();
 
 public:
     virtual i32 Init(char* arg1) = 0;
@@ -53,10 +53,10 @@ public:
     virtual void SetTexture(i16 arg1) = 0;
 
     // 0x55E620 | ?InitOffsets@DynamicDLP@@QAEHPAVDLP@@PAD@Z
-    i32 InitOffsets(class DLP* arg1, char* arg2);
+    ARTS_IMPORT i32 InitOffsets(class DLP* arg1, char* arg2);
 
     // 0x55E600 | ?Release@DynamicDLP@@QAEHXZ | unused
-    i32 Release();
+    ARTS_IMPORT i32 Release();
 };
 
 check_size(DynamicDLP, 0x0);

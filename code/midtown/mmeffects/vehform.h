@@ -39,27 +39,27 @@ class mmVehicleForm : public asNode
 
 public:
     // 0x5026B0 | ??0mmVehicleForm@@QAE@XZ
-    mmVehicleForm();
+    ARTS_IMPORT mmVehicleForm();
 
     // 0x49C440 | ??_EmmVehicleForm@@UAEPAXI@Z
     // 0x502900 | ??_GmmVehicleForm@@UAEPAXI@Z | unused
     // 0x49C4A0 | ??1mmVehicleForm@@UAE@XZ | inline
-    ~mmVehicleForm() override;
+    ARTS_IMPORT ~mmVehicleForm() override;
 
     // 0x5027A0 | ?Cull@mmVehicleForm@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x502710 | ?SetShape@mmVehicleForm@@QAEXPAD00PAVVector3@@@Z
-    void SetShape(char* arg1, char* arg2, char* arg3, class Vector3* arg4);
+    ARTS_IMPORT void SetShape(char* arg1, char* arg2, char* arg3, class Vector3* arg4);
 
     // 0x502780 | ?Update@mmVehicleForm@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x64A348 | ?Lighter@mmVehicleForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    static inline extern_var(0x64A348, void (*)(u8*, u32*, u32*, class agiMeshSet*), Lighter);
+    ARTS_IMPORT static void (*Lighter)(u8*, u32*, u32*, class agiMeshSet*);
 
     // 0x719610 | ?SphMapTex@mmVehicleForm@@2PAVagiTexDef@@A
-    static inline extern_var(0x719610, class agiTexDef*, SphMapTex);
+    ARTS_IMPORT static class agiTexDef* SphMapTex;
 };
 
 check_size(mmVehicleForm, 0x54);

@@ -47,70 +47,70 @@
 */
 
 // 0x790D18 | ?CloseColor@@3VVector3@@A
-inline extern_var(0x790D18, class Vector3, CloseColor);
+ARTS_IMPORT extern class Vector3 CloseColor;
 
 // 0x790CD8 | ?CollTestColor@@3VVector3@@A
-inline extern_var(0x790CD8, class Vector3, CollTestColor);
+ARTS_IMPORT extern class Vector3 CollTestColor;
 
 // 0x64E358 | ?DynaDrawMode@@3HA
-inline extern_var(0x64E358, i32, DynaDrawMode);
+ARTS_IMPORT extern i32 DynaDrawMode;
 
 // 0x64E35C | ?DynaDrawScale@@3MA
-inline extern_var(0x64E35C, f32, DynaDrawScale);
+ARTS_IMPORT extern f32 DynaDrawScale;
 
 // 0x790D68 | ?FluidColor@@3VVector3@@A
-inline extern_var(0x790D68, class Vector3, FluidColor);
+ARTS_IMPORT extern class Vector3 FluidColor;
 
 // 0x790D48 | ?ForceColor@@3VVector3@@A
-inline extern_var(0x790D48, class Vector3, ForceColor);
+ARTS_IMPORT extern class Vector3 ForceColor;
 
 // 0x790D58 | ?HitColor@@3VVector3@@A
-inline extern_var(0x790D58, class Vector3, HitColor);
+ARTS_IMPORT extern class Vector3 HitColor;
 
 // 0x790D78 | ?ImpulseColor@@3VVector3@@A
-inline extern_var(0x790D78, class Vector3, ImpulseColor);
+ARTS_IMPORT extern class Vector3 ImpulseColor;
 
 // 0x790D88 | ?MissColor@@3VVector3@@A
-inline extern_var(0x790D88, class Vector3, MissColor);
+ARTS_IMPORT extern class Vector3 MissColor;
 
 // 0x790CF8 | ?NormalColor@@3VVector3@@A
-inline extern_var(0x790CF8, class Vector3, NormalColor);
+ARTS_IMPORT extern class Vector3 NormalColor;
 
 // 0x790CE8 | ?PushColor@@3VVector3@@A
-inline extern_var(0x790CE8, class Vector3, PushColor);
+ARTS_IMPORT extern class Vector3 PushColor;
 
 // 0x790DC0 | ?SegVCPoly@@3HA
-inline extern_var(0x790DC0, i32, SegVCPoly);
+ARTS_IMPORT extern i32 SegVCPoly;
 
 // 0x790DB8 | ?SegVCyl@@3HA
-inline extern_var(0x790DB8, i32, SegVCyl);
+ARTS_IMPORT extern i32 SegVCyl;
 
 // 0x790DBC | ?SegVPoly@@3HA
-inline extern_var(0x790DBC, i32, SegVPoly);
+ARTS_IMPORT extern i32 SegVPoly;
 
 // 0x790DB4 | ?SegVSph@@3HA
-inline extern_var(0x790DB4, i32, SegVSph);
+ARTS_IMPORT extern i32 SegVSph;
 
 // 0x790DB0 | ?SphVCPoly@@3HA
-inline extern_var(0x790DB0, i32, SphVCPoly);
+ARTS_IMPORT extern i32 SphVCPoly;
 
 // 0x790DA8 | ?SphVCyl@@3HA
-inline extern_var(0x790DA8, i32, SphVCyl);
+ARTS_IMPORT extern i32 SphVCyl;
 
 // 0x790DAC | ?SphVPoly@@3HA
-inline extern_var(0x790DAC, i32, SphVPoly);
+ARTS_IMPORT extern i32 SphVPoly;
 
 // 0x790DA4 | ?SphVSph@@3HA
-inline extern_var(0x790DA4, i32, SphVSph);
+ARTS_IMPORT extern i32 SphVSph;
 
 // 0x790D28 | ?SpringColor@@3VVector3@@A
-inline extern_var(0x790D28, class Vector3, SpringColor);
+ARTS_IMPORT extern class Vector3 SpringColor;
 
 // 0x790D08 | ?TestColor@@3VVector3@@A
-inline extern_var(0x790D08, class Vector3, TestColor);
+ARTS_IMPORT extern class Vector3 TestColor;
 
 // 0x790D38 | ?TorqueColor@@3VVector3@@A
-inline extern_var(0x790D38, class Vector3, TorqueColor);
+ARTS_IMPORT extern class Vector3 TorqueColor;
 
 // 0x790D98 | ?VolumeColor@@3VVector3@@A
-inline extern_var(0x790D98, class Vector3, VolumeColor);
+ARTS_IMPORT extern class Vector3 VolumeColor;

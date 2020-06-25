@@ -19,38 +19,3 @@
 define_dummy_symbol(mmphysics_osample);
 
 #include "osample.h"
-
-asOverSample::asOverSample()
-{
-    unimplemented();
-}
-
-asOverSample::~asOverSample()
-{
-    unimplemented();
-}
-
-void asOverSample::AddWidgets(class Bank* arg1)
-{
-    return stub<thiscall_t<void, asOverSample*, class Bank*>>(0x4DEE30, this, arg1);
-}
-
-class MetaClass* asOverSample::GetClass()
-{
-    return stub<thiscall_t<class MetaClass*, asOverSample*>>(0x4DF060, this);
-}
-
-void asOverSample::RealTime(f32 arg1)
-{
-    return stub<thiscall_t<void, asOverSample*, f32>>(0x4DED50, this, arg1);
-}
-
-void asOverSample::Update()
-{
-    return stub<thiscall_t<void, asOverSample*>>(0x4DED70, this);
-}
-
-void asOverSample::DeclareFields()
-{
-    return stub<cdecl_t<void>>(0x4DEEE0);
-}

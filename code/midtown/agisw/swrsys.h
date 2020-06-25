@@ -48,47 +48,47 @@ class agiSWRasterizer : public agiRasterizer
 
 public:
     // 0x537BB0 | ??0agiSWRasterizer@@QAE@PAVagiPipeline@@@Z
-    agiSWRasterizer(class agiPipeline* arg1);
+    ARTS_IMPORT agiSWRasterizer(class agiPipeline* arg1);
 
     // 0x537DC0 | ??_GagiSWRasterizer@@UAEPAXI@Z
     // 0x537BD0 | ??1agiSWRasterizer@@UAE@XZ
-    ~agiSWRasterizer() override;
+    ARTS_IMPORT ~agiSWRasterizer() override;
 
     // 0x537BE0 | ?BeginGfx@agiSWRasterizer@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x537C00 | ?BeginGroup@agiSWRasterizer@@UAEXXZ
-    void BeginGroup() override;
+    ARTS_IMPORT void BeginGroup() override;
 
     // 0x537CF0 | ?Card@agiSWRasterizer@@UAEXHH@Z
-    void Card(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Card(i32 arg1, i32 arg2) override;
 
     // 0x537BF0 | ?EndGfx@agiSWRasterizer@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x537C10 | ?EndGroup@agiSWRasterizer@@UAEXXZ
-    void EndGroup() override;
+    ARTS_IMPORT void EndGroup() override;
 
     // 0x537CB0 | ?Line@agiSWRasterizer@@UAEXHH@Z
-    void Line(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Line(i32 arg1, i32 arg2) override;
 
     // 0x537D10 | ?Mesh@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
-    void Mesh(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3, u16* arg4, i32 arg5) override;
+    ARTS_IMPORT void Mesh(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3, u16* arg4, i32 arg5) override;
 
     // 0x537D00 | ?Points@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
+    ARTS_IMPORT void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
 
     // 0x537C70 | ?Quad@agiSWRasterizer@@UAEXHHHH@Z
-    void Quad(i32 arg1, i32 arg2, i32 arg3, i32 arg4) override;
+    ARTS_IMPORT void Quad(i32 arg1, i32 arg2, i32 arg3, i32 arg4) override;
 
     // 0x537C30 | ?SetVertCount@agiSWRasterizer@@UAEXH@Z
-    void SetVertCount(i32 arg1) override;
+    ARTS_IMPORT void SetVertCount(i32 arg1) override;
 
     // 0x537C40 | ?Triangle@agiSWRasterizer@@UAEXHHH@Z
-    void Triangle(i32 arg1, i32 arg2, i32 arg3) override;
+    ARTS_IMPORT void Triangle(i32 arg1, i32 arg2, i32 arg3) override;
 
     // 0x537C20 | ?Verts@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    void Verts(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
+    ARTS_IMPORT void Verts(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
 };
 
 check_size(agiSWRasterizer, 0x18);

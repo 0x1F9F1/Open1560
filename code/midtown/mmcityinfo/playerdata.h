@@ -72,36 +72,36 @@ class mmPlayerRecord : public mmInfoBase
 
 public:
     // 0x4CFC30 | ??0mmPlayerRecord@@QAE@XZ
-    mmPlayerRecord();
+    ARTS_IMPORT mmPlayerRecord();
 
     // 0x414A50 | ??0mmPlayerRecord@@QAE@ABV0@@Z | inline
-    mmPlayerRecord(class mmPlayerRecord const& arg1);
+    ARTS_IMPORT mmPlayerRecord(class mmPlayerRecord const& arg1);
 
     // 0x4D11F0 | ??_EmmPlayerRecord@@UAEPAXI@Z
     // 0x414B00 | ??_GmmPlayerRecord@@UAEPAXI@Z | unused
     // 0x4CFC50 | ??1mmPlayerRecord@@UAE@XZ
-    ~mmPlayerRecord() override;
+    ARTS_IMPORT ~mmPlayerRecord() override;
 
     // 0x4CFC90 | ??4mmPlayerRecord@@QAEXAAV0@@Z
-    void operator=(class mmPlayerRecord& arg1);
+    ARTS_IMPORT void operator=(class mmPlayerRecord& arg1);
 
     // 0x4CFCE0 | ?ComputeCRC@mmPlayerRecord@@QAEIXZ
-    u32 ComputeCRC();
+    ARTS_IMPORT u32 ComputeCRC();
 
     // 0x4D0010 | ?GetClass@mmPlayerRecord@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4CFDC0 | ?LoadBinary@mmPlayerRecord@@QAEHPAVStream@@@Z
-    i32 LoadBinary(class Stream* arg1);
+    ARTS_IMPORT i32 LoadBinary(class Stream* arg1);
 
     // 0x4CFC60 | ?Reset@mmPlayerRecord@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 
     // 0x4CFD40 | ?SaveBinary@mmPlayerRecord@@QAEHPAVStream@@@Z
-    i32 SaveBinary(class Stream* arg1);
+    ARTS_IMPORT i32 SaveBinary(class Stream* arg1);
 
     // 0x4CFE40 | ?DeclareFields@mmPlayerRecord@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmPlayerRecord, 0xE4);
@@ -112,99 +112,99 @@ class mmPlayerData : public mmInfoBase
 
 public:
     // 0x4D0020 | ??0mmPlayerData@@QAE@XZ
-    mmPlayerData();
+    ARTS_IMPORT mmPlayerData();
 
     // 0x4D1250 | ??_EmmPlayerData@@UAEPAXI@Z
     // 0x4CBBE0 | ??_GmmPlayerData@@UAEPAXI@Z | unused
     // 0x4CBB40 | ??1mmPlayerData@@UAE@XZ | inline
-    ~mmPlayerData() override;
+    ARTS_IMPORT ~mmPlayerData() override;
 
     // 0x4D0140 | ??4mmPlayerData@@QAEXAAV0@@Z | unused
-    void operator=(class mmPlayerData& arg1);
+    ARTS_IMPORT void operator=(class mmPlayerData& arg1);
 
     // 0x4D09E0 | ?ComputeCRC@mmPlayerData@@QAEIXZ
-    u32 ComputeCRC();
+    ARTS_IMPORT u32 ComputeCRC();
 
     // 0x4D02B0 | ?GetBlitzMask@mmPlayerData@@QAEHXZ
-    i32 GetBlitzMask();
+    ARTS_IMPORT i32 GetBlitzMask();
 
     // 0x4D0340 | ?GetBlitzPassed@mmPlayerData@@QAEHXZ
-    i32 GetBlitzPassed();
+    ARTS_IMPORT i32 GetBlitzPassed();
 
     // 0x4D02E0 | ?GetCheckpointMask@mmPlayerData@@QAEHXZ
-    i32 GetCheckpointMask();
+    ARTS_IMPORT i32 GetCheckpointMask();
 
     // 0x4D0360 | ?GetCheckpointPassed@mmPlayerData@@QAEHXZ
-    i32 GetCheckpointPassed();
+    ARTS_IMPORT i32 GetCheckpointPassed();
 
     // 0x4D0290 | ?GetCheckpointProgress@mmPlayerData@@QAEHH@Z
-    i32 GetCheckpointProgress(i32 arg1);
+    ARTS_IMPORT i32 GetCheckpointProgress(i32 arg1);
 
     // 0x4D0310 | ?GetCircuitMask@mmPlayerData@@QAEHXZ
-    i32 GetCircuitMask();
+    ARTS_IMPORT i32 GetCircuitMask();
 
     // 0x4D0380 | ?GetCircuitPassed@mmPlayerData@@QAEHXZ
-    i32 GetCircuitPassed();
+    ARTS_IMPORT i32 GetCircuitPassed();
 
     // 0x4D11E0 | ?GetClass@mmPlayerData@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4D0900 | ?GetFileName@mmPlayerData@@QAEPADXZ
-    char* GetFileName();
+    ARTS_IMPORT char* GetFileName();
 
     // 0x4D0860 | ?GetName@mmPlayerData@@QAEPADXZ
-    char* GetName();
+    ARTS_IMPORT char* GetName();
 
     // 0x4D08B0 | ?GetNetName@mmPlayerData@@QAEPADXZ
-    char* GetNetName();
+    ARTS_IMPORT char* GetNetName();
 
     // 0x4D03A0 | ?GetTotalPassed@mmPlayerData@@QAEHXZ
-    i32 GetTotalPassed();
+    ARTS_IMPORT i32 GetTotalPassed();
 
     // 0x4D03C0 | ?GetTotalScore@mmPlayerData@@QAEHXZ
-    i32 GetTotalScore();
+    ARTS_IMPORT i32 GetTotalScore();
 
     // 0x4D0910 | ?Load@mmPlayerData@@QAEHPAD@Z
-    i32 Load(char* arg1);
+    ARTS_IMPORT i32 Load(char* arg1);
 
     // 0x4D0A90 | ?LoadBinary@mmPlayerData@@QAEHPAD@Z
-    i32 LoadBinary(char* arg1);
+    ARTS_IMPORT i32 LoadBinary(char* arg1);
 
     // 0x4D04A0 | ?RegisterFinish@mmPlayerData@@QAEHVmmPlayerRecord@@HH@Z
-    i32 RegisterFinish(class mmPlayerRecord arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT i32 RegisterFinish(class mmPlayerRecord arg1, i32 arg2, i32 arg3);
 
     // 0x4D0280 | ?RegisterFinish@mmPlayerData@@QAEHHMD@Z | unused
-    i32 RegisterFinish(i32 arg1, f32 arg2, char arg3);
+    ARTS_IMPORT i32 RegisterFinish(i32 arg1, f32 arg2, char arg3);
 
     // 0x4D0750 | ?Reset@mmPlayerData@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 
     // 0x4D0410 | ?ResolveCheckpointProgress@mmPlayerData@@QAEXXZ
-    void ResolveCheckpointProgress();
+    ARTS_IMPORT void ResolveCheckpointProgress();
 
     // 0x4D0940 | ?Save@mmPlayerData@@QAEHPADH@Z
-    i32 Save(char* arg1, i32 arg2);
+    ARTS_IMPORT i32 Save(char* arg1, i32 arg2);
 
     // 0x4D0CF0 | ?SaveBinary@mmPlayerData@@QAEHPAD@Z
-    i32 SaveBinary(char* arg1);
+    ARTS_IMPORT i32 SaveBinary(char* arg1);
 
     // 0x4D08C0 | ?SetFileName@mmPlayerData@@QAEXPAD@Z
-    void SetFileName(char* arg1);
+    ARTS_IMPORT void SetFileName(char* arg1);
 
     // 0x4D0820 | ?SetName@mmPlayerData@@QAEXPAD@Z
-    void SetName(char* arg1);
+    ARTS_IMPORT void SetName(char* arg1);
 
     // 0x4D0870 | ?SetNetName@mmPlayerData@@QAEXPAD@Z
-    void SetNetName(char* arg1);
+    ARTS_IMPORT void SetNetName(char* arg1);
 
     // 0x4D0F00 | ?DeclareFields@mmPlayerData@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmPlayerData, 0x2178);
 
 // 0x708570 | ?mmPlayerDataMetaClass@@3VMetaClass@@A
-inline extern_var(0x708570, class MetaClass, mmPlayerDataMetaClass);
+// ARTS_IMPORT extern class MetaClass mmPlayerDataMetaClass;
 
 // 0x708598 | ?mmPlayerRecordMetaClass@@3VMetaClass@@A
-inline extern_var(0x708598, class MetaClass, mmPlayerRecordMetaClass);
+// ARTS_IMPORT extern class MetaClass mmPlayerRecordMetaClass;

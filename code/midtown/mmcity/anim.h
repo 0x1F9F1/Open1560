@@ -35,31 +35,31 @@ class mmAnimation
 {
 public:
     // 0x497EB0 | ?Load@mmAnimation@@QAEXPADPAVStream@@@Z
-    void Load(char* arg1, class Stream* arg2);
+    ARTS_IMPORT void Load(char* arg1, class Stream* arg2);
 
     // 0x497E50 | ?LookupSequence@mmAnimation@@QAEHPAD@Z
-    i32 LookupSequence(char* arg1);
+    ARTS_IMPORT i32 LookupSequence(char* arg1);
 };
 
 check_size(mmAnimation, 0x0);
 
 // 0x498700 | ?GetAnimation@@YAPAVmmAnimation@@PAD@Z
-class mmAnimation* GetAnimation(char* arg1);
+ARTS_IMPORT class mmAnimation* GetAnimation(char* arg1);
 
 struct mmAnimInstState
 {
 public:
     // 0x498880 | ?Update@mmAnimInstState@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x498830 | ?PreUpdate@mmAnimInstState@@SAXM@Z
-    static void PreUpdate(f32 arg1);
+    ARTS_IMPORT static void PreUpdate(f32 arg1);
 
     // 0x7057B4 | ?FrameDelta@mmAnimInstState@@2HA
-    static inline extern_var(0x7057B4, i32, FrameDelta);
+    ARTS_IMPORT static i32 FrameDelta;
 
     // 0x7057B0 | ?FrameFraction@mmAnimInstState@@2MA
-    static inline extern_var(0x7057B0, f32, FrameFraction);
+    ARTS_IMPORT static f32 FrameFraction;
 };
 
 check_size(mmAnimInstState, 0x0);

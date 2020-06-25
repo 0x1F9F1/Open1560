@@ -47,50 +47,50 @@ class PointCamCS : public CarCamCS
 
 public:
     // 0x4F9E20 | ??0PointCamCS@@QAE@XZ
-    PointCamCS();
+    ARTS_IMPORT PointCamCS();
 
     // 0x4FA430 | ??_EPointCamCS@@UAEPAXI@Z
     // 0x42D2D0 | ??1PointCamCS@@UAE@XZ | inline
-    ~PointCamCS() override;
+    ARTS_IMPORT ~PointCamCS() override;
 
     // 0x4FA3F0 | ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4F9F70 | ?GetPos@PointCamCS@@QAE?AVVector3@@XZ | unused
-    class Vector3 GetPos();
+    ARTS_IMPORT class Vector3 GetPos();
 
     // 0x4F9E50 | ?Init@PointCamCS@@QAEXPAVmmCar@@@Z
-    void Init(class mmCar* arg1);
+    ARTS_IMPORT void Init(class mmCar* arg1);
 
     // 0x4F9E90 | ?MakeActive@PointCamCS@@UAEXXZ
-    void MakeActive() override;
+    ARTS_IMPORT void MakeActive() override;
 
     // 0x4F9E80 | ?Reset@PointCamCS@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4F9F40 | ?SetAppRate@PointCamCS@@QAEXM@Z
-    void SetAppRate(f32 arg1);
+    ARTS_IMPORT void SetAppRate(f32 arg1);
 
     // 0x4F9F00 | ?SetMaxDist@PointCamCS@@QAEXM@Z
-    void SetMaxDist(f32 arg1);
+    ARTS_IMPORT void SetMaxDist(f32 arg1);
 
     // 0x4F9F20 | ?SetMinDist@PointCamCS@@QAEXM@Z
-    void SetMinDist(f32 arg1);
+    ARTS_IMPORT void SetMinDist(f32 arg1);
 
     // 0x4F9EC0 | ?SetPos@PointCamCS@@QAEXAAVVector3@@@Z
-    void SetPos(class Vector3& arg1);
+    ARTS_IMPORT void SetPos(class Vector3& arg1);
 
     // 0x4F9F50 | ?SetVel@PointCamCS@@QAEXAAVVector3@@@Z
-    void SetVel(class Vector3& arg1);
+    ARTS_IMPORT void SetVel(class Vector3& arg1);
 
     // 0x4F9FA0 | ?Update@PointCamCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4FA280 | ?DeclareFields@PointCamCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(PointCamCS, 0x144);
 
 // 0x719438 | ?PointCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x719438, class MetaClass, PointCamCSMetaClass);
+// ARTS_IMPORT extern class MetaClass PointCamCSMetaClass;

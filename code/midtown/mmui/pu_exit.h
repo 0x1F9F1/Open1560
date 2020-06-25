@@ -36,11 +36,11 @@ class PUExit : public PUMenuBase
 
 public:
     // 0x4AAAA0 | ??0PUExit@@QAE@HMMMMPAD@Z
-    PUExit(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT PUExit(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4AABF0 | ??_GPUExit@@UAEPAXI@Z
     // 0x4AABE0 | ??1PUExit@@UAE@XZ
-    ~PUExit() override;
+    ARTS_IMPORT ~PUExit() override;
 };
 
 check_size(PUExit, 0xC0);

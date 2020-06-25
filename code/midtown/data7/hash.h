@@ -69,29 +69,29 @@ public:
     ARTS_EXPORT void Init(i32 bucket_count);
 
     // 0x5781D0 | ?Insert@HashTable@@QAEHPADPAX@Z
-    i32 Insert(char* arg1, void* arg2);
+    ARTS_IMPORT i32 Insert(char* arg1, void* arg2);
 
     // 0x578110 | ?Kill@HashTable@@QAEXXZ
-    void Kill();
+    ARTS_IMPORT void Kill();
 
     // 0x578610 | ?KillAll@HashTable@@SAXXZ
-    static void KillAll();
+    ARTS_IMPORT static void KillAll();
 
 private:
     // 0x578500 | ?ComputePrime@HashTable@@AAEHH@Z
-    i32 ComputePrime(i32 arg1);
+    ARTS_IMPORT i32 ComputePrime(i32 arg1);
 
     // 0x5784C0 | ?Hash@HashTable@@AAEHPAD@Z
     ARTS_EXPORT u32 Hash(const char* key);
 
     // 0x578550 | ?Recompute@HashTable@@AAEXH@Z
-    void Recompute(i32 arg1);
+    ARTS_IMPORT void Recompute(i32 arg1);
 
     // 0x578630 | ?RemoveMe@HashTable@@AAEXXZ
-    void RemoveMe();
+    ARTS_IMPORT void RemoveMe();
 
     // 0x90AE5C | ?First@HashTable@@0PAV1@A
-    static inline extern_var(0x90AE5C, class HashTable*, First);
+    ARTS_IMPORT static class HashTable* First;
 
     i32 bucket_count_ {0};
     i32 value_count_ {0};
@@ -105,10 +105,10 @@ struct HashIterator
 {
 public:
     // 0x578040 | ?Begin@HashIterator@@QAEXXZ
-    void Begin();
+    ARTS_IMPORT void Begin();
 
     // 0x578050 | ?Next@HashIterator@@QAEHXZ
-    i32 Next();
+    ARTS_IMPORT i32 Next();
 
     HashTable* Table {nullptr};
     i32 Index {0};

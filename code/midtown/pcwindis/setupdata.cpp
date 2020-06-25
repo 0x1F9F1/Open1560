@@ -20,32 +20,8 @@ define_dummy_symbol(pcwindis_setupdata);
 
 #include "setupdata.h"
 
-i32 dxiReadConfigFile()
-{
-    return stub<cdecl_t<i32>>(0x574B00);
-}
+// 0x575090 | ?guidtostr@@YAXPADPAU_GUID@@@Z
+ARTS_IMPORT /*static*/ void guidtostr(char* arg1, struct _GUID* arg2);
 
-i32 dxiResClosestMatch(i32 arg1, i32 arg2, i32 arg3)
-{
-    return stub<cdecl_t<i32, i32, i32, i32>>(0x5749B0, arg1, arg2, arg3);
-}
-
-i32 dxiResGetRecommended(i32 arg1, i32 arg2)
-{
-    return stub<cdecl_t<i32, i32, i32>>(0x574A60, arg1, arg2);
-}
-
-void dxiWriteConfigFile()
-{
-    return stub<cdecl_t<void>>(0x574E90);
-}
-
-static void guidtostr(char* arg1, struct _GUID* arg2)
-{
-    return stub<cdecl_t<void, char*, struct _GUID*>>(0x575090, arg1, arg2);
-}
-
-static void strtoguid(struct _GUID* arg1, char* arg2)
-{
-    return stub<cdecl_t<void, struct _GUID*, char*>>(0x574DF0, arg1, arg2);
-}
+// 0x574DF0 | ?strtoguid@@YAXPAU_GUID@@PAD@Z
+ARTS_IMPORT /*static*/ void strtoguid(struct _GUID* arg1, char* arg2);

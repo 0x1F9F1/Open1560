@@ -19,28 +19,3 @@
 define_dummy_symbol(mmcity_anim);
 
 #include "anim.h"
-
-void mmAnimation::Load(char* arg1, class Stream* arg2)
-{
-    return stub<thiscall_t<void, mmAnimation*, char*, class Stream*>>(0x497EB0, this, arg1, arg2);
-}
-
-i32 mmAnimation::LookupSequence(char* arg1)
-{
-    return stub<thiscall_t<i32, mmAnimation*, char*>>(0x497E50, this, arg1);
-}
-
-class mmAnimation* GetAnimation(char* arg1)
-{
-    return stub<cdecl_t<class mmAnimation*, char*>>(0x498700, arg1);
-}
-
-void mmAnimInstState::Update()
-{
-    return stub<thiscall_t<void, mmAnimInstState*>>(0x498880, this);
-}
-
-void mmAnimInstState::PreUpdate(f32 arg1)
-{
-    return stub<cdecl_t<void, f32>>(0x498830, arg1);
-}

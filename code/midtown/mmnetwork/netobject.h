@@ -38,19 +38,19 @@ class asNetObject : public asNode
 
 public:
     // 0x48B4A0 | ??0asNetObject@@QAE@XZ
-    asNetObject();
+    ARTS_IMPORT asNetObject();
 
     // 0x48B500 | ??_GasNetObject@@UAEPAXI@Z
     // 0x48B4C0 | ??1asNetObject@@UAE@XZ
-    ~asNetObject() override;
+    ARTS_IMPORT ~asNetObject() override;
 
     virtual void SetLocalData() = 0;
 
     // 0x48B4D0 | ?PositionUpdate@asNetObject@@UAEXPAVMatrix34@@VVector3@@MMM@Z
-    virtual void PositionUpdate(class Matrix34* arg1, class Vector3 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT virtual void PositionUpdate(class Matrix34* arg1, class Vector3 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x48B4F0 | ?Update@asNetObject@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(asNetObject, 0x0);

@@ -48,35 +48,35 @@ class mmNumber : public asNode
 
 public:
     // 0x4FEA10 | ??0mmNumber@@QAE@XZ
-    mmNumber();
+    ARTS_IMPORT mmNumber();
 
     // 0x4262A0 | ??_EmmNumber@@UAEPAXI@Z
     // 0x4FEAA0 | ??1mmNumber@@UAE@XZ
-    ~mmNumber() override;
+    ARTS_IMPORT ~mmNumber() override;
 
     // 0x4FECA0 | ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4FEB90 | ?Cull@mmNumber@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4FEE20 | ?GetClass@mmNumber@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4FEAB0 | ?Init@mmNumber@@QAEXPAVmmNumberFont@@MM@Z
-    void Init(class mmNumberFont* arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void Init(class mmNumberFont* arg1, f32 arg2, f32 arg3);
 
     // 0x4FEB50 | ?Printf@mmNumber@@QAAXPBDZZ
-    void Printf(char const* arg1, ...);
+    ARTS_IMPORT void Printf(char const* arg1, ...);
 
     // 0x4FEB20 | ?SetString@mmNumber@@QAEXPAD@Z
-    void SetString(char* arg1);
+    ARTS_IMPORT void SetString(char* arg1);
 
     // 0x4FEB70 | ?Update@mmNumber@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4FECB0 | ?DeclareFields@mmNumber@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmNumber, 0x80);
@@ -85,22 +85,22 @@ class mmNumberFont
 {
 public:
     // 0x4FE660 | ??0mmNumberFont@@QAE@XZ
-    mmNumberFont();
+    ARTS_IMPORT mmNumberFont();
 
     // 0x4FE730 | ??1mmNumberFont@@QAE@XZ
-    ~mmNumberFont();
+    ARTS_IMPORT ~mmNumberFont();
 
     // 0x4FE780 | ?LoadFont@mmNumberFont@@QAEXPADHI@Z
-    void LoadFont(char* arg1, i32 arg2, u32 arg3);
+    ARTS_IMPORT void LoadFont(char* arg1, i32 arg2, u32 arg3);
 
     // 0x4FE880 | ?LoadLocFont@mmNumberFont@@QAEXPADPAULocString@@HI@Z
-    void LoadLocFont(char* arg1, struct LocString* arg2, i32 arg3, u32 arg4);
+    ARTS_IMPORT void LoadLocFont(char* arg1, struct LocString* arg2, i32 arg3, u32 arg4);
 };
 
 check_size(mmNumberFont, 0x0);
 
 // 0x649C9C | ?NUMBERSTRING@@3PADA
-inline extern_var(0x649C9C, char*, NUMBERSTRING);
+ARTS_IMPORT extern char* NUMBERSTRING;
 
 // 0x719570 | ?mmNumberMetaClass@@3VMetaClass@@A
-inline extern_var(0x719570, class MetaClass, mmNumberMetaClass);
+// ARTS_IMPORT extern class MetaClass mmNumberMetaClass;

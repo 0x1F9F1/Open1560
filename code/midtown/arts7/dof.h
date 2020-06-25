@@ -44,42 +44,42 @@ class asDofCS : public asLinearCS
 
 public:
     // 0x52ACF0 | ??0asDofCS@@QAE@XZ
-    asDofCS();
+    ARTS_IMPORT asDofCS();
 
     // 0x49C3D0 | ??_EasDofCS@@UAEPAXI@Z
     // 0x49C430 | ??1asDofCS@@UAE@XZ | inline
-    ~asDofCS() override;
+    ARTS_IMPORT ~asDofCS() override;
 
     // 0x52ADE0 | ??4asDofCS@@QAEXABV0@@Z | unused
-    void operator=(class asDofCS const& arg1);
+    ARTS_IMPORT void operator=(class asDofCS const& arg1);
 
     // 0x52B600 | ?AddWidgets@asDofCS@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x52B5D0 | ?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z | unused
-    void FileIO(class MiniParser* arg1);
+    ARTS_IMPORT void FileIO(class MiniParser* arg1);
 
     // 0x52BB60 | ?GetClass@asDofCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x52AF20 | ?Reset@asDofCS@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x52AF50 | ?SetTime@asDofCS@@QAEXMMH@Z | unused
-    void SetTime(f32 arg1, f32 arg2, i32 arg3);
+    ARTS_IMPORT void SetTime(f32 arg1, f32 arg2, i32 arg3);
 
     // 0x52AFC0 | ?Update@asDofCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x52B9F0 | ?DeclareFields@asDofCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 protected:
     // 0x52B5E0 | ?ModeCB@asDofCS@@IAEXXZ
-    void ModeCB();
+    ARTS_IMPORT void ModeCB();
 };
 
 check_size(asDofCS, 0xF8);
 
 // 0x790990 | ?asDofCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x790990, class MetaClass, asDofCSMetaClass);
+// ARTS_IMPORT extern class MetaClass asDofCSMetaClass;

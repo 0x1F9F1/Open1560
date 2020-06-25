@@ -40,23 +40,23 @@ class mmToolTip : public asNode
 
 public:
     // 0x4BF0E0 | ??0mmToolTip@@QAE@XZ | unused
-    mmToolTip();
+    ARTS_IMPORT mmToolTip();
 
     // 0x4BF2A0 | ??_GmmToolTip@@UAEPAXI@Z
     // 0x4BF150 | ??1mmToolTip@@UAE@XZ
-    ~mmToolTip() override;
+    ARTS_IMPORT ~mmToolTip() override;
 
     // 0x4BF1B0 | ?Init@mmToolTip@@QAEXPAVUIMenu@@PAULocString@@@Z | unused
-    void Init(class UIMenu* arg1, struct LocString* arg2);
+    ARTS_IMPORT void Init(class UIMenu* arg1, struct LocString* arg2);
 
     // 0x4BF260 | ?SetText@mmToolTip@@QAEXPAULocString@@@Z
-    void SetText(struct LocString* arg1);
+    ARTS_IMPORT void SetText(struct LocString* arg1);
 
     // 0x4BF280 | ?Switch@mmToolTip@@QAEXH@Z
-    void Switch(i32 arg1);
+    ARTS_IMPORT void Switch(i32 arg1);
 
     // 0x4BF290 | ?Update@mmToolTip@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmToolTip, 0x0);

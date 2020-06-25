@@ -41,32 +41,32 @@ class asAero : public asNode
 
 public:
     // 0x4DFC10 | ??0asAero@@QAE@XZ
-    asAero();
+    ARTS_IMPORT asAero();
 
     // 0x4E0680 | ??_EasAero@@UAEPAXI@Z
     // 0x470320 | ??1asAero@@UAE@XZ | inline
-    ~asAero() override;
+    ARTS_IMPORT ~asAero() override;
 
     // 0x4E0330 | ?AddWidgets@asAero@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4E0670 | ?GetClass@asAero@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4E0130 | ?Load@asAero@@QAEXPAVStream@@@Z | unused
-    void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(class Stream* arg1);
 
     // 0x4E0200 | ?Save@asAero@@QAEXPAVStream@@@Z | unused
-    void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(class Stream* arg1);
 
     // 0x4DFC70 | ?Update@asAero@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4E0490 | ?DeclareFields@asAero@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(asAero, 0x74);
 
 // 0x7191F8 | ?asAeroMetaClass@@3VMetaClass@@A
-inline extern_var(0x7191F8, class MetaClass, asAeroMetaClass);
+// ARTS_IMPORT extern class MetaClass asAeroMetaClass;

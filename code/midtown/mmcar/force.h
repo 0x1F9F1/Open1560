@@ -43,38 +43,38 @@ class mmForce : public asNode
 
 public:
     // 0x480BE0 | ??0mmForce@@QAE@XZ
-    mmForce();
+    ARTS_IMPORT mmForce();
 
     // 0x480F90 | ??_EmmForce@@UAEPAXI@Z
     // 0x470330 | ??1mmForce@@UAE@XZ | inline
-    ~mmForce() override;
+    ARTS_IMPORT ~mmForce() override;
 
     // 0x480E10 | ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x480F80 | ?GetClass@mmForce@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x480C00 | ?Update@mmForce@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x480E20 | ?DeclareFields@mmForce@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmForce, 0x2C);
 
 // 0x63C9F8 | ?YDownForceMax@@3MA
-inline extern_var(0x63C9F8, f32, YDownForceMax);
+ARTS_IMPORT extern f32 YDownForceMax;
 
 // 0x63C9F0 | ?YDownForceMaxHeight@@3MA
-inline extern_var(0x63C9F0, f32, YDownForceMaxHeight);
+ARTS_IMPORT extern f32 YDownForceMaxHeight;
 
 // 0x63C9F4 | ?YDownForceMin@@3MA
-inline extern_var(0x63C9F4, f32, YDownForceMin);
+ARTS_IMPORT extern f32 YDownForceMin;
 
 // 0x63C9EC | ?YDownForceMinHeight@@3MA
-inline extern_var(0x63C9EC, f32, YDownForceMinHeight);
+ARTS_IMPORT extern f32 YDownForceMinHeight;
 
 // 0x6A8148 | ?mmForceMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A8148, class MetaClass, mmForceMetaClass);
+// ARTS_IMPORT extern class MetaClass mmForceMetaClass;

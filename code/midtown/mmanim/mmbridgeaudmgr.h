@@ -43,32 +43,32 @@ class mmBridgeAudMgr : public asNode
 
 public:
     // 0x4C3D10 | ??0mmBridgeAudMgr@@QAE@XZ
-    mmBridgeAudMgr();
+    ARTS_IMPORT mmBridgeAudMgr();
 
     // 0x4C41B0 | ??_GmmBridgeAudMgr@@UAEPAXI@Z
     // 0x4C3EC0 | ??1mmBridgeAudMgr@@UAE@XZ
-    ~mmBridgeAudMgr() override;
+    ARTS_IMPORT ~mmBridgeAudMgr() override;
 
     // 0x4C3F80 | ?Add@mmBridgeAudMgr@@QAEFPAVmmBridgeSet@@@Z
-    i16 Add(class mmBridgeSet* arg1);
+    ARTS_IMPORT i16 Add(class mmBridgeSet* arg1);
 
     // 0x4C4180 | ?AssignSounds@mmBridgeAudMgr@@QAEXF@Z
-    void AssignSounds(i16 arg1);
+    ARTS_IMPORT void AssignSounds(i16 arg1);
 
     // 0x4C4070 | ?FindGreatestDistance@mmBridgeAudMgr@@QAEFPAVmmBridgeSet@@@Z
-    i16 FindGreatestDistance(class mmBridgeSet* arg1);
+    ARTS_IMPORT i16 FindGreatestDistance(class mmBridgeSet* arg1);
 
     // 0x4C4110 | ?FindUnusedSlot@mmBridgeAudMgr@@QAEFXZ
-    i16 FindUnusedSlot();
+    ARTS_IMPORT i16 FindUnusedSlot();
 
     // 0x4C4010 | ?Remove@mmBridgeAudMgr@@QAEXPAVmmBridgeSet@@F@Z
-    void Remove(class mmBridgeSet* arg1, i16 arg2);
+    ARTS_IMPORT void Remove(class mmBridgeSet* arg1, i16 arg2);
 
     // 0x4C4150 | ?Update@mmBridgeAudMgr@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmBridgeAudMgr, 0x38);
 
 // 0x705E1C | ?MMBRIDGEAUDMGRPTR@@3PAVmmBridgeAudMgr@@A
-inline extern_var(0x705E1C, class mmBridgeAudMgr*, MMBRIDGEAUDMGRPTR);
+ARTS_IMPORT extern class mmBridgeAudMgr* MMBRIDGEAUDMGRPTR;

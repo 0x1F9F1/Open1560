@@ -19,25 +19,3 @@
 define_dummy_symbol(mmdjpeg_jdhuff);
 
 #include "jdhuff.h"
-
-void jinit_huff_decoder(struct jpeg_decompress_struct* arg1)
-{
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x581F80, arg1);
-}
-
-u8 jpeg_fill_bit_buffer(struct bitread_working_state* arg1, i32 arg2, i32 arg3, i32 arg4)
-{
-    return stub<cdecl_t<u8, struct bitread_working_state*, i32, i32, i32>>(0x581D60, arg1, arg2, arg3, arg4);
-}
-
-i32 jpeg_huff_decode(struct bitread_working_state* arg1, i32 arg2, i32 arg3, struct d_derived_tbl* arg4, i32 arg5)
-{
-    return stub<cdecl_t<i32, struct bitread_working_state*, i32, i32, struct d_derived_tbl*, i32>>(
-        0x581E80, arg1, arg2, arg3, arg4, arg5);
-}
-
-void jpeg_make_d_derived_tbl(struct jpeg_decompress_struct* arg1, u8 arg2, i32 arg3, struct d_derived_tbl** arg4)
-{
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*, u8, i32, struct d_derived_tbl**>>(
-        0x581AA0, arg1, arg2, arg3, arg4);
-}

@@ -56,64 +56,64 @@ class agiSurfRenderer : public agiRenderer
 
 public:
     // 0x552D60 | ??0agiSurfRenderer@@QAE@PAVagiRasterizer@@@Z
-    agiSurfRenderer(class agiRasterizer* arg1);
+    ARTS_IMPORT agiSurfRenderer(class agiRasterizer* arg1);
 
     // 0x554D70 | ?BeginDraw@agiSurfRenderer@@UAEXH@Z
-    void BeginDraw(i32 arg1) override;
+    ARTS_IMPORT void BeginDraw(i32 arg1) override;
 
     // 0x552DC0 | ?BeginGroup@agiSurfRenderer@@UAEXXZ
-    void BeginGroup() override;
+    ARTS_IMPORT void BeginGroup() override;
 
     // 0x5544F0 | ?Draw@agiSurfRenderer@@UAEXPAVDLP@@H@Z
-    void Draw(class DLP* arg1, i32 arg2) override;
+    ARTS_IMPORT void Draw(class DLP* arg1, i32 arg2) override;
 
     // 0x554890 | ?DrawCard@agiSurfRenderer@@UAEXAAVVector3@@@Z
-    void DrawCard(class Vector3& arg1) override;
+    ARTS_IMPORT void DrawCard(class Vector3& arg1) override;
 
     // 0x555180 | ?DrawLabel@agiSurfRenderer@@UAEXAATagiVtx@@PAD@Z
-    void DrawLabel(union agiVtx& arg1, char* arg2) override;
+    ARTS_IMPORT void DrawLabel(union agiVtx& arg1, char* arg2) override;
 
     // 0x554EE0 | ?DrawLine@agiSurfRenderer@@UAEXHH@Z
-    void DrawLine(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void DrawLine(i32 arg1, i32 arg2) override;
 
     // 0x554EB0 | ?DrawTri@agiSurfRenderer@@UAEXHHH@Z
-    void DrawTri(i32 arg1, i32 arg2, i32 arg3) override;
+    ARTS_IMPORT void DrawTri(i32 arg1, i32 arg2, i32 arg3) override;
 
     // 0x5551F0 | ?EndDraw@agiSurfRenderer@@UAEXXZ
-    void EndDraw() override;
+    ARTS_IMPORT void EndDraw() override;
 
     // 0x554E40 | ?Points@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
-    void Points(union agiVtx* arg1, i32 arg2) override;
+    ARTS_IMPORT void Points(union agiVtx* arg1, i32 arg2) override;
 
     // 0x554DA0 | ?Verts@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
-    void Verts(union agiVtx* arg1, i32 arg2) override;
+    ARTS_IMPORT void Verts(union agiVtx* arg1, i32 arg2) override;
 
 protected:
     // 0x555200 | ??_EagiSurfRenderer@@MAEPAXI@Z
     // 0x552DB0 | ??1agiSurfRenderer@@MAE@XZ
-    ~agiSurfRenderer() override;
+    ARTS_IMPORT ~agiSurfRenderer() override;
 
     // 0x8BABF8 | ?SurfaceCount@agiSurfRenderer@@1HA
-    static inline extern_var(0x8BABF8, i32, SurfaceCount);
+    ARTS_IMPORT static i32 SurfaceCount;
 
     // 0x8BAC08 | ?SurfaceHeap@agiSurfRenderer@@1PAUagiSurface@@A
-    static inline extern_var(0x8BAC08, struct agiSurface[16384], SurfaceHeap);
+    ARTS_IMPORT static struct agiSurface SurfaceHeap[16384];
 
     // 0x8BABFC | ?VertexCount@agiSurfRenderer@@1HA
-    static inline extern_var(0x8BABFC, i32, VertexCount);
+    ARTS_IMPORT static i32 VertexCount;
 
 private:
     // 0x552E00 | ?AddSurface@agiSurfRenderer@@CAHPAUagiPatch@@HHHH@Z
-    static i32 AddSurface(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT static i32 AddSurface(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 };
 
 check_size(agiSurfRenderer, 0x0);
 
 // 0x656590 | ?EarlyBackface@@3HA
-inline extern_var(0x656590, i32, EarlyBackface);
+ARTS_IMPORT extern i32 EarlyBackface;
 
 // 0x8BAC00 | ?NoClip@@3HA
-inline extern_var(0x8BAC00, i32, NoClip);
+ARTS_IMPORT extern i32 NoClip;
 
 // 0x8FAC14 | ?ZTrick@@3HA
-inline extern_var(0x8FAC14, i32, ZTrick);
+ARTS_IMPORT extern i32 ZTrick;

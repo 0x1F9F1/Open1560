@@ -54,69 +54,69 @@ class TextDropWidget : public asNode
 
 public:
     // 0x4BDF90 | ??0TextDropWidget@@QAE@XZ
-    TextDropWidget();
+    ARTS_IMPORT TextDropWidget();
 
     // 0x4BE640 | ??_ETextDropWidget@@UAEPAXI@Z
     // 0x4BE040 | ??1TextDropWidget@@UAE@XZ
-    ~TextDropWidget() override;
+    ARTS_IMPORT ~TextDropWidget() override;
 
     // 0x4BE400 | ?Capture@TextDropWidget@@QAEHMM@Z
-    i32 Capture(f32 arg1, f32 arg2);
+    ARTS_IMPORT i32 Capture(f32 arg1, f32 arg2);
 
     // 0x4BE390 | ?Dec@TextDropWidget@@QAEHXZ | unused
-    i32 Dec();
+    ARTS_IMPORT i32 Dec();
 
     // 0x4BE3D0 | ?DecDrop@TextDropWidget@@QAEHXZ
-    i32 DecDrop();
+    ARTS_IMPORT i32 DecDrop();
 
     // 0x4BE630 | ?GetClass@TextDropWidget@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4BE1A0 | ?GetCount@TextDropWidget@@QAEHXZ | unused
-    i32 GetCount();
+    ARTS_IMPORT i32 GetCount();
 
     // 0x4BE4B0 | ?GetDisabledMask@TextDropWidget@@QAEJXZ
-    i32 GetDisabledMask();
+    ARTS_IMPORT i32 GetDisabledMask();
 
     // 0x4BE380 | ?Inc@TextDropWidget@@QAEHXZ | unused
-    i32 Inc();
+    ARTS_IMPORT i32 Inc();
 
     // 0x4BE3A0 | ?IncDrop@TextDropWidget@@QAEHXZ
-    i32 IncDrop();
+    ARTS_IMPORT i32 IncDrop();
 
     // 0x4BE0B0 | ?Init@TextDropWidget@@QAEXPAVasCamera@@PAXMMMMMVstring@@H@Z
-    void Init(class asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, class string arg8,
-        i32 arg9);
+    ARTS_IMPORT void Init(class asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7,
+        class string arg8, i32 arg9);
 
     // 0x4BE470 | ?IsActive@TextDropWidget@@QAEHXZ
-    i32 IsActive();
+    ARTS_IMPORT i32 IsActive();
 
     // 0x4BE480 | ?SetActive@TextDropWidget@@QAEXH@Z
-    void SetActive(i32 arg1);
+    ARTS_IMPORT void SetActive(i32 arg1);
 
     // 0x4BE490 | ?SetDisabledMask@TextDropWidget@@QAEXJ@Z
-    void SetDisabledMask(i32 arg1);
+    ARTS_IMPORT void SetDisabledMask(i32 arg1);
 
     // 0x4BE310 | ?SetHighlight@TextDropWidget@@QAEHH@Z
-    i32 SetHighlight(i32 arg1);
+    ARTS_IMPORT i32 SetHighlight(i32 arg1);
 
     // 0x4BE1B0 | ?SetString@TextDropWidget@@QAEXVstring@@@Z
-    void SetString(class string arg1);
+    ARTS_IMPORT void SetString(class string arg1);
 
     // 0x4BE270 | ?SetValue@TextDropWidget@@QAEHH@Z
-    i32 SetValue(i32 arg1);
+    ARTS_IMPORT i32 SetValue(i32 arg1);
 
     // 0x4BE440 | ?Switch@TextDropWidget@@QAEXHAAVVector4@@@Z
-    void Switch(i32 arg1, class Vector4& arg2);
+    ARTS_IMPORT void Switch(i32 arg1, class Vector4& arg2);
 
     // 0x4BE460 | ?Update@TextDropWidget@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4BE4C0 | ?DeclareFields@TextDropWidget@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(TextDropWidget, 0x38);
 
 // 0x705C78 | ?TextDropWidgetMetaClass@@3VMetaClass@@A
-inline extern_var(0x705C78, class MetaClass, TextDropWidgetMetaClass);
+// ARTS_IMPORT extern class MetaClass TextDropWidgetMetaClass;

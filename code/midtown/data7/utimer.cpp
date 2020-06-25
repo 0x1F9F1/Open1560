@@ -19,8 +19,3 @@
 define_dummy_symbol(data7_utimer);
 
 #include "utimer.h"
-
-u32 utimer()
-{
-    return stub<cdecl_t<u32>>(0x57C4C0);
-}

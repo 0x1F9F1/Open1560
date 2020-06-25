@@ -58,13 +58,13 @@ class mmDrawbridgeInstance : public mmDofBangerInstance
 public:
     // 0x4C4D90 | ??_GmmDrawbridgeInstance@@UAEPAXI@Z
     // 0x4C4DB0 | ??1mmDrawbridgeInstance@@UAE@XZ | inline
-    ~mmDrawbridgeInstance() override;
+    ARTS_IMPORT ~mmDrawbridgeInstance() override;
 
     // 0x4C4460 | ?Draw@mmDrawbridgeInstance@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x4C4510 | ?InitBridge@mmDrawbridgeInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
-    i32 InitBridge(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
+    ARTS_IMPORT i32 InitBridge(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
 };
 
 check_size(mmDrawbridgeInstance, 0x0);
@@ -75,35 +75,36 @@ struct mmAnimDOF
 
 public:
     // 0x4C4550 | ??0mmAnimDOF@@QAE@XZ
-    mmAnimDOF();
+    ARTS_IMPORT mmAnimDOF();
 
     // 0x4C4DC0 | ??_EmmAnimDOF@@QAEPAXI@Z | unused
     // 0x4C4570 | ??1mmAnimDOF@@QAE@XZ
-    ~mmAnimDOF();
+    ARTS_IMPORT ~mmAnimDOF();
 
     // 0x4C4D80 | ?GetClass@mmAnimDOF@@UAEPAVMetaClass@@XZ
-    virtual class MetaClass* GetClass();
+    ARTS_IMPORT virtual class MetaClass* GetClass();
 
     // 0x4C4580 | ?Init@mmAnimDOF@@QAEHPAVmmAnimTrigger@@PADAAVVector3@@2HPAH@Z
-    i32 Init(class mmAnimTrigger* arg1, char* arg2, class Vector3& arg3, class Vector3& arg4, i32 arg5, i32* arg6);
+    ARTS_IMPORT i32 Init(
+        class mmAnimTrigger* arg1, char* arg2, class Vector3& arg3, class Vector3& arg4, i32 arg5, i32* arg6);
 
     // 0x4C4900 | ?Reset@mmAnimDOF@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 
     // 0x4C4BB0 | ?SetState@mmAnimDOF@@QAEXH@Z
-    void SetState(i32 arg1);
+    ARTS_IMPORT void SetState(i32 arg1);
 
     // 0x4C4B60 | ?SetSwitch@mmAnimDOF@@QAEXH@Z
-    void SetSwitch(i32 arg1);
+    ARTS_IMPORT void SetSwitch(i32 arg1);
 
     // 0x4C4940 | ?Update@mmAnimDOF@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x4C4BF0 | ?DeclareFields@mmAnimDOF@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmAnimDOF, 0x98);
 
 // 0x705E20 | ?mmAnimDOFMetaClass@@3VMetaClass@@A
-inline extern_var(0x705E20, class MetaClass, mmAnimDOFMetaClass);
+// ARTS_IMPORT extern class MetaClass mmAnimDOFMetaClass;

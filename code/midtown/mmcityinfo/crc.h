@@ -25,4 +25,4 @@
 */
 
 // 0x4D3CC0 | ?UpdateCrc@@YAKPAEI@Z
-u32 UpdateCrc(u8* arg1, u32 arg2);
+ARTS_IMPORT u32 UpdateCrc(u8* arg1, u32 arg2);

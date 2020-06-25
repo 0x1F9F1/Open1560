@@ -29,10 +29,10 @@ class aiRaceData
 {
 public:
     // 0x446630 | ??0aiRaceData@@QAE@PAD0@Z
-    aiRaceData(char* arg1, char* arg2);
+    ARTS_IMPORT aiRaceData(char* arg1, char* arg2);
 
     // 0x446B10 | ??1aiRaceData@@QAE@XZ
-    ~aiRaceData();
+    ARTS_IMPORT ~aiRaceData();
 };
 
 check_size(aiRaceData, 0x2C);

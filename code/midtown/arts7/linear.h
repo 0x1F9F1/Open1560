@@ -40,32 +40,32 @@ class asLinearCS : public asNode
 
 public:
     // 0x525AB0 | ??0asLinearCS@@QAE@XZ
-    asLinearCS();
+    ARTS_IMPORT asLinearCS();
 
     // 0x4B1CA0 | ??_EasLinearCS@@UAEPAXI@Z
     // 0x422F00 | ??1asLinearCS@@UAE@XZ | inline
-    ~asLinearCS() override;
+    ARTS_IMPORT ~asLinearCS() override;
 
     // 0x525CC0 | ?AddWidgets@asLinearCS@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x525C00 | ?Cull@asLinearCS@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x525CB0 | ?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z | unused
-    void FileIO(class MiniParser* arg1);
+    ARTS_IMPORT void FileIO(class MiniParser* arg1);
 
     // 0x525FF0 | ?GetClass@asLinearCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x525B20 | ?Update@asLinearCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x525E20 | ?DeclareFields@asLinearCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(asLinearCS, 0x88);
 
 // 0x7908D8 | ?asLinearCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x7908D8, class MetaClass, asLinearCSMetaClass);
+// ARTS_IMPORT extern class MetaClass asLinearCSMetaClass;

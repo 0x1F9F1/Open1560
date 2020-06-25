@@ -70,36 +70,36 @@ class mmBridgeMgr : public asNode
 
 public:
     // 0x4C16B0 | ??0mmBridgeMgr@@QAE@XZ
-    mmBridgeMgr();
+    ARTS_IMPORT mmBridgeMgr();
 
     // 0x4C3470 | ??_EmmBridgeMgr@@UAEPAXI@Z
     // 0x4C17C0 | ??1mmBridgeMgr@@UAE@XZ
-    ~mmBridgeMgr() override;
+    ARTS_IMPORT ~mmBridgeMgr() override;
 
     // 0x4C1CD0 | ?AddWidgets@mmBridgeMgr@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4C1860 | ?Cull@mmBridgeMgr@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4C32E0 | ?GetClass@mmBridgeMgr@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4C18A0 | ?Init@mmBridgeMgr@@QAEXPADPAVmmInstance@@PAPAV2@H@Z
-    void Init(char* arg1, class mmInstance* arg2, class mmInstance** arg3, i32 arg4);
+    ARTS_IMPORT void Init(char* arg1, class mmInstance* arg2, class mmInstance** arg3, i32 arg4);
 
     // 0x4C1CC0 | ?Save@mmBridgeMgr@@UAEXXZ
-    void Save() override;
+    ARTS_IMPORT void Save() override;
 
     // 0x4C1850 | ?ToggleDrawLabels@mmBridgeMgr@@QAEXXZ
-    void ToggleDrawLabels();
+    ARTS_IMPORT void ToggleDrawLabels();
 
     // 0x4C3070 | ?DeclareFields@mmBridgeMgr@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 protected:
     // 0x705DFC | ?Instance@mmBridgeMgr@@1PAV1@A
-    static inline extern_var(0x705DFC, class mmBridgeMgr*, Instance);
+    ARTS_IMPORT static class mmBridgeMgr* Instance;
 };
 
 check_size(mmBridgeMgr, 0x2674);
@@ -110,81 +110,81 @@ class mmBridgeSet : public asNode
 
 public:
     // 0x4C1F00 | ??0mmBridgeSet@@QAE@XZ
-    mmBridgeSet();
+    ARTS_IMPORT mmBridgeSet();
 
     // 0x4C3410 | ??_EmmBridgeSet@@UAEPAXI@Z
     // 0x4C2010 | ??1mmBridgeSet@@UAE@XZ
-    ~mmBridgeSet() override;
+    ARTS_IMPORT ~mmBridgeSet() override;
 
     // 0x4C27D0 | ?AddWidgets@mmBridgeSet@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4C2730 | ?Cull@mmBridgeSet@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4C3060 | ?GetClass@mmBridgeSet@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4C22C0 | ?Init@mmBridgeSet@@QAEHPADPAVStream@@@Z
-    i32 Init(char* arg1, class Stream* arg2);
+    ARTS_IMPORT i32 Init(char* arg1, class Stream* arg2);
 
     // 0x4C2290 | ?InitTrigger@mmBridgeSet@@QAEXXZ
-    void InitTrigger();
+    ARTS_IMPORT void InitTrigger();
 
     // 0x4C2150 | ?ReadEntry@mmBridgeSet@@QAEHPAVStream@@H@Z
-    i32 ReadEntry(class Stream* arg1, i32 arg2);
+    ARTS_IMPORT i32 ReadEntry(class Stream* arg1, i32 arg2);
 
     // 0x4C2080 | ?Reset@mmBridgeSet@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4C2E20 | ?SetSoundPtrs@mmBridgeSet@@QAEXPAVAudSound@@0@Z
-    void SetSoundPtrs(class AudSound* arg1, class AudSound* arg2);
+    ARTS_IMPORT void SetSoundPtrs(class AudSound* arg1, class AudSound* arg2);
 
     // 0x4C2E00 | ?UnAssignSounds@mmBridgeSet@@QAEXXZ
-    void UnAssignSounds();
+    ARTS_IMPORT void UnAssignSounds();
 
     // 0x4C2380 | ?Update@mmBridgeSet@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4C2A40 | ?UpdateAudio@mmBridgeSet@@QAEXXZ
-    void UpdateAudio();
+    ARTS_IMPORT void UpdateAudio();
 
     // 0x4C29A0 | ?DeclareFields@mmBridgeSet@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x4C2D80 | ?CalculateAudioPanning@mmBridgeSet@@AAEXXZ
-    void CalculateAudioPanning();
+    ARTS_IMPORT void CalculateAudioPanning();
 
     // 0x4C2CA0 | ?CalculateDistToPlayer2@mmBridgeSet@@AAEXXZ
-    void CalculateDistToPlayer2();
+    ARTS_IMPORT void CalculateDistToPlayer2();
 
     // 0x4C2DD0 | ?CalculateDoppler@mmBridgeSet@@AAEMM@Z
-    f32 CalculateDoppler(f32 arg1);
+    ARTS_IMPORT f32 CalculateDoppler(f32 arg1);
 
     // 0x4C2E80 | ?RampDownBridgeVolume@mmBridgeSet@@AAEXXZ
-    void RampDownBridgeVolume();
+    ARTS_IMPORT void RampDownBridgeVolume();
 
     // 0x705D98 | ?s_fAudioAttenuationMult@mmBridgeSet@@0MA
-    static inline extern_var(0x705D98, f32, s_fAudioAttenuationMult);
+    ARTS_IMPORT static f32 s_fAudioAttenuationMult;
 
     // 0x6420EC | ?s_fAudioMaxDistance@mmBridgeSet@@0MA
-    static inline extern_var(0x6420EC, f32, s_fAudioMaxDistance);
+    ARTS_IMPORT static f32 s_fAudioMaxDistance;
 
     // 0x6420E4 | ?s_fAudioMinDistance@mmBridgeSet@@0MA
-    static inline extern_var(0x6420E4, f32, s_fAudioMinDistance);
+    ARTS_IMPORT static f32 s_fAudioMinDistance;
 
     // 0x6420F0 | ?s_fAudioVolume@mmBridgeSet@@0MA
-    static inline extern_var(0x6420F0, f32, s_fAudioVolume);
+    ARTS_IMPORT static f32 s_fAudioVolume;
 
     // 0x6420E8 | ?s_fCloserMinDistMult@mmBridgeSet@@0MA
-    static inline extern_var(0x6420E8, f32, s_fCloserMinDistMult);
+    ARTS_IMPORT static f32 s_fCloserMinDistMult;
 };
 
 check_size(mmBridgeSet, 0x438);
 
 // 0x705DA0 | ?mmBridgeMgrMetaClass@@3VMetaClass@@A
-inline extern_var(0x705DA0, class MetaClass, mmBridgeMgrMetaClass);
+// ARTS_IMPORT extern class MetaClass mmBridgeMgrMetaClass;
 
 // 0x705DD0 | ?mmBridgeSetMetaClass@@3VMetaClass@@A
-inline extern_var(0x705DD0, class MetaClass, mmBridgeSetMetaClass);
+// ARTS_IMPORT extern class MetaClass mmBridgeSetMetaClass;

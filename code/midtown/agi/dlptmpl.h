@@ -74,55 +74,55 @@ class DLPTemplate
 {
 public:
     // 0x5582E0 | ??0DLPTemplate@@QAE@PAD@Z
-    DLPTemplate(char* arg1);
+    ARTS_IMPORT DLPTemplate(char* arg1);
 
     // 0x5597C0 | ?AddRef@DLPTemplate@@QAEXXZ
-    void AddRef();
+    ARTS_IMPORT void AddRef();
 
     // 0x559A00 | ?BoundBox@DLPTemplate@@QAEHAAVVector3@@0PAD@Z
-    i32 BoundBox(class Vector3& arg1, class Vector3& arg2, char* arg3);
+    ARTS_IMPORT i32 BoundBox(class Vector3& arg1, class Vector3& arg2, char* arg3);
 
     // 0x559930 | ?GetCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z
-    i32 GetCentroid(class Vector3& arg1, char* arg2);
+    ARTS_IMPORT i32 GetCentroid(class Vector3& arg1, char* arg2);
 
     // 0x5599B0 | ?GetGroupVertex@DLPTemplate@@QAEPAVVector3@@PAD@Z | unused
-    class Vector3* GetGroupVertex(char* arg1);
+    ARTS_IMPORT class Vector3* GetGroupVertex(char* arg1);
 
     // 0x559800 | ?GetVertexCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z | unused
-    i32 GetVertexCentroid(class Vector3& arg1, char* arg2);
+    ARTS_IMPORT i32 GetVertexCentroid(class Vector3& arg1, char* arg2);
 
     // 0x559630 | ?GroupExists@DLPTemplate@@QAEPAVDLPGroup@@PAD@Z
-    class DLPGroup* GroupExists(char* arg1);
+    ARTS_IMPORT class DLPGroup* GroupExists(char* arg1);
 
     // 0x5583D0 | ?Init@DLPTemplate@@QAEXHHH@Z
-    void Init(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT void Init(i32 arg1, i32 arg2, i32 arg3);
 
     // 0x558A40 | ?InitRemap@DLPTemplate@@QAEXAAV?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@AAV?$agiLib@VagiTexParameters@@VagiTexDef@@@@AAV?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@@Z
-    void InitRemap(class agiLib<class agiMtlParameters, class agiMtlDef>& arg1,
+    ARTS_IMPORT void InitRemap(class agiLib<class agiMtlParameters, class agiMtlDef>& arg1,
         class agiLib<class agiTexParameters, class agiTexDef>& arg2,
         class agiLib<class agiPhysParameters, class agiPhysDef>& arg3);
 
     // 0x558B60 | ?Load@DLPTemplate@@QAEHPAD@Z | unused
-    i32 Load(char* arg1);
+    ARTS_IMPORT i32 Load(char* arg1);
 
     // 0x558640 | ?Load@DLPTemplate@@QAEXPAVStream@@@Z
-    void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(class Stream* arg1);
 
     // 0x558BA0 | ?Print@DLPTemplate@@QAEXPAVStream@@@Z | unused
-    void Print(class Stream* arg1);
+    ARTS_IMPORT void Print(class Stream* arg1);
 
     // 0x5597D0 | ?Release@DLPTemplate@@QAEHXZ
-    i32 Release();
+    ARTS_IMPORT i32 Release();
 
     // 0x5596B0 | ?Restrict@DLPTemplate@@QAEHPAD@Z
-    i32 Restrict(char* arg1);
+    ARTS_IMPORT i32 Restrict(char* arg1);
 
     // 0x558500 | ?Save@DLPTemplate@@QAEXPAVStream@@@Z | unused
-    void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(class Stream* arg1);
 
 private:
     // 0x558330 | ??1DLPTemplate@@AAE@XZ
-    ~DLPTemplate();
+    ARTS_IMPORT ~DLPTemplate();
 };
 
 check_size(DLPTemplate, 0x3C);
@@ -131,23 +131,23 @@ struct DLPPatch
 {
 public:
     // 0x55A310 | ??0DLPPatch@@QAE@XZ | inline
-    DLPPatch();
+    ARTS_IMPORT DLPPatch();
 
     // 0x559C80 | ??_EDLPPatch@@QAEPAXI@Z | unused
     // 0x55A320 | ??1DLPPatch@@QAE@XZ | inline
-    ~DLPPatch();
+    ARTS_IMPORT ~DLPPatch();
 
     // 0x558990 | ?GetProp@DLPPatch@@QAEPADPAD@Z | unused
-    char* GetProp(char* arg1);
+    ARTS_IMPORT char* GetProp(char* arg1);
 
     // 0x559080 | ?Load@DLPPatch@@QAEXPAVStream@@@Z
-    void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(class Stream* arg1);
 
     // 0x559250 | ?Print@DLPPatch@@QAEXPAVStream@@@Z
-    void Print(class Stream* arg1);
+    ARTS_IMPORT void Print(class Stream* arg1);
 
     // 0x559180 | ?Save@DLPPatch@@QAEXPAVStream@@@Z
-    void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(class Stream* arg1);
 };
 
 check_size(DLPPatch, 0x18);
@@ -156,53 +156,53 @@ class DLPGroup
 {
 public:
     // 0x558C90 | ??0DLPGroup@@QAE@XZ
-    DLPGroup();
+    ARTS_IMPORT DLPGroup();
 
     // 0x558CB0 | ??0DLPGroup@@QAE@PAVDLPTemplate@@PAV0@@Z
-    DLPGroup(class DLPTemplate* arg1, class DLPGroup* arg2);
+    ARTS_IMPORT DLPGroup(class DLPTemplate* arg1, class DLPGroup* arg2);
 
     // 0x559C20 | ??_EDLPGroup@@QAEPAXI@Z | unused
     // 0x558E90 | ??1DLPGroup@@QAE@XZ
-    ~DLPGroup();
+    ARTS_IMPORT ~DLPGroup();
 
     // 0x559040 | ?Init@DLPGroup@@QAEXHH@Z
-    void Init(i32 arg1, i32 arg2);
+    ARTS_IMPORT void Init(i32 arg1, i32 arg2);
 
     // 0x558EC0 | ?Load@DLPGroup@@QAEXPAVStream@@@Z
-    void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(class Stream* arg1);
 
     // 0x558FC0 | ?Print@DLPGroup@@QAEXPAVStream@@@Z
-    void Print(class Stream* arg1);
+    ARTS_IMPORT void Print(class Stream* arg1);
 
     // 0x558F40 | ?Save@DLPGroup@@QAEXPAVStream@@@Z
-    void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(class Stream* arg1);
 };
 
 check_size(DLPGroup, 0x30);
 
 // 0x5593A0 | ?PackAngle@@YAIM@Z
-u32 PackAngle(f32 arg1);
+ARTS_IMPORT u32 PackAngle(f32 arg1);
 
 // 0x559400 | ?PackNormal@@YAXAAGAAVVector3@@@Z | unused
-void PackNormal(u16& arg1, class Vector3& arg2);
+ARTS_IMPORT void PackNormal(u16& arg1, class Vector3& arg2);
 
 // 0x559310 | ?UnpackAngle@@YAME@Z
-f32 UnpackAngle(u8 arg1);
+ARTS_IMPORT f32 UnpackAngle(u8 arg1);
 
 // 0x559340 | ?UnpackNormal@@YAXAAVVector3@@AAG@Z | unused
-void UnpackNormal(class Vector3& arg1, u16& arg2);
+ARTS_IMPORT void UnpackNormal(class Vector3& arg1, u16& arg2);
 
 // 0x903130 | ?DLPTemplateHash@@3VHashTable@@A
-inline extern_var(0x903130, class HashTable, DLPTemplateHash);
+ARTS_IMPORT extern class HashTable DLPTemplateHash;
 
 struct DLPVertex
 {
 public:
     // 0x5594D0 | ?Load@DLPVertex@@QAEXPAVStream@@@Z
-    void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(class Stream* arg1);
 
     // 0x5595A0 | ?Save@DLPVertex@@QAEXPAVStream@@@Z
-    void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(class Stream* arg1);
 };
 
 check_size(DLPVertex, 0x0);

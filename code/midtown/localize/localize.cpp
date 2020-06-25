@@ -19,13 +19,3 @@
 define_dummy_symbol(localize_localize);
 
 #include "localize.h"
-
-struct LocString* AngelReadString(u32 arg1)
-{
-    return stub<cdecl_t<struct LocString*, u32>>(0x5200D0, arg1);
-}
-
-char* GetLocTime(f32 arg1)
-{
-    return stub<cdecl_t<char*, f32>>(0x520010, arg1);
-}

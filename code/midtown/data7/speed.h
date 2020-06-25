@@ -22,8 +22,8 @@
     data7:speed
 
     0x57CE90 | unsigned int __cdecl __ComputeCpuSpeed(void) | ?__ComputeCpuSpeed@@YAIXZ
-    0x57CF50 | unsigned int __cdecl ComputeCpuSpeed(void) | ?ComputeCpuSpeed@@YAIXZ
     0x57CF40 | unsigned int __cdecl rdtsc(void) | ?rdtsc@@YAIXZ
+    0x57CF50 | unsigned int __cdecl ComputeCpuSpeed(void) | ?ComputeCpuSpeed@@YAIXZ
 */
 
 // 0x57CF50 | ?ComputeCpuSpeed@@YAIXZ

@@ -19,38 +19,3 @@
 define_dummy_symbol(agi_lmodel);
 
 #include "lmodel.h"
-
-agiLightModelParameters::agiLightModelParameters()
-{
-    unimplemented();
-}
-
-agiLightModelParameters::~agiLightModelParameters()
-{
-    unimplemented();
-}
-
-void agiLightModelParameters::operator=(class agiLightModelParameters const& arg1)
-{
-    return stub<thiscall_t<void, agiLightModelParameters*, class agiLightModelParameters const&>>(0x55BCD0, this, arg1);
-}
-
-agiLightModel::~agiLightModel()
-{
-    unimplemented();
-}
-
-char* agiLightModel::GetName()
-{
-    return stub<thiscall_t<char*, agiLightModel*>>(0x55BDD0, this);
-}
-
-i32 agiLightModel::Init(class agiLightModelParameters const& arg1)
-{
-    return stub<thiscall_t<i32, agiLightModel*, class agiLightModelParameters const&>>(0x55BD50, this, arg1);
-}
-
-agiLightModel::agiLightModel(class agiPipeline* arg1)
-{
-    unimplemented(arg1);
-}

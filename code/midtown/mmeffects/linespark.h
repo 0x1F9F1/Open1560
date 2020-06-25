@@ -34,20 +34,20 @@
 */
 
 // 0x501700 | ?GetSparkLut@@YAPAVasSparkLut@@PAD@Z
-class asSparkLut* GetSparkLut(char* arg1);
+ARTS_IMPORT class asSparkLut* GetSparkLut(char* arg1);
 
 // 0x719600 | ?SLH@@3VHashTable@@A
-inline extern_var(0x719600, class HashTable, SLH);
+ARTS_IMPORT extern class HashTable SLH;
 
 class asSparkLut
 {
 public:
     // 0x501740 | ?Init@asSparkLut@@QAEXPAD@Z
-    void Init(char* arg1);
+    ARTS_IMPORT void Init(char* arg1);
 
 private:
     // 0x64A0D8 | ?BuiltinClut@asSparkLut@@0PAIA
-    static inline extern_var(0x64A0D8, u32[32], BuiltinClut);
+    ARTS_IMPORT static u32 BuiltinClut[32];
 };
 
 check_size(asSparkLut, 0x0);
@@ -56,22 +56,22 @@ struct asLineSparks
 {
 public:
     // 0x501A10 | ?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z | unused
-    void AddWidgets(class Bank* arg1);
+    ARTS_IMPORT void AddWidgets(class Bank* arg1);
 
     // 0x502190 | ?Draw@asLineSparks@@QAEXXZ
-    void Draw();
+    ARTS_IMPORT void Draw();
 
     // 0x501920 | ?Init@asLineSparks@@QAEXHPAVasSparkLut@@@Z
-    void Init(i32 arg1, class asSparkLut* arg2);
+    ARTS_IMPORT void Init(i32 arg1, class asSparkLut* arg2);
 
     // 0x501C40 | ?RadialBlast@asLineSparks@@QAEXHAAVVector3@@0@Z
-    void RadialBlast(i32 arg1, class Vector3& arg2, class Vector3& arg3);
+    ARTS_IMPORT void RadialBlast(i32 arg1, class Vector3& arg2, class Vector3& arg3);
 
     // 0x501F80 | ?Update@asLineSparks@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x501FC0 | ?Update@asLineSparks@@QAEXM@Z
-    void Update(f32 arg1);
+    ARTS_IMPORT void Update(f32 arg1);
 };
 
 check_size(asLineSparks, 0x0);

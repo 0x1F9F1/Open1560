@@ -33,6 +33,8 @@
     0x5744E0 | void __cdecl dxiMemoryFree(struct IDirectDrawSurface4 *) | ?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z
     0x574550 | void __cdecl dxiInit(char *,int,char * *) | ?dxiInit@@YAXPADHPAPAD@Z
     0x574690 | void __cdecl dxiScreenShot(char *) | ?dxiScreenShot@@YAXPAD@Z
+    0x5748D0 | void __cdecl translate565(unsigned char *,unsigned short *,unsigned int) | ?translate565@@YAXPAEPAGI@Z
+    0x574940 | void __cdecl translate555(unsigned char *,unsigned short *,unsigned int) | ?translate555@@YAXPAEPAGI@Z
     0x660F10 | int dxiWidth | ?dxiWidth@@3HA
     0x660F14 | int dxiHeight | ?dxiHeight@@3HA
     0x660F18 | int dxiDepth | ?dxiDepth@@3HA
@@ -46,8 +48,6 @@
     0x909670 | struct IDirectDrawSurface4 * lpdsBack | ?lpdsBack@@3PAUIDirectDrawSurface4@@A
     0x909674 | struct IDirectDrawClipper * lpClip | ?lpClip@@3PAUIDirectDrawClipper@@A
     0x909678 | struct IDirectDrawSurface4 * lpdsRend | ?lpdsRend@@3PAUIDirectDrawSurface4@@A
-    0x5748D0 | void __cdecl translate565(unsigned char *,unsigned short *,unsigned int) | ?translate565@@YAXPAEPAGI@Z
-    0x574940 | void __cdecl translate555(unsigned char *,unsigned short *,unsigned int) | ?translate555@@YAXPAEPAGI@Z
 */
 
 // 0x573C60 | ?dxiChangeDisplaySettings@@YAHHHH@Z
@@ -57,7 +57,7 @@ ARTS_EXPORT i32 dxiChangeDisplaySettings(i32 width, i32 height, i32 bpp);
 ARTS_EXPORT void dxiDirectDrawCreate();
 
 // 0x573EC0 | ?dxiDirectDrawSurfaceCreate@@YAXXZ
-void dxiDirectDrawSurfaceCreate();
+ARTS_IMPORT void dxiDirectDrawSurfaceCreate();
 
 // 0x574190 | ?dxiDirectDrawSurfaceDestroy@@YAXXZ
 ARTS_EXPORT void dxiDirectDrawSurfaceDestroy();
@@ -66,16 +66,16 @@ ARTS_EXPORT void dxiDirectDrawSurfaceDestroy();
 ARTS_EXPORT void dxiDirectInputCreate();
 
 // 0x574550 | ?dxiInit@@YAXPADHPAPAD@Z
-void dxiInit(char* arg1, i32 arg2, char** arg3);
+ARTS_IMPORT void dxiInit(char* arg1, i32 arg2, char** arg3);
 
 // 0x5742C0 | ?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z | unused
-void* dxiMemoryAllocate(struct IDirectDrawSurface4** arg1, u32 arg2);
+ARTS_IMPORT void* dxiMemoryAllocate(struct IDirectDrawSurface4** arg1, u32 arg2);
 
 // 0x5744E0 | ?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z | unused
-void dxiMemoryFree(struct IDirectDrawSurface4* arg1);
+ARTS_IMPORT void dxiMemoryFree(struct IDirectDrawSurface4* arg1);
 
 // 0x574690 | ?dxiScreenShot@@YAXPAD@Z
-void dxiScreenShot(char* arg1);
+ARTS_IMPORT void dxiScreenShot(char* arg1);
 
 // 0x573D80 | ?dxiSetDisplayMode@@YAXXZ
 ARTS_EXPORT void dxiSetDisplayMode();
@@ -87,10 +87,10 @@ ARTS_EXPORT void dxiShutdown();
 ARTS_EXPORT void dxiWindowCreate(const char* title);
 
 // 0x660F18 | ?dxiDepth@@3HA
-inline extern_var(0x660F18, i32, dxiDepth);
+ARTS_IMPORT extern i32 dxiDepth;
 
 // 0x660F1C | ?dxiFlags@@3HA
-inline extern_var(0x660F1C, i32, dxiFlags);
+ARTS_IMPORT extern i32 dxiFlags;
 
 inline bool dxiIsFullScreen()
 {
@@ -98,34 +98,34 @@ inline bool dxiIsFullScreen()
 }
 
 // 0x660F14 | ?dxiHeight@@3HA
-inline extern_var(0x660F14, i32, dxiHeight);
+ARTS_IMPORT extern i32 dxiHeight;
 
 // 0x909650 | ?dxiIcon@@3HA
-inline extern_var(0x909650, i32, dxiIcon);
+ARTS_IMPORT extern i32 dxiIcon;
 
 // 0x660F10 | ?dxiWidth@@3HA
-inline extern_var(0x660F10, i32, dxiWidth);
+ARTS_IMPORT extern i32 dxiWidth;
 
 // 0x909668 | ?hwndMain@@3PAUHWND__@@A
-inline extern_var(0x909668, struct HWND__*, hwndMain);
+ARTS_IMPORT extern struct HWND__* hwndMain;
 
 // 0x909674 | ?lpClip@@3PAUIDirectDrawClipper@@A
-inline extern_var(0x909674, struct IDirectDrawClipper*, lpClip);
+ARTS_IMPORT extern struct IDirectDrawClipper* lpClip;
 
 // 0x909660 | ?lpDD4@@3PAUIDirectDraw4@@A
-inline extern_var(0x909660, struct IDirectDraw4*, lpDD4);
+ARTS_IMPORT extern struct IDirectDraw4* lpDD4;
 
 // 0x90965C | ?lpDI@@3PAUIDirectInputA@@A
-inline extern_var(0x90965C, struct IDirectInputA*, lpDI);
+ARTS_IMPORT extern struct IDirectInputA* lpDI;
 
 // 0x909670 | ?lpdsBack@@3PAUIDirectDrawSurface4@@A
-inline extern_var(0x909670, struct IDirectDrawSurface4*, lpdsBack);
+ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsBack;
 
 // 0x909658 | ?lpdsBack2@@3PAUIDirectDrawSurface4@@A
-inline extern_var(0x909658, struct IDirectDrawSurface4*, lpdsBack2);
+ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsBack2;
 
 // 0x909664 | ?lpdsFront@@3PAUIDirectDrawSurface4@@A
-inline extern_var(0x909664, struct IDirectDrawSurface4*, lpdsFront);
+ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsFront;
 
 // 0x909678 | ?lpdsRend@@3PAUIDirectDrawSurface4@@A
-inline extern_var(0x909678, struct IDirectDrawSurface4*, lpdsRend);
+ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsRend;

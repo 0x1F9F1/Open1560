@@ -44,38 +44,38 @@ class mmCDPlayer : public asNode
 
 public:
     // 0x422FF0 | ??0mmCDPlayer@@QAE@XZ
-    mmCDPlayer();
+    ARTS_IMPORT mmCDPlayer();
 
     // 0x423810 | ??_GmmCDPlayer@@UAEPAXI@Z
     // 0x406960 | ??1mmCDPlayer@@UAE@XZ | inline
-    ~mmCDPlayer() override;
+    ARTS_IMPORT ~mmCDPlayer() override;
 
     // 0x4234C0 | ?AddWidgets@mmCDPlayer@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x423210 | ?Cull@mmCDPlayer@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x423080 | ?Init@mmCDPlayer@@QAEXPAVmmHUD@@@Z
-    void Init(class mmHUD* arg1);
+    ARTS_IMPORT void Init(class mmHUD* arg1);
 
     // 0x423450 | ?NextTrack@mmCDPlayer@@QAEXXZ
-    void NextTrack();
+    ARTS_IMPORT void NextTrack();
 
     // 0x423400 | ?PlayStop@mmCDPlayer@@QAEXXZ
-    void PlayStop();
+    ARTS_IMPORT void PlayStop();
 
     // 0x423750 | ?PrevTrack@mmCDPlayer@@QAEXXZ
-    void PrevTrack();
+    ARTS_IMPORT void PrevTrack();
 
     // 0x423190 | ?Reset@mmCDPlayer@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4237C0 | ?Toggle@mmCDPlayer@@QAEXXZ
-    void Toggle();
+    ARTS_IMPORT void Toggle();
 
     // 0x4231A0 | ?Update@mmCDPlayer@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmCDPlayer, 0x0);

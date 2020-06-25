@@ -71,94 +71,95 @@ class Joint3Dof : public asNode
 
 public:
     // 0x4DBC20 | ??0Joint3Dof@@QAE@XZ
-    Joint3Dof();
+    ARTS_IMPORT Joint3Dof();
 
     // 0x4DEC00 | ??_EJoint3Dof@@UAEPAXI@Z
     // 0x4DEC60 | ??1Joint3Dof@@UAE@XZ | inline
-    ~Joint3Dof() override;
+    ARTS_IMPORT ~Joint3Dof() override;
 
     // 0x4DE3B0 | ?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@0AAVMatrix34@@ABVVector3@@@Z
-    virtual void GetCMatrix(class asInertialCS const* arg1, class asInertialCS const* arg2, class Matrix34& arg3,
-        class Vector3 const& arg4);
+    ARTS_IMPORT virtual void GetCMatrix(class asInertialCS const* arg1, class asInertialCS const* arg2,
+        class Matrix34& arg3, class Vector3 const& arg4);
 
     // 0x4DE050 | ?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@AAVMatrix34@@ABVVector3@@@Z
-    virtual void GetCMatrix(class asInertialCS const* arg1, class Matrix34& arg2, class Vector3 const& arg3);
+    ARTS_IMPORT virtual void GetCMatrix(
+        class asInertialCS const* arg1, class Matrix34& arg2, class Vector3 const& arg3);
 
     // 0x4DE9A0 | ?AddWidgets@Joint3Dof@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4DD3A0 | ?BreakJoint@Joint3Dof@@QAEXXZ
-    void BreakJoint();
+    ARTS_IMPORT void BreakJoint();
 
     // 0x4DD990 | ?DoJointLimits@Joint3Dof@@QAEXMABVVector3@@M0AAV2@ABVMatrix34@@2222@Z
-    void DoJointLimits(f32 arg1, class Vector3 const& arg2, f32 arg3, class Vector3 const& arg4, class Vector3& arg5,
-        class Matrix34 const& arg6, class Matrix34 const& arg7, class Matrix34 const& arg8, class Matrix34 const& arg9,
-        class Matrix34 const& arg10);
+    ARTS_IMPORT void DoJointLimits(f32 arg1, class Vector3 const& arg2, f32 arg3, class Vector3 const& arg4,
+        class Vector3& arg5, class Matrix34 const& arg6, class Matrix34 const& arg7, class Matrix34 const& arg8,
+        class Matrix34 const& arg9, class Matrix34 const& arg10);
 
     // 0x4DD400 | ?DoJointTorque@Joint3Dof@@QAEXABVMatrix34@@000AAM1AAVVector3@@11@Z
-    void DoJointTorque(class Matrix34 const& arg1, class Matrix34 const& arg2, class Matrix34 const& arg3,
+    ARTS_IMPORT void DoJointTorque(class Matrix34 const& arg1, class Matrix34 const& arg2, class Matrix34 const& arg3,
         class Matrix34 const& arg4, f32& arg5, f32& arg6, class Vector3& arg7, f32& arg8, f32& arg9);
 
     // 0x4DEB20 | ?GetClass@Joint3Dof@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4DBC70 | ?Init@Joint3Dof@@QAEXXZ
-    void Init();
+    ARTS_IMPORT void Init();
 
     // 0x4DBCF0 | ?InitJoint3Dof@Joint3Dof@@QAEXPAVasInertialCS@@ABVVector3@@01@Z
-    void InitJoint3Dof(
+    ARTS_IMPORT void InitJoint3Dof(
         class asInertialCS* arg1, class Vector3 const& arg2, class asInertialCS* arg3, class Vector3 const& arg4);
 
     // 0x4DD350 | ?MoveICS@Joint3Dof@@QAEXXZ
-    void MoveICS();
+    ARTS_IMPORT void MoveICS();
 
     // 0x4DBCE0 | ?Reset@Joint3Dof@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4DC040 | ?SetForceLimit@Joint3Dof@@QAEXM@Z | unused
-    void SetForceLimit(f32 arg1);
+    ARTS_IMPORT void SetForceLimit(f32 arg1);
 
     // 0x4DBE90 | ?SetFrictionLean@Joint3Dof@@QAEXMMM@Z
-    void SetFrictionLean(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void SetFrictionLean(f32 arg1, f32 arg2, f32 arg3);
 
     // 0x4DBEC0 | ?SetFrictionRoll@Joint3Dof@@QAEXMMM@Z
-    void SetFrictionRoll(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void SetFrictionRoll(f32 arg1, f32 arg2, f32 arg3);
 
     // 0x4DC050 | ?SetJointForceFlag@Joint3Dof@@QAEXXZ
-    void SetJointForceFlag();
+    ARTS_IMPORT void SetJointForceFlag();
 
     // 0x4DBEF0 | ?SetLeanLimit@Joint3Dof@@QAEXMM@Z
-    void SetLeanLimit(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetLeanLimit(f32 arg1, f32 arg2);
 
     // 0x4DBD70 | ?SetPosition@Joint3Dof@@QAEXABVVector3@@@Z
-    void SetPosition(class Vector3 const& arg1);
+    ARTS_IMPORT void SetPosition(class Vector3 const& arg1);
 
     // 0x4DBFB0 | ?SetRestOrientMat@Joint3Dof@@QAEXABVMatrix34@@@Z
-    void SetRestOrientMat(class Matrix34 const& arg1);
+    ARTS_IMPORT void SetRestOrientMat(class Matrix34 const& arg1);
 
     // 0x4DBFF0 | ?SetRestOrientMat@Joint3Dof@@QAEXABVMatrix34@@0@Z
-    void SetRestOrientMat(class Matrix34 const& arg1, class Matrix34 const& arg2);
+    ARTS_IMPORT void SetRestOrientMat(class Matrix34 const& arg1, class Matrix34 const& arg2);
 
     // 0x4DBF40 | ?SetRestOrientation@Joint3Dof@@QAEXXZ | unused
-    void SetRestOrientation();
+    ARTS_IMPORT void SetRestOrientation();
 
     // 0x4DBF10 | ?SetRollLimit@Joint3Dof@@QAEXMMM@Z
-    void SetRollLimit(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void SetRollLimit(f32 arg1, f32 arg2, f32 arg3);
 
     // 0x4DBE50 | ?SetRotate1@Joint3Dof@@QAEXABVMatrix34@@@Z | unused
-    void SetRotate1(class Matrix34 const& arg1);
+    ARTS_IMPORT void SetRotate1(class Matrix34 const& arg1);
 
     // 0x4DBE70 | ?SetRotate2@Joint3Dof@@QAEXABVMatrix34@@@Z | unused
-    void SetRotate2(class Matrix34 const& arg1);
+    ARTS_IMPORT void SetRotate2(class Matrix34 const& arg1);
 
     // 0x4DD3D0 | ?UnbreakJoint@Joint3Dof@@QAEXXZ
-    void UnbreakJoint();
+    ARTS_IMPORT void UnbreakJoint();
 
     // 0x4DC0F0 | ?Update@Joint3Dof@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4DE9B0 | ?DeclareFields@Joint3Dof@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(Joint3Dof, 0xE0);
@@ -167,19 +168,19 @@ class JointedStruct : public asNode
 {
 public:
     // 0x4DEB60 | ??1JointedStruct@@UAE@XZ | inline
-    ~JointedStruct();
+    ARTS_IMPORT ~JointedStruct();
 };
 
 check_size(JointedStruct, 0x0);
 
 // 0x4DECD0 | ?CrossProdMatrix@@YAXPAVMatrix34@@ABVVector3@@@Z | inline
-void CrossProdMatrix(class Matrix34* arg1, class Vector3 const& arg2);
+ARTS_IMPORT void CrossProdMatrix(class Matrix34* arg1, class Vector3 const& arg2);
 
 // 0x719118 | ?Joint3DofMetaClass@@3VMetaClass@@A
-inline extern_var(0x719118, class MetaClass, Joint3DofMetaClass);
+// ARTS_IMPORT extern class MetaClass Joint3DofMetaClass;
 
 // 0x719140 | ?Veldiscrepancy@@3VVector3@@A
-inline extern_var(0x719140, class Vector3, Veldiscrepancy);
+ARTS_IMPORT extern class Vector3 Veldiscrepancy;
 
 // 0x719150 | ?discrepancy@@3VVector3@@A
-inline extern_var(0x719150, class Vector3, discrepancy);
+ARTS_IMPORT extern class Vector3 discrepancy;

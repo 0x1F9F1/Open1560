@@ -40,29 +40,29 @@ class mmAxle : public asLinearCS
 
 public:
     // 0x47D480 | ??0mmAxle@@QAE@XZ
-    mmAxle();
+    ARTS_IMPORT mmAxle();
 
     // 0x47D730 | ??_EmmAxle@@UAEPAXI@Z
     // 0x470370 | ??1mmAxle@@UAE@XZ | inline
-    ~mmAxle() override;
+    ARTS_IMPORT ~mmAxle() override;
 
     // 0x47D590 | ?AddWidgets@mmAxle@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x47D720 | ?GetClass@mmAxle@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x47D4A0 | ?Init@mmAxle@@QAEXPAD0PAVmmWheel@@1@Z
-    void Init(char* arg1, char* arg2, class mmWheel* arg3, class mmWheel* arg4);
+    ARTS_IMPORT void Init(char* arg1, char* arg2, class mmWheel* arg3, class mmWheel* arg4);
 
     // 0x47D4F0 | ?Update@mmAxle@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x47D5B0 | ?DeclareFields@mmAxle@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmAxle, 0x9C);
 
 // 0x6A8080 | ?mmAxleMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A8080, class MetaClass, mmAxleMetaClass);
+// ARTS_IMPORT extern class MetaClass mmAxleMetaClass;

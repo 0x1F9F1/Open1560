@@ -96,218 +96,220 @@ public:
     virtual ~agiPipeline() = 0;
 
     // 0x555540 | ?Validate@agiPipeline@@UAEHXZ
-    virtual i32 Validate();
+    ARTS_IMPORT virtual i32 Validate();
 
     virtual i32 BeginGfx() = 0;
 
     virtual void EndGfx() = 0;
 
     // 0x555D10 | ?BeginFrame@agiPipeline@@UAEXXZ
-    virtual void BeginFrame();
+    ARTS_IMPORT virtual void BeginFrame();
 
     // 0x556000 | ?BeginScene@agiPipeline@@UAEXXZ
-    virtual void BeginScene();
+    ARTS_IMPORT virtual void BeginScene();
 
     // 0x556020 | ?EndScene@agiPipeline@@UAEXXZ
-    virtual void EndScene();
+    ARTS_IMPORT virtual void EndScene();
 
     // 0x556030 | ?EndFrame@agiPipeline@@UAEXXZ
-    virtual void EndFrame();
+    ARTS_IMPORT virtual void EndFrame();
 
     virtual class agiTexDef* CreateTexDef() = 0;
 
     virtual class agiTexLut* CreateTexLut() = 0;
 
     // 0x555B10 | ?CreateMtlDef@agiPipeline@@UAEPAVagiMtlDef@@XZ
-    virtual class agiMtlDef* CreateMtlDef();
+    ARTS_IMPORT virtual class agiMtlDef* CreateMtlDef();
 
     virtual class DLP* CreateDLP() = 0;
 
     virtual class agiViewport* CreateViewport() = 0;
 
     // 0x555B20 | ?CreateLight@agiPipeline@@UAEPAVagiLight@@XZ
-    virtual class agiLight* CreateLight();
+    ARTS_IMPORT virtual class agiLight* CreateLight();
 
     // 0x555B30 | ?CreateLightModel@agiPipeline@@UAEPAVagiLightModel@@XZ
-    virtual class agiLightModel* CreateLightModel();
+    ARTS_IMPORT virtual class agiLightModel* CreateLightModel();
 
     // 0x555D30 | ?CreateBitmap@agiPipeline@@UAEPAVagiBitmap@@XZ
-    virtual class agiBitmap* CreateBitmap();
+    ARTS_IMPORT virtual class agiBitmap* CreateBitmap();
 
     // 0x555D40 | ?CopyBitmap@agiPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
-    virtual void CopyBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
+    ARTS_IMPORT virtual void CopyBitmap(
+        i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
 
     virtual void ClearAll(i32 arg1) = 0;
 
     // 0x556070 | ?ClearRect@agiPipeline@@UAEXHHHHI@Z
-    virtual void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5);
+    ARTS_IMPORT virtual void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5);
 
     // 0x557F20 | ?Print@agiPipeline@@UAEXHHHPBD@Z | agi:print
-    virtual void Print(i32 arg1, i32 arg2, i32 arg3, char const* arg4);
+    ARTS_IMPORT virtual void Print(i32 arg1, i32 arg2, i32 arg3, char const* arg4);
 
     // 0x558110 | ?PrintIs3D@agiPipeline@@UAEHXZ | agi:print
-    virtual i32 PrintIs3D();
+    ARTS_IMPORT virtual i32 PrintIs3D();
 
     // 0x558130 | ?PrintInit@agiPipeline@@UAEXXZ | agi:print
-    virtual void PrintInit();
+    ARTS_IMPORT virtual void PrintInit();
 
     // 0x558140 | ?PrintShutdown@agiPipeline@@UAEXXZ | agi:print
-    virtual void PrintShutdown();
+    ARTS_IMPORT virtual void PrintShutdown();
 
     // 0x556080 | ?Defragment@agiPipeline@@UAEXXZ
-    virtual void Defragment();
+    ARTS_IMPORT virtual void Defragment();
 
     // 0x556040 | ?LockFrameBuffer@agiPipeline@@UAEHAAVagiSurfaceDesc@@@Z
-    virtual i32 LockFrameBuffer(class agiSurfaceDesc& arg1);
+    ARTS_IMPORT virtual i32 LockFrameBuffer(class agiSurfaceDesc& arg1);
 
     // 0x556050 | ?UnlockFrameBuffer@agiPipeline@@UAEXXZ
-    virtual void UnlockFrameBuffer();
+    ARTS_IMPORT virtual void UnlockFrameBuffer();
 
     // 0x556060 | ?DumpStatus@agiPipeline@@UAEXAAUagiMemStatus@@@Z
-    virtual void DumpStatus(struct agiMemStatus& arg1);
+    ARTS_IMPORT virtual void DumpStatus(struct agiMemStatus& arg1);
 
     // 0x555B40 | ?BeginAllGfx@agiPipeline@@QAEHXZ
-    i32 BeginAllGfx();
+    ARTS_IMPORT i32 BeginAllGfx();
 
     // 0x555D50 | ?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHH@Z
-    i32 CopyClippedBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
+    ARTS_IMPORT i32 CopyClippedBitmap(
+        i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
 
     // 0x555D90 | ?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHHHHHH@Z
-    i32 CopyClippedBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8,
-        i32 arg9, i32 arg10, i32 arg11);
+    ARTS_IMPORT i32 CopyClippedBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7,
+        i32 arg8, i32 arg9, i32 arg10, i32 arg11);
 
     // 0x555F00 | ?DumpStatus@agiPipeline@@QAEXXZ | unused
-    void DumpStatus();
+    ARTS_IMPORT void DumpStatus();
 
     // 0x555C40 | ?EndAllGfx@agiPipeline@@QAEXXZ
-    void EndAllGfx();
+    ARTS_IMPORT void EndAllGfx();
 
     // 0x555750 | ?GetBitmap@agiPipeline@@QAEPAVagiBitmap@@PADMMH@Z
-    class agiBitmap* GetBitmap(char* arg1, f32 arg2, f32 arg3, i32 arg4);
+    ARTS_IMPORT class agiBitmap* GetBitmap(char* arg1, f32 arg2, f32 arg3, i32 arg4);
 
     // 0x555950 | ?GetDLP@agiPipeline@@QAEPAVDLP@@PAD0PAVVector3@@HH@Z
-    class DLP* GetDLP(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT class DLP* GetDLP(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
 
     // 0x555860 | ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@PAD@Z | unused
-    class agiMtlDef* GetMaterial(char* arg1);
+    ARTS_IMPORT class agiMtlDef* GetMaterial(char* arg1);
 
     // 0x5558C0 | ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@H@Z
-    class agiMtlDef* GetMaterial(i32 arg1);
+    ARTS_IMPORT class agiMtlDef* GetMaterial(i32 arg1);
 
     // 0x5557F0 | ?GetTexLut@agiPipeline@@QAEPAVagiTexLut@@PAD@Z
-    class agiTexLut* GetTexLut(char* arg1);
+    ARTS_IMPORT class agiTexLut* GetTexLut(char* arg1);
 
     // 0x5555C0 | ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@PADH@Z
-    class agiTexDef* GetTexture(char* arg1, i32 arg2);
+    ARTS_IMPORT class agiTexDef* GetTexture(char* arg1, i32 arg2);
 
     // 0x555620 | ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z
-    class agiTexDef* GetTexture(i32 arg1, i32 arg2);
+    ARTS_IMPORT class agiTexDef* GetTexture(i32 arg1, i32 arg2);
 
     // 0x555550 | ?Init@agiPipeline@@QAEHPADHHHHHHPAX@Z | unused
-    i32 Init(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, void* arg8);
+    ARTS_IMPORT i32 Init(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, void* arg8);
 
     // 0x555E70 | ?NotifyDelete@agiPipeline@@QAEXPAVagiRefreshable@@@Z
-    void NotifyDelete(class agiRefreshable* arg1);
+    ARTS_IMPORT void NotifyDelete(class agiRefreshable* arg1);
 
     // 0x555E40 | ?NotifyNew@agiPipeline@@QAEXPAVagiRefreshable@@@Z
-    void NotifyNew(class agiRefreshable* arg1);
+    ARTS_IMPORT void NotifyNew(class agiRefreshable* arg1);
 
     // 0x555CD0 | ?RestoreAll@agiPipeline@@QAEXXZ
-    void RestoreAll();
+    ARTS_IMPORT void RestoreAll();
 
     // 0x555EB0 | ?ValidateObject@agiPipeline@@QAEXPAVagiRefreshable@@@Z | unused
-    void ValidateObject(class agiRefreshable* arg1);
+    ARTS_IMPORT void ValidateObject(class agiRefreshable* arg1);
 
     // 0x8FACB4 | ?CurrentPipe@agiPipeline@@2PAV1@A
-    static inline extern_var(0x8FACB4, class agiPipeline*, CurrentPipe);
+    ARTS_IMPORT static class agiPipeline* CurrentPipe;
 
     // 0x8FACAC | ?CurrentRenderer@agiPipeline@@2PAVagiRenderer@@A
-    static inline extern_var(0x8FACAC, class agiRenderer*, CurrentRenderer);
+    ARTS_IMPORT static class agiRenderer* CurrentRenderer;
 
 protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
-    agiPipeline();
+    ARTS_IMPORT agiPipeline();
 };
 
 check_size(agiPipeline, 0x0);
 
 // 0x555F80 | ?CreatePipelineAttachableWindow@@YAPAXPADHHHHPAX@Z
-void* CreatePipelineAttachableWindow(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, void* arg6);
+ARTS_IMPORT void* CreatePipelineAttachableWindow(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, void* arg6);
 
 // 0x555F90 | ?DestroyPipelineAttachableWindow@@YAXXZ
-void DestroyPipelineAttachableWindow();
+ARTS_IMPORT void DestroyPipelineAttachableWindow();
 
 // 0x555F70 | ?GetRootWindow@@YAPAXXZ
-void* GetRootWindow();
+ARTS_IMPORT void* GetRootWindow();
 
 // 0x8FACE0 | ?DrawModeAnd@@3HA
-inline extern_var(0x8FACE0, i32, DrawModeAnd);
+ARTS_IMPORT extern i32 DrawModeAnd;
 
 // 0x8FACDC | ?DrawModeOr@@3HA
-inline extern_var(0x8FACDC, i32, DrawModeOr);
+ARTS_IMPORT extern i32 DrawModeOr;
 
 // 0x8FACD8 | ?LightCount@@3HA
-inline extern_var(0x8FACD8, i32, LightCount);
+ARTS_IMPORT extern i32 LightCount;
 
 // 0x8FACC0 | ?PROBER@@3P6AXPAX@ZA
-inline extern_var(0x8FACC0, void (*)(void*), PROBER);
+ARTS_IMPORT extern void (*PROBER)(void*);
 
 // 0x8FAC18 | ?STATS@@3UagiStats@@A
-inline extern_var(0x8FAC18, struct agiStats, STATS);
+ARTS_IMPORT extern struct agiStats STATS;
 
 // 0x6565B8 | ?ZFill@@3HA
-inline extern_var(0x6565B8, i32, ZFill);
+ARTS_IMPORT extern i32 ZFill;
 
 // 0x8FAC5C | ?agiBeginFrame@@3KA
-inline extern_var(0x8FAC5C, u32, agiBeginFrame);
+ARTS_IMPORT extern u32 agiBeginFrame;
 
 // 0x8FACA8 | ?agiBeginScene@@3KA
-inline extern_var(0x8FACA8, u32, agiBeginScene);
+ARTS_IMPORT extern u32 agiBeginScene;
 
 // 0x8FAC70 | ?agiBitmapCount@@3HA
-inline extern_var(0x8FAC70, i32, agiBitmapCount);
+ARTS_IMPORT extern i32 agiBitmapCount;
 
 // 0x8FAC68 | ?agiBitmapPixels@@3HA
-inline extern_var(0x8FAC68, i32, agiBitmapPixels);
+ARTS_IMPORT extern i32 agiBitmapPixels;
 
 // 0x8FACD4 | ?agiClearViewport@@3KA
-inline extern_var(0x8FACD4, u32, agiClearViewport);
+ARTS_IMPORT extern u32 agiClearViewport;
 
 // 0x8FACCC | ?agiClipTimer@@3KA
-inline extern_var(0x8FACCC, u32, agiClipTimer);
+ARTS_IMPORT extern u32 agiClipTimer;
 
 // 0x8FAC64 | ?agiCopyBitmap@@3KA
-inline extern_var(0x8FAC64, u32, agiCopyBitmap);
+ARTS_IMPORT extern u32 agiCopyBitmap;
 
 // 0x6565BC | ?agiEnableZBuffer@@3DA
-inline extern_var(0x6565BC, char, agiEnableZBuffer);
+ARTS_IMPORT extern char agiEnableZBuffer;
 
 // 0x8FAC6C | ?agiEndFrame@@3KA
-inline extern_var(0x8FAC6C, u32, agiEndFrame);
+ARTS_IMPORT extern u32 agiEndFrame;
 
 // 0x8FACA4 | ?agiEndScene@@3KA
-inline extern_var(0x8FACA4, u32, agiEndScene);
+ARTS_IMPORT extern u32 agiEndScene;
 
 // 0x8FACD0 | ?agiFirstPass@@3KA
-inline extern_var(0x8FACD0, u32, agiFirstPass);
+ARTS_IMPORT extern u32 agiFirstPass;
 
 // 0x8FACC4 | ?agiInvertTimer@@3KA
-inline extern_var(0x8FACC4, u32, agiInvertTimer);
+ARTS_IMPORT extern u32 agiInvertTimer;
 
 // 0x8FAC60 | ?agiLightTimer@@3KA
-inline extern_var(0x8FAC60, u32, agiLightTimer);
+ARTS_IMPORT extern u32 agiLightTimer;
 
 // 0x8FACB0 | ?agiRasterization@@3KA
-inline extern_var(0x8FACB0, u32, agiRasterization);
+ARTS_IMPORT extern u32 agiRasterization;
 
 // 0x8FACB8 | ?agiSecondPass@@3KA
-inline extern_var(0x8FACB8, u32, agiSecondPass);
+ARTS_IMPORT extern u32 agiSecondPass;
 
 // 0x8FACC8 | ?agiStateChanges@@3KA
-inline extern_var(0x8FACC8, u32, agiStateChanges);
+ARTS_IMPORT extern u32 agiStateChanges;
 
 // 0x8FACBC | ?agiTransformTimer@@3KA
-inline extern_var(0x8FACBC, u32, agiTransformTimer);
+ARTS_IMPORT extern u32 agiTransformTimer;
 
 // 0x8FACA0 | ?agiTraverseTimer@@3KA
-inline extern_var(0x8FACA0, u32, agiTraverseTimer);
+ARTS_IMPORT extern u32 agiTraverseTimer;

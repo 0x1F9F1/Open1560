@@ -19,8 +19,3 @@
 define_dummy_symbol(mmdjpeg_jdinput);
 
 #include "jdinput.h"
-
-void jinit_input_controller(struct jpeg_decompress_struct* arg1)
-{
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x57DB10, arg1);
-}

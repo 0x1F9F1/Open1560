@@ -49,56 +49,56 @@ class mmIODev : public mmInfoBase
 
 public:
     // 0x4E5060 | ??0mmIODev@@QAE@XZ
-    mmIODev();
+    ARTS_IMPORT mmIODev();
 
     // 0x4E4AA0 | ??_EmmIODev@@UAEPAXI@Z
     // 0x4E50A0 | ??1mmIODev@@UAE@XZ
-    ~mmIODev() override;
+    ARTS_IMPORT ~mmIODev() override;
 
     // 0x4E5200 | ??8mmIODev@@QAEHPATeqEvent@@@Z
-    i32 operator==(union eqEvent* arg1);
+    ARTS_IMPORT i32 operator==(union eqEvent* arg1);
 
     // 0x4E50E0 | ?Assign@mmIODev@@QAEXHHH@Z
-    void Assign(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT void Assign(i32 arg1, i32 arg2, i32 arg3);
 
     // 0x4E5A50 | ?GetClass@mmIODev@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4E5580 | ?GetComponentType@mmIODev@@QAEHHH@Z
-    i32 GetComponentType(i32 arg1, i32 arg2);
+    ARTS_IMPORT i32 GetComponentType(i32 arg1, i32 arg2);
 
     // 0x4E52C0 | ?GetDescription@mmIODev@@QAEXPAD@Z
-    void GetDescription(char* arg1);
+    ARTS_IMPORT void GetDescription(char* arg1);
 
     // 0x4E50B0 | ?Init@mmIODev@@QAEXH_J@Z
-    void Init(i32 arg1, i64 arg2);
+    ARTS_IMPORT void Init(i32 arg1, i64 arg2);
 
     // 0x4E5670 | ?Print@mmIODev@@QAEXH@Z
-    void Print(i32 arg1);
+    ARTS_IMPORT void Print(i32 arg1);
 
     // 0x4E57F0 | ?Read@mmIODev@@QAEHPAVStream@@@Z
-    i32 Read(class Stream* arg1);
+    ARTS_IMPORT i32 Read(class Stream* arg1);
 
     // 0x4E5850 | ?ReadBinary@mmIODev@@QAEHPAVStream@@@Z
-    i32 ReadBinary(class Stream* arg1);
+    ARTS_IMPORT i32 ReadBinary(class Stream* arg1);
 
     // 0x4E55F0 | ?SanityCheckioType@mmIODev@@QAEHHHH@Z
-    i32 SanityCheckioType(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT i32 SanityCheckioType(i32 arg1, i32 arg2, i32 arg3);
 
     // 0x4E5740 | ?Write@mmIODev@@QAEHPAVStream@@@Z
-    i32 Write(class Stream* arg1);
+    ARTS_IMPORT i32 Write(class Stream* arg1);
 
     // 0x4E57A0 | ?WriteBinary@mmIODev@@QAEHPAVStream@@@Z
-    i32 WriteBinary(class Stream* arg1);
+    ARTS_IMPORT i32 WriteBinary(class Stream* arg1);
 
     // 0x4E58A0 | ?DeclareFields@mmIODev@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmIODev, 0xA8);
 
 // 0x4E5260 | ?ConvertDItoString@@YAHHPADH@Z
-i32 ConvertDItoString(i32 arg1, char* arg2, i32 arg3);
+ARTS_IMPORT i32 ConvertDItoString(i32 arg1, char* arg2, i32 arg3);
 
 // 0x719288 | ?mmIODevMetaClass@@3VMetaClass@@A
-inline extern_var(0x719288, class MetaClass, mmIODevMetaClass);
+// ARTS_IMPORT extern class MetaClass mmIODevMetaClass;

@@ -26,6 +26,10 @@
     0x55F610 | protected: virtual void __thiscall FileSystem::NotifyDelete(void) | ?NotifyDelete@FileSystem@@MAEXXZ
     0x55F620 | public: static class FileSystem * __cdecl FileSystem::SearchAll(char *,char *,char *,int,char *) | ?SearchAll@FileSystem@@SAPAV1@PAD00H0@Z
     0x55F690 | public: int __thiscall FileSystem::Search(char *,char *,char *,int,char *) | ?Search@FileSystem@@QAEHPAD00H0@Z
+    0x55FAF0 | char * __cdecl SubString(int,char *) | ?SubString@@YAPADHPAD@Z
+    0x55FB70 | int __cdecl NumSubStrings(char *) | ?NumSubStrings@@YAHPAD@Z
+    0x55FBA0 | int __cdecl Contains(char *,char *) | ?Contains@@YAHPAD0@Z
+    0x55FC20 | void __cdecl ExpandEnvs(char *) | ?ExpandEnvs@@YAXPAD@Z
     0x55FD30 | class FileSystem * __cdecl FindFile(char *,char *,char *,int,char *) | ?FindFile@@YAPAVFileSystem@@PAD00H0@Z
     0x55FD60 | class Stream * __cdecl OpenFile(char *,char *,char *,int,char *,char *) | ?OpenFile@@YAPAVStream@@PAD00H00@Z
     0x55FE60 | public: static class Stream * __cdecl FileSystem::OpenAny(char *,int,void *,int) | ?OpenAny@FileSystem@@SAPAVStream@@PADHPAXH@Z
@@ -37,10 +41,6 @@
     0x907A30 | public: static int FileSystem::FSCount | ?FSCount@FileSystem@@2HA
     0x907A38 | public: static class FileSystem * * FileSystem::FS | ?FS@FileSystem@@2PAPAV1@A
     0x907B38 | int fsVerbose | ?fsVerbose@@3HA
-    0x55FAF0 | char * __cdecl SubString(int,char *) | ?SubString@@YAPADHPAD@Z
-    0x55FB70 | int __cdecl NumSubStrings(char *) | ?NumSubStrings@@YAHPAD@Z
-    0x55FBA0 | int __cdecl Contains(char *,char *) | ?Contains@@YAHPAD0@Z
-    0x55FC20 | void __cdecl ExpandEnvs(char *) | ?ExpandEnvs@@YAXPAD@Z
 */
 
 #include "data7/base.h"
@@ -107,7 +107,7 @@ public:
     static class FileSystem* FS[MAX_FILESYSTEMS];
 
     // 0x907A30 | ?FSCount@FileSystem@@2HA
-    static inline extern_var(0x907A30, i32, FSCount);
+    ARTS_IMPORT static i32 FSCount;
 
     static inline constexpr bool IsPathSeparator(char c) noexcept
     {
@@ -147,4 +147,4 @@ Owner<class Stream*> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len, const char* desc);
 
 // 0x907B38 | ?fsVerbose@@3HA
-inline extern_var(0x907B38, i32, fsVerbose);
+ARTS_IMPORT extern i32 fsVerbose;

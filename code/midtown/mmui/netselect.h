@@ -72,116 +72,116 @@ class NetSelectMenu : public UIMenu
 
 public:
     // 0x4A3BA0 | ??0NetSelectMenu@@QAE@H@Z
-    NetSelectMenu(i32 arg1);
+    ARTS_IMPORT NetSelectMenu(i32 arg1);
 
     // 0x4A4C00 | ??_GNetSelectMenu@@UAEPAXI@Z
     // 0x4A42F0 | ??1NetSelectMenu@@UAE@XZ
-    ~NetSelectMenu() override;
+    ARTS_IMPORT ~NetSelectMenu() override;
 
     // 0x4A4960 | ?AddModem@NetSelectMenu@@QAEXPADH@Z | unused
-    void AddModem(char* arg1, i32 arg2);
+    ARTS_IMPORT void AddModem(char* arg1, i32 arg2);
 
     // 0x4A4950 | ?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z | unused
-    void AddWidgetToList(i32 arg1, class uiWidget* arg2);
+    ARTS_IMPORT void AddWidgetToList(i32 arg1, class uiWidget* arg2);
 
     // 0x4A4690 | ?BuildAllTheIPXWidgets@NetSelectMenu@@QAEXMMMM@Z
-    void BuildAllTheIPXWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT void BuildAllTheIPXWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4A4580 | ?BuildAllTheModemWidgets@NetSelectMenu@@QAEXMMMMPAD@Z
-    void BuildAllTheModemWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4, char* arg5);
+    ARTS_IMPORT void BuildAllTheModemWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4, char* arg5);
 
     // 0x4A46A0 | ?BuildAllTheTCPWidgets@NetSelectMenu@@QAEXMMMM@Z
-    void BuildAllTheTCPWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT void BuildAllTheTCPWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4A4720 | ?BuildComs@NetSelectMenu@@QAEXXZ
-    void BuildComs();
+    ARTS_IMPORT void BuildComs();
 
     // 0x4A4A60 | ?ClearProtocol@NetSelectMenu@@QAEXXZ
-    void ClearProtocol();
+    ARTS_IMPORT void ClearProtocol();
 
     // 0x4A44D0 | ?DisableSessions@NetSelectMenu@@QAEXXZ
-    void DisableSessions();
+    ARTS_IMPORT void DisableSessions();
 
     // 0x4A4420 | ?FocusDescription@NetSelectMenu@@QAEXH@Z
-    void FocusDescription(i32 arg1);
+    ARTS_IMPORT void FocusDescription(i32 arg1);
 
     // 0x4A4B40 | ?GetCommPack@NetSelectMenu@@QAEPAUNETCOMMPACK@@XZ
-    struct NETCOMMPACK* GetCommPack();
+    ARTS_IMPORT struct NETCOMMPACK* GetCommPack();
 
     // 0x4A4410 | ?GetHostJoin@NetSelectMenu@@QAEHXZ
-    i32 GetHostJoin();
+    ARTS_IMPORT i32 GetHostJoin();
 
     // 0x4A46C0 | ?GetSessionID@NetSelectMenu@@QAEHXZ
-    i32 GetSessionID();
+    ARTS_IMPORT i32 GetSessionID();
 
     // 0x4A46B0 | ?GetSessions@NetSelectMenu@@QAEPAVUITextScroll@@XZ
-    class UITextScroll* GetSessions();
+    ARTS_IMPORT class UITextScroll* GetSessions();
 
     // 0x4A43F0 | ?HostCB@NetSelectMenu@@QAEXXZ
-    void HostCB();
+    ARTS_IMPORT void HostCB();
 
     // 0x4A4700 | ?IPAddressCallback@NetSelectMenu@@QAEXXZ
-    void IPAddressCallback();
+    ARTS_IMPORT void IPAddressCallback();
 
     // 0x4A4400 | ?JoinCB@NetSelectMenu@@QAEXXZ
-    void JoinCB();
+    ARTS_IMPORT void JoinCB();
 
     // 0x4A44B0 | ?JoinCallback@NetSelectMenu@@QAEXXZ
-    void JoinCallback();
+    ARTS_IMPORT void JoinCallback();
 
     // 0x4A4B70 | ?NetNameCB@NetSelectMenu@@QAEXXZ
-    void NetNameCB();
+    ARTS_IMPORT void NetNameCB();
 
     // 0x4A43D0 | ?PostSetup@NetSelectMenu@@UAEXXZ
-    void PostSetup() override;
+    ARTS_IMPORT void PostSetup() override;
 
     // 0x4A4360 | ?PreSetup@NetSelectMenu@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x4A44E0 | ?ProtocolBack@NetSelectMenu@@QAEXXZ
-    void ProtocolBack();
+    ARTS_IMPORT void ProtocolBack();
 
     // 0x4A4930 | ?ReparentWidgets@NetSelectMenu@@QAEXH@Z | unused
-    void ReparentWidgets(i32 arg1);
+    ARTS_IMPORT void ReparentWidgets(i32 arg1);
 
     // 0x4A4820 | ?SetComs@NetSelectMenu@@QAEXXZ
-    void SetComs();
+    ARTS_IMPORT void SetComs();
 
     // 0x4A44A0 | ?SetDescription@NetSelectMenu@@QAEXPAULocString@@@Z
-    void SetDescription(struct LocString* arg1);
+    ARTS_IMPORT void SetDescription(struct LocString* arg1);
 
     // 0x4A4560 | ?SetIPAddress@NetSelectMenu@@QAEXPAD@Z
-    void SetIPAddress(char* arg1);
+    ARTS_IMPORT void SetIPAddress(char* arg1);
 
     // 0x4A4A70 | ?SetIPXButton@NetSelectMenu@@QAEXH@Z
-    void SetIPXButton(i32 arg1);
+    ARTS_IMPORT void SetIPXButton(i32 arg1);
 
     // 0x4A4AE0 | ?SetModemButton@NetSelectMenu@@QAEXH@Z
-    void SetModemButton(i32 arg1);
+    ARTS_IMPORT void SetModemButton(i32 arg1);
 
     // 0x4A4500 | ?SetNetname@NetSelectMenu@@QAEXPAD@Z
-    void SetNetname(char* arg1);
+    ARTS_IMPORT void SetNetname(char* arg1);
 
     // 0x4A4540 | ?SetPhoneNumber@NetSelectMenu@@QAEXPAD@Z
-    void SetPhoneNumber(char* arg1);
+    ARTS_IMPORT void SetPhoneNumber(char* arg1);
 
     // 0x4A4B10 | ?SetSerialButton@NetSelectMenu@@QAEXH@Z
-    void SetSerialButton(i32 arg1);
+    ARTS_IMPORT void SetSerialButton(i32 arg1);
 
     // 0x4A46D0 | ?SetSession@NetSelectMenu@@QAEXPADH@Z
-    void SetSession(char* arg1, i32 arg2);
+    ARTS_IMPORT void SetSession(char* arg1, i32 arg2);
 
     // 0x4A4AA0 | ?SetTCPLocalButton@NetSelectMenu@@QAEXH@Z
-    void SetTCPLocalButton(i32 arg1);
+    ARTS_IMPORT void SetTCPLocalButton(i32 arg1);
 
     // 0x4A4AB0 | ?SetTCPNetButton@NetSelectMenu@@QAEXH@Z
-    void SetTCPNetButton(i32 arg1);
+    ARTS_IMPORT void SetTCPNetButton(i32 arg1);
 
     // 0x4A44C0 | ?ShowTCPIPNetSessions@NetSelectMenu@@QAEXXZ
-    void ShowTCPIPNetSessions();
+    ARTS_IMPORT void ShowTCPIPNetSessions();
 
     // 0x4A4940 | ?WidgetSwitch@NetSelectMenu@@QAEXHH@Z
-    void WidgetSwitch(i32 arg1, i32 arg2);
+    ARTS_IMPORT void WidgetSwitch(i32 arg1, i32 arg2);
 };
 
 check_size(NetSelectMenu, 0x27C);

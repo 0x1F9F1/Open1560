@@ -42,35 +42,35 @@ class mmVehList
 
 public:
     // 0x4CC080 | ??0mmVehList@@QAE@XZ
-    mmVehList();
+    ARTS_IMPORT mmVehList();
 
     // 0x4CC460 | ??_GmmVehList@@UAEPAXI@Z
     // 0x4CC0A0 | ??1mmVehList@@UAE@XZ
-    virtual ~mmVehList();
+    ARTS_IMPORT virtual ~mmVehList();
 
     // 0x4CC1C0 | ?GetVehicleID@mmVehList@@QAEHPAD@Z
-    i32 GetVehicleID(char* arg1);
+    ARTS_IMPORT i32 GetVehicleID(char* arg1);
 
     // 0x4CC140 | ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@PAD@Z
-    class mmVehInfo* GetVehicleInfo(char* arg1);
+    ARTS_IMPORT class mmVehInfo* GetVehicleInfo(char* arg1);
 
     // 0x4CC110 | ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@H@Z
-    class mmVehInfo* GetVehicleInfo(i32 arg1);
+    ARTS_IMPORT class mmVehInfo* GetVehicleInfo(i32 arg1);
 
     // 0x4CC100 | ?Init@mmVehList@@QAEXH@Z | unused
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
     // 0x4CC240 | ?Load@mmVehList@@QAEXPAD@Z
-    void Load(char* arg1);
+    ARTS_IMPORT void Load(char* arg1);
 
     // 0x4CC3C0 | ?LoadAll@mmVehList@@QAEXXZ
-    void LoadAll();
+    ARTS_IMPORT void LoadAll();
 
     // 0x4CC370 | ?Print@mmVehList@@QAEXXZ | unused
-    void Print();
+    ARTS_IMPORT void Print();
 };
 
 check_size(mmVehList, 0xC);
 
 // 0x7084EC | ?VehicleListPtr@@3PAVmmVehList@@A
-inline extern_var(0x7084EC, class mmVehList*, VehicleListPtr);
+ARTS_IMPORT extern class mmVehList* VehicleListPtr;

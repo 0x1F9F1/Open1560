@@ -19,33 +19,3 @@
 define_dummy_symbol(mmeffects_mousesteerbar);
 
 #include "mousesteerbar.h"
-
-mmMouseSteerBar::mmMouseSteerBar()
-{
-    unimplemented();
-}
-
-mmMouseSteerBar::~mmMouseSteerBar()
-{
-    unimplemented();
-}
-
-void mmMouseSteerBar::AddWidgets(class Bank* arg1)
-{
-    return stub<thiscall_t<void, mmMouseSteerBar*, class Bank*>>(0x502AB0, this, arg1);
-}
-
-void mmMouseSteerBar::Cull()
-{
-    return stub<thiscall_t<void, mmMouseSteerBar*>>(0x502A30, this);
-}
-
-void mmMouseSteerBar::Init(f32 arg1, f32 arg2, f32* arg3)
-{
-    return stub<thiscall_t<void, mmMouseSteerBar*, f32, f32, f32*>>(0x502960, this, arg1, arg2, arg3);
-}
-
-void mmMouseSteerBar::Update()
-{
-    return stub<thiscall_t<void, mmMouseSteerBar*>>(0x502A00, this);
-}

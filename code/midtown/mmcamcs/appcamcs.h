@@ -43,37 +43,37 @@ class AppCamCS : public BaseCamCS
 
 public:
     // 0x4FC330 | ??0AppCamCS@@QAE@XZ
-    AppCamCS();
+    ARTS_IMPORT AppCamCS();
 
     // 0x4FD390 | ??_EAppCamCS@@UAEPAXI@Z
     // 0x4FC420 | ??1AppCamCS@@UAE@XZ
-    ~AppCamCS() override;
+    ARTS_IMPORT ~AppCamCS() override;
 
     // 0x4FCDB0 | ?AddWidgets@AppCamCS@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4FD380 | ?GetClass@AppCamCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4FD0D0 | ?DeclareFields@AppCamCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 protected:
     // 0x4FC430 | ?ApproachIt@AppCamCS@@IAEXXZ
-    void ApproachIt();
+    ARTS_IMPORT void ApproachIt();
 
 private:
     // 0x4FCC60 | ?DApproach@AppCamCS@@AAEHAAMMMM0M@Z
-    i32 DApproach(f32& arg1, f32 arg2, f32 arg3, f32 arg4, f32& arg5, f32 arg6);
+    ARTS_IMPORT i32 DApproach(f32& arg1, f32 arg2, f32 arg3, f32 arg4, f32& arg5, f32 arg6);
 
     // 0x4FC460 | ?UpdateApproach@AppCamCS@@AAEXXZ
-    void UpdateApproach();
+    ARTS_IMPORT void UpdateApproach();
 
     // 0x4FC9D0 | ?UpdateMaxDist@AppCamCS@@AAEXXZ
-    void UpdateMaxDist();
+    ARTS_IMPORT void UpdateMaxDist();
 };
 
 check_size(AppCamCS, 0x114);
 
 // 0x719520 | ?AppCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x719520, class MetaClass, AppCamCSMetaClass);
+// ARTS_IMPORT extern class MetaClass AppCamCSMetaClass;

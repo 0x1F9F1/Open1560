@@ -20,37 +20,5 @@ define_dummy_symbol(agid3d_d3dmtldef);
 
 #include "d3dmtldef.h"
 
-agiD3DMtlDef::agiD3DMtlDef(class agiPipeline* arg1)
-{
-    unimplemented(arg1);
-}
-
-agiD3DMtlDef::~agiD3DMtlDef()
-{
-    unimplemented();
-}
-
-void agiD3DMtlDef::Activate()
-{
-    return stub<thiscall_t<void, agiD3DMtlDef*>>(0x533670, this);
-}
-
-i32 agiD3DMtlDef::BeginGfx()
-{
-    return stub<thiscall_t<i32, agiD3DMtlDef*>>(0x533590, this);
-}
-
-void agiD3DMtlDef::EndGfx()
-{
-    return stub<thiscall_t<void, agiD3DMtlDef*>>(0x533620, this);
-}
-
-u32 agiD3DMtlDef::GetHandle()
-{
-    return stub<thiscall_t<u32, agiD3DMtlDef*>>(0x533750, this);
-}
-
-static void xlat(struct _D3DCOLORVALUE& arg1, class Vector4& arg2)
-{
-    return stub<cdecl_t<void, struct _D3DCOLORVALUE&, class Vector4&>>(0x533720, arg1, arg2);
-}
+// 0x533720 | ?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z
+ARTS_IMPORT /*static*/ void xlat(struct _D3DCOLORVALUE& arg1, class Vector4& arg2);

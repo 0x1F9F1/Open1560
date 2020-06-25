@@ -57,78 +57,78 @@ class mmPlayerDirectory : public mmInfoBase
 
 public:
     // 0x4CEF00 | ??0mmPlayerDirectory@@QAE@XZ
-    mmPlayerDirectory();
+    ARTS_IMPORT mmPlayerDirectory();
 
     // 0x4CFBD0 | ??_EmmPlayerDirectory@@UAEPAXI@Z
     // 0x4CEF40 | ??1mmPlayerDirectory@@UAE@XZ
-    ~mmPlayerDirectory() override;
+    ARTS_IMPORT ~mmPlayerDirectory() override;
 
     // 0x4CF0D0 | ?AddPlayer@mmPlayerDirectory@@QAEHPAD@Z
-    i32 AddPlayer(char* arg1);
+    ARTS_IMPORT i32 AddPlayer(char* arg1);
 
     // 0x4CF320 | ?FindPlayer@mmPlayerDirectory@@QAEHPAD@Z
-    i32 FindPlayer(char* arg1);
+    ARTS_IMPORT i32 FindPlayer(char* arg1);
 
     // 0x4CFB80 | ?GetClass@mmPlayerDirectory@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4CF390 | ?GetFileName@mmPlayerDirectory@@QAEPADPAD@Z
-    char* GetFileName(char* arg1);
+    ARTS_IMPORT char* GetFileName(char* arg1);
 
     // 0x4CF4B0 | ?GetFileName@mmPlayerDirectory@@QAEPADH@Z
-    char* GetFileName(i32 arg1);
+    ARTS_IMPORT char* GetFileName(i32 arg1);
 
     // 0x4CF0A0 | ?GetLastPlayer@mmPlayerDirectory@@QAEPADXZ
-    char* GetLastPlayer();
+    ARTS_IMPORT char* GetLastPlayer();
 
     // 0x4CF090 | ?GetNumPlayers@mmPlayerDirectory@@QAEHXZ
-    i32 GetNumPlayers();
+    ARTS_IMPORT i32 GetNumPlayers();
 
     // 0x4CF060 | ?GetPlayer@mmPlayerDirectory@@QAEPADH@Z
-    char* GetPlayer(i32 arg1);
+    ARTS_IMPORT char* GetPlayer(i32 arg1);
 
     // 0x4CF420 | ?GetPlayerName@mmPlayerDirectory@@QAEPADPAD@Z | unused
-    char* GetPlayerName(char* arg1);
+    ARTS_IMPORT char* GetPlayerName(char* arg1);
 
     // 0x4CF6A0 | ?Load@mmPlayerDirectory@@QAEHPAD@Z
-    i32 Load(char* arg1);
+    ARTS_IMPORT i32 Load(char* arg1);
 
     // 0x4CF870 | ?LoadBinary@mmPlayerDirectory@@QAEHPAD@Z
-    i32 LoadBinary(char* arg1);
+    ARTS_IMPORT i32 LoadBinary(char* arg1);
 
     // 0x4CEFA0 | ?NewDirectory@mmPlayerDirectory@@QAEXH@Z
-    void NewDirectory(i32 arg1);
+    ARTS_IMPORT void NewDirectory(i32 arg1);
 
     // 0x4CF5A0 | ?RemovePlayer@mmPlayerDirectory@@QAEHPAD@Z
-    i32 RemovePlayer(char* arg1);
+    ARTS_IMPORT i32 RemovePlayer(char* arg1);
 
     // 0x4CF6D0 | ?Save@mmPlayerDirectory@@QAEHPADH@Z
-    i32 Save(char* arg1, i32 arg2);
+    ARTS_IMPORT i32 Save(char* arg1, i32 arg2);
 
     // 0x4CF770 | ?SaveBinary@mmPlayerDirectory@@QAEHPAD@Z
-    i32 SaveBinary(char* arg1);
+    ARTS_IMPORT i32 SaveBinary(char* arg1);
 
     // 0x4CF010 | ?SetLastPlayer@mmPlayerDirectory@@QAEXPAD@Z
-    void SetLastPlayer(char* arg1);
+    ARTS_IMPORT void SetLastPlayer(char* arg1);
 
     // 0x4CEFE0 | ?SetPlayer@mmPlayerDirectory@@QAEXHPAD0@Z
-    void SetPlayer(i32 arg1, char* arg2, char* arg3);
+    ARTS_IMPORT void SetPlayer(i32 arg1, char* arg2, char* arg3);
 
     // 0x4CF9B0 | ?DeclareFields@mmPlayerDirectory@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x4CF210 | ?CreatePlayer@mmPlayerDirectory@@AAEXPAD0@Z | unused
-    void CreatePlayer(char* arg1, char* arg2);
+    ARTS_IMPORT void CreatePlayer(char* arg1, char* arg2);
 
     // 0x4CF4E0 | ?MakeFileName@mmPlayerDirectory@@AAEPADXZ
-    char* MakeFileName();
+    ARTS_IMPORT char* MakeFileName();
 };
 
 check_size(mmPlayerDirectory, 0xE4);
 
 // 0x4CFB90 | ?RefTo@@YAPAUMetaType@@PAU1@HPAH@Z | inline
-struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i32* arg3);
+ARTS_IMPORT struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i32* arg3);
 
 // 0x708548 | ?mmPlayerDirectoryMetaClass@@3VMetaClass@@A
-inline extern_var(0x708548, class MetaClass, mmPlayerDirectoryMetaClass);
+// ARTS_IMPORT extern class MetaClass mmPlayerDirectoryMetaClass;

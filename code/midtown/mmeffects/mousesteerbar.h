@@ -40,23 +40,23 @@ class mmMouseSteerBar : public asNode
 
 public:
     // 0x502930 | ??0mmMouseSteerBar@@QAE@XZ
-    mmMouseSteerBar();
+    ARTS_IMPORT mmMouseSteerBar();
 
     // 0x502BA0 | ??_GmmMouseSteerBar@@UAEPAXI@Z
     // 0x502950 | ??1mmMouseSteerBar@@UAE@XZ
-    ~mmMouseSteerBar() override;
+    ARTS_IMPORT ~mmMouseSteerBar() override;
 
     // 0x502AB0 | ?AddWidgets@mmMouseSteerBar@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x502A30 | ?Cull@mmMouseSteerBar@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x502960 | ?Init@mmMouseSteerBar@@QAEXMMPAM@Z
-    void Init(f32 arg1, f32 arg2, f32* arg3);
+    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32* arg3);
 
     // 0x502A00 | ?Update@mmMouseSteerBar@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmMouseSteerBar, 0x44);

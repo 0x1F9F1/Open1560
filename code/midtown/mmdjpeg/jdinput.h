@@ -25,4 +25,4 @@
 */
 
 // 0x57DB10 | ?jinit_input_controller@@YAXPAUjpeg_decompress_struct@@@Z
-void jinit_input_controller(struct jpeg_decompress_struct* arg1);
+ARTS_IMPORT void jinit_input_controller(struct jpeg_decompress_struct* arg1);

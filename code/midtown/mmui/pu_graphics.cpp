@@ -20,37 +20,11 @@ define_dummy_symbol(mmui_pu_graphics);
 
 #include "pu_graphics.h"
 
-PUGraphics::PUGraphics(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
-{
-    unimplemented(arg1, arg2, arg3, arg4, arg5);
-}
+// 0x4A9EC0 | ?fix_lighting_lame@@YAXXZ
+ARTS_IMPORT /*static*/ void fix_lighting_lame();
 
-PUGraphics::~PUGraphics()
-{
-    unimplemented();
-}
+// 0x4A9E90 | ?toggle_filter@@YAXXZ
+ARTS_IMPORT /*static*/ void toggle_filter();
 
-void PUGraphics::CancelAction()
-{
-    return stub<thiscall_t<void, PUGraphics*>>(0x4A9F00, this);
-}
-
-void PUGraphics::PreSetup()
-{
-    return stub<thiscall_t<void, PUGraphics*>>(0x4A9EF0, this);
-}
-
-static void fix_lighting_lame()
-{
-    return stub<cdecl_t<void>>(0x4A9EC0);
-}
-
-static void toggle_filter()
-{
-    return stub<cdecl_t<void>>(0x4A9E90);
-}
-
-static void toggle_interlace()
-{
-    return stub<cdecl_t<void>>(0x4A9E70);
-}
+// 0x4A9E70 | ?toggle_interlace@@YAXXZ
+ARTS_IMPORT /*static*/ void toggle_interlace();

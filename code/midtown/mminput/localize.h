@@ -25,4 +25,4 @@
 */
 
 // 0x4E7310 | ?AngelReadKeyString@@YAPAULocString@@I@Z
-struct LocString* AngelReadKeyString(u32 arg1);
+ARTS_IMPORT struct LocString* AngelReadKeyString(u32 arg1);

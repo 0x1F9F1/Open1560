@@ -19,33 +19,3 @@
 define_dummy_symbol(vector7_trigmath);
 
 #include "trigmath.h"
-
-f32 atan2f_fast(f32 arg1, f32 arg2)
-{
-    return stub<cdecl_t<f32, f32, f32>>(0x5733D0, arg1, arg2);
-}
-
-f32 atan2f_faster(f32 arg1, f32 arg2)
-{
-    return stub<cdecl_t<f32, f32, f32>>(0x573450, arg1, arg2);
-}
-
-f32 atanf_fast(f32 arg1)
-{
-    return stub<cdecl_t<f32, f32>>(0x5732F0, arg1);
-}
-
-f32 atanf_fast_large_values(f32 arg1)
-{
-    return stub<cdecl_t<f32, f32>>(0x5732C0, arg1);
-}
-
-f32 atanf_faster(f32 arg1)
-{
-    return stub<cdecl_t<f32, f32>>(0x573370, arg1);
-}
-
-f32 tanf_fast(f32 arg1)
-{
-    return stub<cdecl_t<f32, f32>>(0x573250, arg1);
-}

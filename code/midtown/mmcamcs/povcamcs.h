@@ -46,42 +46,42 @@ class PovCamCS : public CarCamCS
 
 public:
     // 0x4F62B0 | ??0PovCamCS@@QAE@XZ
-    PovCamCS();
+    ARTS_IMPORT PovCamCS();
 
     // 0x4F69F0 | ??_EPovCamCS@@UAEPAXI@Z
     // 0x4F63B0 | ??1PovCamCS@@UAE@XZ
-    ~PovCamCS() override;
+    ARTS_IMPORT ~PovCamCS() override;
 
     // 0x4F6460 | ?AddWidgets@PovCamCS@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4F6410 | ?AfterLoad@PovCamCS@@UAEXXZ
-    void AfterLoad() override;
+    ARTS_IMPORT void AfterLoad() override;
 
     // 0x4F69B0 | ?GetClass@PovCamCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4F63C0 | ?MakeActive@PovCamCS@@UAEXXZ
-    void MakeActive() override;
+    ARTS_IMPORT void MakeActive() override;
 
     // 0x4F6420 | ?Reset@PovCamCS@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4F6530 | ?Update@PovCamCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4F6550 | ?UpdateInput@PovCamCS@@UAEXXZ
-    void UpdateInput() override;
+    ARTS_IMPORT void UpdateInput() override;
 
     // 0x4F6800 | ?DeclareFields@PovCamCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x4F6560 | ?UpdatePOV@PovCamCS@@AAEXXZ
-    void UpdatePOV();
+    ARTS_IMPORT void UpdatePOV();
 };
 
 check_size(PovCamCS, 0x144);
 
 // 0x719350 | ?PovCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x719350, class MetaClass, PovCamCSMetaClass);
+// ARTS_IMPORT extern class MetaClass PovCamCSMetaClass;

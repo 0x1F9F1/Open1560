@@ -37,14 +37,14 @@ class PUDebug : public PUMenuBase
 
 public:
     // 0x4AA3F0 | ??0PUDebug@@QAE@HMMMM@Z
-    PUDebug(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT PUDebug(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4AA5B0 | ??_EPUDebug@@UAEPAXI@Z
     // 0x4AA590 | ??1PUDebug@@UAE@XZ
-    ~PUDebug() override;
+    ARTS_IMPORT ~PUDebug() override;
 
     // 0x4AA5A0 | ?RecordCB@PUDebug@@QAEXXZ
-    void RecordCB();
+    ARTS_IMPORT void RecordCB();
 };
 
 check_size(PUDebug, 0x128);

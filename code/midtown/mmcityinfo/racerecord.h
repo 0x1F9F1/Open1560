@@ -51,63 +51,63 @@ class mmRecord : public mmInfoBase
 
 public:
     // 0x4D1640 | ??0mmRecord@@QAE@XZ
-    mmRecord();
+    ARTS_IMPORT mmRecord();
 
     // 0x4D1B60 | ??_EmmRecord@@UAEPAXI@Z
     // 0x4CD970 | ??_GmmRecord@@UAEPAXI@Z | unused
     // 0x4D1680 | ??1mmRecord@@UAE@XZ
-    ~mmRecord() override;
+    ARTS_IMPORT ~mmRecord() override;
 
     // 0x4D1780 | ??4mmRecord@@QAEXAAV0@@Z
-    void operator=(class mmRecord& arg1);
+    ARTS_IMPORT void operator=(class mmRecord& arg1);
 
     // 0x4D1910 | ?ComputeCRC@mmRecord@@QAEIXZ
-    u32 ComputeCRC();
+    ARTS_IMPORT u32 ComputeCRC();
 
     // 0x4D16A0 | ?GetCarName@mmRecord@@QAEPADXZ
-    char* GetCarName();
+    ARTS_IMPORT char* GetCarName();
 
     // 0x4D1B50 | ?GetClass@mmRecord@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4D16B0 | ?GetName@mmRecord@@QAEPADXZ
-    char* GetName();
+    ARTS_IMPORT char* GetName();
 
     // 0x4D16C0 | ?GetPassed@mmRecord@@QAEHXZ | unused
-    i32 GetPassed();
+    ARTS_IMPORT i32 GetPassed();
 
     // 0x4D16D0 | ?GetScore@mmRecord@@QAEHXZ
-    i32 GetScore();
+    ARTS_IMPORT i32 GetScore();
 
     // 0x4D1690 | ?GetTime@mmRecord@@QAEMXZ
-    f32 GetTime();
+    ARTS_IMPORT f32 GetTime();
 
     // 0x4D1890 | ?LoadBinary@mmRecord@@QAEHPAVStream@@@Z
-    i32 LoadBinary(class Stream* arg1);
+    ARTS_IMPORT i32 LoadBinary(class Stream* arg1);
 
     // 0x4D1810 | ?SaveBinary@mmRecord@@QAEHPAVStream@@@Z
-    i32 SaveBinary(class Stream* arg1);
+    ARTS_IMPORT i32 SaveBinary(class Stream* arg1);
 
     // 0x4D16F0 | ?SetCarName@mmRecord@@QAEXPAD@Z
-    void SetCarName(char* arg1);
+    ARTS_IMPORT void SetCarName(char* arg1);
 
     // 0x4D1710 | ?SetName@mmRecord@@QAEXPAD@Z
-    void SetName(char* arg1);
+    ARTS_IMPORT void SetName(char* arg1);
 
     // 0x4D1750 | ?SetPassed@mmRecord@@QAEXH@Z
-    void SetPassed(i32 arg1);
+    ARTS_IMPORT void SetPassed(i32 arg1);
 
     // 0x4D1770 | ?SetScore@mmRecord@@QAEXH@Z
-    void SetScore(i32 arg1);
+    ARTS_IMPORT void SetScore(i32 arg1);
 
     // 0x4D16E0 | ?SetTime@mmRecord@@QAEXM@Z
-    void SetTime(f32 arg1);
+    ARTS_IMPORT void SetTime(f32 arg1);
 
     // 0x4D1970 | ?DeclareFields@mmRecord@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmRecord, 0x108);
 
 // 0x7085F0 | ?mmRecordMetaClass@@3VMetaClass@@A
-inline extern_var(0x7085F0, class MetaClass, mmRecordMetaClass);
+// ARTS_IMPORT extern class MetaClass mmRecordMetaClass;

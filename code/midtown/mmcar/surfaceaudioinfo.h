@@ -28,13 +28,13 @@
 */
 
 // 0x470D50 | ?SetClearSurfaceAudioInfos@@YAXXZ
-void SetClearSurfaceAudioInfos();
+ARTS_IMPORT void SetClearSurfaceAudioInfos();
 
 // 0x470FB0 | ?SetRainSurfaceAudioInfos@@YAXXZ
-void SetRainSurfaceAudioInfos();
+ARTS_IMPORT void SetRainSurfaceAudioInfos();
 
 // 0x471210 | ?SetSnowSurfaceAudioInfos@@YAXXZ
-void SetSnowSurfaceAudioInfos();
+ARTS_IMPORT void SetSnowSurfaceAudioInfos();
 
 // 0x6A7CE0 | ?SURFACEAUDIOINFO@@3PAUtagSurfaceAudioInfo@@A
-inline extern_var(0x6A7CE0, struct tagSurfaceAudioInfo[6], SURFACEAUDIOINFO);
+ARTS_IMPORT extern struct tagSurfaceAudioInfo SURFACEAUDIOINFO[6];

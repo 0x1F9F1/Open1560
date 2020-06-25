@@ -19,39 +19,3 @@
 define_dummy_symbol(mmcar_axle);
 
 #include "axle.h"
-
-mmAxle::mmAxle()
-{
-    unimplemented();
-}
-
-mmAxle::~mmAxle()
-{
-    unimplemented();
-}
-
-void mmAxle::AddWidgets(class Bank* arg1)
-{
-    return stub<thiscall_t<void, mmAxle*, class Bank*>>(0x47D590, this, arg1);
-}
-
-class MetaClass* mmAxle::GetClass()
-{
-    return stub<thiscall_t<class MetaClass*, mmAxle*>>(0x47D720, this);
-}
-
-void mmAxle::Init(char* arg1, char* arg2, class mmWheel* arg3, class mmWheel* arg4)
-{
-    return stub<thiscall_t<void, mmAxle*, char*, char*, class mmWheel*, class mmWheel*>>(
-        0x47D4A0, this, arg1, arg2, arg3, arg4);
-}
-
-void mmAxle::Update()
-{
-    return stub<thiscall_t<void, mmAxle*>>(0x47D4F0, this);
-}
-
-void mmAxle::DeclareFields()
-{
-    return stub<cdecl_t<void>>(0x47D5B0);
-}

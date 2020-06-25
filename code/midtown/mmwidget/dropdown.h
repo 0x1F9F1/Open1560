@@ -47,48 +47,49 @@ class mmDropDown : public asNode
 
 public:
     // 0x4C0810 | ??0mmDropDown@@QAE@XZ
-    mmDropDown();
+    ARTS_IMPORT mmDropDown();
 
     // 0x4C10B0 | ??_EmmDropDown@@UAEPAXI@Z
     // 0x4C0870 | ??1mmDropDown@@UAE@XZ
-    ~mmDropDown() override;
+    ARTS_IMPORT ~mmDropDown() override;
 
     // 0x4C0E30 | ?FindFirstEnabled@mmDropDown@@QAEHXZ
-    i32 FindFirstEnabled();
+    ARTS_IMPORT i32 FindFirstEnabled();
 
     // 0x4C10A0 | ?GetClass@mmDropDown@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4C0D60 | ?GetCurrentString@mmDropDown@@QAEXPADH@Z
-    void GetCurrentString(char* arg1, i32 arg2);
+    ARTS_IMPORT void GetCurrentString(char* arg1, i32 arg2);
 
     // 0x4C0EC0 | ?GetHit@mmDropDown@@QAEHMM@Z
-    i32 GetHit(f32 arg1, f32 arg2);
+    ARTS_IMPORT i32 GetHit(f32 arg1, f32 arg2);
 
     // 0x4C08F0 | ?Init@mmDropDown@@QAEXPAVasCamera@@PAXMMMMVstring@@H@Z
-    void Init(class asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7, i32 arg8);
+    ARTS_IMPORT void Init(
+        class asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7, i32 arg8);
 
     // 0x4C09F0 | ?InitString@mmDropDown@@QAEXVstring@@@Z
-    void InitString(class string arg1);
+    ARTS_IMPORT void InitString(class string arg1);
 
     // 0x4C0DB0 | ?SetDisabledColors@mmDropDown@@QAEXXZ
-    void SetDisabledColors();
+    ARTS_IMPORT void SetDisabledColors();
 
     // 0x4C0E60 | ?SetHighlight@mmDropDown@@QAEXH@Z
-    void SetHighlight(i32 arg1);
+    ARTS_IMPORT void SetHighlight(i32 arg1);
 
     // 0x4C0F20 | ?Update@mmDropDown@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4C0F30 | ?DeclareFields@mmDropDown@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x4C0C70 | ?SetString@mmDropDown@@AAEXVstring@@@Z
-    void SetString(class string arg1);
+    ARTS_IMPORT void SetString(class string arg1);
 };
 
 check_size(mmDropDown, 0xC8);
 
 // 0x705D40 | ?mmDropDownMetaClass@@3VMetaClass@@A
-inline extern_var(0x705D40, class MetaClass, mmDropDownMetaClass);
+// ARTS_IMPORT extern class MetaClass mmDropDownMetaClass;

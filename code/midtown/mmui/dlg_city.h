@@ -38,17 +38,17 @@ class Dialog_City : public PUMenuBase
 
 public:
     // 0x49D730 | ??0Dialog_City@@QAE@HMMMMPAD@Z
-    Dialog_City(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT Dialog_City(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49DA80 | ??_GDialog_City@@UAEPAXI@Z
     // 0x49D9B0 | ??1Dialog_City@@UAE@XZ
-    ~Dialog_City() override;
+    ARTS_IMPORT ~Dialog_City() override;
 
     // 0x49DA20 | ?DoneCB@Dialog_City@@QAEXXZ
-    void DoneCB();
+    ARTS_IMPORT void DoneCB();
 
     // 0x49DA10 | ?PreSetup@Dialog_City@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(Dialog_City, 0xCC);

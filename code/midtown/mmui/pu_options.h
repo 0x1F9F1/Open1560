@@ -36,11 +36,11 @@ class PUOptions : public PUMenuBase
 
 public:
     // 0x4AA5E0 | ??0PUOptions@@QAE@HMMMM@Z
-    PUOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT PUOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4AA760 | ??_GPUOptions@@UAEPAXI@Z
     // 0x4AA750 | ??1PUOptions@@UAE@XZ
-    ~PUOptions() override;
+    ARTS_IMPORT ~PUOptions() override;
 };
 
 check_size(PUOptions, 0xC0);

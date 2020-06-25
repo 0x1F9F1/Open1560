@@ -41,26 +41,26 @@ class agiDDBitmap : public agiBitmap
 
 public:
     // 0x5339F0 | ??0agiDDBitmap@@QAE@PAVagiPipeline@@@Z
-    agiDDBitmap(class agiPipeline* arg1);
+    ARTS_IMPORT agiDDBitmap(class agiPipeline* arg1);
 
     // 0x533D90 | ??_EagiDDBitmap@@UAEPAXI@Z
     // 0x533CF0 | ??1agiDDBitmap@@UAE@XZ
-    ~agiDDBitmap() override;
+    ARTS_IMPORT ~agiDDBitmap() override;
 
     // 0x533A20 | ?BeginGfx@agiDDBitmap@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x533CC0 | ?EndGfx@agiDDBitmap@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x533D50 | ?Restore@agiDDBitmap@@UAEXXZ
-    void Restore() override;
+    ARTS_IMPORT void Restore() override;
 
     // 0x533C80 | ?UpdateFlags@agiDDBitmap@@UAEXXZ
-    void UpdateFlags() override;
+    ARTS_IMPORT void UpdateFlags() override;
 };
 
 check_size(agiDDBitmap, 0x40);
 
 // 0x533D40 | ?breakme@@YAXXZ
-void breakme();
+ARTS_IMPORT void breakme();

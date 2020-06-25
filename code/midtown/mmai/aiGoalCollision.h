@@ -39,25 +39,25 @@ struct aiGoalCollision : aiGoal
 
 public:
     // 0x46B2F0 | ??0aiGoalCollision@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
-    aiGoalCollision(class aiRailSet* arg1, class aiVehicleSpline* arg2);
+    ARTS_IMPORT aiGoalCollision(class aiRailSet* arg1, class aiVehicleSpline* arg2);
 
     // 0x46B320 | ??1aiGoalCollision@@QAE@XZ
-    ~aiGoalCollision();
+    ARTS_IMPORT ~aiGoalCollision();
 
     // 0x46B3D0 | ?Context@aiGoalCollision@@UAEHXZ
-    i32 Context() override;
+    ARTS_IMPORT i32 Context() override;
 
     // 0x46B330 | ?Init@aiGoalCollision@@UAEXXZ
-    void Init() override;
+    ARTS_IMPORT void Init() override;
 
     // 0x46B3F0 | ?Priority@aiGoalCollision@@UAEHXZ
-    i32 Priority() override;
+    ARTS_IMPORT i32 Priority() override;
 
     // 0x46B340 | ?Reset@aiGoalCollision@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x46B350 | ?Update@aiGoalCollision@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(aiGoalCollision, 0x10);

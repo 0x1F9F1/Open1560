@@ -39,25 +39,25 @@ struct aiGoalStop : aiGoal
 
 public:
     // 0x45F710 | ??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z
-    aiGoalStop(class mmCar* arg1, i16* arg2);
+    ARTS_IMPORT aiGoalStop(class mmCar* arg1, i16* arg2);
 
     // 0x45F740 | ??1aiGoalStop@@QAE@XZ
-    ~aiGoalStop();
+    ARTS_IMPORT ~aiGoalStop();
 
     // 0x45F7D0 | ?Context@aiGoalStop@@UAEHXZ
-    i32 Context() override;
+    ARTS_IMPORT i32 Context() override;
 
     // 0x45F750 | ?Init@aiGoalStop@@UAEXXZ
-    void Init() override;
+    ARTS_IMPORT void Init() override;
 
     // 0x45F7F0 | ?Priority@aiGoalStop@@UAEHXZ
-    i32 Priority() override;
+    ARTS_IMPORT i32 Priority() override;
 
     // 0x45F760 | ?Reset@aiGoalStop@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x45F770 | ?Update@aiGoalStop@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(aiGoalStop, 0x10);

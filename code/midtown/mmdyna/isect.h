@@ -39,30 +39,30 @@ class mmIntersection
 {
 public:
     // 0x51A1B0 | ??0mmIntersection@@QAE@XZ
-    mmIntersection();
+    ARTS_IMPORT mmIntersection();
 
     // 0x51A5A0 | ?Draw@mmIntersection@@QAEXXZ | unused
-    void Draw();
+    ARTS_IMPORT void Draw();
 
     // 0x51A1C0 | ?InitSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
-    void InitSegment(
+    ARTS_IMPORT void InitSegment(
         class Vector3 const& arg1, class Vector3 const& arg2, class mmBoundTemplate* arg3, i32 arg4, i32 arg5);
 
     // 0x51A3B0 | ?InitSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z | unused
-    void InitSphere(class Vector3 const& arg1, f32 arg2, class mmBoundTemplate* arg3, i32 arg4);
+    ARTS_IMPORT void InitSphere(class Vector3 const& arg1, f32 arg2, class mmBoundTemplate* arg3, i32 arg4);
 
     // 0x51A2D0 | ?InitTransformedSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
-    void InitTransformedSegment(
+    ARTS_IMPORT void InitTransformedSegment(
         class Vector3 const& arg1, class Vector3 const& arg2, class mmBoundTemplate* arg3, i32 arg4, i32 arg5);
 
     // 0x51A410 | ?InitTransformedSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z
-    void InitTransformedSphere(class Vector3 const& arg1, f32 arg2, class mmBoundTemplate* arg3, i32 arg4);
+    ARTS_IMPORT void InitTransformedSphere(class Vector3 const& arg1, f32 arg2, class mmBoundTemplate* arg3, i32 arg4);
 
     // 0x51A470 | ?Reset@mmIntersection@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 
     // 0x51A4D0 | ?Transform@mmIntersection@@QAEXPBVMatrix34@@@Z
-    void Transform(class Matrix34 const* arg1);
+    ARTS_IMPORT void Transform(class Matrix34 const* arg1);
 };
 
 check_size(mmIntersection, 0x0);
@@ -71,17 +71,17 @@ class mmEdgeBodyIsect
 {
 public:
     // 0x51A650 | ??0mmEdgeBodyIsect@@QAE@XZ
-    mmEdgeBodyIsect();
+    ARTS_IMPORT mmEdgeBodyIsect();
 
     // 0x51A720 | ?Draw@mmEdgeBodyIsect@@QAEXXZ | unused
-    void Draw();
+    ARTS_IMPORT void Draw();
 
     // 0x51A680 | ?InitSegment@mmEdgeBodyIsect@@QAEXABVVector3@@0HH0M@Z
-    void InitSegment(
+    ARTS_IMPORT void InitSegment(
         class Vector3 const& arg1, class Vector3 const& arg2, i32 arg3, i32 arg4, class Vector3 const& arg5, f32 arg6);
 
     // 0x51A660 | ?Reset@mmEdgeBodyIsect@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 };
 
 check_size(mmEdgeBodyIsect, 0x0);

@@ -19,33 +19,3 @@
 define_dummy_symbol(mminput_effect);
 
 #include "effect.h"
-
-i32 __stdcall inputEnumEffectTypeProc(struct DIEFFECTINFOA const* arg1, void* arg2)
-{
-    return stub<stdcall_t<i32, struct DIEFFECTINFOA const*, void*>>(0x4E7350, arg1, arg2);
-}
-
-mmEffectFF::mmEffectFF()
-{
-    unimplemented();
-}
-
-mmEffectFF::~mmEffectFF()
-{
-    unimplemented();
-}
-
-i32 mmEffectFF::Play()
-{
-    return stub<thiscall_t<i32, mmEffectFF*>>(0x4E7440, this);
-}
-
-i32 mmEffectFF::Stop()
-{
-    return stub<thiscall_t<i32, mmEffectFF*>>(0x4E7450, this);
-}
-
-i32 mmEffectFF::SetValues(f32 arg1, f32 arg2)
-{
-    return stub<thiscall_t<i32, mmEffectFF*, f32, f32>>(0x4E7460, this, arg1, arg2);
-}

@@ -40,43 +40,43 @@ class aiIntersection
 {
 public:
     // 0x4472E0 | ??0aiIntersection@@QAE@H@Z
-    aiIntersection(i32 arg1);
+    ARTS_IMPORT aiIntersection(i32 arg1);
 
     // 0x447300 | ??1aiIntersection@@QAE@XZ
-    ~aiIntersection();
+    ARTS_IMPORT ~aiIntersection();
 
     // 0x447530 | ?AddSinkPath@aiIntersection@@QAEXPAVaiPath@@@Z
-    void AddSinkPath(class aiPath* arg1);
+    ARTS_IMPORT void AddSinkPath(class aiPath* arg1);
 
     // 0x4475A0 | ?AddSourcePath@aiIntersection@@QAEXPAVaiPath@@@Z
-    void AddSourcePath(class aiPath* arg1);
+    ARTS_IMPORT void AddSourcePath(class aiPath* arg1);
 
     // 0x447920 | ?CreateRoadMap@aiIntersection@@QAEXXZ
-    void CreateRoadMap();
+    ARTS_IMPORT void CreateRoadMap();
 
     // 0x4478B0 | ?DrawId@aiIntersection@@QAEXXZ
-    void DrawId();
+    ARTS_IMPORT void DrawId();
 
     // 0x447880 | ?DrawPaths@aiIntersection@@QAEXXZ
-    void DrawPaths();
+    ARTS_IMPORT void DrawPaths();
 
     // 0x4478F0 | ?Dump@aiIntersection@@QAEXXZ | unused
-    void Dump();
+    ARTS_IMPORT void Dump();
 
     // 0x447370 | ?Init@aiIntersection@@QAEXXZ
-    void Init();
+    ARTS_IMPORT void Init();
 
     // 0x447C50 | ?Path@aiIntersection@@QAEPAVaiPath@@H@Z
-    class aiPath* Path(i32 arg1);
+    ARTS_IMPORT class aiPath* Path(i32 arg1);
 
     // 0x4476E0 | ?ReadBinary@aiIntersection@@QAEXPAVStream@@@Z
-    void ReadBinary(class Stream* arg1);
+    ARTS_IMPORT void ReadBinary(class Stream* arg1);
 
     // 0x447520 | ?Reset@aiIntersection@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 
     // 0x447610 | ?SaveBinary@aiIntersection@@QAEXPAVStream@@@Z
-    void SaveBinary(class Stream* arg1);
+    ARTS_IMPORT void SaveBinary(class Stream* arg1);
 };
 
 check_size(aiIntersection, 0x2C);

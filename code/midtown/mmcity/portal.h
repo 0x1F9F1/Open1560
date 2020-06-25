@@ -58,83 +58,84 @@ class asPortalWeb : public asNode
 
 public:
     // 0x495AE0 | ??0asPortalWeb@@QAE@XZ
-    asPortalWeb();
+    ARTS_IMPORT asPortalWeb();
 
     // 0x497780 | ??_EasPortalWeb@@UAEPAXI@Z
     // 0x4974C0 | ??1asPortalWeb@@UAE@XZ
-    ~asPortalWeb() override;
+    ARTS_IMPORT ~asPortalWeb() override;
 
     virtual struct asPortalCell* GetStartCell(
         class Vector3& arg1, struct asPortalCell* arg2, class mmPolygon** arg3) = 0;
 
     // 0x4957E0 | ?AddCell@asPortalWeb@@QAEPAUasPortalCell@@PADPAVasPortalRenderable@@I@Z
-    struct asPortalCell* AddCell(char* arg1, class asPortalRenderable* arg2, u32 arg3);
+    ARTS_IMPORT struct asPortalCell* AddCell(char* arg1, class asPortalRenderable* arg2, u32 arg3);
 
     // 0x4958E0 | ?AddEdge@asPortalWeb@@QAEPAUasPortalEdge@@PADPAUasPortalCell@@1H@Z
-    struct asPortalEdge* AddEdge(char* arg1, struct asPortalCell* arg2, struct asPortalCell* arg3, i32 arg4);
+    ARTS_IMPORT struct asPortalEdge* AddEdge(
+        char* arg1, struct asPortalCell* arg2, struct asPortalCell* arg3, i32 arg4);
 
     // 0x497540 | ?AddWidgets@asPortalWeb@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4969F0 | ?BuildGroups@asPortalWeb@@QAEXXZ
-    void BuildGroups();
+    ARTS_IMPORT void BuildGroups();
 
     // 0x495B70 | ?BuildVisibilityList@asPortalWeb@@QAEHAAVMatrix34@@PAPAUasPortalCell@@HM@Z
-    i32 BuildVisibilityList(class Matrix34& arg1, struct asPortalCell** arg2, i32 arg3, f32 arg4);
+    ARTS_IMPORT i32 BuildVisibilityList(class Matrix34& arg1, struct asPortalCell** arg2, i32 arg3, f32 arg4);
 
     // 0x495DD0 | ?BuildVisibilityList@asPortalWeb@@QAEHAAVVector3@@PAPAUasPortalCell@@HM@Z
-    i32 BuildVisibilityList(class Vector3& arg1, struct asPortalCell** arg2, i32 arg3, f32 arg4);
+    ARTS_IMPORT i32 BuildVisibilityList(class Vector3& arg1, struct asPortalCell** arg2, i32 arg3, f32 arg4);
 
     // 0x496FE0 | ?Cull@asPortalWeb@@QAEXH@Z
-    void Cull(i32 arg1);
+    ARTS_IMPORT void Cull(i32 arg1);
 
     // 0x495830 | ?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z | unused
-    void DeleteCell(struct asPortalCell* arg1);
+    ARTS_IMPORT void DeleteCell(struct asPortalCell* arg1);
 
     // 0x4959A0 | ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z | unused
-    void DeleteEdge(struct asPortalEdge* arg1);
+    ARTS_IMPORT void DeleteEdge(struct asPortalEdge* arg1);
 
     // 0x497770 | ?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x497530 | ?LockTarget@asPortalWeb@@QAEXXZ
-    void LockTarget();
+    ARTS_IMPORT void LockTarget();
 
     // 0x497400 | ?Stats@asPortalWeb@@QAEXXZ
-    void Stats();
+    ARTS_IMPORT void Stats();
 
     // 0x495EE0 | ?Update@asPortalWeb@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4976D0 | ?DeclareFields@asPortalWeb@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
     // 0x705714 | ?VisitTag@asPortalWeb@@2GA
-    static inline extern_var(0x705714, u16, VisitTag);
+    ARTS_IMPORT static u16 VisitTag;
 };
 
 check_size(asPortalWeb, 0x904C);
 
 // 0x4959B0 | ?LookupCell@@YAPAUasPortalCell@@PAD@Z | unused
-struct asPortalCell* LookupCell(char* arg1);
+ARTS_IMPORT struct asPortalCell* LookupCell(char* arg1);
 
 // 0x4959C0 | ?LookupEdge@@YAPAUasPortalCell@@PAD@Z | unused
-struct asPortalCell* LookupEdge(char* arg1);
+ARTS_IMPORT struct asPortalCell* LookupEdge(char* arg1);
 
 // 0x705718 | ?asPortalWebMetaClass@@3VMetaClass@@A
-inline extern_var(0x705718, class MetaClass, asPortalWebMetaClass);
+// ARTS_IMPORT extern class MetaClass asPortalWebMetaClass;
 
 struct asPortalPVS
 {
 public:
     // 0x4959D0 | ?Init@asPortalPVS@@QAEXHH@Z
-    void Init(i32 arg1, i32 arg2);
+    ARTS_IMPORT void Init(i32 arg1, i32 arg2);
 
     // 0x495AB0 | ?SetVisible@asPortalPVS@@QAEXI@Z
-    void SetVisible(u32 arg1);
+    ARTS_IMPORT void SetVisible(u32 arg1);
 
     // 0x495A30 | ?Create@asPortalPVS@@SAPAU1@HZZ | unused
-    static struct asPortalPVS* Create(i32 arg1, ...);
+    ARTS_IMPORT static struct asPortalPVS* Create(i32 arg1, ...);
 };
 
 check_size(asPortalPVS, 0x0);
@@ -143,7 +144,7 @@ struct asPortalEdge
 {
 public:
     // 0x4977B0 | ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z | inline
-    asPortalEdge(struct asPortalCell* arg1, struct asPortalCell* arg2, i32 arg3);
+    ARTS_IMPORT asPortalEdge(struct asPortalCell* arg1, struct asPortalCell* arg2, i32 arg3);
 };
 
 check_size(asPortalEdge, 0x30);

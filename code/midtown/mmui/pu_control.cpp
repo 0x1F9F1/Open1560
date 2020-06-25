@@ -19,38 +19,3 @@
 define_dummy_symbol(mmui_pu_control);
 
 #include "pu_control.h"
-
-PUControl::PUControl(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
-{
-    unimplemented(arg1, arg2, arg3, arg4, arg5);
-}
-
-PUControl::~PUControl()
-{
-    unimplemented();
-}
-
-void PUControl::CancelAction()
-{
-    return stub<thiscall_t<void, PUControl*>>(0x4AA2D0, this);
-}
-
-void PUControl::ControlSelect()
-{
-    return stub<thiscall_t<void, PUControl*>>(0x4AA380, this);
-}
-
-void PUControl::PreSetup()
-{
-    return stub<thiscall_t<void, PUControl*>>(0x4AA2B0, this);
-}
-
-void PUControl::SetRWStates()
-{
-    return stub<thiscall_t<void, PUControl*>>(0x4AA2F0, this);
-}
-
-void PUControl::SetSensitivityCB()
-{
-    return stub<thiscall_t<void, PUControl*>>(0x4AA3B0, this);
-}

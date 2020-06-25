@@ -62,95 +62,95 @@ class mmCar : public mmPhysEntity
 
 public:
     // 0x473380 | ??0mmCar@@QAE@XZ
-    mmCar();
+    ARTS_IMPORT mmCar();
 
     // 0x474800 | ??_EmmCar@@UAEPAXI@Z
     // 0x42D1F0 | ??1mmCar@@UAE@XZ | inline
-    ~mmCar() override;
+    ARTS_IMPORT ~mmCar() override;
 
     // 0x4745E0 | ?AddWidgets@mmCar@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x473E70 | ?ClearDamage@mmCar@@QAEXXZ
-    void ClearDamage();
+    ARTS_IMPORT void ClearDamage();
 
     // 0x473D70 | ?EnableDriving@mmCar@@QAEXH@Z
-    void EnableDriving(i32 arg1);
+    ARTS_IMPORT void EnableDriving(i32 arg1);
 
     // 0x474870 | ?GetBound@mmCar@@UAEPAVasBound@@XZ | inline
-    class asBound* GetBound() override;
+    ARTS_IMPORT class asBound* GetBound() override;
 
     // 0x4747C0 | ?GetClass@mmCar@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x474860 | ?GetICS@mmCar@@UAEPAVasInertialCS@@XZ | inline
-    class asInertialCS* GetICS() override;
+    ARTS_IMPORT class asInertialCS* GetICS() override;
 
     // 0x473EB0 | ?Impact@mmCar@@QAEXPAVmmIntersection@@PAVVector3@@MH1@Z
-    void Impact(class mmIntersection* arg1, class Vector3* arg2, f32 arg3, i32 arg4, class Vector3* arg5);
+    ARTS_IMPORT void Impact(class mmIntersection* arg1, class Vector3* arg2, f32 arg3, i32 arg4, class Vector3* arg5);
 
     // 0x473530 | ?Init@mmCar@@QAEXPADHH@Z
-    void Init(char* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT void Init(char* arg1, i32 arg2, i32 arg3);
 
     // 0x473DE0 | ?IsDrivingDisabled@mmCar@@QAEHXZ
-    i32 IsDrivingDisabled();
+    ARTS_IMPORT i32 IsDrivingDisabled();
 
     // 0x473C80 | ?PostUpdate@mmCar@@UAEXXZ
-    void PostUpdate() override;
+    ARTS_IMPORT void PostUpdate() override;
 
     // 0x473960 | ?ReInit@mmCar@@QAEXPADH@Z
-    void ReInit(char* arg1, i32 arg2);
+    ARTS_IMPORT void ReInit(char* arg1, i32 arg2);
 
     // 0x473500 | ?ReleaseTrailer@mmCar@@QAEXXZ
-    void ReleaseTrailer();
+    ARTS_IMPORT void ReleaseTrailer();
 
     // 0x473E60 | ?RemoveVehicleAudio@mmCar@@QAEXXZ
-    void RemoveVehicleAudio();
+    ARTS_IMPORT void RemoveVehicleAudio();
 
     // 0x473B90 | ?Reset@mmCar@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x473E20 | ?StartSiren@mmCar@@QAEXXZ
-    void StartSiren();
+    ARTS_IMPORT void StartSiren();
 
     // 0x473E40 | ?StopSiren@mmCar@@QAEXXZ
-    void StopSiren();
+    ARTS_IMPORT void StopSiren();
 
     // 0x473DF0 | ?ToggleSiren@mmCar@@QAEXXZ
-    void ToggleSiren();
+    ARTS_IMPORT void ToggleSiren();
 
     // 0x4734A0 | ?TranslateFlags@mmCar@@QAEXH@Z
-    void TranslateFlags(i32 arg1);
+    ARTS_IMPORT void TranslateFlags(i32 arg1);
 
     // 0x473C40 | ?Update@mmCar@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x474340 | ?VehNameRemap@mmCar@@QAEPADPADH@Z
-    char* VehNameRemap(char* arg1, i32 arg2);
+    ARTS_IMPORT char* VehNameRemap(char* arg1, i32 arg2);
 
     // 0x474640 | ?DeclareFields@mmCar@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
     // 0x6A7E6C | ?PostUpdateTime@mmCar@@2MA
-    static inline extern_var(0x6A7E6C, f32, PostUpdateTime);
+    ARTS_IMPORT static f32 PostUpdateTime;
 
     // 0x6A7E30 | ?ProbeTime@mmCar@@2MA
-    static inline extern_var(0x6A7E30, f32, ProbeTime);
+    ARTS_IMPORT static f32 ProbeTime;
 
     // 0x6A7E34 | ?TotalUpdateTime@mmCar@@2MA
-    static inline extern_var(0x6A7E34, f32, TotalUpdateTime);
+    ARTS_IMPORT static f32 TotalUpdateTime;
 
     // 0x6A7E68 | ?UpdateTime@mmCar@@2MA
-    static inline extern_var(0x6A7E68, f32, UpdateTime);
+    ARTS_IMPORT static f32 UpdateTime;
 };
 
 check_size(mmCar, 0x230C);
 
 // 0x4742E0 | ?EggNameIndex@@YAHPAD@Z
-i32 EggNameIndex(char* arg1);
+ARTS_IMPORT i32 EggNameIndex(char* arg1);
 
 // 0x6A7E3C | ?ffval@@3MA
-inline extern_var(0x6A7E3C, f32, ffval);
+ARTS_IMPORT extern f32 ffval;
 
 // 0x6A7E40 | ?mmCarMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7E40, class MetaClass, mmCarMetaClass);
+// ARTS_IMPORT extern class MetaClass mmCarMetaClass;

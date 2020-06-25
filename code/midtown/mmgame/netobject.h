@@ -49,50 +49,50 @@ class mmNetObject : public asNetObject
 
 public:
     // 0x432740 | ??0mmNetObject@@QAE@XZ
-    mmNetObject();
+    ARTS_IMPORT mmNetObject();
 
     // 0x4331D0 | ??_GmmNetObject@@UAEPAXI@Z
     // 0x4327F0 | ??1mmNetObject@@UAE@XZ
-    ~mmNetObject() override;
+    ARTS_IMPORT ~mmNetObject() override;
 
     // 0x432850 | ?Activate@mmNetObject@@QAEXXZ
-    void Activate();
+    ARTS_IMPORT void Activate();
 
     // 0x432800 | ?Clear@mmNetObject@@QAEXXZ
-    void Clear();
+    ARTS_IMPORT void Clear();
 
     // 0x4328A0 | ?Deactivate@mmNetObject@@QAEXXZ
-    void Deactivate();
+    ARTS_IMPORT void Deactivate();
 
     // 0x432900 | ?Init@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
-    void Init(class mmCar* arg1, char* arg2, i32 arg3, u32 arg4, char* arg5);
+    ARTS_IMPORT void Init(class mmCar* arg1, char* arg2, i32 arg3, u32 arg4, char* arg5);
 
     // 0x432BD0 | ?PositionUpdate@mmNetObject@@QAEXPAUNETGAME_MSG@@@Z
-    void PositionUpdate(struct NETGAME_MSG* arg1);
+    ARTS_IMPORT void PositionUpdate(struct NETGAME_MSG* arg1);
 
     // 0x432F80 | ?Predict@mmNetObject@@QAEXXZ
-    void Predict();
+    ARTS_IMPORT void Predict();
 
     // 0x432980 | ?ReInit@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
-    void ReInit(class mmCar* arg1, char* arg2, i32 arg3, u32 arg4, char* arg5);
+    ARTS_IMPORT void ReInit(class mmCar* arg1, char* arg2, i32 arg3, u32 arg4, char* arg5);
 
     // 0x432A50 | ?SetActive@mmNetObject@@QAEXH@Z
-    void SetActive(i32 arg1);
+    ARTS_IMPORT void SetActive(i32 arg1);
 
     // 0x432A40 | ?SetCar@mmNetObject@@QAEXPAVmmCar@@@Z
-    void SetCar(class mmCar* arg1);
+    ARTS_IMPORT void SetCar(class mmCar* arg1);
 
     // 0x432A80 | ?SetLocalData@mmNetObject@@UAEXXZ
-    void SetLocalData() override;
+    ARTS_IMPORT void SetLocalData() override;
 
     // 0x432A70 | ?SetScore@mmNetObject@@QAEXH@Z | unused
-    void SetScore(i32 arg1);
+    ARTS_IMPORT void SetScore(i32 arg1);
 
     // 0x433130 | ?Update@mmNetObject@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmNetObject, 0xF4);
 
 // 0x6A77E8 | ?time_delta@@3MA
-inline extern_var(0x6A77E8, f32, time_delta);
+ARTS_IMPORT extern f32 time_delta;

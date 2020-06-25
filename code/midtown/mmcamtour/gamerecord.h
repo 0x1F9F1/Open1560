@@ -36,31 +36,32 @@ class mmGameRecord
 {
 public:
     // 0x4FDD70 | ??0mmGameRecord@@QAE@M@Z
-    mmGameRecord(f32 arg1);
+    ARTS_IMPORT mmGameRecord(f32 arg1);
 
     // 0x4FDDA0 | ??1mmGameRecord@@QAE@XZ
-    ~mmGameRecord();
+    ARTS_IMPORT ~mmGameRecord();
 
     // 0x4FE070 | ?DoScan@mmGameRecord@@QAEXAAVVector4@@@Z
-    void DoScan(class Vector4& arg1);
+    ARTS_IMPORT void DoScan(class Vector4& arg1);
 
     // 0x4FDE90 | ?Dump@mmGameRecord@@QAEXPAD@Z
-    void Dump(char* arg1);
+    ARTS_IMPORT void Dump(char* arg1);
 
     // 0x4FDE50 | ?GetCount@mmGameRecord@@QAEHXZ | unused
-    i32 GetCount();
+    ARTS_IMPORT i32 GetCount();
 
     // 0x4FDE60 | ?GetVector4@mmGameRecord@@QAEAAVVector4@@H@Z | unused
-    class Vector4& GetVector4(i32 arg1);
+    ARTS_IMPORT class Vector4& GetVector4(i32 arg1);
 
     // 0x4FDDE0 | ?Init@mmGameRecord@@QAEXH@Z
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
     // 0x4FDF90 | ?Register@mmGameRecord@@QAEHAAVVector4@@MMMMMMMM@Z
-    i32 Register(class Vector4& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9);
+    ARTS_IMPORT i32 Register(
+        class Vector4& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9);
 
     // 0x4FE140 | ?Sim@mmGameRecord@@QAEXXZ
-    void Sim();
+    ARTS_IMPORT void Sim();
 };
 
 check_size(mmGameRecord, 0x0);

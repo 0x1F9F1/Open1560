@@ -60,29 +60,29 @@ class mmShard : public mmMatrixInstance
 
 public:
     // 0x478560 | ??0mmShard@@QAE@XZ
-    mmShard();
+    ARTS_IMPORT mmShard();
 
     // 0x479170 | ??_EmmShard@@UAEPAXI@Z
     // 0x4785D0 | ??1mmShard@@UAE@XZ
-    ~mmShard() override;
+    ARTS_IMPORT ~mmShard() override;
 
     // 0x4785E0 | ?AddShard@mmShard@@QAEXVVector3@@00M@Z
-    void AddShard(class Vector3 arg1, class Vector3 arg2, class Vector3 arg3, f32 arg4);
+    ARTS_IMPORT void AddShard(class Vector3 arg1, class Vector3 arg2, class Vector3 arg3, f32 arg4);
 
     // 0x478730 | ?Draw@mmShard@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x478F80 | ?GetClass@mmShard@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4785A0 | ?Init@mmShard@@QAEXPADH@Z
-    void Init(char* arg1, i32 arg2);
+    ARTS_IMPORT void Init(char* arg1, i32 arg2);
 
     // 0x478640 | ?Update@mmShard@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x478E00 | ?DeclareFields@mmShard@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmShard, 0x64);
@@ -93,54 +93,54 @@ class mmShardManager : public asNode
 
 public:
     // 0x4787F0 | ??0mmShardManager@@QAE@XZ
-    mmShardManager();
+    ARTS_IMPORT mmShardManager();
 
     // 0x4791D0 | ??_EmmShardManager@@UAEPAXI@Z
     // 0x478860 | ??1mmShardManager@@UAE@XZ
-    ~mmShardManager() override;
+    ARTS_IMPORT ~mmShardManager() override;
 
     // 0x478C90 | ?AddWidgets@mmShardManager@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x478A60 | ?EmitAllShards@mmShardManager@@QAEXVVector3@@M@Z
-    void EmitAllShards(class Vector3 arg1, f32 arg2);
+    ARTS_IMPORT void EmitAllShards(class Vector3 arg1, f32 arg2);
 
     // 0x478AB0 | ?EmitShard@mmShardManager@@QAEXVVector3@@M@Z
-    void EmitShard(class Vector3 arg1, f32 arg2);
+    ARTS_IMPORT void EmitShard(class Vector3 arg1, f32 arg2);
 
     // 0x4789F0 | ?EmitShards@mmShardManager@@QAEXVVector3@@MM@Z
-    void EmitShards(class Vector3 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void EmitShards(class Vector3 arg1, f32 arg2, f32 arg3);
 
     // 0x479160 | ?GetClass@mmShardManager@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4788F0 | ?Init@mmShardManager@@QAEXPADHPAVmmCarSim@@@Z
-    void Init(char* arg1, i32 arg2, class mmCarSim* arg3);
+    ARTS_IMPORT void Init(char* arg1, i32 arg2, class mmCarSim* arg3);
 
     // 0x4789E0 | ?ReInit@mmShardManager@@QAEXPAVmmCarSim@@@Z | unused
-    void ReInit(class mmCarSim* arg1);
+    ARTS_IMPORT void ReInit(class mmCarSim* arg1);
 
     // 0x478C60 | ?Update@mmShardManager@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x478F90 | ?DeclareFields@mmShardManager@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
     // 0x4788D0 | ?GetInstance@mmShardManager@@SAPAV1@H@Z
-    static class mmShardManager* GetInstance(i32 arg1);
+    ARTS_IMPORT static class mmShardManager* GetInstance(i32 arg1);
 
 protected:
     // 0x6A7F18 | ?Instances@mmShardManager@@1PAPAV1@A
-    static inline extern_var(0x6A7F18, class mmShardManager* [20], Instances);
+    ARTS_IMPORT static class mmShardManager* Instances[20];
 
     // 0x6A7F90 | ?NumInstances@mmShardManager@@1HA
-    static inline extern_var(0x6A7F90, i32, NumInstances);
+    ARTS_IMPORT static i32 NumInstances;
 };
 
 check_size(mmShardManager, 0x54);
 
 // 0x6A7EF0 | ?mmShardManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7EF0, class MetaClass, mmShardManagerMetaClass);
+// ARTS_IMPORT extern class MetaClass mmShardManagerMetaClass;
 
 // 0x6A7F68 | ?mmShardMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7F68, class MetaClass, mmShardMetaClass);
+// ARTS_IMPORT extern class MetaClass mmShardMetaClass;

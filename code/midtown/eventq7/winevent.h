@@ -56,54 +56,54 @@ struct WINEventHandler
 
 public:
     // 0x561D90 | ??0WINEventHandler@@QAE@XZ
-    WINEventHandler();
+    ARTS_IMPORT WINEventHandler();
 
     // 0x562E80 | ??_EWINEventHandler@@UAEPAXI@Z
     // 0x561EC0 | ??1WINEventHandler@@UAE@XZ
-    ~WINEventHandler() override;
+    ARTS_IMPORT ~WINEventHandler() override;
 
     // 0x562660 | ?AdjustMouse@WINEventHandler@@QAEXAAH0@Z
-    void AdjustMouse(i32& arg1, i32& arg2);
+    ARTS_IMPORT void AdjustMouse(i32& arg1, i32& arg2);
 
     // 0x561F20 | ?BeginGfx@WINEventHandler@@UAEHHHH@Z
-    i32 BeginGfx(i32 arg1, i32 arg2, i32 arg3) override;
+    ARTS_IMPORT i32 BeginGfx(i32 arg1, i32 arg2, i32 arg3) override;
 
     // 0x562610 | ?BeginTracking@WINEventHandler@@UAEXXZ
-    void BeginTracking() override;
+    ARTS_IMPORT void BeginTracking() override;
 
     // 0x561FC0 | ?EndGfx@WINEventHandler@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x562640 | ?EndTracking@WINEventHandler@@UAEXXZ
-    void EndTracking() override;
+    ARTS_IMPORT void EndTracking() override;
 
     // 0x561FE0 | ?GKeyName@WINEventHandler@@UAEPADH@Z
-    char* GKeyName(i32 arg1) override;
+    ARTS_IMPORT char* GKeyName(i32 arg1) override;
 
     // 0x562350 | ?Update@WINEventHandler@@UAEXH@Z
-    void Update(i32 arg1) override;
+    ARTS_IMPORT void Update(i32 arg1) override;
 
 private:
     // 0x562720 | ?WindowProc@WINEventHandler@@EAEJPAUHWND__@@IIJ@Z
-    i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
+    ARTS_IMPORT i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
 };
 
 check_size(WINEventHandler, 0x16C);
 
 // 0x562E60 | ?DeallocateEventQueue@@YAXXZ
-void DeallocateEventQueue();
+ARTS_IMPORT void DeallocateEventQueue();
 
 // 0x562DF0 | ?InitEventQueue@@YAXXZ
-void InitEventQueue();
+ARTS_IMPORT void InitEventQueue();
 
 // 0x657820 | ?ActiveFlag@@3HA
-inline extern_var(0x657820, i32, ActiveFlag);
+ARTS_IMPORT extern i32 ActiveFlag;
 
 // 0x908C34 | ?CloseCallback@@3P6AXXZA
-inline extern_var(0x908C34, void (*)(void), CloseCallback);
+ARTS_IMPORT extern void (*CloseCallback)(void);
 
 // 0x908C38 | ?InitialCursorState@@3HA
-inline extern_var(0x908C38, i32, InitialCursorState);
+ARTS_IMPORT extern i32 InitialCursorState;
 
 // 0x908C48 | ?eqRestoreFlag@@3HA
-inline extern_var(0x908C48, i32, eqRestoreFlag);
+ARTS_IMPORT extern i32 eqRestoreFlag;

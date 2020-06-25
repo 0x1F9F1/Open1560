@@ -46,46 +46,46 @@ class DLP : public agiRefreshable
 
 public:
     // 0x55DE90 | ??0DLP@@QAE@PAVagiPipeline@@@Z
-    DLP(class agiPipeline* arg1);
+    ARTS_IMPORT DLP(class agiPipeline* arg1);
 
     // 0x55E580 | ??_GDLP@@UAEPAXI@Z
     // 0x55DEF0 | ??1DLP@@UAE@XZ
-    ~DLP() override;
+    ARTS_IMPORT ~DLP() override;
 
     // 0x55E490 | ?Cull@DLP@@UAEXH@Z
-    virtual void Cull(i32 arg1);
+    ARTS_IMPORT virtual void Cull(i32 arg1);
 
     // 0x55E530 | ?FixROpts@DLP@@UAEXHH@Z
-    virtual void FixROpts(i32 arg1, i32 arg2);
+    ARTS_IMPORT virtual void FixROpts(i32 arg1, i32 arg2);
 
     virtual class DynamicDLP* GetDynamic(i32 arg1) = 0;
 
     virtual class MultipassDLP* GetMultipass(i32 arg1) = 0;
 
     // 0x55E0D0 | ?BeginGfx@DLP@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x55E460 | ?Clone@DLP@@QAEPAV1@XZ | unused
-    class DLP* Clone();
+    ARTS_IMPORT class DLP* Clone();
 
     // 0x55E2F0 | ?EndGfx@DLP@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x55E4F0 | ?GetName@DLP@@UAEPADXZ
-    char* GetName() override;
+    ARTS_IMPORT char* GetName() override;
 
     // 0x55E300 | ?Init@DLP@@QAEHPAD0PAVVector3@@@Z
-    i32 Init(char* arg1, char* arg2, class Vector3* arg3);
+    ARTS_IMPORT i32 Init(char* arg1, char* arg2, class Vector3* arg3);
 
     // 0x55E380 | ?Init@DLP@@QAEHPAVDLPTemplate@@PADPAVVector3@@@Z
-    i32 Init(class DLPTemplate* arg1, char* arg2, class Vector3* arg3);
+    ARTS_IMPORT i32 Init(class DLPTemplate* arg1, char* arg2, class Vector3* arg3);
 
 protected:
     // 0x55E000 | ?FixTemplateRefs@DLP@@IAEXH@Z
-    void FixTemplateRefs(i32 arg1);
+    ARTS_IMPORT void FixTemplateRefs(i32 arg1);
 };
 
 check_size(DLP, 0x0);
 
 // 0x907950 | ?DLPHash@@3VHashTable@@A
-inline extern_var(0x907950, class HashTable, DLPHash);
+ARTS_IMPORT extern class HashTable DLPHash;

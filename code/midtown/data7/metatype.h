@@ -155,29 +155,29 @@ struct MetaTypeFactory<T*>
     }
 };
 
-/*
+#if 0
 struct RefToType : MetaType
 {
     // const RefToType::`vftable' @ 0x61F720
 
 public:
     // 0x57B7B0 | ?Delete@RefToType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x57B600 | ?GetCount@RefToType@@QAEHPAX@Z
-    i32 GetCount(void* arg1);
+    ARTS_IMPORT i32 GetCount(void* arg1);
 
     // 0x57B6F0 | ?Load@RefToType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x57B7A0 | ?New@RefToType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x57B640 | ?Save@RefToType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x57B7C0 | ?SizeOf@RefToType@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(RefToType, 0x0);
@@ -188,23 +188,23 @@ struct ArrayOfType : MetaType
 
 public:
     // 0x57B940 | ?Delete@ArrayOfType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x57B870 | ?Load@ArrayOfType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x57B920 | ?New@ArrayOfType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x57B7D0 | ?Save@ArrayOfType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x57B900 | ?SizeOf@ArrayOfType@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(ArrayOfType, 0x0);
-*/
+#endif
 
 // 0x4703A0 | ?Struct@@YAPAUMetaType@@PAVMetaClass@@@Z
 ARTS_EXPORT struct MetaType* Struct(class MetaClass* target);
@@ -218,26 +218,26 @@ struct MetaTypeFactory<T, std::enable_if_t<std::is_class_v<T>>>
     }
 };
 
-/*
+#if 0
 struct CharType : MetaType
 {
     // const CharType::`vftable' @ 0x621DB0
 
 public:
     // 0x57BA70 | ?Delete@CharType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x57BA10 | ?Load@CharType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BA40 | ?New@CharType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x57B9F0 | ?Save@CharType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BA30 | ?SizeOf@CharType@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(CharType, 0x0);
@@ -248,19 +248,19 @@ struct SignedCharType : MetaType
 
 public:
     // 0x57BB40 | ?Delete@SignedCharType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x57BAE0 | ?Load@SignedCharType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BB10 | ?New@SignedCharType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x57BAC0 | ?Save@SignedCharType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BB00 | ?SizeOf@SignedCharType@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(SignedCharType, 0x0);
@@ -271,19 +271,19 @@ struct UnsignedCharType : MetaType
 
 public:
     // 0x57BC10 | ?Delete@UnsignedCharType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x57BBB0 | ?Load@UnsignedCharType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BBE0 | ?New@UnsignedCharType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x57BB90 | ?Save@UnsignedCharType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BBD0 | ?SizeOf@UnsignedCharType@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(UnsignedCharType, 0x0);
@@ -294,19 +294,19 @@ struct SignedShortType : MetaType
 
 public:
     // 0x57BCE0 | ?Delete@SignedShortType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x57BC80 | ?Load@SignedShortType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BCB0 | ?New@SignedShortType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x57BC60 | ?Save@SignedShortType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BCA0 | ?SizeOf@SignedShortType@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(SignedShortType, 0x0);
@@ -317,49 +317,47 @@ struct UnsignedShortType : MetaType
 
 public:
     // 0x57BDC0 | ?Delete@UnsignedShortType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x57BD60 | ?Load@UnsignedShortType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BD90 | ?New@UnsignedShortType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x57BD30 | ?Save@UnsignedShortType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BD80 | ?SizeOf@UnsignedShortType@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(UnsignedShortType, 0x0);
-*/
+#endif
 
 template <>
 const MetaType* CreateMetaType_<signed int>();
 
-// extern template struct MetaTypeStore_<signed int>;
-
-/*
+#if 0
 struct SignedInt64Type : MetaType
 {
     // const SignedInt64Type::`vftable' @ 0x621E40
 
 public:
     // 0x57BF70 | ?Delete@SignedInt64Type@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x57BF10 | ?Load@SignedInt64Type@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BF40 | ?New@SignedInt64Type@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x57BEE0 | ?Save@SignedInt64Type@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x57BF30 | ?SizeOf@SignedInt64Type@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(SignedInt64Type, 0x0);
@@ -370,19 +368,19 @@ struct UnsignedIntType : MetaType
 
 public:
     // 0x57C040 | ?Delete@UnsignedIntType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x57BFE0 | ?Load@UnsignedIntType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x57C010 | ?New@UnsignedIntType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x57BFC0 | ?Save@UnsignedIntType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x57C000 | ?SizeOf@UnsignedIntType@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(UnsignedIntType, 0x0);
@@ -393,23 +391,23 @@ struct FloatType : MetaType
 
 public:
     // 0x57C120 | ?Delete@FloatType@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x57C0C0 | ?Load@FloatType@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x57C0F0 | ?New@FloatType@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x57C090 | ?Save@FloatType@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x57C0E0 | ?SizeOf@FloatType@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(FloatType, 0x0);
-*/
+#endif
 
 template <>
 const MetaType* CreateMetaType_<char*>();
@@ -418,31 +416,31 @@ template <>
 const MetaType* CreateMetaType_<CString>();
 
 // 0x90B478 | ?CharInst@@3UCharType@@A
-inline extern_var(0x90B478, struct CharType, CharInst);
+// ARTS_IMPORT extern struct CharType CharInst;
 
 // 0x90B480 | ?FloatInst@@3UFloatType@@A
-inline extern_var(0x90B480, struct FloatType, FloatInst);
+// ARTS_IMPORT extern struct FloatType FloatInst;
 
 // 0x90B48C | ?SignedCharInst@@3USignedCharType@@A
-inline extern_var(0x90B48C, struct SignedCharType, SignedCharInst);
+// ARTS_IMPORT extern struct SignedCharType SignedCharInst;
 
 // 0x90B498 | ?SignedInt64Inst@@3USignedInt64Type@@A
-inline extern_var(0x90B498, struct SignedInt64Type, SignedInt64Inst);
+// ARTS_IMPORT extern struct SignedInt64Type SignedInt64Inst;
 
 // 0x90B47C | ?SignedIntInst@@3USignedIntType@@A
-// inline extern_var(0x90B47C, struct SignedIntType, SignedIntInst);
+// ARTS_IMPORT extern struct SignedIntType SignedIntInst;
 
 // 0x90B484 | ?SignedShortInst@@3USignedShortType@@A
-inline extern_var(0x90B484, struct SignedShortType, SignedShortInst);
+// ARTS_IMPORT extern struct SignedShortType SignedShortInst;
 
 // 0x90B488 | ?StringInst@@3UStringType@@A
-// inline extern_var(0x90B488, struct StringType, StringInst);
+// ARTS_IMPORT extern struct StringType StringInst;
 
 // 0x90B474 | ?UnsignedCharInst@@3UUnsignedCharType@@A
-inline extern_var(0x90B474, struct UnsignedCharType, UnsignedCharInst);
+// ARTS_IMPORT extern struct UnsignedCharType UnsignedCharInst;
 
 // 0x90B490 | ?UnsignedIntInst@@3UUnsignedIntType@@A
-inline extern_var(0x90B490, struct UnsignedIntType, UnsignedIntInst);
+// ARTS_IMPORT extern struct UnsignedIntType UnsignedIntInst;
 
 // 0x90B494 | ?UnsignedShortInst@@3UUnsignedShortType@@A
-inline extern_var(0x90B494, struct UnsignedShortType, UnsignedShortInst);
+// ARTS_IMPORT extern struct UnsignedShortType UnsignedShortInst;

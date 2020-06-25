@@ -21,14 +21,29 @@
 /*
     data7:mmx
 
+    0x57C400 | int __cdecl cpuid(void) | ?cpuid@@YAHXZ
     0x57C410 | public: __thiscall initHaveMMX::initHaveMMX(void) | ??0initHaveMMX@@QAE@XZ
     0x90B4A0 | int UseKNI | ?UseKNI@@3HA
     0x90B4A4 | int UseMMX | ?UseMMX@@3HA
     0x90B4A8 | int HavePPro | ?HavePPro@@3HA
     0x90B4AC | int HaveKNI | ?HaveKNI@@3HA
     0x90B4B0 | int HaveMMX | ?HaveMMX@@3HA
-    0x57C400 | int __cdecl cpuid(void) | ?cpuid@@YAHXZ
 */
+
+// 0x90B4AC | ?HaveKNI@@3HA
+ARTS_IMPORT extern i32 HaveKNI;
+
+// 0x90B4B0 | ?HaveMMX@@3HA
+ARTS_IMPORT extern i32 HaveMMX;
+
+// 0x90B4A8 | ?HavePPro@@3HA
+ARTS_IMPORT extern i32 HavePPro;
+
+// 0x90B4A0 | ?UseKNI@@3HA
+ARTS_IMPORT extern i32 UseKNI;
+
+// 0x90B4A4 | ?UseMMX@@3HA
+ARTS_IMPORT extern i32 UseMMX;
 
 struct initHaveMMX
 {
@@ -38,18 +53,3 @@ public:
 };
 
 check_size(initHaveMMX, 0x1);
-
-// 0x90B4AC | ?HaveKNI@@3HA
-inline extern_var(0x90B4AC, b32, HaveKNI);
-
-// 0x90B4B0 | ?HaveMMX@@3HA
-inline extern_var(0x90B4B0, b32, HaveMMX);
-
-// 0x90B4A8 | ?HavePPro@@3HA
-inline extern_var(0x90B4A8, b32, HavePPro);
-
-// 0x90B4A0 | ?UseKNI@@3HA
-inline extern_var(0x90B4A0, b32, UseKNI);
-
-// 0x90B4A4 | ?UseMMX@@3HA
-inline extern_var(0x90B4A4, b32, UseMMX);

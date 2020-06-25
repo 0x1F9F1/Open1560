@@ -19,38 +19,3 @@
 define_dummy_symbol(agid3d_ddbitmap);
 
 #include "ddbitmap.h"
-
-agiDDBitmap::agiDDBitmap(class agiPipeline* arg1)
-{
-    unimplemented(arg1);
-}
-
-agiDDBitmap::~agiDDBitmap()
-{
-    unimplemented();
-}
-
-i32 agiDDBitmap::BeginGfx()
-{
-    return stub<thiscall_t<i32, agiDDBitmap*>>(0x533A20, this);
-}
-
-void agiDDBitmap::EndGfx()
-{
-    return stub<thiscall_t<void, agiDDBitmap*>>(0x533CC0, this);
-}
-
-void agiDDBitmap::Restore()
-{
-    return stub<thiscall_t<void, agiDDBitmap*>>(0x533D50, this);
-}
-
-void agiDDBitmap::UpdateFlags()
-{
-    return stub<thiscall_t<void, agiDDBitmap*>>(0x533C80, this);
-}
-
-void breakme()
-{
-    return stub<cdecl_t<void>>(0x533D40);
-}

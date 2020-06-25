@@ -19,23 +19,3 @@
 define_dummy_symbol(mmui_dlg_tcpip);
 
 #include "dlg_tcpip.h"
-
-Dialog_TCPIP::Dialog_TCPIP(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6)
-{
-    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
-}
-
-Dialog_TCPIP::~Dialog_TCPIP()
-{
-    unimplemented();
-}
-
-void Dialog_TCPIP::IPAddressCallback()
-{
-    return stub<thiscall_t<void, Dialog_TCPIP*>>(0x4A0510, this);
-}
-
-void Dialog_TCPIP::PreSetup()
-{
-    return stub<thiscall_t<void, Dialog_TCPIP*>>(0x4A0500, this);
-}

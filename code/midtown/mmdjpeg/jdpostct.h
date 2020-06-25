@@ -25,4 +25,4 @@
 */
 
 // 0x582840 | ?jinit_d_post_controller@@YAXPAUjpeg_decompress_struct@@E@Z
-void jinit_d_post_controller(struct jpeg_decompress_struct* arg1, u8 arg2);
+ARTS_IMPORT void jinit_d_post_controller(struct jpeg_decompress_struct* arg1, u8 arg2);

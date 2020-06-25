@@ -39,20 +39,20 @@ class HostRaceMenu : public RaceMenuBase
 
 public:
     // 0x4A2B60 | ??0HostRaceMenu@@QAE@H@Z
-    HostRaceMenu(i32 arg1);
+    ARTS_IMPORT HostRaceMenu(i32 arg1);
 
     // 0x4A2C70 | ??_EHostRaceMenu@@UAEPAXI@Z
     // 0x4A2C30 | ??1HostRaceMenu@@UAE@XZ
-    ~HostRaceMenu() override;
+    ARTS_IMPORT ~HostRaceMenu() override;
 
     // 0x4A2C50 | ?DisableStart@HostRaceMenu@@QAEXXZ | unused
-    void DisableStart();
+    ARTS_IMPORT void DisableStart();
 
     // 0x4A2C40 | ?EnableStart@HostRaceMenu@@QAEXXZ | unused
-    void EnableStart();
+    ARTS_IMPORT void EnableStart();
 
     // 0x4A2C60 | ?UsesLobby@HostRaceMenu@@UAEXH@Z
-    void UsesLobby(i32 arg1) override;
+    ARTS_IMPORT void UsesLobby(i32 arg1) override;
 };
 
 check_size(HostRaceMenu, 0xF98);

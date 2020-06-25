@@ -55,86 +55,86 @@ struct agiProjVtx
 {
 public:
     // 0x552BA0 | ?Init@agiProjVtx@@SAXHPAVagiLighter@@I@Z
-    static void Init(i32 arg1, class agiLighter* arg2, u32 arg3);
+    ARTS_IMPORT static void Init(i32 arg1, class agiLighter* arg2, u32 arg3);
 
     // 0x5524F0 | ?InitMtx@agiProjVtx@@SAXAAVMatrix34@@MMMM@Z
-    static void InitMtx(class Matrix34& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT static void InitMtx(class Matrix34& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x552710 | ?Project@agiProjVtx@@SAHHPAUagiLitVtx@@@Z
-    static i32 Project(i32 arg1, struct agiLitVtx* arg2);
+    ARTS_IMPORT static i32 Project(i32 arg1, struct agiLitVtx* arg2);
 
     // 0x552630 | ?SetOutcode@agiProjVtx@@SAXH@Z
-    static void SetOutcode(i32 arg1);
+    ARTS_IMPORT static void SetOutcode(i32 arg1);
 
     // 0x552A20 | ?ToScreen@agiProjVtx@@SAXH@Z
-    static void ToScreen(i32 arg1);
+    ARTS_IMPORT static void ToScreen(i32 arg1);
 
     // 0x8B3220 | ?Adj@agiProjVtx@@2PAUagiAdjunctData@@A
-    static inline extern_var(0x8B3220, struct agiAdjunctData[6968], Adj);
+    ARTS_IMPORT static struct agiAdjunctData Adj[6968];
 
     // 0x8B3210 | ?HalfHeight@agiProjVtx@@2MA
-    static inline extern_var(0x8B3210, f32, HalfHeight);
+    ARTS_IMPORT static f32 HalfHeight;
 
     // 0x8BABF4 | ?HalfWidth@agiProjVtx@@2MA
-    static inline extern_var(0x8BABF4, f32, HalfWidth);
+    ARTS_IMPORT static f32 HalfWidth;
 
     // 0x8B9B98 | ?LIGHTER@agiProjVtx@@2PAVagiLighter@@A
-    static inline extern_var(0x8B9B98, class agiLighter*, LIGHTER);
+    ARTS_IMPORT static class agiLighter* LIGHTER;
 
     // 0x8B31D8 | ?M@agiProjVtx@@2VMatrix34@@A
-    static inline extern_var(0x8B31D8, class Matrix34, M);
+    ARTS_IMPORT static class Matrix34 M;
 
     // 0x8B9BA0 | ?M2@agiProjVtx@@2VMatrix34@@A
-    static inline extern_var(0x8B9BA0, class Matrix34, M2);
+    ARTS_IMPORT static class Matrix34 M2;
 
     // 0x8B9BE0 | ?NeedsClip@agiProjVtx@@2HA
-    static inline extern_var(0x8B9BE0, i32, NeedsClip);
+    ARTS_IMPORT static i32 NeedsClip;
 
     // 0x7E02CC | ?NoModelView@agiProjVtx@@2HA
-    static inline extern_var(0x7E02CC, i32, NoModelView);
+    ARTS_IMPORT static i32 NoModelView;
 
     // 0x7E02D0 | ?OffsX@agiProjVtx@@2MA
-    static inline extern_var(0x7E02D0, f32, OffsX);
+    ARTS_IMPORT static f32 OffsX;
 
     // 0x8B9BE8 | ?OffsY@agiProjVtx@@2MA
-    static inline extern_var(0x8B9BE8, f32, OffsY);
+    ARTS_IMPORT static f32 OffsY;
 
     // 0x8B9BD8 | ?Orthographic@agiProjVtx@@2HA
-    static inline extern_var(0x8B9BD8, i32, Orthographic);
+    ARTS_IMPORT static i32 Orthographic;
 
     // 0x8B3214 | ?ProjX@agiProjVtx@@2MA
-    static inline extern_var(0x8B3214, f32, ProjX);
+    ARTS_IMPORT static f32 ProjX;
 
     // 0x8B9BD0 | ?ProjXZ@agiProjVtx@@2MA
-    static inline extern_var(0x8B9BD0, f32, ProjXZ);
+    ARTS_IMPORT static f32 ProjXZ;
 
     // 0x8B9BDC | ?ProjY@agiProjVtx@@2MA
-    static inline extern_var(0x8B9BDC, f32, ProjY);
+    ARTS_IMPORT static f32 ProjY;
 
     // 0x8B3208 | ?ProjYZ@agiProjVtx@@2MA
-    static inline extern_var(0x8B3208, f32, ProjYZ);
+    ARTS_IMPORT static f32 ProjYZ;
 
     // 0x7E02C8 | ?ProjZW@agiProjVtx@@2MA
-    static inline extern_var(0x7E02C8, f32, ProjZW);
+    ARTS_IMPORT static f32 ProjZW;
 
     // 0x8B9BE4 | ?ProjZZ@agiProjVtx@@2MA
-    static inline extern_var(0x8B9BE4, f32, ProjZZ);
+    ARTS_IMPORT static f32 ProjZZ;
 
     // 0x8B9BD4 | ?ScreenHeight@agiProjVtx@@2MA
-    static inline extern_var(0x8B9BD4, f32, ScreenHeight);
+    ARTS_IMPORT static f32 ScreenHeight;
 
     // 0x8BABF0 | ?ScreenWidth@agiProjVtx@@2MA
-    static inline extern_var(0x8BABF0, f32, ScreenWidth);
+    ARTS_IMPORT static f32 ScreenWidth;
 
     // 0x7E02D8 | ?Vtx@agiProjVtx@@2PATagiVtx@@A
-    static inline extern_var(0x7E02D8, union agiVtx[6968], Vtx);
+    ARTS_IMPORT static union agiVtx Vtx[6968];
 };
 
 // 0x656588 | ?DepthOffset@@3MA
-inline extern_var(0x656588, f32, DepthOffset);
+ARTS_IMPORT extern f32 DepthOffset;
 
 // 0x65658C | ?DepthScale@@3MA
-inline extern_var(0x65658C, f32, DepthScale);
+ARTS_IMPORT extern f32 DepthScale;
 
 // 0x8B320C | ?clip_pz@@3HA
-inline extern_var(0x8B320C, i32, clip_pz);
+ARTS_IMPORT extern i32 clip_pz;

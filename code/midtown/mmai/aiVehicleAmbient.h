@@ -76,133 +76,133 @@ class aiVehicleAmbient : public aiVehicleSpline
 
 public:
     // 0x44EC60 | ??0aiVehicleAmbient@@QAE@XZ
-    aiVehicleAmbient();
+    ARTS_IMPORT aiVehicleAmbient();
 
     // 0x43BEF0 | ??_EaiVehicleAmbient@@QAEPAXI@Z | unused
     // 0x44ED40 | ??1aiVehicleAmbient@@QAE@XZ
-    ~aiVehicleAmbient();
+    ARTS_IMPORT ~aiVehicleAmbient();
 
     // 0x451000 | ?AssignSounds@aiVehicleAmbient@@QAEXPAVAudSound@@00PAVmmOpponentImpactAudio@@@Z
-    void AssignSounds(
+    ARTS_IMPORT void AssignSounds(
         class AudSound* arg1, class AudSound* arg2, class AudSound* arg3, class mmOpponentImpactAudio* arg4);
 
     // 0x44FCF0 | ?CalculateAudioPanning@aiVehicleAmbient@@QAEXXZ
-    void CalculateAudioPanning();
+    ARTS_IMPORT void CalculateAudioPanning();
 
     // 0x44FBE0 | ?CalculateDistToPlayer2@aiVehicleAmbient@@QAEXXZ
-    void CalculateDistToPlayer2();
+    ARTS_IMPORT void CalculateDistToPlayer2();
 
     // 0x44FD90 | ?DrawBBox@aiVehicleAmbient@@QAEXF@Z
-    void DrawBBox(i16 arg1);
+    ARTS_IMPORT void DrawBBox(i16 arg1);
 
     // 0x44FD80 | ?DrawId@aiVehicleAmbient@@UAEXXZ
-    void DrawId() override;
+    ARTS_IMPORT void DrawId() override;
 
     // 0x451160 | ?Dump@aiVehicleAmbient@@QAEXXZ
-    void Dump();
+    ARTS_IMPORT void Dump();
 
     // 0x451360 | ?GetImpactAudioPtr@aiVehicleAmbient@@UAEPAVmmOpponentImpactAudio@@XZ | inline
-    class mmOpponentImpactAudio* GetImpactAudioPtr() override;
+    ARTS_IMPORT class mmOpponentImpactAudio* GetImpactAudioPtr() override;
 
     // 0x44F490 | ?Impact@aiVehicleAmbient@@UAEXH@Z
-    void Impact(i32 arg1) override;
+    ARTS_IMPORT void Impact(i32 arg1) override;
 
     // 0x450AB0 | ?ImpactAudioReaction@aiVehicleAmbient@@UAEXM@Z
-    void ImpactAudioReaction(f32 arg1) override;
+    ARTS_IMPORT void ImpactAudioReaction(f32 arg1) override;
 
     // 0x44EE10 | ?Init@aiVehicleAmbient@@QAEXPADH@Z
-    void Init(char* arg1, i32 arg2);
+    ARTS_IMPORT void Init(char* arg1, i32 arg2);
 
     // 0x450BF0 | ?PlayDoubleHorn@aiVehicleAmbient@@QAEXM@Z
-    void PlayDoubleHorn(f32 arg1);
+    ARTS_IMPORT void PlayDoubleHorn(f32 arg1);
 
     // 0x450370 | ?PlayHorn@aiVehicleAmbient@@QAEXXZ
-    void PlayHorn();
+    ARTS_IMPORT void PlayHorn();
 
     // 0x4505C0 | ?PlayHorn@aiVehicleAmbient@@UAEXMM@Z
-    void PlayHorn(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT void PlayHorn(f32 arg1, f32 arg2) override;
 
     // 0x4506B0 | ?PlayTrippleHorn@aiVehicleAmbient@@QAEXM@Z
-    void PlayTrippleHorn(f32 arg1);
+    ARTS_IMPORT void PlayTrippleHorn(f32 arg1);
 
     // 0x450120 | ?PlayVoice@aiVehicleAmbient@@QAEXXZ
-    void PlayVoice();
+    ARTS_IMPORT void PlayVoice();
 
     // 0x44F200 | ?Reset@aiVehicleAmbient@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4500F0 | ?StopHorn@aiVehicleAmbient@@QAEXXZ | unused
-    void StopHorn();
+    ARTS_IMPORT void StopHorn();
 
     // 0x450A30 | ?StopVoice@aiVehicleAmbient@@UAEXXZ
-    void StopVoice() override;
+    ARTS_IMPORT void StopVoice() override;
 
     // 0x451350 | ?Type@aiVehicleAmbient@@UAEHXZ | inline
-    i32 Type() override;
+    ARTS_IMPORT i32 Type() override;
 
     // 0x44F540 | ?UnAssignSounds@aiVehicleAmbient@@QAEXXZ
-    void UnAssignSounds();
+    ARTS_IMPORT void UnAssignSounds();
 
     // 0x44F2E0 | ?Update@aiVehicleAmbient@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x450A70 | ?UpdateAudImpactReaction@aiVehicleAmbient@@QAEXXZ
-    void UpdateAudImpactReaction();
+    ARTS_IMPORT void UpdateAudImpactReaction();
 
     // 0x44F820 | ?UpdateAudio@aiVehicleAmbient@@QAEXXZ
-    void UpdateAudio();
+    ARTS_IMPORT void UpdateAudio();
 
     // 0x450790 | ?UpdateHorn@aiVehicleAmbient@@QAEXXZ
-    void UpdateHorn();
+    ARTS_IMPORT void UpdateHorn();
 
     // 0x451150 | ?GetSecsSinceImpactReaction@aiVehicleAmbient@@SAMXZ
-    static f32 GetSecsSinceImpactReaction();
+    ARTS_IMPORT static f32 GetSecsSinceImpactReaction();
 
     // 0x450DA0 | ?SetAudioMaxDistance@aiVehicleAmbient@@SAXM@Z
-    static void SetAudioMaxDistance(f32 arg1);
+    ARTS_IMPORT static void SetAudioMaxDistance(f32 arg1);
 
 private:
     // 0x450CC0 | ?AddToAiAudMgr@aiVehicleAmbient@@AAEXXZ
-    void AddToAiAudMgr();
+    ARTS_IMPORT void AddToAiAudMgr();
 
     // 0x44F620 | ?CalculateDoppler@aiVehicleAmbient@@AAEMM@Z
-    f32 CalculateDoppler(f32 arg1);
+    ARTS_IMPORT f32 CalculateDoppler(f32 arg1);
 
     // 0x44F650 | ?CalculateFerrariPitch@aiVehicleAmbient@@AAEMMH@Z
-    f32 CalculateFerrariPitch(f32 arg1, i32 arg2);
+    ARTS_IMPORT f32 CalculateFerrariPitch(f32 arg1, i32 arg2);
 
     // 0x450B10 | ?ImpactAudioReaction@aiVehicleAmbient@@AAEXXZ
-    void ImpactAudioReaction();
+    ARTS_IMPORT void ImpactAudioReaction();
 
     // 0x44F850 | ?UpdateAudio@aiVehicleAmbient@@AAEXM@Z
-    void UpdateAudio(f32 arg1);
+    ARTS_IMPORT void UpdateAudio(f32 arg1);
 
     // 0x450DC0 | ?UpdateDSound3DAudio@aiVehicleAmbient@@AAEXXZ
-    void UpdateDSound3DAudio();
+    ARTS_IMPORT void UpdateDSound3DAudio();
 
     // 0x6A7AA0 | ?s_fAttenuationMult@aiVehicleAmbient@@0MA
-    static inline extern_var(0x6A7AA0, f32, s_fAttenuationMult);
+    ARTS_IMPORT static f32 s_fAttenuationMult;
 
     // 0x6398B8 | ?s_fAudioMaxDistance@aiVehicleAmbient@@0MA
-    static inline extern_var(0x6398B8, f32, s_fAudioMaxDistance);
+    ARTS_IMPORT static f32 s_fAudioMaxDistance;
 
     // 0x6398B0 | ?s_fAudioVolume@aiVehicleAmbient@@0MA
-    static inline extern_var(0x6398B0, f32, s_fAudioVolume);
+    ARTS_IMPORT static f32 s_fAudioVolume;
 
     // 0x6398B4 | ?s_fAudioVolumeSemi@aiVehicleAmbient@@0MA
-    static inline extern_var(0x6398B4, f32, s_fAudioVolumeSemi);
+    ARTS_IMPORT static f32 s_fAudioVolumeSemi;
 
     // 0x6398BC | ?s_fHornVolume@aiVehicleAmbient@@0MA
-    static inline extern_var(0x6398BC, f32, s_fHornVolume);
+    ARTS_IMPORT static f32 s_fHornVolume;
 
     // 0x6398C4 | ?s_fSecsSinceImpactReaction@aiVehicleAmbient@@0MA
-    static inline extern_var(0x6398C4, f32, s_fSecsSinceImpactReaction);
+    ARTS_IMPORT static f32 s_fSecsSinceImpactReaction;
 
     // 0x6398C0 | ?s_fVoiceVolume@aiVehicleAmbient@@0MA
-    static inline extern_var(0x6398C0, f32, s_fVoiceVolume);
+    ARTS_IMPORT static f32 s_fVoiceVolume;
 
     // 0x6A7AD0 | ?s_iPrevSoundObjIndex@aiVehicleAmbient@@0FA
-    static inline extern_var(0x6A7AD0, i16, s_iPrevSoundObjIndex);
+    ARTS_IMPORT static i16 s_iPrevSoundObjIndex;
 };
 
 check_size(aiVehicleAmbient, 0x138);

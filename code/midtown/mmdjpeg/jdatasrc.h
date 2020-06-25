@@ -25,4 +25,4 @@
 */
 
 // 0x57D7E0 | ?jpeg_stdio_src@@YAXPAUjpeg_decompress_struct@@PAVStream@@@Z
-void jpeg_stdio_src(struct jpeg_decompress_struct* arg1, class Stream* arg2);
+ARTS_IMPORT void jpeg_stdio_src(struct jpeg_decompress_struct* arg1, class Stream* arg2);

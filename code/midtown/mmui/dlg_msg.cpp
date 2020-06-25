@@ -19,23 +19,3 @@
 define_dummy_symbol(mmui_dlg_msg);
 
 #include "dlg_msg.h"
-
-Dialog_Message::Dialog_Message(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6)
-{
-    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
-}
-
-Dialog_Message::~Dialog_Message()
-{
-    unimplemented();
-}
-
-void Dialog_Message::Init(i32 arg1, char* arg2, char* arg3)
-{
-    return stub<thiscall_t<void, Dialog_Message*, i32, char*, char*>>(0x49F3F0, this, arg1, arg2, arg3);
-}
-
-void Dialog_Message::PreSetup()
-{
-    return stub<thiscall_t<void, Dialog_Message*>>(0x49F470, this);
-}

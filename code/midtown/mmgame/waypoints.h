@@ -71,98 +71,100 @@ class mmWaypoints : public asNode
 
 public:
     // 0x42D540 | ??0mmWaypoints@@QAE@XZ
-    mmWaypoints();
+    ARTS_IMPORT mmWaypoints();
 
     // 0x430320 | ??_EmmWaypoints@@UAEPAXI@Z
     // 0x42DB20 | ??1mmWaypoints@@UAE@XZ
-    ~mmWaypoints() override;
+    ARTS_IMPORT ~mmWaypoints() override;
 
     // 0x42F200 | ?AIWPHit@mmWaypoints@@QAEHHHVMatrix34@@VVector3@@M@Z
-    i32 AIWPHit(i32 arg1, i32 arg2, class Matrix34 arg3, class Vector3 arg4, f32 arg5);
+    ARTS_IMPORT i32 AIWPHit(i32 arg1, i32 arg2, class Matrix34 arg3, class Vector3 arg4, f32 arg5);
 
     // 0x42F4C0 | ?AnyAIWPHit@mmWaypoints@@QAEHAAIHVMatrix34@@VVector3@@M@Z
-    i32 AnyAIWPHit(u32& arg1, i32 arg2, class Matrix34 arg3, class Vector3 arg4, f32 arg5);
+    ARTS_IMPORT i32 AnyAIWPHit(u32& arg1, i32 arg2, class Matrix34 arg3, class Vector3 arg4, f32 arg5);
 
     // 0x42FAA0 | ?AnyWPHits@mmWaypoints@@QAEHH@Z
-    i32 AnyWPHits(i32 arg1);
+    ARTS_IMPORT i32 AnyWPHits(i32 arg1);
 
     // 0x42D950 | ?BlitzRemove@mmWaypoints@@QAEHH@Z
-    i32 BlitzRemove(i32 arg1);
+    ARTS_IMPORT i32 BlitzRemove(i32 arg1);
 
     // 0x42E920 | ?CalculateGatePoints@mmWaypoints@@QAEXVVector3@@MMPAVVector2@@1@Z
-    void CalculateGatePoints(class Vector3 arg1, f32 arg2, f32 arg3, class Vector2* arg4, class Vector2* arg5);
+    ARTS_IMPORT void CalculateGatePoints(
+        class Vector3 arg1, f32 arg2, f32 arg3, class Vector2* arg4, class Vector2* arg5);
 
     // 0x42FF60 | ?ClearWaypoint@mmWaypoints@@QAEXH@Z
-    void ClearWaypoint(i32 arg1);
+    ARTS_IMPORT void ClearWaypoint(i32 arg1);
 
     // 0x42E910 | ?Cull@mmWaypoints@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x42F130 | ?CycleCurrentWaypoint@mmWaypoints@@QAEXH@Z
-    void CycleCurrentWaypoint(i32 arg1);
+    ARTS_IMPORT void CycleCurrentWaypoint(i32 arg1);
 
     // 0x42ED30 | ?DeactivateFinish@mmWaypoints@@QAEXXZ
-    void DeactivateFinish();
+    ARTS_IMPORT void DeactivateFinish();
 
     // 0x430020 | ?DisplayHUDMessage@mmWaypoints@@QAEXHH@Z
-    void DisplayHUDMessage(i32 arg1, i32 arg2);
+    ARTS_IMPORT void DisplayHUDMessage(i32 arg1, i32 arg2);
 
     // 0x42EF00 | ?GenerateHitRooms@mmWaypoints@@QAEXXZ
-    void GenerateHitRooms();
+    ARTS_IMPORT void GenerateHitRooms();
 
     // 0x42F050 | ?GetClosestWaypoint@mmWaypoints@@QAEXXZ
-    void GetClosestWaypoint();
+    ARTS_IMPORT void GetClosestWaypoint();
 
     // 0x42EED0 | ?GetHeading@mmWaypoints@@QAEMH@Z
-    f32 GetHeading(i32 arg1);
+    ARTS_IMPORT f32 GetHeading(i32 arg1);
 
     // 0x42EF60 | ?GetHitRoom@mmWaypoints@@QAEHH@Z
-    i32 GetHitRoom(i32 arg1);
+    ARTS_IMPORT i32 GetHitRoom(i32 arg1);
 
     // 0x42F1B0 | ?GetLastWaypoint@mmWaypoints@@QAEXXZ
-    void GetLastWaypoint();
+    ARTS_IMPORT void GetLastWaypoint();
 
     // 0x42F1A0 | ?GetNextWaypoint@mmWaypoints@@QAEXXZ
-    void GetNextWaypoint();
+    ARTS_IMPORT void GetNextWaypoint();
 
     // 0x42EE40 | ?GetStart@mmWaypoints@@QAEXAAVVector3@@@Z
-    void GetStart(class Vector3& arg1);
+    ARTS_IMPORT void GetStart(class Vector3& arg1);
 
     // 0x42DB00 | ?GetStartAngle@mmWaypoints@@QAEMXZ
-    f32 GetStartAngle();
+    ARTS_IMPORT f32 GetStartAngle();
 
     // 0x42EE80 | ?GetWaypoint@mmWaypoints@@QAEXHAAVVector3@@@Z
-    void GetWaypoint(i32 arg1, class Vector3& arg2);
+    ARTS_IMPORT void GetWaypoint(i32 arg1, class Vector3& arg2);
 
     // 0x42D9D0 | ?Init@mmWaypoints@@QAEHPAVmmPlayer@@PADHHHH@Z
-    i32 Init(class mmPlayer* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);
+    ARTS_IMPORT i32 Init(class mmPlayer* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);
 
     // 0x42FD50 | ?LineIntersect@mmWaypoints@@QAEHVVector2@@000M@Z
-    i32 LineIntersect(class Vector2 arg1, class Vector2 arg2, class Vector2 arg3, class Vector2 arg4, f32 arg5);
+    ARTS_IMPORT i32 LineIntersect(
+        class Vector2 arg1, class Vector2 arg2, class Vector2 arg3, class Vector2 arg4, f32 arg5);
 
     // 0x42DC20 | ?LoadCSV@mmWaypoints@@QAEHPADH@Z
-    i32 LoadCSV(char* arg1, i32 arg2);
+    ARTS_IMPORT i32 LoadCSV(char* arg1, i32 arg2);
 
     // 0x42ED50 | ?Reset@mmWaypoints@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x42F010 | ?ResetAllTags@mmWaypoints@@QAEXXZ
-    void ResetAllTags();
+    ARTS_IMPORT void ResetAllTags();
 
     // 0x42EF80 | ?SetArrow@mmWaypoints@@QAEXXZ
-    void SetArrow();
+    ARTS_IMPORT void SetArrow();
 
     // 0x42F1C0 | ?SetCurrentGoals@mmWaypoints@@QAEXH@Z
-    void SetCurrentGoals(i32 arg1);
+    ARTS_IMPORT void SetCurrentGoals(i32 arg1);
 
     // 0x42E9A0 | ?Update@mmWaypoints@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x42EFA0 | ?UpdateWPHUD@mmWaypoints@@QAEXXZ
-    void UpdateWPHUD();
+    ARTS_IMPORT void UpdateWPHUD();
 
     // 0x42F820 | ?WPHit@mmWaypoints@@QAEHHVVector3@@HH@Z
-    i32 WPHit(i32 arg1, class Vector3 arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT i32 WPHit(i32 arg1, class Vector3 arg2, i32 arg3, i32 arg4);
 };
 
 check_size(mmWaypoints, 0xAC);
@@ -171,19 +173,19 @@ struct mmGate
 {
 public:
     // 0x430250 | ?Check@mmGate@@QAEHVVector2@@0@Z | unused
-    i32 Check(class Vector2 arg1, class Vector2 arg2);
+    ARTS_IMPORT i32 Check(class Vector2 arg1, class Vector2 arg2);
 
     // 0x430210 | ?CloseEnough@mmGate@@QAEHMM@Z
-    i32 CloseEnough(f32 arg1, f32 arg2);
+    ARTS_IMPORT i32 CloseEnough(f32 arg1, f32 arg2);
 
     // 0x430170 | ?Init@mmGate@@QAEXVVector2@@0@Z | unused
-    void Init(class Vector2 arg1, class Vector2 arg2);
+    ARTS_IMPORT void Init(class Vector2 arg1, class Vector2 arg2);
 
     // 0x4301F0 | ?LineEq@mmGate@@QAEMMM@Z
-    f32 LineEq(f32 arg1, f32 arg2);
+    ARTS_IMPORT f32 LineEq(f32 arg1, f32 arg2);
 };
 
 check_size(mmGate, 0x0);
 
 // 0x6A7788 | ?Size@@3VVector3@@A
-inline extern_var(0x6A7788, class Vector3, Size);
+ARTS_IMPORT extern class Vector3 Size;

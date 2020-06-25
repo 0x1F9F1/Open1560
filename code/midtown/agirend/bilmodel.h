@@ -39,20 +39,20 @@ class agiBILightModel : public agiLightModel
 
 public:
     // 0x555260 | ??0agiBILightModel@@QAE@PAVagiPipeline@@@Z
-    agiBILightModel(class agiPipeline* arg1);
+    ARTS_IMPORT agiBILightModel(class agiPipeline* arg1);
 
     // 0x555340 | ??_GagiBILightModel@@UAEPAXI@Z
     // 0x555280 | ??1agiBILightModel@@UAE@XZ
-    ~agiBILightModel() override;
+    ARTS_IMPORT ~agiBILightModel() override;
 
     // 0x555320 | ?Activate@agiBILightModel@@UAEHXZ
-    i32 Activate() override;
+    ARTS_IMPORT i32 Activate() override;
 
     // 0x5552E0 | ?BeginGfx@agiBILightModel@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x555310 | ?EndGfx@agiBILightModel@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 };
 
 check_size(agiBILightModel, 0x40);

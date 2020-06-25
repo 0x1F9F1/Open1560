@@ -19,13 +19,3 @@
 define_dummy_symbol(mmui_pu_options);
 
 #include "pu_options.h"
-
-PUOptions::PUOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
-{
-    unimplemented(arg1, arg2, arg3, arg4, arg5);
-}
-
-PUOptions::~PUOptions()
-{
-    unimplemented();
-}

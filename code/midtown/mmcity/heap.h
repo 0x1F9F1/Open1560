@@ -25,4 +25,4 @@
 */
 
 // 0x4955C0 | ?mmHeapError@@YAXXZ
-void mmHeapError();
+ARTS_IMPORT void mmHeapError();

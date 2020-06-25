@@ -42,29 +42,29 @@ class PUAudioOptions : public PUMenuBase
 
 public:
     // 0x4AA790 | ??0PUAudioOptions@@QAE@HMMMM@Z
-    PUAudioOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT PUAudioOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4AAA70 | ??_GPUAudioOptions@@UAEPAXI@Z
     // 0x4AA9D0 | ??1PUAudioOptions@@UAE@XZ
-    ~PUAudioOptions() override;
+    ARTS_IMPORT ~PUAudioOptions() override;
 
     // 0x4AAA60 | ?CancelAction@PUAudioOptions@@QAEXXZ
-    void CancelAction();
+    ARTS_IMPORT void CancelAction();
 
     // 0x4AAA50 | ?PreSetup@PUAudioOptions@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x4AAA20 | ?SetBalance@PUAudioOptions@@QAEXXZ
-    void SetBalance();
+    ARTS_IMPORT void SetBalance();
 
     // 0x4AAA00 | ?SetCDVolume@PUAudioOptions@@QAEXXZ
-    void SetCDVolume();
+    ARTS_IMPORT void SetCDVolume();
 
     // 0x4AA9E0 | ?SetWaveVolume@PUAudioOptions@@QAEXXZ
-    void SetWaveVolume();
+    ARTS_IMPORT void SetWaveVolume();
 };
 
 check_size(PUAudioOptions, 0xC0);
 
 // 0x705958 | ?PUOptionsConfig@@3PAVmmPlayerConfig@@A
-inline extern_var(0x705958, class mmPlayerConfig*, PUOptionsConfig);
+ARTS_IMPORT extern class mmPlayerConfig* PUOptionsConfig;

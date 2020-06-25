@@ -44,36 +44,36 @@ class eqEventQ : public eqEventMonitor
 
 public:
     // 0x5639F0 | ??0eqEventQ@@QAE@HHH@Z
-    eqEventQ(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT eqEventQ(i32 arg1, i32 arg2, i32 arg3);
 
     // 0x563DB0 | ??_GeqEventQ@@UAEPAXI@Z
     // 0x563A80 | ??1eqEventQ@@UAE@XZ
-    ~eqEventQ() override;
+    ARTS_IMPORT ~eqEventQ() override;
 
     // 0x563CC0 | ?Activate@eqEventQ@@UAEXPAXH@Z
-    void Activate(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Activate(void* arg1, i32 arg2) override;
 
     // 0x563C80 | ?Destroy@eqEventQ@@UAEXPAX@Z
-    void Destroy(void* arg1) override;
+    ARTS_IMPORT void Destroy(void* arg1) override;
 
     // 0x563C20 | ?Keyboard@eqEventQ@@UAEXPAXHHHH@Z
-    void Keyboard(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
+    ARTS_IMPORT void Keyboard(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
 
     // 0x563B90 | ?Mouse@eqEventQ@@UAEXPAXHHHHHHH@Z
-    void Mouse(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8) override;
+    ARTS_IMPORT void Mouse(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8) override;
 
     // 0x563D40 | ?Pop@eqEventQ@@QAEHPATeqEvent@@@Z
-    i32 Pop(union eqEvent* arg1);
+    ARTS_IMPORT i32 Pop(union eqEvent* arg1);
 
     // 0x563AF0 | ?Redraw@eqEventQ@@UAEXPAXHHHH@Z
-    void Redraw(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
+    ARTS_IMPORT void Redraw(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
 
     // 0x563B50 | ?Refocus@eqEventQ@@UAEXPAXH@Z
-    void Refocus(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Refocus(void* arg1, i32 arg2) override;
 
 private:
     // 0x563D00 | ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
-    void Queue(union eqEvent& arg1);
+    ARTS_IMPORT void Queue(union eqEvent& arg1);
 };
 
 check_size(eqEventQ, 0x2C);

@@ -39,13 +39,13 @@ class agiLightModelParameters
 {
 public:
     // 0x55BCA0 | ??0agiLightModelParameters@@QAE@XZ
-    agiLightModelParameters();
+    ARTS_IMPORT agiLightModelParameters();
 
     // 0x55BCF0 | ??1agiLightModelParameters@@QAE@XZ
-    ~agiLightModelParameters();
+    ARTS_IMPORT ~agiLightModelParameters();
 
     // 0x55BCD0 | ??4agiLightModelParameters@@QAEXABV0@@Z
-    void operator=(class agiLightModelParameters const& arg1);
+    ARTS_IMPORT void operator=(class agiLightModelParameters const& arg1);
 };
 
 check_size(agiLightModelParameters, 0x28);
@@ -57,19 +57,19 @@ class agiLightModel : public agiRefreshable
 public:
     // 0x55BDF0 | ??_EagiLightModel@@UAEPAXI@Z
     // 0x55BD80 | ??1agiLightModel@@UAE@XZ
-    ~agiLightModel() override;
+    ARTS_IMPORT ~agiLightModel() override;
 
     virtual i32 Activate() = 0;
 
     // 0x55BDD0 | ?GetName@agiLightModel@@UAEPADXZ
-    char* GetName() override;
+    ARTS_IMPORT char* GetName() override;
 
     // 0x55BD50 | ?Init@agiLightModel@@QAEHABVagiLightModelParameters@@@Z
-    i32 Init(class agiLightModelParameters const& arg1);
+    ARTS_IMPORT i32 Init(class agiLightModelParameters const& arg1);
 
 protected:
     // 0x55BD00 | ??0agiLightModel@@IAE@PAVagiPipeline@@@Z
-    agiLightModel(class agiPipeline* arg1);
+    ARTS_IMPORT agiLightModel(class agiPipeline* arg1);
 };
 
 check_size(agiLightModel, 0x0);

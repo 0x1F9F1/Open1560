@@ -20,42 +20,5 @@ define_dummy_symbol(agiworld_bone);
 
 #include "bone.h"
 
-bnBone::bnBone()
-{
-    unimplemented();
-}
-
-void bnBone::AddChild(class bnBone* arg1)
-{
-    return stub<thiscall_t<void, bnBone*, class bnBone*>>(0x516E40, this, arg1);
-}
-
-void bnBone::Attach(class Matrix34* const arg1, i32& arg2)
-{
-    return stub<thiscall_t<void, bnBone*, class Matrix34* const, i32&>>(0x516FD0, this, arg1, arg2);
-}
-
-void bnBone::Draw()
-{
-    return stub<thiscall_t<void, bnBone*>>(0x516FC0, this);
-}
-
-i32 bnBone::Load(class Tokenizer* arg1, class bnBone** arg2)
-{
-    return stub<thiscall_t<i32, bnBone*, class Tokenizer*, class bnBone**>>(0x516E80, this, arg1, arg2);
-}
-
-void bnBone::Pose(class Vector3 const* arg1, i32& arg2)
-{
-    return stub<thiscall_t<void, bnBone*, class Vector3 const*, i32&>>(0x517030, this, arg1, arg2);
-}
-
-void bnBone::Transform(class Matrix34* arg1)
-{
-    return stub<thiscall_t<void, bnBone*, class Matrix34*>>(0x516F70, this, arg1);
-}
-
-static void Matrix34__FromEulersXZY(class Matrix34& arg1, class Vector3 const& arg2)
-{
-    return stub<cdecl_t<void, class Matrix34&, class Vector3 const&>>(0x517090, arg1, arg2);
-}
+// 0x517090 | ?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z
+ARTS_IMPORT /*static*/ void Matrix34__FromEulersXZY(class Matrix34& arg1, class Vector3 const& arg2);

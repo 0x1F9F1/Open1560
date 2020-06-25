@@ -39,10 +39,10 @@ class agiLightParameters
 {
 public:
     // 0x55B9E0 | ??0agiLightParameters@@QAE@XZ
-    agiLightParameters();
+    ARTS_IMPORT agiLightParameters();
 
     // 0x55BA60 | ??4agiLightParameters@@QAEXABV0@@Z
-    void operator=(class agiLightParameters const& arg1);
+    ARTS_IMPORT void operator=(class agiLightParameters const& arg1);
 };
 
 check_size(agiLightParameters, 0x70);
@@ -53,22 +53,22 @@ class agiLight : public agiRefreshable
 
 public:
     // 0x55BA80 | ??0agiLight@@QAE@PAVagiPipeline@@@Z
-    agiLight(class agiPipeline* arg1);
+    ARTS_IMPORT agiLight(class agiPipeline* arg1);
 
     // 0x55BB40 | ??_EagiLight@@UAEPAXI@Z
     // 0x55BB10 | ??1agiLight@@UAE@XZ
-    ~agiLight() override;
+    ARTS_IMPORT ~agiLight() override;
 
     virtual i32 Update() = 0;
 
     // 0x55BB00 | ?Remove@agiLight@@UAEXXZ
-    virtual void Remove();
+    ARTS_IMPORT virtual void Remove();
 
     // 0x55BB20 | ?GetName@agiLight@@UAEPADXZ
-    char* GetName() override;
+    ARTS_IMPORT char* GetName() override;
 
     // 0x55BAD0 | ?Init@agiLight@@QAEHABVagiLightParameters@@@Z
-    i32 Init(class agiLightParameters const& arg1);
+    ARTS_IMPORT i32 Init(class agiLightParameters const& arg1);
 };
 
 check_size(agiLight, 0x0);

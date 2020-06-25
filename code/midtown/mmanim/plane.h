@@ -59,81 +59,81 @@ class mmAnimPlane : public mmMatrixInstance
 
 public:
     // 0x4C4F20 | ??0mmAnimPlane@@QAE@XZ
-    mmAnimPlane();
+    ARTS_IMPORT mmAnimPlane();
 
     // 0x4C5E80 | ??_EmmAnimPlane@@UAEPAXI@Z
     // 0x4C5010 | ??1mmAnimPlane@@UAE@XZ
-    ~mmAnimPlane() override;
+    ARTS_IMPORT ~mmAnimPlane() override;
 
     // 0x4C5330 | ?Activate@mmAnimPlane@@QAEXXZ | unused
-    void Activate();
+    ARTS_IMPORT void Activate();
 
     // 0x4C5630 | ?AdjustPhaseOffsets@mmAnimPlane@@QAEXXZ
-    void AdjustPhaseOffsets();
+    ARTS_IMPORT void AdjustPhaseOffsets();
 
     // 0x4C5770 | ?CalculateCubics@mmAnimPlane@@QAEXHAAVVector4@@00@Z
-    void CalculateCubics(i32 arg1, class Vector4& arg2, class Vector4& arg3, class Vector4& arg4);
+    ARTS_IMPORT void CalculateCubics(i32 arg1, class Vector4& arg2, class Vector4& arg3, class Vector4& arg4);
 
     // 0x4C5340 | ?Deactivate@mmAnimPlane@@QAEXXZ | unused
-    void Deactivate();
+    ARTS_IMPORT void Deactivate();
 
     // 0x4C5A70 | ?Draw@mmAnimPlane@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x4C50C0 | ?Init@mmAnimPlane@@QAEXHPAD0PAVVector3@@HHPAM@Z
-    void Init(i32 arg1, char* arg2, char* arg3, class Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
+    ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3, class Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
 
     // 0x4C56A0 | ?PreCalcCubics@mmAnimPlane@@QAEXXZ
-    void PreCalcCubics();
+    ARTS_IMPORT void PreCalcCubics();
 
     // 0x4C52C0 | ?Reset@mmAnimPlane@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4C5550 | ?ReverseCalcPathSpeed@mmAnimPlane@@QAEXXZ | unused
-    void ReverseCalcPathSpeed();
+    ARTS_IMPORT void ReverseCalcPathSpeed();
 
     // 0x4C5540 | ?SetPathSpeed@mmAnimPlane@@QAEXXZ
-    void SetPathSpeed();
+    ARTS_IMPORT void SetPathSpeed();
 
     // 0x4C5560 | ?SolvePosition@mmAnimPlane@@QAEXAAVVector3@@AAM@Z
-    void SolvePosition(class Vector3& arg1, f32& arg2);
+    ARTS_IMPORT void SolvePosition(class Vector3& arg1, f32& arg2);
 
     // 0x4C58F0 | ?SolveVector@mmAnimPlane@@QAEXMAAVVector3@@0@Z
-    void SolveVector(f32 arg1, class Vector3& arg2, class Vector3& arg3);
+    ARTS_IMPORT void SolveVector(f32 arg1, class Vector3& arg2, class Vector3& arg3);
 
     // 0x4C5350 | ?Update@mmAnimPlane@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x4C5370 | ?UpdatePathPosition@mmAnimPlane@@QAEXXZ
-    void UpdatePathPosition();
+    ARTS_IMPORT void UpdatePathPosition();
 
 private:
     // 0x4C5CF0 | ?CalculateAudioPanning@mmAnimPlane@@AAEXXZ
-    void CalculateAudioPanning();
+    ARTS_IMPORT void CalculateAudioPanning();
 
     // 0x4C5C20 | ?CalculateDistToPlayer2@mmAnimPlane@@AAEXXZ
-    void CalculateDistToPlayer2();
+    ARTS_IMPORT void CalculateDistToPlayer2();
 
     // 0x4C5D40 | ?CalculateDoppler@mmAnimPlane@@AAEMM@Z
-    f32 CalculateDoppler(f32 arg1);
+    ARTS_IMPORT f32 CalculateDoppler(f32 arg1);
 
     // 0x4C5AC0 | ?UpdateAudio@mmAnimPlane@@AAEXXZ
-    void UpdateAudio();
+    ARTS_IMPORT void UpdateAudio();
 
     // 0x705E58 | ?s_fAudioAttenuationMult@mmAnimPlane@@0MA
-    static inline extern_var(0x705E58, f32, s_fAudioAttenuationMult);
+    ARTS_IMPORT static f32 s_fAudioAttenuationMult;
 
     // 0x6426FC | ?s_fAudioMaxDistance@mmAnimPlane@@0MA
-    static inline extern_var(0x6426FC, f32, s_fAudioMaxDistance);
+    ARTS_IMPORT static f32 s_fAudioMaxDistance;
 
     // 0x6426F4 | ?s_fAudioMinDistance@mmAnimPlane@@0MA
-    static inline extern_var(0x6426F4, f32, s_fAudioMinDistance);
+    ARTS_IMPORT static f32 s_fAudioMinDistance;
 
     // 0x642700 | ?s_fAudioVolume@mmAnimPlane@@0MA
-    static inline extern_var(0x642700, f32, s_fAudioVolume);
+    ARTS_IMPORT static f32 s_fAudioVolume;
 
     // 0x6426F8 | ?s_fCloserMinDistMult@mmAnimPlane@@0MA
-    static inline extern_var(0x6426F8, f32, s_fCloserMinDistMult);
+    ARTS_IMPORT static f32 s_fCloserMinDistMult;
 };
 
 check_size(mmAnimPlane, 0x0);

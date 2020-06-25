@@ -19,38 +19,3 @@
 define_dummy_symbol(agi_light);
 
 #include "light.h"
-
-agiLightParameters::agiLightParameters()
-{
-    unimplemented();
-}
-
-void agiLightParameters::operator=(class agiLightParameters const& arg1)
-{
-    return stub<thiscall_t<void, agiLightParameters*, class agiLightParameters const&>>(0x55BA60, this, arg1);
-}
-
-agiLight::agiLight(class agiPipeline* arg1)
-{
-    unimplemented(arg1);
-}
-
-agiLight::~agiLight()
-{
-    unimplemented();
-}
-
-void agiLight::Remove()
-{
-    return stub<thiscall_t<void, agiLight*>>(0x55BB00, this);
-}
-
-char* agiLight::GetName()
-{
-    return stub<thiscall_t<char*, agiLight*>>(0x55BB20, this);
-}
-
-i32 agiLight::Init(class agiLightParameters const& arg1)
-{
-    return stub<thiscall_t<i32, agiLight*, class agiLightParameters const&>>(0x55BAD0, this, arg1);
-}

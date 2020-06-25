@@ -19,18 +19,3 @@
 define_dummy_symbol(mmgame_mmambientaudio);
 
 #include "mmambientaudio.h"
-
-mmAmbientAudio::mmAmbientAudio(class mmPlayer* arg1)
-{
-    unimplemented(arg1);
-}
-
-mmAmbientAudio::~mmAmbientAudio()
-{
-    unimplemented();
-}
-
-void mmAmbientAudio::Update()
-{
-    return stub<thiscall_t<void, mmAmbientAudio*>>(0x427E60, this);
-}

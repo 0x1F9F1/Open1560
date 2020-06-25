@@ -35,25 +35,25 @@ class bnBone
 {
 public:
     // 0x516DE0 | ??0bnBone@@QAE@XZ
-    bnBone();
+    ARTS_IMPORT bnBone();
 
     // 0x516E40 | ?AddChild@bnBone@@QAEXPAV1@@Z
-    void AddChild(class bnBone* arg1);
+    ARTS_IMPORT void AddChild(class bnBone* arg1);
 
     // 0x516FD0 | ?Attach@bnBone@@QAEXQAVMatrix34@@AAH@Z
-    void Attach(class Matrix34* const arg1, i32& arg2);
+    ARTS_IMPORT void Attach(class Matrix34* const arg1, i32& arg2);
 
     // 0x516FC0 | ?Draw@bnBone@@QAEXXZ
-    void Draw();
+    ARTS_IMPORT void Draw();
 
     // 0x516E80 | ?Load@bnBone@@QAEHPAVTokenizer@@PAPAV1@@Z
-    i32 Load(class Tokenizer* arg1, class bnBone** arg2);
+    ARTS_IMPORT i32 Load(class Tokenizer* arg1, class bnBone** arg2);
 
     // 0x517030 | ?Pose@bnBone@@QAEXPBVVector3@@AAH@Z
-    void Pose(class Vector3 const* arg1, i32& arg2);
+    ARTS_IMPORT void Pose(class Vector3 const* arg1, i32& arg2);
 
     // 0x516F70 | ?Transform@bnBone@@QAEXPAVMatrix34@@@Z
-    void Transform(class Matrix34* arg1);
+    ARTS_IMPORT void Transform(class Matrix34* arg1);
 };
 
 check_size(bnBone, 0x0);

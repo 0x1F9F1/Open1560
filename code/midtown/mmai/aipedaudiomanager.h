@@ -44,35 +44,35 @@ class aiPedAudioManager : public asNode
 
 public:
     // 0x446C80 | ??0aiPedAudioManager@@QAE@XZ
-    aiPedAudioManager();
+    ARTS_IMPORT aiPedAudioManager();
 
     // 0x4472B0 | ??_GaiPedAudioManager@@UAEPAXI@Z
     // 0x446F80 | ??1aiPedAudioManager@@UAE@XZ
-    ~aiPedAudioManager() override;
+    ARTS_IMPORT ~aiPedAudioManager() override;
 
     // 0x447030 | ?Add@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z
-    i16 Add(class aiPedestrian* arg1);
+    ARTS_IMPORT i16 Add(class aiPedestrian* arg1);
 
     // 0x447280 | ?AssignSounds@aiPedAudioManager@@QAEXF@Z
-    void AssignSounds(i16 arg1);
+    ARTS_IMPORT void AssignSounds(i16 arg1);
 
     // 0x447150 | ?FindGreatestDistance@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z
-    i16 FindGreatestDistance(class aiPedestrian* arg1);
+    ARTS_IMPORT i16 FindGreatestDistance(class aiPedestrian* arg1);
 
     // 0x4471E0 | ?FindUnusedSlot@aiPedAudioManager@@QAEFXZ
-    i16 FindUnusedSlot();
+    ARTS_IMPORT i16 FindUnusedSlot();
 
     // 0x4472A0 | ?RandomizeSeconds@aiPedAudioManager@@QAEXMM@Z | unused
-    void RandomizeSeconds(f32 arg1, f32 arg2);
+    ARTS_IMPORT void RandomizeSeconds(f32 arg1, f32 arg2);
 
     // 0x4470E0 | ?Remove@aiPedAudioManager@@QAEXPAVaiPedestrian@@F@Z
-    void Remove(class aiPedestrian* arg1, i16 arg2);
+    ARTS_IMPORT void Remove(class aiPedestrian* arg1, i16 arg2);
 
     // 0x447220 | ?Update@aiPedAudioManager@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(aiPedAudioManager, 0x120);
 
 // 0x6A79AC | ?AIPEDAUDMGRPTR@@3PAVaiPedAudioManager@@A
-inline extern_var(0x6A79AC, class aiPedAudioManager*, AIPEDAUDMGRPTR);
+ARTS_IMPORT extern class aiPedAudioManager* AIPEDAUDMGRPTR;

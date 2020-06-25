@@ -33,10 +33,10 @@ struct asArg
 {
 public:
     // 0x578C30 | ??0asArg@@QAE@DPAD@Z
-    asArg(char arg1, char* arg2);
+    ARTS_IMPORT asArg(char arg1, char* arg2);
 
     // 0x578C80 | ?Print@asArg@@QAEXPAD@Z
-    void Print(char* arg1);
+    ARTS_IMPORT void Print(char* arg1);
 };
 
 check_size(asArg, 0x0);
@@ -45,16 +45,16 @@ class ArgSet
 {
 public:
     // 0x578DD0 | ?ParseArgs@ArgSet@@QAEXHPAPAD@Z
-    void ParseArgs(i32 arg1, char** arg2);
+    ARTS_IMPORT void ParseArgs(i32 arg1, char** arg2);
 
     // 0x578D80 | ?Print@ArgSet@@QAEXPAD@Z | unused
-    void Print(char* arg1);
+    ARTS_IMPORT void Print(char* arg1);
 
     // 0x579010 | ?Usage@ArgSet@@QAEXXZ
-    void Usage();
+    ARTS_IMPORT void Usage();
 };
 
 check_size(ArgSet, 0x0);
 
 // 0x90AEF0 | ?GBArgs@@3VArgSet@@A
-inline extern_var(0x90AEF0, class ArgSet, GBArgs);
+ARTS_IMPORT extern class ArgSet GBArgs;

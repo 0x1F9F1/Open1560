@@ -43,36 +43,36 @@ class mmToggle2 : public asNode
 
 public:
     // 0x4BFF10 | ??0mmToggle2@@QAE@XZ
-    mmToggle2();
+    ARTS_IMPORT mmToggle2();
 
     // 0x4C0310 | ??_EmmToggle2@@UAEPAXI@Z
     // 0x4BFF30 | ??1mmToggle2@@UAE@XZ
-    ~mmToggle2() override;
+    ARTS_IMPORT ~mmToggle2() override;
 
     // 0x4C00E0 | ?Cull@mmToggle2@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4C0300 | ?GetClass@mmToggle2@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4BFF90 | ?Init@mmToggle2@@QAEXPADMMPAH@Z
-    void Init(char* arg1, f32 arg2, f32 arg3, i32* arg4);
+    ARTS_IMPORT void Init(char* arg1, f32 arg2, f32 arg3, i32* arg4);
 
     // 0x4C0020 | ?SetPosition@mmToggle2@@QAEXMM@Z
-    void SetPosition(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2);
 
     // 0x4C00C0 | ?Update@mmToggle2@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4C01A0 | ?DeclareFields@mmToggle2@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x4BFFC0 | ?LoadBitmap@mmToggle2@@AAEXPAD@Z
-    void LoadBitmap(char* arg1);
+    ARTS_IMPORT void LoadBitmap(char* arg1);
 };
 
 check_size(mmToggle2, 0x40);
 
 // 0x705CF0 | ?mmToggle2MetaClass@@3VMetaClass@@A
-inline extern_var(0x705CF0, class MetaClass, mmToggle2MetaClass);
+// ARTS_IMPORT extern class MetaClass mmToggle2MetaClass;

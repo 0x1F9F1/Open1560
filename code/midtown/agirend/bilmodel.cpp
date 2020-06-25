@@ -19,28 +19,3 @@
 define_dummy_symbol(agirend_bilmodel);
 
 #include "bilmodel.h"
-
-agiBILightModel::agiBILightModel(class agiPipeline* arg1)
-{
-    unimplemented(arg1);
-}
-
-agiBILightModel::~agiBILightModel()
-{
-    unimplemented();
-}
-
-i32 agiBILightModel::Activate()
-{
-    return stub<thiscall_t<i32, agiBILightModel*>>(0x555320, this);
-}
-
-i32 agiBILightModel::BeginGfx()
-{
-    return stub<thiscall_t<i32, agiBILightModel*>>(0x5552E0, this);
-}
-
-void agiBILightModel::EndGfx()
-{
-    return stub<thiscall_t<void, agiBILightModel*>>(0x555310, this);
-}

@@ -56,32 +56,32 @@ class mmBangerActive : public mmPhysEntity
 
 public:
     // 0x4CAEE0 | ??0mmBangerActive@@QAE@XZ
-    mmBangerActive();
+    ARTS_IMPORT mmBangerActive();
 
     // 0x4CB750 | ??_EmmBangerActive@@UAEPAXI@Z
     // 0x4CAFC0 | ??1mmBangerActive@@UAE@XZ
-    ~mmBangerActive() override;
+    ARTS_IMPORT ~mmBangerActive() override;
 
     // 0x4CB030 | ?Attach@mmBangerActive@@QAEXPAVmmBangerInstance@@@Z
-    void Attach(class mmBangerInstance* arg1);
+    ARTS_IMPORT void Attach(class mmBangerInstance* arg1);
 
     // 0x4CB220 | ?Detach@mmBangerActive@@QAEXXZ
-    void Detach();
+    ARTS_IMPORT void Detach();
 
     // 0x4CB280 | ?DetachMe@mmBangerActive@@UAEXXZ
-    void DetachMe() override;
+    ARTS_IMPORT void DetachMe() override;
 
     // 0x4CB7B0 | ?GetBound@mmBangerActive@@UAEPAVasBound@@XZ | inline
-    class asBound* GetBound() override;
+    ARTS_IMPORT class asBound* GetBound() override;
 
     // 0x4CB7C0 | ?GetICS@mmBangerActive@@UAEPAVasInertialCS@@XZ | inline
-    class asInertialCS* GetICS() override;
+    ARTS_IMPORT class asInertialCS* GetICS() override;
 
     // 0x4CB350 | ?PostUpdate@mmBangerActive@@UAEXXZ
-    void PostUpdate() override;
+    ARTS_IMPORT void PostUpdate() override;
 
     // 0x4CB2A0 | ?Update@mmBangerActive@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmBangerActive, 0x27C);
@@ -92,33 +92,33 @@ class mmBangerActiveManager : public asNode
 
 public:
     // 0x4CB3E0 | ??0mmBangerActiveManager@@QAE@XZ
-    mmBangerActiveManager();
+    ARTS_IMPORT mmBangerActiveManager();
 
     // 0x4CB780 | ??_GmmBangerActiveManager@@UAEPAXI@Z
     // 0x4CB490 | ??1mmBangerActiveManager@@UAE@XZ
-    ~mmBangerActiveManager() override;
+    ARTS_IMPORT ~mmBangerActiveManager() override;
 
     // 0x4CB520 | ?Attach@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z
-    class mmBangerActive* Attach(class mmBangerInstance* arg1);
+    ARTS_IMPORT class mmBangerActive* Attach(class mmBangerInstance* arg1);
 
     // 0x4CB5F0 | ?Detach@mmBangerActiveManager@@QAEXPAVmmBangerActive@@@Z
-    void Detach(class mmBangerActive* arg1);
+    ARTS_IMPORT void Detach(class mmBangerActive* arg1);
 
     // 0x4CB4F0 | ?GetActive@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z
-    class mmBangerActive* GetActive(class mmBangerInstance* arg1);
+    ARTS_IMPORT class mmBangerActive* GetActive(class mmBangerInstance* arg1);
 
     // 0x4CB720 | ?Reset@mmBangerActiveManager@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4CB640 | ?Update@mmBangerActiveManager@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
 protected:
     // 0x706060 | ?Instance@mmBangerActiveManager@@1PAV1@A
-    static inline extern_var(0x706060, class mmBangerActiveManager*, Instance);
+    ARTS_IMPORT static class mmBangerActiveManager* Instance;
 };
 
 check_size(mmBangerActiveManager, 0x0);
 
 // 0x642E44 | ?ParticleMultiplier@@3MA
-inline extern_var(0x642E44, f32, ParticleMultiplier);
+ARTS_IMPORT extern f32 ParticleMultiplier;

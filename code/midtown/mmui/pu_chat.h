@@ -38,17 +38,17 @@ class PUChat : public PUMenuBase
 
 public:
     // 0x4A9780 | ??0PUChat@@QAE@HMMMMPAD@Z
-    PUChat(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT PUChat(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4A9930 | ??_EPUChat@@UAEPAXI@Z
     // 0x4A9880 | ??1PUChat@@UAE@XZ
-    ~PUChat() override;
+    ARTS_IMPORT ~PUChat() override;
 
     // 0x4A98D0 | ?ChatEntry@PUChat@@QAEXXZ
-    void ChatEntry();
+    ARTS_IMPORT void ChatEntry();
 
     // 0x4A9890 | ?ClearChat@PUChat@@QAEXXZ
-    void ClearChat();
+    ARTS_IMPORT void ClearChat();
 };
 
 check_size(PUChat, 0x128);

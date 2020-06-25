@@ -19,33 +19,3 @@
 define_dummy_symbol(mmgame_icons);
 
 #include "icons.h"
-
-mmIcons::mmIcons()
-{
-    unimplemented();
-}
-
-mmIcons::~mmIcons()
-{
-    unimplemented();
-}
-
-void mmIcons::Cull()
-{
-    return stub<thiscall_t<void, mmIcons*>>(0x426570, this);
-}
-
-void mmIcons::Init(class Matrix34* arg1, f32 arg2, f32 arg3)
-{
-    return stub<thiscall_t<void, mmIcons*, class Matrix34*, f32, f32>>(0x426470, this, arg1, arg2, arg3);
-}
-
-void mmIcons::RegisterOpponents(struct OppIconInfo* arg1, i32 arg2, void* arg3)
-{
-    return stub<thiscall_t<void, mmIcons*, struct OppIconInfo*, i32, void*>>(0x4264B0, this, arg1, arg2, arg3);
-}
-
-void mmIcons::Update()
-{
-    return stub<thiscall_t<void, mmIcons*>>(0x426530, this);
-}

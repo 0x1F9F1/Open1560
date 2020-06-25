@@ -19,23 +19,3 @@
 define_dummy_symbol(mmui_pu_chat);
 
 #include "pu_chat.h"
-
-PUChat::PUChat(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6)
-{
-    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
-}
-
-PUChat::~PUChat()
-{
-    unimplemented();
-}
-
-void PUChat::ChatEntry()
-{
-    return stub<thiscall_t<void, PUChat*>>(0x4A98D0, this);
-}
-
-void PUChat::ClearChat()
-{
-    return stub<thiscall_t<void, PUChat*>>(0x4A9890, this);
-}

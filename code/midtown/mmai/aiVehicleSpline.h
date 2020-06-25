@@ -67,98 +67,98 @@ class aiVehicleSpline : public aiVehicle
 
 public:
     // 0x459EE0 | ??0aiVehicleSpline@@QAE@XZ
-    aiVehicleSpline();
+    ARTS_IMPORT aiVehicleSpline();
 
     // 0x45C4A0 | ??_EaiVehicleSpline@@QAEPAXI@Z | unused
     // 0x459F50 | ??1aiVehicleSpline@@QAE@XZ
-    ~aiVehicleSpline();
+    ARTS_IMPORT ~aiVehicleSpline();
 
     // 0x45BD00 | ?Impact@aiVehicleSpline@@UAEXH@Z
-    virtual void Impact(i32 arg1);
+    ARTS_IMPORT virtual void Impact(i32 arg1);
 
     // 0x4465E0 | ?GetImpactAudioPtr@aiVehicleSpline@@UAEPAVmmOpponentImpactAudio@@XZ | inline
-    virtual class mmOpponentImpactAudio* GetImpactAudioPtr();
+    ARTS_IMPORT virtual class mmOpponentImpactAudio* GetImpactAudioPtr();
 
     // 0x4465F0 | ?PlayHorn@aiVehicleSpline@@UAEXMM@Z | inline
-    virtual void PlayHorn(f32 arg1, f32 arg2);
+    ARTS_IMPORT virtual void PlayHorn(f32 arg1, f32 arg2);
 
     // 0x446600 | ?ImpactAudioReaction@aiVehicleSpline@@UAEXM@Z | inline
-    virtual void ImpactAudioReaction(f32 arg1);
+    ARTS_IMPORT virtual void ImpactAudioReaction(f32 arg1);
 
     // 0x446610 | ?StopVoice@aiVehicleSpline@@UAEXXZ | inline
-    virtual void StopVoice();
+    ARTS_IMPORT virtual void StopVoice();
 
     // 0x45C3E0 | ?GetClass@aiVehicleSpline@@UAEPAVMetaClass@@XZ
-    virtual class MetaClass* GetClass();
+    ARTS_IMPORT virtual class MetaClass* GetClass();
 
     // 0x45C1F0 | ?AddWidgets@aiVehicleSpline@@QAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1);
+    ARTS_IMPORT void AddWidgets(class Bank* arg1);
 
     // 0x45BC50 | ?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ | unused
-    void AvoidPlayerCollision();
+    ARTS_IMPORT void AvoidPlayerCollision();
 
     // 0x45B270 | ?DetectPlayerCollision@aiVehicleSpline@@QAEHHM@Z | unused
-    i32 DetectPlayerCollision(i32 arg1, f32 arg2);
+    ARTS_IMPORT i32 DetectPlayerCollision(i32 arg1, f32 arg2);
 
     // 0x45B040 | ?DetectPlayerForwardCollision@aiVehicleSpline@@QAEHXZ | unused
-    i32 DetectPlayerForwardCollision();
+    ARTS_IMPORT i32 DetectPlayerForwardCollision();
 
     // 0x45B130 | ?DetectPlayerTargetPtCollision@aiVehicleSpline@@QAEHXZ | unused
-    i32 DetectPlayerTargetPtCollision();
+    ARTS_IMPORT i32 DetectPlayerTargetPtCollision();
 
     // 0x45B870 | ?DetectPlayerZoneCollision@aiVehicleSpline@@QAEHXZ
-    i32 DetectPlayerZoneCollision();
+    ARTS_IMPORT i32 DetectPlayerZoneCollision();
 
     // 0x45BFF0 | ?DistanceToIntersection@aiVehicleSpline@@QAEMXZ
-    f32 DistanceToIntersection();
+    ARTS_IMPORT f32 DistanceToIntersection();
 
     // 0x45BD10 | ?DistanceToVehicle@aiVehicleSpline@@QAEMPAV1@@Z
-    f32 DistanceToVehicle(class aiVehicleSpline* arg1);
+    ARTS_IMPORT f32 DistanceToVehicle(class aiVehicleSpline* arg1);
 
     // 0x45C200 | ?DrawId@aiVehicleSpline@@UAEXXZ
-    void DrawId() override;
+    ARTS_IMPORT void DrawId() override;
 
     // 0x45C090 | ?Dump@aiVehicleSpline@@QAEXXZ
-    void Dump();
+    ARTS_IMPORT void Dump();
 
     // 0x459FC0 | ?Init@aiVehicleSpline@@QAEXPADH@Z
-    void Init(char* arg1, i32 arg2);
+    ARTS_IMPORT void Init(char* arg1, i32 arg2);
 
     // 0x45BB60 | ?IsAmbientBlockingPlayer@aiVehicleSpline@@QAEHXZ
-    i32 IsAmbientBlockingPlayer();
+    ARTS_IMPORT i32 IsAmbientBlockingPlayer();
 
     // 0x45BA60 | ?IsThePlayerInFrontOfMe@aiVehicleSpline@@QAEHXZ
-    i32 IsThePlayerInFrontOfMe();
+    ARTS_IMPORT i32 IsThePlayerInFrontOfMe();
 
     // 0x45A2B0 | ?Reset@aiVehicleSpline@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x45A340 | ?ResetReactTicks@aiVehicleSpline@@QAEXXZ
-    void ResetReactTicks();
+    ARTS_IMPORT void ResetReactTicks();
 
     // 0x45A3A0 | ?SolvePositionAndOrientation@aiVehicleSpline@@QAEXXZ
-    void SolvePositionAndOrientation();
+    ARTS_IMPORT void SolvePositionAndOrientation();
 
     // 0x45AAB0 | ?SolveYPositionAndOrientation@aiVehicleSpline@@QAEXXZ
-    void SolveYPositionAndOrientation();
+    ARTS_IMPORT void SolveYPositionAndOrientation();
 
     // 0x45BCF0 | ?TotLength@aiVehicleSpline@@QAEMXZ
-    f32 TotLength();
+    ARTS_IMPORT f32 TotLength();
 
     // 0x45C500 | ?Type@aiVehicleSpline@@UAEHXZ | inline
-    i32 Type() override;
+    ARTS_IMPORT i32 Type() override;
 
     // 0x45A2F0 | ?Update@aiVehicleSpline@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x45BCD0 | ?WaitTime@aiVehicleSpline@@QAEHXZ | unused
-    i32 WaitTime();
+    ARTS_IMPORT i32 WaitTime();
 
     // 0x45C250 | ?DeclareFields@aiVehicleSpline@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(aiVehicleSpline, 0xD8);
 
 // 0x6A7BA0 | ?aiVehicleSplineMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7BA0, class MetaClass, aiVehicleSplineMetaClass);
+// ARTS_IMPORT extern class MetaClass aiVehicleSplineMetaClass;

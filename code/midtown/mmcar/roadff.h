@@ -47,47 +47,47 @@ class mmCarRoadFF : public asNode
 
 public:
     // 0x4814D0 | ??0mmCarRoadFF@@QAE@XZ
-    mmCarRoadFF();
+    ARTS_IMPORT mmCarRoadFF();
 
     // 0x481AA0 | ??_EmmCarRoadFF@@UAEPAXI@Z
     // 0x481510 | ??1mmCarRoadFF@@UAE@XZ
-    ~mmCarRoadFF() override;
+    ARTS_IMPORT ~mmCarRoadFF() override;
 
     // 0x481810 | ?AddWidgets@mmCarRoadFF@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x481570 | ?AssignProperties@mmCarRoadFF@@QAEXMH@Z
-    void AssignProperties(f32 arg1, i32 arg2);
+    ARTS_IMPORT void AssignProperties(f32 arg1, i32 arg2);
 
     // 0x481A90 | ?GetClass@mmCarRoadFF@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x481760 | ?IsPlaying@mmCarRoadFF@@QAEHXZ
-    i32 IsPlaying();
+    ARTS_IMPORT i32 IsPlaying();
 
     // 0x481730 | ?Reset@mmCarRoadFF@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x481610 | ?SetFGVals@mmCarRoadFF@@QAEXMMM@Z
-    void SetFGVals(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void SetFGVals(f32 arg1, f32 arg2, f32 arg3);
 
     // 0x481700 | ?Start@mmCarRoadFF@@QAEXXZ
-    void Start();
+    ARTS_IMPORT void Start();
 
     // 0x481720 | ?Stop@mmCarRoadFF@@QAEXXZ
-    void Stop();
+    ARTS_IMPORT void Stop();
 
     // 0x481770 | ?Update@mmCarRoadFF@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4817C0 | ?UpdateVals@mmCarRoadFF@@QAEXXZ
-    void UpdateVals();
+    ARTS_IMPORT void UpdateVals();
 
     // 0x481920 | ?DeclareFields@mmCarRoadFF@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmCarRoadFF, 0x44);
 
 // 0x6A8170 | ?mmCarRoadFFMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A8170, class MetaClass, mmCarRoadFFMetaClass);
+// ARTS_IMPORT extern class MetaClass mmCarRoadFFMetaClass;

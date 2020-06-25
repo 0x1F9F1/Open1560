@@ -25,4 +25,4 @@
 */
 
 // 0x581070 | ?jinit_d_main_controller@@YAXPAUjpeg_decompress_struct@@E@Z
-void jinit_d_main_controller(struct jpeg_decompress_struct* arg1, u8 arg2);
+ARTS_IMPORT void jinit_d_main_controller(struct jpeg_decompress_struct* arg1, u8 arg2);

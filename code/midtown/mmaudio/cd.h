@@ -39,35 +39,35 @@ struct CDMan
 
 public:
     // 0x4F4240 | ??1CDMan@@QAE@XZ
-    ~CDMan();
+    ARTS_IMPORT ~CDMan();
 
     // 0x4F4700 | ?GetNumTracks@CDMan@@QAEFXZ
-    i16 GetNumTracks();
+    ARTS_IMPORT i16 GetNumTracks();
 
     // 0x4F4610 | ?GetPosition@CDMan@@QAEKPAE000@Z
-    u32 GetPosition(u8* arg1, u8* arg2, u8* arg3, u8* arg4);
+    ARTS_IMPORT u32 GetPosition(u8* arg1, u8* arg2, u8* arg3, u8* arg4);
 
     // 0x4F4280 | ?Init@CDMan@@QAEKF@Z
-    u32 Init(i16 arg1);
+    ARTS_IMPORT u32 Init(i16 arg1);
 
     // 0x4F4340 | ?PlayTrack@CDMan@@QAEKEE@Z
-    u32 PlayTrack(u8 arg1, u8 arg2);
+    ARTS_IMPORT u32 PlayTrack(u8 arg1, u8 arg2);
 
     // 0x4F4450 | ?PlayTrack@CDMan@@QAEKEEEEE@Z
-    u32 PlayTrack(u8 arg1, u8 arg2, u8 arg3, u8 arg4, u8 arg5);
+    ARTS_IMPORT u32 PlayTrack(u8 arg1, u8 arg2, u8 arg3, u8 arg4, u8 arg5);
 
     // 0x4F4430 | ?ResumePlay@CDMan@@QAEKXZ
-    u32 ResumePlay();
+    ARTS_IMPORT u32 ResumePlay();
 
     // 0x4F45A0 | ?SeekTrack@CDMan@@QAEKE@Z | unused
-    u32 SeekTrack(u8 arg1);
+    ARTS_IMPORT u32 SeekTrack(u8 arg1);
 
     // 0x4F4560 | ?Stop@CDMan@@QAEKXZ
-    u32 Stop();
+    ARTS_IMPORT u32 Stop();
 
 private:
     // 0x4F4690 | ?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z
-    virtual i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4);
+    ARTS_IMPORT virtual i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4);
 };
 
 check_size(CDMan, 0x0);

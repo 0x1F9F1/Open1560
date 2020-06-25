@@ -41,26 +41,26 @@ class Dialog_RaceEnvironment : public PUMenuBase
 
 public:
     // 0x49DC80 | ??0Dialog_RaceEnvironment@@QAE@HMMMMPAD@Z
-    Dialog_RaceEnvironment(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT Dialog_RaceEnvironment(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49E3B0 | ??_GDialog_RaceEnvironment@@UAEPAXI@Z
     // 0x49E290 | ??1Dialog_RaceEnvironment@@UAE@XZ
-    ~Dialog_RaceEnvironment() override;
+    ARTS_IMPORT ~Dialog_RaceEnvironment() override;
 
     // 0x49E3A0 | ?CancelCallback@Dialog_RaceEnvironment@@QAEXXZ | unused
-    void CancelCallback();
+    ARTS_IMPORT void CancelCallback();
 
     // 0x49E2F0 | ?ControlPedSlider@Dialog_RaceEnvironment@@QAEXXZ
-    void ControlPedSlider();
+    ARTS_IMPORT void ControlPedSlider();
 
     // 0x49E350 | ?DoneCallback@Dialog_RaceEnvironment@@QAEXXZ
-    void DoneCallback();
+    ARTS_IMPORT void DoneCallback();
 
     // 0x49E2A0 | ?PreSetup@Dialog_RaceEnvironment@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x49E310 | ?SetMultiRaceOptions@Dialog_RaceEnvironment@@QAEXH@Z
-    void SetMultiRaceOptions(i32 arg1);
+    ARTS_IMPORT void SetMultiRaceOptions(i32 arg1);
 };
 
 check_size(Dialog_RaceEnvironment, 0xF0);

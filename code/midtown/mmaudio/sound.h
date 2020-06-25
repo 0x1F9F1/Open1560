@@ -97,195 +97,195 @@ class AudSound : public asNode
 
 public:
     // 0x4EA250 | ??0AudSound@@QAE@KHF@Z
-    AudSound(u32 arg1, i32 arg2, i16 arg3);
+    ARTS_IMPORT AudSound(u32 arg1, i32 arg2, i16 arg3);
 
     // 0x4EBC80 | ??_GAudSound@@UAEPAXI@Z
     // 0x4EA530 | ??1AudSound@@UAE@XZ
-    ~AudSound() override;
+    ARTS_IMPORT ~AudSound() override;
 
     // 0x4EB6E0 | ?AddWidgets@AudSound@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4EB9E0 | ?AllOneShotLayersPlaying@AudSound@@QAEHXZ
-    i32 AllOneShotLayersPlaying();
+    ARTS_IMPORT i32 AllOneShotLayersPlaying();
 
     // 0x4EA690 | ?DeallocateSoundObjs@AudSound@@QAEXXZ
-    void DeallocateSoundObjs();
+    ARTS_IMPORT void DeallocateSoundObjs();
 
     // 0x4EAD40 | ?Disable@AudSound@@QAEXXZ
-    void Disable();
+    ARTS_IMPORT void Disable();
 
     // 0x4EBC00 | ?Disable3DMode@AudSound@@QAEXXZ
-    void Disable3DMode();
+    ARTS_IMPORT void Disable3DMode();
 
     // 0x4EBAA0 | ?DisableEffect@AudSound@@QAEXH@Z
-    void DisableEffect(i32 arg1);
+    ARTS_IMPORT void DisableEffect(i32 arg1);
 
     // 0x4EB800 | ?EchoPending@AudSound@@QAEEXZ | unused
-    u8 EchoPending();
+    ARTS_IMPORT u8 EchoPending();
 
     // 0x4EAD30 | ?Enable@AudSound@@QAEXXZ
-    void Enable();
+    ARTS_IMPORT void Enable();
 
     // 0x4EBBC0 | ?Enable3DMode@AudSound@@QAEXXZ
-    void Enable3DMode();
+    ARTS_IMPORT void Enable3DMode();
 
     // 0x4EAD10 | ?EnabledAction@AudSound@@QAEXXZ
-    void EnabledAction();
+    ARTS_IMPORT void EnabledAction();
 
     // 0x4EBC40 | ?GetCurrentSoundObj@AudSound@@QAEPAVSoundObj@@XZ | unused
-    class SoundObj* GetCurrentSoundObj();
+    ARTS_IMPORT class SoundObj* GetCurrentSoundObj();
 
     // 0x4EB3B0 | ?GetEAXReverbMix@AudSound@@QAEMH@Z | unused
-    f32 GetEAXReverbMix(i32 arg1);
+    ARTS_IMPORT f32 GetEAXReverbMix(i32 arg1);
 
     // 0x4EBA10 | ?GetEffect@AudSound@@QAEHXZ
-    i32 GetEffect();
+    ARTS_IMPORT i32 GetEffect();
 
     // 0x4EB290 | ?GetFrequency@AudSound@@QAEMH@Z | unused
-    f32 GetFrequency(i32 arg1);
+    ARTS_IMPORT f32 GetFrequency(i32 arg1);
 
     // 0x4EB6C0 | ?GetSampleTime@AudSound@@QAEMXZ | unused
-    f32 GetSampleTime();
+    ARTS_IMPORT f32 GetSampleTime();
 
     // 0x4EBB90 | ?GetSecondaryEAXObj@AudSound@@QAEPAVCReverbBuffer@@H@Z
-    class CReverbBuffer* GetSecondaryEAXObj(i32 arg1);
+    ARTS_IMPORT class CReverbBuffer* GetSecondaryEAXObj(i32 arg1);
 
     // 0x4EBC50 | ?GetVolume@AudSound@@QAEMH@Z
-    f32 GetVolume(i32 arg1);
+    ARTS_IMPORT f32 GetVolume(i32 arg1);
 
     // 0x4EB690 | ?IsPlaying@AudSound@@QAEHH@Z
-    i32 IsPlaying(i32 arg1);
+    ARTS_IMPORT i32 IsPlaying(i32 arg1);
 
     // 0x4EA8D0 | ?Load@AudSound@@QAEHPADH@Z
-    i32 Load(char* arg1, i32 arg2);
+    ARTS_IMPORT i32 Load(char* arg1, i32 arg2);
 
     // 0x4EAB20 | ?Load@AudSound@@QAEHHH@Z
-    i32 Load(i32 arg1, i32 arg2);
+    ARTS_IMPORT i32 Load(i32 arg1, i32 arg2);
 
     // 0x4EB0D0 | ?PlayLoop@AudSound@@QAEXMM@Z
-    void PlayLoop(f32 arg1, f32 arg2);
+    ARTS_IMPORT void PlayLoop(f32 arg1, f32 arg2);
 
     // 0x4EAFF0 | ?PlayOnce@AudSound@@QAEXMM@Z
-    void PlayOnce(f32 arg1, f32 arg2);
+    ARTS_IMPORT void PlayOnce(f32 arg1, f32 arg2);
 
     // 0x4EB9B0 | ?ReadyOneShotLayerBuf@AudSound@@QAEHXZ
-    i32 ReadyOneShotLayerBuf();
+    ARTS_IMPORT i32 ReadyOneShotLayerBuf();
 
     // 0x4EA6F0 | ?ReallocateSoundObjs@AudSound@@QAEXXZ
-    void ReallocateSoundObjs();
+    ARTS_IMPORT void ReallocateSoundObjs();
 
     // 0x4EAD60 | ?Reset@AudSound@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4EB660 | ?Set3DMode@AudSound@@QAEXK@Z | unused
-    void Set3DMode(u32 arg1);
+    ARTS_IMPORT void Set3DMode(u32 arg1);
 
     // 0x4EB820 | ?SetChorusAttenuation@AudSound@@QAEXM@Z | unused
-    void SetChorusAttenuation(f32 arg1);
+    ARTS_IMPORT void SetChorusAttenuation(f32 arg1);
 
     // 0x4EB860 | ?SetChorusPitchMult@AudSound@@QAEXM@Z | unused
-    void SetChorusPitchMult(f32 arg1);
+    ARTS_IMPORT void SetChorusPitchMult(f32 arg1);
 
     // 0x4EB8A0 | ?SetChorusPitchMult@AudSound@@QAEXMM@Z | unused
-    void SetChorusPitchMult(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetChorusPitchMult(f32 arg1, f32 arg2);
 
     // 0x4EB730 | ?SetConeAngles@AudSound@@QAEXKK@Z | unused
-    void SetConeAngles(u32 arg1, u32 arg2);
+    ARTS_IMPORT void SetConeAngles(u32 arg1, u32 arg2);
 
     // 0x4EB790 | ?SetConeOrientation@AudSound@@QAEXPAVVector3@@@Z | unused
-    void SetConeOrientation(class Vector3* arg1);
+    ARTS_IMPORT void SetConeOrientation(class Vector3* arg1);
 
     // 0x4EB760 | ?SetConeOutsideVolume@AudSound@@QAEXJ@Z | unused
-    void SetConeOutsideVolume(i32 arg1);
+    ARTS_IMPORT void SetConeOutsideVolume(i32 arg1);
 
     // 0x4EB8F0 | ?SetDelayTime@AudSound@@QAEXM@Z
-    void SetDelayTime(f32 arg1);
+    ARTS_IMPORT void SetDelayTime(f32 arg1);
 
     // 0x4EB350 | ?SetEAXReverbMix@AudSound@@QAEXMH@Z
-    void SetEAXReverbMix(f32 arg1, i32 arg2);
+    ARTS_IMPORT void SetEAXReverbMix(f32 arg1, i32 arg2);
 
     // 0x4EB7C0 | ?SetEchoAttenuation@AudSound@@QAEXM@Z
-    void SetEchoAttenuation(f32 arg1);
+    ARTS_IMPORT void SetEchoAttenuation(f32 arg1);
 
     // 0x4EB510 | ?SetEchoFrequency@AudSound@@QAEXMH@Z
-    void SetEchoFrequency(f32 arg1, i32 arg2);
+    ARTS_IMPORT void SetEchoFrequency(f32 arg1, i32 arg2);
 
     // 0x4EB4B0 | ?SetEchoPan@AudSound@@QAEXM@Z | unused
-    void SetEchoPan(f32 arg1);
+    ARTS_IMPORT void SetEchoPan(f32 arg1);
 
     // 0x4EBA30 | ?SetEffect@AudSound@@QAEXH@Z
-    void SetEffect(i32 arg1);
+    ARTS_IMPORT void SetEffect(i32 arg1);
 
     // 0x4EB210 | ?SetFrequency@AudSound@@QAEXMH@Z
-    void SetFrequency(f32 arg1, i32 arg2);
+    ARTS_IMPORT void SetFrequency(f32 arg1, i32 arg2);
 
     // 0x4EB410 | ?SetPan@AudSound@@QAEXMH@Z
-    void SetPan(f32 arg1, i32 arg2);
+    ARTS_IMPORT void SetPan(f32 arg1, i32 arg2);
 
     // 0x4EAFC0 | ?SetPlayPosition@AudSound@@QAEXK@Z
-    void SetPlayPosition(u32 arg1);
+    ARTS_IMPORT void SetPlayPosition(u32 arg1);
 
     // 0x4EA670 | ?SetPriority@AudSound@@QAEXH@Z
-    void SetPriority(i32 arg1);
+    ARTS_IMPORT void SetPriority(i32 arg1);
 
     // 0x4EB580 | ?SetRamp@AudSound@@QAEXMM@Z
-    void SetRamp(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetRamp(f32 arg1, f32 arg2);
 
     // 0x4EB2D0 | ?SetVolume@AudSound@@QAEXMH@Z
-    void SetVolume(f32 arg1, i32 arg2);
+    ARTS_IMPORT void SetVolume(f32 arg1, i32 arg2);
 
     // 0x4EB940 | ?SetupOneShotLayerBuffers@AudSound@@QAEXHMH@Z
-    void SetupOneShotLayerBuffers(i32 arg1, f32 arg2, i32 arg3);
+    ARTS_IMPORT void SetupOneShotLayerBuffers(i32 arg1, f32 arg2, i32 arg3);
 
     // 0x4EB1B0 | ?Stop@AudSound@@QAEXXZ
-    void Stop();
+    ARTS_IMPORT void Stop();
 
     // 0x4EB1F0 | ?StopEchoBuffers@AudSound@@QAEXXZ
-    void StopEchoBuffers();
+    ARTS_IMPORT void StopEchoBuffers();
 
     // 0x4EAD70 | ?Update@AudSound@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4EAE00 | ?Update3DSettings@AudSound@@QAEXXZ
-    void Update3DSettings();
+    ARTS_IMPORT void Update3DSettings();
 
     // 0x4EBAF0 | ?Get2DFlags@AudSound@@SA?BKXZ
-    static u32 const Get2DFlags();
+    ARTS_IMPORT static u32 const Get2DFlags();
 
     // 0x4EBB70 | ?Get3DFlags@AudSound@@SA?BKXZ
-    static u32 const Get3DFlags();
+    ARTS_IMPORT static u32 const Get3DFlags();
 
     // 0x4EBB30 | ?GetFreqChange2DFlags@AudSound@@SA?BKXZ
-    static u32 const GetFreqChange2DFlags();
+    ARTS_IMPORT static u32 const GetFreqChange2DFlags();
 
     // 0x4EBB80 | ?GetFreqChange3DFlags@AudSound@@SA?BKXZ
-    static u32 const GetFreqChange3DFlags();
+    ARTS_IMPORT static u32 const GetFreqChange3DFlags();
 
     // 0x4EBB10 | ?GetSoft2DFlags@AudSound@@SA?BKXZ
-    static u32 const GetSoft2DFlags();
+    ARTS_IMPORT static u32 const GetSoft2DFlags();
 
     // 0x4EBB50 | ?GetSoftFreqChange2DFlags@AudSound@@SA?BKXZ | unused
-    static u32 const GetSoftFreqChange2DFlags();
+    ARTS_IMPORT static u32 const GetSoftFreqChange2DFlags();
 
 private:
     // 0x61FD9C | ?s_DWDefault2DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x61FD9C, u32 const, s_DWDefault2DCtrlFlags);
+    ARTS_IMPORT static u32 const s_DWDefault2DCtrlFlags;
 
     // 0x61FD98 | ?s_DWDefault3DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x61FD98, u32 const, s_DWDefault3DCtrlFlags);
+    ARTS_IMPORT static u32 const s_DWDefault3DCtrlFlags;
 
     // 0x61FDA4 | ?s_DWFreqChange2DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x61FDA4, u32 const, s_DWFreqChange2DCtrlFlags);
+    ARTS_IMPORT static u32 const s_DWFreqChange2DCtrlFlags;
 
     // 0x61FDA0 | ?s_DWFreqChange3DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x61FDA0, u32 const, s_DWFreqChange3DCtrlFlags);
+    ARTS_IMPORT static u32 const s_DWFreqChange3DCtrlFlags;
 
     // 0x61FDA8 | ?s_DWSoft2DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x61FDA8, u32 const, s_DWSoft2DCtrlFlags);
+    ARTS_IMPORT static u32 const s_DWSoft2DCtrlFlags;
 
     // 0x61FDAC | ?s_DWSoftFreqChange2DCtrlFlags@AudSound@@0KB
-    static inline extern_var(0x61FDAC, u32 const, s_DWSoftFreqChange2DCtrlFlags);
+    ARTS_IMPORT static u32 const s_DWSoftFreqChange2DCtrlFlags;
 };
 
 check_size(AudSound, 0xB8);

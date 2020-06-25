@@ -60,11 +60,11 @@ class eqEventHandler
 
 public:
     // 0x562EB0 | ??0eqEventHandler@@QAE@XZ
-    eqEventHandler();
+    ARTS_IMPORT eqEventHandler();
 
     // 0x563980 | ??_GeqEventHandler@@UAEPAXI@Z
     // 0x562F00 | ??1eqEventHandler@@UAE@XZ
-    virtual ~eqEventHandler();
+    ARTS_IMPORT virtual ~eqEventHandler();
 
     virtual i32 BeginGfx(i32 arg1, i32 arg2, i32 arg3) = 0;
 
@@ -79,16 +79,16 @@ public:
     virtual char* GKeyName(i32 arg1) = 0;
 
     // 0x563200 | ?AddClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
-    void AddClient(class eqEventMonitor* arg1);
+    ARTS_IMPORT void AddClient(class eqEventMonitor* arg1);
 
     // 0x563260 | ?RemoveClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
-    void RemoveClient(class eqEventMonitor* arg1);
+    ARTS_IMPORT void RemoveClient(class eqEventMonitor* arg1);
 
     // 0x562F30 | ?EKeyName@eqEventHandler@@SAPADH@Z | unused
-    static char* EKeyName(i32 arg1);
+    ARTS_IMPORT static char* EKeyName(i32 arg1);
 
     // 0x909290 | ?SuperQ@eqEventHandler@@2PAV1@A
-    static inline extern_var(0x909290, class eqEventHandler*, SuperQ);
+    ARTS_IMPORT static class eqEventHandler* SuperQ;
 };
 
 check_size(eqEventHandler, 0x0);
@@ -99,32 +99,32 @@ class eqEventMonitor
 
 public:
     // 0x5632A0 | ??0eqEventMonitor@@QAE@H@Z
-    eqEventMonitor(i32 arg1);
+    ARTS_IMPORT eqEventMonitor(i32 arg1);
 
     // 0x5639B0 | ??_EeqEventMonitor@@UAEPAXI@Z
     // 0x5632C0 | ??1eqEventMonitor@@UAE@XZ
-    virtual ~eqEventMonitor();
+    ARTS_IMPORT virtual ~eqEventMonitor();
 
     // 0x5632E0 | ?Redraw@eqEventMonitor@@UAEXPAXHHHH@Z
-    virtual void Redraw(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT virtual void Redraw(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     // 0x563320 | ?Refocus@eqEventMonitor@@UAEXPAXH@Z
-    virtual void Refocus(void* arg1, i32 arg2);
+    ARTS_IMPORT virtual void Refocus(void* arg1, i32 arg2);
 
     // 0x563360 | ?Mouse@eqEventMonitor@@UAEXPAXHHHHHHH@Z
-    virtual void Mouse(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
+    ARTS_IMPORT virtual void Mouse(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
 
     // 0x5633E0 | ?Keyboard@eqEventMonitor@@UAEXPAXHHHH@Z
-    virtual void Keyboard(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT virtual void Keyboard(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     // 0x563470 | ?Destroy@eqEventMonitor@@UAEXPAX@Z
-    virtual void Destroy(void* arg1);
+    ARTS_IMPORT virtual void Destroy(void* arg1);
 
     // 0x5634A0 | ?Activate@eqEventMonitor@@UAEXPAXH@Z
-    virtual void Activate(void* arg1, i32 arg2);
+    ARTS_IMPORT virtual void Activate(void* arg1, i32 arg2);
 
     // 0x5634E0 | ?SetWantMotion@eqEventMonitor@@QAEXH@Z | unused
-    void SetWantMotion(i32 arg1);
+    ARTS_IMPORT void SetWantMotion(i32 arg1);
 };
 
 check_size(eqEventMonitor, 0x0);
@@ -135,25 +135,25 @@ class eqEventReplayChannelClass : public eqReplayChannel
 
 public:
     // 0x563560 | ??0eqEventReplayChannelClass@@QAE@XZ
-    eqEventReplayChannelClass();
+    ARTS_IMPORT eqEventReplayChannelClass();
 
     // 0x5639E0 | ??1eqEventReplayChannelClass@@QAE@XZ | inline
-    ~eqEventReplayChannelClass();
+    ARTS_IMPORT ~eqEventReplayChannelClass();
 
     // 0x563790 | ?DoPlayback@eqEventReplayChannelClass@@UAEXPAVStream@@@Z
-    void DoPlayback(class Stream* arg1) override;
+    ARTS_IMPORT void DoPlayback(class Stream* arg1) override;
 
     // 0x563580 | ?DoRecord@eqEventReplayChannelClass@@UAEXPAVStream@@@Z
-    void DoRecord(class Stream* arg1) override;
+    ARTS_IMPORT void DoRecord(class Stream* arg1) override;
 
     // 0x563910 | ?QueueKeyboard@eqEventReplayChannelClass@@QAEXHHHH@Z
-    void QueueKeyboard(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT void QueueKeyboard(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
 
     // 0x563880 | ?QueueMouse@eqEventReplayChannelClass@@QAEXHHHHHHH@Z
-    void QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
+    ARTS_IMPORT void QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
 };
 
 check_size(eqEventReplayChannelClass, 0x0);
 
 // 0x908C58 | ?eqEventReplayChannel@@3VeqEventReplayChannelClass@@A
-inline extern_var(0x908C58, class eqEventReplayChannelClass, eqEventReplayChannel);
+ARTS_IMPORT extern class eqEventReplayChannelClass eqEventReplayChannel;

@@ -34,25 +34,25 @@ class asPerfGraph
 {
 public:
     // 0x52A8A0 | ??0asPerfGraph@@QAE@XZ
-    asPerfGraph();
+    ARTS_IMPORT asPerfGraph();
 
     // 0x52A930 | ??1asPerfGraph@@QAE@XZ
-    ~asPerfGraph();
+    ARTS_IMPORT ~asPerfGraph();
 
     // 0x52A960 | ?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z
-    void AddComponent(char* arg1, f32* arg2, class Vector3& arg3);
+    ARTS_IMPORT void AddComponent(char* arg1, f32* arg2, class Vector3& arg3);
 
     // 0x52AB30 | ?Cull@asPerfGraph@@QAEXXZ
-    void Cull();
+    ARTS_IMPORT void Cull();
 
     // 0x52A9E0 | ?Key@asPerfGraph@@QAEXH@Z
-    void Key(i32 arg1);
+    ARTS_IMPORT void Key(i32 arg1);
 
     // 0x52AA30 | ?Update@asPerfGraph@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 };
 
 check_size(asPerfGraph, 0x94);
 
 // 0x790984 | ?PGRAPH@@3PAVasPerfGraph@@A
-inline extern_var(0x790984, class asPerfGraph*, PGRAPH);
+ARTS_IMPORT extern class asPerfGraph* PGRAPH;

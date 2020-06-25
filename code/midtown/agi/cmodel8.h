@@ -41,26 +41,26 @@ class agiColorModel8 : public agiColorModel
 
 public:
     // 0x55BEB0 | ??0agiColorModel8@@QAE@PAVagiPalette@@@Z
-    agiColorModel8(class agiPalette* arg1);
+    ARTS_IMPORT agiColorModel8(class agiPalette* arg1);
 
     // 0x55C040 | ??_EagiColorModel8@@UAEPAXI@Z
     // 0x55BF00 | ??1agiColorModel8@@UAE@XZ
-    ~agiColorModel8() override;
+    ARTS_IMPORT ~agiColorModel8() override;
 
     // 0x55BF50 | ?Filter@agiColorModel8@@UAEIIIII@Z
-    u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
+    ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
     // 0x55BF30 | ?FindColor@agiColorModel8@@UAEIUagiRgba@@@Z
-    u32 FindColor(struct agiRgba arg1) override;
+    ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
     // 0x55BF10 | ?GetColor@agiColorModel8@@UAEIUagiRgba@@@Z
-    u32 GetColor(struct agiRgba arg1) override;
+    ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55C000 | ?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z
-    u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
 
     // 0x55C020 | ?SetPixel@agiColorModel8@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
+    ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
 check_size(agiColorModel8, 0x30);

@@ -20,48 +20,5 @@ define_dummy_symbol(eventq7_geinputLib);
 
 #include "geinputLib.h"
 
-void geinputAcquireMouse()
-{
-    return stub<cdecl_t<void>>(0x564200);
-}
-
-void geinputCleanup()
-{
-    return stub<cdecl_t<void>>(0x564570);
-}
-
-void geinputClearCache()
-{
-    return stub<cdecl_t<void>>(0x564610);
-}
-
-i32 geinputGetBufferedKeyboard(char* arg1)
-{
-    return stub<cdecl_t<i32, char*>>(0x564220, arg1);
-}
-
-char* geinputGetKeyboard()
-{
-    return stub<cdecl_t<char*>>(0x5642B0);
-}
-
-void geinputGetMouse(i32* arg1, i32* arg2, char* arg3, char* arg4, i32* arg5, i32* arg6, i32* arg7, char* arg8)
-{
-    return stub<cdecl_t<void, i32*, i32*, char*, char*, i32*, i32*, i32*, char*>>(
-        0x564320, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
-}
-
-void geinputUnacquireMouse()
-{
-    return stub<cdecl_t<void>>(0x564210);
-}
-
-i32 inputSetup(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
-{
-    return stub<cdecl_t<i32, i32, i32, i32, i32, i32>>(0x563DE0, arg1, arg2, arg3, arg4, arg5);
-}
-
-static char* DIError(i32 arg1)
-{
-    return stub<cdecl_t<char*, i32>>(0x564050, arg1);
-}
+// 0x564050 | ?DIError@@YAPADH@Z
+ARTS_IMPORT /*static*/ char* DIError(i32 arg1);

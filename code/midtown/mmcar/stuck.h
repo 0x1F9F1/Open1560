@@ -42,29 +42,29 @@ class mmStuck : public asNode
 
 public:
     // 0x47C480 | ??0mmStuck@@QAE@XZ
-    mmStuck();
+    ARTS_IMPORT mmStuck();
 
     // 0x47C900 | ??_GmmStuck@@UAEPAXI@Z
     // 0x470300 | ??1mmStuck@@UAE@XZ | inline
-    ~mmStuck() override;
+    ARTS_IMPORT ~mmStuck() override;
 
     // 0x47C7D0 | ?AddWidgets@mmStuck@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x47C540 | ?Impact@mmStuck@@QAEXXZ
-    void Impact();
+    ARTS_IMPORT void Impact();
 
     // 0x47C520 | ?Init@mmStuck@@QAEXPAVmmCarSim@@@Z
-    void Init(class mmCarSim* arg1);
+    ARTS_IMPORT void Init(class mmCarSim* arg1);
 
     // 0x47C560 | ?Pegged@mmStuck@@QAEHXZ
-    i32 Pegged();
+    ARTS_IMPORT i32 Pegged();
 
     // 0x47C550 | ?Reset@mmStuck@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x47C5B0 | ?Update@mmStuck@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmStuck, 0x0);

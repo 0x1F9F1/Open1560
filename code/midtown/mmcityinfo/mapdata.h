@@ -43,35 +43,35 @@ class mmMapData : public mmInfoBase
 
 public:
     // 0x4D3270 | ??0mmMapData@@QAE@XZ
-    mmMapData();
+    ARTS_IMPORT mmMapData();
 
     // 0x4D35C0 | ??_EmmMapData@@UAEPAXI@Z
     // 0x4D3290 | ??1mmMapData@@UAE@XZ
-    ~mmMapData() override;
+    ARTS_IMPORT ~mmMapData() override;
 
     // 0x4D3380 | ?Append@mmMapData@@QAEXPAD@Z | unused
-    void Append(char* arg1);
+    ARTS_IMPORT void Append(char* arg1);
 
     // 0x4D35B0 | ?GetClass@mmMapData@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4D3340 | ?GetItem@mmMapData@@QAEPADH@Z
-    char* GetItem(i32 arg1);
+    ARTS_IMPORT char* GetItem(i32 arg1);
 
     // 0x4D3370 | ?GetNumItems@mmMapData@@QAEHXZ
-    i32 GetNumItems();
+    ARTS_IMPORT i32 GetNumItems();
 
     // 0x4D32F0 | ?NewItems@mmMapData@@QAEXH@Z
-    void NewItems(i32 arg1);
+    ARTS_IMPORT void NewItems(i32 arg1);
 
     // 0x4D3320 | ?SetItem@mmMapData@@QAEXHPAD@Z
-    void SetItem(i32 arg1, char* arg2);
+    ARTS_IMPORT void SetItem(i32 arg1, char* arg2);
 
     // 0x4D3400 | ?DeclareFields@mmMapData@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmMapData, 0x90);
 
 // 0x708690 | ?mmMapDataMetaClass@@3VMetaClass@@A
-inline extern_var(0x708690, class MetaClass, mmMapDataMetaClass);
+// ARTS_IMPORT extern class MetaClass mmMapDataMetaClass;

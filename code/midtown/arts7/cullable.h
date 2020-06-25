@@ -44,10 +44,10 @@ public:
     // 0x48BB80 | ??1asCullable@@UAE@XZ | inline
 
     // 0x5258C0 | ?Cull@asCullable@@UAEXXZ
-    virtual void Cull();
+    ARTS_EXPORT virtual void Cull();
 
     // 0x5258D0 | ?AddWidgets@asCullable@@QAEXPAVBank@@@Z
-    void AddWidgets(class Bank* bank);
+    ARTS_EXPORT void AddWidgets(class Bank* bank);
 
     VIRTUAL_META_DECLARE;
 };
@@ -55,4 +55,4 @@ public:
 check_size(asCullable, 0x4);
 
 // 0x7908B0 | ?asCullableMetaClass@@3VMetaClass@@A
-// inline extern_var(0x7908B0, class MetaClass, asCullableMetaClass);
+// ARTS_IMPORT extern class MetaClass asCullableMetaClass;

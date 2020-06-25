@@ -19,33 +19,3 @@
 define_dummy_symbol(arts7_pgraph);
 
 #include "pgraph.h"
-
-asPerfGraph::asPerfGraph()
-{
-    unimplemented();
-}
-
-asPerfGraph::~asPerfGraph()
-{
-    unimplemented();
-}
-
-void asPerfGraph::AddComponent(char* arg1, f32* arg2, class Vector3& arg3)
-{
-    return stub<thiscall_t<void, asPerfGraph*, char*, f32*, class Vector3&>>(0x52A960, this, arg1, arg2, arg3);
-}
-
-void asPerfGraph::Cull()
-{
-    return stub<thiscall_t<void, asPerfGraph*>>(0x52AB30, this);
-}
-
-void asPerfGraph::Key(i32 arg1)
-{
-    return stub<thiscall_t<void, asPerfGraph*, i32>>(0x52A9E0, this, arg1);
-}
-
-void asPerfGraph::Update()
-{
-    return stub<thiscall_t<void, asPerfGraph*>>(0x52AA30, this);
-}

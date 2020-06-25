@@ -19,8 +19,3 @@
 define_dummy_symbol(mmdjpeg_jddctmgr);
 
 #include "jddctmgr.h"
-
-void jinit_inverse_dct(struct jpeg_decompress_struct* arg1)
-{
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x5825E0, arg1);
-}

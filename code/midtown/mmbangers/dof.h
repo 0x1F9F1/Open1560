@@ -37,22 +37,22 @@ class mmDofBangerInstance : public mmUnhitBangerInstance
 public:
     // 0x4C4EC0 | ??_GmmDofBangerInstance@@UAEPAXI@Z
     // 0x4C4EE0 | ??1mmDofBangerInstance@@UAE@XZ | inline
-    ~mmDofBangerInstance() override;
+    ARTS_IMPORT ~mmDofBangerInstance() override;
 
     // 0x4C4E50 | ?FromMatrix@mmDofBangerInstance@@UAIXABVMatrix34@@@Z | inline
-    void __fastcall FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
     // 0x4C4E90 | ?GetPos@mmDofBangerInstance@@UAIAAVVector3@@XZ | inline
-    class Vector3& __fastcall GetPos() override;
+    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
     // 0x4CB7E0 | ?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
-    i32 Init(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
+    ARTS_IMPORT i32 Init(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
 
     // 0x4CB7D0 | ?SizeOf@mmDofBangerInstance@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 
     // 0x4C4E60 | ?ToMatrix@mmDofBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | inline
-    class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 };
 
 check_size(mmDofBangerInstance, 0x0);
@@ -61,10 +61,10 @@ struct mmFacadeBangerInstance
 {
 public:
     // 0x4CB940 | ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ | unused
-    class Vector3& __fastcall GetPos();
+    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos();
 
     // 0x4CB890 | ?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | unused
-    class Matrix34& __fastcall ToMatrix(class Matrix34& arg1);
+    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1);
 };
 
 check_size(mmFacadeBangerInstance, 0x0);
@@ -73,7 +73,7 @@ struct mmGlassBangerInstance
 {
 private:
     // 0x4CB9C0 | ?Draw@mmGlassBangerInstance@@EAIXH@Z | unused
-    void __fastcall Draw(i32 arg1);
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1);
 };
 
 check_size(mmGlassBangerInstance, 0x0);

@@ -33,6 +33,7 @@
 
 #define ARTS_RESTRICT HEDLEY_RESTRICT
 
+#define ARTS_IMPORT HEDLEY_IMPORT
 #define ARTS_EXPORT HEDLEY_PUBLIC
 
 #ifndef ARTS_FUNCTION
@@ -53,6 +54,8 @@
 #    define ARTS_LINE ARTS_CONCAT(__LINE__, L) // Workaround Edit and Continue
 #endif
 
+#define ARTS_CDECL __cdecl
+#define ARTS_STDCALL __stdcall
 #define ARTS_FASTCALL __fastcall
 
 #if _MSC_VER > 1400

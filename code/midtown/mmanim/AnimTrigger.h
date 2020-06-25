@@ -39,40 +39,40 @@ class mmAnimTrigger
 {
 public:
     // 0x4C41E0 | ??0mmAnimTrigger@@QAE@XZ
-    mmAnimTrigger();
+    ARTS_IMPORT mmAnimTrigger();
 
     // 0x4C41F0 | ??1mmAnimTrigger@@QAE@XZ
-    ~mmAnimTrigger();
+    ARTS_IMPORT ~mmAnimTrigger();
 
     // 0x4C4290 | ?CheckCondition@mmAnimTrigger@@QAEHXZ
-    i32 CheckCondition();
+    ARTS_IMPORT i32 CheckCondition();
 
     // 0x4C43B0 | ?CheckObjectDistance@mmAnimTrigger@@QAEHXZ
-    i32 CheckObjectDistance();
+    ARTS_IMPORT i32 CheckObjectDistance();
 
     // 0x4C4300 | ?CheckObjectHit@mmAnimTrigger@@QAEHXZ
-    i32 CheckObjectHit();
+    ARTS_IMPORT i32 CheckObjectHit();
 
     // 0x4C4350 | ?CheckStateStatus@mmAnimTrigger@@QAEHXZ
-    i32 CheckStateStatus();
+    ARTS_IMPORT i32 CheckStateStatus();
 
     // 0x4C4320 | ?CheckTimeDelay@mmAnimTrigger@@QAEHXZ
-    i32 CheckTimeDelay();
+    ARTS_IMPORT i32 CheckTimeDelay();
 
     // 0x4C4270 | ?Init@mmAnimTrigger@@QAEXM@Z | unused
-    void Init(f32 arg1);
+    ARTS_IMPORT void Init(f32 arg1);
 
     // 0x4C4220 | ?Init@mmAnimTrigger@@QAEXPAVVector3@@PAM@Z
-    void Init(class Vector3* arg1, f32* arg2);
+    ARTS_IMPORT void Init(class Vector3* arg1, f32* arg2);
 
     // 0x4C4200 | ?Init@mmAnimTrigger@@QAEXPAVmmInstance@@H@Z | unused
-    void Init(class mmInstance* arg1, i32 arg2);
+    ARTS_IMPORT void Init(class mmInstance* arg1, i32 arg2);
 
     // 0x4C4240 | ?Init@mmAnimTrigger@@QAEXPAHM@Z | unused
-    void Init(i32* arg1, f32 arg2);
+    ARTS_IMPORT void Init(i32* arg1, f32 arg2);
 
     // 0x4C43A0 | ?Reset@mmAnimTrigger@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 };
 
 check_size(mmAnimTrigger, 0x0);

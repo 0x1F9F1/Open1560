@@ -45,45 +45,45 @@ class asLamp : public asNode
 
 public:
     // 0x526000 | ??0asLamp@@QAE@XZ
-    asLamp();
+    ARTS_IMPORT asLamp();
 
     // 0x4B1C40 | ??_EasLamp@@UAEPAXI@Z
     // 0x5260C0 | ??1asLamp@@UAE@XZ
-    ~asLamp() override;
+    ARTS_IMPORT ~asLamp() override;
 
     // 0x526310 | ?AddWidgets@asLamp@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x526290 | ?Cull@asLamp@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x5262E0 | ?FileIO@asLamp@@QAEXPAVMiniParser@@@Z | unused
-    void FileIO(class MiniParser* arg1);
+    ARTS_IMPORT void FileIO(class MiniParser* arg1);
 
     // 0x5267E0 | ?GetClass@asLamp@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x526130 | ?SetColor@asLamp@@QAEXABVVector3@@M@Z
-    void SetColor(class Vector3 const& arg1, f32 arg2);
+    ARTS_IMPORT void SetColor(class Vector3 const& arg1, f32 arg2);
 
     // 0x526170 | ?SetDistant@asLamp@@QAEXXZ
-    void SetDistant();
+    ARTS_IMPORT void SetDistant();
 
     // 0x526180 | ?SetPoint@asLamp@@QAEXXZ | unused
-    void SetPoint();
+    ARTS_IMPORT void SetPoint();
 
     // 0x526190 | ?Update@asLamp@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x526680 | ?DeclareFields@asLamp@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x5262F0 | ?Regen@asLamp@@AAEXXZ
-    void Regen();
+    ARTS_IMPORT void Regen();
 };
 
 check_size(asLamp, 0x30);
 
 // 0x790900 | ?asLampMetaClass@@3VMetaClass@@A
-inline extern_var(0x790900, class MetaClass, asLampMetaClass);
+// ARTS_IMPORT extern class MetaClass asLampMetaClass;

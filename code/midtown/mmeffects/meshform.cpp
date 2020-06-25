@@ -19,38 +19,3 @@
 define_dummy_symbol(mmeffects_meshform);
 
 #include "meshform.h"
-
-asMeshSetForm::asMeshSetForm()
-{
-    unimplemented();
-}
-
-asMeshSetForm::~asMeshSetForm()
-{
-    unimplemented();
-}
-
-void asMeshSetForm::Cull()
-{
-    return stub<thiscall_t<void, asMeshSetForm*>>(0x4FFF60, this);
-}
-
-void asMeshSetForm::SetShape(char* arg1, char* arg2, class Vector3* arg3)
-{
-    return stub<thiscall_t<void, asMeshSetForm*, char*, char*, class Vector3*>>(0x4FFEC0, this, arg1, arg2, arg3);
-}
-
-void asMeshSetForm::SetZRead(i32 arg1)
-{
-    return stub<thiscall_t<void, asMeshSetForm*, i32>>(0x4FFF00, this, arg1);
-}
-
-void asMeshSetForm::SetZWrite(i32 arg1)
-{
-    return stub<thiscall_t<void, asMeshSetForm*, i32>>(0x4FFF20, this, arg1);
-}
-
-void asMeshSetForm::Update()
-{
-    return stub<thiscall_t<void, asMeshSetForm*>>(0x4FFF40, this);
-}

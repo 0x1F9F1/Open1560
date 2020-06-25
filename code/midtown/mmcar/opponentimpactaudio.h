@@ -48,68 +48,68 @@ class mmOpponentImpactAudio
 {
 public:
     // 0x47A3B0 | ??0mmOpponentImpactAudio@@QAE@XZ
-    mmOpponentImpactAudio();
+    ARTS_IMPORT mmOpponentImpactAudio();
 
     // 0x47A570 | ??1mmOpponentImpactAudio@@QAE@XZ
-    ~mmOpponentImpactAudio();
+    ARTS_IMPORT ~mmOpponentImpactAudio();
 
     // 0x47A7E0 | ?Disable3DMode@mmOpponentImpactAudio@@QAEXXZ
-    void Disable3DMode();
+    ARTS_IMPORT void Disable3DMode();
 
     // 0x47A770 | ?Enable3DMode@mmOpponentImpactAudio@@QAEXPAVVector3@@@Z
-    void Enable3DMode(class Vector3* arg1);
+    ARTS_IMPORT void Enable3DMode(class Vector3* arg1);
 
     // 0x47A5A0 | ?Play@mmOpponentImpactAudio@@QAEXMFMM@Z
-    void Play(f32 arg1, i16 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT void Play(f32 arg1, i16 arg2, f32 arg3, f32 arg4);
 
     // 0x47A710 | ?Update@mmOpponentImpactAudio@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x47A7D0 | ?GetSecondsElapsed@mmOpponentImpactAudio@@SAMXZ
-    static f32 GetSecondsElapsed();
+    ARTS_IMPORT static f32 GetSecondsElapsed();
 
     // 0x47A7C0 | ?SetSecondsElapsed@mmOpponentImpactAudio@@SAXM@Z
-    static void SetSecondsElapsed(f32 arg1);
+    ARTS_IMPORT static void SetSecondsElapsed(f32 arg1);
 
 private:
     // 0x63C1E8 | ?m_fBareMinimum@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x63C1E8, f32, m_fBareMinimum);
+    ARTS_IMPORT static f32 m_fBareMinimum;
 
     // 0x6A7FCC | ?m_fHugeVolumeMultiplier@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x6A7FCC, f32, m_fHugeVolumeMultiplier);
+    ARTS_IMPORT static f32 m_fHugeVolumeMultiplier;
 
     // 0x63C208 | ?m_fMaxHugeVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x63C208, f32, m_fMaxHugeVolume);
+    ARTS_IMPORT static f32 m_fMaxHugeVolume;
 
     // 0x63C200 | ?m_fMaxMedVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x63C200, f32, m_fMaxMedVolume);
+    ARTS_IMPORT static f32 m_fMaxMedVolume;
 
     // 0x63C1F8 | ?m_fMaxSoftVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x63C1F8, f32, m_fMaxSoftVolume);
+    ARTS_IMPORT static f32 m_fMaxSoftVolume;
 
     // 0x6A7FC8 | ?m_fMedVolumeMultiplier@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x6A7FC8, f32, m_fMedVolumeMultiplier);
+    ARTS_IMPORT static f32 m_fMedVolumeMultiplier;
 
     // 0x63C1F0 | ?m_fMedium@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x63C1F0, f32, m_fMedium);
+    ARTS_IMPORT static f32 m_fMedium;
 
     // 0x63C204 | ?m_fMinHugeVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x63C204, f32, m_fMinHugeVolume);
+    ARTS_IMPORT static f32 m_fMinHugeVolume;
 
     // 0x63C1FC | ?m_fMinMedVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x63C1FC, f32, m_fMinMedVolume);
+    ARTS_IMPORT static f32 m_fMinMedVolume;
 
     // 0x63C1F4 | ?m_fMinSoftVolume@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x63C1F4, f32, m_fMinSoftVolume);
+    ARTS_IMPORT static f32 m_fMinSoftVolume;
 
     // 0x63C1EC | ?m_fSoft@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x63C1EC, f32, m_fSoft);
+    ARTS_IMPORT static f32 m_fSoft;
 
     // 0x6A7FC4 | ?m_fSoftVolumeMultiplier@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x6A7FC4, f32, m_fSoftVolumeMultiplier);
+    ARTS_IMPORT static f32 m_fSoftVolumeMultiplier;
 
     // 0x6A7FC0 | ?s_fSecondsElapsed@mmOpponentImpactAudio@@0MA
-    static inline extern_var(0x6A7FC0, f32, s_fSecondsElapsed);
+    ARTS_IMPORT static f32 s_fSecondsElapsed;
 };
 
 check_size(mmOpponentImpactAudio, 0x18);

@@ -36,19 +36,19 @@ class mmRoadFF : public mmEffectFF
 
 public:
     // 0x4E78F0 | ?Assign@mmRoadFF@@QAEHJJ@Z
-    i32 Assign(i32 arg1, i32 arg2);
+    ARTS_IMPORT i32 Assign(i32 arg1, i32 arg2);
 
     // 0x4E77C0 | ?Init@mmRoadFF@@UAEHPAUIDirectInputDevice2A@@@Z
-    i32 Init(struct IDirectInputDevice2A* arg1) override;
+    ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;
 
     // 0x4E79E0 | ?Play@mmRoadFF@@UAEHXZ
-    i32 Play() override;
+    ARTS_IMPORT i32 Play() override;
 
     // 0x4E78C0 | ?SetValues@mmRoadFF@@UAEHMM@Z
-    i32 SetValues(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT i32 SetValues(f32 arg1, f32 arg2) override;
 
     // 0x4E7A50 | ?Stop@mmRoadFF@@UAEHXZ
-    i32 Stop() override;
+    ARTS_IMPORT i32 Stop() override;
 };
 
 check_size(mmRoadFF, 0x0);

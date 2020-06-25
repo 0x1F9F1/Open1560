@@ -19,38 +19,3 @@
 define_dummy_symbol(mmui_pu_audio);
 
 #include "pu_audio.h"
-
-PUAudioOptions::PUAudioOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5)
-{
-    unimplemented(arg1, arg2, arg3, arg4, arg5);
-}
-
-PUAudioOptions::~PUAudioOptions()
-{
-    unimplemented();
-}
-
-void PUAudioOptions::CancelAction()
-{
-    return stub<thiscall_t<void, PUAudioOptions*>>(0x4AAA60, this);
-}
-
-void PUAudioOptions::PreSetup()
-{
-    return stub<thiscall_t<void, PUAudioOptions*>>(0x4AAA50, this);
-}
-
-void PUAudioOptions::SetBalance()
-{
-    return stub<thiscall_t<void, PUAudioOptions*>>(0x4AAA20, this);
-}
-
-void PUAudioOptions::SetCDVolume()
-{
-    return stub<thiscall_t<void, PUAudioOptions*>>(0x4AAA00, this);
-}
-
-void PUAudioOptions::SetWaveVolume()
-{
-    return stub<thiscall_t<void, PUAudioOptions*>>(0x4AA9E0, this);
-}

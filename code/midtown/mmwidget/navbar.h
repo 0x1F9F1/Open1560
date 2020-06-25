@@ -47,44 +47,44 @@ class uiNavBar : public UIMenu
 
 public:
     // 0x4B1D00 | ??0uiNavBar@@QAE@H@Z
-    uiNavBar(i32 arg1);
+    ARTS_IMPORT uiNavBar(i32 arg1);
 
     // 0x4B2120 | ??_EuiNavBar@@UAEPAXI@Z
     // 0x4B1F70 | ??1uiNavBar@@UAE@XZ
-    ~uiNavBar() override;
+    ARTS_IMPORT ~uiNavBar() override;
 
     // 0x4B2150 | ?BackUp@uiNavBar@@UAEXXZ | inline
-    void BackUp() override;
+    ARTS_IMPORT void BackUp() override;
 
     // 0x4B1F10 | ?Help@uiNavBar@@QAEXXZ
-    void Help();
+    ARTS_IMPORT void Help();
 
     // 0x4B1F20 | ?Minimize@uiNavBar@@QAEXXZ
-    void Minimize();
+    ARTS_IMPORT void Minimize();
 
     // 0x4B1F90 | ?OptionActive@uiNavBar@@QAEXXZ
-    void OptionActive();
+    ARTS_IMPORT void OptionActive();
 
     // 0x4B1FB0 | ?OptionInActive@uiNavBar@@QAEXXZ
-    void OptionInActive();
+    ARTS_IMPORT void OptionInActive();
 
     // 0x4B1F80 | ?ResetState@uiNavBar@@QAEXXZ | unused
-    void ResetState();
+    ARTS_IMPORT void ResetState();
 
     // 0x4B2100 | ?SetPrevBitmap@uiNavBar@@QAEXPAD@Z | unused
-    void SetPrevBitmap(char* arg1);
+    ARTS_IMPORT void SetPrevBitmap(char* arg1);
 
     // 0x4B2070 | ?SetPrevPos@uiNavBar@@QAEXMM@Z
-    void SetPrevPos(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetPrevPos(f32 arg1, f32 arg2);
 
     // 0x4B20E0 | ?TurnOffPrev@uiNavBar@@QAEXXZ
-    void TurnOffPrev();
+    ARTS_IMPORT void TurnOffPrev();
 
     // 0x4B20C0 | ?TurnOnPrev@uiNavBar@@QAEXXZ
-    void TurnOnPrev();
+    ARTS_IMPORT void TurnOnPrev();
 
     // 0x4B1FD0 | ?Update@uiNavBar@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(uiNavBar, 0xC0);

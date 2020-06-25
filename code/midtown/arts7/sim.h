@@ -80,121 +80,121 @@ class asSimulation : public asNode
 
 public:
     // 0x521800 | ??0asSimulation@@QAE@XZ
-    asSimulation();
+    ARTS_IMPORT asSimulation();
 
     // 0x523750 | ??_EasSimulation@@UAEPAXI@Z
     // 0x521A60 | ??1asSimulation@@UAE@XZ
-    ~asSimulation() override;
+    ARTS_IMPORT ~asSimulation() override;
 
     // 0x522FD0 | ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x522CF0 | ?BeginOverSample@asSimulation@@QAEXH@Z
-    void BeginOverSample(i32 arg1);
+    ARTS_IMPORT void BeginOverSample(i32 arg1);
 
     // 0x522E40 | ?Benchmark@asSimulation@@QAEXXZ
-    void Benchmark();
+    ARTS_IMPORT void Benchmark();
 
     // 0x522C20 | ?Cull@asSimulation@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x522B80 | ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
-    void DeclareVector(class Vector3 const* arg1, class Vector3 const* arg2, class Vector3 const* arg3);
+    ARTS_IMPORT void DeclareVector(class Vector3 const* arg1, class Vector3 const* arg2, class Vector3 const* arg3);
 
     // 0x522600 | ?Device@asSimulation@@QAEXXZ
-    void Device();
+    ARTS_IMPORT void Device();
 
     // 0x522D30 | ?EndOverSample@asSimulation@@QAEXXZ | unused
-    void EndOverSample();
+    ARTS_IMPORT void EndOverSample();
 
     // 0x522D60 | ?EndOverSample@asSimulation@@QAEXH@Z
-    void EndOverSample(i32 arg1);
+    ARTS_IMPORT void EndOverSample(i32 arg1);
 
     // 0x5222A0 | ?FirstUpdate@asSimulation@@QAEXXZ
-    void FirstUpdate();
+    ARTS_IMPORT void FirstUpdate();
 
     // 0x522DF0 | ?FixedFrame@asSimulation@@QAEXMH@Z | unused
-    void FixedFrame(f32 arg1, i32 arg2);
+    ARTS_IMPORT void FixedFrame(f32 arg1, i32 arg2);
 
     // 0x522E30 | ?FrameLock@asSimulation@@QAEXHH@Z | unused
-    void FrameLock(i32 arg1, i32 arg2);
+    ARTS_IMPORT void FrameLock(i32 arg1, i32 arg2);
 
     // 0x5236A0 | ?GetClass@asSimulation@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x521C40 | ?Init@asSimulation@@QAEXPADHPAPAD@Z
-    void Init(char* arg1, i32 arg2, char** arg3);
+    ARTS_IMPORT void Init(char* arg1, i32 arg2, char** arg3);
 
     // 0x522FA0 | ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
-    void OpenPhysicsBank();
+    ARTS_IMPORT void OpenPhysicsBank();
 
     // 0x522EC0 | ?Pause@asSimulation@@QAEXXZ
-    void Pause();
+    ARTS_IMPORT void Pause();
 
     // 0x521C10 | ?Quiet@asSimulation@@QAEXXZ
-    void Quiet();
+    ARTS_IMPORT void Quiet();
 
     // 0x522D90 | ?RealTime@asSimulation@@QAEXM@Z
-    void RealTime(f32 arg1);
+    ARTS_IMPORT void RealTime(f32 arg1);
 
     // 0x522290 | ?Reset@asSimulation@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x522CA0 | ?ResetClock@asSimulation@@QAEXXZ
-    void ResetClock();
+    ARTS_IMPORT void ResetClock();
 
     // 0x522A60 | ?Simulate@asSimulation@@QAEXXZ
-    void Simulate();
+    ARTS_IMPORT void Simulate();
 
     // 0x5222C0 | ?Update@asSimulation@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x522B10 | ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
-    void UpdatePaused(class asNode* arg1);
+    ARTS_IMPORT void UpdatePaused(class asNode* arg1);
 
     // 0x5229C0 | ?Widgets@asSimulation@@QAEXXZ
-    void Widgets();
+    ARTS_IMPORT void Widgets();
 
     // 0x523530 | ?DeclareFields@asSimulation@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(asSimulation, 0x2B0);
 
 // 0x522FC0 | ?InitBank@@YAXHPAPAD@Z | unused
-void InitBank(i32 arg1, char** arg2);
+ARTS_IMPORT void InitBank(i32 arg1, char** arg2);
 
 // 0x523210 | ?InitPipeline@@YAHPADHPAPAD@Z
-i32 InitPipeline(char* arg1, i32 arg2, char** arg3);
+ARTS_IMPORT i32 InitPipeline(char* arg1, i32 arg2, char** arg3);
 
 // 0x523340 | ?RestartPipeline@@YAHHHHHH@Z | unused
-i32 RestartPipeline(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+ARTS_IMPORT i32 RestartPipeline(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
 // 0x5232D0 | ?ShutdownPipeline@@YAXXZ
-void ShutdownPipeline();
+ARTS_IMPORT void ShutdownPipeline();
 
 // 0x5225F0 | ?invert@@YANN@Z | unused
-f64 invert(f64 arg1);
+ARTS_IMPORT f64 invert(f64 arg1);
 
 // 0x5237B0 | ??_9@$BBM@AE (Skipped: void)
 
 // 0x79077C | ?ARTSPTR@@3PAVasSimulation@@A
-inline extern_var(0x79077C, class asSimulation*, ARTSPTR);
+ARTS_IMPORT extern class asSimulation* ARTSPTR;
 
 // 0x790800 | ?Argc@@3HA
-inline extern_var(0x790800, i32, Argc);
+ARTS_IMPORT extern i32 Argc;
 
 // 0x790804 | ?Argv@@3PAPADA
-inline extern_var(0x790804, char**, Argv);
+ARTS_IMPORT extern char** Argv;
 
 // 0x790820 | ?StereoBuffer@@3HA
-inline extern_var(0x790820, i32, StereoBuffer);
+ARTS_IMPORT extern i32 StereoBuffer;
 
 // 0x790808 | ?VFS@@3PAVVirtualFileSystem@@A
-inline extern_var(0x790808, class VirtualFileSystem*, VFS);
+ARTS_IMPORT extern class VirtualFileSystem* VFS;
 
 // 0x790750 | ?asSimulationMetaClass@@3VMetaClass@@A
-inline extern_var(0x790750, class MetaClass, asSimulationMetaClass);
+// ARTS_IMPORT extern class MetaClass asSimulationMetaClass;
 
 class artsReplayChannel : public eqReplayChannel
 {
@@ -202,16 +202,16 @@ class artsReplayChannel : public eqReplayChannel
 
 public:
     // 0x5236B0 | ??0artsReplayChannel@@QAE@XZ | inline
-    artsReplayChannel();
+    ARTS_IMPORT artsReplayChannel();
 
     // 0x523740 | ??1artsReplayChannel@@QAE@XZ | inline
-    ~artsReplayChannel();
+    ARTS_IMPORT ~artsReplayChannel();
 
     // 0x523710 | ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z | inline
-    void DoPlayback(class Stream* arg1) override;
+    ARTS_IMPORT void DoPlayback(class Stream* arg1) override;
 
     // 0x5236D0 | ?DoRecord@artsReplayChannel@@UAEXPAVStream@@@Z | inline
-    void DoRecord(class Stream* arg1) override;
+    ARTS_IMPORT void DoRecord(class Stream* arg1) override;
 };
 
 check_size(artsReplayChannel, 0x0);

@@ -64,32 +64,32 @@ class mmExternalView : public asNode
 
 public:
     // 0x4220F0 | ??0mmExternalView@@QAE@XZ
-    mmExternalView();
+    ARTS_IMPORT mmExternalView();
 
     // 0x422F60 | ??_EmmExternalView@@UAEPAXI@Z
     // 0x406910 | ??1mmExternalView@@UAE@XZ | inline
-    ~mmExternalView() override;
+    ARTS_IMPORT ~mmExternalView() override;
 
     // 0x4224E0 | ?AddWidgets@mmExternalView@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x422340 | ?Cull@mmExternalView@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x422170 | ?Init@mmExternalView@@QAEXPAVmmPlayer@@@Z
-    void Init(class mmPlayer* arg1);
+    ARTS_IMPORT void Init(class mmPlayer* arg1);
 
     // 0x4221B0 | ?ResChange@mmExternalView@@UAEXHH@Z
-    void ResChange(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void ResChange(i32 arg1, i32 arg2) override;
 
     // 0x422300 | ?Reset@mmExternalView@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x422310 | ?Update@mmExternalView@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x422330 | ?WideFOV@mmExternalView@@QAEXH@Z
-    void WideFOV(i32 arg1);
+    ARTS_IMPORT void WideFOV(i32 arg1);
 };
 
 check_size(mmExternalView, 0x0);
@@ -100,56 +100,56 @@ class mmDashView : public asLinearCS
 
 public:
     // 0x4215D0 | ??0mmDashView@@QAE@XZ
-    mmDashView();
+    ARTS_IMPORT mmDashView();
 
     // 0x422F90 | ??_EmmDashView@@UAEPAXI@Z
     // 0x421770 | ??1mmDashView@@UAE@XZ
-    ~mmDashView() override;
+    ARTS_IMPORT ~mmDashView() override;
 
     // 0x421D80 | ?Activate@mmDashView@@QAEXXZ
-    void Activate();
+    ARTS_IMPORT void Activate();
 
     // 0x421D60 | ?ActivateUntilTransitionIsOver@mmDashView@@QAEXXZ
-    void ActivateUntilTransitionIsOver();
+    ARTS_IMPORT void ActivateUntilTransitionIsOver();
 
     // 0x4227D0 | ?AddWidgets@mmDashView@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x421CC0 | ?AfterLoad@mmDashView@@UAEXXZ
-    void AfterLoad() override;
+    ARTS_IMPORT void AfterLoad() override;
 
     // 0x421C20 | ?BeforeSave@mmDashView@@UAEXXZ
-    void BeforeSave() override;
+    ARTS_IMPORT void BeforeSave() override;
 
     // 0x421F00 | ?Cull@mmDashView@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x421DA0 | ?Deactivate@mmDashView@@QAEXXZ
-    void Deactivate();
+    ARTS_IMPORT void Deactivate();
 
     // 0x422EC0 | ?GetClass@mmDashView@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x421880 | ?Init@mmDashView@@QAEXPADPAVmmPlayer@@@Z
-    void Init(char* arg1, class mmPlayer* arg2);
+    ARTS_IMPORT void Init(char* arg1, class mmPlayer* arg2);
 
     // 0x421C10 | ?Reset@mmDashView@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x421DC0 | ?TempDeactivate@mmDashView@@QAEXXZ | unused
-    void TempDeactivate();
+    ARTS_IMPORT void TempDeactivate();
 
     // 0x421DD0 | ?Update@mmDashView@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x422BD0 | ?DeclareFields@mmDashView@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmDashView, 0x880);
 
 // 0x636504 | ?MAX_SPEED@@3MA
-inline extern_var(0x636504, f32, MAX_SPEED);
+ARTS_IMPORT extern f32 MAX_SPEED;
 
 // 0x6A72B8 | ?mmDashViewMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A72B8, class MetaClass, mmDashViewMetaClass);
+// ARTS_IMPORT extern class MetaClass mmDashViewMetaClass;

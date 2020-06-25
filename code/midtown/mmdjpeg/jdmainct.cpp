@@ -19,8 +19,3 @@
 define_dummy_symbol(mmdjpeg_jdmainct);
 
 #include "jdmainct.h"
-
-void jinit_d_main_controller(struct jpeg_decompress_struct* arg1, u8 arg2)
-{
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*, u8>>(0x581070, arg1, arg2);
-}

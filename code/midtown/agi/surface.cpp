@@ -22,21 +22,19 @@ define_dummy_symbol(agi_surface);
 
 #include <emmintrin.h>
 
-static void copyrow4444_to_555(void* arg1, void* arg2, u32 arg3, u32 arg4)
-{
-    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B7E0, arg1, arg2, arg3, arg4);
-}
+// 0x55AAE0 | ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
+ARTS_IMPORT /*static*/ void RescaleJpeg(u32 arg1, u32 arg2, u8* arg3, struct jpeg_decompress_struct& arg4);
 
-static void copyrow4444_to_5551(void* arg1, void* arg2, u32 arg3, u32 arg4)
-{
-    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B8E0, arg1, arg2, arg3, arg4);
-}
+// 0x55B7E0 | ?copyrow4444_to_555@@YAXPAX0II@Z
+ARTS_IMPORT /*static*/ void copyrow4444_to_555(void* arg1, void* arg2, u32 arg3, u32 arg4);
 
-static void copyrow4444_to_565(void* arg1, void* arg2, u32 arg3, u32 arg4)
-{
-    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B860, arg1, arg2, arg3, arg4);
-}
+// 0x55B8E0 | ?copyrow4444_to_5551@@YAXPAX0II@Z
+ARTS_IMPORT /*static*/ void copyrow4444_to_5551(void* arg1, void* arg2, u32 arg3, u32 arg4);
 
+// 0x55B860 | ?copyrow4444_to_565@@YAXPAX0II@Z
+ARTS_IMPORT /*static*/ void copyrow4444_to_565(void* arg1, void* arg2, u32 arg3, u32 arg4);
+
+// 0x55B6C0 | ?copyrow4444_to_8888@@YAXPAX0II@Z
 static void copyrow4444_to_8888(void* dst, void* src, u32 len, u32 step)
 {
     u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
@@ -78,21 +76,16 @@ static void copyrow4444_to_8888(void* dst, void* src, u32 len, u32 step)
     }
 }
 
-static void copyrow4444_to_8888rev(void* arg1, void* arg2, u32 arg3, u32 arg4)
-{
-    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B750, arg1, arg2, arg3, arg4);
-}
+// 0x55B750 | ?copyrow4444_to_8888rev@@YAXPAX0II@Z
+ARTS_IMPORT /*static*/ void copyrow4444_to_8888rev(void* arg1, void* arg2, u32 arg3, u32 arg4);
 
-static void copyrow565_to_555(void* arg1, void* arg2, u32 arg3, u32 arg4)
-{
-    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B510, arg1, arg2, arg3, arg4);
-}
+// 0x55B510 | ?copyrow565_to_555@@YAXPAX0II@Z
+ARTS_IMPORT /*static*/ void copyrow565_to_555(void* arg1, void* arg2, u32 arg3, u32 arg4);
 
-static void copyrow565_to_5551(void* arg1, void* arg2, u32 arg3, u32 arg4)
-{
-    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B560, arg1, arg2, arg3, arg4);
-}
+// 0x55B560 | ?copyrow565_to_5551@@YAXPAX0II@Z
+ARTS_IMPORT /*static*/ void copyrow565_to_5551(void* arg1, void* arg2, u32 arg3, u32 arg4);
 
+// 0x55B5C0 | ?copyrow565_to_888@@YAXPAX0II@Z
 static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
 {
     u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
@@ -136,11 +129,8 @@ static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
     }
 }
 
-static void copyrow565_to_888rev(void* arg1, void* arg2, u32 arg3, u32 arg4)
-{
-    return stub<cdecl_t<void, void*, void*, u32, u32>>(0x55B640, arg1, arg2, arg3, arg4);
-}
-
+// 0x55B640 | ?copyrow565_to_888rev@@YAXPAX0II@Z
+ARTS_IMPORT /*static*/ void copyrow565_to_888rev(void* arg1, void* arg2, u32 arg3, u32 arg4);
 void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
 {
     u32 dst_width = dwWidth;
@@ -269,13 +259,6 @@ void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
         copy_row(dst_surface + (dst_pitch * dst_y), src_surface + (src_pitch * (src_y >> 16)), dst_width, src_x_step);
     }
 }
-
-void agiSurfaceDesc::Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class Stream* arg5, i32 arg6, i32 arg7)
-{
-    return stub<thiscall_t<void, agiSurfaceDesc*, char*, char*, i32, i32, class Stream*, i32, i32>>(
-        0x55ADE0, this, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
-}
-
 void agiSurfaceDesc::Unload()
 {
     if (lpSurface)
@@ -284,7 +267,6 @@ void agiSurfaceDesc::Unload()
         lpSurface = nullptr;
     }
 }
-
 Owner<class agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, class agiSurfaceDesc& desc)
 {
     u32 pixel_size = (desc.ddpfPixelFormat.dwRGBBitCount + 7) / 8;
@@ -302,15 +284,4 @@ Owner<class agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, class a
     std::memset(result->lpSurface, 0, surface_size);
 
     return result.release();
-}
-
-class agiSurfaceDesc* agiSurfaceDesc::Load(char* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6)
-{
-    return stub<cdecl_t<class agiSurfaceDesc*, char*, char*, i32, i32, i32, i32>>(
-        0x55A7A0, arg1, arg2, arg3, arg4, arg5, arg6);
-}
-
-static void RescaleJpeg(u32 arg1, u32 arg2, u8* arg3, struct jpeg_decompress_struct& arg4)
-{
-    return stub<cdecl_t<void, u32, u32, u8*, struct jpeg_decompress_struct&>>(0x55AAE0, arg1, arg2, arg3, arg4);
 }

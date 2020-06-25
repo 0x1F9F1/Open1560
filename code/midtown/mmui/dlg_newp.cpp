@@ -19,23 +19,3 @@
 define_dummy_symbol(mmui_dlg_newp);
 
 #include "dlg_newp.h"
-
-Dialog_NewPlayer::Dialog_NewPlayer(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6)
-{
-    unimplemented(arg1, arg2, arg3, arg4, arg5, arg6);
-}
-
-Dialog_NewPlayer::~Dialog_NewPlayer()
-{
-    unimplemented();
-}
-
-void Dialog_NewPlayer::EnterNewPlayer()
-{
-    return stub<thiscall_t<void, Dialog_NewPlayer*>>(0x49F7E0, this);
-}
-
-void Dialog_NewPlayer::PreSetup()
-{
-    return stub<thiscall_t<void, Dialog_NewPlayer*>>(0x49F7F0, this);
-}

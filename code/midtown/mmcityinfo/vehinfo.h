@@ -37,23 +37,23 @@ class mmVehInfo
 
 public:
     // 0x4D39D0 | ??0mmVehInfo@@QAE@XZ
-    mmVehInfo();
+    ARTS_IMPORT mmVehInfo();
 
     // 0x4D3C90 | ??_EmmVehInfo@@UAEPAXI@Z
     // 0x4D39F0 | ??1mmVehInfo@@UAE@XZ
-    virtual ~mmVehInfo();
+    ARTS_IMPORT virtual ~mmVehInfo();
 
     // 0x4D3BE0 | ?HasColorVariations@mmVehInfo@@QAEHXZ | unused
-    i32 HasColorVariations();
+    ARTS_IMPORT i32 HasColorVariations();
 
     // 0x49C590 | ?IsValid@mmVehInfo@@QAEHXZ | inline
-    i32 IsValid();
+    ARTS_IMPORT i32 IsValid();
 
     // 0x4D3A00 | ?Load@mmVehInfo@@QAEHPAD@Z
-    i32 Load(char* arg1);
+    ARTS_IMPORT i32 Load(char* arg1);
 
     // 0x4D3C00 | ?Print@mmVehInfo@@QAEXXZ
-    void Print();
+    ARTS_IMPORT void Print();
 };
 
 check_size(mmVehInfo, 0xF8);

@@ -47,46 +47,46 @@ class UIToggleButton2 : public UIButton
 
 public:
     // 0x4BC730 | ??0UIToggleButton2@@QAE@XZ
-    UIToggleButton2();
+    ARTS_IMPORT UIToggleButton2();
 
     // 0x4BCA50 | ??_GUIToggleButton2@@UAEPAXI@Z
     // 0x4BC7B0 | ??1UIToggleButton2@@UAE@XZ
-    ~UIToggleButton2() override;
+    ARTS_IMPORT ~UIToggleButton2() override;
 
     // 0x4BC940 | ?DoToggle@UIToggleButton2@@UAEXXZ
-    virtual void DoToggle();
+    ARTS_IMPORT virtual void DoToggle();
 
     // 0x4BC960 | ?Action@UIToggleButton2@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4BCAA0 | ?Disable@UIToggleButton2@@UAEXXZ | inline
-    void Disable() override;
+    ARTS_IMPORT void Disable() override;
 
     // 0x4BCA90 | ?Enable@UIToggleButton2@@UAEXXZ | inline
-    void Enable() override;
+    ARTS_IMPORT void Enable() override;
 
     // 0x4BC7C0 | ?Init@UIToggleButton2@@QAEXPAULocString@@PAHMMMMHHVCallback@@@Z
-    void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8,
+    ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8,
         class Callback arg9);
 
     // 0x4BC9E0 | ?Switch@UIToggleButton2@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4BC910 | ?Unkill@UIToggleButton2@@QAEXXZ | unused
-    void Unkill();
+    ARTS_IMPORT void Unkill();
 
     // 0x4BCA80 | ?Update@UIToggleButton2@@UAEXXZ | inline
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
 protected:
     // 0x4BC890 | ?DrawOff@UIToggleButton2@@MAEXXZ
-    virtual void DrawOff();
+    ARTS_IMPORT virtual void DrawOff();
 
     // 0x4BC8D0 | ?DrawOn@UIToggleButton2@@MAEXXZ
-    virtual void DrawOn();
+    ARTS_IMPORT virtual void DrawOn();
 
     // 0x705C20 | ?ToggleBMLoaded@UIToggleButton2@@1HA
-    static inline extern_var(0x705C20, i32, ToggleBMLoaded);
+    ARTS_IMPORT static i32 ToggleBMLoaded;
 };
 
 check_size(UIToggleButton2, 0xC0);

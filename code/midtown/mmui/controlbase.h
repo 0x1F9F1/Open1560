@@ -31,16 +31,16 @@ struct ControlBase
 {
 public:
     // 0x4AB700 | ??0ControlBase@@QAE@XZ
-    ControlBase();
+    ARTS_IMPORT ControlBase();
 
     // 0x4AB710 | ??1ControlBase@@QAE@XZ
-    ~ControlBase();
+    ARTS_IMPORT ~ControlBase();
 
     // 0x4AB720 | ?InitSensitivity@ControlBase@@QAEXXZ
-    void InitSensitivity();
+    ARTS_IMPORT void InitSensitivity();
 
     // 0x4AB780 | ?SetSensitivity@ControlBase@@QAEXXZ
-    void SetSensitivity();
+    ARTS_IMPORT void SetSensitivity();
 };
 
 check_size(ControlBase, 0x0);

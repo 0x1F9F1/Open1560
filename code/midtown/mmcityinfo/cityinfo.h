@@ -35,14 +35,14 @@ class mmCityInfo
 
 public:
     // 0x4D3620 | ??0mmCityInfo@@QAE@XZ
-    mmCityInfo();
+    ARTS_IMPORT mmCityInfo();
 
     // 0x4D39A0 | ??_EmmCityInfo@@UAEPAXI@Z
     // 0x4D3640 | ??1mmCityInfo@@UAE@XZ
-    virtual ~mmCityInfo();
+    ARTS_IMPORT virtual ~mmCityInfo();
 
     // 0x4D3650 | ?Load@mmCityInfo@@QAEHPAD@Z
-    i32 Load(char* arg1);
+    ARTS_IMPORT i32 Load(char* arg1);
 };
 
 check_size(mmCityInfo, 0xA0);

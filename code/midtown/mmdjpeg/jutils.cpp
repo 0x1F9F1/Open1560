@@ -19,28 +19,3 @@
 define_dummy_symbol(mmdjpeg_jutils);
 
 #include "jutils.h"
-
-void jcopy_block_row(i16 (*arg1)[64], i16 (*arg2)[64], u32 arg3)
-{
-    return stub<cdecl_t<void, i16(*)[64], i16(*)[64], u32>>(0x580F50, arg1, arg2, arg3);
-}
-
-void jcopy_sample_rows(u8** arg1, i32 arg2, u8** arg3, i32 arg4, i32 arg5, u32 arg6)
-{
-    return stub<cdecl_t<void, u8**, i32, u8**, i32, i32, u32>>(0x580F00, arg1, arg2, arg3, arg4, arg5, arg6);
-}
-
-i32 jdiv_round_up(i32 arg1, i32 arg2)
-{
-    return stub<cdecl_t<i32, i32, i32>>(0x580EC0, arg1, arg2);
-}
-
-i32 jround_up(i32 arg1, i32 arg2)
-{
-    return stub<cdecl_t<i32, i32, i32>>(0x580EE0, arg1, arg2);
-}
-
-void jzero_far(void* arg1, u32 arg2)
-{
-    return stub<cdecl_t<void, void*, u32>>(0x580F80, arg1, arg2);
-}

@@ -79,32 +79,32 @@ class mmWPHUD : public asNode
 
 public:
     // 0x4241A0 | ??0mmWPHUD@@QAE@XZ
-    mmWPHUD();
+    ARTS_IMPORT mmWPHUD();
 
     // 0x426240 | ??_GmmWPHUD@@UAEPAXI@Z
     // 0x4242B0 | ??1mmWPHUD@@UAE@XZ
-    ~mmWPHUD() override;
+    ARTS_IMPORT ~mmWPHUD() override;
 
     // 0x424780 | ?AddWidgets@mmWPHUD@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x424770 | ?Cull@mmWPHUD@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4243F0 | ?Init@mmWPHUD@@QAEXHPAH0H@Z
-    void Init(i32 arg1, i32* arg2, i32* arg3, i32 arg4);
+    ARTS_IMPORT void Init(i32 arg1, i32* arg2, i32* arg3, i32 arg4);
 
     // 0x4246E0 | ?Reset@mmWPHUD@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4243B0 | ?SetStandings@mmWPHUD@@QAEXHH@Z
-    void SetStandings(i32 arg1, i32 arg2);
+    ARTS_IMPORT void SetStandings(i32 arg1, i32 arg2);
 
     // 0x424360 | ?SetWPCleared@mmWPHUD@@QAEXXZ
-    void SetWPCleared();
+    ARTS_IMPORT void SetWPCleared();
 
     // 0x424730 | ?Update@mmWPHUD@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmWPHUD, 0x98);
@@ -115,29 +115,29 @@ class mmCircuitHUD : public asNode
 
 public:
     // 0x424790 | ??0mmCircuitHUD@@QAE@XZ
-    mmCircuitHUD();
+    ARTS_IMPORT mmCircuitHUD();
 
     // 0x426270 | ??_EmmCircuitHUD@@UAEPAXI@Z
     // 0x4248A0 | ??1mmCircuitHUD@@UAE@XZ
-    ~mmCircuitHUD() override;
+    ARTS_IMPORT ~mmCircuitHUD() override;
 
     // 0x4249A0 | ?Init@mmCircuitHUD@@QAEXXZ
-    void Init();
+    ARTS_IMPORT void Init();
 
     // 0x425090 | ?Reset@mmCircuitHUD@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x424FB0 | ?SetLapTime@mmCircuitHUD@@QAEXHMPADH@Z
-    void SetLapTime(i32 arg1, f32 arg2, char* arg3, i32 arg4);
+    ARTS_IMPORT void SetLapTime(i32 arg1, f32 arg2, char* arg3, i32 arg4);
 
     // 0x424F60 | ?SetStandings@mmCircuitHUD@@QAEXHH@Z
-    void SetStandings(i32 arg1, i32 arg2);
+    ARTS_IMPORT void SetStandings(i32 arg1, i32 arg2);
 
     // 0x425050 | ?SetWPCleared@mmCircuitHUD@@QAEXHH@Z
-    void SetWPCleared(i32 arg1, i32 arg2);
+    ARTS_IMPORT void SetWPCleared(i32 arg1, i32 arg2);
 
     // 0x424F50 | ?Update@mmCircuitHUD@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmCircuitHUD, 0x9C);
@@ -148,65 +148,65 @@ class mmCRHUD : public asNode
 
 public:
     // 0x425140 | ??0mmCRHUD@@QAE@XZ
-    mmCRHUD();
+    ARTS_IMPORT mmCRHUD();
 
     // 0x426360 | ??_EmmCRHUD@@UAEPAXI@Z
     // 0x4252E0 | ??1mmCRHUD@@UAE@XZ
-    ~mmCRHUD() override;
+    ARTS_IMPORT ~mmCRHUD() override;
 
     // 0x426090 | ?ActivateGold@mmCRHUD@@QAEXXZ
-    void ActivateGold();
+    ARTS_IMPORT void ActivateGold();
 
     // 0x4260B0 | ?ActivateRosterGold@mmCRHUD@@QAEXK@Z
-    void ActivateRosterGold(u32 arg1);
+    ARTS_IMPORT void ActivateRosterGold(u32 arg1);
 
     // 0x425C50 | ?AddPlayer@mmCRHUD@@QAEXPADKHI@Z
-    void AddPlayer(char* arg1, u32 arg2, i32 arg3, u32 arg4);
+    ARTS_IMPORT void AddPlayer(char* arg1, u32 arg2, i32 arg3, u32 arg4);
 
     // 0x4260A0 | ?DeactivateGold@mmCRHUD@@QAEXXZ
-    void DeactivateGold();
+    ARTS_IMPORT void DeactivateGold();
 
     // 0x426100 | ?DeactivateRosterGold@mmCRHUD@@QAEXXZ
-    void DeactivateRosterGold();
+    ARTS_IMPORT void DeactivateRosterGold();
 
     // 0x425410 | ?Init@mmCRHUD@@QAEXPAVasLinearCS@@PADW4mmCRGameClass@@@Z
-    void Init(class asLinearCS* arg1, char* arg2, enum mmCRGameClass arg3);
+    ARTS_IMPORT void Init(class asLinearCS* arg1, char* arg2, enum mmCRGameClass arg3);
 
     // 0x425F20 | ?RemovePlayer@mmCRHUD@@QAEXK@Z
-    void RemovePlayer(u32 arg1);
+    ARTS_IMPORT void RemovePlayer(u32 arg1);
 
     // 0x426180 | ?Reset@mmCRHUD@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x426190 | ?SetBlueScore@mmCRHUD@@QAEXH@Z
-    void SetBlueScore(i32 arg1);
+    ARTS_IMPORT void SetBlueScore(i32 arg1);
 
     // 0x425E30 | ?SetName@mmCRHUD@@QAEXPADH@Z
-    void SetName(char* arg1, i32 arg2);
+    ARTS_IMPORT void SetName(char* arg1, i32 arg2);
 
     // 0x4261D0 | ?SetRedScore@mmCRHUD@@QAEXH@Z
-    void SetRedScore(i32 arg1);
+    ARTS_IMPORT void SetRedScore(i32 arg1);
 
     // 0x425E10 | ?SetScore@mmCRHUD@@QAEXPAD@Z
-    void SetScore(char* arg1);
+    ARTS_IMPORT void SetScore(char* arg1);
 
     // 0x425EB0 | ?SetScore@mmCRHUD@@QAEXKH@Z
-    void SetScore(u32 arg1, i32 arg2);
+    ARTS_IMPORT void SetScore(u32 arg1, i32 arg2);
 
     // 0x425C20 | ?ToggleScores@mmCRHUD@@QAEXXZ | unused
-    void ToggleScores();
+    ARTS_IMPORT void ToggleScores();
 
     // 0x425D90 | ?UnPackColor@mmCRHUD@@QAEXIAAVVector4@@@Z
-    void UnPackColor(u32 arg1, class Vector4& arg2);
+    ARTS_IMPORT void UnPackColor(u32 arg1, class Vector4& arg2);
 
     // 0x426160 | ?Update@mmCRHUD@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x426140 | ?UpdateGold@mmCRHUD@@QAEXXZ
-    void UpdateGold();
+    ARTS_IMPORT void UpdateGold();
 };
 
 check_size(mmCRHUD, 0x218);
 
 // 0x636A00 | ?fontscalar@@3MA
-inline extern_var(0x636A00, f32, fontscalar);
+ARTS_IMPORT extern f32 fontscalar;

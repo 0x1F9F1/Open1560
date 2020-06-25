@@ -47,45 +47,45 @@ class mmCompRoster : public mmCompBase
 
 public:
     // 0x4B7840 | ??0mmCompRoster@@QAE@XZ
-    mmCompRoster();
+    ARTS_IMPORT mmCompRoster();
 
     // 0x4B7C40 | ??_EmmCompRoster@@UAEPAXI@Z
     // 0x4B78B0 | ??1mmCompRoster@@UAE@XZ
-    ~mmCompRoster() override;
+    ARTS_IMPORT ~mmCompRoster() override;
 
     // 0x4B7C10 | ?Cull@mmCompRoster@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4B7940 | ?Init@mmCompRoster@@QAEXPAD00K@Z
-    void Init(char* arg1, char* arg2, char* arg3, u32 arg4);
+    ARTS_IMPORT void Init(char* arg1, char* arg2, char* arg3, u32 arg4);
 
     // 0x4B79C0 | ?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z | unused
-    void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
+    ARTS_IMPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
         struct LocString* arg7, struct LocString* arg8, i32 arg9);
 
     // 0x4B79D0 | ?LoadBitmap@mmCompRoster@@QAEXPAD@Z
-    void LoadBitmap(char* arg1);
+    ARTS_IMPORT void LoadBitmap(char* arg1);
 
     // 0x4B7A20 | ?Reset@mmCompRoster@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4B7BD0 | ?SetBltXY@mmCompRoster@@UAEXMM@Z
-    void SetBltXY(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT void SetBltXY(f32 arg1, f32 arg2) override;
 
     // 0x4B7BA0 | ?SetGeometry@mmCompRoster@@UAEXMMMM@Z
-    void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
+    ARTS_IMPORT void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
 
     // 0x4B7B20 | ?SetPosition@mmCompRoster@@UAEXPAVmmTextNode@@HM@Z
-    void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
+    ARTS_IMPORT void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
 
     // 0x4B7A60 | ?SetReady@mmCompRoster@@QAEXH@Z
-    void SetReady(i32 arg1);
+    ARTS_IMPORT void SetReady(i32 arg1);
 
     // 0x4B7A80 | ?SetSubwidgetGeometry@mmCompRoster@@QAEXXZ
-    void SetSubwidgetGeometry();
+    ARTS_IMPORT void SetSubwidgetGeometry();
 
     // 0x4B7A30 | ?Update@mmCompRoster@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmCompRoster, 0x90);

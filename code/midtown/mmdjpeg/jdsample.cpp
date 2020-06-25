@@ -19,8 +19,3 @@
 define_dummy_symbol(mmdjpeg_jdsample);
 
 #include "jdsample.h"
-
-void jinit_upsampler(struct jpeg_decompress_struct* arg1)
-{
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x5829E0, arg1);
-}

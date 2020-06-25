@@ -37,14 +37,14 @@ class MainMenu : public UIMenu
 
 public:
     // 0x4A61F0 | ??0MainMenu@@QAE@H@Z
-    MainMenu(i32 arg1);
+    ARTS_IMPORT MainMenu(i32 arg1);
 
     // 0x4A6390 | ??_GMainMenu@@UAEPAXI@Z
     // 0x4A6370 | ??1MainMenu@@UAE@XZ
-    ~MainMenu() override;
+    ARTS_IMPORT ~MainMenu() override;
 
     // 0x4A6380 | ?PreSetup@MainMenu@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(MainMenu, 0x90);

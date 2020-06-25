@@ -51,60 +51,60 @@ class mmMultiCircuit : public mmGameMulti
 
 public:
     // 0x41A8B0 | ??0mmMultiCircuit@@QAE@XZ
-    mmMultiCircuit();
+    ARTS_IMPORT mmMultiCircuit();
 
     // 0x41BF40 | ??_EmmMultiCircuit@@UAEPAXI@Z
     // 0x41A920 | ??1mmMultiCircuit@@UAE@XZ
-    ~mmMultiCircuit() override;
+    ARTS_IMPORT ~mmMultiCircuit() override;
 
     // 0x41B9C0 | ?GameMessage@mmMultiCircuit@@UAEXPAUNETGAME_MSG@@@Z
-    void GameMessage(struct NETGAME_MSG* arg1) override;
+    ARTS_IMPORT void GameMessage(struct NETGAME_MSG* arg1) override;
 
     // 0x41BDE0 | ?GetClass@mmMultiCircuit@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x41BFA0 | ?GetWaypoints@mmMultiCircuit@@UAEPAVmmWaypoints@@XZ | inline
-    class mmWaypoints* GetWaypoints() override;
+    ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
 
     // 0x41A9E0 | ?Init@mmMultiCircuit@@QAEHXZ
-    i32 Init();
+    ARTS_IMPORT i32 Init();
 
     // 0x41ABC0 | ?InitGameObjects@mmMultiCircuit@@UAEXXZ
-    void InitGameObjects() override;
+    ARTS_IMPORT void InitGameObjects() override;
 
     // 0x41AB70 | ?InitHUD@mmMultiCircuit@@UAEXXZ
-    void InitHUD() override;
+    ARTS_IMPORT void InitHUD() override;
 
     // 0x41AB00 | ?InitMyPlayer@mmMultiCircuit@@UAEXXZ
-    void InitMyPlayer() override;
+    ARTS_IMPORT void InitMyPlayer() override;
 
     // 0x41AE30 | ?InitNetworkPlayers@mmMultiCircuit@@UAEXXZ
-    void InitNetworkPlayers() override;
+    ARTS_IMPORT void InitNetworkPlayers() override;
 
     // 0x41B190 | ?Reset@mmMultiCircuit@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x41B830 | ?SystemMessage@mmMultiCircuit@@UAEXPAUNETSYS_MSG@@@Z
-    void SystemMessage(struct NETSYS_MSG* arg1) override;
+    ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
 
     // 0x41B820 | ?UpdateDebugKeyInput@mmMultiCircuit@@UAEXH@Z
-    void UpdateDebugKeyInput(i32 arg1) override;
+    ARTS_IMPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x41B270 | ?UpdateGame@mmMultiCircuit@@UAEXXZ
-    void UpdateGame() override;
+    ARTS_IMPORT void UpdateGame() override;
 
     // 0x41B230 | ?UpdateGameInput@mmMultiCircuit@@UAEXH@Z
-    void UpdateGameInput(i32 arg1) override;
+    ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
 
     // 0x41BC60 | ?DeclareFields@mmMultiCircuit@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x41BC20 | ?SendPlayerFinish@mmMultiCircuit@@AAEXXZ
-    void SendPlayerFinish();
+    ARTS_IMPORT void SendPlayerFinish();
 };
 
 check_size(mmMultiCircuit, 0x1EEB0);
 
 // 0x6A71B8 | ?mmMultiCircuitMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A71B8, class MetaClass, mmMultiCircuitMetaClass);
+// ARTS_IMPORT extern class MetaClass mmMultiCircuitMetaClass;

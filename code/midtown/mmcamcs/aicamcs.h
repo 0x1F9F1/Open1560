@@ -41,32 +41,32 @@ class AICamCS : public CarCamCS
 
 public:
     // 0x4FA490 | ??0AICamCS@@QAE@XZ
-    AICamCS();
+    ARTS_IMPORT AICamCS();
 
     // 0x4FAB00 | ??_EAICamCS@@UAEPAXI@Z
     // 0x42D2C0 | ??1AICamCS@@UAE@XZ | inline
-    ~AICamCS() override;
+    ARTS_IMPORT ~AICamCS() override;
 
     // 0x4FAAC0 | ?GetClass@AICamCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4FA4C0 | ?Init@AICamCS@@QAEXPAVmmCar@@@Z
-    void Init(class mmCar* arg1);
+    ARTS_IMPORT void Init(class mmCar* arg1);
 
     // 0x4FA4E0 | ?MakeActive@AICamCS@@UAEXXZ
-    void MakeActive() override;
+    ARTS_IMPORT void MakeActive() override;
 
     // 0x4FA4D0 | ?Reset@AICamCS@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4FA5F0 | ?Update@AICamCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4FA950 | ?DeclareFields@AICamCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(AICamCS, 0x120);
 
 // 0x719468 | ?AICamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x719468, class MetaClass, AICamCSMetaClass);
+// ARTS_IMPORT extern class MetaClass AICamCSMetaClass;

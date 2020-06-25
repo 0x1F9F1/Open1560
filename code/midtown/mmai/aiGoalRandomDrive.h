@@ -49,53 +49,53 @@ struct aiGoalRandomDrive : aiGoal
 
 public:
     // 0x45C7E0 | ??0aiGoalRandomDrive@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
-    aiGoalRandomDrive(class aiRailSet* arg1, class aiVehicleSpline* arg2);
+    ARTS_IMPORT aiGoalRandomDrive(class aiRailSet* arg1, class aiVehicleSpline* arg2);
 
     // 0x45C8A0 | ??1aiGoalRandomDrive@@QAE@XZ
-    ~aiGoalRandomDrive();
+    ARTS_IMPORT ~aiGoalRandomDrive();
 
     // 0x45D440 | ?Context@aiGoalRandomDrive@@UAEHXZ
-    i32 Context() override;
+    ARTS_IMPORT i32 Context() override;
 
     // 0x45F690 | ?Dump@aiGoalRandomDrive@@QAEXXZ
-    void Dump();
+    ARTS_IMPORT void Dump();
 
     // 0x45C8B0 | ?Init@aiGoalRandomDrive@@UAEXXZ
-    void Init() override;
+    ARTS_IMPORT void Init() override;
 
     // 0x45D460 | ?Priority@aiGoalRandomDrive@@UAEHXZ
-    i32 Priority() override;
+    ARTS_IMPORT i32 Priority() override;
 
     // 0x45C8D0 | ?Reset@aiGoalRandomDrive@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x45E250 | ?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z | unused
-    void SolvePosition(class Vector3& arg1, f32 arg2);
+    ARTS_IMPORT void SolvePosition(class Vector3& arg1, f32 arg2);
 
     // 0x45D320 | ?Update@aiGoalRandomDrive@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
 private:
     // 0x45DE10 | ?AnyVehiclesComingThisWay@aiGoalRandomDrive@@AAEHXZ
-    i32 AnyVehiclesComingThisWay();
+    ARTS_IMPORT i32 AnyVehiclesComingThisWay();
 
     // 0x45E020 | ?AvoidCollision@aiGoalRandomDrive@@AAEXPAVaiVehicleSpline@@M@Z
-    void AvoidCollision(class aiVehicleSpline* arg1, f32 arg2);
+    ARTS_IMPORT void AvoidCollision(class aiVehicleSpline* arg1, f32 arg2);
 
     // 0x45F1A0 | ?ChangeLanes@aiGoalRandomDrive@@AAEXXZ
-    void ChangeLanes();
+    ARTS_IMPORT void ChangeLanes();
 
     // 0x45DC00 | ?OkayToEnterIntersection@aiGoalRandomDrive@@AAEHXZ
-    i32 OkayToEnterIntersection();
+    ARTS_IMPORT i32 OkayToEnterIntersection();
 
     // 0x45F0B0 | ?SolveLane@aiGoalRandomDrive@@AAEXXZ
-    void SolveLane();
+    ARTS_IMPORT void SolveLane();
 
     // 0x45E2A0 | ?SolveRailType@aiGoalRandomDrive@@AAEXXZ
-    void SolveRailType();
+    ARTS_IMPORT void SolveRailType();
 
     // 0x45D470 | ?SolveVelocity@aiGoalRandomDrive@@AAEXXZ
-    void SolveVelocity();
+    ARTS_IMPORT void SolveVelocity();
 };
 
 check_size(aiGoalRandomDrive, 0x14);
@@ -106,7 +106,7 @@ class aiGoal
 
 public:
     // 0x45F6F0 | ??1aiGoal@@QAE@XZ | inline
-    ~aiGoal();
+    ARTS_IMPORT ~aiGoal();
 
     virtual void Init() = 0;
 
@@ -117,7 +117,7 @@ public:
     virtual i32 Priority() = 0;
 
     // 0x45F700 | ?Update@aiGoal@@UAEXXZ | inline
-    virtual void Update();
+    ARTS_IMPORT virtual void Update();
 };
 
 check_size(aiGoal, 0x0);

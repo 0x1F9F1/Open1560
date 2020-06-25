@@ -19,23 +19,3 @@
 define_dummy_symbol(data7_perfstat);
 
 #include "perfstat.h"
-
-u32 PerfGetValue(i32 arg1)
-{
-    return stub<cdecl_t<u32, i32>>(0x57B530, arg1);
-}
-
-void PerfInit()
-{
-    return stub<cdecl_t<void>>(0x57B410);
-}
-
-i32 PerfLookup(char* arg1)
-{
-    return stub<cdecl_t<i32, char*>>(0x57B470, arg1);
-}
-
-void PerfShutdown()
-{
-    return stub<cdecl_t<void>>(0x57B450);
-}

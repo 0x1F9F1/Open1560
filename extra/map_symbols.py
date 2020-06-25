@@ -10,24 +10,6 @@ from binaryninja.demangle import *
 from binaryninja.enums import *
 from binaryninja.types import *
 
-IDC_NAME_REGEX = re.compile(r'set_name\t\(0X([0-9A-F]+),\t"(.+)"\);')
-
-def parse_idc_symbols(lines):
-    results = { }
-
-    for line in lines:
-        result = IDC_NAME_REGEX.match(line.strip())
-
-        if result is None:
-            continue
-
-        addr = result[1]
-        name = result[2]
-
-        results[name] = int(addr, 16)
-
-    return results
-
 MAP_REGEX = re.compile(r'[0-9a-fA-F]+:[0-9a-fA-F]+\s+(\S+)\s+([0-9a-fA-F]+)([fi ]{5})(\S+)')
 
 IGNORED_LIB_PREFIXES = [
@@ -626,6 +608,7 @@ def backport_vftable_purecalls(raw_vftables, hiers, overrides):
                     new_symbol.undec_name = None
                     new_symbol.raw_name = '__purecall'
                     new_symbol.parts = parent.split('::') + new_symbol.parts[-1:]
+                    new_symbol.override = False
 
                     if new_symbol.visibility == 'private':
                         new_symbol.visibility = 'public'
@@ -821,6 +804,9 @@ def replace_builtin_types(value):
 
         ('__cdecl', ''),
 
+        ('__stdcall', 'ARTS_STDCALL'),
+        ('__fastcall', 'ARTS_FASTCALL'),
+
         # ('struct ', ''),
         # ('class ', ''),
         # ('union ', ''),
@@ -839,6 +825,23 @@ def beautify_type(ty):
     return replace_builtin_types(
         str(ty).replace('public: ', '').replace('protected: ', '').replace('private: ', '').replace('static ', '')
     )
+
+def is_ignored_token(token):
+    if token.type == InstructionTextTokenType.KeywordToken:
+        return token.text in [
+            'public:',
+            'protected:',
+            'private:',
+            'static',
+        ]
+
+    if token.text == ' ':
+        return True
+
+    return False
+
+def filter_type_tokens(tokens):
+    return [ replace_builtin_types(token.text) for token in tokens if not is_ignored_token(token) ]
 
 def choose_best_dtor(class_symbols):
     all_dtors = [v for v in class_symbols if v.member_type == 'dtor']
@@ -986,6 +989,10 @@ for sym in [
     sym.static = True
     all_symbols.append(sym)
 
+for sym in all_symbols:
+    if sym.library == 'test':
+        sym.library = 'midtown'
+
 all_symbols.sort(key = lambda x: x.address)
 
 # for i in range(len(all_symbols) - 1):
@@ -997,6 +1004,30 @@ all_symbols.sort(key = lambda x: x.address)
 #     if all_symbols[i + 1].address < sym.address + 12:
 #         continue
 #     print(sym)
+# assert False
+
+# with open('../code/loader/import_stubs.asm', 'w') as f:
+#     f.write('.386\n')
+#     f.write('.MODEL FLAT, C\n')
+#     f.write('\n')
+
+#     f.write('.CONST\n')
+#     f.write('\n')
+
+#     for sym in all_symbols:
+#         name = sym.raw_name
+#         if name.startswith('??_G') or name.startswith('??_E'): # scalar/vector deleting destructor
+#             continue
+#         if name.startswith('_'): # malloc, free, etc.
+#             continue
+#         if name in '?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z': # Duplicate static symbol
+#             continue
+#         f.write('PUBLIC _imp_{}\n'.format(name))
+#         f.write('_imp_{} dd {:X}h\n'.format(name, sym.address))
+
+#     f.write('\n')
+#     f.write('END\n')
+
 # assert False
 
 # for symbol in all_symbols:
@@ -1631,7 +1662,7 @@ def is_ignored_lib(lib):
     if any((lib.startswith(v) for v in IGNORED_LIB_PREFIXES)):
         return True
 
-    if lib == 'test':
+    if lib == 'midtown':
         return True
 
     if lib in SKIPPED_LIBS:
@@ -1687,7 +1718,7 @@ for lib, paths in grouped_symbols.items():
                 continue
 
             j = i - 1
-            while j > 0:
+            while j >= 0:
                 w = values[j]
                 j -= 1
                 if w.vftable_index is None:
@@ -1737,172 +1768,92 @@ for lib, paths in grouped_symbols.items():
             tokens = []
             src_tokens = []
 
-            show_calling_convention = False
-            add_this_ptr = False
-            cc_name = None
+            def add_sym_info(tokens, sym):
+                if sym.raw_name == '__purecall':
+                    return
 
-            def add_sym_info(sym):
-                output.header += '// 0x{:X} | {}'.format(sym.address, sym.raw_name)
+                sym_info = ''
+                sym_info += '// 0x{:X} | {}'.format(sym.address, sym.raw_name)
 
                 if 'i' in sym.map_attribs:
                     if not sym.parts[-1] in ['`vector deleting destructor\'', '`scalar deleting destructor\'']:
-                        output.header += ' | inline'
+                        sym_info += ' | inline'
                 elif sym.library != lib:
-                    output.header += ' | ' + sym.library
+                    sym_info += ' | ' + sym.library
 
                 if (sym.type.type_class == TypeClass.FunctionTypeClass) and (sym.address != 0):
                     if not (view.get_code_refs(sym.address) or view.get_data_refs(sym.address)):
-                        output.header += ' | unused'
+                        sym_info += ' | unused'
 
-                output.header += '\n'
+                sym_info += '\n'
+                tokens.append(sym_info)
 
             if value.member_type == 'dtor':
                 assert value == sym_dtors[0]
                 for dtor in sym_dtors:
-                    if dtor.raw_name != '__purecall':
-                        add_sym_info(dtor)
-            elif (value.raw_name != '__purecall') and not (value.type.type_class == TypeClass.FunctionTypeClass and value.static and not value.is_member):
-                add_sym_info(value)
+                    add_sym_info(tokens, dtor)
+            else:
+                add_sym_info(tokens, value)
 
             sym_name = value.parts[:]
 
-            if value.type.type_class == TypeClass.FunctionTypeClass:
-                add_this_ptr = value.is_member and not value.static
+            if (value.type.type_class == TypeClass.NamedTypeReferenceClass) and (value.type.named_type_reference.name == 'MetaClass'):
+                tokens.append('//')
 
+            if value.raw_name != '__purecall':
+                tokens.append('ARTS_IMPORT')
+
+            if value.static:
+                tokens.append('static' if value.is_member else '/*static*/')
+
+            cc_name = None
+
+            if value.type.type_class == TypeClass.FunctionTypeClass:
                 cc_name = value.type.calling_convention.name
 
-                if cc_name != ('thiscall' if add_this_ptr and not value.type.has_variable_arguments else 'cdecl'):
-                    cc_name = '__' + cc_name
+                if cc_name != ('thiscall' if value.is_member and not value.static and not value.type.has_variable_arguments else 'cdecl'):
+                    cc_name = 'ARTS_' + cc_name.upper()
                 else:
                     cc_name = None
 
                 if value.member_type == 'dtor':
                     sym_name[-1] = '~' + sym_name[-2]
-
-                skip_declaration = value.static and not value.is_member
-                skip_definition = value.raw_name == '__purecall'
-
-                body_tokens = []
-                body_tokens.append('{')
-
-                if (value.member_type not in ['ctor', 'dtor']) and not value.type.has_variable_arguments:
-                    body_tokens.append('return')
-
-                    body_tokens.append('stub')
-                    body_tokens.append('<')
-
-                    body_tokens.append('{}_t'.format(value.type.calling_convention.name))
-                    body_tokens.append('<')
-
-                    body_tokens.append(beautify_type(value.type.return_value))
-
-                    if add_this_ptr:
-                        body_tokens.append(',')
-                        body_tokens.append(value.parts[-2])
-                        body_tokens.append('*')
-
-                    for param in value.type.parameters:
-                        body_tokens.append(',')
-                        body_tokens.append(beautify_type(param.type))
-
-                    body_tokens.append('>')
-                    body_tokens.append('>')
-
-                    body_tokens.append('(')
-
-                    body_tokens.append(format_address(value.address))
-
-                    if add_this_ptr:
-                        body_tokens.append(',')
-                        body_tokens.append('this')
-
-                    for param in value.type.parameters:
-                        body_tokens.append(',')
-                        body_tokens.append(param.name)
-
-                    body_tokens.append(')')
-                else:
-                    body_tokens.append('unimplemented({})'.format(', '.join(p.name for p in value.type.parameters)))
-
-                body_tokens.append(';')
-                body_tokens.append('}')
-
-                if not skip_declaration:
-                    if value.static:
-                        tokens.append('static')
-
-                    if value.is_virtual and not value.override:
-                        tokens.append('virtual')
-
-                    if value.member_type not in ['ctor', 'dtor']:
-                        tokens.extend([beautify_type(v) for v in value.type.get_tokens_before_name()])
-
-                    if cc_name is not None:
-                        tokens.append(cc_name)
-
-                    tokens.append(sym_name[-1])
-
-                    tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
-
-                    if value.override:
-                        tokens.append('override')
-
-                    if value.raw_name == '__purecall':
-                        tokens.append(' = 0')
-
-                    if False and 'i' in value.map_attribs:
-                        tokens.extend(body_tokens)
-                        skip_definition = True
-                    else:
-                        tokens.append(';')
-
-                if not skip_definition:
-                    assert value.address != 0
-
-                    if value.static and not value.is_member:
-                        src_tokens.append('static')
-
-                    if value.member_type not in ['ctor', 'dtor']:
-                        src_tokens.extend([beautify_type(v) for v in value.type.get_tokens_before_name()])
-
-                    if cc_name is not None:
-                        src_tokens.append(cc_name)
-
-                    src_tokens.append('::'.join(sym_name))
-                    src_tokens.extend([beautify_type(v) for v in value.type.get_tokens_after_name()])
-                    src_tokens.extend(body_tokens)
             else:
-                if value.static:
-                    tokens.append('static')
+                if not value.is_member:
+                    tokens.append('extern')
 
-                tokens.append('inline')
+            if value.is_virtual and not value.override:
+                tokens.append('virtual')
 
-                tokens.append('extern_var')
-                tokens.append('(')
+            if value.member_type not in ['ctor', 'dtor']:
+                tokens.extend(filter_type_tokens(value.type.get_tokens_before_name()))
 
-                tokens.append(format_address(value.address))
-                tokens.append(', ')
+            if cc_name is not None:
+                tokens.append(cc_name)
 
-                tokens.append(beautify_type(value.type))
-                tokens.append(', ')
+            tokens.append(sym_name[-1])
 
-                tokens.append(value.name)
-                tokens.append(')')
-                tokens.append(';')
+            tokens.extend(filter_type_tokens(value.type.get_tokens_after_name()))
+
+            if value.override:
+                tokens.append('override')
+
+            if value.raw_name == '__purecall':
+                tokens.append(' = 0')
 
             if tokens:
-                output.header += ' '.join(tokens)
-                output.header += '\n\n'
+                # if ('i' not in value.map_attribs) and (value.library != lib):
+                #     print('Moved Symbol', value, lib, value.library)
+                #     lib_outputs[value.library].source += ' '.join(src_tokens)
+                #     lib_outputs[value.library].source += '\n\n'
+                #     lib_outputs[value.library].src_includes.add(lib)
 
-            if src_tokens:
-                if ('i' not in value.map_attribs) and (value.library != lib):
-                    print('Moved Symbol', value, lib, value.library)
-                    lib_outputs[value.library].source += ' '.join(src_tokens)
-                    lib_outputs[value.library].source += '\n\n'
-                    lib_outputs[value.library].src_includes.add(lib)
+                tokens_text = ' '.join(tokens) + ';\n\n'
+
+                if value.is_member or not value.static:
+                    output.header += tokens_text
                 else:
-                    output.source += ' '.join(src_tokens)
-                    output.source += '\n\n'
+                    output.source += tokens_text
 
         if path:
             output.header += '};\n\n'

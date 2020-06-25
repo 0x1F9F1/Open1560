@@ -35,29 +35,29 @@ class CReverbBuffer
 {
 public:
     // 0x4F4AA0 | ??0CReverbBuffer@@QAE@PAUIDirectSound3DBuffer@@@Z
-    CReverbBuffer(struct IDirectSound3DBuffer* arg1);
+    ARTS_IMPORT CReverbBuffer(struct IDirectSound3DBuffer* arg1);
 
     // 0x4F4AF0 | ??1CReverbBuffer@@QAE@XZ
-    ~CReverbBuffer();
+    ARTS_IMPORT ~CReverbBuffer();
 
     // 0x4F4BE0 | ?GetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z | unused
-    void GetAll(struct EAXBUFFER_REVERBPROPERTIES* arg1);
+    ARTS_IMPORT void GetAll(struct EAXBUFFER_REVERBPROPERTIES* arg1);
 
     // 0x4F4BA0 | ?GetReverbMix@CReverbBuffer@@QAEMXZ
-    f32 GetReverbMix();
+    ARTS_IMPORT f32 GetReverbMix();
 
     // 0x4F4B00 | ?PropertySetOk@CReverbBuffer@@QAEHXZ
-    i32 PropertySetOk();
+    ARTS_IMPORT i32 PropertySetOk();
 
     // 0x4F4B80 | ?SetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z | unused
-    void SetAll(struct EAXBUFFER_REVERBPROPERTIES* arg1);
+    ARTS_IMPORT void SetAll(struct EAXBUFFER_REVERBPROPERTIES* arg1);
 
     // 0x4F4B60 | ?SetReverbMix@CReverbBuffer@@QAEXM@Z
-    void SetReverbMix(f32 arg1);
+    ARTS_IMPORT void SetReverbMix(f32 arg1);
 
 private:
     // 0x4F4B10 | ?QueryProperty@CReverbBuffer@@AAEHK@Z
-    i32 QueryProperty(u32 arg1);
+    ARTS_IMPORT i32 QueryProperty(u32 arg1);
 };
 
 check_size(CReverbBuffer, 0x4);

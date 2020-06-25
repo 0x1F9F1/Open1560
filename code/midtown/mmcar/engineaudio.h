@@ -46,44 +46,44 @@ class EngineAudio : public asNode
 
 public:
     // 0x4864D0 | ??0EngineAudio@@QAE@XZ
-    EngineAudio();
+    ARTS_IMPORT EngineAudio();
 
     // 0x4870B0 | ??_EEngineAudio@@UAEPAXI@Z
     // 0x486940 | ??1EngineAudio@@UAE@XZ
-    ~EngineAudio() override;
+    ARTS_IMPORT ~EngineAudio() override;
 
     // 0x486B30 | ?UpdateRPM@EngineAudio@@UAEXM@Z
-    virtual void UpdateRPM(f32 arg1);
+    ARTS_IMPORT virtual void UpdateRPM(f32 arg1);
 
     // 0x486A40 | ?EchoOff@EngineAudio@@QAEXXZ
-    void EchoOff();
+    ARTS_IMPORT void EchoOff();
 
     // 0x4869F0 | ?EchoOn@EngineAudio@@QAEXM@Z
-    void EchoOn(f32 arg1);
+    ARTS_IMPORT void EchoOn(f32 arg1);
 
     // 0x486A70 | ?EnableClutch@EngineAudio@@QAEXPADM@Z
-    void EnableClutch(char* arg1, f32 arg2);
+    ARTS_IMPORT void EnableClutch(char* arg1, f32 arg2);
 
     // 0x4870A0 | ?GetClass@EngineAudio@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x486550 | ?Init@EngineAudio@@QAEXPAVVector3@@@Z
-    void Init(class Vector3* arg1);
+    ARTS_IMPORT void Init(class Vector3* arg1);
 
     // 0x4867A0 | ?Init@EngineAudio@@QAEXPAD0@Z
-    void Init(char* arg1, char* arg2);
+    ARTS_IMPORT void Init(char* arg1, char* arg2);
 
     // 0x486D90 | ?ResetVolume@EngineAudio@@QAEXXZ
-    void ResetVolume();
+    ARTS_IMPORT void ResetVolume();
 
     // 0x486DB0 | ?Stop@EngineAudio@@QAEXXZ | unused
-    void Stop();
+    ARTS_IMPORT void Stop();
 
     // 0x486DF0 | ?DeclareFields@EngineAudio@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(EngineAudio, 0x90);
 
 // 0x6A82A0 | ?EngineAudioMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A82A0, class MetaClass, EngineAudioMetaClass);
+// ARTS_IMPORT extern class MetaClass EngineAudioMetaClass;

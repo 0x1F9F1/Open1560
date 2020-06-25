@@ -32,11 +32,11 @@ class agiRenderer
 
 public:
     // 0x55DD80 | ??0agiRenderer@@QAE@XZ
-    agiRenderer();
+    ARTS_IMPORT agiRenderer();
 
 protected:
     // 0x555230 | ??_GagiRenderer@@MAEPAXI@Z
-    virtual ~agiRenderer();
+    ARTS_IMPORT virtual ~agiRenderer();
 
 public:
     virtual void BeginGroup() = 0;
@@ -65,7 +65,7 @@ public:
 check_size(agiRenderer, 0x0);
 
 // 0x907898 | ?agiCurCardState@@3VagiCardState@@A
-inline extern_var(0x907898, class agiCardState, agiCurCardState);
+ARTS_IMPORT extern class agiCardState agiCurCardState;
 
 // 0x907868 | ?agiLastCardState@@3UagiCardStateStruct@@A
-inline extern_var(0x907868, struct agiCardStateStruct, agiLastCardState);
+ARTS_IMPORT extern struct agiCardStateStruct agiLastCardState;

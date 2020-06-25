@@ -24,12 +24,12 @@
     0x5749B0 | int __cdecl dxiResClosestMatch(int,int,int) | ?dxiResClosestMatch@@YAHHHH@Z
     0x574A60 | int __cdecl dxiResGetRecommended(int,int) | ?dxiResGetRecommended@@YAHHH@Z
     0x574B00 | int __cdecl dxiReadConfigFile(void) | ?dxiReadConfigFile@@YAHXZ
+    0x574DF0 | void __cdecl strtoguid(struct _GUID *,char *) | ?strtoguid@@YAXPAU_GUID@@PAD@Z
     0x574E90 | void __cdecl dxiWriteConfigFile(void) | ?dxiWriteConfigFile@@YAXXZ
+    0x575090 | void __cdecl guidtostr(char *,struct _GUID *) | ?guidtostr@@YAXPADPAU_GUID@@@Z
     0x661380 | int dxiRendererChoice | ?dxiRendererChoice@@3HA
     0x909680 | struct dxiRendererInfo_t * dxiInfo | ?dxiInfo@@3PAUdxiRendererInfo_t@@A
     0x90A350 | int dxiRendererCount | ?dxiRendererCount@@3HA
-    0x574DF0 | void __cdecl strtoguid(struct _GUID *,char *) | ?strtoguid@@YAXPAU_GUID@@PAD@Z
-    0x575090 | void __cdecl guidtostr(char *,struct _GUID *) | ?guidtostr@@YAXPADPAU_GUID@@@Z
 */
 
 #include <guiddef.h>
@@ -81,25 +81,25 @@ struct dxiRendererInfo_t
 check_size(dxiRendererInfo_t, 0x198);
 
 // 0x574B00 | ?dxiReadConfigFile@@YAHXZ
-i32 dxiReadConfigFile();
+ARTS_IMPORT i32 dxiReadConfigFile();
 
 // 0x5749B0 | ?dxiResClosestMatch@@YAHHHH@Z
-i32 dxiResClosestMatch(i32 arg1, i32 arg2, i32 arg3);
+ARTS_IMPORT i32 dxiResClosestMatch(i32 arg1, i32 arg2, i32 arg3);
 
 // 0x574A60 | ?dxiResGetRecommended@@YAHHH@Z
-i32 dxiResGetRecommended(i32 arg1, i32 arg2);
+ARTS_IMPORT i32 dxiResGetRecommended(i32 arg1, i32 arg2);
 
 // 0x574E90 | ?dxiWriteConfigFile@@YAXXZ
-void dxiWriteConfigFile();
+ARTS_IMPORT void dxiWriteConfigFile();
 
 // 0x909680 | ?dxiInfo@@3PAUdxiRendererInfo_t@@A
-inline extern_var(0x909680, struct dxiRendererInfo_t[8], dxiInfo);
+ARTS_IMPORT extern struct dxiRendererInfo_t dxiInfo[8];
 
 // 0x661380 | ?dxiRendererChoice@@3HA
-inline extern_var(0x661380, i32, dxiRendererChoice);
+ARTS_IMPORT extern i32 dxiRendererChoice;
 
 // 0x90A350 | ?dxiRendererCount@@3HA
-inline extern_var(0x90A350, i32, dxiRendererCount);
+ARTS_IMPORT extern i32 dxiRendererCount;
 
 inline dxiRendererInfo_t& GetRendererInfo()
 {

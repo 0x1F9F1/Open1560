@@ -48,41 +48,41 @@ class agiD3DTexDef : public agiTexDef
 
 public:
     // 0x5319A0 | ??0agiD3DTexDef@@QAE@PAVagiPipeline@@@Z
-    agiD3DTexDef(class agiPipeline* arg1);
+    ARTS_IMPORT agiD3DTexDef(class agiPipeline* arg1);
 
     // 0x532060 | ??_EagiD3DTexDef@@UAEPAXI@Z
     // 0x5319D0 | ??1agiD3DTexDef@@UAE@XZ
-    ~agiD3DTexDef() override;
+    ARTS_IMPORT ~agiD3DTexDef() override;
 
     // 0x5319E0 | ?BeginGfx@agiD3DTexDef@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x531EF0 | ?EndGfx@agiD3DTexDef@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x531DA0 | ?GetHandle@agiD3DTexDef@@QAEPAUIDirect3DTexture2@@H@Z
-    struct IDirect3DTexture2* GetHandle(i32 arg1);
+    ARTS_IMPORT struct IDirect3DTexture2* GetHandle(i32 arg1);
 
     // 0x531F60 | ?IsAvailable@agiD3DTexDef@@UAEHXZ
-    i32 IsAvailable() override;
+    ARTS_IMPORT i32 IsAvailable() override;
 
     // 0x531E20 | ?Lock@agiD3DTexDef@@UAEHAAUagiTexLock@@@Z
-    i32 Lock(struct agiTexLock& arg1) override;
+    ARTS_IMPORT i32 Lock(struct agiTexLock& arg1) override;
 
     // 0x531D40 | ?Request@agiD3DTexDef@@UAEXXZ
-    void Request() override;
+    ARTS_IMPORT void Request() override;
 
     // 0x531F90 | ?Restore@agiD3DTexDef@@UAEXXZ
-    void Restore() override;
+    ARTS_IMPORT void Restore() override;
 
     // 0x531F70 | ?Set@agiD3DTexDef@@UAEXAAVVector2@@0@Z
-    void Set(class Vector2& arg1, class Vector2& arg2) override;
+    ARTS_IMPORT void Set(class Vector2& arg1, class Vector2& arg2) override;
 
     // 0x531EC0 | ?Unlock@agiD3DTexDef@@UAEXAAUagiTexLock@@@Z
-    void Unlock(struct agiTexLock& arg1) override;
+    ARTS_IMPORT void Unlock(struct agiTexLock& arg1) override;
 
     // 0x52FA90 | ?Prober@agiD3DTexDef@@SAXPAX@Z | agid3d:d3dpipe
-    static void Prober(void* arg1);
+    ARTS_IMPORT static void Prober(void* arg1);
 };
 
 check_size(agiD3DTexDef, 0x88);
@@ -94,16 +94,16 @@ class agiD3DTexLut : public agiTexLut
 public:
     // 0x5315C0 | ??_GagiD3DTexLut@@UAEPAXI@Z
     // 0x5315F0 | ??1agiD3DTexLut@@UAE@XZ | inline
-    ~agiD3DTexLut() override;
+    ARTS_IMPORT ~agiD3DTexLut() override;
 
     // 0x531FD0 | ?BeginGfx@agiD3DTexLut@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x532020 | ?EndGfx@agiD3DTexLut@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 };
 
 check_size(agiD3DTexLut, 0x0);
 
 // 0x795C38 | ?DontCacheTextures@@3HA
-inline extern_var(0x795C38, i32, DontCacheTextures);
+ARTS_IMPORT extern i32 DontCacheTextures;

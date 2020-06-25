@@ -19,28 +19,3 @@
 define_dummy_symbol(mmai_aiVehicle);
 
 #include "aiVehicle.h"
-
-aiVehicle::aiVehicle()
-{
-    unimplemented();
-}
-
-aiVehicle::~aiVehicle()
-{
-    unimplemented();
-}
-
-void aiVehicle::Update()
-{
-    return stub<thiscall_t<void, aiVehicle*>>(0x465940, this);
-}
-
-void aiVehicle::Reset()
-{
-    return stub<thiscall_t<void, aiVehicle*>>(0x465930, this);
-}
-
-void aiVehicle::Init(i32 arg1)
-{
-    return stub<thiscall_t<void, aiVehicle*, i32>>(0x465920, this, arg1);
-}

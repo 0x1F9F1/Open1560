@@ -38,17 +38,17 @@ class VehShowcase : public UIMenu
 
 public:
     // 0x4A4F70 | ??0VehShowcase@@QAE@H@Z
-    VehShowcase(i32 arg1);
+    ARTS_IMPORT VehShowcase(i32 arg1);
 
     // 0x4A51A0 | ??_GVehShowcase@@UAEPAXI@Z
     // 0x4A50C0 | ??1VehShowcase@@UAE@XZ
-    ~VehShowcase() override;
+    ARTS_IMPORT ~VehShowcase() override;
 
     // 0x4A5190 | ?PostSetup@VehShowcase@@UAEXXZ
-    void PostSetup() override;
+    ARTS_IMPORT void PostSetup() override;
 
     // 0x4A5120 | ?PreSetup@VehShowcase@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 };
 
 check_size(VehShowcase, 0x98);

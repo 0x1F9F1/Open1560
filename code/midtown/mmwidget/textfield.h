@@ -65,54 +65,54 @@ class UITextField : public uiWidget
 
 public:
     // 0x4B2160 | ??0UITextField@@QAE@XZ
-    UITextField();
+    ARTS_IMPORT UITextField();
 
     // 0x4B2D80 | ??_GUITextField@@UAEPAXI@Z
     // 0x4B2270 | ??1UITextField@@UAE@XZ
-    ~UITextField() override;
+    ARTS_IMPORT ~UITextField() override;
 
     // 0x4B2680 | ?Action@UITextField@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4B2670 | ?CaptureAction@UITextField@@UAEXTeqEvent@@@Z
-    void CaptureAction(union eqEvent arg1) override;
+    ARTS_IMPORT void CaptureAction(union eqEvent arg1) override;
 
     // 0x4B26D0 | ?ClearField@UITextField@@QAEXXZ | unused
-    void ClearField();
+    ARTS_IMPORT void ClearField();
 
     // 0x4B22E0 | ?Init@UITextField@@QAEXPAULocString@@PADMMMMHHHHHVCallback@@PAVUIMenu@@@Z
-    void Init(struct LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8, i32 arg9,
-        i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
+    ARTS_IMPORT void Init(struct LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7,
+        i32 arg8, i32 arg9, i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
 
     // 0x4B2980 | ?IsValidChar@UITextField@@QAEHG@Z
-    i32 IsValidChar(u16 arg1);
+    ARTS_IMPORT i32 IsValidChar(u16 arg1);
 
     // 0x4B2B80 | ?KeyAction@UITextField@@QAEXPATeqEvent@@@Z
-    void KeyAction(union eqEvent* arg1);
+    ARTS_IMPORT void KeyAction(union eqEvent* arg1);
 
     // 0x4B2C90 | ?SetCompositionWindow@UITextField@@QAEXXZ
-    void SetCompositionWindow();
+    ARTS_IMPORT void SetCompositionWindow();
 
     // 0x4B2610 | ?SetField@UITextField@@QAEXPAD@Z
-    void SetField(char* arg1);
+    ARTS_IMPORT void SetField(char* arg1);
 
     // 0x4B25F0 | ?SetText@UITextField@@QAEXPAULocString@@@Z | unused
-    void SetText(struct LocString* arg1);
+    ARTS_IMPORT void SetText(struct LocString* arg1);
 
     // 0x4B2730 | ?SetTextField@UITextField@@QAEXXZ
-    void SetTextField();
+    ARTS_IMPORT void SetTextField();
 
     // 0x4B28E0 | ?Switch@UITextField@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4B2780 | ?ToggleField@UITextField@@QAEXH@Z
-    void ToggleField(i32 arg1);
+    ARTS_IMPORT void ToggleField(i32 arg1);
 
     // 0x4B2EC0 | ?Update@UITextField@@UAEXXZ | inline
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4B2A10 | ?WmCharHandler@UITextField@@QAEXE@Z
-    void WmCharHandler(u8 arg1);
+    ARTS_IMPORT void WmCharHandler(u8 arg1);
 };
 
 check_size(UITextField, 0x144);

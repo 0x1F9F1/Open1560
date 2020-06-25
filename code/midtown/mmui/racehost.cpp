@@ -19,28 +19,3 @@
 define_dummy_symbol(mmui_racehost);
 
 #include "racehost.h"
-
-HostRaceMenu::HostRaceMenu(i32 arg1)
-{
-    unimplemented(arg1);
-}
-
-HostRaceMenu::~HostRaceMenu()
-{
-    unimplemented();
-}
-
-void HostRaceMenu::DisableStart()
-{
-    return stub<thiscall_t<void, HostRaceMenu*>>(0x4A2C50, this);
-}
-
-void HostRaceMenu::EnableStart()
-{
-    return stub<thiscall_t<void, HostRaceMenu*>>(0x4A2C40, this);
-}
-
-void HostRaceMenu::UsesLobby(i32 arg1)
-{
-    return stub<thiscall_t<void, HostRaceMenu*, i32>>(0x4A2C60, this, arg1);
-}

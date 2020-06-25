@@ -39,26 +39,26 @@ struct mmAnimExcel
 
 public:
     // 0x4C34D0 | ??0mmAnimExcel@@QAE@XZ
-    mmAnimExcel();
+    ARTS_IMPORT mmAnimExcel();
 
     // 0x4C37A0 | ??_EmmAnimExcel@@UAEPAXI@Z
     // 0x4C34F0 | ??1mmAnimExcel@@UAE@XZ
-    virtual ~mmAnimExcel();
+    ARTS_IMPORT virtual ~mmAnimExcel();
 
     // 0x4C3600 | ?AddFile@mmAnimExcel@@QAEXPAD0@Z
-    void AddFile(char* arg1, char* arg2);
+    ARTS_IMPORT void AddFile(char* arg1, char* arg2);
 
     // 0x4C3770 | ?GetName@mmAnimExcel@@QAEPADH@Z
-    char* GetName(i32 arg1);
+    ARTS_IMPORT char* GetName(i32 arg1);
 
     // 0x4C35C0 | ?GetNextName@mmAnimExcel@@QAEPADXZ | unused
-    char* GetNextName();
+    ARTS_IMPORT char* GetNextName();
 
     // 0x4C3740 | ?GetPriorName@mmAnimExcel@@QAEPADXZ | unused
-    char* GetPriorName();
+    ARTS_IMPORT char* GetPriorName();
 
     // 0x4C3530 | ?Init@mmAnimExcel@@QAEHPAD0@Z
-    i32 Init(char* arg1, char* arg2);
+    ARTS_IMPORT i32 Init(char* arg1, char* arg2);
 };
 
 check_size(mmAnimExcel, 0x0);

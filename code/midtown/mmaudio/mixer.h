@@ -54,13 +54,13 @@ struct VolumeDW
 {
 public:
     // 0x4EEB80 | ??1VolumeDW@@QAE@XZ | inline
-    ~VolumeDW();
+    ARTS_IMPORT ~VolumeDW();
 
     // 0x4EE040 | ?Set@VolumeDW@@QAEXMM@Z | unused
-    void Set(f32 arg1, f32 arg2);
+    ARTS_IMPORT void Set(f32 arg1, f32 arg2);
 
     // 0x4EE110 | ?Value@VolumeDW@@QAEKXZ | unused
-    u32 Value();
+    ARTS_IMPORT u32 Value();
 };
 
 check_size(VolumeDW, 0x0);
@@ -75,56 +75,56 @@ class MixerCTL
 public:
     // 0x4EEB90 | ??_GMixerCTL@@UAEPAXI@Z
     // 0x4EE180 | ??1MixerCTL@@UAE@XZ
-    ~MixerCTL() override;
+    ARTS_IMPORT ~MixerCTL() override;
 
     // 0x4EE240 | ?AssignCDBalance@MixerCTL@@QAEXM@Z
-    void AssignCDBalance(f32 arg1);
+    ARTS_IMPORT void AssignCDBalance(f32 arg1);
 
     // 0x4EE2E0 | ?AssignCDVolume@MixerCTL@@QAEXM@Z
-    void AssignCDVolume(f32 arg1);
+    ARTS_IMPORT void AssignCDVolume(f32 arg1);
 
     // 0x4EE580 | ?AssignMixerBalance@MixerCTL@@QAEKMK@Z
-    u32 AssignMixerBalance(f32 arg1, u32 arg2);
+    ARTS_IMPORT u32 AssignMixerBalance(f32 arg1, u32 arg2);
 
     // 0x4EE320 | ?AssignMixerVolume@MixerCTL@@QAEKMK@Z
-    u32 AssignMixerVolume(f32 arg1, u32 arg2);
+    ARTS_IMPORT u32 AssignMixerVolume(f32 arg1, u32 arg2);
 
     // 0x4EE1F0 | ?AssignWaveBalance@MixerCTL@@QAEXM@Z
-    void AssignWaveBalance(f32 arg1);
+    ARTS_IMPORT void AssignWaveBalance(f32 arg1);
 
     // 0x4EE2C0 | ?AssignWaveVolume@MixerCTL@@QAEXM@Z
-    void AssignWaveVolume(f32 arg1);
+    ARTS_IMPORT void AssignWaveVolume(f32 arg1);
 
     // 0x4EE300 | ?GetCDBalance@MixerCTL@@QAEMXZ
-    f32 GetCDBalance();
+    ARTS_IMPORT f32 GetCDBalance();
 
     // 0x4EE310 | ?GetCDVolume@MixerCTL@@QAEMXZ
-    f32 GetCDVolume();
+    ARTS_IMPORT f32 GetCDVolume();
 
     // 0x4EE830 | ?GetMixerBalance@MixerCTL@@QAEMK@Z
-    f32 GetMixerBalance(u32 arg1);
+    ARTS_IMPORT f32 GetMixerBalance(u32 arg1);
 
     // 0x4EE2A0 | ?GetWaveBalance@MixerCTL@@QAEMXZ
-    f32 GetWaveBalance();
+    ARTS_IMPORT f32 GetWaveBalance();
 
     // 0x4EE2B0 | ?GetWaveVolume@MixerCTL@@QAEMXZ
-    f32 GetWaveVolume();
+    ARTS_IMPORT f32 GetWaveVolume();
 
     // 0x4EE140 | ?Init@MixerCTL@@QAEKXZ
-    u32 Init();
+    ARTS_IMPORT u32 Init();
 
     // 0x4EE290 | ?RefreshAll@MixerCTL@@QAEXK@Z | unused
-    void RefreshAll(u32 arg1);
+    ARTS_IMPORT void RefreshAll(u32 arg1);
 
     // 0x4EEAB0 | ?SetDeviceNum@MixerCTL@@QAEXI@Z
-    void SetDeviceNum(u32 arg1);
+    ARTS_IMPORT void SetDeviceNum(u32 arg1);
 
 private:
     // 0x4EEAD0 | ?GetErrorMessage@MixerCTL@@AAEPADK@Z
-    char* GetErrorMessage(u32 arg1);
+    ARTS_IMPORT char* GetErrorMessage(u32 arg1);
 
     // 0x4EEB70 | ?WindowProc@MixerCTL@@EAEJPAUHWND__@@IIJ@Z
-    i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
+    ARTS_IMPORT i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
 };
 
 check_size(MixerCTL, 0x0);

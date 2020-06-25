@@ -52,62 +52,62 @@ class mmPlayerCarAudio : public asNode
 
 public:
     // 0x4833F0 | ??0mmPlayerCarAudio@@QAE@XZ | inline
-    mmPlayerCarAudio();
+    ARTS_IMPORT mmPlayerCarAudio();
 
     // 0x481B00 | ??0mmPlayerCarAudio@@QAE@PAVmmCarSim@@@Z
-    mmPlayerCarAudio(class mmCarSim* arg1);
+    ARTS_IMPORT mmPlayerCarAudio(class mmCarSim* arg1);
 
     // 0x483390 | ??_EmmPlayerCarAudio@@UAEPAXI@Z
     // 0x481F30 | ??1mmPlayerCarAudio@@UAE@XZ
-    ~mmPlayerCarAudio() override;
+    ARTS_IMPORT ~mmPlayerCarAudio() override;
 
     // 0x482140 | ?EchoOff@mmPlayerCarAudio@@QAEXXZ
-    void EchoOff();
+    ARTS_IMPORT void EchoOff();
 
     // 0x482020 | ?EchoOn@mmPlayerCarAudio@@QAEXM@Z
-    void EchoOn(f32 arg1);
+    ARTS_IMPORT void EchoOn(f32 arg1);
 
     // 0x482730 | ?FluctuateFastSiren@mmPlayerCarAudio@@QAEXXZ
-    void FluctuateFastSiren();
+    ARTS_IMPORT void FluctuateFastSiren();
 
     // 0x482530 | ?FluctuateSlowSiren@mmPlayerCarAudio@@QAEXXZ
-    void FluctuateSlowSiren();
+    ARTS_IMPORT void FluctuateSlowSiren();
 
     // 0x483260 | ?GetClass@mmPlayerCarAudio@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x481BA0 | ?Init@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z
-    void Init(class mmCarSim* arg1);
+    ARTS_IMPORT void Init(class mmCarSim* arg1);
 
     // 0x482C20 | ?LoadSucessful@mmPlayerCarAudio@@QAEXXZ
-    void LoadSucessful();
+    ARTS_IMPORT void LoadSucessful();
 
     // 0x482A90 | ?PlayHorn@mmPlayerCarAudio@@QAEXXZ
-    void PlayHorn();
+    ARTS_IMPORT void PlayHorn();
 
     // 0x4821F0 | ?PlayReverseBeep@mmPlayerCarAudio@@QAEXXZ | unused
-    void PlayReverseBeep();
+    ARTS_IMPORT void PlayReverseBeep();
 
     // 0x482A50 | ?Reset@mmPlayerCarAudio@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x482AD0 | ?SetUpDefault@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z | unused
-    void SetUpDefault(class mmCarSim* arg1);
+    ARTS_IMPORT void SetUpDefault(class mmCarSim* arg1);
 
     // 0x482460 | ?StartSiren@mmPlayerCarAudio@@QAEXXZ
-    void StartSiren();
+    ARTS_IMPORT void StartSiren();
 
     // 0x4824F0 | ?StopSiren@mmPlayerCarAudio@@QAEXXZ
-    void StopSiren();
+    ARTS_IMPORT void StopSiren();
 
     // 0x482250 | ?Update@mmPlayerCarAudio@@QAEXHMMF@Z
-    void Update(i32 arg1, f32 arg2, f32 arg3, i16 arg4);
+    ARTS_IMPORT void Update(i32 arg1, f32 arg2, f32 arg3, i16 arg4);
 
     // 0x483080 | ?DeclareFields@mmPlayerCarAudio@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmPlayerCarAudio, 0x100);
 
 // 0x6A8198 | ?mmPlayerCarAudioMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A8198, class MetaClass, mmPlayerCarAudioMetaClass);
+// ARTS_IMPORT extern class MetaClass mmPlayerCarAudioMetaClass;

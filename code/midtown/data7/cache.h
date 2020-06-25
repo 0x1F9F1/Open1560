@@ -132,4 +132,4 @@ private:
 check_size(DataCache, 0x40);
 
 // 0x90A9B0 | ?CACHE@@3VDataCache@@A
-inline extern_var(0x90A9B0, class DataCache, CACHE);
+ARTS_IMPORT extern class DataCache CACHE;

@@ -19,33 +19,3 @@
 define_dummy_symbol(agi_bitmap);
 
 #include "bitmap.h"
-
-agiBitmap::agiBitmap(class agiPipeline* arg1)
-{
-    unimplemented(arg1);
-}
-
-void agiBitmap::UpdateFlags()
-{
-    return stub<thiscall_t<void, agiBitmap*>>(0x55A630, this);
-}
-
-char* agiBitmap::GetName()
-{
-    return stub<thiscall_t<char*, agiBitmap*>>(0x55A6D0, this);
-}
-
-i32 agiBitmap::Init(char* arg1, f32 arg2, f32 arg3, i32 arg4)
-{
-    return stub<thiscall_t<i32, agiBitmap*, char*, f32, f32, i32>>(0x55A3F0, this, arg1, arg2, arg3, arg4);
-}
-
-void agiBitmap::SetTransparency(i32 arg1)
-{
-    return stub<thiscall_t<void, agiBitmap*, i32>>(0x55A600, this, arg1);
-}
-
-agiBitmap::~agiBitmap()
-{
-    unimplemented();
-}

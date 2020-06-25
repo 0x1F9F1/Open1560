@@ -40,27 +40,27 @@ class OptionsBase : public UIMenu
 
 public:
     // 0x4AB4C0 | ??0OptionsBase@@QAE@H@Z
-    OptionsBase(i32 arg1);
+    ARTS_IMPORT OptionsBase(i32 arg1);
 
     // 0x4AB6A0 | ??_GOptionsBase@@UAEPAXI@Z
     // 0x4AB650 | ??1OptionsBase@@UAE@XZ
-    ~OptionsBase() override;
+    ARTS_IMPORT ~OptionsBase() override;
 
     virtual void CancelAction() = 0;
 
     virtual void DoneAction() = 0;
 
     // 0x4AB6F0 | ?ResetDefaultAction@OptionsBase@@UAEXXZ | inline
-    virtual void ResetDefaultAction();
+    ARTS_IMPORT virtual void ResetDefaultAction();
 
     // 0x49A6D0 | ?StoreCurrentSetup@OptionsBase@@UAEXXZ | inline
-    virtual void StoreCurrentSetup();
+    ARTS_IMPORT virtual void StoreCurrentSetup();
 
     // 0x4AB620 | ?CreateTitle@OptionsBase@@QAEXPAULocString@@@Z | unused
-    void CreateTitle(struct LocString* arg1);
+    ARTS_IMPORT void CreateTitle(struct LocString* arg1);
 
     // 0x49A6E0 | ?IsAnOptionMenu@OptionsBase@@UAEHXZ | inline
-    i32 IsAnOptionMenu() override;
+    ARTS_IMPORT i32 IsAnOptionMenu() override;
 };
 
 check_size(OptionsBase, 0x0);

@@ -26,7 +26,7 @@
 */
 
 // 0x580AE0 | ?jinit_master_decompress@@YAXPAUjpeg_decompress_struct@@@Z
-void jinit_master_decompress(struct jpeg_decompress_struct* arg1);
+ARTS_IMPORT void jinit_master_decompress(struct jpeg_decompress_struct* arg1);
 
 // 0x580A20 | ?jpeg_calc_output_dimensions@@YAXPAUjpeg_decompress_struct@@@Z
-void jpeg_calc_output_dimensions(struct jpeg_decompress_struct* arg1);
+ARTS_IMPORT void jpeg_calc_output_dimensions(struct jpeg_decompress_struct* arg1);

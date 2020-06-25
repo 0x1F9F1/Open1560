@@ -54,68 +54,68 @@ class RaceMenuBase : public UIMenu
 
 public:
     // 0x4A63C0 | ??0RaceMenuBase@@QAE@H@Z
-    RaceMenuBase(i32 arg1);
+    ARTS_IMPORT RaceMenuBase(i32 arg1);
 
     // 0x4A8050 | ??_GRaceMenuBase@@UAEPAXI@Z
     // 0x4A72C0 | ??1RaceMenuBase@@UAE@XZ
-    ~RaceMenuBase() override;
+    ARTS_IMPORT ~RaceMenuBase() override;
 
     // 0x4A4F60 | ?UsesLobby@RaceMenuBase@@UAEXH@Z | inline
-    virtual void UsesLobby(i32 arg1);
+    ARTS_IMPORT virtual void UsesLobby(i32 arg1);
 
     // 0x4A79B0 | ?AICallback@RaceMenuBase@@QAEXXZ
-    void AICallback();
+    ARTS_IMPORT void AICallback();
 
     // 0x4A7A20 | ?ChangeLocalVals@RaceMenuBase@@QAEXXZ
-    void ChangeLocalVals();
+    ARTS_IMPORT void ChangeLocalVals();
 
     // 0x4A7690 | ?CheatCallback@RaceMenuBase@@QAEXXZ | unused
-    void CheatCallback();
+    ARTS_IMPORT void CheatCallback();
 
     // 0x4A7750 | ?CityChange@RaceMenuBase@@QAEXXZ
-    void CityChange();
+    ARTS_IMPORT void CityChange();
 
     // 0x4A7340 | ?FocusDescription@RaceMenuBase@@QAEXH@Z
-    void FocusDescription(i32 arg1);
+    ARTS_IMPORT void FocusDescription(i32 arg1);
 
     // 0x4A78D0 | ?GameCallback@RaceMenuBase@@QAEXXZ
-    void GameCallback();
+    ARTS_IMPORT void GameCallback();
 
     // 0x4A6500 | ?Init@RaceMenuBase@@QAEXH@Z
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
     // 0x4A7670 | ?IsEnvEnabled@RaceMenuBase@@QAEHXZ
-    i32 IsEnvEnabled();
+    ARTS_IMPORT i32 IsEnvEnabled();
 
     // 0x4A7950 | ?LapsCallback@RaceMenuBase@@QAEXXZ
-    void LapsCallback();
+    ARTS_IMPORT void LapsCallback();
 
     // 0x4A73A0 | ?SetRW@RaceMenuBase@@QAEXXZ
-    void SetRW();
+    ARTS_IMPORT void SetRW();
 
     // 0x4A7CB0 | ?SetStateRace@RaceMenuBase@@QAEXXZ
-    void SetStateRace();
+    ARTS_IMPORT void SetStateRace();
 
     // 0x4A76A0 | ?SyncRaceState@RaceMenuBase@@QAEXXZ
-    void SyncRaceState();
+    ARTS_IMPORT void SyncRaceState();
 
     // 0x4A7A10 | ?TimeCallback@RaceMenuBase@@QAEXXZ | unused
-    void TimeCallback();
+    ARTS_IMPORT void TimeCallback();
 
     // 0x4A7960 | ?WPCallback@RaceMenuBase@@QAEXXZ
-    void WPCallback();
+    ARTS_IMPORT void WPCallback();
 
     // 0x4A7A00 | ?WeatherCallback@RaceMenuBase@@QAEXXZ | unused
-    void WeatherCallback();
+    ARTS_IMPORT void WeatherCallback();
 
     // 0x4A7370 | ?WidgetOnOff@RaceMenuBase@@QAEXHPAVuiWidget@@@Z
-    void WidgetOnOff(i32 arg1, class uiWidget* arg2);
+    ARTS_IMPORT void WidgetOnOff(i32 arg1, class uiWidget* arg2);
 };
 
 check_size(RaceMenuBase, 0x0);
 
 // 0x64119C | ?GoldDamageScale@@3MA
-inline extern_var(0x64119C, f32, GoldDamageScale);
+ARTS_IMPORT extern f32 GoldDamageScale;
 
 // 0x641198 | ?GoldHPScale@@3MA
-inline extern_var(0x641198, f32, GoldHPScale);
+ARTS_IMPORT extern f32 GoldHPScale;

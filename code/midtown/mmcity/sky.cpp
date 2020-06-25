@@ -19,28 +19,3 @@
 define_dummy_symbol(mmcity_sky);
 
 #include "sky.h"
-
-mmSky::mmSky()
-{
-    unimplemented();
-}
-
-mmSky::~mmSky()
-{
-    unimplemented();
-}
-
-void mmSky::Draw(class Matrix34& arg1)
-{
-    return stub<thiscall_t<void, mmSky*, class Matrix34&>>(0x4956A0, this, arg1);
-}
-
-void mmSky::Init(char* arg1)
-{
-    return stub<thiscall_t<void, mmSky*, char*>>(0x495650, this, arg1);
-}
-
-void mmSky::SetTexture(class agiTexDef* arg1)
-{
-    return stub<thiscall_t<void, mmSky*, class agiTexDef*>>(0x495680, this, arg1);
-}

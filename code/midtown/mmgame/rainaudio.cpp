@@ -19,33 +19,3 @@
 define_dummy_symbol(mmgame_rainaudio);
 
 #include "rainaudio.h"
-
-mmRainAudio::mmRainAudio()
-{
-    unimplemented();
-}
-
-mmRainAudio::~mmRainAudio()
-{
-    unimplemented();
-}
-
-void mmRainAudio::SetInterior(u8 arg1)
-{
-    return stub<thiscall_t<void, mmRainAudio*, u8>>(0x433440, this, arg1);
-}
-
-void mmRainAudio::ShelterOff()
-{
-    return stub<thiscall_t<void, mmRainAudio*>>(0x433540, this);
-}
-
-void mmRainAudio::ShelterOn()
-{
-    return stub<thiscall_t<void, mmRainAudio*>>(0x4334D0, this);
-}
-
-void mmRainAudio::Update()
-{
-    return stub<thiscall_t<void, mmRainAudio*>>(0x4335B0, this);
-}

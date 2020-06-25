@@ -110,111 +110,122 @@ class asMidgets
 
 public:
     // 0x5267F0 | ??0asMidgets@@QAE@XZ
-    asMidgets();
+    ARTS_IMPORT asMidgets();
 
     // 0x527BA0 | ??_GasMidgets@@UAEPAXI@Z
     // 0x526890 | ??1asMidgets@@UAE@XZ
-    ~asMidgets() override;
+    ARTS_IMPORT ~asMidgets() override;
 
     // 0x527020 | ?AddButton@asMidgets@@UAEPAVbkButton@@PADVCallback@@@Z
-    class bkButton* AddButton(char* arg1, class Callback arg2) override;
+    ARTS_IMPORT class bkButton* AddButton(char* arg1, class Callback arg2) override;
 
     // 0x5278B0 | ?AddColor@asMidgets@@UAEXPADPAVVector3@@VCallback@@@Z
-    void AddColor(char* arg1, class Vector3* arg2, class Callback arg3) override;
+    ARTS_IMPORT void AddColor(char* arg1, class Vector3* arg2, class Callback arg3) override;
 
     // 0x527990 | ?AddColor@asMidgets@@UAEXPADPAVVector4@@VCallback@@@Z
-    void AddColor(char* arg1, class Vector4* arg2, class Callback arg3) override;
+    ARTS_IMPORT void AddColor(char* arg1, class Vector4* arg2, class Callback arg3) override;
 
     // 0x527AB0 | ?AddFileButton@asMidgets@@UAEXPADVCallback@@@Z
-    void AddFileButton(char* arg1, class Callback arg2) override;
+    ARTS_IMPORT void AddFileButton(char* arg1, class Callback arg2) override;
 
     // 0x527110 | ?AddMex@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z
-    class bkButton* AddMex(char* arg1, i32* arg2, i32 arg3, class Callback arg4) override;
+    ARTS_IMPORT class bkButton* AddMex(char* arg1, i32* arg2, i32 arg3, class Callback arg4) override;
 
     // 0x5271F0 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PAD0DDMVCallback@@@Z
-    class bkSlider* AddSlider(char* arg1, char* arg2, char arg3, char arg4, f32 arg5, class Callback arg6) override;
+    ARTS_IMPORT class bkSlider* AddSlider(
+        char* arg1, char* arg2, char arg3, char arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527550 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAMMMMVCallback@@@Z
-    class bkSlider* AddSlider(char* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_IMPORT class bkSlider* AddSlider(
+        char* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527310 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAFFFMVCallback@@@Z
-    class bkSlider* AddSlider(char* arg1, i16* arg2, i16 arg3, i16 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_IMPORT class bkSlider* AddSlider(
+        char* arg1, i16* arg2, i16 arg3, i16 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527430 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAHHHMVCallback@@@Z
-    class bkSlider* AddSlider(char* arg1, i32* arg2, i32 arg3, i32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_IMPORT class bkSlider* AddSlider(
+        char* arg1, i32* arg2, i32 arg3, i32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x5273A0 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAGGGMVCallback@@@Z
-    class bkSlider* AddSlider(char* arg1, u16* arg2, u16 arg3, u16 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_IMPORT class bkSlider* AddSlider(
+        char* arg1, u16* arg2, u16 arg3, u16 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x5274C0 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAIIIMVCallback@@@Z
-    class bkSlider* AddSlider(char* arg1, u32* arg2, u32 arg3, u32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_IMPORT class bkSlider* AddSlider(
+        char* arg1, u32* arg2, u32 arg3, u32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527280 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAEEEMVCallback@@@Z
-    class bkSlider* AddSlider(char* arg1, u8* arg2, u8 arg3, u8 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_IMPORT class bkSlider* AddSlider(
+        char* arg1, u8* arg2, u8 arg3, u8 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527190 | ?AddText@asMidgets@@UAEPAVbkButton@@VCallback@@@Z
-    class bkButton* AddText(class Callback arg1) override;
+    ARTS_IMPORT class bkButton* AddText(class Callback arg1) override;
 
     // 0x5271C0 | ?AddText@asMidgets@@UAEPAVbkButton@@PADVCallback@@@Z
-    class bkButton* AddText(char* arg1, class Callback arg2) override;
+    ARTS_IMPORT class bkButton* AddText(char* arg1, class Callback arg2) override;
 
     // 0x5275E0 | ?AddTextSlider@asMidgets@@UAEPAVbkSlider@@PAD0PAHMVCallback@@@Z
-    class bkSlider* AddTextSlider(char* arg1, char* arg2, i32* arg3, f32 arg4, class Callback arg5) override;
+    ARTS_IMPORT class bkSlider* AddTextSlider(
+        char* arg1, char* arg2, i32* arg3, f32 arg4, class Callback arg5) override;
 
     // 0x526FC0 | ?AddTitle@asMidgets@@UAEPAVbkWindow@@PAD@Z
-    class bkWindow* AddTitle(char* arg1) override;
+    ARTS_IMPORT class bkWindow* AddTitle(char* arg1) override;
 
     // 0x527090 | ?AddToggle@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z
-    class bkButton* AddToggle(char* arg1, i32* arg2, i32 arg3, class Callback arg4) override;
+    ARTS_IMPORT class bkButton* AddToggle(char* arg1, i32* arg2, i32 arg3, class Callback arg4) override;
 
     // 0x527610 | ?AddVector@asMidgets@@UAEXPADPAVVector2@@MMMVCallback@@@Z
-    void AddVector(char* arg1, class Vector2* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_IMPORT void AddVector(
+        char* arg1, class Vector2* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x5276B0 | ?AddVector@asMidgets@@UAEXPADPAVVector3@@MMMVCallback@@@Z
-    void AddVector(char* arg1, class Vector3* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_IMPORT void AddVector(
+        char* arg1, class Vector3* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527790 | ?AddVector@asMidgets@@UAEXPADPAVVector4@@MMMVCallback@@@Z
-    void AddVector(char* arg1, class Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_IMPORT void AddVector(
+        char* arg1, class Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x526ED0 | ?Cull@asMidgets@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x526900 | ?Off@asMidgets@@UAEXXZ
-    void Off() override;
+    ARTS_IMPORT void Off() override;
 
     // 0x526950 | ?Open@asMidgets@@QAEXPAVasNode@@@Z
-    void Open(class asNode* arg1);
+    ARTS_IMPORT void Open(class asNode* arg1);
 
     // 0x527B90 | ?PopColumn@asMidgets@@UAEXXZ
-    void PopColumn() override;
+    ARTS_IMPORT void PopColumn() override;
 
     // 0x527B50 | ?PopSection@asMidgets@@UAEXXZ
-    void PopSection() override;
+    ARTS_IMPORT void PopSection() override;
 
     // 0x527B80 | ?PushColumn@asMidgets@@UAEXH@Z
-    void PushColumn(i32 arg1) override;
+    ARTS_IMPORT void PushColumn(i32 arg1) override;
 
     // 0x527AE0 | ?PushSection@asMidgets@@UAEXPADH@Z
-    void PushSection(char* arg1, i32 arg2) override;
+    ARTS_IMPORT void PushSection(char* arg1, i32 arg2) override;
 
     // 0x526E40 | ?SetLabel@asMidgets@@UAEXPAD@Z
-    void SetLabel(char* arg1) override;
+    ARTS_IMPORT void SetLabel(char* arg1) override;
 
     // 0x526B60 | ?Toggle@asMidgets@@QAEXXZ
-    void Toggle();
+    ARTS_IMPORT void Toggle();
 
     // 0x526B80 | ?Update@asMidgets@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x526BF0 | ?UpdateKey@asMidgets@@QAEXHH@Z
-    void UpdateKey(i32 arg1, i32 arg2);
+    ARTS_IMPORT void UpdateKey(i32 arg1, i32 arg2);
 
 private:
     // 0x526E50 | ?AddItem@asMidgets@@AAEXPAVMI@@@Z
-    void AddItem(class MI* arg1);
+    ARTS_IMPORT void AddItem(class MI* arg1);
 
     // 0x526E90 | ?IsVisible@asMidgets@@AAEHH@Z
-    i32 IsVisible(i32 arg1);
+    ARTS_IMPORT i32 IsVisible(i32 arg1);
 };
 
 check_size(asMidgets, 0x87C);
@@ -225,10 +236,10 @@ class SMI : public MI
 
 public:
     // 0x527BD0 | ?Key@SMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x527BE0 | ?Update@SMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(SMI, 0x0);
@@ -239,10 +250,10 @@ class BMI : public MI
 
 public:
     // 0x527C00 | ?Key@BMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x527C20 | ?Update@BMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(BMI, 0x0);
@@ -253,10 +264,10 @@ class TMI : public MI
 
 public:
     // 0x527C40 | ?Key@TMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x527CA0 | ?Update@TMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(TMI, 0x0);
@@ -267,10 +278,10 @@ class scharMI : public MI
 
 public:
     // 0x527CF0 | ?Key@scharMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x527D80 | ?Update@scharMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(scharMI, 0x0);
@@ -281,10 +292,10 @@ class ucharMI : public MI
 
 public:
     // 0x527DD0 | ?Key@ucharMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x527E60 | ?Update@ucharMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(ucharMI, 0x0);
@@ -295,10 +306,10 @@ class shortMI : public MI
 
 public:
     // 0x527EB0 | ?Key@shortMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x527F50 | ?Update@shortMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(shortMI, 0x0);
@@ -309,10 +320,10 @@ class ushortMI : public MI
 
 public:
     // 0x527FA0 | ?Key@ushortMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x528040 | ?Update@ushortMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(ushortMI, 0x0);
@@ -323,10 +334,10 @@ class intMI : public MI
 
 public:
     // 0x528090 | ?Key@intMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x528120 | ?Update@intMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(intMI, 0x0);
@@ -337,10 +348,10 @@ class uintMI : public MI
 
 public:
     // 0x528170 | ?Key@uintMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x528210 | ?Update@uintMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(uintMI, 0x0);
@@ -351,10 +362,10 @@ class floatMI : public MI
 
 public:
     // 0x528260 | ?Key@floatMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x5282F0 | ?Update@floatMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(floatMI, 0x0);
@@ -365,10 +376,10 @@ class SBMI : public MI
 
 public:
     // 0x528340 | ?Key@SBMI@@UAEXHH@Z | inline
-    void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x528360 | ?Update@SBMI@@UAEHH@Z | inline
-    i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
 check_size(SBMI, 0x0);
@@ -386,4 +397,4 @@ public:
 check_size(MI, 0x0);
 
 // 0x790928 | ?MIDGETSPTR@@3PAVasMidgets@@A
-inline extern_var(0x790928, class asMidgets*, MIDGETSPTR);
+ARTS_IMPORT extern class asMidgets* MIDGETSPTR;

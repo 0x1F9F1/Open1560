@@ -68,83 +68,85 @@ class agiD3DPipeline : public agiDDPipeline
 
 public:
     // 0x52FB50 | ??0agiD3DPipeline@@QAE@XZ
-    agiD3DPipeline();
+    ARTS_IMPORT agiD3DPipeline();
 
     // 0x531590 | ??_GagiD3DPipeline@@UAEPAXI@Z
     // 0x5309D0 | ??1agiD3DPipeline@@UAE@XZ
-    ~agiD3DPipeline() override;
+    ARTS_IMPORT ~agiD3DPipeline() override;
 
     // 0x530A40 | ?BeginFrame@agiD3DPipeline@@UAEXXZ
-    void BeginFrame() override;
+    ARTS_IMPORT void BeginFrame() override;
 
     // 0x52FB90 | ?BeginGfx@agiD3DPipeline@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x530AF0 | ?BeginScene@agiD3DPipeline@@UAEXXZ
-    void BeginScene() override;
+    ARTS_IMPORT void BeginScene() override;
 
     // 0x531400 | ?ClearAll@agiD3DPipeline@@UAEXH@Z
-    void ClearAll(i32 arg1) override;
+    ARTS_IMPORT void ClearAll(i32 arg1) override;
 
     // 0x531520 | ?CopyBitmap@agiD3DPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
-    void CopyBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7) override;
+    ARTS_IMPORT void CopyBitmap(
+        i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7) override;
 
     // 0x5314C0 | ?CreateBitmap@agiD3DPipeline@@UAEPAVagiBitmap@@XZ
-    class agiBitmap* CreateBitmap() override;
+    ARTS_IMPORT class agiBitmap* CreateBitmap() override;
 
     // 0x5313A0 | ?CreateLight@agiD3DPipeline@@UAEPAVagiLight@@XZ
-    class agiLight* CreateLight() override;
+    ARTS_IMPORT class agiLight* CreateLight() override;
 
     // 0x531250 | ?CreateMtlDef@agiD3DPipeline@@UAEPAVagiMtlDef@@XZ
-    class agiMtlDef* CreateMtlDef() override;
+    ARTS_IMPORT class agiMtlDef* CreateMtlDef() override;
 
     // 0x5312B0 | ?CreateTexDef@agiD3DPipeline@@UAEPAVagiTexDef@@XZ
-    class agiTexDef* CreateTexDef() override;
+    ARTS_IMPORT class agiTexDef* CreateTexDef() override;
 
     // 0x531310 | ?CreateTexLut@agiD3DPipeline@@UAEPAVagiTexLut@@XZ
-    class agiTexLut* CreateTexLut() override;
+    ARTS_IMPORT class agiTexLut* CreateTexLut() override;
 
     // 0x5311F0 | ?CreateViewport@agiD3DPipeline@@UAEPAVagiViewport@@XZ
-    class agiViewport* CreateViewport() override;
+    ARTS_IMPORT class agiViewport* CreateViewport() override;
 
     // 0x531580 | ?Defragment@agiD3DPipeline@@UAEXXZ
-    void Defragment() override;
+    ARTS_IMPORT void Defragment() override;
 
     // 0x530FE0 | ?DumpStatus@agiD3DPipeline@@UAEXAAUagiMemStatus@@@Z
-    void DumpStatus(struct agiMemStatus& arg1) override;
+    ARTS_IMPORT void DumpStatus(struct agiMemStatus& arg1) override;
 
     // 0x530BD0 | ?EndFrame@agiD3DPipeline@@UAEXXZ
-    void EndFrame() override;
+    ARTS_IMPORT void EndFrame() override;
 
     // 0x531100 | ?EndGfx@agiD3DPipeline@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x530B60 | ?EndScene@agiD3DPipeline@@UAEXXZ
-    void EndScene() override;
+    ARTS_IMPORT void EndScene() override;
 };
 
 check_size(agiD3DPipeline, 0x0);
 
 // 0x530A20 | ?RestoreCallback@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z | unused
-i32 __stdcall RestoreCallback(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
+ARTS_IMPORT i32 ARTS_STDCALL RestoreCallback(
+    struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
 
 // 0x530D30 | ?callb@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z
-i32 __stdcall callb(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
+ARTS_IMPORT i32 ARTS_STDCALL callb(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
 
 // 0x795C18 | ?AlphaPalette@@3HA
-inline extern_var(0x795C18, i32, AlphaPalette);
+ARTS_IMPORT extern i32 AlphaPalette;
 
 // 0x64E7C8 | ?NoTextureCompression@@3HA
-inline extern_var(0x64E7C8, i32, NoTextureCompression);
+ARTS_IMPORT extern i32 NoTextureCompression;
 
 // 0x795C20 | ?NotIndependentUV@@3HA
-inline extern_var(0x795C20, i32, NotIndependentUV);
+ARTS_IMPORT extern i32 NotIndependentUV;
 
 // 0x795C0C | ?SeparateTextureMemories@@3HA
-inline extern_var(0x795C0C, i32, SeparateTextureMemories);
+ARTS_IMPORT extern i32 SeparateTextureMemories;
 
 // 0x795BD8 | ?agiFOURCC@@3KA
-inline extern_var(0x795BD8, u32, agiFOURCC);
+ARTS_IMPORT extern u32 agiFOURCC;
 
 // 0x795C14 | ?dummyGlobal@@3IA
-inline extern_var(0x795C14, u32, dummyGlobal);
+ARTS_IMPORT extern u32 dummyGlobal;

@@ -51,32 +51,32 @@ class agiSWTexDef : public agiTexDef
 
 public:
     // 0x5376D0 | ??0agiSWTexDef@@QAE@PAVagiSWPipeline@@@Z
-    agiSWTexDef(class agiSWPipeline* arg1);
+    ARTS_IMPORT agiSWTexDef(class agiSWPipeline* arg1);
 
     // 0x537B40 | ??_GagiSWTexDef@@UAEPAXI@Z
     // 0x537700 | ??1agiSWTexDef@@UAE@XZ
-    ~agiSWTexDef() override;
+    ARTS_IMPORT ~agiSWTexDef() override;
 
     // 0x537730 | ?BeginGfx@agiSWTexDef@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x537820 | ?EndGfx@agiSWTexDef@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x537810 | ?IsAvailable@agiSWTexDef@@UAEHXZ
-    i32 IsAvailable() override;
+    ARTS_IMPORT i32 IsAvailable() override;
 
     // 0x537870 | ?Lock@agiSWTexDef@@UAEHAAUagiTexLock@@@Z
-    i32 Lock(struct agiTexLock& arg1) override;
+    ARTS_IMPORT i32 Lock(struct agiTexLock& arg1) override;
 
     // 0x5378D0 | ?Request@agiSWTexDef@@UAEXXZ
-    void Request() override;
+    ARTS_IMPORT void Request() override;
 
     // 0x537710 | ?Set@agiSWTexDef@@UAEXAAVVector2@@0@Z
-    void Set(class Vector2& arg1, class Vector2& arg2) override;
+    ARTS_IMPORT void Set(class Vector2& arg1, class Vector2& arg2) override;
 
     // 0x5378C0 | ?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z
-    void Unlock(struct agiTexLock& arg1) override;
+    ARTS_IMPORT void Unlock(struct agiTexLock& arg1) override;
 };
 
 check_size(agiSWTexDef, 0x9C);
@@ -87,20 +87,20 @@ class agiSWTexLut : public agiTexLut
 
 public:
     // 0x537930 | ??0agiSWTexLut@@QAE@PAVagiSWPipeline@@@Z
-    agiSWTexLut(class agiSWPipeline* arg1);
+    ARTS_IMPORT agiSWTexLut(class agiSWPipeline* arg1);
 
     // 0x537B70 | ??_GagiSWTexLut@@UAEPAXI@Z
     // 0x537BA0 | ??1agiSWTexLut@@UAE@XZ | inline
-    ~agiSWTexLut() override;
+    ARTS_IMPORT ~agiSWTexLut() override;
 
     // 0x537950 | ?BeginGfx@agiSWTexLut@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x537B30 | ?EndGfx@agiSWTexLut@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 };
 
 check_size(agiSWTexLut, 0x1420);
 
 // 0x652304 | ?swLutInvGamma@@3MA
-inline extern_var(0x652304, f32, swLutInvGamma);
+ARTS_IMPORT extern f32 swLutInvGamma;

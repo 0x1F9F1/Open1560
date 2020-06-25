@@ -119,229 +119,230 @@ class aiMap : public asNode
 
 public:
     // 0x433FC0 | ??0aiMap@@QAE@XZ
-    aiMap();
+    ARTS_IMPORT aiMap();
 
     // 0x43C120 | ??_EaiMap@@UAEPAXI@Z
     // 0x433FE0 | ??1aiMap@@UAE@XZ
-    ~aiMap() override;
+    ARTS_IMPORT ~aiMap() override;
 
     // 0x43BA60 | ?AddAmbient@aiMap@@QAEXPAVaiVehicleSpline@@@Z
-    void AddAmbient(class aiVehicleSpline* arg1);
+    ARTS_IMPORT void AddAmbient(class aiVehicleSpline* arg1);
 
     // 0x439670 | ?AddIntersection@aiMap@@QAEPAVaiIntersection@@PAVVector3@@@Z
-    class aiIntersection* AddIntersection(class Vector3* arg1);
+    ARTS_IMPORT class aiIntersection* AddIntersection(class Vector3* arg1);
 
     // 0x43B500 | ?AddPedestrian@aiMap@@QAEXPAVaiPedestrian@@@Z
-    void AddPedestrian(class aiPedestrian* arg1);
+    ARTS_IMPORT void AddPedestrian(class aiPedestrian* arg1);
 
     // 0x43BBE0 | ?AddWidgets@aiMap@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x436CF0 | ?AllwaysGreen@aiMap@@QAEXXZ | unused
-    void AllwaysGreen();
+    ARTS_IMPORT void AllwaysGreen();
 
     // 0x436D30 | ?AllwaysRed@aiMap@@QAEXXZ | unused
-    void AllwaysRed();
+    ARTS_IMPORT void AllwaysRed();
 
     // 0x43AE90 | ?ChooseNextFreewayLink@aiMap@@QAEHPAVaiRailSet@@@Z
-    i32 ChooseNextFreewayLink(class aiRailSet* arg1);
+    ARTS_IMPORT i32 ChooseNextFreewayLink(class aiRailSet* arg1);
 
     // 0x43ADF0 | ?ChooseNextLaneLink@aiMap@@QAEHPAVaiRailSet@@@Z
-    i32 ChooseNextLaneLink(class aiRailSet* arg1);
+    ARTS_IMPORT i32 ChooseNextLaneLink(class aiRailSet* arg1);
 
     // 0x43A5D0 | ?ChooseNextLeftStraightLink@aiMap@@QAEHPAVaiRailSet@@@Z
-    i32 ChooseNextLeftStraightLink(class aiRailSet* arg1);
+    ARTS_IMPORT i32 ChooseNextLeftStraightLink(class aiRailSet* arg1);
 
     // 0x43A440 | ?ChooseNextRandomLink@aiMap@@QAEHPAVaiRailSet@@@Z
-    i32 ChooseNextRandomLink(class aiRailSet* arg1);
+    ARTS_IMPORT i32 ChooseNextRandomLink(class aiRailSet* arg1);
 
     // 0x43AFA0 | ?ChooseNextRightStraightFreewayLink@aiMap@@QAEHPAVaiRailSet@@@Z
-    i32 ChooseNextRightStraightFreewayLink(class aiRailSet* arg1);
+    ARTS_IMPORT i32 ChooseNextRightStraightFreewayLink(class aiRailSet* arg1);
 
     // 0x43A840 | ?ChooseNextRightStraightLink@aiMap@@QAEHPAVaiRailSet@@@Z
-    i32 ChooseNextRightStraightLink(class aiRailSet* arg1);
+    ARTS_IMPORT i32 ChooseNextRightStraightLink(class aiRailSet* arg1);
 
     // 0x43AAE0 | ?ChooseNextStraightLink@aiMap@@QAEHPAVaiRailSet@@@Z
-    i32 ChooseNextStraightLink(class aiRailSet* arg1);
+    ARTS_IMPORT i32 ChooseNextStraightLink(class aiRailSet* arg1);
 
     // 0x433FF0 | ?Clean@aiMap@@QAEXXZ
-    void Clean();
+    ARTS_IMPORT void Clean();
 
     // 0x436680 | ?Cull@aiMap@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x43BB10 | ?DetRdSegBetweenInts@aiMap@@QAEPAVaiPath@@PAVaiIntersection@@0@Z | unused
-    class aiPath* DetRdSegBetweenInts(class aiIntersection* arg1, class aiIntersection* arg2);
+    ARTS_IMPORT class aiPath* DetRdSegBetweenInts(class aiIntersection* arg1, class aiIntersection* arg2);
 
     // 0x437310 | ?DetermineOppMapComponent@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAF2PAM323MFF@Z
-    i32 DetermineOppMapComponent(class Matrix34& arg1, class aiRailSet* arg2, i16* arg3, i16* arg4, f32* arg5,
-        f32* arg6, i16* arg7, f32* arg8, f32 arg9, i16 arg10, i16 arg11);
+    ARTS_IMPORT i32 DetermineOppMapComponent(class Matrix34& arg1, class aiRailSet* arg2, i16* arg3, i16* arg4,
+        f32* arg5, f32* arg6, i16* arg7, f32* arg8, f32 arg9, i16 arg10, i16 arg11);
 
     // 0x438CB0 | ?DetermineOppRoadPosInfo@aiMap@@QAEHAAVVector3@@0PAVaiRailSet@@PAFPAM3H@Z
-    i32 DetermineOppRoadPosInfo(
+    ARTS_IMPORT i32 DetermineOppRoadPosInfo(
         class Vector3& arg1, class Vector3& arg2, class aiRailSet* arg3, i16* arg4, f32* arg5, f32* arg6, i32 arg7);
 
     // 0x4370B0 | ?DeterminePerpMapComponent@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAF2PAM32@Z
-    i32 DeterminePerpMapComponent(
+    ARTS_IMPORT i32 DeterminePerpMapComponent(
         class Matrix34& arg1, class aiRailSet* arg2, i16* arg3, i16* arg4, f32* arg5, f32* arg6, i16* arg7);
 
     // 0x436F10 | ?DetermineRoadPosInfo@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAFPAM23H@Z
-    i32 DetermineRoadPosInfo(
+    ARTS_IMPORT i32 DetermineRoadPosInfo(
         class Matrix34& arg1, class aiRailSet* arg2, i16* arg3, f32* arg4, i16* arg5, f32* arg6, i32 arg7);
 
     // 0x436D70 | ?DrawAppRoads@aiMap@@QAEXXZ
-    void DrawAppRoads();
+    ARTS_IMPORT void DrawAppRoads();
 
     // 0x436CD0 | ?DrawNextVisibleAmbient@aiMap@@QAEXXZ
-    void DrawNextVisibleAmbient();
+    ARTS_IMPORT void DrawNextVisibleAmbient();
 
     // 0x439400 | ?Dump@aiMap@@QAEXXZ
-    void Dump();
+    ARTS_IMPORT void Dump();
 
     // 0x438D90 | ?FindAmbAppRoad@aiMap@@QAEHH@Z
-    i32 FindAmbAppRoad(i32 arg1);
+    ARTS_IMPORT i32 FindAmbAppRoad(i32 arg1);
 
     // 0x438DE0 | ?FindPedAppRoad@aiMap@@QAEHH@Z
-    i32 FindPedAppRoad(i32 arg1);
+    ARTS_IMPORT i32 FindPedAppRoad(i32 arg1);
 
     // 0x439540 | ?GetCameraPos@aiMap@@QAEXXZ | unused
-    void GetCameraPos();
+    ARTS_IMPORT void GetCameraPos();
 
     // 0x43BD90 | ?GetClass@aiMap@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x43BB90 | ?GoodRoadForCopStartPos@aiMap@@QAEHH@Z
-    i32 GoodRoadForCopStartPos(i32 arg1);
+    ARTS_IMPORT i32 GoodRoadForCopStartPos(i32 arg1);
 
     // 0x434220 | ?Init@aiMap@@QAEXPAD00PAVmmCar@@@Z
-    void Init(char* arg1, char* arg2, char* arg3, class mmCar* arg4);
+    ARTS_IMPORT void Init(char* arg1, char* arg2, char* arg3, class mmCar* arg4);
 
     // 0x433E80 | ?Intersection@aiMap@@QAEPAVaiIntersection@@H@Z
-    class aiIntersection* Intersection(i32 arg1);
+    ARTS_IMPORT class aiIntersection* Intersection(i32 arg1);
 
     // 0x436D90 | ?MapComponent@aiMap@@QAEHAAVVector3@@PAF1F@Z
-    i32 MapComponent(class Vector3& arg1, i16* arg2, i16* arg3, i16 arg4);
+    ARTS_IMPORT i32 MapComponent(class Vector3& arg1, i16* arg2, i16* arg3, i16 arg4);
 
     // 0x433F30 | ?Opponent@aiMap@@QAEPAVaiVehicleOpponent@@H@Z
-    class aiVehicleOpponent* Opponent(i32 arg1);
+    ARTS_IMPORT class aiVehicleOpponent* Opponent(i32 arg1);
 
     // 0x433E50 | ?Path@aiMap@@QAEPAVaiPath@@H@Z
-    class aiPath* Path(i32 arg1);
+    ARTS_IMPORT class aiPath* Path(i32 arg1);
 
     // 0x433F70 | ?Pedestrian@aiMap@@QAEPAVaiPedestrian@@H@Z | unused
-    class aiPedestrian* Pedestrian(i32 arg1);
+    ARTS_IMPORT class aiPedestrian* Pedestrian(i32 arg1);
 
     // 0x433FB0 | ?PlayerPos@aiMap@@QAEAAVVector3@@XZ | unused
-    class Vector3& PlayerPos();
+    ARTS_IMPORT class Vector3& PlayerPos();
 
     // 0x433EF0 | ?Police@aiMap@@QAEPAVaiVehiclePolice@@H@Z
-    class aiVehiclePolice* Police(i32 arg1);
+    ARTS_IMPORT class aiVehiclePolice* Police(i32 arg1);
 
     // 0x4391F0 | ?PredictAmbFreewayIntersectionPath@aiMap@@QAEPAVaiPath@@HAAVMatrix34@@@Z
-    class aiPath* PredictAmbFreewayIntersectionPath(i32 arg1, class Matrix34& arg2);
+    ARTS_IMPORT class aiPath* PredictAmbFreewayIntersectionPath(i32 arg1, class Matrix34& arg2);
 
     // 0x439010 | ?PredictAmbIntersectionPath@aiMap@@QAEPAVaiPath@@HAAVMatrix34@@@Z
-    class aiPath* PredictAmbIntersectionPath(i32 arg1, class Matrix34& arg2);
+    ARTS_IMPORT class aiPath* PredictAmbIntersectionPath(i32 arg1, class Matrix34& arg2);
 
     // 0x438E30 | ?PredictIntersectionPath@aiMap@@QAEPAVaiPath@@HAAVMatrix34@@@Z
-    class aiPath* PredictIntersectionPath(i32 arg1, class Matrix34& arg2);
+    ARTS_IMPORT class aiPath* PredictIntersectionPath(i32 arg1, class Matrix34& arg2);
 
     // 0x43BAA0 | ?RemoveAmbient@aiMap@@QAEXPAVaiVehicleSpline@@@Z
-    void RemoveAmbient(class aiVehicleSpline* arg1);
+    ARTS_IMPORT void RemoveAmbient(class aiVehicleSpline* arg1);
 
     // 0x43B530 | ?RemovePedestrian@aiMap@@QAEXPAVaiPedestrian@@@Z
-    void RemovePedestrian(class aiPedestrian* arg1);
+    ARTS_IMPORT void RemovePedestrian(class aiPedestrian* arg1);
 
     // 0x435FB0 | ?Reset@aiMap@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x435770 | ?Stats@aiMap@@QAEXXZ
-    void Stats();
+    ARTS_IMPORT void Stats();
 
     // 0x4362F0 | ?Update@aiMap@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x436670 | ?UpdatePaused@aiMap@@UAEXXZ
-    void UpdatePaused() override;
+    ARTS_IMPORT void UpdatePaused() override;
 
     // 0x433EB0 | ?Vehicle@aiMap@@QAEPAVaiVehicleAmbient@@H@Z | unused
-    class aiVehicleAmbient* Vehicle(i32 arg1);
+    ARTS_IMPORT class aiVehicleAmbient* Vehicle(i32 arg1);
 
     // 0x43BC20 | ?DeclareFields@aiMap@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x439570 | ?AddAIPath@aiMap@@AAEPAVaiPath@@AAVmmRoadSect@@HH@Z
-    class aiPath* AddAIPath(class mmRoadSect& arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT class aiPath* AddAIPath(class mmRoadSect& arg1, i32 arg2, i32 arg3);
 
     // 0x43A300 | ?AddIntToAppRoadMap@aiMap@@AAEXPAVCArrayList@@HMPAPAUasPortalCell@@H@Z
-    void AddIntToAppRoadMap(class CArrayList* arg1, i32 arg2, f32 arg3, struct asPortalCell** arg4, i32 arg5);
+    ARTS_IMPORT void AddIntToAppRoadMap(
+        class CArrayList* arg1, i32 arg2, f32 arg3, struct asPortalCell** arg4, i32 arg5);
 
     // 0x43B5A0 | ?AdjustAmbients@aiMap@@AAEXHH@Z
-    void AdjustAmbients(i32 arg1, i32 arg2);
+    ARTS_IMPORT void AdjustAmbients(i32 arg1, i32 arg2);
 
     // 0x43B160 | ?AdjustPedestrians@aiMap@@AAEXHH@Z
-    void AdjustPedestrians(i32 arg1, i32 arg2);
+    ARTS_IMPORT void AdjustPedestrians(i32 arg1, i32 arg2);
 
     // 0x439800 | ?CreateAmbAppRoadMap@aiMap@@AAEXXZ
-    void CreateAmbAppRoadMap();
+    ARTS_IMPORT void CreateAmbAppRoadMap();
 
     // 0x439D80 | ?CreatePedAppRoadMap@aiMap@@AAEXXZ
-    void CreatePedAppRoadMap();
+    ARTS_IMPORT void CreatePedAppRoadMap();
 
     // 0x43A400 | ?FindRoad@aiMap@@AAEHPAVCArrayList@@H@Z
-    i32 FindRoad(class CArrayList* arg1, i32 arg2);
+    ARTS_IMPORT i32 FindRoad(class CArrayList* arg1, i32 arg2);
 
     // 0x439720 | ?NewIntersection@aiMap@@AAEPAVaiIntersection@@AAVVector3@@@Z
-    class aiIntersection* NewIntersection(class Vector3& arg1);
+    ARTS_IMPORT class aiIntersection* NewIntersection(class Vector3& arg1);
 
     // 0x43A3D0 | ?NumCars@aiMap@@AAEHHMM@Z
-    i32 NumCars(i32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT i32 NumCars(i32 arg1, f32 arg2, f32 arg3);
 
     // 0x4359B0 | ?ReadBinary@aiMap@@AAEXPAD@Z
-    void ReadBinary(char* arg1);
+    ARTS_IMPORT void ReadBinary(char* arg1);
 
     // 0x43A380 | ?RoadDensity@aiMap@@AAEMHMH@Z | unused
-    f32 RoadDensity(i32 arg1, f32 arg2, i32 arg3);
+    ARTS_IMPORT f32 RoadDensity(i32 arg1, f32 arg2, i32 arg3);
 
     // 0x435830 | ?SaveBinary@aiMap@@AAEXPAD@Z
-    void SaveBinary(char* arg1);
+    ARTS_IMPORT void SaveBinary(char* arg1);
 
     // 0x4396A0 | ?ScanIntersections@aiMap@@AAEPAVaiIntersection@@AAVVector3@@@Z
-    class aiIntersection* ScanIntersections(class Vector3& arg1);
+    ARTS_IMPORT class aiIntersection* ScanIntersections(class Vector3& arg1);
 };
 
 check_size(aiMap, 0xBC);
 
 // 0x43C0D0 | ?Clamp@@YAMMMM@Z | inline
-f32 Clamp(f32 arg1, f32 arg2, f32 arg3);
+ARTS_IMPORT f32 Clamp(f32 arg1, f32 arg2, f32 arg3);
 
 // 0x6A7848 | ?AIMAP@@3VaiMap@@A
-inline extern_var(0x6A7848, class aiMap, AIMAP);
+ARTS_IMPORT extern class aiMap AIMAP;
 
 // 0x6A7834 | ?_fAmbientUpdate@@3MA
-inline extern_var(0x6A7834, f32, _fAmbientUpdate);
+ARTS_IMPORT extern f32 _fAmbientUpdate;
 
 // 0x6A7838 | ?_fCopUpdate@@3MA
-inline extern_var(0x6A7838, f32, _fCopUpdate);
+ARTS_IMPORT extern f32 _fCopUpdate;
 
 // 0x6A7938 | ?_fOppUpdate@@3MA
-inline extern_var(0x6A7938, f32, _fOppUpdate);
+ARTS_IMPORT extern f32 _fOppUpdate;
 
 // 0x6A7830 | ?_fPedUpdate@@3MA
-inline extern_var(0x6A7830, f32, _fPedUpdate);
+ARTS_IMPORT extern f32 _fPedUpdate;
 
 // 0x6A7948 | ?_fTotUpdate@@3MA
-inline extern_var(0x6A7948, f32, _fTotUpdate);
+ARTS_IMPORT extern f32 _fTotUpdate;
 
 // 0x6A793C | ?_nAmbientQty@@3HA
-inline extern_var(0x6A793C, i32, _nAmbientQty);
+ARTS_IMPORT extern i32 _nAmbientQty;
 
 // 0x6A7840 | ?_nPedQty@@3HA
-inline extern_var(0x6A7840, i32, _nPedQty);
+ARTS_IMPORT extern i32 _nPedQty;
 
 // 0x6A7934 | ?_nRdQty@@3HA
-inline extern_var(0x6A7934, i32, _nRdQty);
+ARTS_IMPORT extern i32 _nRdQty;
 
 // 0x6A7908 | ?aiMapMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7908, class MetaClass, aiMapMetaClass);
+// ARTS_IMPORT extern class MetaClass aiMapMetaClass;

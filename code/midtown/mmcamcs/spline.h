@@ -47,50 +47,50 @@ class Spline : public asNode
 
 public:
     // 0x4FD3F0 | ??0Spline@@QAE@XZ
-    Spline();
+    ARTS_IMPORT Spline();
 
     // 0x4FDD10 | ??_ESpline@@UAEPAXI@Z
     // 0x4F8F40 | ??1Spline@@UAE@XZ | inline
-    ~Spline() override;
+    ARTS_IMPORT ~Spline() override;
 
     // 0x4FDB80 | ?AddWidgets@Spline@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4FD5B0 | ?CalcCoeff@Spline@@QAEXXZ
-    void CalcCoeff();
+    ARTS_IMPORT void CalcCoeff();
 
     // 0x4FDAF0 | ?FixTimeStop@Spline@@QAEXXZ
-    void FixTimeStop();
+    ARTS_IMPORT void FixTimeStop();
 
     // 0x4FDD00 | ?GetClass@Spline@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4FD550 | ?InRange@Spline@@QAEHXZ
-    i32 InRange();
+    ARTS_IMPORT i32 InRange();
 
     // 0x4FD420 | ?Init@Spline@@QAEXPAMH@Z | unused
-    void Init(f32* arg1, i32 arg2);
+    ARTS_IMPORT void Init(f32* arg1, i32 arg2);
 
     // 0x4FD9F0 | ?Print@Spline@@QAEXH@Z | unused
-    void Print(i32 arg1);
+    ARTS_IMPORT void Print(i32 arg1);
 
     // 0x4FD790 | ?SetGoal@Spline@@QAEXPAMM@Z
-    void SetGoal(f32* arg1, f32 arg2);
+    ARTS_IMPORT void SetGoal(f32* arg1, f32 arg2);
 
     // 0x4FD710 | ?SetValue@Spline@@QAEXPAM@Z
-    void SetValue(f32* arg1);
+    ARTS_IMPORT void SetValue(f32* arg1);
 
     // 0x4FD880 | ?Solve@Spline@@QAEXM@Z
-    void Solve(f32 arg1);
+    ARTS_IMPORT void Solve(f32 arg1);
 
     // 0x4FDB30 | ?Update@Spline@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4FDB90 | ?DeclareFields@Spline@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(Spline, 0x74);
 
 // 0x719548 | ?SplineMetaClass@@3VMetaClass@@A
-inline extern_var(0x719548, class MetaClass, SplineMetaClass);
+// ARTS_IMPORT extern class MetaClass SplineMetaClass;

@@ -101,7 +101,7 @@ void PDebug(ARTS_FORMAT_STRING char const* format, ...)
     ArDebugBreak();
 }
 
-static extern_var(0x661AA0, HANDLE, DebugLogFile);
+static HANDLE DebugLogFile = INVALID_HANDLE_VALUE;
 
 static constexpr const char* PrinterPrefixes[5] {
     "",
@@ -189,11 +189,6 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
     }
 }
 
-i32 LogToCommPort(i32 arg1, i32 arg2)
-{
-    return stub<cdecl_t<i32, i32, i32>>(0x576E00, arg1, arg2);
-}
-
 void LogToFile()
 {
     std::time_t time;
@@ -228,11 +223,6 @@ void LogToFile(const char* file)
         OutputDebugStringA(file);
         OutputDebugStringA("'.\n");
     }
-}
-
-void LogToMonochromeMonitor()
-{
-    return stub<cdecl_t<void>>(0x576E90);
 }
 
 void Quit(char const* message)

@@ -25,4 +25,4 @@
 */
 
 // 0x57FD10 | ?jinit_memory_mgr@@YAXPAUjpeg_common_struct@@@Z
-void jinit_memory_mgr(struct jpeg_common_struct* arg1);
+ARTS_IMPORT void jinit_memory_mgr(struct jpeg_common_struct* arg1);

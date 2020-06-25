@@ -41,26 +41,26 @@ class Dialog_HallOfFame : public PUMenuBase
 
 public:
     // 0x49E3E0 | ??0Dialog_HallOfFame@@QAE@HMMMMPAD@Z
-    Dialog_HallOfFame(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT Dialog_HallOfFame(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49EBE0 | ??_EDialog_HallOfFame@@UAEPAXI@Z
     // 0x49E7E0 | ??1Dialog_HallOfFame@@UAE@XZ
-    ~Dialog_HallOfFame() override;
+    ARTS_IMPORT ~Dialog_HallOfFame() override;
 
     // 0x49E800 | ?AddRaceRecord@Dialog_HallOfFame@@QAEXHPAD00H00@Z
-    void AddRaceRecord(i32 arg1, char* arg2, char* arg3, char* arg4, i32 arg5, char* arg6, char* arg7);
+    ARTS_IMPORT void AddRaceRecord(i32 arg1, char* arg2, char* arg3, char* arg4, i32 arg5, char* arg6, char* arg7);
 
     // 0x49EA50 | ?InitRaceRecord@Dialog_HallOfFame@@QAEXXZ
-    void InitRaceRecord();
+    ARTS_IMPORT void InitRaceRecord();
 
     // 0x49E7F0 | ?PreSetup@Dialog_HallOfFame@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x49E940 | ?ResetRaceRecord@Dialog_HallOfFame@@QAEXXZ
-    void ResetRaceRecord();
+    ARTS_IMPORT void ResetRaceRecord();
 
     // 0x49E9D0 | ?SetSortState@Dialog_HallOfFame@@QAEXXZ
-    void SetSortState();
+    ARTS_IMPORT void SetSortState();
 };
 
 check_size(Dialog_HallOfFame, 0xE4);

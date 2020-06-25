@@ -47,17 +47,17 @@ class agiRasterizer : public agiRefreshable
 
 public:
     // 0x557BE0 | ??0agiRasterizer@@QAE@PAVagiPipeline@@@Z
-    agiRasterizer(class agiPipeline* arg1);
+    ARTS_IMPORT agiRasterizer(class agiPipeline* arg1);
 
     // 0x557E40 | ??_GagiRasterizer@@UAEPAXI@Z
     // 0x557D10 | ??1agiRasterizer@@UAE@XZ
-    ~agiRasterizer() override;
+    ARTS_IMPORT ~agiRasterizer() override;
 
     // 0x557D20 | ?BeginGroup@agiRasterizer@@UAEXXZ
-    virtual void BeginGroup();
+    ARTS_IMPORT virtual void BeginGroup();
 
     // 0x557D30 | ?EndGroup@agiRasterizer@@UAEXXZ
-    virtual void EndGroup();
+    ARTS_IMPORT virtual void EndGroup();
 
     virtual void Verts(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) = 0;
 
@@ -68,10 +68,10 @@ public:
     virtual void Triangle(i32 arg1, i32 arg2, i32 arg3) = 0;
 
     // 0x557D40 | ?Quad@agiRasterizer@@UAEXHHHH@Z
-    virtual void Quad(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT virtual void Quad(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
 
     // 0x557D70 | ?Poly@agiRasterizer@@UAEXPAHH@Z
-    virtual void Poly(i32* arg1, i32 arg2);
+    ARTS_IMPORT virtual void Poly(i32* arg1, i32 arg2);
 
     virtual void Line(i32 arg1, i32 arg2) = 0;
 
@@ -80,10 +80,10 @@ public:
     virtual void Mesh(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3, u16* arg4, i32 arg5) = 0;
 
     // 0x557DB0 | ?Mesh2@agiRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z
-    virtual void Mesh2(struct agiScreenVtx2* arg1, i32 arg2, u16* arg3, i32 arg4);
+    ARTS_IMPORT virtual void Mesh2(struct agiScreenVtx2* arg1, i32 arg2, u16* arg3, i32 arg4);
 
     // 0x557DD0 | ?LineList@agiRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    virtual void LineList(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3);
+    ARTS_IMPORT virtual void LineList(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3);
 };
 
 check_size(agiRasterizer, 0x0);
@@ -92,19 +92,19 @@ struct agiRendStateStruct
 {
 public:
     // 0x557CE0 | ?Reset@agiRendStateStruct@@QAEXXZ
-    void Reset();
+    ARTS_IMPORT void Reset();
 };
 
 check_size(agiRendStateStruct, 0x0);
 
 // 0x8FF0D0 | ?RAST@@3PAVagiRasterizer@@A
-inline extern_var(0x8FF0D0, class agiRasterizer*, RAST);
+ARTS_IMPORT extern class agiRasterizer* RAST;
 
 // 0x656BD0 | ?ROPTS@@3UagiRenderOpts@@A
-inline extern_var(0x656BD0, struct agiRenderOpts, ROPTS);
+ARTS_IMPORT extern struct agiRenderOpts ROPTS;
 
 // 0x8FF090 | ?agiCurState@@3VagiRendState@@A
-inline extern_var(0x8FF090, class agiRendState, agiCurState);
+ARTS_IMPORT extern class agiRendState agiCurState;
 
 // 0x8FF050 | ?agiLastState@@3UagiRendStateStruct@@A
-inline extern_var(0x8FF050, struct agiRendStateStruct, agiLastState);
+ARTS_IMPORT extern struct agiRendStateStruct agiLastState;

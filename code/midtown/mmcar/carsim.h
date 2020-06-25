@@ -83,26 +83,26 @@
 #include "arts7/node.h"
 
 // 0x46B8F0 | ?IMPACTCB@@YAXPAVmmCarSim@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M3@Z
-void IMPACTCB(class mmCarSim* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4, f32 arg5,
-    class Vector3* arg6);
+ARTS_IMPORT void IMPACTCB(class mmCarSim* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4,
+    f32 arg5, class Vector3* arg6);
 
 // 0x4703A0 | ?Struct@@YAPAUMetaType@@PAVMetaClass@@@Z | inline
-struct MetaType* Struct(class MetaClass* arg1);
+ARTS_IMPORT struct MetaType* Struct(class MetaClass* arg1);
 
 // 0x6A7C78 | ?HitWaterTimer@@3MA
-inline extern_var(0x6A7C78, f32, HitWaterTimer);
+ARTS_IMPORT extern f32 HitWaterTimer;
 
 // 0x63ABC0 | ?MetricFactor@@3MA
-inline extern_var(0x63ABC0, f32, MetricFactor);
+ARTS_IMPORT extern f32 MetricFactor;
 
 // 0x6A7C40 | ?PlayerPos@@3VVector3@@A
-inline extern_var(0x6A7C40, class Vector3, PlayerPos);
+ARTS_IMPORT extern class Vector3 PlayerPos;
 
 // 0x63ABC4 | ?WeatherFriction@@3MA
-inline extern_var(0x63ABC4, f32, WeatherFriction);
+ARTS_IMPORT extern f32 WeatherFriction;
 
 // 0x6A7C50 | ?mmCarSimMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7C50, class MetaClass, mmCarSimMetaClass);
+// ARTS_IMPORT extern class MetaClass mmCarSimMetaClass;
 
 class mmCarSim : public asNode
 {
@@ -110,116 +110,116 @@ class mmCarSim : public asNode
 
 public:
     // 0x46B950 | ??0mmCarSim@@QAE@XZ
-    mmCarSim();
+    ARTS_IMPORT mmCarSim();
 
     // 0x4703D0 | ??_EmmCarSim@@UAEPAXI@Z
     // 0x46C040 | ??1mmCarSim@@UAE@XZ
-    ~mmCarSim() override;
+    ARTS_IMPORT ~mmCarSim() override;
 
     // 0x46C340 | ?AddPlayerSpecifics@mmCarSim@@QAEXXZ
-    void AddPlayerSpecifics();
+    ARTS_IMPORT void AddPlayerSpecifics();
 
     // 0x46E840 | ?AddWidgets@mmCarSim@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x46D540 | ?AfterLoad@mmCarSim@@UAEXXZ
-    void AfterLoad() override;
+    ARTS_IMPORT void AfterLoad() override;
 
     // 0x46D600 | ?BeforeSave@mmCarSim@@UAEXXZ
-    void BeforeSave() override;
+    ARTS_IMPORT void BeforeSave() override;
 
     // 0x46D080 | ?ConfigureDrivetrain@mmCarSim@@QAEXXZ
-    void ConfigureDrivetrain();
+    ARTS_IMPORT void ConfigureDrivetrain();
 
     // 0x46E080 | ?Explode@mmCarSim@@QAEXXZ
-    void Explode();
+    ARTS_IMPORT void Explode();
 
     // 0x4701A0 | ?GetClass@mmCarSim@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x46C500 | ?Init@mmCarSim@@QAEXPADPAVmmCar@@H@Z
-    void Init(char* arg1, class mmCar* arg2, i32 arg3);
+    ARTS_IMPORT void Init(char* arg1, class mmCar* arg2, i32 arg3);
 
     // 0x46F5B0 | ?InitPtx@mmCarSim@@QAEXXZ
-    void InitPtx();
+    ARTS_IMPORT void InitPtx();
 
     // 0x46BFF0 | ?OnGround@mmCarSim@@QAEHXZ
-    i32 OnGround();
+    ARTS_IMPORT i32 OnGround();
 
     // 0x46C3C0 | ?PlayHorn@mmCarSim@@QAEXXZ
-    void PlayHorn();
+    ARTS_IMPORT void PlayHorn();
 
     // 0x46FAA0 | ?PlayImpactAudio@mmCarSim@@QAEXFPAVmmIntersection@@PAVVector3@@@Z
-    void PlayImpactAudio(i16 arg1, class mmIntersection* arg2, class Vector3* arg3);
+    ARTS_IMPORT void PlayImpactAudio(i16 arg1, class mmIntersection* arg2, class Vector3* arg3);
 
     // 0x46CB20 | ?ReInit@mmCarSim@@QAEXPAD@Z
-    void ReInit(char* arg1);
+    ARTS_IMPORT void ReInit(char* arg1);
 
     // 0x46D060 | ?ReconfigureDrivetrain@mmCarSim@@QAEXXZ
-    void ReconfigureDrivetrain();
+    ARTS_IMPORT void ReconfigureDrivetrain();
 
     // 0x46E830 | ?RemoveNetVehicleAudio@mmCarSim@@QAEXXZ
-    void RemoveNetVehicleAudio();
+    ARTS_IMPORT void RemoveNetVehicleAudio();
 
     // 0x46D6B0 | ?Reset@mmCarSim@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x46D020 | ?RestoreImpactParams@mmCarSim@@QAEXXZ
-    void RestoreImpactParams();
+    ARTS_IMPORT void RestoreImpactParams();
 
     // 0x46D040 | ?SetHackedImpactParams@mmCarSim@@QAEXXZ
-    void SetHackedImpactParams();
+    ARTS_IMPORT void SetHackedImpactParams();
 
     // 0x46D500 | ?SetResetPos@mmCarSim@@QAEXAAVVector3@@@Z
-    void SetResetPos(class Vector3& arg1);
+    ARTS_IMPORT void SetResetPos(class Vector3& arg1);
 
     // 0x46E7E0 | ?ShouldSkid@mmCarSim@@QAEHXZ
-    i32 ShouldSkid();
+    ARTS_IMPORT i32 ShouldSkid();
 
     // 0x46C4A0 | ?StartSiren@mmCarSim@@QAEXXZ
-    void StartSiren();
+    ARTS_IMPORT void StartSiren();
 
     // 0x46C430 | ?StopHorn@mmCarSim@@QAEXXZ
-    void StopHorn();
+    ARTS_IMPORT void StopHorn();
 
     // 0x46C4D0 | ?StopSiren@mmCarSim@@QAEXXZ
-    void StopSiren();
+    ARTS_IMPORT void StopSiren();
 
     // 0x46D300 | ?UnconfigureDrivetrain@mmCarSim@@QAEXXZ
-    void UnconfigureDrivetrain();
+    ARTS_IMPORT void UnconfigureDrivetrain();
 
     // 0x46D860 | ?Update@mmCarSim@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x46E270 | ?UpdateDamage@mmCarSim@@QAEXXZ
-    void UpdateDamage();
+    ARTS_IMPORT void UpdateDamage();
 
     // 0x46E160 | ?UpdateExhaust@mmCarSim@@QAEXXZ
-    void UpdateExhaust();
+    ARTS_IMPORT void UpdateExhaust();
 
     // 0x46E520 | ?UpdateFF@mmCarSim@@QAEXXZ
-    void UpdateFF();
+    ARTS_IMPORT void UpdateFF();
 
     // 0x46D680 | ?UpdateICSParams@mmCarSim@@QAEXXZ
-    void UpdateICSParams();
+    ARTS_IMPORT void UpdateICSParams();
 
     // 0x46FBC0 | ?DeclareFields@mmCarSim@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
     // 0x46C030 | ?SetGlobalTuning@mmCarSim@@SAXMM@Z
-    static void SetGlobalTuning(f32 arg1, f32 arg2);
+    ARTS_IMPORT static void SetGlobalTuning(f32 arg1, f32 arg2);
 
     // 0x6A7C94 | ?DirtTex@mmCarSim@@2PAVagiTexDef@@A
-    static inline extern_var(0x6A7C94, class agiTexDef*, DirtTex);
+    ARTS_IMPORT static class agiTexDef* DirtTex;
 
     // 0x6A7C90 | ?GrassTex@mmCarSim@@2PAVagiTexDef@@A
-    static inline extern_var(0x6A7C90, class agiTexDef*, GrassTex);
+    ARTS_IMPORT static class agiTexDef* GrassTex;
 
     // 0x6A7C9C | ?PlayerRawSteering@mmCarSim@@2MA
-    static inline extern_var(0x6A7C9C, f32, PlayerRawSteering);
+    ARTS_IMPORT static f32 PlayerRawSteering;
 
     // 0x6A7C98 | ?SnowTex@mmCarSim@@2PAVagiTexDef@@A
-    static inline extern_var(0x6A7C98, class agiTexDef*, SnowTex);
+    ARTS_IMPORT static class agiTexDef* SnowTex;
 };
 
 check_size(mmCarSim, 0x1FAC);

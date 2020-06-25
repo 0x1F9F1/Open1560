@@ -65,77 +65,77 @@ class VehicleSelectBase : public UIMenu
 
 public:
     // 0x49A790 | ??0VehicleSelectBase@@QAE@H@Z
-    VehicleSelectBase(i32 arg1);
+    ARTS_IMPORT VehicleSelectBase(i32 arg1);
 
     // 0x49C3A0 | ??_EVehicleSelectBase@@UAEPAXI@Z
     // 0x49B7D0 | ??1VehicleSelectBase@@UAE@XZ
-    ~VehicleSelectBase() override;
+    ARTS_IMPORT ~VehicleSelectBase() override;
 
     // 0x49B990 | ?AllSetCar@VehicleSelectBase@@QAEXPADH@Z
-    void AllSetCar(char* arg1, i32 arg2);
+    ARTS_IMPORT void AllSetCar(char* arg1, i32 arg2);
 
     // 0x49C000 | ?AssignVehicleStats@VehicleSelectBase@@QAEXHMMMM@Z
-    void AssignVehicleStats(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT void AssignVehicleStats(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x49BC50 | ?CarMod@VehicleSelectBase@@QAEXAAH@Z
-    void CarMod(i32& arg1);
+    ARTS_IMPORT void CarMod(i32& arg1);
 
     // 0x49AA70 | ?ColorCB@VehicleSelectBase@@QAEXXZ
-    void ColorCB();
+    ARTS_IMPORT void ColorCB();
 
     // 0x49BBD0 | ?CurrentVehicleIsLocked@VehicleSelectBase@@QAEHXZ
-    i32 CurrentVehicleIsLocked();
+    ARTS_IMPORT i32 CurrentVehicleIsLocked();
 
     // 0x49C500 | ?DecCar@VehicleSelectBase@@QAEXXZ | inline
-    void DecCar();
+    ARTS_IMPORT void DecCar();
 
     // 0x49A9B0 | ?DecColor@VehicleSelectBase@@QAEXXZ
-    void DecColor();
+    ARTS_IMPORT void DecColor();
 
     // 0x49C1E0 | ?FillStats@VehicleSelectBase@@QAEXXZ
-    void FillStats();
+    ARTS_IMPORT void FillStats();
 
     // 0x49BAA0 | ?GetCarTitle@VehicleSelectBase@@QAEPADHPADFPAVstring@@@Z
-    char* GetCarTitle(i32 arg1, char* arg2, i16 arg3, class string* arg4);
+    ARTS_IMPORT char* GetCarTitle(i32 arg1, char* arg2, i16 arg3, class string* arg4);
 
     // 0x49C510 | ?IncCar@VehicleSelectBase@@QAEXXZ | inline
-    void IncCar();
+    ARTS_IMPORT void IncCar();
 
     // 0x49A8F0 | ?IncColor@VehicleSelectBase@@QAEXXZ
-    void IncColor();
+    ARTS_IMPORT void IncColor();
 
     // 0x49AA90 | ?InitCarSelection@VehicleSelectBase@@QAEXHMMMM@Z
-    void InitCarSelection(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT void InitCarSelection(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x49BF60 | ?LoadStats@VehicleSelectBase@@QAEHPAD@Z
-    i32 LoadStats(char* arg1);
+    ARTS_IMPORT i32 LoadStats(char* arg1);
 
     // 0x49B960 | ?PostSetup@VehicleSelectBase@@UAEXXZ
-    void PostSetup() override;
+    ARTS_IMPORT void PostSetup() override;
 
     // 0x49B870 | ?PreSetup@VehicleSelectBase@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x49B9F0 | ?Reset@VehicleSelectBase@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x49BBF0 | ?SetLastUnlockedVehicle@VehicleSelectBase@@QAEXXZ
-    void SetLastUnlockedVehicle();
+    ARTS_IMPORT void SetLastUnlockedVehicle();
 
     // 0x49C230 | ?SetLockedLabel@VehicleSelectBase@@QAEXXZ
-    void SetLockedLabel();
+    ARTS_IMPORT void SetLockedLabel();
 
     // 0x49BC80 | ?SetPick@VehicleSelectBase@@QAEXHF@Z
-    void SetPick(i32 arg1, i16 arg2);
+    ARTS_IMPORT void SetPick(i32 arg1, i16 arg2);
 
     // 0x49C520 | ?SetShowcaseFlag@VehicleSelectBase@@QAEXXZ | inline
-    void SetShowcaseFlag();
+    ARTS_IMPORT void SetShowcaseFlag();
 
     // 0x49B9E0 | ?TDPickCB@VehicleSelectBase@@QAEXXZ
-    void TDPickCB();
+    ARTS_IMPORT void TDPickCB();
 
     // 0x49BA00 | ?Update@VehicleSelectBase@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(VehicleSelectBase, 0x0);

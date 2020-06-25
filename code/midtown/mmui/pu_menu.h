@@ -45,38 +45,38 @@ class PUMenuBase : public UIMenu
 
 public:
     // 0x4AAFE0 | ??0PUMenuBase@@QAE@HMMMMPAD@Z
-    PUMenuBase(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT PUMenuBase(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4AB490 | ??_EPUMenuBase@@UAEPAXI@Z
     // 0x4AB1B0 | ??1PUMenuBase@@UAE@XZ
-    ~PUMenuBase() override;
+    ARTS_IMPORT ~PUMenuBase() override;
 
     // 0x4AB390 | ?AddExit@PUMenuBase@@QAEMMMMM@Z
-    f32 AddExit(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT f32 AddExit(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4AB2F0 | ?AddOKCancel@PUMenuBase@@QAEXVCallback@@0@Z
-    void AddOKCancel(class Callback arg1, class Callback arg2);
+    ARTS_IMPORT void AddOKCancel(class Callback arg1, class Callback arg2);
 
     // 0x4AB280 | ?AddPrevious@PUMenuBase@@QAEMMMMM@Z
-    f32 AddPrevious(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT f32 AddPrevious(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4AB210 | ?CreateDummyBitmap@PUMenuBase@@QAEPAVagiBitmap@@XZ
-    class agiBitmap* CreateDummyBitmap();
+    ARTS_IMPORT class agiBitmap* CreateDummyBitmap();
 
     // 0x4AB270 | ?CreateTitle@PUMenuBase@@QAEMXZ
-    f32 CreateTitle();
+    ARTS_IMPORT f32 CreateTitle();
 
     // 0x4AB430 | ?Cull@PUMenuBase@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4AB470 | ?DisableExit@PUMenuBase@@QAEXXZ
-    void DisableExit();
+    ARTS_IMPORT void DisableExit();
 
     // 0x4AB480 | ?EnableExit@PUMenuBase@@QAEXXZ
-    void EnableExit();
+    ARTS_IMPORT void EnableExit();
 
     // 0x4AB400 | ?Update@PUMenuBase@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(PUMenuBase, 0x0);

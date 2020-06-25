@@ -19,23 +19,3 @@
 define_dummy_symbol(mmui_controlbase);
 
 #include "controlbase.h"
-
-ControlBase::ControlBase()
-{
-    unimplemented();
-}
-
-ControlBase::~ControlBase()
-{
-    unimplemented();
-}
-
-void ControlBase::InitSensitivity()
-{
-    return stub<thiscall_t<void, ControlBase*>>(0x4AB720, this);
-}
-
-void ControlBase::SetSensitivity()
-{
-    return stub<thiscall_t<void, ControlBase*>>(0x4AB780, this);
-}

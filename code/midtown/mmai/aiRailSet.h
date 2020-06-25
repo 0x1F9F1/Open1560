@@ -50,68 +50,68 @@ class aiRailSet
 {
 public:
     // 0x453BF0 | ??0aiRailSet@@QAE@XZ
-    aiRailSet();
+    ARTS_IMPORT aiRailSet();
 
     // 0x453CF0 | ??1aiRailSet@@QAE@XZ
-    ~aiRailSet();
+    ARTS_IMPORT ~aiRailSet();
 
     // 0x454710 | ?CalcCopRailPosition@aiRailSet@@QAEHAAVVector3@@0MM@Z
-    i32 CalcCopRailPosition(class Vector3& arg1, class Vector3& arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT i32 CalcCopRailPosition(class Vector3& arg1, class Vector3& arg2, f32 arg3, f32 arg4);
 
     // 0x457170 | ?CalcRailLength@aiRailSet@@QAEMXZ
-    f32 CalcRailLength();
+    ARTS_IMPORT f32 CalcRailLength();
 
     // 0x458850 | ?CalcRailPosOrient@aiRailSet@@QAEXAAVVector3@@0M@Z
-    void CalcRailPosOrient(class Vector3& arg1, class Vector3& arg2, f32 arg3);
+    ARTS_IMPORT void CalcRailPosOrient(class Vector3& arg1, class Vector3& arg2, f32 arg3);
 
     // 0x453D00 | ?CalcRailPosition@aiRailSet@@QAEXAAVVector3@@M@Z
-    void CalcRailPosition(class Vector3& arg1, f32 arg2);
+    ARTS_IMPORT void CalcRailPosition(class Vector3& arg1, f32 arg2);
 
     // 0x456B60 | ?CalcRailState@aiRailSet@@QAEHM@Z
-    i32 CalcRailState(f32 arg1);
+    ARTS_IMPORT i32 CalcRailState(f32 arg1);
 
     // 0x457660 | ?CalcTurnIntersection@aiRailSet@@QAEXAAVVector3@@HPAVaiPath@@1@Z
-    void CalcTurnIntersection(class Vector3& arg1, i32 arg2, class aiPath* arg3, class aiPath* arg4);
+    ARTS_IMPORT void CalcTurnIntersection(class Vector3& arg1, i32 arg2, class aiPath* arg3, class aiPath* arg4);
 
     // 0x459740 | ?CalcXZDirection@aiRailSet@@QAEXAAVVector3@@0000M@Z | unused
-    void CalcXZDirection(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
+    ARTS_IMPORT void CalcXZDirection(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
         class Vector3& arg5, f32 arg6);
 
     // 0x459860 | ?CalcXZPosOrient@aiRailSet@@QAEXAAVVector3@@00000M@Z
-    void CalcXZPosOrient(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
+    ARTS_IMPORT void CalcXZPosOrient(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
         class Vector3& arg5, class Vector3& arg6, f32 arg7);
 
     // 0x459630 | ?CalcXZPosition@aiRailSet@@QAEXAAVVector3@@0000M@Z
-    void CalcXZPosition(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
+    ARTS_IMPORT void CalcXZPosition(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
         class Vector3& arg5, f32 arg6);
 
     // 0x4599A0 | ?ComputeXZCurve@aiRailSet@@QAEXAAVVector3@@000@Z
-    void ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4);
+    ARTS_IMPORT void ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4);
 
     // 0x459A50 | ?ComputeXZCurve@aiRailSet@@QAEXAAVVector3@@000AAVVector4@@1@Z
-    void ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
+    ARTS_IMPORT void ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
         class Vector4& arg5, class Vector4& arg6);
 
     // 0x457A70 | ?DrawTurn@aiRailSet@@QAEXM@Z
-    void DrawTurn(f32 arg1);
+    ARTS_IMPORT void DrawTurn(f32 arg1);
 
     // 0x459BC0 | ?Dump@aiRailSet@@QAEXXZ
-    void Dump();
+    ARTS_IMPORT void Dump();
 
     // 0x4593F0 | ?SolveNextLane@aiRailSet@@QAEXXZ | unused
-    void SolveNextLane();
+    ARTS_IMPORT void SolveNextLane();
 
     // 0x459470 | ?SolveTurnType@aiRailSet@@QAEHPAVaiPath@@0@Z
-    i32 SolveTurnType(class aiPath* arg1, class aiPath* arg2);
+    ARTS_IMPORT i32 SolveTurnType(class aiPath* arg1, class aiPath* arg2);
 
     // 0x459AF0 | ?SolveXZCurve@aiRailSet@@QAEXAAVVector3@@0M@Z
-    void SolveXZCurve(class Vector3& arg1, class Vector3& arg2, f32 arg3);
+    ARTS_IMPORT void SolveXZCurve(class Vector3& arg1, class Vector3& arg2, f32 arg3);
 
     // 0x459B80 | ?SolveXZPosition@aiRailSet@@QAEXAAVVector3@@M@Z | unused
-    void SolveXZPosition(class Vector3& arg1, f32 arg2);
+    ARTS_IMPORT void SolveXZPosition(class Vector3& arg1, f32 arg2);
 };
 
 check_size(aiRailSet, 0x0);
 
 // 0x459E00 | ??D@YA?AVVector3@@MABV0@@Z | inline
-class Vector3 operator*(f32 arg1, class Vector3 const& arg2);
+ARTS_IMPORT class Vector3 operator*(f32 arg1, class Vector3 const& arg2);

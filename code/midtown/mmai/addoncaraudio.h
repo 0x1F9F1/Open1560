@@ -33,22 +33,22 @@ struct AddOnCarAudio
 {
 public:
     // 0x45C560 | ??0AddOnCarAudio@@QAE@PADF@Z
-    AddOnCarAudio(char* arg1, i16 arg2);
+    ARTS_IMPORT AddOnCarAudio(char* arg1, i16 arg2);
 
     // 0x45C690 | ??1AddOnCarAudio@@QAE@XZ
-    ~AddOnCarAudio();
+    ARTS_IMPORT ~AddOnCarAudio();
 
     // 0x45C750 | ?EchoOff@AddOnCarAudio@@QAEXXZ
-    void EchoOff();
+    ARTS_IMPORT void EchoOff();
 
     // 0x45C700 | ?EchoOn@AddOnCarAudio@@QAEXM@Z
-    void EchoOn(f32 arg1);
+    ARTS_IMPORT void EchoOn(f32 arg1);
 
     // 0x45C6E0 | ?GetEngineSoundPtr@AddOnCarAudio@@QAEPAVAudSound@@F@Z
-    class AudSound* GetEngineSoundPtr(i16 arg1);
+    ARTS_IMPORT class AudSound* GetEngineSoundPtr(i16 arg1);
 
     // 0x45C780 | ?Update@AddOnCarAudio@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 };
 
 check_size(AddOnCarAudio, 0x0);

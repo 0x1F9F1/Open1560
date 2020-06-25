@@ -39,20 +39,20 @@ class agiZBufRenderer : public agiSurfRenderer
 
 public:
     // 0x54FA70 | ??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z
-    agiZBufRenderer(class agiRasterizer* arg1);
+    ARTS_IMPORT agiZBufRenderer(class agiRasterizer* arg1);
 
     // 0x5507D0 | ??_EagiZBufRenderer@@UAEPAXI@Z
     // 0x54FA90 | ??1agiZBufRenderer@@UAE@XZ
-    ~agiZBufRenderer() override;
+    ARTS_IMPORT ~agiZBufRenderer() override;
 
     // 0x54FAA0 | ?EndGroup@agiZBufRenderer@@UAEXXZ
-    void EndGroup() override;
+    ARTS_IMPORT void EndGroup() override;
 };
 
 check_size(agiZBufRenderer, 0x14);
 
 // 0x65634C | ?aa_expansion@@3MA
-inline extern_var(0x65634C, f32, aa_expansion);
+ARTS_IMPORT extern f32 aa_expansion;
 
 // 0x656348 | ?twiddle@@3HA
-inline extern_var(0x656348, i32, twiddle);
+ARTS_IMPORT extern i32 twiddle;

@@ -43,32 +43,32 @@ class asMeshSetForm : public asNode
 
 public:
     // 0x4FFEA0 | ??0asMeshSetForm@@QAE@XZ
-    asMeshSetForm();
+    ARTS_IMPORT asMeshSetForm();
 
     // 0x500070 | ??_GasMeshSetForm@@UAEPAXI@Z
     // 0x5000A0 | ??1asMeshSetForm@@UAE@XZ | inline
-    ~asMeshSetForm() override;
+    ARTS_IMPORT ~asMeshSetForm() override;
 
     // 0x4FFF60 | ?Cull@asMeshSetForm@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4FFEC0 | ?SetShape@asMeshSetForm@@QAEXPAD0PAVVector3@@@Z
-    void SetShape(char* arg1, char* arg2, class Vector3* arg3);
+    ARTS_IMPORT void SetShape(char* arg1, char* arg2, class Vector3* arg3);
 
     // 0x4FFF00 | ?SetZRead@asMeshSetForm@@QAEXH@Z
-    void SetZRead(i32 arg1);
+    ARTS_IMPORT void SetZRead(i32 arg1);
 
     // 0x4FFF20 | ?SetZWrite@asMeshSetForm@@QAEXH@Z
-    void SetZWrite(i32 arg1);
+    ARTS_IMPORT void SetZWrite(i32 arg1);
 
     // 0x4FFF40 | ?Update@asMeshSetForm@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x649D8C | ?Lighter@asMeshSetForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    static inline extern_var(0x649D8C, void (*)(u8*, u32*, u32*, class agiMeshSet*), Lighter);
+    ARTS_IMPORT static void (*Lighter)(u8*, u32*, u32*, class agiMeshSet*);
 
     // 0x7195A4 | ?SphMapTex@asMeshSetForm@@2PAVagiTexDef@@A
-    static inline extern_var(0x7195A4, class agiTexDef*, SphMapTex);
+    ARTS_IMPORT static class agiTexDef* SphMapTex;
 };
 
 check_size(asMeshSetForm, 0x2C);

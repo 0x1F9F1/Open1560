@@ -29,16 +29,16 @@
 */
 
 // 0x532090 | ?DDErrorToString@@YAPADJ@Z
-char* DDErrorToString(i32 arg1);
+ARTS_IMPORT char* DDErrorToString(i32 arg1);
 
 // 0x532890 | ?__DDRelease@@YAXPAUIUnknown@@PBD1H@Z
-void __DDRelease(struct IUnknown* arg1, char const* arg2, char const* arg3, i32 arg4);
+ARTS_IMPORT void __DDRelease(struct IUnknown* arg1, char const* arg2, char const* arg3, i32 arg4);
 
 // 0x5327B0 | ?__DDTry@@YAXHPBD0H@Z
-void __DDTry(i32 arg1, char const* arg2, char const* arg3, i32 arg4);
+ARTS_IMPORT void __DDTry(i32 arg1, char const* arg2, char const* arg3, i32 arg4);
 
 // 0x795C88 | ?DDIgnoreErrors@@3HA
-inline extern_var(0x795C88, i32, DDIgnoreErrors);
+ARTS_IMPORT extern i32 DDIgnoreErrors;
 
 // 0x795C8C | ?DDNeedRestore@@3HA
-inline extern_var(0x795C8C, i32, DDNeedRestore);
+ARTS_IMPORT extern i32 DDNeedRestore;

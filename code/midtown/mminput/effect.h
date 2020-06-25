@@ -31,7 +31,7 @@
 */
 
 // 0x4E7350 | ?inputEnumEffectTypeProc@@YGHPBUDIEFFECTINFOA@@PAX@Z
-i32 __stdcall inputEnumEffectTypeProc(struct DIEFFECTINFOA const* arg1, void* arg2);
+ARTS_IMPORT i32 ARTS_STDCALL inputEnumEffectTypeProc(struct DIEFFECTINFOA const* arg1, void* arg2);
 
 class mmEffectFF
 {
@@ -39,21 +39,21 @@ class mmEffectFF
 
 public:
     // 0x4E73B0 | ??0mmEffectFF@@QAE@XZ
-    mmEffectFF();
+    ARTS_IMPORT mmEffectFF();
 
     // 0x4E7420 | ??1mmEffectFF@@QAE@XZ
-    ~mmEffectFF();
+    ARTS_IMPORT ~mmEffectFF();
 
     virtual i32 Init(struct IDirectInputDevice2A* arg1) = 0;
 
     // 0x4E7440 | ?Play@mmEffectFF@@UAEHXZ | inline
-    virtual i32 Play();
+    ARTS_IMPORT virtual i32 Play();
 
     // 0x4E7450 | ?Stop@mmEffectFF@@UAEHXZ | inline
-    virtual i32 Stop();
+    ARTS_IMPORT virtual i32 Stop();
 
     // 0x4E7460 | ?SetValues@mmEffectFF@@UAEHMM@Z | inline
-    virtual i32 SetValues(f32 arg1, f32 arg2);
+    ARTS_IMPORT virtual i32 SetValues(f32 arg1, f32 arg2);
 };
 
 check_size(mmEffectFF, 0x0);

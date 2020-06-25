@@ -70,92 +70,92 @@ class mmPlayer : public asNode
 
 public:
     // 0x429FF0 | ??0mmPlayer@@QAE@XZ
-    mmPlayer();
+    ARTS_IMPORT mmPlayer();
 
     // 0x42D310 | ??_EmmPlayer@@UAEPAXI@Z
     // 0x42D370 | ??1mmPlayer@@UAE@XZ | inline
-    ~mmPlayer() override;
+    ARTS_IMPORT ~mmPlayer() override;
 
     // 0x42C590 | ?AddWidgets@mmPlayer@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x42A380 | ?AfterLoad@mmPlayer@@UAEXXZ
-    void AfterLoad() override;
+    ARTS_IMPORT void AfterLoad() override;
 
     // 0x42A370 | ?BeforeSave@mmPlayer@@UAEXXZ
-    void BeforeSave() override;
+    ARTS_IMPORT void BeforeSave() override;
 
     // 0x42C4C0 | ?EnableRegen@mmPlayer@@QAEXH@Z
-    void EnableRegen(i32 arg1);
+    ARTS_IMPORT void EnableRegen(i32 arg1);
 
     // 0x42D1B0 | ?GetClass@mmPlayer@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x42A520 | ?Init@mmPlayer@@QAEXPAD0PAVmmGame@@@Z
-    void Init(char* arg1, char* arg2, class mmGame* arg3);
+    ARTS_IMPORT void Init(char* arg1, char* arg2, class mmGame* arg3);
 
     // 0x42C490 | ?IsMaxDamaged@mmPlayer@@QAEHXZ
-    i32 IsMaxDamaged();
+    ARTS_IMPORT i32 IsMaxDamaged();
 
     // 0x42AC10 | ?IsPOV@mmPlayer@@QAEHXZ
-    i32 IsPOV();
+    ARTS_IMPORT i32 IsPOV();
 
     // 0x42A390 | ?ReInit@mmPlayer@@QAEXPAD@Z
-    void ReInit(char* arg1);
+    ARTS_IMPORT void ReInit(char* arg1);
 
     // 0x42B440 | ?Reset@mmPlayer@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x42C4E0 | ?ResetDamage@mmPlayer@@QAEXXZ
-    void ResetDamage();
+    ARTS_IMPORT void ResetDamage();
 
     // 0x42C420 | ?SetCamInterest@mmPlayer@@QAEXPAVasInertialCS@@@Z
-    void SetCamInterest(class asInertialCS* arg1);
+    ARTS_IMPORT void SetCamInterest(class asInertialCS* arg1);
 
     // 0x42A9A0 | ?SetMirrorFOV@mmPlayer@@QAEXXZ | unused
-    void SetMirrorFOV();
+    ARTS_IMPORT void SetMirrorFOV();
 
     // 0x42AAF0 | ?SetPostRaceCam@mmPlayer@@QAEXXZ
-    void SetPostRaceCam();
+    ARTS_IMPORT void SetPostRaceCam();
 
     // 0x42A9D0 | ?SetPreRaceCam@mmPlayer@@QAEXXZ
-    void SetPreRaceCam();
+    ARTS_IMPORT void SetPreRaceCam();
 
     // 0x42B5F0 | ?SetSteering@mmPlayer@@QAEXM@Z
-    void SetSteering(f32 arg1);
+    ARTS_IMPORT void SetSteering(f32 arg1);
 
     // 0x42AC60 | ?SetWideFOV@mmPlayer@@QAEXH@Z
-    void SetWideFOV(i32 arg1);
+    ARTS_IMPORT void SetWideFOV(i32 arg1);
 
     // 0x42AE10 | ?ToggleCam@mmPlayer@@QAEXXZ
-    void ToggleCam();
+    ARTS_IMPORT void ToggleCam();
 
     // 0x42B0E0 | ?ToggleDash@mmPlayer@@QAEXXZ
-    void ToggleDash();
+    ARTS_IMPORT void ToggleDash();
 
     // 0x42AF30 | ?ToggleExternalView@mmPlayer@@QAEXXZ
-    void ToggleExternalView();
+    ARTS_IMPORT void ToggleExternalView();
 
     // 0x42ADF0 | ?ToggleWideFOV@mmPlayer@@QAEXXZ
-    void ToggleWideFOV();
+    ARTS_IMPORT void ToggleWideFOV();
 
     // 0x42BBC0 | ?Update@mmPlayer@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x42B310 | ?UpdateHOG@mmPlayer@@QAEXXZ
-    void UpdateHOG();
+    ARTS_IMPORT void UpdateHOG();
 
     // 0x42C4F0 | ?UpdateRegen@mmPlayer@@QAEXXZ
-    void UpdateRegen();
+    ARTS_IMPORT void UpdateRegen();
 
     // 0x42CD40 | ?DeclareFields@mmPlayer@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmPlayer, 0x4A98);
 
 // 0x6A7778 | ?RestoreCityCam@@3HA
-inline extern_var(0x6A7778, i32, RestoreCityCam);
+ARTS_IMPORT extern i32 RestoreCityCam;
 
 // 0x6A7750 | ?mmPlayerMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7750, class MetaClass, mmPlayerMetaClass);
+// ARTS_IMPORT extern class MetaClass mmPlayerMetaClass;

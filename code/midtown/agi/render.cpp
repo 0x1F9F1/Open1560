@@ -19,13 +19,3 @@
 define_dummy_symbol(agi_render);
 
 #include "render.h"
-
-agiRenderer::agiRenderer()
-{
-    unimplemented();
-}
-
-agiRenderer::~agiRenderer()
-{
-    unimplemented();
-}

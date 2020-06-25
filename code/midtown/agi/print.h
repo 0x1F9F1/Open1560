@@ -35,19 +35,19 @@
 */
 
 // 0x557E70 | ?agiPrint@@YAXHHHPBD@Z
-void agiPrint(i32 arg1, i32 arg2, i32 arg3, char const* arg4);
+ARTS_IMPORT void agiPrint(i32 arg1, i32 arg2, i32 arg3, char const* arg4);
 
 // 0x557F00 | ?agiPrintInit@@YAXXZ
-void agiPrintInit();
+ARTS_IMPORT void agiPrintInit();
 
 // 0x557EF0 | ?agiPrintIs3D@@YAHXZ
-i32 agiPrintIs3D();
+ARTS_IMPORT i32 agiPrintIs3D();
 
 // 0x557F10 | ?agiPrintShutdown@@YAXXZ
-void agiPrintShutdown();
+ARTS_IMPORT void agiPrintShutdown();
 
 // 0x557E90 | ?agiPrintf@@YAXHHHPBDZZ
-void agiPrintf(i32 arg1, i32 arg2, i32 arg3, char const* arg4, ...);
+ARTS_IMPORT void agiPrintf(i32 arg1, i32 arg2, i32 arg3, char const* arg4, ...);
 
 // 0x656C30 | ?CharSet@@3PAEA
-inline extern_var(0x656C30, u8[768], CharSet);
+ARTS_IMPORT extern u8 CharSet[768];

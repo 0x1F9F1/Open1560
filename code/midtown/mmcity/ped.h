@@ -52,29 +52,29 @@ class mmPed : public mmYInstance
 
 public:
     // 0x497800 | ??0mmPed@@QAE@XZ
-    mmPed();
+    ARTS_IMPORT mmPed();
 
     // 0x497D90 | ??_EmmPed@@UAEPAXI@Z
     // 0x4978B0 | ??1mmPed@@UAE@XZ
-    ~mmPed() override;
+    ARTS_IMPORT ~mmPed() override;
 
     // 0x4978E0 | ?Draw@mmPed@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x497C10 | ?GetClass@mmPed@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x497820 | ?Init@mmPed@@QAEXPADAAVVector3@@@Z
-    void Init(char* arg1, class Vector3& arg2);
+    ARTS_IMPORT void Init(char* arg1, class Vector3& arg2);
 
     // 0x497930 | ?ToMatrix@mmPed@@UAIAAVMatrix34@@AAV2@@Z
-    class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
     // 0x4978C0 | ?Update@mmPed@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x497A90 | ?DeclareFields@mmPed@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmPed, 0x34);
@@ -85,29 +85,29 @@ class mmPedManager : public asNode
 
 public:
     // 0x497980 | ??0mmPedManager@@QAE@XZ
-    mmPedManager();
+    ARTS_IMPORT mmPedManager();
 
     // 0x497DF0 | ??_EmmPedManager@@UAEPAXI@Z
     // 0x4979A0 | ??1mmPedManager@@UAE@XZ
-    ~mmPedManager() override;
+    ARTS_IMPORT ~mmPedManager() override;
 
     // 0x497D80 | ?GetClass@mmPedManager@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4979B0 | ?Init@mmPedManager@@QAEXH@Z | unused
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
     // 0x497A60 | ?Update@mmPedManager@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x497C20 | ?DeclareFields@mmPedManager@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmPedManager, 0x2C);
 
 // 0x705740 | ?mmPedManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x705740, class MetaClass, mmPedManagerMetaClass);
+// ARTS_IMPORT extern class MetaClass mmPedManagerMetaClass;
 
 // 0x705768 | ?mmPedMetaClass@@3VMetaClass@@A
-inline extern_var(0x705768, class MetaClass, mmPedMetaClass);
+// ARTS_IMPORT extern class MetaClass mmPedMetaClass;

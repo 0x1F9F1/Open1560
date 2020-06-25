@@ -26,7 +26,7 @@
 */
 
 // 0x5200D0 | ?AngelReadString@@YAPAULocString@@I@Z
-struct LocString* AngelReadString(u32 arg1);
+ARTS_IMPORT struct LocString* AngelReadString(u32 arg1);
 
 // 0x520010 | ?GetLocTime@@YAPADM@Z
-char* GetLocTime(f32 arg1);
+ARTS_IMPORT char* GetLocTime(f32 arg1);

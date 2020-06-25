@@ -49,53 +49,53 @@ class asForm : public asNode
 
 public:
     // 0x528390 | ??0asForm@@QAE@XZ
-    asForm();
+    ARTS_IMPORT asForm();
 
     // 0x528B50 | ??_EasForm@@UAEPAXI@Z
     // 0x5283C0 | ??1asForm@@UAE@XZ
-    ~asForm() override;
+    ARTS_IMPORT ~asForm() override;
 
     // 0x5288E0 | ?AddWidgets@asForm@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x528520 | ?Cull@asForm@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x5288D0 | ?FileIO@asForm@@QAEXPAVMiniParser@@@Z | unused
-    void FileIO(class MiniParser* arg1);
+    ARTS_IMPORT void FileIO(class MiniParser* arg1);
 
     // 0x528820 | ?GetBoundMax@asForm@@QAE?AVVector3@@XZ | unused
-    class Vector3 GetBoundMax();
+    ARTS_IMPORT class Vector3 GetBoundMax();
 
     // 0x5287D0 | ?GetBoundMin@asForm@@QAE?AVVector3@@XZ | unused
-    class Vector3 GetBoundMin();
+    ARTS_IMPORT class Vector3 GetBoundMin();
 
     // 0x528870 | ?GetBoundSphere@asForm@@QAE?AVVector4@@XZ | unused
-    class Vector4 GetBoundSphere();
+    ARTS_IMPORT class Vector4 GetBoundSphere();
 
     // 0x528B40 | ?GetClass@asForm@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x5284D0 | ?SetCull@asForm@@QAEXHM@Z
-    void SetCull(i32 arg1, f32 arg2);
+    ARTS_IMPORT void SetCull(i32 arg1, f32 arg2);
 
     // 0x528420 | ?SetDLP@asForm@@QAEXPAVDLP@@@Z | unused
-    void SetDLP(class DLP* arg1);
+    ARTS_IMPORT void SetDLP(class DLP* arg1);
 
     // 0x528450 | ?SetShape@asForm@@QAEXPAD0PAVVector3@@HH@Z
-    void SetShape(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT void SetShape(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
 
     // 0x5284F0 | ?Update@asForm@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x528600 | ?Visible@asForm@@QBEHPAVasCamera@@ABVMatrix34@@@Z
-    i32 Visible(class asCamera* arg1, class Matrix34 const& arg2);
+    ARTS_IMPORT i32 Visible(class asCamera* arg1, class Matrix34 const& arg2);
 
     // 0x5289D0 | ?DeclareFields@asForm@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(asForm, 0xC8);
 
 // 0x790930 | ?asFormMetaClass@@3VMetaClass@@A
-inline extern_var(0x790930, class MetaClass, asFormMetaClass);
+// ARTS_IMPORT extern class MetaClass asFormMetaClass;

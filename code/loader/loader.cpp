@@ -78,6 +78,8 @@ extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
 
 static std::size_t InitExportHooks(HMODULE instance)
 {
+    // TODO: Validate symbol is a function (in an executable section)
+
     std::vector<HGLOBAL> resources;
     std::unordered_map<std::string_view, std::uintptr_t> symbols;
 

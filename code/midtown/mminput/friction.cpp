@@ -19,28 +19,3 @@
 define_dummy_symbol(mminput_friction);
 
 #include "friction.h"
-
-i32 mmFrictionFF::Assign(i32 arg1)
-{
-    return stub<thiscall_t<i32, mmFrictionFF*, i32>>(0x4E7BE0, this, arg1);
-}
-
-i32 mmFrictionFF::Init(struct IDirectInputDevice2A* arg1)
-{
-    return stub<thiscall_t<i32, mmFrictionFF*, struct IDirectInputDevice2A*>>(0x4E7AA0, this, arg1);
-}
-
-i32 mmFrictionFF::Play()
-{
-    return stub<thiscall_t<i32, mmFrictionFF*>>(0x4E7CB0, this);
-}
-
-i32 mmFrictionFF::SetValues(f32 arg1, f32 arg2)
-{
-    return stub<thiscall_t<i32, mmFrictionFF*, f32, f32>>(0x4E7BB0, this, arg1, arg2);
-}
-
-i32 mmFrictionFF::Stop()
-{
-    return stub<thiscall_t<i32, mmFrictionFF*>>(0x4E7D10, this);
-}

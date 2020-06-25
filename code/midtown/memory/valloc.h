@@ -67,4 +67,4 @@ private:
 check_size(asSafeHeap, 0x14);
 
 // 0x790730 | ?SAFEHEAP@@3VasSafeHeap@@A
-inline extern_var(0x790730, class asSafeHeap, SAFEHEAP);
+ARTS_IMPORT extern class asSafeHeap SAFEHEAP;

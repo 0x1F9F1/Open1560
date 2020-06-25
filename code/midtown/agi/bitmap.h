@@ -42,30 +42,30 @@ class agiBitmap : public agiRefreshable
 
 public:
     // 0x55A3B0 | ??0agiBitmap@@QAE@PAVagiPipeline@@@Z
-    agiBitmap(class agiPipeline* arg1);
+    ARTS_IMPORT agiBitmap(class agiPipeline* arg1);
 
     // 0x55A630 | ?UpdateFlags@agiBitmap@@UAEXXZ
-    virtual void UpdateFlags();
+    ARTS_IMPORT virtual void UpdateFlags();
 
     // 0x55A6D0 | ?GetName@agiBitmap@@UAEPADXZ
-    char* GetName() override;
+    ARTS_IMPORT char* GetName() override;
 
     // 0x55A3F0 | ?Init@agiBitmap@@QAEHPADMMH@Z
-    i32 Init(char* arg1, f32 arg2, f32 arg3, i32 arg4);
+    ARTS_IMPORT i32 Init(char* arg1, f32 arg2, f32 arg3, i32 arg4);
 
     // 0x55A600 | ?SetTransparency@agiBitmap@@QAEXH@Z
-    void SetTransparency(i32 arg1);
+    ARTS_IMPORT void SetTransparency(i32 arg1);
 
 protected:
     // 0x55A6F0 | ??_GagiBitmap@@MAEPAXI@Z
     // 0x55A640 | ??1agiBitmap@@MAE@XZ
-    ~agiBitmap() override;
+    ARTS_IMPORT ~agiBitmap() override;
 };
 
 check_size(agiBitmap, 0x40);
 
 // 0x903140 | ?BitmapHash@@3VHashTable@@A
-inline extern_var(0x903140, class HashTable, BitmapHash);
+ARTS_IMPORT extern class HashTable BitmapHash;
 
 // 0x6570F0 | ?BitmapSearchPath@@3PADA
-inline extern_var(0x6570F0, char*, BitmapSearchPath);
+ARTS_IMPORT extern char* BitmapSearchPath;

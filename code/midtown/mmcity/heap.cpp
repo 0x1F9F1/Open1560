@@ -19,8 +19,3 @@
 define_dummy_symbol(mmcity_heap);
 
 #include "heap.h"
-
-void mmHeapError()
-{
-    return stub<cdecl_t<void>>(0x4955C0);
-}

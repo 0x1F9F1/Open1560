@@ -42,49 +42,49 @@ struct mmRaceData
 {
 public:
     // 0x4D1BC0 | ??0mmRaceData@@QAE@XZ
-    mmRaceData();
+    ARTS_IMPORT mmRaceData();
 
     // 0x4D1BD0 | ??1mmRaceData@@QAE@XZ
-    ~mmRaceData();
+    ARTS_IMPORT ~mmRaceData();
 
     // 0x4D2100 | ?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
-    f32 GetAmbientDensity(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT f32 GetAmbientDensity(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D1F80 | ?GetCarType@mmRaceData@@QAEHHW4mmSkillLevel@@@Z | unused
-    i32 GetCarType(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetCarType(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D2130 | ?GetDifficulty@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
-    f32 GetDifficulty(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT f32 GetDifficulty(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D2040 | ?GetNumCops@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
-    i32 GetNumCops(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetNumCops(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D1FB0 | ?GetNumLaps@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
-    i32 GetNumLaps(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetNumLaps(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D2010 | ?GetNumOpponents@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
-    i32 GetNumOpponents(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetNumOpponents(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D1F60 | ?GetNumRaces@mmRaceData@@QAEHXZ
-    i32 GetNumRaces();
+    ARTS_IMPORT i32 GetNumRaces();
 
     // 0x4D20D0 | ?GetPedDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
-    f32 GetPedDensity(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT f32 GetPedDensity(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D1F70 | ?GetRaceName@mmRaceData@@QAEPADH@Z | unused
-    char* GetRaceName(i32 arg1);
+    ARTS_IMPORT char* GetRaceName(i32 arg1);
 
     // 0x4D1FE0 | ?GetTimeLimit@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
-    f32 GetTimeLimit(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT f32 GetTimeLimit(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D2070 | ?GetTimeOfDay@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
-    i32 GetTimeOfDay(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetTimeOfDay(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D20A0 | ?GetWeather@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
-    i32 GetWeather(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetWeather(i32 arg1, enum mmSkillLevel arg2);
 
     // 0x4D1BE0 | ?Load@mmRaceData@@QAEHPAD@Z
-    i32 Load(char* arg1);
+    ARTS_IMPORT i32 Load(char* arg1);
 };
 
 check_size(mmRaceData, 0x4B4);

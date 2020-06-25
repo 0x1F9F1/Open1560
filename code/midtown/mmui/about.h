@@ -39,20 +39,20 @@ class AboutMenu : public UIMenu
 
 public:
     // 0x4A5E30 | ??0AboutMenu@@QAE@H@Z
-    AboutMenu(i32 arg1);
+    ARTS_IMPORT AboutMenu(i32 arg1);
 
     // 0x4A61C0 | ??_EAboutMenu@@UAEPAXI@Z
     // 0x4A6050 | ??1AboutMenu@@UAE@XZ
-    ~AboutMenu() override;
+    ARTS_IMPORT ~AboutMenu() override;
 
     // 0x4A6100 | ?Cull@AboutMenu@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4A6060 | ?PreSetup@AboutMenu@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x4A6080 | ?Update@AboutMenu@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(AboutMenu, 0xB0);

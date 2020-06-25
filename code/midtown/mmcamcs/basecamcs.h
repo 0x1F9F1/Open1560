@@ -43,44 +43,44 @@ class BaseCamCS : public asNode
 
 public:
     // 0x4FBE00 | ??0BaseCamCS@@QAE@XZ
-    BaseCamCS();
+    ARTS_IMPORT BaseCamCS();
 
     // 0x4FC2D0 | ??_EBaseCamCS@@UAEPAXI@Z
     // 0x4FBEA0 | ??1BaseCamCS@@UAE@XZ
-    ~BaseCamCS() override;
+    ARTS_IMPORT ~BaseCamCS() override;
 
     // 0x4FB4A0 | ?MakeActive@BaseCamCS@@UAEXXZ | inline
-    virtual void MakeActive();
+    ARTS_IMPORT virtual void MakeActive();
 
     // 0x4F99D0 | ?UpdateInput@BaseCamCS@@UAEXXZ | inline
-    virtual void UpdateInput();
+    ARTS_IMPORT virtual void UpdateInput();
 
     // 0x4FC090 | ?ForceMatrixDelta@BaseCamCS@@UAEXABVVector3@@@Z
-    virtual void ForceMatrixDelta(class Vector3 const& arg1);
+    ARTS_IMPORT virtual void ForceMatrixDelta(class Vector3 const& arg1);
 
     // 0x4F6A50 | ?SetST@BaseCamCS@@UAEXPAM@Z | inline
-    virtual void SetST(f32* arg1);
+    ARTS_IMPORT virtual void SetST(f32* arg1);
 
     // 0x4FBF40 | ?AddWidgets@BaseCamCS@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4FBEB0 | ?AfterLoad@BaseCamCS@@UAEXXZ
-    void AfterLoad() override;
+    ARTS_IMPORT void AfterLoad() override;
 
     // 0x4FC2C0 | ?GetClass@BaseCamCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4FBEC0 | ?IsViewCSInTransition@BaseCamCS@@QAEHXZ
-    i32 IsViewCSInTransition();
+    ARTS_IMPORT i32 IsViewCSInTransition();
 
     // 0x4FBEF0 | ?UpdateView@BaseCamCS@@QAEXXZ
-    void UpdateView();
+    ARTS_IMPORT void UpdateView();
 
     // 0x4FC0E0 | ?DeclareFields@BaseCamCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(BaseCamCS, 0x9C);
 
 // 0x7194F8 | ?BaseCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x7194F8, class MetaClass, BaseCamCSMetaClass);
+// ARTS_IMPORT extern class MetaClass BaseCamCSMetaClass;

@@ -39,30 +39,30 @@ class mmInfoBase : public Base
 
 public:
     // 0x4D12B0 | ??0mmInfoBase@@QAE@XZ
-    mmInfoBase();
+    ARTS_IMPORT mmInfoBase();
 
     // 0x4D15E0 | ??_EmmInfoBase@@UAEPAXI@Z
     // 0x414B90 | ??_GmmInfoBase@@UAEPAXI@Z | unused
     // 0x414BC0 | ??1mmInfoBase@@UAE@XZ | inline
-    ~mmInfoBase() override;
+    ARTS_IMPORT ~mmInfoBase() override;
 
     // 0x4D15D0 | ?GetClass@mmInfoBase@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4D12E0 | ?Load@mmInfoBase@@QAEHPAD@Z
-    i32 Load(char* arg1);
+    ARTS_IMPORT i32 Load(char* arg1);
 
     // 0x4D1390 | ?Save@mmInfoBase@@QAEHPAD@Z
-    i32 Save(char* arg1);
+    ARTS_IMPORT i32 Save(char* arg1);
 
     // 0x4D1440 | ?SetIOPath@mmInfoBase@@QAEXPAD@Z
-    void SetIOPath(char* arg1);
+    ARTS_IMPORT void SetIOPath(char* arg1);
 
     // 0x4D1460 | ?DeclareFields@mmInfoBase@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmInfoBase, 0x88);
 
 // 0x7085C8 | ?mmInfoBaseMetaClass@@3VMetaClass@@A
-inline extern_var(0x7085C8, class MetaClass, mmInfoBaseMetaClass);
+// ARTS_IMPORT extern class MetaClass mmInfoBaseMetaClass;

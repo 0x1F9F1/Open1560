@@ -19,18 +19,3 @@
 define_dummy_symbol(vector7_random);
 
 #include "random.h"
-
-f32 Random::Normal(f32 arg1, f32 arg2)
-{
-    return stub<thiscall_t<f32, Random*, f32, f32>>(0x56DB10, this, arg1, arg2);
-}
-
-f32 Random::Number()
-{
-    return stub<thiscall_t<f32, Random*>>(0x56DAB0, this);
-}
-
-void Random::Seed(i32 arg1)
-{
-    return stub<thiscall_t<void, Random*, i32>>(0x56D9F0, this, arg1);
-}

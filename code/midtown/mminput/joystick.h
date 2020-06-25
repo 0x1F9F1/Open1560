@@ -65,83 +65,83 @@ struct mmJoystick
 {
 public:
     // 0x4E6180 | ??0mmJoystick@@QAE@XZ
-    mmJoystick();
+    ARTS_IMPORT mmJoystick();
 
     // 0x4E6020 | ??_EmmJoystick@@QAEPAXI@Z | unused
     // 0x4E6240 | ??1mmJoystick@@QAE@XZ
-    ~mmJoystick();
+    ARTS_IMPORT ~mmJoystick();
 
     // 0x4E66C0 | ?DisableAutoCenter@mmJoystick@@QAEHXZ
-    i32 DisableAutoCenter();
+    ARTS_IMPORT i32 DisableAutoCenter();
 
     // 0x4E6850 | ?GetAxis@mmJoystick@@QAEMH@Z
-    f32 GetAxis(i32 arg1);
+    ARTS_IMPORT f32 GetAxis(i32 arg1);
 
     // 0x4E6950 | ?GetButton@mmJoystick@@QAEMH@Z
-    f32 GetButton(i32 arg1);
+    ARTS_IMPORT f32 GetButton(i32 arg1);
 
     // 0x4E6D80 | ?GetFFEffect@mmJoystick@@QAEPAVmmEffectFF@@H@Z
-    class mmEffectFF* GetFFEffect(i32 arg1);
+    ARTS_IMPORT class mmEffectFF* GetFFEffect(i32 arg1);
 
     // 0x4E6360 | ?Init@mmJoystick@@QAEHPAUIDirectInputDevice2A@@PAUHWND__@@@Z
-    i32 Init(struct IDirectInputDevice2A* arg1, struct HWND__* arg2);
+    ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1, struct HWND__* arg2);
 
     // 0x4E6A90 | ?InputCreateEffect@mmJoystick@@QAEXXZ
-    void InputCreateEffect();
+    ARTS_IMPORT void InputCreateEffect();
 
     // 0x4E6BB0 | ?InputInitEffect@mmJoystick@@QAEXXZ
-    void InputInitEffect();
+    ARTS_IMPORT void InputInitEffect();
 
     // 0x4E6BF0 | ?InputStopEffect@mmJoystick@@QAEXXZ
-    void InputStopEffect();
+    ARTS_IMPORT void InputStopEffect();
 
     // 0x4E6CA0 | ?PlayCollision@mmJoystick@@QAEHXZ | unused
-    i32 PlayCollision();
+    ARTS_IMPORT i32 PlayCollision();
 
     // 0x4E6D40 | ?PlayFriction@mmJoystick@@QAEHXZ | unused
-    i32 PlayFriction();
+    ARTS_IMPORT i32 PlayFriction();
 
     // 0x4E6C60 | ?PlayShake@mmJoystick@@QAEHXZ | unused
-    i32 PlayShake();
+    ARTS_IMPORT i32 PlayShake();
 
     // 0x4E6CE0 | ?PlaySteer@mmJoystick@@QAEHXZ | unused
-    i32 PlaySteer();
+    ARTS_IMPORT i32 PlaySteer();
 
     // 0x4E6720 | ?Poll@mmJoystick@@QAEKXZ
-    u32 Poll();
+    ARTS_IMPORT u32 Poll();
 
     // 0x4E6DD0 | ?PrintDeviceCaps@mmJoystick@@QAEXXZ
-    void PrintDeviceCaps();
+    ARTS_IMPORT void PrintDeviceCaps();
 
     // 0x4E6A10 | ?ResetAxisCapture@mmJoystick@@QAEXXZ
-    void ResetAxisCapture();
+    ARTS_IMPORT void ResetAxisCapture();
 
     // 0x4E6620 | ?SetDeadZone@mmJoystick@@QAEHM@Z
-    i32 SetDeadZone(f32 arg1);
+    ARTS_IMPORT i32 SetDeadZone(f32 arg1);
 
     // 0x4E6D20 | ?SetFriction@mmJoystick@@QAEHJ@Z | unused
-    i32 SetFriction(i32 arg1);
+    ARTS_IMPORT i32 SetFriction(i32 arg1);
 
     // 0x4E6C30 | ?SetShake@mmJoystick@@QAEHKK@Z | unused
-    i32 SetShake(u32 arg1, u32 arg2);
+    ARTS_IMPORT i32 SetShake(u32 arg1, u32 arg2);
 
     // 0x4E6CC0 | ?SetSteer@mmJoystick@@QAEHJ@Z | unused
-    i32 SetSteer(i32 arg1);
+    ARTS_IMPORT i32 SetSteer(i32 arg1);
 
     // 0x4E6D60 | ?StopFriction@mmJoystick@@QAEHXZ | unused
-    i32 StopFriction();
+    ARTS_IMPORT i32 StopFriction();
 
     // 0x4E6C80 | ?StopShake@mmJoystick@@QAEHXZ | unused
-    i32 StopShake();
+    ARTS_IMPORT i32 StopShake();
 
     // 0x4E6D00 | ?StopSteer@mmJoystick@@QAEHXZ | unused
-    i32 StopSteer();
+    ARTS_IMPORT i32 StopSteer();
 
     // 0x4E6980 | ?Update@mmJoystick@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x4E6470 | ?inputPrepareDevice@mmJoystick@@QAEHXZ
-    i32 inputPrepareDevice();
+    ARTS_IMPORT i32 inputPrepareDevice();
 };
 
 check_size(mmJoystick, 0x3A8);
@@ -150,28 +150,28 @@ struct mmJaxis
 {
 public:
     // 0x4E6080 | ??0mmJaxis@@QAE@XZ
-    mmJaxis();
+    ARTS_IMPORT mmJaxis();
 
     // 0x4E60A0 | ??1mmJaxis@@QAE@XZ
-    ~mmJaxis();
+    ARTS_IMPORT ~mmJaxis();
 
     // 0x4E6130 | ?Capture@mmJaxis@@QAEHXZ
-    i32 Capture();
+    ARTS_IMPORT i32 Capture();
 
     // 0x4E60D0 | ?Normalize@mmJaxis@@QAEXM@Z
-    void Normalize(f32 arg1);
+    ARTS_IMPORT void Normalize(f32 arg1);
 
     // 0x4E60F0 | ?NormalizePOV@mmJaxis@@QAEXK@Z
-    void NormalizePOV(u32 arg1);
+    ARTS_IMPORT void NormalizePOV(u32 arg1);
 
     // 0x4E6160 | ?ResetCapture@mmJaxis@@QAEXXZ
-    void ResetCapture();
+    ARTS_IMPORT void ResetCapture();
 
     // 0x4E60B0 | ?SetRange@mmJaxis@@QAEXMM@Z
-    void SetRange(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetRange(f32 arg1, f32 arg2);
 };
 
 check_size(mmJaxis, 0x0);
 
 // 0x4E6FB0 | ?DecodeDIErrorMFlag@@YAXJ@Z
-void DecodeDIErrorMFlag(i32 arg1);
+ARTS_IMPORT void DecodeDIErrorMFlag(i32 arg1);

@@ -29,13 +29,13 @@
 */
 
 // 0x578B20 | ?BeginMemStat@@YAXPBD@Z
-void BeginMemStat(char const* arg1);
+ARTS_IMPORT void BeginMemStat(char const* arg1);
 
 // 0x578BB0 | ?EndMemStat@@YAXXZ
-void EndMemStat();
+ARTS_IMPORT void EndMemStat();
 
 // 0x6620A8 | ?EnableMemStat@@3HA
-inline extern_var(0x6620A8, i32, EnableMemStat);
+ARTS_IMPORT extern i32 EnableMemStat;
 
 // 0x90AEA8 | ?beginStackCount@@3HA
-inline extern_var(0x90AEA8, i32, beginStackCount);
+ARTS_IMPORT extern i32 beginStackCount;

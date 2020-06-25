@@ -40,28 +40,28 @@ struct aiGoalRegainRail : aiGoal
 
 public:
     // 0x46AA20 | ??0aiGoalRegainRail@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
-    aiGoalRegainRail(class aiRailSet* arg1, class aiVehicleSpline* arg2);
+    ARTS_IMPORT aiGoalRegainRail(class aiRailSet* arg1, class aiVehicleSpline* arg2);
 
     // 0x46AA50 | ??1aiGoalRegainRail@@QAE@XZ
-    ~aiGoalRegainRail();
+    ARTS_IMPORT ~aiGoalRegainRail();
 
     // 0x46B240 | ?Context@aiGoalRegainRail@@UAEHXZ
-    i32 Context() override;
+    ARTS_IMPORT i32 Context() override;
 
     // 0x46B270 | ?Dump@aiGoalRegainRail@@QAEXXZ
-    void Dump();
+    ARTS_IMPORT void Dump();
 
     // 0x46AA60 | ?Init@aiGoalRegainRail@@UAEXXZ
-    void Init() override;
+    ARTS_IMPORT void Init() override;
 
     // 0x46B260 | ?Priority@aiGoalRegainRail@@UAEHXZ
-    i32 Priority() override;
+    ARTS_IMPORT i32 Priority() override;
 
     // 0x46AA80 | ?Reset@aiGoalRegainRail@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x46B130 | ?Update@aiGoalRegainRail@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(aiGoalRegainRail, 0x28);

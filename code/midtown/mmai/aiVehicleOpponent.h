@@ -56,79 +56,79 @@ class aiVehicleOpponent : public aiVehicle
 
 public:
     // 0x44DA70 | ??0aiVehicleOpponent@@QAE@XZ
-    aiVehicleOpponent();
+    ARTS_IMPORT aiVehicleOpponent();
 
     // 0x43BFB0 | ??_EaiVehicleOpponent@@QAEPAXI@Z | unused
     // 0x44DAD0 | ??1aiVehicleOpponent@@QAE@XZ
-    ~aiVehicleOpponent();
+    ARTS_IMPORT ~aiVehicleOpponent();
 
     // 0x44E670 | ?GetClass@aiVehicleOpponent@@UAEPAVMetaClass@@XZ
-    virtual class MetaClass* GetClass();
+    ARTS_IMPORT virtual class MetaClass* GetClass();
 
     // 0x44E490 | ?AddWidget@aiVehicleOpponent@@QAEXPAVBank@@@Z
-    void AddWidget(class Bank* arg1);
+    ARTS_IMPORT void AddWidget(class Bank* arg1);
 
     // 0x44E4B0 | ?AssignSounds@aiVehicleOpponent@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
-    void AssignSounds(
+    ARTS_IMPORT void AssignSounds(
         class AudSound* arg1, class AudSound* arg2, class mmOpponentImpactAudio* arg3, class AudSound* arg4);
 
     // 0x44E2A0 | ?DrawDamage@aiVehicleOpponent@@QAEXXZ | unused
-    void DrawDamage();
+    ARTS_IMPORT void DrawDamage();
 
     // 0x44E2B0 | ?DrawId@aiVehicleOpponent@@UAEXXZ
-    void DrawId() override;
+    ARTS_IMPORT void DrawId() override;
 
     // 0x44E130 | ?DrawTargetPt@aiVehicleOpponent@@QAEXXZ
-    void DrawTargetPt();
+    ARTS_IMPORT void DrawTargetPt();
 
     // 0x44E060 | ?Dump@aiVehicleOpponent@@QAEXXZ
-    void Dump();
+    ARTS_IMPORT void Dump();
 
     // 0x44E420 | ?GetCarAudioPtr@aiVehicleOpponent@@QAEPAVmmOpponentCarAudio@@XZ
-    class mmOpponentCarAudio* GetCarAudioPtr();
+    ARTS_IMPORT class mmOpponentCarAudio* GetCarAudioPtr();
 
     // 0x44E3A0 | ?GetDistanceToPlayer2@aiVehicleOpponent@@QAEMXZ
-    f32 GetDistanceToPlayer2();
+    ARTS_IMPORT f32 GetDistanceToPlayer2();
 
     // 0x44E120 | ?GetEngineSoundIndex@aiVehicleOpponent@@QAEHXZ
-    i32 GetEngineSoundIndex();
+    ARTS_IMPORT i32 GetEngineSoundIndex();
 
     // 0x44DC00 | ?Init@aiVehicleOpponent@@QAEXHPAVaiRaceData@@PAD@Z
-    void Init(i32 arg1, class aiRaceData* arg2, char* arg3);
+    ARTS_IMPORT void Init(i32 arg1, class aiRaceData* arg2, char* arg3);
 
     // 0x44DE10 | ?Reset@aiVehicleOpponent@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x44E400 | ?SetAudioCloserMinDistMult@aiVehicleOpponent@@QAEXM@Z
-    void SetAudioCloserMinDistMult(f32 arg1);
+    ARTS_IMPORT void SetAudioCloserMinDistMult(f32 arg1);
 
     // 0x44E3D0 | ?SetAudioMaxDistance@aiVehicleOpponent@@QAEXM@Z
-    void SetAudioMaxDistance(f32 arg1);
+    ARTS_IMPORT void SetAudioMaxDistance(f32 arg1);
 
     // 0x44E3B0 | ?SetAudioMinDistance@aiVehicleOpponent@@QAEXM@Z
-    void SetAudioMinDistance(f32 arg1);
+    ARTS_IMPORT void SetAudioMinDistance(f32 arg1);
 
     // 0x44E7D0 | ?Type@aiVehicleOpponent@@UAEHXZ | inline
-    i32 Type() override;
+    ARTS_IMPORT i32 Type() override;
 
     // 0x44E100 | ?UnAssignSounds@aiVehicleOpponent@@QAEXXZ
-    void UnAssignSounds();
+    ARTS_IMPORT void UnAssignSounds();
 
     // 0x44DED0 | ?Update@aiVehicleOpponent@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x44E300 | ?UpdateAudio@aiVehicleOpponent@@QAEXXZ
-    void UpdateAudio();
+    ARTS_IMPORT void UpdateAudio();
 
     // 0x44E4E0 | ?DeclareFields@aiVehicleOpponent@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x44E430 | ?AddToAiAudMgr@aiVehicleOpponent@@AAEXXZ
-    void AddToAiAudMgr();
+    ARTS_IMPORT void AddToAiAudMgr();
 };
 
 check_size(aiVehicleOpponent, 0x23BC);
 
 // 0x6A7A58 | ?aiVehicleOpponentMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7A58, class MetaClass, aiVehicleOpponentMetaClass);
+// ARTS_IMPORT extern class MetaClass aiVehicleOpponentMetaClass;

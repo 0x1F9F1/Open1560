@@ -59,108 +59,107 @@ class agiTexSorter
 {
 public:
     // 0x503830 | ??0agiTexSorter@@QAE@XZ
-    agiTexSorter();
+    ARTS_IMPORT agiTexSorter();
 
     // 0x503A50 | ??1agiTexSorter@@QAE@XZ
-    ~agiTexSorter();
+    ARTS_EXPORT ~agiTexSorter();
 
     // 0x504620 | ?AddWidgets@agiTexSorter@@QAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1);
+    ARTS_IMPORT void AddWidgets(class Bank* arg1);
 
     // 0x504090 | ?Cull@agiTexSorter@@QAEXH@Z
-    void Cull(i32 arg1);
+    ARTS_IMPORT void Cull(i32 arg1);
 
     // 0x503B20 | ?BeginVerts@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
-    static class agiPolySet* BeginVerts(class agiTexDef* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT static class agiPolySet* BeginVerts(class agiTexDef* arg1, i32 arg2, i32 arg3);
 
     // 0x503D70 | ?BeginVerts2@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@0HH@Z
-    static class agiPolySet* BeginVerts2(class agiTexDef* arg1, class agiTexDef* arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT static class agiPolySet* BeginVerts2(class agiTexDef* arg1, class agiTexDef* arg2, i32 arg3, i32 arg4);
 
     // 0x504150 | ?DoTexture@agiTexSorter@@SAXPAVagiPolySet@@@Z
-    static void DoTexture(class agiPolySet* arg1);
+    ARTS_IMPORT static void DoTexture(class agiPolySet* arg1);
 
     // 0x503FF0 | ?EndVerts@agiTexSorter@@SAXXZ
-    static void EndVerts();
+    ARTS_IMPORT static void EndVerts();
 
     // 0x504040 | ?EndVerts2@agiTexSorter@@SAXXZ
-    static void EndVerts2();
+    ARTS_IMPORT static void EndVerts2();
 
     // 0x503A60 | ?GetEnv@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
-    static class agiPolySet* GetEnv(class agiTexDef* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT static class agiPolySet* GetEnv(class agiTexDef* arg1, i32 arg2, i32 arg3);
 
     // 0x719788 | ?AlphaPolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    static inline extern_var(0x719788, class agiPolySet* [32], AlphaPolySets);
+    ARTS_IMPORT static class agiPolySet* AlphaPolySets[32];
 
     // 0x719780 | ?AlphaSetCount@agiTexSorter@@2HA
-    static inline extern_var(0x719780, i32, AlphaSetCount);
+    ARTS_IMPORT static i32 AlphaSetCount;
 
     // 0x719734 | ?BigPoolFlushes@agiTexSorter@@2HA
-    static inline extern_var(0x719734, i32, BigPoolFlushes);
+    ARTS_IMPORT static i32 BigPoolFlushes;
 
     // 0x719750 | ?EnvPolySet@agiTexSorter@@2VagiPolySet@@A
-    static inline extern_var(0x719750, class agiPolySet, EnvPolySet);
+    ARTS_IMPORT static class agiPolySet EnvPolySet;
 
     // 0x719620 | ?GeometryCalls@agiTexSorter@@2HA
-    static inline extern_var(0x719620, i32, GeometryCalls);
+    ARTS_IMPORT static i32 GeometryCalls;
 
     // 0x64A3F4 | ?InitialZMode@agiTexSorter@@2HA
-    static inline extern_var(0x64A3F4, i32, InitialZMode);
+    ARTS_IMPORT static i32 InitialZMode;
 
     // 0x64A3E4 | ?MaxAlphaSetCount@agiTexSorter@@2HA
-    static inline extern_var(0x64A3E4, i32, MaxAlphaSetCount);
+    ARTS_IMPORT static i32 MaxAlphaSetCount;
 
     // 0x64A3EC | ?MaxIndicesPerSet@agiTexSorter@@2HA
-    static inline extern_var(0x64A3EC, i32, MaxIndicesPerSet);
+    ARTS_IMPORT static i32 MaxIndicesPerSet;
 
     // 0x64A3E0 | ?MaxOpaqueSetCount@agiTexSorter@@2HA
-    static inline extern_var(0x64A3E0, i32, MaxOpaqueSetCount);
+    ARTS_IMPORT static i32 MaxOpaqueSetCount;
 
     // 0x64A3E8 | ?MaxVertsPerSet@agiTexSorter@@2HA
-    static inline extern_var(0x64A3E8, i32, MaxVertsPerSet);
+    ARTS_IMPORT static i32 MaxVertsPerSet;
 
     // 0x719630 | ?OpaquePolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    static inline extern_var(0x719630, class agiPolySet* [64], OpaquePolySets);
+    ARTS_IMPORT static class agiPolySet* OpaquePolySets[64];
 
     // 0x719744 | ?OpaqueSetCount@agiTexSorter@@2HA
-    static inline extern_var(0x719744, i32, OpaqueSetCount);
+    ARTS_IMPORT static i32 OpaqueSetCount;
 
     // 0x719730 | ?OutOfPoolFlushes@agiTexSorter@@2HA
-    static inline extern_var(0x719730, i32, OutOfPoolFlushes);
+    ARTS_IMPORT static i32 OutOfPoolFlushes;
 
     // 0x71973C | ?OverflowFlushes@agiTexSorter@@2HA
-    static inline extern_var(0x71973C, i32, OverflowFlushes);
+    ARTS_IMPORT static i32 OverflowFlushes;
 
     // 0x71977C | ?TotalTris@agiTexSorter@@2HA
-    static inline extern_var(0x71977C, i32, TotalTris);
+    ARTS_IMPORT static i32 TotalTris;
 
 private:
     // 0x719624 | ?Instance@agiTexSorter@@0PAV1@A
-    static inline extern_var(0x719624, class agiTexSorter*, Instance);
+    ARTS_IMPORT static class agiTexSorter* Instance;
 };
 
 check_size(agiTexSorter, 0x1);
 
 // 0x5043E0 | ?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z
-class agiTexDef* GetPackedTexture(char* arg1, i32 arg2);
+ARTS_IMPORT class agiTexDef* GetPackedTexture(char* arg1, i32 arg2);
 
 // 0x719838 | ?DisableFogOnAlphaGlow@@3HA
-inline extern_var(0x719838, i32, DisableFogOnAlphaGlow);
+ARTS_IMPORT extern i32 DisableFogOnAlphaGlow;
 
 // 0x64A3F0 | ?EnableTexSorting@@3HA
-inline extern_var(0x64A3F0, i32, EnableTexSorting);
+ARTS_IMPORT extern i32 EnableTexSorting;
 
 // 0x71962C | ?EnvMapFlushes@@3HA
-inline extern_var(0x71962C, i32, EnvMapFlushes);
+ARTS_IMPORT extern i32 EnvMapFlushes;
 
 // 0x719628 | ?TextureSuffix@@3PADA
-inline extern_var(0x719628, char*, TextureSuffix);
+ARTS_IMPORT extern char* TextureSuffix;
 
 class agiPolySet
 {
 public:
     // 0x510480 | ?Triangle@agiPolySet@@QAEXHHH@Z | inline
-    void Triangle(i32 arg1, i32 arg2, i32 arg3);
-
+    ARTS_IMPORT void Triangle(i32 arg1, i32 arg2, i32 arg3);
     u16* Indices {nullptr};
     struct agiScreenVtx* Verts {nullptr};
     struct agiScreenVtx2* Verts2 {nullptr};
@@ -173,7 +172,7 @@ public:
     i32 MultiTex {0};
 
     // 0x719738 | ?TriCount@agiPolySet@@2HA
-    static inline extern_var(0x719738, i32, TriCount);
+    ARTS_IMPORT static i32 TriCount;
 };
 
 check_size(agiPolySet, 0x2C);

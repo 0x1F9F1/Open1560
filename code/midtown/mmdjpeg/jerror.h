@@ -25,4 +25,4 @@
 */
 
 // 0x57D930 | ?jpeg_std_error@@YAPAUjpeg_error_mgr@@PAU1@@Z
-struct jpeg_error_mgr* jpeg_std_error(struct jpeg_error_mgr* arg1);
+ARTS_IMPORT struct jpeg_error_mgr* jpeg_std_error(struct jpeg_error_mgr* arg1);

@@ -101,41 +101,41 @@ class mmPhysEntity : public asNode
 public:
     // 0x453B40 | ??_GmmPhysEntity@@UAEPAXI@Z
     // 0x42D510 | ??1mmPhysEntity@@UAE@XZ | inline
-    ~mmPhysEntity() override;
+    ARTS_IMPORT ~mmPhysEntity() override;
 
     // 0x453B00 | ?PostUpdate@mmPhysEntity@@UAEXXZ | inline
-    virtual void PostUpdate();
+    ARTS_IMPORT virtual void PostUpdate();
 
     // 0x453B10 | ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ | inline
-    virtual class asBound* GetBound();
+    ARTS_IMPORT virtual class asBound* GetBound();
 
     // 0x453B20 | ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ | inline
-    virtual class asInertialCS* GetICS();
+    ARTS_IMPORT virtual class asInertialCS* GetICS();
 
     // 0x453B30 | ?DetachMe@mmPhysEntity@@UAEXXZ | inline
-    virtual void DetachMe();
+    ARTS_IMPORT virtual void DetachMe();
 
     // 0x453AF0 | ?Update@mmPhysEntity@@UAEXXZ | inline
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmPhysEntity, 0x0);
 
 // 0x451450 | ?AMBIENTCB@@YAXPAVaiVehicleActive@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M@Z
-void AMBIENTCB(
+ARTS_IMPORT void AMBIENTCB(
     class aiVehicleActive* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4, f32 arg5);
 
 // 0x6A7B40 | ?NoDataWhined@@3VHashTable@@A
-inline extern_var(0x6A7B40, class HashTable, NoDataWhined);
+ARTS_IMPORT extern class HashTable NoDataWhined;
 
 // 0x6A7AE0 | ?VehicleDataHash@@3VHashTable@@A
-inline extern_var(0x6A7AE0, class HashTable, VehicleDataHash);
+ARTS_IMPORT extern class HashTable VehicleDataHash;
 
 // 0x6A7AF0 | ?aiVehicleDataMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7AF0, class MetaClass, aiVehicleDataMetaClass);
+// ARTS_IMPORT extern class MetaClass aiVehicleDataMetaClass;
 
 // 0x6A7B18 | ?aiVehicleInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7B18, class MetaClass, aiVehicleInstanceMetaClass);
+// ARTS_IMPORT extern class MetaClass aiVehicleInstanceMetaClass;
 
 class aiVehicleInstance : public mmInstance
 {
@@ -144,49 +144,49 @@ class aiVehicleInstance : public mmInstance
 public:
     // 0x45C530 | ??_GaiVehicleInstance@@UAEPAXI@Z
     // 0x45C550 | ??1aiVehicleInstance@@UAE@XZ | inline
-    ~aiVehicleInstance() override;
+    ARTS_IMPORT ~aiVehicleInstance() override;
 
     // 0x45C510 | ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z | inline
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x451F70 | ?AttachEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
-    class mmPhysEntity* AttachEntity() override;
+    ARTS_IMPORT class mmPhysEntity* AttachEntity() override;
 
     // 0x451F40 | ?Detach@aiVehicleInstance@@UAEXXZ
-    void Detach() override;
+    ARTS_IMPORT void Detach() override;
 
     // 0x4515E0 | ?Draw@aiVehicleInstance@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x451E20 | ?DrawGlow@aiVehicleInstance@@UAIXXZ
-    void __fastcall DrawGlow() override;
+    ARTS_IMPORT void ARTS_FASTCALL DrawGlow() override;
 
     // 0x451E70 | ?DrawShadow@aiVehicleInstance@@UAIXXZ
-    void __fastcall DrawShadow() override;
+    ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // 0x452080 | ?FromMatrix@aiVehicleInstance@@UAIXABVMatrix34@@@Z
-    void __fastcall FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
     // 0x4536B0 | ?GetClass@aiVehicleInstance@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x453020 | ?GetData@aiVehicleInstance@@QAEPAVaiVehicleData@@XZ
-    class aiVehicleData* GetData();
+    ARTS_IMPORT class aiVehicleData* GetData();
 
     // 0x451F10 | ?GetEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
-    class mmPhysEntity* GetEntity() override;
+    ARTS_IMPORT class mmPhysEntity* GetEntity() override;
 
     // 0x4520A0 | ?GetPos@aiVehicleInstance@@UAIAAVVector3@@XZ
-    class Vector3& __fastcall GetPos() override;
+    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
     // 0x451FD0 | ?GetVelocity@aiVehicleInstance@@UAE?AVVector3@@XZ
-    class Vector3 GetVelocity() override;
+    ARTS_IMPORT class Vector3 GetVelocity() override;
 
     // 0x452090 | ?ToMatrix@aiVehicleInstance@@UAIAAVMatrix34@@AAV2@@Z
-    class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
     // 0x453610 | ?DeclareFields@aiVehicleInstance@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(aiVehicleInstance, 0x24);
@@ -197,38 +197,38 @@ class aiVehicleActive : public mmPhysEntity
 
 public:
     // 0x4520B0 | ??0aiVehicleActive@@QAE@XZ
-    aiVehicleActive();
+    ARTS_IMPORT aiVehicleActive();
 
     // 0x453A00 | ??_GaiVehicleActive@@UAEPAXI@Z
     // 0x452450 | ??1aiVehicleActive@@UAE@XZ
-    ~aiVehicleActive() override;
+    ARTS_IMPORT ~aiVehicleActive() override;
 
     // 0x452540 | ?Attach@aiVehicleActive@@QAEXPAVaiVehicleInstance@@@Z
-    void Attach(class aiVehicleInstance* arg1);
+    ARTS_IMPORT void Attach(class aiVehicleInstance* arg1);
 
     // 0x452710 | ?Detach@aiVehicleActive@@QAEXXZ
-    void Detach();
+    ARTS_IMPORT void Detach();
 
     // 0x4526F0 | ?DetachMe@aiVehicleActive@@UAEXXZ
-    void DetachMe() override;
+    ARTS_IMPORT void DetachMe() override;
 
     // 0x453BA0 | ?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ | inline
-    class asBound* GetBound() override;
+    ARTS_IMPORT class asBound* GetBound() override;
 
     // 0x453BB0 | ?GetICS@aiVehicleActive@@UAEPAVasInertialCS@@XZ | inline
-    class asInertialCS* GetICS() override;
+    ARTS_IMPORT class asInertialCS* GetICS() override;
 
     // 0x4521A0 | ?Init@aiVehicleActive@@QAEXPAD@Z
-    void Init(char* arg1);
+    ARTS_IMPORT void Init(char* arg1);
 
     // 0x452950 | ?PostUpdate@aiVehicleActive@@UAEXXZ
-    void PostUpdate() override;
+    ARTS_IMPORT void PostUpdate() override;
 
     // 0x4528E0 | ?Update@aiVehicleActive@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4529D0 | ?UpdateDamage@aiVehicleActive@@QAEXXZ
-    void UpdateDamage();
+    ARTS_IMPORT void UpdateDamage();
 };
 
 check_size(aiVehicleActive, 0xA6C);
@@ -239,44 +239,44 @@ class aiVehicleManager : public asNode
 
 public:
     // 0x452A30 | ??0aiVehicleManager@@QAE@XZ
-    aiVehicleManager();
+    ARTS_IMPORT aiVehicleManager();
 
     // 0x453A60 | ??_EaiVehicleManager@@UAEPAXI@Z
     // 0x452B10 | ??1aiVehicleManager@@UAE@XZ
-    ~aiVehicleManager() override;
+    ARTS_IMPORT ~aiVehicleManager() override;
 
     // 0x453040 | ?AddVehicleDataEntry@aiVehicleManager@@QAEHPAD@Z
-    i32 AddVehicleDataEntry(char* arg1);
+    ARTS_IMPORT i32 AddVehicleDataEntry(char* arg1);
 
     // 0x453380 | ?AddWidgets@aiVehicleManager@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x452C20 | ?Attach@aiVehicleManager@@QAEPAVaiVehicleActive@@PAVaiVehicleInstance@@@Z
-    class aiVehicleActive* Attach(class aiVehicleInstance* arg1);
+    ARTS_IMPORT class aiVehicleActive* Attach(class aiVehicleInstance* arg1);
 
     // 0x452CE0 | ?Detach@aiVehicleManager@@QAEXPAVaiVehicleActive@@@Z
-    void Detach(class aiVehicleActive* arg1);
+    ARTS_IMPORT void Detach(class aiVehicleActive* arg1);
 
     // 0x452BB0 | ?Init@aiVehicleManager@@QAEXPAD@Z
-    void Init(char* arg1);
+    ARTS_IMPORT void Init(char* arg1);
 
     // 0x452BE0 | ?Reset@aiVehicleManager@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x453350 | ?Save@aiVehicleManager@@UAEXXZ
-    void Save() override;
+    ARTS_IMPORT void Save() override;
 
     // 0x452D70 | ?Update@aiVehicleManager@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x6A7B50 | ?FloatClock@aiVehicleManager@@2MA
-    static inline extern_var(0x6A7B50, f32, FloatClock);
+    ARTS_IMPORT static f32 FloatClock;
 
     // 0x6A7AD8 | ?Instance@aiVehicleManager@@2PAV1@A
-    static inline extern_var(0x6A7AD8, class aiVehicleManager*, Instance);
+    ARTS_IMPORT static class aiVehicleManager* Instance;
 
     // 0x6A7B54 | ?SignalClock@aiVehicleManager@@2HA
-    static inline extern_var(0x6A7B54, i32, SignalClock);
+    ARTS_IMPORT static i32 SignalClock;
 };
 
 check_size(aiVehicleManager, 0x16628);
@@ -287,23 +287,23 @@ class aiVehicleData : public asNode
 
 public:
     // 0x453B70 | ??0aiVehicleData@@QAE@XZ | inline
-    aiVehicleData();
+    ARTS_IMPORT aiVehicleData();
 
     // 0x453A90 | ??_EaiVehicleData@@UAEPAXI@Z
     // 0x453B90 | ??1aiVehicleData@@UAE@XZ | inline
-    ~aiVehicleData() override;
+    ARTS_IMPORT ~aiVehicleData() override;
 
     // 0x453390 | ?AddWidgets@aiVehicleData@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4539F0 | ?GetClass@aiVehicleData@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x452E60 | ?LoadEntry@aiVehicleData@@QAEHPAD@Z
-    i32 LoadEntry(char* arg1);
+    ARTS_IMPORT i32 LoadEntry(char* arg1);
 
     // 0x4536C0 | ?DeclareFields@aiVehicleData@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(aiVehicleData, 0xC0);

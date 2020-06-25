@@ -19,33 +19,3 @@
 define_dummy_symbol(mmwidget_ttip);
 
 #include "ttip.h"
-
-mmToolTip::mmToolTip()
-{
-    unimplemented();
-}
-
-mmToolTip::~mmToolTip()
-{
-    unimplemented();
-}
-
-void mmToolTip::Init(class UIMenu* arg1, struct LocString* arg2)
-{
-    return stub<thiscall_t<void, mmToolTip*, class UIMenu*, struct LocString*>>(0x4BF1B0, this, arg1, arg2);
-}
-
-void mmToolTip::SetText(struct LocString* arg1)
-{
-    return stub<thiscall_t<void, mmToolTip*, struct LocString*>>(0x4BF260, this, arg1);
-}
-
-void mmToolTip::Switch(i32 arg1)
-{
-    return stub<thiscall_t<void, mmToolTip*, i32>>(0x4BF280, this, arg1);
-}
-
-void mmToolTip::Update()
-{
-    return stub<thiscall_t<void, mmToolTip*>>(0x4BF290, this);
-}

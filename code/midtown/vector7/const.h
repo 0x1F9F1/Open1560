@@ -42,44 +42,44 @@
 */
 
 // 0x573530 | ?ResetMathSpeed@@YAXXZ | unused
-void ResetMathSpeed();
+ARTS_IMPORT void ResetMathSpeed();
 
 // 0x573510 | ?SetMathSpeedFast@@YAXXZ | unused
-void SetMathSpeedFast();
+ARTS_IMPORT void SetMathSpeedFast();
 
 // 0x5734F0 | ?SetMathSpeedMed@@YAXXZ | unused
-void SetMathSpeedMed();
+ARTS_IMPORT void SetMathSpeedMed();
 
 // 0x5734D0 | ?SetMathSpeedSlow@@YAXXZ | unused
-void SetMathSpeedSlow();
+ARTS_IMPORT void SetMathSpeedSlow();
 
 // 0x909648 | ?MathSpeed@@3HA
-inline extern_var(0x909648, i32, MathSpeed);
+ARTS_IMPORT extern i32 MathSpeed;
 
 // 0x90964C | ?OldMathSpeed@@3HA
-inline extern_var(0x90964C, i32, OldMathSpeed);
+ARTS_IMPORT extern i32 OldMathSpeed;
 
 class IntArray
 {
 public:
     // 0x5736D0 | ??4IntArray@@QAEXAAV0@@Z | unused
-    void operator=(class IntArray& arg1);
+    ARTS_IMPORT void operator=(class IntArray& arg1);
 
     // 0x573670 | ??AIntArray@@QAEAAHH@Z | unused
-    i32& operator[](i32 arg1);
+    ARTS_IMPORT i32& operator[](i32 arg1);
 
     // 0x573790 | ?BlockCopy@IntArray@@QAEXAAV1@@Z | unused
-    void BlockCopy(class IntArray& arg1);
+    ARTS_IMPORT void BlockCopy(class IntArray& arg1);
 
     // 0x5735B0 | ?Delete@IntArray@@QAEXXZ
-    void Delete();
+    ARTS_IMPORT void Delete();
 
     // 0x573540 | ?Init@IntArray@@QAEXH@Z | unused
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
 private:
     // 0x573600 | ?NewTable@IntArray@@AAEXH@Z
-    void NewTable(i32 arg1);
+    ARTS_IMPORT void NewTable(i32 arg1);
 };
 
 check_size(IntArray, 0x0);
@@ -88,23 +88,23 @@ class FloatArray
 {
 public:
     // 0x5739F0 | ??4FloatArray@@QAEXAAV0@@Z | unused
-    void operator=(class FloatArray& arg1);
+    ARTS_IMPORT void operator=(class FloatArray& arg1);
 
     // 0x573990 | ??AFloatArray@@QAEAAMH@Z | unused
-    f32& operator[](i32 arg1);
+    ARTS_IMPORT f32& operator[](i32 arg1);
 
     // 0x573AB0 | ?BlockCopy@FloatArray@@QAEXAAV1@@Z | unused
-    void BlockCopy(class FloatArray& arg1);
+    ARTS_IMPORT void BlockCopy(class FloatArray& arg1);
 
     // 0x5738D0 | ?Delete@FloatArray@@QAEXXZ
-    void Delete();
+    ARTS_IMPORT void Delete();
 
     // 0x573860 | ?Init@FloatArray@@QAEXH@Z | unused
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
 private:
     // 0x573920 | ?NewTable@FloatArray@@AAEXH@Z
-    void NewTable(i32 arg1);
+    ARTS_IMPORT void NewTable(i32 arg1);
 };
 
 check_size(FloatArray, 0x0);

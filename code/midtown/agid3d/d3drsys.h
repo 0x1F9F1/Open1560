@@ -55,69 +55,69 @@ class agiD3DRasterizer : public agiRasterizer
 
 public:
     // 0x52E550 | ??0agiD3DRasterizer@@QAE@PAVagiPipeline@@@Z
-    agiD3DRasterizer(class agiPipeline* arg1);
+    ARTS_IMPORT agiD3DRasterizer(class agiPipeline* arg1);
 
     // 0x52FA60 | ??_EagiD3DRasterizer@@UAEPAXI@Z
     // 0x52E590 | ??1agiD3DRasterizer@@UAE@XZ
-    ~agiD3DRasterizer() override;
+    ARTS_IMPORT ~agiD3DRasterizer() override;
 
     // 0x52E570 | ?BeginGfx@agiD3DRasterizer@@UAEHXZ
-    i32 BeginGfx() override;
+    ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x52E5A0 | ?BeginGroup@agiD3DRasterizer@@UAEXXZ
-    void BeginGroup() override;
+    ARTS_IMPORT void BeginGroup() override;
 
     // 0x52F8E0 | ?Card@agiD3DRasterizer@@UAEXHH@Z
-    void Card(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Card(i32 arg1, i32 arg2) override;
 
     // 0x52E580 | ?EndGfx@agiD3DRasterizer@@UAEXXZ
-    void EndGfx() override;
+    ARTS_IMPORT void EndGfx() override;
 
     // 0x52E5B0 | ?EndGroup@agiD3DRasterizer@@UAEXXZ
-    void EndGroup() override;
+    ARTS_IMPORT void EndGroup() override;
 
     // 0x52F860 | ?Line@agiD3DRasterizer@@UAEXHH@Z
-    void Line(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Line(i32 arg1, i32 arg2) override;
 
     // 0x52F950 | ?Mesh@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
-    void Mesh(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3, u16* arg4, i32 arg5) override;
+    ARTS_IMPORT void Mesh(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3, u16* arg4, i32 arg5) override;
 
     // 0x52F9C0 | ?Mesh2@agiD3DRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z
-    void Mesh2(struct agiScreenVtx2* arg1, i32 arg2, u16* arg3, i32 arg4) override;
+    ARTS_IMPORT void Mesh2(struct agiScreenVtx2* arg1, i32 arg2, u16* arg3, i32 arg4) override;
 
     // 0x52F8F0 | ?Points@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
+    ARTS_IMPORT void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
 
     // 0x52F7C0 | ?SetVertCount@agiD3DRasterizer@@UAEXH@Z
-    void SetVertCount(i32 arg1) override;
+    ARTS_IMPORT void SetVertCount(i32 arg1) override;
 
     // 0x52F7D0 | ?Triangle@agiD3DRasterizer@@UAEXHHH@Z
-    void Triangle(i32 arg1, i32 arg2, i32 arg3) override;
+    ARTS_IMPORT void Triangle(i32 arg1, i32 arg2, i32 arg3) override;
 
     // 0x52F770 | ?Verts@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    void Verts(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
+    ARTS_IMPORT void Verts(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
 
 protected:
     // 0x52E630 | ?FlushState@agiD3DRasterizer@@IAEXXZ
-    void FlushState();
+    ARTS_IMPORT void FlushState();
 };
 
 check_size(agiD3DRasterizer, 0x18);
 
 // 0x52E5C0 | ?d3d_state_init@@YAXXZ
-void d3d_state_init();
+ARTS_IMPORT void d3d_state_init();
 
 // 0x790DF0 | ?NoOutput@@3HA
-inline extern_var(0x790DF0, i32, NoOutput);
+ARTS_IMPORT extern i32 NoOutput;
 
 // 0x794F18 | ?OneTexture@@3HA
-inline extern_var(0x794F18, i32, OneTexture);
+ARTS_IMPORT extern i32 OneTexture;
 
 // 0x794F1C | ?OrthoFix@@3HA
-inline extern_var(0x794F1C, i32, OrthoFix);
+ARTS_IMPORT extern i32 OrthoFix;
 
 // 0x794E10 | ?VtxBase@@3PAXA
-inline extern_var(0x794E10, void*, VtxBase);
+ARTS_IMPORT extern void* VtxBase;
 
 // 0x794DFC | ?d3ddev@@3PAUIDirect3DDevice3@@A
-inline extern_var(0x794DFC, struct IDirect3DDevice3*, d3ddev);
+ARTS_IMPORT extern struct IDirect3DDevice3* d3ddev;

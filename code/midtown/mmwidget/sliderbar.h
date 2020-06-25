@@ -54,69 +54,69 @@ class mmSlider : public asNode
 
 public:
     // 0x4BE6A0 | ??0mmSlider@@QAE@XZ
-    mmSlider();
+    ARTS_IMPORT mmSlider();
 
     // 0x4BF080 | ??_EmmSlider@@UAEPAXI@Z
     // 0x4BE730 | ??1mmSlider@@UAE@XZ
-    ~mmSlider() override;
+    ARTS_IMPORT ~mmSlider() override;
 
     // 0x4BED40 | ?Cull@mmSlider@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4BEC10 | ?Dec@mmSlider@@QAEMXZ
-    f32 Dec();
+    ARTS_IMPORT f32 Dec();
 
     // 0x4BEAA0 | ?FudgeWidth@mmSlider@@QAEMXZ
-    f32 FudgeWidth();
+    ARTS_IMPORT f32 FudgeWidth();
 
     // 0x4BF070 | ?GetClass@mmSlider@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4BEA70 | ?GetScreenHeight@mmSlider@@QAEMXZ
-    f32 GetScreenHeight();
+    ARTS_IMPORT f32 GetScreenHeight();
 
     // 0x4BEAF0 | ?GetSliderHotSpots@mmSlider@@QAEXAAM00000@Z
-    void GetSliderHotSpots(f32& arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5, f32& arg6);
+    ARTS_IMPORT void GetSliderHotSpots(f32& arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5, f32& arg6);
 
     // 0x4BEBF0 | ?Inc@mmSlider@@QAEMXZ
-    f32 Inc();
+    ARTS_IMPORT f32 Inc();
 
     // 0x4BE7D0 | ?Init@mmSlider@@QAEXPADPAVuiWidget@@MMMMHMMHH@Z
-    void Init(char* arg1, class uiWidget* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, f32 arg8, f32 arg9,
-        i32 arg10, i32 arg11);
+    ARTS_IMPORT void Init(char* arg1, class uiWidget* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, f32 arg8,
+        f32 arg9, i32 arg10, i32 arg11);
 
     // 0x4BEA00 | ?IsReadWrite@mmSlider@@QAEHXZ
-    i32 IsReadWrite();
+    ARTS_IMPORT i32 IsReadWrite();
 
     // 0x4BE830 | ?LoadBitmap@mmSlider@@QAEXPAD@Z
-    void LoadBitmap(char* arg1);
+    ARTS_IMPORT void LoadBitmap(char* arg1);
 
     // 0x4BEAD0 | ?SetPosition@mmSlider@@QAEXMM@Z
-    void SetPosition(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2);
 
     // 0x4BECB0 | ?SetRange@mmSlider@@QAEXMM@Z
-    void SetRange(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetRange(f32 arg1, f32 arg2);
 
     // 0x4BE9E0 | ?SetReadWrite@mmSlider@@QAEXH@Z
-    void SetReadWrite(i32 arg1);
+    ARTS_IMPORT void SetReadWrite(i32 arg1);
 
     // 0x4BEC30 | ?SetStep@mmSlider@@QAEXM@Z
-    void SetStep(f32 arg1);
+    ARTS_IMPORT void SetStep(f32 arg1);
 
     // 0x4BEA10 | ?SetValue@mmSlider@@QAEMM@Z
-    f32 SetValue(f32 arg1);
+    ARTS_IMPORT f32 SetValue(f32 arg1);
 
     // 0x4BED20 | ?Update@mmSlider@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4BEBC0 | ?UpdatePosition@mmSlider@@QAEXXZ
-    void UpdatePosition();
+    ARTS_IMPORT void UpdatePosition();
 
     // 0x4BEF00 | ?DeclareFields@mmSlider@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmSlider, 0xA4);
 
 // 0x705CA0 | ?mmSliderMetaClass@@3VMetaClass@@A
-inline extern_var(0x705CA0, class MetaClass, mmSliderMetaClass);
+// ARTS_IMPORT extern class MetaClass mmSliderMetaClass;

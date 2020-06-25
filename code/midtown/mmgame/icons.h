@@ -40,23 +40,23 @@ class mmIcons : public asNode
 
 public:
     // 0x426390 | ??0mmIcons@@QAE@XZ
-    mmIcons();
+    ARTS_IMPORT mmIcons();
 
     // 0x426B70 | ??_GmmIcons@@UAEPAXI@Z
     // 0x426410 | ??1mmIcons@@UAE@XZ
-    ~mmIcons() override;
+    ARTS_IMPORT ~mmIcons() override;
 
     // 0x426570 | ?Cull@mmIcons@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x426470 | ?Init@mmIcons@@QAEXPAVMatrix34@@MM@Z
-    void Init(class Matrix34* arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void Init(class Matrix34* arg1, f32 arg2, f32 arg3);
 
     // 0x4264B0 | ?RegisterOpponents@mmIcons@@QAEXPAUOppIconInfo@@HPAX@Z
-    void RegisterOpponents(struct OppIconInfo* arg1, i32 arg2, void* arg3);
+    ARTS_IMPORT void RegisterOpponents(struct OppIconInfo* arg1, i32 arg2, void* arg3);
 
     // 0x426530 | ?Update@mmIcons@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmIcons, 0x0);

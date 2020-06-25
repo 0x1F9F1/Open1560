@@ -52,60 +52,60 @@ class mmMultiBlitz : public mmGameMulti
 
 public:
     // 0x418EE0 | ??0mmMultiBlitz@@QAE@XZ
-    mmMultiBlitz();
+    ARTS_IMPORT mmMultiBlitz();
 
     // 0x41A830 | ??_EmmMultiBlitz@@UAEPAXI@Z
     // 0x418F50 | ??1mmMultiBlitz@@UAE@XZ
-    ~mmMultiBlitz() override;
+    ARTS_IMPORT ~mmMultiBlitz() override;
 
     // 0x41A1C0 | ?GameMessage@mmMultiBlitz@@UAEXPAUNETGAME_MSG@@@Z
-    void GameMessage(struct NETGAME_MSG* arg1) override;
+    ARTS_IMPORT void GameMessage(struct NETGAME_MSG* arg1) override;
 
     // 0x41A6D0 | ?GetClass@mmMultiBlitz@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x41A8A0 | ?GetWaypoints@mmMultiBlitz@@UAEPAVmmWaypoints@@XZ | inline
-    class mmWaypoints* GetWaypoints() override;
+    ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
 
     // 0x419010 | ?Init@mmMultiBlitz@@QAEHXZ
-    i32 Init();
+    ARTS_IMPORT i32 Init();
 
     // 0x419230 | ?InitGameObjects@mmMultiBlitz@@UAEXXZ
-    void InitGameObjects() override;
+    ARTS_IMPORT void InitGameObjects() override;
 
     // 0x4191B0 | ?InitHUD@mmMultiBlitz@@UAEXXZ
-    void InitHUD() override;
+    ARTS_IMPORT void InitHUD() override;
 
     // 0x419140 | ?InitMyPlayer@mmMultiBlitz@@UAEXXZ
-    void InitMyPlayer() override;
+    ARTS_IMPORT void InitMyPlayer() override;
 
     // 0x4194C0 | ?InitNetworkPlayers@mmMultiBlitz@@UAEXXZ
-    void InitNetworkPlayers() override;
+    ARTS_IMPORT void InitNetworkPlayers() override;
 
     // 0x41A470 | ?PlayTimerWarning@mmMultiBlitz@@QAEXM@Z
-    void PlayTimerWarning(f32 arg1);
+    ARTS_IMPORT void PlayTimerWarning(f32 arg1);
 
     // 0x419820 | ?Reset@mmMultiBlitz@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x41A030 | ?SystemMessage@mmMultiBlitz@@UAEXPAUNETSYS_MSG@@@Z
-    void SystemMessage(struct NETSYS_MSG* arg1) override;
+    ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
 
     // 0x419910 | ?UpdateGame@mmMultiBlitz@@UAEXXZ
-    void UpdateGame() override;
+    ARTS_IMPORT void UpdateGame() override;
 
     // 0x4198D0 | ?UpdateGameInput@mmMultiBlitz@@UAEXH@Z
-    void UpdateGameInput(i32 arg1) override;
+    ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
 
     // 0x41A550 | ?DeclareFields@mmMultiBlitz@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x41A420 | ?SendPlayerFinish@mmMultiBlitz@@AAEXXZ
-    void SendPlayerFinish();
+    ARTS_IMPORT void SendPlayerFinish();
 };
 
 check_size(mmMultiBlitz, 0x1EEB8);
 
 // 0x6A7170 | ?mmMultiBlitzMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7170, class MetaClass, mmMultiBlitzMetaClass);
+// ARTS_IMPORT extern class MetaClass mmMultiBlitzMetaClass;

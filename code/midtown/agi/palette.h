@@ -34,25 +34,25 @@ class agiPalette
 {
 public:
     // 0x55C090 | ??0agiPalette@@QAE@XZ
-    agiPalette();
+    ARTS_IMPORT agiPalette();
 
     // 0x55C0F0 | ?Cube@agiPalette@@QAEXXZ | unused
-    void Cube();
+    ARTS_IMPORT void Cube();
 
     // 0x55C3A0 | ?FindColor@agiPalette@@QAEIUagiRgba@@@Z
-    u32 FindColor(struct agiRgba arg1);
+    ARTS_IMPORT u32 FindColor(struct agiRgba arg1);
 
     // 0x55C310 | ?GetColor@agiPalette@@QAEIUagiRgba@@@Z
-    u32 GetColor(struct agiRgba arg1);
+    ARTS_IMPORT u32 GetColor(struct agiRgba arg1);
 
     // 0x55C0B0 | ?Kill@agiPalette@@QAEXXZ
-    void Kill();
+    ARTS_IMPORT void Kill();
 
     // 0x55C180 | ?Load@agiPalette@@QAEXPAD@Z | unused
-    void Load(char* arg1);
+    ARTS_IMPORT void Load(char* arg1);
 };
 
 check_size(agiPalette, 0x0);
 
 // 0x907238 | ?agiPal@@3VagiPalette@@A
-inline extern_var(0x907238, class agiPalette, agiPal);
+ARTS_IMPORT extern class agiPalette agiPal;

@@ -80,166 +80,166 @@ class SoundObj
 {
 public:
     // 0x4F0B20 | ??0SoundObj@@QAE@XZ
-    SoundObj();
+    ARTS_IMPORT SoundObj();
 
     // 0x4F0BE0 | ??1SoundObj@@QAE@XZ
-    ~SoundObj();
+    ARTS_IMPORT ~SoundObj();
 
     // 0x4F2500 | ?AllOneShotLayersPlaying@SoundObj@@QAEFXZ
-    i16 AllOneShotLayersPlaying();
+    ARTS_IMPORT i16 AllOneShotLayersPlaying();
 
     // 0x4F15F0 | ?ConvertTo8Bit@SoundObj@@QAEXXZ
-    void ConvertTo8Bit();
+    ARTS_IMPORT void ConvertTo8Bit();
 
     // 0x4F3370 | ?CreateListenerEAXObj@SoundObj@@QAEGXZ
-    u16 CreateListenerEAXObj();
+    ARTS_IMPORT u16 CreateListenerEAXObj();
 
     // 0x4F3410 | ?CreateSecondaryEAXObj@SoundObj@@QAEGXZ
-    u16 CreateSecondaryEAXObj();
+    ARTS_IMPORT u16 CreateSecondaryEAXObj();
 
     // 0x4F0FA0 | ?DSCreateSoundBuffer@SoundObj@@QAEHPAPAUIDirectSoundBuffer@@E@Z
-    i32 DSCreateSoundBuffer(struct IDirectSoundBuffer** arg1, u8 arg2);
+    ARTS_IMPORT i32 DSCreateSoundBuffer(struct IDirectSoundBuffer** arg1, u8 arg2);
 
     // 0x4F21D0 | ?DSFillSoundBuffer@SoundObj@@QAEHPAUIDirectSoundBuffer@@@Z
-    i32 DSFillSoundBuffer(struct IDirectSoundBuffer* arg1);
+    ARTS_IMPORT i32 DSFillSoundBuffer(struct IDirectSoundBuffer* arg1);
 
     // 0x4F1750 | ?DSGetWaveFile@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAKPAPAX@Z
-    i32 DSGetWaveFile(
+    ARTS_IMPORT i32 DSGetWaveFile(
         struct HINSTANCE__* arg1, char const* arg2, struct tWAVEFORMATEX** arg3, u8** arg4, u32* arg5, void** arg6);
 
     // 0x4F1510 | ?DSGetWaveResource@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
-    i32 DSGetWaveResource(
+    ARTS_IMPORT i32 DSGetWaveResource(
         struct HINSTANCE__* arg1, char const* arg2, struct tWAVEFORMATEX** arg3, u8** arg4, u32* arg5);
 
     // 0x4F1030 | ?DSLoadSoundBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
-    struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, u32 arg2);
+    ARTS_IMPORT struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, u32 arg2);
 
     // 0x4F1210 | ?DSLoadSoundBuffer@SoundObj@@QAEXGK@Z
-    void DSLoadSoundBuffer(u16 arg1, u32 arg2);
+    ARTS_IMPORT void DSLoadSoundBuffer(u16 arg1, u32 arg2);
 
     // 0x4F2290 | ?DSParseWaveResource@SoundObj@@QAEHPAXPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
-    i32 DSParseWaveResource(void* arg1, struct tWAVEFORMATEX** arg2, u8** arg3, u32* arg4);
+    ARTS_IMPORT i32 DSParseWaveResource(void* arg1, struct tWAVEFORMATEX** arg2, u8** arg3, u32* arg4);
 
     // 0x4F0CA0 | ?DeallocateEffects@SoundObj@@QAEXXZ
-    void DeallocateEffects();
+    ARTS_IMPORT void DeallocateEffects();
 
     // 0x4F3580 | ?Disable3DMode@SoundObj@@QAEXXZ
-    void Disable3DMode();
+    ARTS_IMPORT void Disable3DMode();
 
     // 0x4F3270 | ?DisableEffect@SoundObj@@QAEXF@Z
-    void DisableEffect(i16 arg1);
+    ARTS_IMPORT void DisableEffect(i16 arg1);
 
     // 0x4F3550 | ?Enable3DMode@SoundObj@@QAEXXZ
-    void Enable3DMode();
+    ARTS_IMPORT void Enable3DMode();
 
     // 0x4F0F20 | ?FreeOneShotLayerBuffers@SoundObj@@QAEXXZ
-    void FreeOneShotLayerBuffers();
+    ARTS_IMPORT void FreeOneShotLayerBuffers();
 
     // 0x4F34D0 | ?GetFormat@SoundObj@@QAEPAUtWAVEFORMATEX@@XZ | unused
-    struct tWAVEFORMATEX* GetFormat();
+    ARTS_IMPORT struct tWAVEFORMATEX* GetFormat();
 
     // 0x4F1BD0 | ?Init@SoundObj@@QAEHPBDKF@Z
-    i32 Init(char const* arg1, u32 arg2, i16 arg3);
+    ARTS_IMPORT i32 Init(char const* arg1, u32 arg2, i16 arg3);
 
     // 0x4F1C90 | ?Init@SoundObj@@QAEHGKF@Z
-    i32 Init(u16 arg1, u32 arg2, i16 arg3);
+    ARTS_IMPORT i32 Init(u16 arg1, u32 arg2, i16 arg3);
 
     // 0x4F1A20 | ?InitDummy@SoundObj@@QAEHXZ
-    i32 InitDummy();
+    ARTS_IMPORT i32 InitDummy();
 
     // 0x4F2390 | ?IsPlaying@SoundObj@@QAEFF@Z
-    i16 IsPlaying(i16 arg1);
+    ARTS_IMPORT i16 IsPlaying(i16 arg1);
 
     // 0x4F1EE0 | ?Play@SoundObj@@QAEHKPAD@Z
-    i32 Play(u32 arg1, char* arg2);
+    ARTS_IMPORT i32 Play(u32 arg1, char* arg2);
 
     // 0x4F1350 | ?ReadADFRecord@SoundObj@@QAEXG@Z
-    void ReadADFRecord(u16 arg1);
+    ARTS_IMPORT void ReadADFRecord(u16 arg1);
 
     // 0x4F2470 | ?ReadyOneShotLayerBuf@SoundObj@@QAEFXZ
-    i16 ReadyOneShotLayerBuf();
+    ARTS_IMPORT i16 ReadyOneShotLayerBuf();
 
     // 0x4F2C00 | ?Set3DMode@SoundObj@@QAEXK@Z
-    void Set3DMode(u32 arg1);
+    ARTS_IMPORT void Set3DMode(u32 arg1);
 
     // 0x4F2C50 | ?SetConeAngles@SoundObj@@QAEXKK@Z
-    void SetConeAngles(u32 arg1, u32 arg2);
+    ARTS_IMPORT void SetConeAngles(u32 arg1, u32 arg2);
 
     // 0x4F2C90 | ?SetConeOrientation@SoundObj@@QAEXPAVVector3@@@Z
-    void SetConeOrientation(class Vector3* arg1);
+    ARTS_IMPORT void SetConeOrientation(class Vector3* arg1);
 
     // 0x4F2C20 | ?SetConeOutsideVolume@SoundObj@@QAEXJ@Z
-    void SetConeOutsideVolume(i32 arg1);
+    ARTS_IMPORT void SetConeOutsideVolume(i32 arg1);
 
     // 0x4F0D70 | ?SetDelayTime@SoundObj@@QAEXM@Z
-    void SetDelayTime(f32 arg1);
+    ARTS_IMPORT void SetDelayTime(f32 arg1);
 
     // 0x4F2860 | ?SetEchoFrequency@SoundObj@@QAEXM@Z
-    void SetEchoFrequency(f32 arg1);
+    ARTS_IMPORT void SetEchoFrequency(f32 arg1);
 
     // 0x4F2BA0 | ?SetEchoPan@SoundObj@@QAEXM@Z
-    void SetEchoPan(f32 arg1);
+    ARTS_IMPORT void SetEchoPan(f32 arg1);
 
     // 0x4F1D40 | ?SetEffect@SoundObj@@QAEXFPAD@Z
-    void SetEffect(i16 arg1, char* arg2);
+    ARTS_IMPORT void SetEffect(i16 arg1, char* arg2);
 
     // 0x4F2620 | ?SetFrequency@SoundObj@@QAEXM@Z
-    void SetFrequency(f32 arg1);
+    ARTS_IMPORT void SetFrequency(f32 arg1);
 
     // 0x4F2A60 | ?SetPan@SoundObj@@QAEXM@Z
-    void SetPan(f32 arg1);
+    ARTS_IMPORT void SetPan(f32 arg1);
 
     // 0x4F1EC0 | ?SetPlayPosition@SoundObj@@QAEXK@Z
-    void SetPlayPosition(u32 arg1);
+    ARTS_IMPORT void SetPlayPosition(u32 arg1);
 
     // 0x4F25A0 | ?SetPosition@SoundObj@@QAEXMMM@Z
-    void SetPosition(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2, f32 arg3);
 
     // 0x4F2BD0 | ?SetRamp@SoundObj@@QAEXMM@Z
-    void SetRamp(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetRamp(f32 arg1, f32 arg2);
 
     // 0x4F25E0 | ?SetVelocity@SoundObj@@QAEXMMM@Z
-    void SetVelocity(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void SetVelocity(f32 arg1, f32 arg2, f32 arg3);
 
     // 0x4F2920 | ?SetVolume@SoundObj@@QAEXM@Z
-    void SetVolume(f32 arg1);
+    ARTS_IMPORT void SetVolume(f32 arg1);
 
     // 0x4F2CC0 | ?SetupDuplicateBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PAD@Z | unused
-    struct IDirectSoundBuffer* SetupDuplicateBuffer(char* arg1);
+    ARTS_IMPORT struct IDirectSoundBuffer* SetupDuplicateBuffer(char* arg1);
 
     // 0x4F2D70 | ?SetupEchoBuffer@SoundObj@@QAEXPAD@Z
-    void SetupEchoBuffer(char* arg1);
+    ARTS_IMPORT void SetupEchoBuffer(char* arg1);
 
     // 0x4F0E90 | ?SetupOneShotLayerBuffers@SoundObj@@QAEFFMPAD@Z
-    i16 SetupOneShotLayerBuffers(i16 arg1, f32 arg2, char* arg3);
+    ARTS_IMPORT i16 SetupOneShotLayerBuffers(i16 arg1, f32 arg2, char* arg3);
 
     // 0x4F2120 | ?Stop@SoundObj@@QAEHXZ
-    i32 Stop();
+    ARTS_IMPORT i32 Stop();
 
     // 0x4F21B0 | ?StopEchoBuffers@SoundObj@@QAEXXZ
-    void StopEchoBuffers();
+    ARTS_IMPORT void StopEchoBuffers();
 
     // 0x4F2EC0 | ?UpdateEcho@SoundObj@@QAEXXZ
-    void UpdateEcho();
+    ARTS_IMPORT void UpdateEcho();
 
     // 0x4F31B0 | ?UpdatePitchEcho@SoundObj@@QAEXXZ
-    void UpdatePitchEcho();
+    ARTS_IMPORT void UpdatePitchEcho();
 
     // 0x4F2F30 | ?UpdatePlayEcho@SoundObj@@QAEXXZ
-    void UpdatePlayEcho();
+    ARTS_IMPORT void UpdatePlayEcho();
 
     // 0x4F2E90 | ?UpdateSeconds@SoundObj@@QAEXXZ
-    void UpdateSeconds();
+    ARTS_IMPORT void UpdateSeconds();
 
     // 0x4F3030 | ?UpdateStopEcho@SoundObj@@QAEXXZ
-    void UpdateStopEcho();
+    ARTS_IMPORT void UpdateStopEcho();
 
     // 0x4F30F0 | ?UpdateVolumeEcho@SoundObj@@QAEXXZ
-    void UpdateVolumeEcho();
+    ARTS_IMPORT void UpdateVolumeEcho();
 
 private:
     // 0x4F2E10 | ?SetupChorusBuffer@SoundObj@@AAEPAUIDirectSoundBuffer@@PAD@Z
-    struct IDirectSoundBuffer* SetupChorusBuffer(char* arg1);
+    ARTS_IMPORT struct IDirectSoundBuffer* SetupChorusBuffer(char* arg1);
 };
 
 check_size(SoundObj, 0x88);

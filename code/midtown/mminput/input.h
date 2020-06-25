@@ -113,40 +113,40 @@
 #include "arts7/node.h"
 
 // 0x4E06E0 | ?testsuperq@@YAXXZ | unused
-void testsuperq();
+ARTS_IMPORT void testsuperq();
 
 // 0x719254 | ?GameInputPtr@@3PAVmmInput@@A
-inline extern_var(0x719254, class mmInput*, GameInputPtr);
+ARTS_IMPORT extern class mmInput* GameInputPtr;
 
 // 0x719220 | ?IODev@@3PAVmmIODev@@A
-inline extern_var(0x719220, class mmIODev*, IODev);
+ARTS_IMPORT extern class mmIODev* IODev;
 
 // 0x719268 | ?InputConfiguration@@3HA
-inline extern_var(0x719268, i32, InputConfiguration);
+ARTS_IMPORT extern i32 InputConfiguration;
 
 // 0x719258 | ?LocStrButton@@3PADA
-inline extern_var(0x719258, char*, LocStrButton);
+ARTS_IMPORT extern char* LocStrButton;
 
 // 0x719260 | ?LocStrJoystick@@3PADA
-inline extern_var(0x719260, char*, LocStrJoystick);
+ARTS_IMPORT extern char* LocStrJoystick;
 
 // 0x719250 | ?LocStrKey@@3PADA
-inline extern_var(0x719250, char*, LocStrKey);
+ARTS_IMPORT extern char* LocStrKey;
 
 // 0x71925C | ?LocStrUndef@@3PADA
-inline extern_var(0x71925C, char*, LocStrUndef);
+ARTS_IMPORT extern char* LocStrUndef;
 
 // 0x719264 | ?UseDIKey@@3HA
-inline extern_var(0x719264, i32, UseDIKey);
+ARTS_IMPORT extern i32 UseDIKey;
 
 // 0x71926C | ?gpdi@@3PAUIDirectInputA@@A
-inline extern_var(0x71926C, struct IDirectInputA*, gpdi);
+ARTS_IMPORT extern struct IDirectInputA* gpdi;
 
 // 0x719228 | ?mmInputMetaClass@@3VMetaClass@@A
-inline extern_var(0x719228, class MetaClass, mmInputMetaClass);
+// ARTS_IMPORT extern class MetaClass mmInputMetaClass;
 
 // 0x719270 | ?testValue@@3MA
-inline extern_var(0x719270, f32, testValue);
+ARTS_IMPORT extern f32 testValue;
 
 class mmInput : public asNode
 {
@@ -154,219 +154,219 @@ class mmInput : public asNode
 
 public:
     // 0x4E0710 | ??0mmInput@@QAE@XZ
-    mmInput();
+    ARTS_IMPORT mmInput();
 
     // 0x4E4B00 | ??_EmmInput@@UAEPAXI@Z
     // 0x4E0930 | ??1mmInput@@UAE@XZ
-    ~mmInput() override;
+    ARTS_IMPORT ~mmInput() override;
 
     // 0x4E21F0 | ?AssignIO@mmInput@@QAEXPAVmmIO@@HH@Z
-    void AssignIO(class mmIO* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT void AssignIO(class mmIO* arg1, i32 arg2, i32 arg3);
 
     // 0x4E09F0 | ?AttachToPipe@mmInput@@QAEHXZ
-    i32 AttachToPipe();
+    ARTS_IMPORT i32 AttachToPipe();
 
     // 0x4E0F00 | ?AutoSetup@mmInput@@QAEXXZ
-    void AutoSetup();
+    ARTS_IMPORT void AutoSetup();
 
     // 0x4E3CE0 | ?BinaryLoadConfig@mmInput@@QAEHPAVStream@@@Z
-    i32 BinaryLoadConfig(class Stream* arg1);
+    ARTS_IMPORT i32 BinaryLoadConfig(class Stream* arg1);
 
     // 0x4E3E20 | ?BinarySaveConfig@mmInput@@QAEHPAVStream@@@Z
-    i32 BinarySaveConfig(class Stream* arg1);
+    ARTS_IMPORT i32 BinarySaveConfig(class Stream* arg1);
 
     // 0x4E1EB0 | ?BuildCaptureIO@mmInput@@QAEHHPAVmmIO@@TeqEvent@@@Z
-    i32 BuildCaptureIO(i32 arg1, class mmIO* arg2, union eqEvent arg3);
+    ARTS_IMPORT i32 BuildCaptureIO(i32 arg1, class mmIO* arg2, union eqEvent arg3);
 
     // 0x4E1E80 | ?CaptureState@mmInput@@QAEXH@Z
-    void CaptureState(i32 arg1);
+    ARTS_IMPORT void CaptureState(i32 arg1);
 
     // 0x4E24B0 | ?ClearEventHitFlags@mmInput@@QAEXXZ
-    void ClearEventHitFlags();
+    ARTS_IMPORT void ClearEventHitFlags();
 
     // 0x4E3990 | ?DeviceConnected@mmInput@@QAEHXZ
-    i32 DeviceConnected();
+    ARTS_IMPORT i32 DeviceConnected();
 
     // 0x4E3A60 | ?DoingFF@mmInput@@QAEHXZ
-    i32 DoingFF();
+    ARTS_IMPORT i32 DoingFF();
 
     // 0x4E3BC0 | ?FFIsPlaying@mmInput@@QAEHH@Z
-    i32 FFIsPlaying(i32 arg1);
+    ARTS_IMPORT i32 FFIsPlaying(i32 arg1);
 
     // 0x4E3B60 | ?FFPlay@mmInput@@QAEHH@Z
-    i32 FFPlay(i32 arg1);
+    ARTS_IMPORT i32 FFPlay(i32 arg1);
 
     // 0x4E3BF0 | ?FFSetValues@mmInput@@QAEHHMM@Z
-    i32 FFSetValues(i32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT i32 FFSetValues(i32 arg1, f32 arg2, f32 arg3);
 
     // 0x4E3B90 | ?FFStop@mmInput@@QAEHH@Z
-    i32 FFStop(i32 arg1);
+    ARTS_IMPORT i32 FFStop(i32 arg1);
 
     // 0x4E3650 | ?FilterGamepadSteering@mmInput@@QAEMXZ
-    f32 FilterGamepadSteering();
+    ARTS_IMPORT f32 FilterGamepadSteering();
 
     // 0x4E1E40 | ?FlagIODevChanged@mmInput@@QAEXXZ
-    void FlagIODevChanged();
+    ARTS_IMPORT void FlagIODevChanged();
 
     // 0x4E2450 | ?Flush@mmInput@@QAEXXZ
-    void Flush();
+    ARTS_IMPORT void Flush();
 
     // 0x4E2070 | ?ForceAssignment@mmInput@@QAEXPAVmmIO@@@Z
-    void ForceAssignment(class mmIO* arg1);
+    ARTS_IMPORT void ForceAssignment(class mmIO* arg1);
 
     // 0x4E39B0 | ?GamepadConnected@mmInput@@QAEHXZ
-    i32 GamepadConnected();
+    ARTS_IMPORT i32 GamepadConnected();
 
     // 0x4E33A0 | ?GetBrakes@mmInput@@QAEMXZ
-    f32 GetBrakes();
+    ARTS_IMPORT f32 GetBrakes();
 
     // 0x4E33C0 | ?GetBrakesVal@mmInput@@QAEMXZ
-    f32 GetBrakesVal();
+    ARTS_IMPORT f32 GetBrakesVal();
 
     // 0x4E3890 | ?GetCamPan@mmInput@@QAEMXZ
-    f32 GetCamPan();
+    ARTS_IMPORT f32 GetCamPan();
 
     // 0x4E4290 | ?GetClass@mmInput@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4E3430 | ?GetHandBrake@mmInput@@QAEMXZ
-    f32 GetHandBrake();
+    ARTS_IMPORT f32 GetHandBrake();
 
     // 0x4E37E0 | ?GetSteering@mmInput@@QAEMXZ
-    f32 GetSteering();
+    ARTS_IMPORT f32 GetSteering();
 
     // 0x4E3310 | ?GetThrottle@mmInput@@QAEMXZ
-    f32 GetThrottle();
+    ARTS_IMPORT f32 GetThrottle();
 
     // 0x4E3330 | ?GetThrottleVal@mmInput@@QAEMXZ
-    f32 GetThrottleVal();
+    ARTS_IMPORT f32 GetThrottleVal();
 
     // 0x4E0ED0 | ?IOInit@mmInput@@QAEXHPAULocString@@J@Z
-    void IOInit(i32 arg1, struct LocString* arg2, i32 arg3);
+    ARTS_IMPORT void IOInit(i32 arg1, struct LocString* arg2, i32 arg3);
 
     // 0x4E1C60 | ?Init@mmInput@@QAEXH@Z
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
     // 0x4E2110 | ?IsAlreadyAssigned@mmInput@@QAEHPAVmmIO@@HHH@Z
-    i32 IsAlreadyAssigned(class mmIO* arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT i32 IsAlreadyAssigned(class mmIO* arg1, i32 arg2, i32 arg3, i32 arg4);
 
     // 0x4E39A0 | ?JoystickConnected@mmInput@@QAEHXZ
-    i32 JoystickConnected();
+    ARTS_IMPORT i32 JoystickConnected();
 
     // 0x4E3A00 | ?JoystickHasCoolie@mmInput@@QAEHXZ
-    i32 JoystickHasCoolie();
+    ARTS_IMPORT i32 JoystickHasCoolie();
 
     // 0x4E3A10 | ?JoystickHasThrottle@mmInput@@QAEHXZ | unused
-    i32 JoystickHasThrottle();
+    ARTS_IMPORT i32 JoystickHasThrottle();
 
     // 0x4E3C50 | ?LoadConfig@mmInput@@QAEHPAVStream@@@Z | unused
-    i32 LoadConfig(class Stream* arg1);
+    ARTS_IMPORT i32 LoadConfig(class Stream* arg1);
 
     // 0x4E2370 | ?PollStates@mmInput@@QAEHXZ
-    i32 PollStates();
+    ARTS_IMPORT i32 PollStates();
 
     // 0x4E2420 | ?PollSuperQ@mmInput@@QAEHXZ
-    i32 PollSuperQ();
+    ARTS_IMPORT i32 PollSuperQ();
 
     // 0x4E3C20 | ?PopEvent@mmInput@@QAEHPAH@Z
-    i32 PopEvent(i32* arg1);
+    ARTS_IMPORT i32 PopEvent(i32* arg1);
 
     // 0x4E42A0 | ?PrintIODev@mmInput@@QAEXXZ | unused
-    void PrintIODev();
+    ARTS_IMPORT void PrintIODev();
 
     // 0x4E0EA0 | ?Reset@mmInput@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4E1010 | ?RestoreDefaultConfig@mmInput@@QAEXH@Z
-    void RestoreDefaultConfig(i32 arg1);
+    ARTS_IMPORT void RestoreDefaultConfig(i32 arg1);
 
     // 0x4E1E60 | ?ReturnStateCaptured@mmInput@@QAEHXZ
-    i32 ReturnStateCaptured();
+    ARTS_IMPORT i32 ReturnStateCaptured();
 
     // 0x4E2090 | ?SanityCheck@mmInput@@QAEHPAVmmIO@@HH@Z
-    i32 SanityCheck(class mmIO* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT i32 SanityCheck(class mmIO* arg1, i32 arg2, i32 arg3);
 
     // 0x4E0FD0 | ?SaveCB@mmInput@@QAEXXZ
-    void SaveCB();
+    ARTS_IMPORT void SaveCB();
 
     // 0x4E4370 | ?SaveCodeConfig@mmInput@@QAEHPAVStream@@@Z
-    i32 SaveCodeConfig(class Stream* arg1);
+    ARTS_IMPORT i32 SaveCodeConfig(class Stream* arg1);
 
     // 0x4E3DA0 | ?SaveConfig@mmInput@@QAEHPAVStream@@@Z | unused
-    i32 SaveConfig(class Stream* arg1);
+    ARTS_IMPORT i32 SaveConfig(class Stream* arg1);
 
     // 0x4E39D0 | ?SetDeadZone@mmInput@@QAEXM@Z | unused
-    void SetDeadZone(f32 arg1);
+    ARTS_IMPORT void SetDeadZone(f32 arg1);
 
     // 0x4E1070 | ?SetDefaultConfig@mmInput@@QAEXH@Z
-    void SetDefaultConfig(i32 arg1);
+    ARTS_IMPORT void SetDefaultConfig(i32 arg1);
 
     // 0x4E3AA0 | ?SetForceFeedbackScale@mmInput@@QAEXM@Z | unused
-    void SetForceFeedbackScale(f32 arg1);
+    ARTS_IMPORT void SetForceFeedbackScale(f32 arg1);
 
     // 0x4E3AF0 | ?SetRoadForceScale@mmInput@@QAEXM@Z | unused
-    void SetRoadForceScale(f32 arg1);
+    ARTS_IMPORT void SetRoadForceScale(f32 arg1);
 
     // 0x4E3A90 | ?StopAllFF@mmInput@@QAEXXZ
-    void StopAllFF();
+    ARTS_IMPORT void StopAllFF();
 
     // 0x4E3B40 | ?ToggleFFEnabled@mmInput@@QAEHH@Z
-    i32 ToggleFFEnabled(i32 arg1);
+    ARTS_IMPORT i32 ToggleFFEnabled(i32 arg1);
 
     // 0x4E2290 | ?Update@mmInput@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4E39C0 | ?WheelConnected@mmInput@@QAEHXZ
-    i32 WheelConnected();
+    ARTS_IMPORT i32 WheelConnected();
 
     // 0x4E3A20 | ?WheelHas3Axis@mmInput@@QAEHXZ | unused
-    i32 WheelHas3Axis();
+    ARTS_IMPORT i32 WheelHas3Axis();
 
     // 0x4E40E0 | ?DeclareFields@mmInput@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x4E3EB0 | ?AddWidgets@mmInput@@EAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4E2890 | ?EventToButton@mmInput@@AAEHH@Z | unused
-    i32 EventToButton(i32 arg1);
+    ARTS_IMPORT i32 EventToButton(i32 arg1);
 
     // 0x4E34B0 | ?FilterDiscreteSteering@mmInput@@AAEMM@Z
-    f32 FilterDiscreteSteering(f32 arg1);
+    ARTS_IMPORT f32 FilterDiscreteSteering(f32 arg1);
 
     // 0x4E2580 | ?GetBufferedKeyboardData@mmInput@@AAEXXZ
-    void GetBufferedKeyboardData();
+    ARTS_IMPORT void GetBufferedKeyboardData();
 
     // 0x4E25A0 | ?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z
-    i32 GetNextKeyboardEvent(union eqEvent* arg1);
+    ARTS_IMPORT i32 GetNextKeyboardEvent(union eqEvent* arg1);
 
     // 0x4E2E80 | ?PollContinuous@mmInput@@AAEXPAVmmIO@@@Z
-    void PollContinuous(class mmIO* arg1);
+    ARTS_IMPORT void PollContinuous(class mmIO* arg1);
 
     // 0x4E25E0 | ?ProcessEvents@mmInput@@AAEXXZ
-    void ProcessEvents();
+    ARTS_IMPORT void ProcessEvents();
 
     // 0x4E28C0 | ?ProcessJoyEvents@mmInput@@AAEXXZ
-    void ProcessJoyEvents();
+    ARTS_IMPORT void ProcessJoyEvents();
 
     // 0x4E2530 | ?ProcessKeyboardEvents@mmInput@@AAEXXZ
-    void ProcessKeyboardEvents();
+    ARTS_IMPORT void ProcessKeyboardEvents();
 
     // 0x4E24D0 | ?ProcessMouseEvents@mmInput@@AAEXXZ
-    void ProcessMouseEvents();
+    ARTS_IMPORT void ProcessMouseEvents();
 
     // 0x4E2600 | ?ProcessStates@mmInput@@AAE_JXZ
-    i64 ProcessStates();
+    ARTS_IMPORT i64 ProcessStates();
 
     // 0x4E2E50 | ?PutEventInQueue@mmInput@@AAEX_J@Z
-    void PutEventInQueue(i64 arg1);
+    ARTS_IMPORT void PutEventInQueue(i64 arg1);
 
     // 0x4E2D90 | ?ScanForEvent@mmInput@@AAE_JPATeqEvent@@@Z
-    i64 ScanForEvent(union eqEvent* arg1);
+    ARTS_IMPORT i64 ScanForEvent(union eqEvent* arg1);
 
     // 0x4E26E0 | ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
-    i64 ScanState(class mmIO* arg1);
+    ARTS_IMPORT i64 ScanState(class mmIO* arg1);
 };
 
 check_size(mmInput, 0x248);

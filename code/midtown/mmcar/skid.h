@@ -61,44 +61,44 @@ class mmSkid : public mmInstance
 
 public:
     // 0x477850 | ??0mmSkid@@QAE@XZ
-    mmSkid();
+    ARTS_IMPORT mmSkid();
 
     // 0x478480 | ??_EmmSkid@@UAEPAXI@Z
     // 0x477890 | ??1mmSkid@@UAE@XZ
-    ~mmSkid() override;
+    ARTS_IMPORT ~mmSkid() override;
 
     // 0x4778A0 | ?AddSkid@mmSkid@@QAEXAAVMatrix34@@PAVVector3@@PAVagiPhysParameters@@M@Z
-    void AddSkid(class Matrix34& arg1, class Vector3* arg2, class agiPhysParameters* arg3, f32 arg4);
+    ARTS_IMPORT void AddSkid(class Matrix34& arg1, class Vector3* arg2, class agiPhysParameters* arg3, f32 arg4);
 
     // 0x478550 | ?AddWidgets@mmSkid@@UAEXPAVBank@@@Z | inline
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x477AA0 | ?Draw@mmSkid@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x477B30 | ?DrawShadow@mmSkid@@UAIXXZ
-    void __fastcall DrawShadow() override;
+    ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // 0x477A60 | ?FromMatrix@mmSkid@@UAIXABVMatrix34@@@Z
-    void __fastcall FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
     // 0x478300 | ?GetClass@mmSkid@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x477A80 | ?GetPos@mmSkid@@UAIAAVVector3@@XZ
-    class Vector3& __fastcall GetPos() override;
+    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
     // 0x477870 | ?Init@mmSkid@@QAEXPAD@Z
-    void Init(char* arg1);
+    ARTS_IMPORT void Init(char* arg1);
 
     // 0x477A70 | ?ToMatrix@mmSkid@@UAIAAVMatrix34@@AAV2@@Z
-    class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
     // 0x477A90 | ?Update@mmSkid@@QAEXXZ | unused
-    void Update();
+    ARTS_IMPORT void Update();
 
     // 0x478180 | ?DeclareFields@mmSkid@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmSkid, 0x48);
@@ -109,38 +109,38 @@ class mmSkidManager : public asNode
 
 public:
     // 0x477B40 | ??0mmSkidManager@@QAE@XZ
-    mmSkidManager();
+    ARTS_IMPORT mmSkidManager();
 
     // 0x4784E0 | ??_EmmSkidManager@@UAEPAXI@Z
     // 0x477B70 | ??1mmSkidManager@@UAE@XZ
-    ~mmSkidManager() override;
+    ARTS_IMPORT ~mmSkidManager() override;
 
     // 0x478470 | ?GetClass@mmSkidManager@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x477BD0 | ?Init@mmSkidManager@@QAEXPADHPAVmmWheel@@@Z
-    void Init(char* arg1, i32 arg2, class mmWheel* arg3);
+    ARTS_IMPORT void Init(char* arg1, i32 arg2, class mmWheel* arg3);
 
     // 0x477D10 | ?LayTrack@mmSkidManager@@QAEXXZ
-    void LayTrack();
+    ARTS_IMPORT void LayTrack();
 
     // 0x477C90 | ?ReInit@mmSkidManager@@QAEXPAVmmWheel@@@Z
-    void ReInit(class mmWheel* arg1);
+    ARTS_IMPORT void ReInit(class mmWheel* arg1);
 
     // 0x477CC0 | ?Reset@mmSkidManager@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4780A0 | ?Update@mmSkidManager@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x478310 | ?DeclareFields@mmSkidManager@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmSkidManager, 0x68);
 
 // 0x6A7EC8 | ?mmSkidManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7EC8, class MetaClass, mmSkidManagerMetaClass);
+// ARTS_IMPORT extern class MetaClass mmSkidManagerMetaClass;
 
 // 0x6A7EA0 | ?mmSkidMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7EA0, class MetaClass, mmSkidMetaClass);
+// ARTS_IMPORT extern class MetaClass mmSkidMetaClass;

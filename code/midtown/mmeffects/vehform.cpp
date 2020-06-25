@@ -19,29 +19,3 @@
 define_dummy_symbol(mmeffects_vehform);
 
 #include "vehform.h"
-
-mmVehicleForm::mmVehicleForm()
-{
-    unimplemented();
-}
-
-mmVehicleForm::~mmVehicleForm()
-{
-    unimplemented();
-}
-
-void mmVehicleForm::Cull()
-{
-    return stub<thiscall_t<void, mmVehicleForm*>>(0x5027A0, this);
-}
-
-void mmVehicleForm::SetShape(char* arg1, char* arg2, char* arg3, class Vector3* arg4)
-{
-    return stub<thiscall_t<void, mmVehicleForm*, char*, char*, char*, class Vector3*>>(
-        0x502710, this, arg1, arg2, arg3, arg4);
-}
-
-void mmVehicleForm::Update()
-{
-    return stub<thiscall_t<void, mmVehicleForm*>>(0x502780, this);
-}

@@ -53,65 +53,65 @@ class asCullManager : public asNode
 
 public:
     // 0x5246C0 | ??0asCullManager@@QAE@HH@Z
-    asCullManager(i32 arg1, i32 arg2);
+    ARTS_IMPORT asCullManager(i32 arg1, i32 arg2);
 
     // 0x525850 | ??_EasCullManager@@UAEPAXI@Z
     // 0x524D40 | ??1asCullManager@@UAE@XZ
-    ~asCullManager() override;
+    ARTS_IMPORT ~asCullManager() override;
 
     // 0x525440 | ?DeclareCamera@asCullManager@@UAEXPAVasCamera@@@Z
-    virtual void DeclareCamera(class asCamera* arg1);
+    ARTS_IMPORT virtual void DeclareCamera(class asCamera* arg1);
 
     // 0x5254A0 | ?DeclareCullable@asCullManager@@UAEXPAVasCullable@@@Z
-    virtual void DeclareCullable(class asCullable* arg1);
+    ARTS_IMPORT virtual void DeclareCullable(class asCullable* arg1);
 
     // 0x525550 | ?DeclareCullable2D@asCullManager@@UAEXPAVasCullable@@@Z
-    virtual void DeclareCullable2D(class asCullable* arg1);
+    ARTS_IMPORT virtual void DeclareCullable2D(class asCullable* arg1);
 
     // 0x525400 | ?AddPage@asCullManager@@QAEXVCallback@@@Z
-    void AddPage(class Callback arg1);
+    ARTS_IMPORT void AddPage(class Callback arg1);
 
     // 0x5255F0 | ?DeclareBitmap@asCullManager@@QAEXPAVasCullable@@PAVagiBitmap@@@Z
-    void DeclareBitmap(class asCullable* arg1, class agiBitmap* arg2);
+    ARTS_IMPORT void DeclareBitmap(class asCullable* arg1, class agiBitmap* arg2);
 
     // 0x525660 | ?DeclarePrint@asCullManager@@QAEXPAVasCullable@@@Z
-    void DeclarePrint(class asCullable* arg1);
+    ARTS_IMPORT void DeclarePrint(class asCullable* arg1);
 
     // 0x525840 | ?GetClass@asCullManager@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x524DF0 | ?Reset@asCullManager@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x525090 | ?Update@asCullManager@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x5258B0 | ??_FasCullManager@@QAEXXZ (Skipped: invalid name)
 
     // 0x5256D0 | ?DeclareFields@asCullManager@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 protected:
     // 0x524E50 | ?DisplayVersionString@asCullManager@@IAEXXZ
-    void DisplayVersionString();
+    ARTS_IMPORT void DisplayVersionString();
 
     // 0x524F00 | ?PrintMiniStats@asCullManager@@IAEXXZ
-    void PrintMiniStats();
+    ARTS_IMPORT void PrintMiniStats();
 
     // 0x524F90 | ?PrintStats@asCullManager@@IAEXXZ
-    void PrintStats();
+    ARTS_IMPORT void PrintStats();
 };
 
 check_size(asCullManager, 0x1F8);
 
 // 0x524E70 | ?Statsf@@YAXPBDZZ
-void Statsf(char const* arg1, ...);
+ARTS_IMPORT void Statsf(char const* arg1, ...);
 
 // 0x79086C | ?CULLMGR@@3PAVasCullManager@@A
-inline extern_var(0x79086C, class asCullManager*, CULLMGR);
+ARTS_IMPORT extern class asCullManager* CULLMGR;
 
 // 0x7908A8 | ?Update3D@@3MA
-inline extern_var(0x7908A8, f32, Update3D);
+ARTS_IMPORT extern f32 Update3D;
 
 // 0x790880 | ?asCullManagerMetaClass@@3VMetaClass@@A
-inline extern_var(0x790880, class MetaClass, asCullManagerMetaClass);
+// ARTS_IMPORT extern class MetaClass asCullManagerMetaClass;

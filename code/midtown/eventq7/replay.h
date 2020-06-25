@@ -46,31 +46,31 @@ class eqReplayChannel
 
 public:
     // 0x564650 | ??1eqReplayChannel@@QAE@XZ
-    ~eqReplayChannel();
+    ARTS_IMPORT ~eqReplayChannel();
 
     // 0x564680 | ?InitRecord@eqReplayChannel@@UAEXXZ
-    virtual void InitRecord();
+    ARTS_IMPORT virtual void InitRecord();
 
     // 0x564690 | ?InitPlayback@eqReplayChannel@@UAEXXZ
-    virtual void InitPlayback();
+    ARTS_IMPORT virtual void InitPlayback();
 
     virtual void DoRecord(class Stream* arg1) = 0;
 
     virtual void DoPlayback(class Stream* arg1) = 0;
 
     // 0x5646A0 | ?ShutdownRecord@eqReplayChannel@@UAEXXZ
-    virtual void ShutdownRecord();
+    ARTS_IMPORT virtual void ShutdownRecord();
 
     // 0x5646B0 | ?ShutdownPlayback@eqReplayChannel@@UAEXXZ
-    virtual void ShutdownPlayback();
+    ARTS_IMPORT virtual void ShutdownPlayback();
 
 protected:
     // 0x564620 | ??0eqReplayChannel@@IAE@K@Z
-    eqReplayChannel(u32 arg1);
+    ARTS_IMPORT eqReplayChannel(u32 arg1);
 
 private:
     // 0x909438 | ?First@eqReplayChannel@@0PAV1@A
-    static inline extern_var(0x909438, class eqReplayChannel*, First);
+    ARTS_IMPORT static class eqReplayChannel* First;
 };
 
 check_size(eqReplayChannel, 0x0);
@@ -79,30 +79,30 @@ struct eqReplay
 {
 public:
     // 0x564920 | ?DoPlayback@eqReplay@@SAXXZ
-    static void DoPlayback();
+    ARTS_IMPORT static void DoPlayback();
 
     // 0x5648C0 | ?DoRecord@eqReplay@@SAXXZ
-    static void DoRecord();
+    ARTS_IMPORT static void DoRecord();
 
     // 0x564750 | ?InitPlayback@eqReplay@@SAXPAD@Z
-    static void InitPlayback(char* arg1);
+    ARTS_IMPORT static void InitPlayback(char* arg1);
 
     // 0x5646C0 | ?InitRecord@eqReplay@@SAXPAD@Z
-    static void InitRecord(char* arg1);
+    ARTS_IMPORT static void InitRecord(char* arg1);
 
     // 0x564860 | ?ShutdownPlayback@eqReplay@@SAXXZ
-    static void ShutdownPlayback();
+    ARTS_IMPORT static void ShutdownPlayback();
 
     // 0x564800 | ?ShutdownRecord@eqReplay@@SAXXZ
-    static void ShutdownRecord();
+    ARTS_IMPORT static void ShutdownRecord();
 
     // 0x909440 | ?Playback@eqReplay@@2HA
-    static inline extern_var(0x909440, i32, Playback);
+    ARTS_IMPORT static i32 Playback;
 
     // 0x909444 | ?Recording@eqReplay@@2HA
-    static inline extern_var(0x909444, i32, Recording);
+    ARTS_IMPORT static i32 Recording;
 
 private:
     // 0x90943C | ?ReplayStream@eqReplay@@0PAVStream@@A
-    static inline extern_var(0x90943C, class Stream*, ReplayStream);
+    ARTS_IMPORT static class Stream* ReplayStream;
 };

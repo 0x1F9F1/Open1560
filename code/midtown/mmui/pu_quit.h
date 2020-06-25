@@ -36,11 +36,11 @@ class PUQuit : public PUMenuBase
 
 public:
     // 0x4AAC20 | ??0PUQuit@@QAE@HMMMMPAD@Z
-    PUQuit(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_IMPORT PUQuit(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4AAD70 | ??_GPUQuit@@UAEPAXI@Z
     // 0x4AAD60 | ??1PUQuit@@UAE@XZ
-    ~PUQuit() override;
+    ARTS_IMPORT ~PUQuit() override;
 };
 
 check_size(PUQuit, 0xC0);

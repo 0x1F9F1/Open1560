@@ -40,23 +40,24 @@ class UIIconW : public uiWidget
 
 public:
     // 0x4BC0F0 | ??0UIIconW@@QAE@XZ
-    UIIconW();
+    ARTS_IMPORT UIIconW();
 
     // 0x4BC460 | ??_GUIIconW@@UAEPAXI@Z
     // 0x4BC1B0 | ??1UIIconW@@UAE@XZ
-    ~UIIconW() override;
+    ARTS_IMPORT ~UIIconW() override;
 
     // 0x4BC300 | ?Action@UIIconW@@UAEXTeqEvent@@@Z
-    void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(union eqEvent arg1) override;
 
     // 0x4BC220 | ?Init@UIIconW@@QAEXPAULocString@@PADMMMMVCallback@@@Z
-    void Init(struct LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class Callback arg7);
+    ARTS_IMPORT void Init(
+        struct LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class Callback arg7);
 
     // 0x4BC3E0 | ?Switch@UIIconW@@UAEXH@Z
-    void Switch(i32 arg1) override;
+    ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4BC360 | ?Update@UIIconW@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(UIIconW, 0xBC);

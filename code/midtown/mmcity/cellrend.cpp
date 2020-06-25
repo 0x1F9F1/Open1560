@@ -19,29 +19,3 @@
 define_dummy_symbol(mmcity_cellrend);
 
 #include "cellrend.h"
-
-mmCellRenderer::mmCellRenderer()
-{
-    unimplemented();
-}
-
-mmCellRenderer::~mmCellRenderer()
-{
-    unimplemented();
-}
-
-void mmCellRenderer::Cull(i32 arg1)
-{
-    return stub<thiscall_t<void, mmCellRenderer*, i32>>(0x498FA0, this, arg1);
-}
-
-void mmCellRenderer::Init(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32* arg6)
-{
-    return stub<thiscall_t<void, mmCellRenderer*, char*, i32, i32, i32, i32, i32*>>(
-        0x4989E0, this, arg1, arg2, arg3, arg4, arg5, arg6);
-}
-
-void mmCellRenderer::Relight()
-{
-    return stub<thiscall_t<void, mmCellRenderer*>>(0x498F90, this);
-}

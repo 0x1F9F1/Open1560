@@ -41,26 +41,26 @@ class CarCamCS : public AppCamCS
 
 public:
     // 0x4FB220 | ??0CarCamCS@@QAE@XZ
-    CarCamCS();
+    ARTS_IMPORT CarCamCS();
 
     // 0x4FB440 | ??_ECarCamCS@@UAEPAXI@Z
     // 0x4FB240 | ??1CarCamCS@@UAE@XZ
-    ~CarCamCS() override;
+    ARTS_IMPORT ~CarCamCS() override;
 
     // 0x4FB280 | ?AddWidgets@CarCamCS@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4FB400 | ?GetClass@CarCamCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4FB250 | ?Init@CarCamCS@@QAEXPAVmmCar@@PAD@Z
-    void Init(class mmCar* arg1, char* arg2);
+    ARTS_IMPORT void Init(class mmCar* arg1, char* arg2);
 
     // 0x4FB290 | ?DeclareFields@CarCamCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(CarCamCS, 0x118);
 
 // 0x7194C8 | ?CarCamCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x7194C8, class MetaClass, CarCamCSMetaClass);
+// ARTS_IMPORT extern class MetaClass CarCamCSMetaClass;

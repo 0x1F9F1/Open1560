@@ -40,16 +40,16 @@ class agiMtlParameters
 {
 public:
     // 0x55DAB0 | ??0agiMtlParameters@@QAE@XZ
-    agiMtlParameters();
+    ARTS_IMPORT agiMtlParameters();
 
     // 0x55DBE0 | ??4agiMtlParameters@@QAEXABV0@@Z
-    void operator=(class agiMtlParameters const& arg1);
+    ARTS_IMPORT void operator=(class agiMtlParameters const& arg1);
 
     // 0x55DB00 | ?Load@agiMtlParameters@@QAEXPAVStream@@@Z
-    void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(class Stream* arg1);
 
     // 0x55DB70 | ?Save@agiMtlParameters@@QAEXPAVStream@@@Z
-    void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(class Stream* arg1);
 };
 
 check_size(agiMtlParameters, 0x68);
@@ -60,18 +60,18 @@ class agiMtlDef : public agiRefreshable
 
 public:
     // 0x55DD30 | ?GetName@agiMtlDef@@UAEPADXZ
-    char* GetName() override;
+    ARTS_IMPORT char* GetName() override;
 
     // 0x55DC50 | ?Init@agiMtlDef@@QAEHABVagiMtlParameters@@@Z
-    i32 Init(class agiMtlParameters const& arg1);
+    ARTS_IMPORT i32 Init(class agiMtlParameters const& arg1);
 
 protected:
     // 0x55DC00 | ??0agiMtlDef@@IAE@PAVagiPipeline@@@Z
-    agiMtlDef(class agiPipeline* arg1);
+    ARTS_IMPORT agiMtlDef(class agiPipeline* arg1);
 
     // 0x55DD50 | ??_EagiMtlDef@@MAEPAXI@Z
     // 0x55DC80 | ??1agiMtlDef@@MAE@XZ
-    ~agiMtlDef() override;
+    ARTS_IMPORT ~agiMtlDef() override;
 };
 
 check_size(agiMtlDef, 0x0);

@@ -41,32 +41,32 @@ class asOverSample : public asNode
 
 public:
     // 0x4DED20 | ??0asOverSample@@QAE@XZ
-    asOverSample();
+    ARTS_IMPORT asOverSample();
 
     // 0x4DF070 | ??_EasOverSample@@UAEPAXI@Z
     // 0x42D300 | ??1asOverSample@@UAE@XZ | inline
-    ~asOverSample() override;
+    ARTS_IMPORT ~asOverSample() override;
 
     // 0x4DEE30 | ?AddWidgets@asOverSample@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4DF060 | ?GetClass@asOverSample@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4DED50 | ?RealTime@asOverSample@@QAEXM@Z
-    void RealTime(f32 arg1);
+    ARTS_IMPORT void RealTime(f32 arg1);
 
     // 0x4DED70 | ?Update@asOverSample@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4DEEE0 | ?DeclareFields@asOverSample@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(asOverSample, 0x30);
 
 // 0x719188 | ?BenchOSample@@3HA
-inline extern_var(0x719188, i32, BenchOSample);
+ARTS_IMPORT extern i32 BenchOSample;
 
 // 0x719160 | ?asOverSampleMetaClass@@3VMetaClass@@A
-inline extern_var(0x719160, class MetaClass, asOverSampleMetaClass);
+// ARTS_IMPORT extern class MetaClass asOverSampleMetaClass;

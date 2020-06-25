@@ -19,18 +19,3 @@
 define_dummy_symbol(mmui_main);
 
 #include "main.h"
-
-MainMenu::MainMenu(i32 arg1)
-{
-    unimplemented(arg1);
-}
-
-MainMenu::~MainMenu()
-{
-    unimplemented();
-}
-
-void MainMenu::PreSetup()
-{
-    return stub<thiscall_t<void, MainMenu*>>(0x4A6380, this);
-}

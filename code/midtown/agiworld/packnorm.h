@@ -28,13 +28,13 @@
 */
 
 // 0x5164B0 | ?PackNormal@@YAEAAVVector3@@@Z
-u8 PackNormal(class Vector3& arg1);
+ARTS_IMPORT u8 PackNormal(class Vector3& arg1);
 
 // 0x516400 | ?PackNormalSlow@@YAEAAVVector3@@@Z | unused
-u8 PackNormalSlow(class Vector3& arg1);
+ARTS_IMPORT u8 PackNormalSlow(class Vector3& arg1);
 
 // 0x64B6A0 | ?UnpackNormal@@3PAVVector3@@A
-inline extern_var(0x64B6A0, class Vector3[198], UnpackNormal);
+ARTS_IMPORT extern class Vector3 UnpackNormal[198];
 
 // 0x73E738 | ?UnpackNormalMMX@@3PATmmx@@A
-inline extern_var(0x73E738, union mmx[198], UnpackNormalMMX);
+ARTS_IMPORT extern union mmx UnpackNormalMMX[198];

@@ -35,28 +35,29 @@ struct mmOpponentSurfaceAudio
 {
 public:
     // 0x485E00 | ??0mmOpponentSurfaceAudio@@QAE@XZ
-    mmOpponentSurfaceAudio();
+    ARTS_IMPORT mmOpponentSurfaceAudio();
 
     // 0x485E30 | ??1mmOpponentSurfaceAudio@@QAE@XZ
-    ~mmOpponentSurfaceAudio();
+    ARTS_IMPORT ~mmOpponentSurfaceAudio();
 
     // 0x4863A0 | ?Disable3DMode@mmOpponentSurfaceAudio@@QAEXXZ
-    void Disable3DMode();
+    ARTS_IMPORT void Disable3DMode();
 
     // 0x486380 | ?Enable3DMode@mmOpponentSurfaceAudio@@QAEXPAVVector3@@@Z
-    void Enable3DMode(class Vector3* arg1);
+    ARTS_IMPORT void Enable3DMode(class Vector3* arg1);
 
     // 0x485E40 | ?SetWheelPointers@mmOpponentSurfaceAudio@@QAEXPAVmmWheel@@000@Z
-    void SetWheelPointers(class mmWheel* arg1, class mmWheel* arg2, class mmWheel* arg3, class mmWheel* arg4);
+    ARTS_IMPORT void SetWheelPointers(
+        class mmWheel* arg1, class mmWheel* arg2, class mmWheel* arg3, class mmWheel* arg4);
 
     // 0x485E60 | ?Update@mmOpponentSurfaceAudio@@QAEXM@Z
-    void Update(f32 arg1);
+    ARTS_IMPORT void Update(f32 arg1);
 
     // 0x485EA0 | ?UpdateSkid@mmOpponentSurfaceAudio@@QAEXM@Z
-    void UpdateSkid(f32 arg1);
+    ARTS_IMPORT void UpdateSkid(f32 arg1);
 
     // 0x486120 | ?UpdateSkidSnow@mmOpponentSurfaceAudio@@QAEXM@Z
-    void UpdateSkidSnow(f32 arg1);
+    ARTS_IMPORT void UpdateSkidSnow(f32 arg1);
 };
 
 check_size(mmOpponentSurfaceAudio, 0x2C);

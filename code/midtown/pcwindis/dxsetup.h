@@ -23,8 +23,6 @@
 
     0x575320 | int __stdcall MultiMonCallback(struct _GUID *,char *,char *,void *,void *) | ?MultiMonCallback@@YGHPAU_GUID@@PAD1PAX2@Z
     0x575360 | void __cdecl dxiConfig(int,char * *) | ?dxiConfig@@YAXHPAPAD@Z
-    0x90A560 | int dxiCpuSpeed | ?dxiCpuSpeed@@3HA
-    0x575FD0 | long __stdcall EnumZ(struct _DDPIXELFORMAT *,void *) | ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
     0x575710 | void __cdecl NeedDX6(void) | ?NeedDX6@@YAXXZ
     0x575740 | int __stdcall EnumCounter(struct _GUID *,char *,char *,void *) | ?EnumCounter@@YGHPAU_GUID@@PAD1PAX@Z
     0x575760 | void __cdecl MyDirectDrawEnumerate(int (__stdcall*)(struct _GUID *,char *,char *,void *),void *) | ?MyDirectDrawEnumerate@@YAXP6GHPAU_GUID@@PAD1PAX@Z2@Z
@@ -34,20 +32,22 @@
     0x575AD0 | void __cdecl UnlockScreen(void) | ?UnlockScreen@@YAXXZ
     0x575AF0 | int __cdecl TestResolution(struct IDirectDraw4 *,struct dxiRendererInfo_t &) | ?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z
     0x575F40 | long __stdcall ModeCallback(struct _DDSURFACEDESC2 *,void *) | ?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z
+    0x575FD0 | long __stdcall EnumZ(struct _DDPIXELFORMAT *,void *) | ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
     0x576000 | void __cdecl AddRenderer(struct IDirectDraw4 *,struct _GUID *,char *) | ?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z
     0x576470 | long __stdcall EnumTextures(struct _DDPIXELFORMAT *,void *) | ?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z
     0x5764A0 | int __cdecl NotLameChipset(unsigned long,unsigned long) | ?NotLameChipset@@YAHKK@Z
     0x5764B0 | unsigned int __cdecl GetSpecialFlags(unsigned long,unsigned long) | ?GetSpecialFlags@@YAIKK@Z
     0x576580 | int __stdcall Enumerator(struct _GUID *,char *,char *,void *) | ?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z
+    0x90A560 | int dxiCpuSpeed | ?dxiCpuSpeed@@3HA
 */
 
 #include <ddraw.h>
 
 // 0x575320 | ?MultiMonCallback@@YGHPAU_GUID@@PAD1PAX2@Z
-i32 __stdcall MultiMonCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4, void* arg5);
+ARTS_IMPORT i32 ARTS_STDCALL MultiMonCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4, void* arg5);
 
 // 0x575360 | ?dxiConfig@@YAXHPAPAD@Z
-void dxiConfig(i32 arg1, char** arg2);
+ARTS_IMPORT void dxiConfig(i32 arg1, char** arg2);
 
 // 0x90A560 | ?dxiCpuSpeed@@3HA
-inline extern_var(0x90A560, i32, dxiCpuSpeed);
+ARTS_IMPORT extern i32 dxiCpuSpeed;

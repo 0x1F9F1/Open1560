@@ -44,41 +44,41 @@ class EngineAudioOpponent : public asNode
 
 public:
     // 0x485800 | ??0EngineAudioOpponent@@QAE@XZ
-    EngineAudioOpponent();
+    ARTS_IMPORT EngineAudioOpponent();
 
     // 0x485DA0 | ??_EEngineAudioOpponent@@UAEPAXI@Z
     // 0x485860 | ??1EngineAudioOpponent@@UAE@XZ
-    ~EngineAudioOpponent() override;
+    ARTS_IMPORT ~EngineAudioOpponent() override;
 
     // 0x485A10 | ?ClearName@EngineAudioOpponent@@QAEXXZ
-    void ClearName();
+    ARTS_IMPORT void ClearName();
 
     // 0x485A50 | ?Disable3DMode@EngineAudioOpponent@@QAEXXZ
-    void Disable3DMode();
+    ARTS_IMPORT void Disable3DMode();
 
     // 0x485A30 | ?Enable3DMode@EngineAudioOpponent@@QAEXPAVVector3@@@Z
-    void Enable3DMode(class Vector3* arg1);
+    ARTS_IMPORT void Enable3DMode(class Vector3* arg1);
 
     // 0x485C70 | ?GetClass@EngineAudioOpponent@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x485890 | ?Init@EngineAudioOpponent@@QAEXXZ
-    void Init();
+    ARTS_IMPORT void Init();
 
     // 0x485900 | ?Init@EngineAudioOpponent@@QAEXF@Z | unused
-    void Init(i16 arg1);
+    ARTS_IMPORT void Init(i16 arg1);
 
     // 0x477810 | ?SetSoundPtr@EngineAudioOpponent@@QAEXPAVAudSound@@@Z | inline
-    void SetSoundPtr(class AudSound* arg1);
+    ARTS_IMPORT void SetSoundPtr(class AudSound* arg1);
 
     // 0x485940 | ?UpdateRPM@EngineAudioOpponent@@QAEXM@Z
-    void UpdateRPM(f32 arg1);
+    ARTS_IMPORT void UpdateRPM(f32 arg1);
 
     // 0x485A60 | ?DeclareFields@EngineAudioOpponent@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(EngineAudioOpponent, 0x54);
 
 // 0x6A8248 | ?EngineAudioOpponentMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A8248, class MetaClass, EngineAudioOpponentMetaClass);
+// ARTS_IMPORT extern class MetaClass EngineAudioOpponentMetaClass;

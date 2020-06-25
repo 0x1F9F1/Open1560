@@ -19,38 +19,3 @@
 define_dummy_symbol(mmai_aiGoalStop);
 
 #include "aiGoalStop.h"
-
-aiGoalStop::aiGoalStop(class mmCar* arg1, i16* arg2)
-{
-    unimplemented(arg1, arg2);
-}
-
-aiGoalStop::~aiGoalStop()
-{
-    unimplemented();
-}
-
-i32 aiGoalStop::Context()
-{
-    return stub<thiscall_t<i32, aiGoalStop*>>(0x45F7D0, this);
-}
-
-void aiGoalStop::Init()
-{
-    return stub<thiscall_t<void, aiGoalStop*>>(0x45F750, this);
-}
-
-i32 aiGoalStop::Priority()
-{
-    return stub<thiscall_t<i32, aiGoalStop*>>(0x45F7F0, this);
-}
-
-void aiGoalStop::Reset()
-{
-    return stub<thiscall_t<void, aiGoalStop*>>(0x45F760, this);
-}
-
-void aiGoalStop::Update()
-{
-    return stub<thiscall_t<void, aiGoalStop*>>(0x45F770, this);
-}

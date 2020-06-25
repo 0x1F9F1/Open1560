@@ -105,5 +105,5 @@ private:
 check_size(Callback, 0x14);
 
 // 0x90B128 | ?NullCallback@@3VCallback@@A
-// inline extern_var(0x90B128, class Callback, NullCallback);
+// ARTS_IMPORT extern class Callback NullCallback;
 constexpr Callback NullCallback;

@@ -30,22 +30,22 @@ class agiLib<class agiTexParameters, class agiTexDef>
 {
 public:
     // 0x5581A0 | ??0?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ | inline
-    agiLib<class agiTexParameters, class agiTexDef>();
+    ARTS_IMPORT agiLib<class agiTexParameters, class agiTexDef>();
 
     // 0x5581D0 | ??1?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ | inline
-    ~agiLib<class agiTexParameters, class agiTexDef>();
+    ARTS_IMPORT ~agiLib<class agiTexParameters, class agiTexDef>();
 
     // 0x48FB10 | ?Add@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEHAAVagiTexParameters@@@Z | inline
-    i32 Add(class agiTexParameters& arg1);
+    ARTS_IMPORT i32 Add(class agiTexParameters& arg1);
 
     // 0x55A190 | ?Init@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXH@Z | inline
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
     // 0x55A140 | ?Kill@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXXZ | inline
-    void Kill();
+    ARTS_IMPORT void Kill();
 };
 
 check_size(agiLib<class agiTexParameters, class agiTexDef>, 0x0);
 
 // 0x8FF0D8 | ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
-inline extern_var(0x8FF0D8, class agiLib<class agiTexParameters, class agiTexDef>, agiTexLib);
+ARTS_IMPORT extern class agiLib<class agiTexParameters, class agiTexDef> agiTexLib;

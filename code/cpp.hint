@@ -4,8 +4,13 @@
 
 #define ARTS_FORCEINLINE
 #define ARTS_NOINLINE
-#define ARTS_FASTCALL
+
+#define ARTS_IMPORT
 #define ARTS_EXPORT
+
+#define ARTS_CDECL
+#define ARTS_STDCALL
+#define ARTS_FASTCALL
 
 #define META_DECLARE
 #define STATIC_META_DECLARE

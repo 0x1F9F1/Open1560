@@ -67,59 +67,59 @@ class mmTrailer : public mmPhysEntity
 
 public:
     // 0x479230 | ??0mmTrailer@@QAE@XZ
-    mmTrailer();
+    ARTS_IMPORT mmTrailer();
 
     // 0x47A170 | ??_EmmTrailer@@UAEPAXI@Z
     // 0x47A1D0 | ??1mmTrailer@@UAE@XZ | inline
-    ~mmTrailer() override;
+    ARTS_IMPORT ~mmTrailer() override;
 
     // 0x479BB0 | ?Activate@mmTrailer@@QAEXXZ
-    void Activate();
+    ARTS_IMPORT void Activate();
 
     // 0x479E40 | ?AddWidgets@mmTrailer@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x479B40 | ?AfterLoad@mmTrailer@@UAEXXZ
-    void AfterLoad() override;
+    ARTS_IMPORT void AfterLoad() override;
 
     // 0x479BD0 | ?BeforeSave@mmTrailer@@UAEXXZ
-    void BeforeSave() override;
+    ARTS_IMPORT void BeforeSave() override;
 
     // 0x479BC0 | ?Deactivate@mmTrailer@@QAEXXZ
-    void Deactivate();
+    ARTS_IMPORT void Deactivate();
 
     // 0x47A320 | ?GetBound@mmTrailer@@UAEPAVasBound@@XZ | inline
-    class asBound* GetBound() override;
+    ARTS_IMPORT class asBound* GetBound() override;
 
     // 0x47A130 | ?GetClass@mmTrailer@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x47A310 | ?GetICS@mmTrailer@@UAEPAVasInertialCS@@XZ | inline
-    class asInertialCS* GetICS() override;
+    ARTS_IMPORT class asInertialCS* GetICS() override;
 
     // 0x479480 | ?Init@mmTrailer@@QAEXPADPAVmmCarSim@@VVector3@@@Z
-    void Init(char* arg1, class mmCarSim* arg2, class Vector3 arg3);
+    ARTS_IMPORT void Init(char* arg1, class mmCarSim* arg2, class Vector3 arg3);
 
     // 0x479E30 | ?PostUpdate@mmTrailer@@UAEXXZ
-    void PostUpdate() override;
+    ARTS_IMPORT void PostUpdate() override;
 
     // 0x479C80 | ?Reset@mmTrailer@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x479C30 | ?RestoreImpactParams@mmTrailer@@QAEXXZ
-    void RestoreImpactParams();
+    ARTS_IMPORT void RestoreImpactParams();
 
     // 0x479C60 | ?SetHackedImpactParams@mmTrailer@@QAEXXZ
-    void SetHackedImpactParams();
+    ARTS_IMPORT void SetHackedImpactParams();
 
     // 0x479D60 | ?Update@mmTrailer@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x479C00 | ?UpdateICSParams@mmTrailer@@QAEXXZ | unused
-    void UpdateICSParams();
+    ARTS_IMPORT void UpdateICSParams();
 
     // 0x479F30 | ?DeclareFields@mmTrailer@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmTrailer, 0x1204);
@@ -131,40 +131,40 @@ class mmTrailerInstance : public mmInstance
 public:
     // 0x47A150 | ??_GmmTrailerInstance@@UAEPAXI@Z
     // 0x47A140 | ??1mmTrailerInstance@@UAE@XZ | inline
-    ~mmTrailerInstance() override;
+    ARTS_IMPORT ~mmTrailerInstance() override;
 
     // 0x47A300 | ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z | inline
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x479730 | ?AttachEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
-    class mmPhysEntity* AttachEntity() override;
+    ARTS_IMPORT class mmPhysEntity* AttachEntity() override;
 
     // 0x479910 | ?Draw@mmTrailerInstance@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x479B20 | ?DrawShadow@mmTrailerInstance@@UAIXXZ
-    void __fastcall DrawShadow() override;
+    ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // 0x4796D0 | ?FromMatrix@mmTrailerInstance@@UAIXABVMatrix34@@@Z
-    void __fastcall FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
     // 0x479720 | ?GetEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
-    class mmPhysEntity* GetEntity() override;
+    ARTS_IMPORT class mmPhysEntity* GetEntity() override;
 
     // 0x479710 | ?GetPos@mmTrailerInstance@@UAIAAVVector3@@XZ
-    class Vector3& __fastcall GetPos() override;
+    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
     // 0x479740 | ?GetVelocity@mmTrailerInstance@@UAE?AVVector3@@XZ
-    class Vector3 GetVelocity() override;
+    ARTS_IMPORT class Vector3 GetVelocity() override;
 
     // 0x479770 | ?Init@mmTrailerInstance@@QAEXPADPAVVector3@@@Z
-    void Init(char* arg1, class Vector3* arg2);
+    ARTS_IMPORT void Init(char* arg1, class Vector3* arg2);
 
     // 0x4796F0 | ?ToMatrix@mmTrailerInstance@@UAIAAVMatrix34@@AAV2@@Z
-    class Matrix34& __fastcall ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 };
 
 check_size(mmTrailerInstance, 0x0);
 
 // 0x6A7F98 | ?mmTrailerMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7F98, class MetaClass, mmTrailerMetaClass);
+// ARTS_IMPORT extern class MetaClass mmTrailerMetaClass;

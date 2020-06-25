@@ -35,28 +35,28 @@ struct MArray
 {
 public:
     // 0x4AB7B0 | ??0MArray@@QAE@XZ
-    MArray();
+    ARTS_IMPORT MArray();
 
     // 0x4AB7C0 | ??1MArray@@QAE@XZ | unused
-    ~MArray();
+    ARTS_IMPORT ~MArray();
 
     // 0x4ABCF0 | ?AddMenuData@MArray@@QAEXHAAVVector4@@PAD@Z
-    void AddMenuData(i32 arg1, class Vector4& arg2, char* arg3);
+    ARTS_IMPORT void AddMenuData(i32 arg1, class Vector4& arg2, char* arg3);
 
     // 0x4ABB20 | ?Flush@MArray@@QAEXXZ | unused
-    void Flush();
+    ARTS_IMPORT void Flush();
 
     // 0x4AB7D0 | ?Init@MArray@@QAEXH@Z
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
     // 0x4ABB30 | ?Read@MArray@@QAEXPAD@Z
-    void Read(char* arg1);
+    ARTS_IMPORT void Read(char* arg1);
 
     // 0x4ABD60 | ?RetrieveMenuData@MArray@@QAEHHAAM000@Z | unused
-    i32 RetrieveMenuData(i32 arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5);
+    ARTS_IMPORT i32 RetrieveMenuData(i32 arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5);
 
     // 0x4AB810 | ?Write@MArray@@QAEXPAD@Z
-    void Write(char* arg1);
+    ARTS_IMPORT void Write(char* arg1);
 };
 
 check_size(MArray, 0xC);

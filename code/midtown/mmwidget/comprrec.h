@@ -59,42 +59,42 @@ class mmCompRaceRecord : public mmCompBase
 
 public:
     // 0x4B48F0 | ??0mmCompRaceRecord@@QAE@XZ
-    mmCompRaceRecord();
+    ARTS_IMPORT mmCompRaceRecord();
 
     // 0x4B4DC0 | ??_EmmCompRaceRecord@@UAEPAXI@Z
     // 0x4B4930 | ??1mmCompRaceRecord@@UAE@XZ
-    ~mmCompRaceRecord() override;
+    ARTS_IMPORT ~mmCompRaceRecord() override;
 
     // 0x4B4D80 | ?Cull@mmCompRaceRecord@@UAEXXZ
-    void Cull() override;
+    ARTS_IMPORT void Cull() override;
 
     // 0x4B49D0 | ?Init@mmCompRaceRecord@@QAEXHPAD0000HH@Z
-    void Init(i32 arg1, char* arg2, char* arg3, char* arg4, char* arg5, char* arg6, i32 arg7, i32 arg8);
+    ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3, char* arg4, char* arg5, char* arg6, i32 arg7, i32 arg8);
 
     // 0x4B4A60 | ?InitTitle@mmCompRaceRecord@@QAEXMMMMPAULocString@@00000H@Z
-    void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
+    ARTS_IMPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
         struct LocString* arg7, struct LocString* arg8, struct LocString* arg9, struct LocString* arg10, i32 arg11);
 
     // 0x4B4AD0 | ?LoadBitmap@mmCompRaceRecord@@QAEXPAD@Z
-    void LoadBitmap(char* arg1);
+    ARTS_IMPORT void LoadBitmap(char* arg1);
 
     // 0x4B4B20 | ?Reset@mmCompRaceRecord@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4B4CA0 | ?SelectIfRaceType@mmCompRaceRecord@@QAEXHH@Z
-    void SelectIfRaceType(i32 arg1, i32 arg2);
+    ARTS_IMPORT void SelectIfRaceType(i32 arg1, i32 arg2);
 
     // 0x4B4C70 | ?SetGeometry@mmCompRaceRecord@@UAEXMMMM@Z
-    void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
+    ARTS_IMPORT void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
 
     // 0x4B4CE0 | ?SetPosition@mmCompRaceRecord@@UAEXPAVmmTextNode@@HM@Z
-    void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
+    ARTS_IMPORT void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
 
     // 0x4B4B40 | ?SetSubwidgetGeometry@mmCompRaceRecord@@QAEXXZ
-    void SetSubwidgetGeometry();
+    ARTS_IMPORT void SetSubwidgetGeometry();
 
     // 0x4B4B30 | ?Update@mmCompRaceRecord@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 };
 
 check_size(mmCompRaceRecord, 0xA8);

@@ -20,54 +20,5 @@ define_dummy_symbol(agi_print);
 
 #include "print.h"
 
-#include "pipeline.h"
-
-void agiPipeline::Print(i32 arg1, i32 arg2, i32 arg3, char const* arg4)
-{
-    return stub<thiscall_t<void, agiPipeline*, i32, i32, i32, char const*>>(0x557F20, this, arg1, arg2, arg3, arg4);
-}
-
-i32 agiPipeline::PrintIs3D()
-{
-    return stub<thiscall_t<i32, agiPipeline*>>(0x558110, this);
-}
-
-void agiPipeline::PrintInit()
-{
-    return stub<thiscall_t<void, agiPipeline*>>(0x558130, this);
-}
-
-void agiPipeline::PrintShutdown()
-{
-    return stub<thiscall_t<void, agiPipeline*>>(0x558140, this);
-}
-
-void agiPrint(i32 arg1, i32 arg2, i32 arg3, char const* arg4)
-{
-    return stub<cdecl_t<void, i32, i32, i32, char const*>>(0x557E70, arg1, arg2, arg3, arg4);
-}
-
-void agiPrintInit()
-{
-    return stub<cdecl_t<void>>(0x557F00);
-}
-
-i32 agiPrintIs3D()
-{
-    return stub<cdecl_t<i32>>(0x557EF0);
-}
-
-void agiPrintShutdown()
-{
-    return stub<cdecl_t<void>>(0x557F10);
-}
-
-void agiPrintf(i32 arg1, i32 arg2, i32 arg3, char const* arg4, ...)
-{
-    unimplemented(arg1, arg2, arg3, arg4);
-}
-
-static void InitBuiltin()
-{
-    return stub<cdecl_t<void>>(0x557FE0);
-}
+// 0x557FE0 | ?InitBuiltin@@YAXXZ
+ARTS_IMPORT /*static*/ void InitBuiltin();

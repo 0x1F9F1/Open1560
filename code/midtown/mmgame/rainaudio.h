@@ -33,22 +33,22 @@ struct mmRainAudio
 {
 public:
     // 0x433200 | ??0mmRainAudio@@QAE@XZ
-    mmRainAudio();
+    ARTS_IMPORT mmRainAudio();
 
     // 0x433400 | ??1mmRainAudio@@QAE@XZ | unused
-    ~mmRainAudio();
+    ARTS_IMPORT ~mmRainAudio();
 
     // 0x433440 | ?SetInterior@mmRainAudio@@QAEXE@Z
-    void SetInterior(u8 arg1);
+    ARTS_IMPORT void SetInterior(u8 arg1);
 
     // 0x433540 | ?ShelterOff@mmRainAudio@@QAEXXZ
-    void ShelterOff();
+    ARTS_IMPORT void ShelterOff();
 
     // 0x4334D0 | ?ShelterOn@mmRainAudio@@QAEXXZ
-    void ShelterOn();
+    ARTS_IMPORT void ShelterOn();
 
     // 0x4335B0 | ?Update@mmRainAudio@@QAEXXZ
-    void Update();
+    ARTS_IMPORT void Update();
 };
 
 check_size(mmRainAudio, 0x1C);

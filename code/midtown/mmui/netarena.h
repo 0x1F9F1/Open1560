@@ -55,68 +55,68 @@ class NetArena : public UIMenu
 
 public:
     // 0x4A1790 | ??0NetArena@@QAE@H@Z
-    NetArena(i32 arg1);
+    ARTS_IMPORT NetArena(i32 arg1);
 
     // 0x4A2B30 | ??_ENetArena@@UAEPAXI@Z
     // 0x4A1D80 | ??1NetArena@@UAE@XZ
-    ~NetArena() override;
+    ARTS_IMPORT ~NetArena() override;
 
     // 0x4A1F30 | ?AddGameChatLine@NetArena@@QAEXPAD@Z
-    void AddGameChatLine(char* arg1);
+    ARTS_IMPORT void AddGameChatLine(char* arg1);
 
     // 0x4A2230 | ?AddRosterName@NetArena@@QAEXPAD@Z | unused
-    void AddRosterName(char* arg1);
+    ARTS_IMPORT void AddRosterName(char* arg1);
 
     // 0x4A2250 | ?AddRosterName@NetArena@@QAEXPAULocString@@00K@Z
-    void AddRosterName(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3, u32 arg4);
+    ARTS_IMPORT void AddRosterName(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3, u32 arg4);
 
     // 0x4A20B0 | ?ChatEntry@NetArena@@QAEXXZ
-    void ChatEntry();
+    ARTS_IMPORT void ChatEntry();
 
     // 0x4A1E60 | ?DisablePlayButton@NetArena@@QAEXXZ | unused
-    void DisablePlayButton();
+    ARTS_IMPORT void DisablePlayButton();
 
     // 0x4A1E50 | ?EnablePlayButton@NetArena@@QAEXXZ | unused
-    void EnablePlayButton();
+    ARTS_IMPORT void EnablePlayButton();
 
     // 0x4A21C0 | ?FindRosterName@NetArena@@QAEHPAD@Z
-    i32 FindRosterName(char* arg1);
+    ARTS_IMPORT i32 FindRosterName(char* arg1);
 
     // 0x4A2670 | ?GetRaceName@NetArena@@QAEPADXZ
-    char* GetRaceName();
+    ARTS_IMPORT char* GetRaceName();
 
     // 0x4A1FE0 | ?PostChatMessages@NetArena@@QAEXXZ
-    void PostChatMessages();
+    ARTS_IMPORT void PostChatMessages();
 
     // 0x4A2880 | ?PostHostSettings@NetArena@@QAEXXZ
-    void PostHostSettings();
+    ARTS_IMPORT void PostHostSettings();
 
     // 0x4A2A40 | ?PostPlayerInfo@NetArena@@QAEXPAULocString@@00@Z
-    void PostPlayerInfo(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3);
+    ARTS_IMPORT void PostPlayerInfo(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3);
 
     // 0x4A1E40 | ?PreSetup@NetArena@@UAEXXZ
-    void PreSetup() override;
+    ARTS_IMPORT void PreSetup() override;
 
     // 0x4A23F0 | ?RemoveRosterEntry@NetArena@@QAEXH@Z
-    void RemoveRosterEntry(i32 arg1);
+    ARTS_IMPORT void RemoveRosterEntry(i32 arg1);
 
     // 0x4A25E0 | ?RemoveRosterName@NetArena@@QAEXPAD@Z | unused
-    void RemoveRosterName(char* arg1);
+    ARTS_IMPORT void RemoveRosterName(char* arg1);
 
     // 0x4A1E70 | ?ResetGameChat@NetArena@@QAEXXZ
-    void ResetGameChat();
+    ARTS_IMPORT void ResetGameChat();
 
     // 0x4A24C0 | ?ResetRoster@NetArena@@QAEXXZ
-    void ResetRoster();
+    ARTS_IMPORT void ResetRoster();
 
     // 0x4A2170 | ?RetrieveChatLine@NetArena@@QAEHPAD@Z
-    i32 RetrieveChatLine(char* arg1);
+    ARTS_IMPORT i32 RetrieveChatLine(char* arg1);
 
     // 0x4A2AF0 | ?SetHost@NetArena@@QAEXH@Z
-    void SetHost(i32 arg1);
+    ARTS_IMPORT void SetHost(i32 arg1);
 
     // 0x4A2620 | ?SetReady@NetArena@@QAEXKH@Z
-    void SetReady(u32 arg1, i32 arg2);
+    ARTS_IMPORT void SetReady(u32 arg1, i32 arg2);
 };
 
 check_size(NetArena, 0x130);

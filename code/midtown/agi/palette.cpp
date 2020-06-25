@@ -19,33 +19,3 @@
 define_dummy_symbol(agi_palette);
 
 #include "palette.h"
-
-agiPalette::agiPalette()
-{
-    unimplemented();
-}
-
-void agiPalette::Cube()
-{
-    return stub<thiscall_t<void, agiPalette*>>(0x55C0F0, this);
-}
-
-u32 agiPalette::FindColor(struct agiRgba arg1)
-{
-    return stub<thiscall_t<u32, agiPalette*, struct agiRgba>>(0x55C3A0, this, arg1);
-}
-
-u32 agiPalette::GetColor(struct agiRgba arg1)
-{
-    return stub<thiscall_t<u32, agiPalette*, struct agiRgba>>(0x55C310, this, arg1);
-}
-
-void agiPalette::Kill()
-{
-    return stub<thiscall_t<void, agiPalette*>>(0x55C0B0, this);
-}
-
-void agiPalette::Load(char* arg1)
-{
-    return stub<thiscall_t<void, agiPalette*, char*>>(0x55C180, this, arg1);
-}

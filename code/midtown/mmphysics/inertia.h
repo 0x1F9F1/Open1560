@@ -70,114 +70,114 @@ class asInertialCS : public asLinearCS
 
 public:
     // 0x4D91F0 | ??0asInertialCS@@QAE@XZ
-    asInertialCS();
+    ARTS_IMPORT asInertialCS();
 
     // 0x4DBB80 | ??_EasInertialCS@@UAEPAXI@Z
     // 0x453A30 | ??1asInertialCS@@UAE@XZ | inline
-    ~asInertialCS() override;
+    ARTS_IMPORT ~asInertialCS() override;
 
     // 0x4DA660 | ?ApplyPush@asInertialCS@@UAEXABVVector3@@0@Z
-    virtual void ApplyPush(class Vector3 const& arg1, class Vector3 const& arg2);
+    ARTS_IMPORT virtual void ApplyPush(class Vector3 const& arg1, class Vector3 const& arg2);
 
     // 0x4DAD70 | ?GetCMatrix@asInertialCS@@UBEXAAVMatrix34@@ABVVector3@@@Z
-    virtual void GetCMatrix(class Matrix34& arg1, class Vector3 const& arg2);
+    ARTS_IMPORT virtual void GetCMatrix(class Matrix34& arg1, class Vector3 const& arg2);
 
     // 0x4DB190 | ?AddWidgets@asInertialCS@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4DA5D0 | ?ApplyAngImpulse@asInertialCS@@QAEXABVVector3@@@Z
-    void ApplyAngImpulse(class Vector3 const& arg1);
+    ARTS_IMPORT void ApplyAngImpulse(class Vector3 const& arg1);
 
     // 0x4DA200 | ?ApplyForce@asInertialCS@@QAEXABVVector3@@@Z
-    void ApplyForce(class Vector3 const& arg1);
+    ARTS_IMPORT void ApplyForce(class Vector3 const& arg1);
 
     // 0x4DA290 | ?ApplyForce@asInertialCS@@QAEXABVVector3@@0@Z
-    void ApplyForce(class Vector3 const& arg1, class Vector3 const& arg2);
+    ARTS_IMPORT void ApplyForce(class Vector3 const& arg1, class Vector3 const& arg2);
 
     // 0x4DA430 | ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@@Z | unused
-    void ApplyImpulse(class Vector3 const& arg1);
+    ARTS_IMPORT void ApplyImpulse(class Vector3 const& arg1);
 
     // 0x4DA4C0 | ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@0@Z
-    void ApplyImpulse(class Vector3 const& arg1, class Vector3 const& arg2);
+    ARTS_IMPORT void ApplyImpulse(class Vector3 const& arg1, class Vector3 const& arg2);
 
     // 0x4DA7D0 | ?ApplyPush@asInertialCS@@QAEXABVVector3@@@Z
-    void ApplyPush(class Vector3 const& arg1);
+    ARTS_IMPORT void ApplyPush(class Vector3 const& arg1);
 
     // 0x4DA3A0 | ?ApplyTorque@asInertialCS@@QAEXABVVector3@@@Z
-    void ApplyTorque(class Vector3 const& arg1);
+    ARTS_IMPORT void ApplyTorque(class Vector3 const& arg1);
 
     // 0x4DA940 | ?ApplyTurn@asInertialCS@@QAEXABVVector3@@@Z | unused
-    void ApplyTurn(class Vector3 const& arg1);
+    ARTS_IMPORT void ApplyTurn(class Vector3 const& arg1);
 
     // 0x4DABA0 | ?CalcCMatrix@asInertialCS@@QBEXAAVMatrix34@@ABVVector3@@@Z
-    void CalcCMatrix(class Matrix34& arg1, class Vector3 const& arg2);
+    ARTS_IMPORT void CalcCMatrix(class Matrix34& arg1, class Vector3 const& arg2);
 
     // 0x4DAA20 | ?DoConstrain@asInertialCS@@QAEXXZ
-    void DoConstrain();
+    ARTS_IMPORT void DoConstrain();
 
     // 0x4DB180 | ?FileIO@asInertialCS@@QAEXPAVMiniParser@@@Z | unused
-    void FileIO(class MiniParser* arg1);
+    ARTS_IMPORT void FileIO(class MiniParser* arg1);
 
     // 0x4D9740 | ?FinishForces@asInertialCS@@QAEXXZ
-    void FinishForces();
+    ARTS_IMPORT void FinishForces();
 
     // 0x4D9B60 | ?FinishUpdate@asInertialCS@@QAEXXZ
-    void FinishUpdate();
+    ARTS_IMPORT void FinishUpdate();
 
     // 0x4DBAF0 | ?GetClass@asInertialCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4DAAD0 | ?GetVelocity@asInertialCS@@QAE?AVVector3@@PBV2@@Z
-    class Vector3 GetVelocity(class Vector3 const* arg1);
+    ARTS_IMPORT class Vector3 GetVelocity(class Vector3 const* arg1);
 
     // 0x4DAEF0 | ?MatricesToMomenta@asInertialCS@@QAEXABVMatrix34@@0M@Z | unused
-    void MatricesToMomenta(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
+    ARTS_IMPORT void MatricesToMomenta(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
 
     // 0x4D9AE0 | ?MoveICS@asInertialCS@@QAEXXZ
-    void MoveICS();
+    ARTS_IMPORT void MoveICS();
 
     // 0x4D9630 | ?Reset@asInertialCS@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4D9400 | ?SetDensity@asInertialCS@@QAEXMMMM@Z
-    void SetDensity(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT void SetDensity(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4D92F0 | ?SetMass@asInertialCS@@QAEXMMMM@Z
-    void SetMass(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT void SetMass(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4D9450 | ?SetZeroDOF@asInertialCS@@QAEXMM@Z | unused
-    void SetZeroDOF(f32 arg1, f32 arg2);
+    ARTS_IMPORT void SetZeroDOF(f32 arg1, f32 arg2);
 
     // 0x4D9680 | ?Update@asInertialCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4D9650 | ?UpdateKids@asInertialCS@@QAEXXZ | unused
-    void UpdateKids();
+    ARTS_IMPORT void UpdateKids();
 
     // 0x4D9510 | ?Zero@asInertialCS@@QAEXXZ
-    void Zero();
+    ARTS_IMPORT void Zero();
 
     // 0x4DB970 | ?DeclareFields@asInertialCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
 private:
     // 0x4DA980 | ?DrawForce@asInertialCS@@AAEXABVVector3@@0@Z
-    void DrawForce(class Vector3 const& arg1, class Vector3 const& arg2);
+    ARTS_IMPORT void DrawForce(class Vector3 const& arg1, class Vector3 const& arg2);
 
     // 0x4DA9D0 | ?DrawForce@asInertialCS@@AAEXABVVector3@@00@Z
-    void DrawForce(class Vector3 const& arg1, class Vector3 const& arg2, class Vector3 const& arg3);
+    ARTS_IMPORT void DrawForce(class Vector3 const& arg1, class Vector3 const& arg2, class Vector3 const& arg3);
 };
 
 check_size(asInertialCS, 0x1A8);
 
 // 0x4DADE0 | ?InertiaAxis@@YAMABVVector3@@0@Z | unused
-f32 InertiaAxis(class Vector3 const& arg1, class Vector3 const& arg2);
+ARTS_IMPORT f32 InertiaAxis(class Vector3 const& arg1, class Vector3 const& arg2);
 
 // 0x4DAE20 | ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@M@Z
-class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, f32 arg2);
+ARTS_IMPORT class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, f32 arg2);
 
 // 0x4DB120 | ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@0M@Z | unused
-class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
+ARTS_IMPORT class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
 
 // 0x7190E8 | ?asInertialCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x7190E8, class MetaClass, asInertialCSMetaClass);
+// ARTS_IMPORT extern class MetaClass asInertialCSMetaClass;

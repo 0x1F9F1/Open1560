@@ -48,34 +48,34 @@ class mmWaypointInstance : public mmStaticInstance
 
 public:
     // 0x433730 | ??0mmWaypointInstance@@QAE@HMM@Z
-    mmWaypointInstance(i32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT mmWaypointInstance(i32 arg1, f32 arg2, f32 arg3);
 
     // 0x433D30 | ??_EmmWaypointInstance@@UAEPAXI@Z
     // 0x433780 | ??1mmWaypointInstance@@UAE@XZ
-    ~mmWaypointInstance() override;
+    ARTS_IMPORT ~mmWaypointInstance() override;
 
     // 0x433B90 | ?AddWidgets@mmWaypointInstance@@UAEXPAVBank@@@Z
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4337A0 | ?ComputeLod@mmWaypointInstance@@UAEHMM@Z
-    i32 ComputeLod(f32 arg1, f32 arg2) override;
+    ARTS_IMPORT i32 ComputeLod(f32 arg1, f32 arg2) override;
 
     // 0x4337C0 | ?Draw@mmWaypointInstance@@UAIXH@Z
-    void __fastcall Draw(i32 arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x433D20 | ?GetClass@mmWaypointInstance@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x433790 | ?GetScale@mmWaypointInstance@@UAIMXZ
-    f32 __fastcall GetScale() override;
+    ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
     // 0x433D90 | ??_FmmWaypointInstance@@QAEXXZ (Skipped: invalid name)
 
     // 0x433BA0 | ?DeclareFields@mmWaypointInstance@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmWaypointInstance, 0x44);
 
 // 0x6A7800 | ?mmWaypointInstanceMetaClass@@3VMetaClass@@A
-inline extern_var(0x6A7800, class MetaClass, mmWaypointInstanceMetaClass);
+// ARTS_IMPORT extern class MetaClass mmWaypointInstanceMetaClass;

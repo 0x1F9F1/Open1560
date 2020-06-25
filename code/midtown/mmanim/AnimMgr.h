@@ -44,35 +44,35 @@ class mmAnimMgr : public asNode
 
 public:
     // 0x4C1110 | ??0mmAnimMgr@@QAE@XZ
-    mmAnimMgr();
+    ARTS_IMPORT mmAnimMgr();
 
     // 0x4C1620 | ??_EmmAnimMgr@@UAEPAXI@Z
     // 0x4C1190 | ??1mmAnimMgr@@UAE@XZ
-    ~mmAnimMgr() override;
+    ARTS_IMPORT ~mmAnimMgr() override;
 
     // 0x4C13C0 | ?AirlinerSwap@mmAnimMgr@@QAEXXZ
-    void AirlinerSwap();
+    ARTS_IMPORT void AirlinerSwap();
 
     // 0x4C15B0 | ?GetClass@mmAnimMgr@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4C11F0 | ?Init@mmAnimMgr@@QAEHPADPAVmmInstance@@PAPAV2@H@Z
-    i32 Init(char* arg1, class mmInstance* arg2, class mmInstance** arg3, i32 arg4);
+    ARTS_IMPORT i32 Init(char* arg1, class mmInstance* arg2, class mmInstance** arg3, i32 arg4);
 
     // 0x4C13B0 | ?TestDOFAct@mmAnimMgr@@QAEXH@Z
-    void TestDOFAct(i32 arg1);
+    ARTS_IMPORT void TestDOFAct(i32 arg1);
 
     // 0x4C1400 | ?UFOSwap@mmAnimMgr@@QAEXXZ
-    void UFOSwap();
+    ARTS_IMPORT void UFOSwap();
 
     // 0x4C13A0 | ?Update@mmAnimMgr@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4C1440 | ?DeclareFields@mmAnimMgr@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 };
 
 check_size(mmAnimMgr, 0x26B0);
 
 // 0x705D68 | ?mmAnimMgrMetaClass@@3VMetaClass@@A
-inline extern_var(0x705D68, class MetaClass, mmAnimMgrMetaClass);
+// ARTS_IMPORT extern class MetaClass mmAnimMgrMetaClass;

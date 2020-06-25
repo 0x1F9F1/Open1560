@@ -49,53 +49,53 @@ class mmViewCS : public asLinearCS
 
 public:
     // 0x4F8FB0 | ??0mmViewCS@@QAE@XZ
-    mmViewCS();
+    ARTS_IMPORT mmViewCS();
 
     // 0x4F9500 | ??_EmmViewCS@@UAEPAXI@Z
     // 0x4F9070 | ??1mmViewCS@@UAE@XZ
-    ~mmViewCS() override;
+    ARTS_IMPORT ~mmViewCS() override;
 
     // 0x4F9560 | ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z | inline
-    void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4F9320 | ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z | unused
-    void ForceMatrixDelta(class Matrix34 const& arg1);
+    ARTS_IMPORT void ForceMatrixDelta(class Matrix34 const& arg1);
 
     // 0x4F9340 | ?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z | unused
-    void ForceMatrixDelta(class Vector3 const& arg1);
+    ARTS_IMPORT void ForceMatrixDelta(class Vector3 const& arg1);
 
     // 0x4F94F0 | ?GetClass@mmViewCS@@UAEPAVMetaClass@@XZ
-    class MetaClass* GetClass() override;
+    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4F9260 | ?Init@mmViewCS@@QAEXXZ
-    void Init();
+    ARTS_IMPORT void Init();
 
     // 0x4F9180 | ?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z
-    i32 NewCam(class CarCamCS* arg1, i32 arg2, f32 arg3, class Callback arg4);
+    ARTS_IMPORT i32 NewCam(class CarCamCS* arg1, i32 arg2, f32 arg3, class Callback arg4);
 
     // 0x4F9360 | ?OneShot@mmViewCS@@QAEXXZ | unused
-    void OneShot();
+    ARTS_IMPORT void OneShot();
 
     // 0x4F92C0 | ?Reset@mmViewCS@@UAEXXZ
-    void Reset() override;
+    ARTS_IMPORT void Reset() override;
 
     // 0x4F9270 | ?SetCamera@mmViewCS@@QAEXPAVasCamera@@@Z
-    void SetCamera(class asCamera* arg1);
+    ARTS_IMPORT void SetCamera(class asCamera* arg1);
 
     // 0x4F9110 | ?SetCurrentCam@mmViewCS@@QAEXPAVCarCamCS@@@Z
-    void SetCurrentCam(class CarCamCS* arg1);
+    ARTS_IMPORT void SetCurrentCam(class CarCamCS* arg1);
 
     // 0x4F9230 | ?Update@mmViewCS@@UAEXXZ
-    void Update() override;
+    ARTS_IMPORT void Update() override;
 
     // 0x4F9380 | ?DeclareFields@mmViewCS@@SAXXZ
-    static void DeclareFields();
+    ARTS_IMPORT static void DeclareFields();
 
     // 0x4F9080 | ?Instance@mmViewCS@@SAPAV1@PAVasCamera@@@Z
-    static class mmViewCS* Instance(class asCamera* arg1);
+    ARTS_IMPORT static class mmViewCS* Instance(class asCamera* arg1);
 };
 
 check_size(mmViewCS, 0xC0);
 
 // 0x7193A8 | ?mmViewCSMetaClass@@3VMetaClass@@A
-inline extern_var(0x7193A8, class MetaClass, mmViewCSMetaClass);
+// ARTS_IMPORT extern class MetaClass mmViewCSMetaClass;

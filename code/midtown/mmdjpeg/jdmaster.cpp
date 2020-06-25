@@ -19,13 +19,3 @@
 define_dummy_symbol(mmdjpeg_jdmaster);
 
 #include "jdmaster.h"
-
-void jinit_master_decompress(struct jpeg_decompress_struct* arg1)
-{
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x580AE0, arg1);
-}
-
-void jpeg_calc_output_dimensions(struct jpeg_decompress_struct* arg1)
-{
-    return stub<cdecl_t<void, struct jpeg_decompress_struct*>>(0x580A20, arg1);
-}

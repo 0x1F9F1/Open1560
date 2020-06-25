@@ -32,14 +32,14 @@ struct PagerInfo_t
     u32 Size {0};
     const char* Name {nullptr};
 
-    // 0x5605D0 | ?Read@PagerInfo_t@@QAEXPAXII@Z
-    void Read(void* buffer, u32 offset, u32 size);
+    // 0x5605D0 | ?Read@PagerInfo_t@@QAEXPAXII@Z | stream:hfsystem
+    ARTS_EXPORT void Read(void* buffer, u32 offset, u32 size);
 };
 
 check_size(PagerInfo_t, 0x10);
 
 // 0x90AA18 | ?EnablePaging@@3HA
-inline extern_var(0x90AA18, i32, EnablePaging);
+ARTS_IMPORT extern i32 EnablePaging;
 
 // 0x90A9F0 | ?PAGER@@3VipcMessageQueue@@A
-inline extern_var(0x90A9F0, class ipcMessageQueue, PAGER);
+ARTS_IMPORT extern class ipcMessageQueue PAGER;

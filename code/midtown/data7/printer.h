@@ -74,7 +74,7 @@ void PDebug(ARTS_FORMAT_STRING char const* format, ...);
 void DefaultPrinter(i32 level, char const* format, std::va_list args);
 
 // 0x576E00 | ?LogToCommPort@@YAHHH@Z
-i32 LogToCommPort(i32 arg1, i32 arg2);
+ARTS_IMPORT i32 LogToCommPort(i32 arg1, i32 arg2);
 
 // 0x576F00 | ?LogToFile@@YAXXZ
 ARTS_EXPORT void LogToFile();
@@ -83,28 +83,28 @@ ARTS_EXPORT void LogToFile();
 ARTS_EXPORT void LogToFile(const char* file);
 
 // 0x576E90 | ?LogToMonochromeMonitor@@YAXXZ
-void LogToMonochromeMonitor();
+ARTS_IMPORT void LogToMonochromeMonitor();
 
 // 0x576DD0 | ?Quit@@YAXPBD@Z
 void Quit(char const* message);
 
 // 0x661AA8 | ?EnableDebugOutput@@3HA
-inline extern_var(0x661AA8, i32, EnableDebugOutput);
+ARTS_IMPORT extern i32 EnableDebugOutput;
 
 // 0x661AA4 | ?EnableNormalOutput@@3HA
-inline extern_var(0x661AA4, i32, EnableNormalOutput);
+ARTS_IMPORT extern i32 EnableNormalOutput;
 
 // 0x90A688 | ?MessageFifo@@3PAY0FA@DA
-inline extern_var(0x90A688, char[10][80], MessageFifo);
+ARTS_IMPORT extern char MessageFifo[10][80];
 
 // 0x90A680 | ?MessageFirst@@3HA
-inline extern_var(0x90A680, i32, MessageFirst);
+ARTS_IMPORT extern i32 MessageFirst;
 
 // 0x90A684 | ?MonoPointer@@3PAGA
-inline extern_var(0x90A684, u16*, MonoPointer);
+ARTS_IMPORT extern u16* MonoPointer;
 
 // 0x661AB8 | ?Printer@@3P6AXHPBDPAD@ZA
-inline extern_var(0x661AB8, void (*)(i32, char const*, std::va_list), Printer);
+ARTS_IMPORT extern void (*Printer)(i32, char const*, std::va_list);
 
 // 0x661AC0 | ?__assertFailed@@3PADA
-inline extern_var(0x661AC0, char[], __assertFailed);
+ARTS_IMPORT extern char __assertFailed[];

@@ -38,20 +38,20 @@ class asBound : public asNode
 
 public:
     // 0x4DF0D0 | ??0asBound@@QAE@XZ
-    asBound();
+    ARTS_IMPORT asBound();
 
     // 0x4DFBE0 | ??_GasBound@@UAEPAXI@Z
     // 0x453A40 | ??1asBound@@UAE@XZ | inline
-    ~asBound() override;
+    ARTS_IMPORT ~asBound() override;
 
     // 0x4DFAF0 | ?GetPhysMtl@asBound@@QAEAAVagiPhysParameters@@ABVmmPolygon@@@Z
-    class agiPhysParameters& GetPhysMtl(class mmPolygon const& arg1);
+    ARTS_IMPORT class agiPhysParameters& GetPhysMtl(class mmPolygon const& arg1);
 
     // 0x4DF110 | ?Impact@asBound@@QAEHPAVmmIntersection@@PAV1@HHH@Z
-    i32 Impact(class mmIntersection* arg1, class asBound* arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT i32 Impact(class mmIntersection* arg1, class asBound* arg2, i32 arg3, i32 arg4, i32 arg5);
 };
 
 check_size(asBound, 0x0);
 
 // 0x719194 | ?ImpactCallbackCount@@3HA
-inline extern_var(0x719194, i32, ImpactCallbackCount);
+ARTS_IMPORT extern i32 ImpactCallbackCount;

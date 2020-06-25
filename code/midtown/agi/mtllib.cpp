@@ -19,29 +19,3 @@
 define_dummy_symbol(agi_mtllib);
 
 #include "mtllib.h"
-
-agiLib<class agiMtlParameters, class agiMtlDef>::agiLib<class agiMtlParameters, class agiMtlDef>()
-{
-    unimplemented();
-}
-
-agiLib<class agiMtlParameters, class agiMtlDef>::~agiLib<class agiMtlParameters, class agiMtlDef>()
-{
-    unimplemented();
-}
-
-i32 agiLib<class agiMtlParameters, class agiMtlDef>::Add(class agiMtlParameters& arg1)
-{
-    return stub<thiscall_t<i32, agiLib<class agiMtlParameters, class agiMtlDef>*, class agiMtlParameters&>>(
-        0x559D90, this, arg1);
-}
-
-void agiLib<class agiMtlParameters, class agiMtlDef>::Init(i32 arg1)
-{
-    return stub<thiscall_t<void, agiLib<class agiMtlParameters, class agiMtlDef>*, i32>>(0x55A080, this, arg1);
-}
-
-void agiLib<class agiMtlParameters, class agiMtlDef>::Kill()
-{
-    return stub<thiscall_t<void, agiLib<class agiMtlParameters, class agiMtlDef>*>>(0x55A030, this);
-}

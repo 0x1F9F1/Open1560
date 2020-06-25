@@ -31,13 +31,13 @@
 */
 
 // 0x706360 | ?CHEATING@@3HA
-inline extern_var(0x706360, i32, CHEATING);
+ARTS_IMPORT extern i32 CHEATING;
 
 // 0x7084E0 | ?CHICAGO@@3HA
-inline extern_var(0x7084E0, i32, CHICAGO);
+ARTS_IMPORT extern i32 CHICAGO;
 
 // 0x706368 | ?MMCURRPLAYER@@3VmmPlayerData@@A
-inline extern_var(0x706368, class mmPlayerData, MMCURRPLAYER);
+ARTS_IMPORT extern class mmPlayerData MMCURRPLAYER;
 
 // 0x706068 | ?MMSTATE@@3UmmStatePack@@A
-inline extern_var(0x706068, struct mmStatePack, MMSTATE);
+ARTS_IMPORT extern struct mmStatePack MMSTATE;

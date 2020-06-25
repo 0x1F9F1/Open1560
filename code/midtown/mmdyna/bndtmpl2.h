@@ -51,13 +51,13 @@
 */
 
 // 0x517620 | ?EdgeInList@@YA_NHHJPAH0@Z
-bool EdgeInList(i32 arg1, i32 arg2, i32 arg3, i32* arg4, i32* arg5);
+ARTS_IMPORT bool EdgeInList(i32 arg1, i32 arg2, i32 arg3, i32* arg4, i32* arg5);
 
 // 0x77EE30 | ?BoundBytesPaged@@3HA
-inline extern_var(0x77EE30, i32, BoundBytesPaged);
+ARTS_IMPORT extern i32 BoundBytesPaged;
 
 // 0x77EE44 | ?BoundsPaged@@3HA
-inline extern_var(0x77EE44, i32, BoundsPaged);
+ARTS_IMPORT extern i32 BoundsPaged;
 
 // 0x77EED8 | ?MakeTableStats@@3PAVStream@@A
-inline extern_var(0x77EED8, class Stream*, MakeTableStats);
+ARTS_IMPORT extern class Stream* MakeTableStats;

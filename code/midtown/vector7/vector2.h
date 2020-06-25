@@ -46,19 +46,19 @@ class Vector2
 {
 public:
     // 0x430350 | ??0Vector2@@QAE@ABV0@@Z | inline
-    Vector2(class Vector2 const& arg1);
+    ARTS_IMPORT Vector2(class Vector2 const& arg1);
 
     // 0x571110 | ??KVector2@@QBE?AV0@M@Z | unused
-    class Vector2 operator/(f32 arg1);
+    ARTS_IMPORT class Vector2 operator/(f32 arg1);
 
     // 0x571170 | ??SVector2@@QBE?AV0@XZ | unused
-    class Vector2 operator~();
+    ARTS_IMPORT class Vector2 operator~();
 
     // 0x571260 | ?InvMag@Vector2@@QBEMXZ
-    f32 InvMag();
+    ARTS_IMPORT f32 InvMag();
 
     // 0x5711E0 | ?Mag@Vector2@@QBEMXZ
-    f32 Mag();
+    ARTS_IMPORT f32 Mag();
 };
 
 check_size(Vector2, 0x0);
@@ -67,23 +67,23 @@ class Vector2Array
 {
 public:
     // 0x571460 | ??4Vector2Array@@QAEXAAV0@@Z | unused
-    void operator=(class Vector2Array& arg1);
+    ARTS_IMPORT void operator=(class Vector2Array& arg1);
 
     // 0x5713F0 | ??AVector2Array@@QAEAAVVector2@@H@Z | unused
-    class Vector2& operator[](i32 arg1);
+    ARTS_IMPORT class Vector2& operator[](i32 arg1);
 
     // 0x571540 | ?BlockCopy@Vector2Array@@QAEXAAV1@@Z | unused
-    void BlockCopy(class Vector2Array& arg1);
+    ARTS_IMPORT void BlockCopy(class Vector2Array& arg1);
 
     // 0x571330 | ?Delete@Vector2Array@@QAEXXZ
-    void Delete();
+    ARTS_IMPORT void Delete();
 
     // 0x5712C0 | ?Init@Vector2Array@@QAEXH@Z | unused
-    void Init(i32 arg1);
+    ARTS_IMPORT void Init(i32 arg1);
 
 private:
     // 0x571380 | ?NewTable@Vector2Array@@AAEXH@Z
-    void NewTable(i32 arg1);
+    ARTS_IMPORT void NewTable(i32 arg1);
 };
 
 check_size(Vector2Array, 0x0);
@@ -94,22 +94,22 @@ struct Vector2Type : MetaType
 
 public:
     // 0x571700 | ?Delete@Vector2Type@@UAEXPAXH@Z
-    void Delete(void* arg1, i32 arg2) override;
+    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // 0x571670 | ?Load@Vector2Type@@UAEXPAVMiniParser@@PAX@Z
-    void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
     // 0x5716B0 | ?New@Vector2Type@@UAEPAXH@Z
-    void* New(i32 arg1) override;
+    ARTS_IMPORT void* New(i32 arg1) override;
 
     // 0x571640 | ?Save@Vector2Type@@UAEXPAVMiniParser@@PAX@Z
-    void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
     // 0x5716A0 | ?SizeOf@Vector2Type@@UAEIXZ
-    u32 SizeOf() override;
+    ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(Vector2Type, 0x0);
 
 // 0x909644 | ?Vector2Inst@@3UVector2Type@@A
-inline extern_var(0x909644, struct Vector2Type, Vector2Inst);
+ARTS_IMPORT extern struct Vector2Type Vector2Inst;

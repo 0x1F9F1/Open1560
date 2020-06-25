@@ -67,72 +67,72 @@ class agiLighter
 
 public:
     // 0x551740 | ??0agiLighter@@QAE@XZ
-    agiLighter();
+    ARTS_IMPORT agiLighter();
 
 protected:
     // 0x552420 | ??_EagiLighter@@MAEPAXI@Z
     // 0x551750 | ??1agiLighter@@MAE@XZ
-    virtual ~agiLighter();
+    ARTS_IMPORT virtual ~agiLighter();
 
 public:
     // 0x551800 | ?TransformAll@agiLighter@@UAEXPAVMatrix34@@PAVVector3@@I@Z
-    virtual void TransformAll(class Matrix34* arg1, class Vector3* arg2, u32 arg3);
+    ARTS_IMPORT virtual void TransformAll(class Matrix34* arg1, class Vector3* arg2, u32 arg3);
 
     virtual u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) = 0;
 
     // 0x551760 | ?BeginScene@agiLighter@@SAXXZ
-    static void BeginScene();
+    ARTS_IMPORT static void BeginScene();
 
     // 0x551780 | ?DeclareLight@agiLighter@@SAXPAVagiLight@@@Z
-    static void DeclareLight(class agiLight* arg1);
+    ARTS_IMPORT static void DeclareLight(class agiLight* arg1);
 
     // 0x5517A0 | ?RemoveLight@agiLighter@@SAXPAVagiLight@@@Z
-    static void RemoveLight(class agiLight* arg1);
+    ARTS_IMPORT static void RemoveLight(class agiLight* arg1);
 
     // 0x7E0170 | ?ACTIVELIGHTS@agiLighter@@2PAPAVagiLight@@A
-    static inline extern_var(0x7E0170, class agiLight* [16], ACTIVELIGHTS);
+    ARTS_IMPORT static class agiLight* ACTIVELIGHTS[16];
 
     // 0x7E0080 | ?Attenuate@agiLighter@@2PADA
-    static inline extern_var(0x7E0080, char[16], Attenuate);
+    ARTS_IMPORT static char Attenuate[16];
 
     // 0x7E0270 | ?CosSpread@agiLighter@@2PAMA
-    static inline extern_var(0x7E0270, f32[16], CosSpread);
+    ARTS_IMPORT static f32 CosSpread[16];
 
     // 0x7E009C | ?Current@agiLighter@@2HA
-    static inline extern_var(0x7E009C, i32, Current);
+    ARTS_IMPORT static i32 Current;
 
     // 0x7E01B0 | ?Dir@agiLighter@@2PAVVector3@@A
-    static inline extern_var(0x7E01B0, class Vector3[16], Dir);
+    ARTS_IMPORT static class Vector3 Dir[16];
 
     // 0x7E0090 | ?Eye@agiLighter@@2VVector3@@A
-    static inline extern_var(0x7E0090, class Vector3, Eye);
+    ARTS_IMPORT static class Vector3 Eye;
 
     // 0x7E0040 | ?LIGHTS@agiLighter@@2PAPAVagiLight@@A
-    static inline extern_var(0x7E0040, class agiLight* [16], LIGHTS);
+    ARTS_IMPORT static class agiLight* LIGHTS[16];
 
     // 0x7E00A4 | ?LMODEL@agiLighter@@2PAVagiLightModel@@A
-    static inline extern_var(0x7E00A4, class agiLightModel*, LMODEL);
+    ARTS_IMPORT static class agiLightModel* LMODEL;
 
     // 0x7E00A8 | ?LocalViewer@agiLighter@@2HA
-    static inline extern_var(0x7E00A8, i32, LocalViewer);
+    ARTS_IMPORT static i32 LocalViewer;
 
     // 0x7E00B0 | ?Pos@agiLighter@@2PAVVector3@@A
-    static inline extern_var(0x7E00B0, class Vector3[16], Pos);
+    ARTS_IMPORT static class Vector3 Pos[16];
 
     // 0x7E0028 | ?Positional@agiLighter@@2PADA
-    static inline extern_var(0x7E0028, char[16], Positional);
+    ARTS_IMPORT static char Positional[16];
 
     // 0x7E02B0 | ?SceneActive@agiLighter@@2HA
-    static inline extern_var(0x7E02B0, i32, SceneActive);
+    ARTS_IMPORT static i32 SceneActive;
 
     // 0x7E02B8 | ?SceneAmbient@agiLighter@@2VVector3@@A
-    static inline extern_var(0x7E02B8, class Vector3, SceneAmbient);
+    ARTS_IMPORT static class Vector3 SceneAmbient;
 
     // 0x7E00A0 | ?SceneCurrent@agiLighter@@2HA
-    static inline extern_var(0x7E00A0, i32, SceneCurrent);
+    ARTS_IMPORT static i32 SceneCurrent;
 
     // 0x7E0038 | ?ShadowMap@agiLighter@@2PAVagiShadowMap@@A
-    static inline extern_var(0x7E0038, class agiShadowMap*, ShadowMap);
+    ARTS_IMPORT static class agiShadowMap* ShadowMap;
 };
 
 check_size(agiLighter, 0x0);
@@ -143,14 +143,14 @@ class agiMonoLighter : public agiLighter
 
 public:
     // 0x5519F0 | ??0agiMonoLighter@@QAE@XZ
-    agiMonoLighter();
+    ARTS_IMPORT agiMonoLighter();
 
     // 0x552450 | ??_GagiMonoLighter@@UAEPAXI@Z
     // 0x551A10 | ??1agiMonoLighter@@UAE@XZ
-    ~agiMonoLighter() override;
+    ARTS_IMPORT ~agiMonoLighter() override;
 
     // 0x551A20 | ?LightVertex@agiMonoLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
-    u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) override;
+    ARTS_IMPORT u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) override;
 };
 
 check_size(agiMonoLighter, 0x0);
@@ -161,20 +161,20 @@ class agiRGBLighter : public agiLighter
 
 public:
     // 0x551E40 | ??0agiRGBLighter@@QAE@XZ
-    agiRGBLighter();
+    ARTS_IMPORT agiRGBLighter();
 
     // 0x552480 | ??_GagiRGBLighter@@UAEPAXI@Z
     // 0x551E60 | ??1agiRGBLighter@@UAE@XZ
-    ~agiRGBLighter() override;
+    ARTS_IMPORT ~agiRGBLighter() override;
 
     // 0x551E70 | ?LightVertex@agiRGBLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
-    u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) override;
+    ARTS_IMPORT u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) override;
 };
 
 check_size(agiRGBLighter, 0x0);
 
 // 0x7E02B4 | ?MONOLIGHTER@@3VagiMonoLighter@@A
-inline extern_var(0x7E02B4, class agiMonoLighter, MONOLIGHTER);
+ARTS_IMPORT extern class agiMonoLighter MONOLIGHTER;
 
 // 0x7E0020 | ?RGBLIGHTER@@3VagiRGBLighter@@A
-inline extern_var(0x7E0020, class agiRGBLighter, RGBLIGHTER);
+ARTS_IMPORT extern class agiRGBLighter RGBLIGHTER;

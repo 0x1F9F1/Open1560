@@ -22,6 +22,7 @@
     memory:stack
 
     0x520130 | void __cdecl LookupAddress(char *,int) | ?LookupAddress@@YAXPADH@Z
+    0x5201C0 | void __cdecl InitMap(void) | ?InitMap@@YAXXZ
     0x5204C0 | void __cdecl DoStackTraceback(int,int *) | ?DoStackTraceback@@YAXHPAH@Z
     0x520590 | void __cdecl StackTraceback(int) | ?StackTraceback@@YAXH@Z
     0x5205B0 | int __cdecl LogStackTraceback(int *,int) | ?LogStackTraceback@@YAHPAHH@Z
@@ -29,26 +30,25 @@
     0x5206C0 | void __cdecl DebugLogInit(int) | ?DebugLogInit@@YAXH@Z
     0x520700 | void __cdecl DebugLogShutdown(void) | ?DebugLogShutdown@@YAXXZ
     0x520720 | void __cdecl DebugLog(int,void *,int) | ?DebugLog@@YAXHPAXH@Z
-    0x5201C0 | void __cdecl InitMap(void) | ?InitMap@@YAXXZ
 */
 
 // 0x520720 | ?DebugLog@@YAXHPAXH@Z
-void DebugLog(i32 arg1, void* arg2, i32 arg3);
+ARTS_IMPORT void DebugLog(i32 arg1, void* arg2, i32 arg3);
 
 // 0x5206C0 | ?DebugLogInit@@YAXH@Z | unused
-void DebugLogInit(i32 arg1);
+ARTS_IMPORT void DebugLogInit(i32 arg1);
 
 // 0x520700 | ?DebugLogShutdown@@YAXXZ
-void DebugLogShutdown();
+ARTS_IMPORT void DebugLogShutdown();
 
 // 0x5204C0 | ?DoStackTraceback@@YAXHPAH@Z
 ARTS_EXPORT void DoStackTraceback(i32 depth, i32* frame);
 
 // 0x520670 | ?DumpStackTraceback@@YAXPAHH@Z
-void DumpStackTraceback(i32* arg1, i32 arg2);
+ARTS_IMPORT void DumpStackTraceback(i32* arg1, i32 arg2);
 
 // 0x5205B0 | ?LogStackTraceback@@YAHPAHH@Z
-i32 LogStackTraceback(i32* arg1, i32 arg2);
+ARTS_IMPORT i32 LogStackTraceback(i32* arg1, i32 arg2);
 
 void LookupAddress(char* buffer, usize buflen, usize address);
 
