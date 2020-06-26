@@ -308,6 +308,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("sfPointer::ResChange", "Use Old Cursor", 0x641F2C, "pointer", 8);
 
+        create_patch("dxiScreenShot", "Disable second CloseHandle call", 0x57488F, "\x90\x90\x90\x90\x90\x90\x90", 7);
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();
