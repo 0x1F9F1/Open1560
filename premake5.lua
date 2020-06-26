@@ -64,6 +64,12 @@ workspace "Open1560"
     -- filter "platforms:Win64"
     --     architecture "x86_64"
 
+    filter "toolset:msc*"
+        buildoptions { "/permissive-" }
+
+    filter "toolset:msc-v*"
+        buildoptions { "/Zc:throwingNew" }
+
     filter {}
 
 group "Third Party"

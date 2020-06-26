@@ -160,6 +160,7 @@ class agiPolySet
 public:
     // 0x510480 | ?Triangle@agiPolySet@@QAEXHHH@Z | inline
     ARTS_IMPORT void Triangle(i32 arg1, i32 arg2, i32 arg3);
+
     u16* Indices {nullptr};
     struct agiScreenVtx* Verts {nullptr};
     struct agiScreenVtx2* Verts2 {nullptr};

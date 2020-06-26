@@ -59,7 +59,7 @@ struct VirtualFileEntry
     VirtualFileInode* Nodes {nullptr};
     u32 NodeCount {0};
 
-    void inline FillInfo(VirtualFileSystem* fs, FileInfo& info)
+    inline void FillInfo(VirtualFileSystem* fs, FileInfo& info)
     {
         fs->ExpandName(info.Path, std::size(info.Path), Nodes);
         info.IsDirectory = Nodes->IsDirectory();
