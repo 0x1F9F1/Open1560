@@ -58,7 +58,7 @@
 
 #include "core/minwin.h"
 
-// 0x4031A0 | _WinMain@16 (Skipped: void)
+// 0x4031A0 | _WinMain@16 | void
 ARTS_EXPORT int WINAPI MidtownMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
 
 // 0x4030C0 | ?Application@@YAXHPAPAD@Z
@@ -82,7 +82,7 @@ ARTS_IMPORT i32 GenerateLoadScreenName();
 // 0x402F40 | ?InitAudioManager@@YAXXZ
 ARTS_IMPORT void InitAudioManager();
 
-// 0x403C00 | ??_H@YGXPAXIHP6EX0@Z@Z (Skipped: invalid name)
+// 0x403C00 | ??_H@YGXPAXIHP6EX0@Z@Z | invalid name
 
 // 0x63468C | ?APPTITLE@@3PADA
 ARTS_IMPORT extern char* APPTITLE;

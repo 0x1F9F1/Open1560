@@ -18,6 +18,7 @@ IGNORED_LIB_PREFIXES = [
     'dinput',
     'dxguid',
     'uuid',
+    'setargv',
     '__imp__',
     '<common>'
 ]
@@ -48,8 +49,8 @@ def parse_map_symbols(lines, addrs, ignored):
                 continue
 
             if lib_name.endswith('.dll') \
-            or sym_name.startswith('__') \
             or sym_name.startswith('??_C@') \
+            or sym_name.startswith('??_9') \
             or sym_name.startswith('_$E'):
                 continue
 
@@ -1987,7 +1988,7 @@ for lib, paths in grouped_symbols.items():
                 skip_reason = 'invalid name'
 
             if skip_reason is not None:
-                output.header += '// 0x{:X} | {} (Skipped: {})\n\n'.format(value.address, value.raw_name, skip_reason)
+                output.header += '// 0x{:X} | {} | {}\n\n'.format(value.address, value.raw_name, skip_reason)
                 continue
 
             if value.visibility != visibility:

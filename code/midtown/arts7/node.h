@@ -53,8 +53,6 @@
     0x524600 | public: virtual class MetaClass * __thiscall asNode::GetClass(void) | ?GetClass@asNode@@UAEPAVMetaClass@@XZ
     0x524610 | struct MetaType * __cdecl PtrTo(struct MetaType *) | ?PtrTo@@YAPAUMetaType@@PAU1@@Z
     0x524640 | public: virtual void * __thiscall asNode::`vector deleting destructor'(unsigned int) | ??_EasNode@@UAEPAXI@Z
-    0x5246A0 | [thunk]: __thiscall `vcall'{40,{flat}}' }' | ??_9@$BCI@AE
-    0x5246B0 | [thunk]: __thiscall `vcall'{44,{flat}}' }' | ??_9@$BCM@AE
     0x620A78 | const asNode::`vftable' | ??_7asNode@@6B@
     0x620AB8 | const PtrToType::`vftable' | ??_7PtrToType@@6B@
     0x790830 | int DebugMemory | ?DebugMemory@@3HA
@@ -190,10 +188,6 @@ private:
 };
 
 check_size(asNode, 0x20);
-
-// 0x5246A0 | ??_9@$BCI@AE (Skipped: void)
-
-// 0x5246B0 | ??_9@$BCM@AE (Skipped: void)
 
 // 0x1 | SanityCheck in asSimulation::Simulate | -simdbg
 // 0x2 | SanityCheck in asNode::Update         | -updatememdbg

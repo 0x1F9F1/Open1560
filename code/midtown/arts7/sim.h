@@ -60,7 +60,6 @@
     0x523710 | public: virtual void __thiscall artsReplayChannel::DoPlayback(class Stream *) | ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z
     0x523740 | public: __thiscall artsReplayChannel::~artsReplayChannel(void) | ??1artsReplayChannel@@QAE@XZ
     0x523750 | public: virtual void * __thiscall asSimulation::`vector deleting destructor'(unsigned int) | ??_EasSimulation@@UAEPAXI@Z
-    0x5237B0 | [thunk]: __thiscall `vcall'{28,{flat}}' }' | ??_9@$BBM@AE
     0x620A00 | const asSimulation::`vftable' | ??_7asSimulation@@6B@
     0x620A60 | const artsReplayChannel::`vftable' | ??_7artsReplayChannel@@6B@
     0x790750 | class MetaClass asSimulationMetaClass | ?asSimulationMetaClass@@3VMetaClass@@A
@@ -177,8 +176,6 @@ ARTS_IMPORT void ShutdownPipeline();
 
 // 0x5225F0 | ?invert@@YANN@Z | unused
 ARTS_IMPORT f64 invert(f64 arg1);
-
-// 0x5237B0 | ??_9@$BBM@AE (Skipped: void)
 
 // 0x79077C | ?ARTSPTR@@3PAVasSimulation@@A
 ARTS_IMPORT extern class asSimulation* ARTSPTR;

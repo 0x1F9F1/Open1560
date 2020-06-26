@@ -26,8 +26,6 @@
     0x4AB650 | public: virtual __thiscall OptionsBase::~OptionsBase(void) | ??1OptionsBase@@UAE@XZ
     0x4AB6A0 | public: virtual void * __thiscall OptionsBase::`vector deleting destructor'(unsigned int) | ??_EOptionsBase@@UAEPAXI@Z
     0x4AB6A0 | public: virtual void * __thiscall OptionsBase::`scalar deleting destructor'(unsigned int) | ??_GOptionsBase@@UAEPAXI@Z
-    0x4AB6D0 | [thunk]: __thiscall `vcall'{80,{flat}}' }' | ??_9@$BFA@AE
-    0x4AB6E0 | [thunk]: __thiscall `vcall'{84,{flat}}' }' | ??_9@$BFE@AE
     0x4AB6F0 | public: virtual void __thiscall OptionsBase::ResetDefaultAction(void) | ?ResetDefaultAction@OptionsBase@@UAEXXZ
     0x61E250 | const OptionsBase::`vftable' | ??_7OptionsBase@@6B@
 */
@@ -66,7 +64,3 @@ public:
 };
 
 check_size(OptionsBase, 0x6EC8);
-
-// 0x4AB6D0 | ??_9@$BFA@AE (Skipped: void)
-
-// 0x4AB6E0 | ??_9@$BFE@AE (Skipped: void)

@@ -54,7 +54,6 @@
     0x429F30 | public: virtual class MetaClass * __thiscall mmHudMap::GetClass(void) | ?GetClass@mmHudMap@@UAEPAVMetaClass@@XZ
     0x429F70 | public: virtual void * __thiscall mmHudMap::`vector deleting destructor'(unsigned int) | ??_EmmHudMap@@UAEPAXI@Z
     0x429FD0 | public: virtual __thiscall mmHudMap::~mmHudMap(void) | ??1mmHudMap@@UAE@XZ
-    0x429FE0 | [thunk]: __thiscall `vcall'{20,{flat}}' }' | ??_9@$BBE@AE
     0x61AE70 | const mmHudMap::`vftable' | ??_7mmHudMap@@6B@
     0x6A7350 | class MetaClass mmHudMapMetaClass | ?mmHudMapMetaClass@@3VMetaClass@@A
     0x6A7378 | union agiVtx * Tris | ?Tris@@3PATagiVtx@@A
@@ -170,8 +169,6 @@ private:
 };
 
 check_size(mmHudMap, 0x2C8);
-
-// 0x429FE0 | ??_9@$BBE@AE (Skipped: void)
 
 // 0x6A7378 | ?Tris@@3PATagiVtx@@A
 ARTS_IMPORT extern union agiVtx Tris[30];

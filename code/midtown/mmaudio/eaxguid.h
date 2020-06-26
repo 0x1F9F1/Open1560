@@ -25,6 +25,6 @@
     0x61FFB0 | _DSPROPSETID_EAXBUFFER_ReverbProperties
 */
 
-// 0x61FFB0 | _DSPROPSETID_EAXBUFFER_ReverbProperties (Skipped: void)
+// 0x61FFB0 | _DSPROPSETID_EAXBUFFER_ReverbProperties | void
 
-// 0x61FFA0 | _DSPROPSETID_EAX_ReverbProperties (Skipped: void)
+// 0x61FFA0 | _DSPROPSETID_EAX_ReverbProperties | void

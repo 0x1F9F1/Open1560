@@ -46,9 +46,9 @@ ARTS_IMPORT i32 irand(i32 arg1);
 // 0x909448 | ?LogRandomCalls@@3P6AXXZA
 ARTS_IMPORT extern void (*LogRandomCalls)(void);
 
-// 0x564AB0 | _rand (Skipped: void)
+// 0x564AB0 | _rand | void
 
-// 0x564AC0 | _srand (Skipped: void)
+// 0x564AC0 | _srand | void
 
 // 0x658A60 | ?gRandSeed@@3HA
 ARTS_IMPORT extern i32 gRandSeed;

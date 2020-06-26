@@ -281,4 +281,4 @@ ARTS_IMPORT i32 ARTS_STDCALL EnumSessionCallback(struct DPSESSIONDESC2 const* ar
 // 0x6A8918 | ?NETMGR@@3VasNetwork@@A
 ARTS_IMPORT extern class asNetwork NETMGR;
 
-// 0x61CB70 | _MM_GUID (Skipped: void)
+// 0x61CB70 | _MM_GUID | void

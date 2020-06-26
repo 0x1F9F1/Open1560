@@ -86,7 +86,7 @@ public:
     // 0x525090 | ?Update@asCullManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x5258B0 | ??_FasCullManager@@QAEXXZ (Skipped: invalid name)
+    // 0x5258B0 | ??_FasCullManager@@QAEXXZ | invalid name
 
     // 0x5256D0 | ?DeclareFields@asCullManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

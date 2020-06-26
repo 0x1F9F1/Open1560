@@ -288,6 +288,6 @@ ARTS_EXPORT i32 arts_fseek(class Stream* stream, i32 offset, i32 origin);
 // 0x907960 | ?EnableBinaryFileMapping@@3HA
 ARTS_IMPORT extern i32 EnableBinaryFileMapping;
 
-// 0x55F3B0 | _printf (Skipped: void)
+// 0x55F3B0 | _printf | void
 
-// 0x55F390 | _vprintf (Skipped: void)
+// 0x55F390 | _vprintf | void

@@ -69,7 +69,7 @@ public:
     // 0x433790 | ?GetScale@mmWaypointInstance@@UAIMXZ
     ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
-    // 0x433D90 | ??_FmmWaypointInstance@@QAEXXZ (Skipped: invalid name)
+    // 0x433D90 | ??_FmmWaypointInstance@@QAEXXZ | invalid name
 
     // 0x433BA0 | ?DeclareFields@mmWaypointInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
