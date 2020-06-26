@@ -138,7 +138,7 @@ public:
     ARTS_IMPORT static struct asPortalPVS* Create(i32 arg1, ...);
 };
 
-check_size(asPortalPVS, 0x0);
+check_size(asPortalPVS, 0x8);
 
 struct asPortalEdge
 {
@@ -155,4 +155,4 @@ public:
     virtual void Cull(i32 arg1) = 0;
 };
 
-check_size(asPortalRenderable, 0x0);
+check_size(asPortalRenderable, 0x4);

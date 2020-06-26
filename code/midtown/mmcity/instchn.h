@@ -72,7 +72,7 @@ public:
     ARTS_IMPORT void Unparent(class mmInstance* arg1);
 };
 
-check_size(mmInstChain, 0x0);
+check_size(mmInstChain, 0xC);
 
 // 0x63F6B4 | ?EnableSphereCull@@3HA
 ARTS_IMPORT extern i32 EnableSphereCull;

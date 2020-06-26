@@ -167,7 +167,7 @@ public:
     ARTS_IMPORT void SetBackground(class Vector3& arg1) override;
 };
 
-check_size(agiSWViewport, 0x0);
+check_size(agiSWViewport, 0x14C);
 
 class agiSWBitmap : public agiBitmap
 {
@@ -191,4 +191,4 @@ public:
     ARTS_IMPORT void UpdateFlags() override;
 };
 
-check_size(agiSWBitmap, 0x0);
+check_size(agiSWBitmap, 0x40);

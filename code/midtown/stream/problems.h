@@ -44,4 +44,4 @@ public:
     ARTS_IMPORT ~problem_t();
 };
 
-check_size(problem_t, 0x0);
+check_size(problem_t, 0x10);

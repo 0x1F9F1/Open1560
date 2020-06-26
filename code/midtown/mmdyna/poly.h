@@ -93,4 +93,4 @@ private:
     ARTS_IMPORT void PlotTriangle(i32 arg1, i32 arg2, i32 arg3, class mmBoundTemplate* arg4, i32 arg5);
 };
 
-check_size(mmPolygon, 0x0);
+check_size(mmPolygon, 0x4C);

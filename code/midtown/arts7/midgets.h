@@ -242,7 +242,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(SMI, 0x0);
+check_size(SMI, 0x48);
 
 class BMI : public MI
 {
@@ -256,7 +256,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(BMI, 0x0);
+check_size(BMI, 0x5C);
 
 class TMI : public MI
 {
@@ -270,7 +270,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(TMI, 0x0);
+check_size(TMI, 0x68);
 
 class scharMI : public MI
 {
@@ -284,7 +284,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(scharMI, 0x0);
+check_size(scharMI, 0x68);
 
 class ucharMI : public MI
 {
@@ -298,7 +298,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(ucharMI, 0x0);
+check_size(ucharMI, 0x68);
 
 class shortMI : public MI
 {
@@ -312,7 +312,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(shortMI, 0x0);
+check_size(shortMI, 0x68);
 
 class ushortMI : public MI
 {
@@ -326,7 +326,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(ushortMI, 0x0);
+check_size(ushortMI, 0x68);
 
 class intMI : public MI
 {
@@ -340,7 +340,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(intMI, 0x0);
+check_size(intMI, 0x6C);
 
 class uintMI : public MI
 {
@@ -354,7 +354,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(uintMI, 0x0);
+check_size(uintMI, 0x6C);
 
 class floatMI : public MI
 {
@@ -368,7 +368,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(floatMI, 0x0);
+check_size(floatMI, 0x6C);
 
 class SBMI : public MI
 {
@@ -382,7 +382,7 @@ public:
     ARTS_IMPORT i32 Update(i32 arg1) override;
 };
 
-check_size(SBMI, 0x0);
+check_size(SBMI, 0x50);
 
 class MI
 {
@@ -394,7 +394,7 @@ public:
     virtual void Key(i32 arg1, i32 arg2) = 0;
 };
 
-check_size(MI, 0x0);
+check_size(MI, 0x48);
 
 // 0x790928 | ?MIDGETSPTR@@3PAVasMidgets@@A
 ARTS_IMPORT extern class asMidgets* MIDGETSPTR;

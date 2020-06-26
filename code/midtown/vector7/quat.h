@@ -72,4 +72,4 @@ public:
     ARTS_IMPORT void TrackBall(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 };
 
-check_size(Quaternion, 0x0);
+check_size(Quaternion, 0x10);

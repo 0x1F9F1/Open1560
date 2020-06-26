@@ -91,7 +91,7 @@ public:
     ARTS_IMPORT static class eqEventHandler* SuperQ;
 };
 
-check_size(eqEventHandler, 0x0);
+check_size(eqEventHandler, 0x164);
 
 class eqEventMonitor
 {
@@ -127,7 +127,7 @@ public:
     ARTS_IMPORT void SetWantMotion(i32 arg1);
 };
 
-check_size(eqEventMonitor, 0x0);
+check_size(eqEventMonitor, 0x14);
 
 class eqEventReplayChannelClass : public eqReplayChannel
 {
@@ -153,7 +153,7 @@ public:
     ARTS_IMPORT void QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
 };
 
-check_size(eqEventReplayChannelClass, 0x0);
+check_size(eqEventReplayChannelClass, 0x638);
 
 // 0x908C58 | ?eqEventReplayChannel@@3VeqEventReplayChannelClass@@A
 ARTS_IMPORT extern class eqEventReplayChannelClass eqEventReplayChannel;

@@ -51,4 +51,4 @@ public:
     ARTS_IMPORT void Update();
 };
 
-check_size(AddOnCarAudio, 0x0);
+check_size(AddOnCarAudio, 0xC);

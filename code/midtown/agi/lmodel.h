@@ -72,4 +72,4 @@ protected:
     ARTS_IMPORT agiLightModel(class agiPipeline* arg1);
 };
 
-check_size(agiLightModel, 0x0);
+check_size(agiLightModel, 0x40);

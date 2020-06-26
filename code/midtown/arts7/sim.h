@@ -214,4 +214,4 @@ public:
     ARTS_IMPORT void DoRecord(class Stream* arg1) override;
 };
 
-check_size(artsReplayChannel, 0x0);
+check_size(artsReplayChannel, 0xC);

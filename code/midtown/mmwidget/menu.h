@@ -301,4 +301,4 @@ public:
     ARTS_IMPORT static f32 WIDGET_WIDTH;
 };
 
-check_size(UIMenu, 0x0);
+check_size(UIMenu, 0x90);

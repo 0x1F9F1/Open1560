@@ -92,7 +92,7 @@ public:
     ARTS_IMPORT void WideFOV(i32 arg1);
 };
 
-check_size(mmExternalView, 0x0);
+check_size(mmExternalView, 0x10C);
 
 class mmDashView : public asLinearCS
 {

@@ -136,4 +136,4 @@ private:
     ARTS_IMPORT static f32 s_fCloserMinDistMult;
 };
 
-check_size(mmAnimPlane, 0x0);
+check_size(mmAnimPlane, 0x108);

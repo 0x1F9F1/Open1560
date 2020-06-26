@@ -79,4 +79,4 @@ public:
     ARTS_IMPORT void Update() override;
 };
 
-check_size(PUMenuBase, 0x0);
+check_size(PUMenuBase, 0xC0);

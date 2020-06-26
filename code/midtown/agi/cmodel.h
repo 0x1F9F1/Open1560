@@ -66,4 +66,4 @@ public:
     ARTS_IMPORT static class agiColorModel* FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
 };
 
-check_size(agiColorModel, 0x0);
+check_size(agiColorModel, 0x2C);

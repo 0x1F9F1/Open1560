@@ -65,7 +65,7 @@
 
 #include "arts7/node.h"
 
-class Joint3Dof : public asNode
+class Joint3Dof : public JointedStruct
 {
     // const Joint3Dof::`vftable' @ 0x61FAE0
 
@@ -171,7 +171,7 @@ public:
     ARTS_IMPORT ~JointedStruct();
 };
 
-check_size(JointedStruct, 0x0);
+check_size(JointedStruct, 0x20);
 
 // 0x4DECD0 | ?CrossProdMatrix@@YAXPAVMatrix34@@ABVVector3@@@Z | inline
 ARTS_IMPORT void CrossProdMatrix(class Matrix34* arg1, class Vector3 const& arg2);

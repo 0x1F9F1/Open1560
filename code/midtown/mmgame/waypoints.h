@@ -185,7 +185,7 @@ public:
     ARTS_IMPORT f32 LineEq(f32 arg1, f32 arg2);
 };
 
-check_size(mmGate, 0x0);
+check_size(mmGate, 0x18);
 
 // 0x6A7788 | ?Size@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 Size;

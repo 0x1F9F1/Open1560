@@ -62,7 +62,7 @@ private:
     ARTS_IMPORT static class mmSky* Instance;
 };
 
-check_size(mmSky, 0x0);
+check_size(mmSky, 0x8);
 
 // 0x705700 | ?FlashTex@@3PAVagiTexDef@@A
 ARTS_IMPORT extern class agiTexDef* FlashTex;

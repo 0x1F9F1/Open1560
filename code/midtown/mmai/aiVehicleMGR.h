@@ -119,7 +119,7 @@ public:
     ARTS_IMPORT void Update() override;
 };
 
-check_size(mmPhysEntity, 0x0);
+check_size(mmPhysEntity, 0x20);
 
 // 0x451450 | ?AMBIENTCB@@YAXPAVaiVehicleActive@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M@Z
 ARTS_IMPORT void AMBIENTCB(

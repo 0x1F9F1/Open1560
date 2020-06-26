@@ -197,5 +197,5 @@ private:
     ARTS_IMPORT void NewTable(i32 arg1);
 };
 
-check_size(StringArray, 0x0);
+check_size(StringArray, 0x14);
 #endif

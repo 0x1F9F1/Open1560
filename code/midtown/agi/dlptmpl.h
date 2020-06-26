@@ -205,4 +205,4 @@ public:
     ARTS_IMPORT void Save(class Stream* arg1);
 };
 
-check_size(DLPVertex, 0x0);
+check_size(DLPVertex, 0x28);

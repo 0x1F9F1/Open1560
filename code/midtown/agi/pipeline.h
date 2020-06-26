@@ -231,7 +231,7 @@ protected:
     ARTS_IMPORT agiPipeline();
 };
 
-check_size(agiPipeline, 0x0);
+check_size(agiPipeline, 0x2F0);
 
 // 0x555F80 | ?CreatePipelineAttachableWindow@@YAPAXPADHHHHPAX@Z
 ARTS_IMPORT void* CreatePipelineAttachableWindow(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, void* arg6);

@@ -51,7 +51,7 @@ public:
     ARTS_IMPORT i32 Impact(class mmIntersection* arg1, class asBound* arg2, i32 arg3, i32 arg4, i32 arg5);
 };
 
-check_size(asBound, 0x0);
+check_size(asBound, 0x3C);
 
 // 0x719194 | ?ImpactCallbackCount@@3HA
 ARTS_IMPORT extern i32 ImpactCallbackCount;

@@ -69,7 +69,7 @@ public:
     ARTS_IMPORT void Update() override;
 };
 
-check_size(RadialGauge, 0x0);
+check_size(RadialGauge, 0xCC);
 
 struct mmLinearGauge
 {
@@ -87,7 +87,7 @@ public:
     ARTS_IMPORT void Init(char* arg1, f32* arg2, f32* arg3, f32* arg4, i32 arg5, class mmExternalView* arg6);
 };
 
-check_size(mmLinearGauge, 0x0);
+check_size(mmLinearGauge, 0x34);
 
 struct mmRadGauge
 {
@@ -102,7 +102,7 @@ public:
     ARTS_IMPORT void ResChange();
 };
 
-check_size(mmRadGauge, 0x0);
+check_size(mmRadGauge, 0x3C);
 
 struct mmGearIndicator
 {
@@ -114,7 +114,7 @@ public:
     ARTS_IMPORT void Init(class mmExternalView* arg1, class mmPlayer* arg2);
 };
 
-check_size(mmGearIndicator, 0x0);
+check_size(mmGearIndicator, 0x40);
 
 struct mmSpeedIndicator
 {
@@ -126,4 +126,4 @@ public:
     ARTS_IMPORT void Init(class mmExternalView* arg1, class mmCarSim* arg2);
 };
 
-check_size(mmSpeedIndicator, 0x0);
+check_size(mmSpeedIndicator, 0x38);

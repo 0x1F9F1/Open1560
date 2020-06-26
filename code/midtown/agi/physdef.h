@@ -35,4 +35,4 @@ public:
     ARTS_IMPORT void Save(class Stream* arg1);
 };
 
-check_size(agiPhysParameters, 0x0);
+check_size(agiPhysParameters, 0x58);

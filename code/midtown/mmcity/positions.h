@@ -63,4 +63,4 @@ public:
     ARTS_IMPORT ~position_t();
 };
 
-check_size(position_t, 0x0);
+check_size(position_t, 0x24);

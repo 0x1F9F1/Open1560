@@ -41,7 +41,7 @@ public:
     ARTS_IMPORT i32 LookupSequence(char* arg1);
 };
 
-check_size(mmAnimation, 0x0);
+check_size(mmAnimation, 0x18);
 
 // 0x498700 | ?GetAnimation@@YAPAVmmAnimation@@PAD@Z
 ARTS_IMPORT class mmAnimation* GetAnimation(char* arg1);
@@ -62,4 +62,4 @@ public:
     ARTS_IMPORT static f32 FrameFraction;
 };
 
-check_size(mmAnimInstState, 0x0);
+check_size(mmAnimInstState, 0x8);

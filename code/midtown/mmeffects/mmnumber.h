@@ -97,7 +97,7 @@ public:
     ARTS_IMPORT void LoadLocFont(char* arg1, struct LocString* arg2, i32 arg3, u32 arg4);
 };
 
-check_size(mmNumberFont, 0x0);
+check_size(mmNumberFont, 0x24);
 
 // 0x649C9C | ?NUMBERSTRING@@3PADA
 ARTS_IMPORT extern char* NUMBERSTRING;

@@ -43,4 +43,4 @@ public:
     ARTS_IMPORT void SetSensitivity();
 };
 
-check_size(ControlBase, 0x0);
+check_size(ControlBase, 0x14);

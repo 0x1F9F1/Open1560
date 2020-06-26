@@ -75,4 +75,4 @@ public:
     ARTS_IMPORT void Reset();
 };
 
-check_size(mmAnimTrigger, 0x0);
+check_size(mmAnimTrigger, 0x24);

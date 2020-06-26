@@ -88,4 +88,4 @@ public:
     ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5) override;
 };
 
-check_size(aiTrafficLightInstance, 0x0);
+check_size(aiTrafficLightInstance, 0x34);

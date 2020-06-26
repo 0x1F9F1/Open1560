@@ -333,4 +333,4 @@ private:
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
 };
 
-check_size(agiMeshSet, 0x0);
+check_size(agiMeshSet, 0x64);

@@ -55,9 +55,9 @@ public:
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 };
 
-check_size(mmDofBangerInstance, 0x0);
+check_size(mmDofBangerInstance, 0x34);
 
-struct mmFacadeBangerInstance
+class mmFacadeBangerInstance : public mmBangerInstance
 {
 public:
     // 0x4CB940 | ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ | unused
@@ -67,13 +67,13 @@ public:
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1);
 };
 
-check_size(mmFacadeBangerInstance, 0x0);
+check_size(mmFacadeBangerInstance, 0x30);
 
-struct mmGlassBangerInstance
+class mmGlassBangerInstance : public mmBangerInstance
 {
 private:
     // 0x4CB9C0 | ?Draw@mmGlassBangerInstance@@EAIXH@Z | unused
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1);
 };
 
-check_size(mmGlassBangerInstance, 0x0);
+check_size(mmGlassBangerInstance, 0x1C);

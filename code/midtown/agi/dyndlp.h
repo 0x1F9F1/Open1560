@@ -59,4 +59,4 @@ public:
     ARTS_IMPORT i32 Release();
 };
 
-check_size(DynamicDLP, 0x0);
+check_size(DynamicDLP, 0x24);

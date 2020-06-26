@@ -51,4 +51,4 @@ public:
     ARTS_IMPORT void MatchToken(char* arg1);
 };
 
-check_size(Tokenizer, 0x0);
+check_size(Tokenizer, 0x10);

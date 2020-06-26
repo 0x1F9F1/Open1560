@@ -85,7 +85,7 @@ protected:
     ARTS_IMPORT void FixTemplateRefs(i32 arg1);
 };
 
-check_size(DLP, 0x0);
+check_size(DLP, 0x94);
 
 // 0x907950 | ?DLPHash@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable DLPHash;

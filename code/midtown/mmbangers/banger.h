@@ -96,7 +96,7 @@ public:
     ARTS_IMPORT class Vector3 GetVelocity() override;
 };
 
-check_size(mmBangerInstance, 0x0);
+check_size(mmBangerInstance, 0x1C);
 
 class mmUnhitBangerInstance : public mmBangerInstance
 {
@@ -135,7 +135,7 @@ public:
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 };
 
-check_size(mmUnhitBangerInstance, 0x0);
+check_size(mmUnhitBangerInstance, 0x30);
 
 class mmBangerManager : public asNode
 {
@@ -160,7 +160,7 @@ protected:
     ARTS_IMPORT static class mmBangerManager* Instance;
 };
 
-check_size(mmBangerManager, 0x0);
+check_size(mmBangerManager, 0x2C);
 
 class mmHitBangerInstance : public mmBangerInstance
 {

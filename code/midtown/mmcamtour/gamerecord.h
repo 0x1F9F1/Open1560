@@ -64,4 +64,4 @@ public:
     ARTS_IMPORT void Sim();
 };
 
-check_size(mmGameRecord, 0x0);
+check_size(mmGameRecord, 0x20);

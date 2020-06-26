@@ -302,7 +302,7 @@ private:
     ARTS_IMPORT void NewTable(i32 arg1);
 };
 
-check_size(Vector3Array, 0x0);
+check_size(Vector3Array, 0x14);
 
 struct Vector3Type : MetaType
 {
@@ -325,5 +325,5 @@ public:
     ARTS_IMPORT u32 SizeOf() override;
 };
 
-check_size(Vector3Type, 0x0);
+check_size(Vector3Type, 0x4);
 #endif

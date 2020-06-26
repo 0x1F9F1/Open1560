@@ -78,4 +78,4 @@ public:
     ARTS_IMPORT void Update() override;
 };
 
-check_size(mmCDPlayer, 0x0);
+check_size(mmCDPlayer, 0x14C);

@@ -45,7 +45,7 @@ public:
     ARTS_IMPORT void Kill();
 };
 
-check_size(agiLib<class agiTexParameters, class agiTexDef>, 0x0);
+check_size(agiLib<class agiTexParameters, class agiTexDef>, 0x4014);
 
 // 0x8FF0D8 | ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
 ARTS_IMPORT extern class agiLib<class agiTexParameters, class agiTexDef> agiTexLib;

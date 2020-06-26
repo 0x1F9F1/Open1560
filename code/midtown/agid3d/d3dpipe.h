@@ -124,7 +124,7 @@ public:
     ARTS_IMPORT void EndScene() override;
 };
 
-check_size(agiD3DPipeline, 0x0);
+check_size(agiD3DPipeline, 0x49C);
 
 // 0x530A20 | ?RestoreCallback@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z | unused
 ARTS_IMPORT i32 ARTS_STDCALL RestoreCallback(

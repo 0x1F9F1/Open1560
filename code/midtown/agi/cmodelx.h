@@ -165,7 +165,7 @@ public:
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
-check_size(agiColorModelRGB555, 0x0);
+check_size(agiColorModelRGB555, 0x2C);
 
 class agiColorModelRGB565 : public agiColorModel
 {
@@ -195,7 +195,7 @@ public:
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
-check_size(agiColorModelRGB565, 0x0);
+check_size(agiColorModelRGB565, 0x2C);
 
 class agiColorModelRGB555_Rev : public agiColorModel
 {
@@ -225,7 +225,7 @@ public:
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
-check_size(agiColorModelRGB555_Rev, 0x0);
+check_size(agiColorModelRGB555_Rev, 0x2C);
 
 class agiColorModelRGB565_Rev : public agiColorModel
 {
@@ -255,7 +255,7 @@ public:
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
-check_size(agiColorModelRGB565_Rev, 0x0);
+check_size(agiColorModelRGB565_Rev, 0x2C);
 
 class agiColorModelRGB888 : public agiColorModel
 {
@@ -285,7 +285,7 @@ public:
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
-check_size(agiColorModelRGB888, 0x0);
+check_size(agiColorModelRGB888, 0x2C);
 
 class agiColorModelRGB888_Rev : public agiColorModel
 {
@@ -315,7 +315,7 @@ public:
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
-check_size(agiColorModelRGB888_Rev, 0x0);
+check_size(agiColorModelRGB888_Rev, 0x2C);
 
 class agiColorModelRGBA5551 : public agiColorModel
 {
@@ -345,7 +345,7 @@ public:
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
-check_size(agiColorModelRGBA5551, 0x0);
+check_size(agiColorModelRGBA5551, 0x2C);
 
 class agiColorModelRGBA4444 : public agiColorModel
 {
@@ -375,7 +375,7 @@ public:
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
-check_size(agiColorModelRGBA4444, 0x0);
+check_size(agiColorModelRGBA4444, 0x2C);
 
 class agiColorModelARGB : public agiColorModel
 {
@@ -405,7 +405,7 @@ public:
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
-check_size(agiColorModelARGB, 0x0);
+check_size(agiColorModelARGB, 0x2C);
 
 class agiColorModelABGR : public agiColorModel
 {
@@ -435,7 +435,7 @@ public:
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
-check_size(agiColorModelABGR, 0x0);
+check_size(agiColorModelABGR, 0x2C);
 
 // 0x9076A8 | ?ColorModelABGR@@3VagiColorModelABGR@@A
 ARTS_IMPORT extern class agiColorModelABGR ColorModelABGR;

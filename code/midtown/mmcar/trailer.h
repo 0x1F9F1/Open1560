@@ -164,7 +164,7 @@ public:
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 };
 
-check_size(mmTrailerInstance, 0x0);
+check_size(mmTrailerInstance, 0x48);
 
 // 0x6A7F98 | ?mmTrailerMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmTrailerMetaClass;

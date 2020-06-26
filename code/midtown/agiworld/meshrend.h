@@ -162,4 +162,4 @@ public:
     ARTS_IMPORT void Init(i32 arg1, struct agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
 };
 
-check_size(agiMeshCardInfo, 0x0);
+check_size(agiMeshCardInfo, 0x10);

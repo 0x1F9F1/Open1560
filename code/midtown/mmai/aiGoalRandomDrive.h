@@ -120,4 +120,4 @@ public:
     ARTS_IMPORT virtual void Update();
 };
 
-check_size(aiGoal, 0x0);
+check_size(aiGoal, 0x8);

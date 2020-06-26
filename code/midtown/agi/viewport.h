@@ -78,7 +78,7 @@ public:
     ARTS_IMPORT static u32 ViewSerial;
 };
 
-check_size(agiViewParameters, 0x0);
+check_size(agiViewParameters, 0x12C);
 
 class agiViewport : public agiRefreshable
 {

@@ -63,7 +63,7 @@ public:
     ARTS_IMPORT u32 Value();
 };
 
-check_size(VolumeDW, 0x0);
+check_size(VolumeDW, 0xC);
 
 class MixerCTL
     : public Dispatchable
@@ -127,4 +127,4 @@ private:
     ARTS_IMPORT i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
 };
 
-check_size(MixerCTL, 0x0);
+check_size(MixerCTL, 0x38);

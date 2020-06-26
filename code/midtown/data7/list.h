@@ -47,4 +47,4 @@ public:
     ARTS_IMPORT void Kill();
 };
 
-check_size(List, 0x0);
+check_size(List, 0x8);

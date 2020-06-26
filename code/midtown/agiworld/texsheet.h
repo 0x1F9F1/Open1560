@@ -68,4 +68,4 @@ public:
     ARTS_IMPORT void Save(char* arg1);
 };
 
-check_size(agiTexSheet, 0x0);
+check_size(agiTexSheet, 0xC);

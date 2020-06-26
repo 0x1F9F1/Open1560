@@ -45,7 +45,7 @@ public:
     ARTS_IMPORT void Kill();
 };
 
-check_size(agiLib<class agiPhysParameters, class agiPhysDef>, 0x0);
+check_size(agiLib<class agiPhysParameters, class agiPhysDef>, 0x4014);
 
 // 0x8FAFE8 | ?agiPhysLib@@3V?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@A
 ARTS_IMPORT extern class agiLib<class agiPhysParameters, class agiPhysDef> agiPhysLib;

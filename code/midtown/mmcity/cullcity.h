@@ -206,7 +206,7 @@ private:
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 };
 
-check_size(mmUpperInstance, 0x0);
+check_size(mmUpperInstance, 0x44);
 
 class mmRunwayLight : public mmInstance
 {
@@ -242,7 +242,7 @@ public:
     ARTS_IMPORT static f32 Phase;
 };
 
-check_size(mmRunwayLight, 0x0);
+check_size(mmRunwayLight, 0x60);
 
 // 0x48DA00 | ?fix_clip@@YAXXZ
 ARTS_IMPORT void fix_clip();

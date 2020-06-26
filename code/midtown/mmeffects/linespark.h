@@ -50,7 +50,7 @@ private:
     ARTS_IMPORT static u32 BuiltinClut[32];
 };
 
-check_size(asSparkLut, 0x0);
+check_size(asSparkLut, 0xC);
 
 struct asLineSparks
 {
@@ -74,4 +74,4 @@ public:
     ARTS_IMPORT void Update(f32 arg1);
 };
 
-check_size(asLineSparks, 0x0);
+check_size(asLineSparks, 0x5C);

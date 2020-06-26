@@ -44,7 +44,7 @@ public:
     ARTS_IMPORT void Kill();
 };
 
-check_size(agiLib<class agiMtlParameters, class agiMtlDef>, 0x0);
+check_size(agiLib<class agiMtlParameters, class agiMtlDef>, 0x4014);
 
 // 0x903198 | ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
 ARTS_IMPORT extern class agiLib<class agiMtlParameters, class agiMtlDef> agiMtlLib;

@@ -171,7 +171,7 @@ public:
     ARTS_IMPORT void SetRange(f32 arg1, f32 arg2);
 };
 
-check_size(mmJaxis, 0x0);
+check_size(mmJaxis, 0x1C);
 
 // 0x4E6FB0 | ?DecodeDIErrorMFlag@@YAXJ@Z
 ARTS_IMPORT void DecodeDIErrorMFlag(i32 arg1);

@@ -74,4 +74,4 @@ protected:
     ARTS_IMPORT ~agiMtlDef() override;
 };
 
-check_size(agiMtlDef, 0x0);
+check_size(agiMtlDef, 0x80);

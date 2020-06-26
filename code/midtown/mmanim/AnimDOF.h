@@ -67,7 +67,7 @@ public:
     ARTS_IMPORT i32 InitBridge(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
 };
 
-check_size(mmDrawbridgeInstance, 0x0);
+check_size(mmDrawbridgeInstance, 0x34);
 
 struct mmAnimDOF
 {

@@ -111,7 +111,7 @@ public:
     ARTS_IMPORT void SolveXZPosition(class Vector3& arg1, f32 arg2);
 };
 
-check_size(aiRailSet, 0x0);
+check_size(aiRailSet, 0x60);
 
 // 0x459E00 | ??D@YA?AVVector3@@MABV0@@Z | inline
 ARTS_IMPORT class Vector3 operator*(f32 arg1, class Vector3 const& arg2);

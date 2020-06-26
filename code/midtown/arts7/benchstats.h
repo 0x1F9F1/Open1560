@@ -43,4 +43,4 @@ public:
     ARTS_IMPORT void Reset();
 };
 
-check_size(asBenchStats, 0x0);
+check_size(asBenchStats, 0x50);

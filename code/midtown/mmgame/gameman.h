@@ -72,7 +72,7 @@ public:
     ARTS_IMPORT void Update() override;
 };
 
-check_size(mmScreenClearFlunky, 0x0);
+check_size(mmScreenClearFlunky, 0x20);
 
 class mmGameManager : public asNode
 {

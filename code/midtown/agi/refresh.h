@@ -77,4 +77,4 @@ private:
     ARTS_IMPORT void ValidatePtr(char* arg1);
 };
 
-check_size(agiRefreshable, 0x0);
+check_size(agiRefreshable, 0x18);

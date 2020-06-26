@@ -39,7 +39,7 @@ public:
     ARTS_IMPORT void Print(char* arg1);
 };
 
-check_size(asArg, 0x0);
+check_size(asArg, 0x48);
 
 class ArgSet
 {
@@ -54,7 +54,7 @@ public:
     ARTS_IMPORT void Usage();
 };
 
-check_size(ArgSet, 0x0);
+check_size(ArgSet, 0x208);
 
 // 0x90AEF0 | ?GBArgs@@3VArgSet@@A
 ARTS_IMPORT extern class ArgSet GBArgs;

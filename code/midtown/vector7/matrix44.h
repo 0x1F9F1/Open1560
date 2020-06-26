@@ -139,7 +139,7 @@ public:
     ARTS_IMPORT class Matrix44 Transpose();
 };
 
-check_size(Matrix44, 0x0);
+check_size(Matrix44, 0x40);
 
 // 0x56E920 | ??D@YA?AVMatrix44@@MABV0@@Z | unused
 ARTS_IMPORT class Matrix44 operator*(f32 arg1, class Matrix44 const& arg2);

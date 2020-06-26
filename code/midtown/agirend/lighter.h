@@ -135,7 +135,7 @@ public:
     ARTS_IMPORT static class agiShadowMap* ShadowMap;
 };
 
-check_size(agiLighter, 0x0);
+check_size(agiLighter, 0x4);
 
 class agiMonoLighter : public agiLighter
 {
@@ -153,7 +153,7 @@ public:
     ARTS_IMPORT u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) override;
 };
 
-check_size(agiMonoLighter, 0x0);
+check_size(agiMonoLighter, 0x4);
 
 class agiRGBLighter : public agiLighter
 {
@@ -171,7 +171,7 @@ public:
     ARTS_IMPORT u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) override;
 };
 
-check_size(agiRGBLighter, 0x0);
+check_size(agiRGBLighter, 0x4);
 
 // 0x7E02B4 | ?MONOLIGHTER@@3VagiMonoLighter@@A
 ARTS_IMPORT extern class agiMonoLighter MONOLIGHTER;

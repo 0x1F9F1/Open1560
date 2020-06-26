@@ -86,7 +86,7 @@ public:
     ARTS_IMPORT virtual void LineList(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3);
 };
 
-check_size(agiRasterizer, 0x0);
+check_size(agiRasterizer, 0x18);
 
 struct agiRendStateStruct
 {
@@ -95,7 +95,7 @@ public:
     ARTS_IMPORT void Reset();
 };
 
-check_size(agiRendStateStruct, 0x0);
+check_size(agiRendStateStruct, 0x3C);
 
 // 0x8FF0D0 | ?RAST@@3PAVagiRasterizer@@A
 ARTS_IMPORT extern class agiRasterizer* RAST;

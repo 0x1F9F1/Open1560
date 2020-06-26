@@ -62,7 +62,7 @@ public:
     virtual void EndDraw() = 0;
 };
 
-check_size(agiRenderer, 0x0);
+check_size(agiRenderer, 0xC);
 
 // 0x907898 | ?agiCurCardState@@3VagiCardState@@A
 ARTS_IMPORT extern class agiCardState agiCurCardState;

@@ -118,7 +118,7 @@ protected:
     ARTS_IMPORT static class mmBangerActiveManager* Instance;
 };
 
-check_size(mmBangerActiveManager, 0x0);
+check_size(mmBangerActiveManager, 0x5024);
 
 // 0x642E44 | ?ParticleMultiplier@@3MA
 ARTS_IMPORT extern f32 ParticleMultiplier;

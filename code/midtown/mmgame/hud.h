@@ -263,7 +263,7 @@ public:
     ARTS_IMPORT void Update() override;
 };
 
-check_size(mmTimer, 0x0);
+check_size(mmTimer, 0x30);
 
 class mmArrow : public asNode
 {
@@ -294,7 +294,7 @@ private:
     ARTS_IMPORT void ReColorArrow(i32 arg1);
 };
 
-check_size(mmArrow, 0x0);
+check_size(mmArrow, 0x38);
 
 // 0x635174 | ?FirstPrintTime@@3HA
 ARTS_IMPORT extern i32 FirstPrintTime;

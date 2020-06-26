@@ -142,7 +142,7 @@ public:
     ARTS_IMPORT void Set();
 };
 
-check_size(mmGfxCFG, 0x0);
+check_size(mmGfxCFG, 0x34);
 
 struct mmCtrlCFG
 {
@@ -151,7 +151,7 @@ public:
     ARTS_IMPORT ~mmCtrlCFG();
 };
 
-check_size(mmCtrlCFG, 0x0);
+check_size(mmCtrlCFG, 0x6C80);
 
 // 0x708520 | ?mmPlayerConfigMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmPlayerConfigMetaClass;

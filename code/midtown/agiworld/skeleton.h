@@ -69,7 +69,7 @@ public:
     ARTS_IMPORT void Transform(class Matrix34* arg1);
 };
 
-check_size(bnSkeleton, 0x0);
+check_size(bnSkeleton, 0x20);
 
 class bnAnimation
 {
@@ -81,4 +81,4 @@ public:
     ARTS_IMPORT static class bnAnimation* Lookup(char* arg1);
 };
 
-check_size(bnAnimation, 0x0);
+check_size(bnAnimation, 0xC);

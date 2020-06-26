@@ -145,7 +145,7 @@ protected:
     ARTS_IMPORT ~agiTexDef() override;
 };
 
-check_size(agiTexDef, 0x0);
+check_size(agiTexDef, 0x74);
 
 // 0x556530 | ?ShutdownLutQueue@@YAXXZ
 ARTS_IMPORT void ShutdownLutQueue();

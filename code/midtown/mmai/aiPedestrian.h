@@ -247,4 +247,4 @@ public:
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 };
 
-check_size(aiPedestrianInstance, 0x0);
+check_size(aiPedestrianInstance, 0x28);

@@ -103,7 +103,7 @@ public:
     ARTS_IMPORT void EndGfx() override;
 };
 
-check_size(agiD3DTexLut, 0x0);
+check_size(agiD3DTexLut, 0x420);
 
 // 0x795C38 | ?DontCacheTextures@@3HA
 ARTS_IMPORT extern i32 DontCacheTextures;

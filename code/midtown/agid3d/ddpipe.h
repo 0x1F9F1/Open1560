@@ -95,7 +95,7 @@ public:
     ARTS_IMPORT i32 Validate() override;
 };
 
-check_size(agiDDPipeline, 0x0);
+check_size(agiDDPipeline, 0x32C);
 
 // 0x5328D0 | ?DDCallback@@YGHPAU_GUID@@PAD1PAX@Z | unused
 ARTS_IMPORT i32 ARTS_STDCALL DDCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);

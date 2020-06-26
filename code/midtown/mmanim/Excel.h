@@ -61,4 +61,4 @@ public:
     ARTS_IMPORT i32 Init(char* arg1, char* arg2);
 };
 
-check_size(mmAnimExcel, 0x0);
+check_size(mmAnimExcel, 0x10);

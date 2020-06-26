@@ -73,7 +73,7 @@ private:
     ARTS_IMPORT static class eqReplayChannel* First;
 };
 
-check_size(eqReplayChannel, 0x0);
+check_size(eqReplayChannel, 0xC);
 
 struct eqReplay
 {

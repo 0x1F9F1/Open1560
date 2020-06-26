@@ -54,4 +54,4 @@ public:
     ARTS_IMPORT void Init(i32 arg1);
 };
 
-check_size(aiVehicle, 0x0);
+check_size(aiVehicle, 0x14);

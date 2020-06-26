@@ -59,4 +59,4 @@ public:
     ARTS_IMPORT void Update() override;
 };
 
-check_size(mmIcons, 0x0);
+check_size(mmIcons, 0x5C);

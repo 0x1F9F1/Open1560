@@ -56,4 +56,4 @@ public:
     ARTS_IMPORT virtual i32 SetValues(f32 arg1, f32 arg2);
 };
 
-check_size(mmEffectFF, 0x0);
+check_size(mmEffectFF, 0x80);

@@ -49,7 +49,7 @@ public:
     ARTS_IMPORT i32 ModelGeometry(u32 arg1, class bnAnimation* arg2, i32 arg3);
 };
 
-check_size(agiMeshModel, 0x0);
+check_size(agiMeshModel, 0xA8);
 
 class agiLitAnimation
 {

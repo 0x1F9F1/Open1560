@@ -82,7 +82,7 @@ private:
     ARTS_IMPORT void NewTable(i32 arg1);
 };
 
-check_size(IntArray, 0x0);
+check_size(IntArray, 0x14);
 
 class FloatArray
 {
@@ -107,4 +107,4 @@ private:
     ARTS_IMPORT void NewTable(i32 arg1);
 };
 
-check_size(FloatArray, 0x0);
+check_size(FloatArray, 0x14);

@@ -56,4 +56,4 @@ public:
     ARTS_IMPORT void Transform(class Matrix34* arg1);
 };
 
-check_size(bnBone, 0x0);
+check_size(bnBone, 0x8C);

@@ -91,4 +91,4 @@ public:
     ARTS_IMPORT void SetMessage(struct LocString* arg1);
 };
 
-check_size(PUResults, 0x0);
+check_size(PUResults, 0xF0);

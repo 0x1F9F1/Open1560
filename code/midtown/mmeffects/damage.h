@@ -47,4 +47,4 @@ public:
     ARTS_IMPORT void Reset(i32 arg1);
 };
 
-check_size(mmDamage, 0x0);
+check_size(mmDamage, 0x20);

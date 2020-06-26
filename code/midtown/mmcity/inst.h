@@ -515,4 +515,4 @@ public:
     ARTS_IMPORT static i32 Valid(class agiMeshSet* arg1);
 };
 
-check_size(mmFacadeQuad, 0x0);
+check_size(mmFacadeQuad, 0x18);

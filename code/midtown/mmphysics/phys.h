@@ -100,7 +100,7 @@ public:
     ARTS_IMPORT void Update() override;
 };
 
-check_size(mmPhysExec, 0x0);
+check_size(mmPhysExec, 0x24);
 
 class mmPhysicsMGR : public asNode
 {

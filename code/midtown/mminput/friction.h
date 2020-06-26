@@ -51,4 +51,4 @@ public:
     ARTS_IMPORT i32 Stop() override;
 };
 
-check_size(mmFrictionFF, 0x0);
+check_size(mmFrictionFF, 0x9C);

@@ -107,7 +107,7 @@ private:
     ARTS_IMPORT static i32 AddSurface(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 };
 
-check_size(agiSurfRenderer, 0x0);
+check_size(agiSurfRenderer, 0x14);
 
 // 0x656590 | ?EarlyBackface@@3HA
 ARTS_IMPORT extern i32 EarlyBackface;

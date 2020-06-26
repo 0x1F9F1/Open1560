@@ -180,7 +180,7 @@ private:
     ARTS_IMPORT void UpdatePaused() override;
 };
 
-check_size(foobar, 0x0);
+check_size(foobar, 0x20);
 
 // 0x6A6FB8 | ?BangerProjectile@@3PAVmmBangerData@@A
 ARTS_IMPORT extern class mmBangerData* BangerProjectile;

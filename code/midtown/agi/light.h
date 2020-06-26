@@ -71,4 +71,4 @@ public:
     ARTS_IMPORT i32 Init(class agiLightParameters const& arg1);
 };
 
-check_size(agiLight, 0x0);
+check_size(agiLight, 0x88);

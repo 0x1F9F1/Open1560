@@ -77,7 +77,7 @@ public:
     ARTS_IMPORT void Set(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 };
 
-check_size(Vector4, 0x0);
+check_size(Vector4, 0x10);
 
 class Vector4Array
 {
@@ -102,7 +102,7 @@ private:
     ARTS_IMPORT void NewTable(i32 arg1);
 };
 
-check_size(Vector4Array, 0x0);
+check_size(Vector4Array, 0x14);
 
 struct Vector4Type : MetaType
 {
@@ -125,7 +125,7 @@ public:
     ARTS_IMPORT u32 SizeOf() override;
 };
 
-check_size(Vector4Type, 0x0);
+check_size(Vector4Type, 0x4);
 
 // 0x9094EC | ?Vector4Inst@@3UVector4Type@@A
 ARTS_IMPORT extern struct Vector4Type Vector4Inst;

@@ -112,7 +112,7 @@ public:
     ARTS_IMPORT void WidgetOnOff(i32 arg1, class uiWidget* arg2);
 };
 
-check_size(RaceMenuBase, 0x0);
+check_size(RaceMenuBase, 0xF90);
 
 // 0x64119C | ?GoldDamageScale@@3MA
 ARTS_IMPORT extern f32 GoldDamageScale;

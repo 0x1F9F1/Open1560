@@ -67,4 +67,4 @@ public:
     ARTS_IMPORT void Update() override;
 };
 
-check_size(aiStuck, 0x0);
+check_size(aiStuck, 0x58);

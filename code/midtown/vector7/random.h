@@ -39,4 +39,4 @@ public:
     ARTS_IMPORT void Seed(i32 arg1);
 };
 
-check_size(Random, 0x0);
+check_size(Random, 0xE8);

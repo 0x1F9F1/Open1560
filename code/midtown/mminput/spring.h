@@ -51,4 +51,4 @@ public:
     ARTS_IMPORT i32 Stop() override;
 };
 
-check_size(mmSpringFF, 0x0);
+check_size(mmSpringFF, 0x9C);

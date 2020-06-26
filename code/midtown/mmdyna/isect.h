@@ -65,7 +65,7 @@ public:
     ARTS_IMPORT void Transform(class Matrix34 const* arg1);
 };
 
-check_size(mmIntersection, 0x0);
+check_size(mmIntersection, 0xB0);
 
 class mmEdgeBodyIsect
 {
@@ -84,4 +84,4 @@ public:
     ARTS_IMPORT void Reset();
 };
 
-check_size(mmEdgeBodyIsect, 0x0);
+check_size(mmEdgeBodyIsect, 0xF4);

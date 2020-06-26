@@ -261,7 +261,7 @@ public:
     ARTS_IMPORT void WaitForLobbyConnection(i32 arg1);
 };
 
-check_size(asNetwork, 0x0);
+check_size(asNetwork, 0x64);
 
 // 0x48B170 | ?EnumConnectionsCallback@@YGHPBU_GUID@@PAXKPBUDPNAME@@K1@Z
 ARTS_IMPORT i32 ARTS_STDCALL EnumConnectionsCallback(

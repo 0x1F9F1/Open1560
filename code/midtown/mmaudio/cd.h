@@ -70,4 +70,4 @@ private:
     ARTS_IMPORT virtual i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4);
 };
 
-check_size(CDMan, 0x0);
+check_size(CDMan, 0x30);

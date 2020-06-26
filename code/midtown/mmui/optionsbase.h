@@ -63,7 +63,7 @@ public:
     ARTS_IMPORT i32 IsAnOptionMenu() override;
 };
 
-check_size(OptionsBase, 0x0);
+check_size(OptionsBase, 0x6EC8);
 
 // 0x4AB6D0 | ??_9@$BFA@AE (Skipped: void)
 

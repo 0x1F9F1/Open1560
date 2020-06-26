@@ -52,7 +52,7 @@ public:
     ARTS_IMPORT void Load(char* arg1);
 };
 
-check_size(agiPalette, 0x0);
+check_size(agiPalette, 0x410);
 
 // 0x907238 | ?agiPal@@3VagiPalette@@A
 ARTS_IMPORT extern class agiPalette agiPal;

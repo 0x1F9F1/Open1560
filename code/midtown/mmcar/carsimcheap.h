@@ -55,7 +55,7 @@ public:
     ARTS_IMPORT void Update() override;
 };
 
-check_size(mmWheelCheap, 0x0);
+check_size(mmWheelCheap, 0x17C);
 
 // 0x6A7E7C | ?EggFriction@@3MA
 ARTS_IMPORT extern f32 EggFriction;
