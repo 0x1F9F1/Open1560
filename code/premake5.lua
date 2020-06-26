@@ -6,8 +6,8 @@ function includeARTS()
     includeHedley()
     includeMem()
 
-    includeLua()
-    includeSol()
+    -- includeLua()
+    -- includeSol()
 end
 
 function useARTSPCH()

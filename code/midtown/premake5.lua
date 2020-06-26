@@ -75,5 +75,5 @@ arts_component "midtown"
         "arts_stream",
         "arts_vector7",
 
-        "lua",
+        -- "lua",
     }
