@@ -137,6 +137,8 @@ private:
 
     // 0x4183F0 | ?RegisterFinish@mmGameSingle@@AAEHXZ
     ARTS_IMPORT i32 RegisterFinish();
+
+    u8 gap1E570[0x80];
 };
 
 check_size(mmGameSingle, 0x1E5F0);

@@ -42,6 +42,8 @@ struct problem_t
 public:
     // 0x561340 | ??1problem_t@@QAE@XZ | inline
     ARTS_IMPORT ~problem_t();
+
+    u8 gap0[0x10];
 };
 
 check_size(problem_t, 0x10);

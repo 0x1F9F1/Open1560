@@ -77,6 +77,8 @@ public:
 
     // 0x4AB400 | ?Update@PUMenuBase@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap90[0x30];
 };
 
 check_size(PUMenuBase, 0xC0);

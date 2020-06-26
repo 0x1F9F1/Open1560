@@ -61,6 +61,8 @@ public:
 
     // 0x4C8160 | ?SetStart@mmAnimTrainCar@@QAEXMM@Z
     ARTS_IMPORT void SetStart(f32 arg1, f32 arg2);
+
+    u8 gap44[0x14];
 };
 
 check_size(mmAnimTrainCar, 0x58);

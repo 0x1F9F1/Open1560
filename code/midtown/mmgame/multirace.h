@@ -102,6 +102,8 @@ public:
 private:
     // 0x421240 | ?SendPlayerFinish@mmMultiRace@@AAEXXZ
     ARTS_IMPORT void SendPlayerFinish();
+
+    u8 gap1EEA8[0x8];
 };
 
 check_size(mmMultiRace, 0x1EEB0);

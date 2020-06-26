@@ -114,6 +114,8 @@ public:
 
     // 0x4BE4C0 | ?DeclareFields@TextDropWidget@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x18];
 };
 
 check_size(TextDropWidget, 0x38);

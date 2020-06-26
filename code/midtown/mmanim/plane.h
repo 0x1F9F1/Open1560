@@ -134,6 +134,8 @@ private:
 
     // 0x6426F8 | ?s_fCloserMinDistMult@mmAnimPlane@@0MA
     ARTS_IMPORT static f32 s_fCloserMinDistMult;
+
+    u8 gap44[0xC4];
 };
 
 check_size(mmAnimPlane, 0x108);

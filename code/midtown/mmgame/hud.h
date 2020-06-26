@@ -225,6 +225,8 @@ public:
 
     // 0x406760 | ?DeclareFields@mmHUD@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0xE74];
 };
 
 check_size(mmHUD, 0xE94);
@@ -261,6 +263,8 @@ public:
 
     // 0x406240 | ?Update@mmTimer@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x10];
 };
 
 check_size(mmTimer, 0x30);
@@ -292,6 +296,8 @@ public:
 private:
     // 0x4064F0 | ?ReColorArrow@mmArrow@@AAEXH@Z
     ARTS_IMPORT void ReColorArrow(i32 arg1);
+
+    u8 gap20[0x18];
 };
 
 check_size(mmArrow, 0x38);

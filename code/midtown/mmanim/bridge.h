@@ -100,6 +100,8 @@ public:
 protected:
     // 0x705DFC | ?Instance@mmBridgeMgr@@1PAV1@A
     ARTS_IMPORT static class mmBridgeMgr* Instance;
+
+    u8 gap20[0x2654];
 };
 
 check_size(mmBridgeMgr, 0x2674);
@@ -179,6 +181,8 @@ private:
 
     // 0x6420E8 | ?s_fCloserMinDistMult@mmBridgeSet@@0MA
     ARTS_IMPORT static f32 s_fCloserMinDistMult;
+
+    u8 gap20[0x418];
 };
 
 check_size(mmBridgeSet, 0x438);

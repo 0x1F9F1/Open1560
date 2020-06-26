@@ -128,6 +128,8 @@ public:
 private:
     // 0x6A6D94 | ?Instance@mmGameManager@@0PAV1@A
     ARTS_IMPORT static class mmGameManager* Instance;
+
+    u8 gap20[0x3C];
 };
 
 check_size(mmGameManager, 0x5C);

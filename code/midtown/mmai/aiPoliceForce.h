@@ -57,6 +57,8 @@ public:
 
     // 0x44E850 | ?Update@aiPoliceForce@@QAEXXZ
     ARTS_IMPORT void Update();
+
+    u8 gap0[0x3C];
 };
 
 check_size(aiPoliceForce, 0x3C);

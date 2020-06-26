@@ -57,6 +57,8 @@ public:
 
     // 0x502A00 | ?Update@mmMouseSteerBar@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x24];
 };
 
 check_size(mmMouseSteerBar, 0x44);

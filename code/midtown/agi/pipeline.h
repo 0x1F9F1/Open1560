@@ -229,6 +229,8 @@ public:
 protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
     ARTS_IMPORT agiPipeline();
+
+    u8 gap4[0x2EC];
 };
 
 check_size(agiPipeline, 0x2F0);

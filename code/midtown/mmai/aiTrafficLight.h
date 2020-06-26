@@ -68,6 +68,8 @@ public:
 private:
     // 0x6A7970 | ?ObjCount@aiTrafficLightSet@@0FA
     ARTS_IMPORT static i16 ObjCount;
+
+    u8 gap20[0x18];
 };
 
 check_size(aiTrafficLightSet, 0x38);
@@ -86,6 +88,8 @@ public:
 
     // 0x444330 | ?Init@aiTrafficLightInstance@@UAEHPADAAVVector3@@1H0@Z
     ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5) override;
+
+    u8 gap30[0x4];
 };
 
 check_size(aiTrafficLightInstance, 0x34);

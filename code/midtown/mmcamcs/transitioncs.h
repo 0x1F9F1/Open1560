@@ -77,6 +77,8 @@ public:
 
     // 0x4FB580 | ?Update@TransitionCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap118[0x18];
 };
 
 check_size(TransitionCS, 0x130);

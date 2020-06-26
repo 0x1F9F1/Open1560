@@ -367,6 +367,8 @@ private:
 
     // 0x4E26E0 | ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
     ARTS_IMPORT i64 ScanState(class mmIO* arg1);
+
+    u8 gap20[0x228];
 };
 
 check_size(mmInput, 0x248);

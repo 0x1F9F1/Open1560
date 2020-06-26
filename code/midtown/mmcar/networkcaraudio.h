@@ -113,6 +113,8 @@ public:
 
     // 0x6A822C | ?s_iPlayingFluctuator@mmNetworkCarAudio@@2FA
     ARTS_IMPORT static i16 s_iPlayingFluctuator;
+
+    u8 gap20[0xB4];
 };
 
 check_size(mmNetworkCarAudio, 0xD4);

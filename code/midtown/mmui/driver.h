@@ -105,6 +105,8 @@ public:
 
     // 0x4A5C90 | ?TDPickCB@DriverMenu@@QAEXXZ
     ARTS_IMPORT void TDPickCB();
+
+    u8 gap90[0x9C];
 };
 
 check_size(DriverMenu, 0x12C);

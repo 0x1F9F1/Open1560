@@ -225,6 +225,8 @@ private:
 
     // 0x61FEEC | ?s_iUsingEAXMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iUsingEAXMask;
+
+    u8 gap0[0xB8];
 };
 
 check_size(DSGlobal, 0xB8);

@@ -57,6 +57,8 @@ public:
 
     // 0x4AB810 | ?Write@MArray@@QAEXPAD@Z
     ARTS_IMPORT void Write(char* arg1);
+
+    u8 gap0[0xC];
 };
 
 check_size(MArray, 0xC);

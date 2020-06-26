@@ -61,6 +61,8 @@ public:
 
     // 0x4ABEA0 | ?Write@WArray@@QAEXPAD@Z
     ARTS_IMPORT void Write(char* arg1);
+
+    u8 gap0[0xC];
 };
 
 check_size(WArray, 0xC);

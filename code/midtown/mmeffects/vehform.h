@@ -60,6 +60,8 @@ public:
 
     // 0x719610 | ?SphMapTex@mmVehicleForm@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* SphMapTex;
+
+    u8 gap20[0x34];
 };
 
 check_size(mmVehicleForm, 0x54);

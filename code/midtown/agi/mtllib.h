@@ -42,6 +42,8 @@ public:
 
     // 0x55A030 | ?Kill@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXXZ | inline
     ARTS_IMPORT void Kill();
+
+    u8 gap0[0x4014];
 };
 
 check_size(agiLib<class agiMtlParameters, class agiMtlDef>, 0x4014);

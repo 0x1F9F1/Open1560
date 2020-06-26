@@ -58,6 +58,8 @@ public:
 
     // 0x486120 | ?UpdateSkidSnow@mmOpponentSurfaceAudio@@QAEXM@Z
     ARTS_IMPORT void UpdateSkidSnow(f32 arg1);
+
+    u8 gap0[0x2C];
 };
 
 check_size(mmOpponentSurfaceAudio, 0x2C);

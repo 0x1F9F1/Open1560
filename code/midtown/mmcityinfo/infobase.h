@@ -60,6 +60,8 @@ public:
 
     // 0x4D1460 | ?DeclareFields@mmInfoBase@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap4[0x84];
 };
 
 check_size(mmInfoBase, 0x88);

@@ -81,6 +81,8 @@ public:
 private:
     // 0x5262F0 | ?Regen@asLamp@@AAEXXZ
     ARTS_IMPORT void Regen();
+
+    u8 gap20[0x10];
 };
 
 check_size(asLamp, 0x30);

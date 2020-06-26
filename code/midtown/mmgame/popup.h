@@ -105,6 +105,8 @@ public:
 
     // 0x427680 | ?Update@mmPopup@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x40];
 };
 
 check_size(mmPopup, 0x60);

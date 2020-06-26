@@ -50,6 +50,8 @@ public:
 
     // 0x55C180 | ?Load@agiPalette@@QAEXPAD@Z | unused
     ARTS_IMPORT void Load(char* arg1);
+
+    u8 gap0[0x410];
 };
 
 check_size(agiPalette, 0x410);

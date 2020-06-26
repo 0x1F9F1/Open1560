@@ -49,6 +49,8 @@ public:
 
     // 0x4A0500 | ?PreSetup@Dialog_TCPIP@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
+
+    u8 gapC0[0x2C];
 };
 
 check_size(Dialog_TCPIP, 0xEC);

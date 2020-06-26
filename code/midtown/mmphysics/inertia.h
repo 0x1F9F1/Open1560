@@ -166,6 +166,8 @@ private:
 
     // 0x4DA9D0 | ?DrawForce@asInertialCS@@AAEXABVVector3@@00@Z
     ARTS_IMPORT void DrawForce(class Vector3 const& arg1, class Vector3 const& arg2, class Vector3 const& arg3);
+
+    u8 gap88[0x120];
 };
 
 check_size(asInertialCS, 0x1A8);

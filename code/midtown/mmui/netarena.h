@@ -117,6 +117,8 @@ public:
 
     // 0x4A2620 | ?SetReady@NetArena@@QAEXKH@Z
     ARTS_IMPORT void SetReady(u32 arg1, i32 arg2);
+
+    u8 gap90[0xA0];
 };
 
 check_size(NetArena, 0x130);

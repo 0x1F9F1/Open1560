@@ -52,6 +52,8 @@ public:
 
     // 0x465920 | ?Init@aiVehicle@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
+
+    u8 gap4[0x10];
 };
 
 check_size(aiVehicle, 0x14);

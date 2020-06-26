@@ -59,6 +59,8 @@ public:
 
     // 0x5711E0 | ?Mag@Vector2@@QBEMXZ
     ARTS_IMPORT f32 Mag();
+
+    u8 gap0[0x8];
 };
 
 check_size(Vector2, 0x8);
@@ -84,6 +86,8 @@ public:
 private:
     // 0x571380 | ?NewTable@Vector2Array@@AAEXH@Z
     ARTS_IMPORT void NewTable(i32 arg1);
+
+    u8 gap0[0x14];
 };
 
 check_size(Vector2Array, 0x14);

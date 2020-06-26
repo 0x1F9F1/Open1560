@@ -90,6 +90,8 @@ public:
 
     // 0x422330 | ?WideFOV@mmExternalView@@QAEXH@Z
     ARTS_IMPORT void WideFOV(i32 arg1);
+
+    u8 gap20[0xEC];
 };
 
 check_size(mmExternalView, 0x10C);
@@ -144,6 +146,8 @@ public:
 
     // 0x422BD0 | ?DeclareFields@mmDashView@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x7F8];
 };
 
 check_size(mmDashView, 0x880);

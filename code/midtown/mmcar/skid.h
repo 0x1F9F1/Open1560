@@ -99,6 +99,8 @@ public:
 
     // 0x478180 | ?DeclareFields@mmSkid@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap14[0x34];
 };
 
 check_size(mmSkid, 0x48);
@@ -135,6 +137,8 @@ public:
 
     // 0x478310 | ?DeclareFields@mmSkidManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x48];
 };
 
 check_size(mmSkidManager, 0x68);

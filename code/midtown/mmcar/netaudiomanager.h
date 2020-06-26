@@ -116,6 +116,8 @@ public:
 private:
     // 0x476940 | ?AssignAddOnSounds@NetAudioManager@@AAEXPAVmmNetworkCarAudio@@F@Z
     ARTS_IMPORT void AssignAddOnSounds(class mmNetworkCarAudio* arg1, i16 arg2);
+
+    u8 gap20[0x54];
 };
 
 check_size(NetAudioManager, 0x74);

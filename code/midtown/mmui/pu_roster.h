@@ -85,6 +85,8 @@ public:
 
     // 0x4A8E90 | ?SetHost@PURoster@@QAEXH@Z | unused
     ARTS_IMPORT void SetHost(i32 arg1);
+
+    u8 gapC0[0x180];
 };
 
 check_size(PURoster, 0x240);

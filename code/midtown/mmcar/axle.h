@@ -60,6 +60,8 @@ public:
 
     // 0x47D5B0 | ?DeclareFields@mmAxle@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x14];
 };
 
 check_size(mmAxle, 0x9C);

@@ -160,6 +160,8 @@ public:
 
     // 0x4DE9B0 | ?DeclareFields@Joint3Dof@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0xC0];
 };
 
 check_size(Joint3Dof, 0xE0);

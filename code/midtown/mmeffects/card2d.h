@@ -73,6 +73,8 @@ private:
 
     // 0x4FE330 | ?Cull@Card2D@@EAEXXZ
     ARTS_IMPORT void Cull() override;
+
+    u8 gap20[0x18];
 };
 
 check_size(Card2D, 0x38);

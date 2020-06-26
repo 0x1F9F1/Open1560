@@ -119,6 +119,8 @@ public:
 
     // 0x4A0F10 | ?SettingsCB@CRSettings@@QAEXXZ | unused
     ARTS_IMPORT void SettingsCB();
+
+    u8 gap90[0xB0];
 };
 
 check_size(CRSettings, 0x140);

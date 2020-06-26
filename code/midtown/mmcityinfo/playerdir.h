@@ -123,6 +123,8 @@ private:
 
     // 0x4CF4E0 | ?MakeFileName@mmPlayerDirectory@@AAEPADXZ
     ARTS_IMPORT char* MakeFileName();
+
+    u8 gap88[0x5C];
 };
 
 check_size(mmPlayerDirectory, 0xE4);

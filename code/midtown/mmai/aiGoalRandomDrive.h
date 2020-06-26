@@ -96,6 +96,8 @@ private:
 
     // 0x45D470 | ?SolveVelocity@aiGoalRandomDrive@@AAEXXZ
     ARTS_IMPORT void SolveVelocity();
+
+    u8 gap8[0xC];
 };
 
 check_size(aiGoalRandomDrive, 0x14);
@@ -118,6 +120,8 @@ public:
 
     // 0x45F700 | ?Update@aiGoal@@UAEXXZ | inline
     ARTS_IMPORT virtual void Update();
+
+    u8 gap4[0x4];
 };
 
 check_size(aiGoal, 0x8);

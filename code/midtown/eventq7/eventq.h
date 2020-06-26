@@ -74,6 +74,8 @@ public:
 private:
     // 0x563D00 | ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
     ARTS_IMPORT void Queue(union eqEvent& arg1);
+
+    u8 gap14[0x18];
 };
 
 check_size(eqEventQ, 0x2C);

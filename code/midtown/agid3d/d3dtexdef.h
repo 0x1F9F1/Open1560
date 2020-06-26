@@ -83,6 +83,8 @@ public:
 
     // 0x52FA90 | ?Prober@agiD3DTexDef@@SAXPAX@Z | agid3d:d3dpipe
     ARTS_IMPORT static void Prober(void* arg1);
+
+    u8 gap74[0x14];
 };
 
 check_size(agiD3DTexDef, 0x88);

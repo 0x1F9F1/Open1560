@@ -87,6 +87,8 @@ public:
 private:
     // 0x4C0C70 | ?SetString@mmDropDown@@AAEXVstring@@@Z
     ARTS_IMPORT void SetString(class string arg1);
+
+    u8 gap20[0xA8];
 };
 
 check_size(mmDropDown, 0xC8);

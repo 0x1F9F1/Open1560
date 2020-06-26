@@ -73,6 +73,8 @@ public:
 
     // 0x433BA0 | ?DeclareFields@mmWaypointInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap38[0xC];
 };
 
 check_size(mmWaypointInstance, 0x44);

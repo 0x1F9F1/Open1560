@@ -93,6 +93,8 @@ public:
 
     // 0x52CC70 | ?DeclareFields@asViewCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x9C];
 };
 
 check_size(asViewCS, 0x124);

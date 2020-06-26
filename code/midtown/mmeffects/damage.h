@@ -45,6 +45,8 @@ public:
 
     // 0x502420 | ?Reset@mmDamage@@QAEXH@Z
     ARTS_IMPORT void Reset(i32 arg1);
+
+    u8 gap0[0x20];
 };
 
 check_size(mmDamage, 0x20);

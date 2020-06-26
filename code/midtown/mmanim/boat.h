@@ -109,6 +109,8 @@ public:
 
     // 0x4C7E50 | ?DeclareFields@mmBoat@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x384];
 };
 
 check_size(mmBoat, 0x3A4);

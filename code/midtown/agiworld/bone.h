@@ -54,6 +54,8 @@ public:
 
     // 0x516F70 | ?Transform@bnBone@@QAEXPAVMatrix34@@@Z
     ARTS_IMPORT void Transform(class Matrix34* arg1);
+
+    u8 gap0[0x8C];
 };
 
 check_size(bnBone, 0x8C);

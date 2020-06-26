@@ -131,6 +131,7 @@ static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
 
 // 0x55B640 | ?copyrow565_to_888rev@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow565_to_888rev(void* arg1, void* arg2, u32 arg3, u32 arg4);
+
 void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
 {
     u32 dst_width = dwWidth;

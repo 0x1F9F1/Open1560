@@ -120,6 +120,8 @@ public:
 
     // 0x479F30 | ?DeclareFields@mmTrailer@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x11E4];
 };
 
 check_size(mmTrailer, 0x1204);
@@ -162,6 +164,8 @@ public:
 
     // 0x4796F0 | ?ToMatrix@mmTrailerInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+
+    u8 gap14[0x34];
 };
 
 check_size(mmTrailerInstance, 0x48);

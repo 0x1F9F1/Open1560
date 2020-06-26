@@ -86,6 +86,8 @@ public:
 
     // 0x4BA5B0 | ?Update@UITextRoller@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap74[0x9C];
 };
 
 check_size(UITextRoller, 0x110);

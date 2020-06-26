@@ -79,6 +79,8 @@ public:
 private:
     // 0x4F6560 | ?UpdatePOV@PovCamCS@@AAEXXZ
     ARTS_IMPORT void UpdatePOV();
+
+    u8 gap118[0x2C];
 };
 
 check_size(PovCamCS, 0x144);

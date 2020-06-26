@@ -93,6 +93,8 @@ struct agiRendStateStruct
 public:
     // 0x557CE0 | ?Reset@agiRendStateStruct@@QAEXXZ
     ARTS_IMPORT void Reset();
+
+    u8 gap0[0x3C];
 };
 
 check_size(agiRendStateStruct, 0x3C);

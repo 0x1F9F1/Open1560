@@ -60,6 +60,8 @@ public:
     virtual void DrawLabel(union agiVtx& arg1, char* arg2) = 0;
 
     virtual void EndDraw() = 0;
+
+    u8 gap4[0x8];
 };
 
 check_size(agiRenderer, 0xC);

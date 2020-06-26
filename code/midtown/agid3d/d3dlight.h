@@ -53,6 +53,8 @@ public:
 
     // 0x533910 | ?Update@agiD3DLight@@UAEHXZ
     ARTS_IMPORT i32 Update() override;
+
+    u8 gap88[0x4];
 };
 
 check_size(agiD3DLight, 0x8C);

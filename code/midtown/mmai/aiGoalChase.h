@@ -161,6 +161,8 @@ private:
 
     // 0x460640 | ?Stopped@aiGoalChase@@AAEHPAVmmCar@@@Z
     ARTS_IMPORT i32 Stopped(class mmCar* arg1);
+
+    u8 gap8[0x1A4];
 };
 
 check_size(aiGoalChase, 0x1AC);

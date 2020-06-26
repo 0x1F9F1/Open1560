@@ -150,6 +150,8 @@ public:
 
     // 0x42CD40 | ?DeclareFields@mmPlayer@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x4A78];
 };
 
 check_size(mmPlayer, 0x4A98);

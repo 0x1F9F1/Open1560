@@ -66,6 +66,8 @@ public:
 
     // 0x5120D0 | ?Save@agiTexSheet@@QAEXPAD@Z | unused
     ARTS_IMPORT void Save(char* arg1);
+
+    u8 gap0[0xC];
 };
 
 check_size(agiTexSheet, 0xC);

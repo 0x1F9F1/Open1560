@@ -112,6 +112,8 @@ public:
 
     // 0x705714 | ?VisitTag@asPortalWeb@@2GA
     ARTS_IMPORT static u16 VisitTag;
+
+    u8 gap20[0x902C];
 };
 
 check_size(asPortalWeb, 0x904C);
@@ -136,6 +138,8 @@ public:
 
     // 0x495A30 | ?Create@asPortalPVS@@SAPAU1@HZZ | unused
     ARTS_IMPORT static struct asPortalPVS* Create(i32 arg1, ...);
+
+    u8 gap0[0x8];
 };
 
 check_size(asPortalPVS, 0x8);
@@ -145,6 +149,8 @@ struct asPortalEdge
 public:
     // 0x4977B0 | ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z | inline
     ARTS_IMPORT asPortalEdge(struct asPortalCell* arg1, struct asPortalCell* arg2, i32 arg3);
+
+    u8 gap0[0x30];
 };
 
 check_size(asPortalEdge, 0x30);

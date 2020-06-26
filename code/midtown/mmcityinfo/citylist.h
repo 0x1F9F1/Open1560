@@ -80,6 +80,8 @@ public:
 
     // 0x4CBDF0 | ?SetCurrentCity@mmCityList@@QAEXH@Z
     ARTS_IMPORT void SetCurrentCity(i32 arg1);
+
+    u8 gap4[0xC];
 };
 
 check_size(mmCityList, 0x10);

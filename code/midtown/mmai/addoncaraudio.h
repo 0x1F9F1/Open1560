@@ -49,6 +49,8 @@ public:
 
     // 0x45C780 | ?Update@AddOnCarAudio@@QAEXXZ
     ARTS_IMPORT void Update();
+
+    u8 gap0[0xC];
 };
 
 check_size(AddOnCarAudio, 0xC);

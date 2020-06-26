@@ -299,6 +299,8 @@ public:
 
     // 0x641858 | ?WIDGET_WIDTH@UIMenu@@2MA
     ARTS_IMPORT static f32 WIDGET_WIDTH;
+
+    u8 gap20[0x70];
 };
 
 check_size(UIMenu, 0x90);

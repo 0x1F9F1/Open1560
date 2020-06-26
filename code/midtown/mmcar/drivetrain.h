@@ -76,6 +76,8 @@ public:
 
     // 0x480460 | ?DeclareFields@mmDrivetrain@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x28];
 };
 
 check_size(mmDrivetrain, 0x48);

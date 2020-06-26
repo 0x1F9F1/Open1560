@@ -67,6 +67,8 @@ public:
 
     // 0x515050 | ?Transform@bnSkeleton@@QAEXPAVMatrix34@@@Z
     ARTS_IMPORT void Transform(class Matrix34* arg1);
+
+    u8 gap0[0x20];
 };
 
 check_size(bnSkeleton, 0x20);
@@ -79,6 +81,8 @@ public:
 
     // 0x5153F0 | ?Lookup@bnAnimation@@SAPAV1@PAD@Z | unused
     ARTS_IMPORT static class bnAnimation* Lookup(char* arg1);
+
+    u8 gap0[0xC];
 };
 
 check_size(bnAnimation, 0xC);

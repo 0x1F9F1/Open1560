@@ -67,6 +67,8 @@ public:
 
     // 0x423920 | ?Update@RadialGauge@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0xAC];
 };
 
 check_size(RadialGauge, 0xCC);
@@ -85,6 +87,8 @@ public:
 
     // 0x423A90 | ?Init@mmLinearGauge@@QAEXPADPAM11HPAVmmExternalView@@@Z
     ARTS_IMPORT void Init(char* arg1, f32* arg2, f32* arg3, f32* arg4, i32 arg5, class mmExternalView* arg6);
+
+    u8 gap0[0x34];
 };
 
 check_size(mmLinearGauge, 0x34);
@@ -100,6 +104,8 @@ public:
 
     // 0x423C60 | ?ResChange@mmRadGauge@@QAEXXZ
     ARTS_IMPORT void ResChange();
+
+    u8 gap0[0x3C];
 };
 
 check_size(mmRadGauge, 0x3C);
@@ -112,6 +118,8 @@ public:
 
     // 0x423DE0 | ?Init@mmGearIndicator@@QAEXPAVmmExternalView@@PAVmmPlayer@@@Z
     ARTS_IMPORT void Init(class mmExternalView* arg1, class mmPlayer* arg2);
+
+    u8 gap0[0x40];
 };
 
 check_size(mmGearIndicator, 0x40);
@@ -124,6 +132,8 @@ public:
 
     // 0x423F90 | ?Init@mmSpeedIndicator@@QAEXPAVmmExternalView@@PAVmmCarSim@@@Z
     ARTS_IMPORT void Init(class mmExternalView* arg1, class mmCarSim* arg2);
+
+    u8 gap0[0x38];
 };
 
 check_size(mmSpeedIndicator, 0x38);

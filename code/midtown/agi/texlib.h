@@ -43,6 +43,8 @@ public:
 
     // 0x55A140 | ?Kill@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXXZ | inline
     ARTS_IMPORT void Kill();
+
+    u8 gap0[0x4014];
 };
 
 check_size(agiLib<class agiTexParameters, class agiTexDef>, 0x4014);

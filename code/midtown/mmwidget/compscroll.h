@@ -122,6 +122,8 @@ public:
 
     // 0x4B55F0 | ?VScrollCB@UICompositeScroll@@QAEXXZ
     ARTS_IMPORT void VScrollCB();
+
+    u8 gap74[0x70];
 };
 
 check_size(UICompositeScroll, 0xE4);

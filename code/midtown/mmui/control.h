@@ -122,6 +122,8 @@ public:
 
     // 0x4A3900 | ?VerifyBadAssignment@ControlSetup@@QAEXXZ
     ARTS_IMPORT void VerifyBadAssignment();
+
+    u8 gap6EC8[0x40];
 };
 
 check_size(ControlSetup, 0x6F08);

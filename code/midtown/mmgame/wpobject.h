@@ -66,6 +66,8 @@ public:
 
     // 0x430530 | ?Update@mmWaypointObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x2C];
 };
 
 check_size(mmWaypointObject, 0x4C);

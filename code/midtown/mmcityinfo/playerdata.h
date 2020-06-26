@@ -102,6 +102,8 @@ public:
 
     // 0x4CFE40 | ?DeclareFields@mmPlayerRecord@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x5C];
 };
 
 check_size(mmPlayerRecord, 0xE4);
@@ -199,6 +201,8 @@ public:
 
     // 0x4D0F00 | ?DeclareFields@mmPlayerData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x20F0];
 };
 
 check_size(mmPlayerData, 0x2178);

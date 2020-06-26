@@ -136,6 +136,8 @@ public:
 
     // 0x49BA00 | ?Update@VehicleSelectBase@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap90[0xD8];
 };
 
 check_size(VehicleSelectBase, 0x168);

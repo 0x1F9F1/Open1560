@@ -57,6 +57,8 @@ public:
 
     // 0x426530 | ?Update@mmIcons@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x3C];
 };
 
 check_size(mmIcons, 0x5C);

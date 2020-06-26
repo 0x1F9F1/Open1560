@@ -110,6 +110,8 @@ public:
 
     // 0x49A350 | ?SetResolution@GraphicsOptions@@QAEXXZ
     ARTS_IMPORT void SetResolution();
+
+    u8 gap6EC8[0x20];
 };
 
 check_size(GraphicsOptions, 0x6EE8);

@@ -105,6 +105,8 @@ public:
 
     // 0x4D1970 | ?DeclareFields@mmRecord@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x80];
 };
 
 check_size(mmRecord, 0x108);

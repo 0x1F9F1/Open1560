@@ -134,6 +134,8 @@ private:
 
     // 0x416170 | ?RegisterLap@mmSingleCircuit@@AAEHXZ
     ARTS_IMPORT i32 RegisterLap();
+
+    u8 gap1E570[0x90];
 };
 
 check_size(mmSingleCircuit, 0x1E600);

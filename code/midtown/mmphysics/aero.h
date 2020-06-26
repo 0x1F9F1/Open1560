@@ -64,6 +64,8 @@ public:
 
     // 0x4E0490 | ?DeclareFields@asAero@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x54];
 };
 
 check_size(asAero, 0x74);

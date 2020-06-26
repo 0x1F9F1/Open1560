@@ -61,6 +61,8 @@ public:
 
     // 0x4DEEE0 | ?DeclareFields@asOverSample@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x10];
 };
 
 check_size(asOverSample, 0x30);

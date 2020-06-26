@@ -70,6 +70,8 @@ public:
 
     // 0x4BF2E0 | ?Update@mmCompBase@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x28];
 };
 
 check_size(mmCompBase, 0x48);

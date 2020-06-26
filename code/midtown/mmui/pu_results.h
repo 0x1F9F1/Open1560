@@ -89,6 +89,8 @@ public:
 
     // 0x4A8C50 | ?SetMessage@PUResults@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetMessage(struct LocString* arg1);
+
+    u8 gapC0[0x30];
 };
 
 check_size(PUResults, 0xF0);

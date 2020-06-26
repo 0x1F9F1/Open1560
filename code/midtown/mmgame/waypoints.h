@@ -165,6 +165,8 @@ public:
 
     // 0x42F820 | ?WPHit@mmWaypoints@@QAEHHVVector3@@HH@Z
     ARTS_IMPORT i32 WPHit(i32 arg1, class Vector3 arg2, i32 arg3, i32 arg4);
+
+    u8 gap20[0x8C];
 };
 
 check_size(mmWaypoints, 0xAC);
@@ -183,6 +185,8 @@ public:
 
     // 0x4301F0 | ?LineEq@mmGate@@QAEMMM@Z
     ARTS_IMPORT f32 LineEq(f32 arg1, f32 arg2);
+
+    u8 gap0[0x18];
 };
 
 check_size(mmGate, 0x18);

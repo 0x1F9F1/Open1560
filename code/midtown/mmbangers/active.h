@@ -82,6 +82,8 @@ public:
 
     // 0x4CB2A0 | ?Update@mmBangerActive@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x25C];
 };
 
 check_size(mmBangerActive, 0x27C);
@@ -116,6 +118,8 @@ public:
 protected:
     // 0x706060 | ?Instance@mmBangerActiveManager@@1PAV1@A
     ARTS_IMPORT static class mmBangerActiveManager* Instance;
+
+    u8 gap20[0x5004];
 };
 
 check_size(mmBangerActiveManager, 0x5024);

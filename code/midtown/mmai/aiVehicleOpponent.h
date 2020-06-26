@@ -126,6 +126,8 @@ public:
 private:
     // 0x44E430 | ?AddToAiAudMgr@aiVehicleOpponent@@AAEXXZ
     ARTS_IMPORT void AddToAiAudMgr();
+
+    u8 gap14[0x23A8];
 };
 
 check_size(aiVehicleOpponent, 0x23BC);

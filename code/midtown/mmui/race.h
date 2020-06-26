@@ -66,6 +66,8 @@ public:
 
     // 0x4A4D90 | ?SetProgressMask@RaceMenu@@QAEXH@Z
     ARTS_IMPORT void SetProgressMask(i32 arg1);
+
+    u8 gapF90[0x4];
 };
 
 check_size(RaceMenu, 0xF94);

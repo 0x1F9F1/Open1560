@@ -82,6 +82,8 @@ public:
 
     // 0x4B7580 | ?Update@mmCompCRPlayer@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap48[0x50];
 };
 
 check_size(mmCompCRPlayer, 0x98);

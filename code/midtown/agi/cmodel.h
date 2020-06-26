@@ -64,6 +64,8 @@ public:
 
     // 0x55D760 | ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z | agi:cmodelx
     ARTS_IMPORT static class agiColorModel* FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+
+    u8 gap4[0x28];
 };
 
 check_size(agiColorModel, 0x2C);

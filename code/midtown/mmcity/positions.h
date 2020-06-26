@@ -61,6 +61,8 @@ struct position_t
 public:
     // 0x491DF0 | ??1position_t@@QAE@XZ | inline
     ARTS_IMPORT ~position_t();
+
+    u8 gap0[0x24];
 };
 
 check_size(position_t, 0x24);

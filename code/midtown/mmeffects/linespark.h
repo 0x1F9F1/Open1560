@@ -48,6 +48,8 @@ public:
 private:
     // 0x64A0D8 | ?BuiltinClut@asSparkLut@@0PAIA
     ARTS_IMPORT static u32 BuiltinClut[32];
+
+    u8 gap0[0xC];
 };
 
 check_size(asSparkLut, 0xC);
@@ -72,6 +74,8 @@ public:
 
     // 0x501FC0 | ?Update@asLineSparks@@QAEXM@Z
     ARTS_IMPORT void Update(f32 arg1);
+
+    u8 gap0[0x5C];
 };
 
 check_size(asLineSparks, 0x5C);

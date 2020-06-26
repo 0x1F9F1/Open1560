@@ -88,6 +88,8 @@ public:
 
     // 0x4FDB90 | ?DeclareFields@Spline@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x54];
 };
 
 check_size(Spline, 0x74);

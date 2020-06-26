@@ -105,6 +105,8 @@ public:
 
     // 0x4BFD30 | ?DeclareFields@VSWidget@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0xB0];
 };
 
 check_size(VSWidget, 0xD0);

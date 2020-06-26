@@ -57,6 +57,8 @@ public:
 
     // 0x4A52E0 | ?SetSubMenuButtons@Vehicle@@QAEXXZ
     ARTS_IMPORT void SetSubMenuButtons();
+
+    u8 gap168[0x1C];
 };
 
 check_size(Vehicle, 0x184);

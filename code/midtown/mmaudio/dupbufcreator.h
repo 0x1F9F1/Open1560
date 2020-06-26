@@ -55,6 +55,8 @@ private:
 
     // 0x4EF010 | ?IntegrityCheck@DupBuffCreator@@AAEHPAUIDirectSoundBuffer@@0PAH@Z
     ARTS_IMPORT i32 IntegrityCheck(struct IDirectSoundBuffer* arg1, struct IDirectSoundBuffer* arg2, i32* arg3);
+
+    u8 gap0[0x8];
 };
 
 check_size(DupBuffCreator, 0x8);

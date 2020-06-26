@@ -77,6 +77,8 @@ public:
 protected:
     // 0x52B5E0 | ?ModeCB@asDofCS@@IAEXXZ
     ARTS_IMPORT void ModeCB();
+
+    u8 gap88[0x70];
 };
 
 check_size(asDofCS, 0xF8);

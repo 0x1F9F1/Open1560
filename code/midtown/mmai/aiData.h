@@ -33,6 +33,8 @@ public:
 
     // 0x446B10 | ??1aiRaceData@@QAE@XZ
     ARTS_IMPORT ~aiRaceData();
+
+    u8 gap0[0x2C];
 };
 
 check_size(aiRaceData, 0x2C);

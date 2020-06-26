@@ -49,6 +49,8 @@ public:
 
     // 0x49DA10 | ?PreSetup@Dialog_City@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
+
+    u8 gapC0[0xC];
 };
 
 check_size(Dialog_City, 0xCC);

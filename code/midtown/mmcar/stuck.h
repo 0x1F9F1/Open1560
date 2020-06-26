@@ -65,6 +65,8 @@ public:
 
     // 0x47C5B0 | ?Update@mmStuck@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x38];
 };
 
 check_size(mmStuck, 0x58);

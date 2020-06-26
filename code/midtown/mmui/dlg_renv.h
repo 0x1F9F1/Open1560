@@ -61,6 +61,8 @@ public:
 
     // 0x49E310 | ?SetMultiRaceOptions@Dialog_RaceEnvironment@@QAEXH@Z
     ARTS_IMPORT void SetMultiRaceOptions(i32 arg1);
+
+    u8 gapC0[0x30];
 };
 
 check_size(Dialog_RaceEnvironment, 0xF0);

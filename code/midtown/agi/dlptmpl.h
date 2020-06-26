@@ -123,6 +123,8 @@ public:
 private:
     // 0x558330 | ??1DLPTemplate@@AAE@XZ
     ARTS_IMPORT ~DLPTemplate();
+
+    u8 gap0[0x3C];
 };
 
 check_size(DLPTemplate, 0x3C);
@@ -148,6 +150,8 @@ public:
 
     // 0x559180 | ?Save@DLPPatch@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
+
+    u8 gap0[0x18];
 };
 
 check_size(DLPPatch, 0x18);
@@ -176,6 +180,8 @@ public:
 
     // 0x558F40 | ?Save@DLPGroup@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
+
+    u8 gap0[0x30];
 };
 
 check_size(DLPGroup, 0x30);
@@ -203,6 +209,8 @@ public:
 
     // 0x5595A0 | ?Save@DLPVertex@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
+
+    u8 gap0[0x28];
 };
 
 check_size(DLPVertex, 0x28);

@@ -61,6 +61,8 @@ public:
 
     // 0x4811E0 | ?Update@mmSplash@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x310];
 };
 
 check_size(mmSplash, 0x330);

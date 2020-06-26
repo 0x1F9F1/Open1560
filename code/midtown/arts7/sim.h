@@ -157,6 +157,8 @@ public:
 
     // 0x523530 | ?DeclareFields@asSimulation@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x290];
 };
 
 check_size(asSimulation, 0x2B0);

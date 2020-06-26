@@ -61,6 +61,8 @@ public:
 
     // 0x4AA3B0 | ?SetSensitivityCB@PUControl@@QAEXXZ
     ARTS_IMPORT void SetSensitivityCB();
+
+    u8 gapC0[0x18];
 };
 
 check_size(PUControl, 0xD8);

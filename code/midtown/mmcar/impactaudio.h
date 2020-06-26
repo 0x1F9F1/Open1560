@@ -93,6 +93,8 @@ public:
 
     // 0x485530 | ?Update@mmImpactAudio@@QAEXXZ
     ARTS_IMPORT void Update();
+
+    u8 gap0[0x1EC];
 };
 
 check_size(mmImpactAudio, 0x1EC);

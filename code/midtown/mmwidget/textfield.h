@@ -113,6 +113,8 @@ public:
 
     // 0x4B2A10 | ?WmCharHandler@UITextField@@QAEXE@Z
     ARTS_IMPORT void WmCharHandler(u8 arg1);
+
+    u8 gap74[0xD0];
 };
 
 check_size(UITextField, 0x144);

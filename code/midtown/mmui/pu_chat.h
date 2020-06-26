@@ -49,6 +49,8 @@ public:
 
     // 0x4A9890 | ?ClearChat@PUChat@@QAEXXZ
     ARTS_IMPORT void ClearChat();
+
+    u8 gapC0[0x68];
 };
 
 check_size(PUChat, 0x128);

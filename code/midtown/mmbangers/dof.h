@@ -53,6 +53,8 @@ public:
 
     // 0x4C4E60 | ?ToMatrix@mmDofBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | inline
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+
+    u8 gap30[0x4];
 };
 
 check_size(mmDofBangerInstance, 0x34);
@@ -65,6 +67,8 @@ public:
 
     // 0x4CB890 | ?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | unused
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1);
+
+    u8 gap1C[0x14];
 };
 
 check_size(mmFacadeBangerInstance, 0x30);

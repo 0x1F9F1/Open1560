@@ -114,6 +114,8 @@ public:
 
     // 0x4E5C80 | ?Update@mmJoyMan@@QAEXXZ
     ARTS_IMPORT void Update();
+
+    u8 gap0[0x48];
 };
 
 check_size(mmJoyMan, 0x48);

@@ -70,6 +70,8 @@ public:
 private:
     // 0x4BFFC0 | ?LoadBitmap@mmToggle2@@AAEXPAD@Z
     ARTS_IMPORT void LoadBitmap(char* arg1);
+
+    u8 gap20[0x20];
 };
 
 check_size(mmToggle2, 0x40);

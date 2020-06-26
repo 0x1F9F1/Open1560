@@ -46,6 +46,8 @@ public:
 
     // 0x55BCD0 | ??4agiLightModelParameters@@QAEXABV0@@Z
     ARTS_IMPORT void operator=(class agiLightModelParameters const& arg1);
+
+    u8 gap0[0x28];
 };
 
 check_size(agiLightModelParameters, 0x28);
@@ -70,6 +72,8 @@ public:
 protected:
     // 0x55BD00 | ??0agiLightModel@@IAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiLightModel(class agiPipeline* arg1);
+
+    u8 gap18[0x28];
 };
 
 check_size(agiLightModel, 0x40);

@@ -158,6 +158,8 @@ private:
 
     // 0x61FF28 | ?s_DWFreqChange2DCtrlFlags@AudStream@@0KB
     ARTS_IMPORT static u32 const s_DWFreqChange2DCtrlFlags;
+
+    u8 gap20[0x34];
 };
 
 check_size(AudStream, 0x54);

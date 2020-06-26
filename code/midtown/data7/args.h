@@ -37,6 +37,8 @@ public:
 
     // 0x578C80 | ?Print@asArg@@QAEXPAD@Z
     ARTS_IMPORT void Print(char* arg1);
+
+    u8 gap0[0x48];
 };
 
 check_size(asArg, 0x48);
@@ -52,6 +54,8 @@ public:
 
     // 0x579010 | ?Usage@ArgSet@@QAEXXZ
     ARTS_IMPORT void Usage();
+
+    u8 gap0[0x208];
 };
 
 check_size(ArgSet, 0x208);

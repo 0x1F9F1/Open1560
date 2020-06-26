@@ -160,6 +160,8 @@ struct agiMeshCardInfo
 public:
     // 0x50EC90 | ?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z
     ARTS_IMPORT void Init(i32 arg1, struct agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
+
+    u8 gap0[0x10];
 };
 
 check_size(agiMeshCardInfo, 0x10);

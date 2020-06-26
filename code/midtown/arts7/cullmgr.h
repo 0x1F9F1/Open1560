@@ -100,6 +100,8 @@ protected:
 
     // 0x524F90 | ?PrintStats@asCullManager@@IAEXXZ
     ARTS_IMPORT void PrintStats();
+
+    u8 gap20[0x1D8];
 };
 
 check_size(asCullManager, 0x1F8);

@@ -41,6 +41,8 @@ public:
 
     // 0x4AB780 | ?SetSensitivity@ControlBase@@QAEXXZ
     ARTS_IMPORT void SetSensitivity();
+
+    u8 gap0[0x14];
 };
 
 check_size(ControlBase, 0x14);

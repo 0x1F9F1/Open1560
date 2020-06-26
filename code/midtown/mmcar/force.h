@@ -60,6 +60,8 @@ public:
 
     // 0x480E20 | ?DeclareFields@mmForce@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0xC];
 };
 
 check_size(mmForce, 0x2C);

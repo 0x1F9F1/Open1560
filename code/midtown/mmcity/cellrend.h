@@ -58,6 +58,8 @@ public:
 
     // 0x498F90 | ?Relight@mmCellRenderer@@QAEXXZ
     ARTS_IMPORT void Relight();
+
+    u8 gap4[0x44];
 };
 
 check_size(mmCellRenderer, 0x48);

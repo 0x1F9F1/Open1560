@@ -76,6 +76,8 @@ public:
 
     // 0x485A60 | ?DeclareFields@EngineAudioOpponent@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x34];
 };
 
 check_size(EngineAudioOpponent, 0x54);

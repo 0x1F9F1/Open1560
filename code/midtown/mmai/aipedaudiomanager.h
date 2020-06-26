@@ -70,6 +70,8 @@ public:
 
     // 0x447220 | ?Update@aiPedAudioManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x100];
 };
 
 check_size(aiPedAudioManager, 0x120);

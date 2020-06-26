@@ -331,6 +331,8 @@ private:
 
     // 0x503180 | ?PageOutCallback@agiMeshSet@@CAXPAXH@Z | agiworld:meshload
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
+
+    u8 gap0[0x64];
 };
 
 check_size(agiMeshSet, 0x64);

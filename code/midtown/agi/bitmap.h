@@ -60,9 +60,11 @@ protected:
     // 0x55A6F0 | ??_GagiBitmap@@MAEPAXI@Z
     // 0x55A640 | ??1agiBitmap@@MAE@XZ
     ARTS_IMPORT ~agiBitmap() override;
+
+    u8 gap18[0x24];
 };
 
-check_size(agiBitmap, 0x40);
+check_size(agiBitmap, 0x3C);
 
 // 0x903140 | ?BitmapHash@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable BitmapHash;

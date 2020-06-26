@@ -105,6 +105,8 @@ protected:
 private:
     // 0x552E00 | ?AddSurface@agiSurfRenderer@@CAHPAUagiPatch@@HHHH@Z
     ARTS_IMPORT static i32 AddSurface(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+
+    u8 gapC[0x8];
 };
 
 check_size(agiSurfRenderer, 0x14);

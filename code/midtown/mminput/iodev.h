@@ -93,6 +93,8 @@ public:
 
     // 0x4E58A0 | ?DeclareFields@mmIODev@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x20];
 };
 
 check_size(mmIODev, 0xA8);

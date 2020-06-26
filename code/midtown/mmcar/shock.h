@@ -60,6 +60,8 @@ public:
 
     // 0x47D2A0 | ?DeclareFields@mmShock@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x10];
 };
 
 check_size(mmShock, 0x98);

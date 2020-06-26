@@ -49,6 +49,8 @@ public:
 
     // 0x4335B0 | ?Update@mmRainAudio@@QAEXXZ
     ARTS_IMPORT void Update();
+
+    u8 gap0[0x1C];
 };
 
 check_size(mmRainAudio, 0x1C);

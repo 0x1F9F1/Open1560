@@ -93,6 +93,8 @@ public:
 
     // 0x5289D0 | ?DeclareFields@asForm@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0xA8];
 };
 
 check_size(asForm, 0xC8);

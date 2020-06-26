@@ -63,6 +63,8 @@ public:
 private:
     // 0x45FC10 | ?FinishedBackingUp@aiGoalBackup@@AAEXXZ
     ARTS_IMPORT void FinishedBackingUp();
+
+    u8 gap8[0xC];
 };
 
 check_size(aiGoalBackup, 0x14);

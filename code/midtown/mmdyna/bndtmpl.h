@@ -255,6 +255,8 @@ private:
 
     // 0x518D40 | ?PageOutCallback@mmBoundTemplate@@CAXPAXH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
+
+    u8 gap0[0xB4];
 };
 
 check_size(mmBoundTemplate, 0xB4);

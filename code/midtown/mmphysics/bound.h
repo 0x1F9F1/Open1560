@@ -49,6 +49,8 @@ public:
 
     // 0x4DF110 | ?Impact@asBound@@QAEHPAVmmIntersection@@PAV1@HHH@Z
     ARTS_IMPORT i32 Impact(class mmIntersection* arg1, class asBound* arg2, i32 arg3, i32 arg4, i32 arg5);
+
+    u8 gap20[0x1C];
 };
 
 check_size(asBound, 0x3C);

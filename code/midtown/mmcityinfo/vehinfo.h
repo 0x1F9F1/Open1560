@@ -54,6 +54,8 @@ public:
 
     // 0x4D3C00 | ?Print@mmVehInfo@@QAEXXZ
     ARTS_IMPORT void Print();
+
+    u8 gap4[0xF4];
 };
 
 check_size(mmVehInfo, 0xF8);

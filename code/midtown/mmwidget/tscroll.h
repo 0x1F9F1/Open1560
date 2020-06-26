@@ -119,6 +119,8 @@ private:
 
     // 0x4B9250 | ?SetTextColor@UITextScroll@@AAEXXZ
     ARTS_IMPORT void SetTextColor();
+
+    u8 gap74[0x70];
 };
 
 check_size(UITextScroll, 0xE4);

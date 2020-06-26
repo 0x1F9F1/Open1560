@@ -45,6 +45,8 @@ public:
 
     // 0x57C290 | ?Kill@List@@QAEXXZ
     ARTS_IMPORT void Kill();
+
+    u8 gap0[0x8];
 };
 
 check_size(List, 0x8);

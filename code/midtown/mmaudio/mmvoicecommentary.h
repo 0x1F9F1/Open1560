@@ -225,6 +225,8 @@ public:
 
     // 0x4EC130 | ?ValidateCity@mmVoiceCommentary@@QAEXPAD@Z
     ARTS_IMPORT void ValidateCity(char* arg1);
+
+    u8 gap0[0x158];
 };
 
 check_size(mmVoiceCommentary, 0x158);

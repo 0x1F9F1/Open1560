@@ -75,6 +75,8 @@ protected:
 private:
     // 0x557B30 | ?ValidatePtr@agiRefreshable@@AAEXPAD@Z
     ARTS_IMPORT void ValidatePtr(char* arg1);
+
+    u8 gap4[0x14];
 };
 
 check_size(agiRefreshable, 0x18);

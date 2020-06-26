@@ -86,6 +86,8 @@ public:
 
     // 0x4B5D50 | ?Update@mmCompDRecord@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap48[0x5C];
 };
 
 check_size(mmCompDRecord, 0xA4);

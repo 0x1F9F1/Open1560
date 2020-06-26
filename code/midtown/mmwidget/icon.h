@@ -69,6 +69,8 @@ public:
 
     // 0x4B9AD0 | ?Update@UIIcon@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap74[0x20];
 };
 
 check_size(UIIcon, 0x94);

@@ -139,6 +139,8 @@ private:
 
     // 0x4F4EA0 | ?OpenWaveFile@StreamObj@@AAEPAVStream@@PBDF@Z
     ARTS_IMPORT class Stream* OpenWaveFile(char const* arg1, i16 arg2);
+
+    u8 gap0[0x138];
 };
 
 check_size(StreamObj, 0x138);

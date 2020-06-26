@@ -57,6 +57,8 @@ public:
 
     // 0x4A0110 | ?PreSetup@Dialog_Serial@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
+
+    u8 gapC0[0x88];
 };
 
 check_size(Dialog_Serial, 0x148);

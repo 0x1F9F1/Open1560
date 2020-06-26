@@ -128,6 +128,8 @@ public:
 
     // 0x4CE9E0 | ?DeclareFields@mmPlayerConfig@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x6DA8];
 };
 
 check_size(mmPlayerConfig, 0x6E30);
@@ -140,6 +142,8 @@ public:
 
     // 0x4CE5B0 | ?Set@mmGfxCFG@@QAEXXZ
     ARTS_IMPORT void Set();
+
+    u8 gap0[0x34];
 };
 
 check_size(mmGfxCFG, 0x34);
@@ -149,6 +153,8 @@ struct mmCtrlCFG
 public:
     // 0x4CEE80 | ??1mmCtrlCFG@@QAE@XZ | inline
     ARTS_IMPORT ~mmCtrlCFG();
+
+    u8 gap0[0x6C80];
 };
 
 check_size(mmCtrlCFG, 0x6C80);

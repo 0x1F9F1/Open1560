@@ -110,6 +110,8 @@ private:
 
     // 0x6A7FC0 | ?s_fSecondsElapsed@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 s_fSecondsElapsed;
+
+    u8 gap0[0x18];
 };
 
 check_size(mmOpponentImpactAudio, 0x18);

@@ -94,6 +94,8 @@ public:
 
     // 0x4D2B70 | ?DeclareFields@mmRoadSide@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x258];
 };
 
 check_size(mmRoadSide, 0x2E0);
@@ -197,6 +199,8 @@ public:
 
     // 0x4D2D90 | ?DeclareFields@mmRoadSect@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x644];
 };
 
 check_size(mmRoadSect, 0x6CC);
@@ -239,6 +243,8 @@ public:
 
     // 0x4D29A0 | ?DeclareFields@mmPropInfo@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0xC];
 };
 
 check_size(mmPropInfo, 0x94);

@@ -110,6 +110,8 @@ public:
 
     // 0x4A7370 | ?WidgetOnOff@RaceMenuBase@@QAEXHPAVuiWidget@@@Z
     ARTS_IMPORT void WidgetOnOff(i32 arg1, class uiWidget* arg2);
+
+    u8 gap90[0xF00];
 };
 
 check_size(RaceMenuBase, 0xF90);

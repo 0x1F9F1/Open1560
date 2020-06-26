@@ -113,6 +113,8 @@ public:
 
     // 0x412B80 | ?DeclareFields@mmGameEdit@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap1E570[0x1C8];
 };
 
 check_size(mmGameEdit, 0x1E738);

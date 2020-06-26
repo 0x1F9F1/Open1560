@@ -97,6 +97,7 @@ public:
 
     union
     {
+        // NOTE: 64-bit incompatible
         struct agiTexLut* lpLut {0};
         char szLut[4];
     };

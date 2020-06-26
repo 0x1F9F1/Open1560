@@ -76,6 +76,8 @@ public:
 
     // 0x4231A0 | ?Update@mmCDPlayer@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x12C];
 };
 
 check_size(mmCDPlayer, 0x14C);

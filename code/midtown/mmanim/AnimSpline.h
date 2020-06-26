@@ -85,6 +85,8 @@ public:
 
     // 0x4C3BC0 | ?Update@mmAnimSpline@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x14];
 };
 
 check_size(mmAnimSpline, 0x34);

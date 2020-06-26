@@ -54,6 +54,8 @@ public:
 
     // 0x4E7460 | ?SetValues@mmEffectFF@@UAEHMM@Z | inline
     ARTS_IMPORT virtual i32 SetValues(f32 arg1, f32 arg2);
+
+    u8 gap4[0x7C];
 };
 
 check_size(mmEffectFF, 0x80);

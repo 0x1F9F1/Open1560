@@ -45,6 +45,8 @@ public:
 
     // 0x4AA5A0 | ?RecordCB@PUDebug@@QAEXXZ
     ARTS_IMPORT void RecordCB();
+
+    u8 gapC0[0x68];
 };
 
 check_size(PUDebug, 0x128);

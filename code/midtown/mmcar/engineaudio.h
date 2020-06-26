@@ -81,6 +81,8 @@ public:
 
     // 0x486DF0 | ?DeclareFields@EngineAudio@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x70];
 };
 
 check_size(EngineAudio, 0x90);

@@ -69,6 +69,8 @@ public:
 
     // 0x4D3400 | ?DeclareFields@mmMapData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x8];
 };
 
 check_size(mmMapData, 0x90);

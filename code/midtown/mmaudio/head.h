@@ -78,6 +78,8 @@ public:
 private:
     // 0x4EBD60 | ?Update@AudHead@@EAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x30];
 };
 
 check_size(AudHead, 0x50);

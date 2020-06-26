@@ -106,6 +106,8 @@ public:
 
     // 0x47C0E0 | ?DeclareFields@mmOpponentCarAudio@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0xC0];
 };
 
 check_size(mmOpponentCarAudio, 0xE0);

@@ -286,6 +286,8 @@ private:
 
     // 0x61FDAC | ?s_DWSoftFreqChange2DCtrlFlags@AudSound@@0KB
     ARTS_IMPORT static u32 const s_DWSoftFreqChange2DCtrlFlags;
+
+    u8 gap20[0x98];
 };
 
 check_size(AudSound, 0xB8);

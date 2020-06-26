@@ -80,6 +80,8 @@ public:
 private:
     // 0x573600 | ?NewTable@IntArray@@AAEXH@Z
     ARTS_IMPORT void NewTable(i32 arg1);
+
+    u8 gap0[0x14];
 };
 
 check_size(IntArray, 0x14);
@@ -105,6 +107,8 @@ public:
 private:
     // 0x573920 | ?NewTable@FloatArray@@AAEXH@Z
     ARTS_IMPORT void NewTable(i32 arg1);
+
+    u8 gap0[0x14];
 };
 
 check_size(FloatArray, 0x14);

@@ -150,6 +150,8 @@ public:
 
     // 0x473100 | ?DeclareFields@mmCarModel@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap14[0xFC];
 };
 
 check_size(mmCarModel, 0x110);

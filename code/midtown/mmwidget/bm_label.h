@@ -74,6 +74,8 @@ public:
 private:
     // 0x4B44E0 | ?LoadBitmap@UIBMLabel@@AAEXXZ
     ARTS_IMPORT void LoadBitmap();
+
+    u8 gap74[0x2C];
 };
 
 check_size(UIBMLabel, 0xA0);

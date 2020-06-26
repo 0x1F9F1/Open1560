@@ -187,6 +187,8 @@ public:
 private:
     // 0x4430C0 | ?CatName@aiAudioManager@@AAEPADPADHH@Z
     ARTS_IMPORT char* CatName(char* arg1, i32 arg2, i32 arg3);
+
+    u8 gap20[0x1E4];
 };
 
 check_size(aiAudioManager, 0x204);

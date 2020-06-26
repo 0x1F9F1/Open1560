@@ -86,6 +86,8 @@ public:
 
     // 0x4B48D0 | ?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetToolTipText(struct LocString* arg1);
+
+    u8 gap20[0x54];
 };
 
 check_size(uiWidget, 0x74);

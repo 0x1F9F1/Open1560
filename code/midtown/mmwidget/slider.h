@@ -106,6 +106,8 @@ public:
 
     // 0x4B3E40 | ?Update@UISlider@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap74[0x58];
 };
 
 check_size(UISlider, 0xCC);

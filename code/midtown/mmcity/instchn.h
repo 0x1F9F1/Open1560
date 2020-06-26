@@ -70,6 +70,8 @@ public:
 
     // 0x4923A0 | ?Unparent@mmInstChain@@QAEXPAVmmInstance@@@Z
     ARTS_IMPORT void Unparent(class mmInstance* arg1);
+
+    u8 gap0[0xC];
 };
 
 check_size(mmInstChain, 0xC);

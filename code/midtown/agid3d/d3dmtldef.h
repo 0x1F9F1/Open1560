@@ -58,6 +58,8 @@ public:
 
     // 0x533750 | ?GetHandle@agiD3DMtlDef@@QAEKXZ | unused
     ARTS_IMPORT u32 GetHandle();
+
+    u8 gap80[0x8];
 };
 
 check_size(agiD3DMtlDef, 0x88);

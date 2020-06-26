@@ -405,6 +405,8 @@ private:
 
     // 0x4E9650 | ?Update3DCDMusic@AudManager@@AAEXXZ
     ARTS_IMPORT void Update3DCDMusic();
+
+    u8 gap20[0x80];
 };
 
 check_size(AudManager, 0xA0);

@@ -69,6 +69,8 @@ public:
 
     // 0x7195A4 | ?SphMapTex@asMeshSetForm@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* SphMapTex;
+
+    u8 gap20[0xC];
 };
 
 check_size(asMeshSetForm, 0x2C);

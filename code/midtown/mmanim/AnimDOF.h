@@ -102,6 +102,8 @@ public:
 
     // 0x4C4BF0 | ?DeclareFields@mmAnimDOF@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap4[0x94];
 };
 
 check_size(mmAnimDOF, 0x98);

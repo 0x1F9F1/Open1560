@@ -78,6 +78,8 @@ public:
 private:
     // 0x4BDD10 | ?UpdateAttached@sfPointer@@AAEXXZ | unused
     ARTS_IMPORT void UpdateAttached();
+
+    u8 gap20[0x34];
 };
 
 check_size(sfPointer, 0x54);

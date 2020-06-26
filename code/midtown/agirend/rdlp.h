@@ -76,6 +76,8 @@ public:
 private:
     // 0x5508A0 | ?InitFacet@RDLP@@AAEHPAUagiPatch@@HHHH@Z
     ARTS_IMPORT i32 InitFacet(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+
+    u8 gap94[0x18];
 };
 
 check_size(RDLP, 0xAC);
@@ -103,6 +105,8 @@ public:
 
     // 0x551480 | ?Unlock@RDynamicDLP@@UAEXXZ
     ARTS_IMPORT void Unlock() override;
+
+    u8 gap24[0x4];
 };
 
 check_size(RDynamicDLP, 0x28);

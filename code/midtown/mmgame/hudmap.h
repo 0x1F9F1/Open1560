@@ -165,6 +165,8 @@ private:
 
     // 0x429B20 | ?WorldToBitmap@mmHudMap@@AAE?AUPoint@@PAVVector3@@@Z
     ARTS_IMPORT struct Point WorldToBitmap(class Vector3* arg1);
+
+    u8 gap20[0x2A8];
 };
 
 check_size(mmHudMap, 0x2C8);

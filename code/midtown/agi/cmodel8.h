@@ -61,6 +61,8 @@ public:
 
     // 0x55C020 | ?SetPixel@agiColorModel8@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
+
+    u8 gap2C[0x4];
 };
 
 check_size(agiColorModel8, 0x30);

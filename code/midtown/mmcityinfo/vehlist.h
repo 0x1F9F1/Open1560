@@ -68,6 +68,8 @@ public:
 
     // 0x4CC370 | ?Print@mmVehList@@QAEXXZ | unused
     ARTS_IMPORT void Print();
+
+    u8 gap4[0x8];
 };
 
 check_size(mmVehList, 0xC);

@@ -62,6 +62,8 @@ public:
 
     // 0x46B130 | ?Update@aiGoalRegainRail@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap8[0x20];
 };
 
 check_size(aiGoalRegainRail, 0x28);

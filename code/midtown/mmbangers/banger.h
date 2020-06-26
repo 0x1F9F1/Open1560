@@ -94,6 +94,8 @@ public:
 
     // 0x4CA4D0 | ?GetVelocity@mmBangerInstance@@UAE?AVVector3@@XZ
     ARTS_IMPORT class Vector3 GetVelocity() override;
+
+    u8 gap14[0x8];
 };
 
 check_size(mmBangerInstance, 0x1C);
@@ -133,6 +135,8 @@ public:
 
     // 0x4CA880 | ?ToMatrix@mmUnhitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+
+    u8 gap1C[0x14];
 };
 
 check_size(mmUnhitBangerInstance, 0x30);
@@ -158,6 +162,8 @@ public:
 protected:
     // 0x706048 | ?Instance@mmBangerManager@@1PAV1@A
     ARTS_IMPORT static class mmBangerManager* Instance;
+
+    u8 gap20[0xC];
 };
 
 check_size(mmBangerManager, 0x2C);
@@ -191,6 +197,8 @@ public:
 
     // 0x4CA540 | ?ToMatrix@mmHitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+
+    u8 gap1C[0x34];
 };
 
 check_size(mmHitBangerInstance, 0x50);

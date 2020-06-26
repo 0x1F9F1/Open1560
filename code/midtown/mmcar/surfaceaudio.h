@@ -115,6 +115,8 @@ public:
 private:
     // 0x488190 | ?PlayCobble@mmSurfaceAudio@@AAEXM@Z
     ARTS_IMPORT void PlayCobble(f32 arg1);
+
+    u8 gap0[0xAC];
 };
 
 check_size(mmSurfaceAudio, 0xAC);

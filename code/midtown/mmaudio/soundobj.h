@@ -240,6 +240,8 @@ public:
 private:
     // 0x4F2E10 | ?SetupChorusBuffer@SoundObj@@AAEPAUIDirectSoundBuffer@@PAD@Z
     ARTS_IMPORT struct IDirectSoundBuffer* SetupChorusBuffer(char* arg1);
+
+    u8 gap0[0x88];
 };
 
 check_size(SoundObj, 0x88);

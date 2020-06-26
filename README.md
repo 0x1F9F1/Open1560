@@ -5,7 +5,12 @@
 
 Open1560 is an open source re-implementation of Midtown Madness 1 beta 1560.
 
-Download the [Latest Version](https://ci.appveyor.com/api/projects/0x1F9F1/Open1560/artifacts/build/Open1560.zip?branch=master) and extract the files directly into your MM1 directory.
+This project is a bottom-up rewrite of Midtown Madness 1, using the original binary to provide functions that have not been implemented yet.<br/>
+The intention is to allow the fixing of bugs, implementation of new features and porting to platforms unsupported by the original.<br/>
+
+## Installation
+1. Download and install the [Visual C++ 2019 Redistributable](https://aka.ms/vs/16/release/vc_redist.x86.exe).
+2. Download the [Latest Version](https://ci.appveyor.com/api/projects/0x1F9F1/Open1560/artifacts/build/Open1560.zip?branch=master) and extract the files directly into your MM1 directory.
 
 # History
 
@@ -30,7 +35,7 @@ Build | Build Date | Name | Details
 * 1589 was released three times:
     Protection | Release Date | Name | Extra
     --- | --- | --- | ---
-    SafeDisc | `03 ‎November ‎1999 00:32:10` | mmpat.exe | Contains symbols for an unknown trial build dated `Aug 10 11:52:15 1999`
+    SafeDisc | `03 ‎November ‎1999 00:32:10` | mmpat.exe | Contains symbols for an unknown trial debug build dated `Aug 10 11:52:15 1999`
     Clean | `10 ‎May ‎2000 22:47:12` | midtown1_patch_aspac.exe |
     Clean | `16 ‎January ‎2002 18:42:16` | mm1xppat.exe | Contains a 2 byte NOP patch for ComputeCpuSpeed
 

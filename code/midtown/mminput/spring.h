@@ -49,6 +49,8 @@ public:
 
     // 0x4E7FE0 | ?Stop@mmSpringFF@@UAEHXZ
     ARTS_IMPORT i32 Stop() override;
+
+    u8 gap80[0x1C];
 };
 
 check_size(mmSpringFF, 0x9C);

@@ -90,6 +90,8 @@ public:
 
     // 0x433130 | ?Update@mmNetObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap28[0xCC];
 };
 
 check_size(mmNetObject, 0xF4);

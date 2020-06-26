@@ -61,6 +61,8 @@ public:
 
     // 0x4EE110 | ?Value@VolumeDW@@QAEKXZ | unused
     ARTS_IMPORT u32 Value();
+
+    u8 gap0[0xC];
 };
 
 check_size(VolumeDW, 0xC);

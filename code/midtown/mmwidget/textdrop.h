@@ -106,6 +106,8 @@ public:
 
     // 0x4B3490 | ?Update@UITextDropdown@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap74[0x90];
 };
 
 check_size(UITextDropdown, 0x104);

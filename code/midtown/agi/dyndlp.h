@@ -57,6 +57,8 @@ public:
 
     // 0x55E600 | ?Release@DynamicDLP@@QAEHXZ | unused
     ARTS_IMPORT i32 Release();
+
+    u8 gap4[0x20];
 };
 
 check_size(DynamicDLP, 0x24);

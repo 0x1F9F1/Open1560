@@ -68,6 +68,8 @@ public:
 private:
     // 0x4F4690 | ?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z
     ARTS_IMPORT virtual i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4);
+
+    u8 gap4[0x2C];
 };
 
 check_size(CDMan, 0x30);

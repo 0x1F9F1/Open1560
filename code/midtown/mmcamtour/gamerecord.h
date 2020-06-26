@@ -62,6 +62,8 @@ public:
 
     // 0x4FE140 | ?Sim@mmGameRecord@@QAEXXZ
     ARTS_IMPORT void Sim();
+
+    u8 gap0[0x20];
 };
 
 check_size(mmGameRecord, 0x20);

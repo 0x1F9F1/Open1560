@@ -254,6 +254,8 @@ public:
 
     // 0x527C20 | ?Update@BMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;
+
+    u8 gap48[0x14];
 };
 
 check_size(BMI, 0x5C);
@@ -268,6 +270,8 @@ public:
 
     // 0x527CA0 | ?Update@TMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;
+
+    u8 gap48[0x20];
 };
 
 check_size(TMI, 0x68);
@@ -282,6 +286,8 @@ public:
 
     // 0x527D80 | ?Update@scharMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;
+
+    u8 gap48[0x20];
 };
 
 check_size(scharMI, 0x68);
@@ -296,6 +302,8 @@ public:
 
     // 0x527E60 | ?Update@ucharMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;
+
+    u8 gap48[0x20];
 };
 
 check_size(ucharMI, 0x68);
@@ -310,6 +318,8 @@ public:
 
     // 0x527F50 | ?Update@shortMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;
+
+    u8 gap48[0x20];
 };
 
 check_size(shortMI, 0x68);
@@ -324,6 +334,8 @@ public:
 
     // 0x528040 | ?Update@ushortMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;
+
+    u8 gap48[0x20];
 };
 
 check_size(ushortMI, 0x68);
@@ -338,6 +350,8 @@ public:
 
     // 0x528120 | ?Update@intMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;
+
+    u8 gap48[0x24];
 };
 
 check_size(intMI, 0x6C);
@@ -352,6 +366,8 @@ public:
 
     // 0x528210 | ?Update@uintMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;
+
+    u8 gap48[0x24];
 };
 
 check_size(uintMI, 0x6C);
@@ -366,6 +382,8 @@ public:
 
     // 0x5282F0 | ?Update@floatMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;
+
+    u8 gap48[0x24];
 };
 
 check_size(floatMI, 0x6C);
@@ -380,6 +398,8 @@ public:
 
     // 0x528360 | ?Update@SBMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;
+
+    u8 gap48[0x8];
 };
 
 check_size(SBMI, 0x50);
@@ -392,6 +412,8 @@ public:
     virtual i32 Update(i32 arg1) = 0;
 
     virtual void Key(i32 arg1, i32 arg2) = 0;
+
+    u8 gap4[0x44];
 };
 
 check_size(MI, 0x48);

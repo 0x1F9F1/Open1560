@@ -103,6 +103,8 @@ public:
 private:
     // 0x41A420 | ?SendPlayerFinish@mmMultiBlitz@@AAEXXZ
     ARTS_IMPORT void SendPlayerFinish();
+
+    u8 gap1EEA8[0x10];
 };
 
 check_size(mmMultiBlitz, 0x1EEB8);

@@ -257,6 +257,8 @@ public:
 private:
     // 0x568D20 | ?ArbitraryRotation@Matrix34@@AAEXABVVector3@@M@Z
     ARTS_IMPORT void ArbitraryRotation(class Vector3 const& arg1, f32 arg2);
+
+    u8 gap0[0x30];
 };
 
 check_size(Matrix34, 0x30);

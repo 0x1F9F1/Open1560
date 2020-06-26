@@ -259,6 +259,8 @@ public:
 
     // 0x4890F0 | ?WaitForLobbyConnection@asNetwork@@QAEXH@Z
     ARTS_IMPORT void WaitForLobbyConnection(i32 arg1);
+
+    u8 gap0[0x64];
 };
 
 check_size(asNetwork, 0x64);

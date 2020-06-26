@@ -147,6 +147,8 @@ private:
 
     // 0x705A08 | ?s_pSound@UIBMButton@@0PAVAudSound@@A
     ARTS_IMPORT static class AudSound* s_pSound;
+
+    u8 gap74[0x7C];
 };
 
 check_size(UIBMButton, 0xF0);

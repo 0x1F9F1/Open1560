@@ -76,6 +76,8 @@ public:
 
     // 0x8FF040 | ?ViewSerial@agiViewParameters@@2IA
     ARTS_IMPORT static u32 ViewSerial;
+
+    u8 gap0[0x12C];
 };
 
 check_size(agiViewParameters, 0x12C);
@@ -110,6 +112,8 @@ protected:
 
     // 0x8FF048 | ?Active@agiViewport@@1PAV1@A
     ARTS_IMPORT static class agiViewport* Active;
+
+    u8 gap18[0x134];
 };
 
 check_size(agiViewport, 0x14C);

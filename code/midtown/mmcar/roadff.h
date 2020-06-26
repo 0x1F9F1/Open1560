@@ -85,6 +85,8 @@ public:
 
     // 0x481920 | ?DeclareFields@mmCarRoadFF@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x24];
 };
 
 check_size(mmCarRoadFF, 0x44);

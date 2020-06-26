@@ -187,6 +187,8 @@ public:
 
     // 0x453610 | ?DeclareFields@aiVehicleInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap14[0x10];
 };
 
 check_size(aiVehicleInstance, 0x24);
@@ -229,6 +231,8 @@ public:
 
     // 0x4529D0 | ?UpdateDamage@aiVehicleActive@@QAEXXZ
     ARTS_IMPORT void UpdateDamage();
+
+    u8 gap20[0xA4C];
 };
 
 check_size(aiVehicleActive, 0xA6C);
@@ -277,6 +281,8 @@ public:
 
     // 0x6A7B54 | ?SignalClock@aiVehicleManager@@2HA
     ARTS_IMPORT static i32 SignalClock;
+
+    u8 gap20[0x16608];
 };
 
 check_size(aiVehicleManager, 0x16628);
@@ -304,6 +310,8 @@ public:
 
     // 0x4536C0 | ?DeclareFields@aiVehicleData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0xA0];
 };
 
 check_size(aiVehicleData, 0xC0);

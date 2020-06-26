@@ -64,6 +64,8 @@ public:
 
     // 0x4FA950 | ?DeclareFields@AICamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap118[0x8];
 };
 
 check_size(AICamCS, 0x120);

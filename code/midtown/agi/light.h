@@ -43,6 +43,8 @@ public:
 
     // 0x55BA60 | ??4agiLightParameters@@QAEXABV0@@Z
     ARTS_IMPORT void operator=(class agiLightParameters const& arg1);
+
+    u8 gap0[0x70];
 };
 
 check_size(agiLightParameters, 0x70);
@@ -69,6 +71,8 @@ public:
 
     // 0x55BAD0 | ?Init@agiLight@@QAEHABVagiLightParameters@@@Z
     ARTS_IMPORT i32 Init(class agiLightParameters const& arg1);
+
+    u8 gap18[0x70];
 };
 
 check_size(agiLight, 0x88);

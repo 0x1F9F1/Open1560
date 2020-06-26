@@ -115,6 +115,8 @@ public:
 
     // 0x6A8EB8 | ?PassMask@asRenderWeb@@2HA
     ARTS_IMPORT static i32 PassMask;
+
+    u8 gap904C[0x12C];
 };
 
 check_size(asRenderWeb, 0x9178);

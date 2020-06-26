@@ -37,6 +37,8 @@ public:
 
     // 0x446C20 | ?Append@CArrayList@@QAEXH@Z
     ARTS_IMPORT void Append(i32 arg1);
+
+    u8 gap0[0x8];
 };
 
 check_size(CArrayList, 0x8);

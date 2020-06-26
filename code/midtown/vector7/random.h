@@ -37,6 +37,8 @@ public:
 
     // 0x56D9F0 | ?Seed@Random@@QAEXH@Z
     ARTS_IMPORT void Seed(i32 arg1);
+
+    u8 gap0[0xE8];
 };
 
 check_size(Random, 0xE8);

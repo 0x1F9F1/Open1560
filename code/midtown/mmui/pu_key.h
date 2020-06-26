@@ -50,6 +50,8 @@ private:
 
     // 0x4A9470 | ?PreSetup@PUKey@@EAEXXZ
     ARTS_IMPORT void PreSetup() override;
+
+    u8 gapC0[0xC];
 };
 
 check_size(PUKey, 0xCC);

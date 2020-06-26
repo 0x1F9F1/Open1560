@@ -64,6 +64,8 @@ public:
 
     // 0x4809E0 | ?DeclareFields@VehGyro@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x14];
 };
 
 check_size(VehGyro, 0x34);

@@ -61,6 +61,8 @@ public:
 
     // 0x49A6E0 | ?IsAnOptionMenu@OptionsBase@@UAEHXZ | inline
     ARTS_IMPORT i32 IsAnOptionMenu() override;
+
+    u8 gap90[0x6E38];
 };
 
 check_size(OptionsBase, 0x6EC8);

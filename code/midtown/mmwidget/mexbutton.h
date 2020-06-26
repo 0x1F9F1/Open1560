@@ -67,6 +67,8 @@ private:
 
     // 0x4BCC70 | ?DrawOn@UIMexButton@@EAEXXZ
     ARTS_IMPORT void DrawOn() override;
+
+    u8 gapC0[0xC];
 };
 
 check_size(UIMexButton, 0xCC);

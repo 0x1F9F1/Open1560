@@ -41,6 +41,8 @@ public:
 
     // 0x52CE60 | ?Reset@asBenchStats@@QAEXXZ
     ARTS_IMPORT void Reset();
+
+    u8 gap0[0x50];
 };
 
 check_size(asBenchStats, 0x50);

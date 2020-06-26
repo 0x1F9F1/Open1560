@@ -127,6 +127,8 @@ private:
 
     // 0x469E10 | ?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ
     ARTS_IMPORT void SolveTargetPoint();
+
+    u8 gap8[0x184];
 };
 
 check_size(aiGoalFollowWayPts, 0x18C);

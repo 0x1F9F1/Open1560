@@ -49,6 +49,8 @@ public:
 
     // 0x4A3B20 | ?PreSetup@OptionsMenu@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
+
+    u8 gap90[0x8];
 };
 
 check_size(OptionsMenu, 0x98);

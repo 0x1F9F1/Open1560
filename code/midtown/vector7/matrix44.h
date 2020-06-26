@@ -137,6 +137,8 @@ public:
 
     // 0x570380 | ?Transpose@Matrix44@@QBE?AV1@XZ
     ARTS_IMPORT class Matrix44 Transpose();
+
+    u8 gap0[0x40];
 };
 
 check_size(Matrix44, 0x40);

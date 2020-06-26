@@ -114,6 +114,8 @@ public:
 
     // 0x63C490 | ?PtxMaxSkidCount@mmWheel@@2MA
     ARTS_IMPORT static f32 PtxMaxSkidCount;
+
+    u8 gap88[0x1E0];
 };
 
 check_size(mmWheel, 0x268);

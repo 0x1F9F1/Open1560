@@ -91,6 +91,8 @@ private:
 
     // 0x51C380 | ?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
     ARTS_IMPORT void PlotTriangle(i32 arg1, i32 arg2, i32 arg3, class mmBoundTemplate* arg4, i32 arg5);
+
+    u8 gap0[0x4C];
 };
 
 check_size(mmPolygon, 0x4C);

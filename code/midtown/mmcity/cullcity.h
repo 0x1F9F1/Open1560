@@ -188,6 +188,8 @@ private:
 
     // 0x6A8E28 | ?Instance@mmCullCity@@0PAV1@A
     ARTS_IMPORT static class mmCullCity* Instance;
+
+    u8 gap20[0x34D4C];
 };
 
 check_size(mmCullCity, 0x34D6C);
@@ -240,6 +242,8 @@ public:
 
     // 0x6A8E74 | ?Phase@mmRunwayLight@@2MA
     ARTS_IMPORT static f32 Phase;
+
+    u8 gap14[0x4C];
 };
 
 check_size(mmRunwayLight, 0x60);

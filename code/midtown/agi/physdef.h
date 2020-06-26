@@ -33,6 +33,8 @@ public:
 
     // 0x557040 | ?Save@agiPhysParameters@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
+
+    u8 gap0[0x58];
 };
 
 check_size(agiPhysParameters, 0x58);

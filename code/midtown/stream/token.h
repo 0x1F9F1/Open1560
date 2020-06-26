@@ -49,6 +49,8 @@ public:
 
     // 0x561690 | ?MatchToken@Tokenizer@@QAEXPAD@Z
     ARTS_IMPORT void MatchToken(char* arg1);
+
+    u8 gap0[0x10];
 };
 
 check_size(Tokenizer, 0x10);

@@ -98,6 +98,8 @@ public:
 
     // 0x4D9190 | ?Update@mmPhysExec@@UAEXXZ | inline
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x4];
 };
 
 check_size(mmPhysExec, 0x24);
@@ -195,6 +197,8 @@ protected:
 
     // 0x716F70 | ?Instance@mmPhysicsMGR@@1PAV1@A
     ARTS_IMPORT static class mmPhysicsMGR* Instance;
+
+    u8 gap20[0x204];
 };
 
 check_size(mmPhysicsMGR, 0x224);

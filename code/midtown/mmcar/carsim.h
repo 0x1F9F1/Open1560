@@ -220,6 +220,8 @@ public:
 
     // 0x6A7C98 | ?SnowTex@mmCarSim@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* SnowTex;
+
+    u8 gap20[0x1F8C];
 };
 
 check_size(mmCarSim, 0x1FAC);

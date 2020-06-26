@@ -43,6 +43,8 @@ public:
 
     // 0x4D3650 | ?Load@mmCityInfo@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
+
+    u8 gap4[0x9C];
 };
 
 check_size(mmCityInfo, 0xA0);

@@ -60,6 +60,8 @@ private:
 
     // 0x705704 | ?Instance@mmSky@@0PAV1@A
     ARTS_IMPORT static class mmSky* Instance;
+
+    u8 gap0[0x8];
 };
 
 check_size(mmSky, 0x8);

@@ -69,6 +69,8 @@ public:
 
     // 0x4F97C0 | ?DeclareFields@PostCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap118[0x14];
 };
 
 check_size(PostCamCS, 0x12C);

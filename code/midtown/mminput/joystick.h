@@ -142,6 +142,8 @@ public:
 
     // 0x4E6470 | ?inputPrepareDevice@mmJoystick@@QAEHXZ
     ARTS_IMPORT i32 inputPrepareDevice();
+
+    u8 gap0[0x3A8];
 };
 
 check_size(mmJoystick, 0x3A8);
@@ -169,6 +171,8 @@ public:
 
     // 0x4E60B0 | ?SetRange@mmJaxis@@QAEXMM@Z
     ARTS_IMPORT void SetRange(f32 arg1, f32 arg2);
+
+    u8 gap0[0x1C];
 };
 
 check_size(mmJaxis, 0x1C);

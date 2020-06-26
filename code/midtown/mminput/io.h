@@ -74,6 +74,8 @@ public:
 
     // 0x4E4DC0 | ?Write@mmIO@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 Write(class Stream* arg1);
+
+    u8 gap0[0x1C];
 };
 
 check_size(mmIO, 0x1C);

@@ -81,6 +81,8 @@ public:
 
     // 0x4BBEE0 | ?UpdateField@UIControlWidget@@QAEXXZ
     ARTS_IMPORT void UpdateField();
+
+    u8 gap74[0x44];
 };
 
 check_size(UIControlWidget, 0xB8);

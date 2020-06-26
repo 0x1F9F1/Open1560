@@ -203,6 +203,8 @@ private:
 
     // 0x6A7AD0 | ?s_iPrevSoundObjIndex@aiVehicleAmbient@@0FA
     ARTS_IMPORT static i16 s_iPrevSoundObjIndex;
+
+    u8 gapD8[0x60];
 };
 
 check_size(aiVehicleAmbient, 0x138);

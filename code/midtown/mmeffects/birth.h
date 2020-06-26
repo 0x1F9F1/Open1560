@@ -56,6 +56,8 @@ public:
 
     // 0x5012A0 | ?DeclareFields@asBirthRule@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x90];
 };
 
 check_size(asBirthRule, 0xB0);

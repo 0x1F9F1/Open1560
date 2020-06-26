@@ -67,6 +67,8 @@ public:
 private:
     // 0x46A700 | ?AvoidPlayer@aiGoalAvoidPlayer@@AAEXXZ
     ARTS_IMPORT void AvoidPlayer();
+
+    u8 gap8[0x14];
 };
 
 check_size(aiGoalAvoidPlayer, 0x1C);

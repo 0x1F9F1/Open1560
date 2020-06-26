@@ -225,6 +225,8 @@ public:
 
     // 0x43FFD0 | ?VertZDir@aiPath@@QAEPAVVector3@@H@Z | inline
     ARTS_IMPORT class Vector3* VertZDir(i32 arg1);
+
+    u8 gap0[0x104];
 };
 
 check_size(aiPath, 0x104);

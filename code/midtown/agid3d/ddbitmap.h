@@ -58,6 +58,8 @@ public:
 
     // 0x533C80 | ?UpdateFlags@agiDDBitmap@@UAEXXZ
     ARTS_IMPORT void UpdateFlags() override;
+
+    u8 gap3C[0x4];
 };
 
 check_size(agiDDBitmap, 0x40);

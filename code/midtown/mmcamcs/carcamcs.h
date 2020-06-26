@@ -58,6 +58,8 @@ public:
 
     // 0x4FB290 | ?DeclareFields@CarCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap114[0x4];
 };
 
 check_size(CarCamCS, 0x118);

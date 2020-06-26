@@ -83,6 +83,8 @@ public:
 protected:
     // 0x55E000 | ?FixTemplateRefs@DLP@@IAEXH@Z
     ARTS_IMPORT void FixTemplateRefs(i32 arg1);
+
+    u8 gap18[0x7C];
 };
 
 check_size(DLP, 0x94);

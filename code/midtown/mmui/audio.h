@@ -129,6 +129,8 @@ public:
 
     // 0x49D0C0 | ?StoreCurrentSetup@AudioOptions@@UAEXXZ
     ARTS_IMPORT void StoreCurrentSetup() override;
+
+    u8 gap6EC8[0x38];
 };
 
 check_size(AudioOptions, 0x6F00);

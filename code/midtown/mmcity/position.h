@@ -57,6 +57,8 @@ public:
 
     // 0x492180 | ?Register@mmPositions@@QAEHAAVVector4@@HHHHPAD@Z
     ARTS_IMPORT i32 Register(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
+
+    u8 gap0[0xC];
 };
 
 check_size(mmPositions, 0xC);

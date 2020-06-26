@@ -70,6 +70,8 @@ private:
 
     // 0x4C04E0 | ?SetSize@mmToggle@@AAEXMM@Z
     ARTS_IMPORT void SetSize(f32 arg1, f32 arg2);
+
+    u8 gap20[0x18];
 };
 
 check_size(mmToggle, 0x38);

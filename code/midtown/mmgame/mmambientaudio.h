@@ -37,6 +37,8 @@ public:
 
     // 0x427E60 | ?Update@mmAmbientAudio@@QAEXXZ
     ARTS_IMPORT void Update();
+
+    u8 gap0[0x14];
 };
 
 check_size(mmAmbientAudio, 0x14);

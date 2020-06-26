@@ -85,6 +85,8 @@ public:
 
     // 0x4D1BE0 | ?Load@mmRaceData@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
+
+    u8 gap0[0x4B4];
 };
 
 check_size(mmRaceData, 0x4B4);

@@ -73,6 +73,8 @@ public:
 
     // 0x4C43A0 | ?Reset@mmAnimTrigger@@QAEXXZ
     ARTS_IMPORT void Reset();
+
+    u8 gap0[0x24];
 };
 
 check_size(mmAnimTrigger, 0x24);

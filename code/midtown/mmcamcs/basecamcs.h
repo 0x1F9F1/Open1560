@@ -78,6 +78,8 @@ public:
 
     // 0x4FC0E0 | ?DeclareFields@BaseCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x7C];
 };
 
 check_size(BaseCamCS, 0x9C);

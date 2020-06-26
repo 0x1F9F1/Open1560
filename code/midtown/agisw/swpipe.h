@@ -189,6 +189,8 @@ public:
 
     // 0x534DA0 | ?UpdateFlags@agiSWBitmap@@UAEXXZ | inline
     ARTS_IMPORT void UpdateFlags() override;
+
+    u8 gap3C[0x4];
 };
 
 check_size(agiSWBitmap, 0x40);

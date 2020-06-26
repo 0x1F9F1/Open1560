@@ -50,6 +50,8 @@ public:
 
     // 0x55DB70 | ?Save@agiMtlParameters@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
+
+    u8 gap0[0x68];
 };
 
 check_size(agiMtlParameters, 0x68);
@@ -72,6 +74,8 @@ protected:
     // 0x55DD50 | ??_EagiMtlDef@@MAEPAXI@Z
     // 0x55DC80 | ??1agiMtlDef@@MAE@XZ
     ARTS_IMPORT ~agiMtlDef() override;
+
+    u8 gap18[0x68];
 };
 
 check_size(agiMtlDef, 0x80);

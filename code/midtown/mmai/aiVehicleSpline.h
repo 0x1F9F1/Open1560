@@ -156,6 +156,8 @@ public:
 
     // 0x45C250 | ?DeclareFields@aiVehicleSpline@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap14[0xC4];
 };
 
 check_size(aiVehicleSpline, 0xD8);

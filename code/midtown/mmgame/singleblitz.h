@@ -139,6 +139,8 @@ private:
 
     // 0x4140C0 | ?RegisterFinish@mmSingleBlitz@@AAEHXZ
     ARTS_IMPORT i32 RegisterFinish();
+
+    u8 gap1E570[0x48];
 };
 
 check_size(mmSingleBlitz, 0x1E5B8);

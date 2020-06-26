@@ -66,6 +66,8 @@ public:
 
     // 0x4C4150 | ?Update@mmBridgeAudMgr@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x18];
 };
 
 check_size(mmBridgeAudMgr, 0x38);

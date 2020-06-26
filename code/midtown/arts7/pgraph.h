@@ -50,6 +50,8 @@ public:
 
     // 0x52AA30 | ?Update@asPerfGraph@@QAEXXZ
     ARTS_IMPORT void Update();
+
+    u8 gap0[0x94];
 };
 
 check_size(asPerfGraph, 0x94);

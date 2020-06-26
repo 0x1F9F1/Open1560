@@ -61,6 +61,8 @@ public:
 
     // 0x49E9D0 | ?SetSortState@Dialog_HallOfFame@@QAEXXZ
     ARTS_IMPORT void SetSortState();
+
+    u8 gapC0[0x24];
 };
 
 check_size(Dialog_HallOfFame, 0xE4);

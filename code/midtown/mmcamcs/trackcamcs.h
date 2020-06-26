@@ -115,6 +115,8 @@ private:
 
     // 0x4F7510 | ?UpdateTrack@TrackCamCS@@AAEXXZ
     ARTS_IMPORT void UpdateTrack();
+
+    u8 gap118[0x20C];
 };
 
 check_size(TrackCamCS, 0x324);

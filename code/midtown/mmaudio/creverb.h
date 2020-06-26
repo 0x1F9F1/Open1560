@@ -90,6 +90,8 @@ public:
 private:
     // 0x4F4820 | ?QueryProperty@CReverb@@AAEHK@Z
     ARTS_IMPORT i32 QueryProperty(u32 arg1);
+
+    u8 gap0[0x4];
 };
 
 check_size(CReverb, 0x4);

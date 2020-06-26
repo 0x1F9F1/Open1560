@@ -142,6 +142,8 @@ public:
 
     // 0x6A7E68 | ?UpdateTime@mmCar@@2MA
     ARTS_IMPORT static f32 UpdateTime;
+
+    u8 gap20[0x22EC];
 };
 
 check_size(mmCar, 0x230C);

@@ -91,6 +91,8 @@ private:
 
     // 0x4B9D80 | ?DrawOn@UIButton@@AAEXXZ | unused
     ARTS_IMPORT void DrawOn();
+
+    u8 gap74[0x40];
 };
 
 check_size(UIButton, 0xB4);

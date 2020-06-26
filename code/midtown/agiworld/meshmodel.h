@@ -47,6 +47,8 @@ public:
 
     // 0x5141B0 | ?ModelGeometry@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
     ARTS_IMPORT i32 ModelGeometry(u32 arg1, class bnAnimation* arg2, i32 arg3);
+
+    u8 gap0[0xA8];
 };
 
 check_size(agiMeshModel, 0xA8);
@@ -56,6 +58,8 @@ class agiLitAnimation
 public:
     // 0x5145C0 | ??0agiLitAnimation@@QAE@PAVagiMeshModel@@PAVbnAnimation@@PAVStream@@@Z
     ARTS_IMPORT agiLitAnimation(class agiMeshModel* arg1, class bnAnimation* arg2, class Stream* arg3);
+
+    u8 gap0[0x10];
 };
 
 check_size(agiLitAnimation, 0x10);

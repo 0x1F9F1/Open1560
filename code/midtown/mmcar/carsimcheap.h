@@ -53,6 +53,8 @@ public:
 
     // 0x474A20 | ?Update@mmWheelCheap@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap88[0xF4];
 };
 
 check_size(mmWheelCheap, 0x17C);

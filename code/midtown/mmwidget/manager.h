@@ -270,6 +270,8 @@ public:
 private:
     // 0x4B1730 | ?PlayMenuSwitchSound@MenuManager@@AAEXXZ
     ARTS_IMPORT void PlayMenuSwitchSound();
+
+    u8 gap20[0x120];
 };
 
 check_size(MenuManager, 0x140);

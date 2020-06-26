@@ -96,6 +96,8 @@ public:
 
     // 0x4C9540 | ?DeclareFields@mmBangerData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x114];
 };
 
 check_size(mmBangerData, 0x134);
@@ -136,6 +138,8 @@ public:
 protected:
     // 0x705FDC | ?Instance@mmBangerDataManager@@1PAV1@A
     ARTS_IMPORT static class mmBangerDataManager* Instance;
+
+    u8 gap20[0x268B0];
 };
 
 check_size(mmBangerDataManager, 0x268D0);

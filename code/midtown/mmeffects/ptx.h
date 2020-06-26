@@ -83,6 +83,8 @@ public:
 
     // 0x500830 | ?DeclareFields@asParticles@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x4C];
 };
 
 check_size(asParticles, 0x6C);

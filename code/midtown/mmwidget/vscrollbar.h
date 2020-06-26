@@ -114,6 +114,8 @@ public:
 
     // 0x4BD730 | ?DeclareFields@UIVScrollBar@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap74[0x98];
 };
 
 check_size(UIVScrollBar, 0x10C);

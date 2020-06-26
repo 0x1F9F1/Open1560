@@ -122,6 +122,8 @@ public:
 
     // 0x530B60 | ?EndScene@agiD3DPipeline@@UAEXXZ
     ARTS_IMPORT void EndScene() override;
+
+    u8 gap32C[0x170];
 };
 
 check_size(agiD3DPipeline, 0x49C);

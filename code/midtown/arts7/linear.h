@@ -63,6 +63,8 @@ public:
 
     // 0x525E20 | ?DeclareFields@asLinearCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x68];
 };
 
 check_size(asLinearCS, 0x88);

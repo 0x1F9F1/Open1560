@@ -89,6 +89,8 @@ public:
 
     // 0x909290 | ?SuperQ@eqEventHandler@@2PAV1@A
     ARTS_IMPORT static class eqEventHandler* SuperQ;
+
+    u8 gap4[0x160];
 };
 
 check_size(eqEventHandler, 0x164);
@@ -125,6 +127,8 @@ public:
 
     // 0x5634E0 | ?SetWantMotion@eqEventMonitor@@QAEXH@Z | unused
     ARTS_IMPORT void SetWantMotion(i32 arg1);
+
+    u8 gap4[0x10];
 };
 
 check_size(eqEventMonitor, 0x14);
@@ -151,6 +155,8 @@ public:
 
     // 0x563880 | ?QueueMouse@eqEventReplayChannelClass@@QAEXHHHHHHH@Z
     ARTS_IMPORT void QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
+
+    u8 gapC[0x62C];
 };
 
 check_size(eqEventReplayChannelClass, 0x638);

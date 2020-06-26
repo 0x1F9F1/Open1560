@@ -88,6 +88,8 @@ public:
 
     // 0x4FA280 | ?DeclareFields@PointCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap118[0x2C];
 };
 
 check_size(PointCamCS, 0x144);

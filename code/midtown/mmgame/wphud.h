@@ -105,6 +105,8 @@ public:
 
     // 0x424730 | ?Update@mmWPHUD@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x78];
 };
 
 check_size(mmWPHUD, 0x98);
@@ -138,6 +140,8 @@ public:
 
     // 0x424F50 | ?Update@mmCircuitHUD@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x7C];
 };
 
 check_size(mmCircuitHUD, 0x9C);
@@ -204,6 +208,8 @@ public:
 
     // 0x426140 | ?UpdateGold@mmCRHUD@@QAEXXZ
     ARTS_IMPORT void UpdateGold();
+
+    u8 gap20[0x1F8];
 };
 
 check_size(mmCRHUD, 0x218);

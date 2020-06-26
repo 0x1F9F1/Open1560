@@ -93,6 +93,8 @@ public:
 
     // 0x4F9080 | ?Instance@mmViewCS@@SAPAV1@PAVasCamera@@@Z
     ARTS_IMPORT static class mmViewCS* Instance(class asCamera* arg1);
+
+    u8 gap88[0x38];
 };
 
 check_size(mmViewCS, 0xC0);

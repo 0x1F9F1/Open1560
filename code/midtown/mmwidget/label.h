@@ -73,6 +73,8 @@ public:
 
     // 0x705A10 | ?TextHeight@UILabel@@2MA
     ARTS_IMPORT static f32 TextHeight;
+
+    u8 gap74[0x14];
 };
 
 check_size(UILabel, 0x88);

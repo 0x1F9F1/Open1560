@@ -85,6 +85,8 @@ public:
 
     // 0x4B1FD0 | ?Update@uiNavBar@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap90[0x30];
 };
 
 check_size(uiNavBar, 0xC0);

@@ -122,6 +122,8 @@ public:
 
     // 0x4B7FB0 | ?VScrollCB@UICWArray@@QAEXXZ
     ARTS_IMPORT void VScrollCB();
+
+    u8 gap74[0x68];
 };
 
 check_size(UICWArray, 0xDC);

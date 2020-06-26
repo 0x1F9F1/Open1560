@@ -711,6 +711,34 @@ def fixup_vftable_symbols(grouped_symbols, vftables):
                 if func.raw_name == '__purecall' and not func.override:
                     grouped_symbols[path_libs[class_name]][class_name].append(func)
 
+def calculate_class_paddings(class_sizes, class_hier, vftables):
+    class_paddings = {}
+
+    for name, size in class_sizes.items():
+        padding_offset = 0
+        is_parent_virtual = False
+
+        if name in class_hier:
+            hiers = class_hier[name]
+            if len(hiers) > 1:
+                continue
+            if len(hiers) == 1:
+                parent = hiers[0]
+                padding_offset = class_sizes[parent]
+                assert padding_offset <= size, (name, parent)
+                is_parent_virtual = parent in vftables
+
+        if name in vftables and not is_parent_virtual:
+            padding_offset += 4
+
+        if padding_offset != size:
+            class_paddings[name] = (padding_offset, size - padding_offset)
+
+    # print(class_paddings)
+    # assert False
+
+    return class_paddings
+
 def symbol_sort_order(symbol):
     # 1. public
     # 2. protected
@@ -1336,7 +1364,7 @@ class_sizes.update({
     'WINEventHandler': 0x16C,
     'agiBILight': 0x88,
     'agiBILightModel': 0x40,
-    'agiBitmap': 0x40,
+    'agiBitmap': 0x3C,
     'agiColorModel': 0x2C,
     'agiColorModel8': 0x30,
     'agiColorModelABGR': 0x2C,
@@ -1756,6 +1784,8 @@ vftables = backport_vftable_purecalls(vftables, class_hier, {
     'JointedStruct': { 'asNode': 15 },
 })
 
+class_paddings = calculate_class_paddings(class_sizes, class_hier, vftables)
+
 '''
 Comment out the following code in fixup_func_type to create a proper vftable dump
 if self.member_type == 'dtor':
@@ -2059,6 +2089,10 @@ for lib, paths in grouped_symbols.items():
                     output.source += tokens_text
 
         if path:
+            if path in class_paddings:
+                padding_offset, padding_size = class_paddings[path]
+                output.header += 'u8 gap{:X}[0x{:X}];\n'.format(padding_offset, padding_size)
+
             output.header += '};\n\n'
 
             if (any(not v.static for v in values)):

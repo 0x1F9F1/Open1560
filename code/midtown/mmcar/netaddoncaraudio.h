@@ -49,6 +49,8 @@ public:
 
     // 0x4857D0 | ?Update@NetAddOnCarAudio@@QAEXXZ
     ARTS_IMPORT void Update();
+
+    u8 gap0[0xC];
 };
 
 check_size(NetAddOnCarAudio, 0xC);

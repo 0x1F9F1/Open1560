@@ -109,6 +109,8 @@ public:
 
     // 0x459B80 | ?SolveXZPosition@aiRailSet@@QAEXAAVVector3@@M@Z | unused
     ARTS_IMPORT void SolveXZPosition(class Vector3& arg1, f32 arg2);
+
+    u8 gap0[0x60];
 };
 
 check_size(aiRailSet, 0x60);

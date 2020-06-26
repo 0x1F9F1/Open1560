@@ -59,6 +59,8 @@ public:
 
     // 0x4C3530 | ?Init@mmAnimExcel@@QAEHPAD0@Z
     ARTS_IMPORT i32 Init(char* arg1, char* arg2);
+
+    u8 gap4[0xC];
 };
 
 check_size(mmAnimExcel, 0x10);

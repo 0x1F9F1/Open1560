@@ -77,6 +77,8 @@ public:
 
     // 0x447610 | ?SaveBinary@aiIntersection@@QAEXPAVStream@@@Z
     ARTS_IMPORT void SaveBinary(class Stream* arg1);
+
+    u8 gap0[0x2C];
 };
 
 check_size(aiIntersection, 0x2C);

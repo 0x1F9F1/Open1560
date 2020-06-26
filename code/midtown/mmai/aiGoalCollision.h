@@ -58,6 +58,8 @@ public:
 
     // 0x46B350 | ?Update@aiGoalCollision@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap8[0x8];
 };
 
 check_size(aiGoalCollision, 0x10);

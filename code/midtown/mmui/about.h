@@ -53,6 +53,8 @@ public:
 
     // 0x4A6080 | ?Update@AboutMenu@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap90[0x20];
 };
 
 check_size(AboutMenu, 0xB0);

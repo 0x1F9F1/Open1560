@@ -63,6 +63,8 @@ public:
 
     // 0x51A4D0 | ?Transform@mmIntersection@@QAEXPBVMatrix34@@@Z
     ARTS_IMPORT void Transform(class Matrix34 const* arg1);
+
+    u8 gap0[0xB0];
 };
 
 check_size(mmIntersection, 0xB0);
@@ -82,6 +84,8 @@ public:
 
     // 0x51A660 | ?Reset@mmEdgeBodyIsect@@QAEXXZ
     ARTS_IMPORT void Reset();
+
+    u8 gap0[0xF4];
 };
 
 check_size(mmEdgeBodyIsect, 0xF4);

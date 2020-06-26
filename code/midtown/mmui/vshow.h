@@ -49,6 +49,8 @@ public:
 
     // 0x4A5120 | ?PreSetup@VehShowcase@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
+
+    u8 gap90[0x8];
 };
 
 check_size(VehShowcase, 0x98);

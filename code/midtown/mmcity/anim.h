@@ -39,6 +39,8 @@ public:
 
     // 0x497E50 | ?LookupSequence@mmAnimation@@QAEHPAD@Z
     ARTS_IMPORT i32 LookupSequence(char* arg1);
+
+    u8 gap0[0x18];
 };
 
 check_size(mmAnimation, 0x18);
@@ -60,6 +62,8 @@ public:
 
     // 0x7057B0 | ?FrameFraction@mmAnimInstState@@2MA
     ARTS_IMPORT static f32 FrameFraction;
+
+    u8 gap0[0x8];
 };
 
 check_size(mmAnimInstState, 0x8);

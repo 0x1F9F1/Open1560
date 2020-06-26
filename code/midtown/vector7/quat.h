@@ -70,6 +70,8 @@ public:
 
     // 0x572A30 | ?TrackBall@Quaternion@@QAEXMMMMM@Z | unused
     ARTS_IMPORT void TrackBall(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+
+    u8 gap0[0x10];
 };
 
 check_size(Quaternion, 0x10);

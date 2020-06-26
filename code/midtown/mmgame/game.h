@@ -159,6 +159,8 @@ protected:
 
     // 0x410130 | ?RespawnXYZ@mmGame@@IAEXAAVVector3@@AAM@Z
     ARTS_IMPORT void RespawnXYZ(class Vector3& arg1, f32& arg2);
+
+    u8 gap20[0x1E550];
 };
 
 check_size(mmGame, 0x1E570);

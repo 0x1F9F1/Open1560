@@ -83,6 +83,8 @@ public:
 
     // 0x478E00 | ?DeclareFields@mmShard@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap44[0x20];
 };
 
 check_size(mmShard, 0x64);
@@ -135,6 +137,8 @@ protected:
 
     // 0x6A7F90 | ?NumInstances@mmShardManager@@1HA
     ARTS_IMPORT static i32 NumInstances;
+
+    u8 gap20[0x34];
 };
 
 check_size(mmShardManager, 0x54);

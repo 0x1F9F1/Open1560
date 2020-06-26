@@ -51,6 +51,8 @@ public:
 
     // 0x48B4F0 | ?Update@asNetObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x8];
 };
 
 check_size(asNetObject, 0x28);

@@ -114,6 +114,8 @@ public:
 
     // 0x4BEF00 | ?DeclareFields@mmSlider@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x84];
 };
 
 check_size(mmSlider, 0xA4);

@@ -77,6 +77,8 @@ public:
 
     // 0x4FECB0 | ?DeclareFields@mmNumber@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x60];
 };
 
 check_size(mmNumber, 0x80);
@@ -95,6 +97,8 @@ public:
 
     // 0x4FE880 | ?LoadLocFont@mmNumberFont@@QAEXPADPAULocString@@HI@Z
     ARTS_IMPORT void LoadLocFont(char* arg1, struct LocString* arg2, i32 arg3, u32 arg4);
+
+    u8 gap0[0x24];
 };
 
 check_size(mmNumberFont, 0x24);

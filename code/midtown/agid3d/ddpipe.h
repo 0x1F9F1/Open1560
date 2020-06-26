@@ -93,6 +93,8 @@ public:
 
     // 0x5328C0 | ?Validate@agiDDPipeline@@UAEHXZ
     ARTS_IMPORT i32 Validate() override;
+
+    u8 gap2F0[0x3C];
 };
 
 check_size(agiDDPipeline, 0x32C);

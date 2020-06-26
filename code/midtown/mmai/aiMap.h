@@ -310,6 +310,8 @@ private:
 
     // 0x4396A0 | ?ScanIntersections@aiMap@@AAEPAVaiIntersection@@AAVVector3@@@Z
     ARTS_IMPORT class aiIntersection* ScanIntersections(class Vector3& arg1);
+
+    u8 gap20[0x9C];
 };
 
 check_size(aiMap, 0xBC);

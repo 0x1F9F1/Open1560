@@ -212,6 +212,8 @@ private:
 
     // 0x639370 | ?s_fAudioVolume@aiPedestrian@@0MA
     ARTS_IMPORT static f32 s_fAudioVolume;
+
+    u8 gap0[0xAC];
 };
 
 check_size(aiPedestrian, 0xAC);
@@ -245,6 +247,8 @@ public:
 
     // 0x44D7F0 | ?ToMatrix@aiPedestrianInstance@@UAIAAVMatrix34@@AAV2@@Z | inline
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+
+    u8 gap14[0x14];
 };
 
 check_size(aiPedestrianInstance, 0x28);

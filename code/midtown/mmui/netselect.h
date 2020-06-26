@@ -182,6 +182,8 @@ public:
 
     // 0x4A4940 | ?WidgetSwitch@NetSelectMenu@@QAEXHH@Z
     ARTS_IMPORT void WidgetSwitch(i32 arg1, i32 arg2);
+
+    u8 gap90[0x1EC];
 };
 
 check_size(NetSelectMenu, 0x27C);

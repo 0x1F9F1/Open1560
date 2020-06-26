@@ -49,6 +49,8 @@ public:
 
     // 0x49F7F0 | ?PreSetup@Dialog_NewPlayer@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
+
+    u8 gapC0[0x50];
 };
 
 check_size(Dialog_NewPlayer, 0x110);

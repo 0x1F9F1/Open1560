@@ -180,6 +180,8 @@ protected:
 
     // 0x430CC0 | ?StartXYZ@mmGameMulti@@IAEXHAAVVector3@@0MM@Z
     ARTS_IMPORT void StartXYZ(i32 arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, f32 arg5);
+
+    u8 gap1E570[0x938];
 };
 
 check_size(mmGameMulti, 0x1EEA8);

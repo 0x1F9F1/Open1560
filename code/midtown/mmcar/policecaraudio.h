@@ -99,6 +99,8 @@ private:
 
     // 0x6A7FE8 | ?s_iPlayingFluctuator@mmPoliceCarAudio@@0FA
     ARTS_IMPORT static i16 s_iPlayingFluctuator;
+
+    u8 gapE0[0x34];
 };
 
 check_size(mmPoliceCarAudio, 0x114);

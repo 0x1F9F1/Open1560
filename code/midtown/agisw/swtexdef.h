@@ -77,6 +77,8 @@ public:
 
     // 0x5378C0 | ?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z
     ARTS_IMPORT void Unlock(struct agiTexLock& arg1) override;
+
+    u8 gap74[0x28];
 };
 
 check_size(agiSWTexDef, 0x9C);
@@ -98,6 +100,8 @@ public:
 
     // 0x537B30 | ?EndGfx@agiSWTexLut@@UAEXXZ
     ARTS_IMPORT void EndGfx() override;
+
+    u8 gap420[0x1000];
 };
 
 check_size(agiSWTexLut, 0x1420);

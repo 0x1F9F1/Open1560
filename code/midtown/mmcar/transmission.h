@@ -98,6 +98,8 @@ public:
 
     // 0x470A30 | ?DeclareFields@mmTransmission@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0xB4];
 };
 
 check_size(mmTransmission, 0xD4);

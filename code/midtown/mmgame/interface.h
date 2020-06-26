@@ -344,6 +344,8 @@ private:
 
     // 0x40CDA0 | ?ShowSessions@mmInterface@@AAEXXZ
     ARTS_IMPORT void ShowSessions();
+
+    u8 gap20[0x35810];
 };
 
 check_size(mmInterface, 0x35830);

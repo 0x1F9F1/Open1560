@@ -86,6 +86,8 @@ public:
 
     // 0x4B7A30 | ?Update@mmCompRoster@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap48[0x48];
 };
 
 check_size(mmCompRoster, 0x90);

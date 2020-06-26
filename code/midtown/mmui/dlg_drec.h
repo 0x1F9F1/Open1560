@@ -65,6 +65,8 @@ public:
 
     // 0x49F250 | ?SetSortState@Dialog_DriverRec@@QAEXXZ
     ARTS_IMPORT void SetSortState();
+
+    u8 gapC0[0x24];
 };
 
 check_size(Dialog_DriverRec, 0xE4);

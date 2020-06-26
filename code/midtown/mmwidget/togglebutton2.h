@@ -87,6 +87,8 @@ protected:
 
     // 0x705C20 | ?ToggleBMLoaded@UIToggleButton2@@1HA
     ARTS_IMPORT static i32 ToggleBMLoaded;
+
+    u8 gapB4[0xC];
 };
 
 check_size(UIToggleButton2, 0xC0);

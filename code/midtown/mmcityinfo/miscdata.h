@@ -103,6 +103,8 @@ public:
 
     // 0x4CD6E0 | ?DeclareFields@mmMiscData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap88[0x17340];
 };
 
 check_size(mmMiscData, 0x173C8);

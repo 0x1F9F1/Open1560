@@ -75,6 +75,8 @@ public:
 
     // 0x570D50 | ?Set@Vector4@@QAEXMMMM@Z | inline
     ARTS_IMPORT void Set(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+
+    u8 gap0[0x10];
 };
 
 check_size(Vector4, 0x10);
@@ -100,6 +102,8 @@ public:
 private:
     // 0x56E100 | ?NewTable@Vector4Array@@AAEXH@Z
     ARTS_IMPORT void NewTable(i32 arg1);
+
+    u8 gap0[0x14];
 };
 
 check_size(Vector4Array, 0x14);

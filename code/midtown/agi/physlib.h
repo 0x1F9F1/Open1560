@@ -43,6 +43,8 @@ public:
 
     // 0x55A250 | ?Kill@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXXZ | inline
     ARTS_IMPORT void Kill();
+
+    u8 gap0[0x4014];
 };
 
 check_size(agiLib<class agiPhysParameters, class agiPhysDef>, 0x4014);

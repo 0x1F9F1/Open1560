@@ -58,6 +58,8 @@ public:
 
     // 0x4BC360 | ?Update@UIIconW@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    u8 gap74[0x48];
 };
 
 check_size(UIIconW, 0xBC);

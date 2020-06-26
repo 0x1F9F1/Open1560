@@ -77,6 +77,8 @@ public:
 
     // 0x556170 | ?Save@agiTexParameters@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
+
+    u8 gap0[0x30];
 };
 
 check_size(agiTexParameters, 0x30);
@@ -143,6 +145,8 @@ protected:
     // 0x556970 | ??_EagiTexDef@@MAEPAXI@Z
     // 0x556230 | ??1agiTexDef@@MAE@XZ
     ARTS_IMPORT ~agiTexDef() override;
+
+    u8 gap18[0x5C];
 };
 
 check_size(agiTexDef, 0x74);
@@ -195,6 +199,8 @@ protected:
     // 0x5569A0 | ??_GagiTexLut@@MAEPAXI@Z
     // 0x556920 | ??1agiTexLut@@MAE@XZ
     ARTS_IMPORT ~agiTexLut() override;
+
+    u8 gap18[0x408];
 };
 
 check_size(agiTexLut, 0x420);

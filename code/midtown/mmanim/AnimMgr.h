@@ -70,6 +70,8 @@ public:
 
     // 0x4C1440 | ?DeclareFields@mmAnimMgr@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap20[0x2690];
 };
 
 check_size(mmAnimMgr, 0x26B0);

@@ -64,6 +64,8 @@ public:
 
     // 0x4FB010 | ?DeclareFields@PolarCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap118[0x18];
 };
 
 check_size(PolarCamCS, 0x130);

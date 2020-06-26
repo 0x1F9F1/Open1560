@@ -49,6 +49,8 @@ public:
 
     // 0x4E77B0 | ?Stop@mmCollideFF@@UAEHXZ
     ARTS_IMPORT i32 Stop() override;
+
+    u8 gap80[0x18];
 };
 
 check_size(mmCollideFF, 0x98);

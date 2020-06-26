@@ -227,6 +227,8 @@ private:
 
     // 0x41EFC0 | ?UpdateTimeWarning@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateTimeWarning();
+
+    u8 gap1EEA8[0x88];
 };
 
 check_size(mmMultiCR, 0x1EF30);

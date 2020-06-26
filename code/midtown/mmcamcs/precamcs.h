@@ -68,6 +68,8 @@ public:
 
     // 0x4F9C10 | ?DeclareFields@PreCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap118[0x18];
 };
 
 check_size(PreCamCS, 0x130);

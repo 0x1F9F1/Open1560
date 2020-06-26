@@ -71,6 +71,8 @@ private:
 
     // 0x4FC9D0 | ?UpdateMaxDist@AppCamCS@@AAEXXZ
     ARTS_IMPORT void UpdateMaxDist();
+
+    u8 gap9C[0x78];
 };
 
 check_size(AppCamCS, 0x114);

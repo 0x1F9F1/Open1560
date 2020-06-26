@@ -157,6 +157,8 @@ private:
 
     // 0x445C70 | ?FindPerp@aiVehiclePolice@@AAEHHHPAVaiPath@@HH@Z
     ARTS_IMPORT i32 FindPerp(i32 arg1, i32 arg2, class aiPath* arg3, i32 arg4, i32 arg5);
+
+    u8 gapD8[0x2344];
 };
 
 check_size(aiVehiclePolice, 0x241C);

@@ -245,6 +245,8 @@ public:
 
     // 0x705688 | ?StaticLighter@mmInstance@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
     ARTS_IMPORT static void (*StaticLighter)(u8*, u32*, u32*, class agiMeshSet*);
+
+    u8 gap4[0x10];
 };
 
 check_size(mmInstance, 0x14);
@@ -279,6 +281,8 @@ public:
 
     // 0x494D00 | ?DeclareFields@mmShearInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap44[0x4];
 };
 
 check_size(mmShearInstance, 0x48);
@@ -313,6 +317,8 @@ public:
 
     // 0x494EA0 | ?DeclareFields@mmBuildingInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap44[0x4];
 };
 
 check_size(mmBuildingInstance, 0x48);
@@ -382,6 +388,8 @@ public:
 
     // 0x494AC0 | ?DeclareFields@mmYInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap14[0x18];
 };
 
 check_size(mmYInstance, 0x2C);
@@ -425,6 +433,8 @@ public:
 
     // 0x494B70 | ?DeclareFields@mmMatrixInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap14[0x30];
 };
 
 check_size(mmMatrixInstance, 0x44);
@@ -461,6 +471,8 @@ public:
 
     // 0x495040 | ?DeclareFields@mmStaticInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap2C[0xC];
 };
 
 check_size(mmStaticInstance, 0x38);
@@ -495,6 +507,8 @@ public:
 
     // 0x4951D0 | ?DeclareFields@mmFacadeInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    u8 gap38[0xC];
 };
 
 check_size(mmFacadeInstance, 0x44);
@@ -513,6 +527,8 @@ public:
 
     // 0x493820 | ?Valid@mmFacadeQuad@@SAHPAVagiMeshSet@@@Z
     ARTS_IMPORT static i32 Valid(class agiMeshSet* arg1);
+
+    u8 gap0[0x18];
 };
 
 check_size(mmFacadeQuad, 0x18);
