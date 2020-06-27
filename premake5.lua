@@ -24,7 +24,7 @@ MM1_COMMAND_LINE = _OPTIONS['MM1_COMMAND_LINE'] or read_file_line('CommandLine.t
 workspace "Open1560"
     location "build"
 
-    toolset "msc-llvm"
+    -- toolset "msc-llvm"
 
     configurations { "Debug", "Release", "Final" }
     platforms { "Win32" }
