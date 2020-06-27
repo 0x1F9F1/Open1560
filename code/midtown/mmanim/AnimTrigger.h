@@ -42,7 +42,7 @@ public:
     ARTS_IMPORT mmAnimTrigger();
 
     // 0x4C41F0 | ??1mmAnimTrigger@@QAE@XZ
-    ARTS_IMPORT ~mmAnimTrigger();
+    ARTS_IMPORT ~mmAnimTrigger() = default;
 
     // 0x4C4290 | ?CheckCondition@mmAnimTrigger@@QAEHXZ
     ARTS_IMPORT i32 CheckCondition();

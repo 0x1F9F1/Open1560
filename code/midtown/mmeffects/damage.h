@@ -35,7 +35,7 @@ public:
     ARTS_IMPORT mmDamage();
 
     // 0x502230 | ??1mmDamage@@QAE@XZ
-    ARTS_IMPORT ~mmDamage();
+    ARTS_IMPORT ~mmDamage() = default;
 
     // 0x502470 | ?Apply@mmDamage@@QAEXAAVVector3@@M@Z
     ARTS_IMPORT void Apply(class Vector3& arg1, f32 arg2);

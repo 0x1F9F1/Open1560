@@ -34,7 +34,7 @@ public:
     ARTS_IMPORT ControlBase();
 
     // 0x4AB710 | ??1ControlBase@@QAE@XZ
-    ARTS_IMPORT ~ControlBase();
+    ARTS_IMPORT ~ControlBase() = default;
 
     // 0x4AB720 | ?InitSensitivity@ControlBase@@QAEXXZ
     ARTS_IMPORT void InitSensitivity();

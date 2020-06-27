@@ -152,7 +152,7 @@ struct mmCtrlCFG
 {
 public:
     // 0x4CEE80 | ??1mmCtrlCFG@@QAE@XZ | inline
-    ARTS_IMPORT ~mmCtrlCFG();
+    ARTS_IMPORT ~mmCtrlCFG() = default;
 
     u8 gap0[0x6C80];
 };

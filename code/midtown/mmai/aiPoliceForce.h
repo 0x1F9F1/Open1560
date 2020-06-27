@@ -38,7 +38,7 @@ public:
     ARTS_IMPORT aiPoliceForce();
 
     // 0x44E800 | ??1aiPoliceForce@@QAE@XZ
-    ARTS_IMPORT ~aiPoliceForce();
+    ARTS_IMPORT ~aiPoliceForce() = default;
 
     // 0x44E860 | ?Find@aiPoliceForce@@QAEHPAVmmCar@@0@Z
     ARTS_IMPORT i32 Find(class mmCar* arg1, class mmCar* arg2);

@@ -155,7 +155,7 @@ public:
     ARTS_IMPORT mmJaxis();
 
     // 0x4E60A0 | ??1mmJaxis@@QAE@XZ
-    ARTS_IMPORT ~mmJaxis();
+    ARTS_IMPORT ~mmJaxis() = default;
 
     // 0x4E6130 | ?Capture@mmJaxis@@QAEHXZ
     ARTS_IMPORT i32 Capture();

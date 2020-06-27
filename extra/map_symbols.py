@@ -755,24 +755,13 @@ def collect_default_dtor(view, symbols, class_hier):
         if symbol.dtor_type != 'dtor':
             continue
 
-        if symbol.path not in class_hier:
-            continue
-
-        parents = class_hier[symbol.path]
-
-        if len(parents) != 1:
-            continue
-
         func = view.get_function_at(symbol.address)
 
         if func is None:
             print('Invalid ctor/dtor {} @ 0x{:X}'.format(symbol.undec_name, symbol.address))
             continue
 
-        parameters = func.parameter_vars
-
-        if (not parameters) or (parameters[0].storage != 51): # ecx
-            continue
+        print(symbol)
 
         hlil = func.hlil
 
@@ -800,29 +789,39 @@ def collect_default_dtor(view, symbols, class_hier):
 
             index += 1
 
-        if hlil[index].operation not in [HighLevelILOperation.HLIL_CALL, HighLevelILOperation.HLIL_TAILCALL]:
+        if hlil[index].operation in [HighLevelILOperation.HLIL_CALL, HighLevelILOperation.HLIL_TAILCALL]:
+            dest = hlil[index].dest
+
+            if dest.operation not in [HighLevelILOperation.HLIL_CONST, HighLevelILOperation.HLIL_CONST_PTR]:
+                continue
+
+            if dest.constant not in symbols:
+                continue
+
+            dest_sym = symbols[dest.constant]
+
+            if dest_sym.member_type != 'dtor':
+                continue
+
+            if dest_sym.dtor_type != 'dtor':
+                continue
+
+            if symbol.path not in class_hier:
+                continue
+
+            parents = class_hier[symbol.path]
+
+            if len(parents) != 1:
+                continue
+
+            if dest_sym.path not in parents:
+                continue
+
+            index += 1
+        elif hlil[index].operation == HighLevelILOperation.HLIL_RET:
+            index += 1
+        else:
             continue
-
-        dest = hlil[index].dest
-
-        if dest.operation not in [HighLevelILOperation.HLIL_CONST, HighLevelILOperation.HLIL_CONST_PTR]:
-            continue
-
-        if dest.constant not in symbols:
-            continue
-
-        dest_sym = symbols[dest.constant]
-
-        if dest_sym.member_type != 'dtor':
-            continue
-
-        if dest_sym.dtor_type != 'dtor':
-            continue
-
-        if dest_sym.path not in parents:
-            continue
-
-        index += 1
 
         if index != len(hlil):
             continue
@@ -2163,11 +2162,10 @@ for lib, paths in grouped_symbols.items():
             if value.override:
                 tokens.append('override')
 
-            if value.raw_name == '__purecall':
-                tokens.append('= 0')
-
             if is_default:
                 tokens.append('= default')
+            elif value.raw_name == '__purecall':
+                tokens.append('= 0')
 
             tokens = list(filter(None, tokens))
 

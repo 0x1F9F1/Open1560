@@ -73,7 +73,7 @@ protected:
     // 0x552420 | ??_EagiLighter@@MAEPAXI@Z
     // 0x552420 | ??_GagiLighter@@MAEPAXI@Z
     // 0x551750 | ??1agiLighter@@MAE@XZ
-    ARTS_IMPORT virtual ~agiLighter();
+    ARTS_IMPORT virtual ~agiLighter() = default;
 
 public:
     // 0x551800 | ?TransformAll@agiLighter@@UAEXPAVMatrix34@@PAVVector3@@I@Z

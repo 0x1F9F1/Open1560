@@ -108,7 +108,7 @@ class aiGoal
 
 public:
     // 0x45F6F0 | ??1aiGoal@@QAE@XZ | inline
-    ARTS_IMPORT ~aiGoal();
+    ARTS_IMPORT ~aiGoal() = default;
 
     virtual void Init() = 0;
 

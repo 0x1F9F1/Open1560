@@ -54,7 +54,7 @@ struct VolumeDW
 {
 public:
     // 0x4EEB80 | ??1VolumeDW@@QAE@XZ | inline
-    ARTS_IMPORT ~VolumeDW();
+    ARTS_IMPORT ~VolumeDW() = default;
 
     // 0x4EE040 | ?Set@VolumeDW@@QAEXMM@Z | unused
     ARTS_IMPORT void Set(f32 arg1, f32 arg2);

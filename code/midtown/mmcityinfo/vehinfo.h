@@ -42,7 +42,7 @@ public:
     // 0x4D3C90 | ??_EmmVehInfo@@UAEPAXI@Z
     // 0x4D3C90 | ??_GmmVehInfo@@UAEPAXI@Z
     // 0x4D39F0 | ??1mmVehInfo@@UAE@XZ
-    ARTS_IMPORT virtual ~mmVehInfo();
+    ARTS_IMPORT virtual ~mmVehInfo() = default;
 
     // 0x4D3BE0 | ?HasColorVariations@mmVehInfo@@QAEHXZ | unused
     ARTS_IMPORT i32 HasColorVariations();

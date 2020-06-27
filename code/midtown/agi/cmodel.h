@@ -35,7 +35,7 @@ class agiColorModel
 
 public:
     // 0x55BB70 | ??1agiColorModel@@MAE@XZ
-    virtual ~agiColorModel() = 0;
+    virtual ~agiColorModel() = default;
 
     virtual u32 GetColor(struct agiRgba arg1) = 0;
 

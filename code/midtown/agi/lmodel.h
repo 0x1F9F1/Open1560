@@ -42,7 +42,7 @@ public:
     ARTS_IMPORT agiLightModelParameters();
 
     // 0x55BCF0 | ??1agiLightModelParameters@@QAE@XZ
-    ARTS_IMPORT ~agiLightModelParameters();
+    ARTS_IMPORT ~agiLightModelParameters() = default;
 
     // 0x55BCD0 | ??4agiLightModelParameters@@QAEXABV0@@Z
     ARTS_IMPORT void operator=(class agiLightModelParameters const& arg1);

@@ -80,7 +80,7 @@ public:
 
     // 0x4C4DC0 | ??_EmmAnimDOF@@QAEPAXI@Z | unused
     // 0x4C4570 | ??1mmAnimDOF@@QAE@XZ
-    ARTS_IMPORT ~mmAnimDOF();
+    ARTS_IMPORT ~mmAnimDOF() = default;
 
     // 0x4C4D80 | ?GetClass@mmAnimDOF@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT virtual class MetaClass* GetClass();

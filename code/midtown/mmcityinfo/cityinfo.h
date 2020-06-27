@@ -40,7 +40,7 @@ public:
     // 0x4D39A0 | ??_EmmCityInfo@@UAEPAXI@Z
     // 0x4D39A0 | ??_GmmCityInfo@@UAEPAXI@Z
     // 0x4D3640 | ??1mmCityInfo@@UAE@XZ
-    ARTS_IMPORT virtual ~mmCityInfo();
+    ARTS_IMPORT virtual ~mmCityInfo() = default;
 
     // 0x4D3650 | ?Load@mmCityInfo@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
