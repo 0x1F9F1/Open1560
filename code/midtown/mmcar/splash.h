@@ -44,6 +44,7 @@ public:
     ARTS_IMPORT mmSplash();
 
     // 0x4814A0 | ??_GmmSplash@@UAEPAXI@Z
+    // 0x4814A0 | ??_EmmSplash@@UAEPAXI@Z
     // 0x470310 | ??1mmSplash@@UAE@XZ | inline
     ARTS_IMPORT ~mmSplash() override = default;
 

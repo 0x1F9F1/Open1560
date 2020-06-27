@@ -65,6 +65,7 @@ public:
     ARTS_IMPORT mmBangerInstance();
 
     // 0x444720 | ??_EmmBangerInstance@@UAEPAXI@Z
+    // 0x444720 | ??_GmmBangerInstance@@UAEPAXI@Z
     // 0x444740 | ??1mmBangerInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmBangerInstance() override = default;
 
@@ -109,6 +110,7 @@ public:
     ARTS_IMPORT mmUnhitBangerInstance();
 
     // 0x48FC50 | ??_GmmUnhitBangerInstance@@UAEPAXI@Z
+    // 0x48FC50 | ??_EmmUnhitBangerInstance@@UAEPAXI@Z
     // 0x48FC70 | ??1mmUnhitBangerInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmUnhitBangerInstance() override;
 
@@ -147,6 +149,7 @@ class mmBangerManager : public asNode
 
 public:
     // 0x48FC80 | ??_GmmBangerManager@@UAEPAXI@Z
+    // 0x48FC80 | ??_EmmBangerManager@@UAEPAXI@Z
     // 0x48FCB0 | ??1mmBangerManager@@UAE@XZ | inline
     ARTS_IMPORT ~mmBangerManager() override = default;
 

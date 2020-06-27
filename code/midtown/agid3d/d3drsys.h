@@ -58,6 +58,7 @@ public:
     ARTS_IMPORT agiD3DRasterizer(class agiPipeline* arg1);
 
     // 0x52FA60 | ??_EagiD3DRasterizer@@UAEPAXI@Z
+    // 0x52FA60 | ??_GagiD3DRasterizer@@UAEPAXI@Z
     // 0x52E590 | ??1agiD3DRasterizer@@UAE@XZ
     ARTS_IMPORT ~agiD3DRasterizer() override;
 

@@ -100,6 +100,7 @@ public:
     ARTS_IMPORT AudSound(u32 arg1, i32 arg2, i16 arg3);
 
     // 0x4EBC80 | ??_GAudSound@@UAEPAXI@Z
+    // 0x4EBC80 | ??_EAudSound@@UAEPAXI@Z
     // 0x4EA530 | ??1AudSound@@UAE@XZ
     ARTS_IMPORT ~AudSound() override;
 

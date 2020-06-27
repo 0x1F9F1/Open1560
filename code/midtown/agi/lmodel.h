@@ -58,6 +58,7 @@ class agiLightModel : public agiRefreshable
 
 public:
     // 0x55BDF0 | ??_EagiLightModel@@UAEPAXI@Z
+    // 0x55BDF0 | ??_GagiLightModel@@UAEPAXI@Z
     // 0x55BD80 | ??1agiLightModel@@UAE@XZ
     ARTS_IMPORT ~agiLightModel() override;
 

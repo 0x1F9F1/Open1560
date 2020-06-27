@@ -41,6 +41,7 @@ public:
     ARTS_IMPORT asNetObject();
 
     // 0x48B500 | ??_GasNetObject@@UAEPAXI@Z
+    // 0x48B500 | ??_EasNetObject@@UAEPAXI@Z
     // 0x48B4C0 | ??1asNetObject@@UAE@XZ
     ARTS_IMPORT ~asNetObject() override;
 

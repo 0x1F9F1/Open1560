@@ -61,6 +61,7 @@ public:
     ARTS_IMPORT AudioOptions(i32 arg1);
 
     // 0x49D700 | ??_GAudioOptions@@UAEPAXI@Z
+    // 0x49D700 | ??_EAudioOptions@@UAEPAXI@Z
     // 0x49CE60 | ??1AudioOptions@@UAE@XZ
     ARTS_IMPORT ~AudioOptions() override;
 

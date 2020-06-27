@@ -36,6 +36,7 @@ public:
 
 protected:
     // 0x555230 | ??_GagiRenderer@@MAEPAXI@Z
+    // 0x555230 | ??_EagiRenderer@@MAEPAXI@Z
     ARTS_IMPORT virtual ~agiRenderer();
 
 public:

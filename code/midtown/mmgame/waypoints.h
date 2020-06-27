@@ -74,6 +74,7 @@ public:
     ARTS_IMPORT mmWaypoints();
 
     // 0x430320 | ??_EmmWaypoints@@UAEPAXI@Z
+    // 0x430320 | ??_GmmWaypoints@@UAEPAXI@Z
     // 0x42DB20 | ??1mmWaypoints@@UAE@XZ
     ARTS_IMPORT ~mmWaypoints() override;
 

@@ -50,6 +50,7 @@ public:
     ARTS_IMPORT mmCompRoster();
 
     // 0x4B7C40 | ??_EmmCompRoster@@UAEPAXI@Z
+    // 0x4B7C40 | ??_GmmCompRoster@@UAEPAXI@Z
     // 0x4B78B0 | ??1mmCompRoster@@UAE@XZ
     ARTS_IMPORT ~mmCompRoster() override;
 

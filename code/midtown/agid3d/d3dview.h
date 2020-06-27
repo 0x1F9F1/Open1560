@@ -44,6 +44,7 @@ public:
     ARTS_IMPORT agiD3DViewport(class agiPipeline* arg1);
 
     // 0x533530 | ??_EagiD3DViewport@@UAEPAXI@Z
+    // 0x533530 | ??_GagiD3DViewport@@UAEPAXI@Z
     // 0x533340 | ??1agiD3DViewport@@UAE@XZ
     ARTS_IMPORT ~agiD3DViewport() override;
 

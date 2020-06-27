@@ -46,6 +46,7 @@ public:
     ARTS_IMPORT Card2D();
 
     // 0x4FE620 | ??_ECard2D@@UAEPAXI@Z
+    // 0x4FE620 | ??_GCard2D@@UAEPAXI@Z
     // 0x4FE650 | ??1Card2D@@UAE@XZ | inline
     ARTS_IMPORT ~Card2D() override = default;
 

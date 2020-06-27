@@ -44,6 +44,7 @@ public:
     ARTS_IMPORT agiColorModel8(class agiPalette* arg1);
 
     // 0x55C040 | ??_EagiColorModel8@@UAEPAXI@Z
+    // 0x55C040 | ??_GagiColorModel8@@UAEPAXI@Z
     // 0x55BF00 | ??1agiColorModel8@@UAE@XZ
     ARTS_IMPORT ~agiColorModel8() override;
 

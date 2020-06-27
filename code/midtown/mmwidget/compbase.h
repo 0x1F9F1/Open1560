@@ -33,6 +33,7 @@ class mmCompBase : public asNode
 
 public:
     // 0x4B4EC0 | ??_GmmCompBase@@UAEPAXI@Z
+    // 0x4B4EC0 | ??_EmmCompBase@@UAEPAXI@Z
     // 0x4B4DF0 | ??1mmCompBase@@UAE@XZ | inline
     ARTS_IMPORT ~mmCompBase() override;
 

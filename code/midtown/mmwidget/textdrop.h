@@ -55,6 +55,7 @@ public:
     ARTS_IMPORT UITextDropdown();
 
     // 0x4B3980 | ??_GUITextDropdown@@UAEPAXI@Z
+    // 0x4B3980 | ??_EUITextDropdown@@UAEPAXI@Z
     // 0x4B2F60 | ??1UITextDropdown@@UAE@XZ
     ARTS_IMPORT ~UITextDropdown() override;
 

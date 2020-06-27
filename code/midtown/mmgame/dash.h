@@ -67,6 +67,7 @@ public:
     ARTS_IMPORT mmExternalView();
 
     // 0x422F60 | ??_EmmExternalView@@UAEPAXI@Z
+    // 0x422F60 | ??_GmmExternalView@@UAEPAXI@Z
     // 0x406910 | ??1mmExternalView@@UAE@XZ | inline
     ARTS_IMPORT ~mmExternalView() override;
 

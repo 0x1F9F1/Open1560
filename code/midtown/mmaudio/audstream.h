@@ -68,6 +68,7 @@ public:
     ARTS_IMPORT AudStream(u32 arg1, i32 arg2, i16 arg3);
 
     // 0x4F4210 | ??_EAudStream@@UAEPAXI@Z
+    // 0x4F4210 | ??_GAudStream@@UAEPAXI@Z
     // 0x4F36E0 | ??1AudStream@@UAE@XZ
     ARTS_IMPORT ~AudStream() override;
 

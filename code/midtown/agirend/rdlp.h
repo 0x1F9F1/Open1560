@@ -55,6 +55,7 @@ public:
     ARTS_IMPORT RDLP(class agiPipeline* arg1);
 
     // 0x5515E0 | ??_ERDLP@@UAEPAXI@Z
+    // 0x5515E0 | ??_GRDLP@@UAEPAXI@Z
     // 0x550850 | ??1RDLP@@UAE@XZ
     ARTS_IMPORT ~RDLP() override;
 
@@ -91,6 +92,7 @@ public:
     ARTS_IMPORT RDynamicDLP(i32 arg1, class RDLP* arg2);
 
     // 0x551610 | ??_ERDynamicDLP@@UAEPAXI@Z
+    // 0x551610 | ??_GRDynamicDLP@@UAEPAXI@Z
     // 0x5512F0 | ??1RDynamicDLP@@UAE@XZ
     ARTS_IMPORT ~RDynamicDLP() override;
 

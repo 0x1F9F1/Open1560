@@ -50,6 +50,7 @@ public:
     ARTS_IMPORT PURoster(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4A9390 | ??_GPURoster@@UAEPAXI@Z
+    // 0x4A9390 | ??_EPURoster@@UAEPAXI@Z
     // 0x4A8E10 | ??1PURoster@@UAE@XZ
     ARTS_IMPORT ~PURoster() override;
 

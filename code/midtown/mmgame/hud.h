@@ -240,6 +240,7 @@ public:
     ARTS_IMPORT mmTimer();
 
     // 0x4069C0 | ??_GmmTimer@@UAEPAXI@Z
+    // 0x4069C0 | ??_EmmTimer@@UAEPAXI@Z
     // 0x406200 | ??1mmTimer@@UAE@XZ
     ARTS_IMPORT ~mmTimer() override;
 
@@ -278,6 +279,7 @@ public:
     ARTS_IMPORT mmArrow();
 
     // 0x4069F0 | ??_GmmArrow@@UAEPAXI@Z
+    // 0x4069F0 | ??_EmmArrow@@UAEPAXI@Z
     // 0x406450 | ??1mmArrow@@UAE@XZ
     ARTS_IMPORT ~mmArrow() override;
 

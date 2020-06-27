@@ -100,6 +100,7 @@ class mmPhysEntity : public asNode
 
 public:
     // 0x453B40 | ??_GmmPhysEntity@@UAEPAXI@Z
+    // 0x453B40 | ??_EmmPhysEntity@@UAEPAXI@Z
     // 0x42D510 | ??1mmPhysEntity@@UAE@XZ | inline
     ARTS_IMPORT ~mmPhysEntity() override = default;
 
@@ -143,6 +144,7 @@ class aiVehicleInstance : public mmInstance
 
 public:
     // 0x45C530 | ??_GaiVehicleInstance@@UAEPAXI@Z
+    // 0x45C530 | ??_EaiVehicleInstance@@UAEPAXI@Z
     // 0x45C550 | ??1aiVehicleInstance@@UAE@XZ | inline
     ARTS_IMPORT ~aiVehicleInstance() override = default;
 
@@ -202,6 +204,7 @@ public:
     ARTS_IMPORT aiVehicleActive();
 
     // 0x453A00 | ??_GaiVehicleActive@@UAEPAXI@Z
+    // 0x453A00 | ??_EaiVehicleActive@@UAEPAXI@Z
     // 0x452450 | ??1aiVehicleActive@@UAE@XZ
     ARTS_IMPORT ~aiVehicleActive() override;
 
@@ -246,6 +249,7 @@ public:
     ARTS_IMPORT aiVehicleManager();
 
     // 0x453A60 | ??_EaiVehicleManager@@UAEPAXI@Z
+    // 0x453A60 | ??_GaiVehicleManager@@UAEPAXI@Z
     // 0x452B10 | ??1aiVehicleManager@@UAE@XZ
     ARTS_IMPORT ~aiVehicleManager() override;
 

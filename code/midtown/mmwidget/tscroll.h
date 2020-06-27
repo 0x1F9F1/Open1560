@@ -58,6 +58,7 @@ public:
     ARTS_IMPORT UITextScroll();
 
     // 0x4B95D0 | ??_EUITextScroll@@UAEPAXI@Z
+    // 0x4B95D0 | ??_GUITextScroll@@UAEPAXI@Z
     // 0x4B8900 | ??1UITextScroll@@UAE@XZ
     ARTS_IMPORT ~UITextScroll() override;
 

@@ -47,6 +47,7 @@ public:
     ARTS_IMPORT UILabel();
 
     // 0x4B98C0 | ??_GUILabel@@UAEPAXI@Z
+    // 0x4B98C0 | ??_EUILabel@@UAEPAXI@Z
     // 0x4B9690 | ??1UILabel@@UAE@XZ
     ARTS_IMPORT ~UILabel() override;
 

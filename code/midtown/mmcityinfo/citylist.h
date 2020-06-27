@@ -48,6 +48,7 @@ public:
     ARTS_IMPORT mmCityList();
 
     // 0x4CC050 | ??_GmmCityList@@UAEPAXI@Z
+    // 0x4CC050 | ??_EmmCityList@@UAEPAXI@Z
     // 0x4CBC30 | ??1mmCityList@@UAE@XZ
     ARTS_IMPORT virtual ~mmCityList();
 

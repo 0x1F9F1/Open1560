@@ -76,6 +76,7 @@ class MixerCTL
 
 public:
     // 0x4EEB90 | ??_GMixerCTL@@UAEPAXI@Z
+    // 0x4EEB90 | ??_EMixerCTL@@UAEPAXI@Z
     // 0x4EE180 | ??1MixerCTL@@UAE@XZ
     ARTS_IMPORT ~MixerCTL() override;
 

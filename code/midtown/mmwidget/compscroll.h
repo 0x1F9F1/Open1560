@@ -59,6 +59,7 @@ public:
     ARTS_IMPORT UICompositeScroll();
 
     // 0x4B5A50 | ??_EUICompositeScroll@@UAEPAXI@Z
+    // 0x4B5A50 | ??_GUICompositeScroll@@UAEPAXI@Z
     // 0x4B4FD0 | ??1UICompositeScroll@@UAE@XZ
     ARTS_IMPORT ~UICompositeScroll() override;
 

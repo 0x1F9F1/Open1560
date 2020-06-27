@@ -54,6 +54,7 @@ public:
     ARTS_IMPORT agiSWTexDef(class agiSWPipeline* arg1);
 
     // 0x537B40 | ??_GagiSWTexDef@@UAEPAXI@Z
+    // 0x537B40 | ??_EagiSWTexDef@@UAEPAXI@Z
     // 0x537700 | ??1agiSWTexDef@@UAE@XZ
     ARTS_IMPORT ~agiSWTexDef() override;
 
@@ -92,6 +93,7 @@ public:
     ARTS_IMPORT agiSWTexLut(class agiSWPipeline* arg1);
 
     // 0x537B70 | ??_GagiSWTexLut@@UAEPAXI@Z
+    // 0x537B70 | ??_EagiSWTexLut@@UAEPAXI@Z
     // 0x537BA0 | ??1agiSWTexLut@@UAE@XZ | inline
     ARTS_IMPORT ~agiSWTexLut() override = default;
 

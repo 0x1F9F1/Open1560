@@ -55,6 +55,7 @@ public:
     ARTS_IMPORT UISlider();
 
     // 0x4B4240 | ??_EUISlider@@UAEPAXI@Z
+    // 0x4B4240 | ??_GUISlider@@UAEPAXI@Z
     // 0x4B3A40 | ??1UISlider@@UAE@XZ
     ARTS_IMPORT ~UISlider() override;
 

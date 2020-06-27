@@ -132,6 +132,7 @@ class mmTrailerInstance : public mmInstance
 
 public:
     // 0x47A150 | ??_GmmTrailerInstance@@UAEPAXI@Z
+    // 0x47A150 | ??_EmmTrailerInstance@@UAEPAXI@Z
     // 0x47A140 | ??1mmTrailerInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmTrailerInstance() override = default;
 

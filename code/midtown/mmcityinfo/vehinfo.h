@@ -40,6 +40,7 @@ public:
     ARTS_IMPORT mmVehInfo();
 
     // 0x4D3C90 | ??_EmmVehInfo@@UAEPAXI@Z
+    // 0x4D3C90 | ??_GmmVehInfo@@UAEPAXI@Z
     // 0x4D39F0 | ??1mmVehInfo@@UAE@XZ
     ARTS_IMPORT virtual ~mmVehInfo();
 

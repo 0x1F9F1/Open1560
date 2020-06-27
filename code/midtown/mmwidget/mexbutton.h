@@ -45,6 +45,7 @@ public:
     ARTS_IMPORT UIMexButton();
 
     // 0x4BCD30 | ??_EUIMexButton@@UAEPAXI@Z
+    // 0x4BCD30 | ??_GUIMexButton@@UAEPAXI@Z
     // 0x4BCB30 | ??1UIMexButton@@UAE@XZ
     ARTS_IMPORT ~UIMexButton() override;
 

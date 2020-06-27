@@ -45,6 +45,7 @@ public:
     ARTS_IMPORT mmVehList();
 
     // 0x4CC460 | ??_GmmVehList@@UAEPAXI@Z
+    // 0x4CC460 | ??_EmmVehList@@UAEPAXI@Z
     // 0x4CC0A0 | ??1mmVehList@@UAE@XZ
     ARTS_IMPORT virtual ~mmVehList();
 

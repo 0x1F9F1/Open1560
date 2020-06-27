@@ -42,6 +42,7 @@ public:
     ARTS_IMPORT mmWheelCheap();
 
     // 0x4751A0 | ??_EmmWheelCheap@@UAEPAXI@Z
+    // 0x4751A0 | ??_GmmWheelCheap@@UAEPAXI@Z
     // 0x453A50 | ??1mmWheelCheap@@UAE@XZ | inline
     ARTS_IMPORT ~mmWheelCheap() override;
 

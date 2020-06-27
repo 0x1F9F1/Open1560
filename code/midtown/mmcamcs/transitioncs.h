@@ -48,6 +48,7 @@ public:
     ARTS_IMPORT TransitionCS();
 
     // 0x4FBDD0 | ??_GTransitionCS@@UAEPAXI@Z
+    // 0x4FBDD0 | ??_ETransitionCS@@UAEPAXI@Z
     // 0x4FB540 | ??1TransitionCS@@UAE@XZ
     ARTS_IMPORT ~TransitionCS() override;
 

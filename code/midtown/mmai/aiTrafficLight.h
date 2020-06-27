@@ -56,6 +56,7 @@ public:
     ARTS_IMPORT aiTrafficLightSet(class aiIntersection* arg1);
 
     // 0x4446C0 | ??_GaiTrafficLightSet@@UAEPAXI@Z
+    // 0x4446C0 | ??_EaiTrafficLightSet@@UAEPAXI@Z
     // 0x444150 | ??1aiTrafficLightSet@@UAE@XZ
     ARTS_IMPORT ~aiTrafficLightSet() override;
 
@@ -80,6 +81,7 @@ class aiTrafficLightInstance : public mmUnhitBangerInstance
 
 public:
     // 0x444760 | ??_EaiTrafficLightInstance@@UAEPAXI@Z
+    // 0x444760 | ??_GaiTrafficLightInstance@@UAEPAXI@Z
     // 0x444780 | ??1aiTrafficLightInstance@@UAE@XZ | inline
     ARTS_IMPORT ~aiTrafficLightInstance() override;
 

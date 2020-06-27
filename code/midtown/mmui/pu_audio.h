@@ -45,6 +45,7 @@ public:
     ARTS_IMPORT PUAudioOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4AAA70 | ??_GPUAudioOptions@@UAEPAXI@Z
+    // 0x4AAA70 | ??_EPUAudioOptions@@UAEPAXI@Z
     // 0x4AA9D0 | ??1PUAudioOptions@@UAE@XZ
     ARTS_IMPORT ~PUAudioOptions() override;
 

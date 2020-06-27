@@ -55,6 +55,7 @@ public:
     ARTS_IMPORT DriverMenu(i32 arg1);
 
     // 0x4A5E00 | ??_EDriverMenu@@UAEPAXI@Z
+    // 0x4A5E00 | ??_GDriverMenu@@UAEPAXI@Z
     // 0x4A5850 | ??1DriverMenu@@UAE@XZ
     ARTS_IMPORT ~DriverMenu() override;
 

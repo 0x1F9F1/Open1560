@@ -59,6 +59,7 @@ public:
     ARTS_IMPORT WINEventHandler();
 
     // 0x562E80 | ??_EWINEventHandler@@UAEPAXI@Z
+    // 0x562E80 | ??_GWINEventHandler@@UAEPAXI@Z
     // 0x561EC0 | ??1WINEventHandler@@UAE@XZ
     ARTS_IMPORT ~WINEventHandler() override;
 

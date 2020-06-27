@@ -40,6 +40,7 @@ public:
     ARTS_IMPORT MainMenu(i32 arg1);
 
     // 0x4A6390 | ??_GMainMenu@@UAEPAXI@Z
+    // 0x4A6390 | ??_EMainMenu@@UAEPAXI@Z
     // 0x4A6370 | ??1MainMenu@@UAE@XZ
     ARTS_IMPORT ~MainMenu() override;
 

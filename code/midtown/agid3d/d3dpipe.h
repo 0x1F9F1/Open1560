@@ -71,6 +71,7 @@ public:
     ARTS_IMPORT agiD3DPipeline();
 
     // 0x531590 | ??_GagiD3DPipeline@@UAEPAXI@Z
+    // 0x531590 | ??_EagiD3DPipeline@@UAEPAXI@Z
     // 0x5309D0 | ??1agiD3DPipeline@@UAE@XZ
     ARTS_IMPORT ~agiD3DPipeline() override;
 

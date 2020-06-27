@@ -59,6 +59,7 @@ public:
     ARTS_IMPORT NetAudioManager();
 
     // 0x4777E0 | ??_ENetAudioManager@@UAEPAXI@Z
+    // 0x4777E0 | ??_GNetAudioManager@@UAEPAXI@Z
     // 0x4753B0 | ??1NetAudioManager@@UAE@XZ
     ARTS_IMPORT ~NetAudioManager() override;
 

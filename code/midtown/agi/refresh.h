@@ -53,6 +53,7 @@ public:
 
 protected:
     // 0x557BB0 | ??_EagiRefreshable@@MAEPAXI@Z
+    // 0x557BB0 | ??_GagiRefreshable@@MAEPAXI@Z
     // 0x557A60 | ??1agiRefreshable@@MAE@XZ
     ARTS_IMPORT virtual ~agiRefreshable();
 

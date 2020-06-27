@@ -71,6 +71,7 @@ public:
 
 protected:
     // 0x552420 | ??_EagiLighter@@MAEPAXI@Z
+    // 0x552420 | ??_GagiLighter@@MAEPAXI@Z
     // 0x551750 | ??1agiLighter@@MAE@XZ
     ARTS_IMPORT virtual ~agiLighter();
 
@@ -146,6 +147,7 @@ public:
     ARTS_IMPORT agiMonoLighter();
 
     // 0x552450 | ??_GagiMonoLighter@@UAEPAXI@Z
+    // 0x552450 | ??_EagiMonoLighter@@UAEPAXI@Z
     // 0x551A10 | ??1agiMonoLighter@@UAE@XZ
     ARTS_IMPORT ~agiMonoLighter() override;
 
@@ -164,6 +166,7 @@ public:
     ARTS_IMPORT agiRGBLighter();
 
     // 0x552480 | ??_GagiRGBLighter@@UAEPAXI@Z
+    // 0x552480 | ??_EagiRGBLighter@@UAEPAXI@Z
     // 0x551E60 | ??1agiRGBLighter@@UAE@XZ
     ARTS_IMPORT ~agiRGBLighter() override;
 

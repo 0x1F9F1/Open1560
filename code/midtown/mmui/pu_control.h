@@ -44,6 +44,7 @@ public:
     ARTS_IMPORT PUControl(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4AA3C0 | ??_EPUControl@@UAEPAXI@Z
+    // 0x4AA3C0 | ??_GPUControl@@UAEPAXI@Z
     // 0x4AA250 | ??1PUControl@@UAE@XZ
     ARTS_IMPORT ~PUControl() override;
 

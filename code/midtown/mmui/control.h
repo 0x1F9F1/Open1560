@@ -60,6 +60,7 @@ public:
     ARTS_IMPORT ControlSetup(i32 arg1);
 
     // 0x4A3920 | ??_EControlSetup@@UAEPAXI@Z
+    // 0x4A3920 | ??_GControlSetup@@UAEPAXI@Z
     // 0x4A2E90 | ??1ControlSetup@@UAE@XZ
     ARTS_IMPORT ~ControlSetup() override;
 

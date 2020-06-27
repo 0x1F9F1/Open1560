@@ -51,6 +51,7 @@ public:
     ARTS_IMPORT agiD3DTexDef(class agiPipeline* arg1);
 
     // 0x532060 | ??_EagiD3DTexDef@@UAEPAXI@Z
+    // 0x532060 | ??_GagiD3DTexDef@@UAEPAXI@Z
     // 0x5319D0 | ??1agiD3DTexDef@@UAE@XZ
     ARTS_IMPORT ~agiD3DTexDef() override;
 
@@ -95,6 +96,7 @@ class agiD3DTexLut : public agiTexLut
 
 public:
     // 0x5315C0 | ??_GagiD3DTexLut@@UAEPAXI@Z
+    // 0x5315C0 | ??_EagiD3DTexLut@@UAEPAXI@Z
     // 0x5315F0 | ??1agiD3DTexLut@@UAE@XZ | inline
     ARTS_IMPORT ~agiD3DTexLut() override = default;
 

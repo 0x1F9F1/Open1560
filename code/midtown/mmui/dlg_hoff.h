@@ -44,6 +44,7 @@ public:
     ARTS_IMPORT Dialog_HallOfFame(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49EBE0 | ??_EDialog_HallOfFame@@UAEPAXI@Z
+    // 0x49EBE0 | ??_GDialog_HallOfFame@@UAEPAXI@Z
     // 0x49E7E0 | ??1Dialog_HallOfFame@@UAE@XZ
     ARTS_IMPORT ~Dialog_HallOfFame() override;
 

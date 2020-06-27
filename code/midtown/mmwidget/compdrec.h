@@ -50,6 +50,7 @@ public:
     ARTS_IMPORT mmCompDRecord();
 
     // 0x4B6060 | ??_EmmCompDRecord@@UAEPAXI@Z
+    // 0x4B6060 | ??_GmmCompDRecord@@UAEPAXI@Z
     // 0x4B5AC0 | ??1mmCompDRecord@@UAE@XZ
     ARTS_IMPORT ~mmCompDRecord() override;
 

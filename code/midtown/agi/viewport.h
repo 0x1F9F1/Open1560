@@ -107,6 +107,7 @@ protected:
     ARTS_IMPORT agiViewport(class agiPipeline* arg1);
 
     // 0x5579F0 | ??_GagiViewport@@MAEPAXI@Z
+    // 0x5579F0 | ??_EagiViewport@@MAEPAXI@Z
     // 0x557940 | ??1agiViewport@@MAE@XZ
     ARTS_IMPORT ~agiViewport() override;
 

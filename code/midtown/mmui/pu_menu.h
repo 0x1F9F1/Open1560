@@ -48,6 +48,7 @@ public:
     ARTS_IMPORT PUMenuBase(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4AB490 | ??_EPUMenuBase@@UAEPAXI@Z
+    // 0x4AB490 | ??_GPUMenuBase@@UAEPAXI@Z
     // 0x4AB1B0 | ??1PUMenuBase@@UAE@XZ
     ARTS_IMPORT ~PUMenuBase() override;
 

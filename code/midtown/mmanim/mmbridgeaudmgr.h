@@ -46,6 +46,7 @@ public:
     ARTS_IMPORT mmBridgeAudMgr();
 
     // 0x4C41B0 | ??_GmmBridgeAudMgr@@UAEPAXI@Z
+    // 0x4C41B0 | ??_EmmBridgeAudMgr@@UAEPAXI@Z
     // 0x4C3EC0 | ??1mmBridgeAudMgr@@UAE@XZ
     ARTS_IMPORT ~mmBridgeAudMgr() override;
 

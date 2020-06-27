@@ -45,6 +45,7 @@ public:
     ARTS_IMPORT mmStuck();
 
     // 0x47C900 | ??_GmmStuck@@UAEPAXI@Z
+    // 0x47C900 | ??_EmmStuck@@UAEPAXI@Z
     // 0x470300 | ??1mmStuck@@UAE@XZ | inline
     ARTS_IMPORT ~mmStuck() override = default;
 

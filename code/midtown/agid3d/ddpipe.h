@@ -54,6 +54,7 @@ public:
     ARTS_IMPORT agiDDPipeline();
 
     // 0x5332A0 | ??_GagiDDPipeline@@UAEPAXI@Z
+    // 0x5332A0 | ??_EagiDDPipeline@@UAEPAXI@Z
     // 0x532EF0 | ??1agiDDPipeline@@UAE@XZ
     ARTS_IMPORT ~agiDDPipeline() override;
 

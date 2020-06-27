@@ -53,6 +53,7 @@ public:
     ARTS_IMPORT mmPoliceCarAudio(class mmCarSim* arg1, f32 arg2);
 
     // 0x47B920 | ??_EmmPoliceCarAudio@@UAEPAXI@Z
+    // 0x47B920 | ??_GmmPoliceCarAudio@@UAEPAXI@Z
     // 0x47A8E0 | ??1mmPoliceCarAudio@@UAE@XZ
     ARTS_IMPORT ~mmPoliceCarAudio() override;
 

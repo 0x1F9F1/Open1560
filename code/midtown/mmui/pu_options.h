@@ -39,6 +39,7 @@ public:
     ARTS_IMPORT PUOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4AA760 | ??_GPUOptions@@UAEPAXI@Z
+    // 0x4AA760 | ??_EPUOptions@@UAEPAXI@Z
     // 0x4AA750 | ??1PUOptions@@UAE@XZ
     ARTS_IMPORT ~PUOptions() override;
 };

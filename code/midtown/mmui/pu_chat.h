@@ -41,6 +41,7 @@ public:
     ARTS_IMPORT PUChat(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4A9930 | ??_EPUChat@@UAEPAXI@Z
+    // 0x4A9930 | ??_GPUChat@@UAEPAXI@Z
     // 0x4A9880 | ??1PUChat@@UAE@XZ
     ARTS_IMPORT ~PUChat() override;
 

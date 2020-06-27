@@ -43,6 +43,7 @@ public:
     ARTS_IMPORT Vehicle(i32 arg1);
 
     // 0x4A5320 | ??_EVehicle@@UAEPAXI@Z
+    // 0x4A5320 | ??_GVehicle@@UAEPAXI@Z
     // 0x4A52B0 | ??1Vehicle@@UAE@XZ
     ARTS_IMPORT ~Vehicle() override;
 

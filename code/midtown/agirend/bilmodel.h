@@ -42,6 +42,7 @@ public:
     ARTS_IMPORT agiBILightModel(class agiPipeline* arg1);
 
     // 0x555340 | ??_GagiBILightModel@@UAEPAXI@Z
+    // 0x555340 | ??_EagiBILightModel@@UAEPAXI@Z
     // 0x555280 | ??1agiBILightModel@@UAE@XZ
     ARTS_IMPORT ~agiBILightModel() override;
 

@@ -50,6 +50,7 @@ public:
     ARTS_IMPORT agiRasterizer(class agiPipeline* arg1);
 
     // 0x557E40 | ??_GagiRasterizer@@UAEPAXI@Z
+    // 0x557E40 | ??_EagiRasterizer@@UAEPAXI@Z
     // 0x557D10 | ??1agiRasterizer@@UAE@XZ
     ARTS_IMPORT ~agiRasterizer() override;
 

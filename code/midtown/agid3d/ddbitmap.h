@@ -44,6 +44,7 @@ public:
     ARTS_IMPORT agiDDBitmap(class agiPipeline* arg1);
 
     // 0x533D90 | ??_EagiDDBitmap@@UAEPAXI@Z
+    // 0x533D90 | ??_GagiDDBitmap@@UAEPAXI@Z
     // 0x533CF0 | ??1agiDDBitmap@@UAE@XZ
     ARTS_IMPORT ~agiDDBitmap() override;
 

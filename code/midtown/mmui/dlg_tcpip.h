@@ -41,6 +41,7 @@ public:
     ARTS_IMPORT Dialog_TCPIP(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4A0520 | ??_GDialog_TCPIP@@UAEPAXI@Z
+    // 0x4A0520 | ??_EDialog_TCPIP@@UAEPAXI@Z
     // 0x4A04F0 | ??1Dialog_TCPIP@@UAE@XZ
     ARTS_IMPORT ~Dialog_TCPIP() override;
 

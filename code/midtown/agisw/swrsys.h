@@ -51,6 +51,7 @@ public:
     ARTS_IMPORT agiSWRasterizer(class agiPipeline* arg1);
 
     // 0x537DC0 | ??_GagiSWRasterizer@@UAEPAXI@Z
+    // 0x537DC0 | ??_EagiSWRasterizer@@UAEPAXI@Z
     // 0x537BD0 | ??1agiSWRasterizer@@UAE@XZ
     ARTS_IMPORT ~agiSWRasterizer() override;
 

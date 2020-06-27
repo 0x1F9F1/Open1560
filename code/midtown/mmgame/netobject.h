@@ -52,6 +52,7 @@ public:
     ARTS_IMPORT mmNetObject();
 
     // 0x4331D0 | ??_GmmNetObject@@UAEPAXI@Z
+    // 0x4331D0 | ??_EmmNetObject@@UAEPAXI@Z
     // 0x4327F0 | ??1mmNetObject@@UAE@XZ
     ARTS_IMPORT ~mmNetObject() override;
 

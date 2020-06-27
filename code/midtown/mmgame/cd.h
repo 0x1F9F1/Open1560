@@ -47,6 +47,7 @@ public:
     ARTS_IMPORT mmCDPlayer();
 
     // 0x423810 | ??_GmmCDPlayer@@UAEPAXI@Z
+    // 0x423810 | ??_EmmCDPlayer@@UAEPAXI@Z
     // 0x406960 | ??1mmCDPlayer@@UAE@XZ | inline
     ARTS_IMPORT ~mmCDPlayer() override;
 

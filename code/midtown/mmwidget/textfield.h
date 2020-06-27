@@ -68,6 +68,7 @@ public:
     ARTS_IMPORT UITextField();
 
     // 0x4B2D80 | ??_GUITextField@@UAEPAXI@Z
+    // 0x4B2D80 | ??_EUITextField@@UAEPAXI@Z
     // 0x4B2270 | ??1UITextField@@UAE@XZ
     ARTS_IMPORT ~UITextField() override;
 

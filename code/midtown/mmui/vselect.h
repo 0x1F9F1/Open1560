@@ -68,6 +68,7 @@ public:
     ARTS_IMPORT VehicleSelectBase(i32 arg1);
 
     // 0x49C3A0 | ??_EVehicleSelectBase@@UAEPAXI@Z
+    // 0x49C3A0 | ??_GVehicleSelectBase@@UAEPAXI@Z
     // 0x49B7D0 | ??1VehicleSelectBase@@UAE@XZ
     ARTS_IMPORT ~VehicleSelectBase() override;
 

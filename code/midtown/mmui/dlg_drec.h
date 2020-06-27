@@ -45,6 +45,7 @@ public:
     ARTS_IMPORT Dialog_DriverRec(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49F2B0 | ??_GDialog_DriverRec@@UAEPAXI@Z
+    // 0x49F2B0 | ??_EDialog_DriverRec@@UAEPAXI@Z
     // 0x49EF70 | ??1Dialog_DriverRec@@UAE@XZ
     ARTS_IMPORT ~Dialog_DriverRec() override;
 

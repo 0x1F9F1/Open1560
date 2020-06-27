@@ -42,6 +42,7 @@ public:
     ARTS_IMPORT HostRaceMenu(i32 arg1);
 
     // 0x4A2C70 | ??_EHostRaceMenu@@UAEPAXI@Z
+    // 0x4A2C70 | ??_GHostRaceMenu@@UAEPAXI@Z
     // 0x4A2C30 | ??1HostRaceMenu@@UAE@XZ
     ARTS_IMPORT ~HostRaceMenu() override;
 

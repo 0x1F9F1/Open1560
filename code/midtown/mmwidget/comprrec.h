@@ -62,6 +62,7 @@ public:
     ARTS_IMPORT mmCompRaceRecord();
 
     // 0x4B4DC0 | ??_EmmCompRaceRecord@@UAEPAXI@Z
+    // 0x4B4DC0 | ??_GmmCompRaceRecord@@UAEPAXI@Z
     // 0x4B4930 | ??1mmCompRaceRecord@@UAE@XZ
     ARTS_IMPORT ~mmCompRaceRecord() override;
 

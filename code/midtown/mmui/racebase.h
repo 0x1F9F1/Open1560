@@ -57,6 +57,7 @@ public:
     ARTS_IMPORT RaceMenuBase(i32 arg1);
 
     // 0x4A8050 | ??_GRaceMenuBase@@UAEPAXI@Z
+    // 0x4A8050 | ??_ERaceMenuBase@@UAEPAXI@Z
     // 0x4A72C0 | ??1RaceMenuBase@@UAE@XZ
     ARTS_IMPORT ~RaceMenuBase() override;
 

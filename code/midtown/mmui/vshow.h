@@ -41,6 +41,7 @@ public:
     ARTS_IMPORT VehShowcase(i32 arg1);
 
     // 0x4A51A0 | ??_GVehShowcase@@UAEPAXI@Z
+    // 0x4A51A0 | ??_EVehShowcase@@UAEPAXI@Z
     // 0x4A50C0 | ??1VehShowcase@@UAE@XZ
     ARTS_IMPORT ~VehShowcase() override;
 

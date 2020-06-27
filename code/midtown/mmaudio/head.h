@@ -48,6 +48,7 @@ public:
     ARTS_IMPORT AudHead(class Matrix34* arg1);
 
     // 0x4EC040 | ??_EAudHead@@UAEPAXI@Z
+    // 0x4EC040 | ??_GAudHead@@UAEPAXI@Z
     // 0x4EBD00 | ??1AudHead@@UAE@XZ
     ARTS_IMPORT ~AudHead() override;
 

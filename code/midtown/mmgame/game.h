@@ -71,6 +71,7 @@ public:
     ARTS_IMPORT mmGame();
 
     // 0x412120 | ??_GmmGame@@UAEPAXI@Z
+    // 0x412120 | ??_EmmGame@@UAEPAXI@Z
     // 0x40FDB0 | ??1mmGame@@UAE@XZ
     ARTS_IMPORT ~mmGame() override;
 
@@ -171,6 +172,7 @@ class foobar : public asNode
 
 public:
     // 0x414A20 | ??_Gfoobar@@UAEPAXI@Z
+    // 0x414A20 | ??_Efoobar@@UAEPAXI@Z
     // 0x414A10 | ??1foobar@@UAE@XZ | inline
     ARTS_IMPORT ~foobar() override = default;
 

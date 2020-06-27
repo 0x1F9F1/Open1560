@@ -75,6 +75,7 @@ public:
     ARTS_IMPORT NetSelectMenu(i32 arg1);
 
     // 0x4A4C00 | ??_GNetSelectMenu@@UAEPAXI@Z
+    // 0x4A4C00 | ??_ENetSelectMenu@@UAEPAXI@Z
     // 0x4A42F0 | ??1NetSelectMenu@@UAE@XZ
     ARTS_IMPORT ~NetSelectMenu() override;
 

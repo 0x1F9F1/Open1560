@@ -46,6 +46,7 @@ public:
     ARTS_IMPORT UIIcon();
 
     // 0x4B9B20 | ??_EUIIcon@@UAEPAXI@Z
+    // 0x4B9B20 | ??_GUIIcon@@UAEPAXI@Z
     // 0x4B9950 | ??1UIIcon@@UAE@XZ
     ARTS_IMPORT ~UIIcon() override;
 

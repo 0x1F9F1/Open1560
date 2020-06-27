@@ -41,6 +41,7 @@ public:
     ARTS_IMPORT Dialog_Message(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49F480 | ??_GDialog_Message@@UAEPAXI@Z
+    // 0x49F480 | ??_EDialog_Message@@UAEPAXI@Z
     // 0x49F460 | ??1Dialog_Message@@UAE@XZ
     ARTS_IMPORT ~Dialog_Message() override;
 

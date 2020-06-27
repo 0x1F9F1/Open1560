@@ -98,6 +98,7 @@ public:
     ARTS_IMPORT UIMenu(i32 arg1);
 
     // 0x4AED30 | ??_EUIMenu@@UAEPAXI@Z
+    // 0x4AED30 | ??_GUIMenu@@UAEPAXI@Z
     // 0x4AC8F0 | ??1UIMenu@@UAE@XZ
     ARTS_IMPORT ~UIMenu() override;
 

@@ -55,6 +55,7 @@ public:
     ARTS_IMPORT mmPopup(class mmGame* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x427D80 | ??_GmmPopup@@UAEPAXI@Z
+    // 0x427D80 | ??_EmmPopup@@UAEPAXI@Z
     // 0x427010 | ??1mmPopup@@UAE@XZ
     ARTS_IMPORT ~mmPopup() override;
 

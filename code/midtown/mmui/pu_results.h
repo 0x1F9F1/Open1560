@@ -51,6 +51,7 @@ public:
     ARTS_IMPORT PUResults(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4A8C70 | ??_GPUResults@@UAEPAXI@Z
+    // 0x4A8C70 | ??_EPUResults@@UAEPAXI@Z
     // 0x4A89C0 | ??1PUResults@@UAE@XZ
     ARTS_IMPORT ~PUResults() override;
 

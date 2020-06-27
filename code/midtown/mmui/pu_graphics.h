@@ -45,6 +45,7 @@ public:
     ARTS_IMPORT PUGraphics(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4A9F10 | ??_GPUGraphics@@UAEPAXI@Z
+    // 0x4A9F10 | ??_EPUGraphics@@UAEPAXI@Z
     // 0x4A9EE0 | ??1PUGraphics@@UAE@XZ
     ARTS_IMPORT ~PUGraphics() override;
 

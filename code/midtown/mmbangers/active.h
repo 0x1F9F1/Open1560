@@ -59,6 +59,7 @@ public:
     ARTS_IMPORT mmBangerActive();
 
     // 0x4CB750 | ??_EmmBangerActive@@UAEPAXI@Z
+    // 0x4CB750 | ??_GmmBangerActive@@UAEPAXI@Z
     // 0x4CAFC0 | ??1mmBangerActive@@UAE@XZ
     ARTS_IMPORT ~mmBangerActive() override;
 
@@ -97,6 +98,7 @@ public:
     ARTS_IMPORT mmBangerActiveManager();
 
     // 0x4CB780 | ??_GmmBangerActiveManager@@UAEPAXI@Z
+    // 0x4CB780 | ??_EmmBangerActiveManager@@UAEPAXI@Z
     // 0x4CB490 | ??1mmBangerActiveManager@@UAE@XZ
     ARTS_IMPORT ~mmBangerActiveManager() override;
 

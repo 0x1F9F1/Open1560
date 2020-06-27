@@ -142,6 +142,7 @@ public:
     ARTS_IMPORT mmInstance();
 
     // 0x495360 | ??_EmmInstance@@UAEPAXI@Z
+    // 0x495360 | ??_GmmInstance@@UAEPAXI@Z
     // 0x492A00 | ??1mmInstance@@UAE@XZ
     ARTS_IMPORT ~mmInstance() override;
 
@@ -365,6 +366,7 @@ public:
     ARTS_IMPORT mmYInstance();
 
     // 0x495380 | ??_EmmYInstance@@UAEPAXI@Z
+    // 0x495380 | ??_GmmYInstance@@UAEPAXI@Z
     // 0x4932E0 | ??1mmYInstance@@UAE@XZ
     ARTS_IMPORT ~mmYInstance() override;
 

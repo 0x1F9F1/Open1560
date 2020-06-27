@@ -87,6 +87,7 @@ public:
     ARTS_IMPORT GraphicsOptions(i32 arg1);
 
     // 0x49A6A0 | ??_GGraphicsOptions@@UAEPAXI@Z
+    // 0x49A6A0 | ??_EGraphicsOptions@@UAEPAXI@Z
     // 0x49A2F0 | ??1GraphicsOptions@@UAE@XZ
     ARTS_IMPORT ~GraphicsOptions() override;
 

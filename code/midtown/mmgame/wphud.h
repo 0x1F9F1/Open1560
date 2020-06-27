@@ -82,6 +82,7 @@ public:
     ARTS_IMPORT mmWPHUD();
 
     // 0x426240 | ??_GmmWPHUD@@UAEPAXI@Z
+    // 0x426240 | ??_EmmWPHUD@@UAEPAXI@Z
     // 0x4242B0 | ??1mmWPHUD@@UAE@XZ
     ARTS_IMPORT ~mmWPHUD() override;
 
@@ -120,6 +121,7 @@ public:
     ARTS_IMPORT mmCircuitHUD();
 
     // 0x426270 | ??_EmmCircuitHUD@@UAEPAXI@Z
+    // 0x426270 | ??_GmmCircuitHUD@@UAEPAXI@Z
     // 0x4248A0 | ??1mmCircuitHUD@@UAE@XZ
     ARTS_IMPORT ~mmCircuitHUD() override;
 
@@ -155,6 +157,7 @@ public:
     ARTS_IMPORT mmCRHUD();
 
     // 0x426360 | ??_EmmCRHUD@@UAEPAXI@Z
+    // 0x426360 | ??_GmmCRHUD@@UAEPAXI@Z
     // 0x4252E0 | ??1mmCRHUD@@UAE@XZ
     ARTS_IMPORT ~mmCRHUD() override;
 

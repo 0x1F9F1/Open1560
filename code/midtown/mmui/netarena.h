@@ -58,6 +58,7 @@ public:
     ARTS_IMPORT NetArena(i32 arg1);
 
     // 0x4A2B30 | ??_ENetArena@@UAEPAXI@Z
+    // 0x4A2B30 | ??_GNetArena@@UAEPAXI@Z
     // 0x4A1D80 | ??1NetArena@@UAE@XZ
     ARTS_IMPORT ~NetArena() override;
 

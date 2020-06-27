@@ -72,6 +72,7 @@ protected:
     ARTS_IMPORT agiMtlDef(class agiPipeline* arg1);
 
     // 0x55DD50 | ??_EagiMtlDef@@MAEPAXI@Z
+    // 0x55DD50 | ??_GagiMtlDef@@MAEPAXI@Z
     // 0x55DC80 | ??1agiMtlDef@@MAE@XZ
     ARTS_IMPORT ~agiMtlDef() override;
 

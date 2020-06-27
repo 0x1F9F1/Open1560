@@ -62,6 +62,7 @@ public:
     ARTS_IMPORT mmAnimPlane();
 
     // 0x4C5E80 | ??_EmmAnimPlane@@UAEPAXI@Z
+    // 0x4C5E80 | ??_GmmAnimPlane@@UAEPAXI@Z
     // 0x4C5010 | ??1mmAnimPlane@@UAE@XZ
     ARTS_IMPORT ~mmAnimPlane() override;
 

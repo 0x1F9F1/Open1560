@@ -39,6 +39,7 @@ public:
     ARTS_IMPORT uiWidget();
 
     // 0x4B2E90 | ??_GuiWidget@@UAEPAXI@Z
+    // 0x4B2E90 | ??_EuiWidget@@UAEPAXI@Z
     // 0x4B2DB0 | ??1uiWidget@@UAE@XZ | inline
     ARTS_IMPORT ~uiWidget() override;
 

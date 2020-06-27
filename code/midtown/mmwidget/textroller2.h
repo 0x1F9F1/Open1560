@@ -51,6 +51,7 @@ public:
     ARTS_IMPORT UITextRoller2();
 
     // 0x4BBA50 | ??_EUITextRoller2@@UAEPAXI@Z
+    // 0x4BBA50 | ??_GUITextRoller2@@UAEPAXI@Z
     // 0x4BAC60 | ??1UITextRoller2@@UAE@XZ
     ARTS_IMPORT ~UITextRoller2() override;
 

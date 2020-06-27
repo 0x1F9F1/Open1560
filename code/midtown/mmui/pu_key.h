@@ -41,6 +41,7 @@ public:
     ARTS_IMPORT PUKey(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4A9750 | ??_GPUKey@@UAEPAXI@Z
+    // 0x4A9750 | ??_EPUKey@@UAEPAXI@Z
     // 0x4A9460 | ??1PUKey@@UAE@XZ
     ARTS_IMPORT ~PUKey() override;
 

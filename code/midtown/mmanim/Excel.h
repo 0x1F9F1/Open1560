@@ -42,6 +42,7 @@ public:
     ARTS_IMPORT mmAnimExcel();
 
     // 0x4C37A0 | ??_EmmAnimExcel@@UAEPAXI@Z
+    // 0x4C37A0 | ??_GmmAnimExcel@@UAEPAXI@Z
     // 0x4C34F0 | ??1mmAnimExcel@@UAE@XZ
     ARTS_IMPORT virtual ~mmAnimExcel();
 

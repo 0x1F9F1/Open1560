@@ -546,7 +546,7 @@ def backport_vftable_purecalls(raw_vftables, hiers, overrides):
 
     # vftables[None] = None
 
-    for symbol in symbols.values():
+    for symbol in all_symbols:
         if not symbol.is_vftable:
             continue
 
@@ -1903,10 +1903,10 @@ if self.member_type == 'dtor':
 
 grouped_symbols = defaultdict(lambda: defaultdict(lambda: list()))
 
-for symbol in symbols.values():
+for symbol in all_symbols:
     _ = grouped_symbols[symbol.library] # Touch All Libraries
 
-for symbol in symbols.values():
+for symbol in all_symbols:
     if (symbol.path) and (symbol.path in path_libs):
         lib = path_libs[symbol.path]
     else:

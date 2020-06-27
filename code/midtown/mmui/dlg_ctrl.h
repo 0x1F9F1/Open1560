@@ -40,6 +40,7 @@ public:
     ARTS_IMPORT Dialog_ControlAssign(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x4A0350 | ??_GDialog_ControlAssign@@UAEPAXI@Z
+    // 0x4A0350 | ??_EDialog_ControlAssign@@UAEPAXI@Z
     // 0x4A0330 | ??1Dialog_ControlAssign@@UAE@XZ
     ARTS_IMPORT ~Dialog_ControlAssign() override;
 

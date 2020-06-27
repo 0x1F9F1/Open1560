@@ -43,6 +43,7 @@ public:
     ARTS_IMPORT mmToolTip();
 
     // 0x4BF2A0 | ??_GmmToolTip@@UAEPAXI@Z
+    // 0x4BF2A0 | ??_EmmToolTip@@UAEPAXI@Z
     // 0x4BF150 | ??1mmToolTip@@UAE@XZ
     ARTS_IMPORT ~mmToolTip() override;
 

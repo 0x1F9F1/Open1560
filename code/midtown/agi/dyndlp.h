@@ -40,6 +40,7 @@ public:
 
 protected:
     // 0x55E880 | ??_EDynamicDLP@@MAEPAXI@Z
+    // 0x55E880 | ??_GDynamicDLP@@MAEPAXI@Z
     // 0x55E5E0 | ??1DynamicDLP@@MAE@XZ
     ARTS_IMPORT virtual ~DynamicDLP();
 

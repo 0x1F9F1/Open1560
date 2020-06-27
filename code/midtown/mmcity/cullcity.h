@@ -200,6 +200,7 @@ class mmUpperInstance : public mmMatrixInstance
 
 public:
     // 0x48FA80 | ??_GmmUpperInstance@@UAEPAXI@Z
+    // 0x48FA80 | ??_EmmUpperInstance@@UAEPAXI@Z
     // 0x48FAA0 | ??1mmUpperInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmUpperInstance() override = default;
 
@@ -219,6 +220,7 @@ public:
     ARTS_IMPORT mmRunwayLight(char* arg1, class Vector3& arg2, class Vector3& arg3);
 
     // 0x48FA50 | ??_EmmRunwayLight@@UAEPAXI@Z
+    // 0x48FA50 | ??_GmmRunwayLight@@UAEPAXI@Z
     // 0x48FA70 | ??1mmRunwayLight@@UAE@XZ | inline
     ARTS_IMPORT ~mmRunwayLight() override = default;
 

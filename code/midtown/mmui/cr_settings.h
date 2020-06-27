@@ -60,6 +60,7 @@ public:
     ARTS_IMPORT CRSettings(i32 arg1);
 
     // 0x4A1760 | ??_ECRSettings@@UAEPAXI@Z
+    // 0x4A1760 | ??_GCRSettings@@UAEPAXI@Z
     // 0x4A0E90 | ??1CRSettings@@UAE@XZ
     ARTS_IMPORT ~CRSettings() override;
 

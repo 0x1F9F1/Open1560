@@ -36,6 +36,7 @@ class mmDofBangerInstance : public mmUnhitBangerInstance
 
 public:
     // 0x4C4EC0 | ??_GmmDofBangerInstance@@UAEPAXI@Z
+    // 0x4C4EC0 | ??_EmmDofBangerInstance@@UAEPAXI@Z
     // 0x4C4EE0 | ??1mmDofBangerInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmDofBangerInstance() override;
 

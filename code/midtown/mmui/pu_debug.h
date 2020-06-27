@@ -40,6 +40,7 @@ public:
     ARTS_IMPORT PUDebug(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4AA5B0 | ??_EPUDebug@@UAEPAXI@Z
+    // 0x4AA5B0 | ??_GPUDebug@@UAEPAXI@Z
     // 0x4AA590 | ??1PUDebug@@UAE@XZ
     ARTS_IMPORT ~PUDebug() override;
 

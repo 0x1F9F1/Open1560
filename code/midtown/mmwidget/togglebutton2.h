@@ -50,6 +50,7 @@ public:
     ARTS_IMPORT UIToggleButton2();
 
     // 0x4BCA50 | ??_GUIToggleButton2@@UAEPAXI@Z
+    // 0x4BCA50 | ??_EUIToggleButton2@@UAEPAXI@Z
     // 0x4BC7B0 | ??1UIToggleButton2@@UAE@XZ
     ARTS_IMPORT ~UIToggleButton2() override;
 

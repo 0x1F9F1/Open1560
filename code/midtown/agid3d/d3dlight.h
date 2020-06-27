@@ -42,6 +42,7 @@ public:
     ARTS_IMPORT agiD3DLight(class agiPipeline* arg1);
 
     // 0x5339C0 | ??_GagiD3DLight@@UAEPAXI@Z
+    // 0x5339C0 | ??_EagiD3DLight@@UAEPAXI@Z
     // 0x5337E0 | ??1agiD3DLight@@UAE@XZ
     ARTS_IMPORT ~agiD3DLight() override;
 

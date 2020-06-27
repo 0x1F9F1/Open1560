@@ -50,6 +50,7 @@ public:
     ARTS_IMPORT uiNavBar(i32 arg1);
 
     // 0x4B2120 | ??_EuiNavBar@@UAEPAXI@Z
+    // 0x4B2120 | ??_GuiNavBar@@UAEPAXI@Z
     // 0x4B1F70 | ??1uiNavBar@@UAE@XZ
     ARTS_IMPORT ~uiNavBar() override;
 

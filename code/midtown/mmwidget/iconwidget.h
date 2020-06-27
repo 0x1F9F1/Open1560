@@ -43,6 +43,7 @@ public:
     ARTS_IMPORT UIIconW();
 
     // 0x4BC460 | ??_GUIIconW@@UAEPAXI@Z
+    // 0x4BC460 | ??_EUIIconW@@UAEPAXI@Z
     // 0x4BC1B0 | ??1UIIconW@@UAE@XZ
     ARTS_IMPORT ~UIIconW() override;
 

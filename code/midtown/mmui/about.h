@@ -42,6 +42,7 @@ public:
     ARTS_IMPORT AboutMenu(i32 arg1);
 
     // 0x4A61C0 | ??_EAboutMenu@@UAEPAXI@Z
+    // 0x4A61C0 | ??_GAboutMenu@@UAEPAXI@Z
     // 0x4A6050 | ??1AboutMenu@@UAE@XZ
     ARTS_IMPORT ~AboutMenu() override;
 

@@ -76,6 +76,7 @@ public:
     ARTS_IMPORT aiAudioManager();
 
     // 0x443F30 | ??_EaiAudioManager@@UAEPAXI@Z
+    // 0x443F30 | ??_GaiAudioManager@@UAEPAXI@Z
     // 0x440390 | ??1aiAudioManager@@UAE@XZ
     ARTS_IMPORT ~aiAudioManager() override;
 

@@ -99,6 +99,7 @@ public:
     ARTS_IMPORT MenuManager();
 
     // 0x4B1C10 | ??_EMenuManager@@UAEPAXI@Z
+    // 0x4B1C10 | ??_GMenuManager@@UAEPAXI@Z
     // 0x4AEF20 | ??1MenuManager@@UAE@XZ
     ARTS_IMPORT ~MenuManager() override;
 

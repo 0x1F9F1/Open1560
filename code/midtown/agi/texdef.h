@@ -143,6 +143,7 @@ protected:
     ARTS_IMPORT agiTexDef(class agiPipeline* arg1);
 
     // 0x556970 | ??_EagiTexDef@@MAEPAXI@Z
+    // 0x556970 | ??_GagiTexDef@@MAEPAXI@Z
     // 0x556230 | ??1agiTexDef@@MAE@XZ
     ARTS_IMPORT ~agiTexDef() override;
 
@@ -197,6 +198,7 @@ protected:
     ARTS_IMPORT agiTexLut(class agiPipeline* arg1);
 
     // 0x5569A0 | ??_GagiTexLut@@MAEPAXI@Z
+    // 0x5569A0 | ??_EagiTexLut@@MAEPAXI@Z
     // 0x556920 | ??1agiTexLut@@MAE@XZ
     ARTS_IMPORT ~agiTexLut() override;
 

@@ -60,6 +60,7 @@ public:
     ARTS_IMPORT UICWArray();
 
     // 0x4B8760 | ??_GUICWArray@@UAEPAXI@Z
+    // 0x4B8760 | ??_EUICWArray@@UAEPAXI@Z
     // 0x4B7D30 | ??1UICWArray@@UAE@XZ
     ARTS_IMPORT ~UICWArray() override;
 

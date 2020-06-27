@@ -61,6 +61,7 @@ public:
     ARTS_IMPORT asPortalWeb();
 
     // 0x497780 | ??_EasPortalWeb@@UAEPAXI@Z
+    // 0x497780 | ??_GasPortalWeb@@UAEPAXI@Z
     // 0x4974C0 | ??1asPortalWeb@@UAE@XZ
     ARTS_IMPORT ~asPortalWeb() override;
 

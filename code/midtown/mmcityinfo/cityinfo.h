@@ -38,6 +38,7 @@ public:
     ARTS_IMPORT mmCityInfo();
 
     // 0x4D39A0 | ??_EmmCityInfo@@UAEPAXI@Z
+    // 0x4D39A0 | ??_GmmCityInfo@@UAEPAXI@Z
     // 0x4D3640 | ??1mmCityInfo@@UAE@XZ
     ARTS_IMPORT virtual ~mmCityInfo();
 

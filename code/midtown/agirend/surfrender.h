@@ -90,6 +90,7 @@ public:
 
 protected:
     // 0x555200 | ??_EagiSurfRenderer@@MAEPAXI@Z
+    // 0x555200 | ??_GagiSurfRenderer@@MAEPAXI@Z
     // 0x552DB0 | ??1agiSurfRenderer@@MAE@XZ
     ARTS_IMPORT ~agiSurfRenderer() override;
 

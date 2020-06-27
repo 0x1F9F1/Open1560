@@ -41,6 +41,7 @@ public:
     ARTS_IMPORT Dialog_Password(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49DC50 | ??_GDialog_Password@@UAEPAXI@Z
+    // 0x49DC50 | ??_EDialog_Password@@UAEPAXI@Z
     // 0x49DC20 | ??1Dialog_Password@@UAE@XZ
     ARTS_IMPORT ~Dialog_Password() override;
 

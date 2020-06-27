@@ -78,6 +78,7 @@ public:
     ARTS_IMPORT agiSWPipeline(i32 arg1, char** arg2);
 
     // 0x534900 | ??_GagiSWPipeline@@UAEPAXI@Z
+    // 0x534900 | ??_EagiSWPipeline@@UAEPAXI@Z
     // 0x533E50 | ??1agiSWPipeline@@UAE@XZ
     ARTS_IMPORT ~agiSWPipeline() override;
 
@@ -148,6 +149,7 @@ class agiSWViewport : public agiViewport
 
 public:
     // 0x534BE0 | ??_EagiSWViewport@@UAEPAXI@Z
+    // 0x534BE0 | ??_GagiSWViewport@@UAEPAXI@Z
     // 0x534C10 | ??1agiSWViewport@@UAE@XZ | inline
     ARTS_IMPORT ~agiSWViewport() override = default;
 
@@ -175,6 +177,7 @@ class agiSWBitmap : public agiBitmap
 
 public:
     // 0x534DF0 | ??_GagiSWBitmap@@UAEPAXI@Z
+    // 0x534DF0 | ??_EagiSWBitmap@@UAEPAXI@Z
     // 0x534E20 | ??1agiSWBitmap@@UAE@XZ | inline
     ARTS_IMPORT ~agiSWBitmap() override = default;
 

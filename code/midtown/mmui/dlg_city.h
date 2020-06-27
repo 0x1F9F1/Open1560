@@ -41,6 +41,7 @@ public:
     ARTS_IMPORT Dialog_City(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49DA80 | ??_GDialog_City@@UAEPAXI@Z
+    // 0x49DA80 | ??_EDialog_City@@UAEPAXI@Z
     // 0x49D9B0 | ??1Dialog_City@@UAE@XZ
     ARTS_IMPORT ~Dialog_City() override;
 

@@ -224,6 +224,7 @@ class aiPedestrianInstance : public mmInstance
 
 public:
     // 0x44DA40 | ??_EaiPedestrianInstance@@UAEPAXI@Z
+    // 0x44DA40 | ??_GaiPedestrianInstance@@UAEPAXI@Z
     // 0x44DA60 | ??1aiPedestrianInstance@@UAE@XZ | inline
     ARTS_IMPORT ~aiPedestrianInstance() override = default;
 

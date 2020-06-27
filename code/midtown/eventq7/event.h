@@ -63,6 +63,7 @@ public:
     ARTS_IMPORT eqEventHandler();
 
     // 0x563980 | ??_GeqEventHandler@@UAEPAXI@Z
+    // 0x563980 | ??_EeqEventHandler@@UAEPAXI@Z
     // 0x562F00 | ??1eqEventHandler@@UAE@XZ
     ARTS_IMPORT virtual ~eqEventHandler();
 
@@ -104,6 +105,7 @@ public:
     ARTS_IMPORT eqEventMonitor(i32 arg1);
 
     // 0x5639B0 | ??_EeqEventMonitor@@UAEPAXI@Z
+    // 0x5639B0 | ??_GeqEventMonitor@@UAEPAXI@Z
     // 0x5632C0 | ??1eqEventMonitor@@UAE@XZ
     ARTS_IMPORT virtual ~eqEventMonitor();
 

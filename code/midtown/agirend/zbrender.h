@@ -42,6 +42,7 @@ public:
     ARTS_IMPORT agiZBufRenderer(class agiRasterizer* arg1);
 
     // 0x5507D0 | ??_EagiZBufRenderer@@UAEPAXI@Z
+    // 0x5507D0 | ??_GagiZBufRenderer@@UAEPAXI@Z
     // 0x54FA90 | ??1agiZBufRenderer@@UAE@XZ
     ARTS_IMPORT ~agiZBufRenderer() override;
 

@@ -47,6 +47,7 @@ public:
     ARTS_IMPORT eqEventQ(i32 arg1, i32 arg2, i32 arg3);
 
     // 0x563DB0 | ??_GeqEventQ@@UAEPAXI@Z
+    // 0x563DB0 | ??_EeqEventQ@@UAEPAXI@Z
     // 0x563A80 | ??1eqEventQ@@UAE@XZ
     ARTS_IMPORT ~eqEventQ() override;
 

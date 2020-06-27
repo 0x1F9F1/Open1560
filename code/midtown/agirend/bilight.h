@@ -43,6 +43,7 @@ public:
     ARTS_IMPORT agiBILight(class agiPipeline* arg1);
 
     // 0x555430 | ??_EagiBILight@@UAEPAXI@Z
+    // 0x555430 | ??_GagiBILight@@UAEPAXI@Z
     // 0x555390 | ??1agiBILight@@UAE@XZ
     ARTS_IMPORT ~agiBILight() override;
 

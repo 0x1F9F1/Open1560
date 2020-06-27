@@ -45,6 +45,7 @@ public:
     ARTS_IMPORT aiStuck();
 
     // 0x46B8A0 | ??_GaiStuck@@UAEPAXI@Z
+    // 0x46B8A0 | ??_EaiStuck@@UAEPAXI@Z
     // 0x4658E0 | ??1aiStuck@@UAE@XZ | inline
     ARTS_IMPORT ~aiStuck() override = default;
 

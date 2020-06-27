@@ -49,6 +49,7 @@ public:
     ARTS_IMPORT DLP(class agiPipeline* arg1);
 
     // 0x55E580 | ??_GDLP@@UAEPAXI@Z
+    // 0x55E580 | ??_EDLP@@UAEPAXI@Z
     // 0x55DEF0 | ??1DLP@@UAE@XZ
     ARTS_IMPORT ~DLP() override;
 

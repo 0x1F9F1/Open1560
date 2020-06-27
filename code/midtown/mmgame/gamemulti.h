@@ -72,6 +72,7 @@ public:
     ARTS_IMPORT mmGameMulti();
 
     // 0x432710 | ??_EmmGameMulti@@UAEPAXI@Z
+    // 0x432710 | ??_GmmGameMulti@@UAEPAXI@Z
     // 0x4307B0 | ??1mmGameMulti@@UAE@XZ
     ARTS_IMPORT ~mmGameMulti() override;
 

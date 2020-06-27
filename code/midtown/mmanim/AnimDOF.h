@@ -57,6 +57,7 @@ class mmDrawbridgeInstance : public mmDofBangerInstance
 
 public:
     // 0x4C4D90 | ??_GmmDrawbridgeInstance@@UAEPAXI@Z
+    // 0x4C4D90 | ??_EmmDrawbridgeInstance@@UAEPAXI@Z
     // 0x4C4DB0 | ??1mmDrawbridgeInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmDrawbridgeInstance() override;
 

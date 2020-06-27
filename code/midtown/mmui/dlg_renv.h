@@ -44,6 +44,7 @@ public:
     ARTS_IMPORT Dialog_RaceEnvironment(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
     // 0x49E3B0 | ??_GDialog_RaceEnvironment@@UAEPAXI@Z
+    // 0x49E3B0 | ??_EDialog_RaceEnvironment@@UAEPAXI@Z
     // 0x49E290 | ??1Dialog_RaceEnvironment@@UAE@XZ
     ARTS_IMPORT ~Dialog_RaceEnvironment() override;
 

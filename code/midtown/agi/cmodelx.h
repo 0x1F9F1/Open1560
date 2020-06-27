@@ -146,6 +146,7 @@ public:
     ARTS_IMPORT agiColorModelRGB555();
 
     // 0x55D840 | ??_EagiColorModelRGB555@@UAEPAXI@Z
+    // 0x55D840 | ??_GagiColorModelRGB555@@UAEPAXI@Z
     // 0x55D830 | ??1agiColorModelRGB555@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB555() override = default;
 
@@ -176,6 +177,7 @@ public:
     ARTS_IMPORT agiColorModelRGB565();
 
     // 0x55D880 | ??_EagiColorModelRGB565@@UAEPAXI@Z
+    // 0x55D880 | ??_GagiColorModelRGB565@@UAEPAXI@Z
     // 0x55D870 | ??1agiColorModelRGB565@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB565() override = default;
 
@@ -206,6 +208,7 @@ public:
     ARTS_IMPORT agiColorModelRGB555_Rev();
 
     // 0x55D8C0 | ??_EagiColorModelRGB555_Rev@@UAEPAXI@Z
+    // 0x55D8C0 | ??_GagiColorModelRGB555_Rev@@UAEPAXI@Z
     // 0x55D8B0 | ??1agiColorModelRGB555_Rev@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB555_Rev() override = default;
 
@@ -236,6 +239,7 @@ public:
     ARTS_IMPORT agiColorModelRGB565_Rev();
 
     // 0x55D900 | ??_GagiColorModelRGB565_Rev@@UAEPAXI@Z
+    // 0x55D900 | ??_EagiColorModelRGB565_Rev@@UAEPAXI@Z
     // 0x55D8F0 | ??1agiColorModelRGB565_Rev@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB565_Rev() override = default;
 
@@ -266,6 +270,7 @@ public:
     ARTS_IMPORT agiColorModelRGB888();
 
     // 0x55D940 | ??_GagiColorModelRGB888@@UAEPAXI@Z
+    // 0x55D940 | ??_EagiColorModelRGB888@@UAEPAXI@Z
     // 0x55D930 | ??1agiColorModelRGB888@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB888() override = default;
 
@@ -296,6 +301,7 @@ public:
     ARTS_IMPORT agiColorModelRGB888_Rev();
 
     // 0x55D980 | ??_GagiColorModelRGB888_Rev@@UAEPAXI@Z
+    // 0x55D980 | ??_EagiColorModelRGB888_Rev@@UAEPAXI@Z
     // 0x55D970 | ??1agiColorModelRGB888_Rev@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB888_Rev() override = default;
 
@@ -326,6 +332,7 @@ public:
     ARTS_IMPORT agiColorModelRGBA5551();
 
     // 0x55D9C0 | ??_EagiColorModelRGBA5551@@UAEPAXI@Z
+    // 0x55D9C0 | ??_GagiColorModelRGBA5551@@UAEPAXI@Z
     // 0x55D9B0 | ??1agiColorModelRGBA5551@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGBA5551() override = default;
 
@@ -356,6 +363,7 @@ public:
     ARTS_IMPORT agiColorModelRGBA4444();
 
     // 0x55DA00 | ??_EagiColorModelRGBA4444@@UAEPAXI@Z
+    // 0x55DA00 | ??_GagiColorModelRGBA4444@@UAEPAXI@Z
     // 0x55D9F0 | ??1agiColorModelRGBA4444@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGBA4444() override = default;
 
@@ -386,6 +394,7 @@ public:
     ARTS_IMPORT agiColorModelARGB();
 
     // 0x55DA40 | ??_EagiColorModelARGB@@UAEPAXI@Z
+    // 0x55DA40 | ??_GagiColorModelARGB@@UAEPAXI@Z
     // 0x55DA30 | ??1agiColorModelARGB@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelARGB() override = default;
 
@@ -416,6 +425,7 @@ public:
     ARTS_IMPORT agiColorModelABGR();
 
     // 0x55DA80 | ??_GagiColorModelABGR@@UAEPAXI@Z
+    // 0x55DA80 | ??_EagiColorModelABGR@@UAEPAXI@Z
     // 0x55DA70 | ??1agiColorModelABGR@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelABGR() override = default;
 

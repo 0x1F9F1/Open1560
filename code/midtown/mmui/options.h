@@ -41,6 +41,7 @@ public:
     ARTS_IMPORT OptionsMenu(i32 arg1);
 
     // 0x4A3B70 | ??_EOptionsMenu@@UAEPAXI@Z
+    // 0x4A3B70 | ??_GOptionsMenu@@UAEPAXI@Z
     // 0x4A3B10 | ??1OptionsMenu@@UAE@XZ
     ARTS_IMPORT ~OptionsMenu() override;
 

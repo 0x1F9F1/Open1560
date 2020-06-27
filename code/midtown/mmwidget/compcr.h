@@ -49,6 +49,7 @@ public:
     ARTS_IMPORT mmCompCRPlayer();
 
     // 0x4B7810 | ??_EmmCompCRPlayer@@UAEPAXI@Z
+    // 0x4B7810 | ??_GmmCompCRPlayer@@UAEPAXI@Z
     // 0x4B7340 | ??1mmCompCRPlayer@@UAE@XZ
     ARTS_IMPORT ~mmCompCRPlayer() override;
 

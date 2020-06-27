@@ -53,6 +53,7 @@ public:
     ARTS_IMPORT RadialGauge();
 
     // 0x424170 | ??_ERadialGauge@@UAEPAXI@Z
+    // 0x424170 | ??_GRadialGauge@@UAEPAXI@Z
     // 0x422F10 | ??1RadialGauge@@UAE@XZ | inline
     ARTS_IMPORT ~RadialGauge() override;
 

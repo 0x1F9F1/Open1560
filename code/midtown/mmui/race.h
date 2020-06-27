@@ -46,6 +46,7 @@ public:
     ARTS_IMPORT RaceMenu(i32 arg1);
 
     // 0x4A4F30 | ??_ERaceMenu@@UAEPAXI@Z
+    // 0x4A4F30 | ??_GRaceMenu@@UAEPAXI@Z
     // 0x4A4CF0 | ??1RaceMenu@@UAE@XZ
     ARTS_IMPORT ~RaceMenu() override;
 

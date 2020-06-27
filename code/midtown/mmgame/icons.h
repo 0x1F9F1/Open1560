@@ -43,6 +43,7 @@ public:
     ARTS_IMPORT mmIcons();
 
     // 0x426B70 | ??_GmmIcons@@UAEPAXI@Z
+    // 0x426B70 | ??_EmmIcons@@UAEPAXI@Z
     // 0x426410 | ??1mmIcons@@UAE@XZ
     ARTS_IMPORT ~mmIcons() override;
 

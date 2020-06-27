@@ -44,6 +44,7 @@ public:
     ARTS_IMPORT agiD3DMtlDef(class agiPipeline* arg1);
 
     // 0x533770 | ??_GagiD3DMtlDef@@UAEPAXI@Z
+    // 0x533770 | ??_EagiD3DMtlDef@@UAEPAXI@Z
     // 0x533660 | ??1agiD3DMtlDef@@UAE@XZ
     ARTS_IMPORT ~agiD3DMtlDef() override;
 

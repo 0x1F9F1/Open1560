@@ -113,6 +113,7 @@ public:
     ARTS_IMPORT asMidgets();
 
     // 0x527BA0 | ??_GasMidgets@@UAEPAXI@Z
+    // 0x527BA0 | ??_EasMidgets@@UAEPAXI@Z
     // 0x526890 | ??1asMidgets@@UAE@XZ
     ARTS_IMPORT ~asMidgets() override;
 

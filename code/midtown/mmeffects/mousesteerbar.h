@@ -43,6 +43,7 @@ public:
     ARTS_IMPORT mmMouseSteerBar();
 
     // 0x502BA0 | ??_GmmMouseSteerBar@@UAEPAXI@Z
+    // 0x502BA0 | ??_EmmMouseSteerBar@@UAEPAXI@Z
     // 0x502950 | ??1mmMouseSteerBar@@UAE@XZ
     ARTS_IMPORT ~mmMouseSteerBar() override;
 

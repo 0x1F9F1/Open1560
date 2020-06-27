@@ -48,6 +48,7 @@ public:
     ARTS_IMPORT agiD3DRPipeline();
 
     // 0x531970 | ??_GagiD3DRPipeline@@UAEPAXI@Z
+    // 0x531970 | ??_EagiD3DRPipeline@@UAEPAXI@Z
     // 0x531620 | ??1agiD3DRPipeline@@UAE@XZ
     ARTS_IMPORT ~agiD3DRPipeline() override;
 

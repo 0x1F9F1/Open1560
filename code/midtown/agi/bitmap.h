@@ -58,6 +58,7 @@ public:
 
 protected:
     // 0x55A6F0 | ??_GagiBitmap@@MAEPAXI@Z
+    // 0x55A6F0 | ??_EagiBitmap@@MAEPAXI@Z
     // 0x55A640 | ??1agiBitmap@@MAE@XZ
     ARTS_IMPORT ~agiBitmap() override;
 

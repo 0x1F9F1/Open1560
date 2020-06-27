@@ -47,6 +47,7 @@ public:
     ARTS_IMPORT aiPedAudioManager();
 
     // 0x4472B0 | ??_GaiPedAudioManager@@UAEPAXI@Z
+    // 0x4472B0 | ??_EaiPedAudioManager@@UAEPAXI@Z
     // 0x446F80 | ??1aiPedAudioManager@@UAE@XZ
     ARTS_IMPORT ~aiPedAudioManager() override;
 

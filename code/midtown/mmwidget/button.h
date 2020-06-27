@@ -51,6 +51,7 @@ public:
     ARTS_IMPORT UIButton();
 
     // 0x4B9F30 | ??_GUIButton@@UAEPAXI@Z
+    // 0x4B9F30 | ??_EUIButton@@UAEPAXI@Z
     // 0x4B9BE0 | ??1UIButton@@UAE@XZ
     ARTS_IMPORT ~UIButton() override;
 
