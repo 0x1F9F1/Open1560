@@ -101,7 +101,7 @@ class mmPhysEntity : public asNode
 public:
     // 0x453B40 | ??_GmmPhysEntity@@UAEPAXI@Z
     // 0x42D510 | ??1mmPhysEntity@@UAE@XZ | inline
-    ARTS_IMPORT ~mmPhysEntity() override;
+    ARTS_IMPORT ~mmPhysEntity() override = default;
 
     // 0x453B00 | ?PostUpdate@mmPhysEntity@@UAEXXZ | inline
     ARTS_IMPORT virtual void PostUpdate();
@@ -144,7 +144,7 @@ class aiVehicleInstance : public mmInstance
 public:
     // 0x45C530 | ??_GaiVehicleInstance@@UAEPAXI@Z
     // 0x45C550 | ??1aiVehicleInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~aiVehicleInstance() override;
+    ARTS_IMPORT ~aiVehicleInstance() override = default;
 
     // 0x45C510 | ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z | inline
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
@@ -297,7 +297,7 @@ public:
 
     // 0x453A90 | ??_EaiVehicleData@@UAEPAXI@Z
     // 0x453B90 | ??1aiVehicleData@@UAE@XZ | inline
-    ARTS_IMPORT ~aiVehicleData() override;
+    ARTS_IMPORT ~aiVehicleData() override = default;
 
     // 0x453390 | ?AddWidgets@aiVehicleData@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

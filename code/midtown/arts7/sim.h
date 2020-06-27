@@ -204,7 +204,7 @@ public:
     ARTS_IMPORT artsReplayChannel();
 
     // 0x523740 | ??1artsReplayChannel@@QAE@XZ | inline
-    ARTS_IMPORT ~artsReplayChannel();
+    ARTS_IMPORT ~artsReplayChannel() = default;
 
     // 0x523710 | ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z | inline
     ARTS_IMPORT void DoPlayback(class Stream* arg1) override;

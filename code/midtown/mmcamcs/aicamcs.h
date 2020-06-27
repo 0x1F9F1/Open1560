@@ -45,7 +45,7 @@ public:
 
     // 0x4FAB00 | ??_EAICamCS@@UAEPAXI@Z
     // 0x42D2C0 | ??1AICamCS@@UAE@XZ | inline
-    ARTS_IMPORT ~AICamCS() override;
+    ARTS_IMPORT ~AICamCS() override = default;
 
     // 0x4FAAC0 | ?GetClass@AICamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

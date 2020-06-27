@@ -46,7 +46,7 @@ public:
 
     // 0x46B8A0 | ??_GaiStuck@@UAEPAXI@Z
     // 0x4658E0 | ??1aiStuck@@UAE@XZ | inline
-    ARTS_IMPORT ~aiStuck() override;
+    ARTS_IMPORT ~aiStuck() override = default;
 
     // 0x46B770 | ?AddWidgets@aiStuck@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

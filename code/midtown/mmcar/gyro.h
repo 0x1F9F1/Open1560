@@ -45,7 +45,7 @@ public:
 
     // 0x480B80 | ??_EVehGyro@@UAEPAXI@Z
     // 0x470340 | ??1VehGyro@@UAE@XZ | inline
-    ARTS_IMPORT ~VehGyro() override;
+    ARTS_IMPORT ~VehGyro() override = default;
 
     // 0x480930 | ?AddWidgets@VehGyro@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

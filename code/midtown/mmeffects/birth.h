@@ -43,7 +43,7 @@ public:
 
     // 0x501630 | ??_EasBirthRule@@UAEPAXI@Z
     // 0x453BC0 | ??1asBirthRule@@UAE@XZ | inline
-    ARTS_IMPORT ~asBirthRule() override;
+    ARTS_IMPORT ~asBirthRule() override = default;
 
     // 0x500D30 | ?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

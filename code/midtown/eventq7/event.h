@@ -142,7 +142,7 @@ public:
     ARTS_IMPORT eqEventReplayChannelClass();
 
     // 0x5639E0 | ??1eqEventReplayChannelClass@@QAE@XZ | inline
-    ARTS_IMPORT ~eqEventReplayChannelClass();
+    ARTS_IMPORT ~eqEventReplayChannelClass() = default;
 
     // 0x563790 | ?DoPlayback@eqEventReplayChannelClass@@UAEXPAVStream@@@Z
     ARTS_IMPORT void DoPlayback(class Stream* arg1) override;

@@ -51,7 +51,7 @@ public:
 
     // 0x4FDD10 | ??_ESpline@@UAEPAXI@Z
     // 0x4F8F40 | ??1Spline@@UAE@XZ | inline
-    ARTS_IMPORT ~Spline() override;
+    ARTS_IMPORT ~Spline() override = default;
 
     // 0x4FDB80 | ?AddWidgets@Spline@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

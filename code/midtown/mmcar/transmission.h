@@ -55,7 +55,7 @@ public:
 
     // 0x470CF0 | ??_EmmTransmission@@UAEPAXI@Z
     // 0x470390 | ??1mmTransmission@@UAE@XZ | inline
-    ARTS_IMPORT ~mmTransmission() override;
+    ARTS_IMPORT ~mmTransmission() override = default;
 
     // 0x470790 | ?AddWidgets@mmTransmission@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

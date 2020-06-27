@@ -63,7 +63,7 @@ class mmScreenClearFlunky : public asNode
 public:
     // 0x404B70 | ??_EmmScreenClearFlunky@@UAEPAXI@Z
     // 0x404BA0 | ??1mmScreenClearFlunky@@UAE@XZ | inline
-    ARTS_IMPORT ~mmScreenClearFlunky() override;
+    ARTS_IMPORT ~mmScreenClearFlunky() override = default;
 
     // 0x403D10 | ?Cull@mmScreenClearFlunky@@UAEXXZ
     ARTS_IMPORT void Cull() override;

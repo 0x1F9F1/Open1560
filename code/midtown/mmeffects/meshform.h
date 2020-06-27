@@ -47,7 +47,7 @@ public:
 
     // 0x500070 | ??_GasMeshSetForm@@UAEPAXI@Z
     // 0x5000A0 | ??1asMeshSetForm@@UAE@XZ | inline
-    ARTS_IMPORT ~asMeshSetForm() override;
+    ARTS_IMPORT ~asMeshSetForm() override = default;
 
     // 0x4FFF60 | ?Cull@asMeshSetForm@@UAEXXZ
     ARTS_IMPORT void Cull() override;

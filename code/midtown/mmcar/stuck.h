@@ -46,7 +46,7 @@ public:
 
     // 0x47C900 | ??_GmmStuck@@UAEPAXI@Z
     // 0x470300 | ??1mmStuck@@UAE@XZ | inline
-    ARTS_IMPORT ~mmStuck() override;
+    ARTS_IMPORT ~mmStuck() override = default;
 
     // 0x47C7D0 | ?AddWidgets@mmStuck@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

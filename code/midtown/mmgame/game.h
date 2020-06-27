@@ -172,7 +172,7 @@ class foobar : public asNode
 public:
     // 0x414A20 | ??_Gfoobar@@UAEPAXI@Z
     // 0x414A10 | ??1foobar@@UAE@XZ | inline
-    ARTS_IMPORT ~foobar() override;
+    ARTS_IMPORT ~foobar() override = default;
 
 private:
     // 0x411EE0 | ?Update@foobar@@EAEXXZ

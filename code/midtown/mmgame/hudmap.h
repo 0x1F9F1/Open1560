@@ -71,7 +71,7 @@ public:
 
     // 0x429F70 | ??_EmmHudMap@@UAEPAXI@Z
     // 0x429FD0 | ??1mmHudMap@@UAE@XZ | inline
-    ARTS_IMPORT ~mmHudMap() override;
+    ARTS_IMPORT ~mmHudMap() override = default;
 
     // 0x428810 | ?Activate@mmHudMap@@QAEXXZ
     ARTS_IMPORT void Activate();

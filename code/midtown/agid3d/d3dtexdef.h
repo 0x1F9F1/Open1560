@@ -96,7 +96,7 @@ class agiD3DTexLut : public agiTexLut
 public:
     // 0x5315C0 | ??_GagiD3DTexLut@@UAEPAXI@Z
     // 0x5315F0 | ??1agiD3DTexLut@@UAE@XZ | inline
-    ARTS_IMPORT ~agiD3DTexLut() override;
+    ARTS_IMPORT ~agiD3DTexLut() override = default;
 
     // 0x531FD0 | ?BeginGfx@agiD3DTexLut@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;

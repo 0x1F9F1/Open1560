@@ -51,7 +51,7 @@ public:
 
     // 0x4FA430 | ??_EPointCamCS@@UAEPAXI@Z
     // 0x42D2D0 | ??1PointCamCS@@UAE@XZ | inline
-    ARTS_IMPORT ~PointCamCS() override;
+    ARTS_IMPORT ~PointCamCS() override = default;
 
     // 0x4FA3F0 | ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

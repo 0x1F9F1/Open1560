@@ -45,7 +45,7 @@ public:
 
     // 0x4DF070 | ??_EasOverSample@@UAEPAXI@Z
     // 0x42D300 | ??1asOverSample@@UAE@XZ | inline
-    ARTS_IMPORT ~asOverSample() override;
+    ARTS_IMPORT ~asOverSample() override = default;
 
     // 0x4DEE30 | ?AddWidgets@asOverSample@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

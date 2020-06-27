@@ -88,7 +88,7 @@ class mmPhysExec : public asNode
 public:
     // 0x4D91B0 | ??_GmmPhysExec@@UAEPAXI@Z
     // 0x4D91E0 | ??1mmPhysExec@@UAE@XZ | inline
-    ARTS_IMPORT ~mmPhysExec() override;
+    ARTS_IMPORT ~mmPhysExec() override = default;
 
     // 0x4D3DA0 | ?DoUpdateAll@mmPhysExec@@QAEXXZ
     ARTS_IMPORT void DoUpdateAll();

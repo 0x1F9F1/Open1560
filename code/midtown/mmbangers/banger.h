@@ -66,7 +66,7 @@ public:
 
     // 0x444720 | ??_EmmBangerInstance@@UAEPAXI@Z
     // 0x444740 | ??1mmBangerInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmBangerInstance() override;
+    ARTS_IMPORT ~mmBangerInstance() override = default;
 
     // 0x444710 | ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z | inline
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
@@ -148,7 +148,7 @@ class mmBangerManager : public asNode
 public:
     // 0x48FC80 | ??_GmmBangerManager@@UAEPAXI@Z
     // 0x48FCB0 | ??1mmBangerManager@@UAE@XZ | inline
-    ARTS_IMPORT ~mmBangerManager() override;
+    ARTS_IMPORT ~mmBangerManager() override = default;
 
     // 0x4CAC70 | ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ
     ARTS_IMPORT class mmHitBangerInstance* GetBanger();

@@ -201,7 +201,7 @@ class mmUpperInstance : public mmMatrixInstance
 public:
     // 0x48FA80 | ??_GmmUpperInstance@@UAEPAXI@Z
     // 0x48FAA0 | ??1mmUpperInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmUpperInstance() override;
+    ARTS_IMPORT ~mmUpperInstance() override = default;
 
 private:
     // 0x48BF40 | ?Draw@mmUpperInstance@@EAIXH@Z
@@ -220,7 +220,7 @@ public:
 
     // 0x48FA50 | ??_EmmRunwayLight@@UAEPAXI@Z
     // 0x48FA70 | ??1mmRunwayLight@@UAE@XZ | inline
-    ARTS_IMPORT ~mmRunwayLight() override;
+    ARTS_IMPORT ~mmRunwayLight() override = default;
 
     // 0x48FA40 | ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z | inline
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

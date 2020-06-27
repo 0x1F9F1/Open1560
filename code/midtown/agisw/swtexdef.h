@@ -93,7 +93,7 @@ public:
 
     // 0x537B70 | ??_GagiSWTexLut@@UAEPAXI@Z
     // 0x537BA0 | ??1agiSWTexLut@@UAE@XZ | inline
-    ARTS_IMPORT ~agiSWTexLut() override;
+    ARTS_IMPORT ~agiSWTexLut() override = default;
 
     // 0x537950 | ?BeginGfx@agiSWTexLut@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;

@@ -47,7 +47,7 @@ public:
 
     // 0x4F9970 | ??_EPostCamCS@@UAEPAXI@Z
     // 0x42D2F0 | ??1PostCamCS@@UAE@XZ | inline
-    ARTS_IMPORT ~PostCamCS() override;
+    ARTS_IMPORT ~PostCamCS() override = default;
 
     // 0x4F97A0 | ?AddWidgets@PostCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

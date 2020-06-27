@@ -262,7 +262,7 @@ public:
     // 0x495400 | ??_EmmShearInstance@@UAEPAXI@Z
     // 0x48FBF0 | ??_GmmShearInstance@@UAEPAXI@Z | unused
     // 0x48FC10 | ??1mmShearInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmShearInstance() override;
+    ARTS_IMPORT ~mmShearInstance() override = default;
 
     // 0x494460 | ?Draw@mmShearInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
@@ -298,7 +298,7 @@ public:
     // 0x495480 | ??_EmmBuildingInstance@@UAEPAXI@Z
     // 0x48FC20 | ??_GmmBuildingInstance@@UAEPAXI@Z | unused
     // 0x48FC40 | ??1mmBuildingInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmBuildingInstance() override;
+    ARTS_IMPORT ~mmBuildingInstance() override = default;
 
     // 0x4945F0 | ?Draw@mmBuildingInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;

@@ -207,8 +207,13 @@ class MapSymbol:
                 self.member_type = 'ctor'
             elif self.parts[-1] == ('~' + self.parts[-2]):
                 self.member_type = 'dtor'
-            elif self.parts[-1] in ['`vector deleting destructor\'', '`scalar deleting destructor\'']:
+                self.dtor_type = 'dtor'
+            elif self.parts[-1] == '`vector deleting destructor\'':
                 self.member_type = 'dtor'
+                self.dtor_type = 'vdtor'
+            elif self.parts[-1] == '`scalar deleting destructor\'':
+                self.member_type = 'dtor'
+                self.dtor_type = 'sdtor'
 
             if self.member_type == 'dtor':
                 param_types = []
@@ -740,6 +745,66 @@ def calculate_class_paddings(class_sizes, class_hier, vftables):
 
     return class_paddings
 
+def collect_default_dtor(view, symbols, class_hier):
+    default_dtors = set()
+
+    for symbol in symbols.values():
+        if symbol.member_type != 'dtor':
+            continue
+
+        if symbol.dtor_type != 'dtor':
+            continue
+
+        if symbol.path not in class_hier:
+            continue
+
+        parents = class_hier[symbol.path]
+
+        if len(parents) != 1:
+            continue
+
+        func = view.get_function_at(symbol.address)
+
+        if func is None:
+            print('Invalid ctor/dtor {} @ 0x{:X}'.format(symbol.undec_name, symbol.address))
+            continue
+
+        parameters = func.parameter_vars
+
+        if (not parameters) or (parameters[0].storage != 51): # ecx
+            continue
+
+        hlil = func.hlil
+
+        if len(hlil) != 1:
+            continue
+
+        if hlil[0].operation not in [HighLevelILOperation.HLIL_CALL, HighLevelILOperation.HLIL_TAILCALL]:
+            continue
+
+        dest = hlil[0].dest
+
+        if dest.operation not in [HighLevelILOperation.HLIL_CONST, HighLevelILOperation.HLIL_CONST_PTR]:
+            continue
+
+        if dest.constant not in symbols:
+            continue
+
+        dest_sym = symbols[dest.constant]
+
+        if dest_sym.member_type != 'dtor':
+            continue
+
+        if dest_sym.dtor_type != 'dtor':
+            continue
+
+        if dest_sym.path not in parents:
+            continue
+
+        default_dtors.add(symbol.path)
+
+    return default_dtors
+
 def symbol_sort_order(symbol):
     # 1. public
     # 2. protected
@@ -864,13 +929,10 @@ def is_ignored_token(token):
             'static',
         ]
 
-    if token.text == ' ':
-        return True
-
     return False
 
 def filter_type_tokens(tokens):
-    return [ replace_builtin_types(token.text) for token in tokens if not is_ignored_token(token) ]
+    return ''.join((replace_builtin_types(token.text) for token in tokens if not is_ignored_token(token)))
 
 def choose_best_dtor(class_symbols):
     all_dtors = [v for v in class_symbols if v.member_type == 'dtor']
@@ -1763,6 +1825,9 @@ class_hier = compute_hierarchy(class_hier, {
     'Timer',
     'Callback'
 })
+
+default_dtors = collect_default_dtor(view, symbols, class_hier)
+
 # print(class_hier)
 
 # for a, b in class_hier:
@@ -2034,6 +2099,8 @@ for lib, paths in grouped_symbols.items():
             if (value.type.type_class == TypeClass.NamedTypeReferenceClass) and (value.type.named_type_reference.name == 'MetaClass'):
                 tokens.append('//')
 
+            is_default = (value.member_type == 'dtor') and (value.path in default_dtors)
+
             if value.raw_name != '__purecall':
                 tokens.append('ARTS_IMPORT')
 
@@ -2060,20 +2127,23 @@ for lib, paths in grouped_symbols.items():
                 tokens.append('virtual')
 
             if value.member_type not in ['ctor', 'dtor']:
-                tokens.extend(filter_type_tokens(value.type.get_tokens_before_name()))
+                tokens.append(filter_type_tokens(value.type.get_tokens_before_name()))
 
             if cc_name is not None:
                 tokens.append(cc_name)
 
-            tokens.append(sym_name[-1])
-
-            tokens.extend(filter_type_tokens(value.type.get_tokens_after_name()))
+            tokens.append(sym_name[-1] + filter_type_tokens(value.type.get_tokens_after_name()))
 
             if value.override:
                 tokens.append('override')
 
             if value.raw_name == '__purecall':
-                tokens.append(' = 0')
+                tokens.append('= 0')
+
+            if is_default:
+                tokens.append('= default')
+
+            tokens = list(filter(None, tokens))
 
             if tokens:
                 # if ('i' not in value.map_attribs) and (value.library != lib):

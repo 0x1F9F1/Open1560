@@ -47,7 +47,7 @@ public:
 
     // 0x480F90 | ??_EmmForce@@UAEPAXI@Z
     // 0x470330 | ??1mmForce@@UAE@XZ | inline
-    ARTS_IMPORT ~mmForce() override;
+    ARTS_IMPORT ~mmForce() override = default;
 
     // 0x480E10 | ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

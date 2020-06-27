@@ -44,7 +44,7 @@ public:
 
     // 0x4B1CA0 | ??_EasLinearCS@@UAEPAXI@Z
     // 0x422F00 | ??1asLinearCS@@UAE@XZ | inline
-    ARTS_IMPORT ~asLinearCS() override;
+    ARTS_IMPORT ~asLinearCS() override = default;
 
     // 0x525CC0 | ?AddWidgets@asLinearCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

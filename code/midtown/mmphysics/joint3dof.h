@@ -170,7 +170,7 @@ class JointedStruct : public asNode
 {
 public:
     // 0x4DEB60 | ??1JointedStruct@@UAE@XZ | inline
-    ARTS_IMPORT ~JointedStruct();
+    ARTS_IMPORT ~JointedStruct() = default;
 };
 
 check_size(JointedStruct, 0x20);

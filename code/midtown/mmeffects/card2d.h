@@ -47,7 +47,7 @@ public:
 
     // 0x4FE620 | ??_ECard2D@@UAEPAXI@Z
     // 0x4FE650 | ??1Card2D@@UAE@XZ | inline
-    ARTS_IMPORT ~Card2D() override;
+    ARTS_IMPORT ~Card2D() override = default;
 
     // 0x4FE170 | ?Init@Card2D@@QAEXPAVasCamera@@MMMMM@Z
     ARTS_IMPORT void Init(class asCamera* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);

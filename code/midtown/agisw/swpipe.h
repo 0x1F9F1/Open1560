@@ -149,7 +149,7 @@ class agiSWViewport : public agiViewport
 public:
     // 0x534BE0 | ??_EagiSWViewport@@UAEPAXI@Z
     // 0x534C10 | ??1agiSWViewport@@UAE@XZ | inline
-    ARTS_IMPORT ~agiSWViewport() override;
+    ARTS_IMPORT ~agiSWViewport() override = default;
 
     // 0x534930 | ?Activate@agiSWViewport@@UAEXXZ | inline
     ARTS_IMPORT void Activate() override;
@@ -176,7 +176,7 @@ class agiSWBitmap : public agiBitmap
 public:
     // 0x534DF0 | ??_GagiSWBitmap@@UAEPAXI@Z
     // 0x534E20 | ??1agiSWBitmap@@UAE@XZ | inline
-    ARTS_IMPORT ~agiSWBitmap() override;
+    ARTS_IMPORT ~agiSWBitmap() override = default;
 
     // 0x534C20 | ?BeginGfx@agiSWBitmap@@UAEHXZ | inline
     ARTS_IMPORT i32 BeginGfx() override;

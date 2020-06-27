@@ -225,7 +225,7 @@ class aiPedestrianInstance : public mmInstance
 public:
     // 0x44DA40 | ??_EaiPedestrianInstance@@UAEPAXI@Z
     // 0x44DA60 | ??1aiPedestrianInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~aiPedestrianInstance() override;
+    ARTS_IMPORT ~aiPedestrianInstance() override = default;
 
     // 0x44DA30 | ?AddWidgets@aiPedestrianInstance@@UAEXPAVBank@@@Z | inline
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

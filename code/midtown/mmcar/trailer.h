@@ -133,7 +133,7 @@ class mmTrailerInstance : public mmInstance
 public:
     // 0x47A150 | ??_GmmTrailerInstance@@UAEPAXI@Z
     // 0x47A140 | ??1mmTrailerInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmTrailerInstance() override;
+    ARTS_IMPORT ~mmTrailerInstance() override = default;
 
     // 0x47A300 | ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z | inline
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

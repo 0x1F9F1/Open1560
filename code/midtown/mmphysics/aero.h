@@ -45,7 +45,7 @@ public:
 
     // 0x4E0680 | ??_EasAero@@UAEPAXI@Z
     // 0x470320 | ??1asAero@@UAE@XZ | inline
-    ARTS_IMPORT ~asAero() override;
+    ARTS_IMPORT ~asAero() override = default;
 
     // 0x4E0330 | ?AddWidgets@asAero@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
