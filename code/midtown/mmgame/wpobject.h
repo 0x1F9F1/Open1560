@@ -48,7 +48,7 @@ public:
     // 0x430660 | ??_EmmWaypointObject@@UAEPAXI@Z
     // 0x430660 | ??_GmmWaypointObject@@UAEPAXI@Z
     // 0x430510 | ??1mmWaypointObject@@UAE@XZ
-    ARTS_IMPORT ~mmWaypointObject() override;
+    ARTS_IMPORT ~mmWaypointObject() override = default;
 
     // 0x430540 | ?Activate@mmWaypointObject@@QAEXXZ
     ARTS_IMPORT void Activate();

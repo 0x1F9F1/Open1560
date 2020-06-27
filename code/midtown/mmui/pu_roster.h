@@ -52,7 +52,7 @@ public:
     // 0x4A9390 | ??_GPURoster@@UAEPAXI@Z
     // 0x4A9390 | ??_EPURoster@@UAEPAXI@Z
     // 0x4A8E10 | ??1PURoster@@UAE@XZ
-    ARTS_IMPORT ~PURoster() override;
+    ARTS_IMPORT ~PURoster() override = default;
 
     // 0x4A8F00 | ?AddName@PURoster@@QAEXPADKH@Z
     ARTS_IMPORT void AddName(char* arg1, u32 arg2, i32 arg3);

@@ -52,7 +52,7 @@ public:
 
     // 0x433D30 | ??_EmmWaypointInstance@@UAEPAXI@Z
     // 0x433780 | ??1mmWaypointInstance@@UAE@XZ
-    ARTS_IMPORT ~mmWaypointInstance() override;
+    ARTS_IMPORT ~mmWaypointInstance() override = default;
 
     // 0x433B90 | ?AddWidgets@mmWaypointInstance@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

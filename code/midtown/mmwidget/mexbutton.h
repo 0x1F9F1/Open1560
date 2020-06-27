@@ -47,7 +47,7 @@ public:
     // 0x4BCD30 | ??_EUIMexButton@@UAEPAXI@Z
     // 0x4BCD30 | ??_GUIMexButton@@UAEPAXI@Z
     // 0x4BCB30 | ??1UIMexButton@@UAE@XZ
-    ARTS_IMPORT ~UIMexButton() override;
+    ARTS_IMPORT ~UIMexButton() override = default;
 
     // 0x4BCCC0 | ?Action@UIMexButton@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;

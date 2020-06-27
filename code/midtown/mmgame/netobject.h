@@ -54,7 +54,7 @@ public:
     // 0x4331D0 | ??_GmmNetObject@@UAEPAXI@Z
     // 0x4331D0 | ??_EmmNetObject@@UAEPAXI@Z
     // 0x4327F0 | ??1mmNetObject@@UAE@XZ
-    ARTS_IMPORT ~mmNetObject() override;
+    ARTS_IMPORT ~mmNetObject() override = default;
 
     // 0x432850 | ?Activate@mmNetObject@@QAEXXZ
     ARTS_IMPORT void Activate();

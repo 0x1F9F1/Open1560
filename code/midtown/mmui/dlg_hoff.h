@@ -46,7 +46,7 @@ public:
     // 0x49EBE0 | ??_EDialog_HallOfFame@@UAEPAXI@Z
     // 0x49EBE0 | ??_GDialog_HallOfFame@@UAEPAXI@Z
     // 0x49E7E0 | ??1Dialog_HallOfFame@@UAE@XZ
-    ARTS_IMPORT ~Dialog_HallOfFame() override;
+    ARTS_IMPORT ~Dialog_HallOfFame() override = default;
 
     // 0x49E800 | ?AddRaceRecord@Dialog_HallOfFame@@QAEXHPAD00H00@Z
     ARTS_IMPORT void AddRaceRecord(i32 arg1, char* arg2, char* arg3, char* arg4, i32 arg5, char* arg6, char* arg7);

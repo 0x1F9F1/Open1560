@@ -776,13 +776,34 @@ def collect_default_dtor(view, symbols, class_hier):
 
         hlil = func.hlil
 
-        if len(hlil) != 1:
+        if len(hlil) > 2:
             continue
 
-        if hlil[0].operation not in [HighLevelILOperation.HLIL_CALL, HighLevelILOperation.HLIL_TAILCALL]:
+        index = 0
+
+        if hlil[index].operation == HighLevelILOperation.HLIL_ASSIGN:
+            assign_src = hlil[index].src
+
+            if assign_src.operation not in [HighLevelILOperation.HLIL_CONST, HighLevelILOperation.HLIL_CONST_PTR]:
+                continue
+
+            if assign_src.constant not in symbols:
+                continue
+
+            assign_sym = symbols[assign_src.constant]
+
+            if not assign_sym.is_vftable:
+                continue
+
+            if assign_sym.path != symbol.path:
+                continue
+
+            index += 1
+
+        if hlil[index].operation not in [HighLevelILOperation.HLIL_CALL, HighLevelILOperation.HLIL_TAILCALL]:
             continue
 
-        dest = hlil[0].dest
+        dest = hlil[index].dest
 
         if dest.operation not in [HighLevelILOperation.HLIL_CONST, HighLevelILOperation.HLIL_CONST_PTR]:
             continue
@@ -799,6 +820,11 @@ def collect_default_dtor(view, symbols, class_hier):
             continue
 
         if dest_sym.path not in parents:
+            continue
+
+        index += 1
+
+        if index != len(hlil):
             continue
 
         default_dtors.add(symbol.path)

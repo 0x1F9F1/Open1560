@@ -50,7 +50,7 @@ public:
 
     // 0x4F69F0 | ??_EPovCamCS@@UAEPAXI@Z
     // 0x4F63B0 | ??1PovCamCS@@UAE@XZ
-    ARTS_IMPORT ~PovCamCS() override;
+    ARTS_IMPORT ~PovCamCS() override = default;
 
     // 0x4F6460 | ?AddWidgets@PovCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

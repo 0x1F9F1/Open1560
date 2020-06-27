@@ -41,7 +41,7 @@ public:
     // 0x4AA760 | ??_GPUOptions@@UAEPAXI@Z
     // 0x4AA760 | ??_EPUOptions@@UAEPAXI@Z
     // 0x4AA750 | ??1PUOptions@@UAE@XZ
-    ARTS_IMPORT ~PUOptions() override;
+    ARTS_IMPORT ~PUOptions() override = default;
 };
 
 check_size(PUOptions, 0xC0);

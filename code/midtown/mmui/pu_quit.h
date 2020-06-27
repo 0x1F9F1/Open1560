@@ -41,7 +41,7 @@ public:
     // 0x4AAD70 | ??_GPUQuit@@UAEPAXI@Z
     // 0x4AAD70 | ??_EPUQuit@@UAEPAXI@Z
     // 0x4AAD60 | ??1PUQuit@@UAE@XZ
-    ARTS_IMPORT ~PUQuit() override;
+    ARTS_IMPORT ~PUQuit() override = default;
 };
 
 check_size(PUQuit, 0xC0);

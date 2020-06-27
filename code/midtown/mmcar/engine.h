@@ -53,7 +53,7 @@ public:
 
     // 0x47D190 | ??_EmmEngine@@UAEPAXI@Z
     // 0x47C990 | ??1mmEngine@@UAE@XZ
-    ARTS_IMPORT ~mmEngine() override;
+    ARTS_IMPORT ~mmEngine() override = default;
 
     // 0x47CE70 | ?AddWidgets@mmEngine@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

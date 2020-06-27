@@ -52,7 +52,7 @@ public:
     // 0x4B2120 | ??_EuiNavBar@@UAEPAXI@Z
     // 0x4B2120 | ??_GuiNavBar@@UAEPAXI@Z
     // 0x4B1F70 | ??1uiNavBar@@UAE@XZ
-    ARTS_IMPORT ~uiNavBar() override;
+    ARTS_IMPORT ~uiNavBar() override = default;
 
     // 0x4B2150 | ?BackUp@uiNavBar@@UAEXXZ | inline
     ARTS_IMPORT void BackUp() override;

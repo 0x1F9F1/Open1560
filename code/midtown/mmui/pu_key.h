@@ -43,7 +43,7 @@ public:
     // 0x4A9750 | ??_GPUKey@@UAEPAXI@Z
     // 0x4A9750 | ??_EPUKey@@UAEPAXI@Z
     // 0x4A9460 | ??1PUKey@@UAE@XZ
-    ARTS_IMPORT ~PUKey() override;
+    ARTS_IMPORT ~PUKey() override = default;
 
 private:
     // 0x4A9710 | ?PostSetup@PUKey@@EAEXXZ

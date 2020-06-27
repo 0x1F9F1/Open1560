@@ -44,7 +44,7 @@ public:
     // 0x5507D0 | ??_EagiZBufRenderer@@UAEPAXI@Z
     // 0x5507D0 | ??_GagiZBufRenderer@@UAEPAXI@Z
     // 0x54FA90 | ??1agiZBufRenderer@@UAE@XZ
-    ARTS_IMPORT ~agiZBufRenderer() override;
+    ARTS_IMPORT ~agiZBufRenderer() override = default;
 
     // 0x54FAA0 | ?EndGroup@agiZBufRenderer@@UAEXXZ
     ARTS_IMPORT void EndGroup() override;

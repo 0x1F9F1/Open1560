@@ -56,7 +56,7 @@ public:
 
     // 0x497D90 | ??_EmmPed@@UAEPAXI@Z
     // 0x4978B0 | ??1mmPed@@UAE@XZ
-    ARTS_IMPORT ~mmPed() override;
+    ARTS_IMPORT ~mmPed() override = default;
 
     // 0x4978E0 | ?Draw@mmPed@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
@@ -91,7 +91,7 @@ public:
 
     // 0x497DF0 | ??_EmmPedManager@@UAEPAXI@Z
     // 0x4979A0 | ??1mmPedManager@@UAE@XZ
-    ARTS_IMPORT ~mmPedManager() override;
+    ARTS_IMPORT ~mmPedManager() override = default;
 
     // 0x497D80 | ?GetClass@mmPedManager@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

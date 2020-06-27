@@ -80,7 +80,7 @@ public:
     // 0x534900 | ??_GagiSWPipeline@@UAEPAXI@Z
     // 0x534900 | ??_EagiSWPipeline@@UAEPAXI@Z
     // 0x533E50 | ??1agiSWPipeline@@UAE@XZ
-    ARTS_IMPORT ~agiSWPipeline() override;
+    ARTS_IMPORT ~agiSWPipeline() override = default;
 
     // 0x534030 | ?BeginFrame@agiSWPipeline@@UAEXXZ
     ARTS_IMPORT void BeginFrame() override;

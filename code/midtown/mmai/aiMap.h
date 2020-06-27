@@ -123,7 +123,7 @@ public:
 
     // 0x43C120 | ??_EaiMap@@UAEPAXI@Z
     // 0x433FE0 | ??1aiMap@@UAE@XZ
-    ARTS_IMPORT ~aiMap() override;
+    ARTS_IMPORT ~aiMap() override = default;
 
     // 0x43BA60 | ?AddAmbient@aiMap@@QAEXPAVaiVehicleSpline@@@Z
     ARTS_IMPORT void AddAmbient(class aiVehicleSpline* arg1);

@@ -47,7 +47,7 @@ public:
 
     // 0x4FC2D0 | ??_EBaseCamCS@@UAEPAXI@Z
     // 0x4FBEA0 | ??1BaseCamCS@@UAE@XZ
-    ARTS_IMPORT ~BaseCamCS() override;
+    ARTS_IMPORT ~BaseCamCS() override = default;
 
     // 0x4FB4A0 | ?MakeActive@BaseCamCS@@UAEXXZ | inline
     ARTS_IMPORT virtual void MakeActive();

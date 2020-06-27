@@ -50,7 +50,7 @@ public:
     // 0x4EC040 | ??_EAudHead@@UAEPAXI@Z
     // 0x4EC040 | ??_GAudHead@@UAEPAXI@Z
     // 0x4EBD00 | ??1AudHead@@UAE@XZ
-    ARTS_IMPORT ~AudHead() override;
+    ARTS_IMPORT ~AudHead() override = default;
 
     // 0x4EBEF0 | ?AddWidgets@AudHead@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

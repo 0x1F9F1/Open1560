@@ -43,7 +43,7 @@ public:
     // 0x49F820 | ??_EDialog_NewPlayer@@UAEPAXI@Z
     // 0x49F820 | ??_GDialog_NewPlayer@@UAEPAXI@Z
     // 0x49F7D0 | ??1Dialog_NewPlayer@@UAE@XZ
-    ARTS_IMPORT ~Dialog_NewPlayer() override;
+    ARTS_IMPORT ~Dialog_NewPlayer() override = default;
 
     // 0x49F7E0 | ?EnterNewPlayer@Dialog_NewPlayer@@QAEXXZ
     ARTS_IMPORT void EnterNewPlayer();

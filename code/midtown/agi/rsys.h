@@ -52,7 +52,7 @@ public:
     // 0x557E40 | ??_GagiRasterizer@@UAEPAXI@Z
     // 0x557E40 | ??_EagiRasterizer@@UAEPAXI@Z
     // 0x557D10 | ??1agiRasterizer@@UAE@XZ
-    ARTS_IMPORT ~agiRasterizer() override;
+    ARTS_IMPORT ~agiRasterizer() override = default;
 
     // 0x557D20 | ?BeginGroup@agiRasterizer@@UAEXXZ
     ARTS_IMPORT virtual void BeginGroup();

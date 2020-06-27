@@ -53,7 +53,7 @@ public:
     // 0x537DC0 | ??_GagiSWRasterizer@@UAEPAXI@Z
     // 0x537DC0 | ??_EagiSWRasterizer@@UAEPAXI@Z
     // 0x537BD0 | ??1agiSWRasterizer@@UAE@XZ
-    ARTS_IMPORT ~agiSWRasterizer() override;
+    ARTS_IMPORT ~agiSWRasterizer() override = default;
 
     // 0x537BE0 | ?BeginGfx@agiSWRasterizer@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;

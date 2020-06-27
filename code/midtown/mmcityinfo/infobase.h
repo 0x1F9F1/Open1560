@@ -44,7 +44,7 @@ public:
     // 0x4D15E0 | ??_EmmInfoBase@@UAEPAXI@Z
     // 0x414B90 | ??_GmmInfoBase@@UAEPAXI@Z | unused
     // 0x414BC0 | ??1mmInfoBase@@UAE@XZ | inline
-    ARTS_IMPORT ~mmInfoBase() override;
+    ARTS_IMPORT ~mmInfoBase() override = default;
 
     // 0x4D15D0 | ?GetClass@mmInfoBase@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

@@ -45,7 +45,7 @@ public:
 
     // 0x4FB440 | ??_ECarCamCS@@UAEPAXI@Z
     // 0x4FB240 | ??1CarCamCS@@UAE@XZ
-    ARTS_IMPORT ~CarCamCS() override;
+    ARTS_IMPORT ~CarCamCS() override = default;
 
     // 0x4FB280 | ?AddWidgets@CarCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

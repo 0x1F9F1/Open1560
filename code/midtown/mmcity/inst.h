@@ -144,7 +144,7 @@ public:
     // 0x495360 | ??_EmmInstance@@UAEPAXI@Z
     // 0x495360 | ??_GmmInstance@@UAEPAXI@Z
     // 0x492A00 | ??1mmInstance@@UAE@XZ
-    ARTS_IMPORT ~mmInstance() override;
+    ARTS_IMPORT ~mmInstance() override = default;
 
     virtual void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) = 0;
 
@@ -368,7 +368,7 @@ public:
     // 0x495380 | ??_EmmYInstance@@UAEPAXI@Z
     // 0x495380 | ??_GmmYInstance@@UAEPAXI@Z
     // 0x4932E0 | ??1mmYInstance@@UAE@XZ
-    ARTS_IMPORT ~mmYInstance() override;
+    ARTS_IMPORT ~mmYInstance() override = default;
 
     // 0x4933B0 | ?AddWidgets@mmYInstance@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
@@ -406,7 +406,7 @@ public:
 
     // 0x4953A0 | ??_EmmMatrixInstance@@UAEPAXI@Z
     // 0x493430 | ??1mmMatrixInstance@@UAE@XZ
-    ARTS_IMPORT ~mmMatrixInstance() override;
+    ARTS_IMPORT ~mmMatrixInstance() override = default;
 
     // 0x4935B0 | ?Hit@mmMatrixInstance@@UAEXPAVmmInstance@@@Z
     ARTS_IMPORT virtual void Hit(class mmInstance* arg1);
@@ -451,7 +451,7 @@ public:
 
     // 0x495500 | ??_EmmStaticInstance@@UAEPAXI@Z
     // 0x493600 | ??1mmStaticInstance@@UAE@XZ
-    ARTS_IMPORT ~mmStaticInstance() override;
+    ARTS_IMPORT ~mmStaticInstance() override = default;
 
     // 0x494960 | ?AddWidgets@mmStaticInstance@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
@@ -489,7 +489,7 @@ public:
 
     // 0x495560 | ??_EmmFacadeInstance@@UAEPAXI@Z
     // 0x4937B0 | ??1mmFacadeInstance@@UAE@XZ
-    ARTS_IMPORT ~mmFacadeInstance() override;
+    ARTS_IMPORT ~mmFacadeInstance() override = default;
 
     // 0x494010 | ?Draw@mmFacadeInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;

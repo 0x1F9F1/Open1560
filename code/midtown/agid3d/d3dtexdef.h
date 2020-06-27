@@ -53,7 +53,7 @@ public:
     // 0x532060 | ??_EagiD3DTexDef@@UAEPAXI@Z
     // 0x532060 | ??_GagiD3DTexDef@@UAEPAXI@Z
     // 0x5319D0 | ??1agiD3DTexDef@@UAE@XZ
-    ARTS_IMPORT ~agiD3DTexDef() override;
+    ARTS_IMPORT ~agiD3DTexDef() override = default;
 
     // 0x5319E0 | ?BeginGfx@agiD3DTexDef@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;

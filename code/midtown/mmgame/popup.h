@@ -57,7 +57,7 @@ public:
     // 0x427D80 | ??_GmmPopup@@UAEPAXI@Z
     // 0x427D80 | ??_EmmPopup@@UAEPAXI@Z
     // 0x427010 | ??1mmPopup@@UAE@XZ
-    ARTS_IMPORT ~mmPopup() override;
+    ARTS_IMPORT ~mmPopup() override = default;
 
     // 0x427CF0 | ?ChatCB@mmPopup@@QAEXXZ
     ARTS_IMPORT void ChatCB();

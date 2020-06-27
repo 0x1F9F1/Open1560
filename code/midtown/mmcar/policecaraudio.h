@@ -55,7 +55,7 @@ public:
     // 0x47B920 | ??_EmmPoliceCarAudio@@UAEPAXI@Z
     // 0x47B920 | ??_GmmPoliceCarAudio@@UAEPAXI@Z
     // 0x47A8E0 | ??1mmPoliceCarAudio@@UAE@XZ
-    ARTS_IMPORT ~mmPoliceCarAudio() override;
+    ARTS_IMPORT ~mmPoliceCarAudio() override = default;
 
     // 0x47B6A0 | ?AssignSounds@mmPoliceCarAudio@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
     ARTS_IMPORT void AssignSounds(class AudSound* arg1, class AudSound* arg2, class AudSound* arg3,

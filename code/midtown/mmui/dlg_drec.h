@@ -47,7 +47,7 @@ public:
     // 0x49F2B0 | ??_GDialog_DriverRec@@UAEPAXI@Z
     // 0x49F2B0 | ??_EDialog_DriverRec@@UAEPAXI@Z
     // 0x49EF70 | ??1Dialog_DriverRec@@UAE@XZ
-    ARTS_IMPORT ~Dialog_DriverRec() override;
+    ARTS_IMPORT ~Dialog_DriverRec() override = default;
 
     // 0x49F060 | ?AddDriverRecord@Dialog_DriverRec@@QAEHHPADHM0H@Z
     ARTS_IMPORT i32 AddDriverRecord(i32 arg1, char* arg2, i32 arg3, f32 arg4, char* arg5, i32 arg6);

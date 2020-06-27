@@ -42,7 +42,7 @@ public:
     // 0x4A0350 | ??_GDialog_ControlAssign@@UAEPAXI@Z
     // 0x4A0350 | ??_EDialog_ControlAssign@@UAEPAXI@Z
     // 0x4A0330 | ??1Dialog_ControlAssign@@UAE@XZ
-    ARTS_IMPORT ~Dialog_ControlAssign() override;
+    ARTS_IMPORT ~Dialog_ControlAssign() override = default;
 
     // 0x4A0340 | ?PreSetup@Dialog_ControlAssign@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;

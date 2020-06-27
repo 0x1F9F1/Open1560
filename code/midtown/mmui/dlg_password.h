@@ -43,7 +43,7 @@ public:
     // 0x49DC50 | ??_GDialog_Password@@UAEPAXI@Z
     // 0x49DC50 | ??_EDialog_Password@@UAEPAXI@Z
     // 0x49DC20 | ??1Dialog_Password@@UAE@XZ
-    ARTS_IMPORT ~Dialog_Password() override;
+    ARTS_IMPORT ~Dialog_Password() override = default;
 
     // 0x49DC40 | ?PasswordCallback@Dialog_Password@@QAEXXZ
     ARTS_IMPORT void PasswordCallback();

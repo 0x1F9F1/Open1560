@@ -64,7 +64,7 @@ public:
 
     // 0x479170 | ??_EmmShard@@UAEPAXI@Z
     // 0x4785D0 | ??1mmShard@@UAE@XZ
-    ARTS_IMPORT ~mmShard() override;
+    ARTS_IMPORT ~mmShard() override = default;
 
     // 0x4785E0 | ?AddShard@mmShard@@QAEXVVector3@@00M@Z
     ARTS_IMPORT void AddShard(class Vector3 arg1, class Vector3 arg2, class Vector3 arg3, f32 arg4);

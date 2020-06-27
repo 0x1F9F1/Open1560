@@ -47,7 +47,7 @@ public:
     // 0x4A9F10 | ??_GPUGraphics@@UAEPAXI@Z
     // 0x4A9F10 | ??_EPUGraphics@@UAEPAXI@Z
     // 0x4A9EE0 | ??1PUGraphics@@UAE@XZ
-    ARTS_IMPORT ~PUGraphics() override;
+    ARTS_IMPORT ~PUGraphics() override = default;
 
     // 0x4A9F00 | ?CancelAction@PUGraphics@@QAEXXZ
     ARTS_IMPORT void CancelAction();

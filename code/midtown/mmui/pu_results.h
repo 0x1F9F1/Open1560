@@ -53,7 +53,7 @@ public:
     // 0x4A8C70 | ??_GPUResults@@UAEPAXI@Z
     // 0x4A8C70 | ??_EPUResults@@UAEPAXI@Z
     // 0x4A89C0 | ??1PUResults@@UAE@XZ
-    ARTS_IMPORT ~PUResults() override;
+    ARTS_IMPORT ~PUResults() override = default;
 
     // 0x4A8A50 | ?AddName@PUResults@@QAEXHPADM@Z
     ARTS_IMPORT void AddName(i32 arg1, char* arg2, f32 arg3);

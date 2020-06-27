@@ -56,7 +56,7 @@ public:
     // 0x537B40 | ??_GagiSWTexDef@@UAEPAXI@Z
     // 0x537B40 | ??_EagiSWTexDef@@UAEPAXI@Z
     // 0x537700 | ??1agiSWTexDef@@UAE@XZ
-    ARTS_IMPORT ~agiSWTexDef() override;
+    ARTS_IMPORT ~agiSWTexDef() override = default;
 
     // 0x537730 | ?BeginGfx@agiSWTexDef@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;

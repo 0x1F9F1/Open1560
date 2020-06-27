@@ -43,7 +43,7 @@ public:
     // 0x4A0520 | ??_GDialog_TCPIP@@UAEPAXI@Z
     // 0x4A0520 | ??_EDialog_TCPIP@@UAEPAXI@Z
     // 0x4A04F0 | ??1Dialog_TCPIP@@UAE@XZ
-    ARTS_IMPORT ~Dialog_TCPIP() override;
+    ARTS_IMPORT ~Dialog_TCPIP() override = default;
 
     // 0x4A0510 | ?IPAddressCallback@Dialog_TCPIP@@QAEXXZ
     ARTS_IMPORT void IPAddressCallback();

@@ -45,7 +45,7 @@ public:
     // 0x4A5320 | ??_EVehicle@@UAEPAXI@Z
     // 0x4A5320 | ??_GVehicle@@UAEPAXI@Z
     // 0x4A52B0 | ??1Vehicle@@UAE@XZ
-    ARTS_IMPORT ~Vehicle() override;
+    ARTS_IMPORT ~Vehicle() override = default;
 
     // 0x4A5310 | ?PostSetup@Vehicle@@UAEXXZ
     ARTS_IMPORT void PostSetup() override;

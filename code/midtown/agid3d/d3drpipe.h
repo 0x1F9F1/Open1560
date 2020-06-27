@@ -50,7 +50,7 @@ public:
     // 0x531970 | ??_GagiD3DRPipeline@@UAEPAXI@Z
     // 0x531970 | ??_EagiD3DRPipeline@@UAEPAXI@Z
     // 0x531620 | ??1agiD3DRPipeline@@UAE@XZ
-    ARTS_IMPORT ~agiD3DRPipeline() override;
+    ARTS_IMPORT ~agiD3DRPipeline() override = default;
 
     // 0x531630 | ?BeginGfx@agiD3DRPipeline@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;

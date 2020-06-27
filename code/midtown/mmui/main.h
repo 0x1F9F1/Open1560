@@ -42,7 +42,7 @@ public:
     // 0x4A6390 | ??_GMainMenu@@UAEPAXI@Z
     // 0x4A6390 | ??_EMainMenu@@UAEPAXI@Z
     // 0x4A6370 | ??1MainMenu@@UAE@XZ
-    ARTS_IMPORT ~MainMenu() override;
+    ARTS_IMPORT ~MainMenu() override = default;
 
     // 0x4A6380 | ?PreSetup@MainMenu@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;

@@ -60,7 +60,7 @@ public:
     // 0x52FA60 | ??_EagiD3DRasterizer@@UAEPAXI@Z
     // 0x52FA60 | ??_GagiD3DRasterizer@@UAEPAXI@Z
     // 0x52E590 | ??1agiD3DRasterizer@@UAE@XZ
-    ARTS_IMPORT ~agiD3DRasterizer() override;
+    ARTS_IMPORT ~agiD3DRasterizer() override = default;
 
     // 0x52E570 | ?BeginGfx@agiD3DRasterizer@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;

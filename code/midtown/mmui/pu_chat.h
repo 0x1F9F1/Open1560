@@ -43,7 +43,7 @@ public:
     // 0x4A9930 | ??_EPUChat@@UAEPAXI@Z
     // 0x4A9930 | ??_GPUChat@@UAEPAXI@Z
     // 0x4A9880 | ??1PUChat@@UAE@XZ
-    ARTS_IMPORT ~PUChat() override;
+    ARTS_IMPORT ~PUChat() override = default;
 
     // 0x4A98D0 | ?ChatEntry@PUChat@@QAEXXZ
     ARTS_IMPORT void ChatEntry();

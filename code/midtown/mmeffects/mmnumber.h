@@ -52,7 +52,7 @@ public:
 
     // 0x4262A0 | ??_EmmNumber@@UAEPAXI@Z
     // 0x4FEAA0 | ??1mmNumber@@UAE@XZ
-    ARTS_IMPORT ~mmNumber() override;
+    ARTS_IMPORT ~mmNumber() override = default;
 
     // 0x4FECA0 | ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

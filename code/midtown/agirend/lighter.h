@@ -149,7 +149,7 @@ public:
     // 0x552450 | ??_GagiMonoLighter@@UAEPAXI@Z
     // 0x552450 | ??_EagiMonoLighter@@UAEPAXI@Z
     // 0x551A10 | ??1agiMonoLighter@@UAE@XZ
-    ARTS_IMPORT ~agiMonoLighter() override;
+    ARTS_IMPORT ~agiMonoLighter() override = default;
 
     // 0x551A20 | ?LightVertex@agiMonoLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
     ARTS_IMPORT u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) override;
@@ -168,7 +168,7 @@ public:
     // 0x552480 | ??_GagiRGBLighter@@UAEPAXI@Z
     // 0x552480 | ??_EagiRGBLighter@@UAEPAXI@Z
     // 0x551E60 | ??1agiRGBLighter@@UAE@XZ
-    ARTS_IMPORT ~agiRGBLighter() override;
+    ARTS_IMPORT ~agiRGBLighter() override = default;
 
     // 0x551E70 | ?LightVertex@agiRGBLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
     ARTS_IMPORT u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) override;

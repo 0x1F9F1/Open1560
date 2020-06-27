@@ -46,7 +46,7 @@ public:
     // 0x533530 | ??_EagiD3DViewport@@UAEPAXI@Z
     // 0x533530 | ??_GagiD3DViewport@@UAEPAXI@Z
     // 0x533340 | ??1agiD3DViewport@@UAE@XZ
-    ARTS_IMPORT ~agiD3DViewport() override;
+    ARTS_IMPORT ~agiD3DViewport() override = default;
 
     // 0x533350 | ?Activate@agiD3DViewport@@UAEXXZ
     ARTS_IMPORT void Activate() override;

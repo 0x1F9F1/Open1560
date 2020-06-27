@@ -242,7 +242,7 @@ public:
     // 0x4069C0 | ??_GmmTimer@@UAEPAXI@Z
     // 0x4069C0 | ??_EmmTimer@@UAEPAXI@Z
     // 0x406200 | ??1mmTimer@@UAE@XZ
-    ARTS_IMPORT ~mmTimer() override;
+    ARTS_IMPORT ~mmTimer() override = default;
 
     // 0x406230 | ?GetTime@mmTimer@@QAEMXZ
     ARTS_IMPORT f32 GetTime();

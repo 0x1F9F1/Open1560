@@ -41,7 +41,7 @@ public:
     // 0x4AAFB0 | ??_GPUMain@@UAEPAXI@Z
     // 0x4AAFB0 | ??_EPUMain@@UAEPAXI@Z
     // 0x4AAFA0 | ??1PUMain@@UAE@XZ
-    ARTS_IMPORT ~PUMain() override;
+    ARTS_IMPORT ~PUMain() override = default;
 };
 
 check_size(PUMain, 0xC0);

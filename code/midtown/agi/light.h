@@ -60,7 +60,7 @@ public:
     // 0x55BB40 | ??_EagiLight@@UAEPAXI@Z
     // 0x55BB40 | ??_GagiLight@@UAEPAXI@Z
     // 0x55BB10 | ??1agiLight@@UAE@XZ
-    ARTS_IMPORT ~agiLight() override;
+    ARTS_IMPORT ~agiLight() override = default;
 
     virtual i32 Update() = 0;
 
