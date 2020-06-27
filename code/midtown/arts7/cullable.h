@@ -42,6 +42,7 @@ public:
     // 0x525A40 | ??_EasCullable@@UAEPAXI@Z
     // 0x48BB50 | ??_GasCullable@@UAEPAXI@Z | unused
     // 0x48BB80 | ??1asCullable@@UAE@XZ | inline
+    ARTS_EXPORT ~asCullable() override = default;
 
     // 0x5258C0 | ?Cull@asCullable@@UAEXXZ
     ARTS_EXPORT virtual void Cull();

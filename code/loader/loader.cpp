@@ -440,7 +440,7 @@ include_dummy_symbol(data7_timer);
 // include_dummy_symbol(dyna7_dyna);
 // include_dummy_symbol(dyna7_gfx);
 
-// include_dummy_symbol(eventq7_dispatchable);
+include_dummy_symbol(eventq7_dispatchable);
 // include_dummy_symbol(eventq7_event);
 // include_dummy_symbol(eventq7_eventq);
 // include_dummy_symbol(eventq7_geinputLib);

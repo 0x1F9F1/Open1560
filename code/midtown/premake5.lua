@@ -8,7 +8,7 @@ include "agiworld"
 include "arts7"
 include "data7"
 -- include "dyna7"
--- include "eventq7"
+include "eventq7"
 -- include "localize"
 include "memory"
 -- include "mmai"
@@ -50,7 +50,7 @@ arts_component "midtown"
         "arts_arts7",
         "arts_data7",
         -- "arts_dyna7",
-        -- "arts_eventq7",
+        "arts_eventq7",
         -- "arts_localize",
         "arts_memory",
         -- "arts_mmai",

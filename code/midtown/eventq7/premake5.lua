@@ -1,7 +1,7 @@
 arts_component "eventq7"
     files {
-        -- "dispatchable.cpp",
-        -- "dispatchable.h",
+        "dispatchable.cpp",
+        "dispatchable.h",
         -- "event.cpp",
         -- "event.h",
         -- "eventq.cpp",
