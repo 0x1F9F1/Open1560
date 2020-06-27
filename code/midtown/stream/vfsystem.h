@@ -183,7 +183,7 @@ public:
     ARTS_EXPORT b32 ValidPath(const char* path) override;
 
     // 0x560800 | ?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@0@Z
-    ARTS_EXPORT [[deprecated]] static void ExpandName(char* buf, struct VirtualFileInode* node, const char* names);
+    [[deprecated]] ARTS_EXPORT static void ExpandName(char* buf, struct VirtualFileInode* node, const char* names);
 
     static void ExpandName(char* buf, i32 buf_len, struct VirtualFileInode* node, const char* names);
 
@@ -192,7 +192,7 @@ public:
         struct VirtualFileInode* nodes, i32 node_count, const char* names, char* path);
 
     // 0x560790 | ?NormalizeName@VirtualFileSystem@@SAXPAD0@Z
-    ARTS_EXPORT [[deprecated]] static void NormalizeName(char* buf, const char* path);
+    [[deprecated]] ARTS_EXPORT static void NormalizeName(char* buf, const char* path);
 
     static void NormalizeName(char* buf, i32 buf_len, const char* path);
 

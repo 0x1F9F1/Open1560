@@ -288,7 +288,7 @@ Owner<class Stream*> OpenFile(
 
     Stream* result = nullptr;
 
-    if (; fs && (result = fs->OpenOn(path, 1, 0, 4096)) != nullptr)
+    if (fs && (result = fs->OpenOn(path, 1, 0, 4096)) != nullptr)
     {
         if (fsVerbose)
         {

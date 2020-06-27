@@ -38,12 +38,14 @@ ARTS_IMPORT /*static*/ char* exeDirFile(char* arg1, char* arg2);
 
 static char Main_ExecPath[1024] {};
 static char* Main_Argv[128] {};
-static u8 Main_InitHeap[0x10000];
+
+alignas(16) static u8 Main_InitHeap[0x10000];
 
 int WINAPI MidtownMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR lpCmdLine, int /*nShowCmd*/)
 {
     asMemoryAllocator init_alloc;
     init_alloc.Init(Main_InitHeap, sizeof(Main_InitHeap), 1);
+
     CURHEAP = &init_alloc;
 
     MetaClass::FixupClasses();

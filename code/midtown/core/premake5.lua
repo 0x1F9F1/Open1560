@@ -16,4 +16,5 @@ arts_component "core"
         "endian.h",
         "defines.h",
         "minwin.h",
+        "platform.h",
     }

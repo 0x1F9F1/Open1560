@@ -196,6 +196,9 @@ asMemoryAllocator::~asMemoryAllocator() = default;
 
 void* asMemoryAllocator::Allocate(u32 size)
 {
+    check_size(Node, 0x8);
+    check_size(FreeNode, 0x10);
+
     if (size == 0)
         return nullptr;
 
@@ -272,9 +275,13 @@ void* asMemoryAllocator::Allocate(u32 size)
 
     if (debug_)
     {
+#ifdef ARTS_DEBUG
         void** ebp = static_cast<void***>(_AddressOfReturnAddress())[-1];
         ebp = static_cast<void**>(*ebp);
         n->SetDebugGuards(reinterpret_cast<u32>(ebp[1]));
+#else
+        n->SetDebugGuards(0);
+#endif
 
         result += Node::DebugLowerGuardSize;
     }

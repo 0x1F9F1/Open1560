@@ -16,23 +16,16 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "assert.h"
+#pragma once
 
-#include "platform.h"
+#include "minwin.h"
 
-[[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArReportAssertion(const ArAssertData& data)
-{
-    const ArSourceLocation& location = data.location;
+#include <cstdlib>
 
-    Abortf("Assertion Failure: %s (%s) in %s (%s:%u)", data.message, data.condition, location.function,
-        location.filename, location.linenum);
+#define ArDebugBreak() __debugbreak()
 
-    ArAbort();
-}
-
-[[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArUnimplemented(const ArSourceLocation& location)
-{
-    Abortf("Unimplemented Function: %s in %s:%u", location.function, location.filename, location.linenum);
-
-    ArAbort();
-}
+#if 1
+#    define ArAbort() __fastfail(FAST_FAIL_FATAL_APP_EXIT)
+#else
+#    define ArAbort() ((IsDebuggerPresent() && (ArDebugBreak(), 0)), std::abort())
+#endif

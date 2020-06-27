@@ -214,21 +214,14 @@ static std::size_t InitExportHooks(HMODULE instance)
 
     for (HGLOBAL hResData : resources)
     {
-        UnlockResource(hResData);
         FreeResource(hResData);
     }
 
     return total;
 }
 
-static u8 Main_InitHeap[0x80000];
-
-#include <mmsystem.h>
-
 BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
-    MCI_OPEN;
-
     if (fdwReason == DLL_PROCESS_ATTACH)
     {
         if (std::strcmp(mem::pointer(0x6346BC).as<const char*>(), "Angel: 1560 / Apr  2 1999 19:10:27") != 0)

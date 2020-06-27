@@ -35,7 +35,9 @@ void Base::AfterLoad()
 
 const char* Base::GetTypeName()
 {
-    return this ? GetTypeNameV() : "*NULL*";
+    Base* volatile this_ptr = this;
+
+    return this_ptr ? GetTypeNameV() : "*NULL*";
 }
 
 META_DEFINE("Base", Base) {};

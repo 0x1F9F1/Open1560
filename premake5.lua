@@ -24,15 +24,10 @@ MM1_COMMAND_LINE = _OPTIONS['MM1_COMMAND_LINE'] or read_file_line('CommandLine.t
 workspace "Open1560"
     location "build"
 
-    flags "MultiProcessorCompile"
+    toolset "msc-llvm"
 
     configurations { "Debug", "Release", "Final" }
     platforms { "Win32" }
-
-    buildoptions { "/permissive-" }
-
-    filter "kind:*App or SharedLib"
-        targetdir "bin/%{prj.name}/%{cfg.platform}_%{cfg.buildcfg}"
 
     local ci_build_string = os.getenv("APPVEYOR_BUILD_NUMBER")
 
@@ -40,20 +35,24 @@ workspace "Open1560"
         defines { "CI_BUILD_STRING=\"" .. ci_build_string .. "\"" }
     end
 
+    flags "MultiProcessorCompile"
+
     editAndContinue "Off"
+    symbols "On"
+    debugformat "c7"
+
+    filter "kind:*App or SharedLib"
+        targetdir "bin/%{prj.name}/%{cfg.platform}_%{cfg.buildcfg}"
 
     filter "configurations:Debug"
         optimize "Debug"
-        symbols "On"
         defines { "_DEBUG", "ARTS_DEBUG" }
 
     filter "configurations:Release"
         optimize "On"
-        symbols "On"
 
     filter "configurations:Final"
         optimize "Full"
-        symbols "FastLink"
         defines { "NDEBUG", "ARTS_FINAL" }
         flags { "LinkTimeOptimization", "NoIncrementalLink" }
 

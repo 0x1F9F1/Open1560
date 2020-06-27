@@ -12,4 +12,4 @@ arts_component "pcwindis"
         "setupdata.h",
     }
 
-    links { "ddraw", "dxguid" }
+    links { "dxguid" }

@@ -89,6 +89,11 @@ public:
 
     usize SizeOf(void* ptr);
 
+    void SetDebug(bool enabled)
+    {
+        debug_ = enabled;
+    }
+
 private:
     struct Node;
     struct FreeNode;

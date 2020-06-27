@@ -23,7 +23,7 @@ define_dummy_symbol(data7_printer);
 #include <cstring>
 #include <ctime>
 
-#include "core/minwin.h"
+#include "core/platform.h"
 
 #include "machname.h"
 
@@ -98,7 +98,7 @@ void PDebug(ARTS_FORMAT_STRING char const* format, ...)
     Printer(4, format, va);
     va_end(va);
 
-    ArDebugBreak();
+    ArAbort();
 }
 
 static HANDLE DebugLogFile = INVALID_HANDLE_VALUE;

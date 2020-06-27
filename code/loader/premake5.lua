@@ -3,7 +3,10 @@ project "Open1560"
     language "C++"
     cppdialect "C++17"
     warnings "Extra"
-    flags "FatalWarnings"
+
+    filter "toolset:msc-v*"
+        flags "FatalWarnings"
+    filter {}
 
     useARTSPCH()
     includeARTS()
@@ -16,6 +19,10 @@ project "Open1560"
         "loader.rc",
         "import_stubs.asm",
     }
+
+    filter "files:**.asm"
+        exceptionhandling "SEH"
+    filter {}
 
     links { "arts_midtown", "DbgHelp", "Winmm" }
 

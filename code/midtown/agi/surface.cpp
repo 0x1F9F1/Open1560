@@ -142,8 +142,7 @@ void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
 
     if (usize dst_min_pitch = dst_pixel_size * dst_width; dst_pitch < dst_min_pitch)
     {
-        // In 32-bit color mode the pitch of some mipmaps is too small (half of what it should be).
-        // Unsure if this is a bug in MM1 or dgVoodoo, but just use -nomip to avoid it for now.
+        // dgVodooo2 does not validate lPitch of created surface (when DDSD_PITCH is set).
         Displayf("Invalid Pitch: %u < %u", dst_pitch, dst_min_pitch);
         std::memset(dst_surface, 0xFF, dst_pitch * dst_height);
         return;
@@ -260,6 +259,7 @@ void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
         copy_row(dst_surface + (dst_pitch * dst_y), src_surface + (src_pitch * (src_y >> 16)), dst_width, src_x_step);
     }
 }
+
 void agiSurfaceDesc::Unload()
 {
     if (lpSurface)
@@ -268,6 +268,7 @@ void agiSurfaceDesc::Unload()
         lpSurface = nullptr;
     }
 }
+
 Owner<class agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, class agiSurfaceDesc& desc)
 {
     u32 pixel_size = (desc.ddpfPixelFormat.dwRGBBitCount + 7) / 8;

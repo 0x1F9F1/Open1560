@@ -18,11 +18,6 @@
 
 #pragma once
 
-/* Don't include intrin.h here because it contains C++ code */
-extern void __cdecl __debugbreak(void);
-
-#define ArDebugBreak() __debugbreak()
-
 struct ArSourceLocation
 {
     const char* filename;

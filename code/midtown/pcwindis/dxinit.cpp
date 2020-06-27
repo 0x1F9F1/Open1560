@@ -52,11 +52,14 @@ static GUID* dxiCurrentInterfaceGUID = nullptr;
 
 void dxiDirectDrawCreate()
 {
+    auto pDirectDrawCreate = reinterpret_cast<decltype(&DirectDrawCreate)>(
+        GetProcAddress(GetModuleHandleA("DDRAW.DLL"), "DirectDrawCreate"));
+
     dxiCurrentInterfaceGUID = dxiGetInterfaceGUID();
 
     IDirectDraw* lpDD = nullptr;
 
-    if (DirectDrawCreate(dxiCurrentInterfaceGUID, &lpDD, NULL) != 0)
+    if (pDirectDrawCreate(dxiCurrentInterfaceGUID, &lpDD, NULL) != 0)
         Quitf("dxiDirectDrawCreate: DirectDrawCreate failed.");
 
     if (lpDD->QueryInterface(IID_IDirectDraw4, (void**) &lpDD4) != 0)

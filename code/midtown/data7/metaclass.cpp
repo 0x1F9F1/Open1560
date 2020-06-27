@@ -256,7 +256,7 @@ void MetaClass::FixupClasses()
 
     mem::module main_module = mem::module::main();
 
-    std::unordered_map<std::string, MetaClass*> fixups;
+    std::unordered_map<std::string_view, MetaClass*> fixups;
 
     // Find classes registered by Open1560
     for (i32 i = 0; i < NextSerial; ++i)
