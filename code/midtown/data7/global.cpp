@@ -19,3 +19,36 @@
 define_dummy_symbol(data7_global);
 
 #include "global.h"
+
+void HexDump(const void* data, i32 length)
+{
+    const u8* data8 = static_cast<const u8*>(data);
+
+    for (i32 index = 0; index < length; index += 16, data8 += 16)
+    {
+        i32 count = std::min(length - index, 16);
+
+        std::printf("%08x: ", index);
+
+        for (i32 i = 0; i < count; ++i)
+            std::printf("%02x ", data8[i]);
+
+        for (i32 i = count; i < 16; ++i)
+            std::printf("   ");
+
+        for (i32 i = 0; i < count; ++i)
+        {
+            u8 v = data8[i];
+
+            if (v < 0x20 || v >= 0x7F)
+                v = '.';
+
+            std::printf("%c", v);
+        }
+
+        for (i32 i = count; i < 16; ++i)
+            std::printf(" ");
+
+        std::printf("\n");
+    }
+}

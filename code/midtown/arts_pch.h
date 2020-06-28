@@ -38,6 +38,8 @@
 
 #include "core/string.h"
 
+#include "data7/global.h"
+
 #include "data7/printer.h"
 #include "data7/quitf.h"
 

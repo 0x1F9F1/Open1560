@@ -26,7 +26,7 @@
 */
 
 // 0x5790A0 | ?HexDump@@YAXPAXH@Z
-ARTS_IMPORT void HexDump(void* arg1, i32 arg2);
+ARTS_EXPORT void HexDump(const void* data, i32 length);
 
 // 0x6622CC | ?DevelopmentMode@@3HA
 ARTS_IMPORT extern i32 DevelopmentMode;
