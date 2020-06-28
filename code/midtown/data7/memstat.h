@@ -29,10 +29,10 @@
 */
 
 // 0x578B20 | ?BeginMemStat@@YAXPBD@Z
-ARTS_IMPORT void BeginMemStat(char const* arg1);
+ARTS_EXPORT void BeginMemStat(char const* name);
 
 // 0x578BB0 | ?EndMemStat@@YAXXZ
-ARTS_IMPORT void EndMemStat();
+ARTS_EXPORT void EndMemStat();
 
 // 0x6620A8 | ?EnableMemStat@@3HA
 ARTS_IMPORT extern i32 EnableMemStat;

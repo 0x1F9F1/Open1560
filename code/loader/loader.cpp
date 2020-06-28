@@ -432,7 +432,7 @@ include_dummy_symbol(data7_hash);
 include_dummy_symbol(data7_ipc);
 include_dummy_symbol(data7_list);
 include_dummy_symbol(data7_machname);
-// include_dummy_symbol(data7_memstat);
+include_dummy_symbol(data7_memstat);
 include_dummy_symbol(data7_metaclass);
 include_dummy_symbol(data7_metatype);
 include_dummy_symbol(data7_miniparser);

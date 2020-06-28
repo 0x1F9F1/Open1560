@@ -94,6 +94,11 @@ public:
         debug_ = enabled;
     }
 
+    u32 GetCurrentTotal() const
+    {
+        return heap_offset_;
+    }
+
 private:
     struct Node;
     struct FreeNode;

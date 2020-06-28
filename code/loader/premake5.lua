@@ -20,9 +20,9 @@ project "Open1560"
         "import_stubs.asm",
     }
 
-    filter "files:**.asm"
-        exceptionhandling "SEH"
-    filter {}
+    -- filter "files:**.asm"
+    --     exceptionhandling "SEH"
+    -- filter {}
 
     links { "arts_midtown", "DbgHelp", "Winmm" }
 
