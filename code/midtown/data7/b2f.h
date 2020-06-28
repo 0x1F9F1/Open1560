@@ -25,4 +25,4 @@
 */
 
 // 0x662478 | ?ByteToFloatTable@@3PAMA
-ARTS_IMPORT extern f32 ByteToFloatTable[256];
+extern const f32 ByteToFloatTable[256];

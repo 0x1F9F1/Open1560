@@ -2,8 +2,8 @@ arts_component "data7"
     files {
         "args.cpp",
         "args.h",
-        -- "b2f.cpp",
-        -- "b2f.h",
+        "b2f.cpp",
+        "b2f.h",
         "base.cpp",
         "base.h",
         "cache.cpp",

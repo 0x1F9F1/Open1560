@@ -419,7 +419,7 @@ include_dummy_symbol(arts7_node);
 // include_dummy_symbol(arts7_view);
 
 include_dummy_symbol(data7_args);
-// include_dummy_symbol(data7_b2f);
+include_dummy_symbol(data7_b2f);
 include_dummy_symbol(data7_base);
 include_dummy_symbol(data7_cache);
 include_dummy_symbol(data7_callback);
