@@ -33,12 +33,17 @@ struct asArg
 {
 public:
     // 0x578C30 | ??0asArg@@QAE@DPAD@Z
-    ARTS_IMPORT asArg(char arg1, char* arg2);
+    ARTS_EXPORT asArg(char flag, const char* usage);
 
     // 0x578C80 | ?Print@asArg@@QAEXPAD@Z
-    ARTS_IMPORT void Print(char* arg1);
+    ARTS_EXPORT void Print(const char* name);
 
-    u8 gap0[0x48];
+    b32 Found {false};
+    char Flag {0};
+    char* Usage {};
+    int iValues[5] {};
+    float fValues[5] {};
+    char* sValues[5] {};
 };
 
 check_size(asArg, 0x48);
@@ -46,16 +51,20 @@ check_size(asArg, 0x48);
 class ArgSet
 {
 public:
+    ~ArgSet();
+
     // 0x578DD0 | ?ParseArgs@ArgSet@@QAEXHPAPAD@Z
-    ARTS_IMPORT void ParseArgs(i32 arg1, char** arg2);
+    ARTS_EXPORT void ParseArgs(i32 argc, const char** argv);
 
     // 0x578D80 | ?Print@ArgSet@@QAEXPAD@Z | unused
-    ARTS_IMPORT void Print(char* arg1);
+    ARTS_EXPORT void Print(const char* title);
 
     // 0x579010 | ?Usage@ArgSet@@QAEXXZ
-    ARTS_IMPORT void Usage();
+    ARTS_EXPORT void Usage();
 
-    u8 gap0[0x208];
+    asArg* Args[128] {};
+    void* UsageText {nullptr};
+    char* Path {nullptr};
 };
 
 check_size(ArgSet, 0x208);

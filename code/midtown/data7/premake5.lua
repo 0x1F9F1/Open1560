@@ -1,7 +1,7 @@
 arts_component "data7"
     files {
-        -- "args.cpp",
-        -- "args.h",
+        "args.cpp",
+        "args.h",
         -- "b2f.cpp",
         -- "b2f.h",
         "base.cpp",
