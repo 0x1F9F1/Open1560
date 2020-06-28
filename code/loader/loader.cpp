@@ -155,6 +155,8 @@ static std::size_t InitExportHooks(HMODULE instance)
 
     std::size_t total = 0;
 
+    LogHooks = false;
+
     mem::module::nt(instance).enum_exports(
         [&total, &symbols](const char* name, std::uint32_t /*ordinal*/, mem::pointer address) {
             if (name != nullptr)
@@ -211,6 +213,8 @@ static std::size_t InitExportHooks(HMODULE instance)
 
             return false;
         });
+
+    LogHooks = true;
 
     for (HGLOBAL hResData : resources)
     {
@@ -422,7 +426,7 @@ include_dummy_symbol(data7_callback);
 // include_dummy_symbol(data7_global);
 include_dummy_symbol(data7_hash);
 include_dummy_symbol(data7_ipc);
-// include_dummy_symbol(data7_list);
+include_dummy_symbol(data7_list);
 include_dummy_symbol(data7_machname);
 // include_dummy_symbol(data7_memstat);
 include_dummy_symbol(data7_metaclass);

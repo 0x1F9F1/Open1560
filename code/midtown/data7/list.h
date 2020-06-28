@@ -32,21 +32,25 @@ struct List
 {
 public:
     // 0x57C280 | ??1List@@QAE@XZ
-    ARTS_IMPORT ~List();
+    ARTS_EXPORT ~List();
 
     // 0x57C330 | ?Access@List@@QAEPAXH@Z
-    ARTS_IMPORT void* Access(i32 arg1);
+    ARTS_EXPORT void* Access(i32 index);
 
     // 0x57C360 | ?Delete@List@@QAEHH@Z
-    ARTS_IMPORT i32 Delete(i32 arg1);
+    ARTS_EXPORT b32 Delete(i32 index);
 
     // 0x57C2B0 | ?Insert@List@@QAEHHPAX@Z
-    ARTS_IMPORT i32 Insert(i32 arg1, void* arg2);
+    ARTS_EXPORT b32 Insert(i32 index, void* value);
 
     // 0x57C290 | ?Kill@List@@QAEXXZ
-    ARTS_IMPORT void Kill();
+    ARTS_EXPORT void Kill();
 
-    u8 gap0[0x8];
+private:
+    struct Entry;
+
+    i32 size_ {0};
+    Entry* first_ {nullptr};
 };
 
 check_size(List, 0x8);

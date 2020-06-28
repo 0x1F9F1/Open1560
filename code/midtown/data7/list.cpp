@@ -19,3 +19,72 @@
 define_dummy_symbol(data7_list);
 
 #include "list.h"
+
+struct List::Entry
+{
+    void* Value {nullptr};
+    Entry* Next {nullptr};
+};
+
+List::~List()
+{
+    Kill();
+}
+
+void* List::Access(i32 index)
+{
+    if (index < 1 || index > size_)
+        return nullptr;
+
+    Entry* entry = first_;
+
+    for (; index > 1; --index)
+        entry = entry->Next;
+
+    return entry->Value;
+}
+
+b32 List::Delete(i32 index)
+{
+    if (index < 1 || index > size_)
+        return false;
+
+    Entry** here = &first_;
+
+    for (; index > 1; --index)
+        here = &(*here)->Next;
+
+    Entry* entry = *here;
+
+    *here = entry->Next;
+    --size_;
+
+    delete entry;
+
+    return true;
+}
+
+b32 List::Insert(i32 index, void* value)
+{
+    if (index < 1 || index > size_ + 1)
+        return false;
+
+    Entry* entry = new Entry {value};
+
+    Entry** here = &first_;
+
+    for (; index > 1; --index)
+        here = &(*here)->Next;
+
+    entry->Next = *here;
+    *here = entry;
+    ++size_;
+
+    return true;
+}
+
+void List::Kill()
+{
+    while (size_)
+        Delete(1);
+}

@@ -38,6 +38,8 @@ const char* const HookTypeNames[static_cast<size_t>(hook_type::count)] = {
 size_t HookCount = 0;
 size_t PatchCount = 0;
 
+bool LogHooks = true;
+
 void create_hook(const char* name, const char* description, mem::pointer pHook, mem::pointer pDetour, hook_type type)
 {
     intptr_t rva = pDetour.as<intptr_t>() - pHook.add(5).as<intptr_t>();
@@ -75,8 +77,11 @@ void create_hook(const char* name, const char* description, mem::pointer pHook, 
         default: return;
     }
 
-    Displayf("Created %s hook '%s' from 0x%zX to 0x%zX: %s", HookTypeNames[static_cast<size_t>(type)], name,
-        pHook.as<uintptr_t>(), pDetour.as<uintptr_t>(), description);
+    if (LogHooks)
+    {
+        Displayf("Created %s hook '%s' from 0x%zX to 0x%zX: %s", HookTypeNames[static_cast<size_t>(type)], name,
+            pHook.as<uintptr_t>(), pDetour.as<uintptr_t>(), description);
+    }
 
     ++HookCount;
 }

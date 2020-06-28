@@ -761,8 +761,6 @@ def collect_default_dtor(view, symbols, class_hier):
             print('Invalid ctor/dtor {} @ 0x{:X}'.format(symbol.undec_name, symbol.address))
             continue
 
-        print(symbol)
-
         hlil = func.hlil
 
         if len(hlil) > 2:

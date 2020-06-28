@@ -35,7 +35,7 @@ static constexpr usize MAX_MAP_ENTRIES = 16;
 static MapEntry MapEntries[MAX_MAP_ENTRIES] {};
 static i32 NumMapEntries = 0;
 
-LRESULT __stdcall MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+LRESULT ARTS_STDCALL MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     for (i32 i = NumMapEntries; i > 0; --i)
     {

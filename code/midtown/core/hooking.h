@@ -46,6 +46,8 @@ enum class jump_type
 extern size_t HookCount;
 extern size_t PatchCount;
 
+extern bool LogHooks;
+
 void write_protected(mem::pointer dest, mem::pointer src, size_t length);
 
 void create_hook(const char* name, const char* description, mem::pointer target, mem::pointer detour,
