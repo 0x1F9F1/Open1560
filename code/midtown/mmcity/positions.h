@@ -60,7 +60,7 @@ struct position_t
 {
 public:
     // 0x491DF0 | ??1position_t@@QAE@XZ | inline
-    ARTS_IMPORT ~position_t() = default;
+    ARTS_IMPORT ~position_t();
 
     u8 gap0[0x24];
 };

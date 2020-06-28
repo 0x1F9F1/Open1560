@@ -42,7 +42,7 @@ public:
     ARTS_IMPORT aiGoalCollision(class aiRailSet* arg1, class aiVehicleSpline* arg2);
 
     // 0x46B320 | ??1aiGoalCollision@@QAE@XZ
-    ARTS_IMPORT ~aiGoalCollision();
+    ARTS_IMPORT ~aiGoalCollision() = default;
 
     // 0x46B3D0 | ?Context@aiGoalCollision@@UAEHXZ
     ARTS_IMPORT i32 Context() override;

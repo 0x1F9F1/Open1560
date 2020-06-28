@@ -44,7 +44,7 @@ public:
 
     // 0x47D730 | ??_EmmAxle@@UAEPAXI@Z
     // 0x470370 | ??1mmAxle@@UAE@XZ | inline
-    ARTS_IMPORT ~mmAxle() override;
+    ARTS_IMPORT ~mmAxle() override = default;
 
     // 0x47D590 | ?AddWidgets@mmAxle@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

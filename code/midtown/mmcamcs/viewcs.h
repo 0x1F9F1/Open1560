@@ -53,7 +53,7 @@ public:
 
     // 0x4F9500 | ??_EmmViewCS@@UAEPAXI@Z
     // 0x4F9070 | ??1mmViewCS@@UAE@XZ
-    ARTS_IMPORT ~mmViewCS() override;
+    ARTS_IMPORT ~mmViewCS() override = default;
 
     // 0x4F9560 | ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z | inline
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

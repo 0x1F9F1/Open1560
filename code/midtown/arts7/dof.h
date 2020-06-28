@@ -48,7 +48,7 @@ public:
 
     // 0x49C3D0 | ??_EasDofCS@@UAEPAXI@Z
     // 0x49C430 | ??1asDofCS@@UAE@XZ | inline
-    ARTS_IMPORT ~asDofCS() override;
+    ARTS_IMPORT ~asDofCS() override = default;
 
     // 0x52ADE0 | ??4asDofCS@@QAEXABV0@@Z | unused
     ARTS_IMPORT void operator=(class asDofCS const& arg1);

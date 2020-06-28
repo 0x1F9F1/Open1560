@@ -44,7 +44,7 @@ public:
     // 0x4751A0 | ??_EmmWheelCheap@@UAEPAXI@Z
     // 0x4751A0 | ??_GmmWheelCheap@@UAEPAXI@Z
     // 0x453A50 | ??1mmWheelCheap@@UAE@XZ | inline
-    ARTS_IMPORT ~mmWheelCheap() override;
+    ARTS_IMPORT ~mmWheelCheap() override = default;
 
     // 0x474950 | ?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z
     ARTS_IMPORT void Init(class Vector3* arg1, class aiVehicleData* arg2, class asInertialCS* arg3);

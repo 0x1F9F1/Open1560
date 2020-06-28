@@ -53,7 +53,7 @@ public:
 
     // 0x4E4AA0 | ??_EmmIODev@@UAEPAXI@Z
     // 0x4E50A0 | ??1mmIODev@@UAE@XZ
-    ARTS_IMPORT ~mmIODev() override;
+    ARTS_IMPORT ~mmIODev() override = default;
 
     // 0x4E5200 | ??8mmIODev@@QAEHPATeqEvent@@@Z
     ARTS_IMPORT i32 operator==(union eqEvent* arg1);

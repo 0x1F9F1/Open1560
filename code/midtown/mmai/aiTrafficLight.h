@@ -83,7 +83,7 @@ public:
     // 0x444760 | ??_EaiTrafficLightInstance@@UAEPAXI@Z
     // 0x444760 | ??_GaiTrafficLightInstance@@UAEPAXI@Z
     // 0x444780 | ??1aiTrafficLightInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~aiTrafficLightInstance() override;
+    ARTS_IMPORT ~aiTrafficLightInstance() override = default;
 
     // 0x444530 | ?Draw@aiTrafficLightInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;

@@ -58,7 +58,7 @@ public:
 
     // 0x47FE00 | ??_EmmWheel@@UAEPAXI@Z
     // 0x470360 | ??1mmWheel@@UAE@XZ | inline
-    ARTS_IMPORT ~mmWheel() override;
+    ARTS_IMPORT ~mmWheel() override = default;
 
     // 0x47F6D0 | ?AddWidgets@mmWheel@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

@@ -74,7 +74,7 @@ public:
 
     // 0x4DBB80 | ??_EasInertialCS@@UAEPAXI@Z
     // 0x453A30 | ??1asInertialCS@@UAE@XZ | inline
-    ARTS_IMPORT ~asInertialCS() override;
+    ARTS_IMPORT ~asInertialCS() override = default;
 
     // 0x4DA660 | ?ApplyPush@asInertialCS@@UAEXABVVector3@@0@Z
     ARTS_IMPORT virtual void ApplyPush(class Vector3 const& arg1, class Vector3 const& arg2);

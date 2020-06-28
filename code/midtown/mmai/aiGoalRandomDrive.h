@@ -54,7 +54,7 @@ public:
     ARTS_IMPORT aiGoalRandomDrive(class aiRailSet* arg1, class aiVehicleSpline* arg2);
 
     // 0x45C8A0 | ??1aiGoalRandomDrive@@QAE@XZ
-    ARTS_IMPORT ~aiGoalRandomDrive();
+    ARTS_IMPORT ~aiGoalRandomDrive() = default;
 
     // 0x45D440 | ?Context@aiGoalRandomDrive@@UAEHXZ
     ARTS_IMPORT i32 Context() override;

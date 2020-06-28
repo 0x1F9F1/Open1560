@@ -755,6 +755,19 @@ def calculate_class_paddings(class_sizes, class_hier, vftables):
     return class_paddings
 
 def collect_default_dtor(view, symbols, class_hier):
+    def inherits_from(child, parent):
+        pending = [child]
+
+        while pending:
+            current = pending.pop()
+            if current == parent:
+                return True
+            if current in class_hier:
+                pending.extend(class_hier[current])
+
+        return False
+
+
     default_dtors = set()
 
     for symbol in symbols.values():
@@ -791,7 +804,7 @@ def collect_default_dtor(view, symbols, class_hier):
             if not assign_sym.is_vftable:
                 continue
 
-            if assign_sym.path != symbol.path:
+            if not inherits_from(symbol.path, assign_sym.path):
                 continue
 
             index += 1
@@ -813,19 +826,14 @@ def collect_default_dtor(view, symbols, class_hier):
             if dest_sym.dtor_type != 'dtor':
                 continue
 
-            if symbol.path not in class_hier:
-                continue
-
-            parents = class_hier[symbol.path]
-
-            if len(parents) != 1:
-                continue
-
-            if dest_sym.path not in parents:
+            if not inherits_from(symbol.path, dest_sym.path):
                 continue
 
             index += 1
         elif hlil[index].operation == HighLevelILOperation.HLIL_RET:
+            if len(hlil[index].src) != 0:
+                continue
+
             index += 1
         else:
             continue
@@ -1833,6 +1841,8 @@ class_hier = compute_hierarchy(class_hier, {
     'MixerCTL': ['Dispatchable', 'Base'],
     'asMidgets': ['Bank', 'asCullable'],
     'WINEventHandler': ['eqEventHandler', 'Dispatchable'],
+
+    'CDMan': ['Dispatchable'],
 
     'aiGoalAvoidPlayer': ['aiGoal'],
     'aiGoalBackup': ['aiGoal'],

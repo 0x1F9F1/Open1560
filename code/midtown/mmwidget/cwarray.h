@@ -62,7 +62,7 @@ public:
     // 0x4B8760 | ??_GUICWArray@@UAEPAXI@Z
     // 0x4B8760 | ??_EUICWArray@@UAEPAXI@Z
     // 0x4B7D30 | ??1UICWArray@@UAE@XZ
-    ARTS_IMPORT ~UICWArray() override;
+    ARTS_IMPORT ~UICWArray() override = default;
 
     // 0x4B8560 | ?AcceptCapture@UICWArray@@QAEXXZ
     ARTS_IMPORT void AcceptCapture();

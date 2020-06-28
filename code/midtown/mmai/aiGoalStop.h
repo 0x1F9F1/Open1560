@@ -42,7 +42,7 @@ public:
     ARTS_IMPORT aiGoalStop(class mmCar* arg1, i16* arg2);
 
     // 0x45F740 | ??1aiGoalStop@@QAE@XZ
-    ARTS_IMPORT ~aiGoalStop();
+    ARTS_IMPORT ~aiGoalStop() = default;
 
     // 0x45F7D0 | ?Context@aiGoalStop@@UAEHXZ
     ARTS_IMPORT i32 Context() override;

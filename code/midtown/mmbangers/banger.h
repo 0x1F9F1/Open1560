@@ -112,7 +112,7 @@ public:
     // 0x48FC50 | ??_GmmUnhitBangerInstance@@UAEPAXI@Z
     // 0x48FC50 | ??_EmmUnhitBangerInstance@@UAEPAXI@Z
     // 0x48FC70 | ??1mmUnhitBangerInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmUnhitBangerInstance() override;
+    ARTS_IMPORT ~mmUnhitBangerInstance() override = default;
 
     // 0x4CA810 | ?FromMatrix@mmUnhitBangerInstance@@UAIXABVMatrix34@@@Z
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
@@ -181,7 +181,7 @@ public:
 
     // 0x4CAE00 | ??_EmmHitBangerInstance@@UAEPAXI@Z
     // 0x4CAED0 | ??1mmHitBangerInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmHitBangerInstance() override;
+    ARTS_IMPORT ~mmHitBangerInstance() override = default;
 
     // 0x4CAC40 | ?Detach@mmHitBangerInstance@@UAEXXZ
     ARTS_IMPORT void Detach() override;

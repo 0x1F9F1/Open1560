@@ -44,7 +44,7 @@ public:
     ARTS_IMPORT aiGoalAvoidPlayer(class aiRailSet* arg1, class aiVehicleAmbient* arg2);
 
     // 0x46A3A0 | ??1aiGoalAvoidPlayer@@QAE@XZ
-    ARTS_IMPORT ~aiGoalAvoidPlayer();
+    ARTS_IMPORT ~aiGoalAvoidPlayer() = default;
 
     // 0x46A970 | ?Context@aiGoalAvoidPlayer@@UAEHXZ
     ARTS_IMPORT i32 Context() override;

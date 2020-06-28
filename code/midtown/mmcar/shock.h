@@ -44,7 +44,7 @@ public:
 
     // 0x47D420 | ??_EmmShock@@UAEPAXI@Z
     // 0x470380 | ??1mmShock@@UAE@XZ | inline
-    ARTS_IMPORT ~mmShock() override;
+    ARTS_IMPORT ~mmShock() override = default;
 
     // 0x47D280 | ?AddWidgets@mmShock@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

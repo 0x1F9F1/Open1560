@@ -48,7 +48,7 @@ public:
     // 0x4B9B20 | ??_EUIIcon@@UAEPAXI@Z
     // 0x4B9B20 | ??_GUIIcon@@UAEPAXI@Z
     // 0x4B9950 | ??1UIIcon@@UAE@XZ
-    ARTS_IMPORT ~UIIcon() override;
+    ARTS_IMPORT ~UIIcon() override = default;
 
     // 0x4B9A10 | ?CreateDummyBitmap@UIIcon@@QAEPAVagiBitmap@@XZ
     ARTS_IMPORT class agiBitmap* CreateDummyBitmap();

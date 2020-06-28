@@ -59,7 +59,7 @@ public:
     // 0x4C4D90 | ??_GmmDrawbridgeInstance@@UAEPAXI@Z
     // 0x4C4D90 | ??_EmmDrawbridgeInstance@@UAEPAXI@Z
     // 0x4C4DB0 | ??1mmDrawbridgeInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmDrawbridgeInstance() override;
+    ARTS_IMPORT ~mmDrawbridgeInstance() override = default;
 
     // 0x4C4460 | ?Draw@mmDrawbridgeInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;

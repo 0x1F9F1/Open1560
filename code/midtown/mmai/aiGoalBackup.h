@@ -43,7 +43,7 @@ public:
     ARTS_IMPORT aiGoalBackup(class aiRailSet* arg1, class mmCar* arg2, i16* arg3);
 
     // 0x45F860 | ??1aiGoalBackup@@QAE@XZ
-    ARTS_IMPORT ~aiGoalBackup();
+    ARTS_IMPORT ~aiGoalBackup() = default;
 
     // 0x45F880 | ?Context@aiGoalBackup@@UAEHXZ
     ARTS_IMPORT i32 Context() override;

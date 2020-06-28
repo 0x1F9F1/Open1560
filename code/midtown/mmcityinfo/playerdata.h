@@ -80,7 +80,7 @@ public:
     // 0x4D11F0 | ??_EmmPlayerRecord@@UAEPAXI@Z
     // 0x414B00 | ??_GmmPlayerRecord@@UAEPAXI@Z | unused
     // 0x4CFC50 | ??1mmPlayerRecord@@UAE@XZ
-    ARTS_IMPORT ~mmPlayerRecord() override;
+    ARTS_IMPORT ~mmPlayerRecord() override = default;
 
     // 0x4CFC90 | ??4mmPlayerRecord@@QAEXAAV0@@Z
     ARTS_IMPORT void operator=(class mmPlayerRecord& arg1);

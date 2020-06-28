@@ -33,7 +33,9 @@
     0x4F4700 | public: short __thiscall CDMan::GetNumTracks(void) | ?GetNumTracks@CDMan@@QAEFXZ
 */
 
-class CDMan
+#include "eventq7/dispatchable.h"
+
+class CDMan : public Dispatchable
 {
     // const CDMan::`vftable' @ 0x61FEF8
 
@@ -67,7 +69,7 @@ public:
 
 private:
     // 0x4F4690 | ?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z
-    ARTS_IMPORT virtual i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4);
+    ARTS_IMPORT i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
 
     u8 gap4[0x2C];
 };

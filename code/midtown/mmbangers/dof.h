@@ -38,7 +38,7 @@ public:
     // 0x4C4EC0 | ??_GmmDofBangerInstance@@UAEPAXI@Z
     // 0x4C4EC0 | ??_EmmDofBangerInstance@@UAEPAXI@Z
     // 0x4C4EE0 | ??1mmDofBangerInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmDofBangerInstance() override;
+    ARTS_IMPORT ~mmDofBangerInstance() override = default;
 
     // 0x4C4E50 | ?FromMatrix@mmDofBangerInstance@@UAIXABVMatrix34@@@Z | inline
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;

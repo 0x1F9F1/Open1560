@@ -53,7 +53,7 @@ public:
 
     // 0x52CDF0 | ??_EasViewCS@@UAEPAXI@Z
     // 0x52CE50 | ??1asViewCS@@UAE@XZ | inline
-    ARTS_IMPORT ~asViewCS() override;
+    ARTS_IMPORT ~asViewCS() override = default;
 
     // 0x52C780 | ?AddWidgets@asViewCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

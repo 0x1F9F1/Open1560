@@ -56,7 +56,7 @@ public:
     // 0x4D1B60 | ??_EmmRecord@@UAEPAXI@Z
     // 0x4CD970 | ??_GmmRecord@@UAEPAXI@Z | unused
     // 0x4D1680 | ??1mmRecord@@UAE@XZ
-    ARTS_IMPORT ~mmRecord() override;
+    ARTS_IMPORT ~mmRecord() override = default;
 
     // 0x4D1780 | ??4mmRecord@@QAEXAAV0@@Z
     ARTS_IMPORT void operator=(class mmRecord& arg1);

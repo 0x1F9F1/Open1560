@@ -75,7 +75,7 @@ public:
 
     // 0x4DEC00 | ??_EJoint3Dof@@UAEPAXI@Z
     // 0x4DEC60 | ??1Joint3Dof@@UAE@XZ | inline
-    ARTS_IMPORT ~Joint3Dof() override;
+    ARTS_IMPORT ~Joint3Dof() override = default;
 
     // 0x4DE3B0 | ?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@0AAVMatrix34@@ABVVector3@@@Z
     ARTS_IMPORT virtual void GetCMatrix(class asInertialCS const* arg1, class asInertialCS const* arg2,

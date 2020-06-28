@@ -43,7 +43,7 @@ public:
     ARTS_IMPORT aiGoalRegainRail(class aiRailSet* arg1, class aiVehicleSpline* arg2);
 
     // 0x46AA50 | ??1aiGoalRegainRail@@QAE@XZ
-    ARTS_IMPORT ~aiGoalRegainRail();
+    ARTS_IMPORT ~aiGoalRegainRail() = default;
 
     // 0x46B240 | ?Context@aiGoalRegainRail@@UAEHXZ
     ARTS_IMPORT i32 Context() override;
