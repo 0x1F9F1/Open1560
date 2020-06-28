@@ -49,9 +49,9 @@
     0x6A7C00 | class MetaClass aiGoalFollowWayPtsMetaClass | ?aiGoalFollowWayPtsMetaClass@@3VMetaClass@@A
 */
 
-#include "aiGoalRandomDrive.h"
+#include "aiGoal.h"
 
-struct aiGoalFollowWayPts : aiGoal
+class aiGoalFollowWayPts : public aiGoal
 {
     // const aiGoalFollowWayPts::`vftable' @ 0x61BCD0
 

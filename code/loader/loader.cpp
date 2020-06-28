@@ -445,6 +445,7 @@ include_dummy_symbol(data7_speed);
 include_dummy_symbol(data7_str);
 include_dummy_symbol(data7_timer);
 // include_dummy_symbol(data7_utimer);
+
 // include_dummy_symbol(dyna7_dyna);
 // include_dummy_symbol(dyna7_gfx);
 
@@ -464,6 +465,7 @@ include_dummy_symbol(memory_valloc);
 
 // include_dummy_symbol(mmai_addoncaraudio);
 // include_dummy_symbol(mmai_aiData);
+// include_dummy_symbol(mmai_aiGoal);
 // include_dummy_symbol(mmai_aiGoalAvoidPlayer);
 // include_dummy_symbol(mmai_aiGoalBackup);
 // include_dummy_symbol(mmai_aiGoalChase);
@@ -501,6 +503,7 @@ include_dummy_symbol(memory_valloc);
 // include_dummy_symbol(mmanim_plane);
 // include_dummy_symbol(mmanim_train);
 // include_dummy_symbol(mmanim_traincar);
+
 // include_dummy_symbol(mmaudio_audstream);
 // include_dummy_symbol(mmaudio_cd);
 // include_dummy_symbol(mmaudio_crevbuf);

@@ -33,9 +33,9 @@
     0x61BD10 | const aiGoalAvoidPlayer::`vftable' | ??_7aiGoalAvoidPlayer@@6B@
 */
 
-#include "aiGoalRandomDrive.h"
+#include "aiGoal.h"
 
-struct aiGoalAvoidPlayer : aiGoal
+class aiGoalAvoidPlayer : public aiGoal
 {
     // const aiGoalAvoidPlayer::`vftable' @ 0x61BD10
 

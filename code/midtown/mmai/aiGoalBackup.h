@@ -32,9 +32,9 @@
     0x61BB50 | const aiGoalBackup::`vftable' | ??_7aiGoalBackup@@6B@
 */
 
-#include "aiGoalRandomDrive.h"
+#include "aiGoal.h"
 
-struct aiGoalBackup : aiGoal
+class aiGoalBackup : public aiGoal
 {
     // const aiGoalBackup::`vftable' @ 0x61BB50
 

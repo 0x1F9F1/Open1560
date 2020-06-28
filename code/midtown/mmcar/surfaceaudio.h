@@ -45,7 +45,7 @@
     0x488F40 | public: void __thiscall mmSurfaceAudio::SetWobbleVol(float,float) | ?SetWobbleVol@mmSurfaceAudio@@QAEXMM@Z
 */
 
-struct mmSurfaceAudio
+class mmSurfaceAudio
 {
 public:
     // 0x487110 | ??0mmSurfaceAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z

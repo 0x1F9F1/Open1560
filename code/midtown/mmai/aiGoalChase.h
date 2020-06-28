@@ -57,9 +57,9 @@
     0x61BC28 | const aiGoalChase::`vftable' | ??_7aiGoalChase@@6B@
 */
 
-#include "aiGoalRandomDrive.h"
+#include "aiGoal.h"
 
-struct aiGoalChase : aiGoal
+class aiGoalChase : public aiGoal
 {
     // const aiGoalChase::`vftable' @ 0x61BC28
 

@@ -33,7 +33,7 @@
     0x4F4700 | public: short __thiscall CDMan::GetNumTracks(void) | ?GetNumTracks@CDMan@@QAEFXZ
 */
 
-struct CDMan
+class CDMan
 {
     // const CDMan::`vftable' @ 0x61FEF8
 

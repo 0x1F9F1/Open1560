@@ -50,7 +50,7 @@
     0x705EFC | private: static float mmAnimTrain::s_fAudioAttenuationMult | ?s_fAudioAttenuationMult@mmAnimTrain@@0MA
 */
 
-struct mmAnimTrain
+class mmAnimTrain
 {
 public:
     // 0x4C5F20 | ??0mmAnimTrain@@QAE@XZ

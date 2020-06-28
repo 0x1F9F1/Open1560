@@ -32,9 +32,9 @@
     0x61BD28 | const aiGoalRegainRail::`vftable' | ??_7aiGoalRegainRail@@6B@
 */
 
-#include "aiGoalRandomDrive.h"
+#include "aiGoal.h"
 
-struct aiGoalRegainRail : aiGoal
+class aiGoalRegainRail : public aiGoal
 {
     // const aiGoalRegainRail::`vftable' @ 0x61BD28
 

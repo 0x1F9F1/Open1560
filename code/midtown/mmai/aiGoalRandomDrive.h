@@ -43,7 +43,9 @@
     0x61BAF8 | const aiGoal::`vftable' | ??_7aiGoal@@6B@
 */
 
-struct aiGoalRandomDrive : aiGoal
+#include "aiGoal.h"
+
+class aiGoalRandomDrive : public aiGoal
 {
     // const aiGoalRandomDrive::`vftable' @ 0x61BAE0
 
@@ -101,27 +103,3 @@ private:
 };
 
 check_size(aiGoalRandomDrive, 0x14);
-
-class aiGoal
-{
-    // const aiGoal::`vftable' @ 0x61BAF8
-
-public:
-    // 0x45F6F0 | ??1aiGoal@@QAE@XZ | inline
-    ARTS_IMPORT ~aiGoal() = default;
-
-    virtual void Init() = 0;
-
-    virtual void Reset() = 0;
-
-    virtual i32 Context() = 0;
-
-    virtual i32 Priority() = 0;
-
-    // 0x45F700 | ?Update@aiGoal@@UAEXXZ | inline
-    ARTS_IMPORT virtual void Update();
-
-    u8 gap4[0x4];
-};
-
-check_size(aiGoal, 0x8);

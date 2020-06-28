@@ -29,7 +29,7 @@
     0x61BC40 | const aiVehicle::`vftable' | ??_7aiVehicle@@6B@
 */
 
-struct aiVehicle
+class aiVehicle
 {
     // const aiVehicle::`vftable' @ 0x61BC40
 

@@ -228,9 +228,9 @@ type_class_to_str = {
 }
 
 def collect_symbol_type_classes(symbols, class_hier):
-    pending = [symbol.type for symbol in symbols if symbol.type is not None]
-
     type_classes = dict()
+
+    pending = [symbol.type for symbol in symbols if symbol.type is not None]
 
     while pending:
         current = pending.pop()
@@ -241,6 +241,8 @@ def collect_symbol_type_classes(symbols, class_hier):
             pending.extend((v.type for v in current.parameters))
         elif type_class == TypeClass.PointerTypeClass:
             pending.append(current.target)
+        elif type_class == TypeClass.ArrayTypeClass:
+            pending.append(current.target)
         elif type_class == TypeClass.NamedTypeReferenceClass:
             named_type = current.named_type_reference
             named_type_class = named_type.type_class
@@ -248,24 +250,31 @@ def collect_symbol_type_classes(symbols, class_hier):
             if named_type_class in type_class_to_str:
                 type_classes[named_type.name] = type_class_to_str[named_type_class]
 
-    changed = True
-    while changed:
-        changed = False
-        for name, hiers in class_hier.items():
-            if name in type_classes:
+    for _ in range(2):
+        changed = True
+        while changed:
+            changed = False
+            for name, hiers in class_hier.items():
+                if name in type_classes:
+                    continue
+                if len(hiers) != 1:
+                    continue
+                if hiers[0] not in type_classes:
+                    continue
+                type_classes[name] = type_classes[hiers[0]]
+                changed = True
+
+        for symbol in symbols:
+            if symbol.path in type_classes:
                 continue
-            if len(hiers) != 1:
+            if not symbol.is_member:
                 continue
-            if hiers[0] not in type_classes:
-                continue
-            type_classes[name] = type_classes[hiers[0]]
-            changed = True
+            if symbol.is_virtual or (symbol.visibility != 'public'):
+                type_classes[symbol.path] = 'class'
 
     for symbol in symbols:
-        if symbol.is_member or symbol.is_vftable:
-            symbol_path = symbol.path
-            if symbol_path not in type_classes:
-                type_classes[symbol_path] = 'struct'
+        if (symbol.is_member or symbol.is_vftable) and (symbol.path not in type_classes):
+            type_classes[symbol.path] = 'struct'
 
     # TODO: Handle namespaces
 
@@ -1160,6 +1169,7 @@ path_libs = group_stray_symbols(all_symbols, {
     'agiLib<class agiPhysParameters,class agiPhysDef>': 'agi:physlib',
     'agiLib<class agiTexParameters,class agiTexDef>': 'agi:texlib',
     'PagerInfo_t': 'data7:pager',
+    'aiGoal': 'mmai:aiGoal'
 })
 
 # print(path_libs)
@@ -1858,14 +1868,6 @@ default_dtors = collect_default_dtor(view, symbols, class_hier)
 
 # TODO: Sort hierarchy when multiple inheritance
 
-print('Collecting Type Names')
-type_classes = collect_symbol_type_classes(all_symbols, class_hier)
-# print(type_classes)
-
-type_classes.update({
-    'aiGoal': 'class',
-})
-
 print('Backporting vftable purecalls')
 vftables = backport_vftable_purecalls(vftables, class_hier, {
     'MetaType':  { None: 5 },
@@ -1938,6 +1940,9 @@ for symbol in all_symbols:
     grouped_symbols[lib][symbol.path].append(symbol)
 
 fixup_vftable_symbols(grouped_symbols, vftables)
+
+print('Collecting Type Names')
+type_classes = collect_symbol_type_classes(all_symbols, class_hier)
 
 SOURCE_DIR = os.path.normpath(os.path.realpath('../code/midtown'))
 LICENSE_TXT = '''/*

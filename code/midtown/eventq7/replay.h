@@ -77,7 +77,7 @@ private:
 
 check_size(eqReplayChannel, 0xC);
 
-struct eqReplay
+class eqReplay
 {
 public:
     // 0x564920 | ?DoPlayback@eqReplay@@SAXXZ

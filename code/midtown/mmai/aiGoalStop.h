@@ -31,9 +31,9 @@
     0x61BB18 | const aiGoalStop::`vftable' | ??_7aiGoalStop@@6B@
 */
 
-#include "aiGoalRandomDrive.h"
+#include "aiGoal.h"
 
-struct aiGoalStop : aiGoal
+class aiGoalStop : public aiGoal
 {
     // const aiGoalStop::`vftable' @ 0x61BB18
 

@@ -70,7 +70,7 @@ public:
 
 check_size(mmDrawbridgeInstance, 0x34);
 
-struct mmAnimDOF
+class mmAnimDOF
 {
     // const mmAnimDOF::`vftable' @ 0x61F470
 

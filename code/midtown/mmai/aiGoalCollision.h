@@ -31,9 +31,9 @@
     0x61BD48 | const aiGoalCollision::`vftable' | ??_7aiGoalCollision@@6B@
 */
 
-#include "aiGoalRandomDrive.h"
+#include "aiGoal.h"
 
-struct aiGoalCollision : aiGoal
+class aiGoalCollision : public aiGoal
 {
     // const aiGoalCollision::`vftable' @ 0x61BD48
 
