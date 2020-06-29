@@ -35,26 +35,26 @@ class asSafeHeap
 {
 public:
     // 0x521390 | ??0asSafeHeap@@QAE@XZ
-    asSafeHeap();
+    ARTS_EXPORT asSafeHeap();
 
     // 0x5213A0 | ??1asSafeHeap@@QAE@XZ
-    ~asSafeHeap();
+    ARTS_EXPORT ~asSafeHeap();
 
     // 0x5213B0 | ?Init@asSafeHeap@@QAEXHH@Z
-    void Init(i32 heap_size, b32 multi_heap);
+    ARTS_EXPORT void Init(i32 heap_size, b32 multi_heap);
 
     // 0x521450 | ?Kill@asSafeHeap@@QAEXXZ
-    void Kill();
+    ARTS_EXPORT void Kill();
 
     // 0x521420 | ?Restart@asSafeHeap@@QAEXXZ
-    void Restart();
+    ARTS_EXPORT void Restart();
 
 protected:
     // 0x521480 | ?Activate@asSafeHeap@@IAEXXZ
-    void Activate();
+    ARTS_EXPORT void Activate();
 
     // 0x5214C0 | ?Deactivate@asSafeHeap@@IAEXXZ
-    void Deactivate();
+    ARTS_EXPORT void Deactivate();
 
 private:
     u8* current_heap_ {nullptr};
