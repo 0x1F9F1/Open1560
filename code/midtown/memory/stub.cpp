@@ -24,17 +24,17 @@ define_dummy_symbol(memory_stub);
 
 ARTS_NOINLINE void* operator new(std::size_t size)
 {
-    return CURHEAP->Allocate(size);
+    return CURHEAP->Allocate(size, ArReturnAddress());
 }
 
 ARTS_EXPORT ARTS_NOINLINE void* arts_operator_new(std::size_t size)
 {
-    return CURHEAP->Allocate(size);
+    return CURHEAP->Allocate(size, ArReturnAddress());
 }
 
 ARTS_NOINLINE void* operator new[](std::size_t size)
 {
-    return CURHEAP->Allocate(size);
+    return CURHEAP->Allocate(size, ArReturnAddress());
 }
 
 ARTS_NOINLINE void operator delete(void* ptr) noexcept
@@ -70,7 +70,7 @@ ARTS_NOINLINE void* arts_calloc(std::size_t num, std::size_t size)
 {
     std::size_t len = num * size;
 
-    void* ptr = CURHEAP->Allocate(len);
+    void* ptr = CURHEAP->Allocate(len, ArReturnAddress());
 
     if (ptr)
         std::memset(ptr, 0, len);
@@ -85,10 +85,10 @@ ARTS_NOINLINE void arts_free(void* ptr)
 
 ARTS_NOINLINE void* arts_malloc(std::size_t size)
 {
-    return CURHEAP->Allocate(size);
+    return CURHEAP->Allocate(size, ArReturnAddress());
 }
 
 ARTS_NOINLINE void* arts_realloc(void* ptr, std::size_t size)
 {
-    return CURHEAP->Reallocate(ptr, size);
+    return CURHEAP->Reallocate(ptr, size, ArReturnAddress());
 }

@@ -222,7 +222,7 @@ void LookupAddress(char* buffer, usize buflen, usize address)
             if (pSymbol->NameLen > 64)
                 arts_strcpy(pSymbol->Name + 61, 4, "...");
 
-            arts_sprintf(buffer, buflen, "0x%X (%s.%s + 0x%X)", address, module.ModuleName, pSymbol->Name,
+            arts_sprintf(buffer, buflen, "0x%08X (%s.%s + 0x%X)", address, module.ModuleName, pSymbol->Name,
                 static_cast<u32>(dwDisplacement));
 
             return;
@@ -236,12 +236,12 @@ void LookupAddress(char* buffer, usize buflen, usize address)
         const char* function_name =
             UnDecorateSymbolName(entry->Name, undec_name, 128, UNDNAME_NAME_ONLY) ? undec_name : entry->Name;
 
-        arts_sprintf(buffer, buflen, "0x%X (%s + 0x%X)", address, function_name, address - entry->Address);
+        arts_sprintf(buffer, buflen, "0x%08X (%s + 0x%X)", address, function_name, address - entry->Address);
 
         return;
     }
 
-    arts_sprintf(buffer, buflen, "0x%X (Unknown)", address);
+    arts_sprintf(buffer, buflen, "0x%08X (Unknown)", address);
 }
 
 ARTS_EXPORT void LookupAddress(char* buffer, i32 addr)

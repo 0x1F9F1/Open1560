@@ -23,12 +23,15 @@ define_dummy_symbol(memory_allocator);
 #include "core/minwin.h"
 #include "stack.h"
 
-#include <intrin.h>
-
 static ARTS_FORCEINLINE constexpr u32 AlignSize(u32 value) noexcept
 {
     return (value + 7) & 0xFFFFFFF8;
 }
+
+// Upper Guard  : 0x55
+// Lower Guard  : 0xAA
+// Uninitialized: 0xCD
+// Deleted      : 0xDD
 
 struct asMemoryAllocator::Node
 {
@@ -114,7 +117,7 @@ struct asMemoryAllocator::Node
     }
 
     // Only valid for debug allocators
-    ARTS_FORCEINLINE i32 GetAllocSource() const noexcept
+    ARTS_FORCEINLINE u32 GetAllocSource() const noexcept
     {
         u8* const data = GetData();
         u32 source = 0;
@@ -196,6 +199,11 @@ asMemoryAllocator::~asMemoryAllocator() = default;
 
 void* asMemoryAllocator::Allocate(u32 size)
 {
+    return Allocate(size, nullptr);
+}
+
+void* asMemoryAllocator::Allocate(u32 size, void* caller)
+{
     check_size(Node, 0x8);
     check_size(FreeNode, 0x10);
 
@@ -256,10 +264,17 @@ void* asMemoryAllocator::Allocate(u32 size)
     else
     {
         n = reinterpret_cast<FreeNode*>(heap_ + heap_offset_);
-        heap_offset_ += sizeof(Node) + asize;
 
-        if (heap_offset_ > heap_size_)
-            Quitf("Heap overrun");
+        u32 new_offset = heap_offset_ + sizeof(Node) + asize;
+
+        if (new_offset > heap_size_)
+        {
+            DumpStats();
+
+            Abortf("Heap overrun allocating 0x%X bytes", size);
+        }
+
+        heap_offset_ = new_offset;
 
         n->Clear();
         n->SetPrev(last_);
@@ -271,18 +286,16 @@ void* asMemoryAllocator::Allocate(u32 size)
 
     u8* result = n->GetData();
 
-    std::memset(result, 0, size);
+    // TODO: Fill with 0xCD (Uninitialized)
+    // Lots of structs currently expect zeroed memory
+    std::memset(result, 0x0, asize);
 
     if (debug_)
     {
-#ifdef ARTS_DEBUG
-        void** ebp = static_cast<void***>(_AddressOfReturnAddress())[-1];
-        ebp = static_cast<void**>(*ebp);
-        n->SetDebugGuards(reinterpret_cast<u32>(ebp[1]));
-#else
-        n->SetDebugGuards(0);
-#endif
+        if (size != asize)
+            std::memset(result + size, 0xCD, asize - size);
 
+        n->SetDebugGuards(reinterpret_cast<u32>(caller));
         result += Node::DebugLowerGuardSize;
     }
 
@@ -352,9 +365,20 @@ void asMemoryAllocator::Free(void* ptr)
     }
 }
 
-void asMemoryAllocator::GetStats(struct asMemStats* stats)
+void asMemoryAllocator::GetStats(asMemStats* stats)
 {
-    *stats = {};
+    GetStats(stats, nullptr, nullptr);
+}
+
+void asMemoryAllocator::GetStats(struct asMemStats* stats, struct asMemSource* sources, usize* num_sources)
+{
+    usize max_sources = (debug_ && sources && num_sources) ? *num_sources : 0;
+    usize cur_sources = 0;
+
+    std::memset(stats, 0, sizeof(*stats));
+
+    if (max_sources)
+        std::memset(sources, 0, max_sources * sizeof(*sources));
 
     u8* const heap = heap_;
     u8* const heap_end = heap_ + heap_offset_;
@@ -364,13 +388,45 @@ void asMemoryAllocator::GetStats(struct asMemStats* stats)
         ++stats->nTotalNodes;
 
         u32 size = n->Size;
+        u32 overhead = (AlignSize(size) - size) + sizeof(Node);
 
-        stats->cbOverhead += (AlignSize(size) - size) + sizeof(Node);
+        stats->cbOverhead += overhead;
 
         if (n->IsAllocated())
         {
             ++stats->nUsedNodes;
             stats->cbUsed += size;
+
+            if (max_sources)
+            {
+                u32 source = n->GetAllocSource();
+
+                asMemSource* sources_end = sources + cur_sources;
+
+                asMemSource* find = std::lower_bound(sources, sources_end, source,
+                    [](const asMemSource& source, u32 address) { return source.uSource < address; });
+
+                if ((find == sources_end) || (find->uSource != source))
+                {
+                    if (cur_sources < max_sources)
+                    {
+                        std::memmove(find + 1, find, ((sources_end + 1) - find) * sizeof(*find));
+                        std::memset(find, 0, sizeof(*find));
+                        find->uSource = source;
+                        ++cur_sources;
+                    }
+                    else
+                    {
+                        find = nullptr;
+                    }
+                }
+
+                if (find)
+                {
+                    find->cbUsed += size;
+                    find->cbOverhead += overhead;
+                }
+            }
         }
         else
         {
@@ -380,6 +436,15 @@ void asMemoryAllocator::GetStats(struct asMemStats* stats)
     }
 
     ArAssert(stats->cbFree + stats->cbUsed + stats->cbOverhead == heap_offset_, "Invalid Node Sizes");
+
+    if (num_sources)
+    {
+        std::sort(sources, sources + cur_sources, [](const asMemSource& lhs, const asMemSource& rhs) {
+            return (lhs.cbUsed + lhs.cbOverhead) > (rhs.cbUsed + rhs.cbOverhead);
+        });
+
+        *num_sources = cur_sources;
+    }
 }
 
 void asMemoryAllocator::Init(void* heap, u32 heap_size, b32 use_nodes)
@@ -406,6 +471,11 @@ void asMemoryAllocator::Kill()
 }
 
 void* asMemoryAllocator::Reallocate(void* ptr, u32 size)
+{
+    return Reallocate(ptr, size, nullptr);
+}
+
+void* asMemoryAllocator::Reallocate(void* ptr, u32 size, void* caller)
 {
     if (initialized_)
         Verify(ptr);
@@ -435,7 +505,7 @@ void* asMemoryAllocator::Reallocate(void* ptr, u32 size)
         }
     }
 
-    void* new_ptr = Allocate(size);
+    void* new_ptr = Allocate(size, caller);
 
     if (ptr && new_ptr)
     {
@@ -573,6 +643,45 @@ void asMemoryAllocator::SanityCheck()
     ArAssert(total_used + total_free == total, "Mismatched Node Count");
 
     // Displayf("Sanity Checked %u nodes (%u used, %u free)", total, total_used, total_free);
+}
+
+void asMemoryAllocator::DumpStats()
+{
+    SanityCheck();
+
+    asMemStats stats;
+    asMemSource sources[1024];
+    usize num_sources = std::size(sources);
+
+    GetStats(&stats, sources, &num_sources);
+
+    Warningf("** Allocator Stats **");
+
+    Warningf("Heap Size: 0x%08X KB", heap_size_ >> 10);
+    Warningf("Heap Used: 0x%08X KB", heap_offset_ >> 10);
+
+    Warningf(" Alloc Used: 0x%08X KB", stats.cbUsed);
+    Warningf(" Alloc Free: 0x%08X KB", stats.cbFree);
+    Warningf("Alloc Waste: 0x%08X KB", stats.cbOverhead);
+
+    Warningf("Total Nodes: %10u", stats.nTotalNodes);
+    Warningf(" Used Nodes: %10u", stats.nUsedNodes);
+    Warningf(" Free Nodes: %10u", stats.nFreeNodes);
+
+    if (num_sources)
+    {
+        Warningf("** %u Alloc Sources **", num_sources);
+
+        for (usize i = 0; i < num_sources; ++i)
+        {
+            const asMemSource& source = sources[i];
+
+            char address_string[128];
+            LookupAddress(address_string, std::size(address_string), source.uSource);
+
+            Warningf("%-80s: Used: 0x%08X KB, Waste: 0x%08X KB", address_string, source.cbUsed, source.cbOverhead);
+        }
+    }
 }
 
 usize asMemoryAllocator::SizeOf(void* ptr)

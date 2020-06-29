@@ -18,6 +18,14 @@
 
 #pragma once
 
+#include <intrin.h>
+
+#ifdef _MSC_VER
+#    define ArReturnAddress() _ReturnAddress()
+#else
+#    define ArReturnAddress() ___builtin_return_address()
+#endif
+
 /*
     memory:stub
 

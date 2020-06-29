@@ -43,13 +43,20 @@
 
 struct asMemStats
 {
-    u32 nTotalNodes {0};
-    u32 nFreeNodes {0};
-    u32 nUsedNodes {0};
+    usize nTotalNodes {0};
+    usize nFreeNodes {0};
+    usize nUsedNodes {0};
 
-    u32 cbOverhead {0};
-    u32 cbFree {0};
-    u32 cbUsed {0};
+    usize cbOverhead {0};
+    usize cbFree {0};
+    usize cbUsed {0};
+};
+
+struct asMemSource
+{
+    usize uSource {0};
+    usize cbUsed {0};
+    usize cbOverhead {0};
 };
 
 check_size(asMemStats, 0x18);
@@ -64,7 +71,9 @@ public:
     ARTS_EXPORT ~asMemoryAllocator();
 
     // 0x520A20 | ?Allocate@asMemoryAllocator@@QAEPAXI@Z
-    ARTS_EXPORT void* Allocate(u32 arg1);
+    ARTS_EXPORT void* Allocate(u32 size);
+
+    void* Allocate(u32 size, void* caller);
 
     // 0x520C40 | ?CheckPointer@asMemoryAllocator@@QAEXPAX@Z
     ARTS_EXPORT void CheckPointer(void* ptr);
@@ -75,6 +84,8 @@ public:
     // 0x520FC0 | ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
     ARTS_EXPORT void GetStats(struct asMemStats* stats);
 
+    void GetStats(struct asMemStats* stats, struct asMemSource* sources, usize* num_sources);
+
     // 0x5209D0 | ?Init@asMemoryAllocator@@QAEXPAXIH@Z
     ARTS_EXPORT void Init(void* heap, u32 heap_size, b32 use_nodes);
 
@@ -84,8 +95,12 @@ public:
     // 0x520EA0 | ?Reallocate@asMemoryAllocator@@QAEPAXPAXI@Z
     ARTS_EXPORT void* Reallocate(void* ptr, u32 size);
 
+    void* Reallocate(void* ptr, u32 size, void* caller);
+
     // 0x521090 | ?SanityCheck@asMemoryAllocator@@QAEXXZ
     ARTS_EXPORT void SanityCheck();
+
+    void DumpStats();
 
     usize SizeOf(void* ptr);
 

@@ -98,7 +98,7 @@ void ArgSet::ParseArgs(i32 argc, const char** argv)
             break;
         }
 
-        if (std::strcmp(arg, "-help") == 0)
+        if (!std::strcmp(arg, "-help"))
         {
             break;
         }
