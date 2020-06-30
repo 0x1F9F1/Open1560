@@ -311,8 +311,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("dxiScreenShot", "Disable second CloseHandle call", 0x57488F, "\x90\x90\x90\x90\x90\x90\x90", 7);
 
-        create_patch("TouchMemory", "Stop Touching Memory", 0x402C79, "\xC3", 1);
-        create_patch("DoScan", "Stop Touching Memory", 0x4046D0, "\xC3", 1);
+        create_patch("TouchMemory", "Stop Touching Memory", 0x402E70, "\xC3", 1);
+        // create_patch("DoScan", "Stop Touching Memory", 0x4046D0, "\xC3", 1);
 
         Displayf("Begin Init Functions");
 
