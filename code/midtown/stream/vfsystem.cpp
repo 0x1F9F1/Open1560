@@ -41,8 +41,7 @@ VirtualFileSystem::VirtualFileSystem(class Stream* stream)
     ValidateNodes();
 }
 
-VirtualFileSystem::~VirtualFileSystem()
-{}
+VirtualFileSystem::~VirtualFileSystem() = default;
 
 b32 VirtualFileSystem::ChangeDir(const char*)
 {

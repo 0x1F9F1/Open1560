@@ -230,7 +230,10 @@ protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
     ARTS_IMPORT agiPipeline();
 
-    u8 gap4[0x2EC];
+public:
+    u8 gap4[0x2DC];
+    b32 GfxStarted;
+    u8 gap2E4[0xC];
 };
 
 check_size(agiPipeline, 0x2F0);
