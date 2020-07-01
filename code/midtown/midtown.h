@@ -71,7 +71,7 @@ ARTS_IMPORT void ApplicationHelper(i32 arg1, char** arg2);
 ARTS_IMPORT class agiPipeline* CreatePipeline(i32 arg1, char** arg2);
 
 // 0x4014B0 | ?GameFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z
-ARTS_EXPORT i32 GameFilter(struct _EXCEPTION_POINTERS* arg1);
+ARTS_EXPORT i32 GameFilter(struct _EXCEPTION_POINTERS* exception);
 
 // 0x4015A0 | ?GameLoop@@YAXPAVmmInterface@@PAVmmGameManager@@PAD@Z
 ARTS_IMPORT void GameLoop(class mmInterface* arg1, class mmGameManager* arg2, char* arg3);

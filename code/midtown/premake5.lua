@@ -19,7 +19,7 @@ include "memory"
 -- include "mmcamtour"
 -- include "mmcar"
 include "mmcity"
--- include "mmcityinfo"
+include "mmcityinfo"
 -- include "mmdjpeg"
 -- include "mmdyna"
 include "mmeffects"
@@ -61,7 +61,7 @@ arts_component "midtown"
         -- "arts_mmcamtour",
         -- "arts_mmcar",
         "arts_mmcity",
-        -- "arts_mmcityinfo",
+        "arts_mmcityinfo",
         -- "arts_mmdjpeg",
         -- "arts_mmdyna",
         "arts_mmeffects",

@@ -24,11 +24,10 @@ arts_component "mmcityinfo"
         -- "racerecord.h",
         -- "roadsect.cpp",
         -- "roadsect.h",
-        -- "state.cpp",
-        -- "state.h",
+        "state.cpp",
+        "state.h",
         -- "vehinfo.cpp",
         -- "vehinfo.h",
         -- "vehlist.cpp",
         -- "vehlist.h",
     }
-

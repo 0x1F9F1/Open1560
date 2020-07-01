@@ -25,16 +25,35 @@ define_dummy_symbol(midtown);
 #include "data7/metaclass.h"
 #include "memory/allocator.h"
 #include "memory/stack.h"
+#include "mmcityinfo/state.h"
 #include "pcwindis/dxinit.h"
 
 // 0x402F20 | ?GameCloseCallback@@YAXXZ
-ARTS_IMPORT /*static*/ void GameCloseCallback();
+ARTS_EXPORT /*static*/ void GameCloseCallback()
+{
+    MMSTATE.GameState = 0;
+    MMSTATE.Closing = 1;
+}
 
 // 0x402E70 | ?TouchMemory@@YAXPAXH@Z
-ARTS_IMPORT /*static*/ void TouchMemory(void* arg1, i32 arg2);
+ARTS_EXPORT /*static*/ void TouchMemory(void*, i32)
+{}
 
 // 0x402EC0 | ?exeDirFile@@YAPADPAD0@Z
-ARTS_IMPORT /*static*/ char* exeDirFile(char* arg1, char* arg2);
+ARTS_EXPORT /*static*/ char* exeDirFile(char* buffer, char* file)
+{
+    // FIXME: Unsafe
+    usize const buf_len = 0x80;
+
+    GetModuleFileNameA(NULL, buffer, buf_len);
+
+    if (char* folder = std::strrchr(buffer, '\\'))
+        folder[1] = '\0';
+
+    arts_strcat(buffer, buf_len, file);
+
+    return buffer;
+}
 
 static char Main_ExecPath[1024] {};
 static char* Main_Argv[128] {};
@@ -156,7 +175,7 @@ static const char* GetExceptionCodeString(DWORD code)
     return nullptr;
 }
 
-i32 GameFilter(EXCEPTION_POINTERS* exception)
+i32 GameFilter(struct _EXCEPTION_POINTERS* exception)
 {
     CONTEXT* context = exception->ContextRecord;
     EXCEPTION_RECORD* record = exception->ExceptionRecord;
