@@ -3,6 +3,7 @@ import ctypes
 import copy
 import os
 from collections import defaultdict, OrderedDict
+import json
 
 from binaryninja.binaryview import *
 from binaryninja.architecture import *
@@ -1996,6 +1997,21 @@ if self.member_type == 'dtor':
 #             f.write('    {} (__{}*{})({});\n'.format(beautify_type(sym.type.return_value), sym.type.calling_convention.name, sym_name, ','.join(params)))
 
 #         f.write('};\n\n')
+
+with open('class_sizes.json', 'w') as f:
+    json.dump(class_sizes, f, indent = 4, sort_keys = True)
+
+with open('class_hier.json', 'w') as f:
+    json.dump(class_hier, f, indent = 4, sort_keys = True)
+
+with open('final_classes.json', 'w') as f:
+    json.dump(sorted(final_classes), f, indent = 4, sort_keys = True)
+
+with open('default_dtors.json', 'w') as f:
+    json.dump(sorted(default_dtors), f, indent = 4, sort_keys = True)
+
+with open('empty_functions.json', 'w') as f:
+    json.dump(sorted(empty_functions), f, indent = 4, sort_keys = True)
 
 grouped_symbols = defaultdict(lambda: defaultdict(lambda: list()))
 
