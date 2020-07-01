@@ -19,3 +19,8 @@
 define_dummy_symbol(mmcar_carmodel);
 
 #include "carmodel.h"
+
+i32 mmCarModel::GetCarFlags(char* /*arg1*/)
+{
+    return 0;
+}

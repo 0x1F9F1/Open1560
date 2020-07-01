@@ -19,3 +19,9 @@
 define_dummy_symbol(mmgame_player);
 
 #include "player.h"
+
+void mmPlayer::AfterLoad()
+{}
+
+void mmPlayer::BeforeSave()
+{}

@@ -19,3 +19,11 @@
 define_dummy_symbol(mmaudio_mixer);
 
 #include "mixer.h"
+
+void MixerCTL::RefreshAll(u32 /*arg1*/)
+{}
+
+i32 MixerCTL::WindowProc(struct HWND__* /*arg1*/, u32 /*arg2*/, u32 /*arg3*/, i32 /*arg4*/)
+{
+    return 0;
+}

@@ -20,5 +20,11 @@ define_dummy_symbol(mmui_control);
 
 #include "control.h"
 
+void ControlSetup::DoneAction()
+{}
+
+void ControlSetup::POVCB()
+{}
+
 // 0x4A37A0 | ?CalibrateWatcher@@YGKPAX@Z
 ARTS_IMPORT /*static*/ u32 ARTS_STDCALL CalibrateWatcher(void* arg1);

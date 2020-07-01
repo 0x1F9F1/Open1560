@@ -20,5 +20,23 @@ define_dummy_symbol(agisw_swpipe);
 
 #include "swpipe.h"
 
+class agiMtlDef* agiSWPipeline::CreateMtlDef()
+{
+    return nullptr;
+}
+
+i32 agiSWPipeline::Validate()
+{
+    return 0;
+}
+
 // 0x5342F0 | ?zmemset@@YAXPAGI@Z
 ARTS_IMPORT /*static*/ void zmemset(u16* arg1, u32 arg2);
+
+i32 agiSWViewport::BeginGfx()
+{
+    return 0;
+}
+
+void agiSWViewport::EndGfx()
+{}

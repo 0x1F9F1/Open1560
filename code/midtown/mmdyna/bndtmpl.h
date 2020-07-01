@@ -118,7 +118,7 @@ public:
     ARTS_IMPORT void DrawGeometry();
 
     // 0x520000 | ?DrawGraph@mmBoundTemplate@@QAEXXZ | unused
-    ARTS_IMPORT void DrawGraph();
+    ARTS_EXPORT void DrawGraph();
 
     // 0x51FD30 | ?DrawSphere@mmBoundTemplate@@QAEXXZ
     ARTS_IMPORT void DrawSphere();
@@ -142,7 +142,7 @@ public:
     ARTS_IMPORT i32 LineSpan(class mmEdgeBodyIsect* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     // 0x51F110 | ?LineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 LineSphere(class mmIntersection* arg1);
+    ARTS_EXPORT i32 LineSphere(class mmIntersection* arg1);
 
     // 0x51F7A0 | ?LineTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 LineTable(class mmIntersection* arg1);
@@ -164,7 +164,7 @@ public:
     ARTS_IMPORT void PlotLine(class Vector3 arg1, class Vector3 arg2);
 
     // 0x51A1A0 | ?PlotSpan@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
-    ARTS_IMPORT void PlotSpan(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_EXPORT void PlotSpan(i32 arg1, i32 arg2, i32 arg3);
 
     // 0x51EA00 | ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
     ARTS_IMPORT i32 QuickLineBox(class mmEdgeBodyIsect* arg1);

@@ -91,13 +91,13 @@ public:
     ARTS_IMPORT void SetDisabledMask(i32 arg1);
 
     // 0x4B33A0 | ?SetPos@UITextDropdown@@QAEXMM@Z | unused
-    ARTS_IMPORT void SetPos(f32 arg1, f32 arg2);
+    ARTS_EXPORT void SetPos(f32 arg1, f32 arg2);
 
     // 0x4B3830 | ?SetSliderFocus@UITextDropdown@@QAEXH@Z
     ARTS_IMPORT void SetSliderFocus(i32 arg1);
 
     // 0x4B3500 | ?SetText@UITextDropdown@@QAEXPAULocString@@@Z | unused
-    ARTS_IMPORT void SetText(struct LocString* arg1);
+    ARTS_EXPORT void SetText(struct LocString* arg1);
 
     // 0x4B38C0 | ?SetValue@UITextDropdown@@QAEHH@Z
     ARTS_IMPORT i32 SetValue(i32 arg1);

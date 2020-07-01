@@ -98,7 +98,7 @@ public:
     ARTS_IMPORT void ClearWaypoint(i32 arg1);
 
     // 0x42E910 | ?Cull@mmWaypoints@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // 0x42F130 | ?CycleCurrentWaypoint@mmWaypoints@@QAEXH@Z
     ARTS_IMPORT void CycleCurrentWaypoint(i32 arg1);

@@ -19,3 +19,6 @@
 define_dummy_symbol(mmwidget_compscroll);
 
 #include "compscroll.h"
+
+void UICompositeScroll::SetHightlight()
+{}

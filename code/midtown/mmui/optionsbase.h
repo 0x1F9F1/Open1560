@@ -50,10 +50,10 @@ public:
     virtual void DoneAction() = 0;
 
     // 0x4AB6F0 | ?ResetDefaultAction@OptionsBase@@UAEXXZ | inline
-    ARTS_IMPORT virtual void ResetDefaultAction();
+    ARTS_EXPORT virtual void ResetDefaultAction();
 
     // 0x49A6D0 | ?StoreCurrentSetup@OptionsBase@@UAEXXZ | inline
-    ARTS_IMPORT virtual void StoreCurrentSetup();
+    ARTS_EXPORT virtual void StoreCurrentSetup();
 
     // 0x4AB620 | ?CreateTitle@OptionsBase@@QAEXPAULocString@@@Z | unused
     ARTS_IMPORT void CreateTitle(struct LocString* arg1);

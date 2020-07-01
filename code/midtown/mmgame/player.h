@@ -80,10 +80,10 @@ public:
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x42A380 | ?AfterLoad@mmPlayer@@UAEXXZ
-    ARTS_IMPORT void AfterLoad() override;
+    ARTS_EXPORT void AfterLoad() override;
 
     // 0x42A370 | ?BeforeSave@mmPlayer@@UAEXXZ
-    ARTS_IMPORT void BeforeSave() override;
+    ARTS_EXPORT void BeforeSave() override;
 
     // 0x42C4C0 | ?EnableRegen@mmPlayer@@QAEXH@Z
     ARTS_IMPORT void EnableRegen(i32 arg1);

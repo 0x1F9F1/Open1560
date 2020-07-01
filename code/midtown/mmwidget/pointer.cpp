@@ -19,3 +19,6 @@
 define_dummy_symbol(mmwidget_pointer);
 
 #include "pointer.h"
+
+void sfPointer::UpdateAttached()
+{}

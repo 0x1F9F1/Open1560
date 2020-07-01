@@ -19,3 +19,9 @@
 define_dummy_symbol(mmui_optionsbase);
 
 #include "optionsbase.h"
+
+void OptionsBase::ResetDefaultAction()
+{}
+
+void OptionsBase::StoreCurrentSetup()
+{}

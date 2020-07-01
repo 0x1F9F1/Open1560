@@ -106,7 +106,7 @@ public:
     ARTS_IMPORT virtual void PreSetup();
 
     // 0x4ACB00 | ?PostSetup@UIMenu@@UAEXXZ
-    ARTS_IMPORT virtual void PostSetup();
+    ARTS_EXPORT virtual void PostSetup();
 
     // 0x4ACBA0 | ?BackUp@UIMenu@@UAEXXZ
     ARTS_IMPORT virtual void BackUp();
@@ -115,7 +115,7 @@ public:
     ARTS_IMPORT virtual void CheckInput();
 
     // 0x49C4F0 | ?IsAnOptionMenu@UIMenu@@UAEHXZ | inline
-    ARTS_IMPORT virtual i32 IsAnOptionMenu();
+    ARTS_EXPORT virtual i32 IsAnOptionMenu();
 
     // 0x4AE3F0 | ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
     ARTS_IMPORT class UIBMButton* AddBMButton(i32 arg1, char* arg2, f32 arg3, f32 arg4, i32 arg5, class Callback arg6,

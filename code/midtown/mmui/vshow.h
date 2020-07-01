@@ -46,7 +46,7 @@ public:
     ARTS_IMPORT ~VehShowcase() override;
 
     // 0x4A5190 | ?PostSetup@VehShowcase@@UAEXXZ
-    ARTS_IMPORT void PostSetup() override;
+    ARTS_EXPORT void PostSetup() override;
 
     // 0x4A5120 | ?PreSetup@VehShowcase@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;

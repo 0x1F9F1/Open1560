@@ -49,7 +49,7 @@ public:
     ARTS_IMPORT ~Dialog_RaceEnvironment() override = default;
 
     // 0x49E3A0 | ?CancelCallback@Dialog_RaceEnvironment@@QAEXXZ | unused
-    ARTS_IMPORT void CancelCallback();
+    ARTS_EXPORT void CancelCallback();
 
     // 0x49E2F0 | ?ControlPedSlider@Dialog_RaceEnvironment@@QAEXXZ
     ARTS_IMPORT void ControlPedSlider();

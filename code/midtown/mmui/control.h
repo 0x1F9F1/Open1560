@@ -89,7 +89,7 @@ public:
     ARTS_IMPORT void DeactivateAllDeviceOptions();
 
     // 0x4A3890 | ?DoneAction@ControlSetup@@UAEXXZ
-    ARTS_IMPORT void DoneAction() override;
+    ARTS_EXPORT void DoneAction() override;
 
     // 0x4A35F0 | ?InitCustomControls@ControlSetup@@QAEXXZ
     ARTS_IMPORT void InitCustomControls();
@@ -98,7 +98,7 @@ public:
     ARTS_IMPORT void LaunchJoyCpl();
 
     // 0x4A3510 | ?POVCB@ControlSetup@@QAEXXZ | unused
-    ARTS_IMPORT void POVCB();
+    ARTS_EXPORT void POVCB();
 
     // 0x4A3580 | ?PreSetup@ControlSetup@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;

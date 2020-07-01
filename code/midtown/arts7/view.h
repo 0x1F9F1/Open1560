@@ -59,7 +59,7 @@ public:
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x52C770 | ?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_IMPORT void FileIO(class MiniParser* arg1);
+    ARTS_EXPORT void FileIO(class MiniParser* arg1);
 
     // 0x52CDE0 | ?GetClass@asViewCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

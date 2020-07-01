@@ -94,7 +94,7 @@ public:
     ARTS_IMPORT void SetReadWrite(i32 arg1);
 
     // 0x4B3E30 | ?SetText@UISlider@@QAEXPAULocString@@@Z | unused
-    ARTS_IMPORT void SetText(struct LocString* arg1);
+    ARTS_EXPORT void SetText(struct LocString* arg1);
 
     // 0x4B4060 | ?SetValue@UISlider@@QAEMM@Z
     ARTS_IMPORT f32 SetValue(f32 arg1);
@@ -103,7 +103,7 @@ public:
     ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4B3FE0 | ?TestHit@UISlider@@QAEHMM@Z | unused
-    ARTS_IMPORT i32 TestHit(f32 arg1, f32 arg2);
+    ARTS_EXPORT i32 TestHit(f32 arg1, f32 arg2);
 
     // 0x4B3E40 | ?Update@UISlider@@UAEXXZ
     ARTS_IMPORT void Update() override;

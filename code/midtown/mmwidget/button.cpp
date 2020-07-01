@@ -19,3 +19,8 @@
 define_dummy_symbol(mmwidget_button);
 
 #include "button.h"
+
+i32 UIButton::TestHit(f32 /*arg1*/, f32 /*arg2*/)
+{
+    return 0;
+}

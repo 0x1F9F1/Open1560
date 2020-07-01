@@ -19,3 +19,6 @@
 define_dummy_symbol(mmaudio_mmvoicecommentary);
 
 #include "mmvoicecommentary.h"
+
+void mmVoiceCommentary::PlayLap(i16 /*arg1*/)
+{}

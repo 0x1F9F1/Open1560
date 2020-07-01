@@ -19,3 +19,23 @@
 define_dummy_symbol(mmai_aiVehicleSpline);
 
 #include "aiVehicleSpline.h"
+
+void aiVehicleSpline::Impact(i32 /*arg1*/)
+{}
+
+class mmOpponentImpactAudio* aiVehicleSpline::GetImpactAudioPtr()
+{
+    return nullptr;
+}
+
+void aiVehicleSpline::PlayHorn(f32 /*arg1*/, f32 /*arg2*/)
+{}
+
+void aiVehicleSpline::ImpactAudioReaction(f32 /*arg1*/)
+{}
+
+void aiVehicleSpline::StopVoice()
+{}
+
+void aiVehicleSpline::AddWidgets(class Bank* /*arg1*/)
+{}

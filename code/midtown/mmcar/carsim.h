@@ -207,7 +207,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // 0x46C030 | ?SetGlobalTuning@mmCarSim@@SAXMM@Z
-    ARTS_IMPORT static void SetGlobalTuning(f32 arg1, f32 arg2);
+    ARTS_EXPORT static void SetGlobalTuning(f32 arg1, f32 arg2);
 
     // 0x6A7C94 | ?DirtTex@mmCarSim@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* DirtTex;

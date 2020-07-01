@@ -16,9 +16,25 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(mmui_vshow);
+define_dummy_symbol(mmphysics_entity);
 
-#include "vshow.h"
+#include "entity.h"
 
-void VehShowcase::PostSetup()
+void mmPhysEntity::PostUpdate()
+{}
+
+class asBound* mmPhysEntity::GetBound()
+{
+    return nullptr;
+}
+
+class asInertialCS* mmPhysEntity::GetICS()
+{
+    return nullptr;
+}
+
+void mmPhysEntity::DetachMe()
+{}
+
+void mmPhysEntity::Update()
 {}

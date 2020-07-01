@@ -19,3 +19,6 @@
 define_dummy_symbol(mmui_vselect);
 
 #include "vselect.h"
+
+void VehicleSelectBase::Reset()
+{}

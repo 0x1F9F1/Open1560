@@ -4,6 +4,8 @@ arts_component "mmphysics"
         -- "aero.h",
         -- "bound.cpp",
         -- "bound.h",
+        -- "entity.cpp",
+        -- "entity.h",
         -- "inertia.cpp",
         -- "inertia.h",
         -- "joint3dof.cpp",
@@ -13,4 +15,3 @@ arts_component "mmphysics"
         -- "phys.cpp",
         -- "phys.h",
     }
-

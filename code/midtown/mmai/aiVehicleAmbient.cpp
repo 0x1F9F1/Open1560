@@ -19,3 +19,8 @@
 define_dummy_symbol(mmai_aiVehicleAmbient);
 
 #include "aiVehicleAmbient.h"
+
+i32 aiVehicleAmbient::Type()
+{
+    return 0;
+}

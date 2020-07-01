@@ -19,3 +19,12 @@
 define_dummy_symbol(arts7_midgets);
 
 #include "midgets.h"
+
+void asMidgets::PopColumn()
+{}
+
+void asMidgets::PushColumn(i32 /*arg1*/)
+{}
+
+void SMI::Key(i32 /*arg1*/, i32 /*arg2*/)
+{}

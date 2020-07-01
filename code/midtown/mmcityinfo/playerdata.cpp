@@ -19,3 +19,8 @@
 define_dummy_symbol(mmcityinfo_playerdata);
 
 #include "playerdata.h"
+
+i32 mmPlayerData::RegisterFinish(i32 /*arg1*/, f32 /*arg2*/, char /*arg3*/)
+{
+    return 0;
+}

@@ -62,7 +62,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // 0x5288D0 | ?FileIO@asForm@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_IMPORT void FileIO(class MiniParser* arg1);
+    ARTS_EXPORT void FileIO(class MiniParser* arg1);
 
     // 0x528820 | ?GetBoundMax@asForm@@QAE?AVVector3@@XZ | unused
     ARTS_IMPORT class Vector3 GetBoundMax();

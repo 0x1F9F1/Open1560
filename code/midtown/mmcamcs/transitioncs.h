@@ -65,7 +65,7 @@ public:
     ARTS_IMPORT void NextTransition(class CarCamCS* arg1);
 
     // 0x4FB570 | ?Reset@TransitionCS@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // 0x4FBD50 | ?ReverseTransition@TransitionCS@@QAEXXZ
     ARTS_IMPORT void ReverseTransition();

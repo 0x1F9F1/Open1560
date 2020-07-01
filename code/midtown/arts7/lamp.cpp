@@ -19,3 +19,6 @@
 define_dummy_symbol(arts7_lamp);
 
 #include "lamp.h"
+
+void asLamp::FileIO(class MiniParser* /*arg1*/)
+{}

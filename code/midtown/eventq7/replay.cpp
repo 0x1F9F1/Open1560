@@ -19,3 +19,15 @@
 define_dummy_symbol(eventq7_replay);
 
 #include "replay.h"
+
+void eqReplayChannel::InitRecord()
+{}
+
+void eqReplayChannel::InitPlayback()
+{}
+
+void eqReplayChannel::ShutdownRecord()
+{}
+
+void eqReplayChannel::ShutdownPlayback()
+{}

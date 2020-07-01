@@ -62,7 +62,7 @@ public:
     ARTS_IMPORT ~RaceMenuBase() override;
 
     // 0x4A4F60 | ?UsesLobby@RaceMenuBase@@UAEXH@Z | inline
-    ARTS_IMPORT virtual void UsesLobby(i32 arg1);
+    ARTS_EXPORT virtual void UsesLobby(i32 arg1);
 
     // 0x4A79B0 | ?AICallback@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void AICallback();

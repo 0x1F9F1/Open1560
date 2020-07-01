@@ -104,7 +104,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // 0x4B59E0 | ?SetHightlight@UICompositeScroll@@QAEXXZ
-    ARTS_IMPORT void SetHightlight();
+    ARTS_EXPORT void SetHightlight();
 
     // 0x4B5A10 | ?SetPosition@UICompositeScroll@@QAEXH@Z
     ARTS_IMPORT void SetPosition(i32 arg1);

@@ -65,7 +65,7 @@ public:
     virtual i32 Update() = 0;
 
     // 0x55BB00 | ?Remove@agiLight@@UAEXXZ
-    ARTS_IMPORT virtual void Remove();
+    ARTS_EXPORT virtual void Remove();
 
     // 0x55BB20 | ?GetName@agiLight@@UAEPADXZ
     ARTS_IMPORT char* GetName() override;

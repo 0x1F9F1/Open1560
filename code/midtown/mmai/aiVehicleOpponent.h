@@ -73,7 +73,7 @@ public:
         class AudSound* arg1, class AudSound* arg2, class mmOpponentImpactAudio* arg3, class AudSound* arg4);
 
     // 0x44E2A0 | ?DrawDamage@aiVehicleOpponent@@QAEXXZ | unused
-    ARTS_IMPORT void DrawDamage();
+    ARTS_EXPORT void DrawDamage();
 
     // 0x44E2B0 | ?DrawId@aiVehicleOpponent@@UAEXXZ
     ARTS_IMPORT void DrawId() override;

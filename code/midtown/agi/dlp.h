@@ -70,7 +70,7 @@ public:
     ARTS_IMPORT class DLP* Clone();
 
     // 0x55E2F0 | ?EndGfx@DLP@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     // 0x55E4F0 | ?GetName@DLP@@UAEPADXZ
     ARTS_IMPORT char* GetName() override;

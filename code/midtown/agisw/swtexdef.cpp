@@ -19,3 +19,9 @@
 define_dummy_symbol(agisw_swtexdef);
 
 #include "swtexdef.h"
+
+void agiSWTexDef::Unlock(struct agiTexLock& /*arg1*/)
+{}
+
+void agiSWTexLut::EndGfx()
+{}

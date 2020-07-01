@@ -173,7 +173,7 @@ public:
     ARTS_IMPORT void PlayGTUnlocked();
 
     // 0x4EC390 | ?PlayLap@mmVoiceCommentary@@QAEXF@Z | unused
-    ARTS_IMPORT void PlayLap(i16 arg1);
+    ARTS_EXPORT void PlayLap(i16 arg1);
 
     // 0x4EC990 | ?PlayMidResults@mmVoiceCommentary@@QAEXXZ | unused
     ARTS_IMPORT void PlayMidResults();

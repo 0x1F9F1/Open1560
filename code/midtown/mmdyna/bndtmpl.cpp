@@ -19,3 +19,14 @@
 define_dummy_symbol(mmdyna_bndtmpl);
 
 #include "bndtmpl.h"
+
+void mmBoundTemplate::DrawGraph()
+{}
+
+i32 mmBoundTemplate::LineSphere(class mmIntersection* /*arg1*/)
+{
+    return 0;
+}
+
+void mmBoundTemplate::PlotSpan(i32 /*arg1*/, i32 /*arg2*/, i32 /*arg3*/)
+{}

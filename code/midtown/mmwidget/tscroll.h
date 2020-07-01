@@ -76,7 +76,7 @@ public:
         class Callback arg9);
 
     // 0x4B8CF0 | ?InitVScroll@UITextScroll@@QAEXMMM@Z
-    ARTS_IMPORT void InitVScroll(f32 arg1, f32 arg2, f32 arg3);
+    ARTS_EXPORT void InitVScroll(f32 arg1, f32 arg2, f32 arg3);
 
     // 0x4B8D90 | ?Recalc@UITextScroll@@QAEXVstring@@@Z
     ARTS_IMPORT void Recalc(class string arg1);

@@ -94,13 +94,13 @@ public:
     virtual void Set(class Vector2& arg1, class Vector2& arg2) = 0;
 
     // 0x556440 | ?Lock@agiTexDef@@UAEHAAUagiTexLock@@@Z
-    ARTS_IMPORT virtual i32 Lock(struct agiTexLock& arg1);
+    ARTS_EXPORT virtual i32 Lock(struct agiTexLock& arg1);
 
     // 0x556450 | ?Unlock@agiTexDef@@UAEXAAUagiTexLock@@@Z
-    ARTS_IMPORT virtual void Unlock(struct agiTexLock& arg1);
+    ARTS_EXPORT virtual void Unlock(struct agiTexLock& arg1);
 
     // 0x5567E0 | ?Request@agiTexDef@@UAEXXZ
-    ARTS_IMPORT virtual void Request();
+    ARTS_EXPORT virtual void Request();
 
     // 0x5562F0 | ?CheckSurface@agiTexDef@@QAEXXZ
     ARTS_IMPORT void CheckSurface();

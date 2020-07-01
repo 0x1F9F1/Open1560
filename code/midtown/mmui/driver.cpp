@@ -19,3 +19,6 @@
 define_dummy_symbol(mmui_driver);
 
 #include "driver.h"
+
+void DriverMenu::NewPlayer()
+{}

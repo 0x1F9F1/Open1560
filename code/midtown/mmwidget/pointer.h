@@ -77,7 +77,7 @@ public:
 
 private:
     // 0x4BDD10 | ?UpdateAttached@sfPointer@@AAEXXZ | unused
-    ARTS_IMPORT void UpdateAttached();
+    ARTS_EXPORT void UpdateAttached();
 
     u8 gap20[0x34];
 };

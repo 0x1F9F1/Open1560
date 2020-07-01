@@ -19,3 +19,6 @@
 define_dummy_symbol(arts7_linear);
 
 #include "linear.h"
+
+void asLinearCS::FileIO(class MiniParser* /*arg1*/)
+{}

@@ -19,3 +19,6 @@
 define_dummy_symbol(mmai_aipedaudiomanager);
 
 #include "aipedaudiomanager.h"
+
+void aiPedAudioManager::RandomizeSeconds(f32 /*arg1*/, f32 /*arg2*/)
+{}

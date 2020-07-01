@@ -59,31 +59,31 @@ public:
     ARTS_IMPORT virtual void SetReadOnly(i32 arg1);
 
     // 0x4B2E30 | ?Action@uiWidget@@UAEXTeqEvent@@@Z | inline
-    ARTS_IMPORT virtual void Action(union eqEvent arg1);
+    ARTS_EXPORT virtual void Action(union eqEvent arg1);
 
     // 0x4B2E40 | ?CaptureAction@uiWidget@@UAEXTeqEvent@@@Z | inline
-    ARTS_IMPORT virtual void CaptureAction(union eqEvent arg1);
+    ARTS_EXPORT virtual void CaptureAction(union eqEvent arg1);
 
     // 0x4B48A0 | ?Switch@uiWidget@@UAEXH@Z
-    ARTS_IMPORT virtual void Switch(i32 arg1);
+    ARTS_EXPORT virtual void Switch(i32 arg1);
 
     // 0x4B2E50 | ?EvalMouseX@uiWidget@@UAEXM@Z | inline
-    ARTS_IMPORT virtual void EvalMouseX(f32 arg1);
+    ARTS_EXPORT virtual void EvalMouseX(f32 arg1);
 
     // 0x4B2E60 | ?ReturnDescription@uiWidget@@UAEPADXZ | inline
-    ARTS_IMPORT virtual char* ReturnDescription();
+    ARTS_EXPORT virtual char* ReturnDescription();
 
     // 0x4B2E70 | ?SetPosition@uiWidget@@UAEXMM@Z | inline
-    ARTS_IMPORT virtual void SetPosition(f32 arg1, f32 arg2);
+    ARTS_EXPORT virtual void SetPosition(f32 arg1, f32 arg2);
 
     // 0x4B2E80 | ?GetScreenHeight@uiWidget@@UAEMXZ | inline
     ARTS_IMPORT virtual f32 GetScreenHeight();
 
     // 0x4B4890 | ?AddToolTip@uiWidget@@QAEXPAVUIMenu@@PAULocString@@@Z
-    ARTS_IMPORT void AddToolTip(class UIMenu* arg1, struct LocString* arg2);
+    ARTS_EXPORT void AddToolTip(class UIMenu* arg1, struct LocString* arg2);
 
     // 0x4B48C0 | ?ResetToolTip@uiWidget@@QAEXXZ
-    ARTS_IMPORT void ResetToolTip();
+    ARTS_EXPORT void ResetToolTip();
 
     // 0x4B48D0 | ?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetToolTipText(struct LocString* arg1);

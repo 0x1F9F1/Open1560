@@ -113,7 +113,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
     // 0x472BE0 | ?GetCarFlags@mmCarModel@@QAEHPAD@Z | unused
-    ARTS_IMPORT i32 GetCarFlags(char* arg1);
+    ARTS_EXPORT i32 GetCarFlags(char* arg1);
 
     // 0x473280 | ?GetClass@mmCarModel@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

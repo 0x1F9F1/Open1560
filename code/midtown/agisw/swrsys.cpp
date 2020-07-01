@@ -19,3 +19,23 @@
 define_dummy_symbol(agisw_swrsys);
 
 #include "swrsys.h"
+
+i32 agiSWRasterizer::BeginGfx()
+{
+    return 0;
+}
+
+void agiSWRasterizer::BeginGroup()
+{}
+
+void agiSWRasterizer::EndGfx()
+{}
+
+void agiSWRasterizer::EndGroup()
+{}
+
+void agiSWRasterizer::Points(enum agiVtxType /*arg1*/, union agiVtx* /*arg2*/, i32 /*arg3*/)
+{}
+
+void agiSWRasterizer::SetVertCount(i32 /*arg1*/)
+{}

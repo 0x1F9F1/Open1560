@@ -225,13 +225,13 @@ public:
     ARTS_IMPORT ~mmRunwayLight() override = default;
 
     // 0x48FA40 | ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z | inline
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x48C1B0 | ?Draw@mmRunwayLight@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x48C170 | ?FromMatrix@mmRunwayLight@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
     // 0x48C160 | ?GetPos@mmRunwayLight@@UAIAAVVector3@@XZ
     ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;

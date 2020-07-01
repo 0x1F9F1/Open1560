@@ -198,13 +198,13 @@ public:
     ARTS_IMPORT void Open(class asNode* arg1);
 
     // 0x527B90 | ?PopColumn@asMidgets@@UAEXXZ
-    ARTS_IMPORT void PopColumn() override;
+    ARTS_EXPORT void PopColumn() override;
 
     // 0x527B50 | ?PopSection@asMidgets@@UAEXXZ
     ARTS_IMPORT void PopSection() override;
 
     // 0x527B80 | ?PushColumn@asMidgets@@UAEXH@Z
-    ARTS_IMPORT void PushColumn(i32 arg1) override;
+    ARTS_EXPORT void PushColumn(i32 arg1) override;
 
     // 0x527AE0 | ?PushSection@asMidgets@@UAEXPADH@Z
     ARTS_IMPORT void PushSection(char* arg1, i32 arg2) override;
@@ -237,7 +237,7 @@ class SMI : public MI
 
 public:
     // 0x527BD0 | ?Key@SMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_EXPORT void Key(i32 arg1, i32 arg2) override;
 
     // 0x527BE0 | ?Update@SMI@@UAEHH@Z | inline
     ARTS_IMPORT i32 Update(i32 arg1) override;

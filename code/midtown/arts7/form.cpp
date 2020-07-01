@@ -19,3 +19,6 @@
 define_dummy_symbol(arts7_form);
 
 #include "form.h"
+
+void asForm::FileIO(class MiniParser* /*arg1*/)
+{}

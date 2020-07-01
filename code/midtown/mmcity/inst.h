@@ -153,42 +153,42 @@ public:
     virtual class Vector3& ARTS_FASTCALL GetPos() = 0;
 
     // 0x433DB0 | ?GetEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ | inline
-    ARTS_IMPORT virtual class mmPhysEntity* GetEntity();
+    ARTS_EXPORT virtual class mmPhysEntity* GetEntity();
 
     // 0x433DC0 | ?AttachEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ | inline
-    ARTS_IMPORT virtual class mmPhysEntity* AttachEntity();
+    ARTS_EXPORT virtual class mmPhysEntity* AttachEntity();
 
     // 0x433DD0 | ?GetVelocity@mmInstance@@UAE?AVVector3@@XZ | inline
     ARTS_IMPORT virtual class Vector3 GetVelocity();
 
     // 0x433DF0 | ?Impact@mmInstance@@UAEXPAV1@PAVVector3@@@Z | inline
-    ARTS_IMPORT virtual void Impact(class mmInstance* arg1, class Vector3* arg2);
+    ARTS_EXPORT virtual void Impact(class mmInstance* arg1, class Vector3* arg2);
 
     // 0x433E00 | ?Detach@mmInstance@@UAEXXZ | inline
-    ARTS_IMPORT virtual void Detach();
+    ARTS_EXPORT virtual void Detach();
 
     // 0x492AA0 | ?Draw@mmInstance@@UAIXH@Z
     ARTS_IMPORT virtual void ARTS_FASTCALL Draw(i32 arg1);
 
     // 0x492B00 | ?DrawShadow@mmInstance@@UAIXXZ
-    ARTS_IMPORT virtual void ARTS_FASTCALL DrawShadow();
+    ARTS_EXPORT virtual void ARTS_FASTCALL DrawShadow();
 
     // 0x492B10 | ?DrawGlow@mmInstance@@UAIXXZ
-    ARTS_IMPORT virtual void ARTS_FASTCALL DrawGlow();
+    ARTS_EXPORT virtual void ARTS_FASTCALL DrawGlow();
 
     // 0x492A10 | ?Relight@mmInstance@@UAIXXZ
-    ARTS_IMPORT virtual void ARTS_FASTCALL Relight();
+    ARTS_EXPORT virtual void ARTS_FASTCALL Relight();
 
     // 0x493120 | ?SizeOf@mmInstance@@UAEIXZ
     ARTS_IMPORT virtual u32 SizeOf();
 
     // 0x493130 | ?Reset@mmInstance@@UAEXXZ
-    ARTS_IMPORT virtual void Reset();
+    ARTS_EXPORT virtual void Reset();
 
     virtual void AddWidgets(class Bank* arg1) = 0;
 
     // 0x492B20 | ?Init@mmInstance@@UAEHPADAAVVector3@@1H0@Z
-    ARTS_IMPORT virtual i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5);
+    ARTS_EXPORT virtual i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5);
 
     // 0x492A20 | ?GetScale@mmInstance@@UAIMXZ
     ARTS_IMPORT virtual f32 ARTS_FASTCALL GetScale();
@@ -409,10 +409,10 @@ public:
     ARTS_IMPORT ~mmMatrixInstance() override = default;
 
     // 0x4935B0 | ?Hit@mmMatrixInstance@@UAEXPAVmmInstance@@@Z
-    ARTS_IMPORT virtual void Hit(class mmInstance* arg1);
+    ARTS_EXPORT virtual void Hit(class mmInstance* arg1);
 
     // 0x4935D0 | ?AddWidgets@mmMatrixInstance@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x493440 | ?FromMatrix@mmMatrixInstance@@UAIXABVMatrix34@@@Z
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
@@ -466,7 +466,7 @@ public:
     ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, i32 arg5, char* arg6);
 
     // 0x494220 | ?Relight@mmStaticInstance@@UAIXXZ
-    ARTS_IMPORT void ARTS_FASTCALL Relight() override;
+    ARTS_EXPORT void ARTS_FASTCALL Relight() override;
 
     // 0x494210 | ?SizeOf@mmStaticInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;

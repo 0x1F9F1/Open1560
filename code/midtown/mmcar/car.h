@@ -54,7 +54,7 @@
     0x6A7E6C | public: static float mmCar::PostUpdateTime | ?PostUpdateTime@mmCar@@2MA
 */
 
-#include "mmai/aiVehicleMGR.h"
+#include "mmphysics/entity.h"
 
 class mmCar : public mmPhysEntity
 {

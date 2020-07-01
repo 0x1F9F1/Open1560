@@ -94,7 +94,7 @@ public:
     ARTS_IMPORT void DeleteCell(struct asPortalCell* arg1);
 
     // 0x4959A0 | ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z | unused
-    ARTS_IMPORT void DeleteEdge(struct asPortalEdge* arg1);
+    ARTS_EXPORT void DeleteEdge(struct asPortalEdge* arg1);
 
     // 0x497770 | ?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
@@ -120,10 +120,10 @@ public:
 check_size(asPortalWeb, 0x904C);
 
 // 0x4959B0 | ?LookupCell@@YAPAUasPortalCell@@PAD@Z | unused
-ARTS_IMPORT struct asPortalCell* LookupCell(char* arg1);
+ARTS_EXPORT struct asPortalCell* LookupCell(char* arg1);
 
 // 0x4959C0 | ?LookupEdge@@YAPAUasPortalCell@@PAD@Z | unused
-ARTS_IMPORT struct asPortalCell* LookupEdge(char* arg1);
+ARTS_EXPORT struct asPortalCell* LookupEdge(char* arg1);
 
 // 0x705718 | ?asPortalWebMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asPortalWebMetaClass;

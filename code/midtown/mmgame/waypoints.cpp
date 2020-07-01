@@ -19,3 +19,6 @@
 define_dummy_symbol(mmgame_waypoints);
 
 #include "waypoints.h"
+
+void mmWaypoints::Cull()
+{}

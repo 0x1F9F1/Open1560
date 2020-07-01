@@ -78,13 +78,13 @@ public:
     ARTS_IMPORT class agiBitmap* CreateBitmap() override;
 
     // 0x533000 | ?EndFrame@agiDDPipeline@@UAEXXZ
-    ARTS_IMPORT void EndFrame() override;
+    ARTS_EXPORT void EndFrame() override;
 
     // 0x532E30 | ?EndGfx@agiDDPipeline@@UAEXXZ
     ARTS_IMPORT void EndGfx() override;
 
     // 0x532FF0 | ?EndScene@agiDDPipeline@@UAEXXZ
-    ARTS_IMPORT void EndScene() override;
+    ARTS_EXPORT void EndScene() override;
 
     // 0x5331E0 | ?LockFrameBuffer@agiDDPipeline@@UAEHAAVagiSurfaceDesc@@@Z
     ARTS_IMPORT i32 LockFrameBuffer(class agiSurfaceDesc& arg1) override;
@@ -93,7 +93,7 @@ public:
     ARTS_IMPORT void UnlockFrameBuffer() override;
 
     // 0x5328C0 | ?Validate@agiDDPipeline@@UAEHXZ
-    ARTS_IMPORT i32 Validate() override;
+    ARTS_EXPORT i32 Validate() override;
 
     u8 gap2F0[0x3C];
 };

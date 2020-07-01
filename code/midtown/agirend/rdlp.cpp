@@ -19,3 +19,8 @@
 define_dummy_symbol(agirend_rdlp);
 
 #include "rdlp.h"
+
+class MultipassDLP* RDLP::GetMultipass(i32 /*arg1*/)
+{
+    return nullptr;
+}

@@ -19,3 +19,6 @@
 define_dummy_symbol(mmwidget_compdrec);
 
 #include "compdrec.h"
+
+void mmCompDRecord::DisableBlt()
+{}

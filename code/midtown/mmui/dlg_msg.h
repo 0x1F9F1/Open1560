@@ -49,7 +49,7 @@ public:
     ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3);
 
     // 0x49F470 | ?PreSetup@Dialog_Message@@UAEXXZ
-    ARTS_IMPORT void PreSetup() override;
+    ARTS_EXPORT void PreSetup() override;
 
     u8 gapC0[0x10];
 };

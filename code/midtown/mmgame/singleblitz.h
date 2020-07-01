@@ -113,7 +113,7 @@ public:
     ARTS_IMPORT void Update() override;
 
     // 0x414BD0 | ?UpdateDebugKeyInput@mmSingleBlitz@@UAEXH@Z | inline
-    ARTS_IMPORT void UpdateDebugKeyInput(i32 arg1) override;
+    ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x413860 | ?UpdateGame@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;

@@ -19,3 +19,6 @@
 define_dummy_symbol(mmgame_gamesingle);
 
 #include "gamesingle.h"
+
+void mmGameSingle::UpdateDebugKeyInput(i32 /*arg1*/)
+{}

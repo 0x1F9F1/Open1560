@@ -19,3 +19,6 @@
 define_dummy_symbol(mmui_cr_settings);
 
 #include "cr_settings.h"
+
+void CRSettings::SettingsCB()
+{}

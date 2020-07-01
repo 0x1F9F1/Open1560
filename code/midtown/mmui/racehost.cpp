@@ -19,3 +19,6 @@
 define_dummy_symbol(mmui_racehost);
 
 #include "racehost.h"
+
+void HostRaceMenu::UsesLobby(i32 /*arg1*/)
+{}

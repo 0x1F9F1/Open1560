@@ -54,10 +54,10 @@ public:
     ARTS_IMPORT void SetText(struct LocString* arg1);
 
     // 0x4BF280 | ?Switch@mmToolTip@@QAEXH@Z
-    ARTS_IMPORT void Switch(i32 arg1);
+    ARTS_EXPORT void Switch(i32 arg1);
 
     // 0x4BF290 | ?Update@mmToolTip@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     u8 gap20[0x14];
 };

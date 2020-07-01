@@ -19,3 +19,6 @@
 define_dummy_symbol(mmgame_gauge);
 
 #include "gauge.h"
+
+void RadialGauge::AddWidgets(class Bank* /*arg1*/)
+{}

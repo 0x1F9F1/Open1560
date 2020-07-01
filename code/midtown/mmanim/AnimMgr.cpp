@@ -19,3 +19,6 @@
 define_dummy_symbol(mmanim_AnimMgr);
 
 #include "AnimMgr.h"
+
+void mmAnimMgr::TestDOFAct(i32 /*arg1*/)
+{}

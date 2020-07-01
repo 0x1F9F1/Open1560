@@ -66,4 +66,4 @@ public:
 check_size(agiDDBitmap, 0x40);
 
 // 0x533D40 | ?breakme@@YAXXZ
-ARTS_IMPORT void breakme();
+ARTS_EXPORT void breakme();

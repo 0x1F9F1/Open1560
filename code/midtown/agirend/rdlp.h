@@ -72,7 +72,7 @@ public:
     ARTS_IMPORT class DynamicDLP* GetDynamic(i32 arg1) override;
 
     // 0x551530 | ?GetMultipass@RDLP@@UAEPAVMultipassDLP@@H@Z
-    ARTS_IMPORT class MultipassDLP* GetMultipass(i32 arg1) override;
+    ARTS_EXPORT class MultipassDLP* GetMultipass(i32 arg1) override;
 
 private:
     // 0x5508A0 | ?InitFacet@RDLP@@AAEHPAUagiPatch@@HHHH@Z

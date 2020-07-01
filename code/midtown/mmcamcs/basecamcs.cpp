@@ -19,3 +19,12 @@
 define_dummy_symbol(mmcamcs_basecamcs);
 
 #include "basecamcs.h"
+
+void BaseCamCS::MakeActive()
+{}
+
+void BaseCamCS::UpdateInput()
+{}
+
+void BaseCamCS::SetST(f32* /*arg1*/)
+{}

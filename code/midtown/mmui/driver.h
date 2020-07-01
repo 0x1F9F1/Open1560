@@ -84,7 +84,7 @@ public:
     ARTS_IMPORT void InitPlayerSelection();
 
     // 0x4A5CB0 | ?NewPlayer@DriverMenu@@QAEXXZ | unused
-    ARTS_IMPORT void NewPlayer();
+    ARTS_EXPORT void NewPlayer();
 
     // 0x4A5430 | ?PreSetup@DriverMenu@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;

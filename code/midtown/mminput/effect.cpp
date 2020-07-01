@@ -19,3 +19,13 @@
 define_dummy_symbol(mminput_effect);
 
 #include "effect.h"
+
+i32 mmEffectFF::Play()
+{
+    return 0;
+}
+
+i32 mmEffectFF::Stop()
+{
+    return 0;
+}

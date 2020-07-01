@@ -55,10 +55,10 @@ public:
     ARTS_IMPORT ~agiRasterizer() override = default;
 
     // 0x557D20 | ?BeginGroup@agiRasterizer@@UAEXXZ
-    ARTS_IMPORT virtual void BeginGroup();
+    ARTS_EXPORT virtual void BeginGroup();
 
     // 0x557D30 | ?EndGroup@agiRasterizer@@UAEXXZ
-    ARTS_IMPORT virtual void EndGroup();
+    ARTS_EXPORT virtual void EndGroup();
 
     virtual void Verts(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) = 0;
 

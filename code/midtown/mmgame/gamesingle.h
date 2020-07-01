@@ -108,7 +108,7 @@ public:
     ARTS_IMPORT void Update() override;
 
     // 0x418EC0 | ?UpdateDebugKeyInput@mmGameSingle@@UAEXH@Z | inline
-    ARTS_IMPORT void UpdateDebugKeyInput(i32 arg1) override;
+    ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x4176A0 | ?UpdateGame@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;

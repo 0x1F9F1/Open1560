@@ -56,7 +56,7 @@ public:
     ARTS_IMPORT ~mmViewCS() override = default;
 
     // 0x4F9560 | ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z | inline
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4F9320 | ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z | unused
     ARTS_IMPORT void ForceMatrixDelta(class Matrix34 const& arg1);
@@ -68,7 +68,7 @@ public:
     ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4F9260 | ?Init@mmViewCS@@QAEXXZ
-    ARTS_IMPORT void Init();
+    ARTS_EXPORT void Init();
 
     // 0x4F9180 | ?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z
     ARTS_IMPORT i32 NewCam(class CarCamCS* arg1, i32 arg2, f32 arg3, class Callback arg4);

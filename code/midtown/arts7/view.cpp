@@ -19,3 +19,6 @@
 define_dummy_symbol(arts7_view);
 
 #include "view.h"
+
+void asViewCS::FileIO(class MiniParser* /*arg1*/)
+{}

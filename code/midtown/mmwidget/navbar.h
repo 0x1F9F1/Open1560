@@ -55,7 +55,7 @@ public:
     ARTS_IMPORT ~uiNavBar() override = default;
 
     // 0x4B2150 | ?BackUp@uiNavBar@@UAEXXZ | inline
-    ARTS_IMPORT void BackUp() override;
+    ARTS_EXPORT void BackUp() override;
 
     // 0x4B1F10 | ?Help@uiNavBar@@QAEXXZ
     ARTS_IMPORT void Help();

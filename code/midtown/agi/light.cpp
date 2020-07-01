@@ -19,3 +19,6 @@
 define_dummy_symbol(agi_light);
 
 #include "light.h"
+
+void agiLight::Remove()
+{}

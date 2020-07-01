@@ -81,7 +81,7 @@ public:
     ARTS_IMPORT void Switch(i32 arg1) override;
 
     // 0x4B9F20 | ?TestHit@UIButton@@QAEHMM@Z | unused
-    ARTS_IMPORT i32 TestHit(f32 arg1, f32 arg2);
+    ARTS_EXPORT i32 TestHit(f32 arg1, f32 arg2);
 
     // 0x4B9D20 | ?Update@UIButton@@UAEXXZ
     ARTS_IMPORT void Update() override;

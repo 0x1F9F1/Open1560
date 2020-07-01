@@ -96,55 +96,55 @@ public:
     virtual ~agiPipeline() = 0;
 
     // 0x555540 | ?Validate@agiPipeline@@UAEHXZ
-    ARTS_IMPORT virtual i32 Validate();
+    ARTS_EXPORT virtual i32 Validate();
 
     virtual i32 BeginGfx() = 0;
 
     virtual void EndGfx() = 0;
 
     // 0x555D10 | ?BeginFrame@agiPipeline@@UAEXXZ
-    ARTS_IMPORT virtual void BeginFrame();
+    ARTS_EXPORT virtual void BeginFrame();
 
     // 0x556000 | ?BeginScene@agiPipeline@@UAEXXZ
     ARTS_IMPORT virtual void BeginScene();
 
     // 0x556020 | ?EndScene@agiPipeline@@UAEXXZ
-    ARTS_IMPORT virtual void EndScene();
+    ARTS_EXPORT virtual void EndScene();
 
     // 0x556030 | ?EndFrame@agiPipeline@@UAEXXZ
-    ARTS_IMPORT virtual void EndFrame();
+    ARTS_EXPORT virtual void EndFrame();
 
     virtual class agiTexDef* CreateTexDef() = 0;
 
     virtual class agiTexLut* CreateTexLut() = 0;
 
     // 0x555B10 | ?CreateMtlDef@agiPipeline@@UAEPAVagiMtlDef@@XZ
-    ARTS_IMPORT virtual class agiMtlDef* CreateMtlDef();
+    ARTS_EXPORT virtual class agiMtlDef* CreateMtlDef();
 
     virtual class DLP* CreateDLP() = 0;
 
     virtual class agiViewport* CreateViewport() = 0;
 
     // 0x555B20 | ?CreateLight@agiPipeline@@UAEPAVagiLight@@XZ
-    ARTS_IMPORT virtual class agiLight* CreateLight();
+    ARTS_EXPORT virtual class agiLight* CreateLight();
 
     // 0x555B30 | ?CreateLightModel@agiPipeline@@UAEPAVagiLightModel@@XZ
-    ARTS_IMPORT virtual class agiLightModel* CreateLightModel();
+    ARTS_EXPORT virtual class agiLightModel* CreateLightModel();
 
     // 0x555D30 | ?CreateBitmap@agiPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_IMPORT virtual class agiBitmap* CreateBitmap();
+    ARTS_EXPORT virtual class agiBitmap* CreateBitmap();
 
     // 0x555D40 | ?CopyBitmap@agiPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
-    ARTS_IMPORT virtual void CopyBitmap(
-        i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
+    ARTS_EXPORT virtual void CopyBitmap(
+        i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height);
 
     virtual void ClearAll(i32 arg1) = 0;
 
     // 0x556070 | ?ClearRect@agiPipeline@@UAEXHHHHI@Z
-    ARTS_IMPORT virtual void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5);
+    ARTS_EXPORT virtual void ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color);
 
     // 0x557F20 | ?Print@agiPipeline@@UAEXHHHPBD@Z | agi:print
-    ARTS_IMPORT virtual void Print(i32 arg1, i32 arg2, i32 arg3, char const* arg4);
+    ARTS_IMPORT virtual void Print(i32 x, i32 y, i32 color, char const* text);
 
     // 0x558110 | ?PrintIs3D@agiPipeline@@UAEHXZ | agi:print
     ARTS_IMPORT virtual i32 PrintIs3D();
@@ -156,16 +156,16 @@ public:
     ARTS_IMPORT virtual void PrintShutdown();
 
     // 0x556080 | ?Defragment@agiPipeline@@UAEXXZ
-    ARTS_IMPORT virtual void Defragment();
+    ARTS_EXPORT virtual void Defragment();
 
     // 0x556040 | ?LockFrameBuffer@agiPipeline@@UAEHAAVagiSurfaceDesc@@@Z
-    ARTS_IMPORT virtual i32 LockFrameBuffer(class agiSurfaceDesc& arg1);
+    ARTS_EXPORT virtual i32 LockFrameBuffer(class agiSurfaceDesc& arg1);
 
     // 0x556050 | ?UnlockFrameBuffer@agiPipeline@@UAEXXZ
-    ARTS_IMPORT virtual void UnlockFrameBuffer();
+    ARTS_EXPORT virtual void UnlockFrameBuffer();
 
     // 0x556060 | ?DumpStatus@agiPipeline@@UAEXAAUagiMemStatus@@@Z
-    ARTS_IMPORT virtual void DumpStatus(struct agiMemStatus& arg1);
+    ARTS_EXPORT virtual void DumpStatus(struct agiMemStatus& arg1);
 
     // 0x555B40 | ?BeginAllGfx@agiPipeline@@QAEHXZ
     ARTS_IMPORT i32 BeginAllGfx();
@@ -242,7 +242,7 @@ check_size(agiPipeline, 0x2F0);
 ARTS_IMPORT void* CreatePipelineAttachableWindow(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, void* arg6);
 
 // 0x555F90 | ?DestroyPipelineAttachableWindow@@YAXXZ
-ARTS_IMPORT void DestroyPipelineAttachableWindow();
+ARTS_EXPORT void DestroyPipelineAttachableWindow();
 
 // 0x555F70 | ?GetRootWindow@@YAPAXXZ
 ARTS_IMPORT void* GetRootWindow();
@@ -258,6 +258,29 @@ ARTS_IMPORT extern i32 LightCount;
 
 // 0x8FACC0 | ?PROBER@@3P6AXPAX@ZA
 ARTS_IMPORT extern void (*PROBER)(void*);
+
+struct agiStats
+{
+    i32 DlpDrawn;
+    i32 DlpClipped;
+    i32 DlpVerts;
+    i32 DlpTris;
+    i32 VertsXfrm;
+    i32 VertsLit;
+    i32 VertsOut;
+    i32 VertsClip;
+    i32 Tris;
+    i32 Lines;
+    i32 Cards;
+    i32 StateChanges;
+    i32 TextureChanges;
+    i32 StateChangeCalls;
+    i32 GeomCalls;
+    i32 TxlsXrfd;
+    i32 XtraTex;
+};
+
+check_size(agiStats, 0x44);
 
 // 0x8FAC18 | ?STATS@@3UagiStats@@A
 ARTS_IMPORT extern struct agiStats STATS;

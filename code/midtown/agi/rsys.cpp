@@ -19,3 +19,9 @@
 define_dummy_symbol(agi_rsys);
 
 #include "rsys.h"
+
+void agiRasterizer::BeginGroup()
+{}
+
+void agiRasterizer::EndGroup()
+{}

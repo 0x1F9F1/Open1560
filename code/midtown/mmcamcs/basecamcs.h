@@ -50,16 +50,16 @@ public:
     ARTS_IMPORT ~BaseCamCS() override = default;
 
     // 0x4FB4A0 | ?MakeActive@BaseCamCS@@UAEXXZ | inline
-    ARTS_IMPORT virtual void MakeActive();
+    ARTS_EXPORT virtual void MakeActive();
 
     // 0x4F99D0 | ?UpdateInput@BaseCamCS@@UAEXXZ | inline
-    ARTS_IMPORT virtual void UpdateInput();
+    ARTS_EXPORT virtual void UpdateInput();
 
     // 0x4FC090 | ?ForceMatrixDelta@BaseCamCS@@UAEXABVVector3@@@Z
     ARTS_IMPORT virtual void ForceMatrixDelta(class Vector3 const& arg1);
 
     // 0x4F6A50 | ?SetST@BaseCamCS@@UAEXPAM@Z | inline
-    ARTS_IMPORT virtual void SetST(f32* arg1);
+    ARTS_EXPORT virtual void SetST(f32* arg1);
 
     // 0x4FBF40 | ?AddWidgets@BaseCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

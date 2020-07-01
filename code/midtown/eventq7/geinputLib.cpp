@@ -20,5 +20,8 @@ define_dummy_symbol(eventq7_geinputLib);
 
 #include "geinputLib.h"
 
+void geinputClearCache()
+{}
+
 // 0x564050 | ?DIError@@YAPADH@Z
 ARTS_IMPORT /*static*/ char* DIError(i32 arg1);

@@ -19,3 +19,17 @@
 define_dummy_symbol(mmgame_gameedit);
 
 #include "gameedit.h"
+
+class mmWaypoints* mmGameEdit::GetWaypoints()
+{
+    return nullptr;
+}
+
+void mmGameEdit::InitOtherPlayers()
+{}
+
+void mmGameEdit::NextRace()
+{}
+
+void mmGameEdit::UpdateGameInput(i32 /*arg1*/)
+{}

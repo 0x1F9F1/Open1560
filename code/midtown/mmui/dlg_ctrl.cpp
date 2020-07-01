@@ -19,3 +19,6 @@
 define_dummy_symbol(mmui_dlg_ctrl);
 
 #include "dlg_ctrl.h"
+
+void Dialog_ControlAssign::PreSetup()
+{}

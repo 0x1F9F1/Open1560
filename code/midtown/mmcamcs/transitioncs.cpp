@@ -19,3 +19,6 @@
 define_dummy_symbol(mmcamcs_transitioncs);
 
 #include "transitioncs.h"
+
+void TransitionCS::Reset()
+{}

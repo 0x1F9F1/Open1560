@@ -19,3 +19,6 @@
 define_dummy_symbol(mmgame_multicircuit);
 
 #include "multicircuit.h"
+
+void mmMultiCircuit::UpdateDebugKeyInput(i32 /*arg1*/)
+{}

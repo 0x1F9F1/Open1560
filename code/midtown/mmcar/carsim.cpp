@@ -19,3 +19,6 @@
 define_dummy_symbol(mmcar_carsim);
 
 #include "carsim.h"
+
+void mmCarSim::SetGlobalTuning(f32 /*arg1*/, f32 /*arg2*/)
+{}

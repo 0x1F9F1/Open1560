@@ -19,3 +19,6 @@
 define_dummy_symbol(mmai_aiVehicleOpponent);
 
 #include "aiVehicleOpponent.h"
+
+void aiVehicleOpponent::DrawDamage()
+{}

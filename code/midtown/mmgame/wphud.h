@@ -87,10 +87,10 @@ public:
     ARTS_IMPORT ~mmWPHUD() override;
 
     // 0x424780 | ?AddWidgets@mmWPHUD@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x424770 | ?Cull@mmWPHUD@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // 0x4243F0 | ?Init@mmWPHUD@@QAEXHPAH0H@Z
     ARTS_IMPORT void Init(i32 arg1, i32* arg2, i32* arg3, i32 arg4);

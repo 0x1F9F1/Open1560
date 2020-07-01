@@ -88,7 +88,7 @@ public:
     ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
 
     // 0x41B820 | ?UpdateDebugKeyInput@mmMultiCircuit@@UAEXH@Z
-    ARTS_IMPORT void UpdateDebugKeyInput(i32 arg1) override;
+    ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x41B270 | ?UpdateGame@mmMultiCircuit@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;

@@ -19,3 +19,63 @@
 define_dummy_symbol(agi_pipeline);
 
 #include "pipeline.h"
+
+i32 agiPipeline::Validate()
+{
+    return 0;
+}
+
+void agiPipeline::BeginFrame()
+{
+    STATS = {};
+}
+
+void agiPipeline::EndScene()
+{}
+
+void agiPipeline::EndFrame()
+{}
+
+class agiMtlDef* agiPipeline::CreateMtlDef()
+{
+    return nullptr;
+}
+
+class agiLight* agiPipeline::CreateLight()
+{
+    return nullptr;
+}
+
+class agiLightModel* agiPipeline::CreateLightModel()
+{
+    return nullptr;
+}
+
+class agiBitmap* agiPipeline::CreateBitmap()
+{
+    return nullptr;
+}
+
+void agiPipeline::CopyBitmap(
+    i32 /*dst_x*/, i32 /*dst_y*/, agiBitmap* /*src*/, i32 /*src_x*/, i32 /*src_y*/, i32 /*width*/, i32 /*height*/)
+{}
+
+void agiPipeline::ClearRect(i32 /*x*/, i32 /*y*/, i32 /*width*/, i32 /*height*/, u32 /*color*/)
+{}
+
+void agiPipeline::Defragment()
+{}
+
+i32 agiPipeline::LockFrameBuffer(class agiSurfaceDesc& /*arg1*/)
+{
+    return 0;
+}
+
+void agiPipeline::UnlockFrameBuffer()
+{}
+
+void agiPipeline::DumpStatus(struct agiMemStatus& /*arg1*/)
+{}
+
+void DestroyPipelineAttachableWindow()
+{}

@@ -19,3 +19,11 @@
 define_dummy_symbol(mmdjpeg_jmemnobs);
 
 #include "jmemnobs.h"
+
+i32 jpeg_mem_init(struct jpeg_common_struct* /*arg1*/)
+{
+    return 0;
+}
+
+void jpeg_mem_term(struct jpeg_common_struct* /*arg1*/)
+{}

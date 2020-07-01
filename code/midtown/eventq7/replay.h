@@ -49,20 +49,20 @@ public:
     ARTS_IMPORT ~eqReplayChannel();
 
     // 0x564680 | ?InitRecord@eqReplayChannel@@UAEXXZ
-    ARTS_IMPORT virtual void InitRecord();
+    ARTS_EXPORT virtual void InitRecord();
 
     // 0x564690 | ?InitPlayback@eqReplayChannel@@UAEXXZ
-    ARTS_IMPORT virtual void InitPlayback();
+    ARTS_EXPORT virtual void InitPlayback();
 
     virtual void DoRecord(class Stream* arg1) = 0;
 
     virtual void DoPlayback(class Stream* arg1) = 0;
 
     // 0x5646A0 | ?ShutdownRecord@eqReplayChannel@@UAEXXZ
-    ARTS_IMPORT virtual void ShutdownRecord();
+    ARTS_EXPORT virtual void ShutdownRecord();
 
     // 0x5646B0 | ?ShutdownPlayback@eqReplayChannel@@UAEXXZ
-    ARTS_IMPORT virtual void ShutdownPlayback();
+    ARTS_EXPORT virtual void ShutdownPlayback();
 
 protected:
     // 0x564620 | ??0eqReplayChannel@@IAE@K@Z

@@ -70,7 +70,7 @@ public:
     ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x412EE0 | ?GetWaypoints@mmGameEdit@@UAEPAVmmWaypoints@@XZ | inline
-    ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
+    ARTS_EXPORT class mmWaypoints* GetWaypoints() override;
 
     // 0x4122D0 | ?Init@mmGameEdit@@QAEHXZ
     ARTS_IMPORT i32 Init();
@@ -85,10 +85,10 @@ public:
     ARTS_IMPORT void InitMyPlayer() override;
 
     // 0x412EC0 | ?InitOtherPlayers@mmGameEdit@@UAEXXZ | inline
-    ARTS_IMPORT void InitOtherPlayers() override;
+    ARTS_EXPORT void InitOtherPlayers() override;
 
     // 0x412ED0 | ?NextRace@mmGameEdit@@UAEXXZ | inline
-    ARTS_IMPORT void NextRace() override;
+    ARTS_EXPORT void NextRace() override;
 
     // 0x412520 | ?RegisterMapObjects@mmGameEdit@@QAEXXZ
     ARTS_IMPORT void RegisterMapObjects();
@@ -109,7 +109,7 @@ public:
     ARTS_IMPORT void UpdateGame() override;
 
     // 0x412810 | ?UpdateGameInput@mmGameEdit@@UAEXH@Z
-    ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
+    ARTS_EXPORT void UpdateGameInput(i32 arg1) override;
 
     // 0x412B80 | ?DeclareFields@mmGameEdit@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

@@ -71,7 +71,7 @@ public:
     ARTS_IMPORT void Update() override;
 
     // 0x4F6550 | ?UpdateInput@PovCamCS@@UAEXXZ
-    ARTS_IMPORT void UpdateInput() override;
+    ARTS_EXPORT void UpdateInput() override;
 
     // 0x4F6800 | ?DeclareFields@PovCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

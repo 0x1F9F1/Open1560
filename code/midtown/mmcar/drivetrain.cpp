@@ -19,3 +19,6 @@
 define_dummy_symbol(mmcar_drivetrain);
 
 #include "drivetrain.h"
+
+void mmDrivetrain::Reset()
+{}

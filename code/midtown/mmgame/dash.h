@@ -84,13 +84,13 @@ public:
     ARTS_IMPORT void ResChange(i32 arg1, i32 arg2) override;
 
     // 0x422300 | ?Reset@mmExternalView@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // 0x422310 | ?Update@mmExternalView@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     // 0x422330 | ?WideFOV@mmExternalView@@QAEXH@Z
-    ARTS_IMPORT void WideFOV(i32 arg1);
+    ARTS_EXPORT void WideFOV(i32 arg1);
 
     u8 gap20[0xEC];
 };

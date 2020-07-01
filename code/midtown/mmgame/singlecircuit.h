@@ -102,13 +102,13 @@ public:
     ARTS_IMPORT void Update() override;
 
     // 0x416C70 | ?UpdateDebugKeyInput@mmSingleCircuit@@UAEXH@Z | inline
-    ARTS_IMPORT void UpdateDebugKeyInput(i32 arg1) override;
+    ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x415850 | ?UpdateGame@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;
 
     // 0x4154B0 | ?UpdateGameInput@mmSingleCircuit@@UAEXH@Z
-    ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
+    ARTS_EXPORT void UpdateGameInput(i32 arg1) override;
 
     // 0x4154C0 | ?UpdateScore@mmSingleCircuit@@QAEXXZ
     ARTS_IMPORT void UpdateScore();

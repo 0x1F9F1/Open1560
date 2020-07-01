@@ -19,3 +19,11 @@
 define_dummy_symbol(agid3d_d3drsys);
 
 #include "d3drsys.h"
+
+i32 agiD3DRasterizer::BeginGfx()
+{
+    return 0;
+}
+
+void agiD3DRasterizer::EndGfx()
+{}

@@ -229,7 +229,7 @@ public:
     ARTS_IMPORT ~aiPedestrianInstance() override = default;
 
     // 0x44DA30 | ?AddWidgets@aiPedestrianInstance@@UAEXPAVBank@@@Z | inline
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x44D820 | ?ComputeLod@aiPedestrianInstance@@UAEHMM@Z | inline
     ARTS_IMPORT i32 ComputeLod(f32 arg1, f32 arg2) override;

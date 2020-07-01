@@ -63,7 +63,7 @@ public:
     ARTS_IMPORT ~agiD3DRasterizer() override = default;
 
     // 0x52E570 | ?BeginGfx@agiD3DRasterizer@@UAEHXZ
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // 0x52E5A0 | ?BeginGroup@agiD3DRasterizer@@UAEXXZ
     ARTS_IMPORT void BeginGroup() override;
@@ -72,7 +72,7 @@ public:
     ARTS_IMPORT void Card(i32 arg1, i32 arg2) override;
 
     // 0x52E580 | ?EndGfx@agiD3DRasterizer@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     // 0x52E5B0 | ?EndGroup@agiD3DRasterizer@@UAEXXZ
     ARTS_IMPORT void EndGroup() override;

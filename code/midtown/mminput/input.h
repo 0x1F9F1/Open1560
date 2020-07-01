@@ -215,7 +215,7 @@ public:
     ARTS_IMPORT void ForceAssignment(class mmIO* arg1);
 
     // 0x4E39B0 | ?GamepadConnected@mmInput@@QAEHXZ
-    ARTS_IMPORT i32 GamepadConnected();
+    ARTS_EXPORT i32 GamepadConnected();
 
     // 0x4E33A0 | ?GetBrakes@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetBrakes();
@@ -251,7 +251,7 @@ public:
     ARTS_IMPORT i32 IsAlreadyAssigned(class mmIO* arg1, i32 arg2, i32 arg3, i32 arg4);
 
     // 0x4E39A0 | ?JoystickConnected@mmInput@@QAEHXZ
-    ARTS_IMPORT i32 JoystickConnected();
+    ARTS_EXPORT i32 JoystickConnected();
 
     // 0x4E3A00 | ?JoystickHasCoolie@mmInput@@QAEHXZ
     ARTS_IMPORT i32 JoystickHasCoolie();
@@ -317,7 +317,7 @@ public:
     ARTS_IMPORT void Update() override;
 
     // 0x4E39C0 | ?WheelConnected@mmInput@@QAEHXZ
-    ARTS_IMPORT i32 WheelConnected();
+    ARTS_EXPORT i32 WheelConnected();
 
     // 0x4E3A20 | ?WheelHas3Axis@mmInput@@QAEHXZ | unused
     ARTS_IMPORT i32 WheelHas3Axis();

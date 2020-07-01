@@ -247,7 +247,7 @@ public:
     ARTS_IMPORT class MixerCTL* GetMixerPtr();
 
     // 0x4E9EC0 | ?GetNum3DHalBufs@AudManager@@QAEKXZ
-    ARTS_IMPORT u32 GetNum3DHalBufs();
+    ARTS_EXPORT u32 GetNum3DHalBufs();
 
     // 0x4E9360 | ?GetNumCDTracks@AudManager@@QAEFXZ
     ARTS_IMPORT i16 GetNumCDTracks();
@@ -307,7 +307,7 @@ public:
     ARTS_IMPORT void RemoveStream(class AudStream* arg1, i32 arg2);
 
     // 0x4E8FD0 | ?Reset@AudManager@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // 0x4E9340 | ?ResumeCDPlay@AudManager@@QAEHXZ | unused
     ARTS_IMPORT i32 ResumeCDPlay();
@@ -364,7 +364,7 @@ public:
     ARTS_IMPORT void UpdatePaused() override;
 
     // 0x4E9220 | ?ZeroVolAllSounds@AudManager@@QAEXXZ | unused
-    ARTS_IMPORT void ZeroVolAllSounds();
+    ARTS_EXPORT void ZeroVolAllSounds();
 
     // 0x4EA070 | ?DeclareFields@AudManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

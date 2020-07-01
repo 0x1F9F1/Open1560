@@ -19,3 +19,9 @@
 define_dummy_symbol(mmgame_wphud);
 
 #include "wphud.h"
+
+void mmWPHUD::AddWidgets(class Bank* /*arg1*/)
+{}
+
+void mmWPHUD::Cull()
+{}

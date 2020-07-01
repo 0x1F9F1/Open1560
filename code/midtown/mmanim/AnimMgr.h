@@ -60,7 +60,7 @@ public:
     ARTS_IMPORT i32 Init(char* arg1, class mmInstance* arg2, class mmInstance** arg3, i32 arg4);
 
     // 0x4C13B0 | ?TestDOFAct@mmAnimMgr@@QAEXH@Z
-    ARTS_IMPORT void TestDOFAct(i32 arg1);
+    ARTS_EXPORT void TestDOFAct(i32 arg1);
 
     // 0x4C1400 | ?UFOSwap@mmAnimMgr@@QAEXXZ
     ARTS_IMPORT void UFOSwap();

@@ -19,3 +19,8 @@
 define_dummy_symbol(mmanim_AnimSpline);
 
 #include "AnimSpline.h"
+
+i32 mmAnimSpline::InitBoat()
+{
+    return 0;
+}

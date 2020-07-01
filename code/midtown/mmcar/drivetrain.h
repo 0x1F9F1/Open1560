@@ -69,7 +69,7 @@ public:
     ARTS_IMPORT void Init(class mmCarSim* arg1);
 
     // 0x480650 | ?Reset@mmDrivetrain@@UAEXXZ | inline
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // 0x47FF30 | ?Update@mmDrivetrain@@UAEXXZ
     ARTS_IMPORT void Update() override;

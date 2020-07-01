@@ -58,7 +58,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // 0x4B6090 | ?DisableBlt@mmCompDRecord@@UAEXXZ | inline
-    ARTS_IMPORT void DisableBlt() override;
+    ARTS_EXPORT void DisableBlt() override;
 
     // 0x4B5B70 | ?Init@mmCompDRecord@@QAEXHPADM0HHH@Z
     ARTS_IMPORT void Init(i32 arg1, char* arg2, f32 arg3, char* arg4, i32 arg5, i32 arg6, i32 arg7);

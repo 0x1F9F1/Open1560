@@ -113,10 +113,10 @@ public:
     ARTS_IMPORT i32 AddMenu2(class UIMenu* arg1);
 
     // 0x4AFB50 | ?AddPointer@MenuManager@@QAEXXZ
-    ARTS_IMPORT void AddPointer();
+    ARTS_EXPORT void AddPointer();
 
     // 0x4B1400 | ?AddWidgets@MenuManager@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4B0A50 | ?AdjustPopupCard@MenuManager@@QAEXPAVUIMenu@@@Z
     ARTS_IMPORT void AdjustPopupCard(class UIMenu* arg1);

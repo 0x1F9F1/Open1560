@@ -116,7 +116,7 @@ public:
     ARTS_IMPORT void DoConstrain();
 
     // 0x4DB180 | ?FileIO@asInertialCS@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_IMPORT void FileIO(class MiniParser* arg1);
+    ARTS_EXPORT void FileIO(class MiniParser* arg1);
 
     // 0x4D9740 | ?FinishForces@asInertialCS@@QAEXXZ
     ARTS_IMPORT void FinishForces();

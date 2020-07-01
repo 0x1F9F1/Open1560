@@ -19,3 +19,9 @@
 define_dummy_symbol(mmcamcs_trackcamcs);
 
 #include "trackcamcs.h"
+
+void TrackCamCS::UpdateInput()
+{}
+
+void TrackCamCS::UpdateHill()
+{}

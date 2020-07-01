@@ -19,3 +19,6 @@
 define_dummy_symbol(mmai_aiVehicleMGR);
 
 #include "aiVehicleMGR.h"
+
+void aiVehicleInstance::AddWidgets(class Bank* /*arg1*/)
+{}

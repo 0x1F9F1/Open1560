@@ -117,7 +117,7 @@ public:
     ARTS_IMPORT u32 Init();
 
     // 0x4EE290 | ?RefreshAll@MixerCTL@@QAEXK@Z | unused
-    ARTS_IMPORT void RefreshAll(u32 arg1);
+    ARTS_EXPORT void RefreshAll(u32 arg1);
 
     // 0x4EEAB0 | ?SetDeviceNum@MixerCTL@@QAEXI@Z
     ARTS_IMPORT void SetDeviceNum(u32 arg1);
@@ -127,7 +127,7 @@ private:
     ARTS_IMPORT char* GetErrorMessage(u32 arg1);
 
     // 0x4EEB70 | ?WindowProc@MixerCTL@@EAEJPAUHWND__@@IIJ@Z
-    ARTS_IMPORT i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
+    ARTS_EXPORT i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
 };
 
 check_size(MixerCTL, 0x38);

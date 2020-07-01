@@ -93,34 +93,7 @@
 
 #include "arts7/node.h"
 #include "mmcity/inst.h"
-
-class mmPhysEntity : public asNode
-{
-    // const mmPhysEntity::`vftable' @ 0x61B8A0
-
-public:
-    // 0x453B40 | ??_GmmPhysEntity@@UAEPAXI@Z
-    // 0x453B40 | ??_EmmPhysEntity@@UAEPAXI@Z
-    // 0x42D510 | ??1mmPhysEntity@@UAE@XZ | inline
-    ARTS_IMPORT ~mmPhysEntity() override = default;
-
-    // 0x453B00 | ?PostUpdate@mmPhysEntity@@UAEXXZ | inline
-    ARTS_IMPORT virtual void PostUpdate();
-
-    // 0x453B10 | ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ | inline
-    ARTS_IMPORT virtual class asBound* GetBound();
-
-    // 0x453B20 | ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ | inline
-    ARTS_IMPORT virtual class asInertialCS* GetICS();
-
-    // 0x453B30 | ?DetachMe@mmPhysEntity@@UAEXXZ | inline
-    ARTS_IMPORT virtual void DetachMe();
-
-    // 0x453AF0 | ?Update@mmPhysEntity@@UAEXXZ | inline
-    ARTS_IMPORT void Update() override;
-};
-
-check_size(mmPhysEntity, 0x20);
+#include "mmphysics/entity.h"
 
 // 0x451450 | ?AMBIENTCB@@YAXPAVaiVehicleActive@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M@Z
 ARTS_IMPORT void AMBIENTCB(
@@ -149,7 +122,7 @@ public:
     ARTS_IMPORT ~aiVehicleInstance() override = default;
 
     // 0x45C510 | ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z | inline
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x451F70 | ?AttachEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
     ARTS_IMPORT class mmPhysEntity* AttachEntity() override;

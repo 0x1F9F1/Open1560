@@ -48,7 +48,7 @@ public:
     ARTS_IMPORT void DumpMenu(class Stream* arg1, class UIMenu* arg2);
 
     // 0x4AC320 | ?Flush@WArray@@QAEXXZ | unused
-    ARTS_IMPORT void Flush();
+    ARTS_EXPORT void Flush();
 
     // 0x4ABE60 | ?Init@WArray@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);

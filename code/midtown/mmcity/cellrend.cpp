@@ -19,3 +19,6 @@
 define_dummy_symbol(mmcity_cellrend);
 
 #include "cellrend.h"
+
+void mmCellRenderer::Relight()
+{}

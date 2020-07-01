@@ -19,3 +19,6 @@
 define_dummy_symbol(mmcamcs_povcamcs);
 
 #include "povcamcs.h"
+
+void PovCamCS::UpdateInput()
+{}

@@ -19,3 +19,6 @@
 define_dummy_symbol(agi_bitmap);
 
 #include "bitmap.h"
+
+void agiBitmap::UpdateFlags()
+{}

@@ -19,3 +19,14 @@
 define_dummy_symbol(agi_texdef);
 
 #include "texdef.h"
+
+i32 agiTexDef::Lock(struct agiTexLock& /*arg1*/)
+{
+    return 0;
+}
+
+void agiTexDef::Unlock(struct agiTexLock& /*arg1*/)
+{}
+
+void agiTexDef::Request()
+{}

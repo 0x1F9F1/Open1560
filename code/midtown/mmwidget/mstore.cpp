@@ -19,3 +19,6 @@
 define_dummy_symbol(mmwidget_mstore);
 
 #include "mstore.h"
+
+void MArray::Flush()
+{}

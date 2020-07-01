@@ -37,7 +37,7 @@ public:
     ARTS_IMPORT void Current(class asBenchStats* arg1);
 
     // 0x52CEA0 | ?Print@asBenchStats@@QAEXXZ
-    ARTS_IMPORT void Print();
+    ARTS_EXPORT void Print();
 
     // 0x52CE60 | ?Reset@asBenchStats@@QAEXXZ
     ARTS_IMPORT void Reset();

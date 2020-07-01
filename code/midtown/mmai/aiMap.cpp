@@ -19,3 +19,6 @@
 define_dummy_symbol(mmai_aiMap);
 
 #include "aiMap.h"
+
+void aiMap::UpdatePaused()
+{}

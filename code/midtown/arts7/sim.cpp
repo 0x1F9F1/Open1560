@@ -20,6 +20,9 @@ define_dummy_symbol(arts7_sim);
 
 #include "sim.h"
 
+void InitBank(i32 /*arg1*/, char** /*arg2*/)
+{}
+
 // 0x523510 | ?IsValidPointer@@YAHPAXIH@Z
 ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
 

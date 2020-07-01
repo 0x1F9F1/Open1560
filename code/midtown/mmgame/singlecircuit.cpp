@@ -19,3 +19,9 @@
 define_dummy_symbol(mmgame_singlecircuit);
 
 #include "singlecircuit.h"
+
+void mmSingleCircuit::UpdateDebugKeyInput(i32 /*arg1*/)
+{}
+
+void mmSingleCircuit::UpdateGameInput(i32 /*arg1*/)
+{}

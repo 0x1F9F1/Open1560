@@ -20,5 +20,11 @@ define_dummy_symbol(mmwidget_manager);
 
 #include "manager.h"
 
+void MenuManager::AddPointer()
+{}
+
+void MenuManager::AddWidgets(class Bank* /*arg1*/)
+{}
+
 // 0x4B1B30 | ?HelpWatcher@@YGKPAX@Z
 ARTS_IMPORT /*static*/ u32 ARTS_STDCALL HelpWatcher(void* arg1);

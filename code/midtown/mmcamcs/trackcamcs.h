@@ -83,7 +83,7 @@ public:
     ARTS_IMPORT void Update() override;
 
     // 0x4F7350 | ?UpdateInput@TrackCamCS@@UAEXXZ
-    ARTS_IMPORT void UpdateInput() override;
+    ARTS_EXPORT void UpdateInput() override;
 
     // 0x4F8BE0 | ?DeclareFields@TrackCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -108,7 +108,7 @@ private:
     ARTS_IMPORT void UpdateCar();
 
     // 0x4F7500 | ?UpdateHill@TrackCamCS@@AAEXXZ
-    ARTS_IMPORT void UpdateHill();
+    ARTS_EXPORT void UpdateHill();
 
     // 0x4F7E50 | ?UpdateSwing@TrackCamCS@@AAEXXZ
     ARTS_IMPORT void UpdateSwing();

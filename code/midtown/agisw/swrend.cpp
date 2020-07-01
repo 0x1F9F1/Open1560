@@ -20,6 +20,9 @@ define_dummy_symbol(agisw_swrend);
 
 #include "swrend.h"
 
+void ARTS_FASTCALL __setupNone(struct swSurface* /*arg1*/)
+{}
+
 // 0x5367C0 | ?__emitSemiBlack@@YIXH@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL __emitSemiBlack(i32 arg1);
 

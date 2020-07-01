@@ -118,7 +118,7 @@ public:
     ARTS_IMPORT void PreSetup() override;
 
     // 0x49B9F0 | ?Reset@VehicleSelectBase@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // 0x49BBF0 | ?SetLastUnlockedVehicle@VehicleSelectBase@@QAEXXZ
     ARTS_IMPORT void SetLastUnlockedVehicle();

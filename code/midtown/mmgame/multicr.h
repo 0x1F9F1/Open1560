@@ -105,7 +105,7 @@ public:
     ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x41F920 | ?GetWaypoints@mmMultiCR@@UAEPAVmmWaypoints@@XZ | inline
-    ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
+    ARTS_EXPORT class mmWaypoints* GetWaypoints() override;
 
     // 0x41D760 | ?HitWaterHandler@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void HitWaterHandler() override;
@@ -144,7 +144,7 @@ public:
     ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
 
     // 0x41F560 | ?UpdateDebugKeyInput@mmMultiCR@@UAEXH@Z
-    ARTS_IMPORT void UpdateDebugKeyInput(i32 arg1) override;
+    ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x41D380 | ?UpdateGame@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;
@@ -181,7 +181,7 @@ private:
     ARTS_IMPORT void Score(i32 arg1);
 
     // 0x41D330 | ?SelectTeams@mmMultiCR@@AAEHXZ | unused
-    ARTS_IMPORT i32 SelectTeams();
+    ARTS_EXPORT i32 SelectTeams();
 
     // 0x41F350 | ?SendChangeSet@mmMultiCR@@AAEXH@Z | unused
     ARTS_IMPORT void SendChangeSet(i32 arg1);
@@ -202,7 +202,7 @@ private:
     ARTS_IMPORT void SendLimitReached(i32 arg1);
 
     // 0x41F260 | ?SendSetup@mmMultiCR@@AAEXK@Z | unused
-    ARTS_IMPORT void SendSetup(u32 arg1);
+    ARTS_EXPORT void SendSetup(u32 arg1);
 
     // 0x41F3D0 | ?SendTimeWarning@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void SendTimeWarning(i32 arg1);

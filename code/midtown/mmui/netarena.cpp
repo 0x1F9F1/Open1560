@@ -19,3 +19,6 @@
 define_dummy_symbol(mmui_netarena);
 
 #include "netarena.h"
+
+void NetArena::PreSetup()
+{}

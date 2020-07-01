@@ -19,3 +19,6 @@
 define_dummy_symbol(mmwidget_tscroll);
 
 #include "tscroll.h"
+
+void UITextScroll::InitVScroll(f32 /*arg1*/, f32 /*arg2*/, f32 /*arg3*/)
+{}

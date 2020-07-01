@@ -19,3 +19,6 @@
 define_dummy_symbol(agi_dlp);
 
 #include "dlp.h"
+
+void DLP::EndGfx()
+{}

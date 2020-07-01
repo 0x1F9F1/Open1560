@@ -127,7 +127,7 @@ public:
     ARTS_IMPORT void SetPan(f32 arg1, i32 arg2);
 
     // 0x4F3B50 | ?SetPlayPosition@AudStream@@QAEXK@Z | unused
-    ARTS_IMPORT void SetPlayPosition(u32 arg1);
+    ARTS_EXPORT void SetPlayPosition(u32 arg1);
 
     // 0x4F37E0 | ?SetPriority@AudStream@@QAEXH@Z
     ARTS_IMPORT void SetPriority(i32 arg1);

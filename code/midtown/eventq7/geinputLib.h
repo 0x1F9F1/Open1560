@@ -40,7 +40,7 @@ ARTS_IMPORT void geinputAcquireMouse();
 ARTS_IMPORT void geinputCleanup();
 
 // 0x564610 | ?geinputClearCache@@YAXXZ | unused
-ARTS_IMPORT void geinputClearCache();
+ARTS_EXPORT void geinputClearCache();
 
 // 0x564220 | ?geinputGetBufferedKeyboard@@YAHPAD@Z
 ARTS_IMPORT i32 geinputGetBufferedKeyboard(char* arg1);

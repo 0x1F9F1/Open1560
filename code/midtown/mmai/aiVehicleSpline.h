@@ -74,25 +74,25 @@ public:
     ARTS_IMPORT ~aiVehicleSpline();
 
     // 0x45BD00 | ?Impact@aiVehicleSpline@@UAEXH@Z
-    ARTS_IMPORT virtual void Impact(i32 arg1);
+    ARTS_EXPORT virtual void Impact(i32 arg1);
 
     // 0x4465E0 | ?GetImpactAudioPtr@aiVehicleSpline@@UAEPAVmmOpponentImpactAudio@@XZ | inline
-    ARTS_IMPORT virtual class mmOpponentImpactAudio* GetImpactAudioPtr();
+    ARTS_EXPORT virtual class mmOpponentImpactAudio* GetImpactAudioPtr();
 
     // 0x4465F0 | ?PlayHorn@aiVehicleSpline@@UAEXMM@Z | inline
-    ARTS_IMPORT virtual void PlayHorn(f32 arg1, f32 arg2);
+    ARTS_EXPORT virtual void PlayHorn(f32 arg1, f32 arg2);
 
     // 0x446600 | ?ImpactAudioReaction@aiVehicleSpline@@UAEXM@Z | inline
-    ARTS_IMPORT virtual void ImpactAudioReaction(f32 arg1);
+    ARTS_EXPORT virtual void ImpactAudioReaction(f32 arg1);
 
     // 0x446610 | ?StopVoice@aiVehicleSpline@@UAEXXZ | inline
-    ARTS_IMPORT virtual void StopVoice();
+    ARTS_EXPORT virtual void StopVoice();
 
     // 0x45C3E0 | ?GetClass@aiVehicleSpline@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT virtual class MetaClass* GetClass();
 
     // 0x45C1F0 | ?AddWidgets@aiVehicleSpline@@QAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1);
+    ARTS_EXPORT void AddWidgets(class Bank* arg1);
 
     // 0x45BC50 | ?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ | unused
     ARTS_IMPORT void AvoidPlayerCollision();

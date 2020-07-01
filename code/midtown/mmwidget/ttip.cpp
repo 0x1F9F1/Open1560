@@ -19,3 +19,9 @@
 define_dummy_symbol(mmwidget_ttip);
 
 #include "ttip.h"
+
+void mmToolTip::Switch(i32 /*arg1*/)
+{}
+
+void mmToolTip::Update()
+{}

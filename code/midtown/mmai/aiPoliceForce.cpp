@@ -19,3 +19,6 @@
 define_dummy_symbol(mmai_aiPoliceForce);
 
 #include "aiPoliceForce.h"
+
+void aiPoliceForce::Update()
+{}

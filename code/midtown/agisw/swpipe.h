@@ -114,7 +114,7 @@ public:
     ARTS_IMPORT class agiLightModel* CreateLightModel() override;
 
     // 0x534440 | ?CreateMtlDef@agiSWPipeline@@UAEPAVagiMtlDef@@XZ
-    ARTS_IMPORT class agiMtlDef* CreateMtlDef() override;
+    ARTS_EXPORT class agiMtlDef* CreateMtlDef() override;
 
     // 0x534380 | ?CreateTexDef@agiSWPipeline@@UAEPAVagiTexDef@@XZ
     ARTS_IMPORT class agiTexDef* CreateTexDef() override;
@@ -135,7 +135,7 @@ public:
     ARTS_IMPORT void EndScene() override;
 
     // 0x533DC0 | ?Validate@agiSWPipeline@@UAEHXZ
-    ARTS_IMPORT i32 Validate() override;
+    ARTS_EXPORT i32 Validate() override;
 };
 
 check_size(agiSWPipeline, 0x2F0);
@@ -157,13 +157,13 @@ public:
     ARTS_IMPORT void Activate() override;
 
     // 0x534BC0 | ?BeginGfx@agiSWViewport@@UAEHXZ | inline
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // 0x5349B0 | ?Clear@agiSWViewport@@UAEXH@Z | inline
     ARTS_IMPORT void Clear(i32 arg1) override;
 
     // 0x534BD0 | ?EndGfx@agiSWViewport@@UAEXXZ | inline
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     // 0x534950 | ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z | inline
     ARTS_IMPORT void SetBackground(class Vector3& arg1) override;

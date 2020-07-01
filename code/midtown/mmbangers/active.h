@@ -48,7 +48,7 @@
 */
 
 #include "arts7/node.h"
-#include "mmai/aiVehicleMGR.h"
+#include "mmphysics/entity.h"
 
 class mmBangerActive : public mmPhysEntity
 {

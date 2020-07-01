@@ -77,7 +77,7 @@ public:
     ARTS_IMPORT void Set(class Vector2& arg1, class Vector2& arg2) override;
 
     // 0x5378C0 | ?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z
-    ARTS_IMPORT void Unlock(struct agiTexLock& arg1) override;
+    ARTS_EXPORT void Unlock(struct agiTexLock& arg1) override;
 
     u8 gap74[0x28];
 };
@@ -101,7 +101,7 @@ public:
     ARTS_IMPORT i32 BeginGfx() override;
 
     // 0x537B30 | ?EndGfx@agiSWTexLut@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     u8 gap420[0x1000];
 };

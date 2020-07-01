@@ -19,3 +19,11 @@
 define_dummy_symbol(mmwidget_menu);
 
 #include "menu.h"
+
+void UIMenu::PostSetup()
+{}
+
+i32 UIMenu::IsAnOptionMenu()
+{
+    return 0;
+}

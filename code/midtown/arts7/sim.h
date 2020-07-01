@@ -163,7 +163,7 @@ public:
 check_size(asSimulation, 0x2B0);
 
 // 0x522FC0 | ?InitBank@@YAXHPAPAD@Z | unused
-ARTS_IMPORT void InitBank(i32 arg1, char** arg2);
+ARTS_EXPORT void InitBank(i32 arg1, char** arg2);
 
 // 0x523210 | ?InitPipeline@@YAHPADHPAPAD@Z
 ARTS_IMPORT i32 InitPipeline(char* arg1, i32 arg2, char** arg3);

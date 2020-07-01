@@ -66,7 +66,7 @@ public:
     ARTS_IMPORT i32 Init(char* arg1, i32 arg2);
 
     // 0x4C3A90 | ?InitBoat@mmAnimSpline@@QAEHXZ
-    ARTS_IMPORT i32 InitBoat();
+    ARTS_EXPORT i32 InitBoat();
 
     // 0x4C3AA0 | ?InitPlane@mmAnimSpline@@QAEHXZ
     ARTS_IMPORT i32 InitPlane();

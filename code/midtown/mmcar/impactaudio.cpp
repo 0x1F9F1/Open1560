@@ -19,3 +19,6 @@
 define_dummy_symbol(mmcar_impactaudio);
 
 #include "impactaudio.h"
+
+void mmImpactAudio::PlayCar(f32 /*arg1*/)
+{}

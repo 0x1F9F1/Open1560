@@ -96,7 +96,7 @@ public:
     ARTS_IMPORT void PostPlayerInfo(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3);
 
     // 0x4A1E40 | ?PreSetup@NetArena@@UAEXXZ
-    ARTS_IMPORT void PreSetup() override;
+    ARTS_EXPORT void PreSetup() override;
 
     // 0x4A23F0 | ?RemoveRosterEntry@NetArena@@QAEXH@Z
     ARTS_IMPORT void RemoveRosterEntry(i32 arg1);

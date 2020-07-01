@@ -64,7 +64,7 @@ public:
     ARTS_IMPORT i16 FindUnusedSlot();
 
     // 0x4472A0 | ?RandomizeSeconds@aiPedAudioManager@@QAEXMM@Z | unused
-    ARTS_IMPORT void RandomizeSeconds(f32 arg1, f32 arg2);
+    ARTS_EXPORT void RandomizeSeconds(f32 arg1, f32 arg2);
 
     // 0x4470E0 | ?Remove@aiPedAudioManager@@QAEXPAVaiPedestrian@@F@Z
     ARTS_IMPORT void Remove(class aiPedestrian* arg1, i16 arg2);

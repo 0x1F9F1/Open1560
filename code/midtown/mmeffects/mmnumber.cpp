@@ -19,3 +19,6 @@
 define_dummy_symbol(mmeffects_mmnumber);
 
 #include "mmnumber.h"
+
+void mmNumber::AddWidgets(class Bank* /*arg1*/)
+{}

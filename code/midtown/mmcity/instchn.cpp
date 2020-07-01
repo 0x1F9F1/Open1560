@@ -19,3 +19,6 @@
 define_dummy_symbol(mmcity_instchn);
 
 #include "instchn.h"
+
+void mmInstChain::AddWidgets(class Bank* /*arg1*/)
+{}

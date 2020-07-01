@@ -19,3 +19,6 @@
 define_dummy_symbol(arts7_benchstats);
 
 #include "benchstats.h"
+
+void asBenchStats::Print()
+{}

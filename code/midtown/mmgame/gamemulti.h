@@ -125,7 +125,7 @@ public:
     ARTS_IMPORT void InitOtherPlayers() override;
 
     // 0x41A890 | ?NextRace@mmGameMulti@@UAEXXZ | inline
-    ARTS_IMPORT void NextRace() override;
+    ARTS_EXPORT void NextRace() override;
 
     // 0x432160 | ?ParseChatMessage@mmGameMulti@@QAEHPADH@Z
     ARTS_IMPORT i32 ParseChatMessage(char* arg1, i32 arg2);
@@ -158,7 +158,7 @@ public:
     ARTS_IMPORT void Update() override;
 
     // 0x431ED0 | ?UpdateDebugKeyInput@mmGameMulti@@UAEXH@Z
-    ARTS_IMPORT void UpdateDebugKeyInput(i32 arg1) override;
+    ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
     // 0x431A10 | ?UpdateGame@mmGameMulti@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;

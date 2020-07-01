@@ -19,3 +19,14 @@
 define_dummy_symbol(agid3d_ddpipe);
 
 #include "ddpipe.h"
+
+void agiDDPipeline::EndFrame()
+{}
+
+void agiDDPipeline::EndScene()
+{}
+
+i32 agiDDPipeline::Validate()
+{
+    return 0;
+}

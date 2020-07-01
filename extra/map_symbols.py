@@ -845,6 +845,50 @@ def collect_default_dtor(view, symbols, class_hier):
 
     return default_dtors
 
+def collect_empty_functions(view, symbols):
+    empty_functions = set()
+
+    for symbol in symbols.values():
+        if symbol.member_type is not None:
+            continue
+
+        if symbol.type.type_class != TypeClass.FunctionTypeClass:
+            continue
+
+        func = view.get_function_at(symbol.address)
+
+        if func is None:
+            print('Invalid func {} @ 0x{:X}'.format(symbol.undec_name, symbol.address))
+            continue
+
+        hlil = func.hlil
+
+        if len(hlil) != 1:
+            continue
+
+        insn = hlil[0]
+
+        if insn.operation != HighLevelILOperation.HLIL_RET:
+            continue
+
+        src = insn.src
+
+        if len(src) > 1:
+            continue
+
+        if len(src) == 1:
+            src = src[0]
+
+            if src.operation not in [HighLevelILOperation.HLIL_CONST, HighLevelILOperation.HLIL_CALL_SSA]:
+                continue
+
+            if src.constant != 0:
+                continue
+
+        empty_functions.add(symbol.address)
+
+    return empty_functions
+
 def symbol_sort_order(symbol):
     # 1. public
     # 2. protected
@@ -1177,7 +1221,8 @@ path_libs = group_stray_symbols(all_symbols, {
     'agiLib<class agiPhysParameters,class agiPhysDef>': 'agi:physlib',
     'agiLib<class agiTexParameters,class agiTexDef>': 'agi:texlib',
     'PagerInfo_t': 'data7:pager',
-    'aiGoal': 'mmai:aiGoal'
+    'aiGoal': 'mmai:aiGoal',
+    'mmPhysEntity': 'mmphysics:entity',
 })
 
 # print(path_libs)
@@ -1869,7 +1914,11 @@ class_hier = compute_hierarchy(class_hier, {
     'Callback'
 })
 
+print('Collecting Defualt Dtors')
 default_dtors = collect_default_dtor(view, symbols, class_hier)
+
+print('Collecting Empty Funcs')
+empty_functions = collect_empty_functions(view, symbols)
 
 # print(class_hier)
 
@@ -2138,14 +2187,19 @@ for lib, paths in grouped_symbols.items():
                 tokens.append('//')
 
             is_default = (value.member_type == 'dtor') and (value.path in default_dtors)
+            is_empty = (value.address in empty_functions) and (value.is_member or not value.static)
 
             if value.raw_name != '__purecall':
-                tokens.append('ARTS_IMPORT')
+                if is_empty:
+                    tokens.append('ARTS_EXPORT')
+                else:
+                    tokens.append('ARTS_IMPORT')
 
             if value.static:
                 tokens.append('static' if value.is_member else '/*static*/')
 
             cc_name = None
+            body_tokens = None
 
             if value.type.type_class == TypeClass.FunctionTypeClass:
                 cc_name = value.type.calling_convention.name
@@ -2157,6 +2211,48 @@ for lib, paths in grouped_symbols.items():
 
                 if value.member_type == 'dtor':
                     sym_name[-1] = '~' + sym_name[-2]
+
+                if is_empty:
+                    body_tokens = []
+
+                    body_tokens.append(filter_type_tokens(value.type.get_tokens_before_name()))
+
+                    if cc_name is not None:
+                        body_tokens.append(cc_name)
+
+                    full_path = value.path
+
+                    body_tokens.append('::'.join(sym_name))
+
+                    body_tokens.append('(')
+
+                    for i, param in enumerate(value.type.parameters):
+                        if i:
+                            body_tokens.append(', ')
+
+                        body_tokens.append(filter_type_tokens(param.type.get_tokens_before_name()))
+                        body_tokens.append('/*{}*/'.format(param.name))
+                        body_tokens.append(filter_type_tokens(param.type.get_tokens_after_name()))
+
+                    body_tokens.append(')')
+
+                    body_tokens.append('{')
+
+                    return_type_class = value.type.return_value.type_class
+
+                    if return_type_class != TypeClass.VoidTypeClass:
+                        body_tokens.append('return')
+
+                        if return_type_class == TypeClass.IntegerTypeClass:
+                            body_tokens.append('0')
+                        elif return_type_class == TypeClass.PointerTypeClass:
+                            body_tokens.append('nullptr')
+                        else:
+                            assert False, ('Invalid Return Type', value)
+
+                        body_tokens.append(';')
+
+                    body_tokens.append('}')
             else:
                 if not value.is_member:
                     tokens.append('extern')
@@ -2180,21 +2276,21 @@ for lib, paths in grouped_symbols.items():
             elif value.raw_name == '__purecall':
                 tokens.append('= 0')
 
-            tokens = list(filter(None, tokens))
+            # if ('i' not in value.map_attribs) and (value.library != lib):
+            #     print('Moved Symbol', value, lib, value.library)
+            #     lib_outputs[value.library].source += ' '.join(src_tokens)
+            #     lib_outputs[value.library].source += '\n\n'
+            #     lib_outputs[value.library].src_includes.add(lib)
 
-            if tokens:
-                # if ('i' not in value.map_attribs) and (value.library != lib):
-                #     print('Moved Symbol', value, lib, value.library)
-                #     lib_outputs[value.library].source += ' '.join(src_tokens)
-                #     lib_outputs[value.library].source += '\n\n'
-                #     lib_outputs[value.library].src_includes.add(lib)
+            tokens = ' '.join(filter(None, tokens)) + ';\n\n'
 
-                tokens_text = ' '.join(tokens) + ';\n\n'
+            if value.is_member or not value.static:
+                output.header += tokens
 
-                if value.is_member or not value.static:
-                    output.header += tokens_text
-                else:
-                    output.source += tokens_text
+                if body_tokens is not None:
+                    output.source += ' '.join(body_tokens) + '\n\n'
+            else:
+                output.source += tokens
 
         if path:
             if path in class_paddings:

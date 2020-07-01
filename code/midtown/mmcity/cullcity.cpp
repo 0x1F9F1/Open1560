@@ -20,6 +20,12 @@ define_dummy_symbol(mmcity_cullcity);
 
 #include "cullcity.h"
 
+void mmRunwayLight::AddWidgets(class Bank* /*arg1*/)
+{}
+
+void ARTS_FASTCALL mmRunwayLight::FromMatrix(class Matrix34 const& /*arg1*/)
+{}
+
 // 0x48E220 | ?fix_fill1@@YAXXZ
 ARTS_IMPORT /*static*/ void fix_fill1();
 

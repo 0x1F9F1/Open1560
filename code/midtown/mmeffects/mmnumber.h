@@ -55,7 +55,7 @@ public:
     ARTS_IMPORT ~mmNumber() override = default;
 
     // 0x4FECA0 | ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x4FEB90 | ?Cull@mmNumber@@UAEXXZ
     ARTS_IMPORT void Cull() override;

@@ -61,7 +61,7 @@ public:
     ARTS_IMPORT void Init(char* arg1, char* arg2, char* arg3, u32 arg4);
 
     // 0x4B79C0 | ?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z | unused
-    ARTS_IMPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
+    ARTS_EXPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
         struct LocString* arg7, struct LocString* arg8, i32 arg9);
 
     // 0x4B79D0 | ?LoadBitmap@mmCompRoster@@QAEXPAD@Z

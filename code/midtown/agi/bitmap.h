@@ -45,7 +45,7 @@ public:
     ARTS_IMPORT agiBitmap(class agiPipeline* arg1);
 
     // 0x55A630 | ?UpdateFlags@agiBitmap@@UAEXXZ
-    ARTS_IMPORT virtual void UpdateFlags();
+    ARTS_EXPORT virtual void UpdateFlags();
 
     // 0x55A6D0 | ?GetName@agiBitmap@@UAEPADXZ
     ARTS_IMPORT char* GetName() override;

@@ -19,3 +19,6 @@
 define_dummy_symbol(agid3d_ddbitmap);
 
 #include "ddbitmap.h"
+
+void breakme()
+{}

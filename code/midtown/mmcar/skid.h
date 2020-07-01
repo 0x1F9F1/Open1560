@@ -71,16 +71,16 @@ public:
     ARTS_IMPORT void AddSkid(class Matrix34& arg1, class Vector3* arg2, class agiPhysParameters* arg3, f32 arg4);
 
     // 0x478550 | ?AddWidgets@mmSkid@@UAEXPAVBank@@@Z | inline
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x477AA0 | ?Draw@mmSkid@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // 0x477B30 | ?DrawShadow@mmSkid@@UAIXXZ
-    ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
+    ARTS_EXPORT void ARTS_FASTCALL DrawShadow() override;
 
     // 0x477A60 | ?FromMatrix@mmSkid@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
     // 0x478300 | ?GetClass@mmSkid@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
@@ -95,7 +95,7 @@ public:
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
     // 0x477A90 | ?Update@mmSkid@@QAEXXZ | unused
-    ARTS_IMPORT void Update();
+    ARTS_EXPORT void Update();
 
     // 0x478180 | ?DeclareFields@mmSkid@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

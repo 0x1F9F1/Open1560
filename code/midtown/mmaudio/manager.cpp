@@ -19,3 +19,14 @@
 define_dummy_symbol(mmaudio_manager);
 
 #include "manager.h"
+
+u32 AudManager::GetNum3DHalBufs()
+{
+    return 0;
+}
+
+void AudManager::Reset()
+{}
+
+void AudManager::ZeroVolAllSounds()
+{}

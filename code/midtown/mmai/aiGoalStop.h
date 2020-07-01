@@ -54,7 +54,7 @@ public:
     ARTS_IMPORT i32 Priority() override;
 
     // 0x45F760 | ?Reset@aiGoalStop@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // 0x45F770 | ?Update@aiGoalStop@@UAEXXZ
     ARTS_IMPORT void Update() override;

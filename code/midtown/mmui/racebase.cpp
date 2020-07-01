@@ -19,3 +19,6 @@
 define_dummy_symbol(mmui_racebase);
 
 #include "racebase.h"
+
+void RaceMenuBase::UsesLobby(i32 /*arg1*/)
+{}

@@ -19,3 +19,6 @@
 define_dummy_symbol(arts7_dof);
 
 #include "dof.h"
+
+void asDofCS::FileIO(class MiniParser* /*arg1*/)
+{}

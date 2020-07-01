@@ -45,7 +45,7 @@ public:
     ARTS_IMPORT ~Dialog_ControlAssign() override = default;
 
     // 0x4A0340 | ?PreSetup@Dialog_ControlAssign@@UAEXXZ
-    ARTS_IMPORT void PreSetup() override;
+    ARTS_EXPORT void PreSetup() override;
 };
 
 check_size(Dialog_ControlAssign, 0xC0);

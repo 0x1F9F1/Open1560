@@ -19,3 +19,9 @@
 define_dummy_symbol(mmgame_dash);
 
 #include "dash.h"
+
+void mmExternalView::Reset()
+{}
+
+void mmExternalView::WideFOV(i32 /*arg1*/)
+{}

@@ -19,3 +19,6 @@
 define_dummy_symbol(mmwidget_navbar);
 
 #include "navbar.h"
+
+void uiNavBar::BackUp()
+{}

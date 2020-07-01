@@ -176,7 +176,7 @@ public:
     ARTS_IMPORT i32 RegisterFinish(class mmPlayerRecord arg1, i32 arg2, i32 arg3);
 
     // 0x4D0280 | ?RegisterFinish@mmPlayerData@@QAEHHMD@Z | unused
-    ARTS_IMPORT i32 RegisterFinish(i32 arg1, f32 arg2, char arg3);
+    ARTS_EXPORT i32 RegisterFinish(i32 arg1, f32 arg2, char arg3);
 
     // 0x4D0750 | ?Reset@mmPlayerData@@QAEXXZ
     ARTS_IMPORT void Reset();

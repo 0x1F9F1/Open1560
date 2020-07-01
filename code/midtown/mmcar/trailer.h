@@ -58,8 +58,8 @@
     0x6A7F98 | class MetaClass mmTrailerMetaClass | ?mmTrailerMetaClass@@3VMetaClass@@A
 */
 
-#include "mmai/aiVehicleMGR.h"
 #include "mmcity/inst.h"
+#include "mmphysics/entity.h"
 
 class mmTrailer : public mmPhysEntity
 {
@@ -137,7 +137,7 @@ public:
     ARTS_IMPORT ~mmTrailerInstance() override = default;
 
     // 0x47A300 | ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z | inline
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x479730 | ?AttachEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
     ARTS_IMPORT class mmPhysEntity* AttachEntity() override;

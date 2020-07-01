@@ -56,7 +56,7 @@ public:
     ARTS_IMPORT i32 UnRegisterCop(class mmCar* arg1, class mmCar* arg2);
 
     // 0x44E850 | ?Update@aiPoliceForce@@QAEXXZ
-    ARTS_IMPORT void Update();
+    ARTS_EXPORT void Update();
 
     u8 gap0[0x3C];
 };

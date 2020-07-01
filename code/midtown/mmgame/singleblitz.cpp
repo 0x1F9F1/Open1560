@@ -19,3 +19,6 @@
 define_dummy_symbol(mmgame_singleblitz);
 
 #include "singleblitz.h"
+
+void mmSingleBlitz::UpdateDebugKeyInput(i32 /*arg1*/)
+{}

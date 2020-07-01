@@ -19,3 +19,9 @@
 define_dummy_symbol(mmgame_gamemulti);
 
 #include "gamemulti.h"
+
+void mmGameMulti::NextRace()
+{}
+
+void mmGameMulti::UpdateDebugKeyInput(i32 /*arg1*/)
+{}

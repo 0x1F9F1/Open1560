@@ -262,7 +262,7 @@ public:
     ARTS_IMPORT void Update() override;
 
     // 0x436670 | ?UpdatePaused@aiMap@@UAEXXZ
-    ARTS_IMPORT void UpdatePaused() override;
+    ARTS_EXPORT void UpdatePaused() override;
 
     // 0x433EB0 | ?Vehicle@aiMap@@QAEPAVaiVehicleAmbient@@H@Z | unused
     ARTS_IMPORT class aiVehicleAmbient* Vehicle(i32 arg1);

@@ -60,7 +60,7 @@ public:
     ARTS_IMPORT void Init(char* arg1, i32 arg2, char* arg3, i32 arg4, i32 arg5);
 
     // 0x4B7500 | ?InitTitle@mmCompCRPlayer@@QAEXMMMMPAULocString@@000H@Z | unused
-    ARTS_IMPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
+    ARTS_EXPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
         struct LocString* arg7, struct LocString* arg8, i32 arg9);
 
     // 0x4B7510 | ?LoadBitmap@mmCompCRPlayer@@QAEXPAD@Z | unused

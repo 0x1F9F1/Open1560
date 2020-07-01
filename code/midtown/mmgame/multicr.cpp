@@ -19,3 +19,19 @@
 define_dummy_symbol(mmgame_multicr);
 
 #include "multicr.h"
+
+class mmWaypoints* mmMultiCR::GetWaypoints()
+{
+    return nullptr;
+}
+
+void mmMultiCR::UpdateDebugKeyInput(i32 /*arg1*/)
+{}
+
+i32 mmMultiCR::SelectTeams()
+{
+    return 0;
+}
+
+void mmMultiCR::SendSetup(u32 /*arg1*/)
+{}

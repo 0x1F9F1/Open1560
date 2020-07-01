@@ -19,3 +19,6 @@
 define_dummy_symbol(mmgame_wpinst);
 
 #include "wpinst.h"
+
+void mmWaypointInstance::AddWidgets(class Bank* /*arg1*/)
+{}

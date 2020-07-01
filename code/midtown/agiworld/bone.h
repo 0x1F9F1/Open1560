@@ -44,7 +44,7 @@ public:
     ARTS_IMPORT void Attach(class Matrix34* const arg1, i32& arg2);
 
     // 0x516FC0 | ?Draw@bnBone@@QAEXXZ
-    ARTS_IMPORT void Draw();
+    ARTS_EXPORT void Draw();
 
     // 0x516E80 | ?Load@bnBone@@QAEHPAVTokenizer@@PAPAV1@@Z
     ARTS_IMPORT i32 Load(class Tokenizer* arg1, class bnBone** arg2);

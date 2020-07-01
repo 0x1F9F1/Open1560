@@ -19,3 +19,6 @@
 define_dummy_symbol(mmwidget_wstore);
 
 #include "wstore.h"
+
+void WArray::Flush()
+{}

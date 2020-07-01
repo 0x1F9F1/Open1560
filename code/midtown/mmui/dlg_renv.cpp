@@ -19,3 +19,6 @@
 define_dummy_symbol(mmui_dlg_renv);
 
 #include "dlg_renv.h"
+
+void Dialog_RaceEnvironment::CancelCallback()
+{}

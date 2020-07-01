@@ -19,3 +19,6 @@
 define_dummy_symbol(mmui_dlg_msg);
 
 #include "dlg_msg.h"
+
+void Dialog_Message::PreSetup()
+{}

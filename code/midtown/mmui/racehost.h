@@ -53,7 +53,7 @@ public:
     ARTS_IMPORT void EnableStart();
 
     // 0x4A2C60 | ?UsesLobby@HostRaceMenu@@UAEXH@Z
-    ARTS_IMPORT void UsesLobby(i32 arg1) override;
+    ARTS_EXPORT void UsesLobby(i32 arg1) override;
 
     u8 gapF90[0x8];
 };

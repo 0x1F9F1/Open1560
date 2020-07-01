@@ -19,3 +19,18 @@
 define_dummy_symbol(mminput_input);
 
 #include "input.h"
+
+i32 mmInput::GamepadConnected()
+{
+    return 0;
+}
+
+i32 mmInput::JoystickConnected()
+{
+    return 0;
+}
+
+i32 mmInput::WheelConnected()
+{
+    return 0;
+}

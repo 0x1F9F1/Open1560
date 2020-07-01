@@ -83,16 +83,16 @@ public:
     ARTS_IMPORT void AddModem(char* arg1, i32 arg2);
 
     // 0x4A4950 | ?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z | unused
-    ARTS_IMPORT void AddWidgetToList(i32 arg1, class uiWidget* arg2);
+    ARTS_EXPORT void AddWidgetToList(i32 arg1, class uiWidget* arg2);
 
     // 0x4A4690 | ?BuildAllTheIPXWidgets@NetSelectMenu@@QAEXMMMM@Z
-    ARTS_IMPORT void BuildAllTheIPXWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT void BuildAllTheIPXWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4A4580 | ?BuildAllTheModemWidgets@NetSelectMenu@@QAEXMMMMPAD@Z
     ARTS_IMPORT void BuildAllTheModemWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4, char* arg5);
 
     // 0x4A46A0 | ?BuildAllTheTCPWidgets@NetSelectMenu@@QAEXMMMM@Z
-    ARTS_IMPORT void BuildAllTheTCPWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT void BuildAllTheTCPWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4A4720 | ?BuildComs@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void BuildComs();
@@ -101,7 +101,7 @@ public:
     ARTS_IMPORT void ClearProtocol();
 
     // 0x4A44D0 | ?DisableSessions@NetSelectMenu@@QAEXXZ
-    ARTS_IMPORT void DisableSessions();
+    ARTS_EXPORT void DisableSessions();
 
     // 0x4A4420 | ?FocusDescription@NetSelectMenu@@QAEXH@Z
     ARTS_IMPORT void FocusDescription(i32 arg1);
@@ -143,13 +143,13 @@ public:
     ARTS_IMPORT void ProtocolBack();
 
     // 0x4A4930 | ?ReparentWidgets@NetSelectMenu@@QAEXH@Z | unused
-    ARTS_IMPORT void ReparentWidgets(i32 arg1);
+    ARTS_EXPORT void ReparentWidgets(i32 arg1);
 
     // 0x4A4820 | ?SetComs@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void SetComs();
 
     // 0x4A44A0 | ?SetDescription@NetSelectMenu@@QAEXPAULocString@@@Z
-    ARTS_IMPORT void SetDescription(struct LocString* arg1);
+    ARTS_EXPORT void SetDescription(struct LocString* arg1);
 
     // 0x4A4560 | ?SetIPAddress@NetSelectMenu@@QAEXPAD@Z
     ARTS_IMPORT void SetIPAddress(char* arg1);
@@ -173,16 +173,16 @@ public:
     ARTS_IMPORT void SetSession(char* arg1, i32 arg2);
 
     // 0x4A4AA0 | ?SetTCPLocalButton@NetSelectMenu@@QAEXH@Z
-    ARTS_IMPORT void SetTCPLocalButton(i32 arg1);
+    ARTS_EXPORT void SetTCPLocalButton(i32 arg1);
 
     // 0x4A4AB0 | ?SetTCPNetButton@NetSelectMenu@@QAEXH@Z
     ARTS_IMPORT void SetTCPNetButton(i32 arg1);
 
     // 0x4A44C0 | ?ShowTCPIPNetSessions@NetSelectMenu@@QAEXXZ
-    ARTS_IMPORT void ShowTCPIPNetSessions();
+    ARTS_EXPORT void ShowTCPIPNetSessions();
 
     // 0x4A4940 | ?WidgetSwitch@NetSelectMenu@@QAEXHH@Z
-    ARTS_IMPORT void WidgetSwitch(i32 arg1, i32 arg2);
+    ARTS_EXPORT void WidgetSwitch(i32 arg1, i32 arg2);
 
     u8 gap90[0x1EC];
 };

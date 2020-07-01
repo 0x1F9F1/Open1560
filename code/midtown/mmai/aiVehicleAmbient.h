@@ -138,7 +138,7 @@ public:
     ARTS_IMPORT void StopVoice() override;
 
     // 0x451350 | ?Type@aiVehicleAmbient@@UAEHXZ | inline
-    ARTS_IMPORT i32 Type() override;
+    ARTS_EXPORT i32 Type() override;
 
     // 0x44F540 | ?UnAssignSounds@aiVehicleAmbient@@QAEXXZ
     ARTS_IMPORT void UnAssignSounds();

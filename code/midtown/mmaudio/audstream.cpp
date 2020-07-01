@@ -19,3 +19,6 @@
 define_dummy_symbol(mmaudio_audstream);
 
 #include "audstream.h"
+
+void AudStream::SetPlayPosition(u32 /*arg1*/)
+{}

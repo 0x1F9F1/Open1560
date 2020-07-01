@@ -19,3 +19,15 @@
 define_dummy_symbol(mmcar_skid);
 
 #include "skid.h"
+
+void mmSkid::AddWidgets(class Bank* /*arg1*/)
+{}
+
+void ARTS_FASTCALL mmSkid::DrawShadow()
+{}
+
+void ARTS_FASTCALL mmSkid::FromMatrix(class Matrix34 const& /*arg1*/)
+{}
+
+void mmSkid::Update()
+{}

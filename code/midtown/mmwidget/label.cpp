@@ -19,3 +19,9 @@
 define_dummy_symbol(mmwidget_label);
 
 #include "label.h"
+
+void UILabel::Action(union eqEvent /*arg1*/)
+{}
+
+void UILabel::Switch(i32 /*arg1*/)
+{}

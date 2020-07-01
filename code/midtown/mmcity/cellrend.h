@@ -57,7 +57,7 @@ public:
     ARTS_IMPORT void Init(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32* arg6);
 
     // 0x498F90 | ?Relight@mmCellRenderer@@QAEXXZ
-    ARTS_IMPORT void Relight();
+    ARTS_EXPORT void Relight();
 
     u8 gap4[0x44];
 };

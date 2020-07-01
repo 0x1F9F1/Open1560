@@ -53,7 +53,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // 0x525CB0 | ?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_IMPORT void FileIO(class MiniParser* arg1);
+    ARTS_EXPORT void FileIO(class MiniParser* arg1);
 
     // 0x525FF0 | ?GetClass@asLinearCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

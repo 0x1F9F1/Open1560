@@ -19,3 +19,6 @@
 define_dummy_symbol(mmai_aiGoalStop);
 
 #include "aiGoalStop.h"
+
+void aiGoalStop::Reset()
+{}

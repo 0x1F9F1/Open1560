@@ -340,7 +340,7 @@ private:
     ARTS_IMPORT void SetStateDefaults();
 
     // 0x40CBF0 | ?SetStateRace@mmInterface@@AAEXH@Z | unused
-    ARTS_IMPORT void SetStateRace(i32 arg1);
+    ARTS_EXPORT void SetStateRace(i32 arg1);
 
     // 0x40CDA0 | ?ShowSessions@mmInterface@@AAEXXZ
     ARTS_IMPORT void ShowSessions();

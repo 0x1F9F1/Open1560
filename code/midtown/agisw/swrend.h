@@ -138,7 +138,7 @@ ARTS_IMPORT void ARTS_FASTCALL __emitSolidZ(i32 arg1);
 ARTS_IMPORT void ARTS_FASTCALL __emitWireframe(i32 arg1);
 
 // 0x535890 | ?__setupNone@@YIXPAUswSurface@@@Z
-ARTS_IMPORT void ARTS_FASTCALL __setupNone(struct swSurface* arg1);
+ARTS_EXPORT void ARTS_FASTCALL __setupNone(struct swSurface* arg1);
 
 // 0x535510 | ?__setupUV@@YIXPAUswSurface@@@Z
 ARTS_IMPORT void ARTS_FASTCALL __setupUV(struct swSurface* arg1);

@@ -19,3 +19,8 @@
 define_dummy_symbol(mmcityinfo_racedata);
 
 #include "racedata.h"
+
+char* mmRaceData::GetRaceName(i32 /*arg1*/)
+{
+    return nullptr;
+}
