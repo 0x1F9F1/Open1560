@@ -43,7 +43,7 @@
 
 #include "arts7/linear.h"
 
-class mmViewCS : public asLinearCS
+class mmViewCS /*final*/ : public asLinearCS
 {
     // const mmViewCS::`vftable' @ 0x620118
 

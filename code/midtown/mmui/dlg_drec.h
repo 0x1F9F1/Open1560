@@ -36,7 +36,7 @@
 
 #include "pu_menu.h"
 
-class Dialog_DriverRec : public PUMenuBase
+class Dialog_DriverRec /*final*/ : public PUMenuBase
 {
     // const Dialog_DriverRec::`vftable' @ 0x61D668
 

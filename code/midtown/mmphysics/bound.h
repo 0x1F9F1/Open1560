@@ -32,7 +32,7 @@
 
 #include "arts7/node.h"
 
-class asBound : public asNode
+class asBound /*final*/ : public asNode
 {
     // const asBound::`vftable' @ 0x61FBB8
 

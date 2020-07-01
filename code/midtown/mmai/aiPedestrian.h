@@ -79,7 +79,7 @@
 
 #include "mmcity/inst.h"
 
-class aiPedestrian
+class aiPedestrian /*final*/
 {
 public:
     // 0x447CC0 | ??0aiPedestrian@@QAE@XZ
@@ -218,7 +218,7 @@ private:
 
 check_size(aiPedestrian, 0xAC);
 
-class aiPedestrianInstance : public mmInstance
+class aiPedestrianInstance /*final*/ : public mmInstance
 {
     // const aiPedestrianInstance::`vftable' @ 0x61B660
 

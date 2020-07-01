@@ -32,7 +32,7 @@
 
 #include "mmwidget/menu.h"
 
-class VehShowcase : public UIMenu
+class VehShowcase /*final*/ : public UIMenu
 {
     // const VehShowcase::`vftable' @ 0x61DB20
 

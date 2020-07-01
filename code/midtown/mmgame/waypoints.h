@@ -65,7 +65,7 @@
 
 #include "arts7/node.h"
 
-class mmWaypoints : public asNode
+class mmWaypoints /*final*/ : public asNode
 {
     // const mmWaypoints::`vftable' @ 0x61AF78
 

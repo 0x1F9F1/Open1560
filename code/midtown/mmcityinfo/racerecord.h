@@ -45,7 +45,7 @@
 
 #include "infobase.h"
 
-class mmRecord : public mmInfoBase
+class mmRecord /*final*/ : public mmInfoBase
 {
     // const mmRecord::`vftable' @ 0x61F8D0
 

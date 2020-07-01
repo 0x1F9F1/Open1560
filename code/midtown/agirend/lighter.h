@@ -138,7 +138,7 @@ public:
 
 check_size(agiLighter, 0x4);
 
-class agiMonoLighter : public agiLighter
+class agiMonoLighter /*final*/ : public agiLighter
 {
     // const agiMonoLighter::`vftable' @ 0x621468
 
@@ -157,7 +157,7 @@ public:
 
 check_size(agiMonoLighter, 0x4);
 
-class agiRGBLighter : public agiLighter
+class agiRGBLighter /*final*/ : public agiLighter
 {
     // const agiRGBLighter::`vftable' @ 0x621478
 

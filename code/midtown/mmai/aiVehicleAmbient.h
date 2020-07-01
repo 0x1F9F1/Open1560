@@ -70,7 +70,7 @@
 
 #include "aiVehicleSpline.h"
 
-class aiVehicleAmbient : public aiVehicleSpline
+class aiVehicleAmbient /*final*/ : public aiVehicleSpline
 {
     // const aiVehicleAmbient::`vftable' @ 0x61B7B8
 

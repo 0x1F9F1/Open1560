@@ -35,7 +35,7 @@
 
 #include "pu_menu.h"
 
-class Dialog_HallOfFame : public PUMenuBase
+class Dialog_HallOfFame /*final*/ : public PUMenuBase
 {
     // const Dialog_HallOfFame::`vftable' @ 0x61D608
 

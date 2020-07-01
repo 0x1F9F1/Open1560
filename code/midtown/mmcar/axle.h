@@ -34,7 +34,7 @@
 
 #include "arts7/linear.h"
 
-class mmAxle : public asLinearCS
+class mmAxle /*final*/ : public asLinearCS
 {
     // const mmAxle::`vftable' @ 0x61C680
 

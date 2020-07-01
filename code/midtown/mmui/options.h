@@ -32,7 +32,7 @@
 
 #include "mmwidget/menu.h"
 
-class OptionsMenu : public UIMenu
+class OptionsMenu /*final*/ : public UIMenu
 {
     // const OptionsMenu::`vftable' @ 0x61DA00
 

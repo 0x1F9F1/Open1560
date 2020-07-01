@@ -39,7 +39,7 @@
 
 #include "arts7/node.h"
 
-class sfPointer : public asNode
+class sfPointer /*final*/ : public asNode
 {
     // const sfPointer::`vftable' @ 0x61F0A8
 

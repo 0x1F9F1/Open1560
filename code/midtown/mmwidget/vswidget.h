@@ -46,7 +46,7 @@
 
 #include "arts7/node.h"
 
-class VSWidget : public asNode
+class VSWidget /*final*/ : public asNode
 {
     // const VSWidget::`vftable' @ 0x61F1E0
 

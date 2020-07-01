@@ -59,7 +59,7 @@
 
 #include "widget.h"
 
-class UITextField : public uiWidget
+class UITextField /*final*/ : public uiWidget
 {
     // const UITextField::`vftable' @ 0x61E408
 

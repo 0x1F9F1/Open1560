@@ -31,7 +31,7 @@
 
 #include "pu_menu.h"
 
-class PUDebug : public PUMenuBase
+class PUDebug /*final*/ : public PUMenuBase
 {
     // const PUDebug::`vftable' @ 0x61E000
 

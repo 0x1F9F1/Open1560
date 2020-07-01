@@ -54,7 +54,7 @@
 #include "arts7/node.h"
 #include "mmcity/inst.h"
 
-class mmShard : public mmMatrixInstance
+class mmShard /*final*/ : public mmMatrixInstance
 {
     // const mmShard::`vftable' @ 0x61C2C0
 
@@ -89,7 +89,7 @@ public:
 
 check_size(mmShard, 0x64);
 
-class mmShardManager : public asNode
+class mmShardManager /*final*/ : public asNode
 {
     // const mmShardManager::`vftable' @ 0x61C350
 

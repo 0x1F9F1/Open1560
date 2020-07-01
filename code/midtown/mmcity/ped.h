@@ -46,7 +46,7 @@
 #include "arts7/node.h"
 #include "inst.h"
 
-class mmPed : public mmYInstance
+class mmPed /*final*/ : public mmYInstance
 {
     // const mmPed::`vftable' @ 0x61D268
 
@@ -81,7 +81,7 @@ public:
 
 check_size(mmPed, 0x34);
 
-class mmPedManager : public asNode
+class mmPedManager /*final*/ : public asNode
 {
     // const mmPedManager::`vftable' @ 0x61D2D0
 

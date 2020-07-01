@@ -46,7 +46,7 @@
 
 #include "widget.h"
 
-class UISlider : public uiWidget
+class UISlider /*final*/ : public uiWidget
 {
     // const UISlider::`vftable' @ 0x61E590
 

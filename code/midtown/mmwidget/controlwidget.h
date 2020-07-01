@@ -39,7 +39,7 @@
 
 #include "widget.h"
 
-class UIControlWidget : public uiWidget
+class UIControlWidget /*final*/ : public uiWidget
 {
     // const UIControlWidget::`vftable' @ 0x61ED88
 

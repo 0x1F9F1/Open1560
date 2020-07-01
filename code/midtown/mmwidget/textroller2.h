@@ -42,7 +42,7 @@
 
 #include "widget.h"
 
-class UITextRoller2 : public uiWidget
+class UITextRoller2 /*final*/ : public uiWidget
 {
     // const UITextRoller2::`vftable' @ 0x61ED08
 

@@ -59,7 +59,7 @@
 
 #include "arts7/node.h"
 
-class AudStream : public asNode
+class AudStream /*final*/ : public asNode
 {
     // const AudStream::`vftable' @ 0x61FF40
 

@@ -135,7 +135,7 @@ public:
 
 check_size(eqEventMonitor, 0x14);
 
-class eqEventReplayChannelClass : public eqReplayChannel
+class eqEventReplayChannelClass /*final*/ : public eqReplayChannel
 {
     // const eqEventReplayChannelClass::`vftable' @ 0x621AE8
 

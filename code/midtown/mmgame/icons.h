@@ -34,7 +34,7 @@
 
 #include "arts7/node.h"
 
-class mmIcons : public asNode
+class mmIcons /*final*/ : public asNode
 {
     // const mmIcons::`vftable' @ 0x61AD28
 

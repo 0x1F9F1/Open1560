@@ -61,7 +61,7 @@
 
 #include "arts7/node.h"
 
-class mmHudMap : public asNode
+class mmHudMap /*final*/ : public asNode
 {
     // const mmHudMap::`vftable' @ 0x61AE70
 

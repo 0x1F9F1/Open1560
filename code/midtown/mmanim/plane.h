@@ -53,7 +53,7 @@
 
 #include "mmcity/inst.h"
 
-class mmAnimPlane : public mmMatrixInstance
+class mmAnimPlane /*final*/ : public mmMatrixInstance
 {
     // const mmAnimPlane::`vftable' @ 0x61F570
 

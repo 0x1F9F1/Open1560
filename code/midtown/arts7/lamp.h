@@ -39,7 +39,7 @@
 
 #include "node.h"
 
-class asLamp : public asNode
+class asLamp /*final*/ : public asNode
 {
     // const asLamp::`vftable' @ 0x620B80
 

@@ -67,7 +67,7 @@ public:
 
 check_size(VolumeDW, 0xC);
 
-class MixerCTL
+class MixerCTL /*final*/
     : public Dispatchable
     , public Base /* Warning: Unordered Multiple Inheritance */
 {

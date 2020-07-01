@@ -65,7 +65,7 @@
 
 #include "arts7/node.h"
 
-class Joint3Dof : public JointedStruct
+class Joint3Dof /*final*/ : public JointedStruct
 {
     // const Joint3Dof::`vftable' @ 0x61FAE0
 

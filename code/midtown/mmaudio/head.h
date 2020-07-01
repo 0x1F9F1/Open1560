@@ -39,7 +39,7 @@
 
 #include "arts7/node.h"
 
-class AudHead : public asNode
+class AudHead /*final*/ : public asNode
 {
     // const AudHead::`vftable' @ 0x61FE08
 

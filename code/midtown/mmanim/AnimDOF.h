@@ -51,7 +51,7 @@
 
 #include "mmbangers/dof.h"
 
-class mmDrawbridgeInstance : public mmDofBangerInstance
+class mmDrawbridgeInstance /*final*/ : public mmDofBangerInstance
 {
     // const mmDrawbridgeInstance::`vftable' @ 0x61F4D8
 
@@ -70,7 +70,7 @@ public:
 
 check_size(mmDrawbridgeInstance, 0x34);
 
-class mmAnimDOF
+class mmAnimDOF /*final*/
 {
     // const mmAnimDOF::`vftable' @ 0x61F470
 

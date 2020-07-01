@@ -35,7 +35,7 @@
 
 #include "cmodel.h"
 
-class agiColorModel8 : public agiColorModel
+class agiColorModel8 /*final*/ : public agiColorModel
 {
     // const agiColorModel8::`vftable' @ 0x621780
 

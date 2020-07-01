@@ -41,7 +41,7 @@
 
 #include "compbase.h"
 
-class mmCompDRecord : public mmCompBase
+class mmCompDRecord /*final*/ : public mmCompBase
 {
     // const mmCompDRecord::`vftable' @ 0x61E800
 

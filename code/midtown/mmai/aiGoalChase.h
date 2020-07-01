@@ -59,7 +59,7 @@
 
 #include "aiGoal.h"
 
-class aiGoalChase : public aiGoal
+class aiGoalChase /*final*/ : public aiGoal
 {
     // const aiGoalChase::`vftable' @ 0x61BC28
 

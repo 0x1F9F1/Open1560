@@ -34,7 +34,7 @@
 
 #include "mmcity/inst.h"
 
-class mmAnimTrainCar : public mmMatrixInstance
+class mmAnimTrainCar /*final*/ : public mmMatrixInstance
 {
     // const mmAnimTrainCar::`vftable' @ 0x61F658
 

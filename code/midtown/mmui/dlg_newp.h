@@ -32,7 +32,7 @@
 
 #include "pu_menu.h"
 
-class Dialog_NewPlayer : public PUMenuBase
+class Dialog_NewPlayer /*final*/ : public PUMenuBase
 {
     // const Dialog_NewPlayer::`vftable' @ 0x61D710
 

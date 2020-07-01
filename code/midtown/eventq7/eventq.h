@@ -38,7 +38,7 @@
 
 #include "event.h"
 
-class eqEventQ : public eqEventMonitor
+class eqEventQ /*final*/ : public eqEventMonitor
 {
     // const eqEventQ::`vftable' @ 0x621B00
 

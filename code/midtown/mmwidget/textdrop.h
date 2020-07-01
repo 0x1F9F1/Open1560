@@ -46,7 +46,7 @@
 
 #include "widget.h"
 
-class UITextDropdown : public uiWidget
+class UITextDropdown /*final*/ : public uiWidget
 {
     // const UITextDropdown::`vftable' @ 0x61E4F8
 

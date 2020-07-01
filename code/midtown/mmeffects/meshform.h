@@ -37,7 +37,7 @@
 
 #include "arts7/node.h"
 
-class asMeshSetForm : public asNode
+class asMeshSetForm /*final*/ : public asNode
 {
     // const asMeshSetForm::`vftable' @ 0x6206B0
 

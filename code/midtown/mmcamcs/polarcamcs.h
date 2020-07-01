@@ -35,7 +35,7 @@
 
 #include "carcamcs.h"
 
-class PolarCamCS : public CarCamCS
+class PolarCamCS /*final*/ : public CarCamCS
 {
     // const PolarCamCS::`vftable' @ 0x620348
 

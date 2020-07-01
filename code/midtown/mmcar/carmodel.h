@@ -58,7 +58,7 @@
 
 #include "mmcity/inst.h"
 
-class mmCarModel : public mmInstance
+class mmCarModel /*final*/ : public mmInstance
 {
     // const mmCarModel::`vftable' @ 0x61C010
 

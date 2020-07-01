@@ -64,7 +64,7 @@
 
 #include "arts7/node.h"
 
-class mmPlayer : public asNode
+class mmPlayer /*final*/ : public asNode
 {
     // const mmPlayer::`vftable' @ 0x61AF00
 

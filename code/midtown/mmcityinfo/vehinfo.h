@@ -31,7 +31,7 @@
     0x61F948 | const mmVehInfo::`vftable' | ??_7mmVehInfo@@6B@
 */
 
-class mmVehInfo
+class mmVehInfo /*final*/
 {
     // const mmVehInfo::`vftable' @ 0x61F948
 

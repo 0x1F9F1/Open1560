@@ -166,7 +166,7 @@ protected:
 
 check_size(mmGame, 0x1E570);
 
-class foobar : public asNode
+class foobar /*final*/ : public asNode
 {
     // const foobar::`vftable' @ 0x61A5C8
 

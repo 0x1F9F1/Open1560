@@ -48,7 +48,7 @@
 
 #include "arts7/node.h"
 
-class mmSlider : public asNode
+class mmSlider /*final*/ : public asNode
 {
     // const mmSlider::`vftable' @ 0x61F140
 

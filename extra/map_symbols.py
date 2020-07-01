@@ -550,6 +550,16 @@ def compute_hierarchy(raw_hierarchy, extra, ignored):
 
     return dict(done)
 
+def compuate_final_classes(class_hier):
+    final_classes = set(class_hier.keys())
+
+    for parents in class_hier.values():
+        for parent in parents:
+            if parent in final_classes:
+                final_classes.remove(parent)
+
+    return final_classes
+
 def backport_vftable_purecalls(raw_vftables, hiers, overrides):
     vftables = dict()
 
@@ -1914,6 +1924,8 @@ class_hier = compute_hierarchy(class_hier, {
     'Callback'
 })
 
+final_classes = compuate_final_classes(class_hier)
+
 print('Collecting Defualt Dtors')
 default_dtors = collect_default_dtor(view, symbols, class_hier)
 
@@ -2072,6 +2084,9 @@ for lib, paths in grouped_symbols.items():
         if path:
             path_type = type_classes[path]
             output.header += '{} {}'.format(path_type, path)
+
+            if path in final_classes:
+                output.header += ' /*final*/ '
 
             if path in class_hier:
                 parents = class_hier[path]

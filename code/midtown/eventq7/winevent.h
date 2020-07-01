@@ -47,7 +47,7 @@
 #include "dispatchable.h"
 #include "event.h"
 
-class WINEventHandler
+class WINEventHandler /*final*/
     : public eqEventHandler
     , public Dispatchable /* Warning: Unordered Multiple Inheritance */
 {

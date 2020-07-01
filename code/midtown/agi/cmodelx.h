@@ -137,7 +137,7 @@
 
 #include "cmodel.h"
 
-class agiColorModelRGB555 : public agiColorModel
+class agiColorModelRGB555 /*final*/ : public agiColorModel
 {
     // const agiColorModelRGB555::`vftable' @ 0x621798
 
@@ -168,7 +168,7 @@ public:
 
 check_size(agiColorModelRGB555, 0x2C);
 
-class agiColorModelRGB565 : public agiColorModel
+class agiColorModelRGB565 /*final*/ : public agiColorModel
 {
     // const agiColorModelRGB565::`vftable' @ 0x6217B0
 
@@ -199,7 +199,7 @@ public:
 
 check_size(agiColorModelRGB565, 0x2C);
 
-class agiColorModelRGB555_Rev : public agiColorModel
+class agiColorModelRGB555_Rev /*final*/ : public agiColorModel
 {
     // const agiColorModelRGB555_Rev::`vftable' @ 0x6217C8
 
@@ -230,7 +230,7 @@ public:
 
 check_size(agiColorModelRGB555_Rev, 0x2C);
 
-class agiColorModelRGB565_Rev : public agiColorModel
+class agiColorModelRGB565_Rev /*final*/ : public agiColorModel
 {
     // const agiColorModelRGB565_Rev::`vftable' @ 0x6217E0
 
@@ -261,7 +261,7 @@ public:
 
 check_size(agiColorModelRGB565_Rev, 0x2C);
 
-class agiColorModelRGB888 : public agiColorModel
+class agiColorModelRGB888 /*final*/ : public agiColorModel
 {
     // const agiColorModelRGB888::`vftable' @ 0x6217F8
 
@@ -292,7 +292,7 @@ public:
 
 check_size(agiColorModelRGB888, 0x2C);
 
-class agiColorModelRGB888_Rev : public agiColorModel
+class agiColorModelRGB888_Rev /*final*/ : public agiColorModel
 {
     // const agiColorModelRGB888_Rev::`vftable' @ 0x621810
 
@@ -323,7 +323,7 @@ public:
 
 check_size(agiColorModelRGB888_Rev, 0x2C);
 
-class agiColorModelRGBA5551 : public agiColorModel
+class agiColorModelRGBA5551 /*final*/ : public agiColorModel
 {
     // const agiColorModelRGBA5551::`vftable' @ 0x621828
 
@@ -354,7 +354,7 @@ public:
 
 check_size(agiColorModelRGBA5551, 0x2C);
 
-class agiColorModelRGBA4444 : public agiColorModel
+class agiColorModelRGBA4444 /*final*/ : public agiColorModel
 {
     // const agiColorModelRGBA4444::`vftable' @ 0x621840
 
@@ -385,7 +385,7 @@ public:
 
 check_size(agiColorModelRGBA4444, 0x2C);
 
-class agiColorModelARGB : public agiColorModel
+class agiColorModelARGB /*final*/ : public agiColorModel
 {
     // const agiColorModelARGB::`vftable' @ 0x621858
 
@@ -416,7 +416,7 @@ public:
 
 check_size(agiColorModelARGB, 0x2C);
 
-class agiColorModelABGR : public agiColorModel
+class agiColorModelABGR /*final*/ : public agiColorModel
 {
     // const agiColorModelABGR::`vftable' @ 0x621870
 

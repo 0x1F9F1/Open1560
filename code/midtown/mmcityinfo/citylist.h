@@ -39,7 +39,7 @@
     0x7084E4 | class mmCityList * CityListPtr | ?CityListPtr@@3PAVmmCityList@@A
 */
 
-class mmCityList
+class mmCityList /*final*/
 {
     // const mmCityList::`vftable' @ 0x61F8AC
 

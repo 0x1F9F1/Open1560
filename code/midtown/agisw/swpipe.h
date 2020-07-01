@@ -69,7 +69,7 @@
 #include "agi/pipeline.h"
 #include "agi/viewport.h"
 
-class agiSWPipeline : public agiPipeline
+class agiSWPipeline /*final*/ : public agiPipeline
 {
     // const agiSWPipeline::`vftable' @ 0x6211D8
 
@@ -143,7 +143,7 @@ check_size(agiSWPipeline, 0x2F0);
 // 0x534690 | ?swCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
 ARTS_IMPORT class agiPipeline* swCreatePipeline(i32 arg1, char** arg2);
 
-class agiSWViewport : public agiViewport
+class agiSWViewport /*final*/ : public agiViewport
 {
     // const agiSWViewport::`vftable' @ 0x621248
 
@@ -171,7 +171,7 @@ public:
 
 check_size(agiSWViewport, 0x14C);
 
-class agiSWBitmap : public agiBitmap
+class agiSWBitmap /*final*/ : public agiBitmap
 {
     // const agiSWBitmap::`vftable' @ 0x621288
 

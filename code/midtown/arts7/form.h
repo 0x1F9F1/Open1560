@@ -43,7 +43,7 @@
 
 #include "node.h"
 
-class asForm : public asNode
+class asForm /*final*/ : public asNode
 {
     // const asForm::`vftable' @ 0x620D10
 

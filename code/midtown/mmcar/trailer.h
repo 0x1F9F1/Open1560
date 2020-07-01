@@ -61,7 +61,7 @@
 #include "mmcity/inst.h"
 #include "mmphysics/entity.h"
 
-class mmTrailer : public mmPhysEntity
+class mmTrailer /*final*/ : public mmPhysEntity
 {
     // const mmTrailer::`vftable' @ 0x61C390
 
@@ -126,7 +126,7 @@ public:
 
 check_size(mmTrailer, 0x1204);
 
-class mmTrailerInstance : public mmInstance
+class mmTrailerInstance /*final*/ : public mmInstance
 {
     // const mmTrailerInstance::`vftable' @ 0x61C3E0
 

@@ -42,7 +42,7 @@
 
 #include "mmcity/inst.h"
 
-class mmWaypointInstance : public mmStaticInstance
+class mmWaypointInstance /*final*/ : public mmStaticInstance
 {
     // const mmWaypointInstance::`vftable' @ 0x61B168
 

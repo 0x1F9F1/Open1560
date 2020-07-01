@@ -48,7 +48,7 @@
 
 #include "game.h"
 
-class mmGameEdit : public mmGame
+class mmGameEdit /*final*/ : public mmGame
 {
     // const mmGameEdit::`vftable' @ 0x61A4A0
 

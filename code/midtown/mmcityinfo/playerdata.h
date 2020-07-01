@@ -66,7 +66,7 @@
 
 #include "infobase.h"
 
-class mmPlayerRecord : public mmInfoBase
+class mmPlayerRecord /*final*/ : public mmInfoBase
 {
     // const mmPlayerRecord::`vftable' @ 0x61A608
 
@@ -108,7 +108,7 @@ public:
 
 check_size(mmPlayerRecord, 0xE4);
 
-class mmPlayerData : public mmInfoBase
+class mmPlayerData /*final*/ : public mmInfoBase
 {
     // const mmPlayerData::`vftable' @ 0x61F898
 

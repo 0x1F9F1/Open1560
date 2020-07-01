@@ -35,7 +35,7 @@
 
 #include "agi/viewport.h"
 
-class agiD3DViewport : public agiViewport
+class agiD3DViewport /*final*/ : public agiViewport
 {
     // const agiD3DViewport::`vftable' @ 0x621130
 

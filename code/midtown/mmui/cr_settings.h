@@ -51,7 +51,7 @@
 
 #include "mmwidget/menu.h"
 
-class CRSettings : public UIMenu
+class CRSettings /*final*/ : public UIMenu
 {
     // const CRSettings::`vftable' @ 0x61D870
 

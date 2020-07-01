@@ -34,7 +34,7 @@
 
 #include "pu_menu.h"
 
-class Dialog_Serial : public PUMenuBase
+class Dialog_Serial /*final*/ : public PUMenuBase
 {
     // const Dialog_Serial::`vftable' @ 0x61D768
 

@@ -45,7 +45,7 @@
 
 #include "agi/texdef.h"
 
-class agiSWTexDef : public agiTexDef
+class agiSWTexDef /*final*/ : public agiTexDef
 {
     // const agiSWTexDef::`vftable' @ 0x6212D8
 
@@ -84,7 +84,7 @@ public:
 
 check_size(agiSWTexDef, 0x9C);
 
-class agiSWTexLut : public agiTexLut
+class agiSWTexLut /*final*/ : public agiTexLut
 {
     // const agiSWTexLut::`vftable' @ 0x621308
 

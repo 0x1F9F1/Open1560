@@ -41,7 +41,7 @@
 
 #include "menu.h"
 
-class uiNavBar : public UIMenu
+class uiNavBar /*final*/ : public UIMenu
 {
     // const uiNavBar::`vftable' @ 0x61E3B8
 

@@ -37,7 +37,7 @@
 
 #include "arts7/node.h"
 
-class Card2D : public asNode
+class Card2D /*final*/ : public asNode
 {
     // const Card2D::`vftable' @ 0x6205B8
 

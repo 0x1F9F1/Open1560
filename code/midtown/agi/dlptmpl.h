@@ -156,7 +156,7 @@ public:
 
 check_size(DLPPatch, 0x18);
 
-class DLPGroup
+class DLPGroup /*final*/
 {
 public:
     // 0x558C90 | ??0DLPGroup@@QAE@XZ

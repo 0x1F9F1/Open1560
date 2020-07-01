@@ -51,7 +51,7 @@
 
 #include "aiGoal.h"
 
-class aiGoalFollowWayPts : public aiGoal
+class aiGoalFollowWayPts /*final*/ : public aiGoal
 {
     // const aiGoalFollowWayPts::`vftable' @ 0x61BCD0
 

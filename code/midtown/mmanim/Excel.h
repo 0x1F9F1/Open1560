@@ -33,7 +33,7 @@
     0x61F3EC | const mmAnimExcel::`vftable' | ??_7mmAnimExcel@@6B@
 */
 
-class mmAnimExcel
+class mmAnimExcel /*final*/
 {
     // const mmAnimExcel::`vftable' @ 0x61F3EC
 

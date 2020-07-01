@@ -42,7 +42,7 @@
 
 #include "arts7/node.h"
 
-class asParticles : public asNode
+class asParticles /*final*/ : public asNode
 {
     // const asParticles::`vftable' @ 0x6206F0
 

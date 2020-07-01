@@ -143,7 +143,7 @@ public:
 
 check_size(mmUnhitBangerInstance, 0x30);
 
-class mmBangerManager : public asNode
+class mmBangerManager /*final*/ : public asNode
 {
     // const mmBangerManager::`vftable' @ 0x61CD18
 
@@ -171,7 +171,7 @@ protected:
 
 check_size(mmBangerManager, 0x2C);
 
-class mmHitBangerInstance : public mmBangerInstance
+class mmHitBangerInstance /*final*/ : public mmBangerInstance
 {
     // const mmHitBangerInstance::`vftable' @ 0x61F7A0
 

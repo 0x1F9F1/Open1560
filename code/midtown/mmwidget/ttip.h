@@ -34,7 +34,7 @@
 
 #include "arts7/node.h"
 
-class mmToolTip : public asNode
+class mmToolTip /*final*/ : public asNode
 {
     // const mmToolTip::`vftable' @ 0x61F190
 

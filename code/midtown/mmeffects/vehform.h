@@ -33,7 +33,7 @@
 
 #include "arts7/node.h"
 
-class mmVehicleForm : public asNode
+class mmVehicleForm /*final*/ : public asNode
 {
     // const mmVehicleForm::`vftable' @ 0x6207A0
 

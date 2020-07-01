@@ -51,7 +51,7 @@
 
 #include "infobase.h"
 
-class mmPlayerDirectory : public mmInfoBase
+class mmPlayerDirectory /*final*/ : public mmInfoBase
 {
     // const mmPlayerDirectory::`vftable' @ 0x61F900
 

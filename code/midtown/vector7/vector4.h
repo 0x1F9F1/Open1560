@@ -108,7 +108,7 @@ private:
 
 check_size(Vector4Array, 0x14);
 
-struct Vector4Type : MetaType
+struct Vector4Type /*final*/ : MetaType
 {
     // const Vector4Type::`vftable' @ 0x621C38
 

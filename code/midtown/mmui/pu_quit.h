@@ -30,7 +30,7 @@
 
 #include "pu_menu.h"
 
-class PUQuit : public PUMenuBase
+class PUQuit /*final*/ : public PUMenuBase
 {
     // const PUQuit::`vftable' @ 0x61E148
 

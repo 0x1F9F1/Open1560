@@ -47,7 +47,7 @@
 #include "arts7/node.h"
 #include "mmbangers/banger.h"
 
-class aiTrafficLightSet : public asNode
+class aiTrafficLightSet /*final*/ : public asNode
 {
     // const aiTrafficLightSet::`vftable' @ 0x61B438
 
@@ -75,7 +75,7 @@ private:
 
 check_size(aiTrafficLightSet, 0x38);
 
-class aiTrafficLightInstance : public mmUnhitBangerInstance
+class aiTrafficLightInstance /*final*/ : public mmUnhitBangerInstance
 {
     // const aiTrafficLightInstance::`vftable' @ 0x61B3D8
 

@@ -252,7 +252,7 @@ public:
 
 check_size(mmInstance, 0x14);
 
-class mmShearInstance : public mmMatrixInstance
+class mmShearInstance /*final*/ : public mmMatrixInstance
 {
     // const mmShearInstance::`vftable' @ 0x61CE78
 
@@ -288,7 +288,7 @@ public:
 
 check_size(mmShearInstance, 0x48);
 
-class mmBuildingInstance : public mmMatrixInstance
+class mmBuildingInstance /*final*/ : public mmMatrixInstance
 {
     // const mmBuildingInstance::`vftable' @ 0x61CE18
 
@@ -479,7 +479,7 @@ public:
 
 check_size(mmStaticInstance, 0x38);
 
-class mmFacadeInstance : public mmStaticInstance
+class mmFacadeInstance /*final*/ : public mmStaticInstance
 {
     // const mmFacadeInstance::`vftable' @ 0x61D178
 

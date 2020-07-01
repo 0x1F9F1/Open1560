@@ -56,7 +56,7 @@
 
 #include "mmphysics/entity.h"
 
-class mmCar : public mmPhysEntity
+class mmCar /*final*/ : public mmPhysEntity
 {
     // const mmCar::`vftable' @ 0x61C0E8
 

@@ -90,7 +90,7 @@
 
 #include "arts7/node.h"
 
-class MenuManager : public asNode
+class MenuManager /*final*/ : public asNode
 {
     // const MenuManager::`vftable' @ 0x61E338
 

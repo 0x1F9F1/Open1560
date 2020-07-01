@@ -35,7 +35,7 @@
 
 #include "agi/mtldef.h"
 
-class agiD3DMtlDef : public agiMtlDef
+class agiD3DMtlDef /*final*/ : public agiMtlDef
 {
     // const agiD3DMtlDef::`vftable' @ 0x621170
 

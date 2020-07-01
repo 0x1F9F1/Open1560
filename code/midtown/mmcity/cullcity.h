@@ -109,7 +109,7 @@
 #include "arts7/node.h"
 #include "inst.h"
 
-class mmCullCity : public asNode
+class mmCullCity /*final*/ : public asNode
 {
     // const mmCullCity::`vftable' @ 0x61CCD8
 
@@ -194,7 +194,7 @@ private:
 
 check_size(mmCullCity, 0x34D6C);
 
-class mmUpperInstance : public mmMatrixInstance
+class mmUpperInstance /*final*/ : public mmMatrixInstance
 {
     // const mmUpperInstance::`vftable' @ 0x61CDB8
 
@@ -211,7 +211,7 @@ private:
 
 check_size(mmUpperInstance, 0x44);
 
-class mmRunwayLight : public mmInstance
+class mmRunwayLight /*final*/ : public mmInstance
 {
     // const mmRunwayLight::`vftable' @ 0x61CD58
 

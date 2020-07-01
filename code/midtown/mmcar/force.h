@@ -37,7 +37,7 @@
 
 #include "arts7/node.h"
 
-class mmForce : public asNode
+class mmForce /*final*/ : public asNode
 {
     // const mmForce::`vftable' @ 0x61C850
 

@@ -41,7 +41,7 @@
 
 #include "compbase.h"
 
-class mmCompRoster : public mmCompBase
+class mmCompRoster /*final*/ : public mmCompBase
 {
     // const mmCompRoster::`vftable' @ 0x61E978
 

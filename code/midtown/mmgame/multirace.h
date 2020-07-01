@@ -45,7 +45,7 @@
 
 #include "gamemulti.h"
 
-class mmMultiRace : public mmGameMulti
+class mmMultiRace /*final*/ : public mmGameMulti
 {
     // const mmMultiRace::`vftable' @ 0x61AA18
 

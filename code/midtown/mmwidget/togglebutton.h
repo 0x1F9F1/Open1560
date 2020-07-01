@@ -37,7 +37,7 @@
 
 #include "button.h"
 
-class UIToggleButton : public UIButton
+class UIToggleButton /*final*/ : public UIButton
 {
     // const UIToggleButton::`vftable' @ 0x61EE98
 

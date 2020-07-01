@@ -35,7 +35,7 @@
 
 #include "eventq7/dispatchable.h"
 
-class CDMan : public Dispatchable
+class CDMan /*final*/ : public Dispatchable
 {
     // const CDMan::`vftable' @ 0x61FEF8
 

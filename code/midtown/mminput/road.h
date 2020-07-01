@@ -30,7 +30,7 @@
 
 #include "effect.h"
 
-class mmRoadFF : public mmEffectFF
+class mmRoadFF /*final*/ : public mmEffectFF
 {
     // const mmRoadFF::`vftable' @ 0x61FD00
 

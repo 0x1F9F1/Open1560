@@ -78,7 +78,7 @@ ARTS_IMPORT extern i32 data5;
 // 0x705800 | ?data6@@3HA
 ARTS_IMPORT extern i32 data6;
 
-class GraphicsOptions : public OptionsBase
+class GraphicsOptions /*final*/ : public OptionsBase
 {
     // const GraphicsOptions::`vftable' @ 0x61D370
 

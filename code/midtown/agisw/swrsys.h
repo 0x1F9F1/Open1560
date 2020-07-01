@@ -42,7 +42,7 @@
 
 #include "agi/rsys.h"
 
-class agiSWRasterizer : public agiRasterizer
+class agiSWRasterizer /*final*/ : public agiRasterizer
 {
     // const agiSWRasterizer::`vftable' @ 0x621338
 

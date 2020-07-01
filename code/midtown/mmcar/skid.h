@@ -55,7 +55,7 @@
 #include "arts7/node.h"
 #include "mmcity/inst.h"
 
-class mmSkid : public mmInstance
+class mmSkid /*final*/ : public mmInstance
 {
     // const mmSkid::`vftable' @ 0x61C208
 
@@ -105,7 +105,7 @@ public:
 
 check_size(mmSkid, 0x48);
 
-class mmSkidManager : public asNode
+class mmSkidManager /*final*/ : public asNode
 {
     // const mmSkidManager::`vftable' @ 0x61C280
 

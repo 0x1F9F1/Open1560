@@ -42,7 +42,7 @@
 
 #include "pu_menu.h"
 
-class PUResults : public PUMenuBase
+class PUResults /*final*/ : public PUMenuBase
 {
     // const PUResults::`vftable' @ 0x61DDA8
 

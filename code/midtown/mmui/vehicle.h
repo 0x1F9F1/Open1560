@@ -34,7 +34,7 @@
 
 #include "vselect.h"
 
-class Vehicle : public VehicleSelectBase
+class Vehicle /*final*/ : public VehicleSelectBase
 {
     // const Vehicle::`vftable' @ 0x61DB70
 

@@ -40,7 +40,7 @@
 
 #include "carcamcs.h"
 
-class PovCamCS : public CarCamCS
+class PovCamCS /*final*/ : public CarCamCS
 {
     // const PovCamCS::`vftable' @ 0x620000
 

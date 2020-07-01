@@ -91,7 +91,7 @@
 
 #include "arts7/node.h"
 
-class AudSound : public asNode
+class AudSound /*final*/ : public asNode
 {
     // const AudSound::`vftable' @ 0x61FDC8
 

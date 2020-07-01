@@ -34,7 +34,7 @@
 
 #include "agi/light.h"
 
-class agiBILight : public agiLight
+class agiBILight /*final*/ : public agiLight
 {
     // const agiBILight::`vftable' @ 0x621528
 

@@ -37,7 +37,7 @@
 
 #include "arts7/node.h"
 
-class mmToggle : public asNode
+class mmToggle /*final*/ : public asNode
 {
     // const mmToggle::`vftable' @ 0x61F270
 

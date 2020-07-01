@@ -51,7 +51,7 @@
 
 #include "widget.h"
 
-class UICWArray : public uiWidget
+class UICWArray /*final*/ : public uiWidget
 {
     // const UICWArray::`vftable' @ 0x61E9F0
 

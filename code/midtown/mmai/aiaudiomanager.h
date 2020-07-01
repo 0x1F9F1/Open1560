@@ -67,7 +67,7 @@
 
 #include "arts7/node.h"
 
-class aiAudioManager : public asNode
+class aiAudioManager /*final*/ : public asNode
 {
     // const aiAudioManager::`vftable' @ 0x61B398
 

@@ -30,7 +30,7 @@
 
 #include "effect.h"
 
-class mmFrictionFF : public mmEffectFF
+class mmFrictionFF /*final*/ : public mmEffectFF
 {
     // const mmFrictionFF::`vftable' @ 0x61FCD0
 

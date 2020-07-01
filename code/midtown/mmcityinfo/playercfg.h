@@ -54,7 +54,7 @@
 
 #include "infobase.h"
 
-class mmPlayerConfig : public mmInfoBase
+class mmPlayerConfig /*final*/ : public mmInfoBase
 {
     // const mmPlayerConfig::`vftable' @ 0x61F8E8
 

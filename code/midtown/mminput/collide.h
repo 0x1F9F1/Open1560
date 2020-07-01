@@ -30,7 +30,7 @@
 
 #include "effect.h"
 
-class mmCollideFF : public mmEffectFF
+class mmCollideFF /*final*/ : public mmEffectFF
 {
     // const mmCollideFF::`vftable' @ 0x61FCE0
 

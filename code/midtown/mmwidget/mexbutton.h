@@ -36,7 +36,7 @@
 
 #include "togglebutton2.h"
 
-class UIMexButton : public UIToggleButton2
+class UIMexButton /*final*/ : public UIToggleButton2
 {
     // const UIMexButton::`vftable' @ 0x61EFA8
 

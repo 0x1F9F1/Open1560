@@ -49,7 +49,7 @@
 
 #include "agi/rsys.h"
 
-class agiD3DRasterizer : public agiRasterizer
+class agiD3DRasterizer /*final*/ : public agiRasterizer
 {
     // const agiD3DRasterizer::`vftable' @ 0x620F10
 

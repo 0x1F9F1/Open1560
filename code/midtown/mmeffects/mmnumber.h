@@ -42,7 +42,7 @@
 
 #include "arts7/node.h"
 
-class mmNumber : public asNode
+class mmNumber /*final*/ : public asNode
 {
     // const mmNumber::`vftable' @ 0x620618
 

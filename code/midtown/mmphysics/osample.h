@@ -35,7 +35,7 @@
 
 #include "arts7/node.h"
 
-class asOverSample : public asNode
+class asOverSample /*final*/ : public asNode
 {
     // const asOverSample::`vftable' @ 0x61FB28
 

@@ -37,7 +37,7 @@
 
 #include "carcamcs.h"
 
-class PostCamCS : public CarCamCS
+class PostCamCS /*final*/ : public CarCamCS
 {
     // const PostCamCS::`vftable' @ 0x620190
 

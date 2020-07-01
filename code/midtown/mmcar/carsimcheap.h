@@ -33,7 +33,7 @@
 
 #include "arts7/linear.h"
 
-class mmWheelCheap : public asLinearCS
+class mmWheelCheap /*final*/ : public asLinearCS
 {
     // const mmWheelCheap::`vftable' @ 0x61C170
 

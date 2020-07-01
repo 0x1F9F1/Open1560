@@ -50,7 +50,7 @@
 
 #include "widget.h"
 
-class UICompositeScroll : public uiWidget
+class UICompositeScroll /*final*/ : public uiWidget
 {
     // const UICompositeScroll::`vftable' @ 0x61E778
 

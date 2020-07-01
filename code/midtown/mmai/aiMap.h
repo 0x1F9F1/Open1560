@@ -113,7 +113,7 @@
 
 #include "arts7/node.h"
 
-class aiMap : public asNode
+class aiMap /*final*/ : public asNode
 {
     // const aiMap::`vftable' @ 0x61B298
 

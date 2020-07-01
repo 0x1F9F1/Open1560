@@ -32,7 +32,7 @@
 
 #include "pu_menu.h"
 
-class Dialog_Password : public PUMenuBase
+class Dialog_Password /*final*/ : public PUMenuBase
 {
     // const Dialog_Password::`vftable' @ 0x61D538
 

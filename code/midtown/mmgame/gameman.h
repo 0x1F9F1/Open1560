@@ -56,7 +56,7 @@
 
 #include "arts7/node.h"
 
-class mmScreenClearFlunky : public asNode
+class mmScreenClearFlunky /*final*/ : public asNode
 {
     // const mmScreenClearFlunky::`vftable' @ 0x61A0D8
 
@@ -75,7 +75,7 @@ public:
 
 check_size(mmScreenClearFlunky, 0x20);
 
-class mmGameManager : public asNode
+class mmGameManager /*final*/ : public asNode
 {
     // const mmGameManager::`vftable' @ 0x61A118
 

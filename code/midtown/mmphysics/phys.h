@@ -81,7 +81,7 @@
 
 #include "arts7/node.h"
 
-class mmPhysExec : public asNode
+class mmPhysExec /*final*/ : public asNode
 {
     // const mmPhysExec::`vftable' @ 0x61F9D8
 
@@ -105,7 +105,7 @@ public:
 
 check_size(mmPhysExec, 0x24);
 
-class mmPhysicsMGR : public asNode
+class mmPhysicsMGR /*final*/ : public asNode
 {
     // const mmPhysicsMGR::`vftable' @ 0x61F998
 

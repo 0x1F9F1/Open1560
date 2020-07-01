@@ -123,7 +123,7 @@
 
 #include "arts7/node.h"
 
-class AudManager : public asNode
+class AudManager /*final*/ : public asNode
 {
     // const AudManager::`vftable' @ 0x61FD48
 

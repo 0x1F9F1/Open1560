@@ -73,7 +73,7 @@
 #include "eventq7/replay.h"
 #include "node.h"
 
-class asSimulation : public asNode
+class asSimulation /*final*/ : public asNode
 {
     // const asSimulation::`vftable' @ 0x620A00
 
@@ -195,7 +195,7 @@ ARTS_IMPORT extern class VirtualFileSystem* VFS;
 // 0x790750 | ?asSimulationMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asSimulationMetaClass;
 
-class artsReplayChannel : public eqReplayChannel
+class artsReplayChannel /*final*/ : public eqReplayChannel
 {
     // const artsReplayChannel::`vftable' @ 0x620A60
 

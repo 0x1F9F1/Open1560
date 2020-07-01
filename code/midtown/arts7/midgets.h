@@ -101,7 +101,7 @@
 #include "bank.h"
 #include "cullable.h"
 
-class asMidgets
+class asMidgets /*final*/
     : public Bank
     , public asCullable /* Warning: Unordered Multiple Inheritance */
 {
@@ -231,7 +231,7 @@ private:
 
 check_size(asMidgets, 0x87C);
 
-class SMI : public MI
+class SMI /*final*/ : public MI
 {
     // const SMI::`vftable' @ 0x620CB0
 
@@ -245,7 +245,7 @@ public:
 
 check_size(SMI, 0x48);
 
-class BMI : public MI
+class BMI /*final*/ : public MI
 {
     // const BMI::`vftable' @ 0x620CB8
 
@@ -261,7 +261,7 @@ public:
 
 check_size(BMI, 0x5C);
 
-class TMI : public MI
+class TMI /*final*/ : public MI
 {
     // const TMI::`vftable' @ 0x620CC0
 
@@ -277,7 +277,7 @@ public:
 
 check_size(TMI, 0x68);
 
-class scharMI : public MI
+class scharMI /*final*/ : public MI
 {
     // const scharMI::`vftable' @ 0x620CC8
 
@@ -293,7 +293,7 @@ public:
 
 check_size(scharMI, 0x68);
 
-class ucharMI : public MI
+class ucharMI /*final*/ : public MI
 {
     // const ucharMI::`vftable' @ 0x620CD8
 
@@ -309,7 +309,7 @@ public:
 
 check_size(ucharMI, 0x68);
 
-class shortMI : public MI
+class shortMI /*final*/ : public MI
 {
     // const shortMI::`vftable' @ 0x620CE0
 
@@ -325,7 +325,7 @@ public:
 
 check_size(shortMI, 0x68);
 
-class ushortMI : public MI
+class ushortMI /*final*/ : public MI
 {
     // const ushortMI::`vftable' @ 0x620CE8
 
@@ -341,7 +341,7 @@ public:
 
 check_size(ushortMI, 0x68);
 
-class intMI : public MI
+class intMI /*final*/ : public MI
 {
     // const intMI::`vftable' @ 0x620CF0
 
@@ -357,7 +357,7 @@ public:
 
 check_size(intMI, 0x6C);
 
-class uintMI : public MI
+class uintMI /*final*/ : public MI
 {
     // const uintMI::`vftable' @ 0x620CF8
 
@@ -373,7 +373,7 @@ public:
 
 check_size(uintMI, 0x6C);
 
-class floatMI : public MI
+class floatMI /*final*/ : public MI
 {
     // const floatMI::`vftable' @ 0x620D00
 
@@ -389,7 +389,7 @@ public:
 
 check_size(floatMI, 0x6C);
 
-class SBMI : public MI
+class SBMI /*final*/ : public MI
 {
     // const SBMI::`vftable' @ 0x620D08
 

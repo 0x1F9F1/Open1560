@@ -53,7 +53,7 @@
 
 #include "game.h"
 
-class mmSingleCircuit : public mmGame
+class mmSingleCircuit /*final*/ : public mmGame
 {
     // const mmSingleCircuit::`vftable' @ 0x61A680
 

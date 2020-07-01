@@ -39,7 +39,7 @@
 
 #include "portal.h"
 
-class mmCellRenderer : public asPortalRenderable
+class mmCellRenderer /*final*/ : public asPortalRenderable
 {
     // const mmCellRenderer::`vftable' @ 0x61D320
 

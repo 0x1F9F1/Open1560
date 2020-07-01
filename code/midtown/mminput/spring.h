@@ -30,7 +30,7 @@
 
 #include "effect.h"
 
-class mmSpringFF : public mmEffectFF
+class mmSpringFF /*final*/ : public mmEffectFF
 {
     // const mmSpringFF::`vftable' @ 0x61FCF0
 

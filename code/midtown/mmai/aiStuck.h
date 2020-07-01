@@ -36,7 +36,7 @@
 
 #include "arts7/node.h"
 
-class aiStuck : public asNode
+class aiStuck /*final*/ : public asNode
 {
     // const aiStuck::`vftable' @ 0x61BD60
 

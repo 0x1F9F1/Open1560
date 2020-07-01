@@ -41,7 +41,7 @@
 
 #include "arts7/node.h"
 
-class mmCarRoadFF : public asNode
+class mmCarRoadFF /*final*/ : public asNode
 {
     // const mmCarRoadFF::`vftable' @ 0x61C920
 

@@ -41,7 +41,7 @@
 
 #include "arts7/node.h"
 
-class mmDropDown : public asNode
+class mmDropDown /*final*/ : public asNode
 {
     // const mmDropDown::`vftable' @ 0x61F2B8
 

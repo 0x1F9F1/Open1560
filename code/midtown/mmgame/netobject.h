@@ -43,7 +43,7 @@
 
 #include "mmnetwork/netobject.h"
 
-class mmNetObject : public asNetObject
+class mmNetObject /*final*/ : public asNetObject
 {
     // const mmNetObject::`vftable' @ 0x61B120
 

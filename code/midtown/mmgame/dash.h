@@ -58,7 +58,7 @@
 #include "arts7/linear.h"
 #include "arts7/node.h"
 
-class mmExternalView : public asNode
+class mmExternalView /*final*/ : public asNode
 {
     // const mmExternalView::`vftable' @ 0x61AB00
 
@@ -97,7 +97,7 @@ public:
 
 check_size(mmExternalView, 0x10C);
 
-class mmDashView : public asLinearCS
+class mmDashView /*final*/ : public asLinearCS
 {
     // const mmDashView::`vftable' @ 0x61AAC0
 

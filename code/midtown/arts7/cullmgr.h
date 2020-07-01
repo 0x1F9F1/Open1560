@@ -47,7 +47,7 @@
 
 #include "node.h"
 
-class asCullManager : public asNode
+class asCullManager /*final*/ : public asNode
 {
     // const asCullManager::`vftable' @ 0x620AD0
 
