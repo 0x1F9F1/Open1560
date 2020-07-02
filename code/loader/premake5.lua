@@ -17,14 +17,9 @@ project "Open1560"
         "loader.cpp",
         "loader.h",
         "loader.rc",
-        "import_stubs.asm",
     }
 
-    -- filter "files:**.asm"
-    --     exceptionhandling "SEH"
-    -- filter {}
-
-    links { "arts_midtown", "DbgHelp", "Winmm" }
+    links { "arts_midtown", "DbgHelp", "Winmm", "Open1560_stubs" }
 
     if MM1_GAME_DIRECTORY ~= nil then
         local game_files = path.join(ROOT_DIR, "game")
@@ -42,3 +37,15 @@ project "Open1560"
             debugargs (MM1_COMMAND_LINE)
         end
     end
+
+project "Open1560_stubs"
+    kind "StaticLib"
+    language "C"
+
+    filter "files:**.asm"
+        exceptionhandling "SEH"
+    filter {}
+
+    files {
+        "import_stubs.asm",
+    }

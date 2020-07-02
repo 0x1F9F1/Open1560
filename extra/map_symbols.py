@@ -1060,116 +1060,116 @@ for symbol in all_symbols:
     symbol.process(view.arch)
 
 for sym in [
-    MapSymbol("?TouchMemory@@YAXPAXH@Z", 0x402E70, "test"),
-    MapSymbol("?exeDirFile@@YAPADPAD0@Z", 0x402EC0, "test"),
-    MapSymbol("?GameCloseCallback@@YAXXZ", 0x402F20, "test"),
-    MapSymbol("?IsModemDialin@@YA_NXZ", 0x409CD0, "mmgame:interface"),
-    MapSymbol("?ZoneWatcher@@YGKPAX@Z", 0x409D50, "mmgame:interface"),
-    MapSymbol("?randcall@@YAXXZ", 0x404390, "mmgame:gameman"),
-    MapSymbol("?DoScan@@YAXPAX@Z", 0x4046D0, "mmgame:gameman"),
-    MapSymbol("?StuckCB@@YAXPAVaiStuck@@@Z", 0x46B470, "mmai:aiStuck"),
-    MapSymbol("?SplashCB@@YAXPAVmmSplash@@@Z", 0x481050, "mmcar:splash"),
-    MapSymbol("?StuckCB@@YAXPAVmmStuck@@@Z", 0x47C4F0, "mmcar:stuck"),
-    MapSymbol("?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z", 0x493670, "mmcity:inst"),
-    MapSymbol("?fix_sun@@YAXXZ", 0x48E1B0, "mmcity:cullcity"),
-    MapSymbol("?fix_fill1@@YAXXZ", 0x48E220, "mmcity:cullcity"),
-    MapSymbol("?fix_fill2@@YAXXZ", 0x48E290, "mmcity:cullcity"),
-    MapSymbol("?parseFloat@@YAXAAM@Z", 0x48E300, "mmcity:cullcity"),
-    MapSymbol("?parseVector3@@YAXAAVVector3@@@Z", 0x48E330, "mmcity:cullcity"),
-    MapSymbol("?parseRGB@@YAXAAI@Z", 0x48E360, "mmcity:cullcity"),
-    MapSymbol("?parseARGB@@YAXAAI@Z", 0x48E3D0, "mmcity:cullcity"),
-    MapSymbol("?toggle_interlace@@YAXXZ", 0x4A9E70, "mmui:pu_graphics"),
-    MapSymbol("?toggle_filter@@YAXXZ", 0x4A9E90, "mmui:pu_graphics"),
-    MapSymbol("?fix_lighting_lame@@YAXXZ", 0x4A9EC0, "mmui:pu_graphics"),
-    MapSymbol("?CalibrateWatcher@@YGKPAX@Z", 0x4A37A0, "mmui:control"),
-    MapSymbol("?SetTexQualString@@YAXXZ", 0x49A050, "mmui:graphics"),
-    MapSymbol("?HelpWatcher@@YGKPAX@Z", 0x4B1B30, "mmwidget:manager"),
-    MapSymbol("?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z", 0x517090, "agiworld:bone"),
-    MapSymbol("?cmpTex@@YAHPBX0@Z", 0x512080, "agiworld:texsheet"),
-    MapSymbol("?mmxTriple@@YAXPAI0HPAEH@Z", 0x510EE0, "agiworld:meshlight"),
-    MapSymbol("?agiInitCones@@YAXAAVMatrix34@@M@Z", 0x5116B0, "agiworld:meshlight"),
-    MapSymbol("?FullClip@@YAHPAUCV@@0H@Z", 0x5061B0, "agiworld:meshrend"),
-    MapSymbol("?ClipNX@@YAHPAUCV@@0H@Z", 0x506260, "agiworld:meshrend"),
-    MapSymbol("?ClipNX@@YIXAAUCV@@0@Z", 0x506380, "agiworld:meshrend"),
-    MapSymbol("?ClipPX@@YAHPAUCV@@0H@Z", 0x506470, "agiworld:meshrend"),
-    MapSymbol("?ClipPX@@YIXAAUCV@@0@Z", 0x506590, "agiworld:meshrend"),
-    MapSymbol("?ClipNY@@YAHPAUCV@@0H@Z", 0x506680, "agiworld:meshrend"),
-    MapSymbol("?ClipNY@@YIXAAUCV@@0@Z", 0x5067A0, "agiworld:meshrend"),
-    MapSymbol("?ClipPY@@YAHPAUCV@@0H@Z", 0x506890, "agiworld:meshrend"),
-    MapSymbol("?ClipPY@@YIXAAUCV@@0@Z", 0x5069B0, "agiworld:meshrend"),
-    MapSymbol("?ClipNZ@@YAHPAUCV@@0H@Z", 0x506A90, "agiworld:meshrend"),
-    MapSymbol("?ClipNZ@@YIXAAUCV@@0@Z", 0x506BB0, "agiworld:meshrend"),
-    MapSymbol("?ClipPZ@@YAHPAUCV@@0H@Z", 0x506CA0, "agiworld:meshrend"),
-    MapSymbol("?ClipPZ@@YIXAAUCV@@0@Z", 0x506DC0, "agiworld:meshrend"),
-    MapSymbol("?ZClipOnly@@YAHPAUCV@@0H@Z", 0x506EA0, "agiworld:meshrend"),
-    MapSymbol("?HeapAssert@@YAHPAXHPADH@Z", 0x521250, "memory:allocator"),
-    MapSymbol("?InitMap@@YAXXZ", 0x5201C0, "memory:stack"),
-    MapSymbol("?QuietPrinter@@YAXHPBDPAD@Z", 0x521C20, "arts7:sim"),
-    MapSymbol("?IsValidPointer@@YAHPAXIH@Z", 0x523510, "arts7:sim"),
-    MapSymbol("?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z", 0x533720, "agid3d:d3dmtldef"),
-    MapSymbol("?EnumCallback@@YGJPAU_GUID@@PAD1PAU_D3DDeviceDesc@@2PAX@Z", 0x5307B0, "agid3d:d3dpipe"),
-    MapSymbol("?EnumTextureCallback@@YGJPAU_DDPIXELFORMAT@@PAX@Z", 0x5308B0, "agid3d:d3dpipe"),
-    MapSymbol("?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z", 0x530980, "agid3d:d3dpipe"),
-    MapSymbol("?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z", 0x575FD0, "pcwindis:dxsetup"),
-    MapSymbol("?swSetupEdgeScan@@YAXPAUswEdge@@HH@Z", 0x535460, "agisw:swrend"),
-    MapSymbol("?__emitZwrite@@YIXPAUswSurface@@H@Z", 0x535910, "agisw:swrend"),
-    MapSymbol("?__emitSemiBlack@@YIXH@Z", 0x5367C0, "agisw:swrend"),
-    MapSymbol("?__emitStippleBlack@@YIXH@Z", 0x536800, "agisw:swrend"),
-    MapSymbol("?swComputeIntensity@@YAHAAUagiScreenVtx@@@Z", 0x536840, "agisw:swrend"),
-    MapSymbol("?emms@@YAXXZ", 0x536940, "agisw:swrend"),
-    MapSymbol("?swFindColor555@@YAII@Z", 0x537550, "agisw:swrend"),
-    MapSymbol("?swFindColor565@@YAII@Z", 0x537590, "agisw:swrend"),
-    MapSymbol("?swClampAddColor565@@YIII@Z", 0x5375D0, "agisw:swrend"),
-    MapSymbol("?swClampAddColor555@@YIII@Z", 0x537610, "agisw:swrend"),
-    MapSymbol("?swClampAdd565@@YIIII@Z", 0x537650, "agisw:swrend"),
-    MapSymbol("?swClampAdd555@@YIIII@Z", 0x537690, "agisw:swrend"),
-    MapSymbol("?ddStart@@YAXXZ", 0x534EA0, "agisw:swddraw"),
-    MapSymbol("?ddEnd@@YAXXZ", 0x534FA0, "agisw:swddraw"),
-    MapSymbol("?ddStartFrame@@YAXXZ", 0x534FC0, "agisw:swddraw"),
-    MapSymbol("?ddStartScene@@YAXXZ", 0x534FD0, "agisw:swddraw"),
-    MapSymbol("?ddEndScene@@YAXXZ", 0x535030, "agisw:swddraw"),
-    MapSymbol("?ddEndFrame@@YAXXZ", 0x535070, "agisw:swddraw"),
-    MapSymbol("?zmemset@@YAXPAGI@Z", 0x5342F0, "agisw:swpipe"),
-    MapSymbol("?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z", 0x55AAE0, "agi:surface"),
-    MapSymbol("?copyrow565_to_555@@YAXPAX0II@Z", 0x55B510, "agi:surface"),
-    MapSymbol("?copyrow565_to_5551@@YAXPAX0II@Z", 0x55B560, "agi:surface"),
-    MapSymbol("?copyrow565_to_888@@YAXPAX0II@Z", 0x55B5C0, "agi:surface"),
-    MapSymbol("?copyrow565_to_888rev@@YAXPAX0II@Z", 0x55B640, "agi:surface"),
-    MapSymbol("?copyrow4444_to_8888@@YAXPAX0II@Z", 0x55B6C0, "agi:surface"),
-    MapSymbol("?copyrow4444_to_8888rev@@YAXPAX0II@Z", 0x55B750, "agi:surface"),
-    MapSymbol("?copyrow4444_to_555@@YAXPAX0II@Z", 0x55B7E0, "agi:surface"),
-    MapSymbol("?copyrow4444_to_565@@YAXPAX0II@Z", 0x55B860, "agi:surface"),
-    MapSymbol("?copyrow4444_to_5551@@YAXPAX0II@Z", 0x55B8E0, "agi:surface"),
-    MapSymbol("?InitBuiltin@@YAXXZ", 0x557FE0, "agi:print"),
-    MapSymbol("?LibOutOfDate@@YAHPAD0@Z", 0x556AD0, "agi:getdlp"),
-    MapSymbol("?cmpProblem@@YAHPBX0@Z", 0x561050, "stream:problems"),
-    MapSymbol("?SubString@@YAPADHPAD@Z", 0x55FAF0, "stream:fsystem"),
-    MapSymbol("?NumSubStrings@@YAHPAD@Z", 0x55FB70, "stream:fsystem"),
-    MapSymbol("?Contains@@YAHPAD0@Z", 0x55FBA0, "stream:fsystem"),
-    MapSymbol("?ExpandEnvs@@YAXPAD@Z", 0x55FC20, "stream:fsystem"),
-    MapSymbol("?DIError@@YAPADH@Z", 0x564050, "eventq7:geinputLib"),
-    MapSymbol("?NeedDX6@@YAXXZ", 0x575710, "pcwindis:dxsetup"),
-    MapSymbol("?EnumCounter@@YGHPAU_GUID@@PAD1PAX@Z", 0x575740, "pcwindis:dxsetup"),
-    MapSymbol("?MyDirectDrawEnumerate@@YAXP6GHPAU_GUID@@PAD1PAX@Z2@Z", 0x575760, "pcwindis:dxsetup"),
-    MapSymbol("?EnumerateRenderers2@@YAXXZ", 0x5757D0, "pcwindis:dxsetup"),
-    MapSymbol("?CheckSoftwareRenderer@@YAHPAUIDirectDraw4@@PAU_GUID@@@Z", 0x575920, "pcwindis:dxsetup"),
-    MapSymbol("?LockScreen@@YAJPAUIDirectDraw4@@@Z", 0x575A10, "pcwindis:dxsetup"),
-    MapSymbol("?UnlockScreen@@YAXXZ", 0x575AD0, "pcwindis:dxsetup"),
-    MapSymbol("?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z", 0x575AF0, "pcwindis:dxsetup"),
-    MapSymbol("?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z", 0x575F40, "pcwindis:dxsetup"),
-    MapSymbol("?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z", 0x576000, "pcwindis:dxsetup"),
-    MapSymbol("?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z", 0x576470, "pcwindis:dxsetup"),
-    MapSymbol("?NotLameChipset@@YAHKK@Z", 0x5764A0, "pcwindis:dxsetup"),
-    MapSymbol("?GetSpecialFlags@@YAIKK@Z", 0x5764B0, "pcwindis:dxsetup"),
-    MapSymbol("?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z", 0x576580, "pcwindis:dxsetup"),
-    MapSymbol("?strtoguid@@YAXPAU_GUID@@PAD@Z", 0x574DF0, "pcwindis:setupdata"),
-    MapSymbol("?guidtostr@@YAXPADPAU_GUID@@@Z", 0x575090, "pcwindis:setupdata"),
-    MapSymbol("?translate565@@YAXPAEPAGI@Z", 0x5748D0, "pcwindis:dxinit"),
-    MapSymbol("?translate555@@YAXPAEPAGI@Z", 0x574940, "pcwindis:dxinit"),
-    MapSymbol("?rdtsc@@YAIXZ", 0x57CF40, "data7:speed"),
-    MapSymbol("?cpuid@@YAHXZ", 0x57C400, "data7:mmx"),
-    MapSymbol("?getMem@@YAHXZ", 0x578B80, "data7:memstat"),
-    MapSymbol("?compareExchange@@YIHPAIH@Z", 0x578AB0, "data7:ipc"),
+    MapSymbol('?TouchMemory@@YAXPAXH@Z', 0x402E70, 'test', ['f']),
+    MapSymbol('?exeDirFile@@YAPADPAD0@Z', 0x402EC0, 'test', ['f']),
+    MapSymbol('?GameCloseCallback@@YAXXZ', 0x402F20, 'test', ['f']),
+    MapSymbol('?IsModemDialin@@YA_NXZ', 0x409CD0, 'mmgame:interface', ['f']),
+    MapSymbol('?ZoneWatcher@@YGKPAX@Z', 0x409D50, 'mmgame:interface', ['f']),
+    MapSymbol('?randcall@@YAXXZ', 0x404390, 'mmgame:gameman', ['f']),
+    MapSymbol('?DoScan@@YAXPAX@Z', 0x4046D0, 'mmgame:gameman', ['f']),
+    MapSymbol('?StuckCB@@YAXPAVaiStuck@@@Z', 0x46B470, 'mmai:aiStuck', ['f']),
+    MapSymbol('?SplashCB@@YAXPAVmmSplash@@@Z', 0x481050, 'mmcar:splash', ['f']),
+    MapSymbol('?StuckCB@@YAXPAVmmStuck@@@Z', 0x47C4F0, 'mmcar:stuck', ['f']),
+    MapSymbol('?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z', 0x493670, 'mmcity:inst', ['f']),
+    MapSymbol('?fix_sun@@YAXXZ', 0x48E1B0, 'mmcity:cullcity', ['f']),
+    MapSymbol('?fix_fill1@@YAXXZ', 0x48E220, 'mmcity:cullcity', ['f']),
+    MapSymbol('?fix_fill2@@YAXXZ', 0x48E290, 'mmcity:cullcity', ['f']),
+    MapSymbol('?parseFloat@@YAXAAM@Z', 0x48E300, 'mmcity:cullcity', ['f']),
+    MapSymbol('?parseVector3@@YAXAAVVector3@@@Z', 0x48E330, 'mmcity:cullcity', ['f']),
+    MapSymbol('?parseRGB@@YAXAAI@Z', 0x48E360, 'mmcity:cullcity', ['f']),
+    MapSymbol('?parseARGB@@YAXAAI@Z', 0x48E3D0, 'mmcity:cullcity', ['f']),
+    MapSymbol('?toggle_interlace@@YAXXZ', 0x4A9E70, 'mmui:pu_graphics', ['f']),
+    MapSymbol('?toggle_filter@@YAXXZ', 0x4A9E90, 'mmui:pu_graphics', ['f']),
+    MapSymbol('?fix_lighting_lame@@YAXXZ', 0x4A9EC0, 'mmui:pu_graphics', ['f']),
+    MapSymbol('?CalibrateWatcher@@YGKPAX@Z', 0x4A37A0, 'mmui:control', ['f']),
+    MapSymbol('?SetTexQualString@@YAXXZ', 0x49A050, 'mmui:graphics', ['f']),
+    MapSymbol('?HelpWatcher@@YGKPAX@Z', 0x4B1B30, 'mmwidget:manager', ['f']),
+    MapSymbol('?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z', 0x517090, 'agiworld:bone', ['f']),
+    MapSymbol('?cmpTex@@YAHPBX0@Z', 0x512080, 'agiworld:texsheet', ['f']),
+    MapSymbol('?mmxTriple@@YAXPAI0HPAEH@Z', 0x510EE0, 'agiworld:meshlight', ['f']),
+    MapSymbol('?agiInitCones@@YAXAAVMatrix34@@M@Z', 0x5116B0, 'agiworld:meshlight', ['f']),
+    MapSymbol('?FullClip@@YAHPAUCV@@0H@Z', 0x5061B0, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipNX@@YAHPAUCV@@0H@Z', 0x506260, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipNX@@YIXAAUCV@@0@Z', 0x506380, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipPX@@YAHPAUCV@@0H@Z', 0x506470, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipPX@@YIXAAUCV@@0@Z', 0x506590, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipNY@@YAHPAUCV@@0H@Z', 0x506680, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipNY@@YIXAAUCV@@0@Z', 0x5067A0, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipPY@@YAHPAUCV@@0H@Z', 0x506890, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipPY@@YIXAAUCV@@0@Z', 0x5069B0, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipNZ@@YAHPAUCV@@0H@Z', 0x506A90, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipNZ@@YIXAAUCV@@0@Z', 0x506BB0, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipPZ@@YAHPAUCV@@0H@Z', 0x506CA0, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ClipPZ@@YIXAAUCV@@0@Z', 0x506DC0, 'agiworld:meshrend', ['f']),
+    MapSymbol('?ZClipOnly@@YAHPAUCV@@0H@Z', 0x506EA0, 'agiworld:meshrend', ['f']),
+    MapSymbol('?HeapAssert@@YAHPAXHPADH@Z', 0x521250, 'memory:allocator', ['f']),
+    MapSymbol('?InitMap@@YAXXZ', 0x5201C0, 'memory:stack', ['f']),
+    MapSymbol('?QuietPrinter@@YAXHPBDPAD@Z', 0x521C20, 'arts7:sim', ['f']),
+    MapSymbol('?IsValidPointer@@YAHPAXIH@Z', 0x523510, 'arts7:sim', ['f']),
+    MapSymbol('?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z', 0x533720, 'agid3d:d3dmtldef', ['f']),
+    MapSymbol('?EnumCallback@@YGJPAU_GUID@@PAD1PAU_D3DDeviceDesc@@2PAX@Z', 0x5307B0, 'agid3d:d3dpipe', ['f']),
+    MapSymbol('?EnumTextureCallback@@YGJPAU_DDPIXELFORMAT@@PAX@Z', 0x5308B0, 'agid3d:d3dpipe', ['f']),
+    MapSymbol('?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z', 0x530980, 'agid3d:d3dpipe', ['f']),
+    MapSymbol('?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z', 0x575FD0, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?swSetupEdgeScan@@YAXPAUswEdge@@HH@Z', 0x535460, 'agisw:swrend', ['f']),
+    MapSymbol('?__emitZwrite@@YIXPAUswSurface@@H@Z', 0x535910, 'agisw:swrend', ['f']),
+    MapSymbol('?__emitSemiBlack@@YIXH@Z', 0x5367C0, 'agisw:swrend', ['f']),
+    MapSymbol('?__emitStippleBlack@@YIXH@Z', 0x536800, 'agisw:swrend', ['f']),
+    MapSymbol('?swComputeIntensity@@YAHAAUagiScreenVtx@@@Z', 0x536840, 'agisw:swrend', ['f']),
+    MapSymbol('?emms@@YAXXZ', 0x536940, 'agisw:swrend', ['f']),
+    MapSymbol('?swFindColor555@@YAII@Z', 0x537550, 'agisw:swrend', ['f']),
+    MapSymbol('?swFindColor565@@YAII@Z', 0x537590, 'agisw:swrend', ['f']),
+    MapSymbol('?swClampAddColor565@@YIII@Z', 0x5375D0, 'agisw:swrend', ['f']),
+    MapSymbol('?swClampAddColor555@@YIII@Z', 0x537610, 'agisw:swrend', ['f']),
+    MapSymbol('?swClampAdd565@@YIIII@Z', 0x537650, 'agisw:swrend', ['f']),
+    MapSymbol('?swClampAdd555@@YIIII@Z', 0x537690, 'agisw:swrend', ['f']),
+    MapSymbol('?ddStart@@YAXXZ', 0x534EA0, 'agisw:swddraw', ['f']),
+    MapSymbol('?ddEnd@@YAXXZ', 0x534FA0, 'agisw:swddraw', ['f']),
+    MapSymbol('?ddStartFrame@@YAXXZ', 0x534FC0, 'agisw:swddraw', ['f']),
+    MapSymbol('?ddStartScene@@YAXXZ', 0x534FD0, 'agisw:swddraw', ['f']),
+    MapSymbol('?ddEndScene@@YAXXZ', 0x535030, 'agisw:swddraw', ['f']),
+    MapSymbol('?ddEndFrame@@YAXXZ', 0x535070, 'agisw:swddraw', ['f']),
+    MapSymbol('?zmemset@@YAXPAGI@Z', 0x5342F0, 'agisw:swpipe', ['f']),
+    MapSymbol('?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z', 0x55AAE0, 'agi:surface', ['f']),
+    MapSymbol('?copyrow565_to_555@@YAXPAX0II@Z', 0x55B510, 'agi:surface', ['f']),
+    MapSymbol('?copyrow565_to_5551@@YAXPAX0II@Z', 0x55B560, 'agi:surface', ['f']),
+    MapSymbol('?copyrow565_to_888@@YAXPAX0II@Z', 0x55B5C0, 'agi:surface', ['f']),
+    MapSymbol('?copyrow565_to_888rev@@YAXPAX0II@Z', 0x55B640, 'agi:surface', ['f']),
+    MapSymbol('?copyrow4444_to_8888@@YAXPAX0II@Z', 0x55B6C0, 'agi:surface', ['f']),
+    MapSymbol('?copyrow4444_to_8888rev@@YAXPAX0II@Z', 0x55B750, 'agi:surface', ['f']),
+    MapSymbol('?copyrow4444_to_555@@YAXPAX0II@Z', 0x55B7E0, 'agi:surface', ['f']),
+    MapSymbol('?copyrow4444_to_565@@YAXPAX0II@Z', 0x55B860, 'agi:surface', ['f']),
+    MapSymbol('?copyrow4444_to_5551@@YAXPAX0II@Z', 0x55B8E0, 'agi:surface', ['f']),
+    MapSymbol('?InitBuiltin@@YAXXZ', 0x557FE0, 'agi:print', ['f']),
+    MapSymbol('?LibOutOfDate@@YAHPAD0@Z', 0x556AD0, 'agi:getdlp', ['f']),
+    MapSymbol('?cmpProblem@@YAHPBX0@Z', 0x561050, 'stream:problems', ['f']),
+    MapSymbol('?SubString@@YAPADHPAD@Z', 0x55FAF0, 'stream:fsystem', ['f']),
+    MapSymbol('?NumSubStrings@@YAHPAD@Z', 0x55FB70, 'stream:fsystem', ['f']),
+    MapSymbol('?Contains@@YAHPAD0@Z', 0x55FBA0, 'stream:fsystem', ['f']),
+    MapSymbol('?ExpandEnvs@@YAXPAD@Z', 0x55FC20, 'stream:fsystem', ['f']),
+    MapSymbol('?DIError@@YAPADH@Z', 0x564050, 'eventq7:geinputLib', ['f']),
+    MapSymbol('?NeedDX6@@YAXXZ', 0x575710, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?EnumCounter@@YGHPAU_GUID@@PAD1PAX@Z', 0x575740, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?MyDirectDrawEnumerate@@YAXP6GHPAU_GUID@@PAD1PAX@Z2@Z', 0x575760, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?EnumerateRenderers2@@YAXXZ', 0x5757D0, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?CheckSoftwareRenderer@@YAHPAUIDirectDraw4@@PAU_GUID@@@Z', 0x575920, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?LockScreen@@YAJPAUIDirectDraw4@@@Z', 0x575A10, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?UnlockScreen@@YAXXZ', 0x575AD0, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z', 0x575AF0, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z', 0x575F40, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z', 0x576000, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z', 0x576470, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?NotLameChipset@@YAHKK@Z', 0x5764A0, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?GetSpecialFlags@@YAIKK@Z', 0x5764B0, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z', 0x576580, 'pcwindis:dxsetup', ['f']),
+    MapSymbol('?strtoguid@@YAXPAU_GUID@@PAD@Z', 0x574DF0, 'pcwindis:setupdata', ['f']),
+    MapSymbol('?guidtostr@@YAXPADPAU_GUID@@@Z', 0x575090, 'pcwindis:setupdata', ['f']),
+    MapSymbol('?translate565@@YAXPAEPAGI@Z', 0x5748D0, 'pcwindis:dxinit', ['f']),
+    MapSymbol('?translate555@@YAXPAEPAGI@Z', 0x574940, 'pcwindis:dxinit', ['f']),
+    MapSymbol('?rdtsc@@YAIXZ', 0x57CF40, 'data7:speed', ['f']),
+    MapSymbol('?cpuid@@YAHXZ', 0x57C400, 'data7:mmx', ['f']),
+    MapSymbol('?getMem@@YAHXZ', 0x578B80, 'data7:memstat', ['f']),
+    MapSymbol('?compareExchange@@YIHPAIH@Z', 0x578AB0, 'data7:ipc', ['f']),
 ]:
     sym.process(view.arch)
     sym.static = True
@@ -1192,27 +1192,39 @@ all_symbols.sort(key = lambda x: x.address)
 #     print(sym)
 # assert False
 
-# with open('../code/loader/import_stubs.asm', 'w') as f:
-#     f.write('.386\n')
-#     f.write('.MODEL FLAT, C\n')
-#     f.write('\n')
+with open('../code/loader/import_stubs.asm', 'w') as f:
+    f.write('.386\n')
+    f.write('.MODEL FLAT\n')
+    f.write('\n')
 
-#     f.write('.CONST\n')
-#     f.write('\n')
+    # code_syms = '.CODE\n\n'
+    const_syms = '.CONST\n\n'
 
-#     for sym in all_symbols:
-#         name = sym.raw_name
-#         if name.startswith('??_G') or name.startswith('??_E'): # scalar/vector deleting destructor
-#             continue
-#         if name.startswith('_'): # malloc, free, etc.
-#             continue
-#         if name in '?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z': # Duplicate static symbol
-#             continue
-#         f.write('PUBLIC _imp_{}\n'.format(name))
-#         f.write('_imp_{} dd {:X}h\n'.format(name, sym.address))
+    for sym in all_symbols:
+        name = sym.raw_name
 
-#     f.write('\n')
-#     f.write('END\n')
+        if name.startswith('??_') and (name[3] != '7'):
+            continue
+        if name.startswith('_'): # malloc, free, etc.
+            continue
+        if name in '?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z': # Duplicate static symbol
+            continue
+
+        # if sym.type.type_class == TypeClass.FunctionTypeClass:
+        #     code_syms += '{} PROC PUBLIC\n'.format(name)
+        #     code_syms += 'jmp dword ptr [__imp_{}]\n'.format(name)
+        #     code_syms += '{} ENDP\n'.format(name)
+
+        const_syms += 'PUBLIC __imp_{}\n'.format(name)
+        const_syms += '__imp_{} dd {:X}h\n'.format(name, sym.address)
+
+    # f.write(code_syms)
+    # f.write('\n')
+
+    f.write(const_syms)
+    f.write('\n')
+
+    f.write('END\n')
 
 # assert False
 
