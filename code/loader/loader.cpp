@@ -241,8 +241,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
             AllocConsole();
             SetConsoleTitleA("Open1560");
 
-            std::FILE* f;
-
+            std::FILE* f = nullptr;
             freopen_s(&f, "CONOUT$", "w", stdout);
             freopen_s(&f, "CONOUT$", "w", stderr);
         }
