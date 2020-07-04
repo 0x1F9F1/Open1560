@@ -39,19 +39,24 @@ namespace mem
     namespace enums
     {
         enum prot_flags : std::uint32_t
-        {
+        { // clang-format off
             NONE = 0x0, // No Access
 
             R = 0x1, // Read
             W = 0x2, // Write
             X = 0x4, // Execute
+            C = 0x8, // Copy On Write
+
+            G = 0x10, // Guard
 
             INVALID = 0x80000000, // Invalid
 
-            RW = R | W,
-            RX = R | X,
-            RWX = R | W | X,
-        };
+            RW   = R | W,
+            RX   = R     | X,
+            RWX  = R | W | X,
+            RWC  = R | W     | C,
+            RWXC = R | W | X | C,
+        }; // clang-format on
 
         MEM_DEFINE_ENUM_FLAG_OPERATORS(prot_flags)
     } // namespace enums
@@ -74,16 +79,21 @@ namespace mem
 
         if (flags & prot_flags::X)
         {
-            if      (flags & prot_flags::W) { result = PAGE_EXECUTE_READWRITE; }
+            if      (flags & prot_flags::C) { result = PAGE_EXECUTE_WRITECOPY; }
+            else if (flags & prot_flags::W) { result = PAGE_EXECUTE_READWRITE; }
             else if (flags & prot_flags::R) { result = PAGE_EXECUTE_READ;      }
             else                            { result = PAGE_EXECUTE;           }
         }
         else
         {
-            if      (flags & prot_flags::W) { result = PAGE_READWRITE; }
+            if      (flags & prot_flags::C) { result = PAGE_EXECUTE_WRITECOPY; }
+            else if (flags & prot_flags::W) { result = PAGE_READWRITE; }
             else if (flags & prot_flags::R) { result = PAGE_READONLY;  }
             else                            { result = PAGE_NOACCESS;  }
         }
+
+        if (flags & prot_flags::G)
+            result |= PAGE_GUARD;
 
         return result;
 #elif defined(__unix__)
@@ -105,18 +115,39 @@ namespace mem
 #if defined(_WIN32)
         prot_flags result = prot_flags::NONE;
 
-        if (flags & PAGE_EXECUTE_READWRITE)
-            result = prot_flags::RWX;
-        else if (flags & PAGE_EXECUTE_READ)
-            result = prot_flags::RX;
-        else if (flags & PAGE_EXECUTE)
-            result = prot_flags::X;
-        else if (flags & PAGE_READWRITE)
-            result = prot_flags::RW;
-        else if (flags & PAGE_READONLY)
-            result = prot_flags::R;
-        else
-            result = prot_flags::NONE;
+        switch (flags & 0xFF)
+        {
+            case PAGE_EXECUTE:
+                result = prot_flags::X;
+                break;
+            case PAGE_EXECUTE_READ:
+                result = prot_flags::RX;
+                break;
+            case PAGE_EXECUTE_READWRITE:
+                result = prot_flags::RWX;
+                break;
+            case PAGE_EXECUTE_WRITECOPY:
+                result = prot_flags::RWXC;
+                break;
+            case PAGE_NOACCESS:
+                result = prot_flags::NONE;
+                break;
+            case PAGE_READONLY:
+                result = prot_flags::R;
+                break;
+            case PAGE_READWRITE:
+                result = prot_flags::RW;
+                break;
+            case PAGE_WRITECOPY:
+                result = prot_flags::RWC;
+                break;
+            default:
+                result = prot_flags::INVALID;
+                break;
+        }
+
+        if (flags & PAGE_GUARD)
+            result |= prot_flags::G;
 
         return result;
 #elif defined(__unix__)

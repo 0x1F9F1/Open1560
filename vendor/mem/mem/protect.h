@@ -180,14 +180,10 @@ namespace mem
 
         return success;
 #elif defined(__unix__)
-        prot_flags current_protect = old_flags ? protect_query(memory) : prot_flags::INVALID;
-
-        bool success = mprotect(memory, length, from_prot_flags(flags)) == 0;
-
         if (old_flags)
-            *old_flags = current_protect;
+            *old_flags = protect_query(memory);
 
-        return success;
+        return mprotect(memory, length, from_prot_flags(flags)) == 0;
 #endif
     }
 

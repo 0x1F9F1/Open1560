@@ -20,12 +20,11 @@
 
 #include "data7/printer.h"
 
-#include "core/minwin.h"
+#include <mem/protect.h>
 
 void write_protected(mem::pointer dest, mem::pointer src, size_t length)
 {
-    SIZE_T copied = 0;
-    WriteProcessMemory(GetCurrentProcess(), dest.as<void*>(), src.as<const void*>(), length, &copied);
+    mem::protect({dest, length}).copy(src);
 }
 
 const char* const HookTypeNames[static_cast<size_t>(hook_type::count)] = {

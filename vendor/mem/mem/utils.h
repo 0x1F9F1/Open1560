@@ -155,17 +155,18 @@ namespace mem
                 current = input.peek();
                 input.pop();
 
-                if      (current == '\'') { result = '\''; }
-                else if (current == '\"') { result = '\"'; }
-                else if (current == '\\') { result = '\\'; }
-                else if (current == '?')  { result = '\?'; }
-                else if (current == 'a')  { result = '\a'; }
-                else if (current == 'b')  { result = '\b'; }
-                else if (current == 'f')  { result = '\f'; }
-                else if (current == 'n')  { result = '\n'; }
-                else if (current == 'r')  { result = '\r'; }
-                else if (current == 't')  { result = '\t'; }
-                else if (current == 'v')  { result = '\v'; }
+                if      (current == '\'') { result = 0x27; }
+                else if (current == '\"') { result = 0x22; }
+                else if (current == '\\') { result = 0x5C; }
+                else if (current == '?')  { result = 0x3F; }
+                else if (current == 'a')  { result = 0x07; }
+                else if (current == 'b')  { result = 0x08; }
+                else if (current == 'e')  { result = 0x1B; }
+                else if (current == 'f')  { result = 0x0C; }
+                else if (current == 'n')  { result = 0x0A; }
+                else if (current == 'r')  { result = 0x0D; }
+                else if (current == 't')  { result = 0x09; }
+                else if (current == 'v')  { result = 0x0B; }
                 else if (current == 'x')
                 {
                     result = 0;
@@ -241,7 +242,7 @@ namespace mem
             }
 
             if (output_utf8)
-            { // clang-format off
+            {
                 if ((result > 0x10FFFF) || ((result >= 0xD800) && (result <= 0xDFFF)))
                 {
                     if (strict)
@@ -254,29 +255,39 @@ namespace mem
                     }
                 }
 
+                byte values[4];
+                byte* values_end = values;
+
                 if (result < 0x80)
                 {
-                    results.push_back(static_cast<byte>(result));
-                }
-                else if (result < 0x800)
-                {
-                    results.push_back(static_cast<byte>((result >> 6)   | 0xC0));
-                    results.push_back(static_cast<byte>((result & 0x3F) | 0x80));
-                }
-                else if (result < 0x10000)
-                {
-                    results.push_back(static_cast<byte>((result >> 12)         | 0xE0));
-                    results.push_back(static_cast<byte>(((result >> 6) & 0x3F) | 0x80));
-                    results.push_back(static_cast<byte>((result & 0x3F)        | 0x80));
+                    *values_end++ = static_cast<byte>(result);
                 }
                 else
                 {
-                    results.push_back(static_cast<byte>((result >> 18)          | 0xF0));
-                    results.push_back(static_cast<byte>(((result >> 12) & 0x3F) | 0x80));
-                    results.push_back(static_cast<byte>(((result >> 6) & 0x3F)  | 0x80));
-                    results.push_back(static_cast<byte>((result & 0x3F)         | 0x80));
+                    if (result < 0x800)
+                    {
+                        *values_end++ = static_cast<byte>((result >> 6) | 0xC0);
+                    }
+                    else
+                    {
+                        if (result < 0x10000)
+                        {
+                            *values_end++ = static_cast<byte>((result >> 12) | 0xE0);
+                        }
+                        else
+                        {
+                            *values_end++ = static_cast<byte>((result >> 18) | 0xF0);
+                            *values_end++ = static_cast<byte>(((result >> 12) & 0x3F) | 0x80);
+                        }
+
+                        *values_end++ = static_cast<byte>(((result >> 6) & 0x3F) | 0x80);
+                    }
+
+                    *values_end++ = static_cast<byte>((result & 0x3F) | 0x80);
                 }
-            } // clang-format on
+
+                results.insert(results.end(), values, values_end);
+            }
             else
             {
                 if (result > UCHAR_MAX)
