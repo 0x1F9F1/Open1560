@@ -42,27 +42,37 @@ class agiBitmap : public agiRefreshable
 
 public:
     // 0x55A3B0 | ??0agiBitmap@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiBitmap(class agiPipeline* arg1);
+    ARTS_EXPORT agiBitmap(class agiPipeline* pipe);
 
     // 0x55A630 | ?UpdateFlags@agiBitmap@@UAEXXZ
     ARTS_EXPORT virtual void UpdateFlags();
 
     // 0x55A6D0 | ?GetName@agiBitmap@@UAEPADXZ
-    ARTS_IMPORT char* GetName() override;
+    ARTS_EXPORT const char* GetName() override;
 
     // 0x55A3F0 | ?Init@agiBitmap@@QAEHPADMMH@Z
-    ARTS_IMPORT i32 Init(char* arg1, f32 arg2, f32 arg3, i32 arg4);
+    ARTS_EXPORT i32 Init(const char* name, f32 sx, f32 sy, i32 flags);
 
     // 0x55A600 | ?SetTransparency@agiBitmap@@QAEXH@Z
-    ARTS_IMPORT void SetTransparency(i32 arg1);
+    ARTS_EXPORT void SetTransparency(b32 transparent);
 
 protected:
     // 0x55A6F0 | ??_GagiBitmap@@MAEPAXI@Z
     // 0x55A6F0 | ??_EagiBitmap@@MAEPAXI@Z
     // 0x55A640 | ??1agiBitmap@@MAE@XZ
-    ARTS_IMPORT ~agiBitmap() override;
+    ARTS_EXPORT ~agiBitmap() override;
 
-    u8 gap18[0x24];
+    CString name_ {};
+    class agiSurfaceDesc* surface_ {nullptr};
+
+    // 0x1 | Transparent
+    u32 flags_ {0};
+    i32 width_ {0};
+    i32 height_ {0};
+    f32 width_scale_ {0.0f};
+    f32 height_scale_ {0.0f};
+    b32 is_3D_ {0};
+    u32 dword38 {1};
 };
 
 check_size(agiBitmap, 0x3C);

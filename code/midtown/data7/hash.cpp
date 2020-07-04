@@ -57,10 +57,10 @@ b32 HashTable::Change(const char* old_key, const char* new_key)
 
     void* value = Access(old_key);
 
-    b32 result = Delete((char*) old_key);
+    b32 result = Delete(const_cast<char*>(old_key));
 
     if (result)
-        result = Insert((char*) new_key, value);
+        result = Insert(const_cast<char*>(new_key), value);
 
     return result;
 }

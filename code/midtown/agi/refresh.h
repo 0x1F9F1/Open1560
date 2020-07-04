@@ -79,11 +79,16 @@ private:
     // 0x557B30 | ?ValidatePtr@agiRefreshable@@AAEXPAD@Z
     ARTS_EXPORT void ValidatePtr(const char* reason);
 
+protected:
     agiRefreshable* prev_ {nullptr};
     agiRefreshable* next_ {nullptr};
+
     agiPipeline* pipe_ {nullptr};
+
     u32 state_ {0};
     u32 ref_count_ {1};
+
+    friend class agiPipeline;
 };
 
 check_size(agiRefreshable, 0x18);

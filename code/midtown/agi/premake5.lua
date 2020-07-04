@@ -1,7 +1,7 @@
 arts_component "agi"
     files {
-        -- "bitmap.cpp",
-        -- "bitmap.h",
+        "bitmap.cpp",
+        "bitmap.h",
         -- "cmodel.cpp",
         -- "cmodel.h",
         -- "cmodel8.cpp",

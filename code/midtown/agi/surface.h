@@ -81,10 +81,12 @@ public:
     ARTS_EXPORT void Unload();
 
     // 0x55A720 | ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
-    ARTS_EXPORT static Owner<class agiSurfaceDesc*> Init(i32 width, i32 height, class agiSurfaceDesc& desc);
+    ARTS_EXPORT [[nodiscard]] static Owner<class agiSurfaceDesc*> Init(
+        i32 width, i32 height, class agiSurfaceDesc& desc);
 
     // 0x55A7A0 | ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
-    ARTS_IMPORT static class agiSurfaceDesc* Load(char* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);
+    ARTS_IMPORT [[nodiscard]] static Owner<class agiSurfaceDesc*> Load(
+        char* name, char* path, i32 index, i32 pack, i32 width, i32 height);
 
     u32 dwSize {0};
     u32 dwFlags {0};
@@ -98,7 +100,7 @@ public:
     union
     {
         // NOTE: 64-bit incompatible
-        struct agiTexLut* lpLut {0};
+        class agiTexLut* lpLut {0};
         char szLut[4];
     };
 

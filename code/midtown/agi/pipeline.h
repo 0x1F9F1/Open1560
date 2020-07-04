@@ -87,6 +87,8 @@
     0x8FACE0 | int DrawModeAnd | ?DrawModeAnd@@3HA
 */
 
+#include "surface.h"
+
 class agiPipeline
 {
     // const agiPipeline::`vftable' @ 0x621548
@@ -231,8 +233,16 @@ protected:
     ARTS_IMPORT agiPipeline();
 
 public:
-    u8 gap4[0x2DC];
-    b32 GfxStarted;
+    CString Name {};
+    i32 X {0};
+    i32 Y {0};
+    i32 Width {0};
+    i32 Height {0};
+    i32 BitDepth {0};
+    u8 gap1C[0x12C];
+    agiSurfaceDesc ScreenFormat {};
+    u8 gap1C4[0x11C];
+    b32 GfxStarted {false};
     u8 gap2E4[0xC];
 };
 

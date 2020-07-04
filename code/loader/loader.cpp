@@ -338,7 +338,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
 include_dummy_symbol(midtown);
 
-// include_dummy_symbol(agi_bitmap);
+include_dummy_symbol(agi_bitmap);
 // include_dummy_symbol(agi_cmodel);
 // include_dummy_symbol(agi_cmodel8);
 // include_dummy_symbol(agi_cmodelx);
