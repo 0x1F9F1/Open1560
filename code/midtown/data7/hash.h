@@ -97,6 +97,8 @@ private:
     i32 value_count_ {0};
     Ptr<HashEntry* []> buckets_ { nullptr };
     HashTable* next_table_ {nullptr};
+
+    friend struct HashIterator;
 };
 
 check_size(HashTable, 0x10);
@@ -105,10 +107,10 @@ struct HashIterator
 {
 public:
     // 0x578040 | ?Begin@HashIterator@@QAEXXZ
-    ARTS_IMPORT void Begin();
+    ARTS_EXPORT void Begin();
 
     // 0x578050 | ?Next@HashIterator@@QAEHXZ
-    ARTS_IMPORT i32 Next();
+    ARTS_EXPORT b32 Next();
 
     HashTable* Table {nullptr};
     i32 Index {0};

@@ -107,3 +107,36 @@ u32 HashTable::Hash(const char* key)
 
     return hash % u32(bucket_count_);
 }
+
+void HashIterator::Begin()
+{
+    Current = nullptr;
+    Index = -1;
+}
+
+b32 HashIterator::Next()
+{
+    if (!Table->buckets_)
+        return false;
+
+    if (Current)
+    {
+        Current = Current->Next;
+
+        if (Current)
+            return true;
+    }
+
+    while (true)
+    {
+        if (Index == Table->bucket_count_ - 1)
+            break;
+
+        Current = Table->buckets_[++Index];
+
+        if (Current)
+            return true;
+    }
+
+    return false;
+}

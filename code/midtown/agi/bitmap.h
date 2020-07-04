@@ -36,6 +36,8 @@
 
 #include "refresh.h"
 
+#define AGI_BITMAP_TRANSPARENT 0x1
+
 class agiBitmap : public agiRefreshable
 {
     // const agiBitmap::`vftable' @ 0x6216F0
@@ -54,7 +56,7 @@ public:
     ARTS_EXPORT i32 Init(const char* name, f32 sx, f32 sy, i32 flags);
 
     // 0x55A600 | ?SetTransparency@agiBitmap@@QAEXH@Z
-    ARTS_EXPORT void SetTransparency(b32 transparent);
+    ARTS_EXPORT void SetTransparency(b32 enabled);
 
 protected:
     // 0x55A6F0 | ??_GagiBitmap@@MAEPAXI@Z
@@ -65,7 +67,7 @@ protected:
     CString name_ {};
     class agiSurfaceDesc* surface_ {nullptr};
 
-    // 0x1 | Transparent
+    // 0x1 | AGI_BITMAP_TRANSPARENT
     u32 flags_ {0};
     i32 width_ {0};
     i32 height_ {0};

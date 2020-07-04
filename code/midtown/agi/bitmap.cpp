@@ -87,12 +87,12 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
     return SafeBeginGfx();
 }
 
-void agiBitmap::SetTransparency(b32 transparent)
+void agiBitmap::SetTransparency(b32 enabled)
 {
-    if (transparent)
-        flags_ |= 0x1;
+    if (enabled)
+        flags_ |= AGI_BITMAP_TRANSPARENT;
     else
-        flags_ &= ~0x1;
+        flags_ &= ~AGI_BITMAP_TRANSPARENT;
 
     UpdateFlags();
 }
