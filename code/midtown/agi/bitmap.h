@@ -37,6 +37,7 @@
 #include "refresh.h"
 
 #define AGI_BITMAP_TRANSPARENT 0x1
+#define AGI_BITMAP_OFFSCREEN 0x2
 
 class agiBitmap : public agiRefreshable
 {
@@ -68,6 +69,7 @@ protected:
     class agiSurfaceDesc* surface_ {nullptr};
 
     // 0x1 | AGI_BITMAP_TRANSPARENT
+    // 0x2 | AGI_BITMAP_OFFSCREEN
     u32 flags_ {0};
     i32 width_ {0};
     i32 height_ {0};
