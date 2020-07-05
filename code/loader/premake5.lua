@@ -19,7 +19,11 @@ project "Open1560"
         "loader.rc",
     }
 
-    links { "arts_midtown", "DbgHelp", "Winmm", "Open1560_stubs" }
+    links { "arts_midtown", "DbgHelp", "Winmm" }
+
+    linkoptions {
+        "/DEFAULTLIB:\"" .. path.join(os.getcwd(), "Open1560_stubs.lib") .. "\""
+    }
 
     if MM1_GAME_DIRECTORY ~= nil then
         local game_files = path.join(ROOT_DIR, "game")
@@ -37,15 +41,3 @@ project "Open1560"
             debugargs (MM1_COMMAND_LINE)
         end
     end
-
-project "Open1560_stubs"
-    kind "StaticLib"
-    language "C"
-
-    filter "files:**.asm"
-        exceptionhandling "SEH"
-    filter {}
-
-    files {
-        "import_stubs.asm",
-    }

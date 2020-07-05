@@ -1192,41 +1192,59 @@ all_symbols.sort(key = lambda x: x.address)
 #     print(sym)
 # assert False
 
-with open('../code/loader/import_stubs.asm', 'w') as f:
-    f.write('.386\n')
-    f.write('.MODEL FLAT\n')
-    f.write('\n')
+# for sym in all_symbols:
+#     name = sym.raw_name
 
-    # code_syms = '.CODE\n\n'
-    const_syms = '.CONST\n\n'
+#     if name.startswith('??_'):
+#         continue
+#     if name.startswith('_'): # malloc, free, etc.
+#         continue
+#     if name in '?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z': # Duplicate static symbol
+#         continue
 
-    for sym in all_symbols:
-        name = sym.raw_name
+#     with open('../code/loader/stubs/stub_{:X}.asm'.format(sym.address), 'w') as f:
+#         f.write('.386\n')
+#         f.write('.MODEL FLAT\n')
 
-        if name.startswith('??_') and (name[3] != '7'):
-            continue
-        if name.startswith('_'): # malloc, free, etc.
-            continue
-        if name in '?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z': # Duplicate static symbol
-            continue
+#         f.write('.CONST\n')
+#         f.write('PUBLIC __imp_{}\n'.format(name))
+#         f.write('__imp_{} dd {:X}h\n'.format(name, sym.address))
 
-        # if sym.type.type_class == TypeClass.FunctionTypeClass:
-        #     code_syms += '{} PROC PUBLIC\n'.format(name)
-        #     code_syms += 'jmp dword ptr [__imp_{}]\n'.format(name)
-        #     code_syms += '{} ENDP\n'.format(name)
+#         if sym.type.type_class == TypeClass.FunctionTypeClass:
+#             f.write('.CODE\n')
+#             f.write('{} PROC PUBLIC\n'.format(name))
+#             f.write('jmp dword ptr [__imp_{}]\n'.format(name))
+#             f.write('{} ENDP\n'.format(name))
 
-        const_syms += 'PUBLIC __imp_{}\n'.format(name)
-        const_syms += '__imp_{} dd {:X}h\n'.format(name, sym.address)
+#         f.write('END')
 
-    # f.write(code_syms)
-    # f.write('\n')
+# with open('../code/loader/Open1560_stubs.asm', 'w') as f:
+#     f.write('.386\n')
+#     f.write('.MODEL FLAT\n')
 
-    f.write(const_syms)
-    f.write('\n')
+#     for sym in all_symbols:
+#         name = sym.raw_name
 
-    f.write('END\n')
+#         if name.startswith('??_'):
+#             continue
+#         if name.startswith('_'): # malloc, free, etc.
+#             continue
+#         if name in '?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z': # Duplicate static symbol
+#             continue
 
-# assert False
+#         f.write('.CONST\n')
+#         f.write('PUBLIC __imp_{}\n'.format(name))
+#         f.write('__imp_{} dd {:X}h\n'.format(name, sym.address))
+
+#         if sym.type.type_class == TypeClass.FunctionTypeClass:
+#             f.write('_TEXT${:X} SEGMENT \'CODE\'\n'.format(sym.address))
+#             f.write('{} PROC PUBLIC\n'.format(name))
+#             f.write('jmp dword ptr [__imp_{}]\n'.format(name))
+#             f.write('{} ENDP\n'.format(name))
+
+#     f.write('END')
+
+assert False
 
 # for symbol in all_symbols:
 #     if symbol.address is None:
