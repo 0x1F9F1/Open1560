@@ -345,7 +345,7 @@ include_dummy_symbol(agi_bitmap);
 // include_dummy_symbol(agi_dlp);
 // include_dummy_symbol(agi_dlptmpl);
 // include_dummy_symbol(agi_dyndlp);
-// include_dummy_symbol(agi_error);
+include_dummy_symbol(agi_error);
 // include_dummy_symbol(agi_getdlp);
 // include_dummy_symbol(agi_light);
 // include_dummy_symbol(agi_lmodel);

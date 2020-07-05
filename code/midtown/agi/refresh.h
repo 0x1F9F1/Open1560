@@ -60,10 +60,6 @@ protected:
     ARTS_EXPORT virtual ~agiRefreshable();
 
 public:
-    //  0 | Success
-    // -1 | Missing Surface
-    // -2 | Not Loaded
-    // -3 | Already Begun
     virtual i32 BeginGfx() = 0;
 
     // 0x557AE0 | ?AddRef@agiRefreshable@@QAEXXZ

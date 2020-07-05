@@ -89,6 +89,8 @@
 
 #include "surface.h"
 
+class agiRefreshable;
+
 class agiPipeline
 {
     // const agiPipeline::`vftable' @ 0x621548
@@ -208,19 +210,19 @@ public:
     ARTS_IMPORT class agiTexDef* GetTexture(i32 arg1, i32 arg2);
 
     // 0x555550 | ?Init@agiPipeline@@QAEHPADHHHHHHPAX@Z | unused
-    ARTS_IMPORT i32 Init(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, void* arg8);
+    ARTS_EXPORT i32 Init(const char* name, i32 x, i32 y, i32 width, i32 height, i32 bit_depth, i32 flags, void* window);
 
     // 0x555E70 | ?NotifyDelete@agiPipeline@@QAEXPAVagiRefreshable@@@Z
-    ARTS_IMPORT void NotifyDelete(class agiRefreshable* arg1);
+    ARTS_EXPORT void NotifyDelete(class agiRefreshable* ptr);
 
     // 0x555E40 | ?NotifyNew@agiPipeline@@QAEXPAVagiRefreshable@@@Z
-    ARTS_IMPORT void NotifyNew(class agiRefreshable* arg1);
+    ARTS_EXPORT void NotifyNew(class agiRefreshable* ptr);
 
     // 0x555CD0 | ?RestoreAll@agiPipeline@@QAEXXZ
-    ARTS_IMPORT void RestoreAll();
+    ARTS_EXPORT void RestoreAll();
 
     // 0x555EB0 | ?ValidateObject@agiPipeline@@QAEXPAVagiRefreshable@@@Z | unused
-    ARTS_IMPORT void ValidateObject(class agiRefreshable* arg1);
+    ARTS_EXPORT void ValidateObject(class agiRefreshable* ptr);
 
     // 0x8FACB4 | ?CurrentPipe@agiPipeline@@2PAV1@A
     ARTS_IMPORT static class agiPipeline* CurrentPipe;
@@ -239,9 +241,16 @@ public:
     i32 Width {0};
     i32 Height {0};
     i32 BitDepth {0};
-    u8 gap1C[0x12C];
+    i32 DeviceFlags {0};
+    i32 DeviceFlags2 {0};
+    i32 DeviceFlags3 {0};
+    void* Window {nullptr};
+    i32 HorzRes {0};
+    i32 VertRes {0};
+    u8 gap34[0x114];
     agiSurfaceDesc ScreenFormat {};
-    u8 gap1C4[0x11C];
+    u8 gap1C4[0x118];
+    agiRefreshable* Objects {nullptr};
     b32 GfxStarted {false};
     u8 gap2E4[0xC];
 };
@@ -249,13 +258,13 @@ public:
 check_size(agiPipeline, 0x2F0);
 
 // 0x555F80 | ?CreatePipelineAttachableWindow@@YAPAXPADHHHHPAX@Z
-ARTS_IMPORT void* CreatePipelineAttachableWindow(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, void* arg6);
+ARTS_EXPORT void* CreatePipelineAttachableWindow(char* title, i32 x, i32 y, i32 width, i32 height, void* ptr);
 
 // 0x555F90 | ?DestroyPipelineAttachableWindow@@YAXXZ
 ARTS_EXPORT void DestroyPipelineAttachableWindow();
 
 // 0x555F70 | ?GetRootWindow@@YAPAXXZ
-ARTS_IMPORT void* GetRootWindow();
+ARTS_EXPORT void* GetRootWindow();
 
 // 0x8FACE0 | ?DrawModeAnd@@3HA
 ARTS_IMPORT extern i32 DrawModeAnd;

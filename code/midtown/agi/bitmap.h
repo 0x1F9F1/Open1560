@@ -39,6 +39,8 @@
 #define AGI_BITMAP_TRANSPARENT 0x1
 #define AGI_BITMAP_OFFSCREEN 0x2
 
+class agiSurfaceDesc;
+
 class agiBitmap : public agiRefreshable
 {
     // const agiBitmap::`vftable' @ 0x6216F0
@@ -66,7 +68,7 @@ protected:
     ARTS_EXPORT ~agiBitmap() override;
 
     CString name_ {};
-    class agiSurfaceDesc* surface_ {nullptr};
+    agiSurfaceDesc* surface_ {nullptr};
 
     // 0x1 | AGI_BITMAP_TRANSPARENT
     // 0x2 | AGI_BITMAP_OFFSCREEN

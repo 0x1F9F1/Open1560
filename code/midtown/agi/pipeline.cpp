@@ -20,6 +20,12 @@ define_dummy_symbol(agi_pipeline);
 
 #include "pipeline.h"
 
+#include "core/minwin.h"
+#include "data7/hash.h"
+#include "error.h"
+#include "pcwindis/dxinit.h"
+#include "refresh.h"
+
 i32 agiPipeline::Validate()
 {
     return 0;
@@ -77,5 +83,75 @@ void agiPipeline::UnlockFrameBuffer()
 void agiPipeline::DumpStatus(struct agiMemStatus& /*arg1*/)
 {}
 
+void* CreatePipelineAttachableWindow(
+    char* /*title*/, i32 /*x*/, i32 /*y*/, i32 /*width*/, i32 /*height*/, void* /*ptr*/)
+{
+    return hwndMain;
+}
+
 void DestroyPipelineAttachableWindow()
 {}
+
+void* GetRootWindow()
+{
+    return GetDesktopWindow();
+}
+
+i32 agiPipeline::Init(const char* name, i32 x, i32 y, i32 width, i32 height, i32 bit_depth, i32 flags, void* window)
+{
+    EndAllGfx();
+
+    Name = name;
+    X = x;
+    Y = y;
+    Width = width;
+    Height = height;
+    BitDepth = bit_depth;
+    DeviceFlags = flags;
+    Window = window;
+
+    return BeginAllGfx();
+}
+
+void agiPipeline::NotifyDelete(agiRefreshable* ptr)
+{
+    if (ptr == Objects)
+        Objects = ptr->next_;
+    else
+        ptr->prev_->next_ = ptr->next_;
+
+    if (ptr->next_)
+        ptr->next_->prev_ = ptr->prev_;
+}
+
+void agiPipeline::NotifyNew(agiRefreshable* ptr)
+{
+    ptr->next_ = Objects;
+
+    if (ptr->next_)
+        ptr->next_->prev_ = ptr;
+
+    Objects = ptr;
+}
+
+void agiPipeline::RestoreAll()
+{
+    agiDisplayf("Restoring lost objects");
+
+    for (agiRefreshable* i = Objects; i; i = i->next_)
+        i->Restore();
+
+    agiDisplayf("Done restoring lost objects");
+}
+
+void agiPipeline::ValidateObject(agiRefreshable* ptr)
+{
+    if (this != ptr->pipe_)
+        Quitf("PIPE::ValidateObject: I don't own this.");
+
+    for (agiRefreshable* i = Objects; i != ptr; i = i->next_)
+    {
+        if (i == nullptr)
+            Quitf("PIPE::ValidateObject: Not in my list.");
+    }
+}

@@ -26,11 +26,17 @@
     0x907230 | int agiVerbose | ?agiVerbose@@3HA
 */
 
+#define AGI_ERROR_SUCCESS 0
+#define AGI_ERROR_FILE_NOT_FOUND -1
+#define AGI_ERROR_OBJECT_EMPTY -2
+#define AGI_ERROR_ALREADY_INITIALIZED -3
+#define AGI_ERROR_BAD_FORMAT -4
+
 // 0x55BE80 | ?agiDisplayf@@YAXPBDZZ
-ARTS_IMPORT void agiDisplayf(char const* arg1, ...);
+ARTS_EXPORT void agiDisplayf(char const* format, ...);
 
 // 0x55BE20 | ?agiGetError@@YAPADH@Z
-ARTS_IMPORT char* agiGetError(i32 arg1);
+ARTS_EXPORT const char* agiGetError(i32 error);
 
 // 0x907230 | ?agiVerbose@@3HA
 ARTS_IMPORT extern i32 agiVerbose;

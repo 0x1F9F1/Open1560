@@ -19,3 +19,29 @@
 define_dummy_symbol(agi_error);
 
 #include "error.h"
+
+void agiDisplayf(char const* format, ...)
+{
+    if (agiVerbose)
+    {
+        std::va_list va;
+        va_start(va, format);
+        Printer(0, format, va);
+        va_end(va);
+    }
+}
+
+const char* agiGetError(i32 error)
+{
+    switch (error)
+    {
+        case AGI_ERROR_SUCCESS: return "No error";
+
+        case AGI_ERROR_FILE_NOT_FOUND: return "File not found";
+        case AGI_ERROR_OBJECT_EMPTY: return "Object is empty";
+        case AGI_ERROR_ALREADY_INITIALIZED: return "Object is already realized";
+        case AGI_ERROR_BAD_FORMAT: return "File has bad or unknown format";
+
+        default: return "Unknown error";
+    }
+}
