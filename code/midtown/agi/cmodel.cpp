@@ -19,3 +19,29 @@
 define_dummy_symbol(agi_cmodel);
 
 #include "cmodel.h"
+
+#include "rgba.h"
+#include "vector7/vector3.h"
+#include "vector7/vector4.h"
+
+u32 agiColorModel::FindColor(i32 r, i32 g, i32 b, i32 a)
+{
+    return FindColor(agiRgba {static_cast<u8>(r), static_cast<u8>(g), static_cast<u8>(b), static_cast<u8>(a)});
+}
+
+u32 agiColorModel::GetColor(Vector3 const& color)
+{
+    return GetColor(agiRgba {
+        static_cast<u8>(color.x * 255.0f), static_cast<u8>(color.y * 255.0f), static_cast<u8>(color.z * 255.0f), 0xFF});
+}
+
+u32 agiColorModel::GetColor(Vector4 const& color)
+{
+    return GetColor(agiRgba {static_cast<u8>(color.x * 255.0f), static_cast<u8>(color.y * 255.0f),
+        static_cast<u8>(color.z * 255.0f), static_cast<u8>(color.w * 255.0f)});
+}
+
+u32 agiColorModel::GetColor(i32 r, i32 g, i32 b, i32 a)
+{
+    return GetColor(agiRgba {static_cast<u8>(r), static_cast<u8>(g), static_cast<u8>(b), static_cast<u8>(a)});
+}

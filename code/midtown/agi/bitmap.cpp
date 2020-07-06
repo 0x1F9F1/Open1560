@@ -49,8 +49,8 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
     if (name && *name != '*')
     {
         // NOTE: Orignial used agiPipeline::CurrentPipe for Width and Height
-        surface_ = agiSurfaceDesc::Load(const_cast<char*>(name), BitmapSearchPath, 0, 0, (sx == 1.0f) ? pipe_->Width : 0,
-            (sy == 1.0f) ? pipe_->Height : 0);
+        surface_ = agiSurfaceDesc::Load(const_cast<char*>(name), BitmapSearchPath, 0, 0,
+            (sx == 1.0f) ? pipe_->Width : 0, (sy == 1.0f) ? pipe_->Height : 0);
 
         if (surface_ == nullptr)
             return -1;

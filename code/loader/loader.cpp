@@ -339,7 +339,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 include_dummy_symbol(midtown);
 
 include_dummy_symbol(agi_bitmap);
-// include_dummy_symbol(agi_cmodel);
+include_dummy_symbol(agi_cmodel);
 // include_dummy_symbol(agi_cmodel8);
 // include_dummy_symbol(agi_cmodelx);
 // include_dummy_symbol(agi_dlp);
@@ -355,7 +355,7 @@ include_dummy_symbol(agi_error);
 // include_dummy_symbol(agi_physdef);
 // include_dummy_symbol(agi_physlib);
 include_dummy_symbol(agi_pipeline);
-// include_dummy_symbol(agi_print);
+include_dummy_symbol(agi_print);
 include_dummy_symbol(agi_refresh);
 // include_dummy_symbol(agi_render);
 // include_dummy_symbol(agi_rsys);
@@ -799,4 +799,4 @@ include_dummy_symbol(stream_vstream);
 // include_dummy_symbol(vector7_trigmath);
 // include_dummy_symbol(vector7_vector2);
 include_dummy_symbol(vector7_vector3);
-// include_dummy_symbol(vector7_vector4);
+include_dummy_symbol(vector7_vector4);

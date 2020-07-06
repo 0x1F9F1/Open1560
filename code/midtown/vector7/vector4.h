@@ -76,11 +76,15 @@ public:
     // 0x570D50 | ?Set@Vector4@@QAEXMMMM@Z | inline
     ARTS_IMPORT void Set(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    u8 gap0[0x10];
+    f32 x {0.0f};
+    f32 y {0.0f};
+    f32 z {0.0f};
+    f32 w {0.0f};
 };
 
 check_size(Vector4, 0x10);
 
+#if 0
 class Vector4Array
 {
 public:
@@ -133,3 +137,4 @@ check_size(Vector4Type, 0x4);
 
 // 0x9094EC | ?Vector4Inst@@3UVector4Type@@A
 ARTS_IMPORT extern struct Vector4Type Vector4Inst;
+#endif

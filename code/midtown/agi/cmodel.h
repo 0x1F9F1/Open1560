@@ -37,9 +37,9 @@ public:
     // 0x55BB70 | ??1agiColorModel@@MAE@XZ
     virtual ~agiColorModel() = default;
 
-    virtual u32 GetColor(struct agiRgba arg1) = 0;
+    virtual u32 GetColor(struct agiRgba color) = 0;
 
-    virtual u32 FindColor(struct agiRgba arg1) = 0;
+    virtual u32 FindColor(struct agiRgba color) = 0;
 
     virtual u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) = 0;
 
@@ -48,16 +48,16 @@ public:
     virtual u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) = 0;
 
     // 0x55BBB0 | ?FindColor@agiColorModel@@QAEIHHHH@Z | unused
-    ARTS_IMPORT u32 FindColor(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_EXPORT u32 FindColor(i32 r, i32 g, i32 b, i32 a);
 
     // 0x55BBE0 | ?GetColor@agiColorModel@@QAEIABVVector3@@@Z
-    ARTS_IMPORT u32 GetColor(class Vector3 const& arg1);
+    ARTS_EXPORT u32 GetColor(class Vector3 const& color);
 
     // 0x55BC40 | ?GetColor@agiColorModel@@QAEIABVVector4@@@Z | unused
-    ARTS_IMPORT u32 GetColor(class Vector4 const& arg1);
+    ARTS_EXPORT u32 GetColor(class Vector4 const& color);
 
     // 0x55BB80 | ?GetColor@agiColorModel@@QAEIHHHH@Z
-    ARTS_IMPORT u32 GetColor(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_EXPORT u32 GetColor(i32 r, i32 g, i32 b, i32 a);
 
     // 0x55D810 | ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z | agi:cmodelx
     ARTS_IMPORT static class agiColorModel* FindMatch(class agiSurfaceDesc* arg1);
@@ -65,7 +65,16 @@ public:
     // 0x55D760 | ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z | agi:cmodelx
     ARTS_IMPORT static class agiColorModel* FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
 
-    u8 gap4[0x28];
+    u32 ByteCount {0};
+    u32 BitCountR {0};
+    u32 BitCountG {0};
+    u32 BitCountB {0};
+    u32 BitCountA {0};
+    u32 ShiftR {0};
+    u32 ShiftG {0};
+    u32 ShiftB {0};
+    u32 ShiftA {0};
+    u32 RefCount {0};
 };
 
 check_size(agiColorModel, 0x2C);

@@ -22,6 +22,6 @@ arts_component "vector7"
         -- "vector2.h",
         "vector3.cpp",
         "vector3.h",
-        -- "vector4.cpp",
-        -- "vector4.h",
+        "vector4.cpp",
+        "vector4.h",
     }

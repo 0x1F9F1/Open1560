@@ -2,8 +2,8 @@ arts_component "agi"
     files {
         "bitmap.cpp",
         "bitmap.h",
-        -- "cmodel.cpp",
-        -- "cmodel.h",
+        "cmodel.cpp",
+        "cmodel.h",
         -- "cmodel8.cpp",
         -- "cmodel8.h",
         -- "cmodelx.cpp",
@@ -34,8 +34,8 @@ arts_component "agi"
         -- "physlib.h",
         "pipeline.cpp",
         "pipeline.h",
-        -- "print.cpp",
-        -- "print.h",
+        "print.cpp",
+        "print.h",
         "refresh.cpp",
         "refresh.h",
         -- "render.cpp",
@@ -52,4 +52,6 @@ arts_component "agi"
         -- "texlib.h",
         -- "viewport.cpp",
         -- "viewport.h",
+
+        "rgba.h",
     }
