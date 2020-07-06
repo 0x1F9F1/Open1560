@@ -56,6 +56,6 @@ void agiPrintf(i32 x, i32 y, i32 color, char const* format, ...)
         arts_vsprintf(buffer, format, va);
         va_end(va);
 
-        agiPrintf(x, y, color, va);
+        agiPrint(x, y, color, buffer);
     }
 }
