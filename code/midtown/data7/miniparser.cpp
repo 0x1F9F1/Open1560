@@ -128,7 +128,7 @@ i32 MiniParser::NextToken()
 
     while (true)
     {
-        while (v == '\t' || v == '\n' || v == '\r' || v == ' ')
+        while (IsSpace(v))
             v = GetCh();
 
         if (v == EndToken)
@@ -201,11 +201,11 @@ i32 MiniParser::NextToken()
     {
         token = FloatToken;
     }
-    else if (v == '-' || (v >= '0' && v <= '9'))
+    else if (v == '-' || IsDigit(v))
     {
         token = IntegerToken;
     }
-    else if ((v >= 'A' && v <= 'Z') || (v >= 'a' && v <= 'z') || (v == '_'))
+    else if (v == '_' || IsLetter(v))
     {
         token = IdentToken;
     }
@@ -219,12 +219,14 @@ i32 MiniParser::NextToken()
         return v;
     }
 
-    i32 len = 0;
+    usize len = 0;
 
-    for (; v != '\t' && v != ' ' && v != '\n' && v != '\r' && v != ';'; v = GetCh())
+    while (v != ';' && !IsSpace(v))
     {
-        if (len < 255)
+        if (len + 1 < std::size(buffer_))
             buffer_[len++] = static_cast<char>(v);
+
+        v = GetCh();
     }
 
     buffer_[len] = '\0';

@@ -92,7 +92,7 @@ void ArgSet::ParseArgs(i32 argc, const char** argv)
             break;
         }
 
-        if (arg[1] >= '0' && arg[1] <= '9')
+        if (IsDigit(arg[1]))
         {
             Errorf("ARGSET::ParseArgs()- can't have digit %c as flag (arg %d)", arg[1], index);
             break;
@@ -122,7 +122,7 @@ void ArgSet::ParseArgs(i32 argc, const char** argv)
         {
             arg = argv[index];
 
-            if (arg[0] == '-' && (arg[1] < '0' || arg[1] > '9'))
+            if (arg[0] == '-' && !IsDigit(arg[1]))
                 break;
 
             // NOTE: Overwrites previous values if argument occurs more than once

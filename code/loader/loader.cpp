@@ -784,7 +784,7 @@ include_dummy_symbol(stream_hfsystem);
 // include_dummy_symbol(stream_problems);
 include_dummy_symbol(stream_sparser);
 include_dummy_symbol(stream_stream);
-// include_dummy_symbol(stream_token);
+include_dummy_symbol(stream_token);
 include_dummy_symbol(stream_vfsystem);
 include_dummy_symbol(stream_vstream);
 

@@ -252,3 +252,18 @@ private:
     usize capacity_ {0};
     usize written_ {0};
 };
+
+inline bool IsSpace(i32 value)
+{
+    return (value == '\t' || value == '\n' || value == '\r' || value == ' ');
+}
+
+inline bool IsDigit(i32 value)
+{
+    return (value >= '0' && value <= '9');
+}
+
+inline bool IsLetter(i32 value)
+{
+    return (value >= 'A' && value <= 'Z') || (value >= 'a' && value <= 'z');
+}

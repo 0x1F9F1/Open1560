@@ -441,7 +441,7 @@ i32 arts_fscanf(class Stream* stream, char const* format, ...)
     do
     {
         ch = stream->GetCh();
-    } while (ch == ' ' || ch == '\t' || ch == '\n');
+    } while (IsSpace(ch));
 
     stream->UnGetCh(ch);
 

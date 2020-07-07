@@ -33,24 +33,28 @@ class Tokenizer
 {
 public:
     // 0x5615D0 | ??0Tokenizer@@QAE@PBDPAVStream@@@Z
-    ARTS_IMPORT Tokenizer(char const* arg1, class Stream* arg2);
+    ARTS_EXPORT Tokenizer(char const* name, class Stream* input);
 
     // 0x561770 | ?GetFloat@Tokenizer@@QAEMXZ
-    ARTS_IMPORT f32 GetFloat();
+    ARTS_EXPORT f32 GetFloat();
 
     // 0x561710 | ?GetInt@Tokenizer@@QAEHXZ
-    ARTS_IMPORT i32 GetInt();
+    ARTS_EXPORT i32 GetInt();
 
     // 0x561600 | ?GetToken@Tokenizer@@QAEHPADH@Z
-    ARTS_IMPORT i32 GetToken(char* arg1, i32 arg2);
+    ARTS_EXPORT i32 GetToken(char* buffer, i32 buffer_len);
 
     // 0x5617D0 | ?IgnoreToken@Tokenizer@@QAEXXZ
-    ARTS_IMPORT void IgnoreToken();
+    ARTS_EXPORT void IgnoreToken();
 
     // 0x561690 | ?MatchToken@Tokenizer@@QAEXPAD@Z
-    ARTS_IMPORT void MatchToken(char* arg1);
+    ARTS_EXPORT void MatchToken(const char* value);
 
-    u8 gap0[0x10];
+private:
+    const char* name_ {nullptr};
+    i32 current_line_ {1};
+    Stream* input_ {nullptr};
+    i32 current_char_ {' '};
 };
 
 check_size(Tokenizer, 0x10);
