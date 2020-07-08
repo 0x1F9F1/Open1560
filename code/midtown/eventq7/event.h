@@ -54,18 +54,20 @@
 
 #include "replay.h"
 
+class eqEventMonitor;
+
 class eqEventHandler
 {
     // const eqEventHandler::`vftable' @ 0x621AA8
 
 public:
     // 0x562EB0 | ??0eqEventHandler@@QAE@XZ
-    ARTS_IMPORT eqEventHandler();
+    ARTS_EXPORT eqEventHandler();
 
     // 0x563980 | ??_GeqEventHandler@@UAEPAXI@Z
     // 0x563980 | ??_EeqEventHandler@@UAEPAXI@Z
     // 0x562F00 | ??1eqEventHandler@@UAE@XZ
-    ARTS_IMPORT virtual ~eqEventHandler();
+    ARTS_EXPORT virtual ~eqEventHandler();
 
     virtual i32 BeginGfx(i32 arg1, i32 arg2, i32 arg3) = 0;
 
@@ -80,18 +82,38 @@ public:
     virtual char* GKeyName(i32 arg1) = 0;
 
     // 0x563200 | ?AddClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
-    ARTS_IMPORT void AddClient(class eqEventMonitor* arg1);
+    ARTS_EXPORT void AddClient(class eqEventMonitor* monitor);
 
     // 0x563260 | ?RemoveClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
-    ARTS_IMPORT void RemoveClient(class eqEventMonitor* arg1);
+    ARTS_EXPORT void RemoveClient(class eqEventMonitor* monitor);
 
     // 0x562F30 | ?EKeyName@eqEventHandler@@SAPADH@Z | unused
-    ARTS_IMPORT static char* EKeyName(i32 arg1);
+    ARTS_EXPORT static const char* EKeyName(i32 key_code);
 
     // 0x909290 | ?SuperQ@eqEventHandler@@2PAV1@A
     ARTS_IMPORT static class eqEventHandler* SuperQ;
 
-    u8 gap4[0x160];
+private:
+    friend class eqEventMonitor;
+
+    b32 debug_ {false};
+    u32 tracked_events_ {0};
+    i32 dwordC {-1};
+    eqEventMonitor* monitors_[8] {};
+    u32 wants_motion_ {1};
+    u32 mouse_x_ {0};
+    u32 mouse_y_ {0};
+    u32 flags_ {0};
+    u32 cursor_x_ {0};
+    u32 cursor_y_ {0};
+    u32 dword48 {0};
+    u8 key_states_[256] {};
+    f32 center_x_ {0.0f};
+    f32 center_y_ {0.0f};
+    f32 scale_x_ {0.0f};
+    f32 scale_y_ {0.0f};
+    i32 mouse_delta_x_ {0};
+    i32 mouse_delta_y_ {0};
 };
 
 check_size(eqEventHandler, 0x164);
@@ -102,35 +124,41 @@ class eqEventMonitor
 
 public:
     // 0x5632A0 | ??0eqEventMonitor@@QAE@H@Z
-    ARTS_IMPORT eqEventMonitor(i32 arg1);
+    ARTS_EXPORT eqEventMonitor(i32 arg1);
 
     // 0x5639B0 | ??_EeqEventMonitor@@UAEPAXI@Z
     // 0x5639B0 | ??_GeqEventMonitor@@UAEPAXI@Z
     // 0x5632C0 | ??1eqEventMonitor@@UAE@XZ
-    ARTS_IMPORT virtual ~eqEventMonitor();
+    ARTS_EXPORT virtual ~eqEventMonitor();
 
     // 0x5632E0 | ?Redraw@eqEventMonitor@@UAEXPAXHHHH@Z
-    ARTS_IMPORT virtual void Redraw(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_EXPORT virtual void Redraw(void* window, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     // 0x563320 | ?Refocus@eqEventMonitor@@UAEXPAXH@Z
-    ARTS_IMPORT virtual void Refocus(void* arg1, i32 arg2);
+    ARTS_EXPORT virtual void Refocus(void* window, i32 focused);
 
     // 0x563360 | ?Mouse@eqEventMonitor@@UAEXPAXHHHHHHH@Z
-    ARTS_IMPORT virtual void Mouse(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
+    ARTS_EXPORT virtual void Mouse(void* window, i32 pressed, i32 arg3, i32 buttons, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
 
     // 0x5633E0 | ?Keyboard@eqEventMonitor@@UAEXPAXHHHH@Z
-    ARTS_IMPORT virtual void Keyboard(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_EXPORT virtual void Keyboard(void* window, i32 modifier, i32 virtual_key, i32 ascii_key, i32 arg5);
 
     // 0x563470 | ?Destroy@eqEventMonitor@@UAEXPAX@Z
-    ARTS_IMPORT virtual void Destroy(void* arg1);
+    ARTS_EXPORT virtual void Destroy(void* window);
 
     // 0x5634A0 | ?Activate@eqEventMonitor@@UAEXPAXH@Z
-    ARTS_IMPORT virtual void Activate(void* arg1, i32 arg2);
+    ARTS_EXPORT virtual void Activate(void* window, i32 active);
 
     // 0x5634E0 | ?SetWantMotion@eqEventMonitor@@QAEXH@Z | unused
-    ARTS_IMPORT void SetWantMotion(i32 arg1);
+    ARTS_EXPORT void SetWantMotion(i32 enabled);
 
-    u8 gap4[0x10];
+private:
+    friend class eqEventHandler;
+
+    eqEventHandler* handler_ {nullptr};
+    u32 dword8 {0};
+    i32 handler_index_ {0};
+    u32 dword10 {0};
 };
 
 check_size(eqEventMonitor, 0x14);

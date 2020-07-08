@@ -72,7 +72,8 @@ private:
     // 0x909438 | ?First@eqReplayChannel@@0PAV1@A
     ARTS_IMPORT static class eqReplayChannel* First;
 
-    u8 gap4[0x8];
+    u32 magic_ {0};
+    eqReplayChannel* next_ {nullptr};
 };
 
 check_size(eqReplayChannel, 0xC);

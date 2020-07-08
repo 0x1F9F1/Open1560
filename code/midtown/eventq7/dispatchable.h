@@ -27,7 +27,7 @@ class Dispatchable
     // const Dispatchable::`vftable' @ 0x621A9C
 
 public:
-    virtual i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) = 0;
+    virtual long WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, long arg4) = 0;
 };
 
 check_size(Dispatchable, 0x4);
