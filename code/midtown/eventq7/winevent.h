@@ -49,7 +49,7 @@
 
 class WINEventHandler /*final*/
     : public eqEventHandler
-    , public Dispatchable /* Warning: Unordered Multiple Inheritance */
+    , public Dispatchable
 {
     // const WINEventHandler::`vftable'{for `Dispatchable'} @ 0x621A78
     // const WINEventHandler::`vftable'{for `eqEventHandler'} @ 0x621A80
