@@ -46,7 +46,7 @@ class eqReplayChannel
 
 public:
     // 0x564650 | ??1eqReplayChannel@@QAE@XZ
-    ARTS_IMPORT ~eqReplayChannel();
+    ARTS_EXPORT ~eqReplayChannel();
 
     // 0x564680 | ?InitRecord@eqReplayChannel@@UAEXXZ
     ARTS_EXPORT virtual void InitRecord();
@@ -66,7 +66,7 @@ public:
 
 protected:
     // 0x564620 | ??0eqReplayChannel@@IAE@K@Z
-    ARTS_IMPORT eqReplayChannel(u32 arg1);
+    ARTS_EXPORT eqReplayChannel(u32 magic);
 
 private:
     // 0x909438 | ?First@eqReplayChannel@@0PAV1@A

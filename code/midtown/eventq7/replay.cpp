@@ -20,6 +20,18 @@ define_dummy_symbol(eventq7_replay);
 
 #include "replay.h"
 
+eqReplayChannel::~eqReplayChannel()
+{
+    if (this == First)
+    {
+        First = next_;
+    }
+    else
+    {
+        Errorf("eqReplayChannel destructed, not top of stack!");
+    }
+}
+
 void eqReplayChannel::InitRecord()
 {}
 
@@ -31,3 +43,10 @@ void eqReplayChannel::ShutdownRecord()
 
 void eqReplayChannel::ShutdownPlayback()
 {}
+
+eqReplayChannel::eqReplayChannel(u32 magic)
+    : magic_(magic)
+    , next_(First)
+{
+    First = this;
+}
