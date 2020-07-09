@@ -44,7 +44,7 @@ void eqReplayChannel::ShutdownRecord()
 void eqReplayChannel::ShutdownPlayback()
 {}
 
-eqReplayChannel::eqReplayChannel(u32 magic)
+eqReplayChannel::eqReplayChannel(unsigned long magic)
     : magic_(magic)
     , next_(First)
 {

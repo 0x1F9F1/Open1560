@@ -38,45 +38,123 @@
 
 #include "event.h"
 
+enum class eqEventType : u32
+{
+    Redraw = 0x0,
+    Refocus = 0x1,
+    Mouse = 0x2,
+    Keyboard = 0x3,
+    Destroy = 0x5,
+    Activate = 0x6,
+};
+
+#define EQ_EVENT_MASK(EVENT) (1 << static_cast<u32>(EVENT))
+
+struct eqCommonEvent
+{
+    void* Window;
+    eqEventType Type;
+};
+
+struct eqRedrawEvent : eqCommonEvent
+{
+    i32 dword8;
+    i32 dwordC;
+    i32 dword10;
+    i32 dword14;
+};
+
+struct eqRefocusEvent : eqCommonEvent
+{
+    i32 Focused;
+};
+
+struct eqKeyboardEvent : eqCommonEvent
+{
+    i32 Modifiers;
+    i32 VirtualKey;
+    i32 AsciiChar;
+    i32 State;
+};
+
+struct eqMouseEvent : eqCommonEvent
+{
+    i32 NewButtons;
+    i32 ChangedButtons;
+    i32 Buttons;
+    i32 MouseX;
+    i32 MouseY;
+    i32 ScreenX;
+    i32 ScreenY;
+};
+
+struct eqDestroyEvent : eqCommonEvent
+{};
+
+struct eqActivateEvent : eqCommonEvent
+{
+    b32 Active;
+};
+
+union eqEvent
+{
+    eqCommonEvent Common;
+
+    eqRedrawEvent Redraw;
+    eqRefocusEvent Refocus;
+    eqMouseEvent Mouse;
+    eqKeyboardEvent Keyboard;
+    eqDestroyEvent Destroy;
+    eqActivateEvent Activate;
+};
+
+check_size(eqEvent, 0x24);
+
 class eqEventQ /*final*/ : public eqEventMonitor
 {
     // const eqEventQ::`vftable' @ 0x621B00
 
 public:
     // 0x5639F0 | ??0eqEventQ@@QAE@HHH@Z
-    ARTS_IMPORT eqEventQ(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_EXPORT eqEventQ(i32 arg1, i32 enabled_events, i32 max_events);
 
     // 0x563DB0 | ??_GeqEventQ@@UAEPAXI@Z
     // 0x563DB0 | ??_EeqEventQ@@UAEPAXI@Z
     // 0x563A80 | ??1eqEventQ@@UAE@XZ
-    ARTS_IMPORT ~eqEventQ() override;
+    ARTS_EXPORT ~eqEventQ() override;
 
     // 0x563CC0 | ?Activate@eqEventQ@@UAEXPAXH@Z
-    ARTS_IMPORT void Activate(void* arg1, i32 arg2) override;
+    ARTS_EXPORT void Activate(void* window, i32 active) override;
 
     // 0x563C80 | ?Destroy@eqEventQ@@UAEXPAX@Z
-    ARTS_IMPORT void Destroy(void* arg1) override;
+    ARTS_EXPORT void Destroy(void* window) override;
 
     // 0x563C20 | ?Keyboard@eqEventQ@@UAEXPAXHHHH@Z
-    ARTS_IMPORT void Keyboard(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
+    ARTS_EXPORT void Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 ascii_key, i32 state) override;
 
     // 0x563B90 | ?Mouse@eqEventQ@@UAEXPAXHHHHHHH@Z
-    ARTS_IMPORT void Mouse(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8) override;
+    ARTS_EXPORT void Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 buttons, i32 mouse_x, i32 mouse_y,
+        i32 window_x, i32 window_y) override;
 
     // 0x563D40 | ?Pop@eqEventQ@@QAEHPATeqEvent@@@Z
-    ARTS_IMPORT i32 Pop(union eqEvent* arg1);
+    ARTS_EXPORT b32 Pop(union eqEvent* event);
 
     // 0x563AF0 | ?Redraw@eqEventQ@@UAEXPAXHHHH@Z
-    ARTS_IMPORT void Redraw(void* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
+    ARTS_EXPORT void Redraw(void* window, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
 
     // 0x563B50 | ?Refocus@eqEventQ@@UAEXPAXH@Z
-    ARTS_IMPORT void Refocus(void* arg1, i32 arg2) override;
+    ARTS_EXPORT void Refocus(void* window, i32 focused) override;
 
 private:
     // 0x563D00 | ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
-    ARTS_IMPORT void Queue(union eqEvent& arg1);
+    ARTS_EXPORT void Queue(union eqEvent& event);
 
-    u8 gap14[0x18];
+    eqEvent* events_ {nullptr};
+    u32 enabled_events_ {0};
+    u32 max_events_ {0};
+    u32 write_head_ {0};
+    u32 read_head_ {0};
+    b32 registered_ {0};
 };
 
 check_size(eqEventQ, 0x2C);

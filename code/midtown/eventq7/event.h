@@ -138,10 +138,11 @@ public:
     ARTS_EXPORT virtual void Refocus(void* window, i32 focused);
 
     // 0x563360 | ?Mouse@eqEventMonitor@@UAEXPAXHHHHHHH@Z
-    ARTS_EXPORT virtual void Mouse(void* window, i32 pressed, i32 arg3, i32 buttons, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
+    ARTS_EXPORT virtual void Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 buttons, i32 mouse_x,
+        i32 mouse_y, i32 window_x, i32 window_y);
 
     // 0x5633E0 | ?Keyboard@eqEventMonitor@@UAEXPAXHHHH@Z
-    ARTS_EXPORT virtual void Keyboard(void* window, i32 modifier, i32 virtual_key, i32 ascii_key, i32 arg5);
+    ARTS_EXPORT virtual void Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 ascii_key, i32 state);
 
     // 0x563470 | ?Destroy@eqEventMonitor@@UAEXPAX@Z
     ARTS_EXPORT virtual void Destroy(void* window);

@@ -66,13 +66,13 @@ public:
 
 protected:
     // 0x564620 | ??0eqReplayChannel@@IAE@K@Z
-    ARTS_EXPORT eqReplayChannel(u32 magic);
+    ARTS_EXPORT eqReplayChannel(unsigned long magic);
 
 private:
     // 0x909438 | ?First@eqReplayChannel@@0PAV1@A
     ARTS_IMPORT static class eqReplayChannel* First;
 
-    u32 magic_ {0};
+    unsigned long magic_ {0};
     eqReplayChannel* next_ {nullptr};
 };
 

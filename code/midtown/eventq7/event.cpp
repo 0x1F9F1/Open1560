@@ -170,24 +170,25 @@ void eqEventMonitor::Refocus(void* window, i32 focused)
     }
 }
 
-void eqEventMonitor::Mouse(void* window, i32 pressed, i32 arg3, i32 buttons, i32 arg5, i32 arg6, i32 arg7, i32 arg8)
+void eqEventMonitor::Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 buttons, i32 mouse_x, i32 mouse_y,
+    i32 window_x, i32 window_y)
 {
     if (handler_->debug_)
     {
-        Displayf("Mouse(%x %s %d %s %s %s,%d,%d %d %d)", window, pressed ? "PRESSED" : "RELEASED/MOTION", arg3,
-            (buttons & EQ_BUTTON_LEFT) ? "LEFT" : "", (buttons & EQ_BUTTON_MIDDLE) ? "MIDDLE" : "",
-            (buttons & EQ_BUTTON_RIGHT) ? "RIGHT" : "", arg5, arg6, arg7, arg8);
+        Displayf("Mouse(%x %s %d %s %s %s,%d,%d %d %d)", window, new_buttons ? "PRESSED" : "RELEASED/MOTION",
+            changed_buttons, (buttons & EQ_BUTTON_LEFT) ? "LEFT" : "", (buttons & EQ_BUTTON_MIDDLE) ? "MIDDLE" : "",
+            (buttons & EQ_BUTTON_RIGHT) ? "RIGHT" : "", mouse_x, mouse_y, window_x, window_y);
     }
 }
 
-void eqEventMonitor::Keyboard(void* window, i32 modifier, i32 virtual_key, i32 ascii_key, i32)
+void eqEventMonitor::Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 ascii_key, i32 /*state*/)
 {
     if (handler_->debug_)
     {
         Displayf("Key win=%x key=0x%x(%s) ascii=%d(0x%x) state=%x(%s %s %s %s)", window, virtual_key,
-            handler_->GKeyName(virtual_key), ascii_key, ascii_key, modifier, (modifier & EQ_KMOD_DOWN) ? "DOWN" : "UP",
-            (modifier & EQ_KMOD_SHIFT) ? "SHIFT" : "", (modifier & EQ_KMOD_SHIFT) ? "SHIFT" : "",
-            (modifier & EQ_KMOD_CTRL) ? "CTRL" : "");
+            handler_->GKeyName(virtual_key), ascii_key, ascii_key, modifiers,
+            (modifiers & EQ_KMOD_DOWN) ? "DOWN" : "UP", (modifiers & EQ_KMOD_SHIFT) ? "SHIFT" : "",
+            (modifiers & EQ_KMOD_ALT) ? "ALT" : "", (modifiers & EQ_KMOD_CTRL) ? "CTRL" : "");
     }
 }
 
