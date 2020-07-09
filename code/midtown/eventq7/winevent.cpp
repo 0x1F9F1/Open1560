@@ -19,3 +19,34 @@
 define_dummy_symbol(eventq7_winevent);
 
 #include "winevent.h"
+
+#include "pcwindis/pcwindis.h"
+
+void DeallocateEventQueue()
+{
+    delete eqEventHandler::SuperQ;
+
+    eqEventHandler::SuperQ = nullptr;
+}
+
+void InitEventQueue()
+{
+    if (eqEventHandler::SuperQ == nullptr)
+    {
+        eqEventHandler::SuperQ = new WINEventHandler();
+    }
+}
+
+static u32 WinEventHandlerMsgs[18] = {WM_MOUSEMOVE, WM_LBUTTONDOWN, WM_RBUTTONDOWN, WM_MBUTTONDOWN, WM_LBUTTONUP,
+    WM_RBUTTONUP, WM_MBUTTONUP, WM_KILLFOCUS, WM_SETFOCUS, WM_KEYDOWN, WM_KEYUP, WM_CHAR, WM_ACTIVATE, WM_SIZE,
+    WM_CLOSE, WM_SYSCOMMAND, WM_SETCURSOR, WM_MOUSEWHEEL};
+
+WINEventHandler::WINEventHandler()
+{
+    RegisterMap("EventQ", WinEventHandlerMsgs, std::size(WinEventHandlerMsgs), this);
+}
+
+WINEventHandler::~WINEventHandler()
+{
+    UnregisterMap("EventQ");
+}

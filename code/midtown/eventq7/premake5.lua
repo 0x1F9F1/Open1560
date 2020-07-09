@@ -10,8 +10,8 @@ arts_component "eventq7"
         -- "geinputLib.h",
         "replay.cpp",
         "replay.h",
-        -- "winevent.cpp",
-        -- "winevent.h",
+        "winevent.cpp",
+        "winevent.h",
 
         "key_codes.h",
     }

@@ -56,12 +56,12 @@ class WINEventHandler /*final*/
 
 public:
     // 0x561D90 | ??0WINEventHandler@@QAE@XZ
-    ARTS_IMPORT WINEventHandler();
+    ARTS_EXPORT WINEventHandler();
 
     // 0x562E80 | ??_EWINEventHandler@@UAEPAXI@Z
     // 0x562E80 | ??_GWINEventHandler@@UAEPAXI@Z
     // 0x561EC0 | ??1WINEventHandler@@UAE@XZ
-    ARTS_IMPORT ~WINEventHandler() override;
+    ARTS_EXPORT ~WINEventHandler() override;
 
     // 0x562660 | ?AdjustMouse@WINEventHandler@@QAEXAAH0@Z
     ARTS_IMPORT void AdjustMouse(i32& arg1, i32& arg2);
@@ -86,16 +86,18 @@ public:
 
 private:
     // 0x562720 | ?WindowProc@WINEventHandler@@EAEJPAUHWND__@@IIJ@Z
-    ARTS_IMPORT i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
+    ARTS_IMPORT long WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, long arg4) override;
+
+    u32 input_method_ {0};
 };
 
 check_size(WINEventHandler, 0x16C);
 
 // 0x562E60 | ?DeallocateEventQueue@@YAXXZ
-ARTS_IMPORT void DeallocateEventQueue();
+ARTS_EXPORT void DeallocateEventQueue();
 
 // 0x562DF0 | ?InitEventQueue@@YAXXZ
-ARTS_IMPORT void InitEventQueue();
+ARTS_EXPORT void InitEventQueue();
 
 // 0x657820 | ?ActiveFlag@@3HA
 ARTS_IMPORT extern i32 ActiveFlag;

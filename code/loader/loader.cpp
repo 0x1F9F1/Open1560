@@ -455,7 +455,7 @@ include_dummy_symbol(eventq7_event);
 include_dummy_symbol(eventq7_eventq);
 // include_dummy_symbol(eventq7_geinputLib);
 include_dummy_symbol(eventq7_replay);
-// include_dummy_symbol(eventq7_winevent);
+include_dummy_symbol(eventq7_winevent);
 
 // include_dummy_symbol(localize_localize);
 
