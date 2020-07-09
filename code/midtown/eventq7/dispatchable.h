@@ -22,12 +22,14 @@
     eventq7:dispatchable
 */
 
+#include "core/minwin.h"
+
 class Dispatchable
 {
     // const Dispatchable::`vftable' @ 0x621A9C
 
 public:
-    virtual long WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, long arg4) = 0;
+    virtual LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) = 0;
 };
 
 check_size(Dispatchable, 0x4);

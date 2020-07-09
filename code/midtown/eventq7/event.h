@@ -93,7 +93,7 @@ public:
     // 0x909290 | ?SuperQ@eqEventHandler@@2PAV1@A
     ARTS_IMPORT static class eqEventHandler* SuperQ;
 
-private:
+protected:
     friend class eqEventMonitor;
 
     b32 debug_ {false};
@@ -101,12 +101,12 @@ private:
     i32 dwordC {-1};
     eqEventMonitor* monitors_[8] {};
     u32 wants_motion_ {1};
-    u32 mouse_x_ {0};
-    u32 mouse_y_ {0};
-    u32 flags_ {0};
-    u32 cursor_x_ {0};
-    u32 cursor_y_ {0};
-    u32 dword48 {0};
+    i32 mouse_x_ {0};
+    i32 mouse_y_ {0};
+    u32 buttons_ {0};
+    i32 cursor_x_ {0};
+    i32 cursor_y_ {0};
+    u32 prev_buttons_ {0};
     u8 key_states_[256] {};
     f32 center_x_ {0.0f};
     f32 center_y_ {0.0f};
@@ -153,7 +153,7 @@ public:
     // 0x5634E0 | ?SetWantMotion@eqEventMonitor@@QAEXH@Z | unused
     ARTS_EXPORT void SetWantMotion(i32 enabled);
 
-private:
+    // private:
     friend class eqEventHandler;
 
     eqEventHandler* handler_ {nullptr};

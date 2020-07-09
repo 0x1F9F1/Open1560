@@ -64,7 +64,7 @@ public:
     ARTS_EXPORT ~WINEventHandler() override;
 
     // 0x562660 | ?AdjustMouse@WINEventHandler@@QAEXAAH0@Z
-    ARTS_IMPORT void AdjustMouse(i32& arg1, i32& arg2);
+    ARTS_IMPORT void AdjustMouse(i32& mouse_x, i32& mouse_y);
 
     // 0x561F20 | ?BeginGfx@WINEventHandler@@UAEHHHH@Z
     ARTS_IMPORT i32 BeginGfx(i32 arg1, i32 arg2, i32 arg3) override;
@@ -86,7 +86,7 @@ public:
 
 private:
     // 0x562720 | ?WindowProc@WINEventHandler@@EAEJPAUHWND__@@IIJ@Z
-    ARTS_IMPORT long WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, long arg4) override;
+    ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
     u32 input_method_ {0};
 };
@@ -100,6 +100,7 @@ ARTS_EXPORT void DeallocateEventQueue();
 ARTS_EXPORT void InitEventQueue();
 
 // 0x657820 | ?ActiveFlag@@3HA
+// 0x1 | Focused/Active
 ARTS_IMPORT extern i32 ActiveFlag;
 
 // 0x908C34 | ?CloseCallback@@3P6AXXZA
