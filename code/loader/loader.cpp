@@ -236,6 +236,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
             std::exit(1);
         }
 
+        SetProcessDEPPolicy(PROCESS_DEP_ENABLE);
+
         if (GetConsoleWindow() == NULL)
         {
             AllocConsole();
