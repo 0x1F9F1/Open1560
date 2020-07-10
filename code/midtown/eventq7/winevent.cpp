@@ -24,6 +24,7 @@ define_dummy_symbol(eventq7_winevent);
 #include "key_codes.h"
 #include "pcwindis/pcwindis.h"
 #include "replay.h"
+#include "mmaudio/manager.h"
 
 #include <windowsx.h>
 
@@ -117,10 +118,6 @@ void WINEventHandler::EndGfx()
 static i32 MouseScrollWheelPosition = 0;
 static u32 CurrentKeyModifiers = 0;
 static u32 OldPriorityClass = 0;
-
-// TODO: Include mmautio/manager.h
-ARTS_IMPORT void RestoreApplication();
-ARTS_IMPORT void DeactivateApplication();
 
 void WINEventHandler::EndTracking()
 {
