@@ -50,7 +50,7 @@ ARTS_IMPORT char* geinputGetKeyboard();
 
 // 0x564320 | ?geinputGetMouse@@YAXPAJ0PAD10001@Z
 ARTS_IMPORT void geinputGetMouse(
-    i32* arg1, i32* arg2, char* arg3, char* arg4, i32* arg5, i32* arg6, i32* arg7, char* arg8);
+    long* arg1, long* arg2, char* arg3, char* arg4, long* arg5, long* arg6, long* arg7, char* arg8);
 
 // 0x564210 | ?geinputUnacquireMouse@@YAXXZ | unused
 ARTS_IMPORT void geinputUnacquireMouse();

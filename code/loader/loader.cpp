@@ -453,7 +453,7 @@ include_dummy_symbol(data7_timer);
 include_dummy_symbol(eventq7_dispatchable);
 include_dummy_symbol(eventq7_event);
 include_dummy_symbol(eventq7_eventq);
-// include_dummy_symbol(eventq7_geinputLib);
+include_dummy_symbol(eventq7_geinputLib);
 include_dummy_symbol(eventq7_replay);
 include_dummy_symbol(eventq7_winevent);
 

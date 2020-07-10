@@ -79,7 +79,7 @@ public:
 
     virtual void EndTracking() = 0;
 
-    virtual char* GKeyName(i32 arg1) = 0;
+    virtual const char* GKeyName(i32 arg1) = 0;
 
     // 0x563200 | ?AddClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
     ARTS_EXPORT void AddClient(class eqEventMonitor* monitor);
@@ -187,7 +187,20 @@ public:
     // 0x563880 | ?QueueMouse@eqEventReplayChannelClass@@QAEXHHHHHHH@Z
     ARTS_IMPORT void QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
 
-    u8 gapC[0x62C];
+    u32 MouseX {0};
+    u32 MouseY {0};
+    u32 Flags {0};
+    u8 KeyStates[256] {};
+    u32 MouseDeltaX {0};
+    u32 MouseDeltaY {0};
+    u32 Events[256] {};
+    i32 EventCount {0};
+    u32 dword524 {0};
+    u32 dword528 {0};
+    u32 dword52C {0};
+    u8 PrevKeyStates[256] {};
+    u32 dword630 {0};
+    u32 dword634 {0};
 };
 
 check_size(eqEventReplayChannelClass, 0x638);

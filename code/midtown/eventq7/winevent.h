@@ -64,30 +64,33 @@ public:
     ARTS_EXPORT ~WINEventHandler() override;
 
     // 0x562660 | ?AdjustMouse@WINEventHandler@@QAEXAAH0@Z
-    ARTS_IMPORT void AdjustMouse(i32& mouse_x, i32& mouse_y);
+    ARTS_EXPORT void AdjustMouse(i32& mouse_x, i32& mouse_y);
 
     // 0x561F20 | ?BeginGfx@WINEventHandler@@UAEHHHH@Z
-    ARTS_IMPORT i32 BeginGfx(i32 arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT i32 BeginGfx(i32 arg1, i32 arg2, i32 arg3) override;
 
     // 0x562610 | ?BeginTracking@WINEventHandler@@UAEXXZ
-    ARTS_IMPORT void BeginTracking() override;
+    ARTS_EXPORT void BeginTracking() override;
 
     // 0x561FC0 | ?EndGfx@WINEventHandler@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     // 0x562640 | ?EndTracking@WINEventHandler@@UAEXXZ
-    ARTS_IMPORT void EndTracking() override;
+    ARTS_EXPORT void EndTracking() override;
 
     // 0x561FE0 | ?GKeyName@WINEventHandler@@UAEPADH@Z
-    ARTS_IMPORT char* GKeyName(i32 arg1) override;
+    ARTS_EXPORT const char* GKeyName(i32 arg1) override;
 
     // 0x562350 | ?Update@WINEventHandler@@UAEXH@Z
-    ARTS_IMPORT void Update(i32 arg1) override;
+    ARTS_EXPORT void Update(i32 arg1) override;
 
 private:
     // 0x562720 | ?WindowProc@WINEventHandler@@EAEJPAUHWND__@@IIJ@Z
     ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
+    // 0 = GetKeyboardState
+    // 1 = geinputGetKeyboard
+    // 3 = geinputGetMouse
     u32 input_method_ {0};
 };
 
