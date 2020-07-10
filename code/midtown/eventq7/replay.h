@@ -64,6 +64,11 @@ public:
     // 0x5646B0 | ?ShutdownPlayback@eqReplayChannel@@UAEXXZ
     ARTS_EXPORT virtual void ShutdownPlayback();
 
+    u32 GetMagic() const
+    {
+        return magic_;
+    }
+
 protected:
     // 0x564620 | ??0eqReplayChannel@@IAE@K@Z
     ARTS_EXPORT eqReplayChannel(unsigned long magic);
@@ -72,7 +77,7 @@ private:
     // 0x909438 | ?First@eqReplayChannel@@0PAV1@A
     ARTS_IMPORT static class eqReplayChannel* First;
 
-    unsigned long magic_ {0};
+    u32 magic_ {0};
     eqReplayChannel* next_ {nullptr};
 };
 

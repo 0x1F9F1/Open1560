@@ -21,6 +21,7 @@ define_dummy_symbol(eventq7_event);
 #include "event.h"
 
 #include "key_codes.h"
+#include "stream/stream.h"
 
 static mem::cmd_param PARAM_event_dbg {"eventdbg"};
 
@@ -222,5 +223,169 @@ void eqEventMonitor::SetWantMotion(i32 enabled)
             handler_->wants_motion_ |= flag;
         else
             handler_->wants_motion_ &= ~flag;
+    }
+}
+
+eqEventReplayChannelClass::eqEventReplayChannelClass()
+    : eqReplayChannel('EQ01')
+{}
+
+void eqEventReplayChannelClass::DoPlayback(Stream* file)
+{
+    // UNTESTED
+
+    [[maybe_unused]] u32 size = file->GetLong();
+
+    u32 flags = file->GetLong();
+
+    if (flags & 0x1)
+    {
+        EventCount = file->GetLong();
+
+        if (static_cast<u32>(EventCount) > std::size(Events))
+            Quitf("Corrupt replay");
+
+        file->Get(Events, EventCount);
+    }
+
+    if (flags & 0x2)
+    {
+        u8 states[0x20];
+
+        file->Get(states, std::size(states));
+
+        for (i32 i = 0; i < 256; ++i)
+            KeyStates[i] = (states[i >> 3] & (0x80 >> (i & 7))) != 0;
+    }
+
+    if (flags & 0x4)
+    {
+        MouseX = file->GetLong();
+        MouseY = file->GetLong();
+        MouseDeltaX = file->GetLong();
+        MouseDeltaY = file->GetLong();
+        Flags = file->GetLong();
+    }
+}
+
+void eqEventReplayChannelClass::DoRecord(Stream* file)
+{
+    // UNTESTED
+
+    u32 flags = 0;
+
+    if (EventCount != 0)
+        flags |= 0x1;
+
+    if (std::memcmp(KeyStates, PrevKeyStates, sizeof(KeyStates)) != 0)
+        flags |= 0x2;
+
+    if ((MouseX != PrevMouseX) || (MouseY != PrevMouseY) || (MouseDeltaX != PrevMouseDeltaX) ||
+        (MouseDeltaY != PrevMouseDeltaY) || (Flags != PrevFlags))
+        flags |= 0x4;
+
+    if (flags == 0)
+        return;
+
+    file->Put(GetMagic());
+
+    // NOTE: Original code adds an extra 4
+    u32 size = 0;
+
+    if (flags & 0x1)
+        size += sizeof(u32) + sizeof(u32) * EventCount;
+
+    if (flags & 0x2)
+        size += sizeof(u8[0x20]);
+
+    if (flags & 0x4)
+        size += sizeof(u32) * 5;
+
+    file->Put(size);
+
+    if (flags & 0x1)
+    {
+        file->Put(static_cast<u32>(EventCount));
+        file->Put(Events, EventCount);
+        EventCount = 0;
+    }
+
+    if (flags & 0x2)
+    {
+        u8 states[0x20] {};
+
+        for (i32 i = 0; i < 256; ++i)
+        {
+            if (KeyStates[i])
+            {
+                states[i >> 3] |= 0x80 >> (i & 7);
+            }
+        }
+
+        file->Put(states, std::size(states));
+
+        std::memcpy(PrevKeyStates, KeyStates, sizeof(PrevKeyStates));
+    }
+
+    if (flags & 0x4)
+    {
+        file->Put(MouseX);
+        file->Put(MouseY);
+        file->Put(MouseDeltaX);
+        file->Put(MouseDeltaY);
+        file->Put(Flags);
+
+        PrevMouseX = MouseX;
+        PrevMouseY = MouseY;
+        PrevMouseDeltaX = MouseDeltaX;
+        PrevMouseDeltaY = MouseDeltaY;
+        PrevFlags = Flags;
+    }
+}
+
+void eqEventReplayChannelClass::QueueKeyboard(i32 arg1, i32 arg2, i32 arg3, i32 /*arg4*/)
+{
+    // UNTESTED
+
+    u32 count = EventCount;
+
+    if (count + 4 > std::size(Events))
+    {
+        Errorf("eqEventReplay: Too many events in frame");
+    }
+    else
+    {
+        Events[count] = 'KEYB';
+        Events[count + 1] = arg1;
+        Events[count + 2] = arg2;
+        Events[count + 3] = arg3;
+        // Events[count + 4] = arg4;
+
+        EventCount += 4;
+    }
+}
+
+void eqEventReplayChannelClass::QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7)
+{
+    // UNTESTED
+
+    u32 count = EventCount;
+
+    if (count + 8 > std::size(Events))
+    {
+        Errorf("eqEventReplay: Too many events in frame");
+    }
+    else
+    {
+        Events[count] = 'MOUS';
+        Events[count + 1] = arg1;
+        Events[count + 2] = arg2;
+        Events[count + 3] = arg3;
+        Events[count + 4] = arg4;
+        Events[count + 5] = arg5;
+        Events[count + 6] = arg6;
+        Events[count + 7] = arg7;
+
+        EventCount += 8;
     }
 }

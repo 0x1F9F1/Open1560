@@ -170,22 +170,22 @@ class eqEventReplayChannelClass /*final*/ : public eqReplayChannel
 
 public:
     // 0x563560 | ??0eqEventReplayChannelClass@@QAE@XZ
-    ARTS_IMPORT eqEventReplayChannelClass();
+    ARTS_EXPORT eqEventReplayChannelClass();
 
     // 0x5639E0 | ??1eqEventReplayChannelClass@@QAE@XZ | inline
-    ARTS_IMPORT ~eqEventReplayChannelClass() = default;
+    ARTS_EXPORT ~eqEventReplayChannelClass() = default;
 
     // 0x563790 | ?DoPlayback@eqEventReplayChannelClass@@UAEXPAVStream@@@Z
-    ARTS_IMPORT void DoPlayback(class Stream* arg1) override;
+    ARTS_EXPORT void DoPlayback(class Stream* file) override;
 
     // 0x563580 | ?DoRecord@eqEventReplayChannelClass@@UAEXPAVStream@@@Z
-    ARTS_IMPORT void DoRecord(class Stream* arg1) override;
+    ARTS_EXPORT void DoRecord(class Stream* file) override;
 
     // 0x563910 | ?QueueKeyboard@eqEventReplayChannelClass@@QAEXHHHH@Z
-    ARTS_IMPORT void QueueKeyboard(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_EXPORT void QueueKeyboard(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
 
     // 0x563880 | ?QueueMouse@eqEventReplayChannelClass@@QAEXHHHHHHH@Z
-    ARTS_IMPORT void QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
+    ARTS_EXPORT void QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
 
     u32 MouseX {0};
     u32 MouseY {0};
@@ -193,14 +193,16 @@ public:
     u8 KeyStates[256] {};
     u32 MouseDeltaX {0};
     u32 MouseDeltaY {0};
+
     u32 Events[256] {};
     i32 EventCount {0};
-    u32 dword524 {0};
-    u32 dword528 {0};
-    u32 dword52C {0};
+
+    u32 PrevMouseX {0};
+    u32 PrevMouseY {0};
+    u32 PrevFlags {0};
     u8 PrevKeyStates[256] {};
-    u32 dword630 {0};
-    u32 dword634 {0};
+    u32 PrevMouseDeltaX {0};
+    u32 PrevMouseDeltaY {0};
 };
 
 check_size(eqEventReplayChannelClass, 0x638);
