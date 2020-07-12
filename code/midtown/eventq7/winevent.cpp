@@ -22,9 +22,9 @@ define_dummy_symbol(eventq7_winevent);
 
 #include "geinputLib.h"
 #include "key_codes.h"
+#include "mmaudio/manager.h"
 #include "pcwindis/pcwindis.h"
 #include "replay.h"
-#include "mmaudio/manager.h"
 
 #include <windowsx.h>
 
@@ -275,112 +275,114 @@ const char* WINEventHandler::GKeyName(i32 arg1)
     }
 }
 
-static constexpr std::array<u8, 256> VK_To_EQ_Mapping = [] {
-    std::array<u8, 256> lookup {};
+u8 ConvertVirtualKeyCode(DWORD key)
+{
+    switch (key)
+    {
+        case VK_BACK: return EQ_KEY_BACK;
+        case VK_TAB: return EQ_KEY_TAB;
+        case VK_RETURN: return EQ_KEY_RETURN;
+        case VK_SHIFT: return EQ_KEY_LSHIFT;
+        case VK_CONTROL: return EQ_KEY_LCONTROL;
+        case VK_CAPITAL: return EQ_KEY_CAPITAL;
+        case VK_ESCAPE: return EQ_KEY_ESCAPE;
+        case VK_SPACE: return EQ_KEY_SPACE;
+        case VK_PRIOR: return EQ_KEY_PRIOR;
+        case VK_NEXT: return EQ_KEY_NEXT;
+        case VK_END: return EQ_KEY_END;
+        case VK_HOME: return EQ_KEY_HOME;
+        case VK_LEFT: return EQ_KEY_LEFT;
+        case VK_UP: return EQ_KEY_UP;
+        case VK_RIGHT: return EQ_KEY_RIGHT;
+        case VK_DOWN: return EQ_KEY_DOWN;
+        case VK_INSERT: return EQ_KEY_INSERT;
+        case VK_DELETE: return EQ_KEY_DELETE;
 
-    lookup[VK_BACK] = EQ_KEY_BACK;
-    lookup[VK_TAB] = EQ_KEY_TAB;
-    lookup[VK_RETURN] = EQ_KEY_RETURN;
-    lookup[VK_SHIFT] = EQ_KEY_LSHIFT;
-    lookup[VK_CONTROL] = EQ_KEY_LCONTROL;
-    lookup[VK_CAPITAL] = EQ_KEY_CAPITAL;
-    lookup[VK_ESCAPE] = EQ_KEY_ESCAPE;
-    lookup[VK_SPACE] = EQ_KEY_SPACE;
-    lookup[VK_PRIOR] = EQ_KEY_PRIOR;
-    lookup[VK_NEXT] = EQ_KEY_NEXT;
-    lookup[VK_END] = EQ_KEY_END;
-    lookup[VK_HOME] = EQ_KEY_HOME;
-    lookup[VK_LEFT] = EQ_KEY_LEFT;
-    lookup[VK_UP] = EQ_KEY_UP;
-    lookup[VK_RIGHT] = EQ_KEY_RIGHT;
-    lookup[VK_DOWN] = EQ_KEY_DOWN;
-    lookup[VK_INSERT] = EQ_KEY_INSERT;
-    lookup[VK_DELETE] = EQ_KEY_DELETE;
+        case '0': return EQ_KEY_0;
+        case '1': return EQ_KEY_1;
+        case '2': return EQ_KEY_2;
+        case '3': return EQ_KEY_3;
+        case '4': return EQ_KEY_4;
+        case '5': return EQ_KEY_5;
+        case '6': return EQ_KEY_6;
+        case '7': return EQ_KEY_7;
+        case '8': return EQ_KEY_8;
+        case '9': return EQ_KEY_9;
 
-    lookup['0'] = EQ_KEY_0;
-    lookup['1'] = EQ_KEY_1;
-    lookup['2'] = EQ_KEY_2;
-    lookup['3'] = EQ_KEY_3;
-    lookup['4'] = EQ_KEY_4;
-    lookup['5'] = EQ_KEY_5;
-    lookup['6'] = EQ_KEY_6;
-    lookup['7'] = EQ_KEY_7;
-    lookup['8'] = EQ_KEY_8;
-    lookup['9'] = EQ_KEY_9;
+        case 'A': return EQ_KEY_A;
+        case 'B': return EQ_KEY_B;
+        case 'C': return EQ_KEY_C;
+        case 'D': return EQ_KEY_D;
+        case 'E': return EQ_KEY_E;
+        case 'F': return EQ_KEY_F;
+        case 'G': return EQ_KEY_G;
+        case 'H': return EQ_KEY_H;
+        case 'I': return EQ_KEY_I;
+        case 'J': return EQ_KEY_J;
+        case 'K': return EQ_KEY_K;
+        case 'L': return EQ_KEY_L;
+        case 'M': return EQ_KEY_M;
+        case 'N': return EQ_KEY_N;
+        case 'O': return EQ_KEY_O;
+        case 'P': return EQ_KEY_P;
+        case 'Q': return EQ_KEY_Q;
+        case 'R': return EQ_KEY_R;
+        case 'S': return EQ_KEY_S;
+        case 'T': return EQ_KEY_T;
+        case 'U': return EQ_KEY_U;
+        case 'V': return EQ_KEY_V;
+        case 'W': return EQ_KEY_W;
+        case 'X': return EQ_KEY_X;
+        case 'Y': return EQ_KEY_Y;
+        case 'Z': return EQ_KEY_Z;
 
-    lookup['A'] = EQ_KEY_A;
-    lookup['B'] = EQ_KEY_B;
-    lookup['C'] = EQ_KEY_C;
-    lookup['D'] = EQ_KEY_D;
-    lookup['E'] = EQ_KEY_E;
-    lookup['F'] = EQ_KEY_F;
-    lookup['G'] = EQ_KEY_G;
-    lookup['H'] = EQ_KEY_H;
-    lookup['I'] = EQ_KEY_I;
-    lookup['J'] = EQ_KEY_J;
-    lookup['K'] = EQ_KEY_K;
-    lookup['L'] = EQ_KEY_L;
-    lookup['M'] = EQ_KEY_M;
-    lookup['N'] = EQ_KEY_N;
-    lookup['O'] = EQ_KEY_O;
-    lookup['P'] = EQ_KEY_P;
-    lookup['Q'] = EQ_KEY_Q;
-    lookup['R'] = EQ_KEY_R;
-    lookup['S'] = EQ_KEY_S;
-    lookup['T'] = EQ_KEY_T;
-    lookup['U'] = EQ_KEY_U;
-    lookup['V'] = EQ_KEY_V;
-    lookup['W'] = EQ_KEY_W;
-    lookup['X'] = EQ_KEY_X;
-    lookup['Y'] = EQ_KEY_Y;
-    lookup['Z'] = EQ_KEY_Z;
+        case VK_LWIN: return EQ_KEY_LWIN;
+        case VK_RWIN: return EQ_KEY_RWIN;
+        case VK_APPS: return EQ_KEY_APPS;
+        case VK_NUMPAD0: return EQ_KEY_NUMPAD0;
+        case VK_NUMPAD1: return EQ_KEY_NUMPAD1;
+        case VK_NUMPAD2: return EQ_KEY_NUMPAD2;
+        case VK_NUMPAD3: return EQ_KEY_NUMPAD3;
+        case VK_NUMPAD4: return EQ_KEY_NUMPAD4;
+        case VK_NUMPAD5: return EQ_KEY_NUMPAD5;
+        case VK_NUMPAD6: return EQ_KEY_NUMPAD6;
+        case VK_NUMPAD7: return EQ_KEY_NUMPAD7;
+        case VK_NUMPAD8: return EQ_KEY_NUMPAD8;
+        case VK_NUMPAD9: return EQ_KEY_NUMPAD9;
+        case VK_MULTIPLY: return EQ_KEY_MULTIPLY;
+        case VK_ADD: return EQ_KEY_ADD;
+        case VK_SUBTRACT: return EQ_KEY_SUBTRACT;
+        case VK_DECIMAL: return EQ_KEY_DECIMAL;
+        case VK_DIVIDE: return EQ_KEY_DIVIDE;
 
-    lookup[VK_LWIN] = EQ_KEY_LWIN;
-    lookup[VK_RWIN] = EQ_KEY_RWIN;
-    lookup[VK_APPS] = EQ_KEY_APPS;
-    lookup[VK_NUMPAD0] = EQ_KEY_NUMPAD0;
-    lookup[VK_NUMPAD1] = EQ_KEY_NUMPAD1;
-    lookup[VK_NUMPAD2] = EQ_KEY_NUMPAD2;
-    lookup[VK_NUMPAD3] = EQ_KEY_NUMPAD3;
-    lookup[VK_NUMPAD4] = EQ_KEY_NUMPAD4;
-    lookup[VK_NUMPAD5] = EQ_KEY_NUMPAD5;
-    lookup[VK_NUMPAD6] = EQ_KEY_NUMPAD6;
-    lookup[VK_NUMPAD7] = EQ_KEY_NUMPAD7;
-    lookup[VK_NUMPAD8] = EQ_KEY_NUMPAD8;
-    lookup[VK_NUMPAD9] = EQ_KEY_NUMPAD9;
-    lookup[VK_MULTIPLY] = EQ_KEY_MULTIPLY;
-    lookup[VK_ADD] = EQ_KEY_ADD;
-    lookup[VK_SUBTRACT] = EQ_KEY_SUBTRACT;
-    lookup[VK_DECIMAL] = EQ_KEY_DECIMAL;
-    lookup[VK_DIVIDE] = EQ_KEY_DIVIDE;
+        case VK_F1: return EQ_KEY_F1;
+        case VK_F2: return EQ_KEY_F2;
+        case VK_F3: return EQ_KEY_F3;
+        case VK_F4: return EQ_KEY_F4;
+        case VK_F5: return EQ_KEY_F5;
+        case VK_F6: return EQ_KEY_F6;
+        case VK_F7: return EQ_KEY_F7;
+        case VK_F8: return EQ_KEY_F8;
+        case VK_F9: return EQ_KEY_F9;
+        case VK_F10: return EQ_KEY_F10;
+        case VK_F11: return EQ_KEY_F11;
+        case VK_F12: return EQ_KEY_F12;
+        case VK_F13: return EQ_KEY_F13;
+        case VK_F14: return EQ_KEY_F14;
+        case VK_F15: return EQ_KEY_F15;
 
-    lookup[VK_F1] = EQ_KEY_F1;
-    lookup[VK_F2] = EQ_KEY_F2;
-    lookup[VK_F3] = EQ_KEY_F3;
-    lookup[VK_F4] = EQ_KEY_F4;
-    lookup[VK_F5] = EQ_KEY_F5;
-    lookup[VK_F6] = EQ_KEY_F6;
-    lookup[VK_F7] = EQ_KEY_F7;
-    lookup[VK_F8] = EQ_KEY_F8;
-    lookup[VK_F9] = EQ_KEY_F9;
-    lookup[VK_F10] = EQ_KEY_F10;
-    lookup[VK_F11] = EQ_KEY_F11;
-    lookup[VK_F12] = EQ_KEY_F12;
-    lookup[VK_F13] = EQ_KEY_F13;
-    lookup[VK_F14] = EQ_KEY_F14;
-    lookup[VK_F15] = EQ_KEY_F15;
+        case VK_NUMLOCK: return EQ_KEY_NUMLOCK;
+        case VK_SCROLL: return EQ_KEY_SCROLL;
+        case VK_LSHIFT: return EQ_KEY_LSHIFT;
+        case VK_RSHIFT: return EQ_KEY_RSHIFT;
+        case VK_LCONTROL: return EQ_KEY_LCONTROL;
+        case VK_RCONTROL: return EQ_KEY_RCONTROL;
+        case VK_LMENU: return EQ_KEY_LMENU;
+        case VK_RMENU: return EQ_KEY_RMENU;
 
-    lookup[VK_NUMLOCK] = EQ_KEY_NUMLOCK;
-    lookup[VK_SCROLL] = EQ_KEY_SCROLL;
-    lookup[VK_LSHIFT] = EQ_KEY_LSHIFT;
-    lookup[VK_RSHIFT] = EQ_KEY_RSHIFT;
-    lookup[VK_LCONTROL] = EQ_KEY_LCONTROL;
-    lookup[VK_RCONTROL] = EQ_KEY_RCONTROL;
-    lookup[VK_LMENU] = EQ_KEY_LMENU;
-    lookup[VK_RMENU] = EQ_KEY_RMENU;
-
-    return lookup;
-}();
+        default: return 0;
+    }
+}
 
 void WINEventHandler::Update(i32)
 {
@@ -447,7 +449,7 @@ void WINEventHandler::Update(i32)
 
         for (i32 i = 0; i < 256; ++i)
         {
-            key_states_[VK_To_EQ_Mapping[i]] = !!(key_states[i] & 0x80);
+            key_states_[ConvertVirtualKeyCode(i)] = !!(key_states[i] & 0x80);
         }
     }
 
