@@ -1053,7 +1053,7 @@ all_symbols = parse_map_symbols(open('TEST1560.MAP', 'r').readlines(), None, {
 })
 
 print('Loading BNDB')
-view = BinaryViewType.get_view_of_file('test1560.bndb')
+view = BinaryViewType.get_view_of_file('test1560.bndb', update_analysis=False)
 
 print('Processing Symbols')
 for symbol in all_symbols:
@@ -2043,6 +2043,9 @@ with open('default_dtors.json', 'w') as f:
 with open('empty_functions.json', 'w') as f:
     json.dump(sorted(empty_functions), f, indent = 4, sort_keys = True)
 
+with open('path_libs.json', 'w') as f:
+    json.dump(path_libs, f, indent = 4, sort_keys = True)
+
 grouped_symbols = defaultdict(lambda: defaultdict(lambda: list()))
 
 for symbol in all_symbols:
@@ -2490,3 +2493,5 @@ if False:
 print('Formatting')
 
 exec(open("../tools/format_full.py").read())
+
+view.file.close()
