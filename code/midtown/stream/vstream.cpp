@@ -49,7 +49,7 @@ void* VirtualStream::GetMapping()
     return nullptr;
 }
 
-i32 VirtualStream::GetPagingInfo(u32& handle, u32& offset, u32& size)
+i32 VirtualStream::GetPagingInfo(usize& handle, u32& offset, u32& size)
 {
     handle = base_stream_->GetPagerHandle();
     offset = data_offset_;

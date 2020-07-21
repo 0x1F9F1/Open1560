@@ -91,7 +91,7 @@ public:
     ARTS_EXPORT virtual usize GetPagerHandle();
 
     // 0x55EDA0 | ?GetPagingInfo@Stream@@UAEHAAI00@Z
-    ARTS_EXPORT virtual b32 GetPagingInfo(u32& handle, u32& offset, u32& size);
+    ARTS_EXPORT virtual b32 GetPagingInfo(usize& handle, u32& offset, u32& size);
 
     virtual i32 RawRead(void* arg1, i32 arg2) = 0;
 

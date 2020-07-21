@@ -45,7 +45,7 @@
 
 #include "stream.h"
 
-class FileStream : public Stream
+class FileStream /*final*/ : public Stream
 {
     // const FileStream::`vftable' @ 0x6219F8
 
@@ -104,7 +104,7 @@ private:
 check_size(FileStream, 0x28);
 
 // 0x908C08 | ?__stdin@@3VFileStream@@A
-ARTS_IMPORT extern class FileStream __stdin;
+// ARTS_IMPORT extern class FileStream __stdin;
 
 // 0x908BE0 | ?__stdout@@3VFileStream@@A
-ARTS_IMPORT extern class FileStream __stdout;
+// ARTS_IMPORT extern class FileStream __stdout;

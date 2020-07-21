@@ -56,7 +56,7 @@ public:
     ARTS_EXPORT void* GetMapping() override;
 
     // 0x561BD0 | ?GetPagingInfo@VirtualStream@@UAEHAAI00@Z
-    ARTS_EXPORT b32 GetPagingInfo(u32& handle, u32& offset, u32& size) override;
+    ARTS_EXPORT b32 GetPagingInfo(usize& handle, u32& offset, u32& size) override;
 
     // 0x561C60 | ?RawRead@VirtualStream@@UAEHPAXH@Z
     ARTS_EXPORT i32 RawRead(void* ptr, i32 size) override;
