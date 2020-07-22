@@ -24,43 +24,43 @@
 
 #include "data7/callback.h"
 
+class bkWindow;
+class bkButton;
+class bkSlider;
+
 class Bank
 {
     // const Bank::`vftable' @ 0x620C40
 
 public:
-    virtual void SetLabel(const char* arg1) = 0;
-    virtual class bkWindow* AddTitle(const char* arg1) = 0;
-    virtual class bkButton* AddButton(const char* arg1, class Callback arg2) = 0;
-    virtual class bkButton* AddToggle(const char* arg1, i32* arg2, i32 arg3, class Callback arg4) = 0;
-    virtual class bkButton* AddMex(const char* arg1, i32* arg2, i32 arg3, class Callback arg4) = 0;
-    virtual class bkButton* AddText(const char* arg1, class Callback arg2) = 0;
-    virtual class bkButton* AddText(class Callback arg1) = 0;
+    virtual void SetLabel(const char* title) = 0;
+    virtual class bkWindow* AddTitle(const char* title) = 0;
+    virtual class bkButton* AddButton(const char* title, class Callback cb) = 0;
+    virtual class bkButton* AddToggle(const char* title, i32* value, i32 arg3, class Callback cb) = 0;
+    virtual class bkButton* AddMex(const char* title, i32* value, i32 arg3, class Callback cb) = 0;
+    virtual class bkButton* AddText(const char* title, class Callback cb) = 0;
+    virtual class bkButton* AddText(class Callback cb) = 0;
     virtual class bkSlider* AddSlider(
-        const char* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) = 0;
+        const char* title, f32* value, f32 arg3, f32 arg4, f32 arg5, class Callback cb) = 0;
     virtual class bkSlider* AddSlider(
-        const char* arg1, u32* arg2, u32 arg3, u32 arg4, f32 arg5, class Callback arg6) = 0;
+        const char* title, u32* value, u32 arg3, u32 arg4, f32 arg5, class Callback cb) = 0;
     virtual class bkSlider* AddSlider(
-        const char* arg1, i32* arg2, i32 arg3, i32 arg4, f32 arg5, class Callback arg6) = 0;
+        const char* title, i32* value, i32 arg3, i32 arg4, f32 arg5, class Callback cb) = 0;
     virtual class bkSlider* AddSlider(
-        const char* arg1, u16* arg2, u16 arg3, u16 arg4, f32 arg5, class Callback arg6) = 0;
+        const char* title, u16* value, u16 arg3, u16 arg4, f32 arg5, class Callback cb) = 0;
     virtual class bkSlider* AddSlider(
-        const char* arg1, i16* arg2, i16 arg3, i16 arg4, f32 arg5, class Callback arg6) = 0;
-    virtual class bkSlider* AddSlider(const char* arg1, u8* arg2, u8 arg3, u8 arg4, f32 arg5, class Callback arg6) = 0;
-    virtual class bkSlider* AddSlider(
-        const char* arg1, const char* arg2, char arg3, char arg4, f32 arg5, class Callback arg6) = 0;
+        const char* title, i16* value, i16 arg3, i16 arg4, f32 arg5, class Callback cb) = 0;
+    virtual class bkSlider* AddSlider(const char* title, u8* value, u8 arg3, u8 arg4, f32 arg5, class Callback cb) = 0;
+    virtual class bkSlider* AddSlider(const char* title, i8* value, i8 arg3, i8 arg4, f32 arg5, class Callback cb) = 0;
     virtual class bkSlider* AddTextSlider(
-        const char* arg1, const char* arg2, i32* arg3, f32 arg4, class Callback arg5) = 0;
-    virtual void AddVector(
-        const char* arg1, class Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) = 0;
-    virtual void AddVector(
-        const char* arg1, class Vector3* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) = 0;
-    virtual void AddVector(
-        const char* arg1, class Vector2* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) = 0;
-    virtual void AddColor(const char* arg1, class Vector4* arg2, class Callback arg3) = 0;
-    virtual void AddColor(const char* arg1, class Vector3* arg2, class Callback arg3) = 0;
-    virtual void AddFileButton(const char* arg1, class Callback arg2) = 0;
-    virtual void PushSection(const char* arg1, i32 arg2) = 0;
+        const char* title, const char* arg2, i32* value, f32 arg4, class Callback cb) = 0;
+    virtual void AddVector(const char* title, class Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback cb) = 0;
+    virtual void AddVector(const char* title, class Vector3* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback cb) = 0;
+    virtual void AddVector(const char* title, class Vector2* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback cb) = 0;
+    virtual void AddColor(const char* title, class Vector4* arg2, class Callback cb) = 0;
+    virtual void AddColor(const char* title, class Vector3* arg2, class Callback cb) = 0;
+    virtual void AddFileButton(const char* title, class Callback cb) = 0;
+    virtual void PushSection(const char* title, i32 arg2) = 0;
     virtual void PopSection() = 0;
     virtual void PushColumn(i32 arg1) = 0;
     virtual void PopColumn() = 0;

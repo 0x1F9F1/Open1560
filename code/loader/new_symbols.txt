@@ -28,3 +28,4 @@ DirectInputCreateA=0x0
 ?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPBDPAD@Z=?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPAD1@Z
 ?NormalizeName@VirtualFileSystem@@SAXPADPBD@Z=?NormalizeName@VirtualFileSystem@@SAXPAD0@Z
 ?Hash@HashTable@@AAEIPBD@Z=?Hash@HashTable@@AAEHPAD@Z
+?AddSlider@asMidgets@@UAEPAVbkSlider@@PBDPADDDMVCallback@@@Z=?AddSlider@asMidgets@@UAEPAVbkSlider@@PAD0DDMVCallback@@@Z

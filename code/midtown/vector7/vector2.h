@@ -45,8 +45,15 @@
 class Vector2
 {
 public:
+    constexpr Vector2() = default;
+
+    constexpr Vector2(f32 x, f32 y)
+        : x(x)
+        , y(y)
+    {}
+
     // 0x430350 | ??0Vector2@@QAE@ABV0@@Z | inline
-    ARTS_IMPORT Vector2(class Vector2 const& arg1);
+    // ARTS_IMPORT Vector2(class Vector2 const& arg1);
 
     // 0x571110 | ??KVector2@@QBE?AV0@M@Z | unused
     ARTS_IMPORT class Vector2 operator/(f32 arg1);
@@ -60,11 +67,13 @@ public:
     // 0x5711E0 | ?Mag@Vector2@@QBEMXZ
     ARTS_IMPORT f32 Mag();
 
-    u8 gap0[0x8];
+    f32 x {0.0f};
+    f32 y {0.0f};
 };
 
 check_size(Vector2, 0x8);
 
+#if 0
 class Vector2Array
 {
 public:
@@ -117,3 +126,4 @@ check_size(Vector2Type, 0x4);
 
 // 0x909644 | ?Vector2Inst@@3UVector2Type@@A
 ARTS_IMPORT extern struct Vector2Type Vector2Inst;
+#endif

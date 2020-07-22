@@ -100,93 +100,96 @@
 
 #include "bank.h"
 #include "cullable.h"
+#include "eventq7/eventq.h"
+
+class MI;
 
 class asMidgets /*final*/
     : public Bank
-    , public asCullable /* Warning: Unordered Multiple Inheritance */
+    , public asCullable
 {
     // const asMidgets::`vftable'{for `asCullable'} @ 0x620BC0
     // const asMidgets::`vftable'{for `Bank'} @ 0x620BD8
 
 public:
     // 0x5267F0 | ??0asMidgets@@QAE@XZ
-    ARTS_IMPORT asMidgets();
+    ARTS_EXPORT asMidgets();
 
     // 0x527BA0 | ??_GasMidgets@@UAEPAXI@Z
     // 0x527BA0 | ??_EasMidgets@@UAEPAXI@Z
     // 0x526890 | ??1asMidgets@@UAE@XZ
-    ARTS_IMPORT ~asMidgets() override;
+    ARTS_EXPORT ~asMidgets() override;
 
     // 0x527020 | ?AddButton@asMidgets@@UAEPAVbkButton@@PADVCallback@@@Z
-    ARTS_IMPORT class bkButton* AddButton(char* arg1, class Callback arg2) override;
+    ARTS_EXPORT class bkButton* AddButton(const char* arg1, class Callback arg2) override;
 
     // 0x5278B0 | ?AddColor@asMidgets@@UAEXPADPAVVector3@@VCallback@@@Z
-    ARTS_IMPORT void AddColor(char* arg1, class Vector3* arg2, class Callback arg3) override;
+    ARTS_EXPORT void AddColor(const char* arg1, class Vector3* arg2, class Callback arg3) override;
 
     // 0x527990 | ?AddColor@asMidgets@@UAEXPADPAVVector4@@VCallback@@@Z
-    ARTS_IMPORT void AddColor(char* arg1, class Vector4* arg2, class Callback arg3) override;
+    ARTS_EXPORT void AddColor(const char* arg1, class Vector4* arg2, class Callback arg3) override;
 
     // 0x527AB0 | ?AddFileButton@asMidgets@@UAEXPADVCallback@@@Z
-    ARTS_IMPORT void AddFileButton(char* arg1, class Callback arg2) override;
+    ARTS_EXPORT void AddFileButton(const char* arg1, class Callback arg2) override;
 
     // 0x527110 | ?AddMex@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z
-    ARTS_IMPORT class bkButton* AddMex(char* arg1, i32* arg2, i32 arg3, class Callback arg4) override;
+    ARTS_EXPORT class bkButton* AddMex(const char* arg1, i32* arg2, i32 arg3, class Callback arg4) override;
 
     // 0x5271F0 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PAD0DDMVCallback@@@Z
-    ARTS_IMPORT class bkSlider* AddSlider(
-        char* arg1, char* arg2, char arg3, char arg4, f32 arg5, class Callback arg6) override;
+    ARTS_EXPORT class bkSlider* AddSlider(
+        const char* arg1, i8* arg2, i8 arg3, i8 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527550 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAMMMMVCallback@@@Z
-    ARTS_IMPORT class bkSlider* AddSlider(
-        char* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_EXPORT class bkSlider* AddSlider(
+        const char* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527310 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAFFFMVCallback@@@Z
-    ARTS_IMPORT class bkSlider* AddSlider(
-        char* arg1, i16* arg2, i16 arg3, i16 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_EXPORT class bkSlider* AddSlider(
+        const char* arg1, i16* arg2, i16 arg3, i16 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527430 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAHHHMVCallback@@@Z
-    ARTS_IMPORT class bkSlider* AddSlider(
-        char* arg1, i32* arg2, i32 arg3, i32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_EXPORT class bkSlider* AddSlider(
+        const char* arg1, i32* arg2, i32 arg3, i32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x5273A0 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAGGGMVCallback@@@Z
-    ARTS_IMPORT class bkSlider* AddSlider(
-        char* arg1, u16* arg2, u16 arg3, u16 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_EXPORT class bkSlider* AddSlider(
+        const char* arg1, u16* arg2, u16 arg3, u16 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x5274C0 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAIIIMVCallback@@@Z
-    ARTS_IMPORT class bkSlider* AddSlider(
-        char* arg1, u32* arg2, u32 arg3, u32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_EXPORT class bkSlider* AddSlider(
+        const char* arg1, u32* arg2, u32 arg3, u32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527280 | ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAEEEMVCallback@@@Z
-    ARTS_IMPORT class bkSlider* AddSlider(
-        char* arg1, u8* arg2, u8 arg3, u8 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_EXPORT class bkSlider* AddSlider(
+        const char* arg1, u8* arg2, u8 arg3, u8 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527190 | ?AddText@asMidgets@@UAEPAVbkButton@@VCallback@@@Z
-    ARTS_IMPORT class bkButton* AddText(class Callback arg1) override;
+    ARTS_EXPORT class bkButton* AddText(class Callback arg1) override;
 
     // 0x5271C0 | ?AddText@asMidgets@@UAEPAVbkButton@@PADVCallback@@@Z
-    ARTS_IMPORT class bkButton* AddText(char* arg1, class Callback arg2) override;
+    ARTS_EXPORT class bkButton* AddText(const char* arg1, class Callback arg2) override;
 
     // 0x5275E0 | ?AddTextSlider@asMidgets@@UAEPAVbkSlider@@PAD0PAHMVCallback@@@Z
-    ARTS_IMPORT class bkSlider* AddTextSlider(
-        char* arg1, char* arg2, i32* arg3, f32 arg4, class Callback arg5) override;
+    ARTS_EXPORT class bkSlider* AddTextSlider(
+        const char* arg1, const char* arg2, i32* arg3, f32 arg4, class Callback arg5) override;
 
     // 0x526FC0 | ?AddTitle@asMidgets@@UAEPAVbkWindow@@PAD@Z
-    ARTS_IMPORT class bkWindow* AddTitle(char* arg1) override;
+    ARTS_EXPORT class bkWindow* AddTitle(const char* arg1) override;
 
     // 0x527090 | ?AddToggle@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z
-    ARTS_IMPORT class bkButton* AddToggle(char* arg1, i32* arg2, i32 arg3, class Callback arg4) override;
+    ARTS_EXPORT class bkButton* AddToggle(const char* arg1, i32* arg2, i32 arg3, class Callback arg4) override;
 
     // 0x527610 | ?AddVector@asMidgets@@UAEXPADPAVVector2@@MMMVCallback@@@Z
-    ARTS_IMPORT void AddVector(
-        char* arg1, class Vector2* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_EXPORT void AddVector(
+        const char* arg1, class Vector2* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x5276B0 | ?AddVector@asMidgets@@UAEXPADPAVVector3@@MMMVCallback@@@Z
-    ARTS_IMPORT void AddVector(
-        char* arg1, class Vector3* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_EXPORT void AddVector(
+        const char* arg1, class Vector3* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x527790 | ?AddVector@asMidgets@@UAEXPADPAVVector4@@MMMVCallback@@@Z
-    ARTS_IMPORT void AddVector(
-        char* arg1, class Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
+    ARTS_EXPORT void AddVector(
+        const char* arg1, class Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x526ED0 | ?Cull@asMidgets@@UAEXXZ
     ARTS_IMPORT void Cull() override;
@@ -207,10 +210,10 @@ public:
     ARTS_EXPORT void PushColumn(i32 arg1) override;
 
     // 0x527AE0 | ?PushSection@asMidgets@@UAEXPADH@Z
-    ARTS_IMPORT void PushSection(char* arg1, i32 arg2) override;
+    ARTS_EXPORT void PushSection(const char* arg1, i32 arg2) override;
 
     // 0x526E40 | ?SetLabel@asMidgets@@UAEXPAD@Z
-    ARTS_IMPORT void SetLabel(char* arg1) override;
+    ARTS_EXPORT void SetLabel(const char* arg1) override;
 
     // 0x526B60 | ?Toggle@asMidgets@@QAEXXZ
     ARTS_IMPORT void Toggle();
@@ -227,197 +230,21 @@ private:
 
     // 0x526E90 | ?IsVisible@asMidgets@@AAEHH@Z
     ARTS_IMPORT i32 IsVisible(i32 arg1);
+
+    i32 max_lines_ {0};
+    asNode* root_ {nullptr};
+    i32 midget_count_ {0};
+    i32 start_index_ {0};
+    i32 current_index_ {0};
+    b32 open_ {false};
+    MI* midgets_[512] {};
+    i8 midget_counts_[10] {};
+    i32 sections_[8] {};
+    i32 section_count_ {0};
+    eqEventQ event_queue_;
 };
 
 check_size(asMidgets, 0x87C);
-
-class SMI /*final*/ : public MI
-{
-    // const SMI::`vftable' @ 0x620CB0
-
-public:
-    // 0x527BD0 | ?Key@SMI@@UAEXHH@Z | inline
-    ARTS_EXPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x527BE0 | ?Update@SMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-};
-
-check_size(SMI, 0x48);
-
-class BMI /*final*/ : public MI
-{
-    // const BMI::`vftable' @ 0x620CB8
-
-public:
-    // 0x527C00 | ?Key@BMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x527C20 | ?Update@BMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-
-    u8 gap48[0x14];
-};
-
-check_size(BMI, 0x5C);
-
-class TMI /*final*/ : public MI
-{
-    // const TMI::`vftable' @ 0x620CC0
-
-public:
-    // 0x527C40 | ?Key@TMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x527CA0 | ?Update@TMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-
-    u8 gap48[0x20];
-};
-
-check_size(TMI, 0x68);
-
-class scharMI /*final*/ : public MI
-{
-    // const scharMI::`vftable' @ 0x620CC8
-
-public:
-    // 0x527CF0 | ?Key@scharMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x527D80 | ?Update@scharMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-
-    u8 gap48[0x20];
-};
-
-check_size(scharMI, 0x68);
-
-class ucharMI /*final*/ : public MI
-{
-    // const ucharMI::`vftable' @ 0x620CD8
-
-public:
-    // 0x527DD0 | ?Key@ucharMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x527E60 | ?Update@ucharMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-
-    u8 gap48[0x20];
-};
-
-check_size(ucharMI, 0x68);
-
-class shortMI /*final*/ : public MI
-{
-    // const shortMI::`vftable' @ 0x620CE0
-
-public:
-    // 0x527EB0 | ?Key@shortMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x527F50 | ?Update@shortMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-
-    u8 gap48[0x20];
-};
-
-check_size(shortMI, 0x68);
-
-class ushortMI /*final*/ : public MI
-{
-    // const ushortMI::`vftable' @ 0x620CE8
-
-public:
-    // 0x527FA0 | ?Key@ushortMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x528040 | ?Update@ushortMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-
-    u8 gap48[0x20];
-};
-
-check_size(ushortMI, 0x68);
-
-class intMI /*final*/ : public MI
-{
-    // const intMI::`vftable' @ 0x620CF0
-
-public:
-    // 0x528090 | ?Key@intMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x528120 | ?Update@intMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-
-    u8 gap48[0x24];
-};
-
-check_size(intMI, 0x6C);
-
-class uintMI /*final*/ : public MI
-{
-    // const uintMI::`vftable' @ 0x620CF8
-
-public:
-    // 0x528170 | ?Key@uintMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x528210 | ?Update@uintMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-
-    u8 gap48[0x24];
-};
-
-check_size(uintMI, 0x6C);
-
-class floatMI /*final*/ : public MI
-{
-    // const floatMI::`vftable' @ 0x620D00
-
-public:
-    // 0x528260 | ?Key@floatMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x5282F0 | ?Update@floatMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-
-    u8 gap48[0x24];
-};
-
-check_size(floatMI, 0x6C);
-
-class SBMI /*final*/ : public MI
-{
-    // const SBMI::`vftable' @ 0x620D08
-
-public:
-    // 0x528340 | ?Key@SBMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
-
-    // 0x528360 | ?Update@SBMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
-
-    u8 gap48[0x8];
-};
-
-check_size(SBMI, 0x50);
-
-class MI
-{
-    // const MI::`vftable' @ 0x620CA8
-
-public:
-    virtual i32 Update(i32 arg1) = 0;
-
-    virtual void Key(i32 arg1, i32 arg2) = 0;
-
-    u8 gap4[0x44];
-};
-
-check_size(MI, 0x48);
 
 // 0x790928 | ?MIDGETSPTR@@3PAVasMidgets@@A
 ARTS_IMPORT extern class asMidgets* MIDGETSPTR;
