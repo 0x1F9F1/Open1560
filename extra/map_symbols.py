@@ -1244,7 +1244,7 @@ all_symbols.sort(key = lambda x: x.address)
 
 #     f.write('END')
 
-assert False
+# assert False
 
 # for symbol in all_symbols:
 #     if symbol.address is None:
