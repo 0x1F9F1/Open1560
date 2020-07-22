@@ -27,6 +27,7 @@ function arts_component(name)
     language "C++"
     cppdialect "C++17"
     warnings "Extra"
+    exceptionhandling "Off"
 
     useARTSPCH()
     includeARTS()
