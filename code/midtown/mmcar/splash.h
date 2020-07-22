@@ -35,7 +35,7 @@
 
 #include "arts7/node.h"
 
-class mmSplash /*final*/ : public asNode
+class mmSplash final : public asNode
 {
     // const mmSplash::`vftable' @ 0x61C8B0
 

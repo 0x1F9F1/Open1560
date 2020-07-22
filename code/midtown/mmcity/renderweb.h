@@ -64,7 +64,7 @@
 
 #include "portal.h"
 
-class asRenderWeb /*final*/ : public asPortalWeb
+class asRenderWeb final : public asPortalWeb
 {
     // const asRenderWeb::`vftable' @ 0x61CF38
 

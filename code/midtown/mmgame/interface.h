@@ -119,7 +119,7 @@ ARTS_IMPORT extern char defcarname[80];
 // 0x6A6E40 | ?szSearchPath@@3PADA
 ARTS_IMPORT extern char szSearchPath[128];
 
-class mmInterface /*final*/ : public asNode
+class mmInterface final : public asNode
 {
     // const mmInterface::`vftable' @ 0x61A2C8
 

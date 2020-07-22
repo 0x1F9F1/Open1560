@@ -38,7 +38,7 @@
 
 #include "arts7/node.h"
 
-class aiPedAudioManager /*final*/ : public asNode
+class aiPedAudioManager final : public asNode
 {
     // const aiPedAudioManager::`vftable' @ 0x61B568
 

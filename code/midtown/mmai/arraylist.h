@@ -25,7 +25,7 @@
     0x446C20 | public: void __thiscall CArrayList::Append(int) | ?Append@CArrayList@@QAEXH@Z
 */
 
-class CArrayList /*final*/
+class CArrayList final
 {
 public:
     // 0x43C180 | ??0CArrayList@@QAE@XZ | inline

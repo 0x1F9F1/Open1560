@@ -35,7 +35,7 @@
 
 #include "arts7/node.h"
 
-class asAero /*final*/ : public asNode
+class asAero final : public asNode
 {
     // const asAero::`vftable' @ 0x61FBF8
 

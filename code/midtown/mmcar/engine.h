@@ -43,7 +43,7 @@
 
 #include "arts7/node.h"
 
-class mmEngine /*final*/ : public asNode
+class mmEngine final : public asNode
 {
     // const mmEngine::`vftable' @ 0x61C600
 

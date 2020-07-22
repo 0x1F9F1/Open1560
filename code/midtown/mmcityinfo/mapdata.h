@@ -37,7 +37,7 @@
 
 #include "infobase.h"
 
-class mmMapData /*final*/ : public mmInfoBase
+class mmMapData final : public mmInfoBase
 {
     // const mmMapData::`vftable' @ 0x61F930
 

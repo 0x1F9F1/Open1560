@@ -33,7 +33,7 @@
 
 #include "agi/light.h"
 
-class agiD3DLight /*final*/ : public agiLight
+class agiD3DLight final : public agiLight
 {
     // const agiD3DLight::`vftable' @ 0x621188
 

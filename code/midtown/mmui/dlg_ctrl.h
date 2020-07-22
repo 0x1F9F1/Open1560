@@ -31,7 +31,7 @@
 
 #include "pu_menu.h"
 
-class Dialog_ControlAssign /*final*/ : public PUMenuBase
+class Dialog_ControlAssign final : public PUMenuBase
 {
     // const Dialog_ControlAssign::`vftable' @ 0x61D7B8
 

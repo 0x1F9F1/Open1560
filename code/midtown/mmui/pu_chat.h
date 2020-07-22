@@ -32,7 +32,7 @@
 
 #include "pu_menu.h"
 
-class PUChat /*final*/ : public PUMenuBase
+class PUChat final : public PUMenuBase
 {
     // const PUChat::`vftable' @ 0x61DED8
 

@@ -37,7 +37,7 @@
 
 #include "arts7/node.h"
 
-class mmBridgeAudMgr /*final*/ : public asNode
+class mmBridgeAudMgr final : public asNode
 {
     // const mmBridgeAudMgr::`vftable' @ 0x61F430
 

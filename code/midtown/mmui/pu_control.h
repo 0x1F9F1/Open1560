@@ -35,7 +35,7 @@
 
 #include "pu_menu.h"
 
-class PUControl /*final*/ : public PUMenuBase
+class PUControl final : public PUMenuBase
 {
     // const PUControl::`vftable' @ 0x61DFA8
 

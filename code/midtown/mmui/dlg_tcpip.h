@@ -32,7 +32,7 @@
 
 #include "pu_menu.h"
 
-class Dialog_TCPIP /*final*/ : public PUMenuBase
+class Dialog_TCPIP final : public PUMenuBase
 {
     // const Dialog_TCPIP::`vftable' @ 0x61D808
 

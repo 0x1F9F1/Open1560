@@ -37,7 +37,7 @@
 
 #include "racebase.h"
 
-class RaceMenu /*final*/ : public RaceMenuBase
+class RaceMenu final : public RaceMenuBase
 {
     // const RaceMenu::`vftable' @ 0x61DAC8
 

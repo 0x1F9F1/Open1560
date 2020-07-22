@@ -37,7 +37,7 @@
 
 #include "widget.h"
 
-class UIIcon /*final*/ : public uiWidget
+class UIIcon final : public uiWidget
 {
     // const UIIcon::`vftable' @ 0x61EBA8
 

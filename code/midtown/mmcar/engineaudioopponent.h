@@ -38,7 +38,7 @@
 
 #include "arts7/node.h"
 
-class EngineAudioOpponent /*final*/ : public asNode
+class EngineAudioOpponent final : public asNode
 {
     // const EngineAudioOpponent::`vftable' @ 0x61CA90
 

@@ -41,7 +41,7 @@
 
 #include "carcamcs.h"
 
-class PointCamCS /*final*/ : public CarCamCS
+class PointCamCS final : public CarCamCS
 {
     // const PointCamCS::`vftable' @ 0x620248
 

@@ -40,7 +40,7 @@
 
 #include "arts7/node.h"
 
-class mmAnimSpline /*final*/ : public asNode
+class mmAnimSpline final : public asNode
 {
     // const mmAnimSpline::`vftable' @ 0x61F3F0
 

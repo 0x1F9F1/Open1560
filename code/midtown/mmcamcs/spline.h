@@ -41,7 +41,7 @@
 
 #include "arts7/node.h"
 
-class Spline /*final*/ : public asNode
+class Spline final : public asNode
 {
     // const Spline::`vftable' @ 0x620540
 

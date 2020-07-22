@@ -52,7 +52,7 @@
 
 #include "optionsbase.h"
 
-class AudioOptions /*final*/ : public OptionsBase
+class AudioOptions final : public OptionsBase
 {
     // const AudioOptions::`vftable' @ 0x61D488
 

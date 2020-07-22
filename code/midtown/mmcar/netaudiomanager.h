@@ -50,7 +50,7 @@
 
 #include "arts7/node.h"
 
-class NetAudioManager /*final*/ : public asNode
+class NetAudioManager final : public asNode
 {
     // const NetAudioManager::`vftable' @ 0x61C1C8
 

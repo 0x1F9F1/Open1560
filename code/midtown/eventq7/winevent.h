@@ -47,7 +47,7 @@
 #include "dispatchable.h"
 #include "event.h"
 
-class WINEventHandler /*final*/
+class WINEventHandler final
     : public eqEventHandler
     , public Dispatchable
 {

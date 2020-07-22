@@ -33,7 +33,7 @@
 
 #include "surfrender.h"
 
-class agiZBufRenderer /*final*/ : public agiSurfRenderer
+class agiZBufRenderer final : public agiSurfRenderer
 {
     // const agiZBufRenderer::`vftable' @ 0x621388
 

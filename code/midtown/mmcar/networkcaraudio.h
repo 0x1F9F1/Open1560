@@ -48,7 +48,7 @@
 
 #include "arts7/node.h"
 
-class mmNetworkCarAudio /*final*/ : public asNode
+class mmNetworkCarAudio final : public asNode
 {
     // const mmNetworkCarAudio::`vftable' @ 0x61CA30
 

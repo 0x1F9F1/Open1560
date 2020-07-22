@@ -104,7 +104,7 @@ ARTS_IMPORT extern f32 WeatherFriction;
 // 0x6A7C50 | ?mmCarSimMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmCarSimMetaClass;
 
-class mmCarSim /*final*/ : public asNode
+class mmCarSim final : public asNode
 {
     // const mmCarSim::`vftable' @ 0x61BEA8
 

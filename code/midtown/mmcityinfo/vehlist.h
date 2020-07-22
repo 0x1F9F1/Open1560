@@ -36,7 +36,7 @@
     0x7084EC | class mmVehList * VehicleListPtr | ?VehicleListPtr@@3PAVmmVehList@@A
 */
 
-class mmVehList /*final*/
+class mmVehList final
 {
     // const mmVehList::`vftable' @ 0x61F8B0
 

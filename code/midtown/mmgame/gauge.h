@@ -44,7 +44,7 @@
 
 #include "arts7/node.h"
 
-class RadialGauge /*final*/ : public asNode
+class RadialGauge final : public asNode
 {
     // const RadialGauge::`vftable' @ 0x61ABA8
 

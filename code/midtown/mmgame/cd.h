@@ -38,7 +38,7 @@
 
 #include "arts7/node.h"
 
-class mmCDPlayer /*final*/ : public asNode
+class mmCDPlayer final : public asNode
 {
     // const mmCDPlayer::`vftable' @ 0x61AB40
 

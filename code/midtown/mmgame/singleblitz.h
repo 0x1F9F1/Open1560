@@ -64,7 +64,7 @@
 
 #include "game.h"
 
-class mmSingleBlitz /*final*/ : public mmGame
+class mmSingleBlitz final : public mmGame
 {
     // const mmSingleBlitz::`vftable' @ 0x61A550
 

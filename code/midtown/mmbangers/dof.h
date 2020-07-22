@@ -60,7 +60,7 @@ public:
 
 check_size(mmDofBangerInstance, 0x34);
 
-class mmFacadeBangerInstance /*final*/ : public mmBangerInstance
+class mmFacadeBangerInstance final : public mmBangerInstance
 {
 public:
     // 0x4CB940 | ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ | unused
@@ -74,7 +74,7 @@ public:
 
 check_size(mmFacadeBangerInstance, 0x30);
 
-class mmGlassBangerInstance /*final*/ : public mmBangerInstance
+class mmGlassBangerInstance final : public mmBangerInstance
 {
 private:
     // 0x4CB9C0 | ?Draw@mmGlassBangerInstance@@EAIXH@Z | unused

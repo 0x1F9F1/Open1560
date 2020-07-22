@@ -46,7 +46,7 @@
 
 #include "arts7/node.h"
 
-class mmPopup /*final*/ : public asNode
+class mmPopup final : public asNode
 {
     // const mmPopup::`vftable' @ 0x61AD80
 

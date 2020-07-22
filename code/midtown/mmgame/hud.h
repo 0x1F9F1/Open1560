@@ -97,7 +97,7 @@
 
 #include "arts7/node.h"
 
-class mmHUD /*final*/ : public asNode
+class mmHUD final : public asNode
 {
     // const mmHUD::`vftable' @ 0x61A1C8
 
@@ -231,7 +231,7 @@ public:
 
 check_size(mmHUD, 0xE94);
 
-class mmTimer /*final*/ : public asNode
+class mmTimer final : public asNode
 {
     // const mmTimer::`vftable' @ 0x61A208
 
@@ -270,7 +270,7 @@ public:
 
 check_size(mmTimer, 0x30);
 
-class mmArrow /*final*/ : public asNode
+class mmArrow final : public asNode
 {
     // const mmArrow::`vftable' @ 0x61A248
 

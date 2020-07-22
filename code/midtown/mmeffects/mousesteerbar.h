@@ -34,7 +34,7 @@
 
 #include "arts7/node.h"
 
-class mmMouseSteerBar /*final*/ : public asNode
+class mmMouseSteerBar final : public asNode
 {
     // const mmMouseSteerBar::`vftable' @ 0x6207E0
 

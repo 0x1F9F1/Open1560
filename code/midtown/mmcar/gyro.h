@@ -35,7 +35,7 @@
 
 #include "arts7/node.h"
 
-class VehGyro /*final*/ : public asNode
+class VehGyro final : public asNode
 {
     // const VehGyro::`vftable' @ 0x61C810
 

@@ -49,7 +49,7 @@
 
 #include "carcamcs.h"
 
-class TrackCamCS /*final*/ : public CarCamCS
+class TrackCamCS final : public CarCamCS
 {
     // const TrackCamCS::`vftable' @ 0x6200C8
 

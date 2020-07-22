@@ -45,7 +45,7 @@
 
 #include "gamemulti.h"
 
-class mmMultiCircuit /*final*/ : public mmGameMulti
+class mmMultiCircuit final : public mmGameMulti
 {
     // const mmMultiCircuit::`vftable' @ 0x61A890
 

@@ -41,7 +41,7 @@
 
 #include "pu_menu.h"
 
-class PURoster /*final*/ : public PUMenuBase
+class PURoster final : public PUMenuBase
 {
     // const PURoster::`vftable' @ 0x61DE08
 

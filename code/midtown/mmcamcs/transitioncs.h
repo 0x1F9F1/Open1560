@@ -39,7 +39,7 @@
 
 #include "carcamcs.h"
 
-class TransitionCS /*final*/ : public CarCamCS
+class TransitionCS final : public CarCamCS
 {
     // const TransitionCS::`vftable' @ 0x620438
 

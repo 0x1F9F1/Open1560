@@ -35,7 +35,7 @@
 
 #include "aiGoal.h"
 
-class aiGoalAvoidPlayer /*final*/ : public aiGoal
+class aiGoalAvoidPlayer final : public aiGoal
 {
     // const aiGoalAvoidPlayer::`vftable' @ 0x61BD10
 

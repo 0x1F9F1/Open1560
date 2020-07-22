@@ -64,7 +64,7 @@
 
 #include "arts7/node.h"
 
-class mmBridgeMgr /*final*/ : public asNode
+class mmBridgeMgr final : public asNode
 {
     // const mmBridgeMgr::`vftable' @ 0x61F370
 
@@ -106,7 +106,7 @@ protected:
 
 check_size(mmBridgeMgr, 0x2674);
 
-class mmBridgeSet /*final*/ : public asNode
+class mmBridgeSet final : public asNode
 {
     // const mmBridgeSet::`vftable' @ 0x61F3B0
 

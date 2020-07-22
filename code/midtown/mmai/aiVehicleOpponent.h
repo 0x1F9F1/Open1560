@@ -50,7 +50,7 @@
 
 #include "aiVehicle.h"
 
-class aiVehicleOpponent /*final*/ : public aiVehicle
+class aiVehicleOpponent final : public aiVehicle
 {
     // const aiVehicleOpponent::`vftable' @ 0x61B6F8
 

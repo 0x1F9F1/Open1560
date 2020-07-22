@@ -33,7 +33,7 @@
 
 #include "aiGoal.h"
 
-class aiGoalCollision /*final*/ : public aiGoal
+class aiGoalCollision final : public aiGoal
 {
     // const aiGoalCollision::`vftable' @ 0x61BD48
 

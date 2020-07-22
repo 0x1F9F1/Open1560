@@ -38,7 +38,7 @@
 
 #include "linear.h"
 
-class asDofCS /*final*/ : public asLinearCS
+class asDofCS final : public asLinearCS
 {
     // const asDofCS::`vftable' @ 0x620DF8
 

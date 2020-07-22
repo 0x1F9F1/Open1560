@@ -73,7 +73,7 @@
 
 #include "arts7/node.h"
 
-class mmWPHUD /*final*/ : public asNode
+class mmWPHUD final : public asNode
 {
     // const mmWPHUD::`vftable' @ 0x61AC38
 
@@ -112,7 +112,7 @@ public:
 
 check_size(mmWPHUD, 0x98);
 
-class mmCircuitHUD /*final*/ : public asNode
+class mmCircuitHUD final : public asNode
 {
     // const mmCircuitHUD::`vftable' @ 0x61AC78
 
@@ -148,7 +148,7 @@ public:
 
 check_size(mmCircuitHUD, 0x9C);
 
-class mmCRHUD /*final*/ : public asNode
+class mmCRHUD final : public asNode
 {
     // const mmCRHUD::`vftable' @ 0x61ACB8
 

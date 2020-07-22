@@ -45,7 +45,7 @@
 
 #include "arts7/node.h"
 
-class mmTransmission /*final*/ : public asNode
+class mmTransmission final : public asNode
 {
     // const mmTransmission::`vftable' @ 0x61BF18
 

@@ -66,7 +66,7 @@
 
 #include "mmwidget/menu.h"
 
-class NetSelectMenu /*final*/ : public UIMenu
+class NetSelectMenu final : public UIMenu
 {
     // const NetSelectMenu::`vftable' @ 0x61DA78
 

@@ -33,7 +33,7 @@
 
 #include "agi/lmodel.h"
 
-class agiBILightModel /*final*/ : public agiLightModel
+class agiBILightModel final : public agiLightModel
 {
     // const agiBILightModel::`vftable' @ 0x621508
 

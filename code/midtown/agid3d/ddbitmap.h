@@ -35,7 +35,7 @@
 
 #include "agi/bitmap.h"
 
-class agiDDBitmap /*final*/ : public agiBitmap
+class agiDDBitmap final : public agiBitmap
 {
     // const agiDDBitmap::`vftable' @ 0x6211B0
 

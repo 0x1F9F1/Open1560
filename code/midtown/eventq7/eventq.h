@@ -110,7 +110,7 @@ union eqEvent
 
 check_size(eqEvent, 0x24);
 
-class eqEventQ /*final*/ : public eqEventMonitor
+class eqEventQ final : public eqEventMonitor
 {
     // const eqEventQ::`vftable' @ 0x621B00
 

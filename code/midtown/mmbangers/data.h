@@ -55,7 +55,7 @@
 
 #include "arts7/node.h"
 
-class mmBangerData /*final*/ : public asNode
+class mmBangerData final : public asNode
 {
     // const mmBangerData::`vftable' @ 0x61F738
 
@@ -102,7 +102,7 @@ public:
 
 check_size(mmBangerData, 0x134);
 
-class mmBangerDataManager /*final*/ : public asNode
+class mmBangerDataManager final : public asNode
 {
     // const mmBangerDataManager::`vftable' @ 0x61F6E0
 

@@ -59,7 +59,7 @@ ARTS_IMPORT u32 ARTS_STDCALL ThreadFunc(void* arg1);
 // 0x6A7110 | ?mmGameSingleMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmGameSingleMetaClass;
 
-class mmGameSingle /*final*/ : public mmGame
+class mmGameSingle final : public mmGame
 {
     // const mmGameSingle::`vftable' @ 0x61A728
 

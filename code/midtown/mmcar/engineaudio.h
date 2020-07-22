@@ -40,7 +40,7 @@
 
 #include "arts7/node.h"
 
-class EngineAudio /*final*/ : public asNode
+class EngineAudio final : public asNode
 {
     // const EngineAudio::`vftable' @ 0x61CAE8
 

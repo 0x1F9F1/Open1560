@@ -29,7 +29,7 @@
     0x61F944 | const mmCityInfo::`vftable' | ??_7mmCityInfo@@6B@
 */
 
-class mmCityInfo /*final*/
+class mmCityInfo final
 {
     // const mmCityInfo::`vftable' @ 0x61F944
 

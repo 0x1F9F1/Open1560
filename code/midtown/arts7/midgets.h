@@ -104,7 +104,7 @@
 
 class MI;
 
-class asMidgets /*final*/
+class asMidgets final
     : public Bank
     , public asCullable
 {

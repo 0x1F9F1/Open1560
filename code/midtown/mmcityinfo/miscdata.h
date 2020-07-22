@@ -47,7 +47,7 @@
 
 #include "infobase.h"
 
-class mmMiscData /*final*/ : public mmInfoBase
+class mmMiscData final : public mmInfoBase
 {
     // const mmMiscData::`vftable' @ 0x61F8B8
 

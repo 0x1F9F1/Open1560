@@ -76,7 +76,7 @@
 
 #include "infobase.h"
 
-class mmRoadSide /*final*/ : public mmInfoBase
+class mmRoadSide final : public mmInfoBase
 {
     // const mmRoadSide::`vftable' @ 0x61B2D8
 
@@ -100,7 +100,7 @@ public:
 
 check_size(mmRoadSide, 0x2E0);
 
-class mmRoadSect /*final*/ : public mmInfoBase
+class mmRoadSect final : public mmInfoBase
 {
     // const mmRoadSect::`vftable' @ 0x61B2F0
 
@@ -205,7 +205,7 @@ public:
 
 check_size(mmRoadSect, 0x6CC);
 
-class mmPropInfo /*final*/ : public mmInfoBase
+class mmPropInfo final : public mmInfoBase
 {
     // const mmPropInfo::`vftable' @ 0x61F918
 

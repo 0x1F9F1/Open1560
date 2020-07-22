@@ -39,7 +39,7 @@
 
 #include "d3dpipe.h"
 
-class agiD3DRPipeline /*final*/ : public agiD3DPipeline
+class agiD3DRPipeline final : public agiD3DPipeline
 {
     // const agiD3DRPipeline::`vftable' @ 0x621010
 

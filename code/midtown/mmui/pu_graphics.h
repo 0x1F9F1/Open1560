@@ -36,7 +36,7 @@
 
 #include "pu_menu.h"
 
-class PUGraphics /*final*/ : public PUMenuBase
+class PUGraphics final : public PUMenuBase
 {
     // const PUGraphics::`vftable' @ 0x61DF48
 

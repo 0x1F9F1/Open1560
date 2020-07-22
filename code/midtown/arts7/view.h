@@ -43,7 +43,7 @@
 
 #include "linear.h"
 
-class asViewCS /*final*/ : public asLinearCS
+class asViewCS final : public asLinearCS
 {
     // const asViewCS::`vftable' @ 0x620E40
 

@@ -48,7 +48,7 @@
 
 #include "arts7/node.h"
 
-class TextDropWidget /*final*/ : public asNode
+class TextDropWidget final : public asNode
 {
     // const TextDropWidget::`vftable' @ 0x61F0F8
 

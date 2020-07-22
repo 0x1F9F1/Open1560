@@ -46,7 +46,7 @@
 #include "agi/dlp.h"
 #include "agi/dyndlp.h"
 
-class RDLP /*final*/ : public DLP
+class RDLP final : public DLP
 {
     // const RDLP::`vftable' @ 0x6213B8
 
@@ -83,7 +83,7 @@ private:
 
 check_size(RDLP, 0xAC);
 
-class RDynamicDLP /*final*/ : public DynamicDLP
+class RDynamicDLP final : public DynamicDLP
 {
     // const RDynamicDLP::`vftable' @ 0x6213F0
 

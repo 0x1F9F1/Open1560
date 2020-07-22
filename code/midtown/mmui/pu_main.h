@@ -30,7 +30,7 @@
 
 #include "pu_menu.h"
 
-class PUMain /*final*/ : public PUMenuBase
+class PUMain final : public PUMenuBase
 {
     // const PUMain::`vftable' @ 0x61E198
 

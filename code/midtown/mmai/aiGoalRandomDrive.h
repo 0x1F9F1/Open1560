@@ -45,7 +45,7 @@
 
 #include "aiGoal.h"
 
-class aiGoalRandomDrive /*final*/ : public aiGoal
+class aiGoalRandomDrive final : public aiGoal
 {
     // const aiGoalRandomDrive::`vftable' @ 0x61BAE0
 

@@ -38,7 +38,7 @@
 
 #include "arts7/node.h"
 
-class mmDrivetrain /*final*/ : public asNode
+class mmDrivetrain final : public asNode
 {
     // const mmDrivetrain::`vftable' @ 0x61C780
 

@@ -48,7 +48,7 @@
 #include "data7/timer.h"
 #include "mmeffects/mmtext.h"
 
-class mmLoader /*final*/ : public asCullable
+class mmLoader final : public asCullable
 {
     // const mmLoader::`vftable' @ 0x61CBC8
 

@@ -64,7 +64,7 @@
 
 #include "arts7/linear.h"
 
-class asInertialCS /*final*/ : public asLinearCS
+class asInertialCS final : public asLinearCS
 {
     // const asInertialCS::`vftable' @ 0x61FA48
 

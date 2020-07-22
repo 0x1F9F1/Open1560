@@ -34,7 +34,7 @@
 
 #include "aiGoal.h"
 
-class aiGoalRegainRail /*final*/ : public aiGoal
+class aiGoalRegainRail final : public aiGoal
 {
     // const aiGoalRegainRail::`vftable' @ 0x61BD28
 

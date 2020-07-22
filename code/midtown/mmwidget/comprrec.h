@@ -53,7 +53,7 @@
 
 #include "compbase.h"
 
-class mmCompRaceRecord /*final*/ : public mmCompBase
+class mmCompRaceRecord final : public mmCompBase
 {
     // const mmCompRaceRecord::`vftable' @ 0x61E680
 

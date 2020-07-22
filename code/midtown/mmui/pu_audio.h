@@ -36,7 +36,7 @@
 
 #include "pu_menu.h"
 
-class PUAudioOptions /*final*/ : public PUMenuBase
+class PUAudioOptions final : public PUMenuBase
 {
     // const PUAudioOptions::`vftable' @ 0x61E0A8
 

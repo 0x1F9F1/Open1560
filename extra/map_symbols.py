@@ -2135,7 +2135,7 @@ for lib, paths in grouped_symbols.items():
             output.header += '{} {}'.format(path_type, path)
 
             if path in final_classes:
-                output.header += ' /*final*/ '
+                output.header += ' final '
 
             if path in class_hier:
                 parents = class_hier[path]

@@ -148,7 +148,7 @@ ARTS_IMPORT extern struct IDirectInputA* gpdi;
 // 0x719270 | ?testValue@@3MA
 ARTS_IMPORT extern f32 testValue;
 
-class mmInput /*final*/ : public asNode
+class mmInput final : public asNode
 {
     // const mmInput::`vftable' @ 0x61FC38
 

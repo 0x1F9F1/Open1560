@@ -50,7 +50,7 @@
 
 #include "arts7/node.h"
 
-class mmBoat /*final*/ : public asNode
+class mmBoat final : public asNode
 {
     // const mmBoat::`vftable' @ 0x61F5F8
 

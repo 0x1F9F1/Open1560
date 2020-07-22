@@ -77,7 +77,7 @@
 
 #include "gamemulti.h"
 
-class mmMultiCR /*final*/ : public mmGameMulti
+class mmMultiCR final : public mmGameMulti
 {
     // const mmMultiCR::`vftable' @ 0x61A960
 

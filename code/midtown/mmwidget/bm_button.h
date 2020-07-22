@@ -56,7 +56,7 @@
 
 #include "widget.h"
 
-class UIBMButton /*final*/ : public uiWidget
+class UIBMButton final : public uiWidget
 {
     // const UIBMButton::`vftable' @ 0x61E878
 

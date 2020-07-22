@@ -55,7 +55,7 @@ class asCamera;
 class asCullable;
 class Matrix34;
 
-class asCullManager /*final*/ : public asNode
+class asCullManager final : public asNode
 {
     // const asCullManager::`vftable' @ 0x620AD0
 

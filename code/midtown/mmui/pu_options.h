@@ -30,7 +30,7 @@
 
 #include "pu_menu.h"
 
-class PUOptions /*final*/ : public PUMenuBase
+class PUOptions final : public PUMenuBase
 {
     // const PUOptions::`vftable' @ 0x61E050
 

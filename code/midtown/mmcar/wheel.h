@@ -48,7 +48,7 @@
 
 #include "arts7/linear.h"
 
-class mmWheel /*final*/ : public asLinearCS
+class mmWheel final : public asLinearCS
 {
     // const mmWheel::`vftable' @ 0x61C740
 

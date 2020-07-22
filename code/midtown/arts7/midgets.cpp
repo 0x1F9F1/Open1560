@@ -59,7 +59,7 @@ asMidgets::~asMidgets()
     Off();
 }
 
-class BMI /*final*/ : public MI
+class BMI final : public MI
 {
     // const BMI::`vftable' @ 0x620CB8
 
@@ -123,7 +123,7 @@ void asMidgets::AddFileButton(const char* arg1, [[maybe_unused]] Callback arg2)
     AddButton(arg1, NullCallback);
 }
 
-class TMI /*final*/ : public MI
+class TMI final : public MI
 {
     // const TMI::`vftable' @ 0x620CC0
 
@@ -157,7 +157,7 @@ bkButton* asMidgets::AddMex(const char* arg1, i32* arg2, i32 arg3, Callback arg4
     return nullptr;
 }
 
-class scharMI /*final*/ : public MI
+class scharMI final : public MI
 {
     // const scharMI::`vftable' @ 0x620CC8
 
@@ -193,7 +193,7 @@ bkSlider* asMidgets::AddSlider(const char* arg1, i8* arg2, i8 arg3, i8 arg4, f32
     return nullptr;
 }
 
-class floatMI /*final*/ : public MI
+class floatMI final : public MI
 {
     // const floatMI::`vftable' @ 0x620D00
 
@@ -229,7 +229,7 @@ bkSlider* asMidgets::AddSlider(const char* arg1, f32* arg2, f32 arg3, f32 arg4, 
     return nullptr;
 }
 
-class shortMI /*final*/ : public MI
+class shortMI final : public MI
 {
     // const shortMI::`vftable' @ 0x620CE0
 
@@ -265,7 +265,7 @@ bkSlider* asMidgets::AddSlider(const char* arg1, i16* arg2, i16 arg3, i16 arg4, 
     return nullptr;
 }
 
-class intMI /*final*/ : public MI
+class intMI final : public MI
 {
     // const intMI::`vftable' @ 0x620CF0
 
@@ -301,7 +301,7 @@ bkSlider* asMidgets::AddSlider(const char* arg1, i32* arg2, i32 arg3, i32 arg4, 
     return nullptr;
 }
 
-class ushortMI /*final*/ : public MI
+class ushortMI final : public MI
 {
     // const ushortMI::`vftable' @ 0x620CE8
 
@@ -337,7 +337,7 @@ bkSlider* asMidgets::AddSlider(const char* arg1, u16* arg2, u16 arg3, u16 arg4, 
     return nullptr;
 }
 
-class uintMI /*final*/ : public MI
+class uintMI final : public MI
 {
     // const uintMI::`vftable' @ 0x620CF8
 
@@ -373,7 +373,7 @@ bkSlider* asMidgets::AddSlider(const char* arg1, u32* arg2, u32 arg3, u32 arg4, 
     return nullptr;
 }
 
-class ucharMI /*final*/ : public MI
+class ucharMI final : public MI
 {
     // const ucharMI::`vftable' @ 0x620CD8
 
@@ -427,7 +427,7 @@ bkSlider* asMidgets::AddTextSlider(const char* arg1, [[maybe_unused]] const char
     return nullptr;
 }
 
-class SMI /*final*/ : public MI
+class SMI final : public MI
 {
     // const SMI::`vftable' @ 0x620CB0
 
@@ -502,7 +502,7 @@ void asMidgets::AddVector(const char* arg1, Vector4* arg2, f32 arg3, f32 arg4, f
     AddSlider(buffer.get(), &arg2->w, arg3, arg4, arg5, arg6);
 }
 
-class SBMI /*final*/ : public MI
+class SBMI final : public MI
 {
     // const SBMI::`vftable' @ 0x620D08
 

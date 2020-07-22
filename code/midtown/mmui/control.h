@@ -51,7 +51,7 @@
 
 #include "optionsbase.h"
 
-class ControlSetup /*final*/ : public OptionsBase
+class ControlSetup final : public OptionsBase
 {
     // const ControlSetup::`vftable' @ 0x61D9A0
 

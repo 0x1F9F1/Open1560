@@ -36,7 +36,7 @@
 
 #include "carcamcs.h"
 
-class PreCamCS /*final*/ : public CarCamCS
+class PreCamCS final : public CarCamCS
 {
     // const PreCamCS::`vftable' @ 0x6201E8
 

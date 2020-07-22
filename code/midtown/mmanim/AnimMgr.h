@@ -38,7 +38,7 @@
 
 #include "arts7/node.h"
 
-class mmAnimMgr /*final*/ : public asNode
+class mmAnimMgr final : public asNode
 {
     // const mmAnimMgr::`vftable' @ 0x61F308
 

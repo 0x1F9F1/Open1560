@@ -35,7 +35,7 @@
 
 #include "carcamcs.h"
 
-class AICamCS /*final*/ : public CarCamCS
+class AICamCS final : public CarCamCS
 {
     // const AICamCS::`vftable' @ 0x6202B8
 

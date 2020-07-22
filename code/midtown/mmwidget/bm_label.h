@@ -38,7 +38,7 @@
 
 #include "widget.h"
 
-class UIBMLabel /*final*/ : public uiWidget
+class UIBMLabel final : public uiWidget
 {
     // const UIBMLabel::`vftable' @ 0x61E608
 

@@ -45,7 +45,7 @@
 
 #include "stream.h"
 
-class FileStream /*final*/ : public Stream
+class FileStream final : public Stream
 {
     // const FileStream::`vftable' @ 0x6219F8
 

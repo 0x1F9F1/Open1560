@@ -42,7 +42,7 @@
 
 #include "agi/texdef.h"
 
-class agiD3DTexDef /*final*/ : public agiTexDef
+class agiD3DTexDef final : public agiTexDef
 {
     // const agiD3DTexDef::`vftable' @ 0x621090
 
@@ -90,7 +90,7 @@ public:
 
 check_size(agiD3DTexDef, 0x88);
 
-class agiD3DTexLut /*final*/ : public agiTexLut
+class agiD3DTexLut final : public agiTexLut
 {
     // const agiD3DTexLut::`vftable' @ 0x620FF8
 

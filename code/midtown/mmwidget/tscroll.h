@@ -49,7 +49,7 @@
 
 #include "widget.h"
 
-class UITextScroll /*final*/ : public uiWidget
+class UITextScroll final : public uiWidget
 {
     // const UITextScroll::`vftable' @ 0x61EA98
 

@@ -32,7 +32,7 @@
 
 #include "pu_menu.h"
 
-class PUKey /*final*/ : public PUMenuBase
+class PUKey final : public PUMenuBase
 {
     // const PUKey::`vftable' @ 0x61DE58
 

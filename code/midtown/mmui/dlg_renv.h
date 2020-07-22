@@ -35,7 +35,7 @@
 
 #include "pu_menu.h"
 
-class Dialog_RaceEnvironment /*final*/ : public PUMenuBase
+class Dialog_RaceEnvironment final : public PUMenuBase
 {
     // const Dialog_RaceEnvironment::`vftable' @ 0x61D5A0
 

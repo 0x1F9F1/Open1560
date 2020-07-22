@@ -49,7 +49,7 @@
 
 #include "mmwidget/menu.h"
 
-class NetArena /*final*/ : public UIMenu
+class NetArena final : public UIMenu
 {
     // const NetArena::`vftable' @ 0x61D8E0
 

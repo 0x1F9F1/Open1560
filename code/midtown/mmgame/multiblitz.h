@@ -46,7 +46,7 @@
 
 #include "gamemulti.h"
 
-class mmMultiBlitz /*final*/ : public mmGameMulti
+class mmMultiBlitz final : public mmGameMulti
 {
     // const mmMultiBlitz::`vftable' @ 0x61A7D8
 

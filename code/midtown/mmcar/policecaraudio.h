@@ -44,7 +44,7 @@
 
 #include "opponentcaraudio.h"
 
-class mmPoliceCarAudio /*final*/ : public mmOpponentCarAudio
+class mmPoliceCarAudio final : public mmOpponentCarAudio
 {
     // const mmPoliceCarAudio::`vftable' @ 0x61C4A0
 

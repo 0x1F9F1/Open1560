@@ -33,7 +33,7 @@
 
 #include "arts7/node.h"
 
-class asBirthRule /*final*/ : public asNode
+class asBirthRule final : public asNode
 {
     // const asBirthRule::`vftable' @ 0x620740
 

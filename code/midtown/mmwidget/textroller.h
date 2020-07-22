@@ -41,7 +41,7 @@
 
 #include "widget.h"
 
-class UITextRoller /*final*/ : public uiWidget
+class UITextRoller final : public uiWidget
 {
     // const UITextRoller::`vftable' @ 0x61EC88
 

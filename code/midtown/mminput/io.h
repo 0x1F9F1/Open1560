@@ -35,7 +35,7 @@
     0x4E4FA0 | public: void __thiscall mmIO::ForceSettingAcrossConfigs(int) | ?ForceSettingAcrossConfigs@mmIO@@QAEXH@Z
 */
 
-class mmIO /*final*/
+class mmIO final
 {
 public:
     // 0x4E4B60 | ??0mmIO@@QAE@XZ

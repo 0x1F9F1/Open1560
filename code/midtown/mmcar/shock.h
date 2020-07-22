@@ -34,7 +34,7 @@
 
 #include "arts7/linear.h"
 
-class mmShock /*final*/ : public asLinearCS
+class mmShock final : public asLinearCS
 {
     // const mmShock::`vftable' @ 0x61C640
 

@@ -36,7 +36,7 @@
 
 #include "arts7/node.h"
 
-class mmStuck /*final*/ : public asNode
+class mmStuck final : public asNode
 {
     // const mmStuck::`vftable' @ 0x61C540
 

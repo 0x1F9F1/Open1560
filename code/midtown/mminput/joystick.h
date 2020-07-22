@@ -61,7 +61,7 @@
     0x61FD00 | const mmRoadFF::`vftable' | ??_7mmRoadFF@@6B@
 */
 
-struct mmJoystick /*final*/
+struct mmJoystick final
 {
 public:
     // 0x4E6180 | ??0mmJoystick@@QAE@XZ

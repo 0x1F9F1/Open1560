@@ -31,7 +31,7 @@
     0x44EA60 | public: int __thiscall aiPoliceForce::State(class mmCar *,class mmCar *,float) | ?State@aiPoliceForce@@QAEHPAVmmCar@@0M@Z
 */
 
-struct aiPoliceForce /*final*/
+struct aiPoliceForce final
 {
 public:
     // 0x44E7E0 | ??0aiPoliceForce@@QAE@XZ

@@ -33,7 +33,7 @@
 
 #include "mmwidget/menu.h"
 
-class AboutMenu /*final*/ : public UIMenu
+class AboutMenu final : public UIMenu
 {
     // const AboutMenu::`vftable' @ 0x61DC40
 

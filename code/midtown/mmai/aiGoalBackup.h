@@ -34,7 +34,7 @@
 
 #include "aiGoal.h"
 
-class aiGoalBackup /*final*/ : public aiGoal
+class aiGoalBackup final : public aiGoal
 {
     // const aiGoalBackup::`vftable' @ 0x61BB50
 

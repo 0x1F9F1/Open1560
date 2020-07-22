@@ -43,7 +43,7 @@
 
 #include "mmcityinfo/infobase.h"
 
-class mmIODev /*final*/ : public mmInfoBase
+class mmIODev final : public mmInfoBase
 {
     // const mmIODev::`vftable' @ 0x61FCA8
 

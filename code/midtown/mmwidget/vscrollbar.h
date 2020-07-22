@@ -48,7 +48,7 @@
 
 #include "widget.h"
 
-class UIVScrollBar /*final*/ : public uiWidget
+class UIVScrollBar final : public uiWidget
 {
     // const UIVScrollBar::`vftable' @ 0x61F030
 

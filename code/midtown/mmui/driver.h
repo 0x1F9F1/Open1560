@@ -46,7 +46,7 @@
 
 #include "mmwidget/menu.h"
 
-class DriverMenu /*final*/ : public UIMenu
+class DriverMenu final : public UIMenu
 {
     // const DriverMenu::`vftable' @ 0x61DBF0
 

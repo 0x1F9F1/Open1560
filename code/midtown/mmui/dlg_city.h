@@ -32,7 +32,7 @@
 
 #include "pu_menu.h"
 
-class Dialog_City /*final*/ : public PUMenuBase
+class Dialog_City final : public PUMenuBase
 {
     // const Dialog_City::`vftable' @ 0x61D4E8
 

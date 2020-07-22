@@ -40,7 +40,7 @@
 
 #include "compbase.h"
 
-class mmCompCRPlayer /*final*/ : public mmCompBase
+class mmCompCRPlayer final : public mmCompBase
 {
     // const mmCompCRPlayer::`vftable' @ 0x61E8F8
 
