@@ -39,40 +39,42 @@
     0x903190 | int AnnotateTextures | ?AnnotateTextures@@3HA
 */
 
-struct agiColorKey
+struct agiColorKey // DDCOLORKEY
 {
-    u32 dwColorSpaceLowValue {0};
-    u32 dwColorSpaceHighValue {0};
+    u32 Low {0};
+    u32 High {0};
 };
 
-struct agiPixelFormat
+struct agiPixelFormat // DDPIXELFORMAT
 {
-    u32 dwSize {0};
-    u32 dwFlags {0};
-    u32 dwFourCC {0};
-    u32 dwRGBBitCount {0};
-    u32 dwRBitMask {0};
-    u32 dwGBitMask {0};
-    u32 dwBBitMask {0};
-    u32 dwRGBAlphaBitMask {0};
+    u32 Size {0};
+    u32 Flags {0};
+    u32 FourCC {0};
+    u32 RGBBitCount {0};
+    u32 RBitMask {0};
+    u32 GBitMask {0};
+    u32 BBitMask {0};
+    u32 RGBAlphaBitMask {0};
 };
 
-struct agiDDSCAPS2
+struct agiDDSCAPS2 // DDSCAPS2
 {
-    u32 dwCaps {0};
-    u32 dwCaps2 {0};
-    u32 dwCaps3 {0};
-    u32 dwCaps4 {0};
+    u32 Caps {0};
+    u32 Caps2 {0};
+    u32 Caps3 {0};
+    u32 Caps4 {0};
 };
 
 #define AGISD_HEIGHT 0x00000002l
 #define AGISD_WIDTH 0x00000004l
 
+// TODO: Allow safe conversion to/from DDSURFACEDESC2 (instead of bitcasting)
+
 class agiSurfaceDesc // DDSURFACEDESC2
 {
 public:
     // 0x55B180 | ?CopyFrom@agiSurfaceDesc@@QAEXPAV1@H@Z
-    ARTS_EXPORT void CopyFrom(class agiSurfaceDesc* src, i32 lod);
+    ARTS_EXPORT void CopyFrom(agiSurfaceDesc* src, i32 lod);
 
     // 0x55ADE0 | ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
     ARTS_IMPORT void Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class Stream* arg5, i32 arg6, i32 arg7);
@@ -81,21 +83,20 @@ public:
     ARTS_EXPORT void Unload();
 
     // 0x55A720 | ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
-    ARTS_EXPORT [[nodiscard]] static Owner<class agiSurfaceDesc*> Init(
-        i32 width, i32 height, class agiSurfaceDesc& desc);
+    ARTS_EXPORT [[nodiscard]] static Owner<agiSurfaceDesc*> Init(i32 width, i32 height, const agiSurfaceDesc& desc);
 
     // 0x55A7A0 | ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
-    ARTS_IMPORT [[nodiscard]] static Owner<class agiSurfaceDesc*> Load(
+    ARTS_IMPORT [[nodiscard]] static Owner<agiSurfaceDesc*> Load(
         char* name, char* path, i32 index, i32 pack, i32 width, i32 height);
 
-    u32 dwSize {0};
-    u32 dwFlags {0};
-    u32 dwHeight {0};
-    u32 dwWidth {0};
-    i32 lPitch {0};
-    u32 dwBackBufferCount {0};
-    u32 dwMipMapCount {0};
-    u32 dwAlphaBitDepth {0};
+    u32 Size {0};
+    u32 Flags {0};
+    u32 Height {0};
+    u32 Width {0};
+    i32 Pitch {0};
+    u32 BackBufferCount {0};
+    u32 MipMapCount {0};
+    u32 AlphaBitDepth {0};
 
     union
     {
@@ -104,14 +105,14 @@ public:
         char szLut[4];
     };
 
-    void* lpSurface {nullptr};
-    agiColorKey ddckCKDestOverlay {};
-    agiColorKey ddckCKDestBlt {};
-    agiColorKey ddckCKSrcOverlay {};
-    agiColorKey ddckCKSrcBlt {};
-    agiPixelFormat ddpfPixelFormat {};
-    agiDDSCAPS2 ddsCaps {};
-    u32 dwTextureStage {0};
+    void* Surface {nullptr};
+    agiColorKey DestOverlay {};
+    agiColorKey DestBlt {};
+    agiColorKey SrcOverlay {};
+    agiColorKey SrcBlt {};
+    agiPixelFormat PixelFormat {};
+    agiDDSCAPS2 SCaps {};
+    u32 TextureStage {0};
 };
 
 check_size(agiSurfaceDesc, 0x7C);

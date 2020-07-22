@@ -47,7 +47,7 @@ void agiPrintShutdown()
 
 void agiPrintf(i32 x, i32 y, i32 color, char const* format, ...)
 {
-    if (y >= 0 && y <= agiPipeline::CurrentPipe->Height - agiPrintSize)
+    if (y >= 0 && y <= agiPipeline::CurrentPipe->GetHeight() - agiPrintSize)
     {
         char buffer[256];
 

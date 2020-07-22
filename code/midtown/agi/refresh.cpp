@@ -20,6 +20,7 @@ define_dummy_symbol(agi_refresh);
 
 #include "refresh.h"
 
+#include "error.h"
 #include "pipeline.h"
 
 agiRefreshable::agiRefreshable(agiPipeline* pipe)
@@ -73,11 +74,11 @@ i32 agiRefreshable::Release()
 
 i32 agiRefreshable::SafeBeginGfx()
 {
-    if (!pipe_ || !pipe_->GfxStarted)
-        return 0;
+    if (!pipe_ || !pipe_->HaveGfxStarted())
+        return AGI_ERROR_SUCCESS;
 
     if (state_ != 0)
-        return -3;
+        return AGI_ERROR_ALREADY_INITIALIZED;
 
     return BeginGfx();
 }

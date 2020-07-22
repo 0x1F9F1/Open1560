@@ -101,22 +101,22 @@ i32 agiPipeline::Init(const char* name, i32 x, i32 y, i32 width, i32 height, i32
 {
     EndAllGfx();
 
-    Name = name;
-    X = x;
-    Y = y;
-    Width = width;
-    Height = height;
-    BitDepth = bit_depth;
-    DeviceFlags = flags;
-    Window = window;
+    name_ = name;
+    x_ = x;
+    y_ = y;
+    width_ = width;
+    height_ = height;
+    bit_depth_ = bit_depth;
+    device_flags_1_ = flags;
+    window_ = window;
 
     return BeginAllGfx();
 }
 
 void agiPipeline::NotifyDelete(agiRefreshable* ptr)
 {
-    if (ptr == Objects)
-        Objects = ptr->next_;
+    if (ptr == objects_)
+        objects_ = ptr->next_;
     else
         ptr->prev_->next_ = ptr->next_;
 
@@ -126,19 +126,19 @@ void agiPipeline::NotifyDelete(agiRefreshable* ptr)
 
 void agiPipeline::NotifyNew(agiRefreshable* ptr)
 {
-    ptr->next_ = Objects;
+    ptr->next_ = objects_;
 
     if (ptr->next_)
         ptr->next_->prev_ = ptr;
 
-    Objects = ptr;
+    objects_ = ptr;
 }
 
 void agiPipeline::RestoreAll()
 {
     agiDisplayf("Restoring lost objects");
 
-    for (agiRefreshable* i = Objects; i; i = i->next_)
+    for (agiRefreshable* i = objects_; i; i = i->next_)
         i->Restore();
 
     agiDisplayf("Done restoring lost objects");
@@ -149,7 +149,7 @@ void agiPipeline::ValidateObject(agiRefreshable* ptr)
     if (this != ptr->pipe_)
         Quitf("PIPE::ValidateObject: I don't own this.");
 
-    for (agiRefreshable* i = Objects; i != ptr; i = i->next_)
+    for (agiRefreshable* i = objects_; i != ptr; i = i->next_)
     {
         if (i == nullptr)
             Quitf("PIPE::ValidateObject: Not in my list.");

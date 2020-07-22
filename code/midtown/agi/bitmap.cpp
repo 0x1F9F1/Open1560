@@ -50,7 +50,7 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
     {
         // NOTE: Orignial used agiPipeline::CurrentPipe for Width and Height
         surface_ = agiSurfaceDesc::Load(const_cast<char*>(name), BitmapSearchPath, 0, 0,
-            (sx == 1.0f) ? pipe_->Width : 0, (sy == 1.0f) ? pipe_->Height : 0);
+            (sx == 1.0f) ? Pipe()->GetWidth() : 0, (sy == 1.0f) ? Pipe()->GetHeight() : 0);
 
         if (surface_ == nullptr)
             return -1;
@@ -65,8 +65,8 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
         }
         else
         {
-            width_ = (sx == 0.0f) ? surface_->dwWidth : static_cast<i32>(pipe_->Width * sx);
-            height_ = (sy == 0.0f) ? surface_->dwHeight : static_cast<i32>(pipe_->Height * sy);
+            width_ = sx ? static_cast<i32>(Pipe()->GetWidth() * sx) : surface_->Width;
+            height_ = sy ? static_cast<i32>(Pipe()->GetHeight() * sy) : surface_->Height;
 
             width_scale_ = sx;
             height_scale_ = sy;
@@ -82,7 +82,7 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
         width_ = static_cast<i32>(sx);
         height_ = static_cast<i32>(sy);
 
-        surface_ = agiSurfaceDesc::Init(width_, height_, pipe_->ScreenFormat);
+        surface_ = agiSurfaceDesc::Init(width_, height_, Pipe()->GetScreenFormat());
     }
 
     return SafeBeginGfx();
@@ -103,6 +103,7 @@ agiBitmap::~agiBitmap()
     if (surface_)
     {
         surface_->Unload();
+
         delete surface_;
     }
 

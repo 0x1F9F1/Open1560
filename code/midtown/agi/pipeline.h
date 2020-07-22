@@ -230,28 +230,47 @@ public:
     // 0x8FACAC | ?CurrentRenderer@agiPipeline@@2PAVagiRenderer@@A
     ARTS_IMPORT static class agiRenderer* CurrentRenderer;
 
+    i32 GetWidth() const
+    {
+        return width_;
+    }
+
+    i32 GetHeight() const
+    {
+        return height_;
+    }
+
+    bool HaveGfxStarted() const
+    {
+        return gfx_started_;
+    }
+
+    const agiSurfaceDesc& GetScreenFormat() const
+    {
+        return screen_format_;
+    }
+
 protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
     ARTS_IMPORT agiPipeline();
 
-public:
-    CString Name {};
-    i32 X {0};
-    i32 Y {0};
-    i32 Width {0};
-    i32 Height {0};
-    i32 BitDepth {0};
-    i32 DeviceFlags {0};
-    i32 DeviceFlags2 {0};
-    i32 DeviceFlags3 {0};
-    void* Window {nullptr};
-    i32 HorzRes {0};
-    i32 VertRes {0};
+    CString name_ {};
+    i32 x_ {0};
+    i32 y_ {0};
+    i32 width_ {0};
+    i32 height_ {0};
+    i32 bit_depth_ {0};
+    i32 device_flags_1_ {0};
+    i32 device_flags_2_ {0};
+    i32 device_flags_3_ {0};
+    void* window_ {nullptr};
+    i32 horz_res_ {0};
+    i32 vert_res_ {0};
     u8 gap34[0x114];
-    agiSurfaceDesc ScreenFormat {};
+    agiSurfaceDesc screen_format_ {};
     u8 gap1C4[0x118];
-    agiRefreshable* Objects {nullptr};
-    b32 GfxStarted {false};
+    agiRefreshable* objects_ {nullptr};
+    b32 gfx_started_ {false};
     u8 gap2E4[0xC];
 };
 

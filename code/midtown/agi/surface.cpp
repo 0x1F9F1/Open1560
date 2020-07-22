@@ -132,13 +132,13 @@ static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
 // 0x55B640 | ?copyrow565_to_888rev@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow565_to_888rev(void* arg1, void* arg2, u32 arg3, u32 arg4);
 
-void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
+void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 lod)
 {
-    u32 dst_width = dwWidth;
-    u32 dst_height = dwHeight;
-    u32 dst_pixel_size = (ddpfPixelFormat.dwRGBBitCount + 7) >> 3;
-    u32 dst_pitch = lPitch; // Pitch may be larger than dst_pixel_size * dst->dwWidth
-    u8* dst_surface = static_cast<u8*>(lpSurface);
+    u32 dst_width = Width;
+    u32 dst_height = Height;
+    u32 dst_pixel_size = (PixelFormat.RGBBitCount + 7) >> 3;
+    u32 dst_pitch = Pitch; // Pitch may be larger than dst_pixel_size * dst->dwWidth
+    u8* dst_surface = static_cast<u8*>(Surface);
 
     if (usize dst_min_pitch = dst_pixel_size * dst_width; dst_pitch < dst_min_pitch)
     {
@@ -148,11 +148,11 @@ void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
         return;
     }
 
-    u32 src_width = src->dwWidth;
-    u32 src_height = src->dwHeight;
-    u32 src_pixel_size = (src->ddpfPixelFormat.dwRGBBitCount + 7) >> 3;
-    u32 src_pitch = src_pixel_size * src->dwWidth;
-    u8* src_surface = static_cast<u8*>(src->lpSurface);
+    u32 src_width = src->Width;
+    u32 src_height = src->Height;
+    u32 src_pixel_size = (src->PixelFormat.RGBBitCount + 7) >> 3;
+    u32 src_pitch = src_pixel_size * src->Width;
+    u8* src_surface = static_cast<u8*>(src->Surface);
 
     for (; lod; --lod)
     {
@@ -165,7 +165,7 @@ void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
     u32 src_x_step = (src_width << 16) / dst_width;
     u32 src_y_step = (src_height << 16) / dst_height;
 
-    if (!std::memcmp(&ddpfPixelFormat, &src->ddpfPixelFormat, sizeof(ddpfPixelFormat)))
+    if (!std::memcmp(&PixelFormat, &src->PixelFormat, sizeof(PixelFormat)))
     {
         if (src_width != dst_width || src_height != dst_height || src_pitch != dst_pitch)
         {
@@ -184,7 +184,6 @@ void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
             }                                                                             \
         }                                                                                 \
         break
-
                 X(u8);
                 X(u16);
                 X(u32);
@@ -204,16 +203,16 @@ void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
 
     void (*copy_row)(void*, void*, u32, u32) = nullptr;
 
-    switch (src->ddpfPixelFormat.dwRBitMask)
+    switch (src->PixelFormat.RBitMask)
     {
         case 0xF800: // 565
-            switch (ddpfPixelFormat.dwRBitMask)
+            switch (PixelFormat.RBitMask)
             {
                 case 0xFF0000u: copy_row = copyrow565_to_888; break;
                 case 0xFFu: copy_row = copyrow565_to_888rev; break;
 
                 case 0x7C00u:
-                    if (ddpfPixelFormat.dwRGBAlphaBitMask == 0x8000)
+                    if (PixelFormat.RGBAlphaBitMask == 0x8000)
                     {
                         copy_row = copyrow565_to_5551;
                     }
@@ -226,14 +225,14 @@ void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
             break;
 
         case 0xF00: // 4444
-            switch (ddpfPixelFormat.dwRBitMask)
+            switch (PixelFormat.RBitMask)
             {
                 case 0xFF0000u: copy_row = copyrow4444_to_8888; break;
                 case 0xFFu: copy_row = copyrow4444_to_8888rev; break;
 
                 case 0xF800u: copy_row = copyrow4444_to_565; break;
                 case 0x7C00u:
-                    if (ddpfPixelFormat.dwRGBAlphaBitMask == 0x8000)
+                    if (PixelFormat.RGBAlphaBitMask == 0x8000)
                     {
                         copy_row = copyrow4444_to_5551;
                     }
@@ -248,10 +247,9 @@ void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
 
     if (!copy_row)
     {
-        Quitf("Tell Dave to implement (%x,%x,%x,%x)-->(%x,%x,%x,%x) copyrow function.", src->ddpfPixelFormat.dwRBitMask,
-            src->ddpfPixelFormat.dwGBitMask, src->ddpfPixelFormat.dwBBitMask, src->ddpfPixelFormat.dwRGBAlphaBitMask,
-            ddpfPixelFormat.dwRBitMask, ddpfPixelFormat.dwGBitMask, ddpfPixelFormat.dwBBitMask,
-            ddpfPixelFormat.dwRGBAlphaBitMask);
+        Quitf("Tell Dave to implement (%x,%x,%x,%x)-->(%x,%x,%x,%x) copyrow function.", src->PixelFormat.RBitMask,
+            src->PixelFormat.GBitMask, src->PixelFormat.BBitMask, src->PixelFormat.RGBAlphaBitMask,
+            PixelFormat.RBitMask, PixelFormat.GBitMask, PixelFormat.BBitMask, PixelFormat.RGBAlphaBitMask);
     }
 
     for (u32 dst_y = 0, src_y = 0; dst_y < dst_height; ++dst_y, src_y += src_y_step)
@@ -262,28 +260,27 @@ void agiSurfaceDesc::CopyFrom(class agiSurfaceDesc* src, i32 lod)
 
 void agiSurfaceDesc::Unload()
 {
-    if (lpSurface)
+    if (Surface)
     {
-        delete[] static_cast<u8*>(lpSurface);
-        lpSurface = nullptr;
+        delete[] static_cast<u8*>(Surface);
+        Surface = nullptr;
     }
 }
 
-Owner<class agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, class agiSurfaceDesc& desc)
+Owner<agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, const agiSurfaceDesc& desc)
 {
-    u32 pixel_size = (desc.ddpfPixelFormat.dwRGBBitCount + 7) / 8;
+    u32 pixel_size = (desc.PixelFormat.RGBBitCount + 7) / 8;
 
     Ptr<agiSurfaceDesc> result = MakeUnique<agiSurfaceDesc>(desc);
 
-    result->dwFlags = AGISD_WIDTH | AGISD_HEIGHT;
-    result->dwWidth = width;
-    result->dwHeight = height;
-    result->lPitch = width * pixel_size;
+    result->Flags = AGISD_WIDTH | AGISD_HEIGHT;
+    result->Width = width;
+    result->Height = height;
+    result->Pitch = width * pixel_size;
 
     u32 surface_size = width * height * pixel_size;
 
-    result->lpSurface = new u8[surface_size];
-    std::memset(result->lpSurface, 0, surface_size);
+    result->Surface = new u8[surface_size] {};
 
     return result.release();
 }

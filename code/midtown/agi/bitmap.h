@@ -68,6 +68,7 @@ protected:
     ARTS_EXPORT ~agiBitmap() override;
 
     CString name_ {};
+
     agiSurfaceDesc* surface_ {nullptr};
 
     // 0x1 | AGI_BITMAP_TRANSPARENT
