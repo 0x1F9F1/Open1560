@@ -414,7 +414,7 @@ include_dummy_symbol(arts7_bank);
 // include_dummy_symbol(arts7_benchstats);
 include_dummy_symbol(arts7_camera);
 include_dummy_symbol(arts7_cullable);
-// include_dummy_symbol(arts7_cullmgr);
+include_dummy_symbol(arts7_cullmgr);
 // include_dummy_symbol(arts7_dof);
 // include_dummy_symbol(arts7_form);
 // include_dummy_symbol(arts7_lamp);

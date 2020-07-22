@@ -34,6 +34,9 @@
     0x656C30 | unsigned char * CharSet | ?CharSet@@3PAEA
 */
 
+// TODO: Allow larger sizes
+constexpr i32 agiPrintSize = 8;
+
 // 0x557E70 | ?agiPrint@@YAXHHHPBD@Z
 ARTS_EXPORT void agiPrint(i32 x, i32 y, i32 color, char const* text);
 

@@ -94,13 +94,14 @@ private:
     void* second_param_ {nullptr};
 };
 
-#define CFA(FUNC) static_cast<Callback::Static0>(FUNC)
-#define CFA1(FUNC) static_cast<Callback::Static1>(FUNC)
-#define CFA2(FUNC) static_cast<Callback::Static2>(FUNC)
+#define CFA(FUNC) Callback(static_cast<Callback::Static0>(FUNC))
+#define CFA1(FUNC, PARAM) Callback(static_cast<Callback::Static1>(FUNC), PARAM)
+#define CFA2(FUNC, PARAM) Callback(static_cast<Callback::Static2>(FUNC), PARAM)
 
-#define MFA(FUNC) static_cast<Callback::Member0>(&FUNC)
-#define MFA1(FUNC) static_cast<Callback::Member1>(&FUNC)
-#define MFA2(FUNC) static_cast<Callback::Member2>(&FUNC)
+#define MFA(FUNC, THIS) Callback(static_cast<Callback::Member0>(&FUNC), THIS)
+#define MFA1(FUNC, THIS, PARAM) Callback(static_cast<Callback::Member1>(&FUNC), THIS, PARAM)
+#define MFA2(FUNC, THIS, PARAM) Callback(static_cast<Callback::Member2>(&FUNC), THIS, PARAM)
+#define MFA3(FUNC, THIS, PARAM1, PARAM2) Callback(static_cast<Callback::Member2>(&FUNC), THIS, PARAM1, PARAM2)
 
 check_size(Callback, 0x14);
 

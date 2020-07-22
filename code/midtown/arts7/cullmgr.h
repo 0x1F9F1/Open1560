@@ -47,67 +47,111 @@
 
 #include "node.h"
 
+#include "data7/callback.h"
+#include "data7/mutex.h"
+#include "data7/timer.h"
+
+class asCamera;
+class asCullable;
+class Matrix34;
+
 class asCullManager /*final*/ : public asNode
 {
     // const asCullManager::`vftable' @ 0x620AD0
 
 public:
     // 0x5246C0 | ??0asCullManager@@QAE@HH@Z
-    ARTS_IMPORT asCullManager(i32 arg1, i32 arg2);
+    ARTS_EXPORT asCullManager(i32 max_cullables, i32 max_cullables_2D);
 
     // 0x525850 | ??_EasCullManager@@UAEPAXI@Z
     // 0x524D40 | ??1asCullManager@@UAE@XZ
-    ARTS_IMPORT ~asCullManager() override;
+    ARTS_EXPORT ~asCullManager() override;
 
     // 0x525440 | ?DeclareCamera@asCullManager@@UAEXPAVasCamera@@@Z
-    ARTS_IMPORT virtual void DeclareCamera(class asCamera* arg1);
+    ARTS_EXPORT virtual void DeclareCamera(class asCamera* camera);
 
     // 0x5254A0 | ?DeclareCullable@asCullManager@@UAEXPAVasCullable@@@Z
-    ARTS_IMPORT virtual void DeclareCullable(class asCullable* arg1);
+    ARTS_IMPORT virtual void DeclareCullable(class asCullable* cullable);
 
     // 0x525550 | ?DeclareCullable2D@asCullManager@@UAEXPAVasCullable@@@Z
-    ARTS_IMPORT virtual void DeclareCullable2D(class asCullable* arg1);
+    ARTS_IMPORT virtual void DeclareCullable2D(class asCullable* cullable);
 
     // 0x525400 | ?AddPage@asCullManager@@QAEXVCallback@@@Z
-    ARTS_IMPORT void AddPage(class Callback arg1);
+    ARTS_EXPORT void AddPage(class Callback callback);
 
     // 0x5255F0 | ?DeclareBitmap@asCullManager@@QAEXPAVasCullable@@PAVagiBitmap@@@Z
-    ARTS_IMPORT void DeclareBitmap(class asCullable* arg1, class agiBitmap* arg2);
+    ARTS_IMPORT void DeclareBitmap(class asCullable* cullable, class agiBitmap* bitmap);
 
     // 0x525660 | ?DeclarePrint@asCullManager@@QAEXPAVasCullable@@@Z
-    ARTS_IMPORT void DeclarePrint(class asCullable* arg1);
-
-    // 0x525840 | ?GetClass@asCullManager@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT void DeclarePrint(class asCullable* cullable);
 
     // 0x524DF0 | ?Reset@asCullManager@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // 0x525090 | ?Update@asCullManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x5258B0 | ??_FasCullManager@@QAEXXZ | invalid name
+    u32 GetTextColor() const
+    {
+        return text_color_;
+    }
 
-    // 0x5256D0 | ?DeclareFields@asCullManager@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
+    VIRTUAL_META_DECLARE;
 
 protected:
     // 0x524E50 | ?DisplayVersionString@asCullManager@@IAEXXZ
-    ARTS_IMPORT void DisplayVersionString();
+    ARTS_EXPORT void DisplayVersionString();
 
     // 0x524F00 | ?PrintMiniStats@asCullManager@@IAEXXZ
-    ARTS_IMPORT void PrintMiniStats();
+    ARTS_EXPORT void PrintMiniStats();
 
     // 0x524F90 | ?PrintStats@asCullManager@@IAEXXZ
-    ARTS_IMPORT void PrintStats();
+    ARTS_EXPORT void PrintStats();
 
-    u8 gap20[0x1D8];
+private:
+    u32 text_color_ {0};
+
+    u32 color_red_ {0};
+    u32 color_green_ {0};
+    u32 color_blue_ {0};
+
+    b32 debug_ {0};
+
+    i32 num_cameras_ {0};
+    asCamera* cameras_[16] {};
+    asCamera* current_camera_ {nullptr};
+
+    i32 num_cullables_ {0};
+    i32 max_cullables_ {0};
+
+    i32 num_cullables_2D_ {0};
+    i32 max_cullables_2D_ {0};
+
+    Ptr<asCullable* []> cullables_ { nullptr };
+    Ptr<asCullable* []> cullables_2D_ { nullptr };
+    Ptr<Matrix34* []> transforms_ { nullptr };
+
+    f32 current_fps_ {0.0f};
+    f32 average_fps_ {0.0f};
+
+    Timer frame_timer_ {};
+    Timer stats_timer_ {};
+
+    u32 stats_counter_ {0};
+
+    u32 current_page_ {0};
+    u32 num_pages_ {0};
+
+    Callback page_callbacks_[16] {};
+
+    // TODO: Is this mutex necessary? It never seems to be initialized.
+    Mutex mutex_ {};
 };
 
 check_size(asCullManager, 0x1F8);
 
 // 0x524E70 | ?Statsf@@YAXPBDZZ
-ARTS_IMPORT void Statsf(char const* arg1, ...);
+ARTS_EXPORT void Statsf(char const* format, ...);
 
 // 0x79086C | ?CULLMGR@@3PAVasCullManager@@A
 ARTS_IMPORT extern class asCullManager* CULLMGR;

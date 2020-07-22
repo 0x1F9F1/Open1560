@@ -130,7 +130,7 @@ ARTS_IMPORT extern i32 SampleStats;
 ARTS_IMPORT extern class mmGameRecord* SystemStatsRecord;
 
 // 0x634690 | ?VERSION_STRING@@3PADA
-ARTS_IMPORT extern char VERSION_STRING[];
+ARTS_IMPORT extern char* VERSION_STRING;
 
 // 0x672040 | ?__VtPauseSampling@@3P6AHXZA
 ARTS_IMPORT extern i32 (*__VtPauseSampling)(void);

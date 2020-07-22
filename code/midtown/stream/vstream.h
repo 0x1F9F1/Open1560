@@ -77,7 +77,7 @@ private:
     Stream* base_stream_ {nullptr};
     u32 data_offset_ {0};
     u32 data_size_ {0};
-    Mutex lock_ {};
+    Mutex mutex_ {};
 };
 
 check_size(VirtualStream, 0x30);

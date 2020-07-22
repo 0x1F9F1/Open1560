@@ -35,3 +35,27 @@ public:
 private:
     void* handle_ {nullptr};
 };
+
+class MutexGuard
+{
+public:
+    ARTS_FORCEINLINE MutexGuard(Mutex& mutex)
+        : mutex_(&mutex)
+    {
+        mutex_->lock();
+    }
+
+    ARTS_FORCEINLINE ~MutexGuard()
+    {
+        mutex_->unlock();
+    }
+
+    MutexGuard(const MutexGuard&) = delete;
+    MutexGuard(MutexGuard&&) = delete;
+
+    MutexGuard& operator=(const MutexGuard&) = delete;
+    MutexGuard& operator=(MutexGuard&&) = delete;
+
+private:
+    Mutex* const mutex_ {nullptr};
+};

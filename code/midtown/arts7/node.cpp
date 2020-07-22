@@ -131,8 +131,8 @@ void asNode::AddWidgets(class Bank* bank)
 
     bank->AddToggle("Active", &node_flags_, 0x1, NullCallback);
 
-    bank->AddButton("Save", Callback(MFA(asNode::Save), this));
-    bank->AddButton("Load", Callback(MFA(asNode::Load), this));
+    bank->AddButton("Save", MFA(asNode::Save, this));
+    bank->AddButton("Load", MFA(asNode::Load, this));
 
     asCullable::AddWidgets(bank);
 }

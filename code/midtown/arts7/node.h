@@ -162,7 +162,20 @@ public:
 
     bool IsActive() const
     {
-        return node_flags_ & 1;
+        return node_flags_ & 0x1;
+    }
+
+    bool UpdateWhilePaused() const
+    {
+        return node_flags_ & 0x400;
+    }
+
+    void SetUpdateWhilePaused(bool enabled)
+    {
+        if (enabled)
+            node_flags_ |= 0x400;
+        else
+            node_flags_ &= ~0x400;
     }
 
     VIRTUAL_META_DECLARE;

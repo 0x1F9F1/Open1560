@@ -31,13 +31,11 @@ VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode*
 {
     RawSeek(0);
     flags_ |= 0x2;
-    lock_.init();
+    mutex_.init();
 }
 
 VirtualStream::~VirtualStream()
 {
-    lock_.close(); // TODO: Should this be closed after flushing?
-
     Flush();
 }
 
@@ -60,7 +58,7 @@ i32 VirtualStream::GetPagingInfo(usize& handle, u32& offset, u32& size)
 
 i32 VirtualStream::RawRead(void* ptr, i32 size)
 {
-    lock_.lock();
+    MutexGuard lock(mutex_);
 
     i32 here = RawTell();
 
@@ -71,8 +69,6 @@ i32 VirtualStream::RawRead(void* ptr, i32 size)
     }
 
     i32 result = base_stream_->Read(ptr, std::min<i32>(size, i32(data_size_) - here));
-
-    lock_.unlock();
 
     return result;
 }

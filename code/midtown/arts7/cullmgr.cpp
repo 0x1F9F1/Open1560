@@ -19,3 +19,150 @@
 define_dummy_symbol(arts7_cullmgr);
 
 #include "cullmgr.h"
+#include "agi/pipeline.h"
+#include "agi/print.h"
+#include "data7/metadefine.h"
+#include "dyna7/gfx.h"
+#include "midtown.h"
+#include "pgraph.h"
+
+static extern_var(0x790868, f32, CurrentFrameTime);
+
+static extern_var(0x790870, f32, UpdateTime2D);
+static extern_var(0x790874, f32, UpdateTime3D);
+
+static extern_var(0x790878, i32, StatsTextOffset);
+
+static void PrintPerfGraph()
+{
+    PGRAPH->Cull();
+}
+
+static void PrintRenderPerf()
+{
+    return stub<cdecl_t<void>>(0x5248E0);
+}
+
+static void PrintMessages()
+{
+    for (usize i = 0; i < std::size(MessageFifo); ++i)
+    {
+        Statsf("%s", MessageFifo[(i + MessageFirst) % std::size(MessageFifo)]);
+    }
+}
+
+asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
+    : max_cullables_(max_cullables)
+    , max_cullables_2D_(max_cullables_2D)
+    , cullables_(MakeUnique<asCullable*[]>(max_cullables))
+    , cullables_2D_(MakeUnique<asCullable*[]>(max_cullables_2D))
+    , transforms_(MakeUnique<Matrix34*[]>(max_cullables))
+{
+    Reset(); // TODO: Is this call unncessary?
+
+    SetUpdateWhilePaused(true);
+
+    AddPage(MFA(asCullManager::PrintMiniStats, this));
+    AddPage(MFA(asCullManager::PrintStats, this));
+    AddPage(CFA(PrintPerfGraph));
+    AddPage(CFA(PrintRenderPerf));
+    AddPage(CFA(PrintMessages));
+
+    /*PGRAPH = */ new asPerfGraph();
+
+    PGRAPH->AddComponent((char*) "3D", &UpdateTime3D, ColGreen);
+    PGRAPH->AddComponent((char*) "2D", &UpdateTime2D, ColBlue);
+}
+
+asCullManager::~asCullManager()
+{
+    delete PGRAPH;
+}
+
+void asCullManager::DeclareCamera(asCamera* camera)
+{
+    MutexGuard lock(mutex_);
+
+    if (num_cameras_ < static_cast<i32>(std::size(cameras_)))
+    {
+        cameras_[num_cameras_++] = camera;
+    }
+    else
+    {
+        Errorf("Too many cameras declared, somthing's rotten in Denmark.");
+    }
+}
+
+void asCullManager::AddPage(Callback callback)
+{
+    ArAssert(num_pages_ < std::size(page_callbacks_), "Too Many Pages");
+
+    page_callbacks_[num_pages_++] = callback;
+}
+
+void asCullManager::Reset()
+{
+    MutexGuard lock(mutex_);
+
+    num_cameras_ = 0;
+    num_cullables_ = 0;
+    num_cullables_2D_ = 0;
+
+    current_fps_ = 0.0f;
+    average_fps_ = 0.0f;
+    stats_counter_ = 0;
+
+    frame_timer_.Reset();
+    stats_timer_.Reset();
+}
+
+void asCullManager::DisplayVersionString()
+{
+    agiPrintf(0, 0, text_color_, VERSION_STRING);
+}
+
+void asCullManager::PrintMiniStats()
+{
+    current_fps_ = 1.0f / CurrentFrameTime;
+
+    if (++stats_counter_ == 10)
+    {
+        average_fps_ = 10.0f / stats_timer_.Time();
+        stats_timer_.Reset();
+        stats_counter_ = 0;
+    }
+
+    Statsf("%5.2f/%5.2f fps (%5.2fms/f)", current_fps_, average_fps_, CurrentFrameTime * 1000.0f);
+}
+
+void asCullManager::PrintStats()
+{
+    PrintMiniStats();
+
+    agiStats stats = STATS;
+
+    Statsf("CULLMGR 3D:%4.1f/2D:%4.1f/Updt:%4.1fms", UpdateTime3D * 1000.0f, (UpdateTime2D - UpdateTime3D) * 1000.0f,
+        (CurrentFrameTime - UpdateTime2D) * 1000.0f);
+    Statsf("DLPs Drawn:%-3dClipped:%-3d", stats.DlpDrawn, stats.DlpClipped);
+    Statsf(
+        "Verts Xfrm:%-5dLit:%-5dOutC:%-5dClip:%-5d", stats.VertsXfrm, stats.VertsLit, stats.VertsOut, stats.VertsClip);
+    Statsf("Tris:%-4dLines:%-4dCards:%-4d", stats.Tris, stats.Lines, stats.Cards);
+    Statsf("St.Chg:%-3dTexChg:%-3dSt.Call:%-3dGeom.Call:%-3d", stats.StateChanges, stats.TextureChanges,
+        stats.StateChangeCalls, stats.GeomCalls);
+    Statsf("TxlsXfrd:%-4dKXtraTex:%-3d", (stats.TxlsXrfd + 1023) >> 10, stats.XtraTex);
+}
+
+void Statsf(char const* format, ...)
+{
+    char buffer[128];
+    std::va_list va;
+    va_start(va, format);
+    arts_vsprintf(buffer, format, va);
+    va_end(va);
+
+    agiPrint(0, StatsTextOffset, CULLMGR->GetTextColor(), buffer);
+
+    StatsTextOffset += agiPrintSize;
+}
+
+META_DEFINE_CHILD("asCullManager", asCullManager, asNode) {};

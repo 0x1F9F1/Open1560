@@ -42,10 +42,12 @@ void Mutex::close()
 
 void Mutex::lock()
 {
-    WaitForSingleObject(handle_, INFINITE);
+    if (handle_)
+        WaitForSingleObject(handle_, INFINITE);
 }
 
 void Mutex::unlock()
 {
-    ReleaseMutex(handle_);
+    if (handle_)
+        ReleaseMutex(handle_);
 }
