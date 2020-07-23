@@ -38,5 +38,5 @@ template <typename T>
 {
     static_assert(std::extent_v<T> == 0, "Cannot MakeUnique with non-zero array extent");
 
-    return Ptr<T>(new std::remove_extent_t<T>[size]());
+    return Ptr<T>(new std::remove_extent_t<T>[size] {});
 }
