@@ -536,7 +536,7 @@ void asMidgets::Cull()
     }
 
     if (index != midget_count_)
-        agiPrint(0, text_y, CULLMGR->GetTextColor(), "v");
+        agiPrint(0, text_y - agiFontHeight, CULLMGR->GetTextColor(), "v");
 }
 
 void asMidgets::Off()
