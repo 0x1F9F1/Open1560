@@ -59,8 +59,12 @@ static inline constexpr u32 AlignSize(u32 value) noexcept
     return (value + 7) & 0xFFFFFFF8;
 }
 
-DataCache::DataCache()
-{}
+DataCache::DataCache() = default;
+
+DataCache::~DataCache()
+{
+    Shutdown();
+}
 
 void DataCache::Age()
 {
@@ -314,16 +318,17 @@ b32 DataCache::Lock(i32* handle)
 
 void DataCache::Shutdown()
 {
-    // TODO: These locks should probably be removed, because Flush() also tries to lock
-    write_lock_.lock();
-    read_lock_.lock();
-
     Flush();
+
+    ++objects_;
+    delete[] objects_;
+    objects_ = nullptr;
+
+    delete[] heap_;
+    heap_ = nullptr;
 
     write_lock_.close();
     read_lock_.close();
-
-    // TODO: Free heap_ and objects_
 }
 
 void DataCache::Unlock(i32 handle)

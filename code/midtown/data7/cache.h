@@ -52,6 +52,11 @@ public:
     // 0x576FC0 | ??0DataCache@@QAE@XZ
     ARTS_EXPORT DataCache();
 
+    ~DataCache();
+
+    DataCache(DataCache const&) = delete;
+    DataCache& operator=(DataCache const&) = delete;
+
     // 0x577750 | ?Age@DataCache@@QAEXXZ
     ARTS_EXPORT void Age();
 
