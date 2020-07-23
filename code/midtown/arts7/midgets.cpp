@@ -871,6 +871,8 @@ void asMidgets::PopColumn()
 
 run_once([] {
     u32 midgets_size = sizeof(asMidgets);
-
     create_patch("asMidgets Size", "Size of asMidgets", 0x521A11 + 1, &midgets_size, sizeof(midgets_size));
+
+    u32 full_lines = 20;
+    create_patch("asMidgets Lines", "Number of lines", 0x5229EB + 1, &full_lines, sizeof(full_lines));
 });
