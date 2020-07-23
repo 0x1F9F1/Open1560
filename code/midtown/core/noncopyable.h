@@ -18,47 +18,6 @@
 
 #pragma once
 
-// TODO: Use critical section instead of mutex
-
-class Mutex
-{
-public:
-    constexpr Mutex() = default;
-
-    ~Mutex()
-    {
-        close();
-    }
-
-    ARTS_NON_COPYABLE(Mutex);
-
-    // Must call init and close, to match ipc.h semantics
-    void init();
-    void close();
-
-    void lock();
-    void unlock();
-
-private:
-    void* handle_ {nullptr};
-};
-
-class MutexGuard
-{
-public:
-    ARTS_FORCEINLINE MutexGuard(Mutex& mutex)
-        : mutex_(&mutex)
-    {
-        mutex_->lock();
-    }
-
-    ARTS_FORCEINLINE ~MutexGuard()
-    {
-        mutex_->unlock();
-    }
-
-    ARTS_NON_COPYABLE(MutexGuard);
-
-private:
-    Mutex* const mutex_ {nullptr};
-};
+#define ARTS_NON_COPYABLE(TYPE) \
+    TYPE(const TYPE&) = delete; \
+    TYPE& operator=(const TYPE&) = delete

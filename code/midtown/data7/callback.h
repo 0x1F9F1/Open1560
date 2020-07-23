@@ -35,6 +35,19 @@
 
 #include "base.h"
 
+#define CB_TYPE_INVALID 0
+
+// TODO: Use separate values for CFA and MFA types
+
+#define CB_TYPE_CFA 1
+#define CB_TYPE_CFA1 2
+#define CB_TYPE_CFA2 3
+
+#define CB_TYPE_MFA 1
+#define CB_TYPE_MFA1 2
+#define CB_TYPE_MFA2 3
+#define CB_TYPE_MFA3 4
+
 class Callback
 {
 public:
@@ -50,32 +63,32 @@ public:
     ARTS_EXPORT constexpr Callback() noexcept = default;
 
     // 0x5793D0 | ??0Callback@@QAE@P6AXXZ@Z
-    ARTS_EXPORT Callback(Static0 func) noexcept;
+    ARTS_EXPORT constexpr Callback(Static0 func) noexcept;
 
     // 0x5793F0 | ??0Callback@@QAE@P6AXPAX@Z0@Z
-    ARTS_EXPORT Callback(Static1 func, void* param) noexcept;
+    ARTS_EXPORT constexpr Callback(Static1 func, void* param) noexcept;
 
     // 0x579420 | ??0Callback@@QAE@P6AXPAX0@Z0@Z
-    ARTS_EXPORT Callback(Static2 func, void* param) noexcept;
+    ARTS_EXPORT constexpr Callback(Static2 func, void* param) noexcept;
 
     // 0x5792D0 | ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z
-    ARTS_EXPORT Callback(Member0 func, class Base* param) noexcept;
+    ARTS_EXPORT constexpr Callback(Member0 func, class Base* this_ptr) noexcept;
 
     // 0x579310 | ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z
-    ARTS_EXPORT Callback(Member1 func, class Base* param1, void* param2) noexcept;
+    ARTS_EXPORT constexpr Callback(Member1 func, class Base* this_ptr, void* param) noexcept;
 
     // 0x579350 | ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
-    ARTS_EXPORT Callback(Member2 func, class Base* param1, void* param2) noexcept;
+    ARTS_EXPORT constexpr Callback(Member2 func, class Base* this_ptr, void* param) noexcept;
 
     // 0x579390 | ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z
-    ARTS_EXPORT Callback(Member2 func, class Base* param1, void* param2, void* param3) noexcept;
+    ARTS_EXPORT constexpr Callback(Member2 func, class Base* this_ptr, void* param1, void* param2) noexcept;
 
     // 0x579450 | ?Call@Callback@@QAEXPAX@Z
     ARTS_EXPORT void Call(void* param);
 
 private:
-    i32 type_ {0};
-    Base* this_param_ {nullptr};
+    i32 type_ {CB_TYPE_INVALID};
+    Base* this_ptr_ {nullptr};
 
     union
     {
@@ -90,8 +103,8 @@ private:
         Member2 member2;
     } func_ {nullptr};
 
-    void* first_param_ {nullptr};
-    void* second_param_ {nullptr};
+    void* param_1_ {nullptr};
+    void* param_2_ {nullptr};
 };
 
 #define CFA(FUNC) Callback(static_cast<Callback::Static0>(FUNC))
@@ -108,3 +121,67 @@ check_size(Callback, 0x14);
 // 0x90B128 | ?NullCallback@@3VCallback@@A
 // ARTS_IMPORT extern class Callback NullCallback;
 constexpr Callback NullCallback;
+
+inline constexpr Callback::Callback(Static0 func) noexcept
+    : type_(CB_TYPE_CFA)
+{
+    func_.static0 = func;
+}
+
+inline constexpr Callback::Callback(Static1 func, void* param) noexcept
+    : type_(CB_TYPE_CFA1)
+    , param_1_(param)
+{
+    func_.static1 = func;
+}
+
+inline constexpr Callback::Callback(Static2 func, void* param) noexcept
+    : type_(CB_TYPE_CFA2)
+    , param_1_(param)
+{
+    func_.static2 = func;
+}
+
+inline constexpr Callback::Callback(Member0 func, Base* this_ptr) noexcept
+    : type_(CB_TYPE_MFA)
+    , this_ptr_(this_ptr)
+{
+    func_.member0 = func;
+
+    if (!this_ptr)
+        Quitf("Can't have callback to member function with nil 'this'");
+}
+
+inline constexpr Callback::Callback(Member1 func, Base* this_ptr, void* param) noexcept
+    : type_(CB_TYPE_MFA1)
+    , this_ptr_(this_ptr)
+    , param_1_(param)
+{
+    func_.member1 = func;
+
+    if (!this_ptr)
+        Quitf("Can't have callback to member function with nil 'this'");
+}
+
+inline constexpr Callback::Callback(Member2 func, Base* this_ptr, void* param) noexcept
+    : type_(CB_TYPE_MFA2)
+    , this_ptr_(this_ptr)
+    , param_1_(param)
+{
+    func_.member2 = func;
+
+    if (!this_ptr)
+        Quitf("Can't have callback to member function with nil 'this'");
+}
+
+inline constexpr Callback::Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept
+    : type_(CB_TYPE_MFA3)
+    , this_ptr_(this_ptr)
+    , param_1_(param1)
+    , param_2_(param2)
+{
+    func_.member2 = func;
+
+    if (!this_ptr)
+        Quitf("Can't have callback to member function with nil 'this'");
+}

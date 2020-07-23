@@ -54,8 +54,7 @@ public:
 
     ~DataCache();
 
-    DataCache(DataCache const&) = delete;
-    DataCache& operator=(DataCache const&) = delete;
+    ARTS_NON_COPYABLE(DataCache);
 
     // 0x577750 | ?Age@DataCache@@QAEXXZ
     ARTS_EXPORT void Age();

@@ -97,8 +97,7 @@ public:
     ipcMessageQueue();
     ~ipcMessageQueue();
 
-    ipcMessageQueue(const ipcMessageQueue&) = delete;
-    ipcMessageQueue& operator=(const ipcMessageQueue&) = delete;
+    ARTS_NON_COPYABLE(ipcMessageQueue);
 
     // 0x578870 | ?Init@ipcMessageQueue@@QAEXHH@Z
     ARTS_EXPORT void Init(i32 max_messages, b32 blocking);
