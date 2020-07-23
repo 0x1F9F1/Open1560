@@ -178,6 +178,21 @@ public:
             node_flags_ &= ~0x400;
     }
 
+    class asNode* GetFirstChild() const
+    {
+        return child_node_;
+    }
+
+    class asNode* GetParent() const
+    {
+        return parent_node_;
+    }
+
+    const char* GetNodeName() const
+    {
+        return node_name_.get();
+    }
+
     VIRTUAL_META_DECLARE;
 
     // 0x790834 | ?TimingCount@asNode@@2HA

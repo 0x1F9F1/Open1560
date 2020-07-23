@@ -19,8 +19,12 @@
 define_dummy_symbol(arts7_midgets);
 
 #include "midgets.h"
-#include "sim.h"
 
+#include "agi/pipeline.h"
+#include "agi/print.h"
+#include "cullmgr.h"
+#include "eventq7/key_codes.h"
+#include "sim.h"
 #include "vector7/vector2.h"
 #include "vector7/vector3.h"
 #include "vector7/vector4.h"
@@ -38,9 +42,9 @@ public:
 
     // TODO: Add virtual destructor
 
-    virtual i32 Update(i32 arg1) = 0;
+    virtual i32 Update(b32 active) = 0;
 
-    virtual void Key(i32 arg1, i32 arg2) = 0;
+    virtual void Key(i32 key, i32 flags) = 0;
 
     char Text[64];
     CString Name;
@@ -70,10 +74,10 @@ public:
     {}
 
     // 0x527C00 | ?Key@BMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 key, i32 flags) override;
 
     // 0x527C20 | ?Update@BMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 
     Callback CB;
 };
@@ -137,10 +141,10 @@ public:
     {}
 
     // 0x527C40 | ?Key@TMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 key, i32 flags) override;
 
     // 0x527CA0 | ?Update@TMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 
     i32* Value;
     i32 Expected;
@@ -172,10 +176,10 @@ public:
     {}
 
     // 0x527CF0 | ?Key@scharMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 key, i32 flags) override;
 
     // 0x527D80 | ?Update@scharMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 
     i8* Value;
     i8 ValueMin;
@@ -208,10 +212,10 @@ public:
     {}
 
     // 0x528260 | ?Key@floatMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 key, i32 flags) override;
 
     // 0x5282F0 | ?Update@floatMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 
     f32* Value;
     f32 ValueMin;
@@ -244,10 +248,10 @@ public:
     {}
 
     // 0x527EB0 | ?Key@shortMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 key, i32 flags) override;
 
     // 0x527F50 | ?Update@shortMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 
     i16* Value;
     i16 ValueMin;
@@ -280,10 +284,10 @@ public:
     {}
 
     // 0x528090 | ?Key@intMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 key, i32 flags) override;
 
     // 0x528120 | ?Update@intMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 
     i32* Value;
     i32 ValueMin;
@@ -316,10 +320,10 @@ public:
     {}
 
     // 0x527FA0 | ?Key@ushortMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 key, i32 flags) override;
 
     // 0x528040 | ?Update@ushortMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 
     u16* Value;
     u16 ValueMin;
@@ -352,10 +356,10 @@ public:
     {}
 
     // 0x528170 | ?Key@uintMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 key, i32 flags) override;
 
     // 0x528210 | ?Update@uintMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 
     u32* Value;
     u32 ValueMin;
@@ -388,10 +392,10 @@ public:
     {}
 
     // 0x527DD0 | ?Key@ucharMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 key, i32 flags) override;
 
     // 0x527E60 | ?Update@ucharMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 
     u8* Value;
     u8 ValueMin;
@@ -435,10 +439,10 @@ public:
     using MI::MI;
 
     // 0x527BD0 | ?Key@SMI@@UAEXHH@Z | inline
-    ARTS_EXPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_EXPORT void Key(i32 key, i32 flags) override;
 
     // 0x527BE0 | ?Update@SMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 };
 
 void SMI::Key(i32 /*arg1*/, i32 /*arg2*/)
@@ -502,6 +506,118 @@ void asMidgets::AddVector(const char* arg1, Vector4* arg2, f32 arg3, f32 arg4, f
     AddSlider(buffer.get(), &arg2->w, arg3, arg4, arg5, arg6);
 }
 
+void asMidgets::Cull()
+{
+    i32 max_lines = max_lines_;
+    i32 text_y = agiPipeline::CurrentPipe->GetHeight() - agiPrintSize * max_lines;
+
+    i32 index = start_index_;
+
+    if (index != 0)
+        agiPrint(0, text_y, CULLMGR->GetTextColor(), "^");
+
+    while (max_lines > 0 && index < midget_count_)
+    {
+        if (index == current_index_)
+            agiPrint(agiPrintSize, text_y, CULLMGR->GetTextColor(), ">");
+
+        MI* midget = midgets_[index];
+
+        i32 lines = midget->Update(index == current_index_);
+
+        if (IsVisible(index))
+        {
+            agiPrint(agiPrintSize, text_y, CULLMGR->GetTextColor(), midget->Text);
+            text_y += agiPrintSize;
+            --max_lines;
+        }
+
+        index += lines + 1;
+    }
+
+    if (index != midget_count_)
+        agiPrint(0, text_y, CULLMGR->GetTextColor(), "v");
+}
+
+void asMidgets::Off()
+{
+    while (midget_count_)
+    {
+        --midget_count_;
+        // FIXME: delete of an abstract class 'MI' that has a non-virtual destructor results in undefined behavior
+#pragma warning(suppress : 5205)
+        delete midgets_[midget_count_];
+        midgets_[midget_count_] = nullptr;
+    }
+
+    current_index_ = 0;
+    start_index_ = 0;
+    open_ = false;
+}
+
+static void OpenNodeMidgets(void* param)
+{
+    MIDGETSPTR->Open(static_cast<asNode*>(param));
+}
+
+void asMidgets::Open(asNode* root)
+{
+    Off();
+
+    root_ = root;
+
+    if (root_ != nullptr)
+    {
+        root->AddWidgets(this);
+
+        if (asNode* parent = root->GetParent())
+        {
+            char buffer[64];
+
+            arts_sprintf(buffer, "Parent: %s", parent->GetNodeType());
+
+            if (const char* parent_name = parent->GetNodeName(); parent_name && *parent_name != '_')
+            {
+                arts_strcat(buffer, " ");
+                arts_strcat(buffer, parent_name);
+            }
+
+            parent_midget_count_ = static_cast<i8>(midget_count_);
+
+            AddButton(buffer, CFA1(OpenNodeMidgets, parent));
+        }
+        else
+        {
+            parent_midget_count_ = -1;
+        }
+
+        for (usize i = 0; i < std::size(midget_counts_); ++i)
+            midget_counts_[i] = -1;
+
+        usize count = 0;
+
+        for (asNode* child = root->GetFirstChild(); child; child = child->GetNext())
+        {
+            if (count < std::size(midget_counts_))
+                midget_counts_[count++] = static_cast<i8>(midget_count_);
+
+            char buffer[64];
+
+            arts_sprintf(buffer, "Child: %s", child->GetNodeType());
+
+            if (const char* child_name = child->GetNodeName(); child_name && *child_name != '_')
+            {
+                arts_strcat(buffer, " ");
+                arts_strcat(buffer, child_name);
+            }
+
+            AddButton(buffer, CFA1(OpenNodeMidgets, child));
+        }
+    }
+
+    open_ = true;
+}
+
 class SBMI final : public MI
 {
     // const SBMI::`vftable' @ 0x620D08
@@ -510,10 +626,10 @@ public:
     using MI::MI;
 
     // 0x528340 | ?Key@SBMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 arg1, i32 arg2) override;
+    ARTS_IMPORT void Key(i32 key, i32 flags) override;
 
     // 0x528360 | ?Update@SBMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(i32 arg1) override;
+    ARTS_IMPORT i32 Update(b32 active) override;
 
     i32 End {0};
     i32 Start {0};
@@ -530,9 +646,58 @@ void asMidgets::PushSection(const char* arg1, [[maybe_unused]] i32 arg2)
     AddItem(new SBMI(arg1));
 }
 
-void asMidgets::SetLabel(const char* arg1)
+void asMidgets::PopSection()
 {
-    AddTitle(arg1);
+    i32 start = sections_[--section_count_];
+    SBMI* section = static_cast<SBMI*>(midgets_[start]);
+    section->Start = section->End = midget_count_ - start - 1;
+}
+
+void asMidgets::SetLabel(const char* title)
+{
+    AddTitle(title);
+}
+
+void asMidgets::Toggle()
+{
+    if (open_)
+        Off();
+    else
+        Open(root_);
+}
+
+void asMidgets::Update()
+{
+    eqEvent ev;
+
+    while (event_queue_.Pop(&ev))
+    {
+        if ((ev.Common.Type == eqEventType::Keyboard) && (ev.Keyboard.Modifiers & EQ_KMOD_DOWN))
+            UpdateKey(ev.Keyboard.VirtualKey, ev.Keyboard.Modifiers);
+    }
+
+    CULLMGR->DeclarePrint(this);
+}
+
+void asMidgets::AddItem(MI* item)
+{
+    if (midget_count_ < static_cast<i32>(std::size(midgets_)))
+    {
+        midgets_[midget_count_++] = item;
+
+        if (midget_count_ == static_cast<i32>(std::size(midgets_)))
+            Errorf("Too many midgets!");
+    }
+}
+
+i32 asMidgets::IsVisible(i32 line)
+{
+    i32 total = 0;
+
+    while (total < line)
+        total += midgets_[total]->Update(false) + 1;
+
+    return line == total;
 }
 
 void asMidgets::PushColumn(i32 /*arg1*/)

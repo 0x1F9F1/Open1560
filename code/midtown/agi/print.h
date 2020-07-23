@@ -35,7 +35,8 @@
 */
 
 // TODO: Allow larger sizes
-constexpr i32 agiPrintSize = 8;
+constexpr i32 agiPrintScale = 1;
+constexpr i32 agiPrintSize = 8 * agiPrintScale;
 
 // 0x557E70 | ?agiPrint@@YAXHHHPBD@Z
 ARTS_EXPORT void agiPrint(i32 x, i32 y, i32 color, char const* text);

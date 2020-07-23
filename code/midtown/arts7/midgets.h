@@ -192,19 +192,19 @@ public:
         const char* arg1, class Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, class Callback arg6) override;
 
     // 0x526ED0 | ?Cull@asMidgets@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // 0x526900 | ?Off@asMidgets@@UAEXXZ
-    ARTS_IMPORT void Off() override;
+    ARTS_EXPORT void Off() override;
 
     // 0x526950 | ?Open@asMidgets@@QAEXPAVasNode@@@Z
-    ARTS_IMPORT void Open(class asNode* arg1);
+    ARTS_EXPORT void Open(class asNode* root);
 
     // 0x527B90 | ?PopColumn@asMidgets@@UAEXXZ
     ARTS_EXPORT void PopColumn() override;
 
     // 0x527B50 | ?PopSection@asMidgets@@UAEXXZ
-    ARTS_IMPORT void PopSection() override;
+    ARTS_EXPORT void PopSection() override;
 
     // 0x527B80 | ?PushColumn@asMidgets@@UAEXH@Z
     ARTS_EXPORT void PushColumn(i32 arg1) override;
@@ -213,23 +213,23 @@ public:
     ARTS_EXPORT void PushSection(const char* arg1, i32 arg2) override;
 
     // 0x526E40 | ?SetLabel@asMidgets@@UAEXPAD@Z
-    ARTS_EXPORT void SetLabel(const char* arg1) override;
+    ARTS_EXPORT void SetLabel(const char* title) override;
 
     // 0x526B60 | ?Toggle@asMidgets@@QAEXXZ
-    ARTS_IMPORT void Toggle();
+    ARTS_EXPORT void Toggle();
 
     // 0x526B80 | ?Update@asMidgets@@QAEXXZ
-    ARTS_IMPORT void Update();
+    ARTS_EXPORT void Update();
 
     // 0x526BF0 | ?UpdateKey@asMidgets@@QAEXHH@Z
-    ARTS_IMPORT void UpdateKey(i32 arg1, i32 arg2);
+    ARTS_IMPORT void UpdateKey(i32 key, i32 mods);
 
 private:
     // 0x526E50 | ?AddItem@asMidgets@@AAEXPAVMI@@@Z
-    ARTS_IMPORT void AddItem(class MI* arg1);
+    ARTS_EXPORT void AddItem(class MI* item);
 
     // 0x526E90 | ?IsVisible@asMidgets@@AAEHH@Z
-    ARTS_IMPORT i32 IsVisible(i32 arg1);
+    ARTS_EXPORT i32 IsVisible(i32 line);
 
     i32 max_lines_ {0};
     asNode* root_ {nullptr};
@@ -238,7 +238,8 @@ private:
     i32 current_index_ {0};
     b32 open_ {false};
     MI* midgets_[512] {};
-    i8 midget_counts_[10] {};
+    i8 parent_midget_count_ {};
+    i8 midget_counts_[9] {};
     i32 sections_[8] {};
     i32 section_count_ {0};
     eqEventQ event_queue_;
