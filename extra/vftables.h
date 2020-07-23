@@ -7091,3 +7091,25 @@ struct asPortalRenderable_vtbl
     void (__thiscall*Cull)(asPortalRenderable * __hidden this,i32);
 };
 
+struct JointedStruct;
+struct JointedStruct_vtbl
+{
+    void* (__thiscall*Destructor)(JointedStruct * __hidden this,u32);
+    class MetaClass* (__thiscall*GetClass)(JointedStruct * __hidden this);
+    char* (__thiscall*GetTypeNameV)(JointedStruct * __hidden this);
+    void (__thiscall*BeforeSave)(JointedStruct * __hidden this);
+    void (__thiscall*AfterLoad)(JointedStruct * __hidden this);
+    void (__thiscall*Cull)(JointedStruct * __hidden this);
+    void (__thiscall*Update)(JointedStruct * __hidden this);
+    void (__thiscall*Reset)(JointedStruct * __hidden this);
+    void (__thiscall*ResChange)(JointedStruct * __hidden this,i32,i32);
+    void (__thiscall*UpdatePaused)(JointedStruct * __hidden this);
+    void (__thiscall*Load)(JointedStruct * __hidden this);
+    void (__thiscall*Save)(JointedStruct * __hidden this);
+    void (__thiscall*AddWidgets)(JointedStruct * __hidden this,class Bank*);
+    void (__thiscall*OpenWidgets)(JointedStruct * __hidden this,char*,class bkWindow*);
+    void (__thiscall*CloseWidgets)(JointedStruct * __hidden this);
+    void (__thiscall*GetCMatrix)(JointedStruct * __hidden this,class asInertialCS const*,class asInertialCS const*,class Matrix34&,class Vector3 const&);
+    void (__thiscall*GetCMatrix1)(JointedStruct * __hidden this,class asInertialCS const*,class Matrix34&,class Vector3 const&);
+};
+

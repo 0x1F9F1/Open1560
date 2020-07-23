@@ -1974,7 +1974,7 @@ print('Backporting vftable purecalls')
 vftables = backport_vftable_purecalls(vftables, class_hier, {
     'MetaType':  { None: 5 },
     'asPortalRenderable': { None: 1 },
-    'JointedStruct': { 'asNode': 15 },
+    'JointedStruct': { 'asNode': 17 },
 })
 
 class_paddings = calculate_class_paddings(class_sizes, class_hier, vftables)
@@ -2006,6 +2006,8 @@ if self.member_type == 'dtor':
 #                 sym_name = sym.name
 
 #             if sym_name in seen:
+#                 print('Check order of {}'.format(sym))
+
 #                 for i in range(1, 1000):
 #                     test_sym_name = '{}{}'.format(sym_name, i)
 #                     if test_sym_name not in seen:
@@ -2027,6 +2029,8 @@ if self.member_type == 'dtor':
 #             f.write('    {} (__{}*{})({});\n'.format(beautify_type(sym.type.return_value), sym.type.calling_convention.name, sym_name, ','.join(params)))
 
 #         f.write('};\n\n')
+
+# assert False
 
 with open('class_sizes.json', 'w') as f:
     json.dump(class_sizes, f, indent = 4, sort_keys = True)

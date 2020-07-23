@@ -77,14 +77,6 @@ public:
     // 0x4DEC60 | ??1Joint3Dof@@UAE@XZ | inline
     ARTS_IMPORT ~Joint3Dof() override = default;
 
-    // 0x4DE3B0 | ?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@0AAVMatrix34@@ABVVector3@@@Z
-    ARTS_IMPORT virtual void GetCMatrix(class asInertialCS const* arg1, class asInertialCS const* arg2,
-        class Matrix34& arg3, class Vector3 const& arg4);
-
-    // 0x4DE050 | ?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@AAVMatrix34@@ABVVector3@@@Z
-    ARTS_IMPORT virtual void GetCMatrix(
-        class asInertialCS const* arg1, class Matrix34& arg2, class Vector3 const& arg3);
-
     // 0x4DE9A0 | ?AddWidgets@Joint3Dof@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
@@ -99,6 +91,14 @@ public:
     // 0x4DD400 | ?DoJointTorque@Joint3Dof@@QAEXABVMatrix34@@000AAM1AAVVector3@@11@Z
     ARTS_IMPORT void DoJointTorque(class Matrix34 const& arg1, class Matrix34 const& arg2, class Matrix34 const& arg3,
         class Matrix34 const& arg4, f32& arg5, f32& arg6, class Vector3& arg7, f32& arg8, f32& arg9);
+
+    // 0x4DE050 | ?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@AAVMatrix34@@ABVVector3@@@Z
+    ARTS_IMPORT void GetCMatrix(
+        class asInertialCS const* arg1, class Matrix34& arg2, class Vector3 const& arg3) override;
+
+    // 0x4DE3B0 | ?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@0AAVMatrix34@@ABVVector3@@@Z
+    ARTS_IMPORT void GetCMatrix(class asInertialCS const* arg1, class asInertialCS const* arg2, class Matrix34& arg3,
+        class Vector3 const& arg4) override;
 
     // 0x4DEB20 | ?GetClass@Joint3Dof@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
@@ -171,6 +171,11 @@ class JointedStruct : public asNode
 public:
     // 0x4DEB60 | ??1JointedStruct@@UAE@XZ | inline
     ARTS_IMPORT ~JointedStruct() = default;
+
+    virtual void GetCMatrix(class asInertialCS const* arg1, class asInertialCS const* arg2, class Matrix34& arg3,
+        class Vector3 const& arg4) = 0;
+
+    virtual void GetCMatrix(class asInertialCS const* arg1, class Matrix34& arg2, class Vector3 const& arg3) = 0;
 };
 
 check_size(JointedStruct, 0x20);
