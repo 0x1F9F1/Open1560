@@ -681,6 +681,7 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 
             if (focused)
             {
+                CurrentKeyModifiers = 0;
                 SetPriorityClass(GetCurrentProcess(), OldPriorityClass);
                 ActiveFlag |= 1;
                 RestoreApplication();
