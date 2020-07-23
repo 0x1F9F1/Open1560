@@ -527,7 +527,7 @@ void asMidgets::Cull()
 
         if (IsVisible(index))
         {
-            agiPrint(agiPrintSize, text_y, CULLMGR->GetTextColor(), midget->Text);
+            agiPrint(agiPrintSize * 2, text_y, CULLMGR->GetTextColor(), midget->Text);
             text_y += agiPrintSize;
             --max_lines;
         }
@@ -544,9 +544,9 @@ void asMidgets::Off()
     while (midget_count_)
     {
         --midget_count_;
+
         // FIXME: delete of an abstract class 'MI' that has a non-virtual destructor results in undefined behavior
-#pragma warning(suppress : 5205)
-        delete midgets_[midget_count_];
+        operator delete(midgets_[midget_count_]);
         midgets_[midget_count_] = nullptr;
     }
 
