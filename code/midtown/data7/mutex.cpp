@@ -20,11 +20,6 @@
 
 #include "core/minwin.h"
 
-Mutex::~Mutex()
-{
-    close();
-}
-
 void Mutex::init()
 {
     if (handle_ == nullptr)

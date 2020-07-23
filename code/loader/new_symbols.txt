@@ -30,3 +30,4 @@ DirectInputCreateA=0x0
 ?Hash@HashTable@@AAEIPBD@Z=?Hash@HashTable@@AAEHPAD@Z
 ?AddSlider@asMidgets@@UAEPAVbkSlider@@PBDPADDDMVCallback@@@Z=?AddSlider@asMidgets@@UAEPAVbkSlider@@PAD0DDMVCallback@@@Z
 ?Init@agiSurfaceDesc@@SAPAV1@HHABV1@@Z=?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
+?ipcSpinUnlock@@YAXPAI@Z=?ipcSpunUnlock@@YAXPAI@Z

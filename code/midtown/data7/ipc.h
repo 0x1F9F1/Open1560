@@ -45,70 +45,87 @@
 */
 
 // 0x578740 | ?ipcCloseHandle@@YAXI@Z
-ARTS_IMPORT void ipcCloseHandle(u32 arg1);
+ARTS_EXPORT void ipcCloseHandle(usize handle);
 
 // 0x578B00 | ?ipcCloseSpinLock@@YAXPAI@Z | unused
-ARTS_IMPORT void ipcCloseSpinLock(u32* arg1);
+ARTS_EXPORT void ipcCloseSpinLock(u32* value);
 
 // 0x578650 | ?ipcCreateEvent@@YAIH@Z
-ARTS_IMPORT u32 ipcCreateEvent(i32 arg1);
+ARTS_EXPORT usize ipcCreateEvent(b32 initial_state);
 
 // 0x578670 | ?ipcCreateMutex@@YAIH@Z
-ARTS_IMPORT u32 ipcCreateMutex(i32 arg1);
+ARTS_EXPORT usize ipcCreateMutex(b32 initial_owner);
 
 // 0x578AF0 | ?ipcCreateSpinLock@@YAXPAI@Z | unused
-ARTS_IMPORT void ipcCreateSpinLock(u32* arg1);
+ARTS_EXPORT void ipcCreateSpinLock(u32* value);
 
 // 0x578690 | ?ipcCreateThread@@YAIP6GKPAX@Z0PAK@Z
-ARTS_IMPORT u32 ipcCreateThread(u32(ARTS_STDCALL* arg1)(void*), void* arg2, u32* arg3);
+ARTS_EXPORT usize ipcCreateThread(ulong(ARTS_STDCALL* start)(void*), void* param, ulong* thread_id);
 
 // 0x5786D0 | ?ipcReleaseMutex@@YAXI@Z
-ARTS_IMPORT void ipcReleaseMutex(u32 arg1);
+ARTS_EXPORT void ipcReleaseMutex(usize handle);
 
 // 0x578770 | ?ipcSleep@@YAXI@Z | unused
-ARTS_IMPORT void ipcSleep(u32 arg1);
+ARTS_EXPORT void ipcSleep(u32 milli_seconds);
 
 // 0x578A70 | ?ipcSpinLock@@YAXPAI@Z
-ARTS_IMPORT void ipcSpinLock(u32* arg1);
+ARTS_EXPORT void ipcSpinLock(u32* value);
 
 // 0x578AC0 | ?ipcSpunUnlock@@YAXPAI@Z | unused
-ARTS_IMPORT void ipcSpunUnlock(u32* arg1);
+ARTS_EXPORT void ipcSpinUnlock(u32* value);
 
 // 0x5786B0 | ?ipcTriggerEvent@@YAXI@Z
-ARTS_IMPORT void ipcTriggerEvent(u32 arg1);
+ARTS_EXPORT void ipcTriggerEvent(usize handle);
 
 // 0x578720 | ?ipcWaitMultiple@@YAHHPAIH@Z | unused
-ARTS_IMPORT i32 ipcWaitMultiple(i32 arg1, u32* arg2, i32 arg3);
+ARTS_EXPORT i32 ipcWaitMultiple(i32 count, usize* handles, b32 wait_all);
 
 // 0x5786F0 | ?ipcWaitSingle@@YAXI@Z
-ARTS_IMPORT void ipcWaitSingle(u32 arg1);
+ARTS_EXPORT void ipcWaitSingle(usize handle);
 
 // 0x578760 | ?ipcYield@@YAXXZ
-ARTS_IMPORT void ipcYield();
+ARTS_EXPORT void ipcYield();
 
 // 0x90AE60 | ?SynchronousMessageQueues@@3HA
 ARTS_IMPORT extern i32 SynchronousMessageQueues;
 
+struct ipcMessage;
+
 class ipcMessageQueue
 {
 public:
+    ipcMessageQueue();
+    ~ipcMessageQueue();
+
+    ipcMessageQueue(const ipcMessageQueue&) = delete;
+    ipcMessageQueue& operator=(const ipcMessageQueue&) = delete;
+
     // 0x578870 | ?Init@ipcMessageQueue@@QAEXHH@Z
-    ARTS_IMPORT void Init(i32 arg1, i32 arg2);
+    ARTS_EXPORT void Init(i32 max_messages, b32 blocking);
 
     // 0x578980 | ?Send@ipcMessageQueue@@QAEXP6AXPAX@Z0@Z
-    ARTS_IMPORT void Send(void (*arg1)(void*), void* arg2);
+    ARTS_EXPORT void Send(void (*func)(void*), void* param);
 
     // 0x578920 | ?Shutdown@ipcMessageQueue@@QAEXXZ
-    ARTS_IMPORT void Shutdown();
+    ARTS_EXPORT void Shutdown();
 
 private:
     // 0x578790 | ?MessageLoop@ipcMessageQueue@@AAEHXZ
-    ARTS_IMPORT i32 MessageLoop();
+    ARTS_EXPORT i32 MessageLoop();
 
     // 0x578780 | ?Proc@ipcMessageQueue@@CGKPAX@Z
-    ARTS_IMPORT static u32 ARTS_STDCALL Proc(void* arg1);
+    ARTS_EXPORT static ulong ARTS_STDCALL Proc(void* param);
 
-    char gap0[0x28];
+    b32 initialized_ {false};
+    u32 send_index_ {0};
+    u32 read_index_ {0};
+    u32 max_messages_ {0};
+    b32 blocking_ {false};
+    Ptr<ipcMessage[]> messages_ {nullptr};
+    usize send_event_ {0};
+    usize read_event_ {0};
+    usize mutex_ {0};
+    usize proc_thread_ {0};
 };
 
 check_size(ipcMessageQueue, 0x28);

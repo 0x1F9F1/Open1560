@@ -195,7 +195,7 @@ public:
     ARTS_EXPORT void* New(i32 count) override
     {
         if (count)
-            return new char*[count]();
+            return new char*[count] {};
         else
             return new char*();
     }

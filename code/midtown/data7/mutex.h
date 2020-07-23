@@ -23,7 +23,15 @@
 class Mutex
 {
 public:
-    ~Mutex();
+    constexpr Mutex() = default;
+
+    ~Mutex()
+    {
+        close();
+    }
+
+    Mutex(const Mutex&) = delete;
+    Mutex& operator=(const Mutex&) = delete;
 
     // Must call init and close, to match ipc.h semantics
     void init();
@@ -51,10 +59,7 @@ public:
     }
 
     MutexGuard(const MutexGuard&) = delete;
-    MutexGuard(MutexGuard&&) = delete;
-
     MutexGuard& operator=(const MutexGuard&) = delete;
-    MutexGuard& operator=(MutexGuard&&) = delete;
 
 private:
     Mutex* const mutex_ {nullptr};
