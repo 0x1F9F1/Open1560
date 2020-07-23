@@ -61,6 +61,11 @@ public:
     // 0x55A600 | ?SetTransparency@agiBitmap@@QAEXH@Z
     ARTS_EXPORT void SetTransparency(b32 enabled);
 
+    agiSurfaceDesc* GetSurface() const
+    {
+        return surface_;
+    }
+
 protected:
     // 0x55A6F0 | ??_GagiBitmap@@MAEPAXI@Z
     // 0x55A6F0 | ??_EagiBitmap@@MAEPAXI@Z

@@ -509,7 +509,7 @@ void asMidgets::AddVector(const char* arg1, Vector4* arg2, f32 arg3, f32 arg4, f
 void asMidgets::Cull()
 {
     i32 max_lines = max_lines_;
-    i32 text_y = agiPipeline::CurrentPipe->GetHeight() - agiPrintSize * max_lines;
+    i32 text_y = agiPipeline::CurrentPipe->GetHeight() - agiFontHeight * max_lines;
 
     i32 index = start_index_;
 
@@ -519,7 +519,7 @@ void asMidgets::Cull()
     while (max_lines > 0 && index < midget_count_)
     {
         if (index == current_index_)
-            agiPrint(agiPrintSize, text_y, CULLMGR->GetTextColor(), ">");
+            agiPrint(agiFontWidth, text_y, CULLMGR->GetTextColor(), ">");
 
         MI* midget = midgets_[index];
 
@@ -527,8 +527,8 @@ void asMidgets::Cull()
 
         if (IsVisible(index))
         {
-            agiPrint(agiPrintSize * 2, text_y, CULLMGR->GetTextColor(), midget->Text);
-            text_y += agiPrintSize;
+            agiPrint(agiFontWidth * 2, text_y, CULLMGR->GetTextColor(), midget->Text);
+            text_y += agiFontHeight;
             --max_lines;
         }
 

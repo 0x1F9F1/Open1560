@@ -34,9 +34,10 @@
     0x656C30 | unsigned char * CharSet | ?CharSet@@3PAEA
 */
 
-// TODO: Allow larger sizes
-constexpr i32 agiPrintScale = 1;
-constexpr i32 agiPrintSize = 8 * agiPrintScale;
+// TODO: Fix text offsets in asPerfGraph::Cull
+
+extern i32 agiFontWidth;
+extern i32 agiFontHeight;
 
 // 0x557E70 | ?agiPrint@@YAXHHHPBD@Z
 ARTS_EXPORT void agiPrint(i32 x, i32 y, i32 color, char const* text);
@@ -54,4 +55,4 @@ ARTS_EXPORT void agiPrintShutdown();
 ARTS_EXPORT void agiPrintf(i32 x, i32 y, i32 color, char const* format, ...);
 
 // 0x656C30 | ?CharSet@@3PAEA
-ARTS_IMPORT extern u8 CharSet[768];
+extern const u8 CharSet[768];

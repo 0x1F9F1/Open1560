@@ -162,7 +162,7 @@ void Statsf(char const* format, ...)
 
     agiPrint(0, StatsTextOffset, CULLMGR->GetTextColor(), buffer);
 
-    StatsTextOffset += agiPrintSize;
+    StatsTextOffset += agiFontHeight;
 }
 
 META_DEFINE_CHILD("asCullManager", asCullManager, asNode) {};

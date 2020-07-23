@@ -41,6 +41,17 @@
 
 #include "refresh.h"
 
+class agiTexDef;
+class agiMtlDef;
+
+enum agiVtxType
+{
+    VtxType0,
+    VtxType1,
+    VtxType2,
+    VtxType3,
+};
+
 class agiRasterizer : public agiRefreshable
 {
     // const agiRasterizer::`vftable' @ 0x621660
@@ -95,10 +106,84 @@ public:
     // 0x557CE0 | ?Reset@agiRendStateStruct@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    u8 gap0[0x3C];
+    agiMtlDef* Mtl {nullptr};
+    agiTexDef* Textures[2] {};
+    u8 BlendMode {0};
+    u8 ShadeMode {0};
+
+    // DrawMode & 3 = FillMode
+    // 0x0: None
+    // 0x1: Point
+    // 0x2: Line (Wireframe)
+    // 0x3: Fill (Depth)
+
+    // if (DrawMode == 3): DepthTest=0, ZWriteEnable=0, AlphaEnable=1, BlendMode=5, specular=0xFF202020
+    // if (DrawMode == 15): TexCoord
+    // if (DrawMode != 3) Color
+
+    // 0x4: Enable Textures?
+    // 0xB: Solid, No EnvMap,SphereMap
+    // 0xF: Tex
+    u8 DrawMode {0};
+    i8 TexFilter {0};
+    i8 BlendOperation {0};
+    i8 CullMode {0};
+    i8 ZFunc {0};
+    u8 FogEnable {0};
+    i8 TexturePerspective {0};
+    i8 AlphaEnable {0};
+    i8 AddressU {0};
+    i8 AddressV {0};
+    u8 DepthTest {0};
+    u8 ZWriteEnable {0};
+    u32 FogColor {0};
+    f32 FogStart {0.0f};
+    f32 FogEnd {0.0f};
+    f32 FogDensity {0.0f};
+    u8 DitherEnable {0};
+    u8 byte2D {0};
+    i8 SoftwareRendering {0};
+    i8 SpecularEnable {0};
+    u8 byte30 {0};
+    i8 VertType {0};
+    u8 StippledAlpha {0};
+    u8 AlphaRef {0};
+    f32 LodBias {0.0f};
+    u32 Specular {0};
 };
 
 check_size(agiRendStateStruct, 0x3C);
+
+class agiRendState
+{
+public:
+    b32 Touched {false};
+    agiRendStateStruct State {};
+
+    template <typename T>
+    T Set(T& value, T new_value)
+    {
+        T old_value = value;
+
+        if (old_value != new_value)
+        {
+            value = new_value;
+            Touched = true;
+        }
+
+        return old_value;
+    }
+
+#define AGI_RSTATE_SETTER(NAME)                                \
+    decltype(State.NAME) Set##NAME(decltype(State.NAME) value) \
+    {                                                          \
+        return Set(State.NAME, value);                         \
+    }
+
+    AGI_RSTATE_SETTER(DrawMode);
+};
+
+check_size(agiRendState, 0x40);
 
 // 0x8FF0D0 | ?RAST@@3PAVagiRasterizer@@A
 ARTS_IMPORT extern class agiRasterizer* RAST;

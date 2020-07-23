@@ -39,13 +39,15 @@ namespace mem
         cmd_param(cmd_param&&) = delete;
 
         template <typename T = const char*>
-        T get();
+        T get() const;
 
         template <typename T>
-        bool get(T& out);
+        bool get(T& out) const;
 
         template <typename T>
-        T get_or(T value);
+        T get_or(T value) const;
+
+        explicit operator bool() const;
 
         static void init(const char* const* argv);
         static void init(int argc, const char* const* argv);
@@ -214,13 +216,13 @@ namespace mem
     }
 
     template <>
-    MEM_STRONG_INLINE const char* cmd_param::get<const char*>()
+    MEM_STRONG_INLINE const char* cmd_param::get<const char*>() const
     {
         return value_;
     }
 
     template <>
-    MEM_STRONG_INLINE bool cmd_param::get<bool>()
+    MEM_STRONG_INLINE bool cmd_param::get<bool>() const
     {
         bool result = false;
 
@@ -233,7 +235,7 @@ namespace mem
     }
 
     template <typename T>
-    MEM_STRONG_INLINE bool cmd_param::get(T& out)
+    MEM_STRONG_INLINE bool cmd_param::get(T& out) const
     {
         if (value_)
         {
@@ -244,7 +246,7 @@ namespace mem
     }
 
     template <typename T>
-    MEM_STRONG_INLINE T cmd_param::get_or(T value)
+    MEM_STRONG_INLINE T cmd_param::get_or(T value) const
     {
         if (value_)
         {
@@ -252,6 +254,11 @@ namespace mem
         }
 
         return value;
+    }
+
+    MEM_STRONG_INLINE cmd_param::operator bool() const
+    {
+        return get<bool>();
     }
 } // namespace mem
 

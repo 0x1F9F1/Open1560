@@ -90,6 +90,7 @@
 #include "surface.h"
 
 class agiRefreshable;
+class agiBitmap;
 
 class agiPipeline
 {
@@ -148,7 +149,7 @@ public:
     ARTS_EXPORT virtual void ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color);
 
     // 0x557F20 | ?Print@agiPipeline@@UAEXHHHPBD@Z | agi:print
-    ARTS_IMPORT virtual void Print(i32 x, i32 y, i32 color, char const* text);
+    ARTS_EXPORT virtual void Print(i32 x, i32 y, i32 color, char const* text);
 
     // 0x558110 | ?PrintIs3D@agiPipeline@@UAEHXZ | agi:print
     ARTS_IMPORT virtual i32 PrintIs3D();

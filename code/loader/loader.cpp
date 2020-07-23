@@ -360,7 +360,7 @@ include_dummy_symbol(agi_pipeline);
 include_dummy_symbol(agi_print);
 include_dummy_symbol(agi_refresh);
 // include_dummy_symbol(agi_render);
-// include_dummy_symbol(agi_rsys);
+include_dummy_symbol(agi_rsys);
 // include_dummy_symbol(agi_smap);
 include_dummy_symbol(agi_surface);
 // include_dummy_symbol(agi_texdef);
