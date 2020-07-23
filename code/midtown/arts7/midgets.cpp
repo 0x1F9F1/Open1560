@@ -58,7 +58,11 @@ asMidgets::asMidgets()
     : event_queue_(1, EQ_EVENT_MASK(eqEventType::Keyboard), 32)
     , current_node_(ARTSPTR)
     , max_lines_(5)
-{}
+{
+    // These fields are accessed publcily and cannot easily be changed
+    static_assert(offsetof(asMidgets, max_lines_) == 0x8);
+    static_assert(offsetof(asMidgets, open_) == 0x1C);
+}
 
 asMidgets::~asMidgets()
 {
@@ -600,7 +604,7 @@ void asMidgets::Open(asNode* node)
                 arts_strcat(buffer, parent_name);
             }
 
-            parent_midget_count_ = static_cast<i8>(midget_count_);
+            parent_midget_count_ = midget_count_;
 
             AddButton(buffer, CFA1(OpenNodeMidgets, parent));
         }
@@ -617,7 +621,7 @@ void asMidgets::Open(asNode* node)
         for (asNode* child = node->GetFirstChild(); child; child = child->GetNext())
         {
             if (count < std::size(midget_counts_))
-                midget_counts_[count++] = static_cast<i8>(midget_count_);
+                midget_counts_[count++] = midget_count_;
 
             char buffer[64];
 
@@ -712,8 +716,15 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
         case '9': {
             if (i32 index = midget_counts_[key - '1']; index != -1)
             {
-                start_index_ = index;
-                current_index_ = index;
+                if (mods & EQ_KMOD_CTRL)
+                {
+                    midgets_[index]->Key(VK_RETURN, 0);
+                }
+                else
+                {
+                    start_index_ = index;
+                    current_index_ = index;
+                }
             }
 
             break;
@@ -857,3 +868,9 @@ void asMidgets::PushColumn(i32 /*arg1*/)
 
 void asMidgets::PopColumn()
 {}
+
+run_once([] {
+    u32 midgets_size = sizeof(asMidgets);
+
+    create_patch("asMidgets Size", "Size of asMidgets", 0x521A11 + 1, &midgets_size, sizeof(midgets_size));
+});

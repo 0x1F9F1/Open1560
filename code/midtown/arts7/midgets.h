@@ -238,14 +238,16 @@ private:
     i32 current_index_ {0};
     b32 open_ {false};
     MI* midgets_[512] {};
-    i8 parent_midget_count_ {};
-    i8 midget_counts_[9] {};
+
+    i32 parent_midget_count_ {};
+    i32 midget_counts_[9] {};
+
     i32 sections_[8] {};
     i32 section_count_ {0};
     eqEventQ event_queue_;
 };
 
-check_size(asMidgets, 0x87C);
+// check_size(asMidgets, 0x87C);
 
 // 0x790928 | ?MIDGETSPTR@@3PAVasMidgets@@A
 ARTS_IMPORT extern class asMidgets* MIDGETSPTR;
