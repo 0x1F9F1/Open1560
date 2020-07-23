@@ -29,6 +29,8 @@ define_dummy_symbol(arts7_midgets);
 #include "vector7/vector3.h"
 #include "vector7/vector4.h"
 
+#include "core/minwin.h"
+
 class MI
 {
     // const MI::`vftable' @ 0x620CA8
@@ -54,7 +56,7 @@ check_size(MI, 0x48);
 
 asMidgets::asMidgets()
     : event_queue_(1, EQ_EVENT_MASK(eqEventType::Keyboard), 32)
-    , root_(ARTSPTR)
+    , current_node_(ARTSPTR)
     , max_lines_(5)
 {}
 
@@ -511,6 +513,21 @@ void asMidgets::Cull()
     i32 max_lines = max_lines_;
     i32 text_y = agiPipeline::CurrentPipe->GetHeight() - agiFontHeight * max_lines;
 
+    {
+        char title[64];
+
+        arts_strcpy(title, current_node_->GetNodeType());
+
+        if (const char* node_name = current_node_->GetNodeName(); node_name && *node_name != '_')
+        {
+            arts_strcat(title, " ");
+            arts_strcat(title, node_name);
+        }
+
+        agiPrintf(0, text_y - (agiFontHeight * 2), CULLMGR->GetTextColor(), "%s | %i/%i", title, current_index_ + 1,
+            midget_count_);
+    }
+
     i32 index = start_index_;
 
     if (index != 0)
@@ -550,6 +567,7 @@ void asMidgets::Off()
         midgets_[midget_count_] = nullptr;
     }
 
+    event_queue_.Clear();
     current_index_ = 0;
     start_index_ = 0;
     open_ = false;
@@ -560,17 +578,17 @@ static void OpenNodeMidgets(void* param)
     MIDGETSPTR->Open(static_cast<asNode*>(param));
 }
 
-void asMidgets::Open(asNode* root)
+void asMidgets::Open(asNode* node)
 {
     Off();
 
-    root_ = root;
+    current_node_ = node;
 
-    if (root_ != nullptr)
+    if (current_node_ != nullptr)
     {
-        root->AddWidgets(this);
+        node->AddWidgets(this);
 
-        if (asNode* parent = root->GetParent())
+        if (asNode* parent = node->GetParent())
         {
             char buffer[64];
 
@@ -596,7 +614,7 @@ void asMidgets::Open(asNode* root)
 
         usize count = 0;
 
-        for (asNode* child = root->GetFirstChild(); child; child = child->GetNext())
+        for (asNode* child = node->GetFirstChild(); child; child = child->GetNext())
         {
             if (count < std::size(midget_counts_))
                 midget_counts_[count++] = static_cast<i8>(midget_count_);
@@ -663,7 +681,7 @@ void asMidgets::Toggle()
     if (open_)
         Off();
     else
-        Open(root_);
+        Open(current_node_);
 }
 
 void asMidgets::Update()
@@ -677,6 +695,140 @@ void asMidgets::Update()
     }
 
     CULLMGR->DeclarePrint(this);
+}
+
+void asMidgets::UpdateKey(i32 key, i32 mods)
+{
+    switch (key)
+    {
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9': {
+            if (i32 index = midget_counts_[key - '1']; index != -1)
+            {
+                start_index_ = index;
+                current_index_ = index;
+            }
+
+            break;
+        }
+
+        case VK_NUMPAD0: {
+            if (i32 index = parent_midget_count_; index != -1)
+            {
+                if (mods & EQ_KMOD_CTRL)
+                {
+                    midgets_[index]->Key(VK_RETURN, 0);
+                }
+                else
+                {
+                    start_index_ = index;
+                    current_index_ = index;
+                }
+            }
+            else if (mods & EQ_KMOD_CTRL)
+            {
+                Off();
+            }
+
+            break;
+        }
+
+        case VK_NUMPAD1: {
+            current_index_ = midget_count_ - 1;
+            start_index_ = std::max(0, current_index_ - max_lines_ + 1);
+
+            break;
+        }
+
+        case VK_NUMPAD2: {
+            if (current_index_ < midget_count_ - 1)
+            {
+                do
+                {
+                    ++current_index_;
+                } while (!IsVisible(current_index_));
+
+                if (current_index_ >= start_index_ + max_lines_)
+                    start_index_ = current_index_ - max_lines_ + 1;
+            }
+
+            break;
+        }
+
+        case VK_NUMPAD3: {
+            current_index_ += max_lines_;
+            current_index_ = std::min<i32>(current_index_, midget_count_ - max_lines_);
+
+            while (!IsVisible(current_index_))
+            {
+                if (current_index_ > midget_count_ - max_lines_)
+                    break;
+
+                ++current_index_;
+            }
+
+            current_index_ = std::min<i32>(current_index_, midget_count_ - max_lines_);
+            current_index_ = std::max<i32>(current_index_, 0);
+            start_index_ = current_index_;
+
+            break;
+        }
+
+        case VK_NUMPAD7: {
+            start_index_ = 0;
+            current_index_ = 0;
+
+            break;
+        }
+
+        case VK_NUMPAD8: {
+            if (current_index_)
+            {
+                do
+                {
+                    --current_index_;
+                } while (!IsVisible(current_index_));
+
+                start_index_ = std::min<i32>(start_index_, current_index_);
+            }
+
+            break;
+        }
+
+        case VK_NUMPAD9: {
+            current_index_ -= max_lines_;
+
+            while (!IsVisible(current_index_))
+            {
+                if (current_index_ < 0)
+                    break;
+
+                --current_index_;
+            }
+
+            current_index_ = std::max<i32>(current_index_, 0);
+            start_index_ = current_index_;
+
+            break;
+        }
+
+        default: {
+            if (current_index_ < 0)
+                current_index_ = 0;
+
+            if (MI* midget = midgets_[current_index_])
+                midget->Key(key, mods & ~EQ_KMOD_DOWN); // TODO: Why does this clear EQ_KMOD_DOWN?
+
+            break;
+        }
+    }
 }
 
 void asMidgets::AddItem(MI* item)

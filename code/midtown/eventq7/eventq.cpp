@@ -1,3 +1,4 @@
+#include "eventq.h"
 /*
     Open1560 - An Open Source Re-Implementation of Midtown Madness 1 Beta
     Copyright (C) 2020 Brick
@@ -134,6 +135,11 @@ void eqEventQ::Refocus(void* window, i32 focused)
     EQ_QUEUE_IF_ENABLED(event);
 
     eqEventMonitor::Refocus(window, focused);
+}
+
+void eqEventQ::Clear()
+{
+    read_head_ = write_head_;
 }
 
 void eqEventQ::Queue(eqEvent& event)

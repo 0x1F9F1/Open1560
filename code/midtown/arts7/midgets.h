@@ -198,7 +198,7 @@ public:
     ARTS_EXPORT void Off() override;
 
     // 0x526950 | ?Open@asMidgets@@QAEXPAVasNode@@@Z
-    ARTS_EXPORT void Open(class asNode* root);
+    ARTS_EXPORT void Open(class asNode* node);
 
     // 0x527B90 | ?PopColumn@asMidgets@@UAEXXZ
     ARTS_EXPORT void PopColumn() override;
@@ -222,7 +222,7 @@ public:
     ARTS_EXPORT void Update();
 
     // 0x526BF0 | ?UpdateKey@asMidgets@@QAEXHH@Z
-    ARTS_IMPORT void UpdateKey(i32 key, i32 mods);
+    ARTS_EXPORT void UpdateKey(i32 key, i32 mods);
 
 private:
     // 0x526E50 | ?AddItem@asMidgets@@AAEXPAVMI@@@Z
@@ -232,7 +232,7 @@ private:
     ARTS_EXPORT i32 IsVisible(i32 line);
 
     i32 max_lines_ {0};
-    asNode* root_ {nullptr};
+    asNode* current_node_ {nullptr};
     i32 midget_count_ {0};
     i32 start_index_ {0};
     i32 current_index_ {0};

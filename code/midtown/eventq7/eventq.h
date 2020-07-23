@@ -145,6 +145,8 @@ public:
     // 0x563B50 | ?Refocus@eqEventQ@@UAEXPAXH@Z
     ARTS_EXPORT void Refocus(void* window, i32 focused) override;
 
+    void Clear();
+
 private:
     // 0x563D00 | ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
     ARTS_EXPORT void Queue(union eqEvent& event);
