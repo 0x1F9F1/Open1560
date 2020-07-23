@@ -40,7 +40,7 @@
 
 struct HashEntry
 {
-    CString Key {nullptr};
+    CString Key {};
     void* Value {nullptr};
     HashEntry* Next {nullptr};
 };
@@ -63,32 +63,32 @@ public:
     ARTS_EXPORT b32 Change(const char* old_key, const char* new_key);
 
     // 0x5782B0 | ?Delete@HashTable@@QAEHPAD@Z
-    ARTS_EXPORT i32 Delete(const char* key);
+    ARTS_EXPORT b32 Delete(const char* key);
 
     // 0x5780A0 | ?Init@HashTable@@QAEXH@Z
     ARTS_EXPORT void Init(i32 bucket_count);
 
     // 0x5781D0 | ?Insert@HashTable@@QAEHPADPAX@Z
-    ARTS_IMPORT i32 Insert(char* arg1, void* arg2);
+    ARTS_EXPORT b32 Insert(const char* key, void* value);
 
     // 0x578110 | ?Kill@HashTable@@QAEXXZ
-    ARTS_IMPORT void Kill();
+    ARTS_EXPORT void Kill();
 
     // 0x578610 | ?KillAll@HashTable@@SAXXZ
-    ARTS_IMPORT static void KillAll();
+    ARTS_EXPORT static void KillAll();
 
 private:
     // 0x578500 | ?ComputePrime@HashTable@@AAEHH@Z
-    ARTS_IMPORT i32 ComputePrime(i32 arg1);
+    ARTS_EXPORT i32 ComputePrime(i32 value);
 
     // 0x5784C0 | ?Hash@HashTable@@AAEHPAD@Z
     ARTS_EXPORT u32 Hash(const char* key);
 
     // 0x578550 | ?Recompute@HashTable@@AAEXH@Z
-    ARTS_IMPORT void Recompute(i32 arg1);
+    ARTS_EXPORT void Recompute(i32 capacity);
 
     // 0x578630 | ?RemoveMe@HashTable@@AAEXXZ
-    ARTS_IMPORT void RemoveMe();
+    ARTS_EXPORT void RemoveMe();
 
     // 0x90AE5C | ?First@HashTable@@0PAV1@A
     ARTS_IMPORT static class HashTable* First;

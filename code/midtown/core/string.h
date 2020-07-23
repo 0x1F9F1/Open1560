@@ -107,11 +107,6 @@ public:
         }
     }
 
-    ARTS_FORCEINLINE char* get()
-    {
-        return data_;
-    }
-
     ARTS_FORCEINLINE const char* get() const
     {
         return data_;
@@ -266,4 +261,14 @@ inline bool IsDigit(i32 value)
 inline bool IsLetter(i32 value)
 {
     return (value >= 'A' && value <= 'Z') || (value >= 'a' && value <= 'z');
+}
+
+inline bool operator==(const CString& lhs, const CString& rhs)
+{
+    return std::strcmp(lhs.get(), rhs.get()) == 0;
+}
+
+inline bool operator==(const CString& lhs, const char* rhs)
+{
+    return std::strcmp(lhs.get(), rhs) == 0;
 }

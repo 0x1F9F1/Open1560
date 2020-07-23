@@ -28,6 +28,7 @@ HashTable::~HashTable()
 
 void HashTable::operator=(class HashTable& other)
 {
+    // TODO: Why is this bucket_count_ - 1?
     Init(bucket_count_ - 1);
 
     for (i32 i = 0; i < other.bucket_count_; ++i)
@@ -44,7 +45,7 @@ void* HashTable::Access(const char* key)
 
     for (HashEntry* i = buckets_[Hash(key)]; i; i = i->Next)
     {
-        if (!std::strcmp(i->Key.get(), key))
+        if (i->Key == key)
             return i->Value;
     }
 
@@ -57,24 +58,20 @@ b32 HashTable::Change(const char* old_key, const char* new_key)
 
     void* value = Access(old_key);
 
-    b32 result = Delete(const_cast<char*>(old_key));
+    if (!Delete(old_key))
+        return false;
 
-    if (result)
-        result = Insert(const_cast<char*>(new_key), value);
-
-    return result;
+    return Insert(new_key, value);
 }
 
-i32 HashTable::Delete(const char* key)
+b32 HashTable::Delete(const char* key)
 {
     if (buckets_ == nullptr)
         return false;
 
     for (HashEntry** i = &buckets_[Hash(key)]; *i; i = &(*i)->Next)
     {
-        HashEntry* v = *i;
-
-        if (!std::strcmp(v->Key.get(), key))
+        if (HashEntry* v = *i; v->Key == key)
         {
             *i = v->Next;
             delete v;
@@ -89,8 +86,79 @@ i32 HashTable::Delete(const char* key)
 void HashTable::Init(i32 bucket_count)
 {
     Kill();
+
+    value_count_ = 0;
     bucket_count_ = ComputePrime(std::max(bucket_count, 100));
     buckets_ = MakeUnique<HashEntry*[]>(bucket_count_);
+}
+
+b32 HashTable::Insert(const char* key, void* value)
+{
+    if (buckets_ == nullptr && bucket_count_ != 0)
+        Init(bucket_count_);
+
+    u32 bucket = Hash(key);
+
+    for (HashEntry* i = buckets_[bucket]; i; i = i->Next)
+    {
+        if (i->Key == key)
+            return false;
+    }
+
+    buckets_[bucket] = new HashEntry {key, value, buckets_[bucket]};
+
+    if (++value_count_ > bucket_count_) // TODO: Reduce load factor
+        Recompute(bucket_count_ * 4);   // TODO: Reduce growth factor
+
+    return true;
+}
+
+void HashTable::Kill()
+{
+    if (buckets_ == nullptr)
+        return;
+
+    for (i32 i = 0; i < bucket_count_; ++i)
+    {
+        for (HashEntry *j = buckets_[i], *next = nullptr; j; j = next)
+        {
+            next = j->Next;
+
+            delete j;
+        }
+    }
+
+    value_count_ = 0;
+    buckets_ = nullptr;
+}
+
+void HashTable::KillAll()
+{
+    for (HashTable* i = First; i; i = i->next_table_)
+        i->Kill();
+}
+
+// TODO: Make static
+// TODO: Make unsigned
+// TODO: Maybe use powers of 2 instead of primes
+i32 HashTable::ComputePrime(i32 value)
+{
+    u32 prime = static_cast<u32>(value);
+
+    if (!(prime % 2))
+        ++prime;
+
+    for (;; prime += 2)
+    {
+        for (u32 n = 3, upper = prime / 2;; n += 2)
+        {
+            if (n > upper)
+                return static_cast<i32>(prime);
+
+            if ((prime % n) == 0)
+                break;
+        }
+    }
 }
 
 u32 HashTable::Hash(const char* key)
@@ -105,7 +173,43 @@ u32 HashTable::Hash(const char* key)
             hash ^= upper ^ (upper >> 24);
     }
 
-    return hash % u32(bucket_count_);
+    return hash % bucket_count_;
+}
+
+void HashTable::Recompute(i32 capacity)
+{
+    capacity = ComputePrime(capacity);
+
+    i32 old_bucket_count = bucket_count_;
+    Ptr<HashEntry*[]> old_buckets = MakeUnique<HashEntry*[]>(capacity);
+
+    buckets_.swap(old_buckets);
+    bucket_count_ = capacity;
+
+    for (i32 i = 0; i < old_bucket_count; ++i)
+    {
+        for (HashEntry *j = old_buckets[i], *next = nullptr; j; j = next)
+        {
+            next = j->Next;
+
+            u32 bucket = Hash(j->Key.get());
+
+            j->Next = buckets_[bucket];
+            buckets_[bucket] = j;
+        }
+    }
+}
+
+void HashTable::RemoveMe()
+{
+    for (HashTable** i = &First; *i; i = &(*i)->next_table_)
+    {
+        if (*i == this)
+        {
+            *i = (*i)->next_table_;
+            break;
+        }
+    }
 }
 
 void HashIterator::Begin()
@@ -116,7 +220,7 @@ void HashIterator::Begin()
 
 b32 HashIterator::Next()
 {
-    if (!Table->buckets_)
+    if (Table->buckets_ == nullptr)
         return false;
 
     if (Current)

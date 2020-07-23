@@ -70,8 +70,8 @@ asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
 
     /*PGRAPH = */ new asPerfGraph();
 
-    PGRAPH->AddComponent((char*) "3D", &UpdateTime3D, ColGreen);
-    PGRAPH->AddComponent((char*) "2D", &UpdateTime2D, ColBlue);
+    PGRAPH->AddComponent(const_cast<char*>("3D"), &UpdateTime3D, ColGreen);
+    PGRAPH->AddComponent(const_cast<char*>("2D"), &UpdateTime2D, ColBlue);
 }
 
 asCullManager::~asCullManager()
