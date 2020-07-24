@@ -421,7 +421,7 @@ include_dummy_symbol(arts7_cullmgr);
 // include_dummy_symbol(arts7_linear);
 include_dummy_symbol(arts7_midgets);
 include_dummy_symbol(arts7_node);
-// include_dummy_symbol(arts7_pgraph);
+include_dummy_symbol(arts7_pgraph);
 // include_dummy_symbol(arts7_sim);
 // include_dummy_symbol(arts7_view);
 

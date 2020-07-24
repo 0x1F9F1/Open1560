@@ -34,8 +34,6 @@
     0x656C30 | unsigned char * CharSet | ?CharSet@@3PAEA
 */
 
-// TODO: Fix text offsets in asPerfGraph::Cull
-
 extern i32 agiFontWidth;
 extern i32 agiFontHeight;
 

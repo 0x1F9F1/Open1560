@@ -489,7 +489,7 @@ void asMidgets::AddVector(const char* arg1, Vector4* arg2, f32 arg3, f32 arg4, f
 void asMidgets::Cull()
 {
     i32 max_lines = max_lines_;
-    i32 text_y = agiPipeline::CurrentPipe->GetHeight() - agiFontHeight * max_lines;
+    i32 text_y = Pipe()->GetHeight() - agiFontHeight * max_lines;
 
     {
         char title[64];

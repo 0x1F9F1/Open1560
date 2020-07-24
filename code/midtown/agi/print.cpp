@@ -47,7 +47,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     // 96 8x8 characters, from 0x20 to 0x7F
     // Split into 16 per row, with 6 rows
 
-    i32 const font_scale = std::clamp(PARAM_font_scale.get_or<i32>(agiPipeline::CurrentPipe->GetHeight() / 480), 1, 4);
+    i32 const font_scale = std::clamp(PARAM_font_scale.get_or<i32>(Pipe()->GetHeight() / 480), 1, 4);
 
     agiFontWidth = font_scale * 8;
     agiFontHeight = font_scale * 8;
@@ -58,7 +58,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     i32 const width_scale = agiFontWidth / 8;
     i32 const height_scale = agiFontHeight / 8;
 
-    BuiltinFontBitmap = agiPipeline::CurrentPipe->CreateBitmap();
+    BuiltinFontBitmap = Pipe()->CreateBitmap();
     BuiltinFontBitmap->Init("*BUILTIN", 16.0f * agiFontWidth, 6.0f * agiFontHeight, AGI_BITMAP_OFFSCREEN);
 
     agiSurfaceDesc* const surface = BuiltinFontBitmap->GetSurface();
@@ -96,27 +96,27 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
 
 void agiPrint(i32 x, i32 y, i32 color, char const* text)
 {
-    agiPipeline::CurrentPipe->Print(x, y, color, text);
+    Pipe()->Print(x, y, color, text);
 }
 
 void agiPrintInit()
 {
-    agiPipeline::CurrentPipe->PrintInit();
+    Pipe()->PrintInit();
 }
 
 i32 agiPrintIs3D()
 {
-    return agiPipeline::CurrentPipe->PrintIs3D();
+    return Pipe()->PrintIs3D();
 }
 
 void agiPrintShutdown()
 {
-    return agiPipeline::CurrentPipe->PrintShutdown();
+    return Pipe()->PrintShutdown();
 }
 
 void agiPrintf(i32 x, i32 y, i32 color, char const* format, ...)
 {
-    if (y >= 0 && y <= agiPipeline::CurrentPipe->GetHeight() - agiFontHeight)
+    if (y >= 0 && y <= Pipe()->GetHeight() - agiFontHeight)
     {
         char buffer[256];
 

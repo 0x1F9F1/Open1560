@@ -253,6 +253,11 @@ public:
         return screen_format_;
     }
 
+    agiColorModel* GetHiColorModel() const
+    {
+        return hi_color_model_;
+    }
+
 protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
     ARTS_EXPORT agiPipeline();
@@ -292,6 +297,11 @@ protected:
 };
 
 check_size(agiPipeline, 0x2F0);
+
+inline agiPipeline* Pipe()
+{
+    return agiPipeline::CurrentPipe;
+}
 
 // 0x555F80 | ?CreatePipelineAttachableWindow@@YAPAXPADHHHHPAX@Z
 ARTS_EXPORT void* CreatePipelineAttachableWindow(char* title, i32 x, i32 y, i32 width, i32 height, void* ptr);

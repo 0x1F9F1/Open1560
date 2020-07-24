@@ -30,28 +30,41 @@
     0x790984 | class asPerfGraph * PGRAPH | ?PGRAPH@@3PAVasPerfGraph@@A
 */
 
+class Vector3;
+
 class asPerfGraph
 {
 public:
     // 0x52A8A0 | ??0asPerfGraph@@QAE@XZ
-    ARTS_IMPORT asPerfGraph();
+    ARTS_EXPORT asPerfGraph();
 
     // 0x52A930 | ??1asPerfGraph@@QAE@XZ
-    ARTS_IMPORT ~asPerfGraph();
+    ARTS_EXPORT ~asPerfGraph();
 
     // 0x52A960 | ?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z
-    ARTS_IMPORT void AddComponent(char* arg1, f32* arg2, class Vector3& arg3);
+    ARTS_EXPORT void AddComponent(const char* name, f32* value, const Vector3& color);
 
     // 0x52AB30 | ?Cull@asPerfGraph@@QAEXXZ
-    ARTS_IMPORT void Cull();
+    ARTS_EXPORT void Cull();
 
     // 0x52A9E0 | ?Key@asPerfGraph@@QAEXH@Z
-    ARTS_IMPORT void Key(i32 arg1);
+    ARTS_EXPORT void Key(i32 vkey);
 
     // 0x52AA30 | ?Update@asPerfGraph@@QAEXXZ
-    ARTS_IMPORT void Update();
+    ARTS_EXPORT void Update();
 
-    u8 gap0[0x94];
+private:
+    static constexpr usize MaxComponents = 8;
+
+    i32 num_components_ {0};
+    i32 maim_component_ {0};
+    f32* component_history_[MaxComponents] {};
+    const char* component_name_[MaxComponents] {};
+    f32* component_value_[MaxComponents] {};
+    u32 component_color_[MaxComponents] {};
+    f32 graph_scale_ {1.0f};
+    i32 write_index_ {0};
+    i32 read_index_ {0};
 };
 
 check_size(asPerfGraph, 0x94);
