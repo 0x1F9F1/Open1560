@@ -20,11 +20,18 @@ define_dummy_symbol(agi_pipeline);
 
 #include "pipeline.h"
 
+#include "agi/dlptmpl.h"
+#include "bitmap.h"
 #include "core/minwin.h"
 #include "data7/hash.h"
+#include "data7/ipc.h"
 #include "error.h"
+#include "eventq7/eventq.h"
+#include "eventq7/winevent.h"
 #include "pcwindis/dxinit.h"
 #include "refresh.h"
+#include "rsys.h"
+#include "texdef.h"
 
 i32 agiPipeline::Validate()
 {
@@ -34,6 +41,13 @@ i32 agiPipeline::Validate()
 void agiPipeline::BeginFrame()
 {
     STATS = {};
+}
+
+void agiPipeline::BeginScene()
+{
+    UpdateLutQueue();
+
+    ++scene_count_;
 }
 
 void agiPipeline::EndScene()
@@ -82,6 +96,108 @@ void agiPipeline::UnlockFrameBuffer()
 
 void agiPipeline::DumpStatus(struct agiMemStatus& /*arg1*/)
 {}
+
+static extern_var(0x8FAC78, ipcMessageQueue, GFXPAGER);
+
+i32 agiPipeline::BeginAllGfx()
+{
+    i32 error = BeginGfx();
+
+    agiLastState.Reset();
+
+    if (error != AGI_ERROR_SUCCESS)
+    {
+        Displayf("Pipeline.BeginGfx: %s", agiGetError(error));
+        EndGfx();
+        return error;
+    }
+
+    CurrentRenderer = renderer_;
+
+    agiDisplayf("Refreshing objects");
+
+    for (agiRefreshable* i = objects_; i; i = i->next_)
+    {
+        error = i->SafeBeginGfx();
+
+        if (error != AGI_ERROR_SUCCESS && error != AGI_ERROR_ALREADY_INITIALIZED)
+        {
+            Quitf("Error resurrecting object: %s: %s", i->GetName(), agiGetError(error));
+        }
+    }
+
+    agiDisplayf("Done with object refresh");
+
+    if (eqEventHandler::SuperQ == nullptr)
+        InitEventQueue();
+
+    if (dxiFlags & 0x1)
+        error = eqEventHandler::SuperQ->BeginGfx(640, 480, 1);
+    else
+        error = eqEventHandler::SuperQ->BeginGfx(width_, height_, 0);
+
+    GFXPAGER.Init(64, false);
+
+    return error;
+}
+
+void agiPipeline::DumpStatus()
+{
+    for (agiRefreshable* i = objects_; i; i = i->next_)
+        agiDisplayf("Refreshable: %s", i->GetName());
+
+    for (HashIterator i(&DLPTemplateHash); i.Next();)
+        agiDisplayf("Template %s @%x", i.Current->Key.get(), i.Current->Value);
+}
+
+void agiPipeline::EndAllGfx()
+{
+    GFXPAGER.Shutdown();
+
+    if (!gfx_started_)
+        return;
+
+    ShutdownLutQueue();
+
+    if (eqEventHandler::SuperQ)
+        eqEventHandler::SuperQ->EndGfx();
+
+    agiCurState.SetTexture(nullptr);
+    agiCurState.SetMtl(nullptr);
+
+    for (agiRefreshable* i = objects_; i; i = i->next_)
+        i->EndGfx();
+
+    EndGfx();
+}
+
+agiBitmap* agiPipeline::GetBitmap(const char* name, f32 sx, f32 sy, i32 flags)
+{
+    char buffer[64];
+    arts_sprintf(buffer, "%s.%x.%x.%d", name, mem::bit_cast<u32>(sx), mem::bit_cast<u32>(sy), flags);
+
+    agiBitmap* result = static_cast<agiBitmap*>(BitmapHash.Access(buffer));
+
+    if (result)
+    {
+        result->AddRef();
+
+        return result;
+    }
+
+    result = CreateBitmap();
+
+    if (result->Init(name, sx, sy, flags) != AGI_ERROR_SUCCESS)
+    {
+        result->Release();
+
+        return nullptr;
+    }
+
+    BitmapHash.Insert(buffer, result);
+
+    return result;
+}
 
 void* CreatePipelineAttachableWindow(
     char* /*title*/, i32 /*x*/, i32 /*y*/, i32 /*width*/, i32 /*height*/, void* /*ptr*/)

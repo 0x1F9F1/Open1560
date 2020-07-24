@@ -33,7 +33,7 @@
 #define AGI_ERROR_BAD_FORMAT -4
 
 // 0x55BE80 | ?agiDisplayf@@YAXPBDZZ
-ARTS_EXPORT void agiDisplayf(char const* format, ...);
+ARTS_EXPORT void agiDisplayf(ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x55BE20 | ?agiGetError@@YAPADH@Z
 ARTS_EXPORT const char* agiGetError(i32 error);

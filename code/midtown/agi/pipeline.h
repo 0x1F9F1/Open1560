@@ -91,6 +91,8 @@
 
 class agiRefreshable;
 class agiBitmap;
+class agiColorModel;
+class agiRenderer;
 
 class agiPipeline
 {
@@ -111,7 +113,7 @@ public:
     ARTS_EXPORT virtual void BeginFrame();
 
     // 0x556000 | ?BeginScene@agiPipeline@@UAEXXZ
-    ARTS_IMPORT virtual void BeginScene();
+    ARTS_EXPORT virtual void BeginScene();
 
     // 0x556020 | ?EndScene@agiPipeline@@UAEXXZ
     ARTS_EXPORT virtual void EndScene();
@@ -173,7 +175,7 @@ public:
     ARTS_EXPORT virtual void DumpStatus(struct agiMemStatus& arg1);
 
     // 0x555B40 | ?BeginAllGfx@agiPipeline@@QAEHXZ
-    ARTS_IMPORT i32 BeginAllGfx();
+    ARTS_EXPORT i32 BeginAllGfx();
 
     // 0x555D50 | ?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHH@Z
     ARTS_IMPORT i32 CopyClippedBitmap(
@@ -184,13 +186,13 @@ public:
         i32 arg8, i32 arg9, i32 arg10, i32 arg11);
 
     // 0x555F00 | ?DumpStatus@agiPipeline@@QAEXXZ | unused
-    ARTS_IMPORT void DumpStatus();
+    ARTS_EXPORT void DumpStatus();
 
     // 0x555C40 | ?EndAllGfx@agiPipeline@@QAEXXZ
-    ARTS_IMPORT void EndAllGfx();
+    ARTS_EXPORT void EndAllGfx();
 
     // 0x555750 | ?GetBitmap@agiPipeline@@QAEPAVagiBitmap@@PADMMH@Z
-    ARTS_IMPORT class agiBitmap* GetBitmap(char* arg1, f32 arg2, f32 arg3, i32 arg4);
+    ARTS_EXPORT class agiBitmap* GetBitmap(const char* name, f32 sx, f32 sy, i32 flags);
 
     // 0x555950 | ?GetDLP@agiPipeline@@QAEPAVDLP@@PAD0PAVVector3@@HH@Z
     ARTS_IMPORT class DLP* GetDLP(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
@@ -267,12 +269,25 @@ protected:
     void* window_ {nullptr};
     i32 horz_res_ {0};
     i32 vert_res_ {0};
-    u8 gap34[0x114];
+    f32 dword34 {0.0f};
+    u32 dword38 {0};
+    u32 light_mask_ {0};
+    char gap40[260];
+    b32 is_software_ {false};
     agiSurfaceDesc screen_format_ {};
-    u8 gap1C4[0x118];
+    u8 gap1C4[0xF8];
+    agiColorModel* hi_color_model_ {nullptr};
+    agiColorModel* opaque_color_model_ {nullptr};
+    agiColorModel* alpha_color_model_ {nullptr};
+    agiColorModel* text_color_model_ {nullptr};
+    agiRenderer* renderer_ {nullptr};
+    i32 dword2D0 {0};
+    i32 max_tex_width_ {0};
+    i32 max_tex_height_ {0};
     agiRefreshable* objects_ {nullptr};
     b32 gfx_started_ {false};
-    u8 gap2E4[0xC];
+    u8 gap2E4[0x8];
+    i32 scene_count_ {0};
 };
 
 check_size(agiPipeline, 0x2F0);

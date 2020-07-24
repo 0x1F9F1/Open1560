@@ -51,7 +51,7 @@ public:
     ARTS_EXPORT virtual void Restore();
 
     // 0x557B90 | ?GetName@agiRefreshable@@UAEPADXZ
-    ARTS_EXPORT virtual const char* GetName();
+    ARTS_EXPORT virtual /*const*/ char* GetName();
 
 protected:
     // 0x557BB0 | ??_EagiRefreshable@@MAEPAXI@Z

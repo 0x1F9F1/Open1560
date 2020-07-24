@@ -31,7 +31,7 @@ agiBitmap::agiBitmap(agiPipeline* pipe)
 void agiBitmap::UpdateFlags()
 {}
 
-const char* agiBitmap::GetName()
+/*const*/ char* agiBitmap::GetName()
 {
     // FIXME: Avoid static buffer
     static char buffer[64];

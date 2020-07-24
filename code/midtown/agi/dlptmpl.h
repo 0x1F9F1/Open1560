@@ -70,6 +70,9 @@
     0x903130 | class HashTable DLPTemplateHash | ?DLPTemplateHash@@3VHashTable@@A
 */
 
+template <typename Param, typename Def>
+class agiLib;
+
 class DLPTemplate
 {
 public:

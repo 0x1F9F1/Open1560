@@ -102,7 +102,9 @@ public:
     ARTS_IMPORT void Reset();
 
     agiMtlDef* Mtl {nullptr};
-    agiTexDef* Textures[2] {};
+    agiTexDef* Texture {nullptr};
+    agiTexDef* Texture2 {nullptr};
+
     u8 BlendMode {0};
     u8 ShadeMode {0};
 
@@ -176,6 +178,9 @@ public:
     }
 
     AGI_RSTATE_SETTER(DrawMode);
+    AGI_RSTATE_SETTER(Texture);
+    AGI_RSTATE_SETTER(Texture2);
+    AGI_RSTATE_SETTER(Mtl);
 };
 
 check_size(agiRendState, 0x40);
