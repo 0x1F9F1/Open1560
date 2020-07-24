@@ -44,13 +44,8 @@
 class agiTexDef;
 class agiMtlDef;
 
-enum agiVtxType
-{
-    VtxType0,
-    VtxType1,
-    VtxType2,
-    VtxType3,
-};
+enum agiVtxType : i32;
+union agiVtx;
 
 class agiRasterizer : public agiRefreshable
 {

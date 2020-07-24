@@ -66,6 +66,11 @@ public:
         return surface_;
     }
 
+    bool Is3D() const
+    {
+        return is_3D_;
+    }
+
 protected:
     // 0x55A6F0 | ??_GagiBitmap@@MAEPAXI@Z
     // 0x55A6F0 | ??_EagiBitmap@@MAEPAXI@Z

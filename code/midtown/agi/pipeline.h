@@ -152,13 +152,13 @@ public:
     ARTS_EXPORT virtual void Print(i32 x, i32 y, i32 color, char const* text);
 
     // 0x558110 | ?PrintIs3D@agiPipeline@@UAEHXZ | agi:print
-    ARTS_IMPORT virtual i32 PrintIs3D();
+    ARTS_EXPORT virtual i32 PrintIs3D();
 
     // 0x558130 | ?PrintInit@agiPipeline@@UAEXXZ | agi:print
-    ARTS_IMPORT virtual void PrintInit();
+    ARTS_EXPORT virtual void PrintInit();
 
     // 0x558140 | ?PrintShutdown@agiPipeline@@UAEXXZ | agi:print
-    ARTS_IMPORT virtual void PrintShutdown();
+    ARTS_EXPORT virtual void PrintShutdown();
 
     // 0x556080 | ?Defragment@agiPipeline@@UAEXXZ
     ARTS_EXPORT virtual void Defragment();

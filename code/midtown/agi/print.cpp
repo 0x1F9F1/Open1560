@@ -25,12 +25,16 @@ define_dummy_symbol(agi_print);
 #include "pipeline.h"
 #include "rsys.h"
 
+#include "vertex.h"
+
 #include <algorithm>
 
 static extern_var(0x8FF0D4, agiBitmap*, BuiltinFontBitmap);
 
 static mem::cmd_param PARAM_font_scale {"fontscale"};
 static mem::cmd_param PARAM_thin_font {"thinfont"};
+
+// TODO: Use agiTexDef instead of agiBitmap (for hardware rendering)
 
 i32 agiFontWidth = 0;
 i32 agiFontHeight = 0;
@@ -43,8 +47,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     // 96 8x8 characters, from 0x20 to 0x7F
     // Split into 16 per row, with 6 rows
 
-    i32 const font_scale =
-        std::clamp(PARAM_font_scale.get_or<i32>(agiPipeline::CurrentPipe->GetHeight() / 480), 1, 4);
+    i32 const font_scale = std::clamp(PARAM_font_scale.get_or<i32>(agiPipeline::CurrentPipe->GetHeight() / 480), 1, 4);
 
     agiFontWidth = font_scale * 8;
     agiFontHeight = font_scale * 8;
@@ -65,9 +68,6 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     u32 const white = cmodel->GetColor(0xFF, 0xFF, 0xFF, 0xFF);
 
     u8 const* chars = CharSet;
-
-    // i32 const scaled_x = agiPrintScale;
-    // i32 const scaled_y = agiThinFont ? agiPrintScale / 2 : agiPrintScale;
 
     for (i32 i = 0; i < 96; ++i)
     {
@@ -152,6 +152,26 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color, char const* te
     }
 
     agiCurState.SetDrawMode(draw_mode);
+}
+
+i32 agiPipeline::PrintIs3D()
+{
+    return BuiltinFontBitmap && BuiltinFontBitmap->Is3D();
+}
+
+void agiPipeline::PrintInit()
+{
+    if (!BuiltinFontBitmap)
+        InitBuiltin();
+}
+
+void agiPipeline::PrintShutdown()
+{
+    if (BuiltinFontBitmap)
+    {
+        BuiltinFontBitmap->Release();
+        BuiltinFontBitmap = nullptr;
+    }
 }
 
 const u8 CharSet[96 * 8] {
