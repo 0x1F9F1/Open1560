@@ -286,15 +286,9 @@ void* asMemoryAllocator::Allocate(u32 size, void* caller)
 
     u8* result = n->GetData();
 
-    // TODO: Fill with 0xCD (Uninitialized)
-    // Lots of structs currently expect zeroed memory
-    std::memset(result, 0x0, asize);
-
     if (debug_)
     {
-        if (size != asize)
-            std::memset(result + size, 0xCD, asize - size);
-
+        std::memset(result, 0xCD, asize);
         n->SetDebugGuards(reinterpret_cast<u32>(caller));
         result += Node::DebugLowerGuardSize;
     }

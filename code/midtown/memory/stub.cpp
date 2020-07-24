@@ -27,22 +27,12 @@ ARTS_NOINLINE void* operator new(std::size_t size)
     return CURHEAP->Allocate(size, ArReturnAddress());
 }
 
-ARTS_EXPORT ARTS_NOINLINE void* arts_operator_new(std::size_t size)
-{
-    return CURHEAP->Allocate(size, ArReturnAddress());
-}
-
 ARTS_NOINLINE void* operator new[](std::size_t size)
 {
     return CURHEAP->Allocate(size, ArReturnAddress());
 }
 
 ARTS_NOINLINE void operator delete(void* ptr) noexcept
-{
-    CURHEAP->Free(ptr);
-}
-
-ARTS_EXPORT ARTS_NOINLINE void arts_operator_delete(void* ptr) noexcept
 {
     CURHEAP->Free(ptr);
 }
@@ -91,4 +81,21 @@ ARTS_NOINLINE void* arts_malloc(std::size_t size)
 ARTS_NOINLINE void* arts_realloc(void* ptr, std::size_t size)
 {
     return CURHEAP->Reallocate(ptr, size, ArReturnAddress());
+}
+
+ARTS_EXPORT ARTS_NOINLINE void* arts_operator_new(std::size_t size)
+{
+    void* result = CURHEAP->Allocate(size, ArReturnAddress());
+
+    // The game expects memory to be zeroed
+
+    if (result)
+        std::memset(result, 0x00, size);
+
+    return result;
+}
+
+ARTS_EXPORT ARTS_NOINLINE void arts_operator_delete(void* ptr)
+{
+    CURHEAP->Free(ptr);
 }
