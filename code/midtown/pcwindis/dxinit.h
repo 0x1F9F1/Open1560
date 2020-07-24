@@ -94,7 +94,7 @@ ARTS_IMPORT extern i32 dxiFlags;
 
 inline bool dxiIsFullScreen()
 {
-    return (dxiFlags & 0x1);
+    return dxiFlags & 0x1;
 }
 
 // 0x660F14 | ?dxiHeight@@3HA

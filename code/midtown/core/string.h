@@ -53,7 +53,7 @@ public:
         : CString(other.data_)
     {}
 
-    ARTS_FORCEINLINE CString(CString&& other)
+    ARTS_FORCEINLINE CString(CString&& other) noexcept
     {
         data_ = other.data_;
         other.data_ = nullptr;
@@ -79,7 +79,7 @@ public:
         return *this;
     }
 
-    ARTS_FORCEINLINE CString& operator=(CString&& value)
+    ARTS_FORCEINLINE CString& operator=(CString&& value) noexcept
     {
         if (data_)
             arts_free(data_);

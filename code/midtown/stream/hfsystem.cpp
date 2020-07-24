@@ -109,9 +109,7 @@ Owner<struct FileInfo*> HierFileSystem::FirstEntry(const char* path)
 
 b32 HierFileSystem::GetDir(char* buffer, i32 buffer_len)
 {
-    _getcwd(buffer, buffer_len);
-
-    return true;
+    return _getcwd(buffer, buffer_len) != nullptr;
 }
 
 Owner<struct FileInfo*> HierFileSystem::NextEntry(Owner<struct FileInfo*> info)
