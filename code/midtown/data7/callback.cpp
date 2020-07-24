@@ -22,7 +22,7 @@ define_dummy_symbol(data7_callback);
 
 void Callback::Call(void* param)
 {
-    if (type_ == CB_TYPE_INVALID)
+    if (type_ == CB_TYPE_NONE)
         return;
 
     if (this_ptr_)

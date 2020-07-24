@@ -35,18 +35,16 @@
 
 #include "base.h"
 
-#define CB_TYPE_INVALID 0
-
-// TODO: Use separate values for CFA and MFA types
+#define CB_TYPE_NONE 0
 
 #define CB_TYPE_CFA 1
 #define CB_TYPE_CFA1 2
 #define CB_TYPE_CFA2 3
 
-#define CB_TYPE_MFA 1
-#define CB_TYPE_MFA1 2
-#define CB_TYPE_MFA2 3
-#define CB_TYPE_MFA3 4
+#define CB_TYPE_MFA 4
+#define CB_TYPE_MFA1 5
+#define CB_TYPE_MFA2 6
+#define CB_TYPE_MFA3 7
 
 class Callback
 {
@@ -87,7 +85,7 @@ public:
     ARTS_EXPORT void Call(void* param);
 
 private:
-    i32 type_ {CB_TYPE_INVALID};
+    i32 type_ {CB_TYPE_NONE};
     Base* this_ptr_ {nullptr};
 
     union
