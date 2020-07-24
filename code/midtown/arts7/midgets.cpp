@@ -42,7 +42,7 @@ public:
         Text[0] = '\0';
     }
 
-    // TODO: Add virtual destructor
+    virtual ~MI() = default;
 
     virtual i32 Update(b32 active) = 0;
 
@@ -59,7 +59,7 @@ asMidgets::asMidgets()
     , current_node_(ARTSPTR)
     , max_lines_(5)
 {
-    // These fields are accessed publcily and cannot easily be changed
+    // These fields are accessed publicly and cannot easily be changed
     static_assert(offsetof(asMidgets, max_lines_) == 0x8);
     static_assert(offsetof(asMidgets, open_) == 0x1C);
 }
@@ -80,10 +80,19 @@ public:
     {}
 
     // 0x527C00 | ?Key@BMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 key, i32 flags) override;
+    void Key(i32 key, [[maybe_unused]] i32 flags) override
+    {
+        if (key == VK_RETURN)
+            CB.Call(nullptr);
+    }
 
     // 0x527C20 | ?Update@BMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        arts_sprintf(Text, "[ %s ]", Name.get());
+
+        return 0;
+    }
 
     Callback CB;
 };
@@ -147,10 +156,34 @@ public:
     {}
 
     // 0x527C40 | ?Key@TMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 key, i32 flags) override;
+    void Key(i32 key, [[maybe_unused]] i32 flags) override
+    {
+        if (key == VK_RETURN)
+        {
+            if (Mask != 0)
+            {
+                if (Mask == Expected)
+                    *Value ^= Expected;
+                else
+                    *Value = Expected;
+            }
+            else
+            {
+                *Value = *Value == 0;
+            }
+
+            CB.Call(nullptr);
+        }
+    }
 
     // 0x527CA0 | ?Update@TMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        i32 value = (Mask != 0) ? ((Mask & *Value) == Expected) : *Value;
+        char flag = value ? '+' : '-';
+        arts_sprintf(Text, "%c %s %c", flag, Name.get(), flag);
+        return 0;
+    }
 
     i32* Value;
     i32 Expected;
@@ -167,12 +200,11 @@ bkButton* asMidgets::AddMex(const char* arg1, i32* arg2, i32 arg3, Callback arg4
     return nullptr;
 }
 
-class scharMI final : public MI
+template <typename T>
+class sliderMI : public MI
 {
-    // const scharMI::`vftable' @ 0x620CC8
-
 public:
-    scharMI(const char* title, i8* value, i8 min, i8 max, f32 step, Callback cb)
+    sliderMI(const char* title, T* value, T min, T max, f32 step, Callback cb)
         : MI(title)
         , Value(value)
         , ValueMin(min)
@@ -181,20 +213,44 @@ public:
         , CB(cb)
     {}
 
-    // 0x527CF0 | ?Key@scharMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 key, i32 flags) override;
+    void Key(i32 key, i32 flags) override
+    {
+        f32 step = (key == VK_NUMPAD4) ? -ValueStep : (key == VK_NUMPAD6) ? ValueStep : 0.0f;
 
-    // 0x527D80 | ?Update@scharMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
+        if (flags & EQ_KMOD_CTRL)
+            step *= 10.0f;
 
-    i8* Value;
-    i8 ValueMin;
-    i8 ValueMax;
+        *Value = static_cast<T>(*Value + step);
+
+        if (key == 'Z')
+            *Value = 0;
+
+        if (!(flags & EQ_KMOD_ALT))
+            *Value = std::clamp(*Value, ValueMin, ValueMax);
+
+        if (step != 0.0f)
+            CB.Call(nullptr);
+    }
+
+    T* Value;
+    T ValueMin;
+    T ValueMax;
     f32 ValueStep;
     Callback CB;
 };
 
-check_size(scharMI, 0x68);
+class scharMI final : public sliderMI<i8>
+{
+public:
+    using sliderMI::sliderMI;
+
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        arts_sprintf(Text, "%s: %i", Name.get(), *Value);
+
+        return 0;
+    }
+};
 
 bkSlider* asMidgets::AddSlider(const char* arg1, i8* arg2, i8 arg3, i8 arg4, f32 arg5, Callback arg6)
 {
@@ -203,31 +259,17 @@ bkSlider* asMidgets::AddSlider(const char* arg1, i8* arg2, i8 arg3, i8 arg4, f32
     return nullptr;
 }
 
-class floatMI final : public MI
+class floatMI final : public sliderMI<f32>
 {
-    // const floatMI::`vftable' @ 0x620D00
-
 public:
-    floatMI(const char* title, f32* value, f32 min, f32 max, f32 step, Callback cb)
-        : MI(title)
-        , Value(value)
-        , ValueMin(min)
-        , ValueMax(max)
-        , ValueStep(step)
-        , CB(cb)
-    {}
+    using sliderMI::sliderMI;
 
-    // 0x528260 | ?Key@floatMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 key, i32 flags) override;
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        arts_sprintf(Text, "%s: %6.3g", Name.get(), *Value);
 
-    // 0x5282F0 | ?Update@floatMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
-
-    f32* Value;
-    f32 ValueMin;
-    f32 ValueMax;
-    f32 ValueStep;
-    Callback CB;
+        return 0;
+    }
 };
 
 check_size(floatMI, 0x6C);
@@ -239,31 +281,18 @@ bkSlider* asMidgets::AddSlider(const char* arg1, f32* arg2, f32 arg3, f32 arg4, 
     return nullptr;
 }
 
-class shortMI final : public MI
+class shortMI final : public sliderMI<i16>
 {
-    // const shortMI::`vftable' @ 0x620CE0
-
 public:
-    shortMI(const char* title, i16* value, i16 min, i16 max, f32 step, Callback cb)
-        : MI(title)
-        , Value(value)
-        , ValueMin(min)
-        , ValueMax(max)
-        , ValueStep(step)
-        , CB(cb)
-    {}
+    using sliderMI::sliderMI;
 
-    // 0x527EB0 | ?Key@shortMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 key, i32 flags) override;
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        // NOTE: Was %c
+        arts_sprintf(Text, "%s: %i", Name.get(), *Value);
 
-    // 0x527F50 | ?Update@shortMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
-
-    i16* Value;
-    i16 ValueMin;
-    i16 ValueMax;
-    f32 ValueStep;
-    Callback CB;
+        return 0;
+    }
 };
 
 check_size(shortMI, 0x68);
@@ -275,31 +304,17 @@ bkSlider* asMidgets::AddSlider(const char* arg1, i16* arg2, i16 arg3, i16 arg4, 
     return nullptr;
 }
 
-class intMI final : public MI
+class intMI final : public sliderMI<i32>
 {
-    // const intMI::`vftable' @ 0x620CF0
-
 public:
-    intMI(const char* title, i32* value, i32 min, i32 max, f32 step, Callback cb)
-        : MI(title)
-        , Value(value)
-        , ValueMin(min)
-        , ValueMax(max)
-        , ValueStep(step)
-        , CB(cb)
-    {}
+    using sliderMI::sliderMI;
 
-    // 0x528090 | ?Key@intMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 key, i32 flags) override;
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        arts_sprintf(Text, "%s: %i", Name.get(), *Value);
 
-    // 0x528120 | ?Update@intMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
-
-    i32* Value;
-    i32 ValueMin;
-    i32 ValueMax;
-    f32 ValueStep;
-    Callback CB;
+        return 0;
+    }
 };
 
 check_size(intMI, 0x6C);
@@ -311,31 +326,17 @@ bkSlider* asMidgets::AddSlider(const char* arg1, i32* arg2, i32 arg3, i32 arg4, 
     return nullptr;
 }
 
-class ushortMI final : public MI
+class ushortMI final : public sliderMI<u16>
 {
-    // const ushortMI::`vftable' @ 0x620CE8
-
 public:
-    ushortMI(const char* title, u16* value, u16 min, u16 max, f32 step, Callback cb)
-        : MI(title)
-        , Value(value)
-        , ValueMin(min)
-        , ValueMax(max)
-        , ValueStep(step)
-        , CB(cb)
-    {}
+    using sliderMI::sliderMI;
 
-    // 0x527FA0 | ?Key@ushortMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 key, i32 flags) override;
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        arts_sprintf(Text, "%s: %u", Name.get(), *Value);
 
-    // 0x528040 | ?Update@ushortMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
-
-    u16* Value;
-    u16 ValueMin;
-    u16 ValueMax;
-    f32 ValueStep;
-    Callback CB;
+        return 0;
+    }
 };
 
 check_size(ushortMI, 0x68);
@@ -347,31 +348,17 @@ bkSlider* asMidgets::AddSlider(const char* arg1, u16* arg2, u16 arg3, u16 arg4, 
     return nullptr;
 }
 
-class uintMI final : public MI
+class uintMI final : public sliderMI<u32>
 {
-    // const uintMI::`vftable' @ 0x620CF8
-
 public:
-    uintMI(const char* title, u32* value, u32 min, u32 max, f32 step, Callback cb)
-        : MI(title)
-        , Value(value)
-        , ValueMin(min)
-        , ValueMax(max)
-        , ValueStep(step)
-        , CB(cb)
-    {}
+    using sliderMI::sliderMI;
 
-    // 0x528170 | ?Key@uintMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 key, i32 flags) override;
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        arts_sprintf(Text, "%s: %u", Name.get(), *Value);
 
-    // 0x528210 | ?Update@uintMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
-
-    u32* Value;
-    u32 ValueMin;
-    u32 ValueMax;
-    f32 ValueStep;
-    Callback CB;
+        return 0;
+    }
 };
 
 check_size(uintMI, 0x6C);
@@ -383,31 +370,17 @@ bkSlider* asMidgets::AddSlider(const char* arg1, u32* arg2, u32 arg3, u32 arg4, 
     return nullptr;
 }
 
-class ucharMI final : public MI
+class ucharMI final : public sliderMI<u8>
 {
-    // const ucharMI::`vftable' @ 0x620CD8
-
 public:
-    ucharMI(const char* title, u8* value, u8 min, u8 max, f32 step, Callback cb)
-        : MI(title)
-        , Value(value)
-        , ValueMin(min)
-        , ValueMax(max)
-        , ValueStep(step)
-        , CB(cb)
-    {}
+    using sliderMI::sliderMI;
 
-    // 0x527DD0 | ?Key@ucharMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 key, i32 flags) override;
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        arts_sprintf(Text, "%s: %u", Name.get(), *Value);
 
-    // 0x527E60 | ?Update@ucharMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
-
-    u8* Value;
-    u8 ValueMin;
-    u8 ValueMax;
-    f32 ValueStep;
-    Callback CB;
+        return 0;
+    }
 };
 
 check_size(ucharMI, 0x68);
@@ -445,14 +418,17 @@ public:
     using MI::MI;
 
     // 0x527BD0 | ?Key@SMI@@UAEXHH@Z | inline
-    ARTS_EXPORT void Key(i32 key, i32 flags) override;
+    void Key([[maybe_unused]] i32 key, [[maybe_unused]] i32 flags) override
+    {}
 
     // 0x527BE0 | ?Update@SMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
-};
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        arts_sprintf(Text, "*** %s ***", Name.get());
 
-void SMI::Key(i32 /*arg1*/, i32 /*arg2*/)
-{}
+        return 0;
+    }
+};
 
 check_size(SMI, 0x48);
 
@@ -565,9 +541,7 @@ void asMidgets::Off()
     while (midget_count_)
     {
         --midget_count_;
-
-        // FIXME: delete of an abstract class 'MI' that has a non-virtual destructor results in undefined behavior
-        operator delete(midgets_[midget_count_]);
+        delete midgets_[midget_count_];
         midgets_[midget_count_] = nullptr;
     }
 
@@ -648,10 +622,22 @@ public:
     using MI::MI;
 
     // 0x528340 | ?Key@SBMI@@UAEXHH@Z | inline
-    ARTS_IMPORT void Key(i32 key, i32 flags) override;
+    void Key(i32 key, [[maybe_unused]] i32 flags) override
+    {
+        if (key == VK_RETURN)
+            Start ^= End;
+    }
 
     // 0x528360 | ?Update@SBMI@@UAEHH@Z | inline
-    ARTS_IMPORT i32 Update(b32 active) override;
+    i32 Update([[maybe_unused]] b32 active) override
+    {
+        if (Start)
+            arts_sprintf(Text, "<<< %s >>>", Name.get());
+        else
+            arts_sprintf(Text, ">>> %s <<<", Name.get());
+
+        return Start;
+    }
 
     i32 End {0};
     i32 Start {0};
@@ -742,10 +728,6 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
                     start_index_ = index;
                     current_index_ = index;
                 }
-            }
-            else if (mods & EQ_KMOD_CTRL)
-            {
-                Off();
             }
 
             break;

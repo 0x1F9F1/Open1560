@@ -440,7 +440,7 @@ void WINEventHandler::Update(i32)
     }
     else if (input_method_)
     {
-        memcpy(key_states_, geinputGetKeyboard(), sizeof(key_states_));
+        std::memcpy(key_states_, geinputGetKeyboard(), sizeof(key_states_));
     }
     else
     {
