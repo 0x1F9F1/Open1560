@@ -23,7 +23,7 @@
 #ifdef _MSC_VER
 #    define ArReturnAddress() _ReturnAddress()
 #else
-#    define ArReturnAddress() ___builtin_return_address()
+#    define ArReturnAddress() __builtin_return_address()
 #endif
 
 /*

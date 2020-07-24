@@ -143,7 +143,7 @@ struct VirtualFileInode
 
 check_size(VirtualFileInode, 0xC);
 
-class VirtualFileSystem : public FileSystem
+class VirtualFileSystem final : public FileSystem
 {
     // const VirtualFileSystem::`vftable' @ 0x6219A8
 

@@ -34,6 +34,8 @@ public:
     // 0x57C280 | ??1List@@QAE@XZ
     ARTS_EXPORT ~List();
 
+    ARTS_NON_COPYABLE(List);
+
     // 0x57C330 | ?Access@List@@QAEPAXH@Z
     ARTS_EXPORT void* Access(i32 index);
 

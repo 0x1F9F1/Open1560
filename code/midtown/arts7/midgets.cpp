@@ -578,24 +578,24 @@ void asMidgets::Open(asNode* node)
                 arts_strcat(buffer, parent_name);
             }
 
-            parent_midget_count_ = midget_count_;
+            parent_midget_index_ = midget_count_;
 
             AddButton(buffer, CFA1(OpenNodeMidgets, parent));
         }
         else
         {
-            parent_midget_count_ = -1;
+            parent_midget_index_ = -1;
         }
 
-        for (usize i = 0; i < std::size(midget_counts_); ++i)
-            midget_counts_[i] = -1;
+        for (usize i = 0; i < std::size(child_midget_index_); ++i)
+            child_midget_index_[i] = -1;
 
         usize count = 0;
 
         for (asNode* child = node->GetFirstChild(); child; child = child->GetNext())
         {
-            if (count < std::size(midget_counts_))
-                midget_counts_[count++] = midget_count_;
+            if (count < std::size(child_midget_index_))
+                child_midget_index_[count++] = midget_count_;
 
             char buffer[64];
 
@@ -700,7 +700,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
         case '7':
         case '8':
         case '9': {
-            if (i32 index = midget_counts_[key - '1']; index != -1)
+            if (i32 index = child_midget_index_[key - '1']; index != -1)
             {
                 if (mods & EQ_KMOD_CTRL)
                 {
@@ -717,7 +717,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
         }
 
         case VK_NUMPAD0: {
-            if (i32 index = parent_midget_count_; index != -1)
+            if (i32 index = parent_midget_index_; index != -1)
             {
                 if (mods & EQ_KMOD_CTRL)
                 {

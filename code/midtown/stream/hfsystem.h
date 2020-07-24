@@ -44,7 +44,7 @@
 
 #include "fsystem.h"
 
-class HierFileSystem : public FileSystem
+class HierFileSystem final : public FileSystem
 {
     // const HierFileSystem::`vftable' @ 0x621968
 

@@ -34,7 +34,7 @@
 
 class Stream;
 
-class StreamMiniParser : public MiniParser
+class StreamMiniParser final : public MiniParser
 {
     // const StreamMiniParser::`vftable' @ 0x6219E8
 

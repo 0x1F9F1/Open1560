@@ -39,7 +39,7 @@
 
 #include "data7/mutex.h"
 
-class VirtualStream : public Stream
+class VirtualStream final : public Stream
 {
     // const VirtualStream::`vftable' @ 0x621A38
 

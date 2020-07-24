@@ -224,6 +224,11 @@ public:
     // 0x526BF0 | ?UpdateKey@asMidgets@@QAEXHH@Z
     ARTS_EXPORT void UpdateKey(i32 key, i32 mods);
 
+    bool IsOpen() const
+    {
+        return open_;
+    }
+
 private:
     // 0x526E50 | ?AddItem@asMidgets@@AAEXPAVMI@@@Z
     ARTS_EXPORT void AddItem(class MI* item);
@@ -239,8 +244,8 @@ private:
     b32 open_ {false};
     MI* midgets_[512] {};
 
-    i32 parent_midget_count_ {};
-    i32 midget_counts_[9] {};
+    i32 parent_midget_index_ {};
+    i32 child_midget_index_[9] {};
 
     i32 sections_[8] {};
     i32 section_count_ {0};
