@@ -29,8 +29,6 @@ define_dummy_symbol(arts7_midgets);
 #include "vector7/vector3.h"
 #include "vector7/vector4.h"
 
-#include "core/minwin.h"
-
 class MI
 {
     // const MI::`vftable' @ 0x620CA8
@@ -82,7 +80,7 @@ public:
     // 0x527C00 | ?Key@BMI@@UAEXHH@Z | inline
     void Key(i32 key, [[maybe_unused]] i32 flags) override
     {
-        if (key == VK_RETURN)
+        if (key == EQ_VK_RETURN)
             CB.Call(nullptr);
     }
 
@@ -158,7 +156,7 @@ public:
     // 0x527C40 | ?Key@TMI@@UAEXHH@Z | inline
     void Key(i32 key, [[maybe_unused]] i32 flags) override
     {
-        if (key == VK_RETURN)
+        if (key == EQ_VK_RETURN)
         {
             if (Mask != 0)
             {
@@ -215,7 +213,7 @@ public:
 
     void Key(i32 key, i32 flags) override
     {
-        f32 step = (key == VK_NUMPAD4) ? -ValueStep : (key == VK_NUMPAD6) ? ValueStep : 0.0f;
+        f32 step = (key == EQ_VK_NUMPAD4) ? -ValueStep : (key == EQ_VK_NUMPAD6) ? ValueStep : 0.0f;
 
         if (flags & EQ_KMOD_CTRL)
             step *= 10.0f;
@@ -624,7 +622,7 @@ public:
     // 0x528340 | ?Key@SBMI@@UAEXHH@Z | inline
     void Key(i32 key, [[maybe_unused]] i32 flags) override
     {
-        if (key == VK_RETURN)
+        if (key == EQ_VK_RETURN)
             Start ^= End;
     }
 
@@ -704,7 +702,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
             {
                 if (mods & EQ_KMOD_CTRL)
                 {
-                    midgets_[index]->Key(VK_RETURN, 0);
+                    midgets_[index]->Key(EQ_VK_RETURN, 0);
                 }
                 else
                 {
@@ -716,12 +714,12 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
             break;
         }
 
-        case VK_NUMPAD0: {
+        case EQ_VK_NUMPAD0: {
             if (i32 index = parent_midget_index_; index != -1)
             {
                 if (mods & EQ_KMOD_CTRL)
                 {
-                    midgets_[index]->Key(VK_RETURN, 0);
+                    midgets_[index]->Key(EQ_VK_RETURN, 0);
                 }
                 else
                 {
@@ -733,14 +731,14 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
             break;
         }
 
-        case VK_NUMPAD1: {
+        case EQ_VK_NUMPAD1: {
             current_index_ = midget_count_ - 1;
             start_index_ = std::max(0, current_index_ - max_lines_ + 1);
 
             break;
         }
 
-        case VK_NUMPAD2: {
+        case EQ_VK_NUMPAD2: {
             if (current_index_ < midget_count_ - 1)
             {
                 do
@@ -755,7 +753,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
             break;
         }
 
-        case VK_NUMPAD3: {
+        case EQ_VK_NUMPAD3: {
             current_index_ += max_lines_;
             current_index_ = std::min<i32>(current_index_, midget_count_ - max_lines_);
 
@@ -774,14 +772,14 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
             break;
         }
 
-        case VK_NUMPAD7: {
+        case EQ_VK_NUMPAD7: {
             start_index_ = 0;
             current_index_ = 0;
 
             break;
         }
 
-        case VK_NUMPAD8: {
+        case EQ_VK_NUMPAD8: {
             if (current_index_)
             {
                 do
@@ -795,7 +793,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
             break;
         }
 
-        case VK_NUMPAD9: {
+        case EQ_VK_NUMPAD9: {
             current_index_ -= max_lines_;
 
             while (!IsVisible(current_index_))
