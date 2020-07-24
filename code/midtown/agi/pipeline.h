@@ -100,7 +100,7 @@ class agiPipeline
 
 public:
     // 0x555FA0 | ??1agiPipeline@@UAE@XZ
-    virtual ~agiPipeline() = 0;
+    ARTS_EXPORT virtual ~agiPipeline() = 0;
 
     // 0x555540 | ?Validate@agiPipeline@@UAEHXZ
     ARTS_EXPORT virtual i32 Validate();
@@ -255,7 +255,7 @@ public:
 
 protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
-    ARTS_IMPORT agiPipeline();
+    ARTS_EXPORT agiPipeline();
 
     CString name_ {};
     i32 x_ {0};
@@ -269,13 +269,13 @@ protected:
     void* window_ {nullptr};
     i32 horz_res_ {0};
     i32 vert_res_ {0};
-    f32 dword34 {0.0f};
-    u32 dword38 {0};
-    u32 light_mask_ {0};
-    char gap40[260];
+    f32 dword34 {1.0f};
+    u32 dword38 {2};
+    u32 light_mask_ {0xFFFFFFFF};
+    char gap40[260] {};
     b32 is_software_ {false};
     agiSurfaceDesc screen_format_ {};
-    u8 gap1C4[0xF8];
+    u8 gap1C4[0xF8] {};
     agiColorModel* hi_color_model_ {nullptr};
     agiColorModel* opaque_color_model_ {nullptr};
     agiColorModel* alpha_color_model_ {nullptr};
@@ -286,7 +286,8 @@ protected:
     i32 max_tex_height_ {0};
     agiRefreshable* objects_ {nullptr};
     b32 gfx_started_ {false};
-    u8 gap2E4[0x8];
+    u32 flags_ {0};
+    b32 in_scene_ {false};
     i32 scene_count_ {0};
 };
 

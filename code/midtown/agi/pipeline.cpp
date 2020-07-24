@@ -271,3 +271,28 @@ void agiPipeline::ValidateObject(agiRefreshable* ptr)
             Quitf("PIPE::ValidateObject: Not in my list.");
     }
 }
+
+agiPipeline::agiPipeline()
+{
+    window_ = GetRootWindow();
+
+    unsigned int current = 0;
+    _controlfp_s(&current, 0x20000, 0x30000);
+
+    PROBER = 0;
+}
+
+agiPipeline::~agiPipeline()
+{
+    if (agiRefreshable* i = objects_)
+    {
+        Errorf("Pipeline didn't release all its objects.");
+
+        for (; i; i = i->next_)
+        {
+            i->AddRef();
+            agiDisplayf("Refreshable '%s' ref count = %d", i->GetName(), i->Release());
+            i->pipe_ = nullptr;
+        }
+    }
+}
