@@ -33,8 +33,8 @@ struct agiScreenVtx
     f32 y;
     f32 z;
     f32 w;
-    u32 color;
     u32 specular;
+    u32 diffuse;
     f32 tu;
     f32 tv;
 };
