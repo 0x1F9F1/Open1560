@@ -365,7 +365,7 @@ include_dummy_symbol(agi_refresh);
 include_dummy_symbol(agi_rsys);
 // include_dummy_symbol(agi_smap);
 include_dummy_symbol(agi_surface);
-// include_dummy_symbol(agi_texdef);
+include_dummy_symbol(agi_texdef);
 // include_dummy_symbol(agi_texlib);
 // include_dummy_symbol(agi_viewport);
 

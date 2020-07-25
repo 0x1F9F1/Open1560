@@ -71,6 +71,16 @@ public:
         return is_3D_;
     }
 
+    i32 GetWidth() const
+    {
+        return width_;
+    }
+
+    i32 GetHeight() const
+    {
+        return height_;
+    }
+
 protected:
     // 0x55A6F0 | ??_GagiBitmap@@MAEPAXI@Z
     // 0x55A6F0 | ??_EagiBitmap@@MAEPAXI@Z

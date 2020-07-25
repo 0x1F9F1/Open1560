@@ -277,6 +277,7 @@ void agiSurfaceDesc::Unload()
     result->Width = width;
     result->Height = height;
     result->Pitch = width * pixel_size;
+    result->MipMapCount = 0;
 
     u32 surface_size = width * height * pixel_size;
 

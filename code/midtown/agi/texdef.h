@@ -66,6 +66,11 @@
 
 #include "refresh.h"
 
+#include "data7/pager.h"
+#include "surface.h"
+
+class agiPolySet;
+
 class agiTexParameters
 {
 public:
@@ -78,7 +83,13 @@ public:
     // 0x556170 | ?Save@agiTexParameters@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
 
-    u8 gap0[0x30];
+    char Name[32];
+    u8 Flags;
+    u8 LOD;
+    u8 MaxLOD;
+    u32 Flags2;
+    f32 dword28;
+    u32 DayColor;
 };
 
 check_size(agiTexParameters, 0x30);
@@ -138,6 +149,21 @@ public:
     // 0x556460 | ?PageOutCallback@agiTexDef@@SAXPAXH@Z
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
 
+    agiSurfaceDesc* GetSurface() const
+    {
+        return surface_;
+    }
+
+    i32 GetWidth() const
+    {
+        return surface_->Width;
+    }
+
+    i32 GetHeight() const
+    {
+        return surface_->Height;
+    }
+
 protected:
     // 0x5561C0 | ??0agiTexDef@@IAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiTexDef(class agiPipeline* arg1);
@@ -147,7 +173,15 @@ protected:
     // 0x556230 | ??1agiTexDef@@MAE@XZ
     ARTS_IMPORT ~agiTexDef() override;
 
-    u8 gap18[0x5C];
+    agiSurfaceDesc* surface_ {nullptr};
+    agiTexParameters tex_ {};
+    agiPolySet* poly_set_ {nullptr};
+    u32 scene_index_ {0};
+    u32 surface_size_ {0};
+    u32 mip_reduction_ {0};
+    PagerInfo_t pager_ {0};
+    i32 cache_handle_ {0};
+    i32 page_state_ {0};
 };
 
 check_size(agiTexDef, 0x74);

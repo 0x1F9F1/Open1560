@@ -25,8 +25,6 @@ define_dummy_symbol(agi_print);
 #include "pipeline.h"
 #include "rsys.h"
 
-#include "vertex.h"
-
 #include <algorithm>
 
 static extern_var(0x8FF0D4, agiBitmap*, BuiltinFontBitmap);

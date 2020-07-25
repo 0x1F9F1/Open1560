@@ -132,12 +132,12 @@ public:
     i8 AddressU {0};
     i8 AddressV {0};
     u8 DepthTest {0};
-    u8 ZWriteEnable {0};
+    u8 ZWrite {0};
     u32 FogColor {0};
     f32 FogStart {0.0f};
     f32 FogEnd {0.0f};
     f32 FogDensity {0.0f};
-    u8 DitherEnable {0};
+    u8 Dither {0};
     u8 byte2D {0};
     i8 SoftwareRendering {0};
     i8 SpecularEnable {0};
@@ -187,6 +187,10 @@ public:
     AGI_RSTATE_MEMBER(Texture2);
     AGI_RSTATE_MEMBER(Mtl);
     AGI_RSTATE_MEMBER(MaxTextures);
+    AGI_RSTATE_MEMBER(DepthTest);
+    AGI_RSTATE_MEMBER(ZWrite);
+    AGI_RSTATE_MEMBER(AlphaEnable);
+    AGI_RSTATE_MEMBER(TexFilter);
 
 #undef AGI_RSTATE_MEMBER
 };
