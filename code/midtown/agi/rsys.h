@@ -171,16 +171,24 @@ public:
         return old_value;
     }
 
-#define AGI_RSTATE_SETTER(NAME)                                \
-    decltype(State.NAME) Set##NAME(decltype(State.NAME) value) \
-    {                                                          \
-        return Set(State.NAME, value);                         \
+#define AGI_RSTATE_MEMBER(NAME)                \
+    auto Get##NAME() const                     \
+    {                                          \
+        return State.NAME;                     \
+    }                                          \
+                                               \
+    auto Set##NAME(decltype(State.NAME) value) \
+    {                                          \
+        return Set(State.NAME, value);         \
     }
 
-    AGI_RSTATE_SETTER(DrawMode);
-    AGI_RSTATE_SETTER(Texture);
-    AGI_RSTATE_SETTER(Texture2);
-    AGI_RSTATE_SETTER(Mtl);
+    AGI_RSTATE_MEMBER(DrawMode);
+    AGI_RSTATE_MEMBER(Texture);
+    AGI_RSTATE_MEMBER(Texture2);
+    AGI_RSTATE_MEMBER(Mtl);
+    AGI_RSTATE_MEMBER(VertType);
+
+#undef AGI_RSTATE_MEMBER
 };
 
 check_size(agiRendState, 0x40);

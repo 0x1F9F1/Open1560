@@ -55,17 +55,21 @@
     0x719838 | int DisableFogOnAlphaGlow | ?DisableFogOnAlphaGlow@@3HA
 */
 
+#include "agi/vertex.h"
+
+class agiTexDef;
+
 class agiTexSorter
 {
 public:
     // 0x503830 | ??0agiTexSorter@@QAE@XZ
-    ARTS_IMPORT agiTexSorter();
+    ARTS_EXPORT agiTexSorter();
 
     // 0x503A50 | ??1agiTexSorter@@QAE@XZ
     ARTS_EXPORT ~agiTexSorter();
 
     // 0x504620 | ?AddWidgets@agiTexSorter@@QAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1);
+    ARTS_EXPORT void AddWidgets(class Bank* bank);
 
     // 0x504090 | ?Cull@agiTexSorter@@QAEXH@Z
     ARTS_IMPORT void Cull(i32 arg1);
@@ -158,13 +162,31 @@ ARTS_IMPORT extern char* TextureSuffix;
 class agiPolySet
 {
 public:
+    constexpr agiPolySet() = default;
+
+    agiPolySet(i32 verts, i32 indices);
+
     // 0x510480 | ?Triangle@agiPolySet@@QAEXHHH@Z | inline
-    ARTS_IMPORT void Triangle(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_EXPORT void Triangle(i32 i1, i32 i2, i32 i3)
+    {
+        if (IndexCount + 3 > MaxIndices)
+            Quitf("Index pool overrun.");
+
+        Indices[IndexCount] = static_cast<u16>(BaseIndex + i1);
+        Indices[IndexCount + 1] = static_cast<u16>(BaseIndex + i2);
+        Indices[IndexCount + 2] = static_cast<u16>(BaseIndex + i3);
+
+        IndexCount += 3;
+
+        ++TriCount;
+    }
+
+    void Init(i32 verts, i32 indices);
 
     u16* Indices {nullptr};
-    struct agiScreenVtx* Verts {nullptr};
-    struct agiScreenVtx2* Verts2 {nullptr};
-    class agiTexDef* Textures[2] {};
+    agiScreenVtx* Verts {nullptr};
+    agiScreenVtx2* Verts2 {nullptr};
+    agiTexDef* Textures[2] {};
     i32 VertCount {0};
     i32 IndexCount {0};
     i32 BaseIndex {0};
