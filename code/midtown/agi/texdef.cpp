@@ -30,3 +30,15 @@ void agiTexDef::Unlock(struct agiTexLock& /*arg1*/)
 
 void agiTexDef::Request()
 {}
+
+i32 agiTexDef::Init(class agiTexParameters const& params, agiSurfaceDesc* surface)
+{
+    EndGfx();
+
+    tex_ = params;
+    surface_ = surface;
+
+    CheckSurface();
+
+    return BeginGfx();
+}

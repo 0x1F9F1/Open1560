@@ -84,6 +84,14 @@ public:
     ARTS_IMPORT void Save(class Stream* arg1);
 
     char Name[32];
+
+    // 0x1 | Alpha
+    // 0x2 | Wrap X/U/S
+    // 0x4 | Wrap Y/V/T
+    // 0x8 | Should Reload (Hot Reload, or Modified - Snow)
+    // 0x10 | Mipmap thing
+    // 0x40 | Color Key Enable (chromakey)
+    // 0x80 | Second (agiTexParameters::Second)
     u8 Flags;
     u8 LOD;
     u8 MaxLOD;
@@ -124,6 +132,8 @@ public:
 
     // 0x556380 | ?Init@agiTexDef@@QAEHABVagiTexParameters@@@Z
     ARTS_IMPORT i32 Init(class agiTexParameters const& arg1);
+
+    i32 Init(class agiTexParameters const& params, agiSurfaceDesc* surface);
 
     // 0x556430 | ?IsTexture@agiTexDef@@UAEHXZ
     ARTS_IMPORT i32 IsTexture() override;

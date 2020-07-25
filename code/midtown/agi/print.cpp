@@ -24,23 +24,23 @@ define_dummy_symbol(agi_print);
 #include "cmodel.h"
 #include "pipeline.h"
 #include "rsys.h"
+#include "texdef.h"
+#include "vertex.h"
 
 #include <algorithm>
-
-static extern_var(0x8FF0D4, agiBitmap*, BuiltinFontBitmap);
 
 static mem::cmd_param PARAM_font_scale {"fontscale"};
 static mem::cmd_param PARAM_thin_font {"thinfont"};
 
-// TODO: Use agiTexDef instead of agiBitmap (for hardware rendering)
-
 i32 agiFontWidth = 0;
 i32 agiFontHeight = 0;
+
+static agiTexDef* BuiltinFontTexture = nullptr;
 
 // 0x557FE0 | ?InitBuiltin@@YAXXZ
 ARTS_EXPORT /*static*/ void InitBuiltin()
 {
-    ArAssert(BuiltinFontBitmap == nullptr, "Font already initialized");
+    ArAssert(BuiltinFontTexture == nullptr, "Font already initialized");
 
     // 96 8x8 characters, from 0x20 to 0x7F
     // Split into 16 per row, with 6 rows
@@ -56,11 +56,10 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     i32 const width_scale = agiFontWidth / 8;
     i32 const height_scale = agiFontHeight / 8;
 
-    BuiltinFontBitmap = Pipe()->CreateBitmap();
-    BuiltinFontBitmap->Init("*BUILTIN", 16.0f * agiFontWidth, 6.0f * agiFontHeight, AGI_BITMAP_OFFSCREEN);
+    agiSurfaceDesc* surface =
+        agiSurfaceDesc::Init(16 * (agiFontWidth + 1), 6 * (agiFontHeight + 1), Pipe()->GetScreenFormat());
 
-    agiSurfaceDesc* const surface = BuiltinFontBitmap->GetSurface();
-    agiColorModel* const cmodel = agiColorModel::FindMatch(surface);
+    agiColorModel* cmodel = agiColorModel::FindMatch(surface);
 
     u32 const black = cmodel->GetColor(0x00, 0x00, 0x00, 0xFF);
     u32 const white = cmodel->GetColor(0xFF, 0xFF, 0xFF, 0xFF);
@@ -69,8 +68,8 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
 
     for (i32 i = 0; i < 96; ++i)
     {
-        i32 char_x = agiFontWidth * (i % 16);
-        i32 char_y = agiFontHeight * (i / 16);
+        i32 char_x = (agiFontWidth + 1) * (i % 16);
+        i32 char_y = (agiFontHeight + 1) * (i / 16);
 
         for (i32 pixel_y = 0; pixel_y < 8; ++pixel_y)
         {
@@ -88,8 +87,13 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
         }
     }
 
-    BuiltinFontBitmap->EndGfx();
-    BuiltinFontBitmap->SafeBeginGfx();
+    agiTexDef* texture = Pipe()->CreateTexDef();
+
+    agiTexParameters params {};
+    arts_strcpy(params.Name, "*BUILTIN");
+    texture->Init(params, surface);
+
+    BuiltinFontTexture = texture;
 }
 
 void agiPrint(i32 x, i32 y, i32 color, char const* text)
@@ -127,48 +131,135 @@ void agiPrintf(i32 x, i32 y, i32 color, char const* format, ...)
     }
 }
 
-void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color, char const* text)
+void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* text)
 {
-    if (BuiltinFontBitmap == nullptr)
+    if (BuiltinFontTexture == nullptr)
         InitBuiltin();
 
+    RAST->BeginGroup();
+
+    f32 const inv_font_w = 1.0f / BuiltinFontTexture->GetWidth();
+    f32 const inv_font_h = 1.0f / BuiltinFontTexture->GetHeight();
+
+    auto tex = agiCurState.SetTexture(BuiltinFontTexture);
     auto draw_mode = agiCurState.SetDrawMode(15);
+    auto depth = agiCurState.SetDepthTest(0);
+    auto zwrite = agiCurState.SetZWrite(0);
+    auto alpha = agiCurState.SetAlphaEnable(1);
+    auto filter = agiCurState.SetTexFilter(0);
+
+    const u16 buf_size = 128;
+
+    agiScreenVtx vert_buf[buf_size * 4];
+    u16 index_buf[buf_size * 6];
+
+    u32 color = 0xFFFFFFFF;
+    u16 count = 0;
 
     while (*text)
     {
-        u8 v = *text++;
+        u8 value = *text++;
 
-        if (v >= 0x20 && v <= 0x7F)
-            v -= 0x20;
+        if (value >= 0x20 && value <= 0x7F)
+            value -= 0x20;
         else
-            v = 0;
+            value = 0;
 
-        CopyBitmap(
-            x, y, BuiltinFontBitmap, agiFontWidth * (v % 16), agiFontHeight * (v / 16), agiFontWidth, agiFontHeight);
+        if (count == buf_size)
+        {
+            RAST->Mesh(agiVtxType::VtxType3, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
+
+            count = 0;
+        }
+
+        i32 font_x = (agiFontWidth + 1) * (value % 16);
+        i32 font_y = (agiFontHeight + 1) * (value / 16);
+
+        agiScreenVtx* verts = &vert_buf[count * 4];
+        u16* indices = &index_buf[count * 6];
+
+        verts[0].x = static_cast<f32>(x) - 0.5f;
+        verts[0].y = static_cast<f32>(y) - 0.5f;
+        verts[0].z = 0.0f;
+        verts[0].w = 1.0f;
+        verts[0].specular = color;
+        verts[0].diffuse = 0xFFFFFFFF;
+        verts[0].tu = font_x * inv_font_w;
+        verts[0].tv = font_y * inv_font_h;
+
+        verts[2].x = static_cast<f32>(x + agiFontWidth) - 0.5f;
+        verts[2].y = static_cast<f32>(y + agiFontHeight) - 0.5f;
+        verts[2].z = 0.0f;
+        verts[2].w = 1.0f;
+        verts[2].specular = color;
+        verts[2].diffuse = 0xFFFFFFFF;
+        verts[2].tu = (font_x + agiFontWidth) * inv_font_w;
+        verts[2].tv = (font_y + agiFontHeight) * inv_font_h;
+
+        verts[1].x = verts[2].x;
+        verts[1].y = verts[0].y;
+        verts[1].z = 0.0f;
+        verts[1].w = 1.0f;
+        verts[1].specular = color;
+        verts[1].diffuse = 0xFFFFFFFF;
+        verts[1].tu = verts[2].tu;
+        verts[1].tv = verts[0].tv;
+
+        verts[3].x = verts[0].x;
+        verts[3].y = verts[2].y;
+        verts[3].z = 0.0f;
+        verts[3].w = 1.0f;
+        verts[3].specular = color;
+        verts[3].diffuse = 0xFFFFFFFF;
+        verts[3].tu = verts[0].tu;
+        verts[3].tv = verts[2].tv;
+
+        u16 base = count * 4;
+
+        indices[0] = base + 0;
+        indices[1] = base + 1;
+        indices[2] = base + 2;
+        indices[3] = base + 0;
+        indices[4] = base + 2;
+        indices[5] = base + 3;
+
+        ++count;
 
         x += agiFontWidth;
     }
 
+    if (count)
+    {
+        RAST->Mesh(agiVtxType::VtxType3, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
+    }
+
+    RAST->EndGroup();
+
+    agiCurState.SetTexture(tex);
     agiCurState.SetDrawMode(draw_mode);
+    agiCurState.SetDepthTest(depth);
+    agiCurState.SetZWrite(zwrite);
+    agiCurState.SetAlphaEnable(alpha);
+    agiCurState.SetTexFilter(filter);
 }
 
 i32 agiPipeline::PrintIs3D()
 {
-    return BuiltinFontBitmap && BuiltinFontBitmap->Is3D();
+    return 0;
 }
 
 void agiPipeline::PrintInit()
 {
-    if (!BuiltinFontBitmap)
+    if (!BuiltinFontTexture)
         InitBuiltin();
 }
 
 void agiPipeline::PrintShutdown()
 {
-    if (BuiltinFontBitmap)
+    if (BuiltinFontTexture)
     {
-        BuiltinFontBitmap->Release();
-        BuiltinFontBitmap = nullptr;
+        BuiltinFontTexture->Release();
+        BuiltinFontTexture = nullptr;
     }
 }
 
