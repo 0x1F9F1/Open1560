@@ -147,7 +147,7 @@ void agiPipeline::DumpStatus()
         agiDisplayf("Refreshable: %s", i->GetName());
 
     for (HashIterator i(&DLPTemplateHash); i.Next();)
-        agiDisplayf("Template %s @%x", i.Current->Key.get(), i.Current->Value);
+        agiDisplayf("Template %s @ %p", i.Current->Key.get(), i.Current->Value);
 }
 
 void agiPipeline::EndAllGfx()

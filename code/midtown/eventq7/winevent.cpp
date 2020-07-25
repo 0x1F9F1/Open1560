@@ -446,12 +446,10 @@ void WINEventHandler::Update(i32)
     }
     else
     {
-        BYTE key_states[256];
-        GetKeyboardState(key_states);
-
-        for (i32 i = 0; i < 256; ++i)
+        if (BYTE key_states[256]; GetKeyboardState(key_states))
         {
-            key_states_[ConvertVirtualKeyCode(i)] = !!(key_states[i] & 0x80);
+            for (i32 i = 0; i < 256; ++i)
+                key_states_[ConvertVirtualKeyCode(i)] = !!(key_states[i] & 0x80);
         }
     }
 
@@ -660,7 +658,7 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 
             if (uMsg == WM_SIZE)
             {
-                Displayf("\n\n***** HWND = %d, New Size = %d x %d", hwnd, LOWORD(lParam), HIWORD(lParam));
+                Displayf("\n\n***** HWND = %p, New Size = %d x %d", hwnd, LOWORD(lParam), HIWORD(lParam));
 
                 if (wParam != SIZE_MINIMIZED)
                     break;

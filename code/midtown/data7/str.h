@@ -61,19 +61,42 @@ class string
 {
 public:
     // 0x5794E0 | ??0string@@QAE@XZ
-    ARTS_EXPORT string();
+    ARTS_EXPORT string()
+    {
+        capacity_ = 51;
+        data_ = new char[capacity_];
+        data_[0] = '\0';
+    }
 
     // 0x4A4BA0 | ??0string@@QAE@PBD@Z | inline
-    ARTS_EXPORT string(char const* str);
+    ARTS_EXPORT string(char const* str)
+    {
+        i32 len = static_cast<i32>(std::strlen(str));
+        capacity_ = len + 50;
+        data_ = new char[capacity_];
+        std::memcpy(data_, str, len + 1);
+    }
 
     // 0x49A730 | ??0string@@QAE@ABV0@@Z | inline
-    ARTS_EXPORT string(class string const& other);
+    ARTS_EXPORT string(class string const& other)
+        : string(other.data_)
+    {}
 
-    string(string&& other);
+    string(string&& other) noexcept
+        : data_(other.data_)
+        , capacity_(other.capacity_)
+    {
+        other.data_ = nullptr;
+        other.capacity_ = 0;
+    }
 
     // 0x57B3B0 | ??_Estring@@QAEPAXI@Z | unused
     // 0x40E7E0 | ??1string@@QAE@XZ | inline
-    ARTS_EXPORT ~string();
+    ARTS_EXPORT ~string()
+    {
+        if (data_)
+            delete[] data_;
+    }
 
     // 0x57B320 | ??4string@@QAEXPBD@Z | inline
     ARTS_IMPORT void operator=(char const* arg1);

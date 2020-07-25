@@ -60,7 +60,7 @@ void MiniParser::Errorf(char const* format, ...)
         ++error_count_;
 
         if (error_count_ < 10)
-            ::Errorf("Parser(%s,%d): %s", name_.get(), current_line_, buffer);
+            ::Errorf("Parser(%s,%d): %s", name_.get(), current_line_, buffer.get());
         else if (error_count_ == 10)
             ::Errorf("This file sucks, change it!");
     }

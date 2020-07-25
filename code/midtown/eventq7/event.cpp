@@ -163,7 +163,7 @@ void eqEventMonitor::Redraw(void* window, i32 arg2, i32 arg3, i32 arg4, i32 arg5
 {
     if (handler_->debug_)
     {
-        Displayf("Redraw(%x %d,%d,%d,%d)", window, arg2, arg3, arg4, arg5);
+        Displayf("Redraw(%p %d,%d,%d,%d)", window, arg2, arg3, arg4, arg5);
     }
 }
 
@@ -171,7 +171,7 @@ void eqEventMonitor::Refocus(void* window, i32 focused)
 {
     if (handler_->debug_)
     {
-        Displayf("Refocus(%x %s)", window, focused ? "gaining" : "losing");
+        Displayf("Refocus(%p %s)", window, focused ? "gaining" : "losing");
     }
 }
 
@@ -180,7 +180,7 @@ void eqEventMonitor::Mouse(void* window, i32 new_buttons, i32 changed_buttons, i
 {
     if (handler_->debug_)
     {
-        Displayf("Mouse(%x %s %d %s %s %s,%d,%d %d %d)", window, new_buttons ? "PRESSED" : "RELEASED/MOTION",
+        Displayf("Mouse(%p %s %d %s %s %s,%d,%d %d %d)", window, new_buttons ? "PRESSED" : "RELEASED/MOTION",
             changed_buttons, (buttons & EQ_BUTTON_LEFT) ? "LEFT" : "", (buttons & EQ_BUTTON_MIDDLE) ? "MIDDLE" : "",
             (buttons & EQ_BUTTON_RIGHT) ? "RIGHT" : "", mouse_x, mouse_y, window_x, window_y);
     }
@@ -190,7 +190,7 @@ void eqEventMonitor::Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 
 {
     if (handler_->debug_)
     {
-        Displayf("Key win=%x key=0x%x(%s) ascii=%d(0x%x) state=%x(%s %s %s %s)", window, virtual_key,
+        Displayf("Key win=%p key=0x%x(%s) ascii=%d(0x%x) state=%x(%s %s %s %s)", window, virtual_key,
             handler_->GKeyName(virtual_key), ascii_key, ascii_key, modifiers,
             (modifiers & EQ_KMOD_DOWN) ? "DOWN" : "UP", (modifiers & EQ_KMOD_SHIFT) ? "SHIFT" : "",
             (modifiers & EQ_KMOD_ALT) ? "ALT" : "", (modifiers & EQ_KMOD_CTRL) ? "CTRL" : "");
@@ -201,7 +201,7 @@ void eqEventMonitor::Destroy(void* window)
 {
     if (handler_->debug_)
     {
-        Displayf("Win ID %x", window);
+        Displayf("Win ID %p", window);
     }
 }
 
@@ -209,7 +209,7 @@ void eqEventMonitor::Activate(void* window, i32 active)
 {
     if (handler_->debug_)
     {
-        Displayf("%s: Win ID %x", active ? "Activate" : "Deactivate", window);
+        Displayf("%s: Win ID %p", active ? "Activate" : "Deactivate", window);
     }
 }
 
