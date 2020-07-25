@@ -22,6 +22,8 @@ define_dummy_symbol(data7_ipc);
 
 #include "core/minwin.h"
 
+#include "memory/stack.h"
+
 // 0x578AB0 | ?compareExchange@@YIHPAIH@Z
 ARTS_EXPORT /*static*/ i32 ARTS_FASTCALL compareExchange(u32* value, i32 new_value)
 {
@@ -210,7 +212,8 @@ void ipcMessageQueue::Shutdown()
 
 i32 ipcMessageQueue::MessageLoop()
 {
-    while (initialized_) // TODO: Is this thread-safe?
+    EXCEPTION_BEGIN
+    while (initialized_)
     {
         ipcWaitSingle(send_event_);
 
@@ -232,6 +235,10 @@ i32 ipcMessageQueue::MessageLoop()
         }
 
         ipcReleaseMutex(mutex_);
+    }
+    EXCEPTION_END
+    {
+        Abortf("Exception caught in MessageLoop");
     }
 
     return 0;

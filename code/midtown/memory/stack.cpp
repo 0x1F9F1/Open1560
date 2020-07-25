@@ -255,3 +255,54 @@ void StackTraceback(i32 depth)
 
     DoStackTraceback(depth, frame);
 }
+
+static const char* GetExceptionCodeString(DWORD code)
+{
+    switch (code)
+    {
+        case EXCEPTION_ACCESS_VIOLATION: return "ACCESS_VIOLATION";
+        case EXCEPTION_ARRAY_BOUNDS_EXCEEDED: return "ARRAY_BOUNDS_EXCEEDED";
+        case EXCEPTION_BREAKPOINT: return "BREAKPOINT";
+        case EXCEPTION_DATATYPE_MISALIGNMENT: return "DATATYPE_MISALIGNMENT";
+        case EXCEPTION_FLT_DENORMAL_OPERAND: return "FLT_DENORMAL_OPERAND";
+        case EXCEPTION_FLT_DIVIDE_BY_ZERO: return "FLT_DIVIDE_BY_ZERO";
+        case EXCEPTION_FLT_INEXACT_RESULT: return "FLT_INEXACT_RESULT";
+        case EXCEPTION_FLT_INVALID_OPERATION: return "FLT_INVALID_OPERATION";
+        case EXCEPTION_FLT_OVERFLOW: return "FLT_OVERFLOW";
+        case EXCEPTION_FLT_STACK_CHECK: return "FLT_STACK_CHECK";
+        case EXCEPTION_FLT_UNDERFLOW: return "FLT_UNDERFLOW";
+        case EXCEPTION_GUARD_PAGE: return "GUARD_PAGE";
+        case EXCEPTION_ILLEGAL_INSTRUCTION: return "ILLEGAL_INSTRUCTION";
+        case EXCEPTION_IN_PAGE_ERROR: return "IN_PAGE_ERROR";
+        case EXCEPTION_INT_DIVIDE_BY_ZERO: return "INT_DIVIDE_BY_ZERO";
+        case EXCEPTION_INT_OVERFLOW: return "INT_OVERFLOW";
+        case EXCEPTION_INVALID_DISPOSITION: return "INVALID_DISPOSITION";
+        case EXCEPTION_INVALID_HANDLE: return "INVALID_HANDLE";
+        case EXCEPTION_NONCONTINUABLE_EXCEPTION: return "NONCONTINUABLE_EXCEPTION";
+        case EXCEPTION_PRIV_INSTRUCTION: return "PRIV_INSTRUCTION";
+        case EXCEPTION_SINGLE_STEP: return "SINGLE_STEP";
+        case EXCEPTION_STACK_OVERFLOW: return "STACK_OVERFLOW";
+    };
+
+    return nullptr;
+}
+
+i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
+{
+    CONTEXT* context = exception->ContextRecord;
+    EXCEPTION_RECORD* record = exception->ExceptionRecord;
+
+    char source[128];
+    LookupAddress(source, std::size(source), context->Eip);
+
+    const char* error_code_string = GetExceptionCodeString(record->ExceptionCode);
+
+    Displayf("%s (0x%08X) at EIP=%s", error_code_string ? error_code_string : "UNKNOWN", record->ExceptionCode, source);
+
+    Displayf("EAX=%08X EBX=%08X ECX=%08X EDX=%08X", context->Eax, context->Ebx, context->Ecx, context->Edx);
+    Displayf("ESI=%08X EDI=%08X EBP=%08X ESP=%08X", context->Esi, context->Edi, context->Ebp, context->Esp);
+
+    DoStackTraceback(16, reinterpret_cast<i32*>(context->Ebp));
+
+    return EXCEPTION_EXECUTE_HANDLER;
+}

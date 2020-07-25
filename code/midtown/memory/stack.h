@@ -57,3 +57,12 @@ void LookupAddress(char* buffer, usize buflen, usize address);
 
 // 0x520590 | ?StackTraceback@@YAXH@Z
 ARTS_EXPORT void StackTraceback(i32 depth);
+
+i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception);
+
+#define EXCEPTION_BEGIN \
+    __try               \
+    {
+#define EXCEPTION_END \
+    }                 \
+    __except (ExceptionFilter(GetExceptionInformation()))
