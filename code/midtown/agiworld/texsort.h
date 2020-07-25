@@ -165,6 +165,7 @@ public:
     constexpr agiPolySet() = default;
 
     agiPolySet(i32 verts, i32 indices);
+    ~agiPolySet();
 
     // 0x510480 | ?Triangle@agiPolySet@@QAEXHHH@Z | inline
     ARTS_EXPORT void Triangle(i32 i1, i32 i2, i32 i3)
@@ -179,6 +180,36 @@ public:
         IndexCount += 3;
 
         ++TriCount;
+    }
+
+    void Quad(i32 i1, i32 i2, i32 i3, i32 i4)
+    {
+        // 2-1
+        // | |
+        // 3-4
+
+        Triangle(i1, i2, i3);
+        Triangle(i1, i3, i4);
+    }
+
+    agiScreenVtx* Vert()
+    {
+        ArAssert(!MultiTex, "PolySet is MultiTex");
+
+        if (VertCount == MaxVerts)
+            Quitf("Vertex pool overrun.");
+
+        return &Verts[VertCount++];
+    }
+
+    agiScreenVtx2* Vert2()
+    {
+        ArAssert(MultiTex, "PolySet is not MultiTex");
+
+        if (VertCount == MaxVerts)
+            Quitf("Vertex pool overrun.");
+
+        return &Verts2[VertCount++];
     }
 
     void Init(i32 verts, i32 indices);

@@ -72,11 +72,19 @@ agiPolySet::agiPolySet(i32 verts, i32 indices)
     Init(verts, indices);
 }
 
+agiPolySet::~agiPolySet()
+{
+    if (Verts2)
+        delete[] Verts2;
+    else
+        delete[] Verts;
+
+    delete[] Indices;
+}
+
 void agiPolySet::Init(i32 verts, i32 indices)
 {
-    // NOTE: Currently only vert type 1 is used (no multi texture)
-
-    if (agiCurState.GetVertType() <= 1)
+    if (agiCurState.GetMaxTextures() <= 1)
     {
         Verts = new agiScreenVtx[verts];
     }

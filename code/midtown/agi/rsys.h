@@ -142,7 +142,7 @@ public:
     i8 SoftwareRendering {0};
     i8 SpecularEnable {0};
     u8 byte30 {0};
-    i8 VertType {0};
+    i8 MaxTextures {0};
     u8 StippledAlpha {0};
     u8 AlphaRef {0};
     f32 LodBias {0.0f};
@@ -186,7 +186,7 @@ public:
     AGI_RSTATE_MEMBER(Texture);
     AGI_RSTATE_MEMBER(Texture2);
     AGI_RSTATE_MEMBER(Mtl);
-    AGI_RSTATE_MEMBER(VertType);
+    AGI_RSTATE_MEMBER(MaxTextures);
 
 #undef AGI_RSTATE_MEMBER
 };

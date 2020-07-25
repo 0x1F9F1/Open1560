@@ -314,6 +314,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         // create_patch("DoScan", "Stop Touching Memory", 0x4046D0, "\xC3", 1);
 
+        // create_patch("MultiTexture", "Enable D3D MultiTexture", 0x530788 + 6, "\x02", 1);
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();
