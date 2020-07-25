@@ -21,8 +21,18 @@
 #include <cstddef>
 #include <cstdint>
 
-using i8 = char; // TODO: Use int8_t
-// using i8 = std::int8_t;
+#if 1
+using i8 = char;
+using i16 = short;
+using i32 = int;
+using i64 = long long;
+
+using u8 = unsigned char;
+using u16 = unsigned short;
+using u32 = unsigned int;
+using u64 = unsigned long long;
+#else
+using i8 = std::int8_t;
 using i16 = std::int16_t;
 using i32 = std::int32_t;
 using i64 = std::int64_t;
@@ -31,6 +41,7 @@ using u8 = std::uint8_t;
 using u16 = std::uint16_t;
 using u32 = std::uint32_t;
 using u64 = std::uint64_t;
+#endif
 
 using b32 = i32;
 

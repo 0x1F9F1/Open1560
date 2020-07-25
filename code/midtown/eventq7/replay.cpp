@@ -20,6 +20,8 @@ define_dummy_symbol(eventq7_replay);
 
 #include "replay.h"
 
+#include "stream/stream.h"
+
 eqReplayChannel::~eqReplayChannel()
 {
     if (this == First)
@@ -44,9 +46,115 @@ void eqReplayChannel::ShutdownRecord()
 void eqReplayChannel::ShutdownPlayback()
 {}
 
-eqReplayChannel::eqReplayChannel(unsigned long magic)
+eqReplayChannel::eqReplayChannel(ulong magic)
     : magic_(magic)
     , next_(First)
 {
     First = this;
+}
+
+void eqReplay::DoPlayback()
+{
+    ArAssert(Playback, "Not playing back");
+
+    while (true)
+    {
+        u32 magic = 0;
+
+        if (!ReplayStream->Get(&magic, 1))
+        {
+            Warningf("End of playback reached, returning to normal.");
+            ShutdownPlayback();
+            return;
+        }
+
+        if (magic == 'ENDF')
+            break;
+
+        eqReplayChannel* channel = eqReplayChannel::First;
+
+        while (channel && channel->magic_ != magic)
+            channel = channel->next_;
+
+        if (channel)
+        {
+            channel->DoPlayback(ReplayStream);
+        }
+        else
+        {
+            u32 size = ReplayStream->GetLong();
+            ReplayStream->Seek(ReplayStream->Tell() + size);
+        }
+    }
+}
+
+void eqReplay::DoRecord()
+{
+    ArAssert(Recording, "Not recording");
+
+    for (eqReplayChannel* i = eqReplayChannel::First; i; i = i->next_)
+        i->DoRecord(ReplayStream);
+
+    ReplayStream->Put(u32('ENDF'));
+}
+
+void eqReplay::InitPlayback(const char* path)
+{
+    ArAssert(!Playback && !Recording, "Already opened replay");
+
+    ReplayStream = arts_fopen(path, "r");
+
+    if (!ReplayStream)
+        Quitf("asReplay: Cannot open '%s' for playback.", path);
+
+    u32 magic = 0;
+
+    if (!ReplayStream->Get(&magic, 1) || magic != 'EQR1')
+        Quitf("Replay file '%s' is truncated, or old version.", path);
+
+    Playback = true;
+
+    for (eqReplayChannel* i = eqReplayChannel::First; i; i = i->next_)
+        i->InitPlayback();
+}
+
+void eqReplay::InitRecord(const char* path)
+{
+    ArAssert(!Playback && !Recording, "Already opened replay");
+
+    ReplayStream = arts_fopen(path, "w");
+
+    if (!ReplayStream)
+        Quitf("asReplay: Cannot create '%s' for recording.", path);
+
+    ReplayStream->Put(u32('EQR1'));
+
+    Recording = true;
+
+    for (eqReplayChannel* i = eqReplayChannel::First; i; i = i->next_)
+        i->InitRecord();
+}
+
+void eqReplay::ShutdownPlayback()
+{
+    ArAssert(Playback, "Not playing back");
+
+    delete ReplayStream;
+
+    Playback = false;
+
+    for (eqReplayChannel* i = eqReplayChannel::First; i; i = i->next_)
+        i->ShutdownPlayback();
+}
+
+void eqReplay::ShutdownRecord()
+{
+    ArAssert(Recording, "Not recording");
+
+    delete ReplayStream;
+
+    Recording = false;
+
+    for (eqReplayChannel* i = eqReplayChannel::First; i; i = i->next_)
+        i->ShutdownRecord();
 }

@@ -71,7 +71,7 @@ public:
 
 protected:
     // 0x564620 | ??0eqReplayChannel@@IAE@K@Z
-    ARTS_EXPORT eqReplayChannel(unsigned long magic);
+    ARTS_EXPORT eqReplayChannel(ulong magic);
 
 private:
     // 0x909438 | ?First@eqReplayChannel@@0PAV1@A
@@ -79,6 +79,8 @@ private:
 
     u32 magic_ {0};
     eqReplayChannel* next_ {nullptr};
+
+    friend class eqReplay;
 };
 
 check_size(eqReplayChannel, 0xC);
@@ -87,28 +89,28 @@ class eqReplay
 {
 public:
     // 0x564920 | ?DoPlayback@eqReplay@@SAXXZ
-    ARTS_IMPORT static void DoPlayback();
+    ARTS_EXPORT static void DoPlayback();
 
     // 0x5648C0 | ?DoRecord@eqReplay@@SAXXZ
-    ARTS_IMPORT static void DoRecord();
+    ARTS_EXPORT static void DoRecord();
 
     // 0x564750 | ?InitPlayback@eqReplay@@SAXPAD@Z
-    ARTS_IMPORT static void InitPlayback(char* arg1);
+    ARTS_EXPORT static void InitPlayback(const char* path);
 
     // 0x5646C0 | ?InitRecord@eqReplay@@SAXPAD@Z
-    ARTS_IMPORT static void InitRecord(char* arg1);
+    ARTS_EXPORT static void InitRecord(const char* path);
 
     // 0x564860 | ?ShutdownPlayback@eqReplay@@SAXXZ
-    ARTS_IMPORT static void ShutdownPlayback();
+    ARTS_EXPORT static void ShutdownPlayback();
 
     // 0x564800 | ?ShutdownRecord@eqReplay@@SAXXZ
-    ARTS_IMPORT static void ShutdownRecord();
+    ARTS_EXPORT static void ShutdownRecord();
 
     // 0x909440 | ?Playback@eqReplay@@2HA
-    ARTS_IMPORT static i32 Playback;
+    ARTS_IMPORT static b32 Playback;
 
     // 0x909444 | ?Recording@eqReplay@@2HA
-    ARTS_IMPORT static i32 Recording;
+    ARTS_IMPORT static b32 Recording;
 
 private:
     // 0x90943C | ?ReplayStream@eqReplay@@0PAVStream@@A

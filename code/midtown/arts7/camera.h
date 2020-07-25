@@ -60,7 +60,7 @@
 
 #include "node.h"
 
-class asCamera : public asNode
+class asCamera final : public asNode
 {
     // const asCamera::`vftable' @ 0x620D50
 

@@ -152,7 +152,7 @@ void asCullManager::PrintStats()
     Statsf("TxlsXfrd:%-4dKXtraTex:%-3d", (stats.TxlsXrfd + 1023) >> 10, stats.XtraTex);
 }
 
-void Statsf(char const* format, ...)
+void Statsf(ARTS_FORMAT_STRING char const* format, ...)
 {
     char buffer[128];
     std::va_list va;
