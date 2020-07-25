@@ -40,4 +40,5 @@ const char* Base::GetTypeName()
     return this_ptr ? GetTypeNameV() : "*NULL*";
 }
 
-META_DEFINE("Base", Base) {};
+META_DEFINE("Base", Base)
+{}

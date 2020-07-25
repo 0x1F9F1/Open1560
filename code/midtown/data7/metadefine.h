@@ -21,6 +21,8 @@
 #include "metaclass.h"
 #include "metatype.h"
 
+ARTS_CLANG_DIAGNOSTIC_IGNORED("-Winvalid-offsetof");
+
 template <typename T>
 inline void* MetaNew([[maybe_unused]] i32 len)
 {
@@ -57,7 +59,7 @@ inline void MetaDelete(void* ptr, i32 len)
 }
 
 template <typename T>
-inline void MetaDeclareStaticFields()
+inline void MetaDeclareFields()
 {
     MetaClass* current = MetaClass::Current;
 
@@ -69,41 +71,43 @@ inline void MetaDeclareStaticFields()
         MetaClass::Current = current;
     }
 
-    MetaClass::DeclareStaticFields(T::MetaData::Fields);
+    T::MetaData::DeclareFields();
 }
 
-#define META_DEFINE_CLASS_STORE(NAME, TYPE, PARENT, ALLOCATOR)                                        \
-    struct TYPE::MetaData                                                                             \
-    {                                                                                                 \
-        using MetaThis = TYPE;                                                                        \
-        static MetaClass Class;                                                                       \
-        static const std::initializer_list<const StaticMetaField> Fields;                             \
-    };                                                                                                \
-    MetaClass TYPE::MetaData::Class {                                                                 \
-        NAME, sizeof(TYPE), MetaNew<TYPE>, MetaDelete<TYPE>, &MetaDeclareStaticFields<TYPE>, PARENT}; \
-    template <>                                                                                       \
-    MetaClass* GetMetaClass<TYPE>()                                                                   \
-    {                                                                                                 \
-        return &TYPE::MetaData::Class;                                                                \
-    }                                                                                                 \
-    MetaClass* TYPE::GetClass()                                                                       \
-    {                                                                                                 \
-        return GetMetaClass<TYPE>();                                                                  \
+#define META_DEFINE_CLASS_STORE(NAME, TYPE, PARENT)                                             \
+    struct TYPE::MetaData                                                                       \
+    {                                                                                           \
+        using MetaThis = TYPE;                                                                  \
+        static MetaClass Class;                                                                 \
+        static void DeclareFields();                                                            \
+    };                                                                                          \
+    MetaClass TYPE::MetaData::Class {                                                           \
+        NAME, sizeof(TYPE), MetaNew<TYPE>, MetaDelete<TYPE>, &MetaDeclareFields<TYPE>, PARENT}; \
+    template <>                                                                                 \
+    MetaClass* GetMetaClass<TYPE>()                                                             \
+    {                                                                                           \
+        return &TYPE::MetaData::Class;                                                          \
+    }                                                                                           \
+    MetaClass* TYPE::GetClass()                                                                 \
+    {                                                                                           \
+        return GetMetaClass<TYPE>();                                                            \
     }
 
-#define META_DEFINE(NAME, TYPE)                                                         \
-    META_DEFINE_CLASS_STORE(NAME, TYPE, &MetaClass::RootMetaClass, MetaAllocator<TYPE>) \
+#define META_DEFINE(NAME, TYPE)                                    \
+    META_DEFINE_CLASS_STORE(NAME, TYPE, &MetaClass::RootMetaClass) \
     META_DECLARE_FIELDS(TYPE)
 
-#define META_DEFINE_CHILD(NAME, TYPE, PARENT)                                        \
-    static_assert(std::is_base_of_v<PARENT, TYPE>, "Invalid Parent");                \
-    META_DEFINE_CLASS_STORE(NAME, TYPE, GetMetaClass<PARENT>(), MetaAllocator<TYPE>) \
+#define META_CHECK_IS_INTERCONVIRTIBLE(BASE, DERIVED)                                                       \
+    ArCheck((static_cast<DERIVED*>(reinterpret_cast<BASE*>(0x1000)) == reinterpret_cast<DERIVED*>(0x1000)), \
+        #DERIVED " is not interconvirtible with " #BASE)
+
+#define META_DEFINE_CHILD(NAME, TYPE, PARENT)                                                                   \
+    static_assert(std::is_base_of_v<PARENT, TYPE>, "Invalid Parent");                                           \
+    META_DEFINE_CLASS_STORE(NAME, TYPE, (META_CHECK_IS_INTERCONVIRTIBLE(PARENT, TYPE), GetMetaClass<PARENT>())) \
     META_DECLARE_FIELDS(TYPE)
 
-#define META_DECLARE_FIELDS(TYPE) constexpr std::initializer_list<const StaticMetaField> TYPE::MetaData::Fields
+#define META_DECLARE_FIELDS(TYPE) void TYPE::MetaData::DeclareFields()
 
-#define META_FIELD(NAME, MEMBER)                                                     \
-    StaticMetaField                                                                  \
-    {                                                                                \
-        NAME, offsetof(MetaThis, MEMBER), CreateMetaType<decltype(MetaThis::MEMBER)> \
-    }
+#define META_FIELD(NAME, MEMBER)                                                          \
+    MetaClass::DeclareNamedTypedField(NAME, static_cast<u32>(offsetof(MetaThis, MEMBER)), \
+        const_cast<MetaType*>(CreateMetaType<decltype(MetaThis::MEMBER)>()));

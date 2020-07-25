@@ -165,4 +165,5 @@ void Statsf(ARTS_FORMAT_STRING char const* format, ...)
     StatsTextOffset += agiFontHeight;
 }
 
-META_DEFINE_CHILD("asCullManager", asCullManager, asNode) {};
+META_DEFINE_CHILD("asCullManager", asCullManager, asNode)
+{}

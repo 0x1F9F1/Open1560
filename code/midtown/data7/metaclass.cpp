@@ -360,7 +360,13 @@ void MetaClass::UndeclareAll()
     {
         MetaClass* cls = ClassIndex[i];
 
-        // All fields/types should be "freed" as part of asSafeHeap restarting
+        // FIXME: Need to free dynamically allocated types
+        for (MetaField *j = cls->fields_, *next = nullptr; j; j = next)
+        {
+            next = j->Next;
+            delete j;
+        }
+
         cls->fields_ = nullptr;
     }
 }

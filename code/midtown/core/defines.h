@@ -64,3 +64,13 @@
 #else
 #    define ARTS_FORMAT_STRING NAME
 #endif /* _MSC_VER */
+
+#define ARTS_DIAGNOSTIC_PUSH HEDLEY_DIAGNOSTIC_PUSH
+#define ARTS_DIAGNOSTIC_POP HEDLEY_DIAGNOSTIC_POP
+#define ARTS_PRAGMA HEDLEY_PRAGMA
+
+#if defined(__clang__)
+#    define ARTS_CLANG_DIAGNOSTIC_IGNORED(NAME) ARTS_PRAGMA(clang diagnostic ignored NAME)
+#else
+#    define ARTS_CLANG_DIAGNOSTIC_IGNORED(NAME)
+#endif

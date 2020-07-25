@@ -443,10 +443,11 @@ const char* asNode::VerifyTree()
     return msg;
 }
 
-META_DEFINE_CHILD("asNode", asNode, asCullable) {
-    META_FIELD("Flags", node_flags_),
-    META_FIELD("NextNode", next_node_),
-    META_FIELD("ChildNode", child_node_),
-    META_FIELD("ParentNode", parent_node_),
-    META_FIELD("NodeName", node_name_),
-};
+META_DEFINE_CHILD("asNode", asNode, asCullable)
+{
+    META_FIELD("Flags", node_flags_);
+    META_FIELD("NextNode", next_node_);
+    META_FIELD("ChildNode", child_node_);
+    META_FIELD("ParentNode", parent_node_);
+    META_FIELD("NodeName", node_name_);
+}

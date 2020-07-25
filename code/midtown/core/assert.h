@@ -25,6 +25,13 @@ struct ArSourceLocation
     unsigned int linenum;
 };
 
+struct ArCheckData
+{
+    const char* message;
+    const char* filename;
+    unsigned int linenum;
+};
+
 struct ArAssertData
 {
     const char* condition;
@@ -33,6 +40,7 @@ struct ArAssertData
 };
 
 [[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArReportAssertion(const ArAssertData& data);
+[[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArReportCheck(const ArCheckData& data);
 [[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArUnimplemented(const ArSourceLocation& location);
 
 #define AR_SOURCE_LOCATION                                             \
@@ -51,15 +59,24 @@ struct ArAssertData
         }                                                                                             \
     } while (false)
 
+#define ArEnabledCheck(CONDITION, MESSAGE) \
+    (ARTS_LIKELY((CONDITION)) ? void()     \
+                              : ArReportCheck(ArCheckData {MESSAGE, ARTS_FILE, static_cast<unsigned int>(ARTS_LINE)}))
+
 #define ArDisabledAssert(CONDITION, MESSAGE) static_cast<void>(sizeof(!(CONDITION)))
+
+#define ArDisabledCheck(CONDITION, MESSAGE) void(sizeof(!(CONDITION)))
 
 #ifdef ARTS_DEBUG
 #    define ArDebugAssert ArEnabledAssert
+#    define ArDebugCheck ArEnabledCheck
 #else
 #    define ArDebugAssert ArDisabledAssert
+#    define ArDebugCheck ArDisabledCheck
 #endif
 
 #define ArAssert ArEnabledAssert
+#define ArCheck ArEnabledCheck
 
 #define unimplemented(...)                                                           \
     do                                                                               \
