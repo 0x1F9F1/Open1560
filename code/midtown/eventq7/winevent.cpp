@@ -682,12 +682,19 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
             if (focused)
             {
                 CurrentKeyModifiers = 0;
+
+                if (input_method_)
+                    geinputAcquireKeyboard();
+
                 SetPriorityClass(GetCurrentProcess(), OldPriorityClass);
                 ActiveFlag |= 1;
                 RestoreApplication();
             }
             else
             {
+                if (input_method_)
+                    geinputUnacquireKeyboard();
+
                 DeactivateApplication();
                 OldPriorityClass = GetPriorityClass(GetCurrentProcess());
                 SetPriorityClass(GetCurrentProcess(), IDLE_PRIORITY_CLASS);

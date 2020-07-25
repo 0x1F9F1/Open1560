@@ -20,8 +20,86 @@ define_dummy_symbol(eventq7_geinputLib);
 
 #include "geinputLib.h"
 
+#include "pcwindis/dxinit.h"
+
+#include <dinput.h>
+
+static extern_var(0x909424, IDirectInputDeviceA*, MouseDevice);
+static extern_var(0x909428, IDirectInputDeviceA*, KeyboardDevice);
+
+void geinputAcquireMouse()
+{
+    if (MouseDevice)
+        MouseDevice->Acquire();
+}
+
+void geinputUnacquireMouse()
+{
+    if (MouseDevice)
+        MouseDevice->Unacquire();
+}
+
 void geinputClearCache()
 {}
 
+// TODO: Pass in max number of presses
+i32 geinputGetBufferedKeyboard(i8* presses)
+{
+    DIDEVICEOBJECTDATA data[32];
+    DWORD dwItems = std::size(data);
+
+    HRESULT hres = KeyboardDevice->GetDeviceData(sizeof(*data), data, &dwItems, 0);
+
+    if (FAILED(hres))
+        return 0;
+
+    if (hres == DI_BUFFEROVERFLOW)
+        Errorf("Keyboard buffer had overflowed.");
+
+    i32 count = 0;
+    i32 num_items = std::min<i32>(dwItems, std::size(data));
+
+    for (i32 i = 0; i < num_items; ++i)
+    {
+        if (data[i].dwData & 0x80)
+        {
+            presses[count++] = static_cast<i8>(data[i].dwOfs);
+        }
+    }
+
+    return count;
+}
+
+static i8 KeyboardState[256] {};
+
+i8* geinputGetKeyboard()
+{
+    if (KeyboardDevice && FAILED(KeyboardDevice->GetDeviceState(std::size(KeyboardState), KeyboardState)))
+    {
+        MouseDevice->Acquire();
+
+        KeyboardDevice->GetDeviceState(std::size(KeyboardState), KeyboardState);
+    }
+
+    return KeyboardState;
+}
+
+void geinputAcquireKeyboard()
+{
+    if (KeyboardDevice)
+        KeyboardDevice->Acquire();
+}
+
+void geinputUnacquireKeyboard()
+{
+    if (KeyboardDevice)
+        KeyboardDevice->Unacquire();
+}
+
 // 0x564050 | ?DIError@@YAPADH@Z
-ARTS_IMPORT /*static*/ char* DIError(i32 arg1);
+ARTS_EXPORT /*static*/ const char* DIError(i32 error)
+{
+    static char buffer[64];
+    arts_sprintf(buffer, "Error 0x%08X", error);
+    return buffer;
+}

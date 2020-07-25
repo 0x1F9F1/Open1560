@@ -34,7 +34,10 @@
 */
 
 // 0x564200 | ?geinputAcquireMouse@@YAXXZ | unused
-ARTS_IMPORT void geinputAcquireMouse();
+ARTS_EXPORT void geinputAcquireMouse();
+
+// 0x564210 | ?geinputUnacquireMouse@@YAXXZ | unused
+ARTS_EXPORT void geinputUnacquireMouse();
 
 // 0x564570 | ?geinputCleanup@@YAXXZ
 ARTS_IMPORT void geinputCleanup();
@@ -43,20 +46,20 @@ ARTS_IMPORT void geinputCleanup();
 ARTS_EXPORT void geinputClearCache();
 
 // 0x564220 | ?geinputGetBufferedKeyboard@@YAHPAD@Z
-ARTS_IMPORT i32 geinputGetBufferedKeyboard(char* arg1);
+ARTS_EXPORT i32 geinputGetBufferedKeyboard(i8* presses);
 
 // 0x5642B0 | ?geinputGetKeyboard@@YAPADXZ
-ARTS_IMPORT char* geinputGetKeyboard();
+ARTS_EXPORT i8* geinputGetKeyboard();
 
 // 0x564320 | ?geinputGetMouse@@YAXPAJ0PAD10001@Z
 ARTS_IMPORT void geinputGetMouse(
     long* arg1, long* arg2, char* arg3, char* arg4, long* arg5, long* arg6, long* arg7, char* arg8);
 
-// 0x564210 | ?geinputUnacquireMouse@@YAXXZ | unused
-ARTS_IMPORT void geinputUnacquireMouse();
-
 // 0x563DE0 | ?inputSetup@@YAHHHHHH@Z
 ARTS_IMPORT i32 inputSetup(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+
+void geinputAcquireKeyboard();
+void geinputUnacquireKeyboard();
 
 // 0x9092C0 | ?MOUSESTATE@@3U_DIMOUSESTATE@@A
 ARTS_IMPORT extern struct _DIMOUSESTATE MOUSESTATE;
