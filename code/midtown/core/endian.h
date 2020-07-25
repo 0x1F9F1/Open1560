@@ -43,7 +43,9 @@ ARTS_FORCEINLINE void ByteSwap<u8>(u8&) noexcept
 template <>
 ARTS_FORCEINLINE void ByteSwap<u16>(u16& value) noexcept
 {
-#ifdef _MSC_VER
+#if ARTS_HAS_BUILTIN(__builtin_bswap16)
+    value = __builtin_bswap16(value);
+#elif defined(_MSC_VER)
     value = _byteswap_ushort(value);
 #else
     value = (value >> 8) | (value << 8);
@@ -53,7 +55,9 @@ ARTS_FORCEINLINE void ByteSwap<u16>(u16& value) noexcept
 template <>
 ARTS_FORCEINLINE void ByteSwap<u32>(u32& value) noexcept
 {
-#ifdef _MSC_VER
+#if ARTS_HAS_BUILTIN(__builtin_bswap32)
+    value = __builtin_bswap32(value);
+#elif defined(_MSC_VER)
     value = _byteswap_ulong(value);
 #else
     value = (value << 24) | ((value & 0x0000FF00) << 8) | ((value & 0x00FF0000) >> 8) | (value >> 24);
@@ -63,7 +67,9 @@ ARTS_FORCEINLINE void ByteSwap<u32>(u32& value) noexcept
 template <>
 ARTS_FORCEINLINE void ByteSwap<u64>(u64& value) noexcept
 {
-#ifdef _MSC_VER
+#if ARTS_HAS_BUILTIN(__builtin_bswap64)
+    value = __builtin_bswap64(value);
+#elif defined(_MSC_VER)
     value = _byteswap_uint64(value);
 #else
     value = (value >> 56) | ((value & 0x00FF000000000000) << 40) | ((value & 0x0000FF0000000000) << 24) |
