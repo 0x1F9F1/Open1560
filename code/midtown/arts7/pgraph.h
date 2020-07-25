@@ -54,7 +54,7 @@ public:
     ARTS_EXPORT void Update();
 
 private:
-    static constexpr usize MaxComponents = 8;
+    static constexpr i32 MaxComponents = 8;
 
     i32 num_components_ {0};
     i32 maim_component_ {0};

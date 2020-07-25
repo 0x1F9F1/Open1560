@@ -369,6 +369,11 @@ public:
     // 0x4EA070 | ?DeclareFields@AudManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    // TODO: Remove const from return type
+
+    ARTS_DIAGNOSTIC_PUSH;
+    ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers")
+
     // 0x4E9F30 | ?GetCDMusicOnMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetCDMusicOnMask();
 
@@ -395,6 +400,8 @@ public:
 
     // 0x4E97B0 | ?GetUsingEAXMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetUsingEAXMask();
+
+    ARTS_DIAGNOSTIC_POP;
 
 private:
     // 0x4E9820 | ?CreateListenerSoundObj@AudManager@@AAEIXZ

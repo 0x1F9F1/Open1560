@@ -103,7 +103,7 @@ void ArgSet::ParseArgs(i32 argc, const char** argv)
             break;
         }
 
-        asArg* value = Args[arg[1]];
+        asArg* value = Args[static_cast<u8>(arg[1] & 0x7F)];
 
         if (value == nullptr)
         {
@@ -111,7 +111,7 @@ void ArgSet::ParseArgs(i32 argc, const char** argv)
 
             // NOTE: Leaks memory if arg[2] != '\0'
             if (arg[2] == '\0')
-                Args[value->Flag] = value;
+                Args[static_cast<u8>(value->Flag & 0x7F)] = value;
         }
 
         ++index;

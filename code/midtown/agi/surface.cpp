@@ -267,7 +267,7 @@ void agiSurfaceDesc::Unload()
     }
 }
 
-Owner<agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, const agiSurfaceDesc& desc)
+[[nodiscard]] Owner<agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, const agiSurfaceDesc& desc)
 {
     u32 pixel_size = (desc.PixelFormat.RGBBitCount + 7) / 8;
 

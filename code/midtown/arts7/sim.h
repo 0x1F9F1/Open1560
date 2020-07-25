@@ -148,8 +148,14 @@ public:
     // 0x5222C0 | ?Update@asSimulation@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
+    // TODO: Remove UpdatePaused(asNode*) to avoid confusing with asNode::UpdatePaused()
+    ARTS_DIAGNOSTIC_PUSH;
+    ARTS_CLANG_DIAGNOSTIC_IGNORED("-Woverloaded-virtual");
+
     // 0x522B10 | ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
     ARTS_IMPORT void UpdatePaused(class asNode* arg1);
+
+    ARTS_DIAGNOSTIC_POP;
 
     // 0x5229C0 | ?Widgets@asSimulation@@QAEXXZ
     ARTS_IMPORT void Widgets();

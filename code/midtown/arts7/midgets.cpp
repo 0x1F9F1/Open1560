@@ -53,9 +53,9 @@ public:
 check_size(MI, 0x48);
 
 asMidgets::asMidgets()
-    : event_queue_(1, EQ_EVENT_MASK(eqEventType::Keyboard), 32)
+    : max_lines_(5)
     , current_node_(ARTSPTR)
-    , max_lines_(5)
+    , event_queue_(1, EQ_EVENT_MASK(eqEventType::Keyboard), 32)
 {
     // These fields are accessed publicly and cannot easily be changed
     static_assert(offsetof(asMidgets, max_lines_) == 0x8);

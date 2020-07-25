@@ -246,6 +246,7 @@ const char* WINEventHandler::GKeyName(i32 arg1)
         case VK_F23: return "F23";
         case VK_F24: return "F24";
 
+#if 0
         case VK_NAVIGATION_VIEW: return "NAVIGATION_VIEW";
         case VK_NAVIGATION_MENU: return "NAVIGATION_MENU";
         case VK_NAVIGATION_UP: return "NAVIGATION_UP";
@@ -254,6 +255,7 @@ const char* WINEventHandler::GKeyName(i32 arg1)
         case VK_NAVIGATION_RIGHT: return "NAVIGATION_RIGHT";
         case VK_NAVIGATION_ACCEPT: return "NAVIGATION_ACCEPT";
         case VK_NAVIGATION_CANCEL: return "NAVIGATION_CANCEL";
+#endif
 
         case VK_NUMLOCK: return "NUMLOCK";
         case VK_SCROLL: return "SCROLL";

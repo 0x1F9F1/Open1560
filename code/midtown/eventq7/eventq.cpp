@@ -56,7 +56,7 @@ eqEventQ::~eqEventQ()
 void eqEventQ::Activate(void* window, i32 active)
 {
     eqEvent event;
-    event.Activate = {window, eqEventType::Activate, active};
+    event.Activate = {{window, eqEventType::Activate}, active};
     EQ_QUEUE_IF_ENABLED(event);
 
     eqEventMonitor::Activate(window, active);
@@ -65,7 +65,7 @@ void eqEventQ::Activate(void* window, i32 active)
 void eqEventQ::Destroy(void* window)
 {
     eqEvent event;
-    event.Destroy = {window, eqEventType::Destroy};
+    event.Destroy = {{window, eqEventType::Destroy}};
     EQ_QUEUE_IF_ENABLED(event);
 
     eqEventMonitor::Destroy(window);
@@ -74,7 +74,7 @@ void eqEventQ::Destroy(void* window)
 void eqEventQ::Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 ascii_key, i32 state)
 {
     eqEvent event;
-    event.Keyboard = {window, eqEventType::Keyboard, modifiers, virtual_key, ascii_key, state};
+    event.Keyboard = {{window, eqEventType::Keyboard}, modifiers, virtual_key, ascii_key, state};
     EQ_QUEUE_IF_ENABLED(event);
 
     eqEventMonitor::Keyboard(window, modifiers, virtual_key, ascii_key, state);
@@ -85,7 +85,7 @@ void eqEventQ::Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 but
 {
     eqEvent event;
     event.Mouse = {
-        window, eqEventType::Mouse, new_buttons, changed_buttons, buttons, mouse_x, mouse_y, window_x, window_y};
+        {window, eqEventType::Mouse}, new_buttons, changed_buttons, buttons, mouse_x, mouse_y, window_x, window_y};
     EQ_QUEUE_IF_ENABLED(event);
 
     eqEventMonitor::Mouse(window, new_buttons, changed_buttons, buttons, mouse_x, mouse_y, window_x, window_y);
@@ -121,7 +121,7 @@ b32 eqEventQ::Pop(eqEvent* event)
 void eqEventQ::Redraw(void* window, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
 {
     eqEvent event;
-    event.Redraw = {window, eqEventType::Redraw, arg2, arg3, arg4, arg5};
+    event.Redraw = {{window, eqEventType::Redraw}, arg2, arg3, arg4, arg5};
     EQ_QUEUE_IF_ENABLED(event);
 
     eqEventMonitor::Redraw(window, arg2, arg3, arg4, arg5);
@@ -130,7 +130,7 @@ void eqEventQ::Redraw(void* window, i32 arg2, i32 arg3, i32 arg4, i32 arg5)
 void eqEventQ::Refocus(void* window, i32 focused)
 {
     eqEvent event;
-    event.Refocus = {window, eqEventType::Refocus, focused};
+    event.Refocus = {{window, eqEventType::Refocus}, focused};
     EQ_QUEUE_IF_ENABLED(event);
 
     eqEventMonitor::Refocus(window, focused);

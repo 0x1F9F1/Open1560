@@ -83,10 +83,10 @@ public:
     ARTS_EXPORT void Unload();
 
     // 0x55A720 | ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
-    ARTS_EXPORT [[nodiscard]] static Owner<agiSurfaceDesc*> Init(i32 width, i32 height, const agiSurfaceDesc& desc);
+    [[nodiscard]] ARTS_EXPORT static Owner<agiSurfaceDesc*> Init(i32 width, i32 height, const agiSurfaceDesc& desc);
 
     // 0x55A7A0 | ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
-    ARTS_IMPORT [[nodiscard]] static Owner<agiSurfaceDesc*> Load(
+    [[nodiscard]] ARTS_IMPORT static Owner<agiSurfaceDesc*> Load(
         char* name, char* path, i32 index, i32 pack, i32 width, i32 height);
 
     u32 Size {0};
