@@ -53,12 +53,12 @@ class agiRasterizer : public agiRefreshable
 
 public:
     // 0x557BE0 | ??0agiRasterizer@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiRasterizer(class agiPipeline* arg1);
+    ARTS_EXPORT agiRasterizer(class agiPipeline* pipe);
 
     // 0x557E40 | ??_GagiRasterizer@@UAEPAXI@Z
     // 0x557E40 | ??_EagiRasterizer@@UAEPAXI@Z
     // 0x557D10 | ??1agiRasterizer@@UAE@XZ
-    ARTS_IMPORT ~agiRasterizer() override = default;
+    ARTS_EXPORT ~agiRasterizer() override = default;
 
     // 0x557D20 | ?BeginGroup@agiRasterizer@@UAEXXZ
     ARTS_EXPORT virtual void BeginGroup();
@@ -66,31 +66,32 @@ public:
     // 0x557D30 | ?EndGroup@agiRasterizer@@UAEXXZ
     ARTS_EXPORT virtual void EndGroup();
 
-    virtual void Verts(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) = 0;
+    virtual void Verts(enum agiVtxType type, union agiVtx* vertices, i32 vertex_count) = 0;
 
-    virtual void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) = 0;
+    virtual void Points(enum agiVtxType type, union agiVtx* vertices, i32 vertex_count) = 0;
 
-    virtual void SetVertCount(i32 arg1) = 0;
+    virtual void SetVertCount(i32 vertex_count) = 0;
 
-    virtual void Triangle(i32 arg1, i32 arg2, i32 arg3) = 0;
+    virtual void Triangle(i32 v0, i32 v1, i32 v2) = 0;
 
     // 0x557D40 | ?Quad@agiRasterizer@@UAEXHHHH@Z
-    ARTS_IMPORT virtual void Quad(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_EXPORT virtual void Quad(i32 v0, i32 v1, i32 v2, i32 v3);
 
     // 0x557D70 | ?Poly@agiRasterizer@@UAEXPAHH@Z
-    ARTS_IMPORT virtual void Poly(i32* arg1, i32 arg2);
+    ARTS_EXPORT virtual void Poly(i32* indices, i32 count);
 
-    virtual void Line(i32 arg1, i32 arg2) = 0;
+    virtual void Line(i32 v0, i32 v1) = 0;
 
-    virtual void Card(i32 arg1, i32 arg2) = 0;
+    virtual void Card(i32 v0, i32 v1) = 0;
 
-    virtual void Mesh(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3, u16* arg4, i32 arg5) = 0;
+    virtual void Mesh(
+        enum agiVtxType type, union agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) = 0;
 
     // 0x557DB0 | ?Mesh2@agiRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z
-    ARTS_IMPORT virtual void Mesh2(struct agiScreenVtx2* arg1, i32 arg2, u16* arg3, i32 arg4);
+    ARTS_EXPORT virtual void Mesh2(struct agiScreenVtx2* vertices, i32 vertex_count, u16* indices, i32 index_count);
 
     // 0x557DD0 | ?LineList@agiRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    ARTS_IMPORT virtual void LineList(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3);
+    ARTS_EXPORT virtual void LineList(enum agiVtxType type, union agiVtx* vertices, i32 vertex_count);
 };
 
 check_size(agiRasterizer, 0x18);
@@ -99,7 +100,7 @@ struct agiRendStateStruct
 {
 public:
     // 0x557CE0 | ?Reset@agiRendStateStruct@@QAEXXZ
-    ARTS_IMPORT void Reset();
+    ARTS_EXPORT void Reset();
 
     agiMtlDef* Mtl {nullptr};
     agiTexDef* Texture {nullptr};
@@ -182,15 +183,37 @@ public:
         return Set(State.NAME, value);         \
     }
 
-    AGI_RSTATE_MEMBER(DrawMode);
-    AGI_RSTATE_MEMBER(Texture);
-    AGI_RSTATE_MEMBER(Texture2);
-    AGI_RSTATE_MEMBER(Mtl);
-    AGI_RSTATE_MEMBER(MaxTextures);
-    AGI_RSTATE_MEMBER(DepthTest);
-    AGI_RSTATE_MEMBER(ZWrite);
-    AGI_RSTATE_MEMBER(AlphaEnable);
-    AGI_RSTATE_MEMBER(TexFilter);
+    AGI_RSTATE_MEMBER(Mtl)
+    AGI_RSTATE_MEMBER(Texture)
+    AGI_RSTATE_MEMBER(Texture2)
+    AGI_RSTATE_MEMBER(BlendMode)
+    AGI_RSTATE_MEMBER(ShadeMode)
+    AGI_RSTATE_MEMBER(DrawMode)
+    AGI_RSTATE_MEMBER(TexFilter)
+    AGI_RSTATE_MEMBER(BlendOperation)
+    AGI_RSTATE_MEMBER(CullMode)
+    AGI_RSTATE_MEMBER(ZFunc)
+    AGI_RSTATE_MEMBER(FogEnable)
+    AGI_RSTATE_MEMBER(TexturePerspective)
+    AGI_RSTATE_MEMBER(AlphaEnable)
+    AGI_RSTATE_MEMBER(AddressU)
+    AGI_RSTATE_MEMBER(AddressV)
+    AGI_RSTATE_MEMBER(DepthTest)
+    AGI_RSTATE_MEMBER(ZWrite)
+    AGI_RSTATE_MEMBER(FogColor)
+    AGI_RSTATE_MEMBER(FogStart)
+    AGI_RSTATE_MEMBER(FogEnd)
+    AGI_RSTATE_MEMBER(FogDensity)
+    AGI_RSTATE_MEMBER(Dither)
+    AGI_RSTATE_MEMBER(byte2D)
+    AGI_RSTATE_MEMBER(SoftwareRendering)
+    AGI_RSTATE_MEMBER(SpecularEnable)
+    AGI_RSTATE_MEMBER(byte30)
+    AGI_RSTATE_MEMBER(MaxTextures)
+    AGI_RSTATE_MEMBER(StippledAlpha)
+    AGI_RSTATE_MEMBER(AlphaRef)
+    AGI_RSTATE_MEMBER(LodBias)
+    AGI_RSTATE_MEMBER(Specular)
 
 #undef AGI_RSTATE_MEMBER
 };

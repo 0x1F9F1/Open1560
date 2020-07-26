@@ -258,6 +258,11 @@ public:
         return hi_color_model_;
     }
 
+    bool IsHardware() const
+    {
+        return flags_ & 0x4;
+    }
+
 protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
     ARTS_EXPORT agiPipeline();
