@@ -193,9 +193,6 @@ b32 HierFileSystem::ValidPath(const char*)
     return true;
 }
 
-// TODO: Avoid this static buffer
-static char FQNPathBuffer[128] {};
-
 const char* FQN(const char* path)
 {
     const char* prefix = HierPrefix;
@@ -206,14 +203,16 @@ const char* FQN(const char* path)
     if (FileSystem::IsPhysicalPath(path))
         return path;
 
-    arts_strcpy(FQNPathBuffer, prefix);
+    static char buffer[128]; // FIXME: Static buffer
+
+    arts_strcpy(buffer, prefix);
 
     if (!FileSystem::IsPathSeparator(prefix[std::strlen(prefix) - 1]))
-        arts_strcat(FQNPathBuffer, "\\");
+        arts_strcat(buffer, "\\");
 
-    arts_strcat(FQNPathBuffer, path);
+    arts_strcat(buffer, path);
 
-    return FQNPathBuffer;
+    return buffer;
 }
 
 void PagerInfo_t::Read(void* buffer, u32 offset, u32 size)

@@ -61,9 +61,6 @@ static i32 NumSubStrings(const char* strs)
     return num;
 }
 
-// TODO: Avoid this static buffer
-static char SubStringBuffer[256];
-
 static const char* SubString(i32 idx, const char* strs)
 {
     i32 num = 1;
@@ -80,6 +77,8 @@ static const char* SubString(i32 idx, const char* strs)
             ++num;
     }
 
+    static char buffer[256]; // FIXME: Static buffer
+
     if (num == idx)
     {
         i32 i = 0;
@@ -95,18 +94,17 @@ static const char* SubString(i32 idx, const char* strs)
             if (IsSubStringBorder(c))
                 break;
 
-            SubStringBuffer[i] = c;
+            buffer[i] = c;
         }
 
-        SubStringBuffer[i] = '\0';
-        return SubStringBuffer;
+        buffer[i] = '\0';
     }
     else
     {
-        SubStringBuffer[0] = '\0';
+        buffer[0] = '\0';
     }
 
-    return SubStringBuffer;
+    return buffer;
 }
 
 static i32 Contains(const char* strs, const char* str)

@@ -307,7 +307,6 @@ void* MiniParser::ResolveLabel(char*, void**)
     return nullptr;
 }
 
-static char TokenNameBuffer[2] {};
 
 const char* MiniParser::TokenName(i32 token)
 {
@@ -331,10 +330,12 @@ const char* MiniParser::TokenName(i32 token)
         case FloatToken: return "float literal";
     }
 
-    // TODO: This is a bad idea
-    TokenNameBuffer[0] = static_cast<char>(token);
+    static char buffer[2]; // FIXME: Static buffer
 
-    return TokenNameBuffer;
+    buffer[0] = static_cast<char>(token);
+    buffer[1] = '\0';
+
+    return buffer;
 }
 
 void MiniParser::PutString(const char* str)

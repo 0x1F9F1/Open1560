@@ -20,8 +20,6 @@ define_dummy_symbol(data7_args);
 
 #include "args.h"
 
-static char EmptyArg[] {""};
-
 asArg::asArg(char flag, const char* usage)
     : Flag(flag)
     , Usage(arts_strdup(usage))
@@ -30,7 +28,7 @@ asArg::asArg(char flag, const char* usage)
     {
         iValues[i] = 0;
         fValues[i] = 0.0f;
-        sValues[i] = EmptyArg;
+        sValues[i] = const_cast<char*>("");
     }
 }
 
