@@ -26,6 +26,9 @@
     0x8FAFE8 | class agiLib<class agiPhysParameters,class agiPhysDef> agiPhysLib | ?agiPhysLib@@3V?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@A
 */
 
+#include "agilib.h"
+
+#if 0
 class agiLib<class agiPhysParameters, class agiPhysDef>
 {
 public:
@@ -47,7 +50,9 @@ public:
     u8 gap0[0x4014];
 };
 
-check_size(agiLib<class agiPhysParameters, class agiPhysDef>, 0x4014);
+#endif
+
+check_size(Ty(agiLib<class agiPhysParameters, class agiPhysDef>), 0x4014);
 
 // 0x8FAFE8 | ?agiPhysLib@@3V?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@A
 ARTS_IMPORT extern class agiLib<class agiPhysParameters, class agiPhysDef> agiPhysLib;

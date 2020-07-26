@@ -50,8 +50,24 @@ check_size(HashEntry, 0xC);
 class HashTable
 {
 public:
+    HashTable(const char* name)
+        : HashTable(0, name)
+    {}
+
+    // TODO: Store name
+    HashTable(i32 max_entries, [[maybe_unused]] const char* name)
+        : bucket_count_(max_entries)
+    {
+        next_table_ = First;
+        First = this;
+    }
+
     // 0x498950 | ??1HashTable@@QAE@XZ | inline
-    ARTS_EXPORT ~HashTable();
+    ARTS_EXPORT ~HashTable()
+    {
+        Kill();
+        RemoveMe();
+    }
 
     // 0x578180 | ??4HashTable@@QAEXAAV0@@Z | unused
     ARTS_EXPORT void operator=(class HashTable& other);

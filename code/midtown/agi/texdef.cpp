@@ -27,6 +27,7 @@ define_dummy_symbol(agi_texdef);
 #include "rsys.h"
 #include "stream/fsystem.h"
 #include "stream/stream.h"
+#include "texlib.h"
 
 struct lutQentry
 {
@@ -270,6 +271,18 @@ void agiTexDef::PageOutCallback(void* param, i32 delta)
 agiTexDef::agiTexDef(agiPipeline* pipe)
     : agiRefreshable(pipe)
 {}
+
+agiTexDef::~agiTexDef()
+{
+    if (i32 index = agiTexLib.Lookup(tex_.Name))
+    {
+        if (tex_.LOD)
+            index += tex_.LOD - 1;
+
+        if (index)
+            *agiTexLib.GetDef(index) = nullptr;
+    }
+}
 
 void ShutdownLutQueue()
 {

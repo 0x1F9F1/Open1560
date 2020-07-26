@@ -26,6 +26,9 @@
     0x8FF0D8 | class agiLib<class agiTexParameters,class agiTexDef> agiTexLib | ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
 */
 
+#include "agilib.h"
+
+#if 0
 class agiLib<class agiTexParameters, class agiTexDef>
 {
 public:
@@ -46,8 +49,9 @@ public:
 
     u8 gap0[0x4014];
 };
+#endif
 
-check_size(agiLib<class agiTexParameters, class agiTexDef>, 0x4014);
+check_size(Ty(agiLib<class agiTexParameters, class agiTexDef>), 0x4014);
 
 // 0x8FF0D8 | ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
 ARTS_IMPORT extern class agiLib<class agiTexParameters, class agiTexDef> agiTexLib;

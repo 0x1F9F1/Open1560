@@ -25,6 +25,9 @@
     0x903198 | class agiLib<class agiMtlParameters,class agiMtlDef> agiMtlLib | ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
 */
 
+#include "agilib.h"
+
+#if 0
 class agiLib<class agiMtlParameters, class agiMtlDef>
 {
 public:
@@ -45,8 +48,9 @@ public:
 
     u8 gap0[0x4014];
 };
+#endif
 
-check_size(agiLib<class agiMtlParameters, class agiMtlDef>, 0x4014);
+check_size(Ty(agiLib<class agiMtlParameters, class agiMtlDef>), 0x4014);
 
 // 0x903198 | ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
 ARTS_IMPORT extern class agiLib<class agiMtlParameters, class agiMtlDef> agiMtlLib;

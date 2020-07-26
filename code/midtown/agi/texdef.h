@@ -191,7 +191,7 @@ protected:
     // 0x556970 | ??_EagiTexDef@@MAEPAXI@Z
     // 0x556970 | ??_GagiTexDef@@MAEPAXI@Z
     // 0x556230 | ??1agiTexDef@@MAE@XZ
-    ARTS_IMPORT ~agiTexDef() override;
+    ARTS_EXPORT ~agiTexDef() override;
 
     agiSurfaceDesc* surface_ {nullptr};
     agiTexParameters tex_ {};
