@@ -307,7 +307,6 @@ void* MiniParser::ResolveLabel(char*, void**)
     return nullptr;
 }
 
-
 const char* MiniParser::TokenName(i32 token)
 {
     switch (token)
