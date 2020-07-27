@@ -178,41 +178,33 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
         agiScreenVtx* verts = &vert_buf[count * 4];
         u16* indices = &index_buf[count * 6];
 
-        verts[0].x = static_cast<f32>(x) - 0.5f;
-        verts[0].y = static_cast<f32>(y) - 0.5f;
-        verts[0].z = 0.0f;
-        verts[0].w = 1.0f;
-        verts[0].specular = color;
-        verts[0].diffuse = 0xFFFFFFFF;
-        verts[0].tu = font_x * inv_font_w;
-        verts[0].tv = font_y * inv_font_h;
+        // FIXME: This half pixel offset shouldn't be required.
 
-        verts[2].x = static_cast<f32>(x + agiFontWidth) - 0.5f;
-        verts[2].y = static_cast<f32>(y + agiFontHeight) - 0.5f;
-        verts[2].z = 0.0f;
-        verts[2].w = 1.0f;
-        verts[2].specular = color;
-        verts[2].diffuse = 0xFFFFFFFF;
-        verts[2].tu = (font_x + agiFontWidth) * inv_font_w;
-        verts[2].tv = (font_y + agiFontHeight) * inv_font_h;
+        agiScreenVtx blank;
 
-        verts[1].x = verts[2].x;
-        verts[1].y = verts[0].y;
-        verts[1].z = 0.0f;
-        verts[1].w = 1.0f;
-        verts[1].specular = color;
-        verts[1].diffuse = 0xFFFFFFFF;
-        verts[1].tu = verts[2].tu;
-        verts[1].tv = verts[0].tv;
+        blank.x = 0.0f;
+        blank.y = 0.0f;
+        blank.z = 0.0f;
+        blank.w = 1.0f;
+        blank.specular = color;
+        blank.diffuse = 0xFFFFFFFF;
+        blank.tu = 0.0f;
+        blank.tv = 0.0f;
 
-        verts[3].x = verts[0].x;
-        verts[3].y = verts[2].y;
-        verts[3].z = 0.0f;
-        verts[3].w = 1.0f;
-        verts[3].specular = color;
-        verts[3].diffuse = 0xFFFFFFFF;
-        verts[3].tu = verts[0].tu;
-        verts[3].tv = verts[2].tv;
+        verts[0] = blank;
+        verts[1] = blank;
+        verts[2] = blank;
+        verts[3] = blank;
+
+        verts[3].x = verts[0].x = static_cast<f32>(x) - 0.5f;
+        verts[1].y = verts[0].y = static_cast<f32>(y) - 0.5f;
+        verts[3].tu = verts[0].tu = font_x * inv_font_w;
+        verts[1].tv = verts[0].tv = font_y * inv_font_h;
+
+        verts[1].x = verts[2].x = static_cast<f32>(x + agiFontWidth) - 0.5f;
+        verts[3].y = verts[2].y = static_cast<f32>(y + agiFontHeight) - 0.5f;
+        verts[1].tu = verts[2].tu = (font_x + agiFontWidth) * inv_font_w;
+        verts[3].tv = verts[2].tv = (font_y + agiFontHeight) * inv_font_h;
 
         u16 base = count * 4;
 

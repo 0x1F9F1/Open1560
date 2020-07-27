@@ -21,8 +21,6 @@
 #include "data7/hash.h"
 #include "stream/stream.h"
 
-class Stream;
-
 constexpr i32 agiLibMax = 2048;
 
 template <typename Param, typename Def>

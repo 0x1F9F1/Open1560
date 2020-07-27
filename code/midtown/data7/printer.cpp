@@ -134,7 +134,7 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
         arts_strcat(buffer, buffer2);
     }
 
-    strncpy_s(MessageFifo[(++MessageFirst + 9) % 10], buffer, 79);
+    arts_strncpy(MessageFifo[(++MessageFirst + 9) % 10], buffer, 79);
 
     arts_strcat(buffer, "\n");
 

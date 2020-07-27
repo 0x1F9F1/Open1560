@@ -38,6 +38,9 @@ struct PagerInfo_t
 
 check_size(PagerInfo_t, 0x10);
 
+// 0x1 | Textures
+// 0x2 | Meshes
+// 0x4 | Bounds
 // 0x90AA18 | ?EnablePaging@@3HA
 ARTS_IMPORT extern i32 EnablePaging;
 

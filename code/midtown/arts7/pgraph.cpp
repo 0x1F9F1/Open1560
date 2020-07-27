@@ -23,6 +23,8 @@ define_dummy_symbol(arts7_pgraph);
 #include "agi/cmodel.h"
 #include "agi/pipeline.h"
 #include "agi/print.h"
+#include "agi/rsys.h"
+#include "agi/vertex.h"
 #include "data7/timer.h"
 #include "eventq7/key_codes.h"
 #include "vector7/vector3.h"
@@ -57,20 +59,29 @@ void asPerfGraph::AddComponent(const char* name, f32* value, const Vector3& colo
     component_history_[num_components_] = new f32[Pipe()->GetWidth()] {};
     component_name_[num_components_] = name;
     component_value_[num_components_] = value;
-    component_color_[num_components_] = Pipe()->GetHiColorModel()->GetColor(color);
+    component_color_[num_components_] = agiRgba {
+        static_cast<u8>(color.x * 255.0f), static_cast<u8>(color.y * 255.0f), static_cast<u8>(color.z * 255.0f), 0xFF};
 
     ++num_components_;
 }
 
 void asPerfGraph::Cull()
 {
-    for (i32 i = 0; i < num_components_; ++i)
-    {
-        agiPrintf(
-            0, agiFontHeight * i, 0xFFFFFFFF, "   %5.2f %s", component_history_[i][write_index_], component_name_[i]);
+    RAST->BeginGroup();
 
-        Pipe()->ClearRect(0, agiFontHeight * i, agiFontWidth * 2, agiFontHeight, component_color_[i]);
-    }
+    auto tex = agiCurState.SetTexture(nullptr);
+    auto draw_mode = agiCurState.SetDrawMode(15);
+    auto depth = agiCurState.SetDepthTest(0);
+    auto zwrite = agiCurState.SetZWrite(0);
+    auto alpha = agiCurState.SetAlphaEnable(1);
+    auto filter = agiCurState.SetTexFilter(0);
+
+    const u16 buf_size = 128;
+
+    agiScreenVtx vert_buf[buf_size * 4];
+    u16 index_buf[buf_size * 6];
+
+    u16 count = 0;
 
     for (i32 i = read_index_; i != write_index_;)
     {
@@ -90,12 +101,78 @@ void asPerfGraph::Cull()
                 if (line_top < 0)
                     line_top = 0;
 
-                Pipe()->ClearRect(i, line_top, 1, line_bottom - line_top, component_color_[k]);
+                // Pipe()->ClearRect(i, line_top, 1, line_bottom - line_top, component_color_[k]);
+
+                if (count == buf_size)
+                {
+                    RAST->Mesh(agiVtxType::VtxType3, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
+
+                    count = 0;
+                }
+
+                agiScreenVtx* verts = &vert_buf[count * 4];
+                u16* indices = &index_buf[count * 6];
+
+                agiScreenVtx blank;
+
+                blank.x = 0.0f;
+                blank.y = 0.0f;
+                blank.z = 0.0f;
+                blank.w = 1.0f;
+                blank.specular = component_color_[k].ToARGB();
+                blank.diffuse = 0xFFFFFFFF;
+                blank.tu = 0.0f;
+                blank.tv = 0.0f;
+
+                verts[0] = blank;
+                verts[1] = blank;
+                verts[2] = blank;
+                verts[3] = blank;
+
+                // FIXME: This half pixel offset shouldn't be required.
+                verts[3].x = verts[0].x = static_cast<f32>(i) - 0.5f;
+                verts[1].x = verts[2].x = static_cast<f32>(i + 1) - 0.5f;
+                verts[1].y = verts[0].y = static_cast<f32>(line_top) - 0.5f;
+                verts[3].y = verts[2].y = static_cast<f32>(line_bottom) - 0.5f;
+
+                u16 base = count * 4;
+
+                indices[0] = base + 0;
+                indices[1] = base + 1;
+                indices[2] = base + 2;
+                indices[3] = base + 0;
+                indices[4] = base + 2;
+                indices[5] = base + 3;
+
+                ++count;
             }
 
             if (++k == num_components_)
                 k = 0;
         }
+    }
+
+    if (count)
+    {
+        RAST->Mesh(agiVtxType::VtxType3, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
+    }
+
+    RAST->EndGroup();
+
+    agiCurState.SetTexture(tex);
+    agiCurState.SetDrawMode(draw_mode);
+    agiCurState.SetDepthTest(depth);
+    agiCurState.SetZWrite(zwrite);
+    agiCurState.SetAlphaEnable(alpha);
+    agiCurState.SetTexFilter(filter);
+
+    for (i32 i = 0; i < num_components_; ++i)
+    {
+        agiPrintf(
+            0, agiFontHeight * i, 0xFFFFFFFF, "   %5.2f %s", component_history_[i][write_index_], component_name_[i]);
+
+        Pipe()->ClearRect(0, agiFontHeight * i, agiFontWidth * 2, agiFontHeight,
+            Pipe()->GetHiColorModel()->GetColor(component_color_[i]));
     }
 
     for (f32 height = 0.0f; height <= 100.0f; height += 10.0f)

@@ -18,12 +18,29 @@
 
 #pragma once
 
+#include "core/endian.h"
+
 struct agiRgba
 {
     u8 R {0};
     u8 G {0};
     u8 B {0};
     u8 A {0};
+
+    u32 ToRGBA() const
+    {
+        // NOTE: Assume little endian
+        u32 result = mem::bit_cast<u32>(*this);
+        ByteSwap(result); // ABGR -> RGBA
+        return result;
+    }
+
+    u32 ToARGB() const
+    {
+        u32 result = ToRGBA();
+        result = (result >> 8) | (result << 24); // RGBA -> ARGB
+        return result;
+    }
 };
 
 check_size(agiRgba, 4);

@@ -32,6 +32,8 @@
 
 class Vector3;
 
+#include "agi/rgba.h"
+
 class asPerfGraph
 {
 public:
@@ -61,7 +63,7 @@ private:
     f32* component_history_[MaxComponents] {};
     const char* component_name_[MaxComponents] {};
     f32* component_value_[MaxComponents] {};
-    u32 component_color_[MaxComponents] {};
+    agiRgba component_color_[MaxComponents] {};
     f32 graph_scale_ {1.0f};
     i32 write_index_ {0};
     i32 read_index_ {0};
