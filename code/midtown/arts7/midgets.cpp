@@ -798,26 +798,22 @@ i32 asMidgets::IndexBefore(i32 index, i32 count)
 {
     i32 cache[64];
 
-    while (true)
+    i32 total = 0;
+    i32 here = 0;
+
+    while (here < index)
     {
-        i32 total = 0;
-        i32 here = 0;
-
-        while (here < index)
-        {
-            cache[total++ % std::size(cache)] = here;
-            here += midgets_[here]->Update(false) + 1;
-        }
-
-        if (count >= total)
-            return 0;
-
-        if (count <= static_cast<i32>(std::size(cache)))
-            return cache[(total - count) % std::size(cache)];
-
-        index = cache[total % std::size(cache)];
-        count -= std::size(cache);
+        cache[total++ % std::size(cache)] = here;
+        here += midgets_[here]->Update(false) + 1;
     }
+
+    if (count >= total)
+        return 0;
+
+    if (count <= static_cast<i32>(std::size(cache)))
+        return cache[(total - count) % std::size(cache)];
+
+    return IndexAfter(0, total - count);
 }
 
 i32 asMidgets::IndexAfter(i32 index, i32 count)
