@@ -67,3 +67,9 @@ P: Return to parent menu
 & 2 = SHIFT
 & 4 = CTRL
 & 8 = ALT
+
+Vehicle Menu:
+Z: Zoom In
+X: Zoom Out:
+D: Damage Vehicle
+R: Repair Vehicle

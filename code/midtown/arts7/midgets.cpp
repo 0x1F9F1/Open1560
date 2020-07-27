@@ -706,8 +706,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
                 }
                 else
                 {
-                    start_index_ = index;
-                    current_index_ = index;
+                    SetCurrentIndex(index);
                 }
             }
 
@@ -723,8 +722,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
                 }
                 else
                 {
-                    start_index_ = index;
-                    current_index_ = index;
+                    SetCurrentIndex(index);
                 }
             }
 
@@ -762,9 +760,6 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
         }
 
         default: {
-            if (current_index_ < 0)
-                current_index_ = 0;
-
             if (MI* midget = midgets_[current_index_])
                 midget->Key(key, mods & ~EQ_KMOD_DOWN); // TODO: Why does this clear EQ_KMOD_DOWN?
 
