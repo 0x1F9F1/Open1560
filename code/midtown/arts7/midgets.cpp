@@ -520,7 +520,7 @@ void asMidgets::Cull()
 
         i32 lines = midget->Update(index == current_index_);
 
-        if (IsVisible(index))
+        // if (IsVisible(index))
         {
             agiPrint(agiFontWidth * 2, text_y, CULLMGR->GetTextColor(), midget->Text);
             text_y += agiFontHeight;
@@ -732,81 +732,32 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
         }
 
         case EQ_VK_NUMPAD1: {
-            current_index_ = midget_count_ - 1;
-            start_index_ = std::max(0, current_index_ - max_lines_ + 1);
-
+            SetCurrentIndex(IndexBefore(midget_count_, 1));
             break;
         }
 
         case EQ_VK_NUMPAD2: {
-            if (current_index_ < midget_count_ - 1)
-            {
-                do
-                {
-                    ++current_index_;
-                } while (!IsVisible(current_index_));
-
-                if (current_index_ >= start_index_ + max_lines_)
-                    start_index_ = current_index_ - max_lines_ + 1;
-            }
-
+            SetCurrentIndex(IndexAfter(current_index_, 1));
             break;
         }
 
         case EQ_VK_NUMPAD3: {
-            current_index_ += max_lines_;
-            current_index_ = std::min<i32>(current_index_, midget_count_ - max_lines_);
-
-            while (!IsVisible(current_index_))
-            {
-                if (current_index_ > midget_count_ - max_lines_)
-                    break;
-
-                ++current_index_;
-            }
-
-            current_index_ = std::min<i32>(current_index_, midget_count_ - max_lines_);
-            current_index_ = std::max<i32>(current_index_, 0);
-            start_index_ = current_index_;
-
+            SetCurrentIndex(IndexAfter(start_index_, max_lines_ - 1));
             break;
         }
 
         case EQ_VK_NUMPAD7: {
-            start_index_ = 0;
-            current_index_ = 0;
-
+            SetCurrentIndex(0);
             break;
         }
 
         case EQ_VK_NUMPAD8: {
-            if (current_index_)
-            {
-                do
-                {
-                    --current_index_;
-                } while (!IsVisible(current_index_));
-
-                start_index_ = std::min<i32>(start_index_, current_index_);
-            }
-
+            SetCurrentIndex(IndexBefore(current_index_, 1));
             break;
         }
 
         case EQ_VK_NUMPAD9: {
-            current_index_ -= max_lines_;
-
-            while (!IsVisible(current_index_))
-            {
-                if (current_index_ < 0)
-                    break;
-
-                --current_index_;
-            }
-
-            current_index_ = std::max<i32>(current_index_, 0);
-            start_index_ = current_index_;
-
+            SetCurrentIndex(start_index_);
             break;
         }
 
@@ -841,6 +792,54 @@ i32 asMidgets::IsVisible(i32 line)
         total += midgets_[total]->Update(false) + 1;
 
     return line == total;
+}
+
+i32 asMidgets::IndexBefore(i32 index, i32 count)
+{
+    i32 cache[64];
+
+    while (true)
+    {
+        i32 total = 0;
+        i32 here = 0;
+
+        while (here < index)
+        {
+            cache[total++ % std::size(cache)] = here;
+            here += midgets_[here]->Update(false) + 1;
+        }
+
+        if (count >= total)
+            return 0;
+
+        if (count <= static_cast<i32>(std::size(cache)))
+            return cache[(total - count) % std::size(cache)];
+
+        index = cache[total % std::size(cache)];
+        count -= std::size(cache);
+    }
+}
+
+i32 asMidgets::IndexAfter(i32 index, i32 count)
+{
+    while (count > 0)
+    {
+        i32 next = index + midgets_[index]->Update(false) + 1;
+
+        if (next >= midget_count_)
+            break;
+
+        index = next;
+        --count;
+    }
+
+    return index;
+}
+
+void asMidgets::SetCurrentIndex(i32 index)
+{
+    current_index_ = index;
+    start_index_ = IndexBefore(IndexAfter(current_index_, max_lines_ / 2), max_lines_ - 1);
 }
 
 void asMidgets::PushColumn(i32 /*arg1*/)

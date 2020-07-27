@@ -236,6 +236,11 @@ private:
     // 0x526E90 | ?IsVisible@asMidgets@@AAEHH@Z
     ARTS_EXPORT i32 IsVisible(i32 line);
 
+    i32 IndexBefore(i32 index, i32 count);
+    i32 IndexAfter(i32 index, i32 count);
+
+    void SetCurrentIndex(i32 index);
+
     i32 max_lines_ {0};
     asNode* current_node_ {nullptr};
     i32 midget_count_ {0};
