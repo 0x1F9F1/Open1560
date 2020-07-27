@@ -560,56 +560,56 @@ void asMidgets::Open(asNode* node)
 
     current_node_ = node;
 
-    if (current_node_ != nullptr)
+    if (current_node_ == nullptr)
+        return;
+
+    node->AddWidgets(this);
+
+    if (asNode* parent = node->GetParent())
     {
-        node->AddWidgets(this);
+        char buffer[64];
 
-        if (asNode* parent = node->GetParent())
+        arts_sprintf(buffer, "Parent: %s", parent->GetNodeType());
+
+        if (const char* parent_name = parent->GetNodeName(); parent_name && *parent_name != '_')
         {
-            char buffer[64];
-
-            arts_sprintf(buffer, "Parent: %s", parent->GetNodeType());
-
-            if (const char* parent_name = parent->GetNodeName(); parent_name && *parent_name != '_')
-            {
-                arts_strcat(buffer, " ");
-                arts_strcat(buffer, parent_name);
-            }
-
-            parent_midget_index_ = midget_count_;
-
-            AddButton(buffer, CFA1(OpenNodeMidgets, parent));
-        }
-        else
-        {
-            parent_midget_index_ = -1;
+            arts_strcat(buffer, " ");
+            arts_strcat(buffer, parent_name);
         }
 
-        for (usize i = 0; i < std::size(child_midget_index_); ++i)
-            child_midget_index_[i] = -1;
+        parent_midget_index_ = midget_count_;
 
-        usize count = 0;
-
-        for (asNode* child = node->GetFirstChild(); child; child = child->GetNext())
-        {
-            if (count < std::size(child_midget_index_))
-                child_midget_index_[count++] = midget_count_;
-
-            char buffer[64];
-
-            arts_sprintf(buffer, "Child: %s", child->GetNodeType());
-
-            if (const char* child_name = child->GetNodeName(); child_name && *child_name != '_')
-            {
-                arts_strcat(buffer, " ");
-                arts_strcat(buffer, child_name);
-            }
-
-            AddButton(buffer, CFA1(OpenNodeMidgets, child));
-        }
+        AddButton(buffer, CFA1(OpenNodeMidgets, parent));
+    }
+    else
+    {
+        parent_midget_index_ = -1;
     }
 
-    open_ = true;
+    for (usize i = 0; i < std::size(child_midget_index_); ++i)
+        child_midget_index_[i] = -1;
+
+    usize count = 0;
+
+    for (asNode* child = node->GetFirstChild(); child; child = child->GetNext())
+    {
+        if (count < std::size(child_midget_index_))
+            child_midget_index_[count++] = midget_count_;
+
+        char buffer[64];
+
+        arts_sprintf(buffer, "Child: %s", child->GetNodeType());
+
+        if (const char* child_name = child->GetNodeName(); child_name && *child_name != '_')
+        {
+            arts_strcat(buffer, " ");
+            arts_strcat(buffer, child_name);
+        }
+
+        AddButton(buffer, CFA1(OpenNodeMidgets, child));
+    }
+
+    open_ = midget_count_ > 0;
 }
 
 class SBMI final : public MI
