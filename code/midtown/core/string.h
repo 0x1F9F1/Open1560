@@ -60,7 +60,7 @@ public:
         other.data_ = nullptr;
     }
 
-    ~CString()
+    ~CString() noexcept
     {
         if (data_)
             arts_free(data_);
