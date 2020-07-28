@@ -130,7 +130,7 @@ void Application(i32 argc, char** argv)
 {
     dxiIcon = 111;
 
-    SetProcessAffinityMask(GetCurrentProcess(), 1);
+    // SetProcessAffinityMask(GetCurrentProcess(), 1);
 
     __try
     {
