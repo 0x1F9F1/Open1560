@@ -47,7 +47,7 @@ Stream::Stream(void* buffer, i32 buffer_size, class FileSystem* file_system)
 Stream::~Stream()
 {
     // FIXME: If the file actually requires flushing, this will result in purecalls
-    Flush();
+    // Flush();
 
     if (file_system_)
         file_system_->NotifyDelete();
