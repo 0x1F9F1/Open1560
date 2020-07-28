@@ -531,7 +531,7 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
             }
 
             mouse_x_ = GET_X_LPARAM(lParam);
-            mouse_x_ = GET_Y_LPARAM(lParam);
+            mouse_y_ = GET_Y_LPARAM(lParam);
 
             buttons_ = 0;
 
