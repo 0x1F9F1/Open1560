@@ -639,7 +639,7 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
         }
 
         case WM_SETCURSOR: {
-            if ((InitialCursorState != -1) || (LOWORD(lParam) != HTCLIENT))
+            if (/*(InitialCursorState != -1) ||*/ (LOWORD(lParam) != HTCLIENT))
             {
                 result = DefWindowProcA(hwnd, uMsg, wParam, lParam);
             }
@@ -684,7 +684,10 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
                 CurrentKeyModifiers = 0;
 
                 if (input_method_)
+                {
                     geinputAcquireKeyboard();
+                    geinputGetBufferedKeyboard(nullptr);
+                }
 
                 SetPriorityClass(GetCurrentProcess(), OldPriorityClass);
                 ActiveFlag |= 1;

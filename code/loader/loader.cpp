@@ -316,6 +316,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         // create_patch("MultiTexture", "Enable D3D MultiTexture", 0x530788 + 6, "\x02", 1);
 
+        patch_jmp("sfPointer::Update", "Enable cursor in windowed mode", 0x4BDAA4, jump_type::never);
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();

@@ -53,6 +53,9 @@ i32 geinputGetBufferedKeyboard(i8* presses)
     if (FAILED(hres))
         return 0;
 
+    if (presses == nullptr)
+        return 0;
+
     if (hres == DI_BUFFEROVERFLOW)
         Errorf("Keyboard buffer had overflowed.");
 
