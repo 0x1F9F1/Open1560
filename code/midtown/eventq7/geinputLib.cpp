@@ -76,7 +76,10 @@ i8* geinputGetKeyboard()
 {
     if (KeyboardDevice && FAILED(KeyboardDevice->GetDeviceState(std::size(KeyboardState), KeyboardState)))
     {
-        MouseDevice->Acquire();
+        // TODO: Why is this needed?
+
+        if (MouseDevice)
+            MouseDevice->Acquire();
 
         KeyboardDevice->GetDeviceState(std::size(KeyboardState), KeyboardState);
     }
