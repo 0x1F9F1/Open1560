@@ -103,7 +103,7 @@ union eqEvent
     eqRedrawEvent Redraw;
     eqRefocusEvent Refocus;
     eqMouseEvent Mouse;
-    eqKeyboardEvent Keyboard;
+    eqKeyboardEvent Key;
     eqDestroyEvent Destroy;
     eqActivateEvent Activate;
 };

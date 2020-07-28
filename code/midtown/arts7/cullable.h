@@ -38,6 +38,7 @@ class asCullable : public Base
 
 public:
     // 0x525AA0 | ??0asCullable@@QAE@XZ | inline
+    ARTS_EXPORT asCullable() = default;
 
     // 0x525A40 | ??_EasCullable@@UAEPAXI@Z
     // 0x48BB50 | ??_GasCullable@@UAEPAXI@Z | unused

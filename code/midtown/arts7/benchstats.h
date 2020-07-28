@@ -42,7 +42,26 @@ public:
     // 0x52CE60 | ?Reset@asBenchStats@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    u8 gap0[0x50];
+    i32 dword0;
+    i32 dword4;
+    i32 dword8;
+    i32 dwordC;
+    i32 dword10;
+    i32 dword14;
+    i32 dword18;
+    f32 UpdateTime;
+    f32 DeviceTime;
+    f32 dword24;
+    f32 Widgets;
+    f32 dword2C;
+    f32 dword30;
+    i32 dword34;
+    i32 dword38;
+    i32 dword3C;
+    i32 LinearCSUpdates;
+    i32 dword44;
+    i32 dword48;
+    i32 dword4C;
 };
 
 check_size(asBenchStats, 0x50);

@@ -229,6 +229,18 @@ public:
         return open_;
     }
 
+    i32 GetVisibleLines() const
+    {
+        return visible_lines_;
+    }
+
+    void SetVisibleLines(i32 lines)
+    {
+        visible_lines_ = lines;
+
+        SetCurrentIndex(current_index_);
+    }
+
 private:
     // 0x526E50 | ?AddItem@asMidgets@@AAEXPAVMI@@@Z
     ARTS_EXPORT void AddItem(class MI* item);
@@ -241,7 +253,7 @@ private:
 
     void SetCurrentIndex(i32 index);
 
-    i32 max_lines_ {0};
+    i32 visible_lines_ {0};
     asNode* current_node_ {nullptr};
     i32 midget_count_ {0};
     i32 start_index_ {0};

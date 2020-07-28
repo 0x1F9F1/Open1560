@@ -53,12 +53,12 @@ public:
 check_size(MI, 0x48);
 
 asMidgets::asMidgets()
-    : max_lines_(5)
+    : visible_lines_(5)
     , current_node_(ARTSPTR)
     , event_queue_(1, EQ_EVENT_MASK(eqEventType::Keyboard), 32)
 {
     // These fields are accessed publicly and cannot easily be changed
-    static_assert(offsetof(asMidgets, max_lines_) == 0x8);
+    static_assert(offsetof(asMidgets, visible_lines_) == 0x8);
     static_assert(offsetof(asMidgets, open_) == 0x1C);
 }
 
@@ -286,7 +286,6 @@ public:
 
     i32 Update([[maybe_unused]] b32 active) override
     {
-        // NOTE: Was %c
         arts_sprintf(Text, "%s: %i", Name.get(), *Value);
 
         return 0;
@@ -488,7 +487,7 @@ void asMidgets::AddVector(const char* arg1, Vector4* arg2, f32 arg3, f32 arg4, f
 
 void asMidgets::Cull()
 {
-    i32 max_lines = max_lines_;
+    i32 max_lines = visible_lines_;
     i32 text_y = Pipe()->GetHeight() - agiFontHeight * max_lines;
 
     {
@@ -678,8 +677,8 @@ void asMidgets::Update()
 
     while (event_queue_.Pop(&ev))
     {
-        if ((ev.Common.Type == eqEventType::Keyboard) && (ev.Keyboard.Modifiers & EQ_KMOD_DOWN))
-            UpdateKey(ev.Keyboard.VirtualKey, ev.Keyboard.Modifiers);
+        if ((ev.Common.Type == eqEventType::Keyboard) && (ev.Key.Modifiers & EQ_KMOD_DOWN))
+            UpdateKey(ev.Key.VirtualKey, ev.Key.Modifiers);
     }
 
     CULLMGR->DeclarePrint(this);
@@ -740,7 +739,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
         }
 
         case EQ_VK_NUMPAD3: {
-            SetCurrentIndex(IndexAfter(current_index_, max_lines_ / 2));
+            SetCurrentIndex(IndexAfter(current_index_, visible_lines_ / 2));
             break;
         }
 
@@ -755,7 +754,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
         }
 
         case EQ_VK_NUMPAD9: {
-            SetCurrentIndex(IndexBefore(current_index_, max_lines_ / 2));
+            SetCurrentIndex(IndexBefore(current_index_, visible_lines_ / 2));
             break;
         }
 
@@ -829,8 +828,11 @@ i32 asMidgets::IndexAfter(i32 index, i32 count)
 
 void asMidgets::SetCurrentIndex(i32 index)
 {
+    if (midget_count_ == 0)
+        return;
+
     current_index_ = index;
-    start_index_ = IndexBefore(IndexAfter(current_index_, max_lines_ / 2), max_lines_ - 1);
+    start_index_ = IndexBefore(IndexAfter(current_index_, visible_lines_ / 2), visible_lines_ - 1);
 }
 
 void asMidgets::PushColumn(i32 /*arg1*/)
@@ -842,7 +844,4 @@ void asMidgets::PopColumn()
 run_once([] {
     u32 midgets_size = sizeof(asMidgets);
     create_patch("asMidgets Size", "Size of asMidgets", 0x521A11 + 1, &midgets_size, sizeof(midgets_size));
-
-    u32 full_lines = 21;
-    create_patch("asMidgets Lines", "Number of lines", 0x5229EB + 1, &full_lines, sizeof(full_lines));
 });

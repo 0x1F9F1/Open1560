@@ -68,10 +68,13 @@ class asNode : public asCullable
 
 public:
     // 0x5237C0 | ??0asNode@@QAE@XZ
+    ARTS_EXPORT asNode() = default;
 
     // 0x524640 | ??_EasNode@@UAEPAXI@Z
     // 0x5237F0 | ??1asNode@@UAE@XZ
     ARTS_EXPORT ~asNode() override;
+
+    ARTS_NON_COPYABLE(asNode);
 
     // 0x523890 | ?Update@asNode@@UAEXXZ
     ARTS_EXPORT virtual void Update();

@@ -74,7 +74,7 @@ void eqEventQ::Destroy(void* window)
 void eqEventQ::Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 ascii_key, i32 state)
 {
     eqEvent event;
-    event.Keyboard = {{window, eqEventType::Keyboard}, modifiers, virtual_key, ascii_key, state};
+    event.Key = {{window, eqEventType::Keyboard}, modifiers, virtual_key, ascii_key, state};
     EQ_QUEUE_IF_ENABLED(event);
 
     eqEventMonitor::Keyboard(window, modifiers, virtual_key, ascii_key, state);

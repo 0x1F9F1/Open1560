@@ -409,40 +409,6 @@ void asNode::SwitchTo(i32 idx)
     }
 }
 
-// 0x523510 | ?IsValidPointer@@YAHPAXIH@Z
-// FIXME: Relies on IsBadReadPtr and IsBadWritePtr, which are deprecated
-ARTS_IMPORT /*static*/ b32 IsValidPointer(void* ptr, u32 len, b32 writeable);
-
-const char* asNode::VerifyTree()
-{
-    // TODO: Move to arts7:sim
-
-    if (!IsValidPointer(this, sizeof(*this), true))
-        return "Bad 'this'";
-
-    if (!IsValidPointer(*reinterpret_cast<void**>(this), 8 * sizeof(void*), false))
-        return "Bad virtual table";
-
-    if (!IsValidPointer(parent_node_, sizeof(*this), 1) && (this != parent_node_))
-        return "Bad parent";
-
-    const char* msg = nullptr;
-
-    i32 i = 1;
-    for (asNode* n = child_node_; n; n = n->next_node_, ++i)
-    {
-        msg = n->VerifyTree();
-
-        if (msg)
-        {
-            Errorf("Kid %d(%p) of type %s name %s: %s", i, n, GetNodeType(), node_name_.get(), msg);
-            break;
-        }
-    }
-
-    return msg;
-}
-
 META_DEFINE_CHILD("asNode", asNode, asCullable)
 {
     META_FIELD("Flags", node_flags_);

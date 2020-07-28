@@ -70,8 +70,14 @@
     0x790820 | int StereoBuffer | ?StereoBuffer@@3HA
 */
 
+#include "benchstats.h"
+#include "data7/timer.h"
+#include "eventq7/eventq.h"
 #include "eventq7/replay.h"
+#include "linear.h"
 #include "node.h"
+
+class Matrix34;
 
 class asSimulation final : public asNode
 {
@@ -118,9 +124,6 @@ public:
     // 0x522E30 | ?FrameLock@asSimulation@@QAEXHH@Z | unused
     ARTS_IMPORT void FrameLock(i32 arg1, i32 arg2);
 
-    // 0x5236A0 | ?GetClass@asSimulation@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
-
     // 0x521C40 | ?Init@asSimulation@@QAEXPADHPAPAD@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2, char** arg3);
 
@@ -148,7 +151,7 @@ public:
     // 0x5222C0 | ?Update@asSimulation@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // TODO: Remove UpdatePaused(asNode*) to avoid confusing with asNode::UpdatePaused()
+    // TODO: Rename UpdatePaused(asNode*) to avoid confusing with asNode::UpdatePaused()
     ARTS_DIAGNOSTIC_PUSH;
     ARTS_CLANG_DIAGNOSTIC_IGNORED("-Woverloaded-virtual");
 
@@ -158,12 +161,53 @@ public:
     ARTS_DIAGNOSTIC_POP;
 
     // 0x5229C0 | ?Widgets@asSimulation@@QAEXXZ
-    ARTS_IMPORT void Widgets();
+    ARTS_EXPORT void Widgets();
 
-    // 0x523530 | ?DeclareFields@asSimulation@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
+    VIRTUAL_META_DECLARE;
 
-    u8 gap20[0x290];
+private:
+    i32 in_escape_;
+    i32 num_cameras_;
+    asLinearCS* cameras_[32];
+    asLinearCS lcs_;
+    Matrix34* current_transform_;
+    Timer delta_timer_;
+    i32 frame_lock_;
+    f32 elapsed_ms_;
+    f32 fps_;
+    f32 total_elapsed_;
+    f32 elapsed_2_;
+    i32 updates_;
+    i32 dword148;
+    i32 first_updated_;
+    i32 is_full_update_;
+    i32 dword154;
+    f32 dword158;
+    f32 inv_real_time_;
+    f32 dword160;
+    f32 dword164;
+    i32 dword168;
+    i32 is_real_time_;
+    i32 paused_;
+    i32 frame_count_;
+    i32 print_bench_stats_;
+    i32 dword17C;
+    f32 elapsed_;
+    asBenchStats stats_;
+    asBenchStats prev_stats_;
+    i32 vector_count_;
+    Vector3* vector_starts_;
+    Vector3* vector_ends_;
+    Vector3* vector_colors_;
+    eqEventQ keys_queue_;
+    eqEventQ widgets_queue_;
+    i32 dword294;
+    i32 dword298;
+    i32 draw_mode_;
+    i32 physics_bank_open_;
+    i32 no_debug_;
+    i32 show_ui_;
+    i32 frame_step_;
 };
 
 check_size(asSimulation, 0x2B0);
