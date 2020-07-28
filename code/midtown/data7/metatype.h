@@ -135,7 +135,7 @@ const MetaType* CreateMetaType_()
 }
 
 template <typename T>
-ARTS_FORCEINLINE const MetaType* CreateMetaType()
+inline const MetaType* CreateMetaType()
 {
     return CreateMetaType_<typename std::remove_cv<T>::type>();
 }

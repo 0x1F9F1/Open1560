@@ -40,47 +40,47 @@ char* arts_strdup(const char* str);
 class CString
 {
 public:
-    ARTS_FORCEINLINE constexpr CString() = default;
+    constexpr CString() = default;
 
-    ARTS_FORCEINLINE constexpr CString(std::nullptr_t)
+    constexpr CString(std::nullptr_t)
         : data_(nullptr)
     {}
 
-    ARTS_FORCEINLINE CString(const char* value)
+    CString(const char* value)
         : data_(arts_strdup(value))
     {}
 
-    ARTS_FORCEINLINE CString(const CString& other)
+    CString(const CString& other)
         : CString(other.data_)
     {}
 
-    ARTS_FORCEINLINE CString(CString&& other) noexcept
+    CString(CString&& other) noexcept
     {
         data_ = other.data_;
         other.data_ = nullptr;
     }
 
-    ARTS_FORCEINLINE ~CString()
+    ~CString()
     {
         if (data_)
             arts_free(data_);
     }
 
-    ARTS_FORCEINLINE CString& operator=(const char* value)
+    CString& operator=(const char* value)
     {
         assign(value);
 
         return *this;
     }
 
-    ARTS_FORCEINLINE CString& operator=(const CString& value)
+    CString& operator=(const CString& value)
     {
         assign(value.data_);
 
         return *this;
     }
 
-    ARTS_FORCEINLINE CString& operator=(CString&& value) noexcept
+    CString& operator=(CString&& value) noexcept
     {
         if (data_)
             arts_free(data_);
@@ -91,7 +91,7 @@ public:
         return *this;
     }
 
-    ARTS_FORCEINLINE void assign(const char* value)
+    void assign(const char* value)
     {
         if (data_)
             arts_free(data_);
@@ -99,7 +99,7 @@ public:
         data_ = value ? arts_strdup(value) : nullptr;
     }
 
-    ARTS_FORCEINLINE void reset()
+    void reset()
     {
         if (data_)
         {
@@ -108,7 +108,7 @@ public:
         }
     }
 
-    ARTS_FORCEINLINE const char* get() const
+    const char* get() const
     {
         return data_;
     }
@@ -125,49 +125,49 @@ class CStringBuffer
 public:
     static_assert(N != 0, "Cannot have an empty string buffer");
 
-    ARTS_FORCEINLINE CStringBuffer()
+    CStringBuffer()
     {
         buffer_[0] = '\0';
     }
 
-    ARTS_FORCEINLINE CStringBuffer(const char* value)
+    CStringBuffer(const char* value)
     {
         assign(value);
     }
 
-    ARTS_FORCEINLINE CStringBuffer& operator=(const char* value)
+    CStringBuffer& operator=(const char* value)
     {
         assign(value);
 
         return *this;
     }
 
-    ARTS_FORCEINLINE void clear()
+    void clear()
     {
         buffer_[0] = '\0';
     }
 
-    ARTS_FORCEINLINE void assign(const char* value)
+    void assign(const char* value)
     {
         arts_strcpy(buffer_, value);
     }
 
-    ARTS_FORCEINLINE void assign(const char* value, usize len)
+    void assign(const char* value, usize len)
     {
         arts_strncpy(buffer_, value, len);
     }
 
-    ARTS_FORCEINLINE void append(const char* value)
+    void append(const char* value)
     {
         arts_strcat(buffer_, value);
     }
 
-    ARTS_FORCEINLINE void append(const char* value, usize len)
+    void append(const char* value, usize len)
     {
         arts_strncat(buffer_, value, len);
     }
 
-    inline void sprintf(const char* format, ...)
+    void sprintf(const char* format, ...)
     {
         std::va_list va;
         va_start(va, format);
@@ -175,27 +175,27 @@ public:
         va_end(va);
     }
 
-    ARTS_FORCEINLINE void vsprintf(const char* format, std::va_list va)
+    void vsprintf(const char* format, std::va_list va)
     {
         arts_vsprintf(buffer_, format, va);
     }
 
-    ARTS_FORCEINLINE char* get()
+    char* get()
     {
         return buffer_;
     }
 
-    ARTS_FORCEINLINE const char* get() const
+    const char* get() const
     {
         return buffer_;
     }
 
-    ARTS_FORCEINLINE operator const char*() const
+    operator const char*() const
     {
         return buffer_;
     }
 
-    static ARTS_FORCEINLINE constexpr usize capacity()
+    static constexpr usize capacity()
     {
         return N;
     }
@@ -207,22 +207,22 @@ private:
 class CStringBuilder
 {
 public:
-    ARTS_FORCEINLINE constexpr CStringBuilder(char* buffer, usize capacity)
+    constexpr CStringBuilder(char* buffer, usize capacity)
         : buffer_(buffer)
         , capacity_(capacity)
     {}
 
-    ARTS_FORCEINLINE ~CStringBuilder()
+    ~CStringBuilder()
     {
         buffer_[(written_ < capacity_) ? written_ : 0] = '\0';
     }
 
-    ARTS_FORCEINLINE void operator+=(const char* str)
+    void operator+=(const char* str)
     {
         append(str, std::strlen(str));
     }
 
-    ARTS_FORCEINLINE void operator+=(char c)
+    void operator+=(char c)
     {
         if (written_ < capacity_)
         {
@@ -230,7 +230,7 @@ public:
         }
     }
 
-    inline void append(const char* str, usize len)
+    void append(const char* str, usize len)
     {
         if (written_ + len >= capacity_)
         {

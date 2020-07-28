@@ -46,13 +46,13 @@ private:
 class MutexGuard
 {
 public:
-    ARTS_FORCEINLINE MutexGuard(Mutex& mutex)
+    MutexGuard(Mutex& mutex)
         : mutex_(&mutex)
     {
         mutex_->lock();
     }
 
-    ARTS_FORCEINLINE ~MutexGuard()
+    ~MutexGuard()
     {
         mutex_->unlock();
     }

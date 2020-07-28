@@ -28,13 +28,13 @@ template <typename T, typename = std::enable_if_t<std::is_pointer_v<T>>>
 using Owner = T;
 
 template <typename T, typename... Args>
-[[nodiscard]] ARTS_FORCEINLINE std::enable_if_t<!std::is_array_v<T>, Ptr<T>> MakeUnique(Args&&... args)
+[[nodiscard]] inline std::enable_if_t<!std::is_array_v<T>, Ptr<T>> MakeUnique(Args&&... args)
 {
     return Ptr<T>(new T(std::forward<Args>(args)...));
 }
 
 template <typename T>
-[[nodiscard]] ARTS_FORCEINLINE std::enable_if_t<std::is_array_v<T>, Ptr<T>> MakeUnique(usize size)
+[[nodiscard]] inline std::enable_if_t<std::is_array_v<T>, Ptr<T>> MakeUnique(usize size)
 {
     static_assert(std::extent_v<T> == 0, "Cannot MakeUnique with non-zero array extent");
 
