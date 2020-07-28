@@ -740,7 +740,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
         }
 
         case EQ_VK_NUMPAD3: {
-            SetCurrentIndex(IndexAfter(start_index_, max_lines_ - 1));
+            SetCurrentIndex(IndexAfter(current_index_, max_lines_ / 2));
             break;
         }
 
@@ -755,7 +755,7 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
         }
 
         case EQ_VK_NUMPAD9: {
-            SetCurrentIndex(start_index_);
+            SetCurrentIndex(IndexBefore(current_index_, max_lines_ / 2));
             break;
         }
 
@@ -843,6 +843,6 @@ run_once([] {
     u32 midgets_size = sizeof(asMidgets);
     create_patch("asMidgets Size", "Size of asMidgets", 0x521A11 + 1, &midgets_size, sizeof(midgets_size));
 
-    u32 full_lines = 20;
+    u32 full_lines = 21;
     create_patch("asMidgets Lines", "Number of lines", 0x5229EB + 1, &full_lines, sizeof(full_lines));
 });
