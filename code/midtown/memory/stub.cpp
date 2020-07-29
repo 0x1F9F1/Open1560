@@ -44,14 +44,14 @@ ARTS_NOINLINE void operator delete[](void* ptr) noexcept
 
 ARTS_NOINLINE void operator delete(void* ptr, std::size_t sz) noexcept
 {
-    ArDebugAssert(CURHEAP->SizeOf(ptr) == sz, "Allocation Size Mismatch");
+    ArAssert(CURHEAP->SizeOf(ptr) == sz, "Allocation Size Mismatch");
 
     CURHEAP->Free(ptr);
 }
 
 ARTS_NOINLINE void operator delete[](void* ptr, std::size_t sz) noexcept
 {
-    ArDebugAssert(CURHEAP->SizeOf(ptr) == sz, "Allocation Size Mismatch");
+    ArAssert(CURHEAP->SizeOf(ptr) == sz, "Allocation Size Mismatch");
 
     CURHEAP->Free(ptr);
 }

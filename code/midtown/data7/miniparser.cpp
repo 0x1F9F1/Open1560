@@ -20,13 +20,6 @@ define_dummy_symbol(data7_miniparser);
 
 #include "miniparser.h"
 
-MiniParser::MiniParser(const char* name)
-    : name_(name)
-{}
-
-MiniParser::~MiniParser()
-{}
-
 void MiniParser::Commentf(char const* format, ...)
 {
     CStringBuffer<1024> buffer;

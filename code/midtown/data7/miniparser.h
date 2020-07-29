@@ -60,10 +60,12 @@ public:
     };
 
     // 0x57C5E0 | ??0MiniParser@@QAE@PAD@Z
-    ARTS_EXPORT MiniParser(const char* name);
+    ARTS_EXPORT MiniParser(const char* name)
+        : name_(name)
+    {}
 
     // 0x57C640 | ??1MiniParser@@QAE@XZ
-    ARTS_EXPORT ~MiniParser();
+    ARTS_EXPORT ~MiniParser() = default;
 
     virtual i32 RawGetCh() = 0;
 
