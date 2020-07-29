@@ -132,11 +132,11 @@ void Application(i32 argc, char** argv)
 
     // SetProcessAffinityMask(GetCurrentProcess(), 1);
 
-    __try
+    EXCEPTION_BEGIN
     {
         ApplicationHelper(argc, argv);
     }
-    __except (GameFilter(GetExceptionInformation()))
+    EXCEPTION_END
     {
         // AIMAP.Dump()
 

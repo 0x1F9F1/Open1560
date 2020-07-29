@@ -213,28 +213,30 @@ void ipcMessageQueue::Shutdown()
 i32 ipcMessageQueue::MessageLoop()
 {
     EXCEPTION_BEGIN
-    while (initialized_)
     {
-        ipcWaitSingle(send_event_);
-
-        while (true)
+        while (initialized_)
         {
-            ipcWaitSingle(mutex_);
+            ipcWaitSingle(send_event_);
 
-            if (read_index_ == send_index_)
-                break;
+            while (true)
+            {
+                ipcWaitSingle(mutex_);
 
-            if (++read_index_ == max_messages_)
-                read_index_ = 0;
+                if (read_index_ == send_index_)
+                    break;
 
-            ipcMessage msg = messages_[read_index_];
+                if (++read_index_ == max_messages_)
+                    read_index_ = 0;
+
+                ipcMessage msg = messages_[read_index_];
+
+                ipcReleaseMutex(mutex_);
+                msg.Function(msg.Param);
+                ipcTriggerEvent(read_event_);
+            }
 
             ipcReleaseMutex(mutex_);
-            msg.Function(msg.Param);
-            ipcTriggerEvent(read_event_);
         }
-
-        ipcReleaseMutex(mutex_);
     }
     EXCEPTION_END
     {
