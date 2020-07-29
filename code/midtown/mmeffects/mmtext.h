@@ -58,10 +58,10 @@ struct mmText
 {
 public:
     // 0x4FEE40 | ??0mmText@@QAE@XZ
-    ARTS_IMPORT mmText();
+    ARTS_EXPORT mmText() = default;
 
     // 0x4FEE50 | ??1mmText@@QAE@XZ
-    ARTS_IMPORT ~mmText();
+    ARTS_EXPORT ~mmText() = default;
 
     // 0x4FF2D0 | ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z | unused
     ARTS_IMPORT void Draw(class agiSurfaceDesc* arg1, f32 arg2, f32 arg3, char* arg4, void* arg5);
@@ -94,18 +94,18 @@ private:
 
 check_size(mmText, 0x2);
 
-class mmTextNode : public asNode
+class mmTextNode final : public asNode
 {
     // const mmTextNode::`vftable' @ 0x620658
 
 public:
     // 0x4FF450 | ??0mmTextNode@@QAE@XZ
-    ARTS_IMPORT mmTextNode();
+    ARTS_IMPORT mmTextNode() = default;
 
     // 0x426300 | ??_EmmTextNode@@UAEPAXI@Z
     // 0x4FFE70 | ??_GmmTextNode@@UAEPAXI@Z | unused
     // 0x4FF4D0 | ??1mmTextNode@@UAE@XZ
-    ARTS_IMPORT ~mmTextNode() override;
+    ARTS_EXPORT ~mmTextNode() override;
 
     // 0x4FF930 | ?AddText@mmTextNode@@QAEHPAXPAULocString@@HMM@Z
     ARTS_IMPORT i32 AddText(void* arg1, struct LocString* arg2, i32 arg3, f32 arg4, f32 arg5);
@@ -156,8 +156,8 @@ private:
     i32 max_lines_ {0};
     u32 enabled_lines_ {0xFFFFFFFF};
     mmText int30_ {};
-    mmTextData* lines_ {nullptr};
-    agiBitmap* text_bitmap_ {nullptr};
+    Ptr<mmTextData[]> lines_ {nullptr};
+    Rc<agiBitmap> text_bitmap_ {nullptr};
     u32 touched_ {1};
     u32 hidden_ {0};
     u32 dword44_ {0};

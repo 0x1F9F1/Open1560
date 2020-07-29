@@ -18,4 +18,5 @@ arts_component "core"
         "minwin.h",
         "platform.h",
         "noncopyable.h"
+        "refcount.h",
     }

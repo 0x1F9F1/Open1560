@@ -19,3 +19,18 @@
 define_dummy_symbol(mmeffects_mmtext);
 
 #include "mmtext.h"
+
+#include "agi/bitmap.h"
+
+struct mmTextData
+{
+    u32 X {0};
+    u32 Y {0};
+    u32 Effects {0};
+    void* Font {nullptr};
+    char Text[256] {};
+};
+
+check_size(mmTextData, 0x110);
+
+mmTextNode::~mmTextNode() = default;

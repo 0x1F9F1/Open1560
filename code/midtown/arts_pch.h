@@ -34,6 +34,8 @@
 
 #include "core/pointer.h"
 
+#include "core/refcount.h"
+
 #include "core/assert.h"
 
 #include "core/string.h"
