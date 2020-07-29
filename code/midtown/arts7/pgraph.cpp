@@ -76,7 +76,7 @@ void asPerfGraph::Cull()
     auto alpha = agiCurState.SetAlphaEnable(1);
     auto filter = agiCurState.SetTexFilter(0);
 
-    const u16 buf_size = 128;
+    const u16 buf_size = 64;
 
     agiScreenVtx vert_buf[buf_size * 4];
     u16 index_buf[buf_size * 6];

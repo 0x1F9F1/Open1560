@@ -29,9 +29,9 @@ inline void* MetaNew([[maybe_unused]] i32 len)
     if constexpr (std::is_default_constructible_v<T>)
     {
         if (len)
-            return new T[len];
+            return new T[len] {};
         else
-            return new T;
+            return new T {};
     }
     else
     {

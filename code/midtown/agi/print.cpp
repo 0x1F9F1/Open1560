@@ -148,7 +148,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
     auto alpha = agiCurState.SetAlphaEnable(1);
     auto filter = agiCurState.SetTexFilter(0);
 
-    const u16 buf_size = 128;
+    const u16 buf_size = 64;
 
     agiScreenVtx vert_buf[buf_size * 4];
     u16 index_buf[buf_size * 6];

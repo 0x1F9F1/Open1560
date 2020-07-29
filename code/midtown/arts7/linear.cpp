@@ -28,10 +28,10 @@ define_dummy_symbol(arts7_linear);
 #include "sim.h"
 
 asLinearCS::asLinearCS()
+    : matrix_(IDENTITY)
+    , view_(IDENTITY)
 {
     SetNodeFlag2(false);
-    matrix_.Identity();
-    view_.Identity();
 }
 
 void asLinearCS::AddWidgets(Bank* bank)

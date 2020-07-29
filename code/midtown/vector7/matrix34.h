@@ -89,7 +89,14 @@ class Matrix34
 {
 public:
     // 0x478540 | ??0Matrix34@@QAE@XZ | inline
-    ARTS_EXPORT constexpr Matrix34() = default;
+    constexpr Matrix34() = default;
+
+    constexpr Matrix34(Vector3 m0, Vector3 m1, Vector3 m2, Vector3 m3)
+        : m0(m0)
+        , m1(m1)
+        , m2(m2)
+        , m3(m3)
+    {}
 
     // 0x567450 | ??0Matrix34@@QAE@ABVMatrix44@@@Z | unused
     ARTS_IMPORT Matrix34(class Matrix44 const& arg1);
@@ -155,7 +162,7 @@ public:
     ARTS_IMPORT void GetPolar(class Vector4* arg1, class Vector3* arg2, f32 arg3);
 
     // 0x5674B0 | ?Identity@Matrix34@@QAEXXZ
-    ARTS_IMPORT void Identity();
+    constexpr void Identity();
 
     // 0x56D5B0 | ?Interpolate@Matrix34@@QAEXABV1@0M@Z | unused
     ARTS_IMPORT void Interpolate(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
@@ -250,16 +257,10 @@ public:
     // 0x56B250 | ?Transpose@Matrix34@@QAEXABV1@@Z
     ARTS_IMPORT void Transpose(class Matrix34 const& arg1);
 
-    // 0x56D760 | ?DeclareFields@Matrix34@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
-
-    // 0x56D8A0 | ?GetClass@Matrix34@@SAPAVMetaClass@@XZ | unused
-    // ARTS_IMPORT static class MetaClass* GetClass();
-
-    Vector3 m0 {};
-    Vector3 m1 {};
-    Vector3 m2 {};
-    Vector3 m3 {};
+    Vector3 m0;
+    Vector3 m1;
+    Vector3 m2;
+    Vector3 m3;
 
     STATIC_META_DECLARE;
 
@@ -283,7 +284,17 @@ ARTS_IMPORT f32 ATan2f(f32 arg1, f32 arg2);
 ARTS_IMPORT f32 asinf_fast(f32 arg1);
 
 // 0x909490 | ?IDENTITY@@3VMatrix34@@A
-ARTS_IMPORT extern class Matrix34 IDENTITY;
+constexpr const Matrix34 IDENTITY {
+    {1.0f, 0.0f, 0.0f},
+    {0.0f, 1.0f, 0.0f},
+    {0.0f, 0.0f, 1.0f},
+    {0.0f, 0.0f, 0.0f},
+};
 
 // 0x9094C0 | ?Matrix34MetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass Matrix34MetaClass;
+
+constexpr void Matrix34::Identity()
+{
+    *this = IDENTITY;
+}
