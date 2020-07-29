@@ -126,11 +126,16 @@ int WINAPI MidtownMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPS
     return 0;
 }
 
+static mem::cmd_param PARAM_affinity {"affinity"};
+
 void Application(i32 argc, char** argv)
 {
     dxiIcon = 111;
 
-    // SetProcessAffinityMask(GetCurrentProcess(), 1);
+    if (u32 affinity = 0; PARAM_affinity.get(affinity) && affinity)
+    {
+        SetProcessAffinityMask(GetCurrentProcess(), affinity);
+    }
 
     EXCEPTION_BEGIN
     {
