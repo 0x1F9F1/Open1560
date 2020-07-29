@@ -28,14 +28,14 @@ agiRasterizer::agiRasterizer(agiPipeline* pipe)
     agiLastState.Reset();
 
     agiCurState.SetDrawMode(15);
-    agiCurState.SetZFunc(4);
+    agiCurState.SetZFunc(agiCmpFunc::LessEqual);
     agiCurState.SetSpecularEnable(false);
     agiCurState.Setbyte30(0);
-    agiCurState.SetCullMode(3);
+    agiCurState.SetCullMode(agiCullMode::CCW);
 
     if (pipe->IsHardware())
     {
-        agiCurState.SetBlendOperation(1);
+        agiCurState.SetBlendOp(agiBlendOp::Modulate);
     }
 
     agiCurState.SetAlphaRef(0);

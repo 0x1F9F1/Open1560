@@ -143,10 +143,10 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
 
     auto tex = agiCurState.SetTexture(BuiltinFontTexture);
     auto draw_mode = agiCurState.SetDrawMode(15);
-    auto depth = agiCurState.SetDepthTest(0);
+    auto depth = agiCurState.SetZEnable(0);
     auto zwrite = agiCurState.SetZWrite(0);
     auto alpha = agiCurState.SetAlphaEnable(1);
-    auto filter = agiCurState.SetTexFilter(0);
+    auto filter = agiCurState.SetTexFilter(agiTexFilter::Point);
 
     const u16 buf_size = 64;
 
@@ -229,7 +229,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
 
     agiCurState.SetTexture(tex);
     agiCurState.SetDrawMode(draw_mode);
-    agiCurState.SetDepthTest(depth);
+    agiCurState.SetZEnable(depth);
     agiCurState.SetZWrite(zwrite);
     agiCurState.SetAlphaEnable(alpha);
     agiCurState.SetTexFilter(filter);

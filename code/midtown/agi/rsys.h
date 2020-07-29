@@ -96,6 +96,67 @@ public:
 
 check_size(agiRasterizer, 0x18);
 
+enum class agiBlendSet : u8
+{
+    SrcAlpha_InvSrcAlpha = 0,
+    SrcAlpha_One = 1,
+    Zero_SrcAlpha = 3,
+    Zero_SrcColor = 4,
+    One_One = 5,
+};
+
+enum class agiShadeMode : u8
+{
+    Flat = 0,
+    Gouraud = 1,
+};
+
+enum class agiCullMode : u8
+{
+    None = 1,
+    CW = 2,
+    CCW = 3
+};
+
+enum class agiCmpFunc : u8
+{
+    Never = 1,
+    Less = 2,
+    Equal = 3,
+    LessEqual = 4,
+    Greater = 5,
+    Notequal = 6,
+    GreateRequal = 7,
+    Always = 8,
+};
+
+enum class agiTexAddress : u8
+{
+    Wrap = 1,
+    Mirror = 2,
+    Clamp = 3,
+    Border = 4,
+};
+
+enum class agiTexFilter : u8
+{
+    Point = 0,
+    Bilinear = 1,
+    Trilinear = 2,
+};
+
+enum class agiBlendOp : u8
+{
+    // COLOROP = SELECTARG1, COLORARG1 = TEXTURE, ALPHAOP = SELECTARG1, ALPHAARG1 = TEXTURE
+    One = 0,
+
+    // COLOROP = MODULATE,   COLORARG1 = TEXTURE, ALPHAOP = MODULATE,   ALPHAARG1 = TEXTURE, COLORARG2 = DIFFUSE
+    Modulate = 1,
+
+    // COLOROP = DISABLE
+    Ignore = 2,
+};
+
 struct agiRendStateStruct
 {
 public:
@@ -106,8 +167,11 @@ public:
     agiTexDef* Texture {nullptr};
     agiTexDef* Texture2 {nullptr};
 
-    u8 BlendMode {0};
-    u8 ShadeMode {0};
+    agiBlendSet BlendSet {};
+
+    // 0: FLAT
+    // 1: GOURAUD
+    agiShadeMode ShadeMode {};
 
     // DrawMode & 3 = FillMode
     // 0x0: None
@@ -123,28 +187,35 @@ public:
     // 0xB: Solid, No EnvMap,SphereMap
     // 0xF: Tex
     u8 DrawMode {0};
-    i8 TexFilter {0};
-    i8 BlendOperation {0};
-    i8 CullMode {0};
-    i8 ZFunc {0};
-    u8 FogEnable {0};
-    i8 TexturePerspective {0};
-    i8 AlphaEnable {0};
-    i8 AddressU {0};
-    i8 AddressV {0};
-    u8 DepthTest {0};
-    u8 ZWrite {0};
+
+    agiTexFilter TexFilter {};
+
+    agiBlendOp BlendOp {};
+
+    agiCullMode CullMode {};
+
+    agiCmpFunc ZFunc {};
+
+    bool FogEnable {false};
+    bool TexturePerspective {false};
+    bool AlphaEnable {false};
+
+    agiTexAddress AddressU {};
+    agiTexAddress AddressV {};
+
+    bool ZEnable {false};
+    bool ZWrite {false};
     u32 FogColor {0};
     f32 FogStart {0.0f};
     f32 FogEnd {0.0f};
     f32 FogDensity {0.0f};
-    u8 Dither {0};
+    bool Dither {false};
     u8 byte2D {0};
-    i8 SoftwareRendering {0};
-    i8 SpecularEnable {0};
+    bool SoftwareRendering {0};
+    bool SpecularEnable {0};
     u8 byte30 {0};
     i8 MaxTextures {0};
-    u8 StippledAlpha {0};
+    bool StippledAlpha {0};
     u8 AlphaRef {0};
     f32 LodBias {0.0f};
     u32 Specular {0};
@@ -186,11 +257,11 @@ public:
     AGI_RSTATE_MEMBER(Mtl)
     AGI_RSTATE_MEMBER(Texture)
     AGI_RSTATE_MEMBER(Texture2)
-    AGI_RSTATE_MEMBER(BlendMode)
+    AGI_RSTATE_MEMBER(BlendSet)
     AGI_RSTATE_MEMBER(ShadeMode)
     AGI_RSTATE_MEMBER(DrawMode)
     AGI_RSTATE_MEMBER(TexFilter)
-    AGI_RSTATE_MEMBER(BlendOperation)
+    AGI_RSTATE_MEMBER(BlendOp)
     AGI_RSTATE_MEMBER(CullMode)
     AGI_RSTATE_MEMBER(ZFunc)
     AGI_RSTATE_MEMBER(FogEnable)
@@ -198,7 +269,7 @@ public:
     AGI_RSTATE_MEMBER(AlphaEnable)
     AGI_RSTATE_MEMBER(AddressU)
     AGI_RSTATE_MEMBER(AddressV)
-    AGI_RSTATE_MEMBER(DepthTest)
+    AGI_RSTATE_MEMBER(ZEnable)
     AGI_RSTATE_MEMBER(ZWrite)
     AGI_RSTATE_MEMBER(FogColor)
     AGI_RSTATE_MEMBER(FogStart)

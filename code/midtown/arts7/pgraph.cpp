@@ -71,10 +71,10 @@ void asPerfGraph::Cull()
 
     auto tex = agiCurState.SetTexture(nullptr);
     auto draw_mode = agiCurState.SetDrawMode(15);
-    auto depth = agiCurState.SetDepthTest(0);
+    auto depth = agiCurState.SetZEnable(0);
     auto zwrite = agiCurState.SetZWrite(0);
     auto alpha = agiCurState.SetAlphaEnable(1);
-    auto filter = agiCurState.SetTexFilter(0);
+    auto filter = agiCurState.SetTexFilter(agiTexFilter::Point);
 
     const u16 buf_size = 64;
 
@@ -161,7 +161,7 @@ void asPerfGraph::Cull()
 
     agiCurState.SetTexture(tex);
     agiCurState.SetDrawMode(draw_mode);
-    agiCurState.SetDepthTest(depth);
+    agiCurState.SetZEnable(depth);
     agiCurState.SetZWrite(zwrite);
     agiCurState.SetAlphaEnable(alpha);
     agiCurState.SetTexFilter(filter);
