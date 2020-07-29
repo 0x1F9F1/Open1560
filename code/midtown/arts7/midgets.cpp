@@ -644,6 +644,8 @@ check_size(SBMI, 0x50);
 
 void asMidgets::PushSection(const char* arg1, [[maybe_unused]] i32 arg2)
 {
+    // TODO: Is arg2 whether the section should be open by default?
+
     ArAssert(section_count_ < static_cast<i32>(std::size(sections_)), "Too many sections");
 
     sections_[section_count_++] = midget_count_;

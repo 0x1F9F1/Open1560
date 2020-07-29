@@ -34,37 +34,44 @@
 
 #include "node.h"
 
+#include "vector7/matrix34.h"
+
 class asLinearCS : public asNode
 {
     // const asLinearCS::`vftable' @ 0x620B40
 
 public:
     // 0x525AB0 | ??0asLinearCS@@QAE@XZ
-    ARTS_IMPORT asLinearCS();
+    ARTS_EXPORT asLinearCS();
 
     // 0x4B1CA0 | ??_EasLinearCS@@UAEPAXI@Z
     // 0x422F00 | ??1asLinearCS@@UAE@XZ | inline
-    ARTS_IMPORT ~asLinearCS() override = default;
+    ARTS_EXPORT ~asLinearCS() override = default;
 
     // 0x525CC0 | ?AddWidgets@asLinearCS@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* bank) override;
 
     // 0x525C00 | ?Cull@asLinearCS@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // 0x525CB0 | ?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z | unused
     ARTS_EXPORT void FileIO(class MiniParser* arg1);
 
-    // 0x525FF0 | ?GetClass@asLinearCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
-
     // 0x525B20 | ?Update@asLinearCS@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
-    // 0x525E20 | ?DeclareFields@asLinearCS@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
+    Matrix34* GetView()
+    {
+        return &view_;
+    }
 
-    u8 gap20[0x68];
+    VIRTUAL_META_DECLARE;
+
+private:
+    Matrix34 matrix_ {};
+    Matrix34 view_ {};
+    b32 global_ {};
+    asLinearCS* inherit_ {};
 };
 
 check_size(asLinearCS, 0x88);

@@ -156,7 +156,7 @@ struct MetaTypeFactory<T*>
 };
 
 #if 0
-struct RefToType : MetaType
+struct RefToType final : MetaType
 {
     // const RefToType::`vftable' @ 0x61F720
 
@@ -182,7 +182,7 @@ public:
 
 check_size(RefToType, 0x0);
 
-struct ArrayOfType : MetaType
+struct ArrayOfType final : MetaType
 {
     // const ArrayOfType::`vftable' @ 0x61BF58
 
@@ -219,7 +219,7 @@ struct MetaTypeFactory<T, std::enable_if_t<std::is_class_v<T>>>
 };
 
 #if 0
-struct CharType : MetaType
+struct CharType final : MetaType
 {
     // const CharType::`vftable' @ 0x621DB0
 
@@ -242,7 +242,7 @@ public:
 
 check_size(CharType, 0x0);
 
-struct SignedCharType : MetaType
+struct SignedCharType final : MetaType
 {
     // const SignedCharType::`vftable' @ 0x621DC8
 
@@ -265,7 +265,7 @@ public:
 
 check_size(SignedCharType, 0x0);
 
-struct UnsignedCharType : MetaType
+struct UnsignedCharType final : MetaType
 {
     // const UnsignedCharType::`vftable' @ 0x621DE0
 
@@ -288,7 +288,7 @@ public:
 
 check_size(UnsignedCharType, 0x0);
 
-struct SignedShortType : MetaType
+struct SignedShortType final : MetaType
 {
     // const SignedShortType::`vftable' @ 0x621DF8
 
@@ -311,7 +311,7 @@ public:
 
 check_size(SignedShortType, 0x0);
 
-struct UnsignedShortType : MetaType
+struct UnsignedShortType final : MetaType
 {
     // const UnsignedShortType::`vftable' @ 0x621E10
 
@@ -339,7 +339,7 @@ template <>
 const MetaType* CreateMetaType_<signed int>();
 
 #if 0
-struct SignedInt64Type : MetaType
+struct SignedInt64Type final : MetaType
 {
     // const SignedInt64Type::`vftable' @ 0x621E40
 
@@ -362,7 +362,7 @@ public:
 
 check_size(SignedInt64Type, 0x0);
 
-struct UnsignedIntType : MetaType
+struct UnsignedIntType final : MetaType
 {
     // const UnsignedIntType::`vftable' @ 0x621E58
 
@@ -385,7 +385,7 @@ public:
 
 check_size(UnsignedIntType, 0x0);
 
-struct FloatType : MetaType
+struct FloatType final : MetaType
 {
     // const FloatType::`vftable' @ 0x621E70
 

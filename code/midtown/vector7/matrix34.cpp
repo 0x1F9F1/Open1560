@@ -19,3 +19,13 @@
 define_dummy_symbol(vector7_matrix34);
 
 #include "matrix34.h"
+
+#include "data7/metadefine.h"
+
+META_DEFINE("Matrix34", Matrix34)
+{
+    META_FIELD("a", m0);
+    META_FIELD("b", m1);
+    META_FIELD("c", m2);
+    META_FIELD("d", m3);
+}

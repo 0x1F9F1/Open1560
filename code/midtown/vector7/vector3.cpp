@@ -19,3 +19,59 @@
 define_dummy_symbol(vector7_vector3);
 
 #include "vector3.h"
+
+#include "data7/metadefine.h"
+#include "data7/metatype.h"
+#include "data7/miniparser.h"
+
+struct Vector3Type final : MetaType
+{
+    // const Vector3Type::`vftable' @ 0x621BA0
+
+public:
+    // 0x5673F0 | ?Delete@Vector3Type@@UAEXPAXH@Z
+    ARTS_EXPORT void Delete(void* ptr, i32 len) override
+    {
+        MetaDelete<Vector3>(ptr, len);
+    }
+
+    // 0x567360 | ?Load@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
+    ARTS_EXPORT void Load(class MiniParser* parser, void* ptr) override
+    {
+        Vector3* val = static_cast<Vector3*>(ptr);
+
+        val->x = parser->FloatVal();
+        val->y = parser->FloatVal();
+        val->z = parser->FloatVal();
+    }
+
+    // 0x5673A0 | ?New@Vector3Type@@UAEPAXH@Z
+    ARTS_EXPORT void* New(i32 count) override
+    {
+        return MetaNew<Vector3>(count);
+    }
+
+    // 0x567320 | ?Save@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
+    ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
+    {
+        Vector3* val = static_cast<Vector3*>(ptr);
+
+        parser->Printf("%.4g %.4g %.4g", val->x, val->y, val->z);
+    }
+
+    // 0x567390 | ?SizeOf@Vector3Type@@UAEIXZ
+    ARTS_EXPORT u32 SizeOf() override
+    {
+        return sizeof(Vector3);
+    }
+};
+
+check_size(Vector3Type, 0x4);
+
+static const Vector3Type Vector3Inst;
+
+template <>
+const MetaType* CreateMetaType_<Vector3>()
+{
+    return &Vector3Inst;
+}

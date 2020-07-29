@@ -83,11 +83,13 @@
     0x9094C0 | class MetaClass Matrix34MetaClass | ?Matrix34MetaClass@@3VMetaClass@@A
 */
 
+#include "vector3.h"
+
 class Matrix34
 {
 public:
     // 0x478540 | ??0Matrix34@@QAE@XZ | inline
-    ARTS_IMPORT Matrix34();
+    ARTS_EXPORT constexpr Matrix34() = default;
 
     // 0x567450 | ??0Matrix34@@QAE@ABVMatrix44@@@Z | unused
     ARTS_IMPORT Matrix34(class Matrix44 const& arg1);
@@ -252,13 +254,18 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // 0x56D8A0 | ?GetClass@Matrix34@@SAPAVMetaClass@@XZ | unused
-    ARTS_IMPORT static class MetaClass* GetClass();
+    // ARTS_IMPORT static class MetaClass* GetClass();
+
+    Vector3 m0 {};
+    Vector3 m1 {};
+    Vector3 m2 {};
+    Vector3 m3 {};
+
+    STATIC_META_DECLARE;
 
 private:
     // 0x568D20 | ?ArbitraryRotation@Matrix34@@AAEXABVVector3@@M@Z
     ARTS_IMPORT void ArbitraryRotation(class Vector3 const& arg1, f32 arg2);
-
-    u8 gap0[0x30];
 };
 
 check_size(Matrix34, 0x30);

@@ -75,7 +75,7 @@
     0x909480 | class Vector3 ZAXIS | ?ZAXIS@@3VVector3@@A
 */
 
-// #include "data7/metatype.h"
+#include "data7/metatype.h"
 
 class Vector3
 {
@@ -303,27 +303,7 @@ private:
 };
 
 check_size(Vector3Array, 0x14);
-
-struct Vector3Type : MetaType
-{
-    // const Vector3Type::`vftable' @ 0x621BA0
-
-public:
-    // 0x5673F0 | ?Delete@Vector3Type@@UAEXPAXH@Z
-    ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
-
-    // 0x567360 | ?Load@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
-
-    // 0x5673A0 | ?New@Vector3Type@@UAEPAXH@Z
-    ARTS_IMPORT void* New(i32 arg1) override;
-
-    // 0x567320 | ?Save@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
-
-    // 0x567390 | ?SizeOf@Vector3Type@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
-};
-
-check_size(Vector3Type, 0x4);
 #endif
+
+template <>
+const MetaType* CreateMetaType_<Vector3>();

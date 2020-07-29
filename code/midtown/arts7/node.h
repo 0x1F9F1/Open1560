@@ -181,6 +181,19 @@ public:
             node_flags_ &= ~0x400;
     }
 
+    bool GetNodeFlag2() const
+    {
+        return node_flags_ & 0x2;
+    }
+
+    void SetNodeFlag2(bool enabled)
+    {
+        if (enabled)
+            node_flags_ |= 0x2;
+        else
+            node_flags_ &= ~0x2;
+    }
+
     class asNode* GetFirstChild() const
     {
         return child_node_;

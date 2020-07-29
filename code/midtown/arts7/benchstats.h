@@ -58,7 +58,7 @@ public:
     i32 dword34;
     i32 dword38;
     i32 dword3C;
-    i32 LinearCSUpdates;
+    i32 LCSUpdates;
     i32 dword44;
     i32 dword48;
     i32 dword4C;

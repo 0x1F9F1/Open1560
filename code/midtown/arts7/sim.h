@@ -163,14 +163,47 @@ public:
     // 0x5229C0 | ?Widgets@asSimulation@@QAEXXZ
     ARTS_EXPORT void Widgets();
 
+    Matrix34* GetCurrentView()
+    {
+        return current_view_;
+    }
+
+    void SetCurrentView(Matrix34* view)
+    {
+        current_view_ = view;
+    }
+
+    asBenchStats& GetStats()
+    {
+        return stats_;
+    }
+
+    void PushCamera(asLinearCS* camera)
+    {
+        ArAssert(camera_depth_ < static_cast<i32>(std::size(cameras_)), "Too Many Cameras");
+        cameras_[++camera_depth_] = camera;
+        current_view_ = camera->GetView();
+    }
+
+    void PopCamera()
+    {
+        ArAssert(camera_depth_ > 0, "Camera underflow");
+        current_view_ = cameras_[--camera_depth_]->GetView();
+    }
+
+    bool IsDebugDrawEnabled()
+    {
+        return physics_bank_open_;
+    }
+
     VIRTUAL_META_DECLARE;
 
 private:
     i32 in_escape_;
-    i32 num_cameras_;
+    i32 camera_depth_;
     asLinearCS* cameras_[32];
-    asLinearCS lcs_;
-    Matrix34* current_transform_;
+    asLinearCS root_camera_;
+    Matrix34* current_view_;
     Timer delta_timer_;
     i32 frame_lock_;
     f32 elapsed_ms_;

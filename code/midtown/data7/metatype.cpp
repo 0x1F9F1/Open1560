@@ -26,7 +26,7 @@ define_dummy_symbol(data7_metatype);
 #include "metadefine.h"
 #include "miniparser.h"
 
-struct PtrToType : MetaType
+struct PtrToType final : MetaType
 {
     // const PtrToType::`vftable' @ 0x620AB8
 
@@ -72,7 +72,7 @@ Owner<struct MetaType*> PtrTo(struct MetaType* target)
     return new PtrToType {target};
 }
 
-struct StructType : MetaType
+struct StructType final : MetaType
 {
     // const StructType::`vftable' @ 0x61BEE8
 
@@ -120,7 +120,7 @@ Owner<struct MetaType*> Struct(class MetaClass* target)
     return new StructType {target};
 }
 
-struct SignedIntType : MetaType
+struct SignedIntType final : MetaType
 {
     // const SignedIntType::`vftable' @ 0x621E28
 
@@ -166,7 +166,7 @@ const MetaType* CreateMetaType_<signed int>()
     return &SignedIntInst;
 }
 
-struct StringType : MetaType
+struct StringType final : MetaType
 {
     // const StringType::`vftable' @ 0x621E88
 
