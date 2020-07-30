@@ -113,9 +113,9 @@ enum class agiShadeMode : u8
 
 enum class agiCullMode : u8
 {
-    None = 1,
-    CW = 2,
-    CCW = 3
+    None = 1, // Do not cull back faces
+    CW = 2, // Cull back faces with clockwise vertices
+    CCW = 3 // Cull back faces with counterclockwise vertices
 };
 
 enum class agiCmpFunc : u8

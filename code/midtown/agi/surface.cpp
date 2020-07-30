@@ -22,6 +22,8 @@ define_dummy_symbol(agi_surface);
 
 #include <emmintrin.h>
 
+// #define COPYROW_PREMULTIPLY_ALPHA
+
 // 0x55AAE0 | ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
 ARTS_IMPORT /*static*/ void RescaleJpeg(u32 arg1, u32 arg2, u8* arg3, struct jpeg_decompress_struct& arg4);
 
@@ -40,6 +42,22 @@ static void copyrow4444_to_8888(void* dst, void* src, u32 len, u32 step)
     u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
     u16* ARTS_RESTRICT src16 = static_cast<u16*>(src);
 
+#ifdef COPYROW_PREMULTIPLY_ALPHA
+    for (u32 src_off = 0; len; --len)
+    {
+        u32 v = src16[src_off >> 16];
+        src_off += step;
+
+        u8 a = u8(v >> 12);
+
+        u32 amul = a * 0x89;
+
+        v = (((v & 0x000F) * amul) >> 11) | ((((v & 0x00F0) * amul) >> 7) & 0xF00) |
+            ((((v & 0x0F00) >> 3) * amul) & 0xF0000) | (a << 24);
+
+        *dst32++ = v | (v << 4);
+    }
+#else
     if (step == 0x10000 && len >= 8)
     {
         const __m128i mask_lo = _mm_set1_epi32(0x0F0F0F0F);
@@ -74,6 +92,7 @@ static void copyrow4444_to_8888(void* dst, void* src, u32 len, u32 step)
         v = (v & 0x000F) | ((v & 0x00F0) << 4) | ((v & 0x0F00) << 8) | ((v & 0xF000) << 12);
         *dst32++ = v | (v << 4);
     }
+#endif
 }
 
 // 0x55B750 | ?copyrow4444_to_8888rev@@YAXPAX0II@Z
