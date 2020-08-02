@@ -19,3 +19,25 @@
 define_dummy_symbol(arts7_camera);
 
 #include "camera.h"
+
+#include "agi/pipeline.h"
+
+static mem::cmd_param PARAM_fovfix {"fovfix"};
+
+void asCamera::SetView(f32 horz_fov, f32 vert_fov, f32 near_clip, f32 far_clip)
+{
+    if (PARAM_fovfix.get_or(true))
+    {
+        f32 fov_scale = (Pipe()->GetWidth() * x_size_) / (Pipe()->GetHeight() * y_size_);
+
+        if (vert_fov == 1.25f)
+        {
+            horz_fov *= fov_scale * 0.75f;
+        }
+    }
+
+    fov_ = horz_fov;
+    auto_aspect_ = true;
+    near_clip_ = near_clip;
+    far_clip_ = far_clip;
+}

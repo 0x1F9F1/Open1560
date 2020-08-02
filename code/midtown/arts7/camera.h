@@ -60,6 +60,17 @@
 
 #include "node.h"
 
+#include "data7/callback.h"
+#include "vector7/vector2.h"
+#include "vector7/vector3.h"
+#include "vector7/vector4.h"
+#include "vector7/matrix34.h"
+
+class agiViewport;
+class agiLightModel;
+class agiLightModelParameters;
+class agiBitmap;
+
 class asCamera final : public asNode
 {
     // const asCamera::`vftable' @ 0x620D50
@@ -133,7 +144,7 @@ public:
     ARTS_IMPORT void SetUnderlayCB(class agiBitmap* arg1, class Callback* arg2);
 
     // 0x529BC0 | ?SetView@asCamera@@QAEXMMMM@Z
-    ARTS_IMPORT void SetView(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT void SetView(f32 horz_fov, f32 vert_fov, f32 near_clip, f32 far_clip);
 
     // 0x529B70 | ?SetViewport@asCamera@@QAEXMMMMH@Z
     ARTS_IMPORT void SetViewport(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5);
@@ -154,7 +165,75 @@ private:
     // 0x529FB0 | ?Regen@asCamera@@AAEXXZ
     ARTS_IMPORT void Regen();
 
-    char gap20[0x16C];
+    agiViewport* viewport_ {nullptr};
+    agiLightModel* light_model_ {nullptr};
+    agiLightModelParameters* light_params_ {nullptr};
+
+    agiBitmap* underlay_bitmap_ {nullptr};
+    Callback* underlay_callback_ {nullptr};
+
+    f32 x_origin_ {0.0f};
+    f32 y_origin_ {0.0f};
+
+    f32 x_size_ {0.0f};
+    f32 y_size_ {0.0f};
+
+    Vector3 bg_color_ {};
+    Vector4 shadow_color_ {};
+
+    u32 dword5C;
+    u32 dword60;
+    u32 dword64;
+    i32 clear_flags_ {0};
+
+    f32 fov_ {0.0f};
+    f32 fov_radians_ {0.0f};
+    f32 aspect_ {0.0f};
+    f32 near_clip_ {0.0f};
+    f32 far_clip_ {0.0f};
+    f32 float80;
+    f32 float84;
+
+    f32 left_clip_scale_ {0.0f};
+    f32 right_clip_scale_ {0.0f};
+    f32 bottom_clip_scale_ {0.0f};
+    f32 top_clip_scale_ {0.0f};
+
+    Vector2 left_clip_ {};
+    Vector2 right_clip_ {};
+    Vector2 bottom_clip_ {};
+    Vector2 top_clip_ {};
+
+    b32 auto_aspect_ {false};
+    i32 draw_mode_ {0};
+    i32 dwordC0;
+    f32 floatC4;
+    i32 dwordC8;
+    i32 dwordCC;
+
+    Vector3 fog_color_ {};
+    f32 fog_density_ {0.0f};
+    f32 floatE0;
+    f32 fog_start_ {0.0f};
+    f32 fog_end_ {0.0f};
+
+    Matrix34 matrixEC {};
+    Matrix34 model_ {};
+
+    i32 dword14C;
+    i32 dword150;
+    i32 dword154;
+    i32 dword158;
+    i32 dword15C;
+
+    i32 pause_fade_ {0};
+    f32 fade_speed_ {0.0f};
+    f32 fade_amount_ {0.0f};
+    f32 max_fade_ {0.0f};
+    Vector3 fade_color_ {};
+    f32 float17C;
+    i32 fade_ticks_ {0};
+    i32 dword184;
 };
 
 check_size(asCamera, 0x18C);
