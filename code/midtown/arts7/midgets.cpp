@@ -487,6 +487,9 @@ void asMidgets::AddVector(const char* arg1, Vector4* arg2, f32 arg3, f32 arg4, f
 
 void asMidgets::Cull()
 {
+    if (midget_count_ == 0)
+        return;
+
     i32 max_lines = visible_lines_;
     i32 text_y = Pipe()->GetHeight() - agiFontHeight * max_lines;
 
@@ -504,6 +507,8 @@ void asMidgets::Cull()
         agiPrintf(0, text_y - (agiFontHeight * 2), CULLMGR->GetTextColor(), "%s | %i/%i", title, current_index_ + 1,
             midget_count_);
     }
+
+    start_index_ = IndexBefore(IndexAfter(current_index_, visible_lines_ / 2), visible_lines_ - 1);
 
     i32 index = start_index_;
 
@@ -834,7 +839,6 @@ void asMidgets::SetCurrentIndex(i32 index)
         return;
 
     current_index_ = index;
-    start_index_ = IndexBefore(IndexAfter(current_index_, visible_lines_ / 2), visible_lines_ - 1);
 }
 
 void asMidgets::PushColumn(i32 /*arg1*/)
