@@ -301,6 +301,22 @@ ARTS_IMPORT extern i32 facadeTriCount;
 // 0x6A8E40 | ?mmCullCityMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmCullCityMetaClass;
 
+struct t_mmEnvSetup
+{
+    const char* Sky;
+    const char* SphereMap;
+    const char* ShadowMap;
+    f32 dwordC;
+    f32 dword10;
+    f32 FogEnd;
+    u32 SkyColor;
+    f32 dword1C;
+    f32 dword20;
+    f32 dword24;
+};
+
+check_size(t_mmEnvSetup, 0x28);
+
 // 0x63E260 | ?mmEnvSetup@@3PAY03Ut_mmEnvSetup@@A
 ARTS_IMPORT extern struct t_mmEnvSetup mmEnvSetup[4][4];
 

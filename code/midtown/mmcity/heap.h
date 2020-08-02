@@ -24,5 +24,14 @@
     0x4955C0 | void __cdecl mmHeapError(void) | ?mmHeapError@@YAXXZ
 */
 
+template <typename T>
+class mmHeap
+{
+    u8* HeapBase;
+    u8* HeapEnd;
+    u8* HeapHead;
+    u8* HeapTop;
+};
+
 // 0x4955C0 | ?mmHeapError@@YAXXZ
 ARTS_IMPORT void mmHeapError();

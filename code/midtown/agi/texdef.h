@@ -105,6 +105,13 @@ public:
     u8 Flags {0};
     u8 LOD {0};
     u8 MaxLOD {0};
+
+    // 0x1 | Mipmap?
+    // 0x2 | SphereMap? No alpha when using additive blending?
+    // 0x4 | ShadowMap?
+    // 0x8 | ?
+    // 0x40 | WOMFACE, MANFACE, 37_INSIDE
+    // 0x80 | R_STOP, T_1WAY, ...
     u32 Flags2 {0};
     f32 dword28 {0.0f};
     u32 DayColor {0};
@@ -182,6 +189,11 @@ public:
     i32 GetHeight() const
     {
         return surface_->Height;
+    }
+
+    agiTexParameters& GetParams()
+    {
+        return tex_;
     }
 
 protected:

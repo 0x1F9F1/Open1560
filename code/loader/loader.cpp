@@ -405,7 +405,7 @@ include_dummy_symbol(agi_texlib);
 // include_dummy_symbol(agiworld_bone);
 // include_dummy_symbol(agiworld_getmesh);
 // include_dummy_symbol(agiworld_getmodel);
-// include_dummy_symbol(agiworld_meshlight);
+include_dummy_symbol(agiworld_meshlight);
 // include_dummy_symbol(agiworld_meshload);
 // include_dummy_symbol(agiworld_meshmodel);
 // include_dummy_symbol(agiworld_meshrend);
@@ -585,9 +585,9 @@ include_dummy_symbol(memory_valloc);
 
 // include_dummy_symbol(mmcity_anim);
 // include_dummy_symbol(mmcity_cellrend);
-// include_dummy_symbol(mmcity_cullcity);
-// include_dummy_symbol(mmcity_heap);
-// include_dummy_symbol(mmcity_inst);
+include_dummy_symbol(mmcity_cullcity);
+include_dummy_symbol(mmcity_heap);
+include_dummy_symbol(mmcity_inst);
 // include_dummy_symbol(mmcity_instchn);
 include_dummy_symbol(mmcity_loader);
 // include_dummy_symbol(mmcity_ped);
@@ -642,14 +642,14 @@ include_dummy_symbol(mmcityinfo_state);
 
 // include_dummy_symbol(mmeffects_birth);
 // include_dummy_symbol(mmeffects_card2d);
-// include_dummy_symbol(mmeffects_damage);
+include_dummy_symbol(mmeffects_damage);
 // include_dummy_symbol(mmeffects_linespark);
 // include_dummy_symbol(mmeffects_meshform);
 // include_dummy_symbol(mmeffects_mmnumber);
 include_dummy_symbol(mmeffects_mmtext);
 // include_dummy_symbol(mmeffects_mousesteerbar);
 // include_dummy_symbol(mmeffects_ptx);
-// include_dummy_symbol(mmeffects_vehform);
+include_dummy_symbol(mmeffects_vehform);
 
 // include_dummy_symbol(mmgame_cd);
 // include_dummy_symbol(mmgame_dash);

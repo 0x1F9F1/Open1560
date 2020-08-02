@@ -33,18 +33,22 @@
 
 #include "arts7/node.h"
 
+#include "damage.h"
+
+class agiMeshSet;
+
 class mmVehicleForm final : public asNode
 {
     // const mmVehicleForm::`vftable' @ 0x6207A0
 
 public:
     // 0x5026B0 | ??0mmVehicleForm@@QAE@XZ
-    ARTS_IMPORT mmVehicleForm();
+    ARTS_EXPORT mmVehicleForm();
 
     // 0x49C440 | ??_EmmVehicleForm@@UAEPAXI@Z
     // 0x502900 | ??_GmmVehicleForm@@UAEPAXI@Z | unused
     // 0x49C4A0 | ??1mmVehicleForm@@UAE@XZ | inline
-    ARTS_IMPORT ~mmVehicleForm() override;
+    ARTS_EXPORT ~mmVehicleForm() override;
 
     // 0x5027A0 | ?Cull@mmVehicleForm@@UAEXXZ
     ARTS_IMPORT void Cull() override;
@@ -53,7 +57,7 @@ public:
     ARTS_IMPORT void SetShape(char* arg1, char* arg2, char* arg3, class Vector3* arg4);
 
     // 0x502780 | ?Update@mmVehicleForm@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // 0x64A348 | ?Lighter@mmVehicleForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
     ARTS_IMPORT static void (*Lighter)(u8*, u32*, u32*, class agiMeshSet*);
@@ -61,7 +65,13 @@ public:
     // 0x719610 | ?SphMapTex@mmVehicleForm@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* SphMapTex;
 
-    u8 gap20[0x34];
+private:
+    agiMeshSet* vehicle_mesh_ {nullptr};
+    agiMeshSet* shadow_mesh_ {nullptr};
+    u32 draw_color_ {0};
+    i32* color_pointer {nullptr};
+    i32 color_index_ {0};
+    mmDamage damage_ {};
 };
 
 check_size(mmVehicleForm, 0x54);

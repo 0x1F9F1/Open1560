@@ -133,6 +133,10 @@
 
 #include "data7/base.h"
 
+#include "heap.h"
+
+class mmBoundTemplate;
+
 class mmInstance : public Base
 {
     // const mmInstance::`vftable' @ 0x61CFC8
@@ -238,8 +242,17 @@ public:
     // 0x7056F8 | ?MeshSetSetCount@mmInstance@@2HA
     ARTS_IMPORT static i32 MeshSetSetCount;
 
+    struct MeshSetTableEntry
+    {
+        agiMeshSet* VLow;
+        agiMeshSet* Low;
+        agiMeshSet* Medium;
+        agiMeshSet* High;
+        mmBoundTemplate* Bound;
+    };
+
     // 0x6F1538 | ?MeshSetTable@mmInstance@@2PAUMeshSetTableEntry@1@A
-    ARTS_IMPORT static struct mmInstance::MeshSetTableEntry MeshSetTable[4096];
+    ARTS_IMPORT static struct MeshSetTableEntry MeshSetTable[4096];
 
     // 0x705560 | ?ShowLights@mmInstance@@2HA
     ARTS_IMPORT static i32 ShowLights;
@@ -251,6 +264,51 @@ public:
 };
 
 check_size(mmInstance, 0x14);
+
+class mmMatrixInstance : public mmInstance
+{
+    // const mmMatrixInstance::`vftable' @ 0x61D0B8
+
+public:
+    // 0x493400 | ??0mmMatrixInstance@@QAE@XZ
+    ARTS_IMPORT mmMatrixInstance();
+
+    // 0x4953A0 | ??_EmmMatrixInstance@@UAEPAXI@Z
+    // 0x493430 | ??1mmMatrixInstance@@UAE@XZ
+    ARTS_IMPORT ~mmMatrixInstance() override = default;
+
+    // 0x4935B0 | ?Hit@mmMatrixInstance@@UAEXPAVmmInstance@@@Z
+    ARTS_EXPORT virtual void Hit(class mmInstance* arg1);
+
+    // 0x4935D0 | ?AddWidgets@mmMatrixInstance@@UAEXPAVBank@@@Z
+    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+
+    // 0x493440 | ?FromMatrix@mmMatrixInstance@@UAIXABVMatrix34@@@Z
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+
+    // 0x494CF0 | ?GetClass@mmMatrixInstance@@UAEPAVMetaClass@@XZ
+    ARTS_IMPORT class MetaClass* GetClass() override;
+
+    // 0x493470 | ?GetPos@mmMatrixInstance@@UAIAAVVector3@@XZ
+    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
+
+    // 0x493480 | ?Init@mmMatrixInstance@@QAEHPADAAVVector3@@11H0@Z
+    ARTS_IMPORT i32 Init(
+        char* arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4, i32 arg5, char* arg6);
+
+    // 0x4935C0 | ?SizeOf@mmMatrixInstance@@UAEIXZ
+    ARTS_IMPORT u32 SizeOf() override;
+
+    // 0x493460 | ?ToMatrix@mmMatrixInstance@@UAIAAVMatrix34@@AAV2@@Z
+    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+
+    // 0x494B70 | ?DeclareFields@mmMatrixInstance@@SAXXZ
+    ARTS_IMPORT static void DeclareFields();
+
+    u8 gap14[0x30];
+};
+
+check_size(mmMatrixInstance, 0x44);
 
 class mmShearInstance final : public mmMatrixInstance
 {
@@ -395,51 +453,6 @@ public:
 };
 
 check_size(mmYInstance, 0x2C);
-
-class mmMatrixInstance : public mmInstance
-{
-    // const mmMatrixInstance::`vftable' @ 0x61D0B8
-
-public:
-    // 0x493400 | ??0mmMatrixInstance@@QAE@XZ
-    ARTS_IMPORT mmMatrixInstance();
-
-    // 0x4953A0 | ??_EmmMatrixInstance@@UAEPAXI@Z
-    // 0x493430 | ??1mmMatrixInstance@@UAE@XZ
-    ARTS_IMPORT ~mmMatrixInstance() override = default;
-
-    // 0x4935B0 | ?Hit@mmMatrixInstance@@UAEXPAVmmInstance@@@Z
-    ARTS_EXPORT virtual void Hit(class mmInstance* arg1);
-
-    // 0x4935D0 | ?AddWidgets@mmMatrixInstance@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
-
-    // 0x493440 | ?FromMatrix@mmMatrixInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
-
-    // 0x494CF0 | ?GetClass@mmMatrixInstance@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
-
-    // 0x493470 | ?GetPos@mmMatrixInstance@@UAIAAVVector3@@XZ
-    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
-
-    // 0x493480 | ?Init@mmMatrixInstance@@QAEHPADAAVVector3@@11H0@Z
-    ARTS_IMPORT i32 Init(
-        char* arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4, i32 arg5, char* arg6);
-
-    // 0x4935C0 | ?SizeOf@mmMatrixInstance@@UAEIXZ
-    ARTS_IMPORT u32 SizeOf() override;
-
-    // 0x493460 | ?ToMatrix@mmMatrixInstance@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
-
-    // 0x494B70 | ?DeclareFields@mmMatrixInstance@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
-
-    u8 gap14[0x30];
-};
-
-check_size(mmMatrixInstance, 0x44);
 
 class mmStaticInstance : public mmYInstance
 {

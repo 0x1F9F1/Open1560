@@ -19,3 +19,48 @@
 define_dummy_symbol(mmeffects_vehform);
 
 #include "vehform.h"
+
+#include "agi/texdef.h"
+#include "agiworld/texsort.h"
+#include "arts7/cullmgr.h"
+#include "mmcity/cullcity.h"
+
+static mem::cmd_param PARAM_menu_refl {"menurefl"};
+
+mmVehicleForm::mmVehicleForm()
+    : color_pointer(&color_index_)
+{
+    if (SphMapTex)
+    {
+        SphMapTex->AddRef();
+    }
+    else
+    {
+        if (PARAM_menu_refl.get_or<bool>(true))
+        {
+            t_mmEnvSetup* env = &mmEnvSetup[1][0];
+
+            SphMapTex = GetPackedTexture(const_cast<char*>(env->SphereMap), 0);
+
+            if (SphMapTex)
+                SphMapTex->GetParams().Flags2 |= 0x2; // TODO: What is this flag for?
+        }
+    }
+}
+
+mmVehicleForm::~mmVehicleForm()
+{
+    if (SphMapTex)
+    {
+        if (SphMapTex->Release() == 0)
+            SphMapTex = nullptr;
+    }
+}
+
+void mmVehicleForm::Update()
+{
+    if (vehicle_mesh_ && shadow_mesh_)
+    {
+        CULLMGR->DeclareCullable(this);
+    }
+}

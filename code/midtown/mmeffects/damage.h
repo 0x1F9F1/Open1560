@@ -28,6 +28,8 @@
     0x502470 | public: void __thiscall mmDamage::Apply(class Vector3 &,float) | ?Apply@mmDamage@@QAEXAAVVector3@@M@Z
 */
 
+class agiMeshSet;
+
 struct mmDamage
 {
 public:
@@ -46,7 +48,10 @@ public:
     // 0x502420 | ?Reset@mmDamage@@QAEXH@Z
     ARTS_IMPORT void Reset(i32 arg1);
 
-    u8 gap0[0x20];
+private:
+    agiMeshSet* mesh_ {nullptr};
+    u8* surfaces_ {nullptr}; // agiMeshSet::TextureIndices
+    i8 remap_[24];
 };
 
 check_size(mmDamage, 0x20);
