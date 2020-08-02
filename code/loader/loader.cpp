@@ -318,6 +318,10 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         patch_jmp("sfPointer::Update", "Enable cursor in windowed mode", 0x4BDAA4, jump_type::never);
 
+        patch_jmp("PolarCamCS", "No Collision", 0x4FAFF4, jump_type::always);
+
+        create_patch("PolarCamCS", "Increase Max XCAM Distance", 0x620340, "\x00\x00\x7A\x43", 4);
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();
