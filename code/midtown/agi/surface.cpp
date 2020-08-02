@@ -22,7 +22,7 @@ define_dummy_symbol(agi_surface);
 
 #include <emmintrin.h>
 
-// #define COPYROW_PREMULTIPLY_ALPHA
+#define COPYROW_PREMULTIPLY_ALPHA
 
 // 0x55AAE0 | ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
 ARTS_IMPORT /*static*/ void RescaleJpeg(u32 arg1, u32 arg2, u8* arg3, struct jpeg_decompress_struct& arg4);
