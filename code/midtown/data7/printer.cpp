@@ -26,6 +26,7 @@ define_dummy_symbol(data7_printer);
 #include "core/platform.h"
 
 #include "machname.h"
+#include "memory/stack.h"
 
 void Displayf(ARTS_FORMAT_STRING char const* format, ...)
 {
@@ -169,6 +170,8 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
 
     if (level >= 3)
     {
+        StackTraceback(16);
+
         if (IsDebuggerPresent())
         {
             ArDebugBreak();
