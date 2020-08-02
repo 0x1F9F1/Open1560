@@ -453,6 +453,10 @@
         "agiRefreshable"
     ],
     "agiLighter": [],
+    "agiMeshModel": [
+        "agiMeshSet"
+    ],
+    "agiMeshSet": [],
     "agiMonoLighter": [
         "agiLighter"
     ],

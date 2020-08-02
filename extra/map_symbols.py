@@ -1950,6 +1950,8 @@ class_hier = compute_hierarchy(class_hier, {
 
     'mmFacadeBangerInstance': ['mmBangerInstance'],
     'mmGlassBangerInstance': ['mmBangerInstance'],
+
+    'agiMeshModel': ['agiMeshSet'],
 }, {
     'Timer',
     'Callback'

@@ -129,6 +129,7 @@
     "agiD3DTexLut",
     "agiD3DViewport",
     "agiDDBitmap",
+    "agiMeshModel",
     "agiMonoLighter",
     "agiRGBLighter",
     "agiSWBitmap",

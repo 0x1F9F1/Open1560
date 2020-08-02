@@ -29,7 +29,9 @@
     0x5145C0 | public: __thiscall agiLitAnimation::agiLitAnimation(class agiMeshModel *,class bnAnimation *,class Stream *) | ??0agiLitAnimation@@QAE@PAVagiMeshModel@@PAVbnAnimation@@PAVStream@@@Z
 */
 
-class agiMeshModel
+#include "meshset.h"
+
+class agiMeshModel final : public agiMeshSet
 {
 public:
     // 0x5142B0 | ?ModelDraw@agiMeshModel@@QAEHIPAVagiLitAnimation@@H@Z
@@ -48,7 +50,7 @@ public:
     // 0x5141B0 | ?ModelGeometry@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
     ARTS_IMPORT i32 ModelGeometry(u32 arg1, class bnAnimation* arg2, i32 arg3);
 
-    u8 gap0[0xA8];
+    u8 gap64[0x44];
 };
 
 check_size(agiMeshModel, 0xA8);
