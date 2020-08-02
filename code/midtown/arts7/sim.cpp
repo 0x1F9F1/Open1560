@@ -20,9 +20,14 @@ define_dummy_symbol(arts7_sim);
 
 #include "sim.h"
 
+#include "agi/mtllib.h"
+#include "agi/physlib.h"
+#include "agi/texlib.h"
+#include "cullmgr.h"
 #include "data7/metadefine.h"
 #include "eventq7/key_codes.h"
 #include "midgets.h"
+#include "stream/vfsystem.h"
 
 void InitBank(i32 /*arg1*/, char** /*arg2*/)
 {}
@@ -87,3 +92,31 @@ const char* asNode::VerifyTree()
 
 META_DEFINE_CHILD("asSimulation", asSimulation, asNode)
 {}
+
+asSimulation::~asSimulation()
+{
+    ARTSPTR = nullptr;
+
+    if (MIDGETSPTR)
+        delete MIDGETSPTR;
+
+    if (CULLMGR)
+    {
+        delete CULLMGR;
+        CULLMGR = nullptr;
+    }
+
+    delete[] vector_colors_;
+    delete[] vector_ends_;
+    delete[] vector_starts_;
+
+    agiMtlLib.Kill();
+    agiTexLib.Kill();
+    agiPhysLib.Kill();
+
+    if (VFS)
+    {
+        delete VFS;
+        VFS = nullptr;
+    }
+}

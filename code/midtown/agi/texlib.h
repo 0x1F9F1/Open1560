@@ -28,6 +28,8 @@
 
 #include "agilib.h"
 
+#include "texdef.h"
+
 #if 0
 class agiLib<class agiTexParameters, class agiTexDef>
 {

@@ -89,7 +89,7 @@ public:
 
     // 0x523750 | ??_EasSimulation@@UAEPAXI@Z
     // 0x521A60 | ??1asSimulation@@UAE@XZ
-    ARTS_IMPORT ~asSimulation() override;
+    ARTS_EXPORT ~asSimulation() override;
 
     // 0x522FD0 | ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

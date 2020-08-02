@@ -279,8 +279,12 @@ agiTexDef::~agiTexDef()
         if (tex_.LOD)
             index += tex_.LOD - 1;
 
-        if (index)
-            *agiTexLib.GetDef(index) = nullptr;
+        if (agiTexDef** def = agiTexLib.GetDef(index); *def)
+        {
+            ArAssert(*def == this, "TexLib def mismatch");
+            Displayf("Texture '%s' (%i/%i) still in TexLib", tex_.Name, tex_.LOD, tex_.MaxLOD);
+            *def = nullptr;
+        }
     }
 }
 

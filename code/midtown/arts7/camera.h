@@ -61,10 +61,10 @@
 #include "node.h"
 
 #include "data7/callback.h"
+#include "vector7/matrix34.h"
 #include "vector7/vector2.h"
 #include "vector7/vector3.h"
 #include "vector7/vector4.h"
-#include "vector7/matrix34.h"
 
 class agiViewport;
 class agiLightModel;

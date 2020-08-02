@@ -28,6 +28,8 @@
 
 #include "agilib.h"
 
+#include "physdef.h"
+
 #if 0
 class agiLib<class agiPhysParameters, class agiPhysDef>
 {

@@ -27,6 +27,8 @@
 
 #include "agilib.h"
 
+#include "mtldef.h"
+
 #if 0
 class agiLib<class agiMtlParameters, class agiMtlDef>
 {

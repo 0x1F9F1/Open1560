@@ -51,6 +51,8 @@ public:
 
     void Kill()
     {
+        lookup_.Kill();
+
         while (count_)
         {
             --count_;
@@ -60,12 +62,10 @@ public:
 
             if (Def* def = defs_[count_])
             {
-                def->Release();
                 defs_[count_] = nullptr;
+                def->Release();
             }
         }
-
-        lookup_.Kill();
     }
 
     i32 Lookup(const char* name)
@@ -142,14 +142,13 @@ public:
 
     Param* GetParam(i32 index)
     {
-        ArAssert(index > 0 && index - 1 < count_, "Invalid index");
+        ArAssert(index > 0 && index <= count_, "Invalid index");
         return params_[index - 1];
     }
 
     Def** GetDef(i32 index)
     {
-        // NOTE: <= to allow access during Kill()
-        ArAssert(index > 0 && index - 1 <= count_, "Invalid index");
+        ArAssert(index > 0 && index <= count_, "Invalid index");
         return &defs_[index - 1];
     }
 

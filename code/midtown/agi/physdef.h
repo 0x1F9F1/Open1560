@@ -38,3 +38,12 @@ public:
 };
 
 check_size(agiPhysParameters, 0x58);
+
+class agiPhysDef
+{
+public:
+    agiPhysDef() = delete;
+
+    void Release()
+    {}
+};
