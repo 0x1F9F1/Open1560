@@ -130,15 +130,24 @@ static mem::cmd_param PARAM_affinity {"affinity"};
 
 void Application(i32 argc, char** argv)
 {
-    dxiIcon = 111;
-
-    if (u32 affinity = 0; PARAM_affinity.get(affinity) && affinity)
-    {
-        SetProcessAffinityMask(GetCurrentProcess(), affinity);
-    }
-
     EXCEPTION_BEGIN
     {
+        dxiIcon = 111;
+
+        u32 affinity = PARAM_affinity.get_or<u32>(0x1);
+
+        if (affinity)
+        {
+            Displayf("SetProcessAffinityMask = 0x%X", affinity);
+
+            SetProcessAffinityMask(GetCurrentProcess(), affinity);
+        }
+
+        if (affinity == 0 || (affinity & (affinity - 1)) != 0)
+        {
+            Warningf("Running with multiple threads. Here be dragons");
+        }
+
         ApplicationHelper(argc, argv);
     }
     EXCEPTION_END

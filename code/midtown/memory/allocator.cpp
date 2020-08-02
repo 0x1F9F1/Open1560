@@ -192,6 +192,54 @@ static ARTS_FORCEINLINE u32 GetBucketIndex(u32 size) noexcept
 #endif
 }
 
+static inline void ARTS_FASTCALL HexDump16(char (&buffer)[65], const u8* data)
+{
+    static constexpr const char HexCharTable[16 + 1] = "0123456789ABCDEF";
+
+    for (u32 i = 0; i < 16; ++i)
+    {
+        u8 v;
+
+        __try
+        {
+            v = data[i];
+        }
+        __except (EXCEPTION_EXECUTE_HANDLER)
+        {
+            v = 0;
+        }
+
+        u32 const j = (i * 3);
+
+        buffer[j + 0] = HexCharTable[v >> 4];
+        buffer[j + 1] = HexCharTable[v & 0xF];
+        buffer[j + 2] = ' ';
+
+        buffer[i + 48] = (v >= 0x20 && v < 0x7F) ? v : '.';
+    }
+
+    buffer[64] = '\0';
+}
+
+static ARTS_NOINLINE b32 ARTS_FASTCALL HeapAssert(void* address, const char* message, i32 source = 0)
+{
+    char address_string[128];
+
+    LookupAddress(address_string, std::size(address_string), usize(source));
+    Errorf("Heap node @ 0x%08X: %s (allocated by %s).", reinterpret_cast<usize>(address), message, address_string);
+
+    char hex_string[65];
+    const u8* current = reinterpret_cast<const u8*>(address) - 64;
+
+    for (u32 pending = 144; pending != 0; pending -= 16, current += 16)
+    {
+        HexDump16(hex_string, current);
+        Displayf((pending != 80) ? " %08X : %s" : "[%08X]: %s", reinterpret_cast<usize>(current), hex_string);
+    }
+
+    return true;
+}
+
 // NOTE: Don't hook this
 asMemoryAllocator::asMemoryAllocator() = default;
 
@@ -215,6 +263,8 @@ void* asMemoryAllocator::Allocate(u32 size, void* caller)
 
     Verify(nullptr);
 
+    Lock();
+
     u32 asize = AlignSize(size);
 
     FreeNode* n = nullptr;
@@ -233,7 +283,8 @@ void* asMemoryAllocator::Allocate(u32 size, void* caller)
 
     if (n)
     {
-        ArAssert(!n->IsAllocated(), "Node not free");
+        if (n->IsAllocated())
+            HeapAssert(n, "Not Free");
 
         u32 split_size = n->Size - asize;
 
@@ -293,6 +344,8 @@ void* asMemoryAllocator::Allocate(u32 size, void* caller)
         result += Node::DebugLowerGuardSize;
     }
 
+    Unlock();
+
     return result;
 }
 
@@ -317,6 +370,8 @@ void asMemoryAllocator::Free(void* ptr)
         return;
 
     Verify(ptr);
+
+    Lock();
 
     FreeNode* n = static_cast<FreeNode*>(Node::From(ptr, debug_));
 
@@ -357,6 +412,8 @@ void asMemoryAllocator::Free(void* ptr)
 
         Link(n);
     }
+
+    Unlock();
 }
 
 void asMemoryAllocator::GetStats(asMemStats* stats)
@@ -366,6 +423,8 @@ void asMemoryAllocator::GetStats(asMemStats* stats)
 
 void asMemoryAllocator::GetStats(struct asMemStats* stats, struct asMemSource* sources, usize* num_sources)
 {
+    Lock();
+
     usize max_sources = (debug_ && sources && num_sources) ? *num_sources : 0;
     usize cur_sources = 0;
 
@@ -439,6 +498,8 @@ void asMemoryAllocator::GetStats(struct asMemStats* stats, struct asMemSource* s
 
         *num_sources = cur_sources;
     }
+
+    Unlock();
 }
 
 void asMemoryAllocator::Init(void* heap, u32 heap_size, b32 use_nodes)
@@ -510,58 +571,12 @@ void* asMemoryAllocator::Reallocate(void* ptr, u32 size, void* caller)
     return new_ptr;
 }
 
-static inline void ARTS_FASTCALL HexDump16(char (&buffer)[65], const u8* data)
-{
-    static constexpr const char HexCharTable[16 + 1] = "0123456789ABCDEF";
-
-    for (u32 i = 0; i < 16; ++i)
-    {
-        u8 v;
-
-        __try
-        {
-            v = data[i];
-        }
-        __except (EXCEPTION_EXECUTE_HANDLER)
-        {
-            v = 0;
-        }
-
-        u32 const j = (i * 3);
-
-        buffer[j + 0] = HexCharTable[v >> 4];
-        buffer[j + 1] = HexCharTable[v & 0xF];
-        buffer[j + 2] = ' ';
-
-        buffer[i + 48] = (v >= 0x20 && v < 0x7F) ? v : '.';
-    }
-
-    buffer[64] = '\0';
-}
-
-static ARTS_NOINLINE b32 ARTS_FASTCALL HeapAssert(void* address, const char* message, i32 source = 0)
-{
-    char address_string[128];
-
-    LookupAddress(address_string, std::size(address_string), usize(source));
-    Errorf("Heap node @ 0x%08X: %s (allocated by %s).", reinterpret_cast<usize>(address), message, address_string);
-
-    char hex_string[65];
-    const u8* current = reinterpret_cast<const u8*>(address) - 64;
-
-    for (u32 pending = 144; pending != 0; pending -= 16, current += 16)
-    {
-        HexDump16(hex_string, current);
-        Displayf((pending != 80) ? " %08X : %s" : "[%08X]: %s", reinterpret_cast<usize>(current), hex_string);
-    }
-
-    return true;
-}
-
 void asMemoryAllocator::SanityCheck()
 {
     if (!initialized_)
         return;
+
+    Lock();
 
     u8* const heap = heap_;
 
@@ -576,71 +591,82 @@ void asMemoryAllocator::SanityCheck()
     usize total = 0;
     usize total_used = 0;
 
-    for (Node* n = reinterpret_cast<Node*>(heap); n->GetData() < heap_end; last = n, n = n->GetNext())
+    EXCEPTION_BEGIN
     {
-        u32 source = 0;
-
-        if (debug_ && n->IsAllocated())
+        for (Node* n = reinterpret_cast<Node*>(heap); n->GetData() < heap_end; last = n, n = n->GetNext())
         {
-            source = n->GetAllocSource();
+            u32 source = 0;
 
-            if (!n->CheckLowerGuard())
-                is_invalid |= HeapAssert(n->GetData(), "Lower Guard Word", source);
+            if (debug_ && n->IsAllocated())
+            {
+                source = n->GetAllocSource();
 
-            if (!n->CheckUpperGuard())
-                is_invalid |= HeapAssert(n->GetData(), "Upper Guard Word", source);
+                if (!n->CheckLowerGuard())
+                    is_invalid |= HeapAssert(n->GetData(), "Lower Guard Word", source);
+
+                if (!n->CheckUpperGuard())
+                    is_invalid |= HeapAssert(n->GetData(), "Upper Guard Word", source);
+            }
+
+            if (n->GetPrev() != last)
+                is_invalid |= HeapAssert(n, "Linked List", source);
+
+            if (n->IsPendingSanity())
+                is_invalid |= HeapAssert(n, "Pending Sanity Check", source);
+
+            if (n->IsAllocated())
+                ++total_used;
+            else
+                n->SetPendingSanity(true);
+
+            ++total;
         }
 
-        if (n->GetPrev() != last)
-            is_invalid |= HeapAssert(n, "Linked List", source);
+        if (is_invalid)
+            Abortf("Memory Allocator Corrupted");
 
-        if (n->IsPendingSanity())
-            is_invalid |= HeapAssert(n, "Pending Sanity Check", source);
+        ArAssert(last == last_, "Memory Allocator Corrupted");
 
-        if (n->IsAllocated())
-            ++total_used;
-        else
-            n->SetPendingSanity(true);
+        if (last)
+            ArAssert(reinterpret_cast<u8*>(last->GetNext()) == heap_end, "Memory Allocator Corrupted");
 
-        ++total;
-    }
+        usize total_free = 0;
 
-    if (is_invalid)
-        Abortf("Memory Allocator Corrupted");
-
-    ArAssert(last == last_, "Memory Allocator Corrupted");
-
-    if (last)
-        ArAssert(reinterpret_cast<u8*>(last->GetNext()) == heap_end, "Memory Allocator Corrupted");
-
-    usize total_free = 0;
-
-    for (usize i = 3; i < 32; ++i)
-    {
-        for (FreeNode *n = buckets_[i], *prev_free = nullptr; n; prev_free = n, n = n->NextFree)
+        for (usize i = 3; i < 32; ++i)
         {
-            if (n->PrevFree != prev_free)
-                is_invalid |= HeapAssert(n, "Invalid Prev Node");
+            for (FreeNode *n = buckets_[i], *prev_free = nullptr; n; prev_free = n, n = n->NextFree)
+            {
+                if (n->PrevFree != prev_free)
+                    is_invalid |= HeapAssert(n, "Invalid Prev Node");
 
-            if (!n->IsPendingSanity())
-                is_invalid |= HeapAssert(n, "Missing Sanity Check");
+                if (!n->IsPendingSanity())
+                    is_invalid |= HeapAssert(n, "Missing Sanity Check");
 
-            n->SetPendingSanity(false);
+                n->SetPendingSanity(false);
 
-            ++total_free;
+                ++total_free;
+            }
         }
+
+        for (Node* n = reinterpret_cast<Node*>(heap); n->GetData() < heap_end; n = n->GetNext())
+            ArAssert(!n->IsPendingSanity(), "Pending Sanity Check");
+
+        ArAssert(total_used + total_free == total, "Mismatched Node Count");
+
+        // Displayf("Sanity Checked %u nodes (%u used, %u free)", total, total_used, total_free);
+    }
+    EXCEPTION_END
+    {
+        Abortf("Fatal error occured while sanity checking");
     }
 
-    for (Node* n = reinterpret_cast<Node*>(heap); n->GetData() < heap_end; n = n->GetNext())
-        ArAssert(!n->IsPendingSanity(), "Pending Sanity Check");
-
-    ArAssert(total_used + total_free == total, "Mismatched Node Count");
-
-    // Displayf("Sanity Checked %u nodes (%u used, %u free)", total, total_used, total_free);
+    Unlock();
 }
 
 void asMemoryAllocator::DumpStats()
 {
+    Lock();
+
     SanityCheck();
 
     asMemStats stats;
@@ -676,6 +702,8 @@ void asMemoryAllocator::DumpStats()
             Warningf("%-80s: Used: 0x%08X KB, Waste: 0x%08X KB", address_string, source.cbUsed, source.cbOverhead);
         }
     }
+
+    Unlock();
 }
 
 usize asMemoryAllocator::SizeOf(void* ptr)
@@ -746,3 +774,18 @@ void asMemoryAllocator::Verify(void* ptr)
         }
     }
 }
+
+static CRITICAL_SECTION AllocLock;
+
+void asMemoryAllocator::Lock()
+{
+    // TODO: Make lock per-allocator
+    EnterCriticalSection(&AllocLock);
+}
+
+void asMemoryAllocator::Unlock()
+{
+    LeaveCriticalSection(&AllocLock);
+}
+
+run_once([] { InitializeCriticalSectionAndSpinCount(&AllocLock, 2000); });

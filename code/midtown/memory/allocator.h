@@ -127,6 +127,9 @@ private:
     // 0x520F00 | ?Verify@asMemoryAllocator@@AAEXPAX@Z
     ARTS_EXPORT void Verify(void* ptr);
 
+    void Lock();
+    void Unlock();
+
     b32 initialized_ {false};
     b32 debug_ {false};
     u8* heap_ {nullptr};

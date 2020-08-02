@@ -83,7 +83,7 @@ public:
     // 0x556170 | ?Save@agiTexParameters@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Save(class Stream* file);
 
-    char Name[32];
+    char Name[32] {};
 
     enum : u8
     {
