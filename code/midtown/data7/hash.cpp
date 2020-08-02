@@ -34,8 +34,8 @@ void HashTable::operator=(class HashTable& other)
 
 void* HashTable::Access(const char* key)
 {
-    if (buckets_ == nullptr && bucket_count_ != 0)
-        Init(bucket_count_);
+    if (buckets_ == nullptr)
+        return nullptr;
 
     for (HashEntry* i = buckets_[Hash(key)]; i; i = i->Next)
     {
@@ -88,8 +88,13 @@ void HashTable::Init(i32 bucket_count)
 
 b32 HashTable::Insert(const char* key, void* value)
 {
-    if (buckets_ == nullptr && bucket_count_ != 0)
+    if (buckets_ == nullptr)
+    {
+        if (bucket_count_ == 0)
+            return false;
+
         Init(bucket_count_);
+    }
 
     u32 bucket = Hash(key);
 
@@ -166,6 +171,8 @@ u32 HashTable::Hash(const char* key)
         if (u32 upper = hash & 0xF0000000)
             hash ^= upper ^ (upper >> 24);
     }
+
+    ArDebugAssert(bucket_count_ != 0, "Cannot hash on an empty table");
 
     return hash % bucket_count_;
 }
