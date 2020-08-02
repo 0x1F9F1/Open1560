@@ -81,7 +81,7 @@ public:
     void Key(i32 key, [[maybe_unused]] i32 flags) override
     {
         if (key == EQ_VK_RETURN)
-            CB.Call(nullptr);
+            CB.Call();
     }
 
     // 0x527C20 | ?Update@BMI@@UAEHH@Z | inline
@@ -170,7 +170,7 @@ public:
                 *Value = *Value == 0;
             }
 
-            CB.Call(nullptr);
+            CB.Call();
         }
     }
 
@@ -213,21 +213,27 @@ public:
 
     void Key(i32 key, i32 flags) override
     {
-        f32 step = (key == EQ_VK_NUMPAD4) ? -ValueStep : (key == EQ_VK_NUMPAD6) ? ValueStep : 0.0f;
-
-        if (flags & EQ_KMOD_CTRL)
-            step *= 10.0f;
-
-        *Value = static_cast<T>(*Value + step);
-
-        if (key == 'Z')
+        if (key == EQ_VK_Z)
+        {
             *Value = 0;
+        }
+        else
+        {
+            f32 step = (key == EQ_VK_NUMPAD4) ? -ValueStep : (key == EQ_VK_NUMPAD6) ? ValueStep : 0.0f;
+
+            if (step == 0.0f)
+                return;
+
+            if (flags & EQ_KMOD_CTRL)
+                step *= 10.0f;
+
+            *Value = static_cast<T>(*Value + step);
+        }
 
         if (!(flags & EQ_KMOD_ALT))
             *Value = std::clamp(*Value, ValueMin, ValueMax);
 
-        if (step != 0.0f)
-            CB.Call(nullptr);
+        CB.Call();
     }
 
     T* Value;
@@ -504,8 +510,8 @@ void asMidgets::Cull()
             arts_strcat(title, node_name);
         }
 
-        agiPrintf(0, text_y - (agiFontHeight * 2), CULLMGR->GetTextColor(), "%s | %i/%i", title, current_index_ + 1,
-            midget_count_);
+        agiPrintf(0, text_y - (agiFontHeight * 2), CULLMGR->GetTextColor(), "%s %p | %i/%i", title, current_node_,
+            current_index_ + 1, midget_count_);
     }
 
     start_index_ = IndexBefore(IndexAfter(current_index_, visible_lines_ / 2), visible_lines_ - 1);

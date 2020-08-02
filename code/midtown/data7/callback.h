@@ -82,7 +82,7 @@ public:
     ARTS_EXPORT constexpr Callback(Member2 func, class Base* this_ptr, void* param1, void* param2) noexcept;
 
     // 0x579450 | ?Call@Callback@@QAEXPAX@Z
-    ARTS_EXPORT void Call(void* param);
+    ARTS_EXPORT void Call(void* param = nullptr);
 
 private:
     i32 type_ {CB_TYPE_NONE};
