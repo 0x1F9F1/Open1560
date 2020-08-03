@@ -833,7 +833,7 @@ struct RecursiveTicketLock
 
 static RecursiveTicketLock AllocLock;
 
-#ifdef ARTS_DEBUG
+#ifndef ARTS_FINAL
 static DWORD MainThreadId = GetCurrentThreadId();
 static u32 AllocTraces[64];
 static u32 NumAllocTraces = 0;
@@ -844,7 +844,7 @@ void asMemoryAllocator::Lock()
     // TODO: Make lock per-allocator
     AllocLock.lock();
 
-#ifdef ARTS_DEBUG
+#ifndef ARTS_FINAL
     if (u32 thread_id = GetCurrentThreadId(); thread_id != MainThreadId)
     {
         i32 frames[8];
