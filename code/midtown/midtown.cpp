@@ -138,14 +138,14 @@ void Application(i32 argc, char** argv)
 
         if (affinity)
         {
-            Displayf("SetProcessAffinityMask = 0x%X", affinity);
+            Displayf("SetProcessAffinityMask(0x%X)", affinity);
 
             SetProcessAffinityMask(GetCurrentProcess(), affinity);
         }
 
         if (affinity == 0 || (affinity & (affinity - 1)) != 0)
         {
-            Warningf("Running with multiple threads. Here be dragons");
+            Warningf("Running with multiple threads. Here be dragons (Recommend using -sync)");
         }
 
         ApplicationHelper(argc, argv);

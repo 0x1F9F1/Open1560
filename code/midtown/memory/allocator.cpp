@@ -775,17 +775,109 @@ void asMemoryAllocator::Verify(void* ptr)
     }
 }
 
-static CRITICAL_SECTION AllocLock;
+#include <atomic>
+
+struct RecursiveTicketLock
+{
+    std::atomic<u32> next_ticket {0};
+    std::atomic<u32> now_serving {0};
+    std::atomic<u32> thread_id {0};
+    u32 lock_count {0};
+
+    void lock()
+    {
+        if (u32 my_thread_id = GetCurrentThreadId(); my_thread_id != thread_id.load(std::memory_order_acquire))
+        {
+            u32 my_ticket = next_ticket.fetch_add(1, std::memory_order_acq_rel);
+
+            while (true)
+            {
+                u32 serving = now_serving.load(std::memory_order_acquire);
+
+                if (serving == my_ticket)
+                    break;
+
+                if (u32 delay_slots = my_ticket - serving; delay_slots > 2)
+                {
+                    ArDebugAssert(serving < my_ticket, "Ticket lock corrupt");
+
+                    Sleep(0);
+                }
+                else
+                {
+                    delay_slots <<= 4;
+
+                    do
+                    {
+                        _mm_pause();
+                    } while (--delay_slots);
+                }
+            }
+
+            thread_id.store(my_thread_id, std::memory_order_relaxed);
+        }
+
+        ++lock_count;
+    }
+
+    void unlock()
+    {
+        if (--lock_count == 0)
+        {
+            thread_id.store(0, std::memory_order_relaxed);
+            now_serving.fetch_add(1, std::memory_order_release);
+        }
+    }
+};
+
+static RecursiveTicketLock AllocLock;
+
+#ifdef ARTS_DEBUG
+static DWORD MainThreadId = GetCurrentThreadId();
+static u32 AllocTraces[64];
+static u32 NumAllocTraces = 0;
+#endif
 
 void asMemoryAllocator::Lock()
 {
     // TODO: Make lock per-allocator
-    EnterCriticalSection(&AllocLock);
+    AllocLock.lock();
+
+#ifdef ARTS_DEBUG
+    if (u32 thread_id = GetCurrentThreadId(); thread_id != MainThreadId)
+    {
+        i32 frames[8];
+        i32 num_frames =
+            DoStackTraceback(std::size(frames), reinterpret_cast<i32*>(_AddressOfReturnAddress()) - 1, frames, 2);
+
+        u32 hash = 0x811C9DC5;
+
+        for (i32 i = 0; i < num_frames; ++i)
+            hash = (hash ^ frames[i]) * 0x01000193;
+
+        bool found = false;
+
+        for (u32 i = 0; i < NumAllocTraces; ++i)
+        {
+            if (AllocTraces[i] == hash)
+            {
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            ArAssert(NumAllocTraces < std::size(AllocTraces), "Too many traces");
+            AllocTraces[NumAllocTraces++] = hash;
+            Displayf("Allocation from non-main thread %x (processor %u)", thread_id, GetCurrentProcessorNumber());
+            DumpStackTraceback(frames, num_frames);
+        }
+    }
+#endif
 }
 
 void asMemoryAllocator::Unlock()
 {
-    LeaveCriticalSection(&AllocLock);
+    AllocLock.unlock();
 }
-
-run_once([] { InitializeCriticalSectionAndSpinCount(&AllocLock, 2000); });

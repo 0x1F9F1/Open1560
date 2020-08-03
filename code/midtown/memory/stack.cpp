@@ -186,6 +186,32 @@ void DoStackTraceback(i32 depth, i32* frame)
     }
 }
 
+i32 DoStackTraceback(i32 depth, i32* frame, i32* frames, i32 skipped)
+{
+    i32 count = 0;
+
+    __try
+    {
+        while (count < depth)
+        {
+            i32 ret_addr = frame[1];
+            frame = *reinterpret_cast<i32**>(frame);
+
+            if (ret_addr <= 0)
+                break;
+
+            if (skipped)
+                --skipped;
+            else
+                frames[count++] = ret_addr;
+        }
+    }
+    __except (EXCEPTION_EXECUTE_HANDLER)
+    {}
+
+    return count;
+}
+
 static bool DbgHelpLoaded = false;
 
 void LookupAddress(char* buffer, usize buflen, usize address)
