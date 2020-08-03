@@ -140,9 +140,11 @@ void asPerfGraph::Cull()
                 verts[2] = blank;
                 verts[3] = blank;
 
+                i32 offset = x_offset + (scroll_ ? total : i);
+
                 // FIXME: This half pixel offset shouldn't be required.
-                verts[3].x = verts[0].x = static_cast<f32>(x_offset + i) - 0.5f;
-                verts[1].x = verts[2].x = static_cast<f32>(x_offset + i + 1) - 0.5f;
+                verts[3].x = verts[0].x = static_cast<f32>(offset) - 0.5f;
+                verts[1].x = verts[2].x = static_cast<f32>(offset + 1) - 0.5f;
                 verts[1].y = verts[0].y = static_cast<f32>(line_top) - 0.5f;
                 verts[3].y = verts[2].y = static_cast<f32>(line_bottom) - 0.5f;
 
@@ -228,6 +230,7 @@ void asPerfGraph::Key(i32 vkey)
         case EQ_VK_F2: graph_scale_ *= 0.5f; break;
         case EQ_VK_F3: graph_scale_ *= 2.0f; break;
         case EQ_VK_F4: maim_component_ = (maim_component_ + 1) % num_components_; break;
+        case EQ_VK_F5: scroll_ ^= true; break;
     }
 }
 
