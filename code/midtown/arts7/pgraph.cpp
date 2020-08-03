@@ -185,15 +185,24 @@ void asPerfGraph::Cull()
     agiCurState.SetAlphaEnable(alpha);
     agiCurState.SetTexFilter(filter);
 
-    for (f32 height = 0.0f, step = std::clamp<f32>(std::round(max_height * 0.1f), 1.0f, 5.0f); height <= max_height;)
+    for (i32 height = 0, step = std::clamp<i32>(static_cast<i32>(std::round(max_height * 0.05f)), 1, 5),
+             prev = pipe_height;
+         height <= max_height;)
     {
         height += step;
 
         i32 line_top = pipe_height - static_cast<i32>(height * scale) - 1;
 
+        if (line_top < 0)
+            break;
+
         Pipe()->ClearRect(x_offset, line_top, pipe_width - x_offset, 1, 0);
 
-        agiPrintf(x_offset - (agiFontWidth * 2), line_top, 0xFFFFFFFF, "%2.f", height);
+        if (line_top + agiFontHeight <= prev)
+        {
+            agiPrintf(x_offset - (agiFontWidth * 2), line_top, 0xFFFFFFFF, "%2i", height);
+            prev = line_top;
+        }
     }
 
     i32 text_y = 0;
@@ -218,8 +227,8 @@ void asPerfGraph::Cull()
         agiPrintf(0, text_y, 0xFFFFFFFF, "   %5.2f Max", max_height);
         text_y += agiFontHeight;
 
-        auto_scale_ = (auto_scale_ * 0.99f) +
-            ((std::min<f32>(240.0f, Pipe()->GetWidth() * 0.25f) / std::round(avg_height)) * 0.01f);
+        auto_scale_ =
+            (auto_scale_ * 0.99f) + ((std::min<f32>(240.0f, pipe_width * 0.25f) / std::round(avg_height)) * 0.01f);
     }
 }
 
