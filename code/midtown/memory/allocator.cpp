@@ -657,7 +657,7 @@ void asMemoryAllocator::SanityCheck()
     }
     EXCEPTION_END
     {
-        Abortf("Fatal error occured while sanity checking");
+        Abortf("Exception caught during sanity check");
     }
 
     Unlock();

@@ -39,6 +39,8 @@ asPerfGraph::asPerfGraph()
 
     PGRAPH = this;
 
+    num_samples_ = std::min<i32>((Pipe()->GetWidth() * 3) / 4, 960);
+
     AddComponent("Overhead", &PerfGraphOverhead, {0.5f, 0.5f, 0.5f});
 }
 
@@ -56,7 +58,7 @@ void asPerfGraph::AddComponent(const char* name, f32* value, const Vector3& colo
 {
     ArAssert(num_components_ < MaxComponents, "Too many components");
 
-    component_history_[num_components_] = new f32[Pipe()->GetWidth()] {};
+    component_history_[num_components_] = new f32[num_samples_] {};
     component_name_[num_components_] = name;
     component_value_[num_components_] = value;
     component_color_[num_components_] = agiRgba {
@@ -83,25 +85,34 @@ void asPerfGraph::Cull()
 
     u16 count = 0;
 
+    i32 pipe_width = Pipe()->GetWidth();
+    i32 pipe_height = Pipe()->GetHeight();
+
+    i32 x_offset = pipe_width - num_samples_;
+
+    f32 max_height = 0.0f;
+    f32 total_height = 0.0f;
+    i32 total = 0;
+
+    f32 scale = graph_scale_ * auto_scale_;
+
     for (i32 i = read_index_; i != write_index_;)
     {
-        if (++i == Pipe()->GetWidth())
+        if (++i == num_samples_)
             i = 0;
 
         f32 height = 0.0f;
 
         for (i32 j = 0, k = maim_component_; j < num_components_; ++j)
         {
-            i32 line_bottom = Pipe()->GetHeight() - static_cast<i32>(height * graph_scale_) - 1;
+            i32 line_bottom = pipe_height - static_cast<i32>(height * scale) - 1;
             height += component_history_[k][i];
-            i32 line_top = Pipe()->GetHeight() - static_cast<i32>(height * graph_scale_) - 1;
+            i32 line_top = pipe_height - static_cast<i32>(height * scale) - 1;
 
             if (line_bottom >= 0)
             {
                 if (line_top < 0)
                     line_top = 0;
-
-                // Pipe()->ClearRect(i, line_top, 1, line_bottom - line_top, component_color_[k]);
 
                 if (count == buf_size)
                 {
@@ -130,8 +141,8 @@ void asPerfGraph::Cull()
                 verts[3] = blank;
 
                 // FIXME: This half pixel offset shouldn't be required.
-                verts[3].x = verts[0].x = static_cast<f32>(i) - 0.5f;
-                verts[1].x = verts[2].x = static_cast<f32>(i + 1) - 0.5f;
+                verts[3].x = verts[0].x = static_cast<f32>(x_offset + i) - 0.5f;
+                verts[1].x = verts[2].x = static_cast<f32>(x_offset + i + 1) - 0.5f;
                 verts[1].y = verts[0].y = static_cast<f32>(line_top) - 0.5f;
                 verts[3].y = verts[2].y = static_cast<f32>(line_bottom) - 0.5f;
 
@@ -150,6 +161,12 @@ void asPerfGraph::Cull()
             if (++k == num_components_)
                 k = 0;
         }
+
+        if (height > max_height)
+            max_height = height;
+
+        total_height += height;
+        ++total;
     }
 
     if (count)
@@ -166,20 +183,41 @@ void asPerfGraph::Cull()
     agiCurState.SetAlphaEnable(alpha);
     agiCurState.SetTexFilter(filter);
 
-    for (i32 i = 0; i < num_components_; ++i)
+    for (f32 height = 0.0f, step = std::clamp<f32>(std::round(max_height * 0.1f), 1.0f, 5.0f); height <= max_height;)
     {
-        agiPrintf(
-            0, agiFontHeight * i, 0xFFFFFFFF, "   %5.2f %s", component_history_[i][write_index_], component_name_[i]);
+        height += step;
 
-        Pipe()->ClearRect(0, agiFontHeight * i, agiFontWidth * 2, agiFontHeight,
-            Pipe()->GetHiColorModel()->GetColor(component_color_[i]));
+        i32 line_top = pipe_height - static_cast<i32>(height * scale) - 1;
+
+        Pipe()->ClearRect(x_offset, line_top, pipe_width - x_offset, 1, 0);
+
+        agiPrintf(x_offset - (agiFontWidth * 2), line_top, 0xFFFFFFFF, "%2.f", height);
     }
 
-    for (f32 height = 0.0f; height <= 100.0f; height += 10.0f)
-    {
-        i32 line_top = Pipe()->GetHeight() - static_cast<i32>(height * graph_scale_) - 1;
+    i32 text_y = 0;
 
-        Pipe()->ClearRect(0, line_top, Pipe()->GetWidth(), 1, 0);
+    for (i32 i = 0; i < num_components_; ++i)
+    {
+        agiPrintf(0, text_y, 0xFFFFFFFF, "   %5.2f %s", component_history_[i][write_index_], component_name_[i]);
+
+        Pipe()->ClearRect(
+            0, text_y, agiFontWidth * 2, agiFontHeight, Pipe()->GetHiColorModel()->GetColor(component_color_[i]));
+
+        text_y += agiFontHeight;
+    }
+
+    if (total)
+    {
+        f32 avg_height = total_height / total;
+
+        agiPrintf(0, text_y, 0xFFFFFFFF, "   %5.2f Avg", avg_height);
+        text_y += agiFontHeight;
+
+        agiPrintf(0, text_y, 0xFFFFFFFF, "   %5.2f Max", max_height);
+        text_y += agiFontHeight;
+
+        auto_scale_ = (auto_scale_ * 0.99f) +
+            ((std::min<f32>(240.0f, Pipe()->GetWidth() * 0.25f) / std::round(avg_height)) * 0.01f);
     }
 }
 
@@ -195,12 +233,12 @@ void asPerfGraph::Key(i32 vkey)
 
 void asPerfGraph::Update()
 {
-    if (++write_index_ == Pipe()->GetWidth())
+    if (++write_index_ == num_samples_)
         write_index_ = 0;
 
     if (read_index_ == write_index_)
     {
-        if (++read_index_ == Pipe()->GetWidth())
+        if (++read_index_ == num_samples_)
             read_index_ = 0;
     }
 

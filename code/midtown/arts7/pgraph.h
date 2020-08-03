@@ -67,9 +67,12 @@ private:
     f32 graph_scale_ {1.0f};
     i32 write_index_ {0};
     i32 read_index_ {0};
+
+    f32 auto_scale_ {0.0f};
+    i32 num_samples_ {0};
 };
 
-check_size(asPerfGraph, 0x94);
+// check_size(asPerfGraph, 0x94);
 
 // 0x790984 | ?PGRAPH@@3PAVasPerfGraph@@A
 ARTS_IMPORT extern class asPerfGraph* PGRAPH;
