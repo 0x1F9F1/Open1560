@@ -62,7 +62,7 @@ void asPerfGraph::AddComponent(const char* name, f32* value, const Vector3& colo
     component_name_[num_components_] = name;
     component_value_[num_components_] = value;
     component_color_[num_components_] = agiRgba {
-        static_cast<u8>(color.x * 255.0f), static_cast<u8>(color.y * 255.0f), static_cast<u8>(color.z * 255.0f), 0xFF};
+        static_cast<u8>(color.x * 255.0f), static_cast<u8>(color.y * 255.0f), static_cast<u8>(color.z * 255.0f), 0xBB};
 
     ++num_components_;
 }
