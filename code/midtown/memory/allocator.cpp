@@ -793,11 +793,12 @@ struct RecursiveTicketLock
             while (true)
             {
                 u32 serving = now_serving.load(std::memory_order_acquire);
+                u32 delay_slots = my_ticket - serving;
 
-                if (serving == my_ticket)
+                if (delay_slots == 0)
                     break;
 
-                if (u32 delay_slots = my_ticket - serving; delay_slots > 2)
+                if (delay_slots > 2)
                 {
                     ArDebugAssert(serving < my_ticket, "Ticket lock corrupt");
 
