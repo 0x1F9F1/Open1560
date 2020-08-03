@@ -21,46 +21,46 @@ artifacts:
     name: Open1560
     type: zip
 
-# notifications:
-#   - provider: Webhook
-#     url:
-#       secure:
-#         JoaoTiRGqtWDIW93w8MG7MyH8l9eYLgte1hqzo+ITl6yg7iXC/twHIWy2IHA1exnXJztC+njDQ0S8HNff7NM0uh2hYLkjt/6ZwwSULDDiU6mL2Sa9nysguYuKBDyoRqHI4bNA4i5CZ6sowTTuNHWIiphBO03elKdc4NyMWfabzs=
-#     method: POST
-#     on_build_success: true
-#     on_build_failure: true
-#     on_build_status_changed: true
-#     body: >-
-#       {
-#           "username": "The Loaf of Questionable Freshness",
-#           "avatar_url": "https://i.imgur.com/rFiONCa.png",
-#           "embeds": [
-#               {
-#                   "color": {{#passed}}3066993{{/passed}}{{^passed}}15158332{{/passed}},
-#                   "author": {
-#                       "name": "{{projectName}} - Build {{buildVersion}} {{status}}.",
-#                       "url": "{{buildUrl}}"
-#                   },
-#                   "title": "{{commitMessage}}",
-#                   "url": "{{commitUrl}}",
-#                   {{#commitMessageExtended}}"description": "```text\n{{commitMessageExtended}}\n```",{{/commitMessageExtended}}
-#                   "fields": [
-#                       {
-#                           "name": "Commit",
-#                           "value": "[{{commitId}}]({{commitUrl}}) by {{commitAuthorUsername}}",
-#                           "inline": true
-#                       },
-#                       {
-#                           "name": "Branch",
-#                           "value": "[{{branch}}](https://github.com/{{repositoryName}}/tree/{{branch}})",
-#                           "inline": true
-#                       }{{#jobs.0.passed}},
-#                       {
-#                           "name": "Download",
-#                           "value": "[{{jobs.0.artifacts.0.fileName}}]({{jobs.0.artifacts.0.permalink}})",
-#                           "inline": true
-#                       }{{/jobs.0.passed}}
-#                   ]
-#               }
-#           ]
-#       }
+notifications:
+  - provider: Webhook
+    url:
+      secure:
+        JoaoTiRGqtWDIW93w8MG7MyH8l9eYLgte1hqzo+ITl6yg7iXC/twHIWy2IHA1exnXJztC+njDQ0S8HNff7NM0uh2hYLkjt/6ZwwSULDDiU6mL2Sa9nysguYuKBDyoRqHI4bNA4i5CZ6sowTTuNHWIiphBO03elKdc4NyMWfabzs=
+    method: POST
+    on_build_success: true
+    on_build_failure: true
+    on_build_status_changed: true
+    body: >-
+      {
+          "username": "The Loaf of Questionable Freshness",
+          "avatar_url": "https://i.imgur.com/rFiONCa.png",
+          "embeds": [
+              {
+                  "color": {{#passed}}3066993{{/passed}}{{^passed}}15158332{{/passed}},
+                  "author": {
+                      "name": "{{projectName}} - Build {{buildVersion}} {{status}}.",
+                      "url": "{{buildUrl}}"
+                  },
+                  "title": "{{commitMessage}}",
+                  "url": "{{commitUrl}}",
+                  {{#commitMessageExtended}}"description": "```text\n{{commitMessageExtended}}\n```",{{/commitMessageExtended}}
+                  "fields": [
+                      {
+                          "name": "Commit",
+                          "value": "[{{commitId}}]({{commitUrl}}) by {{commitAuthorUsername}}",
+                          "inline": true
+                      },
+                      {
+                          "name": "Branch",
+                          "value": "[{{branch}}](https://github.com/{{repositoryName}}/tree/{{branch}})",
+                          "inline": true
+                      }{{#jobs.0.passed}},
+                      {
+                          "name": "Download",
+                          "value": "[{{jobs.0.artifacts.0.fileName}}]({{jobs.0.artifacts.0.permalink}})",
+                          "inline": true
+                      }{{/jobs.0.passed}}
+                  ]
+              }
+          ]
+      }
