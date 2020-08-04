@@ -261,9 +261,9 @@ void* asMemoryAllocator::Allocate(u32 size, void* caller)
     if (debug_)
         size += Node::DebugGuardOverhead;
 
-    Verify(nullptr);
-
     Lock();
+
+    Verify(nullptr);
 
     u32 asize = AlignSize(size);
 
@@ -283,8 +283,7 @@ void* asMemoryAllocator::Allocate(u32 size, void* caller)
 
     if (n)
     {
-        if (n->IsAllocated())
-            HeapAssert(n, "Not Free");
+        ArAssert(!n->IsAllocated(), "Node not free");
 
         u32 split_size = n->Size - asize;
 
@@ -369,9 +368,9 @@ void asMemoryAllocator::Free(void* ptr)
     if (!ptr || !initialized_)
         return;
 
-    Verify(ptr);
-
     Lock();
+
+    Verify(ptr);
 
     FreeNode* n = static_cast<FreeNode*>(Node::From(ptr, debug_));
 
@@ -532,9 +531,6 @@ void* asMemoryAllocator::Reallocate(void* ptr, u32 size)
 
 void* asMemoryAllocator::Reallocate(void* ptr, u32 size, void* caller)
 {
-    if (initialized_)
-        Verify(ptr);
-
     u32 old_size = 0;
 
     if (ptr)
@@ -764,13 +760,47 @@ void asMemoryAllocator::Verify(void* ptr)
         {
             Node* const n = Node::From(ptr, debug_);
 
-            ArAssert(n->IsAllocated(), "Pointer not allocated");
+            ArAssert(n->IsAllocated(), "Node not allocated");
+
+            b32 is_invalid = false;
+
+            u32 source = 0;
 
             if (debug_)
             {
-                ArAssert(n->CheckLowerGuard(), "Lower guard corrupted");
-                ArAssert(n->CheckUpperGuard(), "Upper guard corrupted");
+                source = n->GetAllocSource();
+
+                if (!n->CheckLowerGuard())
+                    is_invalid |= HeapAssert(n->GetData(), "Lower Guard Word", source);
+
+                if (!n->CheckUpperGuard())
+                    is_invalid |= HeapAssert(n->GetData(), "Upper Guard Word", source);
             }
+
+            if (Node* prev = n->GetPrev())
+            {
+                if (prev->GetNext() != n)
+                    is_invalid |= HeapAssert(n, "Node->Prev->Next != Node", source);
+            }
+            else
+            {
+                if (n != reinterpret_cast<Node*>(heap_))
+                    is_invalid |= HeapAssert(n, "Node->Prev == NULL, but Node != HeapBase", source);
+            }
+
+            if (Node* next = n->GetNext(); n != last_)
+            {
+                if (next->GetPrev() != n)
+                    is_invalid |= HeapAssert(n, "Node->Next->Prev != Node", source);
+            }
+            else
+            {
+                if (next != reinterpret_cast<Node*>(heap_ + heap_offset_))
+                    is_invalid |= HeapAssert(n, "Node == Last, but Node->Next != HeapEnd", source);
+            }
+
+            if (is_invalid)
+                Abortf("Memory allocator node corrupt");
         }
     }
 }
