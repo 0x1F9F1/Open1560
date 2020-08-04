@@ -23,6 +23,8 @@ define_dummy_symbol(arts7_cullmgr);
 #include "agi/print.h"
 #include "data7/metadefine.h"
 #include "dyna7/gfx.h"
+#include "memory/allocator.h"
+#include "memory/stack.h"
 #include "midtown.h"
 #include "pgraph.h"
 
@@ -51,6 +53,33 @@ static void PrintMessages()
     }
 }
 
+static void PrintMemoryUsage()
+{
+    asMemStats stats;
+    asMemSource sources[1024];
+    usize num_sources = std::size(sources);
+    CURHEAP->GetStats(&stats, sources, &num_sources);
+
+    Statsf("%6zu KB Max Size", CURHEAP->GetHeapSize() >> 10);
+    Statsf("%6zu KB Current Size", CURHEAP->GetCurrentTotal() >> 10);
+
+    Statsf("%6zu KB Used", stats.cbUsed >> 10);
+    Statsf("%6zu KB Free", stats.cbFree >> 10);
+    Statsf("%6zu KB Waste", stats.cbOverhead >> 10);
+
+    Statsf("%6zu Nodes (%zu Used/%zu Free)", stats.nTotalNodes, stats.nUsedNodes, stats.nFreeNodes);
+
+    for (usize i = 0; i < std::min<usize>(num_sources, 32); ++i)
+    {
+        asMemSource source = sources[i];
+
+        char symbol[128];
+        LookupAddress(symbol, std::size(symbol), source.uSource);
+
+        Statsf("%5zu KB (%3zu KB waste) - %s", source.cbUsed >> 10, source.cbOverhead >> 10, symbol);
+    }
+}
+
 asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
     : max_cullables_(max_cullables)
     , max_cullables_2D_(max_cullables_2D)
@@ -67,11 +96,12 @@ asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
     AddPage(CFA(PrintPerfGraph));
     AddPage(CFA(PrintRenderPerf));
     AddPage(CFA(PrintMessages));
+    AddPage(CFA(PrintMemoryUsage));
 
     /*PGRAPH = */ new asPerfGraph();
 
-    PGRAPH->AddComponent(const_cast<char*>("3D"), &UpdateTime3D, ColGreen);
-    PGRAPH->AddComponent(const_cast<char*>("2D"), &UpdateTime2D, ColBlue);
+    PGRAPH->AddComponent("3D", &UpdateTime3D, ColGreen);
+    PGRAPH->AddComponent("2D", &UpdateTime2D, ColBlue);
 }
 
 asCullManager::~asCullManager()

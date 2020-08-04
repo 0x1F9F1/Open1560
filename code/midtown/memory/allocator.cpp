@@ -462,9 +462,8 @@ void asMemoryAllocator::GetStats(struct asMemStats* stats, struct asMemSource* s
                 {
                     if (cur_sources < max_sources)
                     {
-                        std::memmove(find + 1, find, ((sources_end + 1) - find) * sizeof(*find));
-                        std::memset(find, 0, sizeof(*find));
-                        find->uSource = source;
+                        std::memmove(find + 1, find, (sources_end - find) * sizeof(*find));
+                        *find = {source};
                         ++cur_sources;
                     }
                     else

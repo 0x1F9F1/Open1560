@@ -114,6 +114,11 @@ public:
         return heap_offset_;
     }
 
+    u32 GetHeapSize() const
+    {
+        return heap_size_;
+    }
+
 private:
     struct Node;
     struct FreeNode;
