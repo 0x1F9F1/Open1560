@@ -31,6 +31,8 @@
 struct List
 {
 public:
+    List() = default;
+
     // 0x57C280 | ??1List@@QAE@XZ
     ARTS_EXPORT ~List();
 

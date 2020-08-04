@@ -474,6 +474,7 @@ void asMemoryAllocator::GetStats(struct asMemStats* stats, struct asMemSource* s
 
                 if (find)
                 {
+                    find->nNodes++;
                     find->cbUsed += size;
                     find->cbOverhead += overhead;
                 }

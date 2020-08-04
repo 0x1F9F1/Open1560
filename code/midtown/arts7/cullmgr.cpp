@@ -69,6 +69,8 @@ static void PrintMemoryUsage()
 
     Statsf("%6zu Nodes (%zu Used/%zu Free)", stats.nTotalNodes, stats.nUsedNodes, stats.nFreeNodes);
 
+    Statsf("Nodes, Used (KB), Waste (KB) | Source");
+
     for (usize i = 0; i < std::min<usize>(num_sources, 32); ++i)
     {
         asMemSource source = sources[i];
@@ -76,7 +78,7 @@ static void PrintMemoryUsage()
         char symbol[128];
         LookupAddress(symbol, std::size(symbol), source.uSource);
 
-        Statsf("%5zu KB (%3zu KB waste) - %s", source.cbUsed >> 10, source.cbOverhead >> 10, symbol);
+        Statsf("%5zu, %5zu, %3zu | %s", source.nNodes, source.cbUsed >> 10, source.cbOverhead >> 10, symbol);
     }
 }
 

@@ -57,6 +57,7 @@ struct asMemSource
     usize uSource {0};
     usize cbUsed {0};
     usize cbOverhead {0};
+    usize nNodes {0};
 };
 
 check_size(asMemStats, 0x18);
@@ -111,6 +112,7 @@ public:
 
     u32 GetCurrentTotal() const
     {
+        // FIXME: Not thread-safe
         return heap_offset_;
     }
 

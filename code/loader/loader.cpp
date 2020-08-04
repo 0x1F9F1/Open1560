@@ -322,6 +322,9 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("PolarCamCS", "Increase Max XCAM Distance", 0x620340, "\x00\x00\x7A\x43", 4);
 
+        create_patch("aiVehicleOpponent::Reset", "Fix List::Clear memory leak", 0x44DE4D, "\x89\xF9\xE8\x3C\xE4\x12\x00\x90\x8B\xD3\x42", 11);
+        create_patch("aiVehiclePolice::Reset", "Fix List::Clear memory leak", 0x44511C, "\x89\xF9\xE8\x6D\x71\x13\x00\x90", 8);
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();
