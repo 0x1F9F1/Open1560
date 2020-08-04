@@ -162,6 +162,29 @@ static void InitMap()
     map_file_view = NULL;
 }
 
+static bool DbgHelpLoaded = false;
+
+static void InitDebugSymbols()
+{
+    if (!MapSymbolsLoaded)
+    {
+        InitMap();
+
+        SymSetOptions(SYMOPT_UNDNAME | SYMOPT_DEFERRED_LOADS);
+        DbgHelpLoaded = SymInitialize(GetCurrentProcess(), NULL, TRUE);
+
+        if (!DbgHelpLoaded)
+        {
+            if (DWORD error = GetLastError(); error == ERROR_INVALID_PARAMETER)
+                DbgHelpLoaded = true;
+            else
+                Errorf("Failed to load debug symbols, error: 0x%08X", error);
+        }
+
+        MapSymbolsLoaded = true;
+    }
+}
+
 void DoStackTraceback(i32 depth, i32* frame)
 {
     while (depth--)
@@ -186,19 +209,19 @@ void DoStackTraceback(i32 depth, i32* frame)
     }
 }
 
-static bool DbgHelpLoaded = false;
+void DumpStackTraceback(i32* frames, i32 count)
+{
+    for (i32 i = 0; i < count; ++i)
+    {
+        char symbol[256];
+        LookupAddress(symbol, std::size(symbol), usize(frames[i]));
+        Displayf("%d. %s", count - i - 1, symbol);
+    }
+}
 
 void LookupAddress(char* buffer, usize buflen, usize address)
 {
-    if (!MapSymbolsLoaded)
-    {
-        InitMap();
-
-        SymSetOptions(SYMOPT_UNDNAME | SYMOPT_DEFERRED_LOADS);
-        DbgHelpLoaded = SymInitialize(GetCurrentProcess(), NULL, TRUE);
-
-        MapSymbolsLoaded = true;
-    }
+    InitDebugSymbols();
 
     if (DbgHelpLoaded)
     {
@@ -251,6 +274,8 @@ void LookupAddress(char* buffer, usize buflen, usize address)
 
 ARTS_NOINLINE i32 StackTraceback(i32 depth, i32* frames, i32 skipped, struct _CONTEXT* context_record)
 {
+    InitDebugSymbols();
+
     STACKFRAME stack_frame {};
 
     stack_frame.AddrPC.Offset = context_record->Eip;
@@ -283,7 +308,7 @@ ARTS_NOINLINE i32 StackTraceback(i32 depth, i32* frames, i32 skipped)
     context.ContextFlags = CONTEXT_FULL;
     RtlCaptureContext(&context);
 
-    return StackTraceback(depth, frames, skipped + 2, &context);
+    return StackTraceback(depth, frames, skipped, &context);
 }
 
 ARTS_NOINLINE void StackTraceback(i32 depth)

@@ -45,7 +45,7 @@ ARTS_IMPORT void DebugLogShutdown();
 ARTS_EXPORT void DoStackTraceback(i32 depth, i32* frame);
 
 // 0x520670 | ?DumpStackTraceback@@YAXPAHH@Z
-ARTS_IMPORT void DumpStackTraceback(i32* arg1, i32 arg2);
+ARTS_EXPORT void DumpStackTraceback(i32* frames, i32 count);
 
 // 0x5205B0 | ?LogStackTraceback@@YAHPAHH@Z
 ARTS_IMPORT i32 LogStackTraceback(i32* arg1, i32 arg2);
