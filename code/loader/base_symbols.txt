@@ -6623,3 +6623,4 @@ _realloc=0x521510
 _srand=0x564AC0
 _vprintf=0x55F390
 _WinMain@16=0x4031A0
+_strdup=0x5A4720

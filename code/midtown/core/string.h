@@ -35,7 +35,7 @@
 #define arts_stricmp _stricmp
 #define arts_strupr _strupr_s
 
-char* arts_strdup(const char* str);
+ARTS_EXPORT char* arts_strdup(const char* str);
 
 class CString
 {

@@ -32,3 +32,4 @@ DirectInputCreateA=0x0
 ?Init@agiSurfaceDesc@@SAPAV1@HHABV1@@Z=?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
 ?ipcSpinUnlock@@YAXPAI@Z=?ipcSpunUnlock@@YAXPAI@Z
 ?AddComponent@asPerfGraph@@QAEXPBDPAMABVVector3@@@Z=?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z
+?arts_strdup@@YAPADPBD@Z=_strdup

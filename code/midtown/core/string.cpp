@@ -18,7 +18,7 @@
 
 #include "string.h"
 
-ARTS_NOINLINE Owner<char*> arts_strdup(const char* str)
+ARTS_EXPORT ARTS_NOINLINE Owner<char*> arts_strdup(const char* str)
 {
     char* ptr = nullptr;
 

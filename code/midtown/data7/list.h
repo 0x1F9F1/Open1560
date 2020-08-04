@@ -53,6 +53,7 @@ private:
 
     i32 size_ {0};
     Entry* first_ {nullptr};
+    i32 dword8_ {0};
 };
 
-check_size(List, 0x8);
+check_size(List, 0xC);
