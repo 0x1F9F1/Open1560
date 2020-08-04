@@ -100,7 +100,7 @@ class mmTextNode final : public asNode
 
 public:
     // 0x4FF450 | ??0mmTextNode@@QAE@XZ
-    ARTS_IMPORT mmTextNode() = default;
+    ARTS_EXPORT mmTextNode();
 
     // 0x426300 | ??_EmmTextNode@@UAEPAXI@Z
     // 0x4FFE70 | ??_GmmTextNode@@UAEPAXI@Z | unused

@@ -70,7 +70,7 @@ public:
 private:
     Matrix34 matrix_ {};
     Matrix34 view_ {};
-    b32 global_ {};
+    i32 global_ {};
     asLinearCS* inherit_ {};
 };
 

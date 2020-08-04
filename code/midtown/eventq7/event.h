@@ -148,7 +148,7 @@ public:
     ARTS_EXPORT virtual void Destroy(void* window);
 
     // 0x5634A0 | ?Activate@eqEventMonitor@@UAEXPAXH@Z
-    ARTS_EXPORT virtual void Activate(void* window, i32 active);
+    ARTS_EXPORT virtual void Activate(void* window, b32 active);
 
     // 0x5634E0 | ?SetWantMotion@eqEventMonitor@@QAEXH@Z | unused
     ARTS_EXPORT void SetWantMotion(i32 enabled);

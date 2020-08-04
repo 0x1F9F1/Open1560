@@ -264,19 +264,19 @@ ARTS_IMPORT void TransformVertNorm(class Vector3& arg1, class Vector3& arg2, cla
     class Vector3& arg4, class Matrix34 const& arg5);
 
 // 0x909450 | ?ORIGIN@@3VVector3@@A
-ARTS_IMPORT class Vector3 ORIGIN;
+ARTS_IMPORT extern class Vector3 ORIGIN;
 
 // 0x90946C | ?Vector3Inst@@3UVector3Type@@A
 // ARTS_IMPORT struct Vector3Type Vector3Inst;
 
 // 0x909460 | ?XAXIS@@3VVector3@@A
-ARTS_IMPORT class Vector3 XAXIS;
+ARTS_IMPORT extern class Vector3 XAXIS;
 
 // 0x909470 | ?YAXIS@@3VVector3@@A
-ARTS_IMPORT class Vector3 YAXIS;
+ARTS_IMPORT extern class Vector3 YAXIS;
 
 // 0x909480 | ?ZAXIS@@3VVector3@@A
-ARTS_IMPORT class Vector3 ZAXIS;
+ARTS_IMPORT extern class Vector3 ZAXIS;
 
 #if 0
 class Vector3Array

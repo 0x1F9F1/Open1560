@@ -833,49 +833,10 @@ struct RecursiveTicketLock
 
 static RecursiveTicketLock AllocLock;
 
-#ifndef ARTS_FINAL
-static DWORD MainThreadId = GetCurrentThreadId();
-static u32 AllocTraces[64];
-static u32 NumAllocTraces = 0;
-#endif
-
 void asMemoryAllocator::Lock()
 {
     // TODO: Make lock per-allocator
     AllocLock.lock();
-
-#ifndef ARTS_FINAL
-    if (u32 thread_id = GetCurrentThreadId(); thread_id != MainThreadId)
-    {
-        i32 frames[8];
-        i32 num_frames =
-            DoStackTraceback(std::size(frames), reinterpret_cast<i32*>(_AddressOfReturnAddress()) - 1, frames, 2);
-
-        u32 hash = 0x811C9DC5;
-
-        for (i32 i = 0; i < num_frames; ++i)
-            hash = (hash ^ frames[i]) * 0x01000193;
-
-        bool found = false;
-
-        for (u32 i = 0; i < NumAllocTraces; ++i)
-        {
-            if (AllocTraces[i] == hash)
-            {
-                found = true;
-                break;
-            }
-        }
-
-        if (!found)
-        {
-            ArAssert(NumAllocTraces < std::size(AllocTraces), "Too many traces");
-            AllocTraces[NumAllocTraces++] = hash;
-            Displayf("Allocation from non-main thread %x (processor %u)", thread_id, GetCurrentProcessorNumber());
-            DumpStackTraceback(frames, num_frames);
-        }
-    }
-#endif
 }
 
 void asMemoryAllocator::Unlock()

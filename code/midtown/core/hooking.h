@@ -100,24 +100,34 @@ struct class_proxy
             return ptr->TYPE::NAME(std::forward<decltype(args)>(args)...);                   \
         }))
 
-#define check_size mem_check_size
-#define define_dummy_symbol mem_define_dummy_symbol
-#define include_dummy_symbol mem_include_dummy_symbol
-#define run_once mem_run_once
+#ifdef ARTS_STANDALONE
+#    define check_size(TYPE, SIZE)
+#    define define_dummy_symbol mem_define_dummy_symbol
+#    define include_dummy_symbol mem_include_dummy_symbol
+#    define run_once(...)
+#    define extern_var(ADDRESS, TYPE, NAME) \
+        TYPE NAME                           \
+        {}
+#else
+#    define check_size mem_check_size
+#    define define_dummy_symbol mem_define_dummy_symbol
+#    define include_dummy_symbol mem_include_dummy_symbol
+#    define run_once mem_run_once
 
 // Custom extern_var to force MSVC to mark the references as constant
-#if defined(_MSC_VER) && !defined(__INTELLISENSE__) && !defined(__clang__)
-#    pragma const_seg(".rdata")
-#    undef extern_var
-#    define extern_var(ADDRESS, TYPE, NAME)                                                  \
-        __declspec(allocate(".rdata")) typename std::add_lvalue_reference<TYPE>::type NAME = \
-            *reinterpret_cast<typename std::add_pointer<TYPE>::type>(usize(ADDRESS));
+#    if defined(_MSC_VER) && !defined(__INTELLISENSE__) && !defined(__clang__)
+#        pragma const_seg(".rdata")
+#        undef extern_var
+#        define extern_var(ADDRESS, TYPE, NAME)                                                  \
+            __declspec(allocate(".rdata")) typename std::add_lvalue_reference<TYPE>::type NAME = \
+                *reinterpret_cast<typename std::add_pointer<TYPE>::type>(usize(ADDRESS));
 // #    define export_hook(ADDRESS) __pragma(comment(linker, "/EXPORT:" __FUNCDNAME__ ":Hook_" #    ADDRESS "=" __FUNCDNAME__))
-#else
+#    else
 // #    define export_hook(ADDRESS)
-#    define extern_var mem_extern_var
-#endif
+#        define extern_var mem_extern_var
+#    endif
 
-#pragma warning(disable : 4505) // unreferenced local function has been removed
-#pragma warning(disable : 4722) // destructor never returns, potential memory leak
-#pragma warning(disable : 4702) // unreachable code
+#    pragma warning(disable : 4505) // unreferenced local function has been removed
+#    pragma warning(disable : 4722) // destructor never returns, potential memory leak
+#    pragma warning(disable : 4702) // unreachable code
+#endif

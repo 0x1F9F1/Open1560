@@ -50,7 +50,7 @@ ARTS_EXPORT i32 agiPrintIs3D();
 ARTS_EXPORT void agiPrintShutdown();
 
 // 0x557E90 | ?agiPrintf@@YAXHHHPBDZZ
-ARTS_EXPORT void agiPrintf(i32 x, i32 y, i32 color, char const* format, ...);
+ARTS_EXPORT void agiPrintf(i32 x, i32 y, i32 color, ARTS_FORMAT_STRING char const* format, ...);
 
 // 0x656C30 | ?CharSet@@3PAEA
 extern const u8 CharSet[768];

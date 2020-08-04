@@ -186,32 +186,6 @@ void DoStackTraceback(i32 depth, i32* frame)
     }
 }
 
-i32 DoStackTraceback(i32 depth, i32* frame, i32* frames, i32 skipped)
-{
-    i32 count = 0;
-
-    __try
-    {
-        while (count < depth)
-        {
-            i32 ret_addr = frame[1];
-            frame = *reinterpret_cast<i32**>(frame);
-
-            if (ret_addr <= 0)
-                break;
-
-            if (skipped)
-                --skipped;
-            else
-                frames[count++] = ret_addr;
-        }
-    }
-    __except (EXCEPTION_EXECUTE_HANDLER)
-    {}
-
-    return count;
-}
-
 static bool DbgHelpLoaded = false;
 
 void LookupAddress(char* buffer, usize buflen, usize address)
@@ -270,16 +244,58 @@ void LookupAddress(char* buffer, usize buflen, usize address)
     arts_sprintf(buffer, buflen, "0x%08X (Unknown)", address);
 }
 
-ARTS_EXPORT void LookupAddress(char* buffer, i32 addr)
+[[deprecated]] ARTS_EXPORT void LookupAddress(char* buffer, i32 addr)
 {
     LookupAddress(buffer, 128, usize(addr));
 }
 
-void StackTraceback(i32 depth)
+ARTS_NOINLINE i32 StackTraceback(i32 depth, i32* frames, i32 skipped, struct _CONTEXT* context_record)
 {
-    i32* frame = reinterpret_cast<i32*>(_AddressOfReturnAddress()) - 1;
+    STACKFRAME stack_frame {};
 
-    DoStackTraceback(depth, frame);
+    stack_frame.AddrPC.Offset = context_record->Eip;
+    stack_frame.AddrPC.Mode = AddrModeFlat;
+    stack_frame.AddrStack.Offset = context_record->Esp;
+    stack_frame.AddrStack.Mode = AddrModeFlat;
+    stack_frame.AddrFrame.Offset = context_record->Ebp;
+    stack_frame.AddrFrame.Mode = AddrModeFlat;
+
+    i32 num_frames = 0;
+
+    while (num_frames < depth)
+    {
+        if (!StackWalk(IMAGE_FILE_MACHINE_I386, GetCurrentProcess(), GetCurrentThread(), &stack_frame, context_record,
+                NULL, NULL, NULL, NULL))
+            break;
+
+        if (skipped)
+            --skipped;
+        else
+            frames[num_frames++] = stack_frame.AddrPC.Offset;
+    }
+
+    return num_frames;
+}
+
+ARTS_NOINLINE i32 StackTraceback(i32 depth, i32* frames, i32 skipped)
+{
+    CONTEXT context {};
+    context.ContextFlags = CONTEXT_FULL;
+    RtlCaptureContext(&context);
+
+    return StackTraceback(depth, frames, skipped + 2, &context);
+}
+
+ARTS_NOINLINE void StackTraceback(i32 depth)
+{
+    StackTraceback(depth, 1);
+}
+
+ARTS_NOINLINE void StackTraceback(i32 depth, i32 skipped)
+{
+    i32 frames[32];
+    i32 num_frames = StackTraceback(std::min(depth, 32), frames, skipped + 1);
+    DumpStackTraceback(frames, num_frames);
 }
 
 static const char* GetExceptionCodeString(DWORD code)
@@ -328,7 +344,17 @@ i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
     Displayf("EAX=%08X EBX=%08X ECX=%08X EDX=%08X", context->Eax, context->Ebx, context->Ecx, context->Edx);
     Displayf("ESI=%08X EDI=%08X EBP=%08X ESP=%08X", context->Esi, context->Edi, context->Ebp, context->Esp);
 
-    DoStackTraceback(16, reinterpret_cast<i32*>(context->Ebp));
+    STACKFRAME stack_frame {};
+    stack_frame.AddrPC.Offset = context->Eip;
+    stack_frame.AddrPC.Mode = AddrModeFlat;
+    stack_frame.AddrStack.Offset = context->Esp;
+    stack_frame.AddrStack.Mode = AddrModeFlat;
+    stack_frame.AddrFrame.Offset = context->Ebp;
+    stack_frame.AddrFrame.Mode = AddrModeFlat;
+
+    i32 frames[16];
+    i32 num_frames = StackTraceback(16, frames, 0, context);
+    DumpStackTraceback(frames, num_frames);
 
     return EXCEPTION_EXECUTE_HANDLER;
 }

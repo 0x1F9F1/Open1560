@@ -53,7 +53,7 @@ eqEventQ::~eqEventQ()
         Queue(EVENT);                                       \
     }
 
-void eqEventQ::Activate(void* window, i32 active)
+void eqEventQ::Activate(void* window, b32 active)
 {
     eqEvent event;
     event.Activate = {{window, eqEventType::Activate}, active};

@@ -170,7 +170,7 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
 
     if (level >= 3)
     {
-        StackTraceback(16);
+        StackTraceback(16, 2);
 
         if (IsDebuggerPresent())
         {

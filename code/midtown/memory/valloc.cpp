@@ -96,6 +96,8 @@ void asSafeHeap::Deactivate()
 {
     if (multi_heap_)
     {
+        // VirtualFree without the MEM_RELEASE flag may free memory but not address descriptors
+        ARTS_MSVC_DIAGNOSTIC_IGNORED(6250);
         VirtualFree(current_heap_, heap_size_, MEM_DECOMMIT);
     }
 

@@ -33,4 +33,5 @@ struct mmTextData
 
 check_size(mmTextData, 0x110);
 
+mmTextNode::mmTextNode() = default;
 mmTextNode::~mmTextNode() = default;

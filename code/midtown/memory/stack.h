@@ -44,8 +44,6 @@ ARTS_IMPORT void DebugLogShutdown();
 // 0x5204C0 | ?DoStackTraceback@@YAXHPAH@Z
 ARTS_EXPORT void DoStackTraceback(i32 depth, i32* frame);
 
-i32 DoStackTraceback(i32 depth, i32* frame, i32* frames, i32 skipped = 0);
-
 // 0x520670 | ?DumpStackTraceback@@YAXPAHH@Z
 ARTS_IMPORT void DumpStackTraceback(i32* arg1, i32 arg2);
 
@@ -57,8 +55,12 @@ void LookupAddress(char* buffer, usize buflen, usize address);
 // 0x520130 | ?LookupAddress@@YAXPADH@Z
 // void LookupAddress(char* buffer, i32 address);
 
+i32 StackTraceback(i32 depth, i32* frames, i32 skipped);
+
 // 0x520590 | ?StackTraceback@@YAXH@Z
 ARTS_EXPORT void StackTraceback(i32 depth);
+
+void StackTraceback(i32 depth, i32 skipped);
 
 i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception);
 

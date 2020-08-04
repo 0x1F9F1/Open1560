@@ -18,6 +18,8 @@
 
 #pragma once
 
+// #define ARTS_STANDALONE
+
 #define DIRECTX_VERSION 0x0500
 
 #define DIRECT3D_VERSION DIRECTX_VERSION

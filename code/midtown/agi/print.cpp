@@ -116,7 +116,7 @@ void agiPrintShutdown()
     return Pipe()->PrintShutdown();
 }
 
-void agiPrintf(i32 x, i32 y, i32 color, char const* format, ...)
+void agiPrintf(i32 x, i32 y, i32 color, ARTS_FORMAT_STRING char const* format, ...)
 {
     if (y >= 0 && y <= Pipe()->GetHeight() - agiFontHeight)
     {

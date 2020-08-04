@@ -69,7 +69,7 @@ usize Stream::GetPagerHandle()
     return 0;
 }
 
-b32 Stream::GetPagingInfo(u32&, u32&, u32&)
+b32 Stream::GetPagingInfo(usize&, u32&, u32&)
 {
     return false;
 }

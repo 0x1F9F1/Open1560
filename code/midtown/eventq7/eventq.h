@@ -124,7 +124,7 @@ public:
     ARTS_EXPORT ~eqEventQ() override;
 
     // 0x563CC0 | ?Activate@eqEventQ@@UAEXPAXH@Z
-    ARTS_EXPORT void Activate(void* window, i32 active) override;
+    ARTS_EXPORT void Activate(void* window, b32 active) override;
 
     // 0x563C80 | ?Destroy@eqEventQ@@UAEXPAX@Z
     ARTS_EXPORT void Destroy(void* window) override;

@@ -22,6 +22,8 @@ define_dummy_symbol(memory_stub);
 
 #include "allocator.h"
 
+ARTS_MSVC_DIAGNOSTIC_IGNORED(28251);
+
 ARTS_NOINLINE void* operator new(std::size_t size)
 {
     return CURHEAP->Allocate(size, ArReturnAddress());

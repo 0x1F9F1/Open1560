@@ -205,7 +205,7 @@ void eqEventMonitor::Destroy(void* window)
     }
 }
 
-void eqEventMonitor::Activate(void* window, i32 active)
+void eqEventMonitor::Activate(void* window, b32 active)
 {
     if (handler_->debug_)
     {

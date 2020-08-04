@@ -52,8 +52,15 @@ static GUID* dxiCurrentInterfaceGUID = nullptr;
 
 void dxiDirectDrawCreate()
 {
-    auto pDirectDrawCreate = reinterpret_cast<decltype(&DirectDrawCreate)>(
-        GetProcAddress(GetModuleHandleA("DDRAW.DLL"), "DirectDrawCreate"));
+    HMODULE ddraw = GetModuleHandleA("DDRAW.DLL");
+
+    if (ddraw == nullptr)
+        Quitf("Failed to find DDRAW.DLL");
+
+    auto pDirectDrawCreate = reinterpret_cast<decltype(&DirectDrawCreate)>(GetProcAddress(ddraw, "DirectDrawCreate"));
+
+    if (pDirectDrawCreate == nullptr)
+        Quitf("Failed to find DirectDrawCreate");
 
     dxiCurrentInterfaceGUID = dxiGetInterfaceGUID();
 
