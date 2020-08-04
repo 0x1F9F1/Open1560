@@ -164,7 +164,7 @@ void asCullManager::PrintMiniStats()
         stats_counter_ = 0;
     }
 
-    Statsf("%5.2f/%5.2f fps (%5.2fms/f)", current_fps_, average_fps_, CurrentFrameTime * 1000.0f);
+    Statsf("%6.2f/%6.2f fps (%5.2fms/f)", current_fps_, average_fps_, CurrentFrameTime * 1000.0f);
 }
 
 void asCullManager::PrintStats()

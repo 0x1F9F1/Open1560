@@ -213,7 +213,7 @@ private:
     i32 updates_;
     i32 dword148;
     i32 first_updated_;
-    i32 is_full_update_;
+    i32 full_updates_;
     i32 dword154;
     f32 dword158;
     f32 inv_real_time_;
