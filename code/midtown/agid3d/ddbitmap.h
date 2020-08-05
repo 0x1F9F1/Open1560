@@ -41,7 +41,7 @@ class agiDDBitmap final : public agiBitmap
 
 public:
     // 0x5339F0 | ??0agiDDBitmap@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiDDBitmap(class agiPipeline* arg1);
+    ARTS_IMPORT agiDDBitmap(class agiPipeline* pipe);
 
     // 0x533D90 | ??_EagiDDBitmap@@UAEPAXI@Z
     // 0x533D90 | ??_GagiDDBitmap@@UAEPAXI@Z

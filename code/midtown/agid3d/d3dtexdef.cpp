@@ -21,7 +21,9 @@ define_dummy_symbol(agid3d_d3dtexdef);
 #include "d3dtexdef.h"
 
 #include "agi/error.h"
+#include "agi/rsys.h"
 #include "dderror.h"
+#include "pcpipe.h"
 #include "pcwindis/setupdata.h"
 #include "vector7/vector2.h"
 
@@ -36,10 +38,36 @@ i32 agiD3DTexDef::BeginGfx()
     if (page_state_ == 0 && cache_handle_ == 0)
         surface_->Reload(tex_.Name, TexSearchPath, tex_.LOD, mip_reduction_, 0, 0, 0);
 
+    if (!NoMultiTexture && agiCurState.GetMaxTextures() > 1 && !std::strncmp(tex_.Name, "SHADMAP", 7))
+    {
+        Displayf("Fixing shadow map '%s' for multitexturing...", tex_.Name);
+
+        ArAssert(surface_->PixelFormat.RGBBitCount == 16, "Invalid SHADMAP Format");
+        ArAssert(surface_->PixelFormat.RGBAlphaBitMask == 0xF000, "Invalid SHADMAP Format");
+
+        u16* surface = static_cast<u16*>(surface_->Surface);
+        i32 surface_bytes = 0;
+
+        for (u32 i = 0; i < surface_->MipMapCount; ++i)
+        {
+            i32 width = surface_->Width >> i;
+            i32 height = surface_->Height >> i;
+
+            surface_bytes += width * height;
+        }
+
+        while (surface_bytes)
+        {
+            --surface_bytes;
+            *surface = ~((*surface >> 12) | (*surface >> 8) | (*surface >> 4));
+            ++surface;
+        }
+    }
+
     surface_size_ =
         surface_->Width * surface_->Height * (surface_->PixelFormat.RGBBitCount + 7) / 8; // Only used for stats
 
-    if (Pipe()->GetMipMapFilterCaps() != 0 && !(tex_.Flags & agiTexParameters::NoMipMaps))
+    if (Pipe()->GetFilterCaps() != 0 && !(tex_.Flags & agiTexParameters::NoMipMaps))
         surface_size_ = (surface_size_ * 4) / 3; // Size of all mipmaps = sum 1/4^n, n=0 to infinity = 4/3
 
     if (tex_.SheetFlags & 0x2 && GetRendererInfo().AdditiveBlending)
@@ -50,7 +78,7 @@ i32 agiD3DTexDef::BeginGfx()
     sd.dwReserved = 0; // lpLut/szLut
 
     // TODO: Shouldn't this use the same checks as surface_size_ ?
-    if (Pipe()->GetMipMapFilterCaps() == 0)
+    if (Pipe()->GetFilterCaps() == 0)
     {
         sd.dwMipMapCount = 0;
         sd.dwFlags &= ~DDSD_MIPMAPCOUNT;
@@ -105,7 +133,7 @@ i32 agiD3DTexDef::BeginGfx()
 
         pdds->Unlock(nullptr);
 
-        if (Pipe()->GetMipMapFilterCaps() == 0)
+        if (Pipe()->GetFilterCaps() == 0)
             break;
 
         ddsd.ddsCaps.dwCaps = DDSCAPS_COMPLEX | DDSCAPS_TEXTURE | DDSCAPS_MIPMAP;
@@ -145,8 +173,8 @@ i32 agiD3DTexDef::BeginGfx()
 
 void agiD3DTexDef::EndGfx()
 {
+    SafeRelease(mem_tex_);
     DD_RELEASE(mem_tex_surf_);
-    DD_RELEASE(mem_tex_); // NOTE: Originally called release directly
     DD_RELEASE(pal_);
 
     SetState(0);

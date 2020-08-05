@@ -72,65 +72,65 @@ class agiD3DPipeline : public agiDDPipeline
 
 public:
     // 0x52FB50 | ??0agiD3DPipeline@@QAE@XZ
-    ARTS_IMPORT agiD3DPipeline();
+    ARTS_EXPORT agiD3DPipeline();
 
     // 0x531590 | ??_GagiD3DPipeline@@UAEPAXI@Z
     // 0x531590 | ??_EagiD3DPipeline@@UAEPAXI@Z
     // 0x5309D0 | ??1agiD3DPipeline@@UAE@XZ
-    ARTS_IMPORT ~agiD3DPipeline() override;
+    ARTS_EXPORT ~agiD3DPipeline() override;
 
     // 0x530A40 | ?BeginFrame@agiD3DPipeline@@UAEXXZ
-    ARTS_IMPORT void BeginFrame() override;
+    ARTS_EXPORT void BeginFrame() override;
 
     // 0x52FB90 | ?BeginGfx@agiD3DPipeline@@UAEHXZ
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // 0x530AF0 | ?BeginScene@agiD3DPipeline@@UAEXXZ
-    ARTS_IMPORT void BeginScene() override;
+    ARTS_EXPORT void BeginScene() override;
 
     // 0x531400 | ?ClearAll@agiD3DPipeline@@UAEXH@Z
-    ARTS_IMPORT void ClearAll(i32 arg1) override;
+    ARTS_EXPORT void ClearAll(i32 color) override;
 
     // 0x531520 | ?CopyBitmap@agiD3DPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
-    ARTS_IMPORT void CopyBitmap(
-        i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7) override;
+    ARTS_EXPORT void CopyBitmap(
+        i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
     // 0x5314C0 | ?CreateBitmap@agiD3DPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_IMPORT class agiBitmap* CreateBitmap() override;
+    ARTS_EXPORT class agiBitmap* CreateBitmap() override;
 
     // 0x5313A0 | ?CreateLight@agiD3DPipeline@@UAEPAVagiLight@@XZ
-    ARTS_IMPORT class agiLight* CreateLight() override;
+    ARTS_EXPORT class agiLight* CreateLight() override;
 
     // 0x531250 | ?CreateMtlDef@agiD3DPipeline@@UAEPAVagiMtlDef@@XZ
-    ARTS_IMPORT class agiMtlDef* CreateMtlDef() override;
+    ARTS_EXPORT class agiMtlDef* CreateMtlDef() override;
 
     // 0x5312B0 | ?CreateTexDef@agiD3DPipeline@@UAEPAVagiTexDef@@XZ
-    ARTS_IMPORT class agiTexDef* CreateTexDef() override;
+    ARTS_EXPORT class agiTexDef* CreateTexDef() override;
 
     // 0x531310 | ?CreateTexLut@agiD3DPipeline@@UAEPAVagiTexLut@@XZ
-    ARTS_IMPORT class agiTexLut* CreateTexLut() override;
+    ARTS_EXPORT class agiTexLut* CreateTexLut() override;
 
     // 0x5311F0 | ?CreateViewport@agiD3DPipeline@@UAEPAVagiViewport@@XZ
-    ARTS_IMPORT class agiViewport* CreateViewport() override;
+    ARTS_EXPORT class agiViewport* CreateViewport() override;
 
     // 0x531580 | ?Defragment@agiD3DPipeline@@UAEXXZ
-    ARTS_IMPORT void Defragment() override;
+    ARTS_EXPORT void Defragment() override;
 
     // 0x530FE0 | ?DumpStatus@agiD3DPipeline@@UAEXAAUagiMemStatus@@@Z
-    ARTS_IMPORT void DumpStatus(struct agiMemStatus& arg1) override;
+    ARTS_EXPORT void DumpStatus(struct agiMemStatus& status) override;
 
     // 0x530BD0 | ?EndFrame@agiD3DPipeline@@UAEXXZ
-    ARTS_IMPORT void EndFrame() override;
+    ARTS_EXPORT void EndFrame() override;
 
     // 0x531100 | ?EndGfx@agiD3DPipeline@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     // 0x530B60 | ?EndScene@agiD3DPipeline@@UAEXXZ
-    ARTS_IMPORT void EndScene() override;
+    ARTS_EXPORT void EndScene() override;
 
-    i32 GetMipMapFilterCaps() const
+    i32 GetFilterCaps() const
     {
-        return mip_map_filter_caps_;
+        return filter_caps_;
     }
 
     DDPIXELFORMAT& GetOpaqueFormat()
@@ -143,7 +143,7 @@ public:
         return alpha_format_;
     }
 
-private:
+protected:
     IDirect3D3* d3d_ {nullptr};
     IDirect3DDevice3* d3d_device_ {nullptr};
     IDirect3DViewport3* d3d_view_ {nullptr};
@@ -151,7 +151,12 @@ private:
     DDPIXELFORMAT opaque_format_ {};
     DDPIXELFORMAT alpha_format_ {};
     b32 is_hardware_ {0};
-    i32 mip_map_filter_caps_ {0};
+
+    // D3DPTFILTERCAPS
+    i32 filter_caps_ {0};
+
+    // 0x1 | POINT
+    // 0x2 | TRILINEAR
     i32 texture_filter_ {0};
     CLSID d3d_guid_ {};
     D3DDEVICEDESC device_desc_ {};
@@ -166,22 +171,22 @@ ARTS_IMPORT i32 ARTS_STDCALL RestoreCallback(
     struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
 
 // 0x530D30 | ?callb@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL callb(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
+ARTS_IMPORT long ARTS_STDCALL callb(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
 
 // 0x795C18 | ?AlphaPalette@@3HA
-ARTS_IMPORT extern i32 AlphaPalette;
+ARTS_IMPORT extern b32 AlphaPalette;
 
 // 0x64E7C8 | ?NoTextureCompression@@3HA
-ARTS_IMPORT extern i32 NoTextureCompression;
+ARTS_IMPORT extern b32 NoTextureCompression;
 
 // 0x795C20 | ?NotIndependentUV@@3HA
-ARTS_IMPORT extern i32 NotIndependentUV;
+ARTS_IMPORT extern b32 NotIndependentUV;
 
 // 0x795C0C | ?SeparateTextureMemories@@3HA
-ARTS_IMPORT extern i32 SeparateTextureMemories;
+ARTS_IMPORT extern b32 SeparateTextureMemories;
 
 // 0x795BD8 | ?agiFOURCC@@3KA
-ARTS_IMPORT extern u32 agiFOURCC;
+ARTS_IMPORT extern ulong agiFOURCC;
 
 // 0x795C14 | ?dummyGlobal@@3IA
 ARTS_IMPORT extern u32 dummyGlobal;

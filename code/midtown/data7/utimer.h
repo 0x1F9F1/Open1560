@@ -26,7 +26,29 @@
 */
 
 // 0x57C4C0 | ?utimer@@YAKXZ
-ARTS_IMPORT u32 utimer();
+ARTS_IMPORT ulong utimer();
 
 // 0x90B4B4 | ?ut2float@@3MA
 ARTS_IMPORT extern f32 ut2float;
+
+struct u_timer
+{
+    u_timer(ulong* total)
+        : start_(utimer())
+        , total_(total)
+    {}
+
+    ~u_timer()
+    {
+        *total_ += utimer() - start_;
+    }
+
+    ulong start_ {0};
+    ulong* const total_ {nullptr};
+};
+
+#define ARTS_TIMED(VAR)                   \
+    u_timer ARTS_CONCAT(timer_, __LINE__) \
+    {                                     \
+        &VAR                              \
+    }

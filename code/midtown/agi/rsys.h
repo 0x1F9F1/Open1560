@@ -108,7 +108,7 @@ enum class agiBlendSet : u8
 enum class agiShadeMode : u8
 {
     Flat = 0,
-    Gouraud = 1,
+    Smooth = 1,
 };
 
 enum class agiCullMode : u8

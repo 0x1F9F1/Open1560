@@ -28,16 +28,6 @@ define_dummy_symbol(agid3d_ddpipe);
 #include "dderror.h"
 #include "pcwindis/dxinit.h"
 
-template <typename T>
-inline void SafeRelease(T*& ptr)
-{
-    if (ptr)
-    {
-        ptr->Release();
-        ptr = nullptr;
-    }
-}
-
 agiDDPipeline::agiDDPipeline()
 {
     // TODO: Use window_ ?

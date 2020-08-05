@@ -102,7 +102,7 @@ public:
         return d_draw_;
     }
 
-private:
+protected:
     IDirectDraw4* d_draw_ {nullptr};
     IDirectDrawClipper* d_clip_ {nullptr};
     IDirectDrawSurface4* d_front_ {nullptr};
@@ -133,4 +133,14 @@ inline DDSURFACEDESC2 ConvertSurfaceDesc(const agiSurfaceDesc& surface)
 inline agiSurfaceDesc ConvertSurfaceDesc(const DDSURFACEDESC2& surface)
 {
     return mem::bit_cast<agiSurfaceDesc>(surface); // FIXME: 64-bit incompatible
+}
+
+template <typename T>
+inline void SafeRelease(T*& ptr)
+{
+    if (ptr)
+    {
+        ptr->Release();
+        ptr = nullptr;
+    }
 }

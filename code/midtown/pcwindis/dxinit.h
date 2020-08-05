@@ -90,6 +90,9 @@ ARTS_EXPORT void dxiWindowCreate(const char* title);
 ARTS_IMPORT extern i32 dxiDepth;
 
 // 0x660F1C | ?dxiFlags@@3HA
+// 0x1 | FullScreen
+// 0x2 | System Memory
+// 0x4 | Single Buffer
 ARTS_IMPORT extern i32 dxiFlags;
 
 inline bool dxiIsFullScreen()

@@ -109,6 +109,10 @@ class agiD3DTexLut final : public agiTexLut
     // const agiD3DTexLut::`vftable' @ 0x620FF8
 
 public:
+    agiD3DTexLut(agiPipeline* pipe)
+        : agiTexLut(pipe)
+    {}
+
     // 0x5315C0 | ??_GagiD3DTexLut@@UAEPAXI@Z
     // 0x5315C0 | ??_EagiD3DTexLut@@UAEPAXI@Z
     // 0x5315F0 | ??1agiD3DTexLut@@UAE@XZ | inline

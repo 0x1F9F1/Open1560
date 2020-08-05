@@ -94,6 +94,17 @@ class agiBitmap;
 class agiColorModel;
 class agiRenderer;
 
+struct agiMemStatus
+{
+    // SYS, AGP, LOCALVID, VID
+    // Probably actually i32[4][3]
+    i32 Texture[4];
+    i32 Buffer[4];
+    i32 Bitmap[4];
+};
+
+check_size(agiMemStatus, 0x30);
+
 class agiPipeline
 {
     // const agiPipeline::`vftable' @ 0x621548
@@ -243,6 +254,11 @@ public:
         return height_;
     }
 
+    i32 GetDepth() const
+    {
+        return bit_depth_;
+    }
+
     bool HaveGfxStarted() const
     {
         return gfx_started_;
@@ -283,17 +299,29 @@ protected:
     i32 width_ {0};
     i32 height_ {0};
     i32 bit_depth_ {0};
+
+    // 0x10 | Enable Z Buffer
+    // 0x100 | Enable TexLut
+    // 0x400 | Ramp Emulation
+    // 0x800 | RGB Emulation
+    // 0x1000 | Direct3D HAL
+    // 0x2000 | MMX Emulation
     i32 device_flags_1_ {0};
     i32 device_flags_2_ {0};
     i32 device_flags_3_ {0};
+
     void* window_ {nullptr};
     i32 horz_res_ {0};
     i32 vert_res_ {0};
-    f32 dword34 {1.0f};
+    f32 scale_ {1.0f};
     u32 dword38 {2};
     u32 light_mask_ {0xFFFFFFFF};
     char gap40[260] {};
-    b32 is_software_ {false};
+
+    // 0x1 | 16-bit
+    // 0x2 | 24-bit
+    // 0x3 | 32-bit
+    i32 valid_bit_depths_ {0};
     agiSurfaceDesc screen_format_ {};
     u8 gap1C4[0xF8] {};
     agiColorModel* hi_color_model_ {nullptr};
@@ -306,6 +334,11 @@ protected:
     i32 max_tex_height_ {0};
     agiRefreshable* objects_ {nullptr};
     b32 gfx_started_ {false};
+
+    // 0x1 | Z Buffer
+    // 0x4 | Hardware
+    // 0x10 | Supports Alpha
+    // 0x20 | Square Textures
     u32 flags_ {0};
     b32 in_scene_ {false};
     i32 scene_count_ {0};
@@ -369,10 +402,10 @@ ARTS_IMPORT extern struct agiStats STATS;
 ARTS_IMPORT extern i32 ZFill;
 
 // 0x8FAC5C | ?agiBeginFrame@@3KA
-ARTS_IMPORT extern u32 agiBeginFrame;
+ARTS_IMPORT extern ulong agiBeginFrame;
 
 // 0x8FACA8 | ?agiBeginScene@@3KA
-ARTS_IMPORT extern u32 agiBeginScene;
+ARTS_IMPORT extern ulong agiBeginScene;
 
 // 0x8FAC70 | ?agiBitmapCount@@3HA
 ARTS_IMPORT extern i32 agiBitmapCount;
@@ -381,43 +414,43 @@ ARTS_IMPORT extern i32 agiBitmapCount;
 ARTS_IMPORT extern i32 agiBitmapPixels;
 
 // 0x8FACD4 | ?agiClearViewport@@3KA
-ARTS_IMPORT extern u32 agiClearViewport;
+ARTS_IMPORT extern ulong agiClearViewport;
 
 // 0x8FACCC | ?agiClipTimer@@3KA
-ARTS_IMPORT extern u32 agiClipTimer;
+ARTS_IMPORT extern ulong agiClipTimer;
 
 // 0x8FAC64 | ?agiCopyBitmap@@3KA
-ARTS_IMPORT extern u32 agiCopyBitmap;
+ARTS_IMPORT extern ulong agiCopyBitmap;
 
 // 0x6565BC | ?agiEnableZBuffer@@3DA
 ARTS_IMPORT extern char agiEnableZBuffer;
 
 // 0x8FAC6C | ?agiEndFrame@@3KA
-ARTS_IMPORT extern u32 agiEndFrame;
+ARTS_IMPORT extern ulong agiEndFrame;
 
 // 0x8FACA4 | ?agiEndScene@@3KA
-ARTS_IMPORT extern u32 agiEndScene;
+ARTS_IMPORT extern ulong agiEndScene;
 
 // 0x8FACD0 | ?agiFirstPass@@3KA
-ARTS_IMPORT extern u32 agiFirstPass;
+ARTS_IMPORT extern ulong agiFirstPass;
 
 // 0x8FACC4 | ?agiInvertTimer@@3KA
-ARTS_IMPORT extern u32 agiInvertTimer;
+ARTS_IMPORT extern ulong agiInvertTimer;
 
 // 0x8FAC60 | ?agiLightTimer@@3KA
-ARTS_IMPORT extern u32 agiLightTimer;
+ARTS_IMPORT extern ulong agiLightTimer;
 
 // 0x8FACB0 | ?agiRasterization@@3KA
-ARTS_IMPORT extern u32 agiRasterization;
+ARTS_IMPORT extern ulong agiRasterization;
 
 // 0x8FACB8 | ?agiSecondPass@@3KA
-ARTS_IMPORT extern u32 agiSecondPass;
+ARTS_IMPORT extern ulong agiSecondPass;
 
 // 0x8FACC8 | ?agiStateChanges@@3KA
-ARTS_IMPORT extern u32 agiStateChanges;
+ARTS_IMPORT extern ulong agiStateChanges;
 
 // 0x8FACBC | ?agiTransformTimer@@3KA
-ARTS_IMPORT extern u32 agiTransformTimer;
+ARTS_IMPORT extern ulong agiTransformTimer;
 
 // 0x8FACA0 | ?agiTraverseTimer@@3KA
-ARTS_IMPORT extern u32 agiTraverseTimer;
+ARTS_IMPORT extern ulong agiTraverseTimer;

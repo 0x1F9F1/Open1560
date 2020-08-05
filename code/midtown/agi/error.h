@@ -31,6 +31,8 @@
 #define AGI_ERROR_OBJECT_EMPTY -2
 #define AGI_ERROR_ALREADY_INITIALIZED -3
 #define AGI_ERROR_BAD_FORMAT -4
+#define AGI_ERROR_NO_DEVICE -7
+#define AGI_ERROR_UNSUPPORTED -8
 
 // 0x55BE80 | ?agiDisplayf@@YAXPBDZZ
 ARTS_EXPORT void agiDisplayf(ARTS_FORMAT_STRING char const* format, ...);
