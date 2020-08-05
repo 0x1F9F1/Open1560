@@ -443,6 +443,10 @@ i32 agiD3DPipeline::BeginGfx()
 
     agiDisplayf("Max texture size is %d by %d", max_tex_width_, max_tex_height_);
 
+#ifndef ARTS_MULTI_TEXTURE
+    NoMultiTexture = true;
+#endif
+
     if (hwcaps.dwDevCaps & D3DDEVCAPS_SEPARATETEXTUREMEMORIES)
     {
         agiDisplayf("Separate texture memories (probably a voodoo!)");
