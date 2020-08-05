@@ -92,7 +92,8 @@ ARTS_IMPORT extern i32 dxiDepth;
 // 0x660F1C | ?dxiFlags@@3HA
 // 0x1 | FullScreen
 // 0x2 | System Memory
-// 0x4 | Single Buffer
+// 0x4 | Double Buffer
+// 0x8 | Triple Buffer
 ARTS_IMPORT extern i32 dxiFlags;
 
 inline bool dxiIsFullScreen()
