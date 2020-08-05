@@ -39,11 +39,21 @@
     0x903190 | int AnnotateTextures | ?AnnotateTextures@@3HA
 */
 
+class agiTexParameters;
+
 struct agiColorKey // DDCOLORKEY
 {
     u32 Low {0};
     u32 High {0};
 };
+
+#define AGIPF_ALPHAPIXELS 0x00000001l
+#define AGIPF_ALPHA 0x00000002l
+#define AGIPF_FOURCC 0x00000004l
+#define AGIPF_PALETTEINDEXED4 0x00000008l
+#define AGIPF_PALETTEINDEXEDTO8 0x00000010l
+#define AGIPF_PALETTEINDEXED8 0x00000020l
+#define AGIPF_RGB 0x00000040l
 
 struct agiPixelFormat // DDPIXELFORMAT
 {
@@ -81,6 +91,8 @@ class agiSurfaceDesc // DDSURFACEDESC2
 public:
     // 0x55B180 | ?CopyFrom@agiSurfaceDesc@@QAEXPAV1@H@Z
     ARTS_EXPORT void CopyFrom(agiSurfaceDesc* src, i32 lod);
+
+    void CopyFrom(agiSurfaceDesc* src, i32 lod, agiTexParameters* params);
 
     // 0x55ADE0 | ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
     ARTS_IMPORT void Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class Stream* arg5, i32 arg6, i32 arg7);

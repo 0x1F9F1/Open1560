@@ -42,50 +42,64 @@
 
 #include "agi/texdef.h"
 
+#include "d3dpipe.h"
+
 class agiD3DTexDef final : public agiTexDef
 {
     // const agiD3DTexDef::`vftable' @ 0x621090
 
 public:
     // 0x5319A0 | ??0agiD3DTexDef@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiD3DTexDef(class agiPipeline* arg1);
+    ARTS_EXPORT agiD3DTexDef(class agiPipeline* pipe)
+        : agiTexDef(pipe)
+    {}
 
     // 0x532060 | ??_EagiD3DTexDef@@UAEPAXI@Z
     // 0x532060 | ??_GagiD3DTexDef@@UAEPAXI@Z
     // 0x5319D0 | ??1agiD3DTexDef@@UAE@XZ
-    ARTS_IMPORT ~agiD3DTexDef() override = default;
+    ARTS_EXPORT ~agiD3DTexDef() override = default;
 
     // 0x5319E0 | ?BeginGfx@agiD3DTexDef@@UAEHXZ
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // 0x531EF0 | ?EndGfx@agiD3DTexDef@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     // 0x531DA0 | ?GetHandle@agiD3DTexDef@@QAEPAUIDirect3DTexture2@@H@Z
-    ARTS_IMPORT struct IDirect3DTexture2* GetHandle(i32 arg1);
+    ARTS_EXPORT struct IDirect3DTexture2* GetHandle(i32 arg1);
 
     // 0x531F60 | ?IsAvailable@agiD3DTexDef@@UAEHXZ
-    ARTS_IMPORT i32 IsAvailable() override;
+    ARTS_EXPORT b32 IsAvailable() override;
 
     // 0x531E20 | ?Lock@agiD3DTexDef@@UAEHAAUagiTexLock@@@Z
-    ARTS_IMPORT i32 Lock(struct agiTexLock& arg1) override;
+    ARTS_EXPORT b32 Lock(struct agiTexLock& lock) override;
 
     // 0x531D40 | ?Request@agiD3DTexDef@@UAEXXZ
-    ARTS_IMPORT void Request() override;
+    ARTS_EXPORT void Request() override;
 
     // 0x531F90 | ?Restore@agiD3DTexDef@@UAEXXZ
-    ARTS_IMPORT void Restore() override;
+    ARTS_EXPORT void Restore() override;
 
     // 0x531F70 | ?Set@agiD3DTexDef@@UAEXAAVVector2@@0@Z
-    ARTS_IMPORT void Set(class Vector2& arg1, class Vector2& arg2) override;
+    ARTS_EXPORT void Set(class Vector2& arg1, class Vector2& arg2) override;
 
     // 0x531EC0 | ?Unlock@agiD3DTexDef@@UAEXAAUagiTexLock@@@Z
-    ARTS_IMPORT void Unlock(struct agiTexLock& arg1) override;
+    ARTS_EXPORT void Unlock(struct agiTexLock& lock) override;
 
     // 0x52FA90 | ?Prober@agiD3DTexDef@@SAXPAX@Z | agid3d:d3dpipe
-    ARTS_IMPORT static void Prober(void* arg1);
+    ARTS_EXPORT static void Prober(void* arg1);
 
-    u8 gap74[0x14];
+    agiD3DPipeline* Pipe() const
+    {
+        return static_cast<agiD3DPipeline*>(agiRefreshable::Pipe());
+    }
+
+private:
+    i32 probed_ {0};
+    IDirect3DTexture2* mem_tex_ {nullptr};
+    IDirectDrawSurface4* mem_tex_surf_ {nullptr};
+    i32 stage_ {0};
+    IUnknown* pal_ {0};
 };
 
 check_size(agiD3DTexDef, 0x88);
@@ -105,6 +119,9 @@ public:
 
     // 0x532020 | ?EndGfx@agiD3DTexLut@@UAEXXZ
     ARTS_IMPORT void EndGfx() override;
+
+private:
+    IDirectDrawPalette* pal_ {nullptr};
 };
 
 check_size(agiD3DTexLut, 0x420);

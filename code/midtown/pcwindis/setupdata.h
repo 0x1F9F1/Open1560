@@ -58,6 +58,7 @@ struct dxiRendererInfo_t
 
     // 0x2 | TextureQuality = 0, FogDistance = 450
     // 0x4 | PixelFog
+    // 0x4 | NoColorKey
     // 0x8 | agiMeshSet::HalfHeight *= 1.01
     u32 uSpecialFlags;
     char Name[64];

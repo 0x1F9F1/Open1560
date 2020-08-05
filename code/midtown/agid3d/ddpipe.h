@@ -45,6 +45,8 @@
 
 #include "agi/pipeline.h"
 
+#include <ddraw.h>
+
 class agiDDPipeline : public agiPipeline
 {
     // const agiDDPipeline::`vftable' @ 0x6210C0
@@ -95,7 +97,20 @@ public:
     // 0x5328C0 | ?Validate@agiDDPipeline@@UAEHXZ
     ARTS_EXPORT i32 Validate() override;
 
-    u8 gap2F0[0x3C];
+    IDirectDraw4* GetDirectDraw() const
+    {
+        return d_draw_;
+    }
+
+private:
+    IDirectDraw4* d_draw_ {nullptr};
+    IDirectDrawClipper* d_clip_ {nullptr};
+    IDirectDrawSurface4* d_front_ {nullptr};
+    IDirectDrawSurface4* d_back_ {nullptr};
+    IDirectDrawSurface4* d_rend_ {nullptr};
+    IDirectDrawPalette* d_pal_ {nullptr};
+    agiPixelFormat d_pix_format_ {};
+    bool set_rend_palette_ {false};
 };
 
 check_size(agiDDPipeline, 0x32C);

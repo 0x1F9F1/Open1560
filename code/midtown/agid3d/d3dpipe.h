@@ -62,6 +62,10 @@
 
 #include "ddpipe.h"
 
+#include <d3d.h>
+
+class agiRasterizer;
+
 class agiD3DPipeline : public agiDDPipeline
 {
     // const agiD3DPipeline::`vftable' @ 0x620F78
@@ -124,7 +128,35 @@ public:
     // 0x530B60 | ?EndScene@agiD3DPipeline@@UAEXXZ
     ARTS_IMPORT void EndScene() override;
 
-    u8 gap32C[0x170];
+    i32 GetMipMapFilterCaps() const
+    {
+        return mip_map_filter_caps_;
+    }
+
+    DDPIXELFORMAT& GetOpaqueFormat()
+    {
+        return opaque_format_;
+    }
+
+    DDPIXELFORMAT& GetAlphaFormat()
+    {
+        return alpha_format_;
+    }
+
+private:
+    IDirect3D3* d3d_ {nullptr};
+    IDirect3DDevice3* d3d_device_ {nullptr};
+    IDirect3DViewport3* d3d_view_ {nullptr};
+    IDirectDrawSurface4* d_zbuffer_ {nullptr};
+    DDPIXELFORMAT opaque_format_ {};
+    DDPIXELFORMAT alpha_format_ {};
+    b32 is_hardware_ {0};
+    i32 mip_map_filter_caps_ {0};
+    i32 texture_filter_ {0};
+    CLSID d3d_guid_ {};
+    D3DDEVICEDESC device_desc_ {};
+    char* device_name_ {nullptr};
+    agiRasterizer* rasterizer_ {};
 };
 
 check_size(agiD3DPipeline, 0x49C);

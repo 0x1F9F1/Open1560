@@ -58,7 +58,7 @@ void agiTexParameters::Save(Stream* file)
     file->Put(0_u8);
 }
 
-i32 agiTexDef::IsAvailable()
+b32 agiTexDef::IsAvailable()
 {
     return page_state_ == 2;
 }
@@ -148,21 +148,20 @@ char* agiTexDef::GetName()
 
 i32 agiTexDef::Init(agiTexParameters const& params)
 {
-    if (DevelopmentMode || !(EnablePaging & 1) || params.Flags & agiTexParameters::Modified)
+    if (DevelopmentMode || !(EnablePaging & ARTS_PAGE_TEXTURES) || (params.Flags & agiTexParameters::Modified))
     {
         EndGfx();
         tex_ = params;
         Reload();
+
+        return SafeBeginGfx();
     }
     else
     {
         tex_ = params;
+
+        return 0;
     }
-
-    if (DevelopmentMode || !(EnablePaging & 1) || params.Flags & agiTexParameters::Modified)
-        return SafeBeginGfx();
-
-    return 0;
 }
 
 i32 agiTexDef::Init(class agiTexParameters const& params, agiSurfaceDesc* surface)

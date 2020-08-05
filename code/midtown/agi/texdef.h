@@ -70,6 +70,7 @@
 #include "surface.h"
 
 class agiPolySet;
+class agiColorModel;
 
 class agiTexParameters
 {
@@ -91,6 +92,7 @@ public:
         WrapU = 0x2,
         WrapV = 0x4,
         Modified = 0x8,
+        NoMipMaps = 0x10,
         ColorKey = 0x40,
         Second = 0x80,
     };
@@ -107,17 +109,28 @@ public:
     u8 MaxLOD {0};
 
     // 0x1 | Mipmap?
-    // 0x2 | SphereMap? No alpha when using additive blending?
+    // 0x2 | SphereMap? No alpha when using additive blending? Premultipled Alpha?
     // 0x4 | ShadowMap?
     // 0x8 | ?
     // 0x40 | WOMFACE, MANFACE, 37_INSIDE
     // 0x80 | R_STOP, T_1WAY, ...
-    u32 Flags2 {0};
+    u32 SheetFlags {0};
     f32 dword28 {0.0f};
     u32 DayColor {0};
 };
 
 check_size(agiTexParameters, 0x30);
+
+struct agiTexLock
+{
+    agiColorModel* ColorModel {nullptr};
+    i32 Width {0};
+    i32 Height {0};
+    i32 Pitch {0};
+    void* Surface {nullptr};
+};
+
+check_size(agiTexLock, 0x14);
 
 class agiTexDef : public agiRefreshable
 {
@@ -125,12 +138,12 @@ class agiTexDef : public agiRefreshable
 
 public:
     // 0x5567F0 | ?IsAvailable@agiTexDef@@UAEHXZ
-    ARTS_EXPORT virtual i32 IsAvailable();
+    ARTS_EXPORT virtual b32 IsAvailable();
 
     virtual void Set(class Vector2& arg1, class Vector2& arg2) = 0;
 
     // 0x556440 | ?Lock@agiTexDef@@UAEHAAUagiTexLock@@@Z
-    ARTS_EXPORT virtual i32 Lock(struct agiTexLock& arg1);
+    ARTS_EXPORT virtual b32 Lock(struct agiTexLock& arg1);
 
     // 0x556450 | ?Unlock@agiTexDef@@UAEXAAUagiTexLock@@@Z
     ARTS_EXPORT virtual void Unlock(struct agiTexLock& arg1);

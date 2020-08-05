@@ -258,6 +258,16 @@ public:
         return hi_color_model_;
     }
 
+    agiColorModel* GetOpaqueColorModel() const
+    {
+        return opaque_color_model_;
+    }
+
+    agiColorModel* GetAlphaColorModel() const
+    {
+        return alpha_color_model_;
+    }
+
     bool IsHardware() const
     {
         return flags_ & 0x4;

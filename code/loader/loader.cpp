@@ -284,8 +284,6 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         // Checked in GetPackedTexture, only necessary if agiRQ.TextureQuality <= 2
         // create_patch("aiVehicleOpponent::Init", "agiRQ.TextureQuality", 0x44DC2A, "\xEB\x06", 2);
 
-        create_patch("agiD3DTexDef::BeginGfx", "Clear DDSD_PITCH", 0x531B33, "\x24\xD7", 2);
-
         create_patch("CACHE", "Capacity", 0x4029DA + 1, "\x00\x10\x00\x00", 4);
         create_patch("CACHE", "HeapSize", 0x4029DF + 1, "\x00\x00\x40\x00", 4);
 
@@ -322,8 +320,10 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("PolarCamCS", "Increase Max XCAM Distance", 0x620340, "\x00\x00\x7A\x43", 4);
 
-        create_patch("aiVehicleOpponent::Reset", "Fix List::Clear memory leak", 0x44DE4D, "\x89\xF9\xE8\x3C\xE4\x12\x00\x90\x8B\xD3\x42", 11);
-        create_patch("aiVehiclePolice::Reset", "Fix List::Clear memory leak", 0x44511C, "\x89\xF9\xE8\x6D\x71\x13\x00\x90", 8);
+        create_patch("aiVehicleOpponent::Reset", "Fix List::Clear memory leak", 0x44DE4D,
+            "\x89\xF9\xE8\x3C\xE4\x12\x00\x90\x8B\xD3\x42", 11);
+        create_patch(
+            "aiVehiclePolice::Reset", "Fix List::Clear memory leak", 0x44511C, "\x89\xF9\xE8\x6D\x71\x13\x00\x90", 8);
 
         Displayf("Begin Init Functions");
 
@@ -380,14 +380,14 @@ include_dummy_symbol(agi_texlib);
 
 // include_dummy_symbol(agid3d_d3dlight);
 // include_dummy_symbol(agid3d_d3dmtldef);
-// include_dummy_symbol(agid3d_d3dpipe);
+include_dummy_symbol(agid3d_d3dpipe);
 // include_dummy_symbol(agid3d_d3drpipe);
 // include_dummy_symbol(agid3d_d3drsys);
-// include_dummy_symbol(agid3d_d3dtexdef);
+include_dummy_symbol(agid3d_d3dtexdef);
 // include_dummy_symbol(agid3d_d3dview);
 // include_dummy_symbol(agid3d_ddbitmap);
 // include_dummy_symbol(agid3d_dderror);
-// include_dummy_symbol(agid3d_ddpipe);
+include_dummy_symbol(agid3d_ddpipe);
 // include_dummy_symbol(agid3d_pcpipe);
 
 // include_dummy_symbol(agirend_bilight);

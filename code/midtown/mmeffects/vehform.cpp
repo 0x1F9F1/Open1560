@@ -43,7 +43,7 @@ mmVehicleForm::mmVehicleForm()
             SphMapTex = GetPackedTexture(const_cast<char*>(env->SphereMap), 0);
 
             if (SphMapTex)
-                SphMapTex->GetParams().Flags2 |= 0x2; // TODO: What is this flag for?
+                SphMapTex->GetParams().SheetFlags |= 0x2; // TODO: What is this flag for?
         }
     }
 }

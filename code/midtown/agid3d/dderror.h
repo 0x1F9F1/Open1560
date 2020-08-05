@@ -42,3 +42,12 @@ ARTS_IMPORT extern i32 DDIgnoreErrors;
 
 // 0x795C8C | ?DDNeedRestore@@3HA
 ARTS_IMPORT extern i32 DDNeedRestore;
+
+#define DD_RELEASE(VALUE)                                 \
+    if (VALUE)                                            \
+    {                                                     \
+        __DDRelease(VALUE, #VALUE, ARTS_FILE, ARTS_LINE); \
+        VALUE = nullptr;                                  \
+    }
+
+#define DD_TRY(EXPR) __DDTry(EXPR, #EXPR, ARTS_FILE, ARTS_LINE)
