@@ -81,6 +81,11 @@ public:
         return height_;
     }
 
+    bool IsTransparent() const
+    {
+        return flags_ & AGI_BITMAP_TRANSPARENT;
+    }
+
 protected:
     // 0x55A6F0 | ??_GagiBitmap@@MAEPAXI@Z
     // 0x55A6F0 | ??_EagiBitmap@@MAEPAXI@Z

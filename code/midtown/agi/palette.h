@@ -51,7 +51,11 @@ public:
     // 0x55C180 | ?Load@agiPalette@@QAEXPAD@Z | unused
     ARTS_IMPORT void Load(char* arg1);
 
-    u8 gap0[0x410];
+    u32 Colors[256] {};
+    i32 dword400 {0}; // StartIndex ?
+    i32 dword404 {0}; // EndIndex ?
+    i32 ColorCount {0};
+    i32 ChangeCount {0};
 };
 
 check_size(agiPalette, 0x410);

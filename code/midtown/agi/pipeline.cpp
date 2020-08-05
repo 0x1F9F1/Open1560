@@ -86,7 +86,7 @@ void agiPipeline::ClearRect(i32 /*x*/, i32 /*y*/, i32 /*width*/, i32 /*height*/,
 void agiPipeline::Defragment()
 {}
 
-i32 agiPipeline::LockFrameBuffer(class agiSurfaceDesc& /*arg1*/)
+b32 agiPipeline::LockFrameBuffer(class agiSurfaceDesc& /*arg1*/)
 {
     return 0;
 }

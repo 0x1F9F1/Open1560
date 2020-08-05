@@ -38,16 +38,19 @@ ARTS_IMPORT void __DDRelease(struct IUnknown* arg1, char const* arg2, char const
 ARTS_IMPORT void __DDTry(i32 arg1, char const* arg2, char const* arg3, i32 arg4);
 
 // 0x795C88 | ?DDIgnoreErrors@@3HA
-ARTS_IMPORT extern i32 DDIgnoreErrors;
+ARTS_IMPORT extern b32 DDIgnoreErrors;
 
 // 0x795C8C | ?DDNeedRestore@@3HA
-ARTS_IMPORT extern i32 DDNeedRestore;
+ARTS_IMPORT extern b32 DDNeedRestore;
 
-#define DD_RELEASE(VALUE)                                 \
-    if (VALUE)                                            \
-    {                                                     \
-        __DDRelease(VALUE, #VALUE, ARTS_FILE, ARTS_LINE); \
-        VALUE = nullptr;                                  \
-    }
+#define DD_RELEASE(VALUE)                                     \
+    do                                                        \
+    {                                                         \
+        if (VALUE)                                            \
+        {                                                     \
+            __DDRelease(VALUE, #VALUE, ARTS_FILE, ARTS_LINE); \
+            VALUE = nullptr;                                  \
+        }                                                     \
+    } while (false);
 
 #define DD_TRY(EXPR) __DDTry(EXPR, #EXPR, ARTS_FILE, ARTS_LINE)

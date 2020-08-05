@@ -25,16 +25,6 @@ define_dummy_symbol(agid3d_d3dtexdef);
 #include "pcwindis/setupdata.h"
 #include "vector7/vector2.h"
 
-static DDSURFACEDESC2 ConvertSurfaceDesc(const agiSurfaceDesc& surface)
-{
-    return mem::bit_cast<DDSURFACEDESC2>(surface); // FIXME: 64-bit incompatible
-}
-
-static agiSurfaceDesc ConvertSurfaceDesc(const DDSURFACEDESC2& surface)
-{
-    return mem::bit_cast<agiSurfaceDesc>(surface); // FIXME: 64-bit incompatible
-}
-
 i32 agiD3DTexDef::BeginGfx()
 {
     if (surface_ == nullptr)
@@ -78,7 +68,7 @@ i32 agiD3DTexDef::BeginGfx()
 
     sd.dwFlags &= ~(DDSD_BACKBUFFERCOUNT | DDSD_PITCH);
 
-    if ((GetRendererInfo().uSpecialFlags & 4) && (sd.dwFlags & DDSD_CKSRCBLT))
+    if ((GetRendererInfo().SpecialFlags & 4) && (sd.dwFlags & DDSD_CKSRCBLT))
     {
         sd.dwFlags &= ~DDSD_CKSRCBLT;
 

@@ -364,7 +364,7 @@ include_dummy_symbol(agi_error);
 // include_dummy_symbol(agi_lmodel);
 // include_dummy_symbol(agi_mtldef);
 include_dummy_symbol(agi_mtllib);
-// include_dummy_symbol(agi_palette);
+include_dummy_symbol(agi_palette);
 // include_dummy_symbol(agi_physdef);
 include_dummy_symbol(agi_physlib);
 include_dummy_symbol(agi_pipeline);

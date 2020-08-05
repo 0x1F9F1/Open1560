@@ -166,7 +166,7 @@ public:
     ARTS_EXPORT virtual void Defragment();
 
     // 0x556040 | ?LockFrameBuffer@agiPipeline@@UAEHAAVagiSurfaceDesc@@@Z
-    ARTS_EXPORT virtual i32 LockFrameBuffer(class agiSurfaceDesc& arg1);
+    ARTS_EXPORT virtual b32 LockFrameBuffer(class agiSurfaceDesc& arg1);
 
     // 0x556050 | ?UnlockFrameBuffer@agiPipeline@@UAEXXZ
     ARTS_EXPORT virtual void UnlockFrameBuffer();

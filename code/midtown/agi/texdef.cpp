@@ -63,9 +63,9 @@ b32 agiTexDef::IsAvailable()
     return page_state_ == 2;
 }
 
-i32 agiTexDef::Lock(struct agiTexLock& /*arg1*/)
+b32 agiTexDef::Lock(struct agiTexLock& /*arg1*/)
 {
-    return 0;
+    return false;
 }
 
 void agiTexDef::Unlock(struct agiTexLock& /*arg1*/)

@@ -60,7 +60,13 @@ public:
     // 0x533C80 | ?UpdateFlags@agiDDBitmap@@UAEXXZ
     ARTS_IMPORT void UpdateFlags() override;
 
-    u8 gap3C[0x4];
+    IDirectDrawSurface4* GetDDSurface() const
+    {
+        return d_surf_;
+    }
+
+private:
+    IDirectDrawSurface4* d_surf_ {nullptr};
 };
 
 check_size(agiDDBitmap, 0x40);

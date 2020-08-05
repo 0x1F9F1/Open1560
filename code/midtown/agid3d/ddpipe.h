@@ -53,46 +53,46 @@ class agiDDPipeline : public agiPipeline
 
 public:
     // 0x532A40 | ??0agiDDPipeline@@QAE@XZ
-    ARTS_IMPORT agiDDPipeline();
+    ARTS_EXPORT agiDDPipeline();
 
     // 0x5332A0 | ??_GagiDDPipeline@@UAEPAXI@Z
     // 0x5332A0 | ??_EagiDDPipeline@@UAEPAXI@Z
     // 0x532EF0 | ??1agiDDPipeline@@UAE@XZ
-    ARTS_IMPORT ~agiDDPipeline() override;
+    ARTS_EXPORT ~agiDDPipeline() override;
 
     // 0x532F40 | ?BeginFrame@agiDDPipeline@@UAEXXZ
-    ARTS_IMPORT void BeginFrame() override;
+    ARTS_EXPORT void BeginFrame() override;
 
     // 0x532AE0 | ?BeginGfx@agiDDPipeline@@UAEHXZ
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // 0x532FA0 | ?BeginScene@agiDDPipeline@@UAEXXZ
-    ARTS_IMPORT void BeginScene() override;
+    ARTS_EXPORT void BeginScene() override;
 
     // 0x533240 | ?ClearRect@agiDDPipeline@@UAEXHHHHI@Z
-    ARTS_IMPORT void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5) override;
+    ARTS_EXPORT void ClearRect(i32 arg1, i32 arg2, i32 arg3, i32 arg4, u32 arg5) override;
 
     // 0x533070 | ?CopyBitmap@agiDDPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
-    ARTS_IMPORT void CopyBitmap(
-        i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7) override;
+    ARTS_EXPORT void CopyBitmap(
+        i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
     // 0x533010 | ?CreateBitmap@agiDDPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_IMPORT class agiBitmap* CreateBitmap() override;
+    ARTS_EXPORT Owner<class agiBitmap*> CreateBitmap() override;
 
     // 0x533000 | ?EndFrame@agiDDPipeline@@UAEXXZ
     ARTS_EXPORT void EndFrame() override;
 
     // 0x532E30 | ?EndGfx@agiDDPipeline@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     // 0x532FF0 | ?EndScene@agiDDPipeline@@UAEXXZ
     ARTS_EXPORT void EndScene() override;
 
     // 0x5331E0 | ?LockFrameBuffer@agiDDPipeline@@UAEHAAVagiSurfaceDesc@@@Z
-    ARTS_IMPORT i32 LockFrameBuffer(class agiSurfaceDesc& arg1) override;
+    ARTS_EXPORT b32 LockFrameBuffer(class agiSurfaceDesc& surface) override;
 
     // 0x533220 | ?UnlockFrameBuffer@agiDDPipeline@@UAEXXZ
-    ARTS_IMPORT void UnlockFrameBuffer() override;
+    ARTS_EXPORT void UnlockFrameBuffer() override;
 
     // 0x5328C0 | ?Validate@agiDDPipeline@@UAEHXZ
     ARTS_EXPORT i32 Validate() override;
@@ -109,7 +109,7 @@ private:
     IDirectDrawSurface4* d_back_ {nullptr};
     IDirectDrawSurface4* d_rend_ {nullptr};
     IDirectDrawPalette* d_pal_ {nullptr};
-    agiPixelFormat d_pix_format_ {};
+    DDPIXELFORMAT d_pix_format_ {};
     bool set_rend_palette_ {false};
 };
 
@@ -124,3 +124,13 @@ ARTS_IMPORT i32 ARTS_STDCALL EnumModesCallback(struct _DDSURFACEDESC2* arg1, voi
 // 0x532A00 | ?EnumSurfsCallback@@YGJPAUIDirectDrawSurface@@PAU_DDSURFACEDESC@@PAX@Z | unused
 ARTS_IMPORT i32 ARTS_STDCALL EnumSurfsCallback(
     struct IDirectDrawSurface* arg1, struct _DDSURFACEDESC* arg2, void* arg3);
+
+inline DDSURFACEDESC2 ConvertSurfaceDesc(const agiSurfaceDesc& surface)
+{
+    return mem::bit_cast<DDSURFACEDESC2>(surface); // FIXME: 64-bit incompatible
+}
+
+inline agiSurfaceDesc ConvertSurfaceDesc(const DDSURFACEDESC2& surface)
+{
+    return mem::bit_cast<agiSurfaceDesc>(surface); // FIXME: 64-bit incompatible
+}

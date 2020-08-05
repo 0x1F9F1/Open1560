@@ -60,7 +60,7 @@ struct dxiRendererInfo_t
     // 0x4 | PixelFog
     // 0x4 | NoColorKey
     // 0x8 | agiMeshSet::HalfHeight *= 1.01
-    u32 uSpecialFlags;
+    u32 SpecialFlags;
     char Name[64];
     GUID InterfaceGuid;
     GUID DriverGuid;
