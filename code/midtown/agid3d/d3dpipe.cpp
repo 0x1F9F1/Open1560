@@ -137,7 +137,7 @@ i32 agiD3DPipeline::BeginGfx()
 
     agiCurState.SetTexturePerspective(true);
     agiCurState.SetDither(true);
-    agiCurState.SetShadeMode(agiShadeMode::Smooth);
+    agiCurState.SetSmoothShading(true);
 
     if (is_hardware_)
         flags_ |= 0x4;
@@ -602,9 +602,9 @@ void agiD3DPipeline::EndFrame()
 
         DD_TRY(d_front_->Blt(&dr, d_back_, &r, DDBLT_WAIT, nullptr));
     }
-    else if (dxiFlags & 0x4)
+    else if (dxiDoubleBuffer())
     {
-        if (dxiFlags & 0x2)
+        if (dxiUseSystemMemory())
         {
             DD_TRY(d_back_->BltFast(0, 0, d_rend_, &r, DDBLTFAST_NOCOLORKEY | DDBLTFAST_WAIT));
         }

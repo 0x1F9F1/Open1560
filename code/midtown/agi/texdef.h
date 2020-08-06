@@ -117,6 +117,31 @@ public:
     u32 SheetFlags {0};
     f32 dword28 {0.0f};
     u32 DayColor {0};
+
+    bool HasAlpha() const
+    {
+        return Flags & Alpha;
+    }
+
+    bool ShouldWrapU() const
+    {
+        return Flags & WrapU;
+    }
+
+    bool ShouldWrapV() const
+    {
+        return Flags & WrapV;
+    }
+
+    bool DisableMipMaps() const
+    {
+        return Flags & NoMipMaps;
+    }
+
+    bool UseColorKey() const
+    {
+        return Flags & ColorKey;
+    }
 };
 
 check_size(agiTexParameters, 0x30);
@@ -209,6 +234,21 @@ public:
         return tex_;
     }
 
+    i32 GetSceneIndex() const
+    {
+        return scene_index_;
+    }
+
+    void SetSceneIndex(i32 index)
+    {
+        scene_index_ = index;
+    }
+
+    i32 GetSurfaceSize() const
+    {
+        return surface_size_;
+    }
+
 protected:
     // 0x5561C0 | ??0agiTexDef@@IAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiTexDef(class agiPipeline* pipe);
@@ -221,9 +261,9 @@ protected:
     agiSurfaceDesc* surface_ {nullptr};
     agiTexParameters tex_ {};
     agiPolySet* poly_set_ {nullptr};
-    u32 scene_index_ {0};
+    i32 scene_index_ {0};
     u32 surface_size_ {0};
-    u32 mip_reduction_ {0};
+    i32 mip_reduction_ {0};
     PagerInfo_t pager_ {0};
     i32 cache_handle_ {0};
 

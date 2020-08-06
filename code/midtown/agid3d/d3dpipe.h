@@ -133,14 +133,24 @@ public:
         return filter_caps_;
     }
 
-    DDPIXELFORMAT& GetOpaqueFormat()
+    i32 GetTextureFilter() const
+    {
+        return texture_filter_;
+    }
+
+    const DDPIXELFORMAT& GetOpaqueFormat() const
     {
         return opaque_format_;
     }
 
-    DDPIXELFORMAT& GetAlphaFormat()
+    const DDPIXELFORMAT& GetAlphaFormat() const
     {
         return alpha_format_;
+    }
+
+    IDirect3DDevice3* GetD3DDevice() const
+    {
+        return d3d_device_;
     }
 
 protected:

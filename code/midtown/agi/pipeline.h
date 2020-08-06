@@ -289,6 +289,16 @@ public:
         return flags_ & 0x4;
     }
 
+    bool SupportsAlpha() const
+    {
+        return flags_ & 0x10;
+    }
+
+    i32 GetSceneIndex() const
+    {
+        return scene_index_;
+    }
+
 protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
     ARTS_EXPORT agiPipeline();
@@ -314,7 +324,7 @@ protected:
     i32 horz_res_ {0};
     i32 vert_res_ {0};
     f32 scale_ {1.0f};
-    u32 dword38 {2};
+    u32 dword38 {2}; // ViewIndex ?
     u32 light_mask_ {0xFFFFFFFF};
     char gap40[260] {};
 
@@ -341,7 +351,7 @@ protected:
     // 0x20 | Square Textures
     u32 flags_ {0};
     b32 in_scene_ {false};
-    i32 scene_count_ {0};
+    i32 scene_index_ {0};
 };
 
 check_size(agiPipeline, 0x2F0);

@@ -50,8 +50,8 @@ arts_component "agi"
         "texdef.h",
         "texlib.cpp",
         "texlib.h",
-        -- "viewport.cpp",
-        -- "viewport.h",
+        "viewport.cpp",
+        "viewport.h",
 
         "rgba.h",
         "agilib.h",

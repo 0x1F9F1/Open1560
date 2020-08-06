@@ -62,7 +62,26 @@ public:
 
     virtual void EndDraw() = 0;
 
-    u8 gap4[0x8];
+    void AddRef()
+    {
+        ++ref_count_;
+    }
+
+    i32 Release()
+    {
+        u32 const refs = --ref_count_;
+
+        if (refs == 0)
+        {
+            delete this;
+        }
+
+        return refs;
+    }
+
+protected:
+    i32 light_mask_ {1};
+    i32 ref_count_ {1};
 };
 
 check_size(agiRenderer, 0xC);

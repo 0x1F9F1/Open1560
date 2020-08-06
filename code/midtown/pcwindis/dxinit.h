@@ -101,6 +101,21 @@ inline bool dxiIsFullScreen()
     return dxiFlags & 0x1;
 }
 
+inline bool dxiUseSystemMemory()
+{
+    return dxiFlags & 0x2;
+}
+
+inline bool dxiDoubleBuffer()
+{
+    return dxiFlags & 0x4;
+}
+
+inline bool dxiTripleBuffer()
+{
+    return dxiFlags & 0x8;
+}
+
 // 0x660F14 | ?dxiHeight@@3HA
 ARTS_IMPORT extern i32 dxiHeight;
 

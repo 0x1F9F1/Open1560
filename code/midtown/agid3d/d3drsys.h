@@ -49,64 +49,74 @@
 
 #include "agi/rsys.h"
 
+#include "d3drpipe.h"
+
 class agiD3DRasterizer final : public agiRasterizer
 {
     // const agiD3DRasterizer::`vftable' @ 0x620F10
 
 public:
     // 0x52E550 | ??0agiD3DRasterizer@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiD3DRasterizer(class agiPipeline* arg1);
+    ARTS_EXPORT agiD3DRasterizer(class agiPipeline* pipe)
+        : agiRasterizer(pipe)
+    {}
 
     // 0x52FA60 | ??_EagiD3DRasterizer@@UAEPAXI@Z
     // 0x52FA60 | ??_GagiD3DRasterizer@@UAEPAXI@Z
     // 0x52E590 | ??1agiD3DRasterizer@@UAE@XZ
-    ARTS_IMPORT ~agiD3DRasterizer() override = default;
+    ARTS_EXPORT ~agiD3DRasterizer() override = default;
 
     // 0x52E570 | ?BeginGfx@agiD3DRasterizer@@UAEHXZ
     ARTS_EXPORT i32 BeginGfx() override;
 
     // 0x52E5A0 | ?BeginGroup@agiD3DRasterizer@@UAEXXZ
-    ARTS_IMPORT void BeginGroup() override;
+    ARTS_EXPORT void BeginGroup() override;
 
     // 0x52F8E0 | ?Card@agiD3DRasterizer@@UAEXHH@Z
-    ARTS_IMPORT void Card(i32 arg1, i32 arg2) override;
+    ARTS_EXPORT void Card(i32 arg1, i32 arg2) override;
 
     // 0x52E580 | ?EndGfx@agiD3DRasterizer@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
     // 0x52E5B0 | ?EndGroup@agiD3DRasterizer@@UAEXXZ
-    ARTS_IMPORT void EndGroup() override;
+    ARTS_EXPORT void EndGroup() override;
 
     // 0x52F860 | ?Line@agiD3DRasterizer@@UAEXHH@Z
-    ARTS_IMPORT void Line(i32 arg1, i32 arg2) override;
+    ARTS_EXPORT void Line(i32 i1, i32 i2) override;
 
     // 0x52F950 | ?Mesh@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
-    ARTS_IMPORT void Mesh(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3, u16* arg4, i32 arg5) override;
+    ARTS_EXPORT void Mesh(
+        enum agiVtxType type, union agiVtx* verts, i32 vert_count, u16* indices, i32 index_count) override;
 
     // 0x52F9C0 | ?Mesh2@agiD3DRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z
-    ARTS_IMPORT void Mesh2(struct agiScreenVtx2* arg1, i32 arg2, u16* arg3, i32 arg4) override;
+    ARTS_EXPORT void Mesh2(struct agiScreenVtx2* verts, i32 vert_count, u16* indices, i32 index_count) override;
 
     // 0x52F8F0 | ?Points@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    ARTS_IMPORT void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
+    ARTS_EXPORT void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
 
     // 0x52F7C0 | ?SetVertCount@agiD3DRasterizer@@UAEXH@Z
-    ARTS_IMPORT void SetVertCount(i32 arg1) override;
+    ARTS_EXPORT void SetVertCount(i32 vert_count) override;
 
     // 0x52F7D0 | ?Triangle@agiD3DRasterizer@@UAEXHHH@Z
-    ARTS_IMPORT void Triangle(i32 arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT void Triangle(i32 i1, i32 i2, i32 i3) override;
 
     // 0x52F770 | ?Verts@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    ARTS_IMPORT void Verts(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
+    ARTS_EXPORT void Verts(enum agiVtxType type, union agiVtx* verts, i32 vert_count) override;
+
+    agiD3DPipeline* Pipe() const
+    {
+        return static_cast<agiD3DPipeline*>(agiRefreshable::Pipe());
+    }
 
 protected:
     // 0x52E630 | ?FlushState@agiD3DRasterizer@@IAEXXZ
-    ARTS_IMPORT void FlushState();
+    ARTS_EXPORT void FlushState();
 };
 
 check_size(agiD3DRasterizer, 0x18);
 
 // 0x52E5C0 | ?d3d_state_init@@YAXXZ
-ARTS_IMPORT void d3d_state_init();
+ARTS_EXPORT void d3d_state_init();
 
 // 0x790DF0 | ?NoOutput@@3HA
 ARTS_IMPORT extern i32 NoOutput;

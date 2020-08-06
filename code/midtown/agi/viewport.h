@@ -44,6 +44,8 @@
 
 #include "refresh.h"
 
+#include "vector7/matrix34.h"
+
 class agiViewParameters
 {
 public:
@@ -77,7 +79,37 @@ public:
     // 0x8FF040 | ?ViewSerial@agiViewParameters@@2IA
     ARTS_IMPORT static u32 ViewSerial;
 
-    u8 gap0[0x12C];
+    f32 X;
+    f32 Y;
+    f32 Width;
+    f32 Height;
+    f32 Fov;
+    f32 Aspect;
+    f32 Near;
+    f32 Far;
+    f32 Inv_BottomOverTop;
+    f32 ProjX;
+    f32 ProjY;
+    f32 ProjZZ;
+    f32 ProjZW;
+    f32 ProjXZ;
+    f32 ProjYZ;
+    f32 Left;
+    f32 Right;
+    Matrix34 CurrentTransform;
+    Matrix34 Model;
+    Matrix34 View;
+    Matrix34 ModelView;
+    f32 float104;
+    f32 float108;
+    f32 float10C;
+    f32 float110;
+    f32 float114;
+    f32 float118;
+    f32 float11C;
+    f32 float120;
+    f32 float124;
+    i32 Orthographic;
 };
 
 check_size(agiViewParameters, 0x12C);
@@ -102,6 +134,11 @@ public:
     // 0x5579D0 | ?GetName@agiViewport@@UAEPADXZ
     ARTS_IMPORT char* GetName() override;
 
+    const agiViewParameters& GetParams()
+    {
+        return params_;
+    }
+
 protected:
     // 0x5578E0 | ??0agiViewport@@IAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiViewport(class agiPipeline* arg1);
@@ -114,7 +151,16 @@ protected:
     // 0x8FF048 | ?Active@agiViewport@@1PAV1@A
     ARTS_IMPORT static class agiViewport* Active;
 
-    u8 gap18[0x134];
+    friend agiViewport* GetActiveViewport();
+
+    agiViewParameters params_;
+    u32 dword144_; // ViewIndex ?
+    // TODO: Is clear_color_ part of agiViewport ?
 };
 
-check_size(agiViewport, 0x14C);
+check_size(agiViewport, 0x148);
+
+inline agiViewport* GetActiveViewport()
+{
+    return agiViewport::Active;
+}

@@ -62,6 +62,9 @@ public:
 
     // 0x533410 | ?SetBackground@agiD3DViewport@@UAEXAAVVector3@@@Z
     ARTS_IMPORT void SetBackground(class Vector3& arg1) override;
+
+private:
+    u32 clear_color_;
 };
 
 check_size(agiD3DViewport, 0x14C);

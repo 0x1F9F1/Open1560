@@ -44,8 +44,7 @@
 class agiTexDef;
 class agiMtlDef;
 
-enum agiVtxType : i32;
-union agiVtx;
+#include "agi/vertex.h"
 
 class agiRasterizer : public agiRefreshable
 {
@@ -105,12 +104,6 @@ enum class agiBlendSet : u8
     One_One = 5,
 };
 
-enum class agiShadeMode : u8
-{
-    Flat = 0,
-    Smooth = 1,
-};
-
 enum class agiCullMode : u8
 {
     None = 1, // Do not cull back faces
@@ -126,16 +119,8 @@ enum class agiCmpFunc : u8
     LessEqual = 4,
     Greater = 5,
     Notequal = 6,
-    GreateRequal = 7,
+    GreaterEqual = 7,
     Always = 8,
-};
-
-enum class agiTexAddress : u8
-{
-    Wrap = 1,
-    Mirror = 2,
-    Clamp = 3,
-    Border = 4,
 };
 
 enum class agiTexFilter : u8
@@ -154,7 +139,14 @@ enum class agiBlendOp : u8
     Modulate = 1,
 
     // COLOROP = DISABLE
-    Ignore = 2,
+    Disable = 2,
+};
+
+enum class agiFogMode : u8
+{
+    None,
+    Pixel,
+    Vertex,
 };
 
 struct agiRendStateStruct
@@ -171,7 +163,7 @@ public:
 
     // 0: FLAT
     // 1: GOURAUD
-    agiShadeMode ShadeMode {};
+    bool SmoothShading {false};
 
     // DrawMode & 3 = FillMode
     // 0x0: None
@@ -196,12 +188,12 @@ public:
 
     agiCmpFunc ZFunc {};
 
-    bool FogEnable {false};
+    agiFogMode FogMode {};
     bool TexturePerspective {false};
     bool AlphaEnable {false};
 
-    agiTexAddress AddressU {};
-    agiTexAddress AddressV {};
+    bool WrapU {};
+    bool WrapV {};
 
     bool ZEnable {false};
     bool ZWrite {false};
@@ -225,9 +217,20 @@ check_size(agiRendStateStruct, 0x3C);
 
 class agiRendState
 {
+private:
+    b32 touched_ {false};
+    agiRendStateStruct state_ {};
+
 public:
-    b32 Touched {false};
-    agiRendStateStruct State {};
+    bool IsTouched()
+    {
+        return touched_;
+    }
+
+    void ClearTouched()
+    {
+        touched_ = false;
+    }
 
     template <typename T>
     T Set(T& value, T new_value)
@@ -237,38 +240,38 @@ public:
         if (old_value != new_value)
         {
             value = new_value;
-            Touched = true;
+            touched_ = true;
         }
 
         return old_value;
     }
 
-#define AGI_RSTATE_MEMBER(NAME)                \
-    auto Get##NAME() const                     \
-    {                                          \
-        return State.NAME;                     \
-    }                                          \
-                                               \
-    auto Set##NAME(decltype(State.NAME) value) \
-    {                                          \
-        return Set(State.NAME, value);         \
+#define AGI_RSTATE_MEMBER(NAME)                 \
+    auto Get##NAME() const                      \
+    {                                           \
+        return state_.NAME;                     \
+    }                                           \
+                                                \
+    auto Set##NAME(decltype(state_.NAME) value) \
+    {                                           \
+        return Set(state_.NAME, value);         \
     }
 
     AGI_RSTATE_MEMBER(Mtl)
     AGI_RSTATE_MEMBER(Texture)
     AGI_RSTATE_MEMBER(Texture2)
     AGI_RSTATE_MEMBER(BlendSet)
-    AGI_RSTATE_MEMBER(ShadeMode)
+    AGI_RSTATE_MEMBER(SmoothShading)
     AGI_RSTATE_MEMBER(DrawMode)
     AGI_RSTATE_MEMBER(TexFilter)
     AGI_RSTATE_MEMBER(BlendOp)
     AGI_RSTATE_MEMBER(CullMode)
     AGI_RSTATE_MEMBER(ZFunc)
-    AGI_RSTATE_MEMBER(FogEnable)
+    AGI_RSTATE_MEMBER(FogMode)
     AGI_RSTATE_MEMBER(TexturePerspective)
     AGI_RSTATE_MEMBER(AlphaEnable)
-    AGI_RSTATE_MEMBER(AddressU)
-    AGI_RSTATE_MEMBER(AddressV)
+    AGI_RSTATE_MEMBER(WrapU)
+    AGI_RSTATE_MEMBER(WrapV)
     AGI_RSTATE_MEMBER(ZEnable)
     AGI_RSTATE_MEMBER(ZWrite)
     AGI_RSTATE_MEMBER(FogColor)

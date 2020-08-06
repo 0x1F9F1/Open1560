@@ -66,7 +66,7 @@ public:
     ARTS_EXPORT void EndGfx() override;
 
     // 0x531DA0 | ?GetHandle@agiD3DTexDef@@QAEPAUIDirect3DTexture2@@H@Z
-    ARTS_EXPORT struct IDirect3DTexture2* GetHandle(i32 arg1);
+    ARTS_EXPORT struct IDirect3DTexture2* GetHandle(i32 stage);
 
     // 0x531F60 | ?IsAvailable@agiD3DTexDef@@UAEHXZ
     ARTS_EXPORT b32 IsAvailable() override;
@@ -92,6 +92,11 @@ public:
     agiD3DPipeline* Pipe() const
     {
         return static_cast<agiD3DPipeline*>(agiRefreshable::Pipe());
+    }
+
+    i32 GetStage() const
+    {
+        return stage_;
     }
 
 private:

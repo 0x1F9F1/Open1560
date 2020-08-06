@@ -47,7 +47,7 @@ void agiPipeline::BeginScene()
 {
     UpdateLutQueue();
 
-    ++scene_count_;
+    ++scene_index_;
 }
 
 void agiPipeline::EndScene()
@@ -131,7 +131,7 @@ i32 agiPipeline::BeginAllGfx()
     if (eqEventHandler::SuperQ == nullptr)
         InitEventQueue();
 
-    if (dxiFlags & 0x1)
+    if (dxiIsFullScreen())
         error = eqEventHandler::SuperQ->BeginGfx(640, 480, 1);
     else
         error = eqEventHandler::SuperQ->BeginGfx(width_, height_, 0);
