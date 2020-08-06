@@ -22,6 +22,7 @@ define_dummy_symbol(midtown);
 
 #include <mem/cmd_param-inl.h>
 
+#include "data7/ipc.h"
 #include "data7/metaclass.h"
 #include "memory/allocator.h"
 #include "memory/stack.h"
@@ -127,6 +128,7 @@ int WINAPI MidtownMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPS
 }
 
 static mem::cmd_param PARAM_affinity {"affinity"};
+static mem::cmd_param PARAM_sync {"sync"};
 
 void Application(i32 argc, char** argv)
 {
@@ -134,7 +136,7 @@ void Application(i32 argc, char** argv)
     {
         dxiIcon = 111;
 
-        u32 affinity = PARAM_affinity.get_or<u32>(0x1);
+        u32 affinity = PARAM_affinity.get_or<u32>(0);
 
         if (affinity)
         {
@@ -145,8 +147,14 @@ void Application(i32 argc, char** argv)
 
         if (affinity == 0 || (affinity & (affinity - 1)) != 0)
         {
+            SynchronousMessageQueues = PARAM_sync.get_or<bool>(true);
+
             Warningf("Running with multiple threads. Here be dragons");
-            Warningf("For stability, recommend using `-sync` / `-nopage` / `-page tb`");
+
+            if (!SynchronousMessageQueues)
+            {
+                Warningf("For stability, recommend using -sync");
+            }
         }
 
         ApplicationHelper(argc, argv);
