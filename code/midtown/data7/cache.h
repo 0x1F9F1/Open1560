@@ -125,10 +125,10 @@ private:
 
     u32 age_ {0};
 
-    u32 lock_count_ {0};
+    u32 object_locks_ {0};
 
-    Mutex write_lock_ {};
-    Mutex read_lock_ {};
+    Mutex cache_lock_ {};
+    Mutex object_lock_ {};
 
     const char* name_ {nullptr};
 };

@@ -68,17 +68,20 @@ DataCache::~DataCache()
 
 void DataCache::Age()
 {
-    write_lock_.lock();
+    cache_lock_.lock();
+    object_lock_.lock();
 
     ++age_;
 
-    if (lock_count_ != 0)
+    if (object_locks_ != 0)
     {
         for (i32 i = 1; i <= cur_objects_; ++i)
         {
             if (DataCacheObject& dco = objects_[i]; dco.nLockCount != 0)
-                Quitf("DataCache::Age - Object still locked: %s", dco.GetName());
+                Quitf("DataCache::Age - %s object still locked: %s", name_, dco.GetName());
         }
+
+        Quitf("DataCache::Age - %s lock count is %u", name_, object_locks_);
     }
 
     for (i32 i = 1; i <= cur_objects_; ++i)
@@ -136,7 +139,8 @@ void DataCache::Age()
         heap_used_ = heap - heap_;
     }
 
-    write_lock_.unlock();
+    object_lock_.unlock();
+    cache_lock_.unlock();
 }
 
 void* DataCache::Allocate(i32 handle, u32 size)
@@ -160,7 +164,7 @@ void* DataCache::Allocate(i32 handle, u32 size)
 
 i32 DataCache::BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* context, u32 maxsize)
 {
-    write_lock_.lock();
+    cache_lock_.lock();
 
     maxsize = AlignSize(maxsize);
 
@@ -204,7 +208,7 @@ i32 DataCache::BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* co
             waste);
         fragmented_ = true;
 
-        write_lock_.unlock();
+        cache_lock_.unlock();
 
         return false;
     }
@@ -227,16 +231,16 @@ void DataCache::EndObject(i32 handle)
 
     dco.nLockCount = 0;
 
-    if (--lock_count_ == 0)
-        read_lock_.unlock();
+    if (--object_locks_ == 0)
+        object_lock_.unlock();
 
-    write_lock_.unlock();
+    cache_lock_.unlock();
 }
 
 void DataCache::Flush()
 {
-    write_lock_.lock();
-    read_lock_.lock();
+    cache_lock_.lock();
+    object_lock_.lock();
 
     for (i32 i = 1; i <= cur_objects_; ++i)
     {
@@ -250,8 +254,8 @@ void DataCache::Flush()
 
     heap_used_ = 0;
 
-    read_lock_.unlock();
-    write_lock_.unlock();
+    object_lock_.unlock();
+    cache_lock_.unlock();
 }
 
 void DataCache::GetStatus(u32& objects, u32& bytes, u32& waste)
@@ -282,10 +286,10 @@ void DataCache::Init(u32 heap_size, i32 handle_count, const char* name)
     heap_used_ = 0;
 
     age_ = 0;
-    lock_count_ = 0;
+    object_locks_ = 0;
 
-    write_lock_.init();
-    read_lock_.init();
+    cache_lock_.init();
+    object_lock_.init();
 
     name_ = name;
 }
@@ -294,11 +298,11 @@ b32 DataCache::Lock(i32* handle)
 {
     ArAssert(*handle != 0, "Invalid Handle");
 
-    write_lock_.lock();
+    cache_lock_.lock();
 
     if (*handle == -1)
     {
-        write_lock_.unlock();
+        cache_lock_.unlock();
         return false;
     }
 
@@ -306,12 +310,12 @@ b32 DataCache::Lock(i32* handle)
 
     ++dco.nLockCount;
 
-    if (lock_count_++ == 0)
-        read_lock_.lock();
+    if (object_locks_++ == 0)
+        object_lock_.lock();
 
     dco.nAge = age_;
 
-    write_lock_.unlock();
+    cache_lock_.unlock();
 
     return true;
 }
@@ -327,40 +331,41 @@ void DataCache::Shutdown()
     delete[] heap_;
     heap_ = nullptr;
 
-    write_lock_.close();
-    read_lock_.close();
+    cache_lock_.close();
+    object_lock_.close();
 }
 
 void DataCache::Unlock(i32 handle)
 {
-    write_lock_.lock();
+    cache_lock_.lock();
 
     DataCacheObject& dco = GetObject(handle);
 
     --dco.nLockCount;
 
-    if (--lock_count_ == 0)
-        read_lock_.unlock();
+    if (--object_locks_ == 0)
+        object_lock_.unlock();
 
-    write_lock_.unlock();
+    cache_lock_.unlock();
 }
 
 void DataCache::UnlockAndFree(i32 handle)
 {
-    write_lock_.lock();
+    cache_lock_.lock();
 
     DataCacheObject& dco = GetObject(handle);
 
     --dco.nLockCount;
 
-    if (--lock_count_ == 0)
-        read_lock_.unlock();
+    if (--object_locks_ == 0)
+        object_lock_.unlock();
 
     cur_waste_ += dco.nMaxSize;
 
     Unload(handle);
     CleanEndOfHeap();
-    write_lock_.unlock();
+
+    cache_lock_.unlock();
 }
 
 void DataCache::CleanEndOfHeap()
@@ -404,8 +409,8 @@ void DataCache::InitObject(
 
     dco.nMaxSize = maxsize;
 
-    if (lock_count_++ == 0)
-        read_lock_.lock();
+    if (object_locks_++ == 0)
+        object_lock_.lock();
 }
 
 void DataCache::Relocate(DataCacheObject* dco, u8* ptr)
