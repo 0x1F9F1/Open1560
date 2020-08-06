@@ -80,16 +80,6 @@ protected:
     // 0x557BA0 | ?IsTexture@agiRefreshable@@MAEHXZ
     ARTS_EXPORT virtual b32 IsTexture();
 
-    i32 GetState()
-    {
-        return state_;
-    }
-
-    void SetState(i32 state)
-    {
-        state_ = state;
-    }
-
 private:
     // 0x557B30 | ?ValidatePtr@agiRefreshable@@AAEXPAD@Z
     ARTS_EXPORT void ValidatePtr(const char* reason);
@@ -97,6 +87,7 @@ private:
     agiRefreshable* prev_ {nullptr};
     agiRefreshable* next_ {nullptr};
 
+protected:
     agiPipeline* pipe_ {nullptr};
 
     // 0 | Not Started

@@ -385,7 +385,7 @@ include_dummy_symbol(agid3d_d3drpipe);
 include_dummy_symbol(agid3d_d3drsys);
 include_dummy_symbol(agid3d_d3dtexdef);
 include_dummy_symbol(agid3d_d3dview);
-// include_dummy_symbol(agid3d_ddbitmap);
+include_dummy_symbol(agid3d_ddbitmap);
 // include_dummy_symbol(agid3d_dderror);
 include_dummy_symbol(agid3d_ddpipe);
 // include_dummy_symbol(agid3d_pcpipe);

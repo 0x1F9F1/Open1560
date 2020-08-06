@@ -166,7 +166,7 @@ i32 agiD3DTexDef::BeginGfx()
 
     agiDisplayf("Texture %s: %d bytes texture memory total, %d available", tex_.Name, dwTotal, dwFree);
 
-    SetState(1);
+    state_ = 1;
 
     return AGI_ERROR_SUCCESS;
 }
@@ -177,12 +177,12 @@ void agiD3DTexDef::EndGfx()
     DD_RELEASE(mem_tex_surf_);
     DD_RELEASE(pal_);
 
-    SetState(0);
+    state_ = 0;
 }
 
 IDirect3DTexture2* agiD3DTexDef::GetHandle(i32)
 {
-    if (GetState() == 0)
+    if (state_ == 0)
     {
         if (!LockSurfaceIfResident())
         {

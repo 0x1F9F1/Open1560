@@ -35,30 +35,39 @@
 
 #include "agi/bitmap.h"
 
+#include "ddpipe.h"
+
 class agiDDBitmap final : public agiBitmap
 {
     // const agiDDBitmap::`vftable' @ 0x6211B0
 
 public:
     // 0x5339F0 | ??0agiDDBitmap@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiDDBitmap(class agiPipeline* pipe);
+    ARTS_EXPORT agiDDBitmap(class agiPipeline* pipe)
+        : agiBitmap(pipe)
+    {}
 
     // 0x533D90 | ??_EagiDDBitmap@@UAEPAXI@Z
     // 0x533D90 | ??_GagiDDBitmap@@UAEPAXI@Z
     // 0x533CF0 | ??1agiDDBitmap@@UAE@XZ
-    ARTS_IMPORT ~agiDDBitmap() override;
+    ARTS_EXPORT ~agiDDBitmap() override;
 
     // 0x533A20 | ?BeginGfx@agiDDBitmap@@UAEHXZ
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // 0x533CC0 | ?EndGfx@agiDDBitmap@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     // 0x533D50 | ?Restore@agiDDBitmap@@UAEXXZ
-    ARTS_IMPORT void Restore() override;
+    ARTS_EXPORT void Restore() override;
 
     // 0x533C80 | ?UpdateFlags@agiDDBitmap@@UAEXXZ
-    ARTS_IMPORT void UpdateFlags() override;
+    ARTS_EXPORT void UpdateFlags() override;
+
+    agiDDPipeline* Pipe() const
+    {
+        return static_cast<agiDDPipeline*>(agiRefreshable::Pipe());
+    }
 
     IDirectDrawSurface4* GetDDSurface() const
     {
