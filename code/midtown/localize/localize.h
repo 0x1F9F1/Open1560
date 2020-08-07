@@ -25,6 +25,13 @@
     0x5200D0 | struct LocString * __cdecl AngelReadString(unsigned int) | ?AngelReadString@@YAPAULocString@@I@Z
 */
 
+struct LocString
+{
+    // TODO: What are the actual members of LocString?
+
+    char Data[1];
+};
+
 // 0x5200D0 | ?AngelReadString@@YAPAULocString@@I@Z
 ARTS_IMPORT struct LocString* AngelReadString(u32 arg1);
 

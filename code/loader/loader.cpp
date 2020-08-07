@@ -470,7 +470,7 @@ include_dummy_symbol(eventq7_geinputLib);
 include_dummy_symbol(eventq7_replay);
 include_dummy_symbol(eventq7_winevent);
 
-// include_dummy_symbol(localize_localize);
+include_dummy_symbol(localize_localize);
 
 include_dummy_symbol(memory_allocator);
 include_dummy_symbol(memory_stack);

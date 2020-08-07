@@ -1,6 +1,5 @@
 arts_component "localize"
     files {
-        -- "localize.cpp",
-        -- "localize.h",
+        "localize.cpp",
+        "localize.h",
     }
-

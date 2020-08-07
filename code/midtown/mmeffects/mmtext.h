@@ -64,28 +64,28 @@ public:
     ARTS_EXPORT ~mmText() = default;
 
     // 0x4FF2D0 | ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z | unused
-    ARTS_IMPORT void Draw(class agiSurfaceDesc* arg1, f32 arg2, f32 arg3, char* arg4, void* arg5);
+    ARTS_EXPORT void Draw(class agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font);
 
     // 0x4FF360 | ?Draw2@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAXI@Z
-    ARTS_IMPORT void Draw2(class agiSurfaceDesc* arg1, f32 arg2, f32 arg3, char* arg4, void* arg5, u32 arg6);
+    ARTS_EXPORT void Draw2(class agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font, u32 color);
 
     // 0x4FF0C0 | ?CreateFitBitmap@mmText@@SAPAVagiBitmap@@PADPAXHH@Z
-    ARTS_IMPORT static class agiBitmap* CreateFitBitmap(char* arg1, void* arg2, i32 arg3, i32 arg4);
+    ARTS_EXPORT static class agiBitmap* CreateFitBitmap(char* text, void* font, i32 color, i32 bg_color);
 
     // 0x4FEF30 | ?CreateFont@mmText@@SAPAXPADH@Z
-    ARTS_IMPORT static void* CreateFont(char* arg1, i32 arg2);
+    ARTS_EXPORT static void* CreateFont(char* font_name, i32 height);
 
     // 0x4FEE60 | ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
-    ARTS_IMPORT static void* CreateLocFont(struct LocString* arg1, i32 arg2);
+    ARTS_EXPORT static void* CreateLocFont(struct LocString* params, i32 screen_width);
 
     // 0x4FEF60 | ?DeleteFont@mmText@@SAXPAX@Z
-    ARTS_IMPORT static void DeleteFont(void* arg1);
+    ARTS_EXPORT static void DeleteFont(void* font);
 
     // 0x4FEF70 | ?GetDC@mmText@@SAPAXPAVagiSurfaceDesc@@@Z
-    ARTS_IMPORT static void* GetDC(class agiSurfaceDesc* arg1);
+    ARTS_EXPORT static void* GetDC(class agiSurfaceDesc* surface);
 
     // 0x4FF010 | ?ReleaseDC@mmText@@SAXXZ
-    ARTS_IMPORT static void ReleaseDC();
+    ARTS_EXPORT static void ReleaseDC();
 
 private:
     u8 byte0 {1};
@@ -93,6 +93,17 @@ private:
 };
 
 check_size(mmText, 0x2);
+
+struct mmTextData
+{
+    u32 X {0};
+    u32 Y {0};
+    u32 Effects {0};
+    void* Font {nullptr};
+    char Text[256] {};
+};
+
+check_size(mmTextData, 0x110);
 
 class mmTextNode final : public asNode
 {
@@ -111,7 +122,7 @@ public:
     ARTS_IMPORT i32 AddText(void* arg1, struct LocString* arg2, i32 arg3, f32 arg4, f32 arg5);
 
     // 0x4FFD90 | ?Cull@mmTextNode@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // 0x4FF750 | ?GetFGColor@mmTextNode@@QAEIXZ
     ARTS_IMPORT u32 GetFGColor();
@@ -126,7 +137,8 @@ public:
     ARTS_IMPORT void Printf(char const* arg1, ...);
 
     // 0x4FFB60 | ?RenderText@mmTextNode@@QAEXPAVagiSurfaceDesc@@PAUmmTextData@@HI@Z
-    ARTS_IMPORT void RenderText(class agiSurfaceDesc* arg1, struct mmTextData* arg2, i32 arg3, u32 arg4);
+    ARTS_EXPORT void RenderText(
+        class agiSurfaceDesc* surface, struct mmTextData* lines, i32 num_lines, u32 enabled_lines);
 
     // 0x4FF690 | ?SetBGColor@mmTextNode@@QAEXAAVVector4@@@Z | unused
     ARTS_IMPORT void SetBGColor(class Vector4& arg1);
@@ -160,7 +172,7 @@ private:
     Rc<agiBitmap> text_bitmap_ {nullptr};
     u32 touched_ {1};
     u32 hidden_ {0};
-    u32 dword44_ {0};
+    u32 format_ {0};
     u32 fg_color_ {0xFFFFFF};
     u32 bg_color_ {0};
 };
