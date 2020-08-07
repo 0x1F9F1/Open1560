@@ -20,6 +20,7 @@ define_dummy_symbol(agi_surface);
 
 #include "surface.h"
 
+#include "pcwindis/setupdata.h"
 #include "texdef.h"
 
 #include <emmintrin.h>
@@ -256,7 +257,9 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 lod, agiTexParameters* pa
             switch (PixelFormat.RBitMask)
             {
                 case 0xFF0000u:
-                    copy_row = (params && (params->SheetFlags & 0x2)) ? copyrow4444_to_8888amul : copyrow4444_to_8888;
+                    copy_row = (params && (params->SheetFlags & 0x2) && GetRendererInfo().AdditiveBlending)
+                        ? copyrow4444_to_8888amul
+                        : copyrow4444_to_8888;
                     break;
                 case 0xFFu: copy_row = copyrow4444_to_8888rev; break;
 
