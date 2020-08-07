@@ -105,9 +105,9 @@ void asPerfGraph::Cull()
 
         for (i32 j = 0, k = maim_component_; j < num_components_; ++j)
         {
-            i32 line_bottom = pipe_height - static_cast<i32>(height * scale) - 1;
+            i32 line_bottom = pipe_height - static_cast<i32>(height * scale);
             height += component_history_[k][i];
-            i32 line_top = pipe_height - static_cast<i32>(height * scale) - 1;
+            i32 line_top = pipe_height - static_cast<i32>(height * scale);
 
             if (line_bottom >= 0)
             {
@@ -116,7 +116,8 @@ void asPerfGraph::Cull()
 
                 if (count == buf_size)
                 {
-                    RAST->Mesh(agiVtxType::VtxType3, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
+                    RAST->Mesh(
+                        agiVtxType::VtxType3, reinterpret_cast<agiVtx*>(vert_buf), count * 4, index_buf, count * 6);
 
                     count = 0;
                 }
@@ -142,11 +143,10 @@ void asPerfGraph::Cull()
 
                 i32 offset = x_offset + (scroll_ ? total : i);
 
-                // FIXME: This half pixel offset shouldn't be required.
-                verts[3].x = verts[0].x = static_cast<f32>(offset) - 0.5f;
-                verts[1].x = verts[2].x = static_cast<f32>(offset + 1) - 0.5f;
-                verts[1].y = verts[0].y = static_cast<f32>(line_top) - 0.5f;
-                verts[3].y = verts[2].y = static_cast<f32>(line_bottom) - 0.5f;
+                verts[3].x = verts[0].x = static_cast<f32>(offset);
+                verts[1].x = verts[2].x = static_cast<f32>(offset + 1);
+                verts[1].y = verts[0].y = static_cast<f32>(line_top);
+                verts[3].y = verts[2].y = static_cast<f32>(line_bottom);
 
                 u16 base = count * 4;
 

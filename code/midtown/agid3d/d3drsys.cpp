@@ -39,8 +39,22 @@ static u16 VtxIndices[1024] {};
 static const i32 VtxFlags[4] {
     0, D3DDP_DONOTUPDATEEXTENTS, D3DDP_DONOTUPDATEEXTENTS, D3DDP_DONOTUPDATEEXTENTS | D3DDP_DONOTCLIP};
 
+f32 VtxScreenOffset = 0.0f;
+
 i32 agiD3DRasterizer::BeginGfx()
 {
+    // FIXME: This half pixel offset shouldn't be required.
+    // Assume using dgVoodoo2 if D3DImm is present
+    if (GetModuleHandleA("D3DImm.dll"))
+    {
+        Displayf("Using half-pixel offset");
+        VtxScreenOffset = -0.5f;
+    }
+    else
+    {
+        VtxScreenOffset = 0.0f;
+    }
+
     return 0;
 }
 
@@ -217,6 +231,18 @@ void agiD3DRasterizer::FlushState()
 
         if (EnableDraw)
         {
+            if (f32 offset = VtxScreenOffset; offset != 0.0f)
+            {
+                agiScreenVtx* verts = static_cast<agiScreenVtx*>(VtxBase);
+                i32 count = VtxCount;
+
+                for (i32 i = 0; i < count; ++i)
+                {
+                    verts[i].x += offset;
+                    verts[i].y += offset;
+                }
+            }
+
             DD_TRY(Pipe()->GetD3DDevice()->DrawIndexedPrimitive(
                 PrimType, D3DFVF_TLVERTEX, VtxBase, VtxCount, VtxIndex, VtxIndexCount, VtxFlags[VtxType]));
         }

@@ -196,13 +196,13 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
         verts[2] = blank;
         verts[3] = blank;
 
-        verts[3].x = verts[0].x = static_cast<f32>(x) - 0.5f;
-        verts[1].y = verts[0].y = static_cast<f32>(y) - 0.5f;
+        verts[3].x = verts[0].x = static_cast<f32>(x);
+        verts[1].y = verts[0].y = static_cast<f32>(y);
         verts[3].tu = verts[0].tu = font_x * inv_font_w;
         verts[1].tv = verts[0].tv = font_y * inv_font_h;
 
-        verts[1].x = verts[2].x = static_cast<f32>(x + agiFontWidth) - 0.5f;
-        verts[3].y = verts[2].y = static_cast<f32>(y + agiFontHeight) - 0.5f;
+        verts[1].x = verts[2].x = static_cast<f32>(x + agiFontWidth);
+        verts[3].y = verts[2].y = static_cast<f32>(y + agiFontHeight);
         verts[1].tu = verts[2].tu = (font_x + agiFontWidth) * inv_font_w;
         verts[3].tv = verts[2].tv = (font_y + agiFontHeight) * inv_font_h;
 
