@@ -95,6 +95,8 @@ static DDPIXELFORMAT ZBufferFormat;
 static extern_var(0x7957D8, DDPIXELFORMAT[32], TextureFormats);
 static extern_var(0x795BE0, i32, TextureFormatCount);
 
+static mem::cmd_param PARAM_afilter {"afilter"};
+
 i32 agiD3DPipeline::BeginGfx()
 {
     if (gfx_started_)
@@ -229,13 +231,26 @@ i32 agiD3DPipeline::BeginGfx()
         filter_caps_ = filter_caps;
 
         if (filter_caps & (D3DPTFILTERCAPS_LINEARMIPNEAREST | D3DPTFILTERCAPS_LINEARMIPLINEAR))
-            texture_filter_ = 0x3;
+            texture_filter_ |= 0x3;
         else if (filter_caps & (D3DPTFILTERCAPS_MIPNEAREST | D3DPTFILTERCAPS_MIPLINEAR))
-            texture_filter_ = 0x1;
+            texture_filter_ |= 0x1;
+
+        if (u32 filter_level = PARAM_afilter.get_or<u32>(16);
+            (filter_level > 1) && (device_desc_.dpcTriCaps.dwRasterCaps & D3DPRASTERCAPS_ANISOTROPY))
+        {
+            if (filter_level > device_desc_.dwMaxAnisotropy)
+                filter_level = device_desc_.dwMaxAnisotropy;
+
+            agiDisplayf("Can do anisotropic %ux", filter_level);
+
+            DD_TRY(d3d_device_->SetRenderState(D3DRENDERSTATE_ANISOTROPY, filter_level));
+
+            texture_filter_ |= 0x4;
+        }
     }
 
-    Displayf("Texture mip filter quality: %s %s", (texture_filter_ & 0x2) ? "TRILINEAR" : "",
-        (texture_filter_ & 0x1) ? "POINT" : "");
+    Displayf("Texture mip filter quality: %s %s %s", (texture_filter_ & 0x4) ? "ANISOTROPIC" : "",
+        (texture_filter_ & 0x2) ? "TRILINEAR" : "", (texture_filter_ & 0x1) ? "POINT" : "");
 
     if ((device_desc_.dpcTriCaps.dwTextureCaps & D3DPTEXTURECAPS_SQUAREONLY) || ForceSquare)
     {

@@ -90,8 +90,7 @@ static void copyrow4444_to_8888amul(void* dst, void* src, u32 len, u32 step)
         src_off += step;
 
         u8 a = u8(v >> 12);
-
-        u32 amul = a * 0x89;
+        u16 amul = a * 0x89; // Magic division by 15
 
         v = (((v & 0x000F) * amul) >> 11) | ((((v & 0x00F0) * amul) >> 7) & 0xF00) |
             ((((v & 0x0F00) >> 3) * amul) & 0xF0000) | (a << 24);

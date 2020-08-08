@@ -39,13 +39,15 @@ static u16 VtxIndices[1024] {};
 static const i32 VtxFlags[4] {
     0, D3DDP_DONOTUPDATEEXTENTS, D3DDP_DONOTUPDATEEXTENTS, D3DDP_DONOTUPDATEEXTENTS | D3DDP_DONOTCLIP};
 
-f32 VtxScreenOffset = 0.0f;
+static f32 VtxScreenOffset = 0.0f;
+static bool VtxNeedOffset = false;
+
+static mem::cmd_param PARAM_voodooaa {"voodooaa"};
 
 i32 agiD3DRasterizer::BeginGfx()
 {
-    // FIXME: This half pixel offset shouldn't be required.
-    // Assume using dgVoodoo2 if D3DImm is present
-    if (GetModuleHandleA("D3DImm.dll"))
+    // // FIXME: This half pixel offset shouldn't be required.
+    if (PARAM_voodooaa.get<bool>())
     {
         Displayf("Using half-pixel offset");
         VtxScreenOffset = -0.5f;
@@ -106,6 +108,7 @@ void agiD3DRasterizer::Mesh(agiVtxType type, agiVtx* verts, i32 vert_count, u16*
     PrimType = D3DPT_TRIANGLELIST;
     VtxIndex = indices;
     VtxIndexCount = index_count;
+    VtxNeedOffset = true;
 
     FlushState();
 }
@@ -173,6 +176,7 @@ void agiD3DRasterizer::Verts(agiVtxType type, agiVtx* verts, i32 vert_count)
     VtxBase = verts;
     VtxCount = vert_count;
     VtxIndex = VtxIndices;
+    VtxNeedOffset = true;
 }
 
 // TODO: Store data in agiD3DRasterizer
@@ -231,16 +235,22 @@ void agiD3DRasterizer::FlushState()
 
         if (EnableDraw)
         {
-            if (f32 offset = VtxScreenOffset; offset != 0.0f)
+            // FIXME: This may end up offsetting verts more than once if they are re-used.
+            if (VtxNeedOffset)
             {
-                agiScreenVtx* verts = static_cast<agiScreenVtx*>(VtxBase);
-                i32 count = VtxCount;
-
-                for (i32 i = 0; i < count; ++i)
+                if (f32 offset = VtxScreenOffset; offset != 0.0f)
                 {
-                    verts[i].x += offset;
-                    verts[i].y += offset;
+                    agiScreenVtx* verts = static_cast<agiScreenVtx*>(VtxBase);
+                    i32 count = VtxCount;
+
+                    for (i32 i = 0; i < count; ++i)
+                    {
+                        verts[i].x += offset;
+                        verts[i].y += offset;
+                    }
                 }
+
+                VtxNeedOffset = false;
             }
 
             DD_TRY(Pipe()->GetD3DDevice()->DrawIndexedPrimitive(
@@ -435,51 +445,48 @@ void agiD3DRasterizer::FlushState()
         DWORD mag_filter = D3DTFG_LINEAR;
         DWORD min_filter = D3DTFN_LINEAR;
         DWORD mip_filter = D3DTFP_NONE;
+        DWORD anisotropy = 0;
 
-        switch (tex_filter)
+        if (tex_filter == agiTexFilter::Point)
         {
-            case agiTexFilter::Point: {
-                mag_filter = D3DTFG_POINT;
-                min_filter = D3DTFN_POINT;
-                mip_filter = D3DTFP_NONE;
-                break;
+            mag_filter = D3DTFG_POINT;
+            min_filter = D3DTFN_POINT;
+        }
+        else if (Pipe()->GetTextureFilter() & 0x4)
+        {
+            mag_filter = D3DTFG_ANISOTROPIC;
+            min_filter = D3DTFN_ANISOTROPIC;
+            anisotropy = 16;
+        }
+        else
+        {
+            mag_filter = D3DTFG_LINEAR;
+            min_filter = D3DTFN_LINEAR;
+        }
+
+        if (tex_filter == agiTexFilter::Trilinear)
+        {
+            if (agiCurState.GetMaxTextures() == 1 && Pipe()->GetTextureFilter() & 0x2)
+            {
+                mip_filter = D3DTFP_LINEAR;
             }
-
-            case agiTexFilter::Bilinear: {
-                mag_filter = D3DTFG_LINEAR;
-                min_filter = D3DTFN_LINEAR;
-                mip_filter = D3DTFP_NONE;
-                break;
+            else if (Pipe()->GetTextureFilter() & 1)
+            {
+                mip_filter = D3DTFP_POINT;
             }
-
-            case agiTexFilter::Trilinear: {
-                mag_filter = D3DTFG_LINEAR;
-                min_filter = D3DTFN_LINEAR;
-
-                if (agiCurState.GetMaxTextures() == 1 && Pipe()->GetTextureFilter() & 2)
-                {
-                    mip_filter = D3DTFP_LINEAR;
-                }
-                else if (Pipe()->GetTextureFilter() & 1)
-                {
-                    mip_filter = D3DTFP_POINT;
-                }
-
-                break;
-            }
-
-            default: Quitf("bad texture filter");
         }
 
         d3d_set_texture_stage_state(0, D3DTSS_MAGFILTER, mag_filter);
         d3d_set_texture_stage_state(0, D3DTSS_MINFILTER, min_filter);
         d3d_set_texture_stage_state(0, D3DTSS_MIPFILTER, mip_filter);
+        d3d_set_texture_stage_state(0, D3DTSS_MAXANISOTROPY, anisotropy);
 
         if (agiCurState.GetMaxTextures() > 1)
         {
             d3d_set_texture_stage_state(1, D3DTSS_MAGFILTER, mag_filter);
             d3d_set_texture_stage_state(1, D3DTSS_MINFILTER, min_filter);
             d3d_set_texture_stage_state(1, D3DTSS_MIPFILTER, mip_filter);
+            d3d_set_texture_stage_state(1, D3DTSS_MAXANISOTROPY, anisotropy);
         }
 
         agiLastState.TexFilter = tex_filter;

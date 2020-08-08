@@ -53,11 +53,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     if (font_scale > 1 && !PARAM_thin_font.get_or<bool>(true))
         agiFontWidth += 8;
 
-    i32 const width_scale = agiFontWidth / 8;
-    i32 const height_scale = agiFontHeight / 8;
-
-    agiSurfaceDesc* surface =
-        agiSurfaceDesc::Init(16 * (agiFontWidth + 1), 6 * (agiFontHeight + 1), Pipe()->GetScreenFormat());
+    agiSurfaceDesc* surface = agiSurfaceDesc::Init(16 * (8 + 1), 6 * (8 + 1), Pipe()->GetScreenFormat());
 
     agiColorModel* cmodel = agiColorModel::FindMatch(surface);
 
@@ -68,8 +64,8 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
 
     for (i32 i = 0; i < 96; ++i)
     {
-        i32 char_x = (agiFontWidth + 1) * (i % 16);
-        i32 char_y = (agiFontHeight + 1) * (i / 16);
+        i32 char_x = (8 + 1) * (i % 16);
+        i32 char_y = (8 + 1) * (i / 16);
 
         for (i32 pixel_y = 0; pixel_y < 8; ++pixel_y)
         {
@@ -77,10 +73,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
             {
                 u32 color = (0x80 >> pixel_x) & *chars ? white : black;
 
-                for (i32 scale_y = 0; scale_y < height_scale; ++scale_y)
-                    for (i32 scale_x = 0; scale_x < width_scale; ++scale_x)
-                        cmodel->SetPixel(surface, char_x + (pixel_x * width_scale) + scale_x,
-                            char_y + (pixel_y * height_scale) + scale_y, color);
+                cmodel->SetPixel(surface, char_x + pixel_x, char_y + pixel_y, color);
             }
 
             ++chars;
@@ -172,8 +165,8 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
             count = 0;
         }
 
-        i32 font_x = (agiFontWidth + 1) * (value % 16);
-        i32 font_y = (agiFontHeight + 1) * (value / 16);
+        i32 font_x = (8 + 1) * (value % 16);
+        i32 font_y = (8 + 1) * (value / 16);
 
         agiScreenVtx* verts = &vert_buf[count * 4];
         u16* indices = &index_buf[count * 6];
@@ -203,8 +196,8 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
 
         verts[1].x = verts[2].x = static_cast<f32>(x + agiFontWidth);
         verts[3].y = verts[2].y = static_cast<f32>(y + agiFontHeight);
-        verts[1].tu = verts[2].tu = (font_x + agiFontWidth) * inv_font_w;
-        verts[3].tv = verts[2].tv = (font_y + agiFontHeight) * inv_font_h;
+        verts[1].tu = verts[2].tu = (font_x + 8) * inv_font_w;
+        verts[3].tv = verts[2].tv = (font_y + 8) * inv_font_h;
 
         u16 base = count * 4;
 
