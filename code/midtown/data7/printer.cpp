@@ -129,9 +129,6 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
         char buffer2[512];
         arts_vsprintf(buffer2, format, args);
 
-        if (!std::strcmp(buffer2, "DirectInput problem, code = -2147024884(8007000c) [not acquired]"))
-            return;
-
         arts_strcat(buffer, buffer2);
     }
 

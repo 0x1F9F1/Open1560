@@ -148,9 +148,19 @@ public:
         return alpha_format_;
     }
 
+    IDirect3D3* GetD3D() const
+    {
+        return d3d_;
+    }
+
     IDirect3DDevice3* GetD3DDevice() const
     {
         return d3d_device_;
+    }
+
+    IDirect3DViewport3* GetD3DView() const
+    {
+        return d3d_view_;
     }
 
 protected:

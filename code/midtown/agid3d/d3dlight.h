@@ -33,29 +33,37 @@
 
 #include "agi/light.h"
 
+#include "d3dpipe.h"
+
 class agiD3DLight final : public agiLight
 {
     // const agiD3DLight::`vftable' @ 0x621188
 
 public:
     // 0x5337A0 | ??0agiD3DLight@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiD3DLight(class agiPipeline* arg1);
+    ARTS_EXPORT agiD3DLight(class agiPipeline* pipe);
 
     // 0x5339C0 | ??_GagiD3DLight@@UAEPAXI@Z
     // 0x5339C0 | ??_EagiD3DLight@@UAEPAXI@Z
     // 0x5337E0 | ??1agiD3DLight@@UAE@XZ
-    ARTS_IMPORT ~agiD3DLight() override;
+    ARTS_EXPORT ~agiD3DLight() override;
 
     // 0x533840 | ?BeginGfx@agiD3DLight@@UAEHXZ
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // 0x5338C0 | ?EndGfx@agiD3DLight@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     // 0x533910 | ?Update@agiD3DLight@@UAEHXZ
-    ARTS_IMPORT i32 Update() override;
+    ARTS_EXPORT i32 Update() override;
 
-    u8 gap88[0x4];
+    agiD3DPipeline* Pipe() const
+    {
+        return static_cast<agiD3DPipeline*>(agiRefreshable::Pipe());
+    }
+
+private:
+    IDirect3DLight* d_light_ {nullptr};
 };
 
 check_size(agiD3DLight, 0x8C);

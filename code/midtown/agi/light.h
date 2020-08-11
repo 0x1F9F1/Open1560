@@ -35,16 +35,40 @@
 
 #include "refresh.h"
 
+#include "vector7/vector3.h"
+#include "vector7/vector4.h"
+
 class agiLightParameters
 {
 public:
     // 0x55B9E0 | ??0agiLightParameters@@QAE@XZ
-    ARTS_IMPORT agiLightParameters();
+    ARTS_EXPORT agiLightParameters() = default;
 
     // 0x55BA60 | ??4agiLightParameters@@QAEXABV0@@Z
-    ARTS_IMPORT void operator=(class agiLightParameters const& arg1);
+    ARTS_EXPORT void operator=(class agiLightParameters const& rhs)
+    {
+        std::memcpy(this, &rhs, sizeof(*this));
 
-    u8 gap0[0x70];
+        Touched = true;
+    }
+
+    u32 Flags {0x3};
+    b32 Touched {true};
+    Vector3 Ambient {0.0f, 0.0f, 0.0f};
+    f32 dword14 {1.0f};
+    Vector3 Diffuse {1.0f, 1.0f, 1.0f};
+    f32 Alpha {1.0f};
+    Vector3 Specular {1.0f, 1.0f, 1.0f};
+    f32 dword34 {1.0f};
+    Vector4 Position {0.0f, 0.0f, 1.0f, 1.0f};
+    Vector3 Direction {0.0f, 0.0f, -1.0f};
+    f32 SpotExp {0.0f};
+    f32 SpotAngle {180.0f};
+    f32 ConstantAtten {1.0f};
+    f32 LinearAtten {0.0f};
+    f32 QuadraticAtten {0.0f};
+    f32 SpecularExp {0.0f};
+    u32 dword6C {0xFFFFFFFF};
 };
 
 check_size(agiLightParameters, 0x70);
@@ -55,12 +79,14 @@ class agiLight : public agiRefreshable
 
 public:
     // 0x55BA80 | ??0agiLight@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiLight(class agiPipeline* arg1);
+    ARTS_EXPORT agiLight(class agiPipeline* pipe)
+        : agiRefreshable(pipe)
+    {}
 
     // 0x55BB40 | ??_EagiLight@@UAEPAXI@Z
     // 0x55BB40 | ??_GagiLight@@UAEPAXI@Z
     // 0x55BB10 | ??1agiLight@@UAE@XZ
-    ARTS_IMPORT ~agiLight() override = default;
+    ARTS_EXPORT ~agiLight() override = default;
 
     virtual i32 Update() = 0;
 
@@ -68,12 +94,12 @@ public:
     ARTS_EXPORT virtual void Remove();
 
     // 0x55BB20 | ?GetName@agiLight@@UAEPADXZ
-    ARTS_IMPORT char* GetName() override;
+    ARTS_EXPORT char* GetName() override;
 
     // 0x55BAD0 | ?Init@agiLight@@QAEHABVagiLightParameters@@@Z
-    ARTS_IMPORT i32 Init(class agiLightParameters const& arg1);
+    ARTS_EXPORT i32 Init(class agiLightParameters const& params);
 
-    u8 gap18[0x70];
+    agiLightParameters Params {};
 };
 
 check_size(agiLight, 0x88);

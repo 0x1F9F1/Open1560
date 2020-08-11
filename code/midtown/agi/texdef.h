@@ -108,12 +108,14 @@ public:
     u8 LOD {0};
     u8 MaxLOD {0};
 
+    // Mirrors agiTexProp::Flags ?
     // 0x1 | Mipmap?
-    // 0x2 | SphereMap? No alpha when using additive blending? Premultipled Alpha?
-    // 0x4 | ShadowMap?
+    // 0x2 | Premultipled Alpha
+    // 0x4 | ShadowMap? (SrcAlpha_InvSrcAlpha)
     // 0x8 | ?
-    // 0x40 | WOMFACE, MANFACE, 37_INSIDE
-    // 0x80 | R_STOP, T_1WAY, ...
+    // 0x10 | Alpha
+    // 0x40 | No Blending? WOMFACE, MANFACE, 37_INSIDE
+    // 0x80 | NoMultiTex? | R_STOP, T_1WAY, ...
     u32 SheetFlags {0};
     f32 dword28 {0.0f};
     u32 DayColor {0};

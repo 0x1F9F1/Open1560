@@ -307,14 +307,16 @@ void asNode::PerfReport(class Stream* output, i32 indent)
 {
     f32 self_update = update_time_;
 
-    for (asNode* n = child_node_; n; n = n->next_node_)
-        self_update -= n->update_time_;
+    if (self_update != 0.0f)
+    {
+        for (asNode* n = child_node_; n; n = n->next_node_)
+            self_update -= n->update_time_;
+    }
 
     for (i32 i = 0; i < indent; ++i)
         arts_fprintf(output, "  ");
 
-    arts_fprintf(
-        output, "%s %s Total %6.3f Myself %6.3f\n", GetNodeType(), node_name_.get(), update_time_, self_update);
+    arts_fprintf(output, "%s %s Total %.7f Myself %.7f\n", GetNodeType(), node_name_.get(), update_time_, self_update);
 
     for (asNode* n = child_node_; n; n = n->next_node_)
         n->PerfReport(output, indent + 1);

@@ -22,3 +22,17 @@ define_dummy_symbol(agi_light);
 
 void agiLight::Remove()
 {}
+
+char* agiLight::GetName()
+{
+    static char buffer[64]; // FIXME: Static buffer
+    arts_sprintf(buffer, "Light '%p'", this);
+    return buffer;
+}
+
+i32 agiLight::Init(class agiLightParameters const& params)
+{
+    EndGfx();
+    Params = params;
+    return SafeBeginGfx();
+}

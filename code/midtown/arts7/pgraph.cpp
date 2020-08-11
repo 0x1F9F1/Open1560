@@ -27,10 +27,11 @@ define_dummy_symbol(arts7_pgraph);
 #include "agi/vertex.h"
 #include "data7/timer.h"
 #include "eventq7/key_codes.h"
+#include "sim.h"
 #include "vector7/vector3.h"
 
-static extern_var(0x79098C, f32, PerfGraphOverhead);
-static extern_var(0x790988, Timer, PerfGraphOverheadTimer);
+static f32 PerfGraphOverhead = 0.0f;
+static Timer PerfGraphOverheadTimer {};
 
 asPerfGraph::asPerfGraph()
 {
@@ -240,6 +241,13 @@ void asPerfGraph::Key(i32 vkey)
         case EQ_VK_F3: graph_scale_ *= 2.0f; break;
         case EQ_VK_F4: maim_component_ = (maim_component_ + 1) % num_components_; break;
         case EQ_VK_F5: scroll_ ^= true; break;
+
+        // TODO: Move somewhere else?
+        case EQ_VK_F6: asNode::TimingCount = 100; break;
+        case EQ_VK_F7:
+            ARTSPTR->ResetTime();
+            asNode::TimingCount = 0;
+            break;
     }
 }
 

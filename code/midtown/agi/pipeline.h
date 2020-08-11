@@ -310,15 +310,18 @@ protected:
     i32 height_ {0};
     i32 bit_depth_ {0};
 
+    // 0x2 | Use Video Ram (-vram, -system)
+    // 0x4 | Single Buffer ?
     // 0x10 | Enable Z Buffer
-    // 0x100 | Enable TexLut
-    // 0x400 | Ramp Emulation
-    // 0x800 | RGB Emulation
-    // 0x1000 | Direct3D HAL
-    // 0x2000 | MMX Emulation
-    i32 device_flags_1_ {0};
+    // 0x20 | Enable Z Buffer 2 ? (-debug, -primary)
+    // 0x100 | Enable TexLut (-paltex)
+    // 0x400 | Ramp Emulation (-ramp)
+    // 0x800 | RGB Emulation (-rgb, -debug)
+    // 0x1000 | Direct3D HAL (-hal)
+    // 0x2000 | MMX Emulation (-mmx)
+    i32 device_flags_1_ {0}; // Main Flags
     i32 device_flags_2_ {0};
-    i32 device_flags_3_ {0};
+    i32 device_flags_3_ {0}; // UI Flags
 
     void* window_ {nullptr};
     i32 horz_res_ {0};

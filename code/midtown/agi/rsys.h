@@ -101,7 +101,7 @@ enum class agiBlendSet : u8
     SrcAlpha_One = 1,
     Zero_SrcAlpha = 3,
     Zero_SrcColor = 4,
-    One_One = 5,
+    One_One = 5, // Additive Blending
 };
 
 enum class agiCullMode : u8
