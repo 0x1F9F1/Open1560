@@ -128,7 +128,7 @@ public:
     ARTS_IMPORT u32 GetFGColor();
 
     // 0x4FF790 | ?GetTextDimensions@mmTextNode@@QAEXPAXPAULocString@@AAM2@Z
-    ARTS_IMPORT void GetTextDimensions(void* arg1, struct LocString* arg2, f32& arg3, f32& arg4);
+    ARTS_EXPORT void GetTextDimensions(void* font, struct LocString* text, f32& width, f32& height);
 
     // 0x4FF540 | ?Init@mmTextNode@@QAEXMMMMHH@Z
     ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, i32 arg6);

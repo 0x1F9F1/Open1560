@@ -100,7 +100,7 @@ void mmText::Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font
         HGDIOBJ prev_font = SelectObject(dc, font);
 
         SIZE size {};
-        GetTextExtentPoint32A(dc, text, strlen(text), &size);
+        GetTextExtentPoint32A(dc, text, std::strlen(text), &size);
 
         RECT rc {};
         // TODO: Just set rc directly?
@@ -293,6 +293,52 @@ void mmText::ReleaseDC()
         Errorf("mmText::ReleaseDC problem!");
 
     TextSurfaceDD = nullptr;
+}
+
+void mmTextNode::GetTextDimensions(void* font, LocString* text, f32& width, f32& height)
+{
+    bool created_bitmap = false;
+
+    if (text_bitmap_ == nullptr)
+    {
+        char name[256];
+        arts_sprintf(name, "*TextNode:%ptemp", this);
+
+        text_bitmap_.reset(Pipe()->CreateBitmap());
+
+        text_bitmap_->Init(name, Pipe()->GetWidth() * width, Pipe()->GetHeight() * height, 0);
+
+        created_bitmap = true;
+    }
+
+    HDC dc = static_cast<HDC>(mmText::GetDC(text_bitmap_->GetSurface()));
+
+    if (dc)
+    {
+        SIZE size {};
+
+        if (text)
+        {
+            HGDIOBJ prev_font = SelectObject(dc, font);
+            GetTextExtentPoint32A(dc, text->Data, std::strlen(text->Data), &size);
+            SelectObject(dc, prev_font);
+        }
+        else
+        {
+            // TODO: Shouldn't this also set the font?
+            // TODO: Shouldn't this pass the length of the text, not the max size?
+            GetTextExtentPoint32A(dc, lines_[0].Text, std::size(lines_[0].Text), &size);
+        }
+
+        mmText::ReleaseDC();
+
+        width = static_cast<f32>(size.cx) / Pipe()->GetWidth();
+        height = static_cast<f32>(size.cy) / Pipe()->GetHeight();
+
+        // TODO: Shouldn't this be done outside of the if (dc) check?
+        if (created_bitmap)
+            text_bitmap_.reset();
+    }
 }
 
 void mmTextNode::RenderText(
