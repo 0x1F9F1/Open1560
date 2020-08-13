@@ -23,17 +23,18 @@ define_dummy_symbol(agiworld_texsort);
 #include "agi/rsys.h"
 #include "arts7/bank.h"
 
-// TODO: Use CMD arguments
-static constexpr i32 BigVtxSize = 65536;
+static constexpr i32 BigVtxSize = 65535;
 static constexpr i32 BigIdxSize = BigVtxSize * 3;
 
-static constexpr i32 EnvVtxSize = 32768;
+static constexpr i32 EnvVtxSize = 16384;
 static constexpr i32 EnvIdxSize = EnvVtxSize * 3;
 
-static constexpr i32 VtxSize = 2048;
-static constexpr i32 IdxSize = VtxSize * 3;
+static i32 VtxSize = 0;
+static i32 IdxSize = 0;
 
 static extern_var(0x719808, agiPolySet, BigPolySet);
+
+static mem::cmd_param PARAM_max_verts_per_set {"maxverts"};
 
 agiTexSorter::agiTexSorter()
 {
@@ -41,6 +42,9 @@ agiTexSorter::agiTexSorter()
         Quitf("Already have a TexSorter");
 
     Instance = this;
+
+    VtxSize = std::min<i32>(PARAM_max_verts_per_set.get_or<i32>(2048), 8192);
+    IdxSize = VtxSize * 3;
 
     MaxVertsPerSet = VtxSize;
     MaxIndicesPerSet = IdxSize;
