@@ -19,4 +19,5 @@ arts_component "core"
         "platform.h",
         "noncopyable.h",
         "refcount.h",
+        "tuple.h",
     }

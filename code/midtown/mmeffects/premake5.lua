@@ -1,3 +1,5 @@
+ARTS_USE_FREETYPE = true
+
 arts_component "mmeffects"
     files {
         -- "birth.cpp",
@@ -21,3 +23,16 @@ arts_component "mmeffects"
         "vehform.cpp",
         "vehform.h",
     }
+
+    if ARTS_USE_FREETYPE then
+        files { "mmtext_freetype.cpp" }
+
+        includeFreetype()
+        links { "freetype" }
+
+        postbuildcommands {
+            '{COPY} "' .. path.join(FREETYPE_DIR, "bin/freetype.dll") .. '" "' .. MM1_GAME_DIRECTORY .. '"',
+        }
+    else
+        files { "mmtext_win32.cpp" }
+    end

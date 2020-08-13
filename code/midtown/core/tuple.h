@@ -18,22 +18,10 @@
 
 #pragma once
 
-/*
-    localize:localize
+#include <tuple>
 
-    0x520010 | char * __cdecl GetLocTime(float) | ?GetLocTime@@YAPADM@Z
-    0x5200D0 | struct LocString * __cdecl AngelReadString(unsigned int) | ?AngelReadString@@YAPAULocString@@I@Z
-*/
+template <typename T1, typename T2>
+using Pair = std::pair<T1, T2>;
 
-struct LocString
-{
-    // TODO: What are the actual members of LocString?
-
-    char Text[1];
-};
-
-// 0x5200D0 | ?AngelReadString@@YAPAULocString@@I@Z
-ARTS_IMPORT struct LocString* AngelReadString(u32 arg1);
-
-// 0x520010 | ?GetLocTime@@YAPADM@Z
-ARTS_IMPORT char* GetLocTime(f32 arg1);
+template <typename... Types>
+using Tuple = std::tuple<Types...>;

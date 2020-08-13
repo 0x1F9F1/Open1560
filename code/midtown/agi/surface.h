@@ -107,6 +107,10 @@ public:
     [[nodiscard]] ARTS_IMPORT static Owner<agiSurfaceDesc*> Load(
         char* name, char* path, i32 index, i32 pack, i32 width, i32 height);
 
+    void Clear(i32 x, i32 y, i32 width, i32 height);
+
+    void Fill(i32 x, i32 y, i32 width, i32 height, u32 color);
+
     u32 Size {0};
     u32 Flags {0};
     u32 Height {0};
