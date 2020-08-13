@@ -3,6 +3,7 @@
 #include "agi/bitmap.h"
 #include "agi/cmodel.h"
 #include "agi/pipeline.h"
+#include "agi/rgba.h"
 #include "agi/surface.h"
 #include "data7/hash.h"
 #include "localize/localize.h"
@@ -10,11 +11,6 @@
 #include <ft2build.h>
 
 #include <freetype/freetype.h>
-
-static u32 TwiddleColor(u32 color) // RGBA to BGRA
-{
-    return ((color >> 16) & 0xFF) | (color & 0xFF00) | ((color & 0xFF) << 16);
-}
 
 static FT_Library FreeTypeLibrary = nullptr;
 
@@ -150,7 +146,7 @@ public:
 
         y += face_->size->metrics.ascender;
 
-        color = cmodel->GetColor(TwiddleColor(color & 0xFFFFFF) | 0xFF000000);
+        color = cmodel->GetColor(agiRgba::FromABGR(color | 0xFF000000));
 
         for (; *text; ++text)
         {

@@ -20,6 +20,7 @@ define_dummy_symbol(agi_surface);
 
 #include "surface.h"
 
+#include "agi/rgba.h"
 #include "cmodel.h"
 #include "pcwindis/setupdata.h"
 #include "texdef.h"
@@ -338,7 +339,7 @@ void agiSurfaceDesc::Fill(i32 x, i32 y, i32 width, i32 height, u32 color)
 
     Rc<agiColorModel> cmodel {agiColorModel::FindMatch(this)};
 
-    color = cmodel->GetColor(color);
+    color = cmodel->GetColor(agiRgba::FromARGB(color));
 
     i32 byte_count = cmodel->ByteCount;
 

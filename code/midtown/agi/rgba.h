@@ -27,10 +27,15 @@ struct agiRgba
     u8 B {0};
     u8 A {0};
 
-    u32 ToRGBA() const
+    u32 ToABGR() const
     {
         // NOTE: Assume little endian
-        u32 result = mem::bit_cast<u32>(*this);
+        return mem::bit_cast<u32>(*this);
+    }
+
+    u32 ToRGBA() const
+    {
+        u32 result = ToABGR();
         ByteSwap(result); // ABGR -> RGBA
         return result;
     }
@@ -40,6 +45,25 @@ struct agiRgba
         u32 result = ToRGBA();
         result = (result >> 8) | (result << 24); // RGBA -> ARGB
         return result;
+    }
+
+    static agiRgba FromABGR(u32 color)
+    {
+        // NOTE: Assume little endian
+        return mem::bit_cast<agiRgba>(color);
+    }
+
+    static agiRgba FromRGBA(u32 color)
+    {
+        ByteSwap(color); // RGBA -> ABGR
+
+        return FromABGR(color);
+    }
+
+    static agiRgba FromARGB(u32 color)
+    {
+        color = (color << 8) | (color >> 24); // ARGB -> RGBA
+        return FromRGBA(color);
     }
 };
 
