@@ -68,6 +68,8 @@ private:
         : face_(face)
     {
         arts_strcpy(name_, name);
+
+        FontHash.Insert(name_, this);
     }
 
     ~mmFont()
@@ -339,8 +341,6 @@ void* mmText::CreateLocFont(LocString* params, i32 screen_width)
     [[maybe_unused]] i32 char_set = std::atoi(strtok_s(nullptr, ",", &split_context));
 
     i32 weight = std::atoi(strtok_s(nullptr, ",", &split_context));
-
-    Displayf("%s, weight %i", font_name, weight);
 
     mmFont* result = mmFont::Create(font_name, (screen_width >= 640) ? height_high : height_low, weight);
 
