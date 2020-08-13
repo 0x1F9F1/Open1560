@@ -11,7 +11,7 @@
 
 #include <freetype/freetype.h>
 
-static u32 TwiddleColor(u32 color)
+static u32 TwiddleColor(u32 color) // RGBA to BGRA
 {
     return ((color >> 16) & 0xFF) | (color & 0xFF00) | ((color & 0xFF) << 16);
 }
@@ -120,7 +120,7 @@ public:
 
     void Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect, u32 color, u32 format)
     {
-        agiColorModel* cmodel = agiColorModel::FindMatch(surface);
+        Rc<agiColorModel> cmodel {agiColorModel::FindMatch(surface)};
 
         i32 x = rect->left;
         i32 y = rect->top;
@@ -150,7 +150,7 @@ public:
 
         y += face_->size->metrics.ascender;
 
-        color = TwiddleColor(color & 0xFFFFFF) | 0xFF000000;
+        color = cmodel->GetColor(TwiddleColor(color & 0xFFFFFF) | 0xFF000000);
 
         for (; *text; ++text)
         {

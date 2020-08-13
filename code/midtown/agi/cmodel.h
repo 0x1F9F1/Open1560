@@ -59,6 +59,8 @@ public:
     // 0x55BB80 | ?GetColor@agiColorModel@@QAEIHHHH@Z
     ARTS_EXPORT u32 GetColor(i32 r, i32 g, i32 b, i32 a);
 
+    u32 GetColor(u32 color);
+
     // 0x55D810 | ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z | agi:cmodelx
     ARTS_IMPORT static class agiColorModel* FindMatch(class agiSurfaceDesc* arg1);
 

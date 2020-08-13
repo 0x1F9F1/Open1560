@@ -45,3 +45,8 @@ u32 agiColorModel::GetColor(i32 r, i32 g, i32 b, i32 a)
 {
     return GetColor(agiRgba {static_cast<u8>(r), static_cast<u8>(g), static_cast<u8>(b), static_cast<u8>(a)});
 }
+
+u32 agiColorModel::GetColor(u32 color)
+{
+    return GetColor(agiRgba {(color >> 16) & 0xFF, (color >> 8) & 0xFF, color & 0xFF, (color >> 24) & 0xFF});
+}

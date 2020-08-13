@@ -336,9 +336,9 @@ void agiSurfaceDesc::Fill(i32 x, i32 y, i32 width, i32 height, u32 color)
     if (x + width > static_cast<i32>(Width) || y + height > static_cast<i32>(Height))
         return;
 
-    agiColorModel* cmodel = agiColorModel::FindMatch(this);
+    Rc<agiColorModel> cmodel {agiColorModel::FindMatch(this)};
 
-    u32 native_color = cmodel->GetColor((color >> 16) & 0xFF, (color >> 8) & 0xFF, color & 0xFF, (color >> 24) & 0xFF);
+    color = cmodel->GetColor(color);
 
     i32 byte_count = cmodel->ByteCount;
 
@@ -350,12 +350,12 @@ void agiSurfaceDesc::Fill(i32 x, i32 y, i32 width, i32 height, u32 color)
         {
             case 2:
                 for (i32 i = 0; i < width; ++i)
-                    static_cast<u16*>(row)[i] = static_cast<u16>(native_color);
+                    static_cast<u16*>(row)[i] = static_cast<u16>(color);
                 break;
 
             case 4:
                 for (i32 i = 0; i < width; ++i)
-                    static_cast<u32*>(row)[i] = native_color;
+                    static_cast<u32*>(row)[i] = color;
                 break;
         }
     }
