@@ -24,8 +24,10 @@ define_dummy_symbol(agid3d_ddpipe);
 #include "agi/cmodel8.h"
 #include "agi/error.h"
 #include "agi/palette.h"
+#include "agi/texdef.h"
 #include "ddbitmap.h"
 #include "dderror.h"
+#include "pcpipe.h"
 #include "pcwindis/dxinit.h"
 
 agiDDPipeline::agiDDPipeline()
@@ -40,6 +42,51 @@ agiDDPipeline::agiDDPipeline()
 agiDDPipeline::~agiDDPipeline()
 {
     EndGfx();
+}
+
+static mem::cmd_param PARAM_width {"width"};
+static mem::cmd_param PARAM_height {"height"};
+static mem::cmd_param PARAM_depth {"depth"};
+
+static mem::cmd_param PARAM_labelf {"labelf"};
+static mem::cmd_param PARAM_labelp {"labelp"};
+
+static mem::cmd_param PARAM_pack {"pack"};
+static mem::cmd_param PARAM_mip {"mip"};
+
+static mem::cmd_param PARAM_square {"square"};
+static mem::cmd_param PARAM_nfog {"nfog"};
+static mem::cmd_param PARAM_multitex {"multitex"};
+static mem::cmd_param PARAM_annotate {"annotate"};
+
+void agiDDPipeline::Init()
+{
+    width_ = PARAM_width.get_or<i32>(640);
+    height_ = PARAM_height.get_or<i32>(480);
+    bit_depth_ = PARAM_depth.get_or<i32>(32);
+
+    // TODO: Add other command options
+
+    DrawLabelFArg = PARAM_labelf.get_or(false);
+    NoBlitHack |= DrawLabelFArg;
+
+    DrawLabelPArg = PARAM_labelp.get_or(false);
+    NoBlitHack |= DrawLabelFArg;
+
+    PackShift = PARAM_pack.get_or<i32>(0);
+    NoMip = !PARAM_mip.get_or(true);
+    ForceSquare = PARAM_square.get_or(false);
+    NormalizedFog = PARAM_nfog.get_or(false);
+    NoMultiTexture = !PARAM_multitex.get_or(true);
+    AnnotateTextures = PARAM_annotate.get_or(false);
+
+    device_flags_1_ = 0x1032; // hal, zbuffer, vram
+    device_flags_3_ = 0x0;
+
+    device_flags_2_ = device_flags_1_;
+
+    if (device_flags_3_ == 0x0)
+        device_flags_3_ = device_flags_1_;
 }
 
 void agiDDPipeline::BeginFrame()

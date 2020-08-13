@@ -342,7 +342,7 @@ protected:
     agiColorModel* alpha_color_model_ {nullptr};
     agiColorModel* text_color_model_ {nullptr};
     agiRenderer* renderer_ {nullptr};
-    i32 dword2D0 {0};
+    b32 is_software_ {0};
     i32 max_tex_width_ {0};
     i32 max_tex_height_ {0};
     agiRefreshable* objects_ {nullptr};

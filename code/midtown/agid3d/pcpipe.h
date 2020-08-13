@@ -35,34 +35,34 @@
 */
 
 // 0x52DFC0 | ?d3dCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-ARTS_IMPORT class agiPipeline* d3dCreatePipeline(i32 arg1, char** arg2);
+ARTS_EXPORT class agiPipeline* d3dCreatePipeline(i32 argc, char** argv);
 
 // 0x790DCC | ?AutoMip@@3HA
-ARTS_IMPORT extern i32 AutoMip;
+ARTS_IMPORT extern b32 AutoMip;
 
 // 0x790DD0 | ?DrawLabelFArg@@3HA
-ARTS_IMPORT extern i32 DrawLabelFArg;
+ARTS_IMPORT extern b32 DrawLabelFArg;
 
 // 0x790DE8 | ?DrawLabelPArg@@3HA
-ARTS_IMPORT extern i32 DrawLabelPArg;
+ARTS_IMPORT extern b32 DrawLabelPArg;
 
 // 0x790DE0 | ?ForceSquare@@3HA
-ARTS_IMPORT extern i32 ForceSquare;
+ARTS_IMPORT extern b32 ForceSquare;
 
 // 0x790DDC | ?FullMip@@3HA
-ARTS_IMPORT extern i32 FullMip;
+ARTS_IMPORT extern b32 FullMip;
 
 // 0x790DC8 | ?MaxTexMem@@3HA
 ARTS_IMPORT extern i32 MaxTexMem;
 
 // 0x790DE4 | ?NoBlitHack@@3HA
-ARTS_IMPORT extern i32 NoBlitHack;
+ARTS_IMPORT extern b32 NoBlitHack;
 
 // 0x790DD4 | ?NoMip@@3HA
-ARTS_IMPORT extern i32 NoMip;
+ARTS_IMPORT extern b32 NoMip;
 
 // 0x790DC4 | ?NoMultiTexture@@3HA
-ARTS_IMPORT extern i32 NoMultiTexture;
+ARTS_IMPORT extern b32 NoMultiTexture;
 
 // 0x790DD8 | ?NormalizedFog@@3HA
-ARTS_IMPORT extern i32 NormalizedFog;
+ARTS_IMPORT extern b32 NormalizedFog;

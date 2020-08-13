@@ -20,6 +20,6 @@ arts_component "agid3d"
         "dderror.h",
         "ddpipe.cpp",
         "ddpipe.h",
-        -- "pcpipe.cpp",
-        -- "pcpipe.h",
+        "pcpipe.cpp",
+        "pcpipe.h",
     }

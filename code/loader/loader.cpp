@@ -388,7 +388,7 @@ include_dummy_symbol(agid3d_d3dview);
 include_dummy_symbol(agid3d_ddbitmap);
 // include_dummy_symbol(agid3d_dderror);
 include_dummy_symbol(agid3d_ddpipe);
-// include_dummy_symbol(agid3d_pcpipe);
+include_dummy_symbol(agid3d_pcpipe);
 
 // include_dummy_symbol(agirend_bilight);
 // include_dummy_symbol(agirend_bilmodel);

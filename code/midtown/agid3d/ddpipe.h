@@ -60,6 +60,8 @@ public:
     // 0x532EF0 | ??1agiDDPipeline@@UAE@XZ
     ARTS_EXPORT ~agiDDPipeline() override;
 
+    void Init();
+
     // 0x532F40 | ?BeginFrame@agiDDPipeline@@UAEXXZ
     ARTS_EXPORT void BeginFrame() override;
 

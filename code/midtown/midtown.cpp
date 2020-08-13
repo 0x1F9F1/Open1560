@@ -147,7 +147,7 @@ void Application(i32 argc, char** argv)
 
         if (affinity == 0 || (affinity & (affinity - 1)) != 0)
         {
-            SynchronousMessageQueues = PARAM_sync.get_or<bool>(true);
+            SynchronousMessageQueues = PARAM_sync.get_or(true);
 
             Warningf("Running with multiple threads. Here be dragons");
 

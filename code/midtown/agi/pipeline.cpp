@@ -272,8 +272,12 @@ void agiPipeline::ValidateObject(agiRefreshable* ptr)
     }
 }
 
+static mem::cmd_param PARAM_agi_verbose {"agiverbose"};
+
 agiPipeline::agiPipeline()
 {
+    agiVerbose = PARAM_agi_verbose.get_or(false);
+
     window_ = GetRootWindow();
 
     unsigned int current = 0;

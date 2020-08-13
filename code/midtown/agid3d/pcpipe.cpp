@@ -19,3 +19,13 @@
 define_dummy_symbol(agid3d_pcpipe);
 
 #include "pcpipe.h"
+
+#include "agi/error.h"
+#include "d3drpipe.h"
+
+agiPipeline* d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
+{
+    agiD3DRPipeline* result = new agiD3DRPipeline();
+    result->Init();
+    return result;
+}

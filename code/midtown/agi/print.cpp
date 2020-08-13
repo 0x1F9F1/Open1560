@@ -50,7 +50,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     agiFontWidth = font_scale * 8;
     agiFontHeight = font_scale * 8;
 
-    if (font_scale > 1 && !PARAM_thin_font.get_or<bool>(true))
+    if (font_scale > 1 && !PARAM_thin_font.get_or(true))
         agiFontWidth += 8;
 
     agiSurfaceDesc* surface = agiSurfaceDesc::Init(16 * (8 + 1), 6 * (8 + 1), Pipe()->GetScreenFormat());
