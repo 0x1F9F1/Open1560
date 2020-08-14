@@ -113,6 +113,16 @@ public:
         return data_;
     }
 
+    char& operator[](usize index)
+    {
+        return data_[index];
+    }
+
+    const char& operator[](usize index) const
+    {
+        return data_[index];
+    }
+
 private:
     char* data_ {nullptr};
 };

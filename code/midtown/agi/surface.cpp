@@ -303,22 +303,26 @@ void agiSurfaceDesc::Unload()
 
 [[nodiscard]] Owner<agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, const agiSurfaceDesc& desc)
 {
-    u32 pixel_size = (desc.PixelFormat.RGBBitCount + 7) / 8;
-
     Ptr<agiSurfaceDesc> result = MakeUnique<agiSurfaceDesc>(desc);
 
     result->Flags = AGISD_WIDTH | AGISD_HEIGHT;
     result->Width = width;
     result->Height = height;
-    result->Pitch = width * pixel_size;
+    result->Pitch = width * ((desc.PixelFormat.RGBBitCount + 7) / 8);
+    result->Surface = nullptr;
     result->MipMapCount = 0;
     result->SCaps.Caps = 0;
 
-    u32 surface_size = width * height * pixel_size;
-
-    result->Surface = new u8[surface_size] {};
+    result->Load();
 
     return result.release();
+}
+
+void agiSurfaceDesc::Load()
+{
+    Unload();
+
+    Surface = new u8[Pitch * Height] {};
 }
 
 void agiSurfaceDesc::Clear(i32 x, i32 y, i32 width, i32 height)

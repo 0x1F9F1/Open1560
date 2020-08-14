@@ -76,6 +76,11 @@ public:
         return pipe_;
     }
 
+    bool HaveGfxStarted() const
+    {
+        return state_ != 0;
+    }
+
 protected:
     // 0x557BA0 | ?IsTexture@agiRefreshable@@MAEHXZ
     ARTS_EXPORT virtual b32 IsTexture();
@@ -92,7 +97,7 @@ protected:
 
     // 0 | Not Started
     // 1 | Started 1
-    // 2 | Started 2
+    // 2 | Started 2 (Set in agiGLTexDef::BeginGfx from am.exe)
     u32 state_ {0};
 
     u32 ref_count_ {1};

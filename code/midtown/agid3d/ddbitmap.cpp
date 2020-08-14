@@ -43,7 +43,7 @@ i32 agiDDBitmap::BeginGfx()
 
     if (width_scale_ == 0.0f || height_scale_ == 0.0f)
     {
-        if (*name_.get() != '*')
+        if (name_[0] != '*')
             surface_->Reload(const_cast<char*>(name_.get()), BitmapSearchPath, 0, 0, 0, 0, 0);
 
         width_ = surface_->Width;
@@ -51,12 +51,15 @@ i32 agiDDBitmap::BeginGfx()
     }
     else
     {
-        width_ = static_cast<i32>(Pipe()->GetWidth() * width_scale_ - -0.5f);
-        height_ = static_cast<i32>(Pipe()->GetHeight() * height_scale_ - -0.5f);
+        width_ = static_cast<i32>(Pipe()->GetWidth() * width_scale_ + 0.5f);
+        height_ = static_cast<i32>(Pipe()->GetHeight() * height_scale_ + 0.5f);
 
-        if (*name_.get() != '*')
+        if (name_[0] != '*')
             surface_->Reload(const_cast<char*>(name_.get()), BitmapSearchPath, 0, 0, 0, width_, height_);
     }
+
+    if (surface_->Surface == nullptr)
+        return AGI_ERROR_OBJECT_EMPTY;
 
     DDSURFACEDESC2 ddsdDest {sizeof(ddsdDest)};
 
@@ -88,7 +91,7 @@ i32 agiDDBitmap::BeginGfx()
 
     agiDisplayf("Bitmap %s: %d bytes texture memory total, %d available", name_.get(), dwTotal, dwFree);
 
-    if (*name_.get() != '*')
+    if (name_[0] != '*' || (flags_ & AGI_BITMAP_UNLOAD_ALWAYS))
         surface_->Unload();
 
     UpdateFlags();

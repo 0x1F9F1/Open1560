@@ -673,14 +673,14 @@ void agiD3DRasterizer::FlushState()
             agiLastState.FogStart = fog_start;
 
             if (NormalizedFog)
-                fog_start = (-fog_start * vp.ProjZZ + vp.ProjZW) / fog_start * 0.5f - -0.5f;
+                fog_start = (-fog_start * vp.ProjZZ + vp.ProjZW) / fog_start * 0.5f + 0.5f;
 
             d3d_set_render_state(D3DRENDERSTATE_FOGTABLESTART, mem::bit_cast<DWORD>(fog_start));
 
             agiLastState.FogEnd = fog_end;
 
             if (NormalizedFog)
-                fog_end = (-fog_end * vp.ProjZZ + vp.ProjZW) / fog_end * 0.5f - -0.5f;
+                fog_end = (-fog_end * vp.ProjZZ + vp.ProjZW) / fog_end * 0.5f + 0.5f;
 
             d3d_set_render_state(D3DRENDERSTATE_FOGTABLEEND, mem::bit_cast<DWORD>(fog_end));
 

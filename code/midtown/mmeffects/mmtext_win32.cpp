@@ -184,9 +184,9 @@ void mmText::DeleteFont(void* font)
     DeleteObject(font);
 }
 
-agiSurfaceDesc* TextSurfaceAGI = nullptr;
-IDirectDrawSurface4* TextSurfaceDD = nullptr;
-HDC TextSurfaceDC = nullptr;
+static agiSurfaceDesc* TextSurfaceAGI = nullptr;
+static IDirectDrawSurface4* TextSurfaceDD = nullptr;
+static HDC TextSurfaceDC = nullptr;
 
 void* mmText::GetDC(agiSurfaceDesc* surface)
 {
@@ -220,18 +220,22 @@ void mmText::ReleaseDC()
         return;
     }
 
-    DDSURFACEDESC2 sd {sizeof(sd)};
-
-    if (TextSurfaceDD->Lock(nullptr, &sd, 0, nullptr))
+    // Assume only querying size if surface == nullptr
+    if (TextSurfaceAGI->Surface != nullptr)
     {
-        TextSurfaceDD->Release();
-        return;
+        DDSURFACEDESC2 sd {sizeof(sd)};
+
+        if (TextSurfaceDD->Lock(nullptr, &sd, 0, nullptr))
+        {
+            TextSurfaceDD->Release();
+            return;
+        }
+
+        agiSurfaceDesc agi_sd = ConvertSurfaceDesc(sd);
+        TextSurfaceAGI->CopyFrom(&agi_sd, 0);
+
+        TextSurfaceDD->Unlock(nullptr);
     }
-
-    agiSurfaceDesc agi_sd = ConvertSurfaceDesc(sd);
-    TextSurfaceAGI->CopyFrom(&agi_sd, 0);
-
-    TextSurfaceDD->Unlock(nullptr);
 
     if (TextSurfaceDD->Release())
         Errorf("mmText::ReleaseDC problem!");

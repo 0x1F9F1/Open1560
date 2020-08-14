@@ -105,6 +105,7 @@ struct mmTextData
     // 0x10 | Move right 2 pixels
     // 0x20 | Word Break
     // 0x40 | Always Draw
+    // 0x80 | Use BgColor as text color (Highlight?, Present in retail build)
     u32 Effects {0};
     void* Font {nullptr};
     char Text[256] {};
@@ -138,7 +139,7 @@ public:
     ARTS_EXPORT void GetTextDimensions(void* font, struct LocString* text, f32& width, f32& height);
 
     // 0x4FF540 | ?Init@mmTextNode@@QAEXMMMMHH@Z
-    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, i32 arg6);
+    ARTS_EXPORT void Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 flags);
 
     // 0x4FFB00 | ?Printf@mmTextNode@@QAAXPBDZZ | unused
     ARTS_IMPORT void Printf(char const* arg1, ...);
