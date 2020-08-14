@@ -261,7 +261,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         patch_jmp("HW Menu", "Enable HW Menu Rendering", 0x401DB4, jump_type::always);
 
-        create_patch("Heap Size", "Increase Heap Size", 0x401E11, "\xb8\x00\x00\x00\x08", 5); // mov eax, 0x8000000
+        create_patch("Heap Size", "Increase Heap Size", 0x401E11, "\xB8\x00\x00\x00\x08", 5); // mov eax, 0x8000000
 
         patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
         patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);

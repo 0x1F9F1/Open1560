@@ -148,7 +148,7 @@ char* agiTexDef::GetName()
 
 i32 agiTexDef::Init(agiTexParameters const& params)
 {
-    if (DevelopmentMode || !(EnablePaging & ARTS_PAGE_TEXTURES) || (params.Flags & agiTexParameters::Modified))
+    if (DevelopmentMode || !(EnablePaging & ARTS_PAGE_TEXTURES) || (params.Flags & agiTexParameters::KeepLoaded))
     {
         EndGfx();
         tex_ = params;
@@ -169,6 +169,8 @@ i32 agiTexDef::Init(class agiTexParameters const& params, agiSurfaceDesc* surfac
     EndGfx();
 
     tex_ = params;
+    tex_.Flags |= agiTexParameters::KeepLoaded;
+
     surface_ = surface;
 
     CheckSurface();
@@ -237,7 +239,7 @@ void agiTexDef::UnlockAndFreeSurface()
     if (cache_handle_ != 0)
         TEXCACHE.UnlockAndFree(cache_handle_);
 
-    // TODO: Should cache_handle_ be set to 0?
+    cache_handle_ = 0;
 }
 
 void agiTexDef::UnlockSurface()
@@ -284,6 +286,13 @@ agiTexDef::~agiTexDef()
             Displayf("%s still in TexLib", GetName());
             *def = nullptr;
         }
+    }
+
+    if (surface_)
+    {
+        surface_->Unload();
+
+        delete surface_;
     }
 }
 

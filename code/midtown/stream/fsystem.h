@@ -134,13 +134,14 @@ private:
 check_size(FileSystem, 0x8);
 
 // 0x55FD30 | ?FindFile@@YAPAVFileSystem@@PAD00H0@Z
-ARTS_EXPORT class FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer);
+[[deprecated]] ARTS_EXPORT class FileSystem* FindFile(
+    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer);
 
 class FileSystem* FindFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len);
 
 // 0x55FD60 | ?OpenFile@@YAPAVStream@@PAD00H00@Z
-ARTS_EXPORT Owner<class Stream*> OpenFile(
+[[deprecated]] ARTS_EXPORT Owner<class Stream*> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, const char* desc);
 
 Owner<class Stream*> OpenFile(

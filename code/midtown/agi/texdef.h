@@ -91,7 +91,7 @@ public:
         Alpha = 0x1,
         WrapU = 0x2,
         WrapV = 0x4,
-        Modified = 0x8,
+        KeepLoaded = 0x8,
         NoMipMaps = 0x10,
         ColorKey = 0x40,
         Second = 0x80,
@@ -100,7 +100,7 @@ public:
     // 0x1 | Alpha
     // 0x2 | Wrap X/U/S
     // 0x4 | Wrap Y/V/T
-    // 0x8 | Should Reload (Hot Reload, or Modified - Snow)
+    // 0x8 | KeepLoaded
     // 0x10 | Mipmap thing
     // 0x40 | Color Key Enable (chromakey)
     // 0x80 | Second (agiTexParameters::Second)

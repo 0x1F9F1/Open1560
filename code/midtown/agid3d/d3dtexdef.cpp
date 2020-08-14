@@ -35,7 +35,7 @@ i32 agiD3DTexDef::BeginGfx()
         return AGI_ERROR_FILE_NOT_FOUND;
     }
 
-    if (page_state_ == 0 && cache_handle_ == 0)
+    if (tex_.Name[0] != '*' && page_state_ == 0 && cache_handle_ == 0)
         surface_->Reload(tex_.Name, TexSearchPath, tex_.LOD, mip_reduction_, 0, 0, 0);
 
     if (!NoMultiTexture && agiCurState.GetMaxTextures() > 1 && !std::strncmp(tex_.Name, "SHADMAP", 7))
@@ -67,9 +67,6 @@ i32 agiD3DTexDef::BeginGfx()
     surface_size_ =
         surface_->Width * surface_->Height * (surface_->PixelFormat.RGBBitCount + 7) / 8; // Only used for stats
 
-    if (Pipe()->GetFilterCaps() != 0 && !(tex_.Flags & agiTexParameters::NoMipMaps))
-        surface_size_ = (surface_size_ * 4) / 3; // Size of all mipmaps = sum 1/4^n, n=0 to infinity = 4/3
-
     if (tex_.SheetFlags & 0x2 && GetRendererInfo().AdditiveBlending)
         tex_.Flags &= ~agiTexParameters::Alpha;
 
@@ -77,8 +74,11 @@ i32 agiD3DTexDef::BeginGfx()
     sd.ddpfPixelFormat = (tex_.Flags & agiTexParameters::Alpha) ? Pipe()->GetAlphaFormat() : Pipe()->GetOpaqueFormat();
     sd.dwReserved = 0; // lpLut/szLut
 
-    // TODO: Shouldn't this use the same checks as surface_size_ ?
-    if (Pipe()->GetFilterCaps() == 0)
+    if (Pipe()->GetFilterCaps() != 0 && !(tex_.Flags & agiTexParameters::NoMipMaps))
+    {
+        surface_size_ = (surface_size_ * 4) / 3; // Size of all mipmaps = sum 1/4^n, n=0 to infinity = 4/3
+    }
+    else
     {
         sd.dwMipMapCount = 0;
         sd.dwFlags &= ~DDSD_MIPMAPCOUNT;
@@ -151,7 +151,7 @@ i32 agiD3DTexDef::BeginGfx()
 
     DD_TRY(mem_tex_surf_->QueryInterface(IID_IDirect3DTexture2, (void**) &mem_tex_));
 
-    if (cache_handle_ == 0)
+    if (tex_.Name[0] != '*' && cache_handle_ == 0)
         surface_->Unload();
 
     page_state_ = 0;
@@ -240,15 +240,17 @@ void agiD3DTexDef::Request()
 
 void agiD3DTexDef::Restore()
 {
-    if (mem_tex_surf_)
-        mem_tex_surf_->Restore();
-
     if (DontCacheTextures)
     {
         EndGfx();
 
-        if (!(EnablePaging & ARTS_PAGE_TEXTURES) || (tex_.Flags & agiTexParameters::Modified))
+        if (!(EnablePaging & ARTS_PAGE_TEXTURES) || (tex_.Flags & agiTexParameters::KeepLoaded))
             BeginGfx();
+    }
+    else
+    {
+        if (mem_tex_surf_)
+            mem_tex_surf_->Restore();
     }
 }
 

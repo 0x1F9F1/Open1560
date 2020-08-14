@@ -118,7 +118,7 @@ void asPerfGraph::Cull()
                 if (count == buf_size)
                 {
                     RAST->Mesh(
-                        agiVtxType::VtxType3, reinterpret_cast<agiVtx*>(vert_buf), count * 4, index_buf, count * 6);
+                        agiVtxType::Screen, reinterpret_cast<agiVtx*>(vert_buf), count * 4, index_buf, count * 6);
 
                     count = 0;
                 }
@@ -174,7 +174,7 @@ void asPerfGraph::Cull()
 
     if (count)
     {
-        RAST->Mesh(agiVtxType::VtxType3, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
+        RAST->Mesh(agiVtxType::Screen, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
     }
 
     RAST->EndGroup();

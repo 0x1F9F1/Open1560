@@ -36,9 +36,6 @@ static u16* VtxIndex = nullptr;
 static i32 VtxIndexCount = 0;
 static u16 VtxIndices[1024] {};
 
-static const i32 VtxFlags[4] {
-    0, D3DDP_DONOTUPDATEEXTENTS, D3DDP_DONOTUPDATEEXTENTS, D3DDP_DONOTUPDATEEXTENTS | D3DDP_DONOTCLIP};
-
 static f32 VtxScreenOffset = 0.0f;
 static bool VtxNeedOffset = false;
 
@@ -97,7 +94,7 @@ void agiD3DRasterizer::Line(i32 i1, i32 i2)
 
 void agiD3DRasterizer::Mesh(agiVtxType type, agiVtx* verts, i32 vert_count, u16* indices, i32 index_count)
 {
-    ArAssert(type == agiVtxType::VtxType3, "Invalid Vertex Type");
+    ArAssert(type == agiVtxType::Screen, "Invalid Vertex Type");
 
     STATS.Tris += static_cast<i32>(index_count / 3.0f);
 
@@ -129,19 +126,30 @@ void agiD3DRasterizer::Mesh2(agiScreenVtx2* verts, i32 vert_count, u16* indices,
     }
 }
 
+static DWORD GetVertexFlags(agiVtxType type)
+{
+    switch (type)
+    {
+        case agiVtxType::VtxType0: return 0;
+        case agiVtxType::VtxType1: return D3DDP_DONOTUPDATEEXTENTS;
+        case agiVtxType::VtxType2: return D3DDP_DONOTUPDATEEXTENTS;
+        case agiVtxType::Screen: return D3DDP_DONOTUPDATEEXTENTS | D3DDP_DONOTCLIP;
+    }
+
+    return 0;
+}
+
 void agiD3DRasterizer::Points(agiVtxType type, agiVtx* verts, i32 vert_count)
 {
-    ArAssert(type == agiVtxType::VtxType3, "Invalid Vertex Type");
+    ArAssert(type == agiVtxType::Screen, "Invalid Vertex Type");
 
     FlushState();
 
     // TODO: Update stats
     // TODO: Check (ActiveFlag & 1) && EnableDraw
 
-    // FIXME: This is almost certainly incorrect.
-    // VtxType is a agiVtxType, where currently only 3 seems to be used (agiScreenVtx). But here it is passed as the dwVertexTypeDesc, which is not the same.
-    // It should instead probably be D3DFVF_TLVERTEX
-    DD_TRY(Pipe()->GetD3DDevice()->DrawPrimitive(D3DPT_POINTLIST, VtxType, verts, vert_count, VtxFlags[type]));
+    DD_TRY(Pipe()->GetD3DDevice()->DrawPrimitive(
+        D3DPT_POINTLIST, D3DFVF_TLVERTEX, verts, vert_count, GetVertexFlags(type)));
 }
 
 void agiD3DRasterizer::SetVertCount(i32 vert_count)
@@ -254,7 +262,7 @@ void agiD3DRasterizer::FlushState()
             }
 
             DD_TRY(Pipe()->GetD3DDevice()->DrawIndexedPrimitive(
-                PrimType, D3DFVF_TLVERTEX, VtxBase, VtxCount, VtxIndex, VtxIndexCount, VtxFlags[VtxType]));
+                PrimType, D3DFVF_TLVERTEX, VtxBase, VtxCount, VtxIndex, VtxIndexCount, GetVertexFlags(VtxType)));
         }
 
         VtxIndexCount = 0;

@@ -232,7 +232,7 @@ void agiDDPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     {
         if (dst_x <= width_ - width && dst_y <= height_ - height)
             d_rend_->BltFast(dst_x, dst_y, static_cast<agiDDBitmap*>(src)->GetDDSurface(), &rect,
-                DDBLTFAST_WAIT | (src->IsTransparent() ? DDBLTFAST_SRCCOLORKEY : 0));
+                DDBLTFAST_WAIT | (src->IsTransparent() ? DDBLTFAST_SRCCOLORKEY : DDBLTFAST_NOCOLORKEY));
     }
     else
     {

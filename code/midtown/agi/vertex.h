@@ -18,12 +18,12 @@
 
 #pragma once
 
-enum agiVtxType : i32
+enum class agiVtxType : i32
 {
     VtxType0,
     VtxType1,
     VtxType2,
-    VtxType3, // agiScreenVtx
+    Screen, // agiScreenVtx
 };
 
 // D3DFVF_TLVERTEX

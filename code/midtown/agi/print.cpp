@@ -84,6 +84,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
 
     agiTexParameters params {};
     arts_strcpy(params.Name, "*BUILTIN");
+    params.Flags |= agiTexParameters::NoMipMaps;
     texture->Init(params, surface);
 
     BuiltinFontTexture = texture;
@@ -160,7 +161,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
 
         if (count == buf_size)
         {
-            RAST->Mesh(agiVtxType::VtxType3, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
+            RAST->Mesh(agiVtxType::Screen, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
 
             count = 0;
         }
@@ -170,8 +171,6 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
 
         agiScreenVtx* verts = &vert_buf[count * 4];
         u16* indices = &index_buf[count * 6];
-
-        // FIXME: This half pixel offset shouldn't be required.
 
         agiScreenVtx blank;
 
@@ -215,7 +214,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
 
     if (count)
     {
-        RAST->Mesh(agiVtxType::VtxType3, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
+        RAST->Mesh(agiVtxType::Screen, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
     }
 
     RAST->EndGroup();
