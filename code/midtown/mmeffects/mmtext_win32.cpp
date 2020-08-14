@@ -148,12 +148,11 @@ agiBitmap* mmText::CreateFitBitmap(char* text, void* font, i32 color, i32 bg_col
 
 static i32 GetFontQuality()
 {
-    return PROOF_QUALITY;
+    return ANTIALIASED_QUALITY;
 }
 
 void* mmText::CreateFont(char* font_name, i32 height)
 {
-    // TODO: Use CLEARTYPE_QUALITY ?
     return CreateFontA(height, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, ANSI_CHARSET, OUT_DEFAULT_PRECIS,
         CLIP_DEFAULT_PRECIS, GetFontQuality(), VARIABLE_PITCH, font_name);
 }

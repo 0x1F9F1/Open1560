@@ -181,7 +181,15 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 lod, agiTexParameters* pa
     u32 src_width = src->Width;
     u32 src_height = src->Height;
     u32 src_pixel_size = (src->PixelFormat.RGBBitCount + 7) >> 3;
-    u32 src_pitch = src_pixel_size * src->Width;
+    u32 src_pitch = src->Pitch;
+
+    // FIXME: A few textures (only REFL_*?) have an incorrect pitch. This should really be corrected in agiSurfaceDesc::Load.
+    if (u32 alt_pitch = src_pixel_size * src->Width; (alt_pitch * 2 == src_pitch) || !(src->Flags & AGISD_PITCH))
+    {
+        src->Pitch = alt_pitch;
+        src_pitch = alt_pitch;
+    }
+
     u8* src_surface = static_cast<u8*>(src->Surface);
 
     for (; lod; --lod)
@@ -305,7 +313,7 @@ void agiSurfaceDesc::Unload()
 {
     Ptr<agiSurfaceDesc> result = MakeUnique<agiSurfaceDesc>(desc);
 
-    result->Flags = AGISD_WIDTH | AGISD_HEIGHT;
+    result->Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH;
     result->Width = width;
     result->Height = height;
     result->Pitch = width * ((desc.PixelFormat.RGBBitCount + 7) / 8);

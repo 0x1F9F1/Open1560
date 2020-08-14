@@ -64,8 +64,7 @@ i32 agiD3DTexDef::BeginGfx()
         }
     }
 
-    surface_size_ =
-        surface_->Width * surface_->Height * (surface_->PixelFormat.RGBBitCount + 7) / 8; // Only used for stats
+    surface_size_ = surface_->Height * surface_->Pitch; // Only used for stats
 
     if (tex_.SheetFlags & 0x2 && GetRendererInfo().AdditiveBlending)
         tex_.Flags &= ~agiTexParameters::Alpha;

@@ -168,7 +168,7 @@ public:
                     if (dst_x >= surface->Width)
                         break;
 
-                    if (u8 alpha = face_->glyph->bitmap.buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
+                    if (face_->glyph->bitmap.buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
                         cmodel->SetPixel(surface, dst_x, dst_y, color);
                 }
             }
@@ -208,7 +208,7 @@ public:
             return nullptr;
         }
 
-        FT_Set_Char_Size(face, height << 6, height << 6, 72, 72);
+        FT_Set_Char_Size(face, 0, height << 6, 0, 54);
 
         return new mmFont(name, face);
     }
