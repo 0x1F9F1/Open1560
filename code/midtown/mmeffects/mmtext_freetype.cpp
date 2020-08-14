@@ -360,14 +360,13 @@ void mmText::ReleaseDC()
 
 void mmTextNode::GetTextDimensions(void* font_ptr, LocString* text, f32& width, f32& height)
 {
+    bool temp_font = false;
+
     if (font_ptr == nullptr)
     {
         // Called by MenuManager::InitCommonStuff with a null font.
-
-        width = (16.0f * std::strlen(text->Text)) / Pipe()->GetWidth();
-        height = 16.0f / Pipe()->GetHeight();
-
-        return;
+        font_ptr = mmText::CreateFont(const_cast<char*>("Gill Sans MT"), 16);
+        temp_font = true;
     }
 
     mmFont* font = static_cast<mmFont*>(font_ptr);
@@ -375,6 +374,9 @@ void mmTextNode::GetTextDimensions(void* font_ptr, LocString* text, f32& width, 
 
     width = static_cast<f32>(size.cx) / Pipe()->GetWidth();
     height = static_cast<f32>(size.cy) / Pipe()->GetHeight();
+
+    if (temp_font)
+        mmText::DeleteFont(font_ptr);
 }
 
 void mmTextNode::RenderText(
