@@ -73,7 +73,7 @@ void AutoDetect(i32 renderer, i32 resolution)
     MMSTATE.EnablePaging = false;
 
     agiRQ.TexturedSky = true;
-    agiRQ.Shadow = true;
+    agiRQ.Shadow = AGI_QUALITY_VERY_HIGH;
     agiRQ.FarClip = 1000.0;
 
     agiRQ.LightQuality = 3;

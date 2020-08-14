@@ -31,7 +31,7 @@
 
 struct agiWorldRenderQuality
 {
-    b32 Shadow;
+    i32 Shadow;
     b32 EnvMap;
     b32 SphMap;
     b32 TexturedSky;
