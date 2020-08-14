@@ -429,8 +429,6 @@ void mmTextNode::RenderText(
 
                 surface->Fill(rc.left, rc.top, 1, rc.bottom - rc.top, fill_color);
                 surface->Fill(rc.right - 1, rc.top, 1, rc.bottom - rc.top, fill_color);
-
-                rc.left += 2;
             }
 
             if (line.Effects & 0x10)
