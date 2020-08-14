@@ -94,6 +94,12 @@ class UIMenu : public asNode
     // const UIMenu::`vftable' @ 0x61E2E8
 
 public:
+    enum class eSource : i32
+    {
+        Keyboard,
+        Mouse
+    };
+
     // 0x4AC7F0 | ??0UIMenu@@QAE@H@Z
     ARTS_IMPORT UIMenu(i32 arg1);
 

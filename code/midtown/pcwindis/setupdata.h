@@ -88,7 +88,7 @@ ARTS_IMPORT i32 dxiReadConfigFile();
 ARTS_IMPORT i32 dxiResClosestMatch(i32 arg1, i32 arg2, i32 arg3);
 
 // 0x574A60 | ?dxiResGetRecommended@@YAHHH@Z
-ARTS_IMPORT i32 dxiResGetRecommended(i32 arg1, i32 arg2);
+ARTS_EXPORT i32 dxiResGetRecommended(i32 renderer, i32 cpu_speed);
 
 // 0x574E90 | ?dxiWriteConfigFile@@YAXXZ
 ARTS_IMPORT void dxiWriteConfigFile();

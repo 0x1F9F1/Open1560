@@ -24,5 +24,37 @@
     0x64ACD8 | struct agiWorldRenderQuality agiRQ | ?agiRQ@@3UagiWorldRenderQuality@@A
 */
 
+#define AGI_QUALITY_LOW 0
+#define AGI_QUALITY_MEDIUM 1
+#define AGI_QUALITY_HIGH 2
+#define AGI_QUALITY_VERY_HIGH 3
+
+struct agiWorldRenderQuality
+{
+    b32 Shadow;
+    b32 EnvMap;
+    b32 SphMap;
+    b32 TexturedSky;
+
+    i32 LightQuality;
+
+    // Texture Resolution
+    i32 TextureQuality;
+
+    // Object Detail
+    i32 TerrainQuality;
+
+    f32 FarClip;
+
+    f32 dword20;
+
+    // 0 | Point
+    // 1 | Linear
+    // 2 | Linear Mip
+    i32 TexFilter;
+};
+
+check_size(agiWorldRenderQuality, 0x28);
+
 // 0x64ACD8 | ?agiRQ@@3UagiWorldRenderQuality@@A
 ARTS_IMPORT extern struct agiWorldRenderQuality agiRQ;

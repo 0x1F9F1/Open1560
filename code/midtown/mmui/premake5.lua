@@ -32,8 +32,8 @@ arts_component "mmui"
         -- "dlg_tcpip.h",
         -- "driver.cpp",
         -- "driver.h",
-        -- "graphics.cpp",
-        -- "graphics.h",
+        "graphics.cpp",
+        "graphics.h",
         -- "main.cpp",
         -- "main.h",
         -- "netarena.cpp",
@@ -83,4 +83,3 @@ arts_component "mmui"
         -- "vshow.cpp",
         -- "vshow.h",
     }
-

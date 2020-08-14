@@ -27,7 +27,7 @@ include "mmeffects"
 -- include "mminput"
 -- include "mmnetwork"
 -- include "mmphysics"
--- include "mmui"
+include "mmui"
 -- include "mmwidget"
 include "pcwindis"
 include "stream"
@@ -69,7 +69,7 @@ arts_component "midtown"
         -- "arts_mminput",
         -- "arts_mmnetwork",
         -- "arts_mmphysics",
-        -- "arts_mmui",
+        "arts_mmui",
         -- "arts_mmwidget",
         "arts_pcwindis",
         "arts_stream",

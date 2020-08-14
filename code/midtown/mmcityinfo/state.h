@@ -105,9 +105,9 @@ struct mmStatePack
     i8 XcamView;
     i8 IconsState;
     i8 MapRes;
-    i32 DisablePeds;
-    i32 EnablePaging;
-    i32 Interlaced;
+    b32 DisablePeds;
+    b32 EnablePaging;
+    b32 Interlaced;
 };
 
 check_size(mmStatePack, 0x2F8);

@@ -201,7 +201,7 @@ void asPerfGraph::Cull()
 
         if (line_top + agiFontHeight <= prev)
         {
-            agiPrintf(x_offset - (agiFontWidth * 2), line_top, 0xFFFFFFFF, "%2i", height);
+            agiPrintf(x_offset, line_top, 0xFFFFFFFF, "%2i", height);
             prev = line_top;
         }
     }

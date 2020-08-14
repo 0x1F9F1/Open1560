@@ -25,3 +25,13 @@ ARTS_IMPORT /*static*/ void guidtostr(char* arg1, struct _GUID* arg2);
 
 // 0x574DF0 | ?strtoguid@@YAXPAU_GUID@@PAD@Z
 ARTS_IMPORT /*static*/ void strtoguid(struct _GUID* arg1, char* arg2);
+
+i32 dxiResGetRecommended(i32 renderer, [[maybe_unused]] i32 cpu_speed)
+{
+    dxiRendererInfo_t& info = dxiInfo[renderer];
+
+    if (info.Type == 2)
+        return info.ResCount - 1;
+
+    return dxiResClosestMatch(renderer, 640, 480);
+}
