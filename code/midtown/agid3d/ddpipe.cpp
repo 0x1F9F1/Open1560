@@ -63,7 +63,7 @@ void agiDDPipeline::Init()
 {
     width_ = PARAM_width.get_or<i32>(640);
     height_ = PARAM_height.get_or<i32>(480);
-    bit_depth_ = PARAM_depth.get_or<i32>(32);
+    bit_depth_ = PARAM_depth.get_or<i32>(16);
 
     // TODO: Add other command options
 
