@@ -325,6 +325,11 @@ void agiSurfaceDesc::Load()
     Surface = new u8[Pitch * Height] {};
 }
 
+void agiSurfaceDesc::Clear()
+{
+    std::memset(Surface, 0, Pitch * Height);
+}
+
 void agiSurfaceDesc::Clear(i32 x, i32 y, i32 width, i32 height)
 {
     if (x + width > static_cast<i32>(Width) || y + height > static_cast<i32>(Height))

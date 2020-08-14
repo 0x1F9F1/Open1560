@@ -105,8 +105,8 @@ public:
         for (; *text; ++text)
         {
             u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(*text));
-            FT_Load_Glyph(face_, glyph_index, FT_LOAD_DEFAULT);
-            FT_Render_Glyph(face_->glyph, FT_RENDER_MODE_NORMAL);
+
+            FT_Load_Glyph(face_, glyph_index, FT_LOAD_TARGET_MONO);
 
             width += face_->glyph->advance.x;
         }
@@ -124,9 +124,7 @@ public:
         i32 width = rect->right - rect->left;
         i32 height = rect->bottom - rect->top;
 
-        surface->Clear(x, y, width, height);
-
-        if (format & (MM_DT_CENTER | MM_DT_VCENTER | MM_DT_RIGHT))
+        if (format & (MM_DT_CENTER | MM_DT_VCENTER | MM_DT_RIGHT | MM_DT_BOTTOM))
         {
             mmSize size = GetExtents(text);
 
@@ -152,9 +150,7 @@ public:
         {
             u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(*text));
 
-            FT_Load_Glyph(face_, glyph_index, FT_LOAD_DEFAULT);
-
-            FT_Render_Glyph(face_->glyph, FT_RENDER_MODE_MONO);
+            FT_Load_Glyph(face_, glyph_index, FT_LOAD_RENDER | FT_LOAD_MONOCHROME | FT_LOAD_TARGET_MONO);
 
             for (u32 src_y = 0; src_y < face_->glyph->bitmap.rows; ++src_y)
             {
@@ -227,13 +223,14 @@ void mmText::Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font_
 
     mmSize size = font->GetExtents(text);
 
-    // TODO: Should right/bottom be adjusted by screen_x/screen_y?
-
     mmRect rc {};
+
     rc.left = screen_x;
     rc.top = screen_y;
-    rc.right = size.cx;
-    rc.bottom = size.cy;
+    rc.right = screen_x + size.cx;
+    rc.bottom = screen_y + size.cy;
+
+    surface->Clear();
 
     font->Draw(surface, text, &rc, 0xFFFFFF, 0);
 }
@@ -247,13 +244,14 @@ void mmText::Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font
 
     mmSize size = font->GetExtents(text);
 
-    // TODO: Should right/bottom be adjusted by screen_x/screen_y?
-
     mmRect rc {};
+
     rc.left = screen_x;
     rc.top = screen_y;
-    rc.right = size.cx;
-    rc.bottom = size.cy;
+    rc.right = screen_x + size.cx;
+    rc.bottom = screen_y + size.cy;
+
+    surface->Clear();
 
     font->Draw(surface, text, &rc, color, MM_DT_RIGHT);
 }
@@ -265,7 +263,7 @@ agiBitmap* mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color, i32 bg
     mmFont* font = static_cast<mmFont*>(font_ptr);
 
     mmSize size = font->GetExtents(text);
-    size.cx += size.cy & 1;
+    size.cx += size.cx & 1;
 
     {
         char name[256];
@@ -382,6 +380,9 @@ void mmTextNode::GetTextDimensions(void* font_ptr, LocString* text, f32& width, 
 void mmTextNode::RenderText(
     agiSurfaceDesc* surface, mmTextData* lines, [[maybe_unused]] i32 num_lines, u32 enabled_lines)
 {
+    surface->Clear();
+
+    // TODO: Should this actually be reset for each line?
     format_ = MM_DT_NOPREFIX;
     hidden_ = true;
 
@@ -408,8 +409,6 @@ void mmTextNode::RenderText(
         rc.right = surface->Width;
         rc.bottom = surface->Height;
 
-        mmRect text_rc = rc;
-
         if (line.Effects)
         {
             if (line.Effects & 0x2)
@@ -421,23 +420,25 @@ void mmTextNode::RenderText(
             if (line.Effects & 0x20)
                 format_ |= MM_DT_WORDBREAK;
 
+            if (line.Effects & 0x4)
+            {
+                u32 fill_color = 0xFFFFFF;
+
+                surface->Fill(rc.left, rc.top, rc.right - rc.left, 1, fill_color);
+                surface->Fill(rc.left, rc.bottom - 1, rc.right - rc.left, 1, fill_color);
+
+                surface->Fill(rc.left, rc.top, 1, rc.bottom - rc.top, fill_color);
+                surface->Fill(rc.right - 1, rc.top, 1, rc.bottom - rc.top, fill_color);
+
+                rc.left += 2;
+            }
+
             if (line.Effects & 0x10)
-                text_rc.left += 2;
+                rc.left += 2;
 
             format = format_;
         }
 
-        font->Draw(surface, line.Text, &text_rc, fg_color_, format);
-
-        if (line.Effects & 0x4)
-        {
-            u32 fill_color = 0xFFFFFF;
-
-            surface->Fill(rc.left, rc.top, rc.right - rc.left, 1, fill_color);
-            surface->Fill(rc.left, rc.bottom - 1, rc.right - rc.left, 1, fill_color);
-
-            surface->Fill(rc.left, rc.top, 1, rc.bottom - rc.top, fill_color);
-            surface->Fill(rc.right - 1, rc.top, 1, rc.bottom - rc.top, fill_color);
-        }
+        font->Draw(surface, line.Text, &rc, fg_color_, format);
     }
 }
