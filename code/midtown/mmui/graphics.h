@@ -52,7 +52,7 @@
 #include "optionsbase.h"
 
 // 0x499710 | ?AutoDetect@@YAXHH@Z
-void AutoDetect(i32 renderer, i32 resolution);
+ARTS_EXPORT void AutoDetect(i32 renderer, i32 resolution);
 
 // 0x705820 | ?RenderToSystemMemory@@3HA
 ARTS_IMPORT extern i32 RenderToSystemMemory;
