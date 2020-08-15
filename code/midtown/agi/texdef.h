@@ -100,22 +100,31 @@ public:
     // 0x1 | Alpha
     // 0x2 | Wrap X/U/S
     // 0x4 | Wrap Y/V/T
-    // 0x8 | KeepLoaded
-    // 0x10 | Mipmap thing
+    // 0x8 | Keep Loaded
+    // 0x10 | No Mip Maps
     // 0x40 | Color Key Enable (chromakey)
     // 0x80 | Second (agiTexParameters::Second)
     u8 Flags {0};
     u8 LOD {0};
     u8 MaxLOD {0};
 
-    // Mirrors agiTexProp::Flags ?
-    // 0x1 | Mipmap?
-    // 0x2 | Premultipled Alpha
-    // 0x4 | ShadowMap? (SrcAlpha_InvSrcAlpha)
-    // 0x8 | ?
-    // 0x10 | Alpha
-    // 0x40 | No Blending? WOMFACE, MANFACE, 37_INSIDE
-    // 0x80 | NoMultiTex? | R_STOP, T_1WAY, ...
+    // Mirrors agiTexProp::Flags
+    // w |    0x1 | Snowable
+    // g |    0x2 | Alpha Glow
+    // l |    0x4 | Lightmap
+    // s |    0x8 | Shadow
+    // t |   0x10 | Transparent
+    // k |   0x20 | Chromakey
+    // n |   0x40 | Not lit
+    // d |   0x80 | Dull or Damaged
+    // u |  0x100 | Clamp U or Both
+    // v |  0x200 | Clamp V or Both
+    // c |  0x400 | Clamp Both
+    // U |  0x800 | Clamp U or Neither
+    // V | 0x1000 | Clamp V or Neither
+    // e | 0x2000 | Road/Floor/Ceiling
+    // m | 0x4000 | Always Modulate
+    // p | 0x8000 | Always Persp-Correct
     u32 SheetFlags {0};
     f32 dword28 {0.0f};
     u32 DayColor {0};
