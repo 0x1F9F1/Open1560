@@ -65,10 +65,10 @@ void AutoDetect(i32 renderer, i32 resolution)
     }
     else
     {
-        agiRQ.TextureQuality = (res.uWidth >= 512) ? 2 : 1;
+        agiRQ.TextureQuality = (res.uWidth >= 512) ? AGI_QUALITY_HIGH : AGI_QUALITY_MEDIUM;
     }
 
-    MaxTextureQuality = 3;
+    MaxTextureQuality = AGI_QUALITY_VERY_HIGH;
 
     MMSTATE.EnablePaging = false;
 
@@ -76,7 +76,7 @@ void AutoDetect(i32 renderer, i32 resolution)
     agiRQ.Shadow = AGI_QUALITY_VERY_HIGH;
     agiRQ.FarClip = 1000.0;
 
-    agiRQ.LightQuality = 3;
+    agiRQ.LightQuality = AGI_QUALITY_VERY_HIGH;
     LightQualityOption = static_cast<f32>(agiRQ.LightQuality);
 
     agiRQ.EnvMap = info.SmoothAlpha && !(info.SpecialFlags & 0x2);

@@ -304,17 +304,17 @@ void agiD3DRasterizer::FlushState()
         {
             if (texture2)
             {
-                ArAssert(texture2->GetParams().Flags & agiTexParameters::Second, "Invalid Texture");
+                ArAssert(texture2->Tex.Flags & agiTexParameters::Second, "Invalid Texture");
 
                 if (IDirect3DTexture2* th = texture2->GetHandle(second_stage))
                 {
                     DD_TRY(dev->SetTexture(second_stage, th));
 
                     d3d_set_texture_stage_state(second_stage, D3DTSS_ADDRESSU,
-                        texture2->GetParams().ShouldWrapU() ? D3DTADDRESS_WRAP : D3DTADDRESS_CLAMP);
+                        texture2->Tex.ShouldWrapU() ? D3DTADDRESS_WRAP : D3DTADDRESS_CLAMP);
 
                     d3d_set_texture_stage_state(second_stage, D3DTSS_ADDRESSV,
-                        texture2->GetParams().ShouldWrapV() ? D3DTADDRESS_WRAP : D3DTADDRESS_CLAMP);
+                        texture2->Tex.ShouldWrapV() ? D3DTADDRESS_WRAP : D3DTADDRESS_CLAMP);
                 }
 
                 d3d_set_texture_stage_state(1, D3DTSS_COLOROP,
@@ -335,10 +335,11 @@ void agiD3DRasterizer::FlushState()
 
         if (texture)
         {
-            if (i32 scene_index = Pipe()->GetSceneIndex(); scene_index != texture->GetSceneIndex())
+            if (i32 scene_index = Pipe()->GetSceneIndex(); scene_index != texture->SceneIndex)
             {
-                texture->SetSceneIndex(scene_index);
-                STATS.TxlsXrfd += texture->GetSurfaceSize();
+                texture->SceneIndex = scene_index;
+
+                STATS.TxlsXrfd += texture->SurfaceSize;
             }
 
             ++STATS.TextureChanges;
@@ -354,14 +355,14 @@ void agiD3DRasterizer::FlushState()
                 EnableDraw = false;
             }
 
-            agiCurState.SetWrapU(texture->GetParams().ShouldWrapU());
-            agiCurState.SetWrapV(texture->GetParams().ShouldWrapV());
+            agiCurState.SetWrapU(texture->Tex.ShouldWrapU());
+            agiCurState.SetWrapV(texture->Tex.ShouldWrapV());
 
-            d3d_set_render_state(D3DRENDERSTATE_COLORKEYENABLE, texture->GetParams().UseColorKey());
+            d3d_set_render_state(D3DRENDERSTATE_COLORKEYENABLE, texture->Tex.UseChromakey());
 
-            alpha_enable |= texture->GetParams().HasAlpha();
+            alpha_enable |= texture->Tex.HasAlpha();
 
-            if (texture->GetParams().DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
+            if (texture->Tex.DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
                 tex_filter = agiTexFilter::Bilinear;
         }
         else
@@ -375,7 +376,7 @@ void agiD3DRasterizer::FlushState()
     }
 
     if (texture && Pipe()->SupportsAlpha())
-        alpha_enable |= texture->GetParams().HasAlpha();
+        alpha_enable |= texture->Tex.HasAlpha();
 
     if (texture2)
     {

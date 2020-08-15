@@ -21,8 +21,8 @@ define_dummy_symbol(agi_surface);
 #include "surface.h"
 
 #include "agi/rgba.h"
+#include "agiworld/texsheet.h"
 #include "cmodel.h"
-#include "pcwindis/setupdata.h"
 #include "texdef.h"
 
 #include <emmintrin.h>
@@ -157,42 +157,68 @@ static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
 // 0x55B640 | ?copyrow565_to_888rev@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow565_to_888rev(void* arg1, void* arg2, u32 arg3, u32 arg4);
 
-void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 lod)
+static void copyrow_8(void* dst, void* src, u32 len, u32 step)
 {
-    CopyFrom(src, lod, nullptr);
+    u8* ARTS_RESTRICT dst8 = static_cast<u8*>(dst);
+    u8* ARTS_RESTRICT src8 = static_cast<u8*>(src);
+
+    for (u32 src_off = 0; len; --len)
+    {
+        *dst8++ = src8[src_off >> 16];
+        src_off += step;
+    }
 }
 
-void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 lod, agiTexParameters* params)
+static void copyrow_16(void* dst, void* src, u32 len, u32 step)
+{
+    u16* ARTS_RESTRICT dst16 = static_cast<u16*>(dst);
+    u16* ARTS_RESTRICT src16 = static_cast<u16*>(src);
+
+    for (u32 src_off = 0; len; --len)
+    {
+        *dst16++ = src16[src_off >> 16];
+        src_off += step;
+    }
+}
+
+static void copyrow_32(void* dst, void* src, u32 len, u32 step)
+{
+    u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
+    u32* ARTS_RESTRICT src32 = static_cast<u32*>(src);
+
+    for (u32 src_off = 0; len; --len)
+    {
+        *dst32++ = src32[src_off >> 16];
+        src_off += step;
+    }
+}
+
+void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod)
+{
+    CopyFrom(src, src_lod, nullptr);
+}
+
+void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters* params)
 {
     u32 dst_width = Width;
     u32 dst_height = Height;
-    u32 dst_pixel_size = (PixelFormat.RGBBitCount + 7) >> 3;
-    u32 dst_pitch = Pitch; // Pitch may be larger than dst_pixel_size * dst->dwWidth
+    i32 dst_pitch = Pitch;
     u8* dst_surface = static_cast<u8*>(Surface);
-
-    if (usize dst_min_pitch = dst_pixel_size * dst_width; dst_pitch < dst_min_pitch)
-    {
-        // dgVodooo2 does not validate lPitch of created surface (when DDSD_PITCH is set).
-        Displayf("Invalid Pitch: %u < %u", dst_pitch, dst_min_pitch);
-        std::memset(dst_surface, 0xFF, dst_pitch * dst_height);
-        return;
-    }
 
     u32 src_width = src->Width;
     u32 src_height = src->Height;
-    u32 src_pixel_size = (src->PixelFormat.RGBBitCount + 7) >> 3;
-    u32 src_pitch = src->Pitch;
+    i32 src_pitch = src->Pitch;
+    u8* src_surface = static_cast<u8*>(src->Surface);
 
-    // FIXME: A few textures (only REFL_*?) have an incorrect pitch. This should really be corrected in agiSurfaceDesc::Load.
-    if (u32 alt_pitch = src_pixel_size * src->Width; (alt_pitch * 2 == src_pitch) || !(src->Flags & AGISD_PITCH))
+    // FIXME: Surfaces with a PackShift don't have their pitch updated. This should really be corrected in agiSurfaceDesc::Load.
+    if (i32 alt_pitch = src->Width * src->GetPixelSize(); (alt_pitch * 2 <= src_pitch) || !(src->Flags & AGISD_PITCH))
     {
         src->Pitch = alt_pitch;
+        src->Flags |= AGISD_PITCH;
         src_pitch = alt_pitch;
     }
 
-    u8* src_surface = static_cast<u8*>(src->Surface);
-
-    for (; lod; --lod)
+    for (; src_lod; --src_lod)
     {
         src_surface += src_pitch * src_height;
         src_width >>= 1;
@@ -200,91 +226,74 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 lod, agiTexParameters* pa
         src_pitch >>= 1;
     }
 
-    u32 src_x_step = (src_width << 16) / dst_width;
-    u32 src_y_step = (src_height << 16) / dst_height;
+    void (*copy_row)(void*, void*, u32, u32) = nullptr;
 
     if (!std::memcmp(&PixelFormat, &src->PixelFormat, sizeof(PixelFormat)))
     {
-        if (src_width != dst_width || src_height != dst_height || src_pitch != dst_pitch)
-        {
-            switch (src_pixel_size)
-            {
-#define X(TYPE)                                                                           \
-    case sizeof(TYPE):                                                                    \
-        for (u32 i = 0, j = 0; i < dst_height; ++i, j += src_y_step)                      \
-        {                                                                                 \
-            TYPE* dst_row = reinterpret_cast<TYPE*>(dst_surface + dst_pitch * i);         \
-            TYPE* src_row = reinterpret_cast<TYPE*>(src_surface + src_pitch * (j >> 16)); \
-                                                                                          \
-            for (u32 k = 0, l = 0; k < dst_width; ++k, l += src_x_step)                   \
-            {                                                                             \
-                dst_row[k] = src_row[l >> 16];                                            \
-            }                                                                             \
-        }                                                                                 \
-        break
-                X(u8);
-                X(u16);
-                X(u32);
-
-#undef X
-
-                default: Quitf("Invalid Pixel Format");
-            }
-        }
-        else
+        if (src_width == dst_width && src_height == dst_height && src_pitch == dst_pitch)
         {
             std::memcpy(dst_surface, src_surface, dst_pitch * dst_height);
+
+            return;
         }
 
-        return;
+        switch (GetPixelSize())
+        {
+            case sizeof(u8): copy_row = copyrow_8; break;
+            case sizeof(u16): copy_row = copyrow_16; break;
+            case sizeof(u32): copy_row = copyrow_32; break;
+
+            default: Quitf("Invalid Pixel Format");
+        }
     }
-
-    void (*copy_row)(void*, void*, u32, u32) = nullptr;
-
-    switch (src->PixelFormat.RBitMask)
+    else
     {
-        case 0xF800: // 565
-            switch (PixelFormat.RBitMask)
-            {
-                case 0xFF0000u: copy_row = copyrow565_to_888; break;
-                case 0xFFu: copy_row = copyrow565_to_888rev; break;
+        switch (src->PixelFormat.RBitMask)
+        {
+            case 0xF800: // 565
+                switch (PixelFormat.RBitMask)
+                {
+                    case 0xFF0000u: copy_row = copyrow565_to_888; break;
+                    case 0xFFu: copy_row = copyrow565_to_888rev; break;
 
-                case 0x7C00u:
-                    if (PixelFormat.RGBAlphaBitMask == 0x8000)
-                    {
-                        copy_row = copyrow565_to_5551;
-                    }
-                    else
-                    {
-                        copy_row = copyrow565_to_555;
-                    }
-                    break;
-            }
-            break;
+                    case 0x7C00u:
+                        if (PixelFormat.RGBAlphaBitMask == 0x8000)
+                        {
+                            copy_row = copyrow565_to_5551;
+                        }
+                        else
+                        {
+                            copy_row = copyrow565_to_555;
+                        }
+                        break;
+                }
+                break;
 
-        case 0xF00: // 4444
-            switch (PixelFormat.RBitMask)
-            {
-                case 0xFF0000u:
-                    copy_row = (params && (params->SheetFlags & 0x2) && GetRendererInfo().AdditiveBlending)
-                        ? copyrow4444_to_8888amul
-                        : copyrow4444_to_8888;
-                    break;
-                case 0xFFu: copy_row = copyrow4444_to_8888rev; break;
+            case 0xF00: // 4444
+                switch (PixelFormat.RBitMask)
+                {
+                    case 0xFF0000u:
+                        copy_row = (params && (params->Props & agiTexProp::AlphaGlow) &&
+                                       !(params->Flags & agiTexParameters::Alpha))
+                            ? copyrow4444_to_8888amul
+                            : copyrow4444_to_8888;
+                        break;
+                    case 0xFFu: copy_row = copyrow4444_to_8888rev; break;
 
-                case 0xF800u: copy_row = copyrow4444_to_565; break;
-                case 0x7C00u:
-                    if (PixelFormat.RGBAlphaBitMask == 0x8000)
-                    {
-                        copy_row = copyrow4444_to_5551;
-                    }
-                    else
-                    {
-                        copy_row = copyrow4444_to_555;
-                    }
-                    break;
-            }
-            break;
+                    case 0xF800u: copy_row = copyrow4444_to_565; break;
+                    case 0x7C00u:
+                        if (PixelFormat.RGBAlphaBitMask == 0x8000)
+                        {
+                            copy_row = copyrow4444_to_5551;
+                        }
+                        else
+                        {
+                            copy_row = copyrow4444_to_555;
+                        }
+                        break;
+                }
+                break;
+        }
     }
 
     if (!copy_row)
@@ -293,6 +302,9 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 lod, agiTexParameters* pa
             src->PixelFormat.GBitMask, src->PixelFormat.BBitMask, src->PixelFormat.RGBAlphaBitMask,
             PixelFormat.RBitMask, PixelFormat.GBitMask, PixelFormat.BBitMask, PixelFormat.RGBAlphaBitMask);
     }
+
+    u32 src_x_step = (src_width << 16) / dst_width;
+    u32 src_y_step = (src_height << 16) / dst_height;
 
     for (u32 dst_y = 0, src_y = 0; dst_y < dst_height; ++dst_y, src_y += src_y_step)
     {
@@ -309,28 +321,30 @@ void agiSurfaceDesc::Unload()
     }
 }
 
+void agiSurfaceDesc::Init(i32 width, i32 height)
+{
+    Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH;
+    Width = width;
+    Height = height;
+    Pitch = width * GetPixelSize();
+    Surface = nullptr;
+    MipMapCount = 0;
+    SCaps.Caps = 0;
+
+    Load();
+}
+
 [[nodiscard]] Owner<agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, const agiSurfaceDesc& desc)
 {
     Ptr<agiSurfaceDesc> result = MakeUnique<agiSurfaceDesc>(desc);
-
-    result->Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH;
-    result->Width = width;
-    result->Height = height;
-    result->Pitch = width * ((desc.PixelFormat.RGBBitCount + 7) / 8);
-    result->Surface = nullptr;
-    result->MipMapCount = 0;
-    result->SCaps.Caps = 0;
-
-    result->Load();
-
+    result->Init(width, height);
     return result.release();
 }
 
 void agiSurfaceDesc::Load()
 {
-    Unload();
-
-    Surface = new u8[Pitch * Height] {};
+    if (Surface == nullptr)
+        Surface = new u8[Pitch * Height] {};
 }
 
 void agiSurfaceDesc::Clear()
@@ -343,10 +357,10 @@ void agiSurfaceDesc::Clear(i32 x, i32 y, i32 width, i32 height)
     if (x + width > static_cast<i32>(Width) || y + height > static_cast<i32>(Height))
         return;
 
-    i32 byte_count = (PixelFormat.RGBBitCount + 7) / 8;
+    i32 pixel_size = GetPixelSize();
 
     for (; height; ++y, --height)
-        std::memset(static_cast<u8*>(Surface) + (y * Pitch) + (x * byte_count), 0, width * byte_count);
+        std::memset(static_cast<u8*>(Surface) + (y * Pitch) + (x * pixel_size), 0, width * pixel_size);
 }
 
 void agiSurfaceDesc::Fill(i32 x, i32 y, i32 width, i32 height, u32 color)
@@ -358,7 +372,7 @@ void agiSurfaceDesc::Fill(i32 x, i32 y, i32 width, i32 height, u32 color)
 
     color = cmodel->GetColor(agiRgba::FromARGB(color));
 
-    i32 byte_count = cmodel->ByteCount;
+    u32 byte_count = cmodel->PixelSize;
 
     for (; height; ++y, --height)
     {

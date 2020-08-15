@@ -22,6 +22,7 @@ define_dummy_symbol(agid3d_d3dtexdef);
 
 #include "agi/error.h"
 #include "agi/rsys.h"
+#include "agiworld/texsheet.h"
 #include "dderror.h"
 #include "pcpipe.h"
 #include "pcwindis/setupdata.h"
@@ -29,29 +30,29 @@ define_dummy_symbol(agid3d_d3dtexdef);
 
 i32 agiD3DTexDef::BeginGfx()
 {
-    if (surface_ == nullptr)
+    if (Surface == nullptr)
     {
-        Errorf("Missing SurfaceDesc for '%s' in BeginGfx - trouble is brewing!", tex_.Name);
+        Errorf("Missing SurfaceDesc for '%s' in BeginGfx - trouble is brewing!", Tex.Name);
         return AGI_ERROR_FILE_NOT_FOUND;
     }
 
-    if (tex_.Name[0] != '*' && page_state_ == 0 && cache_handle_ == 0)
-        surface_->Reload(tex_.Name, TexSearchPath, tex_.LOD, mip_reduction_, 0, 0, 0);
+    if (Tex.Name[0] != '*' && page_state_ == 0 && cache_handle_ == 0)
+        Surface->Reload(Tex.Name, TexSearchPath, Tex.LOD, PackShift, 0, 0, 0); // TODO: Should this be PackShift & 0xF ?
 
-    if (!NoMultiTexture && agiCurState.GetMaxTextures() > 1 && !std::strncmp(tex_.Name, "SHADMAP", 7))
+    if (!NoMultiTexture && agiCurState.GetMaxTextures() > 1 && !std::strncmp(Tex.Name, "SHADMAP", 7))
     {
-        Displayf("Fixing shadow map '%s' for multitexturing...", tex_.Name);
+        Displayf("Fixing shadow map '%s' for multitexturing...", Tex.Name);
 
-        ArAssert(surface_->PixelFormat.RGBBitCount == 16, "Invalid SHADMAP Format");
-        ArAssert(surface_->PixelFormat.RGBAlphaBitMask == 0xF000, "Invalid SHADMAP Format");
+        ArAssert(Surface->PixelFormat.RGBBitCount == 16, "Invalid SHADMAP Format");
+        ArAssert(Surface->PixelFormat.RGBAlphaBitMask == 0xF000, "Invalid SHADMAP Format");
 
-        u16* surface = static_cast<u16*>(surface_->Surface);
+        u16* surface = static_cast<u16*>(Surface->Surface);
         i32 surface_bytes = 0;
 
-        for (u32 i = 0; i < surface_->MipMapCount; ++i)
+        for (u32 i = 0; i < Surface->MipMapCount; ++i)
         {
-            i32 width = surface_->Width >> i;
-            i32 height = surface_->Height >> i;
+            i32 width = Surface->Width >> i;
+            i32 height = Surface->Height >> i;
 
             surface_bytes += width * height;
         }
@@ -64,18 +65,18 @@ i32 agiD3DTexDef::BeginGfx()
         }
     }
 
-    surface_size_ = surface_->Height * surface_->Pitch; // Only used for stats
+    SurfaceSize = Surface->Height * Surface->Pitch; // Only used for stats
 
-    if (tex_.SheetFlags & 0x2 && GetRendererInfo().AdditiveBlending)
-        tex_.Flags &= ~agiTexParameters::Alpha;
+    if (Tex.Props & agiTexProp::AlphaGlow && GetRendererInfo().AdditiveBlending)
+        Tex.Flags &= ~agiTexParameters::Alpha;
 
-    DDSURFACEDESC2 sd = ConvertSurfaceDesc(*surface_);
-    sd.ddpfPixelFormat = (tex_.Flags & agiTexParameters::Alpha) ? Pipe()->GetAlphaFormat() : Pipe()->GetOpaqueFormat();
+    DDSURFACEDESC2 sd = ConvertSurfaceDesc(*Surface);
+    sd.ddpfPixelFormat = (Tex.Flags & agiTexParameters::Alpha) ? Pipe()->GetAlphaFormat() : Pipe()->GetOpaqueFormat();
     sd.dwReserved = 0; // lpLut/szLut
 
-    if (Pipe()->GetFilterCaps() != 0 && !(tex_.Flags & agiTexParameters::NoMipMaps))
+    if (Pipe()->GetFilterCaps() != 0 && !(Tex.Flags & agiTexParameters::NoMipMaps))
     {
-        surface_size_ = (surface_size_ * 4) / 3; // Size of all mipmaps = sum 1/4^n, n=0 to infinity = 4/3
+        SurfaceSize = (SurfaceSize * 4) / 3; // Size of all mipmaps = sum 1/4^n, n=0 to infinity = 4/3
     }
     else
     {
@@ -104,12 +105,12 @@ i32 agiD3DTexDef::BeginGfx()
         sd.ddpfPixelFormat.dwRBitMask = 0x7C00;
         sd.ddpfPixelFormat.dwGBitMask = 0x3E0;
 
-        tex_.Flags &= ~agiTexParameters::ColorKey;
-        tex_.Flags |= agiTexParameters::Alpha;
+        Tex.Flags &= ~agiTexParameters::Chromakey;
+        Tex.Flags |= agiTexParameters::Alpha;
     }
 
     if (HRESULT error = Pipe()->GetDirectDraw()->CreateSurface(&sd, &mem_tex_surf_, nullptr))
-        Quitf("Can't create surface for '%s', code = 0x%08X", tex_.Name, error);
+        Quitf("Can't create surface for '%s', code = 0x%08X", Tex.Name, error);
 
     IDirectDrawSurface4* pdds = mem_tex_surf_;
     pdds->AddRef();
@@ -125,7 +126,7 @@ i32 agiD3DTexDef::BeginGfx()
         if (ddsd.ddpfPixelFormat.dwFlags & DDPF_RGB)
         {
             agiSurfaceDesc agisd = ConvertSurfaceDesc(ddsd);
-            agisd.CopyFrom(surface_, mip_level, &tex_);
+            agisd.CopyFrom(Surface, mip_level, &Tex);
             ddsd = ConvertSurfaceDesc(agisd);
             ++mip_level;
         }
@@ -150,8 +151,8 @@ i32 agiD3DTexDef::BeginGfx()
 
     DD_TRY(mem_tex_surf_->QueryInterface(IID_IDirect3DTexture2, (void**) &mem_tex_));
 
-    if (tex_.Name[0] != '*' && cache_handle_ == 0)
-        surface_->Unload();
+    if (Tex.Name[0] != '*' && cache_handle_ == 0)
+        Surface->Unload();
 
     page_state_ = 0;
 
@@ -163,7 +164,7 @@ i32 agiD3DTexDef::BeginGfx()
 
     DD_TRY(Pipe()->GetDirectDraw()->GetAvailableVidMem(&caps, &dwTotal, &dwFree));
 
-    agiDisplayf("Texture %s: %d bytes texture memory total, %d available", tex_.Name, dwTotal, dwFree);
+    agiDisplayf("Texture %s: %d bytes texture memory total, %d available", Tex.Name, dwTotal, dwFree);
 
     state_ = 1;
 
@@ -190,7 +191,7 @@ IDirect3DTexture2* agiD3DTexDef::GetHandle(i32)
             return nullptr;
         }
 
-        if ((surface_->PixelFormat.Flags & AGIPF_PALETTEINDEXED8) && surface_->lpLut == nullptr)
+        if ((Surface->PixelFormat.Flags & AGIPF_PALETTEINDEXED8) && Surface->lpLut == nullptr)
         {
             UnlockSurface();
         }
@@ -200,7 +201,7 @@ IDirect3DTexture2* agiD3DTexDef::GetHandle(i32)
         }
         else
         {
-            Warningf("agiD3DTexDef::GetHandle - Texture '%s' didn't init properly", tex_.Name);
+            Warningf("agiD3DTexDef::GetHandle - Texture '%s' didn't init properly", Tex.Name);
         }
     }
 
@@ -222,7 +223,7 @@ b32 agiD3DTexDef::Lock(agiTexLock& lock)
     DD_TRY(mem_tex_surf_->Lock(nullptr, &sd, DDLOCK_NOSYSLOCK, nullptr));
 
     lock.ColorModel =
-        (tex_.Flags & agiTexParameters::Alpha) ? Pipe()->GetAlphaColorModel() : Pipe()->GetOpaqueColorModel();
+        (Tex.Flags & agiTexParameters::Alpha) ? Pipe()->GetAlphaColorModel() : Pipe()->GetOpaqueColorModel();
 
     lock.Width = sd.dwWidth;
     lock.Height = sd.dwHeight;
@@ -243,7 +244,7 @@ void agiD3DTexDef::Restore()
     {
         EndGfx();
 
-        if (!(EnablePaging & ARTS_PAGE_TEXTURES) || (tex_.Flags & agiTexParameters::KeepLoaded))
+        if (!(EnablePaging & ARTS_PAGE_TEXTURES) || (Tex.Flags & agiTexParameters::KeepLoaded))
             BeginGfx();
     }
     else

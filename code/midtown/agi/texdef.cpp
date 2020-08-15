@@ -76,22 +76,23 @@ void agiTexDef::Request()
 
 void agiTexDef::CheckSurface()
 {
-    if (surface_->Flags & AGISD_CKSRCBLT)
-        tex_.Flags |= agiTexParameters::ColorKey;
+    if (Surface->Flags & AGISD_CKSRCBLT)
+        Tex.Flags |= agiTexParameters::Chromakey;
     else
-        tex_.Flags &= ~agiTexParameters::ColorKey;
+        Tex.Flags &= ~agiTexParameters::Chromakey;
 }
 
 void agiTexDef::DoPageIn()
 {
     // NOTE: 64-bit incompatible
-    pager_.Read(surface_, 0x4, sizeof(*surface_));
+    pager_.Read(Surface, 0x4, sizeof(*Surface));
 
-    i32 mip_pack = mip_reduction_ & 0xF;
+    i32 mip_pack = PackShift & 0xF;
 
-    surface_->MipMapCount -= mip_pack;
-    surface_->Width >>= mip_pack;
-    surface_->Height >>= mip_pack;
+    Surface->MipMapCount -= mip_pack;
+    Surface->Width >>= mip_pack;
+    Surface->Height >>= mip_pack;
+    Surface->Pitch >>= mip_pack;
 
     if (agiCurState.GetSoftwareRendering())
     {
@@ -104,17 +105,17 @@ void agiTexDef::DoPageIn()
             return;
         }
 
-        lutQ[index].Lut = &surface_->lpLut;
-        std::memcpy(lutQ[index].Name, surface_->szLut, 4);
-        surface_->lpLut = nullptr;
+        lutQ[index].Lut = &Surface->lpLut;
+        std::memcpy(lutQ[index].Name, Surface->szLut, 4);
+        Surface->lpLut = nullptr;
         lutQtail = index;
     }
 
     u32 surface_offset = 0x80;
     u32 surface_size = pager_.Size - 0x80;
 
-    for (u32 current_surface_size = surface_->Width * surface_->Height * ((surface_->PixelFormat.RGBBitCount + 7) / 8);
-         mip_pack; --mip_pack)
+    // Go through the mip levels in reverse, adding the correct offset (sd->Width and sd->Height are already scaled by down MipReduction).
+    for (u32 current_surface_size = Surface->Height * Surface->Pitch; mip_pack; --mip_pack)
     {
         current_surface_size *= 4;
         surface_offset += current_surface_size;
@@ -128,8 +129,8 @@ void agiTexDef::DoPageIn()
         return;
     }
 
-    surface_->Surface = TEXCACHE.Allocate(cache_handle_, surface_size);
-    pager_.Read(surface_->Surface, surface_offset, surface_size);
+    Surface->Surface = TEXCACHE.Allocate(cache_handle_, surface_size);
+    pager_.Read(Surface->Surface, surface_offset, surface_size);
 
     TexBytesPaged += surface_size;
     ++TexsPaged;
@@ -142,7 +143,7 @@ void agiTexDef::DoPageIn()
 char* agiTexDef::GetName()
 {
     static char buffer[64]; // FIXME: Static buffer
-    arts_sprintf(buffer, "Texture '%s' %d/%d", tex_.Name, tex_.LOD, tex_.MaxLOD);
+    arts_sprintf(buffer, "Texture '%s' %d/%d", Tex.Name, Tex.LOD, Tex.MaxLOD);
     return buffer;
 }
 
@@ -151,14 +152,14 @@ i32 agiTexDef::Init(agiTexParameters const& params)
     if (DevelopmentMode || !(EnablePaging & ARTS_PAGE_TEXTURES) || (params.Flags & agiTexParameters::KeepLoaded))
     {
         EndGfx();
-        tex_ = params;
+        Tex = params;
         Reload();
 
         return SafeBeginGfx();
     }
     else
     {
-        tex_ = params;
+        Tex = params;
 
         return 0;
     }
@@ -168,10 +169,10 @@ i32 agiTexDef::Init(class agiTexParameters const& params, agiSurfaceDesc* surfac
 {
     EndGfx();
 
-    tex_ = params;
-    tex_.Flags |= agiTexParameters::KeepLoaded;
+    Tex = params;
+    Tex.Flags |= agiTexParameters::KeepLoaded;
 
-    surface_ = surface;
+    Surface = surface;
 
     CheckSurface();
 
@@ -198,10 +199,10 @@ void agiTexDef::PageInSurface()
         {
             char buffer[64];
 
-            if (tex_.LOD)
-                arts_sprintf(buffer, "%s/%s.%04d.dds", path, tex_.Name, tex_.LOD);
+            if (Tex.LOD)
+                arts_sprintf(buffer, "%s/%s.%04d.dds", path, Tex.Name, Tex.LOD);
             else
-                arts_sprintf(buffer, "%s/%s.dds", path, tex_.Name);
+                arts_sprintf(buffer, "%s/%s.dds", path, Tex.Name);
 
             if (FileSystem::PagerInfoAny(buffer, pager_))
                 break;
@@ -210,7 +211,7 @@ void agiTexDef::PageInSurface()
         } while (*path);
 
         if (pager_.Handle)
-            surface_ = new agiSurfaceDesc();
+            Surface = new agiSurfaceDesc();
     }
 
     if (page_state_ == 0 && pager_.Handle != 0)
@@ -223,15 +224,15 @@ void agiTexDef::PageInSurface()
 
 i32 agiTexDef::Reload()
 {
-    surface_ = agiSurfaceDesc::Load(tex_.Name, TexSearchPath, tex_.LOD, mip_reduction_ & 0xF, 0, 0);
+    Surface = agiSurfaceDesc::Load(Tex.Name, TexSearchPath, Tex.LOD, PackShift & 0xF, 0, 0);
 
     CheckSurface();
 
-    agiDisplayf("'%s' is %s texture", tex_.Name,
-        (tex_.Flags & agiTexParameters::ColorKey) ? "chromakey"
-                                                  : (tex_.Flags & agiTexParameters::Alpha) ? "alpha" : "opaque");
+    agiDisplayf("'%s' is %s texture", Tex.Name,
+        (Tex.Flags & agiTexParameters::Chromakey) ? "chromakey"
+                                                  : (Tex.Flags & agiTexParameters::Alpha) ? "alpha" : "opaque");
 
-    return surface_ ? AGI_ERROR_SUCCESS : AGI_ERROR_FILE_NOT_FOUND;
+    return Surface ? AGI_ERROR_SUCCESS : AGI_ERROR_FILE_NOT_FOUND;
 }
 
 void agiTexDef::UnlockAndFreeSurface()
@@ -259,12 +260,12 @@ void agiTexDef::PageOutCallback(void* param, i32 delta)
 
     if (delta)
     {
-        if (void* surface = tex->surface_->Surface)
-            tex->surface_->Surface = static_cast<u8*>(surface) + delta;
+        if (void* surface = tex->Surface->Surface)
+            tex->Surface->Surface = static_cast<u8*>(surface) + delta;
     }
     else
     {
-        tex->surface_->Surface = nullptr;
+        tex->Surface->Surface = nullptr;
         tex->page_state_ = 0;
     }
 }
@@ -275,10 +276,10 @@ agiTexDef::agiTexDef(agiPipeline* pipe)
 
 agiTexDef::~agiTexDef()
 {
-    if (i32 index = agiTexLib.Lookup(tex_.Name))
+    if (i32 index = agiTexLib.Lookup(Tex.Name))
     {
-        if (tex_.LOD)
-            index += tex_.LOD - 1;
+        if (Tex.LOD)
+            index += Tex.LOD - 1;
 
         if (agiTexDef** def = agiTexLib.GetDef(index); *def)
         {
@@ -288,11 +289,11 @@ agiTexDef::~agiTexDef()
         }
     }
 
-    if (surface_)
+    if (Surface)
     {
-        surface_->Unload();
+        Surface->Unload();
 
-        delete surface_;
+        delete Surface;
     }
 }
 

@@ -77,16 +77,19 @@ public:
         return refs;
     }
 
-    u32 ByteCount {0};
+    u32 PixelSize {0};
+
     u32 BitCountR {0};
     u32 BitCountG {0};
     u32 BitCountB {0};
     u32 BitCountA {0};
+
     u32 ShiftR {0};
     u32 ShiftG {0};
     u32 ShiftB {0};
     u32 ShiftA {0};
-    u32 RefCount {0};
+
+    u32 RefCount {1};
 };
 
 check_size(agiColorModel, 0x2C);

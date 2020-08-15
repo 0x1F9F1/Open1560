@@ -418,7 +418,7 @@ include_dummy_symbol(agiworld_meshlight);
 // include_dummy_symbol(agiworld_packnorm);
 include_dummy_symbol(agiworld_quality);
 // include_dummy_symbol(agiworld_skeleton);
-// include_dummy_symbol(agiworld_texsheet);
+include_dummy_symbol(agiworld_texsheet);
 include_dummy_symbol(agiworld_texsort);
 
 include_dummy_symbol(arts7_bank);

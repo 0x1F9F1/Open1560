@@ -21,6 +21,7 @@ define_dummy_symbol(mmeffects_vehform);
 #include "vehform.h"
 
 #include "agi/texdef.h"
+#include "agiworld/texsheet.h"
 #include "agiworld/texsort.h"
 #include "arts7/cullmgr.h"
 #include "mmcity/cullcity.h"
@@ -43,7 +44,7 @@ mmVehicleForm::mmVehicleForm()
             SphMapTex = GetPackedTexture(const_cast<char*>(env->SphereMap), 0);
 
             if (SphMapTex)
-                SphMapTex->GetParams().SheetFlags |= 0x2;
+                SphMapTex->Tex.Props |= agiTexProp::AlphaGlow;
         }
     }
 }

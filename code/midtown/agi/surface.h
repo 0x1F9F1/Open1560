@@ -90,15 +90,17 @@ class agiSurfaceDesc // DDSURFACEDESC2
 {
 public:
     // 0x55B180 | ?CopyFrom@agiSurfaceDesc@@QAEXPAV1@H@Z
-    ARTS_EXPORT void CopyFrom(agiSurfaceDesc* src, i32 lod);
+    ARTS_EXPORT void CopyFrom(agiSurfaceDesc* src, i32 src_lod);
 
-    void CopyFrom(agiSurfaceDesc* src, i32 lod, agiTexParameters* params);
+    void CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters* params);
 
     // 0x55ADE0 | ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
     ARTS_IMPORT void Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class Stream* arg5, i32 arg6, i32 arg7);
 
     // 0x55B160 | ?Unload@agiSurfaceDesc@@QAEXXZ
     ARTS_EXPORT void Unload();
+
+    void Init(i32 width, i32 height);
 
     // 0x55A720 | ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
     [[nodiscard]] ARTS_EXPORT static Owner<agiSurfaceDesc*> Init(i32 width, i32 height, const agiSurfaceDesc& desc);
@@ -113,6 +115,11 @@ public:
     void Clear(i32 x, i32 y, i32 width, i32 height);
 
     void Fill(i32 x, i32 y, i32 width, i32 height, u32 color);
+
+    u32 GetPixelSize() const
+    {
+        return (PixelFormat.RGBBitCount + 7) / 8;
+    }
 
     u32 Size {0};
     u32 Flags {0};
@@ -143,4 +150,4 @@ public:
 check_size(agiSurfaceDesc, 0x7C);
 
 // 0x903190 | ?AnnotateTextures@@3HA
-ARTS_IMPORT extern i32 AnnotateTextures;
+ARTS_IMPORT extern b32 AnnotateTextures;

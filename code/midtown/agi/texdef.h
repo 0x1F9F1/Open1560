@@ -93,65 +93,45 @@ public:
         WrapV = 0x4,
         KeepLoaded = 0x8,
         NoMipMaps = 0x10,
-        ColorKey = 0x40,
+        Chromakey = 0x40,
         Second = 0x80,
     };
 
-    // 0x1 | Alpha
-    // 0x2 | Wrap X/U/S
-    // 0x4 | Wrap Y/V/T
-    // 0x8 | Keep Loaded
-    // 0x10 | No Mip Maps
-    // 0x40 | Color Key Enable (chromakey)
-    // 0x80 | Second (agiTexParameters::Second)
     u8 Flags {0};
+
+    // Probably not actually LOD, seems to always be 0
     u8 LOD {0};
     u8 MaxLOD {0};
 
     // Mirrors agiTexProp::Flags
-    // w |    0x1 | Snowable
-    // g |    0x2 | Alpha Glow
-    // l |    0x4 | Lightmap
-    // s |    0x8 | Shadow
-    // t |   0x10 | Transparent
-    // k |   0x20 | Chromakey
-    // n |   0x40 | Not lit
-    // d |   0x80 | Dull or Damaged
-    // u |  0x100 | Clamp U or Both
-    // v |  0x200 | Clamp V or Both
-    // c |  0x400 | Clamp Both
-    // U |  0x800 | Clamp U or Neither
-    // V | 0x1000 | Clamp V or Neither
-    // e | 0x2000 | Road/Floor/Ceiling
-    // m | 0x4000 | Always Modulate
-    // p | 0x8000 | Always Persp-Correct
-    u32 SheetFlags {0};
+    u32 Props {0};
+
     f32 dword28 {0.0f};
-    u32 DayColor {0};
+    u32 Color {0};
 
     bool HasAlpha() const
     {
-        return Flags & Alpha;
+        return Flags & agiTexParameters::Alpha;
     }
 
     bool ShouldWrapU() const
     {
-        return Flags & WrapU;
+        return Flags & agiTexParameters::WrapU;
     }
 
     bool ShouldWrapV() const
     {
-        return Flags & WrapV;
+        return Flags & agiTexParameters::WrapV;
     }
 
     bool DisableMipMaps() const
     {
-        return Flags & NoMipMaps;
+        return Flags & agiTexParameters::NoMipMaps;
     }
 
-    bool UseColorKey() const
+    bool UseChromakey() const
     {
-        return Flags & ColorKey;
+        return Flags & agiTexParameters::Chromakey;
     }
 };
 
@@ -179,10 +159,10 @@ public:
     virtual void Set(class Vector2& arg1, class Vector2& arg2) = 0;
 
     // 0x556440 | ?Lock@agiTexDef@@UAEHAAUagiTexLock@@@Z
-    ARTS_EXPORT virtual b32 Lock(struct agiTexLock& arg1);
+    ARTS_EXPORT virtual b32 Lock(struct agiTexLock& lock);
 
     // 0x556450 | ?Unlock@agiTexDef@@UAEXAAUagiTexLock@@@Z
-    ARTS_EXPORT virtual void Unlock(struct agiTexLock& arg1);
+    ARTS_EXPORT virtual void Unlock(struct agiTexLock& lock);
 
     // 0x5567E0 | ?Request@agiTexDef@@UAEXXZ
     ARTS_EXPORT virtual void Request();
@@ -225,40 +205,22 @@ public:
     // 0x556460 | ?PageOutCallback@agiTexDef@@SAXPAXH@Z
     ARTS_EXPORT static void PageOutCallback(void* param, i32 delta);
 
-    agiSurfaceDesc* GetSurface() const
-    {
-        return surface_;
-    }
-
     i32 GetWidth() const
     {
-        return surface_->Width;
+        return Surface->Width;
     }
 
     i32 GetHeight() const
     {
-        return surface_->Height;
+        return Surface->Height;
     }
 
-    agiTexParameters& GetParams()
-    {
-        return tex_;
-    }
-
-    i32 GetSceneIndex() const
-    {
-        return scene_index_;
-    }
-
-    void SetSceneIndex(i32 index)
-    {
-        scene_index_ = index;
-    }
-
-    i32 GetSurfaceSize() const
-    {
-        return surface_size_;
-    }
+    agiSurfaceDesc* Surface {nullptr};
+    agiTexParameters Tex {};
+    agiPolySet* PolySet {nullptr};
+    i32 SceneIndex {0};
+    u32 SurfaceSize {0};
+    i32 PackShift {0};
 
 protected:
     // 0x5561C0 | ??0agiTexDef@@IAE@PAVagiPipeline@@@Z
@@ -269,12 +231,6 @@ protected:
     // 0x556230 | ??1agiTexDef@@MAE@XZ
     ARTS_EXPORT ~agiTexDef() override;
 
-    agiSurfaceDesc* surface_ {nullptr};
-    agiTexParameters tex_ {};
-    agiPolySet* poly_set_ {nullptr};
-    i32 scene_index_ {0};
-    u32 surface_size_ {0};
-    i32 mip_reduction_ {0};
     PagerInfo_t pager_ {0};
     i32 cache_handle_ {0};
 

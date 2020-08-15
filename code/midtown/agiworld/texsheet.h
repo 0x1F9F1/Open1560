@@ -35,10 +35,51 @@
 */
 
 // 0x511B30 | ?mystrtok@@YAPADPADPBD@Z
-ARTS_IMPORT char* mystrtok(char* arg1, char const* arg2);
+ARTS_IMPORT char* mystrtok(char* str, char const* delims);
 
 // 0x73E6C0 | ?TEXSHEET@@3VagiTexSheet@@A
 ARTS_IMPORT extern class agiTexSheet TEXSHEET;
+
+struct agiTexProp
+{
+    char* Name {nullptr};
+    char Palette[4] {};
+
+    // PackShift Levels
+    i8 High {0};   // agiRQ.TextureQuality  > 1
+    i8 Medium {0}; // agiRQ.TextureQuality == 1
+    i8 Low {0};    // agiRQ.TextureQuality == 0
+
+    enum : u32
+    {
+        Snowable = 0x1,              // w
+        AlphaGlow = 0x2,             // g
+        Lightmap = 0x4,              // l
+        Shadow = 0x8,                // s
+        Transparent = 0x10,          // t
+        Chromakey = 0x20,            // k
+        NotLit = 0x40,               // n
+        DullOrDamaged = 0x80,        // d
+        ClampUOrBoth = 0x100,        // u
+        ClampVOrBoth = 0x200,        // v
+        ClampBoth = 0x400,           // c
+        ClampUOrNeither = 0x800,     // U
+        ClampVOrNeither = 0x1000,    // V
+        RoadFloorCeiling = 0x2000,   // e
+        AlwaysModulate = 0x4000,     // m
+        AlwaysPerspCorrect = 0x8000, // p
+    };
+
+    u32 Flags {0};
+
+    char* AlternateName {nullptr};
+    char* Sibling {nullptr};
+    u16 Width {0};
+    u16 Height {0};
+    u32 Color {0};
+};
+
+check_size(agiTexProp, 0x20);
 
 class agiTexSheet
 {
@@ -67,7 +108,10 @@ public:
     // 0x5120D0 | ?Save@agiTexSheet@@QAEXPAD@Z | unused
     ARTS_IMPORT void Save(char* arg1);
 
-    u8 gap0[0xC];
+private:
+    agiTexProp* props_ {nullptr};
+    i32 prop_count_ {0};
+    b32 allow_remapping_ {false};
 };
 
 check_size(agiTexSheet, 0xC);

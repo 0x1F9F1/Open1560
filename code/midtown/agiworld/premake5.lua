@@ -26,8 +26,8 @@ arts_component "agiworld"
         "quality.h",
         -- "skeleton.cpp",
         -- "skeleton.h",
-        -- "texsheet.cpp",
-        -- "texsheet.h",
+        "texsheet.cpp",
+        "texsheet.h",
         "texsort.cpp",
         "texsort.h",
     }
