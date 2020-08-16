@@ -239,14 +239,21 @@ void LookupAddress(char* buffer, usize buflen, usize address)
         if (SymFromAddr(GetCurrentProcess(), address, &dwDisplacement, pSymbol) &&
             SymGetModuleInfo(GetCurrentProcess(), address, &module))
         {
-            if (!arts_stricmp(module.ModuleName, "dinput"))
-                arts_strcpy(module.ModuleName, "Open1560");
+            bool hide_module = (module.BaseOfImage == 0x400000) || !arts_stricmp(module.ModuleName, "dinput");
 
             if (pSymbol->NameLen > 64)
                 arts_strcpy(pSymbol->Name + 61, 4, "...");
 
-            arts_sprintf(buffer, buflen, "0x%08X (%s.%s + 0x%X)", address, module.ModuleName, pSymbol->Name,
-                static_cast<u32>(dwDisplacement));
+            if (hide_module)
+            {
+                arts_sprintf(
+                    buffer, buflen, "0x%08X (%s + 0x%X)", address, pSymbol->Name, static_cast<u32>(dwDisplacement));
+            }
+            else
+            {
+                arts_sprintf(buffer, buflen, "0x%08X (%s.%s + 0x%X)", address, module.ModuleName, pSymbol->Name,
+                    static_cast<u32>(dwDisplacement));
+            }
 
             return;
         }
