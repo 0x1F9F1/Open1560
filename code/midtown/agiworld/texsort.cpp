@@ -62,6 +62,16 @@ agiTexSorter::agiTexSorter()
 
 agiTexSorter::~agiTexSorter()
 {
+    BigPolySet.Kill();
+
+    for (usize i = 0; i < std::size(OpaquePolySets); ++i)
+        delete std::exchange(OpaquePolySets[i], nullptr);
+
+    for (usize i = 0; i < std::size(AlphaPolySets); ++i)
+        delete std::exchange(AlphaPolySets[i], nullptr);
+
+    EnvPolySet.Kill();
+
     Instance = nullptr;
 }
 
@@ -78,12 +88,7 @@ agiPolySet::agiPolySet(i32 verts, i32 indices)
 
 agiPolySet::~agiPolySet()
 {
-    if (Verts2)
-        delete[] Verts2;
-    else
-        delete[] Verts;
-
-    delete[] Indices;
+    Kill();
 }
 
 void agiPolySet::Init(i32 verts, i32 indices)
@@ -101,6 +106,20 @@ void agiPolySet::Init(i32 verts, i32 indices)
     MaxVerts = verts;
     MaxIndices = indices;
     Indices = new u16[indices];
+}
+
+void agiPolySet::Kill()
+{
+    if (Verts2)
+        delete[] Verts2;
+    else
+        delete[] Verts;
+
+    delete[] Indices;
+
+    Verts = nullptr;
+    Verts2 = nullptr;
+    Indices = nullptr;
 }
 
 run_once([] {

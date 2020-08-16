@@ -24,7 +24,9 @@ define_dummy_symbol(memory_valloc);
 
 #include "allocator.h"
 
-constexpr usize MultiHeapCount = 4;
+static usize MultiHeapCount = 4;
+
+static mem::cmd_param PARAM_multiheap {"multiheap"};
 
 asSafeHeap::asSafeHeap()
 {}
@@ -36,6 +38,11 @@ asSafeHeap::~asSafeHeap()
 
 void asSafeHeap::Init(i32 heap_size, b32 multi_heap)
 {
+    // TODO: Move param to ApplicationHelper
+    MultiHeapCount = PARAM_multiheap.get_or<i32>(4);
+
+    multi_heap = multi_heap && (MultiHeapCount != 0);
+
     SYSTEM_INFO sys_info;
     GetSystemInfo(&sys_info);
 
@@ -68,8 +75,13 @@ void asSafeHeap::Kill()
     }
 }
 
+static mem::cmd_param PARAM_safeheap {"safeheap"};
+
 void asSafeHeap::Restart()
 {
+    if (!PARAM_safeheap.get_or(true))
+        return;
+
     Deactivate();
 
     if (multi_heap_)

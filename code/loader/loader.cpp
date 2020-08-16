@@ -286,9 +286,11 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("CACHE", "Capacity", 0x4029DA + 1, "\x00\x10\x00\x00", 4);
         create_patch("CACHE", "HeapSize", 0x4029DF + 1, "\x00\x00\x40\x00", 4);
+        create_hook("CACHE", "Shutdown", 0x402D98, 0x577070, hook_type::call);
 
         create_patch("TEXCACHE", "Capacity", 0x4029F3 + 1, "\x00\x02\x00\x00", 4);
         create_patch("TEXCACHE", "HeapSize", 0x4029F8 + 1, "\x00\x00\x00\x02", 4);
+        create_hook("TEXCACHE", "Shutdown", 0x402D8E, 0x577070, hook_type::call);
 
         if (false) // Hack, replaces 16-bit handler with 32-bit handler
         {

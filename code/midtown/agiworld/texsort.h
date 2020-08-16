@@ -213,6 +213,7 @@ public:
     }
 
     void Init(i32 verts, i32 indices);
+    void Kill();
 
     u16* Indices {nullptr};
     agiScreenVtx* Verts {nullptr};
