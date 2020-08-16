@@ -105,8 +105,12 @@ struct class_proxy
 #    define define_dummy_symbol mem_define_dummy_symbol
 #    define include_dummy_symbol mem_include_dummy_symbol
 #    define run_once(...)
+
+template <typename T>
+using extern_var_t = T;
+
 #    define extern_var(ADDRESS, TYPE, NAME) \
-        TYPE NAME                           \
+        extern_var_t<TYPE> NAME             \
         {}
 #else
 #    define check_size mem_check_size

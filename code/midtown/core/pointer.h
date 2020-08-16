@@ -24,8 +24,31 @@
 template <typename T>
 using Ptr = std::unique_ptr<T>;
 
+#ifdef ARTS_STANDALONE
+template <typename T>
+using Owner = Ptr<T>;
+
+template <typename T>
+inline Ptr<T> AsPtr(Owner<T> ptr)
+{
+    return ptr;
+}
+
+#    define AsOwner(PTR) std::move((PTR))
+#    define AsRaw(PTR) ((PTR).release())
+#else
 template <typename T>
 using Owner = T*;
+
+template <typename T>
+inline Ptr<T> AsPtr(Owner<T> ptr)
+{
+    return Ptr<T>(ptr);
+}
+
+#    define AsOwner(PTR) ((PTR).release())
+#    define AsRaw(PTR) (PTR)
+#endif
 
 template <typename T, typename... Args>
 [[nodiscard]] inline std::enable_if_t<!std::is_array_v<T>, Ptr<T>> MakeUnique(Args&&... args)

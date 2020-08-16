@@ -116,7 +116,7 @@ public:
 
     void Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect, u32 color, u32 format)
     {
-        Rc<agiColorModel> cmodel {agiColorModel::FindMatch(surface)};
+        Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface));
 
         i32 x = rect->left;
         i32 y = rect->top;
@@ -256,9 +256,9 @@ void mmText::Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font
     font->Draw(surface, text, &rc, color, MM_DT_RIGHT);
 }
 
-agiBitmap* mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color, i32 bg_color)
+RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color, i32 bg_color)
 {
-    agiBitmap* bitmap = Pipe()->CreateBitmap();
+    Rc<agiBitmap> bitmap = AsRc(Pipe()->CreateBitmap());
 
     mmFont* font = static_cast<mmFont*>(font_ptr);
 
@@ -267,7 +267,7 @@ agiBitmap* mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color, i32 bg
 
     {
         char name[256];
-        arts_sprintf(name, "*FitBitmap:%p", bitmap);
+        arts_sprintf(name, "*FitBitmap:%p", bitmap.get());
 
         i32 extra = (bg_color != -1) ? 2 : 0;
 
@@ -313,7 +313,7 @@ agiBitmap* mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color, i32 bg
     bitmap->EndGfx();
     bitmap->SafeBeginGfx();
 
-    return bitmap;
+    return AsOwner(bitmap);
 }
 
 void* mmText::CreateFont(char* font_name, i32 height)

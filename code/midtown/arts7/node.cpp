@@ -277,7 +277,7 @@ b32 asNode::Load(const char* path)
         return false;
     }
 
-    StreamMiniParser parser(path, input.release());
+    StreamMiniParser parser(path, AsOwner(input));
 
     GetClass()->Load(&parser, this);
 
@@ -385,7 +385,7 @@ b32 asNode::Save(const char* path)
         return false;
     }
 
-    StreamMiniParser parser(path, output.release());
+    StreamMiniParser parser(path, AsOwner(output));
 
     GetClass()->Save(&parser, this);
 

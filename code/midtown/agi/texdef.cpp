@@ -85,7 +85,7 @@ void agiTexDef::CheckSurface()
 void agiTexDef::DoPageIn()
 {
     // NOTE: 64-bit incompatible
-    pager_.Read(Surface, 0x4, sizeof(*Surface));
+    pager_.Read(Surface.get(), 0x4, sizeof(*Surface));
 
     i32 mip_pack = PackShift & 0xF;
 
@@ -165,14 +165,14 @@ i32 agiTexDef::Init(agiTexParameters const& params)
     }
 }
 
-i32 agiTexDef::Init(class agiTexParameters const& params, agiSurfaceDesc* surface)
+i32 agiTexDef::Init(class agiTexParameters const& params, Ptr<agiSurfaceDesc> surface)
 {
     EndGfx();
 
     Tex = params;
     Tex.Flags |= agiTexParameters::KeepLoaded;
 
-    Surface = surface;
+    Surface = std::move(surface);
 
     CheckSurface();
 
@@ -211,7 +211,7 @@ void agiTexDef::PageInSurface()
         } while (*path);
 
         if (pager_.Handle)
-            Surface = new agiSurfaceDesc();
+            Surface = MakeUnique<agiSurfaceDesc>();
     }
 
     if (page_state_ == 0 && pager_.Handle != 0)
@@ -224,7 +224,7 @@ void agiTexDef::PageInSurface()
 
 i32 agiTexDef::Reload()
 {
-    Surface = agiSurfaceDesc::Load(Tex.Name, TexSearchPath, Tex.LOD, PackShift & 0xF, 0, 0);
+    Surface = AsPtr(agiSurfaceDesc::Load(Tex.Name, TexSearchPath, Tex.LOD, PackShift & 0xF, 0, 0));
 
     CheckSurface();
 
@@ -276,6 +276,9 @@ agiTexDef::agiTexDef(agiPipeline* pipe)
 
 agiTexDef::~agiTexDef()
 {
+    if (Surface)
+        Surface->Unload();
+
     if (i32 index = agiTexLib.Lookup(Tex.Name))
     {
         if (Tex.LOD)
@@ -287,13 +290,6 @@ agiTexDef::~agiTexDef()
             Displayf("%s still in TexLib", GetName());
             *def = nullptr;
         }
-    }
-
-    if (Surface)
-    {
-        Surface->Unload();
-
-        delete Surface;
     }
 }
 
@@ -312,7 +308,7 @@ void UpdateLutQueue()
         char buffer[32];
         arts_sprintf(buffer, "texp/nbr%s.lut", lutQ[index].Name);
 
-        *lutQ[index].Lut = Pipe()->GetTexLut(buffer);
+        *lutQ[index].Lut = AsRaw(Pipe()->GetTexLut(buffer));
 
         if (*lutQ[index].Lut == nullptr)
             Errorf("Lut '%s' didn't load.", buffer);
@@ -340,7 +336,7 @@ i32 agiTexLut::Init(const char* name)
     }
     else
     {
-        Ptr<Stream> file {arts_fopen(name, "r")};
+        Ptr<Stream> file (arts_fopen(name, "r"));
 
         if (file == nullptr)
             return -1;

@@ -57,7 +57,7 @@ void mmTextNode::Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 fl
     char name[256];
     arts_sprintf(name, "*TextNode:%p", this);
 
-    text_bitmap_.reset(Pipe()->CreateBitmap());
+    text_bitmap_ = AsRc(Pipe()->CreateBitmap());
 
     // NOTE: This won't work with agiSWBitmap. agiSWBitmap::BeginGfx doesn't set its state, and is missing the added check whether the surface is null
     // FIXME: mmNumberFont::Load[Loc]Font uses mmText::Draw2 instead of mmTextNode::Cull, so it doesn't load the surface before drawing.

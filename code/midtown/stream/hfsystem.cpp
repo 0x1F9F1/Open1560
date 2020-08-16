@@ -61,7 +61,7 @@ Owner<class Stream> HierFileSystem::CreateOn(const char* path, void* buffer, i32
         result.reset();
     }
 
-    return result.release();
+    return AsOwner(result);
 }
 
 struct HierFileEntry
@@ -78,7 +78,7 @@ struct HierFileEntry
 
 check_size(HierFileEntry, 0x144);
 
-Owner<struct FileInfo> HierFileSystem::FirstEntry(const char* path)
+struct FileInfo* HierFileSystem::FirstEntry(const char* path)
 {
     if (!QueryOn(path))
         return nullptr;
@@ -112,7 +112,7 @@ b32 HierFileSystem::GetDir(char* buffer, i32 buffer_len)
     return _getcwd(buffer, buffer_len) != nullptr;
 }
 
-Owner<struct FileInfo> HierFileSystem::NextEntry(Owner<struct FileInfo> info)
+struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* info)
 {
     HierFileEntry* context = static_cast<HierFileEntry*>(info->Context);
 
@@ -157,7 +157,7 @@ Owner<class Stream> HierFileSystem::OpenOn(const char* path, b32 read_only, void
         result.reset();
     }
 
-    return result.release();
+    return AsOwner(result);
 }
 
 b32 HierFileSystem::QueryOn(const char* path)

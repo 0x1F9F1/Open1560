@@ -38,11 +38,8 @@ i32 agiD3DRPipeline::BeginGfx()
     if (i32 error = agiD3DPipeline::BeginGfx())
         return error;
 
-    SafeRelease(renderer_);
-    SafeRelease(rasterizer_);
-
-    rasterizer_ = new agiD3DRasterizer(this);
-    renderer_ = new agiZBufRenderer(rasterizer_);
+    rasterizer_ = MakeRc<agiD3DRasterizer>(this);
+    renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
 
     return AGI_ERROR_SUCCESS;
 }
@@ -75,29 +72,30 @@ void agiD3DRPipeline::BeginScene()
     agiLighter::BeginScene();
 }
 
-DLP* agiD3DRPipeline::CreateDLP()
+RcOwner<DLP> agiD3DRPipeline::CreateDLP()
 {
-    return new RDLP(this);
+    return AsOwner(MakeRc<RDLP>(this));
 }
 
-agiLight* agiD3DRPipeline::CreateLight()
+RcOwner<agiLight> agiD3DRPipeline::CreateLight()
 {
-    return new agiBILight(this);
+    return AsOwner(MakeRc<agiBILight>(this));
 }
 
-agiLightModel* agiD3DRPipeline::CreateLightModel()
+RcOwner<agiLightModel> agiD3DRPipeline::CreateLightModel()
 {
-    return new agiBILightModel(this);
+    return AsOwner(MakeRc<agiBILightModel>(this));
 }
 
-agiViewport* agiD3DRPipeline::CreateViewport()
+RcOwner<agiViewport> agiD3DRPipeline::CreateViewport()
 {
-    return new agiD3DViewport(this);
+    return AsOwner(MakeRc<agiD3DViewport>(this));
 }
 
 void agiD3DRPipeline::EndGfx()
 {
-    SafeRelease(rasterizer_);
+    renderer_ = nullptr;
+    rasterizer_ = nullptr;
 
     agiD3DPipeline::EndGfx();
 }

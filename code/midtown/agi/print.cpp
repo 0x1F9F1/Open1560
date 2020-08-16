@@ -35,7 +35,7 @@ static mem::cmd_param PARAM_thin_font {"thinfont"};
 i32 agiFontWidth = 0;
 i32 agiFontHeight = 0;
 
-static agiTexDef* BuiltinFontTexture = nullptr;
+static Rc<agiTexDef> BuiltinFontTexture = nullptr;
 
 // 0x557FE0 | ?InitBuiltin@@YAXXZ
 ARTS_EXPORT /*static*/ void InitBuiltin()
@@ -53,9 +53,9 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     if (font_scale > 1 && !PARAM_thin_font.get_or(true))
         agiFontWidth += 8;
 
-    agiSurfaceDesc* surface = agiSurfaceDesc::Init(16 * (8 + 1), 6 * (8 + 1), Pipe()->GetScreenFormat());
+    Ptr<agiSurfaceDesc> surface = AsPtr(agiSurfaceDesc::Init(16 * (8 + 1), 6 * (8 + 1), Pipe()->GetScreenFormat()));
 
-    agiColorModel* cmodel = agiColorModel::FindMatch(surface);
+    Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface.get()));
 
     u32 const black = cmodel->GetColor(0x00, 0x00, 0x00, 0xFF);
     u32 const white = cmodel->GetColor(0xFF, 0xFF, 0xFF, 0xFF);
@@ -73,19 +73,19 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
             {
                 u32 color = (0x80 >> pixel_x) & *chars ? white : black;
 
-                cmodel->SetPixel(surface, char_x + pixel_x, char_y + pixel_y, color);
+                cmodel->SetPixel(surface.get(), char_x + pixel_x, char_y + pixel_y, color);
             }
 
             ++chars;
         }
     }
 
-    agiTexDef* texture = Pipe()->CreateTexDef();
+    Rc<agiTexDef> texture = AsRc(Pipe()->CreateTexDef());
 
     agiTexParameters params {};
     arts_strcpy(params.Name, "*BUILTIN");
     params.Flags |= agiTexParameters::NoMipMaps;
-    texture->Init(params, surface);
+    texture->Init(params, std::move(surface));
 
     BuiltinFontTexture = texture;
 }
@@ -135,7 +135,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
     f32 const inv_font_w = 1.0f / BuiltinFontTexture->GetWidth();
     f32 const inv_font_h = 1.0f / BuiltinFontTexture->GetHeight();
 
-    auto tex = agiCurState.SetTexture(BuiltinFontTexture);
+    auto tex = agiCurState.SetTexture(BuiltinFontTexture.get());
     auto draw_mode = agiCurState.SetDrawMode(15);
     auto depth = agiCurState.SetZEnable(0);
     auto zwrite = agiCurState.SetZWrite(0);
@@ -240,11 +240,7 @@ void agiPipeline::PrintInit()
 
 void agiPipeline::PrintShutdown()
 {
-    if (BuiltinFontTexture)
-    {
-        BuiltinFontTexture->Release();
-        BuiltinFontTexture = nullptr;
-    }
+    BuiltinFontTexture = nullptr;
 }
 
 const u8 CharSet[96 * 8] {

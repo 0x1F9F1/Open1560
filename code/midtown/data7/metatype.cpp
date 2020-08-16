@@ -67,9 +67,9 @@ struct PtrToType final : MetaType
 
 check_size(PtrToType, 0x8);
 
-Owner<struct MetaType> PtrTo(struct MetaType* target)
+struct MetaType* PtrTo(struct MetaType* target)
 {
-    return new PtrToType {target};
+    return new PtrToType(target);
 }
 
 struct StructType final : MetaType
@@ -115,9 +115,9 @@ struct StructType final : MetaType
 
 check_size(StructType, 0x8);
 
-Owner<struct MetaType> Struct(class MetaClass* target)
+struct MetaType* Struct(class MetaClass* target)
 {
-    return new StructType {target};
+    return new StructType(target);
 }
 
 struct SignedIntType final : MetaType

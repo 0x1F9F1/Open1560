@@ -60,10 +60,15 @@ public:
     ARTS_EXPORT u32 GetColor(i32 r, i32 g, i32 b, i32 a);
 
     // 0x55D810 | ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z | agi:cmodelx
-    ARTS_IMPORT static class agiColorModel* FindMatch(class agiSurfaceDesc* arg1);
+    ARTS_IMPORT static RcOwner<class agiColorModel> FindMatch(class agiSurfaceDesc* arg1);
 
     // 0x55D760 | ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z | agi:cmodelx
-    ARTS_IMPORT static class agiColorModel* FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT static RcOwner<class agiColorModel> FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+
+    void AddRef()
+    {
+        ++RefCount;
+    }
 
     i32 Release()
     {
@@ -89,6 +94,7 @@ public:
     u32 ShiftB {0};
     u32 ShiftA {0};
 
+private:
     u32 RefCount {1};
 };
 

@@ -35,7 +35,7 @@
 */
 
 // 0x52DFC0 | ?d3dCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-ARTS_EXPORT class agiPipeline* d3dCreatePipeline(i32 argc, char** argv);
+ARTS_EXPORT Owner<class agiPipeline> d3dCreatePipeline(i32 argc, char** argv);
 
 // 0x790DCC | ?AutoMip@@3HA
 ARTS_IMPORT extern b32 AutoMip;

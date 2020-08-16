@@ -126,7 +126,7 @@ i32 agiD3DTexDef::BeginGfx()
         if (ddsd.ddpfPixelFormat.dwFlags & DDPF_RGB)
         {
             agiSurfaceDesc agisd = ConvertSurfaceDesc(ddsd);
-            agisd.CopyFrom(Surface, mip_level, &Tex);
+            agisd.CopyFrom(Surface.get(), mip_level, &Tex);
             ddsd = ConvertSurfaceDesc(agisd);
             ++mip_level;
         }
@@ -223,7 +223,7 @@ b32 agiD3DTexDef::Lock(agiTexLock& lock)
     DD_TRY(mem_tex_surf_->Lock(nullptr, &sd, DDLOCK_NOSYSLOCK, nullptr));
 
     lock.ColorModel =
-        (Tex.Flags & agiTexParameters::Alpha) ? Pipe()->GetAlphaColorModel() : Pipe()->GetOpaqueColorModel();
+        ((Tex.Flags & agiTexParameters::Alpha) ? Pipe()->GetAlphaColorModel() : Pipe()->GetOpaqueColorModel()).get();
 
     lock.Width = sd.dwWidth;
     lock.Height = sd.dwHeight;

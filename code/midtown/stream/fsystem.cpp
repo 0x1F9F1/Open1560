@@ -20,6 +20,8 @@ define_dummy_symbol(stream_fsystem);
 
 #include "fsystem.h"
 
+#include "stream.h"
+
 FileSystem::FileSystem()
 {
     if (FSCount >= MAX_FILESYSTEMS)
@@ -284,9 +286,9 @@ Owner<class Stream> OpenFile(
 
     FileSystem* fs = FindFile(file, folder, ext, ext_id, path, std::size(path));
 
-    Stream* result = nullptr;
+    Ptr<Stream> result = nullptr;
 
-    if (fs && (result = fs->OpenOn(path, 1, 0, 4096)) != nullptr)
+    if (fs && (result = AsPtr(fs->OpenOn(path, 1, 0, 4096))) != nullptr)
     {
         if (fsVerbose)
         {
@@ -308,7 +310,7 @@ Owner<class Stream> OpenFile(
         result = nullptr;
     }
 
-    return result;
+    return AsOwner(result);
 }
 
 class FileSystem* FileSystem::FS[MAX_FILESYSTEMS] {};

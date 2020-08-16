@@ -179,7 +179,7 @@ public:
     // 0x556380 | ?Init@agiTexDef@@QAEHABVagiTexParameters@@@Z
     ARTS_EXPORT i32 Init(class agiTexParameters const& params);
 
-    i32 Init(class agiTexParameters const& params, agiSurfaceDesc* surface);
+    i32 Init(class agiTexParameters const& params, Ptr<agiSurfaceDesc> surface);
 
     // 0x556430 | ?IsTexture@agiTexDef@@UAEHXZ
     ARTS_EXPORT b32 IsTexture() override;
@@ -215,7 +215,7 @@ public:
         return Surface->Height;
     }
 
-    agiSurfaceDesc* Surface {nullptr};
+    Ptr<agiSurfaceDesc> Surface {nullptr};
     agiTexParameters Tex {};
     agiPolySet* PolySet {nullptr};
     i32 SceneIndex {0};

@@ -23,9 +23,9 @@ define_dummy_symbol(agid3d_pcpipe);
 #include "agi/error.h"
 #include "d3drpipe.h"
 
-agiPipeline* d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
+Owner<agiPipeline> d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 {
-    agiD3DRPipeline* result = new agiD3DRPipeline();
+    Ptr<agiD3DRPipeline> result = MakeUnique<agiD3DRPipeline>();
     result->Init();
-    return result;
+    return AsOwner(result);
 }

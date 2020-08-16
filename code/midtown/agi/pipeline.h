@@ -89,6 +89,9 @@
 
 #include "surface.h"
 
+#include "cmodel.h"
+#include "render.h"
+
 class agiRefreshable;
 class agiBitmap;
 class agiColorModel;
@@ -132,25 +135,25 @@ public:
     // 0x556030 | ?EndFrame@agiPipeline@@UAEXXZ
     ARTS_EXPORT virtual void EndFrame();
 
-    virtual class agiTexDef* CreateTexDef() = 0;
+    virtual RcOwner<class agiTexDef> CreateTexDef() = 0;
 
-    virtual class agiTexLut* CreateTexLut() = 0;
+    virtual RcOwner<class agiTexLut> CreateTexLut() = 0;
 
     // 0x555B10 | ?CreateMtlDef@agiPipeline@@UAEPAVagiMtlDef@@XZ
-    ARTS_EXPORT virtual class agiMtlDef* CreateMtlDef();
+    ARTS_EXPORT virtual RcOwner<class agiMtlDef> CreateMtlDef();
 
-    virtual class DLP* CreateDLP() = 0;
+    virtual RcOwner<class DLP> CreateDLP() = 0;
 
-    virtual class agiViewport* CreateViewport() = 0;
+    virtual RcOwner<class agiViewport> CreateViewport() = 0;
 
     // 0x555B20 | ?CreateLight@agiPipeline@@UAEPAVagiLight@@XZ
-    ARTS_EXPORT virtual class agiLight* CreateLight();
+    ARTS_EXPORT virtual RcOwner<class agiLight> CreateLight();
 
     // 0x555B30 | ?CreateLightModel@agiPipeline@@UAEPAVagiLightModel@@XZ
-    ARTS_EXPORT virtual class agiLightModel* CreateLightModel();
+    ARTS_EXPORT virtual RcOwner<class agiLightModel> CreateLightModel();
 
     // 0x555D30 | ?CreateBitmap@agiPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_EXPORT virtual class agiBitmap* CreateBitmap();
+    ARTS_EXPORT virtual RcOwner<class agiBitmap> CreateBitmap();
 
     // 0x555D40 | ?CopyBitmap@agiPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
     ARTS_EXPORT virtual void CopyBitmap(
@@ -203,25 +206,25 @@ public:
     ARTS_EXPORT void EndAllGfx();
 
     // 0x555750 | ?GetBitmap@agiPipeline@@QAEPAVagiBitmap@@PADMMH@Z
-    ARTS_EXPORT class agiBitmap* GetBitmap(const char* name, f32 sx, f32 sy, i32 flags);
+    ARTS_EXPORT RcOwner<class agiBitmap> GetBitmap(const char* name, f32 sx, f32 sy, i32 flags);
 
     // 0x555950 | ?GetDLP@agiPipeline@@QAEPAVDLP@@PAD0PAVVector3@@HH@Z
-    ARTS_IMPORT class DLP* GetDLP(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT RcOwner<class DLP> GetDLP(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
 
     // 0x555860 | ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@PAD@Z | unused
-    ARTS_IMPORT class agiMtlDef* GetMaterial(char* arg1);
+    ARTS_IMPORT RcOwner<class agiMtlDef> GetMaterial(char* arg1);
 
     // 0x5558C0 | ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@H@Z
-    ARTS_IMPORT class agiMtlDef* GetMaterial(i32 arg1);
+    ARTS_IMPORT RcOwner<class agiMtlDef> GetMaterial(i32 arg1);
 
     // 0x5557F0 | ?GetTexLut@agiPipeline@@QAEPAVagiTexLut@@PAD@Z
-    ARTS_IMPORT class agiTexLut* GetTexLut(char* arg1);
+    ARTS_IMPORT RcOwner<class agiTexLut> GetTexLut(char* arg1);
 
     // 0x5555C0 | ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@PADH@Z
-    ARTS_IMPORT class agiTexDef* GetTexture(char* arg1, i32 arg2);
+    ARTS_IMPORT RcOwner<class agiTexDef> GetTexture(char* arg1, i32 arg2);
 
     // 0x555620 | ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z
-    ARTS_IMPORT class agiTexDef* GetTexture(i32 arg1, i32 arg2);
+    ARTS_IMPORT RcOwner<class agiTexDef> GetTexture(i32 arg1, i32 arg2);
 
     // 0x555550 | ?Init@agiPipeline@@QAEHPADHHHHHHPAX@Z | unused
     ARTS_EXPORT i32 Init(const char* name, i32 x, i32 y, i32 width, i32 height, i32 bit_depth, i32 flags, void* window);
@@ -269,17 +272,17 @@ public:
         return screen_format_;
     }
 
-    agiColorModel* GetHiColorModel() const
+    const Rc<agiColorModel>& GetHiColorModel() const
     {
         return hi_color_model_;
     }
 
-    agiColorModel* GetOpaqueColorModel() const
+    const Rc<agiColorModel>& GetOpaqueColorModel() const
     {
         return opaque_color_model_;
     }
 
-    agiColorModel* GetAlphaColorModel() const
+    const Rc<agiColorModel>& GetAlphaColorModel() const
     {
         return alpha_color_model_;
     }
@@ -337,11 +340,14 @@ protected:
     i32 valid_bit_depths_ {0};
     agiSurfaceDesc screen_format_ {};
     u8 gap1C4[0xF8] {};
-    agiColorModel* hi_color_model_ {nullptr};
-    agiColorModel* opaque_color_model_ {nullptr};
-    agiColorModel* alpha_color_model_ {nullptr};
-    agiColorModel* text_color_model_ {nullptr};
-    agiRenderer* renderer_ {nullptr};
+
+    Rc<agiColorModel> hi_color_model_ {nullptr};
+    Rc<agiColorModel> opaque_color_model_ {nullptr};
+    Rc<agiColorModel> alpha_color_model_ {nullptr};
+    Rc<agiColorModel> text_color_model_ {nullptr};
+
+    Rc<agiRenderer> renderer_ {nullptr};
+
     b32 is_software_ {0};
     i32 max_tex_width_ {0};
     i32 max_tex_height_ {0};

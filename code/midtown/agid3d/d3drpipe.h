@@ -59,16 +59,16 @@ public:
     ARTS_EXPORT void BeginScene() override;
 
     // 0x531790 | ?CreateDLP@agiD3DRPipeline@@UAEPAVDLP@@XZ
-    ARTS_EXPORT class DLP* CreateDLP() override;
+    ARTS_EXPORT RcOwner<class DLP> CreateDLP() override;
 
     // 0x531910 | ?CreateLight@agiD3DRPipeline@@UAEPAVagiLight@@XZ
-    ARTS_EXPORT class agiLight* CreateLight() override;
+    ARTS_EXPORT RcOwner<class agiLight> CreateLight() override;
 
     // 0x5318B0 | ?CreateLightModel@agiD3DRPipeline@@UAEPAVagiLightModel@@XZ
-    ARTS_EXPORT class agiLightModel* CreateLightModel() override;
+    ARTS_EXPORT RcOwner<class agiLightModel> CreateLightModel() override;
 
     // 0x531730 | ?CreateViewport@agiD3DRPipeline@@UAEPAVagiViewport@@XZ
-    ARTS_EXPORT class agiViewport* CreateViewport() override;
+    ARTS_EXPORT RcOwner<class agiViewport> CreateViewport() override;
 
     // 0x531700 | ?EndGfx@agiD3DRPipeline@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;

@@ -40,7 +40,7 @@ class StreamMiniParser final : public MiniParser
 
 public:
     // 0x561370 | ??0StreamMiniParser@@QAE@PADPAVStream@@@Z
-    ARTS_EXPORT StreamMiniParser(const char* name, class Stream* stream);
+    ARTS_EXPORT StreamMiniParser(const char* name, Owner<class Stream> stream);
 
     // 0x5613A0 | ??1StreamMiniParser@@QAE@XZ
     ARTS_EXPORT ~StreamMiniParser();

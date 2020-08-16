@@ -49,8 +49,8 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
     if (name && *name != '*')
     {
         // NOTE: Orignial used agiPipeline::CurrentPipe for Width and Height
-        surface_ = agiSurfaceDesc::Load(const_cast<char*>(name), BitmapSearchPath, 0, 0,
-            (sx == 1.0f) ? Pipe()->GetWidth() : 0, (sy == 1.0f) ? Pipe()->GetHeight() : 0);
+        surface_ = AsPtr(agiSurfaceDesc::Load(const_cast<char*>(name), BitmapSearchPath, 0, 0,
+            (sx == 1.0f) ? Pipe()->GetWidth() : 0, (sy == 1.0f) ? Pipe()->GetHeight() : 0));
 
         if (surface_ == nullptr)
             return -1;
@@ -82,7 +82,7 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
         width_ = static_cast<i32>(sx);
         height_ = static_cast<i32>(sy);
 
-        surface_ = agiSurfaceDesc::Init(width_, height_, Pipe()->GetScreenFormat());
+        surface_ = AsPtr(agiSurfaceDesc::Init(width_, height_, Pipe()->GetScreenFormat()));
     }
 
     return SafeBeginGfx();
@@ -101,11 +101,7 @@ void agiBitmap::SetTransparency(b32 enabled)
 agiBitmap::~agiBitmap()
 {
     if (surface_)
-    {
         surface_->Unload();
-
-        delete surface_;
-    }
 
     // TODO: Should this use width_ and height_ instead of width_scale_ and height_scale_?
     char buffer[64];

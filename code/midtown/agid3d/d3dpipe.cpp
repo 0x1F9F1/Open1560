@@ -105,8 +105,7 @@ i32 agiD3DPipeline::BeginGfx()
     if (i32 error = agiDDPipeline::BeginGfx())
         return error;
 
-    text_color_model_->Release();
-    text_color_model_ = agiColorModel::FindMatch(0xFF0000, 0xFF00, 0xFF, 0xFF000000);
+    text_color_model_ = AsRc(agiColorModel::FindMatch(0xFF0000, 0xFF00, 0xFF, 0xFF000000));
 
     if (u32 black = text_color_model_->GetColor(0, 0, 0, 0))
         Quitf("black isn't zero -- %d", black);
@@ -375,26 +374,22 @@ i32 agiD3DPipeline::BeginGfx()
 
     if (opaque_format_.dwRBitMask)
     {
-        opaque_color_model_->Release();
-        opaque_color_model_ = agiColorModel::FindMatch(opaque_format_.dwRBitMask, opaque_format_.dwGBitMask,
-            opaque_format_.dwBBitMask, opaque_format_.dwRGBAlphaBitMask);
+        opaque_color_model_ = AsRc(agiColorModel::FindMatch(opaque_format_.dwRBitMask, opaque_format_.dwGBitMask,
+            opaque_format_.dwBBitMask, opaque_format_.dwRGBAlphaBitMask));
     }
     else
     {
-        opaque_color_model_->Release();
-        opaque_color_model_ = new agiColorModel8(&agiPal);
+        opaque_color_model_ = MakeRc<agiColorModel8>(&agiPal);
     }
 
     if (alpha_format_.dwRBitMask)
     {
-        alpha_color_model_->Release();
-        alpha_color_model_ = agiColorModel::FindMatch(alpha_format_.dwRBitMask, alpha_format_.dwGBitMask,
-            alpha_format_.dwBBitMask, alpha_format_.dwRGBAlphaBitMask);
+        alpha_color_model_ = AsRc(agiColorModel::FindMatch(alpha_format_.dwRBitMask, alpha_format_.dwGBitMask,
+            alpha_format_.dwBBitMask, alpha_format_.dwRGBAlphaBitMask));
     }
     else
     {
-        alpha_color_model_->Release();
-        alpha_color_model_ = new agiColorModel8(&agiPal);
+        alpha_color_model_ = MakeRc<agiColorModel8>(&agiPal);
     }
 
     if (alpha_color_model_->BitCountA)
@@ -518,37 +513,37 @@ void agiD3DPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x,
     }
 }
 
-agiBitmap* agiD3DPipeline::CreateBitmap()
+RcOwner<agiBitmap> agiD3DPipeline::CreateBitmap()
 {
-    return new agiDDBitmap(this);
+    return AsOwner(MakeRc<agiDDBitmap>(this));
 }
 
-agiLight* agiD3DPipeline::CreateLight()
+RcOwner<agiLight> agiD3DPipeline::CreateLight()
 {
-    return new agiD3DLight(this);
+    return AsOwner(MakeRc<agiD3DLight>(this));
 }
 
-agiMtlDef* agiD3DPipeline::CreateMtlDef()
+RcOwner<agiMtlDef> agiD3DPipeline::CreateMtlDef()
 {
-    return new agiD3DMtlDef(this);
+    return AsOwner(MakeRc<agiD3DMtlDef>(this));
 }
 
-agiTexDef* agiD3DPipeline::CreateTexDef()
+RcOwner<agiTexDef> agiD3DPipeline::CreateTexDef()
 {
-    return new agiD3DTexDef(this);
+    return AsOwner(MakeRc<agiD3DTexDef>(this));
 }
 
-agiTexLut* agiD3DPipeline::CreateTexLut()
+RcOwner<agiTexLut> agiD3DPipeline::CreateTexLut()
 {
     if (!(device_flags_1_ & 0x100))
         return nullptr;
 
-    return new agiD3DTexLut(this);
+    return AsOwner(MakeRc<agiD3DTexLut>(this));
 }
 
-agiViewport* agiD3DPipeline::CreateViewport()
+RcOwner<agiViewport> agiD3DPipeline::CreateViewport()
 {
-    return new agiD3DViewport(this);
+    return AsOwner(MakeRc<agiD3DViewport>(this));
 }
 
 void agiD3DPipeline::Defragment()

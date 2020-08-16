@@ -338,7 +338,7 @@ void agiSurfaceDesc::Init(i32 width, i32 height)
 {
     Ptr<agiSurfaceDesc> result = MakeUnique<agiSurfaceDesc>(desc);
     result->Init(width, height);
-    return result.release();
+    return AsOwner(result);
 }
 
 void agiSurfaceDesc::Load()
@@ -368,7 +368,7 @@ void agiSurfaceDesc::Fill(i32 x, i32 y, i32 width, i32 height, u32 color)
     if (x + width > static_cast<i32>(Width) || y + height > static_cast<i32>(Height))
         return;
 
-    Rc<agiColorModel> cmodel {agiColorModel::FindMatch(this)};
+    Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(this));
 
     color = cmodel->GetColor(agiRgba::FromARGB(color));
 

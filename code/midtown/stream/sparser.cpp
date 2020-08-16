@@ -23,9 +23,9 @@ define_dummy_symbol(stream_sparser);
 #include "data7/metaclass.h"
 #include "stream.h"
 
-StreamMiniParser::StreamMiniParser(const char* name, class Stream* stream)
+StreamMiniParser::StreamMiniParser(const char* name, Owner<class Stream> stream)
     : MiniParser(name)
-    , stream_(stream)
+    , stream_(std::move(stream))
 {}
 
 StreamMiniParser::~StreamMiniParser() = default;
@@ -46,7 +46,7 @@ void StreamMiniParser::Load(class MetaClass* cls, const char* path, void* ptr)
 
     if (input)
     {
-        StreamMiniParser parser(path, input.release());
+        StreamMiniParser parser(path, AsOwner(input));
 
         cls->Load(&parser, ptr);
 
@@ -65,7 +65,7 @@ void StreamMiniParser::Save(class MetaClass* cls, const char* path, void* ptr)
 
     if (output)
     {
-        StreamMiniParser parser(path, output.release());
+        StreamMiniParser parser(path, AsOwner(output));
 
         cls->Save(&parser, ptr);
 

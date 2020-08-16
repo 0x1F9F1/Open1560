@@ -64,7 +64,7 @@ public:
 
     agiSurfaceDesc* GetSurface() const
     {
-        return surface_;
+        return surface_.get();
     }
 
     bool Is3D() const
@@ -100,7 +100,7 @@ protected:
 
     CString name_ {};
 
-    agiSurfaceDesc* surface_ {nullptr};
+    Ptr<agiSurfaceDesc> surface_ {nullptr};
 
     // 0x1 | AGI_BITMAP_TRANSPARENT
     // 0x2 | AGI_BITMAP_OFFSCREEN

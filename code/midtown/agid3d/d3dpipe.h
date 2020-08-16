@@ -96,22 +96,22 @@ public:
         i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
     // 0x5314C0 | ?CreateBitmap@agiD3DPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_EXPORT class agiBitmap* CreateBitmap() override;
+    ARTS_EXPORT RcOwner<class agiBitmap> CreateBitmap() override;
 
     // 0x5313A0 | ?CreateLight@agiD3DPipeline@@UAEPAVagiLight@@XZ
-    ARTS_EXPORT class agiLight* CreateLight() override;
+    ARTS_EXPORT RcOwner<class agiLight> CreateLight() override;
 
     // 0x531250 | ?CreateMtlDef@agiD3DPipeline@@UAEPAVagiMtlDef@@XZ
-    ARTS_EXPORT class agiMtlDef* CreateMtlDef() override;
+    ARTS_EXPORT RcOwner<class agiMtlDef> CreateMtlDef() override;
 
     // 0x5312B0 | ?CreateTexDef@agiD3DPipeline@@UAEPAVagiTexDef@@XZ
-    ARTS_EXPORT class agiTexDef* CreateTexDef() override;
+    ARTS_EXPORT RcOwner<class agiTexDef> CreateTexDef() override;
 
     // 0x531310 | ?CreateTexLut@agiD3DPipeline@@UAEPAVagiTexLut@@XZ
-    ARTS_EXPORT class agiTexLut* CreateTexLut() override;
+    ARTS_EXPORT RcOwner<class agiTexLut> CreateTexLut() override;
 
     // 0x5311F0 | ?CreateViewport@agiD3DPipeline@@UAEPAVagiViewport@@XZ
-    ARTS_EXPORT class agiViewport* CreateViewport() override;
+    ARTS_EXPORT RcOwner<class agiViewport> CreateViewport() override;
 
     // 0x531580 | ?Defragment@agiD3DPipeline@@UAEXXZ
     ARTS_EXPORT void Defragment() override;
@@ -181,7 +181,7 @@ protected:
     CLSID d3d_guid_ {};
     D3DDEVICEDESC device_desc_ {};
     char* device_name_ {nullptr};
-    agiRasterizer* rasterizer_ {};
+    Rc<agiRasterizer> rasterizer_ {};
 };
 
 check_size(agiD3DPipeline, 0x49C);

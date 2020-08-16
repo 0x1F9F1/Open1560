@@ -51,7 +51,7 @@ struct FileInfo
     b32 IsDirectory {false};
 
     // TODO: Use inheritance instead of Context pointer
-    Owner<void> Context {nullptr};
+    void* Context {nullptr};
 };
 
 check_size(FileInfo, 0x108);
@@ -83,9 +83,9 @@ public:
 
     virtual b32 GetDir(char* buffer, i32 buffer_len) = 0;
 
-    virtual Owner<struct FileInfo> FirstEntry(const char* path) = 0;
+    virtual struct FileInfo* FirstEntry(const char* path) = 0;
 
-    virtual Owner<struct FileInfo> NextEntry(Owner<struct FileInfo> info) = 0;
+    virtual struct FileInfo* NextEntry(struct FileInfo* info) = 0;
 
     // 0x55F690 | ?Search@FileSystem@@QAEHPAD00H0@Z
     ARTS_EXPORT b32 Search(

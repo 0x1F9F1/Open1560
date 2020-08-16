@@ -423,7 +423,7 @@ i32 arts_fgets(char* buffer, i32 buffer_len, class Stream* stream)
 
 class Stream* arts_fopen(const char* path, const char* mode)
 {
-    return (mode[0] == 'r') ? FileSystem::OpenAny(path, mode[1] != '+', 0, 4096) : HFS.CreateOn(path, 0, 4096);
+    return AsRaw((mode[0] == 'r') ? FileSystem::OpenAny(path, mode[1] != '+', 0, 4096) : HFS.CreateOn(path, 0, 4096));
 }
 
 void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, ...)

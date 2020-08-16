@@ -151,7 +151,7 @@ i32 agiDDPipeline::BeginGfx()
 
     if (bit_depth_ == 8)
     {
-        hi_color_model_ = new agiColorModel8(&agiPal);
+        hi_color_model_ = MakeRc<agiColorModel8>(&agiPal);
 
         DD_TRY(d_front_->SetPalette(d_pal_));
         DD_TRY(d_back_->SetPalette(d_pal_));
@@ -171,8 +171,8 @@ i32 agiDDPipeline::BeginGfx()
         screen_format_ = ConvertSurfaceDesc(screen_desc);
         d_pix_format_ = screen_desc.ddpfPixelFormat;
 
-        hi_color_model_ = agiColorModel::FindMatch(d_pix_format_.dwRBitMask, d_pix_format_.dwGBitMask,
-            d_pix_format_.dwBBitMask, d_pix_format_.dwRGBAlphaBitMask);
+        hi_color_model_ = AsRc(agiColorModel::FindMatch(d_pix_format_.dwRBitMask, d_pix_format_.dwGBitMask,
+            d_pix_format_.dwBBitMask, d_pix_format_.dwRGBAlphaBitMask));
 
         if (hi_color_model_ == nullptr)
         {
@@ -181,13 +181,8 @@ i32 agiDDPipeline::BeginGfx()
         }
     }
 
-    ++hi_color_model_->RefCount;
     opaque_color_model_ = hi_color_model_;
-
-    ++hi_color_model_->RefCount;
     alpha_color_model_ = hi_color_model_;
-
-    ++hi_color_model_->RefCount;
     text_color_model_ = hi_color_model_;
 
     gfx_started_ = 1;
@@ -240,9 +235,9 @@ void agiDDPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     }
 }
 
-Owner<class agiBitmap> agiDDPipeline::CreateBitmap()
+RcOwner<class agiBitmap> agiDDPipeline::CreateBitmap()
 {
-    return new agiDDBitmap(this);
+    return AsOwner(MakeRc<agiDDBitmap>(this));
 }
 
 void agiDDPipeline::EndFrame()
@@ -253,10 +248,10 @@ void agiDDPipeline::EndGfx()
     SafeRelease(d_pal_);
     gfx_started_ = false;
 
-    SafeRelease(text_color_model_);
-    SafeRelease(hi_color_model_);
-    SafeRelease(opaque_color_model_);
-    SafeRelease(alpha_color_model_);
+    text_color_model_ = nullptr;
+    hi_color_model_ = nullptr;
+    opaque_color_model_ = nullptr;
+    alpha_color_model_ = nullptr;
 }
 
 void agiDDPipeline::EndScene()

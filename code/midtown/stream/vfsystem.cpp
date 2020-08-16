@@ -65,7 +65,7 @@ struct VirtualFileEntry
     }
 };
 
-Owner<struct FileInfo> VirtualFileSystem::FirstEntry(const char* path)
+struct FileInfo* VirtualFileSystem::FirstEntry(const char* path)
 {
     VirtualFileInode* nodes = nullptr;
     u32 node_count = 0;
@@ -103,7 +103,7 @@ b32 VirtualFileSystem::GetDir(char*, i32)
     return false;
 }
 
-Owner<struct FileInfo> VirtualFileSystem::NextEntry(Owner<struct FileInfo> info)
+struct FileInfo* VirtualFileSystem::NextEntry(struct FileInfo* info)
 {
     VirtualFileEntry* context = static_cast<VirtualFileEntry*>(info->Context);
 
@@ -131,7 +131,7 @@ Owner<class Stream> VirtualFileSystem::OpenOn(const char* path, b32 read_only, v
     if (!node || node->IsDirectory())
         return nullptr;
 
-    return new VirtualStream(base_stream_.get(), node, buffer, buffer_len, this);
+    return AsOwner(MakeUnique<VirtualStream>(base_stream_.get(), node, buffer, buffer_len, this));
 }
 
 b32 VirtualFileSystem::PagerInfo(const char* path, struct PagerInfo_t& info)

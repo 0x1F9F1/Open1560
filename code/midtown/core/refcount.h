@@ -257,3 +257,38 @@ public:
 private:
     T* ptr_ {nullptr};
 };
+
+template <typename T, typename... Args>
+[[nodiscard]] inline std::enable_if_t<!std::is_array_v<T>, Rc<T>> MakeRc(Args&&... args)
+{
+    return Rc<T>(new T(std::forward<Args>(args)...));
+}
+
+template <typename T>
+[[nodiscard]] inline std::enable_if_t<!std::is_array_v<T>, Rc<T>> AddRc(T* ptr) noexcept
+{
+    if (ptr)
+        ptr->AddRef();
+
+    return Rc<T>(ptr);
+}
+
+#ifdef ARTS_STANDALONE
+template <typename T>
+using RcOwner = Rc<T>;
+
+template <typename T>
+inline Rc<T> AsRc(RcOwner<T> ptr)
+{
+    return ptr;
+}
+#else
+template <typename T>
+using RcOwner = T*;
+
+template <typename T>
+inline Rc<T> AsRc(RcOwner<T> ptr)
+{
+    return Rc<T>(ptr);
+}
+#endif

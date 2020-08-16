@@ -20,14 +20,17 @@ define_dummy_symbol(agi_pipeline);
 
 #include "pipeline.h"
 
-#include "agi/dlptmpl.h"
 #include "bitmap.h"
 #include "core/minwin.h"
 #include "data7/hash.h"
 #include "data7/ipc.h"
+#include "dlptmpl.h"
 #include "error.h"
 #include "eventq7/eventq.h"
 #include "eventq7/winevent.h"
+#include "light.h"
+#include "lmodel.h"
+#include "mtldef.h"
 #include "pcwindis/dxinit.h"
 #include "refresh.h"
 #include "rsys.h"
@@ -56,22 +59,22 @@ void agiPipeline::EndScene()
 void agiPipeline::EndFrame()
 {}
 
-class agiMtlDef* agiPipeline::CreateMtlDef()
+RcOwner<class agiMtlDef> agiPipeline::CreateMtlDef()
 {
     return nullptr;
 }
 
-class agiLight* agiPipeline::CreateLight()
+RcOwner<class agiLight> agiPipeline::CreateLight()
 {
     return nullptr;
 }
 
-class agiLightModel* agiPipeline::CreateLightModel()
+RcOwner<class agiLightModel> agiPipeline::CreateLightModel()
 {
     return nullptr;
 }
 
-class agiBitmap* agiPipeline::CreateBitmap()
+RcOwner<class agiBitmap> agiPipeline::CreateBitmap()
 {
     return nullptr;
 }
@@ -112,7 +115,7 @@ i32 agiPipeline::BeginAllGfx()
         return error;
     }
 
-    CurrentRenderer = renderer_;
+    CurrentRenderer = renderer_.get();
 
     agiDisplayf("Refreshing objects");
 
@@ -152,6 +155,8 @@ void agiPipeline::DumpStatus()
 
 void agiPipeline::EndAllGfx()
 {
+    CurrentRenderer = nullptr;
+
     GFXPAGER.Shutdown();
 
     if (!gfx_started_)
@@ -171,32 +176,24 @@ void agiPipeline::EndAllGfx()
     EndGfx();
 }
 
-agiBitmap* agiPipeline::GetBitmap(const char* name, f32 sx, f32 sy, i32 flags)
+RcOwner<agiBitmap> agiPipeline::GetBitmap(const char* name, f32 sx, f32 sy, i32 flags)
 {
     char buffer[64];
     arts_sprintf(buffer, "%s.%x.%x.%d", name, mem::bit_cast<u32>(sx), mem::bit_cast<u32>(sy), flags);
 
-    agiBitmap* result = static_cast<agiBitmap*>(BitmapHash.Access(buffer));
-
-    if (result)
+    if (agiBitmap* result = static_cast<agiBitmap*>(BitmapHash.Access(buffer)))
     {
-        result->AddRef();
-
-        return result;
+        return AsOwner(AddRc(result));
     }
 
-    result = CreateBitmap();
+    Rc<agiBitmap> result {CreateBitmap()};
 
     if (result->Init(name, sx, sy, flags) != AGI_ERROR_SUCCESS)
-    {
-        result->Release();
-
         return nullptr;
-    }
 
-    BitmapHash.Insert(buffer, result);
+    BitmapHash.Insert(buffer, result.get());
 
-    return result;
+    return AsOwner(result);
 }
 
 void* CreatePipelineAttachableWindow(
