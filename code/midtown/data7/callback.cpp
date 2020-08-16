@@ -49,3 +49,36 @@ void Callback::Call(void* param)
         }
     }
 }
+
+CallbackArray::CallbackArray(Callback* callbacks, usize capacity)
+    : callbacks_(callbacks)
+    , capacity_(static_cast<u16>(capacity))
+{}
+
+void CallbackArray::Append(Callback callback)
+{
+    for (u16 i = 0; i < size_; ++i)
+    {
+        if (callbacks_[i] == callback)
+            return;
+    }
+
+    if (size_ == capacity_)
+        return;
+
+    callbacks_[size_++] = callback;
+}
+
+void CallbackArray::Clear()
+{
+    size_ = 0;
+}
+
+void CallbackArray::Invoke(bool clear_after, void* param)
+{
+    for (u16 i = 0; i < size_; ++i)
+        callbacks_[i].Call(param);
+
+    if (clear_after)
+        Clear();
+}

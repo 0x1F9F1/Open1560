@@ -56,10 +56,7 @@
     0x672094 | int AllCars | ?AllCars@@3HA
 */
 
-#include "core/minwin.h"
-
 // 0x4031A0 | _WinMain@16 | void
-ARTS_EXPORT int WINAPI MidtownMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
 
 // 0x4030C0 | ?Application@@YAXHPAPAD@Z
 ARTS_EXPORT void Application(i32 arg1, char** arg2);
@@ -146,3 +143,7 @@ ARTS_IMPORT extern u32 hImmContext;
 
 // 0x634684 | ?page_override@@3HA
 ARTS_IMPORT extern i32 page_override;
+
+class CallbackArray;
+
+extern CallbackArray GameResetCallbacks;

@@ -22,12 +22,15 @@ define_dummy_symbol(midtown);
 
 #include <mem/cmd_param-inl.h>
 
+#include "data7/callback.h"
 #include "data7/ipc.h"
 #include "data7/metaclass.h"
 #include "memory/allocator.h"
 #include "memory/stack.h"
 #include "mmcityinfo/state.h"
 #include "pcwindis/dxinit.h"
+
+#include "core/minwin.h"
 
 // 0x402F20 | ?GameCloseCallback@@YAXXZ
 ARTS_EXPORT /*static*/ void GameCloseCallback()
@@ -56,12 +59,16 @@ ARTS_EXPORT /*static*/ char* exeDirFile(char* buffer, char* file)
     return buffer;
 }
 
+static Callback GameResetCallback_[32];
+CallbackArray GameResetCallbacks {GameResetCallback_, std::size(GameResetCallback_)};
+
 static char Main_ExecPath[1024] {};
 static char* Main_Argv[128] {};
 
 alignas(16) static u8 Main_InitHeap[0x10000];
 
-int WINAPI MidtownMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR lpCmdLine, int /*nShowCmd*/)
+ARTS_EXPORT int WINAPI MidtownMain(
+    HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR lpCmdLine, int /*nShowCmd*/)
 {
     asMemoryAllocator init_alloc;
     init_alloc.Init(Main_InitHeap, sizeof(Main_InitHeap), 1);

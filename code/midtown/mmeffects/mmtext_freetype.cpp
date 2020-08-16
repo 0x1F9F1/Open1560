@@ -5,25 +5,16 @@
 #include "agi/pipeline.h"
 #include "agi/rgba.h"
 #include "agi/surface.h"
+#include "data7/callback.h"
 #include "data7/hash.h"
 #include "localize/localize.h"
+#include "midtown.h"
+#include "stream/stream.h"
 
 #include <ft2build.h>
 
 #include <freetype/freetype.h>
-
-static FT_Library FreeTypeLibrary = nullptr;
-
-void InitFreeType()
-{
-    if (FreeTypeLibrary != nullptr)
-        return;
-
-    if (FT_Init_FreeType(&FreeTypeLibrary))
-        Quitf("Can't initialize FreeType");
-
-    std::atexit([] { FT_Done_FreeType(FreeTypeLibrary); });
-}
+#include <freetype/ftmodapi.h>
 
 struct mmSize
 {
@@ -70,7 +61,9 @@ private:
 
     ~mmFont()
     {
+        FT_Stream stream = face_->stream;
         FT_Done_Face(face_);
+        delete stream;
 
         FontHash.Delete(name_);
     }
@@ -97,122 +90,204 @@ public:
         return refs;
     }
 
-    mmSize GetExtents(const char* text)
+    mmSize GetExtents(const char* text);
+    void Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect, u32 color, u32 format);
+
+    static mmFont* Create(const char* font_name, i32 height, i32 weight);
+};
+
+mmSize mmFont::GetExtents(const char* text)
+{
+    u32 width = 0;
+    u32 height = face_->size->metrics.height;
+
+    for (; *text; ++text)
     {
-        u32 width = 0;
-        u32 height = face_->size->metrics.height;
+        u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(*text));
 
-        for (; *text; ++text)
-        {
-            u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(*text));
+        FT_Load_Glyph(face_, glyph_index, FT_LOAD_TARGET_MONO);
 
-            FT_Load_Glyph(face_, glyph_index, FT_LOAD_TARGET_MONO);
-
-            width += face_->glyph->advance.x;
-        }
-
-        return {static_cast<i32>((width + 63) >> 6), static_cast<i32>((height + 63) >> 6)};
+        width += face_->glyph->advance.x;
     }
 
-    void Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect, u32 color, u32 format)
+    return {static_cast<i32>((width + 63) >> 6), static_cast<i32>((height + 63) >> 6)};
+}
+
+void mmFont::Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect, u32 color, u32 format)
+{
+    Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface));
+
+    i32 x = rect->left;
+    i32 y = rect->top;
+
+    i32 width = rect->right - rect->left;
+    i32 height = rect->bottom - rect->top;
+
+    if (format & (MM_DT_CENTER | MM_DT_VCENTER | MM_DT_RIGHT | MM_DT_BOTTOM))
     {
-        Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface));
+        mmSize size = GetExtents(text);
 
-        i32 x = rect->left;
-        i32 y = rect->top;
+        if (format & MM_DT_CENTER)
+            x += (width - size.cx) / 2;
+        else if (format & MM_DT_RIGHT)
+            x += (width - size.cx);
 
-        i32 width = rect->right - rect->left;
-        i32 height = rect->bottom - rect->top;
+        if (format & MM_DT_VCENTER)
+            y += (height - size.cy) / 2;
+        else if (format & MM_DT_BOTTOM)
+            y += (height - size.cy);
+    }
 
-        if (format & (MM_DT_CENTER | MM_DT_VCENTER | MM_DT_RIGHT | MM_DT_BOTTOM))
+    x <<= 6;
+    y <<= 6;
+
+    y += face_->size->metrics.ascender;
+
+    color = cmodel->GetColor(agiRgba::FromABGR(color | 0xFF000000));
+
+    for (; *text; ++text)
+    {
+        u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(*text));
+
+        FT_Load_Glyph(face_, glyph_index, FT_LOAD_RENDER | FT_LOAD_MONOCHROME | FT_LOAD_TARGET_MONO);
+
+        for (u32 src_y = 0; src_y < face_->glyph->bitmap.rows; ++src_y)
         {
-            mmSize size = GetExtents(text);
+            u32 src_y_off = src_y * face_->glyph->bitmap.pitch;
 
-            if (format & MM_DT_CENTER)
-                x += (width - size.cx) / 2;
-            else if (format & MM_DT_RIGHT)
-                x += (width - size.cx);
+            u32 dst_y = (y >> 6) + src_y - face_->glyph->bitmap_top;
 
-            if (format & MM_DT_VCENTER)
-                y += (height - size.cy) / 2;
-            else if (format & MM_DT_BOTTOM)
-                y += (height - size.cy);
-        }
+            if (dst_y >= surface->Height)
+                break;
 
-        x <<= 6;
-        y <<= 6;
-
-        y += face_->size->metrics.ascender;
-
-        color = cmodel->GetColor(agiRgba::FromABGR(color | 0xFF000000));
-
-        for (; *text; ++text)
-        {
-            u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(*text));
-
-            FT_Load_Glyph(face_, glyph_index, FT_LOAD_RENDER | FT_LOAD_MONOCHROME | FT_LOAD_TARGET_MONO);
-
-            for (u32 src_y = 0; src_y < face_->glyph->bitmap.rows; ++src_y)
+            for (u32 src_x = 0; src_x < face_->glyph->bitmap.width; ++src_x)
             {
-                u32 src_y_off = src_y * face_->glyph->bitmap.pitch;
+                u32 dst_x = (x >> 6) + src_x + face_->glyph->bitmap_left;
 
-                u32 dst_y = (y >> 6) + src_y - face_->glyph->bitmap_top;
-
-                if (dst_y >= surface->Height)
+                if (dst_x >= surface->Width)
                     break;
 
-                for (u32 src_x = 0; src_x < face_->glyph->bitmap.width; ++src_x)
-                {
-                    u32 dst_x = (x >> 6) + src_x + face_->glyph->bitmap_left;
-
-                    if (dst_x >= surface->Width)
-                        break;
-
-                    if (face_->glyph->bitmap.buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
-                        cmodel->SetPixel(surface, dst_x, dst_y, color);
-                }
+                if (face_->glyph->bitmap.buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
+                    cmodel->SetPixel(surface, dst_x, dst_y, color);
             }
-
-            x += face_->glyph->advance.x;
         }
+
+        x += face_->glyph->advance.x;
     }
+}
 
-    static mmFont* Create(const char* font_name, i32 height, i32 weight)
-    {
-        InitFreeType();
+static void* mmFont_AllocFunc(FT_Memory, long size)
+{
+    return arts_malloc(static_cast<size_t>(size));
+}
 
-        // TODO: Support other fonts
-        // TODO: Lookup file name for font
+static void mmFont_FreeFunc(FT_Memory, void* block)
+{
+    arts_free(block);
+}
 
-        if (weight >= 700)
-            font_name = "GILB____.TTF";
-        else
-            font_name = "GIL_____.TTF";
+static void* mmFont_ReallocFunc(FT_Memory, long, long new_size, void* block)
+{
+    return arts_realloc(block, static_cast<size_t>(new_size));
+}
 
-        char name[256];
-        arts_sprintf(name, "%s, %i", font_name, height);
+static unsigned long mmFont_IoFunc(FT_Stream stream, unsigned long offset, unsigned char* buffer, unsigned long count)
+{
+    Stream* file = static_cast<Stream*>(stream->descriptor.pointer);
 
-        if (mmFont* font = static_cast<mmFont*>(FontHash.Access(name)))
-        {
-            font->AddRef();
+    if (file->Seek(static_cast<i32>(offset)) != static_cast<i32>(offset))
+        return count ? 0 : 1;
 
-            return font;
-        }
-
-        FT_Face face = nullptr;
-
-        if (FT_New_Face(FreeTypeLibrary, font_name, 0, &face))
-        {
-            Errorf("Failed to create font %s", font_name);
-
-            return nullptr;
-        }
-
-        FT_Set_Char_Size(face, 0, height << 6, 0, 54);
-
-        return new mmFont(name, face);
-    }
+    return file->Read(buffer, static_cast<i32>(count));
 };
+
+static void mmFont_CloseFunc(FT_Stream stream)
+{
+    delete static_cast<Stream*>(stream->descriptor.pointer);
+};
+
+static FT_Library mmFont_Library = nullptr;
+
+static void mmFont_Shutdown()
+{
+    FontHash.Kill(nullptr, [](void*, const char* key, void* value) {
+        Displayf("Font '%s' Leaked", key);
+
+        mmFont* font = static_cast<mmFont*>(value);
+
+        while (font->Release())
+            ;
+    });
+
+    FT_Done_Library(mmFont_Library);
+
+    mmFont_Library = nullptr;
+}
+
+static FT_MemoryRec_ mmFont_MemoryRec {nullptr, mmFont_AllocFunc, mmFont_FreeFunc, mmFont_ReallocFunc};
+
+mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
+{
+    if (mmFont_Library == nullptr)
+    {
+        if (FT_New_Library(&mmFont_MemoryRec, &mmFont_Library))
+            Quitf("Can't initialize FreeType");
+
+        FT_Add_Default_Modules(mmFont_Library);
+
+        GameResetCallbacks.Append(CFA(mmFont_Shutdown));
+    }
+
+    char name[256];
+    arts_sprintf(name, "%s, %i, %i", font_name, height, weight);
+
+    if (mmFont* font = static_cast<mmFont*>(FontHash.Access(name)))
+    {
+        font->AddRef();
+
+        return font;
+    }
+
+    // TODO: Support other fonts (Broadway, used by mmCDPlayer via mmHUD mmNumberFont)
+    // TODO: Lookup file name for font
+
+    if (weight >= 700)
+        font_name = "./GILB____.TTF";
+    else
+        font_name = "./GIL_____.TTF";
+
+    Stream* file = arts_fopen(font_name, "r");
+
+    if (file == nullptr)
+    {
+        Errorf("Failed to open font %s", font_name);
+
+        return nullptr;
+    }
+
+    FT_StreamRec* stream = new FT_StreamRec {};
+    stream->descriptor.pointer = file;
+    stream->size = file->Size();
+    stream->read = mmFont_IoFunc;
+    stream->close = mmFont_CloseFunc;
+
+    FT_Open_Args args {};
+    args.flags = FT_OPEN_STREAM;
+    args.stream = stream;
+
+    FT_Face face = nullptr;
+
+    if (FT_Open_Face(mmFont_Library, &args, 0, &face))
+    {
+        Errorf("Failed to create font %s", font_name);
+        delete stream;
+        return nullptr;
+    }
+
+    FT_Set_Char_Size(face, 0, height << 6, 0, 54);
+
+    return new mmFont(name, face);
+}
 
 void mmText::Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font_ptr)
 {
@@ -316,7 +391,7 @@ RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color
     return AsOwner(bitmap);
 }
 
-void* mmText::CreateFont(char* font_name, i32 height)
+void* mmText::CreateFont(const char* font_name, i32 height)
 {
     return mmFont::Create(font_name, height, 400);
 }
@@ -363,7 +438,7 @@ void mmTextNode::GetTextDimensions(void* font_ptr, LocString* text, f32& width, 
     if (font_ptr == nullptr)
     {
         // Called by MenuManager::InitCommonStuff with a null font.
-        font_ptr = mmText::CreateFont(const_cast<char*>("Gill Sans MT"), 16);
+        font_ptr = mmText::CreateFont("Gill Sans MT", 16);
         temp_font = true;
     }
 

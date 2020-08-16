@@ -73,7 +73,7 @@ public:
     ARTS_EXPORT static RcOwner<class agiBitmap> CreateFitBitmap(char* text, void* font, i32 color, i32 bg_color);
 
     // 0x4FEF30 | ?CreateFont@mmText@@SAPAXPADH@Z
-    ARTS_EXPORT static void* CreateFont(char* font_name, i32 height);
+    ARTS_EXPORT static void* CreateFont(const char* font_name, i32 height);
 
     // 0x4FEE60 | ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
     ARTS_EXPORT static void* CreateLocFont(struct LocString* params, i32 screen_width);

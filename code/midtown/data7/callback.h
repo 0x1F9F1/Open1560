@@ -84,6 +84,8 @@ public:
     // 0x579450 | ?Call@Callback@@QAEXPAX@Z
     ARTS_EXPORT void Call(void* param = nullptr);
 
+    bool operator==(const Callback& other) const;
+
 private:
     i32 type_ {CB_TYPE_NONE};
     Base* this_ptr_ {nullptr};
@@ -103,6 +105,21 @@ private:
 
     void* param_1_ {nullptr};
     void* param_2_ {nullptr};
+};
+
+class CallbackArray
+{
+public:
+    CallbackArray(Callback* callbacks, usize capacity);
+
+    void Append(Callback callback);
+    void Clear();
+    void Invoke(bool clear_after, void* param = nullptr);
+
+private:
+    Callback* callbacks_ {nullptr};
+    u16 size_ {0};
+    u16 capacity_ {0};
 };
 
 #define CFA(FUNC) Callback(static_cast<Callback::Static0>(FUNC))
@@ -182,4 +199,9 @@ inline constexpr Callback::Callback(Member2 func, Base* this_ptr, void* param1, 
 
     if (!this_ptr)
         Quitf("Can't have callback to member function with nil 'this'");
+}
+
+inline bool Callback::operator==(const Callback& other) const
+{
+    return !std::memcmp(this, &other, sizeof(*this));
 }

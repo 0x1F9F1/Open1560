@@ -20,6 +20,9 @@ define_dummy_symbol(data7_hash);
 
 #include "hash.h"
 
+#include "data7/callback.h"
+#include "midtown.h"
+
 void HashTable::operator=(class HashTable& other)
 {
     // TODO: Why is this bucket_count_ - 1?
@@ -131,8 +134,31 @@ void HashTable::Kill()
     buckets_ = nullptr;
 }
 
+void HashTable::Kill(void* context, void (*callback)(void* context, const char* key, void* value))
+{
+    if (buckets_ == nullptr)
+        return;
+
+    Ptr<HashEntry*[]> buckets = std::move(buckets_);
+    i32 bucket_count = bucket_count_;
+    value_count_ = 0;
+
+    for (i32 i = 0; i < bucket_count; ++i)
+    {
+        for (HashEntry *j = buckets[i], *next = nullptr; j; j = next)
+        {
+            next = j->Next;
+            callback(context, j->Key.get(), j->Value);
+            delete j;
+        }
+    }
+}
+
 void HashTable::KillAll()
 {
+    // TODO: Move this to ApplicationHelper
+    GameResetCallbacks.Invoke(true);
+
     for (HashTable* i = First; i; i = i->next_table_)
         i->Kill();
 }

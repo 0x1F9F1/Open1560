@@ -90,6 +90,8 @@ public:
     // 0x578110 | ?Kill@HashTable@@QAEXXZ
     ARTS_EXPORT void Kill();
 
+    void Kill(void* context, void (*callback)(void* context, const char* key, void* value));
+
     // 0x578610 | ?KillAll@HashTable@@SAXXZ
     ARTS_EXPORT static void KillAll();
 
