@@ -159,19 +159,19 @@ public:
     ARTS_EXPORT b32 ChangeDir(const char* path) override;
 
     // 0x560B80 | ?CreateOn@VirtualFileSystem@@UAEPAVStream@@PADPAXH@Z
-    ARTS_EXPORT Owner<class Stream*> CreateOn(const char* path, void* buffer, i32 buffer_len) override;
+    ARTS_EXPORT Owner<class Stream> CreateOn(const char* path, void* buffer, i32 buffer_len) override;
 
     // 0x560BB0 | ?FirstEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAD@Z
-    ARTS_EXPORT Owner<struct FileInfo*> FirstEntry(const char* path) override;
+    ARTS_EXPORT Owner<struct FileInfo> FirstEntry(const char* path) override;
 
     // 0x560BA0 | ?GetDir@VirtualFileSystem@@UAEHPADH@Z
     ARTS_EXPORT b32 GetDir(char* buffer, i32 buffer_len) override;
 
     // 0x560D00 | ?NextEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAU2@@Z
-    ARTS_EXPORT Owner<struct FileInfo*> NextEntry(Owner<struct FileInfo*> info) override;
+    ARTS_EXPORT Owner<struct FileInfo> NextEntry(Owner<struct FileInfo> info) override;
 
     // 0x560AD0 | ?OpenOn@VirtualFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    ARTS_EXPORT Owner<class Stream*> OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
+    ARTS_EXPORT Owner<class Stream> OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
 
     // 0x560A50 | ?PagerInfo@VirtualFileSystem@@UAEHPADAAUPagerInfo_t@@@Z
     ARTS_EXPORT b32 PagerInfo(const char* path, struct PagerInfo_t& info) override;

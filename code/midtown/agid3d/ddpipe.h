@@ -79,7 +79,7 @@ public:
         i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
     // 0x533010 | ?CreateBitmap@agiDDPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_EXPORT Owner<class agiBitmap*> CreateBitmap() override;
+    ARTS_EXPORT Owner<class agiBitmap> CreateBitmap() override;
 
     // 0x533000 | ?EndFrame@agiDDPipeline@@UAEXXZ
     ARTS_EXPORT void EndFrame() override;

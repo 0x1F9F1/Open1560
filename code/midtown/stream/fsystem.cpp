@@ -209,7 +209,7 @@ b32 FileSystem::Search(const char* file, const char* folder, const char* ext, i3
     return false;
 }
 
-Owner<class Stream*> FileSystem::OpenAny(const char* path, b32 read_only, void* buffer, i32 buffer_len)
+Owner<class Stream> FileSystem::OpenAny(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
     for (i32 i = 0; i < FSCount; ++i)
     {
@@ -268,14 +268,14 @@ class FileSystem* FindFile(const char* file, const char* folder, const char* ext
     return FindFile(file, folder, ext, ext_id, buffer, 120);
 }
 
-Owner<class Stream*> OpenFile(
+Owner<class Stream> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, const char* desc)
 {
     // TODO: Avoid hardcoded buffer size (chosen as smallest buffer buffer size passed by the game)
     return OpenFile(file, folder, ext, ext_id, buffer, 128, desc);
 }
 
-Owner<class Stream*> OpenFile(
+Owner<class Stream> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len, const char* desc)
 {
     // NOTE: Incompatible

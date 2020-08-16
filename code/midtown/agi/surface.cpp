@@ -334,7 +334,7 @@ void agiSurfaceDesc::Init(i32 width, i32 height)
     Load();
 }
 
-[[nodiscard]] Owner<agiSurfaceDesc*> agiSurfaceDesc::Init(i32 width, i32 height, const agiSurfaceDesc& desc)
+[[nodiscard]] Owner<agiSurfaceDesc> agiSurfaceDesc::Init(i32 width, i32 height, const agiSurfaceDesc& desc)
 {
     Ptr<agiSurfaceDesc> result = MakeUnique<agiSurfaceDesc>(desc);
     result->Init(width, height);

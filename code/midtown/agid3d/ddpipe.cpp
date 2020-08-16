@@ -240,7 +240,7 @@ void agiDDPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     }
 }
 
-Owner<class agiBitmap*> agiDDPipeline::CreateBitmap()
+Owner<class agiBitmap> agiDDPipeline::CreateBitmap()
 {
     return new agiDDBitmap(this);
 }

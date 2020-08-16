@@ -48,7 +48,7 @@ b32 VirtualFileSystem::ChangeDir(const char*)
     return false;
 }
 
-Owner<class Stream*> VirtualFileSystem::CreateOn(const char*, void*, i32)
+Owner<class Stream> VirtualFileSystem::CreateOn(const char*, void*, i32)
 {
     return nullptr;
 }
@@ -65,7 +65,7 @@ struct VirtualFileEntry
     }
 };
 
-Owner<struct FileInfo*> VirtualFileSystem::FirstEntry(const char* path)
+Owner<struct FileInfo> VirtualFileSystem::FirstEntry(const char* path)
 {
     VirtualFileInode* nodes = nullptr;
     u32 node_count = 0;
@@ -103,7 +103,7 @@ b32 VirtualFileSystem::GetDir(char*, i32)
     return false;
 }
 
-Owner<struct FileInfo*> VirtualFileSystem::NextEntry(Owner<struct FileInfo*> info)
+Owner<struct FileInfo> VirtualFileSystem::NextEntry(Owner<struct FileInfo> info)
 {
     VirtualFileEntry* context = static_cast<VirtualFileEntry*>(info->Context);
 
@@ -121,7 +121,7 @@ Owner<struct FileInfo*> VirtualFileSystem::NextEntry(Owner<struct FileInfo*> inf
     return info;
 }
 
-Owner<class Stream*> VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
+Owner<class Stream> VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
 {
     if (!read_only)
         return nullptr;
