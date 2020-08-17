@@ -302,6 +302,11 @@ public:
         return scene_index_;
     }
 
+    u32 GetDword38() const
+    {
+        return dword38;
+    }
+
 protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
     ARTS_EXPORT agiPipeline();

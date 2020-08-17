@@ -38,8 +38,8 @@
 
 #include "surface.h"
 
-#define AGI_BITMAP_TRANSPARENT 0x1
-#define AGI_BITMAP_OFFSCREEN 0x2
+#define AGI_BITMAP_TRANSPARENT 0x1 // Chromakey
+#define AGI_BITMAP_OFFSCREEN 0x2 // Blit-able
 #define AGI_BITMAP_UNLOAD_ALWAYS 0x10 // TODO: Can this be 0x4 ?
 
 class agiBitmap : public agiRefreshable

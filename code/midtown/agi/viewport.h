@@ -114,6 +114,9 @@ public:
 
 check_size(agiViewParameters, 0x12C);
 
+#define AGI_VIEW_CLEAR_TARGET 0x00000001l  /* Clear target surface */
+#define AGI_VIEW_CLEAR_ZBUFFER 0x00000002l /* Clear target z buffer */
+
 class agiViewport : public agiRefreshable
 {
     // const agiViewport::`vftable' @ 0x621620
@@ -126,13 +129,13 @@ public:
     virtual void Clear(i32 arg1) = 0;
 
     // 0x5578A0 | ?SetWorld@agiViewport@@UAEXAAVMatrix34@@@Z
-    ARTS_IMPORT virtual void SetWorld(class Matrix34& arg1);
+    ARTS_EXPORT virtual void SetWorld(class Matrix34& world);
 
     // 0x557870 | ?Aspect@agiViewport@@QAEMXZ | unused
-    ARTS_IMPORT f32 Aspect();
+    ARTS_EXPORT f32 Aspect();
 
     // 0x5579D0 | ?GetName@agiViewport@@UAEPADXZ
-    ARTS_IMPORT char* GetName() override;
+    ARTS_EXPORT char* GetName() override;
 
     const agiViewParameters& GetParams()
     {
@@ -141,12 +144,12 @@ public:
 
 protected:
     // 0x5578E0 | ??0agiViewport@@IAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiViewport(class agiPipeline* arg1);
+    ARTS_EXPORT agiViewport(class agiPipeline* pipe);
 
     // 0x5579F0 | ??_GagiViewport@@MAEPAXI@Z
     // 0x5579F0 | ??_EagiViewport@@MAEPAXI@Z
     // 0x557940 | ??1agiViewport@@MAE@XZ
-    ARTS_IMPORT ~agiViewport() override;
+    ARTS_EXPORT ~agiViewport() override;
 
     // 0x8FF048 | ?Active@agiViewport@@1PAV1@A
     ARTS_IMPORT static class agiViewport* Active;

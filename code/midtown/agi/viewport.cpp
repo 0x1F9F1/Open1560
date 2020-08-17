@@ -19,3 +19,39 @@
 define_dummy_symbol(agi_viewport);
 
 #include "viewport.h"
+
+#include "pipeline.h"
+#include "vector7/matrix34.h"
+
+agiViewport::agiViewport(class agiPipeline* pipe)
+    : agiRefreshable(pipe)
+    , dword144_(pipe_->GetDword38())
+{}
+
+agiViewport::~agiViewport()
+{
+    if (this == agiViewport::Active)
+        agiViewport::Active = nullptr;
+}
+
+void agiViewport::SetWorld(class Matrix34& world)
+{
+    params_.View = world;
+    params_.ModelView.Dot(params_.View, params_.Model);
+    ++agiViewParameters::MtxSerial;
+}
+
+f32 agiViewport::Aspect()
+{
+    if (state_)
+        return (Pipe()->GetWidth() * params_.Width) / (Pipe()->GetHeight() * params_.Height);
+
+    return params_.Width / params_.Height;
+}
+
+char* agiViewport::GetName()
+{
+    static char buffer[128]; // FIXME: Static buffer
+    arts_sprintf(buffer, "Viewport '%p'", this);
+    return buffer;
+}
