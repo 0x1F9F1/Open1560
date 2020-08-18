@@ -81,7 +81,7 @@ static void copyrow4444_to_8888(void* dst, void* src, u32 len, u32 step)
     }
 }
 
-static void copyrow4444_to_8888amul(void* dst, void* src, u32 len, u32 step)
+static void copyrow4444_to_888amul(void* dst, void* src, u32 len, u32 step)
 {
     u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
     u16* ARTS_RESTRICT src16 = static_cast<u16*>(src);
@@ -91,11 +91,10 @@ static void copyrow4444_to_8888amul(void* dst, void* src, u32 len, u32 step)
         u32 v = src16[src_off >> 16];
         src_off += step;
 
-        u8 a = u8(v >> 12);
-        u16 amul = a * 0x89; // Magic division by 15
-
-        v = (((v & 0x000F) * amul) >> 11) | ((((v & 0x00F0) * amul) >> 7) & 0xF00) |
-            ((((v & 0x0F00) >> 3) * amul) & 0xF0000) | (a << 24);
+        // rgb = (rgb * a) / 15
+        u32 amul = (v >> 12) * 0x89;
+        u32 rb = (((((v << 8) | v) & 0xF000F) * amul) >> 11) & 0xF000F;
+        v = ((((v & 0xF0) * amul) >> 7) & 0xF00) | rb;
 
         *dst32++ = v | (v << 4);
     }
@@ -275,7 +274,7 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters
                     case 0xFF0000u:
                         copy_row = (params && (params->Props & agiTexProp::AlphaGlow) &&
                                        !(params->Flags & agiTexParameters::Alpha))
-                            ? copyrow4444_to_8888amul
+                            ? copyrow4444_to_888amul
                             : copyrow4444_to_8888;
                         break;
                     case 0xFFu: copy_row = copyrow4444_to_8888rev; break;
