@@ -333,6 +333,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         create_patch("TestResolution", "Max Software Resolution", 0x575E6C + 3, "\x00\x08", 2);
         create_patch("TestResolution", "Max Software Resolution", 0x575E73 + 2, "\x00\x08", 2);
 
+        create_patch("agiSWTexLut::BeginGfx", "Fixed Fog Calculation", 0x5379F2, "\xB8\x00\x01\x00\x00\x89\x45\xE4\x46\xC1\xE6\x05\x29\xF0\x90\x90\x90", 0x11);
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();

@@ -78,6 +78,7 @@ void asPerfGraph::Cull()
     auto zwrite = agiCurState.SetZWrite(false);
     auto alpha = agiCurState.SetAlphaEnable(false);
     auto filter = agiCurState.SetTexFilter(agiTexFilter::Point);
+    auto fog_color = agiCurState.SetFogColor(0x00000000);
 
     const u16 buf_size = 64;
 
@@ -185,6 +186,7 @@ void asPerfGraph::Cull()
     agiCurState.SetZWrite(zwrite);
     agiCurState.SetAlphaEnable(alpha);
     agiCurState.SetTexFilter(filter);
+    agiCurState.SetFogColor(fog_color);
 
     for (i32 height = 0, step = std::clamp<i32>(static_cast<i32>(std::round(max_height * 0.05f)), 1, 5),
              prev = pipe_height;

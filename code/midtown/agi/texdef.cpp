@@ -332,7 +332,7 @@ i32 agiTexLut::Init(const char* name)
     EndGfx();
     name_ = name;
 
-    if (!arts_stricmp(name, "*grey"))
+    if (!arts_stricmp(name, "*grey") || !arts_stricmp(name, "*gray"))
     {
         for (u32 i = 0; i < std::size(palette_); ++i)
             palette_[i] = i * 0x10101;
