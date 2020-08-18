@@ -185,6 +185,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
     auto zwrite = agiCurState.SetZWrite(false);
     auto alpha = agiCurState.SetAlphaEnable(false);
     auto filter = agiCurState.SetTexFilter(agiTexFilter::Point);
+    auto fog_mode = agiCurState.SetFogMode(agiFogMode::None);
     auto fog_color = agiCurState.SetFogColor(0x00000000);
 
     const u16 buf_size = 64;
@@ -270,6 +271,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
     agiCurState.SetZWrite(zwrite);
     agiCurState.SetAlphaEnable(alpha);
     agiCurState.SetTexFilter(filter);
+    agiCurState.SetFogMode(fog_mode);
     agiCurState.SetFogColor(fog_color);
 }
 
