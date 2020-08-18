@@ -67,7 +67,7 @@ ARTS_EXPORT /*static*/ long WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
         f32 ar = static_cast<f32>(sd->dwWidth) / static_cast<f32>(sd->dwHeight);
 
         if (sd->dwWidth >= 640 && sd->dwHeight >= 480 &&
-            sd->ddpfPixelFormat.dwRGBBitCount == ((info->Type != 0) ? 32 : 16) &&
+            sd->ddpfPixelFormat.dwRGBBitCount == ((info->Type != 0) ? 32u : 16u) &&
             ar >= PARAM_min_aspect.get_or<f32>(1.6f) && ar <= PARAM_max_aspect.get_or<f32>(2.4f))
         {
             info->Resolutions[info->ResCount].uWidth = static_cast<u16>(sd->dwWidth);
