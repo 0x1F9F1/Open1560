@@ -327,6 +327,12 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         create_patch(
             "aiVehiclePolice::Reset", "Fix List::Clear memory leak", 0x44511C, "\x89\xF9\xE8\x6D\x71\x13\x00\x90", 8);
 
+        create_patch("agiSWTexDef::BeginGfx", "MipMapCount Comparison", 0x537797, "\x7E", 1);
+        create_patch("agiSWTexDef::EndGfx", "MipMapCount Comparison", 0x537833, "\x7E", 1);
+
+        create_patch("TestResolution", "Max Software Resolution", 0x575E6C + 3, "\x00\x08", 2);
+        create_patch("TestResolution", "Max Software Resolution", 0x575E73 + 2, "\x00\x08", 2);
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();

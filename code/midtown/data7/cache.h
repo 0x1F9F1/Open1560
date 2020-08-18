@@ -89,6 +89,8 @@ public:
     // 0x577300 | ?UnlockAndFree@DataCache@@QAEXH@Z
     ARTS_EXPORT void UnlockAndFree(i32 handle);
 
+    void Free(i32 handle);
+
 private:
     // 0x5773A0 | ?CleanEndOfHeap@DataCache@@AAEXXZ
     ARTS_EXPORT void CleanEndOfHeap();

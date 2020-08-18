@@ -62,8 +62,8 @@ void asPerfGraph::AddComponent(const char* name, f32* value, const Vector3& colo
     component_history_[num_components_] = new f32[num_samples_] {};
     component_name_[num_components_] = name;
     component_value_[num_components_] = value;
-    component_color_[num_components_] = agiRgba {
-        static_cast<u8>(color.x * 255.0f), static_cast<u8>(color.y * 255.0f), static_cast<u8>(color.z * 255.0f), 0xBB};
+    component_color_[num_components_] = agiRgba {static_cast<u8>(color.x * 255.0f), static_cast<u8>(color.y * 255.0f),
+        static_cast<u8>(color.z * 255.0f), static_cast<u8>(Pipe()->IsHardware() ? 0xBB : 0xFF)};
 
     ++num_components_;
 }
@@ -73,10 +73,10 @@ void asPerfGraph::Cull()
     RAST->BeginGroup();
 
     auto tex = agiCurState.SetTexture(nullptr);
-    auto draw_mode = agiCurState.SetDrawMode(15);
-    auto depth = agiCurState.SetZEnable(0);
-    auto zwrite = agiCurState.SetZWrite(0);
-    auto alpha = agiCurState.SetAlphaEnable(1);
+    auto draw_mode = agiCurState.SetDrawMode(0xF);
+    auto depth = agiCurState.SetZEnable(false);
+    auto zwrite = agiCurState.SetZWrite(false);
+    auto alpha = agiCurState.SetAlphaEnable(false);
     auto filter = agiCurState.SetTexFilter(agiTexFilter::Point);
 
     const u16 buf_size = 64;

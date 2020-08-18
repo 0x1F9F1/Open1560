@@ -276,6 +276,9 @@ agiTexDef::agiTexDef(agiPipeline* pipe)
 
 agiTexDef::~agiTexDef()
 {
+    if (cache_handle_ != 0)
+        TEXCACHE.Free(cache_handle_);
+
     if (Surface)
         Surface->Unload();
 

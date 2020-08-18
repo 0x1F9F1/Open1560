@@ -53,30 +53,71 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     if (font_scale > 1 && !PARAM_thin_font.get_or(true))
         agiFontWidth += 8;
 
-    Ptr<agiSurfaceDesc> surface = AsPtr(agiSurfaceDesc::Init(16 * (8 + 1), 6 * (8 + 1), Pipe()->GetScreenFormat()));
+    Ptr<agiSurfaceDesc> surface;
 
-    Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface.get()));
-
-    u32 const black = cmodel->GetColor(0x00, 0x00, 0x00, 0xFF);
-    u32 const white = cmodel->GetColor(0xFF, 0xFF, 0xFF, 0xFF);
-
-    u8 const* chars = CharSet;
-
-    for (i32 i = 0; i < 96; ++i)
+    if (Pipe()->IsHardware())
     {
-        i32 char_x = (8 + 1) * (i % 16);
-        i32 char_y = (8 + 1) * (i / 16);
+        surface = AsPtr(agiSurfaceDesc::Init(16 * (8 + 1), 6 * (8 + 1), Pipe()->GetScreenFormat()));
 
-        for (i32 pixel_y = 0; pixel_y < 8; ++pixel_y)
+        Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface.get()));
+
+        u32 const black = cmodel->GetColor(0x00, 0x00, 0x00, 0xFF);
+        u32 const white = cmodel->GetColor(0xFF, 0xFF, 0xFF, 0xFF);
+
+        u8 const* chars = CharSet;
+
+        for (i32 i = 0; i < 96; ++i)
         {
-            for (i32 pixel_x = 0; pixel_x < 8; ++pixel_x)
+            i32 char_x = (8 + 1) * (i % 16);
+            i32 char_y = (8 + 1) * (i / 16);
+
+            for (i32 pixel_y = 0; pixel_y < 8; ++pixel_y)
             {
-                u32 color = (0x80 >> pixel_x) & *chars ? white : black;
+                i32 y = char_y + pixel_y;
 
-                cmodel->SetPixel(surface.get(), char_x + pixel_x, char_y + pixel_y, color);
+                for (i32 pixel_x = 0; pixel_x < 8; ++pixel_x)
+                {
+                    cmodel->SetPixel(surface.get(), char_x + pixel_x, y, ((0x80 >> pixel_x) & *chars) ? white : black);
+                }
+
+                ++chars;
             }
+        }
+    }
+    else
+    {
+        agiSurfaceDesc format {};
 
-            ++chars;
+        format = {sizeof(format)};
+        format.Flags = AGISD_PIXELFORMAT;
+        format.PixelFormat = {sizeof(format.PixelFormat)};
+        format.PixelFormat.Flags = AGIPF_RGB | AGIPF_PALETTEINDEXED8;
+        format.PixelFormat.RGBBitCount = 8;
+
+        surface = AsPtr(agiSurfaceDesc::Init(256, 64, format));
+
+        surface->lpLut = AsRaw(Pipe()->GetTexLut(const_cast<char*>("*grey")));
+        surface->MipMapCount = 3;
+
+        u8 const* chars = CharSet;
+        u8* lut = static_cast<u8*>(surface->Surface);
+
+        for (i32 i = 0; i < 96; ++i)
+        {
+            i32 char_x = (8 + 1) * (i % 16);
+            i32 char_y = (8 + 1) * (i / 16);
+
+            for (i32 pixel_y = 0; pixel_y < 8; ++pixel_y)
+            {
+                i32 y = char_y + pixel_y;
+
+                for (i32 pixel_x = 0; pixel_x < 8; ++pixel_x)
+                {
+                    lut[(y * surface->Pitch) + char_x + pixel_x] = ((0x80 >> pixel_x) & *chars) ? 0xFF : 0x00;
+                }
+
+                ++chars;
+            }
         }
     }
 
@@ -84,7 +125,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
 
     agiTexParameters params {};
     arts_strcpy(params.Name, "*BUILTIN");
-    params.Flags |= agiTexParameters::NoMipMaps;
+    params.Flags |= agiTexParameters::NoMipMaps | agiTexParameters::KeepLoaded;
     texture->Init(params, std::move(surface));
 
     BuiltinFontTexture = texture;
@@ -112,21 +153,24 @@ void agiPrintShutdown()
 
 void agiPrintf(i32 x, i32 y, i32 color, ARTS_FORMAT_STRING char const* format, ...)
 {
-    if (y >= 0 && y <= Pipe()->GetHeight() - agiFontHeight)
-    {
-        char buffer[256];
+    if (y + agiFontHeight <= 0 || y >= Pipe()->GetHeight())
+        return;
 
-        std::va_list va;
-        va_start(va, format);
-        arts_vsprintf(buffer, format, va);
-        va_end(va);
+    char buffer[256];
 
-        agiPrint(x, y, color, buffer);
-    }
+    std::va_list va;
+    va_start(va, format);
+    arts_vsprintf(buffer, format, va);
+    va_end(va);
+
+    agiPrint(x, y, color, buffer);
 }
 
 void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* text)
 {
+    if (y + agiFontHeight <= 0 || y >= Pipe()->GetHeight())
+        return;
+
     if (BuiltinFontTexture == nullptr)
         InitBuiltin();
 
@@ -136,10 +180,10 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
     f32 const inv_font_h = 1.0f / BuiltinFontTexture->GetHeight();
 
     auto tex = agiCurState.SetTexture(BuiltinFontTexture.get());
-    auto draw_mode = agiCurState.SetDrawMode(15);
-    auto depth = agiCurState.SetZEnable(0);
-    auto zwrite = agiCurState.SetZWrite(0);
-    auto alpha = agiCurState.SetAlphaEnable(1);
+    auto draw_mode = agiCurState.SetDrawMode(0xF);
+    auto depth = agiCurState.SetZEnable(false);
+    auto zwrite = agiCurState.SetZWrite(false);
+    auto alpha = agiCurState.SetAlphaEnable(false);
     auto filter = agiCurState.SetTexFilter(agiTexFilter::Point);
 
     const u16 buf_size = 64;
@@ -227,9 +271,15 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
     agiCurState.SetTexFilter(filter);
 }
 
-i32 agiPipeline::PrintIs3D()
+b32 agiPipeline::PrintIs3D()
 {
-    return 0;
+    // FIXME: If PrintIs3D is false, then Cull is technically drawing stuff outside of BeginScene.
+    // This works with the agiD3DPipeline (though probably shouldn't), but fails with the agiSWPipeline, as the framebuffer is only locked between scenes.
+
+    if (Pipe()->IsHardware())
+        return false;
+
+    return true;
 }
 
 void agiPipeline::PrintInit()

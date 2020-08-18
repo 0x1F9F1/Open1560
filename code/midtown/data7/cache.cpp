@@ -368,6 +368,15 @@ void DataCache::UnlockAndFree(i32 handle)
     cache_lock_.unlock();
 }
 
+void DataCache::Free(i32 handle)
+{
+    cache_lock_.lock();
+
+    Unload(handle);
+
+    cache_lock_.unlock();
+}
+
 void DataCache::CleanEndOfHeap()
 {
     for (; cur_objects_; --cur_objects_)
