@@ -16,34 +16,27 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(agid3d_pcpipe);
+#pragma once
 
-#include "pcpipe.h"
+#include "agi/bitmap.h"
 
-#include "agi/error.h"
-
-#include "d3drpipe.h"
-
-#ifdef ARTS_ENABLE_OPENGL
-#    include "agigl/glpipe.h"
-
-static mem::cmd_param PARAM_glpipe {"glpipe"};
-#endif
-
-Owner<agiPipeline> d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
+class agiGLBitmap final : public agiBitmap
 {
-#ifdef ARTS_ENABLE_OPENGL
-    if (PARAM_glpipe.get_or(false))
+public:
+    agiGLBitmap(agiPipeline* pipe)
+        : agiBitmap(pipe)
     {
-        Ptr<agiGLPipeline> result = MakeUnique<agiGLPipeline>();
-        result->Init();
-        return AsOwner(result);
+        is_3D_ = true;
     }
-    else
-#endif
+
+    void EndGfx() override;
+    i32 BeginGfx() override;
+
+    u32 GetHandle() const
     {
-        Ptr<agiD3DRPipeline> result = MakeUnique<agiD3DRPipeline>();
-        result->Init();
-        return AsOwner(result);
+        return texture_;
     }
-}
+
+private:
+    u32 texture_ {0};
+};

@@ -21,6 +21,7 @@ define_dummy_symbol(agi_bitmap);
 #include "bitmap.h"
 
 #include "data7/hash.h"
+#include "error.h"
 #include "pipeline.h"
 #include "surface.h"
 
@@ -53,7 +54,7 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
             (sx == 1.0f) ? Pipe()->GetWidth() : 0, (sy == 1.0f) ? Pipe()->GetHeight() : 0));
 
         if (surface_ == nullptr)
-            return -1;
+            return AGI_ERROR_FILE_NOT_FOUND;
 
         if (sx > 1.0f || sy > 1.0f)
         {

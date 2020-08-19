@@ -16,34 +16,19 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(agid3d_pcpipe);
+#include "glerror.h"
 
-#include "pcpipe.h"
+#include <glad/glad.h>
 
-#include "agi/error.h"
-
-#include "d3drpipe.h"
-
-#ifdef ARTS_ENABLE_OPENGL
-#    include "agigl/glpipe.h"
-
-static mem::cmd_param PARAM_glpipe {"glpipe"};
-#endif
-
-Owner<agiPipeline> d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
+void PrintGlErrors()
 {
-#ifdef ARTS_ENABLE_OPENGL
-    if (PARAM_glpipe.get_or(false))
+    while (true)
     {
-        Ptr<agiGLPipeline> result = MakeUnique<agiGLPipeline>();
-        result->Init();
-        return AsOwner(result);
-    }
-    else
-#endif
-    {
-        Ptr<agiD3DRPipeline> result = MakeUnique<agiD3DRPipeline>();
-        result->Init();
-        return AsOwner(result);
+        GLenum error = glGetError();
+
+        if (!error)
+            break;
+
+        Errorf("GL Error: %08X", error);
     }
 }

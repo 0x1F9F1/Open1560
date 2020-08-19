@@ -1,3 +1,5 @@
+ARTS_ENABLE_OPENGL = true
+
 include "core"
 
 include "agi"
@@ -32,6 +34,13 @@ include "mmui"
 include "pcwindis"
 include "stream"
 include "vector7"
+
+if ARTS_ENABLE_OPENGL then
+    include "agigl"
+
+    project "*"
+        defines { "ARTS_ENABLE_OPENGL" }
+end
 
 arts_component "midtown"
     files {
@@ -77,3 +86,7 @@ arts_component "midtown"
 
         -- "lua",
     }
+
+    if ARTS_USE_OPENGL then
+        links { "arts_agigl" }
+    end

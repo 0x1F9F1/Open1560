@@ -318,6 +318,7 @@ protected:
     i32 height_ {0};
     i32 bit_depth_ {0};
 
+    // 0x1 | Enable VSync ?
     // 0x2 | Use Video Ram (-vram, -system)
     // 0x4 | Single Buffer ?
     // 0x10 | Enable Z Buffer
@@ -341,7 +342,7 @@ protected:
 
     // 0x1 | 16-bit
     // 0x2 | 24-bit
-    // 0x3 | 32-bit
+    // 0x4 | 32-bit
     i32 valid_bit_depths_ {0};
     agiSurfaceDesc screen_format_ {};
     u8 gap1C4[0xF8] {};

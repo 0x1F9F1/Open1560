@@ -5,6 +5,7 @@ HEDLEY_DIR = path.join(VENDOR_DIR, "hedley")
 LUA_DIR = path.join(VENDOR_DIR, "lua-5.3.5")
 SOL_DIR = path.join(VENDOR_DIR, "sol-3.0.3")
 FREETYPE_DIR = path.join(VENDOR_DIR, "freetype-2.10.2")
+GLAD_DIR = path.join(VENDOR_DIR, "glad")
 
 function includeMem()
     includedirs { MEM_DIR }
@@ -17,6 +18,10 @@ end
 function includeFreetype()
     includedirs { path.join(FREETYPE_DIR, "include") }
     libdirs { path.join(FREETYPE_DIR, "bin") }
+end
+
+function includeGlad()
+    includedirs { path.join(GLAD_DIR, "include") }
 end
 
 -- function includeLua()
@@ -44,3 +49,16 @@ end
 --         path.join(LUA_DIR, "lua.c"),
 --         path.join(LUA_DIR, "luac.c"),
 --     }
+
+project "glad"
+    kind "StaticLib"
+    language "C"
+    warnings "Off"
+
+    files
+    {
+        path.join(GLAD_DIR, "**.h"),
+        path.join(GLAD_DIR, "**.c")
+    }
+
+    includeGlad()

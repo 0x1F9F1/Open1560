@@ -16,34 +16,20 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(agid3d_pcpipe);
+#pragma once
 
-#include "pcpipe.h"
+#include "agi/viewport.h"
 
-#include "agi/error.h"
-
-#include "d3drpipe.h"
-
-#ifdef ARTS_ENABLE_OPENGL
-#    include "agigl/glpipe.h"
-
-static mem::cmd_param PARAM_glpipe {"glpipe"};
-#endif
-
-Owner<agiPipeline> d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
+class agiGLViewport final : public agiViewport
 {
-#ifdef ARTS_ENABLE_OPENGL
-    if (PARAM_glpipe.get_or(false))
-    {
-        Ptr<agiGLPipeline> result = MakeUnique<agiGLPipeline>();
-        result->Init();
-        return AsOwner(result);
-    }
-    else
-#endif
-    {
-        Ptr<agiD3DRPipeline> result = MakeUnique<agiD3DRPipeline>();
-        result->Init();
-        return AsOwner(result);
-    }
-}
+public:
+    agiGLViewport(class agiPipeline* pipe)
+        : agiViewport(pipe)
+    {}
+
+    void EndGfx() override;
+    i32 BeginGfx() override;
+    void Activate() override;
+    void SetBackground(Vector3& arg1) override;
+    void Clear(i32 arg1) override;
+};
