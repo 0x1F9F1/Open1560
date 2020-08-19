@@ -71,7 +71,7 @@ static void PrintMemoryUsage()
 
     Statsf("Nodes, Used (KB), Waste (KB) | Source");
 
-    for (usize i = 0; i < std::min<usize>(num_sources, 32); ++i)
+    for (usize i = 0; i < std::min<usize>(num_sources, 64); ++i)
     {
         asMemSource source = sources[i];
 
