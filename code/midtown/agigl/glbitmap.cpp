@@ -84,10 +84,7 @@ i32 agiGLBitmap::BeginGfx()
             u32* pixels = reinterpret_cast<u32*>(static_cast<u8*>(gl_surface->Surface) + (y * gl_surface->Pitch));
 
             for (u32 x = 0; x < gl_surface->Width; ++x)
-            {
-                if (pixels[x])
-                    pixels[x] |= 0xFF000000;
-            }
+                pixels[x] |= pixels[x] ? 0xFF000000 : 0;
         }
 
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, gl_surface->Width, gl_surface->Height, 0, GL_BGRA, GL_UNSIGNED_BYTE,
@@ -135,6 +132,8 @@ i32 agiGLBitmap::BeginGfx()
 
     if (name_[0] != '*' || (flags_ & AGI_BITMAP_UNLOAD_ALWAYS))
         surface_->Unload();
+
+    state_ = 1;
 
     UpdateFlags();
 

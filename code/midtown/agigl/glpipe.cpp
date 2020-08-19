@@ -24,6 +24,7 @@
 #include "agirend/rdlp.h"
 #include "agirend/zbrender.h"
 #include "data7/utimer.h"
+#include "eventq7/winevent.h"
 
 #include "glbitmap.h"
 #include "glerror.h"
@@ -204,6 +205,8 @@ void agiGLPipeline::EndGfx()
 
 void agiGLPipeline::BeginFrame()
 {
+    ARTS_TIMED(agiBeginFrame);
+
     agiPipeline::BeginFrame();
     wglMakeCurrent(window_dc_, gl_context_);
 
@@ -214,12 +217,16 @@ void agiGLPipeline::BeginFrame()
 
 void agiGLPipeline::BeginScene()
 {
+    ARTS_TIMED(agiBeginScene);
+
     agiPipeline::BeginScene();
     in_scene_ = true;
 }
 
 void agiGLPipeline::EndScene()
 {
+    ARTS_TIMED(agiEndScene);
+
     rasterizer_->EndGroup();
     in_scene_ = false;
     agiPipeline::EndScene();
@@ -261,14 +268,13 @@ RcOwner<class agiBitmap> agiGLPipeline::CreateBitmap()
 
 void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height)
 {
-    if (src == nullptr)
+    if (!(ActiveFlag & 0x1))
         return;
 
-    if (!width)
-        width = src->GetWidth();
+    ++agiBitmapCount;
+    agiBitmapPixels += width * height;
 
-    if (!height)
-        height = src->GetHeight();
+    ARTS_TIMED(agiCopyBitmap);
 
     glBindTexture(GL_TEXTURE_2D, static_cast<agiGLBitmap*>(src)->GetHandle());
 
@@ -317,7 +323,6 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 
     glEnd();
     glDisable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, 0);
 
     glEnable(GL_BLEND);
     glEnable(GL_DEPTH_TEST);

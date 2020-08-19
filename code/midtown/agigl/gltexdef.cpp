@@ -70,10 +70,7 @@ i32 agiGLTexDef::BeginGfx()
                     reinterpret_cast<u32*>(static_cast<u8*>(temp_surface->Surface) + (y * temp_surface->Pitch));
 
                 for (u32 x = 0; x < temp_surface->Width; ++x)
-                {
-                    if (pixels[x])
-                        pixels[x] |= 0xFF000000;
-                }
+                    pixels[x] |= pixels[x] ? 0xFF000000 : 0;
             }
 
             Tex.Flags &= ~agiTexParameters::Chromakey;

@@ -110,7 +110,7 @@ protected:
     f32 width_scale_ {0.0f};
     f32 height_scale_ {0.0f};
 
-    b32 is_3D_ {0};  // Always 0
+    b32 is_3D_ {0};
     u32 dword38 {1}; // Always 1 ?
 };
 

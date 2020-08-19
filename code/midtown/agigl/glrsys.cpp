@@ -24,6 +24,7 @@
 #include "data7/utimer.h"
 #include "glerror.h"
 #include "gltexdef.h"
+#include "eventq7/winevent.h"
 
 #include <glad/glad.h>
 
@@ -143,6 +144,9 @@ i32 GetBlendFuncS()
 
 void agiGLRasterizer::FlushState()
 {
+    if (!(ActiveFlag & 0x1))
+        return;
+
     PrintGlErrors();
 
     if (VtxIndexCount)
