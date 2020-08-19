@@ -87,6 +87,6 @@ arts_component "midtown"
         -- "lua",
     }
 
-    if ARTS_USE_OPENGL then
+    if ARTS_ENABLE_OPENGL then
         links { "arts_agigl" }
     end
