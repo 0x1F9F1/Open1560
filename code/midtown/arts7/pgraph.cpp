@@ -232,8 +232,8 @@ void asPerfGraph::Cull()
         agiPrintf(0, text_y, 0xFFFFFFFF, "   %5.2f Max", max_height);
         text_y += agiFontHeight;
 
-        auto_scale_ =
-            (auto_scale_ * 0.99f) + ((std::min<f32>(240.0f, pipe_width * 0.25f) / std::round(avg_height)) * 0.01f);
+        auto_scale_ = (auto_scale_ * 0.99f) +
+            ((std::min<f32>(240.0f, pipe_width * 0.25f) / (avg_height > 1.0f ? std::round(avg_height) : 1.0f)) * 0.01f);
     }
 }
 
