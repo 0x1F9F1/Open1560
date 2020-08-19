@@ -76,7 +76,7 @@ void asPerfGraph::Cull()
     auto draw_mode = agiCurState.SetDrawMode(0xF);
     auto depth = agiCurState.SetZEnable(false);
     auto zwrite = agiCurState.SetZWrite(false);
-    auto alpha = agiCurState.SetAlphaEnable(false);
+    auto alpha = agiCurState.SetAlphaEnable(true);
     auto filter = agiCurState.SetTexFilter(agiTexFilter::Point);
     auto fog_mode = agiCurState.SetFogMode(agiFogMode::None);
     auto fog_color = agiCurState.SetFogColor(0x00000000);

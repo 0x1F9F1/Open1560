@@ -33,7 +33,7 @@ struct LocString
 };
 
 // 0x5200D0 | ?AngelReadString@@YAPAULocString@@I@Z
-ARTS_IMPORT struct LocString* AngelReadString(u32 arg1);
+ARTS_EXPORT struct LocString* AngelReadString(u32 index);
 
 // 0x520010 | ?GetLocTime@@YAPADM@Z
 ARTS_IMPORT char* GetLocTime(f32 arg1);
