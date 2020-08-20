@@ -123,13 +123,6 @@ void dxiSetDisplayMode()
 
     if (dxiIsFullScreen())
     {
-        MONITORINFO info {sizeof(MONITORINFO)};
-        GetMonitorInfo(MonitorFromWindow(hwndMain, MONITOR_DEFAULTTONEAREST), &info);
-        i32 horz_res = info.rcMonitor.right - info.rcMonitor.left;
-        i32 vert_res = info.rcMonitor.bottom - info.rcMonitor.top;
-
-        SetWindowPos(hwndMain, HWND_TOP, 0, 0, horz_res, vert_res, SWP_NOMOVE | SWP_NOZORDER);
-
         Displayf("dxiSetDisplayMode(%d,%d,%d)", dxiWidth, dxiHeight, dxiDepth);
 
         u32 err = lpDD4->SetDisplayMode(dxiWidth, dxiHeight, dxiDepth, 0, 0);
@@ -139,6 +132,12 @@ void dxiSetDisplayMode()
             Quitf(
                 "dxiDirectDrawCreate: SetDisplayMode(%d,%d,%d) failed: code %08X.", dxiWidth, dxiHeight, dxiDepth, err);
         }
+
+        MONITORINFO info {sizeof(MONITORINFO)};
+        GetMonitorInfo(MonitorFromWindow(hwndMain, MONITOR_DEFAULTTONEAREST), &info);
+
+        SetWindowPos(hwndMain, HWND_TOP, info.rcMonitor.left, info.rcMonitor.top,
+            info.rcMonitor.right - info.rcMonitor.left, info.rcMonitor.bottom - info.rcMonitor.top, SWP_NOZORDER);
     }
     else
     {
