@@ -51,7 +51,7 @@ i32 agiGLTexDef::BeginGfx()
 
     bool color_key = (Tex.Flags & agiTexParameters::Chromakey) || (Surface->Flags & AGISD_CKSRCBLT);
     bool alpha_glow = (Tex.Props & agiTexProp::AlphaGlow);
-    bool mip_maps = !(Tex.Flags & agiTexParameters::NoMipMaps);
+    bool mip_maps = !(Tex.Flags & agiTexParameters::NoMipMaps) && (surface->Flags & AGISD_MIPMAPCOUNT);
 
     if (color_key || alpha_glow)
     {
@@ -115,7 +115,7 @@ i32 agiGLTexDef::BeginGfx()
     i32 pitch = surface->Pitch;
     u8* data = static_cast<u8*>(surface->Surface);
 
-    i32 mip_count = std::max<i32>(1, (mip_maps && (surface->Flags & AGISD_MIPMAPCOUNT)) ? surface->MipMapCount : 1);
+    i32 mip_count = std::max<i32>(1, mip_maps ? surface->MipMapCount : 1);
 
     for (i32 i = 0; i < mip_count; ++i)
     {
@@ -126,6 +126,15 @@ i32 agiGLTexDef::BeginGfx()
         width >>= 1;
         height >>= 1;
         pitch >>= 1;
+    }
+
+    if (mip_maps)
+    {
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        Tex.Flags |= agiTexParameters::NoMipMaps;
     }
 
     if (surface != Surface.get())
@@ -141,7 +150,8 @@ i32 agiGLTexDef::BeginGfx()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-    // glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, 16.0f);
+    if (mip_maps)
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, 16.0f);
 
     glBindTexture(GL_TEXTURE_2D, 0);
 

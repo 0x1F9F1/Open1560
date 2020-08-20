@@ -25,10 +25,11 @@
 
 void agiGLBitmap::EndGfx()
 {
-    if (texture_)
+    if (tex_def_)
     {
-        glDeleteTextures(1, &texture_);
-        texture_ = 0;
+        tex_def_->Surface->Surface = nullptr;
+        tex_def_->EndGfx();
+        tex_def_ = nullptr;
     }
 
     state_ = 0;
@@ -65,79 +66,33 @@ i32 agiGLBitmap::BeginGfx()
     if (surface_->Surface == nullptr)
         return AGI_ERROR_OBJECT_EMPTY;
 
-    glGenTextures(1, &texture_);
-    glBindTexture(GL_TEXTURE_2D, texture_);
+    tex_def_ = AsRc(Pipe()->CreateTexDef());
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    Ptr<agiSurfaceDesc> surface = MakeUnique<agiSurfaceDesc>(*surface_);
+
+    agiTexParameters params {};
+    arts_strcpy(params.Name, "*");
+    arts_strcat(params.Name, name_.get());
+    params.Flags |= agiTexParameters::NoMipMaps | agiTexParameters::KeepLoaded;
 
     if (IsTransparent())
     {
-        Ptr<agiSurfaceDesc> gl_surface = AsPtr(agiSurfaceDesc::Init(width_, height_, Pipe()->GetScreenFormat()));
-
-        gl_surface->CopyFrom(surface_.get(), 0);
-
-        ArAssert(gl_surface->PixelFormat.RGBAlphaBitMask == 0xFF000000, "Invalid Surface");
-
-        for (u32 y = 0; y < gl_surface->Height; ++y)
-        {
-            u32* pixels = reinterpret_cast<u32*>(static_cast<u8*>(gl_surface->Surface) + (y * gl_surface->Pitch));
-
-            for (u32 x = 0; x < gl_surface->Width; ++x)
-                pixels[x] |= pixels[x] ? 0xFF000000 : 0;
-        }
-
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, gl_surface->Width, gl_surface->Height, 0, GL_BGRA, GL_UNSIGNED_BYTE,
-            gl_surface->Surface);
-
-        gl_surface->Unload();
+        surface->Flags |= AGISD_CKSRCBLT;
+        params.Flags |= agiTexParameters::Chromakey;
     }
-    else
-    {
-        GLenum format = 0;
-        GLenum type = 0;
-        GLenum internal = 0;
 
-        switch (surface_->PixelFormat.RBitMask)
-        {
-            case 0xF800: // 565
-                format = GL_RGB;
-                type = GL_UNSIGNED_SHORT_5_6_5;
-                internal = GL_RGB;
-                break;
-
-            case 0xF00: // 4444
-                format = GL_BGRA;
-                type = GL_UNSIGNED_SHORT_4_4_4_4_REV;
-                internal = GL_RGBA;
-                break;
-
-            case 0xFF:
-                format = surface_->PixelFormat.RGBAlphaBitMask ? GL_RGBA : GL_RGB;
-                type = GL_UNSIGNED_BYTE;
-                internal = surface_->PixelFormat.RGBAlphaBitMask ? GL_RGBA : GL_RGB;
-                break;
-
-            case 0xFF0000:
-                format = surface_->PixelFormat.RGBAlphaBitMask ? GL_BGRA : GL_BGR;
-                type = GL_UNSIGNED_BYTE;
-                internal = surface_->PixelFormat.RGBAlphaBitMask ? GL_RGBA : GL_RGB;
-                break;
-
-            default: Quitf("Invalid Format");
-        }
-
-        glTexImage2D(GL_TEXTURE_2D, 0, internal, surface_->Width, surface_->Height, 0, format, type, surface_->Surface);
-    }
+    tex_def_->Init(params, std::move(surface));
 
     if (name_[0] != '*' || (flags_ & AGI_BITMAP_UNLOAD_ALWAYS))
+    {
+        tex_def_->Surface->Surface = nullptr;
+
         surface_->Unload();
+    }
 
     state_ = 1;
 
     UpdateFlags();
-
-    glBindTexture(GL_TEXTURE_2D, 0);
 
     return AGI_ERROR_SUCCESS;
 }

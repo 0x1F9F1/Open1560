@@ -37,10 +37,6 @@
 
 #include <glad/glad.h>
 
-static mem::cmd_param PARAM_width {"width"};
-static mem::cmd_param PARAM_height {"height"};
-static mem::cmd_param PARAM_depth {"depth"};
-
 const char* PixelFormatFlagsToString(DWORD flags)
 {
     // FIXME: Static buffer
@@ -137,7 +133,9 @@ i32 agiGLPipeline::BeginGfx()
     wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) wglGetProcAddress("wglSwapIntervalEXT");
 
     if (wglSwapIntervalEXT)
-        wglSwapIntervalEXT(0);
+    {
+        wglSwapIntervalEXT((device_flags_1_ & 0x1) ? 1 : 0);
+    }
 
     // FIXME: Check pixel format masks
 
@@ -276,99 +274,143 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 
     ARTS_TIMED(agiCopyBitmap);
 
-    glBindTexture(GL_TEXTURE_2D, static_cast<agiGLBitmap*>(src)->GetHandle());
+    RAST->BeginGroup();
 
-    glColor3f(1.0, 1.0, 1.0);
-    glDisable(GL_CULL_FACE);
-    glDisable(GL_ALPHA_TEST);
-    glDisable(GL_DEPTH_TEST);
-    glDisable(GL_BLEND);
-    glDepthMask(false);
+    agiTexDef* texture = static_cast<agiGLBitmap*>(src)->GetHandle();
 
-    if (src->IsTransparent())
-    {
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    }
-    else
-    {
-        glDisable(GL_BLEND);
-    }
+    auto old_tex = agiCurState.SetTexture(texture);
+    auto old_draw_mode = agiCurState.SetDrawMode(0xF);
+    auto old_depth = agiCurState.SetZEnable(false);
+    auto old_zwrite = agiCurState.SetZWrite(false);
+    auto old_alpha = agiCurState.SetAlphaEnable(false);
+    auto old_filter = agiCurState.SetTexFilter(agiTexFilter::Point);
+    auto old_fog_mode = agiCurState.SetFogMode(agiFogMode::None);
+    auto old_fog_color = agiCurState.SetFogColor(0x00000000);
 
-    glEnable(GL_TEXTURE_2D);
-    glBegin(GL_QUADS);
+    agiScreenVtx blank;
+    blank.x = 0.0f;
+    blank.y = 0.0f;
+    blank.z = 0.0f;
+    blank.w = 1.0f;
+    blank.specular = 0xFFFFFFFF;
+    blank.diffuse = 0xFFFFFFFF;
+    blank.tu = 0.0f;
+    blank.tv = 0.0f;
 
-    dst_y = height_ - dst_y;
+    agiScreenVtx verts[4];
 
-    // Texture Coords
-    // 0,0 --- 1,1
-    //  |       |
-    //  |       |
-    // 0,1 --- 1,1
+    verts[0] = blank;
+    verts[1] = blank;
+    verts[2] = blank;
+    verts[3] = blank;
 
-    f32 fWidth = static_cast<f32>(src->GetWidth());
-    f32 fHeight = static_cast<f32>(src->GetHeight());
+    f32 const inv_tex_w = 1.0f / src->GetWidth();
+    f32 const inv_tex_h = 1.0f / src->GetHeight();
 
-    glTexCoord2f(src_x / fWidth, src_y / fHeight);
-    glVertex2i(dst_x, dst_y);
+    verts[3].x = verts[0].x = static_cast<f32>(dst_x);
+    verts[1].y = verts[0].y = static_cast<f32>(dst_y);
+    verts[3].tu = verts[0].tu = src_x * inv_tex_w;
+    verts[1].tv = verts[0].tv = src_y * inv_tex_h;
 
-    glTexCoord2f(src_x / fWidth, (src_y + height) / fHeight);
-    glVertex2i(dst_x, dst_y - height);
+    verts[1].x = verts[2].x = static_cast<f32>(dst_x + width);
+    verts[3].y = verts[2].y = static_cast<f32>(dst_y + height);
+    verts[1].tu = verts[2].tu = (src_x + width) * inv_tex_w;
+    verts[3].tv = verts[2].tv = (src_y + height) * inv_tex_h;
 
-    glTexCoord2f((src_x + width) / fWidth, (src_y + height) / fHeight);
-    glVertex2i(dst_x + width, dst_y - height);
+    u16 indices[6];
 
-    glTexCoord2f((src_x + width) / fWidth, src_y / fHeight);
-    glVertex2i(dst_x + width, dst_y);
+    indices[0] = 0;
+    indices[1] = 1;
+    indices[2] = 2;
+    indices[3] = 0;
+    indices[4] = 2;
+    indices[5] = 3;
 
-    glEnd();
-    glDisable(GL_TEXTURE_2D);
+    RAST->Mesh(agiVtxType::Screen, (agiVtx*) verts, 4, indices, 6);
 
-    glEnable(GL_BLEND);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_ALPHA_TEST);
-    glEnable(GL_CULL_FACE);
-    glDepthMask(true);
+    RAST->EndGroup();
 
-    glBindTexture(GL_TEXTURE_2D, 0);
+    agiCurState.SetTexture(old_tex);
+    agiCurState.SetDrawMode(old_draw_mode);
+    agiCurState.SetZEnable(old_depth);
+    agiCurState.SetZWrite(old_zwrite);
+    agiCurState.SetAlphaEnable(old_alpha);
+    agiCurState.SetTexFilter(old_filter);
+    agiCurState.SetFogMode(old_fog_mode);
+    agiCurState.SetFogColor(old_fog_color);
 
     PrintGlErrors();
 }
 
 void agiGLPipeline::ClearAll([[maybe_unused]] i32 color)
 {
-    // TODO: Handle glClearColor
+    glClearColor((color & 0xFF) / 255.0f, ((color >> 8) & 0xFF) / 255.0f, ((color >> 16) & 0xFF) / 255.0f, 1.0f);
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
 {
-    y = height_ - y;
+    RAST->BeginGroup();
 
-    glDisable(GL_CULL_FACE);
-    glDisable(GL_ALPHA_TEST);
-    glDisable(GL_DEPTH_TEST);
-    glDisable(GL_BLEND);
-    glDepthMask(false);
+    auto tex = agiCurState.SetTexture(nullptr);
+    auto draw_mode = agiCurState.SetDrawMode(0xF);
+    auto depth = agiCurState.SetZEnable(false);
+    auto zwrite = agiCurState.SetZWrite(false);
+    auto alpha = agiCurState.SetAlphaEnable(false);
+    auto filter = agiCurState.SetTexFilter(agiTexFilter::Point);
+    auto fog_mode = agiCurState.SetFogMode(agiFogMode::None);
+    auto fog_color = agiCurState.SetFogColor(0x00000000);
 
-    glBegin(GL_QUADS);
-    glColor3ub(color & 0xFF, (color >> 8) & 0xFF, (color >> 16) & 0xFF);
+    agiScreenVtx blank;
+    blank.x = 0.0f;
+    blank.y = 0.0f;
+    blank.z = 0.0f;
+    blank.w = 1.0f;
+    blank.specular = color;
+    blank.diffuse = 0xFFFFFFFF;
+    blank.tu = 0.0f;
+    blank.tv = 0.0f;
 
-    glVertex2i(x, y);
-    glVertex2i(x, y - height);
+    agiScreenVtx verts[4];
 
-    glVertex2i(x + width, y - height);
-    glVertex2i(x + width, y);
+    verts[0] = blank;
+    verts[1] = blank;
+    verts[2] = blank;
+    verts[3] = blank;
 
-    glEnd();
+    verts[3].x = verts[0].x = static_cast<f32>(x);
+    verts[1].y = verts[0].y = static_cast<f32>(y);
 
-    glEnable(GL_BLEND);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_ALPHA_TEST);
-    glEnable(GL_CULL_FACE);
-    glDepthMask(true);
+    verts[1].x = verts[2].x = static_cast<f32>(x + width);
+    verts[3].y = verts[2].y = static_cast<f32>(y + height);
+
+    u16 indices[6];
+    indices[0] = 0;
+    indices[1] = 1;
+    indices[2] = 2;
+    indices[3] = 0;
+    indices[4] = 2;
+    indices[5] = 3;
+
+    RAST->Mesh(agiVtxType::Screen, (agiVtx*) verts, 4, indices, 6);
+
+    RAST->EndGroup();
+
+    agiCurState.SetTexture(tex);
+    agiCurState.SetDrawMode(draw_mode);
+    agiCurState.SetZEnable(depth);
+    agiCurState.SetZWrite(zwrite);
+    agiCurState.SetAlphaEnable(alpha);
+    agiCurState.SetTexFilter(filter);
+    agiCurState.SetFogMode(fog_mode);
+    agiCurState.SetFogColor(fog_color);
 }
+
+static mem::cmd_param PARAM_width {"width"};
+static mem::cmd_param PARAM_height {"height"};
+static mem::cmd_param PARAM_depth {"depth"};
+static mem::cmd_param PARAM_vsync {"vsync"};
 
 void agiGLPipeline::Init()
 {
@@ -376,11 +418,11 @@ void agiGLPipeline::Init()
     height_ = PARAM_height.get_or<i32>(480);
     bit_depth_ = PARAM_depth.get_or<i32>(32);
 
-    device_flags_1_ = 0x1032; // hal, zbuffer, vram
-    device_flags_3_ = 0x0;
+    device_flags_1_ = 0x1032; // hal, zbuffer, vram, vsync
+
+    if (PARAM_vsync.get_or(true))
+        device_flags_1_ |= 0x1;
 
     device_flags_2_ = device_flags_1_;
-
-    if (device_flags_3_ == 0x0)
-        device_flags_3_ = device_flags_1_;
+    device_flags_3_ = device_flags_1_;
 }

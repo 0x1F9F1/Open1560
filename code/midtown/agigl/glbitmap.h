@@ -19,6 +19,9 @@
 #pragma once
 
 #include "agi/bitmap.h"
+#include "agi/texdef.h"
+
+class agiTexDef;
 
 class agiGLBitmap final : public agiBitmap
 {
@@ -32,11 +35,11 @@ public:
     void EndGfx() override;
     i32 BeginGfx() override;
 
-    u32 GetHandle() const
+    agiTexDef* GetHandle() const
     {
-        return texture_;
+        return tex_def_.get();
     }
 
 private:
-    u32 texture_ {0};
+    Rc<agiTexDef> tex_def_ {nullptr};
 };
