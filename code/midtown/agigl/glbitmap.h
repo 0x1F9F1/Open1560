@@ -29,7 +29,7 @@ public:
     agiGLBitmap(agiPipeline* pipe)
         : agiBitmap(pipe)
     {
-        is_3D_ = true;
+        // is_3D_ = true;
     }
 
     void EndGfx() override;
