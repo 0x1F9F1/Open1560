@@ -54,7 +54,5 @@ private:
     u32 white_texture_ {0};
 
     u32 uniform_alpha_ref_ {0};
-
-    u32 uniform_fog_color_ {0};
-    u32 uniform_fog_enable_ {0};
+    u32 uniform_fog_ {0};
 };

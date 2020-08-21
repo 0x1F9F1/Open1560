@@ -101,8 +101,8 @@ i32 agiGLRasterizer::BeginGfx()
     glBindBuffer(GL_ARRAY_BUFFER, vbo_);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_);
 
-    glBufferData(GL_ARRAY_BUFFER, 0xFFFF * 0x20, nullptr, GL_DYNAMIC_DRAW);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0xFFFF * 0x2, nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 0xFFFF * sizeof(agiScreenVtx), nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0xFFFF * sizeof(u16), nullptr, GL_DYNAMIC_DRAW);
 
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(agiScreenVtx),
         reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x0))); // xyzw
@@ -154,9 +154,7 @@ out vec4 out_Color;
 
 uniform sampler2D u_Texture;
 uniform float u_AlphaRef;
-
-uniform vec3 u_FogColor;
-uniform bool u_FogEnable;
+uniform vec4 u_Fog;
 
 void main()
 {
@@ -165,8 +163,7 @@ void main()
     if (out_Color.a <= u_AlphaRef)
         discard;
 
-    if (u_FogEnable)
-        out_Color.xyz = mix(u_FogColor, out_Color.xyz, frag_Specular.w);
+    out_Color.xyz = mix(out_Color.xyz, u_Fog.xyz, (1.0 - frag_Specular.w) * u_Fog.w);
 }
 )");
 
@@ -197,11 +194,8 @@ void main()
     uniform_alpha_ref_ = glGetUniformLocation(shader_, "u_AlphaRef");
     glUniform1f(uniform_alpha_ref_, 0.0f);
 
-    uniform_fog_color_ = glGetUniformLocation(shader_, "u_FogColor");
-    glUniform3f(uniform_fog_color_, 1.0f, 1.0f, 1.0f);
-
-    uniform_fog_enable_ = glGetUniformLocation(shader_, "u_FogEnable");
-    glUniform1i(uniform_fog_enable_, 0);
+    uniform_fog_ = glGetUniformLocation(shader_, "u_Fog");
+    glUniform4f(uniform_fog_, 1.0f, 1.0f, 1.0f, 0.0f);
 
     f32 left = 0.0f;
     f32 right = static_cast<f32>(Pipe()->GetWidth());
@@ -312,14 +306,16 @@ void agiGLRasterizer::Line(i32 i0, i32 i1)
     VtxIndexCount += 2;
 }
 
-void agiGLRasterizer::Card(i32 v0, i32 v1)
+void agiGLRasterizer::Card(i32, i32)
 {
-    unimplemented(v0, v1);
+    ++STATS.Cards;
 }
 
 void agiGLRasterizer::Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count)
 {
     ArAssert(type == agiVtxType::Screen, "Invalid Vertex Type");
+
+    STATS.Tris += static_cast<i32>(index_count / 3.0f);
 
     agiGLRasterizer::FlushState();
 
@@ -358,6 +354,7 @@ void agiGLRasterizer::FlushState()
         return;
 
     ARTS_TIMED(agiStateChanges);
+    ++STATS.StateChanges;
 
     bool texture_changed = false;
 
@@ -369,6 +366,11 @@ void agiGLRasterizer::FlushState()
         glBindTexture(GL_TEXTURE_2D, texture ? texture->GetHandle() : white_texture_);
 
         agiLastState.Texture = texture;
+
+        ++STATS.TextureChanges;
+
+        if (texture)
+            STATS.TxlsXrfd += texture->SurfaceSize;
 
         texture_changed = true;
     }
@@ -561,18 +563,15 @@ void agiGLRasterizer::FlushState()
 
     // TODO: Support pixel fog?
 
-    if (agiFogMode fog_mode = agiCurState.GetFogMode(); fog_mode != agiLastState.FogMode)
+    agiFogMode fog_mode = agiCurState.GetFogMode();
+    u32 fog_color = agiCurState.GetFogColor();
+
+    if (fog_mode != agiLastState.FogMode || fog_color != agiLastState.FogColor)
     {
-        glUniform1i(uniform_fog_enable_, fog_mode == agiFogMode::Vertex);
+        glUniform4f(uniform_fog_, ((fog_color >> 16) & 0xFF) / 255.0f, ((fog_color >> 8) & 0xFF) / 255.0f,
+            (fog_color & 0xFF) / 255.0f, (fog_mode == agiFogMode::Vertex) ? 1.0f : 0.0f);
 
         agiLastState.FogMode = fog_mode;
-    }
-
-    if (u32 fog_color = agiCurState.GetFogColor(); fog_color != agiLastState.FogColor)
-    {
-        glUniform3f(uniform_fog_color_, ((fog_color >> 16) & 0xFF) / 255.0f, ((fog_color >> 8) & 0xFF) / 255.0f,
-            (fog_color & 0xFF) / 255.0f);
-
         agiLastState.FogColor = fog_color;
     }
 
@@ -593,6 +592,8 @@ void agiGLRasterizer::SetVertices(agiVtx* vertices, i32 vertex_count)
 void agiGLRasterizer::Draw(u16* indices, i32 index_count)
 {
     ARTS_TIMED(agiRasterization);
+
+    ++STATS.GeomCalls;
 
     glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, index_count * sizeof(u16), indices);
 
