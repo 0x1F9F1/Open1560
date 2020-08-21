@@ -490,28 +490,25 @@ void agiGLRasterizer::FlushState()
     }
 
     bool alpha_mode = agiCurState.GetAlphaEnable();
+    u8 alpha_ref = agiCurState.GetAlphaRef();
 
     if (texture)
         alpha_mode |= (texture->Tex.Flags & agiTexParameters::Alpha);
 
-    if (alpha_mode != agiLastState.AlphaEnable)
+    if (alpha_mode != agiLastState.AlphaEnable || alpha_ref != agiLastState.AlphaRef)
     {
         if (alpha_mode)
         {
+            glUniform1f(uniform_alpha_ref_, alpha_ref / 255.0f);
             glEnable(GL_BLEND);
         }
         else
         {
+            glUniform1f(uniform_alpha_ref_, -1.0f);
             glDisable(GL_BLEND);
         }
 
         agiLastState.AlphaEnable = alpha_mode;
-    }
-
-    if (u8 alpha_ref = agiCurState.GetAlphaRef(); alpha_mode != agiLastState.AlphaEnable)
-    {
-        glUniform1f(uniform_alpha_ref_, alpha_mode ? (alpha_ref / 255.0f) : -1.0f);
-
         agiLastState.AlphaRef = alpha_ref;
     }
 
