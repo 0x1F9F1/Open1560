@@ -26,6 +26,8 @@ define_dummy_symbol(pcwindis_dxinit);
 #include "pcwindis.h"
 #include "setupdata.h"
 
+// #define ARTS_DISABLE_DDRAW
+
 template <typename T>
 inline void SafeRelease(T*& ptr)
 {
@@ -52,6 +54,7 @@ static GUID* dxiCurrentInterfaceGUID = nullptr;
 
 void dxiDirectDrawCreate()
 {
+#ifndef ARTS_DISABLE_DDRAW
     HMODULE ddraw = GetModuleHandleA("DDRAW.DLL");
 
     if (ddraw == nullptr)
@@ -79,6 +82,7 @@ void dxiDirectDrawCreate()
     {
         Quitf("dxiDirectDrawCreate: SetCooperativeLevel failed.");
     }
+#endif
 }
 
 void dxiDirectDrawSurfaceDestroy()
@@ -103,15 +107,18 @@ void dxiDirectInputCreate()
 
 static inline void dxiRestoreDisplayMode()
 {
+#ifndef ARTS_DISABLE_DDRAW
     if (dxiIsFullScreen() && lpDD4)
     {
         lpDD4->RestoreDisplayMode();
         lpDD4->SetCooperativeLevel(hwndMain, DDSCL_NORMAL);
     }
+#endif
 }
 
 void dxiSetDisplayMode()
 {
+#ifndef ARTS_DISABLE_DDRAW
     dxiDirectDrawSurfaceDestroy();
 
     if (dxiCurrentInterfaceGUID != dxiGetInterfaceGUID())
@@ -145,16 +152,20 @@ void dxiSetDisplayMode()
     }
 
     dxiDirectDrawSurfaceCreate();
+#endif
 }
 
 void dxiShutdown()
 {
     SafeRelease(lpDI);
 
+#ifndef ARTS_DISABLE_DDRAW
+
     dxiDirectDrawSurfaceDestroy();
     dxiRestoreDisplayMode();
 
     SafeRelease(lpDD4);
+#endif
 
     if (hwndMain)
     {

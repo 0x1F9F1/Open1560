@@ -29,6 +29,7 @@
 #include "agirend/zbrender.h"
 #include "data7/utimer.h"
 #include "eventq7/winevent.h"
+#include "pcwindis/dxinit.h"
 
 #include "glbitmap.h"
 #include "glerror.h"
@@ -123,13 +124,30 @@ i32 agiGLPipeline::BeginGfx()
     valid_bit_depths_ = 0x4;
     flags_ = 0x1 | 0x4 | 0x10;
 
-    // TODO: Use GetDesktopWindow() ?
-    HDC hdc = GetDC(nullptr);
-    horz_res_ = GetDeviceCaps(hdc, HORZRES);
-    vert_res_ = GetDeviceCaps(hdc, VERTRES);
-    ReleaseDC(nullptr, hdc);
+    MONITORINFO info {sizeof(MONITORINFO)};
+    GetMonitorInfo(MonitorFromWindow(static_cast<HWND>(window_), MONITOR_DEFAULTTONEAREST), &info);
+
+    i32 horz_res = info.rcMonitor.right - info.rcMonitor.left;
+    i32 vert_res = info.rcMonitor.bottom - info.rcMonitor.top;
+
+    if (dxiIsFullScreen())
+    {
+        horz_res_ = horz_res;
+        vert_res_ = vert_res;
+    }
+    else
+    {
+        horz_res_ = width_;
+        vert_res_ = height_;
+    }
+
+    SetWindowPos(static_cast<HWND>(window_), HWND_TOP, info.rcMonitor.left + (horz_res - horz_res_) / 2,
+        info.rcMonitor.top + (vert_res - vert_res_) / 2, horz_res_, vert_res_, SWP_NOZORDER);
 
     window_dc_ = GetDC(static_cast<HWND>(window_));
+
+    dxiWidth = horz_res;
+    dxiHeight = horz_res;
 
     PIXELFORMATDESCRIPTOR pfd {sizeof(pfd)};
 
