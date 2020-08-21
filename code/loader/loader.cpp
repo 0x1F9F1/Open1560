@@ -27,6 +27,7 @@
 // #include "midtown.h"
 
 #include "loader.h"
+#include "symbols.h"
 
 #include <charconv>
 
@@ -63,47 +64,116 @@ extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
             else
             {
                 MessageBoxA(NULL, "Fatal Error", "Failed to find DirectInputCreateA", MB_OK);
-                exit(1);
+
+                std::exit(1);
             }
         }
         else
         {
             MessageBoxA(NULL, "Fatal Error", "Failed to load dinput.dll", MB_OK);
-            exit(1);
+
+            std::exit(1);
         }
     }
 
     return DirectInputCreateA_Orig(hinst, dwVersion, ppDI, punkOuter);
 }
 
+struct SymbolTable
+{
+    struct SymbolEntry
+    {
+        u32 Hash {0};
+        usize Address {0};
+        SymbolEntry* Next {nullptr};
+    };
+
+    SymbolTable(usize max_entries)
+        : Entries(new SymbolEntry[max_entries] {})
+        , Buckets(new SymbolEntry* [max_entries] {})
+        , EntryCount(0)
+        , MaxEntries(max_entries)
+    {
+        if (max_entries & (max_entries - 1))
+            Abortf("Max entries not power of 2");
+    }
+
+    ~SymbolTable()
+    {
+        delete[] Entries;
+        delete[] Buckets;
+    }
+
+    SymbolEntry* Lookup(u32 hash)
+    {
+        SymbolEntry* entry = Buckets[hash & (MaxEntries - 1)];
+
+        for (; entry; entry = entry->Next)
+        {
+            if (entry->Hash == hash)
+                break;
+        }
+
+        return entry;
+    }
+
+    bool Insert(u32 hash, usize address)
+    {
+        if (Lookup(hash) != nullptr)
+            return false;
+
+        if (EntryCount == MaxEntries)
+            return false;
+
+        SymbolEntry* entry = &Entries[EntryCount++];
+        SymbolEntry** bucket = &Buckets[hash & (MaxEntries - 1)];
+
+        entry->Hash = hash;
+        entry->Address = address;
+        entry->Next = *bucket;
+
+        *bucket = entry;
+
+        return true;
+    }
+
+    static u32 Hash(std::string_view string)
+    {
+        u32 hash = 0;
+
+        for (unsigned char c : string)
+        {
+            hash += c;
+            hash += hash << 10;
+            hash ^= hash >> 6;
+        }
+
+        hash += hash << 3;
+        hash ^= hash >> 11;
+        hash += hash << 15;
+
+        return hash;
+    }
+
+    SymbolEntry* Entries {nullptr};
+    SymbolEntry** Buckets {nullptr};
+    usize EntryCount {0};
+    usize MaxEntries {0};
+};
+
 static std::size_t InitExportHooks(HMODULE instance)
 {
     // TODO: Validate symbol is a function (in an executable section)
 
-    std::vector<HGLOBAL> resources;
-    std::unordered_map<std::string_view, std::uintptr_t> symbols;
+    Displayf("Loading symbol addresses");
 
-    for (int idr : {IDR_RESOURCES_BASE_SYMBOLS, IDR_RESOURCES_NEW_SYMBOLS})
+    SymbolTable symbols(0x2000);
+
+    for (const char* const* lines : {BaseSymbols, NewSymbols})
     {
-        HRSRC hResInfo = FindResource(instance, MAKEINTRESOURCE(idr), TEXT("TXT"));
-        HGLOBAL hResData = LoadResource(instance, hResInfo);
-
-        resources.emplace_back(hResData);
-
-        DWORD nResSize = SizeofResource(instance, hResInfo);
-        LPVOID lpResLock = LockResource(hResData);
-
-        std::string_view symbols_txt(static_cast<const char*>(lpResLock), nResSize);
-
-        for (usize idx = 0; idx < symbols_txt.size();)
+        while (*lines)
         {
-            usize line_end = symbols_txt.find_first_of("\r\n", idx);
-
-            if (line_end == SIZE_MAX)
-                line_end = symbols_txt.size();
-
-            std::string_view line = symbols_txt.substr(idx, line_end - idx);
-            idx = symbols_txt.find_first_not_of("\r\n", line_end);
+            std::string_view line = *lines++;
 
             usize split = line.find('=');
 
@@ -133,9 +203,9 @@ static std::size_t InitExportHooks(HMODULE instance)
             }
             else
             {
-                auto find = symbols.find(value);
+                auto find = symbols.Lookup(SymbolTable::Hash(value));
 
-                if (find == symbols.end())
+                if (find == nullptr)
                 {
                     Errorf("Invalid Symbol Alias: '%.*s' -> '%.*s'", symbol.size(), symbol.data(), value.size(),
                         value.data());
@@ -143,17 +213,19 @@ static std::size_t InitExportHooks(HMODULE instance)
                     continue;
                 }
 
-                address = find->second;
+                address = find->Address;
             }
 
-            if (!symbols.try_emplace(symbol, address).second)
+            if (!symbols.Insert(SymbolTable::Hash(symbol), address))
             {
-                Errorf("Duplicate Symbol: '%.*s'", symbol.size(), symbol.data());
+                Errorf("Duplicate Symbol/Hash: '%.*s'", symbol.size(), symbol.data());
             }
         }
     }
 
     std::size_t total = 0;
+
+    Displayf("Processing exports");
 
     LogHooks = false;
 
@@ -168,10 +240,10 @@ static std::size_t InitExportHooks(HMODULE instance)
                 {
                     hook_name[255] = '\0';
                 }
-                else if (auto find = symbols.find(name); find != symbols.end())
+                else if (auto find = symbols.Lookup(SymbolTable::Hash(name)); find != nullptr)
                 {
                     arts_strcpy(hook_name, name);
-                    target = find->second;
+                    target = find->Address;
                 }
                 else
                 {
@@ -186,10 +258,10 @@ static std::size_t InitExportHooks(HMODULE instance)
                     while (char* s = std::strstr(replaced, "PBX"))
                         std::memcpy(s, "PAX", 3);
 
-                    if (find = symbols.find(replaced); find != symbols.end())
+                    if (find = symbols.Lookup(SymbolTable::Hash(replaced)); find != nullptr)
                     {
                         arts_strcpy(hook_name, replaced);
-                        target = find->second;
+                        target = find->Address;
                     }
                     else
                     {
@@ -215,11 +287,6 @@ static std::size_t InitExportHooks(HMODULE instance)
         });
 
     LogHooks = true;
-
-    for (HGLOBAL hResData : resources)
-    {
-        FreeResource(hResData);
-    }
 
     return total;
 }
@@ -345,7 +412,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         Displayf("Processed %zu Init Functions", init_count);
 
         asMemoryAllocator init_alloc;
-        usize init_heap_size = 0x80000;
+        usize init_heap_size = 0x40000;
         void* init_heap = std::malloc(init_heap_size);
         init_alloc.Init(init_heap, init_heap_size, true);
 

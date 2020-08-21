@@ -16,7 +16,8 @@ project "Open1560"
     files {
         "loader.cpp",
         "loader.h",
-        "loader.rc",
+        "symbols.cpp",
+        "symbols.h",
     }
 
     links { "arts_midtown", "DbgHelp", "Winmm" }
