@@ -26,6 +26,29 @@
 
 #include <glad/glad.h>
 
+// clang-format off
+static constexpr const u32 MultiplyDeBruijnBitPosition[32] = {
+    0,  9,  1, 10, 13, 21,  2, 29, 11, 14, 16, 18, 22, 25, 3, 30,
+    8, 12, 20, 28, 15, 17, 24,  7, 19, 27, 23,  6, 26,  5, 4, 31
+};
+// clang-format on
+
+static u32 ilog2(u32 value)
+{
+    value |= value >> 1;
+    value |= value >> 2;
+    value |= value >> 4;
+    value |= value >> 8;
+    value |= value >> 16;
+
+    return MultiplyDeBruijnBitPosition[static_cast<u32>(value * 0x07C4ACDD) >> 27];
+}
+
+static u32 CaluclateMipMapLevels(u32 width, u32 height)
+{
+    return 1 + ilog2(std::min(width, height));
+}
+
 i32 agiGLTexDef::BeginGfx()
 {
     if (Surface == nullptr)
@@ -118,7 +141,7 @@ i32 agiGLTexDef::BeginGfx()
     i32 pitch = surface->Pitch;
     u8* data = static_cast<u8*>(surface->Surface);
 
-    i32 mip_count = std::max<i32>(1, mip_maps ? surface->MipMapCount : 1);
+    i32 mip_count = mip_maps ? std::clamp<i32>(surface->MipMapCount, 1, CaluclateMipMapLevels(width, height)) : 1;
 
     for (i32 i = 0; i < mip_count; ++i)
     {
