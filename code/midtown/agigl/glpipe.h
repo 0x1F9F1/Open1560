@@ -39,6 +39,8 @@ public:
     RcOwner<class agiTexDef> CreateTexDef() override;
     RcOwner<class agiTexLut> CreateTexLut() override;
     RcOwner<class DLP> CreateDLP() override;
+    RcOwner<class agiLight> CreateLight() override;
+    RcOwner<class agiLightModel> CreateLightModel() override;
     RcOwner<class agiViewport> CreateViewport() override;
     RcOwner<class agiBitmap> CreateBitmap() override;
 

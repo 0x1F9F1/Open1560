@@ -21,6 +21,10 @@
 #include "agi/cmodel.h"
 #include "agi/error.h"
 #include "agi/rsys.h"
+#include "agirend/bilight.h"
+#include "agirend/bilmodel.h"
+#include "agirend/lighter.h"
+#include "agirend/projvtx.h"
 #include "agirend/rdlp.h"
 #include "agirend/zbrender.h"
 #include "data7/utimer.h"
@@ -236,8 +240,34 @@ void agiGLPipeline::BeginScene()
 {
     ARTS_TIMED(agiBeginScene);
 
+    if (ZTrick)
+    {
+        if (agiCurState.GetZFunc() == agiCmpFunc::LessEqual)
+        {
+            agiCurState.SetZFunc(agiCmpFunc::GreaterEqual);
+            DepthScale = -0.24f;
+            DepthOffset = 0.75f;
+        }
+        else
+        {
+            agiCurState.SetZFunc(agiCmpFunc::LessEqual);
+            DepthScale = 0.24f;
+            DepthOffset = 0.25f;
+        }
+    }
+    else
+    {
+        agiCurState.SetZFunc(agiCmpFunc::LessEqual);
+        DepthScale = 0.5f;
+        DepthOffset = 0.5f;
+    }
+
     agiPipeline::BeginScene();
+    agiLighter::BeginScene();
+
     in_scene_ = true;
+
+    renderer_->BeginGroup();
 }
 
 void agiGLPipeline::EndScene()
@@ -246,6 +276,7 @@ void agiGLPipeline::EndScene()
 
     rasterizer_->EndGroup();
     in_scene_ = false;
+
     agiPipeline::EndScene();
 }
 
@@ -279,6 +310,16 @@ RcOwner<class agiTexLut> agiGLPipeline::CreateTexLut()
 RcOwner<class DLP> agiGLPipeline::CreateDLP()
 {
     return AsOwner(MakeRc<RDLP>(this));
+}
+
+RcOwner<agiLight> agiGLPipeline::CreateLight()
+{
+    return AsOwner(MakeRc<agiBILight>(this));
+}
+
+RcOwner<agiLightModel> agiGLPipeline::CreateLightModel()
+{
+    return AsOwner(MakeRc<agiBILightModel>(this));
 }
 
 RcOwner<class agiViewport> agiGLPipeline::CreateViewport()
