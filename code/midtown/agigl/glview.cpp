@@ -21,8 +21,8 @@
 #include "agi/error.h"
 #include "agi/pipeline.h"
 #include "agi/rsys.h"
+#include "data7/utimer.h"
 #include "glerror.h"
-#include "vector7/vector2.h"
 
 #include <glad/glad.h>
 
@@ -60,22 +60,19 @@ void agiGLViewport::Activate()
 
 void agiGLViewport::SetBackground(Vector3& color)
 {
-    glClearColor(color.x, color.y, color.z, 1.0f);
+    clear_color_ = color;
 }
 
 void agiGLViewport::Clear(i32 flags)
 {
-    i32 width = Pipe()->GetWidth();
-    i32 height = Pipe()->GetHeight();
-
-    glScissor(static_cast<GLint>(width * params_.X), static_cast<GLint>(height * params_.Y),
-        static_cast<GLint>(width * params_.Width), static_cast<GLint>(height * params_.Height));
+    ARTS_TIMED(agiClearViewport);
 
     GLbitfield mask = 0;
 
     if (flags & AGI_VIEW_CLEAR_ZBUFFER)
     {
         mask |= GL_DEPTH_BUFFER_BIT;
+
         agiCurState.SetZWrite(true);
         glDepthMask(GL_TRUE);
     }
@@ -83,10 +80,24 @@ void agiGLViewport::Clear(i32 flags)
     if (flags & AGI_VIEW_CLEAR_TARGET)
     {
         mask |= GL_COLOR_BUFFER_BIT;
+
+        glClearColor(clear_color_.x, clear_color_.y, clear_color_.z, 1.0f);
     }
 
     if (mask)
+    {
+        i32 width = Pipe()->GetHorzRes();
+        i32 height = Pipe()->GetVertRes();
+
+        glEnable(GL_SCISSOR_TEST);
+
+        glScissor(static_cast<GLint>(width * params_.X), static_cast<GLint>(height * params_.Y),
+            static_cast<GLsizei>(width * params_.Width), static_cast<GLsizei>(height * params_.Height));
+
         glClear(mask);
+
+        glDisable(GL_SCISSOR_TEST);
+    }
 
     PrintGlErrors();
 }

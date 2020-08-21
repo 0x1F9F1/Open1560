@@ -307,6 +307,16 @@ public:
         return dword38;
     }
 
+    i32 GetHorzRes() const
+    {
+        return horz_res_;
+    }
+
+    i32 GetVertRes() const
+    {
+        return vert_res_;
+    }
+
 protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
     ARTS_EXPORT agiPipeline();

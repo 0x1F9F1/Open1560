@@ -334,11 +334,11 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     PrintGlErrors();
 }
 
-void agiGLPipeline::ClearAll([[maybe_unused]] i32 color)
+void agiGLPipeline::ClearAll(i32 color)
 {
     glClearColor((color & 0xFF) / 255.0f, ((color >> 8) & 0xFF) / 255.0f, ((color >> 16) & 0xFF) / 255.0f, 1.0f);
 
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT);
 }
 
 void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)

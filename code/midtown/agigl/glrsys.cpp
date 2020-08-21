@@ -566,9 +566,11 @@ void agiGLRasterizer::FlushState()
         agiLastState.BlendOp = blend_op;
     }
 
+    // TODO: Support pixel fog?
+
     if (agiFogMode fog_mode = agiCurState.GetFogMode(); fog_mode != agiLastState.FogMode)
     {
-        glUniform1i(uniform_fog_enable_, fog_mode != agiFogMode::None);
+        glUniform1i(uniform_fog_enable_, fog_mode == agiFogMode::Vertex);
 
         agiLastState.FogMode = fog_mode;
     }
