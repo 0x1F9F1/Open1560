@@ -45,8 +45,6 @@ i32 agiGLTexDef::BeginGfx()
     if (Tex.Props & agiTexProp::AlphaGlow && GetRendererInfo().AdditiveBlending)
         Tex.Flags &= ~agiTexParameters::Alpha;
 
-    PrintGlErrors();
-
     SurfaceSize = 0;
 
     glGenTextures(1, &texture_);

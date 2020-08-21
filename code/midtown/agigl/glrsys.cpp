@@ -344,16 +344,12 @@ void agiGLRasterizer::FlushState()
     if (!(ActiveFlag & 0x1))
         return;
 
-    PrintGlErrors();
-
     if (VtxIndexCount)
     {
         Draw(VtxIndex, VtxIndexCount);
 
         VtxIndexCount = 0;
     }
-
-    PrintGlErrors();
 
     if (agiCurState.GetDrawMode() != 15)
         agiCurState.SetTexture(nullptr);
@@ -588,8 +584,6 @@ void agiGLRasterizer::FlushState()
     agiLastState.FogDensity = agiCurState.GetFogDensity();
 
     agiCurState.ClearTouched();
-
-    PrintGlErrors();
 }
 
 void agiGLRasterizer::SetVertices(agiVtx* vertices, i32 vertex_count)

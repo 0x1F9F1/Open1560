@@ -98,6 +98,4 @@ void agiGLViewport::Clear(i32 flags)
 
         glDisable(GL_SCISSOR_TEST);
     }
-
-    PrintGlErrors();
 }

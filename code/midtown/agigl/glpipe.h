@@ -23,6 +23,8 @@
 
 #include "core/minwin.h"
 
+// #define ARTS_GL_MSAA 8
+
 class agiGLPipeline final : public agiPipeline
 {
 public:
@@ -51,4 +53,10 @@ private:
     HDC window_dc_ {nullptr};
     HGLRC gl_context_ {nullptr};
     Rc<agiRasterizer> rasterizer_ {};
+
+#ifdef ARTS_GL_MSAA
+    u32 fbo_ {0};
+    u32 rbo_ {0};
+    u32 msaa_tex_ {0};
+#endif
 };
