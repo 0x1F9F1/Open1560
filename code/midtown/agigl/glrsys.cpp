@@ -125,11 +125,11 @@ i32 agiGLRasterizer::BeginGfx()
 
 in vec4 in_Position;
 in vec4 in_Color;
-// in vec4 in_Specular;
+in vec4 in_Specular;
 in vec2 in_UV;
 
 out vec4 frag_Color;
-// out vec4 frag_Specular;
+out vec4 frag_Specular;
 out vec3 frag_UV;
 
 uniform mat4 u_Transform;
@@ -138,31 +138,35 @@ void main()
 {
     gl_Position = u_Transform * vec4(in_Position.x, in_Position.y, 1.0 - in_Position.z, 1.0);
     frag_Color = in_Color;
-    // frag_Specular = in_Specular;
+    frag_Specular = in_Specular;
     frag_UV = vec3(in_UV * in_Position.w, in_Position.w);
 }
 )");
-
-    // TODO: Add AlphaRef uniform
 
     u32 fs = CompileShader(GL_FRAGMENT_SHADER, R"(
 #version 150
 
 in vec4 frag_Color;
-// in vec4 frag_Specular;
+in vec4 frag_Specular;
 in vec3 frag_UV;
 
-out vec4 gl_FragColor;
+out vec4 out_Color;
 
 uniform sampler2D u_Texture;
 uniform float u_AlphaRef;
 
+uniform vec3 u_FogColor;
+uniform bool u_FogEnable;
+
 void main()
 {
-    gl_FragColor = texture2D(u_Texture, frag_UV.xy / frag_UV.z) * frag_Color;
+    out_Color = texture2D(u_Texture, frag_UV.xy / frag_UV.z) * frag_Color;
 
-    if (gl_FragColor.a <= u_AlphaRef)
+    if (out_Color.a <= u_AlphaRef)
         discard;
+
+    if (u_FogEnable)
+        out_Color.xyz = mix(u_FogColor, out_Color.xyz, frag_Specular.w);
 }
 )");
 
@@ -192,6 +196,12 @@ void main()
 
     uniform_alpha_ref_ = glGetUniformLocation(shader_, "u_AlphaRef");
     glUniform1f(uniform_alpha_ref_, 0.0f);
+
+    uniform_fog_color_ = glGetUniformLocation(shader_, "u_FogColor");
+    glUniform3f(uniform_fog_color_, 1.0f, 1.0f, 1.0f);
+
+    uniform_fog_enable_ = glGetUniformLocation(shader_, "u_FogEnable");
+    glUniform1i(uniform_fog_enable_, 0);
 
     f32 left = 0.0f;
     f32 right = static_cast<f32>(Pipe()->GetWidth());
@@ -556,7 +566,24 @@ void agiGLRasterizer::FlushState()
         agiLastState.BlendOp = blend_op;
     }
 
-    // TODO: Fog
+    if (agiFogMode fog_mode = agiCurState.GetFogMode(); fog_mode != agiLastState.FogMode)
+    {
+        glUniform1i(uniform_fog_enable_, fog_mode != agiFogMode::None);
+
+        agiLastState.FogMode = fog_mode;
+    }
+
+    if (u32 fog_color = agiCurState.GetFogColor(); fog_color != agiLastState.FogColor)
+    {
+        glUniform3f(uniform_fog_color_, ((fog_color >> 16) & 0xFF) / 255.0f, ((fog_color >> 8) & 0xFF) / 255.0f,
+            (fog_color & 0xFF) / 255.0f);
+
+        agiLastState.FogColor = fog_color;
+    }
+
+    agiLastState.FogStart = agiCurState.GetFogStart();
+    agiLastState.FogEnd = agiCurState.GetFogEnd();
+    agiLastState.FogDensity = agiCurState.GetFogDensity();
 
     agiCurState.ClearTouched();
 
