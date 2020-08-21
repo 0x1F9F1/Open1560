@@ -157,9 +157,9 @@ void asCullManager::PrintMiniStats()
 {
     current_fps_ = 1.0f / CurrentFrameTime;
 
-    if (++stats_counter_ == 10)
+    if (++stats_counter_ > std::clamp<f32>(average_fps_, 10.0f, 1000.0f))
     {
-        average_fps_ = 10.0f / stats_timer_.Time();
+        average_fps_ = static_cast<f32>(stats_counter_) / stats_timer_.Time();
         stats_timer_.Reset();
         stats_counter_ = 0;
     }
