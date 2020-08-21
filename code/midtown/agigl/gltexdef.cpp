@@ -35,7 +35,12 @@ i32 agiGLTexDef::BeginGfx()
     }
 
     if (Tex.Name[0] != '*' && page_state_ == 0 && cache_handle_ == 0)
+    {
         Surface->Reload(Tex.Name, TexSearchPath, Tex.LOD, PackShift, 0, 0, 0); // TODO: Should this be PackShift & 0xF ?
+
+        // FIXME: Surfaces with a PackShift don't have their pitch updated. This should really be corrected in agiSurfaceDesc::[Load/Reload]
+        Surface->Pitch = Surface->Width * Surface->GetPixelSize();
+    }
 
     if (Tex.Props & agiTexProp::AlphaGlow && GetRendererInfo().AdditiveBlending)
         Tex.Flags &= ~agiTexParameters::Alpha;
@@ -70,7 +75,7 @@ i32 agiGLTexDef::BeginGfx()
                     reinterpret_cast<u32*>(static_cast<u8*>(temp_surface->Surface) + (y * temp_surface->Pitch));
 
                 for (u32 x = 0; x < temp_surface->Width; ++x)
-                    pixels[x] |= pixels[x] ? 0xFF000000 : 0;
+                    pixels[x] |= (pixels[x] & 0xFFFFFF) ? 0xFF000000 : 0;
             }
 
             Tex.Flags &= ~agiTexParameters::Chromakey;
@@ -128,15 +133,6 @@ i32 agiGLTexDef::BeginGfx()
         pitch >>= 1;
     }
 
-    if (mip_maps)
-    {
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    else
-    {
-        Tex.Flags |= agiTexParameters::NoMipMaps;
-    }
-
     if (surface != Surface.get())
     {
         surface->Unload();
@@ -144,16 +140,25 @@ i32 agiGLTexDef::BeginGfx()
         delete surface;
     }
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (Tex.Flags & agiTexParameters::WrapU) ? GL_REPEAT : GL_CLAMP);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (Tex.Flags & agiTexParameters::WrapV) ? GL_REPEAT : GL_CLAMP);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_BASE_LEVEL, 0);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, mip_count - 1);
+
+    glTexParameteri(
+        GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (Tex.Flags & agiTexParameters::WrapU) ? GL_REPEAT : GL_CLAMP_TO_EDGE);
+    glTexParameteri(
+        GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (Tex.Flags & agiTexParameters::WrapV) ? GL_REPEAT : GL_CLAMP_TO_EDGE);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     if (mip_maps)
+    {
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, 16.0f);
-
-    glBindTexture(GL_TEXTURE_2D, 0);
+    }
+    else
+    {
+        Tex.Flags |= agiTexParameters::NoMipMaps;
+    }
 
     PrintGlErrors();
 

@@ -28,20 +28,211 @@
 
 #include <glad/glad.h>
 
-static u32 CurrentPipeHeight = 0;
 static b32 UseTriangles = 1; // PrimType
-static agiScreenVtx* VtxBase = nullptr;
-static i32 VtxCount = 0;
+
 static i32 VtxIndexCount = 0;
 static u16* VtxIndex = nullptr;
 static u16 VtxIndices[1024] {};
 
 void agiGLRasterizer::EndGfx()
-{}
+{
+    glDeleteBuffers(1, &vbo_);
+    glDeleteBuffers(1, &ibo_);
+    glDeleteVertexArrays(1, &vao_);
+    glDeleteProgram(shader_);
+    glDeleteTextures(1, &white_texture_);
+}
+
+static void CheckShader(u32 shader)
+{
+    GLint is_compiled = GL_FALSE;
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &is_compiled);
+
+    if (is_compiled)
+        return;
+
+    PrintGlErrors();
+
+    GLint log_length = 0;
+    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &log_length);
+
+    char* log_text = new char[log_length];
+    glGetShaderInfoLog(shader, log_length, &log_length, log_text);
+    Quitf("Failed to compile shader: %s", log_text);
+}
+
+static void CheckProgram(u32 program)
+{
+    GLint is_compiled = GL_FALSE;
+    glGetProgramiv(program, GL_LINK_STATUS, &is_compiled);
+
+    if (is_compiled)
+        return;
+
+    PrintGlErrors();
+
+    GLint log_length = 0;
+    glGetShaderiv(program, GL_INFO_LOG_LENGTH, &log_length);
+
+    char* log_text = new char[log_length];
+    glGetProgramInfoLog(program, log_length, &log_length, log_text);
+    Quitf("Failed to compile shader: %s", log_text);
+}
+
+static u32 CompileShader(u32 type, const char* src)
+{
+    u32 shader = glCreateShader(type);
+
+    glShaderSource(shader, 1, &src, 0);
+    glCompileShader(shader);
+
+    CheckShader(shader);
+
+    return shader;
+}
 
 i32 agiGLRasterizer::BeginGfx()
 {
-    CurrentPipeHeight = Pipe()->GetHeight();
+    glGenVertexArrays(1, &vao_); // Vertex Array
+    glGenBuffers(1, &vbo_);      // Vertex Buffer
+    glGenBuffers(1, &ibo_);      // Index Buffer
+
+    glBindVertexArray(vao_);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo_);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_);
+
+    glBufferData(GL_ARRAY_BUFFER, 0xFFFF * 0x20, nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0xFFFF * 0x2, nullptr, GL_DYNAMIC_DRAW);
+
+    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(agiScreenVtx),
+        reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x0))); // xyzw
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, GL_BGRA, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(agiScreenVtx),
+        reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x10))); // color
+    glEnableVertexAttribArray(1);
+
+    glVertexAttribPointer(2, GL_BGRA, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(agiScreenVtx),
+        reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x14))); // specular
+    glEnableVertexAttribArray(2);
+
+    glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, sizeof(agiScreenVtx),
+        reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x18))); // uv
+    glEnableVertexAttribArray(3);
+
+    u32 vs = CompileShader(GL_VERTEX_SHADER, R"(
+#version 150
+
+in vec4 in_Position;
+in vec4 in_Color;
+// in vec4 in_Specular;
+in vec2 in_UV;
+
+out vec4 frag_Color;
+// out vec4 frag_Specular;
+out vec3 frag_UV;
+
+uniform mat4 u_Transform;
+
+void main()
+{
+    gl_Position = u_Transform * vec4(in_Position.x, in_Position.y, 1.0 - in_Position.z, 1.0);
+    frag_Color = in_Color;
+    // frag_Specular = in_Specular;
+    frag_UV = vec3(in_UV * in_Position.w, in_Position.w);
+}
+)");
+
+    // TODO: Add AlphaRef uniform
+
+    u32 fs = CompileShader(GL_FRAGMENT_SHADER, R"(
+#version 150
+
+in vec4 frag_Color;
+// in vec4 frag_Specular;
+in vec3 frag_UV;
+
+out vec4 gl_FragColor;
+
+uniform sampler2D u_Texture;
+uniform float u_AlphaRef;
+
+void main()
+{
+    gl_FragColor = texture2D(u_Texture, frag_UV.xy / frag_UV.z) * frag_Color;
+
+    if (gl_FragColor.a <= u_AlphaRef)
+        discard;
+}
+)");
+
+    shader_ = glCreateProgram();
+
+    glAttachShader(shader_, vs);
+    glAttachShader(shader_, fs);
+
+    glBindAttribLocation(shader_, 0, "in_Position");
+    glBindAttribLocation(shader_, 1, "in_Color");
+    glBindAttribLocation(shader_, 2, "in_Specular");
+    glBindAttribLocation(shader_, 3, "in_UV");
+
+    glLinkProgram(shader_);
+
+    CheckProgram(shader_);
+
+    glDetachShader(shader_, vs);
+    glDetachShader(shader_, fs);
+
+    glDeleteShader(vs);
+    glDeleteShader(fs);
+
+    glUseProgram(shader_);
+
+    glUniform1i(glGetUniformLocation(shader_, "u_Texture"), 0);
+
+    uniform_alpha_ref_ = glGetUniformLocation(shader_, "u_AlphaRef");
+    glUniform1f(uniform_alpha_ref_, 0.0f);
+
+    f32 left = 0.0f;
+    f32 right = static_cast<f32>(Pipe()->GetWidth());
+
+    f32 top = 0.0f;
+    f32 bottom = static_cast<f32>(Pipe()->GetHeight());
+
+    f32 z_near = -1.0f;
+    f32 z_far = 1.0f;
+
+    f32 transform[4][4];
+
+    transform[0][0] = 2.0f / (right - left);
+    transform[0][1] = 0.0f;
+    transform[0][2] = 0.0f;
+    transform[0][3] = 0.0f;
+
+    transform[1][0] = 0.0f;
+    transform[1][1] = 2.0f / (top - bottom);
+    transform[1][2] = 0.0f;
+    transform[1][3] = 0.0f;
+
+    transform[2][0] = 0.0f;
+    transform[2][1] = 0.0f;
+    transform[2][2] = -2.0f / (z_far - z_near);
+    transform[2][3] = 0.0f;
+
+    transform[3][0] = -(right + left) / (right - left);
+    transform[3][1] = -(top + bottom) / (top - bottom);
+    transform[3][2] = -(z_far + z_near) / (z_far - z_near);
+    transform[3][3] = 1.0f;
+
+    glUniformMatrix4fv(glGetUniformLocation(shader_, "u_Transform"), 1, GL_FALSE, (const GLfloat*) &transform);
+
+    glGenTextures(1, &white_texture_);
+    glBindTexture(GL_TEXTURE_2D, white_texture_);
+
+    u32 white = 0xFFFFFFFF;
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, &white);
+
+    PrintGlErrors();
 
     return AGI_ERROR_SUCCESS;
 }
@@ -63,8 +254,8 @@ void agiGLRasterizer::Verts(agiVtxType type, agiVtx* vertices, i32 vertex_count)
     if (VtxIndexCount || agiCurState.IsTouched())
         FlushState();
 
-    VtxBase = reinterpret_cast<agiScreenVtx*>(vertices);
-    VtxCount = vertex_count;
+    SetVertices(vertices, vertex_count);
+
     VtxIndexCount = 0;
     VtxIndex = VtxIndices;
 }
@@ -74,9 +265,9 @@ void agiGLRasterizer::Points(agiVtxType type, agiVtx* vertices, i32 vertex_count
     unimplemented(type, vertices, vertex_count);
 }
 
-void agiGLRasterizer::SetVertCount(i32 vertex_count)
+void agiGLRasterizer::SetVertCount([[maybe_unused]] i32 vertex_count)
 {
-    VtxCount = vertex_count;
+    // VtxCount = vertex_count;
 }
 
 void agiGLRasterizer::Triangle(i32 i0, i32 i1, i32 i2)
@@ -100,7 +291,6 @@ void agiGLRasterizer::Line(i32 i0, i32 i1)
 {
     ++STATS.Lines;
 
-    // TODO: Should this be + 2 ?
     if (VtxIndexCount + 2 > static_cast<i32>(std::size(VtxIndices)) || (UseTriangles != 0) || agiCurState.IsTouched())
     {
         FlushState();
@@ -124,12 +314,9 @@ void agiGLRasterizer::Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, 
     agiGLRasterizer::FlushState();
 
     UseTriangles = 1;
-    VtxBase = reinterpret_cast<agiScreenVtx*>(vertices);
-    VtxCount = vertex_count;
-    VtxIndex = indices;
-    VtxIndexCount = index_count;
 
-    agiGLRasterizer::FlushState();
+    SetVertices(vertices, vertex_count);
+    Draw(indices, index_count);
 }
 
 i32 GetBlendFuncD()
@@ -151,31 +338,7 @@ void agiGLRasterizer::FlushState()
 
     if (VtxIndexCount)
     {
-        ARTS_TIMED(agiRasterization);
-
-        glBegin(UseTriangles ? GL_TRIANGLES : GL_LINES);
-
-        for (i32 i = 0; i < VtxIndexCount; ++i)
-        {
-            if (agiCurState.GetDrawMode() == 15)
-            {
-                glTexCoord4f(VtxBase[VtxIndex[i]].tu * VtxBase[VtxIndex[i]].w,
-                    VtxBase[VtxIndex[i]].tv * VtxBase[VtxIndex[i]].w, 0.0, VtxBase[VtxIndex[i]].w);
-            }
-
-            // if (agiCurState.GetDrawMode() != 3)
-            {
-                glColor4ub(static_cast<GLubyte>(VtxBase[VtxIndex[i]].specular >> 16),
-                    static_cast<GLubyte>(VtxBase[VtxIndex[i]].specular >> 8),
-                    static_cast<GLubyte>(VtxBase[VtxIndex[i]].specular),
-                    static_cast<GLubyte>(VtxBase[VtxIndex[i]].specular >> 24));
-            }
-
-            glVertex3f(
-                VtxBase[VtxIndex[i]].x, CurrentPipeHeight - VtxBase[VtxIndex[i]].y, 1.0f - VtxBase[VtxIndex[i]].z);
-        }
-
-        glEnd();
+        Draw(VtxIndex, VtxIndexCount);
 
         VtxIndexCount = 0;
     }
@@ -196,15 +359,8 @@ void agiGLRasterizer::FlushState()
 
     if (texture != agiLastState.Texture)
     {
-        if (texture)
-        {
-            glEnable(GL_TEXTURE_2D);
-            glBindTexture(GL_TEXTURE_2D, texture->GetHandle());
-        }
-        else
-        {
-            glDisable(GL_TEXTURE_2D);
-        }
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture ? texture->GetHandle() : white_texture_);
 
         agiLastState.Texture = texture;
 
@@ -256,54 +412,57 @@ void agiGLRasterizer::FlushState()
 
     if (bool perspective = agiCurState.GetTexturePerspective(); perspective != agiLastState.TexturePerspective)
     {
-        glHint(GL_PERSPECTIVE_CORRECTION_HINT, perspective ? GL_NICEST : GL_FASTEST);
+        // glHint(GL_PERSPECTIVE_CORRECTION_HINT, perspective ? GL_NICEST : GL_FASTEST);
 
         agiLastState.TexturePerspective = perspective;
     }
 
-    agiTexFilter tex_filter = agiCurState.GetTexFilter();
-
-    if (texture && texture->Tex.DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
-        tex_filter = agiTexFilter::Bilinear;
-
-    if (texture_changed || tex_filter != agiLastState.TexFilter)
+    if (texture)
     {
-        GLenum min_filter = GL_NEAREST;
-        GLenum mag_filter = GL_NEAREST;
+        agiTexFilter tex_filter = agiCurState.GetTexFilter();
 
-        switch (tex_filter)
+        if (texture->Tex.DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
+            tex_filter = agiTexFilter::Bilinear;
+
+        if (texture_changed || tex_filter != agiLastState.TexFilter)
         {
-            case agiTexFilter::Trilinear: {
-                min_filter = GL_LINEAR_MIPMAP_LINEAR;
-                mag_filter = GL_LINEAR;
+            GLenum min_filter = GL_NEAREST;
+            GLenum mag_filter = GL_NEAREST;
 
-                break;
+            switch (tex_filter)
+            {
+                case agiTexFilter::Trilinear: {
+                    min_filter = GL_LINEAR_MIPMAP_LINEAR;
+                    mag_filter = GL_LINEAR;
+
+                    break;
+                }
+
+                case agiTexFilter::Bilinear: {
+                    min_filter = GL_LINEAR;
+                    mag_filter = GL_LINEAR;
+
+                    break;
+                }
+
+                case agiTexFilter::Point: {
+                    min_filter = GL_NEAREST;
+                    mag_filter = GL_NEAREST;
+
+                    break;
+                }
             }
 
-            case agiTexFilter::Bilinear: {
-                min_filter = GL_LINEAR;
-                mag_filter = GL_LINEAR;
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min_filter);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag_filter);
 
-                break;
-            }
-
-            case agiTexFilter::Point: {
-                min_filter = GL_NEAREST;
-                mag_filter = GL_NEAREST;
-
-                break;
-            }
+            agiLastState.TexFilter = tex_filter;
         }
-
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min_filter);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag_filter);
-
-        agiLastState.TexFilter = tex_filter;
     }
 
     if (bool smooth_shading = agiCurState.GetSmoothShading(); smooth_shading != agiLastState.SmoothShading)
     {
-        glShadeModel((smooth_shading || true) ? GL_SMOOTH : GL_FLAT);
+        // glShadeModel((smooth_shading || true) ? GL_SMOOTH : GL_FLAT);
 
         agiLastState.SmoothShading = smooth_shading;
     }
@@ -329,23 +488,24 @@ void agiGLRasterizer::FlushState()
     if (texture)
         alpha_mode |= (texture->Tex.Flags & agiTexParameters::Alpha);
 
-    u8 alpha_ref = agiCurState.GetAlphaRef();
-
-    if (alpha_mode != agiLastState.AlphaEnable || alpha_ref != agiLastState.AlphaRef)
+    if (alpha_mode != agiLastState.AlphaEnable)
     {
         if (alpha_mode)
         {
-            glEnable(GL_ALPHA_TEST);
-            glAlphaFunc(GL_GREATER, alpha_ref / 255.0f);
             glEnable(GL_BLEND);
         }
         else
         {
-            glDisable(GL_ALPHA_TEST);
             glDisable(GL_BLEND);
         }
 
         agiLastState.AlphaEnable = alpha_mode;
+    }
+
+    if (u8 alpha_ref = agiCurState.GetAlphaRef(); alpha_mode != agiLastState.AlphaEnable)
+    {
+        glUniform1f(uniform_alpha_ref_, alpha_mode ? (alpha_ref / 255.0f) : -1.0f);
+
         agiLastState.AlphaRef = alpha_ref;
     }
 
@@ -387,11 +547,11 @@ void agiGLRasterizer::FlushState()
 
     if (agiBlendOp blend_op = agiCurState.GetBlendOp(); blend_op != agiLastState.BlendOp)
     {
-        switch (blend_op)
-        {
-            case agiBlendOp::One: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE); break;
-            case agiBlendOp::Modulate: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE); break;
-        }
+        //switch (blend_op)
+        //{
+        //    case agiBlendOp::One: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE); break;
+        //    case agiBlendOp::Modulate: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE); break;
+        //}
 
         agiLastState.BlendOp = blend_op;
     }
@@ -401,4 +561,20 @@ void agiGLRasterizer::FlushState()
     agiCurState.ClearTouched();
 
     PrintGlErrors();
+}
+
+void agiGLRasterizer::SetVertices(agiVtx* vertices, i32 vertex_count)
+{
+    ARTS_TIMED(agiRasterization);
+
+    glBufferSubData(GL_ARRAY_BUFFER, 0, vertex_count * sizeof(agiScreenVtx), vertices);
+}
+
+void agiGLRasterizer::Draw(u16* indices, i32 index_count)
+{
+    ARTS_TIMED(agiRasterization);
+
+    glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, index_count * sizeof(u16), indices);
+
+    glDrawElements(UseTriangles ? GL_TRIANGLES : GL_LINES, index_count, GL_UNSIGNED_SHORT, 0);
 }

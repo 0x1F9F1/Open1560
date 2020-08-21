@@ -134,8 +134,8 @@ void asPerfGraph::Cull()
                 blank.y = 0.0f;
                 blank.z = 0.0f;
                 blank.w = 1.0f;
-                blank.specular = component_color_[k].ToARGB();
-                blank.diffuse = 0xFFFFFFFF;
+                blank.color = component_color_[k].ToARGB();
+                blank.specular = 0xFFFFFFFF;
                 blank.tu = 0.0f;
                 blank.tv = 0.0f;
 

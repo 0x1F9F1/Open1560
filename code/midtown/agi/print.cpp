@@ -224,8 +224,8 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
         blank.y = 0.0f;
         blank.z = 0.0f;
         blank.w = 1.0f;
-        blank.specular = color;
-        blank.diffuse = 0xFFFFFFFF;
+        blank.color = color;
+        blank.specular = 0xFFFFFFFF;
         blank.tu = 0.0f;
         blank.tv = 0.0f;
 

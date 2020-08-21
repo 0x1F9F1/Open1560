@@ -158,7 +158,7 @@ i32 agiGLPipeline::BeginGfx()
     text_color_model_ = alpha_color_model_;
 
     glDisable(GL_CULL_FACE);
-    glEnable(GL_COLOR_MATERIAL);
+    // glEnable(GL_COLOR_MATERIAL);
 
     agiCurState.SetBlendSet(agiBlendSet::SrcAlpha_InvSrcAlpha);
     agiCurState.SetTexturePerspective(true);
@@ -166,14 +166,6 @@ i32 agiGLPipeline::BeginGfx()
 
     rasterizer_ = MakeRc<agiGLRasterizer>(this);
     renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
-
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-
-    glOrtho(0.0, static_cast<GLdouble>(width_), 0.0, static_cast<GLdouble>(height_), -1.0, 1.0);
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
 
     // glViewport(0, 0, width_, height_);
     glViewport(0, 0, horz_res_, vert_res_);
@@ -292,8 +284,8 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     blank.y = 0.0f;
     blank.z = 0.0f;
     blank.w = 1.0f;
+    blank.color = 0xFFFFFFFF;
     blank.specular = 0xFFFFFFFF;
-    blank.diffuse = 0xFFFFFFFF;
     blank.tu = 0.0f;
     blank.tv = 0.0f;
 
@@ -367,8 +359,8 @@ void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
     blank.y = 0.0f;
     blank.z = 0.0f;
     blank.w = 1.0f;
-    blank.specular = color;
-    blank.diffuse = 0xFFFFFFFF;
+    blank.color = color | 0xFF000000;
+    blank.specular = 0xFFFFFFFF;
     blank.tu = 0.0f;
     blank.tv = 0.0f;
 

@@ -41,5 +41,16 @@ public:
     void Card(i32 i0, i32 i1) override;
     void Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) override;
 
-    static void FlushState();
+    void FlushState();
+
+private:
+    void SetVertices(agiVtx* vertices, i32 vertex_count);
+    void Draw(u16* indices, i32 index_count);
+
+    u32 vbo_ {0};
+    u32 ibo_ {0};
+    u32 vao_ {0};
+    u32 shader_ {0};
+    u32 white_texture_ {0};
+    u32 uniform_alpha_ref_ {0};
 };

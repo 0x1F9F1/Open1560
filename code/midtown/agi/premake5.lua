@@ -55,4 +55,5 @@ arts_component "agi"
 
         "rgba.h",
         "agilib.h",
+        "vertex.h",
     }

@@ -63,9 +63,13 @@
     0x9095F0 | class Matrix44 Identity | ?Identity@@3VMatrix44@@A
 */
 
+#include "vector4.h"
+
 class Matrix44
 {
 public:
+    constexpr Matrix44() = default;
+
     // 0x56E500 | ??0Matrix44@@QAE@ABVMatrix34@@@Z
     ARTS_IMPORT Matrix44(class Matrix34 const& arg1);
 
@@ -138,7 +142,10 @@ public:
     // 0x570380 | ?Transpose@Matrix44@@QBE?AV1@XZ
     ARTS_IMPORT class Matrix44 Transpose();
 
-    u8 gap0[0x40];
+    Vector4 m0;
+    Vector4 m1;
+    Vector4 m2;
+    Vector4 m3;
 };
 
 check_size(Matrix44, 0x40);
