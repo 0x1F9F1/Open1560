@@ -31,7 +31,6 @@
 
 #include <charconv>
 
-#include <DbgHelp.h>
 #include <dinput.h>
 
 #include <mem/module.h>
@@ -271,13 +270,7 @@ static std::size_t InitExportHooks(HMODULE instance)
 
                 if (target != 0)
                 {
-                    char undName[256];
-
-                    const char* function_name =
-                        UnDecorateSymbolName(hook_name, undName, std::size(undName), UNDNAME_NAME_ONLY) ? undName
-                                                                                                        : hook_name;
-
-                    create_hook(function_name, "", target, address);
+                    create_hook(hook_name, "", target, address);
 
                     ++total;
                 }
