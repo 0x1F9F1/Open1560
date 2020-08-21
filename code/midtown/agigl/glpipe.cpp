@@ -78,6 +78,43 @@ typedef BOOL(WINAPI* PFNWGLSWAPINTERVALEXTPROC)(int interval);
 
 PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
 
+static const char* GetDebugTypeString(GLenum value)
+{
+    switch (value)
+    {
+        case GL_DEBUG_TYPE_ERROR: return "Error";
+        case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR: return "Deprecated Behaviour";
+        case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR: return "Undefined Behaviour";
+        case GL_DEBUG_TYPE_PORTABILITY: return "Portability";
+        case GL_DEBUG_TYPE_PERFORMANCE: return "Performance";
+        case GL_DEBUG_TYPE_OTHER: return "Other";
+        case GL_DEBUG_TYPE_MARKER: return "Marker";
+        case GL_DEBUG_TYPE_PUSH_GROUP: return "Push Group";
+        case GL_DEBUG_TYPE_POP_GROUP: return "Pop Group";
+
+        default: return "Invalid";
+    }
+}
+
+static i32 GetDebugSeverityPriority(GLenum value)
+{
+    switch (value)
+    {
+        case GL_DEBUG_SEVERITY_HIGH: return 2;
+        case GL_DEBUG_SEVERITY_MEDIUM: return 1;
+        case GL_DEBUG_SEVERITY_LOW: return 0;
+        case GL_DEBUG_SEVERITY_NOTIFICATION: return 0;
+
+        default: return 2;
+    }
+}
+
+static void GLAPIENTRY DebugMessageCallback([[maybe_unused]] GLenum source, GLenum type, [[maybe_unused]] GLuint id,
+    GLenum severity, [[maybe_unused]] GLsizei length, const GLchar* message, [[maybe_unused]] const void* userParam)
+{
+    Printerf(GetDebugSeverityPriority(severity), "GL Message: %X %s: %s", severity, GetDebugTypeString(type), message);
+}
+
 i32 agiGLPipeline::BeginGfx()
 {
     if (gfx_started_)
@@ -133,6 +170,13 @@ i32 agiGLPipeline::BeginGfx()
 
     if (gladLoadGL() != 1)
         Quitf("Failed to load GLAD");
+
+    if (glDebugMessageCallback)
+    {
+        glEnable(GL_DEBUG_OUTPUT);
+
+        glDebugMessageCallback(DebugMessageCallback, 0);
+    }
 
     wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) wglGetProcAddress("wglSwapIntervalEXT");
 

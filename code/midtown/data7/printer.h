@@ -46,6 +46,8 @@
 
 #include <cstdarg>
 
+void Printerf(i32 level, ARTS_FORMAT_STRING char const* format, ...);
+
 // 0x576C70 | ?Displayf@@YAXPBDZZ
 void Displayf(ARTS_FORMAT_STRING char const* format, ...);
 

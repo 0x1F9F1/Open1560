@@ -28,6 +28,14 @@ define_dummy_symbol(data7_printer);
 #include "machname.h"
 #include "memory/stack.h"
 
+void Printerf(i32 level, ARTS_FORMAT_STRING char const* format, ...)
+{
+    std::va_list va;
+    va_start(va, format);
+    Printer(level, format, va);
+    va_end(va);
+}
+
 void Displayf(ARTS_FORMAT_STRING char const* format, ...)
 {
     std::va_list va;
