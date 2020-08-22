@@ -121,7 +121,7 @@ i32 agiGLRasterizer::BeginGfx()
     glEnableVertexAttribArray(3);
 
     u32 vs = CompileShader(GL_VERTEX_SHADER, R"(
-#version 150
+#version 140
 
 in vec4 in_Position;
 in vec4 in_Color;
@@ -144,7 +144,7 @@ void main()
 )");
 
     u32 fs = CompileShader(GL_FRAGMENT_SHADER, R"(
-#version 150
+#version 140
 
 in vec4 frag_Color;
 in vec4 frag_Specular;
