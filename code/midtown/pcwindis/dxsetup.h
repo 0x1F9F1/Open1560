@@ -47,7 +47,12 @@
 ARTS_IMPORT i32 ARTS_STDCALL MultiMonCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4, void* arg5);
 
 // 0x575360 | ?dxiConfig@@YAXHPAPAD@Z
-ARTS_IMPORT void dxiConfig(i32 arg1, char** arg2);
+#ifdef ARTS_ENABLE_OPENGL
+ARTS_EXPORT
+#else
+ARTS_IMPORT
+#endif
+void dxiConfig(i32 argc, char** argv);
 
 // 0x90A560 | ?dxiCpuSpeed@@3HA
 ARTS_IMPORT extern i32 dxiCpuSpeed;

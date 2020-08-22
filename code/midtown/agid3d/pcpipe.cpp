@@ -22,7 +22,9 @@ define_dummy_symbol(agid3d_pcpipe);
 
 #include "agi/error.h"
 
-#include "d3drpipe.h"
+#ifndef ARTS_DISABLE_DDRAW
+#    include "d3drpipe.h"
+#endif
 
 #ifdef ARTS_ENABLE_OPENGL
 #    include "agigl/glpipe.h"
@@ -33,7 +35,13 @@ static mem::cmd_param PARAM_glpipe {"glpipe"};
 Owner<agiPipeline> d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 {
 #ifdef ARTS_ENABLE_OPENGL
-    if (PARAM_glpipe.get_or(false))
+    if (
+#    ifdef ARTS_DISABLE_DDRAW
+        true
+#    else
+        PARAM_glpipe.get_or(false)
+#    endif
+    )
     {
         Ptr<agiGLPipeline> result = MakeUnique<agiGLPipeline>();
         result->Init();
@@ -42,8 +50,10 @@ Owner<agiPipeline> d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]]
     else
 #endif
     {
+#ifndef ARTS_DISABLE_DDRAW
         Ptr<agiD3DRPipeline> result = MakeUnique<agiD3DRPipeline>();
         result->Init();
         return AsOwner(result);
+#endif
     }
 }

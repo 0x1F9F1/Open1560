@@ -33,17 +33,12 @@ i32 dxiResGetRecommended(i32 renderer, [[maybe_unused]] i32 cpu_speed)
     if (info.Type == 0)
         return dxiResClosestMatch(renderer, 640, 480);
 
-    bool voodoo = std::strncmp(info.Name, "dgVoodoo", 8) == 0;
-
     i32 best = 0;
     i32 largest = 0;
 
     for (i32 i = 0; i < info.ResCount; ++i)
     {
         dxiResolution& res = info.Resolutions[i];
-
-        if (!voodoo && (res.uWidth >= 2048 || res.uHeight >= 2048))
-            continue;
 
         if (i32 size = res.uWidth * res.uHeight; size > largest)
         {

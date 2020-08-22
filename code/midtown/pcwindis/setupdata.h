@@ -46,7 +46,7 @@ check_size(dxiResolution, 8);
 struct dxiRendererInfo_t
 {
     b32 Valid;
-    i32 CurrentIndex;
+    i32 Valid2;
     i32 Hardware2;
     i32 field_C;
     b32 SmoothAlpha;
@@ -56,6 +56,7 @@ struct dxiRendererInfo_t
     b32 TexturePalette;
     b32 HaveMipmaps;
 
+    // 0x1 | Use Software Renderer
     // 0x2 | TextureQuality = 0, FogDistance = 450
     // 0x4 | PixelFog
     // 0x4 | NoColorKey

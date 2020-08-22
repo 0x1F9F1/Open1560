@@ -26,8 +26,6 @@ define_dummy_symbol(pcwindis_dxinit);
 #include "pcwindis.h"
 #include "setupdata.h"
 
-// #define ARTS_DISABLE_DDRAW
-
 template <typename T>
 inline void SafeRelease(T*& ptr)
 {
@@ -160,7 +158,6 @@ void dxiShutdown()
     SafeRelease(lpDI);
 
 #ifndef ARTS_DISABLE_DDRAW
-
     dxiDirectDrawSurfaceDestroy();
     dxiRestoreDisplayMode();
 

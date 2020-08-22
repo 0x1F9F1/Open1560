@@ -19,10 +19,12 @@
 define_dummy_symbol(pcwindis_dxsetup);
 
 #include "dxsetup.h"
-#include "setupdata.h"
 
-static mem::cmd_param PARAM_min_aspect {"minaspect"};
-static mem::cmd_param PARAM_max_aspect {"maxaspect"};
+#include "data7/machname.h"
+#include "data7/speed.h"
+#include "data7/timer.h"
+#include "mmui/graphics.h"
+#include "setupdata.h"
 
 // 0x576000 | ?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z
 ARTS_IMPORT /*static*/ void AddRenderer(struct IDirectDraw4* arg1, struct _GUID* arg2, char* arg3);
@@ -56,6 +58,9 @@ ARTS_IMPORT /*static*/ u32 GetSpecialFlags(u32 arg1, u32 arg2);
 
 // 0x575A10 | ?LockScreen@@YAJPAUIDirectDraw4@@@Z
 ARTS_IMPORT /*static*/ i32 LockScreen(struct IDirectDraw4* arg1);
+
+static mem::cmd_param PARAM_min_aspect {"minaspect"};
+static mem::cmd_param PARAM_max_aspect {"maxaspect"};
 
 // 0x575F40 | ?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z
 ARTS_EXPORT /*static*/ long WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
@@ -95,6 +100,172 @@ ARTS_IMPORT /*static*/ i32 TestResolution(struct IDirectDraw4* arg1, struct dxiR
 
 // 0x575AD0 | ?UnlockScreen@@YAXXZ
 ARTS_IMPORT /*static*/ void UnlockScreen();
+
+#ifdef ARTS_ENABLE_OPENGL
+static mem::cmd_param PARAM_config {"config"};
+
+static BOOL CALLBACK EnumMonitorCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
+    [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
+{
+    if (dxiRendererCount >= static_cast<isize>(std::size(dxiInfo)))
+        return FALSE;
+
+    MONITORINFOEXA iMonitor {sizeof(MONITORINFOEXA)};
+
+    if (!GetMonitorInfoA(hMonitor, &iMonitor))
+        return TRUE;
+
+    dxiRendererInfo_t& info = dxiInfo[dxiRendererCount];
+
+    info = {};
+
+    info.Valid = true;
+    info.Valid2 = true;
+    info.Hardware2 = true;
+    info.field_C = 0;
+
+    info.SmoothAlpha = true;
+    info.AdditiveBlending = true;
+    info.VertexFog = true;
+    info.MultiTexture = true;
+    info.TexturePalette = true;
+    info.HaveMipmaps = true;
+    info.SpecialFlags = 0;
+
+    arts_strcpy(info.Name, iMonitor.szDevice);
+
+    info.InterfaceGuid = {};
+    info.DriverGuid = {};
+
+    info.Type = 2;
+
+    info.ResCount = 0;
+    info.ResChoice = 0;
+
+    Displayf("Renderer: '%s'", info.Name);
+
+    DEVMODEA dev_mode;
+
+    for (DWORD i = 0; EnumDisplaySettingsA(iMonitor.szDevice, i, &dev_mode); ++i)
+    {
+        if (info.ResCount >= static_cast<isize>(std::size(info.Resolutions)))
+            break;
+
+        if (dev_mode.dmBitsPerPel != 32)
+            continue;
+
+        if (dev_mode.dmDisplayFlags & DM_INTERLACED)
+            continue;
+
+        if (dev_mode.dmPelsWidth < 640)
+            continue;
+
+        if (dev_mode.dmPelsHeight < 480)
+            continue;
+
+        if (f32 ar = static_cast<f32>(dev_mode.dmPelsWidth) / static_cast<f32>(dev_mode.dmPelsHeight);
+            ar < PARAM_min_aspect.get_or<f32>(1.6f) || ar > PARAM_max_aspect.get_or<f32>(2.4f))
+            continue;
+
+        bool exists = false;
+
+        for (i32 j = 0; j < info.ResCount; ++j)
+        {
+            dxiResolution& res = info.Resolutions[j];
+
+            if (res.uWidth == dev_mode.dmPelsWidth && res.uHeight == dev_mode.dmPelsHeight)
+            {
+                exists = true;
+                break;
+            }
+        }
+
+        if (exists)
+            continue;
+
+        dxiResolution& res = info.Resolutions[info.ResCount];
+
+        res.uWidth = static_cast<u16>(dev_mode.dmPelsWidth);
+        res.uHeight = static_cast<u16>(dev_mode.dmPelsHeight);
+        res.uTexMem = 128 << 20;
+
+        Displayf("Resolution: %u x %u", res.uWidth, res.uHeight);
+
+        ++info.ResCount;
+    }
+
+    std::sort(
+        info.Resolutions, info.Resolutions + info.ResCount, [](const dxiResolution& lhs, const dxiResolution& rhs) {
+            if (lhs.uWidth != rhs.uWidth)
+                return lhs.uWidth < rhs.uWidth;
+
+            return lhs.uHeight < rhs.uHeight;
+        });
+
+    ++dxiRendererCount;
+
+    return TRUE;
+}
+
+static void EnumerateRenderers3()
+{
+    dxiRendererCount = 0;
+    dxiRendererChoice = 0;
+
+    EnumDisplayMonitors(NULL, NULL, EnumMonitorCallback, NULL);
+
+    if (dxiRendererCount == 0)
+        Quitf("No Valid Renderers");
+
+    for (i32 i = 0; i < dxiRendererCount; ++i)
+    {
+        dxiInfo[i].ResChoice = dxiResGetRecommended(i, dxiCpuSpeed);
+
+        AutoDetect(i, dxiInfo[i].ResChoice);
+    }
+}
+#endif
+
+#ifdef ARTS_ENABLE_OPENGL
+void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
+{
+    dxiCpuSpeed = ComputeCpuSpeed();
+
+    HDC hdc = GetDC(nullptr);
+    i32 horz_res = GetDeviceCaps(hdc, HORZRES);
+    i32 vert_res = GetDeviceCaps(hdc, VERTRES);
+    i32 bpp = GetDeviceCaps(hdc, BITSPIXEL);
+    ReleaseDC(nullptr, hdc);
+
+    char name[64];
+    GetMachineName(name, std::size(name));
+    Displayf("Machine: %s; Desktop: %dx%d, %d bpp", name, horz_res, vert_res, bpp);
+
+    bool redetect = PARAM_config.get_or(false);
+
+    if (dxiReadConfigFile() && !redetect)
+    {
+        // TODO
+    }
+    else
+    {
+        redetect = true;
+    }
+
+    if (redetect)
+    {
+        Timer detect_time;
+        EnumerateRenderers3();
+        Displayf("DETECT TIME: %f s", detect_time.Time());
+
+        dxiWriteConfigFile();
+
+        AutoDetect(-1, -1);
+    }
+
+    dxiRendererChoice = 0;
+}
+#endif
 
 run_once([] {
     auto_hook(0x575FD0, EnumZ);
