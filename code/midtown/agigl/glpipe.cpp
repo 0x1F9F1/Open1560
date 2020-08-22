@@ -113,7 +113,11 @@ static i32 GetDebugSeverityPriority(GLenum value)
 static void GLAPIENTRY DebugMessageCallback([[maybe_unused]] GLenum source, GLenum type, [[maybe_unused]] GLuint id,
     GLenum severity, [[maybe_unused]] GLsizei length, const GLchar* message, [[maybe_unused]] const void* userParam)
 {
-    Printerf(GetDebugSeverityPriority(severity), "GL Message: %X %s: %s", severity, GetDebugTypeString(type), message);
+    if (agiVerbose)
+    {
+        Printerf(
+            GetDebugSeverityPriority(severity), "GL Message: %X %s: %s", severity, GetDebugTypeString(type), message);
+    }
 }
 
 i32 agiGLPipeline::BeginGfx()
@@ -174,12 +178,15 @@ i32 agiGLPipeline::BeginGfx()
 
     Displayf("%d pixel formats... (we picked #%d)", num_formats, format);
 
-    for (i32 i = 1; i <= num_formats; ++i)
+    if (agiVerbose)
     {
-        DescribePixelFormat(window_dc_, i, sizeof(pfd), &pfd);
+        for (i32 i = 1; i <= num_formats; ++i)
+        {
+            DescribePixelFormat(window_dc_, i, sizeof(pfd), &pfd);
 
-        Displayf("%d. Flags %x [%s] colorbits=%d depthbits=%d", i, pfd.dwFlags, PixelFormatFlagsToString(pfd.dwFlags),
-            pfd.cColorBits, pfd.cDepthBits);
+            Displayf("%d. Flags %x [%s] colorbits=%d depthbits=%d", i, pfd.dwFlags,
+                PixelFormatFlagsToString(pfd.dwFlags), pfd.cColorBits, pfd.cDepthBits);
+        }
     }
 
     gl_context_ = wglCreateContext(window_dc_);
