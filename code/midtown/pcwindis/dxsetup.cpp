@@ -20,7 +20,6 @@ define_dummy_symbol(pcwindis_dxsetup);
 
 #include "dxsetup.h"
 
-#include "data7/machname.h"
 #include "data7/speed.h"
 #include "data7/timer.h"
 #include "mmui/graphics.h"
@@ -144,6 +143,9 @@ static BOOL CALLBACK EnumMonitorCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
 
     Displayf("Renderer: '%s'", info.Name);
 
+    f32 min_aspect = PARAM_min_aspect.get_or<f32>(1.6f);
+    f32 max_aspect = PARAM_max_aspect.get_or<f32>(2.4f);
+
     DEVMODEA dev_mode;
 
     for (DWORD i = 0; EnumDisplaySettingsA(iMonitor.szDevice, i, &dev_mode); ++i)
@@ -164,7 +166,7 @@ static BOOL CALLBACK EnumMonitorCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
             continue;
 
         if (f32 ar = static_cast<f32>(dev_mode.dmPelsWidth) / static_cast<f32>(dev_mode.dmPelsHeight);
-            ar < PARAM_min_aspect.get_or<f32>(1.6f) || ar > PARAM_max_aspect.get_or<f32>(2.4f))
+            ar < min_aspect || ar > max_aspect)
             continue;
 
         bool exists = false;
@@ -194,6 +196,9 @@ static BOOL CALLBACK EnumMonitorCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
         ++info.ResCount;
     }
 
+    if (info.ResCount == 0)
+        return TRUE;
+
     std::sort(
         info.Resolutions, info.Resolutions + info.ResCount, [](const dxiResolution& lhs, const dxiResolution& rhs) {
             if (lhs.uWidth != rhs.uWidth)
@@ -201,6 +206,14 @@ static BOOL CALLBACK EnumMonitorCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
 
             return lhs.uHeight < rhs.uHeight;
         });
+
+    if ((iMonitor.dwFlags & MONITORINFOF_PRIMARY) == MONITORINFOF_PRIMARY)
+    {
+        Displayf("Display '%s' (%i) is primary", info.Name, dxiRendererCount);
+
+        if (dxiRendererChoice == -1)
+            dxiRendererChoice = dxiRendererCount;
+    }
 
     ++dxiRendererCount;
 
@@ -210,12 +223,15 @@ static BOOL CALLBACK EnumMonitorCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
 static void EnumerateRenderers3()
 {
     dxiRendererCount = 0;
-    dxiRendererChoice = 0;
+    dxiRendererChoice = -1;
 
     EnumDisplayMonitors(NULL, NULL, EnumMonitorCallback, NULL);
 
     if (dxiRendererCount == 0)
         Quitf("No Valid Renderers");
+
+    if (dxiRendererChoice == -1)
+        dxiRendererChoice = 0;
 
     for (i32 i = 0; i < dxiRendererCount; ++i)
     {
@@ -231,21 +247,11 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 {
     dxiCpuSpeed = ComputeCpuSpeed();
 
-    HDC hdc = GetDC(nullptr);
-    i32 horz_res = GetDeviceCaps(hdc, HORZRES);
-    i32 vert_res = GetDeviceCaps(hdc, VERTRES);
-    i32 bpp = GetDeviceCaps(hdc, BITSPIXEL);
-    ReleaseDC(nullptr, hdc);
-
-    char name[64];
-    GetMachineName(name, std::size(name));
-    Displayf("Machine: %s; Desktop: %dx%d, %d bpp", name, horz_res, vert_res, bpp);
-
     bool redetect = PARAM_config.get_or(false);
 
     if (dxiReadConfigFile() && !redetect)
     {
-        // TODO
+        // TODO: Check for monitor/resolution changes
     }
     else
     {
@@ -262,8 +268,6 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 
         AutoDetect(-1, -1);
     }
-
-    dxiRendererChoice = 0;
 }
 #endif
 
