@@ -19,3 +19,28 @@
 define_dummy_symbol(agiworld_meshset);
 
 #include "meshset.h"
+
+#include "agi/texdef.h"
+
+agiMeshSet::agiMeshSet() = default;
+
+agiMeshSet::~agiMeshSet()
+{
+    if (textures_)
+    {
+        for (i32 i = 0; i < variation_count_; ++i)
+        {
+            for (i32 j = 1; j < texture_count_; ++j)
+            {
+                if (agiTexDef* texture = textures_[i][j])
+                    texture->Release();
+            }
+
+            delete[] textures_[i];
+        }
+
+        delete[] textures_;
+    }
+
+    // TODO: Should this free the other fields?
+}

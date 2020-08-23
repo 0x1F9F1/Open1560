@@ -53,13 +53,13 @@ workspace "Open1560"
         optimize "On"
 
     filter "configurations:Final"
-        optimize "Full"
+        optimize "On"
         defines { "NDEBUG", "ARTS_FINAL" }
         flags { "LinkTimeOptimization", "NoIncrementalLink" }
 
     filter "platforms:Win32"
         architecture "x86"
-        vectorextensions "AVX"
+        vectorextensions "SSE2"
 
     -- filter "platforms:Win64"
     --     architecture "x86_64"

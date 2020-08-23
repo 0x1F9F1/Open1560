@@ -34,14 +34,20 @@
     0x514BC0 | public: int __thiscall agiMeshSet::IsFullyResident(int) | ?IsFullyResident@agiMeshSet@@QAEHH@Z
 */
 
+#include "data7/pager.h"
+
+class Vector2;
+class Vector3;
+class Vector4;
+
 class agiMeshSet
 {
 public:
     // 0x5147D0 | ??0agiMeshSet@@QAE@XZ
-    ARTS_IMPORT agiMeshSet();
+    ARTS_EXPORT agiMeshSet();
 
     // 0x5147F0 | ??1agiMeshSet@@QAE@XZ
-    ARTS_IMPORT ~agiMeshSet();
+    ARTS_EXPORT ~agiMeshSet();
 
     // 0x502BD0 | ?BinaryLoad@agiMeshSet@@QAEXPAVStream@@@Z | agiworld:meshload
     ARTS_IMPORT void BinaryLoad(class Stream* arg1);
@@ -332,7 +338,42 @@ private:
     // 0x503180 | ?PageOutCallback@agiMeshSet@@CAXPAXH@Z | agiworld:meshload
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
 
-    u8 gap0[0x64];
+    Vector3* vertices_ {nullptr};
+    u8* normals_ {nullptr};
+
+    // Vector3[8]
+    // min.x, min.y, min.z
+    // max.x, min.y, min.z
+    // max.x, min.y, max.z
+    // min.x, min.y, max.z
+    // min.x, max.y, min.z
+    // max.x, max.y, min.z
+    // max.x, max.y, max.z
+    // min.x, max.y, max.z
+    Vector3* bounding_box_ {nullptr};
+
+    Vector2* tex_coords_ {nullptr};
+    u32* colors_ {nullptr};
+    Vector4* planes_ {nullptr};
+    PagerInfo_t pager_ {};
+    i32 handle_ {0};
+    u16* vertex_indices_ {nullptr};
+    u16* surface_indices_ {nullptr};
+    u8* texture_indices_ {nullptr};
+    f32 magnitude_ {0.0f};
+    f32 magnitude_sqr_ {0.0f};
+    f32 bounding_box_magnitude_ {0.0f};
+    i32 vertex_count_ {0};
+    i32 adjunct_count_ {0};
+    i32 surface_count_ {0};
+    i32 indices_count_ {0};
+    u8 texture_count_ {0};
+    u8 variation_count_ {0};
+    u8 flags_ {0};
+    u8 resident_ {0};
+    u32 field_58 {0};
+    agiTexDef*** textures_ {nullptr};
+    u32 ref_count_ {1};
 };
 
 check_size(agiMeshSet, 0x64);
