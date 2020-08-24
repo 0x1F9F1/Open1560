@@ -22,8 +22,10 @@ define_dummy_symbol(agiworld_mrkni);
 
 #include "agi/pipeline.h"
 #include "agi/viewport.h"
+#include "data7/b2f.h"
 #include "data7/mmx.h"
 #include "data7/utimer.h"
+#include "vector7/matrix34.h"
 
 #include <xmmintrin.h>
 

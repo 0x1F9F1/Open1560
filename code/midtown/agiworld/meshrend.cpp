@@ -21,7 +21,9 @@ define_dummy_symbol(agiworld_meshrend);
 #include "meshrend.h"
 
 #include "agi/pipeline.h"
+#include "data7/b2f.h"
 #include "data7/utimer.h"
+#include "vector7/matrix34.h"
 
 // 0x506380 | ?ClipNX@@YIXAAUCV@@0@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNX(struct CV& arg1, struct CV& arg2);
@@ -88,3 +90,35 @@ void agiMeshSet::ToScreen(u8* in_codes, Vector4* verts, i32 count)
     }
 }
 #endif
+
+static u8 CalculateFog(f32 w, f32 fog)
+{
+    return 0xFF - FloatToByte(std::min<f32>(w * fog, 255.0f));
+}
+
+void agiMeshSet::Transform(class Vector4* output, class Vector3* input, i32 count)
+{
+    STATS.VertsXfrm += count;
+
+    if (FogValue == 0.0f)
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            output[i].x = M.m0.x * input[i].x + M.m1.x * input[i].y + M.m2.x * input[i].z + M.m3.x;
+            output[i].y = M.m0.y * input[i].x + M.m1.y * input[i].y + M.m2.y * input[i].z + M.m3.y;
+            output[i].w = M.m0.z * input[i].x + M.m1.z * input[i].y + M.m2.z * input[i].z + M.m3.z;
+            output[i].z = output[i].w * ProjZZ + ProjZW;
+        }
+    }
+    else
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            output[i].x = M.m0.x * input[i].x + M.m1.x * input[i].y + M.m2.x * input[i].z + M.m3.x;
+            output[i].y = M.m0.y * input[i].x + M.m1.y * input[i].y + M.m2.y * input[i].z + M.m3.y;
+            output[i].w = M.m0.z * input[i].x + M.m1.z * input[i].y + M.m2.z * input[i].z + M.m3.z;
+            output[i].z = output[i].w * ProjZZ + ProjZW;
+            fogout[i] = CalculateFog(output[i].w, FogValue);
+        }
+    }
+}

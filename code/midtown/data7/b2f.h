@@ -27,17 +27,12 @@
 // 0x662478 | ?ByteToFloatTable@@3PAMA
 extern const f32 ByteToFloatTable[256];
 
-inline f32 b2f(u8 value)
+ARTS_FORCEINLINE f32 ByteToFloat(u8 value)
 {
-    return ByteToFloatTable[value];
+    return static_cast<f32>(value);
 }
 
-inline u32 f2u(f32 value)
+ARTS_FORCEINLINE u8 FloatToByte(f32 value)
 {
-    return mem::bit_cast<u32>(value);
-}
-
-inline u8 f2b(f32 value)
-{
-    return static_cast<u8>(f2u(value + 12582912.0f));
+    return static_cast<u8>(value);
 }

@@ -263,7 +263,7 @@ protected:
     ARTS_EXPORT static void ARTS_FASTCALL ToScreen(u8* in_codes, class Vector4* verts, i32 count);
 
     // 0x5050F0 | ?Transform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    ARTS_IMPORT static void ARTS_FASTCALL Transform(class Vector4* arg1, class Vector3* arg2, i32 arg3);
+    ARTS_EXPORT static void ARTS_FASTCALL Transform(class Vector4* output, class Vector3* input, i32 count);
 
     // 0x5055E0 | ?TransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
     ARTS_IMPORT static u32 ARTS_FASTCALL TransformOutcode(u8* arg1, class Vector4* arg2, class Vector3* arg3, i32 arg4);
