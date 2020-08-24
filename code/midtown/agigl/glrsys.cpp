@@ -37,7 +37,9 @@ static u16 VtxIndices[1024] {};
 void agiGLRasterizer::EndGfx()
 {
     glDeleteBuffers(1, &vbo_);
+#ifdef ARTS_GL_USE_INDEX_BUFFER
     glDeleteBuffers(1, &ibo_);
+#endif
     glDeleteVertexArrays(1, &vao_);
     glDeleteProgram(shader_);
     glDeleteTextures(1, &white_texture_);
@@ -93,16 +95,21 @@ static u32 CompileShader(u32 type, const char* src)
 
 i32 agiGLRasterizer::BeginGfx()
 {
-    glGenVertexArrays(1, &vao_); // Vertex Array
-    glGenBuffers(1, &vbo_);      // Vertex Buffer
-    glGenBuffers(1, &ibo_);      // Index Buffer
+    glGenVertexArrays(1, &vao_);
+    glGenBuffers(1, &vbo_);
+
+#ifdef ARTS_GL_USE_INDEX_BUFFER
+    glGenBuffers(1, &ibo_);
+#endif
 
     glBindVertexArray(vao_);
     glBindBuffer(GL_ARRAY_BUFFER, vbo_);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_);
-
     glBufferData(GL_ARRAY_BUFFER, 0xFFFF * sizeof(agiScreenVtx), nullptr, GL_DYNAMIC_DRAW);
+
+#ifdef ARTS_GL_USE_INDEX_BUFFER
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0xFFFF * sizeof(u16), nullptr, GL_DYNAMIC_DRAW);
+#endif
 
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(agiScreenVtx),
         reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x0))); // xyzw
@@ -587,6 +594,10 @@ void agiGLRasterizer::SetVertices(agiVtx* vertices, i32 vertex_count)
     ARTS_TIMED(agiRasterization);
 
     glBufferSubData(GL_ARRAY_BUFFER, 0, vertex_count * sizeof(agiScreenVtx), vertices);
+
+#ifdef ARTS_GL_USE_DRAW_RANGE
+    vertex_count_ = vertex_count;
+#endif
 }
 
 void agiGLRasterizer::Draw(u16* indices, i32 index_count)
@@ -595,7 +606,24 @@ void agiGLRasterizer::Draw(u16* indices, i32 index_count)
 
     ++STATS.GeomCalls;
 
+#ifdef ARTS_GL_USE_INDEX_BUFFER
     glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, index_count * sizeof(u16), indices);
+#endif
 
-    glDrawElements(UseTriangles ? GL_TRIANGLES : GL_LINES, index_count, GL_UNSIGNED_SHORT, 0);
+#ifdef ARTS_GL_USE_DRAW_RANGE
+    glDrawRangeElements
+#else
+    glDrawElements
+#endif
+        (UseTriangles ? GL_TRIANGLES : GL_LINES,
+#ifdef ARTS_GL_USE_DRAW_RANGE
+            0, vertex_count_,
+#endif
+            index_count, GL_UNSIGNED_SHORT,
+#ifdef ARTS_GL_USE_INDEX_BUFFER
+            0
+#else
+            indices
+#endif
+        );
 }
