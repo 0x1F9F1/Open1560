@@ -32,6 +32,8 @@
     0x520720 | void __cdecl DebugLog(int,void *,int) | ?DebugLog@@YAXHPAXH@Z
 */
 
+// #define ARTS_NO_EXCEPTION_CATCHING
+
 // 0x520720 | ?DebugLog@@YAXHPAXH@Z
 ARTS_IMPORT void DebugLog(i32 arg1, void* arg2, i32 arg3);
 
@@ -64,7 +66,7 @@ void StackTraceback(i32 depth, i32 skipped);
 
 i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception);
 
-#if 1
+#ifndef ARTS_NO_EXCEPTION_CATCHING
 #    define EXCEPTION_BEGIN \
         __try               \
         {

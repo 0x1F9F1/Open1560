@@ -120,6 +120,8 @@ static void GLAPIENTRY DebugMessageCallback([[maybe_unused]] GLenum source, GLen
     }
 }
 
+static mem::cmd_param PARMA_gldebug {"gldebug"};
+
 i32 agiGLPipeline::BeginGfx()
 {
     if (gfx_started_)
@@ -196,7 +198,7 @@ i32 agiGLPipeline::BeginGfx()
     if (gladLoadGL() != 1)
         Quitf("Failed to load GLAD");
 
-    if (glDebugMessageCallback)
+    if (PARMA_gldebug.get_or(false) && glDebugMessageCallback)
     {
         glEnable(GL_DEBUG_OUTPUT);
 
