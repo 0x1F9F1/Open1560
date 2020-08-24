@@ -30,6 +30,9 @@ define_dummy_symbol(midtown);
 #include "mmcityinfo/state.h"
 #include "pcwindis/dxinit.h"
 
+#include <mem/module.h>
+#include <mem/pattern.h>
+
 #include "core/minwin.h"
 
 // 0x402F20 | ?GameCloseCallback@@YAXXZ
@@ -136,6 +139,7 @@ ARTS_EXPORT int WINAPI MidtownMain(
 
 static mem::cmd_param PARAM_affinity {"affinity"};
 static mem::cmd_param PARAM_sync {"sync"};
+static mem::cmd_param PARAM_res_hack {"reshack"};
 
 void Application(i32 argc, char** argv)
 {
@@ -161,6 +165,38 @@ void Application(i32 argc, char** argv)
             if (!SynchronousMessageQueues)
             {
                 Warningf("For stability, recommend using -sync");
+            }
+        }
+
+        if (PARAM_res_hack.get_or(false))
+        {
+            wchar_t d3dim_path[MAX_PATH];
+            GetSystemDirectoryW(d3dim_path, std::size(d3dim_path));
+            wcscat_s(d3dim_path, L"\\d3dim.dll");
+
+            HMODULE d3dim = LoadLibraryW(d3dim_path);
+
+            if (d3dim)
+            {
+                mem::pattern res_pattern("B8 00 08 00 00 39");
+                mem::default_scanner res_scanner(res_pattern);
+
+                mem::module::nt(d3dim).enum_segments([&res_scanner](mem::region segment, mem::prot_flags prot) {
+                    if (prot & mem::prot_flags::X)
+                    {
+                        res_scanner(segment, [](mem::pointer addr) {
+                            create_patch("ResHack", "Removes 2048x2048 res limit", addr + 1, "\xFF\xFF\xFF\xFF", 4);
+
+                            return false;
+                        });
+                    }
+
+                    return false;
+                });
+            }
+            else
+            {
+                Displayf("ResHack - d3dim not found");
             }
         }
 

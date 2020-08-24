@@ -44,11 +44,11 @@ extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
 {
     if (DirectInputCreateA_Orig == nullptr)
     {
-        wchar_t system_directory[MAX_PATH];
-        GetSystemDirectoryW(system_directory, std::size(system_directory));
-        wcscat_s(system_directory, L"\\dinput.dll");
+        wchar_t dinput_path[MAX_PATH];
+        GetSystemDirectoryW(dinput_path, std::size(dinput_path));
+        wcscat_s(dinput_path, L"\\dinput.dll");
 
-        if (HMODULE dinput_dll = LoadLibraryW(system_directory))
+        if (HMODULE dinput_dll = LoadLibraryW(dinput_path))
         {
             Displayf("Loaded real dinput.dll at 0x%zX", reinterpret_cast<std::uintptr_t>(dinput_dll));
 
