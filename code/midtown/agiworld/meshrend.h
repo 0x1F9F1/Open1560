@@ -128,6 +128,10 @@
     0x73D3C4 | float MinCardSize | ?MinCardSize@@3MA
 */
 
+#include "meshset.h"
+
+#include "vector7/vector4.h"
+
 // 0x505990 | ?EyePlaneOutcode@@YAIPAEEAAVVector4@@PAVVector3@@H@Z | unused
 ARTS_IMPORT u32 EyePlaneOutcode(u8* arg1, u8 arg2, class Vector4& arg3, class Vector3* arg4, i32 arg5);
 
@@ -165,3 +169,14 @@ public:
 };
 
 check_size(agiMeshCardInfo, 0x10);
+
+inline void agiMeshSet::ClampToScreen(Vector4* vert)
+{
+    vert->x = std::min<f32>(vert->x, MaxX);
+    vert->y = std::min<f32>(vert->y, MaxY);
+    vert->z = std::min<f32>(vert->z, 1.0f);
+
+    vert->x = std::max<f32>(vert->x, MinX);
+    vert->y = std::max<f32>(vert->y, MinY);
+    vert->z = std::max<f32>(vert->z, 0.0f);
+}

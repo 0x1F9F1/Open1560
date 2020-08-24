@@ -1,3 +1,10 @@
+ARTS_ENABLE_KNI = true
+
+if ARTS_ENABLE_KNI then
+    project "*"
+        defines { "ARTS_ENABLE_KNI" }
+end
+
 arts_component "agiworld"
     files {
         -- "bone.cpp",
@@ -18,8 +25,6 @@ arts_component "agiworld"
         "meshsave.h",
         "meshset.cpp",
         "meshset.h",
-        "mrkni.cpp",
-        "mrkni.h",
         -- "packnorm.cpp",
         -- "packnorm.h",
         "quality.cpp",
@@ -31,3 +36,10 @@ arts_component "agiworld"
         "texsort.cpp",
         "texsort.h",
     }
+
+    if ARTS_ENABLE_KNI then
+        files {
+            "mrkni.cpp",
+            "mrkni.h",
+        }
+    end

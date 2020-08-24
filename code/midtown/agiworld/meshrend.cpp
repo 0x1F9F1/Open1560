@@ -20,6 +20,9 @@ define_dummy_symbol(agiworld_meshrend);
 
 #include "meshrend.h"
 
+#include "agi/pipeline.h"
+#include "data7/utimer.h"
+
 // 0x506380 | ?ClipNX@@YIXAAUCV@@0@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNX(struct CV& arg1, struct CV& arg2);
 
@@ -61,3 +64,27 @@ ARTS_IMPORT /*static*/ i32 FullClip(struct CV* arg1, struct CV* arg2, i32 arg3);
 
 // 0x506EA0 | ?ZClipOnly@@YAHPAUCV@@0H@Z
 ARTS_IMPORT /*static*/ i32 ZClipOnly(struct CV* arg1, struct CV* arg2, i32 arg3);
+
+#ifndef ARTS_ENABLE_KNI
+void agiMeshSet::ToScreen(u8* in_codes, Vector4* verts, i32 count)
+{
+    ARTS_TIMED(agiInvertTimer);
+
+    for (i32 i = 0; i < count; ++i)
+    {
+        if (in_codes[i] != 0x40)
+            continue;
+
+        Vector4* vert = &verts[i];
+
+        f32 const inv_w = 1.0f / vert->w;
+
+        vert->x = (vert->x * inv_w * HalfWidth) + OffsX;
+        vert->y = (vert->y * inv_w * HalfHeight) + OffsY;
+        vert->z = (vert->z * inv_w * DepthScale) + DepthOffset;
+        vert->w = inv_w;
+
+        ClampToScreen(vert);
+    }
+}
+#endif

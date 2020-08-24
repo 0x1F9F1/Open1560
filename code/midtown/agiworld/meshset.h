@@ -227,12 +227,21 @@ public:
     // 0x7210E4 | ?MirrorMode@agiMeshSet@@2HA | agiworld:meshrend
     ARTS_IMPORT static i32 MirrorMode;
 
+    // 0x01 | Clip -X
+    // 0x02 | Clip +X
+    // 0x04 | Clip -Z
+    // 0x08 | Clip +Z
+    // 0x10 | Clip -Y
+    // 0x20 | Clip +Y
+    // 0x40 | ToScreen
     // 0x719E50 | ?codes@agiMeshSet@@2PAEA | agiworld:meshrend
     ARTS_IMPORT static u8 codes[16384];
 
 protected:
     // 0x505E40 | ?ClipTri@agiMeshSet@@IAEXHHHH@Z | agiworld:meshrend
     ARTS_IMPORT void ClipTri(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+
+    static void ARTS_FASTCALL ClampToScreen(Vector4* vert);
 
     // 0x504730 | ?InitMtx@agiMeshSet@@KIXAAVagiViewParameters@@H@Z | agiworld:meshrend
     ARTS_IMPORT static void ARTS_FASTCALL InitMtx(class agiViewParameters& arg1, i32 arg2);
@@ -251,7 +260,7 @@ protected:
         u8* arg1, class Vector4* arg2, class Vector3* arg3, i32 arg4);
 
     // 0x516620 | ?ToScreen@agiMeshSet@@KIXPAEPAVVector4@@H@Z | agiworld:mrkni
-    ARTS_IMPORT static void ARTS_FASTCALL ToScreen(u8* arg1, class Vector4* arg2, i32 arg3);
+    ARTS_EXPORT static void ARTS_FASTCALL ToScreen(u8* in_codes, class Vector4* verts, i32 count);
 
     // 0x5050F0 | ?Transform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
     ARTS_IMPORT static void ARTS_FASTCALL Transform(class Vector4* arg1, class Vector3* arg2, i32 arg3);
@@ -316,6 +325,7 @@ protected:
     // 0x725140 | ?nextFacet@agiMeshSet@@1PAFA | agiworld:meshrend
     ARTS_IMPORT static i16 nextFacet[16384];
 
+    // Must be 16-byte aligned
     // 0x73EE30 | ?out@agiMeshSet@@1PAVVector4@@A | agiworld:mrkni
     ARTS_IMPORT static class Vector4 out[16384];
 
