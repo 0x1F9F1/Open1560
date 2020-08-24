@@ -139,7 +139,7 @@ static BOOL CALLBACK EnumMonitorCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     info.Type = 2;
 
     info.ResCount = 0;
-    info.ResChoice = 0;
+    info.ResChoice = -1;
 
     Displayf("Renderer: '%s'", info.Name);
 
@@ -215,6 +215,11 @@ static BOOL CALLBACK EnumMonitorCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
             dxiRendererChoice = dxiRendererCount;
     }
 
+    if (EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &dev_mode))
+    {
+        info.ResChoice = dxiResClosestMatch(dxiRendererCount, dev_mode.dmPelsWidth, dev_mode.dmPelsHeight);
+    }
+
     ++dxiRendererCount;
 
     return TRUE;
@@ -235,9 +240,12 @@ static void EnumerateRenderers3()
 
     for (i32 i = 0; i < dxiRendererCount; ++i)
     {
-        dxiInfo[i].ResChoice = dxiResGetRecommended(i, dxiCpuSpeed);
+        dxiRendererInfo_t& info = dxiInfo[dxiRendererCount];
 
-        AutoDetect(i, dxiInfo[i].ResChoice);
+        if (info.ResChoice == -1)
+            info.ResChoice = dxiResGetRecommended(i, dxiCpuSpeed);
+
+        AutoDetect(i, info.ResChoice);
     }
 }
 #endif
