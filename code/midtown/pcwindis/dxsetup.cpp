@@ -103,7 +103,7 @@ ARTS_IMPORT /*static*/ void UnlockScreen();
 #ifdef ARTS_ENABLE_OPENGL
 static mem::cmd_param PARAM_config {"config"};
 
-static BOOL CALLBACK EnumMonitorCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
+static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
     [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
 {
     if (dxiRendererCount >= static_cast<isize>(std::size(dxiInfo)))
@@ -225,12 +225,37 @@ static BOOL CALLBACK EnumMonitorCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     return TRUE;
 }
 
+static BOOL CALLBACK CountRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
+    [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
+{
+    MONITORINFOEXA iMonitor {sizeof(MONITORINFOEXA)};
+
+    if (!GetMonitorInfoA(hMonitor, &iMonitor))
+        return TRUE;
+
+    i32& count = *(i32*) (lParam);
+
+    for (i32 i = 0; i < dxiRendererCount; ++i)
+    {
+        if (std::strcmp(iMonitor.szDevice, dxiInfo[i].Name) == 0)
+        {
+            ++count;
+
+            return TRUE;
+        }
+    }
+
+    count = -1;
+
+    return FALSE;
+}
+
 static void EnumerateRenderers3()
 {
     dxiRendererCount = 0;
     dxiRendererChoice = -1;
 
-    EnumDisplayMonitors(NULL, NULL, EnumMonitorCallback, NULL);
+    EnumDisplayMonitors(NULL, NULL, AddRendererCallback, NULL);
 
     if (dxiRendererCount == 0)
         Quitf("No Valid Renderers");
@@ -257,13 +282,16 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 
     bool redetect = PARAM_config.get_or(false);
 
-    if (dxiReadConfigFile() && !redetect)
+    if (!redetect)
     {
-        // TODO: Check for monitor/resolution changes
-    }
-    else
-    {
-        redetect = true;
+        redetect = !dxiReadConfigFile();
+
+        if (!redetect)
+        {
+            i32 count = 0;
+            EnumDisplayMonitors(NULL, NULL, CountRendererCallback, (LPARAM) &count);
+            redetect = count != dxiRendererCount;
+        }
     }
 
     if (redetect)
