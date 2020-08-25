@@ -67,6 +67,30 @@ ARTS_IMPORT /*static*/ i32 FullClip(struct CV* arg1, struct CV* arg2, i32 arg3);
 // 0x506EA0 | ?ZClipOnly@@YAHPAUCV@@0H@Z
 ARTS_IMPORT /*static*/ i32 ZClipOnly(struct CV* arg1, struct CV* arg2, i32 arg3);
 
+#define ARTS_TRANSFORM_DOT                                                                  \
+    output[i].x = M.m0.x * input[i].x + M.m1.x * input[i].y + M.m2.x * input[i].z + M.m3.x; \
+    output[i].y = M.m0.y * input[i].x + M.m1.y * input[i].y + M.m2.y * input[i].z + M.m3.y; \
+    output[i].w = M.m0.z * input[i].x + M.m1.z * input[i].y + M.m2.z * input[i].z + M.m3.z; \
+    output[i].z = output[i].w * ProjZZ + ProjZW
+
+static inline u8 CalculateFog(f32 w, f32 fog)
+{
+    return ~FloatToByte(std::min<f32>(w * fog, 255.0f));
+}
+
+#define ARTS_TRANSFORM_FOG fogout[i] = CalculateFog(output[i].w, FogValue)
+
+#define ARTS_TRANSFORM_CODE                                                            \
+    f32 w_abs = std::abs(output[i].w);                                                 \
+    out_codes[i] = ClipMask &                                                          \
+        ((((w_abs - std::abs(output[i].x)) < 0.0f) << ((output[i].x < 0.0f) + 0)) |    \
+            (((w_abs - std::abs(output[i].y)) < 0.0f) << ((output[i].y < 0.0f) + 2)) | \
+            (((w_abs - std::abs(output[i].z)) < 0.0f) << ((output[i].z < 0.0f) + 4))); \
+    clip_or |= out_codes[i];                                                           \
+    clip_and &= out_codes[i];
+
+static extern_var(0x64A6D8, i32, ClipMask);
+
 #ifndef ARTS_ENABLE_KNI
 void agiMeshSet::ToScreen(u8* in_codes, Vector4* verts, i32 count)
 {
@@ -89,12 +113,6 @@ void agiMeshSet::ToScreen(u8* in_codes, Vector4* verts, i32 count)
         ClampToScreen(vert);
     }
 }
-#endif
-
-static u8 CalculateFog(f32 w, f32 fog)
-{
-    return 0xFF - FloatToByte(std::min<f32>(w * fog, 255.0f));
-}
 
 void agiMeshSet::Transform(class Vector4* output, class Vector3* input, i32 count)
 {
@@ -104,21 +122,45 @@ void agiMeshSet::Transform(class Vector4* output, class Vector3* input, i32 coun
     {
         for (i32 i = 0; i < count; ++i)
         {
-            output[i].x = M.m0.x * input[i].x + M.m1.x * input[i].y + M.m2.x * input[i].z + M.m3.x;
-            output[i].y = M.m0.y * input[i].x + M.m1.y * input[i].y + M.m2.y * input[i].z + M.m3.y;
-            output[i].w = M.m0.z * input[i].x + M.m1.z * input[i].y + M.m2.z * input[i].z + M.m3.z;
-            output[i].z = output[i].w * ProjZZ + ProjZW;
+            ARTS_TRANSFORM_DOT;
         }
     }
     else
     {
         for (i32 i = 0; i < count; ++i)
         {
-            output[i].x = M.m0.x * input[i].x + M.m1.x * input[i].y + M.m2.x * input[i].z + M.m3.x;
-            output[i].y = M.m0.y * input[i].x + M.m1.y * input[i].y + M.m2.y * input[i].z + M.m3.y;
-            output[i].w = M.m0.z * input[i].x + M.m1.z * input[i].y + M.m2.z * input[i].z + M.m3.z;
-            output[i].z = output[i].w * ProjZZ + ProjZW;
-            fogout[i] = CalculateFog(output[i].w, FogValue);
+            ARTS_TRANSFORM_DOT;
+            ARTS_TRANSFORM_FOG;
         }
     }
 }
+
+u32 agiMeshSet::TransformOutcode(u8* out_codes, class Vector4* output, class Vector3* input, i32 count)
+{
+    STATS.VertsOut += count;
+    STATS.VertsXfrm += count;
+
+    u8 clip_or = 0;
+    u8 clip_and = 0xFF;
+
+    if (FogValue == 0.0f)
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            ARTS_TRANSFORM_DOT;
+            ARTS_TRANSFORM_CODE;
+        }
+    }
+    else
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            ARTS_TRANSFORM_DOT;
+            ARTS_TRANSFORM_FOG;
+            ARTS_TRANSFORM_CODE;
+        }
+    }
+
+    return clip_or | (clip_and << 8);
+}
+#endif

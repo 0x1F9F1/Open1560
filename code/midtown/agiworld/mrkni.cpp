@@ -172,3 +172,122 @@ void agiMeshSet::ToScreen(u8* in_codes, Vector4* verts, i32 count)
         ClampToScreen(vert);
     }
 }
+
+#define ARTS_KNI_TRANSFORM_INIT                                                                                      \
+    const __m128 m0 = _mm_shuffle_ps(                                                                                \
+        _mm_load_ps(&M.m0.z), _mm_castsi128_ps(_mm_loadl_epi64((const __m128i*) &M.m0.x)), _MM_SHUFFLE(0, 1, 0, 0)); \
+    const __m128 m1 = _mm_shuffle_ps(                                                                                \
+        _mm_load_ps(&M.m1.z), _mm_castsi128_ps(_mm_loadl_epi64((const __m128i*) &M.m1.x)), _MM_SHUFFLE(0, 1, 0, 0)); \
+    const __m128 m2 = _mm_shuffle_ps(                                                                                \
+        _mm_load_ps(&M.m2.z), _mm_castsi128_ps(_mm_loadl_epi64((const __m128i*) &M.m2.x)), _MM_SHUFFLE(0, 1, 0, 0)); \
+    const __m128 m3 = _mm_shuffle_ps(                                                                                \
+        _mm_load_ps(&M.m3.z), _mm_castsi128_ps(_mm_loadl_epi64((const __m128i*) &M.m3.x)), _MM_SHUFFLE(0, 1, 0, 0)); \
+    const __m128 zz = _mm_load_ss(&ProjZZ);                                                                          \
+    const __m128 zw = _mm_load_ss(&ProjZW)
+
+#define ARTS_KNI_TRANSFORM_FOG_INIT            \
+    const __m128 fog = _mm_load_ss(&FogValue); \
+    const __m128 fog_max = _mm_set_ss(255.0f);
+
+#define ARTS_KNI_TRANSFORM_DOT                                                                                       \
+    const __m128 input_low = _mm_castsi128_ps(_mm_loadl_epi64((const __m128i*) &input[i].x));                        \
+    const __m128 output_128 = _mm_add_ss(                                                                            \
+        _mm_mul_ss(                                                                                                  \
+            _mm_add_ps(                                                                                              \
+                _mm_add_ps(_mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(input_low, input_low, _MM_SHUFFLE(0, 0, 0, 0)), m0), \
+                               _mm_mul_ps(_mm_shuffle_ps(input_low, input_low, _MM_SHUFFLE(1, 1, 1, 1)), m1)),       \
+                    _mm_mul_ps(_mm_load1_ps(&input[i].z), m2)),                                                      \
+                m3),                                                                                                 \
+            zz),                                                                                                     \
+        zw);                                                                                                         \
+    const __m128 output_real_128 = _mm_shuffle_ps(output_128, output_128, _MM_SHUFFLE(1, 0, 2, 3));                  \
+    _mm_store_ps(&output[i].x, output_real_128)
+
+#define ARTS_KNI_TRANSFORM_FOG \
+    fogout[i] = static_cast<u8>(_mm_cvt_ss2si(_mm_sub_ss(fog_max, _mm_min_ss(_mm_mul_ss(output_128, fog), fog_max))));
+
+#define ARTS_KNI_TRANSFORM_CODES_INIT const __m128 abs_mask = _mm_castsi128_ps(_mm_set1_epi32(0x7FFFFFFF));
+
+#define ARTS_KNI_TRANSFORM_CODE                                                                                  \
+    const __m128 output_abs_128 = _mm_and_ps(abs_mask, output_real_128);                                         \
+    u8 is_neg = _mm_movemask_ps(output_real_128) & 0x7;                                                          \
+    u8 is_clip = _mm_movemask_ps(_mm_sub_ps(                                                                     \
+                     _mm_shuffle_ps(output_abs_128, output_abs_128, _MM_SHUFFLE(3, 3, 3, 3)), output_abs_128)) & \
+        0x7;                                                                                                     \
+    out_codes[i] = ClipMask & CodesLookup[(is_neg << 3) + is_clip];                                              \
+    clip_or |= out_codes[i];                                                                                     \
+    clip_and &= out_codes[i];
+
+static extern_var(0x64A6D8, i32, ClipMask);
+
+void agiMeshSet::Transform(class Vector4* output, class Vector3* input, i32 count)
+{
+    STATS.VertsXfrm += count;
+
+    ARTS_KNI_TRANSFORM_INIT;
+
+    if (FogValue == 0.0f)
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            ARTS_KNI_TRANSFORM_DOT;
+        }
+    }
+    else
+    {
+        ARTS_KNI_TRANSFORM_FOG_INIT;
+
+        for (i32 i = 0; i < count; ++i)
+        {
+            ARTS_KNI_TRANSFORM_DOT;
+            ARTS_KNI_TRANSFORM_FOG;
+        }
+    }
+}
+
+static const u8 CodesLookup[64] {
+    // clang-format off
+    0x00, 0x01, 0x04, 0x05, 0x10, 0x11, 0x14, 0x15,
+    0x00, 0x02, 0x04, 0x06, 0x10, 0x12, 0x14, 0x16,
+    0x00, 0x01, 0x08, 0x09, 0x10, 0x11, 0x18, 0x19,
+    0x00, 0x02, 0x08, 0x0A, 0x10, 0x12, 0x18, 0x1A,
+    0x00, 0x01, 0x04, 0x05, 0x20, 0x21, 0x24, 0x25,
+    0x00, 0x02, 0x04, 0x06, 0x20, 0x22, 0x24, 0x26,
+    0x00, 0x01, 0x08, 0x09, 0x20, 0x21, 0x28, 0x29,
+    0x00, 0x02, 0x08, 0x0A, 0x20, 0x22, 0x28, 0x2A,
+    // clang-format on
+};
+
+u32 agiMeshSet::TransformOutcode(u8* out_codes, class Vector4* output, class Vector3* input, i32 count)
+{
+    STATS.VertsOut += count;
+    STATS.VertsXfrm += count;
+
+    u8 clip_or = 0;
+    u8 clip_and = 0xFF;
+
+    ARTS_KNI_TRANSFORM_INIT;
+    ARTS_KNI_TRANSFORM_CODES_INIT;
+
+    if (FogValue == 0.0f)
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            ARTS_KNI_TRANSFORM_DOT;
+            ARTS_KNI_TRANSFORM_CODE;
+        }
+    }
+    else
+    {
+        ARTS_KNI_TRANSFORM_FOG_INIT;
+
+        for (i32 i = 0; i < count; ++i)
+        {
+            ARTS_KNI_TRANSFORM_DOT;
+            ARTS_KNI_TRANSFORM_FOG;
+            ARTS_KNI_TRANSFORM_CODE;
+        }
+    }
+
+    return clip_or | (clip_and << 8);
+}

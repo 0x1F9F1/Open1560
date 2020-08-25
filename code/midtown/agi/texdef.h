@@ -231,7 +231,7 @@ protected:
     // 0x556230 | ??1agiTexDef@@MAE@XZ
     ARTS_EXPORT ~agiTexDef() override;
 
-    PagerInfo_t pager_ {0};
+    PagerInfo_t pager_ {};
     i32 cache_handle_ {0};
 
     // 0 | Paged Out

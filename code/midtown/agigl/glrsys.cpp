@@ -277,9 +277,7 @@ void agiGLRasterizer::Points(agiVtxType type, agiVtx* vertices, i32 vertex_count
 }
 
 void agiGLRasterizer::SetVertCount([[maybe_unused]] i32 vertex_count)
-{
-
-}
+{}
 
 void agiGLRasterizer::Triangle(i32 i0, i32 i1, i32 i2)
 {
