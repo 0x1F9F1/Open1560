@@ -28,9 +28,9 @@
 
 #include <glad/glad.h>
 
-static b32 UseTriangles = 1; // PrimType
+static GLenum DrawMode = 0;
 
-static i32 VtxIndexCount = 0;
+static u32 VtxIndexCount = 0;
 static u16* VtxIndex = nullptr;
 static u16 VtxIndices[1024] {};
 
@@ -278,17 +278,17 @@ void agiGLRasterizer::Points(agiVtxType type, agiVtx* vertices, i32 vertex_count
 
 void agiGLRasterizer::SetVertCount([[maybe_unused]] i32 vertex_count)
 {
-    // VtxCount = vertex_count;
+
 }
 
 void agiGLRasterizer::Triangle(i32 i0, i32 i1, i32 i2)
 {
     ++STATS.Tris;
 
-    if (VtxIndexCount + 3 > static_cast<i32>(std::size(VtxIndices)) || (UseTriangles != 1) || agiCurState.IsTouched())
+    if (VtxIndexCount + 3 > std::size(VtxIndices) || (DrawMode != GL_TRIANGLES) || agiCurState.IsTouched())
     {
         FlushState();
-        UseTriangles = 1;
+        DrawMode = GL_TRIANGLES;
     }
 
     VtxIndex[VtxIndexCount + 0] = static_cast<u16>(i0);
@@ -302,10 +302,10 @@ void agiGLRasterizer::Line(i32 i0, i32 i1)
 {
     ++STATS.Lines;
 
-    if (VtxIndexCount + 2 > static_cast<i32>(std::size(VtxIndices)) || (UseTriangles != 0) || agiCurState.IsTouched())
+    if (VtxIndexCount + 2 > std::size(VtxIndices) || (DrawMode != GL_LINES) || agiCurState.IsTouched())
     {
         FlushState();
-        UseTriangles = 0;
+        DrawMode = GL_LINES;
     }
 
     VtxIndex[VtxIndexCount + 0] = static_cast<u16>(i0);
@@ -326,20 +326,10 @@ void agiGLRasterizer::Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, 
 
     agiGLRasterizer::FlushState();
 
-    UseTriangles = 1;
+    DrawMode = GL_TRIANGLES;
 
     SetVertices(vertices, vertex_count);
     Draw(indices, index_count);
-}
-
-i32 GetBlendFuncD()
-{
-    return GL_ONE_MINUS_SRC_ALPHA;
-}
-
-i32 GetBlendFuncS()
-{
-    return GL_SRC_ALPHA;
 }
 
 void agiGLRasterizer::FlushState()
@@ -615,7 +605,7 @@ void agiGLRasterizer::Draw(u16* indices, i32 index_count)
 #else
     glDrawElements
 #endif
-        (UseTriangles ? GL_TRIANGLES : GL_LINES,
+        (DrawMode,
 #ifdef ARTS_GL_USE_DRAW_RANGE
             0, vertex_count_,
 #endif
