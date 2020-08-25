@@ -6,6 +6,7 @@ LUA_DIR = path.join(VENDOR_DIR, "lua-5.3.5")
 SOL_DIR = path.join(VENDOR_DIR, "sol-3.0.3")
 FREETYPE_DIR = path.join(VENDOR_DIR, "freetype-2.10.2")
 GLAD_DIR = path.join(VENDOR_DIR, "glad")
+WGL_DIR = path.join(VENDOR_DIR, "wgl")
 
 function includeMem()
     includedirs { MEM_DIR }
@@ -22,6 +23,10 @@ end
 
 function includeGlad()
     includedirs { path.join(GLAD_DIR, "include") }
+end
+
+function includeWgl()
+    includedirs { WGL_DIR }
 end
 
 -- function includeLua()

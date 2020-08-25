@@ -56,9 +56,9 @@ private:
     HGLRC gl_context_ {nullptr};
     Rc<agiRasterizer> rasterizer_ {};
 
-#ifdef ARTS_GL_MSAA
+    u32 msaa_level_ {0};
+
     u32 fbo_ {0};
     u32 rbo_ {0};
     u32 msaa_tex_ {0};
-#endif
 };

@@ -42,6 +42,8 @@
 
 #include <glad/glad.h>
 
+#include <wglext.h>
+
 const char* PixelFormatFlagsToString(DWORD flags)
 {
     // FIXME: Static buffer
@@ -75,9 +77,9 @@ const char* PixelFormatFlagsToString(DWORD flags)
     return buffer;
 }
 
-typedef BOOL(WINAPI* PFNWGLSWAPINTERVALEXTPROC)(int interval);
-
-PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
+static PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
+static PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = NULL;
+static PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB = NULL;
 
 static const char* GetDebugTypeString(GLenum value)
 {
@@ -120,7 +122,8 @@ static void GLAPIENTRY DebugMessageCallback([[maybe_unused]] GLenum source, GLen
     }
 }
 
-static mem::cmd_param PARMA_gldebug {"gldebug"};
+static mem::cmd_param PARAM_gldebug {"gldebug"};
+static mem::cmd_param PARAM_msaa {"msaa"};
 
 i32 agiGLPipeline::BeginGfx()
 {
@@ -161,45 +164,68 @@ i32 agiGLPipeline::BeginGfx()
     pfd.dwFlags = PFD_SUPPORT_OPENGL | PFD_DRAW_TO_WINDOW | PFD_DOUBLEBUFFER;
     pfd.iPixelType = PFD_TYPE_RGBA;
     pfd.cColorBits = 32;
-    pfd.cDepthBits = 24; // Or 16?
-
-    pfd.cAlphaBits = 8;
-    pfd.cAlphaShift = 24;
-    pfd.cRedBits = 8;
-    pfd.cRedShift = 16;
-    pfd.cGreenBits = 8;
-    pfd.cGreenShift = 8;
-    pfd.cBlueBits = 8;
-    pfd.cBlueShift = 0;
+    pfd.cDepthBits = 24;
+    pfd.iLayerType = PFD_MAIN_PLANE;
 
     int format = ChoosePixelFormat(window_dc_, &pfd);
 
     SetPixelFormat(window_dc_, format, &pfd);
 
-    int num_formats = DescribePixelFormat(window_dc_, format, 0, 0);
+    HGLRC temp_context = wglCreateContext(window_dc_);
 
-    Displayf("%d pixel formats... (we picked #%d)", num_formats, format);
+    if (temp_context == NULL)
+        Quitf("Failed to create temporary opengl context");
 
-    if (agiVerbose)
-    {
-        for (i32 i = 1; i <= num_formats; ++i)
-        {
-            DescribePixelFormat(window_dc_, i, sizeof(pfd), &pfd);
+    wglMakeCurrent(window_dc_, temp_context);
 
-            Displayf("%d. Flags %x [%s] colorbits=%d depthbits=%d", i, pfd.dwFlags,
-                PixelFormatFlagsToString(pfd.dwFlags), pfd.cColorBits, pfd.cDepthBits);
-        }
-    }
+    const int pixel_attribs[] {
+        // clang-format off
+        WGL_DRAW_TO_WINDOW_ARB, GL_TRUE,
+        WGL_SUPPORT_OPENGL_ARB, GL_TRUE,
+        WGL_DOUBLE_BUFFER_ARB, GL_TRUE,
+        WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
+        WGL_COLOR_BITS_ARB, 32,
+        WGL_DEPTH_BITS_ARB, 24,
+        WGL_STENCIL_BITS_ARB, 8,
+        0,
+        // clang-format on
+    };
 
-    gl_context_ = wglCreateContext(window_dc_);
+    wglChoosePixelFormatARB = (PFNWGLCHOOSEPIXELFORMATARBPROC) wglGetProcAddress("wglChoosePixelFormatARB");
 
+    UINT num_formats = 0;
+    wglChoosePixelFormatARB(window_dc_, pixel_attribs, NULL, 1, &format, &num_formats);
+
+    if (num_formats == 0)
+        Quitf("Failed to choose pixel format");
+
+    const int context_attribs[] {
+        // clang-format off
+        WGL_CONTEXT_MAJOR_VERSION_ARB, 3,
+        WGL_CONTEXT_MINOR_VERSION_ARB, 2,
+        WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB,
+        WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
+        0
+        // clang-format on
+    };
+
+    wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) wglGetProcAddress("wglCreateContextAttribsARB");
+
+    gl_context_ = wglCreateContextAttribsARB(window_dc_, 0, context_attribs);
+
+    if (gl_context_ == NULL)
+        Quitf("Failed to create opengl context");
+
+    wglDeleteContext(temp_context);
     wglMakeCurrent(window_dc_, gl_context_);
 
     if (gladLoadGL() != 1)
         Quitf("Failed to load GLAD");
 
-    if (PARMA_gldebug.get_or(false) && glDebugMessageCallback)
+    if (PARAM_gldebug.get_or(false) && glDebugMessageCallback)
     {
+        Displayf("Using glDebugMessageCallback");
+
         glEnable(GL_DEBUG_OUTPUT);
 
         glDebugMessageCallback(DebugMessageCallback, 0);
@@ -243,27 +269,30 @@ i32 agiGLPipeline::BeginGfx()
     // glViewport(0, 0, width_, height_);
     glViewport(0, 0, horz_res_, vert_res_);
 
+    msaa_level_ = PARAM_msaa.get_or<i32>(0);
+
+    if (msaa_level_ != 0)
+    {
+        glGenFramebuffers(1, &fbo_);
+        glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
+
+        glGenRenderbuffers(1, &rbo_);
+        glBindRenderbuffer(GL_RENDERBUFFER, rbo_);
+        glRenderbufferStorageMultisample(GL_RENDERBUFFER, msaa_level_, GL_DEPTH24_STENCIL8, horz_res_, vert_res_);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo_);
+
+        glGenTextures(1, &msaa_tex_);
+        glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, msaa_tex_);
+        glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, msaa_level_, GL_RGB, horz_res_, vert_res_, GL_TRUE);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D_MULTISAMPLE, msaa_tex_, 0);
+
+        if (GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER); status != GL_FRAMEBUFFER_COMPLETE)
+            Quitf("Failed to create framebuffer: 0x%08X", status);
+
+        PrintGlErrors();
+    }
+
     PrintGlErrors();
-
-#ifdef ARTS_GL_MSAA
-    glGenFramebuffers(1, &fbo_);
-    glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
-
-    glGenRenderbuffers(1, &rbo_);
-    glBindRenderbuffer(GL_RENDERBUFFER, rbo_);
-    glRenderbufferStorageMultisample(GL_RENDERBUFFER, ARTS_GL_MSAA, GL_DEPTH24_STENCIL8, horz_res_, vert_res_);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo_);
-
-    glGenTextures(1, &msaa_tex_);
-    glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, msaa_tex_);
-    glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, ARTS_GL_MSAA, GL_RGB, horz_res_, vert_res_, GL_TRUE);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D_MULTISAMPLE, msaa_tex_, 0);
-
-    if (GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER); status != GL_FRAMEBUFFER_COMPLETE)
-        Quitf("Failed to create framebuffer: 0x%08X", status);
-
-    PrintGlErrors();
-#endif
 
     gfx_started_ = true;
 
@@ -272,11 +301,12 @@ i32 agiGLPipeline::BeginGfx()
 
 void agiGLPipeline::EndGfx()
 {
-#ifdef ARTS_GL_MSAA
-    glDeleteFramebuffers(1, &fbo_);
-    glDeleteFramebuffers(1, &rbo_);
-    glDeleteTextures(1, &msaa_tex_);
-#endif
+    if (msaa_level_ != 0)
+    {
+        glDeleteFramebuffers(1, &fbo_);
+        glDeleteFramebuffers(1, &rbo_);
+        glDeleteTextures(1, &msaa_tex_);
+    }
 
     wglDeleteContext(gl_context_);
 
@@ -300,9 +330,10 @@ void agiGLPipeline::BeginFrame()
     agiPipeline::BeginFrame();
     wglMakeCurrent(window_dc_, gl_context_);
 
-#ifdef ARTS_GL_MSAA
-    glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
-#endif
+    if (msaa_level_ != 0)
+    {
+        glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
+    }
 
     PrintGlErrors();
 }
@@ -355,12 +386,13 @@ void agiGLPipeline::EndFrame()
 {
     ARTS_TIMED(agiEndFrame);
 
-#ifdef ARTS_GL_MSAA
-    glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);    // Make sure no FBO is set as the draw framebuffer
-    glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo_); // Make sure your multisampled FBO is the read framebuffer
-    glDrawBuffer(GL_BACK);                        // Set the back buffer as the draw buffer
-    glBlitFramebuffer(0, 0, horz_res_, vert_res_, 0, 0, horz_res_, vert_res_, GL_COLOR_BUFFER_BIT, GL_NEAREST);
-#endif
+    if (msaa_level_ != 0)
+    {
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);    // Make sure no FBO is set as the draw framebuffer
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo_); // Make sure your multisampled FBO is the read framebuffer
+        glDrawBuffer(GL_BACK);                        // Set the back buffer as the draw buffer
+        glBlitFramebuffer(0, 0, horz_res_, vert_res_, 0, 0, horz_res_, vert_res_, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+    }
 
     PrintGlErrors();
 

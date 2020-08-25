@@ -12,6 +12,8 @@ arts_component "agigl"
         "glrsys.h",
         "glerror.cpp",
         "glerror.h",
+
+        "wglext.h",
     }
 
     links {
@@ -20,3 +22,4 @@ arts_component "agigl"
     }
 
     includeGlad()
+    includeWgl()
