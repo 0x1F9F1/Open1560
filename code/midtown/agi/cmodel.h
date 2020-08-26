@@ -94,6 +94,26 @@ public:
     u32 ShiftB {0};
     u32 ShiftA {0};
 
+    u32 GetMaskR() const
+    {
+        return ((1 << BitCountR) - 1) << ShiftR;
+    }
+
+    u32 GetMaskG() const
+    {
+        return ((1 << BitCountR) - 1) << ShiftR;
+    }
+
+    u32 GetMaskB() const
+    {
+        return ((1 << BitCountR) - 1) << ShiftR;
+    }
+
+    u32 GetMaskA() const
+    {
+        return ((1 << BitCountR) - 1) << ShiftR;
+    }
+
 private:
     u32 RefCount {1};
 };
