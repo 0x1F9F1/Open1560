@@ -33,6 +33,9 @@ public:
     void EndGfx() override;
     void Set(Vector2& arg1, Vector2& arg2) override;
 
+    b32 Lock(struct agiTexLock& lock) override;
+    void Unlock(struct agiTexLock& lock) override;
+
     b32 IsAvailable() override;
     void Request() override;
 
@@ -40,4 +43,6 @@ public:
 
 private:
     u32 texture_ {0};
+
+    Ptr<agiSurfaceDesc> temp_surface_ {nullptr};
 };

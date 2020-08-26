@@ -328,6 +328,8 @@ void agiGLPipeline::BeginFrame()
     ARTS_TIMED(agiBeginFrame);
 
     agiPipeline::BeginFrame();
+
+    // TODO: Does this really need to be called each frame?
     wglMakeCurrent(window_dc_, gl_context_);
 
     if (msaa_level_ != 0)

@@ -63,7 +63,7 @@ public:
     ARTS_IMPORT static RcOwner<class agiColorModel> FindMatch(class agiSurfaceDesc* arg1);
 
     // 0x55D760 | ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z | agi:cmodelx
-    ARTS_IMPORT static RcOwner<class agiColorModel> FindMatch(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT static RcOwner<class agiColorModel> FindMatch(i32 mask_r, i32 mask_g, i32 mask_b, i32 mask_a);
 
     void AddRef()
     {

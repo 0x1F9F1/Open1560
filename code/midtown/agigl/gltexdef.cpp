@@ -183,7 +183,7 @@ i32 agiGLTexDef::BeginGfx()
 
     PrintGlErrors();
 
-    if (Tex.Name[0] != '*' && cache_handle_ == 0)
+    if (Tex.Name[0] != '*' && cache_handle_ == 0 && !(Tex.Flags & agiTexParameters::KeepLoaded))
         Surface->Unload();
 
     page_state_ = 0;
@@ -201,12 +201,76 @@ void agiGLTexDef::EndGfx()
         texture_ = 0;
     }
 
+    if (temp_surface_)
+    {
+        temp_surface_->Unload();
+
+        temp_surface_ = nullptr;
+    }
+
     state_ = 0;
 }
 
 void agiGLTexDef::Set(Vector2& arg1, Vector2& arg2)
 {
     arg1 = arg2;
+}
+
+b32 agiGLTexDef::Lock(agiTexLock& lock)
+{
+    if (!Surface || !Surface->Surface || !texture_)
+        return false;
+
+    if (temp_surface_ == nullptr)
+    {
+        temp_surface_ = AsPtr(agiSurfaceDesc::Init(Surface->Width, Surface->Height, *Surface));
+
+        temp_surface_->CopyFrom(Surface.get(), 0);
+    }
+
+    lock.ColorModel = agiColorModel::FindMatch(temp_surface_.get());
+    lock.Width = temp_surface_->Width;
+    lock.Height = temp_surface_->Height;
+    lock.Pitch = temp_surface_->Pitch;
+    lock.Surface = temp_surface_->Surface;
+
+    return true;
+}
+
+void agiGLTexDef::Unlock(agiTexLock& lock)
+{
+    GLenum format = 0;
+    GLenum type = 0;
+
+    switch (lock.ColorModel->GetMaskR())
+    {
+        case 0xF800: // 565
+            format = GL_RGB;
+            type = GL_UNSIGNED_SHORT_5_6_5;
+            break;
+
+        case 0xF00: // 4444
+            format = GL_BGRA;
+            type = GL_UNSIGNED_SHORT_4_4_4_4_REV;
+            break;
+
+        case 0xFF:
+            format = lock.ColorModel->BitCountA ? GL_RGBA : GL_RGB;
+            type = GL_UNSIGNED_BYTE;
+            break;
+
+        case 0xFF0000:
+            format = lock.ColorModel->BitCountA ? GL_BGRA : GL_BGR;
+            type = GL_UNSIGNED_BYTE;
+            break;
+
+        default: Quitf("Invalid Format");
+    }
+
+    glBindTexture(GL_TEXTURE_2D, texture_);
+    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, lock.Width, lock.Height, format, type, lock.Surface);
+
+    lock.ColorModel->Release();
 }
 
 b32 agiGLTexDef::IsAvailable()
