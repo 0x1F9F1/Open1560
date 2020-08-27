@@ -80,7 +80,7 @@ public:
     ARTS_IMPORT void DebugForceSetting();
 
     // 0x4B8720 | ?DefaultCFG@UICWArray@@QAEXXZ
-    ARTS_IMPORT void DefaultCFG();
+    ARTS_EXPORT void DefaultCFG();
 
     // 0x4B84C0 | ?EnterCapture@UICWArray@@QAEXH@Z
     ARTS_IMPORT void EnterCapture(i32 arg1);

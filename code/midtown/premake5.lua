@@ -41,7 +41,7 @@ include "mmeffects"
 -- include "mmnetwork"
 -- include "mmphysics"
 include "mmui"
--- include "mmwidget"
+include "mmwidget"
 include "pcwindis"
 include "stream"
 include "vector7"
@@ -97,7 +97,7 @@ arts_component "midtown"
         -- "arts_mmnetwork",
         -- "arts_mmphysics",
         "arts_mmui",
-        -- "arts_mmwidget",
+        "arts_mmwidget",
         "arts_pcwindis",
         "arts_stream",
         "arts_vector7",

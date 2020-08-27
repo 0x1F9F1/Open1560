@@ -20,8 +20,8 @@ arts_component "mmwidget"
         -- "compscroll.h",
         -- "controlwidget.cpp",
         -- "controlwidget.h",
-        -- "cwarray.cpp",
-        -- "cwarray.h",
+        "cwarray.cpp",
+        "cwarray.h",
         -- "dropdown.cpp",
         -- "dropdown.h",
         -- "icon.cpp",
@@ -77,4 +77,3 @@ arts_component "mmwidget"
         -- "wstore.cpp",
         -- "wstore.h",
     }
-

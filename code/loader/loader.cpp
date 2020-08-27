@@ -829,7 +829,7 @@ include_dummy_symbol(mmui_graphics);
 // include_dummy_symbol(mmwidget_comprrec);
 // include_dummy_symbol(mmwidget_compscroll);
 // include_dummy_symbol(mmwidget_controlwidget);
-// include_dummy_symbol(mmwidget_cwarray);
+include_dummy_symbol(mmwidget_cwarray);
 // include_dummy_symbol(mmwidget_dropdown);
 // include_dummy_symbol(mmwidget_icon);
 // include_dummy_symbol(mmwidget_iconwidget);

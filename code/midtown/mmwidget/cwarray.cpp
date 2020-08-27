@@ -19,3 +19,13 @@
 define_dummy_symbol(mmwidget_cwarray);
 
 #include "cwarray.h"
+
+#include "mminput/input.h"
+
+void UICWArray::DefaultCFG()
+{
+    for (i32 i = 0; i < 5; ++i)
+        GameInputPtr->SetDefaultConfig(i);
+
+    Redraw();
+}
