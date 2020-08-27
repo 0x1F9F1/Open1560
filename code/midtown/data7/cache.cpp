@@ -24,7 +24,7 @@ define_dummy_symbol(data7_cache);
 #include "pager.h"
 
 // Max age before an object is automatically unloaded
-static constexpr u32 MaxObjectAge = 300;
+static u32 MaxObjectAge = 1000;
 
 struct DataCacheObject
 {
@@ -265,8 +265,12 @@ void DataCache::GetStatus(u32& objects, u32& bytes, u32& waste)
     waste = 100 * cur_waste_ / max_waste_;
 }
 
+static mem::cmd_param PARAM_cacheage {"cacheage"};
+
 void DataCache::Init(u32 heap_size, i32 handle_count, const char* name)
 {
+    MaxObjectAge = PARAM_cacheage.get_or<u32>(1000);
+
     aged_objects_ = 0;
     aged_bytes_ = 0;
 
