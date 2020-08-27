@@ -80,10 +80,10 @@
 class Vector3
 {
 public:
-    constexpr Vector3() = default;
+    inline Vector3() noexcept = default;
 
     // 0x43C100 | ??0Vector3@@QAE@MMM@Z | inline
-    constexpr Vector3(f32 x, f32 y, f32 z)
+    constexpr Vector3(f32 x, f32 y, f32 z) noexcept
         : x(x)
         , y(y)
         , z(z)
@@ -236,9 +236,9 @@ public:
     // 0x566300 | ?rgbtohsv@Vector3@@QAEXXZ | unused
     ARTS_IMPORT void rgbtohsv();
 
-    f32 x {0.0f};
-    f32 y {0.0f};
-    f32 z {0.0f};
+    f32 x;
+    f32 y;
+    f32 z;
 };
 
 check_size(Vector3, 0xC);

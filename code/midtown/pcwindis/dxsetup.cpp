@@ -146,7 +146,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     f32 min_aspect = PARAM_min_aspect.get_or<f32>(1.6f);
     f32 max_aspect = PARAM_max_aspect.get_or<f32>(2.4f);
 
-    DEVMODEA dev_mode;
+    DEVMODEA dev_mode {};
 
     for (DWORD i = 0; EnumDisplaySettingsA(iMonitor.szDevice, i, &dev_mode); ++i)
     {

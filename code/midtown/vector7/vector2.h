@@ -45,9 +45,9 @@
 class Vector2
 {
 public:
-    constexpr Vector2() = default;
+    inline Vector2() noexcept = default;
 
-    constexpr Vector2(f32 x, f32 y)
+    constexpr Vector2(f32 x, f32 y) noexcept
         : x(x)
         , y(y)
     {}
@@ -67,8 +67,8 @@ public:
     // 0x5711E0 | ?Mag@Vector2@@QBEMXZ
     ARTS_IMPORT f32 Mag();
 
-    f32 x {0.0f};
-    f32 y {0.0f};
+    f32 x;
+    f32 y;
 };
 
 check_size(Vector2, 0x8);

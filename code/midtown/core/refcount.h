@@ -87,7 +87,7 @@ public:
         return *this;
     }
 
-    ARTS_FORCEINLINE Rc& operator=(Rc&& other)
+    ARTS_FORCEINLINE Rc& operator=(Rc&& other) noexcept
     {
         if (this != &other)
         {
