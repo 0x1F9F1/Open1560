@@ -83,7 +83,7 @@ struct dxiRendererInfo_t
 check_size(dxiRendererInfo_t, 0x198);
 
 // 0x574B00 | ?dxiReadConfigFile@@YAHXZ
-ARTS_IMPORT i32 dxiReadConfigFile();
+ARTS_EXPORT b32 dxiReadConfigFile();
 
 // 0x5749B0 | ?dxiResClosestMatch@@YAHHHH@Z
 ARTS_IMPORT i32 dxiResClosestMatch(i32 arg1, i32 arg2, i32 arg3);

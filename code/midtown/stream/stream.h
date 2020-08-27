@@ -172,6 +172,12 @@ public:
     // 0x55EDF0 | ?Printf@Stream@@QAAHPBDZZ | unused
     ARTS_EXPORT i32 Printf(ARTS_FORMAT_STRING char const* format, ...);
 
+    i32 Scanf(const char* format, ...);
+
+    i32 Vscanf(const char* format, std::va_list va);
+
+    i32 Gets(char* buffer, i32 buffer_len);
+
     // 0x55F020 | ?Put@Stream@@QAEHM@Z
     ARTS_EXPORT i32 Put(f32 value);
 

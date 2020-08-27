@@ -157,6 +157,89 @@ i32 Stream::Printf(ARTS_FORMAT_STRING char const* format, ...)
     return result;
 }
 
+i32 Stream::Scanf(const char* format, ...)
+{
+    std::va_list va;
+    va_start(va, format);
+
+    i32 result = Vscanf(format, va);
+
+    va_end(va);
+    return result;
+}
+
+i32 Stream::Vscanf(const char* format, std::va_list va)
+{
+    i32 ch = -1;
+
+    do
+    {
+        ch = GetCh();
+    } while (IsSpace(ch));
+
+    UnGetCh(ch);
+
+    char buffer[256];
+    i32 length = arts_fgets(buffer, std::size(buffer), this);
+
+    if (!length)
+        return 0;
+
+    // NOTE: This can not be vsscanf_s because it has to support the game's unsafe format strings.
+    //
+    // mmCityInfo::Load:
+    //     "LocalizedName=%[^\r]"
+    //     "MapName=%s"
+    //     "RaceDir=%s"
+    //     "BlitzNames=%[^\r]"
+    //     "CircuitNames=%[^\r]"
+    //     "CheckpointNames=%[^\r]"
+    //
+    // mmVehInfo::Load:
+    //     "BaseName=%s",
+    //     "Description=%[^\r]"
+    //     "Colors=%[^\r]"
+    //
+    // dxiReadConfigFile:
+    //     "InterfaceGuid=%s"
+    //     "DriverGuid=%s"
+    //
+    // TODO: Replace this with vsscanf_s when possible
+    i32 result = std::vsscanf(static_cast<const char*>(buffer), format, va);
+
+    if (!result)
+        Errorf("scan of '%s' == '%s' failed", format, buffer);
+
+    return result;
+}
+
+i32 Stream::Gets(char* buffer, i32 buffer_len)
+{
+    if (buffer_len == 0)
+        return 0;
+
+    buffer_len -= 1;
+
+    i32 total = 0;
+
+    while (total < buffer_len)
+    {
+        i32 v = GetCh();
+
+        if (v == -1)
+            break;
+
+        buffer[total++] = static_cast<char>(v);
+
+        if (v == '\n')
+            break;
+    }
+
+    buffer[total] = '\0';
+
+    return total;
+}
+
 i32 Stream::Put(f32 value)
 {
     if (swap_endian_)
@@ -396,29 +479,7 @@ void Stream::SwapShorts(u16* values, i32 count)
 
 i32 arts_fgets(char* buffer, i32 buffer_len, class Stream* stream)
 {
-    if (buffer_len == 0)
-        return 0;
-
-    buffer_len -= 1;
-
-    i32 total = 0;
-
-    while (total < buffer_len)
-    {
-        i32 v = stream->GetCh();
-
-        if (v == -1)
-            break;
-
-        buffer[total++] = static_cast<char>(v);
-
-        if (v == '\n')
-            break;
-    }
-
-    buffer[total] = '\0';
-
-    return total;
+    return stream->Gets(buffer, buffer_len);
 }
 
 class Stream* arts_fopen(const char* path, const char* mode)
@@ -436,51 +497,12 @@ void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, .
 
 i32 arts_fscanf(class Stream* stream, char const* format, ...)
 {
-    i32 ch = -1;
-
-    do
-    {
-        ch = stream->GetCh();
-    } while (IsSpace(ch));
-
-    stream->UnGetCh(ch);
-
-    char buffer[256];
-    i32 length = arts_fgets(buffer, std::size(buffer), stream);
-
-    if (!length)
-        return 0;
-
     std::va_list va;
     va_start(va, format);
 
-    // NOTE: This can not be vsscanf_s because it has to support the game's unsafe format strings.
-    //
-    // mmCityInfo::Load:
-    //     "LocalizedName=%[^\r]"
-    //     "MapName=%s"
-    //     "RaceDir=%s"
-    //     "BlitzNames=%[^\r]"
-    //     "CircuitNames=%[^\r]"
-    //     "CheckpointNames=%[^\r]"
-    //
-    // mmVehInfo::Load:
-    //     "BaseName=%s",
-    //     "Description=%[^\r]"
-    //     "Colors=%[^\r]"
-    //
-    // dxiReadConfigFile:
-    //     "InterfaceGuid=%s"
-    //     "DriverGuid=%s"
-    //
-    // TODO: Replace this with vsscanf_s when possible
-    i32 result = vsscanf(static_cast<const char*>(buffer), format, va);
+    i32 result = stream->Vscanf(format, va);
 
     va_end(va);
-
-    if (!result)
-        Errorf("scan of '%s' == '%s' failed", format, buffer);
-
     return result;
 }
 

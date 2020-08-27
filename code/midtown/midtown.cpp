@@ -152,7 +152,8 @@ void Application(i32 argc, char** argv)
     EXCEPTION_BEGIN
     {
         // Needs to be called before FileSystem destruction
-        create_hook("CallGameResetCallbacks", "GameResetCallbacks after ~AudManager", 0x4E829F, &CallGameResetCallbacks);
+        create_hook(
+            "CallGameResetCallbacks", "GameResetCallbacks after ~AudManager", 0x4E829F, &CallGameResetCallbacks);
 
         dxiIcon = 111;
 
