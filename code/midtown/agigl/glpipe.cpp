@@ -180,46 +180,58 @@ i32 agiGLPipeline::BeginGfx()
 
     wglMakeCurrent(window_dc_, temp_context);
 
-    const int pixel_attribs[] {
-        // clang-format off
-        WGL_DRAW_TO_WINDOW_ARB, GL_TRUE,
-        WGL_SUPPORT_OPENGL_ARB, GL_TRUE,
-        WGL_DOUBLE_BUFFER_ARB, GL_TRUE,
-        WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
-        WGL_COLOR_BITS_ARB, 32,
-        WGL_DEPTH_BITS_ARB, 24,
-        WGL_STENCIL_BITS_ARB, 8,
-        0,
-        // clang-format on
-    };
-
     wglChoosePixelFormatARB = (PFNWGLCHOOSEPIXELFORMATARBPROC) wglGetProcAddress("wglChoosePixelFormatARB");
-
-    UINT num_formats = 0;
-    wglChoosePixelFormatARB(window_dc_, pixel_attribs, NULL, 1, &format, &num_formats);
-
-    if (num_formats == 0)
-        Quitf("Failed to choose pixel format");
-
-    const int context_attribs[] {
-        // clang-format off
-        WGL_CONTEXT_MAJOR_VERSION_ARB, 3,
-        WGL_CONTEXT_MINOR_VERSION_ARB, 2,
-        WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB,
-        WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
-        0
-        // clang-format on
-    };
-
     wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) wglGetProcAddress("wglCreateContextAttribsARB");
+    wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) wglGetProcAddress("wglSwapIntervalEXT");
 
-    gl_context_ = wglCreateContextAttribsARB(window_dc_, 0, context_attribs);
+    // TODO: Check wglGetExtensionsStringARB extensions
+    if (wglChoosePixelFormatARB && wglCreateContextAttribsARB)
+    {
+        Displayf("Using modern OpenGL context");
 
-    if (gl_context_ == NULL)
-        Quitf("Failed to create opengl context");
+        const int pixel_attribs[] {
+            // clang-format off
+            WGL_DRAW_TO_WINDOW_ARB, GL_TRUE,
+            WGL_SUPPORT_OPENGL_ARB, GL_TRUE,
+            WGL_DOUBLE_BUFFER_ARB, GL_TRUE,
+            WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
+            WGL_COLOR_BITS_ARB, 32,
+            WGL_DEPTH_BITS_ARB, 24,
+            WGL_STENCIL_BITS_ARB, 8,
+            0,
+            // clang-format on
+        };
 
-    wglDeleteContext(temp_context);
-    wglMakeCurrent(window_dc_, gl_context_);
+        UINT num_formats = 0;
+        wglChoosePixelFormatARB(window_dc_, pixel_attribs, NULL, 1, &format, &num_formats);
+
+        if (num_formats == 0)
+            Quitf("Failed to choose pixel format");
+
+        const int context_attribs[] {
+            // clang-format off
+            WGL_CONTEXT_MAJOR_VERSION_ARB, 3,
+            WGL_CONTEXT_MINOR_VERSION_ARB, 2,
+            WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB,
+            WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
+            0
+            // clang-format on
+        };
+
+        gl_context_ = wglCreateContextAttribsARB(window_dc_, 0, context_attribs);
+
+        if (gl_context_ == NULL)
+            Quitf("Failed to create opengl context");
+
+        wglDeleteContext(temp_context);
+        wglMakeCurrent(window_dc_, gl_context_);
+    }
+    else
+    {
+        Displayf("Using legacy OpenGL context");
+
+        gl_context_ = temp_context;
+    }
 
     if (gladLoadGL() != 1)
         Quitf("Failed to load GLAD");
@@ -232,8 +244,6 @@ i32 agiGLPipeline::BeginGfx()
 
         glDebugMessageCallback(DebugMessageCallback, 0);
     }
-
-    wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) wglGetProcAddress("wglSwapIntervalEXT");
 
     if (wglSwapIntervalEXT)
     {
