@@ -137,6 +137,12 @@ ARTS_EXPORT int WINAPI MidtownMain(
     return 0;
 }
 
+static void CallGameResetCallbacks()
+{
+    // TODO: Move this to ApplicationHelper
+    GameResetCallbacks.Invoke(true);
+}
+
 static mem::cmd_param PARAM_affinity {"affinity"};
 static mem::cmd_param PARAM_sync {"sync"};
 static mem::cmd_param PARAM_res_hack {"reshack"};
@@ -145,6 +151,9 @@ void Application(i32 argc, char** argv)
 {
     EXCEPTION_BEGIN
     {
+        // Needs to be called before FileSystem destruction
+        create_hook("CallGameResetCallbacks", "GameResetCallbacks after ~AudManager", 0x4E829F, &CallGameResetCallbacks);
+
         dxiIcon = 111;
 
         u32 affinity = PARAM_affinity.get_or<u32>(0);
@@ -158,7 +167,7 @@ void Application(i32 argc, char** argv)
 
         if (affinity == 0 || (affinity & (affinity - 1)) != 0)
         {
-            SynchronousMessageQueues = PARAM_sync.get_or(true) || true;
+            SynchronousMessageQueues = PARAM_sync.get_or(true);
 
             Warningf("Running with multiple threads. Here be dragons");
 

@@ -36,6 +36,7 @@ VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode*
 
 VirtualStream::~VirtualStream()
 {
+    // TODO: Does this really need to call flush? It can't write anything.
     Flush();
 }
 

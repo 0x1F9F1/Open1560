@@ -20,9 +20,6 @@ define_dummy_symbol(data7_hash);
 
 #include "hash.h"
 
-#include "data7/callback.h"
-#include "midtown.h"
-
 void HashTable::operator=(class HashTable& other)
 {
     // TODO: Why is this bucket_count_ - 1?
@@ -156,9 +153,6 @@ void HashTable::Kill(void* context, void (*callback)(void* context, const char* 
 
 void HashTable::KillAll()
 {
-    // TODO: Move this to ApplicationHelper
-    GameResetCallbacks.Invoke(true);
-
     for (HashTable* i = First; i; i = i->next_table_)
         i->Kill();
 }

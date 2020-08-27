@@ -61,11 +61,7 @@ private:
 
     ~mmFont()
     {
-        FT_Stream stream = face_->stream;
-        FT_Done_Face(face_);
-        delete stream;
-
-        FontHash.Delete(name_);
+        Kill();
     }
 
     i32 ref_count_ {1};
@@ -92,6 +88,8 @@ public:
 
     mmSize GetExtents(const char* text);
     void Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect, u32 color, u32 format);
+
+    void Kill();
 
     static mmFont* Create(const char* font_name, i32 height, i32 weight);
 };
@@ -176,6 +174,20 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect,
     }
 }
 
+void mmFont::Kill()
+{
+    if (face_)
+    {
+        FT_Stream stream = face_->stream;
+        FT_Done_Face(face_);
+        delete stream;
+
+        FontHash.Delete(name_);
+
+        face_ = nullptr;
+    }
+}
+
 static void* mmFont_AllocFunc(FT_Memory, long size)
 {
     return arts_malloc(static_cast<size_t>(size));
@@ -210,14 +222,7 @@ static FT_Library mmFont_Library = nullptr;
 
 static void mmFont_Shutdown()
 {
-    FontHash.Kill(nullptr, [](void*, const char* key, void* value) {
-        Displayf("Font '%s' Leaked", key);
-
-        mmFont* font = static_cast<mmFont*>(value);
-
-        while (font->Release())
-            ;
-    });
+    FontHash.Kill(nullptr, [](void*, const char* key, void*) { Displayf("Font '%s' Leaked", key); });
 
     FT_Done_Library(mmFont_Library);
 
@@ -252,9 +257,9 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
     // TODO: Lookup file name for font
 
     if (weight >= 700)
-        font_name = "./GILB____.TTF";
+        font_name = "GILB____.TTF";
     else
-        font_name = "./GIL_____.TTF";
+        font_name = "GIL_____.TTF";
 
     Stream* file = arts_fopen(font_name, "r");
 
