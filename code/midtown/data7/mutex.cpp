@@ -46,3 +46,36 @@ void Mutex::unlock()
     if (handle_)
         ReleaseMutex(handle_);
 }
+
+void CriticalSection::init()
+{
+    if (handle_ == nullptr)
+    {
+        handle_ = new CRITICAL_SECTION {};
+
+        InitializeCriticalSectionAndSpinCount(static_cast<CRITICAL_SECTION*>(handle_), 2000);
+    }
+}
+
+void CriticalSection::close()
+{
+    if (handle_)
+    {
+        DeleteCriticalSection(static_cast<CRITICAL_SECTION*>(handle_));
+        delete static_cast<CRITICAL_SECTION*>(handle_);
+        handle_ = nullptr;
+    }
+}
+
+void CriticalSection::lock()
+{
+    if (handle_)
+    {
+        EnterCriticalSection(static_cast<CRITICAL_SECTION*>(handle_));
+    }
+}
+
+void CriticalSection::unlock()
+{
+    LeaveCriticalSection(static_cast<CRITICAL_SECTION*>(handle_));
+}

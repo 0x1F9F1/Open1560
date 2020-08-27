@@ -113,7 +113,7 @@ asCullManager::~asCullManager()
 
 void asCullManager::DeclareCamera(asCamera* camera)
 {
-    MutexGuard lock(mutex_);
+    LockGuard lock(mutex_);
 
     if (num_cameras_ < static_cast<i32>(std::size(cameras_)))
     {
@@ -134,7 +134,7 @@ void asCullManager::AddPage(Callback callback)
 
 void asCullManager::Reset()
 {
-    MutexGuard lock(mutex_);
+    LockGuard lock(mutex_);
 
     num_cameras_ = 0;
     num_cullables_ = 0;

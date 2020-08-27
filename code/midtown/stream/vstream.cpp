@@ -31,7 +31,7 @@ VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode*
 {
     RawSeek(0);
     flags_ |= 0x2;
-    mutex_.init();
+    lock_.init();
 }
 
 VirtualStream::~VirtualStream()
@@ -58,7 +58,7 @@ b32 VirtualStream::GetPagingInfo(usize& handle, u32& offset, u32& size)
 
 i32 VirtualStream::RawRead(void* ptr, i32 size)
 {
-    MutexGuard lock(mutex_);
+    LockGuard lock(lock_);
 
     i32 here = RawTell();
 

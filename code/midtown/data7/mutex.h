@@ -43,22 +43,48 @@ private:
     void* handle_ {nullptr};
 };
 
-class MutexGuard
+class CriticalSection
 {
 public:
-    MutexGuard(Mutex& mutex)
+    constexpr CriticalSection() = default;
+
+    ~CriticalSection()
+    {
+        close();
+    }
+
+    ARTS_NON_COPYABLE(CriticalSection);
+
+    void init();
+    void close();
+
+    void lock();
+    void unlock();
+
+private:
+    void* handle_ {nullptr};
+};
+
+template <typename T>
+class LockGuard
+{
+public:
+    LockGuard(T& mutex)
         : mutex_(&mutex)
     {
         mutex_->lock();
     }
 
-    ~MutexGuard()
+    ~LockGuard()
     {
         mutex_->unlock();
     }
 
-    ARTS_NON_COPYABLE(MutexGuard);
+    ARTS_NON_COPYABLE(LockGuard);
 
 private:
-    Mutex* const mutex_ {nullptr};
+    T* const mutex_ {nullptr};
 };
+
+template <typename T>
+LockGuard(T&) -> LockGuard<T>;

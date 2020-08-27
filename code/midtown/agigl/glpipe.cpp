@@ -133,6 +133,8 @@ i32 agiGLPipeline::BeginGfx()
     valid_bit_depths_ = 0x4;
     flags_ = 0x1 | 0x4 | 0x10;
 
+    // TODO: Get monitor position from dxiInfo
+
     MONITORINFO info {sizeof(MONITORINFO)};
     GetMonitorInfo(MonitorFromWindow(static_cast<HWND>(window_), MONITOR_DEFAULTTONEAREST), &info);
 
