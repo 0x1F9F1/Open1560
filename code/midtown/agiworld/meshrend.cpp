@@ -164,3 +164,75 @@ u32 agiMeshSet::TransformOutcode(u8* out_codes, class Vector4* output, class Vec
     return clip_or | (clip_and << 8);
 }
 #endif
+
+struct CV
+{
+    Vector4 Pos;
+    Vector3 UV;
+    u8 Fog;
+};
+
+check_size(CV, 0x20);
+
+struct CT
+{
+    i32 Index;
+    i32 Count;
+    i32 Tri[3];
+    CT* Next;
+};
+
+check_size(CT, 0x18);
+
+static extern_var(0x725138, i32, ClippedVertCount);
+static extern_var(0x720EB0, i32, ClippedTriCount);
+static extern_var(0x72D390, CV[2048], ClippedVerts);
+static extern_var(0x71DE98, CT[512], ClippedTris);
+static extern_var(0x719848, CT* [256], ClippedTextures);
+static extern_var(0x719E48, b32, OnlyZClip);
+
+// TODO: Process all clipped CV's at once, similar to ToScreen
+
+void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
+{
+    ARTS_TIMED(agiClipTimer);
+
+    if (ClippedVertCount > 2032 || ClippedTriCount == 512)
+        Quitf("ClipTri: clip buffer overflow");
+
+    // TODO: Understand why there are 16
+    CV verts[16];
+
+    verts[0] = {out[vertex_indices_[i1]], {1.0f, 0.0f, 0.0f}};
+    verts[1] = {out[vertex_indices_[i2]], {0.0f, 1.0f, 0.0f}};
+    verts[2] = {out[vertex_indices_[i3]], {0.0f, 0.0f, 1.0f}};
+
+    i32 count = OnlyZClip ? ZClipOnly(&ClippedVerts[ClippedVertCount], verts, 3)
+                          : FullClip(&ClippedVerts[ClippedVertCount], verts, 3);
+
+    if (count)
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            CV* vert = &ClippedVerts[ClippedVertCount + i];
+
+            f32 inv_w = 1.0f / vert->Pos.w;
+            f32 x = vert->Pos.x * inv_w * HalfWidth + OffsX;
+            f32 y = vert->Pos.y * inv_w * HalfHeight + OffsY;
+            f32 z = vert->Pos.z * inv_w * DepthScale + DepthOffset;
+
+            vert->Fog = CalculateFog(vert->Pos.w, FogValue);
+            vert->Pos.x = x;
+            vert->Pos.y = y;
+            vert->Pos.z = z;
+            vert->Pos.w = inv_w;
+
+            ClampToScreen(&vert->Pos);
+        }
+
+        ClippedTris[ClippedTriCount] = {ClippedVertCount, count, {i1, i2, i3}, ClippedTextures[texture]};
+        ClippedTextures[texture] = &ClippedTris[ClippedTriCount];
+        ++ClippedTriCount;
+        ClippedVertCount += count;
+    }
+}

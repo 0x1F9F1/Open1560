@@ -239,7 +239,7 @@ public:
 
 protected:
     // 0x505E40 | ?ClipTri@agiMeshSet@@IAEXHHHH@Z | agiworld:meshrend
-    ARTS_IMPORT void ClipTri(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_EXPORT void ClipTri(i32 i1, i32 i2, i32 i3, i32 texture);
 
     static void ARTS_FASTCALL ClampToScreen(Vector4* vert);
 
