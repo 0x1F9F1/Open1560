@@ -40,7 +40,12 @@ void agiGLRasterizer::EndGfx()
 #ifdef ARTS_GL_USE_INDEX_BUFFER
     glDeleteBuffers(1, &ibo_);
 #endif
-    glDeleteVertexArrays(1, &vao_);
+
+    if (glDeleteVertexArrays)
+    {
+        glDeleteVertexArrays(1, &vao_);
+    }
+
     glDeleteProgram(shader_);
     glDeleteTextures(1, &white_texture_);
 }
@@ -95,14 +100,22 @@ static u32 CompileShader(u32 type, const char* src)
 
 i32 agiGLRasterizer::BeginGfx()
 {
-    glGenVertexArrays(1, &vao_);
     glGenBuffers(1, &vbo_);
 
 #ifdef ARTS_GL_USE_INDEX_BUFFER
     glGenBuffers(1, &ibo_);
 #endif
 
-    glBindVertexArray(vao_);
+    if (glGenVertexArrays)
+    {
+        glGenVertexArrays(1, &vao_);
+        glBindVertexArray(vao_);
+    }
+    else
+    {
+        Displayf("OpenGL VAO not supported");
+    }
+
     glBindBuffer(GL_ARRAY_BUFFER, vbo_);
     glBufferData(GL_ARRAY_BUFFER, 0xFFFF * sizeof(agiScreenVtx), nullptr, GL_DYNAMIC_DRAW);
 
