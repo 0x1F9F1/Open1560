@@ -48,7 +48,7 @@ void agiMeshSet::ToScreen(u8* in_codes, Vector4* verts, i32 count)
 {
     ARTS_TIMED(agiInvertTimer);
 
-    if (count >= 8 && UseKNI)
+    if (UseKNI)
     {
         const __m128 KniMinZ = _mm_set1_ps(0.0f);
         const __m128 KniMaxZ = _mm_set1_ps(1.0f);
@@ -78,81 +78,96 @@ void agiMeshSet::ToScreen(u8* in_codes, Vector4* verts, i32 count)
         const __m128 KniScale = _mm_movehl_ps(_mm_unpacklo_ps(KniHalfHeight, KniHalfWidth), KniDepthScale);
         const __m128 KniOffset = _mm_movehl_ps(_mm_unpacklo_ps(KniOffsY, KniOffsX), KniDepthOffset);
 
-        do
+        while (count)
         {
-            // NOTE: This is undefined behaviour. A safer version would use std::bit_cast/equivalent
-            if (*reinterpret_cast<const u32*>(in_codes) == 0x40404040)
+            u8 code = 0x0;
+
+            if (count >= 4)
             {
-                __m128 vert_0 = _mm_load_ps(&verts[0].x);
-                __m128 vert_1 = _mm_load_ps(&verts[1].x);
-                __m128 vert_2 = _mm_load_ps(&verts[2].x);
-                __m128 vert_3 = _mm_load_ps(&verts[3].x);
+                // NOTE: This is undefined behaviour. A safer version would use std::bit_cast/equivalent
+                u32 codes32 = *reinterpret_cast<const u32*>(in_codes);
 
-                _MM_TRANSPOSE4_PS(vert_0, vert_1, vert_2, vert_3);
+                if (codes32 == 0x40404040)
+                {
+                    __m128 vert_0 = _mm_load_ps(&verts[0].x);
+                    __m128 vert_1 = _mm_load_ps(&verts[1].x);
+                    __m128 vert_2 = _mm_load_ps(&verts[2].x);
+                    __m128 vert_3 = _mm_load_ps(&verts[3].x);
 
-                // The maximum relative error for this approximation is less than 1.5*2^-12.
-                const __m128 inv_w = _mm_rcp_ps(vert_3);
+                    _MM_TRANSPOSE4_PS(vert_0, vert_1, vert_2, vert_3);
 
-                // Compensate due to loss of precision
-                vert_3 = _mm_sub_ps(_mm_add_ps(inv_w, inv_w), _mm_mul_ps(_mm_mul_ps(vert_3, inv_w), inv_w));
+                    // The maximum relative error for this approximation is less than 1.5*2^-12.
+                    const __m128 inv_w = _mm_rcp_ps(vert_3);
 
-                vert_0 = _mm_max_ps(
-                    _mm_min_ps(_mm_add_ps(_mm_mul_ps(_mm_mul_ps(vert_0, KniHalfWidth), vert_3), KniOffsX), KniMaxX),
-                    KniMinX);
+                    // Compensate due to loss of precision
+                    vert_3 = _mm_sub_ps(_mm_add_ps(inv_w, inv_w), _mm_mul_ps(_mm_mul_ps(vert_3, inv_w), inv_w));
 
-                vert_1 = _mm_max_ps(
-                    _mm_min_ps(_mm_add_ps(_mm_mul_ps(_mm_mul_ps(vert_1, KniHalfHeight), vert_3), KniOffsY), KniMaxY),
-                    KniMinY);
+                    vert_0 = _mm_max_ps(
+                        _mm_min_ps(_mm_add_ps(_mm_mul_ps(_mm_mul_ps(vert_0, KniHalfWidth), vert_3), KniOffsX), KniMaxX),
+                        KniMinX);
 
-                vert_2 = _mm_max_ps(
-                    _mm_min_ps(
-                        _mm_add_ps(_mm_mul_ps(_mm_mul_ps(vert_2, KniDepthScale), vert_3), KniDepthOffset), KniMaxZ),
-                    KniMinZ);
+                    vert_1 = _mm_max_ps(
+                        _mm_min_ps(
+                            _mm_add_ps(_mm_mul_ps(_mm_mul_ps(vert_1, KniHalfHeight), vert_3), KniOffsY), KniMaxY),
+                        KniMinY);
 
-                _MM_TRANSPOSE4_PS(vert_0, vert_1, vert_2, vert_3);
+                    vert_2 = _mm_max_ps(
+                        _mm_min_ps(
+                            _mm_add_ps(_mm_mul_ps(_mm_mul_ps(vert_2, KniDepthScale), vert_3), KniDepthOffset), KniMaxZ),
+                        KniMinZ);
 
-                _mm_store_ps(&verts[0].x, vert_0);
-                _mm_store_ps(&verts[1].x, vert_1);
-                _mm_store_ps(&verts[2].x, vert_2);
-                _mm_store_ps(&verts[3].x, vert_3);
+                    _MM_TRANSPOSE4_PS(vert_0, vert_1, vert_2, vert_3);
+
+                    _mm_store_ps(&verts[0].x, vert_0);
+                    _mm_store_ps(&verts[1].x, vert_1);
+                    _mm_store_ps(&verts[2].x, vert_2);
+                    _mm_store_ps(&verts[3].x, vert_3);
+
+                    in_codes += 4;
+                    verts += 4;
+                    count -= 4;
+
+                    continue;
+                }
+
+                code = codes32 & 0xFF;
             }
             else
             {
-                for (i32 i = 0; i < 4; ++i)
-                {
-                    if (in_codes[i] != 0x40)
-                        continue;
-
-                    __m128 vert = _mm_load_ps(&verts[i].x);
-
-                    // xyzw -> wzxy
-                    vert = _mm_shuffle_ps(vert, vert, _MM_SHUFFLE(0, 1, 2, 3));
-
-                    // The maximum relative error for this approximation is less than 1.5*2^-12.
-                    __m128 inv_w = _mm_rcp_ss(vert);
-
-                    // Compensate due to loss of precision
-                    vert = _mm_sub_ss(_mm_add_ss(inv_w, inv_w), _mm_mul_ss(_mm_mul_ss(vert, inv_w), inv_w));
-
-                    inv_w = _mm_shuffle_ps(vert, vert, _MM_SHUFFLE(0, 0, 0, 0));
-
-                    vert = _mm_mul_ps(vert, KniScale);
-                    vert = _mm_mul_ps(vert, inv_w);
-                    vert = _mm_add_ps(vert, KniOffset);
-                    vert = _mm_max_ps(_mm_min_ps(vert, KniMax), KniMin);
-                    vert = _mm_move_ss(vert, inv_w);
-
-                    // wzxy -> xyzw
-                    vert = _mm_shuffle_ps(vert, vert, _MM_SHUFFLE(0, 1, 2, 3));
-
-                    _mm_store_ps(&verts[i].x, vert);
-                }
+                code = *in_codes;
             }
 
-            in_codes += 4;
-            verts += 4;
-            count -= 4;
-        } while (count >= 4);
+            if (code == 0x40)
+            {
+                __m128 vert = _mm_load_ps(&verts->x);
+
+                // xyzw -> wzxy
+                vert = _mm_shuffle_ps(vert, vert, _MM_SHUFFLE(0, 1, 2, 3));
+
+                // The maximum relative error for this approximation is less than 1.5*2^-12.
+                __m128 inv_w = _mm_rcp_ss(vert);
+
+                // Compensate due to loss of precision
+                vert = _mm_sub_ss(_mm_add_ss(inv_w, inv_w), _mm_mul_ss(_mm_mul_ss(vert, inv_w), inv_w));
+
+                inv_w = _mm_shuffle_ps(vert, vert, _MM_SHUFFLE(0, 0, 0, 0));
+
+                vert = _mm_mul_ps(vert, KniScale);
+                vert = _mm_mul_ps(vert, inv_w);
+                vert = _mm_add_ps(vert, KniOffset);
+                vert = _mm_max_ps(_mm_min_ps(vert, KniMax), KniMin);
+                vert = _mm_move_ss(vert, inv_w);
+
+                // wzxy -> xyzw
+                vert = _mm_shuffle_ps(vert, vert, _MM_SHUFFLE(0, 1, 2, 3));
+
+                _mm_store_ps(&verts->x, vert);
+            }
+
+            in_codes += 1;
+            verts += 1;
+            count -= 1;
+        }
     }
 
     for (i32 i = 0; i < count; ++i)
