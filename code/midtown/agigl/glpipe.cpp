@@ -341,8 +341,8 @@ void agiGLPipeline::BeginFrame()
 
     agiPipeline::BeginFrame();
 
-    // TODO: Does this really need to be called each frame?
-    wglMakeCurrent(window_dc_, gl_context_);
+    if (wglGetCurrentContext() != gl_context_)
+        wglMakeCurrent(window_dc_, gl_context_);
 
     if (msaa_level_ != 0)
     {

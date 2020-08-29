@@ -259,7 +259,7 @@ protected:
     FileSystem* file_system_ {nullptr};
 
     // 0x1 | Allocated Buffer
-    // 0x2 | Virtual/Offset
+    // 0x2 | Virtual/Offset/Supports File Mapping?
     u8 flags_ {0};
 
     u8 swap_endian_ {false};
