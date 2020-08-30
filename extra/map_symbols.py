@@ -1202,7 +1202,7 @@ all_symbols.sort(key = lambda x: x.address)
 #     if name in '?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z': # Duplicate static symbol
 #         continue
 
-#     with open('../code/loader/stubs/stub_{:X}.asm'.format(sym.address), 'w') as f:
+#     with open('../code/loader/stubs/imp_{:X}.asm'.format(sym.address), 'w') as f:
 #         f.write('.386\n')
 #         f.write('.MODEL FLAT\n')
 
@@ -1210,13 +1210,20 @@ all_symbols.sort(key = lambda x: x.address)
 #         f.write('PUBLIC __imp_{}\n'.format(name))
 #         f.write('__imp_{} dd {:X}h\n'.format(name, sym.address))
 
-#         if sym.type.type_class == TypeClass.FunctionTypeClass:
+#         f.write('END')
+
+#     if sym.virtual:
+#         with open('../code/loader/stubs/stub_{:X}.asm'.format(sym.address), 'w') as f:
+#             f.write('.386\n')
+#             f.write('.MODEL FLAT\n')
+
+#             f.write('EXTERN __imp_{} : DWORD\n'.format(name))
 #             f.write('.CODE\n')
 #             f.write('{} PROC PUBLIC\n'.format(name))
 #             f.write('jmp dword ptr [__imp_{}]\n'.format(name))
 #             f.write('{} ENDP\n'.format(name))
 
-#         f.write('END')
+#             f.write('END')
 
 # with open('../code/loader/Open1560_stubs.asm', 'w') as f:
 #     f.write('.386\n')
