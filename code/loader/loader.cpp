@@ -168,57 +168,62 @@ static std::size_t InitExportHooks(HMODULE instance)
 
     SymbolTable symbols(0x2000);
 
-    for (const char* const* lines : {BaseSymbols, NewSymbols})
+    for (const SymbolAddress* symbol = BaseSymbols; symbol->Addr && symbol->Hash; ++symbol)
     {
-        while (*lines)
+        if (!symbols.Insert(symbol->Hash, symbol->Addr))
         {
-            std::string_view line = *lines++;
+            Errorf("Duplicate Symbol Hash: 0x%08X", symbol->Hash);
+        }
+    }
 
-            usize split = line.find('=');
+    for (const char* const* lines = NewSymbols; *lines; ++lines)
+    {
+        std::string_view line = *lines;
 
-            if (split == SIZE_MAX)
+        usize split = line.find('=');
+
+        if (split == SIZE_MAX)
+        {
+            Errorf("Invalid Symbol Mapping: '%.*s'", line.size(), line.data());
+
+            continue;
+        }
+
+        std::string_view symbol = line.substr(0, split);
+        std::string_view value = line.substr(split + 1);
+
+        std::uintptr_t address = 0;
+
+        if (value.compare(0, 2, "0x") == 0)
+        {
+            value = value.substr(2);
+
+            if (std::from_chars(value.data(), value.data() + value.size(), address, 16).ec != std::errc())
             {
-                Errorf("Invalid Symbol Mapping: '%.*s'", line.size(), line.data());
+                Errorf("Invalid Symbol Address: '%.*s' = '%.*s'", symbol.size(), symbol.data(), value.size(),
+                    value.data());
+
+                continue;
+            }
+        }
+        else
+        {
+            auto find = symbols.Lookup(SymbolTable::Hash(value));
+
+            if (find == nullptr)
+            {
+                Errorf(
+                    "Invalid Symbol Alias: '%.*s' -> '%.*s'", symbol.size(), symbol.data(), value.size(), value.data());
 
                 continue;
             }
 
-            std::string_view symbol = line.substr(0, split);
-            std::string_view value = line.substr(split + 1);
+            address = find->Address;
+        }
 
-            std::uintptr_t address = 0;
-
-            if (value.compare(0, 2, "0x") == 0)
-            {
-                value = value.substr(2);
-
-                if (std::from_chars(value.data(), value.data() + value.size(), address, 16).ec != std::errc())
-                {
-                    Errorf("Invalid Symbol Address: '%.*s' = '%.*s'", symbol.size(), symbol.data(), value.size(),
-                        value.data());
-
-                    continue;
-                }
-            }
-            else
-            {
-                auto find = symbols.Lookup(SymbolTable::Hash(value));
-
-                if (find == nullptr)
-                {
-                    Errorf("Invalid Symbol Alias: '%.*s' -> '%.*s'", symbol.size(), symbol.data(), value.size(),
-                        value.data());
-
-                    continue;
-                }
-
-                address = find->Address;
-            }
-
-            if (!symbols.Insert(SymbolTable::Hash(symbol), address))
-            {
-                Errorf("Duplicate Symbol/Hash: '%.*s'", symbol.size(), symbol.data());
-            }
+        if (!symbols.Insert(SymbolTable::Hash(symbol), address))
+        {
+            Errorf("Duplicate Symbol/Hash: '%.*s'", symbol.size(), symbol.data());
         }
     }
 
@@ -256,6 +261,10 @@ static std::size_t InitExportHooks(HMODULE instance)
                     // Hacky replacement of mangled const void* -> void*
                     while (char* s = std::strstr(replaced, "PBX"))
                         std::memcpy(s, "PAX", 3);
+
+                    // Hacky replacement of mangled T* __restrict -> T*
+                    while (char* s = std::strstr(replaced, "PI"))
+                        std::memmove(s + 1, s + 2, std::strlen(s + 1));
 
                     if (find = symbols.Lookup(SymbolTable::Hash(replaced)); find != nullptr)
                     {

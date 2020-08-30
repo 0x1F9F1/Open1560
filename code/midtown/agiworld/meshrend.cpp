@@ -92,7 +92,7 @@ static inline u8 CalculateFog(f32 w, f32 fog)
 static extern_var(0x64A6D8, i32, ClipMask);
 
 #ifndef ARTS_ENABLE_KNI
-void agiMeshSet::ToScreen(u8* in_codes, Vector4* verts, i32 count)
+void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count)
 {
     ARTS_TIMED(agiInvertTimer);
 
@@ -114,7 +114,7 @@ void agiMeshSet::ToScreen(u8* in_codes, Vector4* verts, i32 count)
     }
 }
 
-void agiMeshSet::Transform(class Vector4* output, class Vector3* input, i32 count)
+void agiMeshSet::Transform(class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count)
 {
     STATS.VertsXfrm += count;
 
@@ -135,7 +135,8 @@ void agiMeshSet::Transform(class Vector4* output, class Vector3* input, i32 coun
     }
 }
 
-u32 agiMeshSet::TransformOutcode(u8* out_codes, class Vector4* output, class Vector3* input, i32 count)
+u32 agiMeshSet::TransformOutcode(
+    u8* ARTS_RESTRICT out_codes, class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count)
 {
     STATS.VertsOut += count;
     STATS.VertsXfrm += count;

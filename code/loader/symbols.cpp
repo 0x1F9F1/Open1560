@@ -61,6636 +61,6634 @@ const char* const NewSymbols[] {
     nullptr,
 };
 
-const char* const BaseSymbols[] {
-    "??0?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ=0x55B9B0",
-    "??0?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ=0x557120",
-    "??0?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ=0x5581A0",
-    "??0AboutMenu@@QAE@H@Z=0x4A5E30",
-    "??0AddOnCarAudio@@QAE@PADF@Z=0x45C560",
-    "??0agiBILight@@QAE@PAVagiPipeline@@@Z=0x555370",
-    "??0agiBILightModel@@QAE@PAVagiPipeline@@@Z=0x555260",
-    "??0agiBitmap@@QAE@PAVagiPipeline@@@Z=0x55A3B0",
-    "??0agiColorModel8@@QAE@PAVagiPalette@@@Z=0x55BEB0",
-    "??0agiColorModelABGR@@QAE@XZ=0x55D5B0",
-    "??0agiColorModelARGB@@QAE@XZ=0x55D3D0",
-    "??0agiColorModelRGB555@@QAE@XZ=0x55C4A0",
-    "??0agiColorModelRGB555_Rev@@QAE@XZ=0x55C860",
-    "??0agiColorModelRGB565@@QAE@XZ=0x55C680",
-    "??0agiColorModelRGB565_Rev@@QAE@XZ=0x55CA40",
-    "??0agiColorModelRGB888@@QAE@XZ=0x55CC20",
-    "??0agiColorModelRGB888_Rev@@QAE@XZ=0x55CDC0",
-    "??0agiColorModelRGBA4444@@QAE@XZ=0x55D1A0",
-    "??0agiColorModelRGBA5551@@QAE@XZ=0x55CF60",
-    "??0agiD3DLight@@QAE@PAVagiPipeline@@@Z=0x5337A0",
-    "??0agiD3DMtlDef@@QAE@PAVagiPipeline@@@Z=0x533560",
-    "??0agiD3DPipeline@@QAE@XZ=0x52FB50",
-    "??0agiD3DRasterizer@@QAE@PAVagiPipeline@@@Z=0x52E550",
-    "??0agiD3DRPipeline@@QAE@XZ=0x531600",
-    "??0agiD3DTexDef@@QAE@PAVagiPipeline@@@Z=0x5319A0",
-    "??0agiD3DViewport@@QAE@PAVagiPipeline@@@Z=0x5332D0",
-    "??0agiDDBitmap@@QAE@PAVagiPipeline@@@Z=0x5339F0",
-    "??0agiDDPipeline@@QAE@XZ=0x532A40",
-    "??0agiLight@@QAE@PAVagiPipeline@@@Z=0x55BA80",
-    "??0agiLighter@@QAE@XZ=0x551740",
-    "??0agiLightModel@@IAE@PAVagiPipeline@@@Z=0x55BD00",
-    "??0agiLightModelParameters@@QAE@XZ=0x55BCA0",
-    "??0agiLightParameters@@QAE@XZ=0x55B9E0",
-    "??0agiLitAnimation@@QAE@PAVagiMeshModel@@PAVbnAnimation@@PAVStream@@@Z=0x5145C0",
-    "??0agiMeshSet@@QAE@XZ=0x5147D0",
-    "??0agiMonoLighter@@QAE@XZ=0x5519F0",
-    "??0agiMtlDef@@IAE@PAVagiPipeline@@@Z=0x55DC00",
-    "??0agiMtlParameters@@QAE@XZ=0x55DAB0",
-    "??0agiPalette@@QAE@XZ=0x55C090",
-    "??0agiPipeline@@IAE@XZ=0x555480",
-    "??0agiRasterizer@@QAE@PAVagiPipeline@@@Z=0x557BE0",
-    "??0agiRefreshable@@QAE@PAVagiPipeline@@@Z=0x557A20",
-    "??0agiRenderer@@QAE@XZ=0x55DD80",
-    "??0agiRGBLighter@@QAE@XZ=0x551E40",
-    "??0agiSurfRenderer@@QAE@PAVagiRasterizer@@@Z=0x552D60",
-    "??0agiSWPipeline@@QAE@HPAPAD@Z=0x533DD0",
-    "??0agiSWRasterizer@@QAE@PAVagiPipeline@@@Z=0x537BB0",
-    "??0agiSWTexDef@@QAE@PAVagiSWPipeline@@@Z=0x5376D0",
-    "??0agiSWTexLut@@QAE@PAVagiSWPipeline@@@Z=0x537930",
-    "??0agiTexDef@@IAE@PAVagiPipeline@@@Z=0x5561C0",
-    "??0agiTexLut@@IAE@PAVagiPipeline@@@Z=0x5568F0",
-    "??0agiTexParameters@@QAE@XZ=0x556100",
-    "??0agiTexSorter@@QAE@XZ=0x503830",
-    "??0agiViewParameters@@QAE@XZ=0x5571D0",
-    "??0agiViewport@@IAE@PAVagiPipeline@@@Z=0x5578E0",
-    "??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z=0x54FA70",
-    "??0aiAudioManager@@QAE@XZ=0x440070",
-    "??0AICamCS@@QAE@XZ=0x4FA490",
-    "??0aiGoalAvoidPlayer@@QAE@PAVaiRailSet@@PAVaiVehicleAmbient@@@Z=0x46A370",
-    "??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z=0x45F830",
-    "??0aiGoalChase@@QAE@PAVaiVehiclePolice@@PAVaiRailSet@@PAPAVmmCar@@PAFPAVVector3@@3@Z=0x45FCC0",
-    "??0aiGoalCollision@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z=0x46B2F0",
-    "??0aiGoalFollowWayPts@@QAE@PADPAVaiRailSet@@PAVaiVehicleOpponent@@PAF330M@Z=0x465A10",
-    "??0aiGoalFollowWayPts@@QAE@XZ=0x4659B0",
-    "??0aiGoalRandomDrive@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z=0x45C7E0",
-    "??0aiGoalRegainRail@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z=0x46AA20",
-    "??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z=0x45F710",
-    "??0aiIntersection@@QAE@H@Z=0x4472E0",
-    "??0aiMap@@QAE@XZ=0x433FC0",
-    "??0aiPath@@QAE@H@Z=0x43C390",
-    "??0aiPedAudioManager@@QAE@XZ=0x446C80",
-    "??0aiPedestrian@@QAE@XZ=0x447CC0",
-    "??0aiPoliceForce@@QAE@XZ=0x44E7E0",
-    "??0aiRaceData@@QAE@PAD0@Z=0x446630",
-    "??0aiRailSet@@QAE@XZ=0x453BF0",
-    "??0aiStuck@@QAE@XZ=0x46B400",
-    "??0aiTrafficLightSet@@QAE@PAVaiIntersection@@@Z=0x443F60",
-    "??0aiVehicle@@QAE@XZ=0x4658F0",
-    "??0aiVehicleActive@@QAE@XZ=0x4520B0",
-    "??0aiVehicleAmbient@@QAE@XZ=0x44EC60",
-    "??0aiVehicleData@@QAE@XZ=0x453B70",
-    "??0aiVehicleManager@@QAE@XZ=0x452A30",
-    "??0aiVehicleOpponent@@QAE@XZ=0x44DA70",
-    "??0aiVehiclePolice@@QAE@XZ=0x444790",
-    "??0aiVehicleSpline@@QAE@XZ=0x459EE0",
-    "??0AppCamCS@@QAE@XZ=0x4FC330",
-    "??0artsReplayChannel@@QAE@XZ=0x5236B0",
-    "??0asAero@@QAE@XZ=0x4DFC10",
-    "??0asArg@@QAE@DPAD@Z=0x578C30",
-    "??0asBirthRule@@QAE@XZ=0x500A00",
-    "??0asBound@@QAE@XZ=0x4DF0D0",
-    "??0asCamera@@QAE@XZ=0x528C40",
-    "??0asCullable@@QAE@XZ=0x525AA0",
-    "??0asCullManager@@QAE@HH@Z=0x5246C0",
-    "??0asDofCS@@QAE@XZ=0x52ACF0",
-    "??0asForm@@QAE@XZ=0x528390",
-    "??0asInertialCS@@QAE@XZ=0x4D91F0",
-    "??0asLamp@@QAE@XZ=0x526000",
-    "??0asLinearCS@@QAE@XZ=0x525AB0",
-    "??0asMemoryAllocator@@QAE@XZ=0x5209B0",
-    "??0asMeshSetForm@@QAE@XZ=0x4FFEA0",
-    "??0asMidgets@@QAE@XZ=0x5267F0",
-    "??0asNetObject@@QAE@XZ=0x48B4A0",
-    "??0asNetwork@@QAE@XZ=0x488FA0",
-    "??0asNode@@QAE@XZ=0x5237C0",
-    "??0asOverSample@@QAE@XZ=0x4DED20",
-    "??0asParticles@@QAE@XZ=0x5000B0",
-    "??0asPerfGraph@@QAE@XZ=0x52A8A0",
-    "??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z=0x4977B0",
-    "??0asPortalWeb@@QAE@XZ=0x495AE0",
-    "??0asRenderWeb@@QAE@XZ=0x48FCC0",
-    "??0asSafeHeap@@QAE@XZ=0x521390",
-    "??0asSimulation@@QAE@XZ=0x521800",
-    "??0asViewCS@@QAE@XZ=0x52BBA0",
-    "??0AudHead@@QAE@PAVMatrix34@@@Z=0x4EBCB0",
-    "??0AudioOptions@@QAE@H@Z=0x49C5A0",
-    "??0AudManager@@QAE@XZ=0x4E8020",
-    "??0AudSound@@QAE@KHF@Z=0x4EA250",
-    "??0AudStream@@QAE@KHF@Z=0x4F35A0",
-    "??0BaseCamCS@@QAE@XZ=0x4FBE00",
-    "??0bnBone@@QAE@XZ=0x516DE0",
-    "??0bnSkeleton@@QAE@XZ=0x514C40",
-    "??0Callback@@QAE@P6AXPAX0@Z0@Z=0x579420",
-    "??0Callback@@QAE@P6AXPAX@Z0@Z=0x5793F0",
-    "??0Callback@@QAE@P6AXXZ@Z=0x5793D0",
-    "??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z=0x579390",
-    "??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z=0x579350",
-    "??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z=0x579310",
-    "??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z=0x5792D0",
-    "??0Callback@@QAE@XZ=0x5792C0",
-    "??0CarCamCS@@QAE@XZ=0x4FB220",
-    "??0Card2D@@QAE@XZ=0x4FE150",
-    "??0CArrayList@@QAE@XZ=0x43C180",
-    "??0ControlBase@@QAE@XZ=0x4AB700",
-    "??0ControlSetup@@QAE@H@Z=0x4A2CA0",
-    "??0CReverb@@QAE@PAUIDirectSound3DBuffer@@@Z=0x4F4760",
-    "??0CReverbBuffer@@QAE@PAUIDirectSound3DBuffer@@@Z=0x4F4AA0",
-    "??0CRSettings@@QAE@H@Z=0x4A0550",
-    "??0DataCache@@QAE@XZ=0x576FC0",
-    "??0Dialog_City@@QAE@HMMMMPAD@Z=0x49D730",
-    "??0Dialog_ControlAssign@@QAE@HMMMMPAD@Z=0x4A0230",
-    "??0Dialog_DriverRec@@QAE@HMMMMPAD@Z=0x49EC10",
-    "??0Dialog_HallOfFame@@QAE@HMMMMPAD@Z=0x49E3E0",
-    "??0Dialog_Message@@QAE@HMMMMPAD@Z=0x49F2E0",
-    "??0Dialog_NewPlayer@@QAE@HMMMMPAD@Z=0x49F4B0",
-    "??0Dialog_Password@@QAE@HMMMMPAD@Z=0x49DAB0",
-    "??0Dialog_RaceEnvironment@@QAE@HMMMMPAD@Z=0x49DC80",
-    "??0Dialog_Serial@@QAE@HMMMMPAD@Z=0x49F850",
-    "??0Dialog_TCPIP@@QAE@HMMMMPAD@Z=0x4A0380",
-    "??0DLP@@QAE@PAVagiPipeline@@@Z=0x55DE90",
-    "??0DLPGroup@@QAE@PAVDLPTemplate@@PAV0@@Z=0x558CB0",
-    "??0DLPGroup@@QAE@XZ=0x558C90",
-    "??0DLPPatch@@QAE@XZ=0x55A310",
-    "??0DLPTemplate@@QAE@PAD@Z=0x5582E0",
-    "??0DLPVertex2@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@ABU0@@Z=0x5140F0",
-    "??0DLPVertex2@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@XZ=0x5140E0",
-    "??0DriverMenu@@QAE@H@Z=0x4A5350",
-    "??0DSGlobal@@QAE@XZ=0x4EF140",
-    "??0DupBuffCreator@@QAE@XZ=0x4EEBC0",
-    "??0DynamicDLP@@QAE@H@Z=0x55E5B0",
-    "??0EngineAudio@@QAE@XZ=0x4864D0",
-    "??0EngineAudioOpponent@@QAE@XZ=0x485800",
-    "??0eqEventHandler@@QAE@XZ=0x562EB0",
-    "??0eqEventMonitor@@QAE@H@Z=0x5632A0",
-    "??0eqEventQ@@QAE@HHH@Z=0x5639F0",
-    "??0eqEventReplayChannelClass@@QAE@XZ=0x563560",
-    "??0eqReplayChannel@@IAE@K@Z=0x564620",
-    "??0FileStream@@QAE@H@Z=0x5618E0",
-    "??0FileStream@@QAE@PAXHPAVFileSystem@@@Z=0x5617F0",
-    "??0FileSystem@@QAE@XZ=0x55F530",
-    "??0GraphicsOptions@@QAE@H@Z=0x499970",
-    "??0HierFileSystem@@QAE@XZ=0x55FF50",
-    "??0HostRaceMenu@@QAE@H@Z=0x4A2B60",
-    "??0initHaveMMX@@QAE@XZ=0x57C410",
-    "??0Joint3Dof@@QAE@XZ=0x4DBC20",
-    "??0MainMenu@@QAE@H@Z=0x4A61F0",
-    "??0MArray@@QAE@XZ=0x4AB7B0",
-    "??0Matrix34@@QAE@ABVMatrix44@@@Z=0x567450",
-    "??0Matrix34@@QAE@XZ=0x478540",
-    "??0Matrix44@@QAE@ABV0@@Z=0x570C80",
-    "??0Matrix44@@QAE@ABVMatrix34@@@Z=0x56E500",
-    "??0MenuManager@@QAE@XZ=0x4AED60",
-    "??0MetaClass@@QAE@PADIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z=0x577AA0",
-    "??0MiniParser@@QAE@PAD@Z=0x57C5E0",
-    "??0mmAmbientAudio@@QAE@PAVmmPlayer@@@Z=0x427DB0",
-    "??0mmAnimDOF@@QAE@XZ=0x4C4550",
-    "??0mmAnimExcel@@QAE@XZ=0x4C34D0",
-    "??0mmAnimMgr@@QAE@XZ=0x4C1110",
-    "??0mmAnimPlane@@QAE@XZ=0x4C4F20",
-    "??0mmAnimSpline@@QAE@XZ=0x4C37D0",
-    "??0mmAnimTrain@@QAE@XZ=0x4C5F20",
-    "??0mmAnimTrainCar@@QAE@XZ=0x4C8030",
-    "??0mmAnimTrigger@@QAE@XZ=0x4C41E0",
-    "??0mmArrow@@QAE@XZ=0x4062D0",
-    "??0mmAxle@@QAE@XZ=0x47D480",
-    "??0mmBangerActive@@QAE@XZ=0x4CAEE0",
-    "??0mmBangerActiveManager@@QAE@XZ=0x4CB3E0",
-    "??0mmBangerData@@QAE@XZ=0x4C9B50",
-    "??0mmBangerDataManager@@QAE@XZ=0x4C8A30",
-    "??0mmBangerInstance@@QAE@XZ=0x4446F0",
-    "??0mmBoat@@QAE@XZ=0x4C7120",
-    "??0mmBoundTemplate@@QAE@XZ=0x51D9A0",
-    "??0mmBridgeAudMgr@@QAE@XZ=0x4C3D10",
-    "??0mmBridgeMgr@@QAE@XZ=0x4C16B0",
-    "??0mmBridgeSet@@QAE@XZ=0x4C1F00",
-    "??0mmBuildingInstance@@QAE@XZ=0x4954E0",
-    "??0mmCar@@QAE@XZ=0x473380",
-    "??0mmCarModel@@QAE@XZ=0x471490",
-    "??0mmCarRoadFF@@QAE@XZ=0x4814D0",
-    "??0mmCarSim@@QAE@XZ=0x46B950",
-    "??0mmCDPlayer@@QAE@XZ=0x422FF0",
-    "??0mmCellRenderer@@QAE@XZ=0x498970",
-    "??0mmCircuitHUD@@QAE@XZ=0x424790",
-    "??0mmCityInfo@@QAE@XZ=0x4D3620",
-    "??0mmCityList@@QAE@XZ=0x4CBC10",
-    "??0mmCompCRPlayer@@QAE@XZ=0x4B7310",
-    "??0mmCompDRecord@@QAE@XZ=0x4B5A80",
-    "??0mmCompRaceRecord@@QAE@XZ=0x4B48F0",
-    "??0mmCompRoster@@QAE@XZ=0x4B7840",
-    "??0mmCRHUD@@QAE@XZ=0x425140",
-    "??0mmCullCity@@QAE@XZ=0x48BB90",
-    "??0mmDamage@@QAE@XZ=0x502220",
-    "??0mmDashView@@QAE@XZ=0x4215D0",
-    "??0mmDrivetrain@@QAE@XZ=0x47FE60",
-    "??0mmDropDown@@QAE@XZ=0x4C0810",
-    "??0mmEdgeBodyIsect@@QAE@XZ=0x51A650",
-    "??0mmEffectFF@@QAE@XZ=0x4E73B0",
-    "??0mmEngine@@QAE@XZ=0x47C930",
-    "??0mmExternalView@@QAE@XZ=0x4220F0",
-    "??0mmFacadeInstance@@QAE@XZ=0x493790",
-    "??0mmFacadeQuad@@QAE@PAVagiMeshSet@@MM@Z=0x493850",
-    "??0mmForce@@QAE@XZ=0x480BE0",
-    "??0mmGame@@QAE@XZ=0x40E880",
-    "??0mmGameEdit@@QAE@XZ=0x412150",
-    "??0mmGameManager@@QAE@XZ=0x403E50",
-    "??0mmGameMulti@@QAE@XZ=0x4306A0",
-    "??0mmGameRecord@@QAE@M@Z=0x4FDD70",
-    "??0mmGameSingle@@QAE@XZ=0x416CA0",
-    "??0mmHitBangerInstance@@QAE@XZ=0x4CAE60",
-    "??0mmHUD@@QAE@XZ=0x404C20",
-    "??0mmHudMap@@QAE@XZ=0x4280C0",
-    "??0mmIcons@@QAE@XZ=0x426390",
-    "??0mmImpactAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z=0x484750",
-    "??0mmInfoBase@@QAE@XZ=0x4D12B0",
-    "??0mmInput@@QAE@XZ=0x4E0710",
-    "??0mmInstance@@QAE@XZ=0x4929D0",
-    "??0mmInstChain@@QAE@XZ=0x492280",
-    "??0mmInterface@@QAE@XZ=0x406AC0",
-    "??0mmIntersection@@QAE@XZ=0x51A1B0",
-    "??0mmIO@@QAE@XZ=0x4E4B60",
-    "??0mmIODev@@QAE@XZ=0x4E5060",
-    "??0mmJaxis@@QAE@XZ=0x4E6080",
-    "??0mmJoyMan@@QAE@XZ=0x4E5A90",
-    "??0mmJoystick@@QAE@XZ=0x4E6180",
-    "??0mmLinearGauge@@QAE@XZ=0x423A70",
-    "??0mmLoader@@QAE@XZ=0x48B530",
-    "??0mmMapData@@QAE@XZ=0x4D3270",
-    "??0mmMatrixInstance@@QAE@XZ=0x493400",
-    "??0mmMiscData@@QAE@XZ=0x4CC490",
-    "??0mmMouseSteerBar@@QAE@XZ=0x502930",
-    "??0mmMultiBlitz@@QAE@XZ=0x418EE0",
-    "??0mmMultiCircuit@@QAE@XZ=0x41A8B0",
-    "??0mmMultiCR@@QAE@XZ=0x41BFB0",
-    "??0mmMultiRace@@QAE@XZ=0x41F930",
-    "??0mmNetObject@@QAE@XZ=0x432740",
-    "??0mmNetworkCarAudio@@QAE@PAVmmCarSim@@@Z=0x483440",
-    "??0mmNetworkCarAudio@@QAE@XZ=0x484700",
-    "??0mmNumber@@QAE@XZ=0x4FEA10",
-    "??0mmNumberFont@@QAE@XZ=0x4FE660",
-    "??0mmOpponentCarAudio@@QAE@PAVmmCarSim@@@Z=0x47B950",
-    "??0mmOpponentCarAudio@@QAE@XZ=0x47C430",
-    "??0mmOpponentImpactAudio@@QAE@XZ=0x47A3B0",
-    "??0mmOpponentSurfaceAudio@@QAE@XZ=0x485E00",
-    "??0mmPed@@QAE@XZ=0x497800",
-    "??0mmPedManager@@QAE@XZ=0x497980",
-    "??0mmPhysicsMGR@@QAE@XZ=0x4D42A0",
-    "??0mmPlayer@@QAE@XZ=0x429FF0",
-    "??0mmPlayerCarAudio@@QAE@PAVmmCarSim@@@Z=0x481B00",
-    "??0mmPlayerCarAudio@@QAE@XZ=0x4833F0",
-    "??0mmPlayerConfig@@QAE@XZ=0x4CDA00",
-    "??0mmPlayerData@@QAE@XZ=0x4D0020",
-    "??0mmPlayerDirectory@@QAE@XZ=0x4CEF00",
-    "??0mmPlayerRecord@@QAE@ABV0@@Z=0x414A50",
-    "??0mmPlayerRecord@@QAE@XZ=0x4CFC30",
-    "??0mmPoliceCarAudio@@QAE@PAVmmCarSim@@M@Z=0x47A800",
-    "??0mmPolygon@@QAE@XZ=0x51A7E0",
-    "??0mmPopup@@QAE@PAVmmGame@@MMMM@Z=0x426BA0",
-    "??0mmPositions@@QAE@XZ=0x491E00",
-    "??0mmPropInfo@@QAE@XZ=0x4D2160",
-    "??0mmRaceData@@QAE@XZ=0x4D1BC0",
-    "??0mmRainAudio@@QAE@XZ=0x433200",
-    "??0mmRecord@@QAE@XZ=0x4D1640",
-    "??0mmRoadSect@@QAE@XZ=0x4D23B0",
-    "??0mmRoadSide@@QAE@XZ=0x4D2320",
-    "??0mmRunwayLight@@QAE@PADAAVVector3@@1@Z=0x48BFA0",
-    "??0mmShard@@QAE@XZ=0x478560",
-    "??0mmShardManager@@QAE@XZ=0x4787F0",
-    "??0mmShearInstance@@QAE@XZ=0x495460",
-    "??0mmShock@@QAE@XZ=0x47D1F0",
-    "??0mmSingleBlitz@@QAE@XZ=0x412EF0",
-    "??0mmSingleCircuit@@QAE@XZ=0x414BF0",
-    "??0mmSkid@@QAE@XZ=0x477850",
-    "??0mmSkidManager@@QAE@XZ=0x477B40",
-    "??0mmSky@@QAE@XZ=0x4955D0",
-    "??0mmSlider@@QAE@XZ=0x4BE6A0",
-    "??0mmSplash@@QAE@XZ=0x480FF0",
-    "??0mmStaticInstance@@QAE@XZ=0x4935E0",
-    "??0mmStuck@@QAE@XZ=0x47C480",
-    "??0mmSurfaceAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z=0x487110",
-    "??0mmText@@QAE@XZ=0x4FEE40",
-    "??0mmTextNode@@QAE@XZ=0x4FF450",
-    "??0mmTimer@@QAE@XZ=0x4061E0",
-    "??0mmToggle2@@QAE@XZ=0x4BFF10",
-    "??0mmToggle@@QAE@XZ=0x4C0370",
-    "??0mmToolTip@@QAE@XZ=0x4BF0E0",
-    "??0mmTrailer@@QAE@XZ=0x479230",
-    "??0mmTransmission@@QAE@XZ=0x470430",
-    "??0mmUnhitBangerInstance@@QAE@XZ=0x4C4E20",
-    "??0mmVehicleForm@@QAE@XZ=0x5026B0",
-    "??0mmVehInfo@@QAE@XZ=0x4D39D0",
-    "??0mmVehList@@QAE@XZ=0x4CC080",
-    "??0mmViewCS@@QAE@XZ=0x4F8FB0",
-    "??0mmVoiceCommentary@@QAE@XZ=0x4EC070",
-    "??0mmWaypointInstance@@QAE@HMM@Z=0x433730",
-    "??0mmWaypointObject@@QAE@AAVVector4@@PADHMHM@Z=0x430370",
-    "??0mmWaypoints@@QAE@XZ=0x42D540",
-    "??0mmWheel@@QAE@XZ=0x47D790",
-    "??0mmWheelCheap@@QAE@XZ=0x474880",
-    "??0mmWPHUD@@QAE@XZ=0x4241A0",
-    "??0mmYInstance@@QAE@XZ=0x4932B0",
-    "??0nbuf@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@ABU0@@Z=0x514170",
-    "??0nbuf@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@XZ=0x514150",
-    "??0NetAddOnCarAudio@@QAE@PADF@Z=0x485540",
-    "??0NetArena@@QAE@H@Z=0x4A1790",
-    "??0NetAudioManager@@QAE@XZ=0x4751D0",
-    "??0NetSelectMenu@@QAE@H@Z=0x4A3BA0",
-    "??0OptionsBase@@QAE@H@Z=0x4AB4C0",
-    "??0OptionsMenu@@QAE@H@Z=0x4A3950",
-    "??0PointCamCS@@QAE@XZ=0x4F9E20",
-    "??0PolarCamCS@@QAE@XZ=0x4FAB60",
-    "??0PostCamCS@@QAE@XZ=0x4F9570",
-    "??0PovCamCS@@QAE@XZ=0x4F62B0",
-    "??0PreCamCS@@QAE@XZ=0x4F99E0",
-    "??0PUAudioOptions@@QAE@HMMMM@Z=0x4AA790",
-    "??0PUChat@@QAE@HMMMMPAD@Z=0x4A9780",
-    "??0PUControl@@QAE@HMMMM@Z=0x4A9F50",
-    "??0PUDebug@@QAE@HMMMM@Z=0x4AA3F0",
-    "??0PUExit@@QAE@HMMMMPAD@Z=0x4AAAA0",
-    "??0PUGraphics@@QAE@HMMMM@Z=0x4A9960",
-    "??0PUKey@@QAE@HMMMM@Z=0x4A93C0",
-    "??0PUMain@@QAE@HMMMMPAD@Z=0x4AADA0",
-    "??0PUMenuBase@@QAE@HMMMMPAD@Z=0x4AAFE0",
-    "??0PUOptions@@QAE@HMMMM@Z=0x4AA5E0",
-    "??0PUQuit@@QAE@HMMMMPAD@Z=0x4AAC20",
-    "??0PUResults@@QAE@HMMMMPAD@Z=0x4A8080",
-    "??0PURoster@@QAE@HMMMM@Z=0x4A8CA0",
-    "??0RaceMenu@@QAE@H@Z=0x4A4C30",
-    "??0RaceMenuBase@@QAE@H@Z=0x4A63C0",
-    "??0RadialGauge@@QAE@XZ=0x423840",
-    "??0RDLP@@QAE@PAVagiPipeline@@@Z=0x550800",
-    "??0RDynamicDLP@@QAE@HPAVRDLP@@@Z=0x551290",
-    "??0sfPointer@@QAE@XZ=0x4BD970",
-    "??0SoundObj@@QAE@XZ=0x4F0B20",
-    "??0Spline@@QAE@XZ=0x4FD3F0",
-    "??0Stream@@QAE@PAXHPAVFileSystem@@@Z=0x55E8B0",
-    "??0StreamMiniParser@@QAE@PADPAVStream@@@Z=0x561370",
-    "??0StreamObj@@QAE@XZ=0x4F4C10",
-    "??0string@@QAE@ABV0@@Z=0x49A730",
-    "??0string@@QAE@PBD@Z=0x4A4BA0",
-    "??0string@@QAE@XZ=0x5794E0",
-    "??0TextDropWidget@@QAE@XZ=0x4BDF90",
-    "??0Timer@@QAE@XZ=0x576870",
-    "??0Tokenizer@@QAE@PBDPAVStream@@@Z=0x5615D0",
-    "??0TrackCamCS@@QAE@XZ=0x4F6A60",
-    "??0TransitionCS@@QAE@XZ=0x4FB4B0",
-    "??0UIBMButton@@QAE@XZ=0x4B60A0",
-    "??0UIBMLabel@@QAE@XZ=0x4B4280",
-    "??0UIButton@@QAE@XZ=0x4B9B50",
-    "??0UICompositeScroll@@QAE@XZ=0x4B4EF0",
-    "??0UIControlWidget@@QAE@XZ=0x4BBA80",
-    "??0UICWArray@@QAE@XZ=0x4B7C70",
-    "??0UIIcon@@QAE@XZ=0x4B9900",
-    "??0UIIconW@@QAE@XZ=0x4BC0F0",
-    "??0UILabel@@QAE@XZ=0x4B9600",
-    "??0UIMenu@@QAE@H@Z=0x4AC7F0",
-    "??0UIMexButton@@QAE@XZ=0x4BCAB0",
-    "??0uiNavBar@@QAE@H@Z=0x4B1D00",
-    "??0UISlider@@QAE@XZ=0x4B39B0",
-    "??0UITextDropdown@@QAE@XZ=0x4B2ED0",
-    "??0UITextField@@QAE@XZ=0x4B2160",
-    "??0UITextRoller2@@QAE@XZ=0x4BABB0",
-    "??0UITextRoller@@QAE@XZ=0x4B9F90",
-    "??0UITextScroll@@QAE@XZ=0x4B87F0",
-    "??0UIToggleButton2@@QAE@XZ=0x4BC730",
-    "??0UIToggleButton@@QAE@XZ=0x4BC490",
-    "??0UIVScrollBar@@QAE@XZ=0x4BCD60",
-    "??0uiWidget@@QAE@XZ=0x4B4860",
-    "??0Vector2@@QAE@ABV0@@Z=0x430350",
-    "??0Vector3@@QAE@MMM@Z=0x43C100",
-    "??0VehGyro@@QAE@XZ=0x480660",
-    "??0Vehicle@@QAE@H@Z=0x4A51D0",
-    "??0VehicleSelectBase@@QAE@H@Z=0x49A790",
-    "??0VehShowcase@@QAE@H@Z=0x4A4F70",
-    "??0VirtualFileSystem@@QAE@PAVStream@@@Z=0x560650",
-    "??0VirtualStream@@QAE@PAVStream@@PAUVirtualFileInode@@PAXHPAVFileSystem@@@Z=0x561B40",
-    "??0VSWidget@@QAE@XZ=0x4BF2F0",
-    "??0WArray@@QAE@XZ=0x4ABE40",
-    "??0WINEventHandler@@QAE@XZ=0x561D90",
-    "??1?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ=0x559CF0",
-    "??1?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ=0x557150",
-    "??1?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ=0x5581D0",
-    "??1AboutMenu@@UAE@XZ=0x4A6050",
-    "??1AddOnCarAudio@@QAE@XZ=0x45C690",
-    "??1agiBILight@@UAE@XZ=0x555390",
-    "??1agiBILightModel@@UAE@XZ=0x555280",
-    "??1agiBitmap@@MAE@XZ=0x55A640",
-    "??1agiColorModel8@@UAE@XZ=0x55BF00",
-    "??1agiColorModel@@MAE@XZ=0x55BB70",
-    "??1agiColorModelABGR@@UAE@XZ=0x55DA70",
-    "??1agiColorModelARGB@@UAE@XZ=0x55DA30",
-    "??1agiColorModelRGB555@@UAE@XZ=0x55D830",
-    "??1agiColorModelRGB555_Rev@@UAE@XZ=0x55D8B0",
-    "??1agiColorModelRGB565@@UAE@XZ=0x55D870",
-    "??1agiColorModelRGB565_Rev@@UAE@XZ=0x55D8F0",
-    "??1agiColorModelRGB888@@UAE@XZ=0x55D930",
-    "??1agiColorModelRGB888_Rev@@UAE@XZ=0x55D970",
-    "??1agiColorModelRGBA4444@@UAE@XZ=0x55D9F0",
-    "??1agiColorModelRGBA5551@@UAE@XZ=0x55D9B0",
-    "??1agiD3DLight@@UAE@XZ=0x5337E0",
-    "??1agiD3DMtlDef@@UAE@XZ=0x533660",
-    "??1agiD3DPipeline@@UAE@XZ=0x5309D0",
-    "??1agiD3DRasterizer@@UAE@XZ=0x52E590",
-    "??1agiD3DRPipeline@@UAE@XZ=0x531620",
-    "??1agiD3DTexDef@@UAE@XZ=0x5319D0",
-    "??1agiD3DTexLut@@UAE@XZ=0x5315F0",
-    "??1agiD3DViewport@@UAE@XZ=0x533340",
-    "??1agiDDBitmap@@UAE@XZ=0x533CF0",
-    "??1agiDDPipeline@@UAE@XZ=0x532EF0",
-    "??1agiLight@@UAE@XZ=0x55BB10",
-    "??1agiLighter@@MAE@XZ=0x551750",
-    "??1agiLightModel@@UAE@XZ=0x55BD80",
-    "??1agiLightModelParameters@@QAE@XZ=0x55BCF0",
-    "??1agiMeshSet@@QAE@XZ=0x5147F0",
-    "??1agiMonoLighter@@UAE@XZ=0x551A10",
-    "??1agiMtlDef@@MAE@XZ=0x55DC80",
-    "??1agiPipeline@@UAE@XZ=0x555FA0",
-    "??1agiRasterizer@@UAE@XZ=0x557D10",
-    "??1agiRefreshable@@MAE@XZ=0x557A60",
-    "??1agiRGBLighter@@UAE@XZ=0x551E60",
-    "??1agiSurfRenderer@@MAE@XZ=0x552DB0",
-    "??1agiSWBitmap@@UAE@XZ=0x534E20",
-    "??1agiSWPipeline@@UAE@XZ=0x533E50",
-    "??1agiSWRasterizer@@UAE@XZ=0x537BD0",
-    "??1agiSWTexDef@@UAE@XZ=0x537700",
-    "??1agiSWTexLut@@UAE@XZ=0x537BA0",
-    "??1agiSWViewport@@UAE@XZ=0x534C10",
-    "??1agiTexDef@@MAE@XZ=0x556230",
-    "??1agiTexLut@@MAE@XZ=0x556920",
-    "??1agiTexSorter@@QAE@XZ=0x503A50",
-    "??1agiViewport@@MAE@XZ=0x557940",
-    "??1agiZBufRenderer@@UAE@XZ=0x54FA90",
-    "??1aiAudioManager@@UAE@XZ=0x440390",
-    "??1AICamCS@@UAE@XZ=0x42D2C0",
-    "??1aiGoal@@QAE@XZ=0x45F6F0",
-    "??1aiGoalAvoidPlayer@@QAE@XZ=0x46A3A0",
-    "??1aiGoalBackup@@QAE@XZ=0x45F860",
-    "??1aiGoalChase@@QAE@XZ=0x45FD70",
-    "??1aiGoalCollision@@QAE@XZ=0x46B320",
-    "??1aiGoalFollowWayPts@@QAE@XZ=0x466420",
-    "??1aiGoalRandomDrive@@QAE@XZ=0x45C8A0",
-    "??1aiGoalRegainRail@@QAE@XZ=0x46AA50",
-    "??1aiGoalStop@@QAE@XZ=0x45F740",
-    "??1aiIntersection@@QAE@XZ=0x447300",
-    "??1aiMap@@UAE@XZ=0x433FE0",
-    "??1aiPath@@QAE@XZ=0x43C3C0",
-    "??1aiPedAudioManager@@UAE@XZ=0x446F80",
-    "??1aiPedestrian@@QAE@XZ=0x447DA0",
-    "??1aiPedestrianInstance@@UAE@XZ=0x44DA60",
-    "??1aiPoliceForce@@QAE@XZ=0x44E800",
-    "??1aiRaceData@@QAE@XZ=0x446B10",
-    "??1aiRailSet@@QAE@XZ=0x453CF0",
-    "??1aiStuck@@UAE@XZ=0x4658E0",
-    "??1aiTrafficLightInstance@@UAE@XZ=0x444780",
-    "??1aiTrafficLightSet@@UAE@XZ=0x444150",
-    "??1aiVehicle@@QAE@XZ=0x465910",
-    "??1aiVehicleActive@@UAE@XZ=0x452450",
-    "??1aiVehicleAmbient@@QAE@XZ=0x44ED40",
-    "??1aiVehicleData@@UAE@XZ=0x453B90",
-    "??1aiVehicleInstance@@UAE@XZ=0x45C550",
-    "??1aiVehicleManager@@UAE@XZ=0x452B10",
-    "??1aiVehicleOpponent@@QAE@XZ=0x44DAD0",
-    "??1aiVehiclePolice@@QAE@XZ=0x4447F0",
-    "??1aiVehicleSpline@@QAE@XZ=0x459F50",
-    "??1AppCamCS@@UAE@XZ=0x4FC420",
-    "??1artsReplayChannel@@QAE@XZ=0x523740",
-    "??1asAero@@UAE@XZ=0x470320",
-    "??1asBirthRule@@UAE@XZ=0x453BC0",
-    "??1asBound@@UAE@XZ=0x453A40",
-    "??1asCamera@@UAE@XZ=0x528BB0",
-    "??1asCullable@@UAE@XZ=0x48BB80",
-    "??1asCullManager@@UAE@XZ=0x524D40",
-    "??1asDofCS@@UAE@XZ=0x49C430",
-    "??1asForm@@UAE@XZ=0x5283C0",
-    "??1asInertialCS@@UAE@XZ=0x453A30",
-    "??1asLamp@@UAE@XZ=0x5260C0",
-    "??1asLinearCS@@UAE@XZ=0x422F00",
-    "??1asMemoryAllocator@@QAE@XZ=0x5209C0",
-    "??1asMeshSetForm@@UAE@XZ=0x5000A0",
-    "??1asMidgets@@UAE@XZ=0x526890",
-    "??1asNetObject@@UAE@XZ=0x48B4C0",
-    "??1asNetwork@@QAE@XZ=0x489010",
-    "??1asNode@@UAE@XZ=0x5237F0",
-    "??1asOverSample@@UAE@XZ=0x42D300",
-    "??1asParticles@@UAE@XZ=0x500120",
-    "??1asPerfGraph@@QAE@XZ=0x52A930",
-    "??1asPortalWeb@@UAE@XZ=0x4974C0",
-    "??1asRenderWeb@@UAE@XZ=0x48FD40",
-    "??1asSafeHeap@@QAE@XZ=0x5213A0",
-    "??1asSimulation@@UAE@XZ=0x521A60",
-    "??1asViewCS@@UAE@XZ=0x52CE50",
-    "??1AudHead@@UAE@XZ=0x4EBD00",
-    "??1AudioOptions@@UAE@XZ=0x49CE60",
-    "??1AudManager@@UAE@XZ=0x4E8160",
-    "??1AudSound@@UAE@XZ=0x4EA530",
-    "??1AudStream@@UAE@XZ=0x4F36E0",
-    "??1Base@@UAE@XZ=0x5791E0",
-    "??1BaseCamCS@@UAE@XZ=0x4FBEA0",
-    "??1bnSkeleton@@QAE@XZ=0x514C50",
-    "??1CarCamCS@@UAE@XZ=0x4FB240",
-    "??1Card2D@@UAE@XZ=0x4FE650",
-    "??1CArrayList@@QAE@XZ=0x446C00",
-    "??1CDMan@@QAE@XZ=0x4F4240",
-    "??1ControlBase@@QAE@XZ=0x4AB710",
-    "??1ControlSetup@@UAE@XZ=0x4A2E90",
-    "??1CReverb@@QAE@XZ=0x4F4800",
-    "??1CReverbBuffer@@QAE@XZ=0x4F4AF0",
-    "??1CRSettings@@UAE@XZ=0x4A0E90",
-    "??1Dialog_City@@UAE@XZ=0x49D9B0",
-    "??1Dialog_ControlAssign@@UAE@XZ=0x4A0330",
-    "??1Dialog_DriverRec@@UAE@XZ=0x49EF70",
-    "??1Dialog_HallOfFame@@UAE@XZ=0x49E7E0",
-    "??1Dialog_Message@@UAE@XZ=0x49F460",
-    "??1Dialog_NewPlayer@@UAE@XZ=0x49F7D0",
-    "??1Dialog_Password@@UAE@XZ=0x49DC20",
-    "??1Dialog_RaceEnvironment@@UAE@XZ=0x49E290",
-    "??1Dialog_Serial@@UAE@XZ=0x4A00B0",
-    "??1Dialog_TCPIP@@UAE@XZ=0x4A04F0",
-    "??1DLP@@UAE@XZ=0x55DEF0",
-    "??1DLPGroup@@QAE@XZ=0x558E90",
-    "??1DLPPatch@@QAE@XZ=0x55A320",
-    "??1DLPTemplate@@AAE@XZ=0x558330",
-    "??1DriverMenu@@UAE@XZ=0x4A5850",
-    "??1DSGlobal@@QAE@XZ=0x4EF200",
-    "??1DupBuffCreator@@QAE@XZ=0x4EEC00",
-    "??1DynamicDLP@@MAE@XZ=0x55E5E0",
-    "??1EngineAudio@@UAE@XZ=0x486940",
-    "??1EngineAudioOpponent@@UAE@XZ=0x485860",
-    "??1eqEventHandler@@UAE@XZ=0x562F00",
-    "??1eqEventMonitor@@UAE@XZ=0x5632C0",
-    "??1eqEventQ@@UAE@XZ=0x563A80",
-    "??1eqEventReplayChannelClass@@QAE@XZ=0x5639E0",
-    "??1eqReplayChannel@@QAE@XZ=0x564650",
-    "??1FileStream@@UAE@XZ=0x561A60",
-    "??1FileSystem@@UAE@XZ=0x55F5A0",
-    "??1foobar@@UAE@XZ=0x414A10",
-    "??1GraphicsOptions@@UAE@XZ=0x49A2F0",
-    "??1HashTable@@QAE@XZ=0x498950",
-    "??1HierFileSystem@@UAE@XZ=0x55FF70",
-    "??1HostRaceMenu@@UAE@XZ=0x4A2C30",
-    "??1Joint3Dof@@UAE@XZ=0x4DEC60",
-    "??1JointedStruct@@UAE@XZ=0x4DEB60",
-    "??1List@@QAE@XZ=0x57C280",
-    "??1MainMenu@@UAE@XZ=0x4A6370",
-    "??1MArray@@QAE@XZ=0x4AB7C0",
-    "??1MenuManager@@UAE@XZ=0x4AEF20",
-    "??1MetaClass@@QAE@XZ=0x577B20",
-    "??1MiniParser@@QAE@XZ=0x57C640",
-    "??1MixerCTL@@UAE@XZ=0x4EE180",
-    "??1mmAmbientAudio@@QAE@XZ=0x427E50",
-    "??1mmAnimDOF@@QAE@XZ=0x4C4570",
-    "??1mmAnimExcel@@UAE@XZ=0x4C34F0",
-    "??1mmAnimMgr@@UAE@XZ=0x4C1190",
-    "??1mmAnimPlane@@UAE@XZ=0x4C5010",
-    "??1mmAnimSpline@@UAE@XZ=0x4C37F0",
-    "??1mmAnimTrain@@QAE@XZ=0x4C6010",
-    "??1mmAnimTrainCar@@UAE@XZ=0x4C8050",
-    "??1mmAnimTrigger@@QAE@XZ=0x4C41F0",
-    "??1mmArrow@@UAE@XZ=0x406450",
-    "??1mmAxle@@UAE@XZ=0x470370",
-    "??1mmBangerActive@@UAE@XZ=0x4CAFC0",
-    "??1mmBangerActiveManager@@UAE@XZ=0x4CB490",
-    "??1mmBangerData@@UAE@XZ=0x4C9BE0",
-    "??1mmBangerDataManager@@UAE@XZ=0x4C8B50",
-    "??1mmBangerInstance@@UAE@XZ=0x444740",
-    "??1mmBangerManager@@UAE@XZ=0x48FCB0",
-    "??1mmBoat@@UAE@XZ=0x4C7200",
-    "??1mmBoundTemplate@@QAE@XZ=0x51DA60",
-    "??1mmBridgeAudMgr@@UAE@XZ=0x4C3EC0",
-    "??1mmBridgeMgr@@UAE@XZ=0x4C17C0",
-    "??1mmBridgeSet@@UAE@XZ=0x4C2010",
-    "??1mmBuildingInstance@@UAE@XZ=0x48FC40",
-    "??1mmCar@@UAE@XZ=0x42D1F0",
-    "??1mmCarModel@@UAE@XZ=0x471540",
-    "??1mmCarRoadFF@@UAE@XZ=0x481510",
-    "??1mmCarSim@@UAE@XZ=0x46C040",
-    "??1mmCDPlayer@@UAE@XZ=0x406960",
-    "??1mmCellRenderer@@QAE@XZ=0x4989A0",
-    "??1mmCircuitHUD@@UAE@XZ=0x4248A0",
-    "??1mmCityInfo@@UAE@XZ=0x4D3640",
-    "??1mmCityList@@UAE@XZ=0x4CBC30",
-    "??1mmCompBase@@UAE@XZ=0x4B4DF0",
-    "??1mmCompCRPlayer@@UAE@XZ=0x4B7340",
-    "??1mmCompDRecord@@UAE@XZ=0x4B5AC0",
-    "??1mmCompRaceRecord@@UAE@XZ=0x4B4930",
-    "??1mmCompRoster@@UAE@XZ=0x4B78B0",
-    "??1mmCRHUD@@UAE@XZ=0x4252E0",
-    "??1mmCtrlCFG@@QAE@XZ=0x4CEE80",
-    "??1mmCullCity@@UAE@XZ=0x48BD70",
-    "??1mmDamage@@QAE@XZ=0x502230",
-    "??1mmDashView@@UAE@XZ=0x421770",
-    "??1mmDofBangerInstance@@UAE@XZ=0x4C4EE0",
-    "??1mmDrawbridgeInstance@@UAE@XZ=0x4C4DB0",
-    "??1mmDrivetrain@@UAE@XZ=0x470350",
-    "??1mmDropDown@@UAE@XZ=0x4C0870",
-    "??1mmEffectFF@@QAE@XZ=0x4E7420",
-    "??1mmEngine@@UAE@XZ=0x47C990",
-    "??1mmExternalView@@UAE@XZ=0x406910",
-    "??1mmFacadeInstance@@UAE@XZ=0x4937B0",
-    "??1mmForce@@UAE@XZ=0x470330",
-    "??1mmGame@@UAE@XZ=0x40FDB0",
-    "??1mmGameEdit@@UAE@XZ=0x412220",
-    "??1mmGameManager@@UAE@XZ=0x4043B0",
-    "??1mmGameMulti@@UAE@XZ=0x4307B0",
-    "??1mmGameRecord@@QAE@XZ=0x4FDDA0",
-    "??1mmGameSingle@@UAE@XZ=0x416D30",
-    "??1mmHitBangerInstance@@UAE@XZ=0x4CAED0",
-    "??1mmHUD@@UAE@XZ=0x405190",
-    "??1mmHudMap@@UAE@XZ=0x429FD0",
-    "??1mmIcons@@UAE@XZ=0x426410",
-    "??1mmImpactAudio@@QAE@XZ=0x484D80",
-    "??1mmInfoBase@@UAE@XZ=0x414BC0",
-    "??1mmInput@@UAE@XZ=0x4E0930",
-    "??1mmInstance@@UAE@XZ=0x492A00",
-    "??1mmInstChain@@QAE@XZ=0x492290",
-    "??1mmInterface@@UAE@XZ=0x407E00",
-    "??1mmIO@@QAE@XZ=0x4E4B80",
-    "??1mmIODev@@UAE@XZ=0x4E50A0",
-    "??1mmJaxis@@QAE@XZ=0x4E60A0",
-    "??1mmJoyMan@@QAE@XZ=0x4E5AA0",
-    "??1mmJoystick@@QAE@XZ=0x4E6240",
-    "??1mmLinearGauge@@QAE@XZ=0x423A80",
-    "??1mmLoader@@UAE@XZ=0x48B680",
-    "??1mmMapData@@UAE@XZ=0x4D3290",
-    "??1mmMatrixInstance@@UAE@XZ=0x493430",
-    "??1mmMiscData@@UAE@XZ=0x4CC5A0",
-    "??1mmMouseSteerBar@@UAE@XZ=0x502950",
-    "??1mmMultiBlitz@@UAE@XZ=0x418F50",
-    "??1mmMultiCircuit@@UAE@XZ=0x41A920",
-    "??1mmMultiCR@@UAE@XZ=0x41C070",
-    "??1mmMultiRace@@UAE@XZ=0x41F9A0",
-    "??1mmNetObject@@UAE@XZ=0x4327F0",
-    "??1mmNetworkCarAudio@@UAE@XZ=0x483630",
-    "??1mmNumber@@UAE@XZ=0x4FEAA0",
-    "??1mmNumberFont@@QAE@XZ=0x4FE730",
-    "??1mmOpponentCarAudio@@UAE@XZ=0x47B9C0",
-    "??1mmOpponentImpactAudio@@QAE@XZ=0x47A570",
-    "??1mmOpponentSurfaceAudio@@QAE@XZ=0x485E30",
-    "??1mmPed@@UAE@XZ=0x4978B0",
-    "??1mmPedManager@@UAE@XZ=0x4979A0",
-    "??1mmPhysEntity@@UAE@XZ=0x42D510",
-    "??1mmPhysExec@@UAE@XZ=0x4D91E0",
-    "??1mmPhysicsMGR@@UAE@XZ=0x4D43A0",
-    "??1mmPlayer@@UAE@XZ=0x42D370",
-    "??1mmPlayerCarAudio@@UAE@XZ=0x481F30",
-    "??1mmPlayerConfig@@UAE@XZ=0x4CDAA0",
-    "??1mmPlayerData@@UAE@XZ=0x4CBB40",
-    "??1mmPlayerDirectory@@UAE@XZ=0x4CEF40",
-    "??1mmPlayerRecord@@UAE@XZ=0x4CFC50",
-    "??1mmPoliceCarAudio@@UAE@XZ=0x47A8E0",
-    "??1mmPopup@@UAE@XZ=0x427010",
-    "??1mmPropInfo@@UAE@XZ=0x4D2190",
-    "??1mmRaceData@@QAE@XZ=0x4D1BD0",
-    "??1mmRainAudio@@QAE@XZ=0x433400",
-    "??1mmRecord@@UAE@XZ=0x4D1680",
-    "??1mmRoadSect@@UAE@XZ=0x43C250",
-    "??1mmRoadSide@@UAE@XZ=0x43C190",
-    "??1mmRunwayLight@@UAE@XZ=0x48FA70",
-    "??1mmScreenClearFlunky@@UAE@XZ=0x404BA0",
-    "??1mmShard@@UAE@XZ=0x4785D0",
-    "??1mmShardManager@@UAE@XZ=0x478860",
-    "??1mmShearInstance@@UAE@XZ=0x48FC10",
-    "??1mmShock@@UAE@XZ=0x470380",
-    "??1mmSingleBlitz@@UAE@XZ=0x412F90",
-    "??1mmSingleCircuit@@UAE@XZ=0x414C90",
-    "??1mmSkid@@UAE@XZ=0x477890",
-    "??1mmSkidManager@@UAE@XZ=0x477B70",
-    "??1mmSky@@QAE@XZ=0x495610",
-    "??1mmSlider@@UAE@XZ=0x4BE730",
-    "??1mmSplash@@UAE@XZ=0x470310",
-    "??1mmStaticInstance@@UAE@XZ=0x493600",
-    "??1mmStuck@@UAE@XZ=0x470300",
-    "??1mmSurfaceAudio@@QAE@XZ=0x487510",
-    "??1mmText@@QAE@XZ=0x4FEE50",
-    "??1mmTextNode@@UAE@XZ=0x4FF4D0",
-    "??1mmTimer@@UAE@XZ=0x406200",
-    "??1mmToggle2@@UAE@XZ=0x4BFF30",
-    "??1mmToggle@@UAE@XZ=0x4C0390",
-    "??1mmToolTip@@UAE@XZ=0x4BF150",
-    "??1mmTrailer@@UAE@XZ=0x47A1D0",
-    "??1mmTrailerInstance@@UAE@XZ=0x47A140",
-    "??1mmTransmission@@UAE@XZ=0x470390",
-    "??1mmUnhitBangerInstance@@UAE@XZ=0x48FC70",
-    "??1mmUpperInstance@@UAE@XZ=0x48FAA0",
-    "??1mmVehicleForm@@UAE@XZ=0x49C4A0",
-    "??1mmVehInfo@@UAE@XZ=0x4D39F0",
-    "??1mmVehList@@UAE@XZ=0x4CC0A0",
-    "??1mmViewCS@@UAE@XZ=0x4F9070",
-    "??1mmVoiceCommentary@@QAE@XZ=0x4EC110",
-    "??1mmWaypointInstance@@UAE@XZ=0x433780",
-    "??1mmWaypointObject@@UAE@XZ=0x430510",
-    "??1mmWaypoints@@UAE@XZ=0x42DB20",
-    "??1mmWheel@@UAE@XZ=0x470360",
-    "??1mmWheelCheap@@UAE@XZ=0x453A50",
-    "??1mmWPHUD@@UAE@XZ=0x4242B0",
-    "??1mmYInstance@@UAE@XZ=0x4932E0",
-    "??1NetAddOnCarAudio@@QAE@XZ=0x485660",
-    "??1NetArena@@UAE@XZ=0x4A1D80",
-    "??1NetAudioManager@@UAE@XZ=0x4753B0",
-    "??1NetSelectMenu@@UAE@XZ=0x4A42F0",
-    "??1OptionsBase@@UAE@XZ=0x4AB650",
-    "??1OptionsMenu@@UAE@XZ=0x4A3B10",
-    "??1PointCamCS@@UAE@XZ=0x42D2D0",
-    "??1PolarCamCS@@UAE@XZ=0x42D2B0",
-    "??1position_t@@QAE@XZ=0x491DF0",
-    "??1PostCamCS@@UAE@XZ=0x42D2F0",
-    "??1PovCamCS@@UAE@XZ=0x4F63B0",
-    "??1PreCamCS@@UAE@XZ=0x42D2E0",
-    "??1problem_t@@QAE@XZ=0x561340",
-    "??1PUAudioOptions@@UAE@XZ=0x4AA9D0",
-    "??1PUChat@@UAE@XZ=0x4A9880",
-    "??1PUControl@@UAE@XZ=0x4AA250",
-    "??1PUDebug@@UAE@XZ=0x4AA590",
-    "??1PUExit@@UAE@XZ=0x4AABE0",
-    "??1PUGraphics@@UAE@XZ=0x4A9EE0",
-    "??1PUKey@@UAE@XZ=0x4A9460",
-    "??1PUMain@@UAE@XZ=0x4AAFA0",
-    "??1PUMenuBase@@UAE@XZ=0x4AB1B0",
-    "??1PUOptions@@UAE@XZ=0x4AA750",
-    "??1PUQuit@@UAE@XZ=0x4AAD60",
-    "??1PUResults@@UAE@XZ=0x4A89C0",
-    "??1PURoster@@UAE@XZ=0x4A8E10",
-    "??1RaceMenu@@UAE@XZ=0x4A4CF0",
-    "??1RaceMenuBase@@UAE@XZ=0x4A72C0",
-    "??1RadialGauge@@UAE@XZ=0x422F10",
-    "??1RDLP@@UAE@XZ=0x550850",
-    "??1RDynamicDLP@@UAE@XZ=0x5512F0",
-    "??1sfPointer@@UAE@XZ=0x4BD9A0",
-    "??1SoundObj@@QAE@XZ=0x4F0BE0",
-    "??1Spline@@UAE@XZ=0x4F8F40",
-    "??1Stream@@UAE@XZ=0x55E940",
-    "??1StreamMiniParser@@QAE@XZ=0x5613A0",
-    "??1StreamObj@@QAE@XZ=0x4F4CA0",
-    "??1string@@QAE@XZ=0x40E7E0",
-    "??1TextDropWidget@@UAE@XZ=0x4BE040",
-    "??1TrackCamCS@@UAE@XZ=0x4F6D00",
-    "??1TransitionCS@@UAE@XZ=0x4FB540",
-    "??1UIBMButton@@UAE@XZ=0x4B6140",
-    "??1UIBMLabel@@UAE@XZ=0x4B42F0",
-    "??1UIButton@@UAE@XZ=0x4B9BE0",
-    "??1UICompositeScroll@@UAE@XZ=0x4B4FD0",
-    "??1UIControlWidget@@UAE@XZ=0x4BBBA0",
-    "??1UICWArray@@UAE@XZ=0x4B7D30",
-    "??1UIIcon@@UAE@XZ=0x4B9950",
-    "??1UIIconW@@UAE@XZ=0x4BC1B0",
-    "??1UILabel@@UAE@XZ=0x4B9690",
-    "??1UIMenu@@UAE@XZ=0x4AC8F0",
-    "??1UIMexButton@@UAE@XZ=0x4BCB30",
-    "??1uiNavBar@@UAE@XZ=0x4B1F70",
-    "??1UISlider@@UAE@XZ=0x4B3A40",
-    "??1UITextDropdown@@UAE@XZ=0x4B2F60",
-    "??1UITextField@@UAE@XZ=0x4B2270",
-    "??1UITextRoller2@@UAE@XZ=0x4BAC60",
-    "??1UITextRoller@@UAE@XZ=0x4BA070",
-    "??1UITextScroll@@UAE@XZ=0x4B8900",
-    "??1UIToggleButton2@@UAE@XZ=0x4BC7B0",
-    "??1UIToggleButton@@UAE@XZ=0x4BC510",
-    "??1UIVScrollBar@@UAE@XZ=0x4BCE00",
-    "??1uiWidget@@UAE@XZ=0x4B2DB0",
-    "??1VehGyro@@UAE@XZ=0x470340",
-    "??1Vehicle@@UAE@XZ=0x4A52B0",
-    "??1VehicleSelectBase@@UAE@XZ=0x49B7D0",
-    "??1VehShowcase@@UAE@XZ=0x4A50C0",
-    "??1VirtualFileSystem@@UAE@XZ=0x560710",
-    "??1VirtualStream@@UAE@XZ=0x561C00",
-    "??1VolumeDW@@QAE@XZ=0x4EEB80",
-    "??1VSWidget@@UAE@XZ=0x4BF370",
-    "??1WArray@@QAE@XZ=0x4ABE50",
-    "??1WINEventHandler@@UAE@XZ=0x561EC0",
-    "??2@YAPAXI@Z=0x5215A0",
-    "??3@YAXPAX@Z=0x5215C0",
-    "??3mmInstance@@SAXPAX@Z=0x430690",
-    "??4agiLightModelParameters@@QAEXABV0@@Z=0x55BCD0",
-    "??4agiLightParameters@@QAEXABV0@@Z=0x55BA60",
-    "??4agiMtlParameters@@QAEXABV0@@Z=0x55DBE0",
-    "??4asDofCS@@QAEXABV0@@Z=0x52ADE0",
-    "??4FloatArray@@QAEXAAV0@@Z=0x5739F0",
-    "??4HashTable@@QAEXAAV0@@Z=0x578180",
-    "??4IntArray@@QAEXAAV0@@Z=0x5736D0",
-    "??4mmPlayerConfig@@QAEXAAV0@@Z=0x4CDB10",
-    "??4mmPlayerData@@QAEXAAV0@@Z=0x4D0140",
-    "??4mmPlayerRecord@@QAEXAAV0@@Z=0x4CFC90",
-    "??4mmRecord@@QAEXAAV0@@Z=0x4D1780",
-    "??4string@@QAEXPBD@Z=0x57B320",
-    "??4StringArray@@QAEXAAV0@@Z=0x57B050",
-    "??4Vector2Array@@QAEXAAV0@@Z=0x571460",
-    "??4Vector3Array@@QAEXAAV0@@Z=0x567030",
-    "??4Vector4Array@@QAEXAAV0@@Z=0x56E1F0",
-    "??7Vector4@@QBE?AV0@XZ=0x56DD00",
-    "??8mmIO@@QAEHPATeqEvent@@@Z=0x4E4D20",
-    "??8mmIODev@@QAEHPATeqEvent@@@Z=0x4E5200",
-    "??_9@$BBE@AE=0x429FE0",
-    "??_9@$BBM@AE=0x5237B0",
-    "??_9@$BCI@AE=0x5246A0",
-    "??_9@$BCM@AE=0x5246B0",
-    "??_9@$BFA@AE=0x4AB6D0",
-    "??_9@$BFE@AE=0x4AB6E0",
-    "??_FasCullManager@@QAEXXZ=0x5258B0",
-    "??_FmmWaypointInstance@@QAEXXZ=0x433D90",
-    "??_H@YGXPAXIHP6EX0@Z@Z=0x403C00",
-    "??AFloatArray@@QAEAAMH@Z=0x573990",
-    "??AIntArray@@QAEAAHH@Z=0x573670",
-    "??AStringArray@@QAEAAVstring@@H@Z=0x57AFA0",
-    "??AVector2Array@@QAEAAVVector2@@H@Z=0x5713F0",
-    "??AVector3Array@@QAEAAVVector3@@H@Z=0x566FB0",
-    "??AVector4Array@@QAEAAVVector4@@H@Z=0x56E170",
-    "??BVector2@@QBE?AVVector3@@XZ=0x5672E0",
-    "??BVector3@@QBE?AVVector2@@XZ=0x5672C0",
-    "??BVector3@@QBE?AVVector4@@XZ=0x56E010",
-    "??D@YA?AVMatrix34@@MABV0@@Z=0x56A7F0",
-    "??D@YA?AVMatrix44@@MABV0@@Z=0x56E920",
-    "??D@YA?AVVector3@@MABV0@@Z=0x459E00",
-    "??DMatrix34@@QBE?AV0@M@Z=0x56A6F0",
-    "??DMatrix44@@QBE?AV0@M@Z=0x56EA80",
-    "??DVector3@@QBE?AV0@M@Z=0x451320",
-    "??GMatrix34@@QAE?AV0@ABV0@@Z=0x5675B0",
-    "??GMatrix44@@QBE?AV0@ABV0@@Z=0x56E6D0",
-    "??GMatrix44@@QBE?AV0@XZ=0x56E820",
-    "??Gstring@@QBE?AV0@PBD@Z=0x579900",
-    "??GVector3@@QBE?AV0@ABV0@@Z=0x43FFA0",
-    "??GVector3@@QBE?AV0@XZ=0x459E70",
-    "??H@YA?AVstring@@PBDABV0@@Z=0x579640",
-    "??HMatrix34@@QAE?AV0@ABV0@@Z=0x5674E0",
-    "??HMatrix44@@QBE?AV0@ABV0@@Z=0x56E570",
-    "??Hstring@@QBE?AV0@ABV0@@Z=0x57B380",
-    "??Hstring@@QBE?AV0@PBD@Z=0x579510",
-    "??HVector3@@QBE?AV0@ABV0@@Z=0x4512F0",
-    "??KMatrix44@@QBE?AV0@M@Z=0x56EBD0",
-    "??KVector2@@QBE?AV0@M@Z=0x571110",
-    "??KVector3@@QBE?AV0@M@Z=0x4D9080",
-    "??KVector4@@QBE?AV0@M@Z=0x56DC70",
-    "??LVector3@@QBE?AV0@ABV0@@Z=0x45C420",
-    "??SQuaternion@@QBE?AV0@XZ=0x5727F0",
-    "??SVector2@@QBE?AV0@XZ=0x571170",
-    "??SVector3@@QBE?AV0@XZ=0x570D00",
-    "??T@YA?AVVector3@@ABV0@ABVMatrix44@@@Z=0x56F3F0",
-    "??T@YA?AVVector4@@ABV0@ABVMatrix44@@@Z=0x56F460",
-    "??TMatrix44@@QBE?AV0@ABV0@@Z=0x56EDB0",
-    "??TMatrix44@@QBE?AVVector4@@ABV1@@Z=0x56F2F0",
-    "??TVector3@@QBE?AV0@ABVMatrix34@@@Z=0x4DEB70",
-    "??TVector3@@QBEMABV0@@Z=0x459E40",
-    "??TVector4@@QBEMABV0@@Z=0x570D70",
-    "??XVector3@@QAEXM@Z=0x4DEBD0",
-    "??Ystring@@QAEXD@Z=0x579860",
-    "??Ystring@@QAEXPBD@Z=0x579770",
-    "??YVector3@@QAEXABV0@@Z=0x4DBB50",
-    "??Zstring@@QAEXPBD@Z=0x579A60",
-    "??ZVector3@@QAEXABV0@@Z=0x4DEBA0",
-    "?__BadSafeCall@@YAXPADPAVBase@@@Z=0x577C50",
-    "?__ComputeCpuSpeed@@YAIXZ=0x57CE90",
-    "?__DDRelease@@YAXPAUIUnknown@@PBD1H@Z=0x532890",
-    "?__DDTry@@YAXHPBD0H@Z=0x5327B0",
-    "?__emitDebug@@YIXPAUswSurface@@H@Z=0x5351C0",
-    "?__emitDepthComplexity@@YIXH@Z=0x535220",
-    "?__emitSemiBlack@@YIXH@Z=0x5367C0",
-    "?__emitSolid@@YIXH@Z=0x535260",
-    "?__emitSolidZ@@YIXH@Z=0x5352B0",
-    "?__emitStippleBlack@@YIXH@Z=0x536800",
-    "?__emitWireframe@@YIXH@Z=0x535320",
-    "?__emitZwrite@@YIXPAUswSurface@@H@Z=0x535910",
-    "?__setupNone@@YIXPAUswSurface@@@Z=0x535890",
-    "?__setupUV@@YIXPAUswSurface@@@Z=0x535510",
-    "?__setupUVI@@YIXPAUswSurface@@@Z=0x5356E0",
-    "?__setupUVIZ@@YIXPAUswSurface@@@Z=0x5357B0",
-    "?__setupUVZ@@YIXPAUswSurface@@@Z=0x5355D0",
-    "?__setupZ@@YIXPAUswSurface@@@Z=0x5356A0",
-    "?__spanLinear@@YIXPAUswSurface@@H@Z=0x5358A0",
-    "?__spanLinearZwrite@@YIXPAUswSurface@@H@Z=0x5358D0",
-    "?__spanPerspXY@@YIXPAUswSurface@@H@Z=0x5359D0",
-    "?__spanPerspXYZwrite@@YIXPAUswSurface@@H@Z=0x535BD0",
-    "?Abortf@@YAXPBDZZ=0x576DB0",
-    "?AcceptCapture@UICWArray@@QAEXXZ=0x4B8560",
-    "?Access@HashTable@@QAEPAXPAD@Z=0x578430",
-    "?Access@List@@QAEPAXH@Z=0x57C330",
-    "?Action@mmCompBase@@UAEXTeqEvent@@@Z=0x4B4E40",
-    "?Action@mmCompBase@@UAEXTeqEvent@@MMH@Z=0x4B4E70",
-    "?Action@UIBMButton@@UAEXTeqEvent@@@Z=0x4B69A0",
-    "?Action@UIButton@@UAEXTeqEvent@@@Z=0x4B9DB0",
-    "?Action@UICompositeScroll@@UAEXTeqEvent@@@Z=0x4B57A0",
-    "?Action@UIControlWidget@@UAEXTeqEvent@@@Z=0x4BBF10",
-    "?Action@UICWArray@@UAEXTeqEvent@@@Z=0x4B82A0",
-    "?Action@UIIconW@@UAEXTeqEvent@@@Z=0x4BC300",
-    "?Action@UILabel@@UAEXTeqEvent@@@Z=0x4B98F0",
-    "?Action@UIMexButton@@UAEXTeqEvent@@@Z=0x4BCCC0",
-    "?Action@UISlider@@UAEXTeqEvent@@@Z=0x4B3EA0",
-    "?Action@UITextDropdown@@UAEXTeqEvent@@@Z=0x4B3680",
-    "?Action@UITextField@@UAEXTeqEvent@@@Z=0x4B2680",
-    "?Action@UITextRoller2@@UAEXTeqEvent@@@Z=0x4BB4C0",
-    "?Action@UITextRoller@@UAEXTeqEvent@@@Z=0x4BA640",
-    "?Action@UITextScroll@@UAEXTeqEvent@@@Z=0x4B9160",
-    "?Action@UIToggleButton2@@UAEXTeqEvent@@@Z=0x4BC960",
-    "?Action@UIToggleButton@@UAEXTeqEvent@@@Z=0x4BC680",
-    "?Action@UIVScrollBar@@UAEXTeqEvent@@@Z=0x4BD370",
-    "?Action@uiWidget@@UAEXTeqEvent@@@Z=0x4B2E30",
-    "?Action@VSWidget@@QAEHTeqEvent@@MMH@Z=0x4BF950",
-    "?ActionID@MenuManager@@QAEHH@Z=0x4B14E0",
-    "?Activate@agiBILightModel@@UAEHXZ=0x555320",
-    "?Activate@agiD3DMtlDef@@QAEXXZ=0x533670",
-    "?Activate@agiD3DViewport@@UAEXXZ=0x533350",
-    "?Activate@agiSWViewport@@UAEXXZ=0x534930",
-    "?Activate@asSafeHeap@@IAEXXZ=0x521480",
-    "?Activate@eqEventMonitor@@UAEXPAXH@Z=0x5634A0",
-    "?Activate@eqEventQ@@UAEXPAXH@Z=0x563CC0",
-    "?Activate@mmAnimPlane@@QAEXXZ=0x4C5330",
-    "?Activate@mmCarModel@@QAEXXZ=0x4730A0",
-    "?Activate@mmDashView@@QAEXXZ=0x421D80",
-    "?Activate@mmHudMap@@QAEXXZ=0x428810",
-    "?Activate@mmNetObject@@QAEXXZ=0x432850",
-    "?Activate@mmSplash@@QAEXM@Z=0x4811C0",
-    "?Activate@mmTrailer@@QAEXXZ=0x479BB0",
-    "?Activate@mmWaypointObject@@QAEXXZ=0x430540",
-    "?ActivateDash@mmHUD@@QAEXXZ=0x405800",
-    "?ActivateDeviceOptions@ControlSetup@@QAEXXZ=0x4A3210",
-    "?ActivateGold@mmCRHUD@@QAEXXZ=0x426090",
-    "?ActivateGold@mmHUD@@QAEXXZ=0x405FA0",
-    "?ActivateMapNetObject@mmGameMulti@@QAEXH@Z=0x432030",
-    "?ActivateRosterGold@mmCRHUD@@QAEXK@Z=0x4260B0",
-    "?ActivateUntilTransitionIsOver@mmDashView@@QAEXXZ=0x421D60",
-    "?Add@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEHAAVagiMtlParameters@@@Z=0x559D90",
-    "?Add@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEHAAVagiPhysParameters@@@Z=0x559EF0",
-    "?Add@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEHAAVagiTexParameters@@@Z=0x48FB10",
-    "?Add@agiTexSheet@@QAEXPAD@Z=0x5124A0",
-    "?Add@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z=0x447030",
-    "?Add@DupBuffCreator@@QAEXPADPAUIDirectSoundBuffer@@@Z=0x4EED60",
-    "?Add@mmBridgeAudMgr@@QAEFPAVmmBridgeSet@@@Z=0x4C3F80",
-    "?Add@Vector3@@QAEXABV1@0@Z=0x52BB70",
-    "?AddAIPath@aiMap@@AAEPAVaiPath@@AAVmmRoadSect@@HH@Z=0x439570",
-    "?AddAmbient@aiMap@@QAEXPAVaiVehicleSpline@@@Z=0x43BA60",
-    "?AddBangerDataEntry@mmBangerDataManager@@QAEHPAD0@Z=0x4C8C10",
-    "?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z=0x4AE3F0",
-    "?AddBMLabel@UIMenu@@QAEPAVUIBMLabel@@HPADPAVstring@@MMPAH@Z=0x4ADD60",
-    "?AddBrackets@MenuManager@@QAEXPAVUIIcon@@0PAVuiWidget@@MM@Z=0x4B1980",
-    "?AddButton@asMidgets@@UAEPAVbkButton@@PADVCallback@@@Z=0x527020",
-    "?AddButton@asNode@@QAEXPAVBank@@AAH@Z=0x524400",
-    "?AddButton@UIMenu@@QAEPAVUIButton@@HPAULocString@@MMMMHHVCallback@@@Z=0x4ADB30",
-    "?AddCell@asPortalWeb@@QAEPAUasPortalCell@@PADPAVasPortalRenderable@@I@Z=0x4957E0",
-    "?AddChild@asNode@@QAEHPAV1@@Z=0x523A70",
-    "?AddChild@bnBone@@QAEXPAV1@@Z=0x516E40",
-    "?AddClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z=0x563200",
-    "?AddColor@asMidgets@@UAEXPADPAVVector3@@VCallback@@@Z=0x5278B0",
-    "?AddColor@asMidgets@@UAEXPADPAVVector4@@VCallback@@@Z=0x527990",
-    "?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z=0x52A960",
-    "?AddComponent@UICompositeScroll@@QAEXPAVmmCompBase@@@Z=0x4B5360",
-    "?AddCompScroll@UIMenu@@QAEPAVUICompositeScroll@@HMMMMMHPAHHHVCallback@@@Z=0x4AD630",
-    "?AddCWArray@UIMenu@@QAEPAVUICWArray@@HMMMMHVCallback@@@Z=0x4AE580",
-    "?AddDriverRecord@Dialog_DriverRec@@QAEHHPADHM0H@Z=0x49F060",
-    "?AddEdge@asPortalWeb@@QAEPAUasPortalEdge@@PADPAUasPortalCell@@1H@Z=0x4958E0",
-    "?AddExit@PUMenuBase@@QAEMMMMM@Z=0x4AB390",
-    "?AddFile@mmAnimExcel@@QAEXPAD0@Z=0x4C3600",
-    "?AddFileButton@asMidgets@@UAEXPADVCallback@@@Z=0x527AB0",
-    "?AddGameChatLine@NetArena@@QAEXPAD@Z=0x4A1F30",
-    "?AddHotSpot@UIMenu@@QAEPAVuiWidget@@HPADMMMMVCallback@@@Z=0x4ACF60",
-    "?AddIcon@UIMenu@@QAEPAVUIIcon@@HPADMM@Z=0x4ADE70",
-    "?AddIconW@UIMenu@@QAEPAVUIIconW@@HPAULocString@@PADMMMMVCallback@@@Z=0x4ADF80",
-    "?AddIndex@mmBoundTemplate@@QAEXHHH@Z=0x519F70",
-    "?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z=0x48C2C0",
-    "?AddIntersection@aiMap@@QAEPAVaiIntersection@@PAVVector3@@@Z=0x439670",
-    "?AddIntToAppRoadMap@aiMap@@AAEXPAVCArrayList@@HMPAPAUasPortalCell@@H@Z=0x43A300",
-    "?AddItem@asMidgets@@AAEXPAVMI@@@Z=0x526E50",
-    "?AddLabel@UIMenu@@QAEPAVUILabel@@HPAULocString@@MMMMHH@Z=0x4ADC50",
-    "?AddMenu2@MenuManager@@QAEHPAVUIMenu@@@Z=0x4B1670",
-    "?AddMenuData@MArray@@QAEXHAAVVector4@@PAD@Z=0x4ABCF0",
-    "?AddMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z=0x493290",
-    "?AddMex@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z=0x527110",
-    "?AddMex@UIMenu@@QAEPAVUIMexButton@@HPAULocString@@PAHHMMMMHHVCallback@@@Z=0x4AE2D0",
-    "?AddModem@NetSelectMenu@@QAEXPADH@Z=0x4A4960",
-    "?AddName@PUResults@@QAEXHPADH@Z=0x4A8B00",
-    "?AddName@PUResults@@QAEXHPADM@Z=0x4A8A50",
-    "?AddName@PURoster@@QAEXPADKH@Z=0x4A8F00",
-    "?AddOKCancel@PUMenuBase@@QAEXVCallback@@0@Z=0x4AB2F0",
-    "?AddPage@asCullManager@@QAEXVCallback@@@Z=0x525400",
-    "?AddPathVerts@aiPath@@QAEXAAVmmRoadSect@@HH@Z=0x43C670",
-    "?AddPathVerts@aiPath@@QAEXPAVVector3@@H@Z=0x43CFA0",
-    "?AddPedestrian@aiMap@@QAEXPAVaiPedestrian@@@Z=0x43B500",
-    "?AddPedestrian@aiPath@@QAEXPAVaiPedestrian@@@Z=0x43FE80",
-    "?AddPlayer@DriverMenu@@QAEXPAD@Z=0x4A5B80",
-    "?AddPlayer@mmCRHUD@@QAEXPADKHI@Z=0x425C50",
-    "?AddPlayer@mmHUD@@QAEXPADKHH@Z=0x405F30",
-    "?AddPlayer@mmPlayerDirectory@@QAEHPAD@Z=0x4CF0D0",
-    "?AddPlayerRecord@CRSettings@@QAEHPADHH0@Z=0x4A1120",
-    "?AddPlayerSpecifics@mmCarSim@@QAEXXZ=0x46C340",
-    "?AddPointer@MenuManager@@QAEXXZ=0x4AFB50",
-    "?AddPrevious@PUMenuBase@@QAEMMMMM@Z=0x4AB280",
-    "?AddQuad@mmBoundTemplate@@QAEXHHHHHH@Z=0x517370",
-    "?AddRaceRecord@Dialog_HallOfFame@@QAEXHPAD00H00@Z=0x49E800",
-    "?AddRef@agiRefreshable@@QAEXXZ=0x557AE0",
-    "?AddRef@DLPTemplate@@QAEXXZ=0x5597C0",
-    "?AddRef@mmBoundTemplate@@QAEXXZ=0x51D8F0",
-    "?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z=0x576000",
-    "?AddRosterName@NetArena@@QAEXPAD@Z=0x4A2230",
-    "?AddRosterName@NetArena@@QAEXPAULocString@@00K@Z=0x4A2250",
-    "?AddShard@mmShard@@QAEXVVector3@@00M@Z=0x4785E0",
-    "?AddSinkPath@aiIntersection@@QAEXPAVaiPath@@@Z=0x447530",
-    "?AddSkid@mmSkid@@QAEXAAVMatrix34@@PAVVector3@@PAVagiPhysParameters@@M@Z=0x4778A0",
-    "?AddSlider@asMidgets@@UAEPAVbkSlider@@PAD0DDMVCallback@@@Z=0x5271F0",
-    "?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAEEEMVCallback@@@Z=0x527280",
-    "?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAFFFMVCallback@@@Z=0x527310",
-    "?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAGGGMVCallback@@@Z=0x5273A0",
-    "?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAHHHMVCallback@@@Z=0x527430",
-    "?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAIIIMVCallback@@@Z=0x5274C0",
-    "?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAMMMMVCallback@@@Z=0x527550",
-    "?AddSlider@UIMenu@@QAEPAVUISlider@@HPAULocString@@PAMMMMMMMHHHHVCallback@@@Z=0x4AD9F0",
-    "?AddSound@AudManager@@QAEHPAVAudSound@@@Z=0x4E8E40",
-    "?AddSourcePath@aiIntersection@@QAEXPAVaiPath@@@Z=0x4475A0",
-    "?AddStream@AudManager@@QAEHPAVAudStream@@@Z=0x4E8EA0",
-    "?AddSurface@agiSurfRenderer@@CAHPAUagiPatch@@HHHH@Z=0x552E00",
-    "?AddText@asMidgets@@UAEPAVbkButton@@PADVCallback@@@Z=0x5271C0",
-    "?AddText@asMidgets@@UAEPAVbkButton@@VCallback@@@Z=0x527190",
-    "?AddText@mmTextNode@@QAEHPAXPAULocString@@HMM@Z=0x4FF930",
-    "?AddTextDropdown@UIMenu@@QAEPAVUITextDropdown@@HPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z=0x4AD040",
-    "?AddTextField@UIMenu@@QAEPAVUITextField@@HPAULocString@@PADMMMMHHHHHVCallback@@@Z=0x4AD7B0",
-    "?AddTextRoller2@UIMenu@@QAEPAVUITextRoller2@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z=0x4AD310",
-    "?AddTextRoller@UIMenu@@QAEPAVUITextRoller@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z=0x4AD1C0",
-    "?AddTextScroll@UIMenu@@QAEPAVUITextScroll@@HPAXMMMMVstring@@HPAHVCallback@@@Z=0x4AD490",
-    "?AddTextScrollLine@UITextScroll@@AAEXPAD@Z=0x4B9530",
-    "?AddTextScrollLine@UITextScroll@@AAEXPADH@Z=0x4B94A0",
-    "?AddTextSlider@asMidgets@@UAEPAVbkSlider@@PAD0PAHMVCallback@@@Z=0x5275E0",
-    "?AddTitle@asMidgets@@UAEPAVbkWindow@@PAD@Z=0x526FC0",
-    "?AddTitle@PUResults@@QAEXPAULocString@@0@Z=0x4A89D0",
-    "?AddTitle@UICompositeScroll@@QAEXPAVmmCompBase@@@Z=0x4B5430",
-    "?AddToAiAudMgr@aiVehicleAmbient@@AAEXXZ=0x450CC0",
-    "?AddToAiAudMgr@aiVehicleOpponent@@AAEXXZ=0x44E430",
-    "?AddToAiAudMgr@aiVehiclePolice@@AAEXXZ=0x446300",
-    "?AddToBlockedRange@aiGoalChase@@AAEXMMM@Z=0x464F10",
-    "?AddToBlockedRange@aiGoalFollowWayPts@@AAEXMMM@Z=0x468B00",
-    "?AddToggle2@UIMenu@@QAEPAVUIToggleButton2@@HPAULocString@@PAHMMMMHHVCallback@@@Z=0x4AE1B0",
-    "?AddToggle@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z=0x527090",
-    "?AddToggle@UIMenu@@QAEPAVUIToggleButton@@HPAULocString@@PAHMMMMHHVCallback@@@Z=0x4AE090",
-    "?AddToolTip@uiWidget@@QAEXPAVUIMenu@@PAULocString@@@Z=0x4B4890",
-    "?AddTriangle@mmBoundTemplate@@QAEXHHHHH@Z=0x517280",
-    "?AddUIControl@UIMenu@@QAEPAVUIControlWidget@@HMMMMMPAVmmIO@@VCallback@@@Z=0x4AD920",
-    "?AddVector@asMidgets@@UAEXPADPAVVector2@@MMMVCallback@@@Z=0x527610",
-    "?AddVector@asMidgets@@UAEXPADPAVVector3@@MMMVCallback@@@Z=0x5276B0",
-    "?AddVector@asMidgets@@UAEXPADPAVVector4@@MMMVCallback@@@Z=0x527790",
-    "?AddVector@mmAnimSpline@@QAEXAAVVector3@@@Z=0x4C39F0",
-    "?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z=0x440790",
-    "?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z=0x440840",
-    "?AddVehicle@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z=0x4408F0",
-    "?AddVehicle@aiPath@@QAEXPAVaiVehicleSpline@@HM@Z=0x43FB80",
-    "?AddVehicle@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z=0x475770",
-    "?AddVehicleDataEntry@aiVehicleManager@@QAEHPAD@Z=0x453040",
-    "?AddVScrollBar@UIMenu@@QAEPAVUIVScrollBar@@HPAHMMMMMMHHVCallback@@@Z=0x4AE6C0",
-    "?AddWheel@mmDrivetrain@@QAEHPAVmmWheel@@@Z=0x47FEF0",
-    "?AddWidget@aiVehicleOpponent@@QAEXPAVBank@@@Z=0x44E490",
-    "?AddWidget@UIMenu@@QAEXPAVuiWidget@@PADMMMMH1@Z=0x4AEC40",
-    "?AddWidgetData@WArray@@QAEXHHAAVVector4@@PAD@Z=0x4AC510",
-    "?AddWidgets@agiTexSorter@@QAEXPAVBank@@@Z=0x504620",
-    "?AddWidgets@aiGoalFollowWayPts@@QAEXPAVBank@@@Z=0x46A0E0",
-    "?AddWidgets@aiMap@@UAEXPAVBank@@@Z=0x43BBE0",
-    "?AddWidgets@aiPedestrianInstance@@UAEXPAVBank@@@Z=0x44DA30",
-    "?AddWidgets@aiStuck@@UAEXPAVBank@@@Z=0x46B770",
-    "?AddWidgets@aiVehicleData@@UAEXPAVBank@@@Z=0x453390",
-    "?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z=0x45C510",
-    "?AddWidgets@aiVehicleManager@@UAEXPAVBank@@@Z=0x453380",
-    "?AddWidgets@aiVehicleSpline@@QAEXPAVBank@@@Z=0x45C1F0",
-    "?AddWidgets@AppCamCS@@UAEXPAVBank@@@Z=0x4FCDB0",
-    "?AddWidgets@asAero@@UAEXPAVBank@@@Z=0x4E0330",
-    "?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z=0x500D30",
-    "?AddWidgets@asCamera@@UAEXPAVBank@@@Z=0x52A040",
-    "?AddWidgets@asCullable@@QAEXPAVBank@@@Z=0x5258D0",
-    "?AddWidgets@asDofCS@@UAEXPAVBank@@@Z=0x52B600",
-    "?AddWidgets@asForm@@UAEXPAVBank@@@Z=0x5288E0",
-    "?AddWidgets@asInertialCS@@UAEXPAVBank@@@Z=0x4DB190",
-    "?AddWidgets@asLamp@@UAEXPAVBank@@@Z=0x526310",
-    "?AddWidgets@asLinearCS@@UAEXPAVBank@@@Z=0x525CC0",
-    "?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z=0x501A10",
-    "?AddWidgets@asNode@@UAEXPAVBank@@@Z=0x524330",
-    "?AddWidgets@asOverSample@@UAEXPAVBank@@@Z=0x4DEE30",
-    "?AddWidgets@asParticles@@UAEXPAVBank@@@Z=0x500750",
-    "?AddWidgets@asPortalWeb@@UAEXPAVBank@@@Z=0x497540",
-    "?AddWidgets@asRenderWeb@@UAEXPAVBank@@@Z=0x491690",
-    "?AddWidgets@asSimulation@@UAEXPAVBank@@@Z=0x522FD0",
-    "?AddWidgets@asViewCS@@UAEXPAVBank@@@Z=0x52C780",
-    "?AddWidgets@AudHead@@UAEXPAVBank@@@Z=0x4EBEF0",
-    "?AddWidgets@AudManager@@UAEXPAVBank@@@Z=0x4E9610",
-    "?AddWidgets@AudSound@@UAEXPAVBank@@@Z=0x4EB6E0",
-    "?AddWidgets@BaseCamCS@@UAEXPAVBank@@@Z=0x4FBF40",
-    "?AddWidgets@CarCamCS@@UAEXPAVBank@@@Z=0x4FB280",
-    "?AddWidgets@Card2D@@EAEXPAVBank@@@Z=0x4FE540",
-    "?AddWidgets@Joint3Dof@@UAEXPAVBank@@@Z=0x4DE9A0",
-    "?AddWidgets@MenuManager@@UAEXPAVBank@@@Z=0x4B1400",
-    "?AddWidgets@mmAxle@@UAEXPAVBank@@@Z=0x47D590",
-    "?AddWidgets@mmBangerData@@UAEXPAVBank@@@Z=0x4C85E0",
-    "?AddWidgets@mmBangerDataManager@@UAEXPAVBank@@@Z=0x4C8550",
-    "?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z=0x444710",
-    "?AddWidgets@mmBoat@@UAEXPAVBank@@@Z=0x4C7820",
-    "?AddWidgets@mmBridgeMgr@@UAEXPAVBank@@@Z=0x4C1CD0",
-    "?AddWidgets@mmBridgeSet@@UAEXPAVBank@@@Z=0x4C27D0",
-    "?AddWidgets@mmCar@@UAEXPAVBank@@@Z=0x4745E0",
-    "?AddWidgets@mmCarModel@@UAEXPAVBank@@@Z=0x4730E0",
-    "?AddWidgets@mmCarRoadFF@@UAEXPAVBank@@@Z=0x481810",
-    "?AddWidgets@mmCarSim@@UAEXPAVBank@@@Z=0x46E840",
-    "?AddWidgets@mmCDPlayer@@UAEXPAVBank@@@Z=0x4234C0",
-    "?AddWidgets@mmCullCity@@UAEXPAVBank@@@Z=0x48E4B0",
-    "?AddWidgets@mmDashView@@UAEXPAVBank@@@Z=0x4227D0",
-    "?AddWidgets@mmDrivetrain@@UAEXPAVBank@@@Z=0x4803E0",
-    "?AddWidgets@mmEngine@@UAEXPAVBank@@@Z=0x47CE70",
-    "?AddWidgets@mmExternalView@@UAEXPAVBank@@@Z=0x4224E0",
-    "?AddWidgets@mmForce@@UAEXPAVBank@@@Z=0x480E10",
-    "?AddWidgets@mmGame@@UAEXPAVBank@@@Z=0x411E30",
-    "?AddWidgets@mmGameEdit@@UAEXPAVBank@@@Z=0x412860",
-    "?AddWidgets@mmGameManager@@UAEXPAVBank@@@Z=0x4049B0",
-    "?AddWidgets@mmGameSingle@@UAEXPAVBank@@@Z=0x4189E0",
-    "?AddWidgets@mmHUD@@UAEXPAVBank@@@Z=0x406170",
-    "?AddWidgets@mmHudMap@@UAEXPAVBank@@@Z=0x429C60",
-    "?AddWidgets@mmInput@@EAEXPAVBank@@@Z=0x4E3EB0",
-    "?AddWidgets@mmInstChain@@QAEXPAVBank@@@Z=0x492980",
-    "?AddWidgets@mmMatrixInstance@@UAEXPAVBank@@@Z=0x4935D0",
-    "?AddWidgets@mmMouseSteerBar@@UAEXPAVBank@@@Z=0x502AB0",
-    "?AddWidgets@mmNumber@@UAEXPAVBank@@@Z=0x4FECA0",
-    "?AddWidgets@mmPhysicsMGR@@UAEXPAVBank@@@Z=0x4D8E00",
-    "?AddWidgets@mmPlayer@@UAEXPAVBank@@@Z=0x42C590",
-    "?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z=0x48FA40",
-    "?AddWidgets@mmShardManager@@UAEXPAVBank@@@Z=0x478C90",
-    "?AddWidgets@mmShock@@UAEXPAVBank@@@Z=0x47D280",
-    "?AddWidgets@mmSingleCircuit@@UAEXPAVBank@@@Z=0x4167A0",
-    "?AddWidgets@mmSkid@@UAEXPAVBank@@@Z=0x478550",
-    "?AddWidgets@mmSplash@@UAEXPAVBank@@@Z=0x481420",
-    "?AddWidgets@mmStaticInstance@@UAEXPAVBank@@@Z=0x494960",
-    "?AddWidgets@mmStuck@@UAEXPAVBank@@@Z=0x47C7D0",
-    "?AddWidgets@mmTrailer@@UAEXPAVBank@@@Z=0x479E40",
-    "?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z=0x47A300",
-    "?AddWidgets@mmTransmission@@UAEXPAVBank@@@Z=0x470790",
-    "?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z=0x4F9560",
-    "?AddWidgets@mmWaypointInstance@@UAEXPAVBank@@@Z=0x433B90",
-    "?AddWidgets@mmWheel@@UAEXPAVBank@@@Z=0x47F6D0",
-    "?AddWidgets@mmWPHUD@@UAEXPAVBank@@@Z=0x424780",
-    "?AddWidgets@mmYInstance@@UAEXPAVBank@@@Z=0x4933B0",
-    "?AddWidgets@PostCamCS@@UAEXPAVBank@@@Z=0x4F97A0",
-    "?AddWidgets@PovCamCS@@UAEXPAVBank@@@Z=0x4F6460",
-    "?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z=0x4F9B20",
-    "?AddWidgets@RadialGauge@@UAEXPAVBank@@@Z=0x423910",
-    "?AddWidgets@Spline@@UAEXPAVBank@@@Z=0x4FDB80",
-    "?AddWidgets@TrackCamCS@@UAEXPAVBank@@@Z=0x4F6DE0",
-    "?AddWidgets@VehGyro@@UAEXPAVBank@@@Z=0x480930",
-    "?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z=0x4A4950",
-    "?AdjustAmbients@aiMap@@AAEXHH@Z=0x43B5A0",
-    "?AdjustMouse@WINEventHandler@@QAEXAAH0@Z=0x562660",
-    "?AdjustPedestrians@aiMap@@AAEXHH@Z=0x43B160",
-    "?AdjustPhaseOffsets@mmAnimPlane@@QAEXXZ=0x4C5630",
-    "?AdjustPhaseOffsets@mmAnimTrain@@QAEXXZ=0x4C66D0",
-    "?AdjustPhaseOffsets@mmBoat@@QAEXXZ=0x4C77A0",
-    "?AdjustPopupCard@MenuManager@@QAEXPAVUIMenu@@@Z=0x4B0A50",
-    "?AfterLoad@Base@@UAEXXZ=0x5791D0",
-    "?AfterLoad@BaseCamCS@@UAEXXZ=0x4FBEB0",
-    "?AfterLoad@mmCarSim@@UAEXXZ=0x46D540",
-    "?AfterLoad@mmDashView@@UAEXXZ=0x421CC0",
-    "?AfterLoad@mmEngine@@UAEXXZ=0x47C9D0",
-    "?AfterLoad@mmPlayer@@UAEXXZ=0x42A380",
-    "?AfterLoad@mmTrailer@@UAEXXZ=0x479B40",
-    "?AfterLoad@mmWheel@@UAEXXZ=0x47DA10",
-    "?AfterLoad@PovCamCS@@UAEXXZ=0x4F6410",
-    "?AfterLoad@TrackCamCS@@UAEXXZ=0x4F6D90",
-    "?Age@DataCache@@QAEXXZ=0x577750",
-    "?agiBeginCones@@YAXXZ=0x5111E0",
-    "?agiConeLighter@@YAXPAEPAI1PAVagiMeshSet@@@Z=0x5112C0",
-    "?agiDeclareCone@@YAXAAVVector3@@00MM0H@Z=0x5111F0",
-    "?agiDisplayf@@YAXPBDZZ=0x55BE80",
-    "?agiDrawCones@@YAXXZ=0x5118F0",
-    "?agiGetError@@YAPADH@Z=0x55BE20",
-    "?agiInitCones@@YAXAAVMatrix34@@M@Z=0x5116B0",
-    "?agiMeshLighterQuarter@@YAXPAEPAI1PAVagiMeshSet@@@Z=0x510730",
-    "?agiMeshLighterReset@@YAXXZ=0x510640",
-    "?agiMeshLighterSpecular@@YAXPAEPAI1PAVagiMeshSet@@@Z=0x5119F0",
-    "?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z=0x510AE0",
-    "?agiMeshLighterUpdateColors@@YAXXZ=0x5108F0",
-    "?agiMeshPrelight@@YAXPAIPAVagiMeshSet@@AAVMatrix34@@@Z=0x511010",
-    "?agiPrint@@YAXHHHPBD@Z=0x557E70",
-    "?agiPrintf@@YAXHHHPBDZZ=0x557E90",
-    "?agiPrintInit@@YAXXZ=0x557F00",
-    "?agiPrintIs3D@@YAHXZ=0x557EF0",
-    "?agiPrintShutdown@@YAXXZ=0x557F10",
-    "?AICallback@RaceMenuBase@@QAEXXZ=0x4A79B0",
-    "?AirlinerSwap@mmAnimMgr@@QAEXXZ=0x4C13C0",
-    "?AirlinerSwap@mmAnimSpline@@QAEXXZ=0x4C3C10",
-    "?AIWPHit@mmWaypoints@@QAEHHHVMatrix34@@VVector3@@M@Z=0x42F200",
-    "?AlignSize@Stream@@MAEHXZ=0x55ED30",
-    "?Allocate@asMemoryAllocator@@QAEPAXI@Z=0x520A20",
-    "?Allocate@DataCache@@QAEPAXHI@Z=0x577920",
-    "?AllocateAddOnEngine@aiAudioManager@@QAEFPAD@Z=0x443930",
-    "?AllocateAddOnEngine@NetAudioManager@@QAEFPAD@Z=0x476D20",
-    "?AllocateAmbients@aiAudioManager@@QAEXXZ=0x442820",
-    "?AllocateCopVoice@aiAudioManager@@QAEXXZ=0x442EB0",
-    "?AllocateEngine@aiAudioManager@@QAEPAPAVAudSound@@PAD@Z=0x443B00",
-    "?AllocateEngine@aiAudioManager@@QAEXFF@Z=0x443720",
-    "?AllocateEngine@NetAudioManager@@QAEPAPAVAudSound@@PAD@Z=0x476EF0",
-    "?AllocateEngine@NetAudioManager@@QAEXF@Z=0x476BA0",
-    "?AllocateHorn@NetAudioManager@@QAEXF@Z=0x477170",
-    "?AllocateHorns@aiAudioManager@@QAEXXZ=0x443370",
-    "?AllocateImpacts@aiAudioManager@@QAEXXZ=0x4432C0",
-    "?AllocateImpacts@NetAudioManager@@QAEXXZ=0x4775E0",
-    "?AllocateMenuSwitchAudio@MenuManager@@QAEXXZ=0x4B17D0",
-    "?AllocateOpponents@aiAudioManager@@QAEXXZ=0x442880",
-    "?AllocatePolice@aiAudioManager@@QAEXXZ=0x4428D0",
-    "?AllocatePoliceSiren@NetAudioManager@@QAEXXZ=0x477670",
-    "?AllocateReverseBeep@aiAudioManager@@QAEXXZ=0x443C50",
-    "?AllocateReverseBeep@NetAudioManager@@QAEXXZ=0x477020",
-    "?AllocateSkids@aiAudioManager@@QAEXXZ=0x442C10",
-    "?AllocateSkids@NetAudioManager@@QAEXXZ=0x477360",
-    "?AllocateSounds@UIBMButton@@CAXXZ=0x4B6ED0",
-    "?AllocateVoices@aiAudioManager@@QAEXXZ=0x443550",
-    "?AllOneShotLayersPlaying@AudSound@@QAEHXZ=0x4EB9E0",
-    "?AllOneShotLayersPlaying@SoundObj@@QAEFXZ=0x4F2500",
-    "?AllSetCar@VehicleSelectBase@@QAEXPADH@Z=0x49B990",
-    "?AllwaysGo@aiPath@@QAEXH@Z=0x43E650",
-    "?AllwaysGreen@aiMap@@QAEXXZ=0x436CF0",
-    "?AllwaysRed@aiMap@@QAEXXZ=0x436D30",
-    "?AllwaysStop@aiPath@@QAEXH@Z=0x43E4F0",
-    "?AlwaysEAX@AudManager@@QAEXI@Z=0x4E97D0",
-    "?AlwaysEAX@DSGlobal@@QAEII@Z=0x4F0AD0",
-    "?AMBIENTCB@@YAXPAVaiVehicleActive@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M@Z=0x451450",
-    "?AmbientCenterDistance@aiPath@@QAEXPAVaiVehicleSpline@@PAM111@Z=0x43F020",
-    "?AngelReadKeyString@@YAPAULocString@@I@Z=0x4E7310",
-    "?AngelReadString@@YAPAULocString@@I@Z=0x5200D0",
-    "?Angle@Quaternion@@QBEMABV1@@Z=0x5729C0",
-    "?Angle@Vector3@@QBEMABV1@@Z=0x564CF0",
-    "?Anticipate@aiPedestrian@@AAEXAAVmmIntersection@@H@Z=0x449CB0",
-    "?AnyAIWPHit@mmWaypoints@@QAEHAAIHVMatrix34@@VVector3@@M@Z=0x42F4C0",
-    "?AnyEnabled@UITextDropdown@@QAEHXZ=0x4B3910",
-    "?AnyVehiclesComingThisWay@aiGoalRandomDrive@@AAEHXZ=0x45DE10",
-    "?AnyWPHits@mmWaypoints@@QAEHH@Z=0x42FAA0",
-    "?Append@CArrayList@@QAEXH@Z=0x446C20",
-    "?Append@mmMapData@@QAEXPAD@Z=0x4D3380",
-    "?Append@mmPropInfo@@QAEXPAD@Z=0x4D22A0",
-    "?Application@@YAXHPAPAD@Z=0x4030C0",
-    "?ApplicationHelper@@YAXHPAPAD@Z=0x401830",
-    "?Apply@mmDamage@@QAEXAAVVector3@@M@Z=0x502470",
-    "?ApplyAngImpulse@asInertialCS@@QAEXABVVector3@@@Z=0x4DA5D0",
-    "?ApplyDamage@mmCarModel@@QAEXAAVVector3@@M@Z=0x472D90",
-    "?ApplyForce@asInertialCS@@QAEXABVVector3@@0@Z=0x4DA290",
-    "?ApplyForce@asInertialCS@@QAEXABVVector3@@@Z=0x4DA200",
-    "?ApplyImpulse@asInertialCS@@QAEXABVVector3@@0@Z=0x4DA4C0",
-    "?ApplyImpulse@asInertialCS@@QAEXABVVector3@@@Z=0x4DA430",
-    "?ApplyPush@asInertialCS@@QAEXABVVector3@@@Z=0x4DA7D0",
-    "?ApplyPush@asInertialCS@@UAEXABVVector3@@0@Z=0x4DA660",
-    "?ApplyTorque@asInertialCS@@QAEXABVVector3@@@Z=0x4DA3A0",
-    "?ApplyTurn@asInertialCS@@QAEXABVVector3@@@Z=0x4DA940",
-    "?Approach@Matrix34@@QAEHABV1@MM@Z=0x56D460",
-    "?Approach@Matrix34@@QAEHABV1@MMM@Z=0x56D310",
-    "?Approach@Quaternion@@QAEHABV1@MM@Z=0x573120",
-    "?Approach@Vector3@@QAEHABV1@MMPAM@Z=0x5656A0",
-    "?ApproachIt@AppCamCS@@IAEXXZ=0x4FC430",
-    "?ArbitraryRotation@Matrix34@@AAEXABVVector3@@M@Z=0x568D20",
-    "?Area@Vector3@@QBEMABV1@0@Z=0x564EC0",
-    "?ArrayOf@@YAPAUMetaType@@PAU1@H@Z=0x470CC0",
-    "?ASinf@@YAMM@Z=0x56D8B0",
-    "?asinf_fast@@YAMM@Z=0x56D950",
-    "?Aspect@agiViewport@@QAEMXZ=0x557870",
-    "?Assign@mmCollideFF@@QAEHJJ@Z=0x4E7660",
-    "?Assign@mmFrictionFF@@QAEHJ@Z=0x4E7BE0",
-    "?Assign@mmIO@@QAEXHH@Z=0x4E4CC0",
-    "?Assign@mmIODev@@QAEXHHH@Z=0x4E50E0",
-    "?Assign@mmRoadFF@@QAEHJJ@Z=0x4E78F0",
-    "?Assign@mmSpringFF@@QAEHJ@Z=0x4E7E80",
-    "?AssignAddOnSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z=0x441F50",
-    "?AssignAddOnSounds@NetAudioManager@@AAEXPAVmmNetworkCarAudio@@F@Z=0x476940",
-    "?AssignBackground@UIMenu@@QAEXPAD@Z=0x4AC9E0",
-    "?AssignCDBalance@AudManager@@QAEXM@Z=0x4E95B0",
-    "?AssignCDBalance@MixerCTL@@QAEXM@Z=0x4EE240",
-    "?AssignCDVolume@AudManager@@QAEXM@Z=0x4E9470",
-    "?AssignCDVolume@MixerCTL@@QAEXM@Z=0x4EE2E0",
-    "?AssignIO@mmInput@@QAEXPAVmmIO@@HH@Z=0x4E21F0",
-    "?AssignMixerBalance@MixerCTL@@QAEKMK@Z=0x4EE580",
-    "?AssignMixerVolume@MixerCTL@@QAEKMK@Z=0x4EE320",
-    "?AssignName@UIMenu@@QAEXPAULocString@@@Z=0x4AC990",
-    "?AssignProperties@mmCarRoadFF@@QAEXMH@Z=0x481570",
-    "?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z=0x442630",
-    "?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z=0x441B60",
-    "?AssignSounds@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z=0x442050",
-    "?AssignSounds@aiPedAudioManager@@QAEXF@Z=0x447280",
-    "?AssignSounds@aiVehicleAmbient@@QAEXPAVAudSound@@00PAVmmOpponentImpactAudio@@@Z=0x451000",
-    "?AssignSounds@aiVehicleOpponent@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z=0x44E4B0",
-    "?AssignSounds@aiVehiclePolice@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z=0x446370",
-    "?AssignSounds@mmBridgeAudMgr@@QAEXF@Z=0x4C4180",
-    "?AssignSounds@mmOpponentCarAudio@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z=0x47BF50",
-    "?AssignSounds@mmPoliceCarAudio@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z=0x47B6A0",
-    "?AssignSounds@NetAddOnCarAudio@@QAEHPAVmmNetworkCarAudio@@F@Z=0x4856B0",
-    "?AssignSounds@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z=0x476000",
-    "?AssignString@UITextDropdown@@QAEXVstring@@@Z=0x4B33B0",
-    "?AssignVehicleStats@VehicleSelectBase@@QAEXHMMMM@Z=0x49C000",
-    "?AssignWaveBalance@AudManager@@QAEXM@Z=0x4E9570",
-    "?AssignWaveBalance@MixerCTL@@QAEXM@Z=0x4EE1F0",
-    "?AssignWaveVolume@AudManager@@QAEXM@Z=0x4E9430",
-    "?AssignWaveVolume@MixerCTL@@QAEXM@Z=0x4EE2C0",
-    "?ATan2f@@YAMMM@Z=0x56D980",
-    "?atan2f_fast@@YAMMM@Z=0x5733D0",
-    "?atan2f_faster@@YAMMM@Z=0x573450",
-    "?Atan3@Matrix34@@QBEMDD@Z=0x56B2B0",
-    "?Atan3@Vector3@@QBEMDD@Z=0x565000",
-    "?atanf_fast@@YAMM@Z=0x5732F0",
-    "?atanf_fast_large_values@@YAMM@Z=0x5732C0",
-    "?atanf_faster@@YAMM@Z=0x573370",
-    "?Attach@aiVehicleActive@@QAEXPAVaiVehicleInstance@@@Z=0x452540",
-    "?Attach@aiVehicleManager@@QAEPAVaiVehicleActive@@PAVaiVehicleInstance@@@Z=0x452C20",
-    "?Attach@bnBone@@QAEXQAVMatrix34@@AAH@Z=0x516FD0",
-    "?Attach@bnSkeleton@@QAEXQAVMatrix34@@@Z=0x515080",
-    "?Attach@mmBangerActive@@QAEXPAVmmBangerInstance@@@Z=0x4CB030",
-    "?Attach@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z=0x4CB520",
-    "?Attach@mmDrivetrain@@QAEXXZ=0x47FEC0",
-    "?AttachEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ=0x451F70",
-    "?AttachEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ=0x4CA490",
-    "?AttachEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ=0x473330",
-    "?AttachEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ=0x433DC0",
-    "?AttachEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ=0x479730",
-    "?AttachToPipe@mmInput@@QAEHXZ=0x4E09F0",
-    "?AttenuateAudSounds@AudManager@@QAEXM@Z=0x4E8DD0",
-    "?AttenuateCDVolume@AudManager@@QAEXM@Z=0x4E9530",
-    "?AutoDetect@@YAXHH@Z=0x499710",
-    "?Automatic@mmTransmission@@QAEXH@Z=0x4706F0",
-    "?AutoSetup@mmInput@@QAEXXZ=0x4E0F00",
-    "?Average@asBenchStats@@QAEXPAV1@MH@Z=0x52CEB0",
-    "?Avoid@aiPedestrian@@AAEXAAVmmIntersection@@PAM@Z=0x449ED0",
-    "?AvoidAmbientCollision@aiGoalChase@@AAEXH@Z=0x4650B0",
-    "?AvoidBanger@aiPedestrian@@AAEXPAVmmInstance@@M@Z=0x44C170",
-    "?AvoidCollision@aiGoalFollowWayPts@@AAEXH@Z=0x468CA0",
-    "?AvoidCollision@aiGoalRandomDrive@@AAEXPAVaiVehicleSpline@@M@Z=0x45E020",
-    "?AvoidCopCollision@aiGoalChase@@AAEXPAVaiVehiclePolice@@@Z=0x462030",
-    "?AvoidObstacle@aiPedestrian@@AAEXAAVVector3@@M@Z=0x44C350",
-    "?AvoidOpponentCollision@aiGoalFollowWayPts@@AAEXPAVaiVehicleOpponent@@@Z=0x467040",
-    "?AvoidPedCollision@aiPedestrian@@AAEXPAV1@M@Z=0x44C260",
-    "?AvoidPlayer@aiGoalAvoidPlayer@@AAEXXZ=0x46A700",
-    "?AvoidPlayer@aiPedestrian@@AAEXAAVVector3@@M@Z=0x44C0E0",
-    "?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ=0x45BC50",
-    "?Backup@aiVehiclePolice@@QAEXXZ=0x445F20",
-    "?BackUp@UIMenu@@UAEXXZ=0x4ACBA0",
-    "?BackUp@uiNavBar@@UAEXXZ=0x4B2150",
-    "?BadAssignCB@ControlSetup@@QAEXXZ=0x4A38A0",
-    "?Barricade@aiGoalChase@@AAEXXZ=0x463570",
-    "?BeDone@mmGameManager@@QAEXXZ=0x4044C0",
-    "?BeDone@mmInterface@@QAEXXZ=0x4087B0",
-    "?BeforeSave@Base@@UAEXXZ=0x5791C0",
-    "?BeforeSave@mmCarSim@@UAEXXZ=0x46D600",
-    "?BeforeSave@mmDashView@@UAEXXZ=0x421C20",
-    "?BeforeSave@mmPlayer@@UAEXXZ=0x42A370",
-    "?BeforeSave@mmTrailer@@UAEXXZ=0x479BD0",
-    "?Begin@HashIterator@@QAEXXZ=0x578040",
-    "?begin_invert@@YIXPAVVector4@@@Z=0x505E00",
-    "?BeginAllGfx@agiPipeline@@QAEHXZ=0x555B40",
-    "?BeginBenchmark@Timer@@SAXXZ=0x576920",
-    "?BeginDraw@agiSurfRenderer@@UAEXH@Z=0x554D70",
-    "?BeginFrame@agiD3DPipeline@@UAEXXZ=0x530A40",
-    "?BeginFrame@agiDDPipeline@@UAEXXZ=0x532F40",
-    "?BeginFrame@agiPipeline@@UAEXXZ=0x555D10",
-    "?BeginFrame@agiSWPipeline@@UAEXXZ=0x534030",
-    "?BeginGfx@agiBILight@@UAEHXZ=0x5553E0",
-    "?BeginGfx@agiBILightModel@@UAEHXZ=0x5552E0",
-    "?BeginGfx@agiD3DLight@@UAEHXZ=0x533840",
-    "?BeginGfx@agiD3DMtlDef@@UAEHXZ=0x533590",
-    "?BeginGfx@agiD3DPipeline@@UAEHXZ=0x52FB90",
-    "?BeginGfx@agiD3DRasterizer@@UAEHXZ=0x52E570",
-    "?BeginGfx@agiD3DRPipeline@@UAEHXZ=0x531630",
-    "?BeginGfx@agiD3DTexDef@@UAEHXZ=0x5319E0",
-    "?BeginGfx@agiD3DTexLut@@UAEHXZ=0x531FD0",
-    "?BeginGfx@agiD3DViewport@@UAEHXZ=0x533300",
-    "?BeginGfx@agiDDBitmap@@UAEHXZ=0x533A20",
-    "?BeginGfx@agiDDPipeline@@UAEHXZ=0x532AE0",
-    "?BeginGfx@agiMeshSet@@AAEXXZ=0x505E20",
-    "?BeginGfx@agiSWBitmap@@UAEHXZ=0x534C20",
-    "?BeginGfx@agiSWPipeline@@UAEHXZ=0x533E60",
-    "?BeginGfx@agiSWRasterizer@@UAEHXZ=0x537BE0",
-    "?BeginGfx@agiSWTexDef@@UAEHXZ=0x537730",
-    "?BeginGfx@agiSWTexLut@@UAEHXZ=0x537950",
-    "?BeginGfx@agiSWViewport@@UAEHXZ=0x534BC0",
-    "?BeginGfx@DLP@@UAEHXZ=0x55E0D0",
-    "?BeginGfx@RDLP@@UAEHXZ=0x550C40",
-    "?BeginGfx@WINEventHandler@@UAEHHHH@Z=0x561F20",
-    "?BeginGroup@agiD3DRasterizer@@UAEXXZ=0x52E5A0",
-    "?BeginGroup@agiRasterizer@@UAEXXZ=0x557D20",
-    "?BeginGroup@agiSurfRenderer@@UAEXXZ=0x552DC0",
-    "?BeginGroup@agiSWRasterizer@@UAEXXZ=0x537C00",
-    "?BeginMemStat@@YAXPBD@Z=0x578B20",
-    "?BeginObject@DataCache@@QAEHPAHP6AXPAXH@Z1I@Z=0x577410",
-    "?BeginOverSample@asSimulation@@QAEXH@Z=0x522CF0",
-    "?BeginScene@agiD3DPipeline@@UAEXXZ=0x530AF0",
-    "?BeginScene@agiD3DRPipeline@@UAEXXZ=0x5317F0",
-    "?BeginScene@agiDDPipeline@@UAEXXZ=0x532FA0",
-    "?BeginScene@agiLighter@@SAXXZ=0x551760",
-    "?BeginScene@agiPipeline@@UAEXXZ=0x556000",
-    "?BeginScene@agiSWPipeline@@UAEXXZ=0x534070",
-    "?BeginTask@mmLoader@@QAEXPAULocString@@M@Z=0x48B850",
-    "?BeginTracking@WINEventHandler@@UAEXXZ=0x562610",
-    "?BeginVerts2@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@0HH@Z=0x503D70",
-    "?BeginVerts@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z=0x503B20",
-    "?Benchmark@asSimulation@@QAEXXZ=0x522E40",
-    "?Bias@@YAMMM@Z=0x570DB0",
-    "?Bilinear@Vector3@@QAEXMMABV1@000@Z=0x565D00",
-    "?Bilinear@Vector4@@QAEXMMABV1@000@Z=0x56DD80",
-    "?BinaryLoad@agiMeshSet@@QAEXPAVStream@@@Z=0x502BD0",
-    "?BinaryLoadConfig@mmInput@@QAEHPAVStream@@@Z=0x4E3CE0",
-    "?BinarySave@agiMeshSet@@QAEXPAVStream@@@Z=0x516B30",
-    "?BinarySaveConfig@mmInput@@QAEHPAVStream@@@Z=0x4E3E20",
-    "?BitmapToScreen@mmHudMap@@AAEHPAUPoint@@U2@@Z=0x429BC0",
-    "?Blast@asParticles@@QAEXHPAVasBirthRule@@@Z=0x5005F0",
-    "?BlitzRemove@mmWaypoints@@QAEHH@Z=0x42D950",
-    "?Block@aiGoalChase@@AAEXXZ=0x463A00",
-    "?BlockCopy@FloatArray@@QAEXAAV1@@Z=0x573AB0",
-    "?BlockCopy@IntArray@@QAEXAAV1@@Z=0x573790",
-    "?BlockCopy@StringArray@@QAEXAAV1@@Z=0x57B1F0",
-    "?BlockCopy@Vector2Array@@QAEXAAV1@@Z=0x571540",
-    "?BlockCopy@Vector3Array@@QAEXAAV1@@Z=0x567120",
-    "?BlockCopy@Vector4Array@@QAEXAAV1@@Z=0x56E2F0",
-    "?Blocked@aiPath@@QAEXH@Z=0x43FF30",
-    "?BootButtonCB@PURoster@@QAEXXZ=0x4A8E30",
-    "?BootPlayerCB@mmGameMulti@@QAEXPAX0@Z=0x432410",
-    "?Bootstrap@mmBangerData@@QAEHPAD0@Z=0x4C8E70",
-    "?BootstrapBreakablesOnly@mmBangerData@@QAEXPAD@Z=0x4C8ED0",
-    "?BootStrapCars@mmGameMulti@@QAEXXZ=0x431480",
-    "?Bounce@Vector3@@QAEXABV1@M@Z=0x566820",
-    "?BoundBox@DLPTemplate@@QAEHAAVVector3@@0PAD@Z=0x559A00",
-    "?BreakJoint@Joint3Dof@@QAEXXZ=0x4DD3A0",
-    "?breakme@@YAXXZ=0x533D40",
-    "?BuildAllTheIPXWidgets@NetSelectMenu@@QAEXMMMM@Z=0x4A4690",
-    "?BuildAllTheModemWidgets@NetSelectMenu@@QAEXMMMMPAD@Z=0x4A4580",
-    "?BuildAllTheTCPWidgets@NetSelectMenu@@QAEXMMMM@Z=0x4A46A0",
-    "?BuildCaptureIO@mmInput@@QAEHHPAVmmIO@@TeqEvent@@@Z=0x4E1EB0",
-    "?BuildComs@Dialog_Serial@@QAEXXZ=0x4A0130",
-    "?BuildComs@NetSelectMenu@@QAEXXZ=0x4A4720",
-    "?BuildGroups@asPortalWeb@@QAEXXZ=0x4969F0",
-    "?BuildVisibilityList@asPortalWeb@@QAEHAAVMatrix34@@PAPAUasPortalCell@@HM@Z=0x495B70",
-    "?BuildVisibilityList@asPortalWeb@@QAEHAAVVector3@@PAPAUasPortalCell@@HM@Z=0x495DD0",
-    "?ButtonToBit@mmJoyMan@@QAEHH@Z=0x4E5C40",
-    "?CalcAppRates@Matrix34@@QAEXAAM0ABV1@MM@Z=0x56D220",
-    "?CalcCenterVerts@aiPath@@QAEXAAVmmRoadSect@@H@Z=0x43D610",
-    "?CalcCMatrix@asInertialCS@@QBEXAAVMatrix34@@ABVVector3@@@Z=0x4DABA0",
-    "?CalcCoeff@Spline@@QAEXXZ=0x4FD5B0",
-    "?CalcCopRailPosition@aiRailSet@@QAEHAAVVector3@@0MM@Z=0x454710",
-    "?CalcCurve@aiPedestrian@@AAEXHHM@Z=0x44C6E0",
-    "?CalcRailLength@aiRailSet@@QAEMXZ=0x457170",
-    "?CalcRailPosition@aiRailSet@@QAEXAAVVector3@@M@Z=0x453D00",
-    "?CalcRailPosOrient@aiRailSet@@QAEXAAVVector3@@0M@Z=0x458850",
-    "?CalcRailState@aiRailSet@@QAEHM@Z=0x456B60",
-    "?CalcSpeed@aiGoalChase@@AAEXM@Z=0x462430",
-    "?CalcSpeed@aiGoalFollowWayPts@@AAEXXZ=0x469170",
-    "?CalcTorque@mmEngine@@QAEMM@Z=0x47CBB0",
-    "?CalcTorqueAtFullThrottle@mmEngine@@QAEMXZ=0x47CAE0",
-    "?CalcTorqueAtZeroThrottle@mmEngine@@QAEMXZ=0x47CB70",
-    "?CalcTroughRatio@VSWidget@@QAEXM@Z=0x4BF5A0",
-    "?CalcTurnIntersection@aiRailSet@@QAEXAAVVector3@@HPAVaiPath@@1@Z=0x457660",
-    "?CalculateAudioPanning@aiPedestrian@@QAEXXZ=0x44CFC0",
-    "?CalculateAudioPanning@aiVehicleAmbient@@QAEXXZ=0x44FCF0",
-    "?CalculateAudioPanning@mmAnimPlane@@AAEXXZ=0x4C5CF0",
-    "?CalculateAudioPanning@mmAnimTrain@@AAEXXZ=0x4C6ED0",
-    "?CalculateAudioPanning@mmBridgeSet@@AAEXXZ=0x4C2D80",
-    "?CalculateCubics@mmAnimPlane@@QAEXHAAVVector4@@00@Z=0x4C5770",
-    "?CalculateCubics@mmAnimTrain@@QAEXHAAVVector4@@00@Z=0x4C6890",
-    "?CalculateCubics@mmBoat@@QAEXH@Z=0x4C7910",
-    "?CalculateDistToPlayer2@aiPedestrian@@QAEXXZ=0x44CF70",
-    "?CalculateDistToPlayer2@aiVehicleAmbient@@QAEXXZ=0x44FBE0",
-    "?CalculateDistToPlayer2@mmAnimPlane@@AAEXXZ=0x4C5C20",
-    "?CalculateDistToPlayer2@mmAnimTrain@@AAEXXZ=0x4C6E00",
-    "?CalculateDistToPlayer2@mmBridgeSet@@AAEXXZ=0x4C2CA0",
-    "?CalculateDistToPlayer2@mmNetworkCarAudio@@QAEXXZ=0x483EC0",
-    "?CalculateDistToPlayer2@mmOpponentCarAudio@@QAEXXZ=0x47BC80",
-    "?CalculateDoppler@aiVehicleAmbient@@AAEMM@Z=0x44F620",
-    "?CalculateDoppler@mmAnimPlane@@AAEMM@Z=0x4C5D40",
-    "?CalculateDoppler@mmAnimTrain@@AAEMM@Z=0x4C6F20",
-    "?CalculateDoppler@mmBridgeSet@@AAEMM@Z=0x4C2DD0",
-    "?CalculateDoppler@mmNetworkCarAudio@@QAEXXZ=0x483F80",
-    "?CalculateDoppler@mmOpponentCarAudio@@QAEXM@Z=0x47BDB0",
-    "?CalculateFerrariPitch@aiVehicleAmbient@@AAEMMH@Z=0x44F650",
-    "?CalculateGatePoints@mmWaypoints@@QAEXVVector3@@MMPAVVector2@@1@Z=0x42E920",
-    "?CalculatePan@mmOpponentCarAudio@@QAEXXZ=0x47BD60",
-    "?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z=0x56DDD0",
-    "?CalculateRaceScore@mmGame@@IAEHHH@Z=0x411520",
-    "?CalcXZDirection@aiRailSet@@QAEXAAVVector3@@0000M@Z=0x459740",
-    "?CalcXZPosition@aiRailSet@@QAEXAAVVector3@@0000M@Z=0x459630",
-    "?CalcXZPosOrient@aiRailSet@@QAEXAAVVector3@@00000M@Z=0x459860",
-    "?CalibrateWatcher@@YGKPAX@Z=0x4A37A0",
-    "?Call@Callback@@QAEXPAX@Z=0x579450",
-    "?callb@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z=0x530D30",
-    "?CancelAction@AudioOptions@@UAEXXZ=0x49D150",
-    "?CancelAction@ControlSetup@@UAEXXZ=0x4A3880",
-    "?CancelAction@GraphicsOptions@@UAEXXZ=0x49A610",
-    "?CancelAction@PUAudioOptions@@QAEXXZ=0x4AAA60",
-    "?CancelAction@PUControl@@QAEXXZ=0x4AA2D0",
-    "?CancelAction@PUGraphics@@QAEXXZ=0x4A9F00",
-    "?CancelBadAssignment@ControlSetup@@QAEXXZ=0x4A38E0",
-    "?CancelCallback@Dialog_RaceEnvironment@@QAEXXZ=0x49E3A0",
-    "?Capture@mmJaxis@@QAEHXZ=0x4E6130",
-    "?Capture@TextDropWidget@@QAEHMM@Z=0x4BE400",
-    "?CaptureAction@mmCompBase@@UAEXTeqEvent@@@Z=0x4B4E50",
-    "?CaptureAction@UICompositeScroll@@UAEXTeqEvent@@@Z=0x4B5920",
-    "?CaptureAction@UICWArray@@UAEXTeqEvent@@@Z=0x4B83D0",
-    "?CaptureAction@UITextDropdown@@UAEXTeqEvent@@@Z=0x4B3510",
-    "?CaptureAction@UITextField@@UAEXTeqEvent@@@Z=0x4B2670",
-    "?CaptureAction@uiWidget@@UAEXTeqEvent@@@Z=0x4B2E40",
-    "?CaptureState@mmInput@@QAEXH@Z=0x4E1E80",
-    "?Card@agiD3DRasterizer@@UAEXHH@Z=0x52F8E0",
-    "?Card@agiSWRasterizer@@UAEXHH@Z=0x537CF0",
-    "?CarMod@VehicleSelectBase@@QAEXAAH@Z=0x49BC50",
-    "?CatmullRom@Quaternion@@QAEXMABV1@000@Z=0x5731A0",
-    "?CatmullRom@Vector3@@QAEXMABV1@000@Z=0x5657E0",
-    "?CatName@aiAudioManager@@AAEPADPADHH@Z=0x4430C0",
-    "?CatName@mmVoiceCommentary@@QAEPADPADHH@Z=0x4ED190",
-    "?CDIsEnabled@AudManager@@QAEHXZ=0x4E94E0",
-    "?CDIsPlaying@AudManager@@QAEFXZ=0x4E93A0",
-    "?CenterDistance@aiPath@@QAEHAAVVector3@@PAFPAM2@Z=0x43ED00",
-    "?CenterIndex@aiPath@@QAEHM@Z=0x43E840",
-    "?CenterLength@aiPath@@QAEMHH@Z=0x43E670",
-    "?CenterPosition@aiPath@@QAEXMAAVVector3@@@Z=0x43E8E0",
-    "?CenterVertice@aiPath@@QAEPAVVector3@@H@Z=0x440020",
-    "?Change@HashTable@@QAEHPAD0@Z=0x5783F0",
-    "?ChangeDir@HierFileSystem@@UAEHPAD@Z=0x560380",
-    "?ChangeDir@VirtualFileSystem@@UAEHPAD@Z=0x560B90",
-    "?ChangeExtension@string@@QAEXABV1@@Z=0x57A950",
-    "?ChangeLanes@aiGoalRandomDrive@@AAEXXZ=0x45F1A0",
-    "?ChangeLocalVals@RaceMenuBase@@QAEXXZ=0x4A7A20",
-    "?ChangePlayerData@mmInterface@@AAEXXZ=0x40D8B0",
-    "?ChangePlayerData@mmMultiCR@@QAEXXZ=0x41D1A0",
-    "?ChangePlayerData@mmMultiRace@@QAEXXZ=0x420480",
-    "?ChangeWPCallback@mmGameEdit@@QAEXXZ=0x412B20",
-    "?ChatCB@mmPopup@@QAEXXZ=0x427CF0",
-    "?ChatEntry@NetArena@@QAEXXZ=0x4A20B0",
-    "?ChatEntry@PUChat@@QAEXXZ=0x4A98D0",
-    "?ChatMessage@asNetwork@@QAEXKPAD@Z=0x48AE30",
-    "?CheatCallback@RaceMenuBase@@QAEXXZ=0x4A7690",
-    "?Check@mmGate@@QAEHVVector2@@0@Z=0x430250",
-    "?CheckBG@MenuManager@@QAEXPAVUIMenu@@@Z=0x4B08E0",
-    "?CheckBlitz@mmMiscData@@QAEHPADMH0HH@Z=0x4CD540",
-    "?CheckCapture@UICWArray@@QAEXXZ=0x4B85E0",
-    "?CheckCDFile@AudManager@@QAEEPAD@Z=0x4E9630",
-    "?CheckCDFile@DSGlobal@@QAEEPAD@Z=0x4F08E0",
-    "?CheckCellXSide@mmPolygon@@AAEMMMM@Z=0x51D080",
-    "?CheckCellZSide@mmPolygon@@AAEMMMM@Z=0x51D170",
-    "?CheckCheckpoint@mmMiscData@@QAEHPADMH0HH@Z=0x4CD200",
-    "?CheckCircuit@mmMiscData@@QAEHPADMH0HH@Z=0x4CD3A0",
-    "?CheckCondition@mmAnimTrigger@@QAEHXZ=0x4C4290",
-    "?CheckCorner@mmPolygon@@AAEMMMPAM00@Z=0x51CFD0",
-    "?CheckInput@MenuManager@@QAEXXZ=0x4B0E60",
-    "?CheckInput@UIMenu@@UAEXXZ=0x4ACE80",
-    "?CheckLibraries@@YAXXZ=0x556A30",
-    "?CheckMouseHits@UIMenu@@QAEXXZ=0x4AEAD0",
-    "?CheckObjectDistance@mmAnimTrigger@@QAEHXZ=0x4C43B0",
-    "?CheckObjectHit@mmAnimTrigger@@QAEHXZ=0x4C4300",
-    "?CheckPointer@asMemoryAllocator@@QAEXPAX@Z=0x520C40",
-    "?CheckPriority@AudManager@@QAEHHHH@Z=0x4E8390",
-    "?CheckSoftwareRenderer@@YAHPAUIDirectDraw4@@PAU_GUID@@@Z=0x575920",
-    "?CheckStateStatus@mmAnimTrigger@@QAEHXZ=0x4C4350",
-    "?CheckSurface@agiTexDef@@QAEXXZ=0x5562F0",
-    "?CheckTimeDelay@mmAnimTrigger@@QAEHXZ=0x4C4320",
-    "?ChooseNextFreewayLink@aiMap@@QAEHPAVaiRailSet@@@Z=0x43AE90",
-    "?ChooseNextLaneLink@aiMap@@QAEHPAVaiRailSet@@@Z=0x43ADF0",
-    "?ChooseNextLeftStraightLink@aiMap@@QAEHPAVaiRailSet@@@Z=0x43A5D0",
-    "?ChooseNextRandomLink@aiMap@@QAEHPAVaiRailSet@@@Z=0x43A440",
-    "?ChooseNextRightStraightFreewayLink@aiMap@@QAEHPAVaiRailSet@@@Z=0x43AFA0",
-    "?ChooseNextRightStraightLink@aiMap@@QAEHPAVaiRailSet@@@Z=0x43A840",
-    "?ChooseNextStraightLink@aiMap@@QAEHPAVaiRailSet@@@Z=0x43AAE0",
-    "?CityChange@RaceMenuBase@@QAEXXZ=0x4A7750",
-    "?CitySetupCB@mmInterface@@AAEXXZ=0x40B6D0",
-    "?Clamp@@YAMMMM@Z=0x43C0D0",
-    "?Clamp@Vector3@@QAEXABV1@0@Z=0x5665E0",
-    "?Clamp@Vector3@@QAEXMM@Z=0x566550",
-    "?Clean@aiMap@@QAEXXZ=0x433FF0",
-    "?CleanEndOfHeap@DataCache@@AAEXXZ=0x5773A0",
-    "?Clear@agiD3DViewport@@UAEXH@Z=0x533460",
-    "?Clear@agiSWViewport@@UAEXH@Z=0x5349B0",
-    "?Clear@mmIO@@QAEXXZ=0x4E4B90",
-    "?Clear@mmNetObject@@QAEXXZ=0x432800",
-    "?Clear@UICompositeScroll@@QAEXXZ=0x4B59D0",
-    "?ClearAction@UIMenu@@QAEXXZ=0x4ACB60",
-    "?ClearAll@agiD3DPipeline@@UAEXH@Z=0x531400",
-    "?ClearAll@agiSWPipeline@@UAEXH@Z=0x5341A0",
-    "?ClearAllWidgets@MenuManager@@QAEXXZ=0x4AF230",
-    "?ClearBadAssignment@ControlSetup@@QAEXXZ=0x4A38D0",
-    "?ClearChat@PUChat@@QAEXXZ=0x4A9890",
-    "?ClearDamage@mmCar@@QAEXXZ=0x473E70",
-    "?ClearDamage@mmCarModel@@QAEXH@Z=0x472CA0",
-    "?ClearDSDeviceList@DSGlobal@@QAEXXZ=0x4EFDD0",
-    "?ClearEventHitFlags@mmInput@@QAEXXZ=0x4E24B0",
-    "?ClearField@UITextField@@QAEXXZ=0x4B26D0",
-    "?ClearName@EngineAudioOpponent@@QAEXXZ=0x485A10",
-    "?ClearNames@PUResults@@QAEXXZ=0x4A8BC0",
-    "?ClearNames@PURoster@@QAEXXZ=0x4A9240",
-    "?ClearNetObjects@mmGameMulti@@QAEXXZ=0x4316A0",
-    "?ClearProtocol@NetSelectMenu@@QAEXXZ=0x4A4A60",
-    "?ClearRect@agiDDPipeline@@UAEXHHHHI@Z=0x533240",
-    "?ClearRect@agiPipeline@@UAEXHHHHI@Z=0x556070",
-    "?ClearRect@agiSWPipeline@@UAEXHHHHI@Z=0x534230",
-    "?ClearSelected@UIMenu@@QAEXXZ=0x4AEA70",
-    "?ClearSessions@mmInterface@@AAEXXZ=0x40CFA0",
-    "?ClearToolTip@UIMenu@@QAEXXZ=0x4ACB70",
-    "?ClearVectors@mmAnimSpline@@QAEXXZ=0x4C39D0",
-    "?ClearWaypoint@mmWaypoints@@QAEXH@Z=0x42FF60",
-    "?ClearWidgets@UIMenu@@QAEXXZ=0x4AEAA0",
-    "?ClipNX@@YAHPAUCV@@0H@Z=0x506260",
-    "?ClipNX@@YIXAAUCV@@0@Z=0x506380",
-    "?ClipNY@@YAHPAUCV@@0H@Z=0x506680",
-    "?ClipNY@@YIXAAUCV@@0@Z=0x5067A0",
-    "?ClipNZ@@YAHPAUCV@@0H@Z=0x506A90",
-    "?ClipNZ@@YIXAAUCV@@0@Z=0x506BB0",
-    "?ClipPX@@YAHPAUCV@@0H@Z=0x506470",
-    "?ClipPX@@YIXAAUCV@@0@Z=0x506590",
-    "?ClipPY@@YAHPAUCV@@0H@Z=0x506890",
-    "?ClipPY@@YIXAAUCV@@0@Z=0x5069B0",
-    "?ClipPZ@@YAHPAUCV@@0H@Z=0x506CA0",
-    "?ClipPZ@@YIXAAUCV@@0@Z=0x506DC0",
-    "?ClipTri@agiMeshSet@@IAEXHHHH@Z=0x505E40",
-    "?Clone@DLP@@QAEPAV1@XZ=0x55E460",
-    "?Close@FileStream@@QAEHXZ=0x561A20",
-    "?CloseDialog@MenuManager@@QAEXXZ=0x4B0B60",
-    "?CloseEnough@mmGate@@QAEHMM@Z=0x430210",
-    "?CloseInOpenArea@aiGoalChase@@AAEXXZ=0x463090",
-    "?CloseInRoad@aiGoalChase@@AAEXXZ=0x462BB0",
-    "?CloseSession@asNetwork@@QAEXXZ=0x48A3A0",
-    "?ClosestNeighboringCullRoom@mmPhysicsMGR@@IAEHH@Z=0x4D4B50",
-    "?CloseWidgets@asNode@@UAEXXZ=0x5243F0",
-    "?cmpProblem@@YAHPBX0@Z=0x561050",
-    "?cmpPtx@@YAHPBX0@Z=0x500690",
-    "?cmpTex@@YAHPBX0@Z=0x512080",
-    "?Collide@mmBoundTemplate@@QAEHPAV1@AAVMatrix34@@11PAVmmEdgeBodyIsect@@HHPAVasInertialCS@@3PAVVector3@@4@Z="
-    "0x51DB70",
-    "?Collide@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z=0x51E4F0",
-    "?Collide@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51E550",
-    "?Collide@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z=0x4D6460",
-    "?Collide@TrackCamCS@@AAEXVVector3@@@Z=0x4F85D0",
-    "?CollideAIOpponents@mmGame@@QAEXXZ=0x40F9C0",
-    "?CollideInstances@mmPhysicsMGR@@IAEHPAVmmInstance@@0HH@Z=0x4D5950",
-    "?CollideLOS@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z=0x4D6580",
-    "?CollideProbe@mmPhysicsMGR@@IAEHFPAVmmIntersection@@H@Z=0x4D62D0",
-    "?CollideTerrain@mmPhysicsMGR@@IAEXPAVmmInstance@@@Z=0x4D5DF0",
-    "?CollideTerrains@mmBoundTemplate@@QAEHPAPAV1@AAVMatrix34@@PAVmmEdgeBodyIsect@@HH@Z=0x51E240",
-    "?CollideTri@@YAHABVVector3@@0000AAMAAV1@2@Z=0x571D50",
-    "?Collision@aiGoalChase@@AAEHPAVmmCar@@@Z=0x460600",
-    "?ColorCB@VehicleSelectBase@@QAEXXZ=0x49AA70",
-    "?CommaFile@string@@QBEHXZ=0x57A4A0",
-    "?Commentf@MiniParser@@QAAXPBDZZ=0x57C7B0",
-    "?CompareComponent@mmIO@@QAEHH@Z=0x4E4ED0",
-    "?compareExchange@@YIHPAIH@Z=0x578AB0",
-    "?ComputeBounds@mmBoundTemplate@@QAEXXZ=0x5175E0",
-    "?ComputeConstants@mmEngine@@QAEXXZ=0x47CA60",
-    "?ComputeConstants@mmWheel@@QAEXXZ=0x47D950",
-    "?ComputeCpuSpeed@@YAIXZ=0x57CF50",
-    "?ComputeCRC@mmPlayerData@@QAEIXZ=0x4D09E0",
-    "?ComputeCRC@mmPlayerRecord@@QAEIXZ=0x4CFCE0",
-    "?ComputeCRC@mmRecord@@QAEIXZ=0x4D1910",
-    "?ComputeCurve@aiPedestrian@@AAEXAAVVector3@@000@Z=0x44CDA0",
-    "?ComputeDwtdw@mmWheel@@QAEMMPAM00@Z=0x47DBB0",
-    "?ComputeEdgeNormals@mmBoundTemplate@@QAEXXZ=0x5193A0",
-    "?ComputeEdges@mmBoundTemplate@@QAEXXZ=0x517680",
-    "?ComputeLod@aiPedestrianInstance@@UAEHMM@Z=0x44D820",
-    "?ComputeLod@mmBangerInstance@@UAEHMM@Z=0x4C9C30",
-    "?ComputeLod@mmInstance@@UAEHMM@Z=0x492A30",
-    "?ComputeLod@mmWaypointInstance@@UAEHMM@Z=0x4337A0",
-    "?ComputeMirrorMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z=0x572360",
-    "?ComputePlaneEquations@agiMeshSet@@QAEXXZ=0x5148D0",
-    "?ComputePrime@HashTable@@AAEHH@Z=0x578500",
-    "?ComputeShadowMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z=0x572430",
-    "?ComputeXZCurve@aiRailSet@@QAEXAAVVector3@@000@Z=0x4599A0",
-    "?ComputeXZCurve@aiRailSet@@QAEXAAVVector3@@000AAVVector4@@1@Z=0x459A50",
-    "?ComputeXZCurve@mmAnimTrain@@QAEXAAVVector3@@000AAVVector4@@11@Z=0x4C6A90",
-    "?ComputeXZCurve@mmBoat@@QAEXAAVVector3@@000@Z=0x4C7C90",
-    "?ComputeYRadius@mmBangerData@@QAEXPAD@Z=0x4C93D0",
-    "?ConfigCar@aiVehiclePolice@@QAEXXZ=0x445E20",
-    "?ConfigureDrivetrain@mmCarSim@@QAEXXZ=0x46D080",
-    "?Contains@@YAHPAD0@Z=0x55FBA0",
-    "?Contains@string@@QBEHAAV1@@Z=0x579C60",
-    "?Context@aiGoalAvoidPlayer@@UAEHXZ=0x46A970",
-    "?Context@aiGoalBackup@@UAEHXZ=0x45F880",
-    "?Context@aiGoalChase@@UAEHXZ=0x460080",
-    "?Context@aiGoalCollision@@UAEHXZ=0x46B3D0",
-    "?Context@aiGoalFollowWayPts@@UAEHXZ=0x4668C0",
-    "?Context@aiGoalRandomDrive@@UAEHXZ=0x45D440",
-    "?Context@aiGoalRegainRail@@UAEHXZ=0x46B240",
-    "?Context@aiGoalStop@@UAEHXZ=0x45F7D0",
-    "?ContinuityError@aiPath@@QAEHH@Z=0x43F9D0",
-    "?ControlPedSlider@Dialog_RaceEnvironment@@QAEXXZ=0x49E2F0",
-    "?ControlSelect@ControlSetup@@QAEXXZ=0x4A3530",
-    "?ControlSelect@PUControl@@QAEXXZ=0x4AA380",
-    "?ConvertDItoString@@YAHHPADH@Z=0x4E5260",
-    "?ConvertTo8Bit@DSGlobal@@QAEXH@Z=0x4F0340",
-    "?ConvertTo8Bit@SoundObj@@QAEXXZ=0x4F15F0",
-    "?CopyBitmap@agiD3DPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z=0x531520",
-    "?CopyBitmap@agiDDPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z=0x533070",
-    "?CopyBitmap@agiPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z=0x555D40",
-    "?CopyBitmap@agiSWPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z=0x5344C0",
-    "?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHH@Z=0x555D50",
-    "?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHHHHHH@Z=0x555D90",
-    "?CopyFrom@agiSurfaceDesc@@QAEXPAV1@H@Z=0x55B180",
-    "?copyrow4444_to_5551@@YAXPAX0II@Z=0x55B8E0",
-    "?copyrow4444_to_555@@YAXPAX0II@Z=0x55B7E0",
-    "?copyrow4444_to_565@@YAXPAX0II@Z=0x55B860",
-    "?copyrow4444_to_8888@@YAXPAX0II@Z=0x55B6C0",
-    "?copyrow4444_to_8888rev@@YAXPAX0II@Z=0x55B750",
-    "?copyrow565_to_5551@@YAXPAX0II@Z=0x55B560",
-    "?copyrow565_to_555@@YAXPAX0II@Z=0x55B510",
-    "?copyrow565_to_888@@YAXPAX0II@Z=0x55B5C0",
-    "?copyrow565_to_888rev@@YAXPAX0II@Z=0x55B640",
-    "?CopyTrans@mmTransmission@@QAEXXZ=0x4706C0",
-    "?CopyVars@mmWheel@@QAEXPAV1@@Z=0x47F5F0",
-    "?CornersHeight@mmPolygon@@AAEMMMMM@Z=0x51CDB0",
-    "?Cos@Vector3@@QBEMABV1@@Z=0x564BB0",
-    "?cpuid@@YAHXZ=0x57C400",
-    "?Create@asPortalPVS@@SAPAU1@HZZ=0x495A30",
-    "?Create@DupBuffCreator@@QAEPAUIDirectSoundBuffer@@PADPAFPAH@Z=0x4EEC60",
-    "?Create@FileStream@@QAEHPAD@Z=0x561840",
-    "?CreateAmbAppRoadMap@aiMap@@AAEXXZ=0x439800",
-    "?CreateBitmap@agiD3DPipeline@@UAEPAVagiBitmap@@XZ=0x5314C0",
-    "?CreateBitmap@agiDDPipeline@@UAEPAVagiBitmap@@XZ=0x533010",
-    "?CreateBitmap@agiPipeline@@UAEPAVagiBitmap@@XZ=0x555D30",
-    "?CreateBitmap@agiSWPipeline@@UAEPAVagiBitmap@@XZ=0x534450",
-    "?CreateDeviceOptions@ControlSetup@@QAEXXZ=0x4A2EF0",
-    "?CreateDLP@agiD3DRPipeline@@UAEPAVDLP@@XZ=0x531790",
-    "?CreateDLP@agiSWPipeline@@UAEPAVDLP@@XZ=0x5340E0",
-    "?CreateDummyBitmap@PUMenuBase@@QAEPAVagiBitmap@@XZ=0x4AB210",
-    "?CreateDummyBitmap@UIBMButton@@QAEPAVagiBitmap@@XZ=0x4B64F0",
-    "?CreateDummyBitmap@UIBMLabel@@QAEPAVagiBitmap@@XZ=0x4B45C0",
-    "?CreateDummyBitmap@UIIcon@@QAEPAVagiBitmap@@XZ=0x4B9A10",
-    "?CreateFitBitmap@mmText@@SAPAVagiBitmap@@PADPAXHH@Z=0x4FF0C0",
-    "?CreateFont@mmText@@SAPAXPADH@Z=0x4FEF30",
-    "?CreateInterface@asNetwork@@QAEHXZ=0x489470",
-    "?CreateLight@agiD3DPipeline@@UAEPAVagiLight@@XZ=0x5313A0",
-    "?CreateLight@agiD3DRPipeline@@UAEPAVagiLight@@XZ=0x531910",
-    "?CreateLight@agiPipeline@@UAEPAVagiLight@@XZ=0x555B20",
-    "?CreateLight@agiSWPipeline@@UAEPAVagiLight@@XZ=0x534140",
-    "?CreateLightModel@agiD3DRPipeline@@UAEPAVagiLightModel@@XZ=0x5318B0",
-    "?CreateLightModel@agiPipeline@@UAEPAVagiLightModel@@XZ=0x555B30",
-    "?CreateLightModel@agiSWPipeline@@UAEPAVagiLightModel@@XZ=0x534320",
-    "?CreateListenerEAXObj@SoundObj@@QAEGXZ=0x4F3370",
-    "?CreateListenerSoundObj@AudManager@@AAEIXZ=0x4E9820",
-    "?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z=0x4FEE60",
-    "?CreateMtlDef@agiD3DPipeline@@UAEPAVagiMtlDef@@XZ=0x531250",
-    "?CreateMtlDef@agiPipeline@@UAEPAVagiMtlDef@@XZ=0x555B10",
-    "?CreateMtlDef@agiSWPipeline@@UAEPAVagiMtlDef@@XZ=0x534440",
-    "?CreateOn@HierFileSystem@@UAEPAVStream@@PADPAXH@Z=0x5602A0",
-    "?CreateOn@VirtualFileSystem@@UAEPAVStream@@PADPAXH@Z=0x560B80",
-    "?CreatePedAppRoadMap@aiMap@@AAEXXZ=0x439D80",
-    "?CreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z=0x4010B0",
-    "?CreatePipelineAttachableWindow@@YAPAXPADHHHHPAX@Z=0x555F80",
-    "?CreatePlayer@asNetwork@@QAEHPADPAXH@Z=0x4899A0",
-    "?CreatePlayer@mmInterface@@AAEHH@Z=0x40D540",
-    "?CreatePlayer@mmPlayerDirectory@@AAEXPAD0@Z=0x4CF210",
-    "?CreateRoadMap@aiIntersection@@QAEXXZ=0x447920",
-    "?CreateSecondaryEAXObj@SoundObj@@QAEGXZ=0x4F3410",
-    "?CreateSession@asNetwork@@QAEHPAD0HPAUNETSESSION_DESC@@@Z=0x48A080",
-    "?CreateSession@mmInterface@@AAEHXZ=0x40DC40",
-    "?CreateTexDef@agiD3DPipeline@@UAEPAVagiTexDef@@XZ=0x5312B0",
-    "?CreateTexDef@agiSWPipeline@@UAEPAVagiTexDef@@XZ=0x534380",
-    "?CreateTexLut@agiD3DPipeline@@UAEPAVagiTexLut@@XZ=0x531310",
-    "?CreateTexLut@agiSWPipeline@@UAEPAVagiTexLut@@XZ=0x5343E0",
-    "?CreateTitle@OptionsBase@@QAEXPAULocString@@@Z=0x4AB620",
-    "?CreateTitle@PUMenuBase@@QAEMXZ=0x4AB270",
-    "?CreateViewport@agiD3DPipeline@@UAEPAVagiViewport@@XZ=0x5311F0",
-    "?CreateViewport@agiD3DRPipeline@@UAEPAVagiViewport@@XZ=0x531730",
-    "?CreateViewport@agiSWPipeline@@UAEPAVagiViewport@@XZ=0x534290",
-    "?Cross@Vector3@@QAEXABV1@0@Z=0x5724F0",
-    "?CrossProdMatrix@@YAXPAVMatrix34@@ABVVector3@@@Z=0x4DECD0",
-    "?Cube@agiPalette@@QAEXXZ=0x55C0F0",
-    "?Cull@AboutMenu@@UAEXXZ=0x4A6100",
-    "?Cull@agiTexSorter@@QAEXH@Z=0x504090",
-    "?Cull@aiMap@@UAEXXZ=0x436680",
-    "?Cull@asCullable@@UAEXXZ=0x5258C0",
-    "?Cull@asForm@@UAEXXZ=0x528520",
-    "?Cull@asLamp@@UAEXXZ=0x526290",
-    "?Cull@asLinearCS@@UAEXXZ=0x525C00",
-    "?Cull@asMeshSetForm@@UAEXXZ=0x4FFF60",
-    "?Cull@asMidgets@@UAEXXZ=0x526ED0",
-    "?Cull@asParticles@@UAEXXZ=0x5006B0",
-    "?Cull@asPerfGraph@@QAEXXZ=0x52AB30",
-    "?Cull@asPortalWeb@@QAEXH@Z=0x496FE0",
-    "?Cull@asRenderWeb@@UAEXXZ=0x490FF0",
-    "?Cull@asSimulation@@UAEXXZ=0x522C20",
-    "?Cull@Card2D@@EAEXXZ=0x4FE330",
-    "?Cull@DLP@@UAEXH@Z=0x55E490",
-    "?Cull@mmBridgeMgr@@UAEXXZ=0x4C1860",
-    "?Cull@mmBridgeSet@@UAEXXZ=0x4C2730",
-    "?Cull@mmCDPlayer@@UAEXXZ=0x423210",
-    "?Cull@mmCellRenderer@@UAEXH@Z=0x498FA0",
-    "?Cull@mmCompCRPlayer@@UAEXXZ=0x4B7770",
-    "?Cull@mmCompDRecord@@UAEXXZ=0x4B5FC0",
-    "?Cull@mmCompRaceRecord@@UAEXXZ=0x4B4D80",
-    "?Cull@mmCompRoster@@UAEXXZ=0x4B7C10",
-    "?Cull@mmCullCity@@UAEXXZ=0x48D820",
-    "?Cull@mmDashView@@UAEXXZ=0x421F00",
-    "?Cull@mmExternalView@@UAEXXZ=0x422340",
-    "?Cull@mmGameManager@@UAEXXZ=0x404750",
-    "?Cull@mmHUD@@UAEXXZ=0x405D30",
-    "?Cull@mmHudMap@@UAEXXZ=0x428E50",
-    "?Cull@mmIcons@@UAEXXZ=0x426570",
-    "?Cull@mmLoader@@UAEXXZ=0x48BA70",
-    "?Cull@mmMouseSteerBar@@UAEXXZ=0x502A30",
-    "?Cull@mmNumber@@UAEXXZ=0x4FEB90",
-    "?Cull@mmPhysicsMGR@@UAEXXZ=0x4D5390",
-    "?Cull@mmScreenClearFlunky@@UAEXXZ=0x403D10",
-    "?Cull@mmSlider@@UAEXXZ=0x4BED40",
-    "?Cull@mmTextNode@@UAEXXZ=0x4FFD90",
-    "?Cull@mmToggle2@@UAEXXZ=0x4C00E0",
-    "?Cull@mmToggle@@UAEXXZ=0x4C05B0",
-    "?Cull@mmVehicleForm@@UAEXXZ=0x5027A0",
-    "?Cull@mmWaypoints@@UAEXXZ=0x42E910",
-    "?Cull@mmWPHUD@@UAEXXZ=0x424770",
-    "?Cull@PUMenuBase@@UAEXXZ=0x4AB430",
-    "?Cull@RadialGauge@@UAEXXZ=0x423A40",
-    "?Cull@sfPointer@@UAEXXZ=0x4BDD30",
-    "?Cull@UIBMButton@@UAEXXZ=0x4B6D20",
-    "?Cull@UIBMLabel@@UAEXXZ=0x4B4640",
-    "?Cull@UIIcon@@UAEXXZ=0x4B9AF0",
-    "?Cull@UITextDropdown@@UAEXXZ=0x4B3920",
-    "?Cull@UITextRoller2@@UAEXXZ=0x4BB980",
-    "?Cull@UITextRoller@@UAEXXZ=0x4BAAD0",
-    "?Cull@UIVScrollBar@@UAEXXZ=0x4BD5B0",
-    "?Cull@VSWidget@@UAEXXZ=0x4BFBB0",
-    "?Current@asBenchStats@@QAEXPAV1@@Z=0x52CFD0",
-    "?CurrentMenuSelected@MenuManager@@QAEHXZ=0x4B1480",
-    "?CurrentVehicleIsLocked@VehicleSelectBase@@QAEHXZ=0x49BBD0",
-    "?Cycle@mmHudMap@@QAEXXZ=0x428B90",
-    "?CycleCurrentWaypoint@mmWaypoints@@QAEXH@Z=0x42F130",
-    "?CycleInterest@mmMultiCR@@AAEXH@Z=0x41F570",
-    "?d3d_state_init@@YAXXZ=0x52E5C0",
-    "?d3dCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z=0x52DFC0",
-    "?DamageSiren@mmPoliceCarAudio@@QAEXXZ=0x47AAD0",
-    "?DApproach@AppCamCS@@AAEHAAMMMM0M@Z=0x4FCC60",
-    "?DashActivated@mmCarModel@@QAEXXZ=0x473080",
-    "?DashDeactivated@mmCarModel@@QAEXXZ=0x473090",
-    "?ddAttach@@YAXHH@Z=0x534E30",
-    "?DDCallback@@YGHPAU_GUID@@PAD1PAX@Z=0x5328D0",
-    "?ddEnd@@YAXXZ=0x534FA0",
-    "?ddEndFrame@@YAXXZ=0x535070",
-    "?ddEndScene@@YAXXZ=0x535030",
-    "?DDErrorToString@@YAPADJ@Z=0x532090",
-    "?ddGDIFlip@@YAXXZ=0x4FEE30",
-    "?ddStart@@YAXXZ=0x534EA0",
-    "?ddStartFrame@@YAXXZ=0x534FC0",
-    "?ddStartScene@@YAXXZ=0x534FD0",
-    "?Deactivate@asSafeHeap@@IAEXXZ=0x5214C0",
-    "?Deactivate@mmAnimPlane@@QAEXXZ=0x4C5340",
-    "?Deactivate@mmCarModel@@QAEXXZ=0x4730B0",
-    "?Deactivate@mmDashView@@QAEXXZ=0x421DA0",
-    "?Deactivate@mmHudMap@@QAEXXZ=0x428840",
-    "?Deactivate@mmNetObject@@QAEXXZ=0x4328A0",
-    "?Deactivate@mmTrailer@@QAEXXZ=0x479BC0",
-    "?Deactivate@mmWaypointObject@@QAEXXZ=0x430550",
-    "?DeactivateAllDeviceOptions@ControlSetup@@QAEXXZ=0x4A31B0",
-    "?DeactivateApplication@@YAXXZ=0x4EA000",
-    "?DeactivateAudio@mmNetworkCarAudio@@QAEXXZ=0x483E10",
-    "?DeactivateDash@mmHUD@@QAEXXZ=0x405830",
-    "?DeactivateFinish@mmWaypoints@@QAEXXZ=0x42ED30",
-    "?DeactivateGold@mmCRHUD@@QAEXXZ=0x4260A0",
-    "?DeactivateGold@mmHUD@@QAEXXZ=0x405FB0",
-    "?DeactivateMapNetObject@mmGameMulti@@QAEXH@Z=0x432000",
-    "?DeactivateRosterGold@mmCRHUD@@QAEXXZ=0x426100",
-    "?Deallocate@asNetwork@@QAEXXZ=0x489430",
-    "?DeallocateADFRecord@AudManager@@QAEXH@Z=0x4E82A0",
-    "?DeallocateADFRecord@DSGlobal@@QAEXH@Z=0x4EF370",
-    "?DeallocateCityADF@AudManager@@QAEXXZ=0x4E8A80",
-    "?DeallocateCityADF@DSGlobal@@QAEXXZ=0x4EF340",
-    "?DeallocateDSound@AudManager@@QAEXFF@Z=0x4E8A90",
-    "?DeallocateEffects@SoundObj@@QAEXXZ=0x4F0CA0",
-    "?DeallocateEventQueue@@YAXXZ=0x562E60",
-    "?DeallocateSoundObjs@AudSound@@QAEXXZ=0x4EA690",
-    "?DeallocateStreamObjs@AudStream@@QAEXXZ=0x4F3800",
-    "?DeallocateUIADF@AudManager@@QAEXXZ=0x4E8A70",
-    "?DeallocateUIADF@DSGlobal@@QAEXXZ=0x4EF2E0",
-    "?Debug@Stream@@QAEXXZ=0x55EEA0",
-    "?Debugf@@YAXPBDZZ=0x576CB0",
-    "?DebugForceSetting@UICWArray@@QAEXXZ=0x4B8740",
-    "?DebugLog@@YAXHPAXH@Z=0x520720",
-    "?DebugLogInit@@YAXH@Z=0x5206C0",
-    "?DebugLogShutdown@@YAXXZ=0x520700",
-    "?Dec@mmSlider@@QAEMXZ=0x4BEC10",
-    "?Dec@TextDropWidget@@QAEHXZ=0x4BE390",
-    "?Dec@UITextRoller2@@QAEHXZ=0x4BB950",
-    "?Dec@UITextRoller@@QAEHXZ=0x4BAAB0",
-    "?Dec@UIVScrollBar@@QAEMXZ=0x4BD150",
-    "?Dec@VSWidget@@QAEMXZ=0x4BF770",
-    "?DecCar@VehicleSelectBase@@QAEXXZ=0x49C500",
-    "?DecColor@VehicleSelectBase@@QAEXXZ=0x49A9B0",
-    "?DecDrop@TextDropWidget@@QAEHXZ=0x4BE3D0",
-    "?DeclareBitmap@asCullManager@@QAEXPAVasCullable@@PAVagiBitmap@@@Z=0x5255F0",
-    "?DeclareBound@mmPhysicsMGR@@IAEXPAVmmBoundTemplate@@@Z=0x4D5320",
-    "?DeclareCamera@asCullManager@@UAEXPAVasCamera@@@Z=0x525440",
-    "?DeclareCullable2D@asCullManager@@UAEXPAVasCullable@@@Z=0x525550",
-    "?DeclareCullable@asCullManager@@UAEXPAVasCullable@@@Z=0x5254A0",
-    "?DeclareFields@AICamCS@@SAXXZ=0x4FA950",
-    "?DeclareFields@aiGoalFollowWayPts@@SAXXZ=0x46A140",
-    "?DeclareFields@aiMap@@SAXXZ=0x43BC20",
-    "?DeclareFields@aiVehicleData@@SAXXZ=0x4536C0",
-    "?DeclareFields@aiVehicleInstance@@SAXXZ=0x453610",
-    "?DeclareFields@aiVehicleOpponent@@SAXXZ=0x44E4E0",
-    "?DeclareFields@aiVehicleSpline@@SAXXZ=0x45C250",
-    "?DeclareFields@AppCamCS@@SAXXZ=0x4FD0D0",
-    "?DeclareFields@asAero@@SAXXZ=0x4E0490",
-    "?DeclareFields@asBirthRule@@SAXXZ=0x5012A0",
-    "?DeclareFields@asCamera@@SAXXZ=0x52A6A0",
-    "?DeclareFields@asCullable@@SAXXZ=0x5258E0",
-    "?DeclareFields@asCullManager@@SAXXZ=0x5256D0",
-    "?DeclareFields@asDofCS@@SAXXZ=0x52B9F0",
-    "?DeclareFields@asForm@@SAXXZ=0x5289D0",
-    "?DeclareFields@asInertialCS@@SAXXZ=0x4DB970",
-    "?DeclareFields@asLamp@@SAXXZ=0x526680",
-    "?DeclareFields@asLinearCS@@SAXXZ=0x525E20",
-    "?DeclareFields@asNode@@SAXXZ=0x524410",
-    "?DeclareFields@asOverSample@@SAXXZ=0x4DEEE0",
-    "?DeclareFields@asParticles@@SAXXZ=0x500830",
-    "?DeclareFields@asPortalWeb@@SAXXZ=0x4976D0",
-    "?DeclareFields@asRenderWeb@@SAXXZ=0x491710",
-    "?DeclareFields@asSimulation@@SAXXZ=0x523530",
-    "?DeclareFields@asViewCS@@SAXXZ=0x52CC70",
-    "?DeclareFields@AudManager@@SAXXZ=0x4EA070",
-    "?DeclareFields@Base@@SAXXZ=0x5791F0",
-    "?DeclareFields@BaseCamCS@@SAXXZ=0x4FC0E0",
-    "?DeclareFields@CarCamCS@@SAXXZ=0x4FB290",
-    "?DeclareFields@EngineAudio@@SAXXZ=0x486DF0",
-    "?DeclareFields@EngineAudioOpponent@@SAXXZ=0x485A60",
-    "?DeclareFields@Joint3Dof@@SAXXZ=0x4DE9B0",
-    "?DeclareFields@Matrix34@@SAXXZ=0x56D760",
-    "?DeclareFields@mmAnimDOF@@SAXXZ=0x4C4BF0",
-    "?DeclareFields@mmAnimMgr@@SAXXZ=0x4C1440",
-    "?DeclareFields@mmAxle@@SAXXZ=0x47D5B0",
-    "?DeclareFields@mmBangerData@@SAXXZ=0x4C9540",
-    "?DeclareFields@mmBangerDataManager@@SAXXZ=0x4C98D0",
-    "?DeclareFields@mmBoat@@SAXXZ=0x4C7E50",
-    "?DeclareFields@mmBridgeMgr@@SAXXZ=0x4C3070",
-    "?DeclareFields@mmBridgeSet@@SAXXZ=0x4C29A0",
-    "?DeclareFields@mmBuildingInstance@@SAXXZ=0x494EA0",
-    "?DeclareFields@mmCar@@SAXXZ=0x474640",
-    "?DeclareFields@mmCarModel@@SAXXZ=0x473100",
-    "?DeclareFields@mmCarRoadFF@@SAXXZ=0x481920",
-    "?DeclareFields@mmCarSim@@SAXXZ=0x46FBC0",
-    "?DeclareFields@mmCullCity@@SAXXZ=0x48F8C0",
-    "?DeclareFields@mmDashView@@SAXXZ=0x422BD0",
-    "?DeclareFields@mmDrivetrain@@SAXXZ=0x480460",
-    "?DeclareFields@mmDropDown@@SAXXZ=0x4C0F30",
-    "?DeclareFields@mmEngine@@SAXXZ=0x47CFC0",
-    "?DeclareFields@mmFacadeInstance@@SAXXZ=0x4951D0",
-    "?DeclareFields@mmForce@@SAXXZ=0x480E20",
-    "?DeclareFields@mmGame@@SAXXZ=0x411F20",
-    "?DeclareFields@mmGameEdit@@SAXXZ=0x412B80",
-    "?DeclareFields@mmGameManager@@SAXXZ=0x4049C0",
-    "?DeclareFields@mmGameMulti@@SAXXZ=0x432510",
-    "?DeclareFields@mmGameSingle@@SAXXZ=0x418B90",
-    "?DeclareFields@mmHUD@@SAXXZ=0x406760",
-    "?DeclareFields@mmHudMap@@SAXXZ=0x429DC0",
-    "?DeclareFields@mmInfoBase@@SAXXZ=0x4D1460",
-    "?DeclareFields@mmInput@@SAXXZ=0x4E40E0",
-    "?DeclareFields@mmInstance@@SAXXZ=0x494A10",
-    "?DeclareFields@mmInterface@@SAXXZ=0x40E660",
-    "?DeclareFields@mmIODev@@SAXXZ=0x4E58A0",
-    "?DeclareFields@mmMapData@@SAXXZ=0x4D3400",
-    "?DeclareFields@mmMatrixInstance@@SAXXZ=0x494B70",
-    "?DeclareFields@mmMiscData@@SAXXZ=0x4CD6E0",
-    "?DeclareFields@mmMultiBlitz@@SAXXZ=0x41A550",
-    "?DeclareFields@mmMultiCircuit@@SAXXZ=0x41BC60",
-    "?DeclareFields@mmMultiCR@@SAXXZ=0x41F5E0",
-    "?DeclareFields@mmMultiRace@@SAXXZ=0x421280",
-    "?DeclareFields@mmNetworkCarAudio@@SAXXZ=0x4843A0",
-    "?DeclareFields@mmNumber@@SAXXZ=0x4FECB0",
-    "?DeclareFields@mmOpponentCarAudio@@SAXXZ=0x47C0E0",
-    "?DeclareFields@mmPed@@SAXXZ=0x497A90",
-    "?DeclareFields@mmPedManager@@SAXXZ=0x497C20",
-    "?DeclareFields@mmPhysicsMGR@@SAXXZ=0x4D8EF0",
-    "?DeclareFields@mmPlayer@@SAXXZ=0x42CD40",
-    "?DeclareFields@mmPlayerCarAudio@@SAXXZ=0x483080",
-    "?DeclareFields@mmPlayerConfig@@SAXXZ=0x4CE9E0",
-    "?DeclareFields@mmPlayerData@@SAXXZ=0x4D0F00",
-    "?DeclareFields@mmPlayerDirectory@@SAXXZ=0x4CF9B0",
-    "?DeclareFields@mmPlayerRecord@@SAXXZ=0x4CFE40",
-    "?DeclareFields@mmPropInfo@@SAXXZ=0x4D29A0",
-    "?DeclareFields@mmRecord@@SAXXZ=0x4D1970",
-    "?DeclareFields@mmRoadSect@@SAXXZ=0x4D2D90",
-    "?DeclareFields@mmRoadSide@@SAXXZ=0x4D2B70",
-    "?DeclareFields@mmShard@@SAXXZ=0x478E00",
-    "?DeclareFields@mmShardManager@@SAXXZ=0x478F90",
-    "?DeclareFields@mmShearInstance@@SAXXZ=0x494D00",
-    "?DeclareFields@mmShock@@SAXXZ=0x47D2A0",
-    "?DeclareFields@mmSingleBlitz@@SAXXZ=0x414740",
-    "?DeclareFields@mmSingleCircuit@@SAXXZ=0x416940",
-    "?DeclareFields@mmSkid@@SAXXZ=0x478180",
-    "?DeclareFields@mmSkidManager@@SAXXZ=0x478310",
-    "?DeclareFields@mmSlider@@SAXXZ=0x4BEF00",
-    "?DeclareFields@mmStaticInstance@@SAXXZ=0x495040",
-    "?DeclareFields@mmToggle2@@SAXXZ=0x4C01A0",
-    "?DeclareFields@mmToggle@@SAXXZ=0x4C0630",
-    "?DeclareFields@mmTrailer@@SAXXZ=0x479F30",
-    "?DeclareFields@mmTransmission@@SAXXZ=0x470A30",
-    "?DeclareFields@mmViewCS@@SAXXZ=0x4F9380",
-    "?DeclareFields@mmWaypointInstance@@SAXXZ=0x433BA0",
-    "?DeclareFields@mmWheel@@SAXXZ=0x47FB00",
-    "?DeclareFields@mmYInstance@@SAXXZ=0x494AC0",
-    "?DeclareFields@PointCamCS@@SAXXZ=0x4FA280",
-    "?DeclareFields@PolarCamCS@@SAXXZ=0x4FB010",
-    "?DeclareFields@PostCamCS@@SAXXZ=0x4F97C0",
-    "?DeclareFields@PovCamCS@@SAXXZ=0x4F6800",
-    "?DeclareFields@PreCamCS@@SAXXZ=0x4F9C10",
-    "?DeclareFields@sfPointer@@SAXXZ=0x4BDDB0",
-    "?DeclareFields@Spline@@SAXXZ=0x4FDB90",
-    "?DeclareFields@TextDropWidget@@SAXXZ=0x4BE4C0",
-    "?DeclareFields@TrackCamCS@@SAXXZ=0x4F8BE0",
-    "?DeclareFields@UIBMButton@@SAXXZ=0x4B70F0",
-    "?DeclareFields@UIBMLabel@@SAXXZ=0x4B4680",
-    "?DeclareFields@UIVScrollBar@@SAXXZ=0x4BD730",
-    "?DeclareFields@VehGyro@@SAXXZ=0x4809E0",
-    "?DeclareFields@VSWidget@@SAXXZ=0x4BFD30",
-    "?DeclareLastDrawn@MenuManager@@QAEXPAVasNode@@@Z=0x4B0DC0",
-    "?DeclareLight@agiLighter@@SAXPAVagiLight@@@Z=0x551780",
-    "?DeclareMover@mmPhysicsMGR@@QAEXPAVmmInstance@@HH@Z=0x4D4540",
-    "?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z=0x578000",
-    "?DeclarePrint@asCullManager@@QAEXPAVasCullable@@@Z=0x525660",
-    "?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z=0x522B80",
-    "?DecodeCRData@CRSettings@@QAEXH@Z=0x4A14E0",
-    "?DecodeDIErrorMFlag@@YAXJ@Z=0x4E6FB0",
-    "?DecPlayer@DriverMenu@@QAEXXZ=0x4A5B10",
-    "?Decrement@UIMenu@@QAEHXZ=0x4ACD90",
-    "?DefaultAudio@mmPlayerConfig@@QAEXXZ=0x4CE800",
-    "?DefaultCFG@UICWArray@@QAEXXZ=0x4B8720",
-    "?DefaultControls@mmPlayerConfig@@QAEXXZ=0x4CE910",
-    "?DefaultGraphics@mmPlayerConfig@@QAEXXZ=0x4CE9C0",
-    "?DefaultPrinter@@YAXHPBDPAD@Z=0x5769C0",
-    "?DefaultViewSettings@mmPlayerConfig@@QAEXXZ=0x4CE970",
-    "?Defragment@agiD3DPipeline@@UAEXXZ=0x531580",
-    "?Defragment@agiPipeline@@UAEXXZ=0x556080",
-    "?DeInit@DSGlobal@@QAEXFF@Z=0x4EF400",
-    "?Delete@ArrayOfType@@UAEXPAXH@Z=0x57B940",
-    "?Delete@CharType@@UAEXPAXH@Z=0x57BA70",
-    "?Delete@FloatArray@@QAEXXZ=0x5738D0",
-    "?Delete@FloatType@@UAEXPAXH@Z=0x57C120",
-    "?Delete@HashTable@@QAEHPAD@Z=0x5782B0",
-    "?Delete@IntArray@@QAEXXZ=0x5735B0",
-    "?Delete@List@@QAEHH@Z=0x57C360",
-    "?Delete@PtrToType@@UAEXPAXH@Z=0x57B5E0",
-    "?Delete@RefToType@@UAEXPAXH@Z=0x57B7B0",
-    "?Delete@SignedCharType@@UAEXPAXH@Z=0x57BB40",
-    "?Delete@SignedInt64Type@@UAEXPAXH@Z=0x57BF70",
-    "?Delete@SignedIntType@@UAEXPAXH@Z=0x57BE90",
-    "?Delete@SignedShortType@@UAEXPAXH@Z=0x57BCE0",
-    "?Delete@StringArray@@QAEXXZ=0x57AED0",
-    "?Delete@StringType@@UAEXPAXH@Z=0x57C260",
-    "?Delete@StructType@@UAEXPAXH@Z=0x57B9D0",
-    "?Delete@UnsignedCharType@@UAEXPAXH@Z=0x57BC10",
-    "?Delete@UnsignedIntType@@UAEXPAXH@Z=0x57C040",
-    "?Delete@UnsignedShortType@@UAEXPAXH@Z=0x57BDC0",
-    "?Delete@Vector2Array@@QAEXXZ=0x571330",
-    "?Delete@Vector2Type@@UAEXPAXH@Z=0x571700",
-    "?Delete@Vector3Array@@QAEXXZ=0x566EF0",
-    "?Delete@Vector3Type@@UAEXPAXH@Z=0x5673F0",
-    "?Delete@Vector4Array@@QAEXXZ=0x56E0B0",
-    "?Delete@Vector4Type@@UAEXPAXH@Z=0x56E4D0",
-    "?DeleteCB@DriverMenu@@QAEXXZ=0x4A5CA0",
-    "?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z=0x495830",
-    "?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z=0x4959A0",
-    "?DeleteFont@mmText@@SAXPAX@Z=0x4FEF60",
-    "?DeleteMenu@MenuManager@@QAEXPAVUIMenu@@@Z=0x4B16D0",
-    "?Destroy@eqEventMonitor@@UAEXPAX@Z=0x563470",
-    "?Destroy@eqEventQ@@UAEXPAX@Z=0x563C80",
-    "?DestroyPipelineAttachableWindow@@YAXXZ=0x555F90",
-    "?DestroyPlayer@asNetwork@@QAEXXZ=0x489A60",
-    "?Detach@aiVehicleActive@@QAEXXZ=0x452710",
-    "?Detach@aiVehicleInstance@@UAEXXZ=0x451F40",
-    "?Detach@aiVehicleManager@@QAEXPAVaiVehicleActive@@@Z=0x452CE0",
-    "?Detach@mmBangerActive@@QAEXXZ=0x4CB220",
-    "?Detach@mmBangerActiveManager@@QAEXPAVmmBangerActive@@@Z=0x4CB5F0",
-    "?Detach@mmDrivetrain@@QAEXXZ=0x47FEE0",
-    "?Detach@mmHitBangerInstance@@UAEXXZ=0x4CAC40",
-    "?Detach@mmInstance@@UAEXXZ=0x433E00",
-    "?DetachMe@aiVehicleActive@@UAEXXZ=0x4526F0",
-    "?DetachMe@mmBangerActive@@UAEXXZ=0x4CB280",
-    "?DetachMe@mmPhysEntity@@UAEXXZ=0x453B30",
-    "?DetectAmbientCollision@aiGoalChase@@AAEHPAH@Z=0x464000",
-    "?DetectBangerCollision@aiPedestrian@@AAEHPAPAVmmInstance@@PAMM@Z=0x44B420",
-    "?DetectBangerObstacle@aiPedestrian@@AAEPAVmmInstance@@XZ=0x44BA10",
-    "?DetectCollision@aiGoalFollowWayPts@@AAEHPAH@Z=0x467ED0",
-    "?DetectCopCollision@aiGoalChase@@AAEPAVaiVehiclePolice@@XZ=0x461EF0",
-    "?DetectOpponentCollision@aiGoalFollowWayPts@@AAEPAVaiVehicleOpponent@@XZ=0x466EA0",
-    "?DetectPedCollision@aiPedestrian@@AAEHMPAPAV1@PAM@Z=0x44BC00",
-    "?DetectPedObstacle@aiPedestrian@@AAEPAV1@XZ=0x44BB80",
-    "?DetectPlayerAnticipate@aiPedestrian@@AAEHPAM0@Z=0x44A4D0",
-    "?DetectPlayerCollision@aiPedestrian@@AAEHPAM@Z=0x44B0C0",
-    "?DetectPlayerCollision@aiVehicleSpline@@QAEHHM@Z=0x45B270",
-    "?DetectPlayerForwardCollision@aiPedestrian@@AAEHPAM0@Z=0x44A2F0",
-    "?DetectPlayerForwardCollision@aiVehicleSpline@@QAEHXZ=0x45B040",
-    "?DetectPlayerTargetPtCollision@aiVehicleSpline@@QAEHXZ=0x45B130",
-    "?DetectPlayerZoneCollision@aiVehicleSpline@@QAEHXZ=0x45B870",
-    "?Determinant@Matrix34@@QBEMXZ=0x5686F0",
-    "?Determinant@Matrix44@@QBEMXZ=0x56F690",
-    "?DetermineOppMapComponent@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAF2PAM323MFF@Z=0x437310",
-    "?DetermineOppRoadPosInfo@aiMap@@QAEHAAVVector3@@0PAVaiRailSet@@PAFPAM3H@Z=0x438CB0",
-    "?DeterminePerpMapComponent@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAF2PAM32@Z=0x4370B0",
-    "?DetermineRoadPosInfo@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAFPAM23H@Z=0x436F10",
-    "?DetRdSegBetweenInts@aiGoalFollowWayPts@@AAEPAVaiPath@@PAVaiIntersection@@0@Z=0x467E40",
-    "?DetRdSegBetweenInts@aiMap@@QAEPAVaiPath@@PAVaiIntersection@@0@Z=0x43BB10",
-    "?Device@asSimulation@@QAEXXZ=0x522600",
-    "?DeviceConnected@mmInput@@QAEHXZ=0x4E3990",
-    "?DIError@@YAPADH@Z=0x564050",
-    "?DirFileExt@string@@QBEXAAV1@00@Z=0x57A290",
-    "?Disable3DMode@AudSound@@QAEXXZ=0x4EBC00",
-    "?Disable3DMode@EngineAudioOpponent@@QAEXXZ=0x485A50",
-    "?Disable3DMode@mmOpponentImpactAudio@@QAEXXZ=0x47A7E0",
-    "?Disable3DMode@mmOpponentSurfaceAudio@@QAEXXZ=0x4863A0",
-    "?Disable3DMode@SoundObj@@QAEXXZ=0x4F3580",
-    "?Disable@AudManager@@QAEXFF@Z=0x4E9090",
-    "?Disable@AudSound@@QAEXXZ=0x4EAD40",
-    "?Disable@AudStream@@QAEXXZ=0x4F3AC0",
-    "?Disable@MenuManager@@QAEXH@Z=0x4B0C00",
-    "?Disable@mmHUD@@QAEXH@Z=0x405700",
-    "?Disable@UIBMButton@@UAEXXZ=0x4B7290",
-    "?Disable@UIButton@@UAEXXZ=0x4B9F80",
-    "?Disable@UIMenu@@QAEXXZ=0x4ACAB0",
-    "?Disable@UIToggleButton2@@UAEXXZ=0x4BCAA0",
-    "?Disable@UIVScrollBar@@UAEXXZ=0x4BD950",
-    "?Disable@uiWidget@@UAEXXZ=0x4B2DC0",
-    "?DisableAutoCenter@mmJoystick@@QAEHXZ=0x4E66C0",
-    "?DisableBlt@mmCompBase@@UAEXXZ=0x4B4E00",
-    "?DisableBlt@mmCompDRecord@@UAEXXZ=0x4B6090",
-    "?DisableCD@AudManager@@QAEXXZ=0x4E93C0",
-    "?DisableEAXFlag@DSGlobal@@QAEXXZ=0x4F0B10",
-    "?DisableEffect@AudSound@@QAEXH@Z=0x4EBAA0",
-    "?DisableEffect@SoundObj@@QAEXF@Z=0x4F3270",
-    "?DisableExit@PUMenuBase@@QAEXXZ=0x4AB470",
-    "?DisableField@UIControlWidget@@QAEXXZ=0x4BC050",
-    "?DisableIME@UIMenu@@QAEXXZ=0x4ACC70",
-    "?DisableNavBar@MenuManager@@QAEXXZ=0x4B0C60",
-    "?DisableNextRace@PUResults@@QAEXXZ=0x4A8C30",
-    "?DisablePlayButton@NetArena@@QAEXXZ=0x4A1E60",
-    "?DisablePU@MenuManager@@QAEXXZ=0x4B0AA0",
-    "?DisablePU@mmPopup@@QAEXH@Z=0x427030",
-    "?DisableRacers@mmGameMulti@@IAEXXZ=0x4320F0",
-    "?DisableRacers@mmGameSingle@@AAEXXZ=0x417530",
-    "?DisableRacers@mmSingleBlitz@@AAEXXZ=0x4136F0",
-    "?DisableRacers@mmSingleCircuit@@AAEXXZ=0x415420",
-    "?DisableSessions@NetSelectMenu@@QAEXXZ=0x4A44D0",
-    "?DisableStart@HostRaceMenu@@QAEXXZ=0x4A2C50",
-    "?DisableSurface@mmSurfaceAudio@@QAEXXZ=0x487B00",
-    "?Disconnect@asNetwork@@QAEXXZ=0x489910",
-    "?DisplayDriverInfo@DriverMenu@@QAEXPAD0000H@Z=0x4A5CE0",
-    "?Displayf@@YAXPBDZZ=0x576C70",
-    "?DisplayHUDMessage@mmWaypoints@@QAEXHH@Z=0x430020",
-    "?DisplayTimeWarning@mmMultiCR@@AAEXH@Z=0x41F130",
-    "?DisplayVersionString@asCullManager@@IAEXXZ=0x524E50",
-    "?Dist@Vector3@@QBEMABV1@@Z=0x5669C0",
-    "?DistanceToIntersection@aiVehicleSpline@@QAEMXZ=0x45BFF0",
-    "?DistanceToVehicle@aiVehicleSpline@@QAEMPAV1@@Z=0x45BD10",
-    "?DoConstrain@asInertialCS@@QAEXXZ=0x4DAA20",
-    "?DoEdgeEdge@@YAXPAVmmEdgeBodyIsect@@PAPAVmmIntersection@@PAHH@Z=0x4D8130",
-    "?DoEndPtSearch@@YAXHABVVector3@@PAVmmEdgeBodyIsect@@HPAPAVmmIntersection@@PAHH@Z=0x4D7B10",
-    "?DoingFF@mmInput@@QAEHXZ=0x4E3A60",
-    "?DoJointLimits@Joint3Dof@@QAEXMABVVector3@@M0AAV2@ABVMatrix34@@2222@Z=0x4DD990",
-    "?DoJointTorque@Joint3Dof@@QAEXABVMatrix34@@000AAM1AAVVector3@@11@Z=0x4DD400",
-    "?DoMakeTable@mmBoundTemplate@@AAEXHHH@Z=0x519A30",
-    "?DoneAction@AudioOptions@@UAEXXZ=0x49D1D0",
-    "?DoneAction@ControlSetup@@UAEXXZ=0x4A3890",
-    "?DoneAction@GraphicsOptions@@UAEXXZ=0x49A640",
-    "?DoneCallback@Dialog_RaceEnvironment@@QAEXXZ=0x49E350",
-    "?DoneCB@Dialog_City@@QAEXXZ=0x49DA20",
-    "?DoPageIn@agiMeshSet@@AAEXXZ=0x5032A0",
-    "?DoPageIn@agiTexDef@@QAEXXZ=0x556550",
-    "?DoPageIn@mmBoundTemplate@@AAEXXZ=0x518E90",
-    "?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z=0x523710",
-    "?DoPlayback@eqEventReplayChannelClass@@UAEXPAVStream@@@Z=0x563790",
-    "?DoPlayback@eqReplay@@SAXXZ=0x564920",
-    "?DoRecord@artsReplayChannel@@UAEXPAVStream@@@Z=0x5236D0",
-    "?DoRecord@eqEventReplayChannelClass@@UAEXPAVStream@@@Z=0x563580",
-    "?DoRecord@eqReplay@@SAXXZ=0x5648C0",
-    "?DoScan@@YAXPAX@Z=0x4046D0",
-    "?DoScan@mmGameRecord@@QAEXAAVVector4@@@Z=0x4FE070",
-    "?DoStackTraceback@@YAXHPAH@Z=0x5204C0",
-    "?Dot3x3@Matrix34@@QAEXABV1@0@Z=0x5678A0",
-    "?Dot3x3@Vector3@@QAIXABV1@ABVMatrix34@@@Z=0x564B50",
-    "?Dot@Matrix34@@QAEXABV1@0@Z=0x567680",
-    "?Dot@Matrix44@@QAEXABV1@0@Z=0x56F020",
-    "?Dot@Vector3@@QAIXABV1@ABVMatrix34@@@Z=0x564AE0",
-    "?DoTexture@agiTexSorter@@SAXPAVagiPolySet@@@Z=0x504150",
-    "?DoToggle@UIBMButton@@QAEXXZ=0x4B6750",
-    "?DoToggle@UIMexButton@@UAEXXZ=0x4BCCA0",
-    "?DoToggle@UIToggleButton2@@UAEXXZ=0x4BC940",
-    "?DoToggle@UIToggleButton@@UAEXXZ=0x4BC660",
-    "?DoubleArea@mmFacadeQuad@@SAMPAVagiMeshSet@@@Z=0x4937C0",
-    "?DoUpdateAll@mmPhysExec@@QAEXXZ=0x4D3DA0",
-    "?DoUpdatePlayerOnly@mmPhysExec@@QAEXXZ=0x4D3FF0",
-    "?Downshift@mmTransmission@@QAEHXZ=0x4705A0",
-    "?Draw2@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAXI@Z=0x4FF360",
-    "?Draw@agiMeshSet@@QAEHI@Z=0x506ED0",
-    "?Draw@agiSurfRenderer@@UAEXPAVDLP@@H@Z=0x5544F0",
-    "?Draw@aiPath@@QAEXXZ=0x43E0C0",
-    "?Draw@aiPedestrianInstance@@UAIXH@Z=0x44D850",
-    "?Draw@aiTrafficLightInstance@@UAIXH@Z=0x444530",
-    "?Draw@aiVehicleInstance@@UAIXH@Z=0x4515E0",
-    "?Draw@asLineSparks@@QAEXXZ=0x502190",
-    "?Draw@bnBone@@QAEXXZ=0x516FC0",
-    "?Draw@bnSkeleton@@QAEXXZ=0x515070",
-    "?Draw@mmAnimPlane@@UAIXH@Z=0x4C5A70",
-    "?Draw@mmAnimTrainCar@@UAIXH@Z=0x4C8100",
-    "?Draw@mmBangerInstance@@UAIXH@Z=0x4C9C50",
-    "?Draw@mmBoundTemplate@@QAEXXZ=0x51FCF0",
-    "?Draw@mmBuildingInstance@@UAIXH@Z=0x4945F0",
-    "?Draw@mmCarModel@@UAIXH@Z=0x471B70",
-    "?Draw@mmDrawbridgeInstance@@UAIXH@Z=0x4C4460",
-    "?Draw@mmEdgeBodyIsect@@QAEXXZ=0x51A720",
-    "?Draw@mmFacadeInstance@@UAIXH@Z=0x494010",
-    "?Draw@mmGearIndicator@@QAEXXZ=0x423F10",
-    "?Draw@mmGlassBangerInstance@@EAIXH@Z=0x4CB9C0",
-    "?Draw@mmHitBangerInstance@@UAIXH@Z=0x4C9F20",
-    "?Draw@mmInstance@@UAIXH@Z=0x492AA0",
-    "?Draw@mmInstChain@@QAEXFFIHM@Z=0x4924C0",
-    "?Draw@mmIntersection@@QAEXXZ=0x51A5A0",
-    "?Draw@mmLinearGauge@@QAEXXZ=0x423BA0",
-    "?Draw@mmPed@@UAIXH@Z=0x4978E0",
-    "?Draw@mmPolygon@@AAEXXZ=0x51C2A0",
-    "?Draw@mmRadGauge@@QAEXXZ=0x423CB0",
-    "?Draw@mmRunwayLight@@UAIXH@Z=0x48C1B0",
-    "?Draw@mmShard@@UAIXH@Z=0x478730",
-    "?Draw@mmShearInstance@@UAIXH@Z=0x494460",
-    "?Draw@mmSkid@@UAIXH@Z=0x477AA0",
-    "?Draw@mmSky@@QAEXAAVMatrix34@@@Z=0x4956A0",
-    "?Draw@mmSpeedIndicator@@QAEXXZ=0x424020",
-    "?Draw@mmStaticInstance@@UAIXH@Z=0x494230",
-    "?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z=0x4FF2D0",
-    "?Draw@mmTrailerInstance@@UAIXH@Z=0x479910",
-    "?Draw@mmUpperInstance@@EAIXH@Z=0x48BF40",
-    "?Draw@mmWaypointInstance@@UAIXH@Z=0x4337C0",
-    "?DrawAllBounds@asRenderWeb@@QAEXXZ=0x491610",
-    "?DrawAppRoads@aiMap@@QAEXXZ=0x436D70",
-    "?DrawBBox@aiVehicleAmbient@@QAEXF@Z=0x44FD90",
-    "?DrawBegin@@YAXAAVMatrix34@@@Z=0x52D800",
-    "?DrawBegin@asCamera@@QAEXXZ=0x5297D0",
-    "?DrawBox@mmBoundTemplate@@QAEXXZ=0x51FD70",
-    "?DrawCard@agiMeshSet@@SAXAAVVector3@@MIII@Z=0x50EE70",
-    "?DrawCard@agiSurfRenderer@@UAEXAAVVector3@@@Z=0x554890",
-    "?DrawCentered@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@@Z=0x428FE0",
-    "?DrawClipped@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@MMMM@Z=0x429050",
-    "?DrawColor2@@YAXAAVVector3@@@Z=0x52D080",
-    "?DrawColor2@@YAXAAVVector4@@@Z=0x52D130",
-    "?DrawColor@@YAXAAVVector3@@@Z=0x52D020",
-    "?DrawColor@@YAXAAVVector4@@@Z=0x52D0D0",
-    "?DrawColor@agiMeshSet@@QAEHII@Z=0x506FD0",
-    "?DrawCops@mmHudMap@@AAEXXZ=0x4296B0",
-    "?DrawCopsnRobbers@mmHudMap@@AAEXXZ=0x429860",
-    "?DrawDamage@aiVehicleOpponent@@QAEXXZ=0x44E2A0",
-    "?DrawDamage@aiVehiclePolice@@QAEXXZ=0x4460B0",
-    "?DrawDebug@aiPedestrian@@QAEXXZ=0x44D3B0",
-    "?DrawDropShadow@mmInstance@@QAEXHHABVMatrix34@@@Z=0x4946B0",
-    "?DrawEnd@@YAXXZ=0x52DA30",
-    "?DrawEnd@asCamera@@QAEXXZ=0x5299C0",
-    "?DrawForce@asInertialCS@@AAEXABVVector3@@00@Z=0x4DA9D0",
-    "?DrawForce@asInertialCS@@AAEXABVVector3@@0@Z=0x4DA980",
-    "?DrawGeometry@mmBoundTemplate@@QAEXXZ=0x51FD90",
-    "?DrawGlow@aiVehicleInstance@@UAIXXZ=0x451E20",
-    "?DrawGlow@mmBangerInstance@@UAIXXZ=0x4C9E50",
-    "?DrawGlow@mmCarModel@@UAIXXZ=0x472B00",
-    "?DrawGlow@mmInstance@@UAIXXZ=0x492B10",
-    "?DrawGraph@mmBoundTemplate@@QAEXXZ=0x520000",
-    "?DrawId@aiIntersection@@QAEXXZ=0x4478B0",
-    "?DrawId@aiPath@@QAEXXZ=0x43E370",
-    "?DrawId@aiVehicleAmbient@@UAEXXZ=0x44FD80",
-    "?DrawId@aiVehicleOpponent@@UAEXXZ=0x44E2B0",
-    "?DrawId@aiVehiclePolice@@UAEXXZ=0x446100",
-    "?DrawId@aiVehicleSpline@@UAEXXZ=0x45C200",
-    "?DrawLabel@agiSurfRenderer@@UAEXAATagiVtx@@PAD@Z=0x555180",
-    "?DrawLabelf@@YAXAAVVector3@@PADZZ=0x52D9C0",
-    "?DrawLine@@YAXAAVVector3@@0@Z=0x52D230",
-    "?DrawLine@@YAXMMMMMM@Z=0x52D190",
-    "?DrawLine@agiSurfRenderer@@UAEXHH@Z=0x554EE0",
-    "?DrawLines@agiMeshSet@@SAXPAVVector3@@0PAIH@Z=0x50F9B0",
-    "?DrawLit@agiMeshSet@@QAEHP6AXPAEPAI1PAV1@@ZI1@Z=0x507040",
-    "?DrawLit@mmFacadeQuad@@QAEXP6AXPAEPAI1PAVagiMeshSet@@@Z2@Z=0x493B70",
-    "?DrawLitEnv@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@AAVMatrix34@@I@Z=0x507120",
-    "?DrawLitSph@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@I@Z=0x507250",
-    "?DrawMirrorBorder@@YAXXZ=0x490F40",
-    "?DrawMisc@mmHudMap@@QAEXXZ=0x429930",
-    "?DrawNextVisibleAmbient@aiMap@@QAEXXZ=0x436CD0",
-    "?DrawNormals@agiMeshSet@@QAEXAAVVector3@@@Z=0x50EBC0",
-    "?DrawNormals@aiPath@@QAEXXZ=0x43E280",
-    "?DrawOff@UIButton@@AAEXXZ=0x4B9D50",
-    "?DrawOff@UIMexButton@@EAEXXZ=0x4BCC60",
-    "?DrawOff@UIToggleButton2@@MAEXXZ=0x4BC890",
-    "?DrawOff@UIToggleButton@@MAEXXZ=0x4BC620",
-    "?DrawOn@UIButton@@AAEXXZ=0x4B9D80",
-    "?DrawOn@UIMexButton@@EAEXXZ=0x4BCC70",
-    "?DrawOn@UIToggleButton2@@MAEXXZ=0x4BC8D0",
-    "?DrawOn@UIToggleButton@@MAEXXZ=0x4BC640",
-    "?DrawOpponents@mmHudMap@@AAEXXZ=0x4295F0",
-    "?DrawOriented@mmHudMap@@AAEXPAVMatrix34@@I@Z=0x429410",
-    "?DrawOrientedBitmap@mmHudMap@@AAEXPAVMatrix34@@PAVagiBitmap@@@Z=0x4291F0",
-    "?DrawPaths@aiIntersection@@QAEXXZ=0x447880",
-    "?DrawQuad@@YAXPAVVector3@@AAV1@111@Z=0x52D8C0",
-    "?DrawShadow@agiMeshSet@@QAEXIABVVector4@@ABVVector3@@@Z=0x506F40",
-    "?DrawShadow@aiPedestrianInstance@@UAIXXZ=0x44D960",
-    "?DrawShadow@aiVehicleInstance@@UAIXXZ=0x451E70",
-    "?DrawShadow@mmBangerInstance@@UAIXXZ=0x4CA110",
-    "?DrawShadow@mmCarModel@@UAIXXZ=0x472B90",
-    "?DrawShadow@mmInstance@@UAIXXZ=0x492B00",
-    "?DrawShadow@mmSkid@@UAIXXZ=0x477B30",
-    "?DrawShadow@mmTrailerInstance@@UAIXXZ=0x479B20",
-    "?DrawSphere@mmBoundTemplate@@QAEXXZ=0x51FD30",
-    "?DrawTable@mmBoundTemplate@@QAEXXZ=0x51FE00",
-    "?DrawTargetPt@aiVehicleOpponent@@QAEXXZ=0x44E130",
-    "?DrawTargetPt@aiVehiclePolice@@QAEXXZ=0x445F40",
-    "?DrawTri@@YAXPAVVector3@@AAV1@11@Z=0x52D260",
-    "?DrawTri@agiSurfRenderer@@UAEXHHH@Z=0x554EB0",
-    "?DrawTurn@aiRailSet@@QAEXM@Z=0x457A70",
-    "?DrawVehicleIds@aiPath@@QAEXXZ=0x43E3E0",
-    "?DrawWaypoints@mmHudMap@@AAEXXZ=0x429720",
-    "?DrawWideLines@agiMeshSet@@SAXPAVVector3@@0PAMPAIH@Z=0x50FE00",
-    "?DrawWireBox@@YAXAAVVector3@@0@Z=0x52D640",
-    "?DrawWireSphere@@YAXAAVVector3@@M@Z=0x52D320",
-    "?DrawWireSphere@@YAXAAVVector4@@@Z=0x52D620",
-    "?DropGold@mmMultiCR@@AAEXVVector3@@H@Z=0x41DA30",
-    "?DropThruCityHandler@mmGame@@UAEXXZ=0x410490",
-    "?DropThruCityHandler@mmGameMulti@@UAEXXZ=0x430A90",
-    "?DropThruCityHandler@mmMultiCR@@UAEXXZ=0x41D810",
-    "?DSCreateSoundBuffer@SoundObj@@QAEHPAPAUIDirectSoundBuffer@@E@Z=0x4F0FA0",
-    "?DSCreateSoundBuffer@StreamObj@@QAEHXZ=0x4F4DC0",
-    "?DSEnumProc@@YGHPAU_GUID@@PAD1PAX@Z=0x4EF8B0",
-    "?DSFillSoundBuffer@SoundObj@@QAEHPAUIDirectSoundBuffer@@@Z=0x4F21D0",
-    "?DSGetWaveFile@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAKPAPAX@Z=0x4F1750",
-    "?DSGetWaveResource@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAK@Z=0x4F1510",
-    "?DSLoadSoundBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z=0x4F1030",
-    "?DSLoadSoundBuffer@SoundObj@@QAEXGK@Z=0x4F1210",
-    "?DSLoadSoundBuffer@StreamObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z=0x4F4E50",
-    "?DSound3DEnabled@AudManager@@QAEIXZ=0x4E9810",
-    "?DSound3DEnabled@DSGlobal@@QAEIXZ=0x4F0B00",
-    "?DSParseWaveResource@SoundObj@@QAEHPAXPAPAUtWAVEFORMATEX@@PAPAEPAK@Z=0x4F2290",
-    "?Dump@aiGoalAvoidPlayer@@QAEXXZ=0x46A9A0",
-    "?Dump@aiGoalChase@@QAEXXZ=0x4655D0",
-    "?Dump@aiGoalFollowWayPts@@QAEXXZ=0x469E60",
-    "?Dump@aiGoalRandomDrive@@QAEXXZ=0x45F690",
-    "?Dump@aiGoalRegainRail@@QAEXXZ=0x46B270",
-    "?Dump@aiIntersection@@QAEXXZ=0x4478F0",
-    "?Dump@aiMap@@QAEXXZ=0x439400",
-    "?Dump@aiPath@@QAEXXZ=0x43E450",
-    "?Dump@aiPedestrian@@QAEXXZ=0x44D1E0",
-    "?Dump@aiRailSet@@QAEXXZ=0x459BC0",
-    "?Dump@aiVehicleAmbient@@QAEXXZ=0x451160",
-    "?Dump@aiVehicleOpponent@@QAEXXZ=0x44E060",
-    "?Dump@aiVehiclePolice@@QAEXXZ=0x4463B0",
-    "?Dump@aiVehicleSpline@@QAEXXZ=0x45C090",
-    "?Dump@mmGameRecord@@QAEXPAD@Z=0x4FDE90",
-    "?Dump@mmPositions@@QAEXPAD@Z=0x492050",
-    "?DumpMenu@WArray@@QAEXPAVStream@@PAVUIMenu@@@Z=0x4AC0C0",
-    "?DumpPositions@@YAXPAD@Z=0x491B40",
-    "?DumpProblems@@YAXXZ=0x560E10",
-    "?DumpStackTraceback@@YAXPAHH@Z=0x520670",
-    "?DumpStatus@agiD3DPipeline@@UAEXAAUagiMemStatus@@@Z=0x530FE0",
-    "?DumpStatus@agiPipeline@@QAEXXZ=0x555F00",
-    "?DumpStatus@agiPipeline@@UAEXAAUagiMemStatus@@@Z=0x556060",
-    "?dxiChangeDisplaySettings@@YAHHHH@Z=0x573C60",
-    "?dxiConfig@@YAXHPAPAD@Z=0x575360",
-    "?dxiDirectDrawCreate@@YAXXZ=0x573CC0",
-    "?dxiDirectDrawSurfaceCreate@@YAXXZ=0x573EC0",
-    "?dxiDirectDrawSurfaceDestroy@@YAXXZ=0x574190",
-    "?dxiDirectInputCreate@@YAXXZ=0x574200",
-    "?dxiInit@@YAXPADHPAPAD@Z=0x574550",
-    "?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z=0x5742C0",
-    "?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z=0x5744E0",
-    "?dxiPlayMovie@@YAXPAD@Z=0x575100",
-    "?dxiReadConfigFile@@YAHXZ=0x574B00",
-    "?dxiResClosestMatch@@YAHHHH@Z=0x5749B0",
-    "?dxiResGetRecommended@@YAHHH@Z=0x574A60",
-    "?dxiScreenShot@@YAXPAD@Z=0x574690",
-    "?dxiSetDisplayMode@@YAXXZ=0x573D80",
-    "?dxiShutdown@@YAXXZ=0x574240",
-    "?dxiWindowCreate@@YAXPAD@Z=0x573B80",
-    "?dxiWriteConfigFile@@YAXXZ=0x574E90",
-    "?EAXEnabled@AudManager@@QAEIXZ=0x4E9800",
-    "?EAXEnabled@DSGlobal@@QAEIXZ=0x4F0AB0",
-    "?EchoOff@AddOnCarAudio@@QAEXXZ=0x45C750",
-    "?EchoOff@aiAudioManager@@QAEXXZ=0x4419C0",
-    "?EchoOff@EngineAudio@@QAEXXZ=0x486A40",
-    "?EchoOff@mmImpactAudio@@QAEXPAVmmCarSim@@@Z=0x484E70",
-    "?EchoOff@mmPlayerCarAudio@@QAEXXZ=0x482140",
-    "?EchoOff@mmSurfaceAudio@@QAEXPAVmmCarSim@@@Z=0x487740",
-    "?EchoOff@NetAddOnCarAudio@@QAEXXZ=0x4857A0",
-    "?EchoOff@NetAudioManager@@QAEXXZ=0x475E70",
-    "?EchoOn@AddOnCarAudio@@QAEXM@Z=0x45C700",
-    "?EchoOn@aiAudioManager@@QAEXM@Z=0x441670",
-    "?EchoOn@EngineAudio@@QAEXM@Z=0x4869F0",
-    "?EchoOn@mmImpactAudio@@QAEXPAVmmCarSim@@@Z=0x484E60",
-    "?EchoOn@mmPlayerCarAudio@@QAEXM@Z=0x482020",
-    "?EchoOn@mmSurfaceAudio@@QAEXPAVmmCarSim@@M@Z=0x487630",
-    "?EchoOn@NetAddOnCarAudio@@QAEXM@Z=0x485740",
-    "?EchoOn@NetAudioManager@@QAEXM@Z=0x475B00",
-    "?EchoPending@AudSound@@QAEEXZ=0x4EB800",
-    "?EdgeInList@@YA_NHHJPAH0@Z=0x517620",
-    "?EggNameIndex@@YAHPAD@Z=0x4742E0",
-    "?EjectPart@mmCarModel@@QAEXPAVmmWheel@@FFH@Z=0x4718D0",
-    "?EjectWheels@mmCarModel@@QAEXH@Z=0x471780",
-    "?EKeyName@eqEventHandler@@SAPADH@Z=0x562F30",
-    "?EmitAllShards@mmShardManager@@QAEXVVector3@@M@Z=0x478A60",
-    "?EmitShard@mmShardManager@@QAEXVVector3@@M@Z=0x478AB0",
-    "?EmitShards@mmShardManager@@QAEXVVector3@@MM@Z=0x4789F0",
-    "?emms@@YAXXZ=0x536940",
-    "?Enable3DMode@AudSound@@QAEXXZ=0x4EBBC0",
-    "?Enable3DMode@EngineAudioOpponent@@QAEXPAVVector3@@@Z=0x485A30",
-    "?Enable3DMode@mmOpponentImpactAudio@@QAEXPAVVector3@@@Z=0x47A770",
-    "?Enable3DMode@mmOpponentSurfaceAudio@@QAEXPAVVector3@@@Z=0x486380",
-    "?Enable3DMode@SoundObj@@QAEXXZ=0x4F3550",
-    "?Enable@AudManager@@QAEXPADFF@Z=0x4E8FE0",
-    "?Enable@AudSound@@QAEXXZ=0x4EAD30",
-    "?Enable@AudStream@@QAEXXZ=0x4F3AB0",
-    "?Enable@MenuManager@@QAEXH@Z=0x4B0B90",
-    "?Enable@mmHUD@@QAEXXZ=0x4056C0",
-    "?Enable@UIBMButton@@UAEXXZ=0x4B7270",
-    "?Enable@UIButton@@UAEXXZ=0x4B9F60",
-    "?Enable@UIMenu@@QAEXXZ=0x4ACA30",
-    "?Enable@UIToggleButton2@@UAEXXZ=0x4BCA90",
-    "?Enable@UIVScrollBar@@UAEXXZ=0x4BD930",
-    "?Enable@uiWidget@@UAEXXZ=0x4B2DD0",
-    "?EnableAir@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z=0x4877F0",
-    "?EnableCD@AudManager@@QAEHXZ=0x4E9400",
-    "?EnableClutch@EngineAudio@@QAEXPADM@Z=0x486A70",
-    "?EnabledAction@AudSound@@QAEXXZ=0x4EAD10",
-    "?EnableDriving@mmCar@@QAEXH@Z=0x473D70",
-    "?EnableExit@PUMenuBase@@QAEXXZ=0x4AB480",
-    "?EnableField@UIControlWidget@@QAEXXZ=0x4BBFE0",
-    "?EnableNavBar@MenuManager@@QAEXXZ=0x4B0C40",
-    "?EnableNextRace@PUResults@@QAEXXZ=0x4A8C40",
-    "?EnablePlayButton@NetArena@@QAEXXZ=0x4A1E50",
-    "?EnablePU@MenuManager@@QAEXXZ=0x4B09D0",
-    "?EnableRacers@mmGameMulti@@IAEXXZ=0x432070",
-    "?EnableRacers@mmGameSingle@@AAEXXZ=0x4174A0",
-    "?EnableRacers@mmSingleBlitz@@AAEXXZ=0x413660",
-    "?EnableRacers@mmSingleCircuit@@AAEXXZ=0x415390",
-    "?EnableRegen@mmPlayer@@QAEXH@Z=0x42C4C0",
-    "?EnableStart@HostRaceMenu@@QAEXXZ=0x4A2C40",
-    "?EnableSurface@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z=0x487970",
-    "?EnableSuspension@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z=0x4878C0",
-    "?EnableTireWobble@mmSurfaceAudio@@QAEXXZ=0x487580",
-    "?EncodeCRData@CRSettings@@QAEHXZ=0x4A1490",
-    "?end_invert@@YIXPAVVector4@@@Z=0x505E10",
-    "?EndAllGfx@agiPipeline@@QAEXXZ=0x555C40",
-    "?EndBenchmark@Timer@@SAXXZ=0x576990",
-    "?EndDraw@agiSurfRenderer@@UAEXXZ=0x5551F0",
-    "?EndFrame@agiD3DPipeline@@UAEXXZ=0x530BD0",
-    "?EndFrame@agiDDPipeline@@UAEXXZ=0x533000",
-    "?EndFrame@agiPipeline@@UAEXXZ=0x556030",
-    "?EndFrame@agiSWPipeline@@UAEXXZ=0x5340C0",
-    "?EndGfx@agiBILight@@UAEXXZ=0x555400",
-    "?EndGfx@agiBILightModel@@UAEXXZ=0x555310",
-    "?EndGfx@agiD3DLight@@UAEXXZ=0x5338C0",
-    "?EndGfx@agiD3DMtlDef@@UAEXXZ=0x533620",
-    "?EndGfx@agiD3DPipeline@@UAEXXZ=0x531100",
-    "?EndGfx@agiD3DRasterizer@@UAEXXZ=0x52E580",
-    "?EndGfx@agiD3DRPipeline@@UAEXXZ=0x531700",
-    "?EndGfx@agiD3DTexDef@@UAEXXZ=0x531EF0",
-    "?EndGfx@agiD3DTexLut@@UAEXXZ=0x532020",
-    "?EndGfx@agiD3DViewport@@UAEXXZ=0x533330",
-    "?EndGfx@agiDDBitmap@@UAEXXZ=0x533CC0",
-    "?EndGfx@agiDDPipeline@@UAEXXZ=0x532E30",
-    "?EndGfx@agiMeshSet@@AAEXXZ=0x505E30",
-    "?EndGfx@agiSWBitmap@@UAEXXZ=0x534DC0",
-    "?EndGfx@agiSWPipeline@@UAEXXZ=0x534010",
-    "?EndGfx@agiSWRasterizer@@UAEXXZ=0x537BF0",
-    "?EndGfx@agiSWTexDef@@UAEXXZ=0x537820",
-    "?EndGfx@agiSWTexLut@@UAEXXZ=0x537B30",
-    "?EndGfx@agiSWViewport@@UAEXXZ=0x534BD0",
-    "?EndGfx@DLP@@UAEXXZ=0x55E2F0",
-    "?EndGfx@RDLP@@UAEXXZ=0x551200",
-    "?EndGfx@WINEventHandler@@UAEXXZ=0x561FC0",
-    "?EndGroup@agiD3DRasterizer@@UAEXXZ=0x52E5B0",
-    "?EndGroup@agiRasterizer@@UAEXXZ=0x557D30",
-    "?EndGroup@agiSWRasterizer@@UAEXXZ=0x537C10",
-    "?EndGroup@agiZBufRenderer@@UAEXXZ=0x54FAA0",
-    "?EndMemStat@@YAXXZ=0x578BB0",
-    "?EndObject@DataCache@@QAEXH@Z=0x577690",
-    "?EndOverSample@asSimulation@@QAEXH@Z=0x522D60",
-    "?EndOverSample@asSimulation@@QAEXXZ=0x522D30",
-    "?EndScene@agiD3DPipeline@@UAEXXZ=0x530B60",
-    "?EndScene@agiD3DRPipeline@@UAEXXZ=0x531890",
-    "?EndScene@agiDDPipeline@@UAEXXZ=0x532FF0",
-    "?EndScene@agiPipeline@@UAEXXZ=0x556020",
-    "?EndScene@agiSWPipeline@@UAEXXZ=0x5340A0",
-    "?EndTask@mmLoader@@QAEXM@Z=0x48B8D0",
-    "?EndTracking@WINEventHandler@@UAEXXZ=0x562640",
-    "?EndVerts2@agiTexSorter@@SAXXZ=0x504040",
-    "?EndVerts@agiTexSorter@@SAXXZ=0x503FF0",
-    "?EnterCapture@UICWArray@@QAEXH@Z=0x4B84C0",
-    "?EnterNewPlayer@Dialog_NewPlayer@@QAEXXZ=0x49F7E0",
-    "?EnterNewPlayer@DriverMenu@@QAEXXZ=0x4A5CD0",
-    "?EnumCallback@@YGJPAU_GUID@@PAD1PAU_D3DDeviceDesc@@2PAX@Z=0x5307B0",
-    "?EnumConnectionsCallback@@YGHPBU_GUID@@PAXKPBUDPNAME@@K1@Z=0x48B170",
-    "?EnumCounter@@YGHPAU_GUID@@PAD1PAX@Z=0x575740",
-    "?EnumDSDevices@DSGlobal@@QAEHXZ=0x4EFBB0",
-    "?EnumerateRenderers2@@YAXXZ=0x5757D0",
-    "?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z=0x576580",
-    "?EnumModemAddress@@YGHABU_GUID@@KPBXPAX@Z=0x48B430",
-    "?EnumModesCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z=0x532950",
-    "?EnumPlayersCallback@@YGHKKPBUDPNAME@@KPAX@Z=0x48B1E0",
-    "?EnumSessionCallback@@YGHPBUDPSESSIONDESC2@@PAKKPAX@Z=0x48B0B0",
-    "?EnumSurfsCallback@@YGJPAUIDirectDrawSurface@@PAU_DDSURFACEDESC@@PAX@Z=0x532A00",
-    "?EnumTextureCallback@@YGJPAU_DDPIXELFORMAT@@PAX@Z=0x5308B0",
-    "?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z=0x576470",
-    "?EnvMap@agiMeshSet@@QAEXAAVMatrix34@@PAVagiTexDef@@I@Z=0x50DB10",
-    "?Equal@Matrix34@@QBEIABV1@M@Z=0x56D1E0",
-    "?Equal@Vector3@@QBEIABV1@M@Z=0x5662A0",
-    "?Error@Stream@@QAEXPAD@Z=0x55EDB0",
-    "?Errorf@@YAXPBDZZ=0x576CF0",
-    "?Errorf@MiniParser@@QAAXPBDZZ=0x57C710",
-    "?EvalMouseX@uiWidget@@UAEXM@Z=0x4B2E50",
-    "?EvalMouseXY@mmCompBase@@UAEXMM@Z=0x4B4E80",
-    "?EvalMouseXY@UISlider@@QAEXMM@Z=0x4B40E0",
-    "?EvalMouseXY@UITextRoller2@@QAEXMM@Z=0x4BB5A0",
-    "?EvalMouseXY@UITextRoller@@QAEXMM@Z=0x4BA720",
-    "?EvalMouseXY@UIVScrollBar@@QAEXMM@Z=0x4BD430",
-    "?EvalMouseXY@VSWidget@@QAEXMMH@Z=0x4BFA00",
-    "?EventToButton@mmInput@@AAEHH@Z=0x4E2890",
-    "?exeDirFile@@YAPADPAD0@Z=0x402EC0",
-    "?ExpandEnvs@@YAXPAD@Z=0x55FC20",
-    "?ExpandEnvs@string@@QAEXXZ=0x57AB10",
-    "?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@0@Z=0x560800",
-    "?expf_fast@@YAMM@Z=0x571000",
-    "?expf_faster@@YAMM@Z=0x571090",
-    "?Explode@mmCarSim@@QAEXXZ=0x46E080",
-    "?ExplosionIsPlaying@mmPoliceCarAudio@@QAEHXZ=0x47A8F0",
-    "?Extension@string@@QBE?AV1@XZ=0x57A800",
-    "?EyePlaneOutcode@@YAIPAEEAAVVector4@@PAVVector3@@H@Z=0x505990",
-    "?FadeIn@asCamera@@QAEXMH@Z=0x529D40",
-    "?FadeItIn@@YAXPAVasCamera@@@Z=0x529FF0",
-    "?FadeItOut@@YAXPAVasCamera@@@Z=0x529FD0",
-    "?FadeOut@asCamera@@QAEXMH@Z=0x529CE0",
-    "?FastInverse@Matrix34@@QAEXABV1@@Z=0x568980",
-    "?FastInverseFull@Matrix34@@QAEXABV1@@Z=0x568A80",
-    "?FFIsPlaying@mmInput@@QAEHH@Z=0x4E3BC0",
-    "?FFIsPlaying@mmJoyMan@@QAEHH@Z=0x4E5F50",
-    "?FFPlay@mmInput@@QAEHH@Z=0x4E3B60",
-    "?FFPlay@mmJoyMan@@QAEHH@Z=0x4E5EF0",
-    "?FFSetValues@mmInput@@QAEHHMM@Z=0x4E3BF0",
-    "?FFSetValues@mmJoyMan@@QAEHHMM@Z=0x4E5F80",
-    "?FFStop@mmInput@@QAEHH@Z=0x4E3B90",
-    "?FFStop@mmJoyMan@@QAEHH@Z=0x4E5F20",
-    "?fgets@@YAHPADHPAVStream@@@Z=0x55F3E0",
-    "?FileExists@string@@QBEHXZ=0x57A260",
-    "?FileIO@asCamera@@QAEXPAVMiniParser@@@Z=0x529DA0",
-    "?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z=0x52B5D0",
-    "?FileIO@asForm@@QAEXPAVMiniParser@@@Z=0x5288D0",
-    "?FileIO@asInertialCS@@QAEXPAVMiniParser@@@Z=0x4DB180",
-    "?FileIO@asLamp@@QAEXPAVMiniParser@@@Z=0x5262E0",
-    "?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z=0x525CB0",
-    "?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z=0x52C770",
-    "?FileName@string@@QBE?AV1@XZ=0x57A6A0",
-    "?FillCRRoster@mmInterface@@AAEXXZ=0x40AD40",
-    "?FillDataBuffer@StreamObj@@QAEHI@Z=0x4F5540",
-    "?FillResults@mmMultiCR@@AAEXXZ=0x41E290",
-    "?FillScroll@UITextScroll@@AAEXXZ=0x4B8F00",
-    "?FillStats@VehicleSelectBase@@QAEXXZ=0x49C1E0",
-    "?Filter@agiColorModel8@@UAEIIIII@Z=0x55BF50",
-    "?Filter@agiColorModelABGR@@UAEIIIII@Z=0x55D670",
-    "?Filter@agiColorModelARGB@@UAEIIIII@Z=0x55D490",
-    "?Filter@agiColorModelRGB555@@UAEIIIII@Z=0x55C560",
-    "?Filter@agiColorModelRGB555_Rev@@UAEIIIII@Z=0x55C920",
-    "?Filter@agiColorModelRGB565@@UAEIIIII@Z=0x55C740",
-    "?Filter@agiColorModelRGB565_Rev@@UAEIIIII@Z=0x55CB00",
-    "?Filter@agiColorModelRGB888@@UAEIIIII@Z=0x55CCC0",
-    "?Filter@agiColorModelRGB888_Rev@@UAEIIIII@Z=0x55CE60",
-    "?Filter@agiColorModelRGBA4444@@UAEIIIII@Z=0x55D280",
-    "?Filter@agiColorModelRGBA5551@@UAEIIIII@Z=0x55D050",
-    "?FilterDiscreteSteering@mmInput@@AAEMM@Z=0x4E34B0",
-    "?FilterGamepadSteering@mmInput@@QAEMXZ=0x4E3650",
-    "?Find@aiPoliceForce@@QAEHPAVmmCar@@0@Z=0x44E860",
-    "?FindAmbAppRoad@aiMap@@QAEHH@Z=0x438D90",
-    "?FindBone@bnSkeleton@@QAEPAVbnBone@@PADHD@Z=0x515100",
-    "?FindByName@MetaClass@@SAPAV1@PADPAV1@@Z=0x577BE0",
-    "?FindColor@agiColorModel8@@UAEIUagiRgba@@@Z=0x55BF30",
-    "?FindColor@agiColorModel@@QAEIHHHH@Z=0x55BBB0",
-    "?FindColor@agiColorModelABGR@@UAEIUagiRgba@@@Z=0x55D630",
-    "?FindColor@agiColorModelARGB@@UAEIUagiRgba@@@Z=0x55D450",
-    "?FindColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z=0x55C520",
-    "?FindColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z=0x55C8E0",
-    "?FindColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z=0x55C700",
-    "?FindColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z=0x55CAC0",
-    "?FindColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z=0x55CC90",
-    "?FindColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z=0x55CE30",
-    "?FindColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z=0x55D230",
-    "?FindColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z=0x55D000",
-    "?FindColor@agiPalette@@QAEIUagiRgba@@@Z=0x55C3A0",
-    "?FindDevice@AudioOptions@@QAEHPAD@Z=0x49D480",
-    "?FindFile@@YAPAVFileSystem@@PAD00H0@Z=0x55FD30",
-    "?FindFile@string@@QAEHABV1@H00@Z=0x579ED0",
-    "?FindFirstEnabled@mmDropDown@@QAEHXZ=0x4C0E30",
-    "?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z=0x440AF0",
-    "?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z=0x440CE0",
-    "?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z=0x440ED0",
-    "?FindGreatestDistance@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z=0x447150",
-    "?FindGreatestDistance@mmBridgeAudMgr@@QAEFPAVmmBridgeSet@@@Z=0x4C4070",
-    "?FindGreatestDistance@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z=0x475860",
-    "?FindGround@mmMultiCR@@AAEXVVector3@@AAV2@@Z=0x41D970",
-    "?FindIntersections@@YAHPAVmmIntersection@@HPAVasBound@@1PAVmmBoundTemplate@@2PAVmmEdgeBodyIsect@@H3H@Z=0x4D66E0",
-    "?FindMatch@agiColorModel@@SAPAV1@HHHH@Z=0x55D760",
-    "?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z=0x55D810",
-    "?FindMenu@MenuManager@@QAEHH@Z=0x4B1440",
-    "?FindOriginal@DupBuffCreator@@QAEPAUIDirectSoundBuffer@@PADPAF@Z=0x4EEF00",
-    "?FindPedAppRoad@aiMap@@QAEHH@Z=0x438DE0",
-    "?FindPerp@aiGoalChase@@AAEHHHPAVaiPath@@@Z=0x461DC0",
-    "?FindPerp@aiVehiclePolice@@AAEHHHPAVaiPath@@HH@Z=0x445C70",
-    "?FindPlayer@mmPlayerDirectory@@QAEHPAD@Z=0x4CF320",
-    "?FindRoad@aiMap@@AAEHPAVCArrayList@@H@Z=0x43A400",
-    "?FindRosterName@NetArena@@QAEHPAD@Z=0x4A21C0",
-    "?FindRosterName@PURoster@@QAEHK@Z=0x4A9360",
-    "?FindRosterName@PURoster@@QAEHPAD@Z=0x4A92F0",
-    "?FindTheFirstFocusWidget@UIMenu@@QAEHXZ=0x4ACC90",
-    "?FindUnusedSlot@aiAudioManager@@QAEFXZ=0x4412C0",
-    "?FindUnusedSlot@aiPedAudioManager@@QAEFXZ=0x4471E0",
-    "?FindUnusedSlot@mmBridgeAudMgr@@QAEFXZ=0x4C4110",
-    "?FindUnusedSlot@NetAudioManager@@QAEFXZ=0x475900",
-    "?FinishedBackingUp@aiGoalBackup@@AAEXXZ=0x45FC10",
-    "?FinishForces@asInertialCS@@QAEXXZ=0x4D9740",
-    "?FinishMessage@mmGameMulti@@QAEXH@Z=0x432350",
-    "?FinishMessage@mmGameSingle@@AAEXHH@Z=0x418270",
-    "?FinishMessage@mmSingleBlitz@@AAEXH@Z=0x4143F0",
-    "?FinishMessage@mmSingleCircuit@@AAEXHH@Z=0x415FE0",
-    "?FinishUpdate@asInertialCS@@QAEXXZ=0x4D9B60",
-    "?FirstEntry@HierFileSystem@@UAEPAUFileInfo@@PAD@Z=0x5603C0",
-    "?FirstEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAD@Z=0x560BB0",
-    "?FirstPass@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x50D0E0",
-    "?FirstPass_HW_noUV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x50BA90",
-    "?FirstPass_HW_noUV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x50C130",
-    "?FirstPass_HW_noUV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x50C7A0",
-    "?FirstPass_HW_noUV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x50CC50",
-    "?FirstPass_HW_UV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x509FE0",
-    "?FirstPass_HW_UV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x50A780",
-    "?FirstPass_HW_UV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x50AF10",
-    "?FirstPass_HW_UV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x50B4E0",
-    "?FirstPass_SW_noUV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x509130",
-    "?FirstPass_SW_noUV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x5095E0",
-    "?FirstPass_SW_noUV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x509A70",
-    "?FirstPass_SW_noUV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x509D30",
-    "?FirstPass_SW_UV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x507D30",
-    "?FirstPass_SW_UV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x508330",
-    "?FirstPass_SW_UV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x508910",
-    "?FirstPass_SW_UV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z=0x508D30",
-    "?FirstUpdate@asSimulation@@QAEXXZ=0x5222A0",
-    "?fix_clip@@YAXXZ=0x48DA00",
-    "?fix_fill1@@YAXXZ=0x48E220",
-    "?fix_fill2@@YAXXZ=0x48E290",
-    "?fix_fog@@YAXXZ=0x48E450",
-    "?fix_lighting@@YAXXZ=0x48DA70",
-    "?fix_lighting_lame@@YAXXZ=0x4A9EC0",
-    "?fix_shadow@@YAXXZ=0x48E480",
-    "?fix_sun@@YAXXZ=0x48E1B0",
-    "?FixedFrame@asSimulation@@QAEXMH@Z=0x522DF0",
-    "?FixROpts@DLP@@UAEXHH@Z=0x55E530",
-    "?FixROpts@RDLP@@UAEXHH@Z=0x551540",
-    "?FixTemplateRefs@DLP@@IAEXH@Z=0x55E000",
-    "?FixTexFlags@@YAXAAVagiTexParameters@@@Z=0x512610",
-    "?FixTimeStop@Spline@@QAEXXZ=0x4FDAF0",
-    "?FlagIODevChanged@mmInput@@QAEXXZ=0x4E1E40",
-    "?FloatVal@MiniParser@@QAEMXZ=0x57CD80",
-    "?FluctuateFastSiren@mmNetworkCarAudio@@QAEXXZ=0x483A60",
-    "?FluctuateFastSiren@mmPlayerCarAudio@@QAEXXZ=0x482730",
-    "?FluctuateFastSiren@mmPoliceCarAudio@@AAEXXZ=0x47AFE0",
-    "?FluctuateSlowSiren@mmNetworkCarAudio@@QAEXXZ=0x483810",
-    "?FluctuateSlowSiren@mmPlayerCarAudio@@QAEXXZ=0x482530",
-    "?FluctuateSlowSiren@mmPoliceCarAudio@@AAEXXZ=0x47AD50",
-    "?Flush@DataCache@@QAEXXZ=0x5776D0",
-    "?Flush@MArray@@QAEXXZ=0x4ABB20",
-    "?Flush@MenuManager@@QAEXXZ=0x4B0E30",
-    "?Flush@mmInput@@QAEXXZ=0x4E2450",
-    "?Flush@Stream@@QAEHXZ=0x55ECC0",
-    "?Flush@WArray@@QAEXXZ=0x4AC320",
-    "?FlushState@agiD3DRasterizer@@IAEXXZ=0x52E630",
-    "?FlushVerts@mmHudMap@@AAEXXZ=0x4299A0",
-    "?FocusDescription@NetSelectMenu@@QAEXH@Z=0x4A4420",
-    "?FocusDescription@RaceMenuBase@@QAEXH@Z=0x4A7340",
-    "?Follow@aiGoalChase@@AAEXXZ=0x462300",
-    "?FondleCarMass@mmMultiCR@@QAEXPAVmmCar@@M@Z=0x41D180",
-    "?fopen@@YAPAVStream@@PAD0@Z=0x55F2F0",
-    "?ForceAssignment@mmInput@@QAEXPAVmmIO@@@Z=0x4E2070",
-    "?ForceCapture@UICWArray@@QAEXXZ=0x4B8530",
-    "?ForceCurrentFocus@MenuManager@@QAEXXZ=0x4B1520",
-    "?ForceMatrixDelta@BaseCamCS@@UAEXABVVector3@@@Z=0x4FC090",
-    "?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z=0x4F9320",
-    "?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z=0x4F9340",
-    "?ForceMatrixDelta@TransitionCS@@UAEXABVVector3@@@Z=0x4FBC00",
-    "?ForceRoster@mmPopup@@QAEXXZ=0x427600",
-    "?ForceSettingAcrossConfigs@mmIO@@QAEXH@Z=0x4E4FA0",
-    "?ForceWidgetAction@UIMenu@@QAEXH@Z=0x4ACB40",
-    "?FormatCodeToWFX@@YAHKPAUtWAVEFORMATEX@@@Z=0x4F04D0",
-    "?formatf@@YAPADPBDZZ=0x492BC0",
-    "?Fov@aiGoalChase@@AAEHPAVmmCar@@@Z=0x460420",
-    "?fprintf@@YAXPAVStream@@PBDZZ=0x55F2D0",
-    "?FQN@@YAPADPAD@Z=0x55FF90",
-    "?FrameLock@asSimulation@@QAEXHH@Z=0x522E30",
-    "?frand@@YAMH@Z=0x564A90",
-    "?frand@@YAMXZ=0x564A70",
-    "?Free@asMemoryAllocator@@QAEXPAX@Z=0x520C90",
-    "?FreeOneShotLayerBuffers@SoundObj@@QAEXXZ=0x4F0F20",
-    "?FritzIt@@YAXPAVasCamera@@@Z=0x52A010",
-    "?FromEulers@Matrix34@@QAEXABVVector3@@@Z=0x56C7E0",
-    "?FromEulers@Matrix34@@QAEXABVVector3@@PBD@Z=0x56BE80",
-    "?FromMatrix@aiPedestrianInstance@@UAIXABVMatrix34@@@Z=0x44D800",
-    "?FromMatrix@aiVehicleInstance@@UAIXABVMatrix34@@@Z=0x452080",
-    "?FromMatrix@mmCarModel@@UAIXABVMatrix34@@@Z=0x4715A0",
-    "?FromMatrix@mmDofBangerInstance@@UAIXABVMatrix34@@@Z=0x4C4E50",
-    "?FromMatrix@mmHitBangerInstance@@UAIXABVMatrix34@@@Z=0x4CA520",
-    "?FromMatrix@mmMatrixInstance@@UAIXABVMatrix34@@@Z=0x493440",
-    "?FromMatrix@mmRunwayLight@@UAIXABVMatrix34@@@Z=0x48C170",
-    "?FromMatrix@mmSkid@@UAIXABVMatrix34@@@Z=0x477A60",
-    "?FromMatrix@mmTrailerInstance@@UAIXABVMatrix34@@@Z=0x4796D0",
-    "?FromMatrix@mmUnhitBangerInstance@@UAIXABVMatrix34@@@Z=0x4CA810",
-    "?FromMatrix@mmYInstance@@UAIXABVMatrix34@@@Z=0x4932F0",
-    "?FromMatrix@Quaternion@@QAEXABVMatrix34@@@Z=0x5726A0",
-    "?FromQuaternion@Matrix34@@QAEXABVQuaternion@@@Z=0x56CD00",
-    "?FromQuaternion@Matrix44@@QAEXABVQuaternion@@@Z=0x5709D0",
-    "?Front@TrackCamCS@@AAEXM@Z=0x4F8AE0",
-    "?Frustum@agiViewParameters@@QAEXMMMMMM@Z=0x5573B0",
-    "?fscanf@@YAHPAVStream@@PBDZZ=0x55F450",
-    "?fseek@@YAHPAVStream@@HH@Z=0x55F330",
-    "?FudgeWidth@mmSlider@@QAEMXZ=0x4BEAA0",
-    "?FullClip@@YAHPAUCV@@0H@Z=0x5061B0",
-    "?FullSegment@mmPolygon@@AAEHPAVmmEdgeBodyIsect@@@Z=0x51AEB0",
-    "?FullSegment@mmPolygon@@AAEHPAVmmIntersection@@@Z=0x51B440",
-    "?FullSphere@mmPolygon@@AAEHPAVmmIntersection@@@Z=0x51BC80",
-    "?Gain@@YAMMM@Z=0x570E00",
-    "?GameCallback@RaceMenuBase@@QAEXXZ=0x4A78D0",
-    "?GameCloseCallback@@YAXXZ=0x402F20",
-    "?GameFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z=0x4014B0",
-    "?GameLoop@@YAXPAVmmInterface@@PAVmmGameManager@@PAD@Z=0x4015A0",
-    "?GameMessage@mmMultiBlitz@@UAEXPAUNETGAME_MSG@@@Z=0x41A1C0",
-    "?GameMessage@mmMultiCircuit@@UAEXPAUNETGAME_MSG@@@Z=0x41B9C0",
-    "?GameMessage@mmMultiCR@@UAEXPAUNETGAME_MSG@@@Z=0x41E6E0",
-    "?GameMessage@mmMultiRace@@UAEXPAUNETGAME_MSG@@@Z=0x420EE0",
-    "?GameMessageCB@mmGameMulti@@QAEXPAX0@Z=0x431100",
-    "?GamepadConnected@mmInput@@QAEHXZ=0x4E39B0",
-    "?GatherCollidables@mmPhysicsMGR@@IAEXHH@Z=0x4D4CA0",
-    "?GatherRoomCollidables@mmPhysicsMGR@@IAEXHFH@Z=0x4D4A30",
-    "?geinputAcquireMouse@@YAXXZ=0x564200",
-    "?geinputCleanup@@YAXXZ=0x564570",
-    "?geinputClearCache@@YAXXZ=0x564610",
-    "?geinputGetBufferedKeyboard@@YAHPAD@Z=0x564220",
-    "?geinputGetKeyboard@@YAPADXZ=0x5642B0",
-    "?geinputGetMouse@@YAXPAJ0PAD10001@Z=0x564320",
-    "?geinputUnacquireMouse@@YAXXZ=0x564210",
-    "?GenerateHitRooms@mmWaypoints@@QAEXXZ=0x42EF00",
-    "?GenerateLoadScreenName@@YAHXZ=0x4012D0",
-    "?GenerateSkidParticles@mmWheel@@QAEXXZ=0x47F340",
-    "?Geometry@agiMeshSet@@QAEHIPAVVector3@@PAVVector4@@@Z=0x507320",
-    "?Get2DFlags@AudSound@@SA?BKXZ=0x4EBAF0",
-    "?Get2DFlags@AudStream@@SA?BKXZ=0x4F4100",
-    "?Get3DFlags@AudSound@@SA?BKXZ=0x4EBB70",
-    "?Get@mmGfxCFG@@QAEXXZ=0x4CE540",
-    "?Get@Stream@@QAEHPAEH@Z=0x55F170",
-    "?Get@Stream@@QAEHPAGH@Z=0x55F190",
-    "?Get@Stream@@QAEHPAKH@Z=0x55F1D0",
-    "?GetActive@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z=0x4CB4F0",
-    "?GetActiveDeviceName@AudManager@@QAEPADXZ=0x4E9EA0",
-    "?GetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z=0x4F4A70",
-    "?GetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z=0x4F4BE0",
-    "?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z=0x4D2100",
-    "?GetAnimation@@YAPAVmmAnimation@@PAD@Z=0x498700",
-    "?GetAudio@mmPlayerConfig@@QAEXXZ=0x4CE650",
-    "?GetAudioPtr@aiVehiclePolice@@QAEPAVmmPoliceCarAudio@@XZ=0x4463A0",
-    "?GetAvailableDistance@NetAudioManager@@QAEMXZ=0x476B60",
-    "?GetAxis@mmJoystick@@QAEMH@Z=0x4E6850",
-    "?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ=0x4CAC70",
-    "?GetBangerPtrs@mmImpactAudio@@QAEXFPAPAVAudSound@@0@Z=0x485020",
-    "?GetBestBlitzScore@mmMiscData@@QAE?AVmmRecord@@HH@Z=0x4CCFA0",
-    "?GetBestBlitzTime@mmMiscData@@QAE?AVmmRecord@@HH@Z=0x4CCC10",
-    "?GetBestCircuitScore@mmMiscData@@QAE?AVmmRecord@@HH@Z=0x4CD0D0",
-    "?GetBestCircuitTime@mmMiscData@@QAE?AVmmRecord@@HH@Z=0x4CCD40",
-    "?GetBestRaceScore@mmMiscData@@QAE?AVmmRecord@@HH@Z=0x4CCE70",
-    "?GetBestRaceTime@mmMiscData@@QAE?AVmmRecord@@HH@Z=0x4CCAE0",
-    "?GetBitmap@agiPipeline@@QAEPAVagiBitmap@@PADMMH@Z=0x555750",
-    "?GetBlitzMask@mmPlayerData@@QAEHXZ=0x4D02B0",
-    "?GetBlitzPassed@mmPlayerData@@QAEHXZ=0x4D0340",
-    "?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ=0x453BA0",
-    "?GetBound@mmBangerActive@@UAEPAVasBound@@XZ=0x4CB7B0",
-    "?GetBound@mmCar@@UAEPAVasBound@@XZ=0x474870",
-    "?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ=0x453B10",
-    "?GetBound@mmTrailer@@UAEPAVasBound@@XZ=0x47A320",
-    "?GetBoundInfo@@YAXHPAVVector3@@000PAM@Z=0x571790",
-    "?GetBoundMax@asForm@@QAE?AVVector3@@XZ=0x528820",
-    "?GetBoundMin@asForm@@QAE?AVVector3@@XZ=0x5287D0",
-    "?GetBoundSphere@@YA?AVVector4@@HPAVVector3@@@Z=0x571730",
-    "?GetBoundSphere@asForm@@QAE?AVVector4@@XZ=0x528870",
-    "?GetBoundTemplate@mmBoundTemplate@@SAPAV1@PAD0PAVVector3@@HHHHH@Z=0x51D2E0",
-    "?GetBrakes@mmGameManager@@QAEMXZ=0x404920",
-    "?GetBrakes@mmInput@@QAEMXZ=0x4E33A0",
-    "?GetBrakesVal@mmInput@@QAEMXZ=0x4E33C0",
-    "?GetBstate@UIMenu@@QAEHXZ=0x4ACC30",
-    "?GetBufferedKeyboardData@mmInput@@AAEXXZ=0x4E2580",
-    "?GetButton@mmJoystick@@QAEMH@Z=0x4E6950",
-    "?GetCameraPos@aiMap@@QAEXXZ=0x439540",
-    "?GetCamPan@mmInput@@QAEMXZ=0x4E3890",
-    "?GetCarAudioPtr@aiVehicleOpponent@@QAEPAVmmOpponentCarAudio@@XZ=0x44E420",
-    "?GetCarAudioPtr@aiVehiclePolice@@QAEPAVmmPoliceCarAudio@@XZ=0x446170",
-    "?GetCarFlags@mmCarModel@@QAEHPAD@Z=0x472BE0",
-    "?GetCarName@mmRecord@@QAEPADXZ=0x4D16A0",
-    "?GetCarTitle@VehicleSelectBase@@QAEPADHPADFPAVstring@@@Z=0x49BAA0",
-    "?GetCarType@mmRaceData@@QAEHHW4mmSkillLevel@@@Z=0x4D1F80",
-    "?GetCDBalance@AudManager@@QAEMXZ=0x4E95D0",
-    "?GetCDBalance@MixerCTL@@QAEMXZ=0x4EE300",
-    "?GetCDMusicOnMask@AudManager@@SA?BIXZ=0x4E9F30",
-    "?GetCDMusicOnMask@DSGlobal@@SA?BIXZ=0x4F0A90",
-    "?GetCDPosition@AudManager@@QAEKPAE000@Z=0x4E9F90",
-    "?GetCDTrack@mmGame@@QAEHF@Z=0x411960",
-    "?GetCDTrackNum@AudManager@@QAEEXZ=0x4E9380",
-    "?GetCDVolume@AudManager@@QAEMXZ=0x4E9500",
-    "?GetCDVolume@MixerCTL@@QAEMXZ=0x4EE310",
-    "?GetCellNeighbors@asRenderWeb@@QAEHHPAPAUasPortalCell@@H@Z=0x4915A0",
-    "?GetCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z=0x559930",
-    "?GetCh@MiniParser@@QAEHXZ=0x57C810",
-    "?GetCh@Stream@@QAEHXZ=0x55EC00",
-    "?GetCheckpointMask@mmPlayerData@@QAEHXZ=0x4D02E0",
-    "?GetCheckpointPassed@mmPlayerData@@QAEHXZ=0x4D0360",
-    "?GetCheckpointProgress@mmPlayerData@@QAEHH@Z=0x4D0290",
-    "?GetChild@asNode@@QAEPAV1@H@Z=0x523C80",
-    "?GetCircuitMask@mmPlayerData@@QAEHXZ=0x4D0310",
-    "?GetCircuitPassed@mmPlayerData@@QAEHXZ=0x4D0380",
-    "?GetCityID@mmCityList@@QAEHPAD@Z=0x4CBD50",
-    "?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@H@Z=0x4CBCA0",
-    "?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@PAD@Z=0x4CBCD0",
-    "?GetClass@AICamCS@@UAEPAVMetaClass@@XZ=0x4FAAC0",
-    "?GetClass@aiGoalFollowWayPts@@UAEPAVMetaClass@@XZ=0x46A2D0",
-    "?GetClass@aiMap@@UAEPAVMetaClass@@XZ=0x43BD90",
-    "?GetClass@aiVehicleData@@UAEPAVMetaClass@@XZ=0x4539F0",
-    "?GetClass@aiVehicleInstance@@UAEPAVMetaClass@@XZ=0x4536B0",
-    "?GetClass@aiVehicleOpponent@@UAEPAVMetaClass@@XZ=0x44E670",
-    "?GetClass@aiVehicleSpline@@UAEPAVMetaClass@@XZ=0x45C3E0",
-    "?GetClass@AppCamCS@@UAEPAVMetaClass@@XZ=0x4FD380",
-    "?GetClass@asAero@@UAEPAVMetaClass@@XZ=0x4E0670",
-    "?GetClass@asBirthRule@@UAEPAVMetaClass@@XZ=0x501620",
-    "?GetClass@asCamera@@UAEPAVMetaClass@@XZ=0x52A810",
-    "?GetClass@asCullable@@UAEPAVMetaClass@@XZ=0x525A30",
-    "?GetClass@asCullManager@@UAEPAVMetaClass@@XZ=0x525840",
-    "?GetClass@asDofCS@@UAEPAVMetaClass@@XZ=0x52BB60",
-    "?GetClass@asForm@@UAEPAVMetaClass@@XZ=0x528B40",
-    "?GetClass@asInertialCS@@UAEPAVMetaClass@@XZ=0x4DBAF0",
-    "?GetClass@asLamp@@UAEPAVMetaClass@@XZ=0x5267E0",
-    "?GetClass@asLinearCS@@UAEPAVMetaClass@@XZ=0x525FF0",
-    "?GetClass@asNode@@UAEPAVMetaClass@@XZ=0x524600",
-    "?GetClass@asOverSample@@UAEPAVMetaClass@@XZ=0x4DF060",
-    "?GetClass@asParticles@@UAEPAVMetaClass@@XZ=0x500990",
-    "?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ=0x497770",
-    "?GetClass@asRenderWeb@@UAEPAVMetaClass@@XZ=0x491890",
-    "?GetClass@asSimulation@@UAEPAVMetaClass@@XZ=0x5236A0",
-    "?GetClass@asViewCS@@UAEPAVMetaClass@@XZ=0x52CDE0",
-    "?GetClass@AudManager@@UAEPAVMetaClass@@XZ=0x4EA1E0",
-    "?GetClass@Base@@UAEPAVMetaClass@@XZ=0x579290",
-    "?GetClass@BaseCamCS@@UAEPAVMetaClass@@XZ=0x4FC2C0",
-    "?GetClass@CarCamCS@@UAEPAVMetaClass@@XZ=0x4FB400",
-    "?GetClass@EngineAudio@@UAEPAVMetaClass@@XZ=0x4870A0",
-    "?GetClass@EngineAudioOpponent@@UAEPAVMetaClass@@XZ=0x485C70",
-    "?GetClass@Joint3Dof@@UAEPAVMetaClass@@XZ=0x4DEB20",
-    "?GetClass@Matrix34@@SAPAVMetaClass@@XZ=0x56D8A0",
-    "?GetClass@mmAnimDOF@@UAEPAVMetaClass@@XZ=0x4C4D80",
-    "?GetClass@mmAnimMgr@@UAEPAVMetaClass@@XZ=0x4C15B0",
-    "?GetClass@mmAxle@@UAEPAVMetaClass@@XZ=0x47D720",
-    "?GetClass@mmBangerData@@UAEPAVMetaClass@@XZ=0x4C98C0",
-    "?GetClass@mmBangerDataManager@@UAEPAVMetaClass@@XZ=0x4C9A40",
-    "?GetClass@mmBoat@@UAEPAVMetaClass@@XZ=0x4C7FC0",
-    "?GetClass@mmBridgeMgr@@UAEPAVMetaClass@@XZ=0x4C32E0",
-    "?GetClass@mmBridgeSet@@UAEPAVMetaClass@@XZ=0x4C3060",
-    "?GetClass@mmBuildingInstance@@UAEPAVMetaClass@@XZ=0x495030",
-    "?GetClass@mmCar@@UAEPAVMetaClass@@XZ=0x4747C0",
-    "?GetClass@mmCarModel@@UAEPAVMetaClass@@XZ=0x473280",
-    "?GetClass@mmCarRoadFF@@UAEPAVMetaClass@@XZ=0x481A90",
-    "?GetClass@mmCarSim@@UAEPAVMetaClass@@XZ=0x4701A0",
-    "?GetClass@mmCullCity@@UAEPAVMetaClass@@XZ=0x48FA30",
-    "?GetClass@mmDashView@@UAEPAVMetaClass@@XZ=0x422EC0",
-    "?GetClass@mmDrivetrain@@UAEPAVMetaClass@@XZ=0x4805E0",
-    "?GetClass@mmDropDown@@UAEPAVMetaClass@@XZ=0x4C10A0",
-    "?GetClass@mmEngine@@UAEPAVMetaClass@@XZ=0x47D180",
-    "?GetClass@mmFacadeInstance@@UAEPAVMetaClass@@XZ=0x495350",
-    "?GetClass@mmForce@@UAEPAVMetaClass@@XZ=0x480F80",
-    "?GetClass@mmGame@@UAEPAVMetaClass@@XZ=0x411FC0",
-    "?GetClass@mmGameEdit@@UAEPAVMetaClass@@XZ=0x412D00",
-    "?GetClass@mmGameManager@@UAEPAVMetaClass@@XZ=0x404B30",
-    "?GetClass@mmGameMulti@@UAEPAVMetaClass@@XZ=0x4325B0",
-    "?GetClass@mmGameSingle@@UAEPAVMetaClass@@XZ=0x418D00",
-    "?GetClass@mmHUD@@UAEPAVMetaClass@@XZ=0x4068D0",
-    "?GetClass@mmHudMap@@UAEPAVMetaClass@@XZ=0x429F30",
-    "?GetClass@mmInfoBase@@UAEPAVMetaClass@@XZ=0x4D15D0",
-    "?GetClass@mmInput@@UAEPAVMetaClass@@XZ=0x4E4290",
-    "?GetClass@mmInstance@@UAEPAVMetaClass@@XZ=0x494AB0",
-    "?GetClass@mmInterface@@UAEPAVMetaClass@@XZ=0x40E7D0",
-    "?GetClass@mmIODev@@UAEPAVMetaClass@@XZ=0x4E5A50",
-    "?GetClass@mmMapData@@UAEPAVMetaClass@@XZ=0x4D35B0",
-    "?GetClass@mmMatrixInstance@@UAEPAVMetaClass@@XZ=0x494CF0",
-    "?GetClass@mmMiscData@@UAEPAVMetaClass@@XZ=0x4CD960",
-    "?GetClass@mmMultiBlitz@@UAEPAVMetaClass@@XZ=0x41A6D0",
-    "?GetClass@mmMultiCircuit@@UAEPAVMetaClass@@XZ=0x41BDE0",
-    "?GetClass@mmMultiCR@@UAEPAVMetaClass@@XZ=0x41F760",
-    "?GetClass@mmMultiRace@@UAEPAVMetaClass@@XZ=0x421400",
-    "?GetClass@mmNetworkCarAudio@@UAEPAVMetaClass@@XZ=0x484570",
-    "?GetClass@mmNumber@@UAEPAVMetaClass@@XZ=0x4FEE20",
-    "?GetClass@mmOpponentCarAudio@@UAEPAVMetaClass@@XZ=0x47C2A0",
-    "?GetClass@mmPed@@UAEPAVMetaClass@@XZ=0x497C10",
-    "?GetClass@mmPedManager@@UAEPAVMetaClass@@XZ=0x497D80",
-    "?GetClass@mmPhysicsMGR@@UAEPAVMetaClass@@XZ=0x4D9070",
-    "?GetClass@mmPlayer@@UAEPAVMetaClass@@XZ=0x42D1B0",
-    "?GetClass@mmPlayerCarAudio@@UAEPAVMetaClass@@XZ=0x483260",
-    "?GetClass@mmPlayerConfig@@UAEPAVMetaClass@@XZ=0x4CEE70",
-    "?GetClass@mmPlayerData@@UAEPAVMetaClass@@XZ=0x4D11E0",
-    "?GetClass@mmPlayerDirectory@@UAEPAVMetaClass@@XZ=0x4CFB80",
-    "?GetClass@mmPlayerRecord@@UAEPAVMetaClass@@XZ=0x4D0010",
-    "?GetClass@mmPropInfo@@UAEPAVMetaClass@@XZ=0x4D2B60",
-    "?GetClass@mmRecord@@UAEPAVMetaClass@@XZ=0x4D1B50",
-    "?GetClass@mmRoadSect@@UAEPAVMetaClass@@XZ=0x4D3140",
-    "?GetClass@mmRoadSide@@UAEPAVMetaClass@@XZ=0x4D2D80",
-    "?GetClass@mmShard@@UAEPAVMetaClass@@XZ=0x478F80",
-    "?GetClass@mmShardManager@@UAEPAVMetaClass@@XZ=0x479160",
-    "?GetClass@mmShearInstance@@UAEPAVMetaClass@@XZ=0x494E90",
-    "?GetClass@mmShock@@UAEPAVMetaClass@@XZ=0x47D410",
-    "?GetClass@mmSingleBlitz@@UAEPAVMetaClass@@XZ=0x4148B0",
-    "?GetClass@mmSingleCircuit@@UAEPAVMetaClass@@XZ=0x416AB0",
-    "?GetClass@mmSkid@@UAEPAVMetaClass@@XZ=0x478300",
-    "?GetClass@mmSkidManager@@UAEPAVMetaClass@@XZ=0x478470",
-    "?GetClass@mmSlider@@UAEPAVMetaClass@@XZ=0x4BF070",
-    "?GetClass@mmStaticInstance@@UAEPAVMetaClass@@XZ=0x4951C0",
-    "?GetClass@mmToggle2@@UAEPAVMetaClass@@XZ=0x4C0300",
-    "?GetClass@mmToggle@@UAEPAVMetaClass@@XZ=0x4C07A0",
-    "?GetClass@mmTrailer@@UAEPAVMetaClass@@XZ=0x47A130",
-    "?GetClass@mmTransmission@@UAEPAVMetaClass@@XZ=0x470C80",
-    "?GetClass@mmViewCS@@UAEPAVMetaClass@@XZ=0x4F94F0",
-    "?GetClass@mmWaypointInstance@@UAEPAVMetaClass@@XZ=0x433D20",
-    "?GetClass@mmWheel@@UAEPAVMetaClass@@XZ=0x47FDC0",
-    "?GetClass@mmYInstance@@UAEPAVMetaClass@@XZ=0x494B60",
-    "?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ=0x4FA3F0",
-    "?GetClass@PolarCamCS@@UAEPAVMetaClass@@XZ=0x4FB180",
-    "?GetClass@PostCamCS@@UAEPAVMetaClass@@XZ=0x4F9930",
-    "?GetClass@PovCamCS@@UAEPAVMetaClass@@XZ=0x4F69B0",
-    "?GetClass@PreCamCS@@UAEPAVMetaClass@@XZ=0x4F9D80",
-    "?GetClass@sfPointer@@UAEPAVMetaClass@@XZ=0x4BDF20",
-    "?GetClass@Spline@@UAEPAVMetaClass@@XZ=0x4FDD00",
-    "?GetClass@TextDropWidget@@UAEPAVMetaClass@@XZ=0x4BE630",
-    "?GetClass@TrackCamCS@@UAEPAVMetaClass@@XZ=0x4F8F00",
-    "?GetClass@UIBMButton@@UAEPAVMetaClass@@XZ=0x4B7260",
-    "?GetClass@UIBMLabel@@UAEPAVMetaClass@@XZ=0x4B47F0",
-    "?GetClass@UIVScrollBar@@UAEPAVMetaClass@@XZ=0x4BD8A0",
-    "?GetClass@VehGyro@@UAEPAVMetaClass@@XZ=0x480B70",
-    "?GetClass@VSWidget@@UAEPAVMetaClass@@XZ=0x4BFEA0",
-    "?GetClosestCop@aiAudioManager@@QAEFXZ=0x443E50",
-    "?GetClosestWaypoint@mmWaypoints@@QAEXXZ=0x42F050",
-    "?GetCMatrix@asInertialCS@@UBEXAAVMatrix34@@ABVVector3@@@Z=0x4DAD70",
-    "?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@0AAVMatrix34@@ABVVector3@@@Z=0x4DE3B0",
-    "?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@AAVMatrix34@@ABVVector3@@@Z=0x4DE050",
-    "?GetCollidePolyEdge@@YAHABVVector3@@PAVmmPolygon@@PAVmmBoundTemplate@@PAVasInertialCS@@0M0000PAV1@4PAMPAH6@Z="
-    "0x4D8730",
-    "?GetColor@agiColorModel8@@UAEIUagiRgba@@@Z=0x55BF10",
-    "?GetColor@agiColorModel@@QAEIABVVector3@@@Z=0x55BBE0",
-    "?GetColor@agiColorModel@@QAEIABVVector4@@@Z=0x55BC40",
-    "?GetColor@agiColorModel@@QAEIHHHH@Z=0x55BB80",
-    "?GetColor@agiColorModelABGR@@UAEIUagiRgba@@@Z=0x55D5F0",
-    "?GetColor@agiColorModelARGB@@UAEIUagiRgba@@@Z=0x55D410",
-    "?GetColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z=0x55C4E0",
-    "?GetColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z=0x55C8A0",
-    "?GetColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z=0x55C6C0",
-    "?GetColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z=0x55CA80",
-    "?GetColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z=0x55CC60",
-    "?GetColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z=0x55CE00",
-    "?GetColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z=0x55D1E0",
-    "?GetColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z=0x55CFB0",
-    "?GetColor@agiPalette@@QAEIUagiRgba@@@Z=0x55C310",
-    "?GetComment@mmPopup@@QAEPADXZ=0x427C70",
-    "?GetCommentaryOnMask@AudManager@@SA?BIXZ=0x4E9F40",
-    "?GetCommentaryOnMask@DSGlobal@@SA?BIXZ=0x4F0A80",
-    "?GetCommPack@Dialog_Serial@@QAEPAUNETCOMMPACK@@XZ=0x4A01F0",
-    "?GetCommPack@NetSelectMenu@@QAEPAUNETCOMMPACK@@XZ=0x4A4B40",
-    "?GetComponentType@mmIODev@@QAEHHH@Z=0x4E5580",
-    "?GetControllerName@MenuManager@@QAEPADH@Z=0x4B05D0",
-    "?GetControls@mmPlayerConfig@@QAEXXZ=0x4CE6C0",
-    "?GetCorner@mmPolygon@@AAEHAAVVector3@@00000AAM@Z=0x51B990",
-    "?GetCount@mmGameRecord@@QAEHXZ=0x4FDE50",
-    "?GetCount@mmPositions@@QAEHXZ=0x492010",
-    "?GetCount@RefToType@@QAEHPAX@Z=0x57B600",
-    "?GetCount@TextDropWidget@@QAEHXZ=0x4BE1A0",
-    "?GetCurrentCity@mmCityList@@QAEPAVmmCityInfo@@XZ=0x4CBE20",
-    "?GetCurrentDeviceName@AudioOptions@@QAEPADXZ=0x49D510",
-    "?GetCurrentGear@mmTransmission@@QAEHXZ=0x470740",
-    "?GetCurrentMap@mmHudMap@@AAEPAVagiBitmap@@XZ=0x428BF0",
-    "?GetCurrentMenu@MenuManager@@QAEPAVUIMenu@@XZ=0x4B1410",
-    "?GetCurrentSoundObj@AudSound@@QAEPAVSoundObj@@XZ=0x4EBC40",
-    "?GetCurrentSoundObj@AudStream@@QAEPAVStreamObj@@XZ=0x4F4140",
-    "?GetCurrentString@mmDropDown@@QAEXPADH@Z=0x4C0D60",
-    "?GetCurrentString@UITextScroll@@QAEXPADH@Z=0x4B8FE0",
-    "?GetDamping@CReverb@@QAEMXZ=0x4F4A30",
-    "?GetData@aiVehicleInstance@@QAEPAVaiVehicleData@@XZ=0x453020",
-    "?GetData@mmBangerInstance@@QAEPAVmmBangerData@@XZ=0x4CA460",
-    "?GetDC@mmText@@SAPAXPAVagiSurfaceDesc@@@Z=0x4FEF70",
-    "?GetDecayTime@CReverb@@QAEMXZ=0x4F49F0",
-    "?GetDescription@mmIO@@QAEXPAD@Z=0x4E4D70",
-    "?GetDescription@mmIODev@@QAEXPAD@Z=0x4E52C0",
-    "?GetDeviceNames@AudManager@@QAEPAPADXZ=0x4E9E60",
-    "?GetDeviceNames@DSGlobal@@QAEPAPADXZ=0x4F09C0",
-    "?GetDifficulty@mmRaceData@@QAEMHW4mmSkillLevel@@@Z=0x4D2130",
-    "?GetDimensions@UIMenu@@QAEXAAM000@Z=0x4ACC40",
-    "?GetDir@HierFileSystem@@UAEHPADH@Z=0x5603A0",
-    "?GetDir@VirtualFileSystem@@UAEHPADH@Z=0x560BA0",
-    "?GetDisabledMask@TextDropWidget@@QAEJXZ=0x4BE4B0",
-    "?GetDistanceToPlayer2@aiVehicleOpponent@@QAEMXZ=0x44E3A0",
-    "?GetDistanceToPlayer2@aiVehiclePolice@@QAEMXZ=0x446270",
-    "?GetDiv@UIBMButton@@QAEHXZ=0x4B64C0",
-    "?GetDLP@agiPipeline@@QAEPAVDLP@@PAD0PAVVector3@@HH@Z=0x555950",
-    "?GetDLPTemplate@@YAPAVDLPTemplate@@PAD@Z=0x556B60",
-    "?GetDSound3DMask@AudManager@@SA?BIXZ=0x4E9F10",
-    "?GetDSound3DMask@DSGlobal@@SA?BIXZ=0x4F0A60",
-    "?GetDynamic@RDLP@@UAEPAVDynamicDLP@@H@Z=0x551490",
-    "?GetEAXAll@AudManager@@QAEXPAUEAX_REVERBPROPERTIES@@@Z=0x4E9A60",
-    "?GetEAXDamping@AudManager@@QAEMXZ=0x4E9D60",
-    "?GetEAXDecayTime@AudManager@@QAEMXZ=0x4E9CA0",
-    "?GetEAXEnvironmet@AudManager@@QAEKXZ=0x4E9B20",
-    "?GetEAXReverbMix@AudSound@@QAEMH@Z=0x4EB3B0",
-    "?GetEAXReverbVolume@AudManager@@QAEMXZ=0x4E9BE0",
-    "?GetEchoOnMask@AudManager@@SA?BIXZ=0x4E9F00",
-    "?GetEchoOnMask@DSGlobal@@SA?BIXZ=0x4F0A50",
-    "?GetEffect@AudSound@@QAEHXZ=0x4EBA10",
-    "?GetEngineSoundIndex@aiVehicleOpponent@@QAEHXZ=0x44E120",
-    "?GetEngineSoundIndex@aiVehiclePolice@@QAEHXZ=0x446180",
-    "?GetEngineSoundPtr@AddOnCarAudio@@QAEPAVAudSound@@F@Z=0x45C6E0",
-    "?GetEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ=0x451F10",
-    "?GetEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ=0x4CA480",
-    "?GetEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ=0x473320",
-    "?GetEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ=0x433DB0",
-    "?GetEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ=0x479720",
-    "?GetEnumModem@asNetwork@@QAEPADH@Z=0x48B2D0",
-    "?GetEnumPlayer@asNetwork@@QAEPADH@Z=0x489AD0",
-    "?GetEnumPlayerData@asNetwork@@QAEHHPAXH@Z=0x489E40",
-    "?GetEnumProtocol@asNetwork@@QAEPADH@Z=0x489960",
-    "?GetEnumSession@asNetwork@@QAEPADH@Z=0x48A3E0",
-    "?GetEnumSessionID@asNetwork@@QAEHH@Z=0x48A410",
-    "?GetEnumSessionLock@asNetwork@@QAEHH@Z=0x48B060",
-    "?GetEnumSessionStatus@asNetwork@@QAEHH@Z=0x48B030",
-    "?GetEnv@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z=0x503A60",
-    "?GetEnvironment@CReverb@@QAEKXZ=0x4F4970",
-    "?GetError@Stream@@MAEHPADH@Z=0x55ED40",
-    "?GetErrorMessage@MixerCTL@@AAEPADK@Z=0x4EEAD0",
-    "?GetEulers@Matrix34@@QBE?AVVector3@@PBD@Z=0x56B630",
-    "?GetEulers@Matrix34@@QBE?AVVector3@@XZ=0x56BCE0",
-    "?GetFFEffect@mmJoyMan@@QAEPAVmmEffectFF@@H@Z=0x4E5E80",
-    "?GetFFEffect@mmJoystick@@QAEPAVmmEffectFF@@H@Z=0x4E6D80",
-    "?GetFGColor@MenuManager@@QAEAAVVector4@@H@Z=0x4B0740",
-    "?GetFGColor@mmTextNode@@QAEIXZ=0x4FF750",
-    "?GetFileName@mmPlayerData@@QAEPADXZ=0x4D0900",
-    "?GetFileName@mmPlayerDirectory@@QAEPADH@Z=0x4CF4B0",
-    "?GetFileName@mmPlayerDirectory@@QAEPADPAD@Z=0x4CF390",
-    "?GetFileStreamPtr@StreamObj@@QAEPAVStream@@XZ=0x4F6040",
-    "?GetFloat@Tokenizer@@QAEMXZ=0x561770",
-    "?GetFont@MenuManager@@QAEPAXH@Z=0x4B0670",
-    "?GetFormat@SoundObj@@QAEPAUtWAVEFORMATEX@@XZ=0x4F34D0",
-    "?GetFreqChange2DFlags@AudSound@@SA?BKXZ=0x4EBB30",
-    "?GetFreqChange2DFlags@AudStream@@SA?BKXZ=0x4F4120",
-    "?GetFreqChange3DFlags@AudSound@@SA?BKXZ=0x4EBB80",
-    "?GetFrequency@AudSound@@QAEMH@Z=0x4EB290",
-    "?GetFrequency@AudStream@@QAEMH@Z=0x4F3FA0",
-    "?GetFudgeWidth@UISlider@@QAEMXZ=0x4B4230",
-    "?GetGameVersion@asNetwork@@QAEHH@Z=0x48B000",
-    "?GetGoldMass@CRSettings@@QAEHXZ=0x4A1650",
-    "?GetGoldMassVal@CRSettings@@QAEHXZ=0x4A16B0",
-    "?GetGraphics@mmPlayerConfig@@QAEXXZ=0x4CE630",
-    "?GetGroupVertex@DLPTemplate@@QAEPAVVector3@@PAD@Z=0x5599B0",
-    "?GetGroupVerts@@YAHPAD0PAVVector3@@H@Z=0x556DF0",
-    "?GetHandBrake@mmInput@@QAEMXZ=0x4E3430",
-    "?GetHandle@agiD3DMtlDef@@QAEKXZ=0x533750",
-    "?GetHandle@agiD3DTexDef@@QAEPAUIDirect3DTexture2@@H@Z=0x531DA0",
-    "?GetHeading@aiPath@@QAEMMH@Z=0x43E6B0",
-    "?GetHeading@mmWaypoints@@QAEMH@Z=0x42EED0",
-    "?GetHeadPtr@AudHead@@QAEPAVMatrix34@@XZ=0x4EC030",
-    "?GetHeight@UICompositeScroll@@QAEMXZ=0x4B59F0",
-    "?GetHiResMask@AudManager@@SA?BIXZ=0x4E9EE0",
-    "?GetHiResMask@DSGlobal@@SA?BIXZ=0x4F0A30",
-    "?GetHiSampleSizeMask@AudManager@@SA?BIXZ=0x4E9EF0",
-    "?GetHiSampleSizeMask@DSGlobal@@SA?BIXZ=0x4F0A40",
-    "?GetHit@mmDropDown@@QAEHMM@Z=0x4C0EC0",
-    "?GetHit@UICompositeScroll@@QAEHMM@Z=0x4B5720",
-    "?GetHit@UITextScroll@@QAEHMM@Z=0x4B9080",
-    "?GetHitArea@UIBMButton@@QAEXAAM0@Z=0x4B66F0",
-    "?GetHitArea@UIIcon@@QAEXAAM0@Z=0x4B9A60",
-    "?GetHitId@mmCullCity@@QAEFAAVVector3@@@Z=0x48BF10",
-    "?GetHitRoom@mmWaypoints@@QAEHH@Z=0x42EF60",
-    "?GetHostJoin@NetSelectMenu@@QAEHXZ=0x4A4410",
-    "?GetHostPlayerData@mmInterface@@AAEHAAUmmPlayerInfo@@@Z=0x40D760",
-    "?GetICS@aiVehicleActive@@UAEPAVasInertialCS@@XZ=0x453BB0",
-    "?GetICS@mmBangerActive@@UAEPAVasInertialCS@@XZ=0x4CB7C0",
-    "?GetICS@mmCar@@UAEPAVasInertialCS@@XZ=0x474860",
-    "?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ=0x453B20",
-    "?GetICS@mmTrailer@@UAEPAVasInertialCS@@XZ=0x47A310",
-    "?GetImpactAudioPtr@aiVehicleAmbient@@UAEPAVmmOpponentImpactAudio@@XZ=0x451360",
-    "?GetImpactAudioPtr@aiVehicleSpline@@UAEPAVmmOpponentImpactAudio@@XZ=0x4465E0",
-    "?GetInstance@mmCullCity@@SAPAV1@XZ=0x4A9F40",
-    "?GetInstance@mmShardManager@@SAPAV1@H@Z=0x4788D0",
-    "?GetInt@Tokenizer@@QAEHXZ=0x561710",
-    "?GetIntersectionType@mmRoadSect@@QAEHH@Z=0x4D27D0",
-    "?GetItem@mmMapData@@QAEPADH@Z=0x4D3340",
-    "?GetItem@mmPropInfo@@QAEPADH@Z=0x4D2250",
-    "?GetJoyAxis@mmJoyMan@@QAEMHH@Z=0x4E5CB0",
-    "?GetJoyButton@mmJoyMan@@QAEHHH@Z=0x4E5CF0",
-    "?GetLapName@mmVoiceCommentary@@QAEPADF@Z=0x4ED390",
-    "?GetLastChild@asNode@@QAEPAV1@XZ=0x523CC0",
-    "?GetLastPlayer@mmPlayerDirectory@@QAEPADXZ=0x4CF0A0",
-    "?GetLastWaypoint@mmWaypoints@@QAEXXZ=0x42F1B0",
-    "?GetLimit@CRSettings@@QAEXAAH0@Z=0x4A1550",
-    "?GetLimitVal@CRSettings@@QAEHAAH@Z=0x4A1660",
-    "?GetListenerEAXObj@AudManager@@AAEPAVCReverb@@XZ=0x4E9960",
-    "?GetLocTime@@YAPADM@Z=0x520010",
-    "?GetLong@Stream@@QAEKXZ=0x55F2B0",
-    "?GetLookAt@Matrix34@@QBEXPAVVector3@@0M@Z=0x56D0B0",
-    "?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z=0x56DED0",
-    "?GetMachineName@@YAXPADH@Z=0x57CDC0",
-    "?GetMapping@Stream@@UAEPAXXZ=0x55ED80",
-    "?GetMapping@VirtualStream@@UAEPAXXZ=0x561D40",
-    "?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@H@Z=0x5558C0",
-    "?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@PAD@Z=0x555860",
-    "?getMem@@YAHXZ=0x578B80",
-    "?GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z=0x5128A0",
-    "?GetMeshSetSet@mmInstance@@SAHPADH0PAVVector3@@@Z=0x492C70",
-    "?GetMixerBalance@MixerCTL@@QAEMK@Z=0x4EE830",
-    "?GetMixerPtr@AudManager@@QAEPAVMixerCTL@@XZ=0x4E9FD0",
-    "?GetModel@@YAPAVagiMeshModel@@PAD00@Z=0x5154C0",
-    "?GetMultipass@RDLP@@UAEPAVMultipassDLP@@H@Z=0x551530",
-    "?GetMyLogicalIndex@asNetwork@@QAEHXZ=0x48AFC0",
-    "?GetName@agiBitmap@@UAEPADXZ=0x55A6D0",
-    "?GetName@agiLight@@UAEPADXZ=0x55BB20",
-    "?GetName@agiLightModel@@UAEPADXZ=0x55BDD0",
-    "?GetName@agiMtlDef@@UAEPADXZ=0x55DD30",
-    "?GetName@agiRefreshable@@UAEPADXZ=0x557B90",
-    "?GetName@agiTexDef@@UAEPADXZ=0x556400",
-    "?GetName@agiTexLut@@UAEPADXZ=0x5568D0",
-    "?GetName@agiViewport@@UAEPADXZ=0x5579D0",
-    "?GetName@DLP@@UAEPADXZ=0x55E4F0",
-    "?GetName@mmAnimExcel@@QAEPADH@Z=0x4C3770",
-    "?GetName@mmPlayerData@@QAEPADXZ=0x4D0860",
-    "?GetName@mmRecord@@QAEPADXZ=0x4D16B0",
-    "?GetNearClip@asCamera@@QAEXPAVVector3@@AAVMatrix34@@W4kNearClip@1@@Z=0x529270",
-    "?GetNetName@mmPlayerData@@QAEPADXZ=0x4D08B0",
-    "?GetNetworkCaps@asNetwork@@QAEHXZ=0x489490",
-    "?GetNewDriverName@DriverMenu@@QAEPADXZ=0x4A5CC0",
-    "?GetNext@asNode@@QAEPAV1@XZ=0x523CB0",
-    "?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z=0x4E25A0",
-    "?GetNextName@mmAnimExcel@@QAEPADXZ=0x4C35C0",
-    "?GetNextWaypoint@mmWaypoints@@QAEXXZ=0x42F1A0",
-    "?GetNodeType@asNode@@QAEPADXZ=0x523DC0",
-    "?GetNormal@mmRoadSect@@QAEPAVVector3@@H@Z=0x4D2790",
-    "?GetNum3DHalBufs@AudManager@@QAEKXZ=0x4E9EC0",
-    "?GetNum3DHallBufs@DSGlobal@@QAEKXZ=0x4F09F0",
-    "?GetNumCDTracks@AudManager@@QAEFXZ=0x4E9360",
-    "?GetNumCops@mmRaceData@@QAEHHW4mmSkillLevel@@@Z=0x4D2040",
-    "?GetNumDevices@AudManager@@QAEHXZ=0x4E9E80",
-    "?GetNumItems@mmMapData@@QAEHXZ=0x4D3370",
-    "?GetNumItems@mmPropInfo@@QAEHXZ=0x4D2290",
-    "?GetNumLaps@mmRaceData@@QAEHHW4mmSkillLevel@@@Z=0x4D1FB0",
-    "?GetNumModems@asNetwork@@QAEHXZ=0x48B2C0",
-    "?GetNumOpponents@mmRaceData@@QAEHHW4mmSkillLevel@@@Z=0x4D2010",
-    "?GetNumPlayers@asNetwork@@QAEHXZ=0x489B40",
-    "?GetNumPlayers@mmPlayerDirectory@@QAEHXZ=0x4CF090",
-    "?GetNumProtocols@asNetwork@@QAEHXZ=0x489990",
-    "?GetNumRaces@mmRaceData@@QAEHXZ=0x4D1F60",
-    "?GetNumSessions@asNetwork@@QAEHXZ=0x48A440",
-    "?GetNumTracks@CDMan@@QAEFXZ=0x4F4700",
-    "?GetOneButton@mmJoyMan@@QAEHJ@Z=0x4E5E50",
-    "?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z=0x5043E0",
-    "?GetPagerHandle@FileStream@@UAEIXZ=0x561830",
-    "?GetPagerHandle@Stream@@UAEIXZ=0x55ED90",
-    "?GetPagingInfo@Stream@@UAEHAAI00@Z=0x55EDA0",
-    "?GetPagingInfo@VirtualStream@@UAEHAAI00@Z=0x561BD0",
-    "?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z=0x523D80",
-    "?GetPart@mmCarModel@@QAEPAVmmHitBangerInstance@@H@Z=0x472C50",
-    "?GetPassed@mmRecord@@QAEHXZ=0x4D16C0",
-    "?GetPedDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z=0x4D20D0",
-    "?GetPhysMtl@asBound@@QAEAAVagiPhysParameters@@ABVmmPolygon@@@Z=0x4DFAF0",
-    "?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55C000",
-    "?GetPixel@agiColorModelABGR@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55D720",
-    "?GetPixel@agiColorModelARGB@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55D530",
-    "?GetPixel@agiColorModelRGB555@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55C5F0",
-    "?GetPixel@agiColorModelRGB555_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55C9B0",
-    "?GetPixel@agiColorModelRGB565@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55C7D0",
-    "?GetPixel@agiColorModelRGB565_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55CB90",
-    "?GetPixel@agiColorModelRGB888@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55CD40",
-    "?GetPixel@agiColorModelRGB888_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55CEE0",
-    "?GetPixel@agiColorModelRGBA4444@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55D340",
-    "?GetPixel@agiColorModelRGBA5551@@UAEIPAVagiSurfaceDesc@@HH@Z=0x55D110",
-    "?GetPlayer@mmPlayerDirectory@@QAEPADH@Z=0x4CF060",
-    "?GetPlayerData@asNetwork@@QAEHKPAXH@Z=0x489F00",
-    "?GetPlayerID@asNetwork@@QAEKH@Z=0x489B00",
-    "?GetPlayerName@asNetwork@@QAEHKPAD@Z=0x489CC0",
-    "?GetPlayerName@asNetwork@@QAEPADK@Z=0x489C00",
-    "?GetPlayerName@mmPlayerDirectory@@QAEPADPAD@Z=0x4CF420",
-    "?GetPlayers@asNetwork@@QAEHPAU_GUID@@@Z=0x489AA0",
-    "?GetPointerHeight@sfPointer@@QAEMXZ=0x4BDA80",
-    "?GetPolar@Matrix34@@QBEXPAVVector4@@PAVVector3@@M@Z=0x56D140",
-    "?GetPolar@Vector3@@QBEXABV1@PAVVector4@@PAV1@@Z=0x566680",
-    "?GetPolyInfo@@YAHPAVagiMeshSet@@@Z=0x4930E0",
-    "?GetPos@aiPedestrianInstance@@UAIAAVVector3@@XZ=0x44D810",
-    "?GetPos@aiVehicleInstance@@UAIAAVVector3@@XZ=0x4520A0",
-    "?GetPos@mmCarModel@@UAIAAVVector3@@XZ=0x4715D0",
-    "?GetPos@mmDofBangerInstance@@UAIAAVVector3@@XZ=0x4C4E90",
-    "?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ=0x4CB940",
-    "?GetPos@mmHitBangerInstance@@UAIAAVVector3@@XZ=0x4CA550",
-    "?GetPos@mmMatrixInstance@@UAIAAVVector3@@XZ=0x493470",
-    "?GetPos@mmRunwayLight@@UAIAAVVector3@@XZ=0x48C160",
-    "?GetPos@mmSkid@@UAIAAVVector3@@XZ=0x477A80",
-    "?GetPos@mmTrailerInstance@@UAIAAVVector3@@XZ=0x479710",
-    "?GetPos@mmUnhitBangerInstance@@UAIAAVVector3@@XZ=0x4CA8D0",
-    "?GetPos@mmYInstance@@UAIAAVVector3@@XZ=0x493390",
-    "?GetPos@PointCamCS@@QAE?AVVector3@@XZ=0x4F9F70",
-    "?GetPosHdg@mmHUD@@QAEXAAVVector4@@@Z=0x406060",
-    "?GetPosition@CDMan@@QAEKPAE000@Z=0x4F4610",
-    "?GetPositionCount@@YAHXZ=0x491B00",
-    "?GetPositionPtr@AudHead@@QAEPAVVector3@@XZ=0x4EC010",
-    "?GetPositionVector4@@YAAAVVector4@@H@Z=0x491B10",
-    "?GetPreviousMenu@MenuManager@@QAEHXZ=0x4B1650",
-    "?GetPriorName@mmAnimExcel@@QAEPADXZ=0x4C3740",
-    "?GetProp@DLPPatch@@QAEPADPAD@Z=0x558990",
-    "?GetProtocols@asNetwork@@QAEXXZ=0x489520",
-    "?GetRaceID@RaceMenu@@QAEHXZ=0x4A4D00",
-    "?GetRaceName@mmInterface@@AAEPADW4mmGameMode@@H@Z=0x40B890",
-    "?GetRaceName@mmRaceData@@QAEPADH@Z=0x4D1F70",
-    "?GetRaceName@NetArena@@QAEPADXZ=0x4A2670",
-    "?GetRaceName@RaceMenu@@QAEPADW4mmGameMode@@H@Z=0x4A4E10",
-    "?GetRaceString@mmInterface@@AAEXHPAD@Z=0x40B830",
-    "?GetRaceVoiceIndex@aiPedestrian@@AAEFXZ=0x44D650",
-    "?GetRandomBlueCR@mmVoiceCommentary@@QAEPADF@Z=0x4ED830",
-    "?GetRandomCop@mmVoiceCommentary@@QAEPADF@Z=0x4ED8B0",
-    "?GetRandomIndex@mmMultiCR@@AAEHXZ=0x41D1F0",
-    "?GetRandomPreBlitz@mmVoiceCommentary@@QAEPADXZ=0x4EC650",
-    "?GetRandomPreCheckPoint@mmVoiceCommentary@@QAEPADXZ=0x4EC810",
-    "?GetRandomPreCircuit@mmVoiceCommentary@@QAEPADXZ=0x4EC730",
-    "?GetRandomPreRace@mmVoiceCommentary@@QAEPADXZ=0x4EC4D0",
-    "?GetRandomPreRaceVeh@mmVoiceCommentary@@QAEPADXZ=0x4ECB50",
-    "?GetRandomRedCR@mmVoiceCommentary@@QAEPADF@Z=0x4ED7B0",
-    "?GetRandomResults@mmVoiceCommentary@@QAEPADF@Z=0x4ECA70",
-    "?GetRandomResultsMid@mmVoiceCommentary@@QAEPADXZ=0x4ECEF0",
-    "?GetRandomResultsPoor@mmVoiceCommentary@@QAEPADXZ=0x4ECD50",
-    "?GetRandomResultsWin@mmVoiceCommentary@@QAEPADXZ=0x4ECBB0",
-    "?GetRandomRobber@mmVoiceCommentary@@QAEPADF@Z=0x4ED730",
-    "?GetRandomTOD@mmVoiceCommentary@@QAEPADXZ=0x4ED090",
-    "?GetRandomWeather@mmVoiceCommentary@@QAEPADXZ=0x4ED0F0",
-    "?GetResidentMeshSet@mmInstance@@QAEPAVagiMeshSet@@HHH@Z=0x492BE0",
-    "?GetReverbMix@CReverbBuffer@@QAEMXZ=0x4F4BA0",
-    "?GetRoamVoiceIndex@aiPedestrian@@AAEFXZ=0x44D480",
-    "?GetRoomFlags@mmCullCity@@QAEFF@Z=0x48D960",
-    "?GetRoomId@mmRoadSect@@QAEHH@Z=0x4D27B0",
-    "?GetRootWindow@@YAPAXXZ=0x555F70",
-    "?GetSampleTime@AudSound@@QAEMXZ=0x4EB6C0",
-    "?GetScale@MenuManager@@QAEXAAM000@Z=0x4AF140",
-    "?GetScale@mmBuildingInstance@@UAIMXZ=0x4945E0",
-    "?GetScale@mmFacadeInstance@@UAIMXZ=0x493FF0",
-    "?GetScale@mmInstance@@UAIMXZ=0x492A20",
-    "?GetScale@mmRunwayLight@@UAIMXZ=0x48C2B0",
-    "?GetScale@mmShearInstance@@UAIMXZ=0x494480",
-    "?GetScale@mmWaypointInstance@@UAIMXZ=0x433790",
-    "?GetScore@mmRecord@@QAEHXZ=0x4D16D0",
-    "?GetScoreString@mmInterface@@AAEXHPAD@Z=0x40B7F0",
-    "?GetScreenHeight@mmSlider@@QAEMXZ=0x4BEA70",
-    "?GetScreenHeight@UIBMButton@@UAEMXZ=0x4B6D10",
-    "?GetScreenHeight@UISlider@@UAEMXZ=0x4B4270",
-    "?GetScreenHeight@UITextDropdown@@UAEMXZ=0x4B3390",
-    "?GetScreenHeight@uiWidget@@UAEMXZ=0x4B2E80",
-    "?GetSecondaryEAXObj@AudSound@@QAEPAVCReverbBuffer@@H@Z=0x4EBB90",
-    "?GetSecondsElapsed@mmOpponentImpactAudio@@SAMXZ=0x47A7D0",
-    "?GetSecsSinceImpactReaction@aiVehicleAmbient@@SAMXZ=0x451150",
-    "?GetSelectedCount@UICompositeScroll@@QAEHXZ=0x4B5450",
-    "?GetSessionData@asNetwork@@QAEXPAUNETSESSION_DESC@@@Z=0x48A690",
-    "?GetSessionData@mmInterface@@AAEXUNETSESSION_DESC@@@Z=0x40DB80",
-    "?GetSessionID@NetSelectMenu@@QAEHXZ=0x4A46C0",
-    "?GetSessions@NetSelectMenu@@QAEPAVUITextScroll@@XZ=0x4A46B0",
-    "?GetSessionsAsynch@asNetwork@@QAEXXZ=0x48A940",
-    "?GetSessionsSynch@asNetwork@@QAEHH@Z=0x48A890",
-    "?GetShort@Stream@@QAEGXZ=0x55F290",
-    "?GetSidewalkVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z=0x4D26E0",
-    "?GetSize@UIBMButton@@AAEXXZ=0x4B6550",
-    "?GetSliderHotSpots@mmSlider@@QAEXAAM00000@Z=0x4BEAF0",
-    "?GetSoft2DFlags@AudSound@@SA?BKXZ=0x4EBB10",
-    "?GetSoftFreqChange2DFlags@AudSound@@SA?BKXZ=0x4EBB50",
-    "?GetSoundFXOnMask@AudManager@@SA?BIXZ=0x4E9F20",
-    "?GetSoundFXOnMask@DSGlobal@@SA?BIXZ=0x4F0A70",
-    "?GetSpacing@mmPropInfo@@QAEMXZ=0x4D2280",
-    "?GetSparkLut@@YAPAVasSparkLut@@PAD@Z=0x501700",
-    "?GetSpecialFlags@@YAIKK@Z=0x5764B0",
-    "?GetST@mmPolygon@@AAEXPAVVector3@@0PAVmmBoundTemplate@@@Z=0x51ADA0",
-    "?GetStart@mmAnimTrain@@QAEXMAAHAAM@Z=0x4C6740",
-    "?GetStart@mmWaypoints@@QAEXAAVVector3@@@Z=0x42EE40",
-    "?GetStartAngle@mmWaypoints@@QAEMXZ=0x42DB00",
-    "?GetStartCell@asRenderWeb@@UAEPAUasPortalCell@@AAVVector3@@PAU2@PAPAVmmPolygon@@@Z=0x48FDD0",
-    "?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z=0x520FC0",
-    "?GetStatus@DataCache@@QAEXAAI00@Z=0x5779D0",
-    "?GetSteering@mmGameManager@@QAEMXZ=0x404950",
-    "?GetSteering@mmInput@@QAEMXZ=0x4E37E0",
-    "?GetStereoOnMask@AudManager@@SA?BIXZ=0x4E9ED0",
-    "?GetStereoOnMask@DSGlobal@@SA?BIXZ=0x4F0A20",
-    "?GetStopLightName@mmRoadSect@@QAEPADH@Z=0x4D2940",
-    "?GetStopLightPos@mmRoadSect@@QAEXHAAVVector3@@0@Z=0x4D2840",
-    "?GetString@Stream@@QAEHPADH@Z=0x55EEF0",
-    "?GetSurfaceSound@mmWheel@@QAEHXZ=0x47F6B0",
-    "?GetTexLut@agiPipeline@@QAEPAVagiTexLut@@PAD@Z=0x5557F0",
-    "?GetTextDimensions@mmTextNode@@QAEXPAXPAULocString@@AAM2@Z=0x4FF790",
-    "?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z=0x555620",
-    "?GetTexture@agiPipeline@@QAEPAVagiTexDef@@PADH@Z=0x5555C0",
-    "?GetThrottle@mmGameManager@@QAEMXZ=0x404980",
-    "?GetThrottle@mmInput@@QAEMXZ=0x4E3310",
-    "?GetThrottleVal@mmInput@@QAEMXZ=0x4E3330",
-    "?GetTime@mmHUD@@QAEXPADM@Z=0x405FC0",
-    "?GetTime@mmRecord@@QAEMXZ=0x4D1690",
-    "?GetTime@mmTimer@@QAEMXZ=0x406230",
-    "?GetTimeLimit@mmRaceData@@QAEMHW4mmSkillLevel@@@Z=0x4D1FE0",
-    "?GetTimeOfDay@mmRaceData@@QAEHHW4mmSkillLevel@@@Z=0x4D2070",
-    "?GetTimeString@mmInterface@@AAEXMPAD@Z=0x40B790",
-    "?GetToken@Tokenizer@@QAEHPADH@Z=0x561600",
-    "?GetTotalPassed@mmPlayerData@@QAEHXZ=0x4D03A0",
-    "?GetTotalScore@mmPlayerData@@QAEHXZ=0x4D03C0",
-    "?GetTypeName@Base@@QAEPADXZ=0x5791B0",
-    "?GetTypeNameV@Base@@UAEPADXZ=0x5791A0",
-    "?GetUniquePlayerName@mmInterface@@AAEXXZ=0x40D7C0",
-    "?GetUnlockedCar@mmInterface@@AAEXXZ=0x40AE40",
-    "?GetUsingEAXMask@AudManager@@SA?BIXZ=0x4E97B0",
-    "?GetUsingEAXMask@DSGlobal@@SA?BIXZ=0x4F0AA0",
-    "?GetValue@UISlider@@QAEMXZ=0x4B4050",
-    "?GetValue@UITextDropdown@@QAEHXZ=0x4B38B0",
-    "?GetVariationCount@agiTexSheet@@QAEHPAD@Z=0x512410",
-    "?GetVector4@mmGameRecord@@QAEAAVVector4@@H@Z=0x4FDE60",
-    "?GetVector4@mmPositions@@QAEAAVVector4@@H@Z=0x492020",
-    "?GetVehicleID@mmVehList@@QAEHPAD@Z=0x4CC1C0",
-    "?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@H@Z=0x4CC110",
-    "?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@PAD@Z=0x4CC140",
-    "?GetVelocity@aiVehicleInstance@@UAE?AVVector3@@XZ=0x451FD0",
-    "?GetVelocity@asInertialCS@@QAE?AVVector3@@PBV2@@Z=0x4DAAD0",
-    "?GetVelocity@mmBangerInstance@@UAE?AVVector3@@XZ=0x4CA4D0",
-    "?GetVelocity@mmCarModel@@UAE?AVVector3@@XZ=0x473340",
-    "?GetVelocity@mmInstance@@UAE?AVVector3@@XZ=0x433DD0",
-    "?GetVelocity@mmTrailerInstance@@UAE?AVVector3@@XZ=0x479740",
-    "?GetVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z=0x4D26B0",
-    "?GetVertexCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z=0x559800",
-    "?GetViewportHeight@asCamera@@QAEHXZ=0x529CC0",
-    "?GetViewportWidth@asCamera@@QAEHXZ=0x529CA0",
-    "?GetViewSettings@mmPlayerConfig@@QAEXXZ=0x4CE7A0",
-    "?GetVoiceCommentaryPtr@AudManager@@QAEPAVmmVoiceCommentary@@XZ=0x4E9FE0",
-    "?GetVolume@AudSound@@QAEMH@Z=0x4EBC50",
-    "?GetVolume@CReverb@@QAEMXZ=0x4F49B0",
-    "?GetWaveBalance@AudManager@@QAEMXZ=0x4E9590",
-    "?GetWaveBalance@MixerCTL@@QAEMXZ=0x4EE2A0",
-    "?GetWaveBytesOffset@StreamObj@@AAEIPAVStream@@F@Z=0x4F50C0",
-    "?GetWAVEFORMATEX@DupBuffCreator@@AAEPAUtWAVEFORMATEX@@PAUIDirectSoundBuffer@@@Z=0x4EEF90",
-    "?GetWaveVolume@AudManager@@QAEMXZ=0x4E9450",
-    "?GetWaveVolume@MixerCTL@@QAEMXZ=0x4EE2B0",
-    "?GetWaypoint@mmWaypoints@@QAEXHAAVVector3@@@Z=0x42EE80",
-    "?GetWaypoints@mmGameEdit@@UAEPAVmmWaypoints@@XZ=0x412EE0",
-    "?GetWaypoints@mmGameSingle@@UAEPAVmmWaypoints@@XZ=0x418ED0",
-    "?GetWaypoints@mmMultiBlitz@@UAEPAVmmWaypoints@@XZ=0x41A8A0",
-    "?GetWaypoints@mmMultiCircuit@@UAEPAVmmWaypoints@@XZ=0x41BFA0",
-    "?GetWaypoints@mmMultiCR@@UAEPAVmmWaypoints@@XZ=0x41F920",
-    "?GetWaypoints@mmMultiRace@@UAEPAVmmWaypoints@@XZ=0x4215C0",
-    "?GetWaypoints@mmSingleBlitz@@UAEPAVmmWaypoints@@XZ=0x414BE0",
-    "?GetWaypoints@mmSingleCircuit@@UAEPAVmmWaypoints@@XZ=0x416C80",
-    "?GetWeather@mmRaceData@@QAEHHW4mmSkillLevel@@@Z=0x4D20A0",
-    "?GetWidgetID@UIMenu@@QAEHXZ=0x4ACC20",
-    "?GKeyName@WINEventHandler@@UAEPADH@Z=0x561FE0",
-    "?Go@aiPedestrian@@QAEXXZ=0x44D1A0",
-    "?GoodRoadForCopStartPos@aiMap@@QAEHH@Z=0x43BB90",
-    "?GroupExists@DLPTemplate@@QAEPAVDLPGroup@@PAD@Z=0x559630",
-    "?guidtostr@@YAXPADPAU_GUID@@@Z=0x575090",
-    "?HalfSpace@Vector3@@QBEHABVVector4@@@Z=0x565490",
-    "?HandleAppMessage@asNetwork@@QAEXPAX@Z=0x48ABC0",
-    "?HandleNotifications@@YAKPAX@Z=0x4F5B80",
-    "?HandleSysMessage@asNetwork@@QAEXPAUDPMSG_GENERIC@@@Z=0x48ABE0",
-    "?HasColorVariations@mmVehInfo@@QAEHXZ=0x4D3BE0",
-    "?HasCoolie@mmJoyMan@@QAEHXZ=0x4E5FE0",
-    "?Hash@HashTable@@AAEHPAD@Z=0x5784C0",
-    "?HasThrottle@mmJoyMan@@QAEHXZ=0x4E6000",
-    "?HeapAssert@@YAHPAXHPADH@Z=0x521250",
-    "?Help@MenuManager@@QAEXXZ=0x4B1A60",
-    "?Help@uiNavBar@@QAEXXZ=0x4B1F10",
-    "?HelpWatcher@@YGKPAX@Z=0x4B1B30",
-    "?Hermite@Vector3@@QAEXMABV1@000M@Z=0x565B50",
-    "?HexDump@@YAXPAXH@Z=0x5790A0",
-    "?Highlight@mmCompBase@@UAEXPAVmmTextNode@@H@Z=0x4B4E90",
-    "?Hit@mmMatrixInstance@@UAEXPAVmmInstance@@@Z=0x4935B0",
-    "?HitMe@aiGoalChase@@AAEHPAVmmCar@@@Z=0x460620",
-    "?HitWaterHandler@mmGame@@UAEXXZ=0x4104A0",
-    "?HitWaterHandler@mmGameMulti@@UAEXXZ=0x4309A0",
-    "?HitWaterHandler@mmGameSingle@@UAEXXZ=0x4175A0",
-    "?HitWaterHandler@mmMultiCR@@UAEXXZ=0x41D760",
-    "?HitWaterHandler@mmSingleBlitz@@UAEXXZ=0x413760",
-    "?HitWaterHandler@mmSingleCircuit@@UAEXXZ=0x4152E0",
-    "?HostCB@NetSelectMenu@@QAEXXZ=0x4A43F0",
-    "?HowMany@bnSkeleton@@QAEHPADD@Z=0x515220",
-    "?hsvtorgb@Vector3@@QAEXXZ=0x566420",
-    "?Identity@Matrix34@@QAEXXZ=0x5674B0",
-    "?Identity@Matrix44@@QAEXXZ=0x570460",
-    "?IgnoreMover@mmPhysicsMGR@@QAEXPAVmmInstance@@@Z=0x4D49E0",
-    "?IgnoreToken@Tokenizer@@QAEXXZ=0x5617D0",
-    "?Impact@aiStuck@@QAEXXZ=0x46B4C0",
-    "?Impact@aiVehicleAmbient@@UAEXH@Z=0x44F490",
-    "?Impact@aiVehicleSpline@@UAEXH@Z=0x45BD00",
-    "?Impact@asBound@@QAEHPAVmmIntersection@@PAV1@HHH@Z=0x4DF110",
-    "?Impact@mmCar@@QAEXPAVmmIntersection@@PAVVector3@@MH1@Z=0x473EB0",
-    "?Impact@mmCarModel@@QAEXPAVVector3@@@Z=0x471640",
-    "?Impact@mmInstance@@UAEXPAV1@PAVVector3@@@Z=0x433DF0",
-    "?Impact@mmStuck@@QAEXXZ=0x47C540",
-    "?Impact@mmUnhitBangerInstance@@UAEXPAVmmInstance@@PAVVector3@@@Z=0x4CA8E0",
-    "?ImpactAudioReaction@aiVehicleAmbient@@AAEXXZ=0x450B10",
-    "?ImpactAudioReaction@aiVehicleAmbient@@UAEXM@Z=0x450AB0",
-    "?ImpactAudioReaction@aiVehicleSpline@@UAEXM@Z=0x446600",
-    "?ImpactCallback@mmMultiCR@@QAEXXZ=0x41D090",
-    "?IMPACTCB@@YAXPAVmmCarSim@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M3@Z=0x46B8F0",
-    "?Inc@mmSlider@@QAEMXZ=0x4BEBF0",
-    "?Inc@TextDropWidget@@QAEHXZ=0x4BE380",
-    "?Inc@UITextRoller2@@QAEHXZ=0x4BB920",
-    "?Inc@UITextRoller@@QAEHXZ=0x4BAA90",
-    "?Inc@UIVScrollBar@@QAEMXZ=0x4BD0F0",
-    "?Inc@VSWidget@@QAEMXZ=0x4BF710",
-    "?IncCar@VehicleSelectBase@@QAEXXZ=0x49C510",
-    "?IncColor@VehicleSelectBase@@QAEXXZ=0x49A8F0",
-    "?IncDrop@TextDropWidget@@QAEHXZ=0x4BE3A0",
-    "?IncPlayer@DriverMenu@@QAEXXZ=0x4A5B40",
-    "?Increment@UIMenu@@QAEHXZ=0x4ACCD0",
-    "?Indent@MiniParser@@QAEXH@Z=0x57C880",
-    "?Index@aiPath@@QAEHAAVVector3@@@Z=0x43EA60",
-    "?Index@aiPath@@QAEHMH@Z=0x43E9B0",
-    "?InertiaAxis@@YAMABVVector3@@0@Z=0x4DADE0",
-    "?Init320@PUResults@@QAEXXZ=0x4A81B0",
-    "?Init3DListener@DSGlobal@@QAEHMMMMM@Z=0x4EF770",
-    "?Init640@PUResults@@QAEXXZ=0x4A8590",
-    "?Init@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXH@Z=0x55A080",
-    "?Init@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXH@Z=0x55A290",
-    "?Init@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXH@Z=0x55A190",
-    "?Init@agiBitmap@@QAEHPADMMH@Z=0x55A3F0",
-    "?Init@agiLight@@QAEHABVagiLightParameters@@@Z=0x55BAD0",
-    "?Init@agiLightModel@@QAEHABVagiLightModelParameters@@@Z=0x55BD50",
-    "?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z=0x50EC90",
-    "?Init@agiMeshSet@@SIXH@Z=0x504C00",
-    "?Init@agiMtlDef@@QAEHABVagiMtlParameters@@@Z=0x55DC50",
-    "?Init@agiPipeline@@QAEHPADHHHHHHPAX@Z=0x555550",
-    "?Init@agiProjVtx@@SAXHPAVagiLighter@@I@Z=0x552BA0",
-    "?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z=0x55A720",
-    "?Init@agiTexDef@@QAEHABVagiTexParameters@@@Z=0x556380",
-    "?Init@agiTexLut@@QAEHPAD@Z=0x556800",
-    "?Init@AICamCS@@QAEXPAVmmCar@@@Z=0x4FA4C0",
-    "?Init@aiGoalAvoidPlayer@@UAEXXZ=0x46A3B0",
-    "?Init@aiGoalBackup@@UAEXXZ=0x45F870",
-    "?Init@aiGoalChase@@UAEXXZ=0x45FDC0",
-    "?Init@aiGoalCollision@@UAEXXZ=0x46B330",
-    "?Init@aiGoalFollowWayPts@@UAEXXZ=0x4664D0",
-    "?Init@aiGoalRandomDrive@@UAEXXZ=0x45C8B0",
-    "?Init@aiGoalRegainRail@@UAEXXZ=0x46AA60",
-    "?Init@aiGoalStop@@UAEXXZ=0x45F750",
-    "?Init@aiIntersection@@QAEXXZ=0x447370",
-    "?Init@aiMap@@QAEXPAD00PAVmmCar@@@Z=0x434220",
-    "?Init@aiPedestrian@@QAEXPADHH@Z=0x447DB0",
-    "?Init@aiStuck@@QAEXPAVmmCarSim@@@Z=0x46B4A0",
-    "?Init@aiTrafficLightInstance@@UAEHPADAAVVector3@@1H0@Z=0x444330",
-    "?Init@aiVehicle@@QAEXH@Z=0x465920",
-    "?Init@aiVehicleActive@@QAEXPAD@Z=0x4521A0",
-    "?Init@aiVehicleAmbient@@QAEXPADH@Z=0x44EE10",
-    "?Init@aiVehicleManager@@QAEXPAD@Z=0x452BB0",
-    "?Init@aiVehicleOpponent@@QAEXHPAVaiRaceData@@PAD@Z=0x44DC00",
-    "?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z=0x444930",
-    "?Init@aiVehicleSpline@@QAEXPADH@Z=0x459FC0",
-    "?Init@asLineSparks@@QAEXHPAVasSparkLut@@@Z=0x501920",
-    "?Init@asMemoryAllocator@@QAEXPAXIH@Z=0x5209D0",
-    "?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z=0x5001A0",
-    "?Init@asPortalPVS@@QAEXHH@Z=0x4959D0",
-    "?Init@asSafeHeap@@QAEXHH@Z=0x5213B0",
-    "?Init@asSimulation@@QAEXPADHPAPAD@Z=0x521C40",
-    "?Init@asSparkLut@@QAEXPAD@Z=0x501740",
-    "?Init@AudHead@@QAEHXZ=0x4EBD10",
-    "?Init@AudManager@@QAEXHIPADFF@Z=0x4E86F0",
-    "?Init@CarCamCS@@QAEXPAVmmCar@@PAD@Z=0x4FB250",
-    "?Init@Card2D@@QAEXPAVasCamera@@MMMMM@Z=0x4FE170",
-    "?Init@CDMan@@QAEKF@Z=0x4F4280",
-    "?Init@DataCache@@QAEXIHPAD@Z=0x576FD0",
-    "?Init@Dialog_Message@@QAEXHPAD0@Z=0x49F3F0",
-    "?Init@DLP@@QAEHPAD0PAVVector3@@@Z=0x55E300",
-    "?Init@DLP@@QAEHPAVDLPTemplate@@PADPAVVector3@@@Z=0x55E380",
-    "?Init@DLPGroup@@QAEXHH@Z=0x559040",
-    "?Init@DLPTemplate@@QAEXHHH@Z=0x5583D0",
-    "?Init@DSGlobal@@QAEHKEPAIPADFF@Z=0x4EF550",
-    "?Init@EngineAudio@@QAEXPAD0@Z=0x4867A0",
-    "?Init@EngineAudio@@QAEXPAVVector3@@@Z=0x486550",
-    "?Init@EngineAudioOpponent@@QAEXF@Z=0x485900",
-    "?Init@EngineAudioOpponent@@QAEXXZ=0x485890",
-    "?Init@FloatArray@@QAEXH@Z=0x573860",
-    "?Init@HashTable@@QAEXH@Z=0x5780A0",
-    "?Init@IntArray@@QAEXH@Z=0x573540",
-    "?Init@ipcMessageQueue@@QAEXHH@Z=0x578870",
-    "?Init@Joint3Dof@@QAEXXZ=0x4DBC70",
-    "?Init@MArray@@QAEXH@Z=0x4AB7D0",
-    "?Init@MenuManager@@QAEXHHPAD@Z=0x4AF270",
-    "?Init@MenuManager@@QAEXPAVasCamera@@HHMMMM@Z=0x4AF600",
-    "?Init@MixerCTL@@QAEKXZ=0x4EE140",
-    "?Init@mmAnimDOF@@QAEHPAVmmAnimTrigger@@PADAAVVector3@@2HPAH@Z=0x4C4580",
-    "?Init@mmAnimExcel@@QAEHPAD0@Z=0x4C3530",
-    "?Init@mmAnimMgr@@QAEHPADPAVmmInstance@@PAPAV2@H@Z=0x4C11F0",
-    "?Init@mmAnimPlane@@QAEXHPAD0PAVVector3@@HHPAM@Z=0x4C50C0",
-    "?Init@mmAnimSpline@@QAEHPADH@Z=0x4C3850",
-    "?Init@mmAnimTrain@@QAEXHPAD0PAVVector3@@HHPAM@Z=0x4C6080",
-    "?Init@mmAnimTrainCar@@QAEXPAD0@Z=0x4C8060",
-    "?Init@mmAnimTrigger@@QAEXM@Z=0x4C4270",
-    "?Init@mmAnimTrigger@@QAEXPAHM@Z=0x4C4240",
-    "?Init@mmAnimTrigger@@QAEXPAVmmInstance@@H@Z=0x4C4200",
-    "?Init@mmAnimTrigger@@QAEXPAVVector3@@PAM@Z=0x4C4220",
-    "?Init@mmArrow@@QAEXPAVMatrix34@@@Z=0x4064C0",
-    "?Init@mmAxle@@QAEXPAD0PAVmmWheel@@1@Z=0x47D4A0",
-    "?Init@mmBangerManager@@QAEXH@Z=0x4CACD0",
-    "?Init@mmBoat@@QAEXHPAD0PAVVector3@@HHPAM@Z=0x4C7270",
-    "?Init@mmBridgeMgr@@QAEXPADPAVmmInstance@@PAPAV2@H@Z=0x4C18A0",
-    "?Init@mmBridgeSet@@QAEHPADPAVStream@@@Z=0x4C22C0",
-    "?Init@mmBuildingInstance@@QAEHPADAAVVector3@@11@Z=0x4944A0",
-    "?Init@mmCar@@QAEXPADHH@Z=0x473530",
-    "?Init@mmCarModel@@QAEXPADPAVmmCar@@H@Z=0x472DC0",
-    "?Init@mmCarSim@@QAEXPADPAVmmCar@@H@Z=0x46C500",
-    "?Init@mmCDPlayer@@QAEXPAVmmHUD@@@Z=0x423080",
-    "?Init@mmCellRenderer@@QAEXPADHHHHPAH@Z=0x4989E0",
-    "?Init@mmCircuitHUD@@QAEXXZ=0x4249A0",
-    "?Init@mmCityList@@QAEXH@Z=0x4CBC90",
-    "?Init@mmCollideFF@@UAEHPAUIDirectInputDevice2A@@@Z=0x4E7470",
-    "?Init@mmCompCRPlayer@@QAEXPADH0HH@Z=0x4B73D0",
-    "?Init@mmCompDRecord@@QAEXHPADM0HHH@Z=0x4B5B70",
-    "?Init@mmCompRaceRecord@@QAEXHPAD0000HH@Z=0x4B49D0",
-    "?Init@mmCompRoster@@QAEXPAD00K@Z=0x4B7940",
-    "?Init@mmCRHUD@@QAEXPAVasLinearCS@@PADW4mmCRGameClass@@@Z=0x425410",
-    "?Init@mmCullCity@@QAEXPADPAVasCamera@@@Z=0x48C6D0",
-    "?Init@mmDamage@@QAEXPAVagiMeshSet@@@Z=0x502240",
-    "?Init@mmDashView@@QAEXPADPAVmmPlayer@@@Z=0x421880",
-    "?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z=0x4CB7E0",
-    "?Init@mmDrivetrain@@QAEXPAVmmCarSim@@@Z=0x47FE90",
-    "?Init@mmDropDown@@QAEXPAVasCamera@@PAXMMMMVstring@@H@Z=0x4C08F0",
-    "?Init@mmEngine@@QAEXPAVmmCarSim@@@Z=0x47C9A0",
-    "?Init@mmExternalView@@QAEXPAVmmPlayer@@@Z=0x422170",
-    "?Init@mmFrictionFF@@UAEHPAUIDirectInputDevice2A@@@Z=0x4E7AA0",
-    "?Init@mmGame@@QAEHXZ=0x40EA00",
-    "?Init@mmGameEdit@@QAEHXZ=0x4122D0",
-    "?Init@mmGameMulti@@QAEHXZ=0x430870",
-    "?Init@mmGameRecord@@QAEXH@Z=0x4FDDE0",
-    "?Init@mmGameSingle@@QAEHXZ=0x416DF0",
-    "?Init@mmGate@@QAEXVVector2@@0@Z=0x430170",
-    "?Init@mmGearIndicator@@QAEXPAVmmExternalView@@PAVmmPlayer@@@Z=0x423DE0",
-    "?Init@mmHUD@@QAEXPADPAVmmPlayer@@@Z=0x4053E0",
-    "?Init@mmHudMap@@QAEXPAVasCamera@@PAVMatrix34@@PAVmmHUD@@PAVmmGame@@PAD@Z=0x4281B0",
-    "?Init@mmIcons@@QAEXPAVMatrix34@@MM@Z=0x426470",
-    "?Init@mmInput@@QAEXH@Z=0x4E1C60",
-    "?Init@mmInstance@@UAEHPADAAVVector3@@1H0@Z=0x492B20",
-    "?Init@mmInstChain@@QAEXH@Z=0x4922B0",
-    "?Init@mmIO@@QAEXPADHJ@Z=0x4E4BB0",
-    "?Init@mmIODev@@QAEXH_J@Z=0x4E50B0",
-    "?Init@mmJoyMan@@QAEHPAUHINSTANCE__@@PAUHWND__@@@Z=0x4E5AE0",
-    "?Init@mmJoystick@@QAEHPAUIDirectInputDevice2A@@PAUHWND__@@@Z=0x4E6360",
-    "?Init@mmLinearGauge@@QAEXPADPAM11HPAVmmExternalView@@@Z=0x423A90",
-    "?Init@mmLoader@@QAEXPADMM@Z=0x48B720",
-    "?Init@mmMatrixInstance@@QAEHPADAAVVector3@@11H0@Z=0x493480",
-    "?Init@mmMouseSteerBar@@QAEXMMPAM@Z=0x502960",
-    "?Init@mmMultiBlitz@@QAEHXZ=0x419010",
-    "?Init@mmMultiCircuit@@QAEHXZ=0x41A9E0",
-    "?Init@mmMultiCR@@QAEHXZ=0x41C140",
-    "?Init@mmMultiRace@@QAEHXZ=0x41FA60",
-    "?Init@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z=0x432900",
-    "?Init@mmNetworkCarAudio@@QAEXPAVmmCarSim@@G@Z=0x4834A0",
-    "?Init@mmNumber@@QAEXPAVmmNumberFont@@MM@Z=0x4FEAB0",
-    "?Init@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z=0x47BA30",
-    "?Init@mmPed@@QAEXPADAAVVector3@@@Z=0x497820",
-    "?Init@mmPedManager@@QAEXH@Z=0x4979B0",
-    "?Init@mmPhysicsMGR@@QAEXPAVasInertialCS@@PAVmmViewCS@@@Z=0x4D4430",
-    "?Init@mmPlayer@@QAEXPAD0PAVmmGame@@@Z=0x42A520",
-    "?Init@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z=0x481BA0",
-    "?Init@mmPolygon@@AAEXXZ=0x51A820",
-    "?Init@mmPositions@@QAEXH@Z=0x491E10",
-    "?Init@mmRadGauge@@QAEXPAM0PAVmmExternalView@@HI@Z=0x423C30",
-    "?Init@mmRoadFF@@UAEHPAUIDirectInputDevice2A@@@Z=0x4E77C0",
-    "?Init@mmShard@@QAEXPADH@Z=0x4785A0",
-    "?Init@mmShardManager@@QAEXPADHPAVmmCarSim@@@Z=0x4788F0",
-    "?Init@mmShearInstance@@QAEHPADAAVVector3@@1MH0@Z=0x4942A0",
-    "?Init@mmShock@@QAEXPAD0PAVmmWheel@@@Z=0x47D210",
-    "?Init@mmSingleBlitz@@QAEHXZ=0x413060",
-    "?Init@mmSingleCircuit@@QAEHXZ=0x414D50",
-    "?Init@mmSkid@@QAEXPAD@Z=0x477870",
-    "?Init@mmSkidManager@@QAEXPADHPAVmmWheel@@@Z=0x477BD0",
-    "?Init@mmSky@@QAEXPAD@Z=0x495650",
-    "?Init@mmSlider@@QAEXPADPAVuiWidget@@MMMMHMMHH@Z=0x4BE7D0",
-    "?Init@mmSpeedIndicator@@QAEXPAVmmExternalView@@PAVmmCarSim@@@Z=0x423F90",
-    "?Init@mmSplash@@QAEXPAVasInertialCS@@VVector3@@1@Z=0x481070",
-    "?Init@mmSpringFF@@UAEHPAUIDirectInputDevice2A@@@Z=0x4E7D50",
-    "?Init@mmStaticInstance@@QAEHPADAAVVector3@@1MH0@Z=0x493610",
-    "?Init@mmStuck@@QAEXPAVmmCarSim@@@Z=0x47C520",
-    "?Init@mmTextNode@@QAEXMMMMHH@Z=0x4FF540",
-    "?Init@mmTimer@@QAEXHM@Z=0x406210",
-    "?Init@mmToggle2@@QAEXPADMMPAH@Z=0x4BFF90",
-    "?Init@mmToggle@@QAEXPADMMMM@Z=0x4C03F0",
-    "?Init@mmToolTip@@QAEXPAVUIMenu@@PAULocString@@@Z=0x4BF1B0",
-    "?Init@mmTrailer@@QAEXPADPAVmmCarSim@@VVector3@@@Z=0x479480",
-    "?Init@mmTrailerInstance@@QAEXPADPAVVector3@@@Z=0x479770",
-    "?Init@mmTransmission@@QAEXPAVmmCarSim@@@Z=0x470500",
-    "?Init@mmUnhitBangerInstance@@UAEHPADAAVVector3@@1H0@Z=0x4CA5F0",
-    "?Init@mmVehList@@QAEXH@Z=0x4CC100",
-    "?Init@mmViewCS@@QAEXXZ=0x4F9260",
-    "?Init@mmWaypoints@@QAEHPAVmmPlayer@@PADHHHH@Z=0x42D9D0",
-    "?Init@mmWheel@@QAEXPAD0VVector3@@PAVasInertialCS@@HPAVmmBoundTemplate@@H@Z=0x47DA20",
-    "?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z=0x474950",
-    "?Init@mmWPHUD@@QAEXHPAH0H@Z=0x4243F0",
-    "?Init@PointCamCS@@QAEXPAVmmCar@@@Z=0x4F9E50",
-    "?Init@PolarCamCS@@QAEXPAVmmCar@@@Z=0x4FABB0",
-    "?Init@PostCamCS@@QAEXPAVmmCar@@@Z=0x4F95C0",
-    "?Init@PreCamCS@@QAEXPAVmmCar@@@Z=0x4F9A30",
-    "?Init@Quaternion@@QAEXMMMM@Z=0x572550",
-    "?Init@RaceMenuBase@@QAEXH@Z=0x4A6500",
-    "?Init@RadialGauge@@QAEXPAD0PAM1M@Z=0x4238B0",
-    "?Init@RDynamicDLP@@UAEHPAD@Z=0x551360",
-    "?Init@sfPointer@@QAEXXZ=0x4BDA00",
-    "?Init@SoundObj@@QAEHGKF@Z=0x4F1C90",
-    "?Init@SoundObj@@QAEHPBDKF@Z=0x4F1BD0",
-    "?Init@Spline@@QAEXPAMH@Z=0x4FD420",
-    "?Init@StreamObj@@QAEHPBDK@Z=0x4F5200",
-    "?Init@string@@QAEXH@Z=0x49A6F0",
-    "?Init@StringArray@@QAEXH@Z=0x57AE60",
-    "?Init@TextDropWidget@@QAEXPAVasCamera@@PAXMMMMMVstring@@H@Z=0x4BE0B0",
-    "?Init@TransitionCS@@QAEXPAVmmCar@@@Z=0x4FB550",
-    "?Init@UIBMButton@@QAEXPADMMHHPAHHHPAULocString@@VCallback@@3@Z=0x4B61C0",
-    "?Init@UIBMLabel@@QAEXPAVstring@@MMPAH@Z=0x4B4360",
-    "?Init@UIButton@@QAEXPAULocString@@HMMMMHVCallback@@@Z=0x4B9C50",
-    "?Init@UICompositeScroll@@QAEXMMMMMHPAHHHVCallback@@@Z=0x4B5050",
-    "?Init@UIControlWidget@@QAEXMMMMMPAVmmIO@@VCallback@@@Z=0x4BBC40",
-    "?Init@UICWArray@@QAEXMMMMHVCallback@@@Z=0x4B7D50",
-    "?Init@UIIcon@@QAEXPADMM@Z=0x4B9960",
-    "?Init@UIIconW@@QAEXPAULocString@@PADMMMMVCallback@@@Z=0x4BC220",
-    "?Init@UILabel@@QAEXPAULocString@@HMMMMH@Z=0x4B96F0",
-    "?Init@UIMexButton@@QAEXPAULocString@@PAHHMMMMHHVCallback@@@Z=0x4BCB40",
-    "?Init@UISlider@@QAEXPAULocString@@PAMMMMMMMHHHHVCallback@@PAVUIMenu@@@Z=0x4B3AB0",
-    "?Init@UITextDropdown@@QAEXPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z=0x4B2FD0",
-    "?Init@UITextField@@QAEXPAULocString@@PADMMMMHHHHHVCallback@@PAVUIMenu@@@Z=0x4B22E0",
-    "?Init@UITextRoller2@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z=0x4BACD0",
-    "?Init@UITextRoller@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z=0x4BA0E0",
-    "?Init@UITextScroll@@QAEXPAXMMMMVstring@@HPAHVCallback@@@Z=0x4B8980",
-    "?Init@UIToggleButton2@@QAEXPAULocString@@PAHMMMMHHVCallback@@@Z=0x4BC7C0",
-    "?Init@UIToggleButton@@QAEXPAULocString@@PAHMMMMHHVCallback@@@Z=0x4BC580",
-    "?Init@UIVScrollBar@@QAEXMMMMHMMPAHVCallback@@H@Z=0x4BCE90",
-    "?Init@Vector2Array@@QAEXH@Z=0x5712C0",
-    "?Init@Vector3Array@@QAEXH@Z=0x566E80",
-    "?Init@Vector4Array@@QAEXH@Z=0x56E040",
-    "?Init@VSWidget@@QAEXMMMMPAHVCallback@@H@Z=0x4BF3F0",
-    "?Init@WArray@@QAEXH@Z=0x4ABE60",
-    "?InitAudioManager@@YAXXZ=0x402F40",
-    "?InitBank@@YAXHPAPAD@Z=0x522FC0",
-    "?InitBoat@mmAnimSpline@@QAEHXZ=0x4C3A90",
-    "?InitBreakables@mmBangerData@@QAEXPAD@Z=0x4C8F10",
-    "?InitBreakables@mmUnhitBangerInstance@@QAEXPAD0PAVmmBangerData@@@Z=0x4CA560",
-    "?InitBridge@mmDrawbridgeInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z=0x4C4510",
-    "?InitBuiltin@@YAXXZ=0x557FE0",
-    "?InitCards@agiMeshSet@@SAXAAUagiMeshCardInfo@@@Z=0x50EE30",
-    "?InitCarSelection@VehicleSelectBase@@QAEXHMMMM@Z=0x49AA90",
-    "?InitCityADF@AudManager@@QAEXHK@Z=0x4E8930",
-    "?InitCityADF@DSGlobal@@QAEHPADHK@Z=0x4F01C0",
-    "?InitCommonStuff@MenuManager@@QAEXHH@Z=0x4AF870",
-    "?InitCustomControls@ControlSetup@@QAEXXZ=0x4A35F0",
-    "?InitDamage@mmCarModel@@QAEXXZ=0x472BF0",
-    "?InitDev@mmIO@@QAEXH_JHHH@Z=0x4E4C10",
-    "?InitDriverRecord@Dialog_DriverRec@@QAEXH@Z=0x49EF90",
-    "?InitDummy@SoundObj@@QAEHXZ=0x4F1A20",
-    "?InitEventQueue@@YAXXZ=0x562DF0",
-    "?InitFacade@mmFacadeInstance@@QAEHPADAAVVector3@@1MHABV2@@Z=0x493CC0",
-    "?InitFacet@RDLP@@AAEHPAUagiPatch@@HHHH@Z=0x5508A0",
-    "?InitFields@MetaClass@@QAEXXZ=0x577C70",
-    "?InitGameObjects@mmGameEdit@@UAEXXZ=0x412430",
-    "?InitGameObjects@mmGameSingle@@UAEXXZ=0x417040",
-    "?InitGameObjects@mmMultiBlitz@@UAEXXZ=0x419230",
-    "?InitGameObjects@mmMultiCircuit@@UAEXXZ=0x41ABC0",
-    "?InitGameObjects@mmMultiCR@@UAEXXZ=0x41C4E0",
-    "?InitGameObjects@mmMultiRace@@UAEXXZ=0x41FC70",
-    "?InitGameObjects@mmSingleBlitz@@UAEXXZ=0x4132D0",
-    "?InitGameObjects@mmSingleCircuit@@UAEXXZ=0x414F90",
-    "?InitGameStrings@mmGame@@UAEXXZ=0x40FAC0",
-    "?InitGameStrings@mmGameMulti@@UAEXXZ=0x430AA0",
-    "?InitGeometry@mmBoundTemplate@@QAEXHH@Z=0x5171D0",
-    "?InitGlobalStrings@MenuManager@@QAEXXZ=0x4AFB60",
-    "?InitHUD@mmGameEdit@@UAEXXZ=0x4123F0",
-    "?InitHUD@mmGameSingle@@UAEXXZ=0x416FE0",
-    "?InitHUD@mmMultiBlitz@@UAEXXZ=0x4191B0",
-    "?InitHUD@mmMultiCircuit@@UAEXXZ=0x41AB70",
-    "?InitHUD@mmMultiCR@@UAEXXZ=0x41C3A0",
-    "?InitHUD@mmMultiRace@@UAEXXZ=0x41FC10",
-    "?InitHUD@mmSingleBlitz@@UAEXXZ=0x413250",
-    "?InitHUD@mmSingleCircuit@@UAEXXZ=0x414F40",
-    "?Initialize@asNetwork@@QAEHHHH@Z=0x489020",
-    "?InitializeLobby@asNetwork@@QAEHHH@Z=0x489080",
-    "?InitJoint3Dof@Joint3Dof@@QAEXPAVasInertialCS@@ABVVector3@@01@Z=0x4DBCF0",
-    "?InitLobby@mmInterface@@QAEXXZ=0x40CD10",
-    "?InitLocalize@agiMeshSet@@SAXXZ=0x504A00",
-    "?InitMap@@YAXXZ=0x5201C0",
-    "?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z=0x493250",
-    "?InitMtx@agiMeshSet@@KIXAAVagiViewParameters@@H@Z=0x504730",
-    "?InitMtx@agiProjVtx@@SAXAAVMatrix34@@MMMM@Z=0x5524F0",
-    "?InitMyPlayer@mmGameEdit@@UAEXXZ=0x412380",
-    "?InitMyPlayer@mmGameSingle@@UAEXXZ=0x416F70",
-    "?InitMyPlayer@mmMultiBlitz@@UAEXXZ=0x419140",
-    "?InitMyPlayer@mmMultiCircuit@@UAEXXZ=0x41AB00",
-    "?InitMyPlayer@mmMultiCR@@UAEXXZ=0x41C2A0",
-    "?InitMyPlayer@mmMultiRace@@UAEXXZ=0x41FBA0",
-    "?InitMyPlayer@mmSingleBlitz@@UAEXXZ=0x4131E0",
-    "?InitMyPlayer@mmSingleCircuit@@UAEXXZ=0x414ED0",
-    "?InitNetwork@mmInterface@@AAEXXZ=0x40CC20",
-    "?InitNetworkPlayers@mmMultiBlitz@@UAEXXZ=0x4194C0",
-    "?InitNetworkPlayers@mmMultiCircuit@@UAEXXZ=0x41AE30",
-    "?InitNetworkPlayers@mmMultiCR@@UAEXXZ=0x41C940",
-    "?InitNetworkPlayers@mmMultiRace@@UAEXXZ=0x41FF40",
-    "?InitObject@DataCache@@AAEXHPAHP6AXPAXH@Z1PAEI@Z=0x5775C0",
-    "?InitObjectDetail@mmCullCity@@QAEXXZ=0x48CEA0",
-    "?InitOffsets@DynamicDLP@@QAEHPAVDLP@@PAD@Z=0x55E620",
-    "?InitOtherPlayers@mmGame@@UAEXXZ=0x40F8C0",
-    "?InitOtherPlayers@mmGameEdit@@UAEXXZ=0x412EC0",
-    "?InitOtherPlayers@mmGameMulti@@UAEXXZ=0x4316E0",
-    "?InitOtherPlayers@mmGameSingle@@UAEXXZ=0x417340",
-    "?InitOtherPlayers@mmSingleBlitz@@UAEXXZ=0x413540",
-    "?InitOtherPlayers@mmSingleCircuit@@UAEXXZ=0x415200",
-    "?InitPhysics@mmBangerData@@QAEHPAD0@Z=0x4C9150",
-    "?InitPipeline@@YAHPADHPAPAD@Z=0x523210",
-    "?InitPlane@mmAnimSpline@@QAEHXZ=0x4C3AA0",
-    "?InitPlayback@eqReplay@@SAXPAD@Z=0x564750",
-    "?InitPlayback@eqReplayChannel@@UAEXXZ=0x564690",
-    "?InitPlayerInfo@mmInterface@@QAEXXZ=0x407A90",
-    "?InitPlayerRecord@CRSettings@@QAEXXZ=0x4A1050",
-    "?InitPlayerSelection@DriverMenu@@QAEXXZ=0x4A5460",
-    "?InitPositions@@YAXXZ=0x491900",
-    "?InitPrimarySoundBuffer@DSGlobal@@QAEHKEPAD@Z=0x4EFBD0",
-    "?InitProblems@@YAXXZ=0x560DB0",
-    "?InitProtocols@mmInterface@@AAEXXZ=0x40CD80",
-    "?InitPtx@mmCarSim@@QAEXXZ=0x46F5B0",
-    "?InitRaceRecord@Dialog_HallOfFame@@QAEXXZ=0x49EA50",
-    "?InitRecord@eqReplay@@SAXPAD@Z=0x5646C0",
-    "?InitRecord@eqReplayChannel@@UAEXXZ=0x564680",
-    "?InitRemap@DLPTemplate@@QAEXAAV?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@AAV?$agiLib@VagiTexParameters@@"
-    "VagiTexDef@@@@AAV?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@@Z=0x558A40",
-    "?InitRoster@mmGameMulti@@UAEXXZ=0x431960",
-    "?InitSegment@mmEdgeBodyIsect@@QAEXABVVector3@@0HH0M@Z=0x51A680",
-    "?InitSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z=0x51A1C0",
-    "?InitSensitivity@ControlBase@@QAEXXZ=0x4AB720",
-    "?InitSnowTextures@mmCullCity@@AAEXXZ=0x48D100",
-    "?InitSpark@asBirthRule@@QAEXPAUasSparkInfo@@PAUasSparkPos@@@Z=0x500AB0",
-    "?InitSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z=0x51A3B0",
-    "?InitString@mmDropDown@@QAEXVstring@@@Z=0x4C09F0",
-    "?InitTextScroll@UITextScroll@@AAEXVstring@@@Z=0x4B9370",
-    "?InitTimeOfDayAndWeather@mmCullCity@@AAEXXZ=0x48DB10",
-    "?InitTitle@mmCompCRPlayer@@QAEXMMMMPAULocString@@000H@Z=0x4B7500",
-    "?InitTitle@mmCompDRecord@@QAEXMMMMPAULocString@@0000H@Z=0x4B5C60",
-    "?InitTitle@mmCompRaceRecord@@QAEXMMMMPAULocString@@00000H@Z=0x4B4A60",
-    "?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z=0x4B79C0",
-    "?InitTrain@mmAnimSpline@@QAEHXZ=0x4C3B40",
-    "?InitTransformedSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z=0x51A2D0",
-    "?InitTransformedSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z=0x51A410",
-    "?InitTrigger@mmBridgeSet@@QAEXXZ=0x4C2290",
-    "?InitUIADF@AudManager@@QAEXHK@Z=0x4E89E0",
-    "?InitUIADF@DSGlobal@@QAEHPADHK@Z=0x4F0280",
-    "?InitViewport@agiMeshSet@@KIXAAVagiViewParameters@@@Z=0x504EB0",
-    "?InitVScroll@UICompositeScroll@@QAEXMMM@Z=0x4B5290",
-    "?InitVScroll@UITextScroll@@QAEXMMM@Z=0x4B8CF0",
-    "?InPersuit@aiVehiclePolice@@QAEHXZ=0x4459D0",
-    "?InputCreateEffect@mmJoystick@@QAEXXZ=0x4E6A90",
-    "?inputEnumDeviceProc@@YGHPAUDIDEVICEINSTANCEA@@PAX@Z=0x4E5A60",
-    "?inputEnumEffectTypeProc@@YGHPBUDIEFFECTINFOA@@PAX@Z=0x4E7350",
-    "?InputInitEffect@mmJoystick@@QAEXXZ=0x4E6BB0",
-    "?inputPrepareDevice@mmJoystick@@QAEHXZ=0x4E6470",
-    "?inputSetup@@YAHHHHHH@Z=0x563DE0",
-    "?InputStopEffect@mmJoystick@@QAEXXZ=0x4E6BF0",
-    "?InRange@Spline@@QAEHXZ=0x4FD550",
-    "?Insert@HashTable@@QAEHPADPAX@Z=0x5781D0",
-    "?Insert@List@@QAEHHPAX@Z=0x57C2B0",
-    "?InsertChild@asNode@@QAEHHPAV1@@Z=0x523AF0",
-    "?Instance@mmViewCS@@SAPAV1@PAVasCamera@@@Z=0x4F9080",
-    "?Int64Val@MiniParser@@QAE_JXZ=0x57CD40",
-    "?IntegrityCheck@DupBuffCreator@@AAEHPAUIDirectSoundBuffer@@0PAH@Z=0x4EF010",
-    "?Interpolate@Matrix34@@QAEXABV1@0M@Z=0x56D5B0",
-    "?Intersection@aiMap@@QAEPAVaiIntersection@@H@Z=0x433E80",
-    "?IntersectionEntryPt@aiPath@@QAEXAAVVector3@@HM@Z=0x43F7D0",
-    "?IntersectionEntryVector@aiPath@@QAEXAAVVector3@@M@Z=0x43F890",
-    "?IntersectionExitVector@aiPath@@QAEXAAVVector3@@M@Z=0x43F910",
-    "?IntVal@MiniParser@@QAEHXZ=0x57CD00",
-    "?Inverse@Matrix34@@QBE?AV1@XZ=0x5687A0",
-    "?Inverse@Matrix44@@QBE?AV1@XZ=0x56F8E0",
-    "?invert@@YANN@Z=0x5225F0",
-    "?InvMag@Vector2@@QBEMXZ=0x571260",
-    "?InvMag@Vector3@@QBEMXZ=0x566960",
-    "?invsqrtf_fast@@YAMM@Z=0x570F80",
-    "?IOInit@mmInput@@QAEXHPAULocString@@J@Z=0x4E0ED0",
-    "?IPAddressCallback@Dialog_Serial@@QAEXXZ=0x4A0120",
-    "?IPAddressCallback@Dialog_TCPIP@@QAEXXZ=0x4A0510",
-    "?IPAddressCallback@NetSelectMenu@@QAEXXZ=0x4A4700",
-    "?ipcCloseHandle@@YAXI@Z=0x578740",
-    "?ipcCloseSpinLock@@YAXPAI@Z=0x578B00",
-    "?ipcCreateEvent@@YAIH@Z=0x578650",
-    "?ipcCreateMutex@@YAIH@Z=0x578670",
-    "?ipcCreateSpinLock@@YAXPAI@Z=0x578AF0",
-    "?ipcCreateThread@@YAIP6GKPAX@Z0PAK@Z=0x578690",
-    "?ipcReleaseMutex@@YAXI@Z=0x5786D0",
-    "?ipcSleep@@YAXI@Z=0x578770",
-    "?ipcSpinLock@@YAXPAI@Z=0x578A70",
-    "?ipcSpunUnlock@@YAXPAI@Z=0x578AC0",
-    "?ipcTriggerEvent@@YAXI@Z=0x5786B0",
-    "?ipcWaitMultiple@@YAHHPAIH@Z=0x578720",
-    "?ipcWaitSingle@@YAXI@Z=0x5786F0",
-    "?ipcYield@@YAXXZ=0x578760",
-    "?irand@@YAHH@Z=0x564A00",
-    "?irand@@YAHXZ=0x564A30",
-    "?IsActive@TextDropWidget@@QAEHXZ=0x4BE470",
-    "?IsAlley@mmRoadSect@@QAEHXZ=0x4D2990",
-    "?IsAlreadyAssigned@mmInput@@QAEHPAVmmIO@@HHH@Z=0x4E2110",
-    "?IsAlwaysEAX@AudManager@@QAEIXZ=0x4E97C0",
-    "?IsAlwaysEAX@DSGlobal@@QAEIXZ=0x4F0AC0",
-    "?IsAmbientBlockingPlayer@aiVehicleSpline@@QAEHXZ=0x45BB60",
-    "?IsAnOptionMenu@OptionsBase@@UAEHXZ=0x49A6E0",
-    "?IsAnOptionMenu@UIMenu@@UAEHXZ=0x49C4F0",
-    "?IsAvailable@agiD3DTexDef@@UAEHXZ=0x531F60",
-    "?IsAvailable@agiSWTexDef@@UAEHXZ=0x537810",
-    "?IsAvailable@agiTexDef@@UAEHXZ=0x5567F0",
-    "?IsBlocked@mmRoadSect@@QAEHH@Z=0x4D28B0",
-    "?IsDashActive@mmHUD@@QAEHXZ=0x405860",
-    "?IsDivided@mmRoadSect@@QAEHXZ=0x4D2970",
-    "?IsDrivingDisabled@mmCar@@QAEHXZ=0x473DE0",
-    "?IsDSDeviceInList@@YAHPAU_GUID@@@Z=0x4EF850",
-    "?IsEnabled@mmPopup@@QAEHXZ=0x427020",
-    "?IsEnvEnabled@RaceMenuBase@@QAEHXZ=0x4A7670",
-    "?IsFullyResident@agiMeshSet@@QAEHH@Z=0x514BC0",
-    "?IsMaxDamaged@mmPlayer@@QAEHXZ=0x42C490",
-    "?IsModemDialin@@YA_NXZ=0x409CD0",
-    "?IsNumeric@string@@QBEHXZ=0x57AE10",
-    "?IsPedBlocked@mmRoadSect@@QAEHH@Z=0x4D28F0",
-    "?IsPerpACop@aiGoalChase@@AAEHPAVmmCar@@@Z=0x460670",
-    "?IsPerpInRange@aiVehiclePolice@@QAEHPAVmmCar@@@Z=0x445A00",
-    "?IsPlaying@AudSound@@QAEHH@Z=0x4EB690",
-    "?IsPlaying@AudStream@@QAEHXZ=0x4F40E0",
-    "?IsPlaying@mmCarRoadFF@@QAEHXZ=0x481760",
-    "?IsPlaying@SoundObj@@QAEFF@Z=0x4F2390",
-    "?IsPlaying@StreamObj@@QAEFXZ=0x4F5750",
-    "?IsPolyWater@mmCullCity@@QAEHPAVmmPolygon@@@Z=0x48D590",
-    "?IsPopupEnabled@mmGame@@QAEHXZ=0x410230",
-    "?IsPOV@mmPlayer@@QAEHXZ=0x42AC10",
-    "?IsQuadCoplanar@@YAHAAVVector3@@000@Z=0x572210",
-    "?IsReadWrite@mmSlider@@QAEHXZ=0x4BEA00",
-    "?IsReadWrite@UISlider@@QAEHXZ=0x4B4040",
-    "?IsStereo@AudManager@@QAEHXZ=0x4E9600",
-    "?IsSubclassOf@MetaClass@@QAEHPAV1@@Z=0x577BB0",
-    "?IsTexture@agiRefreshable@@MAEHXZ=0x557BA0",
-    "?IsTexture@agiTexDef@@UAEHXZ=0x556430",
-    "?IsThePlayerInFrontOfMe@aiVehicleSpline@@QAEHXZ=0x45BA60",
-    "?IsValid@mmVehInfo@@QAEHXZ=0x49C590",
-    "?IsValidChar@UITextField@@QAEHG@Z=0x4B2980",
-    "?IsValidPointer@@YAHPAXIH@Z=0x523510",
-    "?IsViewCSInTransition@BaseCamCS@@QAEHXZ=0x4FBEC0",
-    "?IsVisible@asMidgets@@AAEHH@Z=0x526E90",
-    "?jcopy_block_row@@YAXPAY0EA@F0I@Z=0x580F50",
-    "?jcopy_sample_rows@@YAXPAPAEH0HHI@Z=0x580F00",
-    "?jdiv_round_up@@YAJJJ@Z=0x580EC0",
-    "?jinit_color_deconverter@@YAXPAUjpeg_decompress_struct@@@Z=0x583130",
-    "?jinit_d_coef_controller@@YAXPAUjpeg_decompress_struct@@E@Z=0x581730",
-    "?jinit_d_main_controller@@YAXPAUjpeg_decompress_struct@@E@Z=0x581070",
-    "?jinit_d_post_controller@@YAXPAUjpeg_decompress_struct@@E@Z=0x582840",
-    "?jinit_huff_decoder@@YAXPAUjpeg_decompress_struct@@@Z=0x581F80",
-    "?jinit_input_controller@@YAXPAUjpeg_decompress_struct@@@Z=0x57DB10",
-    "?jinit_inverse_dct@@YAXPAUjpeg_decompress_struct@@@Z=0x5825E0",
-    "?jinit_marker_reader@@YAXPAUjpeg_decompress_struct@@@Z=0x57E380",
-    "?jinit_master_decompress@@YAXPAUjpeg_decompress_struct@@@Z=0x580AE0",
-    "?jinit_memory_mgr@@YAXPAUjpeg_common_struct@@@Z=0x57FD10",
-    "?jinit_upsampler@@YAXPAUjpeg_decompress_struct@@@Z=0x5829E0",
-    "?JoinCallback@NetSelectMenu@@QAEXXZ=0x4A44B0",
-    "?JoinCB@NetSelectMenu@@QAEXXZ=0x4A4400",
-    "?JoinGame@mmInterface@@AAEXXZ=0x409F90",
-    "?JoinLAN@mmInterface@@AAEXXZ=0x40A010",
-    "?JoinLobbySession@asNetwork@@QAEHXZ=0x489150",
-    "?JoinModem@mmInterface@@AAEHXZ=0x40A100",
-    "?JoinPasswordSession@mmInterface@@AAEHH@Z=0x40D200",
-    "?JoinSerial@mmInterface@@AAEHXZ=0x40A070",
-    "?JoinSession@asNetwork@@QAEHHPAD@Z=0x48B240",
-    "?JoinSession@asNetwork@@QAEHPADPAU_GUID@@0@Z=0x48A170",
-    "?JoinSession@mmInterface@@AAEHH@Z=0x40D000",
-    "?JoystickConnected@mmInput@@QAEHXZ=0x4E39A0",
-    "?JoystickHasCoolie@mmInput@@QAEHXZ=0x4E3A00",
-    "?JoystickHasThrottle@mmInput@@QAEHXZ=0x4E3A10",
-    "?jpeg_abort@@YAXPAUjpeg_common_struct@@@Z=0x580960",
-    "?jpeg_abort_decompress@@YAXPAUjpeg_decompress_struct@@@Z=0x57D100",
-    "?jpeg_alloc_huff_table@@YAPAUJHUFF_TBL@@PAUjpeg_common_struct@@@Z=0x580A00",
-    "?jpeg_alloc_quant_table@@YAPAUJQUANT_TBL@@PAUjpeg_common_struct@@@Z=0x5809E0",
-    "?jpeg_calc_output_dimensions@@YAXPAUjpeg_decompress_struct@@@Z=0x580A20",
-    "?jpeg_consume_input@@YAHPAUjpeg_decompress_struct@@@Z=0x57D1A0",
-    "?jpeg_CreateDecompress@@YAXPAUjpeg_decompress_struct@@HI@Z=0x57D000",
-    "?jpeg_destroy@@YAXPAUjpeg_common_struct@@@Z=0x5809B0",
-    "?jpeg_destroy_decompress@@YAXPAUjpeg_decompress_struct@@@Z=0x57D0E0",
-    "?jpeg_fill_bit_buffer@@YAEPAUbitread_working_state@@JHH@Z=0x581D60",
-    "?jpeg_finish_decompress@@YAEPAUjpeg_decompress_struct@@@Z=0x57D4A0",
-    "?jpeg_free_large@@YAXPAUjpeg_common_struct@@PAXI@Z=0x581000",
-    "?jpeg_free_small@@YAXPAUjpeg_common_struct@@PAXI@Z=0x580FC0",
-    "?jpeg_get_large@@YAPAXPAUjpeg_common_struct@@I@Z=0x580FE0",
-    "?jpeg_get_small@@YAPAXPAUjpeg_common_struct@@I@Z=0x580FA0",
-    "?jpeg_has_multiple_scans@@YAEPAUjpeg_decompress_struct@@@Z=0x57D460",
-    "?jpeg_huff_decode@@YAHPAUbitread_working_state@@JHPAUd_derived_tbl@@H@Z=0x581E80",
-    "?jpeg_idct_float@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z=0x5841B0",
-    "?jpeg_idct_ifast@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z=0x583D40",
-    "?jpeg_idct_islow@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z=0x583790",
-    "?jpeg_input_complete@@YAEPAUjpeg_decompress_struct@@@Z=0x57D420",
-    "?jpeg_make_d_derived_tbl@@YAXPAUjpeg_decompress_struct@@EHPAPAUd_derived_tbl@@@Z=0x581AA0",
-    "?jpeg_mem_available@@YAJPAUjpeg_common_struct@@JJJ@Z=0x581020",
-    "?jpeg_mem_init@@YAJPAUjpeg_common_struct@@@Z=0x581050",
-    "?jpeg_mem_term@@YAXPAUjpeg_common_struct@@@Z=0x581060",
-    "?jpeg_open_backing_store@@YAXPAUjpeg_common_struct@@PAUbacking_store_struct@@J@Z=0x581030",
-    "?jpeg_read_header@@YAHPAUjpeg_decompress_struct@@E@Z=0x57D120",
-    "?jpeg_read_raw_data@@YAIPAUjpeg_decompress_struct@@PAPAPAEI@Z=0x57D720",
-    "?jpeg_read_scanlines@@YAIPAUjpeg_decompress_struct@@PAPAEI@Z=0x57D680",
-    "?jpeg_resync_to_restart@@YAEPAUjpeg_decompress_struct@@H@Z=0x57E150",
-    "?jpeg_set_marker_processor@@YAXPAUjpeg_decompress_struct@@HP6AE0@Z@Z=0x57FCB0",
-    "?jpeg_start_decompress@@YAEPAUjpeg_decompress_struct@@@Z=0x57D570",
-    "?jpeg_std_error@@YAPAUjpeg_error_mgr@@PAU1@@Z=0x57D930",
-    "?jpeg_stdio_src@@YAXPAUjpeg_decompress_struct@@PAVStream@@@Z=0x57D7E0",
-    "?jround_up@@YAJJJ@Z=0x580EE0",
-    "?jzero_far@@YAXPAXI@Z=0x580F80",
-    "?Key@asPerfGraph@@QAEXH@Z=0x52A9E0",
-    "?Key@BMI@@UAEXHH@Z=0x527C00",
-    "?Key@floatMI@@UAEXHH@Z=0x528260",
-    "?Key@intMI@@UAEXHH@Z=0x528090",
-    "?Key@SBMI@@UAEXHH@Z=0x528340",
-    "?Key@scharMI@@UAEXHH@Z=0x527CF0",
-    "?Key@shortMI@@UAEXHH@Z=0x527EB0",
-    "?Key@SMI@@UAEXHH@Z=0x527BD0",
-    "?Key@TMI@@UAEXHH@Z=0x527C40",
-    "?Key@ucharMI@@UAEXHH@Z=0x527DD0",
-    "?Key@uintMI@@UAEXHH@Z=0x528170",
-    "?Key@ushortMI@@UAEXHH@Z=0x527FA0",
-    "?KeyAction@UITextField@@QAEXPATeqEvent@@@Z=0x4B2B80",
-    "?KeyAction@UITextScroll@@AAEXXZ=0x4B9100",
-    "?Keyboard@eqEventMonitor@@UAEXPAXHHHH@Z=0x5633E0",
-    "?Keyboard@eqEventQ@@UAEXPAXHHHH@Z=0x563C20",
-    "?KeyboardAction@UIMenu@@QAEXTeqEvent@@@Z=0x4AE880",
-    "?Kill@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXXZ=0x55A030",
-    "?Kill@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXXZ=0x55A250",
-    "?Kill@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXXZ=0x55A140",
-    "?Kill@agiPalette@@QAEXXZ=0x55C0B0",
-    "?Kill@agiTexSheet@@QAEXXZ=0x5120A0",
-    "?Kill@asMemoryAllocator@@QAEXXZ=0x520A10",
-    "?Kill@asSafeHeap@@QAEXXZ=0x521450",
-    "?Kill@HashTable@@QAEXXZ=0x578110",
-    "?Kill@List@@QAEXXZ=0x57C290",
-    "?Kill@MenuManager@@QAEXXZ=0x4B0C70",
-    "?Kill@mmCarModel@@QAEXXZ=0x4730D0",
-    "?Kill@UIBMButton@@QAEXXZ=0x4B6810",
-    "?KillAll@HashTable@@SAXXZ=0x578610",
-    "?LapsCallback@RaceMenuBase@@QAEXXZ=0x4A7950",
-    "?LaunchInstance@mmBangerData@@QAEXMPAVVector3@@@Z=0x4C8370",
-    "?LaunchJoyCpl@ControlSetup@@QAEXXZ=0x4A36F0",
-    "?LayTrack@mmSkidManager@@QAEXXZ=0x477D10",
-    "?LBoundary@aiPath@@QAEPAVVector3@@H@Z=0x459E90",
-    "?Lerp@Quaternion@@QAEXMABV1@0@Z=0x572CE0",
-    "?Lerp@Vector4@@QAEXMABV1@0@Z=0x56DF50",
-    "?LibOutOfDate@@YAHPAD0@Z=0x556AD0",
-    "?LightVertex@agiMonoLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z=0x551A20",
-    "?LightVertex@agiRGBLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z=0x551E70",
-    "?Line@agiD3DRasterizer@@UAEXHH@Z=0x52F860",
-    "?Line@agiSWRasterizer@@UAEXHH@Z=0x537CB0",
-    "?LineEq@mmGate@@QAEMMM@Z=0x4301F0",
-    "?LineGeometry@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z=0x51F120",
-    "?LineGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51F670",
-    "?LineIntersect@mmWaypoints@@QAEHVVector2@@000M@Z=0x42FD50",
-    "?LineList@agiRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z=0x557DD0",
-    "?LineSpan@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@HHHH@Z=0x51F500",
-    "?LineSpan@mmBoundTemplate@@QAEHPAVmmIntersection@@HHH@Z=0x51FB20",
-    "?LineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51F110",
-    "?LineTable@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z=0x51F1E0",
-    "?LineTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51F7A0",
-    "?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z=0x520E50",
-    "?Load@agiMtlParameters@@QAEXPAVStream@@@Z=0x55DB00",
-    "?Load@agiPalette@@QAEXPAD@Z=0x55C180",
-    "?Load@agiPhysParameters@@QAEXPAVStream@@@Z=0x556F90",
-    "?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z=0x55A7A0",
-    "?Load@agiTexParameters@@QAEXPAVStream@@@Z=0x556120",
-    "?Load@agiTexSheet@@QAEXPAD@Z=0x511B90",
-    "?Load@ArrayOfType@@UAEXPAVMiniParser@@PAX@Z=0x57B870",
-    "?Load@asAero@@QAEXPAVStream@@@Z=0x4E0130",
-    "?Load@asNode@@QAEHPAD@Z=0x523DD0",
-    "?Load@asNode@@UAEXXZ=0x524150",
-    "?Load@asRenderWeb@@QAEHPADH@Z=0x48FFF0",
-    "?Load@AudSound@@QAEHHH@Z=0x4EAB20",
-    "?Load@AudSound@@QAEHPADH@Z=0x4EA8D0",
-    "?Load@AudStream@@QAEHPADH@Z=0x4F3910",
-    "?Load@bnAnimation@@QAEHPAD@Z=0x515260",
-    "?Load@bnBone@@QAEHPAVTokenizer@@PAPAV1@@Z=0x516E80",
-    "?Load@bnSkeleton@@QAEHPBD@Z=0x514C70",
-    "?Load@CharType@@UAEXPAVMiniParser@@PAX@Z=0x57BA10",
-    "?Load@DLPGroup@@QAEXPAVStream@@@Z=0x558EC0",
-    "?Load@DLPPatch@@QAEXPAVStream@@@Z=0x559080",
-    "?Load@DLPTemplate@@QAEHPAD@Z=0x558B60",
-    "?Load@DLPTemplate@@QAEXPAVStream@@@Z=0x558640",
-    "?Load@DLPVertex@@QAEXPAVStream@@@Z=0x5594D0",
-    "?Load@FloatType@@UAEXPAVMiniParser@@PAX@Z=0x57C0C0",
-    "?Load@MetaClass@@QAEXPAVMiniParser@@PAX@Z=0x577E90",
-    "?Load@mmAnimation@@QAEXPADPAVStream@@@Z=0x497EB0",
-    "?Load@mmBoundTemplate@@QAEHPAD0PAVVector3@@HHHHHH@Z=0x517850",
-    "?Load@mmCityInfo@@QAEHPAD@Z=0x4D3650",
-    "?Load@mmCityList@@QAEXPAD@Z=0x4CBE30",
-    "?Load@mmEngine@@QAEXPAVStream@@@Z=0x47C9E0",
-    "?Load@mmInfoBase@@QAEHPAD@Z=0x4D12E0",
-    "?Load@mmMiscData@@QAEHPAD@Z=0x4CC6A0",
-    "?Load@mmPlayerConfig@@QAEHPAD@Z=0x4CDC90",
-    "?Load@mmPlayerData@@QAEHPAD@Z=0x4D0910",
-    "?Load@mmPlayerDirectory@@QAEHPAD@Z=0x4CF6A0",
-    "?Load@mmPositions@@QAEHPAD@Z=0x491E40",
-    "?Load@mmRaceData@@QAEHPAD@Z=0x4D1BE0",
-    "?Load@mmVehInfo@@QAEHPAD@Z=0x4D3A00",
-    "?Load@mmVehList@@QAEXPAD@Z=0x4CC240",
-    "?Load@mmWheel@@QAEXPAVStream@@@Z=0x47F3B0",
-    "?Load@PtrToType@@UAEXPAVMiniParser@@PAX@Z=0x57B5B0",
-    "?Load@RefToType@@UAEXPAVMiniParser@@PAX@Z=0x57B6F0",
-    "?Load@SignedCharType@@UAEXPAVMiniParser@@PAX@Z=0x57BAE0",
-    "?Load@SignedInt64Type@@UAEXPAVMiniParser@@PAX@Z=0x57BF10",
-    "?Load@SignedIntType@@UAEXPAVMiniParser@@PAX@Z=0x57BE30",
-    "?Load@SignedShortType@@UAEXPAVMiniParser@@PAX@Z=0x57BC80",
-    "?Load@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z=0x561470",
-    "?Load@StringType@@UAEXPAVMiniParser@@PAX@Z=0x57C1D0",
-    "?Load@StructType@@UAEXPAVMiniParser@@PAX@Z=0x57B980",
-    "?Load@UnsignedCharType@@UAEXPAVMiniParser@@PAX@Z=0x57BBB0",
-    "?Load@UnsignedIntType@@UAEXPAVMiniParser@@PAX@Z=0x57BFE0",
-    "?Load@UnsignedShortType@@UAEXPAVMiniParser@@PAX@Z=0x57BD60",
-    "?Load@Vector2Type@@UAEXPAVMiniParser@@PAX@Z=0x571670",
-    "?Load@Vector3Type@@UAEXPAVMiniParser@@PAX@Z=0x567360",
-    "?Load@Vector4Type@@UAEXPAVMiniParser@@PAX@Z=0x56E430",
-    "?Load@VehGyro@@QAEXPAVStream@@@Z=0x480690",
-    "?LoadAll@mmCityList@@QAEXXZ=0x4CBFA0",
-    "?LoadAll@mmVehList@@QAEXXZ=0x4CC3C0",
-    "?LoadBangers@mmCullCity@@QAEXPAD@Z=0x48CED0",
-    "?LoadBinary@mmMiscData@@QAEHPAD@Z=0x4CC7A0",
-    "?LoadBinary@mmPlayerConfig@@QAEHPAD@Z=0x4CDD60",
-    "?LoadBinary@mmPlayerData@@QAEHPAD@Z=0x4D0A90",
-    "?LoadBinary@mmPlayerDirectory@@QAEHPAD@Z=0x4CF870",
-    "?LoadBinary@mmPlayerRecord@@QAEHPAVStream@@@Z=0x4CFDC0",
-    "?LoadBinary@mmRecord@@QAEHPAVStream@@@Z=0x4D1890",
-    "?LoadBitmap@mmCompCRPlayer@@QAEXPAD@Z=0x4B7510",
-    "?LoadBitmap@mmCompDRecord@@QAEXPAD@Z=0x4B5CD0",
-    "?LoadBitmap@mmCompRaceRecord@@QAEXPAD@Z=0x4B4AD0",
-    "?LoadBitmap@mmCompRoster@@QAEXPAD@Z=0x4B79D0",
-    "?LoadBitmap@mmSlider@@QAEXPAD@Z=0x4BE830",
-    "?LoadBitmap@mmToggle2@@AAEXPAD@Z=0x4BFFC0",
-    "?LoadBitmap@mmToggle@@AAEXPAD@Z=0x4C0490",
-    "?LoadBitmap@UIBMButton@@QAEXPAD@Z=0x4B6450",
-    "?LoadBitmap@UIBMLabel@@AAEXXZ=0x4B44E0",
-    "?LoadBitmap@UIIcon@@QAEXPAD@Z=0x4B99A0",
-    "?LoadBitmap@UIVScrollBar@@QAEXXZ=0x4BCF00",
-    "?LoadBitmap@VSWidget@@QAEXXZ=0x4BF450",
-    "?LoadCFG@UICWArray@@QAEXXZ=0x4B86D0",
-    "?LoadCityADF@AudManager@@QAEXHK@Z=0x4E8880",
-    "?LoadCityADF@DSGlobal@@QAEHPADHK@Z=0x4EFFB0",
-    "?LoadConfig@mmInput@@QAEHPAVStream@@@Z=0x4E3C50",
-    "?LoadCopVoice@aiAudioManager@@QAEXXZ=0x442F90",
-    "?LoadCSV@mmMultiCR@@QAEHPAD@Z=0x41CF40",
-    "?LoadCSV@mmWaypoints@@QAEHPADH@Z=0x42DC20",
-    "?LoadEntry@aiVehicleData@@QAEHPAD@Z=0x452E60",
-    "?LoadEntry@mmBangerData@@QAEHPAD@Z=0x4C81B0",
-    "?LoadFacades@mmCullCity@@QAEXPAD@Z=0x48CFF0",
-    "?LoadFile@mmAnimSpline@@QAEHPAD@Z=0x4C38F0",
-    "?LoadFont@mmNumberFont@@QAEXPADHI@Z=0x4FE780",
-    "?LoadLocFont@mmNumberFont@@QAEXPADPAULocString@@HI@Z=0x4FE880",
-    "?LoadPositions@@YAXPAD@Z=0x491940",
-    "?LoadRaceNames@MenuManager@@QAEXXZ=0x4B02D0",
-    "?LoadReplay@mmGameManager@@QAEXPAD@Z=0x4047B0",
-    "?LoadSets@mmMultiCR@@QAEHPAD@Z=0x41CEA0",
-    "?LoadStats@VehicleSelectBase@@QAEHPAD@Z=0x49BF60",
-    "?LoadSucessful@mmNetworkCarAudio@@QAEXPAVmmCarSim@@@Z=0x484320",
-    "?LoadSucessful@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z=0x47BF20",
-    "?LoadSucessful@mmPlayerCarAudio@@QAEXXZ=0x482C20",
-    "?LoadUIADF@AudManager@@QAEXXZ=0x4E8820",
-    "?LoadUIADF@DSGlobal@@QAEHPAD@Z=0x4EFE10",
-    "?LobbyCreate@mmInterface@@AAEXXZ=0x40DEF0",
-    "?LobbySwitch@mmInterface@@QAEXHH@Z=0x40AB70",
-    "?Localize@agiMeshSet@@SAXAAVVector3@@0@Z=0x504AC0",
-    "?LocalizeDirection@agiMeshSet@@SAXAAVVector3@@0@Z=0x504B70",
-    "?LocatePerpFromInt@aiGoalChase@@AAEHPAVaiIntersection@@PAPAVaiPath@@@Z=0x461B60",
-    "?LocatePerpFromRoad@aiGoalChase@@AAEHPAVaiPath@@PAPAV2@1@Z=0x461490",
-    "?LocateWayPtFromInt@aiGoalFollowWayPts@@AAEHPAVaiIntersection@@PAPAVaiPath@@@Z=0x467D60",
-    "?LocateWayPtFromRoad@aiGoalFollowWayPts@@AAEHPAVaiPath@@PAPAV2@1@Z=0x4676E0",
-    "?Lock@agiD3DTexDef@@UAEHAAUagiTexLock@@@Z=0x531E20",
-    "?Lock@agiSWTexDef@@UAEHAAUagiTexLock@@@Z=0x537870",
-    "?Lock@agiTexDef@@UAEHAAUagiTexLock@@@Z=0x556440",
-    "?Lock@DataCache@@QAEHPAH@Z=0x5771F0",
-    "?Lock@mmPopup@@QAEXXZ=0x427CD0",
-    "?Lock@RDynamicDLP@@UAEXXZ=0x551440",
-    "?LockFrameBuffer@agiDDPipeline@@UAEHAAVagiSurfaceDesc@@@Z=0x5331E0",
-    "?LockFrameBuffer@agiPipeline@@UAEHAAVagiSurfaceDesc@@@Z=0x556040",
-    "?LockIfResident@agiMeshSet@@QAEHXZ=0x514B20",
-    "?LockIfResident@mmBoundTemplate@@QAEHXZ=0x519320",
-    "?LockScreen@@YAJPAUIDirectDraw4@@@Z=0x575A10",
-    "?LockSurfaceIfResident@agiTexDef@@QAEHXZ=0x556770",
-    "?LockTarget@asPortalWeb@@QAEXXZ=0x497530",
-    "?logf_fast@@YAMM@Z=0x570E80",
-    "?Logout@asNetwork@@QAEXXZ=0x489360",
-    "?LogStackTraceback@@YAHPAHH@Z=0x5205B0",
-    "?LogToCommPort@@YAHHH@Z=0x576E00",
-    "?LogToFile@@YAXPAD@Z=0x576EA0",
-    "?LogToFile@@YAXXZ=0x576F00",
-    "?LogToMonochromeMonitor@@YAXXZ=0x576E90",
-    "?LookAt@Matrix34@@QAEXABVVector3@@0@Z=0x56CE30",
-    "?Lookup@agiTexSheet@@QAEPAUagiTexProp@@PADH@Z=0x512340",
-    "?Lookup@bnAnimation@@SAPAV1@PAD@Z=0x5153F0",
-    "?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPAD1@Z=0x560920",
-    "?LookupAddress@@YAXPADH@Z=0x520130",
-    "?LookupAlternate@agiTexSheet@@QAEPAUagiTexProp@@PAD@Z=0x5123A0",
-    "?LookupCell@@YAPAUasPortalCell@@PAD@Z=0x4959B0",
-    "?LookupEdge@@YAPAUasPortalCell@@PAD@Z=0x4959C0",
-    "?LookupSequence@mmAnimation@@QAEHPAD@Z=0x497E50",
-    "?Mag@Quaternion@@QBEMXZ=0x572890",
-    "?Mag@Vector2@@QBEMXZ=0x5711E0",
-    "?Mag@Vector3@@QBEMXZ=0x5668A0",
-    "?Mag@Vector4@@QBEMXZ=0x56DBA0",
-    "?MakeActive@AICamCS@@UAEXXZ=0x4FA4E0",
-    "?MakeActive@BaseCamCS@@UAEXXZ=0x4FB4A0",
-    "?MakeActive@PointCamCS@@UAEXXZ=0x4F9E90",
-    "?MakeActive@PolarCamCS@@UAEXXZ=0x4FABF0",
-    "?MakeActive@PostCamCS@@UAEXXZ=0x4F95F0",
-    "?MakeActive@PovCamCS@@UAEXXZ=0x4F63C0",
-    "?MakeActive@PreCamCS@@UAEXXZ=0x4F9A70",
-    "?MakeActive@TrackCamCS@@UAEXXZ=0x4F6D50",
-    "?MakeBox@mmBoundTemplate@@SAPAV1@PAD0HPAVVector3@@1@Z=0x51D3F0",
-    "?MakeFileName@mmPlayerDirectory@@AAEPADXZ=0x4CF4E0",
-    "?MakeResident@agiMeshSet@@QAEXXZ=0x514B90",
-    "?MakeTable@mmBoundTemplate@@AAEXHHH@Z=0x519830",
-    "?MapComponent@aiMap@@QAEHAAVVector3@@PAF1F@Z=0x436D90",
-    "?MasterWindowProc@@YGJPAUHWND__@@IIJ@Z=0x5765F0",
-    "?Match@MiniParser@@QAEXH@Z=0x57C8A0",
-    "?MatchToken@Tokenizer@@QAEXPAD@Z=0x561690",
-    "?MatricesToMomenta@asInertialCS@@QAEXABVMatrix34@@0M@Z=0x4DAEF0",
-    "?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z=0x517090",
-    "?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z=0x493670",
-    "?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@0M@Z=0x4DB120",
-    "?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@M@Z=0x4DAE20",
-    "?MaxY@mmPolygon@@AAEMMMMM@Z=0x51CC60",
-    "?MenuState@MenuManager@@QAEHH@Z=0x4B14A0",
-    "?Mesh2@agiD3DRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z=0x52F9C0",
-    "?Mesh2@agiRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z=0x557DB0",
-    "?Mesh@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z=0x52F950",
-    "?Mesh@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z=0x537D10",
-    "?MessageCallback2@mmInterface@@QAEXPAX0@Z=0x408440",
-    "?MessageCallback@mmInterface@@QAEXPAX0@Z=0x407F70",
-    "?MessageLoop@ipcMessageQueue@@AAEHXZ=0x578790",
-    "?MexOff@UIBMButton@@QAEXXZ=0x4B6A50",
-    "?MexOn@UIBMButton@@QAEXXZ=0x4B6A60",
-    "?MexToggle@UIBMButton@@QAEXXZ=0x4B6AA0",
-    "?Minimize@uiNavBar@@QAEXXZ=0x4B1F20",
-    "?MinMax@TrackCamCS@@AAEXVMatrix34@@@Z=0x4F8430",
-    "?MinusEqual@string@@QAEXD@Z=0x579B10",
-    "?mmHeapError@@YAXXZ=0x4955C0",
-    "?mmxTriple@@YAXPAI0HPAEH@Z=0x510EE0",
-    "?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z=0x575F40",
-    "?ModeCB@asDofCS@@IAEXXZ=0x52B5E0",
-    "?ModelDraw@agiMeshModel@@QAEHIPAVagiLitAnimation@@H@Z=0x5142B0",
-    "?ModelDraw@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z=0x5142D0",
-    "?ModelDrawLit@agiMeshModel@@QAEHP6AXPAEPAI1PAVagiMeshSet@@@ZIPAVagiLitAnimation@@H@Z=0x5144F0",
-    "?ModelDrawSkel@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z=0x514330",
-    "?ModelGeometry@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z=0x5141B0",
-    "?Mouse@eqEventMonitor@@UAEXPAXHHHHHHH@Z=0x563360",
-    "?Mouse@eqEventQ@@UAEXPAXHHHHHHH@Z=0x563B90",
-    "?MouseAction@MenuManager@@QAEPAVuiWidget@@HMM@Z=0x4AF1B0",
-    "?MouseAction@UIMenu@@QAEXTeqEvent@@@Z=0x4AE810",
-    "?MouseHitCheck@UIMenu@@QAEPAVuiWidget@@HMM@Z=0x4AE910",
-    "?Move@mmWaypointObject@@QAEXXZ=0x4305D0",
-    "?MoveICS@asInertialCS@@QAEXXZ=0x4D9AE0",
-    "?MoveICS@Joint3Dof@@QAEXXZ=0x4DD350",
-    "?MultiMonCallback@@YGHPAU_GUID@@PAD1PAX2@Z=0x575320",
-    "?MultiStartGame@mmInterface@@AAEXXZ=0x40D3B0",
-    "?MultiTexEnvMap@agiMeshSet@@QAEXPAIIPAVagiTexDef@@AAVMatrix34@@@Z=0x50D170",
-    "?MyDirectDrawEnumerate@@YAXP6GHPAU_GUID@@PAD1PAX@Z2@Z=0x575760",
-    "?mystrtok@@YAPADPADPBD@Z=0x511B30",
-    "?NeedDX6@@YAXXZ=0x575710",
-    "?Neg@Vector3@@QAEXABV1@@Z=0x5724D0",
-    "?NetJoinCB@mmInterface@@AAEXXZ=0x409F00",
-    "?NetNameCB@mmInterface@@AAEXXZ=0x409F60",
-    "?NetNameCB@NetSelectMenu@@QAEXXZ=0x4A4B70",
-    "?New@ArrayOfType@@UAEPAXH@Z=0x57B920",
-    "?New@CharType@@UAEPAXH@Z=0x57BA40",
-    "?New@FloatType@@UAEPAXH@Z=0x57C0F0",
-    "?New@PtrToType@@UAEPAXH@Z=0x57B5D0",
-    "?New@RefToType@@UAEPAXH@Z=0x57B7A0",
-    "?New@SignedCharType@@UAEPAXH@Z=0x57BB10",
-    "?New@SignedInt64Type@@UAEPAXH@Z=0x57BF40",
-    "?New@SignedIntType@@UAEPAXH@Z=0x57BE60",
-    "?New@SignedShortType@@UAEPAXH@Z=0x57BCB0",
-    "?New@StringType@@UAEPAXH@Z=0x57C220",
-    "?New@StructType@@UAEPAXH@Z=0x57B9B0",
-    "?New@UnsignedCharType@@UAEPAXH@Z=0x57BBE0",
-    "?New@UnsignedIntType@@UAEPAXH@Z=0x57C010",
-    "?New@UnsignedShortType@@UAEPAXH@Z=0x57BD90",
-    "?New@Vector2Type@@UAEPAXH@Z=0x5716B0",
-    "?New@Vector3Type@@UAEPAXH@Z=0x5673A0",
-    "?New@Vector4Type@@UAEPAXH@Z=0x56E480",
-    "?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z=0x4F9180",
-    "?NewDirectory@mmPlayerDirectory@@QAEXH@Z=0x4CEFA0",
-    "?NewIntersection@aiMap@@AAEPAVaiIntersection@@AAVVector3@@@Z=0x439720",
-    "?NewItems@mmMapData@@QAEXH@Z=0x4D32F0",
-    "?NewItems@mmPropInfo@@QAEXH@Z=0x4D21F0",
-    "?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@00@Z=0x4D48C0",
-    "?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@0@Z=0x4D4740",
-    "?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@@Z=0x4D4840",
-    "?NewPlayer@DriverMenu@@QAEXXZ=0x4A5CB0",
-    "?NewTable@FloatArray@@AAEXH@Z=0x573920",
-    "?NewTable@IntArray@@AAEXH@Z=0x573600",
-    "?NewTable@StringArray@@AAEXH@Z=0x57AF30",
-    "?NewTable@Vector2Array@@AAEXH@Z=0x571380",
-    "?NewTable@Vector3Array@@AAEXH@Z=0x566F40",
-    "?NewTable@Vector4Array@@AAEXH@Z=0x56E100",
-    "?NewTransition@TransitionCS@@QAEXPAVCarCamCS@@0@Z=0x4FBC30",
-    "?NewVertexs@mmRoadSect@@QAEXHHHHH@Z=0x4D2550",
-    "?Next@HashIterator@@QAEHXZ=0x578050",
-    "?NextEntry@HierFileSystem@@UAEPAUFileInfo@@PAU2@@Z=0x560500",
-    "?NextEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAU2@@Z=0x560D00",
-    "?NextRace@mmGameEdit@@UAEXXZ=0x412ED0",
-    "?NextRace@mmGameMulti@@UAEXXZ=0x41A890",
-    "?NextRace@mmGameSingle@@UAEXXZ=0x418840",
-    "?NextRace@mmSingleBlitz@@UAEXXZ=0x4144F0",
-    "?NextRace@mmSingleCircuit@@UAEXXZ=0x416620",
-    "?NextToken@MiniParser@@QAEHXZ=0x57CB00",
-    "?NextTrack@mmCDPlayer@@QAEXXZ=0x423450",
-    "?NextTransition@TransitionCS@@QAEXPAVCarCamCS@@@Z=0x4FBC60",
-    "?Normal@Random@@QAEMMM@Z=0x56DB10",
-    "?Normalize@Matrix34@@QAEXXZ=0x56AE80",
-    "?Normalize@mmJaxis@@QAEXM@Z=0x4E60D0",
-    "?Normalize@Quaternion@@QAEXXZ=0x572960",
-    "?NormalizeName@VirtualFileSystem@@SAXPAD0@Z=0x560790",
-    "?NormalizePOV@mmJaxis@@QAEXK@Z=0x4E60F0",
-    "?NotifyDelete@agiPipeline@@QAEXPAVagiRefreshable@@@Z=0x555E70",
-    "?NotifyDelete@FileSystem@@MAEXXZ=0x55F610",
-    "?NotifyMouseSelect@MenuManager@@QAEXPAVUIMenu@@@Z=0x4B13C0",
-    "?NotifyNew@agiPipeline@@QAEXPAVagiRefreshable@@@Z=0x555E40",
-    "?NotLameChipset@@YAHKK@Z=0x5764A0",
-    "?Number@Random@@QAEMXZ=0x56DAB0",
-    "?NumCars@aiMap@@AAEHHMM@Z=0x43A3D0",
-    "?NumChildren@asNode@@QAEHXZ=0x523D00",
-    "?NumSubStrings@@YAHPAD@Z=0x55FB70",
-    "?NumSubStrings@string@@QBEHXZ=0x57ADC0",
-    "?NumVehiclesAfterDist@aiPath@@QAEHHM@Z=0x43F980",
-    "?Off@asMidgets@@UAEXXZ=0x526900",
-    "?OffRoad@aiGoalChase@@AAEHPAVmmCar@@@Z=0x460690",
-    "?Offset@agiMeshSet@@QAEXVVector3@@@Z=0x514880",
-    "?OkayToEnterIntersection@aiGoalRandomDrive@@AAEHXZ=0x45DC00",
-    "?OneShot@mmViewCS@@QAEXXZ=0x4F9360",
-    "?OnGround@mmCarSim@@QAEHXZ=0x46BFF0",
-    "?OnTwoWheels@mmSurfaceAudio@@QAEFXZ=0x488E90",
-    "?Open@asMidgets@@QAEXPAVasNode@@@Z=0x526950",
-    "?Open@FileStream@@QAEHPADH@Z=0x561870",
-    "?OpenAny@FileSystem@@SAPAVStream@@PADHPAXH@Z=0x55FE60",
-    "?OpenDialog@MenuManager@@QAEXH@Z=0x4B0AE0",
-    "?OpenFile@@YAPAVStream@@PAD00H00@Z=0x55FD60",
-    "?OpenOn@HierFileSystem@@UAEPAVStream@@PADHPAXH@Z=0x560100",
-    "?OpenOn@VirtualFileSystem@@UAEPAVStream@@PADHPAXH@Z=0x560AD0",
-    "?OpenPhysicsBank@asSimulation@@QAEXXZ=0x522FA0",
-    "?OpenWaveFile@StreamObj@@AAEPAVStream@@PBDF@Z=0x4F4EA0",
-    "?OpenWidgets@asNode@@UAEXPADPAVbkWindow@@@Z=0x5243E0",
-    "?Opponent@aiMap@@QAEPAVaiVehicleOpponent@@H@Z=0x433F30",
-    "?OppStealGold@mmMultiCR@@AAEXH@Z=0x41D900",
-    "?OptionActive@uiNavBar@@QAEXXZ=0x4B1F90",
-    "?OptionInActive@uiNavBar@@QAEXXZ=0x4B1FB0",
-    "?Ortho@agiViewParameters@@QAEXMMMM@Z=0x557310",
-    "?Ortho@Matrix44@@QAEXMMMMMM@Z=0x56F580",
-    "?OutOfDate@@YAHPAD0@Z=0x5569D0",
-    "?PackAngle@@YAIM@Z=0x5593A0",
-    "?PackNormal@@YAEAAVVector3@@@Z=0x5164B0",
-    "?PackNormal@@YAXAAGAAVVector3@@@Z=0x559400",
-    "?PackNormalSlow@@YAEAAVVector3@@@Z=0x516400",
-    "?PageIn@agiMeshSet@@QAEXXZ=0x514B00",
-    "?PageIn@mmBoundTemplate@@QAEXXZ=0x519300",
-    "?PageInCallback@agiMeshSet@@CAXPAX@Z=0x514AF0",
-    "?PageInCallback@agiTexDef@@SAXPAX@Z=0x5566A0",
-    "?PageInCallback@mmBoundTemplate@@CAXPAX@Z=0x5192F0",
-    "?PageInSurface@agiTexDef@@QAEXXZ=0x5566B0",
-    "?PageOutCallback@agiMeshSet@@CAXPAXH@Z=0x503180",
-    "?PageOutCallback@agiTexDef@@SAXPAXH@Z=0x556460",
-    "?PageOutCallback@mmBoundTemplate@@CAXPAXH@Z=0x518D40",
-    "?PagerInfo@FileSystem@@UAEHPADAAUPagerInfo_t@@@Z=0x55FEC0",
-    "?PagerInfo@VirtualFileSystem@@UAEHPADAAUPagerInfo_t@@@Z=0x560A50",
-    "?PagerInfoAny@FileSystem@@SAHPADAAUPagerInfo_t@@@Z=0x55FED0",
-    "?Parent@mmInstChain@@QAEXPAVmmInstance@@F@Z=0x492310",
-    "?parseARGB@@YAXAAI@Z=0x48E3D0",
-    "?ParseArgs@ArgSet@@QAEXHPAPAD@Z=0x578DD0",
-    "?ParseChatMessage@mmGameMulti@@QAEHPADH@Z=0x432160",
-    "?parseFloat@@YAXAAM@Z=0x48E300",
-    "?parseRGB@@YAXAAI@Z=0x48E360",
-    "?parseVector3@@YAXAAVVector3@@@Z=0x48E330",
-    "?PasswordCallback@Dialog_Password@@QAEXXZ=0x49DC40",
-    "?Path@aiIntersection@@QAEPAVaiPath@@H@Z=0x447C50",
-    "?Path@aiMap@@QAEPAVaiPath@@H@Z=0x433E50",
-    "?Pause@asSimulation@@QAEXXZ=0x522EC0",
-    "?PDebug@@YAXPBDZZ=0x576D60",
-    "?Pedestrian@aiMap@@QAEPAVaiPedestrian@@H@Z=0x433F70",
-    "?Pegged@aiStuck@@QAEHXZ=0x46B4E0",
-    "?Pegged@mmStuck@@QAEHXZ=0x47C560",
-    "?Percent@mmLoader@@QAEXH@Z=0x48B970",
-    "?PerfGetValue@@YAIH@Z=0x57B530",
-    "?PerfInit@@YAXXZ=0x57B410",
-    "?PerfLookup@@YAHPAD@Z=0x57B470",
-    "?PerfReport@asNode@@QAEXPAVStream@@H@Z=0x5239D0",
-    "?PerfShutdown@@YAXXZ=0x57B450",
-    "?PerpEscapes@aiVehiclePolice@@QAEXE@Z=0x445DB0",
-    "?PErrorf@@YAXPBDZZ=0x576D10",
-    "?Perspective@agiViewParameters@@QAEXMMMM@Z=0x557240",
-    "?Perspective@Matrix44@@QAEXMMMM@Z=0x56F490",
-    "?PickNextRdSeg@aiPedestrian@@AAEPAVaiPath@@XZ=0x44AED0",
-    "?Ping@asNetwork@@QAEKK@Z=0x489FB0",
-    "?PlaceLabel@MiniParser@@QAEXPAX@Z=0x57CA80",
-    "?PlaceLabelRef@MiniParser@@QAEXPAX@Z=0x57CAA0",
-    "?PlanRoute@aiGoalChase@@AAEHXZ=0x4613F0",
-    "?PlanRoute@aiGoalFollowWayPts@@AAEXXZ=0x4674B0",
-    "?Play@mmCollideFF@@UAEHXZ=0x4E7760",
-    "?Play@mmEffectFF@@UAEHXZ=0x4E7440",
-    "?Play@mmFrictionFF@@UAEHXZ=0x4E7CB0",
-    "?Play@mmImpactAudio@@QAEXMFMM@Z=0x484E80",
-    "?Play@mmOpponentImpactAudio@@QAEXMFMM@Z=0x47A5A0",
-    "?Play@mmRoadFF@@UAEHXZ=0x4E79E0",
-    "?Play@mmSpringFF@@UAEHXZ=0x4E7F70",
-    "?Play@mmVoiceCommentary@@QAEXPAD@Z=0x4EC410",
-    "?Play@SoundObj@@QAEHKPAD@Z=0x4F1EE0",
-    "?Play@StreamObj@@QAEHPAD@Z=0x4F5440",
-    "?Play@StreamObj@@QAEHXZ=0x4F5290",
-    "?PlayAirBorne@mmVoiceCommentary@@QAEXXZ=0x4EC1F0",
-    "?PlayBanger@mmImpactAudio@@QAEXMF@Z=0x4852A0",
-    "?PlayBulletUnlocked@mmVoiceCommentary@@QAEXXZ=0x4EDDE0",
-    "?PlayBusUnlocked@mmVoiceCommentary@@QAEXXZ=0x4EDC80",
-    "?PlayCar@mmImpactAudio@@QAEXM@Z=0x485010",
-    "?PlayCDTrack@AudManager@@QAEHHEEEH@Z=0x4E92B0",
-    "?PlayCDTrack@AudManager@@QAEHHH@Z=0x4E9230",
-    "?PlayCheckPoint@mmVoiceCommentary@@QAEXXZ=0x4EC2D0",
-    "?PlayCobble@mmSurfaceAudio@@AAEXM@Z=0x488190",
-    "?PlayCollision@mmJoystick@@QAEHXZ=0x4E6CA0",
-    "?PlayCollision@mmVoiceCommentary@@QAEXXZ=0x4ED5C0",
-    "?PlayCopCarUnlocked@mmVoiceCommentary@@QAEXXZ=0x4EDCE0",
-    "?PlayCopVoice@aiAudioManager@@QAEFXZ=0x443E00",
-    "?PlayCR@mmVoiceCommentary@@QAEXFF@Z=0x4ED630",
-    "?PlayCRPreRace@mmVoiceCommentary@@QAEXXZ=0x4ED4C0",
-    "?PlayDoubleHorn@aiVehicleAmbient@@QAEXM@Z=0x450BF0",
-    "?PlayEndRaceDamage@mmVoiceCommentary@@QAEXXZ=0x4EDB60",
-    "?PlayerCreate@mmInterface@@AAEHPAD@Z=0x40B200",
-    "?PlayerCreateCB@mmInterface@@AAEXXZ=0x40B1B0",
-    "?PlayerFillStats@mmInterface@@AAEXXZ=0x40C2E0",
-    "?PlayerGraphicsCB@mmInterface@@AAEXXZ=0x40B3C0",
-    "?PlayerLoad@mmInterface@@AAEXPAD@Z=0x40B430",
-    "?PlayerLoadCB@mmInterface@@AAEXXZ=0x40B390",
-    "?PlayerPos@aiMap@@QAEAAVVector3@@XZ=0x433FB0",
-    "?PlayerReadState@mmInterface@@AAEXXZ=0x40CB20",
-    "?PlayerRemove@mmInterface@@AAEXPAD@Z=0x40B020",
-    "?PlayerRemoveCB@mmInterface@@AAEXXZ=0x40AFF0",
-    "?PlayerResolveCars@mmInterface@@AAEXXZ=0x40C950",
-    "?PlayerResolveScore@mmInterface@@AAEXXZ=0x40C810",
-    "?PlayerSetState@mmGame@@QAEXXZ=0x411420",
-    "?PlayerSetState@mmInterface@@AAEXXZ=0x40B4E0",
-    "?PlayExplosion@mmPoliceCarAudio@@QAEXXZ=0x47AA20",
-    "?PlayFinalCheckPoint@mmVoiceCommentary@@QAEXXZ=0x4EC320",
-    "?PlayFinalLap@mmVoiceCommentary@@QAEXXZ=0x4EC3A0",
-    "?PlayFriction@mmJoystick@@QAEHXZ=0x4E6D40",
-    "?PlayGTUnlocked@mmVoiceCommentary@@QAEXXZ=0x4EDC20",
-    "?PlayHorn@aiVehicleAmbient@@QAEXXZ=0x450370",
-    "?PlayHorn@aiVehicleAmbient@@UAEXMM@Z=0x4505C0",
-    "?PlayHorn@aiVehicleSpline@@UAEXMM@Z=0x4465F0",
-    "?PlayHorn@mmCarSim@@QAEXXZ=0x46C3C0",
-    "?PlayHorn@mmPlayerCarAudio@@QAEXXZ=0x482A90",
-    "?PlayImpactAudio@mmCarSim@@QAEXFPAVmmIntersection@@PAVVector3@@@Z=0x46FAA0",
-    "?PlayLap@mmVoiceCommentary@@QAEXF@Z=0x4EC390",
-    "?PlayLoop@AudSound@@QAEXMM@Z=0x4EB0D0",
-    "?PlayLoop@AudStream@@QAEXMM@Z=0x4F3E40",
-    "?PlayLoop@AudStream@@QAEXPADMM@Z=0x4F3D20",
-    "?PlayMenuSwitchSound@MenuManager@@AAEXXZ=0x4B1730",
-    "?PlayMidResults@mmVoiceCommentary@@QAEXXZ=0x4EC990",
-    "?PlayNetAlert@mmHUD@@QAEXXZ=0x405FE0",
-    "?PlayNetworkPreRace@mmVoiceCommentary@@QAEXXZ=0x4ED450",
-    "?PlayNextRacesUnlocked@mmVoiceCommentary@@QAEXXZ=0x4EDEA0",
-    "?PlayOnce@AudSound@@QAEXMM@Z=0x4EAFF0",
-    "?PlayOnce@AudStream@@QAEXMM@Z=0x4F3B60",
-    "?PlayOnce@AudStream@@QAEXPADMM@Z=0x4F3C10",
-    "?PlayOpponentFinish@mmVoiceCommentary@@QAEXF@Z=0x4ED930",
-    "?PlayPreRace@mmVoiceCommentary@@QAEXXZ=0x4EC460",
-    "?PlayRecordsSound@MenuManager@@QAEXXZ=0x4B1950",
-    "?PlayResults@mmVoiceCommentary@@QAEXF@Z=0x4ECA00",
-    "?PlayReverseBeep@mmOpponentCarAudio@@QAEXXZ=0x47BB80",
-    "?PlayReverseBeep@mmPlayerCarAudio@@QAEXXZ=0x4821F0",
-    "?PlayRoam@mmVoiceCommentary@@QAEXXZ=0x4EC260",
-    "?PlaySemiUnlocked@mmVoiceCommentary@@QAEXXZ=0x4EDE40",
-    "?PlayShake@mmJoystick@@QAEHXZ=0x4E6C60",
-    "?PlaySound@MenuManager@@QAEXH@Z=0x4B0D10",
-    "?PlaySound@UIBMButton@@AAEXXZ=0x4B70C0",
-    "?PlaySteer@mmJoystick@@QAEHXZ=0x4E6CE0",
-    "?PlayStop@mmCDPlayer@@QAEXXZ=0x423400",
-    "?PlayTeamCR@mmVoiceCommentary@@QAEXFF@Z=0x4ED6C0",
-    "?PlayTimePenalty@mmVoiceCommentary@@QAEXXZ=0x4EDA90",
-    "?PlayTimerWarning@mmMultiBlitz@@QAEXM@Z=0x41A470",
-    "?PlayTimerWarning@mmSingleBlitz@@QAEXM@Z=0x414660",
-    "?PlayTrack@CDMan@@QAEKEE@Z=0x4F4340",
-    "?PlayTrack@CDMan@@QAEKEEEEE@Z=0x4F4450",
-    "?PlayTrippleHorn@aiVehicleAmbient@@QAEXM@Z=0x4506B0",
-    "?PlayUnlock@mmVoiceCommentary@@QAEXH@Z=0x4EDBD0",
-    "?PlayVoice@aiPedestrian@@QAEXF@Z=0x44CEA0",
-    "?PlayVoice@aiVehicleAmbient@@QAEXXZ=0x450120",
-    "?PlayVoice@aiVehiclePolice@@QAEXXZ=0x446280",
-    "?PlayVoice@mmPoliceCarAudio@@QAEXXZ=0x47B600",
-    "?PlayWall@mmImpactAudio@@QAEXMMM@Z=0x484F10",
-    "?PlayWinResults@mmVoiceCommentary@@QAEXXZ=0x4EC920",
-    "?Plot@mmPolygon@@AAEXPAVmmBoundTemplate@@H@Z=0x51C320",
-    "?PlotLine@mmBoundTemplate@@QAEXVVector3@@0@Z=0x51A090",
-    "?PlotScan@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z=0x51CBD0",
-    "?PlotSpan@mmBoundTemplate@@QAEXHHH@Z=0x51A1A0",
-    "?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z=0x51C380",
-    "?Points@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z=0x52F8F0",
-    "?Points@agiSurfRenderer@@UAEXPATagiVtx@@H@Z=0x554E40",
-    "?Points@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z=0x537D00",
-    "?PointToLine@Vector3@@QBEMABV1@0@Z=0x565DD0",
-    "?PointToSegment2@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z=0x566080",
-    "?PointToSegment@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z=0x565EB0",
-    "?PolarView2@Matrix34@@QAEXMMMM@Z=0x56D030",
-    "?PolarView@Matrix34@@QAEXABVVector4@@@Z=0x56D090",
-    "?PolarView@Matrix34@@QAEXMMMM@Z=0x56CFD0",
-    "?Police@aiMap@@QAEPAVaiVehiclePolice@@H@Z=0x433EF0",
-    "?Poll@mmJoystick@@QAEKXZ=0x4E6720",
-    "?PollContinuous@mmInput@@AAEXPAVmmIO@@@Z=0x4E2E80",
-    "?PollJoyAxes@mmJoyMan@@QAEHXZ=0x4E5DA0",
-    "?PollJoyButtons@mmJoyMan@@QAEHXZ=0x4E5D40",
-    "?PollLobby@asNetwork@@QAEHXZ=0x48AA20",
-    "?PollStates@mmInput@@QAEHXZ=0x4E2370",
-    "?PollSuperQ@mmInput@@QAEHXZ=0x4E2420",
-    "?Poly@agiRasterizer@@UAEXPAHH@Z=0x557D70",
-    "?Pop@eqEventQ@@QAEHPATeqEvent@@@Z=0x563D40",
-    "?PopColumn@asMidgets@@UAEXXZ=0x527B90",
-    "?PopEvent@mmInput@@QAEHPAH@Z=0x4E3C20",
-    "?PopSection@asMidgets@@UAEXXZ=0x527B50",
-    "?PopVehicle@aiPath@@QAEXPAVaiVehicleSpline@@H@Z=0x43FA30",
-    "?Pose@bnBone@@QAEXPBVVector3@@AAH@Z=0x517030",
-    "?Pose@bnSkeleton@@QAEXPBVVector3@@@Z=0x5150B0",
-    "?PositionUpdate@asNetObject@@UAEXPAVMatrix34@@VVector3@@MMM@Z=0x48B4D0",
-    "?PositionUpdate@mmNetObject@@QAEXPAUNETGAME_MSG@@@Z=0x432BD0",
-    "?PostChatMessage@mmHUD@@QAEXPAD@Z=0x405060",
-    "?PostChatMessages@NetArena@@QAEXXZ=0x4A1FE0",
-    "?PostHostSettings@NetArena@@QAEXXZ=0x4A2880",
-    "?PostNames@PURoster@@QAEXXZ=0x4A92A0",
-    "?PostPlayerInfo@NetArena@@QAEXPAULocString@@00@Z=0x4A2A40",
-    "?PostSetup@NetSelectMenu@@UAEXXZ=0x4A43D0",
-    "?PostSetup@OptionsMenu@@UAEXXZ=0x4A3B50",
-    "?PostSetup@PUKey@@EAEXXZ=0x4A9710",
-    "?PostSetup@UIMenu@@UAEXXZ=0x4ACB00",
-    "?PostSetup@Vehicle@@UAEXXZ=0x4A5310",
-    "?PostSetup@VehicleSelectBase@@UAEXXZ=0x49B960",
-    "?PostSetup@VehShowcase@@UAEXXZ=0x4A5190",
-    "?PostUpdate@aiVehicleActive@@UAEXXZ=0x452950",
-    "?PostUpdate@mmBangerActive@@UAEXXZ=0x4CB350",
-    "?PostUpdate@mmCar@@UAEXXZ=0x473C80",
-    "?PostUpdate@mmPhysEntity@@UAEXXZ=0x453B00",
-    "?PostUpdate@mmTrailer@@UAEXXZ=0x479E30",
-    "?POVCB@ControlSetup@@QAEXXZ=0x4A3510",
-    "?PreApproach@TrackCamCS@@AAEXXZ=0x4F8230",
-    "?PreCalcCubics@mmAnimPlane@@QAEXXZ=0x4C56A0",
-    "?PreCalcCubics@mmAnimTrain@@QAEXXZ=0x4C67C0",
-    "?Predict@mmNetObject@@QAEXXZ=0x432F80",
-    "?PredictAmbFreewayIntersectionPath@aiMap@@QAEPAVaiPath@@HAAVMatrix34@@@Z=0x4391F0",
-    "?PredictAmbIntersectionPath@aiMap@@QAEPAVaiPath@@HAAVMatrix34@@@Z=0x439010",
-    "?PredictIntersectionPath@aiMap@@QAEPAVaiPath@@HAAVMatrix34@@@Z=0x438E30",
-    "?PreSetup@AboutMenu@@UAEXXZ=0x4A6060",
-    "?PreSetup@AudioOptions@@UAEXXZ=0x49CEF0",
-    "?PreSetup@ControlSetup@@UAEXXZ=0x4A3580",
-    "?PreSetup@Dialog_City@@UAEXXZ=0x49DA10",
-    "?PreSetup@Dialog_ControlAssign@@UAEXXZ=0x4A0340",
-    "?PreSetup@Dialog_DriverRec@@UAEXXZ=0x49EF80",
-    "?PreSetup@Dialog_HallOfFame@@UAEXXZ=0x49E7F0",
-    "?PreSetup@Dialog_Message@@UAEXXZ=0x49F470",
-    "?PreSetup@Dialog_NewPlayer@@UAEXXZ=0x49F7F0",
-    "?PreSetup@Dialog_Password@@UAEXXZ=0x49DC30",
-    "?PreSetup@Dialog_RaceEnvironment@@UAEXXZ=0x49E2A0",
-    "?PreSetup@Dialog_Serial@@UAEXXZ=0x4A0110",
-    "?PreSetup@Dialog_TCPIP@@UAEXXZ=0x4A0500",
-    "?PreSetup@DriverMenu@@UAEXXZ=0x4A5430",
-    "?PreSetup@GraphicsOptions@@UAEXXZ=0x49A5A0",
-    "?PreSetup@MainMenu@@UAEXXZ=0x4A6380",
-    "?PreSetup@NetArena@@UAEXXZ=0x4A1E40",
-    "?PreSetup@NetSelectMenu@@UAEXXZ=0x4A4360",
-    "?PreSetup@OptionsMenu@@UAEXXZ=0x4A3B20",
-    "?PreSetup@PUAudioOptions@@UAEXXZ=0x4AAA50",
-    "?PreSetup@PUControl@@UAEXXZ=0x4AA2B0",
-    "?PreSetup@PUGraphics@@UAEXXZ=0x4A9EF0",
-    "?PreSetup@PUKey@@EAEXXZ=0x4A9470",
-    "?PreSetup@UIMenu@@UAEXXZ=0x4ACAD0",
-    "?PreSetup@Vehicle@@UAEXXZ=0x4A5300",
-    "?PreSetup@VehicleSelectBase@@UAEXXZ=0x49B870",
-    "?PreSetup@VehShowcase@@UAEXXZ=0x4A5120",
-    "?PreUpdate@mmAnimInstState@@SAXM@Z=0x498830",
-    "?PrevTrack@mmCDPlayer@@QAEXXZ=0x423750",
-    "?Print@agiPipeline@@UAEXHHHPBD@Z=0x557F20",
-    "?Print@ArgSet@@QAEXPAD@Z=0x578D80",
-    "?Print@asArg@@QAEXPAD@Z=0x578C80",
-    "?Print@asBenchStats@@QAEXXZ=0x52CEA0",
-    "?Print@DLPGroup@@QAEXPAVStream@@@Z=0x558FC0",
-    "?Print@DLPPatch@@QAEXPAVStream@@@Z=0x559250",
-    "?Print@DLPTemplate@@QAEXPAVStream@@@Z=0x558BA0",
-    "?Print@Matrix34@@QBEXXZ=0x56D6A0",
-    "?Print@Matrix44@@QBEXXZ=0x570B10",
-    "?Print@mmCityList@@QAEXXZ=0x4CBF60",
-    "?Print@mmIODev@@QAEXH@Z=0x4E5670",
-    "?Print@mmVehInfo@@QAEXXZ=0x4D3C00",
-    "?Print@mmVehList@@QAEXXZ=0x4CC370",
-    "?Print@Spline@@QAEXH@Z=0x4FD9F0",
-    "?PrintDeviceCaps@mmJoystick@@QAEXXZ=0x4E6DD0",
-    "?Printf@@YAXPBDZZ=0x576C90",
-    "?Printf@MiniParser@@QAAXPBDZZ=0x57C660",
-    "?Printf@mmNumber@@QAAXPBDZZ=0x4FEB50",
-    "?Printf@mmTextNode@@QAAXPBDZZ=0x4FFB00",
-    "?Printf@Stream@@QAAHPBDZZ=0x55EDF0",
-    "?PrintInit@agiPipeline@@UAEXXZ=0x558130",
-    "?PrintIODev@mmInput@@QAEXXZ=0x4E42A0",
-    "?PrintIs3D@agiPipeline@@UAEHXZ=0x558110",
-    "?PrintMiniStats@asCullManager@@IAEXXZ=0x524F00",
-    "?PrintShutdown@agiPipeline@@UAEXXZ=0x558140",
-    "?PrintStats@asCullManager@@IAEXXZ=0x524F90",
-    "?PrintString@MiniParser@@QAEXPADH@Z=0x57C6B0",
-    "?Priority@aiGoalAvoidPlayer@@UAEHXZ=0x46A990",
-    "?Priority@aiGoalBackup@@UAEHXZ=0x45F890",
-    "?Priority@aiGoalChase@@UAEHXZ=0x460760",
-    "?Priority@aiGoalCollision@@UAEHXZ=0x46B3F0",
-    "?Priority@aiGoalFollowWayPts@@UAEHXZ=0x4669B0",
-    "?Priority@aiGoalRandomDrive@@UAEHXZ=0x45D460",
-    "?Priority@aiGoalRegainRail@@UAEHXZ=0x46B260",
-    "?Priority@aiGoalStop@@UAEHXZ=0x45F7F0",
-    "?Prober@agiD3DTexDef@@SAXPAX@Z=0x52FA90",
-    "?Proc@ipcMessageQueue@@CGKPAX@Z=0x578780",
-    "?ProcessChat@mmPopup@@QAEXXZ=0x427250",
-    "?ProcessCollision@aiGoalChase@@AAEXH@Z=0x465310",
-    "?ProcessEscape@mmPopup@@QAEXH@Z=0x427110",
-    "?ProcessEvents@mmInput@@AAEXXZ=0x4E25E0",
-    "?ProcessJoyEvents@mmInput@@AAEXXZ=0x4E28C0",
-    "?ProcessKeyboardEvents@mmInput@@AAEXXZ=0x4E2530",
-    "?ProcessKeymap@mmPopup@@QAEXH@Z=0x427350",
-    "?ProcessMouseEvents@mmInput@@AAEXXZ=0x4E24D0",
-    "?ProcessStates@mmInput@@AAE_JXZ=0x4E2600",
-    "?ProgressCheck@mmGameSingle@@AAEHHH@Z=0x4187F0",
-    "?ProgressCheck@mmSingleBlitz@@AAEHHH@Z=0x414420",
-    "?ProgressCheck@mmSingleCircuit@@AAEHHH@Z=0x4165F0",
-    "?Project@agiProjVtx@@SAHHPAUagiLitVtx@@@Z=0x552710",
-    "?Project@agiViewParameters@@QAEXAAVVector3@@0@Z=0x557960",
-    "?Project@Vector3@@QAE?AV1@AAV1@@Z=0x564F60",
-    "?PropertySetOk@CReverb@@QAEHXZ=0x4F4810",
-    "?PropertySetOk@CReverbBuffer@@QAEHXZ=0x4F4B00",
-    "?ProtocolBack@NetSelectMenu@@QAEXXZ=0x4A44E0",
-    "?PtrTo@@YAPAUMetaType@@PAU1@@Z=0x524610",
-    "?Push@aiGoalChase@@AAEXXZ=0x463E10",
-    "?PushColumn@asMidgets@@UAEXH@Z=0x527B80",
-    "?PushSection@asMidgets@@UAEXPADH@Z=0x527AE0",
-    "?PushVehicle@aiPath@@QAEXPAVaiVehicleSpline@@H@Z=0x43FB10",
-    "?Put@Stream@@QAEHE@Z=0x55EF80",
-    "?Put@Stream@@QAEHG@Z=0x55EFA0",
-    "?Put@Stream@@QAEHK@Z=0x55EFD0",
-    "?Put@Stream@@QAEHM@Z=0x55F020",
-    "?Put@Stream@@QAEHPAEH@Z=0x55F080",
-    "?Put@Stream@@QAEHPAGH@Z=0x55F0A0",
-    "?Put@Stream@@QAEHPAKH@Z=0x55F100",
-    "?PutBack@MiniParser@@QAEXH@Z=0x57CAD0",
-    "?PutCh@MiniParser@@QAEXH@Z=0x57C830",
-    "?PutCh@Stream@@QAEHE@Z=0x55EC30",
-    "?PutEventInQueue@mmInput@@AAEX_J@Z=0x4E2E50",
-    "?PutString@Stream@@QAEHPAD@Z=0x55EEB0",
-    "?QJoystick@mmJoyMan@@QAEHXZ=0x4E5C70",
-    "?Quad@agiRasterizer@@UAEXHHHH@Z=0x557D40",
-    "?Quad@agiSWRasterizer@@UAEXHHHH@Z=0x537C70",
-    "?QueryModems@asNetwork@@QAEHXZ=0x48B300",
-    "?QueryOn@HierFileSystem@@UAEHPAD@Z=0x560040",
-    "?QueryOn@VirtualFileSystem@@UAEHPAD@Z=0x560A00",
-    "?QueryProperty@CReverb@@AAEHK@Z=0x4F4820",
-    "?QueryProperty@CReverbBuffer@@AAEHK@Z=0x4F4B10",
-    "?Queue@eqEventQ@@AAEXAATeqEvent@@@Z=0x563D00",
-    "?QueueInCopVoice@aiAudioManager@@QAEFM@Z=0x443DA0",
-    "?QueueKeyboard@eqEventReplayChannelClass@@QAEXHHHH@Z=0x563910",
-    "?QueueMouse@eqEventReplayChannelClass@@QAEXHHHHHHH@Z=0x563880",
-    "?QuickLineBox@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z=0x51EA00",
-    "?QuickLineBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51EAF0",
-    "?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z=0x51E6C0",
-    "?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51E820",
-    "?QuickSphereBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51E940",
-    "?QuickSphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51E620",
-    "?Quiet@asSimulation@@QAEXXZ=0x521C10",
-    "?QuietPrinter@@YAXHPBDPAD@Z=0x521C20",
-    "?Quit@@YAXPBD@Z=0x576DD0",
-    "?Quitf@@YAXPBDZZ=0x576F80",
-    "?QuitNetwork@mmGameMulti@@QAEXXZ=0x432140",
-    "?RaceFillRecords@mmInterface@@AAEXXZ=0x40B9F0",
-    "?RadialBlast@asLineSparks@@QAEXHAAVVector3@@0@Z=0x501C40",
-    "?RampDownBridgeVolume@mmBridgeSet@@AAEXXZ=0x4C2E80",
-    "?randcall@@YAXXZ=0x404390",
-    "?RandomizeSeconds@aiPedAudioManager@@QAEXMM@Z=0x4472A0",
-    "?RawDebug@Stream@@MAEXXZ=0x55EE90",
-    "?RawGetCh@StreamMiniParser@@UAEHXZ=0x561440",
-    "?RawPutCh@StreamMiniParser@@UAEXH@Z=0x561400",
-    "?RawRead@FileStream@@UAEHPAXH@Z=0x561970",
-    "?RawRead@VirtualStream@@UAEHPAXH@Z=0x561C60",
-    "?RawSeek@FileStream@@UAEHH@Z=0x5619B0",
-    "?RawSeek@VirtualStream@@UAEHH@Z=0x561CE0",
-    "?RawSize@FileStream@@UAEHXZ=0x5619F0",
-    "?RawSize@VirtualStream@@UAEHXZ=0x561D30",
-    "?RawTell@FileStream@@UAEHXZ=0x5619D0",
-    "?RawTell@VirtualStream@@UAEHXZ=0x561D10",
-    "?RawWrite@FileStream@@UAEHPAXH@Z=0x561990",
-    "?RawWrite@VirtualStream@@UAEHPAXH@Z=0x561CD0",
-    "?RayIntersectPlane@Vector3@@QAEHABV1@0ABVVector4@@M@Z=0x565540",
-    "?rdtsc@@YAIXZ=0x57CF40",
-    "?Read@MArray@@QAEXPAD@Z=0x4ABB30",
-    "?Read@mmIO@@QAEHPAVStream@@@Z=0x4E4E00",
-    "?Read@mmIODev@@QAEHPAVStream@@@Z=0x4E57F0",
-    "?Read@PagerInfo_t@@QAEXPAXII@Z=0x5605D0",
-    "?Read@Stream@@QAEHPAXH@Z=0x55E9C0",
-    "?Read@WArray@@QAEXPAD@Z=0x4AC330",
-    "?ReadADFRecord@SoundObj@@QAEXG@Z=0x4F1350",
-    "?ReadBinary@aiIntersection@@QAEXPAVStream@@@Z=0x4476E0",
-    "?ReadBinary@aiMap@@AAEXPAD@Z=0x4359B0",
-    "?ReadBinary@aiPath@@QAEXPAVStream@@@Z=0x43DBC0",
-    "?ReadBinary@mmIODev@@QAEHPAVStream@@@Z=0x4E5850",
-    "?ReadEntry@mmBridgeSet@@QAEHPAVStream@@H@Z=0x4C2150",
-    "?ReadInLoopIndex@StreamObj@@QAEXF@Z=0x4F61C0",
-    "?ReadyOneShotLayerBuf@AudSound@@QAEHXZ=0x4EB9B0",
-    "?ReadyOneShotLayerBuf@SoundObj@@QAEFXZ=0x4F2470",
-    "?Reallocate@asMemoryAllocator@@QAEPAXPAXI@Z=0x520EA0",
-    "?ReallocateDSound@AudManager@@QAEXPADFF@Z=0x4E8C10",
-    "?ReallocateSoundObjs@AudSound@@QAEXXZ=0x4EA6F0",
-    "?ReallocateStreamObjs@AudStream@@QAEXXZ=0x4F3890",
-    "?RealTime@asOverSample@@QAEXM@Z=0x4DED50",
-    "?RealTime@asSimulation@@QAEXM@Z=0x522D90",
-    "?Rear@TrackCamCS@@AAEXM@Z=0x4F8B60",
-    "?Rebound@Vector3@@QAEXABV1@M@Z=0x5667C0",
-    "?Recalc@UITextScroll@@QAEXVstring@@@Z=0x4B8D90",
-    "?Recall@mmPositions@@QAEHHPAVMatrix34@@PAHPAD@Z=0x4920F0",
-    "?RecallPosition@@YAHHPAVMatrix34@@PAHPAD@Z=0x491C00",
-    "?ReColorArrow@mmArrow@@AAEXH@Z=0x4064F0",
-    "?Recompute@HashTable@@AAEXH@Z=0x578550",
-    "?ReconfigureDrivetrain@mmCarSim@@QAEXXZ=0x46D060",
-    "?RecordCB@PUDebug@@QAEXXZ=0x4AA5A0",
-    "?RecordPosition@mmHUD@@QAEXPAD@Z=0x4060F0",
-    "?RecordPosition@mmPopup@@QAEXXZ=0x427CA0",
-    "?Redraw@eqEventMonitor@@UAEXPAXHHHH@Z=0x5632E0",
-    "?Redraw@eqEventQ@@UAEXPAXHHHH@Z=0x563AF0",
-    "?Redraw@UICompositeScroll@@QAEXXZ=0x4B54A0",
-    "?Redraw@UICWArray@@QAEXXZ=0x4B8100",
-    "?Reflect@Vector3@@QBE?AV1@ABV1@@Z=0x5651C0",
-    "?Refocus@eqEventMonitor@@UAEXPAXH@Z=0x563320",
-    "?Refocus@eqEventQ@@UAEXPAXH@Z=0x563B50",
-    "?RefreshAll@MixerCTL@@QAEXK@Z=0x4EE290",
-    "?RefreshCRPlayers@mmInterface@@AAEXXZ=0x40ACA0",
-    "?RefreshDriverList@mmInterface@@AAEXXZ=0x40CB40",
-    "?RefreshPlayers@mmInterface@@AAEXXZ=0x40D980",
-    "?RefreshSessions@mmInterface@@AAEXXZ=0x40CFC0",
-    "?RefTo@@YAPAUMetaType@@PAU1@HPAF@Z=0x4C9A50",
-    "?RefTo@@YAPAUMetaType@@PAU1@HPAH@Z=0x4CFB90",
-    "?Regen@asCamera@@AAEXXZ=0x529FB0",
-    "?Regen@asLamp@@AAEXXZ=0x5262F0",
-    "?Register@mmGameRecord@@QAEHAAVVector4@@MMMMMMMM@Z=0x4FDF90",
-    "?Register@mmPositions@@QAEHAAVVector4@@HHHHPAD@Z=0x492180",
-    "?RegisterCopsnRobbers@mmHudMap@@QAEXPAPAVVector3@@@Z=0x4287B0",
-    "?RegisterFinish@mmGameSingle@@AAEHXZ=0x4183F0",
-    "?RegisterFinish@mmPlayerData@@QAEHHMD@Z=0x4D0280",
-    "?RegisterFinish@mmPlayerData@@QAEHVmmPlayerRecord@@HH@Z=0x4D04A0",
-    "?RegisterFinish@mmSingleBlitz@@AAEHXZ=0x4140C0",
-    "?RegisterFinish@mmSingleCircuit@@AAEHXZ=0x4161D0",
-    "?RegisterLap@mmSingleCircuit@@AAEHXZ=0x416170",
-    "?RegisterMap@@YAXPADPAIHPAVDispatchable@@@Z=0x576670",
-    "?RegisterMapNetObjects@mmGameMulti@@QAEXH@Z=0x431EE0",
-    "?RegisterMapObjects@mmGameEdit@@QAEXXZ=0x412520",
-    "?RegisterMisc@mmHudMap@@QAEXPAPAVVector3@@H@Z=0x4287E0",
-    "?RegisterOpponents@mmHudMap@@QAEXPAUOppIconInfo@@H@Z=0x428790",
-    "?RegisterOpponents@mmIcons@@QAEXPAUOppIconInfo@@HPAX@Z=0x4264B0",
-    "?RegisterPerp@aiPoliceForce@@QAEHPAVmmCar@@0@Z=0x44E8D0",
-    "?RegisterPosition@@YAHAAVVector4@@HHHHPAD@Z=0x491C90",
-    "?RegisterProblem@@YAXPAD00@Z=0x561100",
-    "?RegisterWidgetFocus@MenuManager@@QAEXHMMMMPAVuiWidget@@@Z=0x4B0F60",
-    "?ReInit@mmCar@@QAEXPADH@Z=0x473960",
-    "?ReInit@mmCarSim@@QAEXPAD@Z=0x46CB20",
-    "?ReInit@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z=0x432980",
-    "?ReInit@mmPlayer@@QAEXPAD@Z=0x42A390",
-    "?ReInit@mmShardManager@@QAEXPAVmmCarSim@@@Z=0x4789E0",
-    "?ReInit@mmSkidManager@@QAEXPAVmmWheel@@@Z=0x477C90",
-    "?Release@agiRefreshable@@QAEHXZ=0x557B00",
-    "?Release@DLPTemplate@@QAEHXZ=0x5597D0",
-    "?Release@DynamicDLP@@QAEHXZ=0x55E600",
-    "?Release@mmBoundTemplate@@QAEHXZ=0x51D910",
-    "?ReleaseDC@mmText@@SAXXZ=0x4FF010",
-    "?ReleaseTrailer@mmCar@@QAEXXZ=0x473500",
-    "?Relight@mmCellRenderer@@QAEXXZ=0x498F90",
-    "?Relight@mmInstance@@UAIXXZ=0x492A10",
-    "?Relight@mmInstChain@@QAEXF@Z=0x492490",
-    "?Relight@mmStaticInstance@@UAIXXZ=0x494220",
-    "?RelightEverything@mmCullCity@@QAEXXZ=0x48D9A0",
-    "?RelightEverything@mmInstChain@@QAEXXZ=0x492470",
-    "?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z=0x55ADE0",
-    "?Reload@agiTexDef@@QAEHXZ=0x556310",
-    "?Relocate@DataCache@@AAEXPAUDataCacheObject@@PAE@Z=0x5771A0",
-    "?RemapName@agiTexSheet@@QAEPADPADH@Z=0x512460",
-    "?Remove@agiBILight@@UAEXXZ=0x555420",
-    "?Remove@agiLight@@UAEXXZ=0x55BB00",
-    "?Remove@aiPedAudioManager@@QAEXPAVaiPedestrian@@F@Z=0x4470E0",
-    "?Remove@mmBridgeAudMgr@@QAEXPAVmmBridgeSet@@F@Z=0x4C4010",
-    "?RemoveAllChildren@asNode@@QAEXXZ=0x523C60",
-    "?RemoveAllComponentChildren@UICompositeScroll@@QAEXXZ=0x4B5310",
-    "?RemoveAllPlayers@DriverMenu@@QAEXXZ=0x4A5B70",
-    "?RemoveAmbient@aiMap@@QAEXPAVaiVehicleSpline@@@Z=0x43BAA0",
-    "?RemoveChild@asNode@@QAEHH@Z=0x523B80",
-    "?RemoveChild@asNode@@QAEHPAV1@@Z=0x523C20",
-    "?RemoveClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z=0x563260",
-    "?RemoveExtension@string@@QAEXXZ=0x57AAD0",
-    "?RemoveFromManager@mmNetworkCarAudio@@QAEXXZ=0x484300",
-    "?RemoveLight@agiLighter@@SAXPAVagiLight@@@Z=0x5517A0",
-    "?RemoveMe@HashTable@@AAEXXZ=0x578630",
-    "?RemoveName@PURoster@@QAEXK@Z=0x4A9110",
-    "?RemoveName@PURoster@@QAEXPADK@Z=0x4A8FD0",
-    "?RemoveNetVehicleAudio@mmCarSim@@QAEXXZ=0x46E830",
-    "?RemovePedestrian@aiMap@@QAEXPAVaiPedestrian@@@Z=0x43B530",
-    "?RemovePedestrian@aiPath@@QAEXPAVaiPedestrian@@@Z=0x43FEC0",
-    "?RemovePlayer@DriverMenu@@QAEXPAD@Z=0x4A58C0",
-    "?RemovePlayer@mmCRHUD@@QAEXK@Z=0x425F20",
-    "?RemovePlayer@mmHUD@@QAEXK@Z=0x405F80",
-    "?RemovePlayer@mmPlayerDirectory@@QAEHPAD@Z=0x4CF5A0",
-    "?RemoveRosterEntry@NetArena@@QAEXH@Z=0x4A23F0",
-    "?RemoveRosterName@NetArena@@QAEXPAD@Z=0x4A25E0",
-    "?RemoveSound@AudManager@@QAEXPAVAudSound@@H@Z=0x4E8EF0",
-    "?RemoveSoundFromPlayList@AudManager@@QAEXH@Z=0x4E8670",
-    "?RemoveSoundFromPlayList@AudManager@@QAEXPAVAudSound@@@Z=0x4E8630",
-    "?RemoveStream@AudManager@@QAEXPAVAudStream@@H@Z=0x4E8F60",
-    "?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z=0x4409A0",
-    "?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z=0x440A10",
-    "?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z=0x440A80",
-    "?RemoveVehicle@aiPath@@QAEHPAVaiVehicleSpline@@H@Z=0x43FCB0",
-    "?RemoveVehicle@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z=0x475800",
-    "?RemoveVehicleAudio@mmCar@@QAEXXZ=0x473E60",
-    "?RenderText@mmTextNode@@QAEXPAVagiSurfaceDesc@@PAUmmTextData@@HI@Z=0x4FFB60",
-    "?Reparent@mmInstChain@@QAEXPAVmmInstance@@F@Z=0x492440",
-    "?ReparentObject@mmCullCity@@QAEXPAVmmInstance@@@Z=0x48C640",
-    "?ReparentWidgets@NetSelectMenu@@QAEXH@Z=0x4A4930",
-    "?ReportTimeAlloc@@YAXM@Z=0x406A80",
-    "?Request@agiD3DTexDef@@UAEXXZ=0x531D40",
-    "?Request@agiSWTexDef@@UAEXXZ=0x5378D0",
-    "?Request@agiTexDef@@UAEXXZ=0x5567E0",
-    "?RequestProverb@mmInterface@@AAEXXZ=0x40AE90",
-    "?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z=0x55AAE0",
-    "?ResChange@asNode@@UAEXHH@Z=0x523980",
-    "?ResChange@MenuManager@@UAEXHH@Z=0x4B0DD0",
-    "?ResChange@mmExternalView@@UAEXHH@Z=0x4221B0",
-    "?ResChange@mmHUD@@UAEXHH@Z=0x4050C0",
-    "?ResChange@mmRadGauge@@QAEXXZ=0x423C60",
-    "?ResChange@sfPointer@@UAEXHH@Z=0x4BDA20",
-    "?ResChanged@mmHudMap@@QAEXXZ=0x4293D0",
-    "?Reset@agiRendStateStruct@@QAEXXZ=0x557CE0",
-    "?Reset@AICamCS@@UAEXXZ=0x4FA4D0",
-    "?Reset@aiGoalAvoidPlayer@@UAEXXZ=0x46A3C0",
-    "?Reset@aiGoalBackup@@UAEXXZ=0x45F8A0",
-    "?Reset@aiGoalChase@@UAEXXZ=0x45FED0",
-    "?Reset@aiGoalCollision@@UAEXXZ=0x46B340",
-    "?Reset@aiGoalFollowWayPts@@UAEXXZ=0x4669C0",
-    "?Reset@aiGoalRandomDrive@@UAEXXZ=0x45C8D0",
-    "?Reset@aiGoalRegainRail@@UAEXXZ=0x46AA80",
-    "?Reset@aiGoalStop@@UAEXXZ=0x45F760",
-    "?Reset@aiIntersection@@QAEXXZ=0x447520",
-    "?Reset@aiMap@@UAEXXZ=0x435FB0",
-    "?Reset@aiPath@@QAEXXZ=0x43C450",
-    "?Reset@aiPedestrian@@QAEXPAVaiPath@@@Z=0x448130",
-    "?Reset@aiPedestrian@@QAEXXZ=0x44D130",
-    "?Reset@aiPoliceForce@@QAEXXZ=0x44E810",
-    "?Reset@aiStuck@@UAEXXZ=0x46B4D0",
-    "?Reset@aiTrafficLightSet@@UAEXXZ=0x4441B0",
-    "?Reset@aiVehicle@@UAEXXZ=0x465930",
-    "?Reset@aiVehicleAmbient@@UAEXXZ=0x44F200",
-    "?Reset@aiVehicleManager@@UAEXXZ=0x452BE0",
-    "?Reset@aiVehicleOpponent@@UAEXXZ=0x44DE10",
-    "?Reset@aiVehiclePolice@@UAEXXZ=0x444B40",
-    "?Reset@aiVehicleSpline@@UAEXXZ=0x45A2B0",
-    "?Reset@asBenchStats@@QAEXXZ=0x52CE60",
-    "?Reset@asCullManager@@UAEXXZ=0x524DF0",
-    "?Reset@asDofCS@@UAEXXZ=0x52AF20",
-    "?Reset@asInertialCS@@UAEXXZ=0x4D9630",
-    "?Reset@asNode@@UAEXXZ=0x523960",
-    "?Reset@asParticles@@UAEXXZ=0x500210",
-    "?Reset@asSimulation@@UAEXXZ=0x522290",
-    "?Reset@asViewCS@@UAEXXZ=0x52BD30",
-    "?Reset@AudManager@@UAEXXZ=0x4E8FD0",
-    "?Reset@AudSound@@UAEXXZ=0x4EAD60",
-    "?Reset@AudStream@@UAEXXZ=0x4F3AE0",
-    "?Reset@Joint3Dof@@UAEXXZ=0x4DBCE0",
-    "?Reset@mmAnimDOF@@QAEXXZ=0x4C4900",
-    "?Reset@mmAnimPlane@@UAEXXZ=0x4C52C0",
-    "?Reset@mmAnimSpline@@UAEXXZ=0x4C3BF0",
-    "?Reset@mmAnimTrain@@QAEXXZ=0x4C6350",
-    "?Reset@mmAnimTrainCar@@UAEXXZ=0x4C8150",
-    "?Reset@mmAnimTrigger@@QAEXXZ=0x4C43A0",
-    "?Reset@mmArrow@@UAEXXZ=0x4064D0",
-    "?Reset@mmBangerActiveManager@@UAEXXZ=0x4CB720",
-    "?Reset@mmBangerManager@@UAEXXZ=0x4CAD90",
-    "?Reset@mmBoat@@UAEXXZ=0x4C7570",
-    "?Reset@mmBoundTemplate@@QAEXXZ=0x51DB20",
-    "?Reset@mmBridgeSet@@UAEXXZ=0x4C2080",
-    "?Reset@mmCar@@UAEXXZ=0x473B90",
-    "?Reset@mmCarModel@@UAEXXZ=0x473370",
-    "?Reset@mmCarRoadFF@@UAEXXZ=0x481730",
-    "?Reset@mmCarSim@@UAEXXZ=0x46D6B0",
-    "?Reset@mmCDPlayer@@UAEXXZ=0x423190",
-    "?Reset@mmCircuitHUD@@UAEXXZ=0x425090",
-    "?Reset@mmCompBase@@UAEXXZ=0x4BF2D0",
-    "?Reset@mmCompCRPlayer@@UAEXXZ=0x4B7570",
-    "?Reset@mmCompDRecord@@UAEXXZ=0x4B5D40",
-    "?Reset@mmCompRaceRecord@@UAEXXZ=0x4B4B20",
-    "?Reset@mmCompRoster@@UAEXXZ=0x4B7A20",
-    "?Reset@mmCRHUD@@UAEXXZ=0x426180",
-    "?Reset@mmCullCity@@UAEXXZ=0x48CDD0",
-    "?Reset@mmDamage@@QAEXH@Z=0x502420",
-    "?Reset@mmDashView@@UAEXXZ=0x421C10",
-    "?Reset@mmDrivetrain@@UAEXXZ=0x480650",
-    "?Reset@mmEdgeBodyIsect@@QAEXXZ=0x51A660",
-    "?Reset@mmEngine@@UAEXXZ=0x47CC60",
-    "?Reset@mmExternalView@@UAEXXZ=0x422300",
-    "?Reset@mmGame@@UAEXXZ=0x410240",
-    "?Reset@mmGameEdit@@UAEXXZ=0x412760",
-    "?Reset@mmGameManager@@UAEXXZ=0x404910",
-    "?Reset@mmGameMulti@@UAEXXZ=0x431620",
-    "?Reset@mmGameSingle@@UAEXXZ=0x4173A0",
-    "?Reset@mmHUD@@UAEXXZ=0x405870",
-    "?Reset@mmHudMap@@UAEXXZ=0x428750",
-    "?Reset@mmInput@@UAEXXZ=0x4E0EA0",
-    "?Reset@mmInstance@@UAEXXZ=0x493130",
-    "?Reset@mmInterface@@UAEXXZ=0x408660",
-    "?Reset@mmIntersection@@QAEXXZ=0x51A470",
-    "?Reset@mmLoader@@QAEXXZ=0x48B9C0",
-    "?Reset@mmMultiBlitz@@UAEXXZ=0x419820",
-    "?Reset@mmMultiCircuit@@UAEXXZ=0x41B190",
-    "?Reset@mmMultiCR@@UAEXXZ=0x41CCC0",
-    "?Reset@mmMultiRace@@UAEXXZ=0x420370",
-    "?Reset@mmNetworkCarAudio@@UAEXXZ=0x4842E0",
-    "?Reset@mmOpponentCarAudio@@UAEXXZ=0x47BF00",
-    "?Reset@mmPhysicsMGR@@UAEXXZ=0x4D44D0",
-    "?Reset@mmPlayer@@UAEXXZ=0x42B440",
-    "?Reset@mmPlayerCarAudio@@UAEXXZ=0x482A50",
-    "?Reset@mmPlayerConfig@@QAEXXZ=0x4CE9B0",
-    "?Reset@mmPlayerData@@QAEXXZ=0x4D0750",
-    "?Reset@mmPlayerRecord@@QAEXXZ=0x4CFC60",
-    "?Reset@mmPopup@@UAEXXZ=0x427C50",
-    "?Reset@mmSingleBlitz@@UAEXXZ=0x413550",
-    "?Reset@mmSingleCircuit@@UAEXXZ=0x415210",
-    "?Reset@mmSkidManager@@UAEXXZ=0x477CC0",
-    "?Reset@mmSplash@@UAEXXZ=0x481060",
-    "?Reset@mmStuck@@UAEXXZ=0x47C550",
-    "?Reset@mmTimer@@UAEXXZ=0x406290",
-    "?Reset@mmTrailer@@UAEXXZ=0x479C80",
-    "?Reset@mmTransmission@@UAEXXZ=0x470540",
-    "?Reset@mmUnhitBangerInstance@@UAEXXZ=0x4CA830",
-    "?Reset@mmViewCS@@UAEXXZ=0x4F92C0",
-    "?Reset@mmWaypointObject@@UAEXXZ=0x430520",
-    "?Reset@mmWaypoints@@UAEXXZ=0x42ED50",
-    "?Reset@mmWheel@@UAEXXZ=0x47F2D0",
-    "?Reset@mmWheelCheap@@UAEXXZ=0x475180",
-    "?Reset@mmWPHUD@@UAEXXZ=0x4246E0",
-    "?Reset@PointCamCS@@UAEXXZ=0x4F9E80",
-    "?Reset@PolarCamCS@@UAEXXZ=0x4FABE0",
-    "?Reset@PostCamCS@@UAEXXZ=0x4F95E0",
-    "?Reset@PovCamCS@@UAEXXZ=0x4F6420",
-    "?Reset@PreCamCS@@UAEXXZ=0x4F9A60",
-    "?Reset@PUResults@@UAEXXZ=0x4A8A00",
-    "?Reset@PURoster@@UAEXXZ=0x4A8E20",
-    "?Reset@Timer@@QAEXXZ=0x5768E0",
-    "?Reset@TrackCamCS@@UAEXXZ=0x4F6DA0",
-    "?Reset@TransitionCS@@UAEXXZ=0x4FB570",
-    "?Reset@UICompositeScroll@@UAEXXZ=0x4B56F0",
-    "?Reset@UICWArray@@UAEXXZ=0x4B7D40",
-    "?Reset@VehicleSelectBase@@UAEXXZ=0x49B9F0",
-    "?ResetAll@mmInstance@@SAXXZ=0x493140",
-    "?ResetAllTags@mmWaypoints@@QAEXXZ=0x42F010",
-    "?ResetAxisCapture@mmJoystick@@QAEXXZ=0x4E6A10",
-    "?ResetCapture@mmJaxis@@QAEXXZ=0x4E6160",
-    "?ResetCapture@UICWArray@@QAEXXZ=0x4B85B0",
-    "?ResetCDMusic@AudioOptions@@QAEXXZ=0x49D590",
-    "?ResetClock@asSimulation@@QAEXXZ=0x522CA0",
-    "?ResetCommentary@AudioOptions@@QAEXXZ=0x49D620",
-    "?ResetDamage@mmPlayer@@QAEXXZ=0x42C4E0",
-    "?ResetDefaultAction@AudioOptions@@UAEXXZ=0x49D0D0",
-    "?ResetDefaultAction@ControlSetup@@UAEXXZ=0x4A36B0",
-    "?ResetDefaultAction@GraphicsOptions@@UAEXXZ=0x49A5C0",
-    "?ResetDefaultAction@OptionsBase@@UAEXXZ=0x4AB6F0",
-    "?ResetDriverRecord@Dialog_DriverRec@@QAEXXZ=0x49F1A0",
-    "?ResetGameChat@NetArena@@QAEXXZ=0x4A1E70",
-    "?ResetMathSpeed@@YAXXZ=0x573530",
-    "?ResetPed@aiVehiclePolice@@QAEXXZ=0x4451D0",
-    "?ResetPlayerRecord@CRSettings@@QAEXXZ=0x4A12A0",
-    "?ResetPositions@mmMultiCR@@QAEXH@Z=0x41D210",
-    "?ResetRaceRecord@Dialog_HallOfFame@@QAEXXZ=0x49E940",
-    "?ResetReactTicks@aiVehicleSpline@@QAEXXZ=0x45A340",
-    "?ResetRoster@NetArena@@QAEXXZ=0x4A24C0",
-    "?ResetSoundFX@AudioOptions@@QAEXXZ=0x49D560",
-    "?ResetSoundQuality@AudioOptions@@QAEXXZ=0x49D5C0",
-    "?ResetState@uiNavBar@@QAEXXZ=0x4B1F80",
-    "?ResetStereo@AudioOptions@@QAEXXZ=0x49D530",
-    "?ResetTextScroll@UITextScroll@@AAEXXZ=0x4B92F0",
-    "?ResetTime@asNode@@QAEXXZ=0x5239B0",
-    "?ResetTimers@mmHUD@@QAEXXZ=0x405360",
-    "?ResetToolTip@uiWidget@@QAEXXZ=0x4B48C0",
-    "?ResetVehicleReactTicks@aiPath@@QAEXXZ=0x43C640",
-    "?ResetVolume@EngineAudio@@QAEXXZ=0x486D90",
-    "?ResolveCheckpointProgress@mmPlayerData@@QAEXXZ=0x4D0410",
-    "?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z=0x57CAC0",
-    "?RespawnXYZ@mmGame@@IAEXAAVVector3@@AAM@Z=0x410130",
-    "?Restart@asSafeHeap@@QAEXXZ=0x521420",
-    "?RestartPipeline@@YAHHHHHH@Z=0x523340",
-    "?RestartRO@PUResults@@QAEXH@Z=0x4A8A30",
-    "?Restore@agiD3DTexDef@@UAEXXZ=0x531F90",
-    "?Restore@agiDDBitmap@@UAEXXZ=0x533D50",
-    "?Restore@agiRefreshable@@UAEXXZ=0x557AD0",
-    "?Restore@agiSWBitmap@@UAEXXZ=0x534DE0",
-    "?RestoreAll@agiPipeline@@QAEXXZ=0x555CD0",
-    "?RestoreApplication@@YAXXZ=0x4EA040",
-    "?RestoreCallback@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z=0x530A20",
-    "?RestoreDefaultConfig@mmInput@@QAEXH@Z=0x4E1010",
-    "?RestoreImpactParams@mmCarSim@@QAEXXZ=0x46D020",
-    "?RestoreImpactParams@mmTrailer@@QAEXXZ=0x479C30",
-    "?Restrict@DLPTemplate@@QAEHPAD@Z=0x5596B0",
-    "?ResumeCDPlay@AudManager@@QAEHXZ=0x4E9340",
-    "?ResumePlay@CDMan@@QAEKXZ=0x4F4430",
-    "?RetrieveChatLine@NetArena@@QAEHPAD@Z=0x4A2170",
-    "?RetrieveMenuData@MArray@@QAEHHAAM000@Z=0x4ABD60",
-    "?RetrieveWidgetData@WArray@@QAEHHHAAM000@Z=0x4AC590",
-    "?ReturnDescription@UIBMButton@@UAEPADXZ=0x4B6C60",
-    "?ReturnDescription@uiWidget@@UAEPADXZ=0x4B2E60",
-    "?ReturnStateCaptured@mmInput@@QAEHXZ=0x4E1E60",
-    "?ReverseCalcPathSpeed@mmAnimPlane@@QAEXXZ=0x4C5550",
-    "?ReverseCalcPathSpeed@mmAnimTrain@@QAEXXZ=0x4C65C0",
-    "?ReverseCalcPathSpeed@mmBoat@@QAEXXZ=0x4C76A0",
-    "?ReverseTransition@TransitionCS@@QAEXXZ=0x4FBD50",
-    "?rgbtohsv@Vector3@@QAEXXZ=0x566300",
-    "?RoadCapacity@aiPath@@QAEHPAVaiVehicleSpline@@H@Z=0x43FDC0",
-    "?RoadDensity@aiMap@@AAEMHMH@Z=0x43A380",
-    "?RoadDistance@aiPath@@QAEXAAVVector3@@PAFPAMF2@Z=0x43EB60",
-    "?RoadDistance@aiPedestrian@@AAEMXZ=0x44A690",
-    "?RosterRO@PUResults@@QAEXH@Z=0x4A8A10",
-    "?Rotate@Matrix34@@QAEXABVVector3@@M@Z=0x5691D0",
-    "?Rotate@Matrix44@@QAEXABVVector3@@0@Z=0x570680",
-    "?Rotate@Matrix44@@QAEXABVVector3@@M@Z=0x570620",
-    "?Rotate@Matrix44@@QAEXDM@Z=0x5704A0",
-    "?Rotate@Vector3@@QAEXMH@Z=0x5652C0",
-    "?RotateAbs@Matrix34@@QAEXABVVector3@@M@Z=0x569820",
-    "?RotateFull@Matrix34@@QAEXABVVector3@@M@Z=0x569D20",
-    "?RotateNoTrans@Matrix34@@QBE?AVVector3@@ABV2@@Z=0x4DEC70",
-    "?RotateTo@Matrix34@@QAEXABVVector3@@0M@Z=0x56A6C0",
-    "?RotateToAbs@Matrix34@@QAEXABVVector3@@0M@Z=0x56A400",
-    "?RotateToFull@Matrix34@@QAEXABVVector3@@0M@Z=0x56A670",
-    "?RotEqual@Matrix34@@QBEIABV1@M@Z=0x56D180",
-    "?SafeBeginGfx@agiRefreshable@@QAEHXZ=0x557AA0",
-    "?SanityCheck@asMemoryAllocator@@QAEXXZ=0x521090",
-    "?SanityCheck@mmInput@@QAEHPAVmmIO@@HH@Z=0x4E2090",
-    "?SanityCheckioType@mmIODev@@QAEHHHH@Z=0x4E55F0",
-    "?Save@agiMtlParameters@@QAEXPAVStream@@@Z=0x55DB70",
-    "?Save@agiPhysParameters@@QAEXPAVStream@@@Z=0x557040",
-    "?Save@agiTexParameters@@QAEXPAVStream@@@Z=0x556170",
-    "?Save@agiTexSheet@@QAEXPAD@Z=0x5120D0",
-    "?Save@aiVehicleManager@@UAEXXZ=0x453350",
-    "?Save@ArrayOfType@@UAEXPAVMiniParser@@PAX@Z=0x57B7D0",
-    "?Save@asAero@@QAEXPAVStream@@@Z=0x4E0200",
-    "?Save@asNode@@QAEHPAD@Z=0x523EC0",
-    "?Save@asNode@@UAEXXZ=0x523F70",
-    "?Save@bnSkeleton@@QAEHPBD@Z=0x514FA0",
-    "?Save@CharType@@UAEXPAVMiniParser@@PAX@Z=0x57B9F0",
-    "?Save@DLPGroup@@QAEXPAVStream@@@Z=0x558F40",
-    "?Save@DLPPatch@@QAEXPAVStream@@@Z=0x559180",
-    "?Save@DLPTemplate@@QAEXPAVStream@@@Z=0x558500",
-    "?Save@DLPVertex@@QAEXPAVStream@@@Z=0x5595A0",
-    "?Save@FloatType@@UAEXPAVMiniParser@@PAX@Z=0x57C090",
-    "?Save@MetaClass@@QAEXPAVMiniParser@@PAX@Z=0x577C90",
-    "?Save@mmBangerDataManager@@UAEXXZ=0x4C9510",
-    "?Save@mmBridgeMgr@@UAEXXZ=0x4C1CC0",
-    "?Save@mmEngine@@QAEXPAVStream@@@Z=0x47CBE0",
-    "?Save@mmInfoBase@@QAEHPAD@Z=0x4D1390",
-    "?Save@mmMiscData@@QAEHPADH@Z=0x4CC710",
-    "?Save@mmPlayerConfig@@QAEHPADH@Z=0x4CE240",
-    "?Save@mmPlayerData@@QAEHPADH@Z=0x4D0940",
-    "?Save@mmPlayerDirectory@@QAEHPADH@Z=0x4CF6D0",
-    "?Save@mmWheel@@QAEXPAVStream@@@Z=0x47F4B0",
-    "?Save@PtrToType@@UAEXPAVMiniParser@@PAX@Z=0x57B590",
-    "?Save@RefToType@@UAEXPAVMiniParser@@PAX@Z=0x57B640",
-    "?Save@SignedCharType@@UAEXPAVMiniParser@@PAX@Z=0x57BAC0",
-    "?Save@SignedInt64Type@@UAEXPAVMiniParser@@PAX@Z=0x57BEE0",
-    "?Save@SignedIntType@@UAEXPAVMiniParser@@PAX@Z=0x57BE10",
-    "?Save@SignedShortType@@UAEXPAVMiniParser@@PAX@Z=0x57BC60",
-    "?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z=0x561520",
-    "?Save@StringType@@UAEXPAVMiniParser@@PAX@Z=0x57C190",
-    "?Save@StructType@@UAEXPAVMiniParser@@PAX@Z=0x57B960",
-    "?Save@UnsignedCharType@@UAEXPAVMiniParser@@PAX@Z=0x57BB90",
-    "?Save@UnsignedIntType@@UAEXPAVMiniParser@@PAX@Z=0x57BFC0",
-    "?Save@UnsignedShortType@@UAEXPAVMiniParser@@PAX@Z=0x57BD30",
-    "?Save@Vector2Type@@UAEXPAVMiniParser@@PAX@Z=0x571640",
-    "?Save@Vector3Type@@UAEXPAVMiniParser@@PAX@Z=0x567320",
-    "?Save@Vector4Type@@UAEXPAVMiniParser@@PAX@Z=0x56E3F0",
-    "?Save@VehGyro@@QAEXPAVStream@@@Z=0x480700",
-    "?SaveBinary@aiIntersection@@QAEXPAVStream@@@Z=0x447610",
-    "?SaveBinary@aiMap@@AAEXPAD@Z=0x435830",
-    "?SaveBinary@aiPath@@QAEXPAVStream@@@Z=0x43D950",
-    "?SaveBinary@mmMiscData@@QAEHPAD@Z=0x4CC960",
-    "?SaveBinary@mmPlayerConfig@@QAEHPAD@Z=0x4CDFE0",
-    "?SaveBinary@mmPlayerData@@QAEHPAD@Z=0x4D0CF0",
-    "?SaveBinary@mmPlayerDirectory@@QAEHPAD@Z=0x4CF770",
-    "?SaveBinary@mmPlayerRecord@@QAEHPAVStream@@@Z=0x4CFD40",
-    "?SaveBinary@mmRecord@@QAEHPAVStream@@@Z=0x4D1810",
-    "?SaveCB@mmInput@@QAEXXZ=0x4E0FD0",
-    "?SaveCFG@UICWArray@@QAEXXZ=0x4B8690",
-    "?SaveCodeConfig@mmInput@@QAEHPAVStream@@@Z=0x4E4370",
-    "?SaveConfig@mmInput@@QAEHPAVStream@@@Z=0x4E3DA0",
-    "?SaveName@string@@QAEXABV1@H00@Z=0x579D00",
-    "?SaveReplay@mmGameManager@@QAEXPAD@Z=0x404880",
-    "?Scale@Matrix34@@QAEXM@Z=0x56A9A0",
-    "?Scale@Matrix34@@QAEXMMM@Z=0x56A8F0",
-    "?Scale@Matrix44@@QAEXABVVector3@@M@Z=0x570970",
-    "?Scale@Matrix44@@QAEXMMM@Z=0x570920",
-    "?Scale@Vector3@@QAEXABV1@M@Z=0x45C470",
-    "?ScaleAbs@Matrix34@@QAEXM@Z=0x56AA20",
-    "?ScaleAbs@Matrix34@@QAEXMMM@Z=0x56A970",
-    "?ScaleFull@Matrix34@@QAEXM@Z=0x56AB30",
-    "?ScaleFull@Matrix34@@QAEXMMM@Z=0x56AA50",
-    "?ScaleFullAbs@Matrix34@@QAEXM@Z=0x56ABD0",
-    "?ScaleFullAbs@Matrix34@@QAEXMMM@Z=0x56AAF0",
-    "?ScaleVolume@Matrix34@@QAEXMD@Z=0x56AC10",
-    "?ScaleVolumeAbs@Matrix34@@QAEXMD@Z=0x56AD10",
-    "?ScaleWidget@UIMenu@@QAEXAAM000@Z=0x4ACF20",
-    "?ScanAvailableDSFormats@DSGlobal@@QAEXXZ=0x4F0670",
-    "?ScanForEvent@mmInput@@AAE_JPATeqEvent@@@Z=0x4E2D90",
-    "?ScanGlobalKeys@MenuManager@@QAEHH@Z=0x4B0FC0",
-    "?ScanInput@UIMenu@@QAEHPATeqEvent@@@Z=0x4ACE40",
-    "?ScanIntersections@aiMap@@AAEPAVaiIntersection@@AAVVector3@@@Z=0x4396A0",
-    "?ScanState@mmInput@@AAE_JPAVmmIO@@@Z=0x4E26E0",
-    "?Score@mmMultiCR@@AAEXH@Z=0x41F530",
-    "?SealSession@asNetwork@@QAEXXZ=0x48A450",
-    "?Search@FileSystem@@QAEHPAD00H0@Z=0x55F690",
-    "?SearchAll@FileSystem@@SAPAV1@PAD00H0@Z=0x55F620",
-    "?Seed@Random@@QAEXH@Z=0x56D9F0",
-    "?Seek@Stream@@QAEHH@Z=0x55EC60",
-    "?SeekTrack@CDMan@@QAEKE@Z=0x4F45A0",
-    "?SegSegDistNorm@@YAXABVVector3@@00000PAV1@11PAMPAH@Z=0x4D8210",
-    "?SelectIfRaceType@mmCompRaceRecord@@QAEXHH@Z=0x4B4CA0",
-    "?SelectTeams@mmMultiCR@@AAEHXZ=0x41D330",
-    "?Send@asNetwork@@QAEXKPAXKH@Z=0x48AEF0",
-    "?Send@ipcMessageQueue@@QAEXP6AXPAX@Z0@Z=0x578980",
-    "?SendBootMsg@mmGameMulti@@QAEXK@Z=0x4324D0",
-    "?SendBootMsg@mmInterface@@AAEXK@Z=0x40E330",
-    "?SendChangeSet@mmMultiCR@@AAEXH@Z=0x41F350",
-    "?SendChatMessage@mmGame@@UAEXPAD@Z=0x411590",
-    "?SendChatMessage@mmGameMulti@@UAEXPAD@Z=0x4321D0",
-    "?SendChatMessage@mmInterface@@AAEXPAX@Z=0x40E250",
-    "?SendGameState@mmMultiCR@@AAEXK@Z=0x41F1C0",
-    "?SendGoldAck@mmMultiCR@@AAEXK@Z=0x41F2C0",
-    "?SendGoldDeliver@mmMultiCR@@AAEXXZ=0x41F300",
-    "?SendGoldDrop@mmMultiCR@@AAEXVVector3@@@Z=0x41F270",
-    "?SendLimitReached@mmMultiCR@@AAEXH@Z=0x41F390",
-    "?SendLobbyProperty@asNetwork@@QAEXPAXH@Z=0x489280",
-    "?SendMsg@mmGameMulti@@QAEXH@Z=0x4324A0",
-    "?SendMsg@mmInterface@@AAEXH@Z=0x40E2F0",
-    "?SendPlayerFinish@mmMultiBlitz@@AAEXXZ=0x41A420",
-    "?SendPlayerFinish@mmMultiCircuit@@AAEXXZ=0x41BC20",
-    "?SendPlayerFinish@mmMultiRace@@AAEXXZ=0x421240",
-    "?SendReadyReq@mmInterface@@AAEXXZ=0x40E3B0",
-    "?SendReadyStatus@mmInterface@@AAEXXZ=0x40E370",
-    "?SendSetup@mmMultiCR@@AAEXK@Z=0x41F260",
-    "?SendTimeWarning@mmMultiCR@@AAEXH@Z=0x41F3D0",
-    "?SendToChatMessage@mmGameMulti@@QAEXPADK@Z=0x432290",
-    "?Set3DMode@AudSound@@QAEXK@Z=0x4EB660",
-    "?Set3DMode@SoundObj@@QAEXK@Z=0x4F2C00",
-    "?Set@agiD3DTexDef@@UAEXAAVVector2@@0@Z=0x531F70",
-    "?Set@agiSWTexDef@@UAEXAAVVector2@@0@Z=0x537710",
-    "?Set@mmGfxCFG@@QAEXXZ=0x4CE5B0",
-    "?Set@Vector3@@QAEXMMM@Z=0x4DBB30",
-    "?Set@Vector4@@QAEXMMMM@Z=0x570D50",
-    "?Set@VolumeDW@@QAEXMM@Z=0x4EE040",
-    "?SetAction@UIMenu@@QAEXW4eSource@1@@Z=0x4ACB20",
-    "?SetActive@mmNetObject@@QAEXH@Z=0x432A50",
-    "?SetActive@TextDropWidget@@QAEXH@Z=0x4BE480",
-    "?SetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z=0x4F48F0",
-    "?SetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z=0x4F4B80",
-    "?SetAlley@mmRoadSect@@QAEXH@Z=0x4D2980",
-    "?SetAlpha@Card2D@@QAEXM@Z=0x4FE2C0",
-    "?SetAmbient@asCamera@@QAEXABVVector3@@@Z=0x529F50",
-    "?SetAppRate@PointCamCS@@QAEXM@Z=0x4F9F40",
-    "?SetArrow@mmWaypoints@@QAEXXZ=0x42EF80",
-    "?SetAudio@mmPlayerConfig@@QAEXXZ=0x4CE2E0",
-    "?SetAudioCloserMinDistMult@aiVehicleOpponent@@QAEXM@Z=0x44E400",
-    "?SetAudioCloserMinDistMult@aiVehiclePolice@@QAEXM@Z=0x4462E0",
-    "?SetAudioMaxDistance@aiVehicleAmbient@@SAXM@Z=0x450DA0",
-    "?SetAudioMaxDistance@aiVehicleOpponent@@QAEXM@Z=0x44E3D0",
-    "?SetAudioMaxDistance@aiVehiclePolice@@QAEXM@Z=0x4462B0",
-    "?SetAudioMinDistance@aiVehicleOpponent@@QAEXM@Z=0x44E3B0",
-    "?SetAudioMinDistance@aiVehiclePolice@@QAEXM@Z=0x446290",
-    "?SetAudioState@AudioOptions@@QAEXXZ=0x49D1E0",
-    "?SetAzimuth@asViewCS@@QAEXXZ=0x52BCD0",
-    "?SetBackground@agiD3DViewport@@UAEXAAVVector3@@@Z=0x533410",
-    "?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z=0x534950",
-    "?SetBackgroundImage@MenuManager@@QAEXPAD@Z=0x4B0960",
-    "?SetBalance@AudioOptions@@QAEXXZ=0x49CF40",
-    "?SetBalance@PUAudioOptions@@QAEXXZ=0x4AAA20",
-    "?SetBangerVolumeRange@mmImpactAudio@@QAEXMMMF@Z=0x4854A0",
-    "?SetBGColor@mmTextNode@@QAEXAAVVector4@@@Z=0x4FF690",
-    "?SetBill@agiViewParameters@@QAEXAAVVector3@@@Z=0x557590",
-    "?SetBillY@agiViewParameters@@QAEXAAVMatrix34@@@Z=0x5576D0",
-    "?SetBitDepth@DSGlobal@@QAEXH@Z=0x4F0990",
-    "?SetBitDepthAndSampleRate@AudManager@@QAEXHK@Z=0x4E9DD0",
-    "?SetBitmapName@UIBMLabel@@QAEXPAVstring@@@Z=0x4B4440",
-    "?SetBlink@UILabel@@QAEXH@Z=0x4B9820",
-    "?SetBlitzMask@RaceMenu@@QAEXH@Z=0x4A4DB0",
-    "?SetBlocked@mmRoadSect@@QAEXHH@Z=0x4D2890",
-    "?SetBltXY@mmCompBase@@UAEXMM@Z=0x4B4E10",
-    "?SetBltXY@mmCompDRecord@@UAEXMM@Z=0x4B5F70",
-    "?SetBltXY@mmCompRoster@@UAEXMM@Z=0x4B7BD0",
-    "?SetBlueScore@mmCRHUD@@QAEXH@Z=0x426190",
-    "?SetBootCB@PURoster@@QAEXVCallback@@@Z=0x4A92D0",
-    "?SetBstate@UIMenu@@QAEXH@Z=0x4ACBB0",
-    "?SetCamera@mmViewCS@@QAEXPAVasCamera@@@Z=0x4F9270",
-    "?SetCamInterest@mmPlayer@@QAEXPAVasInertialCS@@@Z=0x42C420",
-    "?SetCapture@mmJoyMan@@QAEXH@Z=0x4E5DE0",
-    "?SetCar@mmNetObject@@QAEXPAVmmCar@@@Z=0x432A40",
-    "?SetCarName@mmRecord@@QAEXPAD@Z=0x4D16F0",
-    "?SetCDMusic@AudioOptions@@QAEXXZ=0x49D3F0",
-    "?SetCDPlayMode@AudManager@@QAEXE@Z=0x4E94B0",
-    "?SetCDVolume@AudioOptions@@QAEXXZ=0x49CF20",
-    "?SetCDVolume@PUAudioOptions@@QAEXXZ=0x4AAA00",
-    "?SetCheckpointMask@RaceMenu@@QAEXH@Z=0x4A4DD0",
-    "?SetChorusAttenuation@AudSound@@QAEXM@Z=0x4EB820",
-    "?SetChorusPitchMult@AudSound@@QAEXM@Z=0x4EB860",
-    "?SetChorusPitchMult@AudSound@@QAEXMM@Z=0x4EB8A0",
-    "?SetCircuitMask@RaceMenu@@QAEXH@Z=0x4A4DF0",
-    "?SetClearSurfaceAudioInfos@@YAXXZ=0x470D50",
-    "?SetClipArea@asCamera@@QAEXMMMM@Z=0x529100",
-    "?SetClipMode@@YAXH@Z=0x504690",
-    "?SetColor@asLamp@@QAEXABVVector3@@M@Z=0x526130",
-    "?SetColor@Card2D@@QAEXVVector4@@@Z=0x49C530",
-    "?SetComment@mmPopup@@QAEXPAD@Z=0x427C80",
-    "?SetCommentary@AudioOptions@@QAEXXZ=0x49D450",
-    "?SetCompositionWindow@UITextField@@QAEXXZ=0x4B2C90",
-    "?SetComs@NetSelectMenu@@QAEXXZ=0x4A4820",
-    "?SetConeAngles@AudSound@@QAEXKK@Z=0x4EB730",
-    "?SetConeAngles@SoundObj@@QAEXKK@Z=0x4F2C50",
-    "?SetConeOrientation@AudSound@@QAEXPAVVector3@@@Z=0x4EB790",
-    "?SetConeOrientation@SoundObj@@QAEXPAVVector3@@@Z=0x4F2C90",
-    "?SetConeOutsideVolume@AudSound@@QAEXJ@Z=0x4EB760",
-    "?SetConeOutsideVolume@SoundObj@@QAEXJ@Z=0x4F2C20",
-    "?SetController@DriverMenu@@QAEXPAD@Z=0x4A5DA0",
-    "?SetControlPosition@ControlSetup@@QAEMPAVuiWidget@@MM@Z=0x4A34F0",
-    "?SetControls@mmPlayerConfig@@QAEXXZ=0x4CE450",
-    "?SetCRStateData@mmInterface@@AAEXXZ=0x40DE80",
-    "?SetCull@asForm@@QAEXHM@Z=0x5284D0",
-    "?SetCurrentCam@mmViewCS@@QAEXPAVCarCamCS@@@Z=0x4F9110",
-    "?SetCurrentCity@mmCityList@@QAEXH@Z=0x4CBDF0",
-    "?SetCurrentCity@mmCityList@@QAEXPAD@Z=0x4CBDD0",
-    "?SetCurrentGear@mmTransmission@@QAEHH@Z=0x470750",
-    "?SetCurrentGoals@mmWaypoints@@QAEXH@Z=0x42F1C0",
-    "?SetDamping@CReverb@@QAEXM@Z=0x4F48D0",
-    "?SetData@UISlider@@QAEXM@Z=0x4B4210",
-    "?SetData@UITextDropdown@@QAEXPAH@Z=0x4B3460",
-    "?SetData@UITextRoller2@@QAEXPAH@Z=0x4BB890",
-    "?SetDeadZone@mmInput@@QAEXM@Z=0x4E39D0",
-    "?SetDeadZone@mmJoystick@@QAEHM@Z=0x4E6620",
-    "?SetDecayTime@CReverb@@QAEXM@Z=0x4F48B0",
-    "?SetDefaultBackgroundImage@MenuManager@@QAEXPAD@Z=0x4B0900",
-    "?SetDefaultConfig@mmInput@@QAEXH@Z=0x4E1070",
-    "?SetDefaults@mmPlayerConfig@@QAEXXZ=0x4CE230",
-    "?SetDelayTime@AudSound@@QAEXM@Z=0x4EB8F0",
-    "?SetDelayTime@SoundObj@@QAEXM@Z=0x4F0D70",
-    "?SetDensity@asInertialCS@@QAEXMMMM@Z=0x4D9400",
-    "?SetDescription@NetSelectMenu@@QAEXPAULocString@@@Z=0x4A44A0",
-    "?SetDevice@AudioOptions@@QAEXH@Z=0x49D650",
-    "?SetDeviceName@AudManager@@QAEXPAD@Z=0x4E9F50",
-    "?SetDeviceNum@MixerCTL@@QAEXI@Z=0x4EEAB0",
-    "?SetDeviceRating@DSGlobal@@QAEXPAUtag_dsdevdesc@@@Z=0x4EFA50",
-    "?SetDimensions@Card2D@@QAEXMMMM@Z=0x4FE1B0",
-    "?SetDisabledColors@mmDropDown@@QAEXXZ=0x4C0DB0",
-    "?SetDisabledMask@TextDropWidget@@QAEXJ@Z=0x4BE490",
-    "?SetDisabledMask@UITextDropdown@@QAEXJ@Z=0x4B38F0",
-    "?SetDistant@asLamp@@QAEXXZ=0x526170",
-    "?SetDivided@mmRoadSect@@QAEXH@Z=0x4D2960",
-    "?SetDLP@asForm@@QAEXPAVDLP@@@Z=0x528420",
-    "?SetDoppler@AudHead@@QAEXM@Z=0x4EBFB0",
-    "?SetDrive@mmTransmission@@QAEXXZ=0x470720",
-    "?SetEAXDamping@AudManager@@QAEHM@Z=0x4E9CF0",
-    "?SetEAXDecayTime@AudManager@@QAEHM@Z=0x4E9C30",
-    "?SetEAXEnvironmet@AudManager@@QAEHK@Z=0x4E9AB0",
-    "?SetEAXPreset@AudManager@@QAEHKMMM@Z=0x4E9970",
-    "?SetEAXPreset@AudManager@@QAEHPAUEAX_REVERBPROPERTIES@@@Z=0x4E99F0",
-    "?SetEAXReverbMix@AudSound@@QAEXMH@Z=0x4EB350",
-    "?SetEAXReverbVolume@AudManager@@QAEHM@Z=0x4E9B70",
-    "?SetEchoAttenuation@AudSound@@QAEXM@Z=0x4EB7C0",
-    "?SetEchoFrequency@AudSound@@QAEXMH@Z=0x4EB510",
-    "?SetEchoFrequency@SoundObj@@QAEXM@Z=0x4F2860",
-    "?SetEchoPan@AudSound@@QAEXM@Z=0x4EB4B0",
-    "?SetEchoPan@SoundObj@@QAEXM@Z=0x4F2BA0",
-    "?SetEffect@AudSound@@QAEXH@Z=0x4EBA30",
-    "?SetEffect@SoundObj@@QAEXFPAD@Z=0x4F1D40",
-    "?SetEffects@mmTextNode@@QAEXHH@Z=0x4FF760",
-    "?SetEnumSessionLock@asNetwork@@QAEXHH@Z=0x48B090",
-    "?SetEnvironment@CReverb@@QAEXK@Z=0x4F4870",
-    "?SetFFPermissions@ControlSetup@@QAEXXZ=0x4A35B0",
-    "?SetFGColor@mmTextNode@@QAEXAAVVector4@@@Z=0x4FF6F0",
-    "?SetFGVals@mmCarRoadFF@@QAEXMMM@Z=0x481610",
-    "?SetField@UITextField@@QAEXPAD@Z=0x4B2610",
-    "?SetFileName@mmPlayerData@@QAEXPAD@Z=0x4D08C0",
-    "?SetFocus@MenuManager@@QAEXPAVUIMenu@@@Z=0x4B1550",
-    "?SetFocusWidget@UIMenu@@QAEXH@Z=0x4ACBE0",
-    "?SetFog@agiMeshSet@@SAXMH@Z=0x5050C0",
-    "?SetFog@asCamera@@QAEXMMMM@Z=0x529C10",
-    "?SetForceFeedbackScale@mmInput@@QAEXM@Z=0x4E3AA0",
-    "?SetForceLimit@Joint3Dof@@QAEXM@Z=0x4DC040",
-    "?SetFrequency@AudSound@@QAEXMH@Z=0x4EB210",
-    "?SetFrequency@AudStream@@QAEXMH@Z=0x4F3F30",
-    "?SetFrequency@mmVoiceCommentary@@QAEXM@Z=0x4EC170",
-    "?SetFrequency@SoundObj@@QAEXM@Z=0x4F2620",
-    "?SetFrequency@StreamObj@@QAEXM@Z=0x4F57B0",
-    "?SetFrequencyEvent@StreamObj@@QAEXM@Z=0x4F53E0",
-    "?SetFricMultiplier@mmWheel@@QAEXM@Z=0x47F380",
-    "?SetFriction@mmJoystick@@QAEHJ@Z=0x4E6D20",
-    "?SetFrictionLean@Joint3Dof@@QAEXMMM@Z=0x4DBE90",
-    "?SetFrictionRoll@Joint3Dof@@QAEXMMM@Z=0x4DBEC0",
-    "?SetGameClassCallback@CRSettings@@QAEXXZ=0x4A16C0",
-    "?SetGeometry@mmCompBase@@UAEXMMMM@Z=0x4B4EA0",
-    "?SetGeometry@mmCompCRPlayer@@UAEXMMMM@Z=0x4B7740",
-    "?SetGeometry@mmCompDRecord@@UAEXMMMM@Z=0x4B5F40",
-    "?SetGeometry@mmCompRaceRecord@@UAEXMMMM@Z=0x4B4C70",
-    "?SetGeometry@mmCompRoster@@UAEXMMMM@Z=0x4B7BA0",
-    "?SetGlobalTuning@mmCarSim@@SAXMM@Z=0x46C030",
-    "?SetGoal@Spline@@QAEXPAMM@Z=0x4FD790",
-    "?SetGoldMass@CRSettings@@QAEXH@Z=0x4A1620",
-    "?SetGraphics@mmPlayerConfig@@QAEXXZ=0x4CE640",
-    "?SetHackedImpactParams@mmCarSim@@QAEXXZ=0x46D040",
-    "?SetHackedImpactParams@mmTrailer@@QAEXXZ=0x479C60",
-    "?SetHeading@mmWaypointObject@@QAEXM@Z=0x430560",
-    "?SetHeadPtr@AudHead@@QAEXPAVMatrix34@@@Z=0x4EC020",
-    "?SetHighlight@mmDropDown@@QAEXH@Z=0x4C0E60",
-    "?SetHighlight@TextDropWidget@@QAEHH@Z=0x4BE310",
-    "?SetHighlight@UITextScroll@@QAEXH@Z=0x4B9030",
-    "?SetHightlight@UICompositeScroll@@QAEXXZ=0x4B59E0",
-    "?SetHost@CRSettings@@QAEXH@Z=0x4A0F50",
-    "?SetHost@NetArena@@QAEXH@Z=0x4A2AF0",
-    "?SetHost@PURoster@@QAEXH@Z=0x4A8E90",
-    "?SetHotSpots@UIVScrollBar@@QAEXXZ=0x4BD030",
-    "?SetHotSpots@VSWidget@@QAEXXZ=0x4BF620",
-    "?SetIconsState@mmGame@@QAEXXZ=0x411400",
-    "?SetInputs@mmWheel@@QAEXMM@Z=0x47F360",
-    "?SetInterest@mmArrow@@QAEXPAVVector3@@@Z=0x4064E0",
-    "?SetInterior@mmRainAudio@@QAEXE@Z=0x433440",
-    "?SetIntersectionType@mmRoadSect@@QAEXHH@Z=0x4D2770",
-    "?SetIntroText@mmLoader@@QAEXPAULocString@@@Z=0x48B820",
-    "?SetIOPath@mmInfoBase@@QAEXPAD@Z=0x4D1440",
-    "?SetIPAddress@NetSelectMenu@@QAEXPAD@Z=0x4A4560",
-    "?SetIPXButton@NetSelectMenu@@QAEXH@Z=0x4A4A70",
-    "?SetItem@mmMapData@@QAEXHPAD@Z=0x4D3320",
-    "?SetItem@mmPropInfo@@QAEXHPAD@Z=0x4D2220",
-    "?SetJointForceFlag@Joint3Dof@@QAEXXZ=0x4DC050",
-    "?SetLabel@asMidgets@@UAEXPAD@Z=0x526E40",
-    "?SetLapTime@mmCircuitHUD@@QAEXHMPADH@Z=0x424FB0",
-    "?SetLapTime@mmHUD@@QAEXHMH@Z=0x405E40",
-    "?SetLastPlayer@mmPlayerDirectory@@QAEXPAD@Z=0x4CF010",
-    "?SetLastUnlockedVehicle@VehicleSelectBase@@QAEXXZ=0x49BBF0",
-    "?SetLeanLimit@Joint3Dof@@QAEXMM@Z=0x4DBEF0",
-    "?SetLighting@asCamera@@QAEXH@Z=0x529230",
-    "?SetLightQuality@GraphicsOptions@@QAEXXZ=0x49A370",
-    "?SetLimit@CRSettings@@QAEXAAH0@Z=0x4A15A0",
-    "?SetLimitControl@CRSettings@@QAEXXZ=0x4A1330",
-    "?SetLocalData@mmNetObject@@UAEXXZ=0x432A80",
-    "?SetLockedLabel@VehicleSelectBase@@QAEXXZ=0x49C230",
-    "?SetLoopIndex@AudStream@@QAEXF@Z=0x4F4180",
-    "?SetLoopPointInfo@AudStream@@QAEXKKIFF@Z=0x4F41B0",
-    "?SetLoopPointInfo@StreamObj@@QAEXKKIFF@Z=0x4F60B0",
-    "?SetLSidewalk@mmRoadSect@@QAEXMM@Z=0x4D2530",
-    "?SetMainSirenLoop@aiVehiclePolice@@QAEXH@Z=0x446190",
-    "?SetMass@asInertialCS@@QAEXMMMM@Z=0x4D92F0",
-    "?SetMathSpeedFast@@YAXXZ=0x573510",
-    "?SetMathSpeedMed@@YAXXZ=0x5734F0",
-    "?SetMathSpeedSlow@@YAXXZ=0x5734D0",
-    "?SetMatrix@mmAnimTrainCar@@QAEXAAVMatrix34@@@Z=0x4C80E0",
-    "?SetMaxDist@PointCamCS@@QAEXM@Z=0x4F9F00",
-    "?SetMessage2@mmHUD@@QAEXPAULocString@@@Z=0x405EE0",
-    "?SetMessage@mmHUD@@QAEXPAULocString@@MH@Z=0x405EA0",
-    "?SetMessage@PUResults@@QAEXPAULocString@@@Z=0x4A8C50",
-    "?SetMinAmpSpeed@mmOpponentCarAudio@@QAEXM@Z=0x47C0C0",
-    "?SetMinDist@PointCamCS@@QAEXM@Z=0x4F9F20",
-    "?SetMirrorFOV@mmPlayer@@QAEXXZ=0x42A9A0",
-    "?SetMirrorPos@asRenderWeb@@QAEXMMMMM@Z=0x490E70",
-    "?SetMode@mmHudMap@@QAEXH@Z=0x428870",
-    "?SetModemButton@NetSelectMenu@@QAEXH@Z=0x4A4AE0",
-    "?SetMonochrome@asCamera@@QAEXH@Z=0x529F90",
-    "?SetMouseParams@UISlider@@QAEXM@Z=0x4B4090",
-    "?SetMultiRaceOptions@Dialog_RaceEnvironment@@QAEXH@Z=0x49E310",
-    "?SetName@asNode@@QAEXPAD@Z=0x523860",
-    "?SetName@mmCRHUD@@QAEXPADH@Z=0x425E30",
-    "?SetName@mmPlayerData@@QAEXPAD@Z=0x4D0820",
-    "?SetName@mmRecord@@QAEXPAD@Z=0x4D1710",
-    "?SetNetName@DriverMenu@@QAEXPAD@Z=0x4A5DC0",
-    "?SetNetName@mmPlayerData@@QAEXPAD@Z=0x4D0870",
-    "?SetNetname@NetSelectMenu@@QAEXPAD@Z=0x4A4500",
-    "?SetNumChannels@AudManager@@QAEXH@Z=0x4E82D0",
-    "?SetNumLoopIndices@AudStream@@QAEXF@Z=0x4F4150",
-    "?SetNumLoopIndices@StreamObj@@QAEXF@Z=0x4F6050",
-    "?SetOutcode@agiProjVtx@@SAXH@Z=0x552630",
-    "?SetPan@AudSound@@QAEXMH@Z=0x4EB410",
-    "?SetPan@AudStream@@QAEXMH@Z=0x4F4050",
-    "?SetPan@SoundObj@@QAEXM@Z=0x4F2A60",
-    "?SetPan@StreamObj@@QAEXM@Z=0x4F58A0",
-    "?SetPanEvent@StreamObj@@QAEXM@Z=0x4F5410",
-    "?SetPassed@mmRecord@@QAEXH@Z=0x4D1750",
-    "?SetPathSpeed@mmAnimPlane@@QAEXXZ=0x4C5540",
-    "?SetPathSpeed@mmAnimTrain@@QAEXXZ=0x4C65B0",
-    "?SetPathSpeed@mmBoat@@QAEXXZ=0x4C7650",
-    "?SetPedBlocked@mmRoadSect@@QAEXHH@Z=0x4D28D0",
-    "?SetPhoneNumber@NetSelectMenu@@QAEXPAD@Z=0x4A4540",
-    "?SetPick@VehicleSelectBase@@QAEXHF@Z=0x49BC80",
-    "?SetPixel@agiColorModel8@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55C020",
-    "?SetPixel@agiColorModelABGR@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55D740",
-    "?SetPixel@agiColorModelARGB@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55D550",
-    "?SetPixel@agiColorModelRGB555@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55C610",
-    "?SetPixel@agiColorModelRGB555_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55C9D0",
-    "?SetPixel@agiColorModelRGB565@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55C7F0",
-    "?SetPixel@agiColorModelRGB565_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55CBB0",
-    "?SetPixel@agiColorModelRGB888@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55CD60",
-    "?SetPixel@agiColorModelRGB888_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55CF00",
-    "?SetPixel@agiColorModelRGBA4444@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55D360",
-    "?SetPixel@agiColorModelRGBA5551@@UAEXPAVagiSurfaceDesc@@HHI@Z=0x55D130",
-    "?SetPlayer@mmPlayerDirectory@@QAEXHPAD0@Z=0x4CEFE0",
-    "?SetPlayerData@asNetwork@@QAEXKPAXH@Z=0x489DA0",
-    "?SetPlayerPick@DriverMenu@@QAEXH@Z=0x4A5B00",
-    "?SetPlayerScore@CRSettings@@QAEXHH@Z=0x4A1260",
-    "?SetPlayingFlag@StreamObj@@QAEXF@Z=0x4F6290",
-    "?SetPlayOneShotEvent@StreamObj@@QAEXPAD@Z=0x4F5330",
-    "?SetPlayPosition@AudSound@@QAEXK@Z=0x4EAFC0",
-    "?SetPlayPosition@AudStream@@QAEXK@Z=0x4F3B50",
-    "?SetPlayPosition@SoundObj@@QAEXK@Z=0x4F1EC0",
-    "?SetPlayPosition@StreamObj@@QAEXK@Z=0x4F5270",
-    "?SetPoint@asLamp@@QAEXXZ=0x526180",
-    "?SetPoints@mmCompCRPlayer@@QAEXH@Z=0x4B7590",
-    "?SetPos@PointCamCS@@QAEXAAVVector3@@@Z=0x4F9EC0",
-    "?SetPos@UITextDropdown@@QAEXMM@Z=0x4B33A0",
-    "?SetPosition@Card2D@@QAEXMM@Z=0x4FE2A0",
-    "?SetPosition@Joint3Dof@@QAEXABVVector3@@@Z=0x4DBD70",
-    "?SetPosition@mmCompCRPlayer@@UAEXPAVmmTextNode@@HM@Z=0x4B76B0",
-    "?SetPosition@mmCompDRecord@@UAEXPAVmmTextNode@@HM@Z=0x4B5EA0",
-    "?SetPosition@mmCompRaceRecord@@UAEXPAVmmTextNode@@HM@Z=0x4B4CE0",
-    "?SetPosition@mmCompRoster@@UAEXPAVmmTextNode@@HM@Z=0x4B7B20",
-    "?SetPosition@mmSlider@@QAEXMM@Z=0x4BEAD0",
-    "?SetPosition@mmTextNode@@QAEXHMM@Z=0x4FFAA0",
-    "?SetPosition@mmToggle2@@QAEXMM@Z=0x4C0020",
-    "?SetPosition@SoundObj@@QAEXMMM@Z=0x4F25A0",
-    "?SetPosition@UIBMButton@@UAEXMM@Z=0x4B6580",
-    "?SetPosition@UICompositeScroll@@QAEXH@Z=0x4B5A10",
-    "?SetPosition@UIControlWidget@@QAEXMMMM@Z=0x4BBE00",
-    "?SetPosition@UISlider@@UAEXMM@Z=0x4B3CD0",
-    "?SetPosition@UIVScrollBar@@UAEXMM@Z=0x4BD910",
-    "?SetPosition@uiWidget@@UAEXMM@Z=0x4B2E70",
-    "?SetPostRaceCam@mmPlayer@@QAEXXZ=0x42AAF0",
-    "?SetPreRaceCam@mmPlayer@@QAEXXZ=0x42A9D0",
-    "?SetPreset@CReverb@@QAEXKMMM@Z=0x4F4910",
-    "?SetPreset@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z=0x4F4950",
-    "?SetPrevBitmap@uiNavBar@@QAEXPAD@Z=0x4B2100",
-    "?SetPreviousMenu@MenuManager@@QAEXH@Z=0x4B1620",
-    "?SetPrevPos@uiNavBar@@QAEXMM@Z=0x4B2070",
-    "?SetPrimaryBufferFormat@DSGlobal@@QAEXKE@Z=0x4F0580",
-    "?SetPriority@AudSound@@QAEXH@Z=0x4EA670",
-    "?SetPriority@AudStream@@QAEXH@Z=0x4F37E0",
-    "?SetProgressMask@RaceMenu@@QAEXH@Z=0x4A4D90",
-    "?SetProtocol2@mmInterface@@AAEHXZ=0x40D4F0",
-    "?SetProtocol@asNetwork@@QAEHH@Z=0x4898B0",
-    "?SetProtocol@asNetwork@@QAEHHPAUNETCOMMPACK@@@Z=0x489550",
-    "?SetProtocol@mmInterface@@AAEXXZ=0x40D440",
-    "?SetQuality@AudioOptions@@QAEXXZ=0x49CF70",
-    "?SetRainSurfaceAudioInfos@@YAXXZ=0x470FB0",
-    "?SetRamp@AudSound@@QAEXMM@Z=0x4EB580",
-    "?SetRamp@SoundObj@@QAEXMM@Z=0x4F2BD0",
-    "?SetRange@mmJaxis@@QAEXMM@Z=0x4E60B0",
-    "?SetRange@mmSlider@@QAEXMM@Z=0x4BECB0",
-    "?SetRange@UIVScrollBar@@QAEXMM@Z=0x4BD210",
-    "?SetReadOnly@UIButton@@UAEXH@Z=0x4B9E00",
-    "?SetReadOnly@uiWidget@@UAEXH@Z=0x4B2E10",
-    "?SetReadWrite@mmSlider@@QAEXH@Z=0x4BE9E0",
-    "?SetReadWrite@UISlider@@QAEXH@Z=0x4B3FF0",
-    "?SetReady@mmCompRoster@@QAEXH@Z=0x4B7A60",
-    "?SetReady@NetArena@@QAEXKH@Z=0x4A2620",
-    "?SetRecordPosition@Dialog_DriverRec@@QAEXH@Z=0x49F230",
-    "?SetRedScore@mmCRHUD@@QAEXH@Z=0x4261D0",
-    "?SetRenderer@GraphicsOptions@@QAEXXZ=0x49A390",
-    "?SetResetPos@mmCarSim@@QAEXAAVVector3@@@Z=0x46D500",
-    "?SetResolution@GraphicsOptions@@QAEXXZ=0x49A350",
-    "?SetRestOrientation@Joint3Dof@@QAEXXZ=0x4DBF40",
-    "?SetRestOrientMat@Joint3Dof@@QAEXABVMatrix34@@0@Z=0x4DBFF0",
-    "?SetRestOrientMat@Joint3Dof@@QAEXABVMatrix34@@@Z=0x4DBFB0",
-    "?SetReverbMix@CReverbBuffer@@QAEXM@Z=0x4F4B60",
-    "?SetReverse@mmTransmission@@QAEXXZ=0x470710",
-    "?SetRoadForceScale@mmInput@@QAEXM@Z=0x4E3AF0",
-    "?SetRoadNormal@mmRoadSect@@QAEXHAAVVector3@@@Z=0x4D2720",
-    "?SetRoadVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z=0x4D2600",
-    "?SetRock@mmBoat@@QAEXMM@Z=0x4C7670",
-    "?SetRollLimit@Joint3Dof@@QAEXMMM@Z=0x4DBF10",
-    "?SetRolloff@AudHead@@QAEXM@Z=0x4EBF50",
-    "?SetRoomId@mmRoadSect@@QAEXHH@Z=0x4D2750",
-    "?SetRotate1@Joint3Dof@@QAEXABVMatrix34@@@Z=0x4DBE50",
-    "?SetRotate2@Joint3Dof@@QAEXABVMatrix34@@@Z=0x4DBE70",
-    "?SetRSidewalk@mmRoadSect@@QAEXMM@Z=0x4D2510",
-    "?SetRW@RaceMenuBase@@QAEXXZ=0x4A73A0",
-    "?SetRWStates@PUControl@@QAEXXZ=0x4AA2F0",
-    "?SetScore@mmCRHUD@@QAEXKH@Z=0x425EB0",
-    "?SetScore@mmCRHUD@@QAEXPAD@Z=0x425E10",
-    "?SetScore@mmHUD@@QAEXKH@Z=0x405F60",
-    "?SetScore@mmHUD@@QAEXPAD@Z=0x405F10",
-    "?SetScore@mmNetObject@@QAEXH@Z=0x432A70",
-    "?SetScore@mmRecord@@QAEXH@Z=0x4D1770",
-    "?SetSecondsElapsed@mmOpponentImpactAudio@@SAXM@Z=0x47A7C0",
-    "?SetSelected@UIMenu@@QAEXXZ=0x4AEA40",
-    "?SetSensitivity@ControlBase@@QAEXXZ=0x4AB780",
-    "?SetSensitivityCB@ControlSetup@@QAEXXZ=0x4A3520",
-    "?SetSensitivityCB@PUControl@@QAEXXZ=0x4AA3B0",
-    "?SetSerialButton@NetSelectMenu@@QAEXH@Z=0x4A4B10",
-    "?SetSession@NetSelectMenu@@QAEXPADH@Z=0x4A46D0",
-    "?SetSessionData@asNetwork@@QAEXPAUNETSESSION_DESC@@PAD@Z=0x48A750",
-    "?SetSessionData@mmInterface@@AAEXPAUNETSESSION_DESC@@@Z=0x40DDC0",
-    "?SetShake@mmJoystick@@QAEHKK@Z=0x4E6C30",
-    "?SetShape@asForm@@QAEXPAD0PAVVector3@@HH@Z=0x528450",
-    "?SetShape@asMeshSetForm@@QAEXPAD0PAVVector3@@@Z=0x4FFEC0",
-    "?SetShape@mmVehicleForm@@QAEXPAD00PAVVector3@@@Z=0x502710",
-    "?SetShowcaseFlag@VehicleSelectBase@@QAEXXZ=0x49C520",
-    "?SetSidewalkVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z=0x4D2650",
-    "?SetSize@mmToggle@@AAEXMM@Z=0x4C04E0",
-    "?SetSliderFocus@UITextDropdown@@QAEXH@Z=0x4B3830",
-    "?SetSnowSurfaceAudioInfos@@YAXXZ=0x471210",
-    "?SetSortState@Dialog_DriverRec@@QAEXXZ=0x49F250",
-    "?SetSortState@Dialog_HallOfFame@@QAEXXZ=0x49E9D0",
-    "?SetSoundFX@AudioOptions@@QAEXXZ=0x49D420",
-    "?SetSoundPtr@EngineAudioOpponent@@QAEXPAVAudSound@@@Z=0x477810",
-    "?SetSoundPtrs@mmBridgeSet@@QAEXPAVAudSound@@0@Z=0x4C2E20",
-    "?SetSpacing@mmPropInfo@@QAEXM@Z=0x4D2240",
-    "?SetST@BaseCamCS@@UAEXPAM@Z=0x4F6A50",
-    "?SetStandings@mmCircuitHUD@@QAEXHH@Z=0x424F60",
-    "?SetStandings@mmHUD@@QAEXHH@Z=0x405E00",
-    "?SetStandings@mmWPHUD@@QAEXHH@Z=0x4243B0",
-    "?SetStart@mmAnimTrainCar@@QAEXMM@Z=0x4C8160",
-    "?SetStartOffset@UICWArray@@QAEXH@Z=0x4B80C0",
-    "?SetState@mmAnimDOF@@QAEXH@Z=0x4C4BB0",
-    "?SetStateDefaults@mmInterface@@AAEXXZ=0x40CC00",
-    "?SetStateRace@mmInterface@@AAEXH@Z=0x40CBF0",
-    "?SetStateRace@RaceMenuBase@@QAEXXZ=0x4A7CB0",
-    "?SetSteer@mmJoystick@@QAEHJ@Z=0x4E6CC0",
-    "?SetSteering@mmPlayer@@QAEXM@Z=0x42B5F0",
-    "?SetSteerMultiplier@mmWheel@@QAEXM@Z=0x47F3A0",
-    "?SetStep@mmSlider@@QAEXM@Z=0x4BEC30",
-    "?SetStep@UIVScrollBar@@QAEXHM@Z=0x4BD1B0",
-    "?SetStep@VSWidget@@QAEXHM@Z=0x4BF7D0",
-    "?SetStereo@AudManager@@QAEXH@Z=0x4E8DA0",
-    "?SetStereoFX@AudioOptions@@QAEXXZ=0x49D040",
-    "?SetStopEvent@StreamObj@@QAEXXZ=0x4F5390",
-    "?SetStopLightName@mmRoadSect@@QAEXHPAD@Z=0x4D2910",
-    "?SetStopLightPos@mmRoadSect@@QAEXHABVVector3@@0@Z=0x4D27F0",
-    "?SetStreetType@mmRoadSect@@QAEXPAD@Z=0x4D2500",
-    "?SetStreetWidth@mmRoadSect@@QAEXM@Z=0x4D24F0",
-    "?SetString@mmDropDown@@AAEXVstring@@@Z=0x4C0C70",
-    "?SetString@mmNumber@@QAEXPAD@Z=0x4FEB20",
-    "?SetString@mmTextNode@@QAEXHPAULocString@@@Z=0x4FFA40",
-    "?SetString@TextDropWidget@@QAEXVstring@@@Z=0x4BE1B0",
-    "?SetString@UIButton@@QAEXPAULocString@@@Z=0x4B9D30",
-    "?SetString@UITextRoller2@@QAEXVstring@@@Z=0x4BB7C0",
-    "?SetString@UITextRoller@@QAEXVstring@@@Z=0x4BA950",
-    "?SetSubMenu@Vehicle@@QAEXH@Z=0x4A52C0",
-    "?SetSubMenuButtons@Vehicle@@QAEXXZ=0x4A52E0",
-    "?SetSubwidgetGeometry@mmCompCRPlayer@@QAEXXZ=0x4B75B0",
-    "?SetSubwidgetGeometry@mmCompDRecord@@QAEXXZ=0x4B5D80",
-    "?SetSubwidgetGeometry@mmCompRaceRecord@@QAEXXZ=0x4B4B40",
-    "?SetSubwidgetGeometry@mmCompRoster@@QAEXXZ=0x4B7A80",
-    "?SetSwitch@mmAnimDOF@@QAEXH@Z=0x4C4B60",
-    "?SetTCPLocalButton@NetSelectMenu@@QAEXH@Z=0x4A4AA0",
-    "?SetTCPNetButton@NetSelectMenu@@QAEXH@Z=0x4A4AB0",
-    "?SetTeam@CRSettings@@QAEXXZ=0x4A0F20",
-    "?SetTeamWidget@CRSettings@@QAEXXZ=0x4A0F40",
-    "?SetTeamWidgets@CRSettings@@QAEXXZ=0x4A16E0",
-    "?SetTexQualString@@YAXXZ=0x49A050",
-    "?SetText@mmToolTip@@QAEXPAULocString@@@Z=0x4BF260",
-    "?SetText@UILabel@@QAEXPAULocString@@@Z=0x4B97B0",
-    "?SetText@UISlider@@QAEXPAULocString@@@Z=0x4B3E30",
-    "?SetText@UITextDropdown@@QAEXPAULocString@@@Z=0x4B3500",
-    "?SetText@UITextField@@QAEXPAULocString@@@Z=0x4B25F0",
-    "?SetText@UITextRoller2@@QAEXXZ=0x4BB8B0",
-    "?SetText@UITextRoller@@QAEXXZ=0x4BAA20",
-    "?SetText@UITextScroll@@QAEXHPAULocString@@@Z=0x4B92B0",
-    "?SetTextColor@UITextScroll@@AAEXXZ=0x4B9250",
-    "?SetTextField@UITextField@@QAEXXZ=0x4B2730",
-    "?SetTextPosition@mmTextNode@@QAEXHMM@Z=0x4FF8D0",
-    "?SetTexture@asParticles@@QAEXPAD@Z=0x500250",
-    "?SetTexture@asParticles@@QAEXPAVagiTexDef@@@Z=0x500220",
-    "?SetTexture@mmSky@@QAEXPAVagiTexDef@@@Z=0x495680",
-    "?SetTexture@RDynamicDLP@@UAEXF@Z=0x5513B0",
-    "?SetTime@asDofCS@@QAEXMMH@Z=0x52AF50",
-    "?SetTime@mmRecord@@QAEXM@Z=0x4D16E0",
-    "?SettingsCB@CRSettings@@QAEXXZ=0x4A0F10",
-    "?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z=0x4B48D0",
-    "?SetTransparency@agiBitmap@@QAEXH@Z=0x55A600",
-    "?SetTrough@UIVScrollBar@@QAEXMM@Z=0x4BD280",
-    "?SetTrough@VSWidget@@QAEXM@Z=0x4BF840",
-    "?SetType@UIButton@@QAEXH@Z=0x4B9ED0",
-    "?SetUnderlay@asCamera@@QAEXPAD@Z=0x529C40",
-    "?SetUnderlayCB@asCamera@@QAEXPAVagiBitmap@@PAVCallback@@@Z=0x529C80",
-    "?SetupArchiveTest@mmInterface@@QAEXAAH@Z=0x40E3E0",
-    "?SetupChorusBuffer@SoundObj@@AAEPAUIDirectSoundBuffer@@PAD@Z=0x4F2E10",
-    "?SetUpDefault@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z=0x482AD0",
-    "?SetupDuplicateBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PAD@Z=0x4F2CC0",
-    "?SetupEchoBuffer@SoundObj@@QAEXPAD@Z=0x4F2D70",
-    "?SetupNotifications@AudStream@@QAEXXZ=0x4F41F0",
-    "?SetupNotifications@StreamObj@@QAEHXZ=0x4F58E0",
-    "?SetupOneShotLayerBuffers@AudSound@@QAEXHMH@Z=0x4EB940",
-    "?SetupOneShotLayerBuffers@SoundObj@@QAEFFMPAD@Z=0x4F0E90",
-    "?SetValue@mmSlider@@QAEMM@Z=0x4BEA10",
-    "?SetValue@Spline@@QAEXPAM@Z=0x4FD710",
-    "?SetValue@TextDropWidget@@QAEHH@Z=0x4BE270",
-    "?SetValue@UISlider@@QAEMM@Z=0x4B4060",
-    "?SetValue@UITextDropdown@@QAEHH@Z=0x4B38C0",
-    "?SetValue@UITextRoller2@@QAEHH@Z=0x4BB710",
-    "?SetValue@UITextRoller@@QAEHH@Z=0x4BA8B0",
-    "?SetValues@mmCollideFF@@UAEHMM@Z=0x4E7630",
-    "?SetValues@mmEffectFF@@UAEHMM@Z=0x4E7460",
-    "?SetValues@mmFrictionFF@@UAEHMM@Z=0x4E7BB0",
-    "?SetValues@mmRoadFF@@UAEHMM@Z=0x4E78C0",
-    "?SetValues@mmSpringFF@@UAEHMM@Z=0x4E7E50",
-    "?SetVel@PointCamCS@@QAEXAAVVector3@@@Z=0x4F9F50",
-    "?SetVelocity@SoundObj@@QAEXMMM@Z=0x4F25E0",
-    "?SetVertCount@agiD3DRasterizer@@UAEXH@Z=0x52F7C0",
-    "?SetVertCount@agiSWRasterizer@@UAEXH@Z=0x537C30",
-    "?SetView@asCamera@@QAEXMMMM@Z=0x529BC0",
-    "?SetViewport@asCamera@@QAEXMMMMH@Z=0x529B70",
-    "?SetViewSettings@mmPlayerConfig@@QAEXXZ=0x4CE7D0",
-    "?SetVisible@asPortalPVS@@QAEXI@Z=0x495AB0",
-    "?SetVoiceCommentaryPtr@AudManager@@QAEXPAVmmVoiceCommentary@@@Z=0x4E9FF0",
-    "?SetVoiceSoundPtr@aiPedestrian@@QAEXPAVAudSound@@@Z=0x44D0E0",
-    "?SetVolume@AudSound@@QAEXMH@Z=0x4EB2D0",
-    "?SetVolume@AudStream@@QAEXMH@Z=0x4F3FE0",
-    "?SetVolume@CReverb@@QAEXM@Z=0x4F4890",
-    "?SetVolume@SoundObj@@QAEXM@Z=0x4F2920",
-    "?SetVolume@StreamObj@@QAEXM@Z=0x4F5860",
-    "?SetVolumeEvent@StreamObj@@QAEXM@Z=0x4F53B0",
-    "?SetVScrollPos@UICompositeScroll@@QAEXXZ=0x4B56B0",
-    "?SetVScrollPos@UICWArray@@QAEXXZ=0x4B8090",
-    "?SetVScrollPos@UITextScroll@@QAEXXZ=0x4B8D60",
-    "?SetVScrollVals@UICompositeScroll@@QAEXXZ=0x4B5660",
-    "?SetVScrollVals@UICWArray@@QAEXXZ=0x4B8020",
-    "?SetVScrollVals@UITextScroll@@QAEXXZ=0x4B8D40",
-    "?SetWallHugeVolumeMultiplier@mmImpactAudio@@QAEXM@Z=0x485480",
-    "?SetWallHugeVolumeRange@mmImpactAudio@@QAEXMM@Z=0x485460",
-    "?SetWallMedVolumeMultiplier@mmImpactAudio@@QAEXM@Z=0x485440",
-    "?SetWallMedVolumeRange@mmImpactAudio@@QAEXMM@Z=0x485420",
-    "?SetWallSoftVolumeMultiplier@mmImpactAudio@@QAEXM@Z=0x485400",
-    "?SetWallSoftVolumeRange@mmImpactAudio@@QAEXMM@Z=0x4853E0",
-    "?SetWantMotion@eqEventMonitor@@QAEXH@Z=0x5634E0",
-    "?SetWaveVolume@AudioOptions@@QAEXXZ=0x49CF00",
-    "?SetWaveVolume@PUAudioOptions@@QAEXXZ=0x4AA9E0",
-    "?SetWheelPointers@mmOpponentSurfaceAudio@@QAEXPAVmmWheel@@000@Z=0x485E40",
-    "?SetWheelPointers@mmSurfaceAudio@@QAEXPAVmmWheel@@000@Z=0x487B20",
-    "?SetWideFOV@mmPlayer@@QAEXH@Z=0x42AC60",
-    "?SetWobblePitch@mmSurfaceAudio@@QAEXMM@Z=0x488F20",
-    "?SetWobbleVol@mmSurfaceAudio@@QAEXMM@Z=0x488F40",
-    "?SetWorld@agiViewport@@UAEXAAVMatrix34@@@Z=0x5578A0",
-    "?SetWorld@asCamera@@QAEXAAVMatrix34@@@Z=0x529250",
-    "?SetWPCallback@mmGameEdit@@QAEXXZ=0x412A80",
-    "?SetWPCleared@mmCircuitHUD@@QAEXHH@Z=0x425050",
-    "?SetWPCleared@mmHUD@@QAEXHH@Z=0x405E80",
-    "?SetWPCleared@mmWPHUD@@QAEXXZ=0x424360",
-    "?SetZeroDOF@asInertialCS@@QAEXMM@Z=0x4D9450",
-    "?SetZRead@asMeshSetForm@@QAEXH@Z=0x4FFF00",
-    "?SetZWrite@asMeshSetForm@@QAEXH@Z=0x4FFF20",
-    "?ShadowGeometry@agiMeshSet@@QAEHIPAVVector3@@ABVVector4@@ABV2@@Z=0x507920",
-    "?ShadowInit@agiMeshSet@@KIXABVVector4@@ABVVector3@@@Z=0x504C80",
-    "?ShadowTransform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z=0x505360",
-    "?ShadowTransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z=0x505A30",
-    "?ShelterOff@mmRainAudio@@QAEXXZ=0x433540",
-    "?ShelterOn@mmRainAudio@@QAEXXZ=0x4334D0",
-    "?ShouldSkid@mmCarSim@@QAEHXZ=0x46E7E0",
-    "?ShowClockTime@mmHUD@@QAEXXZ=0x405390",
-    "?ShowLockedVehicleMessage@mmInterface@@QAEXXZ=0x408790",
-    "?ShowMain@mmInterface@@QAEXH@Z=0x408670",
-    "?ShowResults@mmPopup@@QAEXXZ=0x4274D0",
-    "?ShowRoster@mmPopup@@QAEXXZ=0x427560",
-    "?ShowSessions@mmInterface@@AAEXXZ=0x40CDA0",
-    "?ShowTCPIPNetSessions@NetSelectMenu@@QAEXXZ=0x4A44C0",
-    "?Shutdown@DataCache@@QAEXXZ=0x577070",
-    "?Shutdown@ipcMessageQueue@@QAEXXZ=0x578920",
-    "?Shutdown@mmLoader@@QAEXXZ=0x48B810",
-    "?Shutdown@mmPhysicsMGR@@QAEXXZ=0x4D4520",
-    "?ShutdownLutQueue@@YAXXZ=0x556530",
-    "?ShutdownPipeline@@YAXXZ=0x5232D0",
-    "?ShutdownPlayback@eqReplay@@SAXXZ=0x564860",
-    "?ShutdownPlayback@eqReplayChannel@@UAEXXZ=0x5646B0",
-    "?ShutdownRecord@eqReplay@@SAXXZ=0x564800",
-    "?ShutdownRecord@eqReplayChannel@@UAEXXZ=0x5646A0",
-    "?Sim@mmGameRecord@@QAEXXZ=0x4FE140",
-    "?Simulate@asSimulation@@QAEXXZ=0x522A60",
-    "?Size@Stream@@QAEHXZ=0x55ECA0",
-    "?SizeOf@ArrayOfType@@UAEIXZ=0x57B900",
-    "?SizeOf@CharType@@UAEIXZ=0x57BA30",
-    "?SizeOf@FloatType@@UAEIXZ=0x57C0E0",
-    "?SizeOf@mmBuildingInstance@@UAEIXZ=0x494490",
-    "?SizeOf@mmDofBangerInstance@@UAEIXZ=0x4CB7D0",
-    "?SizeOf@mmFacadeInstance@@UAEIXZ=0x494000",
-    "?SizeOf@mmHitBangerInstance@@UAEIXZ=0x4CAEC0",
-    "?SizeOf@mmInstance@@UAEIXZ=0x493120",
-    "?SizeOf@mmMatrixInstance@@UAEIXZ=0x4935C0",
-    "?SizeOf@mmShearInstance@@UAEIXZ=0x494290",
-    "?SizeOf@mmStaticInstance@@UAEIXZ=0x494210",
-    "?SizeOf@mmUnhitBangerInstance@@UAEIXZ=0x444750",
-    "?SizeOf@mmYInstance@@UAEIXZ=0x4933A0",
-    "?SizeOf@PtrToType@@UAEIXZ=0x57B5F0",
-    "?SizeOf@RefToType@@UAEIXZ=0x57B7C0",
-    "?SizeOf@SignedCharType@@UAEIXZ=0x57BB00",
-    "?SizeOf@SignedInt64Type@@UAEIXZ=0x57BF30",
-    "?SizeOf@SignedIntType@@UAEIXZ=0x57BE50",
-    "?SizeOf@SignedShortType@@UAEIXZ=0x57BCA0",
-    "?SizeOf@StringType@@UAEIXZ=0x57C270",
-    "?SizeOf@StructType@@UAEIXZ=0x57B9A0",
-    "?SizeOf@UnsignedCharType@@UAEIXZ=0x57BBD0",
-    "?SizeOf@UnsignedIntType@@UAEIXZ=0x57C000",
-    "?SizeOf@UnsignedShortType@@UAEIXZ=0x57BD80",
-    "?SizeOf@Vector2Type@@UAEIXZ=0x5716A0",
-    "?SizeOf@Vector3Type@@UAEIXZ=0x567390",
-    "?SizeOf@Vector4Type@@UAEIXZ=0x56E470",
-    "?SkipBlock@MetaClass@@QAEXPAVMiniParser@@@Z=0x577DE0",
-    "?Sleep@Timer@@SAXH@Z=0x576860",
-    "?Slerp@Quaternion@@QAEXMABV1@0@Z=0x572F60",
-    "?Slerp@Vector3@@QAEXMABV1@0@Z=0x565990",
-    "?Solve@Spline@@QAEXM@Z=0x4FD880",
-    "?SolveLane@aiGoalRandomDrive@@AAEXXZ=0x45F0B0",
-    "?SolveNextLane@aiRailSet@@QAEXXZ=0x4593F0",
-    "?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z=0x45E250",
-    "?SolvePosition@aiPedestrian@@AAEXAAVVector3@@M@Z=0x44CE50",
-    "?SolvePosition@mmAnimPlane@@QAEXAAVVector3@@AAM@Z=0x4C5560",
-    "?SolvePosition@mmAnimTrain@@QAEXAAVVector3@@AAM@Z=0x4C65D0",
-    "?SolvePosition@mmBoat@@QAEXAAVVector3@@AAM@Z=0x4C76C0",
-    "?SolvePositionAndOrientation@aiVehicleSpline@@QAEXXZ=0x45A3A0",
-    "?SolveRailType@aiGoalRandomDrive@@AAEXXZ=0x45E2A0",
-    "?SolveRoadSegment@aiPedestrian@@AAEXM@Z=0x44AD90",
-    "?SolveSVD@Matrix34@@QBE?AVVector3@@ABV2@@Z=0x567A30",
-    "?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ=0x469E10",
-    "?SolveTargetPoint@aiPedestrian@@AAEXM@Z=0x44C670",
-    "?SolveTurnType@aiRailSet@@QAEHPAVaiPath@@0@Z=0x459470",
-    "?SolveVector@mmAnimPlane@@QAEXMAAVVector3@@0@Z=0x4C58F0",
-    "?SolveVector@mmBoat@@QAEXMAAVVector3@@0@Z=0x4C7B20",
-    "?SolveVelocity@aiGoalRandomDrive@@AAEXXZ=0x45D470",
-    "?SolveXZCurve@aiRailSet@@QAEXAAVVector3@@0M@Z=0x459AF0",
-    "?SolveXZCurve@mmAnimTrain@@QAEXAAVVector3@@0M@Z=0x4C6B70",
-    "?SolveXZCurve@mmBoat@@QAEXAAVVector3@@0M@Z=0x4C7D80",
-    "?SolveXZPosition@aiRailSet@@QAEXAAVVector3@@M@Z=0x459B80",
-    "?SolveYPositionAndOrientation@aiVehicleSpline@@QAEXXZ=0x45AAB0",
-    "?Speeding@aiGoalChase@@AAEHPAVmmCar@@@Z=0x4605B0",
-    "?SphereGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51ED80",
-    "?SphereMap@agiMeshSet@@QAEXPAVagiTexDef@@I@Z=0x50E1D0",
-    "?SphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51EBE0",
-    "?SphereTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z=0x51EEB0",
-    "?SphereVisible@agiViewParameters@@QAEHAAVVector3@@M@Z=0x557490",
-    "?SphereVisible@asCamera@@QAEMABVVector3@@MPAM@Z=0x529DB0",
-    "?SplashCB@@YAXPAVmmSplash@@@Z=0x481050",
-    "?sqrtf_faster@@YAMM@Z=0x570F10",
-    "?StackTraceback@@YAXH@Z=0x520590",
-    "?Start@mmCarRoadFF@@QAEXXZ=0x481700",
-    "?Start@mmTimer@@QAEXXZ=0x4062A0",
-    "?StartNextTransition@TransitionCS@@QAEXXZ=0x4FBD10",
-    "?StartReplay@mmGameManager@@QAEXXZ=0x404790",
-    "?StartSiren@mmCar@@QAEXXZ=0x473E20",
-    "?StartSiren@mmCarSim@@QAEXXZ=0x46C4A0",
-    "?StartSiren@mmNetworkCarAudio@@QAEXXZ=0x484290",
-    "?StartSiren@mmPlayerCarAudio@@QAEXXZ=0x482460",
-    "?StartSiren@mmPoliceCarAudio@@QAEXXZ=0x47A910",
-    "?StartStop@mmTimer@@QAEXXZ=0x4062C0",
-    "?StartTimers@mmHUD@@QAEXXZ=0x405320",
-    "?StartTransition@TransitionCS@@QAEXXZ=0x4FBCA0",
-    "?StartXYZ@mmGameMulti@@IAEXHAAVVector3@@0MM@Z=0x430CC0",
-    "?State@aiPoliceForce@@QAEHPAVmmCar@@0M@Z=0x44EA60",
-    "?Stats@aiMap@@QAEXXZ=0x435770",
-    "?Stats@asPortalWeb@@QAEXXZ=0x497400",
-    "?Stats@mmGame@@QAEXXZ=0x410050",
-    "?Stats@mmPhysicsMGR@@IAEXXZ=0x4D5520",
-    "?Statsf@@YAXPBDZZ=0x524E70",
-    "?Stderr@FileStream@@QAEHXZ=0x561950",
-    "?Stdin@FileStream@@QAEHXZ=0x561910",
-    "?Stdout@FileStream@@QAEHXZ=0x561930",
-    "?StealGold@mmMultiCR@@AAEXPAVmmCar@@@Z=0x41D8C0",
-    "?Stop@aiPedestrian@@QAEXXZ=0x44D160",
-    "?Stop@AudSound@@QAEXXZ=0x4EB1B0",
-    "?Stop@AudStream@@QAEXXZ=0x4F3EF0",
-    "?Stop@CDMan@@QAEKXZ=0x4F4560",
-    "?Stop@EngineAudio@@QAEXXZ=0x486DB0",
-    "?Stop@mmCarRoadFF@@QAEXXZ=0x481720",
-    "?Stop@mmCollideFF@@UAEHXZ=0x4E77B0",
-    "?Stop@mmEffectFF@@UAEHXZ=0x4E7450",
-    "?Stop@mmFrictionFF@@UAEHXZ=0x4E7D10",
-    "?Stop@mmRoadFF@@UAEHXZ=0x4E7A50",
-    "?Stop@mmSpringFF@@UAEHXZ=0x4E7FE0",
-    "?Stop@mmTimer@@QAEXXZ=0x4062B0",
-    "?Stop@mmVoiceCommentary@@QAEXXZ=0x4EC190",
-    "?Stop@SoundObj@@QAEHXZ=0x4F2120",
-    "?Stop@StreamObj@@QAEHXZ=0x4F5510",
-    "?StopAllFF@mmInput@@QAEXXZ=0x4E3A90",
-    "?StopAllFF@mmJoyMan@@QAEXXZ=0x4E5FC0",
-    "?StopAllSounds@AudManager@@QAEXXZ=0x4E9180",
-    "?StopCD@AudManager@@QAEXXZ=0x4E93E0",
-    "?StopDestinationSources@aiPath@@QAEXH@Z=0x43E5D0",
-    "?StopEchoBuffers@AudSound@@QAEXXZ=0x4EB1F0",
-    "?StopEchoBuffers@SoundObj@@QAEXXZ=0x4F21B0",
-    "?StopFriction@mmJoystick@@QAEHXZ=0x4E6D60",
-    "?StopHorn@aiVehicleAmbient@@QAEXXZ=0x4500F0",
-    "?StopHorn@mmCarSim@@QAEXXZ=0x46C430",
-    "?StopIncomingRoads@aiPath@@QAEXH@Z=0x43E510",
-    "?StopNow@AudStream@@QAEXXZ=0x4F3F10",
-    "?StopNow@mmVoiceCommentary@@QAEXXZ=0x4EC1A0",
-    "?Stopped@aiGoalChase@@AAEHPAVmmCar@@@Z=0x460640",
-    "?StopSessionsAsynch@asNetwork@@QAEXXZ=0x48A9A0",
-    "?StopShake@mmJoystick@@QAEHXZ=0x4E6C80",
-    "?StopSiren@mmCar@@QAEXXZ=0x473E40",
-    "?StopSiren@mmCarSim@@QAEXXZ=0x46C4D0",
-    "?StopSiren@mmNetworkCarAudio@@QAEXXZ=0x484250",
-    "?StopSiren@mmPlayerCarAudio@@QAEXXZ=0x4824F0",
-    "?StopSiren@mmPoliceCarAudio@@QAEXXZ=0x47A9C0",
-    "?StopSteer@mmJoystick@@QAEHXZ=0x4E6D00",
-    "?StopTimers@mmHUD@@QAEXXZ=0x405340",
-    "?StopVoice@aiVehicleAmbient@@UAEXXZ=0x450A30",
-    "?StopVoice@aiVehicleSpline@@UAEXXZ=0x446610",
-    "?StoreCurrentSetup@AudioOptions@@UAEXXZ=0x49D0C0",
-    "?StoreCurrentSetup@ControlSetup@@UAEXXZ=0x4A36A0",
-    "?StoreCurrentSetup@OptionsBase@@UAEXXZ=0x49A6D0",
-    "?strtoguid@@YAXPAU_GUID@@PAD@Z=0x574DF0",
-    "?Struct@@YAPAUMetaType@@PAVMetaClass@@@Z=0x4703A0",
-    "?StuckCB@@YAXPAVaiStuck@@@Z=0x46B470",
-    "?StuckCB@@YAXPAVmmStuck@@@Z=0x47C4F0",
-    "?SubSectionDir@aiPath@@QAEXAAVVector3@@HHM@Z=0x43F780",
-    "?SubSectionDist@aiPath@@QAEMMH@Z=0x43E780",
-    "?SubSectionLength@aiPath@@QAEMHH@Z=0x43E690",
-    "?SubSectionPt@aiPath@@QAEXAAVVector3@@HHM@Z=0x43F710",
-    "?SubString@@YAPADHPAD@Z=0x55FAF0",
-    "?SubString@string@@QBE?AV1@H@Z=0x57ACB0",
-    "?Supports16Bit@AudManager@@QAEFXZ=0x4E9620",
-    "?swAddEdge@@YAXHH@Z=0x535340",
-    "?SwapLongs@Stream@@CAXPAKH@Z=0x55F240",
-    "?SwapShorts@Stream@@CAXPAGH@Z=0x55F210",
-    "?swClampAdd555@@YIIII@Z=0x537690",
-    "?swClampAdd565@@YIIII@Z=0x537650",
-    "?swClampAddColor555@@YIII@Z=0x537610",
-    "?swClampAddColor565@@YIII@Z=0x5375D0",
-    "?swComputeIntensity@@YAHAAUagiScreenVtx@@@Z=0x536840",
-    "?swCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z=0x534690",
-    "?swEmitRun0_NoZChromaDecalLinearSolidCUCV@@YIXH@Z=0x549B40",
-    "?swEmitRun0_NoZChromaDecalLinearSolidCUWV@@YIXH@Z=0x53E7C0",
-    "?swEmitRun0_NoZChromaDecalLinearSolidWUCV@@YIXH@Z=0x5441D0",
-    "?swEmitRun0_NoZChromaDecalLinearSolidWUWV@@YIXH@Z=0x539D20",
-    "?swEmitRun0_NoZChromaDecalLinearStippleCUCV@@YIXH@Z=0x549F40",
-    "?swEmitRun0_NoZChromaDecalLinearStippleCUWV@@YIXH@Z=0x53EB30",
-    "?swEmitRun0_NoZChromaDecalLinearStippleWUCV@@YIXH@Z=0x544520",
-    "?swEmitRun0_NoZChromaDecalLinearStippleWUWV@@YIXH@Z=0x539FA0",
-    "?swEmitRun0_NoZChromaDecalParaSolidCUCV@@YIXH@Z=0x54CD00",
-    "?swEmitRun0_NoZChromaDecalParaSolidCUWV@@YIXH@Z=0x541340",
-    "?swEmitRun0_NoZChromaDecalParaSolidWUCV@@YIXH@Z=0x546C70",
-    "?swEmitRun0_NoZChromaDecalParaSolidWUWV@@YIXH@Z=0x53C020",
-    "?swEmitRun0_NoZChromaDecalParaStippleCUCV@@YIXH@Z=0x54D160",
-    "?swEmitRun0_NoZChromaDecalParaStippleCUWV@@YIXH@Z=0x541710",
-    "?swEmitRun0_NoZChromaDecalParaStippleWUCV@@YIXH@Z=0x547020",
-    "?swEmitRun0_NoZChromaDecalParaStippleWUWV@@YIXH@Z=0x53C320",
-    "?swEmitRun0_NoZChromaModulateLinearSolidCUCV@@YIXH@Z=0x54B3B0",
-    "?swEmitRun0_NoZChromaModulateLinearSolidCUWV@@YIXH@Z=0x53FD00",
-    "?swEmitRun0_NoZChromaModulateLinearSolidWUCV@@YIXH@Z=0x5456D0",
-    "?swEmitRun0_NoZChromaModulateLinearSolidWUWV@@YIXH@Z=0x53AE30",
-    "?swEmitRun0_NoZChromaModulateLinearStippleCUCV@@YIXH@Z=0x54B7E0",
-    "?swEmitRun0_NoZChromaModulateLinearStippleCUWV@@YIXH@Z=0x5400A0",
-    "?swEmitRun0_NoZChromaModulateLinearStippleWUCV@@YIXH@Z=0x545A40",
-    "?swEmitRun0_NoZChromaModulateLinearStippleWUWV@@YIXH@Z=0x53B0E0",
-    "?swEmitRun0_NoZChromaModulateParaSolidCUCV@@YIXH@Z=0x54E7E0",
-    "?swEmitRun0_NoZChromaModulateParaSolidCUWV@@YIXH@Z=0x542B00",
-    "?swEmitRun0_NoZChromaModulateParaSolidWUCV@@YIXH@Z=0x5483C0",
-    "?swEmitRun0_NoZChromaModulateParaSolidWUWV@@YIXH@Z=0x53D3B0",
-    "?swEmitRun0_NoZChromaModulateParaStippleCUCV@@YIXH@Z=0x54EC70",
-    "?swEmitRun0_NoZChromaModulateParaStippleCUWV@@YIXH@Z=0x542EF0",
-    "?swEmitRun0_NoZChromaModulateParaStippleWUCV@@YIXH@Z=0x5487A0",
-    "?swEmitRun0_NoZChromaModulateParaStippleWUWV@@YIXH@Z=0x53D6C0",
-    "?swEmitRun0_NoZGlowDecalLinearSolidCUCV@@YIXH@Z=0x54A370",
-    "?swEmitRun0_NoZGlowDecalLinearSolidCUWV@@YIXH@Z=0x53EED0",
-    "?swEmitRun0_NoZGlowDecalLinearSolidWUCV@@YIXH@Z=0x5448C0",
-    "?swEmitRun0_NoZGlowDecalLinearSolidWUWV@@YIXH@Z=0x53A270",
-    "?swEmitRun0_NoZGlowDecalLinearStippleCUCV@@YIXH@Z=0x54A790",
-    "?swEmitRun0_NoZGlowDecalLinearStippleCUWV@@YIXH@Z=0x53F260",
-    "?swEmitRun0_NoZGlowDecalLinearStippleWUCV@@YIXH@Z=0x544C40",
-    "?swEmitRun0_NoZGlowDecalLinearStippleWUWV@@YIXH@Z=0x53A590",
-    "?swEmitRun0_NoZGlowDecalParaSolidCUCV@@YIXH@Z=0x54D5F0",
-    "?swEmitRun0_NoZGlowDecalParaSolidCUWV@@YIXH@Z=0x541B10",
-    "?swEmitRun0_NoZGlowDecalParaSolidWUCV@@YIXH@Z=0x547410",
-    "?swEmitRun0_NoZGlowDecalParaSolidWUWV@@YIXH@Z=0x53C660",
-    "?swEmitRun0_NoZGlowDecalParaStippleCUCV@@YIXH@Z=0x54DA70",
-    "?swEmitRun0_NoZGlowDecalParaStippleCUWV@@YIXH@Z=0x541F10",
-    "?swEmitRun0_NoZGlowDecalParaStippleWUCV@@YIXH@Z=0x547810",
-    "?swEmitRun0_NoZGlowDecalParaStippleWUWV@@YIXH@Z=0x53C9E0",
-    "?swEmitRun0_NoZGlowModulateLinearSolidCUCV@@YIXH@Z=0x54BC40",
-    "?swEmitRun0_NoZGlowModulateLinearSolidCUWV@@YIXH@Z=0x540470",
-    "?swEmitRun0_NoZGlowModulateLinearSolidWUCV@@YIXH@Z=0x545E00",
-    "?swEmitRun0_NoZGlowModulateLinearSolidWUWV@@YIXH@Z=0x53B3C0",
-    "?swEmitRun0_NoZGlowModulateLinearStippleCUCV@@YIXH@Z=0x54C060",
-    "?swEmitRun0_NoZGlowModulateLinearStippleCUWV@@YIXH@Z=0x540800",
-    "?swEmitRun0_NoZGlowModulateLinearStippleWUCV@@YIXH@Z=0x546180",
-    "?swEmitRun0_NoZGlowModulateLinearStippleWUWV@@YIXH@Z=0x53B6E0",
-    "?swEmitRun0_NoZGlowModulateParaSolidCUCV@@YIXH@Z=0x54F130",
-    "?swEmitRun0_NoZGlowModulateParaSolidCUWV@@YIXH@Z=0x543320",
-    "?swEmitRun0_NoZGlowModulateParaSolidWUCV@@YIXH@Z=0x548BA0",
-    "?swEmitRun0_NoZGlowModulateParaSolidWUWV@@YIXH@Z=0x53DA10",
-    "?swEmitRun0_NoZGlowModulateParaStippleCUCV@@YIXH@Z=0x54F5B0",
-    "?swEmitRun0_NoZGlowModulateParaStippleCUWV@@YIXH@Z=0x543720",
-    "?swEmitRun0_NoZGlowModulateParaStippleWUCV@@YIXH@Z=0x548FA0",
-    "?swEmitRun0_NoZGlowModulateParaStippleWUWV@@YIXH@Z=0x53DD90",
-    "?swEmitRun0_NoZOpaqueDecalLinearSolidCUCV@@YIXH@Z=0x5493C0",
-    "?swEmitRun0_NoZOpaqueDecalLinearSolidCUWV@@YIXH@Z=0x53E150",
-    "?swEmitRun0_NoZOpaqueDecalLinearSolidWUCV@@YIXH@Z=0x543B60",
-    "?swEmitRun0_NoZOpaqueDecalLinearStippleCUCV@@YIXH@Z=0x549770",
-    "?swEmitRun0_NoZOpaqueDecalLinearStippleCUWV@@YIXH@Z=0x53E470",
-    "?swEmitRun0_NoZOpaqueDecalLinearStippleWUCV@@YIXH@Z=0x543E80",
-    "?swEmitRun0_NoZOpaqueDecalLinearStippleWUWV@@YIXH@Z=0x539A70",
-    "?swEmitRun0_NoZOpaqueDecalParaSolidCUCV@@YIXH@Z=0x54C4B0",
-    "?swEmitRun0_NoZOpaqueDecalParaSolidCUWV@@YIXH@Z=0x540BD0",
-    "?swEmitRun0_NoZOpaqueDecalParaSolidWUCV@@YIXH@Z=0x546540",
-    "?swEmitRun0_NoZOpaqueDecalParaSolidWUWV@@YIXH@Z=0x53BA30",
-    "?swEmitRun0_NoZOpaqueDecalParaStippleCUCV@@YIXH@Z=0x54C8C0",
-    "?swEmitRun0_NoZOpaqueDecalParaStippleCUWV@@YIXH@Z=0x540F70",
-    "?swEmitRun0_NoZOpaqueDecalParaStippleWUCV@@YIXH@Z=0x5468C0",
-    "?swEmitRun0_NoZOpaqueDecalParaStippleWUWV@@YIXH@Z=0x53BD10",
-    "?swEmitRun0_NoZOpaqueModulateLinearSolidCUCV@@YIXH@Z=0x54ABE0",
-    "?swEmitRun0_NoZOpaqueModulateLinearSolidCUWV@@YIXH@Z=0x53F630",
-    "?swEmitRun0_NoZOpaqueModulateLinearSolidWUCV@@YIXH@Z=0x545000",
-    "?swEmitRun0_NoZOpaqueModulateLinearSolidWUWV@@YIXH@Z=0x53A8E0",
-    "?swEmitRun0_NoZOpaqueModulateLinearStippleCUCV@@YIXH@Z=0x54AFB0",
-    "?swEmitRun0_NoZOpaqueModulateLinearStippleCUWV@@YIXH@Z=0x53F980",
-    "?swEmitRun0_NoZOpaqueModulateLinearStippleWUCV@@YIXH@Z=0x545350",
-    "?swEmitRun0_NoZOpaqueModulateLinearStippleWUWV@@YIXH@Z=0x53AB70",
-    "?swEmitRun0_NoZOpaqueModulateParaSolidCUCV@@YIXH@Z=0x54DF30",
-    "?swEmitRun0_NoZOpaqueModulateParaSolidCUWV@@YIXH@Z=0x542350",
-    "?swEmitRun0_NoZOpaqueModulateParaSolidWUCV@@YIXH@Z=0x547C30",
-    "?swEmitRun0_NoZOpaqueModulateParaSolidWUWV@@YIXH@Z=0x53CDA0",
-    "?swEmitRun0_NoZOpaqueModulateParaStippleCUCV@@YIXH@Z=0x54E370",
-    "?swEmitRun0_NoZOpaqueModulateParaStippleCUWV@@YIXH@Z=0x542710",
-    "?swEmitRun0_NoZOpaqueModulateParaStippleWUCV@@YIXH@Z=0x547FE0",
-    "?swEmitRun0_NoZOpaqueModulateParaStippleWUWV@@YIXH@Z=0x53D080",
-    "?swEmitRun0_ZReadChromaDecalLinearSolidCUCV@@YIXH@Z=0x549C60",
-    "?swEmitRun0_ZReadChromaDecalLinearSolidCUWV@@YIXH@Z=0x53E8B0",
-    "?swEmitRun0_ZReadChromaDecalLinearSolidWUCV@@YIXH@Z=0x5442B0",
-    "?swEmitRun0_ZReadChromaDecalLinearSolidWUWV@@YIXH@Z=0x539DC0",
-    "?swEmitRun0_ZReadChromaDecalLinearStippleCUCV@@YIXH@Z=0x54A070",
-    "?swEmitRun0_ZReadChromaDecalLinearStippleCUWV@@YIXH@Z=0x53EC30",
-    "?swEmitRun0_ZReadChromaDecalLinearStippleWUCV@@YIXH@Z=0x544620",
-    "?swEmitRun0_ZReadChromaDecalLinearStippleWUWV@@YIXH@Z=0x53A060",
-    "?swEmitRun0_ZReadChromaDecalParaSolidCUCV@@YIXH@Z=0x54CE40",
-    "?swEmitRun0_ZReadChromaDecalParaSolidCUWV@@YIXH@Z=0x541450",
-    "?swEmitRun0_ZReadChromaDecalParaSolidWUCV@@YIXH@Z=0x546D80",
-    "?swEmitRun0_ZReadChromaDecalParaSolidWUWV@@YIXH@Z=0x53C0E0",
-    "?swEmitRun0_ZReadChromaDecalParaStippleCUCV@@YIXH@Z=0x54D2B0",
-    "?swEmitRun0_ZReadChromaDecalParaStippleCUWV@@YIXH@Z=0x541830",
-    "?swEmitRun0_ZReadChromaDecalParaStippleWUCV@@YIXH@Z=0x547140",
-    "?swEmitRun0_ZReadChromaDecalParaStippleWUWV@@YIXH@Z=0x53C400",
-    "?swEmitRun0_ZReadChromaModulateLinearSolidCUCV@@YIXH@Z=0x54B4E0",
-    "?swEmitRun0_ZReadChromaModulateLinearSolidCUWV@@YIXH@Z=0x53FE00",
-    "?swEmitRun0_ZReadChromaModulateLinearSolidWUCV@@YIXH@Z=0x5457C0",
-    "?swEmitRun0_ZReadChromaModulateLinearSolidWUWV@@YIXH@Z=0x53AEE0",
-    "?swEmitRun0_ZReadChromaModulateLinearStippleCUCV@@YIXH@Z=0x54B920",
-    "?swEmitRun0_ZReadChromaModulateLinearStippleCUWV@@YIXH@Z=0x5401B0",
-    "?swEmitRun0_ZReadChromaModulateLinearStippleWUCV@@YIXH@Z=0x545B40",
-    "?swEmitRun0_ZReadChromaModulateLinearStippleWUWV@@YIXH@Z=0x53B1A0",
-    "?swEmitRun0_ZReadChromaModulateParaSolidCUCV@@YIXH@Z=0x54E930",
-    "?swEmitRun0_ZReadChromaModulateParaSolidCUWV@@YIXH@Z=0x542C20",
-    "?swEmitRun0_ZReadChromaModulateParaSolidWUCV@@YIXH@Z=0x5484E0",
-    "?swEmitRun0_ZReadChromaModulateParaSolidWUWV@@YIXH@Z=0x53D480",
-    "?swEmitRun0_ZReadChromaModulateParaStippleCUCV@@YIXH@Z=0x54EDD0",
-    "?swEmitRun0_ZReadChromaModulateParaStippleCUWV@@YIXH@Z=0x543020",
-    "?swEmitRun0_ZReadChromaModulateParaStippleWUCV@@YIXH@Z=0x5488C0",
-    "?swEmitRun0_ZReadChromaModulateParaStippleWUWV@@YIXH@Z=0x53D7A0",
-    "?swEmitRun0_ZReadGlowDecalLinearSolidCUCV@@YIXH@Z=0x54A4A0",
-    "?swEmitRun0_ZReadGlowDecalLinearSolidCUWV@@YIXH@Z=0x53EFD0",
-    "?swEmitRun0_ZReadGlowDecalLinearSolidWUCV@@YIXH@Z=0x5449C0",
-    "?swEmitRun0_ZReadGlowDecalLinearSolidWUWV@@YIXH@Z=0x53A340",
-    "?swEmitRun0_ZReadGlowDecalLinearStippleCUCV@@YIXH@Z=0x54A8D0",
-    "?swEmitRun0_ZReadGlowDecalLinearStippleCUWV@@YIXH@Z=0x53F370",
-    "?swEmitRun0_ZReadGlowDecalLinearStippleWUCV@@YIXH@Z=0x544D40",
-    "?swEmitRun0_ZReadGlowDecalLinearStippleWUWV@@YIXH@Z=0x53A670",
-    "?swEmitRun0_ZReadGlowDecalParaSolidCUCV@@YIXH@Z=0x54D740",
-    "?swEmitRun0_ZReadGlowDecalParaSolidCUWV@@YIXH@Z=0x541C30",
-    "?swEmitRun0_ZReadGlowDecalParaSolidWUCV@@YIXH@Z=0x547530",
-    "?swEmitRun0_ZReadGlowDecalParaSolidWUWV@@YIXH@Z=0x53C750",
-    "?swEmitRun0_ZReadGlowDecalParaStippleCUCV@@YIXH@Z=0x54DBD0",
-    "?swEmitRun0_ZReadGlowDecalParaStippleCUWV@@YIXH@Z=0x542040",
-    "?swEmitRun0_ZReadGlowDecalParaStippleWUCV@@YIXH@Z=0x547930",
-    "?swEmitRun0_ZReadGlowDecalParaStippleWUWV@@YIXH@Z=0x53CAF0",
-    "?swEmitRun0_ZReadGlowModulateLinearSolidCUCV@@YIXH@Z=0x54BD70",
-    "?swEmitRun0_ZReadGlowModulateLinearSolidCUWV@@YIXH@Z=0x540570",
-    "?swEmitRun0_ZReadGlowModulateLinearSolidWUCV@@YIXH@Z=0x545F00",
-    "?swEmitRun0_ZReadGlowModulateLinearSolidWUWV@@YIXH@Z=0x53B490",
-    "?swEmitRun0_ZReadGlowModulateLinearStippleCUCV@@YIXH@Z=0x54C1A0",
-    "?swEmitRun0_ZReadGlowModulateLinearStippleCUWV@@YIXH@Z=0x540910",
-    "?swEmitRun0_ZReadGlowModulateLinearStippleWUCV@@YIXH@Z=0x546280",
-    "?swEmitRun0_ZReadGlowModulateLinearStippleWUWV@@YIXH@Z=0x53B7C0",
-    "?swEmitRun0_ZReadGlowModulateParaSolidCUCV@@YIXH@Z=0x54F280",
-    "?swEmitRun0_ZReadGlowModulateParaSolidCUWV@@YIXH@Z=0x543440",
-    "?swEmitRun0_ZReadGlowModulateParaSolidWUCV@@YIXH@Z=0x548CC0",
-    "?swEmitRun0_ZReadGlowModulateParaSolidWUWV@@YIXH@Z=0x53DB00",
-    "?swEmitRun0_ZReadGlowModulateParaStippleCUCV@@YIXH@Z=0x54F710",
-    "?swEmitRun0_ZReadGlowModulateParaStippleCUWV@@YIXH@Z=0x543850",
-    "?swEmitRun0_ZReadGlowModulateParaStippleWUCV@@YIXH@Z=0x5490C0",
-    "?swEmitRun0_ZReadGlowModulateParaStippleWUWV@@YIXH@Z=0x53DEA0",
-    "?swEmitRun0_ZReadOpaqueDecalLinearSolidCUCV@@YIXH@Z=0x5494C0",
-    "?swEmitRun0_ZReadOpaqueDecalLinearSolidCUWV@@YIXH@Z=0x53E220",
-    "?swEmitRun0_ZReadOpaqueDecalLinearSolidWUCV@@YIXH@Z=0x543C30",
-    "?swEmitRun0_ZReadOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x5388A0",
-    "?swEmitRun0_ZReadOpaqueDecalLinearStippleCUCV@@YIXH@Z=0x549880",
-    "?swEmitRun0_ZReadOpaqueDecalLinearStippleCUWV@@YIXH@Z=0x53E550",
-    "?swEmitRun0_ZReadOpaqueDecalLinearStippleWUCV@@YIXH@Z=0x543F60",
-    "?swEmitRun0_ZReadOpaqueDecalLinearStippleWUWV@@YIXH@Z=0x539B20",
-    "?swEmitRun0_ZReadOpaqueDecalParaSolidCUCV@@YIXH@Z=0x54C5D0",
-    "?swEmitRun0_ZReadOpaqueDecalParaSolidCUWV@@YIXH@Z=0x540CD0",
-    "?swEmitRun0_ZReadOpaqueDecalParaSolidWUCV@@YIXH@Z=0x546630",
-    "?swEmitRun0_ZReadOpaqueDecalParaSolidWUWV@@YIXH@Z=0x53BAF0",
-    "?swEmitRun0_ZReadOpaqueDecalParaStippleCUCV@@YIXH@Z=0x54C9F0",
-    "?swEmitRun0_ZReadOpaqueDecalParaStippleCUWV@@YIXH@Z=0x541080",
-    "?swEmitRun0_ZReadOpaqueDecalParaStippleWUCV@@YIXH@Z=0x5469C0",
-    "?swEmitRun0_ZReadOpaqueDecalParaStippleWUWV@@YIXH@Z=0x53BDE0",
-    "?swEmitRun0_ZReadOpaqueModulateLinearSolidCUCV@@YIXH@Z=0x54ACF0",
-    "?swEmitRun0_ZReadOpaqueModulateLinearSolidCUWV@@YIXH@Z=0x53F710",
-    "?swEmitRun0_ZReadOpaqueModulateLinearSolidWUCV@@YIXH@Z=0x5450E0",
-    "?swEmitRun0_ZReadOpaqueModulateLinearSolidWUWV@@YIXH@Z=0x53A980",
-    "?swEmitRun0_ZReadOpaqueModulateLinearStippleCUCV@@YIXH@Z=0x54B0D0",
-    "?swEmitRun0_ZReadOpaqueModulateLinearStippleCUWV@@YIXH@Z=0x53FA70",
-    "?swEmitRun0_ZReadOpaqueModulateLinearStippleWUCV@@YIXH@Z=0x545440",
-    "?swEmitRun0_ZReadOpaqueModulateLinearStippleWUWV@@YIXH@Z=0x53AC20",
-    "?swEmitRun0_ZReadOpaqueModulateParaSolidCUCV@@YIXH@Z=0x54E060",
-    "?swEmitRun0_ZReadOpaqueModulateParaSolidCUWV@@YIXH@Z=0x542460",
-    "?swEmitRun0_ZReadOpaqueModulateParaSolidWUCV@@YIXH@Z=0x547D30",
-    "?swEmitRun0_ZReadOpaqueModulateParaSolidWUWV@@YIXH@Z=0x53CE60",
-    "?swEmitRun0_ZReadOpaqueModulateParaStippleCUCV@@YIXH@Z=0x54E4B0",
-    "?swEmitRun0_ZReadOpaqueModulateParaStippleCUWV@@YIXH@Z=0x542830",
-    "?swEmitRun0_ZReadOpaqueModulateParaStippleWUCV@@YIXH@Z=0x5480F0",
-    "?swEmitRun0_ZReadOpaqueModulateParaStippleWUWV@@YIXH@Z=0x53D160",
-    "?swEmitRun0_ZReadWriteChromaDecalLinearSolidCUCV@@YIXH@Z=0x549DD0",
-    "?swEmitRun0_ZReadWriteChromaDecalLinearSolidCUWV@@YIXH@Z=0x53E9F0",
-    "?swEmitRun0_ZReadWriteChromaDecalLinearSolidWUCV@@YIXH@Z=0x5443E0",
-    "?swEmitRun0_ZReadWriteChromaDecalLinearSolidWUWV@@YIXH@Z=0x539EB0",
-    "?swEmitRun0_ZReadWriteChromaDecalLinearStippleCUCV@@YIXH@Z=0x54A1F0",
-    "?swEmitRun0_ZReadWriteChromaDecalLinearStippleCUWV@@YIXH@Z=0x53ED80",
-    "?swEmitRun0_ZReadWriteChromaDecalLinearStippleWUCV@@YIXH@Z=0x544770",
-    "?swEmitRun0_ZReadWriteChromaDecalLinearStippleWUWV@@YIXH@Z=0x53A160",
-    "?swEmitRun0_ZReadWriteChromaDecalParaSolidCUCV@@YIXH@Z=0x54CFD0",
-    "?swEmitRun0_ZReadWriteChromaDecalParaSolidCUWV@@YIXH@Z=0x5415B0",
-    "?swEmitRun0_ZReadWriteChromaDecalParaSolidWUCV@@YIXH@Z=0x546ED0",
-    "?swEmitRun0_ZReadWriteChromaDecalParaSolidWUWV@@YIXH@Z=0x53C200",
-    "?swEmitRun0_ZReadWriteChromaDecalParaStippleCUCV@@YIXH@Z=0x54D450",
-    "?swEmitRun0_ZReadWriteChromaDecalParaStippleCUWV@@YIXH@Z=0x5419A0",
-    "?swEmitRun0_ZReadWriteChromaDecalParaStippleWUCV@@YIXH@Z=0x5472A0",
-    "?swEmitRun0_ZReadWriteChromaDecalParaStippleWUWV@@YIXH@Z=0x53C530",
-    "?swEmitRun0_ZReadWriteChromaModulateLinearSolidCUCV@@YIXH@Z=0x54B660",
-    "?swEmitRun0_ZReadWriteChromaModulateLinearSolidCUWV@@YIXH@Z=0x53FF50",
-    "?swEmitRun0_ZReadWriteChromaModulateLinearSolidWUCV@@YIXH@Z=0x545900",
-    "?swEmitRun0_ZReadWriteChromaModulateLinearSolidWUWV@@YIXH@Z=0x53AFE0",
-    "?swEmitRun0_ZReadWriteChromaModulateLinearStippleCUCV@@YIXH@Z=0x54BAB0",
-    "?swEmitRun0_ZReadWriteChromaModulateLinearStippleCUWV@@YIXH@Z=0x540310",
-    "?swEmitRun0_ZReadWriteChromaModulateLinearStippleWUCV@@YIXH@Z=0x545CA0",
-    "?swEmitRun0_ZReadWriteChromaModulateLinearStippleWUWV@@YIXH@Z=0x53B2B0",
-    "?swEmitRun0_ZReadWriteChromaModulateParaSolidCUCV@@YIXH@Z=0x54EAD0",
-    "?swEmitRun0_ZReadWriteChromaModulateParaSolidCUWV@@YIXH@Z=0x542D90",
-    "?swEmitRun0_ZReadWriteChromaModulateParaSolidWUCV@@YIXH@Z=0x548640",
-    "?swEmitRun0_ZReadWriteChromaModulateParaSolidWUWV@@YIXH@Z=0x53D5A0",
-    "?swEmitRun0_ZReadWriteChromaModulateParaStippleCUCV@@YIXH@Z=0x54EF80",
-    "?swEmitRun0_ZReadWriteChromaModulateParaStippleCUWV@@YIXH@Z=0x5431A0",
-    "?swEmitRun0_ZReadWriteChromaModulateParaStippleWUCV@@YIXH@Z=0x548A30",
-    "?swEmitRun0_ZReadWriteChromaModulateParaStippleWUWV@@YIXH@Z=0x53D8D0",
-    "?swEmitRun0_ZReadWriteGlowDecalLinearSolidCUCV@@YIXH@Z=0x54A620",
-    "?swEmitRun0_ZReadWriteGlowDecalLinearSolidCUWV@@YIXH@Z=0x53F120",
-    "?swEmitRun0_ZReadWriteGlowDecalLinearSolidWUCV@@YIXH@Z=0x544B00",
-    "?swEmitRun0_ZReadWriteGlowDecalLinearSolidWUWV@@YIXH@Z=0x53A460",
-    "?swEmitRun0_ZReadWriteGlowDecalLinearStippleCUCV@@YIXH@Z=0x54AA60",
-    "?swEmitRun0_ZReadWriteGlowDecalLinearStippleCUWV@@YIXH@Z=0x53F4D0",
-    "?swEmitRun0_ZReadWriteGlowDecalLinearStippleWUCV@@YIXH@Z=0x544EA0",
-    "?swEmitRun0_ZReadWriteGlowDecalLinearStippleWUWV@@YIXH@Z=0x53A7A0",
-    "?swEmitRun0_ZReadWriteGlowDecalParaSolidCUCV@@YIXH@Z=0x54D8E0",
-    "?swEmitRun0_ZReadWriteGlowDecalParaSolidCUWV@@YIXH@Z=0x541DA0",
-    "?swEmitRun0_ZReadWriteGlowDecalParaSolidWUCV@@YIXH@Z=0x5476A0",
-    "?swEmitRun0_ZReadWriteGlowDecalParaSolidWUWV@@YIXH@Z=0x53C890",
-    "?swEmitRun0_ZReadWriteGlowDecalParaStippleCUCV@@YIXH@Z=0x54DD80",
-    "?swEmitRun0_ZReadWriteGlowDecalParaStippleCUWV@@YIXH@Z=0x5421C0",
-    "?swEmitRun0_ZReadWriteGlowDecalParaStippleWUCV@@YIXH@Z=0x547AB0",
-    "?swEmitRun0_ZReadWriteGlowDecalParaStippleWUWV@@YIXH@Z=0x53CC40",
-    "?swEmitRun0_ZReadWriteGlowModulateLinearSolidCUCV@@YIXH@Z=0x54BEF0",
-    "?swEmitRun0_ZReadWriteGlowModulateLinearSolidCUWV@@YIXH@Z=0x5406C0",
-    "?swEmitRun0_ZReadWriteGlowModulateLinearSolidWUCV@@YIXH@Z=0x546040",
-    "?swEmitRun0_ZReadWriteGlowModulateLinearSolidWUWV@@YIXH@Z=0x53B5B0",
-    "?swEmitRun0_ZReadWriteGlowModulateLinearStippleCUCV@@YIXH@Z=0x54C330",
-    "?swEmitRun0_ZReadWriteGlowModulateLinearStippleCUWV@@YIXH@Z=0x540A70",
-    "?swEmitRun0_ZReadWriteGlowModulateLinearStippleWUCV@@YIXH@Z=0x5463E0",
-    "?swEmitRun0_ZReadWriteGlowModulateLinearStippleWUWV@@YIXH@Z=0x53B8F0",
-    "?swEmitRun0_ZReadWriteGlowModulateParaSolidCUCV@@YIXH@Z=0x54F420",
-    "?swEmitRun0_ZReadWriteGlowModulateParaSolidCUWV@@YIXH@Z=0x5435B0",
-    "?swEmitRun0_ZReadWriteGlowModulateParaSolidWUCV@@YIXH@Z=0x548E30",
-    "?swEmitRun0_ZReadWriteGlowModulateParaSolidWUWV@@YIXH@Z=0x53DC40",
-    "?swEmitRun0_ZReadWriteGlowModulateParaStippleCUCV@@YIXH@Z=0x54F8C0",
-    "?swEmitRun0_ZReadWriteGlowModulateParaStippleCUWV@@YIXH@Z=0x5439D0",
-    "?swEmitRun0_ZReadWriteGlowModulateParaStippleWUCV@@YIXH@Z=0x549240",
-    "?swEmitRun0_ZReadWriteGlowModulateParaStippleWUWV@@YIXH@Z=0x53DFF0",
-    "?swEmitRun0_ZReadWriteOpaqueDecalLinearSolidCUCV@@YIXH@Z=0x549620",
-    "?swEmitRun0_ZReadWriteOpaqueDecalLinearSolidCUWV@@YIXH@Z=0x53E350",
-    "?swEmitRun0_ZReadWriteOpaqueDecalLinearSolidWUCV@@YIXH@Z=0x543D60",
-    "?swEmitRun0_ZReadWriteOpaqueDecalLinearStippleCUCV@@YIXH@Z=0x5499E0",
-    "?swEmitRun0_ZReadWriteOpaqueDecalLinearStippleCUWV@@YIXH@Z=0x53E680",
-    "?swEmitRun0_ZReadWriteOpaqueDecalLinearStippleWUCV@@YIXH@Z=0x544090",
-    "?swEmitRun0_ZReadWriteOpaqueDecalLinearStippleWUWV@@YIXH@Z=0x539C20",
-    "?swEmitRun0_ZReadWriteOpaqueDecalParaSolidCUCV@@YIXH@Z=0x54C750",
-    "?swEmitRun0_ZReadWriteOpaqueDecalParaSolidCUWV@@YIXH@Z=0x540E20",
-    "?swEmitRun0_ZReadWriteOpaqueDecalParaSolidWUCV@@YIXH@Z=0x546780",
-    "?swEmitRun0_ZReadWriteOpaqueDecalParaSolidWUWV@@YIXH@Z=0x53BC00",
-    "?swEmitRun0_ZReadWriteOpaqueDecalParaStippleCUCV@@YIXH@Z=0x54CB70",
-    "?swEmitRun0_ZReadWriteOpaqueDecalParaStippleCUWV@@YIXH@Z=0x5411E0",
-    "?swEmitRun0_ZReadWriteOpaqueDecalParaStippleWUCV@@YIXH@Z=0x546B10",
-    "?swEmitRun0_ZReadWriteOpaqueDecalParaStippleWUWV@@YIXH@Z=0x53BF00",
-    "?swEmitRun0_ZReadWriteOpaqueModulateLinearSolidCUCV@@YIXH@Z=0x54AE50",
-    "?swEmitRun0_ZReadWriteOpaqueModulateLinearSolidCUWV@@YIXH@Z=0x53F850",
-    "?swEmitRun0_ZReadWriteOpaqueModulateLinearSolidWUCV@@YIXH@Z=0x545220",
-    "?swEmitRun0_ZReadWriteOpaqueModulateLinearSolidWUWV@@YIXH@Z=0x53AA70",
-    "?swEmitRun0_ZReadWriteOpaqueModulateLinearStippleCUCV@@YIXH@Z=0x54B240",
-    "?swEmitRun0_ZReadWriteOpaqueModulateLinearStippleCUWV@@YIXH@Z=0x53FBB0",
-    "?swEmitRun0_ZReadWriteOpaqueModulateLinearStippleWUCV@@YIXH@Z=0x545580",
-    "?swEmitRun0_ZReadWriteOpaqueModulateLinearStippleWUWV@@YIXH@Z=0x53AD20",
-    "?swEmitRun0_ZReadWriteOpaqueModulateParaSolidCUCV@@YIXH@Z=0x54E1F0",
-    "?swEmitRun0_ZReadWriteOpaqueModulateParaSolidCUWV@@YIXH@Z=0x5425C0",
-    "?swEmitRun0_ZReadWriteOpaqueModulateParaSolidWUCV@@YIXH@Z=0x547E90",
-    "?swEmitRun0_ZReadWriteOpaqueModulateParaSolidWUWV@@YIXH@Z=0x53CF70",
-    "?swEmitRun0_ZReadWriteOpaqueModulateParaStippleCUCV@@YIXH@Z=0x54E640",
-    "?swEmitRun0_ZReadWriteOpaqueModulateParaStippleCUWV@@YIXH@Z=0x542990",
-    "?swEmitRun0_ZReadWriteOpaqueModulateParaStippleWUCV@@YIXH@Z=0x548250",
-    "?swEmitRun0_ZReadWriteOpaqueModulateParaStippleWUWV@@YIXH@Z=0x53D280",
-    "?swEmitRun1_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x537DF0",
-    "?swEmitRun1_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x538980",
-    "?swEmitRun2_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x537E80",
-    "?swEmitRun2_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x538A60",
-    "?swEmitRun3_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x537F10",
-    "?swEmitRun3_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x538B40",
-    "?swEmitRun4_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x537FA0",
-    "?swEmitRun4_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x538C20",
-    "?swEmitRun5_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x538030",
-    "?swEmitRun5_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x538D00",
-    "?swEmitRun6_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x538250",
-    "?swEmitRun6_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x539060",
-    "?swEmitRun7_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x538470",
-    "?swEmitRun7_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x5393C0",
-    "?swEmitRun8_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x538690",
-    "?swEmitRun8_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z=0x539720",
-    "?swFindColor555@@YAII@Z=0x537550",
-    "?swFindColor565@@YAII@Z=0x537590",
-    "?SwingToRear@TrackCamCS@@QAEXXZ=0x4F8A70",
-    "?swInit@@YAXXZ=0x537480",
-    "?swInitSurface@@YAPAUswSurface@@UagiScreenVtx@@00I@Z=0x535E30",
-    "?Switch@MenuManager@@QAEHH@Z=0x4B1560",
-    "?Switch@mmCompBase@@UAEXH@Z=0x4B4E60",
-    "?Switch@mmInterface@@QAEXHH@Z=0x40A7D0",
-    "?Switch@mmToolTip@@QAEXH@Z=0x4BF280",
-    "?Switch@TextDropWidget@@QAEXHAAVVector4@@@Z=0x4BE440",
-    "?Switch@UIBMButton@@UAEXH@Z=0x4B6870",
-    "?Switch@UIButton@@UAEXH@Z=0x4B9E50",
-    "?Switch@UICompositeScroll@@UAEXH@Z=0x4B5990",
-    "?Switch@UIControlWidget@@UAEXH@Z=0x4BBF60",
-    "?Switch@UICWArray@@UAEXH@Z=0x4B8260",
-    "?Switch@UIIcon@@UAEXH@Z=0x4B9A90",
-    "?Switch@UIIconW@@UAEXH@Z=0x4BC3E0",
-    "?Switch@UILabel@@UAEXH@Z=0x4B9850",
-    "?Switch@UISlider@@UAEXH@Z=0x4B3F70",
-    "?Switch@UITextDropdown@@UAEXH@Z=0x4B37B0",
-    "?Switch@UITextField@@UAEXH@Z=0x4B28E0",
-    "?Switch@UITextRoller2@@UAEXH@Z=0x4BB420",
-    "?Switch@UITextRoller@@UAEXH@Z=0x4BA610",
-    "?Switch@UITextScroll@@UAEXH@Z=0x4B9210",
-    "?Switch@UIToggleButton2@@UAEXH@Z=0x4BC9E0",
-    "?Switch@UIVScrollBar@@UAEXH@Z=0x4BD320",
-    "?Switch@uiWidget@@UAEXH@Z=0x4B48A0",
-    "?Switch@VSWidget@@QAEXHMM@Z=0x4BF900",
-    "?SwitchFocus@MenuManager@@QAEXPAVUIMenu@@@Z=0x4B1370",
-    "?SwitchState@UILabel@@QAEXH@Z=0x4B9860",
-    "?SwitchTo@asNode@@QAEXH@Z=0x523D20",
-    "?swKill@@YAXXZ=0x537410",
-    "?swLine@@YAXPAUagiScreenVtx@@0@Z=0x537360",
-    "?swLineInt@@YAXHHHHH@Z=0x537270",
-    "?swPoly@@YAXPAUagiScreenVtx@@H@Z=0x536EE0",
-    "?swQuad@@YAXPAUagiScreenVtx@@000@Z=0x536B10",
-    "?swScanSurface@@YAXPAUswSurface@@@Z=0x535BF0",
-    "?swScanSurfaces@@YAXXZ=0x536880",
-    "?swSetInterlace@@YAXH@Z=0x537440",
-    "?swSetupEdgeScan@@YAXPAUswEdge@@HH@Z=0x535460",
-    "?swTri@@YAXPAUagiScreenVtx@@00@Z=0x536950",
-    "?SyncData@VSWidget@@QAEXXZ=0x4BF6D0",
-    "?SyncRaceState@RaceMenuBase@@QAEXXZ=0x4A76A0",
-    "?SystemMessage@mmMultiBlitz@@UAEXPAUNETSYS_MSG@@@Z=0x41A030",
-    "?SystemMessage@mmMultiCircuit@@UAEXPAUNETSYS_MSG@@@Z=0x41B830",
-    "?SystemMessage@mmMultiCR@@UAEXPAUNETSYS_MSG@@@Z=0x41E490",
-    "?SystemMessage@mmMultiRace@@UAEXPAUNETSYS_MSG@@@Z=0x420D10",
-    "?SystemMessageCB@mmGameMulti@@QAEXPAX0@Z=0x430EF0",
-    "?tanf_fast@@YAMM@Z=0x573250",
-    "?TDPickCB@DriverMenu@@QAEXXZ=0x4A5C90",
-    "?TDPickCB@VehicleSelectBase@@QAEXXZ=0x49B9E0",
-    "?Tell@Stream@@QAEHXZ=0x55EC90",
-    "?TempDeactivate@mmDashView@@QAEXXZ=0x421DC0",
-    "?TestDOFAct@mmAnimMgr@@QAEXH@Z=0x4C13B0",
-    "?TestHit@UIButton@@QAEHMM@Z=0x4B9F20",
-    "?TestHit@UISlider@@QAEHMM@Z=0x4B3FE0",
-    "?testNoOverlap@@YAHMM@Z=0x4D90C0",
-    "?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z=0x575AF0",
-    "?testsuperq@@YAXXZ=0x4E06E0",
-    "?ThreadFunc@@YGKPAX@Z=0x416C90",
-    "?Ticks@Timer@@SAKXZ=0x576830",
-    "?Time@Timer@@QAEMXZ=0x5768F0",
-    "?TimeCallback@RaceMenuBase@@QAEXXZ=0x4A7A10",
-    "?TimeToCollision@aiPedestrian@@AAEMM@Z=0x44A2D0",
-    "?Toggle@asMidgets@@QAEXXZ=0x526B60",
-    "?Toggle@mmCDPlayer@@QAEXXZ=0x4237C0",
-    "?Toggle@mmHUD@@QAEXXZ=0x405750",
-    "?toggle_filter@@YAXXZ=0x4A9E90",
-    "?toggle_interlace@@YAXXZ=0x4A9E70",
-    "?ToggleCam@mmPlayer@@QAEXXZ=0x42AE10",
-    "?ToggleDash@mmHUD@@QAEXXZ=0x4057C0",
-    "?ToggleDash@mmPlayer@@QAEXXZ=0x42B0E0",
-    "?ToggleDrawLabels@mmBridgeMgr@@QAEXXZ=0x4C1850",
-    "?ToggleEnabled@mmJoyMan@@QAEHH@Z=0x4E5EB0",
-    "?ToggleExternalView@mmHUD@@QAEXXZ=0x405770",
-    "?ToggleExternalView@mmPlayer@@QAEXXZ=0x42AF30",
-    "?ToggleFFEnabled@mmInput@@QAEHH@Z=0x4E3B40",
-    "?ToggleField@UITextField@@QAEXH@Z=0x4B2780",
-    "?ToggleFocus@MenuManager@@QAEXH@Z=0x4B0EE0",
-    "?ToggleFullScreen@mmHudMap@@QAEXXZ=0x428BC0",
-    "?ToggleMapRes@mmHudMap@@QAEXXZ=0x428C00",
-    "?ToggleMirror@mmHUD@@QAEXXZ=0x405D10",
-    "?TogglePositionDisplay@mmHUD@@QAEXH@Z=0x406000",
-    "?TogglePU@MenuManager@@QAEXXZ=0x4B09B0",
-    "?ToggleScores@mmCRHUD@@QAEXXZ=0x425C20",
-    "?ToggleSiren@mmCar@@QAEXXZ=0x473DF0",
-    "?ToggleSky@mmCullCity@@QAEXXZ=0x48D950",
-    "?ToggleWideFOV@mmPlayer@@QAEXXZ=0x42ADF0",
-    "?TokenName@MiniParser@@SAPADH@Z=0x57C8E0",
-    "?ToMatrix@aiPedestrianInstance@@UAIAAVMatrix34@@AAV2@@Z=0x44D7F0",
-    "?ToMatrix@aiVehicleInstance@@UAIAAVMatrix34@@AAV2@@Z=0x452090",
-    "?ToMatrix@mmCarModel@@UAIAAVMatrix34@@AAV2@@Z=0x4715C0",
-    "?ToMatrix@mmDofBangerInstance@@UAIAAVMatrix34@@AAV2@@Z=0x4C4E60",
-    "?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z=0x4CB890",
-    "?ToMatrix@mmHitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z=0x4CA540",
-    "?ToMatrix@mmMatrixInstance@@UAIAAVMatrix34@@AAV2@@Z=0x493460",
-    "?ToMatrix@mmPed@@UAIAAVMatrix34@@AAV2@@Z=0x497930",
-    "?ToMatrix@mmRunwayLight@@UAIAAVMatrix34@@AAV2@@Z=0x48C180",
-    "?ToMatrix@mmSkid@@UAIAAVMatrix34@@AAV2@@Z=0x477A70",
-    "?ToMatrix@mmTrailerInstance@@UAIAAVMatrix34@@AAV2@@Z=0x4796F0",
-    "?ToMatrix@mmUnhitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z=0x4CA880",
-    "?ToMatrix@mmYInstance@@UAIAAVMatrix34@@AAV2@@Z=0x493340",
-    "?ToScreen@agiMeshSet@@KIXPAEPAVVector4@@H@Z=0x516620",
-    "?ToScreen@agiProjVtx@@SAXH@Z=0x552A20",
-    "?TotLength@aiVehicleSpline@@QAEMXZ=0x45BCF0",
-    "?TouchMemory@@YAXPAXH@Z=0x402E70",
-    "?TrackBall@Matrix34@@QAEXMMMMM@Z=0x56AFA0",
-    "?TrackBall@Quaternion@@QAEXMMMMM@Z=0x572A30",
-    "?Transform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z=0x5050F0",
-    "?Transform@bnBone@@QAEXPAVMatrix34@@@Z=0x516F70",
-    "?Transform@bnSkeleton@@QAEXPAVMatrix34@@@Z=0x515050",
-    "?Transform@Matrix34@@QAEXABVVector3@@0M@Z=0x56AE10",
-    "?Transform@mmIntersection@@QAEXPBVMatrix34@@@Z=0x51A4D0",
-    "?TransformAll@agiLighter@@UAEXPAVMatrix34@@PAVVector3@@I@Z=0x551800",
-    "?TransformNormalList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z=0x566DD0",
-    "?TransformNormalList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z=0x566D00",
-    "?TransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z=0x5055E0",
-    "?TransformVertList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z=0x566C30",
-    "?TransformVertList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z=0x566B70",
-    "?TransformVertNorm@@YAXAAVVector3@@0ABV1@0ABVMatrix34@@@Z=0x566A80",
-    "?translate555@@YAXPAEPAGI@Z=0x574940",
-    "?translate565@@YAXPAEPAGI@Z=0x5748D0",
-    "?Translate@Matrix44@@QAEXMMM@Z=0x5708D0",
-    "?TranslateDSError@DSGlobal@@QAEPADJ@Z=0x4F0730",
-    "?TranslateFlags@mmCar@@QAEXH@Z=0x4734A0",
-    "?Transpose@Matrix34@@QAEXABV1@@Z=0x56B250",
-    "?Transpose@Matrix34@@QBE?AV1@XZ=0x4DECA0",
-    "?Transpose@Matrix44@@QBE?AV1@XZ=0x570380",
-    "?Triangle@agiD3DRasterizer@@UAEXHHH@Z=0x52F7D0",
-    "?Triangle@agiPolySet@@QAEXHHH@Z=0x510480",
-    "?Triangle@agiSWRasterizer@@UAEXHHH@Z=0x537C40",
-    "?TrivialCollideInstances@mmPhysicsMGR@@IAEHPAVmmInstance@@0@Z=0x4D5730",
-    "?TurnOff@UIControlWidget@@UAEXXZ=0x4BC0E0",
-    "?TurnOff@uiWidget@@UAEXXZ=0x4B2E00",
-    "?TurnOffPrev@uiNavBar@@QAEXXZ=0x4B20E0",
-    "?TurnOn@UIControlWidget@@UAEXXZ=0x4BC0D0",
-    "?TurnOn@uiWidget@@UAEXXZ=0x4B2DE0",
-    "?TurnOnPrev@uiNavBar@@QAEXXZ=0x4B20C0",
-    "?Type@aiVehicleAmbient@@UAEHXZ=0x451350",
-    "?Type@aiVehicleOpponent@@UAEHXZ=0x44E7D0",
-    "?Type@aiVehiclePolice@@UAEHXZ=0x446620",
-    "?Type@aiVehicleSpline@@UAEHXZ=0x45C500",
-    "?UFOSwap@mmAnimMgr@@QAEXXZ=0x4C1400",
-    "?UFOSwap@mmAnimSpline@@QAEXXZ=0x4C3CC0",
-    "?UnassignFurthestAmbient@aiAudioManager@@QAEFXZ=0x441130",
-    "?UnassignFurthestOpponent@aiAudioManager@@QAEFXZ=0x4411F0",
-    "?UnAssignSounds@aiPedestrian@@QAEXXZ=0x44D0F0",
-    "?UnAssignSounds@aiVehicleAmbient@@QAEXXZ=0x44F540",
-    "?UnAssignSounds@aiVehicleOpponent@@QAEXXZ=0x44E100",
-    "?UnAssignSounds@aiVehiclePolice@@QAEXXZ=0x446150",
-    "?UnAssignSounds@mmBridgeSet@@QAEXXZ=0x4C2E00",
-    "?UnAssignSounds@mmOpponentCarAudio@@QAEXXZ=0x47C020",
-    "?UnAssignSounds@mmPoliceCarAudio@@QAEXXZ=0x47B770",
-    "?UnbreakJoint@Joint3Dof@@QAEXXZ=0x4DD3D0",
-    "?UnconfigureDrivetrain@mmCarSim@@QAEXXZ=0x46D300",
-    "?UndeclareAll@MetaClass@@SAXXZ=0x577B80",
-    "?Unkill@UIBMButton@@QAEXXZ=0x4B6830",
-    "?Unkill@UIToggleButton2@@QAEXXZ=0x4BC910",
-    "?Unlink@asMemoryAllocator@@AAEXPAUnode@1@@Z=0x520DF0",
-    "?Unload@agiSurfaceDesc@@QAEXXZ=0x55B160",
-    "?Unload@DataCache@@AAEXH@Z=0x5770B0",
-    "?Unlock@agiD3DTexDef@@UAEXAAUagiTexLock@@@Z=0x531EC0",
-    "?Unlock@agiMeshSet@@QAEXXZ=0x514B50",
-    "?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z=0x5378C0",
-    "?Unlock@agiTexDef@@UAEXAAUagiTexLock@@@Z=0x556450",
-    "?Unlock@DataCache@@QAEXH@Z=0x577290",
-    "?Unlock@mmBoundTemplate@@QAEXXZ=0x519380",
-    "?Unlock@mmPopup@@QAEXXZ=0x427CE0",
-    "?Unlock@RDynamicDLP@@UAEXXZ=0x551480",
-    "?UnlockAndFree@agiMeshSet@@QAEXXZ=0x514B70",
-    "?UnlockAndFree@DataCache@@QAEXH@Z=0x577300",
-    "?UnlockAndFreeSurface@agiTexDef@@QAEXXZ=0x5567C0",
-    "?UnlockFrameBuffer@agiDDPipeline@@UAEXXZ=0x533220",
-    "?UnlockFrameBuffer@agiPipeline@@UAEXXZ=0x556050",
-    "?UnlockScreen@@YAXXZ=0x575AD0",
-    "?UnlockSurface@agiTexDef@@QAEXXZ=0x5567A0",
-    "?UnpackAngle@@YAME@Z=0x559310",
-    "?UnPackColor@mmCRHUD@@QAEXIAAVVector4@@@Z=0x425D90",
-    "?UnpackNormal@@YAXAAVVector3@@AAG@Z=0x559340",
-    "?Unparent@mmInstChain@@QAEXPAVmmInstance@@@Z=0x4923A0",
-    "?UnRegisterCop@aiPoliceForce@@QAEHPAVmmCar@@0@Z=0x44E970",
-    "?UnregisterMap@@YAXPAD@Z=0x576750",
-    "?UnSealSession@asNetwork@@QAEXXZ=0x48A570",
-    "?Update3DCDMusic@AudManager@@AAEXXZ=0x4E9650",
-    "?Update3DSettings@AudSound@@QAEXXZ=0x4EAE00",
-    "?Update@AboutMenu@@UAEXXZ=0x4A6080",
-    "?Update@AddOnCarAudio@@QAEXXZ=0x45C780",
-    "?Update@agiBILight@@UAEHXZ=0x555410",
-    "?Update@agiD3DLight@@UAEHXZ=0x533910",
-    "?Update@aiAudioManager@@UAEXXZ=0x441300",
-    "?Update@AICamCS@@UAEXXZ=0x4FA5F0",
-    "?Update@aiGoal@@UAEXXZ=0x45F700",
-    "?Update@aiGoalAvoidPlayer@@UAEXXZ=0x46A530",
-    "?Update@aiGoalBackup@@UAEXXZ=0x45F8D0",
-    "?Update@aiGoalChase@@UAEXXZ=0x460770",
-    "?Update@aiGoalCollision@@UAEXXZ=0x46B350",
-    "?Update@aiGoalFollowWayPts@@UAEXXZ=0x466AB0",
-    "?Update@aiGoalRandomDrive@@UAEXXZ=0x45D320",
-    "?Update@aiGoalRegainRail@@UAEXXZ=0x46B130",
-    "?Update@aiGoalStop@@UAEXXZ=0x45F770",
-    "?Update@aiMap@@UAEXXZ=0x4362F0",
-    "?Update@aiPedAudioManager@@UAEXXZ=0x447220",
-    "?Update@aiPedestrian@@QAEXXZ=0x448460",
-    "?Update@aiPoliceForce@@QAEXXZ=0x44E850",
-    "?Update@aiStuck@@UAEXXZ=0x46B550",
-    "?Update@aiTrafficLightSet@@UAEXXZ=0x444250",
-    "?Update@aiVehicle@@UAEXXZ=0x465940",
-    "?Update@aiVehicleActive@@UAEXXZ=0x4528E0",
-    "?Update@aiVehicleAmbient@@UAEXXZ=0x44F2E0",
-    "?Update@aiVehicleManager@@UAEXXZ=0x452D70",
-    "?Update@aiVehicleOpponent@@UAEXXZ=0x44DED0",
-    "?Update@aiVehiclePolice@@UAEXXZ=0x4453D0",
-    "?Update@aiVehicleSpline@@UAEXXZ=0x45A2F0",
-    "?Update@asAero@@UAEXXZ=0x4DFC70",
-    "?Update@asCamera@@UAEXXZ=0x528DF0",
-    "?Update@asCullManager@@UAEXXZ=0x525090",
-    "?Update@asDofCS@@UAEXXZ=0x52AFC0",
-    "?Update@asForm@@UAEXXZ=0x5284F0",
-    "?Update@asInertialCS@@UAEXXZ=0x4D9680",
-    "?Update@asLamp@@UAEXXZ=0x526190",
-    "?Update@asLinearCS@@UAEXXZ=0x525B20",
-    "?Update@asLineSparks@@QAEXM@Z=0x501FC0",
-    "?Update@asLineSparks@@QAEXXZ=0x501F80",
-    "?Update@asMeshSetForm@@UAEXXZ=0x4FFF40",
-    "?Update@asMidgets@@QAEXXZ=0x526B80",
-    "?Update@asNetObject@@UAEXXZ=0x48B4F0",
-    "?Update@asNetwork@@QAEHXZ=0x48AAC0",
-    "?Update@asNode@@UAEXXZ=0x523890",
-    "?Update@asOverSample@@UAEXXZ=0x4DED70",
-    "?Update@asParticles@@UAEXXZ=0x5002A0",
-    "?Update@asPerfGraph@@QAEXXZ=0x52AA30",
-    "?Update@asPortalWeb@@UAEXXZ=0x495EE0",
-    "?Update@asRenderWeb@@UAEXXZ=0x490CD0",
-    "?Update@asSimulation@@UAEXXZ=0x5222C0",
-    "?Update@asViewCS@@UAEXXZ=0x52BF00",
-    "?Update@AudHead@@EAEXXZ=0x4EBD60",
-    "?Update@AudManager@@UAEXXZ=0x4E86C0",
-    "?Update@AudSound@@UAEXXZ=0x4EAD70",
-    "?Update@AudStream@@UAEXXZ=0x4F3B00",
-    "?Update@BMI@@UAEHH@Z=0x527C20",
-    "?Update@Card2D@@UAEXXZ=0x4FE320",
-    "?Update@ControlSetup@@UAEXXZ=0x4A3680",
-    "?Update@floatMI@@UAEHH@Z=0x5282F0",
-    "?Update@foobar@@EAEXXZ=0x411EE0",
-    "?Update@intMI@@UAEHH@Z=0x528120",
-    "?Update@Joint3Dof@@UAEXXZ=0x4DC0F0",
-    "?Update@MenuManager@@UAEXXZ=0x4B0E00",
-    "?Update@mmAmbientAudio@@QAEXXZ=0x427E60",
-    "?Update@mmAnimDOF@@QAEXXZ=0x4C4940",
-    "?Update@mmAnimInstState@@QAEXXZ=0x498880",
-    "?Update@mmAnimMgr@@UAEXXZ=0x4C13A0",
-    "?Update@mmAnimPlane@@QAEXXZ=0x4C5350",
-    "?Update@mmAnimSpline@@UAEXXZ=0x4C3BC0",
-    "?Update@mmAnimTrain@@QAEXXZ=0x4C63C0",
-    "?Update@mmArrow@@UAEXXZ=0x406560",
-    "?Update@mmAxle@@UAEXXZ=0x47D4F0",
-    "?Update@mmBangerActive@@UAEXXZ=0x4CB2A0",
-    "?Update@mmBangerActiveManager@@UAEXXZ=0x4CB640",
-    "?Update@mmBoat@@UAEXXZ=0x4C75D0",
-    "?Update@mmBridgeAudMgr@@UAEXXZ=0x4C4150",
-    "?Update@mmBridgeSet@@UAEXXZ=0x4C2380",
-    "?Update@mmCar@@UAEXXZ=0x473C40",
-    "?Update@mmCarRoadFF@@UAEXXZ=0x481770",
-    "?Update@mmCarSim@@UAEXXZ=0x46D860",
-    "?Update@mmCDPlayer@@UAEXXZ=0x4231A0",
-    "?Update@mmCircuitHUD@@UAEXXZ=0x424F50",
-    "?Update@mmCompBase@@UAEXXZ=0x4BF2E0",
-    "?Update@mmCompCRPlayer@@UAEXXZ=0x4B7580",
-    "?Update@mmCompDRecord@@UAEXXZ=0x4B5D50",
-    "?Update@mmCompRaceRecord@@UAEXXZ=0x4B4B30",
-    "?Update@mmCompRoster@@UAEXXZ=0x4B7A30",
-    "?Update@mmCRHUD@@UAEXXZ=0x426160",
-    "?Update@mmCullCity@@UAEXXZ=0x48D5D0",
-    "?Update@mmDashView@@UAEXXZ=0x421DD0",
-    "?Update@mmDrivetrain@@UAEXXZ=0x47FF30",
-    "?Update@mmDropDown@@UAEXXZ=0x4C0F20",
-    "?Update@mmEngine@@UAEXXZ=0x47CC90",
-    "?Update@mmExternalView@@UAEXXZ=0x422310",
-    "?Update@mmForce@@UAEXXZ=0x480C00",
-    "?Update@mmGame@@UAEXXZ=0x4102A0",
-    "?Update@mmGameEdit@@UAEXXZ=0x4127F0",
-    "?Update@mmGameManager@@UAEXXZ=0x4044D0",
-    "?Update@mmGameMulti@@UAEXXZ=0x4319F0",
-    "?Update@mmGameSingle@@UAEXXZ=0x417640",
-    "?Update@mmHUD@@UAEXXZ=0x405910",
-    "?Update@mmHudMap@@UAEXXZ=0x428C60",
-    "?Update@mmIcons@@UAEXXZ=0x426530",
-    "?Update@mmImpactAudio@@QAEXXZ=0x485530",
-    "?Update@mmInput@@UAEXXZ=0x4E2290",
-    "?Update@mmInterface@@UAEXXZ=0x4088A0",
-    "?Update@mmJoyMan@@QAEXXZ=0x4E5C80",
-    "?Update@mmJoystick@@QAEXXZ=0x4E6980",
-    "?Update@mmLoader@@QAEXXZ=0x48B9E0",
-    "?Update@mmMouseSteerBar@@UAEXXZ=0x502A00",
-    "?Update@mmNetObject@@UAEXXZ=0x433130",
-    "?Update@mmNetworkCarAudio@@UAEXXZ=0x4836A0",
-    "?Update@mmNumber@@UAEXXZ=0x4FEB70",
-    "?Update@mmOpponentCarAudio@@QAEXHMM@Z=0x47BBE0",
-    "?Update@mmOpponentImpactAudio@@QAEXXZ=0x47A710",
-    "?Update@mmOpponentSurfaceAudio@@QAEXM@Z=0x485E60",
-    "?Update@mmPed@@QAEXXZ=0x4978C0",
-    "?Update@mmPedManager@@UAEXXZ=0x497A60",
-    "?Update@mmPhysEntity@@UAEXXZ=0x453AF0",
-    "?Update@mmPhysExec@@UAEXXZ=0x4D9190",
-    "?Update@mmPhysicsMGR@@UAEXXZ=0x4D4F40",
-    "?Update@mmPlayer@@UAEXXZ=0x42BBC0",
-    "?Update@mmPlayerCarAudio@@QAEXHMMF@Z=0x482250",
-    "?Update@mmPoliceCarAudio@@QAEXHMM@Z=0x47AC30",
-    "?Update@mmPopup@@UAEXXZ=0x427680",
-    "?Update@mmRainAudio@@QAEXXZ=0x4335B0",
-    "?Update@mmScreenClearFlunky@@UAEXXZ=0x403CE0",
-    "?Update@mmShard@@QAEXXZ=0x478640",
-    "?Update@mmShardManager@@UAEXXZ=0x478C60",
-    "?Update@mmShock@@UAEXXZ=0x47D270",
-    "?Update@mmSingleBlitz@@UAEXXZ=0x413800",
-    "?Update@mmSingleCircuit@@UAEXXZ=0x415490",
-    "?Update@mmSkid@@QAEXXZ=0x477A90",
-    "?Update@mmSkidManager@@UAEXXZ=0x4780A0",
-    "?Update@mmSlider@@UAEXXZ=0x4BED20",
-    "?Update@mmSplash@@UAEXXZ=0x4811E0",
-    "?Update@mmStuck@@UAEXXZ=0x47C5B0",
-    "?Update@mmSurfaceAudio@@QAEXM@Z=0x487B50",
-    "?Update@mmTextNode@@UAEXXZ=0x4FFB30",
-    "?Update@mmTimer@@UAEXXZ=0x406240",
-    "?Update@mmToggle2@@UAEXXZ=0x4C00C0",
-    "?Update@mmToggle@@UAEXXZ=0x4C0590",
-    "?Update@mmToolTip@@UAEXXZ=0x4BF290",
-    "?Update@mmTrailer@@UAEXXZ=0x479D60",
-    "?Update@mmTransmission@@UAEXXZ=0x4705C0",
-    "?Update@mmVehicleForm@@UAEXXZ=0x502780",
-    "?Update@mmViewCS@@UAEXXZ=0x4F9230",
-    "?Update@mmVoiceCommentary@@QAEXXZ=0x4EDF70",
-    "?Update@mmWaypointObject@@UAEXXZ=0x430530",
-    "?Update@mmWaypoints@@UAEXXZ=0x42E9A0",
-    "?Update@mmWheel@@UAEXXZ=0x47E3E0",
-    "?Update@mmWheelCheap@@UAEXXZ=0x474A20",
-    "?Update@mmWPHUD@@UAEXXZ=0x424730",
-    "?Update@NetAddOnCarAudio@@QAEXXZ=0x4857D0",
-    "?Update@NetAudioManager@@UAEXXZ=0x475940",
-    "?Update@PointCamCS@@UAEXXZ=0x4F9FA0",
-    "?Update@PolarCamCS@@UAEXXZ=0x4FAC20",
-    "?Update@PostCamCS@@UAEXXZ=0x4F9670",
-    "?Update@PovCamCS@@UAEXXZ=0x4F6530",
-    "?Update@PreCamCS@@UAEXXZ=0x4F9AC0",
-    "?Update@PUMenuBase@@UAEXXZ=0x4AB400",
-    "?Update@RadialGauge@@UAEXXZ=0x423920",
-    "?Update@SBMI@@UAEHH@Z=0x528360",
-    "?Update@scharMI@@UAEHH@Z=0x527D80",
-    "?Update@sfPointer@@UAEXXZ=0x4BDA90",
-    "?Update@shortMI@@UAEHH@Z=0x527F50",
-    "?Update@SMI@@UAEHH@Z=0x527BE0",
-    "?Update@Spline@@UAEXXZ=0x4FDB30",
-    "?Update@StreamObj@@QAEXXZ=0x4F5F80",
-    "?Update@TextDropWidget@@UAEXXZ=0x4BE460",
-    "?Update@TMI@@UAEHH@Z=0x527CA0",
-    "?Update@TrackCamCS@@UAEXXZ=0x4F7270",
-    "?Update@TransitionCS@@UAEXXZ=0x4FB580",
-    "?Update@ucharMI@@UAEHH@Z=0x527E60",
-    "?Update@UIBMButton@@UAEXXZ=0x4B6AD0",
-    "?Update@UIBMLabel@@UAEXXZ=0x4B4610",
-    "?Update@UIButton@@UAEXXZ=0x4B9D20",
-    "?Update@UICompositeScroll@@UAEXXZ=0x4B5710",
-    "?Update@UIControlWidget@@UAEXXZ=0x4BBEC0",
-    "?Update@UICWArray@@UAEXXZ=0x4B8440",
-    "?Update@UIIcon@@UAEXXZ=0x4B9AD0",
-    "?Update@UIIconW@@UAEXXZ=0x4BC360",
-    "?Update@UILabel@@UAEXXZ=0x4B97D0",
-    "?Update@UIMenu@@UAEXXZ=0x4ACB10",
-    "?Update@UIMexButton@@UAEXXZ=0x4BCC10",
-    "?Update@uiNavBar@@UAEXXZ=0x4B1FD0",
-    "?Update@uintMI@@UAEHH@Z=0x528210",
-    "?Update@UISlider@@UAEXXZ=0x4B3E40",
-    "?Update@UITextDropdown@@UAEXXZ=0x4B3490",
-    "?Update@UITextField@@UAEXXZ=0x4B2EC0",
-    "?Update@UITextRoller2@@UAEXXZ=0x4BB3C0",
-    "?Update@UITextRoller@@UAEXXZ=0x4BA5B0",
-    "?Update@UIToggleButton2@@UAEXXZ=0x4BCA80",
-    "?Update@UIToggleButton@@UAEXXZ=0x4BC720",
-    "?Update@UIVScrollBar@@UAEXXZ=0x4BD300",
-    "?Update@ushortMI@@UAEHH@Z=0x528040",
-    "?Update@VehGyro@@UAEXXZ=0x480780",
-    "?Update@VehicleSelectBase@@UAEXXZ=0x49BA00",
-    "?Update@VSWidget@@UAEXXZ=0x4BF8D0",
-    "?Update@WINEventHandler@@UAEXH@Z=0x562350",
-    "?UpdateAmbients@aiPath@@QAEXXZ=0x43C490",
-    "?UpdateApproach@AppCamCS@@AAEXXZ=0x4FC460",
-    "?UpdateAttached@sfPointer@@AAEXXZ=0x4BDD10",
-    "?UpdateAudImpactReaction@aiVehicleAmbient@@QAEXXZ=0x450A70",
-    "?UpdateAudio@aiPedestrian@@QAEXXZ=0x44D010",
-    "?UpdateAudio@aiVehicleAmbient@@AAEXM@Z=0x44F850",
-    "?UpdateAudio@aiVehicleAmbient@@QAEXXZ=0x44F820",
-    "?UpdateAudio@aiVehicleOpponent@@QAEXXZ=0x44E300",
-    "?UpdateAudio@aiVehiclePolice@@QAEXXZ=0x4461B0",
-    "?UpdateAudio@mmAnimPlane@@AAEXXZ=0x4C5AC0",
-    "?UpdateAudio@mmAnimTrain@@AAEXXZ=0x4C6CA0",
-    "?UpdateAudio@mmBridgeSet@@QAEXXZ=0x4C2A40",
-    "?UpdateAudio@mmNetworkCarAudio@@QAEXXZ=0x4836E0",
-    "?UpdateBank@mmMultiCR@@AAEXXZ=0x41DFA0",
-    "?UpdateCar@TrackCamCS@@AAEXXZ=0x4F7360",
-    "?UpdateCrc@@YAKPAEI@Z=0x4D3CC0",
-    "?UpdateDamage@aiVehicleActive@@QAEXXZ=0x4529D0",
-    "?UpdateDamage@mmCarSim@@QAEXXZ=0x46E270",
-    "?UpdateDebugInput@mmGame@@UAEXXZ=0x4104B0",
-    "?UpdateDebugKeyInput@mmGameEdit@@UAEXH@Z=0x412570",
-    "?UpdateDebugKeyInput@mmGameMulti@@UAEXH@Z=0x431ED0",
-    "?UpdateDebugKeyInput@mmGameSingle@@UAEXH@Z=0x418EC0",
-    "?UpdateDebugKeyInput@mmMultiCircuit@@UAEXH@Z=0x41B820",
-    "?UpdateDebugKeyInput@mmMultiCR@@UAEXH@Z=0x41F560",
-    "?UpdateDebugKeyInput@mmSingleBlitz@@UAEXH@Z=0x414BD0",
-    "?UpdateDebugKeyInput@mmSingleCircuit@@UAEXH@Z=0x416C70",
-    "?UpdateDoppler@mmNetworkCarAudio@@QAEXXZ=0x483FA0",
-    "?UpdateDoppler@mmOpponentCarAudio@@QAEXM@Z=0x47BDF0",
-    "?UpdateDoppler@mmOpponentCarAudio@@QAEXXZ=0x47BDE0",
-    "?UpdateDoppler@mmPoliceCarAudio@@QAEXM@Z=0x47B410",
-    "?UpdateDoppler@mmPoliceCarAudio@@QAEXXZ=0x47B400",
-    "?UpdateDSound3DAudio@aiVehicleAmbient@@AAEXXZ=0x450DC0",
-    "?UpdateEcho@SoundObj@@QAEXXZ=0x4F2EC0",
-    "?UpdateEverythingButPlayer@mmPhysicsMGR@@QAEXXZ=0x4D4D00",
-    "?UpdateExhaust@mmCarSim@@QAEXXZ=0x46E160",
-    "?UpdateFF@mmCarSim@@QAEXXZ=0x46E520",
-    "?UpdateField@UIControlWidget@@QAEXXZ=0x4BBEE0",
-    "?UpdateFlags@agiBitmap@@UAEXXZ=0x55A630",
-    "?UpdateFlags@agiDDBitmap@@UAEXXZ=0x533C80",
-    "?UpdateFlags@agiSWBitmap@@UAEXXZ=0x534DA0",
-    "?UpdateGame@mmGameEdit@@UAEXXZ=0x412820",
-    "?UpdateGame@mmGameMulti@@UAEXXZ=0x431A10",
-    "?UpdateGame@mmGameSingle@@UAEXXZ=0x4176A0",
-    "?UpdateGame@mmMultiBlitz@@UAEXXZ=0x419910",
-    "?UpdateGame@mmMultiCircuit@@UAEXXZ=0x41B270",
-    "?UpdateGame@mmMultiCR@@UAEXXZ=0x41D380",
-    "?UpdateGame@mmMultiRace@@UAEXXZ=0x420510",
-    "?UpdateGame@mmSingleBlitz@@UAEXXZ=0x413860",
-    "?UpdateGame@mmSingleCircuit@@UAEXXZ=0x415850",
-    "?UpdateGameInput@mmGame@@QAEXXZ=0x410E90",
-    "?UpdateGameInput@mmGameEdit@@UAEXH@Z=0x412810",
-    "?UpdateGameInput@mmGameSingle@@UAEXH@Z=0x417660",
-    "?UpdateGameInput@mmMultiBlitz@@UAEXH@Z=0x4198D0",
-    "?UpdateGameInput@mmMultiCircuit@@UAEXH@Z=0x41B230",
-    "?UpdateGameInput@mmMultiCR@@UAEXH@Z=0x41D340",
-    "?UpdateGameInput@mmMultiRace@@UAEXH@Z=0x4204D0",
-    "?UpdateGameInput@mmSingleBlitz@@UAEXH@Z=0x413820",
-    "?UpdateGameInput@mmSingleCircuit@@UAEXH@Z=0x4154B0",
-    "?UpdateGold@mmCRHUD@@QAEXXZ=0x426140",
-    "?UpdateGold@mmMultiCR@@AAEXXZ=0x41DC20",
-    "?UpdateHideout@mmMultiCR@@AAEXXZ=0x41DE50",
-    "?UpdateHill@TrackCamCS@@AAEXXZ=0x4F7500",
-    "?UpdateHOG@mmPlayer@@QAEXXZ=0x42B310",
-    "?UpdateHorn@aiVehicleAmbient@@QAEXXZ=0x450790",
-    "?UpdateHUD@mmMultiCR@@AAEXXZ=0x41F410",
-    "?UpdateICSParams@mmCarSim@@QAEXXZ=0x46D680",
-    "?UpdateICSParams@mmTrailer@@QAEXXZ=0x479C00",
-    "?UpdateInput@BaseCamCS@@UAEXXZ=0x4F99D0",
-    "?UpdateInput@PovCamCS@@UAEXXZ=0x4F6550",
-    "?UpdateInput@TrackCamCS@@UAEXXZ=0x4F7350",
-    "?UpdateKey@asMidgets@@QAEXHH@Z=0x526BF0",
-    "?UpdateKids@asInertialCS@@QAEXXZ=0x4D9650",
-    "?UpdateLimit@mmMultiCR@@AAEXXZ=0x41E0F0",
-    "?UpdateLobby@mmInterface@@QAEXXZ=0x40A1F0",
-    "?UpdateLookAt@asViewCS@@QAEXXZ=0x52C220",
-    "?UpdateLutQueue@@YAXXZ=0x5564A0",
-    "?UpdateMaxDist@AppCamCS@@AAEXXZ=0x4FC9D0",
-    "?UpdateMirror@asRenderWeb@@QAEXXZ=0x490D60",
-    "?UpdateNetWorkAudio@mmGameMulti@@QAEXXZ=0x432450",
-    "?UpdatePathPosition@mmAnimPlane@@QAEXXZ=0x4C5370",
-    "?UpdatePathPosition@mmAnimTrain@@QAEXXZ=0x4C6460",
-    "?UpdatePathPosition@mmBoat@@QAEXXZ=0x4C7600",
-    "?UpdatePaused@aiMap@@UAEXXZ=0x436670",
-    "?UpdatePaused@asNode@@UAEXXZ=0x404BB0",
-    "?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z=0x522B10",
-    "?UpdatePaused@AudManager@@UAEXXZ=0x4E9DB0",
-    "?UpdatePaused@foobar@@EAEXXZ=0x411F10",
-    "?UpdatePaused@mmGame@@UAEXXZ=0x410DA0",
-    "?UpdatePaused@mmHUD@@UAEXXZ=0x405CE0",
-    "?UpdatePaused@mmPhysicsMGR@@UAEXXZ=0x4D52F0",
-    "?UpdatePedestrians@aiPath@@QAEXXZ=0x43C5A0",
-    "?UpdatePitchEcho@SoundObj@@QAEXXZ=0x4F31B0",
-    "?UpdatePlayEcho@SoundObj@@QAEXXZ=0x4F2F30",
-    "?UpdatePolar@asViewCS@@QAEXXZ=0x52BF80",
-    "?UpdatePosition@mmSlider@@QAEXXZ=0x4BEBC0",
-    "?UpdatePOV@asViewCS@@QAEXXZ=0x52C1D0",
-    "?UpdatePOV@PovCamCS@@AAEXXZ=0x4F6560",
-    "?UpdateRegen@mmPlayer@@QAEXXZ=0x42C4F0",
-    "?UpdateRoam@asViewCS@@QAEXXZ=0x52C0C0",
-    "?UpdateRPM@EngineAudio@@UAEXM@Z=0x486B30",
-    "?UpdateRPM@EngineAudioOpponent@@QAEXM@Z=0x485940",
-    "?UpdateScore@mmGameMulti@@QAEXXZ=0x431AA0",
-    "?UpdateScore@mmGameSingle@@QAEXXZ=0x417EF0",
-    "?UpdateScore@mmSingleCircuit@@QAEXXZ=0x4154C0",
-    "?UpdateSeconds@SoundObj@@QAEXXZ=0x4F2E90",
-    "?UpdateSkid@mmOpponentSurfaceAudio@@QAEXM@Z=0x485EA0",
-    "?UpdateSkidClear@mmSurfaceAudio@@QAEXM@Z=0x4882C0",
-    "?UpdateSkidRain@mmSurfaceAudio@@QAEXM@Z=0x488680",
-    "?UpdateSkidSnow@mmOpponentSurfaceAudio@@QAEXM@Z=0x486120",
-    "?UpdateSkidSnow@mmSurfaceAudio@@QAEXM@Z=0x488A50",
-    "?UpdateSnowTextures@mmCullCity@@AAEXXZ=0x48D2F0",
-    "?UpdateSteeringBrakes@mmGame@@QAEXXZ=0x411320",
-    "?UpdateStereo@asViewCS@@QAEXXZ=0x52C640",
-    "?UpdateStopEcho@SoundObj@@QAEXXZ=0x4F3030",
-    "?UpdateSurface@mmSurfaceAudio@@QAEXM@Z=0x487D30",
-    "?UpdateSurfaceSnow@mmSurfaceAudio@@QAEXM@Z=0x487FB0",
-    "?UpdateSuspension@mmSurfaceAudio@@QAEXXZ=0x488D80",
-    "?UpdateSwing@TrackCamCS@@AAEXXZ=0x4F7E50",
-    "?UpdateTimeWarning@mmMultiCR@@AAEXXZ=0x41EFC0",
-    "?UpdateTireWobble@mmSurfaceAudio@@QAEXXZ=0x487BE0",
-    "?UpdateTrack@asViewCS@@QAEXXZ=0x52C280",
-    "?UpdateTrack@TrackCamCS@@AAEXXZ=0x4F7510",
-    "?UpdateVals@mmCarRoadFF@@QAEXXZ=0x4817C0",
-    "?UpdateView@BaseCamCS@@QAEXXZ=0x4FBEF0",
-    "?UpdateVolumeEcho@SoundObj@@QAEXXZ=0x4F30F0",
-    "?UpdateWPHUD@mmWaypoints@@QAEXXZ=0x42EFA0",
-    "?UpperCase@@YAXPAD@Z=0x4EF800",
-    "?Upshift@mmTransmission@@QAEHXZ=0x470570",
-    "?Usage@ArgSet@@QAEXXZ=0x579010",
-    "?UsesLobby@HostRaceMenu@@UAEXH@Z=0x4A2C60",
-    "?UsesLobby@RaceMenuBase@@UAEXH@Z=0x4A4F60",
-    "?utimer@@YAKXZ=0x57C4C0",
-    "?Valid@mmFacadeQuad@@SAHPAVagiMeshSet@@@Z=0x493820",
-    "?Validate@agiDDPipeline@@UAEHXZ=0x5328C0",
-    "?Validate@agiPipeline@@UAEHXZ=0x555540",
-    "?Validate@agiSWPipeline@@UAEHXZ=0x533DC0",
-    "?ValidateCity@mmVoiceCommentary@@QAEXPAD@Z=0x4EC130",
-    "?ValidateObject@agiPipeline@@QAEXPAVagiRefreshable@@@Z=0x555EB0",
-    "?ValidatePtr@agiRefreshable@@AAEXPAD@Z=0x557B30",
-    "?ValidatePtr@mmBoundTemplate@@QAEXPAD@Z=0x51D940",
-    "?ValidPath@HierFileSystem@@UAEHPAD@Z=0x55FF80",
-    "?ValidPath@VirtualFileSystem@@UAEHPAD@Z=0x560780",
-    "?Value@VolumeDW@@QAEKXZ=0x4EE110",
-    "?Vehicle@aiMap@@QAEPAVaiVehicleAmbient@@H@Z=0x433EB0",
-    "?VehNameRemap@mmCar@@QAEPADPADH@Z=0x474340",
-    "?Verify@asMemoryAllocator@@AAEXPAX@Z=0x520F00",
-    "?VerifyBadAssignment@ControlSetup@@QAEXXZ=0x4A3900",
-    "?VerifyTree@asNode@@QAEPADXZ=0x523440",
-    "?Verts@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z=0x52F770",
-    "?Verts@agiSurfRenderer@@UAEXPATagiVtx@@H@Z=0x554DA0",
-    "?Verts@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z=0x537C20",
-    "?VertXDir@aiPath@@QAEPAVVector3@@H@Z=0x43FF50",
-    "?VertZDir@aiPath@@QAEPAVVector3@@H@Z=0x43FFD0",
-    "?ViewIt@@YAXPAVasCamera@@@Z=0x52A020",
-    "?Visible@asForm@@QBEHPAVasCamera@@ABVMatrix34@@@Z=0x528600",
-    "?Vprintf@Stream@@QAEHPBDPAD@Z=0x55EE40",
-    "?VScrollCB@UICompositeScroll@@QAEXXZ=0x4B55F0",
-    "?VScrollCB@UICWArray@@QAEXXZ=0x4B7FB0",
-    "?VScrollCB@UITextScroll@@QAEXXZ=0x4B8D00",
-    "?WaitForLobbyConnection@asNetwork@@QAEXH@Z=0x4890F0",
-    "?WaitForRelease@sfPointer@@QAEXXZ=0x4BDD20",
-    "?WaitTime@aiVehicleSpline@@QAEHXZ=0x45BCD0",
-    "?Wander@aiPedestrian@@AAEXXZ=0x449850",
-    "?Warningf@@YAXPBDZZ=0x576CD0",
-    "?WeatherCallback@RaceMenuBase@@QAEXXZ=0x4A7A00",
-    "?WheelConnected@mmInput@@QAEHXZ=0x4E39C0",
-    "?WheelHas3Axis@mmInput@@QAEHXZ=0x4E3A20",
-    "?WideFOV@mmExternalView@@QAEXH@Z=0x422330",
-    "?WidgetOnOff@RaceMenuBase@@QAEXHPAVuiWidget@@@Z=0x4A7370",
-    "?Widgets@asSimulation@@QAEXXZ=0x5229C0",
-    "?WidgetSetRolloff@AudHead@@QAEXXZ=0x4EBEE0",
-    "?WidgetSwitch@NetSelectMenu@@QAEXHH@Z=0x4A4940",
-    "?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z=0x4F4690",
-    "?WindowProc@MixerCTL@@EAEJPAUHWND__@@IIJ@Z=0x4EEB70",
-    "?WindowProc@WINEventHandler@@EAEJPAUHWND__@@IIJ@Z=0x562720",
-    "?WmCharHandler@UITextField@@QAEXE@Z=0x4B2A10",
-    "?WorldToBitmap@mmHudMap@@AAE?AUPoint@@PAVVector3@@@Z=0x429B20",
-    "?WPCallback@RaceMenuBase@@QAEXXZ=0x4A7960",
-    "?WPHit@mmWaypoints@@QAEHHVVector3@@HH@Z=0x42F820",
-    "?Write@MArray@@QAEXPAD@Z=0x4AB810",
-    "?Write@mmIO@@QAEHPAVStream@@@Z=0x4E4DC0",
-    "?Write@mmIODev@@QAEHPAVStream@@@Z=0x4E5740",
-    "?Write@Stream@@QAEHPAXH@Z=0x55EB00",
-    "?Write@WArray@@QAEXPAD@Z=0x4ABEA0",
-    "?WriteBinary@mmIODev@@QAEHPAVStream@@@Z=0x4E57A0",
-    "?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z=0x533720",
-    "?ZClipOnly@@YAHPAUCV@@0H@Z=0x506EA0",
-    "?Zero@asInertialCS@@QAEXXZ=0x4D9510",
-    "?ZeroVolAllSounds@AudManager@@QAEXXZ=0x4E9220",
-    "?zmemset@@YAXPAGI@Z=0x5342F0",
-    "?ZoneWatcher@@YGKPAX@Z=0x409D50",
-    "__calloc_dbg=0x5216B0",
-    "__CrtCheckMemory=0x521730",
-    "__CrtDumpMemoryLeaks=0x5217D0",
-    "__CrtIsValidPointer=0x521750",
-    "__CrtMemCheckpoint=0x521790",
-    "__CrtSetDbgFlag=0x521740",
-    "__free_dbg=0x521670",
-    "__malloc_dbg=0x521630",
-    "__msize=0x521590",
-    "__msize_dbg=0x521710",
-    "__realloc_dbg=0x5215E0",
-    "__setargv=0x401070",
-    "_calloc=0x521530",
-    "_free=0x521570",
-    "_malloc=0x5214F0",
-    "_printf=0x55F3B0",
-    "_rand=0x564AB0",
-    "_realloc=0x521510",
-    "_srand=0x564AC0",
-    "_vprintf=0x55F390",
-    "_strdup=0x5A4720",
-    "_WinMain@16=0x4031A0",
-
-    nullptr,
+const SymbolAddress BaseSymbols[] {
+    // clang-format off
+    { 0x144B95AF, 0x55B9B0 }, // ??0?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ
+    { 0x37E9111D, 0x557120 }, // ??0?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ
+    { 0x4EEF1E45, 0x5581A0 }, // ??0?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ
+    { 0x487E9A33, 0x4A5E30 }, // ??0AboutMenu@@QAE@H@Z
+    { 0xD8BE19BC, 0x45C560 }, // ??0AddOnCarAudio@@QAE@PADF@Z
+    { 0x976C4C51, 0x555370 }, // ??0agiBILight@@QAE@PAVagiPipeline@@@Z
+    { 0xC6EE78FE, 0x555260 }, // ??0agiBILightModel@@QAE@PAVagiPipeline@@@Z
+    { 0x1ABC272D, 0x55A3B0 }, // ??0agiBitmap@@QAE@PAVagiPipeline@@@Z
+    { 0xAC6B398B, 0x55BEB0 }, // ??0agiColorModel8@@QAE@PAVagiPalette@@@Z
+    { 0xD21F8647, 0x55D5B0 }, // ??0agiColorModelABGR@@QAE@XZ
+    { 0x769FA984, 0x55D3D0 }, // ??0agiColorModelARGB@@QAE@XZ
+    { 0xCC7F2E00, 0x55C4A0 }, // ??0agiColorModelRGB555@@QAE@XZ
+    { 0xBBC2E686, 0x55C860 }, // ??0agiColorModelRGB555_Rev@@QAE@XZ
+    { 0x490A4E0F, 0x55C680 }, // ??0agiColorModelRGB565@@QAE@XZ
+    { 0x79FC77EB, 0x55CA40 }, // ??0agiColorModelRGB565_Rev@@QAE@XZ
+    { 0x24A89C7B, 0x55CC20 }, // ??0agiColorModelRGB888@@QAE@XZ
+    { 0x7AD0798A, 0x55CDC0 }, // ??0agiColorModelRGB888_Rev@@QAE@XZ
+    { 0x8DB8C016, 0x55D1A0 }, // ??0agiColorModelRGBA4444@@QAE@XZ
+    { 0xE5081224, 0x55CF60 }, // ??0agiColorModelRGBA5551@@QAE@XZ
+    { 0xBF24BBD6, 0x5337A0 }, // ??0agiD3DLight@@QAE@PAVagiPipeline@@@Z
+    { 0xD13D6CDD, 0x533560 }, // ??0agiD3DMtlDef@@QAE@PAVagiPipeline@@@Z
+    { 0x5CCDB846, 0x52FB50 }, // ??0agiD3DPipeline@@QAE@XZ
+    { 0xEEFCDD43, 0x52E550 }, // ??0agiD3DRasterizer@@QAE@PAVagiPipeline@@@Z
+    { 0xA6E06D6D, 0x531600 }, // ??0agiD3DRPipeline@@QAE@XZ
+    { 0x29079C69, 0x5319A0 }, // ??0agiD3DTexDef@@QAE@PAVagiPipeline@@@Z
+    { 0x1F4DD4C3, 0x5332D0 }, // ??0agiD3DViewport@@QAE@PAVagiPipeline@@@Z
+    { 0xCDB4A082, 0x5339F0 }, // ??0agiDDBitmap@@QAE@PAVagiPipeline@@@Z
+    { 0x2A53FFAF, 0x532A40 }, // ??0agiDDPipeline@@QAE@XZ
+    { 0xE428E20A, 0x55BA80 }, // ??0agiLight@@QAE@PAVagiPipeline@@@Z
+    { 0x99FE4310, 0x551740 }, // ??0agiLighter@@QAE@XZ
+    { 0x8DC378C2, 0x55BD00 }, // ??0agiLightModel@@IAE@PAVagiPipeline@@@Z
+    { 0xAF0EE29F, 0x55BCA0 }, // ??0agiLightModelParameters@@QAE@XZ
+    { 0xD576266A, 0x55B9E0 }, // ??0agiLightParameters@@QAE@XZ
+    { 0x948E0809, 0x5145C0 }, // ??0agiLitAnimation@@QAE@PAVagiMeshModel@@PAVbnAnimation@@PAVStream@@@Z
+    { 0xEAE652AF, 0x5147D0 }, // ??0agiMeshSet@@QAE@XZ
+    { 0x1C2EEC36, 0x5519F0 }, // ??0agiMonoLighter@@QAE@XZ
+    { 0xDA90319E, 0x55DC00 }, // ??0agiMtlDef@@IAE@PAVagiPipeline@@@Z
+    { 0xD29BDD31, 0x55DAB0 }, // ??0agiMtlParameters@@QAE@XZ
+    { 0xCF60A64F, 0x55C090 }, // ??0agiPalette@@QAE@XZ
+    { 0xBBFB7127, 0x555480 }, // ??0agiPipeline@@IAE@XZ
+    { 0x702804E6, 0x557BE0 }, // ??0agiRasterizer@@QAE@PAVagiPipeline@@@Z
+    { 0xF4A205CA, 0x557A20 }, // ??0agiRefreshable@@QAE@PAVagiPipeline@@@Z
+    { 0x984C390A, 0x55DD80 }, // ??0agiRenderer@@QAE@XZ
+    { 0x376393A1, 0x551E40 }, // ??0agiRGBLighter@@QAE@XZ
+    { 0x44A5EA74, 0x552D60 }, // ??0agiSurfRenderer@@QAE@PAVagiRasterizer@@@Z
+    { 0xDA6B4674, 0x533DD0 }, // ??0agiSWPipeline@@QAE@HPAPAD@Z
+    { 0x5A2C37C7, 0x537BB0 }, // ??0agiSWRasterizer@@QAE@PAVagiPipeline@@@Z
+    { 0x5011467D, 0x5376D0 }, // ??0agiSWTexDef@@QAE@PAVagiSWPipeline@@@Z
+    { 0xE2AA1081, 0x537930 }, // ??0agiSWTexLut@@QAE@PAVagiSWPipeline@@@Z
+    { 0x438A40C5, 0x5561C0 }, // ??0agiTexDef@@IAE@PAVagiPipeline@@@Z
+    { 0xFD952D96, 0x5568F0 }, // ??0agiTexLut@@IAE@PAVagiPipeline@@@Z
+    { 0xF6091108, 0x556100 }, // ??0agiTexParameters@@QAE@XZ
+    { 0x86926B6F, 0x503830 }, // ??0agiTexSorter@@QAE@XZ
+    { 0x4DC26A94, 0x5571D0 }, // ??0agiViewParameters@@QAE@XZ
+    { 0x27AB8EB6, 0x5578E0 }, // ??0agiViewport@@IAE@PAVagiPipeline@@@Z
+    { 0xC6BB1AE7, 0x54FA70 }, // ??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z
+    { 0xA219FC01, 0x440070 }, // ??0aiAudioManager@@QAE@XZ
+    { 0xA96B9425, 0x4FA490 }, // ??0AICamCS@@QAE@XZ
+    { 0x3732EB8F, 0x46A370 }, // ??0aiGoalAvoidPlayer@@QAE@PAVaiRailSet@@PAVaiVehicleAmbient@@@Z
+    { 0xE119DB15, 0x45F830 }, // ??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z
+    { 0xCAA35DF3, 0x45FCC0 }, // ??0aiGoalChase@@QAE@PAVaiVehiclePolice@@PAVaiRailSet@@PAPAVmmCar@@PAFPAVVector3@@3@Z
+    { 0x9BE56645, 0x46B2F0 }, // ??0aiGoalCollision@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
+    { 0xDE225158, 0x465A10 }, // ??0aiGoalFollowWayPts@@QAE@PADPAVaiRailSet@@PAVaiVehicleOpponent@@PAF330M@Z
+    { 0xD67C739A, 0x4659B0 }, // ??0aiGoalFollowWayPts@@QAE@XZ
+    { 0xFBD9976F, 0x45C7E0 }, // ??0aiGoalRandomDrive@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
+    { 0xC4DBF093, 0x46AA20 }, // ??0aiGoalRegainRail@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
+    { 0x79B5536D, 0x45F710 }, // ??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z
+    { 0x60F20425, 0x4472E0 }, // ??0aiIntersection@@QAE@H@Z
+    { 0xD69C4A6B, 0x433FC0 }, // ??0aiMap@@QAE@XZ
+    { 0x6A1E72CE, 0x43C390 }, // ??0aiPath@@QAE@H@Z
+    { 0x0F6AC48F, 0x446C80 }, // ??0aiPedAudioManager@@QAE@XZ
+    { 0xFF89C98D, 0x447CC0 }, // ??0aiPedestrian@@QAE@XZ
+    { 0x258CD118, 0x44E7E0 }, // ??0aiPoliceForce@@QAE@XZ
+    { 0xC6EB8594, 0x446630 }, // ??0aiRaceData@@QAE@PAD0@Z
+    { 0xFBCBD9DB, 0x453BF0 }, // ??0aiRailSet@@QAE@XZ
+    { 0x416EE6B0, 0x46B400 }, // ??0aiStuck@@QAE@XZ
+    { 0x3AB37F55, 0x443F60 }, // ??0aiTrafficLightSet@@QAE@PAVaiIntersection@@@Z
+    { 0x6D67EB66, 0x4658F0 }, // ??0aiVehicle@@QAE@XZ
+    { 0xBC12FF06, 0x4520B0 }, // ??0aiVehicleActive@@QAE@XZ
+    { 0xA0C538F6, 0x44EC60 }, // ??0aiVehicleAmbient@@QAE@XZ
+    { 0xFC0ABBD3, 0x453B70 }, // ??0aiVehicleData@@QAE@XZ
+    { 0x52AF40CE, 0x452A30 }, // ??0aiVehicleManager@@QAE@XZ
+    { 0xFF0D93DE, 0x44DA70 }, // ??0aiVehicleOpponent@@QAE@XZ
+    { 0x2CDC8FB6, 0x444790 }, // ??0aiVehiclePolice@@QAE@XZ
+    { 0x9DDE7CB1, 0x459EE0 }, // ??0aiVehicleSpline@@QAE@XZ
+    { 0x5DF9BAA3, 0x4FC330 }, // ??0AppCamCS@@QAE@XZ
+    { 0x53668BF9, 0x5236B0 }, // ??0artsReplayChannel@@QAE@XZ
+    { 0x83460E06, 0x4DFC10 }, // ??0asAero@@QAE@XZ
+    { 0x08A5E80C, 0x578C30 }, // ??0asArg@@QAE@DPAD@Z
+    { 0x8233C1AC, 0x500A00 }, // ??0asBirthRule@@QAE@XZ
+    { 0xC847B6C8, 0x4DF0D0 }, // ??0asBound@@QAE@XZ
+    { 0xC63A93BE, 0x528C40 }, // ??0asCamera@@QAE@XZ
+    { 0x0905F11E, 0x525AA0 }, // ??0asCullable@@QAE@XZ
+    { 0x9FA7AA68, 0x5246C0 }, // ??0asCullManager@@QAE@HH@Z
+    { 0xDC628489, 0x52ACF0 }, // ??0asDofCS@@QAE@XZ
+    { 0x625C14EC, 0x528390 }, // ??0asForm@@QAE@XZ
+    { 0x5C9BD2DC, 0x4D91F0 }, // ??0asInertialCS@@QAE@XZ
+    { 0x9A3557CE, 0x526000 }, // ??0asLamp@@QAE@XZ
+    { 0x0C519808, 0x525AB0 }, // ??0asLinearCS@@QAE@XZ
+    { 0x46F56CFD, 0x5209B0 }, // ??0asMemoryAllocator@@QAE@XZ
+    { 0xD0B6F4AA, 0x4FFEA0 }, // ??0asMeshSetForm@@QAE@XZ
+    { 0xE7561DDD, 0x5267F0 }, // ??0asMidgets@@QAE@XZ
+    { 0x6EE8FE0C, 0x48B4A0 }, // ??0asNetObject@@QAE@XZ
+    { 0xB10B9A33, 0x488FA0 }, // ??0asNetwork@@QAE@XZ
+    { 0x7E1569B8, 0x5237C0 }, // ??0asNode@@QAE@XZ
+    { 0x0A7674E1, 0x4DED20 }, // ??0asOverSample@@QAE@XZ
+    { 0xB22D50D2, 0x5000B0 }, // ??0asParticles@@QAE@XZ
+    { 0x67A53EC7, 0x52A8A0 }, // ??0asPerfGraph@@QAE@XZ
+    { 0xEB98BF58, 0x4977B0 }, // ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z
+    { 0x9EB6BD19, 0x495AE0 }, // ??0asPortalWeb@@QAE@XZ
+    { 0x2E3627CE, 0x48FCC0 }, // ??0asRenderWeb@@QAE@XZ
+    { 0x2645ADA6, 0x521390 }, // ??0asSafeHeap@@QAE@XZ
+    { 0x7DF4E18F, 0x521800 }, // ??0asSimulation@@QAE@XZ
+    { 0xFD6310EF, 0x52BBA0 }, // ??0asViewCS@@QAE@XZ
+    { 0x881AF7F6, 0x4EBCB0 }, // ??0AudHead@@QAE@PAVMatrix34@@@Z
+    { 0x86E030DE, 0x49C5A0 }, // ??0AudioOptions@@QAE@H@Z
+    { 0xBF83B716, 0x4E8020 }, // ??0AudManager@@QAE@XZ
+    { 0x56E2D5E1, 0x4EA250 }, // ??0AudSound@@QAE@KHF@Z
+    { 0xAABC1D9F, 0x4F35A0 }, // ??0AudStream@@QAE@KHF@Z
+    { 0xD76A1C59, 0x4FBE00 }, // ??0BaseCamCS@@QAE@XZ
+    { 0xE2695DC1, 0x516DE0 }, // ??0bnBone@@QAE@XZ
+    { 0x30AECBF6, 0x514C40 }, // ??0bnSkeleton@@QAE@XZ
+    { 0x7A0A6090, 0x579420 }, // ??0Callback@@QAE@P6AXPAX0@Z0@Z
+    { 0x02FB6357, 0x5793F0 }, // ??0Callback@@QAE@P6AXPAX@Z0@Z
+    { 0xBA56BB8D, 0x5793D0 }, // ??0Callback@@QAE@P6AXXZ@Z
+    { 0x1896F155, 0x579390 }, // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z
+    { 0x110921C4, 0x579350 }, // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
+    { 0x6E3A5668, 0x579310 }, // ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z
+    { 0xF6331776, 0x5792D0 }, // ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z
+    { 0xFB94A410, 0x5792C0 }, // ??0Callback@@QAE@XZ
+    { 0xE2743C7A, 0x4FB220 }, // ??0CarCamCS@@QAE@XZ
+    { 0x1B51CF5E, 0x4FE150 }, // ??0Card2D@@QAE@XZ
+    { 0xA6204AB1, 0x43C180 }, // ??0CArrayList@@QAE@XZ
+    { 0x03E17F66, 0x4AB700 }, // ??0ControlBase@@QAE@XZ
+    { 0xF6F0427A, 0x4A2CA0 }, // ??0ControlSetup@@QAE@H@Z
+    { 0x7E8DB9C7, 0x4F4760 }, // ??0CReverb@@QAE@PAUIDirectSound3DBuffer@@@Z
+    { 0x02583B7E, 0x4F4AA0 }, // ??0CReverbBuffer@@QAE@PAUIDirectSound3DBuffer@@@Z
+    { 0x7A6D6E39, 0x4A0550 }, // ??0CRSettings@@QAE@H@Z
+    { 0xD15FE391, 0x576FC0 }, // ??0DataCache@@QAE@XZ
+    { 0x28FDB1C0, 0x49D730 }, // ??0Dialog_City@@QAE@HMMMMPAD@Z
+    { 0x0618677D, 0x4A0230 }, // ??0Dialog_ControlAssign@@QAE@HMMMMPAD@Z
+    { 0x2DF581B6, 0x49EC10 }, // ??0Dialog_DriverRec@@QAE@HMMMMPAD@Z
+    { 0x99D8B1B2, 0x49E3E0 }, // ??0Dialog_HallOfFame@@QAE@HMMMMPAD@Z
+    { 0xCD8C2967, 0x49F2E0 }, // ??0Dialog_Message@@QAE@HMMMMPAD@Z
+    { 0x191DD046, 0x49F4B0 }, // ??0Dialog_NewPlayer@@QAE@HMMMMPAD@Z
+    { 0x4FC34D0F, 0x49DAB0 }, // ??0Dialog_Password@@QAE@HMMMMPAD@Z
+    { 0x68924931, 0x49DC80 }, // ??0Dialog_RaceEnvironment@@QAE@HMMMMPAD@Z
+    { 0x11EC7013, 0x49F850 }, // ??0Dialog_Serial@@QAE@HMMMMPAD@Z
+    { 0x43F61090, 0x4A0380 }, // ??0Dialog_TCPIP@@QAE@HMMMMPAD@Z
+    { 0xC693DED6, 0x55DE90 }, // ??0DLP@@QAE@PAVagiPipeline@@@Z
+    { 0x129043E2, 0x558CB0 }, // ??0DLPGroup@@QAE@PAVDLPTemplate@@PAV0@@Z
+    { 0xB27C70C8, 0x558C90 }, // ??0DLPGroup@@QAE@XZ
+    { 0xB607438A, 0x55A310 }, // ??0DLPPatch@@QAE@XZ
+    { 0x00C7651C, 0x5582E0 }, // ??0DLPTemplate@@QAE@PAD@Z
+    { 0x6130CBCA, 0x5140F0 }, // ??0DLPVertex2@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@ABU0@@Z
+    { 0x2E09DD23, 0x5140E0 }, // ??0DLPVertex2@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@XZ
+    { 0xE8049EB0, 0x4A5350 }, // ??0DriverMenu@@QAE@H@Z
+    { 0x91653B80, 0x4EF140 }, // ??0DSGlobal@@QAE@XZ
+    { 0xA1DB737A, 0x4EEBC0 }, // ??0DupBuffCreator@@QAE@XZ
+    { 0x7CBF6B3C, 0x55E5B0 }, // ??0DynamicDLP@@QAE@H@Z
+    { 0x0233E1EA, 0x4864D0 }, // ??0EngineAudio@@QAE@XZ
+    { 0x953C49DD, 0x485800 }, // ??0EngineAudioOpponent@@QAE@XZ
+    { 0x331DE770, 0x562EB0 }, // ??0eqEventHandler@@QAE@XZ
+    { 0x53B0450E, 0x5632A0 }, // ??0eqEventMonitor@@QAE@H@Z
+    { 0x5E75F642, 0x5639F0 }, // ??0eqEventQ@@QAE@HHH@Z
+    { 0xA2652126, 0x563560 }, // ??0eqEventReplayChannelClass@@QAE@XZ
+    { 0x59473AD5, 0x564620 }, // ??0eqReplayChannel@@IAE@K@Z
+    { 0x3B46ACD7, 0x5618E0 }, // ??0FileStream@@QAE@H@Z
+    { 0xED20A582, 0x5617F0 }, // ??0FileStream@@QAE@PAXHPAVFileSystem@@@Z
+    { 0xB7150C54, 0x55F530 }, // ??0FileSystem@@QAE@XZ
+    { 0xC15178D1, 0x499970 }, // ??0GraphicsOptions@@QAE@H@Z
+    { 0x6BA959ED, 0x55FF50 }, // ??0HierFileSystem@@QAE@XZ
+    { 0xA16D9DD0, 0x4A2B60 }, // ??0HostRaceMenu@@QAE@H@Z
+    { 0xD9D5C8A2, 0x57C410 }, // ??0initHaveMMX@@QAE@XZ
+    { 0xF78B88A4, 0x4DBC20 }, // ??0Joint3Dof@@QAE@XZ
+    { 0xA5AD83C0, 0x4A61F0 }, // ??0MainMenu@@QAE@H@Z
+    { 0x8B739E25, 0x4AB7B0 }, // ??0MArray@@QAE@XZ
+    { 0xDE093160, 0x567450 }, // ??0Matrix34@@QAE@ABVMatrix44@@@Z
+    { 0xB072BB76, 0x478540 }, // ??0Matrix34@@QAE@XZ
+    { 0x698A5C65, 0x570C80 }, // ??0Matrix44@@QAE@ABV0@@Z
+    { 0x7F04BFBB, 0x56E500 }, // ??0Matrix44@@QAE@ABVMatrix34@@@Z
+    { 0x9CC5F006, 0x4AED60 }, // ??0MenuManager@@QAE@XZ
+    { 0x64D821EB, 0x577AA0 }, // ??0MetaClass@@QAE@PADIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z
+    { 0x9514C80A, 0x57C5E0 }, // ??0MiniParser@@QAE@PAD@Z
+    { 0x824EEDCC, 0x427DB0 }, // ??0mmAmbientAudio@@QAE@PAVmmPlayer@@@Z
+    { 0x001D9341, 0x4C4550 }, // ??0mmAnimDOF@@QAE@XZ
+    { 0x8A24AAB1, 0x4C34D0 }, // ??0mmAnimExcel@@QAE@XZ
+    { 0x58892A39, 0x4C1110 }, // ??0mmAnimMgr@@QAE@XZ
+    { 0x5B4F21BB, 0x4C4F20 }, // ??0mmAnimPlane@@QAE@XZ
+    { 0x92F89652, 0x4C37D0 }, // ??0mmAnimSpline@@QAE@XZ
+    { 0x96D4BF17, 0x4C5F20 }, // ??0mmAnimTrain@@QAE@XZ
+    { 0xF542365B, 0x4C8030 }, // ??0mmAnimTrainCar@@QAE@XZ
+    { 0xA83C627C, 0x4C41E0 }, // ??0mmAnimTrigger@@QAE@XZ
+    { 0x73961B4A, 0x4062D0 }, // ??0mmArrow@@QAE@XZ
+    { 0x007D7B09, 0x47D480 }, // ??0mmAxle@@QAE@XZ
+    { 0x4D2C8766, 0x4CAEE0 }, // ??0mmBangerActive@@QAE@XZ
+    { 0xF240FC05, 0x4CB3E0 }, // ??0mmBangerActiveManager@@QAE@XZ
+    { 0xE1CA5A7F, 0x4C9B50 }, // ??0mmBangerData@@QAE@XZ
+    { 0x06DDD32A, 0x4C8A30 }, // ??0mmBangerDataManager@@QAE@XZ
+    { 0x011635EB, 0x4446F0 }, // ??0mmBangerInstance@@QAE@XZ
+    { 0x0EDBAFF4, 0x4C7120 }, // ??0mmBoat@@QAE@XZ
+    { 0x20763A23, 0x51D9A0 }, // ??0mmBoundTemplate@@QAE@XZ
+    { 0x6B156CA7, 0x4C3D10 }, // ??0mmBridgeAudMgr@@QAE@XZ
+    { 0x7111B613, 0x4C16B0 }, // ??0mmBridgeMgr@@QAE@XZ
+    { 0xA5F1277D, 0x4C1F00 }, // ??0mmBridgeSet@@QAE@XZ
+    { 0x42E0CDA6, 0x4954E0 }, // ??0mmBuildingInstance@@QAE@XZ
+    { 0xC62FA0C8, 0x473380 }, // ??0mmCar@@QAE@XZ
+    { 0x85F13A7A, 0x471490 }, // ??0mmCarModel@@QAE@XZ
+    { 0x7D4BFBB9, 0x4814D0 }, // ??0mmCarRoadFF@@QAE@XZ
+    { 0x0E70CDF9, 0x46B950 }, // ??0mmCarSim@@QAE@XZ
+    { 0xA11EC859, 0x422FF0 }, // ??0mmCDPlayer@@QAE@XZ
+    { 0xC0138DF1, 0x498970 }, // ??0mmCellRenderer@@QAE@XZ
+    { 0x7358180D, 0x424790 }, // ??0mmCircuitHUD@@QAE@XZ
+    { 0x341F0DFF, 0x4D3620 }, // ??0mmCityInfo@@QAE@XZ
+    { 0x76FDDF8A, 0x4CBC10 }, // ??0mmCityList@@QAE@XZ
+    { 0x37CCE998, 0x4B7310 }, // ??0mmCompCRPlayer@@QAE@XZ
+    { 0x59F9250F, 0x4B5A80 }, // ??0mmCompDRecord@@QAE@XZ
+    { 0xABED01D2, 0x4B48F0 }, // ??0mmCompRaceRecord@@QAE@XZ
+    { 0x224F8687, 0x4B7840 }, // ??0mmCompRoster@@QAE@XZ
+    { 0xAF0765A4, 0x425140 }, // ??0mmCRHUD@@QAE@XZ
+    { 0x3C379BD9, 0x48BB90 }, // ??0mmCullCity@@QAE@XZ
+    { 0x3E8B2A78, 0x502220 }, // ??0mmDamage@@QAE@XZ
+    { 0x0F4390F7, 0x4215D0 }, // ??0mmDashView@@QAE@XZ
+    { 0x25BBD0C7, 0x47FE60 }, // ??0mmDrivetrain@@QAE@XZ
+    { 0x5F4F88C7, 0x4C0810 }, // ??0mmDropDown@@QAE@XZ
+    { 0xCB0FE4EF, 0x51A650 }, // ??0mmEdgeBodyIsect@@QAE@XZ
+    { 0x59011C17, 0x4E73B0 }, // ??0mmEffectFF@@QAE@XZ
+    { 0x675CBF4D, 0x47C930 }, // ??0mmEngine@@QAE@XZ
+    { 0xDFE387D6, 0x4220F0 }, // ??0mmExternalView@@QAE@XZ
+    { 0x75ABA11A, 0x493790 }, // ??0mmFacadeInstance@@QAE@XZ
+    { 0xAC979B56, 0x493850 }, // ??0mmFacadeQuad@@QAE@PAVagiMeshSet@@MM@Z
+    { 0xB69ADAC5, 0x480BE0 }, // ??0mmForce@@QAE@XZ
+    { 0xE6B198B1, 0x40E880 }, // ??0mmGame@@QAE@XZ
+    { 0xD88875C2, 0x412150 }, // ??0mmGameEdit@@QAE@XZ
+    { 0xCC152C8B, 0x403E50 }, // ??0mmGameManager@@QAE@XZ
+    { 0x85BB99F7, 0x4306A0 }, // ??0mmGameMulti@@QAE@XZ
+    { 0x502E8E49, 0x4FDD70 }, // ??0mmGameRecord@@QAE@M@Z
+    { 0xBD7D42ED, 0x416CA0 }, // ??0mmGameSingle@@QAE@XZ
+    { 0x989E9B32, 0x4CAE60 }, // ??0mmHitBangerInstance@@QAE@XZ
+    { 0x8917D52B, 0x404C20 }, // ??0mmHUD@@QAE@XZ
+    { 0xF3288DC6, 0x4280C0 }, // ??0mmHudMap@@QAE@XZ
+    { 0x8D54AAFC, 0x426390 }, // ??0mmIcons@@QAE@XZ
+    { 0x97191428, 0x484750 }, // ??0mmImpactAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z
+    { 0xBEAB1855, 0x4D12B0 }, // ??0mmInfoBase@@QAE@XZ
+    { 0x42A7EB3C, 0x4E0710 }, // ??0mmInput@@QAE@XZ
+    { 0x9DA38AA7, 0x4929D0 }, // ??0mmInstance@@QAE@XZ
+    { 0x2DC1E41C, 0x492280 }, // ??0mmInstChain@@QAE@XZ
+    { 0xC0DD2993, 0x406AC0 }, // ??0mmInterface@@QAE@XZ
+    { 0xFE4066F8, 0x51A1B0 }, // ??0mmIntersection@@QAE@XZ
+    { 0x96DF9F44, 0x4E4B60 }, // ??0mmIO@@QAE@XZ
+    { 0xAA64FBF4, 0x4E5060 }, // ??0mmIODev@@QAE@XZ
+    { 0x1AE645A7, 0x4E6080 }, // ??0mmJaxis@@QAE@XZ
+    { 0xBA97AA93, 0x4E5A90 }, // ??0mmJoyMan@@QAE@XZ
+    { 0x400B995C, 0x4E6180 }, // ??0mmJoystick@@QAE@XZ
+    { 0x308AD473, 0x423A70 }, // ??0mmLinearGauge@@QAE@XZ
+    { 0x7CEC443E, 0x48B530 }, // ??0mmLoader@@QAE@XZ
+    { 0x8D49E37F, 0x4D3270 }, // ??0mmMapData@@QAE@XZ
+    { 0xFAD2E231, 0x493400 }, // ??0mmMatrixInstance@@QAE@XZ
+    { 0xFFA7D535, 0x4CC490 }, // ??0mmMiscData@@QAE@XZ
+    { 0x73937AAF, 0x502930 }, // ??0mmMouseSteerBar@@QAE@XZ
+    { 0xF8D25002, 0x418EE0 }, // ??0mmMultiBlitz@@QAE@XZ
+    { 0xB020AF3A, 0x41A8B0 }, // ??0mmMultiCircuit@@QAE@XZ
+    { 0x137E07E5, 0x41BFB0 }, // ??0mmMultiCR@@QAE@XZ
+    { 0x52D3A8D2, 0x41F930 }, // ??0mmMultiRace@@QAE@XZ
+    { 0xDFFD56F7, 0x432740 }, // ??0mmNetObject@@QAE@XZ
+    { 0xA0408600, 0x483440 }, // ??0mmNetworkCarAudio@@QAE@PAVmmCarSim@@@Z
+    { 0x688F2735, 0x484700 }, // ??0mmNetworkCarAudio@@QAE@XZ
+    { 0xA822E2A8, 0x4FEA10 }, // ??0mmNumber@@QAE@XZ
+    { 0xF2B79763, 0x4FE660 }, // ??0mmNumberFont@@QAE@XZ
+    { 0x1230855F, 0x47B950 }, // ??0mmOpponentCarAudio@@QAE@PAVmmCarSim@@@Z
+    { 0x8A232EC7, 0x47C430 }, // ??0mmOpponentCarAudio@@QAE@XZ
+    { 0xD07CC304, 0x47A3B0 }, // ??0mmOpponentImpactAudio@@QAE@XZ
+    { 0x7C6F1D28, 0x485E00 }, // ??0mmOpponentSurfaceAudio@@QAE@XZ
+    { 0x59C9053C, 0x497800 }, // ??0mmPed@@QAE@XZ
+    { 0x9C9D973B, 0x497980 }, // ??0mmPedManager@@QAE@XZ
+    { 0xDCB82587, 0x4D42A0 }, // ??0mmPhysicsMGR@@QAE@XZ
+    { 0xCE2C378E, 0x429FF0 }, // ??0mmPlayer@@QAE@XZ
+    { 0xB5BD65BC, 0x481B00 }, // ??0mmPlayerCarAudio@@QAE@PAVmmCarSim@@@Z
+    { 0x62BDD586, 0x4833F0 }, // ??0mmPlayerCarAudio@@QAE@XZ
+    { 0x98DB46FA, 0x4CDA00 }, // ??0mmPlayerConfig@@QAE@XZ
+    { 0x7351111B, 0x4D0020 }, // ??0mmPlayerData@@QAE@XZ
+    { 0x3FFD1D9A, 0x4CEF00 }, // ??0mmPlayerDirectory@@QAE@XZ
+    { 0x6346F577, 0x414A50 }, // ??0mmPlayerRecord@@QAE@ABV0@@Z
+    { 0xA4DEF8B0, 0x4CFC30 }, // ??0mmPlayerRecord@@QAE@XZ
+    { 0x790CB750, 0x47A800 }, // ??0mmPoliceCarAudio@@QAE@PAVmmCarSim@@M@Z
+    { 0x2A24C754, 0x51A7E0 }, // ??0mmPolygon@@QAE@XZ
+    { 0x21328589, 0x426BA0 }, // ??0mmPopup@@QAE@PAVmmGame@@MMMM@Z
+    { 0x27FE8B03, 0x491E00 }, // ??0mmPositions@@QAE@XZ
+    { 0x7A137CD3, 0x4D2160 }, // ??0mmPropInfo@@QAE@XZ
+    { 0x4AADAD4B, 0x4D1BC0 }, // ??0mmRaceData@@QAE@XZ
+    { 0xD93B7855, 0x433200 }, // ??0mmRainAudio@@QAE@XZ
+    { 0xECFF5BB5, 0x4D1640 }, // ??0mmRecord@@QAE@XZ
+    { 0x1EA0BD6B, 0x4D23B0 }, // ??0mmRoadSect@@QAE@XZ
+    { 0x04E3A2CD, 0x4D2320 }, // ??0mmRoadSide@@QAE@XZ
+    { 0xD8C1E527, 0x48BFA0 }, // ??0mmRunwayLight@@QAE@PADAAVVector3@@1@Z
+    { 0x37261412, 0x478560 }, // ??0mmShard@@QAE@XZ
+    { 0x18155B8D, 0x4787F0 }, // ??0mmShardManager@@QAE@XZ
+    { 0xE8B561E7, 0x495460 }, // ??0mmShearInstance@@QAE@XZ
+    { 0xC069D512, 0x47D1F0 }, // ??0mmShock@@QAE@XZ
+    { 0xD6D4682F, 0x412EF0 }, // ??0mmSingleBlitz@@QAE@XZ
+    { 0x4D846F3B, 0x414BF0 }, // ??0mmSingleCircuit@@QAE@XZ
+    { 0x93B72060, 0x477850 }, // ??0mmSkid@@QAE@XZ
+    { 0x2BAC4628, 0x477B40 }, // ??0mmSkidManager@@QAE@XZ
+    { 0xD63F73A7, 0x4955D0 }, // ??0mmSky@@QAE@XZ
+    { 0x19FA8A7F, 0x4BE6A0 }, // ??0mmSlider@@QAE@XZ
+    { 0x2B946DCA, 0x480FF0 }, // ??0mmSplash@@QAE@XZ
+    { 0x8DE768D1, 0x4935E0 }, // ??0mmStaticInstance@@QAE@XZ
+    { 0x46583FF7, 0x47C480 }, // ??0mmStuck@@QAE@XZ
+    { 0xA222FBBF, 0x487110 }, // ??0mmSurfaceAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z
+    { 0xF56514EA, 0x4FEE40 }, // ??0mmText@@QAE@XZ
+    { 0x141C642F, 0x4FF450 }, // ??0mmTextNode@@QAE@XZ
+    { 0x43C5FC3A, 0x4061E0 }, // ??0mmTimer@@QAE@XZ
+    { 0x5A541803, 0x4BFF10 }, // ??0mmToggle2@@QAE@XZ
+    { 0x06B0FBC8, 0x4C0370 }, // ??0mmToggle@@QAE@XZ
+    { 0xB30C9B27, 0x4BF0E0 }, // ??0mmToolTip@@QAE@XZ
+    { 0x43CA90C7, 0x479230 }, // ??0mmTrailer@@QAE@XZ
+    { 0xCAD30731, 0x470430 }, // ??0mmTransmission@@QAE@XZ
+    { 0x8C1311D2, 0x4C4E20 }, // ??0mmUnhitBangerInstance@@QAE@XZ
+    { 0x5D75FC45, 0x5026B0 }, // ??0mmVehicleForm@@QAE@XZ
+    { 0x45F12E5E, 0x4D39D0 }, // ??0mmVehInfo@@QAE@XZ
+    { 0x2B5388D4, 0x4CC080 }, // ??0mmVehList@@QAE@XZ
+    { 0x269850AC, 0x4F8FB0 }, // ??0mmViewCS@@QAE@XZ
+    { 0x3D95C3AE, 0x4EC070 }, // ??0mmVoiceCommentary@@QAE@XZ
+    { 0xC2BC8128, 0x433730 }, // ??0mmWaypointInstance@@QAE@HMM@Z
+    { 0xBB1381BC, 0x430370 }, // ??0mmWaypointObject@@QAE@AAVVector4@@PADHMHM@Z
+    { 0x7E447E57, 0x42D540 }, // ??0mmWaypoints@@QAE@XZ
+    { 0xF753D5F6, 0x47D790 }, // ??0mmWheel@@QAE@XZ
+    { 0x9DB8E5CC, 0x474880 }, // ??0mmWheelCheap@@QAE@XZ
+    { 0x2C84F633, 0x4241A0 }, // ??0mmWPHUD@@QAE@XZ
+    { 0x9C22D819, 0x4932B0 }, // ??0mmYInstance@@QAE@XZ
+    { 0x48560832, 0x514170 }, // ??0nbuf@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@ABU0@@Z
+    { 0xE1129C2D, 0x514150 }, // ??0nbuf@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@XZ
+    { 0x7B2F4F2E, 0x485540 }, // ??0NetAddOnCarAudio@@QAE@PADF@Z
+    { 0xC7591BD0, 0x4A1790 }, // ??0NetArena@@QAE@H@Z
+    { 0xE54E6C5F, 0x4751D0 }, // ??0NetAudioManager@@QAE@XZ
+    { 0xC56DB3AC, 0x4A3BA0 }, // ??0NetSelectMenu@@QAE@H@Z
+    { 0x3FE9A8FC, 0x4AB4C0 }, // ??0OptionsBase@@QAE@H@Z
+    { 0xB84643CC, 0x4A3950 }, // ??0OptionsMenu@@QAE@H@Z
+    { 0xBE7A49F0, 0x4F9E20 }, // ??0PointCamCS@@QAE@XZ
+    { 0x789697D2, 0x4FAB60 }, // ??0PolarCamCS@@QAE@XZ
+    { 0x1ADDEBA2, 0x4F9570 }, // ??0PostCamCS@@QAE@XZ
+    { 0x5716906A, 0x4F62B0 }, // ??0PovCamCS@@QAE@XZ
+    { 0x8DFABABF, 0x4F99E0 }, // ??0PreCamCS@@QAE@XZ
+    { 0x1BCF1CCA, 0x4AA790 }, // ??0PUAudioOptions@@QAE@HMMMM@Z
+    { 0xE29BD588, 0x4A9780 }, // ??0PUChat@@QAE@HMMMMPAD@Z
+    { 0xFF3988DC, 0x4A9F50 }, // ??0PUControl@@QAE@HMMMM@Z
+    { 0xDF1BD61E, 0x4AA3F0 }, // ??0PUDebug@@QAE@HMMMM@Z
+    { 0x03E5A1DB, 0x4AAAA0 }, // ??0PUExit@@QAE@HMMMMPAD@Z
+    { 0xBB6BF16A, 0x4A9960 }, // ??0PUGraphics@@QAE@HMMMM@Z
+    { 0x50B3D331, 0x4A93C0 }, // ??0PUKey@@QAE@HMMMM@Z
+    { 0xA94901B8, 0x4AADA0 }, // ??0PUMain@@QAE@HMMMMPAD@Z
+    { 0x8FCD75BB, 0x4AAFE0 }, // ??0PUMenuBase@@QAE@HMMMMPAD@Z
+    { 0xFFF2046A, 0x4AA5E0 }, // ??0PUOptions@@QAE@HMMMM@Z
+    { 0xD7BDCDC0, 0x4AAC20 }, // ??0PUQuit@@QAE@HMMMMPAD@Z
+    { 0xB9D4CBAC, 0x4A8080 }, // ??0PUResults@@QAE@HMMMMPAD@Z
+    { 0xB8ACE230, 0x4A8CA0 }, // ??0PURoster@@QAE@HMMMM@Z
+    { 0xFC4EFE73, 0x4A4C30 }, // ??0RaceMenu@@QAE@H@Z
+    { 0xC5C459C0, 0x4A63C0 }, // ??0RaceMenuBase@@QAE@H@Z
+    { 0x4146EB02, 0x423840 }, // ??0RadialGauge@@QAE@XZ
+    { 0x7E14C3C8, 0x550800 }, // ??0RDLP@@QAE@PAVagiPipeline@@@Z
+    { 0x1A003FC4, 0x551290 }, // ??0RDynamicDLP@@QAE@HPAVRDLP@@@Z
+    { 0x504B26B2, 0x4BD970 }, // ??0sfPointer@@QAE@XZ
+    { 0x0C9DAC01, 0x4F0B20 }, // ??0SoundObj@@QAE@XZ
+    { 0x0FB7904F, 0x4FD3F0 }, // ??0Spline@@QAE@XZ
+    { 0x98056622, 0x55E8B0 }, // ??0Stream@@QAE@PAXHPAVFileSystem@@@Z
+    { 0x1BA6348B, 0x561370 }, // ??0StreamMiniParser@@QAE@PADPAVStream@@@Z
+    { 0xC9165462, 0x4F4C10 }, // ??0StreamObj@@QAE@XZ
+    { 0x18A7237C, 0x49A730 }, // ??0string@@QAE@ABV0@@Z
+    { 0xA94C472E, 0x4A4BA0 }, // ??0string@@QAE@PBD@Z
+    { 0xD8B28989, 0x5794E0 }, // ??0string@@QAE@XZ
+    { 0xE771C2EB, 0x4BDF90 }, // ??0TextDropWidget@@QAE@XZ
+    { 0x1915AF97, 0x576870 }, // ??0Timer@@QAE@XZ
+    { 0xD7D87B39, 0x5615D0 }, // ??0Tokenizer@@QAE@PBDPAVStream@@@Z
+    { 0xFD948B84, 0x4F6A60 }, // ??0TrackCamCS@@QAE@XZ
+    { 0x7EEAB530, 0x4FB4B0 }, // ??0TransitionCS@@QAE@XZ
+    { 0x00750FD2, 0x4B60A0 }, // ??0UIBMButton@@QAE@XZ
+    { 0xA58D708E, 0x4B4280 }, // ??0UIBMLabel@@QAE@XZ
+    { 0x4AD2A09E, 0x4B9B50 }, // ??0UIButton@@QAE@XZ
+    { 0x745412CD, 0x4B4EF0 }, // ??0UICompositeScroll@@QAE@XZ
+    { 0xB9366FA9, 0x4BBA80 }, // ??0UIControlWidget@@QAE@XZ
+    { 0x77951070, 0x4B7C70 }, // ??0UICWArray@@QAE@XZ
+    { 0x4ECC0F49, 0x4B9900 }, // ??0UIIcon@@QAE@XZ
+    { 0xF26C2C6E, 0x4BC0F0 }, // ??0UIIconW@@QAE@XZ
+    { 0x945149D3, 0x4B9600 }, // ??0UILabel@@QAE@XZ
+    { 0x91DFDC9E, 0x4AC7F0 }, // ??0UIMenu@@QAE@H@Z
+    { 0xA56AB040, 0x4BCAB0 }, // ??0UIMexButton@@QAE@XZ
+    { 0xDDF7F422, 0x4B1D00 }, // ??0uiNavBar@@QAE@H@Z
+    { 0x857DAA12, 0x4B39B0 }, // ??0UISlider@@QAE@XZ
+    { 0x59E8060A, 0x4B2ED0 }, // ??0UITextDropdown@@QAE@XZ
+    { 0x97805144, 0x4B2160 }, // ??0UITextField@@QAE@XZ
+    { 0x391DB38E, 0x4BABB0 }, // ??0UITextRoller2@@QAE@XZ
+    { 0x0C0B7947, 0x4B9F90 }, // ??0UITextRoller@@QAE@XZ
+    { 0xF72E78A6, 0x4B87F0 }, // ??0UITextScroll@@QAE@XZ
+    { 0x6F752A1E, 0x4BC730 }, // ??0UIToggleButton2@@QAE@XZ
+    { 0x72F3C8A2, 0x4BC490 }, // ??0UIToggleButton@@QAE@XZ
+    { 0xC8094412, 0x4BCD60 }, // ??0UIVScrollBar@@QAE@XZ
+    { 0xC80ACD07, 0x4B4860 }, // ??0uiWidget@@QAE@XZ
+    { 0xEB40281C, 0x430350 }, // ??0Vector2@@QAE@ABV0@@Z
+    { 0x3A452E8E, 0x43C100 }, // ??0Vector3@@QAE@MMM@Z
+    { 0xC1F5C384, 0x480660 }, // ??0VehGyro@@QAE@XZ
+    { 0x6F0AD3C3, 0x4A51D0 }, // ??0Vehicle@@QAE@H@Z
+    { 0x91426796, 0x49A790 }, // ??0VehicleSelectBase@@QAE@H@Z
+    { 0xEF8B7DE7, 0x4A4F70 }, // ??0VehShowcase@@QAE@H@Z
+    { 0x9642362D, 0x560650 }, // ??0VirtualFileSystem@@QAE@PAVStream@@@Z
+    { 0x2CBDA853, 0x561B40 }, // ??0VirtualStream@@QAE@PAVStream@@PAUVirtualFileInode@@PAXHPAVFileSystem@@@Z
+    { 0x695D718A, 0x4BF2F0 }, // ??0VSWidget@@QAE@XZ
+    { 0xE4CB0CAC, 0x4ABE40 }, // ??0WArray@@QAE@XZ
+    { 0xC1C2DBA0, 0x561D90 }, // ??0WINEventHandler@@QAE@XZ
+    { 0xAD4E2BD8, 0x559CF0 }, // ??1?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ
+    { 0xE8C0119F, 0x557150 }, // ??1?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ
+    { 0x68C8C526, 0x5581D0 }, // ??1?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ
+    { 0x03D70A2D, 0x4A6050 }, // ??1AboutMenu@@UAE@XZ
+    { 0xD7EFD09A, 0x45C690 }, // ??1AddOnCarAudio@@QAE@XZ
+    { 0xF4EE261A, 0x555390 }, // ??1agiBILight@@UAE@XZ
+    { 0x6B21809C, 0x555280 }, // ??1agiBILightModel@@UAE@XZ
+    { 0x3907C5D9, 0x55A640 }, // ??1agiBitmap@@MAE@XZ
+    { 0x59069F8E, 0x55BF00 }, // ??1agiColorModel8@@UAE@XZ
+    { 0xED261935, 0x55BB70 }, // ??1agiColorModel@@MAE@XZ
+    { 0xB8E44CE8, 0x55DA70 }, // ??1agiColorModelABGR@@UAE@XZ
+    { 0x38B88BE2, 0x55DA30 }, // ??1agiColorModelARGB@@UAE@XZ
+    { 0xB6EA25B5, 0x55D830 }, // ??1agiColorModelRGB555@@UAE@XZ
+    { 0x549C831D, 0x55D8B0 }, // ??1agiColorModelRGB555_Rev@@UAE@XZ
+    { 0x31D0A42F, 0x55D870 }, // ??1agiColorModelRGB565@@UAE@XZ
+    { 0x5006806C, 0x55D8F0 }, // ??1agiColorModelRGB565_Rev@@UAE@XZ
+    { 0x23163D7F, 0x55D930 }, // ??1agiColorModelRGB888@@UAE@XZ
+    { 0x04E4BEB0, 0x55D970 }, // ??1agiColorModelRGB888_Rev@@UAE@XZ
+    { 0x5952C9A6, 0x55D9F0 }, // ??1agiColorModelRGBA4444@@UAE@XZ
+    { 0x1F9877B4, 0x55D9B0 }, // ??1agiColorModelRGBA5551@@UAE@XZ
+    { 0x9F8289FC, 0x5337E0 }, // ??1agiD3DLight@@UAE@XZ
+    { 0x2976C6FF, 0x533660 }, // ??1agiD3DMtlDef@@UAE@XZ
+    { 0x19A3E7C3, 0x5309D0 }, // ??1agiD3DPipeline@@UAE@XZ
+    { 0x10941A4E, 0x52E590 }, // ??1agiD3DRasterizer@@UAE@XZ
+    { 0x475004C6, 0x531620 }, // ??1agiD3DRPipeline@@UAE@XZ
+    { 0xB7C3771C, 0x5319D0 }, // ??1agiD3DTexDef@@UAE@XZ
+    { 0x21B105B9, 0x5315F0 }, // ??1agiD3DTexLut@@UAE@XZ
+    { 0xE7DD0C32, 0x533340 }, // ??1agiD3DViewport@@UAE@XZ
+    { 0xBD499AD3, 0x533CF0 }, // ??1agiDDBitmap@@UAE@XZ
+    { 0x91B58EF6, 0x532EF0 }, // ??1agiDDPipeline@@UAE@XZ
+    { 0x8543C785, 0x55BB10 }, // ??1agiLight@@UAE@XZ
+    { 0x25E5CF43, 0x551750 }, // ??1agiLighter@@MAE@XZ
+    { 0x5CEE06CD, 0x55BD80 }, // ??1agiLightModel@@UAE@XZ
+    { 0x8748C542, 0x55BCF0 }, // ??1agiLightModelParameters@@QAE@XZ
+    { 0x7735FE7C, 0x5147F0 }, // ??1agiMeshSet@@QAE@XZ
+    { 0xC2518180, 0x551A10 }, // ??1agiMonoLighter@@UAE@XZ
+    { 0x1207ED2B, 0x55DC80 }, // ??1agiMtlDef@@MAE@XZ
+    { 0x6C302604, 0x555FA0 }, // ??1agiPipeline@@UAE@XZ
+    { 0x3CACD8A5, 0x557D10 }, // ??1agiRasterizer@@UAE@XZ
+    { 0x35737214, 0x557A60 }, // ??1agiRefreshable@@MAE@XZ
+    { 0xA520F67B, 0x551E60 }, // ??1agiRGBLighter@@UAE@XZ
+    { 0xB4CDEA30, 0x552DB0 }, // ??1agiSurfRenderer@@MAE@XZ
+    { 0x6EC1939F, 0x534E20 }, // ??1agiSWBitmap@@UAE@XZ
+    { 0x17E5E979, 0x533E50 }, // ??1agiSWPipeline@@UAE@XZ
+    { 0xDD3CA1CC, 0x537BD0 }, // ??1agiSWRasterizer@@UAE@XZ
+    { 0xF97B924F, 0x537700 }, // ??1agiSWTexDef@@UAE@XZ
+    { 0xD2354FAA, 0x537BA0 }, // ??1agiSWTexLut@@UAE@XZ
+    { 0x90446557, 0x534C10 }, // ??1agiSWViewport@@UAE@XZ
+    { 0xB07D1AE1, 0x556230 }, // ??1agiTexDef@@MAE@XZ
+    { 0xDA57EB7B, 0x556920 }, // ??1agiTexLut@@MAE@XZ
+    { 0xEA7AD6EE, 0x503A50 }, // ??1agiTexSorter@@QAE@XZ
+    { 0x7E2372C0, 0x557940 }, // ??1agiViewport@@MAE@XZ
+    { 0x9857D55E, 0x54FA90 }, // ??1agiZBufRenderer@@UAE@XZ
+    { 0x8CAB2C18, 0x440390 }, // ??1aiAudioManager@@UAE@XZ
+    { 0x90449495, 0x42D2C0 }, // ??1AICamCS@@UAE@XZ
+    { 0xE5A40B35, 0x45F6F0 }, // ??1aiGoal@@QAE@XZ
+    { 0xF0D020FB, 0x46A3A0 }, // ??1aiGoalAvoidPlayer@@QAE@XZ
+    { 0xD2D7577E, 0x45F860 }, // ??1aiGoalBackup@@QAE@XZ
+    { 0x72D32114, 0x45FD70 }, // ??1aiGoalChase@@QAE@XZ
+    { 0x405269AE, 0x46B320 }, // ??1aiGoalCollision@@QAE@XZ
+    { 0xF90F1EE8, 0x466420 }, // ??1aiGoalFollowWayPts@@QAE@XZ
+    { 0xA8BF3CB8, 0x45C8A0 }, // ??1aiGoalRandomDrive@@QAE@XZ
+    { 0x1EE7465B, 0x46AA50 }, // ??1aiGoalRegainRail@@QAE@XZ
+    { 0x78D51D3E, 0x45F740 }, // ??1aiGoalStop@@QAE@XZ
+    { 0xEDE1F99B, 0x447300 }, // ??1aiIntersection@@QAE@XZ
+    { 0x8DFC777C, 0x433FE0 }, // ??1aiMap@@UAE@XZ
+    { 0x9C5D87B4, 0x43C3C0 }, // ??1aiPath@@QAE@XZ
+    { 0xF5DE36FF, 0x446F80 }, // ??1aiPedAudioManager@@UAE@XZ
+    { 0x09715670, 0x447DA0 }, // ??1aiPedestrian@@QAE@XZ
+    { 0x0A7F3EBC, 0x44DA60 }, // ??1aiPedestrianInstance@@UAE@XZ
+    { 0xEFB9E26A, 0x44E800 }, // ??1aiPoliceForce@@QAE@XZ
+    { 0xDC77D5AD, 0x446B10 }, // ??1aiRaceData@@QAE@XZ
+    { 0x2380EEDA, 0x453CF0 }, // ??1aiRailSet@@QAE@XZ
+    { 0x10452FBC, 0x4658E0 }, // ??1aiStuck@@UAE@XZ
+    { 0x8CED5E65, 0x444780 }, // ??1aiTrafficLightInstance@@UAE@XZ
+    { 0xD83C68B5, 0x444150 }, // ??1aiTrafficLightSet@@UAE@XZ
+    { 0xB0FD0CD2, 0x465910 }, // ??1aiVehicle@@QAE@XZ
+    { 0x99D8B503, 0x452450 }, // ??1aiVehicleActive@@UAE@XZ
+    { 0xA2D74CF1, 0x44ED40 }, // ??1aiVehicleAmbient@@QAE@XZ
+    { 0x2CAF8660, 0x453B90 }, // ??1aiVehicleData@@UAE@XZ
+    { 0xD65629E4, 0x45C550 }, // ??1aiVehicleInstance@@UAE@XZ
+    { 0x2B100672, 0x452B10 }, // ??1aiVehicleManager@@UAE@XZ
+    { 0xDC0C3AEB, 0x44DAD0 }, // ??1aiVehicleOpponent@@QAE@XZ
+    { 0x84ED04BF, 0x4447F0 }, // ??1aiVehiclePolice@@QAE@XZ
+    { 0x4F433556, 0x459F50 }, // ??1aiVehicleSpline@@QAE@XZ
+    { 0x0620CFC7, 0x4FC420 }, // ??1AppCamCS@@UAE@XZ
+    { 0x16F32C90, 0x523740 }, // ??1artsReplayChannel@@QAE@XZ
+    { 0xFAF5E769, 0x470320 }, // ??1asAero@@UAE@XZ
+    { 0xE301FEB4, 0x453BC0 }, // ??1asBirthRule@@UAE@XZ
+    { 0x872BBD1E, 0x453A40 }, // ??1asBound@@UAE@XZ
+    { 0xF1D78191, 0x528BB0 }, // ??1asCamera@@UAE@XZ
+    { 0xD95CB908, 0x48BB80 }, // ??1asCullable@@UAE@XZ
+    { 0xC1F72040, 0x524D40 }, // ??1asCullManager@@UAE@XZ
+    { 0x40F7A3EC, 0x49C430 }, // ??1asDofCS@@UAE@XZ
+    { 0x53D7B484, 0x5283C0 }, // ??1asForm@@UAE@XZ
+    { 0x0B17D4E9, 0x453A30 }, // ??1asInertialCS@@UAE@XZ
+    { 0x65551F77, 0x5260C0 }, // ??1asLamp@@UAE@XZ
+    { 0x148AB0D0, 0x422F00 }, // ??1asLinearCS@@UAE@XZ
+    { 0x48C1415D, 0x5209C0 }, // ??1asMemoryAllocator@@QAE@XZ
+    { 0x13EE5BBD, 0x5000A0 }, // ??1asMeshSetForm@@UAE@XZ
+    { 0x55A223FF, 0x526890 }, // ??1asMidgets@@UAE@XZ
+    { 0xE28ED056, 0x48B4C0 }, // ??1asNetObject@@UAE@XZ
+    { 0xD4042723, 0x489010 }, // ??1asNetwork@@QAE@XZ
+    { 0x4B96D984, 0x5237F0 }, // ??1asNode@@UAE@XZ
+    { 0x2B160BBB, 0x42D300 }, // ??1asOverSample@@UAE@XZ
+    { 0x550632E7, 0x500120 }, // ??1asParticles@@UAE@XZ
+    { 0x32C57CDD, 0x52A930 }, // ??1asPerfGraph@@QAE@XZ
+    { 0xFB740AB8, 0x4974C0 }, // ??1asPortalWeb@@UAE@XZ
+    { 0xFA0DF886, 0x48FD40 }, // ??1asRenderWeb@@UAE@XZ
+    { 0x9E615BC9, 0x5213A0 }, // ??1asSafeHeap@@QAE@XZ
+    { 0xD06AD989, 0x521A60 }, // ??1asSimulation@@UAE@XZ
+    { 0x791443B9, 0x52CE50 }, // ??1asViewCS@@UAE@XZ
+    { 0xB54764A0, 0x4EBD00 }, // ??1AudHead@@UAE@XZ
+    { 0xE55B6B96, 0x49CE60 }, // ??1AudioOptions@@UAE@XZ
+    { 0x4600EF95, 0x4E8160 }, // ??1AudManager@@UAE@XZ
+    { 0x43C3B8B0, 0x4EA530 }, // ??1AudSound@@UAE@XZ
+    { 0x18916F64, 0x4F36E0 }, // ??1AudStream@@UAE@XZ
+    { 0x64F0B990, 0x5791E0 }, // ??1Base@@UAE@XZ
+    { 0xE478AC41, 0x4FBEA0 }, // ??1BaseCamCS@@UAE@XZ
+    { 0x833F267E, 0x514C50 }, // ??1bnSkeleton@@QAE@XZ
+    { 0x6E1DC6C0, 0x4FB240 }, // ??1CarCamCS@@UAE@XZ
+    { 0x6ACB9BA9, 0x4FE650 }, // ??1Card2D@@UAE@XZ
+    { 0x55EC3B19, 0x446C00 }, // ??1CArrayList@@QAE@XZ
+    { 0xEC824287, 0x4F4240 }, // ??1CDMan@@QAE@XZ
+    { 0x60386D6F, 0x4AB710 }, // ??1ControlBase@@QAE@XZ
+    { 0x8A59F3B5, 0x4A2E90 }, // ??1ControlSetup@@UAE@XZ
+    { 0xB49C5FD8, 0x4F4800 }, // ??1CReverb@@QAE@XZ
+    { 0x017AD860, 0x4F4AF0 }, // ??1CReverbBuffer@@QAE@XZ
+    { 0xC8C7ABC4, 0x4A0E90 }, // ??1CRSettings@@UAE@XZ
+    { 0x7D6DE20B, 0x49D9B0 }, // ??1Dialog_City@@UAE@XZ
+    { 0xB5E92642, 0x4A0330 }, // ??1Dialog_ControlAssign@@UAE@XZ
+    { 0xE2BF3BEA, 0x49EF70 }, // ??1Dialog_DriverRec@@UAE@XZ
+    { 0x07F5BAE2, 0x49E7E0 }, // ??1Dialog_HallOfFame@@UAE@XZ
+    { 0x90873448, 0x49F460 }, // ??1Dialog_Message@@UAE@XZ
+    { 0xFAE9EB50, 0x49F7D0 }, // ??1Dialog_NewPlayer@@UAE@XZ
+    { 0x4C65075C, 0x49DC20 }, // ??1Dialog_Password@@UAE@XZ
+    { 0xDBE00A0B, 0x49E290 }, // ??1Dialog_RaceEnvironment@@UAE@XZ
+    { 0x2DC1900E, 0x4A00B0 }, // ??1Dialog_Serial@@UAE@XZ
+    { 0xE314B68C, 0x4A04F0 }, // ??1Dialog_TCPIP@@UAE@XZ
+    { 0x88F2072F, 0x55DEF0 }, // ??1DLP@@UAE@XZ
+    { 0xF5931D36, 0x558E90 }, // ??1DLPGroup@@QAE@XZ
+    { 0xE7D8A17D, 0x55A320 }, // ??1DLPPatch@@QAE@XZ
+    { 0x7C1C86BA, 0x558330 }, // ??1DLPTemplate@@AAE@XZ
+    { 0x7148789C, 0x4A5850 }, // ??1DriverMenu@@UAE@XZ
+    { 0x820C0C9E, 0x4EF200 }, // ??1DSGlobal@@QAE@XZ
+    { 0xDB98BCB3, 0x4EEC00 }, // ??1DupBuffCreator@@QAE@XZ
+    { 0xDD67A2EF, 0x55E5E0 }, // ??1DynamicDLP@@MAE@XZ
+    { 0x5585939C, 0x486940 }, // ??1EngineAudio@@UAE@XZ
+    { 0x6C36FB0C, 0x485860 }, // ??1EngineAudioOpponent@@UAE@XZ
+    { 0x23E6988C, 0x562F00 }, // ??1eqEventHandler@@UAE@XZ
+    { 0xA3C13CBA, 0x5632C0 }, // ??1eqEventMonitor@@UAE@XZ
+    { 0xF4ECD784, 0x563A80 }, // ??1eqEventQ@@UAE@XZ
+    { 0x1EBB128E, 0x5639E0 }, // ??1eqEventReplayChannelClass@@QAE@XZ
+    { 0xB29A9FC6, 0x564650 }, // ??1eqReplayChannel@@QAE@XZ
+    { 0xBC2A60D7, 0x561A60 }, // ??1FileStream@@UAE@XZ
+    { 0x1F6D8FD2, 0x55F5A0 }, // ??1FileSystem@@UAE@XZ
+    { 0xC4962919, 0x414A10 }, // ??1foobar@@UAE@XZ
+    { 0x29A7D863, 0x49A2F0 }, // ??1GraphicsOptions@@UAE@XZ
+    { 0xF90DDF27, 0x498950 }, // ??1HashTable@@QAE@XZ
+    { 0xB1FA9B3E, 0x55FF70 }, // ??1HierFileSystem@@UAE@XZ
+    { 0x55D42AFE, 0x4A2C30 }, // ??1HostRaceMenu@@UAE@XZ
+    { 0x7BC4D3C7, 0x4DEC60 }, // ??1Joint3Dof@@UAE@XZ
+    { 0x8B8AB087, 0x4DEB60 }, // ??1JointedStruct@@UAE@XZ
+    { 0x1D34A3A9, 0x57C280 }, // ??1List@@QAE@XZ
+    { 0xE136AD7B, 0x4A6370 }, // ??1MainMenu@@UAE@XZ
+    { 0xB22EE450, 0x4AB7C0 }, // ??1MArray@@QAE@XZ
+    { 0x9B7A34A0, 0x4AEF20 }, // ??1MenuManager@@UAE@XZ
+    { 0xE00D6D50, 0x577B20 }, // ??1MetaClass@@QAE@XZ
+    { 0x1CB214B8, 0x57C640 }, // ??1MiniParser@@QAE@XZ
+    { 0x4FCC37F5, 0x4EE180 }, // ??1MixerCTL@@UAE@XZ
+    { 0x82B84A84, 0x427E50 }, // ??1mmAmbientAudio@@QAE@XZ
+    { 0x7B913524, 0x4C4570 }, // ??1mmAnimDOF@@QAE@XZ
+    { 0x82E8A152, 0x4C34F0 }, // ??1mmAnimExcel@@UAE@XZ
+    { 0x913D526E, 0x4C1190 }, // ??1mmAnimMgr@@UAE@XZ
+    { 0x65DF6EFB, 0x4C5010 }, // ??1mmAnimPlane@@UAE@XZ
+    { 0x28BCE271, 0x4C37F0 }, // ??1mmAnimSpline@@UAE@XZ
+    { 0x8EEAD453, 0x4C6010 }, // ??1mmAnimTrain@@QAE@XZ
+    { 0xB8E3A27A, 0x4C8050 }, // ??1mmAnimTrainCar@@UAE@XZ
+    { 0x077EEEBF, 0x4C41F0 }, // ??1mmAnimTrigger@@QAE@XZ
+    { 0x11A91FF3, 0x406450 }, // ??1mmArrow@@UAE@XZ
+    { 0x382BCB5F, 0x470370 }, // ??1mmAxle@@UAE@XZ
+    { 0xED114C39, 0x4CAFC0 }, // ??1mmBangerActive@@UAE@XZ
+    { 0x046C4022, 0x4CB490 }, // ??1mmBangerActiveManager@@UAE@XZ
+    { 0x2C28729B, 0x4C9BE0 }, // ??1mmBangerData@@UAE@XZ
+    { 0x474162A8, 0x4C8B50 }, // ??1mmBangerDataManager@@UAE@XZ
+    { 0x1C71B206, 0x444740 }, // ??1mmBangerInstance@@UAE@XZ
+    { 0x77507D0A, 0x48FCB0 }, // ??1mmBangerManager@@UAE@XZ
+    { 0x9DD135DE, 0x4C7200 }, // ??1mmBoat@@UAE@XZ
+    { 0x0576EF7C, 0x51DA60 }, // ??1mmBoundTemplate@@QAE@XZ
+    { 0x5614FA5A, 0x4C3EC0 }, // ??1mmBridgeAudMgr@@UAE@XZ
+    { 0x7D7FC5E8, 0x4C17C0 }, // ??1mmBridgeMgr@@UAE@XZ
+    { 0xA80A2B76, 0x4C2010 }, // ??1mmBridgeSet@@UAE@XZ
+    { 0xC6E0F284, 0x48FC40 }, // ??1mmBuildingInstance@@UAE@XZ
+    { 0x7C6848C7, 0x42D1F0 }, // ??1mmCar@@UAE@XZ
+    { 0x00B60573, 0x471540 }, // ??1mmCarModel@@UAE@XZ
+    { 0xFA9FF260, 0x481510 }, // ??1mmCarRoadFF@@UAE@XZ
+    { 0x3456AA89, 0x46C040 }, // ??1mmCarSim@@UAE@XZ
+    { 0xDEC1DA0C, 0x406960 }, // ??1mmCDPlayer@@UAE@XZ
+    { 0x5191FD8E, 0x4989A0 }, // ??1mmCellRenderer@@QAE@XZ
+    { 0xFE91A4C2, 0x4248A0 }, // ??1mmCircuitHUD@@UAE@XZ
+    { 0xD24D2401, 0x4D3640 }, // ??1mmCityInfo@@UAE@XZ
+    { 0x0C6D72ED, 0x4CBC30 }, // ??1mmCityList@@UAE@XZ
+    { 0xF2562A1D, 0x4B4DF0 }, // ??1mmCompBase@@UAE@XZ
+    { 0xDB3EF39B, 0x4B7340 }, // ??1mmCompCRPlayer@@UAE@XZ
+    { 0x71E07EC5, 0x4B5AC0 }, // ??1mmCompDRecord@@UAE@XZ
+    { 0xD726F5A1, 0x4B4930 }, // ??1mmCompRaceRecord@@UAE@XZ
+    { 0x115A8934, 0x4B78B0 }, // ??1mmCompRoster@@UAE@XZ
+    { 0x7FE1E2EC, 0x4252E0 }, // ??1mmCRHUD@@UAE@XZ
+    { 0xF3150BF0, 0x4CEE80 }, // ??1mmCtrlCFG@@QAE@XZ
+    { 0x5DC7CBEB, 0x48BD70 }, // ??1mmCullCity@@UAE@XZ
+    { 0xB3C153B9, 0x502230 }, // ??1mmDamage@@QAE@XZ
+    { 0x61649CF1, 0x421770 }, // ??1mmDashView@@UAE@XZ
+    { 0x108D48AC, 0x4C4EE0 }, // ??1mmDofBangerInstance@@UAE@XZ
+    { 0x35E84A86, 0x4C4DB0 }, // ??1mmDrawbridgeInstance@@UAE@XZ
+    { 0xC664C764, 0x470350 }, // ??1mmDrivetrain@@UAE@XZ
+    { 0x3F90E9CA, 0x4C0870 }, // ??1mmDropDown@@UAE@XZ
+    { 0xB335D80E, 0x4E7420 }, // ??1mmEffectFF@@QAE@XZ
+    { 0xDCE0B417, 0x47C990 }, // ??1mmEngine@@UAE@XZ
+    { 0x0CF16B6F, 0x406910 }, // ??1mmExternalView@@UAE@XZ
+    { 0x1E9B1B2C, 0x4937B0 }, // ??1mmFacadeInstance@@UAE@XZ
+    { 0x7DD0804A, 0x470330 }, // ??1mmForce@@UAE@XZ
+    { 0x9CAC3634, 0x40FDB0 }, // ??1mmGame@@UAE@XZ
+    { 0x070D8299, 0x412220 }, // ??1mmGameEdit@@UAE@XZ
+    { 0x029C5F8A, 0x4043B0 }, // ??1mmGameManager@@UAE@XZ
+    { 0x41D6DC41, 0x4307B0 }, // ??1mmGameMulti@@UAE@XZ
+    { 0xCBEEC0E8, 0x4FDDA0 }, // ??1mmGameRecord@@QAE@XZ
+    { 0x2AF393DA, 0x416D30 }, // ??1mmGameSingle@@UAE@XZ
+    { 0x9FE62E52, 0x4CAED0 }, // ??1mmHitBangerInstance@@UAE@XZ
+    { 0x3CC55706, 0x405190 }, // ??1mmHUD@@UAE@XZ
+    { 0xE85BBE31, 0x429FD0 }, // ??1mmHudMap@@UAE@XZ
+    { 0x577D067B, 0x426410 }, // ??1mmIcons@@UAE@XZ
+    { 0x75E14A14, 0x484D80 }, // ??1mmImpactAudio@@QAE@XZ
+    { 0xB33AC199, 0x414BC0 }, // ??1mmInfoBase@@UAE@XZ
+    { 0x84E25B96, 0x4E0930 }, // ??1mmInput@@UAE@XZ
+    { 0xEAF4AC8E, 0x492A00 }, // ??1mmInstance@@UAE@XZ
+    { 0x222CB166, 0x492290 }, // ??1mmInstChain@@QAE@XZ
+    { 0xC4F575C0, 0x407E00 }, // ??1mmInterface@@UAE@XZ
+    { 0x4C8BD2A6, 0x4E4B80 }, // ??1mmIO@@QAE@XZ
+    { 0x8ED1CD3B, 0x4E50A0 }, // ??1mmIODev@@UAE@XZ
+    { 0xE2FF11B4, 0x4E60A0 }, // ??1mmJaxis@@QAE@XZ
+    { 0x66FD6CE3, 0x4E5AA0 }, // ??1mmJoyMan@@QAE@XZ
+    { 0x8F5C1AD5, 0x4E6240 }, // ??1mmJoystick@@QAE@XZ
+    { 0xFC22209E, 0x423A80 }, // ??1mmLinearGauge@@QAE@XZ
+    { 0x11EF9A22, 0x48B680 }, // ??1mmLoader@@UAE@XZ
+    { 0x98A7814E, 0x4D3290 }, // ??1mmMapData@@UAE@XZ
+    { 0x817B9E0F, 0x493430 }, // ??1mmMatrixInstance@@UAE@XZ
+    { 0x337C93FF, 0x4CC5A0 }, // ??1mmMiscData@@UAE@XZ
+    { 0x2DFAA80D, 0x502950 }, // ??1mmMouseSteerBar@@UAE@XZ
+    { 0x5118FB65, 0x418F50 }, // ??1mmMultiBlitz@@UAE@XZ
+    { 0xC4789F40, 0x41A920 }, // ??1mmMultiCircuit@@UAE@XZ
+    { 0x55A883E2, 0x41C070 }, // ??1mmMultiCR@@UAE@XZ
+    { 0x54BD8CE7, 0x41F9A0 }, // ??1mmMultiRace@@UAE@XZ
+    { 0x2F6738F9, 0x4327F0 }, // ??1mmNetObject@@UAE@XZ
+    { 0xA59CF0DC, 0x483630 }, // ??1mmNetworkCarAudio@@UAE@XZ
+    { 0x95CDEE48, 0x4FEAA0 }, // ??1mmNumber@@UAE@XZ
+    { 0x8CF14ED0, 0x4FE730 }, // ??1mmNumberFont@@QAE@XZ
+    { 0xA86E65D9, 0x47B9C0 }, // ??1mmOpponentCarAudio@@UAE@XZ
+    { 0xB8053C57, 0x47A570 }, // ??1mmOpponentImpactAudio@@QAE@XZ
+    { 0x3778D438, 0x485E30 }, // ??1mmOpponentSurfaceAudio@@QAE@XZ
+    { 0x1EBEAD8E, 0x4978B0 }, // ??1mmPed@@UAE@XZ
+    { 0x4E3251BF, 0x4979A0 }, // ??1mmPedManager@@UAE@XZ
+    { 0xE0E3C802, 0x42D510 }, // ??1mmPhysEntity@@UAE@XZ
+    { 0xD18F6512, 0x4D91E0 }, // ??1mmPhysExec@@UAE@XZ
+    { 0x25FA4557, 0x4D43A0 }, // ??1mmPhysicsMGR@@UAE@XZ
+    { 0xCA29BD00, 0x42D370 }, // ??1mmPlayer@@UAE@XZ
+    { 0xD13D823D, 0x481F30 }, // ??1mmPlayerCarAudio@@UAE@XZ
+    { 0x1A6992FF, 0x4CDAA0 }, // ??1mmPlayerConfig@@UAE@XZ
+    { 0x711E9B0B, 0x4CBB40 }, // ??1mmPlayerData@@UAE@XZ
+    { 0x93E297A1, 0x4CEF40 }, // ??1mmPlayerDirectory@@UAE@XZ
+    { 0xFB84D80D, 0x4CFC50 }, // ??1mmPlayerRecord@@UAE@XZ
+    { 0xD5E77841, 0x47A8E0 }, // ??1mmPoliceCarAudio@@UAE@XZ
+    { 0xE1DEE5A4, 0x427010 }, // ??1mmPopup@@UAE@XZ
+    { 0xB2BCE6A4, 0x4D2190 }, // ??1mmPropInfo@@UAE@XZ
+    { 0xD7E3F373, 0x4D1BD0 }, // ??1mmRaceData@@QAE@XZ
+    { 0x8187FFED, 0x433400 }, // ??1mmRainAudio@@QAE@XZ
+    { 0xE934AEBB, 0x4D1680 }, // ??1mmRecord@@UAE@XZ
+    { 0xAA0DEB03, 0x43C250 }, // ??1mmRoadSect@@UAE@XZ
+    { 0x69C1080B, 0x43C190 }, // ??1mmRoadSide@@UAE@XZ
+    { 0xF900DC0E, 0x48FA70 }, // ??1mmRunwayLight@@UAE@XZ
+    { 0xC73986AB, 0x404BA0 }, // ??1mmScreenClearFlunky@@UAE@XZ
+    { 0x4D57708E, 0x4785D0 }, // ??1mmShard@@UAE@XZ
+    { 0xF8E661A2, 0x478860 }, // ??1mmShardManager@@UAE@XZ
+    { 0x81A94E82, 0x48FC10 }, // ??1mmShearInstance@@UAE@XZ
+    { 0xBBCE4BE3, 0x470380 }, // ??1mmShock@@UAE@XZ
+    { 0x2E83D59C, 0x412F90 }, // ??1mmSingleBlitz@@UAE@XZ
+    { 0x167A9A0E, 0x414C90 }, // ??1mmSingleCircuit@@UAE@XZ
+    { 0xC3F425B7, 0x477890 }, // ??1mmSkid@@UAE@XZ
+    { 0xF3DFB77D, 0x477B70 }, // ??1mmSkidManager@@UAE@XZ
+    { 0x68EE4679, 0x495610 }, // ??1mmSky@@QAE@XZ
+    { 0xE3030D7E, 0x4BE730 }, // ??1mmSlider@@UAE@XZ
+    { 0xD5E21477, 0x470310 }, // ??1mmSplash@@UAE@XZ
+    { 0x909227CC, 0x493600 }, // ??1mmStaticInstance@@UAE@XZ
+    { 0x00EFD1A9, 0x470300 }, // ??1mmStuck@@UAE@XZ
+    { 0xCC81E0C4, 0x487510 }, // ??1mmSurfaceAudio@@QAE@XZ
+    { 0xFDA5A162, 0x4FEE50 }, // ??1mmText@@QAE@XZ
+    { 0xE61391E4, 0x4FF4D0 }, // ??1mmTextNode@@UAE@XZ
+    { 0x497928B9, 0x406200 }, // ??1mmTimer@@UAE@XZ
+    { 0xAC388EC9, 0x4BFF30 }, // ??1mmToggle2@@UAE@XZ
+    { 0x02693492, 0x4C0390 }, // ??1mmToggle@@UAE@XZ
+    { 0xBCDB55E5, 0x4BF150 }, // ??1mmToolTip@@UAE@XZ
+    { 0xFB93ACB2, 0x47A1D0 }, // ??1mmTrailer@@UAE@XZ
+    { 0x8F28395D, 0x47A140 }, // ??1mmTrailerInstance@@UAE@XZ
+    { 0x4A9770B0, 0x470390 }, // ??1mmTransmission@@UAE@XZ
+    { 0x9B8C8CBA, 0x48FC70 }, // ??1mmUnhitBangerInstance@@UAE@XZ
+    { 0x91E270ED, 0x48FAA0 }, // ??1mmUpperInstance@@UAE@XZ
+    { 0x3A7418C2, 0x49C4A0 }, // ??1mmVehicleForm@@UAE@XZ
+    { 0x33E21FF8, 0x4D39F0 }, // ??1mmVehInfo@@UAE@XZ
+    { 0xAD896481, 0x4CC0A0 }, // ??1mmVehList@@UAE@XZ
+    { 0xAC286E83, 0x4F9070 }, // ??1mmViewCS@@UAE@XZ
+    { 0x682211C4, 0x4EC110 }, // ??1mmVoiceCommentary@@QAE@XZ
+    { 0x417804C2, 0x433780 }, // ??1mmWaypointInstance@@UAE@XZ
+    { 0xF92CD572, 0x430510 }, // ??1mmWaypointObject@@UAE@XZ
+    { 0x36A8AFBF, 0x42DB20 }, // ??1mmWaypoints@@UAE@XZ
+    { 0xAD1E02E0, 0x470360 }, // ??1mmWheel@@UAE@XZ
+    { 0x94AB4450, 0x453A50 }, // ??1mmWheelCheap@@UAE@XZ
+    { 0x87171FBE, 0x4242B0 }, // ??1mmWPHUD@@UAE@XZ
+    { 0x85AFC740, 0x4932E0 }, // ??1mmYInstance@@UAE@XZ
+    { 0x6510C0F2, 0x485660 }, // ??1NetAddOnCarAudio@@QAE@XZ
+    { 0x5997E29A, 0x4A1D80 }, // ??1NetArena@@UAE@XZ
+    { 0x602C16B6, 0x4753B0 }, // ??1NetAudioManager@@UAE@XZ
+    { 0x41DC8389, 0x4A42F0 }, // ??1NetSelectMenu@@UAE@XZ
+    { 0x04BE8F0B, 0x4AB650 }, // ??1OptionsBase@@UAE@XZ
+    { 0x92B86283, 0x4A3B10 }, // ??1OptionsMenu@@UAE@XZ
+    { 0x0E110047, 0x42D2D0 }, // ??1PointCamCS@@UAE@XZ
+    { 0xF83268DC, 0x42D2B0 }, // ??1PolarCamCS@@UAE@XZ
+    { 0x336A52DD, 0x491DF0 }, // ??1position_t@@QAE@XZ
+    { 0x2E3E0EA6, 0x42D2F0 }, // ??1PostCamCS@@UAE@XZ
+    { 0x70041041, 0x4F63B0 }, // ??1PovCamCS@@UAE@XZ
+    { 0x2FB95A19, 0x42D2E0 }, // ??1PreCamCS@@UAE@XZ
+    { 0xD8F22B2B, 0x561340 }, // ??1problem_t@@QAE@XZ
+    { 0xE786C1A9, 0x4AA9D0 }, // ??1PUAudioOptions@@UAE@XZ
+    { 0x8D79B4C8, 0x4A9880 }, // ??1PUChat@@UAE@XZ
+    { 0xD5668AEB, 0x4AA250 }, // ??1PUControl@@UAE@XZ
+    { 0x11030F2F, 0x4AA590 }, // ??1PUDebug@@UAE@XZ
+    { 0x7A75452E, 0x4AABE0 }, // ??1PUExit@@UAE@XZ
+    { 0x65D2683B, 0x4A9EE0 }, // ??1PUGraphics@@UAE@XZ
+    { 0x1E909692, 0x4A9460 }, // ??1PUKey@@UAE@XZ
+    { 0x2347677D, 0x4AAFA0 }, // ??1PUMain@@UAE@XZ
+    { 0x1B25C843, 0x4AB1B0 }, // ??1PUMenuBase@@UAE@XZ
+    { 0xD1710C68, 0x4AA750 }, // ??1PUOptions@@UAE@XZ
+    { 0xD3F587FF, 0x4AAD60 }, // ??1PUQuit@@UAE@XZ
+    { 0x9BA2342F, 0x4A89C0 }, // ??1PUResults@@UAE@XZ
+    { 0x99F54A9F, 0x4A8E10 }, // ??1PURoster@@UAE@XZ
+    { 0x8469FE4D, 0x4A4CF0 }, // ??1RaceMenu@@UAE@XZ
+    { 0x88193C00, 0x4A72C0 }, // ??1RaceMenuBase@@UAE@XZ
+    { 0x82C91D3C, 0x422F10 }, // ??1RadialGauge@@UAE@XZ
+    { 0xD82EC0C7, 0x550850 }, // ??1RDLP@@UAE@XZ
+    { 0xD4D79380, 0x5512F0 }, // ??1RDynamicDLP@@UAE@XZ
+    { 0x5F348445, 0x4BD9A0 }, // ??1sfPointer@@UAE@XZ
+    { 0x50B9F3E3, 0x4F0BE0 }, // ??1SoundObj@@QAE@XZ
+    { 0x18AA58AB, 0x4F8F40 }, // ??1Spline@@UAE@XZ
+    { 0xDEBA0A08, 0x55E940 }, // ??1Stream@@UAE@XZ
+    { 0x12B7EE22, 0x5613A0 }, // ??1StreamMiniParser@@QAE@XZ
+    { 0xCDD9DCF8, 0x4F4CA0 }, // ??1StreamObj@@QAE@XZ
+    { 0x0BA1CEAF, 0x40E7E0 }, // ??1string@@QAE@XZ
+    { 0x8420D554, 0x4BE040 }, // ??1TextDropWidget@@UAE@XZ
+    { 0xFD30F262, 0x4F6D00 }, // ??1TrackCamCS@@UAE@XZ
+    { 0x91F2C37C, 0x4FB540 }, // ??1TransitionCS@@UAE@XZ
+    { 0xD779E99E, 0x4B6140 }, // ??1UIBMButton@@UAE@XZ
+    { 0x1763D815, 0x4B42F0 }, // ??1UIBMLabel@@UAE@XZ
+    { 0xCD612D8B, 0x4B9BE0 }, // ??1UIButton@@UAE@XZ
+    { 0x25D9B7CF, 0x4B4FD0 }, // ??1UICompositeScroll@@UAE@XZ
+    { 0x4E25EAC7, 0x4BBBA0 }, // ??1UIControlWidget@@UAE@XZ
+    { 0xC79444BB, 0x4B7D30 }, // ??1UICWArray@@UAE@XZ
+    { 0x29A17F21, 0x4B9950 }, // ??1UIIcon@@UAE@XZ
+    { 0x1358AAD2, 0x4BC1B0 }, // ??1UIIconW@@UAE@XZ
+    { 0x86C66F76, 0x4B9690 }, // ??1UILabel@@UAE@XZ
+    { 0xC72485C6, 0x4AC8F0 }, // ??1UIMenu@@UAE@XZ
+    { 0xC9D42F07, 0x4BCB30 }, // ??1UIMexButton@@UAE@XZ
+    { 0x92E5EB33, 0x4B1F70 }, // ??1uiNavBar@@UAE@XZ
+    { 0x27786AAD, 0x4B3A40 }, // ??1UISlider@@UAE@XZ
+    { 0xDC80D2F2, 0x4B2F60 }, // ??1UITextDropdown@@UAE@XZ
+    { 0x708334B3, 0x4B2270 }, // ??1UITextField@@UAE@XZ
+    { 0x8455EFD2, 0x4BAC60 }, // ??1UITextRoller2@@UAE@XZ
+    { 0x84C59AF2, 0x4BA070 }, // ??1UITextRoller@@UAE@XZ
+    { 0x9EAA736A, 0x4B8900 }, // ??1UITextScroll@@UAE@XZ
+    { 0x5D978128, 0x4BC7B0 }, // ??1UIToggleButton2@@UAE@XZ
+    { 0x71FDF76C, 0x4BC510 }, // ??1UIToggleButton@@UAE@XZ
+    { 0x90353112, 0x4BCE00 }, // ??1UIVScrollBar@@UAE@XZ
+    { 0x360FB9C5, 0x4B2DB0 }, // ??1uiWidget@@UAE@XZ
+    { 0x2E296578, 0x470340 }, // ??1VehGyro@@UAE@XZ
+    { 0xF4ACF3B3, 0x4A52B0 }, // ??1Vehicle@@UAE@XZ
+    { 0x37C5C007, 0x49B7D0 }, // ??1VehicleSelectBase@@UAE@XZ
+    { 0x7F51C453, 0x4A50C0 }, // ??1VehShowcase@@UAE@XZ
+    { 0xD7767677, 0x560710 }, // ??1VirtualFileSystem@@UAE@XZ
+    { 0x0801937C, 0x561C00 }, // ??1VirtualStream@@UAE@XZ
+    { 0xF20B5287, 0x4EEB80 }, // ??1VolumeDW@@QAE@XZ
+    { 0xC500FB35, 0x4BF370 }, // ??1VSWidget@@UAE@XZ
+    { 0x8781A0CA, 0x4ABE50 }, // ??1WArray@@QAE@XZ
+    { 0xA1A2323F, 0x561EC0 }, // ??1WINEventHandler@@UAE@XZ
+    { 0x41E62155, 0x5215A0 }, // ??2@YAPAXI@Z
+    { 0xF9F84998, 0x5215C0 }, // ??3@YAXPAX@Z
+    { 0x27285752, 0x430690 }, // ??3mmInstance@@SAXPAX@Z
+    { 0xA3C1927C, 0x55BCD0 }, // ??4agiLightModelParameters@@QAEXABV0@@Z
+    { 0x88ADDF2F, 0x55BA60 }, // ??4agiLightParameters@@QAEXABV0@@Z
+    { 0x6936A680, 0x55DBE0 }, // ??4agiMtlParameters@@QAEXABV0@@Z
+    { 0xEDC06B21, 0x52ADE0 }, // ??4asDofCS@@QAEXABV0@@Z
+    { 0xC75DE177, 0x5739F0 }, // ??4FloatArray@@QAEXAAV0@@Z
+    { 0x9EAE1A86, 0x578180 }, // ??4HashTable@@QAEXAAV0@@Z
+    { 0xCF8F7B56, 0x5736D0 }, // ??4IntArray@@QAEXAAV0@@Z
+    { 0xA0842FBC, 0x4CDB10 }, // ??4mmPlayerConfig@@QAEXAAV0@@Z
+    { 0xFB866818, 0x4D0140 }, // ??4mmPlayerData@@QAEXAAV0@@Z
+    { 0xE9598174, 0x4CFC90 }, // ??4mmPlayerRecord@@QAEXAAV0@@Z
+    { 0xF79D07D1, 0x4D1780 }, // ??4mmRecord@@QAEXAAV0@@Z
+    { 0x65199A4E, 0x57B320 }, // ??4string@@QAEXPBD@Z
+    { 0xDA8A87B2, 0x57B050 }, // ??4StringArray@@QAEXAAV0@@Z
+    { 0xFA3E5DA5, 0x571460 }, // ??4Vector2Array@@QAEXAAV0@@Z
+    { 0xBE1EFDA1, 0x567030 }, // ??4Vector3Array@@QAEXAAV0@@Z
+    { 0xBA85A51D, 0x56E1F0 }, // ??4Vector4Array@@QAEXAAV0@@Z
+    { 0xB98D4B20, 0x56DD00 }, // ??7Vector4@@QBE?AV0@XZ
+    { 0x492FD566, 0x4E4D20 }, // ??8mmIO@@QAEHPATeqEvent@@@Z
+    { 0x5E5F73DE, 0x4E5200 }, // ??8mmIODev@@QAEHPATeqEvent@@@Z
+    { 0x16CB34C4, 0x429FE0 }, // ??_9@$BBE@AE
+    { 0x78A565E3, 0x5237B0 }, // ??_9@$BBM@AE
+    { 0x28FC0526, 0x5246A0 }, // ??_9@$BCI@AE
+    { 0x027948DD, 0x5246B0 }, // ??_9@$BCM@AE
+    { 0xF55E0CFB, 0x4AB6D0 }, // ??_9@$BFA@AE
+    { 0xEAE77EB8, 0x4AB6E0 }, // ??_9@$BFE@AE
+    { 0x8063D6A8, 0x5258B0 }, // ??_FasCullManager@@QAEXXZ
+    { 0x2EAC837D, 0x433D90 }, // ??_FmmWaypointInstance@@QAEXXZ
+    { 0xDA074F76, 0x403C00 }, // ??_H@YGXPAXIHP6EX0@Z@Z
+    { 0xB0A0CC23, 0x573990 }, // ??AFloatArray@@QAEAAMH@Z
+    { 0x2DA51C6B, 0x573670 }, // ??AIntArray@@QAEAAHH@Z
+    { 0x02A9D251, 0x57AFA0 }, // ??AStringArray@@QAEAAVstring@@H@Z
+    { 0x96F28D95, 0x5713F0 }, // ??AVector2Array@@QAEAAVVector2@@H@Z
+    { 0xFBEB8A2D, 0x566FB0 }, // ??AVector3Array@@QAEAAVVector3@@H@Z
+    { 0xDCF246FD, 0x56E170 }, // ??AVector4Array@@QAEAAVVector4@@H@Z
+    { 0xBCE3959E, 0x5672E0 }, // ??BVector2@@QBE?AVVector3@@XZ
+    { 0x387FD809, 0x5672C0 }, // ??BVector3@@QBE?AVVector2@@XZ
+    { 0x1CF71C4C, 0x56E010 }, // ??BVector3@@QBE?AVVector4@@XZ
+    { 0xF4E9307B, 0x56A7F0 }, // ??D@YA?AVMatrix34@@MABV0@@Z
+    { 0x682C08AE, 0x56E920 }, // ??D@YA?AVMatrix44@@MABV0@@Z
+    { 0x0BB914D1, 0x459E00 }, // ??D@YA?AVVector3@@MABV0@@Z
+    { 0x947AE7EE, 0x56A6F0 }, // ??DMatrix34@@QBE?AV0@M@Z
+    { 0xE315D9E8, 0x56EA80 }, // ??DMatrix44@@QBE?AV0@M@Z
+    { 0x6888D567, 0x451320 }, // ??DVector3@@QBE?AV0@M@Z
+    { 0xF7FD02A1, 0x5675B0 }, // ??GMatrix34@@QAE?AV0@ABV0@@Z
+    { 0x6E7C1938, 0x56E6D0 }, // ??GMatrix44@@QBE?AV0@ABV0@@Z
+    { 0x38197ABD, 0x56E820 }, // ??GMatrix44@@QBE?AV0@XZ
+    { 0x8A2AC308, 0x579900 }, // ??Gstring@@QBE?AV0@PBD@Z
+    { 0xFFE91524, 0x43FFA0 }, // ??GVector3@@QBE?AV0@ABV0@@Z
+    { 0x6E0B0246, 0x459E70 }, // ??GVector3@@QBE?AV0@XZ
+    { 0xD3FF023F, 0x579640 }, // ??H@YA?AVstring@@PBDABV0@@Z
+    { 0x5C01A905, 0x5674E0 }, // ??HMatrix34@@QAE?AV0@ABV0@@Z
+    { 0x035B2EBA, 0x56E570 }, // ??HMatrix44@@QBE?AV0@ABV0@@Z
+    { 0x05E01419, 0x57B380 }, // ??Hstring@@QBE?AV0@ABV0@@Z
+    { 0xFB2EB9B9, 0x579510 }, // ??Hstring@@QBE?AV0@PBD@Z
+    { 0x83574E01, 0x4512F0 }, // ??HVector3@@QBE?AV0@ABV0@@Z
+    { 0x48EDCB0C, 0x56EBD0 }, // ??KMatrix44@@QBE?AV0@M@Z
+    { 0xCE142769, 0x571110 }, // ??KVector2@@QBE?AV0@M@Z
+    { 0x18395A1D, 0x4D9080 }, // ??KVector3@@QBE?AV0@M@Z
+    { 0x30068A43, 0x56DC70 }, // ??KVector4@@QBE?AV0@M@Z
+    { 0x8C9D7E93, 0x45C420 }, // ??LVector3@@QBE?AV0@ABV0@@Z
+    { 0x48DC7580, 0x5727F0 }, // ??SQuaternion@@QBE?AV0@XZ
+    { 0xD283971C, 0x571170 }, // ??SVector2@@QBE?AV0@XZ
+    { 0x781F0633, 0x570D00 }, // ??SVector3@@QBE?AV0@XZ
+    { 0x32C352E2, 0x56F3F0 }, // ??T@YA?AVVector3@@ABV0@ABVMatrix44@@@Z
+    { 0x89126B86, 0x56F460 }, // ??T@YA?AVVector4@@ABV0@ABVMatrix44@@@Z
+    { 0xFA09EA93, 0x56EDB0 }, // ??TMatrix44@@QBE?AV0@ABV0@@Z
+    { 0xD33036E2, 0x56F2F0 }, // ??TMatrix44@@QBE?AVVector4@@ABV1@@Z
+    { 0x4F14DB95, 0x4DEB70 }, // ??TVector3@@QBE?AV0@ABVMatrix34@@@Z
+    { 0x5C784D7C, 0x459E40 }, // ??TVector3@@QBEMABV0@@Z
+    { 0x2F8F1DD7, 0x570D70 }, // ??TVector4@@QBEMABV0@@Z
+    { 0x82C9C237, 0x4DEBD0 }, // ??XVector3@@QAEXM@Z
+    { 0xBA79EB71, 0x579860 }, // ??Ystring@@QAEXD@Z
+    { 0xCAF20F62, 0x579770 }, // ??Ystring@@QAEXPBD@Z
+    { 0x43FE2DEE, 0x4DBB50 }, // ??YVector3@@QAEXABV0@@Z
+    { 0xFA6C4579, 0x579A60 }, // ??Zstring@@QAEXPBD@Z
+    { 0x49A318A8, 0x4DEBA0 }, // ??ZVector3@@QAEXABV0@@Z
+    { 0x2B7F7B53, 0x577C50 }, // ?__BadSafeCall@@YAXPADPAVBase@@@Z
+    { 0xC62789AB, 0x57CE90 }, // ?__ComputeCpuSpeed@@YAIXZ
+    { 0x6F920CA7, 0x532890 }, // ?__DDRelease@@YAXPAUIUnknown@@PBD1H@Z
+    { 0x7DABE9E1, 0x5327B0 }, // ?__DDTry@@YAXHPBD0H@Z
+    { 0x4B0B76C7, 0x5351C0 }, // ?__emitDebug@@YIXPAUswSurface@@H@Z
+    { 0x5AFB8E1E, 0x535220 }, // ?__emitDepthComplexity@@YIXH@Z
+    { 0x8D546CB3, 0x5367C0 }, // ?__emitSemiBlack@@YIXH@Z
+    { 0xBF7DA001, 0x535260 }, // ?__emitSolid@@YIXH@Z
+    { 0xBD919A94, 0x5352B0 }, // ?__emitSolidZ@@YIXH@Z
+    { 0x9B2220C3, 0x536800 }, // ?__emitStippleBlack@@YIXH@Z
+    { 0xC359CF01, 0x535320 }, // ?__emitWireframe@@YIXH@Z
+    { 0xFDD3ACE0, 0x535910 }, // ?__emitZwrite@@YIXPAUswSurface@@H@Z
+    { 0xF581BE58, 0x535890 }, // ?__setupNone@@YIXPAUswSurface@@@Z
+    { 0x1DF66047, 0x535510 }, // ?__setupUV@@YIXPAUswSurface@@@Z
+    { 0xADB0D557, 0x5356E0 }, // ?__setupUVI@@YIXPAUswSurface@@@Z
+    { 0x05A4138D, 0x5357B0 }, // ?__setupUVIZ@@YIXPAUswSurface@@@Z
+    { 0x40392984, 0x5355D0 }, // ?__setupUVZ@@YIXPAUswSurface@@@Z
+    { 0x346BC6D3, 0x5356A0 }, // ?__setupZ@@YIXPAUswSurface@@@Z
+    { 0x4BA32CD6, 0x5358A0 }, // ?__spanLinear@@YIXPAUswSurface@@H@Z
+    { 0x56216825, 0x5358D0 }, // ?__spanLinearZwrite@@YIXPAUswSurface@@H@Z
+    { 0xDC68DDE8, 0x5359D0 }, // ?__spanPerspXY@@YIXPAUswSurface@@H@Z
+    { 0xC9E47B44, 0x535BD0 }, // ?__spanPerspXYZwrite@@YIXPAUswSurface@@H@Z
+    { 0xF72634D8, 0x576DB0 }, // ?Abortf@@YAXPBDZZ
+    { 0x6B4404CF, 0x4B8560 }, // ?AcceptCapture@UICWArray@@QAEXXZ
+    { 0xF2EF7A8B, 0x578430 }, // ?Access@HashTable@@QAEPAXPAD@Z
+    { 0xEF1137AB, 0x57C330 }, // ?Access@List@@QAEPAXH@Z
+    { 0xB85DD40A, 0x4B4E40 }, // ?Action@mmCompBase@@UAEXTeqEvent@@@Z
+    { 0x8E4CFDE7, 0x4B4E70 }, // ?Action@mmCompBase@@UAEXTeqEvent@@MMH@Z
+    { 0x46A6ED69, 0x4B69A0 }, // ?Action@UIBMButton@@UAEXTeqEvent@@@Z
+    { 0x07AF507A, 0x4B9DB0 }, // ?Action@UIButton@@UAEXTeqEvent@@@Z
+    { 0x08221F45, 0x4B57A0 }, // ?Action@UICompositeScroll@@UAEXTeqEvent@@@Z
+    { 0xAC82F191, 0x4BBF10 }, // ?Action@UIControlWidget@@UAEXTeqEvent@@@Z
+    { 0x3FD2D075, 0x4B82A0 }, // ?Action@UICWArray@@UAEXTeqEvent@@@Z
+    { 0x29330978, 0x4BC300 }, // ?Action@UIIconW@@UAEXTeqEvent@@@Z
+    { 0x1628FCF9, 0x4B98F0 }, // ?Action@UILabel@@UAEXTeqEvent@@@Z
+    { 0x50F1AC17, 0x4BCCC0 }, // ?Action@UIMexButton@@UAEXTeqEvent@@@Z
+    { 0x74F3AB6E, 0x4B3EA0 }, // ?Action@UISlider@@UAEXTeqEvent@@@Z
+    { 0x83B39217, 0x4B3680 }, // ?Action@UITextDropdown@@UAEXTeqEvent@@@Z
+    { 0xCF12E278, 0x4B2680 }, // ?Action@UITextField@@UAEXTeqEvent@@@Z
+    { 0xF7AF52DE, 0x4BB4C0 }, // ?Action@UITextRoller2@@UAEXTeqEvent@@@Z
+    { 0xA00BBBF8, 0x4BA640 }, // ?Action@UITextRoller@@UAEXTeqEvent@@@Z
+    { 0x1105CFB2, 0x4B9160 }, // ?Action@UITextScroll@@UAEXTeqEvent@@@Z
+    { 0x46AC3639, 0x4BC960 }, // ?Action@UIToggleButton2@@UAEXTeqEvent@@@Z
+    { 0xCC6D8FCF, 0x4BC680 }, // ?Action@UIToggleButton@@UAEXTeqEvent@@@Z
+    { 0x591638AF, 0x4BD370 }, // ?Action@UIVScrollBar@@UAEXTeqEvent@@@Z
+    { 0x312DEE63, 0x4B2E30 }, // ?Action@uiWidget@@UAEXTeqEvent@@@Z
+    { 0x1925090B, 0x4BF950 }, // ?Action@VSWidget@@QAEHTeqEvent@@MMH@Z
+    { 0xDBB42F16, 0x4B14E0 }, // ?ActionID@MenuManager@@QAEHH@Z
+    { 0xD1CC1C5C, 0x555320 }, // ?Activate@agiBILightModel@@UAEHXZ
+    { 0x47B4F9C5, 0x533670 }, // ?Activate@agiD3DMtlDef@@QAEXXZ
+    { 0x55014E88, 0x533350 }, // ?Activate@agiD3DViewport@@UAEXXZ
+    { 0xE3734F1C, 0x534930 }, // ?Activate@agiSWViewport@@UAEXXZ
+    { 0x024502A5, 0x521480 }, // ?Activate@asSafeHeap@@IAEXXZ
+    { 0x902B5604, 0x5634A0 }, // ?Activate@eqEventMonitor@@UAEXPAXH@Z
+    { 0xD3C775F3, 0x563CC0 }, // ?Activate@eqEventQ@@UAEXPAXH@Z
+    { 0xC1EBD2E5, 0x4C5330 }, // ?Activate@mmAnimPlane@@QAEXXZ
+    { 0xE1F77012, 0x4730A0 }, // ?Activate@mmCarModel@@QAEXXZ
+    { 0x71068188, 0x421D80 }, // ?Activate@mmDashView@@QAEXXZ
+    { 0xC7EC05D2, 0x428810 }, // ?Activate@mmHudMap@@QAEXXZ
+    { 0x467B939E, 0x432850 }, // ?Activate@mmNetObject@@QAEXXZ
+    { 0xBFECF9E5, 0x4811C0 }, // ?Activate@mmSplash@@QAEXM@Z
+    { 0x77C3207C, 0x479BB0 }, // ?Activate@mmTrailer@@QAEXXZ
+    { 0x34BA0F50, 0x430540 }, // ?Activate@mmWaypointObject@@QAEXXZ
+    { 0x4AF6889A, 0x405800 }, // ?ActivateDash@mmHUD@@QAEXXZ
+    { 0x0F4755E5, 0x4A3210 }, // ?ActivateDeviceOptions@ControlSetup@@QAEXXZ
+    { 0x1160265E, 0x426090 }, // ?ActivateGold@mmCRHUD@@QAEXXZ
+    { 0xC387321D, 0x405FA0 }, // ?ActivateGold@mmHUD@@QAEXXZ
+    { 0x93F15F3E, 0x432030 }, // ?ActivateMapNetObject@mmGameMulti@@QAEXH@Z
+    { 0xE684689F, 0x4260B0 }, // ?ActivateRosterGold@mmCRHUD@@QAEXK@Z
+    { 0x338AB81E, 0x421D60 }, // ?ActivateUntilTransitionIsOver@mmDashView@@QAEXXZ
+    { 0xE016CBF5, 0x559D90 }, // ?Add@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEHAAVagiMtlParameters@@@Z
+    { 0xB8ACC5AC, 0x559EF0 }, // ?Add@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEHAAVagiPhysParameters@@@Z
+    { 0xD9F90426, 0x48FB10 }, // ?Add@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEHAAVagiTexParameters@@@Z
+    { 0x589C7871, 0x5124A0 }, // ?Add@agiTexSheet@@QAEXPAD@Z
+    { 0x7A6420FC, 0x447030 }, // ?Add@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z
+    { 0xAFDAE243, 0x4EED60 }, // ?Add@DupBuffCreator@@QAEXPADPAUIDirectSoundBuffer@@@Z
+    { 0xF26C8C64, 0x4C3F80 }, // ?Add@mmBridgeAudMgr@@QAEFPAVmmBridgeSet@@@Z
+    { 0x8244EC0F, 0x52BB70 }, // ?Add@Vector3@@QAEXABV1@0@Z
+    { 0x94E9BD68, 0x439570 }, // ?AddAIPath@aiMap@@AAEPAVaiPath@@AAVmmRoadSect@@HH@Z
+    { 0xFD869B44, 0x43BA60 }, // ?AddAmbient@aiMap@@QAEXPAVaiVehicleSpline@@@Z
+    { 0x61235D58, 0x4C8C10 }, // ?AddBangerDataEntry@mmBangerDataManager@@QAEHPAD0@Z
+    { 0x97331C0E, 0x4AE3F0 }, // ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
+    { 0xD74F9B79, 0x4ADD60 }, // ?AddBMLabel@UIMenu@@QAEPAVUIBMLabel@@HPADPAVstring@@MMPAH@Z
+    { 0x16EF252E, 0x4B1980 }, // ?AddBrackets@MenuManager@@QAEXPAVUIIcon@@0PAVuiWidget@@MM@Z
+    { 0x3B9413E8, 0x527020 }, // ?AddButton@asMidgets@@UAEPAVbkButton@@PADVCallback@@@Z
+    { 0x09D7228E, 0x524400 }, // ?AddButton@asNode@@QAEXPAVBank@@AAH@Z
+    { 0x007B16FA, 0x4ADB30 }, // ?AddButton@UIMenu@@QAEPAVUIButton@@HPAULocString@@MMMMHHVCallback@@@Z
+    { 0xCF3942B4, 0x4957E0 }, // ?AddCell@asPortalWeb@@QAEPAUasPortalCell@@PADPAVasPortalRenderable@@I@Z
+    { 0x09B42B5C, 0x523A70 }, // ?AddChild@asNode@@QAEHPAV1@@Z
+    { 0xFBA0BE25, 0x516E40 }, // ?AddChild@bnBone@@QAEXPAV1@@Z
+    { 0x00DD7FD1, 0x563200 }, // ?AddClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
+    { 0x558D5B2A, 0x5278B0 }, // ?AddColor@asMidgets@@UAEXPADPAVVector3@@VCallback@@@Z
+    { 0xAADE310E, 0x527990 }, // ?AddColor@asMidgets@@UAEXPADPAVVector4@@VCallback@@@Z
+    { 0xE5A71A26, 0x52A960 }, // ?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z
+    { 0xC10F40CB, 0x4B5360 }, // ?AddComponent@UICompositeScroll@@QAEXPAVmmCompBase@@@Z
+    { 0x2B71D002, 0x4AD630 }, // ?AddCompScroll@UIMenu@@QAEPAVUICompositeScroll@@HMMMMMHPAHHHVCallback@@@Z
+    { 0x83618163, 0x4AE580 }, // ?AddCWArray@UIMenu@@QAEPAVUICWArray@@HMMMMHVCallback@@@Z
+    { 0xAF672C49, 0x49F060 }, // ?AddDriverRecord@Dialog_DriverRec@@QAEHHPADHM0H@Z
+    { 0xCF93AAF2, 0x4958E0 }, // ?AddEdge@asPortalWeb@@QAEPAUasPortalEdge@@PADPAUasPortalCell@@1H@Z
+    { 0x72322D72, 0x4AB390 }, // ?AddExit@PUMenuBase@@QAEMMMMM@Z
+    { 0x792EDCC5, 0x4C3600 }, // ?AddFile@mmAnimExcel@@QAEXPAD0@Z
+    { 0xA16FFD31, 0x527AB0 }, // ?AddFileButton@asMidgets@@UAEXPADVCallback@@@Z
+    { 0x1C9D575F, 0x4A1F30 }, // ?AddGameChatLine@NetArena@@QAEXPAD@Z
+    { 0x6CC7D564, 0x4ACF60 }, // ?AddHotSpot@UIMenu@@QAEPAVuiWidget@@HPADMMMMVCallback@@@Z
+    { 0xCBEF16DE, 0x4ADE70 }, // ?AddIcon@UIMenu@@QAEPAVUIIcon@@HPADMM@Z
+    { 0x3D0CD461, 0x4ADF80 }, // ?AddIconW@UIMenu@@QAEPAVUIIconW@@HPAULocString@@PADMMMMVCallback@@@Z
+    { 0x76564F1C, 0x519F70 }, // ?AddIndex@mmBoundTemplate@@QAEXHHH@Z
+    { 0x4C5CA831, 0x48C2C0 }, // ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
+    { 0x5F03873D, 0x439670 }, // ?AddIntersection@aiMap@@QAEPAVaiIntersection@@PAVVector3@@@Z
+    { 0xF026DB02, 0x43A300 }, // ?AddIntToAppRoadMap@aiMap@@AAEXPAVCArrayList@@HMPAPAUasPortalCell@@H@Z
+    { 0x08DE7D12, 0x526E50 }, // ?AddItem@asMidgets@@AAEXPAVMI@@@Z
+    { 0x7154077E, 0x4ADC50 }, // ?AddLabel@UIMenu@@QAEPAVUILabel@@HPAULocString@@MMMMHH@Z
+    { 0x991C2925, 0x4B1670 }, // ?AddMenu2@MenuManager@@QAEHPAVUIMenu@@@Z
+    { 0x35D47038, 0x4ABCF0 }, // ?AddMenuData@MArray@@QAEXHAAVVector4@@PAD@Z
+    { 0x50CCF374, 0x493290 }, // ?AddMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
+    { 0x3E5E248C, 0x527110 }, // ?AddMex@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z
+    { 0x6804F566, 0x4AE2D0 }, // ?AddMex@UIMenu@@QAEPAVUIMexButton@@HPAULocString@@PAHHMMMMHHVCallback@@@Z
+    { 0x5128F4CD, 0x4A4960 }, // ?AddModem@NetSelectMenu@@QAEXPADH@Z
+    { 0x53CD1213, 0x4A8B00 }, // ?AddName@PUResults@@QAEXHPADH@Z
+    { 0x01CF6CB9, 0x4A8A50 }, // ?AddName@PUResults@@QAEXHPADM@Z
+    { 0x40C9E9BE, 0x4A8F00 }, // ?AddName@PURoster@@QAEXPADKH@Z
+    { 0x9FC98F17, 0x4AB2F0 }, // ?AddOKCancel@PUMenuBase@@QAEXVCallback@@0@Z
+    { 0xAB5921CB, 0x525400 }, // ?AddPage@asCullManager@@QAEXVCallback@@@Z
+    { 0x76188452, 0x43C670 }, // ?AddPathVerts@aiPath@@QAEXAAVmmRoadSect@@HH@Z
+    { 0x70FAFE99, 0x43CFA0 }, // ?AddPathVerts@aiPath@@QAEXPAVVector3@@H@Z
+    { 0x43455F86, 0x43B500 }, // ?AddPedestrian@aiMap@@QAEXPAVaiPedestrian@@@Z
+    { 0x75FDB0A1, 0x43FE80 }, // ?AddPedestrian@aiPath@@QAEXPAVaiPedestrian@@@Z
+    { 0x160E5522, 0x4A5B80 }, // ?AddPlayer@DriverMenu@@QAEXPAD@Z
+    { 0x3B217219, 0x425C50 }, // ?AddPlayer@mmCRHUD@@QAEXPADKHI@Z
+    { 0x05457B7C, 0x405F30 }, // ?AddPlayer@mmHUD@@QAEXPADKHH@Z
+    { 0xC20536AB, 0x4CF0D0 }, // ?AddPlayer@mmPlayerDirectory@@QAEHPAD@Z
+    { 0x7573849E, 0x4A1120 }, // ?AddPlayerRecord@CRSettings@@QAEHPADHH0@Z
+    { 0xE4FC8F30, 0x46C340 }, // ?AddPlayerSpecifics@mmCarSim@@QAEXXZ
+    { 0x1B78AD80, 0x4AFB50 }, // ?AddPointer@MenuManager@@QAEXXZ
+    { 0x2089F3CD, 0x4AB280 }, // ?AddPrevious@PUMenuBase@@QAEMMMMM@Z
+    { 0xB366070F, 0x517370 }, // ?AddQuad@mmBoundTemplate@@QAEXHHHHHH@Z
+    { 0x4C114AF2, 0x49E800 }, // ?AddRaceRecord@Dialog_HallOfFame@@QAEXHPAD00H00@Z
+    { 0x74AC4B28, 0x557AE0 }, // ?AddRef@agiRefreshable@@QAEXXZ
+    { 0x12FD62DA, 0x5597C0 }, // ?AddRef@DLPTemplate@@QAEXXZ
+    { 0x925FFB01, 0x51D8F0 }, // ?AddRef@mmBoundTemplate@@QAEXXZ
+    { 0xF0777E3D, 0x576000 }, // ?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z
+    { 0x22F61067, 0x4A2230 }, // ?AddRosterName@NetArena@@QAEXPAD@Z
+    { 0x58A4B9E3, 0x4A2250 }, // ?AddRosterName@NetArena@@QAEXPAULocString@@00K@Z
+    { 0xA67CECC9, 0x4785E0 }, // ?AddShard@mmShard@@QAEXVVector3@@00M@Z
+    { 0x9F116767, 0x447530 }, // ?AddSinkPath@aiIntersection@@QAEXPAVaiPath@@@Z
+    { 0x5DB84DC3, 0x4778A0 }, // ?AddSkid@mmSkid@@QAEXAAVMatrix34@@PAVVector3@@PAVagiPhysParameters@@M@Z
+    { 0x2E744579, 0x5271F0 }, // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PAD0DDMVCallback@@@Z
+    { 0x1A77071B, 0x527280 }, // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAEEEMVCallback@@@Z
+    { 0xBC60FDAB, 0x527310 }, // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAFFFMVCallback@@@Z
+    { 0xD3CF66FA, 0x5273A0 }, // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAGGGMVCallback@@@Z
+    { 0x882E4497, 0x527430 }, // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAHHHMVCallback@@@Z
+    { 0x044A3924, 0x5274C0 }, // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAIIIMVCallback@@@Z
+    { 0xFB881D06, 0x527550 }, // ?AddSlider@asMidgets@@UAEPAVbkSlider@@PADPAMMMMVCallback@@@Z
+    { 0x46C30710, 0x4AD9F0 }, // ?AddSlider@UIMenu@@QAEPAVUISlider@@HPAULocString@@PAMMMMMMMHHHHVCallback@@@Z
+    { 0x468EE92D, 0x4E8E40 }, // ?AddSound@AudManager@@QAEHPAVAudSound@@@Z
+    { 0x915B255F, 0x4475A0 }, // ?AddSourcePath@aiIntersection@@QAEXPAVaiPath@@@Z
+    { 0x3DCBC327, 0x4E8EA0 }, // ?AddStream@AudManager@@QAEHPAVAudStream@@@Z
+    { 0xB27E9F38, 0x552E00 }, // ?AddSurface@agiSurfRenderer@@CAHPAUagiPatch@@HHHH@Z
+    { 0x7277DDB2, 0x5271C0 }, // ?AddText@asMidgets@@UAEPAVbkButton@@PADVCallback@@@Z
+    { 0xC2C52A09, 0x527190 }, // ?AddText@asMidgets@@UAEPAVbkButton@@VCallback@@@Z
+    { 0x5F183F86, 0x4FF930 }, // ?AddText@mmTextNode@@QAEHPAXPAULocString@@HMM@Z
+    { 0x75FE1B13, 0x4AD040 }, // ?AddTextDropdown@UIMenu@@QAEPAVUITextDropdown@@HPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z
+    { 0xCD315943, 0x4AD7B0 }, // ?AddTextField@UIMenu@@QAEPAVUITextField@@HPAULocString@@PADMMMMHHHHHVCallback@@@Z
+    { 0xA3ADAA6B, 0x4AD310 }, // ?AddTextRoller2@UIMenu@@QAEPAVUITextRoller2@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z
+    { 0xFA1E1161, 0x4AD1C0 }, // ?AddTextRoller@UIMenu@@QAEPAVUITextRoller@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z
+    { 0xCB1F769C, 0x4AD490 }, // ?AddTextScroll@UIMenu@@QAEPAVUITextScroll@@HPAXMMMMVstring@@HPAHVCallback@@@Z
+    { 0xD153F338, 0x4B9530 }, // ?AddTextScrollLine@UITextScroll@@AAEXPAD@Z
+    { 0xD0FBFC29, 0x4B94A0 }, // ?AddTextScrollLine@UITextScroll@@AAEXPADH@Z
+    { 0x3138ABB6, 0x5275E0 }, // ?AddTextSlider@asMidgets@@UAEPAVbkSlider@@PAD0PAHMVCallback@@@Z
+    { 0xAECBA3A8, 0x526FC0 }, // ?AddTitle@asMidgets@@UAEPAVbkWindow@@PAD@Z
+    { 0x0A32BE77, 0x4A89D0 }, // ?AddTitle@PUResults@@QAEXPAULocString@@0@Z
+    { 0x2AAE03D8, 0x4B5430 }, // ?AddTitle@UICompositeScroll@@QAEXPAVmmCompBase@@@Z
+    { 0x1756AF6D, 0x450CC0 }, // ?AddToAiAudMgr@aiVehicleAmbient@@AAEXXZ
+    { 0x65FD85FC, 0x44E430 }, // ?AddToAiAudMgr@aiVehicleOpponent@@AAEXXZ
+    { 0x6C543574, 0x446300 }, // ?AddToAiAudMgr@aiVehiclePolice@@AAEXXZ
+    { 0x94A006CB, 0x464F10 }, // ?AddToBlockedRange@aiGoalChase@@AAEXMMM@Z
+    { 0xB0554416, 0x468B00 }, // ?AddToBlockedRange@aiGoalFollowWayPts@@AAEXMMM@Z
+    { 0x384C878C, 0x4AE1B0 }, // ?AddToggle2@UIMenu@@QAEPAVUIToggleButton2@@HPAULocString@@PAHMMMMHHVCallback@@@Z
+    { 0xBFFEB8D0, 0x527090 }, // ?AddToggle@asMidgets@@UAEPAVbkButton@@PADPAHHVCallback@@@Z
+    { 0x51CD2319, 0x4AE090 }, // ?AddToggle@UIMenu@@QAEPAVUIToggleButton@@HPAULocString@@PAHMMMMHHVCallback@@@Z
+    { 0x194AC7F0, 0x4B4890 }, // ?AddToolTip@uiWidget@@QAEXPAVUIMenu@@PAULocString@@@Z
+    { 0x9CB9835D, 0x517280 }, // ?AddTriangle@mmBoundTemplate@@QAEXHHHHH@Z
+    { 0x08A67912, 0x4AD920 }, // ?AddUIControl@UIMenu@@QAEPAVUIControlWidget@@HMMMMMPAVmmIO@@VCallback@@@Z
+    { 0xA24F1A32, 0x527610 }, // ?AddVector@asMidgets@@UAEXPADPAVVector2@@MMMVCallback@@@Z
+    { 0xABC24D61, 0x5276B0 }, // ?AddVector@asMidgets@@UAEXPADPAVVector3@@MMMVCallback@@@Z
+    { 0xC90A7EC6, 0x527790 }, // ?AddVector@asMidgets@@UAEXPADPAVVector4@@MMMVCallback@@@Z
+    { 0xD890A19F, 0x4C39F0 }, // ?AddVector@mmAnimSpline@@QAEXAAVVector3@@@Z
+    { 0x76E7DC17, 0x440790 }, // ?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z
+    { 0xF3787017, 0x440840 }, // ?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z
+    { 0x60D10478, 0x4408F0 }, // ?AddVehicle@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z
+    { 0xCC83BD26, 0x43FB80 }, // ?AddVehicle@aiPath@@QAEXPAVaiVehicleSpline@@HM@Z
+    { 0xBD520EBC, 0x475770 }, // ?AddVehicle@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z
+    { 0x74C561D4, 0x453040 }, // ?AddVehicleDataEntry@aiVehicleManager@@QAEHPAD@Z
+    { 0x8F3B10A9, 0x4AE6C0 }, // ?AddVScrollBar@UIMenu@@QAEPAVUIVScrollBar@@HPAHMMMMMMHHVCallback@@@Z
+    { 0x0E246420, 0x47FEF0 }, // ?AddWheel@mmDrivetrain@@QAEHPAVmmWheel@@@Z
+    { 0xE86427BC, 0x44E490 }, // ?AddWidget@aiVehicleOpponent@@QAEXPAVBank@@@Z
+    { 0xFC8D19CC, 0x4AEC40 }, // ?AddWidget@UIMenu@@QAEXPAVuiWidget@@PADMMMMH1@Z
+    { 0x99458B27, 0x4AC510 }, // ?AddWidgetData@WArray@@QAEXHHAAVVector4@@PAD@Z
+    { 0x8E4DCCFB, 0x504620 }, // ?AddWidgets@agiTexSorter@@QAEXPAVBank@@@Z
+    { 0x217F90FD, 0x46A0E0 }, // ?AddWidgets@aiGoalFollowWayPts@@QAEXPAVBank@@@Z
+    { 0x4C5BA5F0, 0x43BBE0 }, // ?AddWidgets@aiMap@@UAEXPAVBank@@@Z
+    { 0xF2B1257B, 0x44DA30 }, // ?AddWidgets@aiPedestrianInstance@@UAEXPAVBank@@@Z
+    { 0x5938875E, 0x46B770 }, // ?AddWidgets@aiStuck@@UAEXPAVBank@@@Z
+    { 0x5A64CDE5, 0x453390 }, // ?AddWidgets@aiVehicleData@@UAEXPAVBank@@@Z
+    { 0x8CEAF5D2, 0x45C510 }, // ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z
+    { 0x818D5C5C, 0x453380 }, // ?AddWidgets@aiVehicleManager@@UAEXPAVBank@@@Z
+    { 0xB1AE8974, 0x45C1F0 }, // ?AddWidgets@aiVehicleSpline@@QAEXPAVBank@@@Z
+    { 0x8C080C52, 0x4FCDB0 }, // ?AddWidgets@AppCamCS@@UAEXPAVBank@@@Z
+    { 0xBDA49728, 0x4E0330 }, // ?AddWidgets@asAero@@UAEXPAVBank@@@Z
+    { 0x95C17737, 0x500D30 }, // ?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z
+    { 0x1F060AD5, 0x52A040 }, // ?AddWidgets@asCamera@@UAEXPAVBank@@@Z
+    { 0x67DFBC60, 0x5258D0 }, // ?AddWidgets@asCullable@@QAEXPAVBank@@@Z
+    { 0x9D6767E9, 0x52B600 }, // ?AddWidgets@asDofCS@@UAEXPAVBank@@@Z
+    { 0xD632357C, 0x5288E0 }, // ?AddWidgets@asForm@@UAEXPAVBank@@@Z
+    { 0xD8D3173A, 0x4DB190 }, // ?AddWidgets@asInertialCS@@UAEXPAVBank@@@Z
+    { 0xB49EED2F, 0x526310 }, // ?AddWidgets@asLamp@@UAEXPAVBank@@@Z
+    { 0x99058BA2, 0x525CC0 }, // ?AddWidgets@asLinearCS@@UAEXPAVBank@@@Z
+    { 0x52A60213, 0x501A10 }, // ?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z
+    { 0x1ABAE3DB, 0x524330 }, // ?AddWidgets@asNode@@UAEXPAVBank@@@Z
+    { 0xF8590CCA, 0x4DEE30 }, // ?AddWidgets@asOverSample@@UAEXPAVBank@@@Z
+    { 0x03EA4E5E, 0x500750 }, // ?AddWidgets@asParticles@@UAEXPAVBank@@@Z
+    { 0xA473804C, 0x497540 }, // ?AddWidgets@asPortalWeb@@UAEXPAVBank@@@Z
+    { 0x02772514, 0x491690 }, // ?AddWidgets@asRenderWeb@@UAEXPAVBank@@@Z
+    { 0x6EE6C340, 0x522FD0 }, // ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
+    { 0x523C3DEF, 0x52C780 }, // ?AddWidgets@asViewCS@@UAEXPAVBank@@@Z
+    { 0x0FE5D647, 0x4EBEF0 }, // ?AddWidgets@AudHead@@UAEXPAVBank@@@Z
+    { 0x2ABEC2FA, 0x4E9610 }, // ?AddWidgets@AudManager@@UAEXPAVBank@@@Z
+    { 0x6F7C6F58, 0x4EB6E0 }, // ?AddWidgets@AudSound@@UAEXPAVBank@@@Z
+    { 0xD3CDB6F7, 0x4FBF40 }, // ?AddWidgets@BaseCamCS@@UAEXPAVBank@@@Z
+    { 0x538BBF23, 0x4FB280 }, // ?AddWidgets@CarCamCS@@UAEXPAVBank@@@Z
+    { 0xCAC7E676, 0x4FE540 }, // ?AddWidgets@Card2D@@EAEXPAVBank@@@Z
+    { 0xDFB78270, 0x4DE9A0 }, // ?AddWidgets@Joint3Dof@@UAEXPAVBank@@@Z
+    { 0x727E5922, 0x4B1400 }, // ?AddWidgets@MenuManager@@UAEXPAVBank@@@Z
+    { 0xDB328FBA, 0x47D590 }, // ?AddWidgets@mmAxle@@UAEXPAVBank@@@Z
+    { 0xAF673E8C, 0x4C85E0 }, // ?AddWidgets@mmBangerData@@UAEXPAVBank@@@Z
+    { 0x76ADDE5A, 0x4C8550 }, // ?AddWidgets@mmBangerDataManager@@UAEXPAVBank@@@Z
+    { 0xD90B6855, 0x444710 }, // ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z
+    { 0x61601C6A, 0x4C7820 }, // ?AddWidgets@mmBoat@@UAEXPAVBank@@@Z
+    { 0xAF596622, 0x4C1CD0 }, // ?AddWidgets@mmBridgeMgr@@UAEXPAVBank@@@Z
+    { 0x2B720B96, 0x4C27D0 }, // ?AddWidgets@mmBridgeSet@@UAEXPAVBank@@@Z
+    { 0x6146F90E, 0x4745E0 }, // ?AddWidgets@mmCar@@UAEXPAVBank@@@Z
+    { 0xE75F24CE, 0x4730E0 }, // ?AddWidgets@mmCarModel@@UAEXPAVBank@@@Z
+    { 0x057C6636, 0x481810 }, // ?AddWidgets@mmCarRoadFF@@UAEXPAVBank@@@Z
+    { 0x2609AAA7, 0x46E840 }, // ?AddWidgets@mmCarSim@@UAEXPAVBank@@@Z
+    { 0xB6C21C4E, 0x4234C0 }, // ?AddWidgets@mmCDPlayer@@UAEXPAVBank@@@Z
+    { 0xAAEF2EC1, 0x48E4B0 }, // ?AddWidgets@mmCullCity@@UAEXPAVBank@@@Z
+    { 0xC9CFFEFF, 0x4227D0 }, // ?AddWidgets@mmDashView@@UAEXPAVBank@@@Z
+    { 0x6813E1DD, 0x4803E0 }, // ?AddWidgets@mmDrivetrain@@UAEXPAVBank@@@Z
+    { 0xA4553414, 0x47CE70 }, // ?AddWidgets@mmEngine@@UAEXPAVBank@@@Z
+    { 0xCDB0C6CE, 0x4224E0 }, // ?AddWidgets@mmExternalView@@UAEXPAVBank@@@Z
+    { 0x38FF6029, 0x480E10 }, // ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
+    { 0xE5C23B4E, 0x411E30 }, // ?AddWidgets@mmGame@@UAEXPAVBank@@@Z
+    { 0xEB4B7758, 0x412860 }, // ?AddWidgets@mmGameEdit@@UAEXPAVBank@@@Z
+    { 0x0AEFD6E6, 0x4049B0 }, // ?AddWidgets@mmGameManager@@UAEXPAVBank@@@Z
+    { 0x924D2B2C, 0x4189E0 }, // ?AddWidgets@mmGameSingle@@UAEXPAVBank@@@Z
+    { 0xD087DF57, 0x406170 }, // ?AddWidgets@mmHUD@@UAEXPAVBank@@@Z
+    { 0xFDF4DCEF, 0x429C60 }, // ?AddWidgets@mmHudMap@@UAEXPAVBank@@@Z
+    { 0x53E9B0A3, 0x4E3EB0 }, // ?AddWidgets@mmInput@@EAEXPAVBank@@@Z
+    { 0x35B52662, 0x492980 }, // ?AddWidgets@mmInstChain@@QAEXPAVBank@@@Z
+    { 0x971E2D5A, 0x4935D0 }, // ?AddWidgets@mmMatrixInstance@@UAEXPAVBank@@@Z
+    { 0x90A45381, 0x502AB0 }, // ?AddWidgets@mmMouseSteerBar@@UAEXPAVBank@@@Z
+    { 0x1F848011, 0x4FECA0 }, // ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
+    { 0xCC1DC390, 0x4D8E00 }, // ?AddWidgets@mmPhysicsMGR@@UAEXPAVBank@@@Z
+    { 0x3433116B, 0x42C590 }, // ?AddWidgets@mmPlayer@@UAEXPAVBank@@@Z
+    { 0x9A76FBAE, 0x48FA40 }, // ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z
+    { 0xFFA96D09, 0x478C90 }, // ?AddWidgets@mmShardManager@@UAEXPAVBank@@@Z
+    { 0xEA7538CC, 0x47D280 }, // ?AddWidgets@mmShock@@UAEXPAVBank@@@Z
+    { 0xA807AEF2, 0x4167A0 }, // ?AddWidgets@mmSingleCircuit@@UAEXPAVBank@@@Z
+    { 0x18EEBC90, 0x478550 }, // ?AddWidgets@mmSkid@@UAEXPAVBank@@@Z
+    { 0xBC1A0BC1, 0x481420 }, // ?AddWidgets@mmSplash@@UAEXPAVBank@@@Z
+    { 0xB2707262, 0x494960 }, // ?AddWidgets@mmStaticInstance@@UAEXPAVBank@@@Z
+    { 0x9C9E391A, 0x47C7D0 }, // ?AddWidgets@mmStuck@@UAEXPAVBank@@@Z
+    { 0x2B48AF22, 0x479E40 }, // ?AddWidgets@mmTrailer@@UAEXPAVBank@@@Z
+    { 0x4579F733, 0x47A300 }, // ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z
+    { 0x5830ADA8, 0x470790 }, // ?AddWidgets@mmTransmission@@UAEXPAVBank@@@Z
+    { 0xF02DC46A, 0x4F9560 }, // ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z
+    { 0xD45A1648, 0x433B90 }, // ?AddWidgets@mmWaypointInstance@@UAEXPAVBank@@@Z
+    { 0x1AC8B182, 0x47F6D0 }, // ?AddWidgets@mmWheel@@UAEXPAVBank@@@Z
+    { 0x35E93CB9, 0x424780 }, // ?AddWidgets@mmWPHUD@@UAEXPAVBank@@@Z
+    { 0x59F5287A, 0x4933B0 }, // ?AddWidgets@mmYInstance@@UAEXPAVBank@@@Z
+    { 0xE1935F76, 0x4F97A0 }, // ?AddWidgets@PostCamCS@@UAEXPAVBank@@@Z
+    { 0xD6F8AF33, 0x4F6460 }, // ?AddWidgets@PovCamCS@@UAEXPAVBank@@@Z
+    { 0xE1F243A3, 0x4F9B20 }, // ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z
+    { 0x9EB7E0A9, 0x423910 }, // ?AddWidgets@RadialGauge@@UAEXPAVBank@@@Z
+    { 0x5622636C, 0x4FDB80 }, // ?AddWidgets@Spline@@UAEXPAVBank@@@Z
+    { 0x4D01F3F8, 0x4F6DE0 }, // ?AddWidgets@TrackCamCS@@UAEXPAVBank@@@Z
+    { 0x297E7FD3, 0x480930 }, // ?AddWidgets@VehGyro@@UAEXPAVBank@@@Z
+    { 0x1F747CC7, 0x4A4950 }, // ?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z
+    { 0x41A8BF69, 0x43B5A0 }, // ?AdjustAmbients@aiMap@@AAEXHH@Z
+    { 0x400DC56C, 0x562660 }, // ?AdjustMouse@WINEventHandler@@QAEXAAH0@Z
+    { 0x5D30BFF9, 0x43B160 }, // ?AdjustPedestrians@aiMap@@AAEXHH@Z
+    { 0xD6923E9C, 0x4C5630 }, // ?AdjustPhaseOffsets@mmAnimPlane@@QAEXXZ
+    { 0xE752AB57, 0x4C66D0 }, // ?AdjustPhaseOffsets@mmAnimTrain@@QAEXXZ
+    { 0x7E2767F9, 0x4C77A0 }, // ?AdjustPhaseOffsets@mmBoat@@QAEXXZ
+    { 0xBF3B0BA3, 0x4B0A50 }, // ?AdjustPopupCard@MenuManager@@QAEXPAVUIMenu@@@Z
+    { 0x54167814, 0x5791D0 }, // ?AfterLoad@Base@@UAEXXZ
+    { 0x3C0A0FC8, 0x4FBEB0 }, // ?AfterLoad@BaseCamCS@@UAEXXZ
+    { 0xDDAADF27, 0x46D540 }, // ?AfterLoad@mmCarSim@@UAEXXZ
+    { 0x73170616, 0x421CC0 }, // ?AfterLoad@mmDashView@@UAEXXZ
+    { 0xBA286CD3, 0x47C9D0 }, // ?AfterLoad@mmEngine@@UAEXXZ
+    { 0x15D0E712, 0x42A380 }, // ?AfterLoad@mmPlayer@@UAEXXZ
+    { 0xD41E8800, 0x479B40 }, // ?AfterLoad@mmTrailer@@UAEXXZ
+    { 0xEFC6C6B2, 0x47DA10 }, // ?AfterLoad@mmWheel@@UAEXXZ
+    { 0xAC4FF6CF, 0x4F6410 }, // ?AfterLoad@PovCamCS@@UAEXXZ
+    { 0x0E6E1BDE, 0x4F6D90 }, // ?AfterLoad@TrackCamCS@@UAEXXZ
+    { 0xE6FD8B31, 0x577750 }, // ?Age@DataCache@@QAEXXZ
+    { 0x96D1D14E, 0x5111E0 }, // ?agiBeginCones@@YAXXZ
+    { 0x45EE423D, 0x5112C0 }, // ?agiConeLighter@@YAXPAEPAI1PAVagiMeshSet@@@Z
+    { 0x787BCCCD, 0x5111F0 }, // ?agiDeclareCone@@YAXAAVVector3@@00MM0H@Z
+    { 0xAC0536C5, 0x55BE80 }, // ?agiDisplayf@@YAXPBDZZ
+    { 0x76247385, 0x5118F0 }, // ?agiDrawCones@@YAXXZ
+    { 0x0F06FAEA, 0x55BE20 }, // ?agiGetError@@YAPADH@Z
+    { 0x793DC7F3, 0x5116B0 }, // ?agiInitCones@@YAXAAVMatrix34@@M@Z
+    { 0x9D7F03A5, 0x510730 }, // ?agiMeshLighterQuarter@@YAXPAEPAI1PAVagiMeshSet@@@Z
+    { 0xC8EC76CF, 0x510640 }, // ?agiMeshLighterReset@@YAXXZ
+    { 0x5DF2433C, 0x5119F0 }, // ?agiMeshLighterSpecular@@YAXPAEPAI1PAVagiMeshSet@@@Z
+    { 0xC2FB9CEC, 0x510AE0 }, // ?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z
+    { 0x3A08EEB7, 0x5108F0 }, // ?agiMeshLighterUpdateColors@@YAXXZ
+    { 0x39651E2F, 0x511010 }, // ?agiMeshPrelight@@YAXPAIPAVagiMeshSet@@AAVMatrix34@@@Z
+    { 0xB412F54B, 0x557E70 }, // ?agiPrint@@YAXHHHPBD@Z
+    { 0x275430D3, 0x557E90 }, // ?agiPrintf@@YAXHHHPBDZZ
+    { 0xA82EC01B, 0x557F00 }, // ?agiPrintInit@@YAXXZ
+    { 0x6F55543D, 0x557EF0 }, // ?agiPrintIs3D@@YAHXZ
+    { 0x3A65584C, 0x557F10 }, // ?agiPrintShutdown@@YAXXZ
+    { 0x6C1F66C2, 0x4A79B0 }, // ?AICallback@RaceMenuBase@@QAEXXZ
+    { 0x220D7FED, 0x4C13C0 }, // ?AirlinerSwap@mmAnimMgr@@QAEXXZ
+    { 0xEBB00445, 0x4C3C10 }, // ?AirlinerSwap@mmAnimSpline@@QAEXXZ
+    { 0x50B84FF6, 0x42F200 }, // ?AIWPHit@mmWaypoints@@QAEHHHVMatrix34@@VVector3@@M@Z
+    { 0x04E9E821, 0x55ED30 }, // ?AlignSize@Stream@@MAEHXZ
+    { 0x8A462D45, 0x520A20 }, // ?Allocate@asMemoryAllocator@@QAEPAXI@Z
+    { 0x854DF3CE, 0x577920 }, // ?Allocate@DataCache@@QAEPAXHI@Z
+    { 0x371A8903, 0x443930 }, // ?AllocateAddOnEngine@aiAudioManager@@QAEFPAD@Z
+    { 0x6EB068C0, 0x476D20 }, // ?AllocateAddOnEngine@NetAudioManager@@QAEFPAD@Z
+    { 0xC9A2580A, 0x442820 }, // ?AllocateAmbients@aiAudioManager@@QAEXXZ
+    { 0x4CE3F4AC, 0x442EB0 }, // ?AllocateCopVoice@aiAudioManager@@QAEXXZ
+    { 0x3EEFF210, 0x443B00 }, // ?AllocateEngine@aiAudioManager@@QAEPAPAVAudSound@@PAD@Z
+    { 0x7D6B0757, 0x443720 }, // ?AllocateEngine@aiAudioManager@@QAEXFF@Z
+    { 0xFC578468, 0x476EF0 }, // ?AllocateEngine@NetAudioManager@@QAEPAPAVAudSound@@PAD@Z
+    { 0xFE40F53C, 0x476BA0 }, // ?AllocateEngine@NetAudioManager@@QAEXF@Z
+    { 0x3749EEF1, 0x477170 }, // ?AllocateHorn@NetAudioManager@@QAEXF@Z
+    { 0x3CCD3FC2, 0x443370 }, // ?AllocateHorns@aiAudioManager@@QAEXXZ
+    { 0x4A052685, 0x4432C0 }, // ?AllocateImpacts@aiAudioManager@@QAEXXZ
+    { 0xEDCEBC7B, 0x4775E0 }, // ?AllocateImpacts@NetAudioManager@@QAEXXZ
+    { 0xC8F1031F, 0x4B17D0 }, // ?AllocateMenuSwitchAudio@MenuManager@@QAEXXZ
+    { 0xC53A8481, 0x442880 }, // ?AllocateOpponents@aiAudioManager@@QAEXXZ
+    { 0x794746EE, 0x4428D0 }, // ?AllocatePolice@aiAudioManager@@QAEXXZ
+    { 0xD8BB83E3, 0x477670 }, // ?AllocatePoliceSiren@NetAudioManager@@QAEXXZ
+    { 0xAB675F6F, 0x443C50 }, // ?AllocateReverseBeep@aiAudioManager@@QAEXXZ
+    { 0x402F9369, 0x477020 }, // ?AllocateReverseBeep@NetAudioManager@@QAEXXZ
+    { 0xD3996735, 0x442C10 }, // ?AllocateSkids@aiAudioManager@@QAEXXZ
+    { 0x7B33748F, 0x477360 }, // ?AllocateSkids@NetAudioManager@@QAEXXZ
+    { 0xC50F4245, 0x4B6ED0 }, // ?AllocateSounds@UIBMButton@@CAXXZ
+    { 0xA6160F79, 0x443550 }, // ?AllocateVoices@aiAudioManager@@QAEXXZ
+    { 0x99916164, 0x4EB9E0 }, // ?AllOneShotLayersPlaying@AudSound@@QAEHXZ
+    { 0x9C02C8C6, 0x4F2500 }, // ?AllOneShotLayersPlaying@SoundObj@@QAEFXZ
+    { 0xA79C720C, 0x49B990 }, // ?AllSetCar@VehicleSelectBase@@QAEXPADH@Z
+    { 0x8D354131, 0x43E650 }, // ?AllwaysGo@aiPath@@QAEXH@Z
+    { 0x9B834D71, 0x436CF0 }, // ?AllwaysGreen@aiMap@@QAEXXZ
+    { 0x3421B035, 0x436D30 }, // ?AllwaysRed@aiMap@@QAEXXZ
+    { 0x6D6C5F90, 0x43E4F0 }, // ?AllwaysStop@aiPath@@QAEXH@Z
+    { 0xD5A97CC5, 0x4E97D0 }, // ?AlwaysEAX@AudManager@@QAEXI@Z
+    { 0x0B89D5AA, 0x4F0AD0 }, // ?AlwaysEAX@DSGlobal@@QAEII@Z
+    { 0xB1B2B7B5, 0x451450 }, // ?AMBIENTCB@@YAXPAVaiVehicleActive@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M@Z
+    { 0xD0D84A93, 0x43F020 }, // ?AmbientCenterDistance@aiPath@@QAEXPAVaiVehicleSpline@@PAM111@Z
+    { 0xBD038822, 0x4E7310 }, // ?AngelReadKeyString@@YAPAULocString@@I@Z
+    { 0x9F989469, 0x5200D0 }, // ?AngelReadString@@YAPAULocString@@I@Z
+    { 0xC11FBAFD, 0x5729C0 }, // ?Angle@Quaternion@@QBEMABV1@@Z
+    { 0x0C5DBF67, 0x564CF0 }, // ?Angle@Vector3@@QBEMABV1@@Z
+    { 0x53CD8430, 0x449CB0 }, // ?Anticipate@aiPedestrian@@AAEXAAVmmIntersection@@H@Z
+    { 0x0F445C61, 0x42F4C0 }, // ?AnyAIWPHit@mmWaypoints@@QAEHAAIHVMatrix34@@VVector3@@M@Z
+    { 0xBA142B4B, 0x4B3910 }, // ?AnyEnabled@UITextDropdown@@QAEHXZ
+    { 0x7C2090E4, 0x45DE10 }, // ?AnyVehiclesComingThisWay@aiGoalRandomDrive@@AAEHXZ
+    { 0xBBFE1F09, 0x42FAA0 }, // ?AnyWPHits@mmWaypoints@@QAEHH@Z
+    { 0x0F21CF29, 0x446C20 }, // ?Append@CArrayList@@QAEXH@Z
+    { 0x26FD59EF, 0x4D3380 }, // ?Append@mmMapData@@QAEXPAD@Z
+    { 0xCC4449B1, 0x4D22A0 }, // ?Append@mmPropInfo@@QAEXPAD@Z
+    { 0xC38DAD14, 0x4030C0 }, // ?Application@@YAXHPAPAD@Z
+    { 0x50F79112, 0x401830 }, // ?ApplicationHelper@@YAXHPAPAD@Z
+    { 0x576319D3, 0x502470 }, // ?Apply@mmDamage@@QAEXAAVVector3@@M@Z
+    { 0x5F063321, 0x4DA5D0 }, // ?ApplyAngImpulse@asInertialCS@@QAEXABVVector3@@@Z
+    { 0xADFC0A6F, 0x472D90 }, // ?ApplyDamage@mmCarModel@@QAEXAAVVector3@@M@Z
+    { 0x5D5DFFA0, 0x4DA290 }, // ?ApplyForce@asInertialCS@@QAEXABVVector3@@0@Z
+    { 0xD3CEA851, 0x4DA200 }, // ?ApplyForce@asInertialCS@@QAEXABVVector3@@@Z
+    { 0x3B5A47F1, 0x4DA4C0 }, // ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@0@Z
+    { 0x108B6E6A, 0x4DA430 }, // ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@@Z
+    { 0xB3C009E3, 0x4DA7D0 }, // ?ApplyPush@asInertialCS@@QAEXABVVector3@@@Z
+    { 0x8F977A26, 0x4DA660 }, // ?ApplyPush@asInertialCS@@UAEXABVVector3@@0@Z
+    { 0xEBD39D18, 0x4DA3A0 }, // ?ApplyTorque@asInertialCS@@QAEXABVVector3@@@Z
+    { 0x0581B131, 0x4DA940 }, // ?ApplyTurn@asInertialCS@@QAEXABVVector3@@@Z
+    { 0xEA647B44, 0x56D460 }, // ?Approach@Matrix34@@QAEHABV1@MM@Z
+    { 0x31DDD475, 0x56D310 }, // ?Approach@Matrix34@@QAEHABV1@MMM@Z
+    { 0x2FC9444A, 0x573120 }, // ?Approach@Quaternion@@QAEHABV1@MM@Z
+    { 0xED356325, 0x5656A0 }, // ?Approach@Vector3@@QAEHABV1@MMPAM@Z
+    { 0x2D40D519, 0x4FC430 }, // ?ApproachIt@AppCamCS@@IAEXXZ
+    { 0xE713D006, 0x568D20 }, // ?ArbitraryRotation@Matrix34@@AAEXABVVector3@@M@Z
+    { 0xCE164E5D, 0x564EC0 }, // ?Area@Vector3@@QBEMABV1@0@Z
+    { 0x17CF37F8, 0x470CC0 }, // ?ArrayOf@@YAPAUMetaType@@PAU1@H@Z
+    { 0x9A92DCED, 0x56D8B0 }, // ?ASinf@@YAMM@Z
+    { 0x71D73D4D, 0x56D950 }, // ?asinf_fast@@YAMM@Z
+    { 0xFFC51EAD, 0x557870 }, // ?Aspect@agiViewport@@QAEMXZ
+    { 0xD98DFE5D, 0x4E7660 }, // ?Assign@mmCollideFF@@QAEHJJ@Z
+    { 0x0623353C, 0x4E7BE0 }, // ?Assign@mmFrictionFF@@QAEHJ@Z
+    { 0xDB83661A, 0x4E4CC0 }, // ?Assign@mmIO@@QAEXHH@Z
+    { 0xCF9D5593, 0x4E50E0 }, // ?Assign@mmIODev@@QAEXHHH@Z
+    { 0xD4BA5633, 0x4E78F0 }, // ?Assign@mmRoadFF@@QAEHJJ@Z
+    { 0xBBC11E20, 0x4E7E80 }, // ?Assign@mmSpringFF@@QAEHJ@Z
+    { 0x46577F25, 0x441F50 }, // ?AssignAddOnSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
+    { 0x93C31FFE, 0x476940 }, // ?AssignAddOnSounds@NetAudioManager@@AAEXPAVmmNetworkCarAudio@@F@Z
+    { 0xB1FE208C, 0x4AC9E0 }, // ?AssignBackground@UIMenu@@QAEXPAD@Z
+    { 0x298A56CC, 0x4E95B0 }, // ?AssignCDBalance@AudManager@@QAEXM@Z
+    { 0xC614B13A, 0x4EE240 }, // ?AssignCDBalance@MixerCTL@@QAEXM@Z
+    { 0x6C5E1AB4, 0x4E9470 }, // ?AssignCDVolume@AudManager@@QAEXM@Z
+    { 0xA8A1E8D6, 0x4EE2E0 }, // ?AssignCDVolume@MixerCTL@@QAEXM@Z
+    { 0x617F8DEF, 0x4E21F0 }, // ?AssignIO@mmInput@@QAEXPAVmmIO@@HH@Z
+    { 0xC1CEC285, 0x4EE580 }, // ?AssignMixerBalance@MixerCTL@@QAEKMK@Z
+    { 0x34A406DC, 0x4EE320 }, // ?AssignMixerVolume@MixerCTL@@QAEKMK@Z
+    { 0x7C68DFD7, 0x4AC990 }, // ?AssignName@UIMenu@@QAEXPAULocString@@@Z
+    { 0x4B126B29, 0x481570 }, // ?AssignProperties@mmCarRoadFF@@QAEXMH@Z
+    { 0x9136D2F8, 0x442630 }, // ?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z
+    { 0xF7E69529, 0x441B60 }, // ?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
+    { 0xAB4FF3EF, 0x442050 }, // ?AssignSounds@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z
+    { 0x5EF14EEF, 0x447280 }, // ?AssignSounds@aiPedAudioManager@@QAEXF@Z
+    { 0x23BF5371, 0x451000 }, // ?AssignSounds@aiVehicleAmbient@@QAEXPAVAudSound@@00PAVmmOpponentImpactAudio@@@Z
+    { 0xAB75CAE6, 0x44E4B0 }, // ?AssignSounds@aiVehicleOpponent@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
+    { 0x3CBBFE5C, 0x446370 }, // ?AssignSounds@aiVehiclePolice@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
+    { 0x490579DB, 0x4C4180 }, // ?AssignSounds@mmBridgeAudMgr@@QAEXF@Z
+    { 0x09BD347D, 0x47BF50 }, // ?AssignSounds@mmOpponentCarAudio@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
+    { 0x28ED17C9, 0x47B6A0 }, // ?AssignSounds@mmPoliceCarAudio@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
+    { 0x218747F0, 0x4856B0 }, // ?AssignSounds@NetAddOnCarAudio@@QAEHPAVmmNetworkCarAudio@@F@Z
+    { 0x182606F3, 0x476000 }, // ?AssignSounds@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z
+    { 0x8CA42623, 0x4B33B0 }, // ?AssignString@UITextDropdown@@QAEXVstring@@@Z
+    { 0x01308474, 0x49C000 }, // ?AssignVehicleStats@VehicleSelectBase@@QAEXHMMMM@Z
+    { 0x00CA522A, 0x4E9570 }, // ?AssignWaveBalance@AudManager@@QAEXM@Z
+    { 0x5C19C41F, 0x4EE1F0 }, // ?AssignWaveBalance@MixerCTL@@QAEXM@Z
+    { 0x3C15A827, 0x4E9430 }, // ?AssignWaveVolume@AudManager@@QAEXM@Z
+    { 0xE103072B, 0x4EE2C0 }, // ?AssignWaveVolume@MixerCTL@@QAEXM@Z
+    { 0xD580B9F2, 0x56D980 }, // ?ATan2f@@YAMMM@Z
+    { 0xA2D69A33, 0x5733D0 }, // ?atan2f_fast@@YAMMM@Z
+    { 0xCEC4B878, 0x573450 }, // ?atan2f_faster@@YAMMM@Z
+    { 0xAE87E4C7, 0x56B2B0 }, // ?Atan3@Matrix34@@QBEMDD@Z
+    { 0xCB22227C, 0x565000 }, // ?Atan3@Vector3@@QBEMDD@Z
+    { 0x9EAF2FA4, 0x5732F0 }, // ?atanf_fast@@YAMM@Z
+    { 0x67B4B2BB, 0x5732C0 }, // ?atanf_fast_large_values@@YAMM@Z
+    { 0x252DF84C, 0x573370 }, // ?atanf_faster@@YAMM@Z
+    { 0x931C348C, 0x452540 }, // ?Attach@aiVehicleActive@@QAEXPAVaiVehicleInstance@@@Z
+    { 0x8EFF4BEF, 0x452C20 }, // ?Attach@aiVehicleManager@@QAEPAVaiVehicleActive@@PAVaiVehicleInstance@@@Z
+    { 0x9E195B51, 0x516FD0 }, // ?Attach@bnBone@@QAEXQAVMatrix34@@AAH@Z
+    { 0x2A9B9C88, 0x515080 }, // ?Attach@bnSkeleton@@QAEXQAVMatrix34@@@Z
+    { 0x10ED1FD2, 0x4CB030 }, // ?Attach@mmBangerActive@@QAEXPAVmmBangerInstance@@@Z
+    { 0x6C43F528, 0x4CB520 }, // ?Attach@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z
+    { 0xA00CCA9E, 0x47FEC0 }, // ?Attach@mmDrivetrain@@QAEXXZ
+    { 0x7D6A6323, 0x451F70 }, // ?AttachEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
+    { 0x7EF20CA0, 0x4CA490 }, // ?AttachEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
+    { 0xB133B40B, 0x473330 }, // ?AttachEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ
+    { 0x540840A2, 0x433DC0 }, // ?AttachEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ
+    { 0x0696F1BB, 0x479730 }, // ?AttachEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
+    { 0xB0AA39A9, 0x4E09F0 }, // ?AttachToPipe@mmInput@@QAEHXZ
+    { 0x97BE9364, 0x4E8DD0 }, // ?AttenuateAudSounds@AudManager@@QAEXM@Z
+    { 0x51FC9382, 0x4E9530 }, // ?AttenuateCDVolume@AudManager@@QAEXM@Z
+    { 0xE6D4A821, 0x499710 }, // ?AutoDetect@@YAXHH@Z
+    { 0x1CD9FF55, 0x4706F0 }, // ?Automatic@mmTransmission@@QAEXH@Z
+    { 0x9561FFBD, 0x4E0F00 }, // ?AutoSetup@mmInput@@QAEXXZ
+    { 0x37E7F7EB, 0x52CEB0 }, // ?Average@asBenchStats@@QAEXPAV1@MH@Z
+    { 0xAECFE5E3, 0x449ED0 }, // ?Avoid@aiPedestrian@@AAEXAAVmmIntersection@@PAM@Z
+    { 0x3CD74299, 0x4650B0 }, // ?AvoidAmbientCollision@aiGoalChase@@AAEXH@Z
+    { 0x3FFD5E08, 0x44C170 }, // ?AvoidBanger@aiPedestrian@@AAEXPAVmmInstance@@M@Z
+    { 0x77D9B4C0, 0x468CA0 }, // ?AvoidCollision@aiGoalFollowWayPts@@AAEXH@Z
+    { 0x1FB0AB7B, 0x45E020 }, // ?AvoidCollision@aiGoalRandomDrive@@AAEXPAVaiVehicleSpline@@M@Z
+    { 0x4FC4C732, 0x462030 }, // ?AvoidCopCollision@aiGoalChase@@AAEXPAVaiVehiclePolice@@@Z
+    { 0xAA968338, 0x44C350 }, // ?AvoidObstacle@aiPedestrian@@AAEXAAVVector3@@M@Z
+    { 0xF8374B5A, 0x467040 }, // ?AvoidOpponentCollision@aiGoalFollowWayPts@@AAEXPAVaiVehicleOpponent@@@Z
+    { 0x932FF54C, 0x44C260 }, // ?AvoidPedCollision@aiPedestrian@@AAEXPAV1@M@Z
+    { 0x3F9725ED, 0x46A700 }, // ?AvoidPlayer@aiGoalAvoidPlayer@@AAEXXZ
+    { 0xC6E9E1AD, 0x44C0E0 }, // ?AvoidPlayer@aiPedestrian@@AAEXAAVVector3@@M@Z
+    { 0x0463198F, 0x45BC50 }, // ?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ
+    { 0x9B68C40A, 0x445F20 }, // ?Backup@aiVehiclePolice@@QAEXXZ
+    { 0xD8E4FC02, 0x4ACBA0 }, // ?BackUp@UIMenu@@UAEXXZ
+    { 0xE1FB48BE, 0x4B2150 }, // ?BackUp@uiNavBar@@UAEXXZ
+    { 0xEBBF7252, 0x4A38A0 }, // ?BadAssignCB@ControlSetup@@QAEXXZ
+    { 0x964523E0, 0x463570 }, // ?Barricade@aiGoalChase@@AAEXXZ
+    { 0x2EDDCE49, 0x4044C0 }, // ?BeDone@mmGameManager@@QAEXXZ
+    { 0xD7328C91, 0x4087B0 }, // ?BeDone@mmInterface@@QAEXXZ
+    { 0x18BB31E4, 0x5791C0 }, // ?BeforeSave@Base@@UAEXXZ
+    { 0xDEB53B9D, 0x46D600 }, // ?BeforeSave@mmCarSim@@UAEXXZ
+    { 0xA02AE787, 0x421C20 }, // ?BeforeSave@mmDashView@@UAEXXZ
+    { 0xCB51E19F, 0x42A370 }, // ?BeforeSave@mmPlayer@@UAEXXZ
+    { 0xD2E87FB1, 0x479BD0 }, // ?BeforeSave@mmTrailer@@UAEXXZ
+    { 0x5BCE9385, 0x578040 }, // ?Begin@HashIterator@@QAEXXZ
+    { 0x14FA7A48, 0x505E00 }, // ?begin_invert@@YIXPAVVector4@@@Z
+    { 0xC6B495DA, 0x555B40 }, // ?BeginAllGfx@agiPipeline@@QAEHXZ
+    { 0x345A4F58, 0x576920 }, // ?BeginBenchmark@Timer@@SAXXZ
+    { 0x8351F370, 0x554D70 }, // ?BeginDraw@agiSurfRenderer@@UAEXH@Z
+    { 0x4674175A, 0x530A40 }, // ?BeginFrame@agiD3DPipeline@@UAEXXZ
+    { 0x89ACF80C, 0x532F40 }, // ?BeginFrame@agiDDPipeline@@UAEXXZ
+    { 0xA33EF6EE, 0x555D10 }, // ?BeginFrame@agiPipeline@@UAEXXZ
+    { 0x15089127, 0x534030 }, // ?BeginFrame@agiSWPipeline@@UAEXXZ
+    { 0x8EE9FA10, 0x5553E0 }, // ?BeginGfx@agiBILight@@UAEHXZ
+    { 0xCEF3BF51, 0x5552E0 }, // ?BeginGfx@agiBILightModel@@UAEHXZ
+    { 0x80054F88, 0x533840 }, // ?BeginGfx@agiD3DLight@@UAEHXZ
+    { 0xEC9510F3, 0x533590 }, // ?BeginGfx@agiD3DMtlDef@@UAEHXZ
+    { 0xB0AF5B8E, 0x52FB90 }, // ?BeginGfx@agiD3DPipeline@@UAEHXZ
+    { 0xDB596B01, 0x52E570 }, // ?BeginGfx@agiD3DRasterizer@@UAEHXZ
+    { 0x55E74361, 0x531630 }, // ?BeginGfx@agiD3DRPipeline@@UAEHXZ
+    { 0xDCFF670E, 0x5319E0 }, // ?BeginGfx@agiD3DTexDef@@UAEHXZ
+    { 0xC46E8208, 0x531FD0 }, // ?BeginGfx@agiD3DTexLut@@UAEHXZ
+    { 0x87AE9307, 0x533300 }, // ?BeginGfx@agiD3DViewport@@UAEHXZ
+    { 0x5B57F6DA, 0x533A20 }, // ?BeginGfx@agiDDBitmap@@UAEHXZ
+    { 0x5C93151F, 0x532AE0 }, // ?BeginGfx@agiDDPipeline@@UAEHXZ
+    { 0xDC36791E, 0x505E20 }, // ?BeginGfx@agiMeshSet@@AAEXXZ
+    { 0x7A92F916, 0x534C20 }, // ?BeginGfx@agiSWBitmap@@UAEHXZ
+    { 0x097C462E, 0x533E60 }, // ?BeginGfx@agiSWPipeline@@UAEHXZ
+    { 0x6F49DBFC, 0x537BE0 }, // ?BeginGfx@agiSWRasterizer@@UAEHXZ
+    { 0x6CB1D32B, 0x537730 }, // ?BeginGfx@agiSWTexDef@@UAEHXZ
+    { 0x5BFA44CB, 0x537950 }, // ?BeginGfx@agiSWTexLut@@UAEHXZ
+    { 0x84EA5893, 0x534BC0 }, // ?BeginGfx@agiSWViewport@@UAEHXZ
+    { 0x54C79134, 0x55E0D0 }, // ?BeginGfx@DLP@@UAEHXZ
+    { 0x459674D3, 0x550C40 }, // ?BeginGfx@RDLP@@UAEHXZ
+    { 0x71E82493, 0x561F20 }, // ?BeginGfx@WINEventHandler@@UAEHHHH@Z
+    { 0xF92A0B41, 0x52E5A0 }, // ?BeginGroup@agiD3DRasterizer@@UAEXXZ
+    { 0x3E142E1E, 0x557D20 }, // ?BeginGroup@agiRasterizer@@UAEXXZ
+    { 0xD1B2AC74, 0x552DC0 }, // ?BeginGroup@agiSurfRenderer@@UAEXXZ
+    { 0x17D55813, 0x537C00 }, // ?BeginGroup@agiSWRasterizer@@UAEXXZ
+    { 0xC7A64714, 0x578B20 }, // ?BeginMemStat@@YAXPBD@Z
+    { 0x38ED73EE, 0x577410 }, // ?BeginObject@DataCache@@QAEHPAHP6AXPAXH@Z1I@Z
+    { 0xFF1A9953, 0x522CF0 }, // ?BeginOverSample@asSimulation@@QAEXH@Z
+    { 0xC831AB6B, 0x530AF0 }, // ?BeginScene@agiD3DPipeline@@UAEXXZ
+    { 0x3FFFDD48, 0x5317F0 }, // ?BeginScene@agiD3DRPipeline@@UAEXXZ
+    { 0x9E85D1AD, 0x532FA0 }, // ?BeginScene@agiDDPipeline@@UAEXXZ
+    { 0x5D999DE9, 0x551760 }, // ?BeginScene@agiLighter@@SAXXZ
+    { 0x0A2ADF7E, 0x556000 }, // ?BeginScene@agiPipeline@@UAEXXZ
+    { 0x5C47D7C5, 0x534070 }, // ?BeginScene@agiSWPipeline@@UAEXXZ
+    { 0x92AD23CB, 0x48B850 }, // ?BeginTask@mmLoader@@QAEXPAULocString@@M@Z
+    { 0x138DAB55, 0x562610 }, // ?BeginTracking@WINEventHandler@@UAEXXZ
+    { 0x09700686, 0x503D70 }, // ?BeginVerts2@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@0HH@Z
+    { 0x5DF42CF5, 0x503B20 }, // ?BeginVerts@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
+    { 0xD6A4A1C5, 0x522E40 }, // ?Benchmark@asSimulation@@QAEXXZ
+    { 0xA4124DA3, 0x570DB0 }, // ?Bias@@YAMMM@Z
+    { 0x4F384479, 0x565D00 }, // ?Bilinear@Vector3@@QAEXMMABV1@000@Z
+    { 0x9A1682DD, 0x56DD80 }, // ?Bilinear@Vector4@@QAEXMMABV1@000@Z
+    { 0xF4E39EA4, 0x502BD0 }, // ?BinaryLoad@agiMeshSet@@QAEXPAVStream@@@Z
+    { 0x2BCF74A4, 0x4E3CE0 }, // ?BinaryLoadConfig@mmInput@@QAEHPAVStream@@@Z
+    { 0x7C6DEB34, 0x516B30 }, // ?BinarySave@agiMeshSet@@QAEXPAVStream@@@Z
+    { 0xE2ED18FB, 0x4E3E20 }, // ?BinarySaveConfig@mmInput@@QAEHPAVStream@@@Z
+    { 0xF6C3D3C5, 0x429BC0 }, // ?BitmapToScreen@mmHudMap@@AAEHPAUPoint@@U2@@Z
+    { 0x8CA1171C, 0x5005F0 }, // ?Blast@asParticles@@QAEXHPAVasBirthRule@@@Z
+    { 0xC68FD4D7, 0x42D950 }, // ?BlitzRemove@mmWaypoints@@QAEHH@Z
+    { 0x86D8C2B4, 0x463A00 }, // ?Block@aiGoalChase@@AAEXXZ
+    { 0x8E000B69, 0x573AB0 }, // ?BlockCopy@FloatArray@@QAEXAAV1@@Z
+    { 0x11CBDDCA, 0x573790 }, // ?BlockCopy@IntArray@@QAEXAAV1@@Z
+    { 0xCCF51BA3, 0x57B1F0 }, // ?BlockCopy@StringArray@@QAEXAAV1@@Z
+    { 0xA856CEB5, 0x571540 }, // ?BlockCopy@Vector2Array@@QAEXAAV1@@Z
+    { 0x440D8331, 0x567120 }, // ?BlockCopy@Vector3Array@@QAEXAAV1@@Z
+    { 0x0C5DBED1, 0x56E2F0 }, // ?BlockCopy@Vector4Array@@QAEXAAV1@@Z
+    { 0xD100A180, 0x43FF30 }, // ?Blocked@aiPath@@QAEXH@Z
+    { 0xCA5C319B, 0x4A8E30 }, // ?BootButtonCB@PURoster@@QAEXXZ
+    { 0x30C14AF0, 0x432410 }, // ?BootPlayerCB@mmGameMulti@@QAEXPAX0@Z
+    { 0x9B38FF45, 0x4C8E70 }, // ?Bootstrap@mmBangerData@@QAEHPAD0@Z
+    { 0xFC800EA2, 0x4C8ED0 }, // ?BootstrapBreakablesOnly@mmBangerData@@QAEXPAD@Z
+    { 0xABE91954, 0x431480 }, // ?BootStrapCars@mmGameMulti@@QAEXXZ
+    { 0x3FAAABAE, 0x566820 }, // ?Bounce@Vector3@@QAEXABV1@M@Z
+    { 0x36970347, 0x559A00 }, // ?BoundBox@DLPTemplate@@QAEHAAVVector3@@0PAD@Z
+    { 0x70F406C4, 0x4DD3A0 }, // ?BreakJoint@Joint3Dof@@QAEXXZ
+    { 0x8D69C021, 0x533D40 }, // ?breakme@@YAXXZ
+    { 0x8970F23F, 0x4A4690 }, // ?BuildAllTheIPXWidgets@NetSelectMenu@@QAEXMMMM@Z
+    { 0x614946EA, 0x4A4580 }, // ?BuildAllTheModemWidgets@NetSelectMenu@@QAEXMMMMPAD@Z
+    { 0xE4016E2D, 0x4A46A0 }, // ?BuildAllTheTCPWidgets@NetSelectMenu@@QAEXMMMM@Z
+    { 0x0046D33A, 0x4E1EB0 }, // ?BuildCaptureIO@mmInput@@QAEHHPAVmmIO@@TeqEvent@@@Z
+    { 0x8015DBDC, 0x4A0130 }, // ?BuildComs@Dialog_Serial@@QAEXXZ
+    { 0x8A5853B2, 0x4A4720 }, // ?BuildComs@NetSelectMenu@@QAEXXZ
+    { 0xA85396F1, 0x4969F0 }, // ?BuildGroups@asPortalWeb@@QAEXXZ
+    { 0xE1D5D846, 0x495B70 }, // ?BuildVisibilityList@asPortalWeb@@QAEHAAVMatrix34@@PAPAUasPortalCell@@HM@Z
+    { 0x694506CE, 0x495DD0 }, // ?BuildVisibilityList@asPortalWeb@@QAEHAAVVector3@@PAPAUasPortalCell@@HM@Z
+    { 0x8ACBCD4B, 0x4E5C40 }, // ?ButtonToBit@mmJoyMan@@QAEHH@Z
+    { 0x4644132F, 0x56D220 }, // ?CalcAppRates@Matrix34@@QAEXAAM0ABV1@MM@Z
+    { 0x152F4229, 0x43D610 }, // ?CalcCenterVerts@aiPath@@QAEXAAVmmRoadSect@@H@Z
+    { 0xC328EB0B, 0x4DABA0 }, // ?CalcCMatrix@asInertialCS@@QBEXAAVMatrix34@@ABVVector3@@@Z
+    { 0xD8BADCF8, 0x4FD5B0 }, // ?CalcCoeff@Spline@@QAEXXZ
+    { 0xA7EF0918, 0x454710 }, // ?CalcCopRailPosition@aiRailSet@@QAEHAAVVector3@@0MM@Z
+    { 0x5577BE38, 0x44C6E0 }, // ?CalcCurve@aiPedestrian@@AAEXHHM@Z
+    { 0x496D242B, 0x457170 }, // ?CalcRailLength@aiRailSet@@QAEMXZ
+    { 0x3852A699, 0x453D00 }, // ?CalcRailPosition@aiRailSet@@QAEXAAVVector3@@M@Z
+    { 0x01A8794D, 0x458850 }, // ?CalcRailPosOrient@aiRailSet@@QAEXAAVVector3@@0M@Z
+    { 0x19AB62EE, 0x456B60 }, // ?CalcRailState@aiRailSet@@QAEHM@Z
+    { 0xB21FC5BB, 0x462430 }, // ?CalcSpeed@aiGoalChase@@AAEXM@Z
+    { 0x3927D9D6, 0x469170 }, // ?CalcSpeed@aiGoalFollowWayPts@@AAEXXZ
+    { 0xB1A85B50, 0x47CBB0 }, // ?CalcTorque@mmEngine@@QAEMM@Z
+    { 0xFEFF362F, 0x47CAE0 }, // ?CalcTorqueAtFullThrottle@mmEngine@@QAEMXZ
+    { 0x2E8F50C4, 0x47CB70 }, // ?CalcTorqueAtZeroThrottle@mmEngine@@QAEMXZ
+    { 0x449268CB, 0x4BF5A0 }, // ?CalcTroughRatio@VSWidget@@QAEXM@Z
+    { 0x21F095B3, 0x457660 }, // ?CalcTurnIntersection@aiRailSet@@QAEXAAVVector3@@HPAVaiPath@@1@Z
+    { 0x57376C59, 0x44CFC0 }, // ?CalculateAudioPanning@aiPedestrian@@QAEXXZ
+    { 0xE77CAC1B, 0x44FCF0 }, // ?CalculateAudioPanning@aiVehicleAmbient@@QAEXXZ
+    { 0x502B8BC3, 0x4C5CF0 }, // ?CalculateAudioPanning@mmAnimPlane@@AAEXXZ
+    { 0x7122C0EE, 0x4C6ED0 }, // ?CalculateAudioPanning@mmAnimTrain@@AAEXXZ
+    { 0x206755C3, 0x4C2D80 }, // ?CalculateAudioPanning@mmBridgeSet@@AAEXXZ
+    { 0x8ACD8CD9, 0x4C5770 }, // ?CalculateCubics@mmAnimPlane@@QAEXHAAVVector4@@00@Z
+    { 0x61BE369E, 0x4C6890 }, // ?CalculateCubics@mmAnimTrain@@QAEXHAAVVector4@@00@Z
+    { 0xF62E99D0, 0x4C7910 }, // ?CalculateCubics@mmBoat@@QAEXH@Z
+    { 0x47243263, 0x44CF70 }, // ?CalculateDistToPlayer2@aiPedestrian@@QAEXXZ
+    { 0x53DF6ADA, 0x44FBE0 }, // ?CalculateDistToPlayer2@aiVehicleAmbient@@QAEXXZ
+    { 0x99649EC0, 0x4C5C20 }, // ?CalculateDistToPlayer2@mmAnimPlane@@AAEXXZ
+    { 0x17AA45E7, 0x4C6E00 }, // ?CalculateDistToPlayer2@mmAnimTrain@@AAEXXZ
+    { 0x304F72A3, 0x4C2CA0 }, // ?CalculateDistToPlayer2@mmBridgeSet@@AAEXXZ
+    { 0x194217E7, 0x483EC0 }, // ?CalculateDistToPlayer2@mmNetworkCarAudio@@QAEXXZ
+    { 0x89AD1480, 0x47BC80 }, // ?CalculateDistToPlayer2@mmOpponentCarAudio@@QAEXXZ
+    { 0x36AB7DE3, 0x44F620 }, // ?CalculateDoppler@aiVehicleAmbient@@AAEMM@Z
+    { 0x739C8766, 0x4C5D40 }, // ?CalculateDoppler@mmAnimPlane@@AAEMM@Z
+    { 0xB6370400, 0x4C6F20 }, // ?CalculateDoppler@mmAnimTrain@@AAEMM@Z
+    { 0xF00A0303, 0x4C2DD0 }, // ?CalculateDoppler@mmBridgeSet@@AAEMM@Z
+    { 0x08967F3B, 0x483F80 }, // ?CalculateDoppler@mmNetworkCarAudio@@QAEXXZ
+    { 0x56217B12, 0x47BDB0 }, // ?CalculateDoppler@mmOpponentCarAudio@@QAEXM@Z
+    { 0x82009686, 0x44F650 }, // ?CalculateFerrariPitch@aiVehicleAmbient@@AAEMMH@Z
+    { 0x2201501C, 0x42E920 }, // ?CalculateGatePoints@mmWaypoints@@QAEXVVector3@@MMPAVVector2@@1@Z
+    { 0xC98EAF1D, 0x47BD60 }, // ?CalculatePan@mmOpponentCarAudio@@QAEXXZ
+    { 0x5BE47C97, 0x56DDD0 }, // ?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z
+    { 0x3E38B110, 0x411520 }, // ?CalculateRaceScore@mmGame@@IAEHHH@Z
+    { 0x9069B137, 0x459740 }, // ?CalcXZDirection@aiRailSet@@QAEXAAVVector3@@0000M@Z
+    { 0x0D743EFC, 0x459630 }, // ?CalcXZPosition@aiRailSet@@QAEXAAVVector3@@0000M@Z
+    { 0x8261E5E7, 0x459860 }, // ?CalcXZPosOrient@aiRailSet@@QAEXAAVVector3@@00000M@Z
+    { 0x30F6FF4E, 0x4A37A0 }, // ?CalibrateWatcher@@YGKPAX@Z
+    { 0x31AF2E33, 0x579450 }, // ?Call@Callback@@QAEXPAX@Z
+    { 0xD0D0F3D1, 0x530D30 }, // ?callb@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z
+    { 0x3157B809, 0x49D150 }, // ?CancelAction@AudioOptions@@UAEXXZ
+    { 0xE2A5B13C, 0x4A3880 }, // ?CancelAction@ControlSetup@@UAEXXZ
+    { 0x3C57BEC6, 0x49A610 }, // ?CancelAction@GraphicsOptions@@UAEXXZ
+    { 0x0FC326E3, 0x4AAA60 }, // ?CancelAction@PUAudioOptions@@QAEXXZ
+    { 0x798B34D9, 0x4AA2D0 }, // ?CancelAction@PUControl@@QAEXXZ
+    { 0x55307DD4, 0x4A9F00 }, // ?CancelAction@PUGraphics@@QAEXXZ
+    { 0x940BF04C, 0x4A38E0 }, // ?CancelBadAssignment@ControlSetup@@QAEXXZ
+    { 0xF5EBA16A, 0x49E3A0 }, // ?CancelCallback@Dialog_RaceEnvironment@@QAEXXZ
+    { 0xDC2A649C, 0x4E6130 }, // ?Capture@mmJaxis@@QAEHXZ
+    { 0xB4BB877A, 0x4BE400 }, // ?Capture@TextDropWidget@@QAEHMM@Z
+    { 0x6F5A5C96, 0x4B4E50 }, // ?CaptureAction@mmCompBase@@UAEXTeqEvent@@@Z
+    { 0x98D3FB0D, 0x4B5920 }, // ?CaptureAction@UICompositeScroll@@UAEXTeqEvent@@@Z
+    { 0x0D8B0704, 0x4B83D0 }, // ?CaptureAction@UICWArray@@UAEXTeqEvent@@@Z
+    { 0xF367566C, 0x4B3510 }, // ?CaptureAction@UITextDropdown@@UAEXTeqEvent@@@Z
+    { 0x80D7C113, 0x4B2670 }, // ?CaptureAction@UITextField@@UAEXTeqEvent@@@Z
+    { 0x60749071, 0x4B2E40 }, // ?CaptureAction@uiWidget@@UAEXTeqEvent@@@Z
+    { 0xA6E2A87A, 0x4E1E80 }, // ?CaptureState@mmInput@@QAEXH@Z
+    { 0xA974B0B1, 0x52F8E0 }, // ?Card@agiD3DRasterizer@@UAEXHH@Z
+    { 0x51AC92B1, 0x537CF0 }, // ?Card@agiSWRasterizer@@UAEXHH@Z
+    { 0x40350EDA, 0x49BC50 }, // ?CarMod@VehicleSelectBase@@QAEXAAH@Z
+    { 0xA7C76ACC, 0x5731A0 }, // ?CatmullRom@Quaternion@@QAEXMABV1@000@Z
+    { 0x402EDC1A, 0x5657E0 }, // ?CatmullRom@Vector3@@QAEXMABV1@000@Z
+    { 0x2ABC8099, 0x4430C0 }, // ?CatName@aiAudioManager@@AAEPADPADHH@Z
+    { 0xD0568843, 0x4ED190 }, // ?CatName@mmVoiceCommentary@@QAEPADPADHH@Z
+    { 0xE4BF7EFA, 0x4E94E0 }, // ?CDIsEnabled@AudManager@@QAEHXZ
+    { 0xE52FA82A, 0x4E93A0 }, // ?CDIsPlaying@AudManager@@QAEFXZ
+    { 0x9880C14D, 0x43ED00 }, // ?CenterDistance@aiPath@@QAEHAAVVector3@@PAFPAM2@Z
+    { 0xADDA910E, 0x43E840 }, // ?CenterIndex@aiPath@@QAEHM@Z
+    { 0x68FC24F1, 0x43E670 }, // ?CenterLength@aiPath@@QAEMHH@Z
+    { 0xEFE723F9, 0x43E8E0 }, // ?CenterPosition@aiPath@@QAEXMAAVVector3@@@Z
+    { 0x3165A220, 0x440020 }, // ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z
+    { 0xFC8BDFBA, 0x5783F0 }, // ?Change@HashTable@@QAEHPAD0@Z
+    { 0x2FA751C4, 0x560380 }, // ?ChangeDir@HierFileSystem@@UAEHPAD@Z
+    { 0x6F676724, 0x560B90 }, // ?ChangeDir@VirtualFileSystem@@UAEHPAD@Z
+    { 0x3D4DF36F, 0x57A950 }, // ?ChangeExtension@string@@QAEXABV1@@Z
+    { 0xD7EC0E6F, 0x45F1A0 }, // ?ChangeLanes@aiGoalRandomDrive@@AAEXXZ
+    { 0x38941224, 0x4A7A20 }, // ?ChangeLocalVals@RaceMenuBase@@QAEXXZ
+    { 0xCA4BDF37, 0x40D8B0 }, // ?ChangePlayerData@mmInterface@@AAEXXZ
+    { 0x4E63B2FC, 0x41D1A0 }, // ?ChangePlayerData@mmMultiCR@@QAEXXZ
+    { 0x84346BE5, 0x420480 }, // ?ChangePlayerData@mmMultiRace@@QAEXXZ
+    { 0x554513D7, 0x412B20 }, // ?ChangeWPCallback@mmGameEdit@@QAEXXZ
+    { 0x6CC7E202, 0x427CF0 }, // ?ChatCB@mmPopup@@QAEXXZ
+    { 0xD72E061A, 0x4A20B0 }, // ?ChatEntry@NetArena@@QAEXXZ
+    { 0x12897018, 0x4A98D0 }, // ?ChatEntry@PUChat@@QAEXXZ
+    { 0x3180C87F, 0x48AE30 }, // ?ChatMessage@asNetwork@@QAEXKPAD@Z
+    { 0x97BF6E49, 0x4A7690 }, // ?CheatCallback@RaceMenuBase@@QAEXXZ
+    { 0x16D310F4, 0x430250 }, // ?Check@mmGate@@QAEHVVector2@@0@Z
+    { 0x8D665310, 0x4B08E0 }, // ?CheckBG@MenuManager@@QAEXPAVUIMenu@@@Z
+    { 0x39657D2D, 0x4CD540 }, // ?CheckBlitz@mmMiscData@@QAEHPADMH0HH@Z
+    { 0x81B35003, 0x4B85E0 }, // ?CheckCapture@UICWArray@@QAEXXZ
+    { 0xF7AC4A14, 0x4E9630 }, // ?CheckCDFile@AudManager@@QAEEPAD@Z
+    { 0x45DFAE9E, 0x4F08E0 }, // ?CheckCDFile@DSGlobal@@QAEEPAD@Z
+    { 0xD677B75D, 0x51D080 }, // ?CheckCellXSide@mmPolygon@@AAEMMMM@Z
+    { 0xBC29DF91, 0x51D170 }, // ?CheckCellZSide@mmPolygon@@AAEMMMM@Z
+    { 0x4595CA7F, 0x4CD200 }, // ?CheckCheckpoint@mmMiscData@@QAEHPADMH0HH@Z
+    { 0x866C13CD, 0x4CD3A0 }, // ?CheckCircuit@mmMiscData@@QAEHPADMH0HH@Z
+    { 0x8E603A47, 0x4C4290 }, // ?CheckCondition@mmAnimTrigger@@QAEHXZ
+    { 0xEB5198DE, 0x51CFD0 }, // ?CheckCorner@mmPolygon@@AAEMMMPAM00@Z
+    { 0xCF4DFA53, 0x4B0E60 }, // ?CheckInput@MenuManager@@QAEXXZ
+    { 0x60B83F40, 0x4ACE80 }, // ?CheckInput@UIMenu@@UAEXXZ
+    { 0x6A789589, 0x556A30 }, // ?CheckLibraries@@YAXXZ
+    { 0x256F5755, 0x4AEAD0 }, // ?CheckMouseHits@UIMenu@@QAEXXZ
+    { 0x8879E7D6, 0x4C43B0 }, // ?CheckObjectDistance@mmAnimTrigger@@QAEHXZ
+    { 0xA9E4A9B7, 0x4C4300 }, // ?CheckObjectHit@mmAnimTrigger@@QAEHXZ
+    { 0x1DF7E1B3, 0x520C40 }, // ?CheckPointer@asMemoryAllocator@@QAEXPAX@Z
+    { 0xFDD6BB9B, 0x4E8390 }, // ?CheckPriority@AudManager@@QAEHHHH@Z
+    { 0x845EA510, 0x575920 }, // ?CheckSoftwareRenderer@@YAHPAUIDirectDraw4@@PAU_GUID@@@Z
+    { 0x13674DDA, 0x4C4350 }, // ?CheckStateStatus@mmAnimTrigger@@QAEHXZ
+    { 0xCA268BAA, 0x5562F0 }, // ?CheckSurface@agiTexDef@@QAEXXZ
+    { 0xB3D0C616, 0x4C4320 }, // ?CheckTimeDelay@mmAnimTrigger@@QAEHXZ
+    { 0x77DC2FCA, 0x43AE90 }, // ?ChooseNextFreewayLink@aiMap@@QAEHPAVaiRailSet@@@Z
+    { 0x9D19DE24, 0x43ADF0 }, // ?ChooseNextLaneLink@aiMap@@QAEHPAVaiRailSet@@@Z
+    { 0xF7AC7BCE, 0x43A5D0 }, // ?ChooseNextLeftStraightLink@aiMap@@QAEHPAVaiRailSet@@@Z
+    { 0x1467F26D, 0x43A440 }, // ?ChooseNextRandomLink@aiMap@@QAEHPAVaiRailSet@@@Z
+    { 0xE4746C75, 0x43AFA0 }, // ?ChooseNextRightStraightFreewayLink@aiMap@@QAEHPAVaiRailSet@@@Z
+    { 0xF43B8DF8, 0x43A840 }, // ?ChooseNextRightStraightLink@aiMap@@QAEHPAVaiRailSet@@@Z
+    { 0x897088A0, 0x43AAE0 }, // ?ChooseNextStraightLink@aiMap@@QAEHPAVaiRailSet@@@Z
+    { 0x679698F9, 0x4A7750 }, // ?CityChange@RaceMenuBase@@QAEXXZ
+    { 0xBE5CA17B, 0x40B6D0 }, // ?CitySetupCB@mmInterface@@AAEXXZ
+    { 0xB5D5D1C9, 0x43C0D0 }, // ?Clamp@@YAMMMM@Z
+    { 0x795E4D8D, 0x5665E0 }, // ?Clamp@Vector3@@QAEXABV1@0@Z
+    { 0x16F1F016, 0x566550 }, // ?Clamp@Vector3@@QAEXMM@Z
+    { 0x8BF72336, 0x433FF0 }, // ?Clean@aiMap@@QAEXXZ
+    { 0x612E21A8, 0x5773A0 }, // ?CleanEndOfHeap@DataCache@@AAEXXZ
+    { 0x0C6B0149, 0x533460 }, // ?Clear@agiD3DViewport@@UAEXH@Z
+    { 0x3A5B6D36, 0x5349B0 }, // ?Clear@agiSWViewport@@UAEXH@Z
+    { 0xFF788ED1, 0x4E4B90 }, // ?Clear@mmIO@@QAEXXZ
+    { 0x949F39B3, 0x432800 }, // ?Clear@mmNetObject@@QAEXXZ
+    { 0xCF0D26C4, 0x4B59D0 }, // ?Clear@UICompositeScroll@@QAEXXZ
+    { 0x49555EF6, 0x4ACB60 }, // ?ClearAction@UIMenu@@QAEXXZ
+    { 0x79D4B598, 0x531400 }, // ?ClearAll@agiD3DPipeline@@UAEXH@Z
+    { 0x72A21FF7, 0x5341A0 }, // ?ClearAll@agiSWPipeline@@UAEXH@Z
+    { 0xB4F30EFF, 0x4AF230 }, // ?ClearAllWidgets@MenuManager@@QAEXXZ
+    { 0xED70543D, 0x4A38D0 }, // ?ClearBadAssignment@ControlSetup@@QAEXXZ
+    { 0xE4930B09, 0x4A9890 }, // ?ClearChat@PUChat@@QAEXXZ
+    { 0x23975227, 0x473E70 }, // ?ClearDamage@mmCar@@QAEXXZ
+    { 0x67F990D5, 0x472CA0 }, // ?ClearDamage@mmCarModel@@QAEXH@Z
+    { 0x6BBCE14F, 0x4EFDD0 }, // ?ClearDSDeviceList@DSGlobal@@QAEXXZ
+    { 0x2C8D4487, 0x4E24B0 }, // ?ClearEventHitFlags@mmInput@@QAEXXZ
+    { 0x80019F2C, 0x4B26D0 }, // ?ClearField@UITextField@@QAEXXZ
+    { 0xCFB0AA50, 0x485A10 }, // ?ClearName@EngineAudioOpponent@@QAEXXZ
+    { 0xB027BF80, 0x4A8BC0 }, // ?ClearNames@PUResults@@QAEXXZ
+    { 0x34E9C920, 0x4A9240 }, // ?ClearNames@PURoster@@QAEXXZ
+    { 0xD2F2A861, 0x4316A0 }, // ?ClearNetObjects@mmGameMulti@@QAEXXZ
+    { 0x8A4AD915, 0x4A4A60 }, // ?ClearProtocol@NetSelectMenu@@QAEXXZ
+    { 0xC731ED46, 0x533240 }, // ?ClearRect@agiDDPipeline@@UAEXHHHHI@Z
+    { 0xC972818C, 0x556070 }, // ?ClearRect@agiPipeline@@UAEXHHHHI@Z
+    { 0xD3D05410, 0x534230 }, // ?ClearRect@agiSWPipeline@@UAEXHHHHI@Z
+    { 0xB308DACA, 0x4AEA70 }, // ?ClearSelected@UIMenu@@QAEXXZ
+    { 0x2D76C587, 0x40CFA0 }, // ?ClearSessions@mmInterface@@AAEXXZ
+    { 0x52218FBA, 0x4ACB70 }, // ?ClearToolTip@UIMenu@@QAEXXZ
+    { 0xB064BE8D, 0x4C39D0 }, // ?ClearVectors@mmAnimSpline@@QAEXXZ
+    { 0xD49C2CF3, 0x42FF60 }, // ?ClearWaypoint@mmWaypoints@@QAEXH@Z
+    { 0xDF1D86FA, 0x4AEAA0 }, // ?ClearWidgets@UIMenu@@QAEXXZ
+    { 0x2EDC4DA2, 0x506260 }, // ?ClipNX@@YAHPAUCV@@0H@Z
+    { 0x7C097EF8, 0x506380 }, // ?ClipNX@@YIXAAUCV@@0@Z
+    { 0x068327F3, 0x506680 }, // ?ClipNY@@YAHPAUCV@@0H@Z
+    { 0xFEC5B6A9, 0x5067A0 }, // ?ClipNY@@YIXAAUCV@@0@Z
+    { 0x0F198189, 0x506A90 }, // ?ClipNZ@@YAHPAUCV@@0H@Z
+    { 0x84E2548B, 0x506BB0 }, // ?ClipNZ@@YIXAAUCV@@0@Z
+    { 0x995BCDE7, 0x506470 }, // ?ClipPX@@YAHPAUCV@@0H@Z
+    { 0x7D10BC56, 0x506590 }, // ?ClipPX@@YIXAAUCV@@0@Z
+    { 0x5C316B90, 0x506890 }, // ?ClipPY@@YAHPAUCV@@0H@Z
+    { 0xE178F4CA, 0x5069B0 }, // ?ClipPY@@YIXAAUCV@@0@Z
+    { 0x20F6640A, 0x506CA0 }, // ?ClipPZ@@YAHPAUCV@@0H@Z
+    { 0x691BE920, 0x506DC0 }, // ?ClipPZ@@YIXAAUCV@@0@Z
+    { 0xC171E018, 0x505E40 }, // ?ClipTri@agiMeshSet@@IAEXHHHH@Z
+    { 0xDAF90FE8, 0x55E460 }, // ?Clone@DLP@@QAEPAV1@XZ
+    { 0x279A168D, 0x561A20 }, // ?Close@FileStream@@QAEHXZ
+    { 0x342A2BF2, 0x4B0B60 }, // ?CloseDialog@MenuManager@@QAEXXZ
+    { 0x581C0ABA, 0x430210 }, // ?CloseEnough@mmGate@@QAEHMM@Z
+    { 0xA3935E5B, 0x463090 }, // ?CloseInOpenArea@aiGoalChase@@AAEXXZ
+    { 0x3D83218F, 0x462BB0 }, // ?CloseInRoad@aiGoalChase@@AAEXXZ
+    { 0xDF3D25D4, 0x48A3A0 }, // ?CloseSession@asNetwork@@QAEXXZ
+    { 0x3A35C1DE, 0x4D4B50 }, // ?ClosestNeighboringCullRoom@mmPhysicsMGR@@IAEHH@Z
+    { 0x8AD4033A, 0x5243F0 }, // ?CloseWidgets@asNode@@UAEXXZ
+    { 0xC23480C6, 0x561050 }, // ?cmpProblem@@YAHPBX0@Z
+    { 0x9060BF7D, 0x500690 }, // ?cmpPtx@@YAHPBX0@Z
+    { 0xF0E31F69, 0x512080 }, // ?cmpTex@@YAHPBX0@Z
+    { 0xF0C959E2, 0x51DB70 }, // ?Collide@mmBoundTemplate@@QAEHPAV1@AAVMatrix34@@11PAVmmEdgeBodyIsect@@HHPAVasInertialCS@@3PAVVector3@@4@Z
+    { 0xB45222F9, 0x51E4F0 }, // ?Collide@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
+    { 0xCE4C648D, 0x51E550 }, // ?Collide@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0x196B23DA, 0x4D6460 }, // ?Collide@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z
+    { 0xB5284B9D, 0x4F85D0 }, // ?Collide@TrackCamCS@@AAEXVVector3@@@Z
+    { 0x339EB8A0, 0x40F9C0 }, // ?CollideAIOpponents@mmGame@@QAEXXZ
+    { 0xDC3DD80F, 0x4D5950 }, // ?CollideInstances@mmPhysicsMGR@@IAEHPAVmmInstance@@0HH@Z
+    { 0x866AB285, 0x4D6580 }, // ?CollideLOS@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z
+    { 0xE4093415, 0x4D62D0 }, // ?CollideProbe@mmPhysicsMGR@@IAEHFPAVmmIntersection@@H@Z
+    { 0x6247F6D7, 0x4D5DF0 }, // ?CollideTerrain@mmPhysicsMGR@@IAEXPAVmmInstance@@@Z
+    { 0x9E99A84F, 0x51E240 }, // ?CollideTerrains@mmBoundTemplate@@QAEHPAPAV1@AAVMatrix34@@PAVmmEdgeBodyIsect@@HH@Z
+    { 0x214F1113, 0x571D50 }, // ?CollideTri@@YAHABVVector3@@0000AAMAAV1@2@Z
+    { 0x8D7F944F, 0x460600 }, // ?Collision@aiGoalChase@@AAEHPAVmmCar@@@Z
+    { 0xE6EB255F, 0x49AA70 }, // ?ColorCB@VehicleSelectBase@@QAEXXZ
+    { 0x33039DB9, 0x57A4A0 }, // ?CommaFile@string@@QBEHXZ
+    { 0x4D52ACB8, 0x57C7B0 }, // ?Commentf@MiniParser@@QAAXPBDZZ
+    { 0x285B283D, 0x4E4ED0 }, // ?CompareComponent@mmIO@@QAEHH@Z
+    { 0xD3EB799E, 0x578AB0 }, // ?compareExchange@@YIHPAIH@Z
+    { 0x0D3FB401, 0x5175E0 }, // ?ComputeBounds@mmBoundTemplate@@QAEXXZ
+    { 0xF97CE533, 0x47CA60 }, // ?ComputeConstants@mmEngine@@QAEXXZ
+    { 0xC8C6D3A2, 0x47D950 }, // ?ComputeConstants@mmWheel@@QAEXXZ
+    { 0x6D0FD18F, 0x57CF50 }, // ?ComputeCpuSpeed@@YAIXZ
+    { 0xE236CF6B, 0x4D09E0 }, // ?ComputeCRC@mmPlayerData@@QAEIXZ
+    { 0xC04567B3, 0x4CFCE0 }, // ?ComputeCRC@mmPlayerRecord@@QAEIXZ
+    { 0xA4E67FD4, 0x4D1910 }, // ?ComputeCRC@mmRecord@@QAEIXZ
+    { 0x431D39E8, 0x44CDA0 }, // ?ComputeCurve@aiPedestrian@@AAEXAAVVector3@@000@Z
+    { 0x5CF526F1, 0x47DBB0 }, // ?ComputeDwtdw@mmWheel@@QAEMMPAM00@Z
+    { 0x8057D797, 0x5193A0 }, // ?ComputeEdgeNormals@mmBoundTemplate@@QAEXXZ
+    { 0x3A6491A8, 0x517680 }, // ?ComputeEdges@mmBoundTemplate@@QAEXXZ
+    { 0xB3D85786, 0x44D820 }, // ?ComputeLod@aiPedestrianInstance@@UAEHMM@Z
+    { 0xBCA7709B, 0x4C9C30 }, // ?ComputeLod@mmBangerInstance@@UAEHMM@Z
+    { 0xA980BEE9, 0x492A30 }, // ?ComputeLod@mmInstance@@UAEHMM@Z
+    { 0x944A5DE9, 0x4337A0 }, // ?ComputeLod@mmWaypointInstance@@UAEHMM@Z
+    { 0x6013ACE2, 0x572360 }, // ?ComputeMirrorMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z
+    { 0x0EFEF66F, 0x5148D0 }, // ?ComputePlaneEquations@agiMeshSet@@QAEXXZ
+    { 0x343B9C76, 0x578500 }, // ?ComputePrime@HashTable@@AAEHH@Z
+    { 0x65226EF2, 0x572430 }, // ?ComputeShadowMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z
+    { 0x65AFA221, 0x4599A0 }, // ?ComputeXZCurve@aiRailSet@@QAEXAAVVector3@@000@Z
+    { 0x8A46B552, 0x459A50 }, // ?ComputeXZCurve@aiRailSet@@QAEXAAVVector3@@000AAVVector4@@1@Z
+    { 0x146B1FA4, 0x4C6A90 }, // ?ComputeXZCurve@mmAnimTrain@@QAEXAAVVector3@@000AAVVector4@@11@Z
+    { 0x13B83292, 0x4C7C90 }, // ?ComputeXZCurve@mmBoat@@QAEXAAVVector3@@000@Z
+    { 0x010A73D5, 0x4C93D0 }, // ?ComputeYRadius@mmBangerData@@QAEXPAD@Z
+    { 0x3280C7C2, 0x445E20 }, // ?ConfigCar@aiVehiclePolice@@QAEXXZ
+    { 0x64908FF1, 0x46D080 }, // ?ConfigureDrivetrain@mmCarSim@@QAEXXZ
+    { 0xEEC7D85E, 0x55FBA0 }, // ?Contains@@YAHPAD0@Z
+    { 0x49A6D0FD, 0x579C60 }, // ?Contains@string@@QBEHAAV1@@Z
+    { 0x10FB4D28, 0x46A970 }, // ?Context@aiGoalAvoidPlayer@@UAEHXZ
+    { 0xE3D09998, 0x45F880 }, // ?Context@aiGoalBackup@@UAEHXZ
+    { 0x58B4410A, 0x460080 }, // ?Context@aiGoalChase@@UAEHXZ
+    { 0xFA3E7A2B, 0x46B3D0 }, // ?Context@aiGoalCollision@@UAEHXZ
+    { 0xC0B97A6D, 0x4668C0 }, // ?Context@aiGoalFollowWayPts@@UAEHXZ
+    { 0x8D71E5D1, 0x45D440 }, // ?Context@aiGoalRandomDrive@@UAEHXZ
+    { 0xE9DE1FBB, 0x46B240 }, // ?Context@aiGoalRegainRail@@UAEHXZ
+    { 0x922C09D5, 0x45F7D0 }, // ?Context@aiGoalStop@@UAEHXZ
+    { 0xF58C03C6, 0x43F9D0 }, // ?ContinuityError@aiPath@@QAEHH@Z
+    { 0x9C4847F0, 0x49E2F0 }, // ?ControlPedSlider@Dialog_RaceEnvironment@@QAEXXZ
+    { 0xC7C06AD3, 0x4A3530 }, // ?ControlSelect@ControlSetup@@QAEXXZ
+    { 0xB2088E83, 0x4AA380 }, // ?ControlSelect@PUControl@@QAEXXZ
+    { 0xBA6EA624, 0x4E5260 }, // ?ConvertDItoString@@YAHHPADH@Z
+    { 0x31E9DE1B, 0x4F0340 }, // ?ConvertTo8Bit@DSGlobal@@QAEXH@Z
+    { 0xBBA6489A, 0x4F15F0 }, // ?ConvertTo8Bit@SoundObj@@QAEXXZ
+    { 0x35F66FC5, 0x531520 }, // ?CopyBitmap@agiD3DPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
+    { 0x414A1B49, 0x533070 }, // ?CopyBitmap@agiDDPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
+    { 0x91D6BEAC, 0x555D40 }, // ?CopyBitmap@agiPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
+    { 0x5719CF41, 0x5344C0 }, // ?CopyBitmap@agiSWPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
+    { 0x7D19C9B5, 0x555D50 }, // ?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHH@Z
+    { 0x442CAFB8, 0x555D90 }, // ?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHHHHHH@Z
+    { 0x5975CEDF, 0x55B180 }, // ?CopyFrom@agiSurfaceDesc@@QAEXPAV1@H@Z
+    { 0x9B4EFB51, 0x55B8E0 }, // ?copyrow4444_to_5551@@YAXPAX0II@Z
+    { 0x7CEB78F4, 0x55B7E0 }, // ?copyrow4444_to_555@@YAXPAX0II@Z
+    { 0x12BB49CB, 0x55B860 }, // ?copyrow4444_to_565@@YAXPAX0II@Z
+    { 0xE85E41AA, 0x55B6C0 }, // ?copyrow4444_to_8888@@YAXPAX0II@Z
+    { 0x7CBE2361, 0x55B750 }, // ?copyrow4444_to_8888rev@@YAXPAX0II@Z
+    { 0x5486A6E6, 0x55B560 }, // ?copyrow565_to_5551@@YAXPAX0II@Z
+    { 0xAEA028A7, 0x55B510 }, // ?copyrow565_to_555@@YAXPAX0II@Z
+    { 0xCFC40D8E, 0x55B5C0 }, // ?copyrow565_to_888@@YAXPAX0II@Z
+    { 0x31E333EB, 0x55B640 }, // ?copyrow565_to_888rev@@YAXPAX0II@Z
+    { 0xB69AC6E7, 0x4706C0 }, // ?CopyTrans@mmTransmission@@QAEXXZ
+    { 0xC54F3F0F, 0x47F5F0 }, // ?CopyVars@mmWheel@@QAEXPAV1@@Z
+    { 0x965EF100, 0x51CDB0 }, // ?CornersHeight@mmPolygon@@AAEMMMMM@Z
+    { 0xCCD697C2, 0x564BB0 }, // ?Cos@Vector3@@QBEMABV1@@Z
+    { 0x638F472F, 0x57C400 }, // ?cpuid@@YAHXZ
+    { 0x144FA917, 0x495A30 }, // ?Create@asPortalPVS@@SAPAU1@HZZ
+    { 0x7DA64169, 0x4EEC60 }, // ?Create@DupBuffCreator@@QAEPAUIDirectSoundBuffer@@PADPAFPAH@Z
+    { 0x2A0B76EC, 0x561840 }, // ?Create@FileStream@@QAEHPAD@Z
+    { 0x67F2624F, 0x439800 }, // ?CreateAmbAppRoadMap@aiMap@@AAEXXZ
+    { 0xEC02E0C9, 0x5314C0 }, // ?CreateBitmap@agiD3DPipeline@@UAEPAVagiBitmap@@XZ
+    { 0x663C0F9D, 0x533010 }, // ?CreateBitmap@agiDDPipeline@@UAEPAVagiBitmap@@XZ
+    { 0x80B041BE, 0x555D30 }, // ?CreateBitmap@agiPipeline@@UAEPAVagiBitmap@@XZ
+    { 0x0A5AA42C, 0x534450 }, // ?CreateBitmap@agiSWPipeline@@UAEPAVagiBitmap@@XZ
+    { 0x5C13E8AD, 0x4A2EF0 }, // ?CreateDeviceOptions@ControlSetup@@QAEXXZ
+    { 0x70928B89, 0x531790 }, // ?CreateDLP@agiD3DRPipeline@@UAEPAVDLP@@XZ
+    { 0x3F0B5683, 0x5340E0 }, // ?CreateDLP@agiSWPipeline@@UAEPAVDLP@@XZ
+    { 0xB1C6B47C, 0x4AB210 }, // ?CreateDummyBitmap@PUMenuBase@@QAEPAVagiBitmap@@XZ
+    { 0xC84F57F2, 0x4B64F0 }, // ?CreateDummyBitmap@UIBMButton@@QAEPAVagiBitmap@@XZ
+    { 0x9D526AEA, 0x4B45C0 }, // ?CreateDummyBitmap@UIBMLabel@@QAEPAVagiBitmap@@XZ
+    { 0x9A25191D, 0x4B9A10 }, // ?CreateDummyBitmap@UIIcon@@QAEPAVagiBitmap@@XZ
+    { 0xEEA49863, 0x4FF0C0 }, // ?CreateFitBitmap@mmText@@SAPAVagiBitmap@@PADPAXHH@Z
+    { 0x06383299, 0x4FEF30 }, // ?CreateFont@mmText@@SAPAXPADH@Z
+    { 0x5DA51A90, 0x489470 }, // ?CreateInterface@asNetwork@@QAEHXZ
+    { 0x5B01D545, 0x5313A0 }, // ?CreateLight@agiD3DPipeline@@UAEPAVagiLight@@XZ
+    { 0x7AAE8BAE, 0x531910 }, // ?CreateLight@agiD3DRPipeline@@UAEPAVagiLight@@XZ
+    { 0x50679F44, 0x555B20 }, // ?CreateLight@agiPipeline@@UAEPAVagiLight@@XZ
+    { 0x2F81D3C1, 0x534140 }, // ?CreateLight@agiSWPipeline@@UAEPAVagiLight@@XZ
+    { 0xFB7A31B0, 0x5318B0 }, // ?CreateLightModel@agiD3DRPipeline@@UAEPAVagiLightModel@@XZ
+    { 0xC26CD503, 0x555B30 }, // ?CreateLightModel@agiPipeline@@UAEPAVagiLightModel@@XZ
+    { 0x72F0B64E, 0x534320 }, // ?CreateLightModel@agiSWPipeline@@UAEPAVagiLightModel@@XZ
+    { 0x230FD82C, 0x4F3370 }, // ?CreateListenerEAXObj@SoundObj@@QAEGXZ
+    { 0xAA9AC583, 0x4E9820 }, // ?CreateListenerSoundObj@AudManager@@AAEIXZ
+    { 0x73E6ABDA, 0x4FEE60 }, // ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
+    { 0x76AE1167, 0x531250 }, // ?CreateMtlDef@agiD3DPipeline@@UAEPAVagiMtlDef@@XZ
+    { 0x40A35AC6, 0x555B10 }, // ?CreateMtlDef@agiPipeline@@UAEPAVagiMtlDef@@XZ
+    { 0x556A10C7, 0x534440 }, // ?CreateMtlDef@agiSWPipeline@@UAEPAVagiMtlDef@@XZ
+    { 0x3E3CC49A, 0x5602A0 }, // ?CreateOn@HierFileSystem@@UAEPAVStream@@PADPAXH@Z
+    { 0xDC52D03F, 0x560B80 }, // ?CreateOn@VirtualFileSystem@@UAEPAVStream@@PADPAXH@Z
+    { 0x71F3BDD6, 0x439D80 }, // ?CreatePedAppRoadMap@aiMap@@AAEXXZ
+    { 0x542C359C, 0x4010B0 }, // ?CreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
+    { 0x10A6A4E1, 0x555F80 }, // ?CreatePipelineAttachableWindow@@YAPAXPADHHHHPAX@Z
+    { 0x593C0A5A, 0x4899A0 }, // ?CreatePlayer@asNetwork@@QAEHPADPAXH@Z
+    { 0xC8B4FDAD, 0x40D540 }, // ?CreatePlayer@mmInterface@@AAEHH@Z
+    { 0xDF98DABE, 0x4CF210 }, // ?CreatePlayer@mmPlayerDirectory@@AAEXPAD0@Z
+    { 0xAFC570BA, 0x447920 }, // ?CreateRoadMap@aiIntersection@@QAEXXZ
+    { 0xBE8505D7, 0x4F3410 }, // ?CreateSecondaryEAXObj@SoundObj@@QAEGXZ
+    { 0x147C000C, 0x48A080 }, // ?CreateSession@asNetwork@@QAEHPAD0HPAUNETSESSION_DESC@@@Z
+    { 0x76C73611, 0x40DC40 }, // ?CreateSession@mmInterface@@AAEHXZ
+    { 0xE1CFA446, 0x5312B0 }, // ?CreateTexDef@agiD3DPipeline@@UAEPAVagiTexDef@@XZ
+    { 0x7ED81927, 0x534380 }, // ?CreateTexDef@agiSWPipeline@@UAEPAVagiTexDef@@XZ
+    { 0x5745FD68, 0x531310 }, // ?CreateTexLut@agiD3DPipeline@@UAEPAVagiTexLut@@XZ
+    { 0x29B757F6, 0x5343E0 }, // ?CreateTexLut@agiSWPipeline@@UAEPAVagiTexLut@@XZ
+    { 0xF8CC570C, 0x4AB620 }, // ?CreateTitle@OptionsBase@@QAEXPAULocString@@@Z
+    { 0x0405D0F0, 0x4AB270 }, // ?CreateTitle@PUMenuBase@@QAEMXZ
+    { 0x798B9075, 0x5311F0 }, // ?CreateViewport@agiD3DPipeline@@UAEPAVagiViewport@@XZ
+    { 0x34C74E7B, 0x531730 }, // ?CreateViewport@agiD3DRPipeline@@UAEPAVagiViewport@@XZ
+    { 0xF3F3FF80, 0x534290 }, // ?CreateViewport@agiSWPipeline@@UAEPAVagiViewport@@XZ
+    { 0x062DAB4F, 0x5724F0 }, // ?Cross@Vector3@@QAEXABV1@0@Z
+    { 0x9D2A4784, 0x4DECD0 }, // ?CrossProdMatrix@@YAXPAVMatrix34@@ABVVector3@@@Z
+    { 0x43616609, 0x55C0F0 }, // ?Cube@agiPalette@@QAEXXZ
+    { 0x380C188F, 0x4A6100 }, // ?Cull@AboutMenu@@UAEXXZ
+    { 0x8F036026, 0x504090 }, // ?Cull@agiTexSorter@@QAEXH@Z
+    { 0x26799432, 0x436680 }, // ?Cull@aiMap@@UAEXXZ
+    { 0xAA6A97E5, 0x5258C0 }, // ?Cull@asCullable@@UAEXXZ
+    { 0x0414FABB, 0x528520 }, // ?Cull@asForm@@UAEXXZ
+    { 0xAEA0FE82, 0x526290 }, // ?Cull@asLamp@@UAEXXZ
+    { 0xCAD3E463, 0x525C00 }, // ?Cull@asLinearCS@@UAEXXZ
+    { 0x70C5AFD0, 0x4FFF60 }, // ?Cull@asMeshSetForm@@UAEXXZ
+    { 0x27ECD78D, 0x526ED0 }, // ?Cull@asMidgets@@UAEXXZ
+    { 0xE43B36F3, 0x5006B0 }, // ?Cull@asParticles@@UAEXXZ
+    { 0xF6B6D2A2, 0x52AB30 }, // ?Cull@asPerfGraph@@QAEXXZ
+    { 0x4F5F08AD, 0x496FE0 }, // ?Cull@asPortalWeb@@QAEXH@Z
+    { 0x75B393DE, 0x490FF0 }, // ?Cull@asRenderWeb@@UAEXXZ
+    { 0x33EEEB0F, 0x522C20 }, // ?Cull@asSimulation@@UAEXXZ
+    { 0xAFEC79B5, 0x4FE330 }, // ?Cull@Card2D@@EAEXXZ
+    { 0x3C584EFB, 0x55E490 }, // ?Cull@DLP@@UAEXH@Z
+    { 0xB104C7CE, 0x4C1860 }, // ?Cull@mmBridgeMgr@@UAEXXZ
+    { 0x7A0AE33F, 0x4C2730 }, // ?Cull@mmBridgeSet@@UAEXXZ
+    { 0xC475444E, 0x423210 }, // ?Cull@mmCDPlayer@@UAEXXZ
+    { 0x8C3D0A4A, 0x498FA0 }, // ?Cull@mmCellRenderer@@UAEXH@Z
+    { 0x7098EFF6, 0x4B7770 }, // ?Cull@mmCompCRPlayer@@UAEXXZ
+    { 0x738F7D66, 0x4B5FC0 }, // ?Cull@mmCompDRecord@@UAEXXZ
+    { 0xF2B8A262, 0x4B4D80 }, // ?Cull@mmCompRaceRecord@@UAEXXZ
+    { 0x6491B3DF, 0x4B7C10 }, // ?Cull@mmCompRoster@@UAEXXZ
+    { 0x37821837, 0x48D820 }, // ?Cull@mmCullCity@@UAEXXZ
+    { 0xF4B6709B, 0x421F00 }, // ?Cull@mmDashView@@UAEXXZ
+    { 0x22580422, 0x422340 }, // ?Cull@mmExternalView@@UAEXXZ
+    { 0x036B5249, 0x404750 }, // ?Cull@mmGameManager@@UAEXXZ
+    { 0x6C5FBDFA, 0x405D30 }, // ?Cull@mmHUD@@UAEXXZ
+    { 0xC9C2A66D, 0x428E50 }, // ?Cull@mmHudMap@@UAEXXZ
+    { 0xD94C3515, 0x426570 }, // ?Cull@mmIcons@@UAEXXZ
+    { 0x56723F39, 0x48BA70 }, // ?Cull@mmLoader@@UAEXXZ
+    { 0xEE5CCCB2, 0x502A30 }, // ?Cull@mmMouseSteerBar@@UAEXXZ
+    { 0x74772920, 0x4FEB90 }, // ?Cull@mmNumber@@UAEXXZ
+    { 0xCB64791A, 0x4D5390 }, // ?Cull@mmPhysicsMGR@@UAEXXZ
+    { 0x6AC56D52, 0x403D10 }, // ?Cull@mmScreenClearFlunky@@UAEXXZ
+    { 0xC72DE7D9, 0x4BED40 }, // ?Cull@mmSlider@@UAEXXZ
+    { 0x86033D1A, 0x4FFD90 }, // ?Cull@mmTextNode@@UAEXXZ
+    { 0xD5165495, 0x4C00E0 }, // ?Cull@mmToggle2@@UAEXXZ
+    { 0xC95965AE, 0x4C05B0 }, // ?Cull@mmToggle@@UAEXXZ
+    { 0x38CC2A34, 0x5027A0 }, // ?Cull@mmVehicleForm@@UAEXXZ
+    { 0x6E15857D, 0x42E910 }, // ?Cull@mmWaypoints@@UAEXXZ
+    { 0x1985BE76, 0x424770 }, // ?Cull@mmWPHUD@@UAEXXZ
+    { 0x0B64978D, 0x4AB430 }, // ?Cull@PUMenuBase@@UAEXXZ
+    { 0x9A7D0006, 0x423A40 }, // ?Cull@RadialGauge@@UAEXXZ
+    { 0x867013E1, 0x4BDD30 }, // ?Cull@sfPointer@@UAEXXZ
+    { 0x51CC700A, 0x4B6D20 }, // ?Cull@UIBMButton@@UAEXXZ
+    { 0x40B66329, 0x4B4640 }, // ?Cull@UIBMLabel@@UAEXXZ
+    { 0xFD19C6DE, 0x4B9AF0 }, // ?Cull@UIIcon@@UAEXXZ
+    { 0xB563BE79, 0x4B3920 }, // ?Cull@UITextDropdown@@UAEXXZ
+    { 0x58CDD1B2, 0x4BB980 }, // ?Cull@UITextRoller2@@UAEXXZ
+    { 0x392A3117, 0x4BAAD0 }, // ?Cull@UITextRoller@@UAEXXZ
+    { 0x7E3F8440, 0x4BD5B0 }, // ?Cull@UIVScrollBar@@UAEXXZ
+    { 0x2264C8A5, 0x4BFBB0 }, // ?Cull@VSWidget@@UAEXXZ
+    { 0x0B0EB3AC, 0x52CFD0 }, // ?Current@asBenchStats@@QAEXPAV1@@Z
+    { 0x9C851A66, 0x4B1480 }, // ?CurrentMenuSelected@MenuManager@@QAEHXZ
+    { 0xABAFECAE, 0x49BBD0 }, // ?CurrentVehicleIsLocked@VehicleSelectBase@@QAEHXZ
+    { 0xDB1B6EB1, 0x428B90 }, // ?Cycle@mmHudMap@@QAEXXZ
+    { 0x6AAAA034, 0x42F130 }, // ?CycleCurrentWaypoint@mmWaypoints@@QAEXH@Z
+    { 0x803C081E, 0x41F570 }, // ?CycleInterest@mmMultiCR@@AAEXH@Z
+    { 0xAFEBF152, 0x52E5C0 }, // ?d3d_state_init@@YAXXZ
+    { 0x39F0EA51, 0x52DFC0 }, // ?d3dCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
+    { 0x5388D46B, 0x47AAD0 }, // ?DamageSiren@mmPoliceCarAudio@@QAEXXZ
+    { 0x34F803D0, 0x4FCC60 }, // ?DApproach@AppCamCS@@AAEHAAMMMM0M@Z
+    { 0x8719D1AF, 0x473080 }, // ?DashActivated@mmCarModel@@QAEXXZ
+    { 0x83A7CAFB, 0x473090 }, // ?DashDeactivated@mmCarModel@@QAEXXZ
+    { 0x69BB3166, 0x534E30 }, // ?ddAttach@@YAXHH@Z
+    { 0x2CE4534C, 0x5328D0 }, // ?DDCallback@@YGHPAU_GUID@@PAD1PAX@Z
+    { 0x83A25639, 0x534FA0 }, // ?ddEnd@@YAXXZ
+    { 0x9444FAC6, 0x535070 }, // ?ddEndFrame@@YAXXZ
+    { 0xC389EBC7, 0x535030 }, // ?ddEndScene@@YAXXZ
+    { 0x06896BD8, 0x532090 }, // ?DDErrorToString@@YAPADJ@Z
+    { 0xFD1AC3CA, 0x4FEE30 }, // ?ddGDIFlip@@YAXXZ
+    { 0x8242568D, 0x534EA0 }, // ?ddStart@@YAXXZ
+    { 0x277C0389, 0x534FC0 }, // ?ddStartFrame@@YAXXZ
+    { 0xF923B7DA, 0x534FD0 }, // ?ddStartScene@@YAXXZ
+    { 0x337722C0, 0x5214C0 }, // ?Deactivate@asSafeHeap@@IAEXXZ
+    { 0x92838EBC, 0x4C5340 }, // ?Deactivate@mmAnimPlane@@QAEXXZ
+    { 0xFF17287A, 0x4730B0 }, // ?Deactivate@mmCarModel@@QAEXXZ
+    { 0xC855DBB9, 0x421DA0 }, // ?Deactivate@mmDashView@@QAEXXZ
+    { 0x79000F67, 0x428840 }, // ?Deactivate@mmHudMap@@QAEXXZ
+    { 0x6794FCD3, 0x4328A0 }, // ?Deactivate@mmNetObject@@QAEXXZ
+    { 0xBEE0281F, 0x479BC0 }, // ?Deactivate@mmTrailer@@QAEXXZ
+    { 0x454CA916, 0x430550 }, // ?Deactivate@mmWaypointObject@@QAEXXZ
+    { 0x7FE5D831, 0x4A31B0 }, // ?DeactivateAllDeviceOptions@ControlSetup@@QAEXXZ
+    { 0x1C8C0D39, 0x4EA000 }, // ?DeactivateApplication@@YAXXZ
+    { 0xB9720852, 0x483E10 }, // ?DeactivateAudio@mmNetworkCarAudio@@QAEXXZ
+    { 0xA4FA195F, 0x405830 }, // ?DeactivateDash@mmHUD@@QAEXXZ
+    { 0xECC22D31, 0x42ED30 }, // ?DeactivateFinish@mmWaypoints@@QAEXXZ
+    { 0xE0623629, 0x4260A0 }, // ?DeactivateGold@mmCRHUD@@QAEXXZ
+    { 0xF8406DDA, 0x405FB0 }, // ?DeactivateGold@mmHUD@@QAEXXZ
+    { 0xD962AD68, 0x432000 }, // ?DeactivateMapNetObject@mmGameMulti@@QAEXH@Z
+    { 0xF82F6EE9, 0x426100 }, // ?DeactivateRosterGold@mmCRHUD@@QAEXXZ
+    { 0x67E8D3B6, 0x489430 }, // ?Deallocate@asNetwork@@QAEXXZ
+    { 0x2A106663, 0x4E82A0 }, // ?DeallocateADFRecord@AudManager@@QAEXH@Z
+    { 0xC1C5439B, 0x4EF370 }, // ?DeallocateADFRecord@DSGlobal@@QAEXH@Z
+    { 0xE4B2FCDB, 0x4E8A80 }, // ?DeallocateCityADF@AudManager@@QAEXXZ
+    { 0x2AD8CF2D, 0x4EF340 }, // ?DeallocateCityADF@DSGlobal@@QAEXXZ
+    { 0x4DFC6F9A, 0x4E8A90 }, // ?DeallocateDSound@AudManager@@QAEXFF@Z
+    { 0x47E78892, 0x4F0CA0 }, // ?DeallocateEffects@SoundObj@@QAEXXZ
+    { 0x647DC817, 0x562E60 }, // ?DeallocateEventQueue@@YAXXZ
+    { 0xF8CB326F, 0x4EA690 }, // ?DeallocateSoundObjs@AudSound@@QAEXXZ
+    { 0x2996C8CC, 0x4F3800 }, // ?DeallocateStreamObjs@AudStream@@QAEXXZ
+    { 0x5B4A563A, 0x4E8A70 }, // ?DeallocateUIADF@AudManager@@QAEXXZ
+    { 0xCA4EDF5B, 0x4EF2E0 }, // ?DeallocateUIADF@DSGlobal@@QAEXXZ
+    { 0x7B94A5E6, 0x55EEA0 }, // ?Debug@Stream@@QAEXXZ
+    { 0x2A56AC82, 0x576CB0 }, // ?Debugf@@YAXPBDZZ
+    { 0xE0D4FDE9, 0x4B8740 }, // ?DebugForceSetting@UICWArray@@QAEXXZ
+    { 0x6C27BC86, 0x520720 }, // ?DebugLog@@YAXHPAXH@Z
+    { 0xBFA4AB4B, 0x5206C0 }, // ?DebugLogInit@@YAXH@Z
+    { 0x511DC726, 0x520700 }, // ?DebugLogShutdown@@YAXXZ
+    { 0xFF9F6356, 0x4BEC10 }, // ?Dec@mmSlider@@QAEMXZ
+    { 0xE563CB8E, 0x4BE390 }, // ?Dec@TextDropWidget@@QAEHXZ
+    { 0xFDD8DB6A, 0x4BB950 }, // ?Dec@UITextRoller2@@QAEHXZ
+    { 0x6E188D37, 0x4BAAB0 }, // ?Dec@UITextRoller@@QAEHXZ
+    { 0x1C11E80D, 0x4BD150 }, // ?Dec@UIVScrollBar@@QAEMXZ
+    { 0xD0DE4F66, 0x4BF770 }, // ?Dec@VSWidget@@QAEMXZ
+    { 0xFE13DC83, 0x49C500 }, // ?DecCar@VehicleSelectBase@@QAEXXZ
+    { 0x7600A3EF, 0x49A9B0 }, // ?DecColor@VehicleSelectBase@@QAEXXZ
+    { 0xAB0E7FB5, 0x4BE3D0 }, // ?DecDrop@TextDropWidget@@QAEHXZ
+    { 0x19925277, 0x5255F0 }, // ?DeclareBitmap@asCullManager@@QAEXPAVasCullable@@PAVagiBitmap@@@Z
+    { 0x0DC7E189, 0x4D5320 }, // ?DeclareBound@mmPhysicsMGR@@IAEXPAVmmBoundTemplate@@@Z
+    { 0x64E5D583, 0x525440 }, // ?DeclareCamera@asCullManager@@UAEXPAVasCamera@@@Z
+    { 0xB19DA752, 0x525550 }, // ?DeclareCullable2D@asCullManager@@UAEXPAVasCullable@@@Z
+    { 0xB7968C5A, 0x5254A0 }, // ?DeclareCullable@asCullManager@@UAEXPAVasCullable@@@Z
+    { 0xB7BE011A, 0x4FA950 }, // ?DeclareFields@AICamCS@@SAXXZ
+    { 0x581C3873, 0x46A140 }, // ?DeclareFields@aiGoalFollowWayPts@@SAXXZ
+    { 0x262601B4, 0x43BC20 }, // ?DeclareFields@aiMap@@SAXXZ
+    { 0x9ECF6DD4, 0x4536C0 }, // ?DeclareFields@aiVehicleData@@SAXXZ
+    { 0xBCB1127D, 0x453610 }, // ?DeclareFields@aiVehicleInstance@@SAXXZ
+    { 0x26488744, 0x44E4E0 }, // ?DeclareFields@aiVehicleOpponent@@SAXXZ
+    { 0xD58290EB, 0x45C250 }, // ?DeclareFields@aiVehicleSpline@@SAXXZ
+    { 0xA98C2ADF, 0x4FD0D0 }, // ?DeclareFields@AppCamCS@@SAXXZ
+    { 0x3EEA4003, 0x4E0490 }, // ?DeclareFields@asAero@@SAXXZ
+    { 0xCE248B25, 0x5012A0 }, // ?DeclareFields@asBirthRule@@SAXXZ
+    { 0x7B452611, 0x52A6A0 }, // ?DeclareFields@asCamera@@SAXXZ
+    { 0x98500E71, 0x5258E0 }, // ?DeclareFields@asCullable@@SAXXZ
+    { 0xE96A9178, 0x5256D0 }, // ?DeclareFields@asCullManager@@SAXXZ
+    { 0xA14172E3, 0x52B9F0 }, // ?DeclareFields@asDofCS@@SAXXZ
+    { 0x2DB9F8B4, 0x5289D0 }, // ?DeclareFields@asForm@@SAXXZ
+    { 0x4AD4C3B3, 0x4DB970 }, // ?DeclareFields@asInertialCS@@SAXXZ
+    { 0x7C670ED7, 0x526680 }, // ?DeclareFields@asLamp@@SAXXZ
+    { 0x1CA4E79A, 0x525E20 }, // ?DeclareFields@asLinearCS@@SAXXZ
+    { 0x53263724, 0x524410 }, // ?DeclareFields@asNode@@SAXXZ
+    { 0xC815527F, 0x4DEEE0 }, // ?DeclareFields@asOverSample@@SAXXZ
+    { 0x37B4386B, 0x500830 }, // ?DeclareFields@asParticles@@SAXXZ
+    { 0xB0094F58, 0x4976D0 }, // ?DeclareFields@asPortalWeb@@SAXXZ
+    { 0xD46E5601, 0x491710 }, // ?DeclareFields@asRenderWeb@@SAXXZ
+    { 0x0BDAE5B3, 0x523530 }, // ?DeclareFields@asSimulation@@SAXXZ
+    { 0xEB427DBB, 0x52CC70 }, // ?DeclareFields@asViewCS@@SAXXZ
+    { 0x347D0786, 0x4EA070 }, // ?DeclareFields@AudManager@@SAXXZ
+    { 0x272FF997, 0x5791F0 }, // ?DeclareFields@Base@@SAXXZ
+    { 0x4747EB79, 0x4FC0E0 }, // ?DeclareFields@BaseCamCS@@SAXXZ
+    { 0xF815A7CF, 0x4FB290 }, // ?DeclareFields@CarCamCS@@SAXXZ
+    { 0xE0C8FE48, 0x486DF0 }, // ?DeclareFields@EngineAudio@@SAXXZ
+    { 0xF3504237, 0x485A60 }, // ?DeclareFields@EngineAudioOpponent@@SAXXZ
+    { 0x2611AAAA, 0x4DE9B0 }, // ?DeclareFields@Joint3Dof@@SAXXZ
+    { 0xC9880AD7, 0x56D760 }, // ?DeclareFields@Matrix34@@SAXXZ
+    { 0xC404B8D4, 0x4C4BF0 }, // ?DeclareFields@mmAnimDOF@@SAXXZ
+    { 0xED07B5D9, 0x4C1440 }, // ?DeclareFields@mmAnimMgr@@SAXXZ
+    { 0xFCF5DC53, 0x47D5B0 }, // ?DeclareFields@mmAxle@@SAXXZ
+    { 0x57D95CFB, 0x4C9540 }, // ?DeclareFields@mmBangerData@@SAXXZ
+    { 0x1791FDD1, 0x4C98D0 }, // ?DeclareFields@mmBangerDataManager@@SAXXZ
+    { 0xAB811BF5, 0x4C7E50 }, // ?DeclareFields@mmBoat@@SAXXZ
+    { 0x77BDBBDB, 0x4C3070 }, // ?DeclareFields@mmBridgeMgr@@SAXXZ
+    { 0xCE20F4CC, 0x4C29A0 }, // ?DeclareFields@mmBridgeSet@@SAXXZ
+    { 0x47750A03, 0x494EA0 }, // ?DeclareFields@mmBuildingInstance@@SAXXZ
+    { 0xEF0847E5, 0x474640 }, // ?DeclareFields@mmCar@@SAXXZ
+    { 0x7C5F930A, 0x473100 }, // ?DeclareFields@mmCarModel@@SAXXZ
+    { 0x9D5413A5, 0x481920 }, // ?DeclareFields@mmCarRoadFF@@SAXXZ
+    { 0x5E99A00A, 0x46FBC0 }, // ?DeclareFields@mmCarSim@@SAXXZ
+    { 0x3217E107, 0x48F8C0 }, // ?DeclareFields@mmCullCity@@SAXXZ
+    { 0x8476F13F, 0x422BD0 }, // ?DeclareFields@mmDashView@@SAXXZ
+    { 0xBDFB6696, 0x480460 }, // ?DeclareFields@mmDrivetrain@@SAXXZ
+    { 0x9FE59224, 0x4C0F30 }, // ?DeclareFields@mmDropDown@@SAXXZ
+    { 0x8542D36C, 0x47CFC0 }, // ?DeclareFields@mmEngine@@SAXXZ
+    { 0xCC4A5DB9, 0x4951D0 }, // ?DeclareFields@mmFacadeInstance@@SAXXZ
+    { 0xD54B85F3, 0x480E20 }, // ?DeclareFields@mmForce@@SAXXZ
+    { 0x0A857345, 0x411F20 }, // ?DeclareFields@mmGame@@SAXXZ
+    { 0x0ED76999, 0x412B80 }, // ?DeclareFields@mmGameEdit@@SAXXZ
+    { 0xE2033284, 0x4049C0 }, // ?DeclareFields@mmGameManager@@SAXXZ
+    { 0xACCDDDE5, 0x432510 }, // ?DeclareFields@mmGameMulti@@SAXXZ
+    { 0xCDBE1F8A, 0x418B90 }, // ?DeclareFields@mmGameSingle@@SAXXZ
+    { 0x9531B3E0, 0x406760 }, // ?DeclareFields@mmHUD@@SAXXZ
+    { 0x9E6A3067, 0x429DC0 }, // ?DeclareFields@mmHudMap@@SAXXZ
+    { 0x1618FA8C, 0x4D1460 }, // ?DeclareFields@mmInfoBase@@SAXXZ
+    { 0xB164D8A7, 0x4E40E0 }, // ?DeclareFields@mmInput@@SAXXZ
+    { 0x618109E4, 0x494A10 }, // ?DeclareFields@mmInstance@@SAXXZ
+    { 0xEA06F6AD, 0x40E660 }, // ?DeclareFields@mmInterface@@SAXXZ
+    { 0x6F8E1EC4, 0x4E58A0 }, // ?DeclareFields@mmIODev@@SAXXZ
+    { 0x83DA217A, 0x4D3400 }, // ?DeclareFields@mmMapData@@SAXXZ
+    { 0x055DD5E4, 0x494B70 }, // ?DeclareFields@mmMatrixInstance@@SAXXZ
+    { 0x7AEBFB07, 0x4CD6E0 }, // ?DeclareFields@mmMiscData@@SAXXZ
+    { 0x8B8BB576, 0x41A550 }, // ?DeclareFields@mmMultiBlitz@@SAXXZ
+    { 0x5600C1ED, 0x41BC60 }, // ?DeclareFields@mmMultiCircuit@@SAXXZ
+    { 0xB582AE4C, 0x41F5E0 }, // ?DeclareFields@mmMultiCR@@SAXXZ
+    { 0xEE7E82CA, 0x421280 }, // ?DeclareFields@mmMultiRace@@SAXXZ
+    { 0x0FEB77D3, 0x4843A0 }, // ?DeclareFields@mmNetworkCarAudio@@SAXXZ
+    { 0xC336BAFC, 0x4FECB0 }, // ?DeclareFields@mmNumber@@SAXXZ
+    { 0x3308CF79, 0x47C0E0 }, // ?DeclareFields@mmOpponentCarAudio@@SAXXZ
+    { 0x35206EA1, 0x497A90 }, // ?DeclareFields@mmPed@@SAXXZ
+    { 0x4615A9CA, 0x497C20 }, // ?DeclareFields@mmPedManager@@SAXXZ
+    { 0x64ACB8E6, 0x4D8EF0 }, // ?DeclareFields@mmPhysicsMGR@@SAXXZ
+    { 0x51D548CE, 0x42CD40 }, // ?DeclareFields@mmPlayer@@SAXXZ
+    { 0xD24A59EE, 0x483080 }, // ?DeclareFields@mmPlayerCarAudio@@SAXXZ
+    { 0x02B22093, 0x4CE9E0 }, // ?DeclareFields@mmPlayerConfig@@SAXXZ
+    { 0x3652468C, 0x4D0F00 }, // ?DeclareFields@mmPlayerData@@SAXXZ
+    { 0xB8407FDA, 0x4CF9B0 }, // ?DeclareFields@mmPlayerDirectory@@SAXXZ
+    { 0x8744DEDB, 0x4CFE40 }, // ?DeclareFields@mmPlayerRecord@@SAXXZ
+    { 0xC28FD32F, 0x4D29A0 }, // ?DeclareFields@mmPropInfo@@SAXXZ
+    { 0xB63ED124, 0x4D1970 }, // ?DeclareFields@mmRecord@@SAXXZ
+    { 0xC8440E8E, 0x4D2D90 }, // ?DeclareFields@mmRoadSect@@SAXXZ
+    { 0x12C7C65D, 0x4D2B70 }, // ?DeclareFields@mmRoadSide@@SAXXZ
+    { 0xFF1879AC, 0x478E00 }, // ?DeclareFields@mmShard@@SAXXZ
+    { 0x61FB6461, 0x478F90 }, // ?DeclareFields@mmShardManager@@SAXXZ
+    { 0x709A1F40, 0x494D00 }, // ?DeclareFields@mmShearInstance@@SAXXZ
+    { 0xFB8304E2, 0x47D2A0 }, // ?DeclareFields@mmShock@@SAXXZ
+    { 0xF1E98151, 0x414740 }, // ?DeclareFields@mmSingleBlitz@@SAXXZ
+    { 0x2FAD8507, 0x416940 }, // ?DeclareFields@mmSingleCircuit@@SAXXZ
+    { 0xE4A12FFC, 0x478180 }, // ?DeclareFields@mmSkid@@SAXXZ
+    { 0xFA71E532, 0x478310 }, // ?DeclareFields@mmSkidManager@@SAXXZ
+    { 0xB5D7E618, 0x4BEF00 }, // ?DeclareFields@mmSlider@@SAXXZ
+    { 0xA74B66D9, 0x495040 }, // ?DeclareFields@mmStaticInstance@@SAXXZ
+    { 0x8AE384FC, 0x4C01A0 }, // ?DeclareFields@mmToggle2@@SAXXZ
+    { 0x2F6C0E4E, 0x4C0630 }, // ?DeclareFields@mmToggle@@SAXXZ
+    { 0x5C1968C2, 0x479F30 }, // ?DeclareFields@mmTrailer@@SAXXZ
+    { 0xEDC21122, 0x470A30 }, // ?DeclareFields@mmTransmission@@SAXXZ
+    { 0x2E2504AD, 0x4F9380 }, // ?DeclareFields@mmViewCS@@SAXXZ
+    { 0xAB2E02EB, 0x433BA0 }, // ?DeclareFields@mmWaypointInstance@@SAXXZ
+    { 0xE8AC13CE, 0x47FB00 }, // ?DeclareFields@mmWheel@@SAXXZ
+    { 0x23AC5712, 0x494AC0 }, // ?DeclareFields@mmYInstance@@SAXXZ
+    { 0x256C6A88, 0x4FA280 }, // ?DeclareFields@PointCamCS@@SAXXZ
+    { 0x3EBB5AB3, 0x4FB010 }, // ?DeclareFields@PolarCamCS@@SAXXZ
+    { 0x1C5EE668, 0x4F97C0 }, // ?DeclareFields@PostCamCS@@SAXXZ
+    { 0x5FCAF738, 0x4F6800 }, // ?DeclareFields@PovCamCS@@SAXXZ
+    { 0x7AD8858D, 0x4F9C10 }, // ?DeclareFields@PreCamCS@@SAXXZ
+    { 0x5BBBFB7D, 0x4BDDB0 }, // ?DeclareFields@sfPointer@@SAXXZ
+    { 0x430E93E7, 0x4FDB90 }, // ?DeclareFields@Spline@@SAXXZ
+    { 0xE2E6F1E4, 0x4BE4C0 }, // ?DeclareFields@TextDropWidget@@SAXXZ
+    { 0x27A24722, 0x4F8BE0 }, // ?DeclareFields@TrackCamCS@@SAXXZ
+    { 0xAD8ED612, 0x4B70F0 }, // ?DeclareFields@UIBMButton@@SAXXZ
+    { 0x90006803, 0x4B4680 }, // ?DeclareFields@UIBMLabel@@SAXXZ
+    { 0x06E9E9C8, 0x4BD730 }, // ?DeclareFields@UIVScrollBar@@SAXXZ
+    { 0x476ECC0B, 0x4809E0 }, // ?DeclareFields@VehGyro@@SAXXZ
+    { 0xA56D651C, 0x4BFD30 }, // ?DeclareFields@VSWidget@@SAXXZ
+    { 0xD9C96ABF, 0x4B0DC0 }, // ?DeclareLastDrawn@MenuManager@@QAEXPAVasNode@@@Z
+    { 0x8E0A1102, 0x551780 }, // ?DeclareLight@agiLighter@@SAXPAVagiLight@@@Z
+    { 0x72DBBEED, 0x4D4540 }, // ?DeclareMover@mmPhysicsMGR@@QAEXPAVmmInstance@@HH@Z
+    { 0x434108D7, 0x578000 }, // ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z
+    { 0x94A6F01D, 0x525660 }, // ?DeclarePrint@asCullManager@@QAEXPAVasCullable@@@Z
+    { 0x354C495F, 0x522B80 }, // ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
+    { 0x86DE7E44, 0x4A14E0 }, // ?DecodeCRData@CRSettings@@QAEXH@Z
+    { 0xDC1D803C, 0x4E6FB0 }, // ?DecodeDIErrorMFlag@@YAXJ@Z
+    { 0x8E4D6DF4, 0x4A5B10 }, // ?DecPlayer@DriverMenu@@QAEXXZ
+    { 0x1A2F7501, 0x4ACD90 }, // ?Decrement@UIMenu@@QAEHXZ
+    { 0x1C3CE2FA, 0x4CE800 }, // ?DefaultAudio@mmPlayerConfig@@QAEXXZ
+    { 0xE307B0AA, 0x4B8720 }, // ?DefaultCFG@UICWArray@@QAEXXZ
+    { 0xFAA523C6, 0x4CE910 }, // ?DefaultControls@mmPlayerConfig@@QAEXXZ
+    { 0xCC93623D, 0x4CE9C0 }, // ?DefaultGraphics@mmPlayerConfig@@QAEXXZ
+    { 0xF135F77B, 0x5769C0 }, // ?DefaultPrinter@@YAXHPBDPAD@Z
+    { 0xD1BC39CA, 0x4CE970 }, // ?DefaultViewSettings@mmPlayerConfig@@QAEXXZ
+    { 0x93FB88A6, 0x531580 }, // ?Defragment@agiD3DPipeline@@UAEXXZ
+    { 0x31584642, 0x556080 }, // ?Defragment@agiPipeline@@UAEXXZ
+    { 0x9726502E, 0x4EF400 }, // ?DeInit@DSGlobal@@QAEXFF@Z
+    { 0x0AF58608, 0x57B940 }, // ?Delete@ArrayOfType@@UAEXPAXH@Z
+    { 0x03D2EA15, 0x57BA70 }, // ?Delete@CharType@@UAEXPAXH@Z
+    { 0x9308B720, 0x5738D0 }, // ?Delete@FloatArray@@QAEXXZ
+    { 0x8E98BF8F, 0x57C120 }, // ?Delete@FloatType@@UAEXPAXH@Z
+    { 0xD1DF68CA, 0x5782B0 }, // ?Delete@HashTable@@QAEHPAD@Z
+    { 0xB4261622, 0x5735B0 }, // ?Delete@IntArray@@QAEXXZ
+    { 0x0618BD6F, 0x57C360 }, // ?Delete@List@@QAEHH@Z
+    { 0x70D55105, 0x57B5E0 }, // ?Delete@PtrToType@@UAEXPAXH@Z
+    { 0x0AEC686B, 0x57B7B0 }, // ?Delete@RefToType@@UAEXPAXH@Z
+    { 0x4468AE33, 0x57BB40 }, // ?Delete@SignedCharType@@UAEXPAXH@Z
+    { 0x5C1212B6, 0x57BF70 }, // ?Delete@SignedInt64Type@@UAEXPAXH@Z
+    { 0xFE5AA712, 0x57BE90 }, // ?Delete@SignedIntType@@UAEXPAXH@Z
+    { 0x4502C04C, 0x57BCE0 }, // ?Delete@SignedShortType@@UAEXPAXH@Z
+    { 0xC740FCF2, 0x57AED0 }, // ?Delete@StringArray@@QAEXXZ
+    { 0xC385F2AF, 0x57C260 }, // ?Delete@StringType@@UAEXPAXH@Z
+    { 0xF8FFB2E1, 0x57B9D0 }, // ?Delete@StructType@@UAEXPAXH@Z
+    { 0xA1FC066B, 0x57BC10 }, // ?Delete@UnsignedCharType@@UAEXPAXH@Z
+    { 0x5B570C55, 0x57C040 }, // ?Delete@UnsignedIntType@@UAEXPAXH@Z
+    { 0x1940C975, 0x57BDC0 }, // ?Delete@UnsignedShortType@@UAEXPAXH@Z
+    { 0xC46B5ACD, 0x571330 }, // ?Delete@Vector2Array@@QAEXXZ
+    { 0x0D718299, 0x571700 }, // ?Delete@Vector2Type@@UAEXPAXH@Z
+    { 0x7FBDDFB1, 0x566EF0 }, // ?Delete@Vector3Array@@QAEXXZ
+    { 0x11CDFB45, 0x5673F0 }, // ?Delete@Vector3Type@@UAEXPAXH@Z
+    { 0xB34687DF, 0x56E0B0 }, // ?Delete@Vector4Array@@QAEXXZ
+    { 0x12770A37, 0x56E4D0 }, // ?Delete@Vector4Type@@UAEXPAXH@Z
+    { 0x45CEB610, 0x4A5CA0 }, // ?DeleteCB@DriverMenu@@QAEXXZ
+    { 0xAD9283B5, 0x495830 }, // ?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z
+    { 0x0E5F5FA3, 0x4959A0 }, // ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z
+    { 0x51E050A8, 0x4FEF60 }, // ?DeleteFont@mmText@@SAXPAX@Z
+    { 0x1F7B9422, 0x4B16D0 }, // ?DeleteMenu@MenuManager@@QAEXPAVUIMenu@@@Z
+    { 0x8C15AE5A, 0x563470 }, // ?Destroy@eqEventMonitor@@UAEXPAX@Z
+    { 0x944646C2, 0x563C80 }, // ?Destroy@eqEventQ@@UAEXPAX@Z
+    { 0x79AFBE7C, 0x555F90 }, // ?DestroyPipelineAttachableWindow@@YAXXZ
+    { 0x4163B1A1, 0x489A60 }, // ?DestroyPlayer@asNetwork@@QAEXXZ
+    { 0x8AF2D139, 0x452710 }, // ?Detach@aiVehicleActive@@QAEXXZ
+    { 0x2D16CE1E, 0x451F40 }, // ?Detach@aiVehicleInstance@@UAEXXZ
+    { 0xA43808BE, 0x452CE0 }, // ?Detach@aiVehicleManager@@QAEXPAVaiVehicleActive@@@Z
+    { 0xECE4DFB9, 0x4CB220 }, // ?Detach@mmBangerActive@@QAEXXZ
+    { 0xD95B5E8B, 0x4CB5F0 }, // ?Detach@mmBangerActiveManager@@QAEXPAVmmBangerActive@@@Z
+    { 0x581E4BFC, 0x47FEE0 }, // ?Detach@mmDrivetrain@@QAEXXZ
+    { 0xEA124A85, 0x4CAC40 }, // ?Detach@mmHitBangerInstance@@UAEXXZ
+    { 0x4B7E4995, 0x433E00 }, // ?Detach@mmInstance@@UAEXXZ
+    { 0xBC11D8E4, 0x4526F0 }, // ?DetachMe@aiVehicleActive@@UAEXXZ
+    { 0xFB804FBD, 0x4CB280 }, // ?DetachMe@mmBangerActive@@UAEXXZ
+    { 0x9D6F37A0, 0x453B30 }, // ?DetachMe@mmPhysEntity@@UAEXXZ
+    { 0xFF6E81FA, 0x464000 }, // ?DetectAmbientCollision@aiGoalChase@@AAEHPAH@Z
+    { 0x6E08008C, 0x44B420 }, // ?DetectBangerCollision@aiPedestrian@@AAEHPAPAVmmInstance@@PAMM@Z
+    { 0x23766062, 0x44BA10 }, // ?DetectBangerObstacle@aiPedestrian@@AAEPAVmmInstance@@XZ
+    { 0x9B27DC8B, 0x467ED0 }, // ?DetectCollision@aiGoalFollowWayPts@@AAEHPAH@Z
+    { 0xB1CA6A6A, 0x461EF0 }, // ?DetectCopCollision@aiGoalChase@@AAEPAVaiVehiclePolice@@XZ
+    { 0x5E080BCB, 0x466EA0 }, // ?DetectOpponentCollision@aiGoalFollowWayPts@@AAEPAVaiVehicleOpponent@@XZ
+    { 0xB3411233, 0x44BC00 }, // ?DetectPedCollision@aiPedestrian@@AAEHMPAPAV1@PAM@Z
+    { 0xF277BBAA, 0x44BB80 }, // ?DetectPedObstacle@aiPedestrian@@AAEPAV1@XZ
+    { 0xD9B6B7ED, 0x44A4D0 }, // ?DetectPlayerAnticipate@aiPedestrian@@AAEHPAM0@Z
+    { 0x60E575A8, 0x44B0C0 }, // ?DetectPlayerCollision@aiPedestrian@@AAEHPAM@Z
+    { 0xEEDF1391, 0x45B270 }, // ?DetectPlayerCollision@aiVehicleSpline@@QAEHHM@Z
+    { 0xF8CFA6A2, 0x44A2F0 }, // ?DetectPlayerForwardCollision@aiPedestrian@@AAEHPAM0@Z
+    { 0x2EBD68BF, 0x45B040 }, // ?DetectPlayerForwardCollision@aiVehicleSpline@@QAEHXZ
+    { 0x89586764, 0x45B130 }, // ?DetectPlayerTargetPtCollision@aiVehicleSpline@@QAEHXZ
+    { 0xEFDAAA9A, 0x45B870 }, // ?DetectPlayerZoneCollision@aiVehicleSpline@@QAEHXZ
+    { 0xA6EDF44E, 0x5686F0 }, // ?Determinant@Matrix34@@QBEMXZ
+    { 0xC6652AD9, 0x56F690 }, // ?Determinant@Matrix44@@QBEMXZ
+    { 0x9347D03E, 0x437310 }, // ?DetermineOppMapComponent@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAF2PAM323MFF@Z
+    { 0xB27913C6, 0x438CB0 }, // ?DetermineOppRoadPosInfo@aiMap@@QAEHAAVVector3@@0PAVaiRailSet@@PAFPAM3H@Z
+    { 0xDCD0637F, 0x4370B0 }, // ?DeterminePerpMapComponent@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAF2PAM32@Z
+    { 0xD876BE00, 0x436F10 }, // ?DetermineRoadPosInfo@aiMap@@QAEHAAVMatrix34@@PAVaiRailSet@@PAFPAM23H@Z
+    { 0xC76AC140, 0x467E40 }, // ?DetRdSegBetweenInts@aiGoalFollowWayPts@@AAEPAVaiPath@@PAVaiIntersection@@0@Z
+    { 0xE87600F8, 0x43BB10 }, // ?DetRdSegBetweenInts@aiMap@@QAEPAVaiPath@@PAVaiIntersection@@0@Z
+    { 0x7AD2F63D, 0x522600 }, // ?Device@asSimulation@@QAEXXZ
+    { 0x9751CDB5, 0x4E3990 }, // ?DeviceConnected@mmInput@@QAEHXZ
+    { 0xAF910DAB, 0x564050 }, // ?DIError@@YAPADH@Z
+    { 0x8FCB7589, 0x57A290 }, // ?DirFileExt@string@@QBEXAAV1@00@Z
+    { 0x616E9000, 0x4EBC00 }, // ?Disable3DMode@AudSound@@QAEXXZ
+    { 0x85A29901, 0x485A50 }, // ?Disable3DMode@EngineAudioOpponent@@QAEXXZ
+    { 0xC05A65BF, 0x47A7E0 }, // ?Disable3DMode@mmOpponentImpactAudio@@QAEXXZ
+    { 0xF8970C5C, 0x4863A0 }, // ?Disable3DMode@mmOpponentSurfaceAudio@@QAEXXZ
+    { 0x2BBBB21D, 0x4F3580 }, // ?Disable3DMode@SoundObj@@QAEXXZ
+    { 0x714190B4, 0x4E9090 }, // ?Disable@AudManager@@QAEXFF@Z
+    { 0x6C59EC6F, 0x4EAD40 }, // ?Disable@AudSound@@QAEXXZ
+    { 0xCB90F31A, 0x4F3AC0 }, // ?Disable@AudStream@@QAEXXZ
+    { 0xCDCEC0A6, 0x4B0C00 }, // ?Disable@MenuManager@@QAEXH@Z
+    { 0xFB4626CF, 0x405700 }, // ?Disable@mmHUD@@QAEXH@Z
+    { 0xD2743961, 0x4B7290 }, // ?Disable@UIBMButton@@UAEXXZ
+    { 0x78E122D2, 0x4B9F80 }, // ?Disable@UIButton@@UAEXXZ
+    { 0x3E30056F, 0x4ACAB0 }, // ?Disable@UIMenu@@QAEXXZ
+    { 0xB57A7897, 0x4BCAA0 }, // ?Disable@UIToggleButton2@@UAEXXZ
+    { 0x7BDFB18B, 0x4BD950 }, // ?Disable@UIVScrollBar@@UAEXXZ
+    { 0x3B6D3D38, 0x4B2DC0 }, // ?Disable@uiWidget@@UAEXXZ
+    { 0xEEBDB989, 0x4E66C0 }, // ?DisableAutoCenter@mmJoystick@@QAEHXZ
+    { 0xCD8F492E, 0x4B4E00 }, // ?DisableBlt@mmCompBase@@UAEXXZ
+    { 0xB7134813, 0x4B6090 }, // ?DisableBlt@mmCompDRecord@@UAEXXZ
+    { 0x8FE73A12, 0x4E93C0 }, // ?DisableCD@AudManager@@QAEXXZ
+    { 0xA120DE18, 0x4F0B10 }, // ?DisableEAXFlag@DSGlobal@@QAEXXZ
+    { 0x20A333C4, 0x4EBAA0 }, // ?DisableEffect@AudSound@@QAEXH@Z
+    { 0x7A382A1D, 0x4F3270 }, // ?DisableEffect@SoundObj@@QAEXF@Z
+    { 0xFB4B325D, 0x4AB470 }, // ?DisableExit@PUMenuBase@@QAEXXZ
+    { 0x5D02171E, 0x4BC050 }, // ?DisableField@UIControlWidget@@QAEXXZ
+    { 0x76D0C367, 0x4ACC70 }, // ?DisableIME@UIMenu@@QAEXXZ
+    { 0x66E1090E, 0x4B0C60 }, // ?DisableNavBar@MenuManager@@QAEXXZ
+    { 0x9AEBD7FB, 0x4A8C30 }, // ?DisableNextRace@PUResults@@QAEXXZ
+    { 0x4C6EEBA4, 0x4A1E60 }, // ?DisablePlayButton@NetArena@@QAEXXZ
+    { 0x4A81EF82, 0x4B0AA0 }, // ?DisablePU@MenuManager@@QAEXXZ
+    { 0xBC6DF424, 0x427030 }, // ?DisablePU@mmPopup@@QAEXH@Z
+    { 0x3660E4A4, 0x4320F0 }, // ?DisableRacers@mmGameMulti@@IAEXXZ
+    { 0xACF0D663, 0x417530 }, // ?DisableRacers@mmGameSingle@@AAEXXZ
+    { 0x2532067B, 0x4136F0 }, // ?DisableRacers@mmSingleBlitz@@AAEXXZ
+    { 0xB3EE00E2, 0x415420 }, // ?DisableRacers@mmSingleCircuit@@AAEXXZ
+    { 0x28507346, 0x4A44D0 }, // ?DisableSessions@NetSelectMenu@@QAEXXZ
+    { 0x6D637DB2, 0x4A2C50 }, // ?DisableStart@HostRaceMenu@@QAEXXZ
+    { 0xB9135B42, 0x487B00 }, // ?DisableSurface@mmSurfaceAudio@@QAEXXZ
+    { 0x9492EF74, 0x489910 }, // ?Disconnect@asNetwork@@QAEXXZ
+    { 0x33D343E7, 0x4A5CE0 }, // ?DisplayDriverInfo@DriverMenu@@QAEXPAD0000H@Z
+    { 0xC0F1C2E5, 0x576C70 }, // ?Displayf@@YAXPBDZZ
+    { 0x613ECF56, 0x430020 }, // ?DisplayHUDMessage@mmWaypoints@@QAEXHH@Z
+    { 0x2E3456F7, 0x41F130 }, // ?DisplayTimeWarning@mmMultiCR@@AAEXH@Z
+    { 0x89B02554, 0x524E50 }, // ?DisplayVersionString@asCullManager@@IAEXXZ
+    { 0x81866D9A, 0x5669C0 }, // ?Dist@Vector3@@QBEMABV1@@Z
+    { 0x7B7D8C0C, 0x45BFF0 }, // ?DistanceToIntersection@aiVehicleSpline@@QAEMXZ
+    { 0x40F77A74, 0x45BD10 }, // ?DistanceToVehicle@aiVehicleSpline@@QAEMPAV1@@Z
+    { 0x71DAF205, 0x4DAA20 }, // ?DoConstrain@asInertialCS@@QAEXXZ
+    { 0x04850BAB, 0x4D8130 }, // ?DoEdgeEdge@@YAXPAVmmEdgeBodyIsect@@PAPAVmmIntersection@@PAHH@Z
+    { 0x047B6C33, 0x4D7B10 }, // ?DoEndPtSearch@@YAXHABVVector3@@PAVmmEdgeBodyIsect@@HPAPAVmmIntersection@@PAHH@Z
+    { 0xB1A9F22E, 0x4E3A60 }, // ?DoingFF@mmInput@@QAEHXZ
+    { 0xCEA3D58C, 0x4DD990 }, // ?DoJointLimits@Joint3Dof@@QAEXMABVVector3@@M0AAV2@ABVMatrix34@@2222@Z
+    { 0x56099F23, 0x4DD400 }, // ?DoJointTorque@Joint3Dof@@QAEXABVMatrix34@@000AAM1AAVVector3@@11@Z
+    { 0x9D5BFE28, 0x519A30 }, // ?DoMakeTable@mmBoundTemplate@@AAEXHHH@Z
+    { 0xF03C9473, 0x49D1D0 }, // ?DoneAction@AudioOptions@@UAEXXZ
+    { 0x27C5E49C, 0x4A3890 }, // ?DoneAction@ControlSetup@@UAEXXZ
+    { 0xCFC8D4D9, 0x49A640 }, // ?DoneAction@GraphicsOptions@@UAEXXZ
+    { 0xA1E2FE55, 0x49E350 }, // ?DoneCallback@Dialog_RaceEnvironment@@QAEXXZ
+    { 0xDEB8E2AE, 0x49DA20 }, // ?DoneCB@Dialog_City@@QAEXXZ
+    { 0x4B532335, 0x5032A0 }, // ?DoPageIn@agiMeshSet@@AAEXXZ
+    { 0x0A29DE87, 0x556550 }, // ?DoPageIn@agiTexDef@@QAEXXZ
+    { 0xDCD84A09, 0x518E90 }, // ?DoPageIn@mmBoundTemplate@@AAEXXZ
+    { 0x2F61815B, 0x523710 }, // ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z
+    { 0x54C42F7C, 0x563790 }, // ?DoPlayback@eqEventReplayChannelClass@@UAEXPAVStream@@@Z
+    { 0xFE5D6EF9, 0x564920 }, // ?DoPlayback@eqReplay@@SAXXZ
+    { 0xEA726874, 0x5236D0 }, // ?DoRecord@artsReplayChannel@@UAEXPAVStream@@@Z
+    { 0xE4C6B787, 0x563580 }, // ?DoRecord@eqEventReplayChannelClass@@UAEXPAVStream@@@Z
+    { 0x3265C965, 0x5648C0 }, // ?DoRecord@eqReplay@@SAXXZ
+    { 0xEA66A8E5, 0x4046D0 }, // ?DoScan@@YAXPAX@Z
+    { 0xC386E828, 0x4FE070 }, // ?DoScan@mmGameRecord@@QAEXAAVVector4@@@Z
+    { 0x2613DF48, 0x5204C0 }, // ?DoStackTraceback@@YAXHPAH@Z
+    { 0xC24AC8F1, 0x5678A0 }, // ?Dot3x3@Matrix34@@QAEXABV1@0@Z
+    { 0x61149E4F, 0x564B50 }, // ?Dot3x3@Vector3@@QAIXABV1@ABVMatrix34@@@Z
+    { 0x0760B832, 0x567680 }, // ?Dot@Matrix34@@QAEXABV1@0@Z
+    { 0xC9CFDD83, 0x56F020 }, // ?Dot@Matrix44@@QAEXABV1@0@Z
+    { 0xBDF85D10, 0x564AE0 }, // ?Dot@Vector3@@QAIXABV1@ABVMatrix34@@@Z
+    { 0xD26D68CC, 0x504150 }, // ?DoTexture@agiTexSorter@@SAXPAVagiPolySet@@@Z
+    { 0x6257A34C, 0x4B6750 }, // ?DoToggle@UIBMButton@@QAEXXZ
+    { 0xAE04DC77, 0x4BCCA0 }, // ?DoToggle@UIMexButton@@UAEXXZ
+    { 0x25A5E3F8, 0x4BC940 }, // ?DoToggle@UIToggleButton2@@UAEXXZ
+    { 0xCA51A953, 0x4BC660 }, // ?DoToggle@UIToggleButton@@UAEXXZ
+    { 0xBCBBC37E, 0x4937C0 }, // ?DoubleArea@mmFacadeQuad@@SAMPAVagiMeshSet@@@Z
+    { 0x5D02211A, 0x4D3DA0 }, // ?DoUpdateAll@mmPhysExec@@QAEXXZ
+    { 0x9532A044, 0x4D3FF0 }, // ?DoUpdatePlayerOnly@mmPhysExec@@QAEXXZ
+    { 0xA1991FD0, 0x4705A0 }, // ?Downshift@mmTransmission@@QAEHXZ
+    { 0x001B8C0A, 0x4FF360 }, // ?Draw2@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAXI@Z
+    { 0x865EB6A2, 0x506ED0 }, // ?Draw@agiMeshSet@@QAEHI@Z
+    { 0x9A640EED, 0x5544F0 }, // ?Draw@agiSurfRenderer@@UAEXPAVDLP@@H@Z
+    { 0x096A3E6D, 0x43E0C0 }, // ?Draw@aiPath@@QAEXXZ
+    { 0x3EE1A26E, 0x44D850 }, // ?Draw@aiPedestrianInstance@@UAIXH@Z
+    { 0x3AFB9B8D, 0x444530 }, // ?Draw@aiTrafficLightInstance@@UAIXH@Z
+    { 0xBEEC4C80, 0x4515E0 }, // ?Draw@aiVehicleInstance@@UAIXH@Z
+    { 0x5F19B8D8, 0x502190 }, // ?Draw@asLineSparks@@QAEXXZ
+    { 0xB7F43FE2, 0x516FC0 }, // ?Draw@bnBone@@QAEXXZ
+    { 0xB14BC1AA, 0x515070 }, // ?Draw@bnSkeleton@@QAEXXZ
+    { 0x1C8C90FE, 0x4C5A70 }, // ?Draw@mmAnimPlane@@UAIXH@Z
+    { 0x1CBF40A7, 0x4C8100 }, // ?Draw@mmAnimTrainCar@@UAIXH@Z
+    { 0x36A29084, 0x4C9C50 }, // ?Draw@mmBangerInstance@@UAIXH@Z
+    { 0x8ACA39C9, 0x51FCF0 }, // ?Draw@mmBoundTemplate@@QAEXXZ
+    { 0xBB6CC5B8, 0x4945F0 }, // ?Draw@mmBuildingInstance@@UAIXH@Z
+    { 0xA2A6B992, 0x471B70 }, // ?Draw@mmCarModel@@UAIXH@Z
+    { 0x62C6EE16, 0x4C4460 }, // ?Draw@mmDrawbridgeInstance@@UAIXH@Z
+    { 0x69FFC257, 0x51A720 }, // ?Draw@mmEdgeBodyIsect@@QAEXXZ
+    { 0xAA465D43, 0x494010 }, // ?Draw@mmFacadeInstance@@UAIXH@Z
+    { 0x08E3EE42, 0x423F10 }, // ?Draw@mmGearIndicator@@QAEXXZ
+    { 0x69BBA360, 0x4CB9C0 }, // ?Draw@mmGlassBangerInstance@@EAIXH@Z
+    { 0xFD84896D, 0x4C9F20 }, // ?Draw@mmHitBangerInstance@@UAIXH@Z
+    { 0xFB3F50C4, 0x492AA0 }, // ?Draw@mmInstance@@UAIXH@Z
+    { 0x9A86AFF4, 0x4924C0 }, // ?Draw@mmInstChain@@QAEXFFIHM@Z
+    { 0x2C0B3F2F, 0x51A5A0 }, // ?Draw@mmIntersection@@QAEXXZ
+    { 0xF59C9B57, 0x423BA0 }, // ?Draw@mmLinearGauge@@QAEXXZ
+    { 0x78114361, 0x4978E0 }, // ?Draw@mmPed@@UAIXH@Z
+    { 0xED565D85, 0x51C2A0 }, // ?Draw@mmPolygon@@AAEXXZ
+    { 0x1D079C49, 0x423CB0 }, // ?Draw@mmRadGauge@@QAEXXZ
+    { 0xCA5587DC, 0x48C1B0 }, // ?Draw@mmRunwayLight@@UAIXH@Z
+    { 0xCC7BCBE5, 0x478730 }, // ?Draw@mmShard@@UAIXH@Z
+    { 0x23504F0E, 0x494460 }, // ?Draw@mmShearInstance@@UAIXH@Z
+    { 0xDCCFFD63, 0x477AA0 }, // ?Draw@mmSkid@@UAIXH@Z
+    { 0xA86EC53B, 0x4956A0 }, // ?Draw@mmSky@@QAEXAAVMatrix34@@@Z
+    { 0x15881A0E, 0x424020 }, // ?Draw@mmSpeedIndicator@@QAEXXZ
+    { 0x57247721, 0x494230 }, // ?Draw@mmStaticInstance@@UAIXH@Z
+    { 0xD960487C, 0x4FF2D0 }, // ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z
+    { 0xF4930918, 0x479910 }, // ?Draw@mmTrailerInstance@@UAIXH@Z
+    { 0xAE7E3F69, 0x48BF40 }, // ?Draw@mmUpperInstance@@EAIXH@Z
+    { 0x663964BE, 0x4337C0 }, // ?Draw@mmWaypointInstance@@UAIXH@Z
+    { 0x9A21CF22, 0x491610 }, // ?DrawAllBounds@asRenderWeb@@QAEXXZ
+    { 0x1601B677, 0x436D70 }, // ?DrawAppRoads@aiMap@@QAEXXZ
+    { 0xF82019AF, 0x44FD90 }, // ?DrawBBox@aiVehicleAmbient@@QAEXF@Z
+    { 0x1721CC89, 0x52D800 }, // ?DrawBegin@@YAXAAVMatrix34@@@Z
+    { 0x35D4C27B, 0x5297D0 }, // ?DrawBegin@asCamera@@QAEXXZ
+    { 0xBA6096D0, 0x51FD70 }, // ?DrawBox@mmBoundTemplate@@QAEXXZ
+    { 0x34B0BA02, 0x50EE70 }, // ?DrawCard@agiMeshSet@@SAXAAVVector3@@MIII@Z
+    { 0x4DF7E6A2, 0x554890 }, // ?DrawCard@agiSurfRenderer@@UAEXAAVVector3@@@Z
+    { 0xCA9F011A, 0x428FE0 }, // ?DrawCentered@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@@Z
+    { 0xB07F6F8D, 0x429050 }, // ?DrawClipped@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@MMMM@Z
+    { 0x914379AA, 0x52D080 }, // ?DrawColor2@@YAXAAVVector3@@@Z
+    { 0x813DBE68, 0x52D130 }, // ?DrawColor2@@YAXAAVVector4@@@Z
+    { 0xE9C64FB1, 0x52D020 }, // ?DrawColor@@YAXAAVVector3@@@Z
+    { 0x226230E3, 0x52D0D0 }, // ?DrawColor@@YAXAAVVector4@@@Z
+    { 0x2E90F627, 0x506FD0 }, // ?DrawColor@agiMeshSet@@QAEHII@Z
+    { 0xFCB2CC59, 0x4296B0 }, // ?DrawCops@mmHudMap@@AAEXXZ
+    { 0x6FC1A4B1, 0x429860 }, // ?DrawCopsnRobbers@mmHudMap@@AAEXXZ
+    { 0xB9ED3C9A, 0x44E2A0 }, // ?DrawDamage@aiVehicleOpponent@@QAEXXZ
+    { 0x639563C4, 0x4460B0 }, // ?DrawDamage@aiVehiclePolice@@QAEXXZ
+    { 0x9B33623D, 0x44D3B0 }, // ?DrawDebug@aiPedestrian@@QAEXXZ
+    { 0x997BFDB9, 0x4946B0 }, // ?DrawDropShadow@mmInstance@@QAEXHHABVMatrix34@@@Z
+    { 0x3490A827, 0x52DA30 }, // ?DrawEnd@@YAXXZ
+    { 0x83AC65DE, 0x5299C0 }, // ?DrawEnd@asCamera@@QAEXXZ
+    { 0x6E1B1144, 0x4DA9D0 }, // ?DrawForce@asInertialCS@@AAEXABVVector3@@00@Z
+    { 0xCB53D100, 0x4DA980 }, // ?DrawForce@asInertialCS@@AAEXABVVector3@@0@Z
+    { 0x28AF4183, 0x51FD90 }, // ?DrawGeometry@mmBoundTemplate@@QAEXXZ
+    { 0x2229936D, 0x451E20 }, // ?DrawGlow@aiVehicleInstance@@UAIXXZ
+    { 0x96A8AA36, 0x4C9E50 }, // ?DrawGlow@mmBangerInstance@@UAIXXZ
+    { 0x8E6873FB, 0x472B00 }, // ?DrawGlow@mmCarModel@@UAIXXZ
+    { 0xF5674ADD, 0x492B10 }, // ?DrawGlow@mmInstance@@UAIXXZ
+    { 0xD42F1FBB, 0x520000 }, // ?DrawGraph@mmBoundTemplate@@QAEXXZ
+    { 0x8F220002, 0x4478B0 }, // ?DrawId@aiIntersection@@QAEXXZ
+    { 0x13609D09, 0x43E370 }, // ?DrawId@aiPath@@QAEXXZ
+    { 0xA23780CE, 0x44FD80 }, // ?DrawId@aiVehicleAmbient@@UAEXXZ
+    { 0x10FC787A, 0x44E2B0 }, // ?DrawId@aiVehicleOpponent@@UAEXXZ
+    { 0x8BD35601, 0x446100 }, // ?DrawId@aiVehiclePolice@@UAEXXZ
+    { 0x798471F1, 0x45C200 }, // ?DrawId@aiVehicleSpline@@UAEXXZ
+    { 0x886CA94B, 0x555180 }, // ?DrawLabel@agiSurfRenderer@@UAEXAATagiVtx@@PAD@Z
+    { 0xAEEBFDF9, 0x52D9C0 }, // ?DrawLabelf@@YAXAAVVector3@@PADZZ
+    { 0xCED6080C, 0x52D230 }, // ?DrawLine@@YAXAAVVector3@@0@Z
+    { 0x881EC026, 0x52D190 }, // ?DrawLine@@YAXMMMMMM@Z
+    { 0xA94DEB73, 0x554EE0 }, // ?DrawLine@agiSurfRenderer@@UAEXHH@Z
+    { 0xC93DD8D6, 0x50F9B0 }, // ?DrawLines@agiMeshSet@@SAXPAVVector3@@0PAIH@Z
+    { 0x176AC6F7, 0x507040 }, // ?DrawLit@agiMeshSet@@QAEHP6AXPAEPAI1PAV1@@ZI1@Z
+    { 0xBA37F70C, 0x493B70 }, // ?DrawLit@mmFacadeQuad@@QAEXP6AXPAEPAI1PAVagiMeshSet@@@Z2@Z
+    { 0xB4E5B3C1, 0x507120 }, // ?DrawLitEnv@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@AAVMatrix34@@I@Z
+    { 0x3B632129, 0x507250 }, // ?DrawLitSph@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@I@Z
+    { 0xF3EC24E3, 0x490F40 }, // ?DrawMirrorBorder@@YAXXZ
+    { 0x05B51B21, 0x429930 }, // ?DrawMisc@mmHudMap@@QAEXXZ
+    { 0x0B2CB704, 0x436CD0 }, // ?DrawNextVisibleAmbient@aiMap@@QAEXXZ
+    { 0x4B826C28, 0x50EBC0 }, // ?DrawNormals@agiMeshSet@@QAEXAAVVector3@@@Z
+    { 0x4DB56DCA, 0x43E280 }, // ?DrawNormals@aiPath@@QAEXXZ
+    { 0xD34F6C78, 0x4B9D50 }, // ?DrawOff@UIButton@@AAEXXZ
+    { 0x60BA2C2B, 0x4BCC60 }, // ?DrawOff@UIMexButton@@EAEXXZ
+    { 0x38A98191, 0x4BC890 }, // ?DrawOff@UIToggleButton2@@MAEXXZ
+    { 0x3BC1EF7C, 0x4BC620 }, // ?DrawOff@UIToggleButton@@MAEXXZ
+    { 0x0FEA9318, 0x4B9D80 }, // ?DrawOn@UIButton@@AAEXXZ
+    { 0xF4128DD2, 0x4BCC70 }, // ?DrawOn@UIMexButton@@EAEXXZ
+    { 0xE54DAAC0, 0x4BC8D0 }, // ?DrawOn@UIToggleButton2@@MAEXXZ
+    { 0x75EF6B66, 0x4BC640 }, // ?DrawOn@UIToggleButton@@MAEXXZ
+    { 0x01BEF7BA, 0x4295F0 }, // ?DrawOpponents@mmHudMap@@AAEXXZ
+    { 0x5CFAAC16, 0x429410 }, // ?DrawOriented@mmHudMap@@AAEXPAVMatrix34@@I@Z
+    { 0x6D4E3D72, 0x4291F0 }, // ?DrawOrientedBitmap@mmHudMap@@AAEXPAVMatrix34@@PAVagiBitmap@@@Z
+    { 0x78D25679, 0x447880 }, // ?DrawPaths@aiIntersection@@QAEXXZ
+    { 0x438C74C3, 0x52D8C0 }, // ?DrawQuad@@YAXPAVVector3@@AAV1@111@Z
+    { 0x5EF56C8B, 0x506F40 }, // ?DrawShadow@agiMeshSet@@QAEXIABVVector4@@ABVVector3@@@Z
+    { 0xA639B1BB, 0x44D960 }, // ?DrawShadow@aiPedestrianInstance@@UAIXXZ
+    { 0x0A0DFD4F, 0x451E70 }, // ?DrawShadow@aiVehicleInstance@@UAIXXZ
+    { 0xABCD7F87, 0x4CA110 }, // ?DrawShadow@mmBangerInstance@@UAIXXZ
+    { 0x46EDC499, 0x472B90 }, // ?DrawShadow@mmCarModel@@UAIXXZ
+    { 0x67213096, 0x492B00 }, // ?DrawShadow@mmInstance@@UAIXXZ
+    { 0xAF771938, 0x477B30 }, // ?DrawShadow@mmSkid@@UAIXXZ
+    { 0x825AC4C6, 0x479B20 }, // ?DrawShadow@mmTrailerInstance@@UAIXXZ
+    { 0x00006BB0, 0x51FD30 }, // ?DrawSphere@mmBoundTemplate@@QAEXXZ
+    { 0x075ED026, 0x51FE00 }, // ?DrawTable@mmBoundTemplate@@QAEXXZ
+    { 0xD50D70E4, 0x44E130 }, // ?DrawTargetPt@aiVehicleOpponent@@QAEXXZ
+    { 0xB931116D, 0x445F40 }, // ?DrawTargetPt@aiVehiclePolice@@QAEXXZ
+    { 0x99EEA129, 0x52D260 }, // ?DrawTri@@YAXPAVVector3@@AAV1@11@Z
+    { 0x66D42383, 0x554EB0 }, // ?DrawTri@agiSurfRenderer@@UAEXHHH@Z
+    { 0x602A3021, 0x457A70 }, // ?DrawTurn@aiRailSet@@QAEXM@Z
+    { 0x2AFA177C, 0x43E3E0 }, // ?DrawVehicleIds@aiPath@@QAEXXZ
+    { 0xECC59465, 0x429720 }, // ?DrawWaypoints@mmHudMap@@AAEXXZ
+    { 0x6C304D5B, 0x50FE00 }, // ?DrawWideLines@agiMeshSet@@SAXPAVVector3@@0PAMPAIH@Z
+    { 0x19662043, 0x52D640 }, // ?DrawWireBox@@YAXAAVVector3@@0@Z
+    { 0x866A937B, 0x52D320 }, // ?DrawWireSphere@@YAXAAVVector3@@M@Z
+    { 0x9E5F20B5, 0x52D620 }, // ?DrawWireSphere@@YAXAAVVector4@@@Z
+    { 0xAADE9BE6, 0x41DA30 }, // ?DropGold@mmMultiCR@@AAEXVVector3@@H@Z
+    { 0x694EA217, 0x410490 }, // ?DropThruCityHandler@mmGame@@UAEXXZ
+    { 0x950C60FC, 0x430A90 }, // ?DropThruCityHandler@mmGameMulti@@UAEXXZ
+    { 0xA51B32CA, 0x41D810 }, // ?DropThruCityHandler@mmMultiCR@@UAEXXZ
+    { 0x82500E81, 0x4F0FA0 }, // ?DSCreateSoundBuffer@SoundObj@@QAEHPAPAUIDirectSoundBuffer@@E@Z
+    { 0x015B2601, 0x4F4DC0 }, // ?DSCreateSoundBuffer@StreamObj@@QAEHXZ
+    { 0x5B7875CD, 0x4EF8B0 }, // ?DSEnumProc@@YGHPAU_GUID@@PAD1PAX@Z
+    { 0x1D7D0716, 0x4F21D0 }, // ?DSFillSoundBuffer@SoundObj@@QAEHPAUIDirectSoundBuffer@@@Z
+    { 0x5304C543, 0x4F1750 }, // ?DSGetWaveFile@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAKPAPAX@Z
+    { 0x25EF1C2D, 0x4F1510 }, // ?DSGetWaveResource@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
+    { 0x9B19285F, 0x4F1030 }, // ?DSLoadSoundBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
+    { 0x875B3C78, 0x4F1210 }, // ?DSLoadSoundBuffer@SoundObj@@QAEXGK@Z
+    { 0xBFAE386D, 0x4F4E50 }, // ?DSLoadSoundBuffer@StreamObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
+    { 0xBB989927, 0x4E9810 }, // ?DSound3DEnabled@AudManager@@QAEIXZ
+    { 0x2BAD8528, 0x4F0B00 }, // ?DSound3DEnabled@DSGlobal@@QAEIXZ
+    { 0x45EB39FA, 0x4F2290 }, // ?DSParseWaveResource@SoundObj@@QAEHPAXPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
+    { 0xE5CFBAFD, 0x46A9A0 }, // ?Dump@aiGoalAvoidPlayer@@QAEXXZ
+    { 0x623F24B6, 0x4655D0 }, // ?Dump@aiGoalChase@@QAEXXZ
+    { 0x17744E20, 0x469E60 }, // ?Dump@aiGoalFollowWayPts@@QAEXXZ
+    { 0x63CBC5CF, 0x45F690 }, // ?Dump@aiGoalRandomDrive@@QAEXXZ
+    { 0x2DEF6E2F, 0x46B270 }, // ?Dump@aiGoalRegainRail@@QAEXXZ
+    { 0xE3D6147C, 0x4478F0 }, // ?Dump@aiIntersection@@QAEXXZ
+    { 0xD046047B, 0x439400 }, // ?Dump@aiMap@@QAEXXZ
+    { 0xBCB595EB, 0x43E450 }, // ?Dump@aiPath@@QAEXXZ
+    { 0x18D24F0F, 0x44D1E0 }, // ?Dump@aiPedestrian@@QAEXXZ
+    { 0xC8617B6A, 0x459BC0 }, // ?Dump@aiRailSet@@QAEXXZ
+    { 0xBDF544C1, 0x451160 }, // ?Dump@aiVehicleAmbient@@QAEXXZ
+    { 0x40727287, 0x44E060 }, // ?Dump@aiVehicleOpponent@@QAEXXZ
+    { 0x4E17466C, 0x4463B0 }, // ?Dump@aiVehiclePolice@@QAEXXZ
+    { 0xA90D20CD, 0x45C090 }, // ?Dump@aiVehicleSpline@@QAEXXZ
+    { 0xD1044AA5, 0x4FDE90 }, // ?Dump@mmGameRecord@@QAEXPAD@Z
+    { 0x22013784, 0x492050 }, // ?Dump@mmPositions@@QAEXPAD@Z
+    { 0x4BDB3F6C, 0x4AC0C0 }, // ?DumpMenu@WArray@@QAEXPAVStream@@PAVUIMenu@@@Z
+    { 0x41682832, 0x491B40 }, // ?DumpPositions@@YAXPAD@Z
+    { 0x893CF17F, 0x560E10 }, // ?DumpProblems@@YAXXZ
+    { 0x71CC1044, 0x520670 }, // ?DumpStackTraceback@@YAXPAHH@Z
+    { 0xE12955E0, 0x530FE0 }, // ?DumpStatus@agiD3DPipeline@@UAEXAAUagiMemStatus@@@Z
+    { 0x50F56480, 0x555F00 }, // ?DumpStatus@agiPipeline@@QAEXXZ
+    { 0xACFB010D, 0x556060 }, // ?DumpStatus@agiPipeline@@UAEXAAUagiMemStatus@@@Z
+    { 0x6BED87DE, 0x573C60 }, // ?dxiChangeDisplaySettings@@YAHHHH@Z
+    { 0x9679B425, 0x575360 }, // ?dxiConfig@@YAXHPAPAD@Z
+    { 0xC35D6AF8, 0x573CC0 }, // ?dxiDirectDrawCreate@@YAXXZ
+    { 0x59F435C6, 0x573EC0 }, // ?dxiDirectDrawSurfaceCreate@@YAXXZ
+    { 0x6E51CBDC, 0x574190 }, // ?dxiDirectDrawSurfaceDestroy@@YAXXZ
+    { 0x5ADB8860, 0x574200 }, // ?dxiDirectInputCreate@@YAXXZ
+    { 0x5475C3A4, 0x574550 }, // ?dxiInit@@YAXPADHPAPAD@Z
+    { 0xB01B3DA5, 0x5742C0 }, // ?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z
+    { 0xE4735A3C, 0x5744E0 }, // ?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z
+    { 0x58F2063A, 0x575100 }, // ?dxiPlayMovie@@YAXPAD@Z
+    { 0xEDF8859B, 0x574B00 }, // ?dxiReadConfigFile@@YAHXZ
+    { 0x2A8E8021, 0x5749B0 }, // ?dxiResClosestMatch@@YAHHHH@Z
+    { 0x05C83B63, 0x574A60 }, // ?dxiResGetRecommended@@YAHHH@Z
+    { 0xCED766AA, 0x574690 }, // ?dxiScreenShot@@YAXPAD@Z
+    { 0xE74DC8E6, 0x573D80 }, // ?dxiSetDisplayMode@@YAXXZ
+    { 0xBE7078E9, 0x574240 }, // ?dxiShutdown@@YAXXZ
+    { 0x4A3A86D6, 0x573B80 }, // ?dxiWindowCreate@@YAXPAD@Z
+    { 0x4D84D360, 0x574E90 }, // ?dxiWriteConfigFile@@YAXXZ
+    { 0xBEFF66AC, 0x4E9800 }, // ?EAXEnabled@AudManager@@QAEIXZ
+    { 0xCD82600F, 0x4F0AB0 }, // ?EAXEnabled@DSGlobal@@QAEIXZ
+    { 0x28958760, 0x45C750 }, // ?EchoOff@AddOnCarAudio@@QAEXXZ
+    { 0xEFF4AADE, 0x4419C0 }, // ?EchoOff@aiAudioManager@@QAEXXZ
+    { 0x488B881F, 0x486A40 }, // ?EchoOff@EngineAudio@@QAEXXZ
+    { 0x4D42BA19, 0x484E70 }, // ?EchoOff@mmImpactAudio@@QAEXPAVmmCarSim@@@Z
+    { 0x100BBBE6, 0x482140 }, // ?EchoOff@mmPlayerCarAudio@@QAEXXZ
+    { 0xBBA6B9C9, 0x487740 }, // ?EchoOff@mmSurfaceAudio@@QAEXPAVmmCarSim@@@Z
+    { 0xE3ECBA28, 0x4857A0 }, // ?EchoOff@NetAddOnCarAudio@@QAEXXZ
+    { 0x6D5B334C, 0x475E70 }, // ?EchoOff@NetAudioManager@@QAEXXZ
+    { 0xFFCFF659, 0x45C700 }, // ?EchoOn@AddOnCarAudio@@QAEXM@Z
+    { 0x5340A691, 0x441670 }, // ?EchoOn@aiAudioManager@@QAEXM@Z
+    { 0xF08E0502, 0x4869F0 }, // ?EchoOn@EngineAudio@@QAEXM@Z
+    { 0x8C37331A, 0x484E60 }, // ?EchoOn@mmImpactAudio@@QAEXPAVmmCarSim@@@Z
+    { 0x38994C41, 0x482020 }, // ?EchoOn@mmPlayerCarAudio@@QAEXM@Z
+    { 0xEA81EC91, 0x487630 }, // ?EchoOn@mmSurfaceAudio@@QAEXPAVmmCarSim@@M@Z
+    { 0x2D509A37, 0x485740 }, // ?EchoOn@NetAddOnCarAudio@@QAEXM@Z
+    { 0x8062DC6C, 0x475B00 }, // ?EchoOn@NetAudioManager@@QAEXM@Z
+    { 0xAE7062FC, 0x4EB800 }, // ?EchoPending@AudSound@@QAEEXZ
+    { 0xE68CEEF9, 0x517620 }, // ?EdgeInList@@YA_NHHJPAH0@Z
+    { 0x39984E43, 0x4742E0 }, // ?EggNameIndex@@YAHPAD@Z
+    { 0xB150C075, 0x4718D0 }, // ?EjectPart@mmCarModel@@QAEXPAVmmWheel@@FFH@Z
+    { 0x99FC2A0C, 0x471780 }, // ?EjectWheels@mmCarModel@@QAEXH@Z
+    { 0x22F2AB46, 0x562F30 }, // ?EKeyName@eqEventHandler@@SAPADH@Z
+    { 0x847FF96C, 0x478A60 }, // ?EmitAllShards@mmShardManager@@QAEXVVector3@@M@Z
+    { 0xE2390011, 0x478AB0 }, // ?EmitShard@mmShardManager@@QAEXVVector3@@M@Z
+    { 0xED4945B4, 0x4789F0 }, // ?EmitShards@mmShardManager@@QAEXVVector3@@MM@Z
+    { 0x27231CD9, 0x536940 }, // ?emms@@YAXXZ
+    { 0x7FA7CC2F, 0x4EBBC0 }, // ?Enable3DMode@AudSound@@QAEXXZ
+    { 0x473194C2, 0x485A30 }, // ?Enable3DMode@EngineAudioOpponent@@QAEXPAVVector3@@@Z
+    { 0x9A0FB6D6, 0x47A770 }, // ?Enable3DMode@mmOpponentImpactAudio@@QAEXPAVVector3@@@Z
+    { 0xC50275E8, 0x486380 }, // ?Enable3DMode@mmOpponentSurfaceAudio@@QAEXPAVVector3@@@Z
+    { 0x7783A54E, 0x4F3550 }, // ?Enable3DMode@SoundObj@@QAEXXZ
+    { 0x7B3F1515, 0x4E8FE0 }, // ?Enable@AudManager@@QAEXPADFF@Z
+    { 0x3BE49B26, 0x4EAD30 }, // ?Enable@AudSound@@QAEXXZ
+    { 0x6269DEB7, 0x4F3AB0 }, // ?Enable@AudStream@@QAEXXZ
+    { 0x66536E8D, 0x4B0B90 }, // ?Enable@MenuManager@@QAEXH@Z
+    { 0x306F21AB, 0x4056C0 }, // ?Enable@mmHUD@@QAEXXZ
+    { 0xC680F52F, 0x4B7270 }, // ?Enable@UIBMButton@@UAEXXZ
+    { 0x8FB05735, 0x4B9F60 }, // ?Enable@UIButton@@UAEXXZ
+    { 0x501B5562, 0x4ACA30 }, // ?Enable@UIMenu@@QAEXXZ
+    { 0x32DDEFF2, 0x4BCA90 }, // ?Enable@UIToggleButton2@@UAEXXZ
+    { 0xBC51930F, 0x4BD930 }, // ?Enable@UIVScrollBar@@UAEXXZ
+    { 0xB7001479, 0x4B2DD0 }, // ?Enable@uiWidget@@UAEXXZ
+    { 0x5491CCDB, 0x4877F0 }, // ?EnableAir@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z
+    { 0x077852E5, 0x4E9400 }, // ?EnableCD@AudManager@@QAEHXZ
+    { 0x45A522FF, 0x486A70 }, // ?EnableClutch@EngineAudio@@QAEXPADM@Z
+    { 0xD602371F, 0x4EAD10 }, // ?EnabledAction@AudSound@@QAEXXZ
+    { 0x65CA054B, 0x473D70 }, // ?EnableDriving@mmCar@@QAEXH@Z
+    { 0x1E2F1F18, 0x4AB480 }, // ?EnableExit@PUMenuBase@@QAEXXZ
+    { 0x37F0493B, 0x4BBFE0 }, // ?EnableField@UIControlWidget@@QAEXXZ
+    { 0x5F109118, 0x4B0C40 }, // ?EnableNavBar@MenuManager@@QAEXXZ
+    { 0xFEBB57CE, 0x4A8C40 }, // ?EnableNextRace@PUResults@@QAEXXZ
+    { 0xEF8ABAFD, 0x4A1E50 }, // ?EnablePlayButton@NetArena@@QAEXXZ
+    { 0x22EC9B94, 0x4B09D0 }, // ?EnablePU@MenuManager@@QAEXXZ
+    { 0xD7340AFE, 0x432070 }, // ?EnableRacers@mmGameMulti@@IAEXXZ
+    { 0x7801F15E, 0x4174A0 }, // ?EnableRacers@mmGameSingle@@AAEXXZ
+    { 0xDC9ED3B4, 0x413660 }, // ?EnableRacers@mmSingleBlitz@@AAEXXZ
+    { 0x43D655D1, 0x415390 }, // ?EnableRacers@mmSingleCircuit@@AAEXXZ
+    { 0xBA9B969B, 0x42C4C0 }, // ?EnableRegen@mmPlayer@@QAEXH@Z
+    { 0x7C0DD46A, 0x4A2C40 }, // ?EnableStart@HostRaceMenu@@QAEXXZ
+    { 0xBAF65B33, 0x487970 }, // ?EnableSurface@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z
+    { 0xEADD560E, 0x4878C0 }, // ?EnableSuspension@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z
+    { 0x32447647, 0x487580 }, // ?EnableTireWobble@mmSurfaceAudio@@QAEXXZ
+    { 0x09696FD8, 0x4A1490 }, // ?EncodeCRData@CRSettings@@QAEHXZ
+    { 0xB1FA62FE, 0x505E10 }, // ?end_invert@@YIXPAVVector4@@@Z
+    { 0x8EC2C44A, 0x555C40 }, // ?EndAllGfx@agiPipeline@@QAEXXZ
+    { 0x2545AA1C, 0x576990 }, // ?EndBenchmark@Timer@@SAXXZ
+    { 0x11DD30EE, 0x5551F0 }, // ?EndDraw@agiSurfRenderer@@UAEXXZ
+    { 0x1E624B2D, 0x530BD0 }, // ?EndFrame@agiD3DPipeline@@UAEXXZ
+    { 0xE7D5232E, 0x533000 }, // ?EndFrame@agiDDPipeline@@UAEXXZ
+    { 0x1E9BC80F, 0x556030 }, // ?EndFrame@agiPipeline@@UAEXXZ
+    { 0xA7CDE248, 0x5340C0 }, // ?EndFrame@agiSWPipeline@@UAEXXZ
+    { 0x4DEDB28F, 0x555400 }, // ?EndGfx@agiBILight@@UAEXXZ
+    { 0xE74B0F38, 0x555310 }, // ?EndGfx@agiBILightModel@@UAEXXZ
+    { 0x68395CA1, 0x5338C0 }, // ?EndGfx@agiD3DLight@@UAEXXZ
+    { 0x8C92B6BD, 0x533620 }, // ?EndGfx@agiD3DMtlDef@@UAEXXZ
+    { 0xF1ED2E85, 0x531100 }, // ?EndGfx@agiD3DPipeline@@UAEXXZ
+    { 0x19B18EF2, 0x52E580 }, // ?EndGfx@agiD3DRasterizer@@UAEXXZ
+    { 0xE44BA262, 0x531700 }, // ?EndGfx@agiD3DRPipeline@@UAEXXZ
+    { 0x2814C930, 0x531EF0 }, // ?EndGfx@agiD3DTexDef@@UAEXXZ
+    { 0x58D04ACC, 0x532020 }, // ?EndGfx@agiD3DTexLut@@UAEXXZ
+    { 0x5EB23B79, 0x533330 }, // ?EndGfx@agiD3DViewport@@UAEXXZ
+    { 0x7664FCAE, 0x533CC0 }, // ?EndGfx@agiDDBitmap@@UAEXXZ
+    { 0x97EBFF6E, 0x532E30 }, // ?EndGfx@agiDDPipeline@@UAEXXZ
+    { 0x4477F9C3, 0x505E30 }, // ?EndGfx@agiMeshSet@@AAEXXZ
+    { 0xD8062D8A, 0x534DC0 }, // ?EndGfx@agiSWBitmap@@UAEXXZ
+    { 0x9F72A5F2, 0x534010 }, // ?EndGfx@agiSWPipeline@@UAEXXZ
+    { 0x4E3C727C, 0x537BF0 }, // ?EndGfx@agiSWRasterizer@@UAEXXZ
+    { 0x374E8FA8, 0x537820 }, // ?EndGfx@agiSWTexDef@@UAEXXZ
+    { 0x7D6422CA, 0x537B30 }, // ?EndGfx@agiSWTexLut@@UAEXXZ
+    { 0xA386FD62, 0x534BD0 }, // ?EndGfx@agiSWViewport@@UAEXXZ
+    { 0x0C7C306D, 0x55E2F0 }, // ?EndGfx@DLP@@UAEXXZ
+    { 0xD84006E0, 0x551200 }, // ?EndGfx@RDLP@@UAEXXZ
+    { 0xF494426D, 0x561FC0 }, // ?EndGfx@WINEventHandler@@UAEXXZ
+    { 0xD9D72672, 0x52E5B0 }, // ?EndGroup@agiD3DRasterizer@@UAEXXZ
+    { 0x90DB6C83, 0x557D30 }, // ?EndGroup@agiRasterizer@@UAEXXZ
+    { 0x6953EEC3, 0x537C10 }, // ?EndGroup@agiSWRasterizer@@UAEXXZ
+    { 0x6588DBEE, 0x54FAA0 }, // ?EndGroup@agiZBufRenderer@@UAEXXZ
+    { 0x78BFCC47, 0x578BB0 }, // ?EndMemStat@@YAXXZ
+    { 0x1D541E15, 0x577690 }, // ?EndObject@DataCache@@QAEXH@Z
+    { 0x1229F6FC, 0x522D60 }, // ?EndOverSample@asSimulation@@QAEXH@Z
+    { 0x4DC374D2, 0x522D30 }, // ?EndOverSample@asSimulation@@QAEXXZ
+    { 0x68A72C3C, 0x530B60 }, // ?EndScene@agiD3DPipeline@@UAEXXZ
+    { 0xEDFE0C2E, 0x531890 }, // ?EndScene@agiD3DRPipeline@@UAEXXZ
+    { 0xC7BDDAEA, 0x532FF0 }, // ?EndScene@agiDDPipeline@@UAEXXZ
+    { 0x77175C2E, 0x556020 }, // ?EndScene@agiPipeline@@UAEXXZ
+    { 0x01B46FAD, 0x5340A0 }, // ?EndScene@agiSWPipeline@@UAEXXZ
+    { 0xBCB54575, 0x48B8D0 }, // ?EndTask@mmLoader@@QAEXM@Z
+    { 0x44AD6DD8, 0x562640 }, // ?EndTracking@WINEventHandler@@UAEXXZ
+    { 0x0019CEE4, 0x504040 }, // ?EndVerts2@agiTexSorter@@SAXXZ
+    { 0xD1FDBED0, 0x503FF0 }, // ?EndVerts@agiTexSorter@@SAXXZ
+    { 0xF30FB28C, 0x4B84C0 }, // ?EnterCapture@UICWArray@@QAEXH@Z
+    { 0xA5DE85C5, 0x49F7E0 }, // ?EnterNewPlayer@Dialog_NewPlayer@@QAEXXZ
+    { 0x3FC61A9E, 0x4A5CD0 }, // ?EnterNewPlayer@DriverMenu@@QAEXXZ
+    { 0x9608869F, 0x5307B0 }, // ?EnumCallback@@YGJPAU_GUID@@PAD1PAU_D3DDeviceDesc@@2PAX@Z
+    { 0x4C5BCE09, 0x48B170 }, // ?EnumConnectionsCallback@@YGHPBU_GUID@@PAXKPBUDPNAME@@K1@Z
+    { 0xC1E5DFE1, 0x575740 }, // ?EnumCounter@@YGHPAU_GUID@@PAD1PAX@Z
+    { 0xDCDF8877, 0x4EFBB0 }, // ?EnumDSDevices@DSGlobal@@QAEHXZ
+    { 0xA80C66BD, 0x5757D0 }, // ?EnumerateRenderers2@@YAXXZ
+    { 0xCE490DAB, 0x576580 }, // ?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z
+    { 0xF1275C1A, 0x48B430 }, // ?EnumModemAddress@@YGHABU_GUID@@KPBXPAX@Z
+    { 0x9DF02E44, 0x532950 }, // ?EnumModesCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z
+    { 0xEF2592A7, 0x48B1E0 }, // ?EnumPlayersCallback@@YGHKKPBUDPNAME@@KPAX@Z
+    { 0x7760EE44, 0x48B0B0 }, // ?EnumSessionCallback@@YGHPBUDPSESSIONDESC2@@PAKKPAX@Z
+    { 0xDCFF0A39, 0x532A00 }, // ?EnumSurfsCallback@@YGJPAUIDirectDrawSurface@@PAU_DDSURFACEDESC@@PAX@Z
+    { 0x683F462D, 0x5308B0 }, // ?EnumTextureCallback@@YGJPAU_DDPIXELFORMAT@@PAX@Z
+    { 0x2E54E954, 0x576470 }, // ?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z
+    { 0x817F8833, 0x50DB10 }, // ?EnvMap@agiMeshSet@@QAEXAAVMatrix34@@PAVagiTexDef@@I@Z
+    { 0x24BEF1A0, 0x56D1E0 }, // ?Equal@Matrix34@@QBEIABV1@M@Z
+    { 0x5F8D084C, 0x5662A0 }, // ?Equal@Vector3@@QBEIABV1@M@Z
+    { 0xD1A56927, 0x55EDB0 }, // ?Error@Stream@@QAEXPAD@Z
+    { 0x911886F7, 0x576CF0 }, // ?Errorf@@YAXPBDZZ
+    { 0x5F0F2E2F, 0x57C710 }, // ?Errorf@MiniParser@@QAAXPBDZZ
+    { 0x0F3F3DD8, 0x4B2E50 }, // ?EvalMouseX@uiWidget@@UAEXM@Z
+    { 0xBCE1FA75, 0x4B4E80 }, // ?EvalMouseXY@mmCompBase@@UAEXMM@Z
+    { 0x3AFDF329, 0x4B40E0 }, // ?EvalMouseXY@UISlider@@QAEXMM@Z
+    { 0xEA90C9B3, 0x4BB5A0 }, // ?EvalMouseXY@UITextRoller2@@QAEXMM@Z
+    { 0x96BF08FB, 0x4BA720 }, // ?EvalMouseXY@UITextRoller@@QAEXMM@Z
+    { 0xFCA08D47, 0x4BD430 }, // ?EvalMouseXY@UIVScrollBar@@QAEXMM@Z
+    { 0xE1E4C18D, 0x4BFA00 }, // ?EvalMouseXY@VSWidget@@QAEXMMH@Z
+    { 0xCBD15A17, 0x4E2890 }, // ?EventToButton@mmInput@@AAEHH@Z
+    { 0xDB3F601D, 0x402EC0 }, // ?exeDirFile@@YAPADPAD0@Z
+    { 0xBCE28382, 0x55FC20 }, // ?ExpandEnvs@@YAXPAD@Z
+    { 0xFC1BD613, 0x57AB10 }, // ?ExpandEnvs@string@@QAEXXZ
+    { 0xD8226378, 0x560800 }, // ?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@0@Z
+    { 0xBAE23E0D, 0x571000 }, // ?expf_fast@@YAMM@Z
+    { 0xE09B9E7F, 0x571090 }, // ?expf_faster@@YAMM@Z
+    { 0xCD2C6851, 0x46E080 }, // ?Explode@mmCarSim@@QAEXXZ
+    { 0xF57DC11B, 0x47A8F0 }, // ?ExplosionIsPlaying@mmPoliceCarAudio@@QAEHXZ
+    { 0x1E9E6F34, 0x57A800 }, // ?Extension@string@@QBE?AV1@XZ
+    { 0x0B21F90F, 0x505990 }, // ?EyePlaneOutcode@@YAIPAEEAAVVector4@@PAVVector3@@H@Z
+    { 0x768F56E7, 0x529D40 }, // ?FadeIn@asCamera@@QAEXMH@Z
+    { 0xC54898FF, 0x529FF0 }, // ?FadeItIn@@YAXPAVasCamera@@@Z
+    { 0x43F9A66A, 0x529FD0 }, // ?FadeItOut@@YAXPAVasCamera@@@Z
+    { 0x642B3C1B, 0x529CE0 }, // ?FadeOut@asCamera@@QAEXMH@Z
+    { 0x8860E31D, 0x568980 }, // ?FastInverse@Matrix34@@QAEXABV1@@Z
+    { 0x3CF55D15, 0x568A80 }, // ?FastInverseFull@Matrix34@@QAEXABV1@@Z
+    { 0xBE6EE05F, 0x4E3BC0 }, // ?FFIsPlaying@mmInput@@QAEHH@Z
+    { 0x06334F80, 0x4E5F50 }, // ?FFIsPlaying@mmJoyMan@@QAEHH@Z
+    { 0x07619B3A, 0x4E3B60 }, // ?FFPlay@mmInput@@QAEHH@Z
+    { 0x150E3B51, 0x4E5EF0 }, // ?FFPlay@mmJoyMan@@QAEHH@Z
+    { 0x7EABABCB, 0x4E3BF0 }, // ?FFSetValues@mmInput@@QAEHHMM@Z
+    { 0x0A3B706E, 0x4E5F80 }, // ?FFSetValues@mmJoyMan@@QAEHHMM@Z
+    { 0xEC506A22, 0x4E3B90 }, // ?FFStop@mmInput@@QAEHH@Z
+    { 0x7B32371C, 0x4E5F20 }, // ?FFStop@mmJoyMan@@QAEHH@Z
+    { 0xB9E9B9DA, 0x55F3E0 }, // ?fgets@@YAHPADHPAVStream@@@Z
+    { 0x9962CB5A, 0x57A260 }, // ?FileExists@string@@QBEHXZ
+    { 0x24872ACA, 0x529DA0 }, // ?FileIO@asCamera@@QAEXPAVMiniParser@@@Z
+    { 0x56733A22, 0x52B5D0 }, // ?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z
+    { 0xB580C73D, 0x5288D0 }, // ?FileIO@asForm@@QAEXPAVMiniParser@@@Z
+    { 0x3B437961, 0x4DB180 }, // ?FileIO@asInertialCS@@QAEXPAVMiniParser@@@Z
+    { 0xA015275A, 0x5262E0 }, // ?FileIO@asLamp@@QAEXPAVMiniParser@@@Z
+    { 0x85479E89, 0x525CB0 }, // ?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z
+    { 0x4B367914, 0x52C770 }, // ?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z
+    { 0x2D933133, 0x57A6A0 }, // ?FileName@string@@QBE?AV1@XZ
+    { 0x5FEEE926, 0x40AD40 }, // ?FillCRRoster@mmInterface@@AAEXXZ
+    { 0x781D5712, 0x4F5540 }, // ?FillDataBuffer@StreamObj@@QAEHI@Z
+    { 0x9C805F6D, 0x41E290 }, // ?FillResults@mmMultiCR@@AAEXXZ
+    { 0x422E1B8A, 0x4B8F00 }, // ?FillScroll@UITextScroll@@AAEXXZ
+    { 0x7CEE662D, 0x49C1E0 }, // ?FillStats@VehicleSelectBase@@QAEXXZ
+    { 0x10C262D6, 0x55BF50 }, // ?Filter@agiColorModel8@@UAEIIIII@Z
+    { 0x409498B2, 0x55D670 }, // ?Filter@agiColorModelABGR@@UAEIIIII@Z
+    { 0xB51C942F, 0x55D490 }, // ?Filter@agiColorModelARGB@@UAEIIIII@Z
+    { 0x883002E3, 0x55C560 }, // ?Filter@agiColorModelRGB555@@UAEIIIII@Z
+    { 0xEAE098FB, 0x55C920 }, // ?Filter@agiColorModelRGB555_Rev@@UAEIIIII@Z
+    { 0x1D742728, 0x55C740 }, // ?Filter@agiColorModelRGB565@@UAEIIIII@Z
+    { 0x2AA5D6B5, 0x55CB00 }, // ?Filter@agiColorModelRGB565_Rev@@UAEIIIII@Z
+    { 0xA85B2E42, 0x55CCC0 }, // ?Filter@agiColorModelRGB888@@UAEIIIII@Z
+    { 0x7F78A4BB, 0x55CE60 }, // ?Filter@agiColorModelRGB888_Rev@@UAEIIIII@Z
+    { 0xC469B7CA, 0x55D280 }, // ?Filter@agiColorModelRGBA4444@@UAEIIIII@Z
+    { 0x4C6B81AE, 0x55D050 }, // ?Filter@agiColorModelRGBA5551@@UAEIIIII@Z
+    { 0x442767F8, 0x4E34B0 }, // ?FilterDiscreteSteering@mmInput@@AAEMM@Z
+    { 0xC66A50C0, 0x4E3650 }, // ?FilterGamepadSteering@mmInput@@QAEMXZ
+    { 0xBBD109B5, 0x44E860 }, // ?Find@aiPoliceForce@@QAEHPAVmmCar@@0@Z
+    { 0x3D999EDE, 0x438D90 }, // ?FindAmbAppRoad@aiMap@@QAEHH@Z
+    { 0x0BCF5541, 0x515100 }, // ?FindBone@bnSkeleton@@QAEPAVbnBone@@PADHD@Z
+    { 0xA78B2449, 0x577BE0 }, // ?FindByName@MetaClass@@SAPAV1@PADPAV1@@Z
+    { 0x56943DBC, 0x55BF30 }, // ?FindColor@agiColorModel8@@UAEIUagiRgba@@@Z
+    { 0xA9B1A451, 0x55BBB0 }, // ?FindColor@agiColorModel@@QAEIHHHH@Z
+    { 0x7E8C5204, 0x55D630 }, // ?FindColor@agiColorModelABGR@@UAEIUagiRgba@@@Z
+    { 0x296D21A5, 0x55D450 }, // ?FindColor@agiColorModelARGB@@UAEIUagiRgba@@@Z
+    { 0x8A8B202C, 0x55C520 }, // ?FindColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z
+    { 0x743603DE, 0x55C8E0 }, // ?FindColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z
+    { 0xC71803CA, 0x55C700 }, // ?FindColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z
+    { 0xEAADA78B, 0x55CAC0 }, // ?FindColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z
+    { 0x6668DB69, 0x55CC90 }, // ?FindColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z
+    { 0xA4351790, 0x55CE30 }, // ?FindColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z
+    { 0x29C01A33, 0x55D230 }, // ?FindColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z
+    { 0x9E1DDBD6, 0x55D000 }, // ?FindColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z
+    { 0x25059EEF, 0x55C3A0 }, // ?FindColor@agiPalette@@QAEIUagiRgba@@@Z
+    { 0x11883E97, 0x49D480 }, // ?FindDevice@AudioOptions@@QAEHPAD@Z
+    { 0x8D5A8A12, 0x55FD30 }, // ?FindFile@@YAPAVFileSystem@@PAD00H0@Z
+    { 0xB1420D68, 0x579ED0 }, // ?FindFile@string@@QAEHABV1@H00@Z
+    { 0x2BE96478, 0x4C0E30 }, // ?FindFirstEnabled@mmDropDown@@QAEHXZ
+    { 0x4C0068D7, 0x440AF0 }, // ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z
+    { 0x62202E92, 0x440CE0 }, // ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z
+    { 0xC5E0382B, 0x440ED0 }, // ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z
+    { 0x13169360, 0x447150 }, // ?FindGreatestDistance@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z
+    { 0x8ED437E7, 0x4C4070 }, // ?FindGreatestDistance@mmBridgeAudMgr@@QAEFPAVmmBridgeSet@@@Z
+    { 0x4E8D4AF4, 0x475860 }, // ?FindGreatestDistance@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z
+    { 0x7CB12A9E, 0x41D970 }, // ?FindGround@mmMultiCR@@AAEXVVector3@@AAV2@@Z
+    { 0x7BBC7BEF, 0x4D66E0 }, // ?FindIntersections@@YAHPAVmmIntersection@@HPAVasBound@@1PAVmmBoundTemplate@@2PAVmmEdgeBodyIsect@@H3H@Z
+    { 0x52FD4CBA, 0x55D760 }, // ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z
+    { 0x6E2C4AA4, 0x55D810 }, // ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z
+    { 0xC87FBFD3, 0x4B1440 }, // ?FindMenu@MenuManager@@QAEHH@Z
+    { 0xF0A33739, 0x4EEF00 }, // ?FindOriginal@DupBuffCreator@@QAEPAUIDirectSoundBuffer@@PADPAF@Z
+    { 0x95A1989C, 0x438DE0 }, // ?FindPedAppRoad@aiMap@@QAEHH@Z
+    { 0xD0C2B6D4, 0x461DC0 }, // ?FindPerp@aiGoalChase@@AAEHHHPAVaiPath@@@Z
+    { 0xE7AD790C, 0x445C70 }, // ?FindPerp@aiVehiclePolice@@AAEHHHPAVaiPath@@HH@Z
+    { 0x66FEAC7B, 0x4CF320 }, // ?FindPlayer@mmPlayerDirectory@@QAEHPAD@Z
+    { 0x2486FD75, 0x43A400 }, // ?FindRoad@aiMap@@AAEHPAVCArrayList@@H@Z
+    { 0xAD30DCED, 0x4A21C0 }, // ?FindRosterName@NetArena@@QAEHPAD@Z
+    { 0xA87DFFED, 0x4A9360 }, // ?FindRosterName@PURoster@@QAEHK@Z
+    { 0xCE11A282, 0x4A92F0 }, // ?FindRosterName@PURoster@@QAEHPAD@Z
+    { 0x08032C52, 0x4ACC90 }, // ?FindTheFirstFocusWidget@UIMenu@@QAEHXZ
+    { 0xDA27F342, 0x4412C0 }, // ?FindUnusedSlot@aiAudioManager@@QAEFXZ
+    { 0x32D994CF, 0x4471E0 }, // ?FindUnusedSlot@aiPedAudioManager@@QAEFXZ
+    { 0x3E9D5071, 0x4C4110 }, // ?FindUnusedSlot@mmBridgeAudMgr@@QAEFXZ
+    { 0xFBAC8696, 0x475900 }, // ?FindUnusedSlot@NetAudioManager@@QAEFXZ
+    { 0xACD3B574, 0x45FC10 }, // ?FinishedBackingUp@aiGoalBackup@@AAEXXZ
+    { 0xDA50F582, 0x4D9740 }, // ?FinishForces@asInertialCS@@QAEXXZ
+    { 0x5C7AD830, 0x432350 }, // ?FinishMessage@mmGameMulti@@QAEXH@Z
+    { 0x3D65DC4E, 0x418270 }, // ?FinishMessage@mmGameSingle@@AAEXHH@Z
+    { 0x7CC98F1D, 0x4143F0 }, // ?FinishMessage@mmSingleBlitz@@AAEXH@Z
+    { 0x907FCEB3, 0x415FE0 }, // ?FinishMessage@mmSingleCircuit@@AAEXHH@Z
+    { 0x94E587ED, 0x4D9B60 }, // ?FinishUpdate@asInertialCS@@QAEXXZ
+    { 0x4D7FD869, 0x5603C0 }, // ?FirstEntry@HierFileSystem@@UAEPAUFileInfo@@PAD@Z
+    { 0x0C6347D7, 0x560BB0 }, // ?FirstEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAD@Z
+    { 0x5242DE07, 0x50D0E0 }, // ?FirstPass@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0xEC4408F0, 0x50BA90 }, // ?FirstPass_HW_noUV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x2A1D59A6, 0x50C130 }, // ?FirstPass_HW_noUV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x7A812844, 0x50C7A0 }, // ?FirstPass_HW_noUV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x0C5C6832, 0x50CC50 }, // ?FirstPass_HW_noUV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x168C3474, 0x509FE0 }, // ?FirstPass_HW_UV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0xD456D129, 0x50A780 }, // ?FirstPass_HW_UV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x0AED3E62, 0x50AF10 }, // ?FirstPass_HW_UV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x82B656F1, 0x50B4E0 }, // ?FirstPass_HW_UV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x93F124A2, 0x509130 }, // ?FirstPass_SW_noUV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x15E91DFD, 0x5095E0 }, // ?FirstPass_SW_noUV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x3D280A66, 0x509A70 }, // ?FirstPass_SW_noUV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0xBB117B71, 0x509D30 }, // ?FirstPass_SW_noUV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x02B53673, 0x507D30 }, // ?FirstPass_SW_UV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0xAEA2273E, 0x508330 }, // ?FirstPass_SW_UV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x65D6AC82, 0x508910 }, // ?FirstPass_SW_UV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x7C260E2F, 0x508D30 }, // ?FirstPass_SW_UV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z
+    { 0x9C571D68, 0x5222A0 }, // ?FirstUpdate@asSimulation@@QAEXXZ
+    { 0x9C28181F, 0x48DA00 }, // ?fix_clip@@YAXXZ
+    { 0x3B964FEE, 0x48E220 }, // ?fix_fill1@@YAXXZ
+    { 0xD642AA9A, 0x48E290 }, // ?fix_fill2@@YAXXZ
+    { 0x07BD1C1C, 0x48E450 }, // ?fix_fog@@YAXXZ
+    { 0x278ABFFE, 0x48DA70 }, // ?fix_lighting@@YAXXZ
+    { 0xB11B16D8, 0x4A9EC0 }, // ?fix_lighting_lame@@YAXXZ
+    { 0x05ACDE41, 0x48E480 }, // ?fix_shadow@@YAXXZ
+    { 0x373E3D52, 0x48E1B0 }, // ?fix_sun@@YAXXZ
+    { 0x0DE547E4, 0x522DF0 }, // ?FixedFrame@asSimulation@@QAEXMH@Z
+    { 0x2AB4060E, 0x55E530 }, // ?FixROpts@DLP@@UAEXHH@Z
+    { 0x3B91A6B8, 0x551540 }, // ?FixROpts@RDLP@@UAEXHH@Z
+    { 0x1FA32BC1, 0x55E000 }, // ?FixTemplateRefs@DLP@@IAEXH@Z
+    { 0x7254F5BB, 0x512610 }, // ?FixTexFlags@@YAXAAVagiTexParameters@@@Z
+    { 0x44004D4D, 0x4FDAF0 }, // ?FixTimeStop@Spline@@QAEXXZ
+    { 0x64ADC3B3, 0x4E1E40 }, // ?FlagIODevChanged@mmInput@@QAEXXZ
+    { 0x04257B04, 0x57CD80 }, // ?FloatVal@MiniParser@@QAEMXZ
+    { 0xBCEA01CB, 0x483A60 }, // ?FluctuateFastSiren@mmNetworkCarAudio@@QAEXXZ
+    { 0x1A259C29, 0x482730 }, // ?FluctuateFastSiren@mmPlayerCarAudio@@QAEXXZ
+    { 0xDFF5234A, 0x47AFE0 }, // ?FluctuateFastSiren@mmPoliceCarAudio@@AAEXXZ
+    { 0x73286FA4, 0x483810 }, // ?FluctuateSlowSiren@mmNetworkCarAudio@@QAEXXZ
+    { 0x5F0EA0BE, 0x482530 }, // ?FluctuateSlowSiren@mmPlayerCarAudio@@QAEXXZ
+    { 0x5D959191, 0x47AD50 }, // ?FluctuateSlowSiren@mmPoliceCarAudio@@AAEXXZ
+    { 0x4C4EE8C0, 0x5776D0 }, // ?Flush@DataCache@@QAEXXZ
+    { 0xFC5C3A97, 0x4ABB20 }, // ?Flush@MArray@@QAEXXZ
+    { 0x3E356EF8, 0x4B0E30 }, // ?Flush@MenuManager@@QAEXXZ
+    { 0x91BD4285, 0x4E2450 }, // ?Flush@mmInput@@QAEXXZ
+    { 0xC8C2830D, 0x55ECC0 }, // ?Flush@Stream@@QAEHXZ
+    { 0x17B3ED6D, 0x4AC320 }, // ?Flush@WArray@@QAEXXZ
+    { 0xC7B966A0, 0x52E630 }, // ?FlushState@agiD3DRasterizer@@IAEXXZ
+    { 0x5B4BAEF4, 0x4299A0 }, // ?FlushVerts@mmHudMap@@AAEXXZ
+    { 0xAAEF20C4, 0x4A4420 }, // ?FocusDescription@NetSelectMenu@@QAEXH@Z
+    { 0x2615EE93, 0x4A7340 }, // ?FocusDescription@RaceMenuBase@@QAEXH@Z
+    { 0x23ECC6FD, 0x462300 }, // ?Follow@aiGoalChase@@AAEXXZ
+    { 0x2C33CA5D, 0x41D180 }, // ?FondleCarMass@mmMultiCR@@QAEXPAVmmCar@@M@Z
+    { 0xF646B2F9, 0x55F2F0 }, // ?fopen@@YAPAVStream@@PAD0@Z
+    { 0x492D7057, 0x4E2070 }, // ?ForceAssignment@mmInput@@QAEXPAVmmIO@@@Z
+    { 0x21A98B12, 0x4B8530 }, // ?ForceCapture@UICWArray@@QAEXXZ
+    { 0x944533DC, 0x4B1520 }, // ?ForceCurrentFocus@MenuManager@@QAEXXZ
+    { 0xE2CF177F, 0x4FC090 }, // ?ForceMatrixDelta@BaseCamCS@@UAEXABVVector3@@@Z
+    { 0x2009C6B8, 0x4F9320 }, // ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z
+    { 0x6E7327D9, 0x4F9340 }, // ?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z
+    { 0x42904C08, 0x4FBC00 }, // ?ForceMatrixDelta@TransitionCS@@UAEXABVVector3@@@Z
+    { 0xD63079A3, 0x427600 }, // ?ForceRoster@mmPopup@@QAEXXZ
+    { 0x64F9CC41, 0x4E4FA0 }, // ?ForceSettingAcrossConfigs@mmIO@@QAEXH@Z
+    { 0x353FC81C, 0x4ACB40 }, // ?ForceWidgetAction@UIMenu@@QAEXH@Z
+    { 0x6F61DFCE, 0x4F04D0 }, // ?FormatCodeToWFX@@YAHKPAUtWAVEFORMATEX@@@Z
+    { 0xFE5F2D59, 0x492BC0 }, // ?formatf@@YAPADPBDZZ
+    { 0x1FC94963, 0x460420 }, // ?Fov@aiGoalChase@@AAEHPAVmmCar@@@Z
+    { 0xA04DB4C1, 0x55F2D0 }, // ?fprintf@@YAXPAVStream@@PBDZZ
+    { 0xB37A60B5, 0x55FF90 }, // ?FQN@@YAPADPAD@Z
+    { 0x45726C6C, 0x522E30 }, // ?FrameLock@asSimulation@@QAEXHH@Z
+    { 0xD6C63955, 0x564A90 }, // ?frand@@YAMH@Z
+    { 0x38F6957B, 0x564A70 }, // ?frand@@YAMXZ
+    { 0x16347040, 0x520C90 }, // ?Free@asMemoryAllocator@@QAEXPAX@Z
+    { 0x3D1CEA99, 0x4F0F20 }, // ?FreeOneShotLayerBuffers@SoundObj@@QAEXXZ
+    { 0xC8B6EAE8, 0x52A010 }, // ?FritzIt@@YAXPAVasCamera@@@Z
+    { 0xACDF6A71, 0x56C7E0 }, // ?FromEulers@Matrix34@@QAEXABVVector3@@@Z
+    { 0xBFB47A9F, 0x56BE80 }, // ?FromEulers@Matrix34@@QAEXABVVector3@@PBD@Z
+    { 0x2B86EC24, 0x44D800 }, // ?FromMatrix@aiPedestrianInstance@@UAIXABVMatrix34@@@Z
+    { 0xBD47FAD7, 0x452080 }, // ?FromMatrix@aiVehicleInstance@@UAIXABVMatrix34@@@Z
+    { 0x0C34B934, 0x4715A0 }, // ?FromMatrix@mmCarModel@@UAIXABVMatrix34@@@Z
+    { 0xD480BEFE, 0x4C4E50 }, // ?FromMatrix@mmDofBangerInstance@@UAIXABVMatrix34@@@Z
+    { 0xB65E76C7, 0x4CA520 }, // ?FromMatrix@mmHitBangerInstance@@UAIXABVMatrix34@@@Z
+    { 0x26FB7BDF, 0x493440 }, // ?FromMatrix@mmMatrixInstance@@UAIXABVMatrix34@@@Z
+    { 0x25024CF3, 0x48C170 }, // ?FromMatrix@mmRunwayLight@@UAIXABVMatrix34@@@Z
+    { 0x6AC5674C, 0x477A60 }, // ?FromMatrix@mmSkid@@UAIXABVMatrix34@@@Z
+    { 0x70497DB2, 0x4796D0 }, // ?FromMatrix@mmTrailerInstance@@UAIXABVMatrix34@@@Z
+    { 0xE6513501, 0x4CA810 }, // ?FromMatrix@mmUnhitBangerInstance@@UAIXABVMatrix34@@@Z
+    { 0xCF4F4411, 0x4932F0 }, // ?FromMatrix@mmYInstance@@UAIXABVMatrix34@@@Z
+    { 0x46D123F8, 0x5726A0 }, // ?FromMatrix@Quaternion@@QAEXABVMatrix34@@@Z
+    { 0x85B369F1, 0x56CD00 }, // ?FromQuaternion@Matrix34@@QAEXABVQuaternion@@@Z
+    { 0xDC0BA241, 0x5709D0 }, // ?FromQuaternion@Matrix44@@QAEXABVQuaternion@@@Z
+    { 0x79371299, 0x4F8AE0 }, // ?Front@TrackCamCS@@AAEXM@Z
+    { 0x5CC2AD61, 0x5573B0 }, // ?Frustum@agiViewParameters@@QAEXMMMMMM@Z
+    { 0xB5BF4C7F, 0x55F450 }, // ?fscanf@@YAHPAVStream@@PBDZZ
+    { 0x81B6319E, 0x55F330 }, // ?fseek@@YAHPAVStream@@HH@Z
+    { 0x0F951886, 0x4BEAA0 }, // ?FudgeWidth@mmSlider@@QAEMXZ
+    { 0x330E5A3D, 0x5061B0 }, // ?FullClip@@YAHPAUCV@@0H@Z
+    { 0xBE2D843E, 0x51AEB0 }, // ?FullSegment@mmPolygon@@AAEHPAVmmEdgeBodyIsect@@@Z
+    { 0x74DD1ABA, 0x51B440 }, // ?FullSegment@mmPolygon@@AAEHPAVmmIntersection@@@Z
+    { 0x56454479, 0x51BC80 }, // ?FullSphere@mmPolygon@@AAEHPAVmmIntersection@@@Z
+    { 0x0A88CA06, 0x570E00 }, // ?Gain@@YAMMM@Z
+    { 0x2D015731, 0x4A78D0 }, // ?GameCallback@RaceMenuBase@@QAEXXZ
+    { 0x3DC6CA2C, 0x402F20 }, // ?GameCloseCallback@@YAXXZ
+    { 0xA4453F3A, 0x4014B0 }, // ?GameFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z
+    { 0x9A3D9444, 0x4015A0 }, // ?GameLoop@@YAXPAVmmInterface@@PAVmmGameManager@@PAD@Z
+    { 0xD1A88654, 0x41A1C0 }, // ?GameMessage@mmMultiBlitz@@UAEXPAUNETGAME_MSG@@@Z
+    { 0xF8A47D4E, 0x41B9C0 }, // ?GameMessage@mmMultiCircuit@@UAEXPAUNETGAME_MSG@@@Z
+    { 0x50044F14, 0x41E6E0 }, // ?GameMessage@mmMultiCR@@UAEXPAUNETGAME_MSG@@@Z
+    { 0x5FDF3AFD, 0x420EE0 }, // ?GameMessage@mmMultiRace@@UAEXPAUNETGAME_MSG@@@Z
+    { 0xF876BA6E, 0x431100 }, // ?GameMessageCB@mmGameMulti@@QAEXPAX0@Z
+    { 0x98A36223, 0x4E39B0 }, // ?GamepadConnected@mmInput@@QAEHXZ
+    { 0x59C66D0A, 0x4D4CA0 }, // ?GatherCollidables@mmPhysicsMGR@@IAEXHH@Z
+    { 0x87D20D45, 0x4D4A30 }, // ?GatherRoomCollidables@mmPhysicsMGR@@IAEXHFH@Z
+    { 0x5960D562, 0x564200 }, // ?geinputAcquireMouse@@YAXXZ
+    { 0xA436EB69, 0x564570 }, // ?geinputCleanup@@YAXXZ
+    { 0x69AED56D, 0x564610 }, // ?geinputClearCache@@YAXXZ
+    { 0xA19D59C4, 0x564220 }, // ?geinputGetBufferedKeyboard@@YAHPAD@Z
+    { 0x3AA2A5ED, 0x5642B0 }, // ?geinputGetKeyboard@@YAPADXZ
+    { 0xA6BA1745, 0x564320 }, // ?geinputGetMouse@@YAXPAJ0PAD10001@Z
+    { 0x1D7FF615, 0x564210 }, // ?geinputUnacquireMouse@@YAXXZ
+    { 0x077F4A92, 0x42EF00 }, // ?GenerateHitRooms@mmWaypoints@@QAEXXZ
+    { 0x3FEC0A83, 0x4012D0 }, // ?GenerateLoadScreenName@@YAHXZ
+    { 0x489F9166, 0x47F340 }, // ?GenerateSkidParticles@mmWheel@@QAEXXZ
+    { 0x6B7C7A05, 0x507320 }, // ?Geometry@agiMeshSet@@QAEHIPAVVector3@@PAVVector4@@@Z
+    { 0xC48F968F, 0x4EBAF0 }, // ?Get2DFlags@AudSound@@SA?BKXZ
+    { 0x17AAD145, 0x4F4100 }, // ?Get2DFlags@AudStream@@SA?BKXZ
+    { 0x883E6F62, 0x4EBB70 }, // ?Get3DFlags@AudSound@@SA?BKXZ
+    { 0xB91F4B6A, 0x4CE540 }, // ?Get@mmGfxCFG@@QAEXXZ
+    { 0x67880187, 0x55F170 }, // ?Get@Stream@@QAEHPAEH@Z
+    { 0x0911C783, 0x55F190 }, // ?Get@Stream@@QAEHPAGH@Z
+    { 0x7E09E5C8, 0x55F1D0 }, // ?Get@Stream@@QAEHPAKH@Z
+    { 0x4F6F578D, 0x4CB4F0 }, // ?GetActive@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z
+    { 0x6210ABD4, 0x4E9EA0 }, // ?GetActiveDeviceName@AudManager@@QAEPADXZ
+    { 0x5EC84496, 0x4F4A70 }, // ?GetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
+    { 0x4D878197, 0x4F4BE0 }, // ?GetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z
+    { 0x570B2839, 0x4D2100 }, // ?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
+    { 0x972E0316, 0x498700 }, // ?GetAnimation@@YAPAVmmAnimation@@PAD@Z
+    { 0x1567CCFF, 0x4CE650 }, // ?GetAudio@mmPlayerConfig@@QAEXXZ
+    { 0x1C5C6EE5, 0x4463A0 }, // ?GetAudioPtr@aiVehiclePolice@@QAEPAVmmPoliceCarAudio@@XZ
+    { 0x4A495E79, 0x476B60 }, // ?GetAvailableDistance@NetAudioManager@@QAEMXZ
+    { 0xC196E838, 0x4E6850 }, // ?GetAxis@mmJoystick@@QAEMH@Z
+    { 0x748C415F, 0x4CAC70 }, // ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ
+    { 0x3183A841, 0x485020 }, // ?GetBangerPtrs@mmImpactAudio@@QAEXFPAPAVAudSound@@0@Z
+    { 0xC0338C42, 0x4CCFA0 }, // ?GetBestBlitzScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    { 0xCE5C71F7, 0x4CCC10 }, // ?GetBestBlitzTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    { 0x260A438F, 0x4CD0D0 }, // ?GetBestCircuitScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    { 0xA5B204E1, 0x4CCD40 }, // ?GetBestCircuitTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    { 0xC565BF54, 0x4CCE70 }, // ?GetBestRaceScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    { 0x412BB29E, 0x4CCAE0 }, // ?GetBestRaceTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    { 0x0F628902, 0x555750 }, // ?GetBitmap@agiPipeline@@QAEPAVagiBitmap@@PADMMH@Z
+    { 0xC9220081, 0x4D02B0 }, // ?GetBlitzMask@mmPlayerData@@QAEHXZ
+    { 0xD1579F7B, 0x4D0340 }, // ?GetBlitzPassed@mmPlayerData@@QAEHXZ
+    { 0x541D2B87, 0x453BA0 }, // ?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ
+    { 0xC2EB96E0, 0x4CB7B0 }, // ?GetBound@mmBangerActive@@UAEPAVasBound@@XZ
+    { 0x33401A2F, 0x474870 }, // ?GetBound@mmCar@@UAEPAVasBound@@XZ
+    { 0x03FE19BA, 0x453B10 }, // ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ
+    { 0xF87BD549, 0x47A320 }, // ?GetBound@mmTrailer@@UAEPAVasBound@@XZ
+    { 0x1909F7CC, 0x571790 }, // ?GetBoundInfo@@YAXHPAVVector3@@000PAM@Z
+    { 0x8F341D63, 0x528820 }, // ?GetBoundMax@asForm@@QAE?AVVector3@@XZ
+    { 0x8016269C, 0x5287D0 }, // ?GetBoundMin@asForm@@QAE?AVVector3@@XZ
+    { 0xBE876314, 0x571730 }, // ?GetBoundSphere@@YA?AVVector4@@HPAVVector3@@@Z
+    { 0x97F865E9, 0x528870 }, // ?GetBoundSphere@asForm@@QAE?AVVector4@@XZ
+    { 0xB85B68E1, 0x51D2E0 }, // ?GetBoundTemplate@mmBoundTemplate@@SAPAV1@PAD0PAVVector3@@HHHHH@Z
+    { 0x882D2DCE, 0x404920 }, // ?GetBrakes@mmGameManager@@QAEMXZ
+    { 0x0F9442CC, 0x4E33A0 }, // ?GetBrakes@mmInput@@QAEMXZ
+    { 0x9872DB90, 0x4E33C0 }, // ?GetBrakesVal@mmInput@@QAEMXZ
+    { 0x6EEF99BC, 0x4ACC30 }, // ?GetBstate@UIMenu@@QAEHXZ
+    { 0x08CC8C5A, 0x4E2580 }, // ?GetBufferedKeyboardData@mmInput@@AAEXXZ
+    { 0xF4384896, 0x4E6950 }, // ?GetButton@mmJoystick@@QAEMH@Z
+    { 0xA5362327, 0x439540 }, // ?GetCameraPos@aiMap@@QAEXXZ
+    { 0xAEA783B7, 0x4E3890 }, // ?GetCamPan@mmInput@@QAEMXZ
+    { 0x7B40DE39, 0x44E420 }, // ?GetCarAudioPtr@aiVehicleOpponent@@QAEPAVmmOpponentCarAudio@@XZ
+    { 0xA85B5E34, 0x446170 }, // ?GetCarAudioPtr@aiVehiclePolice@@QAEPAVmmPoliceCarAudio@@XZ
+    { 0x3DA9F0C6, 0x472BE0 }, // ?GetCarFlags@mmCarModel@@QAEHPAD@Z
+    { 0xA2F353F2, 0x4D16A0 }, // ?GetCarName@mmRecord@@QAEPADXZ
+    { 0x53EEEF53, 0x49BAA0 }, // ?GetCarTitle@VehicleSelectBase@@QAEPADHPADFPAVstring@@@Z
+    { 0x65E313A5, 0x4D1F80 }, // ?GetCarType@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
+    { 0x0B45F690, 0x4E95D0 }, // ?GetCDBalance@AudManager@@QAEMXZ
+    { 0xCDDA492F, 0x4EE300 }, // ?GetCDBalance@MixerCTL@@QAEMXZ
+    { 0xB82B5DE6, 0x4E9F30 }, // ?GetCDMusicOnMask@AudManager@@SA?BIXZ
+    { 0x0D8BCACF, 0x4F0A90 }, // ?GetCDMusicOnMask@DSGlobal@@SA?BIXZ
+    { 0xD50D47FC, 0x4E9F90 }, // ?GetCDPosition@AudManager@@QAEKPAE000@Z
+    { 0x8B2BCC2D, 0x411960 }, // ?GetCDTrack@mmGame@@QAEHF@Z
+    { 0x78144EBF, 0x4E9380 }, // ?GetCDTrackNum@AudManager@@QAEEXZ
+    { 0xC45632F7, 0x4E9500 }, // ?GetCDVolume@AudManager@@QAEMXZ
+    { 0xCC08C81A, 0x4EE310 }, // ?GetCDVolume@MixerCTL@@QAEMXZ
+    { 0x514C82B5, 0x4915A0 }, // ?GetCellNeighbors@asRenderWeb@@QAEHHPAPAUasPortalCell@@H@Z
+    { 0x75244B09, 0x559930 }, // ?GetCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z
+    { 0xC9610B1A, 0x57C810 }, // ?GetCh@MiniParser@@QAEHXZ
+    { 0xB37B84C4, 0x55EC00 }, // ?GetCh@Stream@@QAEHXZ
+    { 0x9CA0846D, 0x4D02E0 }, // ?GetCheckpointMask@mmPlayerData@@QAEHXZ
+    { 0x11088DC8, 0x4D0360 }, // ?GetCheckpointPassed@mmPlayerData@@QAEHXZ
+    { 0xAA6784C1, 0x4D0290 }, // ?GetCheckpointProgress@mmPlayerData@@QAEHH@Z
+    { 0x010782A1, 0x523C80 }, // ?GetChild@asNode@@QAEPAV1@H@Z
+    { 0x19180D74, 0x4D0310 }, // ?GetCircuitMask@mmPlayerData@@QAEHXZ
+    { 0x13453D1E, 0x4D0380 }, // ?GetCircuitPassed@mmPlayerData@@QAEHXZ
+    { 0xE5916D9A, 0x4CBD50 }, // ?GetCityID@mmCityList@@QAEHPAD@Z
+    { 0xDA469E26, 0x4CBCA0 }, // ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@H@Z
+    { 0x342315FA, 0x4CBCD0 }, // ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@PAD@Z
+    { 0xAA4C84FF, 0x4FAAC0 }, // ?GetClass@AICamCS@@UAEPAVMetaClass@@XZ
+    { 0x2DB38240, 0x46A2D0 }, // ?GetClass@aiGoalFollowWayPts@@UAEPAVMetaClass@@XZ
+    { 0xE739B637, 0x43BD90 }, // ?GetClass@aiMap@@UAEPAVMetaClass@@XZ
+    { 0x2BD5656C, 0x4539F0 }, // ?GetClass@aiVehicleData@@UAEPAVMetaClass@@XZ
+    { 0x7E4729BE, 0x4536B0 }, // ?GetClass@aiVehicleInstance@@UAEPAVMetaClass@@XZ
+    { 0xE0798040, 0x44E670 }, // ?GetClass@aiVehicleOpponent@@UAEPAVMetaClass@@XZ
+    { 0xBFF8CD6F, 0x45C3E0 }, // ?GetClass@aiVehicleSpline@@UAEPAVMetaClass@@XZ
+    { 0x4AAC01D0, 0x4FD380 }, // ?GetClass@AppCamCS@@UAEPAVMetaClass@@XZ
+    { 0xE620DC5A, 0x4E0670 }, // ?GetClass@asAero@@UAEPAVMetaClass@@XZ
+    { 0x49B6C52A, 0x501620 }, // ?GetClass@asBirthRule@@UAEPAVMetaClass@@XZ
+    { 0x33054817, 0x52A810 }, // ?GetClass@asCamera@@UAEPAVMetaClass@@XZ
+    { 0x2BA1CFD5, 0x525A30 }, // ?GetClass@asCullable@@UAEPAVMetaClass@@XZ
+    { 0x0BE32367, 0x525840 }, // ?GetClass@asCullManager@@UAEPAVMetaClass@@XZ
+    { 0xBA432732, 0x52BB60 }, // ?GetClass@asDofCS@@UAEPAVMetaClass@@XZ
+    { 0x92A50866, 0x528B40 }, // ?GetClass@asForm@@UAEPAVMetaClass@@XZ
+    { 0x0C2ECF03, 0x4DBAF0 }, // ?GetClass@asInertialCS@@UAEPAVMetaClass@@XZ
+    { 0x81C29445, 0x5267E0 }, // ?GetClass@asLamp@@UAEPAVMetaClass@@XZ
+    { 0xC25BAB3E, 0x525FF0 }, // ?GetClass@asLinearCS@@UAEPAVMetaClass@@XZ
+    { 0xEFB575EA, 0x524600 }, // ?GetClass@asNode@@UAEPAVMetaClass@@XZ
+    { 0x6020F519, 0x4DF060 }, // ?GetClass@asOverSample@@UAEPAVMetaClass@@XZ
+    { 0xA88044C4, 0x500990 }, // ?GetClass@asParticles@@UAEPAVMetaClass@@XZ
+    { 0xEB8B15C9, 0x497770 }, // ?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ
+    { 0x2994DA52, 0x491890 }, // ?GetClass@asRenderWeb@@UAEPAVMetaClass@@XZ
+    { 0xE287EB2F, 0x5236A0 }, // ?GetClass@asSimulation@@UAEPAVMetaClass@@XZ
+    { 0x05332C8A, 0x52CDE0 }, // ?GetClass@asViewCS@@UAEPAVMetaClass@@XZ
+    { 0x9DD91E69, 0x4EA1E0 }, // ?GetClass@AudManager@@UAEPAVMetaClass@@XZ
+    { 0x6ED0D576, 0x579290 }, // ?GetClass@Base@@UAEPAVMetaClass@@XZ
+    { 0xBDDAFC02, 0x4FC2C0 }, // ?GetClass@BaseCamCS@@UAEPAVMetaClass@@XZ
+    { 0xEFC5634C, 0x4FB400 }, // ?GetClass@CarCamCS@@UAEPAVMetaClass@@XZ
+    { 0xC76426A2, 0x4870A0 }, // ?GetClass@EngineAudio@@UAEPAVMetaClass@@XZ
+    { 0x4DECCF7B, 0x485C70 }, // ?GetClass@EngineAudioOpponent@@UAEPAVMetaClass@@XZ
+    { 0xCD119EC7, 0x4DEB20 }, // ?GetClass@Joint3Dof@@UAEPAVMetaClass@@XZ
+    { 0x3F9B6919, 0x56D8A0 }, // ?GetClass@Matrix34@@SAPAVMetaClass@@XZ
+    { 0xF83CB51D, 0x4C4D80 }, // ?GetClass@mmAnimDOF@@UAEPAVMetaClass@@XZ
+    { 0x870E0227, 0x4C15B0 }, // ?GetClass@mmAnimMgr@@UAEPAVMetaClass@@XZ
+    { 0x7E977A7D, 0x47D720 }, // ?GetClass@mmAxle@@UAEPAVMetaClass@@XZ
+    { 0xAD86F014, 0x4C98C0 }, // ?GetClass@mmBangerData@@UAEPAVMetaClass@@XZ
+    { 0xF53C31A2, 0x4C9A40 }, // ?GetClass@mmBangerDataManager@@UAEPAVMetaClass@@XZ
+    { 0x9E069B88, 0x4C7FC0 }, // ?GetClass@mmBoat@@UAEPAVMetaClass@@XZ
+    { 0x37F0C36F, 0x4C32E0 }, // ?GetClass@mmBridgeMgr@@UAEPAVMetaClass@@XZ
+    { 0x64D190AE, 0x4C3060 }, // ?GetClass@mmBridgeSet@@UAEPAVMetaClass@@XZ
+    { 0xA48275DA, 0x495030 }, // ?GetClass@mmBuildingInstance@@UAEPAVMetaClass@@XZ
+    { 0x42820C12, 0x4747C0 }, // ?GetClass@mmCar@@UAEPAVMetaClass@@XZ
+    { 0xB8AEB0AE, 0x473280 }, // ?GetClass@mmCarModel@@UAEPAVMetaClass@@XZ
+    { 0xA9DF0E2D, 0x481A90 }, // ?GetClass@mmCarRoadFF@@UAEPAVMetaClass@@XZ
+    { 0x854D1023, 0x4701A0 }, // ?GetClass@mmCarSim@@UAEPAVMetaClass@@XZ
+    { 0x35389427, 0x48FA30 }, // ?GetClass@mmCullCity@@UAEPAVMetaClass@@XZ
+    { 0x86CEB354, 0x422EC0 }, // ?GetClass@mmDashView@@UAEPAVMetaClass@@XZ
+    { 0xBEDF53B4, 0x4805E0 }, // ?GetClass@mmDrivetrain@@UAEPAVMetaClass@@XZ
+    { 0x32554A9F, 0x4C10A0 }, // ?GetClass@mmDropDown@@UAEPAVMetaClass@@XZ
+    { 0x39483CE2, 0x47D180 }, // ?GetClass@mmEngine@@UAEPAVMetaClass@@XZ
+    { 0x0BD4C036, 0x495350 }, // ?GetClass@mmFacadeInstance@@UAEPAVMetaClass@@XZ
+    { 0x09D98161, 0x480F80 }, // ?GetClass@mmForce@@UAEPAVMetaClass@@XZ
+    { 0xEF6DFD62, 0x411FC0 }, // ?GetClass@mmGame@@UAEPAVMetaClass@@XZ
+    { 0x4B919700, 0x412D00 }, // ?GetClass@mmGameEdit@@UAEPAVMetaClass@@XZ
+    { 0xF7009987, 0x404B30 }, // ?GetClass@mmGameManager@@UAEPAVMetaClass@@XZ
+    { 0x09E17D4D, 0x4325B0 }, // ?GetClass@mmGameMulti@@UAEPAVMetaClass@@XZ
+    { 0xB980FC93, 0x418D00 }, // ?GetClass@mmGameSingle@@UAEPAVMetaClass@@XZ
+    { 0x0317E67D, 0x4068D0 }, // ?GetClass@mmHUD@@UAEPAVMetaClass@@XZ
+    { 0x56E804C9, 0x429F30 }, // ?GetClass@mmHudMap@@UAEPAVMetaClass@@XZ
+    { 0x232ADD60, 0x4D15D0 }, // ?GetClass@mmInfoBase@@UAEPAVMetaClass@@XZ
+    { 0xD1F06E8F, 0x4E4290 }, // ?GetClass@mmInput@@UAEPAVMetaClass@@XZ
+    { 0x8303F3B3, 0x494AB0 }, // ?GetClass@mmInstance@@UAEPAVMetaClass@@XZ
+    { 0xF7BFFFBC, 0x40E7D0 }, // ?GetClass@mmInterface@@UAEPAVMetaClass@@XZ
+    { 0x1511B9D1, 0x4E5A50 }, // ?GetClass@mmIODev@@UAEPAVMetaClass@@XZ
+    { 0xE04D0AF0, 0x4D35B0 }, // ?GetClass@mmMapData@@UAEPAVMetaClass@@XZ
+    { 0x83BC193D, 0x494CF0 }, // ?GetClass@mmMatrixInstance@@UAEPAVMetaClass@@XZ
+    { 0x93D20368, 0x4CD960 }, // ?GetClass@mmMiscData@@UAEPAVMetaClass@@XZ
+    { 0x2F2090D8, 0x41A6D0 }, // ?GetClass@mmMultiBlitz@@UAEPAVMetaClass@@XZ
+    { 0x0C0AE0DD, 0x41BDE0 }, // ?GetClass@mmMultiCircuit@@UAEPAVMetaClass@@XZ
+    { 0x636CD2EF, 0x41F760 }, // ?GetClass@mmMultiCR@@UAEPAVMetaClass@@XZ
+    { 0xE96FC5D6, 0x421400 }, // ?GetClass@mmMultiRace@@UAEPAVMetaClass@@XZ
+    { 0xB79DE0CB, 0x484570 }, // ?GetClass@mmNetworkCarAudio@@UAEPAVMetaClass@@XZ
+    { 0x2941DF12, 0x4FEE20 }, // ?GetClass@mmNumber@@UAEPAVMetaClass@@XZ
+    { 0x4A2D9812, 0x47C2A0 }, // ?GetClass@mmOpponentCarAudio@@UAEPAVMetaClass@@XZ
+    { 0x884D29A7, 0x497C10 }, // ?GetClass@mmPed@@UAEPAVMetaClass@@XZ
+    { 0xE5D2DF23, 0x497D80 }, // ?GetClass@mmPedManager@@UAEPAVMetaClass@@XZ
+    { 0xBEF9AB53, 0x4D9070 }, // ?GetClass@mmPhysicsMGR@@UAEPAVMetaClass@@XZ
+    { 0xD421956E, 0x42D1B0 }, // ?GetClass@mmPlayer@@UAEPAVMetaClass@@XZ
+    { 0x23FC1BC2, 0x483260 }, // ?GetClass@mmPlayerCarAudio@@UAEPAVMetaClass@@XZ
+    { 0x073CB435, 0x4CEE70 }, // ?GetClass@mmPlayerConfig@@UAEPAVMetaClass@@XZ
+    { 0x8CA7854C, 0x4D11E0 }, // ?GetClass@mmPlayerData@@UAEPAVMetaClass@@XZ
+    { 0x9D133D73, 0x4CFB80 }, // ?GetClass@mmPlayerDirectory@@UAEPAVMetaClass@@XZ
+    { 0x36AB02D7, 0x4D0010 }, // ?GetClass@mmPlayerRecord@@UAEPAVMetaClass@@XZ
+    { 0x4A13BBA8, 0x4D2B60 }, // ?GetClass@mmPropInfo@@UAEPAVMetaClass@@XZ
+    { 0x7FFC2B9E, 0x4D1B50 }, // ?GetClass@mmRecord@@UAEPAVMetaClass@@XZ
+    { 0xCA17B572, 0x4D3140 }, // ?GetClass@mmRoadSect@@UAEPAVMetaClass@@XZ
+    { 0xA6833001, 0x4D2D80 }, // ?GetClass@mmRoadSide@@UAEPAVMetaClass@@XZ
+    { 0xA40F830D, 0x478F80 }, // ?GetClass@mmShard@@UAEPAVMetaClass@@XZ
+    { 0xDF3F9B21, 0x479160 }, // ?GetClass@mmShardManager@@UAEPAVMetaClass@@XZ
+    { 0x6C3FE113, 0x494E90 }, // ?GetClass@mmShearInstance@@UAEPAVMetaClass@@XZ
+    { 0x8BC5AA81, 0x47D410 }, // ?GetClass@mmShock@@UAEPAVMetaClass@@XZ
+    { 0xFCE6DF14, 0x4148B0 }, // ?GetClass@mmSingleBlitz@@UAEPAVMetaClass@@XZ
+    { 0x365342E3, 0x416AB0 }, // ?GetClass@mmSingleCircuit@@UAEPAVMetaClass@@XZ
+    { 0x73C71C9B, 0x478300 }, // ?GetClass@mmSkid@@UAEPAVMetaClass@@XZ
+    { 0x96F60530, 0x478470 }, // ?GetClass@mmSkidManager@@UAEPAVMetaClass@@XZ
+    { 0x950C5787, 0x4BF070 }, // ?GetClass@mmSlider@@UAEPAVMetaClass@@XZ
+    { 0x77614F03, 0x4951C0 }, // ?GetClass@mmStaticInstance@@UAEPAVMetaClass@@XZ
+    { 0x21C79F22, 0x4C0300 }, // ?GetClass@mmToggle2@@UAEPAVMetaClass@@XZ
+    { 0x8A6FE46C, 0x4C07A0 }, // ?GetClass@mmToggle@@UAEPAVMetaClass@@XZ
+    { 0x5D51254A, 0x47A130 }, // ?GetClass@mmTrailer@@UAEPAVMetaClass@@XZ
+    { 0xA959EE81, 0x470C80 }, // ?GetClass@mmTransmission@@UAEPAVMetaClass@@XZ
+    { 0xE0190318, 0x4F94F0 }, // ?GetClass@mmViewCS@@UAEPAVMetaClass@@XZ
+    { 0xE8A98119, 0x433D20 }, // ?GetClass@mmWaypointInstance@@UAEPAVMetaClass@@XZ
+    { 0xF5D11EBE, 0x47FDC0 }, // ?GetClass@mmWheel@@UAEPAVMetaClass@@XZ
+    { 0x085D8949, 0x494B60 }, // ?GetClass@mmYInstance@@UAEPAVMetaClass@@XZ
+    { 0xD854B1E7, 0x4FA3F0 }, // ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
+    { 0x96B601D8, 0x4FB180 }, // ?GetClass@PolarCamCS@@UAEPAVMetaClass@@XZ
+    { 0x8340DCC5, 0x4F9930 }, // ?GetClass@PostCamCS@@UAEPAVMetaClass@@XZ
+    { 0xFB8BCF4B, 0x4F69B0 }, // ?GetClass@PovCamCS@@UAEPAVMetaClass@@XZ
+    { 0xBD39181F, 0x4F9D80 }, // ?GetClass@PreCamCS@@UAEPAVMetaClass@@XZ
+    { 0x579DB57F, 0x4BDF20 }, // ?GetClass@sfPointer@@UAEPAVMetaClass@@XZ
+    { 0xD0AA8670, 0x4FDD00 }, // ?GetClass@Spline@@UAEPAVMetaClass@@XZ
+    { 0x02ACC2B1, 0x4BE630 }, // ?GetClass@TextDropWidget@@UAEPAVMetaClass@@XZ
+    { 0xFEDB3F53, 0x4F8F00 }, // ?GetClass@TrackCamCS@@UAEPAVMetaClass@@XZ
+    { 0x1301F9EA, 0x4B7260 }, // ?GetClass@UIBMButton@@UAEPAVMetaClass@@XZ
+    { 0xDD7549BA, 0x4B47F0 }, // ?GetClass@UIBMLabel@@UAEPAVMetaClass@@XZ
+    { 0xE2DEDF04, 0x4BD8A0 }, // ?GetClass@UIVScrollBar@@UAEPAVMetaClass@@XZ
+    { 0xE7FF27CC, 0x480B70 }, // ?GetClass@VehGyro@@UAEPAVMetaClass@@XZ
+    { 0x942E9977, 0x4BFEA0 }, // ?GetClass@VSWidget@@UAEPAVMetaClass@@XZ
+    { 0x0C14742D, 0x443E50 }, // ?GetClosestCop@aiAudioManager@@QAEFXZ
+    { 0x7580693B, 0x42F050 }, // ?GetClosestWaypoint@mmWaypoints@@QAEXXZ
+    { 0x0A0FF5EC, 0x4DAD70 }, // ?GetCMatrix@asInertialCS@@UBEXAAVMatrix34@@ABVVector3@@@Z
+    { 0xFEE5282D, 0x4DE3B0 }, // ?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@0AAVMatrix34@@ABVVector3@@@Z
+    { 0x5528043E, 0x4DE050 }, // ?GetCMatrix@Joint3Dof@@UAEXPBVasInertialCS@@AAVMatrix34@@ABVVector3@@@Z
+    { 0xD3A0BA84, 0x4D8730 }, // ?GetCollidePolyEdge@@YAHABVVector3@@PAVmmPolygon@@PAVmmBoundTemplate@@PAVasInertialCS@@0M0000PAV1@4PAMPAH6@Z
+    { 0x6033A616, 0x55BF10 }, // ?GetColor@agiColorModel8@@UAEIUagiRgba@@@Z
+    { 0x3FBCFCA6, 0x55BBE0 }, // ?GetColor@agiColorModel@@QAEIABVVector3@@@Z
+    { 0x58B310E6, 0x55BC40 }, // ?GetColor@agiColorModel@@QAEIABVVector4@@@Z
+    { 0x657ED8D9, 0x55BB80 }, // ?GetColor@agiColorModel@@QAEIHHHH@Z
+    { 0x8EF7AF0B, 0x55D5F0 }, // ?GetColor@agiColorModelABGR@@UAEIUagiRgba@@@Z
+    { 0xD57D5864, 0x55D410 }, // ?GetColor@agiColorModelARGB@@UAEIUagiRgba@@@Z
+    { 0xBA993C80, 0x55C4E0 }, // ?GetColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z
+    { 0x4E8CF9CB, 0x55C8A0 }, // ?GetColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z
+    { 0x21924793, 0x55C6C0 }, // ?GetColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z
+    { 0x1A967D95, 0x55CA80 }, // ?GetColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z
+    { 0x3962902A, 0x55CC60 }, // ?GetColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z
+    { 0xB3E39C55, 0x55CE00 }, // ?GetColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z
+    { 0x9417C586, 0x55D1E0 }, // ?GetColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z
+    { 0xFA464DAD, 0x55CFB0 }, // ?GetColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z
+    { 0xF4FED20A, 0x55C310 }, // ?GetColor@agiPalette@@QAEIUagiRgba@@@Z
+    { 0x93120FBC, 0x427C70 }, // ?GetComment@mmPopup@@QAEPADXZ
+    { 0x2E7A966D, 0x4E9F40 }, // ?GetCommentaryOnMask@AudManager@@SA?BIXZ
+    { 0xB60C5331, 0x4F0A80 }, // ?GetCommentaryOnMask@DSGlobal@@SA?BIXZ
+    { 0x9A65880E, 0x4A01F0 }, // ?GetCommPack@Dialog_Serial@@QAEPAUNETCOMMPACK@@XZ
+    { 0x4E304312, 0x4A4B40 }, // ?GetCommPack@NetSelectMenu@@QAEPAUNETCOMMPACK@@XZ
+    { 0x3389A902, 0x4E5580 }, // ?GetComponentType@mmIODev@@QAEHHH@Z
+    { 0xEF5307AF, 0x4B05D0 }, // ?GetControllerName@MenuManager@@QAEPADH@Z
+    { 0x96618DD6, 0x4CE6C0 }, // ?GetControls@mmPlayerConfig@@QAEXXZ
+    { 0x80A966F9, 0x51B990 }, // ?GetCorner@mmPolygon@@AAEHAAVVector3@@00000AAM@Z
+    { 0x291FA22D, 0x4FDE50 }, // ?GetCount@mmGameRecord@@QAEHXZ
+    { 0x987BA35E, 0x492010 }, // ?GetCount@mmPositions@@QAEHXZ
+    { 0xE58AE712, 0x57B600 }, // ?GetCount@RefToType@@QAEHPAX@Z
+    { 0x8F0DE026, 0x4BE1A0 }, // ?GetCount@TextDropWidget@@QAEHXZ
+    { 0x9B3953C9, 0x4CBE20 }, // ?GetCurrentCity@mmCityList@@QAEPAVmmCityInfo@@XZ
+    { 0x4393068C, 0x49D510 }, // ?GetCurrentDeviceName@AudioOptions@@QAEPADXZ
+    { 0x27CBAC0A, 0x470740 }, // ?GetCurrentGear@mmTransmission@@QAEHXZ
+    { 0xBC207FE1, 0x428BF0 }, // ?GetCurrentMap@mmHudMap@@AAEPAVagiBitmap@@XZ
+    { 0x0E88EE59, 0x4B1410 }, // ?GetCurrentMenu@MenuManager@@QAEPAVUIMenu@@XZ
+    { 0xC598D99C, 0x4EBC40 }, // ?GetCurrentSoundObj@AudSound@@QAEPAVSoundObj@@XZ
+    { 0xAE2BF1B6, 0x4F4140 }, // ?GetCurrentSoundObj@AudStream@@QAEPAVStreamObj@@XZ
+    { 0x1EBAF34B, 0x4C0D60 }, // ?GetCurrentString@mmDropDown@@QAEXPADH@Z
+    { 0x3AB81A59, 0x4B8FE0 }, // ?GetCurrentString@UITextScroll@@QAEXPADH@Z
+    { 0xB55CAAD6, 0x4F4A30 }, // ?GetDamping@CReverb@@QAEMXZ
+    { 0x05FE7DFD, 0x453020 }, // ?GetData@aiVehicleInstance@@QAEPAVaiVehicleData@@XZ
+    { 0xA8D49C8E, 0x4CA460 }, // ?GetData@mmBangerInstance@@QAEPAVmmBangerData@@XZ
+    { 0x8FB6A14B, 0x4FEF70 }, // ?GetDC@mmText@@SAPAXPAVagiSurfaceDesc@@@Z
+    { 0x65B175D4, 0x4F49F0 }, // ?GetDecayTime@CReverb@@QAEMXZ
+    { 0x982A09E8, 0x4E4D70 }, // ?GetDescription@mmIO@@QAEXPAD@Z
+    { 0x8EF50AF2, 0x4E52C0 }, // ?GetDescription@mmIODev@@QAEXPAD@Z
+    { 0x58CD0DFC, 0x4E9E60 }, // ?GetDeviceNames@AudManager@@QAEPAPADXZ
+    { 0xE4F96733, 0x4F09C0 }, // ?GetDeviceNames@DSGlobal@@QAEPAPADXZ
+    { 0xBF49F8CA, 0x4D2130 }, // ?GetDifficulty@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
+    { 0x49840F8A, 0x4ACC40 }, // ?GetDimensions@UIMenu@@QAEXAAM000@Z
+    { 0x1EEE7BE8, 0x5603A0 }, // ?GetDir@HierFileSystem@@UAEHPADH@Z
+    { 0x4AE2D170, 0x560BA0 }, // ?GetDir@VirtualFileSystem@@UAEHPADH@Z
+    { 0xA5CFCC00, 0x4BE4B0 }, // ?GetDisabledMask@TextDropWidget@@QAEJXZ
+    { 0x0AC38D6F, 0x44E3A0 }, // ?GetDistanceToPlayer2@aiVehicleOpponent@@QAEMXZ
+    { 0x6D25E3F9, 0x446270 }, // ?GetDistanceToPlayer2@aiVehiclePolice@@QAEMXZ
+    { 0xCC970D4A, 0x4B64C0 }, // ?GetDiv@UIBMButton@@QAEHXZ
+    { 0xEB69EB31, 0x555950 }, // ?GetDLP@agiPipeline@@QAEPAVDLP@@PAD0PAVVector3@@HH@Z
+    { 0x3FDB5265, 0x556B60 }, // ?GetDLPTemplate@@YAPAVDLPTemplate@@PAD@Z
+    { 0x25BFBA09, 0x4E9F10 }, // ?GetDSound3DMask@AudManager@@SA?BIXZ
+    { 0x1F1522C4, 0x4F0A60 }, // ?GetDSound3DMask@DSGlobal@@SA?BIXZ
+    { 0x1F87E604, 0x551490 }, // ?GetDynamic@RDLP@@UAEPAVDynamicDLP@@H@Z
+    { 0xDCA4B42E, 0x4E9A60 }, // ?GetEAXAll@AudManager@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
+    { 0x30A7E1AC, 0x4E9D60 }, // ?GetEAXDamping@AudManager@@QAEMXZ
+    { 0x63CC7AC4, 0x4E9CA0 }, // ?GetEAXDecayTime@AudManager@@QAEMXZ
+    { 0x8B110AD0, 0x4E9B20 }, // ?GetEAXEnvironmet@AudManager@@QAEKXZ
+    { 0x0541CDCA, 0x4EB3B0 }, // ?GetEAXReverbMix@AudSound@@QAEMH@Z
+    { 0xDA889377, 0x4E9BE0 }, // ?GetEAXReverbVolume@AudManager@@QAEMXZ
+    { 0xDBD692F5, 0x4E9F00 }, // ?GetEchoOnMask@AudManager@@SA?BIXZ
+    { 0xF9DEB196, 0x4F0A50 }, // ?GetEchoOnMask@DSGlobal@@SA?BIXZ
+    { 0x24BCECF1, 0x4EBA10 }, // ?GetEffect@AudSound@@QAEHXZ
+    { 0x3362B7CC, 0x44E120 }, // ?GetEngineSoundIndex@aiVehicleOpponent@@QAEHXZ
+    { 0x65131340, 0x446180 }, // ?GetEngineSoundIndex@aiVehiclePolice@@QAEHXZ
+    { 0xBFE2C592, 0x45C6E0 }, // ?GetEngineSoundPtr@AddOnCarAudio@@QAEPAVAudSound@@F@Z
+    { 0x75023AA9, 0x451F10 }, // ?GetEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
+    { 0xB564EEC1, 0x4CA480 }, // ?GetEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
+    { 0x8DDFB3E4, 0x473320 }, // ?GetEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ
+    { 0xCAE33CF8, 0x433DB0 }, // ?GetEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ
+    { 0x63E59874, 0x479720 }, // ?GetEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
+    { 0x7B6CBDAB, 0x48B2D0 }, // ?GetEnumModem@asNetwork@@QAEPADH@Z
+    { 0xAB030B29, 0x489AD0 }, // ?GetEnumPlayer@asNetwork@@QAEPADH@Z
+    { 0xA72CDC20, 0x489E40 }, // ?GetEnumPlayerData@asNetwork@@QAEHHPAXH@Z
+    { 0x98FFF53D, 0x489960 }, // ?GetEnumProtocol@asNetwork@@QAEPADH@Z
+    { 0x5813AED6, 0x48A3E0 }, // ?GetEnumSession@asNetwork@@QAEPADH@Z
+    { 0x96665D2D, 0x48A410 }, // ?GetEnumSessionID@asNetwork@@QAEHH@Z
+    { 0xAF673405, 0x48B060 }, // ?GetEnumSessionLock@asNetwork@@QAEHH@Z
+    { 0x103D4AD1, 0x48B030 }, // ?GetEnumSessionStatus@asNetwork@@QAEHH@Z
+    { 0x78359B49, 0x503A60 }, // ?GetEnv@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
+    { 0x4BA4F882, 0x4F4970 }, // ?GetEnvironment@CReverb@@QAEKXZ
+    { 0xF847B47F, 0x55ED40 }, // ?GetError@Stream@@MAEHPADH@Z
+    { 0xE5C6B5AB, 0x4EEAD0 }, // ?GetErrorMessage@MixerCTL@@AAEPADK@Z
+    { 0xBBFFF23A, 0x56B630 }, // ?GetEulers@Matrix34@@QBE?AVVector3@@PBD@Z
+    { 0x6D9AD052, 0x56BCE0 }, // ?GetEulers@Matrix34@@QBE?AVVector3@@XZ
+    { 0x3318BD39, 0x4E5E80 }, // ?GetFFEffect@mmJoyMan@@QAEPAVmmEffectFF@@H@Z
+    { 0x52A91A23, 0x4E6D80 }, // ?GetFFEffect@mmJoystick@@QAEPAVmmEffectFF@@H@Z
+    { 0xFE1F5EE2, 0x4B0740 }, // ?GetFGColor@MenuManager@@QAEAAVVector4@@H@Z
+    { 0x84E6E54B, 0x4FF750 }, // ?GetFGColor@mmTextNode@@QAEIXZ
+    { 0x5377E921, 0x4D0900 }, // ?GetFileName@mmPlayerData@@QAEPADXZ
+    { 0x77CFA56F, 0x4CF4B0 }, // ?GetFileName@mmPlayerDirectory@@QAEPADH@Z
+    { 0x934EF272, 0x4CF390 }, // ?GetFileName@mmPlayerDirectory@@QAEPADPAD@Z
+    { 0x8EBA3DDB, 0x4F6040 }, // ?GetFileStreamPtr@StreamObj@@QAEPAVStream@@XZ
+    { 0x09AF8BD6, 0x561770 }, // ?GetFloat@Tokenizer@@QAEMXZ
+    { 0x2B6ACE1F, 0x4B0670 }, // ?GetFont@MenuManager@@QAEPAXH@Z
+    { 0x46B9B5E3, 0x4F34D0 }, // ?GetFormat@SoundObj@@QAEPAUtWAVEFORMATEX@@XZ
+    { 0xB12D4863, 0x4EBB30 }, // ?GetFreqChange2DFlags@AudSound@@SA?BKXZ
+    { 0xADAC7B67, 0x4F4120 }, // ?GetFreqChange2DFlags@AudStream@@SA?BKXZ
+    { 0x4456D906, 0x4EBB80 }, // ?GetFreqChange3DFlags@AudSound@@SA?BKXZ
+    { 0xB9BF8412, 0x4EB290 }, // ?GetFrequency@AudSound@@QAEMH@Z
+    { 0x2778FDEE, 0x4F3FA0 }, // ?GetFrequency@AudStream@@QAEMH@Z
+    { 0x076CB643, 0x4B4230 }, // ?GetFudgeWidth@UISlider@@QAEMXZ
+    { 0x9559D4D1, 0x48B000 }, // ?GetGameVersion@asNetwork@@QAEHH@Z
+    { 0x2E493C2A, 0x4A1650 }, // ?GetGoldMass@CRSettings@@QAEHXZ
+    { 0xD08C2D07, 0x4A16B0 }, // ?GetGoldMassVal@CRSettings@@QAEHXZ
+    { 0x35187901, 0x4CE630 }, // ?GetGraphics@mmPlayerConfig@@QAEXXZ
+    { 0x55D8FB0A, 0x5599B0 }, // ?GetGroupVertex@DLPTemplate@@QAEPAVVector3@@PAD@Z
+    { 0xD96F3F54, 0x556DF0 }, // ?GetGroupVerts@@YAHPAD0PAVVector3@@H@Z
+    { 0x044EFCCA, 0x4E3430 }, // ?GetHandBrake@mmInput@@QAEMXZ
+    { 0x9D02E4C5, 0x533750 }, // ?GetHandle@agiD3DMtlDef@@QAEKXZ
+    { 0xFE900F45, 0x531DA0 }, // ?GetHandle@agiD3DTexDef@@QAEPAUIDirect3DTexture2@@H@Z
+    { 0x09786018, 0x43E6B0 }, // ?GetHeading@aiPath@@QAEMMH@Z
+    { 0x42CB29CB, 0x42EED0 }, // ?GetHeading@mmWaypoints@@QAEMH@Z
+    { 0xB04B9E69, 0x4EC030 }, // ?GetHeadPtr@AudHead@@QAEPAVMatrix34@@XZ
+    { 0x522AC2E8, 0x4B59F0 }, // ?GetHeight@UICompositeScroll@@QAEMXZ
+    { 0x625F797E, 0x4E9EE0 }, // ?GetHiResMask@AudManager@@SA?BIXZ
+    { 0xDB1F7937, 0x4F0A30 }, // ?GetHiResMask@DSGlobal@@SA?BIXZ
+    { 0x2459C453, 0x4E9EF0 }, // ?GetHiSampleSizeMask@AudManager@@SA?BIXZ
+    { 0x2ECFFBF0, 0x4F0A40 }, // ?GetHiSampleSizeMask@DSGlobal@@SA?BIXZ
+    { 0xB0236E3C, 0x4C0EC0 }, // ?GetHit@mmDropDown@@QAEHMM@Z
+    { 0x68FCBD73, 0x4B5720 }, // ?GetHit@UICompositeScroll@@QAEHMM@Z
+    { 0xF0D32188, 0x4B9080 }, // ?GetHit@UITextScroll@@QAEHMM@Z
+    { 0x703B44CF, 0x4B66F0 }, // ?GetHitArea@UIBMButton@@QAEXAAM0@Z
+    { 0x17F57CE2, 0x4B9A60 }, // ?GetHitArea@UIIcon@@QAEXAAM0@Z
+    { 0xFAB0B564, 0x48BF10 }, // ?GetHitId@mmCullCity@@QAEFAAVVector3@@@Z
+    { 0x3AC76F34, 0x42EF60 }, // ?GetHitRoom@mmWaypoints@@QAEHH@Z
+    { 0x8E3C1E96, 0x4A4410 }, // ?GetHostJoin@NetSelectMenu@@QAEHXZ
+    { 0x9DF1627B, 0x40D760 }, // ?GetHostPlayerData@mmInterface@@AAEHAAUmmPlayerInfo@@@Z
+    { 0xEDC1C293, 0x453BB0 }, // ?GetICS@aiVehicleActive@@UAEPAVasInertialCS@@XZ
+    { 0xB297AAAE, 0x4CB7C0 }, // ?GetICS@mmBangerActive@@UAEPAVasInertialCS@@XZ
+    { 0x6AF21409, 0x474860 }, // ?GetICS@mmCar@@UAEPAVasInertialCS@@XZ
+    { 0x0C2B3D34, 0x453B20 }, // ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ
+    { 0x74D9E62A, 0x47A310 }, // ?GetICS@mmTrailer@@UAEPAVasInertialCS@@XZ
+    { 0x0D91E4F5, 0x451360 }, // ?GetImpactAudioPtr@aiVehicleAmbient@@UAEPAVmmOpponentImpactAudio@@XZ
+    { 0x1C4B5315, 0x4465E0 }, // ?GetImpactAudioPtr@aiVehicleSpline@@UAEPAVmmOpponentImpactAudio@@XZ
+    { 0xA4A40DA5, 0x4A9F40 }, // ?GetInstance@mmCullCity@@SAPAV1@XZ
+    { 0x5140AB69, 0x4788D0 }, // ?GetInstance@mmShardManager@@SAPAV1@H@Z
+    { 0xBFB8DC27, 0x561710 }, // ?GetInt@Tokenizer@@QAEHXZ
+    { 0x490A812E, 0x4D27D0 }, // ?GetIntersectionType@mmRoadSect@@QAEHH@Z
+    { 0xDA967EDC, 0x4D3340 }, // ?GetItem@mmMapData@@QAEPADH@Z
+    { 0x007EF4F2, 0x4D2250 }, // ?GetItem@mmPropInfo@@QAEPADH@Z
+    { 0xBF0029D3, 0x4E5CB0 }, // ?GetJoyAxis@mmJoyMan@@QAEMHH@Z
+    { 0xA2245A4E, 0x4E5CF0 }, // ?GetJoyButton@mmJoyMan@@QAEHHH@Z
+    { 0x46A87B4E, 0x4ED390 }, // ?GetLapName@mmVoiceCommentary@@QAEPADF@Z
+    { 0x3B1B5228, 0x523CC0 }, // ?GetLastChild@asNode@@QAEPAV1@XZ
+    { 0x0BE090DD, 0x4CF0A0 }, // ?GetLastPlayer@mmPlayerDirectory@@QAEPADXZ
+    { 0x5C43C7C4, 0x42F1B0 }, // ?GetLastWaypoint@mmWaypoints@@QAEXXZ
+    { 0x7FA789B0, 0x4A1550 }, // ?GetLimit@CRSettings@@QAEXAAH0@Z
+    { 0x8993BC53, 0x4A1660 }, // ?GetLimitVal@CRSettings@@QAEHAAH@Z
+    { 0x6A3C720B, 0x4E9960 }, // ?GetListenerEAXObj@AudManager@@AAEPAVCReverb@@XZ
+    { 0xF8F68CE2, 0x520010 }, // ?GetLocTime@@YAPADM@Z
+    { 0xA3966E9F, 0x55F2B0 }, // ?GetLong@Stream@@QAEKXZ
+    { 0xF6EE8036, 0x56D0B0 }, // ?GetLookAt@Matrix34@@QBEXPAVVector3@@0M@Z
+    { 0xAA448B92, 0x56DED0 }, // ?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z
+    { 0x2A24843D, 0x57CDC0 }, // ?GetMachineName@@YAXPADH@Z
+    { 0x489BC454, 0x55ED80 }, // ?GetMapping@Stream@@UAEPAXXZ
+    { 0xF7D27125, 0x561D40 }, // ?GetMapping@VirtualStream@@UAEPAXXZ
+    { 0x5F4E7418, 0x5558C0 }, // ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@H@Z
+    { 0x25494AAC, 0x555860 }, // ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@PAD@Z
+    { 0xBB46CAA3, 0x578B80 }, // ?getMem@@YAHXZ
+    { 0x2A14CCCF, 0x5128A0 }, // ?GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z
+    { 0x1EA4F6B8, 0x492C70 }, // ?GetMeshSetSet@mmInstance@@SAHPADH0PAVVector3@@@Z
+    { 0xB41BA466, 0x4EE830 }, // ?GetMixerBalance@MixerCTL@@QAEMK@Z
+    { 0xAD7E0FF4, 0x4E9FD0 }, // ?GetMixerPtr@AudManager@@QAEPAVMixerCTL@@XZ
+    { 0x6C36AA40, 0x5154C0 }, // ?GetModel@@YAPAVagiMeshModel@@PAD00@Z
+    { 0x01361D09, 0x551530 }, // ?GetMultipass@RDLP@@UAEPAVMultipassDLP@@H@Z
+    { 0x92FE3D05, 0x48AFC0 }, // ?GetMyLogicalIndex@asNetwork@@QAEHXZ
+    { 0xFF381FEA, 0x55A6D0 }, // ?GetName@agiBitmap@@UAEPADXZ
+    { 0xC384280A, 0x55BB20 }, // ?GetName@agiLight@@UAEPADXZ
+    { 0xDAE11F82, 0x55BDD0 }, // ?GetName@agiLightModel@@UAEPADXZ
+    { 0x0CC6F1A5, 0x55DD30 }, // ?GetName@agiMtlDef@@UAEPADXZ
+    { 0x8FDE6AA5, 0x557B90 }, // ?GetName@agiRefreshable@@UAEPADXZ
+    { 0xDE53A9B5, 0x556400 }, // ?GetName@agiTexDef@@UAEPADXZ
+    { 0xED1FF3FD, 0x5568D0 }, // ?GetName@agiTexLut@@UAEPADXZ
+    { 0xBF370E64, 0x5579D0 }, // ?GetName@agiViewport@@UAEPADXZ
+    { 0x0E0944E6, 0x55E4F0 }, // ?GetName@DLP@@UAEPADXZ
+    { 0x5EA75B0F, 0x4C3770 }, // ?GetName@mmAnimExcel@@QAEPADH@Z
+    { 0x990CBC41, 0x4D0860 }, // ?GetName@mmPlayerData@@QAEPADXZ
+    { 0xD2C29FD1, 0x4D16B0 }, // ?GetName@mmRecord@@QAEPADXZ
+    { 0x964F032C, 0x529270 }, // ?GetNearClip@asCamera@@QAEXPAVVector3@@AAVMatrix34@@W4kNearClip@1@@Z
+    { 0x111D43AF, 0x4D08B0 }, // ?GetNetName@mmPlayerData@@QAEPADXZ
+    { 0xBEFD09F3, 0x489490 }, // ?GetNetworkCaps@asNetwork@@QAEHXZ
+    { 0x5DF9D82A, 0x4A5CC0 }, // ?GetNewDriverName@DriverMenu@@QAEPADXZ
+    { 0x5FAAF420, 0x523CB0 }, // ?GetNext@asNode@@QAEPAV1@XZ
+    { 0x6333D541, 0x4E25A0 }, // ?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z
+    { 0x6B8CFD0E, 0x4C35C0 }, // ?GetNextName@mmAnimExcel@@QAEPADXZ
+    { 0x99F17052, 0x42F1A0 }, // ?GetNextWaypoint@mmWaypoints@@QAEXXZ
+    { 0xFE80BAAD, 0x523DC0 }, // ?GetNodeType@asNode@@QAEPADXZ
+    { 0x00D1FE40, 0x4D2790 }, // ?GetNormal@mmRoadSect@@QAEPAVVector3@@H@Z
+    { 0x9E78B6BB, 0x4E9EC0 }, // ?GetNum3DHalBufs@AudManager@@QAEKXZ
+    { 0x4E8DF30A, 0x4F09F0 }, // ?GetNum3DHallBufs@DSGlobal@@QAEKXZ
+    { 0x4AF2E7DB, 0x4E9360 }, // ?GetNumCDTracks@AudManager@@QAEFXZ
+    { 0x6E82E581, 0x4D2040 }, // ?GetNumCops@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
+    { 0xF78E0FE1, 0x4E9E80 }, // ?GetNumDevices@AudManager@@QAEHXZ
+    { 0x9C44ECED, 0x4D3370 }, // ?GetNumItems@mmMapData@@QAEHXZ
+    { 0xBD79F4C0, 0x4D2290 }, // ?GetNumItems@mmPropInfo@@QAEHXZ
+    { 0x6B3B20FD, 0x4D1FB0 }, // ?GetNumLaps@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
+    { 0x93E6368B, 0x48B2C0 }, // ?GetNumModems@asNetwork@@QAEHXZ
+    { 0xC3D785B0, 0x4D2010 }, // ?GetNumOpponents@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
+    { 0x1BA88EB4, 0x489B40 }, // ?GetNumPlayers@asNetwork@@QAEHXZ
+    { 0xA9773E42, 0x4CF090 }, // ?GetNumPlayers@mmPlayerDirectory@@QAEHXZ
+    { 0x8F63BDDC, 0x489990 }, // ?GetNumProtocols@asNetwork@@QAEHXZ
+    { 0x369033F5, 0x4D1F60 }, // ?GetNumRaces@mmRaceData@@QAEHXZ
+    { 0x4B4AD809, 0x48A440 }, // ?GetNumSessions@asNetwork@@QAEHXZ
+    { 0x78D1C9B1, 0x4F4700 }, // ?GetNumTracks@CDMan@@QAEFXZ
+    { 0x39AC2245, 0x4E5E50 }, // ?GetOneButton@mmJoyMan@@QAEHJ@Z
+    { 0x7A926638, 0x5043E0 }, // ?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z
+    { 0xF253634B, 0x561830 }, // ?GetPagerHandle@FileStream@@UAEIXZ
+    { 0x409D3D8D, 0x55ED90 }, // ?GetPagerHandle@Stream@@UAEIXZ
+    { 0xFFB2F0D8, 0x55EDA0 }, // ?GetPagingInfo@Stream@@UAEHAAI00@Z
+    { 0x2675B25D, 0x561BD0 }, // ?GetPagingInfo@VirtualStream@@UAEHAAI00@Z
+    { 0xC7BE781E, 0x523D80 }, // ?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z
+    { 0xCDD0B1F2, 0x472C50 }, // ?GetPart@mmCarModel@@QAEPAVmmHitBangerInstance@@H@Z
+    { 0xDAE47792, 0x4D16C0 }, // ?GetPassed@mmRecord@@QAEHXZ
+    { 0xDB1D5C81, 0x4D20D0 }, // ?GetPedDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
+    { 0x9356C190, 0x4DFAF0 }, // ?GetPhysMtl@asBound@@QAEAAVagiPhysParameters@@ABVmmPolygon@@@Z
+    { 0x3641BCED, 0x55C000 }, // ?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0x18AA51F6, 0x55D720 }, // ?GetPixel@agiColorModelABGR@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0x6B5CE6B0, 0x55D530 }, // ?GetPixel@agiColorModelARGB@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0x65C0DAD0, 0x55C5F0 }, // ?GetPixel@agiColorModelRGB555@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0xFD5742F5, 0x55C9B0 }, // ?GetPixel@agiColorModelRGB555_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0xBE2B1A72, 0x55C7D0 }, // ?GetPixel@agiColorModelRGB565@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0x7D3DFAA3, 0x55CB90 }, // ?GetPixel@agiColorModelRGB565_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0xFC0F64C3, 0x55CD40 }, // ?GetPixel@agiColorModelRGB888@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0x9A67EE59, 0x55CEE0 }, // ?GetPixel@agiColorModelRGB888_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0x90A33149, 0x55D340 }, // ?GetPixel@agiColorModelRGBA4444@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0x9ECC14EF, 0x55D110 }, // ?GetPixel@agiColorModelRGBA5551@@UAEIPAVagiSurfaceDesc@@HH@Z
+    { 0xAEBBCCF4, 0x4CF060 }, // ?GetPlayer@mmPlayerDirectory@@QAEPADH@Z
+    { 0x3C9F28DE, 0x489F00 }, // ?GetPlayerData@asNetwork@@QAEHKPAXH@Z
+    { 0x128E1163, 0x489B00 }, // ?GetPlayerID@asNetwork@@QAEKH@Z
+    { 0x07074DB6, 0x489CC0 }, // ?GetPlayerName@asNetwork@@QAEHKPAD@Z
+    { 0x52384D37, 0x489C00 }, // ?GetPlayerName@asNetwork@@QAEPADK@Z
+    { 0xB0BF4AA6, 0x4CF420 }, // ?GetPlayerName@mmPlayerDirectory@@QAEPADPAD@Z
+    { 0x03DA98B8, 0x489AA0 }, // ?GetPlayers@asNetwork@@QAEHPAU_GUID@@@Z
+    { 0xCC08F23C, 0x4BDA80 }, // ?GetPointerHeight@sfPointer@@QAEMXZ
+    { 0x580CAD9D, 0x56D140 }, // ?GetPolar@Matrix34@@QBEXPAVVector4@@PAVVector3@@M@Z
+    { 0xD77FC652, 0x566680 }, // ?GetPolar@Vector3@@QBEXABV1@PAVVector4@@PAV1@@Z
+    { 0x73D70FF4, 0x4930E0 }, // ?GetPolyInfo@@YAHPAVagiMeshSet@@@Z
+    { 0xCD2935C6, 0x44D810 }, // ?GetPos@aiPedestrianInstance@@UAIAAVVector3@@XZ
+    { 0x8D7CBB38, 0x4520A0 }, // ?GetPos@aiVehicleInstance@@UAIAAVVector3@@XZ
+    { 0x414856D4, 0x4715D0 }, // ?GetPos@mmCarModel@@UAIAAVVector3@@XZ
+    { 0x8258B168, 0x4C4E90 }, // ?GetPos@mmDofBangerInstance@@UAIAAVVector3@@XZ
+    { 0xE99B7477, 0x4CB940 }, // ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ
+    { 0x05C1F879, 0x4CA550 }, // ?GetPos@mmHitBangerInstance@@UAIAAVVector3@@XZ
+    { 0x687245B1, 0x493470 }, // ?GetPos@mmMatrixInstance@@UAIAAVVector3@@XZ
+    { 0x96556EDC, 0x48C160 }, // ?GetPos@mmRunwayLight@@UAIAAVVector3@@XZ
+    { 0x89337295, 0x477A80 }, // ?GetPos@mmSkid@@UAIAAVVector3@@XZ
+    { 0x42462719, 0x479710 }, // ?GetPos@mmTrailerInstance@@UAIAAVVector3@@XZ
+    { 0xDB16F96D, 0x4CA8D0 }, // ?GetPos@mmUnhitBangerInstance@@UAIAAVVector3@@XZ
+    { 0xF0CFF0AD, 0x493390 }, // ?GetPos@mmYInstance@@UAIAAVVector3@@XZ
+    { 0x7BD5AAF4, 0x4F9F70 }, // ?GetPos@PointCamCS@@QAE?AVVector3@@XZ
+    { 0x91375E86, 0x406060 }, // ?GetPosHdg@mmHUD@@QAEXAAVVector4@@@Z
+    { 0xCB2C4372, 0x4F4610 }, // ?GetPosition@CDMan@@QAEKPAE000@Z
+    { 0x27574ED2, 0x491B00 }, // ?GetPositionCount@@YAHXZ
+    { 0x2B95690D, 0x4EC010 }, // ?GetPositionPtr@AudHead@@QAEPAVVector3@@XZ
+    { 0xF0718CD5, 0x491B10 }, // ?GetPositionVector4@@YAAAVVector4@@H@Z
+    { 0x4ADAA2FD, 0x4B1650 }, // ?GetPreviousMenu@MenuManager@@QAEHXZ
+    { 0x17D212FC, 0x4C3740 }, // ?GetPriorName@mmAnimExcel@@QAEPADXZ
+    { 0xC8AB33B8, 0x558990 }, // ?GetProp@DLPPatch@@QAEPADPAD@Z
+    { 0xF0EBD4FD, 0x489520 }, // ?GetProtocols@asNetwork@@QAEXXZ
+    { 0xBC24B5C4, 0x4A4D00 }, // ?GetRaceID@RaceMenu@@QAEHXZ
+    { 0x9B2AFAD5, 0x40B890 }, // ?GetRaceName@mmInterface@@AAEPADW4mmGameMode@@H@Z
+    { 0xCD9CD8A8, 0x4D1F70 }, // ?GetRaceName@mmRaceData@@QAEPADH@Z
+    { 0x4A0CBDA9, 0x4A2670 }, // ?GetRaceName@NetArena@@QAEPADXZ
+    { 0x37955675, 0x4A4E10 }, // ?GetRaceName@RaceMenu@@QAEPADW4mmGameMode@@H@Z
+    { 0x88279832, 0x40B830 }, // ?GetRaceString@mmInterface@@AAEXHPAD@Z
+    { 0xF7FB4F15, 0x44D650 }, // ?GetRaceVoiceIndex@aiPedestrian@@AAEFXZ
+    { 0x79784231, 0x4ED830 }, // ?GetRandomBlueCR@mmVoiceCommentary@@QAEPADF@Z
+    { 0xF1633041, 0x4ED8B0 }, // ?GetRandomCop@mmVoiceCommentary@@QAEPADF@Z
+    { 0xC79A4703, 0x41D1F0 }, // ?GetRandomIndex@mmMultiCR@@AAEHXZ
+    { 0x527FFF0C, 0x4EC650 }, // ?GetRandomPreBlitz@mmVoiceCommentary@@QAEPADXZ
+    { 0xF5B96D32, 0x4EC810 }, // ?GetRandomPreCheckPoint@mmVoiceCommentary@@QAEPADXZ
+    { 0x68B51B08, 0x4EC730 }, // ?GetRandomPreCircuit@mmVoiceCommentary@@QAEPADXZ
+    { 0x7477CAFC, 0x4EC4D0 }, // ?GetRandomPreRace@mmVoiceCommentary@@QAEPADXZ
+    { 0x6350F615, 0x4ECB50 }, // ?GetRandomPreRaceVeh@mmVoiceCommentary@@QAEPADXZ
+    { 0x16D93A37, 0x4ED7B0 }, // ?GetRandomRedCR@mmVoiceCommentary@@QAEPADF@Z
+    { 0xD9AEDDAC, 0x4ECA70 }, // ?GetRandomResults@mmVoiceCommentary@@QAEPADF@Z
+    { 0x885E9E28, 0x4ECEF0 }, // ?GetRandomResultsMid@mmVoiceCommentary@@QAEPADXZ
+    { 0xD82C4D67, 0x4ECD50 }, // ?GetRandomResultsPoor@mmVoiceCommentary@@QAEPADXZ
+    { 0xF81440A5, 0x4ECBB0 }, // ?GetRandomResultsWin@mmVoiceCommentary@@QAEPADXZ
+    { 0x2E87950D, 0x4ED730 }, // ?GetRandomRobber@mmVoiceCommentary@@QAEPADF@Z
+    { 0xF4DDF91E, 0x4ED090 }, // ?GetRandomTOD@mmVoiceCommentary@@QAEPADXZ
+    { 0x0143FCA8, 0x4ED0F0 }, // ?GetRandomWeather@mmVoiceCommentary@@QAEPADXZ
+    { 0x336E2067, 0x492BE0 }, // ?GetResidentMeshSet@mmInstance@@QAEPAVagiMeshSet@@HHH@Z
+    { 0x91F95652, 0x4F4BA0 }, // ?GetReverbMix@CReverbBuffer@@QAEMXZ
+    { 0x2C896B3A, 0x44D480 }, // ?GetRoamVoiceIndex@aiPedestrian@@AAEFXZ
+    { 0xB0767401, 0x48D960 }, // ?GetRoomFlags@mmCullCity@@QAEFF@Z
+    { 0xFBA75C94, 0x4D27B0 }, // ?GetRoomId@mmRoadSect@@QAEHH@Z
+    { 0xC3F85708, 0x555F70 }, // ?GetRootWindow@@YAPAXXZ
+    { 0xC051AC73, 0x4EB6C0 }, // ?GetSampleTime@AudSound@@QAEMXZ
+    { 0xFB6D088C, 0x4AF140 }, // ?GetScale@MenuManager@@QAEXAAM000@Z
+    { 0xF021218C, 0x4945E0 }, // ?GetScale@mmBuildingInstance@@UAIMXZ
+    { 0x8EEE0465, 0x493FF0 }, // ?GetScale@mmFacadeInstance@@UAIMXZ
+    { 0x8DCE871A, 0x492A20 }, // ?GetScale@mmInstance@@UAIMXZ
+    { 0xC431733F, 0x48C2B0 }, // ?GetScale@mmRunwayLight@@UAIMXZ
+    { 0x91AEAE10, 0x494480 }, // ?GetScale@mmShearInstance@@UAIMXZ
+    { 0xD9BCB46C, 0x433790 }, // ?GetScale@mmWaypointInstance@@UAIMXZ
+    { 0x246D73C8, 0x4D16D0 }, // ?GetScore@mmRecord@@QAEHXZ
+    { 0x7B0F0CF7, 0x40B7F0 }, // ?GetScoreString@mmInterface@@AAEXHPAD@Z
+    { 0x25335D44, 0x4BEA70 }, // ?GetScreenHeight@mmSlider@@QAEMXZ
+    { 0x52EA8F5F, 0x4B6D10 }, // ?GetScreenHeight@UIBMButton@@UAEMXZ
+    { 0x907AF24F, 0x4B4270 }, // ?GetScreenHeight@UISlider@@UAEMXZ
+    { 0x99D7FA00, 0x4B3390 }, // ?GetScreenHeight@UITextDropdown@@UAEMXZ
+    { 0x186FA6D7, 0x4B2E80 }, // ?GetScreenHeight@uiWidget@@UAEMXZ
+    { 0x75C1B009, 0x4EBB90 }, // ?GetSecondaryEAXObj@AudSound@@QAEPAVCReverbBuffer@@H@Z
+    { 0xBFA5F21A, 0x47A7D0 }, // ?GetSecondsElapsed@mmOpponentImpactAudio@@SAMXZ
+    { 0xD35AD24E, 0x451150 }, // ?GetSecsSinceImpactReaction@aiVehicleAmbient@@SAMXZ
+    { 0x3AC4098A, 0x4B5450 }, // ?GetSelectedCount@UICompositeScroll@@QAEHXZ
+    { 0xB2B162F1, 0x48A690 }, // ?GetSessionData@asNetwork@@QAEXPAUNETSESSION_DESC@@@Z
+    { 0xF26E33A6, 0x40DB80 }, // ?GetSessionData@mmInterface@@AAEXUNETSESSION_DESC@@@Z
+    { 0x50C16493, 0x4A46C0 }, // ?GetSessionID@NetSelectMenu@@QAEHXZ
+    { 0x99697C84, 0x4A46B0 }, // ?GetSessions@NetSelectMenu@@QAEPAVUITextScroll@@XZ
+    { 0xACF3F783, 0x48A940 }, // ?GetSessionsAsynch@asNetwork@@QAEXXZ
+    { 0x7E36DF8F, 0x48A890 }, // ?GetSessionsSynch@asNetwork@@QAEHH@Z
+    { 0x5871722F, 0x55F290 }, // ?GetShort@Stream@@QAEGXZ
+    { 0x88F2544F, 0x4D26E0 }, // ?GetSidewalkVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
+    { 0xC793BD6E, 0x4B6550 }, // ?GetSize@UIBMButton@@AAEXXZ
+    { 0xECE3D792, 0x4BEAF0 }, // ?GetSliderHotSpots@mmSlider@@QAEXAAM00000@Z
+    { 0x14B19D9C, 0x4EBB10 }, // ?GetSoft2DFlags@AudSound@@SA?BKXZ
+    { 0x6859B5A5, 0x4EBB50 }, // ?GetSoftFreqChange2DFlags@AudSound@@SA?BKXZ
+    { 0x03B05169, 0x4E9F20 }, // ?GetSoundFXOnMask@AudManager@@SA?BIXZ
+    { 0x16BD9D03, 0x4F0A70 }, // ?GetSoundFXOnMask@DSGlobal@@SA?BIXZ
+    { 0x123F7C51, 0x4D2280 }, // ?GetSpacing@mmPropInfo@@QAEMXZ
+    { 0x6B3E0174, 0x501700 }, // ?GetSparkLut@@YAPAVasSparkLut@@PAD@Z
+    { 0x43A04C22, 0x5764B0 }, // ?GetSpecialFlags@@YAIKK@Z
+    { 0x23C3F50D, 0x51ADA0 }, // ?GetST@mmPolygon@@AAEXPAVVector3@@0PAVmmBoundTemplate@@@Z
+    { 0xD68EBD16, 0x4C6740 }, // ?GetStart@mmAnimTrain@@QAEXMAAHAAM@Z
+    { 0x369EC0E0, 0x42EE40 }, // ?GetStart@mmWaypoints@@QAEXAAVVector3@@@Z
+    { 0xF12F7BA6, 0x42DB00 }, // ?GetStartAngle@mmWaypoints@@QAEMXZ
+    { 0xCDF92A3F, 0x48FDD0 }, // ?GetStartCell@asRenderWeb@@UAEPAUasPortalCell@@AAVVector3@@PAU2@PAPAVmmPolygon@@@Z
+    { 0xD8FF3A26, 0x520FC0 }, // ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
+    { 0x4C2D9D2C, 0x5779D0 }, // ?GetStatus@DataCache@@QAEXAAI00@Z
+    { 0xC4A8572C, 0x404950 }, // ?GetSteering@mmGameManager@@QAEMXZ
+    { 0xD06C3038, 0x4E37E0 }, // ?GetSteering@mmInput@@QAEMXZ
+    { 0x364BB241, 0x4E9ED0 }, // ?GetStereoOnMask@AudManager@@SA?BIXZ
+    { 0x6F1CD99B, 0x4F0A20 }, // ?GetStereoOnMask@DSGlobal@@SA?BIXZ
+    { 0x562EBD3C, 0x4D2940 }, // ?GetStopLightName@mmRoadSect@@QAEPADH@Z
+    { 0x47769AA4, 0x4D2840 }, // ?GetStopLightPos@mmRoadSect@@QAEXHAAVVector3@@0@Z
+    { 0x6CEBE508, 0x55EEF0 }, // ?GetString@Stream@@QAEHPADH@Z
+    { 0x65609EEE, 0x47F6B0 }, // ?GetSurfaceSound@mmWheel@@QAEHXZ
+    { 0xF2AE5BA0, 0x5557F0 }, // ?GetTexLut@agiPipeline@@QAEPAVagiTexLut@@PAD@Z
+    { 0x128E7AC1, 0x4FF790 }, // ?GetTextDimensions@mmTextNode@@QAEXPAXPAULocString@@AAM2@Z
+    { 0xC456F835, 0x555620 }, // ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z
+    { 0xE611C3CF, 0x5555C0 }, // ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@PADH@Z
+    { 0x0FDC4387, 0x404980 }, // ?GetThrottle@mmGameManager@@QAEMXZ
+    { 0x37CECD62, 0x4E3310 }, // ?GetThrottle@mmInput@@QAEMXZ
+    { 0x9A8AEAC8, 0x4E3330 }, // ?GetThrottleVal@mmInput@@QAEMXZ
+    { 0xDD1A35E3, 0x405FC0 }, // ?GetTime@mmHUD@@QAEXPADM@Z
+    { 0xAE63D523, 0x4D1690 }, // ?GetTime@mmRecord@@QAEMXZ
+    { 0x13CE69E9, 0x406230 }, // ?GetTime@mmTimer@@QAEMXZ
+    { 0xB760719D, 0x4D1FE0 }, // ?GetTimeLimit@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
+    { 0x7403A4BE, 0x4D2070 }, // ?GetTimeOfDay@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
+    { 0x7085AFA2, 0x40B790 }, // ?GetTimeString@mmInterface@@AAEXMPAD@Z
+    { 0x671B8DE6, 0x561600 }, // ?GetToken@Tokenizer@@QAEHPADH@Z
+    { 0x00EA2B40, 0x4D03A0 }, // ?GetTotalPassed@mmPlayerData@@QAEHXZ
+    { 0x6C453582, 0x4D03C0 }, // ?GetTotalScore@mmPlayerData@@QAEHXZ
+    { 0x143C6BAE, 0x5791B0 }, // ?GetTypeName@Base@@QAEPADXZ
+    { 0xA7979239, 0x5791A0 }, // ?GetTypeNameV@Base@@UAEPADXZ
+    { 0x95CFB46A, 0x40D7C0 }, // ?GetUniquePlayerName@mmInterface@@AAEXXZ
+    { 0x3E4DE737, 0x40AE40 }, // ?GetUnlockedCar@mmInterface@@AAEXXZ
+    { 0x44C1B668, 0x4E97B0 }, // ?GetUsingEAXMask@AudManager@@SA?BIXZ
+    { 0xAB233E70, 0x4F0AA0 }, // ?GetUsingEAXMask@DSGlobal@@SA?BIXZ
+    { 0xC31FBFD5, 0x4B4050 }, // ?GetValue@UISlider@@QAEMXZ
+    { 0xD64B98B7, 0x4B38B0 }, // ?GetValue@UITextDropdown@@QAEHXZ
+    { 0x5EE60CB6, 0x512410 }, // ?GetVariationCount@agiTexSheet@@QAEHPAD@Z
+    { 0x5B1FCE3A, 0x4FDE60 }, // ?GetVector4@mmGameRecord@@QAEAAVVector4@@H@Z
+    { 0x3D936B5D, 0x492020 }, // ?GetVector4@mmPositions@@QAEAAVVector4@@H@Z
+    { 0x0A979A87, 0x4CC1C0 }, // ?GetVehicleID@mmVehList@@QAEHPAD@Z
+    { 0xC807567D, 0x4CC110 }, // ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@H@Z
+    { 0x4AD9EDA8, 0x4CC140 }, // ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@PAD@Z
+    { 0xE6981B1D, 0x451FD0 }, // ?GetVelocity@aiVehicleInstance@@UAE?AVVector3@@XZ
+    { 0x9CB18081, 0x4DAAD0 }, // ?GetVelocity@asInertialCS@@QAE?AVVector3@@PBV2@@Z
+    { 0x3988BBE6, 0x4CA4D0 }, // ?GetVelocity@mmBangerInstance@@UAE?AVVector3@@XZ
+    { 0x886FD07F, 0x473340 }, // ?GetVelocity@mmCarModel@@UAE?AVVector3@@XZ
+    { 0xCF50EE23, 0x433DD0 }, // ?GetVelocity@mmInstance@@UAE?AVVector3@@XZ
+    { 0x61B3FE86, 0x479740 }, // ?GetVelocity@mmTrailerInstance@@UAE?AVVector3@@XZ
+    { 0xFFD59DBF, 0x4D26B0 }, // ?GetVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
+    { 0xD81A58F9, 0x559800 }, // ?GetVertexCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z
+    { 0xC71C621F, 0x529CC0 }, // ?GetViewportHeight@asCamera@@QAEHXZ
+    { 0xE10A4E18, 0x529CA0 }, // ?GetViewportWidth@asCamera@@QAEHXZ
+    { 0x679ED143, 0x4CE7A0 }, // ?GetViewSettings@mmPlayerConfig@@QAEXXZ
+    { 0x7464C52E, 0x4E9FE0 }, // ?GetVoiceCommentaryPtr@AudManager@@QAEPAVmmVoiceCommentary@@XZ
+    { 0x701EAFF7, 0x4EBC50 }, // ?GetVolume@AudSound@@QAEMH@Z
+    { 0x2EF5737E, 0x4F49B0 }, // ?GetVolume@CReverb@@QAEMXZ
+    { 0x13C5E26D, 0x4E9590 }, // ?GetWaveBalance@AudManager@@QAEMXZ
+    { 0x96F8F52F, 0x4EE2A0 }, // ?GetWaveBalance@MixerCTL@@QAEMXZ
+    { 0x4E64E257, 0x4F50C0 }, // ?GetWaveBytesOffset@StreamObj@@AAEIPAVStream@@F@Z
+    { 0xC22BB4D8, 0x4EEF90 }, // ?GetWAVEFORMATEX@DupBuffCreator@@AAEPAUtWAVEFORMATEX@@PAUIDirectSoundBuffer@@@Z
+    { 0xD208B9E0, 0x4E9450 }, // ?GetWaveVolume@AudManager@@QAEMXZ
+    { 0x587D001A, 0x4EE2B0 }, // ?GetWaveVolume@MixerCTL@@QAEMXZ
+    { 0xFB964F87, 0x42EE80 }, // ?GetWaypoint@mmWaypoints@@QAEXHAAVVector3@@@Z
+    { 0xE72C8BBB, 0x412EE0 }, // ?GetWaypoints@mmGameEdit@@UAEPAVmmWaypoints@@XZ
+    { 0xCF80E264, 0x418ED0 }, // ?GetWaypoints@mmGameSingle@@UAEPAVmmWaypoints@@XZ
+    { 0x893177B2, 0x41A8A0 }, // ?GetWaypoints@mmMultiBlitz@@UAEPAVmmWaypoints@@XZ
+    { 0x05E630C5, 0x41BFA0 }, // ?GetWaypoints@mmMultiCircuit@@UAEPAVmmWaypoints@@XZ
+    { 0xA4E9CE8F, 0x41F920 }, // ?GetWaypoints@mmMultiCR@@UAEPAVmmWaypoints@@XZ
+    { 0xBC2A2B11, 0x4215C0 }, // ?GetWaypoints@mmMultiRace@@UAEPAVmmWaypoints@@XZ
+    { 0x66BF9D76, 0x414BE0 }, // ?GetWaypoints@mmSingleBlitz@@UAEPAVmmWaypoints@@XZ
+    { 0x76EB2CEE, 0x416C80 }, // ?GetWaypoints@mmSingleCircuit@@UAEPAVmmWaypoints@@XZ
+    { 0x0E69C7BF, 0x4D20A0 }, // ?GetWeather@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
+    { 0x50A1F62D, 0x4ACC20 }, // ?GetWidgetID@UIMenu@@QAEHXZ
+    { 0x945837B7, 0x561FE0 }, // ?GKeyName@WINEventHandler@@UAEPADH@Z
+    { 0xFCEDBB30, 0x44D1A0 }, // ?Go@aiPedestrian@@QAEXXZ
+    { 0xCFD06F72, 0x43BB90 }, // ?GoodRoadForCopStartPos@aiMap@@QAEHH@Z
+    { 0x5BD1972E, 0x559630 }, // ?GroupExists@DLPTemplate@@QAEPAVDLPGroup@@PAD@Z
+    { 0xE716FA46, 0x575090 }, // ?guidtostr@@YAXPADPAU_GUID@@@Z
+    { 0x77CE3E9F, 0x565490 }, // ?HalfSpace@Vector3@@QBEHABVVector4@@@Z
+    { 0x47CD10ED, 0x48ABC0 }, // ?HandleAppMessage@asNetwork@@QAEXPAX@Z
+    { 0xB21948FF, 0x4F5B80 }, // ?HandleNotifications@@YAKPAX@Z
+    { 0xF2FB2AD8, 0x48ABE0 }, // ?HandleSysMessage@asNetwork@@QAEXPAUDPMSG_GENERIC@@@Z
+    { 0x48B9BBD7, 0x4D3BE0 }, // ?HasColorVariations@mmVehInfo@@QAEHXZ
+    { 0x6317E533, 0x4E5FE0 }, // ?HasCoolie@mmJoyMan@@QAEHXZ
+    { 0x5927F15B, 0x5784C0 }, // ?Hash@HashTable@@AAEHPAD@Z
+    { 0x268EE07C, 0x4E6000 }, // ?HasThrottle@mmJoyMan@@QAEHXZ
+    { 0x7D517FA6, 0x521250 }, // ?HeapAssert@@YAHPAXHPADH@Z
+    { 0x24E9B81B, 0x4B1A60 }, // ?Help@MenuManager@@QAEXXZ
+    { 0x6662D514, 0x4B1F10 }, // ?Help@uiNavBar@@QAEXXZ
+    { 0x9D56D0D2, 0x4B1B30 }, // ?HelpWatcher@@YGKPAX@Z
+    { 0x90C281D3, 0x565B50 }, // ?Hermite@Vector3@@QAEXMABV1@000M@Z
+    { 0xC884035A, 0x5790A0 }, // ?HexDump@@YAXPAXH@Z
+    { 0x2D369080, 0x4B4E90 }, // ?Highlight@mmCompBase@@UAEXPAVmmTextNode@@H@Z
+    { 0xEA2E89D0, 0x4935B0 }, // ?Hit@mmMatrixInstance@@UAEXPAVmmInstance@@@Z
+    { 0x3AE4509A, 0x460620 }, // ?HitMe@aiGoalChase@@AAEHPAVmmCar@@@Z
+    { 0xF23585A3, 0x4104A0 }, // ?HitWaterHandler@mmGame@@UAEXXZ
+    { 0x14CFB5C5, 0x4309A0 }, // ?HitWaterHandler@mmGameMulti@@UAEXXZ
+    { 0x73F071F4, 0x4175A0 }, // ?HitWaterHandler@mmGameSingle@@UAEXXZ
+    { 0xE22CB2F8, 0x41D760 }, // ?HitWaterHandler@mmMultiCR@@UAEXXZ
+    { 0xD71F2920, 0x413760 }, // ?HitWaterHandler@mmSingleBlitz@@UAEXXZ
+    { 0x38379DC6, 0x4152E0 }, // ?HitWaterHandler@mmSingleCircuit@@UAEXXZ
+    { 0x14E5F27E, 0x4A43F0 }, // ?HostCB@NetSelectMenu@@QAEXXZ
+    { 0x2FEB25A2, 0x515220 }, // ?HowMany@bnSkeleton@@QAEHPADD@Z
+    { 0x0B61771D, 0x566420 }, // ?hsvtorgb@Vector3@@QAEXXZ
+    { 0x3B37CEC4, 0x5674B0 }, // ?Identity@Matrix34@@QAEXXZ
+    { 0xBECB5925, 0x570460 }, // ?Identity@Matrix44@@QAEXXZ
+    { 0xDA3EBDCF, 0x4D49E0 }, // ?IgnoreMover@mmPhysicsMGR@@QAEXPAVmmInstance@@@Z
+    { 0x64B8B93F, 0x5617D0 }, // ?IgnoreToken@Tokenizer@@QAEXXZ
+    { 0xF0BBACC0, 0x46B4C0 }, // ?Impact@aiStuck@@QAEXXZ
+    { 0x9F317B0A, 0x44F490 }, // ?Impact@aiVehicleAmbient@@UAEXH@Z
+    { 0x2C0C7E7D, 0x45BD00 }, // ?Impact@aiVehicleSpline@@UAEXH@Z
+    { 0x659E9741, 0x4DF110 }, // ?Impact@asBound@@QAEHPAVmmIntersection@@PAV1@HHH@Z
+    { 0x959575F1, 0x473EB0 }, // ?Impact@mmCar@@QAEXPAVmmIntersection@@PAVVector3@@MH1@Z
+    { 0x4F2E14BD, 0x471640 }, // ?Impact@mmCarModel@@QAEXPAVVector3@@@Z
+    { 0xFEDC85B3, 0x433DF0 }, // ?Impact@mmInstance@@UAEXPAV1@PAVVector3@@@Z
+    { 0x1A31DDB7, 0x47C540 }, // ?Impact@mmStuck@@QAEXXZ
+    { 0xEA0C1AB3, 0x4CA8E0 }, // ?Impact@mmUnhitBangerInstance@@UAEXPAVmmInstance@@PAVVector3@@@Z
+    { 0xBC13E584, 0x450B10 }, // ?ImpactAudioReaction@aiVehicleAmbient@@AAEXXZ
+    { 0xD03C92B7, 0x450AB0 }, // ?ImpactAudioReaction@aiVehicleAmbient@@UAEXM@Z
+    { 0xAC3B7852, 0x446600 }, // ?ImpactAudioReaction@aiVehicleSpline@@UAEXM@Z
+    { 0xE94EF7A9, 0x41D090 }, // ?ImpactCallback@mmMultiCR@@QAEXXZ
+    { 0x865EF2B2, 0x46B8F0 }, // ?IMPACTCB@@YAXPAVmmCarSim@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M3@Z
+    { 0x9326771F, 0x4BEBF0 }, // ?Inc@mmSlider@@QAEMXZ
+    { 0x5B56C448, 0x4BE380 }, // ?Inc@TextDropWidget@@QAEHXZ
+    { 0xEF2C3391, 0x4BB920 }, // ?Inc@UITextRoller2@@QAEHXZ
+    { 0x4BF8C055, 0x4BAA90 }, // ?Inc@UITextRoller@@QAEHXZ
+    { 0x98E40357, 0x4BD0F0 }, // ?Inc@UIVScrollBar@@QAEMXZ
+    { 0xE83EBB15, 0x4BF710 }, // ?Inc@VSWidget@@QAEMXZ
+    { 0x68ABFD08, 0x49C510 }, // ?IncCar@VehicleSelectBase@@QAEXXZ
+    { 0x11274FC6, 0x49A8F0 }, // ?IncColor@VehicleSelectBase@@QAEXXZ
+    { 0x412DCFD7, 0x4BE3A0 }, // ?IncDrop@TextDropWidget@@QAEHXZ
+    { 0x89D94309, 0x4A5B40 }, // ?IncPlayer@DriverMenu@@QAEXXZ
+    { 0x926EF125, 0x4ACCD0 }, // ?Increment@UIMenu@@QAEHXZ
+    { 0x9CE1606C, 0x57C880 }, // ?Indent@MiniParser@@QAEXH@Z
+    { 0xDDA91003, 0x43EA60 }, // ?Index@aiPath@@QAEHAAVVector3@@@Z
+    { 0xD44EC353, 0x43E9B0 }, // ?Index@aiPath@@QAEHMH@Z
+    { 0xA4A2B129, 0x4DADE0 }, // ?InertiaAxis@@YAMABVVector3@@0@Z
+    { 0x50441772, 0x4A81B0 }, // ?Init320@PUResults@@QAEXXZ
+    { 0x5648404C, 0x4EF770 }, // ?Init3DListener@DSGlobal@@QAEHMMMMM@Z
+    { 0x4B91B9EE, 0x4A8590 }, // ?Init640@PUResults@@QAEXXZ
+    { 0xA4FD35CB, 0x55A080 }, // ?Init@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXH@Z
+    { 0xFDEA785F, 0x55A290 }, // ?Init@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXH@Z
+    { 0xDCE58C8E, 0x55A190 }, // ?Init@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXH@Z
+    { 0xDDB5A1DD, 0x55A3F0 }, // ?Init@agiBitmap@@QAEHPADMMH@Z
+    { 0xAFA3C8A4, 0x55BAD0 }, // ?Init@agiLight@@QAEHABVagiLightParameters@@@Z
+    { 0x32B8EE58, 0x55BD50 }, // ?Init@agiLightModel@@QAEHABVagiLightModelParameters@@@Z
+    { 0x5BBA76C8, 0x50EC90 }, // ?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z
+    { 0x50DE18D6, 0x504C00 }, // ?Init@agiMeshSet@@SIXH@Z
+    { 0xEB99B70F, 0x55DC50 }, // ?Init@agiMtlDef@@QAEHABVagiMtlParameters@@@Z
+    { 0x5488A563, 0x555550 }, // ?Init@agiPipeline@@QAEHPADHHHHHHPAX@Z
+    { 0x6087287F, 0x552BA0 }, // ?Init@agiProjVtx@@SAXHPAVagiLighter@@I@Z
+    { 0xF4320401, 0x55A720 }, // ?Init@agiSurfaceDesc@@SAPAV1@HHAAV1@@Z
+    { 0x97C3B2B8, 0x556380 }, // ?Init@agiTexDef@@QAEHABVagiTexParameters@@@Z
+    { 0x16CA8F6C, 0x556800 }, // ?Init@agiTexLut@@QAEHPAD@Z
+    { 0xDBF1EB6D, 0x4FA4C0 }, // ?Init@AICamCS@@QAEXPAVmmCar@@@Z
+    { 0xE246AEC1, 0x46A3B0 }, // ?Init@aiGoalAvoidPlayer@@UAEXXZ
+    { 0xF3A7E4D2, 0x45F870 }, // ?Init@aiGoalBackup@@UAEXXZ
+    { 0x93849D33, 0x45FDC0 }, // ?Init@aiGoalChase@@UAEXXZ
+    { 0x98388FB9, 0x46B330 }, // ?Init@aiGoalCollision@@UAEXXZ
+    { 0x9DABDE29, 0x4664D0 }, // ?Init@aiGoalFollowWayPts@@UAEXXZ
+    { 0x559A5703, 0x45C8B0 }, // ?Init@aiGoalRandomDrive@@UAEXXZ
+    { 0x8EB190F5, 0x46AA60 }, // ?Init@aiGoalRegainRail@@UAEXXZ
+    { 0x9AA1A0E4, 0x45F750 }, // ?Init@aiGoalStop@@UAEXXZ
+    { 0x2A7C9366, 0x447370 }, // ?Init@aiIntersection@@QAEXXZ
+    { 0x213343B9, 0x434220 }, // ?Init@aiMap@@QAEXPAD00PAVmmCar@@@Z
+    { 0x69E7343A, 0x447DB0 }, // ?Init@aiPedestrian@@QAEXPADHH@Z
+    { 0x72645083, 0x46B4A0 }, // ?Init@aiStuck@@QAEXPAVmmCarSim@@@Z
+    { 0x7DB50B32, 0x444330 }, // ?Init@aiTrafficLightInstance@@UAEHPADAAVVector3@@1H0@Z
+    { 0xC5C8C7D2, 0x465920 }, // ?Init@aiVehicle@@QAEXH@Z
+    { 0x3EBACE50, 0x4521A0 }, // ?Init@aiVehicleActive@@QAEXPAD@Z
+    { 0x39AA7FD4, 0x44EE10 }, // ?Init@aiVehicleAmbient@@QAEXPADH@Z
+    { 0x25187936, 0x452BB0 }, // ?Init@aiVehicleManager@@QAEXPAD@Z
+    { 0x17FB8BA5, 0x44DC00 }, // ?Init@aiVehicleOpponent@@QAEXHPAVaiRaceData@@PAD@Z
+    { 0xC1D84A74, 0x444930 }, // ?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z
+    { 0x2668F06F, 0x459FC0 }, // ?Init@aiVehicleSpline@@QAEXPADH@Z
+    { 0x908CE271, 0x501920 }, // ?Init@asLineSparks@@QAEXHPAVasSparkLut@@@Z
+    { 0x8E03AB21, 0x5209D0 }, // ?Init@asMemoryAllocator@@QAEXPAXIH@Z
+    { 0x048DECA6, 0x5001A0 }, // ?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z
+    { 0x5DE7EA3A, 0x4959D0 }, // ?Init@asPortalPVS@@QAEXHH@Z
+    { 0x2051A1C6, 0x5213B0 }, // ?Init@asSafeHeap@@QAEXHH@Z
+    { 0xADAED8BE, 0x521C40 }, // ?Init@asSimulation@@QAEXPADHPAPAD@Z
+    { 0x8421F00F, 0x501740 }, // ?Init@asSparkLut@@QAEXPAD@Z
+    { 0x743D1B3E, 0x4EBD10 }, // ?Init@AudHead@@QAEHXZ
+    { 0x5966608B, 0x4E86F0 }, // ?Init@AudManager@@QAEXHIPADFF@Z
+    { 0xC3BEED3D, 0x4FB250 }, // ?Init@CarCamCS@@QAEXPAVmmCar@@PAD@Z
+    { 0x3DB5BE40, 0x4FE170 }, // ?Init@Card2D@@QAEXPAVasCamera@@MMMMM@Z
+    { 0x8BED27B2, 0x4F4280 }, // ?Init@CDMan@@QAEKF@Z
+    { 0x9B815628, 0x576FD0 }, // ?Init@DataCache@@QAEXIHPAD@Z
+    { 0xB3A15C9F, 0x49F3F0 }, // ?Init@Dialog_Message@@QAEXHPAD0@Z
+    { 0x6D7BD67C, 0x55E300 }, // ?Init@DLP@@QAEHPAD0PAVVector3@@@Z
+    { 0x83C42794, 0x55E380 }, // ?Init@DLP@@QAEHPAVDLPTemplate@@PADPAVVector3@@@Z
+    { 0xF2C8B6B2, 0x559040 }, // ?Init@DLPGroup@@QAEXHH@Z
+    { 0xF0C20FC8, 0x5583D0 }, // ?Init@DLPTemplate@@QAEXHHH@Z
+    { 0xAA3F4B94, 0x4EF550 }, // ?Init@DSGlobal@@QAEHKEPAIPADFF@Z
+    { 0x24AFCF1E, 0x4867A0 }, // ?Init@EngineAudio@@QAEXPAD0@Z
+    { 0x5D83DFC0, 0x486550 }, // ?Init@EngineAudio@@QAEXPAVVector3@@@Z
+    { 0x95606625, 0x485900 }, // ?Init@EngineAudioOpponent@@QAEXF@Z
+    { 0x71F158C3, 0x485890 }, // ?Init@EngineAudioOpponent@@QAEXXZ
+    { 0x4FD44342, 0x573860 }, // ?Init@FloatArray@@QAEXH@Z
+    { 0x98AA22D0, 0x5780A0 }, // ?Init@HashTable@@QAEXH@Z
+    { 0xDFB03AD8, 0x573540 }, // ?Init@IntArray@@QAEXH@Z
+    { 0xC5096537, 0x578870 }, // ?Init@ipcMessageQueue@@QAEXHH@Z
+    { 0x886AF6BE, 0x4DBC70 }, // ?Init@Joint3Dof@@QAEXXZ
+    { 0xAE085994, 0x4AB7D0 }, // ?Init@MArray@@QAEXH@Z
+    { 0xBB10BA28, 0x4AF270 }, // ?Init@MenuManager@@QAEXHHPAD@Z
+    { 0xBEC85E78, 0x4AF600 }, // ?Init@MenuManager@@QAEXPAVasCamera@@HHMMMM@Z
+    { 0xEFFF7601, 0x4EE140 }, // ?Init@MixerCTL@@QAEKXZ
+    { 0x0F78C7AE, 0x4C4580 }, // ?Init@mmAnimDOF@@QAEHPAVmmAnimTrigger@@PADAAVVector3@@2HPAH@Z
+    { 0x6A8E1D5C, 0x4C3530 }, // ?Init@mmAnimExcel@@QAEHPAD0@Z
+    { 0x80829266, 0x4C11F0 }, // ?Init@mmAnimMgr@@QAEHPADPAVmmInstance@@PAPAV2@H@Z
+    { 0xC45D968B, 0x4C50C0 }, // ?Init@mmAnimPlane@@QAEXHPAD0PAVVector3@@HHPAM@Z
+    { 0x96A4321B, 0x4C3850 }, // ?Init@mmAnimSpline@@QAEHPADH@Z
+    { 0x1CAC5095, 0x4C6080 }, // ?Init@mmAnimTrain@@QAEXHPAD0PAVVector3@@HHPAM@Z
+    { 0x84427F7E, 0x4C8060 }, // ?Init@mmAnimTrainCar@@QAEXPAD0@Z
+    { 0x6BBBD9C5, 0x4C4270 }, // ?Init@mmAnimTrigger@@QAEXM@Z
+    { 0x749A9A53, 0x4C4240 }, // ?Init@mmAnimTrigger@@QAEXPAHM@Z
+    { 0xA031104C, 0x4C4200 }, // ?Init@mmAnimTrigger@@QAEXPAVmmInstance@@H@Z
+    { 0x30C688A0, 0x4C4220 }, // ?Init@mmAnimTrigger@@QAEXPAVVector3@@PAM@Z
+    { 0x8603D4B4, 0x4064C0 }, // ?Init@mmArrow@@QAEXPAVMatrix34@@@Z
+    { 0xF331BF03, 0x47D4A0 }, // ?Init@mmAxle@@QAEXPAD0PAVmmWheel@@1@Z
+    { 0xF4BEE747, 0x4CACD0 }, // ?Init@mmBangerManager@@QAEXH@Z
+    { 0x9BB3850F, 0x4C7270 }, // ?Init@mmBoat@@QAEXHPAD0PAVVector3@@HHPAM@Z
+    { 0x235BEEFC, 0x4C18A0 }, // ?Init@mmBridgeMgr@@QAEXPADPAVmmInstance@@PAPAV2@H@Z
+    { 0x6D7A4B02, 0x4C22C0 }, // ?Init@mmBridgeSet@@QAEHPADPAVStream@@@Z
+    { 0xF39C7041, 0x4944A0 }, // ?Init@mmBuildingInstance@@QAEHPADAAVVector3@@11@Z
+    { 0x227E45EA, 0x473530 }, // ?Init@mmCar@@QAEXPADHH@Z
+    { 0x644BB73B, 0x472DC0 }, // ?Init@mmCarModel@@QAEXPADPAVmmCar@@H@Z
+    { 0x9E15FEB4, 0x46C500 }, // ?Init@mmCarSim@@QAEXPADPAVmmCar@@H@Z
+    { 0xFB02D956, 0x423080 }, // ?Init@mmCDPlayer@@QAEXPAVmmHUD@@@Z
+    { 0x91042EA4, 0x4989E0 }, // ?Init@mmCellRenderer@@QAEXPADHHHHPAH@Z
+    { 0x0D454C2A, 0x4249A0 }, // ?Init@mmCircuitHUD@@QAEXXZ
+    { 0x6270604E, 0x4CBC90 }, // ?Init@mmCityList@@QAEXH@Z
+    { 0x4A5673B7, 0x4E7470 }, // ?Init@mmCollideFF@@UAEHPAUIDirectInputDevice2A@@@Z
+    { 0xCDE45DA9, 0x4B73D0 }, // ?Init@mmCompCRPlayer@@QAEXPADH0HH@Z
+    { 0x4A163FB0, 0x4B5B70 }, // ?Init@mmCompDRecord@@QAEXHPADM0HHH@Z
+    { 0xD2330B15, 0x4B49D0 }, // ?Init@mmCompRaceRecord@@QAEXHPAD0000HH@Z
+    { 0xE208DBE1, 0x4B7940 }, // ?Init@mmCompRoster@@QAEXPAD00K@Z
+    { 0x9C0B53EA, 0x425410 }, // ?Init@mmCRHUD@@QAEXPAVasLinearCS@@PADW4mmCRGameClass@@@Z
+    { 0x7C2EE8FD, 0x48C6D0 }, // ?Init@mmCullCity@@QAEXPADPAVasCamera@@@Z
+    { 0xBB26F700, 0x502240 }, // ?Init@mmDamage@@QAEXPAVagiMeshSet@@@Z
+    { 0xDFE79B20, 0x421880 }, // ?Init@mmDashView@@QAEXPADPAVmmPlayer@@@Z
+    { 0xCFAABD8B, 0x4CB7E0 }, // ?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
+    { 0x101E40AC, 0x47FE90 }, // ?Init@mmDrivetrain@@QAEXPAVmmCarSim@@@Z
+    { 0x8024A964, 0x4C08F0 }, // ?Init@mmDropDown@@QAEXPAVasCamera@@PAXMMMMVstring@@H@Z
+    { 0xDDEE561A, 0x47C9A0 }, // ?Init@mmEngine@@QAEXPAVmmCarSim@@@Z
+    { 0x18415FBE, 0x422170 }, // ?Init@mmExternalView@@QAEXPAVmmPlayer@@@Z
+    { 0xE23195CB, 0x4E7AA0 }, // ?Init@mmFrictionFF@@UAEHPAUIDirectInputDevice2A@@@Z
+    { 0xD98AAA5D, 0x40EA00 }, // ?Init@mmGame@@QAEHXZ
+    { 0xB1029D2E, 0x4122D0 }, // ?Init@mmGameEdit@@QAEHXZ
+    { 0x72184FA2, 0x430870 }, // ?Init@mmGameMulti@@QAEHXZ
+    { 0x44045FE5, 0x4FDDE0 }, // ?Init@mmGameRecord@@QAEXH@Z
+    { 0x5EDFDEBA, 0x416DF0 }, // ?Init@mmGameSingle@@QAEHXZ
+    { 0xDDDA3609, 0x430170 }, // ?Init@mmGate@@QAEXVVector2@@0@Z
+    { 0x22B618B3, 0x423DE0 }, // ?Init@mmGearIndicator@@QAEXPAVmmExternalView@@PAVmmPlayer@@@Z
+    { 0xD216C7C0, 0x4053E0 }, // ?Init@mmHUD@@QAEXPADPAVmmPlayer@@@Z
+    { 0x2E0D6068, 0x4281B0 }, // ?Init@mmHudMap@@QAEXPAVasCamera@@PAVMatrix34@@PAVmmHUD@@PAVmmGame@@PAD@Z
+    { 0x69A70131, 0x426470 }, // ?Init@mmIcons@@QAEXPAVMatrix34@@MM@Z
+    { 0xD5B51329, 0x4E1C60 }, // ?Init@mmInput@@QAEXH@Z
+    { 0x73480B2E, 0x492B20 }, // ?Init@mmInstance@@UAEHPADAAVVector3@@1H0@Z
+    { 0xC16524E9, 0x4922B0 }, // ?Init@mmInstChain@@QAEXH@Z
+    { 0x13351CAE, 0x4E4BB0 }, // ?Init@mmIO@@QAEXPADHJ@Z
+    { 0xE493D8FA, 0x4E50B0 }, // ?Init@mmIODev@@QAEXH_J@Z
+    { 0x420EA10A, 0x4E5AE0 }, // ?Init@mmJoyMan@@QAEHPAUHINSTANCE__@@PAUHWND__@@@Z
+    { 0x05ADD3A1, 0x4E6360 }, // ?Init@mmJoystick@@QAEHPAUIDirectInputDevice2A@@PAUHWND__@@@Z
+    { 0x83CCBCB0, 0x423A90 }, // ?Init@mmLinearGauge@@QAEXPADPAM11HPAVmmExternalView@@@Z
+    { 0xDA600C9B, 0x48B720 }, // ?Init@mmLoader@@QAEXPADMM@Z
+    { 0x3EBC2169, 0x493480 }, // ?Init@mmMatrixInstance@@QAEHPADAAVVector3@@11H0@Z
+    { 0x1E9E6D42, 0x502960 }, // ?Init@mmMouseSteerBar@@QAEXMMPAM@Z
+    { 0xD7E2D290, 0x419010 }, // ?Init@mmMultiBlitz@@QAEHXZ
+    { 0xFF13F097, 0x41A9E0 }, // ?Init@mmMultiCircuit@@QAEHXZ
+    { 0xC20F101C, 0x41C140 }, // ?Init@mmMultiCR@@QAEHXZ
+    { 0x3A2511B0, 0x41FA60 }, // ?Init@mmMultiRace@@QAEHXZ
+    { 0xF74475F3, 0x432900 }, // ?Init@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
+    { 0x77FF40E9, 0x4834A0 }, // ?Init@mmNetworkCarAudio@@QAEXPAVmmCarSim@@G@Z
+    { 0x33FF0863, 0x4FEAB0 }, // ?Init@mmNumber@@QAEXPAVmmNumberFont@@MM@Z
+    { 0xF452BC35, 0x47BA30 }, // ?Init@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
+    { 0x18685090, 0x497820 }, // ?Init@mmPed@@QAEXPADAAVVector3@@@Z
+    { 0xBFA7C6B5, 0x4979B0 }, // ?Init@mmPedManager@@QAEXH@Z
+    { 0x7DBC050F, 0x4D4430 }, // ?Init@mmPhysicsMGR@@QAEXPAVasInertialCS@@PAVmmViewCS@@@Z
+    { 0xE71333A6, 0x42A520 }, // ?Init@mmPlayer@@QAEXPAD0PAVmmGame@@@Z
+    { 0xEC308AF0, 0x481BA0 }, // ?Init@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z
+    { 0xD9832476, 0x51A820 }, // ?Init@mmPolygon@@AAEXXZ
+    { 0x48226845, 0x491E10 }, // ?Init@mmPositions@@QAEXH@Z
+    { 0x1EBBE735, 0x423C30 }, // ?Init@mmRadGauge@@QAEXPAM0PAVmmExternalView@@HI@Z
+    { 0xD313A031, 0x4E77C0 }, // ?Init@mmRoadFF@@UAEHPAUIDirectInputDevice2A@@@Z
+    { 0xE0FB5BB8, 0x4785A0 }, // ?Init@mmShard@@QAEXPADH@Z
+    { 0x22CD7AE7, 0x4788F0 }, // ?Init@mmShardManager@@QAEXPADHPAVmmCarSim@@@Z
+    { 0x6E21DDC0, 0x4942A0 }, // ?Init@mmShearInstance@@QAEHPADAAVVector3@@1MH0@Z
+    { 0x33BB789E, 0x47D210 }, // ?Init@mmShock@@QAEXPAD0PAVmmWheel@@@Z
+    { 0x27A76DB9, 0x413060 }, // ?Init@mmSingleBlitz@@QAEHXZ
+    { 0x2601916B, 0x414D50 }, // ?Init@mmSingleCircuit@@QAEHXZ
+    { 0xFABA3F12, 0x477870 }, // ?Init@mmSkid@@QAEXPAD@Z
+    { 0x31A1E04A, 0x477BD0 }, // ?Init@mmSkidManager@@QAEXPADHPAVmmWheel@@@Z
+    { 0x105F0D17, 0x495650 }, // ?Init@mmSky@@QAEXPAD@Z
+    { 0x3869A124, 0x4BE7D0 }, // ?Init@mmSlider@@QAEXPADPAVuiWidget@@MMMMHMMHH@Z
+    { 0x2BBE9FEB, 0x423F90 }, // ?Init@mmSpeedIndicator@@QAEXPAVmmExternalView@@PAVmmCarSim@@@Z
+    { 0x61761B38, 0x481070 }, // ?Init@mmSplash@@QAEXPAVasInertialCS@@VVector3@@1@Z
+    { 0xAA3FF959, 0x4E7D50 }, // ?Init@mmSpringFF@@UAEHPAUIDirectInputDevice2A@@@Z
+    { 0xD7D2AF7C, 0x493610 }, // ?Init@mmStaticInstance@@QAEHPADAAVVector3@@1MH0@Z
+    { 0x7F5907AC, 0x47C520 }, // ?Init@mmStuck@@QAEXPAVmmCarSim@@@Z
+    { 0x5AEEE6F7, 0x4FF540 }, // ?Init@mmTextNode@@QAEXMMMMHH@Z
+    { 0x142BAD42, 0x406210 }, // ?Init@mmTimer@@QAEXHM@Z
+    { 0x6C8238E7, 0x4BFF90 }, // ?Init@mmToggle2@@QAEXPADMMPAH@Z
+    { 0x8C577AA5, 0x4C03F0 }, // ?Init@mmToggle@@QAEXPADMMMM@Z
+    { 0x12C9DC02, 0x4BF1B0 }, // ?Init@mmToolTip@@QAEXPAVUIMenu@@PAULocString@@@Z
+    { 0x142F9B43, 0x479480 }, // ?Init@mmTrailer@@QAEXPADPAVmmCarSim@@VVector3@@@Z
+    { 0x77C36501, 0x479770 }, // ?Init@mmTrailerInstance@@QAEXPADPAVVector3@@@Z
+    { 0x331E6BBA, 0x470500 }, // ?Init@mmTransmission@@QAEXPAVmmCarSim@@@Z
+    { 0x030A9BA0, 0x4CA5F0 }, // ?Init@mmUnhitBangerInstance@@UAEHPADAAVVector3@@1H0@Z
+    { 0x8F3BA795, 0x4CC100 }, // ?Init@mmVehList@@QAEXH@Z
+    { 0x86F19545, 0x4F9260 }, // ?Init@mmViewCS@@QAEXXZ
+    { 0x7838DD7D, 0x42D9D0 }, // ?Init@mmWaypoints@@QAEHPAVmmPlayer@@PADHHHH@Z
+    { 0x762DC490, 0x47DA20 }, // ?Init@mmWheel@@QAEXPAD0VVector3@@PAVasInertialCS@@HPAVmmBoundTemplate@@H@Z
+    { 0xA0229C01, 0x474950 }, // ?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z
+    { 0x902BAFFD, 0x4243F0 }, // ?Init@mmWPHUD@@QAEXHPAH0H@Z
+    { 0x952B3476, 0x4F9E50 }, // ?Init@PointCamCS@@QAEXPAVmmCar@@@Z
+    { 0x2467FBC8, 0x4FABB0 }, // ?Init@PolarCamCS@@QAEXPAVmmCar@@@Z
+    { 0x67207898, 0x4F95C0 }, // ?Init@PostCamCS@@QAEXPAVmmCar@@@Z
+    { 0x83DCD7CA, 0x4F9A30 }, // ?Init@PreCamCS@@QAEXPAVmmCar@@@Z
+    { 0x6E75CB26, 0x572550 }, // ?Init@Quaternion@@QAEXMMMM@Z
+    { 0x3F9C689D, 0x4A6500 }, // ?Init@RaceMenuBase@@QAEXH@Z
+    { 0x89E406E8, 0x4238B0 }, // ?Init@RadialGauge@@QAEXPAD0PAM1M@Z
+    { 0xB1E23940, 0x551360 }, // ?Init@RDynamicDLP@@UAEHPAD@Z
+    { 0x4EF00E3D, 0x4BDA00 }, // ?Init@sfPointer@@QAEXXZ
+    { 0xEF502ED5, 0x4F1C90 }, // ?Init@SoundObj@@QAEHGKF@Z
+    { 0x4DD7692D, 0x4F1BD0 }, // ?Init@SoundObj@@QAEHPBDKF@Z
+    { 0x000CA3B7, 0x4FD420 }, // ?Init@Spline@@QAEXPAMH@Z
+    { 0x8D4483D3, 0x4F5200 }, // ?Init@StreamObj@@QAEHPBDK@Z
+    { 0x71472040, 0x49A6F0 }, // ?Init@string@@QAEXH@Z
+    { 0x08219E74, 0x57AE60 }, // ?Init@StringArray@@QAEXH@Z
+    { 0x526AA62A, 0x4BE0B0 }, // ?Init@TextDropWidget@@QAEXPAVasCamera@@PAXMMMMMVstring@@H@Z
+    { 0x55215F6C, 0x4FB550 }, // ?Init@TransitionCS@@QAEXPAVmmCar@@@Z
+    { 0x4CDF439F, 0x4B61C0 }, // ?Init@UIBMButton@@QAEXPADMMHHPAHHHPAULocString@@VCallback@@3@Z
+    { 0x0F90409E, 0x4B4360 }, // ?Init@UIBMLabel@@QAEXPAVstring@@MMPAH@Z
+    { 0x67B14295, 0x4B9C50 }, // ?Init@UIButton@@QAEXPAULocString@@HMMMMHVCallback@@@Z
+    { 0xB41BC537, 0x4B5050 }, // ?Init@UICompositeScroll@@QAEXMMMMMHPAHHHVCallback@@@Z
+    { 0x9F61B644, 0x4BBC40 }, // ?Init@UIControlWidget@@QAEXMMMMMPAVmmIO@@VCallback@@@Z
+    { 0xCDC5DF7D, 0x4B7D50 }, // ?Init@UICWArray@@QAEXMMMMHVCallback@@@Z
+    { 0xD3975688, 0x4B9960 }, // ?Init@UIIcon@@QAEXPADMM@Z
+    { 0x0B204A70, 0x4BC220 }, // ?Init@UIIconW@@QAEXPAULocString@@PADMMMMVCallback@@@Z
+    { 0x958E9317, 0x4B96F0 }, // ?Init@UILabel@@QAEXPAULocString@@HMMMMH@Z
+    { 0x0E94F5F4, 0x4BCB40 }, // ?Init@UIMexButton@@QAEXPAULocString@@PAHHMMMMHHVCallback@@@Z
+    { 0xBF86BB59, 0x4B3AB0 }, // ?Init@UISlider@@QAEXPAULocString@@PAMMMMMMMHHHHVCallback@@PAVUIMenu@@@Z
+    { 0xCAE8B08E, 0x4B2FD0 }, // ?Init@UITextDropdown@@QAEXPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z
+    { 0xD0CBEF46, 0x4B22E0 }, // ?Init@UITextField@@QAEXPAULocString@@PADMMMMHHHHHVCallback@@PAVUIMenu@@@Z
+    { 0x24C13C96, 0x4BACD0 }, // ?Init@UITextRoller2@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z
+    { 0x425F1EF4, 0x4BA0E0 }, // ?Init@UITextRoller@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z
+    { 0x6DB61FE6, 0x4B8980 }, // ?Init@UITextScroll@@QAEXPAXMMMMVstring@@HPAHVCallback@@@Z
+    { 0x84B337A2, 0x4BC7C0 }, // ?Init@UIToggleButton2@@QAEXPAULocString@@PAHMMMMHHVCallback@@@Z
+    { 0xBFB7C6AF, 0x4BC580 }, // ?Init@UIToggleButton@@QAEXPAULocString@@PAHMMMMHHVCallback@@@Z
+    { 0xCAC072A7, 0x4BCE90 }, // ?Init@UIVScrollBar@@QAEXMMMMHMMPAHVCallback@@H@Z
+    { 0x22B13288, 0x5712C0 }, // ?Init@Vector2Array@@QAEXH@Z
+    { 0x9EDB924E, 0x566E80 }, // ?Init@Vector3Array@@QAEXH@Z
+    { 0x1CD70D0B, 0x56E040 }, // ?Init@Vector4Array@@QAEXH@Z
+    { 0x1FE5EC92, 0x4BF3F0 }, // ?Init@VSWidget@@QAEXMMMMPAHVCallback@@H@Z
+    { 0xB1522FDD, 0x4ABE60 }, // ?Init@WArray@@QAEXH@Z
+    { 0x01201899, 0x402F40 }, // ?InitAudioManager@@YAXXZ
+    { 0xBA9B536C, 0x522FC0 }, // ?InitBank@@YAXHPAPAD@Z
+    { 0x48B6CEF6, 0x4C3A90 }, // ?InitBoat@mmAnimSpline@@QAEHXZ
+    { 0x12CFE3C1, 0x4C8F10 }, // ?InitBreakables@mmBangerData@@QAEXPAD@Z
+    { 0xCB22642E, 0x4CA560 }, // ?InitBreakables@mmUnhitBangerInstance@@QAEXPAD0PAVmmBangerData@@@Z
+    { 0x85F29B86, 0x4C4510 }, // ?InitBridge@mmDrawbridgeInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
+    { 0x293468E2, 0x557FE0 }, // ?InitBuiltin@@YAXXZ
+    { 0x9E269D8D, 0x50EE30 }, // ?InitCards@agiMeshSet@@SAXAAUagiMeshCardInfo@@@Z
+    { 0x3DB08CD5, 0x49AA90 }, // ?InitCarSelection@VehicleSelectBase@@QAEXHMMMM@Z
+    { 0xE7FF00DE, 0x4E8930 }, // ?InitCityADF@AudManager@@QAEXHK@Z
+    { 0x57B2A56C, 0x4F01C0 }, // ?InitCityADF@DSGlobal@@QAEHPADHK@Z
+    { 0x47819BEC, 0x4AF870 }, // ?InitCommonStuff@MenuManager@@QAEXHH@Z
+    { 0xDA650137, 0x4A35F0 }, // ?InitCustomControls@ControlSetup@@QAEXXZ
+    { 0x8F73B6C8, 0x472BF0 }, // ?InitDamage@mmCarModel@@QAEXXZ
+    { 0xA9D7A555, 0x4E4C10 }, // ?InitDev@mmIO@@QAEXH_JHHH@Z
+    { 0x4DE668A6, 0x49EF90 }, // ?InitDriverRecord@Dialog_DriverRec@@QAEXH@Z
+    { 0xFC4DF2F7, 0x4F1A20 }, // ?InitDummy@SoundObj@@QAEHXZ
+    { 0x9367C946, 0x562DF0 }, // ?InitEventQueue@@YAXXZ
+    { 0x4AF0FB0C, 0x493CC0 }, // ?InitFacade@mmFacadeInstance@@QAEHPADAAVVector3@@1MHABV2@@Z
+    { 0x4B8B1E16, 0x5508A0 }, // ?InitFacet@RDLP@@AAEHPAUagiPatch@@HHHH@Z
+    { 0xBEBEDA81, 0x577C70 }, // ?InitFields@MetaClass@@QAEXXZ
+    { 0x45D60C03, 0x412430 }, // ?InitGameObjects@mmGameEdit@@UAEXXZ
+    { 0x224075E9, 0x417040 }, // ?InitGameObjects@mmGameSingle@@UAEXXZ
+    { 0x0C3D88B4, 0x419230 }, // ?InitGameObjects@mmMultiBlitz@@UAEXXZ
+    { 0xED1CD282, 0x41ABC0 }, // ?InitGameObjects@mmMultiCircuit@@UAEXXZ
+    { 0x4415F9DF, 0x41C4E0 }, // ?InitGameObjects@mmMultiCR@@UAEXXZ
+    { 0xE8C48043, 0x41FC70 }, // ?InitGameObjects@mmMultiRace@@UAEXXZ
+    { 0x8933531E, 0x4132D0 }, // ?InitGameObjects@mmSingleBlitz@@UAEXXZ
+    { 0x1374BCA5, 0x414F90 }, // ?InitGameObjects@mmSingleCircuit@@UAEXXZ
+    { 0x8BE7ADB5, 0x40FAC0 }, // ?InitGameStrings@mmGame@@UAEXXZ
+    { 0x5F8A4818, 0x430AA0 }, // ?InitGameStrings@mmGameMulti@@UAEXXZ
+    { 0x9BC2D8BA, 0x5171D0 }, // ?InitGeometry@mmBoundTemplate@@QAEXHH@Z
+    { 0xCA20CA4A, 0x4AFB60 }, // ?InitGlobalStrings@MenuManager@@QAEXXZ
+    { 0x64B9F00C, 0x4123F0 }, // ?InitHUD@mmGameEdit@@UAEXXZ
+    { 0xE997AA31, 0x416FE0 }, // ?InitHUD@mmGameSingle@@UAEXXZ
+    { 0xD3FAD324, 0x4191B0 }, // ?InitHUD@mmMultiBlitz@@UAEXXZ
+    { 0x5EB77FEB, 0x41AB70 }, // ?InitHUD@mmMultiCircuit@@UAEXXZ
+    { 0x07527343, 0x41C3A0 }, // ?InitHUD@mmMultiCR@@UAEXXZ
+    { 0xC9B6A6EE, 0x41FC10 }, // ?InitHUD@mmMultiRace@@UAEXXZ
+    { 0x1236D477, 0x413250 }, // ?InitHUD@mmSingleBlitz@@UAEXXZ
+    { 0xB92A2AE3, 0x414F40 }, // ?InitHUD@mmSingleCircuit@@UAEXXZ
+    { 0xB50A7FFD, 0x489020 }, // ?Initialize@asNetwork@@QAEHHHH@Z
+    { 0x98436892, 0x489080 }, // ?InitializeLobby@asNetwork@@QAEHHH@Z
+    { 0xC121446A, 0x4DBCF0 }, // ?InitJoint3Dof@Joint3Dof@@QAEXPAVasInertialCS@@ABVVector3@@01@Z
+    { 0xEB74F1A6, 0x40CD10 }, // ?InitLobby@mmInterface@@QAEXXZ
+    { 0x855F6016, 0x504A00 }, // ?InitLocalize@agiMeshSet@@SAXXZ
+    { 0xC9B6326C, 0x5201C0 }, // ?InitMap@@YAXXZ
+    { 0xC81BC9E9, 0x493250 }, // ?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
+    { 0x0DCB78B8, 0x504730 }, // ?InitMtx@agiMeshSet@@KIXAAVagiViewParameters@@H@Z
+    { 0x03E58E6F, 0x5524F0 }, // ?InitMtx@agiProjVtx@@SAXAAVMatrix34@@MMMM@Z
+    { 0xC7102C50, 0x412380 }, // ?InitMyPlayer@mmGameEdit@@UAEXXZ
+    { 0xBBA54C34, 0x416F70 }, // ?InitMyPlayer@mmGameSingle@@UAEXXZ
+    { 0xD611C41F, 0x419140 }, // ?InitMyPlayer@mmMultiBlitz@@UAEXXZ
+    { 0x76D06CD0, 0x41AB00 }, // ?InitMyPlayer@mmMultiCircuit@@UAEXXZ
+    { 0xA313D6B8, 0x41C2A0 }, // ?InitMyPlayer@mmMultiCR@@UAEXXZ
+    { 0x518C0D7D, 0x41FBA0 }, // ?InitMyPlayer@mmMultiRace@@UAEXXZ
+    { 0xDC080AC0, 0x4131E0 }, // ?InitMyPlayer@mmSingleBlitz@@UAEXXZ
+    { 0xDA99D85C, 0x414ED0 }, // ?InitMyPlayer@mmSingleCircuit@@UAEXXZ
+    { 0x2D45D341, 0x40CC20 }, // ?InitNetwork@mmInterface@@AAEXXZ
+    { 0x26E662A6, 0x4194C0 }, // ?InitNetworkPlayers@mmMultiBlitz@@UAEXXZ
+    { 0x03DE7D91, 0x41AE30 }, // ?InitNetworkPlayers@mmMultiCircuit@@UAEXXZ
+    { 0x3426ABCB, 0x41C940 }, // ?InitNetworkPlayers@mmMultiCR@@UAEXXZ
+    { 0x0813231F, 0x41FF40 }, // ?InitNetworkPlayers@mmMultiRace@@UAEXXZ
+    { 0x39D65404, 0x5775C0 }, // ?InitObject@DataCache@@AAEXHPAHP6AXPAXH@Z1PAEI@Z
+    { 0xEC50AEF2, 0x48CEA0 }, // ?InitObjectDetail@mmCullCity@@QAEXXZ
+    { 0x258C7796, 0x55E620 }, // ?InitOffsets@DynamicDLP@@QAEHPAVDLP@@PAD@Z
+    { 0x1E9A9DC8, 0x40F8C0 }, // ?InitOtherPlayers@mmGame@@UAEXXZ
+    { 0xE36DD780, 0x412EC0 }, // ?InitOtherPlayers@mmGameEdit@@UAEXXZ
+    { 0xBA46C011, 0x4316E0 }, // ?InitOtherPlayers@mmGameMulti@@UAEXXZ
+    { 0x6B42181E, 0x417340 }, // ?InitOtherPlayers@mmGameSingle@@UAEXXZ
+    { 0x08D78E8A, 0x413540 }, // ?InitOtherPlayers@mmSingleBlitz@@UAEXXZ
+    { 0xC416CBB9, 0x415200 }, // ?InitOtherPlayers@mmSingleCircuit@@UAEXXZ
+    { 0xAB8F7003, 0x4C9150 }, // ?InitPhysics@mmBangerData@@QAEHPAD0@Z
+    { 0x72B419B7, 0x523210 }, // ?InitPipeline@@YAHPADHPAPAD@Z
+    { 0x261C06B7, 0x4C3AA0 }, // ?InitPlane@mmAnimSpline@@QAEHXZ
+    { 0xF6AFC56D, 0x564750 }, // ?InitPlayback@eqReplay@@SAXPAD@Z
+    { 0xAC9DFFEB, 0x564690 }, // ?InitPlayback@eqReplayChannel@@UAEXXZ
+    { 0x44990D3A, 0x407A90 }, // ?InitPlayerInfo@mmInterface@@QAEXXZ
+    { 0x83DAAEF6, 0x4A1050 }, // ?InitPlayerRecord@CRSettings@@QAEXXZ
+    { 0xC3BB5571, 0x4A5460 }, // ?InitPlayerSelection@DriverMenu@@QAEXXZ
+    { 0x6F8E98B4, 0x491900 }, // ?InitPositions@@YAXXZ
+    { 0x26FE86B2, 0x4EFBD0 }, // ?InitPrimarySoundBuffer@DSGlobal@@QAEHKEPAD@Z
+    { 0x6F3F100F, 0x560DB0 }, // ?InitProblems@@YAXXZ
+    { 0x86880CD5, 0x40CD80 }, // ?InitProtocols@mmInterface@@AAEXXZ
+    { 0x91B449DC, 0x46F5B0 }, // ?InitPtx@mmCarSim@@QAEXXZ
+    { 0x0C98BA4B, 0x49EA50 }, // ?InitRaceRecord@Dialog_HallOfFame@@QAEXXZ
+    { 0xF2D7A3EB, 0x5646C0 }, // ?InitRecord@eqReplay@@SAXPAD@Z
+    { 0xA4097049, 0x564680 }, // ?InitRecord@eqReplayChannel@@UAEXXZ
+    { 0x8DA7274D, 0x558A40 }, // ?InitRemap@DLPTemplate@@QAEXAAV?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@AAV?$agiLib@VagiTexParameters@@VagiTexDef@@@@AAV?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@@Z
+    { 0x45B03A72, 0x431960 }, // ?InitRoster@mmGameMulti@@UAEXXZ
+    { 0xCE43AA1C, 0x51A680 }, // ?InitSegment@mmEdgeBodyIsect@@QAEXABVVector3@@0HH0M@Z
+    { 0x1A2C8FAD, 0x51A1C0 }, // ?InitSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
+    { 0xDBEB8379, 0x4AB720 }, // ?InitSensitivity@ControlBase@@QAEXXZ
+    { 0x769E6D72, 0x48D100 }, // ?InitSnowTextures@mmCullCity@@AAEXXZ
+    { 0x07F71C80, 0x500AB0 }, // ?InitSpark@asBirthRule@@QAEXPAUasSparkInfo@@PAUasSparkPos@@@Z
+    { 0x74DCB5E7, 0x51A3B0 }, // ?InitSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z
+    { 0xA23EF93F, 0x4C09F0 }, // ?InitString@mmDropDown@@QAEXVstring@@@Z
+    { 0x65D7CFA7, 0x4B9370 }, // ?InitTextScroll@UITextScroll@@AAEXVstring@@@Z
+    { 0xE0A5DD36, 0x48DB10 }, // ?InitTimeOfDayAndWeather@mmCullCity@@AAEXXZ
+    { 0x8C827734, 0x4B7500 }, // ?InitTitle@mmCompCRPlayer@@QAEXMMMMPAULocString@@000H@Z
+    { 0xB4A6D7EE, 0x4B5C60 }, // ?InitTitle@mmCompDRecord@@QAEXMMMMPAULocString@@0000H@Z
+    { 0xEB89EE49, 0x4B4A60 }, // ?InitTitle@mmCompRaceRecord@@QAEXMMMMPAULocString@@00000H@Z
+    { 0xCC4FF38A, 0x4B79C0 }, // ?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z
+    { 0x687AE1F9, 0x4C3B40 }, // ?InitTrain@mmAnimSpline@@QAEHXZ
+    { 0xB4EFAC47, 0x51A2D0 }, // ?InitTransformedSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
+    { 0xC9CCE4B8, 0x51A410 }, // ?InitTransformedSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z
+    { 0x4E3BD427, 0x4C2290 }, // ?InitTrigger@mmBridgeSet@@QAEXXZ
+    { 0x9FB662EA, 0x4E89E0 }, // ?InitUIADF@AudManager@@QAEXHK@Z
+    { 0x2EEE829C, 0x4F0280 }, // ?InitUIADF@DSGlobal@@QAEHPADHK@Z
+    { 0x5C311115, 0x504EB0 }, // ?InitViewport@agiMeshSet@@KIXAAVagiViewParameters@@@Z
+    { 0x178FB338, 0x4B5290 }, // ?InitVScroll@UICompositeScroll@@QAEXMMM@Z
+    { 0xED5BACC4, 0x4B8CF0 }, // ?InitVScroll@UITextScroll@@QAEXMMM@Z
+    { 0xB6DA4FE0, 0x4459D0 }, // ?InPersuit@aiVehiclePolice@@QAEHXZ
+    { 0xC3953233, 0x4E6A90 }, // ?InputCreateEffect@mmJoystick@@QAEXXZ
+    { 0xB1913C9F, 0x4E5A60 }, // ?inputEnumDeviceProc@@YGHPAUDIDEVICEINSTANCEA@@PAX@Z
+    { 0x66EE43DE, 0x4E7350 }, // ?inputEnumEffectTypeProc@@YGHPBUDIEFFECTINFOA@@PAX@Z
+    { 0xA1C940FE, 0x4E6BB0 }, // ?InputInitEffect@mmJoystick@@QAEXXZ
+    { 0xF911CFB4, 0x4E6470 }, // ?inputPrepareDevice@mmJoystick@@QAEHXZ
+    { 0x8D681D78, 0x563DE0 }, // ?inputSetup@@YAHHHHHH@Z
+    { 0x108EB489, 0x4E6BF0 }, // ?InputStopEffect@mmJoystick@@QAEXXZ
+    { 0xB6D11CAE, 0x4FD550 }, // ?InRange@Spline@@QAEHXZ
+    { 0xA1AFB346, 0x5781D0 }, // ?Insert@HashTable@@QAEHPADPAX@Z
+    { 0xB5CC544F, 0x57C2B0 }, // ?Insert@List@@QAEHHPAX@Z
+    { 0x3A759130, 0x523AF0 }, // ?InsertChild@asNode@@QAEHHPAV1@@Z
+    { 0x01F2D678, 0x4F9080 }, // ?Instance@mmViewCS@@SAPAV1@PAVasCamera@@@Z
+    { 0x0982A940, 0x57CD40 }, // ?Int64Val@MiniParser@@QAE_JXZ
+    { 0x44A12BA7, 0x4EF010 }, // ?IntegrityCheck@DupBuffCreator@@AAEHPAUIDirectSoundBuffer@@0PAH@Z
+    { 0x22C6944C, 0x56D5B0 }, // ?Interpolate@Matrix34@@QAEXABV1@0M@Z
+    { 0x3BA43DA7, 0x433E80 }, // ?Intersection@aiMap@@QAEPAVaiIntersection@@H@Z
+    { 0xF43264F1, 0x43F7D0 }, // ?IntersectionEntryPt@aiPath@@QAEXAAVVector3@@HM@Z
+    { 0x21728FE3, 0x43F890 }, // ?IntersectionEntryVector@aiPath@@QAEXAAVVector3@@M@Z
+    { 0x0C38024A, 0x43F910 }, // ?IntersectionExitVector@aiPath@@QAEXAAVVector3@@M@Z
+    { 0xBBC79DAF, 0x57CD00 }, // ?IntVal@MiniParser@@QAEHXZ
+    { 0xC50C7FDC, 0x5687A0 }, // ?Inverse@Matrix34@@QBE?AV1@XZ
+    { 0x43C5A3A2, 0x56F8E0 }, // ?Inverse@Matrix44@@QBE?AV1@XZ
+    { 0x5CBCD900, 0x5225F0 }, // ?invert@@YANN@Z
+    { 0xA741D541, 0x571260 }, // ?InvMag@Vector2@@QBEMXZ
+    { 0xC2A3C1B0, 0x566960 }, // ?InvMag@Vector3@@QBEMXZ
+    { 0x7DF0D087, 0x570F80 }, // ?invsqrtf_fast@@YAMM@Z
+    { 0x0D220D0F, 0x4E0ED0 }, // ?IOInit@mmInput@@QAEXHPAULocString@@J@Z
+    { 0xB5340E89, 0x4A0120 }, // ?IPAddressCallback@Dialog_Serial@@QAEXXZ
+    { 0xD1EF7E05, 0x4A0510 }, // ?IPAddressCallback@Dialog_TCPIP@@QAEXXZ
+    { 0x8B60CBA5, 0x4A4700 }, // ?IPAddressCallback@NetSelectMenu@@QAEXXZ
+    { 0x7BD7AB80, 0x578740 }, // ?ipcCloseHandle@@YAXI@Z
+    { 0x83EEE227, 0x578B00 }, // ?ipcCloseSpinLock@@YAXPAI@Z
+    { 0x3A37365A, 0x578650 }, // ?ipcCreateEvent@@YAIH@Z
+    { 0x5CF4F784, 0x578670 }, // ?ipcCreateMutex@@YAIH@Z
+    { 0x238B457F, 0x578AF0 }, // ?ipcCreateSpinLock@@YAXPAI@Z
+    { 0x1F49B670, 0x578690 }, // ?ipcCreateThread@@YAIP6GKPAX@Z0PAK@Z
+    { 0xA007E03E, 0x5786D0 }, // ?ipcReleaseMutex@@YAXI@Z
+    { 0x1EDD08E8, 0x578770 }, // ?ipcSleep@@YAXI@Z
+    { 0x952A8B08, 0x578A70 }, // ?ipcSpinLock@@YAXPAI@Z
+    { 0x28782055, 0x578AC0 }, // ?ipcSpunUnlock@@YAXPAI@Z
+    { 0x1A221371, 0x5786B0 }, // ?ipcTriggerEvent@@YAXI@Z
+    { 0x023F43F0, 0x578720 }, // ?ipcWaitMultiple@@YAHHPAIH@Z
+    { 0x6A3D83D3, 0x5786F0 }, // ?ipcWaitSingle@@YAXI@Z
+    { 0xD98AB5EB, 0x578760 }, // ?ipcYield@@YAXXZ
+    { 0x8CAA0D37, 0x564A00 }, // ?irand@@YAHH@Z
+    { 0xF74365E9, 0x564A30 }, // ?irand@@YAHXZ
+    { 0x40294936, 0x4BE470 }, // ?IsActive@TextDropWidget@@QAEHXZ
+    { 0x842CE4A9, 0x4D2990 }, // ?IsAlley@mmRoadSect@@QAEHXZ
+    { 0x2CE45C9D, 0x4E2110 }, // ?IsAlreadyAssigned@mmInput@@QAEHPAVmmIO@@HHH@Z
+    { 0x83B0AB81, 0x4E97C0 }, // ?IsAlwaysEAX@AudManager@@QAEIXZ
+    { 0x57D68343, 0x4F0AC0 }, // ?IsAlwaysEAX@DSGlobal@@QAEIXZ
+    { 0xA25E20BD, 0x45BB60 }, // ?IsAmbientBlockingPlayer@aiVehicleSpline@@QAEHXZ
+    { 0x4962750A, 0x49A6E0 }, // ?IsAnOptionMenu@OptionsBase@@UAEHXZ
+    { 0x28A504CA, 0x49C4F0 }, // ?IsAnOptionMenu@UIMenu@@UAEHXZ
+    { 0x66BCDB32, 0x531F60 }, // ?IsAvailable@agiD3DTexDef@@UAEHXZ
+    { 0xB2B1A10D, 0x537810 }, // ?IsAvailable@agiSWTexDef@@UAEHXZ
+    { 0x17FDFD4E, 0x5567F0 }, // ?IsAvailable@agiTexDef@@UAEHXZ
+    { 0x4AD14A05, 0x4D28B0 }, // ?IsBlocked@mmRoadSect@@QAEHH@Z
+    { 0x339639E4, 0x405860 }, // ?IsDashActive@mmHUD@@QAEHXZ
+    { 0xD2BB7915, 0x4D2970 }, // ?IsDivided@mmRoadSect@@QAEHXZ
+    { 0x93C27A44, 0x473DE0 }, // ?IsDrivingDisabled@mmCar@@QAEHXZ
+    { 0x3470B5B3, 0x4EF850 }, // ?IsDSDeviceInList@@YAHPAU_GUID@@@Z
+    { 0x99008C15, 0x427020 }, // ?IsEnabled@mmPopup@@QAEHXZ
+    { 0x487B7076, 0x4A7670 }, // ?IsEnvEnabled@RaceMenuBase@@QAEHXZ
+    { 0x8B1629E9, 0x514BC0 }, // ?IsFullyResident@agiMeshSet@@QAEHH@Z
+    { 0xDE3E70A7, 0x42C490 }, // ?IsMaxDamaged@mmPlayer@@QAEHXZ
+    { 0x4179C596, 0x409CD0 }, // ?IsModemDialin@@YA_NXZ
+    { 0x8E462EBE, 0x57AE10 }, // ?IsNumeric@string@@QBEHXZ
+    { 0xEAAFE240, 0x4D28F0 }, // ?IsPedBlocked@mmRoadSect@@QAEHH@Z
+    { 0xAFF380C5, 0x460670 }, // ?IsPerpACop@aiGoalChase@@AAEHPAVmmCar@@@Z
+    { 0x56D47D0F, 0x445A00 }, // ?IsPerpInRange@aiVehiclePolice@@QAEHPAVmmCar@@@Z
+    { 0x214B4A60, 0x4EB690 }, // ?IsPlaying@AudSound@@QAEHH@Z
+    { 0xC95C0FD9, 0x4F40E0 }, // ?IsPlaying@AudStream@@QAEHXZ
+    { 0x845C3B4B, 0x481760 }, // ?IsPlaying@mmCarRoadFF@@QAEHXZ
+    { 0x59A655F5, 0x4F2390 }, // ?IsPlaying@SoundObj@@QAEFF@Z
+    { 0xCFF77FDC, 0x4F5750 }, // ?IsPlaying@StreamObj@@QAEFXZ
+    { 0x98B7EE17, 0x48D590 }, // ?IsPolyWater@mmCullCity@@QAEHPAVmmPolygon@@@Z
+    { 0x197DA971, 0x410230 }, // ?IsPopupEnabled@mmGame@@QAEHXZ
+    { 0x66D7EDDB, 0x42AC10 }, // ?IsPOV@mmPlayer@@QAEHXZ
+    { 0x9A282905, 0x572210 }, // ?IsQuadCoplanar@@YAHAAVVector3@@000@Z
+    { 0x01BC6769, 0x4BEA00 }, // ?IsReadWrite@mmSlider@@QAEHXZ
+    { 0xC3A11F9C, 0x4B4040 }, // ?IsReadWrite@UISlider@@QAEHXZ
+    { 0x7D8831E1, 0x4E9600 }, // ?IsStereo@AudManager@@QAEHXZ
+    { 0x9EFFA360, 0x577BB0 }, // ?IsSubclassOf@MetaClass@@QAEHPAV1@@Z
+    { 0x077CB944, 0x557BA0 }, // ?IsTexture@agiRefreshable@@MAEHXZ
+    { 0x1240090E, 0x556430 }, // ?IsTexture@agiTexDef@@UAEHXZ
+    { 0xC0F1831B, 0x45BA60 }, // ?IsThePlayerInFrontOfMe@aiVehicleSpline@@QAEHXZ
+    { 0xA9BBCE82, 0x49C590 }, // ?IsValid@mmVehInfo@@QAEHXZ
+    { 0xCAFA7975, 0x4B2980 }, // ?IsValidChar@UITextField@@QAEHG@Z
+    { 0x9587FF69, 0x523510 }, // ?IsValidPointer@@YAHPAXIH@Z
+    { 0xBEE49A4F, 0x4FBEC0 }, // ?IsViewCSInTransition@BaseCamCS@@QAEHXZ
+    { 0xF140A6D8, 0x526E90 }, // ?IsVisible@asMidgets@@AAEHH@Z
+    { 0x30DE2969, 0x580F50 }, // ?jcopy_block_row@@YAXPAY0EA@F0I@Z
+    { 0x11726012, 0x580F00 }, // ?jcopy_sample_rows@@YAXPAPAEH0HHI@Z
+    { 0x9CF4B629, 0x580EC0 }, // ?jdiv_round_up@@YAJJJ@Z
+    { 0x03C689C8, 0x583130 }, // ?jinit_color_deconverter@@YAXPAUjpeg_decompress_struct@@@Z
+    { 0x93C34389, 0x581730 }, // ?jinit_d_coef_controller@@YAXPAUjpeg_decompress_struct@@E@Z
+    { 0x71A57695, 0x581070 }, // ?jinit_d_main_controller@@YAXPAUjpeg_decompress_struct@@E@Z
+    { 0x05794E9A, 0x582840 }, // ?jinit_d_post_controller@@YAXPAUjpeg_decompress_struct@@E@Z
+    { 0xE2B73532, 0x581F80 }, // ?jinit_huff_decoder@@YAXPAUjpeg_decompress_struct@@@Z
+    { 0xB5B4CD2E, 0x57DB10 }, // ?jinit_input_controller@@YAXPAUjpeg_decompress_struct@@@Z
+    { 0x2BBF5290, 0x5825E0 }, // ?jinit_inverse_dct@@YAXPAUjpeg_decompress_struct@@@Z
+    { 0x4824E363, 0x57E380 }, // ?jinit_marker_reader@@YAXPAUjpeg_decompress_struct@@@Z
+    { 0x8FA5E95D, 0x580AE0 }, // ?jinit_master_decompress@@YAXPAUjpeg_decompress_struct@@@Z
+    { 0x24844A4E, 0x57FD10 }, // ?jinit_memory_mgr@@YAXPAUjpeg_common_struct@@@Z
+    { 0x20026AF2, 0x5829E0 }, // ?jinit_upsampler@@YAXPAUjpeg_decompress_struct@@@Z
+    { 0x64468226, 0x4A44B0 }, // ?JoinCallback@NetSelectMenu@@QAEXXZ
+    { 0xCDAE14B7, 0x4A4400 }, // ?JoinCB@NetSelectMenu@@QAEXXZ
+    { 0x5418894C, 0x409F90 }, // ?JoinGame@mmInterface@@AAEXXZ
+    { 0x103B014A, 0x40A010 }, // ?JoinLAN@mmInterface@@AAEXXZ
+    { 0x4301ADD9, 0x489150 }, // ?JoinLobbySession@asNetwork@@QAEHXZ
+    { 0x43A2EB30, 0x40A100 }, // ?JoinModem@mmInterface@@AAEHXZ
+    { 0x86C03541, 0x40D200 }, // ?JoinPasswordSession@mmInterface@@AAEHH@Z
+    { 0x2CFA415E, 0x40A070 }, // ?JoinSerial@mmInterface@@AAEHXZ
+    { 0x4F9B4FA4, 0x48B240 }, // ?JoinSession@asNetwork@@QAEHHPAD@Z
+    { 0x8B520959, 0x48A170 }, // ?JoinSession@asNetwork@@QAEHPADPAU_GUID@@0@Z
+    { 0xC541BE24, 0x40D000 }, // ?JoinSession@mmInterface@@AAEHH@Z
+    { 0x69EDC09F, 0x4E39A0 }, // ?JoystickConnected@mmInput@@QAEHXZ
+    { 0x9E54FF1C, 0x4E3A00 }, // ?JoystickHasCoolie@mmInput@@QAEHXZ
+    { 0xD3EDD1D7, 0x4E3A10 }, // ?JoystickHasThrottle@mmInput@@QAEHXZ
+    { 0xF75CC17F, 0x580960 }, // ?jpeg_abort@@YAXPAUjpeg_common_struct@@@Z
+    { 0x83BB99F9, 0x57D100 }, // ?jpeg_abort_decompress@@YAXPAUjpeg_decompress_struct@@@Z
+    { 0x0405D0A4, 0x580A00 }, // ?jpeg_alloc_huff_table@@YAPAUJHUFF_TBL@@PAUjpeg_common_struct@@@Z
+    { 0x2E2E71CD, 0x5809E0 }, // ?jpeg_alloc_quant_table@@YAPAUJQUANT_TBL@@PAUjpeg_common_struct@@@Z
+    { 0x23ED0044, 0x580A20 }, // ?jpeg_calc_output_dimensions@@YAXPAUjpeg_decompress_struct@@@Z
+    { 0x4F9A5642, 0x57D1A0 }, // ?jpeg_consume_input@@YAHPAUjpeg_decompress_struct@@@Z
+    { 0x98A31EEB, 0x57D000 }, // ?jpeg_CreateDecompress@@YAXPAUjpeg_decompress_struct@@HI@Z
+    { 0xCE3B77F0, 0x5809B0 }, // ?jpeg_destroy@@YAXPAUjpeg_common_struct@@@Z
+    { 0xBAB41052, 0x57D0E0 }, // ?jpeg_destroy_decompress@@YAXPAUjpeg_decompress_struct@@@Z
+    { 0x06F04D20, 0x581D60 }, // ?jpeg_fill_bit_buffer@@YAEPAUbitread_working_state@@JHH@Z
+    { 0x496E838D, 0x57D4A0 }, // ?jpeg_finish_decompress@@YAEPAUjpeg_decompress_struct@@@Z
+    { 0x41B34DFC, 0x581000 }, // ?jpeg_free_large@@YAXPAUjpeg_common_struct@@PAXI@Z
+    { 0xCA2F8BD9, 0x580FC0 }, // ?jpeg_free_small@@YAXPAUjpeg_common_struct@@PAXI@Z
+    { 0x99BC36BC, 0x580FE0 }, // ?jpeg_get_large@@YAPAXPAUjpeg_common_struct@@I@Z
+    { 0x6BCD2158, 0x580FA0 }, // ?jpeg_get_small@@YAPAXPAUjpeg_common_struct@@I@Z
+    { 0xAFC73558, 0x57D460 }, // ?jpeg_has_multiple_scans@@YAEPAUjpeg_decompress_struct@@@Z
+    { 0xAB402BA9, 0x581E80 }, // ?jpeg_huff_decode@@YAHPAUbitread_working_state@@JHPAUd_derived_tbl@@H@Z
+    { 0xEFE64C2D, 0x5841B0 }, // ?jpeg_idct_float@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z
+    { 0x2BF5D92D, 0x583D40 }, // ?jpeg_idct_ifast@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z
+    { 0x57E2FA6E, 0x583790 }, // ?jpeg_idct_islow@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z
+    { 0x5181DF3E, 0x57D420 }, // ?jpeg_input_complete@@YAEPAUjpeg_decompress_struct@@@Z
+    { 0xA1991A0C, 0x581AA0 }, // ?jpeg_make_d_derived_tbl@@YAXPAUjpeg_decompress_struct@@EHPAPAUd_derived_tbl@@@Z
+    { 0x79CC2A3E, 0x581020 }, // ?jpeg_mem_available@@YAJPAUjpeg_common_struct@@JJJ@Z
+    { 0x32B1876B, 0x581050 }, // ?jpeg_mem_init@@YAJPAUjpeg_common_struct@@@Z
+    { 0xAB1AEE55, 0x581060 }, // ?jpeg_mem_term@@YAXPAUjpeg_common_struct@@@Z
+    { 0xB177A9AE, 0x581030 }, // ?jpeg_open_backing_store@@YAXPAUjpeg_common_struct@@PAUbacking_store_struct@@J@Z
+    { 0x06DB2F48, 0x57D120 }, // ?jpeg_read_header@@YAHPAUjpeg_decompress_struct@@E@Z
+    { 0x703DFE11, 0x57D720 }, // ?jpeg_read_raw_data@@YAIPAUjpeg_decompress_struct@@PAPAPAEI@Z
+    { 0x8E42B842, 0x57D680 }, // ?jpeg_read_scanlines@@YAIPAUjpeg_decompress_struct@@PAPAEI@Z
+    { 0x12847D81, 0x57E150 }, // ?jpeg_resync_to_restart@@YAEPAUjpeg_decompress_struct@@H@Z
+    { 0x51F630CF, 0x57FCB0 }, // ?jpeg_set_marker_processor@@YAXPAUjpeg_decompress_struct@@HP6AE0@Z@Z
+    { 0xCA6033B8, 0x57D570 }, // ?jpeg_start_decompress@@YAEPAUjpeg_decompress_struct@@@Z
+    { 0x1D4A8124, 0x57D930 }, // ?jpeg_std_error@@YAPAUjpeg_error_mgr@@PAU1@@Z
+    { 0x9D2FF98F, 0x57D7E0 }, // ?jpeg_stdio_src@@YAXPAUjpeg_decompress_struct@@PAVStream@@@Z
+    { 0x534DF267, 0x580EE0 }, // ?jround_up@@YAJJJ@Z
+    { 0xC2E1B51D, 0x580F80 }, // ?jzero_far@@YAXPAXI@Z
+    { 0xBB440D67, 0x52A9E0 }, // ?Key@asPerfGraph@@QAEXH@Z
+    { 0x93E445BA, 0x527C00 }, // ?Key@BMI@@UAEXHH@Z
+    { 0x64BF3E67, 0x528260 }, // ?Key@floatMI@@UAEXHH@Z
+    { 0x5072FCA4, 0x528090 }, // ?Key@intMI@@UAEXHH@Z
+    { 0x40386938, 0x528340 }, // ?Key@SBMI@@UAEXHH@Z
+    { 0xA451297C, 0x527CF0 }, // ?Key@scharMI@@UAEXHH@Z
+    { 0xDDA5785A, 0x527EB0 }, // ?Key@shortMI@@UAEXHH@Z
+    { 0x3BBA23B6, 0x527BD0 }, // ?Key@SMI@@UAEXHH@Z
+    { 0x6296234D, 0x527C40 }, // ?Key@TMI@@UAEXHH@Z
+    { 0xC92C5A2C, 0x527DD0 }, // ?Key@ucharMI@@UAEXHH@Z
+    { 0x4F3C28F6, 0x528170 }, // ?Key@uintMI@@UAEXHH@Z
+    { 0x118223B0, 0x527FA0 }, // ?Key@ushortMI@@UAEXHH@Z
+    { 0x6608238D, 0x4B2B80 }, // ?KeyAction@UITextField@@QAEXPATeqEvent@@@Z
+    { 0x7E0A9324, 0x4B9100 }, // ?KeyAction@UITextScroll@@AAEXXZ
+    { 0x1D927722, 0x5633E0 }, // ?Keyboard@eqEventMonitor@@UAEXPAXHHHH@Z
+    { 0xDA020EB6, 0x563C20 }, // ?Keyboard@eqEventQ@@UAEXPAXHHHH@Z
+    { 0x8537E387, 0x4AE880 }, // ?KeyboardAction@UIMenu@@QAEXTeqEvent@@@Z
+    { 0x80F611FC, 0x55A030 }, // ?Kill@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXXZ
+    { 0x4C2CB4CE, 0x55A250 }, // ?Kill@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXXZ
+    { 0x2312BDBE, 0x55A140 }, // ?Kill@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXXZ
+    { 0x434DEBED, 0x55C0B0 }, // ?Kill@agiPalette@@QAEXXZ
+    { 0x416B2618, 0x5120A0 }, // ?Kill@agiTexSheet@@QAEXXZ
+    { 0x30155CFC, 0x520A10 }, // ?Kill@asMemoryAllocator@@QAEXXZ
+    { 0x715EB285, 0x521450 }, // ?Kill@asSafeHeap@@QAEXXZ
+    { 0x16C782E3, 0x578110 }, // ?Kill@HashTable@@QAEXXZ
+    { 0x0CE4624D, 0x57C290 }, // ?Kill@List@@QAEXXZ
+    { 0xB5AFB894, 0x4B0C70 }, // ?Kill@MenuManager@@QAEXXZ
+    { 0x8E9C47EA, 0x4730D0 }, // ?Kill@mmCarModel@@QAEXXZ
+    { 0xD7ADC2AD, 0x4B6810 }, // ?Kill@UIBMButton@@QAEXXZ
+    { 0x7ED0D38B, 0x578610 }, // ?KillAll@HashTable@@SAXXZ
+    { 0xE3B272D5, 0x4A7950 }, // ?LapsCallback@RaceMenuBase@@QAEXXZ
+    { 0x11953172, 0x4C8370 }, // ?LaunchInstance@mmBangerData@@QAEXMPAVVector3@@@Z
+    { 0xE43A23D3, 0x4A36F0 }, // ?LaunchJoyCpl@ControlSetup@@QAEXXZ
+    { 0x855B234E, 0x477D10 }, // ?LayTrack@mmSkidManager@@QAEXXZ
+    { 0xC4C5DDC3, 0x459E90 }, // ?LBoundary@aiPath@@QAEPAVVector3@@H@Z
+    { 0x91E84CBA, 0x572CE0 }, // ?Lerp@Quaternion@@QAEXMABV1@0@Z
+    { 0x7892791E, 0x56DF50 }, // ?Lerp@Vector4@@QAEXMABV1@0@Z
+    { 0xB13C2E69, 0x556AD0 }, // ?LibOutOfDate@@YAHPAD0@Z
+    { 0x2A07D55C, 0x551A20 }, // ?LightVertex@agiMonoLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
+    { 0xF5677B7F, 0x551E70 }, // ?LightVertex@agiRGBLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
+    { 0x364272FF, 0x52F860 }, // ?Line@agiD3DRasterizer@@UAEXHH@Z
+    { 0x6DB67341, 0x537CB0 }, // ?Line@agiSWRasterizer@@UAEXHH@Z
+    { 0x3E338625, 0x4301F0 }, // ?LineEq@mmGate@@QAEMMM@Z
+    { 0x09C79CD7, 0x51F120 }, // ?LineGeometry@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
+    { 0x6383021F, 0x51F670 }, // ?LineGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0x1824E2B9, 0x42FD50 }, // ?LineIntersect@mmWaypoints@@QAEHVVector2@@000M@Z
+    { 0x9201615B, 0x557DD0 }, // ?LineList@agiRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
+    { 0xEE8CB8A0, 0x51F500 }, // ?LineSpan@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@HHHH@Z
+    { 0x4B02ED1A, 0x51FB20 }, // ?LineSpan@mmBoundTemplate@@QAEHPAVmmIntersection@@HHH@Z
+    { 0xCE41980F, 0x51F110 }, // ?LineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0x5C4EA83B, 0x51F1E0 }, // ?LineTable@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
+    { 0x68B888E2, 0x51F7A0 }, // ?LineTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0xB86B998F, 0x520E50 }, // ?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z
+    { 0x8A20C421, 0x55DB00 }, // ?Load@agiMtlParameters@@QAEXPAVStream@@@Z
+    { 0x2450853E, 0x55C180 }, // ?Load@agiPalette@@QAEXPAD@Z
+    { 0x534EE021, 0x556F90 }, // ?Load@agiPhysParameters@@QAEXPAVStream@@@Z
+    { 0x7358B62E, 0x55A7A0 }, // ?Load@agiSurfaceDesc@@SAPAV1@PAD0HHHH@Z
+    { 0x0E4B3ED5, 0x556120 }, // ?Load@agiTexParameters@@QAEXPAVStream@@@Z
+    { 0x126D97B6, 0x511B90 }, // ?Load@agiTexSheet@@QAEXPAD@Z
+    { 0x5F6D1EE0, 0x57B870 }, // ?Load@ArrayOfType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x278B8900, 0x4E0130 }, // ?Load@asAero@@QAEXPAVStream@@@Z
+    { 0x053B6729, 0x523DD0 }, // ?Load@asNode@@QAEHPAD@Z
+    { 0x4736A764, 0x524150 }, // ?Load@asNode@@UAEXXZ
+    { 0x4F770694, 0x48FFF0 }, // ?Load@asRenderWeb@@QAEHPADH@Z
+    { 0x8E8C5CDA, 0x4EAB20 }, // ?Load@AudSound@@QAEHHH@Z
+    { 0xA16A4F57, 0x4EA8D0 }, // ?Load@AudSound@@QAEHPADH@Z
+    { 0x4B055ED7, 0x4F3910 }, // ?Load@AudStream@@QAEHPADH@Z
+    { 0xFA962833, 0x515260 }, // ?Load@bnAnimation@@QAEHPAD@Z
+    { 0x57EB8E78, 0x516E80 }, // ?Load@bnBone@@QAEHPAVTokenizer@@PAPAV1@@Z
+    { 0x2FF99149, 0x514C70 }, // ?Load@bnSkeleton@@QAEHPBD@Z
+    { 0xA7254773, 0x57BA10 }, // ?Load@CharType@@UAEXPAVMiniParser@@PAX@Z
+    { 0xD8DF9CD7, 0x558EC0 }, // ?Load@DLPGroup@@QAEXPAVStream@@@Z
+    { 0xD940EAA0, 0x559080 }, // ?Load@DLPPatch@@QAEXPAVStream@@@Z
+    { 0xC5F63AA0, 0x558B60 }, // ?Load@DLPTemplate@@QAEHPAD@Z
+    { 0xEA3B714C, 0x558640 }, // ?Load@DLPTemplate@@QAEXPAVStream@@@Z
+    { 0x5E231CC9, 0x5594D0 }, // ?Load@DLPVertex@@QAEXPAVStream@@@Z
+    { 0x46371B6C, 0x57C0C0 }, // ?Load@FloatType@@UAEXPAVMiniParser@@PAX@Z
+    { 0xCC696FDF, 0x577E90 }, // ?Load@MetaClass@@QAEXPAVMiniParser@@PAX@Z
+    { 0x18D8C08F, 0x497EB0 }, // ?Load@mmAnimation@@QAEXPADPAVStream@@@Z
+    { 0xDF0B6CE2, 0x517850 }, // ?Load@mmBoundTemplate@@QAEHPAD0PAVVector3@@HHHHHH@Z
+    { 0xB35C4159, 0x4D3650 }, // ?Load@mmCityInfo@@QAEHPAD@Z
+    { 0x41D0D061, 0x4CBE30 }, // ?Load@mmCityList@@QAEXPAD@Z
+    { 0xFAF72388, 0x47C9E0 }, // ?Load@mmEngine@@QAEXPAVStream@@@Z
+    { 0x70B07C11, 0x4D12E0 }, // ?Load@mmInfoBase@@QAEHPAD@Z
+    { 0xB6ADF07B, 0x4CC6A0 }, // ?Load@mmMiscData@@QAEHPAD@Z
+    { 0xF2BE1109, 0x4CDC90 }, // ?Load@mmPlayerConfig@@QAEHPAD@Z
+    { 0x8A344C3B, 0x4D0910 }, // ?Load@mmPlayerData@@QAEHPAD@Z
+    { 0x4FE5B209, 0x4CF6A0 }, // ?Load@mmPlayerDirectory@@QAEHPAD@Z
+    { 0x9FB18FF5, 0x491E40 }, // ?Load@mmPositions@@QAEHPAD@Z
+    { 0xB33D3C75, 0x4D1BE0 }, // ?Load@mmRaceData@@QAEHPAD@Z
+    { 0xBBB9A430, 0x4D3A00 }, // ?Load@mmVehInfo@@QAEHPAD@Z
+    { 0xC721F633, 0x4CC240 }, // ?Load@mmVehList@@QAEXPAD@Z
+    { 0xA27E104C, 0x47F3B0 }, // ?Load@mmWheel@@QAEXPAVStream@@@Z
+    { 0x14559D3F, 0x57B5B0 }, // ?Load@PtrToType@@UAEXPAVMiniParser@@PAX@Z
+    { 0xCE73C775, 0x57B6F0 }, // ?Load@RefToType@@UAEXPAVMiniParser@@PAX@Z
+    { 0xAB68A613, 0x57BAE0 }, // ?Load@SignedCharType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x620A6AE5, 0x57BF10 }, // ?Load@SignedInt64Type@@UAEXPAVMiniParser@@PAX@Z
+    { 0xC5BA4C18, 0x57BE30 }, // ?Load@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x384BB73D, 0x57BC80 }, // ?Load@SignedShortType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x24D40D07, 0x561470 }, // ?Load@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z
+    { 0x60123C56, 0x57C1D0 }, // ?Load@StringType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x9B9AE5D1, 0x57B980 }, // ?Load@StructType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x3D8690F0, 0x57BBB0 }, // ?Load@UnsignedCharType@@UAEXPAVMiniParser@@PAX@Z
+    { 0xE3780374, 0x57BFE0 }, // ?Load@UnsignedIntType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x1D1BA2A4, 0x57BD60 }, // ?Load@UnsignedShortType@@UAEXPAVMiniParser@@PAX@Z
+    { 0xA64BD6CC, 0x571670 }, // ?Load@Vector2Type@@UAEXPAVMiniParser@@PAX@Z
+    { 0xA62793EE, 0x567360 }, // ?Load@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
+    { 0x651C46F1, 0x56E430 }, // ?Load@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
+    { 0xB2D488E5, 0x480690 }, // ?Load@VehGyro@@QAEXPAVStream@@@Z
+    { 0x094CA0E9, 0x4CBFA0 }, // ?LoadAll@mmCityList@@QAEXXZ
+    { 0x75452FB5, 0x4CC3C0 }, // ?LoadAll@mmVehList@@QAEXXZ
+    { 0x3BC5D944, 0x48CED0 }, // ?LoadBangers@mmCullCity@@QAEXPAD@Z
+    { 0x3B1CAF0F, 0x4CC7A0 }, // ?LoadBinary@mmMiscData@@QAEHPAD@Z
+    { 0xB6046486, 0x4CDD60 }, // ?LoadBinary@mmPlayerConfig@@QAEHPAD@Z
+    { 0xE178C97E, 0x4D0A90 }, // ?LoadBinary@mmPlayerData@@QAEHPAD@Z
+    { 0xB8ACCCAD, 0x4CF870 }, // ?LoadBinary@mmPlayerDirectory@@QAEHPAD@Z
+    { 0xED1E8DC6, 0x4CFDC0 }, // ?LoadBinary@mmPlayerRecord@@QAEHPAVStream@@@Z
+    { 0x879D2C36, 0x4D1890 }, // ?LoadBinary@mmRecord@@QAEHPAVStream@@@Z
+    { 0x82472816, 0x4B7510 }, // ?LoadBitmap@mmCompCRPlayer@@QAEXPAD@Z
+    { 0x8528B55F, 0x4B5CD0 }, // ?LoadBitmap@mmCompDRecord@@QAEXPAD@Z
+    { 0xB8126E7F, 0x4B4AD0 }, // ?LoadBitmap@mmCompRaceRecord@@QAEXPAD@Z
+    { 0x0AD8BACC, 0x4B79D0 }, // ?LoadBitmap@mmCompRoster@@QAEXPAD@Z
+    { 0xA48FDD9F, 0x4BE830 }, // ?LoadBitmap@mmSlider@@QAEXPAD@Z
+    { 0x15153B5C, 0x4BFFC0 }, // ?LoadBitmap@mmToggle2@@AAEXPAD@Z
+    { 0x8BE388B8, 0x4C0490 }, // ?LoadBitmap@mmToggle@@AAEXPAD@Z
+    { 0xDDC941D0, 0x4B6450 }, // ?LoadBitmap@UIBMButton@@QAEXPAD@Z
+    { 0xCD25A5FB, 0x4B44E0 }, // ?LoadBitmap@UIBMLabel@@AAEXXZ
+    { 0x03289370, 0x4B99A0 }, // ?LoadBitmap@UIIcon@@QAEXPAD@Z
+    { 0x55CCCD3B, 0x4BCF00 }, // ?LoadBitmap@UIVScrollBar@@QAEXXZ
+    { 0x128C6B3E, 0x4BF450 }, // ?LoadBitmap@VSWidget@@QAEXXZ
+    { 0x5A823C93, 0x4B86D0 }, // ?LoadCFG@UICWArray@@QAEXXZ
+    { 0xC0701604, 0x4E8880 }, // ?LoadCityADF@AudManager@@QAEXHK@Z
+    { 0x000908AB, 0x4EFFB0 }, // ?LoadCityADF@DSGlobal@@QAEHPADHK@Z
+    { 0xB22715F1, 0x4E3C50 }, // ?LoadConfig@mmInput@@QAEHPAVStream@@@Z
+    { 0x7A6658BD, 0x442F90 }, // ?LoadCopVoice@aiAudioManager@@QAEXXZ
+    { 0xB37815E1, 0x41CF40 }, // ?LoadCSV@mmMultiCR@@QAEHPAD@Z
+    { 0xAC365E73, 0x42DC20 }, // ?LoadCSV@mmWaypoints@@QAEHPADH@Z
+    { 0x8DF30238, 0x452E60 }, // ?LoadEntry@aiVehicleData@@QAEHPAD@Z
+    { 0x8CC24280, 0x4C81B0 }, // ?LoadEntry@mmBangerData@@QAEHPAD@Z
+    { 0xAB7823FF, 0x48CFF0 }, // ?LoadFacades@mmCullCity@@QAEXPAD@Z
+    { 0xC583908D, 0x4C38F0 }, // ?LoadFile@mmAnimSpline@@QAEHPAD@Z
+    { 0x9C0F026D, 0x4FE780 }, // ?LoadFont@mmNumberFont@@QAEXPADHI@Z
+    { 0x1DD81A5F, 0x4FE880 }, // ?LoadLocFont@mmNumberFont@@QAEXPADPAULocString@@HI@Z
+    { 0x6312FA45, 0x491940 }, // ?LoadPositions@@YAXPAD@Z
+    { 0x806F372A, 0x4B02D0 }, // ?LoadRaceNames@MenuManager@@QAEXXZ
+    { 0x408DDB2A, 0x4047B0 }, // ?LoadReplay@mmGameManager@@QAEXPAD@Z
+    { 0x6E7E8436, 0x41CEA0 }, // ?LoadSets@mmMultiCR@@QAEHPAD@Z
+    { 0xA7105824, 0x49BF60 }, // ?LoadStats@VehicleSelectBase@@QAEHPAD@Z
+    { 0x824AF071, 0x484320 }, // ?LoadSucessful@mmNetworkCarAudio@@QAEXPAVmmCarSim@@@Z
+    { 0xFA330204, 0x47BF20 }, // ?LoadSucessful@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
+    { 0xE528F543, 0x482C20 }, // ?LoadSucessful@mmPlayerCarAudio@@QAEXXZ
+    { 0xA7BBEEE1, 0x4E8820 }, // ?LoadUIADF@AudManager@@QAEXXZ
+    { 0x88208552, 0x4EFE10 }, // ?LoadUIADF@DSGlobal@@QAEHPAD@Z
+    { 0x04294AD4, 0x40DEF0 }, // ?LobbyCreate@mmInterface@@AAEXXZ
+    { 0x81ECB972, 0x40AB70 }, // ?LobbySwitch@mmInterface@@QAEXHH@Z
+    { 0x7E77B504, 0x504AC0 }, // ?Localize@agiMeshSet@@SAXAAVVector3@@0@Z
+    { 0x4891FEE8, 0x504B70 }, // ?LocalizeDirection@agiMeshSet@@SAXAAVVector3@@0@Z
+    { 0xD8A866D2, 0x461B60 }, // ?LocatePerpFromInt@aiGoalChase@@AAEHPAVaiIntersection@@PAPAVaiPath@@@Z
+    { 0x499293DB, 0x461490 }, // ?LocatePerpFromRoad@aiGoalChase@@AAEHPAVaiPath@@PAPAV2@1@Z
+    { 0x5A6BC845, 0x467D60 }, // ?LocateWayPtFromInt@aiGoalFollowWayPts@@AAEHPAVaiIntersection@@PAPAVaiPath@@@Z
+    { 0x03E9F287, 0x4676E0 }, // ?LocateWayPtFromRoad@aiGoalFollowWayPts@@AAEHPAVaiPath@@PAPAV2@1@Z
+    { 0x4E40DF7C, 0x531E20 }, // ?Lock@agiD3DTexDef@@UAEHAAUagiTexLock@@@Z
+    { 0x0EC44D1E, 0x537870 }, // ?Lock@agiSWTexDef@@UAEHAAUagiTexLock@@@Z
+    { 0x96703B04, 0x556440 }, // ?Lock@agiTexDef@@UAEHAAUagiTexLock@@@Z
+    { 0x557E23DC, 0x5771F0 }, // ?Lock@DataCache@@QAEHPAH@Z
+    { 0x25511C6C, 0x427CD0 }, // ?Lock@mmPopup@@QAEXXZ
+    { 0xD99535DC, 0x551440 }, // ?Lock@RDynamicDLP@@UAEXXZ
+    { 0x210266DB, 0x5331E0 }, // ?LockFrameBuffer@agiDDPipeline@@UAEHAAVagiSurfaceDesc@@@Z
+    { 0xA02AC8F4, 0x556040 }, // ?LockFrameBuffer@agiPipeline@@UAEHAAVagiSurfaceDesc@@@Z
+    { 0x01AFA4E1, 0x514B20 }, // ?LockIfResident@agiMeshSet@@QAEHXZ
+    { 0xF866C9E1, 0x519320 }, // ?LockIfResident@mmBoundTemplate@@QAEHXZ
+    { 0x3A36405F, 0x575A10 }, // ?LockScreen@@YAJPAUIDirectDraw4@@@Z
+    { 0xC3FA7CFF, 0x556770 }, // ?LockSurfaceIfResident@agiTexDef@@QAEHXZ
+    { 0xB9F59FD3, 0x497530 }, // ?LockTarget@asPortalWeb@@QAEXXZ
+    { 0x004836C2, 0x570E80 }, // ?logf_fast@@YAMM@Z
+    { 0xD6A6752F, 0x489360 }, // ?Logout@asNetwork@@QAEXXZ
+    { 0x8D5A4FFA, 0x5205B0 }, // ?LogStackTraceback@@YAHPAHH@Z
+    { 0xF9EC3FA6, 0x576E00 }, // ?LogToCommPort@@YAHHH@Z
+    { 0x26559552, 0x576EA0 }, // ?LogToFile@@YAXPAD@Z
+    { 0xFDBC3777, 0x576F00 }, // ?LogToFile@@YAXXZ
+    { 0xAAFC6D0D, 0x576E90 }, // ?LogToMonochromeMonitor@@YAXXZ
+    { 0x5F2F648F, 0x56CE30 }, // ?LookAt@Matrix34@@QAEXABVVector3@@0@Z
+    { 0xDB0D0BBF, 0x512340 }, // ?Lookup@agiTexSheet@@QAEPAUagiTexProp@@PADH@Z
+    { 0x48A77C9E, 0x5153F0 }, // ?Lookup@bnAnimation@@SAPAV1@PAD@Z
+    { 0xFE314508, 0x560920 }, // ?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPAD1@Z
+    { 0xC772BD28, 0x520130 }, // ?LookupAddress@@YAXPADH@Z
+    { 0x8E7970A1, 0x5123A0 }, // ?LookupAlternate@agiTexSheet@@QAEPAUagiTexProp@@PAD@Z
+    { 0xFA3873EA, 0x4959B0 }, // ?LookupCell@@YAPAUasPortalCell@@PAD@Z
+    { 0x65F261AD, 0x4959C0 }, // ?LookupEdge@@YAPAUasPortalCell@@PAD@Z
+    { 0x92B8D05E, 0x497E50 }, // ?LookupSequence@mmAnimation@@QAEHPAD@Z
+    { 0xD3CAB2CF, 0x572890 }, // ?Mag@Quaternion@@QBEMXZ
+    { 0x386E0FE3, 0x5711E0 }, // ?Mag@Vector2@@QBEMXZ
+    { 0x31D5A33C, 0x5668A0 }, // ?Mag@Vector3@@QBEMXZ
+    { 0xB245CAAD, 0x56DBA0 }, // ?Mag@Vector4@@QBEMXZ
+    { 0xDAA60748, 0x4FA4E0 }, // ?MakeActive@AICamCS@@UAEXXZ
+    { 0xBBAF385E, 0x4FB4A0 }, // ?MakeActive@BaseCamCS@@UAEXXZ
+    { 0x0A2007E5, 0x4F9E90 }, // ?MakeActive@PointCamCS@@UAEXXZ
+    { 0x6FECD053, 0x4FABF0 }, // ?MakeActive@PolarCamCS@@UAEXXZ
+    { 0x759162AD, 0x4F95F0 }, // ?MakeActive@PostCamCS@@UAEXXZ
+    { 0xB9AD8E38, 0x4F63C0 }, // ?MakeActive@PovCamCS@@UAEXXZ
+    { 0x73EBE713, 0x4F9A70 }, // ?MakeActive@PreCamCS@@UAEXXZ
+    { 0x6AE9FAE2, 0x4F6D50 }, // ?MakeActive@TrackCamCS@@UAEXXZ
+    { 0x8C53388F, 0x51D3F0 }, // ?MakeBox@mmBoundTemplate@@SAPAV1@PAD0HPAVVector3@@1@Z
+    { 0xACC7984A, 0x4CF4E0 }, // ?MakeFileName@mmPlayerDirectory@@AAEPADXZ
+    { 0x3848F4B3, 0x514B90 }, // ?MakeResident@agiMeshSet@@QAEXXZ
+    { 0x42A12323, 0x519830 }, // ?MakeTable@mmBoundTemplate@@AAEXHHH@Z
+    { 0x0911D770, 0x436D90 }, // ?MapComponent@aiMap@@QAEHAAVVector3@@PAF1F@Z
+    { 0x2685EFE0, 0x5765F0 }, // ?MasterWindowProc@@YGJPAUHWND__@@IIJ@Z
+    { 0xFFC05B7D, 0x57C8A0 }, // ?Match@MiniParser@@QAEXH@Z
+    { 0x9D0FBC7A, 0x561690 }, // ?MatchToken@Tokenizer@@QAEXPAD@Z
+    { 0xA18CD385, 0x4DAEF0 }, // ?MatricesToMomenta@asInertialCS@@QAEXABVMatrix34@@0M@Z
+    { 0xD3D2BB37, 0x517090 }, // ?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z
+    { 0x8DCD1728, 0x493670 }, // ?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z
+    { 0x71AA2DBF, 0x4DB120 }, // ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@0M@Z
+    { 0xBA719FC4, 0x4DAE20 }, // ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@M@Z
+    { 0xFA7240A7, 0x51CC60 }, // ?MaxY@mmPolygon@@AAEMMMMM@Z
+    { 0xE8732576, 0x4B14A0 }, // ?MenuState@MenuManager@@QAEHH@Z
+    { 0x65613C84, 0x52F9C0 }, // ?Mesh2@agiD3DRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z
+    { 0x82878A61, 0x557DB0 }, // ?Mesh2@agiRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z
+    { 0xB717406C, 0x52F950 }, // ?Mesh@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
+    { 0x8FD7DB74, 0x537D10 }, // ?Mesh@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
+    { 0x8BA2B9C1, 0x408440 }, // ?MessageCallback2@mmInterface@@QAEXPAX0@Z
+    { 0x9CAA99D7, 0x407F70 }, // ?MessageCallback@mmInterface@@QAEXPAX0@Z
+    { 0x46559622, 0x578790 }, // ?MessageLoop@ipcMessageQueue@@AAEHXZ
+    { 0xFD59E66B, 0x4B6A50 }, // ?MexOff@UIBMButton@@QAEXXZ
+    { 0x0C2A36DE, 0x4B6A60 }, // ?MexOn@UIBMButton@@QAEXXZ
+    { 0x49B974C2, 0x4B6AA0 }, // ?MexToggle@UIBMButton@@QAEXXZ
+    { 0xC50DAACB, 0x4B1F20 }, // ?Minimize@uiNavBar@@QAEXXZ
+    { 0x7DB831C3, 0x4F8430 }, // ?MinMax@TrackCamCS@@AAEXVMatrix34@@@Z
+    { 0x192666CC, 0x579B10 }, // ?MinusEqual@string@@QAEXD@Z
+    { 0x39CDAD64, 0x4955C0 }, // ?mmHeapError@@YAXXZ
+    { 0x320939EA, 0x510EE0 }, // ?mmxTriple@@YAXPAI0HPAEH@Z
+    { 0x86AD6A61, 0x575F40 }, // ?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z
+    { 0x15447BFB, 0x52B5E0 }, // ?ModeCB@asDofCS@@IAEXXZ
+    { 0xFCD8B3FD, 0x5142B0 }, // ?ModelDraw@agiMeshModel@@QAEHIPAVagiLitAnimation@@H@Z
+    { 0xBDF5F676, 0x5142D0 }, // ?ModelDraw@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
+    { 0x7CFF1A87, 0x5144F0 }, // ?ModelDrawLit@agiMeshModel@@QAEHP6AXPAEPAI1PAVagiMeshSet@@@ZIPAVagiLitAnimation@@H@Z
+    { 0x0D36FEBC, 0x514330 }, // ?ModelDrawSkel@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
+    { 0xF6DD6764, 0x5141B0 }, // ?ModelGeometry@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
+    { 0x3AD8C21C, 0x563360 }, // ?Mouse@eqEventMonitor@@UAEXPAXHHHHHHH@Z
+    { 0xF0B91234, 0x563B90 }, // ?Mouse@eqEventQ@@UAEXPAXHHHHHHH@Z
+    { 0x8912E1D7, 0x4AF1B0 }, // ?MouseAction@MenuManager@@QAEPAVuiWidget@@HMM@Z
+    { 0x8A9234E0, 0x4AE810 }, // ?MouseAction@UIMenu@@QAEXTeqEvent@@@Z
+    { 0xB4C54CEE, 0x4AE910 }, // ?MouseHitCheck@UIMenu@@QAEPAVuiWidget@@HMM@Z
+    { 0x4142BEFB, 0x4305D0 }, // ?Move@mmWaypointObject@@QAEXXZ
+    { 0x8486D449, 0x4D9AE0 }, // ?MoveICS@asInertialCS@@QAEXXZ
+    { 0x9709FBD7, 0x4DD350 }, // ?MoveICS@Joint3Dof@@QAEXXZ
+    { 0xB5415DEB, 0x575320 }, // ?MultiMonCallback@@YGHPAU_GUID@@PAD1PAX2@Z
+    { 0xE02EFF39, 0x40D3B0 }, // ?MultiStartGame@mmInterface@@AAEXXZ
+    { 0x05997141, 0x50D170 }, // ?MultiTexEnvMap@agiMeshSet@@QAEXPAIIPAVagiTexDef@@AAVMatrix34@@@Z
+    { 0x0221779E, 0x575760 }, // ?MyDirectDrawEnumerate@@YAXP6GHPAU_GUID@@PAD1PAX@Z2@Z
+    { 0x1AC396C1, 0x511B30 }, // ?mystrtok@@YAPADPADPBD@Z
+    { 0x6C3D10A0, 0x575710 }, // ?NeedDX6@@YAXXZ
+    { 0x247487B1, 0x5724D0 }, // ?Neg@Vector3@@QAEXABV1@@Z
+    { 0x485567C7, 0x409F00 }, // ?NetJoinCB@mmInterface@@AAEXXZ
+    { 0x6F6B5BE3, 0x409F60 }, // ?NetNameCB@mmInterface@@AAEXXZ
+    { 0xC8F709A7, 0x4A4B70 }, // ?NetNameCB@NetSelectMenu@@QAEXXZ
+    { 0x9B846BC2, 0x57B920 }, // ?New@ArrayOfType@@UAEPAXH@Z
+    { 0xF4A1B05A, 0x57BA40 }, // ?New@CharType@@UAEPAXH@Z
+    { 0x1F526099, 0x57C0F0 }, // ?New@FloatType@@UAEPAXH@Z
+    { 0xD48231BA, 0x57B5D0 }, // ?New@PtrToType@@UAEPAXH@Z
+    { 0x2285E706, 0x57B7A0 }, // ?New@RefToType@@UAEPAXH@Z
+    { 0xB5A3C83E, 0x57BB10 }, // ?New@SignedCharType@@UAEPAXH@Z
+    { 0xDFB8A64C, 0x57BF40 }, // ?New@SignedInt64Type@@UAEPAXH@Z
+    { 0x2CD88A88, 0x57BE60 }, // ?New@SignedIntType@@UAEPAXH@Z
+    { 0x67CDB34B, 0x57BCB0 }, // ?New@SignedShortType@@UAEPAXH@Z
+    { 0xFA6CCB9F, 0x57C220 }, // ?New@StringType@@UAEPAXH@Z
+    { 0x30E875FC, 0x57B9B0 }, // ?New@StructType@@UAEPAXH@Z
+    { 0xD9A66C82, 0x57BBE0 }, // ?New@UnsignedCharType@@UAEPAXH@Z
+    { 0xA6C7BB01, 0x57C010 }, // ?New@UnsignedIntType@@UAEPAXH@Z
+    { 0xF6EA0FB4, 0x57BD90 }, // ?New@UnsignedShortType@@UAEPAXH@Z
+    { 0x70E07F7C, 0x5716B0 }, // ?New@Vector2Type@@UAEPAXH@Z
+    { 0xF8B8E974, 0x5673A0 }, // ?New@Vector3Type@@UAEPAXH@Z
+    { 0x9F05D546, 0x56E480 }, // ?New@Vector4Type@@UAEPAXH@Z
+    { 0xA64F5D44, 0x4F9180 }, // ?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z
+    { 0x485F6FE8, 0x4CEFA0 }, // ?NewDirectory@mmPlayerDirectory@@QAEXH@Z
+    { 0xF1F10FB1, 0x439720 }, // ?NewIntersection@aiMap@@AAEPAVaiIntersection@@AAVVector3@@@Z
+    { 0x44884E1C, 0x4D32F0 }, // ?NewItems@mmMapData@@QAEXH@Z
+    { 0xB990933E, 0x4D21F0 }, // ?NewItems@mmPropInfo@@QAEXH@Z
+    { 0xF916C978, 0x4D48C0 }, // ?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@00@Z
+    { 0x2DC1EA0B, 0x4D4740 }, // ?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@0@Z
+    { 0xD9FE0043, 0x4D4840 }, // ?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@@Z
+    { 0xC67C1CC3, 0x4A5CB0 }, // ?NewPlayer@DriverMenu@@QAEXXZ
+    { 0x8A8EFCC2, 0x573920 }, // ?NewTable@FloatArray@@AAEXH@Z
+    { 0x4633F0A2, 0x573600 }, // ?NewTable@IntArray@@AAEXH@Z
+    { 0xE37CB46F, 0x57AF30 }, // ?NewTable@StringArray@@AAEXH@Z
+    { 0x92D584FC, 0x571380 }, // ?NewTable@Vector2Array@@AAEXH@Z
+    { 0xD10282AC, 0x566F40 }, // ?NewTable@Vector3Array@@AAEXH@Z
+    { 0x3A855EBA, 0x56E100 }, // ?NewTable@Vector4Array@@AAEXH@Z
+    { 0x62E0B6D0, 0x4FBC30 }, // ?NewTransition@TransitionCS@@QAEXPAVCarCamCS@@0@Z
+    { 0xD62A5283, 0x4D2550 }, // ?NewVertexs@mmRoadSect@@QAEXHHHHH@Z
+    { 0x4C87BF07, 0x578050 }, // ?Next@HashIterator@@QAEHXZ
+    { 0xFBAC875A, 0x560500 }, // ?NextEntry@HierFileSystem@@UAEPAUFileInfo@@PAU2@@Z
+    { 0x202D48ED, 0x560D00 }, // ?NextEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAU2@@Z
+    { 0x2F1AC4ED, 0x412ED0 }, // ?NextRace@mmGameEdit@@UAEXXZ
+    { 0x690403E0, 0x41A890 }, // ?NextRace@mmGameMulti@@UAEXXZ
+    { 0xDD1BF32B, 0x418840 }, // ?NextRace@mmGameSingle@@UAEXXZ
+    { 0xD83B5DEF, 0x4144F0 }, // ?NextRace@mmSingleBlitz@@UAEXXZ
+    { 0x6388DE30, 0x416620 }, // ?NextRace@mmSingleCircuit@@UAEXXZ
+    { 0xD1DA64D4, 0x57CB00 }, // ?NextToken@MiniParser@@QAEHXZ
+    { 0xB7B105F9, 0x423450 }, // ?NextTrack@mmCDPlayer@@QAEXXZ
+    { 0x9FFA804F, 0x4FBC60 }, // ?NextTransition@TransitionCS@@QAEXPAVCarCamCS@@@Z
+    { 0xA45EAB07, 0x56DB10 }, // ?Normal@Random@@QAEMMM@Z
+    { 0x532DFA04, 0x56AE80 }, // ?Normalize@Matrix34@@QAEXXZ
+    { 0x248523A2, 0x4E60D0 }, // ?Normalize@mmJaxis@@QAEXM@Z
+    { 0xC129F8DD, 0x572960 }, // ?Normalize@Quaternion@@QAEXXZ
+    { 0x001C53BB, 0x560790 }, // ?NormalizeName@VirtualFileSystem@@SAXPAD0@Z
+    { 0x3A44579E, 0x4E60F0 }, // ?NormalizePOV@mmJaxis@@QAEXK@Z
+    { 0xEA6E2342, 0x555E70 }, // ?NotifyDelete@agiPipeline@@QAEXPAVagiRefreshable@@@Z
+    { 0x11A86A90, 0x55F610 }, // ?NotifyDelete@FileSystem@@MAEXXZ
+    { 0x7AB7BFDD, 0x4B13C0 }, // ?NotifyMouseSelect@MenuManager@@QAEXPAVUIMenu@@@Z
+    { 0x968AA399, 0x555E40 }, // ?NotifyNew@agiPipeline@@QAEXPAVagiRefreshable@@@Z
+    { 0x92727BAC, 0x5764A0 }, // ?NotLameChipset@@YAHKK@Z
+    { 0x35388C5E, 0x56DAB0 }, // ?Number@Random@@QAEMXZ
+    { 0x1214C851, 0x43A3D0 }, // ?NumCars@aiMap@@AAEHHMM@Z
+    { 0xE5EF32A9, 0x523D00 }, // ?NumChildren@asNode@@QAEHXZ
+    { 0x2DF3D61E, 0x55FB70 }, // ?NumSubStrings@@YAHPAD@Z
+    { 0x5CD64B78, 0x57ADC0 }, // ?NumSubStrings@string@@QBEHXZ
+    { 0x10F087D6, 0x43F980 }, // ?NumVehiclesAfterDist@aiPath@@QAEHHM@Z
+    { 0xA931877A, 0x526900 }, // ?Off@asMidgets@@UAEXXZ
+    { 0xE9599371, 0x460690 }, // ?OffRoad@aiGoalChase@@AAEHPAVmmCar@@@Z
+    { 0x9D624E29, 0x514880 }, // ?Offset@agiMeshSet@@QAEXVVector3@@@Z
+    { 0xE0816EBB, 0x45DC00 }, // ?OkayToEnterIntersection@aiGoalRandomDrive@@AAEHXZ
+    { 0x99F28672, 0x4F9360 }, // ?OneShot@mmViewCS@@QAEXXZ
+    { 0xEBFE933D, 0x46BFF0 }, // ?OnGround@mmCarSim@@QAEHXZ
+    { 0x7E7D191D, 0x488E90 }, // ?OnTwoWheels@mmSurfaceAudio@@QAEFXZ
+    { 0xE768E9DB, 0x526950 }, // ?Open@asMidgets@@QAEXPAVasNode@@@Z
+    { 0x649705FE, 0x561870 }, // ?Open@FileStream@@QAEHPADH@Z
+    { 0xB3501A66, 0x55FE60 }, // ?OpenAny@FileSystem@@SAPAVStream@@PADHPAXH@Z
+    { 0x1BDA9D4A, 0x4B0AE0 }, // ?OpenDialog@MenuManager@@QAEXH@Z
+    { 0x11229F9C, 0x55FD60 }, // ?OpenFile@@YAPAVStream@@PAD00H00@Z
+    { 0x71646AC5, 0x560100 }, // ?OpenOn@HierFileSystem@@UAEPAVStream@@PADHPAXH@Z
+    { 0x01F1CEF1, 0x560AD0 }, // ?OpenOn@VirtualFileSystem@@UAEPAVStream@@PADHPAXH@Z
+    { 0x47DB0307, 0x522FA0 }, // ?OpenPhysicsBank@asSimulation@@QAEXXZ
+    { 0xDCB27DED, 0x4F4EA0 }, // ?OpenWaveFile@StreamObj@@AAEPAVStream@@PBDF@Z
+    { 0x54910DF2, 0x5243E0 }, // ?OpenWidgets@asNode@@UAEXPADPAVbkWindow@@@Z
+    { 0xEF6E483B, 0x433F30 }, // ?Opponent@aiMap@@QAEPAVaiVehicleOpponent@@H@Z
+    { 0xC9FD33DA, 0x41D900 }, // ?OppStealGold@mmMultiCR@@AAEXH@Z
+    { 0x65CA2AD2, 0x4B1F90 }, // ?OptionActive@uiNavBar@@QAEXXZ
+    { 0x17F584B6, 0x4B1FB0 }, // ?OptionInActive@uiNavBar@@QAEXXZ
+    { 0x688A517E, 0x557310 }, // ?Ortho@agiViewParameters@@QAEXMMMM@Z
+    { 0x4A43BC32, 0x56F580 }, // ?Ortho@Matrix44@@QAEXMMMMMM@Z
+    { 0x9EF1DAD3, 0x5569D0 }, // ?OutOfDate@@YAHPAD0@Z
+    { 0xBE44C9EC, 0x5593A0 }, // ?PackAngle@@YAIM@Z
+    { 0xF253ADC6, 0x5164B0 }, // ?PackNormal@@YAEAAVVector3@@@Z
+    { 0x91B4845E, 0x559400 }, // ?PackNormal@@YAXAAGAAVVector3@@@Z
+    { 0x02C2AE46, 0x516400 }, // ?PackNormalSlow@@YAEAAVVector3@@@Z
+    { 0x471FC8A5, 0x514B00 }, // ?PageIn@agiMeshSet@@QAEXXZ
+    { 0xE25F58D3, 0x519300 }, // ?PageIn@mmBoundTemplate@@QAEXXZ
+    { 0xF5701B27, 0x514AF0 }, // ?PageInCallback@agiMeshSet@@CAXPAX@Z
+    { 0x9729EB1D, 0x5566A0 }, // ?PageInCallback@agiTexDef@@SAXPAX@Z
+    { 0xF8C8F5FC, 0x5192F0 }, // ?PageInCallback@mmBoundTemplate@@CAXPAX@Z
+    { 0xDF490143, 0x5566B0 }, // ?PageInSurface@agiTexDef@@QAEXXZ
+    { 0xB6DBD269, 0x503180 }, // ?PageOutCallback@agiMeshSet@@CAXPAXH@Z
+    { 0xF41C88EB, 0x556460 }, // ?PageOutCallback@agiTexDef@@SAXPAXH@Z
+    { 0x352D60D2, 0x518D40 }, // ?PageOutCallback@mmBoundTemplate@@CAXPAXH@Z
+    { 0x994D6733, 0x55FEC0 }, // ?PagerInfo@FileSystem@@UAEHPADAAUPagerInfo_t@@@Z
+    { 0xCECCCCA5, 0x560A50 }, // ?PagerInfo@VirtualFileSystem@@UAEHPADAAUPagerInfo_t@@@Z
+    { 0xB7926A12, 0x55FED0 }, // ?PagerInfoAny@FileSystem@@SAHPADAAUPagerInfo_t@@@Z
+    { 0xF9A3072B, 0x492310 }, // ?Parent@mmInstChain@@QAEXPAVmmInstance@@F@Z
+    { 0x91727D76, 0x48E3D0 }, // ?parseARGB@@YAXAAI@Z
+    { 0x7D09804D, 0x578DD0 }, // ?ParseArgs@ArgSet@@QAEXHPAPAD@Z
+    { 0x5AE8CC7E, 0x432160 }, // ?ParseChatMessage@mmGameMulti@@QAEHPADH@Z
+    { 0x01EF30DE, 0x48E300 }, // ?parseFloat@@YAXAAM@Z
+    { 0x939839A1, 0x48E360 }, // ?parseRGB@@YAXAAI@Z
+    { 0x8D2B245A, 0x48E330 }, // ?parseVector3@@YAXAAVVector3@@@Z
+    { 0xB65D2B67, 0x49DC40 }, // ?PasswordCallback@Dialog_Password@@QAEXXZ
+    { 0xD87A7449, 0x447C50 }, // ?Path@aiIntersection@@QAEPAVaiPath@@H@Z
+    { 0xEBB8BEA2, 0x433E50 }, // ?Path@aiMap@@QAEPAVaiPath@@H@Z
+    { 0x8C1932E2, 0x522EC0 }, // ?Pause@asSimulation@@QAEXXZ
+    { 0x525EACED, 0x576D60 }, // ?PDebug@@YAXPBDZZ
+    { 0x56BC4A9C, 0x433F70 }, // ?Pedestrian@aiMap@@QAEPAVaiPedestrian@@H@Z
+    { 0xDAB05A84, 0x46B4E0 }, // ?Pegged@aiStuck@@QAEHXZ
+    { 0x9B788AE3, 0x47C560 }, // ?Pegged@mmStuck@@QAEHXZ
+    { 0xAC7B72B5, 0x48B970 }, // ?Percent@mmLoader@@QAEXH@Z
+    { 0x639C4F82, 0x57B530 }, // ?PerfGetValue@@YAIH@Z
+    { 0xA8B58C57, 0x57B410 }, // ?PerfInit@@YAXXZ
+    { 0x7E9C0077, 0x57B470 }, // ?PerfLookup@@YAHPAD@Z
+    { 0xCE965606, 0x5239D0 }, // ?PerfReport@asNode@@QAEXPAVStream@@H@Z
+    { 0x2FB3CB41, 0x57B450 }, // ?PerfShutdown@@YAXXZ
+    { 0x6C5AB5AC, 0x445DB0 }, // ?PerpEscapes@aiVehiclePolice@@QAEXE@Z
+    { 0x1283C30F, 0x576D10 }, // ?PErrorf@@YAXPBDZZ
+    { 0x3F6D3ECA, 0x557240 }, // ?Perspective@agiViewParameters@@QAEXMMMM@Z
+    { 0xA7D52EF4, 0x56F490 }, // ?Perspective@Matrix44@@QAEXMMMM@Z
+    { 0x806D1FCE, 0x44AED0 }, // ?PickNextRdSeg@aiPedestrian@@AAEPAVaiPath@@XZ
+    { 0xB322C490, 0x489FB0 }, // ?Ping@asNetwork@@QAEKK@Z
+    { 0xB3E1C907, 0x57CA80 }, // ?PlaceLabel@MiniParser@@QAEXPAX@Z
+    { 0x9E493897, 0x57CAA0 }, // ?PlaceLabelRef@MiniParser@@QAEXPAX@Z
+    { 0x036A5846, 0x4613F0 }, // ?PlanRoute@aiGoalChase@@AAEHXZ
+    { 0x25170586, 0x4674B0 }, // ?PlanRoute@aiGoalFollowWayPts@@AAEXXZ
+    { 0xDA9C33C5, 0x4E7760 }, // ?Play@mmCollideFF@@UAEHXZ
+    { 0xBD7DEAF2, 0x4E7440 }, // ?Play@mmEffectFF@@UAEHXZ
+    { 0x44E64372, 0x4E7CB0 }, // ?Play@mmFrictionFF@@UAEHXZ
+    { 0xE8CA972F, 0x484E80 }, // ?Play@mmImpactAudio@@QAEXMFMM@Z
+    { 0x6A652C22, 0x47A5A0 }, // ?Play@mmOpponentImpactAudio@@QAEXMFMM@Z
+    { 0x088A7279, 0x4E79E0 }, // ?Play@mmRoadFF@@UAEHXZ
+    { 0xD65FBFB2, 0x4E7F70 }, // ?Play@mmSpringFF@@UAEHXZ
+    { 0x216C01B1, 0x4EC410 }, // ?Play@mmVoiceCommentary@@QAEXPAD@Z
+    { 0xC505E0E2, 0x4F1EE0 }, // ?Play@SoundObj@@QAEHKPAD@Z
+    { 0x6CBDA998, 0x4F5440 }, // ?Play@StreamObj@@QAEHPAD@Z
+    { 0x702288EB, 0x4F5290 }, // ?Play@StreamObj@@QAEHXZ
+    { 0xFA744885, 0x4EC1F0 }, // ?PlayAirBorne@mmVoiceCommentary@@QAEXXZ
+    { 0x0F6E8EB7, 0x4852A0 }, // ?PlayBanger@mmImpactAudio@@QAEXMF@Z
+    { 0x97A12D0A, 0x4EDDE0 }, // ?PlayBulletUnlocked@mmVoiceCommentary@@QAEXXZ
+    { 0x730CEFF0, 0x4EDC80 }, // ?PlayBusUnlocked@mmVoiceCommentary@@QAEXXZ
+    { 0xDDCB3AEE, 0x485010 }, // ?PlayCar@mmImpactAudio@@QAEXM@Z
+    { 0xA6CB77E9, 0x4E92B0 }, // ?PlayCDTrack@AudManager@@QAEHHEEEH@Z
+    { 0x3FA38AEF, 0x4E9230 }, // ?PlayCDTrack@AudManager@@QAEHHH@Z
+    { 0x03F66C89, 0x4EC2D0 }, // ?PlayCheckPoint@mmVoiceCommentary@@QAEXXZ
+    { 0x8CC3D8F2, 0x488190 }, // ?PlayCobble@mmSurfaceAudio@@AAEXM@Z
+    { 0x06C74E14, 0x4E6CA0 }, // ?PlayCollision@mmJoystick@@QAEHXZ
+    { 0xE69E275C, 0x4ED5C0 }, // ?PlayCollision@mmVoiceCommentary@@QAEXXZ
+    { 0xE644E6D2, 0x4EDCE0 }, // ?PlayCopCarUnlocked@mmVoiceCommentary@@QAEXXZ
+    { 0x2B390F2A, 0x443E00 }, // ?PlayCopVoice@aiAudioManager@@QAEFXZ
+    { 0x3B369AB8, 0x4ED630 }, // ?PlayCR@mmVoiceCommentary@@QAEXFF@Z
+    { 0xE30BD2D4, 0x4ED4C0 }, // ?PlayCRPreRace@mmVoiceCommentary@@QAEXXZ
+    { 0x042CB2B7, 0x450BF0 }, // ?PlayDoubleHorn@aiVehicleAmbient@@QAEXM@Z
+    { 0x50A6A64E, 0x4EDB60 }, // ?PlayEndRaceDamage@mmVoiceCommentary@@QAEXXZ
+    { 0x240C9576, 0x40B200 }, // ?PlayerCreate@mmInterface@@AAEHPAD@Z
+    { 0xC5321030, 0x40B1B0 }, // ?PlayerCreateCB@mmInterface@@AAEXXZ
+    { 0x67894A54, 0x40C2E0 }, // ?PlayerFillStats@mmInterface@@AAEXXZ
+    { 0x769299BD, 0x40B3C0 }, // ?PlayerGraphicsCB@mmInterface@@AAEXXZ
+    { 0x5CD794B6, 0x40B430 }, // ?PlayerLoad@mmInterface@@AAEXPAD@Z
+    { 0xA70BF099, 0x40B390 }, // ?PlayerLoadCB@mmInterface@@AAEXXZ
+    { 0x4A0397FE, 0x433FB0 }, // ?PlayerPos@aiMap@@QAEAAVVector3@@XZ
+    { 0x660CEE0A, 0x40CB20 }, // ?PlayerReadState@mmInterface@@AAEXXZ
+    { 0x62C4FA42, 0x40B020 }, // ?PlayerRemove@mmInterface@@AAEXPAD@Z
+    { 0x61338865, 0x40AFF0 }, // ?PlayerRemoveCB@mmInterface@@AAEXXZ
+    { 0xBCEE7983, 0x40C950 }, // ?PlayerResolveCars@mmInterface@@AAEXXZ
+    { 0x390E6CE8, 0x40C810 }, // ?PlayerResolveScore@mmInterface@@AAEXXZ
+    { 0x8B02BD6C, 0x411420 }, // ?PlayerSetState@mmGame@@QAEXXZ
+    { 0xCFF13BCD, 0x40B4E0 }, // ?PlayerSetState@mmInterface@@AAEXXZ
+    { 0x6D06D214, 0x47AA20 }, // ?PlayExplosion@mmPoliceCarAudio@@QAEXXZ
+    { 0x1FBE4C53, 0x4EC320 }, // ?PlayFinalCheckPoint@mmVoiceCommentary@@QAEXXZ
+    { 0x27109CB0, 0x4EC3A0 }, // ?PlayFinalLap@mmVoiceCommentary@@QAEXXZ
+    { 0xD651A02B, 0x4E6D40 }, // ?PlayFriction@mmJoystick@@QAEHXZ
+    { 0x80064FB6, 0x4EDC20 }, // ?PlayGTUnlocked@mmVoiceCommentary@@QAEXXZ
+    { 0x53BCB9AA, 0x450370 }, // ?PlayHorn@aiVehicleAmbient@@QAEXXZ
+    { 0xE085C12D, 0x4505C0 }, // ?PlayHorn@aiVehicleAmbient@@UAEXMM@Z
+    { 0x39B7B6C6, 0x4465F0 }, // ?PlayHorn@aiVehicleSpline@@UAEXMM@Z
+    { 0xD2CB1655, 0x46C3C0 }, // ?PlayHorn@mmCarSim@@QAEXXZ
+    { 0xE0196BF2, 0x482A90 }, // ?PlayHorn@mmPlayerCarAudio@@QAEXXZ
+    { 0x929717E4, 0x46FAA0 }, // ?PlayImpactAudio@mmCarSim@@QAEXFPAVmmIntersection@@PAVVector3@@@Z
+    { 0xC1912F34, 0x4EC390 }, // ?PlayLap@mmVoiceCommentary@@QAEXF@Z
+    { 0x4AF6BE52, 0x4EB0D0 }, // ?PlayLoop@AudSound@@QAEXMM@Z
+    { 0x0C8903F5, 0x4F3E40 }, // ?PlayLoop@AudStream@@QAEXMM@Z
+    { 0x1E33D35E, 0x4F3D20 }, // ?PlayLoop@AudStream@@QAEXPADMM@Z
+    { 0x3F7D8A1C, 0x4B1730 }, // ?PlayMenuSwitchSound@MenuManager@@AAEXXZ
+    { 0x7DADB5A1, 0x4EC990 }, // ?PlayMidResults@mmVoiceCommentary@@QAEXXZ
+    { 0xCDC1E008, 0x405FE0 }, // ?PlayNetAlert@mmHUD@@QAEXXZ
+    { 0x4DB53810, 0x4ED450 }, // ?PlayNetworkPreRace@mmVoiceCommentary@@QAEXXZ
+    { 0x5F2A8DD6, 0x4EDEA0 }, // ?PlayNextRacesUnlocked@mmVoiceCommentary@@QAEXXZ
+    { 0x7943BF8E, 0x4EAFF0 }, // ?PlayOnce@AudSound@@QAEXMM@Z
+    { 0xB59EADDA, 0x4F3B60 }, // ?PlayOnce@AudStream@@QAEXMM@Z
+    { 0x2D8BF35C, 0x4F3C10 }, // ?PlayOnce@AudStream@@QAEXPADMM@Z
+    { 0x47CC0775, 0x4ED930 }, // ?PlayOpponentFinish@mmVoiceCommentary@@QAEXF@Z
+    { 0xD5B56FAD, 0x4EC460 }, // ?PlayPreRace@mmVoiceCommentary@@QAEXXZ
+    { 0x4E27FCAA, 0x4B1950 }, // ?PlayRecordsSound@MenuManager@@QAEXXZ
+    { 0x8BEF9119, 0x4ECA00 }, // ?PlayResults@mmVoiceCommentary@@QAEXF@Z
+    { 0x535CCF01, 0x47BB80 }, // ?PlayReverseBeep@mmOpponentCarAudio@@QAEXXZ
+    { 0xE1442980, 0x4821F0 }, // ?PlayReverseBeep@mmPlayerCarAudio@@QAEXXZ
+    { 0x732FCEAB, 0x4EC260 }, // ?PlayRoam@mmVoiceCommentary@@QAEXXZ
+    { 0x49B90CD2, 0x4EDE40 }, // ?PlaySemiUnlocked@mmVoiceCommentary@@QAEXXZ
+    { 0xFC19B055, 0x4E6C60 }, // ?PlayShake@mmJoystick@@QAEHXZ
+    { 0xBF6E7950, 0x4B0D10 }, // ?PlaySound@MenuManager@@QAEXH@Z
+    { 0xC1443FC7, 0x4B70C0 }, // ?PlaySound@UIBMButton@@AAEXXZ
+    { 0x59DD0591, 0x4E6CE0 }, // ?PlaySteer@mmJoystick@@QAEHXZ
+    { 0x2E2A6ABD, 0x423400 }, // ?PlayStop@mmCDPlayer@@QAEXXZ
+    { 0x7AE97E16, 0x4ED6C0 }, // ?PlayTeamCR@mmVoiceCommentary@@QAEXFF@Z
+    { 0xC0D5D286, 0x4EDA90 }, // ?PlayTimePenalty@mmVoiceCommentary@@QAEXXZ
+    { 0xCB3B0E18, 0x41A470 }, // ?PlayTimerWarning@mmMultiBlitz@@QAEXM@Z
+    { 0x489E0F00, 0x414660 }, // ?PlayTimerWarning@mmSingleBlitz@@QAEXM@Z
+    { 0x45D943EE, 0x4F4340 }, // ?PlayTrack@CDMan@@QAEKEE@Z
+    { 0x4F93FAF8, 0x4F4450 }, // ?PlayTrack@CDMan@@QAEKEEEEE@Z
+    { 0x79CCEAE7, 0x4506B0 }, // ?PlayTrippleHorn@aiVehicleAmbient@@QAEXM@Z
+    { 0xF52914E7, 0x4EDBD0 }, // ?PlayUnlock@mmVoiceCommentary@@QAEXH@Z
+    { 0xF1952577, 0x44CEA0 }, // ?PlayVoice@aiPedestrian@@QAEXF@Z
+    { 0xE679A901, 0x450120 }, // ?PlayVoice@aiVehicleAmbient@@QAEXXZ
+    { 0xF204E952, 0x446280 }, // ?PlayVoice@aiVehiclePolice@@QAEXXZ
+    { 0x2103E349, 0x47B600 }, // ?PlayVoice@mmPoliceCarAudio@@QAEXXZ
+    { 0x370FA9BB, 0x484F10 }, // ?PlayWall@mmImpactAudio@@QAEXMMM@Z
+    { 0x426E2147, 0x4EC920 }, // ?PlayWinResults@mmVoiceCommentary@@QAEXXZ
+    { 0xFF83ED69, 0x51C320 }, // ?Plot@mmPolygon@@AAEXPAVmmBoundTemplate@@H@Z
+    { 0x172C93A5, 0x51A090 }, // ?PlotLine@mmBoundTemplate@@QAEXVVector3@@0@Z
+    { 0x793837A6, 0x51CBD0 }, // ?PlotScan@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
+    { 0x36E96611, 0x51A1A0 }, // ?PlotSpan@mmBoundTemplate@@QAEXHHH@Z
+    { 0x81EA1FB1, 0x51C380 }, // ?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
+    { 0x7C8D7BA3, 0x52F8F0 }, // ?Points@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
+    { 0x85B1221B, 0x554E40 }, // ?Points@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
+    { 0x555C3E43, 0x537D00 }, // ?Points@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
+    { 0xD4743020, 0x565DD0 }, // ?PointToLine@Vector3@@QBEMABV1@0@Z
+    { 0x8A791B2F, 0x566080 }, // ?PointToSegment2@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z
+    { 0x0861E5BB, 0x565EB0 }, // ?PointToSegment@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z
+    { 0x081F3F27, 0x56D030 }, // ?PolarView2@Matrix34@@QAEXMMMM@Z
+    { 0xA734D303, 0x56D090 }, // ?PolarView@Matrix34@@QAEXABVVector4@@@Z
+    { 0x353C35E3, 0x56CFD0 }, // ?PolarView@Matrix34@@QAEXMMMM@Z
+    { 0xD1DD3A74, 0x433EF0 }, // ?Police@aiMap@@QAEPAVaiVehiclePolice@@H@Z
+    { 0xEBBB678C, 0x4E6720 }, // ?Poll@mmJoystick@@QAEKXZ
+    { 0x4CA8151D, 0x4E2E80 }, // ?PollContinuous@mmInput@@AAEXPAVmmIO@@@Z
+    { 0x530B9471, 0x4E5DA0 }, // ?PollJoyAxes@mmJoyMan@@QAEHXZ
+    { 0x95C8B692, 0x4E5D40 }, // ?PollJoyButtons@mmJoyMan@@QAEHXZ
+    { 0x2F96B1E7, 0x48AA20 }, // ?PollLobby@asNetwork@@QAEHXZ
+    { 0x3FE16D5F, 0x4E2370 }, // ?PollStates@mmInput@@QAEHXZ
+    { 0xE0424C11, 0x4E2420 }, // ?PollSuperQ@mmInput@@QAEHXZ
+    { 0xB0EE1778, 0x557D70 }, // ?Poly@agiRasterizer@@UAEXPAHH@Z
+    { 0xE5900E4F, 0x563D40 }, // ?Pop@eqEventQ@@QAEHPATeqEvent@@@Z
+    { 0x122DD5D8, 0x527B90 }, // ?PopColumn@asMidgets@@UAEXXZ
+    { 0xEC4AEAA8, 0x4E3C20 }, // ?PopEvent@mmInput@@QAEHPAH@Z
+    { 0xE403DA93, 0x527B50 }, // ?PopSection@asMidgets@@UAEXXZ
+    { 0x61CA0AAB, 0x43FA30 }, // ?PopVehicle@aiPath@@QAEXPAVaiVehicleSpline@@H@Z
+    { 0x9AC54464, 0x517030 }, // ?Pose@bnBone@@QAEXPBVVector3@@AAH@Z
+    { 0xCADA0780, 0x5150B0 }, // ?Pose@bnSkeleton@@QAEXPBVVector3@@@Z
+    { 0x3F66C391, 0x48B4D0 }, // ?PositionUpdate@asNetObject@@UAEXPAVMatrix34@@VVector3@@MMM@Z
+    { 0x845751AF, 0x432BD0 }, // ?PositionUpdate@mmNetObject@@QAEXPAUNETGAME_MSG@@@Z
+    { 0xF73319FD, 0x405060 }, // ?PostChatMessage@mmHUD@@QAEXPAD@Z
+    { 0xF446981F, 0x4A1FE0 }, // ?PostChatMessages@NetArena@@QAEXXZ
+    { 0x16390D82, 0x4A2880 }, // ?PostHostSettings@NetArena@@QAEXXZ
+    { 0xD8CE59B9, 0x4A92A0 }, // ?PostNames@PURoster@@QAEXXZ
+    { 0x570E8C6E, 0x4A2A40 }, // ?PostPlayerInfo@NetArena@@QAEXPAULocString@@00@Z
+    { 0xF99611BD, 0x4A43D0 }, // ?PostSetup@NetSelectMenu@@UAEXXZ
+    { 0x9F1BF0D8, 0x4A3B50 }, // ?PostSetup@OptionsMenu@@UAEXXZ
+    { 0xF4F55124, 0x4A9710 }, // ?PostSetup@PUKey@@EAEXXZ
+    { 0x58D12372, 0x4ACB00 }, // ?PostSetup@UIMenu@@UAEXXZ
+    { 0xB497506F, 0x4A5310 }, // ?PostSetup@Vehicle@@UAEXXZ
+    { 0xD1598DB7, 0x49B960 }, // ?PostSetup@VehicleSelectBase@@UAEXXZ
+    { 0xA19F41D0, 0x4A5190 }, // ?PostSetup@VehShowcase@@UAEXXZ
+    { 0x146E70E7, 0x452950 }, // ?PostUpdate@aiVehicleActive@@UAEXXZ
+    { 0xBEA3C811, 0x4CB350 }, // ?PostUpdate@mmBangerActive@@UAEXXZ
+    { 0x95114596, 0x473C80 }, // ?PostUpdate@mmCar@@UAEXXZ
+    { 0x0304C249, 0x453B00 }, // ?PostUpdate@mmPhysEntity@@UAEXXZ
+    { 0xDD07B2F0, 0x479E30 }, // ?PostUpdate@mmTrailer@@UAEXXZ
+    { 0x33EB2D7E, 0x4A3510 }, // ?POVCB@ControlSetup@@QAEXXZ
+    { 0x62682045, 0x4F8230 }, // ?PreApproach@TrackCamCS@@AAEXXZ
+    { 0xF0153687, 0x4C56A0 }, // ?PreCalcCubics@mmAnimPlane@@QAEXXZ
+    { 0xCB8C5E9E, 0x4C67C0 }, // ?PreCalcCubics@mmAnimTrain@@QAEXXZ
+    { 0xB845A7FF, 0x432F80 }, // ?Predict@mmNetObject@@QAEXXZ
+    { 0x4AC4F1AA, 0x4391F0 }, // ?PredictAmbFreewayIntersectionPath@aiMap@@QAEPAVaiPath@@HAAVMatrix34@@@Z
+    { 0x3917EA61, 0x439010 }, // ?PredictAmbIntersectionPath@aiMap@@QAEPAVaiPath@@HAAVMatrix34@@@Z
+    { 0x0CA02608, 0x438E30 }, // ?PredictIntersectionPath@aiMap@@QAEPAVaiPath@@HAAVMatrix34@@@Z
+    { 0x78026CA2, 0x4A6060 }, // ?PreSetup@AboutMenu@@UAEXXZ
+    { 0x0215A477, 0x49CEF0 }, // ?PreSetup@AudioOptions@@UAEXXZ
+    { 0x4BCCEEC0, 0x4A3580 }, // ?PreSetup@ControlSetup@@UAEXXZ
+    { 0xB5D98FD1, 0x49DA10 }, // ?PreSetup@Dialog_City@@UAEXXZ
+    { 0xECBE1765, 0x4A0340 }, // ?PreSetup@Dialog_ControlAssign@@UAEXXZ
+    { 0xB591C69B, 0x49EF80 }, // ?PreSetup@Dialog_DriverRec@@UAEXXZ
+    { 0x2F7B1AA5, 0x49E7F0 }, // ?PreSetup@Dialog_HallOfFame@@UAEXXZ
+    { 0xA456E625, 0x49F470 }, // ?PreSetup@Dialog_Message@@UAEXXZ
+    { 0x9631523B, 0x49F7F0 }, // ?PreSetup@Dialog_NewPlayer@@UAEXXZ
+    { 0xF45897DA, 0x49DC30 }, // ?PreSetup@Dialog_Password@@UAEXXZ
+    { 0x6B40B2EB, 0x49E2A0 }, // ?PreSetup@Dialog_RaceEnvironment@@UAEXXZ
+    { 0x158DA4B3, 0x4A0110 }, // ?PreSetup@Dialog_Serial@@UAEXXZ
+    { 0x15CEFF69, 0x4A0500 }, // ?PreSetup@Dialog_TCPIP@@UAEXXZ
+    { 0x442DF3A4, 0x4A5430 }, // ?PreSetup@DriverMenu@@UAEXXZ
+    { 0x2C222EFE, 0x49A5A0 }, // ?PreSetup@GraphicsOptions@@UAEXXZ
+    { 0xC948B451, 0x4A6380 }, // ?PreSetup@MainMenu@@UAEXXZ
+    { 0xE93A8FF1, 0x4A1E40 }, // ?PreSetup@NetArena@@UAEXXZ
+    { 0x0506BF5E, 0x4A4360 }, // ?PreSetup@NetSelectMenu@@UAEXXZ
+    { 0x2FCFF0DC, 0x4A3B20 }, // ?PreSetup@OptionsMenu@@UAEXXZ
+    { 0xD268A4DA, 0x4AAA50 }, // ?PreSetup@PUAudioOptions@@UAEXXZ
+    { 0x503505B8, 0x4AA2B0 }, // ?PreSetup@PUControl@@UAEXXZ
+    { 0xEDBF816F, 0x4A9EF0 }, // ?PreSetup@PUGraphics@@UAEXXZ
+    { 0xFC50A048, 0x4A9470 }, // ?PreSetup@PUKey@@EAEXXZ
+    { 0x463E646F, 0x4ACAD0 }, // ?PreSetup@UIMenu@@UAEXXZ
+    { 0xCEEA8728, 0x4A5300 }, // ?PreSetup@Vehicle@@UAEXXZ
+    { 0xADF889D9, 0x49B870 }, // ?PreSetup@VehicleSelectBase@@UAEXXZ
+    { 0x9D7AFE6C, 0x4A5120 }, // ?PreSetup@VehShowcase@@UAEXXZ
+    { 0x39844410, 0x498830 }, // ?PreUpdate@mmAnimInstState@@SAXM@Z
+    { 0x3D23D3B8, 0x423750 }, // ?PrevTrack@mmCDPlayer@@QAEXXZ
+    { 0xE248E38A, 0x557F20 }, // ?Print@agiPipeline@@UAEXHHHPBD@Z
+    { 0xB5913EE6, 0x578D80 }, // ?Print@ArgSet@@QAEXPAD@Z
+    { 0xA3FB65D1, 0x578C80 }, // ?Print@asArg@@QAEXPAD@Z
+    { 0xE970D983, 0x52CEA0 }, // ?Print@asBenchStats@@QAEXXZ
+    { 0x1E595708, 0x558FC0 }, // ?Print@DLPGroup@@QAEXPAVStream@@@Z
+    { 0xFBA7E047, 0x559250 }, // ?Print@DLPPatch@@QAEXPAVStream@@@Z
+    { 0xE39FA960, 0x558BA0 }, // ?Print@DLPTemplate@@QAEXPAVStream@@@Z
+    { 0xBD260F0E, 0x56D6A0 }, // ?Print@Matrix34@@QBEXXZ
+    { 0x403AAA7C, 0x570B10 }, // ?Print@Matrix44@@QBEXXZ
+    { 0xB64F915A, 0x4CBF60 }, // ?Print@mmCityList@@QAEXXZ
+    { 0x0D86185C, 0x4E5670 }, // ?Print@mmIODev@@QAEXH@Z
+    { 0x85CF1B6E, 0x4D3C00 }, // ?Print@mmVehInfo@@QAEXXZ
+    { 0x37CBFC37, 0x4CC370 }, // ?Print@mmVehList@@QAEXXZ
+    { 0x0D0A147B, 0x4FD9F0 }, // ?Print@Spline@@QAEXH@Z
+    { 0x5A3474A9, 0x4E6DD0 }, // ?PrintDeviceCaps@mmJoystick@@QAEXXZ
+    { 0xB7100118, 0x576C90 }, // ?Printf@@YAXPBDZZ
+    { 0x160D3262, 0x57C660 }, // ?Printf@MiniParser@@QAAXPBDZZ
+    { 0x050FDCA7, 0x4FEB50 }, // ?Printf@mmNumber@@QAAXPBDZZ
+    { 0x014703B8, 0x4FFB00 }, // ?Printf@mmTextNode@@QAAXPBDZZ
+    { 0x6D662606, 0x55EDF0 }, // ?Printf@Stream@@QAAHPBDZZ
+    { 0x0644E4CE, 0x558130 }, // ?PrintInit@agiPipeline@@UAEXXZ
+    { 0x3A896526, 0x4E42A0 }, // ?PrintIODev@mmInput@@QAEXXZ
+    { 0xA7FEE600, 0x558110 }, // ?PrintIs3D@agiPipeline@@UAEHXZ
+    { 0x72F81BE7, 0x524F00 }, // ?PrintMiniStats@asCullManager@@IAEXXZ
+    { 0x1FCFB228, 0x558140 }, // ?PrintShutdown@agiPipeline@@UAEXXZ
+    { 0x8C503555, 0x524F90 }, // ?PrintStats@asCullManager@@IAEXXZ
+    { 0x1A5F4804, 0x57C6B0 }, // ?PrintString@MiniParser@@QAEXPADH@Z
+    { 0xF83586E4, 0x46A990 }, // ?Priority@aiGoalAvoidPlayer@@UAEHXZ
+    { 0x1BE073A1, 0x45F890 }, // ?Priority@aiGoalBackup@@UAEHXZ
+    { 0xA5197798, 0x460760 }, // ?Priority@aiGoalChase@@UAEHXZ
+    { 0x08E1E4DE, 0x46B3F0 }, // ?Priority@aiGoalCollision@@UAEHXZ
+    { 0x01F92C9F, 0x4669B0 }, // ?Priority@aiGoalFollowWayPts@@UAEHXZ
+    { 0x3F3BF5EC, 0x45D460 }, // ?Priority@aiGoalRandomDrive@@UAEHXZ
+    { 0x7B2EC978, 0x46B260 }, // ?Priority@aiGoalRegainRail@@UAEHXZ
+    { 0x386580BE, 0x45F7F0 }, // ?Priority@aiGoalStop@@UAEHXZ
+    { 0x1849368F, 0x52FA90 }, // ?Prober@agiD3DTexDef@@SAXPAX@Z
+    { 0x67D3DBBD, 0x578780 }, // ?Proc@ipcMessageQueue@@CGKPAX@Z
+    { 0x994026B4, 0x427250 }, // ?ProcessChat@mmPopup@@QAEXXZ
+    { 0x0291DF98, 0x465310 }, // ?ProcessCollision@aiGoalChase@@AAEXH@Z
+    { 0x9B013422, 0x427110 }, // ?ProcessEscape@mmPopup@@QAEXH@Z
+    { 0xD5585519, 0x4E25E0 }, // ?ProcessEvents@mmInput@@AAEXXZ
+    { 0xE44A1F9C, 0x4E28C0 }, // ?ProcessJoyEvents@mmInput@@AAEXXZ
+    { 0x59C9C28C, 0x4E2530 }, // ?ProcessKeyboardEvents@mmInput@@AAEXXZ
+    { 0x24B8F278, 0x427350 }, // ?ProcessKeymap@mmPopup@@QAEXH@Z
+    { 0x7712B6C5, 0x4E24D0 }, // ?ProcessMouseEvents@mmInput@@AAEXXZ
+    { 0xAF77EABB, 0x4E2600 }, // ?ProcessStates@mmInput@@AAE_JXZ
+    { 0x2F8F73C9, 0x4187F0 }, // ?ProgressCheck@mmGameSingle@@AAEHHH@Z
+    { 0x8E10EC16, 0x414420 }, // ?ProgressCheck@mmSingleBlitz@@AAEHHH@Z
+    { 0x48EABFD7, 0x4165F0 }, // ?ProgressCheck@mmSingleCircuit@@AAEHHH@Z
+    { 0x6AC2AD15, 0x552710 }, // ?Project@agiProjVtx@@SAHHPAUagiLitVtx@@@Z
+    { 0xB69751A2, 0x557960 }, // ?Project@agiViewParameters@@QAEXAAVVector3@@0@Z
+    { 0x59C19FE2, 0x564F60 }, // ?Project@Vector3@@QAE?AV1@AAV1@@Z
+    { 0x8C30E1C1, 0x4F4810 }, // ?PropertySetOk@CReverb@@QAEHXZ
+    { 0xD54D9269, 0x4F4B00 }, // ?PropertySetOk@CReverbBuffer@@QAEHXZ
+    { 0x280BF6A1, 0x4A44E0 }, // ?ProtocolBack@NetSelectMenu@@QAEXXZ
+    { 0xBE3C8464, 0x524610 }, // ?PtrTo@@YAPAUMetaType@@PAU1@@Z
+    { 0xDEB7DC6C, 0x463E10 }, // ?Push@aiGoalChase@@AAEXXZ
+    { 0x73945580, 0x527B80 }, // ?PushColumn@asMidgets@@UAEXH@Z
+    { 0xC2B1DD76, 0x527AE0 }, // ?PushSection@asMidgets@@UAEXPADH@Z
+    { 0x2EBA1778, 0x43FB10 }, // ?PushVehicle@aiPath@@QAEXPAVaiVehicleSpline@@H@Z
+    { 0x724C6597, 0x55EF80 }, // ?Put@Stream@@QAEHE@Z
+    { 0x00BD81CC, 0x55EFA0 }, // ?Put@Stream@@QAEHG@Z
+    { 0xE2E4E4F6, 0x55EFD0 }, // ?Put@Stream@@QAEHK@Z
+    { 0x46081BC8, 0x55F020 }, // ?Put@Stream@@QAEHM@Z
+    { 0xD5CA6AE9, 0x55F080 }, // ?Put@Stream@@QAEHPAEH@Z
+    { 0xCEC0DE50, 0x55F0A0 }, // ?Put@Stream@@QAEHPAGH@Z
+    { 0xC43F65F5, 0x55F100 }, // ?Put@Stream@@QAEHPAKH@Z
+    { 0x9D43AA31, 0x57CAD0 }, // ?PutBack@MiniParser@@QAEXH@Z
+    { 0x2B2F5034, 0x57C830 }, // ?PutCh@MiniParser@@QAEXH@Z
+    { 0xC777FFFB, 0x55EC30 }, // ?PutCh@Stream@@QAEHE@Z
+    { 0x296B0BBC, 0x4E2E50 }, // ?PutEventInQueue@mmInput@@AAEX_J@Z
+    { 0xAA26BF09, 0x55EEB0 }, // ?PutString@Stream@@QAEHPAD@Z
+    { 0x8B92A4AB, 0x4E5C70 }, // ?QJoystick@mmJoyMan@@QAEHXZ
+    { 0x287D023E, 0x557D40 }, // ?Quad@agiRasterizer@@UAEXHHHH@Z
+    { 0x6D94E8F0, 0x537C70 }, // ?Quad@agiSWRasterizer@@UAEXHHHH@Z
+    { 0x94A4D721, 0x48B300 }, // ?QueryModems@asNetwork@@QAEHXZ
+    { 0x1B6DF24C, 0x560040 }, // ?QueryOn@HierFileSystem@@UAEHPAD@Z
+    { 0x73B75432, 0x560A00 }, // ?QueryOn@VirtualFileSystem@@UAEHPAD@Z
+    { 0x48FA3597, 0x4F4820 }, // ?QueryProperty@CReverb@@AAEHK@Z
+    { 0x0B5089C2, 0x4F4B10 }, // ?QueryProperty@CReverbBuffer@@AAEHK@Z
+    { 0x94F3F438, 0x563D00 }, // ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
+    { 0x38E5A9EE, 0x443DA0 }, // ?QueueInCopVoice@aiAudioManager@@QAEFM@Z
+    { 0x49A70F30, 0x563910 }, // ?QueueKeyboard@eqEventReplayChannelClass@@QAEXHHHH@Z
+    { 0x523A5C4A, 0x563880 }, // ?QueueMouse@eqEventReplayChannelClass@@QAEXHHHHHHH@Z
+    { 0xFA8599EC, 0x51EA00 }, // ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
+    { 0x74531305, 0x51EAF0 }, // ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0x37F582E8, 0x51E6C0 }, // ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
+    { 0x55A0CE32, 0x51E820 }, // ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0x9DD7E734, 0x51E940 }, // ?QuickSphereBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0xDD173062, 0x51E620 }, // ?QuickSphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0xB5A0607F, 0x521C10 }, // ?Quiet@asSimulation@@QAEXXZ
+    { 0xC7A43DD5, 0x521C20 }, // ?QuietPrinter@@YAXHPBDPAD@Z
+    { 0x893AA3CF, 0x576DD0 }, // ?Quit@@YAXPBD@Z
+    { 0x2063AC4A, 0x576F80 }, // ?Quitf@@YAXPBDZZ
+    { 0x20922A03, 0x432140 }, // ?QuitNetwork@mmGameMulti@@QAEXXZ
+    { 0x87FC55E0, 0x40B9F0 }, // ?RaceFillRecords@mmInterface@@AAEXXZ
+    { 0xDCDB1182, 0x501C40 }, // ?RadialBlast@asLineSparks@@QAEXHAAVVector3@@0@Z
+    { 0x0C67234C, 0x4C2E80 }, // ?RampDownBridgeVolume@mmBridgeSet@@AAEXXZ
+    { 0xB4C826A4, 0x404390 }, // ?randcall@@YAXXZ
+    { 0x13C19F70, 0x4472A0 }, // ?RandomizeSeconds@aiPedAudioManager@@QAEXMM@Z
+    { 0x480608B5, 0x55EE90 }, // ?RawDebug@Stream@@MAEXXZ
+    { 0xEEA36D37, 0x561440 }, // ?RawGetCh@StreamMiniParser@@UAEHXZ
+    { 0xB85A1D15, 0x561400 }, // ?RawPutCh@StreamMiniParser@@UAEXH@Z
+    { 0x78D9FF83, 0x561970 }, // ?RawRead@FileStream@@UAEHPAXH@Z
+    { 0xDEB316A8, 0x561C60 }, // ?RawRead@VirtualStream@@UAEHPAXH@Z
+    { 0x40335115, 0x5619B0 }, // ?RawSeek@FileStream@@UAEHH@Z
+    { 0xFEB4D105, 0x561CE0 }, // ?RawSeek@VirtualStream@@UAEHH@Z
+    { 0xDF8DCBF7, 0x5619F0 }, // ?RawSize@FileStream@@UAEHXZ
+    { 0x020AC8A4, 0x561D30 }, // ?RawSize@VirtualStream@@UAEHXZ
+    { 0xA88875D6, 0x5619D0 }, // ?RawTell@FileStream@@UAEHXZ
+    { 0x4104DB47, 0x561D10 }, // ?RawTell@VirtualStream@@UAEHXZ
+    { 0x0074FE6F, 0x561990 }, // ?RawWrite@FileStream@@UAEHPAXH@Z
+    { 0x00A54005, 0x561CD0 }, // ?RawWrite@VirtualStream@@UAEHPAXH@Z
+    { 0x6C851E2F, 0x565540 }, // ?RayIntersectPlane@Vector3@@QAEHABV1@0ABVVector4@@M@Z
+    { 0x6DE77C80, 0x57CF40 }, // ?rdtsc@@YAIXZ
+    { 0xD6BF806B, 0x4ABB30 }, // ?Read@MArray@@QAEXPAD@Z
+    { 0xFE2ECFB3, 0x4E4E00 }, // ?Read@mmIO@@QAEHPAVStream@@@Z
+    { 0x72585F6D, 0x4E57F0 }, // ?Read@mmIODev@@QAEHPAVStream@@@Z
+    { 0x29C4F080, 0x5605D0 }, // ?Read@PagerInfo_t@@QAEXPAXII@Z
+    { 0x81624F06, 0x55E9C0 }, // ?Read@Stream@@QAEHPAXH@Z
+    { 0xBC2355E0, 0x4AC330 }, // ?Read@WArray@@QAEXPAD@Z
+    { 0xDA805100, 0x4F1350 }, // ?ReadADFRecord@SoundObj@@QAEXG@Z
+    { 0x542CF74F, 0x4476E0 }, // ?ReadBinary@aiIntersection@@QAEXPAVStream@@@Z
+    { 0xA9F4883E, 0x4359B0 }, // ?ReadBinary@aiMap@@AAEXPAD@Z
+    { 0x8367D2F1, 0x43DBC0 }, // ?ReadBinary@aiPath@@QAEXPAVStream@@@Z
+    { 0x1F66DA17, 0x4E5850 }, // ?ReadBinary@mmIODev@@QAEHPAVStream@@@Z
+    { 0x4D8C7F94, 0x4C2150 }, // ?ReadEntry@mmBridgeSet@@QAEHPAVStream@@H@Z
+    { 0x950353D0, 0x4F61C0 }, // ?ReadInLoopIndex@StreamObj@@QAEXF@Z
+    { 0xC4655803, 0x4EB9B0 }, // ?ReadyOneShotLayerBuf@AudSound@@QAEHXZ
+    { 0x91E2ECF7, 0x4F2470 }, // ?ReadyOneShotLayerBuf@SoundObj@@QAEFXZ
+    { 0x64D6E114, 0x520EA0 }, // ?Reallocate@asMemoryAllocator@@QAEPAXPAXI@Z
+    { 0xFFC55B33, 0x4E8C10 }, // ?ReallocateDSound@AudManager@@QAEXPADFF@Z
+    { 0x0BFFB350, 0x4EA6F0 }, // ?ReallocateSoundObjs@AudSound@@QAEXXZ
+    { 0x84BA32E9, 0x4F3890 }, // ?ReallocateStreamObjs@AudStream@@QAEXXZ
+    { 0xE737CF37, 0x4DED50 }, // ?RealTime@asOverSample@@QAEXM@Z
+    { 0xD4B08EB4, 0x522D90 }, // ?RealTime@asSimulation@@QAEXM@Z
+    { 0xE67BBBEE, 0x4F8B60 }, // ?Rear@TrackCamCS@@AAEXM@Z
+    { 0xF1733B2F, 0x5667C0 }, // ?Rebound@Vector3@@QAEXABV1@M@Z
+    { 0xE5809AEA, 0x4B8D90 }, // ?Recalc@UITextScroll@@QAEXVstring@@@Z
+    { 0x8B052C52, 0x4920F0 }, // ?Recall@mmPositions@@QAEHHPAVMatrix34@@PAHPAD@Z
+    { 0x9D2FB171, 0x491C00 }, // ?RecallPosition@@YAHHPAVMatrix34@@PAHPAD@Z
+    { 0x15DDAD18, 0x4064F0 }, // ?ReColorArrow@mmArrow@@AAEXH@Z
+    { 0xB94C527D, 0x578550 }, // ?Recompute@HashTable@@AAEXH@Z
+    { 0xE09C6CD0, 0x46D060 }, // ?ReconfigureDrivetrain@mmCarSim@@QAEXXZ
+    { 0x472944DC, 0x4AA5A0 }, // ?RecordCB@PUDebug@@QAEXXZ
+    { 0xEB095E22, 0x4060F0 }, // ?RecordPosition@mmHUD@@QAEXPAD@Z
+    { 0x63B39E9E, 0x427CA0 }, // ?RecordPosition@mmPopup@@QAEXXZ
+    { 0xB1A60776, 0x5632E0 }, // ?Redraw@eqEventMonitor@@UAEXPAXHHHH@Z
+    { 0xC3F947B9, 0x563AF0 }, // ?Redraw@eqEventQ@@UAEXPAXHHHH@Z
+    { 0x0458BB34, 0x4B54A0 }, // ?Redraw@UICompositeScroll@@QAEXXZ
+    { 0x874A802F, 0x4B8100 }, // ?Redraw@UICWArray@@QAEXXZ
+    { 0xFACC1F7C, 0x5651C0 }, // ?Reflect@Vector3@@QBE?AV1@ABV1@@Z
+    { 0x38A7622D, 0x563320 }, // ?Refocus@eqEventMonitor@@UAEXPAXH@Z
+    { 0xE36C5679, 0x563B50 }, // ?Refocus@eqEventQ@@UAEXPAXH@Z
+    { 0x7E03CD0E, 0x4EE290 }, // ?RefreshAll@MixerCTL@@QAEXK@Z
+    { 0x7C2456EE, 0x40ACA0 }, // ?RefreshCRPlayers@mmInterface@@AAEXXZ
+    { 0x68439656, 0x40CB40 }, // ?RefreshDriverList@mmInterface@@AAEXXZ
+    { 0x49A4C78F, 0x40D980 }, // ?RefreshPlayers@mmInterface@@AAEXXZ
+    { 0xB479834B, 0x40CFC0 }, // ?RefreshSessions@mmInterface@@AAEXXZ
+    { 0xA7CC71A2, 0x4C9A50 }, // ?RefTo@@YAPAUMetaType@@PAU1@HPAF@Z
+    { 0x39AC8CBC, 0x4CFB90 }, // ?RefTo@@YAPAUMetaType@@PAU1@HPAH@Z
+    { 0xA18D9D72, 0x529FB0 }, // ?Regen@asCamera@@AAEXXZ
+    { 0xCB7ED25B, 0x5262F0 }, // ?Regen@asLamp@@AAEXXZ
+    { 0x4B5AF140, 0x4FDF90 }, // ?Register@mmGameRecord@@QAEHAAVVector4@@MMMMMMMM@Z
+    { 0xA4BB3B7A, 0x492180 }, // ?Register@mmPositions@@QAEHAAVVector4@@HHHHPAD@Z
+    { 0x73F9A3F5, 0x4287B0 }, // ?RegisterCopsnRobbers@mmHudMap@@QAEXPAPAVVector3@@@Z
+    { 0x751DF112, 0x4183F0 }, // ?RegisterFinish@mmGameSingle@@AAEHXZ
+    { 0xB39C3807, 0x4D0280 }, // ?RegisterFinish@mmPlayerData@@QAEHHMD@Z
+    { 0x340C09BA, 0x4D04A0 }, // ?RegisterFinish@mmPlayerData@@QAEHVmmPlayerRecord@@HH@Z
+    { 0x8AAA4698, 0x4140C0 }, // ?RegisterFinish@mmSingleBlitz@@AAEHXZ
+    { 0xF0B64EFE, 0x4161D0 }, // ?RegisterFinish@mmSingleCircuit@@AAEHXZ
+    { 0xDE45B537, 0x416170 }, // ?RegisterLap@mmSingleCircuit@@AAEHXZ
+    { 0x2E8DEFFE, 0x576670 }, // ?RegisterMap@@YAXPADPAIHPAVDispatchable@@@Z
+    { 0xF6D1A7BA, 0x431EE0 }, // ?RegisterMapNetObjects@mmGameMulti@@QAEXH@Z
+    { 0xEA4DEA59, 0x412520 }, // ?RegisterMapObjects@mmGameEdit@@QAEXXZ
+    { 0x1AEF6BFC, 0x4287E0 }, // ?RegisterMisc@mmHudMap@@QAEXPAPAVVector3@@H@Z
+    { 0x57AC6F36, 0x428790 }, // ?RegisterOpponents@mmHudMap@@QAEXPAUOppIconInfo@@H@Z
+    { 0x819BB0B3, 0x4264B0 }, // ?RegisterOpponents@mmIcons@@QAEXPAUOppIconInfo@@HPAX@Z
+    { 0xA4062FBB, 0x44E8D0 }, // ?RegisterPerp@aiPoliceForce@@QAEHPAVmmCar@@0@Z
+    { 0xB8FC2EF7, 0x491C90 }, // ?RegisterPosition@@YAHAAVVector4@@HHHHPAD@Z
+    { 0x01BFAAC6, 0x561100 }, // ?RegisterProblem@@YAXPAD00@Z
+    { 0xE9EA87DD, 0x4B0F60 }, // ?RegisterWidgetFocus@MenuManager@@QAEXHMMMMPAVuiWidget@@@Z
+    { 0xC8088577, 0x473960 }, // ?ReInit@mmCar@@QAEXPADH@Z
+    { 0xADF32E65, 0x46CB20 }, // ?ReInit@mmCarSim@@QAEXPAD@Z
+    { 0x9E1D2F18, 0x432980 }, // ?ReInit@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
+    { 0x80DFF1CC, 0x42A390 }, // ?ReInit@mmPlayer@@QAEXPAD@Z
+    { 0x660F2752, 0x4789E0 }, // ?ReInit@mmShardManager@@QAEXPAVmmCarSim@@@Z
+    { 0x6D86B316, 0x477C90 }, // ?ReInit@mmSkidManager@@QAEXPAVmmWheel@@@Z
+    { 0xA58CD6CC, 0x557B00 }, // ?Release@agiRefreshable@@QAEHXZ
+    { 0x805F96DC, 0x5597D0 }, // ?Release@DLPTemplate@@QAEHXZ
+    { 0x1BAE6304, 0x55E600 }, // ?Release@DynamicDLP@@QAEHXZ
+    { 0x1F4EB936, 0x51D910 }, // ?Release@mmBoundTemplate@@QAEHXZ
+    { 0xB75B8464, 0x4FF010 }, // ?ReleaseDC@mmText@@SAXXZ
+    { 0x346DCA8B, 0x473500 }, // ?ReleaseTrailer@mmCar@@QAEXXZ
+    { 0xC30B9CDD, 0x498F90 }, // ?Relight@mmCellRenderer@@QAEXXZ
+    { 0xF1F68B9D, 0x492A10 }, // ?Relight@mmInstance@@UAIXXZ
+    { 0xD7D115B3, 0x492490 }, // ?Relight@mmInstChain@@QAEXF@Z
+    { 0x8A01C87E, 0x494220 }, // ?Relight@mmStaticInstance@@UAIXXZ
+    { 0x695A19E0, 0x48D9A0 }, // ?RelightEverything@mmCullCity@@QAEXXZ
+    { 0x3AC310C1, 0x492470 }, // ?RelightEverything@mmInstChain@@QAEXXZ
+    { 0x8E2D2E51, 0x55ADE0 }, // ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
+    { 0x16B1C039, 0x556310 }, // ?Reload@agiTexDef@@QAEHXZ
+    { 0x732942A1, 0x5771A0 }, // ?Relocate@DataCache@@AAEXPAUDataCacheObject@@PAE@Z
+    { 0x07CD46F5, 0x512460 }, // ?RemapName@agiTexSheet@@QAEPADPADH@Z
+    { 0xF831CE20, 0x555420 }, // ?Remove@agiBILight@@UAEXXZ
+    { 0x74B5E67B, 0x55BB00 }, // ?Remove@agiLight@@UAEXXZ
+    { 0x1C0B9CCB, 0x4470E0 }, // ?Remove@aiPedAudioManager@@QAEXPAVaiPedestrian@@F@Z
+    { 0xC007D4C0, 0x4C4010 }, // ?Remove@mmBridgeAudMgr@@QAEXPAVmmBridgeSet@@F@Z
+    { 0x4831AA7C, 0x523C60 }, // ?RemoveAllChildren@asNode@@QAEXXZ
+    { 0x6F1FCAEC, 0x4B5310 }, // ?RemoveAllComponentChildren@UICompositeScroll@@QAEXXZ
+    { 0x4191C03E, 0x4A5B70 }, // ?RemoveAllPlayers@DriverMenu@@QAEXXZ
+    { 0x014FFAE9, 0x43BAA0 }, // ?RemoveAmbient@aiMap@@QAEXPAVaiVehicleSpline@@@Z
+    { 0xEE7510F8, 0x523B80 }, // ?RemoveChild@asNode@@QAEHH@Z
+    { 0xF7A221D7, 0x523C20 }, // ?RemoveChild@asNode@@QAEHPAV1@@Z
+    { 0xE4BBE624, 0x563260 }, // ?RemoveClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
+    { 0x938B7DAD, 0x57AAD0 }, // ?RemoveExtension@string@@QAEXXZ
+    { 0x7605E962, 0x484300 }, // ?RemoveFromManager@mmNetworkCarAudio@@QAEXXZ
+    { 0xAB0E8BF9, 0x5517A0 }, // ?RemoveLight@agiLighter@@SAXPAVagiLight@@@Z
+    { 0x5685A605, 0x578630 }, // ?RemoveMe@HashTable@@AAEXXZ
+    { 0xBA06F3ED, 0x4A9110 }, // ?RemoveName@PURoster@@QAEXK@Z
+    { 0x4BE36E4C, 0x4A8FD0 }, // ?RemoveName@PURoster@@QAEXPADK@Z
+    { 0x38044767, 0x46E830 }, // ?RemoveNetVehicleAudio@mmCarSim@@QAEXXZ
+    { 0x7B4B8BB4, 0x43B530 }, // ?RemovePedestrian@aiMap@@QAEXPAVaiPedestrian@@@Z
+    { 0xB3AA4D2A, 0x43FEC0 }, // ?RemovePedestrian@aiPath@@QAEXPAVaiPedestrian@@@Z
+    { 0x735528AE, 0x4A58C0 }, // ?RemovePlayer@DriverMenu@@QAEXPAD@Z
+    { 0x1208329E, 0x425F20 }, // ?RemovePlayer@mmCRHUD@@QAEXK@Z
+    { 0x47D6FB33, 0x405F80 }, // ?RemovePlayer@mmHUD@@QAEXK@Z
+    { 0xB0E26452, 0x4CF5A0 }, // ?RemovePlayer@mmPlayerDirectory@@QAEHPAD@Z
+    { 0x848AC87C, 0x4A23F0 }, // ?RemoveRosterEntry@NetArena@@QAEXH@Z
+    { 0x8BA291B2, 0x4A25E0 }, // ?RemoveRosterName@NetArena@@QAEXPAD@Z
+    { 0x61181327, 0x4E8EF0 }, // ?RemoveSound@AudManager@@QAEXPAVAudSound@@H@Z
+    { 0x40CB8159, 0x4E8670 }, // ?RemoveSoundFromPlayList@AudManager@@QAEXH@Z
+    { 0x04799180, 0x4E8630 }, // ?RemoveSoundFromPlayList@AudManager@@QAEXPAVAudSound@@@Z
+    { 0x088F3947, 0x4E8F60 }, // ?RemoveStream@AudManager@@QAEXPAVAudStream@@H@Z
+    { 0x24961823, 0x4409A0 }, // ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z
+    { 0xD4D9575B, 0x440A10 }, // ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
+    { 0xDFC8B958, 0x440A80 }, // ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z
+    { 0x65CD0965, 0x43FCB0 }, // ?RemoveVehicle@aiPath@@QAEHPAVaiVehicleSpline@@H@Z
+    { 0x5EAB2554, 0x475800 }, // ?RemoveVehicle@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z
+    { 0x3AC92756, 0x473E60 }, // ?RemoveVehicleAudio@mmCar@@QAEXXZ
+    { 0x4C93FF23, 0x4FFB60 }, // ?RenderText@mmTextNode@@QAEXPAVagiSurfaceDesc@@PAUmmTextData@@HI@Z
+    { 0xAA68FE87, 0x492440 }, // ?Reparent@mmInstChain@@QAEXPAVmmInstance@@F@Z
+    { 0x292A60E2, 0x48C640 }, // ?ReparentObject@mmCullCity@@QAEXPAVmmInstance@@@Z
+    { 0x867230B2, 0x4A4930 }, // ?ReparentWidgets@NetSelectMenu@@QAEXH@Z
+    { 0x8ED52484, 0x406A80 }, // ?ReportTimeAlloc@@YAXM@Z
+    { 0x6BCBE6DA, 0x531D40 }, // ?Request@agiD3DTexDef@@UAEXXZ
+    { 0x0A81F1D8, 0x5378D0 }, // ?Request@agiSWTexDef@@UAEXXZ
+    { 0xC537561D, 0x5567E0 }, // ?Request@agiTexDef@@UAEXXZ
+    { 0x8AB37621, 0x40AE90 }, // ?RequestProverb@mmInterface@@AAEXXZ
+    { 0xA696E778, 0x55AAE0 }, // ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
+    { 0x99A69719, 0x523980 }, // ?ResChange@asNode@@UAEXHH@Z
+    { 0x5BD421EA, 0x4B0DD0 }, // ?ResChange@MenuManager@@UAEXHH@Z
+    { 0xECAB44AB, 0x4221B0 }, // ?ResChange@mmExternalView@@UAEXHH@Z
+    { 0x74BEA982, 0x4050C0 }, // ?ResChange@mmHUD@@UAEXHH@Z
+    { 0x255CD414, 0x423C60 }, // ?ResChange@mmRadGauge@@QAEXXZ
+    { 0x062DBF65, 0x4BDA20 }, // ?ResChange@sfPointer@@UAEXHH@Z
+    { 0xE58F0244, 0x4293D0 }, // ?ResChanged@mmHudMap@@QAEXXZ
+    { 0x867CD042, 0x557CE0 }, // ?Reset@agiRendStateStruct@@QAEXXZ
+    { 0x9339C40B, 0x4FA4D0 }, // ?Reset@AICamCS@@UAEXXZ
+    { 0x40AADDB5, 0x46A3C0 }, // ?Reset@aiGoalAvoidPlayer@@UAEXXZ
+    { 0xA5A8AD84, 0x45F8A0 }, // ?Reset@aiGoalBackup@@UAEXXZ
+    { 0xF3832343, 0x45FED0 }, // ?Reset@aiGoalChase@@UAEXXZ
+    { 0x32E39F69, 0x46B340 }, // ?Reset@aiGoalCollision@@UAEXXZ
+    { 0xCBD8BA87, 0x4669C0 }, // ?Reset@aiGoalFollowWayPts@@UAEXXZ
+    { 0x70C37720, 0x45C8D0 }, // ?Reset@aiGoalRandomDrive@@UAEXXZ
+    { 0x9EEC33B4, 0x46AA80 }, // ?Reset@aiGoalRegainRail@@UAEXXZ
+    { 0xDA41B099, 0x45F760 }, // ?Reset@aiGoalStop@@UAEXXZ
+    { 0x3E3A06F1, 0x447520 }, // ?Reset@aiIntersection@@QAEXXZ
+    { 0x1C805054, 0x435FB0 }, // ?Reset@aiMap@@UAEXXZ
+    { 0x4D7F8B33, 0x43C450 }, // ?Reset@aiPath@@QAEXXZ
+    { 0xCEE39B56, 0x448130 }, // ?Reset@aiPedestrian@@QAEXPAVaiPath@@@Z
+    { 0xC57C0EE2, 0x44D130 }, // ?Reset@aiPedestrian@@QAEXXZ
+    { 0x562C445F, 0x44E810 }, // ?Reset@aiPoliceForce@@QAEXXZ
+    { 0x22C29C56, 0x46B4D0 }, // ?Reset@aiStuck@@UAEXXZ
+    { 0x3829F8BD, 0x4441B0 }, // ?Reset@aiTrafficLightSet@@UAEXXZ
+    { 0x156AE3C7, 0x465930 }, // ?Reset@aiVehicle@@UAEXXZ
+    { 0x831F98D4, 0x44F200 }, // ?Reset@aiVehicleAmbient@@UAEXXZ
+    { 0x38B8D3E2, 0x452BE0 }, // ?Reset@aiVehicleManager@@UAEXXZ
+    { 0x9266C297, 0x44DE10 }, // ?Reset@aiVehicleOpponent@@UAEXXZ
+    { 0xFE230837, 0x444B40 }, // ?Reset@aiVehiclePolice@@UAEXXZ
+    { 0x8AC97E1F, 0x45A2B0 }, // ?Reset@aiVehicleSpline@@UAEXXZ
+    { 0x1038D929, 0x52CE60 }, // ?Reset@asBenchStats@@QAEXXZ
+    { 0x181E84B5, 0x524DF0 }, // ?Reset@asCullManager@@UAEXXZ
+    { 0x47E2156E, 0x52AF20 }, // ?Reset@asDofCS@@UAEXXZ
+    { 0x8ECBD836, 0x4D9630 }, // ?Reset@asInertialCS@@UAEXXZ
+    { 0xDB88DC05, 0x523960 }, // ?Reset@asNode@@UAEXXZ
+    { 0x089D2925, 0x500210 }, // ?Reset@asParticles@@UAEXXZ
+    { 0x938F61A8, 0x522290 }, // ?Reset@asSimulation@@UAEXXZ
+    { 0x2F6B701E, 0x52BD30 }, // ?Reset@asViewCS@@UAEXXZ
+    { 0x165A64B8, 0x4E8FD0 }, // ?Reset@AudManager@@UAEXXZ
+    { 0xD705C323, 0x4EAD60 }, // ?Reset@AudSound@@UAEXXZ
+    { 0xFC00E940, 0x4F3AE0 }, // ?Reset@AudStream@@UAEXXZ
+    { 0x103C2A50, 0x4DBCE0 }, // ?Reset@Joint3Dof@@UAEXXZ
+    { 0x16B0B7B8, 0x4C4900 }, // ?Reset@mmAnimDOF@@QAEXXZ
+    { 0xB92D4EA6, 0x4C52C0 }, // ?Reset@mmAnimPlane@@UAEXXZ
+    { 0x3B8272C1, 0x4C3BF0 }, // ?Reset@mmAnimSpline@@UAEXXZ
+    { 0x5940C162, 0x4C6350 }, // ?Reset@mmAnimTrain@@QAEXXZ
+    { 0xCD386E1B, 0x4C8150 }, // ?Reset@mmAnimTrainCar@@UAEXXZ
+    { 0x37DA2DD1, 0x4C43A0 }, // ?Reset@mmAnimTrigger@@QAEXXZ
+    { 0xF3E50935, 0x4064D0 }, // ?Reset@mmArrow@@UAEXXZ
+    { 0x8A4F4391, 0x4CB720 }, // ?Reset@mmBangerActiveManager@@UAEXXZ
+    { 0xEDC66BC1, 0x4CAD90 }, // ?Reset@mmBangerManager@@UAEXXZ
+    { 0x1965E3E0, 0x4C7570 }, // ?Reset@mmBoat@@UAEXXZ
+    { 0xDBD77746, 0x51DB20 }, // ?Reset@mmBoundTemplate@@QAEXXZ
+    { 0x35E9650E, 0x4C2080 }, // ?Reset@mmBridgeSet@@UAEXXZ
+    { 0xF484B3A3, 0x473B90 }, // ?Reset@mmCar@@UAEXXZ
+    { 0x105452DA, 0x473370 }, // ?Reset@mmCarModel@@UAEXXZ
+    { 0xA495AE35, 0x481730 }, // ?Reset@mmCarRoadFF@@UAEXXZ
+    { 0x840143BC, 0x46D6B0 }, // ?Reset@mmCarSim@@UAEXXZ
+    { 0x4C872713, 0x423190 }, // ?Reset@mmCDPlayer@@UAEXXZ
+    { 0x8B852705, 0x425090 }, // ?Reset@mmCircuitHUD@@UAEXXZ
+    { 0x6EC48240, 0x4BF2D0 }, // ?Reset@mmCompBase@@UAEXXZ
+    { 0x02A5FB3D, 0x4B7570 }, // ?Reset@mmCompCRPlayer@@UAEXXZ
+    { 0x69C545F7, 0x4B5D40 }, // ?Reset@mmCompDRecord@@UAEXXZ
+    { 0xFCC08312, 0x4B4B20 }, // ?Reset@mmCompRaceRecord@@UAEXXZ
+    { 0x1FD31879, 0x4B7A20 }, // ?Reset@mmCompRoster@@UAEXXZ
+    { 0x727211B6, 0x426180 }, // ?Reset@mmCRHUD@@UAEXXZ
+    { 0x90120ADA, 0x48CDD0 }, // ?Reset@mmCullCity@@UAEXXZ
+    { 0x119BBCF5, 0x502420 }, // ?Reset@mmDamage@@QAEXH@Z
+    { 0x7A525E55, 0x421C10 }, // ?Reset@mmDashView@@UAEXXZ
+    { 0x7DD0ABE8, 0x480650 }, // ?Reset@mmDrivetrain@@UAEXXZ
+    { 0x2EC0A72D, 0x51A660 }, // ?Reset@mmEdgeBodyIsect@@QAEXXZ
+    { 0x8D11BC69, 0x47CC60 }, // ?Reset@mmEngine@@UAEXXZ
+    { 0x3CCC9A0F, 0x422300 }, // ?Reset@mmExternalView@@UAEXXZ
+    { 0x1044216B, 0x410240 }, // ?Reset@mmGame@@UAEXXZ
+    { 0x60315F0C, 0x412760 }, // ?Reset@mmGameEdit@@UAEXXZ
+    { 0x859C4E16, 0x404910 }, // ?Reset@mmGameManager@@UAEXXZ
+    { 0x25D0E7FE, 0x431620 }, // ?Reset@mmGameMulti@@UAEXXZ
+    { 0xD3EB7BF0, 0x4173A0 }, // ?Reset@mmGameSingle@@UAEXXZ
+    { 0xA76B3848, 0x405870 }, // ?Reset@mmHUD@@UAEXXZ
+    { 0x2699910D, 0x428750 }, // ?Reset@mmHudMap@@UAEXXZ
+    { 0x758EBCD7, 0x4E0EA0 }, // ?Reset@mmInput@@UAEXXZ
+    { 0xA099BBC5, 0x493130 }, // ?Reset@mmInstance@@UAEXXZ
+    { 0x221A3CE6, 0x408660 }, // ?Reset@mmInterface@@UAEXXZ
+    { 0x391501D0, 0x51A470 }, // ?Reset@mmIntersection@@QAEXXZ
+    { 0x858D1526, 0x48B9C0 }, // ?Reset@mmLoader@@QAEXXZ
+    { 0xADE4E141, 0x419820 }, // ?Reset@mmMultiBlitz@@UAEXXZ
+    { 0xDA9140A5, 0x41B190 }, // ?Reset@mmMultiCircuit@@UAEXXZ
+    { 0x851427FA, 0x41CCC0 }, // ?Reset@mmMultiCR@@UAEXXZ
+    { 0x348B750F, 0x420370 }, // ?Reset@mmMultiRace@@UAEXXZ
+    { 0xA0A84C48, 0x4842E0 }, // ?Reset@mmNetworkCarAudio@@UAEXXZ
+    { 0xF281138F, 0x47BF00 }, // ?Reset@mmOpponentCarAudio@@UAEXXZ
+    { 0x4067468E, 0x4D44D0 }, // ?Reset@mmPhysicsMGR@@UAEXXZ
+    { 0x234A006C, 0x42B440 }, // ?Reset@mmPlayer@@UAEXXZ
+    { 0x55EF4289, 0x482A50 }, // ?Reset@mmPlayerCarAudio@@UAEXXZ
+    { 0x735D9714, 0x4CE9B0 }, // ?Reset@mmPlayerConfig@@QAEXXZ
+    { 0xD8AE526D, 0x4D0750 }, // ?Reset@mmPlayerData@@QAEXXZ
+    { 0xC7EF75E0, 0x4CFC60 }, // ?Reset@mmPlayerRecord@@QAEXXZ
+    { 0xDF15EA14, 0x427C50 }, // ?Reset@mmPopup@@UAEXXZ
+    { 0x2E7A51B0, 0x413550 }, // ?Reset@mmSingleBlitz@@UAEXXZ
+    { 0x8797E310, 0x415210 }, // ?Reset@mmSingleCircuit@@UAEXXZ
+    { 0x8CB56FFB, 0x477CC0 }, // ?Reset@mmSkidManager@@UAEXXZ
+    { 0xAEA0CD13, 0x481060 }, // ?Reset@mmSplash@@UAEXXZ
+    { 0x6CF2F53C, 0x47C550 }, // ?Reset@mmStuck@@UAEXXZ
+    { 0xE05703ED, 0x406290 }, // ?Reset@mmTimer@@UAEXXZ
+    { 0x175C03FA, 0x479C80 }, // ?Reset@mmTrailer@@UAEXXZ
+    { 0x4EB8BA1D, 0x470540 }, // ?Reset@mmTransmission@@UAEXXZ
+    { 0x466ECADD, 0x4CA830 }, // ?Reset@mmUnhitBangerInstance@@UAEXXZ
+    { 0xE53B3C7D, 0x4F92C0 }, // ?Reset@mmViewCS@@UAEXXZ
+    { 0x4B996B7D, 0x430520 }, // ?Reset@mmWaypointObject@@UAEXXZ
+    { 0x2A8906FB, 0x42ED50 }, // ?Reset@mmWaypoints@@UAEXXZ
+    { 0xD4582638, 0x47F2D0 }, // ?Reset@mmWheel@@UAEXXZ
+    { 0xAD5C5795, 0x475180 }, // ?Reset@mmWheelCheap@@UAEXXZ
+    { 0x6589878A, 0x4246E0 }, // ?Reset@mmWPHUD@@UAEXXZ
+    { 0x784F49FD, 0x4F9E80 }, // ?Reset@PointCamCS@@UAEXXZ
+    { 0x0F84EFC4, 0x4FABE0 }, // ?Reset@PolarCamCS@@UAEXXZ
+    { 0x84DF221F, 0x4F95E0 }, // ?Reset@PostCamCS@@UAEXXZ
+    { 0xC80BCCAB, 0x4F6420 }, // ?Reset@PovCamCS@@UAEXXZ
+    { 0x413158D9, 0x4F9A60 }, // ?Reset@PreCamCS@@UAEXXZ
+    { 0xF22A60D5, 0x4A8A00 }, // ?Reset@PUResults@@UAEXXZ
+    { 0x45FF3C64, 0x4A8E20 }, // ?Reset@PURoster@@UAEXXZ
+    { 0x83E25D06, 0x5768E0 }, // ?Reset@Timer@@QAEXXZ
+    { 0x7D9CD269, 0x4F6DA0 }, // ?Reset@TrackCamCS@@UAEXXZ
+    { 0x1B3CC2F0, 0x4FB570 }, // ?Reset@TransitionCS@@UAEXXZ
+    { 0x70849431, 0x4B56F0 }, // ?Reset@UICompositeScroll@@UAEXXZ
+    { 0x116C96DF, 0x4B7D40 }, // ?Reset@UICWArray@@UAEXXZ
+    { 0x29C5153B, 0x49B9F0 }, // ?Reset@VehicleSelectBase@@UAEXXZ
+    { 0x32464588, 0x493140 }, // ?ResetAll@mmInstance@@SAXXZ
+    { 0xA19C5A9A, 0x42F010 }, // ?ResetAllTags@mmWaypoints@@QAEXXZ
+    { 0x3DCA98A1, 0x4E6A10 }, // ?ResetAxisCapture@mmJoystick@@QAEXXZ
+    { 0x9E3CC057, 0x4E6160 }, // ?ResetCapture@mmJaxis@@QAEXXZ
+    { 0xE1AB7589, 0x4B85B0 }, // ?ResetCapture@UICWArray@@QAEXXZ
+    { 0x2AC3B05F, 0x49D590 }, // ?ResetCDMusic@AudioOptions@@QAEXXZ
+    { 0xACC6FDA6, 0x522CA0 }, // ?ResetClock@asSimulation@@QAEXXZ
+    { 0x1DD146A8, 0x49D620 }, // ?ResetCommentary@AudioOptions@@QAEXXZ
+    { 0x84666A62, 0x42C4E0 }, // ?ResetDamage@mmPlayer@@QAEXXZ
+    { 0x41442ECF, 0x49D0D0 }, // ?ResetDefaultAction@AudioOptions@@UAEXXZ
+    { 0xADDE179A, 0x4A36B0 }, // ?ResetDefaultAction@ControlSetup@@UAEXXZ
+    { 0x1D1F249C, 0x49A5C0 }, // ?ResetDefaultAction@GraphicsOptions@@UAEXXZ
+    { 0x9ED351FF, 0x4AB6F0 }, // ?ResetDefaultAction@OptionsBase@@UAEXXZ
+    { 0xD72F7AB5, 0x49F1A0 }, // ?ResetDriverRecord@Dialog_DriverRec@@QAEXXZ
+    { 0x10C6ECEF, 0x4A1E70 }, // ?ResetGameChat@NetArena@@QAEXXZ
+    { 0xD9A449A1, 0x573530 }, // ?ResetMathSpeed@@YAXXZ
+    { 0xDDEC0708, 0x4451D0 }, // ?ResetPed@aiVehiclePolice@@QAEXXZ
+    { 0x2FF115B3, 0x4A12A0 }, // ?ResetPlayerRecord@CRSettings@@QAEXXZ
+    { 0xBE923771, 0x41D210 }, // ?ResetPositions@mmMultiCR@@QAEXH@Z
+    { 0x89D756CE, 0x49E940 }, // ?ResetRaceRecord@Dialog_HallOfFame@@QAEXXZ
+    { 0x5F63BC87, 0x45A340 }, // ?ResetReactTicks@aiVehicleSpline@@QAEXXZ
+    { 0xF0AC94F6, 0x4A24C0 }, // ?ResetRoster@NetArena@@QAEXXZ
+    { 0xDB260CDC, 0x49D560 }, // ?ResetSoundFX@AudioOptions@@QAEXXZ
+    { 0xC5FA2418, 0x49D5C0 }, // ?ResetSoundQuality@AudioOptions@@QAEXXZ
+    { 0x0A509B07, 0x4B1F80 }, // ?ResetState@uiNavBar@@QAEXXZ
+    { 0x41DF4CDC, 0x49D530 }, // ?ResetStereo@AudioOptions@@QAEXXZ
+    { 0x266A5F40, 0x4B92F0 }, // ?ResetTextScroll@UITextScroll@@AAEXXZ
+    { 0xA7E2133E, 0x5239B0 }, // ?ResetTime@asNode@@QAEXXZ
+    { 0x17662D44, 0x405360 }, // ?ResetTimers@mmHUD@@QAEXXZ
+    { 0xCE72923C, 0x4B48C0 }, // ?ResetToolTip@uiWidget@@QAEXXZ
+    { 0x4A683FC7, 0x43C640 }, // ?ResetVehicleReactTicks@aiPath@@QAEXXZ
+    { 0xF3E418CD, 0x486D90 }, // ?ResetVolume@EngineAudio@@QAEXXZ
+    { 0x43D18738, 0x4D0410 }, // ?ResolveCheckpointProgress@mmPlayerData@@QAEXXZ
+    { 0x5EA0FF7F, 0x57CAC0 }, // ?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z
+    { 0x0B72F854, 0x410130 }, // ?RespawnXYZ@mmGame@@IAEXAAVVector3@@AAM@Z
+    { 0x20A6138F, 0x521420 }, // ?Restart@asSafeHeap@@QAEXXZ
+    { 0xC9AEDE2A, 0x523340 }, // ?RestartPipeline@@YAHHHHHH@Z
+    { 0x42496B90, 0x4A8A30 }, // ?RestartRO@PUResults@@QAEXH@Z
+    { 0x14E42DC5, 0x531F90 }, // ?Restore@agiD3DTexDef@@UAEXXZ
+    { 0x5228BD36, 0x533D50 }, // ?Restore@agiDDBitmap@@UAEXXZ
+    { 0x3FFAFFE2, 0x557AD0 }, // ?Restore@agiRefreshable@@UAEXXZ
+    { 0x90B2B65D, 0x534DE0 }, // ?Restore@agiSWBitmap@@UAEXXZ
+    { 0x6AF8D604, 0x555CD0 }, // ?RestoreAll@agiPipeline@@QAEXXZ
+    { 0x020BA178, 0x4EA040 }, // ?RestoreApplication@@YAXXZ
+    { 0x8D92385D, 0x530A20 }, // ?RestoreCallback@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z
+    { 0x93855A87, 0x4E1010 }, // ?RestoreDefaultConfig@mmInput@@QAEXH@Z
+    { 0xA60D6B2D, 0x46D020 }, // ?RestoreImpactParams@mmCarSim@@QAEXXZ
+    { 0x6A5BCDB7, 0x479C30 }, // ?RestoreImpactParams@mmTrailer@@QAEXXZ
+    { 0xAF72D1A3, 0x5596B0 }, // ?Restrict@DLPTemplate@@QAEHPAD@Z
+    { 0x30DE6903, 0x4E9340 }, // ?ResumeCDPlay@AudManager@@QAEHXZ
+    { 0x5D317E33, 0x4F4430 }, // ?ResumePlay@CDMan@@QAEKXZ
+    { 0x7F0C62A6, 0x4A2170 }, // ?RetrieveChatLine@NetArena@@QAEHPAD@Z
+    { 0x1597617D, 0x4ABD60 }, // ?RetrieveMenuData@MArray@@QAEHHAAM000@Z
+    { 0xB802B351, 0x4AC590 }, // ?RetrieveWidgetData@WArray@@QAEHHHAAM000@Z
+    { 0xC436960F, 0x4B6C60 }, // ?ReturnDescription@UIBMButton@@UAEPADXZ
+    { 0x02418B6B, 0x4B2E60 }, // ?ReturnDescription@uiWidget@@UAEPADXZ
+    { 0xC9BB4E57, 0x4E1E60 }, // ?ReturnStateCaptured@mmInput@@QAEHXZ
+    { 0x0593ADCA, 0x4C5550 }, // ?ReverseCalcPathSpeed@mmAnimPlane@@QAEXXZ
+    { 0x10B6ECEA, 0x4C65C0 }, // ?ReverseCalcPathSpeed@mmAnimTrain@@QAEXXZ
+    { 0x60FB611C, 0x4C76A0 }, // ?ReverseCalcPathSpeed@mmBoat@@QAEXXZ
+    { 0x412C3A9D, 0x4FBD50 }, // ?ReverseTransition@TransitionCS@@QAEXXZ
+    { 0x96E8D76B, 0x566300 }, // ?rgbtohsv@Vector3@@QAEXXZ
+    { 0x84AF1542, 0x43FDC0 }, // ?RoadCapacity@aiPath@@QAEHPAVaiVehicleSpline@@H@Z
+    { 0x600EB6BB, 0x43A380 }, // ?RoadDensity@aiMap@@AAEMHMH@Z
+    { 0xF92FF250, 0x43EB60 }, // ?RoadDistance@aiPath@@QAEXAAVVector3@@PAFPAMF2@Z
+    { 0x952AE9F3, 0x44A690 }, // ?RoadDistance@aiPedestrian@@AAEMXZ
+    { 0xBFCE2E86, 0x4A8A10 }, // ?RosterRO@PUResults@@QAEXH@Z
+    { 0x68F24A80, 0x5691D0 }, // ?Rotate@Matrix34@@QAEXABVVector3@@M@Z
+    { 0x9F3CC863, 0x570680 }, // ?Rotate@Matrix44@@QAEXABVVector3@@0@Z
+    { 0x9C002F1D, 0x570620 }, // ?Rotate@Matrix44@@QAEXABVVector3@@M@Z
+    { 0xDB7DBBEE, 0x5704A0 }, // ?Rotate@Matrix44@@QAEXDM@Z
+    { 0xB15BFD6B, 0x5652C0 }, // ?Rotate@Vector3@@QAEXMH@Z
+    { 0xA5896DF4, 0x569820 }, // ?RotateAbs@Matrix34@@QAEXABVVector3@@M@Z
+    { 0x1E8F7823, 0x569D20 }, // ?RotateFull@Matrix34@@QAEXABVVector3@@M@Z
+    { 0x6078E405, 0x4DEC70 }, // ?RotateNoTrans@Matrix34@@QBE?AVVector3@@ABV2@@Z
+    { 0xF7A6CC6C, 0x56A6C0 }, // ?RotateTo@Matrix34@@QAEXABVVector3@@0M@Z
+    { 0x8E3744B2, 0x56A400 }, // ?RotateToAbs@Matrix34@@QAEXABVVector3@@0M@Z
+    { 0x38330CFF, 0x56A670 }, // ?RotateToFull@Matrix34@@QAEXABVVector3@@0M@Z
+    { 0x6153AB1C, 0x56D180 }, // ?RotEqual@Matrix34@@QBEIABV1@M@Z
+    { 0x1F59E2E1, 0x557AA0 }, // ?SafeBeginGfx@agiRefreshable@@QAEHXZ
+    { 0x4BA38D37, 0x521090 }, // ?SanityCheck@asMemoryAllocator@@QAEXXZ
+    { 0xC3A26318, 0x4E2090 }, // ?SanityCheck@mmInput@@QAEHPAVmmIO@@HH@Z
+    { 0x79558B37, 0x4E55F0 }, // ?SanityCheckioType@mmIODev@@QAEHHHH@Z
+    { 0xA104B338, 0x55DB70 }, // ?Save@agiMtlParameters@@QAEXPAVStream@@@Z
+    { 0x152E14DC, 0x557040 }, // ?Save@agiPhysParameters@@QAEXPAVStream@@@Z
+    { 0x4CCC8984, 0x556170 }, // ?Save@agiTexParameters@@QAEXPAVStream@@@Z
+    { 0x6BBC95ED, 0x5120D0 }, // ?Save@agiTexSheet@@QAEXPAD@Z
+    { 0x6B9F41AD, 0x453350 }, // ?Save@aiVehicleManager@@UAEXXZ
+    { 0xF38ED67E, 0x57B7D0 }, // ?Save@ArrayOfType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x5930A3F4, 0x4E0200 }, // ?Save@asAero@@QAEXPAVStream@@@Z
+    { 0xFC1A8C80, 0x523EC0 }, // ?Save@asNode@@QAEHPAD@Z
+    { 0x40479FC2, 0x523F70 }, // ?Save@asNode@@UAEXXZ
+    { 0x94249253, 0x514FA0 }, // ?Save@bnSkeleton@@QAEHPBD@Z
+    { 0xD6F4E341, 0x57B9F0 }, // ?Save@CharType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x62B2220F, 0x558F40 }, // ?Save@DLPGroup@@QAEXPAVStream@@@Z
+    { 0x2A762C62, 0x559180 }, // ?Save@DLPPatch@@QAEXPAVStream@@@Z
+    { 0xA2B593DF, 0x558500 }, // ?Save@DLPTemplate@@QAEXPAVStream@@@Z
+    { 0x476FEA55, 0x5595A0 }, // ?Save@DLPVertex@@QAEXPAVStream@@@Z
+    { 0x12F10C59, 0x57C090 }, // ?Save@FloatType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x2EF0A2B2, 0x577C90 }, // ?Save@MetaClass@@QAEXPAVMiniParser@@PAX@Z
+    { 0x65A736B1, 0x4C9510 }, // ?Save@mmBangerDataManager@@UAEXXZ
+    { 0x746BC4A0, 0x4C1CC0 }, // ?Save@mmBridgeMgr@@UAEXXZ
+    { 0x46D2C0D9, 0x47CBE0 }, // ?Save@mmEngine@@QAEXPAVStream@@@Z
+    { 0xD6E7C8D6, 0x4D1390 }, // ?Save@mmInfoBase@@QAEHPAD@Z
+    { 0xE4BDBB6E, 0x4CC710 }, // ?Save@mmMiscData@@QAEHPADH@Z
+    { 0xD4B2835C, 0x4CE240 }, // ?Save@mmPlayerConfig@@QAEHPADH@Z
+    { 0xD9BCE92F, 0x4D0940 }, // ?Save@mmPlayerData@@QAEHPADH@Z
+    { 0x12964F7A, 0x4CF6D0 }, // ?Save@mmPlayerDirectory@@QAEHPADH@Z
+    { 0x38FF3E9D, 0x47F4B0 }, // ?Save@mmWheel@@QAEXPAVStream@@@Z
+    { 0xB08B8C1E, 0x57B590 }, // ?Save@PtrToType@@UAEXPAVMiniParser@@PAX@Z
+    { 0xF72FA4E4, 0x57B640 }, // ?Save@RefToType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x4F9422A7, 0x57BAC0 }, // ?Save@SignedCharType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x8A4017E8, 0x57BEE0 }, // ?Save@SignedInt64Type@@UAEXPAVMiniParser@@PAX@Z
+    { 0x511083C8, 0x57BE10 }, // ?Save@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x088B8F3F, 0x57BC60 }, // ?Save@SignedShortType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x8C792413, 0x561520 }, // ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z
+    { 0xA1B4D47D, 0x57C190 }, // ?Save@StringType@@UAEXPAVMiniParser@@PAX@Z
+    { 0xCA7804B4, 0x57B960 }, // ?Save@StructType@@UAEXPAVMiniParser@@PAX@Z
+    { 0xC7D14809, 0x57BB90 }, // ?Save@UnsignedCharType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x387EDCFA, 0x57BFC0 }, // ?Save@UnsignedIntType@@UAEXPAVMiniParser@@PAX@Z
+    { 0xBA29B0F4, 0x57BD30 }, // ?Save@UnsignedShortType@@UAEXPAVMiniParser@@PAX@Z
+    { 0x38539B64, 0x571640 }, // ?Save@Vector2Type@@UAEXPAVMiniParser@@PAX@Z
+    { 0x24131C49, 0x567320 }, // ?Save@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
+    { 0x5D3EF63C, 0x56E3F0 }, // ?Save@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
+    { 0x75BA829D, 0x480700 }, // ?Save@VehGyro@@QAEXPAVStream@@@Z
+    { 0xF9CAC81F, 0x447610 }, // ?SaveBinary@aiIntersection@@QAEXPAVStream@@@Z
+    { 0x3FABE369, 0x435830 }, // ?SaveBinary@aiMap@@AAEXPAD@Z
+    { 0xBDBC1F10, 0x43D950 }, // ?SaveBinary@aiPath@@QAEXPAVStream@@@Z
+    { 0xCD02FDEF, 0x4CC960 }, // ?SaveBinary@mmMiscData@@QAEHPAD@Z
+    { 0x1105B79D, 0x4CDFE0 }, // ?SaveBinary@mmPlayerConfig@@QAEHPAD@Z
+    { 0xBE27BDBD, 0x4D0CF0 }, // ?SaveBinary@mmPlayerData@@QAEHPAD@Z
+    { 0x6AA680D1, 0x4CF770 }, // ?SaveBinary@mmPlayerDirectory@@QAEHPAD@Z
+    { 0xB477B48F, 0x4CFD40 }, // ?SaveBinary@mmPlayerRecord@@QAEHPAVStream@@@Z
+    { 0xD7DD3055, 0x4D1810 }, // ?SaveBinary@mmRecord@@QAEHPAVStream@@@Z
+    { 0x5F8509CD, 0x4E0FD0 }, // ?SaveCB@mmInput@@QAEXXZ
+    { 0x1B5CD9E7, 0x4B8690 }, // ?SaveCFG@UICWArray@@QAEXXZ
+    { 0x9D4565CE, 0x4E4370 }, // ?SaveCodeConfig@mmInput@@QAEHPAVStream@@@Z
+    { 0xDB3606C1, 0x4E3DA0 }, // ?SaveConfig@mmInput@@QAEHPAVStream@@@Z
+    { 0x17781F17, 0x579D00 }, // ?SaveName@string@@QAEXABV1@H00@Z
+    { 0xF052C753, 0x404880 }, // ?SaveReplay@mmGameManager@@QAEXPAD@Z
+    { 0xADB24863, 0x56A9A0 }, // ?Scale@Matrix34@@QAEXM@Z
+    { 0x37B6F570, 0x56A8F0 }, // ?Scale@Matrix34@@QAEXMMM@Z
+    { 0x42BFC8B6, 0x570970 }, // ?Scale@Matrix44@@QAEXABVVector3@@M@Z
+    { 0x73347DCB, 0x570920 }, // ?Scale@Matrix44@@QAEXMMM@Z
+    { 0x7F413CD1, 0x45C470 }, // ?Scale@Vector3@@QAEXABV1@M@Z
+    { 0xED5C46D6, 0x56AA20 }, // ?ScaleAbs@Matrix34@@QAEXM@Z
+    { 0xCE3E3CC7, 0x56A970 }, // ?ScaleAbs@Matrix34@@QAEXMMM@Z
+    { 0xAFD21ED6, 0x56AB30 }, // ?ScaleFull@Matrix34@@QAEXM@Z
+    { 0x8EBFEB74, 0x56AA50 }, // ?ScaleFull@Matrix34@@QAEXMMM@Z
+    { 0xE66DACD6, 0x56ABD0 }, // ?ScaleFullAbs@Matrix34@@QAEXM@Z
+    { 0xF5B8AB6F, 0x56AAF0 }, // ?ScaleFullAbs@Matrix34@@QAEXMMM@Z
+    { 0xFBF514BD, 0x56AC10 }, // ?ScaleVolume@Matrix34@@QAEXMD@Z
+    { 0x5C437847, 0x56AD10 }, // ?ScaleVolumeAbs@Matrix34@@QAEXMD@Z
+    { 0xE585D83C, 0x4ACF20 }, // ?ScaleWidget@UIMenu@@QAEXAAM000@Z
+    { 0x15EEDD19, 0x4F0670 }, // ?ScanAvailableDSFormats@DSGlobal@@QAEXXZ
+    { 0xBE85CDC9, 0x4E2D90 }, // ?ScanForEvent@mmInput@@AAE_JPATeqEvent@@@Z
+    { 0xA9FE122B, 0x4B0FC0 }, // ?ScanGlobalKeys@MenuManager@@QAEHH@Z
+    { 0x1B86DDED, 0x4ACE40 }, // ?ScanInput@UIMenu@@QAEHPATeqEvent@@@Z
+    { 0x8EF793B7, 0x4396A0 }, // ?ScanIntersections@aiMap@@AAEPAVaiIntersection@@AAVVector3@@@Z
+    { 0xC44F73B3, 0x4E26E0 }, // ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
+    { 0xCE359F20, 0x41F530 }, // ?Score@mmMultiCR@@AAEXH@Z
+    { 0x7AA9484D, 0x48A450 }, // ?SealSession@asNetwork@@QAEXXZ
+    { 0xFB4529AD, 0x55F690 }, // ?Search@FileSystem@@QAEHPAD00H0@Z
+    { 0x0AF29D6B, 0x55F620 }, // ?SearchAll@FileSystem@@SAPAV1@PAD00H0@Z
+    { 0x32183798, 0x56D9F0 }, // ?Seed@Random@@QAEXH@Z
+    { 0xB83065AE, 0x55EC60 }, // ?Seek@Stream@@QAEHH@Z
+    { 0xA2E832B2, 0x4F45A0 }, // ?SeekTrack@CDMan@@QAEKE@Z
+    { 0x488F8C37, 0x4D8210 }, // ?SegSegDistNorm@@YAXABVVector3@@00000PAV1@11PAMPAH@Z
+    { 0x240B9415, 0x4B4CA0 }, // ?SelectIfRaceType@mmCompRaceRecord@@QAEXHH@Z
+    { 0xAB86DCA7, 0x41D330 }, // ?SelectTeams@mmMultiCR@@AAEHXZ
+    { 0xD7AFAFD1, 0x48AEF0 }, // ?Send@asNetwork@@QAEXKPAXKH@Z
+    { 0x71A93F84, 0x578980 }, // ?Send@ipcMessageQueue@@QAEXP6AXPAX@Z0@Z
+    { 0xA6826CB3, 0x4324D0 }, // ?SendBootMsg@mmGameMulti@@QAEXK@Z
+    { 0x084B918B, 0x40E330 }, // ?SendBootMsg@mmInterface@@AAEXK@Z
+    { 0x3F066835, 0x41F350 }, // ?SendChangeSet@mmMultiCR@@AAEXH@Z
+    { 0xC3CA8319, 0x411590 }, // ?SendChatMessage@mmGame@@UAEXPAD@Z
+    { 0xA3884FF4, 0x4321D0 }, // ?SendChatMessage@mmGameMulti@@UAEXPAD@Z
+    { 0x8294B5FD, 0x40E250 }, // ?SendChatMessage@mmInterface@@AAEXPAX@Z
+    { 0x8D67667C, 0x41F1C0 }, // ?SendGameState@mmMultiCR@@AAEXK@Z
+    { 0x2578B091, 0x41F2C0 }, // ?SendGoldAck@mmMultiCR@@AAEXK@Z
+    { 0xC2C5D115, 0x41F300 }, // ?SendGoldDeliver@mmMultiCR@@AAEXXZ
+    { 0x98A42F61, 0x41F270 }, // ?SendGoldDrop@mmMultiCR@@AAEXVVector3@@@Z
+    { 0xF0BCBF43, 0x41F390 }, // ?SendLimitReached@mmMultiCR@@AAEXH@Z
+    { 0x6C6A9E20, 0x489280 }, // ?SendLobbyProperty@asNetwork@@QAEXPAXH@Z
+    { 0x581999E3, 0x4324A0 }, // ?SendMsg@mmGameMulti@@QAEXH@Z
+    { 0x3DB44613, 0x40E2F0 }, // ?SendMsg@mmInterface@@AAEXH@Z
+    { 0x3F47EA8A, 0x41A420 }, // ?SendPlayerFinish@mmMultiBlitz@@AAEXXZ
+    { 0xF144D387, 0x41BC20 }, // ?SendPlayerFinish@mmMultiCircuit@@AAEXXZ
+    { 0x100B29F2, 0x421240 }, // ?SendPlayerFinish@mmMultiRace@@AAEXXZ
+    { 0xAFA2C384, 0x40E3B0 }, // ?SendReadyReq@mmInterface@@AAEXXZ
+    { 0xE9BDABE8, 0x40E370 }, // ?SendReadyStatus@mmInterface@@AAEXXZ
+    { 0x26EE1554, 0x41F260 }, // ?SendSetup@mmMultiCR@@AAEXK@Z
+    { 0x16F698AF, 0x41F3D0 }, // ?SendTimeWarning@mmMultiCR@@AAEXH@Z
+    { 0x63157F32, 0x432290 }, // ?SendToChatMessage@mmGameMulti@@QAEXPADK@Z
+    { 0xE8D7F6AF, 0x4EB660 }, // ?Set3DMode@AudSound@@QAEXK@Z
+    { 0xEA391D82, 0x4F2C00 }, // ?Set3DMode@SoundObj@@QAEXK@Z
+    { 0xD4369F0D, 0x531F70 }, // ?Set@agiD3DTexDef@@UAEXAAVVector2@@0@Z
+    { 0xB29548A0, 0x537710 }, // ?Set@agiSWTexDef@@UAEXAAVVector2@@0@Z
+    { 0x142DDCD3, 0x4CE5B0 }, // ?Set@mmGfxCFG@@QAEXXZ
+    { 0x45BA4DD1, 0x4DBB30 }, // ?Set@Vector3@@QAEXMMM@Z
+    { 0xEECBA2EB, 0x570D50 }, // ?Set@Vector4@@QAEXMMMM@Z
+    { 0x931DA374, 0x4EE040 }, // ?Set@VolumeDW@@QAEXMM@Z
+    { 0xCB80F80F, 0x4ACB20 }, // ?SetAction@UIMenu@@QAEXW4eSource@1@@Z
+    { 0xD8CFFA94, 0x432A50 }, // ?SetActive@mmNetObject@@QAEXH@Z
+    { 0x62007D80, 0x4BE480 }, // ?SetActive@TextDropWidget@@QAEXH@Z
+    { 0x01BA4AB8, 0x4F48F0 }, // ?SetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
+    { 0x55432D9F, 0x4F4B80 }, // ?SetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z
+    { 0xD848CD68, 0x4D2980 }, // ?SetAlley@mmRoadSect@@QAEXH@Z
+    { 0x675EF21C, 0x4FE2C0 }, // ?SetAlpha@Card2D@@QAEXM@Z
+    { 0xFEC2EDC1, 0x529F50 }, // ?SetAmbient@asCamera@@QAEXABVVector3@@@Z
+    { 0xFC4E4EB4, 0x4F9F40 }, // ?SetAppRate@PointCamCS@@QAEXM@Z
+    { 0x47A004E2, 0x42EF80 }, // ?SetArrow@mmWaypoints@@QAEXXZ
+    { 0x51568AAA, 0x4CE2E0 }, // ?SetAudio@mmPlayerConfig@@QAEXXZ
+    { 0x5162E669, 0x44E400 }, // ?SetAudioCloserMinDistMult@aiVehicleOpponent@@QAEXM@Z
+    { 0x7D6EC2FB, 0x4462E0 }, // ?SetAudioCloserMinDistMult@aiVehiclePolice@@QAEXM@Z
+    { 0x97CF74A5, 0x450DA0 }, // ?SetAudioMaxDistance@aiVehicleAmbient@@SAXM@Z
+    { 0x874993CC, 0x44E3D0 }, // ?SetAudioMaxDistance@aiVehicleOpponent@@QAEXM@Z
+    { 0x9053AF3A, 0x4462B0 }, // ?SetAudioMaxDistance@aiVehiclePolice@@QAEXM@Z
+    { 0x840BC140, 0x44E3B0 }, // ?SetAudioMinDistance@aiVehicleOpponent@@QAEXM@Z
+    { 0xB9CF03F5, 0x446290 }, // ?SetAudioMinDistance@aiVehiclePolice@@QAEXM@Z
+    { 0xE938EEB7, 0x49D1E0 }, // ?SetAudioState@AudioOptions@@QAEXXZ
+    { 0x455455B2, 0x52BCD0 }, // ?SetAzimuth@asViewCS@@QAEXXZ
+    { 0x45BCA6DB, 0x533410 }, // ?SetBackground@agiD3DViewport@@UAEXAAVVector3@@@Z
+    { 0x1CE39C56, 0x534950 }, // ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z
+    { 0xA7318D74, 0x4B0960 }, // ?SetBackgroundImage@MenuManager@@QAEXPAD@Z
+    { 0x7EF85ABE, 0x49CF40 }, // ?SetBalance@AudioOptions@@QAEXXZ
+    { 0xC7B51A6D, 0x4AAA20 }, // ?SetBalance@PUAudioOptions@@QAEXXZ
+    { 0x6A802254, 0x4854A0 }, // ?SetBangerVolumeRange@mmImpactAudio@@QAEXMMMF@Z
+    { 0x6DADC8AA, 0x4FF690 }, // ?SetBGColor@mmTextNode@@QAEXAAVVector4@@@Z
+    { 0x71CF7C9A, 0x557590 }, // ?SetBill@agiViewParameters@@QAEXAAVVector3@@@Z
+    { 0xEA1E7D96, 0x5576D0 }, // ?SetBillY@agiViewParameters@@QAEXAAVMatrix34@@@Z
+    { 0xC6B5D5C9, 0x4F0990 }, // ?SetBitDepth@DSGlobal@@QAEXH@Z
+    { 0x1F23C853, 0x4E9DD0 }, // ?SetBitDepthAndSampleRate@AudManager@@QAEXHK@Z
+    { 0x1888DE0E, 0x4B4440 }, // ?SetBitmapName@UIBMLabel@@QAEXPAVstring@@@Z
+    { 0x5B00BFFA, 0x4B9820 }, // ?SetBlink@UILabel@@QAEXH@Z
+    { 0xA6828F2F, 0x4A4DB0 }, // ?SetBlitzMask@RaceMenu@@QAEXH@Z
+    { 0x1BA30BEB, 0x4D2890 }, // ?SetBlocked@mmRoadSect@@QAEXHH@Z
+    { 0x72764703, 0x4B4E10 }, // ?SetBltXY@mmCompBase@@UAEXMM@Z
+    { 0x176FDE4F, 0x4B5F70 }, // ?SetBltXY@mmCompDRecord@@UAEXMM@Z
+    { 0x0052FF17, 0x4B7BD0 }, // ?SetBltXY@mmCompRoster@@UAEXMM@Z
+    { 0x1C9DAA64, 0x426190 }, // ?SetBlueScore@mmCRHUD@@QAEXH@Z
+    { 0x3FA581AB, 0x4A92D0 }, // ?SetBootCB@PURoster@@QAEXVCallback@@@Z
+    { 0x97FDE12C, 0x4ACBB0 }, // ?SetBstate@UIMenu@@QAEXH@Z
+    { 0x4DB06DDF, 0x4F9270 }, // ?SetCamera@mmViewCS@@QAEXPAVasCamera@@@Z
+    { 0x34BFE854, 0x42C420 }, // ?SetCamInterest@mmPlayer@@QAEXPAVasInertialCS@@@Z
+    { 0x782C3DEC, 0x4E5DE0 }, // ?SetCapture@mmJoyMan@@QAEXH@Z
+    { 0xCDBB7389, 0x432A40 }, // ?SetCar@mmNetObject@@QAEXPAVmmCar@@@Z
+    { 0x4661F1CE, 0x4D16F0 }, // ?SetCarName@mmRecord@@QAEXPAD@Z
+    { 0xB3E780FD, 0x49D3F0 }, // ?SetCDMusic@AudioOptions@@QAEXXZ
+    { 0xA690315B, 0x4E94B0 }, // ?SetCDPlayMode@AudManager@@QAEXE@Z
+    { 0x4FCD839D, 0x49CF20 }, // ?SetCDVolume@AudioOptions@@QAEXXZ
+    { 0x3C072B02, 0x4AAA00 }, // ?SetCDVolume@PUAudioOptions@@QAEXXZ
+    { 0xC4E9610F, 0x4A4DD0 }, // ?SetCheckpointMask@RaceMenu@@QAEXH@Z
+    { 0x639E1B7D, 0x4EB820 }, // ?SetChorusAttenuation@AudSound@@QAEXM@Z
+    { 0xD529BF08, 0x4EB860 }, // ?SetChorusPitchMult@AudSound@@QAEXM@Z
+    { 0x760F2C36, 0x4EB8A0 }, // ?SetChorusPitchMult@AudSound@@QAEXMM@Z
+    { 0xD65F5832, 0x4A4DF0 }, // ?SetCircuitMask@RaceMenu@@QAEXH@Z
+    { 0x20A723A4, 0x470D50 }, // ?SetClearSurfaceAudioInfos@@YAXXZ
+    { 0x2A9C5648, 0x529100 }, // ?SetClipArea@asCamera@@QAEXMMMM@Z
+    { 0x2993C7FA, 0x504690 }, // ?SetClipMode@@YAXH@Z
+    { 0xFCCAE34F, 0x526130 }, // ?SetColor@asLamp@@QAEXABVVector3@@M@Z
+    { 0xF3929138, 0x49C530 }, // ?SetColor@Card2D@@QAEXVVector4@@@Z
+    { 0x2125493A, 0x427C80 }, // ?SetComment@mmPopup@@QAEXPAD@Z
+    { 0x15079E19, 0x49D450 }, // ?SetCommentary@AudioOptions@@QAEXXZ
+    { 0x419FCA95, 0x4B2C90 }, // ?SetCompositionWindow@UITextField@@QAEXXZ
+    { 0x6F609EBD, 0x4A4820 }, // ?SetComs@NetSelectMenu@@QAEXXZ
+    { 0xC40F62DF, 0x4EB730 }, // ?SetConeAngles@AudSound@@QAEXKK@Z
+    { 0x9E581B0D, 0x4F2C50 }, // ?SetConeAngles@SoundObj@@QAEXKK@Z
+    { 0xAA3E3B50, 0x4EB790 }, // ?SetConeOrientation@AudSound@@QAEXPAVVector3@@@Z
+    { 0x97C40488, 0x4F2C90 }, // ?SetConeOrientation@SoundObj@@QAEXPAVVector3@@@Z
+    { 0x03B944AB, 0x4EB760 }, // ?SetConeOutsideVolume@AudSound@@QAEXJ@Z
+    { 0x68AF5639, 0x4F2C20 }, // ?SetConeOutsideVolume@SoundObj@@QAEXJ@Z
+    { 0x3EEE77F3, 0x4A5DA0 }, // ?SetController@DriverMenu@@QAEXPAD@Z
+    { 0x296B128F, 0x4A34F0 }, // ?SetControlPosition@ControlSetup@@QAEMPAVuiWidget@@MM@Z
+    { 0x81B355A6, 0x4CE450 }, // ?SetControls@mmPlayerConfig@@QAEXXZ
+    { 0x712E55A8, 0x40DE80 }, // ?SetCRStateData@mmInterface@@AAEXXZ
+    { 0xCEFB6BEA, 0x5284D0 }, // ?SetCull@asForm@@QAEXHM@Z
+    { 0xFF97C2D3, 0x4F9110 }, // ?SetCurrentCam@mmViewCS@@QAEXPAVCarCamCS@@@Z
+    { 0x93F5D459, 0x4CBDF0 }, // ?SetCurrentCity@mmCityList@@QAEXH@Z
+    { 0xB6D916D0, 0x4CBDD0 }, // ?SetCurrentCity@mmCityList@@QAEXPAD@Z
+    { 0x11B4872B, 0x470750 }, // ?SetCurrentGear@mmTransmission@@QAEHH@Z
+    { 0x54610C38, 0x42F1C0 }, // ?SetCurrentGoals@mmWaypoints@@QAEXH@Z
+    { 0x622D45B5, 0x4F48D0 }, // ?SetDamping@CReverb@@QAEXM@Z
+    { 0x01905801, 0x4B4210 }, // ?SetData@UISlider@@QAEXM@Z
+    { 0x82ED4792, 0x4B3460 }, // ?SetData@UITextDropdown@@QAEXPAH@Z
+    { 0x396BD524, 0x4BB890 }, // ?SetData@UITextRoller2@@QAEXPAH@Z
+    { 0x573426E0, 0x4E39D0 }, // ?SetDeadZone@mmInput@@QAEXM@Z
+    { 0x874DD652, 0x4E6620 }, // ?SetDeadZone@mmJoystick@@QAEHM@Z
+    { 0x6DE5C4C7, 0x4F48B0 }, // ?SetDecayTime@CReverb@@QAEXM@Z
+    { 0xF9C6FB93, 0x4B0900 }, // ?SetDefaultBackgroundImage@MenuManager@@QAEXPAD@Z
+    { 0x035D25D2, 0x4E1070 }, // ?SetDefaultConfig@mmInput@@QAEXH@Z
+    { 0xC05192DB, 0x4CE230 }, // ?SetDefaults@mmPlayerConfig@@QAEXXZ
+    { 0xC48767E2, 0x4EB8F0 }, // ?SetDelayTime@AudSound@@QAEXM@Z
+    { 0xE858C257, 0x4F0D70 }, // ?SetDelayTime@SoundObj@@QAEXM@Z
+    { 0x6F251AFE, 0x4D9400 }, // ?SetDensity@asInertialCS@@QAEXMMMM@Z
+    { 0x19C3DB4D, 0x4A44A0 }, // ?SetDescription@NetSelectMenu@@QAEXPAULocString@@@Z
+    { 0xF5CE4849, 0x49D650 }, // ?SetDevice@AudioOptions@@QAEXH@Z
+    { 0x8BC4F07F, 0x4E9F50 }, // ?SetDeviceName@AudManager@@QAEXPAD@Z
+    { 0x6BC5655C, 0x4EEAB0 }, // ?SetDeviceNum@MixerCTL@@QAEXI@Z
+    { 0xE77AD8F0, 0x4EFA50 }, // ?SetDeviceRating@DSGlobal@@QAEXPAUtag_dsdevdesc@@@Z
+    { 0xB51DCE6D, 0x4FE1B0 }, // ?SetDimensions@Card2D@@QAEXMMMM@Z
+    { 0x14B16C10, 0x4C0DB0 }, // ?SetDisabledColors@mmDropDown@@QAEXXZ
+    { 0x518023B1, 0x4BE490 }, // ?SetDisabledMask@TextDropWidget@@QAEXJ@Z
+    { 0xB9425444, 0x4B38F0 }, // ?SetDisabledMask@UITextDropdown@@QAEXJ@Z
+    { 0x50ADC683, 0x526170 }, // ?SetDistant@asLamp@@QAEXXZ
+    { 0xE565E3B6, 0x4D2960 }, // ?SetDivided@mmRoadSect@@QAEXH@Z
+    { 0x8B68A6CA, 0x528420 }, // ?SetDLP@asForm@@QAEXPAVDLP@@@Z
+    { 0x8510165C, 0x4EBFB0 }, // ?SetDoppler@AudHead@@QAEXM@Z
+    { 0x7DE6DE54, 0x470720 }, // ?SetDrive@mmTransmission@@QAEXXZ
+    { 0xEF41B817, 0x4E9CF0 }, // ?SetEAXDamping@AudManager@@QAEHM@Z
+    { 0x4D8A0859, 0x4E9C30 }, // ?SetEAXDecayTime@AudManager@@QAEHM@Z
+    { 0xDE57D66F, 0x4E9AB0 }, // ?SetEAXEnvironmet@AudManager@@QAEHK@Z
+    { 0xA0096405, 0x4E9970 }, // ?SetEAXPreset@AudManager@@QAEHKMMM@Z
+    { 0xBEC2D2F3, 0x4E99F0 }, // ?SetEAXPreset@AudManager@@QAEHPAUEAX_REVERBPROPERTIES@@@Z
+    { 0x672E6717, 0x4EB350 }, // ?SetEAXReverbMix@AudSound@@QAEXMH@Z
+    { 0x8AA38225, 0x4E9B70 }, // ?SetEAXReverbVolume@AudManager@@QAEHM@Z
+    { 0x4105ED36, 0x4EB7C0 }, // ?SetEchoAttenuation@AudSound@@QAEXM@Z
+    { 0x70A390E8, 0x4EB510 }, // ?SetEchoFrequency@AudSound@@QAEXMH@Z
+    { 0xD931721C, 0x4F2860 }, // ?SetEchoFrequency@SoundObj@@QAEXM@Z
+    { 0x3F9C0099, 0x4EB4B0 }, // ?SetEchoPan@AudSound@@QAEXM@Z
+    { 0xEA7B4B3D, 0x4F2BA0 }, // ?SetEchoPan@SoundObj@@QAEXM@Z
+    { 0x6AAD1345, 0x4EBA30 }, // ?SetEffect@AudSound@@QAEXH@Z
+    { 0x89468685, 0x4F1D40 }, // ?SetEffect@SoundObj@@QAEXFPAD@Z
+    { 0xBE5607C7, 0x4FF760 }, // ?SetEffects@mmTextNode@@QAEXHH@Z
+    { 0xA58F97DC, 0x48B090 }, // ?SetEnumSessionLock@asNetwork@@QAEXHH@Z
+    { 0x19D17EC6, 0x4F4870 }, // ?SetEnvironment@CReverb@@QAEXK@Z
+    { 0x84EF52C9, 0x4A35B0 }, // ?SetFFPermissions@ControlSetup@@QAEXXZ
+    { 0xD1A32C89, 0x4FF6F0 }, // ?SetFGColor@mmTextNode@@QAEXAAVVector4@@@Z
+    { 0x708F8D5D, 0x481610 }, // ?SetFGVals@mmCarRoadFF@@QAEXMMM@Z
+    { 0x6A8CB899, 0x4B2610 }, // ?SetField@UITextField@@QAEXPAD@Z
+    { 0xE0F38E09, 0x4D08C0 }, // ?SetFileName@mmPlayerData@@QAEXPAD@Z
+    { 0x6EC0A9C1, 0x4B1550 }, // ?SetFocus@MenuManager@@QAEXPAVUIMenu@@@Z
+    { 0xE63117EF, 0x4ACBE0 }, // ?SetFocusWidget@UIMenu@@QAEXH@Z
+    { 0xA9DF156F, 0x5050C0 }, // ?SetFog@agiMeshSet@@SAXMH@Z
+    { 0xD5C04399, 0x529C10 }, // ?SetFog@asCamera@@QAEXMMMM@Z
+    { 0x9A2C61E9, 0x4E3AA0 }, // ?SetForceFeedbackScale@mmInput@@QAEXM@Z
+    { 0xDABA7672, 0x4DC040 }, // ?SetForceLimit@Joint3Dof@@QAEXM@Z
+    { 0x9B18EE1B, 0x4EB210 }, // ?SetFrequency@AudSound@@QAEXMH@Z
+    { 0x0034D6BC, 0x4F3F30 }, // ?SetFrequency@AudStream@@QAEXMH@Z
+    { 0x033131C7, 0x4EC170 }, // ?SetFrequency@mmVoiceCommentary@@QAEXM@Z
+    { 0xFDFADB70, 0x4F2620 }, // ?SetFrequency@SoundObj@@QAEXM@Z
+    { 0xC5079AAD, 0x4F57B0 }, // ?SetFrequency@StreamObj@@QAEXM@Z
+    { 0xC2D2D1ED, 0x4F53E0 }, // ?SetFrequencyEvent@StreamObj@@QAEXM@Z
+    { 0xE5FAA6C7, 0x47F380 }, // ?SetFricMultiplier@mmWheel@@QAEXM@Z
+    { 0x411E6E9D, 0x4E6D20 }, // ?SetFriction@mmJoystick@@QAEHJ@Z
+    { 0xED4B483A, 0x4DBE90 }, // ?SetFrictionLean@Joint3Dof@@QAEXMMM@Z
+    { 0x59456360, 0x4DBEC0 }, // ?SetFrictionRoll@Joint3Dof@@QAEXMMM@Z
+    { 0x23B518C7, 0x4A16C0 }, // ?SetGameClassCallback@CRSettings@@QAEXXZ
+    { 0xB7ECDEB1, 0x4B4EA0 }, // ?SetGeometry@mmCompBase@@UAEXMMMM@Z
+    { 0x165378E6, 0x4B7740 }, // ?SetGeometry@mmCompCRPlayer@@UAEXMMMM@Z
+    { 0xF26770B9, 0x4B5F40 }, // ?SetGeometry@mmCompDRecord@@UAEXMMMM@Z
+    { 0xEDDC7FFF, 0x4B4C70 }, // ?SetGeometry@mmCompRaceRecord@@UAEXMMMM@Z
+    { 0x6543F53A, 0x4B7BA0 }, // ?SetGeometry@mmCompRoster@@UAEXMMMM@Z
+    { 0xC1B42FAB, 0x46C030 }, // ?SetGlobalTuning@mmCarSim@@SAXMM@Z
+    { 0xD6149435, 0x4FD790 }, // ?SetGoal@Spline@@QAEXPAMM@Z
+    { 0xDFBFC664, 0x4A1620 }, // ?SetGoldMass@CRSettings@@QAEXH@Z
+    { 0x5A0608E4, 0x4CE640 }, // ?SetGraphics@mmPlayerConfig@@QAEXXZ
+    { 0x51A0D259, 0x46D040 }, // ?SetHackedImpactParams@mmCarSim@@QAEXXZ
+    { 0xBE03252A, 0x479C60 }, // ?SetHackedImpactParams@mmTrailer@@QAEXXZ
+    { 0x802D1E81, 0x430560 }, // ?SetHeading@mmWaypointObject@@QAEXM@Z
+    { 0xAF20B9F8, 0x4EC020 }, // ?SetHeadPtr@AudHead@@QAEXPAVMatrix34@@@Z
+    { 0x817DDCE6, 0x4C0E60 }, // ?SetHighlight@mmDropDown@@QAEXH@Z
+    { 0x83AD89D9, 0x4BE310 }, // ?SetHighlight@TextDropWidget@@QAEHH@Z
+    { 0xA037C2CC, 0x4B9030 }, // ?SetHighlight@UITextScroll@@QAEXH@Z
+    { 0x555BC6F9, 0x4B59E0 }, // ?SetHightlight@UICompositeScroll@@QAEXXZ
+    { 0x5BD8C7C9, 0x4A0F50 }, // ?SetHost@CRSettings@@QAEXH@Z
+    { 0x71F25C23, 0x4A2AF0 }, // ?SetHost@NetArena@@QAEXH@Z
+    { 0x73A83914, 0x4A8E90 }, // ?SetHost@PURoster@@QAEXH@Z
+    { 0xA22E9C21, 0x4BD030 }, // ?SetHotSpots@UIVScrollBar@@QAEXXZ
+    { 0x931C8ED4, 0x4BF620 }, // ?SetHotSpots@VSWidget@@QAEXXZ
+    { 0xEF8754BB, 0x411400 }, // ?SetIconsState@mmGame@@QAEXXZ
+    { 0xA9B7E08E, 0x47F360 }, // ?SetInputs@mmWheel@@QAEXMM@Z
+    { 0x8F66315E, 0x4064E0 }, // ?SetInterest@mmArrow@@QAEXPAVVector3@@@Z
+    { 0x4FA8CE2D, 0x433440 }, // ?SetInterior@mmRainAudio@@QAEXE@Z
+    { 0x40455EED, 0x4D2770 }, // ?SetIntersectionType@mmRoadSect@@QAEXHH@Z
+    { 0xA59A6232, 0x48B820 }, // ?SetIntroText@mmLoader@@QAEXPAULocString@@@Z
+    { 0x9206E57B, 0x4D1440 }, // ?SetIOPath@mmInfoBase@@QAEXPAD@Z
+    { 0xECE04647, 0x4A4560 }, // ?SetIPAddress@NetSelectMenu@@QAEXPAD@Z
+    { 0x638DD112, 0x4A4A70 }, // ?SetIPXButton@NetSelectMenu@@QAEXH@Z
+    { 0x95AC6AA8, 0x4D3320 }, // ?SetItem@mmMapData@@QAEXHPAD@Z
+    { 0x1F8329BA, 0x4D2220 }, // ?SetItem@mmPropInfo@@QAEXHPAD@Z
+    { 0x5BFF10E6, 0x4DC050 }, // ?SetJointForceFlag@Joint3Dof@@QAEXXZ
+    { 0xB21BAC9F, 0x526E40 }, // ?SetLabel@asMidgets@@UAEXPAD@Z
+    { 0xD8E54ACD, 0x424FB0 }, // ?SetLapTime@mmCircuitHUD@@QAEXHMPADH@Z
+    { 0x2D4E5E16, 0x405E40 }, // ?SetLapTime@mmHUD@@QAEXHMH@Z
+    { 0x453BD688, 0x4CF010 }, // ?SetLastPlayer@mmPlayerDirectory@@QAEXPAD@Z
+    { 0x78AC42F1, 0x49BBF0 }, // ?SetLastUnlockedVehicle@VehicleSelectBase@@QAEXXZ
+    { 0xBC726B2B, 0x4DBEF0 }, // ?SetLeanLimit@Joint3Dof@@QAEXMM@Z
+    { 0x641C47E8, 0x529230 }, // ?SetLighting@asCamera@@QAEXH@Z
+    { 0x25ACD580, 0x49A370 }, // ?SetLightQuality@GraphicsOptions@@QAEXXZ
+    { 0xB9B3F84D, 0x4A15A0 }, // ?SetLimit@CRSettings@@QAEXAAH0@Z
+    { 0x589D56CA, 0x4A1330 }, // ?SetLimitControl@CRSettings@@QAEXXZ
+    { 0x8F4DFC13, 0x432A80 }, // ?SetLocalData@mmNetObject@@UAEXXZ
+    { 0x1EFA9DEA, 0x49C230 }, // ?SetLockedLabel@VehicleSelectBase@@QAEXXZ
+    { 0xA201BBEF, 0x4F4180 }, // ?SetLoopIndex@AudStream@@QAEXF@Z
+    { 0x9616300D, 0x4F41B0 }, // ?SetLoopPointInfo@AudStream@@QAEXKKIFF@Z
+    { 0xB8BCC911, 0x4F60B0 }, // ?SetLoopPointInfo@StreamObj@@QAEXKKIFF@Z
+    { 0x33ED2B24, 0x4D2530 }, // ?SetLSidewalk@mmRoadSect@@QAEXMM@Z
+    { 0x0AD666F9, 0x446190 }, // ?SetMainSirenLoop@aiVehiclePolice@@QAEXH@Z
+    { 0x71295C68, 0x4D92F0 }, // ?SetMass@asInertialCS@@QAEXMMMM@Z
+    { 0x33623B9D, 0x573510 }, // ?SetMathSpeedFast@@YAXXZ
+    { 0x13902998, 0x5734F0 }, // ?SetMathSpeedMed@@YAXXZ
+    { 0x11AA9A12, 0x5734D0 }, // ?SetMathSpeedSlow@@YAXXZ
+    { 0x62DA7722, 0x4C80E0 }, // ?SetMatrix@mmAnimTrainCar@@QAEXAAVMatrix34@@@Z
+    { 0x41058C02, 0x4F9F00 }, // ?SetMaxDist@PointCamCS@@QAEXM@Z
+    { 0x434793E7, 0x405EE0 }, // ?SetMessage2@mmHUD@@QAEXPAULocString@@@Z
+    { 0x172E7C41, 0x405EA0 }, // ?SetMessage@mmHUD@@QAEXPAULocString@@MH@Z
+    { 0x1C4C0368, 0x4A8C50 }, // ?SetMessage@PUResults@@QAEXPAULocString@@@Z
+    { 0xF3284464, 0x47C0C0 }, // ?SetMinAmpSpeed@mmOpponentCarAudio@@QAEXM@Z
+    { 0xE4CC8985, 0x4F9F20 }, // ?SetMinDist@PointCamCS@@QAEXM@Z
+    { 0xEADEF810, 0x42A9A0 }, // ?SetMirrorFOV@mmPlayer@@QAEXXZ
+    { 0xE4B08BA3, 0x490E70 }, // ?SetMirrorPos@asRenderWeb@@QAEXMMMMM@Z
+    { 0xC36961C3, 0x428870 }, // ?SetMode@mmHudMap@@QAEXH@Z
+    { 0x514CA31F, 0x4A4AE0 }, // ?SetModemButton@NetSelectMenu@@QAEXH@Z
+    { 0xDB476CE5, 0x529F90 }, // ?SetMonochrome@asCamera@@QAEXH@Z
+    { 0x7C4A9D47, 0x4B4090 }, // ?SetMouseParams@UISlider@@QAEXM@Z
+    { 0x21A0C662, 0x49E310 }, // ?SetMultiRaceOptions@Dialog_RaceEnvironment@@QAEXH@Z
+    { 0xF86439A9, 0x523860 }, // ?SetName@asNode@@QAEXPAD@Z
+    { 0x02BDFB21, 0x425E30 }, // ?SetName@mmCRHUD@@QAEXPADH@Z
+    { 0x2AE79DD1, 0x4D0820 }, // ?SetName@mmPlayerData@@QAEXPAD@Z
+    { 0x1950A7D3, 0x4D1710 }, // ?SetName@mmRecord@@QAEXPAD@Z
+    { 0x0B09B96B, 0x4A5DC0 }, // ?SetNetName@DriverMenu@@QAEXPAD@Z
+    { 0xAFEB8341, 0x4D0870 }, // ?SetNetName@mmPlayerData@@QAEXPAD@Z
+    { 0x1B44EBBC, 0x4A4500 }, // ?SetNetname@NetSelectMenu@@QAEXPAD@Z
+    { 0x698AE178, 0x4E82D0 }, // ?SetNumChannels@AudManager@@QAEXH@Z
+    { 0xDB566DC6, 0x4F4150 }, // ?SetNumLoopIndices@AudStream@@QAEXF@Z
+    { 0x5D1362EF, 0x4F6050 }, // ?SetNumLoopIndices@StreamObj@@QAEXF@Z
+    { 0xA3251B74, 0x552630 }, // ?SetOutcode@agiProjVtx@@SAXH@Z
+    { 0x81E5B669, 0x4EB410 }, // ?SetPan@AudSound@@QAEXMH@Z
+    { 0x07A2A8B8, 0x4F4050 }, // ?SetPan@AudStream@@QAEXMH@Z
+    { 0xE004F864, 0x4F2A60 }, // ?SetPan@SoundObj@@QAEXM@Z
+    { 0x5F4C22B5, 0x4F58A0 }, // ?SetPan@StreamObj@@QAEXM@Z
+    { 0xE4632234, 0x4F5410 }, // ?SetPanEvent@StreamObj@@QAEXM@Z
+    { 0x61D22142, 0x4D1750 }, // ?SetPassed@mmRecord@@QAEXH@Z
+    { 0x082D771C, 0x4C5540 }, // ?SetPathSpeed@mmAnimPlane@@QAEXXZ
+    { 0x80D4B1C4, 0x4C65B0 }, // ?SetPathSpeed@mmAnimTrain@@QAEXXZ
+    { 0x684E85CB, 0x4C7650 }, // ?SetPathSpeed@mmBoat@@QAEXXZ
+    { 0xE2CA6255, 0x4D28D0 }, // ?SetPedBlocked@mmRoadSect@@QAEXHH@Z
+    { 0x523F86AC, 0x4A4540 }, // ?SetPhoneNumber@NetSelectMenu@@QAEXPAD@Z
+    { 0x3C8DD483, 0x49BC80 }, // ?SetPick@VehicleSelectBase@@QAEXHF@Z
+    { 0x07118E8A, 0x55C020 }, // ?SetPixel@agiColorModel8@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0xFFDCF1CF, 0x55D740 }, // ?SetPixel@agiColorModelABGR@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0x5E9F10B0, 0x55D550 }, // ?SetPixel@agiColorModelARGB@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0x21F2B4EF, 0x55C610 }, // ?SetPixel@agiColorModelRGB555@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0xE512B1F5, 0x55C9D0 }, // ?SetPixel@agiColorModelRGB555_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0x0FE32A5C, 0x55C7F0 }, // ?SetPixel@agiColorModelRGB565@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0xAC330A20, 0x55CBB0 }, // ?SetPixel@agiColorModelRGB565_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0x7342A663, 0x55CD60 }, // ?SetPixel@agiColorModelRGB888@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0xF504DE5B, 0x55CF00 }, // ?SetPixel@agiColorModelRGB888_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0xBF997A80, 0x55D360 }, // ?SetPixel@agiColorModelRGBA4444@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0xBE5A7FE3, 0x55D130 }, // ?SetPixel@agiColorModelRGBA5551@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    { 0x6A047212, 0x4CEFE0 }, // ?SetPlayer@mmPlayerDirectory@@QAEXHPAD0@Z
+    { 0xDA70A9C6, 0x489DA0 }, // ?SetPlayerData@asNetwork@@QAEXKPAXH@Z
+    { 0x730BCB36, 0x4A5B00 }, // ?SetPlayerPick@DriverMenu@@QAEXH@Z
+    { 0x90B92BF3, 0x4A1260 }, // ?SetPlayerScore@CRSettings@@QAEXHH@Z
+    { 0xDC4EF6D4, 0x4F6290 }, // ?SetPlayingFlag@StreamObj@@QAEXF@Z
+    { 0x5356CDFE, 0x4F5330 }, // ?SetPlayOneShotEvent@StreamObj@@QAEXPAD@Z
+    { 0xE364A2EC, 0x4EAFC0 }, // ?SetPlayPosition@AudSound@@QAEXK@Z
+    { 0x602C929D, 0x4F3B50 }, // ?SetPlayPosition@AudStream@@QAEXK@Z
+    { 0xEA917E17, 0x4F1EC0 }, // ?SetPlayPosition@SoundObj@@QAEXK@Z
+    { 0x95B65C48, 0x4F5270 }, // ?SetPlayPosition@StreamObj@@QAEXK@Z
+    { 0x0A05BF33, 0x526180 }, // ?SetPoint@asLamp@@QAEXXZ
+    { 0xCF8C6A7E, 0x4B7590 }, // ?SetPoints@mmCompCRPlayer@@QAEXH@Z
+    { 0x7FA02A4C, 0x4F9EC0 }, // ?SetPos@PointCamCS@@QAEXAAVVector3@@@Z
+    { 0x7E4FF63A, 0x4B33A0 }, // ?SetPos@UITextDropdown@@QAEXMM@Z
+    { 0xBA0E7F07, 0x4FE2A0 }, // ?SetPosition@Card2D@@QAEXMM@Z
+    { 0xE56AB981, 0x4DBD70 }, // ?SetPosition@Joint3Dof@@QAEXABVVector3@@@Z
+    { 0xF6CF4317, 0x4B76B0 }, // ?SetPosition@mmCompCRPlayer@@UAEXPAVmmTextNode@@HM@Z
+    { 0xBFB85D0D, 0x4B5EA0 }, // ?SetPosition@mmCompDRecord@@UAEXPAVmmTextNode@@HM@Z
+    { 0xBB00BD2C, 0x4B4CE0 }, // ?SetPosition@mmCompRaceRecord@@UAEXPAVmmTextNode@@HM@Z
+    { 0x53AE7A61, 0x4B7B20 }, // ?SetPosition@mmCompRoster@@UAEXPAVmmTextNode@@HM@Z
+    { 0xC39DFEA1, 0x4BEAD0 }, // ?SetPosition@mmSlider@@QAEXMM@Z
+    { 0x9CA2CF90, 0x4FFAA0 }, // ?SetPosition@mmTextNode@@QAEXHMM@Z
+    { 0x4779E65D, 0x4C0020 }, // ?SetPosition@mmToggle2@@QAEXMM@Z
+    { 0x836B8A2E, 0x4F25A0 }, // ?SetPosition@SoundObj@@QAEXMMM@Z
+    { 0x17EDA58E, 0x4B6580 }, // ?SetPosition@UIBMButton@@UAEXMM@Z
+    { 0xD42BDA73, 0x4B5A10 }, // ?SetPosition@UICompositeScroll@@QAEXH@Z
+    { 0xFFB097AD, 0x4BBE00 }, // ?SetPosition@UIControlWidget@@QAEXMMMM@Z
+    { 0xAD2D00C9, 0x4B3CD0 }, // ?SetPosition@UISlider@@UAEXMM@Z
+    { 0xEDC14FA5, 0x4BD910 }, // ?SetPosition@UIVScrollBar@@UAEXMM@Z
+    { 0x14DFC282, 0x4B2E70 }, // ?SetPosition@uiWidget@@UAEXMM@Z
+    { 0x06471D6A, 0x42AAF0 }, // ?SetPostRaceCam@mmPlayer@@QAEXXZ
+    { 0x33A2D882, 0x42A9D0 }, // ?SetPreRaceCam@mmPlayer@@QAEXXZ
+    { 0x75A6F6F6, 0x4F4910 }, // ?SetPreset@CReverb@@QAEXKMMM@Z
+    { 0x2A7AC9D2, 0x4F4950 }, // ?SetPreset@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
+    { 0xCF37F146, 0x4B2100 }, // ?SetPrevBitmap@uiNavBar@@QAEXPAD@Z
+    { 0x24E3C91F, 0x4B1620 }, // ?SetPreviousMenu@MenuManager@@QAEXH@Z
+    { 0x7FB105F2, 0x4B2070 }, // ?SetPrevPos@uiNavBar@@QAEXMM@Z
+    { 0xF17BD69A, 0x4F0580 }, // ?SetPrimaryBufferFormat@DSGlobal@@QAEXKE@Z
+    { 0x7B466D69, 0x4EA670 }, // ?SetPriority@AudSound@@QAEXH@Z
+    { 0xAFE6F21A, 0x4F37E0 }, // ?SetPriority@AudStream@@QAEXH@Z
+    { 0x89CE90D2, 0x4A4D90 }, // ?SetProgressMask@RaceMenu@@QAEXH@Z
+    { 0xCDCAF5FA, 0x40D4F0 }, // ?SetProtocol2@mmInterface@@AAEHXZ
+    { 0x7155D3C4, 0x4898B0 }, // ?SetProtocol@asNetwork@@QAEHH@Z
+    { 0x2C24200B, 0x489550 }, // ?SetProtocol@asNetwork@@QAEHHPAUNETCOMMPACK@@@Z
+    { 0xE33905C4, 0x40D440 }, // ?SetProtocol@mmInterface@@AAEXXZ
+    { 0x95DABEC1, 0x49CF70 }, // ?SetQuality@AudioOptions@@QAEXXZ
+    { 0x8632CAC0, 0x470FB0 }, // ?SetRainSurfaceAudioInfos@@YAXXZ
+    { 0xDA13C2E8, 0x4EB580 }, // ?SetRamp@AudSound@@QAEXMM@Z
+    { 0x9C533D4B, 0x4F2BD0 }, // ?SetRamp@SoundObj@@QAEXMM@Z
+    { 0xF845D253, 0x4E60B0 }, // ?SetRange@mmJaxis@@QAEXMM@Z
+    { 0xD6DC9250, 0x4BECB0 }, // ?SetRange@mmSlider@@QAEXMM@Z
+    { 0x097845E1, 0x4BD210 }, // ?SetRange@UIVScrollBar@@QAEXMM@Z
+    { 0x3F248B0B, 0x4B9E00 }, // ?SetReadOnly@UIButton@@UAEXH@Z
+    { 0x9453C80B, 0x4B2E10 }, // ?SetReadOnly@uiWidget@@UAEXH@Z
+    { 0x0668F334, 0x4BE9E0 }, // ?SetReadWrite@mmSlider@@QAEXH@Z
+    { 0x38EEF2F1, 0x4B3FF0 }, // ?SetReadWrite@UISlider@@QAEXH@Z
+    { 0xDBB9652A, 0x4B7A60 }, // ?SetReady@mmCompRoster@@QAEXH@Z
+    { 0x38467F9C, 0x4A2620 }, // ?SetReady@NetArena@@QAEXKH@Z
+    { 0x813BA478, 0x49F230 }, // ?SetRecordPosition@Dialog_DriverRec@@QAEXH@Z
+    { 0xD63AD5F3, 0x4261D0 }, // ?SetRedScore@mmCRHUD@@QAEXH@Z
+    { 0x9B46503B, 0x49A390 }, // ?SetRenderer@GraphicsOptions@@QAEXXZ
+    { 0x25FB37E6, 0x46D500 }, // ?SetResetPos@mmCarSim@@QAEXAAVVector3@@@Z
+    { 0x86BDB2D8, 0x49A350 }, // ?SetResolution@GraphicsOptions@@QAEXXZ
+    { 0x1B501ED1, 0x4DBF40 }, // ?SetRestOrientation@Joint3Dof@@QAEXXZ
+    { 0xF3554967, 0x4DBFF0 }, // ?SetRestOrientMat@Joint3Dof@@QAEXABVMatrix34@@0@Z
+    { 0x3C8F03B0, 0x4DBFB0 }, // ?SetRestOrientMat@Joint3Dof@@QAEXABVMatrix34@@@Z
+    { 0xB9E9047F, 0x4F4B60 }, // ?SetReverbMix@CReverbBuffer@@QAEXM@Z
+    { 0xE4A1781D, 0x470710 }, // ?SetReverse@mmTransmission@@QAEXXZ
+    { 0x23A40E24, 0x4E3AF0 }, // ?SetRoadForceScale@mmInput@@QAEXM@Z
+    { 0xA0854240, 0x4D2720 }, // ?SetRoadNormal@mmRoadSect@@QAEXHAAVVector3@@@Z
+    { 0xBF62B58E, 0x4D2600 }, // ?SetRoadVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z
+    { 0x818C150B, 0x4C7670 }, // ?SetRock@mmBoat@@QAEXMM@Z
+    { 0xB097324D, 0x4DBF10 }, // ?SetRollLimit@Joint3Dof@@QAEXMMM@Z
+    { 0x3C87B362, 0x4EBF50 }, // ?SetRolloff@AudHead@@QAEXM@Z
+    { 0xC004DC29, 0x4D2750 }, // ?SetRoomId@mmRoadSect@@QAEXHH@Z
+    { 0xB63AD575, 0x4DBE50 }, // ?SetRotate1@Joint3Dof@@QAEXABVMatrix34@@@Z
+    { 0x598835B0, 0x4DBE70 }, // ?SetRotate2@Joint3Dof@@QAEXABVMatrix34@@@Z
+    { 0xE14C97A9, 0x4D2510 }, // ?SetRSidewalk@mmRoadSect@@QAEXMM@Z
+    { 0xB78BD379, 0x4A73A0 }, // ?SetRW@RaceMenuBase@@QAEXXZ
+    { 0x8A73A1BF, 0x4AA2F0 }, // ?SetRWStates@PUControl@@QAEXXZ
+    { 0xA0BFE9E1, 0x425EB0 }, // ?SetScore@mmCRHUD@@QAEXKH@Z
+    { 0x6E947D1E, 0x425E10 }, // ?SetScore@mmCRHUD@@QAEXPAD@Z
+    { 0x9A525808, 0x405F60 }, // ?SetScore@mmHUD@@QAEXKH@Z
+    { 0xD054650A, 0x405F10 }, // ?SetScore@mmHUD@@QAEXPAD@Z
+    { 0xF737D1BA, 0x432A70 }, // ?SetScore@mmNetObject@@QAEXH@Z
+    { 0xE461D645, 0x4D1770 }, // ?SetScore@mmRecord@@QAEXH@Z
+    { 0x2B9EB454, 0x47A7C0 }, // ?SetSecondsElapsed@mmOpponentImpactAudio@@SAXM@Z
+    { 0x85D15908, 0x4AEA40 }, // ?SetSelected@UIMenu@@QAEXXZ
+    { 0x21AEE2EE, 0x4AB780 }, // ?SetSensitivity@ControlBase@@QAEXXZ
+    { 0x371CDC78, 0x4A3520 }, // ?SetSensitivityCB@ControlSetup@@QAEXXZ
+    { 0xB927F0AF, 0x4AA3B0 }, // ?SetSensitivityCB@PUControl@@QAEXXZ
+    { 0xFA249C1D, 0x4A4B10 }, // ?SetSerialButton@NetSelectMenu@@QAEXH@Z
+    { 0xAA867097, 0x4A46D0 }, // ?SetSession@NetSelectMenu@@QAEXPADH@Z
+    { 0x5D4703C9, 0x48A750 }, // ?SetSessionData@asNetwork@@QAEXPAUNETSESSION_DESC@@PAD@Z
+    { 0x4C8F7CEF, 0x40DDC0 }, // ?SetSessionData@mmInterface@@AAEXPAUNETSESSION_DESC@@@Z
+    { 0x9D5208DF, 0x4E6C30 }, // ?SetShake@mmJoystick@@QAEHKK@Z
+    { 0xE5AF42A5, 0x528450 }, // ?SetShape@asForm@@QAEXPAD0PAVVector3@@HH@Z
+    { 0x9FC1854F, 0x4FFEC0 }, // ?SetShape@asMeshSetForm@@QAEXPAD0PAVVector3@@@Z
+    { 0x116457D9, 0x502710 }, // ?SetShape@mmVehicleForm@@QAEXPAD00PAVVector3@@@Z
+    { 0x65A2AF10, 0x49C520 }, // ?SetShowcaseFlag@VehicleSelectBase@@QAEXXZ
+    { 0xCEBB5D8A, 0x4D2650 }, // ?SetSidewalkVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z
+    { 0x0EF5FE3D, 0x4C04E0 }, // ?SetSize@mmToggle@@AAEXMM@Z
+    { 0xD9AF7947, 0x4B3830 }, // ?SetSliderFocus@UITextDropdown@@QAEXH@Z
+    { 0xBA05ED51, 0x471210 }, // ?SetSnowSurfaceAudioInfos@@YAXXZ
+    { 0xB00A2FFB, 0x49F250 }, // ?SetSortState@Dialog_DriverRec@@QAEXXZ
+    { 0xA2290A3E, 0x49E9D0 }, // ?SetSortState@Dialog_HallOfFame@@QAEXXZ
+    { 0x15992EB2, 0x49D420 }, // ?SetSoundFX@AudioOptions@@QAEXXZ
+    { 0x217E78F1, 0x477810 }, // ?SetSoundPtr@EngineAudioOpponent@@QAEXPAVAudSound@@@Z
+    { 0x7054B881, 0x4C2E20 }, // ?SetSoundPtrs@mmBridgeSet@@QAEXPAVAudSound@@0@Z
+    { 0xE2B5BE1E, 0x4D2240 }, // ?SetSpacing@mmPropInfo@@QAEXM@Z
+    { 0xBBBAC2FF, 0x4F6A50 }, // ?SetST@BaseCamCS@@UAEXPAM@Z
+    { 0x6B42B9B7, 0x424F60 }, // ?SetStandings@mmCircuitHUD@@QAEXHH@Z
+    { 0x3DAAAE96, 0x405E00 }, // ?SetStandings@mmHUD@@QAEXHH@Z
+    { 0xA1B7A445, 0x4243B0 }, // ?SetStandings@mmWPHUD@@QAEXHH@Z
+    { 0xD72951C9, 0x4C8160 }, // ?SetStart@mmAnimTrainCar@@QAEXMM@Z
+    { 0x416AEC8B, 0x4B80C0 }, // ?SetStartOffset@UICWArray@@QAEXH@Z
+    { 0x1A2887CA, 0x4C4BB0 }, // ?SetState@mmAnimDOF@@QAEXH@Z
+    { 0x7170FF64, 0x40CC00 }, // ?SetStateDefaults@mmInterface@@AAEXXZ
+    { 0x6B7CBF95, 0x40CBF0 }, // ?SetStateRace@mmInterface@@AAEXH@Z
+    { 0x2B769F3A, 0x4A7CB0 }, // ?SetStateRace@RaceMenuBase@@QAEXXZ
+    { 0x83C39CB9, 0x4E6CC0 }, // ?SetSteer@mmJoystick@@QAEHJ@Z
+    { 0x3D226420, 0x42B5F0 }, // ?SetSteering@mmPlayer@@QAEXM@Z
+    { 0xF3B80C89, 0x47F3A0 }, // ?SetSteerMultiplier@mmWheel@@QAEXM@Z
+    { 0x9824E5B5, 0x4BEC30 }, // ?SetStep@mmSlider@@QAEXM@Z
+    { 0x04D16DD9, 0x4BD1B0 }, // ?SetStep@UIVScrollBar@@QAEXHM@Z
+    { 0xA50499B0, 0x4BF7D0 }, // ?SetStep@VSWidget@@QAEXHM@Z
+    { 0xEA9DEBF2, 0x4E8DA0 }, // ?SetStereo@AudManager@@QAEXH@Z
+    { 0x5DB1B049, 0x49D040 }, // ?SetStereoFX@AudioOptions@@QAEXXZ
+    { 0x0E8F6586, 0x4F5390 }, // ?SetStopEvent@StreamObj@@QAEXXZ
+    { 0x15C60198, 0x4D2910 }, // ?SetStopLightName@mmRoadSect@@QAEXHPAD@Z
+    { 0xB684FA3A, 0x4D27F0 }, // ?SetStopLightPos@mmRoadSect@@QAEXHABVVector3@@0@Z
+    { 0x60500685, 0x4D2500 }, // ?SetStreetType@mmRoadSect@@QAEXPAD@Z
+    { 0xC7DAE2E5, 0x4D24F0 }, // ?SetStreetWidth@mmRoadSect@@QAEXM@Z
+    { 0x5964254E, 0x4C0C70 }, // ?SetString@mmDropDown@@AAEXVstring@@@Z
+    { 0xF1CFC629, 0x4FEB20 }, // ?SetString@mmNumber@@QAEXPAD@Z
+    { 0xB3AAB050, 0x4FFA40 }, // ?SetString@mmTextNode@@QAEXHPAULocString@@@Z
+    { 0x81F41DA2, 0x4BE1B0 }, // ?SetString@TextDropWidget@@QAEXVstring@@@Z
+    { 0x7AC1FAD1, 0x4B9D30 }, // ?SetString@UIButton@@QAEXPAULocString@@@Z
+    { 0xB3CC23F1, 0x4BB7C0 }, // ?SetString@UITextRoller2@@QAEXVstring@@@Z
+    { 0x4B127FEB, 0x4BA950 }, // ?SetString@UITextRoller@@QAEXVstring@@@Z
+    { 0x68D18A39, 0x4A52C0 }, // ?SetSubMenu@Vehicle@@QAEXH@Z
+    { 0xDF74A663, 0x4A52E0 }, // ?SetSubMenuButtons@Vehicle@@QAEXXZ
+    { 0xF799CD8A, 0x4B75B0 }, // ?SetSubwidgetGeometry@mmCompCRPlayer@@QAEXXZ
+    { 0xC0E0F63C, 0x4B5D80 }, // ?SetSubwidgetGeometry@mmCompDRecord@@QAEXXZ
+    { 0xBD83A2E4, 0x4B4B40 }, // ?SetSubwidgetGeometry@mmCompRaceRecord@@QAEXXZ
+    { 0xEF2A13A7, 0x4B7A80 }, // ?SetSubwidgetGeometry@mmCompRoster@@QAEXXZ
+    { 0x99D21218, 0x4C4B60 }, // ?SetSwitch@mmAnimDOF@@QAEXH@Z
+    { 0x98E77685, 0x4A4AA0 }, // ?SetTCPLocalButton@NetSelectMenu@@QAEXH@Z
+    { 0xAD9C0CF5, 0x4A4AB0 }, // ?SetTCPNetButton@NetSelectMenu@@QAEXH@Z
+    { 0xD930B36A, 0x4A0F20 }, // ?SetTeam@CRSettings@@QAEXXZ
+    { 0x83056530, 0x4A0F40 }, // ?SetTeamWidget@CRSettings@@QAEXXZ
+    { 0x53AF3DBC, 0x4A16E0 }, // ?SetTeamWidgets@CRSettings@@QAEXXZ
+    { 0xE4A227B2, 0x49A050 }, // ?SetTexQualString@@YAXXZ
+    { 0xB9617C3D, 0x4BF260 }, // ?SetText@mmToolTip@@QAEXPAULocString@@@Z
+    { 0x45ACC29F, 0x4B97B0 }, // ?SetText@UILabel@@QAEXPAULocString@@@Z
+    { 0xD08DEEEF, 0x4B3E30 }, // ?SetText@UISlider@@QAEXPAULocString@@@Z
+    { 0x1C2776F1, 0x4B3500 }, // ?SetText@UITextDropdown@@QAEXPAULocString@@@Z
+    { 0xDA8BEF9A, 0x4B25F0 }, // ?SetText@UITextField@@QAEXPAULocString@@@Z
+    { 0x8C799A4A, 0x4BB8B0 }, // ?SetText@UITextRoller2@@QAEXXZ
+    { 0x08B7CF13, 0x4BAA20 }, // ?SetText@UITextRoller@@QAEXXZ
+    { 0x238D49C1, 0x4B92B0 }, // ?SetText@UITextScroll@@QAEXHPAULocString@@@Z
+    { 0x78F4E666, 0x4B9250 }, // ?SetTextColor@UITextScroll@@AAEXXZ
+    { 0x05A620BE, 0x4B2730 }, // ?SetTextField@UITextField@@QAEXXZ
+    { 0xA7AF84F0, 0x4FF8D0 }, // ?SetTextPosition@mmTextNode@@QAEXHMM@Z
+    { 0x25EFB1A0, 0x500250 }, // ?SetTexture@asParticles@@QAEXPAD@Z
+    { 0x10803341, 0x500220 }, // ?SetTexture@asParticles@@QAEXPAVagiTexDef@@@Z
+    { 0x4A2530A4, 0x495680 }, // ?SetTexture@mmSky@@QAEXPAVagiTexDef@@@Z
+    { 0xAE2DE020, 0x5513B0 }, // ?SetTexture@RDynamicDLP@@UAEXF@Z
+    { 0x1082CBC4, 0x52AF50 }, // ?SetTime@asDofCS@@QAEXMMH@Z
+    { 0xACBC3D50, 0x4D16E0 }, // ?SetTime@mmRecord@@QAEXM@Z
+    { 0xEE1D2F2A, 0x4A0F10 }, // ?SettingsCB@CRSettings@@QAEXXZ
+    { 0x1A4A7BFD, 0x4B48D0 }, // ?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z
+    { 0x7A861479, 0x55A600 }, // ?SetTransparency@agiBitmap@@QAEXH@Z
+    { 0x92D8C135, 0x4BD280 }, // ?SetTrough@UIVScrollBar@@QAEXMM@Z
+    { 0x930DA0BF, 0x4BF840 }, // ?SetTrough@VSWidget@@QAEXM@Z
+    { 0x8302A721, 0x4B9ED0 }, // ?SetType@UIButton@@QAEXH@Z
+    { 0xECBDED1F, 0x529C40 }, // ?SetUnderlay@asCamera@@QAEXPAD@Z
+    { 0x8E32E8B7, 0x529C80 }, // ?SetUnderlayCB@asCamera@@QAEXPAVagiBitmap@@PAVCallback@@@Z
+    { 0xF729FF4B, 0x40E3E0 }, // ?SetupArchiveTest@mmInterface@@QAEXAAH@Z
+    { 0x8A62D872, 0x4F2E10 }, // ?SetupChorusBuffer@SoundObj@@AAEPAUIDirectSoundBuffer@@PAD@Z
+    { 0x4C382935, 0x482AD0 }, // ?SetUpDefault@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z
+    { 0x8F01DD8F, 0x4F2CC0 }, // ?SetupDuplicateBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PAD@Z
+    { 0x015C1244, 0x4F2D70 }, // ?SetupEchoBuffer@SoundObj@@QAEXPAD@Z
+    { 0x72E0D823, 0x4F41F0 }, // ?SetupNotifications@AudStream@@QAEXXZ
+    { 0x9B035477, 0x4F58E0 }, // ?SetupNotifications@StreamObj@@QAEHXZ
+    { 0x361DBE4F, 0x4EB940 }, // ?SetupOneShotLayerBuffers@AudSound@@QAEXHMH@Z
+    { 0x9B7B44F6, 0x4F0E90 }, // ?SetupOneShotLayerBuffers@SoundObj@@QAEFFMPAD@Z
+    { 0x21664960, 0x4BEA10 }, // ?SetValue@mmSlider@@QAEMM@Z
+    { 0xDF9DF6CE, 0x4FD710 }, // ?SetValue@Spline@@QAEXPAM@Z
+    { 0xF7ED8D06, 0x4BE270 }, // ?SetValue@TextDropWidget@@QAEHH@Z
+    { 0x2CC38773, 0x4B4060 }, // ?SetValue@UISlider@@QAEMM@Z
+    { 0x15AC6CC3, 0x4B38C0 }, // ?SetValue@UITextDropdown@@QAEHH@Z
+    { 0x8250C71E, 0x4BB710 }, // ?SetValue@UITextRoller2@@QAEHH@Z
+    { 0x797A1069, 0x4BA8B0 }, // ?SetValue@UITextRoller@@QAEHH@Z
+    { 0x7701CE83, 0x4E7630 }, // ?SetValues@mmCollideFF@@UAEHMM@Z
+    { 0x2AEDD383, 0x4E7460 }, // ?SetValues@mmEffectFF@@UAEHMM@Z
+    { 0x4CC1ACB1, 0x4E7BB0 }, // ?SetValues@mmFrictionFF@@UAEHMM@Z
+    { 0x00EE5A96, 0x4E78C0 }, // ?SetValues@mmRoadFF@@UAEHMM@Z
+    { 0xFAFBDDA8, 0x4E7E50 }, // ?SetValues@mmSpringFF@@UAEHMM@Z
+    { 0xB4BA3BF1, 0x4F9F50 }, // ?SetVel@PointCamCS@@QAEXAAVVector3@@@Z
+    { 0x83186190, 0x4F25E0 }, // ?SetVelocity@SoundObj@@QAEXMMM@Z
+    { 0x1ADAB663, 0x52F7C0 }, // ?SetVertCount@agiD3DRasterizer@@UAEXH@Z
+    { 0xDE24493B, 0x537C30 }, // ?SetVertCount@agiSWRasterizer@@UAEXH@Z
+    { 0x7AA9C6FE, 0x529BC0 }, // ?SetView@asCamera@@QAEXMMMM@Z
+    { 0x47697768, 0x529B70 }, // ?SetViewport@asCamera@@QAEXMMMMH@Z
+    { 0x7B7F34F9, 0x4CE7D0 }, // ?SetViewSettings@mmPlayerConfig@@QAEXXZ
+    { 0xAEFD1310, 0x495AB0 }, // ?SetVisible@asPortalPVS@@QAEXI@Z
+    { 0x0F55FE9C, 0x4E9FF0 }, // ?SetVoiceCommentaryPtr@AudManager@@QAEXPAVmmVoiceCommentary@@@Z
+    { 0x8EA013A1, 0x44D0E0 }, // ?SetVoiceSoundPtr@aiPedestrian@@QAEXPAVAudSound@@@Z
+    { 0xE4623944, 0x4EB2D0 }, // ?SetVolume@AudSound@@QAEXMH@Z
+    { 0x99CA64A6, 0x4F3FE0 }, // ?SetVolume@AudStream@@QAEXMH@Z
+    { 0xC342D93C, 0x4F4890 }, // ?SetVolume@CReverb@@QAEXM@Z
+    { 0x194B4064, 0x4F2920 }, // ?SetVolume@SoundObj@@QAEXM@Z
+    { 0xAD2D49AD, 0x4F5860 }, // ?SetVolume@StreamObj@@QAEXM@Z
+    { 0xA5E2ADC0, 0x4F53B0 }, // ?SetVolumeEvent@StreamObj@@QAEXM@Z
+    { 0x2502B9CA, 0x4B56B0 }, // ?SetVScrollPos@UICompositeScroll@@QAEXXZ
+    { 0xED786533, 0x4B8090 }, // ?SetVScrollPos@UICWArray@@QAEXXZ
+    { 0xD1FC5C10, 0x4B8D60 }, // ?SetVScrollPos@UITextScroll@@QAEXXZ
+    { 0x24FFFAEE, 0x4B5660 }, // ?SetVScrollVals@UICompositeScroll@@QAEXXZ
+    { 0xBC7C4CAC, 0x4B8020 }, // ?SetVScrollVals@UICWArray@@QAEXXZ
+    { 0xB28834EE, 0x4B8D40 }, // ?SetVScrollVals@UITextScroll@@QAEXXZ
+    { 0x90B7E562, 0x485480 }, // ?SetWallHugeVolumeMultiplier@mmImpactAudio@@QAEXM@Z
+    { 0x0DF31798, 0x485460 }, // ?SetWallHugeVolumeRange@mmImpactAudio@@QAEXMM@Z
+    { 0x9AF06A62, 0x485440 }, // ?SetWallMedVolumeMultiplier@mmImpactAudio@@QAEXM@Z
+    { 0x878343E3, 0x485420 }, // ?SetWallMedVolumeRange@mmImpactAudio@@QAEXMM@Z
+    { 0x41355981, 0x485400 }, // ?SetWallSoftVolumeMultiplier@mmImpactAudio@@QAEXM@Z
+    { 0x7D1B4221, 0x4853E0 }, // ?SetWallSoftVolumeRange@mmImpactAudio@@QAEXMM@Z
+    { 0x5A78CDE9, 0x5634E0 }, // ?SetWantMotion@eqEventMonitor@@QAEXH@Z
+    { 0x877C0634, 0x49CF00 }, // ?SetWaveVolume@AudioOptions@@QAEXXZ
+    { 0xFEF6208D, 0x4AA9E0 }, // ?SetWaveVolume@PUAudioOptions@@QAEXXZ
+    { 0x037CD326, 0x485E40 }, // ?SetWheelPointers@mmOpponentSurfaceAudio@@QAEXPAVmmWheel@@000@Z
+    { 0x7A39E33F, 0x487B20 }, // ?SetWheelPointers@mmSurfaceAudio@@QAEXPAVmmWheel@@000@Z
+    { 0xA557850A, 0x42AC60 }, // ?SetWideFOV@mmPlayer@@QAEXH@Z
+    { 0xBFD9B39C, 0x488F20 }, // ?SetWobblePitch@mmSurfaceAudio@@QAEXMM@Z
+    { 0xDC7A2CBB, 0x488F40 }, // ?SetWobbleVol@mmSurfaceAudio@@QAEXMM@Z
+    { 0x71C14E72, 0x5578A0 }, // ?SetWorld@agiViewport@@UAEXAAVMatrix34@@@Z
+    { 0x36F5170A, 0x529250 }, // ?SetWorld@asCamera@@QAEXAAVMatrix34@@@Z
+    { 0xF73D0C32, 0x412A80 }, // ?SetWPCallback@mmGameEdit@@QAEXXZ
+    { 0x618AEB73, 0x425050 }, // ?SetWPCleared@mmCircuitHUD@@QAEXHH@Z
+    { 0x829BF40E, 0x405E80 }, // ?SetWPCleared@mmHUD@@QAEXHH@Z
+    { 0x870FFCA9, 0x424360 }, // ?SetWPCleared@mmWPHUD@@QAEXXZ
+    { 0xFDCD3EA3, 0x4D9450 }, // ?SetZeroDOF@asInertialCS@@QAEXMM@Z
+    { 0x98C43EB0, 0x4FFF00 }, // ?SetZRead@asMeshSetForm@@QAEXH@Z
+    { 0x085EA776, 0x4FFF20 }, // ?SetZWrite@asMeshSetForm@@QAEXH@Z
+    { 0x462C1188, 0x507920 }, // ?ShadowGeometry@agiMeshSet@@QAEHIPAVVector3@@ABVVector4@@ABV2@@Z
+    { 0xCB575209, 0x504C80 }, // ?ShadowInit@agiMeshSet@@KIXABVVector4@@ABVVector3@@@Z
+    { 0xE50A2CF7, 0x505360 }, // ?ShadowTransform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z
+    { 0x2787185F, 0x505A30 }, // ?ShadowTransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z
+    { 0x3A72240B, 0x433540 }, // ?ShelterOff@mmRainAudio@@QAEXXZ
+    { 0x1D0D9A26, 0x4334D0 }, // ?ShelterOn@mmRainAudio@@QAEXXZ
+    { 0xC679FDFB, 0x46E7E0 }, // ?ShouldSkid@mmCarSim@@QAEHXZ
+    { 0x47718683, 0x405390 }, // ?ShowClockTime@mmHUD@@QAEXXZ
+    { 0xC8EA18D8, 0x408790 }, // ?ShowLockedVehicleMessage@mmInterface@@QAEXXZ
+    { 0xE0E211F4, 0x408670 }, // ?ShowMain@mmInterface@@QAEXH@Z
+    { 0xF4FEEA3A, 0x4274D0 }, // ?ShowResults@mmPopup@@QAEXXZ
+    { 0x8D27DD47, 0x427560 }, // ?ShowRoster@mmPopup@@QAEXXZ
+    { 0xE6FCD36F, 0x40CDA0 }, // ?ShowSessions@mmInterface@@AAEXXZ
+    { 0xE759BBF7, 0x4A44C0 }, // ?ShowTCPIPNetSessions@NetSelectMenu@@QAEXXZ
+    { 0xFFDF5CB6, 0x577070 }, // ?Shutdown@DataCache@@QAEXXZ
+    { 0x9A4028A0, 0x578920 }, // ?Shutdown@ipcMessageQueue@@QAEXXZ
+    { 0xBE6F4197, 0x48B810 }, // ?Shutdown@mmLoader@@QAEXXZ
+    { 0x7BF9E146, 0x4D4520 }, // ?Shutdown@mmPhysicsMGR@@QAEXXZ
+    { 0x827F9D4F, 0x556530 }, // ?ShutdownLutQueue@@YAXXZ
+    { 0x4F75B93A, 0x5232D0 }, // ?ShutdownPipeline@@YAXXZ
+    { 0x1BD2FBAF, 0x564860 }, // ?ShutdownPlayback@eqReplay@@SAXXZ
+    { 0x0D091A76, 0x5646B0 }, // ?ShutdownPlayback@eqReplayChannel@@UAEXXZ
+    { 0xDE678E15, 0x564800 }, // ?ShutdownRecord@eqReplay@@SAXXZ
+    { 0x0A778578, 0x5646A0 }, // ?ShutdownRecord@eqReplayChannel@@UAEXXZ
+    { 0xB36456F9, 0x4FE140 }, // ?Sim@mmGameRecord@@QAEXXZ
+    { 0x1B14AB7E, 0x522A60 }, // ?Simulate@asSimulation@@QAEXXZ
+    { 0xFB4B05A4, 0x55ECA0 }, // ?Size@Stream@@QAEHXZ
+    { 0x5B5B8965, 0x57B900 }, // ?SizeOf@ArrayOfType@@UAEIXZ
+    { 0x7C90DBC3, 0x57BA30 }, // ?SizeOf@CharType@@UAEIXZ
+    { 0xCD49E9B6, 0x57C0E0 }, // ?SizeOf@FloatType@@UAEIXZ
+    { 0xEB13FB17, 0x494490 }, // ?SizeOf@mmBuildingInstance@@UAEIXZ
+    { 0x496FCEFD, 0x4CB7D0 }, // ?SizeOf@mmDofBangerInstance@@UAEIXZ
+    { 0x29A5CA6C, 0x494000 }, // ?SizeOf@mmFacadeInstance@@UAEIXZ
+    { 0xFA4E96BB, 0x4CAEC0 }, // ?SizeOf@mmHitBangerInstance@@UAEIXZ
+    { 0x3BC0BCBC, 0x493120 }, // ?SizeOf@mmInstance@@UAEIXZ
+    { 0x6D078B1E, 0x4935C0 }, // ?SizeOf@mmMatrixInstance@@UAEIXZ
+    { 0xD7F93DF6, 0x494290 }, // ?SizeOf@mmShearInstance@@UAEIXZ
+    { 0xD0FC27C6, 0x494210 }, // ?SizeOf@mmStaticInstance@@UAEIXZ
+    { 0x31BA3A45, 0x444750 }, // ?SizeOf@mmUnhitBangerInstance@@UAEIXZ
+    { 0x62A3A898, 0x4933A0 }, // ?SizeOf@mmYInstance@@UAEIXZ
+    { 0x4CCA6525, 0x57B5F0 }, // ?SizeOf@PtrToType@@UAEIXZ
+    { 0x81243269, 0x57B7C0 }, // ?SizeOf@RefToType@@UAEIXZ
+    { 0x41476EE3, 0x57BB00 }, // ?SizeOf@SignedCharType@@UAEIXZ
+    { 0x221CB143, 0x57BF30 }, // ?SizeOf@SignedInt64Type@@UAEIXZ
+    { 0x0766C02F, 0x57BE50 }, // ?SizeOf@SignedIntType@@UAEIXZ
+    { 0x8FBA4553, 0x57BCA0 }, // ?SizeOf@SignedShortType@@UAEIXZ
+    { 0x1E19A081, 0x57C270 }, // ?SizeOf@StringType@@UAEIXZ
+    { 0xB5B62CBD, 0x57B9A0 }, // ?SizeOf@StructType@@UAEIXZ
+    { 0x05511D9F, 0x57BBD0 }, // ?SizeOf@UnsignedCharType@@UAEIXZ
+    { 0xC7A6DD6E, 0x57C000 }, // ?SizeOf@UnsignedIntType@@UAEIXZ
+    { 0xC2559F2F, 0x57BD80 }, // ?SizeOf@UnsignedShortType@@UAEIXZ
+    { 0x3A6FA68A, 0x5716A0 }, // ?SizeOf@Vector2Type@@UAEIXZ
+    { 0xE6CCD71D, 0x567390 }, // ?SizeOf@Vector3Type@@UAEIXZ
+    { 0x1718700E, 0x56E470 }, // ?SizeOf@Vector4Type@@UAEIXZ
+    { 0x32A41ABD, 0x577DE0 }, // ?SkipBlock@MetaClass@@QAEXPAVMiniParser@@@Z
+    { 0xF6698C20, 0x576860 }, // ?Sleep@Timer@@SAXH@Z
+    { 0x9E99E0B9, 0x572F60 }, // ?Slerp@Quaternion@@QAEXMABV1@0@Z
+    { 0x46D5F396, 0x565990 }, // ?Slerp@Vector3@@QAEXMABV1@0@Z
+    { 0x7FBCE74F, 0x4FD880 }, // ?Solve@Spline@@QAEXM@Z
+    { 0x95EDC9B5, 0x45F0B0 }, // ?SolveLane@aiGoalRandomDrive@@AAEXXZ
+    { 0xCED1097D, 0x4593F0 }, // ?SolveNextLane@aiRailSet@@QAEXXZ
+    { 0x603FF5F2, 0x45E250 }, // ?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z
+    { 0xE3CC8D6C, 0x44CE50 }, // ?SolvePosition@aiPedestrian@@AAEXAAVVector3@@M@Z
+    { 0x0BBAFBA8, 0x4C5560 }, // ?SolvePosition@mmAnimPlane@@QAEXAAVVector3@@AAM@Z
+    { 0x0D4276B0, 0x4C65D0 }, // ?SolvePosition@mmAnimTrain@@QAEXAAVVector3@@AAM@Z
+    { 0xE70C02BA, 0x4C76C0 }, // ?SolvePosition@mmBoat@@QAEXAAVVector3@@AAM@Z
+    { 0x197514A8, 0x45A3A0 }, // ?SolvePositionAndOrientation@aiVehicleSpline@@QAEXXZ
+    { 0x0EFBEDBD, 0x45E2A0 }, // ?SolveRailType@aiGoalRandomDrive@@AAEXXZ
+    { 0x84FD1C1F, 0x44AD90 }, // ?SolveRoadSegment@aiPedestrian@@AAEXM@Z
+    { 0xFF9BCAAE, 0x567A30 }, // ?SolveSVD@Matrix34@@QBE?AVVector3@@ABV2@@Z
+    { 0xA70AB98C, 0x469E10 }, // ?SolveTargetPoint@aiGoalFollowWayPts@@AAEXXZ
+    { 0xFD504203, 0x44C670 }, // ?SolveTargetPoint@aiPedestrian@@AAEXM@Z
+    { 0x207DF7A2, 0x459470 }, // ?SolveTurnType@aiRailSet@@QAEHPAVaiPath@@0@Z
+    { 0x6067E856, 0x4C58F0 }, // ?SolveVector@mmAnimPlane@@QAEXMAAVVector3@@0@Z
+    { 0xFDCA3D5A, 0x4C7B20 }, // ?SolveVector@mmBoat@@QAEXMAAVVector3@@0@Z
+    { 0x1FD5DC37, 0x45D470 }, // ?SolveVelocity@aiGoalRandomDrive@@AAEXXZ
+    { 0x70C00155, 0x459AF0 }, // ?SolveXZCurve@aiRailSet@@QAEXAAVVector3@@0M@Z
+    { 0x0F93F86F, 0x4C6B70 }, // ?SolveXZCurve@mmAnimTrain@@QAEXAAVVector3@@0M@Z
+    { 0xA70581E7, 0x4C7D80 }, // ?SolveXZCurve@mmBoat@@QAEXAAVVector3@@0M@Z
+    { 0xDA201145, 0x459B80 }, // ?SolveXZPosition@aiRailSet@@QAEXAAVVector3@@M@Z
+    { 0x038C0E11, 0x45AAB0 }, // ?SolveYPositionAndOrientation@aiVehicleSpline@@QAEXXZ
+    { 0x05996026, 0x4605B0 }, // ?Speeding@aiGoalChase@@AAEHPAVmmCar@@@Z
+    { 0x39FA8C67, 0x51ED80 }, // ?SphereGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0x22A1FA54, 0x50E1D0 }, // ?SphereMap@agiMeshSet@@QAEXPAVagiTexDef@@I@Z
+    { 0x94BDB32C, 0x51EBE0 }, // ?SphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0x562C6091, 0x51EEB0 }, // ?SphereTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    { 0x63551ABD, 0x557490 }, // ?SphereVisible@agiViewParameters@@QAEHAAVVector3@@M@Z
+    { 0x6C95F180, 0x529DB0 }, // ?SphereVisible@asCamera@@QAEMABVVector3@@MPAM@Z
+    { 0x0BA4E3E3, 0x481050 }, // ?SplashCB@@YAXPAVmmSplash@@@Z
+    { 0x23F03C6C, 0x570F10 }, // ?sqrtf_faster@@YAMM@Z
+    { 0x33978FF0, 0x520590 }, // ?StackTraceback@@YAXH@Z
+    { 0x21BA260F, 0x481700 }, // ?Start@mmCarRoadFF@@QAEXXZ
+    { 0x8369AF4C, 0x4062A0 }, // ?Start@mmTimer@@QAEXXZ
+    { 0xE7A60770, 0x4FBD10 }, // ?StartNextTransition@TransitionCS@@QAEXXZ
+    { 0x76B8CCEE, 0x404790 }, // ?StartReplay@mmGameManager@@QAEXXZ
+    { 0xAADC4F24, 0x473E20 }, // ?StartSiren@mmCar@@QAEXXZ
+    { 0x3C87D6C6, 0x46C4A0 }, // ?StartSiren@mmCarSim@@QAEXXZ
+    { 0xCE4B3CF8, 0x484290 }, // ?StartSiren@mmNetworkCarAudio@@QAEXXZ
+    { 0x6D06C498, 0x482460 }, // ?StartSiren@mmPlayerCarAudio@@QAEXXZ
+    { 0x7A9960AB, 0x47A910 }, // ?StartSiren@mmPoliceCarAudio@@QAEXXZ
+    { 0x456FF9F1, 0x4062C0 }, // ?StartStop@mmTimer@@QAEXXZ
+    { 0x53537FB6, 0x405320 }, // ?StartTimers@mmHUD@@QAEXXZ
+    { 0xB8FB45F2, 0x4FBCA0 }, // ?StartTransition@TransitionCS@@QAEXXZ
+    { 0x2135388A, 0x430CC0 }, // ?StartXYZ@mmGameMulti@@IAEXHAAVVector3@@0MM@Z
+    { 0x9C874E4C, 0x44EA60 }, // ?State@aiPoliceForce@@QAEHPAVmmCar@@0M@Z
+    { 0x65DCC86F, 0x435770 }, // ?Stats@aiMap@@QAEXXZ
+    { 0x7F1F3881, 0x497400 }, // ?Stats@asPortalWeb@@QAEXXZ
+    { 0x476E955D, 0x410050 }, // ?Stats@mmGame@@QAEXXZ
+    { 0x69505A74, 0x4D5520 }, // ?Stats@mmPhysicsMGR@@IAEXXZ
+    { 0xD7E24EC5, 0x524E70 }, // ?Statsf@@YAXPBDZZ
+    { 0xBF2CBB2B, 0x561950 }, // ?Stderr@FileStream@@QAEHXZ
+    { 0x79CE8749, 0x561910 }, // ?Stdin@FileStream@@QAEHXZ
+    { 0xFC7DEEF9, 0x561930 }, // ?Stdout@FileStream@@QAEHXZ
+    { 0xAF4E7803, 0x41D8C0 }, // ?StealGold@mmMultiCR@@AAEXPAVmmCar@@@Z
+    { 0xC7AD0E42, 0x44D160 }, // ?Stop@aiPedestrian@@QAEXXZ
+    { 0xA0F3F0F6, 0x4EB1B0 }, // ?Stop@AudSound@@QAEXXZ
+    { 0x975A6748, 0x4F3EF0 }, // ?Stop@AudStream@@QAEXXZ
+    { 0xD9F43F75, 0x4F4560 }, // ?Stop@CDMan@@QAEKXZ
+    { 0x9DD452BC, 0x486DB0 }, // ?Stop@EngineAudio@@QAEXXZ
+    { 0xC9A0FF31, 0x481720 }, // ?Stop@mmCarRoadFF@@QAEXXZ
+    { 0x48B42FDA, 0x4E77B0 }, // ?Stop@mmCollideFF@@UAEHXZ
+    { 0x51228044, 0x4E7450 }, // ?Stop@mmEffectFF@@UAEHXZ
+    { 0x42CB8C98, 0x4E7D10 }, // ?Stop@mmFrictionFF@@UAEHXZ
+    { 0x5075D7BE, 0x4E7A50 }, // ?Stop@mmRoadFF@@UAEHXZ
+    { 0x945A3375, 0x4E7FE0 }, // ?Stop@mmSpringFF@@UAEHXZ
+    { 0x1876DB5C, 0x4062B0 }, // ?Stop@mmTimer@@QAEXXZ
+    { 0x40F9E482, 0x4EC190 }, // ?Stop@mmVoiceCommentary@@QAEXXZ
+    { 0x09A925F9, 0x4F2120 }, // ?Stop@SoundObj@@QAEHXZ
+    { 0x2F551B63, 0x4F5510 }, // ?Stop@StreamObj@@QAEHXZ
+    { 0x27C59DD7, 0x4E3A90 }, // ?StopAllFF@mmInput@@QAEXXZ
+    { 0xBE7B19DD, 0x4E5FC0 }, // ?StopAllFF@mmJoyMan@@QAEXXZ
+    { 0x8560FE36, 0x4E9180 }, // ?StopAllSounds@AudManager@@QAEXXZ
+    { 0x5F17949B, 0x4E93E0 }, // ?StopCD@AudManager@@QAEXXZ
+    { 0x80E45FB9, 0x43E5D0 }, // ?StopDestinationSources@aiPath@@QAEXH@Z
+    { 0x3FECFA88, 0x4EB1F0 }, // ?StopEchoBuffers@AudSound@@QAEXXZ
+    { 0xE786ECB2, 0x4F21B0 }, // ?StopEchoBuffers@SoundObj@@QAEXXZ
+    { 0x1447135C, 0x4E6D60 }, // ?StopFriction@mmJoystick@@QAEHXZ
+    { 0xB8982E56, 0x4500F0 }, // ?StopHorn@aiVehicleAmbient@@QAEXXZ
+    { 0xA3B911F3, 0x46C430 }, // ?StopHorn@mmCarSim@@QAEXXZ
+    { 0x2F21D6E6, 0x43E510 }, // ?StopIncomingRoads@aiPath@@QAEXH@Z
+    { 0xE4564D38, 0x4F3F10 }, // ?StopNow@AudStream@@QAEXXZ
+    { 0xADEEA666, 0x4EC1A0 }, // ?StopNow@mmVoiceCommentary@@QAEXXZ
+    { 0xAA492F1A, 0x460640 }, // ?Stopped@aiGoalChase@@AAEHPAVmmCar@@@Z
+    { 0xC3B657D8, 0x48A9A0 }, // ?StopSessionsAsynch@asNetwork@@QAEXXZ
+    { 0x7954F916, 0x4E6C80 }, // ?StopShake@mmJoystick@@QAEHXZ
+    { 0x51CD35ED, 0x473E40 }, // ?StopSiren@mmCar@@QAEXXZ
+    { 0xFCA4A8D1, 0x46C4D0 }, // ?StopSiren@mmCarSim@@QAEXXZ
+    { 0xFD32DA40, 0x484250 }, // ?StopSiren@mmNetworkCarAudio@@QAEXXZ
+    { 0x70A18766, 0x4824F0 }, // ?StopSiren@mmPlayerCarAudio@@QAEXXZ
+    { 0x15B38504, 0x47A9C0 }, // ?StopSiren@mmPoliceCarAudio@@QAEXXZ
+    { 0xEE44D31E, 0x4E6D00 }, // ?StopSteer@mmJoystick@@QAEHXZ
+    { 0xF3918C48, 0x405340 }, // ?StopTimers@mmHUD@@QAEXXZ
+    { 0x78281ACF, 0x450A30 }, // ?StopVoice@aiVehicleAmbient@@UAEXXZ
+    { 0x140FCEDF, 0x446610 }, // ?StopVoice@aiVehicleSpline@@UAEXXZ
+    { 0xD12F645B, 0x49D0C0 }, // ?StoreCurrentSetup@AudioOptions@@UAEXXZ
+    { 0x16EB8FA4, 0x4A36A0 }, // ?StoreCurrentSetup@ControlSetup@@UAEXXZ
+    { 0x7EEEBC9F, 0x49A6D0 }, // ?StoreCurrentSetup@OptionsBase@@UAEXXZ
+    { 0x905720E8, 0x574DF0 }, // ?strtoguid@@YAXPAU_GUID@@PAD@Z
+    { 0xDC96F9B2, 0x4703A0 }, // ?Struct@@YAPAUMetaType@@PAVMetaClass@@@Z
+    { 0x7EE56A97, 0x46B470 }, // ?StuckCB@@YAXPAVaiStuck@@@Z
+    { 0x7AD0FB5F, 0x47C4F0 }, // ?StuckCB@@YAXPAVmmStuck@@@Z
+    { 0x95EEBD4F, 0x43F780 }, // ?SubSectionDir@aiPath@@QAEXAAVVector3@@HHM@Z
+    { 0x3D8D0055, 0x43E780 }, // ?SubSectionDist@aiPath@@QAEMMH@Z
+    { 0xB6D6184D, 0x43E690 }, // ?SubSectionLength@aiPath@@QAEMHH@Z
+    { 0x83A75127, 0x43F710 }, // ?SubSectionPt@aiPath@@QAEXAAVVector3@@HHM@Z
+    { 0x5CC85D8B, 0x55FAF0 }, // ?SubString@@YAPADHPAD@Z
+    { 0x7FF4634C, 0x57ACB0 }, // ?SubString@string@@QBE?AV1@H@Z
+    { 0x92D20821, 0x4E9620 }, // ?Supports16Bit@AudManager@@QAEFXZ
+    { 0x7E6D7BC1, 0x535340 }, // ?swAddEdge@@YAXHH@Z
+    { 0xF7D47599, 0x55F240 }, // ?SwapLongs@Stream@@CAXPAKH@Z
+    { 0xA4D2C59E, 0x55F210 }, // ?SwapShorts@Stream@@CAXPAGH@Z
+    { 0x1827C99B, 0x537690 }, // ?swClampAdd555@@YIIII@Z
+    { 0x153D029E, 0x537650 }, // ?swClampAdd565@@YIIII@Z
+    { 0xB310D5AF, 0x537610 }, // ?swClampAddColor555@@YIII@Z
+    { 0xB8434C06, 0x5375D0 }, // ?swClampAddColor565@@YIII@Z
+    { 0x3689F0A3, 0x536840 }, // ?swComputeIntensity@@YAHAAUagiScreenVtx@@@Z
+    { 0xCE172D6F, 0x534690 }, // ?swCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
+    { 0x84A0534C, 0x549B40 }, // ?swEmitRun0_NoZChromaDecalLinearSolidCUCV@@YIXH@Z
+    { 0x9BE94EED, 0x53E7C0 }, // ?swEmitRun0_NoZChromaDecalLinearSolidCUWV@@YIXH@Z
+    { 0xB5AF3680, 0x5441D0 }, // ?swEmitRun0_NoZChromaDecalLinearSolidWUCV@@YIXH@Z
+    { 0x58A6953C, 0x539D20 }, // ?swEmitRun0_NoZChromaDecalLinearSolidWUWV@@YIXH@Z
+    { 0x832F1449, 0x549F40 }, // ?swEmitRun0_NoZChromaDecalLinearStippleCUCV@@YIXH@Z
+    { 0xB6FA6D72, 0x53EB30 }, // ?swEmitRun0_NoZChromaDecalLinearStippleCUWV@@YIXH@Z
+    { 0x88AE0AC6, 0x544520 }, // ?swEmitRun0_NoZChromaDecalLinearStippleWUCV@@YIXH@Z
+    { 0x11E892B7, 0x539FA0 }, // ?swEmitRun0_NoZChromaDecalLinearStippleWUWV@@YIXH@Z
+    { 0xD2FFFAE4, 0x54CD00 }, // ?swEmitRun0_NoZChromaDecalParaSolidCUCV@@YIXH@Z
+    { 0x2EF7D370, 0x541340 }, // ?swEmitRun0_NoZChromaDecalParaSolidCUWV@@YIXH@Z
+    { 0x87F22981, 0x546C70 }, // ?swEmitRun0_NoZChromaDecalParaSolidWUCV@@YIXH@Z
+    { 0xDAD2BB1F, 0x53C020 }, // ?swEmitRun0_NoZChromaDecalParaSolidWUWV@@YIXH@Z
+    { 0xC7344FC8, 0x54D160 }, // ?swEmitRun0_NoZChromaDecalParaStippleCUCV@@YIXH@Z
+    { 0x6C1CDAA4, 0x541710 }, // ?swEmitRun0_NoZChromaDecalParaStippleCUWV@@YIXH@Z
+    { 0x9EE134FE, 0x547020 }, // ?swEmitRun0_NoZChromaDecalParaStippleWUCV@@YIXH@Z
+    { 0x079C2C16, 0x53C320 }, // ?swEmitRun0_NoZChromaDecalParaStippleWUWV@@YIXH@Z
+    { 0x179F9011, 0x54B3B0 }, // ?swEmitRun0_NoZChromaModulateLinearSolidCUCV@@YIXH@Z
+    { 0x0392DA7F, 0x53FD00 }, // ?swEmitRun0_NoZChromaModulateLinearSolidCUWV@@YIXH@Z
+    { 0x1D8790B7, 0x5456D0 }, // ?swEmitRun0_NoZChromaModulateLinearSolidWUCV@@YIXH@Z
+    { 0x69E39D58, 0x53AE30 }, // ?swEmitRun0_NoZChromaModulateLinearSolidWUWV@@YIXH@Z
+    { 0x36F51199, 0x54B7E0 }, // ?swEmitRun0_NoZChromaModulateLinearStippleCUCV@@YIXH@Z
+    { 0x8828BB6D, 0x5400A0 }, // ?swEmitRun0_NoZChromaModulateLinearStippleCUWV@@YIXH@Z
+    { 0xD8456AAE, 0x545A40 }, // ?swEmitRun0_NoZChromaModulateLinearStippleWUCV@@YIXH@Z
+    { 0xF504B02F, 0x53B0E0 }, // ?swEmitRun0_NoZChromaModulateLinearStippleWUWV@@YIXH@Z
+    { 0xD16B8C78, 0x54E7E0 }, // ?swEmitRun0_NoZChromaModulateParaSolidCUCV@@YIXH@Z
+    { 0xE48A8AC8, 0x542B00 }, // ?swEmitRun0_NoZChromaModulateParaSolidCUWV@@YIXH@Z
+    { 0x09EA11CB, 0x5483C0 }, // ?swEmitRun0_NoZChromaModulateParaSolidWUCV@@YIXH@Z
+    { 0x22DFC153, 0x53D3B0 }, // ?swEmitRun0_NoZChromaModulateParaSolidWUWV@@YIXH@Z
+    { 0x1C01B8E4, 0x54EC70 }, // ?swEmitRun0_NoZChromaModulateParaStippleCUCV@@YIXH@Z
+    { 0x312EA7AA, 0x542EF0 }, // ?swEmitRun0_NoZChromaModulateParaStippleCUWV@@YIXH@Z
+    { 0x6B9524B8, 0x5487A0 }, // ?swEmitRun0_NoZChromaModulateParaStippleWUCV@@YIXH@Z
+    { 0x4C26E482, 0x53D6C0 }, // ?swEmitRun0_NoZChromaModulateParaStippleWUWV@@YIXH@Z
+    { 0xB8E21663, 0x54A370 }, // ?swEmitRun0_NoZGlowDecalLinearSolidCUCV@@YIXH@Z
+    { 0xC832E2DE, 0x53EED0 }, // ?swEmitRun0_NoZGlowDecalLinearSolidCUWV@@YIXH@Z
+    { 0x529D0FA5, 0x5448C0 }, // ?swEmitRun0_NoZGlowDecalLinearSolidWUCV@@YIXH@Z
+    { 0x451D46E3, 0x53A270 }, // ?swEmitRun0_NoZGlowDecalLinearSolidWUWV@@YIXH@Z
+    { 0x7EB21F93, 0x54A790 }, // ?swEmitRun0_NoZGlowDecalLinearStippleCUCV@@YIXH@Z
+    { 0x84CD5C93, 0x53F260 }, // ?swEmitRun0_NoZGlowDecalLinearStippleCUWV@@YIXH@Z
+    { 0xE1698EF0, 0x544C40 }, // ?swEmitRun0_NoZGlowDecalLinearStippleWUCV@@YIXH@Z
+    { 0x8A7D520A, 0x53A590 }, // ?swEmitRun0_NoZGlowDecalLinearStippleWUWV@@YIXH@Z
+    { 0x2AD7A7E8, 0x54D5F0 }, // ?swEmitRun0_NoZGlowDecalParaSolidCUCV@@YIXH@Z
+    { 0x5AB60DC3, 0x541B10 }, // ?swEmitRun0_NoZGlowDecalParaSolidCUWV@@YIXH@Z
+    { 0x542A72A6, 0x547410 }, // ?swEmitRun0_NoZGlowDecalParaSolidWUCV@@YIXH@Z
+    { 0xE2C8F5E9, 0x53C660 }, // ?swEmitRun0_NoZGlowDecalParaSolidWUWV@@YIXH@Z
+    { 0x961FDB82, 0x54DA70 }, // ?swEmitRun0_NoZGlowDecalParaStippleCUCV@@YIXH@Z
+    { 0x851E86FB, 0x541F10 }, // ?swEmitRun0_NoZGlowDecalParaStippleCUWV@@YIXH@Z
+    { 0x3B499F51, 0x547810 }, // ?swEmitRun0_NoZGlowDecalParaStippleWUCV@@YIXH@Z
+    { 0xDB063B6C, 0x53C9E0 }, // ?swEmitRun0_NoZGlowDecalParaStippleWUWV@@YIXH@Z
+    { 0xB073818E, 0x54BC40 }, // ?swEmitRun0_NoZGlowModulateLinearSolidCUCV@@YIXH@Z
+    { 0xCC62E72E, 0x540470 }, // ?swEmitRun0_NoZGlowModulateLinearSolidCUWV@@YIXH@Z
+    { 0xDD30E85B, 0x545E00 }, // ?swEmitRun0_NoZGlowModulateLinearSolidWUCV@@YIXH@Z
+    { 0xEC3C9943, 0x53B3C0 }, // ?swEmitRun0_NoZGlowModulateLinearSolidWUWV@@YIXH@Z
+    { 0x7F67C395, 0x54C060 }, // ?swEmitRun0_NoZGlowModulateLinearStippleCUCV@@YIXH@Z
+    { 0xA72E3175, 0x540800 }, // ?swEmitRun0_NoZGlowModulateLinearStippleCUWV@@YIXH@Z
+    { 0x26206C48, 0x546180 }, // ?swEmitRun0_NoZGlowModulateLinearStippleWUCV@@YIXH@Z
+    { 0x2EB6F6BF, 0x53B6E0 }, // ?swEmitRun0_NoZGlowModulateLinearStippleWUWV@@YIXH@Z
+    { 0xE7151A0D, 0x54F130 }, // ?swEmitRun0_NoZGlowModulateParaSolidCUCV@@YIXH@Z
+    { 0x09278F05, 0x543320 }, // ?swEmitRun0_NoZGlowModulateParaSolidCUWV@@YIXH@Z
+    { 0x168E4695, 0x548BA0 }, // ?swEmitRun0_NoZGlowModulateParaSolidWUCV@@YIXH@Z
+    { 0x0795D74C, 0x53DA10 }, // ?swEmitRun0_NoZGlowModulateParaSolidWUWV@@YIXH@Z
+    { 0xFA2DF59D, 0x54F5B0 }, // ?swEmitRun0_NoZGlowModulateParaStippleCUCV@@YIXH@Z
+    { 0x98FFD062, 0x543720 }, // ?swEmitRun0_NoZGlowModulateParaStippleCUWV@@YIXH@Z
+    { 0x0E045307, 0x548FA0 }, // ?swEmitRun0_NoZGlowModulateParaStippleWUCV@@YIXH@Z
+    { 0x533F3293, 0x53DD90 }, // ?swEmitRun0_NoZGlowModulateParaStippleWUWV@@YIXH@Z
+    { 0x5CE90071, 0x5493C0 }, // ?swEmitRun0_NoZOpaqueDecalLinearSolidCUCV@@YIXH@Z
+    { 0xE4C39554, 0x53E150 }, // ?swEmitRun0_NoZOpaqueDecalLinearSolidCUWV@@YIXH@Z
+    { 0xE68E9236, 0x543B60 }, // ?swEmitRun0_NoZOpaqueDecalLinearSolidWUCV@@YIXH@Z
+    { 0x466E861B, 0x549770 }, // ?swEmitRun0_NoZOpaqueDecalLinearStippleCUCV@@YIXH@Z
+    { 0x578FF176, 0x53E470 }, // ?swEmitRun0_NoZOpaqueDecalLinearStippleCUWV@@YIXH@Z
+    { 0xAFAB7439, 0x543E80 }, // ?swEmitRun0_NoZOpaqueDecalLinearStippleWUCV@@YIXH@Z
+    { 0xE51C6C62, 0x539A70 }, // ?swEmitRun0_NoZOpaqueDecalLinearStippleWUWV@@YIXH@Z
+    { 0xBF110AE9, 0x54C4B0 }, // ?swEmitRun0_NoZOpaqueDecalParaSolidCUCV@@YIXH@Z
+    { 0xE96A8498, 0x540BD0 }, // ?swEmitRun0_NoZOpaqueDecalParaSolidCUWV@@YIXH@Z
+    { 0x0E3283AE, 0x546540 }, // ?swEmitRun0_NoZOpaqueDecalParaSolidWUCV@@YIXH@Z
+    { 0x010CD061, 0x53BA30 }, // ?swEmitRun0_NoZOpaqueDecalParaSolidWUWV@@YIXH@Z
+    { 0xB3060CF3, 0x54C8C0 }, // ?swEmitRun0_NoZOpaqueDecalParaStippleCUCV@@YIXH@Z
+    { 0xF9D67016, 0x540F70 }, // ?swEmitRun0_NoZOpaqueDecalParaStippleCUWV@@YIXH@Z
+    { 0xA019404F, 0x5468C0 }, // ?swEmitRun0_NoZOpaqueDecalParaStippleWUCV@@YIXH@Z
+    { 0x69AC02D5, 0x53BD10 }, // ?swEmitRun0_NoZOpaqueDecalParaStippleWUWV@@YIXH@Z
+    { 0xB7ACCCD8, 0x54ABE0 }, // ?swEmitRun0_NoZOpaqueModulateLinearSolidCUCV@@YIXH@Z
+    { 0xAE76A63C, 0x53F630 }, // ?swEmitRun0_NoZOpaqueModulateLinearSolidCUWV@@YIXH@Z
+    { 0xC7AC2849, 0x545000 }, // ?swEmitRun0_NoZOpaqueModulateLinearSolidWUCV@@YIXH@Z
+    { 0x5361F5F5, 0x53A8E0 }, // ?swEmitRun0_NoZOpaqueModulateLinearSolidWUWV@@YIXH@Z
+    { 0x02A450E0, 0x54AFB0 }, // ?swEmitRun0_NoZOpaqueModulateLinearStippleCUCV@@YIXH@Z
+    { 0x432FD7A5, 0x53F980 }, // ?swEmitRun0_NoZOpaqueModulateLinearStippleCUWV@@YIXH@Z
+    { 0x8A1EA150, 0x545350 }, // ?swEmitRun0_NoZOpaqueModulateLinearStippleWUCV@@YIXH@Z
+    { 0x8FF3D2A9, 0x53AB70 }, // ?swEmitRun0_NoZOpaqueModulateLinearStippleWUWV@@YIXH@Z
+    { 0xE2BEFA8A, 0x54DF30 }, // ?swEmitRun0_NoZOpaqueModulateParaSolidCUCV@@YIXH@Z
+    { 0xA8375781, 0x542350 }, // ?swEmitRun0_NoZOpaqueModulateParaSolidCUWV@@YIXH@Z
+    { 0x3390504E, 0x547C30 }, // ?swEmitRun0_NoZOpaqueModulateParaSolidWUCV@@YIXH@Z
+    { 0xF88ED741, 0x53CDA0 }, // ?swEmitRun0_NoZOpaqueModulateParaSolidWUWV@@YIXH@Z
+    { 0x60ECCC47, 0x54E370 }, // ?swEmitRun0_NoZOpaqueModulateParaStippleCUCV@@YIXH@Z
+    { 0x48D1CA3B, 0x542710 }, // ?swEmitRun0_NoZOpaqueModulateParaStippleCUWV@@YIXH@Z
+    { 0x3AEE8BC3, 0x547FE0 }, // ?swEmitRun0_NoZOpaqueModulateParaStippleWUCV@@YIXH@Z
+    { 0x2A9D83E2, 0x53D080 }, // ?swEmitRun0_NoZOpaqueModulateParaStippleWUWV@@YIXH@Z
+    { 0x5F54FCC9, 0x549C60 }, // ?swEmitRun0_ZReadChromaDecalLinearSolidCUCV@@YIXH@Z
+    { 0xEB163A40, 0x53E8B0 }, // ?swEmitRun0_ZReadChromaDecalLinearSolidCUWV@@YIXH@Z
+    { 0x9DE3E038, 0x5442B0 }, // ?swEmitRun0_ZReadChromaDecalLinearSolidWUCV@@YIXH@Z
+    { 0x06E2664A, 0x539DC0 }, // ?swEmitRun0_ZReadChromaDecalLinearSolidWUWV@@YIXH@Z
+    { 0xA1F7C3AC, 0x54A070 }, // ?swEmitRun0_ZReadChromaDecalLinearStippleCUCV@@YIXH@Z
+    { 0xF43F49E1, 0x53EC30 }, // ?swEmitRun0_ZReadChromaDecalLinearStippleCUWV@@YIXH@Z
+    { 0xC089EE9D, 0x544620 }, // ?swEmitRun0_ZReadChromaDecalLinearStippleWUCV@@YIXH@Z
+    { 0xF519B57D, 0x53A060 }, // ?swEmitRun0_ZReadChromaDecalLinearStippleWUWV@@YIXH@Z
+    { 0x8CF9A4FE, 0x54CE40 }, // ?swEmitRun0_ZReadChromaDecalParaSolidCUCV@@YIXH@Z
+    { 0xBF8254B3, 0x541450 }, // ?swEmitRun0_ZReadChromaDecalParaSolidCUWV@@YIXH@Z
+    { 0x8E941366, 0x546D80 }, // ?swEmitRun0_ZReadChromaDecalParaSolidWUCV@@YIXH@Z
+    { 0x3DFB50D1, 0x53C0E0 }, // ?swEmitRun0_ZReadChromaDecalParaSolidWUWV@@YIXH@Z
+    { 0xB76B0F8D, 0x54D2B0 }, // ?swEmitRun0_ZReadChromaDecalParaStippleCUCV@@YIXH@Z
+    { 0x7EB37DB7, 0x541830 }, // ?swEmitRun0_ZReadChromaDecalParaStippleCUWV@@YIXH@Z
+    { 0x6815A3CD, 0x547140 }, // ?swEmitRun0_ZReadChromaDecalParaStippleWUCV@@YIXH@Z
+    { 0xA8570075, 0x53C400 }, // ?swEmitRun0_ZReadChromaDecalParaStippleWUWV@@YIXH@Z
+    { 0x39DE685F, 0x54B4E0 }, // ?swEmitRun0_ZReadChromaModulateLinearSolidCUCV@@YIXH@Z
+    { 0x1FDCD566, 0x53FE00 }, // ?swEmitRun0_ZReadChromaModulateLinearSolidCUWV@@YIXH@Z
+    { 0x301FC7FD, 0x5457C0 }, // ?swEmitRun0_ZReadChromaModulateLinearSolidWUCV@@YIXH@Z
+    { 0xC80FC739, 0x53AEE0 }, // ?swEmitRun0_ZReadChromaModulateLinearSolidWUWV@@YIXH@Z
+    { 0x52035BE2, 0x54B920 }, // ?swEmitRun0_ZReadChromaModulateLinearStippleCUCV@@YIXH@Z
+    { 0x9DEF7D67, 0x5401B0 }, // ?swEmitRun0_ZReadChromaModulateLinearStippleCUWV@@YIXH@Z
+    { 0xC51D6217, 0x545B40 }, // ?swEmitRun0_ZReadChromaModulateLinearStippleWUCV@@YIXH@Z
+    { 0x36C4305C, 0x53B1A0 }, // ?swEmitRun0_ZReadChromaModulateLinearStippleWUWV@@YIXH@Z
+    { 0x9D251737, 0x54E930 }, // ?swEmitRun0_ZReadChromaModulateParaSolidCUCV@@YIXH@Z
+    { 0xD2253CD7, 0x542C20 }, // ?swEmitRun0_ZReadChromaModulateParaSolidCUWV@@YIXH@Z
+    { 0x4AF4BF8D, 0x5484E0 }, // ?swEmitRun0_ZReadChromaModulateParaSolidWUCV@@YIXH@Z
+    { 0xF0D4AC95, 0x53D480 }, // ?swEmitRun0_ZReadChromaModulateParaSolidWUWV@@YIXH@Z
+    { 0x912443DC, 0x54EDD0 }, // ?swEmitRun0_ZReadChromaModulateParaStippleCUCV@@YIXH@Z
+    { 0x710C569F, 0x543020 }, // ?swEmitRun0_ZReadChromaModulateParaStippleCUWV@@YIXH@Z
+    { 0xE620F718, 0x5488C0 }, // ?swEmitRun0_ZReadChromaModulateParaStippleWUCV@@YIXH@Z
+    { 0xA1FCB362, 0x53D7A0 }, // ?swEmitRun0_ZReadChromaModulateParaStippleWUWV@@YIXH@Z
+    { 0x10E745B4, 0x54A4A0 }, // ?swEmitRun0_ZReadGlowDecalLinearSolidCUCV@@YIXH@Z
+    { 0xC54A5CD0, 0x53EFD0 }, // ?swEmitRun0_ZReadGlowDecalLinearSolidCUWV@@YIXH@Z
+    { 0x0C2CD90D, 0x5449C0 }, // ?swEmitRun0_ZReadGlowDecalLinearSolidWUCV@@YIXH@Z
+    { 0xD68D25DA, 0x53A340 }, // ?swEmitRun0_ZReadGlowDecalLinearSolidWUWV@@YIXH@Z
+    { 0xC2FD44D5, 0x54A8D0 }, // ?swEmitRun0_ZReadGlowDecalLinearStippleCUCV@@YIXH@Z
+    { 0x231F3840, 0x53F370 }, // ?swEmitRun0_ZReadGlowDecalLinearStippleCUWV@@YIXH@Z
+    { 0x7AE5B0FF, 0x544D40 }, // ?swEmitRun0_ZReadGlowDecalLinearStippleWUCV@@YIXH@Z
+    { 0x419E4B9B, 0x53A670 }, // ?swEmitRun0_ZReadGlowDecalLinearStippleWUWV@@YIXH@Z
+    { 0x8537C87E, 0x54D740 }, // ?swEmitRun0_ZReadGlowDecalParaSolidCUCV@@YIXH@Z
+    { 0xE55A2720, 0x541C30 }, // ?swEmitRun0_ZReadGlowDecalParaSolidCUWV@@YIXH@Z
+    { 0x0321FD74, 0x547530 }, // ?swEmitRun0_ZReadGlowDecalParaSolidWUCV@@YIXH@Z
+    { 0x08FAEFD7, 0x53C750 }, // ?swEmitRun0_ZReadGlowDecalParaSolidWUWV@@YIXH@Z
+    { 0x7ED3D42D, 0x54DBD0 }, // ?swEmitRun0_ZReadGlowDecalParaStippleCUCV@@YIXH@Z
+    { 0x749F54EB, 0x542040 }, // ?swEmitRun0_ZReadGlowDecalParaStippleCUWV@@YIXH@Z
+    { 0x3785C4B2, 0x547930 }, // ?swEmitRun0_ZReadGlowDecalParaStippleWUCV@@YIXH@Z
+    { 0xF207D6A0, 0x53CAF0 }, // ?swEmitRun0_ZReadGlowDecalParaStippleWUWV@@YIXH@Z
+    { 0xFDB6114E, 0x54BD70 }, // ?swEmitRun0_ZReadGlowModulateLinearSolidCUCV@@YIXH@Z
+    { 0x66FA8E0D, 0x540570 }, // ?swEmitRun0_ZReadGlowModulateLinearSolidCUWV@@YIXH@Z
+    { 0xFB9CD66E, 0x545F00 }, // ?swEmitRun0_ZReadGlowModulateLinearSolidWUCV@@YIXH@Z
+    { 0x970B22AE, 0x53B490 }, // ?swEmitRun0_ZReadGlowModulateLinearSolidWUWV@@YIXH@Z
+    { 0x65748EB1, 0x54C1A0 }, // ?swEmitRun0_ZReadGlowModulateLinearStippleCUCV@@YIXH@Z
+    { 0x83247A54, 0x540910 }, // ?swEmitRun0_ZReadGlowModulateLinearStippleCUWV@@YIXH@Z
+    { 0xF1300EF5, 0x546280 }, // ?swEmitRun0_ZReadGlowModulateLinearStippleWUCV@@YIXH@Z
+    { 0xEB69BFE9, 0x53B7C0 }, // ?swEmitRun0_ZReadGlowModulateLinearStippleWUWV@@YIXH@Z
+    { 0x9D77037C, 0x54F280 }, // ?swEmitRun0_ZReadGlowModulateParaSolidCUCV@@YIXH@Z
+    { 0x2A62A55F, 0x543440 }, // ?swEmitRun0_ZReadGlowModulateParaSolidCUWV@@YIXH@Z
+    { 0x7A262297, 0x548CC0 }, // ?swEmitRun0_ZReadGlowModulateParaSolidWUCV@@YIXH@Z
+    { 0xC26CBFBD, 0x53DB00 }, // ?swEmitRun0_ZReadGlowModulateParaSolidWUWV@@YIXH@Z
+    { 0x0E7DAFE3, 0x54F710 }, // ?swEmitRun0_ZReadGlowModulateParaStippleCUCV@@YIXH@Z
+    { 0x9E365DFA, 0x543850 }, // ?swEmitRun0_ZReadGlowModulateParaStippleCUWV@@YIXH@Z
+    { 0xA410F7D9, 0x5490C0 }, // ?swEmitRun0_ZReadGlowModulateParaStippleWUCV@@YIXH@Z
+    { 0x16E8ABFC, 0x53DEA0 }, // ?swEmitRun0_ZReadGlowModulateParaStippleWUWV@@YIXH@Z
+    { 0x23ADFDCA, 0x5494C0 }, // ?swEmitRun0_ZReadOpaqueDecalLinearSolidCUCV@@YIXH@Z
+    { 0xEBA448FC, 0x53E220 }, // ?swEmitRun0_ZReadOpaqueDecalLinearSolidCUWV@@YIXH@Z
+    { 0x27200549, 0x543C30 }, // ?swEmitRun0_ZReadOpaqueDecalLinearSolidWUCV@@YIXH@Z
+    { 0x9875AF66, 0x5388A0 }, // ?swEmitRun0_ZReadOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0x2CEAA357, 0x549880 }, // ?swEmitRun0_ZReadOpaqueDecalLinearStippleCUCV@@YIXH@Z
+    { 0xBB0EDECD, 0x53E550 }, // ?swEmitRun0_ZReadOpaqueDecalLinearStippleCUWV@@YIXH@Z
+    { 0xA1DE1F5B, 0x543F60 }, // ?swEmitRun0_ZReadOpaqueDecalLinearStippleWUCV@@YIXH@Z
+    { 0x81C31DE9, 0x539B20 }, // ?swEmitRun0_ZReadOpaqueDecalLinearStippleWUWV@@YIXH@Z
+    { 0x1657771B, 0x54C5D0 }, // ?swEmitRun0_ZReadOpaqueDecalParaSolidCUCV@@YIXH@Z
+    { 0x2E8066C5, 0x540CD0 }, // ?swEmitRun0_ZReadOpaqueDecalParaSolidCUWV@@YIXH@Z
+    { 0x82220173, 0x546630 }, // ?swEmitRun0_ZReadOpaqueDecalParaSolidWUCV@@YIXH@Z
+    { 0xE198880B, 0x53BAF0 }, // ?swEmitRun0_ZReadOpaqueDecalParaSolidWUWV@@YIXH@Z
+    { 0x45C9FA8C, 0x54C9F0 }, // ?swEmitRun0_ZReadOpaqueDecalParaStippleCUCV@@YIXH@Z
+    { 0x75FADD28, 0x541080 }, // ?swEmitRun0_ZReadOpaqueDecalParaStippleCUWV@@YIXH@Z
+    { 0x0382D1AE, 0x5469C0 }, // ?swEmitRun0_ZReadOpaqueDecalParaStippleWUCV@@YIXH@Z
+    { 0x27E61D3B, 0x53BDE0 }, // ?swEmitRun0_ZReadOpaqueDecalParaStippleWUWV@@YIXH@Z
+    { 0x35DB358B, 0x54ACF0 }, // ?swEmitRun0_ZReadOpaqueModulateLinearSolidCUCV@@YIXH@Z
+    { 0xF4963712, 0x53F710 }, // ?swEmitRun0_ZReadOpaqueModulateLinearSolidCUWV@@YIXH@Z
+    { 0x9E61BE4A, 0x5450E0 }, // ?swEmitRun0_ZReadOpaqueModulateLinearSolidWUCV@@YIXH@Z
+    { 0x6371F2E6, 0x53A980 }, // ?swEmitRun0_ZReadOpaqueModulateLinearSolidWUWV@@YIXH@Z
+    { 0x74DE35A6, 0x54B0D0 }, // ?swEmitRun0_ZReadOpaqueModulateLinearStippleCUCV@@YIXH@Z
+    { 0xFEED8C18, 0x53FA70 }, // ?swEmitRun0_ZReadOpaqueModulateLinearStippleCUWV@@YIXH@Z
+    { 0x9C354145, 0x545440 }, // ?swEmitRun0_ZReadOpaqueModulateLinearStippleWUCV@@YIXH@Z
+    { 0x97AAB507, 0x53AC20 }, // ?swEmitRun0_ZReadOpaqueModulateLinearStippleWUWV@@YIXH@Z
+    { 0x944CB5BE, 0x54E060 }, // ?swEmitRun0_ZReadOpaqueModulateParaSolidCUCV@@YIXH@Z
+    { 0xF3B9E537, 0x542460 }, // ?swEmitRun0_ZReadOpaqueModulateParaSolidCUWV@@YIXH@Z
+    { 0x767698A0, 0x547D30 }, // ?swEmitRun0_ZReadOpaqueModulateParaSolidWUCV@@YIXH@Z
+    { 0x3A5F5206, 0x53CE60 }, // ?swEmitRun0_ZReadOpaqueModulateParaSolidWUWV@@YIXH@Z
+    { 0xD244C879, 0x54E4B0 }, // ?swEmitRun0_ZReadOpaqueModulateParaStippleCUCV@@YIXH@Z
+    { 0xF18925B0, 0x542830 }, // ?swEmitRun0_ZReadOpaqueModulateParaStippleCUWV@@YIXH@Z
+    { 0x19FF3E35, 0x5480F0 }, // ?swEmitRun0_ZReadOpaqueModulateParaStippleWUCV@@YIXH@Z
+    { 0xA460A47D, 0x53D160 }, // ?swEmitRun0_ZReadOpaqueModulateParaStippleWUWV@@YIXH@Z
+    { 0x7E0A623D, 0x549DD0 }, // ?swEmitRun0_ZReadWriteChromaDecalLinearSolidCUCV@@YIXH@Z
+    { 0xADEBF8D1, 0x53E9F0 }, // ?swEmitRun0_ZReadWriteChromaDecalLinearSolidCUWV@@YIXH@Z
+    { 0x094C6C6A, 0x5443E0 }, // ?swEmitRun0_ZReadWriteChromaDecalLinearSolidWUCV@@YIXH@Z
+    { 0x1071ED59, 0x539EB0 }, // ?swEmitRun0_ZReadWriteChromaDecalLinearSolidWUWV@@YIXH@Z
+    { 0x47706124, 0x54A1F0 }, // ?swEmitRun0_ZReadWriteChromaDecalLinearStippleCUCV@@YIXH@Z
+    { 0x9CC3233B, 0x53ED80 }, // ?swEmitRun0_ZReadWriteChromaDecalLinearStippleCUWV@@YIXH@Z
+    { 0xF5CE4472, 0x544770 }, // ?swEmitRun0_ZReadWriteChromaDecalLinearStippleWUCV@@YIXH@Z
+    { 0xE3F0F4E1, 0x53A160 }, // ?swEmitRun0_ZReadWriteChromaDecalLinearStippleWUWV@@YIXH@Z
+    { 0xEF517F3D, 0x54CFD0 }, // ?swEmitRun0_ZReadWriteChromaDecalParaSolidCUCV@@YIXH@Z
+    { 0x43F7CAC9, 0x5415B0 }, // ?swEmitRun0_ZReadWriteChromaDecalParaSolidCUWV@@YIXH@Z
+    { 0x50663A58, 0x546ED0 }, // ?swEmitRun0_ZReadWriteChromaDecalParaSolidWUCV@@YIXH@Z
+    { 0xC4FAB591, 0x53C200 }, // ?swEmitRun0_ZReadWriteChromaDecalParaSolidWUWV@@YIXH@Z
+    { 0xB9F26129, 0x54D450 }, // ?swEmitRun0_ZReadWriteChromaDecalParaStippleCUCV@@YIXH@Z
+    { 0x2936BC53, 0x5419A0 }, // ?swEmitRun0_ZReadWriteChromaDecalParaStippleCUWV@@YIXH@Z
+    { 0x3CF3A2CB, 0x5472A0 }, // ?swEmitRun0_ZReadWriteChromaDecalParaStippleWUCV@@YIXH@Z
+    { 0x3C266B28, 0x53C530 }, // ?swEmitRun0_ZReadWriteChromaDecalParaStippleWUWV@@YIXH@Z
+    { 0xB626BF06, 0x54B660 }, // ?swEmitRun0_ZReadWriteChromaModulateLinearSolidCUCV@@YIXH@Z
+    { 0xAF194A24, 0x53FF50 }, // ?swEmitRun0_ZReadWriteChromaModulateLinearSolidCUWV@@YIXH@Z
+    { 0x2C44A91B, 0x545900 }, // ?swEmitRun0_ZReadWriteChromaModulateLinearSolidWUCV@@YIXH@Z
+    { 0xD2CF9A2D, 0x53AFE0 }, // ?swEmitRun0_ZReadWriteChromaModulateLinearSolidWUWV@@YIXH@Z
+    { 0x82D2D365, 0x54BAB0 }, // ?swEmitRun0_ZReadWriteChromaModulateLinearStippleCUCV@@YIXH@Z
+    { 0xCA33B622, 0x540310 }, // ?swEmitRun0_ZReadWriteChromaModulateLinearStippleCUWV@@YIXH@Z
+    { 0x52520753, 0x545CA0 }, // ?swEmitRun0_ZReadWriteChromaModulateLinearStippleWUCV@@YIXH@Z
+    { 0x470AED55, 0x53B2B0 }, // ?swEmitRun0_ZReadWriteChromaModulateLinearStippleWUWV@@YIXH@Z
+    { 0x509D03E1, 0x54EAD0 }, // ?swEmitRun0_ZReadWriteChromaModulateParaSolidCUCV@@YIXH@Z
+    { 0xC12643C7, 0x542D90 }, // ?swEmitRun0_ZReadWriteChromaModulateParaSolidCUWV@@YIXH@Z
+    { 0xBE703FE4, 0x548640 }, // ?swEmitRun0_ZReadWriteChromaModulateParaSolidWUCV@@YIXH@Z
+    { 0xECAD70BA, 0x53D5A0 }, // ?swEmitRun0_ZReadWriteChromaModulateParaSolidWUWV@@YIXH@Z
+    { 0x5035E01E, 0x54EF80 }, // ?swEmitRun0_ZReadWriteChromaModulateParaStippleCUCV@@YIXH@Z
+    { 0x1B121619, 0x5431A0 }, // ?swEmitRun0_ZReadWriteChromaModulateParaStippleCUWV@@YIXH@Z
+    { 0xBAA98F53, 0x548A30 }, // ?swEmitRun0_ZReadWriteChromaModulateParaStippleWUCV@@YIXH@Z
+    { 0xBC87FC94, 0x53D8D0 }, // ?swEmitRun0_ZReadWriteChromaModulateParaStippleWUWV@@YIXH@Z
+    { 0x4A088262, 0x54A620 }, // ?swEmitRun0_ZReadWriteGlowDecalLinearSolidCUCV@@YIXH@Z
+    { 0x7C9692BC, 0x53F120 }, // ?swEmitRun0_ZReadWriteGlowDecalLinearSolidCUWV@@YIXH@Z
+    { 0x322B315E, 0x544B00 }, // ?swEmitRun0_ZReadWriteGlowDecalLinearSolidWUCV@@YIXH@Z
+    { 0x719792F2, 0x53A460 }, // ?swEmitRun0_ZReadWriteGlowDecalLinearSolidWUWV@@YIXH@Z
+    { 0x3FB89934, 0x54AA60 }, // ?swEmitRun0_ZReadWriteGlowDecalLinearStippleCUCV@@YIXH@Z
+    { 0xCBA0EC28, 0x53F4D0 }, // ?swEmitRun0_ZReadWriteGlowDecalLinearStippleCUWV@@YIXH@Z
+    { 0x5BC99671, 0x544EA0 }, // ?swEmitRun0_ZReadWriteGlowDecalLinearStippleWUCV@@YIXH@Z
+    { 0x8FB78F0C, 0x53A7A0 }, // ?swEmitRun0_ZReadWriteGlowDecalLinearStippleWUWV@@YIXH@Z
+    { 0x6EDCBA42, 0x54D8E0 }, // ?swEmitRun0_ZReadWriteGlowDecalParaSolidCUCV@@YIXH@Z
+    { 0x12D3BA7C, 0x541DA0 }, // ?swEmitRun0_ZReadWriteGlowDecalParaSolidCUWV@@YIXH@Z
+    { 0x81320298, 0x5476A0 }, // ?swEmitRun0_ZReadWriteGlowDecalParaSolidWUCV@@YIXH@Z
+    { 0xCC6B55E6, 0x53C890 }, // ?swEmitRun0_ZReadWriteGlowDecalParaSolidWUWV@@YIXH@Z
+    { 0xF377F5F6, 0x54DD80 }, // ?swEmitRun0_ZReadWriteGlowDecalParaStippleCUCV@@YIXH@Z
+    { 0x472FFAB7, 0x5421C0 }, // ?swEmitRun0_ZReadWriteGlowDecalParaStippleCUWV@@YIXH@Z
+    { 0xC9C6CAC6, 0x547AB0 }, // ?swEmitRun0_ZReadWriteGlowDecalParaStippleWUCV@@YIXH@Z
+    { 0xDC1C5CF9, 0x53CC40 }, // ?swEmitRun0_ZReadWriteGlowDecalParaStippleWUWV@@YIXH@Z
+    { 0xF9C53C77, 0x54BEF0 }, // ?swEmitRun0_ZReadWriteGlowModulateLinearSolidCUCV@@YIXH@Z
+    { 0x8B63A2A0, 0x5406C0 }, // ?swEmitRun0_ZReadWriteGlowModulateLinearSolidCUWV@@YIXH@Z
+    { 0x21238756, 0x546040 }, // ?swEmitRun0_ZReadWriteGlowModulateLinearSolidWUCV@@YIXH@Z
+    { 0x24FB03C2, 0x53B5B0 }, // ?swEmitRun0_ZReadWriteGlowModulateLinearSolidWUWV@@YIXH@Z
+    { 0x03A20514, 0x54C330 }, // ?swEmitRun0_ZReadWriteGlowModulateLinearStippleCUCV@@YIXH@Z
+    { 0xA79EB068, 0x540A70 }, // ?swEmitRun0_ZReadWriteGlowModulateLinearStippleCUWV@@YIXH@Z
+    { 0x63EC3DBD, 0x5463E0 }, // ?swEmitRun0_ZReadWriteGlowModulateLinearStippleWUCV@@YIXH@Z
+    { 0x055C3039, 0x53B8F0 }, // ?swEmitRun0_ZReadWriteGlowModulateLinearStippleWUWV@@YIXH@Z
+    { 0x2410DD71, 0x54F420 }, // ?swEmitRun0_ZReadWriteGlowModulateParaSolidCUCV@@YIXH@Z
+    { 0xE2E0A7E7, 0x5435B0 }, // ?swEmitRun0_ZReadWriteGlowModulateParaSolidCUWV@@YIXH@Z
+    { 0xEEF8E7EB, 0x548E30 }, // ?swEmitRun0_ZReadWriteGlowModulateParaSolidWUCV@@YIXH@Z
+    { 0x9D573EF2, 0x53DC40 }, // ?swEmitRun0_ZReadWriteGlowModulateParaSolidWUWV@@YIXH@Z
+    { 0xCFED1321, 0x54F8C0 }, // ?swEmitRun0_ZReadWriteGlowModulateParaStippleCUCV@@YIXH@Z
+    { 0x522134A0, 0x5439D0 }, // ?swEmitRun0_ZReadWriteGlowModulateParaStippleCUWV@@YIXH@Z
+    { 0xA28A6E2A, 0x549240 }, // ?swEmitRun0_ZReadWriteGlowModulateParaStippleWUCV@@YIXH@Z
+    { 0xC5E61E92, 0x53DFF0 }, // ?swEmitRun0_ZReadWriteGlowModulateParaStippleWUWV@@YIXH@Z
+    { 0xE74F91D7, 0x549620 }, // ?swEmitRun0_ZReadWriteOpaqueDecalLinearSolidCUCV@@YIXH@Z
+    { 0x82DDE4E0, 0x53E350 }, // ?swEmitRun0_ZReadWriteOpaqueDecalLinearSolidCUWV@@YIXH@Z
+    { 0x4FE4F950, 0x543D60 }, // ?swEmitRun0_ZReadWriteOpaqueDecalLinearSolidWUCV@@YIXH@Z
+    { 0xF84E454F, 0x5499E0 }, // ?swEmitRun0_ZReadWriteOpaqueDecalLinearStippleCUCV@@YIXH@Z
+    { 0x353A9BA0, 0x53E680 }, // ?swEmitRun0_ZReadWriteOpaqueDecalLinearStippleCUWV@@YIXH@Z
+    { 0xCD8FDCB9, 0x544090 }, // ?swEmitRun0_ZReadWriteOpaqueDecalLinearStippleWUCV@@YIXH@Z
+    { 0xADB2A6B1, 0x539C20 }, // ?swEmitRun0_ZReadWriteOpaqueDecalLinearStippleWUWV@@YIXH@Z
+    { 0x8A39448F, 0x54C750 }, // ?swEmitRun0_ZReadWriteOpaqueDecalParaSolidCUCV@@YIXH@Z
+    { 0x433F56D5, 0x540E20 }, // ?swEmitRun0_ZReadWriteOpaqueDecalParaSolidCUWV@@YIXH@Z
+    { 0x47F79D22, 0x546780 }, // ?swEmitRun0_ZReadWriteOpaqueDecalParaSolidWUCV@@YIXH@Z
+    { 0x7D8BCCC3, 0x53BC00 }, // ?swEmitRun0_ZReadWriteOpaqueDecalParaSolidWUWV@@YIXH@Z
+    { 0x74D73C95, 0x54CB70 }, // ?swEmitRun0_ZReadWriteOpaqueDecalParaStippleCUCV@@YIXH@Z
+    { 0x40735A93, 0x5411E0 }, // ?swEmitRun0_ZReadWriteOpaqueDecalParaStippleCUWV@@YIXH@Z
+    { 0xFA32F8D1, 0x546B10 }, // ?swEmitRun0_ZReadWriteOpaqueDecalParaStippleWUCV@@YIXH@Z
+    { 0x5C719B60, 0x53BF00 }, // ?swEmitRun0_ZReadWriteOpaqueDecalParaStippleWUWV@@YIXH@Z
+    { 0xE4B89427, 0x54AE50 }, // ?swEmitRun0_ZReadWriteOpaqueModulateLinearSolidCUCV@@YIXH@Z
+    { 0x31CEC5A3, 0x53F850 }, // ?swEmitRun0_ZReadWriteOpaqueModulateLinearSolidCUWV@@YIXH@Z
+    { 0x1EBAB7BF, 0x545220 }, // ?swEmitRun0_ZReadWriteOpaqueModulateLinearSolidWUCV@@YIXH@Z
+    { 0xAD07D3FC, 0x53AA70 }, // ?swEmitRun0_ZReadWriteOpaqueModulateLinearSolidWUWV@@YIXH@Z
+    { 0x9D5DF229, 0x54B240 }, // ?swEmitRun0_ZReadWriteOpaqueModulateLinearStippleCUCV@@YIXH@Z
+    { 0xA3FE0814, 0x53FBB0 }, // ?swEmitRun0_ZReadWriteOpaqueModulateLinearStippleCUWV@@YIXH@Z
+    { 0x1A1009E4, 0x545580 }, // ?swEmitRun0_ZReadWriteOpaqueModulateLinearStippleWUCV@@YIXH@Z
+    { 0xC774A774, 0x53AD20 }, // ?swEmitRun0_ZReadWriteOpaqueModulateLinearStippleWUWV@@YIXH@Z
+    { 0x4A24B731, 0x54E1F0 }, // ?swEmitRun0_ZReadWriteOpaqueModulateParaSolidCUCV@@YIXH@Z
+    { 0xE71DC3F6, 0x5425C0 }, // ?swEmitRun0_ZReadWriteOpaqueModulateParaSolidCUWV@@YIXH@Z
+    { 0xC31C5B62, 0x547E90 }, // ?swEmitRun0_ZReadWriteOpaqueModulateParaSolidWUCV@@YIXH@Z
+    { 0x425575FE, 0x53CF70 }, // ?swEmitRun0_ZReadWriteOpaqueModulateParaSolidWUWV@@YIXH@Z
+    { 0xFF61668B, 0x54E640 }, // ?swEmitRun0_ZReadWriteOpaqueModulateParaStippleCUCV@@YIXH@Z
+    { 0x76BE03C9, 0x542990 }, // ?swEmitRun0_ZReadWriteOpaqueModulateParaStippleCUWV@@YIXH@Z
+    { 0x372D2488, 0x548250 }, // ?swEmitRun0_ZReadWriteOpaqueModulateParaStippleWUCV@@YIXH@Z
+    { 0x24AA179A, 0x53D280 }, // ?swEmitRun0_ZReadWriteOpaqueModulateParaStippleWUWV@@YIXH@Z
+    { 0x1E383082, 0x537DF0 }, // ?swEmitRun1_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0x36350FFA, 0x538980 }, // ?swEmitRun1_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0xCBC23D5A, 0x537E80 }, // ?swEmitRun2_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0xC73EFE80, 0x538A60 }, // ?swEmitRun2_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0x112EFA9B, 0x537F10 }, // ?swEmitRun3_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0xF32923FB, 0x538B40 }, // ?swEmitRun3_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0x6CF1DD23, 0x537FA0 }, // ?swEmitRun4_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0xF4B99BB1, 0x538C20 }, // ?swEmitRun4_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0x7B67CDD3, 0x538030 }, // ?swEmitRun5_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0xBFDBA444, 0x538D00 }, // ?swEmitRun5_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0xE00C7161, 0x538250 }, // ?swEmitRun6_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0x178050E7, 0x539060 }, // ?swEmitRun6_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0x1C10B9BB, 0x538470 }, // ?swEmitRun7_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0xBE362DAD, 0x5393C0 }, // ?swEmitRun7_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0x1A75C811, 0x538690 }, // ?swEmitRun8_NoZOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0xE3C9C2E1, 0x539720 }, // ?swEmitRun8_ZReadWriteOpaqueDecalLinearSolidWUWV@@YIXH@Z
+    { 0xC2E829E7, 0x537550 }, // ?swFindColor555@@YAII@Z
+    { 0x737454E2, 0x537590 }, // ?swFindColor565@@YAII@Z
+    { 0x147354B0, 0x4F8A70 }, // ?SwingToRear@TrackCamCS@@QAEXXZ
+    { 0x7008C6BA, 0x537480 }, // ?swInit@@YAXXZ
+    { 0xBD4E6681, 0x535E30 }, // ?swInitSurface@@YAPAUswSurface@@UagiScreenVtx@@00I@Z
+    { 0x1F62C8B4, 0x4B1560 }, // ?Switch@MenuManager@@QAEHH@Z
+    { 0x4E8819C3, 0x4B4E60 }, // ?Switch@mmCompBase@@UAEXH@Z
+    { 0x60340806, 0x40A7D0 }, // ?Switch@mmInterface@@QAEXHH@Z
+    { 0x11887C28, 0x4BF280 }, // ?Switch@mmToolTip@@QAEXH@Z
+    { 0x6B89E37B, 0x4BE440 }, // ?Switch@TextDropWidget@@QAEXHAAVVector4@@@Z
+    { 0xBCEF76F2, 0x4B6870 }, // ?Switch@UIBMButton@@UAEXH@Z
+    { 0xC26DC894, 0x4B9E50 }, // ?Switch@UIButton@@UAEXH@Z
+    { 0x4D9070F4, 0x4B5990 }, // ?Switch@UICompositeScroll@@UAEXH@Z
+    { 0x00EFBAF9, 0x4BBF60 }, // ?Switch@UIControlWidget@@UAEXH@Z
+    { 0x9789F085, 0x4B8260 }, // ?Switch@UICWArray@@UAEXH@Z
+    { 0x5D547668, 0x4B9A90 }, // ?Switch@UIIcon@@UAEXH@Z
+    { 0x79A9A686, 0x4BC3E0 }, // ?Switch@UIIconW@@UAEXH@Z
+    { 0xB5892809, 0x4B9850 }, // ?Switch@UILabel@@UAEXH@Z
+    { 0x7F616A8D, 0x4B3F70 }, // ?Switch@UISlider@@UAEXH@Z
+    { 0xD07AAB6F, 0x4B37B0 }, // ?Switch@UITextDropdown@@UAEXH@Z
+    { 0x7AF76182, 0x4B28E0 }, // ?Switch@UITextField@@UAEXH@Z
+    { 0xF85D6707, 0x4BB420 }, // ?Switch@UITextRoller2@@UAEXH@Z
+    { 0x51424B7D, 0x4BA610 }, // ?Switch@UITextRoller@@UAEXH@Z
+    { 0x1BCD1E69, 0x4B9210 }, // ?Switch@UITextScroll@@UAEXH@Z
+    { 0xC03A1EE3, 0x4BC9E0 }, // ?Switch@UIToggleButton2@@UAEXH@Z
+    { 0xB02806A0, 0x4BD320 }, // ?Switch@UIVScrollBar@@UAEXH@Z
+    { 0x34B87EDF, 0x4B48A0 }, // ?Switch@uiWidget@@UAEXH@Z
+    { 0x672F5B66, 0x4BF900 }, // ?Switch@VSWidget@@QAEXHMM@Z
+    { 0x5511CF2B, 0x4B1370 }, // ?SwitchFocus@MenuManager@@QAEXPAVUIMenu@@@Z
+    { 0x88BF7DB9, 0x4B9860 }, // ?SwitchState@UILabel@@QAEXH@Z
+    { 0x635DC48C, 0x523D20 }, // ?SwitchTo@asNode@@QAEXH@Z
+    { 0x9F0506DD, 0x537410 }, // ?swKill@@YAXXZ
+    { 0xD3599FF6, 0x537360 }, // ?swLine@@YAXPAUagiScreenVtx@@0@Z
+    { 0x70346B1C, 0x537270 }, // ?swLineInt@@YAXHHHHH@Z
+    { 0x0D158C2D, 0x536EE0 }, // ?swPoly@@YAXPAUagiScreenVtx@@H@Z
+    { 0x1621C24E, 0x536B10 }, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z
+    { 0x021D4E95, 0x535BF0 }, // ?swScanSurface@@YAXPAUswSurface@@@Z
+    { 0x88C75831, 0x536880 }, // ?swScanSurfaces@@YAXXZ
+    { 0xED2C753D, 0x537440 }, // ?swSetInterlace@@YAXH@Z
+    { 0x2956E908, 0x535460 }, // ?swSetupEdgeScan@@YAXPAUswEdge@@HH@Z
+    { 0xB86A6FD8, 0x536950 }, // ?swTri@@YAXPAUagiScreenVtx@@00@Z
+    { 0x288180CF, 0x4BF6D0 }, // ?SyncData@VSWidget@@QAEXXZ
+    { 0x4EB467D0, 0x4A76A0 }, // ?SyncRaceState@RaceMenuBase@@QAEXXZ
+    { 0xE7D795D5, 0x41A030 }, // ?SystemMessage@mmMultiBlitz@@UAEXPAUNETSYS_MSG@@@Z
+    { 0xCD696565, 0x41B830 }, // ?SystemMessage@mmMultiCircuit@@UAEXPAUNETSYS_MSG@@@Z
+    { 0xAB61E4D4, 0x41E490 }, // ?SystemMessage@mmMultiCR@@UAEXPAUNETSYS_MSG@@@Z
+    { 0xD0946011, 0x420D10 }, // ?SystemMessage@mmMultiRace@@UAEXPAUNETSYS_MSG@@@Z
+    { 0x8497F666, 0x430EF0 }, // ?SystemMessageCB@mmGameMulti@@QAEXPAX0@Z
+    { 0xEE714B48, 0x573250 }, // ?tanf_fast@@YAMM@Z
+    { 0xFBD535D3, 0x4A5C90 }, // ?TDPickCB@DriverMenu@@QAEXXZ
+    { 0x5840DD74, 0x49B9E0 }, // ?TDPickCB@VehicleSelectBase@@QAEXXZ
+    { 0x77178516, 0x55EC90 }, // ?Tell@Stream@@QAEHXZ
+    { 0x2B22D270, 0x421DC0 }, // ?TempDeactivate@mmDashView@@QAEXXZ
+    { 0x1B4D85B1, 0x4C13B0 }, // ?TestDOFAct@mmAnimMgr@@QAEXH@Z
+    { 0xA931ECED, 0x4B9F20 }, // ?TestHit@UIButton@@QAEHMM@Z
+    { 0x064A6967, 0x4B3FE0 }, // ?TestHit@UISlider@@QAEHMM@Z
+    { 0xF82E7CBA, 0x4D90C0 }, // ?testNoOverlap@@YAHMM@Z
+    { 0x418951EA, 0x575AF0 }, // ?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z
+    { 0xBCB9A2AA, 0x4E06E0 }, // ?testsuperq@@YAXXZ
+    { 0xAB9E1934, 0x416C90 }, // ?ThreadFunc@@YGKPAX@Z
+    { 0xBC84A84C, 0x576830 }, // ?Ticks@Timer@@SAKXZ
+    { 0xF5626676, 0x5768F0 }, // ?Time@Timer@@QAEMXZ
+    { 0x8C04DF74, 0x4A7A10 }, // ?TimeCallback@RaceMenuBase@@QAEXXZ
+    { 0x75C280E8, 0x44A2D0 }, // ?TimeToCollision@aiPedestrian@@AAEMM@Z
+    { 0xFC2BE2A8, 0x526B60 }, // ?Toggle@asMidgets@@QAEXXZ
+    { 0xB3CA7A08, 0x4237C0 }, // ?Toggle@mmCDPlayer@@QAEXXZ
+    { 0x00ECE34C, 0x405750 }, // ?Toggle@mmHUD@@QAEXXZ
+    { 0x7A2E549B, 0x4A9E90 }, // ?toggle_filter@@YAXXZ
+    { 0x4C6EB119, 0x4A9E70 }, // ?toggle_interlace@@YAXXZ
+    { 0x902305B0, 0x42AE10 }, // ?ToggleCam@mmPlayer@@QAEXXZ
+    { 0x1BD8B3F8, 0x4057C0 }, // ?ToggleDash@mmHUD@@QAEXXZ
+    { 0x5CB0BB52, 0x42B0E0 }, // ?ToggleDash@mmPlayer@@QAEXXZ
+    { 0xE6A78057, 0x4C1850 }, // ?ToggleDrawLabels@mmBridgeMgr@@QAEXXZ
+    { 0xBA512C09, 0x4E5EB0 }, // ?ToggleEnabled@mmJoyMan@@QAEHH@Z
+    { 0xA3E2ABA9, 0x405770 }, // ?ToggleExternalView@mmHUD@@QAEXXZ
+    { 0xCBB0A132, 0x42AF30 }, // ?ToggleExternalView@mmPlayer@@QAEXXZ
+    { 0x498ADB66, 0x4E3B40 }, // ?ToggleFFEnabled@mmInput@@QAEHH@Z
+    { 0xC2A60255, 0x4B2780 }, // ?ToggleField@UITextField@@QAEXH@Z
+    { 0x107FDB1A, 0x4B0EE0 }, // ?ToggleFocus@MenuManager@@QAEXH@Z
+    { 0x0D6AA643, 0x428BC0 }, // ?ToggleFullScreen@mmHudMap@@QAEXXZ
+    { 0x8DE84640, 0x428C00 }, // ?ToggleMapRes@mmHudMap@@QAEXXZ
+    { 0x097E2052, 0x405D10 }, // ?ToggleMirror@mmHUD@@QAEXXZ
+    { 0x1B15451A, 0x406000 }, // ?TogglePositionDisplay@mmHUD@@QAEXH@Z
+    { 0x4BFD2223, 0x4B09B0 }, // ?TogglePU@MenuManager@@QAEXXZ
+    { 0x05FD5B59, 0x425C20 }, // ?ToggleScores@mmCRHUD@@QAEXXZ
+    { 0xCA914373, 0x473DF0 }, // ?ToggleSiren@mmCar@@QAEXXZ
+    { 0x008EA0F2, 0x48D950 }, // ?ToggleSky@mmCullCity@@QAEXXZ
+    { 0x1B1D63B7, 0x42ADF0 }, // ?ToggleWideFOV@mmPlayer@@QAEXXZ
+    { 0xBA90FFCA, 0x57C8E0 }, // ?TokenName@MiniParser@@SAPADH@Z
+    { 0x117719E8, 0x44D7F0 }, // ?ToMatrix@aiPedestrianInstance@@UAIAAVMatrix34@@AAV2@@Z
+    { 0x6D824EC6, 0x452090 }, // ?ToMatrix@aiVehicleInstance@@UAIAAVMatrix34@@AAV2@@Z
+    { 0xB92DB7A0, 0x4715C0 }, // ?ToMatrix@mmCarModel@@UAIAAVMatrix34@@AAV2@@Z
+    { 0x8E477A07, 0x4C4E60 }, // ?ToMatrix@mmDofBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
+    { 0xB15FAC96, 0x4CB890 }, // ?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
+    { 0x92081B60, 0x4CA540 }, // ?ToMatrix@mmHitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
+    { 0x0E683CB7, 0x493460 }, // ?ToMatrix@mmMatrixInstance@@UAIAAVMatrix34@@AAV2@@Z
+    { 0x07E1868A, 0x497930 }, // ?ToMatrix@mmPed@@UAIAAVMatrix34@@AAV2@@Z
+    { 0xCE58C1A5, 0x48C180 }, // ?ToMatrix@mmRunwayLight@@UAIAAVMatrix34@@AAV2@@Z
+    { 0x0EF77DC7, 0x477A70 }, // ?ToMatrix@mmSkid@@UAIAAVMatrix34@@AAV2@@Z
+    { 0x88C21C21, 0x4796F0 }, // ?ToMatrix@mmTrailerInstance@@UAIAAVMatrix34@@AAV2@@Z
+    { 0xFC1C7A7D, 0x4CA880 }, // ?ToMatrix@mmUnhitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
+    { 0xFFD496CD, 0x493340 }, // ?ToMatrix@mmYInstance@@UAIAAVMatrix34@@AAV2@@Z
+    { 0x0119B469, 0x516620 }, // ?ToScreen@agiMeshSet@@KIXPAEPAVVector4@@H@Z
+    { 0x466C5995, 0x552A20 }, // ?ToScreen@agiProjVtx@@SAXH@Z
+    { 0x7EDC69AA, 0x45BCF0 }, // ?TotLength@aiVehicleSpline@@QAEMXZ
+    { 0xB731A6DA, 0x402E70 }, // ?TouchMemory@@YAXPAXH@Z
+    { 0x5A764A71, 0x56AFA0 }, // ?TrackBall@Matrix34@@QAEXMMMMM@Z
+    { 0x910E1F5F, 0x572A30 }, // ?TrackBall@Quaternion@@QAEXMMMMM@Z
+    { 0xBCD5F4C9, 0x5050F0 }, // ?Transform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z
+    { 0xCCFD3ACC, 0x516F70 }, // ?Transform@bnBone@@QAEXPAVMatrix34@@@Z
+    { 0x713962E6, 0x515050 }, // ?Transform@bnSkeleton@@QAEXPAVMatrix34@@@Z
+    { 0x3E86DF70, 0x56AE10 }, // ?Transform@Matrix34@@QAEXABVVector3@@0M@Z
+    { 0x80FE29FF, 0x51A4D0 }, // ?Transform@mmIntersection@@QAEXPBVMatrix34@@@Z
+    { 0x491265F9, 0x551800 }, // ?TransformAll@agiLighter@@UAEXPAVMatrix34@@PAVVector3@@I@Z
+    { 0xC91F499C, 0x566DD0 }, // ?TransformNormalList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z
+    { 0xED8AB758, 0x566D00 }, // ?TransformNormalList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z
+    { 0x9086ABF6, 0x5055E0 }, // ?TransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z
+    { 0xF9DA6EF1, 0x566C30 }, // ?TransformVertList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z
+    { 0xDE723E95, 0x566B70 }, // ?TransformVertList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z
+    { 0xDEEE8CC0, 0x566A80 }, // ?TransformVertNorm@@YAXAAVVector3@@0ABV1@0ABVMatrix34@@@Z
+    { 0x29AEA503, 0x574940 }, // ?translate555@@YAXPAEPAGI@Z
+    { 0xFC1D2FE6, 0x5748D0 }, // ?translate565@@YAXPAEPAGI@Z
+    { 0x0E28EC72, 0x5708D0 }, // ?Translate@Matrix44@@QAEXMMM@Z
+    { 0x11F54E1D, 0x4F0730 }, // ?TranslateDSError@DSGlobal@@QAEPADJ@Z
+    { 0x8993CCDD, 0x4734A0 }, // ?TranslateFlags@mmCar@@QAEXH@Z
+    { 0xB7CA825A, 0x56B250 }, // ?Transpose@Matrix34@@QAEXABV1@@Z
+    { 0x3BC73E8E, 0x4DECA0 }, // ?Transpose@Matrix34@@QBE?AV1@XZ
+    { 0x3B04CB14, 0x570380 }, // ?Transpose@Matrix44@@QBE?AV1@XZ
+    { 0xF65A2E38, 0x52F7D0 }, // ?Triangle@agiD3DRasterizer@@UAEXHHH@Z
+    { 0xB275797A, 0x510480 }, // ?Triangle@agiPolySet@@QAEXHHH@Z
+    { 0x09C968B7, 0x537C40 }, // ?Triangle@agiSWRasterizer@@UAEXHHH@Z
+    { 0xE13AD535, 0x4D5730 }, // ?TrivialCollideInstances@mmPhysicsMGR@@IAEHPAVmmInstance@@0@Z
+    { 0x32E036F8, 0x4BC0E0 }, // ?TurnOff@UIControlWidget@@UAEXXZ
+    { 0xA1B7EAE4, 0x4B2E00 }, // ?TurnOff@uiWidget@@UAEXXZ
+    { 0x74942128, 0x4B20E0 }, // ?TurnOffPrev@uiNavBar@@QAEXXZ
+    { 0x398C662D, 0x4BC0D0 }, // ?TurnOn@UIControlWidget@@UAEXXZ
+    { 0xA2F13A44, 0x4B2DE0 }, // ?TurnOn@uiWidget@@UAEXXZ
+    { 0xE2B60D93, 0x4B20C0 }, // ?TurnOnPrev@uiNavBar@@QAEXXZ
+    { 0x0F2AB3D6, 0x451350 }, // ?Type@aiVehicleAmbient@@UAEHXZ
+    { 0x49DD4C19, 0x44E7D0 }, // ?Type@aiVehicleOpponent@@UAEHXZ
+    { 0x590ACD0D, 0x446620 }, // ?Type@aiVehiclePolice@@UAEHXZ
+    { 0x74C6F58F, 0x45C500 }, // ?Type@aiVehicleSpline@@UAEHXZ
+    { 0x05A28F62, 0x4C1400 }, // ?UFOSwap@mmAnimMgr@@QAEXXZ
+    { 0x8A235398, 0x4C3CC0 }, // ?UFOSwap@mmAnimSpline@@QAEXXZ
+    { 0xB180B06C, 0x441130 }, // ?UnassignFurthestAmbient@aiAudioManager@@QAEFXZ
+    { 0xE64087E2, 0x4411F0 }, // ?UnassignFurthestOpponent@aiAudioManager@@QAEFXZ
+    { 0xE403A734, 0x44D0F0 }, // ?UnAssignSounds@aiPedestrian@@QAEXXZ
+    { 0xB5C5CC7D, 0x44F540 }, // ?UnAssignSounds@aiVehicleAmbient@@QAEXXZ
+    { 0xDCBA3433, 0x44E100 }, // ?UnAssignSounds@aiVehicleOpponent@@QAEXXZ
+    { 0xD33DCA14, 0x446150 }, // ?UnAssignSounds@aiVehiclePolice@@QAEXXZ
+    { 0x367D701D, 0x4C2E00 }, // ?UnAssignSounds@mmBridgeSet@@QAEXXZ
+    { 0x2E5B04A9, 0x47C020 }, // ?UnAssignSounds@mmOpponentCarAudio@@QAEXXZ
+    { 0xE2FD27B6, 0x47B770 }, // ?UnAssignSounds@mmPoliceCarAudio@@QAEXXZ
+    { 0x9F1F3B84, 0x4DD3D0 }, // ?UnbreakJoint@Joint3Dof@@QAEXXZ
+    { 0x46BA1CB0, 0x46D300 }, // ?UnconfigureDrivetrain@mmCarSim@@QAEXXZ
+    { 0x27B70614, 0x577B80 }, // ?UndeclareAll@MetaClass@@SAXXZ
+    { 0xDB8D4BCF, 0x4B6830 }, // ?Unkill@UIBMButton@@QAEXXZ
+    { 0x2342BCE8, 0x4BC910 }, // ?Unkill@UIToggleButton2@@QAEXXZ
+    { 0x486B23DD, 0x520DF0 }, // ?Unlink@asMemoryAllocator@@AAEXPAUnode@1@@Z
+    { 0xA4F58E08, 0x55B160 }, // ?Unload@agiSurfaceDesc@@QAEXXZ
+    { 0x09AC1CCB, 0x5770B0 }, // ?Unload@DataCache@@AAEXH@Z
+    { 0xE32FD3F2, 0x531EC0 }, // ?Unlock@agiD3DTexDef@@UAEXAAUagiTexLock@@@Z
+    { 0xCF2D54DB, 0x514B50 }, // ?Unlock@agiMeshSet@@QAEXXZ
+    { 0xB7A8939D, 0x5378C0 }, // ?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z
+    { 0x1CFEAE18, 0x556450 }, // ?Unlock@agiTexDef@@UAEXAAUagiTexLock@@@Z
+    { 0x596A8C68, 0x577290 }, // ?Unlock@DataCache@@QAEXH@Z
+    { 0xE84E45B7, 0x519380 }, // ?Unlock@mmBoundTemplate@@QAEXXZ
+    { 0x93848003, 0x427CE0 }, // ?Unlock@mmPopup@@QAEXXZ
+    { 0x72BF4330, 0x551480 }, // ?Unlock@RDynamicDLP@@UAEXXZ
+    { 0xE53C4FCF, 0x514B70 }, // ?UnlockAndFree@agiMeshSet@@QAEXXZ
+    { 0xAE35FADB, 0x577300 }, // ?UnlockAndFree@DataCache@@QAEXH@Z
+    { 0x0C3E6309, 0x5567C0 }, // ?UnlockAndFreeSurface@agiTexDef@@QAEXXZ
+    { 0x8B34FD09, 0x533220 }, // ?UnlockFrameBuffer@agiDDPipeline@@UAEXXZ
+    { 0xC44469C0, 0x556050 }, // ?UnlockFrameBuffer@agiPipeline@@UAEXXZ
+    { 0x707FBDBC, 0x575AD0 }, // ?UnlockScreen@@YAXXZ
+    { 0x8B81FB05, 0x5567A0 }, // ?UnlockSurface@agiTexDef@@QAEXXZ
+    { 0xA77978BD, 0x559310 }, // ?UnpackAngle@@YAME@Z
+    { 0xD0BCBA1E, 0x425D90 }, // ?UnPackColor@mmCRHUD@@QAEXIAAVVector4@@@Z
+    { 0x4CE6D3FF, 0x559340 }, // ?UnpackNormal@@YAXAAVVector3@@AAG@Z
+    { 0x26F52670, 0x4923A0 }, // ?Unparent@mmInstChain@@QAEXPAVmmInstance@@@Z
+    { 0x782C6322, 0x44E970 }, // ?UnRegisterCop@aiPoliceForce@@QAEHPAVmmCar@@0@Z
+    { 0xD3D96129, 0x576750 }, // ?UnregisterMap@@YAXPAD@Z
+    { 0xD92A4E4B, 0x48A570 }, // ?UnSealSession@asNetwork@@QAEXXZ
+    { 0xCAA54269, 0x4E9650 }, // ?Update3DCDMusic@AudManager@@AAEXXZ
+    { 0x5669F375, 0x4EAE00 }, // ?Update3DSettings@AudSound@@QAEXXZ
+    { 0x93570B1A, 0x4A6080 }, // ?Update@AboutMenu@@UAEXXZ
+    { 0x41302783, 0x45C780 }, // ?Update@AddOnCarAudio@@QAEXXZ
+    { 0x99EF5436, 0x555410 }, // ?Update@agiBILight@@UAEHXZ
+    { 0x071E40F9, 0x533910 }, // ?Update@agiD3DLight@@UAEHXZ
+    { 0xCC7C29B1, 0x441300 }, // ?Update@aiAudioManager@@UAEXXZ
+    { 0x3909F009, 0x4FA5F0 }, // ?Update@AICamCS@@UAEXXZ
+    { 0x634BC509, 0x45F700 }, // ?Update@aiGoal@@UAEXXZ
+    { 0xE7994D1F, 0x46A530 }, // ?Update@aiGoalAvoidPlayer@@UAEXXZ
+    { 0xCD3E7DBA, 0x45F8D0 }, // ?Update@aiGoalBackup@@UAEXXZ
+    { 0x4EFCAF7B, 0x460770 }, // ?Update@aiGoalChase@@UAEXXZ
+    { 0x316A9A5A, 0x46B350 }, // ?Update@aiGoalCollision@@UAEXXZ
+    { 0xAB6882DE, 0x466AB0 }, // ?Update@aiGoalFollowWayPts@@UAEXXZ
+    { 0xB3F23D65, 0x45D320 }, // ?Update@aiGoalRandomDrive@@UAEXXZ
+    { 0x3840EA50, 0x46B130 }, // ?Update@aiGoalRegainRail@@UAEXXZ
+    { 0x3233F016, 0x45F770 }, // ?Update@aiGoalStop@@UAEXXZ
+    { 0xF4D29CAD, 0x4362F0 }, // ?Update@aiMap@@UAEXXZ
+    { 0xBC9D6A69, 0x447220 }, // ?Update@aiPedAudioManager@@UAEXXZ
+    { 0x74A1FEAF, 0x448460 }, // ?Update@aiPedestrian@@QAEXXZ
+    { 0xE2B72C21, 0x44E850 }, // ?Update@aiPoliceForce@@QAEXXZ
+    { 0x9A1D8092, 0x46B550 }, // ?Update@aiStuck@@UAEXXZ
+    { 0x0FD7B13A, 0x444250 }, // ?Update@aiTrafficLightSet@@UAEXXZ
+    { 0x1D694F46, 0x465940 }, // ?Update@aiVehicle@@UAEXXZ
+    { 0xDA6EB9C3, 0x4528E0 }, // ?Update@aiVehicleActive@@UAEXXZ
+    { 0xF0EB3B69, 0x44F2E0 }, // ?Update@aiVehicleAmbient@@UAEXXZ
+    { 0x932ED39B, 0x452D70 }, // ?Update@aiVehicleManager@@UAEXXZ
+    { 0x49F3B023, 0x44DED0 }, // ?Update@aiVehicleOpponent@@UAEXXZ
+    { 0xD4DCEDF1, 0x4453D0 }, // ?Update@aiVehiclePolice@@UAEXXZ
+    { 0x7712BEBA, 0x45A2F0 }, // ?Update@aiVehicleSpline@@UAEXXZ
+    { 0x050BF426, 0x4DFC70 }, // ?Update@asAero@@UAEXXZ
+    { 0x27A28ED9, 0x528DF0 }, // ?Update@asCamera@@UAEXXZ
+    { 0xBC0E5FB0, 0x525090 }, // ?Update@asCullManager@@UAEXXZ
+    { 0xCFC6F8BF, 0x52AFC0 }, // ?Update@asDofCS@@UAEXXZ
+    { 0x8696265B, 0x5284F0 }, // ?Update@asForm@@UAEXXZ
+    { 0x54283098, 0x4D9680 }, // ?Update@asInertialCS@@UAEXXZ
+    { 0x4D2FA793, 0x526190 }, // ?Update@asLamp@@UAEXXZ
+    { 0xB901E6CA, 0x525B20 }, // ?Update@asLinearCS@@UAEXXZ
+    { 0xF6A60C22, 0x501FC0 }, // ?Update@asLineSparks@@QAEXM@Z
+    { 0x12AAC459, 0x501F80 }, // ?Update@asLineSparks@@QAEXXZ
+    { 0xAA1F126A, 0x4FFF40 }, // ?Update@asMeshSetForm@@UAEXXZ
+    { 0x781A8DA8, 0x526B80 }, // ?Update@asMidgets@@QAEXXZ
+    { 0xE8BF1420, 0x48B4F0 }, // ?Update@asNetObject@@UAEXXZ
+    { 0x4EF4652D, 0x48AAC0 }, // ?Update@asNetwork@@QAEHXZ
+    { 0x58A92032, 0x523890 }, // ?Update@asNode@@UAEXXZ
+    { 0x04FAA1B5, 0x4DED70 }, // ?Update@asOverSample@@UAEXXZ
+    { 0xF7143463, 0x5002A0 }, // ?Update@asParticles@@UAEXXZ
+    { 0x7FA12C68, 0x52AA30 }, // ?Update@asPerfGraph@@QAEXXZ
+    { 0xC7452ABF, 0x495EE0 }, // ?Update@asPortalWeb@@UAEXXZ
+    { 0x6A7324BF, 0x490CD0 }, // ?Update@asRenderWeb@@UAEXXZ
+    { 0xC051E4EC, 0x5222C0 }, // ?Update@asSimulation@@UAEXXZ
+    { 0x254E586A, 0x52BF00 }, // ?Update@asViewCS@@UAEXXZ
+    { 0xE9ACAB39, 0x4EBD60 }, // ?Update@AudHead@@EAEXXZ
+    { 0x07DAB56B, 0x4E86C0 }, // ?Update@AudManager@@UAEXXZ
+    { 0x169B7F2E, 0x4EAD70 }, // ?Update@AudSound@@UAEXXZ
+    { 0x4C383FE5, 0x4F3B00 }, // ?Update@AudStream@@UAEXXZ
+    { 0x24368B47, 0x527C20 }, // ?Update@BMI@@UAEHH@Z
+    { 0xB62B5F8D, 0x4FE320 }, // ?Update@Card2D@@UAEXXZ
+    { 0x34D28F43, 0x4A3680 }, // ?Update@ControlSetup@@UAEXXZ
+    { 0x21B36256, 0x5282F0 }, // ?Update@floatMI@@UAEHH@Z
+    { 0xAD93C740, 0x411EE0 }, // ?Update@foobar@@EAEXXZ
+    { 0x5D88C095, 0x528120 }, // ?Update@intMI@@UAEHH@Z
+    { 0x072F3783, 0x4DC0F0 }, // ?Update@Joint3Dof@@UAEXXZ
+    { 0x3F5AAC7C, 0x4B0E00 }, // ?Update@MenuManager@@UAEXXZ
+    { 0xE8810C0C, 0x427E60 }, // ?Update@mmAmbientAudio@@QAEXXZ
+    { 0xB2DF4516, 0x4C4940 }, // ?Update@mmAnimDOF@@QAEXXZ
+    { 0x824B5D07, 0x498880 }, // ?Update@mmAnimInstState@@QAEXXZ
+    { 0x2E387EA8, 0x4C13A0 }, // ?Update@mmAnimMgr@@UAEXXZ
+    { 0x539D3977, 0x4C5350 }, // ?Update@mmAnimPlane@@QAEXXZ
+    { 0x59B1A7E9, 0x4C3BC0 }, // ?Update@mmAnimSpline@@UAEXXZ
+    { 0x9B4FD37E, 0x4C63C0 }, // ?Update@mmAnimTrain@@QAEXXZ
+    { 0x785E0831, 0x406560 }, // ?Update@mmArrow@@UAEXXZ
+    { 0xAF948DEA, 0x47D4F0 }, // ?Update@mmAxle@@UAEXXZ
+    { 0xFC3D89E9, 0x4CB2A0 }, // ?Update@mmBangerActive@@UAEXXZ
+    { 0x09B92E6D, 0x4CB640 }, // ?Update@mmBangerActiveManager@@UAEXXZ
+    { 0x5C04D50E, 0x4C75D0 }, // ?Update@mmBoat@@UAEXXZ
+    { 0xDDEC8824, 0x4C4150 }, // ?Update@mmBridgeAudMgr@@UAEXXZ
+    { 0x6E9C20C9, 0x4C2380 }, // ?Update@mmBridgeSet@@UAEXXZ
+    { 0x1FD223B0, 0x473C40 }, // ?Update@mmCar@@UAEXXZ
+    { 0x254206CF, 0x481770 }, // ?Update@mmCarRoadFF@@UAEXXZ
+    { 0x2B58AA58, 0x46D860 }, // ?Update@mmCarSim@@UAEXXZ
+    { 0xF9D82171, 0x4231A0 }, // ?Update@mmCDPlayer@@UAEXXZ
+    { 0x669D2A08, 0x424F50 }, // ?Update@mmCircuitHUD@@UAEXXZ
+    { 0x4450203E, 0x4BF2E0 }, // ?Update@mmCompBase@@UAEXXZ
+    { 0x71888AED, 0x4B7580 }, // ?Update@mmCompCRPlayer@@UAEXXZ
+    { 0xCBB55364, 0x4B5D50 }, // ?Update@mmCompDRecord@@UAEXXZ
+    { 0x8DB95F8D, 0x4B4B30 }, // ?Update@mmCompRaceRecord@@UAEXXZ
+    { 0x152DA85B, 0x4B7A30 }, // ?Update@mmCompRoster@@UAEXXZ
+    { 0xA3E95E9D, 0x426160 }, // ?Update@mmCRHUD@@UAEXXZ
+    { 0xB15C88B2, 0x48D5D0 }, // ?Update@mmCullCity@@UAEXXZ
+    { 0x8508C301, 0x421DD0 }, // ?Update@mmDashView@@UAEXXZ
+    { 0xBE189132, 0x47FF30 }, // ?Update@mmDrivetrain@@UAEXXZ
+    { 0x4D829948, 0x4C0F20 }, // ?Update@mmDropDown@@UAEXXZ
+    { 0x83AFB759, 0x47CC90 }, // ?Update@mmEngine@@UAEXXZ
+    { 0x6C90779B, 0x422310 }, // ?Update@mmExternalView@@UAEXXZ
+    { 0xF5490CDF, 0x480C00 }, // ?Update@mmForce@@UAEXXZ
+    { 0xE1BE0DFA, 0x4102A0 }, // ?Update@mmGame@@UAEXXZ
+    { 0xCD815F6A, 0x4127F0 }, // ?Update@mmGameEdit@@UAEXXZ
+    { 0xC6C9115F, 0x4044D0 }, // ?Update@mmGameManager@@UAEXXZ
+    { 0x30F01D6E, 0x4319F0 }, // ?Update@mmGameMulti@@UAEXXZ
+    { 0x543EA99C, 0x417640 }, // ?Update@mmGameSingle@@UAEXXZ
+    { 0xD28E01E2, 0x405910 }, // ?Update@mmHUD@@UAEXXZ
+    { 0x2C216778, 0x428C60 }, // ?Update@mmHudMap@@UAEXXZ
+    { 0x147BD406, 0x426530 }, // ?Update@mmIcons@@UAEXXZ
+    { 0x777C3644, 0x485530 }, // ?Update@mmImpactAudio@@QAEXXZ
+    { 0x54538FE6, 0x4E2290 }, // ?Update@mmInput@@UAEXXZ
+    { 0x81F37B84, 0x4088A0 }, // ?Update@mmInterface@@UAEXXZ
+    { 0x8FB2B709, 0x4E5C80 }, // ?Update@mmJoyMan@@QAEXXZ
+    { 0xC66A668D, 0x4E6980 }, // ?Update@mmJoystick@@QAEXXZ
+    { 0x92979F4C, 0x48B9E0 }, // ?Update@mmLoader@@QAEXXZ
+    { 0xD1050DDB, 0x502A00 }, // ?Update@mmMouseSteerBar@@UAEXXZ
+    { 0xBEF477CC, 0x433130 }, // ?Update@mmNetObject@@UAEXXZ
+    { 0xA60FCE47, 0x4836A0 }, // ?Update@mmNetworkCarAudio@@UAEXXZ
+    { 0xCC00FB66, 0x4FEB70 }, // ?Update@mmNumber@@UAEXXZ
+    { 0x9ADDC7FE, 0x47BBE0 }, // ?Update@mmOpponentCarAudio@@QAEXHMM@Z
+    { 0xDF0265EE, 0x47A710 }, // ?Update@mmOpponentImpactAudio@@QAEXXZ
+    { 0x0180AD97, 0x485E60 }, // ?Update@mmOpponentSurfaceAudio@@QAEXM@Z
+    { 0x747567FE, 0x4978C0 }, // ?Update@mmPed@@QAEXXZ
+    { 0x94DEC6EF, 0x497A60 }, // ?Update@mmPedManager@@UAEXXZ
+    { 0xD9BC8ADE, 0x453AF0 }, // ?Update@mmPhysEntity@@UAEXXZ
+    { 0x5717E41D, 0x4D9190 }, // ?Update@mmPhysExec@@UAEXXZ
+    { 0xBE98086A, 0x4D4F40 }, // ?Update@mmPhysicsMGR@@UAEXXZ
+    { 0x1BF381E6, 0x42BBC0 }, // ?Update@mmPlayer@@UAEXXZ
+    { 0xE4B15535, 0x482250 }, // ?Update@mmPlayerCarAudio@@QAEXHMMF@Z
+    { 0xDCAEDE01, 0x47AC30 }, // ?Update@mmPoliceCarAudio@@QAEXHMM@Z
+    { 0x8A10BB61, 0x427680 }, // ?Update@mmPopup@@UAEXXZ
+    { 0xD5D753E0, 0x4335B0 }, // ?Update@mmRainAudio@@QAEXXZ
+    { 0xE0D962DF, 0x403CE0 }, // ?Update@mmScreenClearFlunky@@UAEXXZ
+    { 0x3A27E948, 0x478640 }, // ?Update@mmShard@@QAEXXZ
+    { 0x8EFA2820, 0x478C60 }, // ?Update@mmShardManager@@UAEXXZ
+    { 0xCCE60638, 0x47D270 }, // ?Update@mmShock@@UAEXXZ
+    { 0xF2E633DE, 0x413800 }, // ?Update@mmSingleBlitz@@UAEXXZ
+    { 0xF7AE95EE, 0x415490 }, // ?Update@mmSingleCircuit@@UAEXXZ
+    { 0x96469CF4, 0x477A90 }, // ?Update@mmSkid@@QAEXXZ
+    { 0x9FBF9378, 0x4780A0 }, // ?Update@mmSkidManager@@UAEXXZ
+    { 0x203345F6, 0x4BED20 }, // ?Update@mmSlider@@UAEXXZ
+    { 0x041069BD, 0x4811E0 }, // ?Update@mmSplash@@UAEXXZ
+    { 0x673964A5, 0x47C5B0 }, // ?Update@mmStuck@@UAEXXZ
+    { 0x279ACEAC, 0x487B50 }, // ?Update@mmSurfaceAudio@@QAEXM@Z
+    { 0xFDCFE848, 0x4FFB30 }, // ?Update@mmTextNode@@UAEXXZ
+    { 0x642002CD, 0x406240 }, // ?Update@mmTimer@@UAEXXZ
+    { 0x4F9C7F24, 0x4C00C0 }, // ?Update@mmToggle2@@UAEXXZ
+    { 0x69612F2B, 0x4C0590 }, // ?Update@mmToggle@@UAEXXZ
+    { 0x755B8A95, 0x4BF290 }, // ?Update@mmToolTip@@UAEXXZ
+    { 0xE6000E5D, 0x479D60 }, // ?Update@mmTrailer@@UAEXXZ
+    { 0xA0EC74B0, 0x4705C0 }, // ?Update@mmTransmission@@UAEXXZ
+    { 0x1FCB102B, 0x502780 }, // ?Update@mmVehicleForm@@UAEXXZ
+    { 0xDB975366, 0x4F9230 }, // ?Update@mmViewCS@@UAEXXZ
+    { 0x92725E72, 0x4EDF70 }, // ?Update@mmVoiceCommentary@@QAEXXZ
+    { 0x02A698A5, 0x430530 }, // ?Update@mmWaypointObject@@UAEXXZ
+    { 0xBBB405F8, 0x42E9A0 }, // ?Update@mmWaypoints@@UAEXXZ
+    { 0x22FCB62A, 0x47E3E0 }, // ?Update@mmWheel@@UAEXXZ
+    { 0x41E62BFB, 0x474A20 }, // ?Update@mmWheelCheap@@UAEXXZ
+    { 0x7DBC4BD8, 0x424730 }, // ?Update@mmWPHUD@@UAEXXZ
+    { 0xBBEF4FB7, 0x4857D0 }, // ?Update@NetAddOnCarAudio@@QAEXXZ
+    { 0x2D20C2E9, 0x475940 }, // ?Update@NetAudioManager@@UAEXXZ
+    { 0x2CCCB90D, 0x4F9FA0 }, // ?Update@PointCamCS@@UAEXXZ
+    { 0x9E910A50, 0x4FAC20 }, // ?Update@PolarCamCS@@UAEXXZ
+    { 0x17C76678, 0x4F9670 }, // ?Update@PostCamCS@@UAEXXZ
+    { 0xBAE2D22A, 0x4F6530 }, // ?Update@PovCamCS@@UAEXXZ
+    { 0x6FC9E55F, 0x4F9AC0 }, // ?Update@PreCamCS@@UAEXXZ
+    { 0x3DC8A332, 0x4AB400 }, // ?Update@PUMenuBase@@UAEXXZ
+    { 0x6E99C0A0, 0x423920 }, // ?Update@RadialGauge@@UAEXXZ
+    { 0xCE6C2D80, 0x528360 }, // ?Update@SBMI@@UAEHH@Z
+    { 0x3F5D79BB, 0x527D80 }, // ?Update@scharMI@@UAEHH@Z
+    { 0x1B4BED1B, 0x4BDA90 }, // ?Update@sfPointer@@UAEXXZ
+    { 0x3B5249FF, 0x527F50 }, // ?Update@shortMI@@UAEHH@Z
+    { 0xD29367A5, 0x527BE0 }, // ?Update@SMI@@UAEHH@Z
+    { 0xAF1AF598, 0x4FDB30 }, // ?Update@Spline@@UAEXXZ
+    { 0xCD396CB9, 0x4F5F80 }, // ?Update@StreamObj@@QAEXXZ
+    { 0xB28F1CC1, 0x4BE460 }, // ?Update@TextDropWidget@@UAEXXZ
+    { 0xD4D6A2D8, 0x527CA0 }, // ?Update@TMI@@UAEHH@Z
+    { 0x4628FA01, 0x4F7270 }, // ?Update@TrackCamCS@@UAEXXZ
+    { 0x2948870B, 0x4FB580 }, // ?Update@TransitionCS@@UAEXXZ
+    { 0x723DEDA3, 0x527E60 }, // ?Update@ucharMI@@UAEHH@Z
+    { 0x923C88CB, 0x4B6AD0 }, // ?Update@UIBMButton@@UAEXXZ
+    { 0xC710462F, 0x4B4610 }, // ?Update@UIBMLabel@@UAEXXZ
+    { 0xC8502F35, 0x4B9D20 }, // ?Update@UIButton@@UAEXXZ
+    { 0xEA93CE0A, 0x4B5710 }, // ?Update@UICompositeScroll@@UAEXXZ
+    { 0x7F29750D, 0x4BBEC0 }, // ?Update@UIControlWidget@@UAEXXZ
+    { 0x92F26820, 0x4B8440 }, // ?Update@UICWArray@@UAEXXZ
+    { 0x247A817A, 0x4B9AD0 }, // ?Update@UIIcon@@UAEXXZ
+    { 0xCF93E4B8, 0x4BC360 }, // ?Update@UIIconW@@UAEXXZ
+    { 0xFE3E7509, 0x4B97D0 }, // ?Update@UILabel@@UAEXXZ
+    { 0xC267C126, 0x4ACB10 }, // ?Update@UIMenu@@UAEXXZ
+    { 0x7CC5E50F, 0x4BCC10 }, // ?Update@UIMexButton@@UAEXXZ
+    { 0x57B11D61, 0x4B1FD0 }, // ?Update@uiNavBar@@UAEXXZ
+    { 0x22FE529B, 0x528210 }, // ?Update@uintMI@@UAEHH@Z
+    { 0x877B0397, 0x4B3E40 }, // ?Update@UISlider@@UAEXXZ
+    { 0x1A2E624C, 0x4B3490 }, // ?Update@UITextDropdown@@UAEXXZ
+    { 0x74CE21CE, 0x4B2EC0 }, // ?Update@UITextField@@UAEXXZ
+    { 0x1B2EBD30, 0x4BB3C0 }, // ?Update@UITextRoller2@@UAEXXZ
+    { 0x9F29EB7C, 0x4BA5B0 }, // ?Update@UITextRoller@@UAEXXZ
+    { 0x28D57853, 0x4BCA80 }, // ?Update@UIToggleButton2@@UAEXXZ
+    { 0x7188B63B, 0x4BC720 }, // ?Update@UIToggleButton@@UAEXXZ
+    { 0xFD418A99, 0x4BD300 }, // ?Update@UIVScrollBar@@UAEXXZ
+    { 0xA0B9672A, 0x528040 }, // ?Update@ushortMI@@UAEHH@Z
+    { 0xCACFC3BE, 0x480780 }, // ?Update@VehGyro@@UAEXXZ
+    { 0x1989C4A4, 0x49BA00 }, // ?Update@VehicleSelectBase@@UAEXXZ
+    { 0x85C80D60, 0x4BF8D0 }, // ?Update@VSWidget@@UAEXXZ
+    { 0xEDC3E206, 0x562350 }, // ?Update@WINEventHandler@@UAEXH@Z
+    { 0x46454654, 0x43C490 }, // ?UpdateAmbients@aiPath@@QAEXXZ
+    { 0xE635FE4D, 0x4FC460 }, // ?UpdateApproach@AppCamCS@@AAEXXZ
+    { 0xA21F95CA, 0x4BDD10 }, // ?UpdateAttached@sfPointer@@AAEXXZ
+    { 0x5F48E897, 0x450A70 }, // ?UpdateAudImpactReaction@aiVehicleAmbient@@QAEXXZ
+    { 0x5CEAF9CE, 0x44D010 }, // ?UpdateAudio@aiPedestrian@@QAEXXZ
+    { 0xD604CFC8, 0x44F850 }, // ?UpdateAudio@aiVehicleAmbient@@AAEXM@Z
+    { 0x5932A4E1, 0x44F820 }, // ?UpdateAudio@aiVehicleAmbient@@QAEXXZ
+    { 0x726986B8, 0x44E300 }, // ?UpdateAudio@aiVehicleOpponent@@QAEXXZ
+    { 0x9DA17643, 0x4461B0 }, // ?UpdateAudio@aiVehiclePolice@@QAEXXZ
+    { 0x92BEACDF, 0x4C5AC0 }, // ?UpdateAudio@mmAnimPlane@@AAEXXZ
+    { 0x3C0654C2, 0x4C6CA0 }, // ?UpdateAudio@mmAnimTrain@@AAEXXZ
+    { 0x708813B3, 0x4C2A40 }, // ?UpdateAudio@mmBridgeSet@@QAEXXZ
+    { 0xF15F8B79, 0x4836E0 }, // ?UpdateAudio@mmNetworkCarAudio@@QAEXXZ
+    { 0x4B4F9557, 0x41DFA0 }, // ?UpdateBank@mmMultiCR@@AAEXXZ
+    { 0x07A52097, 0x4F7360 }, // ?UpdateCar@TrackCamCS@@AAEXXZ
+    { 0x7C0776BC, 0x4D3CC0 }, // ?UpdateCrc@@YAKPAEI@Z
+    { 0xD73F440A, 0x4529D0 }, // ?UpdateDamage@aiVehicleActive@@QAEXXZ
+    { 0x7E4CE8E9, 0x46E270 }, // ?UpdateDamage@mmCarSim@@QAEXXZ
+    { 0x9EFDE145, 0x4104B0 }, // ?UpdateDebugInput@mmGame@@UAEXXZ
+    { 0x0829EA6B, 0x412570 }, // ?UpdateDebugKeyInput@mmGameEdit@@UAEXH@Z
+    { 0xF1A72724, 0x431ED0 }, // ?UpdateDebugKeyInput@mmGameMulti@@UAEXH@Z
+    { 0x22B34E78, 0x418EC0 }, // ?UpdateDebugKeyInput@mmGameSingle@@UAEXH@Z
+    { 0x66B3CA0F, 0x41B820 }, // ?UpdateDebugKeyInput@mmMultiCircuit@@UAEXH@Z
+    { 0x054FE103, 0x41F560 }, // ?UpdateDebugKeyInput@mmMultiCR@@UAEXH@Z
+    { 0xA976BB87, 0x414BD0 }, // ?UpdateDebugKeyInput@mmSingleBlitz@@UAEXH@Z
+    { 0x22F5C149, 0x416C70 }, // ?UpdateDebugKeyInput@mmSingleCircuit@@UAEXH@Z
+    { 0xAF4A93FF, 0x483FA0 }, // ?UpdateDoppler@mmNetworkCarAudio@@QAEXXZ
+    { 0x8952D729, 0x47BDF0 }, // ?UpdateDoppler@mmOpponentCarAudio@@QAEXM@Z
+    { 0x4200A4BB, 0x47BDE0 }, // ?UpdateDoppler@mmOpponentCarAudio@@QAEXXZ
+    { 0xA0CE1941, 0x47B410 }, // ?UpdateDoppler@mmPoliceCarAudio@@QAEXM@Z
+    { 0x8A1A73E0, 0x47B400 }, // ?UpdateDoppler@mmPoliceCarAudio@@QAEXXZ
+    { 0x829AC9C8, 0x450DC0 }, // ?UpdateDSound3DAudio@aiVehicleAmbient@@AAEXXZ
+    { 0xC70B27A8, 0x4F2EC0 }, // ?UpdateEcho@SoundObj@@QAEXXZ
+    { 0xB83CE0B3, 0x4D4D00 }, // ?UpdateEverythingButPlayer@mmPhysicsMGR@@QAEXXZ
+    { 0x26636D4F, 0x46E160 }, // ?UpdateExhaust@mmCarSim@@QAEXXZ
+    { 0x38A2E8A8, 0x46E520 }, // ?UpdateFF@mmCarSim@@QAEXXZ
+    { 0xA042F3F7, 0x4BBEE0 }, // ?UpdateField@UIControlWidget@@QAEXXZ
+    { 0x6BD5E2FB, 0x55A630 }, // ?UpdateFlags@agiBitmap@@UAEXXZ
+    { 0x3F389F20, 0x533C80 }, // ?UpdateFlags@agiDDBitmap@@UAEXXZ
+    { 0xE4C0A50C, 0x534DA0 }, // ?UpdateFlags@agiSWBitmap@@UAEXXZ
+    { 0x12C7FF47, 0x412820 }, // ?UpdateGame@mmGameEdit@@UAEXXZ
+    { 0x767BB658, 0x431A10 }, // ?UpdateGame@mmGameMulti@@UAEXXZ
+    { 0xC3F866C8, 0x4176A0 }, // ?UpdateGame@mmGameSingle@@UAEXXZ
+    { 0xA87B1618, 0x419910 }, // ?UpdateGame@mmMultiBlitz@@UAEXXZ
+    { 0x9463B748, 0x41B270 }, // ?UpdateGame@mmMultiCircuit@@UAEXXZ
+    { 0x9AEF4C66, 0x41D380 }, // ?UpdateGame@mmMultiCR@@UAEXXZ
+    { 0x94ADB19F, 0x420510 }, // ?UpdateGame@mmMultiRace@@UAEXXZ
+    { 0x08198B66, 0x413860 }, // ?UpdateGame@mmSingleBlitz@@UAEXXZ
+    { 0xBBEAAB79, 0x415850 }, // ?UpdateGame@mmSingleCircuit@@UAEXXZ
+    { 0xC8D0E328, 0x410E90 }, // ?UpdateGameInput@mmGame@@QAEXXZ
+    { 0xC711F351, 0x412810 }, // ?UpdateGameInput@mmGameEdit@@UAEXH@Z
+    { 0x2FCF2777, 0x417660 }, // ?UpdateGameInput@mmGameSingle@@UAEXH@Z
+    { 0x32835904, 0x4198D0 }, // ?UpdateGameInput@mmMultiBlitz@@UAEXH@Z
+    { 0x5B0D4D04, 0x41B230 }, // ?UpdateGameInput@mmMultiCircuit@@UAEXH@Z
+    { 0x2CCA8747, 0x41D340 }, // ?UpdateGameInput@mmMultiCR@@UAEXH@Z
+    { 0xAE1A0016, 0x4204D0 }, // ?UpdateGameInput@mmMultiRace@@UAEXH@Z
+    { 0xFB249AE1, 0x413820 }, // ?UpdateGameInput@mmSingleBlitz@@UAEXH@Z
+    { 0xF516EC29, 0x4154B0 }, // ?UpdateGameInput@mmSingleCircuit@@UAEXH@Z
+    { 0x05104283, 0x426140 }, // ?UpdateGold@mmCRHUD@@QAEXXZ
+    { 0x1F6085D3, 0x41DC20 }, // ?UpdateGold@mmMultiCR@@AAEXXZ
+    { 0xB703E5A1, 0x41DE50 }, // ?UpdateHideout@mmMultiCR@@AAEXXZ
+    { 0xE9E52D76, 0x4F7500 }, // ?UpdateHill@TrackCamCS@@AAEXXZ
+    { 0xA9112D70, 0x42B310 }, // ?UpdateHOG@mmPlayer@@QAEXXZ
+    { 0x3915A9F4, 0x450790 }, // ?UpdateHorn@aiVehicleAmbient@@QAEXXZ
+    { 0x494125D8, 0x41F410 }, // ?UpdateHUD@mmMultiCR@@AAEXXZ
+    { 0xF2F771CF, 0x46D680 }, // ?UpdateICSParams@mmCarSim@@QAEXXZ
+    { 0x4FCFFD11, 0x479C00 }, // ?UpdateICSParams@mmTrailer@@QAEXXZ
+    { 0xBAE808F7, 0x4F99D0 }, // ?UpdateInput@BaseCamCS@@UAEXXZ
+    { 0xEF4873DD, 0x4F6550 }, // ?UpdateInput@PovCamCS@@UAEXXZ
+    { 0x9765150C, 0x4F7350 }, // ?UpdateInput@TrackCamCS@@UAEXXZ
+    { 0xF06E17A6, 0x526BF0 }, // ?UpdateKey@asMidgets@@QAEXHH@Z
+    { 0x23EFA8D2, 0x4D9650 }, // ?UpdateKids@asInertialCS@@QAEXXZ
+    { 0x23233860, 0x41E0F0 }, // ?UpdateLimit@mmMultiCR@@AAEXXZ
+    { 0xCCDE1818, 0x40A1F0 }, // ?UpdateLobby@mmInterface@@QAEXXZ
+    { 0x1AF25801, 0x52C220 }, // ?UpdateLookAt@asViewCS@@QAEXXZ
+    { 0x425AC1C6, 0x5564A0 }, // ?UpdateLutQueue@@YAXXZ
+    { 0x2FF0B352, 0x4FC9D0 }, // ?UpdateMaxDist@AppCamCS@@AAEXXZ
+    { 0x4842CABC, 0x490D60 }, // ?UpdateMirror@asRenderWeb@@QAEXXZ
+    { 0xAF85732D, 0x432450 }, // ?UpdateNetWorkAudio@mmGameMulti@@QAEXXZ
+    { 0xA089658D, 0x4C5370 }, // ?UpdatePathPosition@mmAnimPlane@@QAEXXZ
+    { 0x85630863, 0x4C6460 }, // ?UpdatePathPosition@mmAnimTrain@@QAEXXZ
+    { 0x5FE84AC7, 0x4C7600 }, // ?UpdatePathPosition@mmBoat@@QAEXXZ
+    { 0x4BDD1182, 0x436670 }, // ?UpdatePaused@aiMap@@UAEXXZ
+    { 0x31A86733, 0x404BB0 }, // ?UpdatePaused@asNode@@UAEXXZ
+    { 0x9173C0D2, 0x522B10 }, // ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
+    { 0x5DE15E17, 0x4E9DB0 }, // ?UpdatePaused@AudManager@@UAEXXZ
+    { 0xFC32D895, 0x411F10 }, // ?UpdatePaused@foobar@@EAEXXZ
+    { 0xECDBB1A5, 0x410DA0 }, // ?UpdatePaused@mmGame@@UAEXXZ
+    { 0xC3C280CF, 0x405CE0 }, // ?UpdatePaused@mmHUD@@UAEXXZ
+    { 0xB8466134, 0x4D52F0 }, // ?UpdatePaused@mmPhysicsMGR@@UAEXXZ
+    { 0x6FE35EDA, 0x43C5A0 }, // ?UpdatePedestrians@aiPath@@QAEXXZ
+    { 0x63A2A2E7, 0x4F31B0 }, // ?UpdatePitchEcho@SoundObj@@QAEXXZ
+    { 0x7D34BCF5, 0x4F2F30 }, // ?UpdatePlayEcho@SoundObj@@QAEXXZ
+    { 0xD4E1CD20, 0x52BF80 }, // ?UpdatePolar@asViewCS@@QAEXXZ
+    { 0xC03DC1E3, 0x4BEBC0 }, // ?UpdatePosition@mmSlider@@QAEXXZ
+    { 0xB8A4DD1E, 0x52C1D0 }, // ?UpdatePOV@asViewCS@@QAEXXZ
+    { 0xC0074883, 0x4F6560 }, // ?UpdatePOV@PovCamCS@@AAEXXZ
+    { 0x0E79860C, 0x42C4F0 }, // ?UpdateRegen@mmPlayer@@QAEXXZ
+    { 0xCED77FBF, 0x52C0C0 }, // ?UpdateRoam@asViewCS@@QAEXXZ
+    { 0x55CB8697, 0x486B30 }, // ?UpdateRPM@EngineAudio@@UAEXM@Z
+    { 0xBF420BB0, 0x485940 }, // ?UpdateRPM@EngineAudioOpponent@@QAEXM@Z
+    { 0x2DD41098, 0x431AA0 }, // ?UpdateScore@mmGameMulti@@QAEXXZ
+    { 0x69273991, 0x417EF0 }, // ?UpdateScore@mmGameSingle@@QAEXXZ
+    { 0x56385635, 0x4154C0 }, // ?UpdateScore@mmSingleCircuit@@QAEXXZ
+    { 0x0E185905, 0x4F2E90 }, // ?UpdateSeconds@SoundObj@@QAEXXZ
+    { 0xB9AC9835, 0x485EA0 }, // ?UpdateSkid@mmOpponentSurfaceAudio@@QAEXM@Z
+    { 0xCEACF7AB, 0x4882C0 }, // ?UpdateSkidClear@mmSurfaceAudio@@QAEXM@Z
+    { 0x1E6022DE, 0x488680 }, // ?UpdateSkidRain@mmSurfaceAudio@@QAEXM@Z
+    { 0xE3346E06, 0x486120 }, // ?UpdateSkidSnow@mmOpponentSurfaceAudio@@QAEXM@Z
+    { 0x62CF1BCD, 0x488A50 }, // ?UpdateSkidSnow@mmSurfaceAudio@@QAEXM@Z
+    { 0x1156A51A, 0x48D2F0 }, // ?UpdateSnowTextures@mmCullCity@@AAEXXZ
+    { 0x6C20F7E9, 0x411320 }, // ?UpdateSteeringBrakes@mmGame@@QAEXXZ
+    { 0xBC862A5E, 0x52C640 }, // ?UpdateStereo@asViewCS@@QAEXXZ
+    { 0x5AB80A34, 0x4F3030 }, // ?UpdateStopEcho@SoundObj@@QAEXXZ
+    { 0x70CF78C1, 0x487D30 }, // ?UpdateSurface@mmSurfaceAudio@@QAEXM@Z
+    { 0x83727097, 0x487FB0 }, // ?UpdateSurfaceSnow@mmSurfaceAudio@@QAEXM@Z
+    { 0x2BBEFF22, 0x488D80 }, // ?UpdateSuspension@mmSurfaceAudio@@QAEXXZ
+    { 0xD86C7926, 0x4F7E50 }, // ?UpdateSwing@TrackCamCS@@AAEXXZ
+    { 0x766FA611, 0x41EFC0 }, // ?UpdateTimeWarning@mmMultiCR@@AAEXXZ
+    { 0xEC92B5BD, 0x487BE0 }, // ?UpdateTireWobble@mmSurfaceAudio@@QAEXXZ
+    { 0xC86EAC7B, 0x52C280 }, // ?UpdateTrack@asViewCS@@QAEXXZ
+    { 0x6DA7DEC9, 0x4F7510 }, // ?UpdateTrack@TrackCamCS@@AAEXXZ
+    { 0xFD3FCC8D, 0x4817C0 }, // ?UpdateVals@mmCarRoadFF@@QAEXXZ
+    { 0xF6DB0ED7, 0x4FBEF0 }, // ?UpdateView@BaseCamCS@@QAEXXZ
+    { 0x25093716, 0x4F30F0 }, // ?UpdateVolumeEcho@SoundObj@@QAEXXZ
+    { 0x46B8F563, 0x42EFA0 }, // ?UpdateWPHUD@mmWaypoints@@QAEXXZ
+    { 0xA7AE860A, 0x4EF800 }, // ?UpperCase@@YAXPAD@Z
+    { 0xC6E6EF3A, 0x470570 }, // ?Upshift@mmTransmission@@QAEHXZ
+    { 0xB6E9FC6E, 0x579010 }, // ?Usage@ArgSet@@QAEXXZ
+    { 0x9A78C2AB, 0x4A2C60 }, // ?UsesLobby@HostRaceMenu@@UAEXH@Z
+    { 0xD9AA9B2E, 0x4A4F60 }, // ?UsesLobby@RaceMenuBase@@UAEXH@Z
+    { 0xF723952D, 0x57C4C0 }, // ?utimer@@YAKXZ
+    { 0xED50AEB5, 0x493820 }, // ?Valid@mmFacadeQuad@@SAHPAVagiMeshSet@@@Z
+    { 0x1635DC9E, 0x5328C0 }, // ?Validate@agiDDPipeline@@UAEHXZ
+    { 0x99D83AE9, 0x555540 }, // ?Validate@agiPipeline@@UAEHXZ
+    { 0x413967EC, 0x533DC0 }, // ?Validate@agiSWPipeline@@UAEHXZ
+    { 0x3C334A45, 0x4EC130 }, // ?ValidateCity@mmVoiceCommentary@@QAEXPAD@Z
+    { 0x52096C77, 0x555EB0 }, // ?ValidateObject@agiPipeline@@QAEXPAVagiRefreshable@@@Z
+    { 0x40EA6712, 0x557B30 }, // ?ValidatePtr@agiRefreshable@@AAEXPAD@Z
+    { 0x0410B332, 0x51D940 }, // ?ValidatePtr@mmBoundTemplate@@QAEXPAD@Z
+    { 0xEF48259A, 0x55FF80 }, // ?ValidPath@HierFileSystem@@UAEHPAD@Z
+    { 0x403ECF92, 0x560780 }, // ?ValidPath@VirtualFileSystem@@UAEHPAD@Z
+    { 0xA306E3D2, 0x4EE110 }, // ?Value@VolumeDW@@QAEKXZ
+    { 0xDF6850E8, 0x433EB0 }, // ?Vehicle@aiMap@@QAEPAVaiVehicleAmbient@@H@Z
+    { 0x196EC1E0, 0x474340 }, // ?VehNameRemap@mmCar@@QAEPADPADH@Z
+    { 0x93655D92, 0x520F00 }, // ?Verify@asMemoryAllocator@@AAEXPAX@Z
+    { 0x9A877DD1, 0x4A3900 }, // ?VerifyBadAssignment@ControlSetup@@QAEXXZ
+    { 0x0B333B22, 0x523440 }, // ?VerifyTree@asNode@@QAEPADXZ
+    { 0x0FF783CF, 0x52F770 }, // ?Verts@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
+    { 0x2347BA3B, 0x554DA0 }, // ?Verts@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
+    { 0x0A6AE6A1, 0x537C20 }, // ?Verts@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
+    { 0x965107D0, 0x43FF50 }, // ?VertXDir@aiPath@@QAEPAVVector3@@H@Z
+    { 0x12116C96, 0x43FFD0 }, // ?VertZDir@aiPath@@QAEPAVVector3@@H@Z
+    { 0xEE1D482B, 0x52A020 }, // ?ViewIt@@YAXPAVasCamera@@@Z
+    { 0xD9B141FB, 0x528600 }, // ?Visible@asForm@@QBEHPAVasCamera@@ABVMatrix34@@@Z
+    { 0x1A76047F, 0x55EE40 }, // ?Vprintf@Stream@@QAEHPBDPAD@Z
+    { 0xD0273E64, 0x4B55F0 }, // ?VScrollCB@UICompositeScroll@@QAEXXZ
+    { 0xC017D1F1, 0x4B7FB0 }, // ?VScrollCB@UICWArray@@QAEXXZ
+    { 0xB090099F, 0x4B8D00 }, // ?VScrollCB@UITextScroll@@QAEXXZ
+    { 0xC8394805, 0x4890F0 }, // ?WaitForLobbyConnection@asNetwork@@QAEXH@Z
+    { 0xFCBC0DD9, 0x4BDD20 }, // ?WaitForRelease@sfPointer@@QAEXXZ
+    { 0x8C4A9125, 0x45BCD0 }, // ?WaitTime@aiVehicleSpline@@QAEHXZ
+    { 0xC8292492, 0x449850 }, // ?Wander@aiPedestrian@@AAEXXZ
+    { 0x627E5800, 0x576CD0 }, // ?Warningf@@YAXPBDZZ
+    { 0xD690BBEB, 0x4A7A00 }, // ?WeatherCallback@RaceMenuBase@@QAEXXZ
+    { 0x1A0A0410, 0x4E39C0 }, // ?WheelConnected@mmInput@@QAEHXZ
+    { 0xAD6ADC22, 0x4E3A20 }, // ?WheelHas3Axis@mmInput@@QAEHXZ
+    { 0xBFC28F36, 0x422330 }, // ?WideFOV@mmExternalView@@QAEXH@Z
+    { 0x55D15E26, 0x4A7370 }, // ?WidgetOnOff@RaceMenuBase@@QAEXHPAVuiWidget@@@Z
+    { 0x231A91A5, 0x5229C0 }, // ?Widgets@asSimulation@@QAEXXZ
+    { 0x1901D472, 0x4EBEE0 }, // ?WidgetSetRolloff@AudHead@@QAEXXZ
+    { 0x393CC775, 0x4A4940 }, // ?WidgetSwitch@NetSelectMenu@@QAEXHH@Z
+    { 0xF014C662, 0x4F4690 }, // ?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z
+    { 0xB79FCA57, 0x4EEB70 }, // ?WindowProc@MixerCTL@@EAEJPAUHWND__@@IIJ@Z
+    { 0x46BFA181, 0x562720 }, // ?WindowProc@WINEventHandler@@EAEJPAUHWND__@@IIJ@Z
+    { 0x13595C3E, 0x4B2A10 }, // ?WmCharHandler@UITextField@@QAEXE@Z
+    { 0x604FEC51, 0x429B20 }, // ?WorldToBitmap@mmHudMap@@AAE?AUPoint@@PAVVector3@@@Z
+    { 0x8EA9946F, 0x4A7960 }, // ?WPCallback@RaceMenuBase@@QAEXXZ
+    { 0xF4C50AB9, 0x42F820 }, // ?WPHit@mmWaypoints@@QAEHHVVector3@@HH@Z
+    { 0xB2655E5A, 0x4AB810 }, // ?Write@MArray@@QAEXPAD@Z
+    { 0xB1BD380C, 0x4E4DC0 }, // ?Write@mmIO@@QAEHPAVStream@@@Z
+    { 0x1809DB08, 0x4E5740 }, // ?Write@mmIODev@@QAEHPAVStream@@@Z
+    { 0x5F1D8A9A, 0x55EB00 }, // ?Write@Stream@@QAEHPAXH@Z
+    { 0x8F87888A, 0x4ABEA0 }, // ?Write@WArray@@QAEXPAD@Z
+    { 0x4A621B31, 0x4E57A0 }, // ?WriteBinary@mmIODev@@QAEHPAVStream@@@Z
+    { 0x94F89B09, 0x533720 }, // ?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z
+    { 0x3BC50353, 0x506EA0 }, // ?ZClipOnly@@YAHPAUCV@@0H@Z
+    { 0x145AE90F, 0x4D9510 }, // ?Zero@asInertialCS@@QAEXXZ
+    { 0x4E2ECF4E, 0x4E9220 }, // ?ZeroVolAllSounds@AudManager@@QAEXXZ
+    { 0x6C72DB8E, 0x5342F0 }, // ?zmemset@@YAXPAGI@Z
+    { 0x28A80291, 0x409D50 }, // ?ZoneWatcher@@YGKPAX@Z
+    { 0x05564945, 0x5216B0 }, // __calloc_dbg
+    { 0x3EEC93CA, 0x521730 }, // __CrtCheckMemory
+    { 0x07129F5B, 0x5217D0 }, // __CrtDumpMemoryLeaks
+    { 0xE9E02E19, 0x521750 }, // __CrtIsValidPointer
+    { 0x85B506F9, 0x521790 }, // __CrtMemCheckpoint
+    { 0xC1C8B7A9, 0x521740 }, // __CrtSetDbgFlag
+    { 0x8520E5A9, 0x521670 }, // __free_dbg
+    { 0x0E2CA990, 0x521630 }, // __malloc_dbg
+    { 0x629B0BB5, 0x521590 }, // __msize
+    { 0x54BD8273, 0x521710 }, // __msize_dbg
+    { 0x72455801, 0x5215E0 }, // __realloc_dbg
+    { 0x0BFE7966, 0x401070 }, // __setargv
+    { 0x47CB5C9B, 0x521530 }, // _calloc
+    { 0x4F0E36B1, 0x521570 }, // _free
+    { 0xB0A73A48, 0x5214F0 }, // _malloc
+    { 0x09DD0BEB, 0x55F3B0 }, // _printf
+    { 0xD0B54456, 0x564AB0 }, // _rand
+    { 0xB50C6BC2, 0x521510 }, // _realloc
+    { 0x3A3BA01D, 0x564AC0 }, // _srand
+    { 0x22D3D4F9, 0x55F390 }, // _vprintf
+    { 0xD69CE865, 0x5A4720 }, // _strdup
+    { 0x656B23C2, 0x4031A0 }, // _WinMain@16
+    { 0x00000000, 0x000000 },
+    // clang-format on
 };

@@ -44,7 +44,7 @@
 
 #include <wglext.h>
 
-const char* PixelFormatFlagsToString(DWORD flags)
+static const char* PixelFormatFlagsToString(DWORD flags)
 {
     // FIXME: Static buffer
     static char buffer[256];

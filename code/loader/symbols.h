@@ -18,5 +18,12 @@
 
 #pragma once
 
-extern const char* const BaseSymbols[];
 extern const char* const NewSymbols[];
+
+struct SymbolAddress
+{
+    u32 Hash;
+    usize Addr;
+};
+
+extern const SymbolAddress BaseSymbols[];
