@@ -56,6 +56,8 @@ void create_patch(const char* name, const char* description, mem::pointer dest, 
 
 void patch_jmp(const char* name, const char* description, mem::pointer target, jump_type mode);
 
+void patch_xrefs(const char* name, const char* description, mem::pointer from, mem::pointer to, size_t length);
+
 #define auto_hook(ADDRESS, FUNC) create_hook(#FUNC, "", ADDRESS, &FUNC)
 #define auto_hook_typed(ADDRESS, FUNC, TYPE) create_hook(#FUNC, "", ADDRESS, static_cast<TYPE>(&FUNC))
 

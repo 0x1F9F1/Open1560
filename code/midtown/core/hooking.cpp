@@ -20,6 +20,7 @@
 
 #include "data7/printer.h"
 
+#include <mem/module.h>
 #include <mem/protect.h>
 
 void write_protected(mem::pointer dest, mem::pointer src, size_t length)
@@ -79,7 +80,7 @@ void create_hook(const char* name, const char* description, mem::pointer pHook, 
     if (LogHooks)
     {
         Displayf("Created %s hook '%s' from 0x%zX to 0x%zX: %s", HookTypeNames[static_cast<size_t>(type)], name,
-            pHook.as<uintptr_t>(), pDetour.as<uintptr_t>(), description);
+            pHook.as<size_t>(), pDetour.as<size_t>(), description);
     }
 
     ++HookCount;
@@ -89,7 +90,7 @@ void create_patch(const char* name, const char* description, mem::pointer dest, 
 {
     write_protected(dest, src, size);
 
-    Displayf("Created patch '%s' at 0x%zX of size %zu: %s", name, dest.as<uintptr_t>(), size, description);
+    Displayf("Created patch '%s' at 0x%zX of size %zu: %s", name, dest.as<size_t>(), size, description);
 
     ++PatchCount;
 }
@@ -97,7 +98,7 @@ void create_patch(const char* name, const char* description, mem::pointer dest, 
 void patch_jmp(const char* name, const char* description, mem::pointer target, jump_type mode)
 {
     const void* patch = nullptr;
-    usize len = 0;
+    size_t len = 0;
 
     u8 op = target.as<u8&>();
 
@@ -140,5 +141,89 @@ void patch_jmp(const char* name, const char* description, mem::pointer target, j
     if (patch)
         create_patch(name, description, target, patch, len);
     else
-        Errorf("Unrecognized jmp at 0x%zX", target.as<uintptr_t>());
+        Errorf("Unrecognized jmp at 0x%zX", target.as<size_t>());
+}
+
+struct RelocEntry
+{
+    size_t Target;
+    size_t Source;
+};
+
+static RelocEntry game_relocations[60000];
+static size_t game_relocation_count = 0;
+
+static void load_relocs()
+{
+    Displayf("Loading relocs");
+
+    mem::module main_module = mem::module::main();
+
+    const IMAGE_DATA_DIRECTORY& reloc_dir =
+        main_module.nt_headers().OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC];
+
+    IMAGE_BASE_RELOCATION* relocs = main_module.start.add(reloc_dir.VirtualAddress).as<IMAGE_BASE_RELOCATION*>();
+    DWORD relocs_size = reloc_dir.Size;
+
+    DWORD total_size = 0;
+    size_t total = 0;
+
+    while (total_size < relocs_size)
+    {
+        DWORD block_va = relocs->VirtualAddress;
+        size_t entry_count = entry_count = (relocs->SizeOfBlock - sizeof(IMAGE_BASE_RELOCATION)) / sizeof(WORD);
+
+        if (total + entry_count > 60000)
+            Abortf("Too many relocations");
+
+        u16* entries = (u16*) (relocs + 1);
+
+        for (size_t i = 0; i < entry_count; ++i, ++entries)
+        {
+            if ((*entries >> 12) != IMAGE_REL_BASED_HIGHLOW)
+                continue;
+
+            size_t va = block_va + (*entries & 0xFFF);
+            game_relocations[total] = {main_module.start.add(va).as<size_t&>(), 0x400000 + va};
+            ++total;
+        }
+
+        total_size += relocs->SizeOfBlock;
+        relocs = (IMAGE_BASE_RELOCATION*) entries;
+    }
+
+    game_relocation_count = total;
+
+    std::sort(
+        game_relocations, game_relocations + game_relocation_count, [](const RelocEntry& lhs, const RelocEntry& rhs) {
+            if (lhs.Target != rhs.Target)
+                return lhs.Target < rhs.Target;
+
+            return lhs.Source < rhs.Source;
+        });
+
+    Displayf("Parsed %zu relocations", total);
+}
+
+void patch_xrefs(const char* name, const char* description, mem::pointer from, mem::pointer to, size_t length)
+{
+    if (game_relocation_count == 0)
+        load_relocs();
+
+    auto find = std::lower_bound(game_relocations, game_relocations + game_relocation_count, from.as<size_t>(),
+        [](const RelocEntry& lhs, size_t address) { return lhs.Target < address; });
+
+    size_t total = 0;
+
+    for (; find < game_relocations + game_relocation_count; ++find, ++total)
+    {
+        if (find->Target >= (from + length).as<size_t>())
+            break;
+
+        mem::pointer target = to + (find->Target - from.as<size_t>());
+
+        write_protected(find->Source, &target, sizeof(target));
+    }
+
+    Displayf("Patches %zu '%s' xrefs: %s", total, name, description);
 }

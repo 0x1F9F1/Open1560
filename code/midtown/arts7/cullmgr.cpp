@@ -61,7 +61,7 @@ static void PrintMemoryUsage()
     CURHEAP->GetStats(&stats, sources, &num_sources);
 
     Statsf("%6zu KB Max Size", CURHEAP->GetHeapSize() >> 10);
-    Statsf("%6zu KB Current Size", CURHEAP->GetCurrentTotal() >> 10);
+    Statsf("%6zu KB Current Size", CURHEAP->GetHeapUsed() >> 10);
 
     Statsf("%6zu KB Used", stats.cbUsed >> 10);
     Statsf("%6zu KB Free", stats.cbFree >> 10);
@@ -69,16 +69,19 @@ static void PrintMemoryUsage()
 
     Statsf("%6zu Nodes (%zu Used/%zu Free)", stats.nTotalNodes, stats.nUsedNodes, stats.nFreeNodes);
 
-    Statsf("Nodes, Used (KB), Waste (KB) | Source");
-
-    for (usize i = 0; i < std::min<usize>(num_sources, 64); ++i)
+    if (num_sources)
     {
-        asMemSource source = sources[i];
+        Statsf("Nodes, Used (KB), Waste (KB) | Source");
 
-        char symbol[128];
-        LookupAddress(symbol, std::size(symbol), source.uSource);
+        for (usize i = 0; i < std::min<usize>(num_sources, 64); ++i)
+        {
+            asMemSource source = sources[i];
 
-        Statsf("%5zu, %5zu, %3zu | %s", source.nNodes, source.cbUsed >> 10, source.cbOverhead >> 10, symbol);
+            char symbol[128];
+            LookupAddress(symbol, std::size(symbol), source.uSource);
+
+            Statsf("%5zu, %5zu, %3zu | %s", source.nNodes, source.cbUsed >> 10, source.cbOverhead >> 10, symbol);
+        }
     }
 }
 

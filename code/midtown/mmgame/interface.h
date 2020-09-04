@@ -108,7 +108,7 @@
 #include "arts7/node.h"
 
 // 0x406A80 | ?ReportTimeAlloc@@YAXM@Z
-ARTS_IMPORT void ReportTimeAlloc(f32 arg1);
+ARTS_EXPORT void ReportTimeAlloc(f32 time);
 
 // 0x6A6EC8 | ?defcarname@@3PADA
 ARTS_IMPORT extern char defcarname[80];
@@ -118,6 +118,8 @@ ARTS_IMPORT extern char defcarname[80];
 
 // 0x6A6E40 | ?szSearchPath@@3PADA
 ARTS_IMPORT extern char szSearchPath[128];
+
+enum mmGameMode : i32;
 
 class mmInterface final : public asNode
 {

@@ -57,6 +57,12 @@ const char* const NewSymbols[] {
     "?ipcSpinUnlock@@YAXPAI@Z=?ipcSpunUnlock@@YAXPAI@Z",
     "?AddComponent@asPerfGraph@@QAEXPBDPAMABVVector3@@@Z=?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z",
     "?arts_strdup@@YAPADPBD@Z=_strdup",
+    "?arts_calloc_dbg@@YAPAXIIHPBDH@Z=__calloc_dbg",
+    "?arts_free_dbg@@YAXPAXHPBDH@Z=__free_dbg",
+    "?arts_malloc_dbg@@YAPAXIHPBDH@Z=__malloc_dbg",
+    "?arts_msize@@YAIPAX@Z=__msize",
+    "?arts_msize_dbg@@YAIPAXH@Z=__msize_dbg",
+    "?arts_realloc_dbg@@YAPAXPAXIHPBDH@Z=__realloc_dbg",
 
     nullptr,
 };

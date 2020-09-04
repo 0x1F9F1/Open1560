@@ -8,4 +8,7 @@ arts_component "memory"
         "stub.h",
         "valloc.cpp",
         "valloc.h",
+
+        "ticketlock.cpp",
+        "ticketlock.h",
     }

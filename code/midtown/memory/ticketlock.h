@@ -16,25 +16,17 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(mmgame_interface);
+#pragma once
 
-#include "interface.h"
+#include <atomic>
 
-#include "data7/timer.h"
-#include "memory/allocator.h"
-#include "midtown.h"
-
-// 0x409CD0 | ?IsModemDialin@@YA_NXZ
-ARTS_IMPORT /*static*/ bool IsModemDialin();
-
-// 0x409D50 | ?ZoneWatcher@@YGKPAX@Z
-ARTS_IMPORT /*static*/ u32 ARTS_STDCALL ZoneWatcher(void* arg1);
-
-void mmInterface::SetStateRace(i32 /*arg1*/)
-{}
-
-void ReportTimeAlloc(f32 time)
+struct RecursiveTicketLock
 {
-    Displayf(
-        "*********Load time %f = %f seconds, %dK Allocated", time, LoadTimer.Time(), ALLOCATOR.GetHeapUsed() >> 10);
-}
+    std::atomic<u32> next_ticket {0};
+    std::atomic<u32> now_serving {0};
+    std::atomic<u32> thread_id {0};
+    u32 lock_count {0};
+
+    void lock();
+    void unlock();
+};

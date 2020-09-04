@@ -226,13 +226,16 @@ i32 agiTexDef::Reload()
 {
     Surface = AsPtr(agiSurfaceDesc::Load(Tex.Name, TexSearchPath, Tex.LOD, PackShift & 0xF, 0, 0));
 
+    if (!Surface)
+        return AGI_ERROR_FILE_NOT_FOUND;
+
     CheckSurface();
 
     agiDisplayf("'%s' is %s texture", Tex.Name,
         (Tex.Flags & agiTexParameters::Chromakey) ? "chromakey"
                                                   : (Tex.Flags & agiTexParameters::Alpha) ? "alpha" : "opaque");
 
-    return Surface ? AGI_ERROR_SUCCESS : AGI_ERROR_FILE_NOT_FOUND;
+    return AGI_ERROR_SUCCESS;
 }
 
 void agiTexDef::UnlockAndFreeSurface()

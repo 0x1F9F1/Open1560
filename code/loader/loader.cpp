@@ -172,7 +172,7 @@ static std::size_t InitExportHooks(HMODULE instance)
     {
         if (!symbols.Insert(symbol->Hash, symbol->Addr))
         {
-            Errorf("Duplicate Symbol Hash: 0x%08X", symbol->Hash);
+            Quitf("Duplicate Symbol Hash: 0x%08X", symbol->Hash);
         }
     }
 
@@ -184,7 +184,7 @@ static std::size_t InitExportHooks(HMODULE instance)
 
         if (split == SIZE_MAX)
         {
-            Errorf("Invalid Symbol Mapping: '%.*s'", line.size(), line.data());
+            Quitf("Invalid Symbol Mapping: '%.*s'", line.size(), line.data());
 
             continue;
         }
@@ -200,7 +200,7 @@ static std::size_t InitExportHooks(HMODULE instance)
 
             if (std::from_chars(value.data(), value.data() + value.size(), address, 16).ec != std::errc())
             {
-                Errorf("Invalid Symbol Address: '%.*s' = '%.*s'", symbol.size(), symbol.data(), value.size(),
+                Quitf("Invalid Symbol Address: '%.*s' = '%.*s'", symbol.size(), symbol.data(), value.size(),
                     value.data());
 
                 continue;
@@ -212,7 +212,7 @@ static std::size_t InitExportHooks(HMODULE instance)
 
             if (find == nullptr)
             {
-                Errorf(
+                Quitf(
                     "Invalid Symbol Alias: '%.*s' -> '%.*s'", symbol.size(), symbol.data(), value.size(), value.data());
 
                 continue;
@@ -223,7 +223,7 @@ static std::size_t InitExportHooks(HMODULE instance)
 
         if (!symbols.Insert(SymbolTable::Hash(symbol), address))
         {
-            Errorf("Duplicate Symbol/Hash: '%.*s'", symbol.size(), symbol.data());
+            Quitf("Duplicate Symbol/Hash: '%.*s'", symbol.size(), symbol.data());
         }
     }
 
@@ -747,7 +747,7 @@ include_dummy_symbol(mmeffects_vehform);
 // include_dummy_symbol(mmgame_hud);
 // include_dummy_symbol(mmgame_hudmap);
 // include_dummy_symbol(mmgame_icons);
-// include_dummy_symbol(mmgame_interface);
+include_dummy_symbol(mmgame_interface);
 // include_dummy_symbol(mmgame_mmambientaudio);
 // include_dummy_symbol(mmgame_multiblitz);
 // include_dummy_symbol(mmgame_multicircuit);

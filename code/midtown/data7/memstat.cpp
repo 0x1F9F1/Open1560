@@ -25,7 +25,7 @@ define_dummy_symbol(data7_memstat);
 // 0x578B80 | ?getMem@@YAHXZ
 ARTS_EXPORT /*static*/ i32 getMem()
 {
-    return ALLOCATOR.GetCurrentTotal();
+    return ALLOCATOR.GetHeapUsed();
 }
 
 static constexpr const i32 MAX_CHECK = 16;

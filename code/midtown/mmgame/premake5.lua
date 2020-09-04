@@ -22,8 +22,8 @@ arts_component "mmgame"
         -- "hudmap.h",
         -- "icons.cpp",
         -- "icons.h",
-        -- "interface.cpp",
-        -- "interface.h",
+        "interface.cpp",
+        "interface.h",
         -- "mmambientaudio.cpp",
         -- "mmambientaudio.h",
         -- "multiblitz.cpp",
@@ -55,4 +55,3 @@ arts_component "mmgame"
         -- "wpobject.cpp",
         -- "wpobject.h",
     }
-

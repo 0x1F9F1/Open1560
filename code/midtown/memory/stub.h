@@ -68,8 +68,6 @@
 
 // 0x521630 | __malloc_dbg | void
 
-// 0x521590 | __msize | void
-
 // 0x521710 | __msize_dbg | void
 
 // 0x5215E0 | __realloc_dbg | void
@@ -82,6 +80,9 @@ ARTS_EXPORT void arts_free(void* ptr);
 
 // 0x5214F0 | _malloc
 ARTS_EXPORT void* arts_malloc(std::size_t size);
+
+// 0x521590 | __msize | void
+ARTS_EXPORT std::size_t arts_msize(void* ptr);
 
 // 0x521510 | _realloc
 ARTS_EXPORT void* arts_realloc(void* ptr, std::size_t size);

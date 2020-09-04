@@ -26,12 +26,12 @@ ARTS_MSVC_DIAGNOSTIC_IGNORED(28251);
 
 ARTS_NOINLINE void* operator new(std::size_t size)
 {
-    return CURHEAP->Allocate(size, ArReturnAddress());
+    return CURHEAP->Allocate(size, DefaultNewAlignment, ArReturnAddress());
 }
 
 ARTS_NOINLINE void* operator new[](std::size_t size)
 {
-    return CURHEAP->Allocate(size, ArReturnAddress());
+    return CURHEAP->Allocate(size, DefaultNewAlignment, ArReturnAddress());
 }
 
 ARTS_NOINLINE void operator delete(void* ptr) noexcept
@@ -46,14 +46,14 @@ ARTS_NOINLINE void operator delete[](void* ptr) noexcept
 
 ARTS_NOINLINE void operator delete(void* ptr, std::size_t sz) noexcept
 {
-    ArAssert(CURHEAP->SizeOf(ptr) == sz, "Allocation Size Mismatch");
+    ArAssert(CURHEAP->SizeOf(ptr) >= sz, "Allocation Size Mismatch");
 
     CURHEAP->Free(ptr);
 }
 
 ARTS_NOINLINE void operator delete[](void* ptr, std::size_t sz) noexcept
 {
-    ArAssert(CURHEAP->SizeOf(ptr) == sz, "Allocation Size Mismatch");
+    ArAssert(CURHEAP->SizeOf(ptr) >= sz, "Allocation Size Mismatch");
 
     CURHEAP->Free(ptr);
 }
@@ -62,7 +62,7 @@ ARTS_NOINLINE void* arts_calloc(std::size_t num, std::size_t size)
 {
     std::size_t len = num * size;
 
-    void* ptr = CURHEAP->Allocate(len, ArReturnAddress());
+    void* ptr = CURHEAP->Allocate(len, DefaultNewAlignment, ArReturnAddress());
 
     if (ptr)
         std::memset(ptr, 0, len);
@@ -77,7 +77,12 @@ ARTS_NOINLINE void arts_free(void* ptr)
 
 ARTS_NOINLINE void* arts_malloc(std::size_t size)
 {
-    return CURHEAP->Allocate(size, ArReturnAddress());
+    return CURHEAP->Allocate(size, DefaultNewAlignment, ArReturnAddress());
+}
+
+ARTS_NOINLINE std::size_t arts_msize(void* ptr)
+{
+    return CURHEAP->SizeOf(ptr);
 }
 
 ARTS_NOINLINE void* arts_realloc(void* ptr, std::size_t size)
@@ -85,9 +90,49 @@ ARTS_NOINLINE void* arts_realloc(void* ptr, std::size_t size)
     return CURHEAP->Reallocate(ptr, size, ArReturnAddress());
 }
 
+static asMemoryAllocator* GetDbgHeap(int block_type)
+{
+    if (!CRTALLOCATOR.IsInitialized())
+        CRTALLOCATOR.Init(CRTHEAP, sizeof(CRTHEAP), true);
+
+    return block_type ? &CRTALLOCATOR : &ALLOCATOR;
+}
+
+ARTS_EXPORT ARTS_NOINLINE void* arts_calloc_dbg(std::size_t num, std::size_t size, int block_type, const char*, int)
+{
+    std::size_t len = num * size;
+
+    void* ptr = GetDbgHeap(block_type)->Allocate(len, DefaultNewAlignment, ArReturnAddress());
+
+    if (ptr)
+        std::memset(ptr, 0, len);
+
+    return ptr;
+}
+
+ARTS_EXPORT ARTS_NOINLINE void arts_free_dbg(void* ptr, int block_type, const char*, int)
+{
+    GetDbgHeap(block_type)->Free(ptr);
+}
+
+ARTS_EXPORT ARTS_NOINLINE void* arts_malloc_dbg(std::size_t size, int block_type, const char*, int)
+{
+    return GetDbgHeap(block_type)->Allocate(size, DefaultNewAlignment, ArReturnAddress());
+}
+
+ARTS_EXPORT std::size_t arts_msize_dbg(void* ptr, int block_type)
+{
+    return GetDbgHeap(block_type)->SizeOf(ptr);
+}
+
+ARTS_EXPORT ARTS_NOINLINE void* arts_realloc_dbg(void* ptr, std::size_t size, int block_type, const char*, int)
+{
+    return GetDbgHeap(block_type)->Reallocate(ptr, size, ArReturnAddress());
+}
+
 ARTS_EXPORT ARTS_NOINLINE void* arts_operator_new(std::size_t size)
 {
-    void* result = CURHEAP->Allocate(size, ArReturnAddress());
+    void* result = CURHEAP->Allocate(size, DefaultNewAlignment, ArReturnAddress());
 
     // The game expects memory to be zeroed
 
