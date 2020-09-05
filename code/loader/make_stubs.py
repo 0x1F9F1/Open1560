@@ -28,6 +28,12 @@ if True:
 
 if True:
     obj_files = glob.glob('*.obj')
+
+    for file in obj_files:
+        subprocess.call([ "llvm-strip", "-S", file ])
+
+if True:
+    obj_files = glob.glob('*.obj')
     count = 0
 
     with open('lib_cmd.txt', 'w') as f:

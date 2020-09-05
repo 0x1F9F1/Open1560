@@ -1225,32 +1225,6 @@ all_symbols.sort(key = lambda x: x.address)
 
 #             f.write('END')
 
-# with open('../code/loader/Open1560_stubs.asm', 'w') as f:
-#     f.write('.386\n')
-#     f.write('.MODEL FLAT\n')
-
-#     for sym in all_symbols:
-#         name = sym.raw_name
-
-#         if name.startswith('??_'):
-#             continue
-#         if name.startswith('_'): # malloc, free, etc.
-#             continue
-#         if name in '?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z': # Duplicate static symbol
-#             continue
-
-#         f.write('.CONST\n')
-#         f.write('PUBLIC __imp_{}\n'.format(name))
-#         f.write('__imp_{} dd {:X}h\n'.format(name, sym.address))
-
-#         if sym.type.type_class == TypeClass.FunctionTypeClass:
-#             f.write('_TEXT${:X} SEGMENT \'CODE\'\n'.format(sym.address))
-#             f.write('{} PROC PUBLIC\n'.format(name))
-#             f.write('jmp dword ptr [__imp_{}]\n'.format(name))
-#             f.write('{} ENDP\n'.format(name))
-
-#     f.write('END')
-
 # assert False
 
 # for symbol in all_symbols:

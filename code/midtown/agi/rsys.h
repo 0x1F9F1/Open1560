@@ -111,7 +111,7 @@ enum class agiCullMode : u8
     CCW = 3   // Cull back faces with counterclockwise vertices
 };
 
-enum class agiCmpFunc : u8
+enum class agiCmpFunc : u8 // gfxZFunc
 {
     Never = 1,
     Less = 2,
