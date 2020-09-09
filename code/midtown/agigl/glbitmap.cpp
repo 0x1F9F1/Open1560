@@ -81,7 +81,10 @@ i32 agiGLBitmap::BeginGfx()
         params.Flags |= agiTexParameters::Chromakey;
     }
 
-    tex_def_->Init(params, std::move(surface));
+    if (tex_def_->Init(params, std::move(surface)) != AGI_ERROR_SUCCESS)
+    {
+        return AGI_ERROR_UNSUPPORTED;
+    }
 
     if (name_[0] != '*' || (flags_ & AGI_BITMAP_UNLOAD_ALWAYS))
     {

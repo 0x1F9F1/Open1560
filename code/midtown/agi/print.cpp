@@ -57,7 +57,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
 
     if (Pipe()->IsHardware())
     {
-        surface = AsPtr(agiSurfaceDesc::Init(16 * (8 + 1), 6 * (8 + 1), Pipe()->GetScreenFormat()));
+        surface = AsPtr(agiSurfaceDesc::Init(256, 64, Pipe()->GetScreenFormat()));
 
         Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface.get()));
 

@@ -65,11 +65,20 @@ i32 agiGLTexDef::BeginGfx()
         Surface->Pitch = Surface->Width * Surface->GetPixelSize();
     }
 
+    // TODO: Fix paging support
+    if (wglGetCurrentContext() == NULL)
+    {
+        state_ = 1;
+
+        return AGI_ERROR_SUCCESS;
+    }
+
     if (Tex.Props & agiTexProp::AlphaGlow && GetRendererInfo().AdditiveBlending)
         Tex.Flags &= ~agiTexParameters::Alpha;
 
     SurfaceSize = 0;
 
+    // TODO: Use PBO's to avoid stalling?
     glGenTextures(1, &texture_);
     glBindTexture(GL_TEXTURE_2D, texture_);
 
@@ -143,6 +152,9 @@ i32 agiGLTexDef::BeginGfx()
 
     i32 mip_count = mip_maps ? std::clamp<i32>(surface->MipMapCount, 1, CaluclateMipMapLevels(width, height)) : 1;
 
+    // FIXME: Calculate alignment from pointer
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
     for (i32 i = 0; i < mip_count; ++i)
     {
         glTexImage2D(GL_TEXTURE_2D, i, internal, width, height, 0, format, type, data);
@@ -181,13 +193,11 @@ i32 agiGLTexDef::BeginGfx()
         Tex.Flags |= agiTexParameters::NoMipMaps;
     }
 
-    PrintGlErrors();
-
     if (Tex.Name[0] != '*' && cache_handle_ == 0 && !(Tex.Flags & agiTexParameters::KeepLoaded))
         Surface->Unload();
 
     page_state_ = 0;
-    state_ = 1;
+    state_ = 2;
 
     return AGI_ERROR_SUCCESS;
 }
@@ -275,7 +285,7 @@ void agiGLTexDef::Unlock(agiTexLock& lock)
 
 b32 agiGLTexDef::IsAvailable()
 {
-    return true;
+    return Surface != nullptr;
 }
 
 void agiGLTexDef::Request()
@@ -285,7 +295,7 @@ void agiGLTexDef::Request()
 
 u32 agiGLTexDef::GetHandle()
 {
-    if (state_ == 0)
+    if (state_ != 2)
     {
         if (!LockSurfaceIfResident())
         {
