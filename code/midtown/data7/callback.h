@@ -135,7 +135,7 @@ check_size(Callback, 0x14);
 
 // 0x90B128 | ?NullCallback@@3VCallback@@A
 // ARTS_IMPORT extern class Callback NullCallback;
-constexpr Callback NullCallback;
+inline constexpr const Callback NullCallback {};
 
 inline constexpr Callback::Callback(Static0 func) noexcept
     : type_(CB_TYPE_CFA)

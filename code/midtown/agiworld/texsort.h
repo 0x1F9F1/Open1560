@@ -123,7 +123,7 @@ public:
     ARTS_IMPORT static i32 MaxVertsPerSet;
 
     // 0x719630 | ?OpaquePolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    ARTS_IMPORT static class agiPolySet* OpaquePolySets[64];
+    static class agiPolySet* OpaquePolySets[128];
 
     // 0x719744 | ?OpaqueSetCount@agiTexSorter@@2HA
     ARTS_IMPORT static i32 OpaqueSetCount;

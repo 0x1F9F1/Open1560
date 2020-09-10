@@ -36,6 +36,8 @@ static extern_var(0x719808, agiPolySet, BigPolySet);
 
 static mem::cmd_param PARAM_max_verts_per_set {"maxverts"};
 
+class agiPolySet* agiTexSorter::OpaquePolySets[128];
+
 agiTexSorter::agiTexSorter()
 {
     if (Instance)
@@ -48,6 +50,9 @@ agiTexSorter::agiTexSorter()
 
     MaxVertsPerSet = VtxSize;
     MaxIndicesPerSet = IdxSize;
+
+    MaxOpaqueSetCount = std::size(OpaquePolySets);
+    MaxAlphaSetCount = std::size(AlphaPolySets);
 
     BigPolySet.Init(BigVtxSize, BigIdxSize);
 
@@ -123,6 +128,9 @@ void agiPolySet::Kill()
 }
 
 run_once([] {
+    patch_xrefs("agiTexSorter::OpaquePolySets", "Add more opaque poly sets", 0x719630, agiTexSorter::OpaquePolySets,
+        sizeof(agiPolySet* [64]));
+
     create_patch("BigVtxSize", "agiTexSorter::BeginVerts", 0x503B29 + 2, &BigVtxSize, 4);
     create_patch("BigIdxSize", "agiTexSorter::BeginVerts", 0x503B31 + 3, &BigIdxSize, 4);
 
