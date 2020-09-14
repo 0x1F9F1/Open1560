@@ -26,7 +26,7 @@ include "localize"
 include "memory"
 -- include "mmai"
 -- include "mmanim"
--- include "mmaudio"
+include "mmaudio"
 -- include "mmbangers"
 -- include "mmcamcs"
 -- include "mmcamtour"
@@ -82,7 +82,7 @@ arts_component "midtown"
         "arts_memory",
         -- "arts_mmai",
         -- "arts_mmanim",
-        -- "arts_mmaudio",
+        "arts_mmaudio",
         -- "arts_mmbangers",
         -- "arts_mmcamcs",
         -- "arts_mmcamtour",

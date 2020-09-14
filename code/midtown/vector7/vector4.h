@@ -45,6 +45,8 @@
 
 #include "data7/metatype.h"
 
+#include "nan.h"
+
 class Vector4
 {
 public:
@@ -85,10 +87,10 @@ public:
     // 0x570D50 | ?Set@Vector4@@QAEXMMMM@Z | inline
     ARTS_IMPORT void Set(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    f32 x;
-    f32 y;
-    f32 z;
-    f32 w;
+    f32 x ARTS_DEBUG_NAN;
+    f32 y ARTS_DEBUG_NAN;
+    f32 z ARTS_DEBUG_NAN;
+    f32 w ARTS_DEBUG_NAN;
 };
 
 check_size(Vector4, 0x10);

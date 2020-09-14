@@ -42,6 +42,8 @@
 
 #include "data7/metatype.h"
 
+#include "nan.h"
+
 class Vector2
 {
 public:
@@ -67,8 +69,8 @@ public:
     // 0x5711E0 | ?Mag@Vector2@@QBEMXZ
     ARTS_IMPORT f32 Mag();
 
-    f32 x;
-    f32 y;
+    f32 x ARTS_DEBUG_NAN;
+    f32 y ARTS_DEBUG_NAN;
 };
 
 check_size(Vector2, 0x8);

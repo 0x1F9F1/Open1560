@@ -35,43 +35,66 @@
 
 #include "eventq7/dispatchable.h"
 
+#include <mciapi.h>
+
 class CDMan final : public Dispatchable
 {
     // const CDMan::`vftable' @ 0x61FEF8
 
 public:
+    CDMan(HWND window)
+        : window_(window)
+    {}
+
     // 0x4F4240 | ??1CDMan@@QAE@XZ
-    ARTS_IMPORT ~CDMan();
+    ARTS_EXPORT ~CDMan();
 
     // 0x4F4700 | ?GetNumTracks@CDMan@@QAEFXZ
-    ARTS_IMPORT i16 GetNumTracks();
+    ARTS_EXPORT i16 GetNumTracks();
 
+    // FIXME: Is actually b32
     // 0x4F4610 | ?GetPosition@CDMan@@QAEKPAE000@Z
-    ARTS_IMPORT u32 GetPosition(u8* arg1, u8* arg2, u8* arg3, u8* arg4);
+    ARTS_EXPORT MCIERROR GetPosition(u8* track, u8* minute, u8* second, u8* frame);
 
     // 0x4F4280 | ?Init@CDMan@@QAEKF@Z
-    ARTS_IMPORT u32 Init(i16 arg1);
+    ARTS_EXPORT MCIERROR Init(b16 close);
 
+    // FIXME: Is actually b32
     // 0x4F4340 | ?PlayTrack@CDMan@@QAEKEE@Z
-    ARTS_IMPORT u32 PlayTrack(u8 arg1, u8 arg2);
+    ARTS_EXPORT MCIERROR PlayTrack(u8 track, u8 restart);
 
     // 0x4F4450 | ?PlayTrack@CDMan@@QAEKEEEEE@Z
-    ARTS_IMPORT u32 PlayTrack(u8 arg1, u8 arg2, u8 arg3, u8 arg4, u8 arg5);
+    ARTS_EXPORT MCIERROR PlayTrack(u8 track, u8 minute, u8 second, u8 frame, u8 restart);
 
     // 0x4F4430 | ?ResumePlay@CDMan@@QAEKXZ
-    ARTS_IMPORT u32 ResumePlay();
+    ARTS_EXPORT MCIERROR ResumePlay();
 
     // 0x4F45A0 | ?SeekTrack@CDMan@@QAEKE@Z | unused
-    ARTS_IMPORT u32 SeekTrack(u8 arg1);
+    ARTS_EXPORT MCIERROR SeekTrack(u8 track);
 
     // 0x4F4560 | ?Stop@CDMan@@QAEKXZ
-    ARTS_IMPORT u32 Stop();
+    ARTS_EXPORT MCIERROR Stop();
 
 private:
     // 0x4F4690 | ?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z
-    ARTS_IMPORT i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
+    ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
-    u8 gap4[0x2C];
+    u16 word4 {0};
+    i16 track_count_ {0};
+    b16 is_playing_ {0};
+    b16 is_opened_ {0};
+    HWND window_ {NULL};
+    u8 current_track_ {1};
+    u8 current_minute_ {0};
+    u8 current_second_ {0};
+    u8 current_frame_ {0};
+
+    // 0 - Repeat
+    // 1 - Regular
+    u8 play_mode_ {0};
+
+    MCIDEVICEID device_id_ {0};
+    MCI_OPEN_PARMSA open_params_ {};
 };
 
 check_size(CDMan, 0x30);

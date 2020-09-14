@@ -99,7 +99,7 @@ inline void MetaDeclareFields()
 
 #define META_CHECK_IS_INTERCONVIRTIBLE(BASE, DERIVED)                                                       \
     ArCheck((static_cast<DERIVED*>(reinterpret_cast<BASE*>(0x1000)) == reinterpret_cast<DERIVED*>(0x1000)), \
-        #DERIVED " is not interconvirtible with " #BASE)
+        #DERIVED " is not interconvertible with " #BASE)
 
 #define META_DEFINE_CHILD(NAME, TYPE, PARENT)                                                                   \
     static_assert(std::is_base_of_v<PARENT, TYPE>, "Invalid Parent");                                           \

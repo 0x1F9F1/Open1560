@@ -24,4 +24,6 @@ arts_component "vector7"
         "vector3.h",
         "vector4.cpp",
         "vector4.h",
+
+        "nan.h",
     }

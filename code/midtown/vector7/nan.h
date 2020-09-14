@@ -18,20 +18,11 @@
 
 #pragma once
 
-/*
-    mmcity:heap
-
-    0x4955C0 | void __cdecl mmHeapError(void) | ?mmHeapError@@YAXXZ
-*/
-
-template <typename T>
-class mmHeap
-{
-    u8* HeapBase {nullptr};
-    u8* HeapEnd {nullptr};
-    u8* HeapHead {nullptr};
-    u8* HeapTop {nullptr};
-};
-
-// 0x4955C0 | ?mmHeapError@@YAXXZ
-ARTS_IMPORT void mmHeapError();
+#ifdef ARTS_DEBUG
+#    define ARTS_DEBUG_NAN \
+        {                  \
+            NAN            \
+        }
+#else
+#    define ARTS_DEBUG_NAN
+#endif

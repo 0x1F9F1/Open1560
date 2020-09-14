@@ -24,7 +24,7 @@
 #include "memory/allocator.h"
 #include "memory/valloc.h"
 
-// #include "midtown.h"
+#include "midtown.h"
 
 #include "loader.h"
 #include "symbols.h"
@@ -293,6 +293,10 @@ static std::size_t InitExportHooks(HMODULE instance)
     return total;
 }
 
+#ifndef CI_BUILD_STRING
+#    define CI_BUILD_STRING "Dev"
+#endif
+
 BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
     if (fdwReason == DLL_PROCESS_ATTACH)
@@ -324,9 +328,9 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         LogToFile("Open1560.log");
 
-#if defined(CI_BUILD_STRING)
-        Displayf("Build: %s", CI_BUILD_STRING " / " __DATE__ " " __TIME__);
-#endif
+        VERSION_STRING = const_cast<char*>("Open1560: " CI_BUILD_STRING " / " __DATE__ " " __TIME__);
+
+        Displayf("Build: %s", VERSION_STRING);
 
         patch_jmp("HW Menu", "Enable HW Menu Rendering", 0x401DB4, jump_type::always);
 
@@ -601,7 +605,7 @@ include_dummy_symbol(memory_valloc);
 // include_dummy_symbol(mmanim_traincar);
 
 // include_dummy_symbol(mmaudio_audstream);
-// include_dummy_symbol(mmaudio_cd);
+include_dummy_symbol(mmaudio_cd);
 // include_dummy_symbol(mmaudio_crevbuf);
 // include_dummy_symbol(mmaudio_creverb);
 // include_dummy_symbol(mmaudio_dsglobal);

@@ -284,7 +284,7 @@ ARTS_IMPORT f32 ATan2f(f32 arg1, f32 arg2);
 ARTS_IMPORT f32 asinf_fast(f32 arg1);
 
 // 0x909490 | ?IDENTITY@@3VMatrix34@@A
-constexpr const Matrix34 IDENTITY {
+inline constexpr const Matrix34 IDENTITY {
     {1.0f, 0.0f, 0.0f},
     {0.0f, 1.0f, 0.0f},
     {0.0f, 0.0f, 1.0f},

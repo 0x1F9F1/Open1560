@@ -77,6 +77,8 @@
 
 #include "data7/metatype.h"
 
+#include "nan.h"
+
 class Vector3
 {
 public:
@@ -236,9 +238,9 @@ public:
     // 0x566300 | ?rgbtohsv@Vector3@@QAEXXZ | unused
     ARTS_IMPORT void rgbtohsv();
 
-    f32 x;
-    f32 y;
-    f32 z;
+    f32 x ARTS_DEBUG_NAN;
+    f32 y ARTS_DEBUG_NAN;
+    f32 z ARTS_DEBUG_NAN;
 };
 
 check_size(Vector3, 0xC);

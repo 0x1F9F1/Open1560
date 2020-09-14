@@ -2,8 +2,8 @@ arts_component "mmaudio"
     files {
         -- "audstream.cpp",
         -- "audstream.h",
-        -- "cd.cpp",
-        -- "cd.h",
+        "cd.cpp",
+        "cd.h",
         -- "crevbuf.cpp",
         -- "crevbuf.h",
         -- "creverb.cpp",
@@ -29,4 +29,3 @@ arts_component "mmaudio"
         -- "streamobj.cpp",
         -- "streamobj.h",
     }
-
