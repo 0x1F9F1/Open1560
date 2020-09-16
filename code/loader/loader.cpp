@@ -273,7 +273,7 @@ static std::size_t InitExportHooks(HMODULE instance)
                     }
                     else
                     {
-                        Errorf("Unrecogized Symbol '%s'", name);
+                        Quitf("Unrecogized Symbol '%s'", name);
                     }
                 }
 
@@ -790,7 +790,7 @@ include_dummy_symbol(mmgame_interface);
 // include_dummy_symbol(mmphysics_osample);
 // include_dummy_symbol(mmphysics_phys);
 
-// include_dummy_symbol(mmui_about);
+include_dummy_symbol(mmui_about);
 // include_dummy_symbol(mmui_audio);
 // include_dummy_symbol(mmui_control);
 // include_dummy_symbol(mmui_controlbase);

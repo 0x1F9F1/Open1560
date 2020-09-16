@@ -1,7 +1,7 @@
 arts_component "mmui"
     files {
-        -- "about.cpp",
-        -- "about.h",
+        "about.cpp",
+        "about.h",
         -- "audio.cpp",
         -- "audio.h",
         -- "control.cpp",

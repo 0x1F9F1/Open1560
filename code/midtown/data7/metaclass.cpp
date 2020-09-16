@@ -246,14 +246,6 @@ void MetaClass::SkipBlock(class MiniParser* parser)
 
 void MetaClass::FixupClasses()
 {
-    create_hook(
-        "MetaClass::Load Base", "Point to correct BaseMetaclass", 0x577FD2, GetMetaClass<Base>(), hook_type::push);
-
-    create_hook("MetaClass::Load Root", "Point to correct RootMetaClass", 0x577EBA, &RootMetaClass, hook_type::push);
-
-    create_hook(
-        "MetaClass::Save Base", "Point to correct BaseMetaclass", 0x577CAA, GetMetaClass<Base>(), hook_type::push);
-
     mem::module main_module = mem::module::main();
 
     std::unordered_map<std::string_view, MetaClass*> fixups;

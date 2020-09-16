@@ -33,6 +33,8 @@
 
 #include "mmwidget/menu.h"
 
+void GetMidtownRegString(char* buffer, i32 buffer_len, char* key, char* default_value);
+
 class AboutMenu final : public UIMenu
 {
     // const AboutMenu::`vftable' @ 0x61DC40

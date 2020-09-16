@@ -63,7 +63,7 @@ void create_hook(const char* name, const char* description, mem::pointer pHook, 
         }
 
         case hook_type::push: {
-            buffer[0] = 0xE9;
+            buffer[0] = 0x68;
             std::memcpy(&buffer[1], &pDetour, sizeof(pDetour));
             write_protected(pHook, buffer, 5);
             break;
