@@ -77,5 +77,8 @@ void CriticalSection::lock()
 
 void CriticalSection::unlock()
 {
-    LeaveCriticalSection(static_cast<CRITICAL_SECTION*>(handle_));
+    if (handle_)
+    {
+        LeaveCriticalSection(static_cast<CRITICAL_SECTION*>(handle_));
+    }
 }

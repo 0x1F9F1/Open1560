@@ -30,7 +30,7 @@ ARTS_IMPORT /*static*/ void strtoguid(struct _GUID* arg1, char* arg2);
 
 static const u32 ConfigFileVersion = 112;
 
-i32 dxiReadConfigFile()
+b32 dxiReadConfigFile()
 {
     Ptr<Stream> input {arts_fopen(".\\video.cfg", "r")};
 

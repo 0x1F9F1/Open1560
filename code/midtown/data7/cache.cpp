@@ -302,21 +302,19 @@ b32 DataCache::Lock(i32* handle)
 {
     ArAssert(*handle != 0, "Invalid Handle");
 
-    cache_lock_.lock();
-
     if (*handle == -1)
     {
-        cache_lock_.unlock();
         return false;
     }
 
-    DataCacheObject& dco = GetObject(*handle);
+    cache_lock_.lock();
 
-    ++dco.nLockCount;
+    DataCacheObject& dco = GetObject(*handle);
 
     if (object_locks_++ == 0)
         object_lock_.lock();
 
+    ++dco.nLockCount;
     dco.nAge = age_;
 
     cache_lock_.unlock();

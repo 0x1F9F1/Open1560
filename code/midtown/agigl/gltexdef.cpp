@@ -68,8 +68,6 @@ i32 agiGLTexDef::BeginGfx()
     // TODO: Fix paging support
     if (wglGetCurrentContext() == NULL)
     {
-        state_ = 1;
-
         return AGI_ERROR_SUCCESS;
     }
 
@@ -155,6 +153,9 @@ i32 agiGLTexDef::BeginGfx()
     // FIXME: Calculate alignment from pointer
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_BASE_LEVEL, 0);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, mip_count - 1);
+
     for (i32 i = 0; i < mip_count; ++i)
     {
         glTexImage2D(GL_TEXTURE_2D, i, internal, width, height, 0, format, type, data);
@@ -172,9 +173,6 @@ i32 agiGLTexDef::BeginGfx()
 
         delete surface;
     }
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_BASE_LEVEL, 0);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, mip_count - 1);
 
     glTexParameteri(
         GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (Tex.Flags & agiTexParameters::WrapU) ? GL_REPEAT : GL_CLAMP_TO_EDGE);
@@ -238,7 +236,7 @@ b32 agiGLTexDef::Lock(agiTexLock& lock)
         temp_surface_->CopyFrom(Surface.get(), 0);
     }
 
-    lock.ColorModel = agiColorModel::FindMatch(temp_surface_.get());
+    lock.ColorModel = AsRaw(agiColorModel::FindMatch(temp_surface_.get()));
     lock.Width = temp_surface_->Width;
     lock.Height = temp_surface_->Height;
     lock.Pitch = temp_surface_->Pitch;
@@ -285,7 +283,7 @@ void agiGLTexDef::Unlock(agiTexLock& lock)
 
 b32 agiGLTexDef::IsAvailable()
 {
-    return Surface != nullptr;
+    return texture_ != 0;
 }
 
 void agiGLTexDef::Request()

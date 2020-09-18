@@ -411,6 +411,25 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("swComputeIntensity", "Fixed Fog Calculation", 0x536857, "\xB8\x00\x07\x00\x00\x5D\xC3", 7);
 
+        if (false) 
+        {
+            // Ambient Vehicle Colors
+            u32 new_colors[] {
+                 0xFFB58900, // Yellow
+                 0xFFCB4B16, // Orange
+                 0xFFDC322F, // Red
+                 0xFFD33682, // Magenta
+                 0xFF6C71C4, // Violet
+                 0xFF268BD2, // Blue
+                 0xFF2AA198, // Cyan
+                 0xFF859900, // Green
+                 0xFF073642, // Base02
+                 0xFFEEE8D5, // Base2
+            };
+
+            std::memcpy((u32*) 0x639888, new_colors, sizeof(new_colors));
+        }
+
         Displayf("Begin Init Functions");
 
         std::size_t init_count = mem::init_function::init();

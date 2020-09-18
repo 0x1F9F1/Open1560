@@ -32,6 +32,7 @@ using u16 = std::uint16_t;
 using u32 = std::uint32_t;
 using u64 = std::uint64_t;
 
+using b16 = bool;
 using b32 = bool;
 #else
 using i8 = char;

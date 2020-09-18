@@ -44,6 +44,7 @@
 
 #include <wglext.h>
 
+#if 0
 static const char* PixelFormatFlagsToString(DWORD flags)
 {
     // FIXME: Static buffer
@@ -76,6 +77,7 @@ static const char* PixelFormatFlagsToString(DWORD flags)
 
     return buffer;
 }
+#endif
 
 static PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
 static PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = NULL;
@@ -349,6 +351,8 @@ void agiGLPipeline::BeginFrame()
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
     }
 
+    // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+
     PrintGlErrors();
 }
 
@@ -596,6 +600,7 @@ static mem::cmd_param PARAM_width {"width"};
 static mem::cmd_param PARAM_height {"height"};
 static mem::cmd_param PARAM_depth {"depth"};
 static mem::cmd_param PARAM_vsync {"vsync"};
+static mem::cmd_param PARAM_pack {"pack"};
 
 void agiGLPipeline::Init()
 {
@@ -610,4 +615,6 @@ void agiGLPipeline::Init()
 
     device_flags_2_ = device_flags_1_;
     device_flags_3_ = device_flags_1_;
+
+    PackShift = PARAM_pack.get_or<i32>(0);
 }

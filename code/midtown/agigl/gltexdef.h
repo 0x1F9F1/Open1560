@@ -41,6 +41,11 @@ public:
 
     u32 GetHandle();
 
+    agiGLPipeline* Pipe() const
+    {
+        return static_cast<agiGLPipeline*>(agiRefreshable::Pipe());
+    }
+
 private:
     u32 texture_ {0};
 
