@@ -64,28 +64,10 @@ private:
         Kill();
     }
 
-    i32 ref_count_ {1};
     FT_Face face_ {nullptr};
     char name_[256] {};
 
 public:
-    void AddRef()
-    {
-        ++ref_count_;
-    }
-
-    i32 Release()
-    {
-        u32 const refs = --ref_count_;
-
-        if (refs == 0)
-        {
-            delete this;
-        }
-
-        return refs;
-    }
-
     mmSize GetExtents(const char* text);
     void Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect, u32 color, u32 format);
 
@@ -248,20 +230,28 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
 
     if (mmFont* font = static_cast<mmFont*>(FontHash.Access(name)))
     {
-        font->AddRef();
-
         return font;
     }
 
     // TODO: Support other fonts (Broadway, used by mmCDPlayer via mmHUD mmNumberFont)
     // TODO: Lookup file name for font
 
-    if (weight >= 700)
-        font_name = "GILB____.TTF";
-    else
-        font_name = "GIL_____.TTF";
+    CStringBuffer<256> font_path;
+    font_path.append("FONT/");
 
-    Stream* file = arts_fopen(font_name, "r");
+    if (!std::strcmp(font_name, "Broadway"))
+    {
+        font_path.append("BROADW.TTF");
+    }
+    else // Gill Sans MT
+    {
+        if (weight >= 700)
+            font_path.append("GILB____.TTF");
+        else
+            font_path.append("GIL_____.TTF");
+    }
+
+    Stream* file = arts_fopen(font_path, "r");
 
     if (file == nullptr)
     {
@@ -423,9 +413,9 @@ void* mmText::CreateLocFont(LocString* params, i32 screen_width)
     return result;
 }
 
-void mmText::DeleteFont(void* font)
+void mmText::DeleteFont([[maybe_unused]] void* font)
 {
-    static_cast<mmFont*>(font)->Release();
+    // static_cast<mmFont*>(font)->Release();
 }
 
 void* mmText::GetDC(agiSurfaceDesc*)
