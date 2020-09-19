@@ -458,6 +458,10 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     if (!(ActiveFlag & 0x1))
         return;
 
+    // FIXME: https://github.com/0x1F9F1/Open1560/issues/22
+    if (src_y + height > src->GetHeight())
+        return;
+
     ++agiBitmapCount;
     agiBitmapPixels += width * height;
 
