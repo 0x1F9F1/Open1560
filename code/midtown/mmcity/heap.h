@@ -24,14 +24,36 @@
     0x4955C0 | void __cdecl mmHeapError(void) | ?mmHeapError@@YAXXZ
 */
 
+// 0x4955C0 | ?mmHeapError@@YAXXZ
+[[noreturn]] ARTS_EXPORT void mmHeapError();
+
 template <typename T>
 class mmHeap
 {
+private:
     u8* HeapBase {nullptr};
     u8* HeapEnd {nullptr};
     u8* HeapHead {nullptr};
     u8* HeapTop {nullptr};
-};
 
-// 0x4955C0 | ?mmHeapError@@YAXXZ
-ARTS_IMPORT void mmHeapError();
+public:
+    void* Allocate(usize size)
+    {
+        // TODO: Align size (based on alignof(T)/sizeof(T) ?)
+
+        void* result = HeapHead;
+        HeapHead += size;
+
+        if (HeapHead > HeapTop)
+            mmHeapError();
+
+        return result;
+    }
+
+    void Free(void* ptr)
+    {
+        // TODO: Validate Free
+
+        HeapHead = static_cast<u8*>(ptr);
+    }
+};

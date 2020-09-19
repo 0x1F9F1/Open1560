@@ -20,6 +20,8 @@ define_dummy_symbol(mmcity_inst);
 
 #include "inst.h"
 
+#include "heap.h"
+
 class mmPhysEntity* mmInstance::GetEntity()
 {
     return nullptr;
@@ -64,3 +66,13 @@ void mmMatrixInstance::AddWidgets(class Bank* /*arg1*/)
 
 void ARTS_FASTCALL mmStaticInstance::Relight()
 {}
+
+void* mmInstance::operator new(size_t size)
+{
+    return mmInstanceHeap.Allocate(size);
+}
+
+void mmInstance::operator delete(void* ptr)
+{
+    mmInstanceHeap.Free(ptr);
+}

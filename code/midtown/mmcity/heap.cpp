@@ -19,3 +19,8 @@
 define_dummy_symbol(mmcity_heap);
 
 #include "heap.h"
+
+[[noreturn]] void mmHeapError()
+{
+    Quitf("mmHeap overflow.");
+}

@@ -19,3 +19,5 @@
 define_dummy_symbol(mmnetwork_network);
 
 #include "network.h"
+
+static extern_var(0x6A8980, i32, NumModems);

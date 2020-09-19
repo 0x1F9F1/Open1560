@@ -411,7 +411,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("swComputeIntensity", "Fixed Fog Calculation", 0x536857, "\xB8\x00\x07\x00\x00\x5D\xC3", 7);
 
-        if (false) 
+        if (false)
         {
             // Ambient Vehicle Colors
             u32 new_colors[] {
@@ -800,7 +800,8 @@ include_dummy_symbol(mmgame_interface);
 // include_dummy_symbol(mminput_spring);
 
 // include_dummy_symbol(mmnetwork_netobject);
-// include_dummy_symbol(mmnetwork_network);
+include_dummy_symbol(mmnetwork_network);
+
 // include_dummy_symbol(mmphysics_aero);
 // include_dummy_symbol(mmphysics_bound);
 // include_dummy_symbol(mmphysics_entity);

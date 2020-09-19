@@ -38,7 +38,7 @@ include "mmcityinfo"
 include "mmeffects"
 include "mmgame"
 -- include "mminput"
--- include "mmnetwork"
+include "mmnetwork"
 -- include "mmphysics"
 include "mmui"
 include "mmwidget"
@@ -94,7 +94,7 @@ arts_component "midtown"
         "arts_mmeffects",
         "arts_mmgame",
         -- "arts_mminput",
-        -- "arts_mmnetwork",
+        "arts_mmnetwork",
         -- "arts_mmphysics",
         "arts_mmui",
         "arts_mmwidget",

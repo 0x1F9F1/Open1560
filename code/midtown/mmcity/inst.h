@@ -215,8 +215,10 @@ public:
     // 0x493250 | ?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
     ARTS_IMPORT void InitMeshes(char* arg1, i32 arg2, char* arg3, class Vector3* arg4);
 
+    static void* operator new(size_t size);
+
     // 0x430690 | ??3mmInstance@@SAXPAX@Z | inline
-    ARTS_IMPORT static void operator delete(void* arg1);
+    static void operator delete(void* ptr);
 
     // 0x494A10 | ?DeclareFields@mmInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -244,11 +246,11 @@ public:
 
     struct MeshSetTableEntry
     {
-        agiMeshSet* VLow;
-        agiMeshSet* Low;
-        agiMeshSet* Medium;
-        agiMeshSet* High;
-        mmBoundTemplate* Bound;
+        agiMeshSet* VLow {nullptr};
+        agiMeshSet* Low {nullptr};
+        agiMeshSet* Medium {nullptr};
+        agiMeshSet* High {nullptr};
+        mmBoundTemplate* Bound {nullptr};
     };
 
     // 0x6F1538 | ?MeshSetTable@mmInstance@@2PAUMeshSetTableEntry@1@A

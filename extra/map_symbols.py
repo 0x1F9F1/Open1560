@@ -1257,7 +1257,6 @@ symbols = dict((symbol.address, symbol) for symbol in all_symbols if symbol.addr
 # print(symbols)
 
 for array_sym_addr, array_sym_len in [
-    (0x634690, 0),
     (0x635AC8, 7),
     (0x63E260, 4),
     (0x63F828, 3),
