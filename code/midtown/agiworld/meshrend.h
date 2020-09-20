@@ -180,3 +180,5 @@ inline void agiMeshSet::ClampToScreen(Vector4* vert)
     vert->y = std::max<f32>(vert->y, MinY);
     vert->z = std::max<f32>(vert->z, 0.0f);
 }
+
+void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 count, u32 color);

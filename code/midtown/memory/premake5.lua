@@ -11,4 +11,5 @@ arts_component "memory"
 
         "ticketlock.cpp",
         "ticketlock.h",
+        "alloca.h",
     }

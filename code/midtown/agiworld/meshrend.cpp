@@ -23,6 +23,7 @@ define_dummy_symbol(agiworld_meshrend);
 #include "agi/pipeline.h"
 #include "data7/b2f.h"
 #include "data7/utimer.h"
+#include "memory/alloca.h"
 #include "vector7/matrix34.h"
 
 // 0x506380 | ?ClipNX@@YIXAAUCV@@0@Z
@@ -164,6 +165,36 @@ u32 agiMeshSet::TransformOutcode(
 
     return clip_or | (clip_and << 8);
 }
+
+void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 count, u32 color)
+{
+    if (color == 0xFFFFFFFF)
+    {
+        std::memcpy(shaded, colors, count * sizeof(u32));
+
+        return;
+    }
+
+    if (count)
+    {
+        u32 const mul_b = (color & 0xFF) * 0x8081;
+        u32 const mul_g = ((color >> 8) & 0xFF) * 0x8081;
+        u32 const mul_r = ((color >> 16) & 0xFF) * 0x8081;
+        u32 const mul_a = (color >> 24) * 0x8081;
+
+        for (i32 i = 0; i < count; ++i)
+        {
+            u32 const input = colors[i];
+
+            u8 const b = static_cast<u8>((mul_b * (input & 0xFF)) >> 23);
+            u8 const g = static_cast<u8>((mul_g * ((input >> 8) & 0xFF)) >> 23);
+            u8 const r = static_cast<u8>((mul_r * ((input >> 16) & 0xFF)) >> 23);
+            u8 const a = static_cast<u8>((mul_a * (input >> 24)) >> 23);
+
+            shaded[i] = (a << 24) | (r << 16) | (g << 8) | b;
+        }
+    }
+}
 #endif
 
 struct CV
@@ -236,4 +267,37 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
         ++ClippedTriCount;
         ClippedVertCount += count;
     }
+}
+
+b32 agiMeshSet::DrawColor(u32 color, u32 flags)
+{
+    bool drawn = false;
+
+    if (LockIfResident())
+    {
+        if (Geometry(flags, vertices_, planes_) <= 255)
+        {
+            u32* colors = colors_;
+
+            if (colors)
+            {
+                u32* shaded = ARTS_ALLOCA(u32, adjunct_count_);
+                agiBlendColors(shaded, colors, adjunct_count_, color);
+                colors = shaded;
+                color = 0xFFFFFFFF;
+            }
+
+            FirstPass(colors, tex_coords_, color);
+
+            drawn = true;
+        }
+
+        Unlock();
+    }
+    else
+    {
+        PageIn();
+    }
+
+    return drawn;
 }

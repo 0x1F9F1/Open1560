@@ -62,7 +62,7 @@ public:
     ARTS_IMPORT i32 Draw(u32 arg1);
 
     // 0x506FD0 | ?DrawColor@agiMeshSet@@QAEHII@Z | agiworld:meshrend
-    ARTS_IMPORT i32 DrawColor(u32 arg1, u32 arg2);
+    ARTS_EXPORT b32 DrawColor(u32 color, u32 flags);
 
     // 0x507040 | ?DrawLit@agiMeshSet@@QAEHP6AXPAEPAI1PAV1@@ZI1@Z | agiworld:meshrend
     ARTS_IMPORT i32 DrawLit(void (*arg1)(u8*, u32*, u32*, class agiMeshSet*), u32 arg2, u32* arg3);

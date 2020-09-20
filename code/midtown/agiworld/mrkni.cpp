@@ -307,3 +307,61 @@ u32 agiMeshSet::TransformOutcode(
 
     return clip_or | (clip_and << 8);
 }
+
+void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 count, u32 color)
+{
+    if (color == 0xFFFFFFFF)
+    {
+        std::memcpy(shaded, colors, count * sizeof(u32));
+
+        return;
+    }
+
+    if (count >= 4)
+    {
+        const __m128i color16 = _mm_unpacklo_epi8(_mm_set1_epi32(color), _mm_setzero_si128());
+
+        do
+        {
+            __m128i colors16 = _mm_loadu_si128((const __m128i*) (colors));
+
+            __m128i colors_lo = _mm_unpacklo_epi8(colors16, _mm_setzero_si128());
+            __m128i colors_hi = _mm_unpackhi_epi8(colors16, _mm_setzero_si128());
+
+            colors_lo = _mm_mullo_epi16(colors_lo, color16);
+            colors_hi = _mm_mullo_epi16(colors_hi, color16);
+
+            colors_lo = _mm_mulhi_epu16(colors_lo, _mm_set1_epi16(-0x7F7F));
+            colors_hi = _mm_mulhi_epu16(colors_hi, _mm_set1_epi16(-0x7F7F));
+
+            colors_lo = _mm_srli_epi16(colors_lo, 7);
+            colors_hi = _mm_srli_epi16(colors_hi, 7);
+
+            _mm_storeu_si128((__m128i*) shaded, _mm_packus_epi16(colors_lo, colors_hi));
+
+            shaded += 4;
+            colors += 4;
+            count -= 4;
+        } while (count >= 4);
+    }
+
+    if (count)
+    {
+        u32 const mul_b = (color & 0xFF) * 0x8081;
+        u32 const mul_g = ((color >> 8) & 0xFF) * 0x8081;
+        u32 const mul_r = ((color >> 16) & 0xFF) * 0x8081;
+        u32 const mul_a = (color >> 24) * 0x8081;
+
+        for (i32 i = 0; i < count; ++i)
+        {
+            u32 const input = colors[i];
+
+            u8 const b = static_cast<u8>((mul_b * (input & 0xFF)) >> 23);
+            u8 const g = static_cast<u8>((mul_g * ((input >> 8) & 0xFF)) >> 23);
+            u8 const r = static_cast<u8>((mul_r * ((input >> 16) & 0xFF)) >> 23);
+            u8 const a = static_cast<u8>((mul_a * (input >> 24)) >> 23);
+
+            shaded[i] = (a << 24) | (r << 16) | (g << 8) | b;
+        }
+    }
+}
