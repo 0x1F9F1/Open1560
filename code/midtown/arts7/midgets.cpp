@@ -556,6 +556,7 @@ void asMidgets::Off()
     event_queue_.Clear();
     current_index_ = 0;
     start_index_ = 0;
+    section_count_ = 0;
     open_ = false;
 }
 
@@ -574,6 +575,12 @@ void asMidgets::Open(asNode* node)
         return;
 
     node->AddWidgets(this);
+
+    if (section_count_ != 0)
+    {
+        Errorf("Widgets missing %i PopSection: %s %s (%p)", section_count_, node->GetTypeName(), node->GetNodeName(),
+            node);
+    }
 
     if (asNode* parent = node->GetParent())
     {
@@ -666,6 +673,12 @@ void asMidgets::PushSection(const char* arg1, [[maybe_unused]] i32 arg2)
 
 void asMidgets::PopSection()
 {
+    if (section_count_ == 0)
+    {
+        Errorf("Section count underflow");
+        return;
+    }
+
     i32 start = sections_[--section_count_];
     SBMI* section = static_cast<SBMI*>(midgets_[start]);
     section->Start = section->End = midget_count_ - start - 1;
