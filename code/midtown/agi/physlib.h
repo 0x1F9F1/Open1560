@@ -54,7 +54,7 @@ public:
 
 #endif
 
-check_size(Ty(agiLib<class agiPhysParameters, class agiPhysDef>), 0x4014);
-
 // 0x8FAFE8 | ?agiPhysLib@@3V?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@A
 ARTS_IMPORT extern class agiLib<class agiPhysParameters, class agiPhysDef> agiPhysLib;
+
+check_size(agiPhysLib, 0x4014);

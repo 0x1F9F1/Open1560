@@ -52,7 +52,7 @@ public:
 };
 #endif
 
-check_size(Ty(agiLib<class agiMtlParameters, class agiMtlDef>), 0x4014);
-
 // 0x903198 | ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
 ARTS_IMPORT extern class agiLib<class agiMtlParameters, class agiMtlDef> agiMtlLib;
+
+check_size(agiMtlLib, 0x4014);

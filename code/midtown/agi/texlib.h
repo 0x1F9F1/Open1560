@@ -53,7 +53,7 @@ public:
 };
 #endif
 
-check_size(Ty(agiLib<class agiTexParameters, class agiTexDef>), 0x4014);
-
 // 0x8FF0D8 | ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
 ARTS_IMPORT extern class agiLib<class agiTexParameters, class agiTexDef> agiTexLib;
+
+check_size(agiTexLib, 0x4014);

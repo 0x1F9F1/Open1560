@@ -144,6 +144,52 @@ i32 agiPipeline::BeginAllGfx()
     return error;
 }
 
+b32 agiPipeline::CopyClippedBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height)
+{
+    return CopyClippedBitmap(dst_x, dst_y, src, src_x, src_y, width, height, 0, 0, GetWidth(), GetHeight());
+}
+
+b32 agiPipeline::CopyClippedBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height,
+    i32 min_x, i32 min_y, i32 max_x, i32 max_y)
+{
+    if (dst_x < min_x) // NOTE: Originally checked dst_x < 0
+    {
+        width -= min_x - dst_x;
+        src_x += min_x - dst_x;
+        dst_x = min_x;
+    }
+    else if (dst_x >= max_x)
+    {
+        return false;
+    }
+
+    if (dst_y < min_y)
+    {
+        height -= min_y - dst_y;
+        src_y += min_y - dst_y;
+        dst_y = min_y;
+    }
+    else if (dst_y >= max_y)
+    {
+        return false;
+    }
+
+    if (width <= 0 || height <= 0)
+    {
+        return false;
+    }
+
+    if (width + dst_x > max_x)
+        width = max_x - dst_x;
+
+    if (height + dst_y > max_y)
+        height = max_y - dst_y;
+
+    CopyBitmap(dst_x, dst_y, src, src_x, src_y, width, height);
+
+    return true;
+}
+
 void agiPipeline::DumpStatus()
 {
     for (agiRefreshable* i = objects_; i; i = i->next_)

@@ -192,12 +192,12 @@ public:
     ARTS_EXPORT i32 BeginAllGfx();
 
     // 0x555D50 | ?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHH@Z
-    ARTS_IMPORT i32 CopyClippedBitmap(
-        i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7);
+    ARTS_EXPORT b32 CopyClippedBitmap(
+        i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height);
 
     // 0x555D90 | ?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHHHHHH@Z
-    ARTS_IMPORT i32 CopyClippedBitmap(i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7,
-        i32 arg8, i32 arg9, i32 arg10, i32 arg11);
+    ARTS_EXPORT b32 CopyClippedBitmap(i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width,
+        i32 height, i32 min_x, i32 min_y, i32 max_x, i32 max_y);
 
     // 0x555F00 | ?DumpStatus@agiPipeline@@QAEXXZ | unused
     ARTS_EXPORT void DumpStatus();
