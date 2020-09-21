@@ -126,6 +126,7 @@ static void GLAPIENTRY DebugMessageCallback([[maybe_unused]] GLenum source, GLen
 
 static mem::cmd_param PARAM_gldebug {"gldebug"};
 static mem::cmd_param PARAM_msaa {"msaa"};
+static mem::cmd_param PARAM_aspect {"aspect"};
 
 i32 agiGLPipeline::BeginGfx()
 {
@@ -280,8 +281,27 @@ i32 agiGLPipeline::BeginGfx()
     rasterizer_ = MakeRc<agiGLRasterizer>(this);
     renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
 
+    i32 vp_width = horz_res_;
+    i32 vp_height = vert_res_;
+
+    if (PARAM_aspect)
+    {
+        f32 res_aspect = static_cast<f32>(width_) / static_cast<f32>(height_);
+        f32 wnd_aspect = static_cast<f32>(horz_res_) / static_cast<f32>(vert_res_);
+
+        if (wnd_aspect > res_aspect)
+        {
+            vp_width = static_cast<i32>(vp_width * (res_aspect / wnd_aspect));
+        }
+        else if (wnd_aspect < res_aspect)
+        {
+            vp_height = static_cast<i32>(vp_height * (wnd_aspect / res_aspect));
+        }
+    }
+
     // glViewport(0, 0, width_, height_);
-    glViewport(0, 0, horz_res_, vert_res_);
+    // glViewport(0, 0, horz_res_, vert_res_);
+    glViewport((horz_res_ - vp_width) / 2, (vert_res_ - vp_height) / 2, vp_width, vp_height);
 
     msaa_level_ = PARAM_msaa.get_or<i32>(0);
 
