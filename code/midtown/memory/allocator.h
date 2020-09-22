@@ -41,7 +41,7 @@
     0x780730 | unsigned char * CRTHEAP | ?CRTHEAP@@3PAEA
 */
 
-#include "ticketlock.h"
+#include "data7/ticketlock.h"
 
 constexpr usize DefaultNewAlignment = __STDCPP_DEFAULT_NEW_ALIGNMENT__;
 

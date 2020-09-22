@@ -9,7 +9,5 @@ arts_component "memory"
         "valloc.cpp",
         "valloc.h",
 
-        "ticketlock.cpp",
-        "ticketlock.h",
         "alloca.h",
     }

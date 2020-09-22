@@ -16,17 +16,34 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#include "ticketlock.h"
 
-#include <atomic>
-
-struct RecursiveTicketLock
+void TicketLock::lock()
 {
-    std::atomic<u32> next_ticket {0};
-    std::atomic<u32> now_serving {0};
-    std::atomic<u32> thread_id {0};
-    u32 lock_count {0};
+    usize my_ticket = next_ticket_.fetch_add(1, std::memory_order_acq_rel);
 
-    void lock();
-    void unlock();
-};
+    while (true)
+    {
+        usize serving = now_serving_.load(std::memory_order_acquire);
+        usize delay_slots = my_ticket - serving;
+
+        if (delay_slots == 0)
+            break;
+
+        if (delay_slots > 2)
+        {
+            ArDebugAssert(serving < my_ticket, "Ticket lock corrupt");
+
+            std::this_thread::yield();
+        }
+        else
+        {
+            delay_slots <<= 4;
+
+            do
+            {
+                _mm_pause();
+            } while (--delay_slots);
+        }
+    }
+}

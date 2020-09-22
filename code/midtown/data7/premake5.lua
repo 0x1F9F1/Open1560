@@ -50,6 +50,9 @@ arts_component "data7"
         "metadeclare.h",
         "metadefine.h",
 
-        "mutex.h",
         "mutex.cpp",
+        "mutex.h",
+
+        "ticketlock.cpp",
+        "ticketlock.h",
     }
