@@ -86,12 +86,15 @@ void agiGLViewport::Clear(i32 flags)
 
     if (mask)
     {
-        i32 width = Pipe()->GetHorzRes();
-        i32 height = Pipe()->GetVertRes();
+        i32 x = Pipe()->GetViewX();
+        i32 y = Pipe()->GetViewY();
+
+        i32 width = Pipe()->GetViewWidth();
+        i32 height = Pipe()->GetViewHeight();
 
         glEnable(GL_SCISSOR_TEST);
 
-        glScissor(static_cast<GLint>(width * params_.X), static_cast<GLint>(height * params_.Y),
+        glScissor(x + static_cast<GLint>(width * params_.X), y + static_cast<GLint>(height * params_.Y),
             static_cast<GLsizei>(width * params_.Width), static_cast<GLsizei>(height * params_.Height));
 
         glClear(mask);

@@ -51,6 +51,26 @@ public:
 
     void Init();
 
+    u32 GetViewWidth() const
+    {
+        return vp_width_;
+    }
+
+    u32 GetViewHeight() const
+    {
+        return vp_height_;
+    }
+
+    u32 GetViewX() const
+    {
+        return vp_x_;
+    }
+
+    u32 GetViewY() const
+    {
+        return vp_y_;
+    }
+
 private:
     HDC window_dc_ {nullptr};
     HGLRC gl_context_ {nullptr};
@@ -61,4 +81,10 @@ private:
     u32 fbo_ {0};
     u32 rbo_ {0};
     u32 msaa_tex_ {0};
+
+    u32 vp_x_ {0};
+    u32 vp_y_ {0};
+
+    u32 vp_width_ {0};
+    u32 vp_height_ {0};
 };

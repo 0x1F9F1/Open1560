@@ -281,8 +281,8 @@ i32 agiGLPipeline::BeginGfx()
     rasterizer_ = MakeRc<agiGLRasterizer>(this);
     renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
 
-    i32 vp_width = horz_res_;
-    i32 vp_height = vert_res_;
+    vp_width_ = horz_res_;
+    vp_height_ = vert_res_;
 
     if (PARAM_aspect)
     {
@@ -291,17 +291,20 @@ i32 agiGLPipeline::BeginGfx()
 
         if (wnd_aspect > res_aspect)
         {
-            vp_width = static_cast<i32>(vp_width * (res_aspect / wnd_aspect));
+            vp_width_ = static_cast<i32>(vp_width_ * (res_aspect / wnd_aspect));
         }
         else if (wnd_aspect < res_aspect)
         {
-            vp_height = static_cast<i32>(vp_height * (wnd_aspect / res_aspect));
+            vp_height_ = static_cast<i32>(vp_height_ * (wnd_aspect / res_aspect));
         }
     }
 
+    vp_x_ = (horz_res_ - vp_width_) / 2;
+    vp_y_ = (vert_res_ - vp_height_) / 2;
+
     // glViewport(0, 0, width_, height_);
     // glViewport(0, 0, horz_res_, vert_res_);
-    glViewport((horz_res_ - vp_width) / 2, (vert_res_ - vp_height) / 2, vp_width, vp_height);
+    glViewport(vp_x_, vp_y_, vp_width_, vp_height_);
 
     msaa_level_ = PARAM_msaa.get_or<i32>(0);
 
@@ -357,6 +360,8 @@ void agiGLPipeline::EndGfx()
     gfx_started_ = false;
 }
 
+static mem::cmd_param PARAM_frameclear {"frameclear"};
+
 void agiGLPipeline::BeginFrame()
 {
     ARTS_TIMED(agiBeginFrame);
@@ -371,7 +376,11 @@ void agiGLPipeline::BeginFrame()
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
     }
 
-    // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    if (PARAM_frameclear)
+    {
+        glDisable(GL_SCISSOR_TEST);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    }
 
     PrintGlErrors();
 }

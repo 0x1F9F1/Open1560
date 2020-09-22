@@ -19,6 +19,7 @@
 #pragma once
 
 #include "agi/viewport.h"
+#include "glpipe.h"
 #include "vector7/vector3.h"
 
 class agiGLViewport final : public agiViewport
@@ -33,6 +34,11 @@ public:
     void Activate() override;
     void SetBackground(Vector3& arg1) override;
     void Clear(i32 arg1) override;
+
+    agiGLPipeline* Pipe() const
+    {
+        return static_cast<agiGLPipeline*>(agiRefreshable::Pipe());
+    }
 
 private:
     Vector3 clear_color_ {};
