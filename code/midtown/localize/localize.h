@@ -25,10 +25,10 @@
     0x5200D0 | struct LocString * __cdecl AngelReadString(unsigned int) | ?AngelReadString@@YAPAULocString@@I@Z
 */
 
+#include "string_ids.h"
+
 struct LocString
 {
-    // TODO: What are the actual members of LocString?
-
     char Text[1];
 };
 
@@ -37,3 +37,16 @@ ARTS_EXPORT struct LocString* AngelReadString(u32 index);
 
 // 0x520010 | ?GetLocTime@@YAPADM@Z
 ARTS_IMPORT char* GetLocTime(f32 arg1);
+
+#define LOC_STR_VAR(ID) (ARTS_CONCAT(MM_LANG_STR_, ID))
+
+#ifdef ARTS_FINAL
+#    define LOC_STRING(ID) (AngelReadString(ID))
+#else
+#    define X(ID, VALUE) extern const char LOC_STR_VAR(ID)[];
+#    include "lang_english.h"
+#    undef X
+#    define LOC_STRING(ID) ((struct LocString*) LOC_STR_VAR(ID))
+#endif
+
+#define LOC_STR(ID) (LOC_STRING(ID)->Text)

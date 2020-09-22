@@ -637,6 +637,7 @@ static mem::cmd_param PARAM_pack {"pack"};
 
 void agiGLPipeline::Init()
 {
+    // TODO: Properly use width/height/depth
     width_ = PARAM_width.get_or<i32>(640);
     height_ = PARAM_height.get_or<i32>(480);
     bit_depth_ = PARAM_depth.get_or<i32>(32);
