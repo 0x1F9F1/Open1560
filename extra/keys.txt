@@ -73,3 +73,45 @@ Z: Zoom In
 X: Zoom Out:
 D: Damage Vehicle
 R: Repair Vehicle
+
+GEO -> DLP ()
+
+DLP -> BND
+DLP -> BMS
+DLP -> mmBangerData
+
+mmMapData (.mmMapData, '.road' = mmRoadSect) -> BAI
+
+// -path "ProjPath"
+
+// -test "Name" -> -path "." -archive "c:\\mm\\shop\\build\\test%s.ar"
+// // c:\\mm\\shop\\build\\test%s.ar
+
+// Set exec path
+sprintf(ExecPath, "%s\\bin\\", ProjPath);
+
+// GetDLPTemplate
+// Convert single GEO file to DLP
+sprintf(command, "%sgeo2dlp %s\\mtl\\ %s\\%s %s\\%s", ExecPath, ProjPath, ProjPath, geo_path, ProjPath, dlp_path);
+
+// CheckLibraries
+// Fix out of date db's
+// mtl/default.mtl -> mtl/material.db
+// mtl/default.tex -> mtl/texture.db
+// mtl/default.fzx -> mtl/physics.db
+sprintf(command, "%sgeo2dlp %s\\mtl\\", ExecPath, ProjPath);
+
+C:\\mm\\shop:
+    build:
+        test%s.ar
+    bin:
+        geo2dlp
+    mtl:
+    bmp16:
+    bms:
+    bnd:
+    dlp:
+    mtl:
+    tex16a:
+    tex16o:
+    tune:
