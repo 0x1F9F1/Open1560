@@ -55,7 +55,9 @@ private:
 
     i32 size_ {0};
     Entry* first_ {nullptr};
-    i32 dword8_ {0};
+
+    // See aiVehicle::Update
+    Entry* iter_current_ {nullptr};
 };
 
 check_size(List, 0xC);
