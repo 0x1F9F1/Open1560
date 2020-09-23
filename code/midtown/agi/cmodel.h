@@ -60,10 +60,10 @@ public:
     ARTS_EXPORT u32 GetColor(i32 r, i32 g, i32 b, i32 a);
 
     // 0x55D810 | ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z | agi:cmodelx
-    ARTS_IMPORT static RcOwner<class agiColorModel> FindMatch(class agiSurfaceDesc* arg1);
+    ARTS_EXPORT static RcOwner<class agiColorModel> FindMatch(class agiSurfaceDesc* surface);
 
     // 0x55D760 | ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z | agi:cmodelx
-    ARTS_IMPORT static RcOwner<class agiColorModel> FindMatch(i32 mask_r, i32 mask_g, i32 mask_b, i32 mask_a);
+    ARTS_EXPORT static RcOwner<class agiColorModel> FindMatch(i32 mask_r, i32 mask_g, i32 mask_b, i32 mask_a);
 
     void AddRef()
     {
@@ -101,17 +101,17 @@ public:
 
     u32 GetMaskG() const
     {
-        return ((1 << BitCountR) - 1) << ShiftR;
+        return ((1 << BitCountG) - 1) << ShiftG;
     }
 
     u32 GetMaskB() const
     {
-        return ((1 << BitCountR) - 1) << ShiftR;
+        return ((1 << BitCountB) - 1) << ShiftB;
     }
 
     u32 GetMaskA() const
     {
-        return ((1 << BitCountR) - 1) << ShiftR;
+        return ((1 << BitCountA) - 1) << ShiftA;
     }
 
 private:
