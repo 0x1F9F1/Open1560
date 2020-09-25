@@ -51,8 +51,9 @@ static HashTable FontHash {64, "FontHash"};
 class mmFont
 {
 private:
-    mmFont(const char* name, FT_Face face)
+    mmFont(const char* name, FT_Face face, i32 height)
         : face_(face)
+        , height_(height)
     {
         arts_strcpy(name_, name);
 
@@ -66,6 +67,7 @@ private:
 
     FT_Face face_ {nullptr};
     char name_[256] {};
+    i32 height_ {0};
 
 public:
     mmSize GetExtents(const char* text);
@@ -78,8 +80,7 @@ public:
 
 mmSize mmFont::GetExtents(const char* text)
 {
-    u32 width = 0;
-    u32 height = face_->size->metrics.height;
+    i32 width = 0;
 
     for (; *text; ++text)
     {
@@ -90,7 +91,7 @@ mmSize mmFont::GetExtents(const char* text)
         width += face_->glyph->advance.x;
     }
 
-    return {static_cast<i32>((width + 63) >> 6), static_cast<i32>((height + 63) >> 6)};
+    return {(width + 63) >> 6, height_};
 }
 
 void mmFont::Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect, u32 color, u32 format)
@@ -281,7 +282,7 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
 
     FT_Set_Char_Size(face, 0, height << 6, 0, 54);
 
-    return new mmFont(name, face);
+    return new mmFont(name, face, height);
 }
 
 void mmText::Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font_ptr)
