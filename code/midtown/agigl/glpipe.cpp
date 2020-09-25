@@ -617,3 +617,31 @@ void agiGLPipeline::Init()
 
     PackShift = PARAM_pack.get_or<i32>(0);
 }
+
+Ptr<u8[]> glScreenShot(i32& width, i32& height)
+{
+    if (wglGetCurrentContext() == NULL)
+        return nullptr;
+
+    GLint viewport[4] {};
+    glGetIntegerv(GL_VIEWPORT, viewport);
+
+    i32 x = viewport[0];
+    i32 y = viewport[1];
+
+    width = viewport[2];
+    height = viewport[3];
+
+    Ptr<u8[]> buffer = MakeUnique<u8[]>(width * height * 3);
+
+    if (buffer)
+    {
+        glPixelStorei(GL_PACK_ALIGNMENT, 1);
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
+        glReadPixels(x, y, width, height, GL_BGR, GL_UNSIGNED_BYTE, buffer.get());
+
+        PrintGlErrors();
+    }
+
+    return buffer;
+}

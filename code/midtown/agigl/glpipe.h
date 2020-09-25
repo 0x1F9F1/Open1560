@@ -88,3 +88,5 @@ private:
     u32 vp_width_ {0};
     u32 vp_height_ {0};
 };
+
+Ptr<u8[]> glScreenShot(i32& width, i32& height);

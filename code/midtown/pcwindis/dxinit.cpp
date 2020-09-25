@@ -114,6 +114,99 @@ static inline void dxiRestoreDisplayMode()
 #endif
 }
 
+#ifdef ARTS_ENABLE_OPENGL
+#    include "agigl/glpipe.h"
+
+void dxiScreenShot(char* file_name)
+{
+    i32 width = 0;
+    i32 height = 0;
+    Ptr<u8[]> pixels = glScreenShot(width, height);
+
+    if (pixels == nullptr)
+        return;
+
+    i32 pixels_size = 3 * width * height;
+
+    BITMAPFILEHEADER file_header {};
+    file_header.bfType = 0x4D42;
+    file_header.bfSize = 54 + pixels_size;
+    file_header.bfReserved1 = 0;
+    file_header.bfReserved2 = 0;
+    file_header.bfOffBits = 54;
+
+    BITMAPINFOHEADER info_header {};
+    info_header.biSize = sizeof(info_header);
+    info_header.biWidth = width;
+    info_header.biHeight = height;
+    info_header.biPlanes = 1;
+    info_header.biBitCount = 24;
+    info_header.biCompression = BI_RGB;
+    info_header.biSizeImage = 0;
+    info_header.biXPelsPerMeter = width;
+    info_header.biYPelsPerMeter = height;
+    info_header.biClrUsed = 0;
+    info_header.biClrImportant = 0;
+
+    char name_buffer[64];
+
+    if (file_name == nullptr)
+    {
+        i32 shot_num = 0;
+        WIN32_FIND_DATAA find_data;
+
+        if (HANDLE find_handle = FindFirstFileA("screen/SHOT*.BMP", &find_data); find_handle != INVALID_HANDLE_VALUE)
+        {
+            do
+            {
+                if (!arts_strnicmp(find_data.cFileName, "SHOT", 4))
+                    shot_num = std::max<i32>(shot_num, std::atoi(find_data.cFileName + 4));
+            } while (FindNextFileA(find_handle, &find_data));
+
+            FindClose(find_handle);
+        }
+
+        CreateDirectoryA("screen", NULL);
+        arts_sprintf(name_buffer, "screen/SHOT%04d.BMP", shot_num + 1);
+        file_name = name_buffer;
+    }
+
+    if (HANDLE file = CreateFileA(file_name, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+        file != INVALID_HANDLE_VALUE)
+    {
+        DWORD written = 0;
+        WriteFile(file, &file_header, sizeof(file_header), &written, NULL);
+        WriteFile(file, &info_header, sizeof(info_header), &written, NULL);
+        WriteFile(file, pixels.get(), pixels_size, &written, NULL);
+
+        CloseHandle(file);
+    }
+
+    if (OpenClipboard(NULL))
+    {
+        if (EmptyClipboard())
+        {
+            if (HGLOBAL clip_handle = GlobalAlloc(GMEM_MOVEABLE, sizeof(info_header) + pixels_size))
+            {
+                if (u8* clip_data = static_cast<u8*>(GlobalLock(clip_handle)))
+                {
+                    std::memcpy(clip_data + 0x0, &info_header, sizeof(info_header));
+                    std::memcpy(clip_data + sizeof(info_header), pixels.get(), pixels_size);
+
+                    GlobalUnlock(clip_handle);
+                }
+
+                SetClipboardData(CF_DIB, clip_handle);
+
+                GlobalFree(clip_handle);
+            }
+        }
+
+        CloseClipboard();
+    }
+}
+#endif
+
 void dxiSetDisplayMode()
 {
 #ifndef ARTS_DISABLE_DDRAW

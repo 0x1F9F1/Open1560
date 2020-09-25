@@ -33,6 +33,7 @@
 #define arts_strcat strcat_s
 
 #define arts_stricmp _stricmp
+#define arts_strnicmp _strnicmp
 #define arts_strupr _strupr_s
 
 ARTS_EXPORT char* arts_strdup(const char* str);

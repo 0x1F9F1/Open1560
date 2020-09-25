@@ -4,6 +4,7 @@ import copy
 import os
 from collections import defaultdict, OrderedDict
 import json
+import bisect
 
 from binaryninja.binaryview import *
 from binaryninja.architecture import *
@@ -1181,6 +1182,19 @@ for sym in all_symbols:
 
 all_symbols.sort(key = lambda x: x.address)
 
+# last_obj = None
+# obj_bounds = []
+
+# for sym in all_symbols:
+#     if sym.library != last_obj:
+#         obj_bounds.append((sym.address, sym.library))
+#         last_obj = sym.library
+
+# with open('obj_bounds.json', 'w') as f:
+#     json.dump(obj_bounds, f, indent = 4, sort_keys = True)
+
+# assert False
+
 # for i in range(len(all_symbols) - 1):
 #     sym = all_symbols[i]
 #     if sym.type.type_class != TypeClass.PointerTypeClass:
@@ -1231,30 +1245,29 @@ all_symbols.sort(key = lambda x: x.address)
 #     if symbol.address is None:
 #         print('{:40} | {:80} | {}'.format(symbol.library, symbol.undec_name or '', symbol.raw_name))
 
-print('Grouping symbol libs')
-path_libs = group_stray_symbols(all_symbols, {
-    'MetaType': 'data7:metatype',
-    'asPortalRenderable': 'mmcity:portal',
-    'mmCompBase': 'mmwidget:compbase',
-    'Dispatchable': 'eventq7:dispatchable',
-    'Bank': 'arts7:bank',
-    'agiMeshSet': 'agiworld:meshset',
-    'agiLib<class agiMtlParameters,class agiMtlDef>': 'agi:mtllib',
-    'agiLib<class agiPhysParameters,class agiPhysDef>': 'agi:physlib',
-    'agiLib<class agiTexParameters,class agiTexDef>': 'agi:texlib',
-    'PagerInfo_t': 'data7:pager',
-    'aiGoal': 'mmai:aiGoal',
-    'mmPhysEntity': 'mmphysics:entity',
-})
-
-# print(path_libs)
-
 # for sym in all_symbols:
 #     print(sym.raw_name, hex(sym.address or 0))
 
 # Create a dictionary from the valid symbols
 symbols = dict((symbol.address, symbol) for symbol in all_symbols if symbol.address is not None)
 # print(symbols)
+
+# with open('relocs.json', 'r') as f:
+#     relocs = json.load(f)
+
+# view_symbols = list(view.symbols.keys())
+# view_symbols.sort(key = lambda x: x.address)
+# view_symbol_addrs = [x.address for x in view_symbols]
+
+# for addr, target in relocs:
+#     symbol_index = bisect.bisect_left(view_symbol_addrs, target) - 1
+#     if symbol_index < 0:
+#         symbol_index = 0
+#     symbol = view_symbols[symbol_index]
+
+#     print('0x{:X} -> {} + 0x{:X}'.format(addr, symbol.raw_name, target - symbol.address))
+
+# assert False
 
 for array_sym_addr, array_sym_len in [
     (0x635AC8, 7),
@@ -1960,6 +1973,24 @@ vftables = backport_vftable_purecalls(vftables, class_hier, {
 })
 
 class_paddings = calculate_class_paddings(class_sizes, class_hier, vftables)
+
+print('Grouping symbol libs')
+path_libs = group_stray_symbols(all_symbols, {
+    'MetaType': 'data7:metatype',
+    'asPortalRenderable': 'mmcity:portal',
+    'mmCompBase': 'mmwidget:compbase',
+    'Dispatchable': 'eventq7:dispatchable',
+    'Bank': 'arts7:bank',
+    'agiMeshSet': 'agiworld:meshset',
+    'agiLib<class agiMtlParameters,class agiMtlDef>': 'agi:mtllib',
+    'agiLib<class agiPhysParameters,class agiPhysDef>': 'agi:physlib',
+    'agiLib<class agiTexParameters,class agiTexDef>': 'agi:texlib',
+    'PagerInfo_t': 'data7:pager',
+    'aiGoal': 'mmai:aiGoal',
+    'mmPhysEntity': 'mmphysics:entity',
+})
+
+# print(path_libs)
 
 '''
 Comment out the following code in fixup_func_type to create a proper vftable dump
