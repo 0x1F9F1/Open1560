@@ -413,8 +413,12 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         patch_jmp("VehShowcase::PreSetup", "Fix showcase with addon cars", 0x4A5146, jump_type::never);
 
-        if (false)
+        create_patch("", "", 0x5643F5, "\xEB\x37\x90\x90\x90\x90", 6);
+
+#ifndef ARTS_FINAL
         {
+            patch_jmp("", "", 0x4744DD, jump_type::never);
+
             // Ambient Vehicle Colors
             u32 new_colors[] {
                 0xFFB58900, // Yellow
@@ -431,6 +435,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
             std::memcpy((u32*) 0x639888, new_colors, sizeof(new_colors));
         }
+#endif
 
         Displayf("Begin Init Functions");
 

@@ -44,41 +44,6 @@
 
 #include <wglext.h>
 
-#if 0
-static const char* PixelFormatFlagsToString(DWORD flags)
-{
-    // FIXME: Static buffer
-    static char buffer[256];
-
-    buffer[0] = 0;
-
-    if (flags & PFD_DRAW_TO_WINDOW)
-        arts_strcat(buffer, "PFD_DRAW_TO_WINDOW ");
-    if (flags & PFD_DRAW_TO_BITMAP)
-        arts_strcat(buffer, "PFD_DRAW_TO_BITMAP ");
-    if (flags & PFD_SUPPORT_GDI)
-        arts_strcat(buffer, "PFD_SUPPORT_GDI ");
-    if (flags & PFD_SUPPORT_OPENGL)
-        arts_strcat(buffer, "PFD_SUPPORT_OPENGL ");
-    if (flags & PFD_GENERIC_ACCELERATED)
-        arts_strcat(buffer, "PFD_GENERIC_ACCELERATED ");
-    if (flags & PFD_GENERIC_FORMAT)
-        arts_strcat(buffer, "PFD_GENERIC_FORMAT ");
-    if (flags & PFD_NEED_PALETTE)
-        arts_strcat(buffer, "PFD_NEED_PALETTE ");
-    if (flags & PFD_NEED_SYSTEM_PALETTE)
-        arts_strcat(buffer, "PFD_NEED_SYSTEM_PALETTE ");
-    if (flags & PFD_DOUBLEBUFFER)
-        arts_strcat(buffer, "PFD_DOUBLEBUFFER ");
-    if (flags & PFD_STEREO)
-        arts_strcat(buffer, "PFD_STEREO ");
-    if (flags & PFD_SWAP_LAYER_BUFFERS)
-        arts_strcat(buffer, "PFD_SWAP_LAYER_BUFFERS ");
-
-    return buffer;
-}
-#endif
-
 static PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
 static PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = NULL;
 static PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB = NULL;

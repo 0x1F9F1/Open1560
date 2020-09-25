@@ -34,8 +34,7 @@ void agiBitmap::UpdateFlags()
 
 /*const*/ char* agiBitmap::GetName()
 {
-    // FIXME: Static buffer
-    static char buffer[64];
+    static char buffer[64]; // FIXME: Static buffer
     arts_sprintf(buffer, "Bitmap '%s'", name_.get());
     return buffer;
 }

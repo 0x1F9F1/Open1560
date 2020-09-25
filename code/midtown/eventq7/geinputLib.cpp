@@ -79,12 +79,13 @@ i8* geinputGetKeyboard()
 {
     if (KeyboardDevice && FAILED(KeyboardDevice->GetDeviceState(std::size(KeyboardState), KeyboardState)))
     {
-        // TODO: Why is this needed?
+        if (KeyboardDevice)
+            KeyboardDevice->Acquire();
 
-        if (MouseDevice)
-            MouseDevice->Acquire();
-
-        KeyboardDevice->GetDeviceState(std::size(KeyboardState), KeyboardState);
+        if (FAILED(KeyboardDevice->GetDeviceState(std::size(KeyboardState), KeyboardState)))
+        {
+            std::memset(KeyboardState, 0, sizeof(KeyboardState));
+        }
     }
 
     return KeyboardState;
@@ -105,7 +106,7 @@ void geinputUnacquireKeyboard()
 // 0x564050 | ?DIError@@YAPADH@Z
 ARTS_EXPORT /*static*/ const char* DIError(i32 error)
 {
-    static char buffer[64];
+    static char buffer[64]; // FIXME: Static buffer
     arts_sprintf(buffer, "Error 0x%08X", error);
     return buffer;
 }
