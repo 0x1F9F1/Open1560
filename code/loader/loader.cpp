@@ -413,7 +413,9 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         patch_jmp("VehShowcase::PreSetup", "Fix showcase with addon cars", 0x4A5146, jump_type::never);
 
-        create_patch("", "", 0x5643F5, "\xEB\x37\x90\x90\x90\x90", 6);
+        create_patch("geinputGetMouse", "Disable not acquired spam", 0x5643F5, "\xEB\x37\x90\x90\x90\x90", 6);
+
+        patch_jmp("mmInterface::PlayerFillStats", "Always Show Score", 0x40C414, jump_type::never);
 
 #ifndef ARTS_FINAL
         {
