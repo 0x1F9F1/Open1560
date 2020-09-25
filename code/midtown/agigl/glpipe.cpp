@@ -284,7 +284,7 @@ i32 agiGLPipeline::BeginGfx()
     vp_width_ = horz_res_;
     vp_height_ = vert_res_;
 
-    if (PARAM_aspect)
+    if (PARAM_aspect.get_or(true))
     {
         f32 res_aspect = static_cast<f32>(width_) / static_cast<f32>(height_);
         f32 wnd_aspect = static_cast<f32>(horz_res_) / static_cast<f32>(vert_res_);
@@ -376,7 +376,7 @@ void agiGLPipeline::BeginFrame()
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
     }
 
-    if (PARAM_frameclear)
+    if (PARAM_frameclear.get_or(true))
     {
         glDisable(GL_SCISSOR_TEST);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);

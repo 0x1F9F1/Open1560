@@ -27,6 +27,7 @@ SHIFT+T :  draws something to do with AI (path progress?)
 SHIFT+I : draw intersection ids
 SHIFT+U : returns camera to player car
 SHIFT+O : camera follows an opponent, press more to cycle
+SHIFT+C : camera follows a cop, press more to cycle
 SHIFT+P : saves a position
 SHIFT+A : turns on/off audio system
 SHIFT+S : toggles sky
