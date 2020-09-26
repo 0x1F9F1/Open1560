@@ -72,7 +72,7 @@ public:
 
     // 0x524640 | ??_EasNode@@UAEPAXI@Z
     // 0x5237F0 | ??1asNode@@UAE@XZ
-    ARTS_EXPORT ~asNode() override;
+    ARTS_EXPORT ~asNode() override = 0;
 
     ARTS_NON_COPYABLE(asNode);
 

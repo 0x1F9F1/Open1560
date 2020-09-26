@@ -38,7 +38,7 @@ class Base
 public:
     // 0x414AD0 | ??_GBase@@UAEPAXI@Z
     // 0x5791E0 | ??1Base@@UAE@XZ
-    ARTS_EXPORT virtual ~Base() = default;
+    ARTS_EXPORT virtual ~Base() = 0;
 
     // 0x579290 | ?GetClass@Base@@UAEPAVMetaClass@@XZ
     ARTS_EXPORT virtual class MetaClass* GetClass();
@@ -62,3 +62,5 @@ check_size(Base, 0x4);
 
 // 0x90B100 | ?BaseMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass BaseMetaClass;
+
+inline Base::~Base() = default;

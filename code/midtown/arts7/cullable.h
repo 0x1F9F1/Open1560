@@ -43,7 +43,7 @@ public:
     // 0x525A40 | ??_EasCullable@@UAEPAXI@Z
     // 0x48BB50 | ??_GasCullable@@UAEPAXI@Z | unused
     // 0x48BB80 | ??1asCullable@@UAE@XZ | inline
-    ARTS_EXPORT ~asCullable() override = default;
+    ARTS_EXPORT ~asCullable() override = 0;
 
     // 0x5258C0 | ?Cull@asCullable@@UAEXXZ
     ARTS_EXPORT virtual void Cull();
@@ -58,3 +58,5 @@ check_size(asCullable, 0x4);
 
 // 0x7908B0 | ?asCullableMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asCullableMetaClass;
+
+inline asCullable::~asCullable() = default;

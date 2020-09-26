@@ -178,6 +178,7 @@ void Application(i32 argc, char** argv)
             }
         }
 
+#ifndef ARTS_DISABLE_DDRAW
         if (PARAM_res_hack.get_or(false))
         {
             wchar_t d3dim_path[MAX_PATH];
@@ -209,6 +210,7 @@ void Application(i32 argc, char** argv)
                 Displayf("ResHack - d3dim not found");
             }
         }
+#endif
 
         ApplicationHelper(argc, argv);
     }
