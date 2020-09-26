@@ -417,6 +417,10 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         patch_jmp("mmInterface::PlayerFillStats", "Always Show Score", 0x40C414, jump_type::never);
 
+        create_patch("ApplicationHelper", "DevelopmentMode", 0x40278A, "\x90\x90\x90\x90\x90\x90", 6);
+
+        patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x48C851, jump_type::always);
+
 #ifndef ARTS_FINAL
         {
             patch_jmp("", "", 0x4744DD, jump_type::never);
@@ -473,7 +477,7 @@ include_dummy_symbol(agi_cmodelx);
 // include_dummy_symbol(agi_dlptmpl);
 // include_dummy_symbol(agi_dyndlp);
 include_dummy_symbol(agi_error);
-// include_dummy_symbol(agi_getdlp);
+include_dummy_symbol(agi_getdlp);
 include_dummy_symbol(agi_light);
 // include_dummy_symbol(agi_lmodel);
 // include_dummy_symbol(agi_mtldef);

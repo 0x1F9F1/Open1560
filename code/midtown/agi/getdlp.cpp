@@ -20,5 +20,21 @@ define_dummy_symbol(agi_getdlp);
 
 #include "getdlp.h"
 
+#include "stream/hfsystem.h"
+
 // 0x556AD0 | ?LibOutOfDate@@YAHPAD0@Z
 ARTS_IMPORT /*static*/ i32 LibOutOfDate(char* arg1, char* arg2);
+
+b32 OutOfDate(char* lhs, char* rhs)
+{
+    struct stat lhs_stat;
+    struct stat rhs_stat;
+
+    if (stat(FQN(rhs), &rhs_stat))
+        return false;
+
+    if (stat(FQN(lhs), &lhs_stat))
+        return true;
+
+    return lhs_stat.st_mtime < rhs_stat.st_mtime;
+}

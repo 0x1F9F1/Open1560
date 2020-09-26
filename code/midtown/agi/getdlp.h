@@ -40,7 +40,7 @@ ARTS_IMPORT class DLPTemplate* GetDLPTemplate(char* arg1);
 ARTS_IMPORT i32 GetGroupVerts(char* arg1, char* arg2, class Vector3* arg3, i32 arg4);
 
 // 0x5569D0 | ?OutOfDate@@YAHPAD0@Z
-ARTS_IMPORT i32 OutOfDate(char* arg1, char* arg2);
+ARTS_EXPORT b32 OutOfDate(char* lhs, char* rhs);
 
 // 0x8FAFD0 | ?DLPTemplateBadHash@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable DLPTemplateBadHash;
