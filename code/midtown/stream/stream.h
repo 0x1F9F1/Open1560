@@ -305,7 +305,7 @@ ARTS_IMPORT extern i32 EnableBinaryFileMapping;
 // 0x55F390 | _vprintf | void
 
 template <typename T>
-inline T Stream::Get()
+ARTS_NOINLINE inline T Stream::Get()
 {
     T value {};
 
@@ -319,7 +319,7 @@ inline T Stream::Get()
 }
 
 template <typename T>
-inline void Stream::GetN(T* values, i32 count)
+ARTS_NOINLINE inline void Stream::GetN(T* values, i32 count)
 {
     // TODO: Handle incomplete read
     Read(values, sizeof(T) * count);

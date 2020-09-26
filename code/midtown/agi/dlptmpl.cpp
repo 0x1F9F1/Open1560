@@ -85,16 +85,16 @@ void DLPPatch::Load(Stream* file)
 {
     SRes = file->Get<u16>();
     TRes = file->Get<u16>();
-    VertexCount = SRes * TRes;
-    Flags = file->Get<u16>() & ~0x1;
+    NumVertices = SRes * TRes;
+    Flags = file->Get<u16>() & ~Flags_Enabled;
     ROpts = file->Get<u16>();
     MtlIdx = file->Get<u16>();
     TexIdx = file->Get<u16>();
     PhysIdx = file->Get<u16>();
 
-    Vertices = MakeUnique<DLPVertex[]>(VertexCount);
+    Vertices = MakeUnique<DLPVertex[]>(NumVertices);
 
-    for (i32 i = 0; i < VertexCount; ++i)
+    for (i32 i = 0; i < NumVertices; ++i)
         Vertices[i].Load(file);
 
     Name = file->GetString();
@@ -108,6 +108,30 @@ void DLPVertex::Load(Stream* file)
 
     u32 color = file->Get<u32>();
 
-    Color = Vector4(((color >> 16) & 0xFF) / 255.0f, ((color >> 8) & 0xFF) / 255.0f, (color & 0xFF) / 255.0f,
-        (color >> 24) / 255.0f);
+    Color = {((color >> 16) & 0xFF) / 255.0f, ((color >> 8) & 0xFF) / 255.0f, (color & 0xFF) / 255.0f,
+        (color >> 24) / 255.0f};
+}
+
+void DLPGroup::Init(i32 num_verts, i32 num_patches)
+{
+    NumVertices = num_verts;
+    VertexIndices = MakeUnique<u16[]>(num_verts);
+
+    NumPatches = num_patches;
+    PatchIndices = MakeUnique<u16[]>(num_patches);
+}
+
+void DLPGroup::Load(Stream* file)
+{
+    u8 name_len = file->Get<u8>();
+    ArAssert(name_len <= std::size(Name), "Invalid Name Length");
+    file->Read(Name, name_len);
+
+    NumVertices = file->Get<u32>();
+    NumPatches = file->Get<u32>();
+
+    Init(NumVertices, NumPatches);
+
+    file->GetN<u16>(VertexIndices.get(), NumVertices);
+    file->GetN<u16>(PatchIndices.get(), NumPatches);
 }

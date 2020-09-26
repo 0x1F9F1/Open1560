@@ -189,6 +189,12 @@ public:
     i16 SRes {0};
     i16 TRes {0};
 
+    enum : u16
+    {
+        Flags_Enabled = 0x1,
+        Flags_Flag8 = 0x8,
+    };
+
     u16 Flags {0};
 
     enum : u16
@@ -210,7 +216,7 @@ public:
 
     i16 MtlIdx {0};
     i16 TexIdx {0};
-    i16 VertexCount {0};
+    i16 NumVertices {0};
     i16 PhysIdx {0};
 
     Ptr<DLPVertex[]> Vertices {nullptr};
@@ -223,20 +229,20 @@ class DLPGroup final
 {
 public:
     // 0x558C90 | ??0DLPGroup@@QAE@XZ
-    ARTS_IMPORT DLPGroup();
+    ARTS_EXPORT DLPGroup() = default;
 
     // 0x558CB0 | ??0DLPGroup@@QAE@PAVDLPTemplate@@PAV0@@Z
     ARTS_IMPORT DLPGroup(class DLPTemplate* arg1, class DLPGroup* arg2);
 
     // 0x559C20 | ??_EDLPGroup@@QAEPAXI@Z | unused
     // 0x558E90 | ??1DLPGroup@@QAE@XZ
-    ARTS_IMPORT ~DLPGroup();
+    ARTS_EXPORT ~DLPGroup() = default;
 
     // 0x559040 | ?Init@DLPGroup@@QAEXHH@Z
-    ARTS_IMPORT void Init(i32 arg1, i32 arg2);
+    ARTS_EXPORT void Init(i32 num_verts, i32 num_patches);
 
     // 0x558EC0 | ?Load@DLPGroup@@QAEXPAVStream@@@Z
-    ARTS_IMPORT void Load(class Stream* arg1);
+    ARTS_EXPORT void Load(class Stream* file);
 
     // 0x558FC0 | ?Print@DLPGroup@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Print(class Stream* arg1);
@@ -244,7 +250,13 @@ public:
     // 0x558F40 | ?Save@DLPGroup@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
 
-    u8 gap0[0x30];
+    char Name[32] {};
+
+    i32 NumVertices {0};
+    Ptr<u16[]> VertexIndices {nullptr};
+
+    i32 NumPatches {0};
+    Ptr<u16[]> PatchIndices {nullptr};
 };
 
 check_size(DLPGroup, 0x30);
