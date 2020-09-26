@@ -122,7 +122,7 @@ public:
     {
         Kill();
 
-        count_ = static_cast<i32>(input->GetLong());
+        count_ = static_cast<i32>(input->Get<u32>());
         Init(count_);
 
         for (i32 i = 0; i < count_; ++i)

@@ -72,6 +72,8 @@
 
 #include "data7/base.h"
 
+#include "core/endian.h"
+
 class Stream : public Base
 {
     // const Stream::`vftable' @ 0x6218E8
@@ -151,23 +153,21 @@ public:
     }
 
     // 0x55F2B0 | ?GetLong@Stream@@QAEKXZ | unused
-    ARTS_EXPORT u32 GetLong()
+    [[deprecated]] ARTS_EXPORT u32 GetLong()
     {
-        u32 result = 0;
-        Get(&result, 1);
-        return result;
+        return Get<u32>();
     }
 
     // 0x55F290 | ?GetShort@Stream@@QAEGXZ | unused
-    ARTS_EXPORT u16 GetShort()
+    [[deprecated]] ARTS_EXPORT u16 GetShort()
     {
-        u16 result = 0;
-        Get(&result, 1);
-        return result;
+        return Get<u16>();
     }
 
     // 0x55EEF0 | ?GetString@Stream@@QAEHPADH@Z | unused
     ARTS_EXPORT i32 GetString(char* buffer, i32 buffer_len);
+
+    CString GetString();
 
     // 0x55EDF0 | ?Printf@Stream@@QAAHPBDZZ | unused
     ARTS_EXPORT i32 Printf(ARTS_FORMAT_STRING char const* format, ...);
@@ -237,6 +237,12 @@ public:
     // 0x55EB00 | ?Write@Stream@@QAEHPAXH@Z
     ARTS_EXPORT i32 Write(const void* ptr, i32 size);
 
+    template <typename T>
+    T Get();
+
+    template <typename T>
+    void GetN(T* values, i32 count);
+
 protected:
     // 0x55EE90 | ?RawDebug@Stream@@MAEXXZ
     ARTS_EXPORT virtual void RawDebug();
@@ -297,3 +303,30 @@ ARTS_IMPORT extern i32 EnableBinaryFileMapping;
 // 0x55F3B0 | _printf | void
 
 // 0x55F390 | _vprintf | void
+
+template <typename T>
+inline T Stream::Get()
+{
+    T value {};
+
+    // TODO: Handle incomplete read
+    Read(&value, sizeof(value));
+
+    if (swap_endian_)
+        ByteSwap<T>(value);
+
+    return value;
+}
+
+template <typename T>
+inline void Stream::GetN(T* values, i32 count)
+{
+    // TODO: Handle incomplete read
+    Read(values, sizeof(T) * count);
+
+    if (swap_endian_)
+    {
+        for (i32 i = 0; i < count; ++i)
+            ByteSwap<T>(values[i]);
+    }
+}

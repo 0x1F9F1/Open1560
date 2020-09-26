@@ -25,6 +25,9 @@
     0x557040 | public: void __thiscall agiPhysParameters::Save(class Stream *) | ?Save@agiPhysParameters@@QAEXPAVStream@@@Z
 */
 
+#include "vector7/vector2.h"
+#include "vector7/vector3.h"
+
 class agiPhysParameters
 {
 public:
@@ -34,7 +37,18 @@ public:
     // 0x557040 | ?Save@agiPhysParameters@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
 
-    u8 gap0[0x58];
+    char Name[32];
+    f32 Friction;
+    f32 Elasticity;
+    f32 Drag;
+    f32 BumpHeight;
+    f32 BumpWidth;
+    f32 BumpDepth;
+    f32 SinkDepth;
+    u32 Type;
+    u32 Sound;
+    Vector2 Velocity;
+    Vector3 PtxColor;
 };
 
 check_size(agiPhysParameters, 0x58);

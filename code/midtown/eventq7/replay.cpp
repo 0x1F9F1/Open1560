@@ -82,7 +82,7 @@ void eqReplay::DoPlayback()
         }
         else
         {
-            u32 size = ReplayStream->GetLong();
+            u32 size = ReplayStream->Get<u32>();
             ReplayStream->Seek(ReplayStream->Tell() + size);
         }
     }

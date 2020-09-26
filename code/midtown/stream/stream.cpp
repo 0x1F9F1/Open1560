@@ -130,7 +130,7 @@ i32 Stream::Get(u32* values, i32 count)
 
 i32 Stream::GetString(char* buffer, i32 buffer_len)
 {
-    u32 len = GetLong();
+    u32 len = Get<u32>();
 
     if (len <= static_cast<u32>(buffer_len)) // TODO: Should this be "<" to ensure a null terminator?
         return Get(reinterpret_cast<u8*>(buffer), len);
@@ -146,6 +146,18 @@ i32 Stream::GetString(char* buffer, i32 buffer_len)
         GetCh();
 
     return buffer_len;
+}
+
+CString Stream::GetString()
+{
+    u32 length = Get<u32>();
+
+    if (length == 0)
+        return nullptr;
+
+    CString result {length};
+    Read(result.get(), length);
+    return result;
 }
 
 i32 Stream::Printf(ARTS_FORMAT_STRING char const* format, ...)

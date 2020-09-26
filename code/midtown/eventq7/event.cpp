@@ -234,13 +234,13 @@ void eqEventReplayChannelClass::DoPlayback(Stream* file)
 {
     // UNTESTED
 
-    [[maybe_unused]] u32 size = file->GetLong();
+    [[maybe_unused]] u32 size = file->Get<u32>();
 
-    u32 flags = file->GetLong();
+    u32 flags = file->Get<u32>();
 
     if (flags & 0x1)
     {
-        EventCount = file->GetLong();
+        EventCount = file->Get<u32>();
 
         if (static_cast<u32>(EventCount) > std::size(Events))
             Quitf("Corrupt replay");
@@ -260,11 +260,11 @@ void eqEventReplayChannelClass::DoPlayback(Stream* file)
 
     if (flags & 0x4)
     {
-        MouseX = file->GetLong();
-        MouseY = file->GetLong();
-        MouseDeltaX = file->GetLong();
-        MouseDeltaY = file->GetLong();
-        Flags = file->GetLong();
+        MouseX = file->Get<u32>();
+        MouseY = file->Get<u32>();
+        MouseDeltaX = file->Get<u32>();
+        MouseDeltaY = file->Get<u32>();
+        Flags = file->Get<u32>();
     }
 }
 

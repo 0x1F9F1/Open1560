@@ -25,14 +25,8 @@
 #    pragma intrinsic(_byteswap_uint64)
 #endif
 
-template <typename... Args>
-ARTS_FORCEINLINE void ByteSwap(Args&... args) noexcept;
-
-template <typename... Args>
-ARTS_FORCEINLINE void ByteSwap(Args&... args) noexcept
-{
-    (ByteSwap<Args>(args), ...);
-}
+template <typename T>
+ARTS_FORCEINLINE void ByteSwap(T& value) noexcept;
 
 // TODO: Add i8, i16, i32, i64
 
@@ -92,4 +86,10 @@ ARTS_FORCEINLINE void ByteSwap<f64>(f64& value) noexcept
     u64 uvalue = mem::bit_cast<u64>(value);
     ByteSwap(uvalue);
     value = mem::bit_cast<f64>(uvalue);
+}
+
+template <typename... Args>
+ARTS_FORCEINLINE void ByteSwapV(Args&... args) noexcept
+{
+    (ByteSwap<Args>(args), ...);
 }

@@ -70,17 +70,28 @@
     0x903130 | class HashTable DLPTemplateHash | ?DLPTemplateHash@@3VHashTable@@A
 */
 
+#include "vector7/vector2.h"
+#include "vector7/vector3.h"
+#include "vector7/vector4.h"
+
 template <typename Param, typename Def>
 class agiLib;
+
+class DLPGroup;
+class DLPPatch;
+struct DLPVertex;
 
 class DLPTemplate
 {
 public:
     // 0x5582E0 | ??0DLPTemplate@@QAE@PAD@Z
-    ARTS_IMPORT DLPTemplate(char* arg1);
+    ARTS_EXPORT DLPTemplate(char* name);
 
     // 0x5597C0 | ?AddRef@DLPTemplate@@QAEXXZ
-    ARTS_IMPORT void AddRef();
+    ARTS_EXPORT void AddRef()
+    {
+        ++RefCount;
+    }
 
     // 0x559A00 | ?BoundBox@DLPTemplate@@QAEHAAVVector3@@0PAD@Z
     ARTS_IMPORT i32 BoundBox(class Vector3& arg1, class Vector3& arg2, char* arg3);
@@ -101,15 +112,15 @@ public:
     ARTS_IMPORT void Init(i32 arg1, i32 arg2, i32 arg3);
 
     // 0x558A40 | ?InitRemap@DLPTemplate@@QAEXAAV?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@AAV?$agiLib@VagiTexParameters@@VagiTexDef@@@@AAV?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@@Z
-    ARTS_IMPORT void InitRemap(class agiLib<class agiMtlParameters, class agiMtlDef>& arg1,
-        class agiLib<class agiTexParameters, class agiTexDef>& arg2,
-        class agiLib<class agiPhysParameters, class agiPhysDef>& arg3);
+    ARTS_IMPORT void InitRemap(class agiLib<class agiMtlParameters, class agiMtlDef>& mlib,
+        class agiLib<class agiTexParameters, class agiTexDef>& tlib,
+        class agiLib<class agiPhysParameters, class agiPhysDef>& plib);
 
     // 0x558B60 | ?Load@DLPTemplate@@QAEHPAD@Z | unused
-    ARTS_IMPORT i32 Load(char* arg1);
+    ARTS_EXPORT i32 Load(char* path);
 
     // 0x558640 | ?Load@DLPTemplate@@QAEXPAVStream@@@Z
-    ARTS_IMPORT void Load(class Stream* arg1);
+    ARTS_EXPORT void Load(class Stream* file);
 
     // 0x558BA0 | ?Print@DLPTemplate@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Print(class Stream* arg1);
@@ -125,28 +136,49 @@ public:
 
 private:
     // 0x558330 | ??1DLPTemplate@@AAE@XZ
-    ARTS_IMPORT ~DLPTemplate();
+    ARTS_EXPORT ~DLPTemplate();
 
-    u8 gap0[0x3C];
+    i32 NumGroups {0};
+    Ptr<DLPGroup[]> Groups {nullptr};
+
+    i32 NumPatches {0};
+    Ptr<DLPPatch[]> Patches {nullptr};
+
+    i32 NumVertices {0};
+    Ptr<Vector3[]> Vertices {nullptr};
+
+    CString Name {};
+
+    i32 MtlCount {0};
+    i32 TexCount {0};
+    i32 PhysCount {0};
+
+    Ptr<i16[]> MtlIds {nullptr};
+    Ptr<i16[]> TexIds {nullptr};
+    Ptr<i16[]> PhysIds {nullptr};
+
+    u32 RefCount {1};
+
+    DLPGroup* RestrictGroup {nullptr};
 };
 
 check_size(DLPTemplate, 0x3C);
 
-struct DLPPatch
+class DLPPatch
 {
 public:
     // 0x55A310 | ??0DLPPatch@@QAE@XZ | inline
-    ARTS_IMPORT DLPPatch();
+    ARTS_EXPORT DLPPatch() = default;
 
     // 0x559C80 | ??_EDLPPatch@@QAEPAXI@Z | unused
     // 0x55A320 | ??1DLPPatch@@QAE@XZ | inline
-    ARTS_IMPORT ~DLPPatch();
+    ARTS_EXPORT ~DLPPatch() = default;
 
     // 0x558990 | ?GetProp@DLPPatch@@QAEPADPAD@Z | unused
     ARTS_IMPORT char* GetProp(char* arg1);
 
     // 0x559080 | ?Load@DLPPatch@@QAEXPAVStream@@@Z
-    ARTS_IMPORT void Load(class Stream* arg1);
+    ARTS_EXPORT void Load(class Stream* file);
 
     // 0x559250 | ?Print@DLPPatch@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Print(class Stream* arg1);
@@ -154,7 +186,35 @@ public:
     // 0x559180 | ?Save@DLPPatch@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
 
-    u8 gap0[0x18];
+    i16 SRes {0};
+    i16 TRes {0};
+
+    u16 Flags {0};
+
+    enum : u16
+    {
+        ROpts_CPV = 0x1,
+        ROpts_Emission = 0x2,
+        ROpts_Shade = 0x4,
+        ROpts_Solid = 0x8,
+        ROpts_Cull = 0x10,
+        ROpts_ZWrite = 0x20,
+        ROpts_ZRead = 0x40,
+        ROpts_Shadow = 0x80,
+        ROpts_Flat = 0x100,
+        ROpts_Antialias = 0x200,
+        ROpts_Interpenetrate = 0x400,
+    };
+
+    u16 ROpts {0};
+
+    i16 MtlIdx {0};
+    i16 TexIdx {0};
+    i16 VertexCount {0};
+    i16 PhysIdx {0};
+
+    Ptr<DLPVertex[]> Vertices {nullptr};
+    CString Name {nullptr};
 };
 
 check_size(DLPPatch, 0x18);
@@ -208,12 +268,15 @@ struct DLPVertex
 {
 public:
     // 0x5594D0 | ?Load@DLPVertex@@QAEXPAVStream@@@Z
-    ARTS_IMPORT void Load(class Stream* arg1);
+    ARTS_EXPORT void Load(class Stream* file);
 
     // 0x5595A0 | ?Save@DLPVertex@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
 
-    u8 gap0[0x28];
+    u32 Id {0};
+    Vector2 UV {};
+    Vector4 Color {};
+    Vector3 Position {};
 };
 
 check_size(DLPVertex, 0x28);

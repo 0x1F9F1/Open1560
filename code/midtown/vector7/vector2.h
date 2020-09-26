@@ -40,8 +40,8 @@
     0x909644 | struct Vector2Type Vector2Inst | ?Vector2Inst@@3UVector2Type@@A
 */
 
+#include "core/endian.h"
 #include "data7/metatype.h"
-
 #include "nan.h"
 
 class Vector2
@@ -129,3 +129,10 @@ check_size(Vector2Type, 0x4);
 // 0x909644 | ?Vector2Inst@@3UVector2Type@@A
 ARTS_IMPORT extern struct Vector2Type Vector2Inst;
 #endif
+
+template <>
+ARTS_FORCEINLINE void ByteSwap<Vector2>(Vector2& value) noexcept
+{
+    ByteSwap(value.x);
+    ByteSwap(value.y);
+}

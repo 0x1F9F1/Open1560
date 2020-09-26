@@ -38,6 +38,8 @@
 
 ARTS_EXPORT char* arts_strdup(const char* str);
 
+class Stream;
+
 class CString
 {
 public:
@@ -49,6 +51,10 @@ public:
 
     CString(const char* value)
         : data_(arts_strdup(value))
+    {}
+
+    CString(usize capacity)
+        : data_(static_cast<char*>(arts_malloc(capacity)))
     {}
 
     CString(const CString& other)
@@ -107,6 +113,11 @@ public:
             arts_free(data_);
             data_ = nullptr;
         }
+    }
+
+    char* get()
+    {
+        return data_;
     }
 
     const char* get() const

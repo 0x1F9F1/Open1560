@@ -36,6 +36,8 @@
 
 #include "refresh.h"
 
+#include "vector7/vector4.h"
+
 class agiMtlParameters
 {
 public:
@@ -51,7 +53,16 @@ public:
     // 0x55DB70 | ?Save@agiMtlParameters@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
 
-    u8 gap0[0x68];
+    char Name[32] {};
+
+    Vector4 Emmisive {0.0f, 0.0f, 0.0f, 1.0f};
+    Vector4 Ambient {0.2f, 0.2f, 0.2f, 1.0f};
+    Vector4 Diffuse {0.8f, 0.8f, 0.8f, 1.0f};
+    Vector4 Specular {0.0f, 0.0f, 0.0f, 1.0f};
+
+    f32 Power {0.0f};
+
+    u16 Touched {true};
 };
 
 check_size(agiMtlParameters, 0x68);

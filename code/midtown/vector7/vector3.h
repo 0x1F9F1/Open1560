@@ -75,8 +75,8 @@
     0x909480 | class Vector3 ZAXIS | ?ZAXIS@@3VVector3@@A
 */
 
+#include "core/endian.h"
 #include "data7/metatype.h"
-
 #include "nan.h"
 
 class Vector3
@@ -309,3 +309,11 @@ check_size(Vector3Array, 0x14);
 
 template <>
 const MetaType* CreateMetaType_<Vector3>();
+
+template <>
+ARTS_FORCEINLINE void ByteSwap<Vector3>(Vector3& value) noexcept
+{
+    ByteSwap(value.x);
+    ByteSwap(value.y);
+    ByteSwap(value.z);
+}
