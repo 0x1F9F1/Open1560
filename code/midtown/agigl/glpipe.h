@@ -51,24 +51,24 @@ public:
 
     void Init();
 
-    u32 GetViewWidth() const
+    u32 GetRenderX() const
     {
-        return vp_width_;
+        return render_x_;
     }
 
-    u32 GetViewHeight() const
+    u32 GetRenderY() const
     {
-        return vp_height_;
+        return render_y_;
     }
 
-    u32 GetViewX() const
+    u32 GetRenderWidth() const
     {
-        return vp_x_;
+        return render_width_;
     }
 
-    u32 GetViewY() const
+    u32 GetRenderHeight() const
     {
-        return vp_y_;
+        return render_height_;
     }
 
 private:
@@ -76,17 +76,19 @@ private:
     HGLRC gl_context_ {nullptr};
     Rc<agiRasterizer> rasterizer_ {};
 
-    u32 msaa_level_ {0};
-
     u32 fbo_ {0};
     u32 rbo_ {0};
-    u32 msaa_tex_ {0};
+    u32 color_fbo_ {0};
 
-    u32 vp_x_ {0};
-    u32 vp_y_ {0};
+    u32 render_x_ {0};
+    u32 render_y_ {0};
+    u32 render_width_ {0};
+    u32 render_height_ {0};
 
-    u32 vp_width_ {0};
-    u32 vp_height_ {0};
+    u32 blit_x_ {0};
+    u32 blit_y_ {0};
+    u32 blit_width_ {0};
+    u32 blit_height_ {0};
 };
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height);

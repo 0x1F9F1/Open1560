@@ -86,11 +86,11 @@ void agiGLViewport::Clear(i32 flags)
 
     if (mask)
     {
-        i32 x = Pipe()->GetViewX();
-        i32 y = Pipe()->GetViewY();
+        i32 x = Pipe()->GetRenderX();
+        i32 y = Pipe()->GetRenderY();
 
-        i32 width = Pipe()->GetViewWidth();
-        i32 height = Pipe()->GetViewHeight();
+        i32 width = Pipe()->GetRenderWidth();
+        i32 height = Pipe()->GetRenderHeight();
 
         glEnable(GL_SCISSOR_TEST);
 

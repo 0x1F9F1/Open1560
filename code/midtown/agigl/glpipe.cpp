@@ -82,16 +82,14 @@ static i32 GetDebugSeverityPriority(GLenum value)
 static void GLAPIENTRY DebugMessageCallback([[maybe_unused]] GLenum source, GLenum type, [[maybe_unused]] GLuint id,
     GLenum severity, [[maybe_unused]] GLsizei length, const GLchar* message, [[maybe_unused]] const void* userParam)
 {
-    if (agiVerbose)
-    {
-        Printerf(
-            GetDebugSeverityPriority(severity), "GL Message: %X %s: %s", severity, GetDebugTypeString(type), message);
-    }
+    Printerf(GetDebugSeverityPriority(severity), "GL Message: %X %s: %s", severity, GetDebugTypeString(type), message);
 }
 
+static mem::cmd_param PARAM_legacygl {"legacygl"};
 static mem::cmd_param PARAM_gldebug {"gldebug"};
 static mem::cmd_param PARAM_msaa {"msaa"};
 static mem::cmd_param PARAM_aspect {"aspect"};
+static mem::cmd_param PARAM_native_res {"nativeres"};
 
 i32 agiGLPipeline::BeginGfx()
 {
@@ -153,7 +151,7 @@ i32 agiGLPipeline::BeginGfx()
     wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) wglGetProcAddress("wglSwapIntervalEXT");
 
     // TODO: Check wglGetExtensionsStringARB extensions
-    if (wglChoosePixelFormatARB && wglCreateContextAttribsARB)
+    if (!PARAM_legacygl.get_or(false) && wglChoosePixelFormatARB && wglCreateContextAttribsARB)
     {
         Displayf("Using modern OpenGL context");
 
@@ -246,55 +244,88 @@ i32 agiGLPipeline::BeginGfx()
     rasterizer_ = MakeRc<agiGLRasterizer>(this);
     renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
 
-    vp_width_ = horz_res_;
-    vp_height_ = vert_res_;
+    i32 draw_width = horz_res_;
+    i32 draw_height = vert_res_;
 
     if (PARAM_aspect.get_or(true))
     {
-        f32 res_aspect = static_cast<f32>(width_) / static_cast<f32>(height_);
-        f32 wnd_aspect = static_cast<f32>(horz_res_) / static_cast<f32>(vert_res_);
+        f32 game_aspect = static_cast<f32>(width_) / static_cast<f32>(height_);
+        f32 draw_aspect = static_cast<f32>(draw_width) / static_cast<f32>(draw_height);
 
-        if (wnd_aspect > res_aspect)
-        {
-            vp_width_ = static_cast<i32>(vp_width_ * (res_aspect / wnd_aspect));
-        }
-        else if (wnd_aspect < res_aspect)
-        {
-            vp_height_ = static_cast<i32>(vp_height_ * (wnd_aspect / res_aspect));
-        }
+        if (draw_aspect > game_aspect)
+            draw_width = static_cast<i32>(draw_width * (game_aspect / draw_aspect));
+        else if (draw_aspect < game_aspect)
+            draw_height = static_cast<i32>(draw_height * (draw_aspect / game_aspect));
     }
 
-    vp_x_ = (horz_res_ - vp_width_) / 2;
-    vp_y_ = (vert_res_ - vp_height_) / 2;
+    // OpenGL doesn't support blit scaling when using MSAA
+    i32 msaa_level = (glRenderbufferStorageMultisample && glTexImage2DMultisample) ? PARAM_msaa.get_or<i32>(0) : 0;
 
-    // glViewport(0, 0, width_, height_);
-    // glViewport(0, 0, horz_res_, vert_res_);
-    glViewport(vp_x_, vp_y_, vp_width_, vp_height_);
+    if (PARAM_native_res.get_or(true) || (glBlitFramebuffer == NULL) || (msaa_level != 0))
+    {
+        render_width_ = draw_width;
+        render_height_ = draw_height;
 
-    msaa_level_ = PARAM_msaa.get_or<i32>(0);
+        blit_width_ = render_width_;
+        blit_height_ = render_height_;
+    }
+    else
+    {
+        render_width_ = width_;
+        render_height_ = height_;
 
-    if (msaa_level_ != 0)
+        blit_width_ = draw_width;
+        blit_height_ = draw_height;
+    }
+
+    blit_x_ = (horz_res_ - draw_width) / 2;
+    blit_y_ = (vert_res_ - draw_height) / 2;
+
+    render_x_ = 0;
+    render_y_ = 0;
+
+    if (glBlitFramebuffer)
     {
         glGenFramebuffers(1, &fbo_);
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
 
         glGenRenderbuffers(1, &rbo_);
         glBindRenderbuffer(GL_RENDERBUFFER, rbo_);
-        glRenderbufferStorageMultisample(GL_RENDERBUFFER, msaa_level_, GL_DEPTH24_STENCIL8, horz_res_, vert_res_);
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo_);
 
-        glGenTextures(1, &msaa_tex_);
-        glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, msaa_tex_);
-        glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, msaa_level_, GL_RGB, horz_res_, vert_res_, GL_TRUE);
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D_MULTISAMPLE, msaa_tex_, 0);
+        glGenTextures(1, &color_fbo_);
+
+        if (msaa_level != 0)
+        {
+            glRenderbufferStorageMultisample(
+                GL_RENDERBUFFER, msaa_level, GL_DEPTH24_STENCIL8, render_width_, render_height_);
+            glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, color_fbo_);
+            glTexImage2DMultisample(
+                GL_TEXTURE_2D_MULTISAMPLE, msaa_level, GL_RGB, render_width_, render_height_, GL_TRUE);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D_MULTISAMPLE, color_fbo_, 0);
+        }
+        else
+        {
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, render_width_, render_height_);
+            glBindTexture(GL_TEXTURE_2D, color_fbo_);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, render_width_, render_height_, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, color_fbo_, 0);
+        }
 
         if (GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER); status != GL_FRAMEBUFFER_COMPLETE)
             Quitf("Failed to create framebuffer: 0x%08X", status);
 
         PrintGlErrors();
     }
+    else
+    {
+        std::swap(render_x_, blit_x_);
+        std::swap(render_y_, blit_y_);
+    }
 
     PrintGlErrors();
+
+    glViewport(render_x_, render_y_, render_width_, render_height_);
 
     gfx_started_ = true;
 
@@ -303,11 +334,15 @@ i32 agiGLPipeline::BeginGfx()
 
 void agiGLPipeline::EndGfx()
 {
-    if (msaa_level_ != 0)
+    if (fbo_ != 0)
     {
         glDeleteFramebuffers(1, &fbo_);
         glDeleteFramebuffers(1, &rbo_);
-        glDeleteTextures(1, &msaa_tex_);
+        glDeleteTextures(1, &color_fbo_);
+
+        fbo_ = 0;
+        rbo_ = 0;
+        color_fbo_ = 0;
     }
 
     wglDeleteContext(gl_context_);
@@ -336,15 +371,15 @@ void agiGLPipeline::BeginFrame()
     if (wglGetCurrentContext() != gl_context_)
         wglMakeCurrent(window_dc_, gl_context_);
 
-    if (msaa_level_ != 0)
-    {
-        glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
-    }
-
     if (PARAM_frameclear.get_or(true))
     {
         glDisable(GL_SCISSOR_TEST);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    }
+
+    if (fbo_ != 0)
+    {
+        glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
     }
 
     PrintGlErrors();
@@ -398,12 +433,13 @@ void agiGLPipeline::EndFrame()
 {
     ARTS_TIMED(agiEndFrame);
 
-    if (msaa_level_ != 0)
+    if (fbo_ != 0)
     {
         glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);    // Make sure no FBO is set as the draw framebuffer
         glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo_); // Make sure your multisampled FBO is the read framebuffer
         glDrawBuffer(GL_BACK);                        // Set the back buffer as the draw buffer
-        glBlitFramebuffer(0, 0, horz_res_, vert_res_, 0, 0, horz_res_, vert_res_, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+        glBlitFramebuffer(render_x_, render_y_, render_x_ + render_width_, render_y_ + render_height_, blit_x_, blit_y_,
+            blit_x_ + blit_width_, blit_y_ + blit_height_, GL_COLOR_BUFFER_BIT, GL_NEAREST);
     }
 
     PrintGlErrors();
