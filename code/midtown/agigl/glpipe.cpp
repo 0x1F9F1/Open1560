@@ -244,45 +244,41 @@ i32 agiGLPipeline::BeginGfx()
     rasterizer_ = MakeRc<agiGLRasterizer>(this);
     renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
 
-    i32 draw_width = horz_res_;
-    i32 draw_height = vert_res_;
+    blit_width_ = horz_res_;
+    blit_height_ = vert_res_;
 
     if (PARAM_aspect.get_or(true))
     {
         f32 game_aspect = static_cast<f32>(width_) / static_cast<f32>(height_);
-        f32 draw_aspect = static_cast<f32>(draw_width) / static_cast<f32>(draw_height);
+        f32 draw_aspect = static_cast<f32>(blit_width_) / static_cast<f32>(blit_height_);
 
         if (draw_aspect > game_aspect)
-            draw_width = static_cast<i32>(draw_width * (game_aspect / draw_aspect));
+            blit_width_ = static_cast<i32>(blit_width_ * (game_aspect / draw_aspect));
         else if (draw_aspect < game_aspect)
-            draw_height = static_cast<i32>(draw_height * (draw_aspect / game_aspect));
+            blit_height_ = static_cast<i32>(blit_height_ * (draw_aspect / game_aspect));
     }
+
+    blit_x_ = (horz_res_ - blit_width_) / 2;
+    blit_y_ = (vert_res_ - blit_height_) / 2;
 
     // OpenGL doesn't support blit scaling when using MSAA
     i32 msaa_level = (glRenderbufferStorageMultisample && glTexImage2DMultisample) ? PARAM_msaa.get_or<i32>(0) : 0;
 
     if (PARAM_native_res.get_or(true) || (glBlitFramebuffer == NULL) || (msaa_level != 0))
     {
-        render_width_ = draw_width;
-        render_height_ = draw_height;
-
-        blit_width_ = render_width_;
-        blit_height_ = render_height_;
+        render_width_ = blit_width_;
+        render_height_ = blit_height_;
     }
     else
     {
         render_width_ = width_;
         render_height_ = height_;
-
-        blit_width_ = draw_width;
-        blit_height_ = draw_height;
     }
-
-    blit_x_ = (horz_res_ - draw_width) / 2;
-    blit_y_ = (vert_res_ - draw_height) / 2;
 
     render_x_ = 0;
     render_y_ = 0;
+
+    PrintGlErrors();
 
     if (glBlitFramebuffer)
     {
@@ -322,8 +318,6 @@ i32 agiGLPipeline::BeginGfx()
         std::swap(render_x_, blit_x_);
         std::swap(render_y_, blit_y_);
     }
-
-    PrintGlErrors();
 
     glViewport(render_x_, render_y_, render_width_, render_height_);
 
