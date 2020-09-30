@@ -667,10 +667,7 @@ Ptr<u8[]> glScreenShot(i32& width, i32& height)
     if (buffer)
     {
         glPixelStorei(GL_PACK_ALIGNMENT, 1);
-        glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
         glReadPixels(x, y, width, height, GL_BGR, GL_UNSIGNED_BYTE, buffer.get());
-
-        PrintGlErrors();
     }
 
     return buffer;
