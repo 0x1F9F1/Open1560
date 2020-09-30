@@ -65,6 +65,17 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
         }
         else
         {
+            if (sx != 1.0f && sy != 1.0f)
+            {
+                f32 game_aspect = 640.0f / 480.0f;
+                f32 draw_aspect = static_cast<f32>(Pipe()->GetWidth()) / static_cast<f32>(Pipe()->GetHeight());
+
+                if (draw_aspect > game_aspect)
+                    sx *= game_aspect / draw_aspect;
+                else if (draw_aspect < game_aspect)
+                    sy *= draw_aspect / game_aspect;
+            }
+
             width_ = sx ? static_cast<i32>(Pipe()->GetWidth() * sx) : surface_->Width;
             height_ = sy ? static_cast<i32>(Pipe()->GetHeight() * sy) : surface_->Height;
 

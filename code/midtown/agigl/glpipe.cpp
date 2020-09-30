@@ -667,8 +667,12 @@ Ptr<u8[]> glScreenShot(i32& width, i32& height)
     if (buffer)
     {
         glPixelStorei(GL_PACK_ALIGNMENT, 1);
+
+        // FIXME: Does not work with MSAA (FBO anti-alias method is not valid for read pixels.)
         glReadPixels(x, y, width, height, GL_BGR, GL_UNSIGNED_BYTE, buffer.get());
     }
+
+    PrintGlErrors();
 
     return buffer;
 }
