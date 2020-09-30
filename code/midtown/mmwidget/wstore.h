@@ -54,7 +54,7 @@ public:
     ARTS_IMPORT void Init(i32 arg1);
 
     // 0x4AC330 | ?Read@WArray@@QAEXPAD@Z
-    ARTS_IMPORT void Read(char* arg1);
+    ARTS_EXPORT void Read(char* name);
 
     // 0x4AC590 | ?RetrieveWidgetData@WArray@@QAEHHHAAM000@Z
     ARTS_IMPORT i32 RetrieveWidgetData(i32 arg1, i32 arg2, f32& arg3, f32& arg4, f32& arg5, f32& arg6);

@@ -902,7 +902,7 @@ include_dummy_symbol(mmwidget_cwarray);
 // include_dummy_symbol(mmwidget_vscrollbar);
 // include_dummy_symbol(mmwidget_vswidget);
 // include_dummy_symbol(mmwidget_widget);
-// include_dummy_symbol(mmwidget_wstore);
+include_dummy_symbol(mmwidget_wstore);
 
 include_dummy_symbol(pcwindis_dxinit);
 include_dummy_symbol(pcwindis_dxmovie);

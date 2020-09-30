@@ -20,5 +20,44 @@ define_dummy_symbol(mmwidget_wstore);
 
 #include "wstore.h"
 
+#include "stream/fsystem.h"
+#include "stream/stream.h"
+#include "vector7/vector4.h"
+
 void WArray::Flush()
 {}
+
+void WArray::Read(char* name)
+{
+    Ptr<Stream> input = AsPtr(OpenFile(name, "tune", ".csv", 0, nullptr, 0, "widget file"));
+
+    if (input == nullptr)
+    {
+        Errorf("Can't open widget data file '%s'", name);
+
+        return;
+    }
+
+    char buffer[128];
+    input->Gets(buffer, std::size(buffer));
+
+    while (input->Gets(buffer, 128))
+    {
+        char* split_context = nullptr;
+
+        [[maybe_unused]] char* menu_name = strtok_s(buffer, ",", &split_context);
+        i32 menu_id = std::atoi(strtok_s(0, ",", &split_context));
+        [[maybe_unused]] char* widget_name = strtok_s(0, ",", &split_context);
+        i32 widget_id = std::atoi(strtok_s(0, ",", &split_context));
+
+        Vector4 pos;
+        pos.w = std::atoi(strtok_s(0, ",", &split_context)) / 640.0f;
+        pos.x = std::atoi(strtok_s(0, ",", &split_context)) / 480.0f;
+        pos.y = std::atoi(strtok_s(0, ",", &split_context)) / 640.0f;
+        pos.z = std::atoi(strtok_s(0, ",", &split_context)) / 480.0f;
+
+        char* desc = strtok_s(0, "\r\n", &split_context);
+
+        AddWidgetData(menu_id, widget_id, pos, desc);
+    }
+}

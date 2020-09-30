@@ -74,6 +74,6 @@ arts_component "mmwidget"
         -- "vswidget.h",
         -- "widget.cpp",
         -- "widget.h",
-        -- "wstore.cpp",
-        -- "wstore.h",
+        "wstore.cpp",
+        "wstore.h",
     }
