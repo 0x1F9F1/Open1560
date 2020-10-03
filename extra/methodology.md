@@ -1,3 +1,7 @@
+# Debug Symbols (Linker Map)
+There are 4 known linker maps: 1560 Debug, 1560 Release, 1588 Release, 1589 Debug Trial.
+Comparisons between them can be found [here](https://github.com/0x1F9F1/Open1560/issues/46#issuecomment-697062680).
+
 # 1549
 * TODO
 

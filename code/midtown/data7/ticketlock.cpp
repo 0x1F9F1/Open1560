@@ -18,6 +18,8 @@
 
 #include "ticketlock.h"
 
+#include <thread>
+
 void TicketLock::lock()
 {
     usize my_ticket = next_ticket_.fetch_add(1, std::memory_order_acq_rel);

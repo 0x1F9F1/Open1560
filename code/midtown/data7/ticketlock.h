@@ -19,7 +19,22 @@
 #pragma once
 
 #include <atomic>
-#include <thread>
+
+#ifdef _WIN32
+#    include <intrin.h>
+using ThreadId = u32;
+#    ifdef _WIN64
+#        define ThisThreadId() __readgsdword(0x48)
+#    else
+#        define ThisThreadId() __readfsdword(0x24)
+#    endif
+#else
+#    include <thread>
+using ThreadId = std::thread::id;
+#    define ThisThreadId() std::this_thread::get_id()
+#endif
+
+#define InvalidThreadId() ThreadId()
 
 class TicketLock
 {
@@ -42,7 +57,7 @@ class RecursiveLock
 public:
     void lock()
     {
-        if (std::thread::id tid = std::this_thread::get_id(); tid != lock_owner_.load(std::memory_order_acquire))
+        if (ThreadId tid = ThisThreadId(); tid != lock_owner_.load(std::memory_order_acquire))
         {
             lock_.lock();
             lock_owner_.store(tid, std::memory_order_relaxed);
@@ -56,13 +71,13 @@ public:
         if (--lock_count_ == 0)
         {
             lock_.unlock();
-            lock_owner_.store(std::thread::id(), std::memory_order_relaxed);
+            lock_owner_.store(InvalidThreadId(), std::memory_order_relaxed);
         }
     }
 
 private:
     T lock_ {};
-    std::atomic<std::thread::id> lock_owner_ {};
+    std::atomic<ThreadId> lock_owner_ {InvalidThreadId()};
     usize lock_count_ {0};
 };
 
