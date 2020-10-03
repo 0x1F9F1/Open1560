@@ -516,7 +516,7 @@ include_dummy_symbol(agid3d_pcpipe);
 // include_dummy_symbol(agirend_surfrender);
 // include_dummy_symbol(agirend_zbrender);
 
-// include_dummy_symbol(agisw_swddraw);
+include_dummy_symbol(agisw_swddraw);
 // include_dummy_symbol(agisw_swemitrunall);
 // include_dummy_symbol(agisw_swpipe);
 // include_dummy_symbol(agisw_swrend);

@@ -34,7 +34,7 @@
 */
 
 // 0x534E30 | ?ddAttach@@YAXHH@Z
-ARTS_IMPORT void ddAttach(i32 arg1, i32 arg2);
+ARTS_EXPORT void ddAttach(i32 flags, i32 bit_depth);
 
 // 0x795F40 | ?bRenderToSystem@@3HA
 ARTS_IMPORT extern i32 bRenderToSystem;
