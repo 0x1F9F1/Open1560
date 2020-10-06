@@ -18,39 +18,12 @@
 
 #pragma once
 
-// #define ARTS_STANDALONE
+#include <iterator>
 
-#define DIRECT3D_VERSION 0x0600
-#define DIRECTDRAW_VERSION 0x0600
-#define DIRECTINPUT_VERSION 0x0500
-#define DIRECTSOUND_VERSION 0x0600
+#define ARTS_SIZE(C) std::size(C)
 
-#include <algorithm>
-
-#include "core/defines.h"
-
-#include "core/hooking.h"
-#include "core/primitives.h"
-
-#include "core/pointer.h"
-
-#include "core/refcount.h"
-
-#include "core/assert.h"
-
-#include "core/string.h"
-
-#include "core/noncopyable.h"
-
-#include "core/container.h"
-
-#include "data7/global.h"
-
-#include "data7/printer.h"
-#include "data7/quitf.h"
-
-#include "data7/metadeclare.h"
-
-#include "arts7/node.h"
-
-// #include <sol/sol.hpp>
+#if defined(__cpp_lib_ssize) && __cpp_lib_ssize >= 201902L
+#    define ARTS_SSIZE(C) std::ssize(C)
+#else
+#    define ARTS_SSIZE(C) static_cast<isize>(ARTS_SIZE(C))
+#endif

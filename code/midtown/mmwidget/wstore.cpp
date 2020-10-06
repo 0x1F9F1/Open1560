@@ -39,7 +39,7 @@ void WArray::Read(char* name)
     }
 
     char buffer[128];
-    input->Gets(buffer, std::size(buffer));
+    input->Gets(buffer, ARTS_SIZE(buffer));
 
     while (input->Gets(buffer, 128))
     {

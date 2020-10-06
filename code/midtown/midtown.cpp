@@ -63,7 +63,7 @@ ARTS_EXPORT /*static*/ char* exeDirFile(char* buffer, char* file)
 }
 
 static Callback GameResetCallback_[32];
-CallbackArray GameResetCallbacks {GameResetCallback_, std::size(GameResetCallback_)};
+CallbackArray GameResetCallbacks {GameResetCallback_, ARTS_SIZE(GameResetCallback_)};
 
 static char Main_ExecPath[1024] {};
 static char* Main_Argv[128] {};
@@ -80,7 +80,7 @@ ARTS_EXPORT int WINAPI MidtownMain(
 
     MetaClass::FixupClasses();
 
-    GetModuleFileNameA(0, Main_ExecPath, std::size(Main_ExecPath));
+    GetModuleFileNameA(0, Main_ExecPath, ARTS_SIZE(Main_ExecPath));
 
     usize argc = 0;
     Main_Argv[argc++] = Main_ExecPath;
@@ -119,11 +119,11 @@ ARTS_EXPORT int WINAPI MidtownMain(
             *current++ = '\0';
         }
 
-        ArAssert(argc < std::size(Main_Argv), "Too Many CMD arguments");
+        ArAssert(argc < ARTS_SIZE(Main_Argv), "Too Many CMD arguments");
         Main_Argv[argc++] = cmd_start;
     }
 
-    ArAssert(argc < std::size(Main_Argv), "Too Many CMD arguments");
+    ArAssert(argc < ARTS_SIZE(Main_Argv), "Too Many CMD arguments");
     Main_Argv[argc] = nullptr;
 
     mem::cmd_param::init(static_cast<int>(argc), Main_Argv);
@@ -182,7 +182,7 @@ void Application(i32 argc, char** argv)
         if (PARAM_res_hack.get_or(false))
         {
             wchar_t d3dim_path[MAX_PATH];
-            GetSystemDirectoryW(d3dim_path, std::size(d3dim_path));
+            GetSystemDirectoryW(d3dim_path, ARTS_SIZE(d3dim_path));
             wcscat_s(d3dim_path, L"\\d3dim.dll");
 
             HMODULE d3dim = LoadLibraryW(d3dim_path);

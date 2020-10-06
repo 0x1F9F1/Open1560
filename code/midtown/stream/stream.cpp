@@ -80,7 +80,7 @@ void Stream::Debug()
 void Stream::Error(const char* msg)
 {
     char buffer[128];
-    GetError(buffer, std::size(buffer));
+    GetError(buffer, ARTS_SIZE(buffer));
     Errorf("%s: %s", msg, buffer);
 }
 
@@ -192,7 +192,7 @@ i32 Stream::Vscanf(const char* format, std::va_list va)
     UnGetCh(ch);
 
     char buffer[256];
-    i32 length = arts_fgets(buffer, std::size(buffer), this);
+    i32 length = arts_fgets(buffer, ARTS_SIZE(buffer), this);
 
     if (!length)
         return 0;

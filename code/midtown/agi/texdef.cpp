@@ -96,7 +96,7 @@ void agiTexDef::DoPageIn()
 
     if (agiCurState.GetSoftwareRendering())
     {
-        i32 index = (lutQtail + 1) % std::size(lutQ);
+        i32 index = (lutQtail + 1) % ARTS_SIZE(lutQ);
 
         if (index == lutQhead)
         {
@@ -309,7 +309,7 @@ void UpdateLutQueue()
 {
     while (lutQhead != lutQtail)
     {
-        i32 index = (lutQhead + 1) % std::size(lutQ);
+        i32 index = (lutQhead + 1) % ARTS_SIZE(lutQ);
 
         char buffer[32];
         arts_sprintf(buffer, "texp/nbr%s.lut", lutQ[index].Name);
@@ -337,7 +337,7 @@ i32 agiTexLut::Init(const char* name)
 
     if (!arts_stricmp(name, "*grey") || !arts_stricmp(name, "*gray"))
     {
-        for (u32 i = 0; i < std::size(palette_); ++i)
+        for (u32 i = 0; i < ARTS_SIZE(palette_); ++i)
             palette_[i] = i * 0x10101;
     }
     else

@@ -222,7 +222,7 @@ static ARTS_NOINLINE b32 ARTS_FASTCALL HeapAssert(void* address, const char* mes
 {
     char address_string[128];
 
-    LookupAddress(address_string, std::size(address_string), usize(source));
+    LookupAddress(address_string, ARTS_SIZE(address_string), usize(source));
     Errorf("Heap node @ 0x%08X: %s (allocated by %s).", reinterpret_cast<usize>(address), message, address_string);
 
     char hex_string[65];
@@ -650,7 +650,7 @@ void asMemoryAllocator::SanityCheck()
 
         usize total_free = 0;
 
-        for (usize i = 0; i < std::size(buckets_); ++i)
+        for (usize i = 0; i < ARTS_SIZE(buckets_); ++i)
         {
             for (FreeNode *n = buckets_[i], *prev_free = nullptr; n; prev_free = n, n = n->NextFree)
             {
@@ -689,7 +689,7 @@ void asMemoryAllocator::DumpStats()
 
     asMemStats stats;
     asMemSource sources[1024];
-    usize num_sources = std::size(sources);
+    usize num_sources = ARTS_SIZE(sources);
 
     GetStats(&stats, sources, &num_sources);
 
@@ -715,7 +715,7 @@ void asMemoryAllocator::DumpStats()
             const asMemSource& source = sources[i];
 
             char address_string[128];
-            LookupAddress(address_string, std::size(address_string), source.uSource);
+            LookupAddress(address_string, ARTS_SIZE(address_string), source.uSource);
 
             Warningf("%-80s: Used: 0x%08X KB, Waste: 0x%08X KB", address_string, source.cbUsed, source.cbOverhead);
         }
@@ -834,7 +834,7 @@ asMemoryAllocator::FreeNode* asMemoryAllocator::FindFirstFit(usize size, usize a
 
     offset += sizeof(Node);
 
-    for (u32 i = GetBucketIndex(size); i < std::size(buckets_); ++i)
+    for (u32 i = GetBucketIndex(size); i < ARTS_SIZE(buckets_); ++i)
     {
         for (FreeNode* n = buckets_[i]; n; n = n->NextFree)
         {

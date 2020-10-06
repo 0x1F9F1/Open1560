@@ -57,7 +57,7 @@ static void InitMap()
 
     {
         char map_name[256];
-        GetModuleFileNameA(NULL, map_name, std::size(map_name));
+        GetModuleFileNameA(NULL, map_name, ARTS_SIZE(map_name));
 
         if (char* map_ext = std::strrchr(map_name, '.'))
             *map_ext = '\0';
@@ -128,7 +128,7 @@ static void InitMap()
             u32 sym_addr = 0;
 
             if (!std::strncmp(line_buffer, " 0001:", 6) &&
-                arts_sscanf(line_buffer, "%*s %s %x", sym_name, std::size(sym_name), &sym_addr))
+                arts_sscanf(line_buffer, "%*s %s %x", sym_name, ARTS_SIZE(sym_name), &sym_addr))
             {
                 usize sym_len = std::strlen(sym_name);
 
@@ -198,7 +198,7 @@ void DoStackTraceback(i32 depth, i32* frame)
                 break;
 
             char symbol[256];
-            LookupAddress(symbol, std::size(symbol), usize(ret_addr));
+            LookupAddress(symbol, ARTS_SIZE(symbol), usize(ret_addr));
 
             Displayf("%s", symbol);
         }
@@ -214,7 +214,7 @@ void DumpStackTraceback(i32* frames, i32 count)
     for (i32 i = 0; i < count; ++i)
     {
         char symbol[256];
-        LookupAddress(symbol, std::size(symbol), usize(frames[i]));
+        LookupAddress(symbol, ARTS_SIZE(symbol), usize(frames[i]));
         Displayf("%d. %s", count - i - 1, symbol);
     }
 }
@@ -367,7 +367,7 @@ i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
     EXCEPTION_RECORD* record = exception->ExceptionRecord;
 
     char source[128];
-    LookupAddress(source, std::size(source), context->Eip);
+    LookupAddress(source, ARTS_SIZE(source), context->Eip);
 
     const char* error_code_string = GetExceptionCodeString(record->ExceptionCode);
 

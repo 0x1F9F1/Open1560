@@ -296,7 +296,7 @@ void agiGLRasterizer::Triangle(i32 i0, i32 i1, i32 i2)
 {
     ++STATS.Tris;
 
-    if (VtxIndexCount + 3 > std::size(VtxIndices) || (DrawMode != GL_TRIANGLES) || agiCurState.IsTouched())
+    if (VtxIndexCount + 3 > ARTS_SIZE(VtxIndices) || (DrawMode != GL_TRIANGLES) || agiCurState.IsTouched())
     {
         FlushState();
         DrawMode = GL_TRIANGLES;
@@ -313,7 +313,7 @@ void agiGLRasterizer::Line(i32 i0, i32 i1)
 {
     ++STATS.Lines;
 
-    if (VtxIndexCount + 2 > std::size(VtxIndices) || (DrawMode != GL_LINES) || agiCurState.IsTouched())
+    if (VtxIndexCount + 2 > ARTS_SIZE(VtxIndices) || (DrawMode != GL_LINES) || agiCurState.IsTouched())
     {
         FlushState();
         DrawMode = GL_LINES;

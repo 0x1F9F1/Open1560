@@ -47,9 +47,9 @@ static void PrintRenderPerf()
 
 static void PrintMessages()
 {
-    for (usize i = 0; i < std::size(MessageFifo); ++i)
+    for (usize i = 0; i < ARTS_SIZE(MessageFifo); ++i)
     {
-        Statsf("%s", MessageFifo[(i + MessageFirst) % std::size(MessageFifo)]);
+        Statsf("%s", MessageFifo[(i + MessageFirst) % ARTS_SIZE(MessageFifo)]);
     }
 }
 
@@ -57,7 +57,7 @@ static void PrintMemoryUsage()
 {
     asMemStats stats;
     asMemSource sources[1024];
-    usize num_sources = std::size(sources);
+    usize num_sources = ARTS_SIZE(sources);
     CURHEAP->GetStats(&stats, sources, &num_sources);
 
     Statsf("%6zu KB Max Size", CURHEAP->GetHeapSize() >> 10);
@@ -78,7 +78,7 @@ static void PrintMemoryUsage()
             asMemSource source = sources[i];
 
             char symbol[128];
-            LookupAddress(symbol, std::size(symbol), source.uSource);
+            LookupAddress(symbol, ARTS_SIZE(symbol), source.uSource);
 
             Statsf("%5zu, %5zu, %3zu | %s", source.nNodes, source.cbUsed >> 10, source.cbOverhead >> 10, symbol);
         }
@@ -118,7 +118,7 @@ void asCullManager::DeclareCamera(asCamera* camera)
 {
     LockGuard lock(mutex_);
 
-    if (num_cameras_ < static_cast<i32>(std::size(cameras_)))
+    if (num_cameras_ < ARTS_SSIZE(cameras_))
     {
         cameras_[num_cameras_++] = camera;
     }
@@ -130,7 +130,7 @@ void asCullManager::DeclareCamera(asCamera* camera)
 
 void asCullManager::AddPage(Callback callback)
 {
-    ArAssert(num_pages_ < std::size(page_callbacks_), "Too Many Pages");
+    ArAssert(num_pages_ < ARTS_SIZE(page_callbacks_), "Too Many Pages");
 
     page_callbacks_[num_pages_++] = callback;
 }

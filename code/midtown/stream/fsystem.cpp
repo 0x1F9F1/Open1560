@@ -284,7 +284,7 @@ Owner<class Stream> OpenFile(
 
     char path[256];
 
-    FileSystem* fs = FindFile(file, folder, ext, ext_id, path, std::size(path));
+    FileSystem* fs = FindFile(file, folder, ext, ext_id, path, ARTS_SIZE(path));
 
     Ptr<Stream> result = nullptr;
 

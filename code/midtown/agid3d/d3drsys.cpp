@@ -80,8 +80,7 @@ void agiD3DRasterizer::Line(i32 i1, i32 i2)
     ++STATS.Lines;
 
     // TODO: Should this be + 2 ?
-    if (VtxIndexCount + 4 > static_cast<i32>(std::size(VtxIndices)) || PrimType != D3DPT_LINELIST ||
-        agiCurState.IsTouched())
+    if (VtxIndexCount + 4 > ARTS_SSIZE(VtxIndices) || PrimType != D3DPT_LINELIST || agiCurState.IsTouched())
     {
         FlushState();
         PrimType = D3DPT_LINELIST;
@@ -162,8 +161,7 @@ void agiD3DRasterizer::Triangle(i32 i1, i32 i2, i32 i3)
     ++STATS.Tris;
 
     // TODO: Should this be + 3 ?
-    if (VtxIndexCount + 4 > static_cast<i32>(std::size(VtxIndices)) || PrimType != D3DPT_TRIANGLELIST ||
-        agiCurState.IsTouched())
+    if (VtxIndexCount + 4 > ARTS_SSIZE(VtxIndices) || PrimType != D3DPT_TRIANGLELIST || agiCurState.IsTouched())
     {
         FlushState();
         PrimType = D3DPT_TRIANGLELIST;

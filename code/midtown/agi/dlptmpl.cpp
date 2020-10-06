@@ -124,7 +124,7 @@ void DLPGroup::Init(i32 num_verts, i32 num_patches)
 void DLPGroup::Load(Stream* file)
 {
     u8 name_len = file->Get<u8>();
-    ArAssert(name_len <= std::size(Name), "Invalid Name Length");
+    ArAssert(name_len <= ARTS_SIZE(Name), "Invalid Name Length");
     file->Read(Name, name_len);
 
     NumVertices = file->Get<u32>();

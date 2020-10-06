@@ -31,7 +31,7 @@ f32 Tokenizer::GetFloat()
 {
     char buffer[32];
 
-    if (GetToken(buffer, std::size(buffer)))
+    if (GetToken(buffer, ARTS_SIZE(buffer)))
     {
         if ((buffer[0] == '-') || (buffer[0] == '.') || IsDigit(buffer[0]))
             return static_cast<f32>(std::atof(buffer));
@@ -46,7 +46,7 @@ i32 Tokenizer::GetInt()
 {
     char buffer[32];
 
-    if (GetToken(buffer, std::size(buffer)))
+    if (GetToken(buffer, ARTS_SIZE(buffer)))
     {
         if ((buffer[0] == '-') || IsDigit(buffer[0]))
             return static_cast<i32>(std::atoi(buffer));
@@ -86,7 +86,7 @@ void Tokenizer::IgnoreToken()
 {
     char buffer[1];
 
-    GetToken(buffer, std::size(buffer));
+    GetToken(buffer, ARTS_SIZE(buffer));
 }
 
 void Tokenizer::MatchToken(const char* value)
@@ -94,7 +94,7 @@ void Tokenizer::MatchToken(const char* value)
     char buffer[64];
     buffer[0] = 0;
 
-    if (GetToken(buffer, std::size(buffer)))
+    if (GetToken(buffer, ARTS_SIZE(buffer)))
     {
         if (!std::strcmp(value, buffer))
             return;

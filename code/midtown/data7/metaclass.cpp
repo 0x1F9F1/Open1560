@@ -54,7 +54,7 @@ MetaClass::~MetaClass()
 
 ARTS_NOINLINE void MetaClass::Register()
 {
-    ArAssert(NextSerial < i32(MAX_CLASSES), "Too many classes, raise MAX_CLASSES");
+    ArAssert(NextSerial < ARTS_SSIZE(ClassIndex), "Too many classes, raise MAX_CLASSES");
 
     ClassIndex[NextSerial] = this;
     index_ = NextSerial;

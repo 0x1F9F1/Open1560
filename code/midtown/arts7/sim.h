@@ -180,8 +180,8 @@ public:
 
     void PushCamera(asLinearCS* camera)
     {
-        ArAssert(camera_depth_ < static_cast<i32>(std::size(cameras_)), "Too Many Cameras");
-        cameras_[++camera_depth_] = camera;
+        ArAssert(++camera_depth_ < ARTS_SSIZE(cameras_), "Too Many Cameras");
+        cameras_[camera_depth_] = camera;
         current_view_ = camera->GetView();
     }
 

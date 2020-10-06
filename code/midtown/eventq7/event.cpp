@@ -49,13 +49,13 @@ void eqEventHandler::AddClient(eqEventMonitor* monitor)
 
     usize index = 0;
 
-    for (; index < std::size(monitors_); ++index)
+    for (; index < ARTS_SIZE(monitors_); ++index)
     {
         if (monitors_[index] == nullptr)
             break;
     }
 
-    if (index >= std::size(monitors_))
+    if (index >= ARTS_SIZE(monitors_))
     {
         Errorf("AddClient: already too many clients");
         return;
@@ -242,7 +242,7 @@ void eqEventReplayChannelClass::DoPlayback(Stream* file)
     {
         EventCount = file->Get<u32>();
 
-        if (static_cast<u32>(EventCount) > std::size(Events))
+        if (static_cast<u32>(EventCount) > ARTS_SIZE(Events))
             Quitf("Corrupt replay");
 
         file->Get(Events, EventCount);
@@ -252,7 +252,7 @@ void eqEventReplayChannelClass::DoPlayback(Stream* file)
     {
         u8 states[0x20];
 
-        file->Get(states, std::size(states));
+        file->Get(states, ARTS_SIZE(states));
 
         for (i32 i = 0; i < 256; ++i)
             KeyStates[i] = (states[i >> 3] & (0x80 >> (i & 7))) != 0;
@@ -322,7 +322,7 @@ void eqEventReplayChannelClass::DoRecord(Stream* file)
             }
         }
 
-        file->Put(states, std::size(states));
+        file->Put(states, ARTS_SIZE(states));
 
         std::memcpy(PrevKeyStates, KeyStates, sizeof(PrevKeyStates));
     }
@@ -349,7 +349,7 @@ void eqEventReplayChannelClass::QueueKeyboard(i32 arg1, i32 arg2, i32 arg3, i32 
 
     u32 count = EventCount;
 
-    if (count + 4 > std::size(Events))
+    if (count + 4 > ARTS_SIZE(Events))
     {
         Errorf("eqEventReplay: Too many events in frame");
     }
@@ -371,7 +371,7 @@ void eqEventReplayChannelClass::QueueMouse(i32 arg1, i32 arg2, i32 arg3, i32 arg
 
     u32 count = EventCount;
 
-    if (count + 8 > std::size(Events))
+    if (count + 8 > ARTS_SIZE(Events))
     {
         Errorf("eqEventReplay: Too many events in frame");
     }

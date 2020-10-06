@@ -60,7 +60,7 @@ struct VirtualFileEntry
 
     inline void FillInfo(VirtualFileSystem* fs, FileInfo& info)
     {
-        fs->ExpandName(info.Path, std::size(info.Path), Nodes);
+        fs->ExpandName(info.Path, ARTS_SIZE(info.Path), Nodes);
         info.IsDirectory = Nodes->IsDirectory();
     }
 };

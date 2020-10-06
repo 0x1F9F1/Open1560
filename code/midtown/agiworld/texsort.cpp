@@ -51,15 +51,15 @@ agiTexSorter::agiTexSorter()
     MaxVertsPerSet = VtxSize;
     MaxIndicesPerSet = IdxSize;
 
-    MaxOpaqueSetCount = std::size(OpaquePolySets);
-    MaxAlphaSetCount = std::size(AlphaPolySets);
+    MaxOpaqueSetCount = ARTS_SIZE(OpaquePolySets);
+    MaxAlphaSetCount = ARTS_SIZE(AlphaPolySets);
 
     BigPolySet.Init(BigVtxSize, BigIdxSize);
 
-    for (usize i = 0; i < std::size(OpaquePolySets); ++i)
+    for (usize i = 0; i < ARTS_SIZE(OpaquePolySets); ++i)
         OpaquePolySets[i] = new agiPolySet(MaxVertsPerSet, MaxIndicesPerSet);
 
-    for (usize i = 0; i < std::size(AlphaPolySets); ++i)
+    for (usize i = 0; i < ARTS_SIZE(AlphaPolySets); ++i)
         AlphaPolySets[i] = new agiPolySet(MaxVertsPerSet, MaxIndicesPerSet);
 
     EnvPolySet.Init(EnvVtxSize, EnvIdxSize);
@@ -69,10 +69,10 @@ agiTexSorter::~agiTexSorter()
 {
     BigPolySet.Kill();
 
-    for (usize i = 0; i < std::size(OpaquePolySets); ++i)
+    for (usize i = 0; i < ARTS_SIZE(OpaquePolySets); ++i)
         delete std::exchange(OpaquePolySets[i], nullptr);
 
-    for (usize i = 0; i < std::size(AlphaPolySets); ++i)
+    for (usize i = 0; i < ARTS_SIZE(AlphaPolySets); ++i)
         delete std::exchange(AlphaPolySets[i], nullptr);
 
     EnvPolySet.Kill();

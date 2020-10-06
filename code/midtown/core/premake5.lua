@@ -20,4 +20,5 @@ arts_component "core"
         "noncopyable.h",
         "refcount.h",
         "tuple.h",
+        "container.h",
     }

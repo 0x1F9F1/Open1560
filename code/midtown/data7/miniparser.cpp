@@ -216,7 +216,7 @@ i32 MiniParser::NextToken()
 
     while (v != ';' && !IsSpace(v))
     {
-        if (len + 1 < std::size(buffer_))
+        if (len + 1 < ARTS_SIZE(buffer_))
             buffer_[len++] = static_cast<char>(v);
 
         v = GetCh();

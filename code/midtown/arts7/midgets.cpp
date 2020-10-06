@@ -603,14 +603,14 @@ void asMidgets::Open(asNode* node)
         parent_midget_index_ = -1;
     }
 
-    for (usize i = 0; i < std::size(child_midget_index_); ++i)
+    for (usize i = 0; i < ARTS_SIZE(child_midget_index_); ++i)
         child_midget_index_[i] = -1;
 
     usize count = 0;
 
     for (asNode* child = node->GetFirstChild(); child; child = child->GetNext())
     {
-        if (count < std::size(child_midget_index_))
+        if (count < ARTS_SIZE(child_midget_index_))
             child_midget_index_[count++] = midget_count_;
 
         char buffer[64];
@@ -664,7 +664,7 @@ void asMidgets::PushSection(const char* arg1, [[maybe_unused]] i32 arg2)
 {
     // TODO: Is arg2 whether the section should be open by default?
 
-    ArAssert(section_count_ < static_cast<i32>(std::size(sections_)), "Too many sections");
+    ArAssert(section_count_ < ARTS_SSIZE(sections_), "Too many sections");
 
     sections_[section_count_++] = midget_count_;
 
@@ -833,11 +833,11 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
 
 void asMidgets::AddItem(MI* item)
 {
-    if (midget_count_ < static_cast<i32>(std::size(midgets_)))
+    if (midget_count_ < ARTS_SSIZE(midgets_))
     {
         midgets_[midget_count_++] = item;
 
-        if (midget_count_ == static_cast<i32>(std::size(midgets_)))
+        if (midget_count_ == ARTS_SSIZE(midgets_))
             Errorf("Too many midgets!");
     }
 }
@@ -861,15 +861,15 @@ i32 asMidgets::IndexBefore(i32 index, i32 count)
 
     while (here < index)
     {
-        cache[total++ % std::size(cache)] = here;
+        cache[total++ % ARTS_SIZE(cache)] = here;
         here += midgets_[here]->Update(false) + 1;
     }
 
     if (count >= total)
         return 0;
 
-    if (count <= static_cast<i32>(std::size(cache)))
-        return cache[(total - count) % std::size(cache)];
+    if (count <= ARTS_SSIZE(cache))
+        return cache[(total - count) % ARTS_SIZE(cache)];
 
     return IndexAfter(0, total - count);
 }
