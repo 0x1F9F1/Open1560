@@ -65,19 +65,36 @@ ARTS_NOINLINE void MetaClass::Unregister()
 {
     if (index_ != -1)
     {
-        ArAssert(index_ + 1 == NextSerial, "MetaClass destructed in wrong order");
-
         --NextSerial;
-        ClassIndex[NextSerial] = nullptr;
 
-        for (MetaClass* i = children_; i; i = std::exchange(i->next_child_, nullptr))
-            i->parent_ = nullptr;
-
-        if (parent_)
+        if (index_ != NextSerial)
         {
-            ArAssert(parent_->children_ == this, "MetaClass destructed in wrong order");
+            MetaClass* cls = ClassIndex[NextSerial];
+            ClassIndex[index_] = cls;
+            cls->index_ = index_;
+        }
 
-            parent_->children_ = next_child_;
+        ClassIndex[NextSerial] = nullptr;
+        index_ = -1;
+    }
+
+    if (MetaClass* child = children_)
+    {
+        for (; child; child = std::exchange(child->next_child_, nullptr))
+            child->parent_ = nullptr;
+
+        children_ = nullptr;
+    }
+
+    if (parent_)
+    {
+        for (MetaClass** child = &parent_->children_; *child; child = &(*child)->next_child_)
+        {
+            if (*child == this)
+            {
+                *child = next_child_;
+                break;
+            }
         }
     }
 }
