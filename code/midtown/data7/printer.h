@@ -84,6 +84,8 @@ ARTS_EXPORT void LogToFile();
 // 0x576EA0 | ?LogToFile@@YAXPAD@Z
 ARTS_EXPORT void LogToFile(const char* file);
 
+void CloseLogFile();
+
 // 0x576E90 | ?LogToMonochromeMonitor@@YAXXZ
 ARTS_IMPORT void LogToMonochromeMonitor();
 

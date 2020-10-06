@@ -132,6 +132,8 @@ ARTS_EXPORT int WINAPI MidtownMain(
 
     Displayf("Good bye.");
 
+    CloseLogFile();
+
     // Timer::Sleep(500);
 
     return 0;

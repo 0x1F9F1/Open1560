@@ -219,6 +219,56 @@ void LogToFile()
 
 void LogToFile(const char* file)
 {
+    HANDLE lock_file =
+        CreateFileA("MM.LOCK", GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+
+    if (lock_file != INVALID_HANDLE_VALUE)
+    {
+        if (GetFileSize(lock_file, NULL) == 16)
+        {
+            Warningf("Lock file detected. Saving log");
+
+            char time_string[16];
+            DWORD bytes_read = 0;
+            if (ReadFile(lock_file, time_string, sizeof(time_string), &bytes_read, NULL))
+            {
+                char new_name[256];
+                arts_sprintf(new_name, "Open1560_%.16s.log", time_string);
+
+                if (!MoveFileA(file, new_name))
+                {
+                    Warningf("Failed to rename save log file");
+                }
+            }
+            else
+            {
+                Warningf("Failed to read lock file timestamp");
+            }
+        }
+
+        time_t rawtime;
+        time(&rawtime);
+
+        struct tm timeinfo;
+        localtime_s(&timeinfo, &rawtime);
+
+        char open_time[17];
+        strftime(open_time, ARTS_SIZE(open_time), "%G-%m-%d_%M.%S", &timeinfo);
+
+        SetFilePointer(lock_file, 0, NULL, FILE_BEGIN);
+        SetEndOfFile(lock_file);
+
+        DWORD bytes_written = 0;
+        WriteFile(lock_file, open_time, 16, &bytes_written, NULL);
+
+        FlushFileBuffers(lock_file);
+        CloseHandle(lock_file);
+    }
+    else
+    {
+        Warningf("Failed to create lock file");
+    }
+
     DebugLogFile = CreateFileA(file, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (DebugLogFile == INVALID_HANDLE_VALUE)
@@ -231,6 +281,13 @@ void LogToFile(const char* file)
         OutputDebugStringA(file);
         OutputDebugStringA("'.\n");
     }
+}
+
+void CloseLogFile()
+{
+    FlushFileBuffers(DebugLogFile);
+
+    DeleteFileA("MM.LOCK");
 }
 
 void Quit(char const* message)
