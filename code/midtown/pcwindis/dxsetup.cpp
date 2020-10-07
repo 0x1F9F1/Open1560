@@ -106,7 +106,7 @@ static mem::cmd_param PARAM_config {"config"};
 static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
     [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
 {
-    if (dxiRendererCount >= static_cast<isize>(ARTS_SIZE(dxiInfo)))
+    if (dxiRendererCount >= ARTS_SSIZE(dxiInfo))
         return FALSE;
 
     MONITORINFOEXA iMonitor {sizeof(MONITORINFOEXA)};
@@ -150,7 +150,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
 
     for (DWORD i = 0; EnumDisplaySettingsA(iMonitor.szDevice, i, &dev_mode); ++i)
     {
-        if (info.ResCount >= static_cast<isize>(ARTS_SIZE(info.Resolutions)))
+        if (info.ResCount >= ARTS_SSIZE(info.Resolutions))
             break;
 
         if (dev_mode.dmBitsPerPel != 32)

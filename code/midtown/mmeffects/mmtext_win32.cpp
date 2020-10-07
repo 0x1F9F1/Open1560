@@ -274,7 +274,7 @@ void mmTextNode::GetTextDimensions(void* font, LocString* text, f32& width, f32&
         {
             // TODO: Shouldn't this also set the font?
             // TODO: Shouldn't this pass the length of the text, not the max size?
-            GetTextExtentPoint32A(dc, lines_[0].Text, ARTS_SIZE(lines_[0].Text), &size);
+            GetTextExtentPoint32A(dc, lines_[0].Text, str::strlen(lines_[0].Text), &size);
         }
 
         mmText::ReleaseDC();
