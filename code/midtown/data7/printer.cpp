@@ -232,8 +232,10 @@ void LogToFile(const char* file)
             DWORD bytes_read = 0;
             if (ReadFile(lock_file, time_string, sizeof(time_string), &bytes_read, NULL))
             {
+                CreateDirectoryA("crashes", NULL);
+
                 char new_name[256];
-                arts_sprintf(new_name, "Open1560_%.16s.log", time_string);
+                arts_sprintf(new_name, "crashes/Open1560_%.16s.log", time_string);
 
                 if (!MoveFileA(file, new_name))
                 {
