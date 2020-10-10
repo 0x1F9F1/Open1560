@@ -264,7 +264,8 @@ void LookupAddress(char* buffer, usize buflen, usize address)
         char undec_name[256];
 
         const char* function_name =
-            UnDecorateSymbolName(entry->Name, undec_name, 128, UNDNAME_NAME_ONLY) ? undec_name : entry->Name;
+            UnDecorateSymbolName(entry->Name, undec_name, ARTS_SIZE(undec_name), UNDNAME_NAME_ONLY) ? undec_name
+                                                                                                    : entry->Name;
 
         arts_sprintf(buffer, buflen, "0x%08X (%s + 0x%X)", address, function_name, address - entry->Address);
 

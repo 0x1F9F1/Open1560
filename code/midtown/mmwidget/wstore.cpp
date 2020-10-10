@@ -41,7 +41,7 @@ void WArray::Read(char* name)
     char buffer[128];
     input->Gets(buffer, ARTS_SIZE(buffer));
 
-    while (input->Gets(buffer, 128))
+    while (input->Gets(buffer, ARTS_SIZE(buffer)))
     {
         char* split_context = nullptr;
 

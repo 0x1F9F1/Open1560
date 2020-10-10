@@ -240,9 +240,9 @@ static std::size_t InitExportHooks(HMODULE instance)
                 std::uint32_t target = 0;
                 char hook_name[256];
 
-                if (arts_sscanf(name, "%[^:]:Hook_%x", hook_name, 256, &target) == 2)
+                if (arts_sscanf(name, "%[^:]:Hook_%x", hook_name, ARTS_SIZE(hook_name), &target) == 2)
                 {
-                    hook_name[255] = '\0';
+                    hook_name[ARTS_SIZE(hook_name) - 1] = '\0';
                 }
                 else if (auto find = symbols.Lookup(SymbolTable::Hash(name)); find != nullptr)
                 {

@@ -208,7 +208,7 @@ void LogToFile()
         return LogToFile("Open1560.log");
 
     char machname[128];
-    GetMachineName(machname, 128);
+    GetMachineName(machname, ARTS_SSIZE(machname));
 
     char filename[128];
     arts_sprintf(filename, "%s-%04d%02d%02d-%02d%02d%02d.log", machname, tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
@@ -239,7 +239,7 @@ void LogToFile(const char* file)
 
                 if (!MoveFileA(file, new_name))
                 {
-                    Warningf("Failed to rename save log file");
+                    Warningf("Failed to save log file");
                 }
             }
             else
