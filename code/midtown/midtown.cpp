@@ -70,6 +70,8 @@ static char* Main_Argv[128] {};
 
 alignas(16) static u8 Main_InitHeap[0x10000];
 
+static mem::cmd_param PARAM_clean_dir {"cleandir"};
+
 ARTS_EXPORT int WINAPI MidtownMain(
     HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR lpCmdLine, int /*nShowCmd*/)
 {
@@ -133,6 +135,13 @@ ARTS_EXPORT int WINAPI MidtownMain(
     Displayf("Good bye.");
 
     CloseLogFile();
+
+#ifdef ARTS_FINAL
+    if (PARAM_clean_dir.get_or(true))
+    {
+        system("del /Q *.csv last.rpl crash.rpl portals.s");
+    }
+#endif
 
     // Timer::Sleep(500);
 
