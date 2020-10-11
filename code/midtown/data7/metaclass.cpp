@@ -49,6 +49,7 @@ MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*
 
 MetaClass::~MetaClass()
 {
+    FreeFields();
     Unregister();
 }
 
@@ -366,18 +367,19 @@ class MetaClass* MetaClass::FindByName(const char* name, class MetaClass* root)
 void MetaClass::UndeclareAll()
 {
     for (i32 i = 0; i < NextSerial; ++i)
+        ClassIndex[i]->FreeFields();
+}
+
+void MetaClass::FreeFields()
+{
+    // FIXME: Need to free dynamically allocated types
+    for (MetaField *field = fields_, *next = nullptr; field; field = next)
     {
-        MetaClass* cls = ClassIndex[i];
-
-        // FIXME: Need to free dynamically allocated types
-        for (MetaField *j = cls->fields_, *next = nullptr; j; j = next)
-        {
-            next = j->Next;
-            delete j;
-        }
-
-        cls->fields_ = nullptr;
+        next = field->Next;
+        delete field;
     }
+
+    fields_ = nullptr;
 }
 
 void __BadSafeCall(const char* name, class Base* ptr)

@@ -161,6 +161,7 @@ private:
 
     void Register();
     void Unregister();
+    void FreeFields();
 };
 
 check_size(MetaClass, 0x28);
