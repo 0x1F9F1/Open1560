@@ -37,7 +37,7 @@ FileSystem::~FileSystem()
     if (fs_index_ != FSCount)
         Errorf("FileSystems destructed out of order.");
 
-    --FSCount;
+    FS[--FSCount] = nullptr;
 }
 
 b32 FileSystem::PagerInfo(const char*, struct PagerInfo_t&)

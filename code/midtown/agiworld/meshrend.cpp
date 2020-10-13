@@ -235,9 +235,9 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
     // TODO: Understand why there are 16
     CV verts[16];
 
-    verts[0] = {out[vertex_indices_[i1]], {1.0f, 0.0f, 0.0f}};
-    verts[1] = {out[vertex_indices_[i2]], {0.0f, 1.0f, 0.0f}};
-    verts[2] = {out[vertex_indices_[i3]], {0.0f, 0.0f, 1.0f}};
+    verts[0] = {out[VertexIndices[i1]], {1.0f, 0.0f, 0.0f}};
+    verts[1] = {out[VertexIndices[i2]], {0.0f, 1.0f, 0.0f}};
+    verts[2] = {out[VertexIndices[i3]], {0.0f, 0.0f, 1.0f}};
 
     i32 count = OnlyZClip ? ZClipOnly(&ClippedVerts[ClippedVertCount], verts, 3)
                           : FullClip(&ClippedVerts[ClippedVertCount], verts, 3);
@@ -275,19 +275,19 @@ b32 agiMeshSet::DrawColor(u32 color, u32 flags)
 
     if (LockIfResident())
     {
-        if (Geometry(flags, vertices_, planes_) <= 255)
+        if (Geometry(flags, Vertices, Planes) <= 255)
         {
-            u32* colors = colors_;
+            u32* colors = Colors;
 
             if (colors)
             {
-                u32* shaded = ARTS_ALLOCA(u32, adjunct_count_);
-                agiBlendColors(shaded, colors, adjunct_count_, color);
+                u32* shaded = ARTS_ALLOCA(u32, AdjunctCount);
+                agiBlendColors(shaded, colors, AdjunctCount, color);
                 colors = shaded;
                 color = 0xFFFFFFFF;
             }
 
-            FirstPass(colors, tex_coords_, color);
+            FirstPass(colors, TexCoords, color);
 
             drawn = true;
         }

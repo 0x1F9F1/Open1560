@@ -389,5 +389,12 @@ i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
     i32 num_frames = StackTraceback(16, frames, 0, context);
     DumpStackTraceback(frames, num_frames);
 
+#ifndef ARTS_FINAL
+    if (IsDebuggerPresent())
+    {
+        return EXCEPTION_CONTINUE_SEARCH;
+    }
+#endif
+
     return EXCEPTION_EXECUTE_HANDLER;
 }

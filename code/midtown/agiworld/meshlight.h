@@ -78,7 +78,8 @@ ARTS_IMPORT void agiMeshLighterReset();
 ARTS_IMPORT void agiMeshLighterSpecular(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4);
 
 // 0x510AE0 | ?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z
-ARTS_IMPORT void agiMeshLighterTriple(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4);
+ARTS_EXPORT void agiMeshLighterTriple(
+    u8* ARTS_RESTRICT codes, u32* ARTS_RESTRICT output, u32* ARTS_RESTRICT colors, class agiMeshSet* mesh);
 
 // 0x5108F0 | ?agiMeshLighterUpdateColors@@YAXXZ
 ARTS_IMPORT void agiMeshLighterUpdateColors();

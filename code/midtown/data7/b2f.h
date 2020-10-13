@@ -27,12 +27,23 @@
 // 0x662478 | ?ByteToFloatTable@@3PAMA
 extern const f32 ByteToFloatTable[256];
 
-ARTS_FORCEINLINE f32 ByteToFloat(u8 value)
+// Use the original but slower float conversion functions
+#define ARTS_USE_ORIG_B2F
+
+ARTS_FORCEINLINE f32 ByteToFloat(u8 value) noexcept
 {
+#ifdef ARTS_USE_ORIG_B2F
+    return ByteToFloatTable[value];
+#else
     return static_cast<f32>(value);
+#endif
 }
 
-ARTS_FORCEINLINE u8 FloatToByte(f32 value)
+ARTS_FORCEINLINE u8 FloatToByte(f32 value) noexcept
 {
+#ifdef ARTS_USE_ORIG_B2F
+    return static_cast<u8>(mem::bit_cast<u32>(value + 12582912.0f));
+#else
     return static_cast<u8>(value);
+#endif
 }

@@ -351,8 +351,9 @@ private:
     // 0x503180 | ?PageOutCallback@agiMeshSet@@CAXPAXH@Z | agiworld:meshload
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
 
-    Vector3* vertices_ {nullptr};
-    u8* normals_ {nullptr};
+public:
+    Vector3* Vertices {nullptr};
+    u8* Normals {nullptr};
 
     // Vector3[8]
     // min.x, min.y, min.z
@@ -363,29 +364,31 @@ private:
     // max.x, max.y, min.z
     // max.x, max.y, max.z
     // min.x, max.y, max.z
-    Vector3* bounding_box_ {nullptr};
+    Vector3* BoundingBox {nullptr};
 
-    Vector2* tex_coords_ {nullptr};
-    u32* colors_ {nullptr};
-    Vector4* planes_ {nullptr};
-    PagerInfo_t pager_ {};
-    i32 handle_ {0};
-    u16* vertex_indices_ {nullptr};
-    u16* surface_indices_ {nullptr};
-    u8* texture_indices_ {nullptr};
-    f32 magnitude_ {0.0f};
-    f32 magnitude_sqr_ {0.0f};
-    f32 bounding_box_magnitude_ {0.0f};
-    i32 vertex_count_ {0};
-    i32 adjunct_count_ {0};
-    i32 surface_count_ {0};
-    i32 indices_count_ {0};
-    u8 texture_count_ {0};
-    u8 variation_count_ {0};
-    u8 flags_ {0};
-    u8 resident_ {0};
+    Vector2* TexCoords {nullptr};
+    u32* Colors {nullptr};
+    Vector4* Planes {nullptr};
+    PagerInfo_t Pager {};
+    i32 Handle {0};
+    u16* VertexIndices {nullptr};
+    u16* SurfaceIndices {nullptr};
+    u8* TextureIndices {nullptr};
+    f32 Magnitude {0.0f};
+    f32 MagnitudeSqr {0.0f};
+    f32 BoundingBoxMagnitude {0.0f};
+    i32 VertexCount {0};
+    i32 AdjunctCount {0};
+    i32 SurfaceCount {0};
+    i32 IndicesCount {0};
+    u8 TextureCount {0};
+    u8 VariationCount {0};
+    u8 Flags {0};
+    u8 Resident {0};
     u32 field_58 {0};
-    agiTexDef*** textures_ {nullptr};
+    agiTexDef*** Textures {nullptr};
+
+private:
     u32 ref_count_ {1};
 };
 

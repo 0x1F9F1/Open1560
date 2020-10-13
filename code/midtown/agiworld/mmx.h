@@ -16,31 +16,14 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(agiworld_meshset);
+#pragma once
 
-#include "meshset.h"
+#include <mmintrin.h>
 
-#include "agi/texdef.h"
-
-agiMeshSet::agiMeshSet() = default;
-
-agiMeshSet::~agiMeshSet()
+union mmx
 {
-    if (Textures)
-    {
-        for (i32 i = 0; i < VariationCount; ++i)
-        {
-            for (i32 j = 1; j < TextureCount; ++j)
-            {
-                if (agiTexDef* texture = Textures[i][j])
-                    texture->Release();
-            }
+    __m64 mm;
+    u16 m16[4];
+};
 
-            delete[] Textures[i];
-        }
-
-        delete[] Textures;
-    }
-
-    // TODO: Should this free the other fields?
-}
+check_size(mmx, 0x8);

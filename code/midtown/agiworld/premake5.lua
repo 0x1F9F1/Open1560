@@ -35,6 +35,8 @@ arts_component "agiworld"
         "texsheet.h",
         "texsort.cpp",
         "texsort.h",
+
+        "mmx.h",
     }
 
     if ARTS_ENABLE_KNI then
