@@ -224,6 +224,7 @@ private:
     CString node_name_ {};
 
     // 0x1 | Active
+    // 0x2 | ?
     // 0x4 | LoadError
     // 0x400 | Update While Paused
     i32 node_flags_ {0x3};

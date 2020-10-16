@@ -28,7 +28,7 @@
 extern const f32 ByteToFloatTable[256];
 
 // Use the original but slower float conversion functions
-#define ARTS_USE_ORIG_B2F
+// #define ARTS_USE_ORIG_B2F
 
 ARTS_FORCEINLINE f32 ByteToFloat(u8 value) noexcept
 {
