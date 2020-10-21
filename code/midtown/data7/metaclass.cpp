@@ -294,6 +294,8 @@ void MetaClass::FixupClasses()
     // Remove replaced classes from ClassIndex
     i32 total = 0;
 
+    LogHooks = false;
+
     for (i32 i = 0; i < NextSerial; ++i)
     {
         MetaClass* cls = std::exchange(ClassIndex[i], nullptr);
@@ -302,6 +304,8 @@ void MetaClass::FixupClasses()
 
         if (auto find = fixups.find(cls->name_); find != fixups.end() && find->second != cls)
         {
+            patch_xrefs("MetaClass", cls->name_, cls, find->second, sizeof(MetaClass));
+
             if (cls->declare_ && find->second->declare_)
                 create_hook("DeclareFields", cls->name_, cls->declare_, find->second->declare_, hook_type::jmp);
 
@@ -318,6 +322,8 @@ void MetaClass::FixupClasses()
         ClassIndex[total] = cls;
         ++total;
     }
+
+    LogHooks = true;
 
     NextSerial = total;
 

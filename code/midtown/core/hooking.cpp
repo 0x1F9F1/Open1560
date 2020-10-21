@@ -225,5 +225,8 @@ void patch_xrefs(const char* name, const char* description, mem::pointer from, m
         write_protected(find->Source, &target, sizeof(target));
     }
 
-    Displayf("Patches %zu '%s' xrefs: %s", total, name, description);
+    if (LogHooks)
+    {
+        Displayf("Patched %zu '%s' xrefs: %s", total, name, description);
+    }
 }
