@@ -18,7 +18,7 @@
 
 #include "string.h"
 
-ARTS_EXPORT ARTS_NOINLINE char* arts_strdup(const char* str)
+ARTS_NOINLINE char* arts_strdup(const char* str)
 {
     char* ptr = nullptr;
 
@@ -34,3 +34,5 @@ ARTS_EXPORT ARTS_NOINLINE char* arts_strdup(const char* str)
 
     return ptr;
 }
+
+run_once([] { create_hook("arts_strdup", "", 0x5A4720, &arts_strdup); });

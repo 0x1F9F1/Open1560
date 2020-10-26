@@ -128,9 +128,6 @@ void agiPolySet::Kill()
 }
 
 run_once([] {
-    patch_xrefs("agiTexSorter::OpaquePolySets", "Add more opaque poly sets", 0x719630, agiTexSorter::OpaquePolySets,
-        sizeof(agiPolySet* [64]));
-
     create_patch("BigVtxSize", "agiTexSorter::BeginVerts", 0x503B29 + 2, &BigVtxSize, 4);
     create_patch("BigIdxSize", "agiTexSorter::BeginVerts", 0x503B31 + 3, &BigIdxSize, 4);
 

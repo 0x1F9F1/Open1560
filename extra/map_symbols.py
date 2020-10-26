@@ -1248,6 +1248,8 @@ all_symbols.sort(key = lambda x: x.address)
 # for sym in all_symbols:
 #     print(sym.raw_name, hex(sym.address or 0))
 
+# print(', '.join( hex(v.address) for v in all_symbols if (v.address is not None) and not v.raw_name.startswith('??_') ))
+
 # Create a dictionary from the valid symbols
 symbols = dict((symbol.address, symbol) for symbol in all_symbols if symbol.address is not None)
 # print(symbols)

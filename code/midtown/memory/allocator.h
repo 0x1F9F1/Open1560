@@ -174,10 +174,10 @@ private:
 // check_size(asMemoryAllocator, 0xA0);
 
 // 0x7805E8 | ?ALLOCATOR@@3VasMemoryAllocator@@A
-extern class asMemoryAllocator ALLOCATOR;
+ARTS_EXPORT extern class asMemoryAllocator ALLOCATOR;
 
 // 0x780690 | ?CRTALLOCATOR@@3VasMemoryAllocator@@A
-extern class asMemoryAllocator CRTALLOCATOR;
+ARTS_EXPORT extern class asMemoryAllocator CRTALLOCATOR;
 
 // 0x780730 | ?CRTHEAP@@3PAEA
 extern u8 CRTHEAP[32768];

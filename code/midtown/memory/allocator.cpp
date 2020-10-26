@@ -864,14 +864,9 @@ void asMemoryAllocator::Unlock() const
     lock_.unlock();
 }
 
-asMemoryAllocator ALLOCATOR;
+ARTS_EXPORT asMemoryAllocator ALLOCATOR;
 
 // TODO: Fix initialization of CRTALLOCATOR by __[malloc/realloc/calloc/free]_dbg
-asMemoryAllocator CRTALLOCATOR;
+ARTS_EXPORT asMemoryAllocator CRTALLOCATOR;
 
 u8 CRTHEAP[32768];
-
-run_once([] {
-    patch_xrefs("ALLOCATOR", "Custom Allocator", 0x7805E8, &ALLOCATOR, 0xA0);
-    patch_xrefs("CRTALLOCATOR", "Custom Allocator", 0x780690, &CRTALLOCATOR, 0xA0);
-});

@@ -20,10 +20,17 @@
 
 extern const char* const NewSymbols[];
 
-struct SymbolAddress
+struct SymbolInfo
 {
+    usize Address;
     u32 Hash;
-    usize Addr;
+    u16 DataIndex;
+    u16 HashNext;
+
+    void Hook(mem::pointer new_address) const;
 };
 
-extern const SymbolAddress BaseSymbols[];
+void InitBaseSymbols();
+
+const SymbolInfo* LookupBaseSymbol(std::string_view name);
+const SymbolInfo* LookupBaseSymbolAddress(usize addr);

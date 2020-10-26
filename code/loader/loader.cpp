@@ -78,103 +78,9 @@ extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
     return DirectInputCreateA_Orig(hinst, dwVersion, ppDI, punkOuter);
 }
 
-struct SymbolTable
-{
-    struct SymbolEntry
-    {
-        u32 Hash {0};
-        usize Address {0};
-        SymbolEntry* Next {nullptr};
-    };
-
-    SymbolTable(usize max_entries)
-        : Entries(new SymbolEntry[max_entries] {})
-        , Buckets(new SymbolEntry* [max_entries] {})
-        , EntryCount(0)
-        , MaxEntries(max_entries)
-    {
-        if (max_entries & (max_entries - 1))
-            Abortf("Max entries not power of 2");
-    }
-
-    ~SymbolTable()
-    {
-        delete[] Entries;
-        delete[] Buckets;
-    }
-
-    SymbolEntry* Lookup(u32 hash)
-    {
-        SymbolEntry* entry = Buckets[hash & (MaxEntries - 1)];
-
-        for (; entry; entry = entry->Next)
-        {
-            if (entry->Hash == hash)
-                break;
-        }
-
-        return entry;
-    }
-
-    bool Insert(u32 hash, usize address)
-    {
-        if (Lookup(hash) != nullptr)
-            return false;
-
-        if (EntryCount == MaxEntries)
-            return false;
-
-        SymbolEntry* entry = &Entries[EntryCount++];
-        SymbolEntry** bucket = &Buckets[hash & (MaxEntries - 1)];
-
-        entry->Hash = hash;
-        entry->Address = address;
-        entry->Next = *bucket;
-
-        *bucket = entry;
-
-        return true;
-    }
-
-    static u32 Hash(std::string_view string)
-    {
-        u32 hash = 0;
-
-        for (unsigned char c : string)
-        {
-            hash += c;
-            hash += hash << 10;
-            hash ^= hash >> 6;
-        }
-
-        hash += hash << 3;
-        hash ^= hash >> 11;
-        hash += hash << 15;
-
-        return hash;
-    }
-
-    SymbolEntry* Entries {nullptr};
-    SymbolEntry** Buckets {nullptr};
-    usize EntryCount {0};
-    usize MaxEntries {0};
-};
-
 static std::size_t InitExportHooks(HMODULE instance)
 {
-    // TODO: Validate symbol is a function (in an executable section)
-
-    Displayf("Loading symbol addresses");
-
-    SymbolTable symbols(0x2000);
-
-    for (const SymbolAddress* symbol = BaseSymbols; symbol->Addr && symbol->Hash; ++symbol)
-    {
-        if (!symbols.Insert(symbol->Hash, symbol->Addr))
-        {
-            Quitf("Duplicate Symbol Hash: 0x%08X", symbol->Hash);
-        }
-    }
+    std::unordered_map<std::string_view, std::string_view> remaps;
 
     for (const char* const* lines = NewSymbols; *lines; ++lines)
     {
@@ -192,39 +98,7 @@ static std::size_t InitExportHooks(HMODULE instance)
         std::string_view symbol = line.substr(0, split);
         std::string_view value = line.substr(split + 1);
 
-        std::uintptr_t address = 0;
-
-        if (value.compare(0, 2, "0x") == 0)
-        {
-            value = value.substr(2);
-
-            if (std::from_chars(value.data(), value.data() + value.size(), address, 16).ec != std::errc())
-            {
-                Quitf("Invalid Symbol Address: '%.*s' = '%.*s'", symbol.size(), symbol.data(), value.size(),
-                    value.data());
-
-                continue;
-            }
-        }
-        else
-        {
-            auto find = symbols.Lookup(SymbolTable::Hash(value));
-
-            if (find == nullptr)
-            {
-                Quitf(
-                    "Invalid Symbol Alias: '%.*s' -> '%.*s'", symbol.size(), symbol.data(), value.size(), value.data());
-
-                continue;
-            }
-
-            address = find->Address;
-        }
-
-        if (!symbols.Insert(SymbolTable::Hash(symbol), address))
-        {
-            Quitf("Duplicate Symbol/Hash: '%.*s'", symbol.size(), symbol.data());
-        }
+        remaps.emplace(symbol, value);
     }
 
     std::size_t total = 0;
@@ -234,25 +108,18 @@ static std::size_t InitExportHooks(HMODULE instance)
     LogHooks = false;
 
     mem::module::nt(instance).enum_exports(
-        [&total, &symbols](const char* name, std::uint32_t /*ordinal*/, mem::pointer address) {
-            if (name != nullptr)
-            {
-                std::uint32_t target = 0;
-                char hook_name[256];
+        [&total, &remaps](std::string_view name, std::uint32_t /*ordinal*/, mem::pointer address) {
+            if (auto find = remaps.find(name); find != remaps.end())
+                name = find->second;
 
-                if (arts_sscanf(name, "%[^:]:Hook_%x", hook_name, ARTS_SIZE(hook_name), &target) == 2)
-                {
-                    hook_name[ARTS_SIZE(hook_name) - 1] = '\0';
-                }
-                else if (auto find = symbols.Lookup(SymbolTable::Hash(name)); find != nullptr)
-                {
-                    arts_strcpy(hook_name, name);
-                    target = find->Address;
-                }
-                else
+            if (!name.empty())
+            {
+                auto symbol = LookupBaseSymbol(name);
+
+                if (symbol == nullptr)
                 {
                     char replaced[256];
-                    arts_strcpy(replaced, name);
+                    arts_strncpy(replaced, name.data(), name.size());
 
                     // Hacky replacement of mangled const char* -> char*
                     while (char* s = std::strstr(replaced, "PBD"))
@@ -266,23 +133,17 @@ static std::size_t InitExportHooks(HMODULE instance)
                     while (char* s = std::strstr(replaced, "PI"))
                         std::memmove(s + 1, s + 2, std::strlen(s + 1));
 
-                    if (find = symbols.Lookup(SymbolTable::Hash(replaced)); find != nullptr)
-                    {
-                        arts_strcpy(hook_name, replaced);
-                        target = find->Address;
-                    }
-                    else
-                    {
-                        Quitf("Unrecogized Symbol '%s'", name);
-                    }
+                    symbol = LookupBaseSymbol(replaced);
                 }
 
-                if (target != 0)
+                if (symbol == nullptr)
                 {
-                    create_hook(hook_name, "", target, address);
-
-                    ++total;
+                    Quitf("Unrecogized Symbol '%.*s'", name.size(), name.data());
                 }
+
+                symbol->Hook(address);
+
+                ++total;
             }
 
             return false;
@@ -320,6 +181,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
             freopen_s(&f, "CONOUT$", "w", stdout);
             freopen_s(&f, "CONOUT$", "w", stderr);
         }
+
+        InitBaseSymbols();
 
         // Must run first
         create_hook("DefaultPrinter", "Use a custom printer", 0x5769C0, &DefaultPrinter);
