@@ -8316,21 +8316,22 @@ void SymbolInfo::Hook(mem::pointer new_address) const
     const void* input = reinterpret_cast<const u8*>(BaseSymbolData) + DataIndex;
 
     usize type = leb128_decode_usize(&input);
-    mem::pointer addr = 0x400000;
-    i32 delta = 0;
 
     switch (type)
     {
         case 0: // Function
         {
-            addr = Address;
-            create_hook("", "", addr, new_address, hook_type::jmp);
+            create_hook("", "", Address, new_address, hook_type::jmp);
+
             break;
         }
 
         case 1: // "Simple" Data (No Deltas)
         case 2: // "Complex" Data (With Deltas)
         {
+            mem::pointer addr = 0x400000;
+            i32 delta = 0;
+
             while (true)
             {
                 u32 off = leb128_decode_usize(&input);
