@@ -4,7 +4,7 @@ MEM_DIR = path.join(VENDOR_DIR, "mem")
 HEDLEY_DIR = path.join(VENDOR_DIR, "hedley")
 LUA_DIR = path.join(VENDOR_DIR, "lua-5.3.5")
 SOL_DIR = path.join(VENDOR_DIR, "sol-3.0.3")
-FREETYPE_DIR = path.join(VENDOR_DIR, "freetype-2.10.2")
+FREETYPE_DIR = path.join(VENDOR_DIR, "freetype-2.10.4")
 GLAD_DIR = path.join(VENDOR_DIR, "glad")
 WGL_DIR = path.join(VENDOR_DIR, "wgl")
 
