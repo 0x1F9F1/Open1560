@@ -37,7 +37,18 @@ Comparisons can be found [here](https://github.com/0x1F9F1/Open1560/issues/46#is
 "Fake" imports are used to reference game symbols. Allows almost seamless interop between game and hook.
 
 # Exports
-Exports are used to hook game functions. Avoids problems introduced by C++ address-of semantics.
+Exports are used to hook game symbols. Avoids problems introduced by C++ address-of semantics.
+
+# Hooking
+## Functions
+Functions are hooked by replacing the original function with a `JMP rel32` to the new function.\
+Because all the functions are 16 byte aligned, and there was no identical COMDAT folding, this is safe to do.
+
+## Variables
+Variables are hooked by replacing all pointers to them with pointers to the new variable.\
+The table of pointers to replace is stored in `xrefs.json`/`symbols.cpp`.\
+Because x86 does not use rip-relative addressing, this was generated using the relocation table along with some manual analysis to find the size of each variable and fixup any special cases.\
+Most notably was dealing with indexing by some negative offset i.e `mmInstance::MeshSetTable[MeshIndex - 1]`, since this would be optimised to `(mmInstance::MeshSetTable - 1)[MeshIndex]`, such that the pointer would point before the variable.
 
 # IDA
 ## Offset (user-defined) - Ctrl+R
