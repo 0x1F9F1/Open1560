@@ -457,8 +457,8 @@ void WINEventHandler::Update(i32)
     {
         mouse_x_ = eqEventReplayChannel.MouseX;
         mouse_y_ = eqEventReplayChannel.MouseY;
-        mouse_delta_x_ = eqEventReplayChannel.MouseDeltaX;
-        mouse_delta_y_ = eqEventReplayChannel.MouseDeltaY;
+        mouse_raw_x_ = eqEventReplayChannel.MouseRawX;
+        mouse_raw_y_ = eqEventReplayChannel.MouseRawY;
         buttons_ = eqEventReplayChannel.Flags;
     }
     else if (input_method_ == 3)
@@ -466,22 +466,22 @@ void WINEventHandler::Update(i32)
         long mouse_x = 0;
         long mouse_y = 0;
 
-        long mouse_delta_x = 0;
-        long mouse_delta_y = 0;
-        long mouse_delta_z = 0;
+        long mouse_raw_x = 0;
+        long mouse_raw_y = 0;
+        long mouse_raw_z = 0;
 
         char mouse_button_l = 0;
         char mouse_button_r = 0;
         char mouse_button_m = 0;
 
-        geinputGetMouse(&mouse_x, &mouse_y, &mouse_button_l, &mouse_button_r, &mouse_delta_x, &mouse_delta_y,
-            &mouse_delta_z, &mouse_button_m);
+        geinputGetMouse(&mouse_x, &mouse_y, &mouse_button_l, &mouse_button_r, &mouse_raw_x, &mouse_raw_y,
+            &mouse_raw_z, &mouse_button_m);
 
         mouse_x_ = mouse_x;
         mouse_y_ = mouse_y;
 
-        mouse_delta_x_ = mouse_delta_x;
-        mouse_delta_y_ = mouse_delta_y;
+        mouse_raw_x_ = mouse_raw_x;
+        mouse_raw_y_ = mouse_raw_y;
 
         buttons_ = 0;
 
@@ -501,8 +501,8 @@ void WINEventHandler::Update(i32)
 
         eqEventReplayChannel.MouseX = mouse_x_;
         eqEventReplayChannel.MouseY = mouse_y_;
-        eqEventReplayChannel.MouseDeltaX = mouse_delta_x_;
-        eqEventReplayChannel.MouseDeltaY = mouse_delta_y_;
+        eqEventReplayChannel.MouseRawX = mouse_raw_x_;
+        eqEventReplayChannel.MouseRawY = mouse_raw_y_;
         eqEventReplayChannel.Flags = buttons_;
     }
 }

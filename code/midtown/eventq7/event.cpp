@@ -262,8 +262,8 @@ void eqEventReplayChannelClass::DoPlayback(Stream* file)
     {
         MouseX = file->Get<u32>();
         MouseY = file->Get<u32>();
-        MouseDeltaX = file->Get<u32>();
-        MouseDeltaY = file->Get<u32>();
+        MouseRawX = file->Get<u32>();
+        MouseRawY = file->Get<u32>();
         Flags = file->Get<u32>();
     }
 }
@@ -280,8 +280,8 @@ void eqEventReplayChannelClass::DoRecord(Stream* file)
     if (std::memcmp(KeyStates, PrevKeyStates, sizeof(KeyStates)) != 0)
         flags |= 0x2;
 
-    if ((MouseX != PrevMouseX) || (MouseY != PrevMouseY) || (MouseDeltaX != PrevMouseDeltaX) ||
-        (MouseDeltaY != PrevMouseDeltaY) || (Flags != PrevFlags))
+    if ((MouseX != PrevMouseX) || (MouseY != PrevMouseY) || (MouseRawX != PrevMouseRawX) ||
+        (MouseRawY != PrevMouseRawY) || (Flags != PrevFlags))
         flags |= 0x4;
 
     if (flags == 0)
@@ -331,14 +331,14 @@ void eqEventReplayChannelClass::DoRecord(Stream* file)
     {
         file->Put(MouseX);
         file->Put(MouseY);
-        file->Put(MouseDeltaX);
-        file->Put(MouseDeltaY);
+        file->Put(MouseRawX);
+        file->Put(MouseRawY);
         file->Put(Flags);
 
         PrevMouseX = MouseX;
         PrevMouseY = MouseY;
-        PrevMouseDeltaX = MouseDeltaX;
-        PrevMouseDeltaY = MouseDeltaY;
+        PrevMouseRawX = MouseRawX;
+        PrevMouseRawY = MouseRawY;
         PrevFlags = Flags;
     }
 }

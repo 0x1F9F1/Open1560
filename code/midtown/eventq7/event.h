@@ -112,8 +112,8 @@ protected:
     f32 center_y_ {0.0f};
     f32 scale_x_ {0.0f};
     f32 scale_y_ {0.0f};
-    i32 mouse_delta_x_ {0};
-    i32 mouse_delta_y_ {0};
+    i32 mouse_raw_x_ {0};
+    i32 mouse_raw_y_ {0};
 };
 
 check_size(eqEventHandler, 0x164);
@@ -191,8 +191,8 @@ public:
     u32 MouseY {0};
     u32 Flags {0};
     u8 KeyStates[256] {};
-    u32 MouseDeltaX {0};
-    u32 MouseDeltaY {0};
+    u32 MouseRawX {0};
+    u32 MouseRawY {0};
 
     u32 Events[256] {};
     i32 EventCount {0};
@@ -201,8 +201,8 @@ public:
     u32 PrevMouseY {0};
     u32 PrevFlags {0};
     u8 PrevKeyStates[256] {};
-    u32 PrevMouseDeltaX {0};
-    u32 PrevMouseDeltaY {0};
+    u32 PrevMouseRawX {0};
+    u32 PrevMouseRawY {0};
 };
 
 check_size(eqEventReplayChannelClass, 0x638);
