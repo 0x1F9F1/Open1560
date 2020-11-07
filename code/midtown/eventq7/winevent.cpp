@@ -80,18 +80,22 @@ void WINEventHandler::AdjustMouse(i32& mouse_x, i32& mouse_y)
     }
 }
 
-i32 WINEventHandler::BeginGfx(i32 arg1, i32 arg2, i32 arg3)
+i32 WINEventHandler::BeginGfx(i32 width, i32 height, i32 fullscreen)
 {
-    input_method_ = arg3 != 0 ? 3 : 1;
+    input_method_ = fullscreen != 0 ? 3 : 1;
 
-    center_x_ = arg1 * 0.5f;
-    center_y_ = arg2 * 0.5f;
+    center_x_ = width * 0.5f;
+    center_y_ = height * 0.5f;
 
     scale_x_ = 1.0f / center_x_;
     scale_y_ = 1.0f / center_y_;
 
-    if (inputSetup(arg1, arg2, arg3, 1, 1))
+    if (inputSetup(width, height, fullscreen, 1, 1))
+    {
         input_method_ = 0;
+
+        Errorf("inputSetup failed");
+    }
 
     return 0;
 }
@@ -474,8 +478,8 @@ void WINEventHandler::Update(i32)
         char mouse_button_r = 0;
         char mouse_button_m = 0;
 
-        geinputGetMouse(&mouse_x, &mouse_y, &mouse_button_l, &mouse_button_r, &mouse_raw_x, &mouse_raw_y,
-            &mouse_raw_z, &mouse_button_m);
+        geinputGetMouse(&mouse_x, &mouse_y, &mouse_button_l, &mouse_button_r, &mouse_raw_x, &mouse_raw_y, &mouse_raw_z,
+            &mouse_button_m);
 
         mouse_x_ = mouse_x;
         mouse_y_ = mouse_y;
