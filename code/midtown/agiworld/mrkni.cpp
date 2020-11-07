@@ -260,7 +260,20 @@ void agiMeshSet::Transform(class Vector4* ARTS_RESTRICT output, class Vector3* A
     }
 }
 
-static const u8 CodesLookup[64] {
+/*
+    Converts clip mask from:
+        (sign(abs(w) - abs(x)) << 0) |
+        (sign(abs(w) - abs(y)) << 1) |
+        (sign(abs(w) - abs(z)) << 2) |
+        (sign(x) << 3) |
+        (sign(y) << 4) |
+        (sign(z) << 5);
+    To:
+        (sign(abs(w) - abs(x)) << (sign(x) + 0)) |
+        (sign(abs(w) - abs(y)) << (sign(x) + 2)) |
+        (sign(abs(w) - abs(z)) << (sign(x) + 4));
+*/
+alignas(64) static const u8 CodesLookup[64] {
     // clang-format off
     0x00, 0x01, 0x04, 0x05, 0x10, 0x11, 0x14, 0x15,
     0x00, 0x02, 0x04, 0x06, 0x10, 0x12, 0x14, 0x16,

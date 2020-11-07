@@ -202,6 +202,11 @@ i32 agiGLPipeline::BeginGfx()
     if (gladLoadGL() != 1)
         Quitf("Failed to load GLAD");
 
+    Displayf("OpenGL Version: %s", glGetString(GL_VERSION));
+    Displayf("OpenGL Shader Version: %s", glGetString(GL_SHADING_LANGUAGE_VERSION));
+    Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
+    Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
+
     if (PARAM_gldebug.get_or(false) && glDebugMessageCallback)
     {
         Displayf("Using glDebugMessageCallback");
