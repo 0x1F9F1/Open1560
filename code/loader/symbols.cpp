@@ -20,6 +20,9 @@
 
 const char* const NewSymbols[] {
     "DirectInputCreateA=",
+    "NvOptimusEnablement=",
+    "AmdPowerXpressRequestHighPerformance=",
+
     "?Link@asMemoryAllocator@@AAEXPAUFreeNode@1@@Z=?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z",
     "?Unlink@asMemoryAllocator@@AAEXPAUFreeNode@1@@Z=?Unlink@asMemoryAllocator@@AAEXPAUnode@1@@Z",
     "?arts_calloc@@YAPAXII@Z=_calloc",

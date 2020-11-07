@@ -639,6 +639,13 @@ static mem::cmd_param PARAM_height {"height"};
 static mem::cmd_param PARAM_depth {"depth"};
 static mem::cmd_param PARAM_vsync {"vsync"};
 static mem::cmd_param PARAM_pack {"pack"};
+static mem::cmd_param PARAM_integrated {"integrated"};
+
+extern "C"
+{
+    ARTS_EXPORT u32 NvOptimusEnablement = 1;
+    ARTS_EXPORT u32 AmdPowerXpressRequestHighPerformance = 1;
+}
 
 void agiGLPipeline::Init()
 {
@@ -656,6 +663,12 @@ void agiGLPipeline::Init()
     device_flags_3_ = device_flags_1_;
 
     PackShift = PARAM_pack.get_or<i32>(0);
+
+    if (PARAM_integrated)
+    {
+        NvOptimusEnablement = 0;
+        AmdPowerXpressRequestHighPerformance = 0;
+    }
 }
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height)
