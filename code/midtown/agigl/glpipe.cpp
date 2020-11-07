@@ -150,8 +150,10 @@ i32 agiGLPipeline::BeginGfx()
     wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) wglGetProcAddress("wglCreateContextAttribsARB");
     wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) wglGetProcAddress("wglSwapIntervalEXT");
 
+    bool legacy_gl = PARAM_legacygl.get_or(false);
+
     // TODO: Check wglGetExtensionsStringARB extensions
-    if (!PARAM_legacygl.get_or(false) && wglChoosePixelFormatARB && wglCreateContextAttribsARB)
+    if (!legacy_gl && wglChoosePixelFormatARB && wglCreateContextAttribsARB)
     {
         Displayf("Using modern OpenGL context");
 
@@ -267,9 +269,12 @@ i32 agiGLPipeline::BeginGfx()
     blit_y_ = (vert_res_ - blit_height_) / 2;
 
     // OpenGL doesn't support blit scaling when using MSAA
-    i32 msaa_level = (glRenderbufferStorageMultisample && glTexImage2DMultisample) ? PARAM_msaa.get_or<i32>(0) : 0;
+    i32 msaa_level = 0;
 
-    if (PARAM_native_res.get_or(true) || (glBlitFramebuffer == NULL) || (msaa_level != 0))
+    if (!legacy_gl && glRenderbufferStorageMultisample && glTexImage2DMultisample)
+        msaa_level = PARAM_msaa.get_or<i32>(0);
+
+    if (PARAM_native_res.get_or(true) || (msaa_level != 0) || legacy_gl)
     {
         render_width_ = blit_width_;
         render_height_ = blit_height_;
@@ -285,7 +290,7 @@ i32 agiGLPipeline::BeginGfx()
 
     PrintGlErrors();
 
-    if (glBlitFramebuffer)
+    if (!legacy_gl)
     {
         glGenFramebuffers(1, &fbo_);
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
