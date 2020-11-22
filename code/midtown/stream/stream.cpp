@@ -412,11 +412,6 @@ i32 Stream::Size()
     return RawSize();
 }
 
-i32 Stream::Tell()
-{
-    return position_ + buffer_head_;
-}
-
 i32 Stream::Vprintf(char const* format, std::va_list va)
 {
     char buffer[256];

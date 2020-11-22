@@ -284,6 +284,29 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x48C851, jump_type::always);
 
+        constexpr u32 pxt_checks[][2] {
+            {0x444609, 0x444642}, // ?Draw@aiTrafficLightInstance@@UAIXH@Z
+            {0x451DA5, 0x451DDE}, // ?Draw@aiVehicleInstance@@UAIXH@Z
+            {0x471BDA, 0x471C0D}, // ?Draw@mmCarModel@@UAIXH@Z
+            {0x471C2D, 0x471C60}, // ?Draw@mmCarModel@@UAIXH@Z
+            {0x471C80, 0x471CB3}, // ?Draw@mmCarModel@@UAIXH@Z
+            {0x471F92, 0x471FC5}, // ?Draw@mmCarModel@@UAIXH@Z
+            {0x471FE5, 0x472018}, // ?Draw@mmCarModel@@UAIXH@Z
+            {0x472035, 0x472068}, // ?Draw@mmCarModel@@UAIXH@Z
+            {0x4728D5, 0x472908}, // ?Draw@mmCarModel@@UAIXH@Z
+            {0x472925, 0x472958}, // ?Draw@mmCarModel@@UAIXH@Z
+            {0x472978, 0x4729AB}, // ?Draw@mmCarModel@@UAIXH@Z
+            {0x48D7B9, 0x48D7F2}, // ?Update@mmCullCity@@UAEXXZ
+            {0x4C9DF8, 0x4C9E31}, // ?Draw@mmBangerInstance@@UAIXH@Z
+            {0x4CA0B7, 0x4CA0F0}, // ?Draw@mmHitBangerInstance@@UAIXH@Z
+            {0x4CBA9F, 0x4CBAD8}, // ?Draw@mmGlassBangerInstance@@EAIXH@Z
+        };
+
+        for (const auto [from, to] : pxt_checks)
+        {
+            create_hook("PtxCount", "Avoid particle limit crash", from, to, hook_type::jmp);
+        }
+
 #ifndef ARTS_FINAL
         {
             patch_jmp("", "", 0x4744DD, jump_type::never);

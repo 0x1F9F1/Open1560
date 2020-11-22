@@ -229,7 +229,10 @@ public:
     ARTS_EXPORT i32 Size();
 
     // 0x55EC90 | ?Tell@Stream@@QAEHXZ
-    ARTS_EXPORT i32 Tell();
+    ARTS_EXPORT i32 Tell()
+    {
+        return position_ + buffer_head_;
+    }
 
     // 0x55EE40 | ?Vprintf@Stream@@QAEHPBDPAD@Z
     ARTS_EXPORT i32 Vprintf(char const* format, std::va_list va);

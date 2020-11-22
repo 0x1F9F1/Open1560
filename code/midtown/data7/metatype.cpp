@@ -67,7 +67,7 @@ struct PtrToType final : MetaType
 
 check_size(PtrToType, 0x8);
 
-struct MetaType* PtrTo(struct MetaType* target)
+ARTS_NOINLINE struct MetaType* PtrTo(struct MetaType* target)
 {
     return new PtrToType(target);
 }
@@ -115,7 +115,7 @@ struct StructType final : MetaType
 
 check_size(StructType, 0x8);
 
-struct MetaType* Struct(class MetaClass* target)
+ARTS_NOINLINE struct MetaType* Struct(class MetaClass* target)
 {
     return new StructType(target);
 }
