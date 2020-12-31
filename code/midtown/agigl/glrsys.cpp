@@ -178,7 +178,7 @@ uniform vec4 u_Fog;
 
 void main()
 {
-    out_Color = texture2D(u_Texture, frag_UV.xy / frag_UV.z) * frag_Color;
+    out_Color = texture(u_Texture, frag_UV.xy / frag_UV.z) * frag_Color;
 
     if (out_Color.a <= u_AlphaRef)
         discard;
