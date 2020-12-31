@@ -51,7 +51,7 @@ void CriticalSection::init()
 {
     if (handle_ == nullptr)
     {
-        handle_ = new CRITICAL_SECTION {};
+        handle_ = new CRITICAL_SECTION;
 
         InitializeCriticalSectionAndSpinCount(static_cast<CRITICAL_SECTION*>(handle_), 2000);
     }

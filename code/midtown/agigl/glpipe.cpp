@@ -209,6 +209,11 @@ i32 agiGLPipeline::BeginGfx()
     Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
     Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
 
+    if (!legacy_gl && std::strstr((const char*) glGetString(GL_RENDERER), "Intel(R) HD Graphics"))
+        legacy_gl = PARAM_legacygl.get_or(true);
+
+    Displayf("Using %s framebuffer", legacy_gl ? "legacy" : "modern");
+
     if (PARAM_gldebug.get_or(false) && glDebugMessageCallback)
     {
         Displayf("Using glDebugMessageCallback");
