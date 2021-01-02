@@ -22,6 +22,8 @@ define_dummy_symbol(mmaudio_dsglobal);
 
 #include <dsconf.h>
 
+#include "stream/stream.h"
+
 typedef WINUSERAPI HRESULT(WINAPI* LPFNDLLGETCLASSOBJECT)(const CLSID&, const IID&, void**);
 
 bool DirectSoundPrivateCreate(LPKSPROPERTYSET* ppKsPropertySet)
@@ -101,6 +103,30 @@ bool DSGlobal::GetWaveDeviceID(u32 device_num, u32& wave_id)
 {
     if (device_num < NumDevices)
         return GetInfoFromDSoundGUID(DevicesArray[device_num]->guDevice, wave_id);
+
+    return false;
+}
+
+static mem::cmd_param PARAM_cdid {"cdid"};
+
+u8 DSGlobal::CheckCDFile(char* file_name)
+{
+    if (!std::strcmp(file_name, "cdid.txt") && PARAM_cdid)
+        return true;
+
+    for (char letter = 'A'; letter <= 'Z'; ++letter)
+    {
+        char path[200];
+        arts_strcpy(path, "A:\\");
+
+        if (GetDriveTypeA(path) == DRIVE_CDROM)
+        {
+            arts_strcat(path, file_name);
+
+            if (Ptr<Stream> stream {arts_fopen(path, "r")})
+                return true;
+        }
+    }
 
     return false;
 }

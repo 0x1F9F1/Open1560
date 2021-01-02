@@ -116,7 +116,7 @@ public:
     ARTS_IMPORT u32 AlwaysEAX(u32 arg1);
 
     // 0x4F08E0 | ?CheckCDFile@DSGlobal@@QAEEPAD@Z
-    ARTS_IMPORT u8 CheckCDFile(char* arg1);
+    ARTS_EXPORT u8 CheckCDFile(char* file_name);
 
     // 0x4EFDD0 | ?ClearDSDeviceList@DSGlobal@@QAEXXZ
     ARTS_IMPORT void ClearDSDeviceList();
