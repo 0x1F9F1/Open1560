@@ -69,7 +69,7 @@ check_size(VolumeDW, 0xC);
 
 class MixerCTL final
     : public Dispatchable
-    , public Base /* Warning: Unordered Multiple Inheritance */
+    , public Base
 {
     // const MixerCTL::`vftable'{for `Base'} @ 0x61FEB8
     // const MixerCTL::`vftable'{for `Dispatchable'} @ 0x61FECC
@@ -117,17 +117,32 @@ public:
     ARTS_IMPORT u32 Init();
 
     // 0x4EE290 | ?RefreshAll@MixerCTL@@QAEXK@Z | unused
-    ARTS_EXPORT void RefreshAll(u32 arg1);
+    ARTS_EXPORT void RefreshAll(ulong arg1);
 
     // 0x4EEAB0 | ?SetDeviceNum@MixerCTL@@QAEXI@Z
-    ARTS_IMPORT void SetDeviceNum(u32 arg1);
+    ARTS_EXPORT void SetDeviceNum(u32 device_id);
 
 private:
     // 0x4EEAD0 | ?GetErrorMessage@MixerCTL@@AAEPADK@Z
     ARTS_IMPORT char* GetErrorMessage(u32 arg1);
 
     // 0x4EEB70 | ?WindowProc@MixerCTL@@EAEJPAUHWND__@@IIJ@Z
-    ARTS_EXPORT i32 WindowProc(struct HWND__* arg1, u32 arg2, u32 arg3, i32 arg4) override;
+    ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
+
+    f32 dword8 {1.0f};
+    f32 dwordC {1.0f};
+    f32 dword10 {1.0f};
+    f32 dword14 {1.0f};
+    f32 dword18 {1.0f};
+    f32 dword1C {1.0f};
+
+    void* Window {nullptr};
+    i32 dword24 {0};
+    i32 dword28 {1};
+    u32 DeviceId {0};
+
+    f32 WaveBalance {0.0f};
+    f32 CDBalance {0.0f};
 };
 
 check_size(MixerCTL, 0x38);

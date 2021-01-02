@@ -204,13 +204,6 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("mmLoader::Init", "Enable Text Transparency", 0x48B766 + 1, "\x01", 1);
 
-        for (mem::pointer address : {0x4EE463, 0x4EE697, 0x4EE9A3})
-        {
-            // The code writes to the first 2 channels, even when there are less.
-            // operator new(4 * pmxl.cChannels) -> operator new(4 * (pmxl.cChannels + 2))
-            create_patch("MixerCT", "Fix paDetails allocation", address + 3, "\x08", 1);
-        }
-
         patch_jmp("agiDDPipeline::CopyBitmap", "Disable Manual Blit", 0x5330AE, jump_type::always);
 
         patch_jmp("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, jump_type::always);
@@ -531,7 +524,7 @@ include_dummy_symbol(mmaudio_cd);
 // include_dummy_symbol(mmaudio_eaxguid);
 // include_dummy_symbol(mmaudio_head);
 // include_dummy_symbol(mmaudio_manager);
-// include_dummy_symbol(mmaudio_mixer);
+include_dummy_symbol(mmaudio_mixer);
 // include_dummy_symbol(mmaudio_mmvoicecommentary);
 // include_dummy_symbol(mmaudio_sound);
 // include_dummy_symbol(mmaudio_soundobj);
