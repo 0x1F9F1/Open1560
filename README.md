@@ -14,3 +14,6 @@ The intention is to allow the fixing of bugs, implementation of new features and
 1. Download and install the [Visual C++ 2019 Redistributable](https://aka.ms/vs/16/release/vc_redist.x86.exe).
 2. Download the [Latest Version](https://ci.appveyor.com/api/projects/0x1F9F1/Open1560/artifacts/build/Open1560.zip?branch=master) and extract the files directly into your MM1 directory.
 3. To play, run `Open1560.exe`
+
+## Support
+If you are having problems or wish to report a bug, [join the discord](https://discord.com/invite/t2zv2w7) or [create an issue](https://github.com/0x1F9F1/Open1560/issues/new)

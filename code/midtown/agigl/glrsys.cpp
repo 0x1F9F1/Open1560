@@ -65,7 +65,7 @@ static void CheckShader(u32 shader)
 
     char* log_text = new char[log_length];
     glGetShaderInfoLog(shader, log_length, &log_length, log_text);
-    Quitf("Failed to compile shader: %s", log_text);
+    Quitf("Failed to compile shader:\n%s", log_text);
 }
 
 static void CheckProgram(u32 program)
@@ -83,7 +83,7 @@ static void CheckProgram(u32 program)
 
     char* log_text = new char[log_length];
     glGetProgramInfoLog(program, log_length, &log_length, log_text);
-    Quitf("Failed to compile shader: %s", log_text);
+    Quitf("Failed to link program:\n%s", log_text);
 }
 
 static u32 CompileShader(u32 type, const char* src)

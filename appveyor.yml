@@ -18,7 +18,7 @@ build_script:
 
 artifacts:
   - path: build/output
-    name: Open1560
+    name: Open1560-%APPVEYOR_BUILD_NUMBER%
     type: zip
 
 notifications:
