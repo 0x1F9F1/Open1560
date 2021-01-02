@@ -44,7 +44,7 @@ static mem::cmd_param PARAM_voodooaa {"voodooaa"};
 i32 agiD3DRasterizer::BeginGfx()
 {
     // // FIXME: This half pixel offset shouldn't be required.
-    if (PARAM_voodooaa.get<bool>())
+    if (PARAM_voodooaa)
     {
         Displayf("Using half-pixel offset");
         VtxScreenOffset = -0.5f;

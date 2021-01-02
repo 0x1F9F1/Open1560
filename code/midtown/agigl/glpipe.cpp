@@ -124,7 +124,7 @@ i32 agiGLPipeline::BeginGfx()
     window_dc_ = GetDC(static_cast<HWND>(window_));
 
     dxiWidth = horz_res;
-    dxiHeight = horz_res;
+    dxiHeight = vert_res;
 
     PIXELFORMATDESCRIPTOR pfd {sizeof(pfd)};
 
