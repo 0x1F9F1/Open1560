@@ -23,33 +23,25 @@ define_dummy_symbol(mmaudio_mixer);
 #include "manager.h"
 #include <mmsystem.h>
 
+#include "dsglobal.h"
+
 void MixerCTL::RefreshAll(ulong /*arg1*/)
 {}
 
 void MixerCTL::SetDeviceNum(u32 device_num)
 {
-    Ptr<char* []> device_names { AUDMGRPTR->GetDeviceNames() };
-    char* device_name = device_names[device_num];
+    u32 wave_id = 0;
 
-    UINT num_mixers = mixerGetNumDevs();
-
-    for (UINT mixer_id = 0; mixer_id < num_mixers; ++mixer_id)
+    if (!DSGlobalPtr || !DSGlobalPtr->GetWaveDeviceID(device_num, wave_id))
     {
-        if (MIXERCAPSA mxcaps; mixerGetDevCapsA(mixer_id, &mxcaps, sizeof(mxcaps)) == MMSYSERR_NOERROR)
-        {
-            if (std::strncmp(mxcaps.szPname, device_name, 31) == 0)
-            {
-                DeviceId = mixer_id;
+        Errorf("MixerCTL::SetDeviceNum: Couldn't find mixer for device #%u", device_num);
 
-                return;
-            }
-        }
+        // Just hope for the best if it's a valid mixer ID
+        if (device_num < mixerGetNumDevs())
+            wave_id = device_num;
     }
 
-    Errorf("MixerCTL::SetDeviceNum: Couldn't find mixer for '%s' (%u)", device_name, device_num);
-
-    // Just hope for the best if it's a valid mixer ID
-    DeviceId = (device_num < num_mixers) ? device_num : 0;
+    DeviceId = wave_id;
 }
 
 LRESULT MixerCTL::WindowProc(HWND /*hwnd*/, UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/)

@@ -25,6 +25,8 @@
 #define DIRECTINPUT_VERSION 0x0500
 #define DIRECTSOUND_VERSION 0x0600
 
+#define INITGUID
+
 #include <algorithm>
 
 #include "core/defines.h"

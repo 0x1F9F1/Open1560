@@ -78,6 +78,31 @@
     0x719334 | class DSGlobal * DSGlobalPtr | ?DSGlobalPtr@@3PAVDSGlobal@@A
 */
 
+#include <Windows.h>
+
+#include <dsound.h>
+
+typedef struct tag_dsdevdesc
+{
+    GUID guDevice;      // Device GUID
+    PSTR pszDeviceDesc; // Description string
+    DWORD dwRating;     // Device Rating
+    struct tag_dsdevdesc* pNext;
+} DSDeviceDesc;
+
+check_size(DSDeviceDesc, 0x1C);
+
+typedef struct tag_fd
+{
+    DWORD dwCode;
+    BOOL fEnabled;
+} DSFormatData;
+
+check_size(DSFormatData, 0x8);
+
+class CDMan;
+class MixerCTL;
+
 class DSGlobal
 {
 public:
@@ -124,7 +149,9 @@ public:
     ARTS_IMPORT i32 EnumDSDevices();
 
     // 0x4F09C0 | ?GetDeviceNames@DSGlobal@@QAEPAPADXZ
-    ARTS_IMPORT char** GetDeviceNames();
+    ARTS_EXPORT char** GetDeviceNames();
+
+    bool GetWaveDeviceID(u32 device_num, u32& wave_id);
 
     // 0x4F09F0 | ?GetNum3DHallBufs@DSGlobal@@QAEKXZ | unused
     ARTS_IMPORT u32 GetNum3DHallBufs();
@@ -226,7 +253,28 @@ private:
     // 0x61FEEC | ?s_iUsingEAXMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iUsingEAXMask;
 
-    u8 gap0[0xB8];
+    i32 field_0;
+    IDirectSound* field_4;
+    HWND Window;
+    i32 field_C;
+    DSDeviceDesc* DevicesList;
+    i32 field_14;
+    i32 field_18;
+    char char1C[100];
+    u32 NumDevices;
+    i32 BitDepth;
+    i32 field_88;
+    i32 field_8C;
+    u8 byte90;
+    i32 field_94;
+    i32 field_98;
+    i32 CdManagerLoaded;
+    i32 field_A0;
+    CDMan* CDManager;
+    MixerCTL* Mixer;
+    DSDeviceDesc** DevicesArray;
+    i32 field_B0;
+    i32 field_B4;
 };
 
 check_size(DSGlobal, 0xB8);
@@ -247,4 +295,4 @@ ARTS_IMPORT void UpperCase(char* arg1);
 ARTS_IMPORT extern class DSGlobal* DSGlobalPtr;
 
 // 0x647DD8 | ?aOutputFormats@@3PAUtag_fd@@A
-ARTS_IMPORT extern struct tag_fd aOutputFormats[16];
+ARTS_IMPORT extern DSFormatData aOutputFormats[16];

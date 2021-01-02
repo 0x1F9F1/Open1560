@@ -519,7 +519,7 @@ include_dummy_symbol(memory_valloc);
 include_dummy_symbol(mmaudio_cd);
 // include_dummy_symbol(mmaudio_crevbuf);
 // include_dummy_symbol(mmaudio_creverb);
-// include_dummy_symbol(mmaudio_dsglobal);
+include_dummy_symbol(mmaudio_dsglobal);
 // include_dummy_symbol(mmaudio_dupbufcreator);
 // include_dummy_symbol(mmaudio_eaxguid);
 // include_dummy_symbol(mmaudio_head);
