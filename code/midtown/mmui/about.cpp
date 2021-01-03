@@ -45,7 +45,7 @@ run_once([] {
     char patch[] {"\x83\xC4\x04\x50\x68\x4A\x11\x64\x00\x8D\x85\xEC\xFE\xFF\xFF\x68\x00\x01\x00\x00\x50\xE8\xCC\xCC\xCC"
                   "\xCC\x83\xC4\x10\xEB\x4D"};
 
-    *(int32_t*) (patch + 0x16) = mem::pointer(GetMidtownRegString).sub(0x4A5F8D + 0x1A).as<int32_t>();
+    *(i32*) (patch + 0x16) = mem::pointer(GetMidtownRegString).sub(0x4A5F8D + 0x1A).as<i32>();
 
     create_patch("AboutMenu", "AboutMenu PID", 0x4A5F8D, patch, 0x1F);
 
