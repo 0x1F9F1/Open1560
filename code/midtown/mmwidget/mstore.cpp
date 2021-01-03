@@ -20,5 +20,41 @@ define_dummy_symbol(mmwidget_mstore);
 
 #include "mstore.h"
 
+#include "stream/fsystem.h"
+#include "stream/stream.h"
+#include "vector7/vector4.h"
+
 void MArray::Flush()
 {}
+
+void MArray::Read(char* name)
+{
+    Ptr<Stream> input = AsPtr(OpenFile(name, "tune", ".csv", 0, nullptr, 0, "widget file"));
+
+    if (input == nullptr)
+    {
+        Errorf("Can't open menu data file '%s'", name);
+
+        return;
+    }
+
+    char buffer[128];
+    input->Gets(buffer, ARTS_SIZE(buffer));
+
+    while (input->Gets(buffer, ARTS_SIZE(buffer)))
+    {
+        char* split_context = nullptr;
+
+        [[maybe_unused]] char* menu_name = arts_strtok(buffer, ",", &split_context);
+        [[maybe_unused]] char* background = arts_strtok(buffer, ",", &split_context);
+        i32 menu_id = std::atoi(arts_strtok(0, ",", &split_context));
+
+        Vector4 pos;
+        pos.w = std::atoi(arts_strtok(0, ",", &split_context)) / 640.0f; // x
+        pos.x = std::atoi(arts_strtok(0, ",", &split_context)) / 480.0f; // y
+        pos.y = std::atoi(arts_strtok(0, ",", &split_context)) / 640.0f; // w
+        pos.z = std::atoi(arts_strtok(0, ",", &split_context)) / 480.0f; // h
+
+        AddMenuData(menu_id, pos, nullptr);
+    }
+}

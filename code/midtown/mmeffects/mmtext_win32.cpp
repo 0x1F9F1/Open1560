@@ -162,13 +162,13 @@ void* mmText::CreateLocFont(LocString* params, i32 screen_width)
     char* split_params = arts_strdup(params->Text);
     char* split_context = nullptr;
 
-    char* font_name = strtok_s(split_params, ",", &split_context);
+    char* font_name = arts_strtok(split_params, ",", &split_context);
 
-    i32 height_low = std::atoi(strtok_s(nullptr, ",", &split_context));
-    i32 height_high = std::atoi(strtok_s(nullptr, ",", &split_context));
+    i32 height_low = std::atoi(arts_strtok(nullptr, ",", &split_context));
+    i32 height_high = std::atoi(arts_strtok(nullptr, ",", &split_context));
 
-    i32 char_set = std::atoi(strtok_s(nullptr, ",", &split_context));
-    i32 weight = std::atoi(strtok_s(nullptr, ",", &split_context));
+    i32 char_set = std::atoi(arts_strtok(nullptr, ",", &split_context));
+    i32 weight = std::atoi(arts_strtok(nullptr, ",", &split_context));
 
     void* result = CreateFontA((screen_width >= 640) ? height_high : height_low, 0, 0, 0, weight, FALSE, FALSE, FALSE,
         char_set, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, GetFontQuality(), VARIABLE_PITCH, font_name);

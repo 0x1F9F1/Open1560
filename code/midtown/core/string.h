@@ -36,6 +36,8 @@
 #define arts_strnicmp _strnicmp
 #define arts_strupr _strupr_s
 
+#define arts_strtok strtok_s
+
 char* arts_strdup(const char* str);
 
 class Stream;

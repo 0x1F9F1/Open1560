@@ -50,7 +50,7 @@ public:
     ARTS_IMPORT void Init(i32 arg1);
 
     // 0x4ABB30 | ?Read@MArray@@QAEXPAD@Z
-    ARTS_IMPORT void Read(char* arg1);
+    ARTS_EXPORT void Read(char* name);
 
     // 0x4ABD60 | ?RetrieveMenuData@MArray@@QAEHHAAM000@Z | unused
     ARTS_IMPORT i32 RetrieveMenuData(i32 arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5);
