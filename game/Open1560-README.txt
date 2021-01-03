@@ -5,6 +5,11 @@ To run, extract the files in the zip directly into your Midtown Madness 1 direct
 # Setup
 Open1560 uses command line parameters to configure certain aspects of the game:
 
+# Game
+-nodamage   | false | Disables Damage
+-allrace    | false | Unlocks All Races
+-allcars    | false | Unlocks All Cars
+
 # Basic
 -affinity   | 0     | Sets the process affinity
 -aspect     | true  | Enables black bars to avoid stretching

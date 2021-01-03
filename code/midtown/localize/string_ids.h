@@ -269,7 +269,7 @@
 #define MM_IDS_249 249
 #define MM_IDS_250 250
 #define MM_IDS_251 251
-#define MM_IDS_252 252
+#define MM_IDS_USE_DI_KEYS 252
 #define MM_IDS_253 253
 #define MM_IDS_254 254
 #define MM_IDS_255 255

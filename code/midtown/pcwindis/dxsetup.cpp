@@ -201,10 +201,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
 
     std::sort(
         info.Resolutions, info.Resolutions + info.ResCount, [](const dxiResolution& lhs, const dxiResolution& rhs) {
-            if (lhs.uWidth != rhs.uWidth)
-                return lhs.uWidth < rhs.uWidth;
-
-            return lhs.uHeight < rhs.uHeight;
+            return (lhs.uWidth != rhs.uWidth) ? (lhs.uWidth < rhs.uWidth) : (lhs.uHeight < rhs.uHeight);
         });
 
     if ((iMonitor.dwFlags & MONITORINFOF_PRIMARY) == MONITORINFOF_PRIMARY)
@@ -217,7 +214,10 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
 
     if (EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &dev_mode))
     {
-        info.ResChoice = dxiResClosestMatch(dxiRendererCount, dev_mode.dmPelsWidth, dev_mode.dmPelsHeight);
+        f32 current_ar = static_cast<f32>(dev_mode.dmPelsWidth) / static_cast<f32>(dev_mode.dmPelsHeight);
+
+        info.ResChoice = dxiResClosestMatch(
+            dxiRendererCount, static_cast<i32>(720.0f * current_ar), (std::min<i32>) (720, dev_mode.dmPelsHeight));
     }
 
     ++dxiRendererCount;
