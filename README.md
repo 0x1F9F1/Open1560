@@ -19,7 +19,7 @@ The intention is to allow the fixing of bugs, implementation of new features and
 * Do I need to install the XP patch?
     * No, Open1560 works with or without the XP patch.
 * Do I need to install dgVoodoo2?
-    * No, Open1560 has uses an OpenGL 3 renderer.
+    * No, Open1560 uses an OpenGL 3 renderer.
 
 ## Support
 If you are having problems or wish to report a bug, [join the discord](https://discord.com/invite/t2zv2w7) or [create an issue](https://github.com/0x1F9F1/Open1560/issues/new)
