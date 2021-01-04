@@ -87,7 +87,7 @@ ARTS_EXPORT void ipcWaitSingle(usize handle);
 ARTS_EXPORT void ipcYield();
 
 // 0x90AE60 | ?SynchronousMessageQueues@@3HA
-ARTS_IMPORT extern i32 SynchronousMessageQueues;
+ARTS_IMPORT extern b32 SynchronousMessageQueues;
 
 struct ipcMessage;
 

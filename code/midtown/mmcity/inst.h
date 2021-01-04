@@ -215,7 +215,7 @@ public:
     // 0x493250 | ?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
     ARTS_IMPORT void InitMeshes(char* arg1, i32 arg2, char* arg3, class Vector3* arg4);
 
-    static void* operator new(size_t size);
+    static void* operator new(std::size_t size);
 
     // 0x430690 | ??3mmInstance@@SAXPAX@Z | inline
     static void operator delete(void* ptr);

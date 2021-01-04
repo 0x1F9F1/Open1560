@@ -38,7 +38,7 @@ void asArg::Print(const char* name)
 
     Displayf("\tContents:");
 
-    for (size_t i = 0; i < 5; ++i)
+    for (usize i = 0; i < 5; ++i)
         Displayf("\t\t[%d] IVal: %d FVal: %f SVal: (%s)", i, iValues[i], fValues[i], sValues[i]);
 }
 

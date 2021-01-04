@@ -611,7 +611,7 @@ void asMemoryAllocator::SanityCheck()
     usize total = 0;
     usize total_used = 0;
 
-    EXCEPTION_BEGIN
+    ARTS_EXCEPTION_BEGIN
     {
         for (Node* n = GetFirstNode(); n != GetHeapEnd(); last = n, n = n->GetNext())
         {
@@ -673,7 +673,7 @@ void asMemoryAllocator::SanityCheck()
 
         // Displayf("Sanity Checked %u nodes (%u used, %u free)", total, total_used, total_free);
     }
-    EXCEPTION_END
+    ARTS_EXCEPTION_END
     {
         Abortf("Exception caught during sanity check");
     }

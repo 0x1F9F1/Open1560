@@ -3,14 +3,17 @@ Open1560 is an open source re-implementation of Midtown Madness 1 beta 1560.
 To run, extract the files in the zip directly into your Midtown Madness 1 directory and then run Open1560.exe.
 
 # Setup
-Open1560 uses command line parameters to configure certain aspects of the game:
+Open1560 uses command line arguments to configure certain aspects of the game.
+For a tutorial on how to use command line arguments, see https://www.bleepingcomputer.com/tutorials/understanding-command-line-arguments-and-how-to-use-them/
 
 # Game
+Name        | Value | Description
 -nodamage   | false | Disables Damage
 -allrace    | false | Unlocks All Races
 -allcars    | false | Unlocks All Cars
 
 # Basic
+Name        | Value | Description
 -affinity   | 0     | Sets the process affinity
 -aspect     | true  | Enables black bars to avoid stretching
 -cdid       | false | Enables CD music in the menu when using a virtual CD
@@ -26,6 +29,7 @@ Open1560 uses command line parameters to configure certain aspects of the game:
 -vsync      | true  | Enables vertical sync
 
 # Advanced
+Name        | Value | Description
 -agiverbose | false | Enables AGI (graphics) logging
 -fontscale  |       | Sets the debug font scale
 -gldebug    | false | Enables OpenGL debug output
@@ -33,6 +37,7 @@ Open1560 uses command line parameters to configure certain aspects of the game:
 -thinfont   | true  | Enables the debug font slightly thinner
 
 # DirectDraw (disabled)
+Name        | Value | Description
 -afilter    | 16    | Anisotropic filtering level
 -reshack    | true  | Enables resolutions above 2048x2048 when using MS ddraw
 -voodooaa   | false | Fixes text rendering when using dgVodooo's anti aliasing

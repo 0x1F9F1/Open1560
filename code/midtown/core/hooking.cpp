@@ -23,20 +23,20 @@
 #include <mem/module.h>
 #include <mem/protect.h>
 
-void write_protected(mem::pointer dest, mem::pointer src, size_t length)
+void write_protected(mem::pointer dest, mem::pointer src, std::size_t length)
 {
     mem::protect({dest, length}).copy(src);
 }
 
-const char* const HookTypeNames[static_cast<size_t>(hook_type::count)] = {
+const char* const HookTypeNames[static_cast<std::size_t>(hook_type::count)] = {
     "jmp",
     "call",
     "push",
     "pointer",
 };
 
-size_t HookCount = 0;
-size_t PatchCount = 0;
+std::size_t HookCount = 0;
+std::size_t PatchCount = 0;
 
 bool LogHooks = true;
 
@@ -79,18 +79,18 @@ void create_hook(const char* name, const char* description, mem::pointer pHook, 
 
     if (LogHooks)
     {
-        Displayf("Created %s hook '%s' from 0x%zX to 0x%zX: %s", HookTypeNames[static_cast<size_t>(type)], name,
-            pHook.as<size_t>(), pDetour.as<size_t>(), description);
+        Displayf("Created %s hook '%s' from 0x%zX to 0x%zX: %s", HookTypeNames[static_cast<std::size_t>(type)], name,
+            pHook.as<std::size_t>(), pDetour.as<std::size_t>(), description);
     }
 
     ++HookCount;
 }
 
-void create_patch(const char* name, const char* description, mem::pointer dest, mem::pointer src, size_t size)
+void create_patch(const char* name, const char* description, mem::pointer dest, mem::pointer src, std::size_t size)
 {
     write_protected(dest, src, size);
 
-    Displayf("Created patch '%s' at 0x%zX of size %zu: %s", name, dest.as<size_t>(), size, description);
+    Displayf("Created patch '%s' at 0x%zX of size %zu: %s", name, dest.as<std::size_t>(), size, description);
 
     ++PatchCount;
 }
@@ -98,7 +98,7 @@ void create_patch(const char* name, const char* description, mem::pointer dest, 
 void patch_jmp(const char* name, const char* description, mem::pointer target, jump_type mode)
 {
     const void* patch = nullptr;
-    size_t len = 0;
+    std::size_t len = 0;
 
     u8 op = target.as<u8&>();
 
@@ -141,5 +141,5 @@ void patch_jmp(const char* name, const char* description, mem::pointer target, j
     if (patch)
         create_patch(name, description, target, patch, len);
     else
-        Errorf("Unrecognized jmp at 0x%zX", target.as<size_t>());
+        Errorf("Unrecognized jmp at 0x%zX", target.as<std::size_t>());
 }

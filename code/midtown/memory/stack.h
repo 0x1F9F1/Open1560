@@ -67,17 +67,17 @@ void StackTraceback(i32 depth, i32 skipped);
 i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception);
 
 #ifndef ARTS_NO_EXCEPTION_CATCHING
-#    define EXCEPTION_BEGIN \
-        __try               \
+#    define ARTS_EXCEPTION_BEGIN \
+        __try                    \
         {
-#    define EXCEPTION_END \
-        }                 \
+#    define ARTS_EXCEPTION_END \
+        }                      \
         __except (ExceptionFilter(GetExceptionInformation()))
 #else
-#    define EXCEPTION_BEGIN \
-        if constexpr (true) \
+#    define ARTS_EXCEPTION_BEGIN \
+        if constexpr (true)      \
         {
-#    define EXCEPTION_END \
-        }                 \
+#    define ARTS_EXCEPTION_END \
+        }                      \
         else if constexpr (false)
 #endif

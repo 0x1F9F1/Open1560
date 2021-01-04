@@ -212,7 +212,7 @@ void ipcMessageQueue::Shutdown()
 
 i32 ipcMessageQueue::MessageLoop()
 {
-    EXCEPTION_BEGIN
+    ARTS_EXCEPTION_BEGIN
     {
         while (initialized_)
         {
@@ -238,7 +238,7 @@ i32 ipcMessageQueue::MessageLoop()
             ipcReleaseMutex(mutex_);
         }
     }
-    EXCEPTION_END
+    ARTS_EXCEPTION_END
     {
         Abortf("Exception caught in MessageLoop");
     }

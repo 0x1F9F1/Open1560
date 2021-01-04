@@ -173,7 +173,7 @@ void mmFont::Kill()
 
 static void* mmFont_AllocFunc(FT_Memory, long size)
 {
-    return arts_malloc(static_cast<size_t>(size));
+    return arts_malloc(static_cast<std::size_t>(size));
 }
 
 static void mmFont_FreeFunc(FT_Memory, void* block)
@@ -183,7 +183,7 @@ static void mmFont_FreeFunc(FT_Memory, void* block)
 
 static void* mmFont_ReallocFunc(FT_Memory, long, long new_size, void* block)
 {
-    return arts_realloc(block, static_cast<size_t>(new_size));
+    return arts_realloc(block, static_cast<std::size_t>(new_size));
 }
 
 static unsigned long mmFont_IoFunc(FT_Stream stream, unsigned long offset, unsigned char* buffer, unsigned long count)

@@ -160,7 +160,7 @@ static mem::cmd_param PARAM_res_hack {"reshack"};
 
 void Application(i32 argc, char** argv)
 {
-    EXCEPTION_BEGIN
+    ARTS_EXCEPTION_BEGIN
     {
         // Needs to be called before FileSystem destruction
         create_hook(
@@ -225,7 +225,7 @@ void Application(i32 argc, char** argv)
 
         ApplicationHelper(argc, argv);
     }
-    EXCEPTION_END
+    ARTS_EXCEPTION_END
     {
         // AIMAP.Dump()
 

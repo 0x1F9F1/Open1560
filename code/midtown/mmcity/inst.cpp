@@ -67,7 +67,7 @@ void mmMatrixInstance::AddWidgets(class Bank* /*arg1*/)
 void ARTS_FASTCALL mmStaticInstance::Relight()
 {}
 
-void* mmInstance::operator new(size_t size)
+void* mmInstance::operator new(std::size_t size)
 {
     return mmInstanceHeap.Allocate(size);
 }
