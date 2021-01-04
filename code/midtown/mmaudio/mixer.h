@@ -129,16 +129,16 @@ private:
     // 0x4EEB70 | ?WindowProc@MixerCTL@@EAEJPAUHWND__@@IIJ@Z
     ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
-    f32 dword8 {1.0f};
-    f32 dwordC {1.0f};
-    f32 dword10 {1.0f};
-    f32 dword14 {1.0f};
-    f32 dword18 {1.0f};
-    f32 dword1C {1.0f};
+    f32 field_8 {1.0f};
+    f32 field_C {1.0f};
+    f32 field_10 {1.0f};
+    f32 field_14 {1.0f};
+    f32 field_18 {1.0f};
+    f32 field_1C {1.0f};
 
     void* Window {nullptr};
-    i32 dword24 {0};
-    i32 dword28 {1};
+    i32 field_24 {0};
+    i32 field_28 {1};
     u32 DeviceId {0};
 
     f32 WaveBalance {0.0f};

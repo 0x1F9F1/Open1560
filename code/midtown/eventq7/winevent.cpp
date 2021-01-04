@@ -418,7 +418,7 @@ void WINEventHandler::Update(i32)
 
                 for (eqEventMonitor* monitor : monitors_)
                 {
-                    if (monitor && (monitor->dword10 & dwordC))
+                    if (monitor && (monitor->field_10 & field_C))
                         monitor->Mouse(
                             nullptr, events[1], events[2], events[3], events[4], events[5], events[6], events[7]);
                 }
@@ -432,7 +432,7 @@ void WINEventHandler::Update(i32)
 
                 for (eqEventMonitor* monitor : monitors_)
                 {
-                    if (monitor && (monitor->dword10 & dwordC))
+                    if (monitor && (monitor->field_10 & field_C))
                         monitor->Keyboard(0, events[1], events[2], events[3], 0);
                 }
 
@@ -575,7 +575,7 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 
             for (eqEventMonitor* monitor : monitors_)
             {
-                if (monitor && (monitor->dword10 & dwordC))
+                if (monitor && (monitor->field_10 & field_C))
                     monitor->Mouse(
                         hwnd, new_buttons, changed_buttons, buttons_, mouse_x_, mouse_y_, rect.left, rect.top);
             }
@@ -614,7 +614,7 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 
             for (eqEventMonitor* monitor : monitors_)
             {
-                if (monitor && (monitor->dword10 & dwordC))
+                if (monitor && (monitor->field_10 & field_C))
                     monitor->Keyboard(hwnd, modifiers, wParam, 0, lParam);
             }
 
@@ -632,7 +632,7 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 
             for (eqEventMonitor* monitor : monitors_)
             {
-                if (monitor && (monitor->dword10 & dwordC))
+                if (monitor && (monitor->field_10 & field_C))
                     monitor->Keyboard(hwnd, modifiers, 0, wParam, lParam);
             }
 
@@ -723,7 +723,7 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 
             for (eqEventMonitor* monitor : monitors_)
             {
-                if (monitor && (monitor->dword10 & dwordC))
+                if (monitor && (monitor->field_10 & field_C))
                     monitor->Refocus(hwnd, focused);
             }
 
@@ -733,7 +733,7 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
         case WM_PAINT: {
             for (eqEventMonitor* monitor : monitors_)
             {
-                if (monitor && (monitor->dword10 & dwordC))
+                if (monitor && (monitor->field_10 & field_C))
                     monitor->Redraw(hwnd, 0, 0, 0, 0);
             }
 

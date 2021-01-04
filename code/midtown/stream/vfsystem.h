@@ -56,88 +56,88 @@ check_size(AresHeader, 0x10);
 
 struct VirtualFileInode
 {
-    u32 dword0 {0};
-    u32 dword4 {0};
-    u32 dword8 {0};
+    u32 field_0 {0};
+    u32 field_4 {0};
+    u32 field_8 {0};
 
     u32 GetOffset() const
     {
-        return dword0;
+        return field_0;
     }
 
     u32 GetSize() const
     {
-        return dword4 & 0x7FFFFF;
+        return field_4 & 0x7FFFFF;
     }
 
     u32 GetEntryIndex() const
     {
-        return dword0;
+        return field_0;
     }
 
     u32 GetEntryCount() const
     {
-        return dword4 & 0x7FFFFF;
+        return field_4 & 0x7FFFFF;
     }
 
     bool IsDirectory() const
     {
-        return (dword8 & 1) != 0;
+        return (field_8 & 1) != 0;
     }
 
     u32 GetNameOffset() const
     {
-        return (dword8 >> 14) & 0x3FFFF;
+        return (field_8 >> 14) & 0x3FFFF;
     }
 
     u32 GetExtOffset() const
     {
-        return (dword4 >> 23) & 0x1FF;
+        return (field_4 >> 23) & 0x1FF;
     }
 
     u32 GetNameInteger() const
     {
-        return (dword8 >> 1) & 0x1FFF;
+        return (field_8 >> 1) & 0x1FFF;
     }
 
     void SetOffset(u32 offset)
     {
-        dword0 = offset;
+        field_0 = offset;
     }
 
     void SetSize(u32 size)
     {
-        dword4 = (dword4 & 0xFF800000) | (size);
+        field_4 = (field_4 & 0xFF800000) | (size);
     }
 
     void SetEntryIndex(u32 index)
     {
-        dword0 = index;
+        field_0 = index;
     }
 
     void SetEntryCount(u32 size)
     {
-        dword4 = (dword4 & 0xFF800000) | (size);
+        field_4 = (field_4 & 0xFF800000) | (size);
     }
 
     void SetIsDirectory(bool is_dir)
     {
-        dword8 = (dword8 & 0xFFFFFFFE) | u32(is_dir);
+        field_8 = (field_8 & 0xFFFFFFFE) | u32(is_dir);
     }
 
     void SetNameOffset(u32 offset)
     {
-        dword8 = (dword8 & 0x00003FFF) | (offset << 14);
+        field_8 = (field_8 & 0x00003FFF) | (offset << 14);
     }
 
     void SetExtOffset(u32 offset)
     {
-        dword4 = (dword4 & 0x007FFFFF) | (offset << 23);
+        field_4 = (field_4 & 0x007FFFFF) | (offset << 23);
     }
 
     void SetNameInteger(u32 value)
     {
-        dword8 = (dword8 & 0xFFFFC001) | (value << 1);
+        field_8 = (field_8 & 0xFFFFC001) | (value << 1);
     }
 };
 

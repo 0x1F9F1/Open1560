@@ -111,7 +111,7 @@ protected:
     f32 height_scale_ {0.0f};
 
     b32 is_3D_ {0};
-    u32 dword38 {1}; // Always 1 ?
+    u32 field_38 {1}; // Always 1 ?
 };
 
 check_size(agiBitmap, 0x3C);

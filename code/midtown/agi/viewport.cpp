@@ -25,7 +25,7 @@ define_dummy_symbol(agi_viewport);
 
 agiViewport::agiViewport(class agiPipeline* pipe)
     : agiRefreshable(pipe)
-    , dword144_(pipe_->GetDword38())
+    , field_144_(pipe_->GetDword38())
 {}
 
 agiViewport::~agiViewport()

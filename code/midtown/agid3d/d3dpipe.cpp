@@ -81,7 +81,7 @@ static extern_var(0x795BDC, const char*, WantedDeviceName);
 static DDPIXELFORMAT ZBufferFormat;
 
 // 0x530980 | ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
-/*static*/ long ARTS_STDCALL EnumZ(struct _DDPIXELFORMAT* format, void* context)
+static long ARTS_STDCALL EnumZ(struct _DDPIXELFORMAT* format, void* context)
 {
     agiDisplayf("Z bit depth = %d", format->dwRGBBitCount);
 

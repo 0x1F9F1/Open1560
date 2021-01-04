@@ -58,10 +58,10 @@ struct eqCommonEvent
 
 struct eqRedrawEvent : eqCommonEvent
 {
-    i32 dword8;
-    i32 dwordC;
-    i32 dword10;
-    i32 dword14;
+    i32 field_8;
+    i32 field_C;
+    i32 field_10;
+    i32 field_14;
 };
 
 struct eqRefocusEvent : eqCommonEvent

@@ -304,7 +304,7 @@ public:
 
     u32 GetDword38() const
     {
-        return dword38;
+        return field_38;
     }
 
     i32 GetHorzRes() const
@@ -346,7 +346,7 @@ protected:
     i32 horz_res_ {0};
     i32 vert_res_ {0};
     f32 scale_ {1.0f};
-    u32 dword38 {2}; // ViewIndex ?
+    u32 field_38 {2}; // ViewIndex ?
     u32 light_mask_ {0xFFFFFFFF};
     char gap40[260] {};
 

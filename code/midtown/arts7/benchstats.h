@@ -42,26 +42,26 @@ public:
     // 0x52CE60 | ?Reset@asBenchStats@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    i32 dword0;
-    i32 dword4;
-    i32 dword8;
-    i32 dwordC;
-    i32 dword10;
-    i32 dword14;
-    i32 dword18;
+    i32 field_0;
+    i32 field_4;
+    i32 field_8;
+    i32 field_C;
+    i32 field_10;
+    i32 field_14;
+    i32 field_18;
     f32 UpdateTime;
     f32 DeviceTime;
-    f32 dword24;
+    f32 field_24;
     f32 Widgets;
-    f32 dword2C;
-    f32 dword30;
-    i32 dword34;
-    i32 dword38;
-    i32 dword3C;
+    f32 field_2C;
+    f32 field_30;
+    i32 field_34;
+    i32 field_38;
+    i32 field_3C;
     i32 LCSUpdates;
-    i32 dword44;
-    i32 dword48;
-    i32 dword4C;
+    i32 field_44;
+    i32 field_48;
+    i32 field_4C;
 };
 
 check_size(asBenchStats, 0x50);

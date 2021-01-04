@@ -98,7 +98,7 @@ protected:
 
     b32 debug_ {false};
     u32 tracked_events_ {0};
-    i32 dwordC {-1};
+    i32 field_C {-1};
     eqEventMonitor* monitors_[8] {};
     u32 wants_motion_ {1};
     i32 mouse_x_ {0};
@@ -157,9 +157,9 @@ public:
     friend class eqEventHandler;
 
     eqEventHandler* handler_ {nullptr};
-    u32 dword8 {0};
+    u32 field_8 {0};
     i32 handler_index_ {0};
-    u32 dword10 {0};
+    u32 field_10 {0};
 };
 
 check_size(eqEventMonitor, 0x14);

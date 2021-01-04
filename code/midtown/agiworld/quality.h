@@ -46,7 +46,7 @@ struct agiWorldRenderQuality
 
     f32 FarClip;
 
-    f32 dword20;
+    f32 field_20;
 
     // 0 | Point
     // 1 | Linear

@@ -157,7 +157,7 @@ protected:
     friend agiViewport* GetActiveViewport();
 
     agiViewParameters params_;
-    u32 dword144_; // ViewIndex ?
+    u32 field_144_; // ViewIndex ?
     // TODO: Is clear_color_ part of agiViewport ?
 };
 

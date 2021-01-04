@@ -306,13 +306,13 @@ struct t_mmEnvSetup
     const char* Sky;
     const char* SphereMap;
     const char* ShadowMap;
-    f32 dwordC;
-    f32 dword10;
+    f32 field_C;
+    f32 field_10;
     f32 FogEnd;
     u32 SkyColor;
-    f32 dword1C;
-    f32 dword20;
-    f32 dword24;
+    f32 field_1C;
+    f32 field_20;
+    f32 field_24;
 };
 
 check_size(t_mmEnvSetup, 0x28);

@@ -55,11 +55,11 @@ public:
     u32 Flags {0x3};
     b32 Touched {true};
     Vector3 Ambient {0.0f, 0.0f, 0.0f};
-    f32 dword14 {1.0f};
+    f32 field_14 {1.0f};
     Vector3 Diffuse {1.0f, 1.0f, 1.0f};
     f32 Alpha {1.0f};
     Vector3 Specular {1.0f, 1.0f, 1.0f};
-    f32 dword34 {1.0f};
+    f32 field_34 {1.0f};
     Vector4 Position {0.0f, 0.0f, 1.0f, 1.0f};
     Vector3 Direction {0.0f, 0.0f, -1.0f};
     f32 SpotExp {0.0f};
@@ -68,7 +68,7 @@ public:
     f32 LinearAtten {0.0f};
     f32 QuadraticAtten {0.0f};
     f32 SpecularExp {0.0f};
-    u32 dword6C {0xFFFFFFFF};
+    u32 field_6C {0xFFFFFFFF};
 };
 
 check_size(agiLightParameters, 0x70);

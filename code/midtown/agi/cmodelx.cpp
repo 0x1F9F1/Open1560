@@ -51,9 +51,7 @@ RcOwner<class agiColorModel> agiColorModel::FindMatch(i32 mask_r, i32 mask_g, i3
         if ((static_cast<u32>(mask_r) == model->GetMaskR()) && (static_cast<u32>(mask_g) == model->GetMaskG()) &&
             (static_cast<u32>(mask_b) == model->GetMaskB()) && (static_cast<u32>(mask_a) == model->GetMaskA()))
         {
-            model->AddRef();
-
-            return model;
+            return AsOwner(AddRc(model));
         }
     }
 
