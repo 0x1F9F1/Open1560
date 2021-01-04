@@ -26,7 +26,7 @@ define_dummy_symbol(mmaudio_dsglobal);
 
 typedef WINUSERAPI HRESULT(WINAPI* LPFNDLLGETCLASSOBJECT)(const CLSID&, const IID&, void**);
 
-bool DirectSoundPrivateCreate(LPKSPROPERTYSET* ppKsPropertySet)
+static bool DirectSoundPrivateCreate(LPKSPROPERTYSET* ppKsPropertySet)
 {
     LPFNDLLGETCLASSOBJECT pfnDllGetClassObject =
         (LPFNDLLGETCLASSOBJECT) GetProcAddress(GetModuleHandleA("DSOUND"), "DllGetClassObject");
@@ -52,7 +52,7 @@ bool DirectSoundPrivateCreate(LPKSPROPERTYSET* ppKsPropertySet)
     return true;
 }
 
-bool GetInfoFromDSoundGUID(GUID i_sGUID, u32& dwWaveID)
+static bool GetInfoFromDSoundGUID(GUID i_sGUID, u32& dwWaveID)
 {
     BOOL success = FALSE;
 
@@ -111,13 +111,17 @@ static mem::cmd_param PARAM_cdid {"cdid"};
 
 u8 DSGlobal::CheckCDFile(char* file_name)
 {
-    if (!std::strcmp(file_name, "cdid.txt") && PARAM_cdid)
-        return true;
+    if (!std::strcmp(file_name, "cdid.txt"))
+    {
+        if (bool cdid = false; PARAM_cdid.get(cdid))
+            return cdid;
+    }
 
     for (char letter = 'A'; letter <= 'Z'; ++letter)
     {
         char path[200];
         arts_strcpy(path, "A:\\");
+        path[0] = letter;
 
         if (GetDriveTypeA(path) == DRIVE_CDROM)
         {
