@@ -73,19 +73,10 @@ struct class_proxy
         reinterpret_cast<Class*>(this)->~Class();
     }
 
-    template <typename F, typename... Args>
-    struct function_proxy : F
-    {
-        inline decltype(auto) invoke(Args... args)
-        {
-            return F::operator()(reinterpret_cast<Class*>(this), std::forward<Args>(args)...);
-        }
-    };
-
     template <typename... Args, typename F>
-    static constexpr auto func(F) -> decltype(&function_proxy<F, Args...>::invoke)
+    static constexpr auto func(F) -> std::invoke_result_t<F, Args...> (F::*)(Args...)
     {
-        return &function_proxy<F, Args...>::invoke;
+        return &F::operator();
     }
 };
 
@@ -94,10 +85,10 @@ struct class_proxy
 
 #define auto_hook_dtor(ADDRESS, TYPE) create_hook(#TYPE "::~" #TYPE, "", ADDRESS, &class_proxy<TYPE>::dtor)
 
-#define auto_hook_mfunc(ADDRESS, TYPE, NAME, ...)                                            \
-    create_hook(#TYPE "::" #NAME, "", ADDRESS,                                               \
-        class_proxy<TYPE>::func<__VA_ARGS__>([](auto* ptr, auto... args) -> decltype(auto) { \
-            return ptr->TYPE::NAME(std::forward<decltype(args)>(args)...);                   \
+#define auto_hook_mfunc(ADDRESS, TYPE, NAME, ...)                                                      \
+    create_hook(#TYPE "::" #NAME, "", ADDRESS,                                                         \
+        class_proxy<TYPE>::func<__VA_ARGS__>([self = char()](auto... args) mutable -> decltype(auto) { \
+            return reinterpret_cast<TYPE*>(&self)->TYPE::NAME(std::forward<decltype(args)>(args)...);  \
         }))
 
 #ifdef ARTS_STANDALONE
