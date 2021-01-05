@@ -44,6 +44,45 @@ void MixerCTL::SetDeviceNum(u32 device_num)
     DeviceId = wave_id;
 }
 
+const char* MixerCTL::GetErrorMessage(ulong error)
+{
+    // FIXME: These strings as used as the format strings when calling Errorf
+
+    switch (error)
+    {
+        // clang-format off
+        case MMSYSERR_NOERROR:      return "MMSYSERR_NOERROR";
+        case MMSYSERR_ERROR:        return "MMSYSERR_ERROR";
+        case MMSYSERR_BADDEVICEID:  return "MMSYSERR_BADDEVICEID The uMxId parameter specifies an invalid device identifier.";
+        case MMSYSERR_NOTENABLED:   return "MMSYSERR_NOTENABLED";
+        case MMSYSERR_ALLOCATED:    return "MMSYSERR_ALLOCATED The specified resource is already allocated by the maximum number of clients possible.";
+        case MMSYSERR_INVALHANDLE:  return "MMSYSERR_INVALHANDLE The uMxId parameter specifies an invalid handle.";
+        case MMSYSERR_NODRIVER:     return "MMSYSERR_NODRIVER No mixer device is available for the object specified by uMxId. Note that the location referenced by uMxId will also contain the value 1. ";
+        case MMSYSERR_NOMEM:        return "MMSYSERR_NOMEM Error in MixerCTL::GetWaveBalance() Unable to allocate or lock memory";
+        case MMSYSERR_NOTSUPPORTED: return "MMSYSERR_NOTSUPPORTED Error in MixerCTL::GetWaveBalance() Function isn't supported.";
+        case MMSYSERR_BADERRNUM:    return "MMSYSERR_BADERRNUM";
+        case MMSYSERR_INVALFLAG:    return "MMSYSERR_INVALFLAG One or more flags are invalid.";
+        case MMSYSERR_INVALPARAM:   return "MMSYSERR_INVALPARAM One or more parameters are invalid.";
+        case MMSYSERR_HANDLEBUSY:   return "MMSYSERR_HANDLEBUSY";
+        case MMSYSERR_INVALIDALIAS: return "MMSYSERR_INVALIDALIAS";
+        case MMSYSERR_BADDB:        return "MMSYSERR_BADDB";
+        case MMSYSERR_KEYNOTFOUND:  return "MMSYSERR_KEYNOTFOUND";
+        case MMSYSERR_READERROR:    return "MMSYSERR_READERROR";
+        case MMSYSERR_WRITEERROR:   return "MMSYSERR_WRITEERROR";
+        case MMSYSERR_DELETEERROR:  return "MMSYSERR_DELETEERROR";
+        case MMSYSERR_VALNOTFOUND:  return "MMSYSERR_VALNOTFOUND";
+        case MMSYSERR_NODRIVERCB:   return "MMSYSERR_NODRIVERCB";
+        case MMSYSERR_MOREDATA:     return "MMSYSERR_MOREDATA";
+
+        case MIXERR_INVALLINE:      return "MIXERR_INVALLINE The audio line reference is invalid.";
+        case MIXERR_INVALCONTROL:   return "MIXERR_INVALCONTROL";
+        case MIXERR_INVALVALUE:     return "MIXERR_INVALVALUE";
+
+        default:                    return "Unknown Mixer Error";
+        // clang-forat on
+    }
+}
+
 LRESULT MixerCTL::WindowProc(HWND /*hwnd*/, UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     return 0;

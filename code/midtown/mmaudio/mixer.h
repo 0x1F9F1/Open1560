@@ -124,7 +124,7 @@ public:
 
 private:
     // 0x4EEAD0 | ?GetErrorMessage@MixerCTL@@AAEPADK@Z
-    ARTS_IMPORT char* GetErrorMessage(u32 arg1);
+    ARTS_EXPORT const char* GetErrorMessage(ulong error);
 
     // 0x4EEB70 | ?WindowProc@MixerCTL@@EAEJPAUHWND__@@IIJ@Z
     ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
