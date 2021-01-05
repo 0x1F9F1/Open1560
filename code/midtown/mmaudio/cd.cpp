@@ -24,7 +24,7 @@ define_dummy_symbol(mmaudio_cd);
 
 CDMan::~CDMan()
 {
-    if (is_opened_)
+    if (device_id_ != 0)
     {
         mciSendCommandA(device_id_, MCI_STOP, MCI_WAIT, NULL);
         mciSendCommandA(device_id_, MCI_CLOSE, MCI_WAIT, NULL);
@@ -78,21 +78,17 @@ MCIERROR CDMan::GetPosition(u8* track, u8* minute, u8* second, u8* frame)
 
 MCIERROR CDMan::Init([[maybe_unused]] b16 close)
 {
-    if (is_opened_)
-    {
-        mciSendCommandA(device_id_, MCI_STOP, MCI_WAIT, NULL);
-        mciSendCommandA(device_id_, MCI_CLOSE, MCI_WAIT, NULL);
+    is_opened_ = false;
+    is_playing_ = false;
 
-        is_opened_ = false;
-    }
-
-    device_id_ = 0;
+    track_count_ = 0;
 
     current_track_ = 0;
     current_minute_ = 0;
     current_second_ = 0;
     current_frame_ = 0;
 
+    if (device_id_ == 0)
     {
         open_params_.lpstrDeviceType = (LPCSTR) MCI_DEVTYPE_CD_AUDIO;
 
@@ -102,8 +98,6 @@ MCIERROR CDMan::Init([[maybe_unused]] b16 close)
 
         device_id_ = open_params_.wDeviceID;
     }
-
-    is_opened_ = true;
 
     {
         MCI_STATUS_PARMS status_params {};
@@ -122,6 +116,8 @@ MCIERROR CDMan::Init([[maybe_unused]] b16 close)
         if (MCIERROR result = mciSendCommandA(device_id_, MCI_SET, MCI_SET_TIME_FORMAT, (DWORD_PTR) &set_params))
             return result;
     }
+
+    is_opened_ = true;
 
     return ERROR_SUCCESS;
 }
