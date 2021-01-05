@@ -62,16 +62,13 @@ extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
             }
             else
             {
-                MessageBoxA(NULL, "Fatal Error", "Failed to find DirectInputCreateA", MB_OK);
-
-                std::exit(1);
+                Abortf("Failed to find DirectInputCreateA");
             }
         }
         else
         {
-            MessageBoxA(NULL, "Fatal Error", "Failed to load dinput.dll", MB_OK);
-
-            std::exit(1);
+            Abortf("Failed to load dinput.dll\n"
+                   "If you are using Wine, ensure you are using \"dinput=n,b\"");
         }
     }
 
