@@ -95,8 +95,15 @@ void dxiDirectDrawSurfaceDestroy()
 extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
     HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA* ppDI, LPUNKNOWN punkOuter);
 
+static mem::cmd_param PARAM_dpiaware {"dpiaware"};
+
 void dxiDirectInputCreate()
 {
+    if (PARAM_dpiaware.get_or(true))
+    {
+        SetProcessDPIAware();
+    }
+
     HRESULT err = DirectInputCreateA_Impl(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
 
     if (err != 0)
