@@ -139,14 +139,14 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect,
             u32 dst_y = (y >> 6) + src_y - face_->glyph->bitmap_top;
 
             if (dst_y >= surface->Height)
-                break;
+                continue;
 
             for (u32 src_x = 0; src_x < face_->glyph->bitmap.width; ++src_x)
             {
                 u32 dst_x = (x >> 6) + src_x + face_->glyph->bitmap_left;
 
                 if (dst_x >= surface->Width)
-                    break;
+                    continue;
 
                 if (face_->glyph->bitmap.buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
                     cmodel->SetPixel(surface, dst_x, dst_y, color);

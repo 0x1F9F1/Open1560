@@ -151,7 +151,7 @@ static i32 GetFontQuality()
     return ANTIALIASED_QUALITY;
 }
 
-void* mmText::CreateFont(char* font_name, i32 height)
+void* mmText::CreateFont(const char* font_name, i32 height)
 {
     return CreateFontA(height, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, ANSI_CHARSET, OUT_DEFAULT_PRECIS,
         CLIP_DEFAULT_PRECIS, GetFontQuality(), VARIABLE_PITCH, font_name);
@@ -274,7 +274,7 @@ void mmTextNode::GetTextDimensions(void* font, LocString* text, f32& width, f32&
         {
             // TODO: Shouldn't this also set the font?
             // TODO: Shouldn't this pass the length of the text, not the max size?
-            GetTextExtentPoint32A(dc, lines_[0].Text, str::strlen(lines_[0].Text), &size);
+            GetTextExtentPoint32A(dc, lines_[0].Text, std::strlen(lines_[0].Text), &size);
         }
 
         mmText::ReleaseDC();
