@@ -196,10 +196,12 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("Heap Size", "Increase Heap Size", 0x401E11, "\xB8\x00\x00\x00\x08", 5); // mov eax, 0x8000000
 
+#ifndef ARTS_FINAL
         patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
         patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
 
         create_patch("mmLoader::Init", "Enable Text Transparency", 0x48B766 + 1, "\x01", 1);
+#endif
 
         patch_jmp("agiDDPipeline::CopyBitmap", "Disable Manual Blit", 0x5330AE, jump_type::always);
 
