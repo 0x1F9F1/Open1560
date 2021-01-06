@@ -52,8 +52,8 @@ ARTS_EXPORT i32 geinputGetBufferedKeyboard(i8* presses);
 ARTS_EXPORT i8* geinputGetKeyboard();
 
 // 0x564320 | ?geinputGetMouse@@YAXPAJ0PAD10001@Z
-ARTS_IMPORT void geinputGetMouse(
-    long* arg1, long* arg2, char* arg3, char* arg4, long* arg5, long* arg6, long* arg7, char* arg8);
+ARTS_EXPORT void geinputGetMouse(
+    ilong* mouse_x, ilong* mouse_y, i8* l_button, i8* r_button, ilong* mouse_raw_x, ilong* mouse_raw_y, ilong* mouse_raw_z, i8* m_button);
 
 // 0x563DE0 | ?inputSetup@@YAHHHHHH@Z
 ARTS_IMPORT i32 inputSetup(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);

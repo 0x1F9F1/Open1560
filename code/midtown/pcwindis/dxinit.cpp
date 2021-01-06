@@ -100,7 +100,7 @@ void dxiDirectInputCreate()
     HRESULT err = DirectInputCreateA_Impl(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
 
     if (err != 0)
-        Quitf("DirectInputCreate failed, code %x", u16(err));
+        Quitf("DirectInputCreate failed, code %x", err);
 }
 
 static inline void dxiRestoreDisplayMode()

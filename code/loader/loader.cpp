@@ -35,13 +35,13 @@
 
 #include <mem/module.h>
 
-static decltype(&DirectInputCreateA) DirectInputCreateA_Orig = nullptr;
-
 #pragma comment(linker, "/EXPORT:DirectInputCreateA=_DirectInputCreateA_Impl@16")
 
 extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
     HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA* ppDI, LPUNKNOWN punkOuter)
 {
+    static decltype(&DirectInputCreateA_Impl) DirectInputCreateA_Orig = nullptr;
+
     if (DirectInputCreateA_Orig == nullptr)
     {
         wchar_t dinput_path[MAX_PATH];

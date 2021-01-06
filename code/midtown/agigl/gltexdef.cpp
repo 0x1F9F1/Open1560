@@ -162,8 +162,8 @@ i32 agiGLTexDef::BeginGfx()
 
         SurfaceSize += pitch * height;
         data += pitch * height;
-        width >>= 1;
-        height >>= 1;
+        width = (std::max)(width >> 1, 1);
+        height = (std::max)(height >> 1, 1);
         pitch >>= 1;
     }
 
@@ -279,6 +279,7 @@ void agiGLTexDef::Unlock(agiTexLock& lock)
     glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, lock.Width, lock.Height, format, type, lock.Surface);
 
     lock.ColorModel->Release();
+    lock = {};
 }
 
 b32 agiGLTexDef::IsAvailable()

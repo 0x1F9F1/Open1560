@@ -102,7 +102,7 @@ i32 WINEventHandler::BeginGfx(i32 width, i32 height, i32 fullscreen)
 
 void WINEventHandler::BeginTracking()
 {
-    tracked_events_ |= 3u;
+    tracked_events_ |= 0x3;
 
     POINT point;
     GetCursorPos(&point);
@@ -467,16 +467,16 @@ void WINEventHandler::Update(i32)
     }
     else if (input_method_ == 3)
     {
-        long mouse_x = 0;
-        long mouse_y = 0;
+        ilong mouse_x = 0;
+        ilong mouse_y = 0;
 
-        long mouse_raw_x = 0;
-        long mouse_raw_y = 0;
-        long mouse_raw_z = 0;
+        ilong mouse_raw_x = 0;
+        ilong mouse_raw_y = 0;
+        ilong mouse_raw_z = 0;
 
-        char mouse_button_l = 0;
-        char mouse_button_r = 0;
-        char mouse_button_m = 0;
+        i8 mouse_button_l = 0;
+        i8 mouse_button_r = 0;
+        i8 mouse_button_m = 0;
 
         geinputGetMouse(&mouse_x, &mouse_y, &mouse_button_l, &mouse_button_r, &mouse_raw_x, &mouse_raw_y, &mouse_raw_z,
             &mouse_button_m);
