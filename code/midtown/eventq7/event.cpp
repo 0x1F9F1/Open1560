@@ -41,29 +41,26 @@ eqEventHandler::~eqEventHandler()
 
 void eqEventHandler::AddClient(eqEventMonitor* monitor)
 {
-    if (monitor->handler_)
+    if (monitor->handler_ != nullptr)
     {
         Errorf("AddClient: already added somewhere");
+
         return;
     }
 
-    usize index = 0;
-
-    for (; index < ARTS_SIZE(monitors_); ++index)
+    for (usize index = 0; index < ARTS_SIZE(monitors_); ++index)
     {
         if (monitors_[index] == nullptr)
-            break;
+        {
+            monitors_[index] = monitor;
+            monitor->handler_index_ = index;
+            monitor->handler_ = this;
+
+            return;
+        }
     }
 
-    if (index >= ARTS_SIZE(monitors_))
-    {
-        Errorf("AddClient: already too many clients");
-        return;
-    }
-
-    monitors_[index] = monitor;
-    monitor->handler_index_ = index;
-    monitor->handler_ = this;
+    Errorf("AddClient: already too many clients");
 }
 
 void eqEventHandler::RemoveClient(eqEventMonitor* monitor)
@@ -71,6 +68,7 @@ void eqEventHandler::RemoveClient(eqEventMonitor* monitor)
     if (monitor->handler_ == nullptr)
     {
         Errorf("RemoveClient: not added?");
+
         return;
     }
 

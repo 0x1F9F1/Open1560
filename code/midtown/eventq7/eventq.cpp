@@ -22,8 +22,8 @@ define_dummy_symbol(eventq7_eventq);
 
 eqEventQ::eqEventQ(i32 arg1, i32 enabled_events, i32 max_events)
     : eqEventMonitor(arg1)
+    , events_(new eqEvent[max_events])
 {
-    events_ = new eqEvent[max_events];
     enabled_events_ = enabled_events;
     max_events_ = max_events;
 
@@ -41,8 +41,6 @@ eqEventQ::eqEventQ(i32 arg1, i32 enabled_events, i32 max_events)
 
 eqEventQ::~eqEventQ()
 {
-    delete[] events_;
-
     if (registered_)
         eqEventHandler::SuperQ->RemoveClient(this);
 }

@@ -151,7 +151,7 @@ private:
     // 0x563D00 | ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
     ARTS_EXPORT void Queue(union eqEvent& event);
 
-    eqEvent* events_ {nullptr};
+    Ptr<eqEvent[]> events_ {nullptr};
     u32 enabled_events_ {0};
     u32 max_events_ {0};
     u32 write_head_ {0};
