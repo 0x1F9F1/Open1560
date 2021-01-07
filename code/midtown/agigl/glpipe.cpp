@@ -30,6 +30,7 @@
 #include "data7/utimer.h"
 #include "eventq7/winevent.h"
 #include "pcwindis/dxinit.h"
+#include "pcwindis/setupdata.h"
 
 #include "glbitmap.h"
 #include "glerror.h"
@@ -99,13 +100,40 @@ i32 agiGLPipeline::BeginGfx()
     valid_bit_depths_ = 0x4;
     flags_ = 0x1 | 0x4 | 0x10;
 
-    // TODO: Get monitor position from dxiInfo
+    struct MonitorInfo
+    {
+        HMONITOR monitor;
+        MONITORINFOEXA mi;
+    };
 
-    MONITORINFO info {sizeof(MONITORINFO)};
-    GetMonitorInfo(MonitorFromWindow(static_cast<HWND>(window_), MONITOR_DEFAULTTONEAREST), &info);
+    MonitorInfo info {NULL, {sizeof(info.mi)}};
 
-    i32 horz_res = info.rcMonitor.right - info.rcMonitor.left;
-    i32 vert_res = info.rcMonitor.bottom - info.rcMonitor.top;
+    EnumDisplayMonitors(
+        NULL, NULL,
+        [](HMONITOR hMonitor, HDC, [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam) -> BOOL {
+            MonitorInfo& mi = *(MonitorInfo*) (lParam);
+
+            if (!GetMonitorInfoA(hMonitor, &mi.mi))
+                return TRUE;
+
+            if (std::strcmp(GetRendererInfo().Name, mi.mi.szDevice))
+                return TRUE;
+
+            mi.monitor = hMonitor;
+
+            return FALSE;
+        },
+        (LPARAM) &info);
+
+    if (info.monitor == NULL)
+    {
+        Displayf("Failed to find monitor, using nearest");
+        info.monitor = MonitorFromWindow(static_cast<HWND>(window_), MONITOR_DEFAULTTONEAREST);
+        GetMonitorInfoA(info.monitor, &info.mi);
+    }
+
+    i32 horz_res = info.mi.rcMonitor.right - info.mi.rcMonitor.left;
+    i32 vert_res = info.mi.rcMonitor.bottom - info.mi.rcMonitor.top;
 
     if (dxiIsFullScreen())
     {
@@ -118,8 +146,10 @@ i32 agiGLPipeline::BeginGfx()
         vert_res_ = height_;
     }
 
-    SetWindowPos(static_cast<HWND>(window_), HWND_TOP, info.rcMonitor.left + (horz_res - horz_res_) / 2,
-        info.rcMonitor.top + (vert_res - vert_res_) / 2, horz_res_, vert_res_, SWP_NOZORDER);
+    Displayf("Window Resolution: %u x %u", horz_res_, vert_res_);
+
+    SetWindowPos(static_cast<HWND>(window_), HWND_TOP, info.mi.rcMonitor.left + (horz_res - horz_res_) / 2,
+        info.mi.rcMonitor.top + (vert_res - vert_res_) / 2, horz_res_, vert_res_, SWP_NOZORDER);
 
     window_dc_ = GetDC(static_cast<HWND>(window_));
 

@@ -33,7 +33,7 @@ f32 Timer::TicksToSeconds = 0.0f;
 
 ARTS_NOINLINE Timer::Timer()
 {
-    if (TicksToSeconds == 0.0f)
+    if (TimerMode == 0)
     {
         LARGE_INTEGER frequency;
 

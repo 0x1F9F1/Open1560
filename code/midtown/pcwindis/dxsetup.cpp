@@ -146,6 +146,9 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     f32 min_aspect = PARAM_min_aspect.get_or<f32>(1.6f);
     f32 max_aspect = PARAM_max_aspect.get_or<f32>(2.4f);
 
+    DEVMODEA cur_dev_mode {};
+    BOOL got_current = EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &cur_dev_mode);
+
     DEVMODEA dev_mode {};
 
     for (DWORD i = 0; EnumDisplaySettingsA(iMonitor.szDevice, i, &dev_mode); ++i)
@@ -153,17 +156,17 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
         if (info.ResCount >= ARTS_SSIZE(info.Resolutions))
             break;
 
-        if (dev_mode.dmBitsPerPel != 32)
-            continue;
-
         if (dev_mode.dmDisplayFlags & DM_INTERLACED)
             continue;
 
-        if (dev_mode.dmPelsWidth < 640)
+        if (dev_mode.dmPelsWidth < 640 || dev_mode.dmPelsHeight < 480 || dev_mode.dmBitsPerPel < 32)
             continue;
 
-        if (dev_mode.dmPelsHeight < 480)
-            continue;
+        if (got_current)
+        {
+            if (dev_mode.dmPelsWidth > cur_dev_mode.dmPelsWidth || dev_mode.dmPelsHeight > cur_dev_mode.dmPelsHeight)
+                continue;
+        }
 
         if (f32 ar = static_cast<f32>(dev_mode.dmPelsWidth) / static_cast<f32>(dev_mode.dmPelsHeight);
             ar < min_aspect || ar > max_aspect)
@@ -212,12 +215,12 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
             dxiRendererChoice = dxiRendererCount;
     }
 
-    if (EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &dev_mode))
+    if (got_current)
     {
-        f32 current_ar = static_cast<f32>(dev_mode.dmPelsWidth) / static_cast<f32>(dev_mode.dmPelsHeight);
+        f32 current_ar = static_cast<f32>(cur_dev_mode.dmPelsWidth) / static_cast<f32>(cur_dev_mode.dmPelsHeight);
 
         info.ResChoice = dxiResClosestMatch(
-            dxiRendererCount, static_cast<i32>(720.0f * current_ar), (std::min<i32>) (720, dev_mode.dmPelsHeight));
+            dxiRendererCount, static_cast<i32>(720.0f * current_ar), (std::min<i32>) (720, cur_dev_mode.dmPelsHeight));
     }
 
     ++dxiRendererCount;
