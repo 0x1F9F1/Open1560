@@ -53,9 +53,10 @@ workspace "Open1560"
         optimize "On"
 
     filter "configurations:Final"
-        optimize "On"
+        optimize "Full"
         defines { "NDEBUG", "ARTS_FINAL" }
         flags { "LinkTimeOptimization", "NoIncrementalLink" }
+        functionlevellinking "On"
 
     filter "platforms:Win32"
         architecture "x86"
