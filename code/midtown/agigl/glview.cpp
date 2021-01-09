@@ -95,7 +95,8 @@ void agiGLViewport::Clear(i32 flags)
         glEnable(GL_SCISSOR_TEST);
 
         glScissor(x + static_cast<GLint>(width * params_.X), y + static_cast<GLint>(height * params_.Y),
-            static_cast<GLsizei>(width * params_.Width), static_cast<GLsizei>(height * params_.Height));
+            static_cast<GLsizei>(std::ceil(width * params_.Width)),
+            static_cast<GLsizei>(std::ceil(height * params_.Height)));
 
         glClear(mask);
 
