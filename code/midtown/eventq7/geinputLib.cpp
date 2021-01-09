@@ -132,7 +132,7 @@ void geinputGetMouse(ilong* mouse_x, ilong* mouse_y, i8* l_button, i8* r_button,
             switch (hr)
             {
                 case E_PENDING: error_msg = "pending"; break;
-                case DIERR_NOTACQUIRED: error_msg = "not acquired"; break;
+                case DIERR_NOTACQUIRED: return;
                 case DIERR_INPUTLOST: error_msg = "input lost"; break;
                 case DIERR_INVALIDPARAM: error_msg = "invalid param"; break;
             }
