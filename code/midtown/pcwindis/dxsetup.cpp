@@ -143,11 +143,15 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
 
     Displayf("Renderer: '%s'", info.Name);
 
-    f32 min_aspect = PARAM_min_aspect.get_or<f32>(1.6f);
-    f32 max_aspect = PARAM_max_aspect.get_or<f32>(2.4f);
-
     DEVMODEA cur_dev_mode {};
-    BOOL got_current = EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &cur_dev_mode);
+
+    if (!EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &cur_dev_mode))
+        Quitf("Failed to get current display settings");
+
+    f32 current_ar = static_cast<f32>(cur_dev_mode.dmPelsWidth) / static_cast<f32>(cur_dev_mode.dmPelsHeight);
+
+    f32 min_aspect = PARAM_min_aspect.get_or<f32>(current_ar * 0.8f);
+    f32 max_aspect = PARAM_max_aspect.get_or<f32>(current_ar * 1.2f);
 
     DEVMODEA dev_mode {};
 
@@ -162,15 +166,15 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
         if (dev_mode.dmPelsWidth < 640 || dev_mode.dmPelsHeight < 480 || dev_mode.dmBitsPerPel < 32)
             continue;
 
-        if (got_current)
+        if (dev_mode.dmPelsWidth > cur_dev_mode.dmPelsWidth || dev_mode.dmPelsHeight > cur_dev_mode.dmPelsHeight)
+            continue;
+
+        if (dev_mode.dmPelsHeight > 720)
         {
-            if (dev_mode.dmPelsWidth > cur_dev_mode.dmPelsWidth || dev_mode.dmPelsHeight > cur_dev_mode.dmPelsHeight)
+            if (f32 ar = static_cast<f32>(dev_mode.dmPelsWidth) / static_cast<f32>(dev_mode.dmPelsHeight);
+                ar < min_aspect || ar > max_aspect)
                 continue;
         }
-
-        if (f32 ar = static_cast<f32>(dev_mode.dmPelsWidth) / static_cast<f32>(dev_mode.dmPelsHeight);
-            ar < min_aspect || ar > max_aspect)
-            continue;
 
         bool exists = false;
 
@@ -215,13 +219,8 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
             dxiRendererChoice = dxiRendererCount;
     }
 
-    if (got_current)
-    {
-        f32 current_ar = static_cast<f32>(cur_dev_mode.dmPelsWidth) / static_cast<f32>(cur_dev_mode.dmPelsHeight);
-
-        info.ResChoice = dxiResClosestMatch(
-            dxiRendererCount, static_cast<i32>(720.0f * current_ar), (std::min<i32>) (720, cur_dev_mode.dmPelsHeight));
-    }
+    info.ResChoice = dxiResClosestMatch(
+        dxiRendererCount, static_cast<i32>(720.0f * current_ar), (std::min<i32>) (720, cur_dev_mode.dmPelsHeight));
 
     ++dxiRendererCount;
 
