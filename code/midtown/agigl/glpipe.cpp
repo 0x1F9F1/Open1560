@@ -169,12 +169,12 @@ i32 agiGLPipeline::BeginGfx()
 
     SetPixelFormat(window_dc_, format, &pfd);
 
-    HGLRC temp_context = wglCreateContext(window_dc_);
+    gl_context_ = wglCreateContext(window_dc_);
 
-    if (temp_context == NULL)
-        Quitf("Failed to create temporary opengl context");
+    if (gl_context_ == NULL)
+        Quitf("Failed to create legacy OpenGL context");
 
-    wglMakeCurrent(window_dc_, temp_context);
+    wglMakeCurrent(window_dc_, gl_context_);
 
     wglChoosePixelFormatARB = (PFNWGLCHOOSEPIXELFORMATARBPROC) wglGetProcAddress("wglChoosePixelFormatARB");
     wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) wglGetProcAddress("wglCreateContextAttribsARB");
@@ -182,10 +182,12 @@ i32 agiGLPipeline::BeginGfx()
 
     bool legacy_gl = PARAM_legacygl.get_or(false);
 
+    HGLRC modern_gl_context = NULL;
+
     // TODO: Check wglGetExtensionsStringARB extensions
     if (!legacy_gl && wglChoosePixelFormatARB && wglCreateContextAttribsARB)
     {
-        Displayf("Using modern OpenGL context");
+        Displayf("Creating modern OpenGL context");
 
         const int pixel_attribs[] {
             // clang-format off
@@ -203,32 +205,40 @@ i32 agiGLPipeline::BeginGfx()
         UINT num_formats = 0;
         wglChoosePixelFormatARB(window_dc_, pixel_attribs, NULL, 1, &format, &num_formats);
 
-        if (num_formats == 0)
-            Quitf("Failed to choose pixel format");
+        if (num_formats != 0)
+        {
+            const int context_attribs[] {
+                // clang-format off
+                WGL_CONTEXT_MAJOR_VERSION_ARB, 3,
+                WGL_CONTEXT_MINOR_VERSION_ARB, 2,
+                WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB,
+                WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
+                0
+                // clang-format on
+            };
 
-        const int context_attribs[] {
-            // clang-format off
-            WGL_CONTEXT_MAJOR_VERSION_ARB, 3,
-            WGL_CONTEXT_MINOR_VERSION_ARB, 2,
-            WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB,
-            WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
-            0
-            // clang-format on
-        };
+            modern_gl_context = wglCreateContextAttribsARB(window_dc_, 0, context_attribs);
 
-        gl_context_ = wglCreateContextAttribsARB(window_dc_, 0, context_attribs);
+            if (modern_gl_context == NULL)
+                Errorf("Failed to create modern OpenGL context");
+        }
+        else
+        {
+            Errorf("Failed to choose pixel format");
+        }
+    }
 
-        if (gl_context_ == NULL)
-            Quitf("Failed to create opengl context");
-
-        wglDeleteContext(temp_context);
-        wglMakeCurrent(window_dc_, gl_context_);
+    if (modern_gl_context != NULL)
+    {
+        wglDeleteContext(gl_context_);
+        wglMakeCurrent(window_dc_, modern_gl_context);
+        gl_context_ = modern_gl_context;
     }
     else
     {
         Displayf("Using legacy OpenGL context");
 
-        gl_context_ = temp_context;
+        legacy_gl = true;
     }
 
     if (gladLoadGL() != 1)
