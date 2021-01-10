@@ -57,3 +57,53 @@ RcOwner<class agiColorModel> agiColorModel::FindMatch(i32 mask_r, i32 mask_g, i3
 
     Quitf("Couldn't find match for R=%x G=%x B=%x A=%x", mask_r, mask_g, mask_b, mask_a);
 }
+
+u32 agiColorModelARGB::GetPixel(agiSurfaceDesc* surface, i32 x, i32 y)
+{
+    return reinterpret_cast<u32*>(static_cast<u8*>(surface->Surface) + (y * surface->Pitch))[x];
+}
+
+u32 agiColorModelRGB555::GetPixel(agiSurfaceDesc* surface, i32 x, i32 y)
+{
+    return reinterpret_cast<u16*>(static_cast<u8*>(surface->Surface) + (y * surface->Pitch))[x];
+}
+
+u32 agiColorModelRGB565::GetPixel(agiSurfaceDesc* surface, i32 x, i32 y)
+{
+    return reinterpret_cast<u16*>(static_cast<u8*>(surface->Surface) + (y * surface->Pitch))[x];
+}
+
+u32 agiColorModelRGB555_Rev::GetPixel(agiSurfaceDesc* surface, i32 x, i32 y)
+{
+    return reinterpret_cast<u16*>(static_cast<u8*>(surface->Surface) + (y * surface->Pitch))[x];
+}
+
+u32 agiColorModelRGB565_Rev::GetPixel(agiSurfaceDesc* surface, i32 x, i32 y)
+{
+    return reinterpret_cast<u16*>(static_cast<u8*>(surface->Surface) + (y * surface->Pitch))[x];
+}
+
+u32 agiColorModelRGB888::GetPixel(agiSurfaceDesc* surface, i32 x, i32 y)
+{
+    return reinterpret_cast<u32*>(static_cast<u8*>(surface->Surface) + (y * surface->Pitch))[x];
+}
+
+u32 agiColorModelRGB888_Rev::GetPixel(agiSurfaceDesc* surface, i32 x, i32 y)
+{
+    return reinterpret_cast<u32*>(static_cast<u8*>(surface->Surface) + (y * surface->Pitch))[x];
+}
+
+u32 agiColorModelRGBA5551::GetPixel(agiSurfaceDesc* surface, i32 x, i32 y)
+{
+    return reinterpret_cast<u16*>(static_cast<u8*>(surface->Surface) + (y * surface->Pitch))[x];
+}
+
+u32 agiColorModelRGBA4444::GetPixel(agiSurfaceDesc* surface, i32 x, i32 y)
+{
+    return reinterpret_cast<u16*>(static_cast<u8*>(surface->Surface) + (y * surface->Pitch))[x];
+}
+
+u32 agiColorModelABGR::GetPixel(agiSurfaceDesc* surface, i32 x, i32 y)
+{
+    return reinterpret_cast<u32*>(static_cast<u8*>(surface->Surface) + (y * surface->Pitch))[x];
+}

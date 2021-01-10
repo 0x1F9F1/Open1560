@@ -35,6 +35,8 @@
 
 #include "cmodel.h"
 
+class agiPalette;
+
 class agiColorModel8 final : public agiColorModel
 {
     // const agiColorModel8::`vftable' @ 0x621780
@@ -58,12 +60,12 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55C000 | ?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55C020 | ?SetPixel@agiColorModel8@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
+    ARTS_EXPORT void SetPixel(class agiSurfaceDesc* surface, i32 x, i32 y, u32 color) override;
 
-    u8 gap2C[0x4];
+    agiPalette* Palette {nullptr};
 };
 
 check_size(agiColorModel8, 0x30);

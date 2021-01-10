@@ -43,9 +43,9 @@ public:
 
     virtual u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) = 0;
 
-    virtual void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) = 0;
+    virtual void SetPixel(class agiSurfaceDesc* surface, i32 x, i32 y, u32 color) = 0;
 
-    virtual u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) = 0;
+    virtual u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) = 0;
 
     // 0x55BBB0 | ?FindColor@agiColorModel@@QAEIHHHH@Z | unused
     ARTS_EXPORT u32 FindColor(i32 r, i32 g, i32 b, i32 a);

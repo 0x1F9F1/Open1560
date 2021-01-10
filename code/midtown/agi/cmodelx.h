@@ -160,7 +160,7 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55C5F0 | ?GetPixel@agiColorModelRGB555@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55C610 | ?SetPixel@agiColorModelRGB555@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
@@ -191,7 +191,7 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55C7D0 | ?GetPixel@agiColorModelRGB565@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55C7F0 | ?SetPixel@agiColorModelRGB565@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
@@ -222,7 +222,7 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55C9B0 | ?GetPixel@agiColorModelRGB555_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55C9D0 | ?SetPixel@agiColorModelRGB555_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
@@ -253,7 +253,7 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55CB90 | ?GetPixel@agiColorModelRGB565_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55CBB0 | ?SetPixel@agiColorModelRGB565_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
@@ -284,7 +284,7 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55CD40 | ?GetPixel@agiColorModelRGB888@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55CD60 | ?SetPixel@agiColorModelRGB888@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
@@ -315,7 +315,7 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55CEE0 | ?GetPixel@agiColorModelRGB888_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55CF00 | ?SetPixel@agiColorModelRGB888_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
@@ -346,7 +346,7 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55D110 | ?GetPixel@agiColorModelRGBA5551@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55D130 | ?SetPixel@agiColorModelRGBA5551@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
@@ -377,7 +377,7 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55D340 | ?GetPixel@agiColorModelRGBA4444@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55D360 | ?SetPixel@agiColorModelRGBA4444@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
@@ -408,7 +408,7 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55D530 | ?GetPixel@agiColorModelARGB@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55D550 | ?SetPixel@agiColorModelARGB@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
@@ -439,7 +439,7 @@ public:
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
     // 0x55D720 | ?GetPixel@agiColorModelABGR@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_IMPORT u32 GetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // 0x55D740 | ?SetPixel@agiColorModelABGR@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
