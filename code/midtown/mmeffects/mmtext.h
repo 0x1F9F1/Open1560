@@ -179,7 +179,7 @@ private:
     Ptr<mmTextData[]> lines_ {nullptr};
     Rc<agiBitmap> text_bitmap_ {nullptr};
     u32 touched_ {1};
-    u32 hidden_ {0};
+    u32 empty_ {0};
     u32 format_ {0};
     u32 fg_color_ {0xFFFFFF};
     u32 bg_color_ {0};

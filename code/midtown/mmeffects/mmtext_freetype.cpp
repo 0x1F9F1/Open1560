@@ -85,9 +85,7 @@ mmSize mmFont::GetExtents(const char* text)
     for (; *text; ++text)
     {
         u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(*text));
-
         FT_Load_Glyph(face_, glyph_index, FT_LOAD_TARGET_MONO);
-
         width += face_->glyph->advance.x;
     }
 
@@ -126,11 +124,14 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect,
 
     color = cmodel->GetColor(agiRgba::FromABGR(color | 0xFF000000));
 
-    for (; *text; ++text)
+    for (usize i = 0; text[i]; ++i)
     {
-        u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(*text));
+        u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(text[i]));
 
         FT_Load_Glyph(face_, glyph_index, FT_LOAD_RENDER | FT_LOAD_MONOCHROME | FT_LOAD_TARGET_MONO);
+
+        if (i == 0)
+            x -= face_->glyph->bitmap_left << 6;
 
         for (u32 src_y = 0; src_y < face_->glyph->bitmap.rows; ++src_y)
         {
@@ -453,9 +454,7 @@ void mmTextNode::RenderText(
 {
     surface->Clear();
 
-    // TODO: Should this actually be reset for each line?
-    format_ = MM_DT_NOPREFIX;
-    hidden_ = true;
+    empty_ = true;
 
     for (i32 i = 0; i < num_lines; ++i)
     {
@@ -467,11 +466,10 @@ void mmTextNode::RenderText(
         if ((std::strlen(line.Text) == 0) && !(line.Effects & 0x40))
             continue;
 
-        hidden_ = false;
+        format_ = MM_DT_NOPREFIX;
+        empty_ = false;
 
         mmFont* font = static_cast<mmFont*>(line.Font);
-
-        u32 format = MM_DT_NOPREFIX;
 
         mmRect rc {};
 
@@ -503,11 +501,12 @@ void mmTextNode::RenderText(
             }
 
             if (line.Effects & 0x10)
+            {
                 rc.left += 2;
-
-            format = format_;
+                rc.right -= 2;
+            }
         }
 
-        font->Draw(surface, line.Text, &rc, fg_color_, format);
+        font->Draw(surface, line.Text, &rc, fg_color_, format_);
     }
 }

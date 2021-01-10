@@ -83,7 +83,7 @@ void mmTextNode::Cull()
         touched_ = false;
     }
 
-    if (!hidden_)
+    if (!empty_)
     {
         i32 x = 0;
         i32 y = 0;
@@ -102,3 +102,9 @@ void mmTextNode::Cull()
         Pipe()->CopyBitmap(x, y, text_bitmap_.get(), 0, 0, text_bitmap_->GetWidth(), text_bitmap_->GetHeight());
     }
 }
+
+run_once([] {
+    create_patch("", "", 0x4C0BF3, "\x51", 1);
+    create_patch("", "", 0x4C0E8F, "\x51", 1);
+    create_patch("", "", 0x4C0EA8, "\x55", 1);
+});
