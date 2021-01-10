@@ -270,6 +270,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         patch_jmp("mmInterface::PlayerFillStats", "Always Show Score", 0x40C414, jump_type::never);
 
+        create_patch("DriverMenu::DisplayDriverInfo", "Fix score alignment", 0x6410E0, "%d", 3);
+
         create_patch("ApplicationHelper", "DevelopmentMode", 0x40278A, "\x90\x90\x90\x90\x90\x90", 6);
 
         patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x48C851, jump_type::always);
