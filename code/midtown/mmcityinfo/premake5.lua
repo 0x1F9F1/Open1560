@@ -26,8 +26,8 @@ arts_component "mmcityinfo"
         -- "roadsect.h",
         "state.cpp",
         "state.h",
-        -- "vehinfo.cpp",
-        -- "vehinfo.h",
-        -- "vehlist.cpp",
-        -- "vehlist.h",
+        "vehinfo.cpp",
+        "vehinfo.h",
+        "vehlist.cpp",
+        "vehlist.h",
     }

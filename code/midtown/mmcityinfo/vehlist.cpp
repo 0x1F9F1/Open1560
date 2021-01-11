@@ -19,3 +19,20 @@
 define_dummy_symbol(mmcityinfo_vehlist);
 
 #include "vehlist.h"
+
+mmVehInfo* mmVehList::GetVehicleInfo(const char* name)
+{
+    for (i32 i = 0; i < NumVehicles; ++i)
+    {
+        if (mmVehInfo* vehicle = Vehicles[i]; std::strcmp(vehicle->BaseName, name) == 0)
+            return vehicle;
+    }
+
+    Errorf("Missing vehicle '%s'", name);
+
+    // Avoid crashes from missing vehicles
+    if (std::strcmp(name, "vpbug") != 0)
+        return GetVehicleInfo("vpbug");
+
+    return nullptr;
+}

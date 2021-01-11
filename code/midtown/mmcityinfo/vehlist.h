@@ -36,6 +36,8 @@
     0x7084EC | class mmVehList * VehicleListPtr | ?VehicleListPtr@@3PAVmmVehList@@A
 */
 
+#include "vehinfo.h"
+
 class mmVehList final
 {
     // const mmVehList::`vftable' @ 0x61F8B0
@@ -53,7 +55,7 @@ public:
     ARTS_IMPORT i32 GetVehicleID(char* arg1);
 
     // 0x4CC140 | ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@PAD@Z
-    ARTS_IMPORT class mmVehInfo* GetVehicleInfo(char* arg1);
+    ARTS_EXPORT class mmVehInfo* GetVehicleInfo(const char* name);
 
     // 0x4CC110 | ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@H@Z
     ARTS_IMPORT class mmVehInfo* GetVehicleInfo(i32 arg1);
@@ -70,7 +72,8 @@ public:
     // 0x4CC370 | ?Print@mmVehList@@QAEXXZ | unused
     ARTS_IMPORT void Print();
 
-    u8 gap4[0x8];
+    mmVehInfo** Vehicles {nullptr};
+    i32 NumVehicles {0};
 };
 
 check_size(mmVehList, 0xC);

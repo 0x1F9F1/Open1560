@@ -56,7 +56,22 @@ public:
     // 0x4D3C00 | ?Print@mmVehInfo@@QAEXXZ
     ARTS_IMPORT void Print();
 
-    u8 gap4[0xF4];
+    char BaseName[40] {};
+    char Description[40] {};
+    char field_54[40] {};
+    char Colors[80] {};
+
+    i32 Flags {0};
+    i32 Order {0};
+    b32 Valid {false};
+    i32 UnlockScore {0};
+    i32 UnlockFlags {0};
+    b32 IsLocked {false};
+    i32 Horsepower {0};
+    i32 TopSpeed {0};
+    i32 Durability {0};
+    i32 Mass {0};
+    f32 ScoringBias {0.0f};
 };
 
 check_size(mmVehInfo, 0xF8);

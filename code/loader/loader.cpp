@@ -609,8 +609,8 @@ include_dummy_symbol(mmcity_loader);
 // include_dummy_symbol(mmcityinfo_racerecord);
 // include_dummy_symbol(mmcityinfo_roadsect);
 include_dummy_symbol(mmcityinfo_state);
-// include_dummy_symbol(mmcityinfo_vehinfo);
-// include_dummy_symbol(mmcityinfo_vehlist);
+include_dummy_symbol(mmcityinfo_vehinfo);
+include_dummy_symbol(mmcityinfo_vehlist);
 
 // include_dummy_symbol(mmdjpeg_jcomapi);
 // include_dummy_symbol(mmdjpeg_jdapimin);
