@@ -23,8 +23,6 @@
 
 #include "core/minwin.h"
 
-// #define ARTS_GL_MSAA 8
-
 class agiGLPipeline final : public agiPipeline
 {
 public:

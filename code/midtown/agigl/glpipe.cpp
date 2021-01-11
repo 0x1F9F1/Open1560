@@ -125,10 +125,12 @@ i32 agiGLPipeline::BeginGfx()
         },
         (LPARAM) &info);
 
+    HWND hwnd = static_cast<HWND>(window_);
+
     if (info.monitor == NULL)
     {
         Displayf("Failed to find monitor, using nearest");
-        info.monitor = MonitorFromWindow(static_cast<HWND>(window_), MONITOR_DEFAULTTONEAREST);
+        info.monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
         GetMonitorInfoA(info.monitor, &info.mi);
     }
 
@@ -146,15 +148,36 @@ i32 agiGLPipeline::BeginGfx()
         vert_res_ = height_;
     }
 
+    dxiWidth = horz_res_;
+    dxiHeight = vert_res_;
+
     Displayf("Window Resolution: %u x %u", horz_res_, vert_res_);
 
-    SetWindowPos(static_cast<HWND>(window_), HWND_TOP, info.mi.rcMonitor.left + (horz_res - horz_res_) / 2,
-        info.mi.rcMonitor.top + (vert_res - vert_res_) / 2, horz_res_, vert_res_, SWP_NOZORDER);
+    LONG window_style = WS_POPUP;
 
-    window_dc_ = GetDC(static_cast<HWND>(window_));
+    if (dxiIsFullScreen() || (width_ == horz_res) || (height_ == vert_res))
+    {
+        window_style = WS_POPUP;
+    }
+    else
+    {
+        window_style = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU;
+    }
 
-    dxiWidth = horz_res;
-    dxiHeight = vert_res;
+    SetWindowLongA(hwnd, GWL_STYLE, window_style);
+
+    RECT window_rect {0, 0, horz_res_, vert_res_};
+    AdjustWindowRect(&window_rect, window_style, FALSE);
+
+    i32 window_width = window_rect.right - window_rect.left;
+    i32 window_height = window_rect.bottom - window_rect.top;
+
+    SetWindowPos(hwnd, HWND_TOP, info.mi.rcMonitor.left + (horz_res - window_width) / 2,
+        info.mi.rcMonitor.top + (vert_res - window_height) / 2, window_width, window_height, SWP_SHOWWINDOW);
+
+    SetFocus(hwnd);
+
+    window_dc_ = GetDC(hwnd);
 
     PIXELFORMATDESCRIPTOR pfd {sizeof(pfd)};
 
