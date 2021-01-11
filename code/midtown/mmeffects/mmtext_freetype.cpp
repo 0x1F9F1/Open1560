@@ -30,21 +30,13 @@ struct mmRect
     i32 bottom {0};
 };
 
-#define MM_DT_TOP 0x00000000
-#define MM_DT_LEFT 0x00000000
 #define MM_DT_CENTER 0x00000001
 #define MM_DT_RIGHT 0x00000002
 #define MM_DT_VCENTER 0x00000004
 #define MM_DT_BOTTOM 0x00000008
 #define MM_DT_WORDBREAK 0x00000010
 #define MM_DT_SINGLELINE 0x00000020
-#define MM_DT_EXPANDTABS 0x00000040
-#define MM_DT_TABSTOP 0x00000080
-#define MM_DT_NOCLIP 0x00000100
-#define MM_DT_EXTERNALLEADING 0x00000200
-#define MM_DT_CALCRECT 0x00000400
 #define MM_DT_NOPREFIX 0x00000800
-#define MM_DT_INTERNAL 0x00001000
 
 static HashTable FontHash {64, "FontHash"};
 
@@ -70,51 +62,71 @@ private:
     i32 height_ {0};
 
 public:
-    mmSize GetExtents(const char* text);
-    void Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect, u32 color, u32 format);
-
+    void Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format);
     void Kill();
+
+    i32 GetWidth(const char* text);
+
+    i32 GetHeight()
+    {
+        return height_;
+    }
+
+    mmSize GetExtents(const char* text)
+    {
+        return {GetWidth(text), GetHeight()};
+    }
 
     static mmFont* Create(const char* font_name, i32 height, i32 weight);
 };
 
-mmSize mmFont::GetExtents(const char* text)
+i32 mmFont::GetWidth(const char* text)
 {
     i32 width = 0;
 
-    for (; *text; ++text)
+    for (usize i = 0; text[i]; ++i)
     {
-        u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(*text));
+        u32 glyph_index = FT_Get_Char_Index(face_, static_cast<unsigned char>(text[i]));
+
         FT_Load_Glyph(face_, glyph_index, FT_LOAD_TARGET_MONO);
+
+        if (i == 0)
+            width -= face_->glyph->bitmap_left << 6;
+
         width += face_->glyph->advance.x;
     }
 
-    return {(width + 63) >> 6, height_};
+    return (width + 63) >> 6;
 }
 
-void mmFont::Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect, u32 color, u32 format)
+void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format)
 {
     Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface));
 
-    i32 x = rect->left;
-    i32 y = rect->top;
+    i32 x = rect.left;
+    i32 y = rect.top;
 
-    i32 width = rect->right - rect->left;
-    i32 height = rect->bottom - rect->top;
+    i32 width = rect.right - rect.left;
+    i32 height = rect.bottom - rect.top;
 
-    if (format & (MM_DT_CENTER | MM_DT_VCENTER | MM_DT_RIGHT | MM_DT_BOTTOM))
+    if (format & (MM_DT_CENTER | MM_DT_RIGHT))
     {
-        mmSize size = GetExtents(text);
+        i32 text_width = GetWidth(text);
 
         if (format & MM_DT_CENTER)
-            x += (width - size.cx) / 2;
+            x += (width - text_width) / 2;
         else if (format & MM_DT_RIGHT)
-            x += (width - size.cx);
+            x += (width - text_width);
+    }
+
+    if (format & (MM_DT_VCENTER | MM_DT_BOTTOM))
+    {
+        i32 text_height = GetHeight();
 
         if (format & MM_DT_VCENTER)
-            y += (height - size.cy) / 2;
+            y += (height - text_height) / 2;
         else if (format & MM_DT_BOTTOM)
-            y += (height - size.cy);
+            y += (height - text_height);
     }
 
     x <<= 6;
@@ -123,6 +135,9 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect,
     y += face_->size->metrics.ascender;
 
     color = cmodel->GetColor(agiRgba::FromABGR(color | 0xFF000000));
+
+    width = std::min<i32>(rect.right, surface->Width);
+    height = std::min<i32>(rect.bottom, surface->Height);
 
     for (usize i = 0; text[i]; ++i)
     {
@@ -139,14 +154,14 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, const mmRect* rect,
 
             u32 dst_y = (y >> 6) + src_y - face_->glyph->bitmap_top;
 
-            if (dst_y >= surface->Height)
+            if (static_cast<i32>(dst_y) >= height)
                 continue;
 
             for (u32 src_x = 0; src_x < face_->glyph->bitmap.width; ++src_x)
             {
                 u32 dst_x = (x >> 6) + src_x + face_->glyph->bitmap_left;
 
-                if (dst_x >= surface->Width)
+                if (static_cast<i32>(dst_x) >= width)
                     continue;
 
                 if (face_->glyph->bitmap.buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
@@ -304,7 +319,7 @@ void mmText::Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font_
 
     surface->Clear();
 
-    font->Draw(surface, text, &rc, 0xFFFFFF, 0);
+    font->Draw(surface, text, rc, 0xFFFFFF, 0);
 }
 
 void mmText::Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font_ptr, u32 color)
@@ -325,7 +340,7 @@ void mmText::Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font
 
     surface->Clear();
 
-    font->Draw(surface, text, &rc, color, MM_DT_RIGHT);
+    font->Draw(surface, text, rc, color, MM_DT_RIGHT);
 }
 
 RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color, i32 bg_color)
@@ -360,7 +375,7 @@ RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color
                 rc.right = i + size.cx;
                 rc.bottom = j + size.cy;
 
-                font->Draw(bitmap->GetSurface(), text, &rc, bg_color, MM_DT_NOPREFIX);
+                font->Draw(bitmap->GetSurface(), text, rc, bg_color, MM_DT_NOPREFIX);
             }
         }
     }
@@ -380,7 +395,7 @@ RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color
         rc.bottom += 1;
     }
 
-    font->Draw(bitmap->GetSurface(), text, &rc, color, MM_DT_NOPREFIX);
+    font->Draw(bitmap->GetSurface(), text, rc, color, MM_DT_NOPREFIX);
 
     bitmap->EndGfx();
     bitmap->SafeBeginGfx();
@@ -463,7 +478,7 @@ void mmTextNode::RenderText(
 
         mmTextData& line = lines[i];
 
-        if ((std::strlen(line.Text) == 0) && !(line.Effects & 0x40))
+        if ((std::strlen(line.Text) == 0) && !(line.Effects & MM_TEXT_REQUIRED))
             continue;
 
         format_ = MM_DT_NOPREFIX;
@@ -480,16 +495,16 @@ void mmTextNode::RenderText(
 
         if (line.Effects)
         {
-            if (line.Effects & 0x2)
+            if (line.Effects & MM_TEXT_CENTER)
                 format_ |= MM_DT_CENTER;
 
-            if (line.Effects & 0x1)
+            if (line.Effects & MM_TEXT_VCENTER)
                 format_ |= MM_DT_VCENTER | MM_DT_SINGLELINE;
 
-            if (line.Effects & 0x20)
+            if (line.Effects & MM_TEXT_WORDBREAK)
                 format_ |= MM_DT_WORDBREAK;
 
-            if (line.Effects & 0x4)
+            if (line.Effects & MM_TEXT_BORDER)
             {
                 u32 fill_color = 0xFFFFFF;
 
@@ -500,13 +515,13 @@ void mmTextNode::RenderText(
                 surface->Fill(rc.right - 1, rc.top, 1, rc.bottom - rc.top, fill_color);
             }
 
-            if (line.Effects & 0x10)
+            if (line.Effects & MM_TEXT_PADDING)
             {
                 rc.left += 2;
                 rc.right -= 2;
             }
         }
 
-        font->Draw(surface, line.Text, &rc, fg_color_, format_);
+        font->Draw(surface, line.Text, rc, fg_color_, format_);
     }
 }

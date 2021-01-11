@@ -104,7 +104,7 @@ void mmTextNode::Cull()
 }
 
 run_once([] {
-    create_patch("", "", 0x4C0BF3, "\x51", 1);
-    create_patch("", "", 0x4C0E8F, "\x51", 1);
-    create_patch("", "", 0x4C0EA8, "\x55", 1);
+    create_patch("mmDropDown::InitString", "Change mmTextNode effects", 0x4C0BF3, "\x51", 1);
+    create_patch("mmDropDown::SetHighlight", "Change mmTextNode effects", 0x4C0E8F, "\x51", 1);
+    create_patch("mmDropDown::SetHighlight", "Change mmTextNode effects", 0x4C0EA8, "\x55", 1);
 });

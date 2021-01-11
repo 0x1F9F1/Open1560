@@ -21,8 +21,8 @@ Name        | Value | Description
 -fovfix     | true  | Enables FOV scaling based on resolution
 -integrated | false | Prefer using laptop iGPU
 -legacygl   | false | Uses a legacy OpenGL context (enabled by default on Intel iGPUs)
--maxaspect  | 2.4   | Maximum resolution aspect ratio
--minaspect  | 1.6   | Minimum resolution aspect ratio
+-maxaspect  |       | Maximum resolution aspect ratio
+-minaspect  |       | Minimum resolution aspect ratio
 -msaa       | 0     | Sets the anti-aliasing level (does not work with legacy OpenGL)
 -nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl)
 -prio       | 2     | Sets the process priority

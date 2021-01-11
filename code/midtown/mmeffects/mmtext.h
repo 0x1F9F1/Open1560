@@ -94,6 +94,13 @@ private:
 
 check_size(mmText, 0x2);
 
+#define MM_TEXT_VCENTER 0x1
+#define MM_TEXT_CENTER 0x2
+#define MM_TEXT_BORDER 0x4
+#define MM_TEXT_PADDING 0x10
+#define MM_TEXT_WORDBREAK 0x20
+#define MM_TEXT_REQUIRED 0x40
+
 struct mmTextData
 {
     u32 X {0};
@@ -105,7 +112,7 @@ struct mmTextData
     // 0x10 | Move right 2 pixels
     // 0x20 | Word Break
     // 0x40 | Always Draw
-    // 0x80 | Use BgColor as text color (Highlight?, Present in retail build)
+    // 0x80 | Highlight text (present in retail build)
     u32 Effects {0};
     void* Font {nullptr};
     char Text[256] {};
