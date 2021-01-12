@@ -75,6 +75,7 @@ void agiGLViewport::Clear(i32 flags)
 
         agiCurState.SetZWrite(true);
         glDepthMask(GL_TRUE);
+        glClearDepth(1.0);
     }
 
     if (flags & AGI_VIEW_CLEAR_TARGET)
