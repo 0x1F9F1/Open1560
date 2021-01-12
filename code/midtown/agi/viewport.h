@@ -124,9 +124,9 @@ class agiViewport : public agiRefreshable
 public:
     virtual void Activate() = 0;
 
-    virtual void SetBackground(class Vector3& arg1) = 0;
+    virtual void SetBackground(class Vector3& color) = 0;
 
-    virtual void Clear(i32 arg1) = 0;
+    virtual void Clear(i32 flags) = 0;
 
     // 0x5578A0 | ?SetWorld@agiViewport@@UAEXAAVMatrix34@@@Z
     ARTS_EXPORT virtual void SetWorld(class Matrix34& world);
