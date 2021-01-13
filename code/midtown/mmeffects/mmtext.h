@@ -162,7 +162,7 @@ public:
     ARTS_IMPORT void SetBGColor(class Vector4& arg1);
 
     // 0x4FF760 | ?SetEffects@mmTextNode@@QAEXHH@Z
-    ARTS_IMPORT void SetEffects(i32 arg1, i32 arg2);
+    ARTS_IMPORT void SetEffects(i32 line, i32 effects);
 
     // 0x4FF6F0 | ?SetFGColor@mmTextNode@@QAEXAAVVector4@@@Z
     ARTS_IMPORT void SetFGColor(class Vector4& arg1);

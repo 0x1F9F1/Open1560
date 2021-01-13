@@ -474,8 +474,7 @@ void mmTextNode::RenderText(
 
         mmFont* font = static_cast<mmFont*>(line.Font);
 
-        mmRect rc {};
-
+        mmRect rc;
         rc.left = line.X;
         rc.top = line.Y;
         rc.right = surface->Width;
@@ -483,13 +482,13 @@ void mmTextNode::RenderText(
 
         if (line.Effects & MM_TEXT_BORDER)
         {
-            u32 fill_color = 0xFFFFFF;
+            u32 border_color = 0xFFFFFF;
 
-            surface->Fill(rc.left, rc.top, rc.right - rc.left, 1, fill_color);
-            surface->Fill(rc.left, rc.bottom - 1, rc.right - rc.left, 1, fill_color);
+            surface->Fill(rc.left, rc.top, rc.right - rc.left, 1, border_color);
+            surface->Fill(rc.left, rc.bottom - 1, rc.right - rc.left, 1, border_color);
 
-            surface->Fill(rc.left, rc.top, 1, rc.bottom - rc.top, fill_color);
-            surface->Fill(rc.right - 1, rc.top, 1, rc.bottom - rc.top, fill_color);
+            surface->Fill(rc.left, rc.top, 1, rc.bottom - rc.top, border_color);
+            surface->Fill(rc.right - 1, rc.top, 1, rc.bottom - rc.top, border_color);
         }
 
         if ((line.Effects & MM_TEXT_PADDING) && (rc.right - rc.left) > 6)
@@ -498,6 +497,8 @@ void mmTextNode::RenderText(
             rc.right -= 3;
         }
 
-        font->Draw(surface, line.Text, rc, fg_color_, line.Effects);
+        i32 hl_color = 0xFF00FFFF;
+
+        font->Draw(surface, line.Text, rc, (line.Effects & MM_TEXT_HIGHLIGHT) ? hl_color : fg_color_, line.Effects);
     }
 }

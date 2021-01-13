@@ -28,29 +28,12 @@ mmTextNode::~mmTextNode() = default;
 
 void mmTextNode::Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 flags)
 {
-    // NOTE: Originally assigned x_ and y_ after clamping width/height
-
-    // line_count_ = 0;
+    // NOTE: Originally clamped width/height
 
     x_ = x;
     y_ = y;
 
-    if (x < 1.0f)
-    {
-        if (width > 0.0f)
-            width = std::min(width, 1.0f - x_);
-        else
-            width = 0.0f;
-    }
-
-    if (y < 1.0f)
-    {
-        if (height > 0.0f)
-            height = std::min(height, 1.0f - y_);
-        else
-            height = 0.0f;
-    }
-
+    line_count_ = 0;
     max_lines_ = num_lines;
     lines_ = MakeUnique<mmTextData[]>(num_lines);
 
@@ -66,7 +49,7 @@ void mmTextNode::Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 fl
 
     text_bitmap_->Init(name, width * Pipe()->GetWidth(), height * Pipe()->GetHeight(), flags);
 
-    // bg_color_ = 0xFFFFFF00
+    // hl_color_ = 0xFFFFFF00
 }
 
 void mmTextNode::Cull()
