@@ -90,7 +90,7 @@ def add_xref_data(data):
 add_xref_data(b'\x00')
 add_xref_data(b'\x01\x00')
 
-print('static constexpr SymbolInfo BaseSymbols[] {')
+print('static SymbolInfo BaseSymbols[] {')
 print('    // clang-format off')
 
 for name_hash, sym_addr, name, data in processed:
