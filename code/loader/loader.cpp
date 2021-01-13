@@ -411,7 +411,7 @@ include_dummy_symbol(agiworld_meshrend);
 include_dummy_symbol(agiworld_meshsave);
 include_dummy_symbol(agiworld_meshset);
 include_dummy_symbol(agiworld_mrkni);
-// include_dummy_symbol(agiworld_packnorm);
+include_dummy_symbol(agiworld_packnorm);
 include_dummy_symbol(agiworld_quality);
 // include_dummy_symbol(agiworld_skeleton);
 include_dummy_symbol(agiworld_texsheet);
