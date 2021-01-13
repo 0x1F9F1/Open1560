@@ -19,10 +19,15 @@
 define_dummy_symbol(mmwidget_dropdown);
 
 #include "dropdown.h"
+
+#include "data7/metadefine.h"
 #include "mmeffects/mmtext.h"
 
-#define MM_DROP_EFFECTS_REGULAR (MM_TEXT_VCENTER | MM_TEXT_PADDING | MM_TEXT_REQUIRED)
-#define MM_DROP_EFFECTS_HIGHLIGHT (MM_DROP_EFFECTS_REGULAR | MM_TEXT_BORDER | MM_TEXT_HIGHLIGHT)
+#define MM_DROP_TEXT_EFFECTS (MM_TEXT_VCENTER | MM_TEXT_PADDING | MM_TEXT_REQUIRED)
+
+mmDropDown::mmDropDown() = default;
+
+mmDropDown::~mmDropDown() = default;
 
 void mmDropDown::InitString(string values)
 {
@@ -34,17 +39,18 @@ void mmDropDown::InitString(string values)
     DropIndex = MakeUnique<u32[]>(NumValues);
 
     DropHeight = NumValues * Height;
+    Highlighted = -1;
 
     SetString(std::move(values));
 
     for (i32 i = 0; i < NumValues; ++i)
     {
-        string value = ValuesString.SubString(i + 1);
         mmTextNode* node = &ValueNodes[i];
+        string value = ValuesString.SubString(i + 1);
 
         AddChild(node);
         node->Init(X, Bottom + (i * Height), Width, Height, 1, 0);
-        DropIndex[i] = node->AddText(Font, value.get_loc(), MM_DROP_EFFECTS_REGULAR, 0.0f, 0.0f);
+        DropIndex[i] = node->AddText(Font, value.get_loc(), MM_DROP_TEXT_EFFECTS, 0.0f, 0.0f);
     }
 
     if (DisabledMask)
@@ -53,19 +59,23 @@ void mmDropDown::InitString(string values)
 
 void mmDropDown::SetHighlight(i32 index)
 {
-    if (DisabledMask & (1 << index))
-        return;
+    if (Highlighted >= 0 && Highlighted < NumValues)
+    {
+        ValueNodes[Highlighted].SetEffects(0, MM_DROP_TEXT_EFFECTS);
+    }
 
-    if (Highlighted < NumValues)
-        ValueNodes[Highlighted].SetEffects(0, MM_DROP_EFFECTS_REGULAR);
+    if (index >= 0 && index < NumValues)
+    {
+        i32 effects = MM_DROP_TEXT_EFFECTS | MM_TEXT_BORDER;
 
-    ValueNodes[index].SetEffects(0, MM_DROP_EFFECTS_HIGHLIGHT);
+        if (!(DisabledMask & (1 << index)))
+            effects |= MM_TEXT_HIGHLIGHT;
+
+        ValueNodes[index].SetEffects(0, effects);
+    }
 
     Highlighted = index;
 }
 
-run_once([] {
-    u8 effects = static_cast<u8>(MM_DROP_EFFECTS_REGULAR);
-
-    create_patch("mmDropDown::InitString", "Change mmTextNode effects", 0x4C0BF3, &effects, 1);
-});
+META_DEFINE_CHILD("mmDropDown", mmDropDown, asNode)
+{}

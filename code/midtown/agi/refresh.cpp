@@ -56,7 +56,7 @@ void agiRefreshable::AddRef()
     ++ref_count_;
 }
 
-i32 agiRefreshable::Release()
+ARTS_NOINLINE i32 agiRefreshable::Release()
 {
     ValidatePtr("Release");
 

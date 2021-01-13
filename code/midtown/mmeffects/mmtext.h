@@ -115,7 +115,7 @@ struct mmTextData
     // 0x10 | Move right 2 pixels
     // 0x20 | Word Break
     // 0x40 | Always Draw
-    // 0x80 | Highlight text (present in retail build)
+    // 0x80 | Highlight text
     u32 Effects {0};
     void* Font {nullptr};
     char Text[256] {};

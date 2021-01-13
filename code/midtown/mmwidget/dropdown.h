@@ -50,17 +50,14 @@ class mmDropDown final : public asNode
 
 public:
     // 0x4C0810 | ??0mmDropDown@@QAE@XZ
-    ARTS_IMPORT mmDropDown();
+    ARTS_EXPORT mmDropDown();
 
     // 0x4C10B0 | ??_EmmDropDown@@UAEPAXI@Z
     // 0x4C0870 | ??1mmDropDown@@UAE@XZ
-    ARTS_IMPORT ~mmDropDown() override;
+    ARTS_EXPORT ~mmDropDown() override;
 
     // 0x4C0E30 | ?FindFirstEnabled@mmDropDown@@QAEHXZ
     ARTS_IMPORT i32 FindFirstEnabled();
-
-    // 0x4C10A0 | ?GetClass@mmDropDown@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4C0D60 | ?GetCurrentString@mmDropDown@@QAEXPADH@Z
     ARTS_IMPORT void GetCurrentString(char* arg1, i32 arg2);
@@ -87,13 +84,15 @@ public:
     // 0x4C0F30 | ?DeclareFields@mmDropDown@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    VIRTUAL_META_DECLARE;
+
 private:
     // 0x4C0C70 | ?SetString@mmDropDown@@AAEXVstring@@@Z
     ARTS_IMPORT void SetString(class string arg1);
 
     Ptr<mmTextNode[]> ValueNodes {};
     Ptr<u32[]> DropIndex {};
-    i32 Highlighted {0};
+    i32 Highlighted {-1};
     i32 field_2C {0};
     i32 Enabled {0};
     i32 DisabledMask {0};
