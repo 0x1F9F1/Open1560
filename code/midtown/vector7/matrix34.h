@@ -102,7 +102,7 @@ public:
     ARTS_IMPORT Matrix34(class Matrix44 const& arg1);
 
     // 0x56A6F0 | ??DMatrix34@@QBE?AV0@M@Z | unused
-    ARTS_IMPORT class Matrix34 operator*(f32 arg1);
+    ARTS_IMPORT class Matrix34 operator*(f32 arg1) const;
 
     // 0x5674E0 | ??HMatrix34@@QAE?AV0@ABV0@@Z | unused
     ARTS_IMPORT class Matrix34 operator+(class Matrix34 const& arg1);
@@ -117,13 +117,13 @@ public:
     ARTS_IMPORT i32 Approach(class Matrix34 const& arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x56B2B0 | ?Atan3@Matrix34@@QBEMDD@Z | unused
-    ARTS_IMPORT f32 Atan3(char arg1, char arg2);
+    ARTS_IMPORT f32 Atan3(char arg1, char arg2) const;
 
     // 0x56D220 | ?CalcAppRates@Matrix34@@QAEXAAM0ABV1@MM@Z | unused
     ARTS_IMPORT void CalcAppRates(f32& arg1, f32& arg2, class Matrix34 const& arg3, f32 arg4, f32 arg5);
 
     // 0x5686F0 | ?Determinant@Matrix34@@QBEMXZ | unused
-    ARTS_IMPORT f32 Determinant();
+    ARTS_IMPORT f32 Determinant() const;
 
     // 0x567680 | ?Dot@Matrix34@@QAEXABV1@0@Z
     ARTS_IMPORT void Dot(class Matrix34 const& arg1, class Matrix34 const& arg2);
@@ -132,7 +132,7 @@ public:
     ARTS_IMPORT void Dot3x3(class Matrix34 const& arg1, class Matrix34 const& arg2);
 
     // 0x56D1E0 | ?Equal@Matrix34@@QBEIABV1@M@Z | unused
-    ARTS_IMPORT u32 Equal(class Matrix34 const& arg1, f32 arg2);
+    ARTS_IMPORT u32 Equal(class Matrix34 const& arg1, f32 arg2) const;
 
     // 0x568980 | ?FastInverse@Matrix34@@QAEXABV1@@Z
     ARTS_IMPORT void FastInverse(class Matrix34 const& arg1);
@@ -150,16 +150,16 @@ public:
     ARTS_IMPORT void FromQuaternion(class Quaternion const& arg1);
 
     // 0x56BCE0 | ?GetEulers@Matrix34@@QBE?AVVector3@@XZ
-    ARTS_IMPORT class Vector3 GetEulers();
+    ARTS_IMPORT class Vector3 GetEulers() const;
 
     // 0x56B630 | ?GetEulers@Matrix34@@QBE?AVVector3@@PBD@Z
-    ARTS_IMPORT class Vector3 GetEulers(char const* arg1);
+    ARTS_IMPORT class Vector3 GetEulers(char const* arg1) const;
 
     // 0x56D0B0 | ?GetLookAt@Matrix34@@QBEXPAVVector3@@0M@Z
-    ARTS_IMPORT void GetLookAt(class Vector3* arg1, class Vector3* arg2, f32 arg3);
+    ARTS_IMPORT void GetLookAt(class Vector3* arg1, class Vector3* arg2, f32 arg3) const;
 
     // 0x56D140 | ?GetPolar@Matrix34@@QBEXPAVVector4@@PAVVector3@@M@Z
-    ARTS_IMPORT void GetPolar(class Vector4* arg1, class Vector3* arg2, f32 arg3);
+    ARTS_IMPORT void GetPolar(class Vector4* arg1, class Vector3* arg2, f32 arg3) const;
 
     // 0x5674B0 | ?Identity@Matrix34@@QAEXXZ
     constexpr void Identity();
@@ -168,7 +168,7 @@ public:
     ARTS_IMPORT void Interpolate(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
 
     // 0x5687A0 | ?Inverse@Matrix34@@QBE?AV1@XZ
-    ARTS_IMPORT class Matrix34 Inverse();
+    ARTS_IMPORT class Matrix34 Inverse() const;
 
     // 0x56CE30 | ?LookAt@Matrix34@@QAEXABVVector3@@0@Z
     ARTS_IMPORT void LookAt(class Vector3 const& arg1, class Vector3 const& arg2);
@@ -186,10 +186,10 @@ public:
     ARTS_IMPORT void PolarView2(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x56D6A0 | ?Print@Matrix34@@QBEXXZ | unused
-    ARTS_IMPORT void Print();
+    ARTS_IMPORT void Print() const;
 
     // 0x56D180 | ?RotEqual@Matrix34@@QBEIABV1@M@Z
-    ARTS_IMPORT u32 RotEqual(class Matrix34 const& arg1, f32 arg2);
+    ARTS_IMPORT u32 RotEqual(class Matrix34 const& arg1, f32 arg2) const;
 
     // 0x5691D0 | ?Rotate@Matrix34@@QAEXABVVector3@@M@Z
     ARTS_IMPORT void Rotate(class Vector3 const& arg1, f32 arg2);
@@ -201,7 +201,7 @@ public:
     ARTS_IMPORT void RotateFull(class Vector3 const& arg1, f32 arg2);
 
     // 0x4DEC70 | ?RotateNoTrans@Matrix34@@QBE?AVVector3@@ABV2@@Z | inline
-    ARTS_IMPORT class Vector3 RotateNoTrans(class Vector3 const& arg1);
+    ARTS_IMPORT class Vector3 RotateNoTrans(class Vector3 const& arg1) const;
 
     // 0x56A6C0 | ?RotateTo@Matrix34@@QAEXABVVector3@@0M@Z
     ARTS_IMPORT void RotateTo(class Vector3 const& arg1, class Vector3 const& arg2, f32 arg3);
@@ -243,7 +243,7 @@ public:
     ARTS_IMPORT void ScaleVolumeAbs(f32 arg1, char arg2);
 
     // 0x567A30 | ?SolveSVD@Matrix34@@QBE?AVVector3@@ABV2@@Z
-    ARTS_IMPORT class Vector3 SolveSVD(class Vector3 const& arg1);
+    ARTS_IMPORT class Vector3 SolveSVD(class Vector3 const& arg1) const;
 
     // 0x56AFA0 | ?TrackBall@Matrix34@@QAEXMMMMM@Z | unused
     ARTS_IMPORT void TrackBall(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
@@ -252,7 +252,7 @@ public:
     ARTS_IMPORT void Transform(class Vector3 const& arg1, class Vector3 const& arg2, f32 arg3);
 
     // 0x4DECA0 | ?Transpose@Matrix34@@QBE?AV1@XZ | inline
-    ARTS_IMPORT class Matrix34 Transpose();
+    ARTS_IMPORT class Matrix34 Transpose() const;
 
     // 0x56B250 | ?Transpose@Matrix34@@QAEXABV1@@Z
     ARTS_IMPORT void Transpose(class Matrix34 const& arg1);

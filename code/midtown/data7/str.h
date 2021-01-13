@@ -102,10 +102,10 @@ public:
     ARTS_IMPORT void operator=(char const* arg1);
 
     // 0x579510 | ??Hstring@@QBE?AV0@PBD@Z
-    ARTS_IMPORT class string operator+(char const* arg1);
+    ARTS_IMPORT class string operator+(char const* arg1) const;
 
     // 0x57B380 | ??Hstring@@QBE?AV0@ABV0@@Z | inline
-    ARTS_IMPORT class string operator+(class string const& arg1);
+    ARTS_IMPORT class string operator+(class string const& arg1) const;
 
     // 0x579860 | ??Ystring@@QAEXD@Z
     ARTS_IMPORT void operator+=(char arg1);
@@ -114,7 +114,7 @@ public:
     ARTS_IMPORT void operator+=(char const* arg1);
 
     // 0x579900 | ??Gstring@@QBE?AV0@PBD@Z
-    ARTS_IMPORT class string operator-(char const* arg1);
+    ARTS_IMPORT class string operator-(char const* arg1) const;
 
     // 0x579A60 | ??Zstring@@QAEXPBD@Z | unused
     ARTS_IMPORT void operator-=(char const* arg1);
@@ -123,25 +123,25 @@ public:
     ARTS_IMPORT void ChangeExtension(class string const& arg1);
 
     // 0x57A4A0 | ?CommaFile@string@@QBEHXZ | unused
-    ARTS_IMPORT i32 CommaFile();
+    ARTS_IMPORT i32 CommaFile() const;
 
     // 0x579C60 | ?Contains@string@@QBEHAAV1@@Z
-    ARTS_IMPORT i32 Contains(class string& arg1);
+    ARTS_IMPORT i32 Contains(class string& arg1) const;
 
     // 0x57A290 | ?DirFileExt@string@@QBEXAAV1@00@Z
-    ARTS_IMPORT void DirFileExt(class string& arg1, class string& arg2, class string& arg3);
+    ARTS_IMPORT void DirFileExt(class string& arg1, class string& arg2, class string& arg3) const;
 
     // 0x57AB10 | ?ExpandEnvs@string@@QAEXXZ
     ARTS_IMPORT void ExpandEnvs();
 
     // 0x57A800 | ?Extension@string@@QBE?AV1@XZ | unused
-    ARTS_IMPORT class string Extension();
+    ARTS_IMPORT class string Extension() const;
 
     // 0x57A260 | ?FileExists@string@@QBEHXZ
-    ARTS_IMPORT i32 FileExists();
+    ARTS_IMPORT i32 FileExists() const;
 
     // 0x57A6A0 | ?FileName@string@@QBE?AV1@XZ | unused
-    ARTS_IMPORT class string FileName();
+    ARTS_IMPORT class string FileName() const;
 
     // 0x579ED0 | ?FindFile@string@@QAEHABV1@H00@Z | unused
     ARTS_IMPORT i32 FindFile(class string const& arg1, i32 arg2, class string const& arg3, class string const& arg4);
@@ -150,13 +150,13 @@ public:
     ARTS_IMPORT void Init(i32 arg1);
 
     // 0x57AE10 | ?IsNumeric@string@@QBEHXZ | unused
-    ARTS_IMPORT i32 IsNumeric();
+    ARTS_IMPORT i32 IsNumeric() const;
 
     // 0x579B10 | ?MinusEqual@string@@QAEXD@Z | unused
     ARTS_IMPORT void MinusEqual(char arg1);
 
     // 0x57ADC0 | ?NumSubStrings@string@@QBEHXZ
-    ARTS_IMPORT i32 NumSubStrings();
+    ARTS_IMPORT i32 NumSubStrings() const;
 
     // 0x57AAD0 | ?RemoveExtension@string@@QAEXXZ | unused
     ARTS_IMPORT void RemoveExtension();
@@ -165,7 +165,7 @@ public:
     ARTS_IMPORT void SaveName(class string const& arg1, i32 arg2, class string const& arg3, class string const& arg4);
 
     // 0x57ACB0 | ?SubString@string@@QBE?AV1@H@Z
-    ARTS_IMPORT class string SubString(i32 arg1);
+    ARTS_IMPORT class string SubString(i32 arg1) const;
 
     char* get()
     {

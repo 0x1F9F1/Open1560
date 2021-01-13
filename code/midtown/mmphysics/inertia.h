@@ -110,7 +110,7 @@ public:
     ARTS_IMPORT void ApplyTurn(class Vector3 const& arg1);
 
     // 0x4DABA0 | ?CalcCMatrix@asInertialCS@@QBEXAAVMatrix34@@ABVVector3@@@Z
-    ARTS_IMPORT void CalcCMatrix(class Matrix34& arg1, class Vector3 const& arg2);
+    ARTS_IMPORT void CalcCMatrix(class Matrix34& arg1, class Vector3 const& arg2) const;
 
     // 0x4DAA20 | ?DoConstrain@asInertialCS@@QAEXXZ
     ARTS_IMPORT void DoConstrain();

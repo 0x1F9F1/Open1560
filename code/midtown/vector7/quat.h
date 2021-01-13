@@ -38,10 +38,10 @@ class Quaternion
 {
 public:
     // 0x5727F0 | ??SQuaternion@@QBE?AV0@XZ | unused
-    ARTS_IMPORT class Quaternion operator~();
+    ARTS_IMPORT class Quaternion operator~() const;
 
     // 0x5729C0 | ?Angle@Quaternion@@QBEMABV1@@Z
-    ARTS_IMPORT f32 Angle(class Quaternion const& arg1);
+    ARTS_IMPORT f32 Angle(class Quaternion const& arg1) const;
 
     // 0x573120 | ?Approach@Quaternion@@QAEHABV1@MM@Z | unused
     ARTS_IMPORT i32 Approach(class Quaternion const& arg1, f32 arg2, f32 arg3);
@@ -60,7 +60,7 @@ public:
     ARTS_IMPORT void Lerp(f32 arg1, class Quaternion const& arg2, class Quaternion const& arg3);
 
     // 0x572890 | ?Mag@Quaternion@@QBEMXZ
-    ARTS_IMPORT f32 Mag();
+    ARTS_IMPORT f32 Mag() const;
 
     // 0x572960 | ?Normalize@Quaternion@@QAEXXZ
     ARTS_IMPORT void Normalize();

@@ -58,16 +58,16 @@ public:
     // ARTS_IMPORT Vector2(class Vector2 const& arg1);
 
     // 0x571110 | ??KVector2@@QBE?AV0@M@Z | unused
-    ARTS_IMPORT class Vector2 operator/(f32 arg1);
+    ARTS_IMPORT class Vector2 operator/(f32 arg1) const;
 
     // 0x571170 | ??SVector2@@QBE?AV0@XZ | unused
-    ARTS_IMPORT class Vector2 operator~();
+    ARTS_IMPORT class Vector2 operator~() const;
 
     // 0x571260 | ?InvMag@Vector2@@QBEMXZ
-    ARTS_IMPORT f32 InvMag();
+    ARTS_IMPORT f32 InvMag() const;
 
     // 0x5711E0 | ?Mag@Vector2@@QBEMXZ
-    ARTS_IMPORT f32 Mag();
+    ARTS_IMPORT f32 Mag() const;
 
     f32 x ARTS_DEBUG_NAN;
     f32 y ARTS_DEBUG_NAN;
