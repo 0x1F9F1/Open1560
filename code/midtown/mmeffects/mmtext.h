@@ -137,7 +137,7 @@ public:
     ARTS_EXPORT ~mmTextNode() override;
 
     // 0x4FF930 | ?AddText@mmTextNode@@QAEHPAXPAULocString@@HMM@Z
-    ARTS_IMPORT i32 AddText(void* arg1, struct LocString* arg2, i32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT i32 AddText(void* font, struct LocString* text, i32 effects, f32 x, f32 y);
 
     // 0x4FFD90 | ?Cull@mmTextNode@@UAEXXZ
     ARTS_EXPORT void Cull() override;

@@ -73,7 +73,7 @@ public:
         class asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7, i32 arg8);
 
     // 0x4C09F0 | ?InitString@mmDropDown@@QAEXVstring@@@Z
-    ARTS_IMPORT void InitString(class string arg1);
+    ARTS_EXPORT void InitString(class string values);
 
     // 0x4C0DB0 | ?SetDisabledColors@mmDropDown@@QAEXXZ
     ARTS_IMPORT void SetDisabledColors();

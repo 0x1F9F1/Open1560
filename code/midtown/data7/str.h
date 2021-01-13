@@ -57,6 +57,8 @@
     0x90B3D0 | char * ExecPath | ?ExecPath@@3PADA
 */
 
+struct LocString;
+
 class string
 {
 public:
@@ -175,6 +177,11 @@ public:
     const char* get() const
     {
         return data_;
+    }
+
+    LocString* get_loc() const
+    {
+        return reinterpret_cast<LocString*>(data_);
     }
 
 private:

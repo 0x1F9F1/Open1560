@@ -24,6 +24,33 @@ define_dummy_symbol(mmwidget_dropdown);
 #define MM_DROP_EFFECTS_REGULAR (MM_TEXT_VCENTER | MM_TEXT_PADDING | MM_TEXT_REQUIRED)
 #define MM_DROP_EFFECTS_HIGHLIGHT (MM_DROP_EFFECTS_REGULAR | MM_TEXT_BORDER | MM_TEXT_HIGHLIGHT)
 
+void mmDropDown::InitString(string values)
+{
+    ValueNodes = nullptr;
+    DropIndex = nullptr;
+
+    NumValues = values.NumSubStrings();
+    ValueNodes = MakeUnique<mmTextNode[]>(NumValues);
+    DropIndex = MakeUnique<u32[]>(NumValues);
+
+    DropHeight = NumValues * Height;
+
+    SetString(std::move(values));
+
+    for (i32 i = 0; i < NumValues; ++i)
+    {
+        string value = ValuesString.SubString(i + 1);
+        mmTextNode* node = &ValueNodes[i];
+
+        AddChild(node);
+        node->Init(X, Bottom + (i * Height), Width, Height, 1, 0);
+        DropIndex[i] = node->AddText(Font, value.get_loc(), MM_DROP_EFFECTS_REGULAR, 0.0f, 0.0f);
+    }
+
+    if (DisabledMask)
+        SetDisabledColors();
+}
+
 void mmDropDown::SetHighlight(i32 index)
 {
     if (DisabledMask & (1 << index))
