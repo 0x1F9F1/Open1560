@@ -29,6 +29,7 @@
 #include "agirend/zbrender.h"
 #include "data7/utimer.h"
 #include "eventq7/winevent.h"
+#include "mmcityinfo/state.h"
 #include "pcwindis/dxinit.h"
 #include "pcwindis/setupdata.h"
 
@@ -91,6 +92,8 @@ static mem::cmd_param PARAM_gldebug {"gldebug"};
 static mem::cmd_param PARAM_msaa {"msaa"};
 static mem::cmd_param PARAM_scaling {"scaling"};
 static mem::cmd_param PARAM_native_res {"nativeres"};
+static mem::cmd_param PARAM_window_menu {"windowmenu"};
+static mem::cmd_param PARAM_border {"border"};
 
 i32 agiGLPipeline::BeginGfx()
 {
@@ -137,7 +140,7 @@ i32 agiGLPipeline::BeginGfx()
     i32 horz_res = info.mi.rcMonitor.right - info.mi.rcMonitor.left;
     i32 vert_res = info.mi.rcMonitor.bottom - info.mi.rcMonitor.top;
 
-    if (dxiIsFullScreen())
+    if (dxiIsFullScreen() && !(PARAM_window_menu && MMSTATE.GameState == 0))
     {
         horz_res_ = horz_res;
         vert_res_ = vert_res;
@@ -155,7 +158,7 @@ i32 agiGLPipeline::BeginGfx()
 
     LONG window_style = WS_POPUP;
 
-    if (dxiIsFullScreen() || (width_ == horz_res) || (height_ == vert_res))
+    if (dxiIsFullScreen() || (width_ == horz_res) || (height_ == vert_res) || !PARAM_border.get_or(true))
     {
         window_style = WS_POPUP;
     }

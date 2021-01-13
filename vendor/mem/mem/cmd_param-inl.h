@@ -136,7 +136,7 @@ namespace mem
                             value = cmd_unquote(argv[i + 1]);
 
                         if (!value)
-                            value = "";
+                            value = "1";
                     }
 
                     j->value_ = value;
@@ -152,7 +152,7 @@ namespace mem
                         // clang-format off
                         if ((!std::strncmp("no", arg,      2) && cmd_arg_equal(j->name_, arg + 2)) ||
                             (!std::strncmp("no", j->name_, 2) && cmd_arg_equal(j->name_ + 2, arg)))
-                            j->value_ = "false";
+                            j->value_ = "0";
                         // clang-format on
                     }
                 }

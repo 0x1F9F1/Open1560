@@ -10,6 +10,11 @@ In most cases, Open1560 should run optimally straight away. However, there are c
 Open1560 uses command line arguments to configure certain aspects of the game.
 For a tutorial on how to use command line arguments, see https://www.bleepingcomputer.com/tutorials/understanding-command-line-arguments-and-how-to-use-them/
 
+## Examples
+-window     | Sets window to true (1)
+-nowindow   | Sets window to false (0)
+-msaa 4     | Sets msaa to 4
+
 ## Game
 Name        | Value | Description
 -nodamage   | false | Disables Damage
@@ -19,6 +24,7 @@ Name        | Value | Description
 ## Basic
 Name        | Value | Description
 -affinity   | 0     | Sets the process affinity
+-border     | true  | Enables a border when in windowed mode
 -cdid       | false | Enables CD music in the menu when using a virtual CD
 -config     | false | Forces redetection of graphics modes
 -fovfix     | true  | Enables FOV scaling based on resolution
@@ -31,6 +37,8 @@ Name        | Value | Description
 -prio       | 2     | Sets the process priority
 -scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered
 -vsync      | true  | Enables vertical sync
+-window     | false | Puts the game in a window
+-windowmenu | false | Puts the game in a borderless window when in the menu
 
 ## Advanced
 Name        | Value | Description
