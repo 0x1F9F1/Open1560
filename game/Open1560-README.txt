@@ -19,7 +19,6 @@ Name        | Value | Description
 ## Basic
 Name        | Value | Description
 -affinity   | 0     | Sets the process affinity
--aspect     | true  | Enables black bars to avoid stretching
 -cdid       | false | Enables CD music in the menu when using a virtual CD
 -config     | false | Forces redetection of graphics modes
 -fovfix     | true  | Enables FOV scaling based on resolution
@@ -30,6 +29,7 @@ Name        | Value | Description
 -msaa       | 0     | Sets the anti-aliasing level (does not work with legacy OpenGL)
 -nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl)
 -prio       | 2     | Sets the process priority
+-scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered
 -vsync      | true  | Enables vertical sync
 
 ## Advanced

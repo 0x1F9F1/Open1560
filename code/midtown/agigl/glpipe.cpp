@@ -89,7 +89,7 @@ static void GLAPIENTRY DebugMessageCallback([[maybe_unused]] GLenum source, GLen
 static mem::cmd_param PARAM_legacygl {"legacygl"};
 static mem::cmd_param PARAM_gldebug {"gldebug"};
 static mem::cmd_param PARAM_msaa {"msaa"};
-static mem::cmd_param PARAM_aspect {"aspect"};
+static mem::cmd_param PARAM_scaling {"scaling"};
 static mem::cmd_param PARAM_native_res {"nativeres"};
 
 i32 agiGLPipeline::BeginGfx()
@@ -319,18 +319,35 @@ i32 agiGLPipeline::BeginGfx()
     rasterizer_ = MakeRc<agiGLRasterizer>(this);
     renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
 
-    blit_width_ = horz_res_;
-    blit_height_ = vert_res_;
-
-    if (PARAM_aspect.get_or(true))
+    switch (i32 scaling_mode = PARAM_scaling.get_or(0))
     {
-        f32 game_aspect = static_cast<f32>(width_) / static_cast<f32>(height_);
-        f32 draw_aspect = static_cast<f32>(blit_width_) / static_cast<f32>(blit_height_);
+        case 0: // Stretched, Keep Aspect
+        case 1: // Stretched
+        {
+            blit_width_ = horz_res_;
+            blit_height_ = vert_res_;
 
-        if (draw_aspect > game_aspect)
-            blit_width_ = static_cast<i32>(blit_width_ * (game_aspect / draw_aspect));
-        else if (draw_aspect < game_aspect)
-            blit_height_ = static_cast<i32>(blit_height_ * (draw_aspect / game_aspect));
+            if (scaling_mode == 0)
+            {
+                f32 game_aspect = static_cast<f32>(width_) / static_cast<f32>(height_);
+                f32 draw_aspect = static_cast<f32>(blit_width_) / static_cast<f32>(blit_height_);
+
+                if (draw_aspect > game_aspect)
+                    blit_width_ = static_cast<i32>(blit_width_ * (game_aspect / draw_aspect));
+                else if (draw_aspect < game_aspect)
+                    blit_height_ = static_cast<i32>(blit_height_ * (draw_aspect / game_aspect));
+            }
+
+            break;
+        }
+
+        case 2: // Centered
+        {
+            blit_width_ = width_;
+            blit_height_ = height_;
+
+            break;
+        }
     }
 
     blit_x_ = (horz_res_ - blit_width_) / 2;
