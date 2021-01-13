@@ -19,3 +19,26 @@
 define_dummy_symbol(mmwidget_dropdown);
 
 #include "dropdown.h"
+#include "mmeffects/mmtext.h"
+
+#define MM_DROP_EFFECTS_REGULAR (MM_TEXT_VCENTER | MM_TEXT_PADDING | MM_TEXT_REQUIRED)
+#define MM_DROP_EFFECTS_HIGHLIGHT (MM_DROP_EFFECTS_REGULAR | MM_TEXT_BORDER | MM_TEXT_HIGHLIGHT)
+
+void mmDropDown::SetHighlight(i32 index)
+{
+    if (DisabledMask & (1 << index))
+        return;
+
+    if (Highlighted < NumValues)
+        ValueNodes[Highlighted].SetEffects(0, MM_DROP_EFFECTS_REGULAR);
+
+    ValueNodes[index].SetEffects(0, MM_DROP_EFFECTS_HIGHLIGHT);
+
+    Highlighted = index;
+}
+
+run_once([] {
+    u8 effects = static_cast<u8>(MM_DROP_EFFECTS_REGULAR);
+
+    create_patch("mmDropDown::InitString", "Change mmTextNode effects", 0x4C0BF3, &effects, 1);
+});

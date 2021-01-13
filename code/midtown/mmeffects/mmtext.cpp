@@ -85,9 +85,3 @@ void mmTextNode::Cull()
         Pipe()->CopyBitmap(x, y, text_bitmap_.get(), 0, 0, text_bitmap_->GetWidth(), text_bitmap_->GetHeight());
     }
 }
-
-run_once([] {
-    create_patch("mmDropDown::InitString", "Change mmTextNode effects", 0x4C0BF3, "\x51", 1);
-    create_patch("mmDropDown::SetHighlight", "Change mmTextNode effects", 0x4C0E8F, "\x51", 1);
-    create_patch("mmDropDown::SetHighlight", "Change mmTextNode effects", 0x4C0EA8, "\x55", 1);
-});

@@ -40,6 +40,9 @@
 */
 
 #include "arts7/node.h"
+#include "data7/str.h"
+
+class mmTextNode;
 
 class mmDropDown final : public asNode
 {
@@ -76,7 +79,7 @@ public:
     ARTS_IMPORT void SetDisabledColors();
 
     // 0x4C0E60 | ?SetHighlight@mmDropDown@@QAEXH@Z
-    ARTS_IMPORT void SetHighlight(i32 arg1);
+    ARTS_EXPORT void SetHighlight(i32 index);
 
     // 0x4C0F20 | ?Update@mmDropDown@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -88,7 +91,23 @@ private:
     // 0x4C0C70 | ?SetString@mmDropDown@@AAEXVstring@@@Z
     ARTS_IMPORT void SetString(class string arg1);
 
-    u8 gap20[0xA8];
+    Ptr<mmTextNode[]> ValueNodes {};
+    Ptr<u32[]> DropIndex {};
+    i32 Highlighted {0};
+    i32 field_2C {0};
+    i32 Enabled {0};
+    i32 DisabledMask {0};
+    asCamera* Camera {nullptr};
+    void* Font {nullptr};
+    f32 Y {0.0f};
+    f32 Height {0.0f};
+    f32 X {0.0f};
+    f32 Width {0.0f};
+    f32 DropHeight {0.0f};
+    f32 Bottom {0.0f};
+    i32 NumValues {0};
+    string ValuesString {};
+    char field_64[100];
 };
 
 check_size(mmDropDown, 0xC8);
