@@ -36,6 +36,7 @@ static extern_var(0x719808, agiPolySet, BigPolySet);
 
 static mem::cmd_param PARAM_max_verts_per_set {"maxverts"};
 
+class agiPolySet* agiTexSorter::AlphaPolySets[32];
 class agiPolySet* agiTexSorter::OpaquePolySets[128];
 
 agiTexSorter::agiTexSorter()

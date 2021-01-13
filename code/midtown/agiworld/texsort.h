@@ -93,7 +93,7 @@ public:
     ARTS_IMPORT static class agiPolySet* GetEnv(class agiTexDef* arg1, i32 arg2, i32 arg3);
 
     // 0x719788 | ?AlphaPolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    ARTS_IMPORT static class agiPolySet* AlphaPolySets[32];
+    ARTS_EXPORT static class agiPolySet* AlphaPolySets[32];
 
     // 0x719780 | ?AlphaSetCount@agiTexSorter@@2HA
     ARTS_IMPORT static i32 AlphaSetCount;
