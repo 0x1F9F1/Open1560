@@ -94,12 +94,15 @@ private:
 
 check_size(mmText, 0x2);
 
-#define MM_TEXT_VCENTER 0x1
-#define MM_TEXT_CENTER 0x2
-#define MM_TEXT_BORDER 0x4
-#define MM_TEXT_PADDING 0x10
-#define MM_TEXT_WORDBREAK 0x20
-#define MM_TEXT_REQUIRED 0x40
+#define MM_TEXT_VCENTER 0x1    // Centers text vertically
+#define MM_TEXT_CENTER 0x2     // Centers text horizontally
+#define MM_TEXT_BORDER 0x4     // Draw a white border
+#define MM_TEXT_PADDING 0x10   // Shift text 2 pixels to the right
+#define MM_TEXT_WORDBREAK 0x20 // Breaks lines which extend past the rectangle (unused)
+#define MM_TEXT_REQUIRED 0x40  // Draw even if the text is empty
+#define MM_TEXT_HIGHLIGHT 0x80 // Draws text using the highlight color (unimplemented)
+#define MM_TEXT_RIGHT 0x100    // Aligns text to the right
+#define MM_TEXT_BOTTOM 0x200   // Aligns text to the bottom
 
 struct mmTextData
 {
