@@ -139,13 +139,13 @@ private:
     ARTS_EXPORT ~DLPTemplate();
 
     i32 NumGroups {0};
-    Ptr<DLPGroup[]> Groups {nullptr};
+    Ptr<DLPGroup[]> Groups {};
 
     i32 NumPatches {0};
-    Ptr<DLPPatch[]> Patches {nullptr};
+    Ptr<DLPPatch[]> Patches {};
 
     i32 NumVertices {0};
-    Ptr<Vector3[]> Vertices {nullptr};
+    Ptr<Vector3[]> Vertices {};
 
     CString Name {};
 
@@ -153,9 +153,9 @@ private:
     i32 TexCount {0};
     i32 PhysCount {0};
 
-    Ptr<i16[]> MtlIds {nullptr};
-    Ptr<i16[]> TexIds {nullptr};
-    Ptr<i16[]> PhysIds {nullptr};
+    Ptr<i16[]> MtlIds {};
+    Ptr<i16[]> TexIds {};
+    Ptr<i16[]> PhysIds {};
 
     u32 RefCount {1};
 
@@ -219,8 +219,8 @@ public:
     i16 NumVertices {0};
     i16 PhysIdx {0};
 
-    Ptr<DLPVertex[]> Vertices {nullptr};
-    CString Name {nullptr};
+    Ptr<DLPVertex[]> Vertices {};
+    CString Name {};
 };
 
 check_size(DLPPatch, 0x18);
@@ -253,10 +253,10 @@ public:
     char Name[32] {};
 
     i32 NumVertices {0};
-    Ptr<u16[]> VertexIndices {nullptr};
+    Ptr<u16[]> VertexIndices {};
 
     i32 NumPatches {0};
-    Ptr<u16[]> PatchIndices {nullptr};
+    Ptr<u16[]> PatchIndices {};
 };
 
 check_size(DLPGroup, 0x30);

@@ -100,7 +100,7 @@ protected:
 
     CString name_ {};
 
-    Ptr<agiSurfaceDesc> surface_ {nullptr};
+    Ptr<agiSurfaceDesc> surface_ {};
 
     // 0x1 | AGI_BITMAP_TRANSPARENT
     // 0x2 | AGI_BITMAP_OFFSCREEN

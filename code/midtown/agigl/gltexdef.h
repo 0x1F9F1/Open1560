@@ -49,5 +49,5 @@ public:
 private:
     u32 texture_ {0};
 
-    Ptr<agiSurfaceDesc> temp_surface_ {nullptr};
+    Ptr<agiSurfaceDesc> temp_surface_ {};
 };

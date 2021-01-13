@@ -215,7 +215,7 @@ public:
         return Surface->Height;
     }
 
-    Ptr<agiSurfaceDesc> Surface {nullptr};
+    Ptr<agiSurfaceDesc> Surface {};
     agiTexParameters Tex {};
     agiPolySet* PolySet {nullptr};
     i32 SceneIndex {0};

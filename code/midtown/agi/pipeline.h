@@ -357,12 +357,12 @@ protected:
     agiSurfaceDesc screen_format_ {};
     u8 gap1C4[0xF8] {};
 
-    Rc<agiColorModel> hi_color_model_ {nullptr};
-    Rc<agiColorModel> opaque_color_model_ {nullptr};
-    Rc<agiColorModel> alpha_color_model_ {nullptr};
-    Rc<agiColorModel> text_color_model_ {nullptr};
+    Rc<agiColorModel> hi_color_model_ {};
+    Rc<agiColorModel> opaque_color_model_ {};
+    Rc<agiColorModel> alpha_color_model_ {};
+    Rc<agiColorModel> text_color_model_ {};
 
-    Rc<agiRenderer> renderer_ {nullptr};
+    Rc<agiRenderer> renderer_ {};
 
     b32 is_software_ {0};
     i32 max_tex_width_ {0};
