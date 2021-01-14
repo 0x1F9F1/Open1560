@@ -279,6 +279,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         patch_jmp("GetMeshSet", "Pager address check", 0x512AD5, jump_type::always);
         patch_jmp("mmBoundTemplate::LockIfResident", "Pager address check", 0x519329, jump_type::always);
 
+        create_patch("AudManager::Disable", "Actually disable sfx/music", 0x4E9098 + 1, "\x00\x00\x00\x00", 4);
+
         constexpr u32 pxt_checks[][2] {
             {0x444609, 0x444642}, // ?Draw@aiTrafficLightInstance@@UAIXH@Z
             {0x451DA5, 0x451DDE}, // ?Draw@aiVehicleInstance@@UAIXH@Z
