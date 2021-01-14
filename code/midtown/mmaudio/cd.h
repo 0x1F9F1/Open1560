@@ -42,9 +42,7 @@ class CDMan final : public Dispatchable
     // const CDMan::`vftable' @ 0x61FEF8
 
 public:
-    CDMan(HWND window)
-        : window_(window)
-    {}
+    CDMan(HWND window);
 
     // 0x4F4240 | ??1CDMan@@QAE@XZ
     ARTS_EXPORT ~CDMan();

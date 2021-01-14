@@ -166,7 +166,7 @@ public:
     ARTS_IMPORT i32 InitCityADF(char* arg1, i32 arg2, u32 arg3);
 
     // 0x4EFBD0 | ?InitPrimarySoundBuffer@DSGlobal@@QAEHKEPAD@Z
-    ARTS_IMPORT i32 InitPrimarySoundBuffer(u32 arg1, u8 arg2, char* arg3);
+    ARTS_IMPORT b32 InitPrimarySoundBuffer(u32 sample_rate, u8 stero, char* device_name);
 
     // 0x4F0280 | ?InitUIADF@DSGlobal@@QAEHPADHK@Z
     ARTS_IMPORT i32 InitUIADF(char* arg1, i32 arg2, u32 arg3);
@@ -253,20 +253,20 @@ private:
     // 0x61FEEC | ?s_iUsingEAXMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iUsingEAXMask;
 
-    i32 field_0;
-    IDirectSound* field_4;
+    IDirectSoundBuffer* DSBuffer;
+    IDirectSound* DSound;
     HWND Window;
     i32 field_C;
     DSDeviceDesc* DevicesList;
-    i32 field_14;
+    DSDeviceDesc* SelectedDevice;
     i32 field_18;
-    char char1C[100];
+    char Name[100];
     u32 NumDevices;
     i32 BitDepth;
-    i32 field_88;
+    i32 Flags;
     i32 field_8C;
     u8 byte90;
-    i32 field_94;
+    i32 HasDSBuffer;
     i32 field_98;
     i32 CdManagerLoaded;
     i32 field_A0;

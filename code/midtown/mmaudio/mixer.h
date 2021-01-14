@@ -75,10 +75,12 @@ class MixerCTL final
     // const MixerCTL::`vftable'{for `Dispatchable'} @ 0x61FECC
 
 public:
+    MixerCTL(HWND window);
+
     // 0x4EEB90 | ??_GMixerCTL@@UAEPAXI@Z
     // 0x4EEB90 | ??_EMixerCTL@@UAEPAXI@Z
     // 0x4EE180 | ??1MixerCTL@@UAE@XZ
-    ARTS_IMPORT ~MixerCTL() override;
+    ARTS_EXPORT ~MixerCTL() override;
 
     // 0x4EE240 | ?AssignCDBalance@MixerCTL@@QAEXM@Z
     ARTS_IMPORT void AssignCDBalance(f32 arg1);
@@ -136,13 +138,13 @@ private:
     f32 field_18 {1.0f};
     f32 field_1C {1.0f};
 
-    void* Window {nullptr};
+    void* window_ {nullptr};
     i32 field_24 {0};
     i32 field_28 {1};
-    u32 DeviceId {0};
+    u32 device_id_ {0};
 
-    f32 WaveBalance {0.0f};
-    f32 CDBalance {0.0f};
+    f32 wave_balance_ {0.0f};
+    f32 cd_balance_ {0.0f};
 };
 
 check_size(MixerCTL, 0x38);

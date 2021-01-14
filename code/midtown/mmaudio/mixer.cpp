@@ -24,6 +24,20 @@ define_dummy_symbol(mmaudio_mixer);
 #include <mmsystem.h>
 
 #include "dsglobal.h"
+#include "pcwindis/pcwindis.h"
+
+MixerCTL::MixerCTL(HWND window)
+    : window_(window)
+{
+    static u32 msgs[] {MM_WOM_OPEN};
+
+    RegisterMap("Mixer", msgs, ARTS_SIZE(msgs), this);
+}
+
+MixerCTL::~MixerCTL()
+{
+    UnregisterMap("Mixer");
+}
 
 void MixerCTL::RefreshAll(ulong /*arg1*/)
 {}
@@ -41,7 +55,7 @@ void MixerCTL::SetDeviceNum(u32 device_num)
             wave_id = device_num;
     }
 
-    DeviceId = wave_id;
+    device_id_ = wave_id;
 }
 
 const char* MixerCTL::GetErrorMessage(ulong error)

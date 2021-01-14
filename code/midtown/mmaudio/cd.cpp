@@ -22,6 +22,14 @@ define_dummy_symbol(mmaudio_cd);
 
 #include "pcwindis/pcwindis.h"
 
+CDMan::CDMan(HWND window)
+    : window_(window)
+{
+    static u32 msgs[] {MM_MCINOTIFY};
+
+    RegisterMap("CD Player", msgs, ARTS_SIZE(msgs), this);
+}
+
 CDMan::~CDMan()
 {
     if (device_id_ != 0)
