@@ -87,7 +87,7 @@ public:
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x5297D0 | ?DrawBegin@asCamera@@QAEXXZ
-    ARTS_IMPORT void DrawBegin();
+    ARTS_EXPORT void DrawBegin();
 
     // 0x5299C0 | ?DrawEnd@asCamera@@QAEXXZ
     ARTS_IMPORT void DrawEnd();

@@ -497,7 +497,7 @@ void mmTextNode::RenderText(
             rc.right -= 3;
         }
 
-        i32 hl_color = 0xFF00FFFF;
+        i32 hl_color = 0x00FFFF;
 
         font->Draw(surface, line.Text, rc, (line.Effects & MM_TEXT_HIGHLIGHT) ? hl_color : fg_color_, line.Effects);
     }

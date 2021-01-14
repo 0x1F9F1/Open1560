@@ -20,6 +20,8 @@ define_dummy_symbol(mmwidget_manager);
 
 #include "manager.h"
 
+#include "agi/pipeline.h"
+
 void MenuManager::AddPointer()
 {}
 
@@ -28,3 +30,30 @@ void MenuManager::AddWidgets(class Bank* /*arg1*/)
 
 // 0x4B1B30 | ?HelpWatcher@@YGKPAX@Z
 ARTS_IMPORT /*static*/ u32 ARTS_STDCALL HelpWatcher(void* arg1);
+
+void MenuManager::GetScale(f32& x, f32& y, f32& width, f32& height)
+{
+    if (HasScale())
+    {
+        x = StartX;
+        y = StartY;
+
+        width = ScaleX;
+        height = ScaleY;
+    }
+    else
+    {
+        x = 0.0f;
+        y = 0.0f;
+
+        width = 1.0f;
+        height = 1.0f;
+    }
+
+    // TODO: Move scaling to MenuManager::Init?
+    x = UI_StartX + (x * UI_ScaleX);
+    y = UI_StartY + (y * UI_ScaleY);
+
+    width = width * UI_ScaleX;
+    height = height * UI_ScaleY;
+}

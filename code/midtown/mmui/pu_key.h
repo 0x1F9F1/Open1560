@@ -32,13 +32,15 @@
 
 #include "pu_menu.h"
 
+class mmTextNode;
+
 class PUKey final : public PUMenuBase
 {
     // const PUKey::`vftable' @ 0x61DE58
 
 public:
     // 0x4A93C0 | ??0PUKey@@QAE@HMMMM@Z
-    ARTS_IMPORT PUKey(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT PUKey(i32 menu_id, f32 x, f32 y, f32 width, f32 height);
 
     // 0x4A9750 | ??_GPUKey@@UAEPAXI@Z
     // 0x4A9750 | ??_EPUKey@@UAEPAXI@Z
@@ -52,7 +54,9 @@ private:
     // 0x4A9470 | ?PreSetup@PUKey@@EAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    u8 gapC0[0xC];
+    Ptr<mmTextNode> text_node_ {};
+    i32 key_count_ {0};
+    f32 title_pos_ {0.0f};
 };
 
 check_size(PUKey, 0xCC);

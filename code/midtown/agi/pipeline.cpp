@@ -102,6 +102,18 @@ void agiPipeline::DumpStatus(struct agiMemStatus& /*arg1*/)
 
 static extern_var(0x8FAC78, ipcMessageQueue, GFXPAGER);
 
+i32 UI_XPos = 0;
+i32 UI_YPos = 0;
+
+i32 UI_Width = 0;
+i32 UI_Height = 0;
+
+f32 UI_StartX = 0.0f;
+f32 UI_StartY = 0.0f;
+
+f32 UI_ScaleX = 0.0f;
+f32 UI_ScaleY = 0.0f;
+
 i32 agiPipeline::BeginAllGfx()
 {
     i32 error = BeginGfx();
@@ -116,6 +128,29 @@ i32 agiPipeline::BeginAllGfx()
     }
 
     CurrentRenderer = renderer_.get();
+
+    // TODO: Move scaling to MenuManager::Init?
+    UI_Width = width_;
+    UI_Height = height_;
+
+    f32 game_aspect = 640.0f / 480.0f;
+    f32 ui_aspect = static_cast<f32>(UI_Width) / static_cast<f32>(UI_Height);
+
+    if (ui_aspect > game_aspect)
+        UI_Width = static_cast<i32>(UI_Width * (game_aspect / ui_aspect));
+    else if (ui_aspect < game_aspect)
+        UI_Height = static_cast<i32>(UI_Height * (ui_aspect / game_aspect));
+
+    UI_XPos = (width_ - UI_Width) / 2;
+    UI_YPos = (height_ - UI_Height) / 2;
+
+    Displayf("UI Position: x=%i, y=%i, w=%i, h=%i", UI_XPos, UI_YPos, UI_Width, UI_Height);
+
+    UI_ScaleX = static_cast<f32>(UI_Width) / static_cast<f32>(width_);
+    UI_ScaleY = static_cast<f32>(UI_Height) / static_cast<f32>(height_);
+
+    UI_StartX = static_cast<f32>(UI_XPos) / static_cast<f32>(width_);
+    UI_StartY = static_cast<f32>(UI_YPos) / static_cast<f32>(height_);
 
     agiDisplayf("Refreshing objects");
 
@@ -135,9 +170,9 @@ i32 agiPipeline::BeginAllGfx()
         InitEventQueue();
 
     if (dxiIsFullScreen())
-        error = eqEventHandler::SuperQ->BeginGfx(640, 480, 1);
+        error = eqEventHandler::SuperQ->BeginGfx(640, 480, true);
     else
-        error = eqEventHandler::SuperQ->BeginGfx(width_, height_, 0);
+        error = eqEventHandler::SuperQ->BeginGfx(width_, height_, false);
 
     GFXPAGER.Init(64, false);
 

@@ -70,7 +70,7 @@ public:
     ARTS_IMPORT void EndTask(f32 arg1);
 
     // 0x48B720 | ?Init@mmLoader@@QAEXPADMM@Z
-    ARTS_IMPORT void Init(char* arg1, f32 arg2, f32 arg3);
+    ARTS_EXPORT void Init(char* underlay_name, f32 bar_x, f32 bar_y);
 
     // 0x48B970 | ?Percent@mmLoader@@QAEXH@Z | unused
     ARTS_IMPORT void Percent(i32 arg1);

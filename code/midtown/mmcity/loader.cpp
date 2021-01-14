@@ -19,3 +19,24 @@
 define_dummy_symbol(mmcity_loader);
 
 #include "loader.h"
+
+#include "agi/bitmap.h"
+#include "agi/pipeline.h"
+#include "localize/localize.h"
+
+void mmLoader::Init(char* underlay_name, f32 bar_x, f32 bar_y)
+{
+    bar_x_ = UI_XPos + static_cast<i32>(UI_Width * bar_x);
+    bar_y_ = UI_YPos + static_cast<i32>(UI_Height * bar_y);
+
+    camera_.SetUnderlay(underlay_name);
+
+    task_text_.Init(0.25f, 0.85f, 0.5f, 0.0729f, 2, AGI_BITMAP_TRANSPARENT);
+    task_text_.AddText(myFont, LOC_TEXT(""), MM_TEXT_CENTER, 0.0f, 0.0f);
+    task_text_.AddText(myFont, LOC_TEXT(""), MM_TEXT_CENTER, 0.0f, 0.075f);
+
+    intro_text_.Init(0.25f, 0.07f, 0.5f, 0.2f, 1, 0);
+    intro_text_.AddText(myFont, LOC_TEXT(""), MM_TEXT_PADDING | MM_TEXT_WORDBREAK, 0.0f, 0.0f);
+
+    Update();
+}

@@ -67,7 +67,7 @@ public:
     ARTS_EXPORT void AdjustMouse(i32& mouse_x, i32& mouse_y);
 
     // 0x561F20 | ?BeginGfx@WINEventHandler@@UAEHHHH@Z
-    ARTS_EXPORT i32 BeginGfx(i32 arg1, i32 arg2, i32 arg3) override;
+    ARTS_EXPORT i32 BeginGfx(i32 width, i32 height, b32 fullscreen) override;
 
     // 0x562610 | ?BeginTracking@WINEventHandler@@UAEXXZ
     ARTS_EXPORT void BeginTracking() override;

@@ -191,9 +191,14 @@ public:
         current_view_ = cameras_[--camera_depth_]->GetView();
     }
 
-    bool IsDebugDrawEnabled()
+    bool IsDebugDrawEnabled() const
     {
         return physics_bank_open_;
+    }
+
+    i32 GetDrawMode() const
+    {
+        return draw_mode_;
     }
 
     VIRTUAL_META_DECLARE;

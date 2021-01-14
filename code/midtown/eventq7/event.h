@@ -69,7 +69,7 @@ public:
     // 0x562F00 | ??1eqEventHandler@@UAE@XZ
     ARTS_EXPORT virtual ~eqEventHandler();
 
-    virtual i32 BeginGfx(i32 width, i32 height, i32 fullscreen) = 0;
+    virtual i32 BeginGfx(i32 width, i32 height, b32 fullscreen) = 0;
 
     virtual void EndGfx() = 0;
 

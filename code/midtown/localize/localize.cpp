@@ -45,5 +45,5 @@ LocString* AngelReadString(u32 index)
 
     const char* result = (find != std::end(LangStrings) && find->Index == index) ? find->Value : "INVALID_LANG_STRING";
 
-    return reinterpret_cast<LocString*>(const_cast<char*>(result));
+    return LOC_TEXT(result);
 }

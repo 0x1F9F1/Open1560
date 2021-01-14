@@ -489,3 +489,15 @@ ARTS_IMPORT extern ulong agiTransformTimer;
 
 // 0x8FACA0 | ?agiTraverseTimer@@3KA
 ARTS_IMPORT extern ulong agiTraverseTimer;
+
+extern i32 UI_XPos;
+extern i32 UI_YPos;
+
+extern i32 UI_Width;
+extern i32 UI_Height;
+
+extern f32 UI_StartX;
+extern f32 UI_StartY;
+
+extern f32 UI_ScaleX;
+extern f32 UI_ScaleY;

@@ -45,7 +45,7 @@ class PUMenuBase : public UIMenu
 
 public:
     // 0x4AAFE0 | ??0PUMenuBase@@QAE@HMMMMPAD@Z
-    ARTS_IMPORT PUMenuBase(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_EXPORT PUMenuBase(i32 menu_id, f32 x, f32 y, f32 width, f32 height, char* background);
 
     // 0x4AB490 | ??_EPUMenuBase@@UAEPAXI@Z
     // 0x4AB490 | ??_GPUMenuBase@@UAEPAXI@Z
@@ -62,7 +62,7 @@ public:
     ARTS_IMPORT f32 AddPrevious(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4AB210 | ?CreateDummyBitmap@PUMenuBase@@QAEPAVagiBitmap@@XZ
-    ARTS_IMPORT class agiBitmap* CreateDummyBitmap();
+    ARTS_IMPORT RcOwner<class agiBitmap> CreateDummyBitmap();
 
     // 0x4AB270 | ?CreateTitle@PUMenuBase@@QAEMXZ
     ARTS_IMPORT f32 CreateTitle();
@@ -79,7 +79,19 @@ public:
     // 0x4AB400 | ?Update@PUMenuBase@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap90[0x30];
+protected:
+    i32 field_90 {0};
+    Rc<agiBitmap> bg_bitmap_ {};
+    UIButton* exit_button_ {nullptr};
+    i32 bg_x_ {0};
+    i32 bg_y_ {0};
+    i32 field_A4 {0};
+    f32 field_A8 {0.0f};
+    f32 field_AC {0.0f};
+    f32 field_B0 {0.0f};
+    f32 field_B4 {0.0f};
+    f32 field_B8 {0.0f};
+    f32 field_BC {0.0f};
 };
 
 check_size(PUMenuBase, 0xC0);

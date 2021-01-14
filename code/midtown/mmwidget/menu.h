@@ -101,7 +101,7 @@ public:
     };
 
     // 0x4AC7F0 | ??0UIMenu@@QAE@H@Z
-    ARTS_IMPORT UIMenu(i32 arg1);
+    ARTS_IMPORT UIMenu(i32 menu_id);
 
     // 0x4AED30 | ??_EUIMenu@@UAEPAXI@Z
     // 0x4AED30 | ??_GUIMenu@@UAEPAXI@Z
@@ -307,7 +307,35 @@ public:
     // 0x641858 | ?WIDGET_WIDTH@UIMenu@@2MA
     ARTS_IMPORT static f32 WIDGET_WIDTH;
 
-    u8 gap20[0x70];
+protected:
+    i32 action_source_;
+    i32 state_;
+    i32 field_28;
+    i32 field_2C;
+    i32 field_30;
+    i32 widget_count_;
+    i32 field_38;
+    uiWidget** widgets_;
+    CString menu_name_;
+    char* field_44;
+    i32 field_48;
+    f32 menu_x_;
+    f32 menu_y_;
+    f32 menu_width_;
+    f32 menu_height_;
+    f32 field_5C;
+    f32 field_60;
+    f32 field_64;
+    i32 field_68;
+    i32* p_b_state_;
+    i32 b_state_;
+    i32 field_74;
+    i32 field_78;
+    i32 prev_menu_id_;
+    i32 active_widget_id_;
+    f32 field_84;
+    i32 field_88;
+    CString background_name_;
 };
 
 check_size(UIMenu, 0x90);

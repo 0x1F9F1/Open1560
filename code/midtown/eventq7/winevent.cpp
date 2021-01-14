@@ -80,7 +80,7 @@ void WINEventHandler::AdjustMouse(i32& mouse_x, i32& mouse_y)
     }
 }
 
-i32 WINEventHandler::BeginGfx(i32 width, i32 height, i32 fullscreen)
+i32 WINEventHandler::BeginGfx(i32 width, i32 height, b32 fullscreen)
 {
     input_method_ = fullscreen != 0 ? 3 : 1;
 

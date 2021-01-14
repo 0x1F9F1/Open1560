@@ -32,6 +32,8 @@ struct LocString
     char Text[1];
 };
 
+#define LOC_TEXT(TEXT) ((struct LocString*) (TEXT))
+
 // 0x5200D0 | ?AngelReadString@@YAPAULocString@@I@Z
 ARTS_EXPORT struct LocString* AngelReadString(u32 index);
 
@@ -46,7 +48,7 @@ ARTS_IMPORT char* GetLocTime(f32 arg1);
 #    define X(ID, VALUE) extern const char LOC_STR_VAR(ID)[];
 #    include "lang_english.h"
 #    undef X
-#    define LOC_STRING(ID) ((struct LocString*) LOC_STR_VAR(ID))
+#    define LOC_STRING(ID) LOC_TEXT(LOC_STR_VAR(ID))
 #endif
 
 #define LOC_STR(ID) (LOC_STRING(ID)->Text)

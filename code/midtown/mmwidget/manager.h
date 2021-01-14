@@ -89,6 +89,21 @@
 */
 
 #include "arts7/node.h"
+#include "data7/str.h"
+
+class eqEventQ;
+class asCamera;
+class asViewCS;
+class asLamp;
+class asLinearCS;
+class uiNavBar;
+class WArray;
+class MArray;
+class sfPointer;
+class Card2D;
+class UIMenu;
+class mmTextNode;
+class AudSound;
 
 class MenuManager final : public asNode
 {
@@ -188,7 +203,7 @@ public:
     ARTS_IMPORT i32 GetPreviousMenu();
 
     // 0x4AF140 | ?GetScale@MenuManager@@QAEXAAM000@Z
-    ARTS_IMPORT void GetScale(f32& arg1, f32& arg2, f32& arg3, f32& arg4);
+    ARTS_EXPORT void GetScale(f32& x, f32& y, f32& width, f32& height);
 
     // 0x4B1A60 | ?Help@MenuManager@@QAEXXZ
     ARTS_IMPORT void Help();
@@ -268,11 +283,81 @@ public:
     // 0x705960 | ?Instance@MenuManager@@2PAV1@A
     ARTS_IMPORT static class MenuManager* Instance;
 
+    bool HasScale() const
+    {
+        return has_scale_;
+    }
+
+    bool GetFieldD0() const
+    {
+        return field_D0;
+    }
+
 private:
     // 0x4B1730 | ?PlayMenuSwitchSound@MenuManager@@AAEXXZ
     ARTS_IMPORT void PlayMenuSwitchSound();
 
-    u8 gap20[0x120];
+    eqEventQ* EventQ;
+    asCamera* MenuCamera;
+    asViewCS* MenuCS;
+    asLamp* Lamps;
+    asLinearCS* LinearCSs;
+    uiNavBar* NavBar;
+    i32 field_38;
+    i32 HasActiveWidget;
+    b32 has_scale_;
+    b32 Enabled;
+    uiWidget* FocusedWidget;
+    uiWidget* ActiveWidget;
+    i32 field_50;
+    WArray* WidgetArray;
+    MArray* MenuArray;
+    string ControllerNames;
+    string string64;
+    string string6C;
+    string string74;
+    string string7C;
+    string string84;
+    string string8C;
+    string string94;
+    string string9C;
+    string stringA4;
+    string stringAC;
+    f32 StartX;
+    f32 StartY;
+    f32 ScaleX;
+    f32 ScaleY;
+    sfPointer* Pointer;
+    i32 field_C8;
+    i32 field_CC;
+    b32 field_D0;
+    f32 field_D4;
+    f32 field_D8;
+    UIMenu* DialogMenu;
+    UIMenu* UnderlayMenu;
+    asNode* LastDrawn;
+    UIMenu** Menus;
+    UIMenu* ActiveMenu;
+    Card2D* Popup;
+    mmTextNode* dwordF4;
+    i32 MaxMenus;
+    i32 NumMenus;
+    i32 field_100;
+    i32 field_104;
+    void* LocFont1;
+    void* Font1;
+    void* Font3;
+    void* Font2;
+    void* Font4;
+    void* Font5;
+    void* Font6;
+    void* LocFont2;
+    i32 ActiveMenuID;
+    AudSound* MoveSelectorSound;
+    AudSound* SelectionMadeSound;
+    AudSound* SwitchSound;
+    AudSound* UiSounds;
+    char* DefaultBackground;
 };
 
 check_size(MenuManager, 0x140);

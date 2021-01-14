@@ -46,11 +46,11 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
     name_ = name;
     flags_ = flags;
 
-    if (name && *name != '*')
+    if (name && name[0] != '*')
     {
         // NOTE: Orignial used agiPipeline::CurrentPipe for Width and Height
         surface_ = AsPtr(agiSurfaceDesc::Load(const_cast<char*>(name), BitmapSearchPath, 0, 0,
-            (sx == 1.0f) ? Pipe()->GetWidth() : 0, (sy == 1.0f) ? Pipe()->GetHeight() : 0));
+            (sx == 1.0f) ? UI_Width : 0, (sy == 1.0f) ? UI_Height : 0));
 
         if (surface_ == nullptr)
             return AGI_ERROR_FILE_NOT_FOUND;
@@ -65,19 +65,8 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
         }
         else
         {
-            if (sx != 1.0f && sy != 1.0f)
-            {
-                f32 game_aspect = 640.0f / 480.0f;
-                f32 draw_aspect = static_cast<f32>(Pipe()->GetWidth()) / static_cast<f32>(Pipe()->GetHeight());
-
-                if (draw_aspect > game_aspect)
-                    sx *= game_aspect / draw_aspect;
-                else if (draw_aspect < game_aspect)
-                    sy *= draw_aspect / game_aspect;
-            }
-
-            width_ = sx ? static_cast<i32>(Pipe()->GetWidth() * sx) : surface_->Width;
-            height_ = sy ? static_cast<i32>(Pipe()->GetHeight() * sy) : surface_->Height;
+            width_ = sx ? UI_Width : surface_->Width;
+            height_ = sy ? UI_Height : surface_->Height;
 
             width_scale_ = sx;
             height_scale_ = sy;
