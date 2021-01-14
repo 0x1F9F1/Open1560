@@ -224,18 +224,18 @@ void LogToFile(const char* file)
 
     if (lock_file != INVALID_HANDLE_VALUE)
     {
-        if (GetFileSize(lock_file, NULL) == 19)
+        if (GetFileSize(lock_file, NULL) == 15)
         {
             Warningf("Lock file detected. Saving log");
 
-            char time_string[19];
+            char time_string[15];
             DWORD bytes_read = 0;
             if (ReadFile(lock_file, time_string, sizeof(time_string), &bytes_read, NULL))
             {
                 CreateDirectoryA("crashes", NULL);
 
                 char new_name[256];
-                arts_sprintf(new_name, "crashes/Open1560_%.19s.log", time_string);
+                arts_sprintf(new_name, "crashes/Open1560-%.15s.log", time_string);
 
                 if (!MoveFileA(file, new_name))
                 {
@@ -254,14 +254,14 @@ void LogToFile(const char* file)
         struct tm timeinfo;
         localtime_s(&timeinfo, &rawtime);
 
-        char open_time[20];
-        strftime(open_time, ARTS_SIZE(open_time), "%G-%m-%d_%H.%M.%S", &timeinfo);
+        char open_time[16];
+        strftime(open_time, ARTS_SIZE(open_time), "%G%m%d-%H%M%S", &timeinfo);
 
         SetFilePointer(lock_file, 0, NULL, FILE_BEGIN);
         SetEndOfFile(lock_file);
 
         DWORD bytes_written = 0;
-        WriteFile(lock_file, open_time, 19, &bytes_written, NULL);
+        WriteFile(lock_file, open_time, 15, &bytes_written, NULL);
 
         FlushFileBuffers(lock_file);
         CloseHandle(lock_file);
