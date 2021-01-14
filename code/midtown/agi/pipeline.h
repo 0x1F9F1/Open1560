@@ -501,3 +501,6 @@ extern f32 UI_StartY;
 
 extern f32 UI_ScaleX;
 extern f32 UI_ScaleY;
+
+extern f32 UI_FullW;
+extern f32 UI_FullH;

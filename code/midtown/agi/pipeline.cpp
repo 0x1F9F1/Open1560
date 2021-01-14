@@ -114,6 +114,9 @@ f32 UI_StartY = 0.0f;
 f32 UI_ScaleX = 0.0f;
 f32 UI_ScaleY = 0.0f;
 
+f32 UI_FullW = 0.0f;
+f32 UI_FullH = 0.0f;
+
 i32 agiPipeline::BeginAllGfx()
 {
     i32 error = BeginGfx();
@@ -151,6 +154,9 @@ i32 agiPipeline::BeginAllGfx()
 
     UI_StartX = static_cast<f32>(UI_XPos) / static_cast<f32>(width_);
     UI_StartY = static_cast<f32>(UI_YPos) / static_cast<f32>(height_);
+
+    UI_FullW = 640.0f / UI_ScaleX;
+    UI_FullH = 480.0f / UI_ScaleY;
 
     agiDisplayf("Refreshing objects");
 

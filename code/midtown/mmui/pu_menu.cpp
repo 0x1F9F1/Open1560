@@ -31,9 +31,16 @@ PUMenuBase::PUMenuBase(
     if (background)
     {
         if (MenuManager::Instance->HasScale())
-            bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, 1.0f, 1.0f, 0));
+        {
+            if (menu_id == 9) // FIXME: Need to adjust PUResults text positions
+                bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, UI_FullW, UI_FullH, 0));
+            else
+                bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, 1.0f, 1.0f, 0));
+        }
         else
+        {
             bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, 0.0f, 0.0f, 1));
+        }
 
         if (!bg_bitmap_)
         {
@@ -42,12 +49,13 @@ PUMenuBase::PUMenuBase(
             ArAssert(bg_bitmap_, "Could not create backgrond");
         }
 
-        menu_width_ = static_cast<f32>(bg_bitmap_->GetWidth()) / static_cast<f32>(UI_Width);
-        menu_height_ = static_cast<f32>(bg_bitmap_->GetHeight()) / static_cast<f32>(UI_Height);
+        menu_width_ = static_cast<f32>(bg_bitmap_->GetWidth()) / static_cast<f32>(Pipe()->GetWidth());
+        menu_height_ = static_cast<f32>(bg_bitmap_->GetHeight()) / static_cast<f32>(Pipe()->GetHeight());
     }
     else if (width > 0.0f && height > 0.0f)
     {
-        if (menu_id != 11) // FIXME: Need to adjust PUKey control positions
+        // FIXME: Need to adjust PUKey control positions
+        if (menu_id != 11)
         {
             width *= UI_ScaleX;
             height *= UI_ScaleY;
