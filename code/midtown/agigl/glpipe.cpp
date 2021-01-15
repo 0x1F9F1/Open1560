@@ -654,8 +654,6 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     agiCurState.SetTexFilter(old_filter);
     agiCurState.SetFogMode(old_fog_mode);
     agiCurState.SetFogColor(old_fog_color);
-
-    PrintGlErrors();
 }
 
 void agiGLPipeline::ClearAll(i32 color)
