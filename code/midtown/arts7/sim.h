@@ -149,7 +149,7 @@ public:
     ARTS_IMPORT void Simulate();
 
     // 0x5222C0 | ?Update@asSimulation@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // TODO: Rename UpdatePaused(asNode*) to avoid confusing with asNode::UpdatePaused()
     ARTS_DIAGNOSTIC_PUSH;
@@ -175,7 +175,7 @@ public:
 
     asBenchStats& GetStats()
     {
-        return stats_;
+        return curr_stats_;
     }
 
     void PushCamera(asLinearCS* camera)
@@ -209,34 +209,34 @@ private:
     asLinearCS* cameras_[32];
     asLinearCS root_camera_;
     Matrix34* current_view_;
-    Timer delta_timer_;
+    Timer frame_timer_;
     i32 frame_lock_;
-    f32 elapsed_ms_;
+    f32 seconds_;
     f32 fps_;
-    f32 total_elapsed_;
-    f32 elapsed_2_;
+    f32 elapsed_;
+    f32 actual_elapsed_;
     i32 updates_;
-    i32 field_148;
-    i32 first_updated_;
     i32 full_updates_;
-    i32 field_154;
-    f32 field_158;
-    f32 inv_real_time_;
-    f32 field_160;
-    f32 field_164;
-    i32 field_168;
-    i32 is_real_time_;
+    i32 first_frame_;
+    b32 full_update_;
+    i32 sample_mode_;
+    f32 fixed_fps_;
+    f32 sample_step_;
+    f32 min_frame_delta_;
+    f32 max_frame_delta_;
+    i32 max_samples_;
+    i32 frame_samples_;
     i32 paused_;
     i32 frame_count_;
-    i32 print_bench_stats_;
-    i32 field_17C;
-    f32 elapsed_;
-    asBenchStats stats_;
+    b32 print_bench_stats_;
+    i32 field_184;
+    f32 bench_elapsed_;
+    asBenchStats curr_stats_;
     asBenchStats prev_stats_;
     i32 vector_count_;
-    Vector3* vector_starts_;
-    Vector3* vector_ends_;
-    Vector3* vector_colors_;
+    Ptr<Vector3[]> vector_starts_;
+    Ptr<Vector3[]> vector_ends_;
+    Ptr<Vector3[]> vector_colors_;
     eqEventQ keys_queue_;
     eqEventQ widgets_queue_;
     i32 field_294;

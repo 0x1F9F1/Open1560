@@ -20,6 +20,7 @@ define_dummy_symbol(arts7_sim);
 
 #include "sim.h"
 
+#include "agi/light.h"
 #include "agi/mtllib.h"
 #include "agi/physlib.h"
 #include "agi/texlib.h"
@@ -37,6 +38,105 @@ ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
 
 // 0x521C20 | ?QuietPrinter@@YAXHPBDPAD@Z
 ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, char const* arg2, char* arg3);
+
+static extern_var(0x790780, agiLight*, g_Light);
+static extern_var(0x790788, agiLightParameters, SunParams);
+
+void asSimulation::Update()
+{
+    if (seconds_ == 4321.0f)
+        FirstUpdate();
+    else if (seconds_ == 1234.0f)
+        Quitf("ARTS.Init() not called");
+
+    if (!frame_step_ || paused_)
+        vector_count_ = 0;
+
+    Timer timer;
+
+    f32 delta = frame_timer_.Time();
+    frame_timer_.Reset();
+
+    actual_elapsed_ += delta;
+    bench_elapsed_ += delta;
+
+    if (bench_elapsed_ > 1.0f)
+        Benchmark();
+
+    i32 num_samples = 1;
+    ++frame_count_;
+
+    if (!eqReplay::Playback)
+    {
+        if (paused_)
+        {
+            seconds_ = sample_step_ ? sample_step_ : 0.05f;
+        }
+        else if (sample_mode_)
+        {
+            num_samples = frame_samples_;
+            seconds_ = sample_step_;
+        }
+        else
+        {
+            delta = std::clamp(delta, min_frame_delta_, max_frame_delta_);
+
+            if (sample_step_ && delta >= sample_step_)
+            {
+                delta = std::min(delta, max_samples_ * sample_step_);
+                num_samples = static_cast<i32>(delta / sample_step_) + 1;
+                seconds_ = delta / num_samples;
+            }
+            else
+            {
+                seconds_ = delta;
+            }
+        }
+    }
+
+    full_update_ = false;
+    ++full_updates_;
+    fps_ = 1.0f / seconds_;
+
+    for (i32 sample = 1; sample <= num_samples; ++sample)
+    {
+        ++updates_;
+
+        if (sample == num_samples)
+            full_update_ = true;
+
+        elapsed_ += seconds_;
+
+        if (!frame_step_ || paused_)
+            asNode::Update();
+        else
+            UpdatePaused(this);
+
+        prev_stats_.Current(&curr_stats_);
+
+        first_frame_ = 0;
+    }
+
+    if (physics_bank_open_)
+    {
+        if (g_Light)
+        {
+            g_Light->Init(SunParams);
+            g_Light->Update();
+        }
+
+        CULLMGR->DeclareCullable(this);
+    }
+
+    curr_stats_.UpdateTime += timer.Time();
+
+    if (TimingCount && !--TimingCount)
+    {
+        Ptr<Stream> report = AsPtr(arts_fopen("perf.rpt", "w"));
+
+        PerfReport(report.get(), 0);
+    }
+}
 
 void asSimulation::Widgets()
 {
@@ -59,7 +159,7 @@ void asSimulation::Widgets()
         }
     }
 
-    stats_.Widgets += timer.Time();
+    curr_stats_.Widgets += timer.Time();
 }
 
 const char* asNode::VerifyTree()
@@ -98,17 +198,16 @@ asSimulation::~asSimulation()
     ARTSPTR = nullptr;
 
     if (MIDGETSPTR)
+    {
         delete MIDGETSPTR;
+        MIDGETSPTR = nullptr;
+    }
 
     if (CULLMGR)
     {
         delete CULLMGR;
         CULLMGR = nullptr;
     }
-
-    delete[] vector_colors_;
-    delete[] vector_ends_;
-    delete[] vector_starts_;
 
     agiMtlLib.Kill();
     agiTexLib.Kill();
