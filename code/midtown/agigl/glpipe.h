@@ -20,6 +20,7 @@
 
 #include "agi/pipeline.h"
 #include "agi/rsys.h"
+#include "data7/hash.h"
 
 #include "core/minwin.h"
 
@@ -52,6 +53,9 @@ public:
     u32 AllocTexture();
     void DeleteTexture(u32 texture);
 
+    bool HasExtension(const char* name);
+    bool HasVersion(i32 major, i32 minor);
+
     u32 GetRenderX() const
     {
         return render_x_;
@@ -75,7 +79,13 @@ public:
 private:
     HDC window_dc_ {nullptr};
     HGLRC gl_context_ {nullptr};
+
+    HashTable extensions_ {128, "Extensions"};
+
     Rc<agiRasterizer> rasterizer_ {};
+
+    i32 gl_major_version_ {0};
+    i32 gl_minor_version_ {0};
 
     u32 fbo_ {0};
     u32 rbo_ {0};
@@ -93,6 +103,8 @@ private:
 
     u32 texture_cache_[64];
     u32 cached_textures_ {0};
+
+    void InitExtensions();
 };
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height);

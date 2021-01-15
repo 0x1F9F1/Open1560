@@ -95,6 +95,11 @@ public:
     // 0x578610 | ?KillAll@HashTable@@SAXXZ
     ARTS_EXPORT static void KillAll();
 
+    i32 Size() const
+    {
+        return value_count_;
+    }
+
 private:
     // 0x578500 | ?ComputePrime@HashTable@@AAEHH@Z
     ARTS_EXPORT i32 ComputePrime(i32 value);
@@ -133,6 +138,11 @@ public:
 
     // 0x578050 | ?Next@HashIterator@@QAEHXZ
     ARTS_EXPORT b32 Next();
+
+    HashEntry* operator->() const
+    {
+        return Current;
+    }
 
     HashTable* Table {nullptr};
     i32 Index {0};

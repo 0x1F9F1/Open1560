@@ -46,9 +46,10 @@
 
 #include <wglext.h>
 
-static PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
-static PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = NULL;
+static PFNWGLGETEXTENSIONSSTRINGARBPROC wglGetExtensionsStringARB = NULL;
 static PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB = NULL;
+static PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = NULL;
+static PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
 
 static const char* GetDebugTypeString(GLenum value)
 {
@@ -202,16 +203,13 @@ i32 agiGLPipeline::BeginGfx()
 
     wglMakeCurrent(window_dc_, gl_context_);
 
-    wglChoosePixelFormatARB = (PFNWGLCHOOSEPIXELFORMATARBPROC) wglGetProcAddress("wglChoosePixelFormatARB");
-    wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) wglGetProcAddress("wglCreateContextAttribsARB");
-    wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) wglGetProcAddress("wglSwapIntervalEXT");
+    InitExtensions();
 
     bool legacy_gl = PARAM_legacygl.get_or(false);
 
     HGLRC modern_gl_context = NULL;
 
-    // TODO: Check wglGetExtensionsStringARB extensions
-    if (!legacy_gl && wglChoosePixelFormatARB && wglCreateContextAttribsARB)
+    if (!legacy_gl && HasExtension("WGL_ARB_pixel_format") && HasExtension("WGL_ARB_create_context"))
     {
         Displayf("Creating modern OpenGL context");
 
@@ -259,6 +257,9 @@ i32 agiGLPipeline::BeginGfx()
         wglDeleteContext(gl_context_);
         wglMakeCurrent(window_dc_, modern_gl_context);
         gl_context_ = modern_gl_context;
+
+        // Reload extensions, just in case
+        InitExtensions();
     }
     else
     {
@@ -270,28 +271,39 @@ i32 agiGLPipeline::BeginGfx()
     if (gladLoadGL() != 1)
         Quitf("Failed to load GLAD");
 
-    Displayf("OpenGL Version: %s", glGetString(GL_VERSION));
-    Displayf("OpenGL Shader Version: %s", glGetString(GL_SHADING_LANGUAGE_VERSION));
-    Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
-    Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
+    if (!HasVersion(3, 0))
+        legacy_gl = true;
 
+    // TODO: Is this required now the correct extensions are checked?
     if (!legacy_gl && std::strstr((const char*) glGetString(GL_RENDERER), "Intel(R) HD Graphics"))
         legacy_gl = PARAM_legacygl.get_or(true);
 
     Displayf("Using %s framebuffer", legacy_gl ? "legacy" : "modern");
 
-    if (PARAM_gldebug.get_or(false) && glDebugMessageCallback)
+    if (glDebugMessageCallback &&
+        PARAM_gldebug.get_or(
+#ifdef ARTS_FINAL
+            false
+#else
+            true
+#endif
+            ))
     {
         Displayf("Using glDebugMessageCallback");
-
         glEnable(GL_DEBUG_OUTPUT);
-
         glDebugMessageCallback(DebugMessageCallback, 0);
     }
 
-    if (wglSwapIntervalEXT)
+    if (HasExtension("WGL_EXT_swap_control"))
     {
-        wglSwapIntervalEXT((device_flags_1_ & 0x1) ? 1 : 0);
+        int interval = 0;
+
+        if (device_flags_1_ & 0x1)
+            interval = HasExtension("WGL_EXT_swap_control_tear") ? -1 : 1;
+
+        Displayf("SwapInterval: %i", interval);
+
+        wglSwapIntervalEXT(interval);
     }
 
     // FIXME: Check pixel format masks
@@ -359,7 +371,7 @@ i32 agiGLPipeline::BeginGfx()
     // OpenGL doesn't support blit scaling when using MSAA
     i32 msaa_level = 0;
 
-    if (!legacy_gl && glRenderbufferStorageMultisample && glTexImage2DMultisample)
+    if (!legacy_gl && HasVersion(3, 2))
         msaa_level = PARAM_msaa.get_or<i32>(0);
 
     if (PARAM_native_res.get_or(true) || (msaa_level != 0) || legacy_gl)
@@ -445,7 +457,6 @@ void agiGLPipeline::EndGfx()
     }
 
     wglDeleteContext(gl_context_);
-
     ReleaseDC(static_cast<HWND>(window_), window_dc_);
 
     text_color_model_ = nullptr;
@@ -457,6 +468,8 @@ void agiGLPipeline::EndGfx()
     rasterizer_ = nullptr;
 
     gfx_started_ = false;
+
+    extensions_.Kill();
 }
 
 static mem::cmd_param PARAM_frameclear {"frameclear"};
@@ -545,8 +558,98 @@ void agiGLPipeline::DeleteTexture(u32 texture)
         glDeleteTextures(1, &texture);
 }
 
+bool agiGLPipeline::HasExtension(const char* name)
+{
+    return extensions_.Access(name) != nullptr;
+}
+
+bool agiGLPipeline::HasVersion(i32 major, i32 minor)
+{
+    return (gl_major_version_ != major) ? (gl_major_version_ >= major) : (gl_minor_version_ >= minor);
+}
+
+static void ParseExtensionString(HashTable& table, const char* extensions, isize category)
+{
+    char* exts = arts_strdup(extensions);
+
+    if (exts == nullptr)
+        return;
+
+    for (char *curr = exts, *next = nullptr; curr; curr = next)
+    {
+        if (*curr == ' ')
+            break;
+
+        if (next = std::strchr(curr, ' '); next)
+            *next++ = '\0';
+
+        table.Insert(curr, (void*) category);
+    }
+
+    arts_free(exts);
+}
+
+void agiGLPipeline::InitExtensions()
+{
+    extensions_.Kill();
+
+    HMODULE opengl32_dll = GetModuleHandleA("opengl32.dll");
+
+    PFNGLGETSTRINGPROC arts_glGetString = (PFNGLGETSTRINGPROC) GetProcAddress(opengl32_dll, "glGetString");
+
+    Displayf("OpenGL Version: %s", arts_glGetString(GL_VERSION));
+    Displayf("OpenGL Shader Version: %s", arts_glGetString(GL_SHADING_LANGUAGE_VERSION));
+    Displayf("OpenGL Vendor: %s", arts_glGetString(GL_VENDOR));
+    Displayf("OpenGL Renderer: %s", arts_glGetString(GL_RENDERER));
+
+    wglGetExtensionsStringARB = (PFNWGLGETEXTENSIONSSTRINGARBPROC) wglGetProcAddress("wglGetExtensionsStringARB");
+    wglChoosePixelFormatARB = (PFNWGLCHOOSEPIXELFORMATARBPROC) wglGetProcAddress("wglChoosePixelFormatARB");
+    wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) wglGetProcAddress("wglCreateContextAttribsARB");
+    wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) wglGetProcAddress("wglSwapIntervalEXT");
+
+    if (arts_sscanf((const char*) arts_glGetString(GL_VERSION), "%i.%i", &gl_major_version_, &gl_minor_version_) != 2)
+        Quitf("Failed to get OpenGL version");
+
+    if (HasVersion(3, 0))
+    {
+        PFNGLGETINTEGERVPROC arts_glGetIntegerv = (PFNGLGETINTEGERVPROC) GetProcAddress(opengl32_dll, "glGetIntegerv");
+        PFNGLGETSTRINGIPROC arts_glGetStringi = (PFNGLGETSTRINGIPROC) wglGetProcAddress("glGetStringi");
+
+        i32 num_extensions = 0;
+        arts_glGetIntegerv(GL_NUM_EXTENSIONS, &num_extensions);
+
+        for (i32 i = 0; i < num_extensions; ++i)
+            extensions_.Insert((const char*) arts_glGetStringi(GL_EXTENSIONS, i), (void*) 2);
+    }
+    else if (HasVersion(2, 0))
+    {
+        ParseExtensionString(extensions_, (const char*) arts_glGetString(GL_EXTENSIONS), 1);
+    }
+    else
+    {
+        Quitf("OpenGL 1.X not supported");
+    }
+
+    if (wglGetExtensionsStringARB)
+        ParseExtensionString(extensions_, wglGetExtensionsStringARB(window_dc_), 3);
+
+#if 0
+    for (HashIterator i(&extensions_); i.Next();)
+        Displayf("OpenGL Extension: %s", i->Key.get());
+#endif
+
+    Displayf("OpenGL Extension Count: %i", extensions_.Size());
+}
+
 void agiGLPipeline::EndFrame()
 {
+    if (cached_textures_ < ARTS_SIZE(texture_cache_) / 4)
+    {
+        glGenTextures(ARTS_SIZE(texture_cache_) - cached_textures_, texture_cache_ + cached_textures_);
+
+        cached_textures_ = ARTS_SIZE(texture_cache_);
+    }
+
     ARTS_TIMED(agiEndFrame);
 
     if (fbo_ != 0)
@@ -562,12 +665,8 @@ void agiGLPipeline::EndFrame()
 
     SwapBuffers(window_dc_);
 
-    if (cached_textures_ < ARTS_SIZE(texture_cache_) / 4)
-    {
-        glGenTextures(ARTS_SIZE(texture_cache_) - cached_textures_, texture_cache_ + cached_textures_);
-
-        cached_textures_ = ARTS_SIZE(texture_cache_);
-    }
+    if (device_flags_1_ & 0x1)
+        glFinish();
 
     agiPipeline::EndFrame();
 }
@@ -772,7 +871,7 @@ void agiGLPipeline::Init()
     height_ = PARAM_height.get_or<i32>(480);
     bit_depth_ = PARAM_depth.get_or<i32>(32);
 
-    device_flags_1_ = 0x1032; // hal, zbuffer, vram, vsync
+    device_flags_1_ = 0x1032; // hal, zbuffer, vram
 
     if (PARAM_vsync.get_or(true))
         device_flags_1_ |= 0x1;
