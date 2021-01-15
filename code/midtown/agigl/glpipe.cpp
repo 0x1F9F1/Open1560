@@ -271,6 +271,10 @@ i32 agiGLPipeline::BeginGfx()
     if (gladLoadGL() != 1)
         Quitf("Failed to load GLAD");
 
+    Displayf("OpenGL Shader Version: %s", glGetString(GL_SHADING_LANGUAGE_VERSION));
+    Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
+    Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
+
     if (!HasVersion(3, 0))
         legacy_gl = true;
 
@@ -301,7 +305,7 @@ i32 agiGLPipeline::BeginGfx()
         if (device_flags_1_ & 0x1)
             interval = HasExtension("WGL_EXT_swap_control_tear") ? -1 : 1;
 
-        Displayf("SwapInterval: %i", interval);
+        Displayf("OpenGL SwapInterval = %i", interval);
 
         wglSwapIntervalEXT(interval);
     }
@@ -597,17 +601,16 @@ void agiGLPipeline::InitExtensions()
 
     PFNGLGETSTRINGPROC arts_glGetString = (PFNGLGETSTRINGPROC) GetProcAddress(opengl32_dll, "glGetString");
 
-    Displayf("OpenGL Version: %s", arts_glGetString(GL_VERSION));
-    Displayf("OpenGL Shader Version: %s", arts_glGetString(GL_SHADING_LANGUAGE_VERSION));
-    Displayf("OpenGL Vendor: %s", arts_glGetString(GL_VENDOR));
-    Displayf("OpenGL Renderer: %s", arts_glGetString(GL_RENDERER));
+    const char* gl_version = (const char*) arts_glGetString(GL_VERSION);
+
+    Displayf("OpenGL Version: %s", gl_version);
 
     wglGetExtensionsStringARB = (PFNWGLGETEXTENSIONSSTRINGARBPROC) wglGetProcAddress("wglGetExtensionsStringARB");
     wglChoosePixelFormatARB = (PFNWGLCHOOSEPIXELFORMATARBPROC) wglGetProcAddress("wglChoosePixelFormatARB");
     wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) wglGetProcAddress("wglCreateContextAttribsARB");
     wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) wglGetProcAddress("wglSwapIntervalEXT");
 
-    if (arts_sscanf((const char*) arts_glGetString(GL_VERSION), "%i.%i", &gl_major_version_, &gl_minor_version_) != 2)
+    if (arts_sscanf(gl_version, "%i.%i", &gl_major_version_, &gl_minor_version_) != 2)
         Quitf("Failed to get OpenGL version");
 
     if (HasVersion(3, 0))
