@@ -77,7 +77,7 @@ i32 agiGLTexDef::BeginGfx()
     SurfaceSize = 0;
 
     // TODO: Use PBO's to avoid stalling?
-    glGenTextures(1, &texture_);
+    texture_ = Pipe()->AllocTexture();
     glBindTexture(GL_TEXTURE_2D, texture_);
 
     agiSurfaceDesc* surface = Surface.get();
@@ -204,7 +204,7 @@ void agiGLTexDef::EndGfx()
 {
     if (texture_)
     {
-        glDeleteTextures(1, &texture_);
+        Pipe()->DeleteTexture(texture_);
 
         texture_ = 0;
     }

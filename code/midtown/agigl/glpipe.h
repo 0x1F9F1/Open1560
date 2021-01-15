@@ -49,6 +49,9 @@ public:
 
     void Init();
 
+    u32 AllocTexture();
+    void DeleteTexture(u32 texture);
+
     u32 GetRenderX() const
     {
         return render_x_;
@@ -87,6 +90,9 @@ private:
     u32 blit_y_ {0};
     u32 blit_width_ {0};
     u32 blit_height_ {0};
+
+    u32 texture_cache_[64];
+    u32 cached_textures_ {0};
 };
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height);

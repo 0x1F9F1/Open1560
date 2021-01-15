@@ -181,8 +181,6 @@ void Application(i32 argc, char** argv)
         {
             SynchronousMessageQueues = PARAM_sync.get_or(true);
 
-            Warningf("Running with multiple threads. Here be dragons");
-
             if (!SynchronousMessageQueues)
             {
                 Warningf("For stability, recommend using -sync");

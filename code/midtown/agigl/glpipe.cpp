@@ -426,6 +426,13 @@ i32 agiGLPipeline::BeginGfx()
 
 void agiGLPipeline::EndGfx()
 {
+    if (cached_textures_)
+    {
+        glDeleteTextures(cached_textures_, texture_cache_);
+
+        cached_textures_ = 0;
+    }
+
     if (fbo_ != 0)
     {
         glDeleteFramebuffers(1, &fbo_);
@@ -474,8 +481,6 @@ void agiGLPipeline::BeginFrame()
     {
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
     }
-
-    PrintGlErrors();
 }
 
 void agiGLPipeline::BeginScene()
@@ -522,6 +527,24 @@ void agiGLPipeline::EndScene()
     agiPipeline::EndScene();
 }
 
+u32 agiGLPipeline::AllocTexture()
+{
+    if (cached_textures_ == 0)
+    {
+        glGenTextures(ARTS_SIZE(texture_cache_), texture_cache_);
+
+        cached_textures_ = ARTS_SIZE(texture_cache_);
+    }
+
+    return texture_cache_[--cached_textures_];
+}
+
+void agiGLPipeline::DeleteTexture(u32 texture)
+{
+    if (texture != 0)
+        glDeleteTextures(1, &texture);
+}
+
 void agiGLPipeline::EndFrame()
 {
     ARTS_TIMED(agiEndFrame);
@@ -538,6 +561,14 @@ void agiGLPipeline::EndFrame()
     PrintGlErrors();
 
     SwapBuffers(window_dc_);
+
+    if (cached_textures_ < ARTS_SIZE(texture_cache_) / 4)
+    {
+        glGenTextures(ARTS_SIZE(texture_cache_) - cached_textures_, texture_cache_ + cached_textures_);
+
+        cached_textures_ = ARTS_SIZE(texture_cache_);
+    }
+
     agiPipeline::EndFrame();
 }
 
