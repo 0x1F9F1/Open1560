@@ -42,6 +42,60 @@ ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, char const* arg2, char* arg3)
 static extern_var(0x790780, agiLight*, g_Light);
 static extern_var(0x790788, agiLightParameters, SunParams);
 
+static mem::cmd_param PARAM_smoothstep {"smoothstep"};
+
+asSimulation::~asSimulation()
+{
+    ARTSPTR = nullptr;
+
+    if (MIDGETSPTR)
+    {
+        delete MIDGETSPTR;
+        MIDGETSPTR = nullptr;
+    }
+
+    if (CULLMGR)
+    {
+        delete CULLMGR;
+        CULLMGR = nullptr;
+    }
+
+    agiMtlLib.Kill();
+    agiTexLib.Kill();
+    agiPhysLib.Kill();
+
+    if (VFS)
+    {
+        delete VFS;
+        VFS = nullptr;
+    }
+}
+
+void asSimulation::FirstUpdate()
+{
+    ResetClock();
+    frame_timer_.Reset();
+    first_frame_ = true;
+    seconds_ = 0.0f;
+}
+
+void asSimulation::ResetClock()
+{
+    fps_ = 1.0f;
+    elapsed_ = 0.0f;
+    full_updates_ = 0;
+    updates_ = 0;
+    frame_count_ = 0;
+    bench_elapsed_ = 0.0f;
+
+    curr_stats_.Reset();
+    prev_stats_.Reset();
+
+    smooth_ = PARAM_smoothstep.get_or(true);
+    avg_delta_ = 0.0f;
+    delta_drift_ = 0.0f;
+}
+
 void asSimulation::Update()
 {
     if (seconds_ == 4321.0f)
@@ -66,6 +120,11 @@ void asSimulation::Update()
     i32 num_samples = 1;
     ++frame_count_;
 
+    delta = std::clamp(delta, min_frame_delta_, max_frame_delta_);
+
+    if (smooth_)
+        SmoothDelta(delta);
+
     if (!eqReplay::Playback)
     {
         if (paused_)
@@ -79,8 +138,6 @@ void asSimulation::Update()
         }
         else
         {
-            delta = std::clamp(delta, min_frame_delta_, max_frame_delta_);
-
             if (sample_step_ && delta >= sample_step_)
             {
                 delta = std::min(delta, max_samples_ * sample_step_);
@@ -162,6 +219,22 @@ void asSimulation::Widgets()
     curr_stats_.Widgets += timer.Time();
 }
 
+void asSimulation::SmoothDelta(f32& delta)
+{
+    if (avg_delta_ == 0.0f)
+        avg_delta_ = delta;
+
+    f32 raw_delta = delta;
+
+    delta += delta_drift_ * 0.2f;
+    delta += (avg_delta_ - delta) * 0.8f;
+
+    avg_delta_ += (raw_delta - avg_delta_) * 0.1f;
+
+    delta_drift_ += raw_delta - delta;
+    delta_drift_ = std::clamp(delta_drift_, -0.05f, 0.05f);
+}
+
 const char* asNode::VerifyTree()
 {
     if (!IsValidPointer(this, sizeof(*this), true))
@@ -193,29 +266,7 @@ const char* asNode::VerifyTree()
 META_DEFINE_CHILD("asSimulation", asSimulation, asNode)
 {}
 
-asSimulation::~asSimulation()
-{
-    ARTSPTR = nullptr;
-
-    if (MIDGETSPTR)
-    {
-        delete MIDGETSPTR;
-        MIDGETSPTR = nullptr;
-    }
-
-    if (CULLMGR)
-    {
-        delete CULLMGR;
-        CULLMGR = nullptr;
-    }
-
-    agiMtlLib.Kill();
-    agiTexLib.Kill();
-    agiPhysLib.Kill();
-
-    if (VFS)
-    {
-        delete VFS;
-        VFS = nullptr;
-    }
-}
+run_once([] {
+    u32 sim_size = sizeof(asSimulation);
+    create_patch("asSimulation Size", "Size of asSimulation", 0x40264B + 1, &sim_size, sizeof(sim_size));
+});

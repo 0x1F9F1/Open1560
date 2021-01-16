@@ -116,7 +116,7 @@ public:
     ARTS_IMPORT void EndOverSample(i32 arg1);
 
     // 0x5222A0 | ?FirstUpdate@asSimulation@@QAEXXZ
-    ARTS_IMPORT void FirstUpdate();
+    ARTS_EXPORT void FirstUpdate();
 
     // 0x522DF0 | ?FixedFrame@asSimulation@@QAEXMH@Z | unused
     ARTS_IMPORT void FixedFrame(f32 arg1, i32 arg2);
@@ -143,7 +143,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // 0x522CA0 | ?ResetClock@asSimulation@@QAEXXZ
-    ARTS_IMPORT void ResetClock();
+    ARTS_EXPORT void ResetClock();
 
     // 0x522A60 | ?Simulate@asSimulation@@QAEXXZ
     ARTS_IMPORT void Simulate();
@@ -204,6 +204,8 @@ public:
     VIRTUAL_META_DECLARE;
 
 private:
+    void SmoothDelta(f32& delta);
+
     i32 in_escape_;
     i32 camera_depth_;
     asLinearCS* cameras_[32];
@@ -246,9 +248,13 @@ private:
     i32 no_debug_;
     i32 show_ui_;
     i32 frame_step_;
+
+    bool smooth_;
+    f32 delta_drift_;
+    f32 avg_delta_;
 };
 
-check_size(asSimulation, 0x2B0);
+// check_size(asSimulation, 0x2B0);
 
 // 0x522FC0 | ?InitBank@@YAXHPAPAD@Z | unused
 ARTS_EXPORT void InitBank(i32 arg1, char** arg2);

@@ -35,11 +35,6 @@ static Timer PerfGraphOverheadTimer {};
 
 asPerfGraph::asPerfGraph()
 {
-    if (PGRAPH)
-        Quitf("Already have a PGRAPH");
-
-    PGRAPH = this;
-
     num_samples_ = std::min<i32>((Pipe()->GetWidth() * 3) / 4, 960);
 
     AddComponent("Overhead", &PerfGraphOverhead, {0.5f, 0.5f, 0.5f});
@@ -51,8 +46,6 @@ asPerfGraph::~asPerfGraph()
     {
         delete[] component_history_[--num_components_];
     }
-
-    PGRAPH = nullptr;
 }
 
 void asPerfGraph::AddComponent(const char* name, f32* value, const Vector3& color)

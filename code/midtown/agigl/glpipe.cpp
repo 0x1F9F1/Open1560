@@ -231,17 +231,33 @@ i32 agiGLPipeline::BeginGfx()
 
         if (num_formats != 0)
         {
-            const int context_attribs[] {
-                // clang-format off
-                WGL_CONTEXT_MAJOR_VERSION_ARB, 3,
-                WGL_CONTEXT_MINOR_VERSION_ARB, 2,
-                WGL_CONTEXT_FLAGS_ARB, WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB,
-                WGL_CONTEXT_PROFILE_MASK_ARB, WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
-                0
-                // clang-format on
-            };
+            i32 major_version = 3;
+            i32 minor_version = 2;
 
-            modern_gl_context = wglCreateContextAttribsARB(window_dc_, 0, context_attribs);
+            if (!HasVersion(major_version, minor_version))
+            {
+                major_version = 1;
+                minor_version = 0;
+            }
+
+            int attribs[9];
+            int num_attribs = 0;
+
+            attribs[num_attribs++] = WGL_CONTEXT_MAJOR_VERSION_ARB;
+            attribs[num_attribs++] = major_version;
+
+            attribs[num_attribs++] = WGL_CONTEXT_MINOR_VERSION_ARB;
+            attribs[num_attribs++] = minor_version;
+
+            if (HasExtension("WGL_ARB_create_context_profile"))
+            {
+                attribs[num_attribs++] = WGL_CONTEXT_PROFILE_MASK_ARB;
+                attribs[num_attribs++] = WGL_CONTEXT_CORE_PROFILE_BIT_ARB;
+            }
+
+            attribs[num_attribs++] = 0;
+
+            modern_gl_context = wglCreateContextAttribsARB(window_dc_, 0, attribs);
 
             if (modern_gl_context == NULL)
                 Errorf("Failed to create modern OpenGL context");
@@ -460,6 +476,7 @@ void agiGLPipeline::EndGfx()
         color_fbo_ = 0;
     }
 
+    wglMakeCurrent(NULL, NULL);
     wglDeleteContext(gl_context_);
     ReleaseDC(static_cast<HWND>(window_), window_dc_);
 
@@ -664,11 +681,9 @@ void agiGLPipeline::EndFrame()
             blit_x_ + blit_width_, blit_y_ + blit_height_, GL_COLOR_BUFFER_BIT, GL_NEAREST);
     }
 
-    PrintGlErrors();
-
     SwapBuffers(window_dc_);
 
-    if (device_flags_1_ & 0x1)
+    if (!dxiDoubleBuffer())
         glFinish();
 
     agiPipeline::EndFrame();

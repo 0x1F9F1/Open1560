@@ -318,8 +318,6 @@ void MetaClass::FixupClasses()
             if (cls->declare_ && find->second->declare_)
                 create_hook("DeclareFields", cls->name_, cls->declare_, find->second->declare_, hook_type::jmp);
 
-            ArAssert(cls->size_ == find->second->size_, "Class Size Mismatch");
-
             cls->allocate_ = find->second->allocate_;
             cls->free_ = find->second->free_;
             cls->declare_ = find->second->declare_;

@@ -103,8 +103,8 @@ asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
     AddPage(CFA(PrintMessages));
     AddPage(CFA(PrintMemoryUsage));
 
-    /*PGRAPH = */ new asPerfGraph();
-
+    ArAssert(!PGRAPH, "Already have a PGRAPH");
+    PGRAPH = new asPerfGraph();
     PGRAPH->AddComponent("3D", &UpdateTime3D, ColGreen);
     PGRAPH->AddComponent("2D", &UpdateTime2D, ColBlue);
 }
@@ -112,6 +112,8 @@ asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
 asCullManager::~asCullManager()
 {
     delete PGRAPH;
+
+    PGRAPH = nullptr;
 }
 
 void asCullManager::DeclareCamera(asCamera* camera)
