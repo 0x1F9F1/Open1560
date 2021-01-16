@@ -144,7 +144,7 @@ void ipcMessageQueue::Init(i32 max_messages, b32 blocking)
 
     send_event_ = ipcCreateEvent(false);
     read_event_ = ipcCreateEvent(false);
-    mutex_ = ipcCreateMutex(false);
+    mutex_.init();
 
     initialized_ = true;
 
@@ -161,12 +161,12 @@ void ipcMessageQueue::Send(void (*func)(void*), void* param)
         return;
     }
 
-    ipcWaitSingle(mutex_);
-
     u32 send_index = 0;
 
     while (true)
     {
+        mutex_.lock();
+
         send_index = send_index_ + 1;
 
         if (send_index == max_messages_)
@@ -175,16 +175,16 @@ void ipcMessageQueue::Send(void (*func)(void*), void* param)
         if (read_index_ != send_index)
             break;
 
-        ipcReleaseMutex(mutex_);
+        mutex_.unlock();
+
         ipcWaitSingle(read_event_);
-        ipcWaitSingle(mutex_);
     }
 
     bool trigger_send = read_index_ == send_index_;
     send_index_ = send_index;
     messages_[send_index_] = {func, param};
 
-    ipcReleaseMutex(mutex_);
+    mutex_.unlock();
 
     if (trigger_send)
         ipcTriggerEvent(send_event_);
@@ -205,9 +205,24 @@ void ipcMessageQueue::Shutdown()
     ipcCloseHandle(proc_thread_);
     ipcCloseHandle(send_event_);
     ipcCloseHandle(read_event_);
-    ipcCloseHandle(mutex_);
+    mutex_.close();
 
     messages_ = nullptr;
+}
+
+void ipcMessageQueue::Wait()
+{
+    while (initialized_)
+    {
+        mutex_.lock();
+        bool stop = read_index_ == send_index_;
+        mutex_.unlock();
+
+        if (stop)
+            break;
+
+        ipcWaitSingle(read_event_);
+    }
 }
 
 i32 ipcMessageQueue::MessageLoop()
@@ -220,7 +235,7 @@ i32 ipcMessageQueue::MessageLoop()
 
             while (true)
             {
-                ipcWaitSingle(mutex_);
+                mutex_.lock();
 
                 if (read_index_ == send_index_)
                     break;
@@ -230,12 +245,12 @@ i32 ipcMessageQueue::MessageLoop()
 
                 ipcMessage msg = messages_[read_index_];
 
-                ipcReleaseMutex(mutex_);
+                mutex_.unlock();
                 msg.Function(msg.Param);
                 ipcTriggerEvent(read_event_);
             }
 
-            ipcReleaseMutex(mutex_);
+            mutex_.unlock();
         }
     }
     ARTS_EXCEPTION_END

@@ -458,13 +458,6 @@ i32 agiGLPipeline::BeginGfx()
 
 void agiGLPipeline::EndGfx()
 {
-    if (cached_textures_)
-    {
-        glDeleteTextures(cached_textures_, texture_cache_);
-
-        cached_textures_ = 0;
-    }
-
     if (fbo_ != 0)
     {
         glDeleteFramebuffers(1, &fbo_);
@@ -479,6 +472,9 @@ void agiGLPipeline::EndGfx()
     wglMakeCurrent(NULL, NULL);
     wglDeleteContext(gl_context_);
     ReleaseDC(static_cast<HWND>(window_), window_dc_);
+
+    gl_context_ = NULL;
+    window_dc_ = NULL;
 
     text_color_model_ = nullptr;
     hi_color_model_ = nullptr;
@@ -559,24 +555,6 @@ void agiGLPipeline::EndScene()
     in_scene_ = false;
 
     agiPipeline::EndScene();
-}
-
-u32 agiGLPipeline::AllocTexture()
-{
-    if (cached_textures_ == 0)
-    {
-        glGenTextures(ARTS_SIZE(texture_cache_), texture_cache_);
-
-        cached_textures_ = ARTS_SIZE(texture_cache_);
-    }
-
-    return texture_cache_[--cached_textures_];
-}
-
-void agiGLPipeline::DeleteTexture(u32 texture)
-{
-    if (texture != 0)
-        glDeleteTextures(1, &texture);
 }
 
 bool agiGLPipeline::HasExtension(const char* name)
@@ -661,15 +639,28 @@ void agiGLPipeline::InitExtensions()
     Displayf("OpenGL Extension Count: %i", extensions_.Size());
 }
 
-void agiGLPipeline::EndFrame()
+HGLRC agiGLPipeline::CreateSharedContext()
 {
-    if (cached_textures_ < ARTS_SIZE(texture_cache_) / 4)
-    {
-        glGenTextures(ARTS_SIZE(texture_cache_) - cached_textures_, texture_cache_ + cached_textures_);
+    HGLRC context = NULL;
 
-        cached_textures_ = ARTS_SIZE(texture_cache_);
+    if (HasExtension("WGL_ARB_create_context"))
+    {
+        context = wglCreateContextAttribsARB(window_dc_, gl_context_, NULL);
     }
 
+    if (context == NULL)
+    {
+        context = wglCreateContext(window_dc_);
+
+        if (context != NULL)
+            wglShareLists(gl_context_, context);
+    }
+
+    return context;
+}
+
+void agiGLPipeline::EndFrame()
+{
     ARTS_TIMED(agiEndFrame);
 
     if (fbo_ != 0)
@@ -685,6 +676,8 @@ void agiGLPipeline::EndFrame()
 
     if (!dxiDoubleBuffer())
         glFinish();
+
+    PrintGlErrors();
 
     agiPipeline::EndFrame();
 }

@@ -64,4 +64,6 @@ private:
 #ifdef ARTS_GL_USE_DRAW_RANGE
     u32 vertex_count_ {0};
 #endif
+
+    u32 current_texture_ {0};
 };

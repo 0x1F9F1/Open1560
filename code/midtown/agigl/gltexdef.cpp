@@ -46,7 +46,7 @@ static u32 ilog2(u32 value)
 
 static u32 CaluclateMipMapLevels(u32 width, u32 height)
 {
-    return 1 + ilog2(std::min(width, height));
+    return 1 + ilog2(std::max(width, height));
 }
 
 i32 agiGLTexDef::BeginGfx()
@@ -65,7 +65,7 @@ i32 agiGLTexDef::BeginGfx()
         Surface->Pitch = Surface->Width * Surface->GetPixelSize();
     }
 
-    // TODO: Fix paging support
+    // TODO: Fix thread safety/set context during PAGER startup
     if (wglGetCurrentContext() == NULL)
     {
         return AGI_ERROR_SUCCESS;
@@ -75,10 +75,6 @@ i32 agiGLTexDef::BeginGfx()
         Tex.Flags &= ~agiTexParameters::Alpha;
 
     SurfaceSize = 0;
-
-    // TODO: Use PBO's to avoid stalling?
-    texture_ = Pipe()->AllocTexture();
-    glBindTexture(GL_TEXTURE_2D, texture_);
 
     agiSurfaceDesc* surface = Surface.get();
 
@@ -114,57 +110,66 @@ i32 agiGLTexDef::BeginGfx()
         mip_maps = false;
     }
 
-    GLenum format = 0;
-    GLenum type = 0;
-    GLenum internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA : GL_RGB;
+    gl_width_ = surface->Width;
+    gl_height_ = surface->Height;
+    gl_pitch_ = surface->Pitch;
+    gl_mips_ = mip_maps ? std::clamp<i32>(surface->MipMapCount, 1, CaluclateMipMapLevels(gl_width_, gl_height_)) : 1;
 
     switch (surface->PixelFormat.RBitMask)
     {
         case 0xF800: // 565
-            format = GL_RGB;
-            type = GL_UNSIGNED_SHORT_5_6_5;
+            gl_format_ = GL_RGB;
+            gl_type_ = GL_UNSIGNED_SHORT_5_6_5;
             break;
 
         case 0xF00: // 4444
-            format = GL_BGRA;
-            type = GL_UNSIGNED_SHORT_4_4_4_4_REV;
+            gl_format_ = GL_BGRA;
+            gl_type_ = GL_UNSIGNED_SHORT_4_4_4_4_REV;
             break;
 
         case 0xFF:
-            format = surface->PixelFormat.RGBAlphaBitMask ? GL_RGBA : GL_RGB;
-            type = GL_UNSIGNED_BYTE;
+            gl_format_ = surface->PixelFormat.RGBAlphaBitMask ? GL_RGBA : GL_RGB;
+            gl_type_ = GL_UNSIGNED_BYTE;
             break;
 
         case 0xFF0000:
-            format = surface->PixelFormat.RGBAlphaBitMask ? GL_BGRA : GL_BGR;
-            type = GL_UNSIGNED_BYTE;
+            gl_format_ = surface->PixelFormat.RGBAlphaBitMask ? GL_BGRA : GL_BGR;
+            gl_type_ = GL_UNSIGNED_BYTE;
             break;
 
         default: Quitf("Invalid Format");
     }
 
-    i32 width = surface->Width;
-    i32 height = surface->Height;
-    i32 pitch = surface->Pitch;
-    u8* data = static_cast<u8*>(surface->Surface);
+    glGenTextures(1, &texture_);
+    glBindTexture(GL_TEXTURE_2D, texture_);
 
-    i32 mip_count = mip_maps ? std::clamp<i32>(surface->MipMapCount, 1, CaluclateMipMapLevels(width, height)) : 1;
+    bool async_upload = (EnablePaging & ARTS_PAGE_TEXTURES) && !(Tex.Flags & agiTexParameters::KeepLoaded) &&
+        Pipe()->HasExtension("GL_ARB_sync");
 
-    // FIXME: Calculate alignment from pointer
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    GLenum internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA : GL_RGB;
+    SurfaceSize = 0;
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_BASE_LEVEL, 0);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, mip_count - 1);
-
-    for (i32 i = 0; i < mip_count; ++i)
+    for (i32 i = 0; i < gl_mips_; ++i)
     {
-        glTexImage2D(GL_TEXTURE_2D, i, internal, width, height, 0, format, type, data);
+        i32 width = (std::max)(gl_width_ >> i, 1);
+        i32 height = (std::max)(gl_height_ >> i, 1);
+        i32 size = (gl_pitch_ >> i) * height;
 
-        SurfaceSize += pitch * height;
-        data += pitch * height;
-        width = (std::max)(width >> 1, 1);
-        height = (std::max)(height >> 1, 1);
-        pitch >>= 1;
+        glTexImage2D(GL_TEXTURE_2D, i, internal, width, height, 0, gl_format_, gl_type_,
+            async_upload ? NULL : (static_cast<u8*>(surface->Surface) + SurfaceSize));
+
+        SurfaceSize += size;
+    }
+
+    if (async_upload)
+    {
+        glGenBuffers(1, &pbo_);
+
+        glBindBuffer(GL_PIXEL_UNPACK_BUFFER, pbo_);
+        glBufferData(GL_PIXEL_UNPACK_BUFFER, SurfaceSize, static_cast<u8*>(surface->Surface), GL_STREAM_DRAW);
+        glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
+
+        fence_ = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
     }
 
     if (surface != Surface.get())
@@ -174,6 +179,12 @@ i32 agiGLTexDef::BeginGfx()
         delete surface;
     }
 
+    // FIXME: Calculate alignment from pointer
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_BASE_LEVEL, 0);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, gl_mips_ - 1);
+
     glTexParameteri(
         GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (Tex.Flags & agiTexParameters::WrapU) ? GL_REPEAT : GL_CLAMP_TO_EDGE);
     glTexParameteri(
@@ -182,7 +193,7 @@ i32 agiGLTexDef::BeginGfx()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-    if (mip_maps)
+    if (gl_mips_ != 1)
     {
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, 16.0f);
     }
@@ -191,28 +202,44 @@ i32 agiGLTexDef::BeginGfx()
         Tex.Flags |= agiTexParameters::NoMipMaps;
     }
 
+    glBindTexture(GL_TEXTURE_2D, 0);
+
     if (Tex.Name[0] != '*' && cache_handle_ == 0 && !(Tex.Flags & agiTexParameters::KeepLoaded))
         Surface->Unload();
 
     page_state_ = 0;
     state_ = 2;
 
+    // NOTE: Textures created by the pager NEED to be fully uploaded before use.
+    //       This requires a glFinish (slow) or glFenceSync (GL 3.2).
+    // glFinish();
+
     return AGI_ERROR_SUCCESS;
 }
 
 void agiGLTexDef::EndGfx()
 {
+    if (fence_)
+    {
+        glDeleteSync(static_cast<GLsync>(fence_));
+        fence_ = nullptr;
+    }
+
+    if (pbo_)
+    {
+        glDeleteBuffers(1, &pbo_);
+        pbo_ = 0;
+    }
+
     if (texture_)
     {
-        Pipe()->DeleteTexture(texture_);
-
+        glDeleteTextures(1, &texture_);
         texture_ = 0;
     }
 
     if (temp_surface_)
     {
         temp_surface_->Unload();
-
         temp_surface_ = nullptr;
     }
 
@@ -284,7 +311,7 @@ void agiGLTexDef::Unlock(agiTexLock& lock)
 
 b32 agiGLTexDef::IsAvailable()
 {
-    return texture_ != 0;
+    return true;
 }
 
 void agiGLTexDef::Request()
@@ -312,5 +339,44 @@ u32 agiGLTexDef::GetHandle()
         }
     }
 
+    CheckFence();
+
     return texture_;
+}
+
+bool agiGLTexDef::CheckFence()
+{
+    if (fence_ == NULL)
+        return true;
+
+    GLenum status =
+        glClientWaitSync(static_cast<GLsync>(fence_), 0, (Tex.Flags & agiTexParameters::KeepLoaded) ? 100000000 : 0);
+
+    if (status == GL_TIMEOUT_EXPIRED)
+        return false;
+
+    glDeleteSync(static_cast<GLsync>(fence_));
+    fence_ = nullptr;
+
+    if (pbo_ != 0)
+    {
+        glBindTexture(GL_TEXTURE_2D, texture_);
+        glBindBuffer(GL_PIXEL_UNPACK_BUFFER, pbo_);
+
+        i32 offset = 0;
+
+        for (i32 i = 0; i < gl_mips_; ++i)
+        {
+            i32 width = (std::max)(gl_width_ >> i, 1);
+            i32 height = (std::max)(gl_height_ >> i, 1);
+            glTexSubImage2D(GL_TEXTURE_2D, i, 0, 0, width, height, gl_format_, gl_type_, (void*) offset);
+            offset += (gl_pitch_ >> i) * height;
+        }
+
+        glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
+        glDeleteBuffers(1, &pbo_);
+        pbo_ = 0;
+    }
+
+    return true;
 }

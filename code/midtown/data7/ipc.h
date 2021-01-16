@@ -44,6 +44,8 @@
     0x90AE60 | int SynchronousMessageQueues | ?SynchronousMessageQueues@@3HA
 */
 
+#include "mutex.h"
+
 // 0x578740 | ?ipcCloseHandle@@YAXI@Z
 ARTS_EXPORT void ipcCloseHandle(usize handle);
 
@@ -108,6 +110,8 @@ public:
     // 0x578920 | ?Shutdown@ipcMessageQueue@@QAEXXZ
     ARTS_EXPORT void Shutdown();
 
+    void Wait();
+
 private:
     // 0x578790 | ?MessageLoop@ipcMessageQueue@@AAEHXZ
     ARTS_EXPORT i32 MessageLoop();
@@ -125,7 +129,7 @@ private:
     Ptr<ipcMessage[]> messages_ {};
     usize send_event_ {0};
     usize read_event_ {0};
-    usize mutex_ {0};
+    CriticalSection mutex_ {};
     usize proc_thread_ {0};
 };
 

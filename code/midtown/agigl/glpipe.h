@@ -50,9 +50,6 @@ public:
 
     void Init();
 
-    u32 AllocTexture();
-    void DeleteTexture(u32 texture);
-
     bool HasExtension(const char* name);
     bool HasVersion(i32 major, i32 minor);
 
@@ -101,10 +98,9 @@ private:
     u32 blit_width_ {0};
     u32 blit_height_ {0};
 
-    u32 texture_cache_[64];
-    u32 cached_textures_ {0};
-
     void InitExtensions();
+
+    HGLRC CreateSharedContext();
 };
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height);

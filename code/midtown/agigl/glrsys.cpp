@@ -226,7 +226,7 @@ void main()
     f32 z_near = -1.0f;
     f32 z_far = 1.0f;
 
-    f32 transform[4][4];
+    GLfloat transform[4][4];
 
     transform[0][0] = 2.0f / (right - left);
     transform[0][1] = 0.0f;
@@ -370,8 +370,13 @@ void agiGLRasterizer::FlushState()
 
     if (texture != agiLastState.Texture)
     {
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, texture ? texture->GetHandle() : white_texture_);
+        u32 handle = texture ? texture->GetHandle() : white_texture_;
+
+        if (handle != current_texture_)
+        {
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, handle);
+        }
 
         agiLastState.Texture = texture;
 
@@ -381,6 +386,7 @@ void agiGLRasterizer::FlushState()
             STATS.TxlsXrfd += texture->SurfaceSize;
 
         texture_changed = true;
+        current_texture_ = handle;
     }
 
     if (bool zwrite = agiCurState.GetZWrite(); zwrite != agiLastState.ZWrite)
@@ -606,6 +612,9 @@ void agiGLRasterizer::Draw(u16* indices, i32 index_count)
     ARTS_TIMED(agiRasterization);
 
     ++STATS.GeomCalls;
+
+    if (current_texture_ == 0)
+        return;
 
 #ifdef ARTS_GL_USE_INDEX_BUFFER
     glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, index_count * sizeof(u16), indices);

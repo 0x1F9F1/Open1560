@@ -36,6 +36,7 @@ Name        | Value | Description
 -nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl)
 -prio       | 2     | Sets the process priority
 -scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered
+-smoothstep | true  | Smoothes the out the time between frames to avoid stutter
 -vsync      | true  | Enables vertical sync
 -window     | false | Puts the game in a window
 -windowmenu | false | Puts the game in a borderless window when in the menu
