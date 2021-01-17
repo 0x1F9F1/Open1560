@@ -50,16 +50,7 @@ private:
     bool CheckFence();
 
     u32 texture_ {0};
-    u32 pbo_ {0};
     void* fence_ {0};
-
-    u32 gl_format_ {0};
-    u32 gl_type_ {0};
-
-    i32 gl_width_ {0};
-    i32 gl_height_ {0};
-    i32 gl_pitch_ {0};
-    i32 gl_mips_ {0};
 
     Ptr<agiSurfaceDesc> temp_surface_ {};
 };

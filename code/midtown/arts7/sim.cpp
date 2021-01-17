@@ -189,7 +189,7 @@ void asSimulation::Update()
 
     if (TimingCount && !--TimingCount)
     {
-        Ptr<Stream> report = AsPtr(arts_fopen("perf.rpt", "w"));
+        Ptr<Stream> report {arts_fopen("perf.rpt", "w")};
 
         PerfReport(report.get(), 0);
     }

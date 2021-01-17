@@ -82,10 +82,17 @@ static i32 GetDebugSeverityPriority(GLenum value)
     }
 }
 
+static i32 DebugMessageLevel = 0;
+
 static void GLAPIENTRY DebugMessageCallback([[maybe_unused]] GLenum source, GLenum type, [[maybe_unused]] GLuint id,
     GLenum severity, [[maybe_unused]] GLsizei length, const GLchar* message, [[maybe_unused]] const void* userParam)
 {
-    Printerf(GetDebugSeverityPriority(severity), "GL Message: %X %s: %s", severity, GetDebugTypeString(type), message);
+    i32 priority = GetDebugSeverityPriority(severity);
+
+    if (priority < DebugMessageLevel)
+        return;
+
+    Printerf(priority, "GL Message: %X %s: %s", severity, GetDebugTypeString(type), message);
 }
 
 static mem::cmd_param PARAM_legacygl {"legacygl"};
@@ -291,23 +298,7 @@ i32 agiGLPipeline::BeginGfx()
     Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
     Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
 
-    if (!HasVersion(3, 0))
-        legacy_gl = true;
-
-    // TODO: Is this required now the correct extensions are checked?
-    if (!legacy_gl && std::strstr((const char*) glGetString(GL_RENDERER), "Intel(R) HD Graphics"))
-        legacy_gl = PARAM_legacygl.get_or(true);
-
-    Displayf("Using %s framebuffer", legacy_gl ? "legacy" : "modern");
-
-    if (glDebugMessageCallback &&
-        PARAM_gldebug.get_or(
-#ifdef ARTS_FINAL
-            false
-#else
-            true
-#endif
-            ))
+    if (HasExtension("GL_KHR_debug") && PARAM_gldebug.get(DebugMessageLevel))
     {
         Displayf("Using glDebugMessageCallback");
         glEnable(GL_DEBUG_OUTPUT);
@@ -388,11 +379,17 @@ i32 agiGLPipeline::BeginGfx()
     blit_x_ = (horz_res_ - blit_width_) / 2;
     blit_y_ = (vert_res_ - blit_height_) / 2;
 
+    if (!legacy_gl && !HasExtension("GL_ARB_framebuffer_object"))
+        legacy_gl = true;
+
     // OpenGL doesn't support blit scaling when using MSAA
     i32 msaa_level = 0;
 
-    if (!legacy_gl && HasVersion(3, 2))
+    if (!legacy_gl && HasExtension("GL_ARB_texture_multisample"))
         msaa_level = PARAM_msaa.get_or<i32>(0);
+
+    if (!legacy_gl && std::strstr((const char*) glGetString(GL_RENDERER), "Intel(R) HD Graphics"))
+        legacy_gl = PARAM_legacygl.get_or(true);
 
     if (PARAM_native_res.get_or(true) || (msaa_level != 0) || legacy_gl)
     {
@@ -409,6 +406,8 @@ i32 agiGLPipeline::BeginGfx()
     render_y_ = 0;
 
     PrintGlErrors();
+
+    Displayf("Using %s framebuffer", legacy_gl ? "legacy" : "modern");
 
     if (!legacy_gl)
     {

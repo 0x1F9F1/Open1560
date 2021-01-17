@@ -371,14 +371,11 @@ void agiGLRasterizer::FlushState()
     if (texture != agiLastState.Texture)
     {
         u32 handle = texture ? texture->GetHandle() : white_texture_;
-
-        if (handle != current_texture_)
-        {
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, handle);
-        }
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, handle);
 
         agiLastState.Texture = texture;
+        current_texture_ = handle;
 
         ++STATS.TextureChanges;
 
@@ -386,7 +383,6 @@ void agiGLRasterizer::FlushState()
             STATS.TxlsXrfd += texture->SurfaceSize;
 
         texture_changed = true;
-        current_texture_ = handle;
     }
 
     if (bool zwrite = agiCurState.GetZWrite(); zwrite != agiLastState.ZWrite)

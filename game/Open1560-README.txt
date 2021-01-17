@@ -45,7 +45,7 @@ Name        | Value | Description
 Name        | Value | Description
 -agiverbose | false | Enables AGI (graphics) logging
 -fontscale  |       | Sets the debug font scale
--gldebug    | false | Enables OpenGL debug output
+-gldebug    |       | Sets the OpenGL debug output level
 -sync       | true  | Disables multi-threading
 -thinfont   | true  | Enables the debug font slightly thinner
 
