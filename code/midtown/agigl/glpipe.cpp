@@ -741,6 +741,7 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     ++agiBitmapCount;
     agiBitmapPixels += width * height;
 
+    // FIXME: This overlaps with the rasterizer timer
     ARTS_TIMED(agiCopyBitmap);
 
     RAST->BeginGroup();
@@ -883,6 +884,7 @@ static mem::cmd_param PARAM_integrated {"integrated"};
 
 extern "C"
 {
+    // FIXME: These do not work from a DLL
     ARTS_EXPORT u32 NvOptimusEnablement = 1;
     ARTS_EXPORT u32 AmdPowerXpressRequestHighPerformance = 1;
 }

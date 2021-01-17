@@ -4,6 +4,8 @@ To run, extract the files in the zip directly into your Midtown Madness 1 direct
 
 # Setup
 In most cases, Open1560 should run optimally straight away. However, there are certain things you may wish to change:
+* If you have a laptop, ensure you are using the correct GPU.
+* If you still have low performance, consider disabling Cloud Shadows.
 * Enable anti-aliasing with the `-msaa <LEVEL>` argument (possible levels are 1, 2, 4 or 8). Note, this may not be available on certain older/integrated GPUs.
 
 # Command Line Arguments
@@ -28,7 +30,6 @@ Name        | Value | Description
 -cdid       | false | Enables CD music in the menu when using a virtual CD
 -config     | false | Forces redetection of graphics modes
 -fovfix     | true  | Enables FOV scaling based on resolution
--integrated | false | Prefer using laptop iGPU
 -legacygl   | false | Uses a legacy OpenGL context (enabled by default on Intel iGPUs)
 -maxaspect  |       | Maximum aspect ratio of available resolutions
 -minaspect  |       | Minimum aspect ratio of available resolutions
@@ -36,7 +37,7 @@ Name        | Value | Description
 -nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl)
 -prio       | 2     | Sets the process priority
 -scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered
--smoothstep | true  | Smoothes the out the time between frames to avoid stutter
+-smoothstep | true  | Smoothes out the time between frames to avoid stutter
 -vsync      | true  | Enables vertical sync
 -window     | false | Puts the game in a window
 -windowmenu | false | Puts the game in a borderless window when in the menu

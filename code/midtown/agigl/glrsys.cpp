@@ -51,7 +51,7 @@ void agiGLRasterizer::EndGfx()
     }
 
     glDeleteProgram(shader_);
-    shader_= 0;
+    shader_ = 0;
 
     glDeleteTextures(1, &white_texture_);
     white_texture_ = 0;
@@ -433,12 +433,10 @@ void agiGLRasterizer::FlushState()
 
     if (bool perspective = agiCurState.GetTexturePerspective(); perspective != agiLastState.TexturePerspective)
     {
-        // glHint(GL_PERSPECTIVE_CORRECTION_HINT, perspective ? GL_NICEST : GL_FASTEST);
-
         agiLastState.TexturePerspective = perspective;
     }
 
-    if (texture)
+    if (texture && current_texture_)
     {
         agiTexFilter tex_filter = agiCurState.GetTexFilter();
 
@@ -483,8 +481,6 @@ void agiGLRasterizer::FlushState()
 
     if (bool smooth_shading = agiCurState.GetSmoothShading(); smooth_shading != agiLastState.SmoothShading)
     {
-        // glShadeModel((smooth_shading || true) ? GL_SMOOTH : GL_FLAT);
-
         agiLastState.SmoothShading = smooth_shading;
     }
 

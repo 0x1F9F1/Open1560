@@ -68,7 +68,7 @@ private:
     i32 write_index_ {0};
     i32 read_index_ {0};
 
-    f32 auto_scale_ {0.0f};
+    f32 auto_scale_ {10.0f};
     i32 num_samples_ {0};
     bool scroll_ {true};
 };

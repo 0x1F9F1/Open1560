@@ -23,6 +23,7 @@ define_dummy_symbol(mmeffects_vehform);
 #include "agi/texdef.h"
 #include "agiworld/texsheet.h"
 #include "agiworld/texsort.h"
+#include "agiworld/quality.h"
 #include "arts7/cullmgr.h"
 #include "mmcity/cullcity.h"
 
@@ -37,7 +38,7 @@ mmVehicleForm::mmVehicleForm()
     }
     else
     {
-        if (PARAM_menu_refl.get_or<bool>(true))
+        if (agiRQ.SphMap && PARAM_menu_refl.get_or<bool>(true))
         {
             t_mmEnvSetup* env = &mmEnvSetup[1][0];
 
