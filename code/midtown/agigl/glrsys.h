@@ -20,6 +20,8 @@
 
 #include "agi/rsys.h"
 
+#include "glpipe.h"
+
 // #define ARTS_GL_USE_INDEX_BUFFER
 #define ARTS_GL_USE_DRAW_RANGE
 
@@ -45,6 +47,11 @@ public:
     void Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) override;
 
     void FlushState();
+
+    agiGLPipeline* Pipe() const
+    {
+        return static_cast<agiGLPipeline*>(agiRefreshable::Pipe());
+    }
 
 private:
     void SetVertices(agiVtx* vertices, i32 vertex_count);

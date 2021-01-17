@@ -37,17 +37,24 @@ static u16 VtxIndices[1024] {};
 void agiGLRasterizer::EndGfx()
 {
     glDeleteBuffers(1, &vbo_);
+    vbo_ = 0;
+
 #ifdef ARTS_GL_USE_INDEX_BUFFER
     glDeleteBuffers(1, &ibo_);
+    ibo_ = 0;
 #endif
 
-    if (glDeleteVertexArrays)
+    if (vao_ != 0)
     {
         glDeleteVertexArrays(1, &vao_);
+        vao_ = 0;
     }
 
     glDeleteProgram(shader_);
+    shader_= 0;
+
     glDeleteTextures(1, &white_texture_);
+    white_texture_ = 0;
 }
 
 static void CheckShader(u32 shader)
@@ -100,13 +107,7 @@ static u32 CompileShader(u32 type, const char* src)
 
 i32 agiGLRasterizer::BeginGfx()
 {
-    glGenBuffers(1, &vbo_);
-
-#ifdef ARTS_GL_USE_INDEX_BUFFER
-    glGenBuffers(1, &ibo_);
-#endif
-
-    if (glGenVertexArrays)
+    if (Pipe()->HasExtension("GL_ARB_vertex_array_object"))
     {
         glGenVertexArrays(1, &vao_);
         glBindVertexArray(vao_);
@@ -116,13 +117,9 @@ i32 agiGLRasterizer::BeginGfx()
         Displayf("OpenGL VAO not supported");
     }
 
+    glGenBuffers(1, &vbo_);
     glBindBuffer(GL_ARRAY_BUFFER, vbo_);
-    glBufferData(GL_ARRAY_BUFFER, 0xFFFF * sizeof(agiScreenVtx), nullptr, GL_DYNAMIC_DRAW);
-
-#ifdef ARTS_GL_USE_INDEX_BUFFER
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0xFFFF * sizeof(u16), nullptr, GL_DYNAMIC_DRAW);
-#endif
+    glBufferData(GL_ARRAY_BUFFER, 0xFFFF * sizeof(agiScreenVtx), nullptr, GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(agiScreenVtx),
         reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x0))); // xyzw
@@ -139,6 +136,12 @@ i32 agiGLRasterizer::BeginGfx()
     glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, sizeof(agiScreenVtx),
         reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x18))); // uv
     glEnableVertexAttribArray(3);
+
+#ifdef ARTS_GL_USE_INDEX_BUFFER
+    glGenBuffers(1, &ibo_);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0xFFFF * sizeof(u16), nullptr, GL_DYNAMIC_DRAW);
+#endif
 
     u32 vs = CompileShader(GL_VERTEX_SHADER, R"(
 #version 130
@@ -594,9 +597,7 @@ void agiGLRasterizer::FlushState()
 
 void agiGLRasterizer::SetVertices(agiVtx* vertices, i32 vertex_count)
 {
-    ARTS_TIMED(agiRasterization);
-
-    glBufferSubData(GL_ARRAY_BUFFER, 0, vertex_count * sizeof(agiScreenVtx), vertices);
+    glBufferData(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), vertices, GL_STREAM_DRAW);
 
 #ifdef ARTS_GL_USE_DRAW_RANGE
     vertex_count_ = vertex_count;
@@ -613,7 +614,7 @@ void agiGLRasterizer::Draw(u16* indices, i32 index_count)
         return;
 
 #ifdef ARTS_GL_USE_INDEX_BUFFER
-    glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, index_count * sizeof(u16), indices);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_count * sizeof(u16), indices, GL_STREAM_DRAW);
 #endif
 
 #ifdef ARTS_GL_USE_DRAW_RANGE
