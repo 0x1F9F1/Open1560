@@ -226,9 +226,7 @@ i32 agiGLPipeline::BeginGfx()
             WGL_SUPPORT_OPENGL_ARB, GL_TRUE,
             WGL_DOUBLE_BUFFER_ARB, GL_TRUE,
             WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
-            WGL_COLOR_BITS_ARB, 32,
-            WGL_DEPTH_BITS_ARB, 24,
-            WGL_STENCIL_BITS_ARB, 8,
+            WGL_COLOR_BITS_ARB, 24,
             0,
             // clang-format on
         };
@@ -312,9 +310,10 @@ i32 agiGLPipeline::BeginGfx()
         if (device_flags_1_ & 0x1)
             interval = HasExtension("WGL_EXT_swap_control_tear") ? -1 : 1;
 
-        Displayf("OpenGL SwapInterval = %i", interval);
+        Displayf("wglSwapIntervalEXT(%i)", interval);
 
-        wglSwapIntervalEXT(interval);
+        if (!wglSwapIntervalEXT(interval))
+            Errorf("wglSwapIntervalEXT failed: %08X", GetLastError());
     }
 
     // FIXME: Check pixel format masks
@@ -386,12 +385,22 @@ i32 agiGLPipeline::BeginGfx()
     i32 msaa_level = 0;
 
     if (!legacy_gl && HasExtension("GL_ARB_texture_multisample"))
-        msaa_level = PARAM_msaa.get_or<i32>(0);
+    {
+        GLint max_samples = 0;
+        glGetIntegerv(GL_MAX_SAMPLES, &max_samples);
+        msaa_level = std::clamp(PARAM_msaa.get_or<i32>(0), 0, max_samples);
+    }
 
-    if (!legacy_gl && std::strstr((const char*) glGetString(GL_RENDERER), "Intel(R) HD Graphics"))
-        legacy_gl = PARAM_legacygl.get_or(true);
+    bool native_res = legacy_gl || PARAM_native_res.get_or(true);
 
-    if (PARAM_native_res.get_or(true) || (msaa_level != 0) || legacy_gl)
+    if (msaa_level != 0 && !HasExtension("GL_EXT_framebuffer_multisample_blit_scaled"))
+    {
+        Errorf("Multisample scaling not supported");
+
+        native_res = true;
+    }
+
+    if (native_res)
     {
         render_width_ = blit_width_;
         render_height_ = blit_height_;
@@ -407,34 +416,39 @@ i32 agiGLPipeline::BeginGfx()
 
     PrintGlErrors();
 
-    Displayf("Using %s framebuffer", legacy_gl ? "legacy" : "modern");
+    Displayf("Using %s framebuffer, msaa=%i", legacy_gl ? "legacy" : "modern", msaa_level);
 
     if (!legacy_gl)
     {
         glGenFramebuffers(1, &fbo_);
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
+        glGenRenderbuffers(2, rbo_);
 
-        glGenRenderbuffers(1, &rbo_);
-        glBindRenderbuffer(GL_RENDERBUFFER, rbo_);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo_);
+        blit_filter_ = GL_NEAREST;
 
-        glGenTextures(1, &color_fbo_);
-
-        if (msaa_level != 0)
+        if (msaa_level)
         {
+            glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
+            glRenderbufferStorageMultisample(GL_RENDERBUFFER, msaa_level, GL_RGB, render_width_, render_height_);
+            glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rbo_[0]);
+
+            glBindRenderbuffer(GL_RENDERBUFFER, rbo_[1]);
             glRenderbufferStorageMultisample(
-                GL_RENDERBUFFER, msaa_level, GL_DEPTH24_STENCIL8, render_width_, render_height_);
-            glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, color_fbo_);
-            glTexImage2DMultisample(
-                GL_TEXTURE_2D_MULTISAMPLE, msaa_level, GL_RGB, render_width_, render_height_, GL_TRUE);
-            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D_MULTISAMPLE, color_fbo_, 0);
+                GL_RENDERBUFFER, msaa_level, GL_DEPTH_COMPONENT, render_width_, render_height_);
+            glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rbo_[1]);
+
+            if (render_width_ != blit_width_ || render_height_ != blit_height_)
+                blit_filter_ = GL_SCALED_RESOLVE_NICEST_EXT;
         }
         else
         {
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, render_width_, render_height_);
-            glBindTexture(GL_TEXTURE_2D, color_fbo_);
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, render_width_, render_height_, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
-            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, color_fbo_, 0);
+            glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_RGB, render_width_, render_height_);
+            glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rbo_[0]);
+
+            glBindRenderbuffer(GL_RENDERBUFFER, rbo_[1]);
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, render_width_, render_height_);
+            glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, rbo_[1]);
         }
 
         if (GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER); status != GL_FRAMEBUFFER_COMPLETE)
@@ -460,12 +474,11 @@ void agiGLPipeline::EndGfx()
     if (fbo_ != 0)
     {
         glDeleteFramebuffers(1, &fbo_);
-        glDeleteFramebuffers(1, &rbo_);
-        glDeleteTextures(1, &color_fbo_);
+        glDeleteFramebuffers(2, rbo_);
 
         fbo_ = 0;
-        rbo_ = 0;
-        color_fbo_ = 0;
+        rbo_[0] = 0;
+        rbo_[1] = 0;
     }
 
     wglMakeCurrent(NULL, NULL);
@@ -664,11 +677,11 @@ void agiGLPipeline::EndFrame()
 
     if (fbo_ != 0)
     {
-        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);    // Make sure no FBO is set as the draw framebuffer
-        glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo_); // Make sure your multisampled FBO is the read framebuffer
-        glDrawBuffer(GL_BACK);                        // Set the back buffer as the draw buffer
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo_);
+        glDrawBuffer(GL_BACK);
         glBlitFramebuffer(render_x_, render_y_, render_x_ + render_width_, render_y_ + render_height_, blit_x_, blit_y_,
-            blit_x_ + blit_width_, blit_y_ + blit_height_, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+            blit_x_ + blit_width_, blit_y_ + blit_height_, GL_COLOR_BUFFER_BIT, blit_filter_);
     }
 
     SwapBuffers(window_dc_);

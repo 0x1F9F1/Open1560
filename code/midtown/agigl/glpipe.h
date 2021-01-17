@@ -85,8 +85,7 @@ private:
     i32 gl_minor_version_ {0};
 
     u32 fbo_ {0};
-    u32 rbo_ {0};
-    u32 color_fbo_ {0};
+    u32 rbo_[2] {0};
 
     u32 render_x_ {0};
     u32 render_y_ {0};
@@ -97,6 +96,7 @@ private:
     u32 blit_y_ {0};
     u32 blit_width_ {0};
     u32 blit_height_ {0};
+    u32 blit_filter_ {0};
 
     void InitExtensions();
 
