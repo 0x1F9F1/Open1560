@@ -148,6 +148,10 @@ ARTS_IMPORT extern struct IDirectInputA* gpdi;
 // 0x719270 | ?testValue@@3MA
 ARTS_IMPORT extern f32 testValue;
 
+class mmJoyMan;
+class mmIO;
+class eqEventQ;
+
 class mmInput final : public asNode
 {
     // const mmInput::`vftable' @ 0x61FC38
@@ -339,7 +343,7 @@ private:
     ARTS_IMPORT void GetBufferedKeyboardData();
 
     // 0x4E25A0 | ?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z
-    ARTS_IMPORT i32 GetNextKeyboardEvent(union eqEvent* arg1);
+    ARTS_EXPORT b32 GetNextKeyboardEvent(union eqEvent* event);
 
     // 0x4E2E80 | ?PollContinuous@mmInput@@AAEXPAVmmIO@@@Z
     ARTS_IMPORT void PollContinuous(class mmIO* arg1);
@@ -368,7 +372,69 @@ private:
     // 0x4E26E0 | ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
     ARTS_IMPORT i64 ScanState(class mmIO* arg1);
 
-    u8 gap20[0x228];
+    mmJoyMan* Joy;
+    mmIO* Controls;
+    i32 NumControls;
+    eqEventQ* Events;
+    i32 field_30;
+    i32 field_34;
+    i32 field_38;
+    i32 field_3C;
+    i32 field_40;
+    i32 field_44;
+    i32 field_48;
+    i32 field_4C;
+    i32 field_50;
+    i32 field_54;
+    i64 EventQueue[30];
+    i32 QueuedEvents;
+    i32 field_14C;
+    i32 field_150;
+    i32 field_154;
+    i32 field_158;
+    i32 field_15C;
+    i64 field_160;
+    i32 EnablEFF;
+    i32 EnableFF;
+    f32 field_170;
+    f32 field_174;
+    i32 field_178;
+    i32 field_17C;
+    i32 field_180;
+    i32 field_184;
+    i32 field_188;
+    i32 HasCoolie;
+    i32 field_190;
+    i32 field_194;
+    f32 field_198;
+    f32 field_19C;
+    f32 field_1A0;
+    f32 field_1A4;
+    f32 field_1A8;
+    f32 field_1AC;
+    f32 field_1B0;
+    f32 field_1B4;
+    f32 SpringFFLevel;
+    f32 field_1BC;
+    f32 field_1C0;
+    f32 field_1C4;
+    f32 field_1C8;
+    f32 field_1CC;
+    f32 field_1D0;
+    i32 field_1D4;
+    i32 field_1D8;
+    i32 MouseDeltaX;
+    i32 MouseDeltaY;
+    f32 ScreenCenterX;
+    f32 ScreenCenterY;
+    f32 InvScreenCenterX;
+    f32 InvScreenCenterY;
+    i32 field_1F4;
+    i32 field_1F8;
+    i32 field_1FC;
+    i8 KeyboardPresses[64];
+    i32 NumKeyboardInputs;
+    i32 field_244;
 };
 
 check_size(mmInput, 0x248);

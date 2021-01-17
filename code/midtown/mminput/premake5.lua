@@ -6,8 +6,8 @@ arts_component "mminput"
         -- "effect.h",
         -- "friction.cpp",
         -- "friction.h",
-        -- "input.cpp",
-        -- "input.h",
+        "input.cpp",
+        "input.h",
         -- "io.cpp",
         -- "io.h",
         -- "iodev.cpp",
@@ -23,4 +23,3 @@ arts_component "mminput"
         -- "spring.cpp",
         -- "spring.h",
     }
-

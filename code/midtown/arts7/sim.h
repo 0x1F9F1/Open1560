@@ -251,7 +251,7 @@ private:
 
     bool smooth_;
     f32 delta_drift_;
-    f32 avg_delta_;
+    f32 target_delta_;
 };
 
 // check_size(asSimulation, 0x2B0);

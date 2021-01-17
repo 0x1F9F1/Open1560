@@ -92,7 +92,7 @@ void asSimulation::ResetClock()
     prev_stats_.Reset();
 
     smooth_ = PARAM_smoothstep.get_or(true);
-    avg_delta_ = 0.0f;
+    target_delta_ = 1.0f / 30.0f;
     delta_drift_ = 0.0f;
 }
 
@@ -221,15 +221,12 @@ void asSimulation::Widgets()
 
 void asSimulation::SmoothDelta(f32& delta)
 {
-    if (avg_delta_ == 0.0f)
-        avg_delta_ = delta;
-
     f32 raw_delta = delta;
 
     delta += delta_drift_ * 0.2f;
-    delta += (avg_delta_ - delta) * 0.8f;
+    delta += (target_delta_ - delta) * 0.8f;
 
-    avg_delta_ += (raw_delta - avg_delta_) * 0.1f;
+    target_delta_ += (raw_delta - target_delta_) * 0.1f;
 
     delta_drift_ += raw_delta - delta;
     delta_drift_ = std::clamp(delta_drift_, -0.05f, 0.05f);

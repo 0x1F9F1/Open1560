@@ -686,7 +686,7 @@ include_dummy_symbol(mmgame_interface);
 // include_dummy_symbol(mminput_collide);
 // include_dummy_symbol(mminput_effect);
 // include_dummy_symbol(mminput_friction);
-// include_dummy_symbol(mminput_input);
+include_dummy_symbol(mminput_input);
 // include_dummy_symbol(mminput_io);
 // include_dummy_symbol(mminput_iodev);
 // include_dummy_symbol(mminput_joyman);

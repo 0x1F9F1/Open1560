@@ -20,6 +20,9 @@ define_dummy_symbol(mminput_input);
 
 #include "input.h"
 
+#include "eventq7/eventq.h"
+#include "eventq7/key_codes.h"
+
 i32 mmInput::GamepadConnected()
 {
     return 0;
@@ -33,4 +36,14 @@ i32 mmInput::JoystickConnected()
 i32 mmInput::WheelConnected()
 {
     return 0;
+}
+
+b32 mmInput::GetNextKeyboardEvent(eqEvent* event)
+{
+    if (NumKeyboardInputs == 0)
+        return false;
+
+    event->Key = {{nullptr, eqEventType::Keyboard}, EQ_KMOD_DOWN, KeyboardPresses[--NumKeyboardInputs], 0, 0};
+
+    return true;
 }
