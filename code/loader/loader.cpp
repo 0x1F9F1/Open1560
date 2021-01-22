@@ -324,6 +324,13 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
             std::memcpy((u32*) 0x639888, new_colors, sizeof(new_colors));
         }
+
+        create_patch("", "", 0x4022B7 + 6, "\x05", 1);
+
+        {
+            const char* wp_name = "pt_check";
+            create_patch("", "", 0x4124A7 + 1, &wp_name, sizeof(wp_name));
+        }
 #endif
 
         Displayf("Begin Init Functions");

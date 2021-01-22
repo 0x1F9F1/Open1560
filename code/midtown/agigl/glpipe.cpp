@@ -744,7 +744,7 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     // FIXME: This overlaps with the rasterizer timer
     ARTS_TIMED(agiCopyBitmap);
 
-    RAST->BeginGroup();
+    // RAST->BeginGroup();
 
     agiTexDef* texture = static_cast<agiGLBitmap*>(src)->GetHandle();
 
@@ -757,22 +757,9 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     auto old_fog_mode = agiCurState.SetFogMode(agiFogMode::None);
     auto old_fog_color = agiCurState.SetFogColor(0x00000000);
 
-    agiScreenVtx blank;
-    blank.x = 0.0f;
-    blank.y = 0.0f;
-    blank.z = 0.0f;
-    blank.w = 1.0f;
-    blank.color = 0xFFFFFFFF;
-    blank.specular = 0xFFFFFFFF;
-    blank.tu = 0.0f;
-    blank.tv = 0.0f;
-
-    agiScreenVtx verts[4];
-
-    verts[0] = blank;
-    verts[1] = blank;
-    verts[2] = blank;
-    verts[3] = blank;
+    agiScreenVtx blank {0.0f, 0.0f, 0.0f, 1.0f, 0xFFFFFFFF, 0xFFFFFFFF, 0.0f, 0.0f};
+    agiScreenVtx verts[4] {blank, blank, blank, blank};
+    u16 indices[6] {0, 1, 2, 0, 2, 3};
 
     f32 const inv_tex_w = 1.0f / src->GetWidth();
     f32 const inv_tex_h = 1.0f / src->GetHeight();
@@ -787,18 +774,9 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     verts[1].tu = verts[2].tu = (src_x + width) * inv_tex_w;
     verts[3].tv = verts[2].tv = (src_y + height) * inv_tex_h;
 
-    u16 indices[6];
-
-    indices[0] = 0;
-    indices[1] = 1;
-    indices[2] = 2;
-    indices[3] = 0;
-    indices[4] = 2;
-    indices[5] = 3;
-
     RAST->Mesh(agiVtxType::Screen, (agiVtx*) verts, 4, indices, 6);
 
-    RAST->EndGroup();
+    // RAST->EndGroup();
 
     agiCurState.SetTexture(old_tex);
     agiCurState.SetDrawMode(old_draw_mode);
@@ -819,7 +797,7 @@ void agiGLPipeline::ClearAll(i32 color)
 
 void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
 {
-    RAST->BeginGroup();
+    // RAST->BeginGroup();
 
     auto tex = agiCurState.SetTexture(nullptr);
     auto draw_mode = agiCurState.SetDrawMode(0xF);
@@ -830,22 +808,9 @@ void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
     auto fog_mode = agiCurState.SetFogMode(agiFogMode::None);
     auto fog_color = agiCurState.SetFogColor(0x00000000);
 
-    agiScreenVtx blank;
-    blank.x = 0.0f;
-    blank.y = 0.0f;
-    blank.z = 0.0f;
-    blank.w = 1.0f;
-    blank.color = color | 0xFF000000;
-    blank.specular = 0xFFFFFFFF;
-    blank.tu = 0.0f;
-    blank.tv = 0.0f;
-
-    agiScreenVtx verts[4];
-
-    verts[0] = blank;
-    verts[1] = blank;
-    verts[2] = blank;
-    verts[3] = blank;
+    agiScreenVtx blank {0.0f, 0.0f, 0.0f, 1.0f, color | 0xFF000000, 0xFFFFFFFF, 0.0f, 0.0f};
+    agiScreenVtx verts[4] {blank, blank, blank, blank};
+    u16 indices[6] {0, 1, 2, 0, 2, 3};
 
     verts[3].x = verts[0].x = static_cast<f32>(x);
     verts[1].y = verts[0].y = static_cast<f32>(y);
@@ -853,17 +818,9 @@ void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
     verts[1].x = verts[2].x = static_cast<f32>(x + width + 1);
     verts[3].y = verts[2].y = static_cast<f32>(y + height + 1);
 
-    u16 indices[6];
-    indices[0] = 0;
-    indices[1] = 1;
-    indices[2] = 2;
-    indices[3] = 0;
-    indices[4] = 2;
-    indices[5] = 3;
-
     RAST->Mesh(agiVtxType::Screen, (agiVtx*) verts, 4, indices, 6);
 
-    RAST->EndGroup();
+    // RAST->EndGroup();
 
     agiCurState.SetTexture(tex);
     agiCurState.SetDrawMode(draw_mode);

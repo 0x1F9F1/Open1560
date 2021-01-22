@@ -429,7 +429,7 @@ void DataCache::Relocate(DataCacheObject* dco, u8* ptr)
     if (i32 delta = ptr - dco->pBase)
     {
         dco->Relocate(dco->Context, delta);
-        std::memcpy(ptr, dco->pBase, dco->nTotalSize);
+        std::memmove(ptr, dco->pBase, dco->nTotalSize);
         dco->pBase = ptr;
     }
 }

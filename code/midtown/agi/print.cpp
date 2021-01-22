@@ -174,7 +174,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
     if (BuiltinFontTexture == nullptr)
         InitBuiltin();
 
-    RAST->BeginGroup();
+    // RAST->BeginGroup();
 
     f32 const inv_font_w = 1.0f / BuiltinFontTexture->GetWidth();
     f32 const inv_font_h = 1.0f / BuiltinFontTexture->GetHeight();
@@ -218,16 +218,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
         agiScreenVtx* verts = &vert_buf[count * 4];
         u16* indices = &index_buf[count * 6];
 
-        agiScreenVtx blank;
-
-        blank.x = 0.0f;
-        blank.y = 0.0f;
-        blank.z = 0.0f;
-        blank.w = 1.0f;
-        blank.color = color;
-        blank.specular = 0xFFFFFFFF;
-        blank.tu = 0.0f;
-        blank.tv = 0.0f;
+        agiScreenVtx blank {0.0f, 0.0f, 0.0f, 1.0f, color, 0xFFFFFFFF, 0.0f, 0.0f};
 
         verts[0] = blank;
         verts[1] = blank;
@@ -263,7 +254,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
         RAST->Mesh(agiVtxType::Screen, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
     }
 
-    RAST->EndGroup();
+    // RAST->EndGroup();
 
     agiCurState.SetTexture(tex);
     agiCurState.SetDrawMode(draw_mode);

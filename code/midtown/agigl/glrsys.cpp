@@ -266,12 +266,12 @@ void main()
 
 void agiGLRasterizer::BeginGroup()
 {
-    FlushState();
+    FlushVerts();
 }
 
 void agiGLRasterizer::EndGroup()
 {
-    FlushState();
+    FlushVerts();
 }
 
 void agiGLRasterizer::Verts(agiVtxType type, agiVtx* vertices, i32 vertex_count)
@@ -279,7 +279,7 @@ void agiGLRasterizer::Verts(agiVtxType type, agiVtx* vertices, i32 vertex_count)
     ArAssert(type == agiVtxType::Screen, "Invalid Vertex Type");
 
     if (VtxIndexCount || agiCurState.IsTouched())
-        FlushState();
+        FlushVerts();
 
     SetVertices(vertices, vertex_count);
 
@@ -301,7 +301,7 @@ void agiGLRasterizer::Triangle(i32 i0, i32 i1, i32 i2)
 
     if (VtxIndexCount + 3 > ARTS_SIZE(VtxIndices) || (DrawMode != GL_TRIANGLES) || agiCurState.IsTouched())
     {
-        FlushState();
+        FlushVerts();
         DrawMode = GL_TRIANGLES;
     }
 
@@ -318,7 +318,7 @@ void agiGLRasterizer::Line(i32 i0, i32 i1)
 
     if (VtxIndexCount + 2 > ARTS_SIZE(VtxIndices) || (DrawMode != GL_LINES) || agiCurState.IsTouched())
     {
-        FlushState();
+        FlushVerts();
         DrawMode = GL_LINES;
     }
 
@@ -338,7 +338,7 @@ void agiGLRasterizer::Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, 
 
     STATS.Tris += static_cast<i32>(index_count / 3.0f);
 
-    agiGLRasterizer::FlushState();
+    FlushVerts();
 
     DrawMode = GL_TRIANGLES;
 
@@ -348,226 +348,237 @@ void agiGLRasterizer::Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, 
 
 void agiGLRasterizer::FlushState()
 {
-    if (!(ActiveFlag & 0x1))
+    FlushAgiState();
+    FlushGlState();
+}
+
+void agiGLRasterizer::FlushVerts()
+{
+    if (VtxIndexCount == 0)
         return;
 
-    if (VtxIndexCount)
-    {
-        Draw(VtxIndex, VtxIndexCount);
+    Draw(VtxIndex, VtxIndexCount);
+    VtxIndexCount = 0;
+}
 
-        VtxIndexCount = 0;
-    }
-
+void agiGLRasterizer::FlushAgiState()
+{
     if (agiCurState.GetDrawMode() != 15)
         agiCurState.SetTexture(nullptr);
 
     if (!agiCurState.IsTouched())
         return;
 
-    ARTS_TIMED(agiStateChanges);
-    ++STATS.StateChanges;
-
-    bool texture_changed = false;
-
     agiGLTexDef* texture = static_cast<agiGLTexDef*>(agiCurState.GetTexture());
 
     if (texture != agiLastState.Texture)
     {
-        u32 handle = texture ? texture->GetHandle() : white_texture_;
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, handle);
-
         agiLastState.Texture = texture;
-        current_texture_ = handle;
 
-        ++STATS.TextureChanges;
+        if (u32 handle = texture ? texture->GetHandle() : white_texture_; handle != state_.Texture)
+        {
+            state_.Texture = handle;
+            state_.Touched |= State::Touched_Texture;
 
-        if (texture)
-            STATS.TxlsXrfd += texture->SurfaceSize;
+            ++STATS.TextureChanges;
 
-        texture_changed = true;
+            if (texture)
+                STATS.TxlsXrfd += texture->SurfaceSize;
+
+            if (texture && state_.Texture)
+            {
+                agiTexFilter tex_filter = agiCurState.GetTexFilter();
+
+                if (texture->Tex.DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
+                    tex_filter = agiTexFilter::Bilinear;
+
+                if (tex_filter != agiLastState.TexFilter)
+                {
+                    agiLastState.TexFilter = tex_filter;
+
+                    GLenum min_filter = GL_NEAREST;
+                    GLenum mag_filter = GL_NEAREST;
+
+                    switch (tex_filter)
+                    {
+                        case agiTexFilter::Trilinear: {
+                            min_filter = GL_LINEAR_MIPMAP_LINEAR;
+                            mag_filter = GL_LINEAR;
+
+                            break;
+                        }
+
+                        case agiTexFilter::Bilinear: {
+                            min_filter = GL_LINEAR;
+                            mag_filter = GL_LINEAR;
+
+                            break;
+                        }
+
+                        case agiTexFilter::Point: {
+                            min_filter = GL_NEAREST;
+                            mag_filter = GL_NEAREST;
+
+                            break;
+                        }
+                    }
+
+                    state_.MinFilter = min_filter;
+                    state_.MagFilter = mag_filter;
+                }
+            }
+        }
     }
+
+#define SET_GL_STATE(NAME, VALUE) state_.Set(state_.NAME, VALUE, state_.Touched_##NAME)
 
     if (bool zwrite = agiCurState.GetZWrite(); zwrite != agiLastState.ZWrite)
     {
-        glDepthMask(zwrite);
-
         agiLastState.ZWrite = zwrite;
+
+        SET_GL_STATE(DepthMask, zwrite);
     }
 
     if (bool zenable = agiCurState.GetZEnable(); zenable != agiLastState.ZEnable)
     {
-        if (zenable)
-        {
-            glEnable(GL_DEPTH_TEST);
-        }
-        else
-        {
-            glDisable(GL_DEPTH_TEST);
-        }
-
         agiLastState.ZEnable = zenable;
+
+        SET_GL_STATE(DepthTest, zenable);
     }
 
     if (agiCmpFunc zfunc = agiCurState.GetZEnable() ? agiCurState.GetZFunc() : agiCmpFunc::Always;
         zfunc != agiLastState.ZFunc)
     {
-        GLenum gl_zfunc = 0;
+        agiLastState.ZFunc = zfunc;
+
+        GLenum depth_func = 0;
 
         switch (zfunc)
         {
-            case agiCmpFunc::Never: gl_zfunc = GL_NEVER; break;
-            case agiCmpFunc::Less: gl_zfunc = GL_LESS; break;
-            case agiCmpFunc::Equal: gl_zfunc = GL_EQUAL; break;
-            case agiCmpFunc::LessEqual: gl_zfunc = GL_LEQUAL; break;
-            case agiCmpFunc::Greater: gl_zfunc = GL_GREATER; break;
-            case agiCmpFunc::Notequal: gl_zfunc = GL_NOTEQUAL; break;
-            case agiCmpFunc::GreaterEqual: gl_zfunc = GL_GEQUAL; break;
-            case agiCmpFunc::Always: gl_zfunc = GL_ALWAYS; break;
+            case agiCmpFunc::Never: depth_func = GL_NEVER; break;
+            case agiCmpFunc::Less: depth_func = GL_LESS; break;
+            case agiCmpFunc::Equal: depth_func = GL_EQUAL; break;
+            case agiCmpFunc::LessEqual: depth_func = GL_LEQUAL; break;
+            case agiCmpFunc::Greater: depth_func = GL_GREATER; break;
+            case agiCmpFunc::Notequal: depth_func = GL_NOTEQUAL; break;
+            case agiCmpFunc::GreaterEqual: depth_func = GL_GEQUAL; break;
+            case agiCmpFunc::Always: depth_func = GL_ALWAYS; break;
         }
 
-        glDepthFunc(gl_zfunc);
-
-        agiLastState.ZFunc = zfunc;
+        SET_GL_STATE(DepthFunc, depth_func);
     }
 
-    if (bool perspective = agiCurState.GetTexturePerspective(); perspective != agiLastState.TexturePerspective)
-    {
-        agiLastState.TexturePerspective = perspective;
-    }
-
-    if (texture && current_texture_)
-    {
-        agiTexFilter tex_filter = agiCurState.GetTexFilter();
-
-        if (texture->Tex.DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
-            tex_filter = agiTexFilter::Bilinear;
-
-        if (texture_changed || tex_filter != agiLastState.TexFilter)
-        {
-            GLenum min_filter = GL_NEAREST;
-            GLenum mag_filter = GL_NEAREST;
-
-            switch (tex_filter)
-            {
-                case agiTexFilter::Trilinear: {
-                    min_filter = GL_LINEAR_MIPMAP_LINEAR;
-                    mag_filter = GL_LINEAR;
-
-                    break;
-                }
-
-                case agiTexFilter::Bilinear: {
-                    min_filter = GL_LINEAR;
-                    mag_filter = GL_LINEAR;
-
-                    break;
-                }
-
-                case agiTexFilter::Point: {
-                    min_filter = GL_NEAREST;
-                    mag_filter = GL_NEAREST;
-
-                    break;
-                }
-            }
-
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min_filter);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag_filter);
-
-            agiLastState.TexFilter = tex_filter;
-        }
-    }
-
-    if (bool smooth_shading = agiCurState.GetSmoothShading(); smooth_shading != agiLastState.SmoothShading)
-    {
-        agiLastState.SmoothShading = smooth_shading;
-    }
+    agiLastState.TexturePerspective = agiCurState.GetTexturePerspective();
+    agiLastState.SmoothShading = agiCurState.GetSmoothShading();
 
     if (u8 draw_mode = agiCurState.GetDrawMode(); draw_mode != agiLastState.DrawMode)
     {
-        GLenum mode = GL_FILL;
+        agiLastState.DrawMode = draw_mode;
+
+        GLenum poly_mode = GL_FILL;
 
         switch (draw_mode & 0x3)
         {
-            case 1: mode = GL_POINT; break;
-            case 2: mode = GL_LINE; break;
-            case 3: mode = GL_FILL; break;
+            case 1: poly_mode = GL_POINT; break;
+            case 2: poly_mode = GL_LINE; break;
+            case 3: poly_mode = GL_FILL; break;
         }
 
-        glPolygonMode(GL_FRONT_AND_BACK, mode);
-
-        agiLastState.DrawMode = draw_mode;
+        SET_GL_STATE(PolygonMode, poly_mode);
     }
 
     bool alpha_mode = agiCurState.GetAlphaEnable();
     u8 alpha_ref = agiCurState.GetAlphaRef();
 
+#if 1
+    alpha_mode = true;
+#else
     if (texture)
         alpha_mode |= (texture->Tex.Flags & agiTexParameters::Alpha);
+#endif
 
     if (alpha_mode != agiLastState.AlphaEnable || alpha_ref != agiLastState.AlphaRef)
     {
-        if (alpha_mode)
-        {
-            glUniform1f(uniform_alpha_ref_, alpha_ref / 255.0f);
-            glEnable(GL_BLEND);
-        }
-        else
-        {
-            glUniform1f(uniform_alpha_ref_, -1.0f);
-            glDisable(GL_BLEND);
-        }
-
         agiLastState.AlphaEnable = alpha_mode;
         agiLastState.AlphaRef = alpha_ref;
+
+        SET_GL_STATE(Blend, alpha_mode);
+        SET_GL_STATE(AlphaRef, alpha_mode ? (alpha_ref / 255.0f) : 0.0f);
     }
 
     if (agiBlendSet blend_set = agiCurState.GetBlendSet(); blend_set != agiLastState.BlendSet)
     {
+        agiLastState.BlendSet = blend_set;
+
+        u32 blend_s = 0;
+        u32 blend_d = 0;
+
         switch (blend_set)
         {
-            case agiBlendSet::SrcAlpha_InvSrcAlpha: glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); break;
-            case agiBlendSet::SrcAlpha_One: glBlendFunc(GL_SRC_ALPHA, GL_ONE); break;
-            case agiBlendSet::Zero_SrcAlpha: glBlendFunc(GL_ZERO, GL_SRC_ALPHA); break;
-            case agiBlendSet::Zero_SrcColor: glBlendFunc(GL_ZERO, GL_SRC_COLOR); break;
-            case agiBlendSet::One_One: glBlendFunc(GL_ONE, GL_ONE); break;
+            case agiBlendSet::SrcAlpha_InvSrcAlpha:
+                blend_s = GL_SRC_ALPHA;
+                blend_d = GL_ONE_MINUS_SRC_ALPHA;
+                break;
+
+            case agiBlendSet::SrcAlpha_One:
+                blend_s = GL_SRC_ALPHA;
+                blend_d = GL_ONE;
+                break;
+
+            case agiBlendSet::Zero_SrcAlpha:
+                blend_s = GL_ZERO;
+                blend_d = GL_SRC_ALPHA;
+                break;
+
+            case agiBlendSet::Zero_SrcColor:
+                blend_s = GL_ZERO;
+                blend_d = GL_SRC_COLOR;
+                break;
+
+            case agiBlendSet::One_One:
+                blend_s = GL_ONE;
+                blend_d = GL_ONE;
+                break;
 
             default: Quitf("bad blend mode"); break;
         }
 
-        agiLastState.BlendSet = blend_set;
+        if (blend_s != state_.BlendFuncS || blend_d != state_.BlendFuncD)
+        {
+            state_.BlendFuncS = blend_s;
+            state_.BlendFuncD = blend_d;
+            state_.Touched |= State::Touched_BlendFunc;
+        }
     }
 
     if (agiCullMode cull_mode = agiCurState.GetCullMode(); cull_mode != agiLastState.CullMode)
     {
+        agiLastState.CullMode = cull_mode;
+
+        u32 front_face = 0;
+
         switch (cull_mode)
         {
-            case agiCullMode::None: glDisable(GL_CULL_FACE); break;
-
-            case agiCullMode::CW:
-                glEnable(GL_CULL_FACE);
-                glFrontFace(GL_CCW);
-                break;
-
-            case agiCullMode::CCW:
-                glEnable(GL_CULL_FACE);
-                glFrontFace(GL_CW);
-                break;
+            case agiCullMode::None: front_face = 0; break;
+            case agiCullMode::CW: front_face = GL_CCW; break;
+            case agiCullMode::CCW: front_face = GL_CW; break;
         }
 
-        agiLastState.CullMode = cull_mode;
+        SET_GL_STATE(CullFace, front_face != 0);
+
+        if (front_face != 0)
+            SET_GL_STATE(FrontFace, front_face);
     }
 
     if (agiBlendOp blend_op = agiCurState.GetBlendOp(); blend_op != agiLastState.BlendOp)
     {
+        agiLastState.BlendOp = blend_op;
+
         //switch (blend_op)
         //{
         //    case agiBlendOp::One: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE); break;
         //    case agiBlendOp::Modulate: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE); break;
         //}
-
-        agiLastState.BlendOp = blend_op;
     }
 
     // TODO: Support pixel fog?
@@ -577,11 +588,17 @@ void agiGLRasterizer::FlushState()
 
     if (fog_mode != agiLastState.FogMode || fog_color != agiLastState.FogColor)
     {
-        glUniform4f(uniform_fog_, ((fog_color >> 16) & 0xFF) / 255.0f, ((fog_color >> 8) & 0xFF) / 255.0f,
-            (fog_color & 0xFF) / 255.0f, (fog_mode == agiFogMode::Vertex) ? 1.0f : 0.0f);
-
         agiLastState.FogMode = fog_mode;
         agiLastState.FogColor = fog_color;
+
+        Vector4 fog {
+            ((fog_color >> 16) & 0xFF) / 255.0f,
+            ((fog_color >> 8) & 0xFF) / 255.0f,
+            (fog_color & 0xFF) / 255.0f,
+            (fog_mode == agiFogMode::Vertex) ? 1.0f : 0.0f,
+        };
+
+        SET_GL_STATE(Fog, fog);
     }
 
     agiLastState.FogStart = agiCurState.GetFogStart();
@@ -589,6 +606,75 @@ void agiGLRasterizer::FlushState()
     agiLastState.FogDensity = agiCurState.GetFogDensity();
 
     agiCurState.ClearTouched();
+}
+
+void agiGLRasterizer::FlushGlTexture()
+{
+    if (!(state_.Touched & State::Touched_Texture))
+        return;
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, state_.Texture);
+
+    if (state_.Texture != 0)
+    {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, state_.MinFilter);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, state_.MagFilter);
+    }
+
+    state_.Touched &= ~State::Touched_Texture;
+}
+
+void agiGLRasterizer::FlushGlState()
+{
+    FlushGlTexture();
+
+    if (state_.Touched == 0)
+        return;
+
+    ARTS_TIMED(agiStateChanges);
+    ++STATS.StateChanges;
+
+    if (state_.Touched & (State::Touched_DepthMask | State::Touched_DepthTest | State::Touched_DepthFunc))
+    {
+        if (state_.Touched & State::Touched_DepthMask)
+            glDepthMask(state_.DepthMask);
+
+        if (state_.Touched & State::Touched_DepthTest)
+            (state_.DepthTest ? glEnable : glDisable)(GL_DEPTH_TEST);
+
+        if (state_.Touched & State::Touched_DepthFunc)
+            glDepthFunc(state_.DepthFunc);
+    }
+
+    if (state_.Touched & State::Touched_PolygonMode)
+        glPolygonMode(GL_FRONT_AND_BACK, state_.PolygonMode);
+
+    if (state_.Touched & State::Touched_Fog)
+        glUniform4f(uniform_fog_, state_.Fog.x, state_.Fog.y, state_.Fog.z, state_.Fog.w);
+
+    if (state_.Touched & (State::Touched_Blend | State::Touched_AlphaRef | State::Touched_BlendFunc))
+    {
+        if (state_.Touched & State::Touched_Blend)
+            (state_.Blend ? glEnable : glDisable)(GL_BLEND);
+
+        if (state_.Touched & State::Touched_AlphaRef)
+            glUniform1f(uniform_alpha_ref_, state_.AlphaRef);
+
+        if (state_.Touched & State::Touched_BlendFunc)
+            glBlendFunc(state_.BlendFuncS, state_.BlendFuncD);
+    }
+
+    if (state_.Touched & (State::Touched_CullFace | State::Touched_FrontFace))
+    {
+        if (state_.Touched & State::Touched_CullFace)
+            (state_.CullFace ? glEnable : glDisable)(GL_CULL_FACE);
+
+        if (state_.Touched & State::Touched_FrontFace)
+            glFrontFace(state_.FrontFace);
+    }
+
+    state_.Touched = 0;
 }
 
 void agiGLRasterizer::SetVertices(agiVtx* vertices, i32 vertex_count)
@@ -606,7 +692,9 @@ void agiGLRasterizer::Draw(u16* indices, i32 index_count)
 
     ++STATS.GeomCalls;
 
-    if (current_texture_ == 0)
+    FlushState();
+
+    if (!(ActiveFlag & 0x1) || (state_.Texture == 0))
         return;
 
 #ifdef ARTS_GL_USE_INDEX_BUFFER

@@ -87,6 +87,16 @@ public:
     // 0x570D50 | ?Set@Vector4@@QAEXMMMM@Z | inline
     ARTS_IMPORT void Set(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
+    bool operator==(const Vector4& other) const
+    {
+        return (x == other.x) && (y == other.y) && (z == other.z) && (w == other.w);
+    }
+
+    bool operator!=(const Vector4& other) const
+    {
+        return (x != other.x) || (y != other.y) || (z != other.z) || (w != other.w);
+    }
+
     f32 x ARTS_DEBUG_NAN;
     f32 y ARTS_DEBUG_NAN;
     f32 z ARTS_DEBUG_NAN;

@@ -19,8 +19,8 @@
 #pragma once
 
 #include "agi/rsys.h"
-
 #include "glpipe.h"
+#include "vector7/vector4.h"
 
 // #define ARTS_GL_USE_INDEX_BUFFER
 #define ARTS_GL_USE_DRAW_RANGE
@@ -46,8 +46,6 @@ public:
     void Card(i32 i0, i32 i1) override;
     void Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) override;
 
-    void FlushState();
-
     agiGLPipeline* Pipe() const
     {
         return static_cast<agiGLPipeline*>(agiRefreshable::Pipe());
@@ -56,6 +54,13 @@ public:
 private:
     void SetVertices(agiVtx* vertices, i32 vertex_count);
     void Draw(u16* indices, i32 index_count);
+
+    void FlushVerts();
+
+    void FlushState();
+    void FlushAgiState();
+    void FlushGlState();
+    void FlushGlTexture();
 
     u32 vbo_ {0};
 #ifdef ARTS_GL_USE_INDEX_BUFFER
@@ -72,5 +77,59 @@ private:
     u32 vertex_count_ {0};
 #endif
 
-    u32 current_texture_ {0};
+    struct State
+    {
+        enum Touched_ : u32
+        {
+            Touched_Texture = 1 << 0,
+
+            Touched_DepthMask = 1 << 1,
+            Touched_DepthTest = 1 << 2,
+            Touched_DepthFunc = 1 << 3,
+
+            Touched_PolygonMode = 1 << 4,
+
+            Touched_Blend = 1 << 5,
+            Touched_AlphaRef = 1 << 6,
+
+            Touched_BlendFunc = 1 << 7,
+
+            Touched_CullFace = 1 << 8,
+            Touched_FrontFace = 1 << 9,
+
+            Touched_Fog = 1 << 10,
+        };
+
+        u32 Touched {0};
+
+        u32 Texture {0};
+        u32 MinFilter {0};
+        u32 MagFilter {0};
+
+        bool DepthMask {false};
+        bool DepthTest {false};
+        u32 DepthFunc {0};
+
+        u32 PolygonMode {0};
+
+        bool Blend {false};
+        f32 AlphaRef {0.0f};
+
+        u32 BlendFuncS {0};
+        u32 BlendFuncD {0};
+
+        bool CullFace {false};
+        u32 FrontFace {0};
+
+        Vector4 Fog {};
+
+        template <typename T>
+        inline void Set(T& state, T value, u32 touched)
+        {
+            Touched |= (state != value) ? touched : 0;
+            state = value;
+        }
+    };
+
+    State state_ {};
 };
