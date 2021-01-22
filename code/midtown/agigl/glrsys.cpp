@@ -688,14 +688,13 @@ void agiGLRasterizer::SetVertices(agiVtx* vertices, i32 vertex_count)
 
 void agiGLRasterizer::Draw(u16* indices, i32 index_count)
 {
-    ARTS_TIMED(agiRasterization);
-
-    ++STATS.GeomCalls;
-
     FlushState();
 
     if (!(ActiveFlag & 0x1) || (state_.Texture == 0))
         return;
+
+    ARTS_TIMED(agiRasterization);
+    ++STATS.GeomCalls;
 
 #ifdef ARTS_GL_USE_INDEX_BUFFER
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_count * sizeof(u16), indices, GL_STREAM_DRAW);
