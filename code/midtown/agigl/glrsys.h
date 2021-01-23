@@ -52,15 +52,14 @@ public:
     }
 
 private:
-    void SetVertices(agiVtx* vertices, i32 vertex_count);
-    void Draw(u16* indices, i32 index_count);
-
-    void FlushVerts();
-
     void FlushState();
     void FlushAgiState();
     void FlushGlState();
-    void FlushGlTexture();
+
+    u16* ImmAddIndices(u32 draw_mode, u16 count);
+    void ImmDraw();
+
+    void DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count);
 
     u32 vbo_ {0};
 #ifdef ARTS_GL_USE_INDEX_BUFFER
@@ -81,7 +80,7 @@ private:
     {
         enum Touched_ : u32
         {
-            Touched_Texture = 1 << 0,
+            // Touched_Texture = 1 << 0,
 
             Touched_DepthMask = 1 << 1,
             Touched_DepthTest = 1 << 2,

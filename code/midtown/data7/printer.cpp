@@ -130,11 +130,11 @@ static constexpr u8 PrinterColors[5] {
 
 void DefaultPrinter(i32 level, char const* format, std::va_list args)
 {
-    char buffer[512];
+    char buffer[4096];
     arts_strcpy(buffer, PrinterPrefixes[level]);
 
     {
-        char buffer2[512];
+        char buffer2[4096];
         arts_vsprintf(buffer2, format, args);
 
         arts_strcat(buffer, buffer2);

@@ -63,7 +63,7 @@ void asPerfGraph::AddComponent(const char* name, f32* value, const Vector3& colo
 
 void asPerfGraph::Cull()
 {
-    RAST->BeginGroup();
+    // RAST->BeginGroup();
 
     auto tex = agiCurState.SetTexture(nullptr);
     auto draw_mode = agiCurState.SetDrawMode(0xF);
@@ -172,7 +172,7 @@ void asPerfGraph::Cull()
         RAST->Mesh(agiVtxType::Screen, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
     }
 
-    RAST->EndGroup();
+    // RAST->EndGroup();
 
     agiCurState.SetTexture(tex);
     agiCurState.SetDrawMode(draw_mode);

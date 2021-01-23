@@ -28,11 +28,13 @@
 
 #include <glad/glad.h>
 
-static GLenum DrawMode = 0;
+static u32 ImmDrawMode = 0;
 
-static u32 VtxIndexCount = 0;
-static u16* VtxIndex = nullptr;
-static u16 VtxIndices[1024] {};
+static agiVtx* ImmVtxBase = nullptr;
+static u32 ImmVtxCount = 0;
+
+static u16 ImmIdxBuffer[4096];
+static u32 ImmIdxCount = 0;
 
 void agiGLRasterizer::EndGfx()
 {
@@ -119,7 +121,7 @@ i32 agiGLRasterizer::BeginGfx()
 
     glGenBuffers(1, &vbo_);
     glBindBuffer(GL_ARRAY_BUFFER, vbo_);
-    glBufferData(GL_ARRAY_BUFFER, 0xFFFF * sizeof(agiScreenVtx), nullptr, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 0xFFFF * sizeof(agiScreenVtx), nullptr, GL_STREAM_DRAW);
 
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(agiScreenVtx),
         reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x0))); // xyzw
@@ -140,7 +142,7 @@ i32 agiGLRasterizer::BeginGfx()
 #ifdef ARTS_GL_USE_INDEX_BUFFER
     glGenBuffers(1, &ibo_);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0xFFFF * sizeof(u16), nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0xFFFF * sizeof(u16), nullptr, GL_STREAM_DRAW);
 #endif
 
     u32 vs = CompileShader(GL_VERTEX_SHADER, R"(
@@ -265,26 +267,21 @@ void main()
 }
 
 void agiGLRasterizer::BeginGroup()
-{
-    FlushVerts();
-}
+{}
 
 void agiGLRasterizer::EndGroup()
 {
-    FlushVerts();
+    ImmDraw();
+    ImmVtxBase = nullptr;
+    ImmVtxCount = 0;
 }
 
 void agiGLRasterizer::Verts(agiVtxType type, agiVtx* vertices, i32 vertex_count)
 {
     ArAssert(type == agiVtxType::Screen, "Invalid Vertex Type");
 
-    if (VtxIndexCount || agiCurState.IsTouched())
-        FlushVerts();
-
-    SetVertices(vertices, vertex_count);
-
-    VtxIndexCount = 0;
-    VtxIndex = VtxIndices;
+    ImmVtxBase = vertices;
+    ImmVtxCount = vertex_count;
 }
 
 void agiGLRasterizer::Points(agiVtxType type, agiVtx* vertices, i32 vertex_count)
@@ -292,39 +289,48 @@ void agiGLRasterizer::Points(agiVtxType type, agiVtx* vertices, i32 vertex_count
     unimplemented(type, vertices, vertex_count);
 }
 
-void agiGLRasterizer::SetVertCount([[maybe_unused]] i32 vertex_count)
-{}
+void agiGLRasterizer::SetVertCount(i32 vertex_count)
+{
+    ImmVtxCount = vertex_count;
+}
 
 void agiGLRasterizer::Triangle(i32 i0, i32 i1, i32 i2)
 {
     ++STATS.Tris;
 
-    if (VtxIndexCount + 3 > ARTS_SIZE(VtxIndices) || (DrawMode != GL_TRIANGLES) || agiCurState.IsTouched())
-    {
-        FlushVerts();
-        DrawMode = GL_TRIANGLES;
-    }
-
-    VtxIndex[VtxIndexCount + 0] = static_cast<u16>(i0);
-    VtxIndex[VtxIndexCount + 1] = static_cast<u16>(i1);
-    VtxIndex[VtxIndexCount + 2] = static_cast<u16>(i2);
-
-    VtxIndexCount += 3;
+    u16* indices = ImmAddIndices(GL_TRIANGLES, 3);
+    indices[0] = static_cast<u16>(i0);
+    indices[1] = static_cast<u16>(i1);
+    indices[2] = static_cast<u16>(i2);
 }
 
 void agiGLRasterizer::Line(i32 i0, i32 i1)
 {
     ++STATS.Lines;
 
-    if (VtxIndexCount + 2 > ARTS_SIZE(VtxIndices) || (DrawMode != GL_LINES) || agiCurState.IsTouched())
+    u16* indices = ImmAddIndices(GL_LINES, 2);
+    indices[0] = static_cast<u16>(i0);
+    indices[1] = static_cast<u16>(i1);
+}
+
+u16* agiGLRasterizer::ImmAddIndices(u32 draw_mode, u16 count)
+{
+    if ((draw_mode != ImmDrawMode) || (ImmIdxCount + count > ARTS_SIZE(ImmIdxBuffer)))
     {
-        FlushVerts();
-        DrawMode = GL_LINES;
+        FlushState();
+
+        ImmDrawMode = draw_mode;
     }
 
-    VtxIndex[VtxIndexCount + 0] = static_cast<u16>(i0);
-    VtxIndex[VtxIndexCount + 1] = static_cast<u16>(i1);
-    VtxIndexCount += 2;
+    u16* result = &ImmIdxBuffer[ImmIdxCount];
+    ImmIdxCount += count;
+    return result;
+}
+
+void agiGLRasterizer::ImmDraw()
+{
+    if (ImmVtxCount && ImmIdxCount)
+        DrawMesh(ImmDrawMode, ImmVtxBase, ImmVtxCount, ImmIdxBuffer, std::exchange(ImmIdxCount, 0));
 }
 
 void agiGLRasterizer::Card(i32, i32)
@@ -338,27 +344,13 @@ void agiGLRasterizer::Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, 
 
     STATS.Tris += static_cast<i32>(index_count / 3.0f);
 
-    FlushVerts();
-
-    DrawMode = GL_TRIANGLES;
-
-    SetVertices(vertices, vertex_count);
-    Draw(indices, index_count);
+    DrawMesh(GL_TRIANGLES, vertices, vertex_count, indices, index_count);
 }
 
 void agiGLRasterizer::FlushState()
 {
     FlushAgiState();
     FlushGlState();
-}
-
-void agiGLRasterizer::FlushVerts()
-{
-    if (VtxIndexCount == 0)
-        return;
-
-    Draw(VtxIndex, VtxIndexCount);
-    VtxIndexCount = 0;
 }
 
 void agiGLRasterizer::FlushAgiState()
@@ -378,7 +370,6 @@ void agiGLRasterizer::FlushAgiState()
         if (u32 handle = texture ? texture->GetHandle() : white_texture_; handle != state_.Texture)
         {
             state_.Texture = handle;
-            state_.Touched |= State::Touched_Texture;
 
             ++STATS.TextureChanges;
 
@@ -608,27 +599,8 @@ void agiGLRasterizer::FlushAgiState()
     agiCurState.ClearTouched();
 }
 
-void agiGLRasterizer::FlushGlTexture()
-{
-    if (!(state_.Touched & State::Touched_Texture))
-        return;
-
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, state_.Texture);
-
-    if (state_.Texture != 0)
-    {
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, state_.MinFilter);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, state_.MagFilter);
-    }
-
-    state_.Touched &= ~State::Touched_Texture;
-}
-
 void agiGLRasterizer::FlushGlState()
 {
-    FlushGlTexture();
-
     if (state_.Touched == 0)
         return;
 
@@ -677,24 +649,26 @@ void agiGLRasterizer::FlushGlState()
     state_.Touched = 0;
 }
 
-void agiGLRasterizer::SetVertices(agiVtx* vertices, i32 vertex_count)
+void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count)
 {
-    glBufferData(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), vertices, GL_STREAM_DRAW);
+    if (!(ActiveFlag & 0x1) || (vertex_count == 0) || (index_count == 0))
+        return;
 
-#ifdef ARTS_GL_USE_DRAW_RANGE
-    vertex_count_ = vertex_count;
-#endif
-}
-
-void agiGLRasterizer::Draw(u16* indices, i32 index_count)
-{
     FlushState();
 
-    if (!(ActiveFlag & 0x1) || (state_.Texture == 0))
+    if (state_.Texture == 0)
         return;
 
     ARTS_TIMED(agiRasterization);
     ++STATS.GeomCalls;
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, state_.Texture);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, state_.MinFilter);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, state_.MagFilter);
+
+    glBufferData(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), vertices, GL_STREAM_DRAW);
 
 #ifdef ARTS_GL_USE_INDEX_BUFFER
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_count * sizeof(u16), indices, GL_STREAM_DRAW);
@@ -705,9 +679,9 @@ void agiGLRasterizer::Draw(u16* indices, i32 index_count)
 #else
     glDrawElements
 #endif
-        (DrawMode,
+        (draw_mode,
 #ifdef ARTS_GL_USE_DRAW_RANGE
-            0, vertex_count_,
+            0, vertex_count,
 #endif
             index_count, GL_UNSIGNED_SHORT,
 #ifdef ARTS_GL_USE_INDEX_BUFFER
