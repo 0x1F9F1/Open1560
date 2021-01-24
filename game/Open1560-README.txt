@@ -5,8 +5,9 @@ To run, extract the files in the zip directly into your Midtown Madness 1 direct
 # Setup
 In most cases, Open1560 should run optimally straight away. However, there are certain things you may wish to change:
 * If you have a laptop, ensure you are using the correct GPU.
-* If you still have low performance, consider disabling Cloud Shadows.
-* Enable anti-aliasing with the `-msaa <LEVEL>` argument (possible levels are 1, 2, 4 or 8). Note, this may not be available on certain older/integrated GPUs.
+* If you still have low performance, consider disabling cloud shadows and/or the rear view mirror.
+* To enable anti-aliasing, use the `-msaa <LEVEL>` argument (possible levels are 1, 2, 4 or 8). Note, this may not be available on certain older/integrated GPUs.
+* If running through wine, use https://github.com/0x1F9F1/Open1560/blob/master/extra/wine1560.sh (or manually set the WINEDLLOVERRIDES to prefer native dinput)
 
 # Command Line Arguments
 Open1560 uses command line arguments to configure certain aspects of the game.
@@ -43,7 +44,7 @@ window     | false | Puts the game in a window
 windowmenu | false | Puts the game in a borderless window when in the menu
 
 ## Advanced
-Name        | Value | Description
+Name       | Value | Description
 agiverbose | false | Enables AGI (graphics) logging
 cleandir   | true  | Deletes various debug files from the games directory
 fontscale  |       | Sets the debug font scale

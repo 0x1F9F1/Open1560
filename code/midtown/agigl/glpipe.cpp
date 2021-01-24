@@ -212,11 +212,9 @@ i32 agiGLPipeline::BeginGfx()
 
     InitExtensions();
 
-    bool legacy_gl = PARAM_legacygl.get_or(false);
-
     HGLRC modern_gl_context = NULL;
 
-    if (!legacy_gl && HasExtension("WGL_ARB_pixel_format") && HasExtension("WGL_ARB_create_context"))
+    if (!PARAM_legacygl.get_or(false) && HasExtension("WGL_ARB_pixel_format") && HasExtension("WGL_ARB_create_context"))
     {
         Displayf("Creating modern OpenGL context");
 
@@ -226,7 +224,7 @@ i32 agiGLPipeline::BeginGfx()
             WGL_SUPPORT_OPENGL_ARB, GL_TRUE,
             WGL_DOUBLE_BUFFER_ARB, GL_TRUE,
             WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
-            WGL_COLOR_BITS_ARB, 24,
+            WGL_COLOR_BITS_ARB, 32,
             0,
             // clang-format on
         };
@@ -257,7 +255,12 @@ i32 agiGLPipeline::BeginGfx()
             if (HasExtension("WGL_ARB_create_context_profile"))
             {
                 attribs[num_attribs++] = WGL_CONTEXT_PROFILE_MASK_ARB;
-                attribs[num_attribs++] = WGL_CONTEXT_CORE_PROFILE_BIT_ARB;
+                attribs[num_attribs++] =
+#ifdef ARTS_DEBUG
+                    WGL_CONTEXT_CORE_PROFILE_BIT_ARB | WGL_CONTEXT_DEBUG_BIT_ARB;
+#else
+                    WGL_CONTEXT_CORE_PROFILE_BIT_ARB;
+#endif
             }
 
             attribs[num_attribs++] = 0;
@@ -273,6 +276,8 @@ i32 agiGLPipeline::BeginGfx()
         }
     }
 
+    bool builtin_fb = false;
+
     if (modern_gl_context != NULL)
     {
         wglDeleteContext(gl_context_);
@@ -286,7 +291,7 @@ i32 agiGLPipeline::BeginGfx()
     {
         Displayf("Using legacy OpenGL context");
 
-        legacy_gl = true;
+        builtin_fb = true;
     }
 
     if (gladLoadGL() != 1)
@@ -296,11 +301,21 @@ i32 agiGLPipeline::BeginGfx()
     Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
     Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
 
-    if (HasExtension("GL_KHR_debug") && PARAM_gldebug.get(DebugMessageLevel))
+    DebugMessageLevel = PARAM_gldebug.get_or(-1);
+
+    if ((DebugMessageLevel > -1) && HasExtension("GL_KHR_debug"))
     {
         Displayf("Using glDebugMessageCallback");
         glEnable(GL_DEBUG_OUTPUT);
         glDebugMessageCallback(DebugMessageCallback, 0);
+    }
+
+    if (DebugMessageLevel > 1)
+    {
+        Displayf("*** Begin OpenGL Extensions ***");
+        for (HashIterator i(&extensions_); i.Next();)
+            Displayf("%s", i->Key.get());
+        Displayf("*** End OpenGL Extensions ***");
     }
 
     if (HasExtension("WGL_EXT_swap_control"))
@@ -378,20 +393,20 @@ i32 agiGLPipeline::BeginGfx()
     blit_x_ = (horz_res_ - blit_width_) / 2;
     blit_y_ = (vert_res_ - blit_height_) / 2;
 
-    if (!legacy_gl && !HasExtension("GL_ARB_framebuffer_object"))
-        legacy_gl = true;
+    if (!builtin_fb && !HasExtension("GL_ARB_framebuffer_object"))
+        builtin_fb = true;
 
     // OpenGL doesn't support blit scaling when using MSAA
     i32 msaa_level = 0;
 
-    if (!legacy_gl && HasExtension("GL_ARB_texture_multisample"))
+    if (!builtin_fb && HasExtension("GL_ARB_texture_multisample"))
     {
         GLint max_samples = 0;
         glGetIntegerv(GL_MAX_SAMPLES, &max_samples);
         msaa_level = std::clamp(PARAM_msaa.get_or<i32>(0), 0, max_samples);
     }
 
-    bool native_res = legacy_gl || PARAM_native_res.get_or(true);
+    bool native_res = builtin_fb || PARAM_native_res.get_or(true);
 
     if (msaa_level != 0 && !HasExtension("GL_EXT_framebuffer_multisample_blit_scaled"))
     {
@@ -411,14 +426,18 @@ i32 agiGLPipeline::BeginGfx()
         render_height_ = height_;
     }
 
+    // Don't bother using a custom framebuffer if there would be no difference
+    if (render_width_ == blit_width_ && render_height_ == blit_height_ && msaa_level == 0)
+        builtin_fb = true;
+
     render_x_ = 0;
     render_y_ = 0;
 
     PrintGlErrors();
 
-    Displayf("Using %s framebuffer, msaa=%i", legacy_gl ? "legacy" : "modern", msaa_level);
+    Displayf("Using %s framebuffer (msaa=%i)", builtin_fb ? "builtin" : "custom", msaa_level);
 
-    if (!legacy_gl)
+    if (!builtin_fb)
     {
         glGenFramebuffers(1, &fbo_);
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
@@ -429,7 +448,7 @@ i32 agiGLPipeline::BeginGfx()
         if (msaa_level)
         {
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
-            glRenderbufferStorageMultisample(GL_RENDERBUFFER, msaa_level, GL_RGB, render_width_, render_height_);
+            glRenderbufferStorageMultisample(GL_RENDERBUFFER, msaa_level, GL_RGBA8, render_width_, render_height_);
             glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rbo_[0]);
 
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[1]);
@@ -443,7 +462,7 @@ i32 agiGLPipeline::BeginGfx()
         else
         {
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_RGB, render_width_, render_height_);
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, render_width_, render_height_);
             glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rbo_[0]);
 
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[1]);
@@ -642,11 +661,6 @@ void agiGLPipeline::InitExtensions()
 
     if (wglGetExtensionsStringARB)
         ParseExtensionString(extensions_, wglGetExtensionsStringARB(window_dc_), 3);
-
-#if 0
-    for (HashIterator i(&extensions_); i.Next();)
-        Displayf("OpenGL Extension: %s", i->Key.get());
-#endif
 
     Displayf("OpenGL Extension Count: %i", extensions_.Size());
 }

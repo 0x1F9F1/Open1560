@@ -117,6 +117,8 @@ public:
 
     void Fill(i32 x, i32 y, i32 width, i32 height, u32 color);
 
+    void FixPitch();
+
     u32 GetPixelSize() const
     {
         return (PixelFormat.RGBBitCount + 7) / 8;

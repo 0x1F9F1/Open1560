@@ -87,6 +87,9 @@ void agiTexDef::DoPageIn()
     // NOTE: 64-bit incompatible
     pager_.Read(Surface.get(), 0x4, sizeof(*Surface));
 
+    // FIXME: Some RV3 textures (SKY_*) have incorrect pitch.
+    Surface->FixPitch();
+
     i32 mip_pack = PackShift & 0xF;
 
     Surface->MipMapCount -= mip_pack;

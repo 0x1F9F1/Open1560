@@ -22,8 +22,7 @@
 #include "glpipe.h"
 #include "vector7/vector4.h"
 
-// #define ARTS_GL_USE_INDEX_BUFFER
-#define ARTS_GL_USE_DRAW_RANGE
+class agiGLStreamBuffer;
 
 class agiGLRasterizer final : public agiRasterizer
 {
@@ -61,20 +60,15 @@ private:
 
     void DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count);
 
-    u32 vbo_ {0};
-#ifdef ARTS_GL_USE_INDEX_BUFFER
-    u32 ibo_ {0};
-#endif
+    agiGLStreamBuffer* vbo_ {nullptr};
+    agiGLStreamBuffer* ibo_ {nullptr};
+
     u32 vao_ {0};
     u32 shader_ {0};
     u32 white_texture_ {0};
 
     u32 uniform_alpha_ref_ {0};
     u32 uniform_fog_ {0};
-
-#ifdef ARTS_GL_USE_DRAW_RANGE
-    u32 vertex_count_ {0};
-#endif
 
     struct State
     {

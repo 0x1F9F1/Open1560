@@ -23,9 +23,13 @@ define_dummy_symbol(agiworld_texsort);
 #include "agi/rsys.h"
 #include "arts7/bank.h"
 
-static constexpr i32 BigVtxSize = 65535;
+// Note: codes/fogout/nextFactet/out are limited to 16384
+
+// Default: 3000
+static constexpr i32 BigVtxSize = 16384;
 static constexpr i32 BigIdxSize = BigVtxSize * 3;
 
+// Default: 1024
 static constexpr i32 EnvVtxSize = 16384;
 static constexpr i32 EnvIdxSize = EnvVtxSize * 3;
 
@@ -46,7 +50,7 @@ agiTexSorter::agiTexSorter()
 
     Instance = this;
 
-    VtxSize = std::min<i32>(PARAM_max_verts_per_set.get_or<i32>(2048), 8192);
+    VtxSize = std::min<i32>(PARAM_max_verts_per_set.get_or<i32>(1024), 8192);
     IdxSize = VtxSize * 3;
 
     MaxVertsPerSet = VtxSize;

@@ -204,18 +204,13 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters
     i32 dst_pitch = Pitch;
     u8* dst_surface = static_cast<u8*>(Surface);
 
+    // FIXME: Surfaces with a PackShift don't have their pitch updated. This should really be corrected in agiSurfaceDesc::Load.
+    src->FixPitch();
+
     u32 src_width = src->Width;
     u32 src_height = src->Height;
     i32 src_pitch = src->Pitch;
     u8* src_surface = static_cast<u8*>(src->Surface);
-
-    // FIXME: Surfaces with a PackShift don't have their pitch updated. This should really be corrected in agiSurfaceDesc::Load.
-    if (i32 alt_pitch = src->Width * src->GetPixelSize(); (alt_pitch * 2 <= src_pitch) || !(src->Flags & AGISD_PITCH))
-    {
-        src->Pitch = alt_pitch;
-        src->Flags |= AGISD_PITCH;
-        src_pitch = alt_pitch;
-    }
 
     for (; src_lod; --src_lod)
     {
@@ -389,5 +384,16 @@ void agiSurfaceDesc::Fill(i32 x, i32 y, i32 width, i32 height, u32 color)
                     static_cast<u32*>(row)[i] = color;
                 break;
         }
+    }
+}
+
+void agiSurfaceDesc::FixPitch()
+{
+    i32 pitch = Width * GetPixelSize();
+
+    if (!(Flags & AGISD_PITCH) || (pitch > Pitch) || (pitch * 2 <= Pitch))
+    {
+        Pitch = pitch;
+        Flags |= AGISD_PITCH;
     }
 }
