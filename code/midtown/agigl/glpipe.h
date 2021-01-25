@@ -73,6 +73,11 @@ public:
         return render_height_;
     }
 
+    i32 GetMaxAnisotropy() const
+    {
+        return max_anisotropy_;
+    }
+
 private:
     HDC window_dc_ {nullptr};
     HGLRC gl_context_ {nullptr};
@@ -97,6 +102,8 @@ private:
     u32 blit_width_ {0};
     u32 blit_height_ {0};
     u32 blit_filter_ {0};
+
+    i32 max_anisotropy_ {0};
 
     void InitExtensions();
 

@@ -179,7 +179,8 @@ i32 agiGLTexDef::BeginGfx()
 
     if (num_levels != 1)
     {
-        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, 16.0f);
+        if (u32 max_af = Pipe()->GetMaxAnisotropy(); max_af > 0)
+            glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, static_cast<f32>(max_af));
     }
     else
     {

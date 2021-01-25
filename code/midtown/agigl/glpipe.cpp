@@ -102,6 +102,7 @@ static mem::cmd_param PARAM_scaling {"scaling"};
 static mem::cmd_param PARAM_native_res {"nativeres"};
 static mem::cmd_param PARAM_window_menu {"windowmenu"};
 static mem::cmd_param PARAM_border {"border"};
+static mem::cmd_param PARAM_afilter {"afilter"};
 
 i32 agiGLPipeline::BeginGfx()
 {
@@ -482,6 +483,17 @@ i32 agiGLPipeline::BeginGfx()
     }
 
     glViewport(render_x_, render_y_, render_width_, render_height_);
+
+    if (HasExtension("GL_EXT_texture_filter_anisotropic"))
+    {
+        glGetIntegerv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &max_anisotropy_);
+        max_anisotropy_ = std::min(max_anisotropy_, PARAM_afilter.get_or(16));
+        Displayf("Max Anisotropy = %i", max_anisotropy_);
+    }
+    else
+    {
+        max_anisotropy_ = 0;
+    }
 
     gfx_started_ = true;
 
