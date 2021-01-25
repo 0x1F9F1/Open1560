@@ -5,6 +5,7 @@ To run, extract the files in the zip directly into your Midtown Madness 1 direct
 # Setup
 In most cases, Open1560 should run optimally straight away. However, there are certain things you may wish to change:
 * If you have a laptop, ensure you are using the correct GPU.
+* If you have low performance (particularly when using integrated graphics), try using the `-glstream 6` argument. Note, this is unsafe and may cause system instability.
 * If you still have low performance, consider disabling cloud shadows and/or the rear view mirror.
 * To enable anti-aliasing, use the `-msaa <LEVEL>` argument (possible levels are 1, 2, 4 or 8). Note, this may not be available on certain older/integrated GPUs.
 * If running through wine, use https://github.com/0x1F9F1/Open1560/blob/master/extra/wine1560.sh (or manually set the WINEDLLOVERRIDES to prefer native dinput)
@@ -27,6 +28,7 @@ allcars    | false | Unlocks All Cars
 ## Basic
 Name       | Value | Description
 affinity   | 0     | Sets the process affinity
+afilter    | 16    | Anisotropic filtering level
 border     | true  | Enables a border when in windowed mode
 cdid       | false | Enables CD music in the menu when using a virtual CD
 config     | false | Forces redetection of graphics modes
@@ -49,12 +51,12 @@ agiverbose | false | Enables AGI (graphics) logging
 cleandir   | true  | Deletes various debug files from the games directory
 fontscale  |       | Sets the debug font scale
 gldebug    |       | Sets the OpenGL debug output level
+glstream   |       | Sets the mode for streaming data to the GPU
 sync       | true  | Disables multi-threading
 thinfont   | true  | Enables the debug font slightly thinner
 
 ## DirectDraw (disabled)
 Name       | Value | Description
-afilter    | 16    | Anisotropic filtering level
 reshack    | true  | Enables resolutions above 2048x2048 when using MS ddraw
 voodooaa   | false | Fixes text rendering when using dgVodooo's anti aliasing
 

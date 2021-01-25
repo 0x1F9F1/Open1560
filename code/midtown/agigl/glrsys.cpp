@@ -48,8 +48,6 @@ public:
         , Capacity(capacity)
     {
         glGenBuffers(1, &Buffer);
-
-        Bind();
     }
 
     virtual ~agiGLStreamBuffer()
@@ -74,6 +72,7 @@ public:
         : agiGLStreamBuffer(target, capacity)
         , Orphan(orphan)
     {
+        glBindBuffer(Target, Buffer);
         glBufferData(Target, Capacity, NULL, GL_STREAM_DRAW);
     }
 
@@ -91,41 +90,52 @@ public:
 class agiGLFencedStreamBuffer : public agiGLStreamBuffer
 {
 public:
+    // More fences could reduce the chance of waiting, at the cost of checking them more often.
+    static constexpr usize NumFences = 4;
+
+    GLsync Fences[NumFences] {};
+    u32 Offset {0};
+
     using agiGLStreamBuffer::agiGLStreamBuffer;
 
     ~agiGLFencedStreamBuffer() override
     {
-        if (Fences[0])
-            glDeleteSync(Fences[0]);
-
-        if (Fences[1])
-            glDeleteSync(Fences[1]);
+        for (usize i = 0; i < NumFences; ++i)
+        {
+            if (Fences[i])
+            {
+                glClientWaitSync(Fences[i], 0, UINT64_MAX);
+                glDeleteSync(Fences[i]);
+            }
+        }
     }
 
-    GLsync Fences[2] {};
-    u32 Offset {0};
-
-    void FenceSection(u32 index, bool locked)
+    void FenceSection(usize index, bool lock)
     {
-        if (locked)
+        if (lock == (Fences[index] != NULL))
+            return;
+
+        if (lock)
         {
-            if (!Fences[index])
-                Fences[index] = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
+            Fences[index] = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
         }
         else
         {
-            if (Fences[index])
+            if (glClientWaitSync(Fences[index], 0, UINT64_MAX) != GL_ALREADY_SIGNALED)
             {
-                if (glClientWaitSync(Fences[index], 0, UINT64_MAX) != GL_ALREADY_SIGNALED)
-                {
-                    // We should have picked a larger capacity.
-                    //Errorf("Fenced %u", index);
-                }
-
-                glDeleteSync(Fences[index]);
-                Fences[index] = nullptr;
+                // We should have picked a larger capacity.
+                // Errorf("Fenced %u", index);
             }
+
+            glDeleteSync(Fences[index]);
+            Fences[index] = nullptr;
         }
+    }
+
+    void FenceAll(bool lock)
+    {
+        for (usize i = 0; i < NumFences; ++i)
+            FenceSection(i, lock);
     }
 
     void CheckFence(u32 length)
@@ -135,14 +145,19 @@ public:
 
         if (Offset + length > Capacity)
         {
-            FenceSection(0, true);
-            FenceSection(1, true);
+            FenceAll(true);
+
             Offset = 0;
         }
 
-        u32 mid = Capacity / 2;
-        FenceSection(0, Offset >= mid);
-        FenceSection(1, Offset + length < mid);
+        const u32 slice = (Capacity + NumFences - 1) / NumFences;
+
+        for (usize i = 0; i < NumFences; ++i)
+        {
+            u32 start = i * slice;
+
+            FenceSection(i, (Offset >= (start + slice)) || (Offset + length) < start);
+        }
     }
 };
 
@@ -152,6 +167,7 @@ public:
     agiGLAsyncStreamBuffer(u32 target, u32 capacity)
         : agiGLFencedStreamBuffer(target, capacity)
     {
+        glBindBuffer(Target, Buffer);
         glBufferData(Target, Capacity, NULL, GL_DYNAMIC_DRAW);
     }
 
@@ -171,27 +187,69 @@ public:
     }
 };
 
+class agiGLPinnedStreamBuffer final : public agiGLFencedStreamBuffer
+{
+public:
+    void* Memory {nullptr};
+
+    agiGLPinnedStreamBuffer(u32 target, u32 capacity)
+        : agiGLFencedStreamBuffer(target, capacity)
+    {
+        Memory = VirtualAlloc(NULL, capacity, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
+
+        glBindBuffer(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, Buffer);
+        glBufferData(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, capacity, Memory, GL_DYNAMIC_DRAW);
+        glBindBuffer(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, 0);
+
+        glBindBuffer(Target, Buffer);
+    }
+
+    ~agiGLPinnedStreamBuffer()
+    {
+        FenceAll(false);
+
+        VirtualFree(Memory, 0, MEM_RELEASE);
+    }
+
+    u32 Upload(const void* data, u32 length) override
+    {
+        CheckFence(length);
+
+        u32 offset = Offset;
+        void* dst = static_cast<u8*>(Memory) + offset;
+        std::memcpy(dst, data, length);
+
+        Offset = offset + length;
+
+        return offset;
+    }
+};
+
 class agiGLPersistentStreamBuffer final : public agiGLFencedStreamBuffer
 {
 public:
     void* Mapping {nullptr};
+    bool Coherent {false};
 
-    agiGLPersistentStreamBuffer(u32 target, u32 capacity)
+    agiGLPersistentStreamBuffer(u32 target, u32 capacity, bool coherent)
         : agiGLFencedStreamBuffer(target, capacity)
+        , Coherent(coherent)
     {
-        glBufferStorage(Target, Capacity, NULL, GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT);
+        glBindBuffer(Target, Buffer);
+
+        glBufferStorage(
+            Target, Capacity, NULL, GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | (coherent ? GL_MAP_COHERENT_BIT : 0));
 
         Mapping = glMapBufferRange(Target, 0, Capacity,
             GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_UNSYNCHRONIZED_BIT | GL_MAP_FLUSH_EXPLICIT_BIT |
-                GL_MAP_INVALIDATE_BUFFER_BIT);
+                GL_MAP_INVALIDATE_BUFFER_BIT | (coherent ? GL_MAP_COHERENT_BIT : 0));
     }
 
     ~agiGLPersistentStreamBuffer() override
     {
         if (Mapping)
         {
-            Bind();
-
+            glBindBuffer(Target, Buffer);
             glUnmapBuffer(Target);
         }
     }
@@ -203,7 +261,55 @@ public:
         u32 offset = Offset;
         void* dst = static_cast<u8*>(Mapping) + offset;
         std::memcpy(dst, data, length);
-        glFlushMappedBufferRange(Target, offset, length);
+
+        if (!Coherent)
+            glFlushMappedBufferRange(Target, offset, length);
+
+        Offset = offset + length;
+
+        return offset;
+    }
+};
+
+class agiGLRiskyAsyncStreamBuffer final : public agiGLFencedStreamBuffer
+{
+public:
+    void* Mapping {nullptr};
+
+    agiGLRiskyAsyncStreamBuffer(u32 target, u32 capacity)
+        : agiGLFencedStreamBuffer(target, capacity)
+    {
+        glBindBuffer(Target, Buffer);
+        glBufferData(Target, Capacity, NULL, GL_DYNAMIC_DRAW);
+
+        // This is very unsafe. The mapping is no longer "valid" after unmapping the buffer.
+        // However, if this is a mapping directly to the GPU memory, it is unlikely to move while the buffer exists.
+        Mapping = glMapBuffer(Target, GL_WRITE_ONLY);
+        glUnmapBuffer(Target);
+
+        if (MEMORY_BASIC_INFORMATION info; VirtualQuery(Mapping, &info, sizeof(info)))
+        {
+            // info.State == MEM_COMMIT; // 0x1000
+            // info.Protect == PAGE_READWRITE | PAGE_WRITECOMBINE; // 0x404
+            // info.Type == MEM_PRIVATE; // 0x20000
+            Displayf("OpenGL Buffer Mapping State: %X, %X, %X", info.State, info.Protect, info.Type);
+
+            if (info.State != MEM_COMMIT || info.Protect != (PAGE_READWRITE | PAGE_WRITECOMBINE) ||
+                info.Type != MEM_PRIVATE)
+            {
+                Warningf("Unexpected mapping state, this may crash");
+            }
+        }
+    }
+
+    u32 Upload(const void* data, u32 length) override
+    {
+        CheckFence(length);
+
+        u32 offset = Offset;
+        void* dst = static_cast<u8*>(Mapping) + offset;
+        std::memcpy(dst, data, length);
+
         Offset = offset + length;
 
         return offset;
@@ -283,6 +389,8 @@ static mem::cmd_param PARAM_glstream {"glstream"};
 
 i32 agiGLRasterizer::BeginGfx()
 {
+    PrintGlErrors();
+
     if (Pipe()->HasExtension("GL_ARB_vertex_array_object"))
     {
         glGenVertexArrays(1, &vao_);
@@ -293,36 +401,62 @@ i32 agiGLRasterizer::BeginGfx()
         Displayf("OpenGL VAO not supported");
     }
 
-    i32 stream_mode = 0;
-
-    if (Pipe()->HasExtension("GL_ARB_draw_elements_base_vertex") && Pipe()->HasExtension("GL_ARB_map_buffer_range") &&
-        Pipe()->HasExtension("GL_ARB_sync"))
+    enum class StreamMode : i32
     {
-        // Persistent storage should always be faster
-        stream_mode = Pipe()->HasExtension("GL_ARB_buffer_storage") ? 2 : 1;
+        BufferData = 0,
+        BufferSubData = 1,
+
+        MapRange = 2,
+
+        MapPersistent = 3,
+        MapCoherent = 4,
+
+        AmdPinned = 5,
+
+        MapUnsafe = 6,
+    };
+
+    StreamMode stream_mode = StreamMode::BufferData;
+
+    if (Pipe()->HasExtension("GL_ARB_draw_elements_base_vertex") && Pipe()->HasExtension("GL_ARB_sync"))
+    {
+        if (Pipe()->HasExtension("GL_ARB_map_buffer_range"))
+        {
+            // Persistent storage should always be faster
+            // TODO: Decide on Persistent vs Coherent for integrated graphics (Intel(R) HD Graphics, AMD PALM)
+            stream_mode =
+                Pipe()->HasExtension("GL_ARB_buffer_storage") ? StreamMode::MapPersistent : StreamMode::MapRange;
+        }
+
+        if (stream_mode != StreamMode::MapPersistent && Pipe()->HasExtension("GL_AMD_pinned_memory"))
+        {
+            stream_mode = StreamMode::AmdPinned;
+        }
     }
 
-    if ((stream_mode < 2) && Pipe()->HasExtension("GL_AMD_pinned_memory"))
-        Displayf("OpenGL: Has Pinned Memory"); // TODO: Implemented GL_AMD_pinned_memory support
+    const char* gl_version = (const char*) glGetString(GL_VERSION);
 
     if (i32 mode = 0; PARAM_glstream.get(mode))
-        stream_mode = std::min(stream_mode, mode);
-    else if ((stream_mode == 1) && !std::strstr((const char*) glGetString(GL_VERSION), "Mesa"))
-        stream_mode = 0; // Mesa seems to get a mid-large perf boost, others seem slightly slower
+        stream_mode = static_cast<StreamMode>(mode); // Will crash using an invalid mode, but let's have some fun
+    else if ((stream_mode == StreamMode::MapRange) && !std::strstr(gl_version, "Mesa"))
+        stream_mode =
+            StreamMode::BufferSubData; // Mesa seems to get a mid-large perf boost, others seem slightly slower
 
     Displayf("OpenGL: Using buffer stream mode %i", stream_mode);
 
     switch (stream_mode)
     {
-        case 0: {
+        case StreamMode::BufferData:
+        case StreamMode::BufferSubData: {
             // OpenGL 3.3 removes client-side vertex/index arrays, but we only try and target 3.2 (or lower) by default
             const u32 vertex_count = 0x2000; // Capacity is not important, just to try and pre-allocate some space
-            vbo_ = new agiGLBasicStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), true);
+            const bool orphan = stream_mode == StreamMode::BufferSubData;
+            vbo_ = new agiGLBasicStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), orphan);
             ibo_ = nullptr;
             break;
         }
 
-        case 1: {
+        case StreamMode::MapRange: {
             // Capacity is fixed
             const u32 vertex_count = 0x20000;
             vbo_ = new agiGLAsyncStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
@@ -330,14 +464,35 @@ i32 agiGLRasterizer::BeginGfx()
             break;
         }
 
-        case 2: {
+        case StreamMode::MapPersistent:
+        case StreamMode::MapCoherent: {
             // Capacity is fixed
             const u32 vertex_count = 0x20000;
-            vbo_ = new agiGLPersistentStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
-            ibo_ = new agiGLPersistentStreamBuffer(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
+            const bool coherent = stream_mode == StreamMode::MapCoherent;
+            vbo_ = new agiGLPersistentStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), coherent);
+            ibo_ = new agiGLPersistentStreamBuffer(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16), coherent);
             break;
         }
+
+        case StreamMode::AmdPinned: {
+            // Capacity is fixed
+            const u32 vertex_count = 0x20000;
+            vbo_ = new agiGLPinnedStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
+            ibo_ = new agiGLPinnedStreamBuffer(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
+        }
+
+        case StreamMode::MapUnsafe: {
+            // Capacity is fixed
+            const u32 vertex_count = 0x20000;
+            vbo_ = new agiGLRiskyAsyncStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
+            ibo_ = new agiGLRiskyAsyncStreamBuffer(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
+            break;
+        }
+
+        default: Quitf("Invalid Stream Mode");
     }
+
+    PrintGlErrors();
 
     vbo_->Bind();
 
@@ -428,6 +583,8 @@ void main()
     glDeleteShader(fs);
 
     glUseProgram(shader_);
+
+    PrintGlErrors();
 
     glUniform1i(glGetUniformLocation(shader_, "u_Texture"), 0);
 
@@ -874,9 +1031,6 @@ void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count
     if (state_.Texture == 0)
         return;
 
-    ARTS_TIMED(agiRasterization);
-    ++STATS.GeomCalls;
-
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, state_.Texture);
 
@@ -888,6 +1042,9 @@ void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count
     const void* idx_offset = ibo_
         ? reinterpret_cast<const void*>(static_cast<isize>(ibo_->Upload(indices, index_count * sizeof(u16))))
         : indices;
+
+    ARTS_TIMED(agiRasterization);
+    ++STATS.GeomCalls;
 
     if (vtx_offset)
     {
