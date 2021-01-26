@@ -57,7 +57,7 @@ static void InitMap()
 
     {
         char map_name[256];
-        GetModuleFileNameA(NULL, map_name, ARTS_SIZE(map_name));
+        GetModuleFileNameA(NULL, map_name, ARTS_SSIZE32(map_name));
 
         if (char* map_ext = std::strrchr(map_name, '.'))
             *map_ext = '\0';
@@ -125,10 +125,10 @@ static void InitMap()
                 continue;
 
             char sym_name[256];
-            u32 sym_addr = 0;
+            usize sym_addr = 0;
 
             if (!std::strncmp(line_buffer, " 0001:", 6) &&
-                arts_sscanf(line_buffer, "%*s %s %x", sym_name, ARTS_SIZE(sym_name), &sym_addr))
+                arts_sscanf(line_buffer, "%*s %s %zx", sym_name, ARTS_SIZE32(sym_name), &sym_addr))
             {
                 usize sym_len = std::strlen(sym_name);
 
@@ -247,11 +247,11 @@ void LookupAddress(char* buffer, usize buflen, usize address)
             if (hide_module)
             {
                 arts_sprintf(
-                    buffer, buflen, "0x%08X (%s + 0x%X)", address, pSymbol->Name, static_cast<u32>(dwDisplacement));
+                    buffer, buflen, "0x%08zX (%s + 0x%X)", address, pSymbol->Name, static_cast<u32>(dwDisplacement));
             }
             else
             {
-                arts_sprintf(buffer, buflen, "0x%08X (%s.%s + 0x%X)", address, module.ModuleName, pSymbol->Name,
+                arts_sprintf(buffer, buflen, "0x%08zX (%s.%s + 0x%X)", address, module.ModuleName, pSymbol->Name,
                     static_cast<u32>(dwDisplacement));
             }
 
@@ -264,15 +264,15 @@ void LookupAddress(char* buffer, usize buflen, usize address)
         char undec_name[256];
 
         const char* function_name =
-            UnDecorateSymbolName(entry->Name, undec_name, ARTS_SIZE(undec_name), UNDNAME_NAME_ONLY) ? undec_name
-                                                                                                    : entry->Name;
+            UnDecorateSymbolName(entry->Name, undec_name, ARTS_SSIZE32(undec_name), UNDNAME_NAME_ONLY) ? undec_name
+                                                                                                       : entry->Name;
 
-        arts_sprintf(buffer, buflen, "0x%08X (%s + 0x%X)", address, function_name, address - entry->Address);
+        arts_sprintf(buffer, buflen, "0x%08zX (%s + 0x%zX)", address, function_name, address - entry->Address);
 
         return;
     }
 
-    arts_sprintf(buffer, buflen, "0x%08X (Unknown)", address);
+    arts_sprintf(buffer, buflen, "0x%08zX (Unknown)", address);
 }
 
 [[deprecated]] ARTS_EXPORT void LookupAddress(char* buffer, i32 addr)
@@ -280,7 +280,7 @@ void LookupAddress(char* buffer, usize buflen, usize address)
     LookupAddress(buffer, 128, usize(addr));
 }
 
-ARTS_NOINLINE i32 StackTraceback(i32 depth, i32* frames, i32 skipped, struct _CONTEXT* context_record)
+ARTS_NOINLINE i32 StackTraceback(i32 depth, isize* frames, i32 skipped, struct _CONTEXT* context_record)
 {
     InitDebugSymbols();
 
@@ -310,7 +310,7 @@ ARTS_NOINLINE i32 StackTraceback(i32 depth, i32* frames, i32 skipped, struct _CO
     return num_frames;
 }
 
-ARTS_NOINLINE i32 StackTraceback(i32 depth, i32* frames, i32 skipped)
+ARTS_NOINLINE i32 StackTraceback(i32 depth, isize* frames, i32 skipped)
 {
     CONTEXT context {};
     context.ContextFlags = CONTEXT_FULL;
@@ -326,7 +326,7 @@ ARTS_NOINLINE void StackTraceback(i32 depth)
 
 ARTS_NOINLINE void StackTraceback(i32 depth, i32 skipped)
 {
-    i32 frames[32];
+    isize frames[32];
     i32 num_frames = StackTraceback(std::min(depth, 32), frames, skipped + 1);
     DumpStackTraceback(frames, num_frames);
 }

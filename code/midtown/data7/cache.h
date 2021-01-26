@@ -42,7 +42,7 @@
 
 #include "mutex.h"
 
-using DataCacheCallback = void (*)(void* ctx, i32 delta);
+using DataCacheCallback = void (*)(void* ctx, isize delta);
 
 struct DataCacheObject;
 
@@ -113,11 +113,11 @@ private:
     // Must always be indexed by > 0
     DataCacheObject* objects_ {nullptr}; // pObjects
 
-    i32 max_objects_ {0};
-    i32 cur_objects_ {0}; // nMaxHandles
+    u32 max_objects_ {0};
+    u32 cur_objects_ {0}; // nMaxHandles
 
-    i32 cur_waste_ {0};
-    i32 max_waste_ {0};
+    u32 cur_waste_ {0};
+    u32 max_waste_ {0};
 
     b32 fragmented_ {false};
 

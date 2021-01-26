@@ -46,7 +46,7 @@ class VirtualStream final : public Stream
 public:
     // 0x561B40 | ??0VirtualStream@@QAE@PAVStream@@PAUVirtualFileInode@@PAXHPAVFileSystem@@@Z
     ARTS_EXPORT VirtualStream(class Stream* base_stream, struct VirtualFileInode* file_node, void* buffer,
-        i32 buffer_size, class FileSystem* file_system);
+        isize buffer_size, class FileSystem* file_system);
 
     // 0x561D60 | ??_EVirtualStream@@UAEPAXI@Z
     // 0x561C00 | ??1VirtualStream@@UAE@XZ
@@ -59,7 +59,7 @@ public:
     ARTS_EXPORT b32 GetPagingInfo(usize& handle, u32& offset, u32& size) override;
 
     // 0x561C60 | ?RawRead@VirtualStream@@UAEHPAXH@Z
-    ARTS_EXPORT i32 RawRead(void* ptr, i32 size) override;
+    ARTS_EXPORT isize RawRead(void* ptr, isize size) override;
 
     // 0x561CE0 | ?RawSeek@VirtualStream@@UAEHH@Z
     ARTS_EXPORT i32 RawSeek(i32 pos) override;
@@ -71,7 +71,7 @@ public:
     ARTS_EXPORT i32 RawTell() override;
 
     // 0x561CD0 | ?RawWrite@VirtualStream@@UAEHPAXH@Z
-    ARTS_EXPORT i32 RawWrite(const void* ptr, i32 size) override;
+    ARTS_EXPORT isize RawWrite(const void* ptr, isize size) override;
 
 private:
     Stream* base_stream_ {nullptr};

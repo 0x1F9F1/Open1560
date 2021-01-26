@@ -48,7 +48,7 @@ void eqEventHandler::AddClient(eqEventMonitor* monitor)
         return;
     }
 
-    for (usize index = 0; index < ARTS_SIZE(monitors_); ++index)
+    for (i32 index = 0; index < ARTS_SSIZE32(monitors_); ++index)
     {
         if (monitors_[index] == nullptr)
         {

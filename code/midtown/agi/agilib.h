@@ -73,7 +73,7 @@ public:
         char buffer[64];
         arts_strcpy(buffer, name);
         arts_strupr(buffer);
-        return reinterpret_cast<i32>(lookup_.Access(buffer));
+        return static_cast<i32>(reinterpret_cast<isize>(lookup_.Access(buffer)));
     }
 
     i32 Add(Param& param)
@@ -128,7 +128,7 @@ public:
         for (i32 i = 0; i < count_; ++i)
         {
             params_[i]->Load(input);
-            lookup_.Insert(params_[i]->Name, reinterpret_cast<void*>(i + 1));
+            lookup_.Insert(params_[i]->Name, reinterpret_cast<void*>(static_cast<isize>(i + 1)));
         }
     }
 

@@ -54,9 +54,9 @@ struct DataCacheObject
 
 check_size(DataCacheObject, 0x20);
 
-static inline constexpr u32 AlignSize(u32 value) noexcept
+static inline constexpr usize AlignSize(usize value) noexcept
 {
-    return (value + 7) & 0xFFFFFFF8;
+    return (value + 7) & ~usize(7); // FIXME: 64-bit requires 16-byte alignment
 }
 
 DataCache::DataCache() = default;
@@ -75,7 +75,7 @@ void DataCache::Age()
 
     if (object_locks_ != 0)
     {
-        for (i32 i = 1; i <= cur_objects_; ++i)
+        for (u32 i = 1; i <= cur_objects_; ++i)
         {
             if (DataCacheObject& dco = objects_[i]; dco.nLockCount != 0)
                 Quitf("DataCache::Age - %s object still locked: %s", name_, dco.GetName());
@@ -84,7 +84,7 @@ void DataCache::Age()
         Quitf("DataCache::Age - %s lock count is %u", name_, object_locks_);
     }
 
-    for (i32 i = 1; i <= cur_objects_; ++i)
+    for (u32 i = 1; i <= cur_objects_; ++i)
     {
         if (DataCacheObject& dco = objects_[i]; dco.bUsed && dco.nAge + MaxObjectAge < age_)
         {
@@ -100,8 +100,8 @@ void DataCache::Age()
 
     if (fragmented_ || (cur_waste_ > max_waste_))
     {
-        i32 i = 1;
-        i32 j = 0;
+        u32 i = 1;
+        u32 j = 0;
         u8* heap = heap_;
 
         for (; i <= cur_objects_; ++i)
@@ -136,7 +136,7 @@ void DataCache::Age()
 
         fragmented_ = 0;
         cur_waste_ = 0;
-        heap_used_ = heap - heap_;
+        heap_used_ = static_cast<u32>(heap - heap_);
     }
 
     object_lock_.unlock();
@@ -183,7 +183,7 @@ i32 DataCache::BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* co
         u32 max_age = age_;
         u32 max_size = AlignSize(maxsize + (maxsize >> i));
 
-        for (i32 j = 1; j <= max_objects_; ++j)
+        for (u32 j = 1; j <= max_objects_; ++j)
         {
             DataCacheObject& dco = objects_[j];
 
@@ -242,7 +242,7 @@ void DataCache::Flush()
     cache_lock_.lock();
     object_lock_.lock();
 
-    for (i32 i = 1; i <= cur_objects_; ++i)
+    for (u32 i = 1; i <= cur_objects_; ++i)
     {
         DataCacheObject& dco = objects_[i];
 
@@ -426,7 +426,7 @@ void DataCache::InitObject(
 
 void DataCache::Relocate(DataCacheObject* dco, u8* ptr)
 {
-    if (i32 delta = ptr - dco->pBase)
+    if (isize delta = ptr - dco->pBase)
     {
         dco->Relocate(dco->Context, delta);
         std::memmove(ptr, dco->pBase, dco->nTotalSize);

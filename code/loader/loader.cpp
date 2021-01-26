@@ -45,7 +45,7 @@ extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
     if (DirectInputCreateA_Orig == nullptr)
     {
         wchar_t dinput_path[MAX_PATH];
-        GetSystemDirectoryW(dinput_path, ARTS_SIZE(dinput_path));
+        GetSystemDirectoryW(dinput_path, ARTS_SIZE32(dinput_path));
         wcscat_s(dinput_path, L"\\dinput.dll");
 
         if (HMODULE dinput_dll = LoadLibraryW(dinput_path))

@@ -27,3 +27,6 @@
 #else
 #    define ARTS_SSIZE(C) static_cast<isize>(ARTS_SIZE(C))
 #endif
+
+#define ARTS_SIZE32(C) static_cast<u32>(ARTS_SIZE(C))
+#define ARTS_SSIZE32(C) static_cast<i32>(ARTS_SSIZE(C))

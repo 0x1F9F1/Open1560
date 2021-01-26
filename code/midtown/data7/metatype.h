@@ -118,9 +118,9 @@ struct MetaType
 {
     virtual void Save(class MiniParser* parser, void* ptr) = 0;
     virtual void Load(class MiniParser* parser, void* ptr) = 0;
-    virtual u32 SizeOf() = 0;
-    virtual void* New(i32 count) = 0;
-    virtual void Delete(void* ptr, i32 count) = 0;
+    virtual usize SizeOf() = 0;
+    virtual void* New(isize count) = 0;
+    virtual void Delete(void* ptr, isize count) = 0;
 };
 
 check_size(MetaType, 0x4);

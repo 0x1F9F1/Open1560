@@ -260,7 +260,7 @@ void agiTexDef::PageInCallback(void* param)
     static_cast<agiTexDef*>(param)->DoPageIn();
 }
 
-void agiTexDef::PageOutCallback(void* param, i32 delta)
+void agiTexDef::PageOutCallback(void* param, isize delta)
 {
     agiTexDef* tex = static_cast<agiTexDef*>(param);
 

@@ -47,7 +47,7 @@ void geinputClearCache()
 i32 geinputGetBufferedKeyboard(i8* presses)
 {
     DIDEVICEOBJECTDATA data[32];
-    DWORD dwItems = ARTS_SIZE(data);
+    DWORD dwItems = ARTS_SIZE32(data);
 
     HRESULT hres = KeyboardDevice->GetDeviceData(sizeof(*data), data, &dwItems, 0);
 
@@ -60,10 +60,10 @@ i32 geinputGetBufferedKeyboard(i8* presses)
     if (hres == DI_BUFFEROVERFLOW)
         Errorf("Keyboard buffer had overflowed.");
 
-    i32 count = 0;
-    i32 num_items = std::min<i32>(dwItems, ARTS_SIZE(data));
+    u32 count = 0;
+    u32 num_items = std::min<u32>(dwItems, ARTS_SIZE32(data));
 
-    for (i32 i = 0; i < num_items; ++i)
+    for (u32 i = 0; i < num_items; ++i)
     {
         if (data[i].dwData & 0x80)
         {
@@ -78,12 +78,12 @@ static i8 KeyboardState[256] {};
 
 i8* geinputGetKeyboard()
 {
-    if (KeyboardDevice && FAILED(KeyboardDevice->GetDeviceState(ARTS_SIZE(KeyboardState), KeyboardState)))
+    if (KeyboardDevice && FAILED(KeyboardDevice->GetDeviceState(ARTS_SIZE32(KeyboardState), KeyboardState)))
     {
         if (KeyboardDevice)
             KeyboardDevice->Acquire();
 
-        if (FAILED(KeyboardDevice->GetDeviceState(ARTS_SIZE(KeyboardState), KeyboardState)))
+        if (FAILED(KeyboardDevice->GetDeviceState(ARTS_SIZE32(KeyboardState), KeyboardState)))
         {
             std::memset(KeyboardState, 0, sizeof(KeyboardState));
         }

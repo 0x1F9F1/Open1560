@@ -57,7 +57,7 @@ i32 Tokenizer::GetInt()
     return 0;
 }
 
-i32 Tokenizer::GetToken(char* buffer, i32 buffer_len)
+i32 Tokenizer::GetToken(char* buffer, isize buffer_len)
 {
     while (IsSpace(current_char_))
     {

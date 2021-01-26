@@ -37,7 +37,7 @@ struct PtrToType final : MetaType
     MetaType* TargetType {nullptr};
 
     // 0x57B5E0 | ?Delete@PtrToType@@UAEXPAXH@Z
-    ARTS_EXPORT void Delete(void*, i32) override
+    ARTS_EXPORT void Delete(void*, isize) override
     {}
 
     // 0x57B5B0 | ?Load@PtrToType@@UAEXPAVMiniParser@@PAX@Z
@@ -47,7 +47,7 @@ struct PtrToType final : MetaType
     }
 
     // 0x57B5D0 | ?New@PtrToType@@UAEPAXH@Z
-    ARTS_EXPORT void* New(i32) override
+    ARTS_EXPORT void* New(isize) override
     {
         return nullptr;
     }
@@ -59,7 +59,7 @@ struct PtrToType final : MetaType
     }
 
     // 0x57B5F0 | ?SizeOf@PtrToType@@UAEIXZ
-    ARTS_EXPORT u32 SizeOf() override
+    ARTS_EXPORT usize SizeOf() override
     {
         return sizeof(void*);
     }
@@ -83,7 +83,7 @@ struct StructType final : MetaType
     MetaClass* TargetClass {nullptr};
 
     // 0x57B9D0 | ?Delete@StructType@@UAEXPAXH@Z
-    ARTS_EXPORT void Delete(void* ptr, i32 count) override
+    ARTS_EXPORT void Delete(void* ptr, isize count) override
     {
         TargetClass->Free(ptr, count);
     }
@@ -95,7 +95,7 @@ struct StructType final : MetaType
     }
 
     // 0x57B9B0 | ?New@StructType@@UAEPAXH@Z
-    ARTS_EXPORT void* New(i32 count) override
+    ARTS_EXPORT void* New(isize count) override
     {
         return TargetClass->Allocate(count);
     }
@@ -107,7 +107,7 @@ struct StructType final : MetaType
     }
 
     // 0x57B9A0 | ?SizeOf@StructType@@UAEIXZ
-    ARTS_EXPORT u32 SizeOf() override
+    ARTS_EXPORT usize SizeOf() override
     {
         return TargetClass->GetSize();
     }
@@ -126,7 +126,7 @@ struct SignedIntType final : MetaType
 
 public:
     // 0x57BE90 | ?Delete@SignedIntType@@UAEXPAXH@Z
-    ARTS_EXPORT void Delete(void* ptr, i32 len) override
+    ARTS_EXPORT void Delete(void* ptr, isize len) override
     {
         MetaDelete<i32>(ptr, len);
     }
@@ -138,7 +138,7 @@ public:
     }
 
     // 0x57BE60 | ?New@SignedIntType@@UAEPAXH@Z
-    ARTS_EXPORT void* New(i32 count) override
+    ARTS_EXPORT void* New(isize count) override
     {
         return MetaNew<i32>(count);
     }
@@ -150,7 +150,7 @@ public:
     }
 
     // 0x57BE50 | ?SizeOf@SignedIntType@@UAEIXZ
-    ARTS_EXPORT u32 SizeOf() override
+    ARTS_EXPORT usize SizeOf() override
     {
         return sizeof(i32);
     }
@@ -172,7 +172,7 @@ struct StringType final : MetaType
 
 public:
     // 0x57C260 | ?Delete@StringType@@UAEXPAXH@Z
-    ARTS_EXPORT void Delete(void*, i32) override
+    ARTS_EXPORT void Delete(void*, isize) override
     {
         // TODO: Implement this?
     }
@@ -192,7 +192,7 @@ public:
     }
 
     // 0x57C220 | ?New@StringType@@UAEPAXH@Z
-    ARTS_EXPORT void* New(i32 count) override
+    ARTS_EXPORT void* New(isize count) override
     {
         if (count)
             return new char* [count] {};
@@ -210,7 +210,7 @@ public:
     }
 
     // 0x57C270 | ?SizeOf@StringType@@UAEIXZ
-    ARTS_EXPORT u32 SizeOf() override
+    ARTS_EXPORT usize SizeOf() override
     {
         return sizeof(char*);
     }

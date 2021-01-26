@@ -203,7 +203,7 @@ public:
     ARTS_EXPORT static void PageInCallback(void* param);
 
     // 0x556460 | ?PageOutCallback@agiTexDef@@SAXPAXH@Z
-    ARTS_EXPORT static void PageOutCallback(void* param, i32 delta);
+    ARTS_EXPORT static void PageOutCallback(void* param, isize delta);
 
     i32 GetWidth() const
     {

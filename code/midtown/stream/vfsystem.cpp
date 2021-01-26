@@ -48,7 +48,7 @@ b32 VirtualFileSystem::ChangeDir(const char*)
     return false;
 }
 
-Owner<class Stream> VirtualFileSystem::CreateOn(const char*, void*, i32)
+Owner<class Stream> VirtualFileSystem::CreateOn(const char*, void*, isize)
 {
     return nullptr;
 }
@@ -98,7 +98,7 @@ struct FileInfo* VirtualFileSystem::FirstEntry(const char* path)
     return result.release();
 }
 
-b32 VirtualFileSystem::GetDir(char*, i32)
+b32 VirtualFileSystem::GetDir(char*, isize)
 {
     return false;
 }
@@ -121,7 +121,7 @@ struct FileInfo* VirtualFileSystem::NextEntry(struct FileInfo* info)
     return info;
 }
 
-Owner<class Stream> VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
+Owner<class Stream> VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len)
 {
     if (!read_only)
         return nullptr;
@@ -166,7 +166,7 @@ void VirtualFileSystem::ExpandName(char* buf, struct VirtualFileInode* node, con
     ExpandName(buf, 56, node, names);
 }
 
-void VirtualFileSystem::ExpandName(char* buf, i32 buf_len, VirtualFileInode* node, const char* names)
+void VirtualFileSystem::ExpandName(char* buf, isize buf_len, VirtualFileInode* node, const char* names)
 {
     CStringBuilder builder(buf, buf_len);
 
@@ -270,7 +270,7 @@ void VirtualFileSystem::NormalizeName(char* buf, const char* path)
     NormalizeName(buf, 56, path);
 }
 
-void VirtualFileSystem::NormalizeName(char* buf, i32 buf_len, const char* path)
+void VirtualFileSystem::NormalizeName(char* buf, isize buf_len, const char* path)
 {
     if (!std::strncmp(path, "/VFS/", 5))
         path += 5;
@@ -302,7 +302,7 @@ inline VirtualFileInode* VirtualFileSystem::Lookup(const char* path)
     return Lookup(file_nodes_.get(), file_header_.RootCount, file_names_.get(), buffer.get());
 }
 
-void VirtualFileSystem::ExpandName(char* buf, i32 buf_len, VirtualFileInode* node)
+void VirtualFileSystem::ExpandName(char* buf, isize buf_len, VirtualFileInode* node)
 {
     ExpandName(buf, buf_len, node, file_names_.get());
 }

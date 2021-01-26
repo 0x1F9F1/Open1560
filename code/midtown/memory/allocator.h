@@ -117,7 +117,7 @@ public:
         return initialized_;
     }
 
-    u32 GetHeapSize() const
+    usize GetHeapSize() const
     {
         return heap_size_;
     }
@@ -132,7 +132,7 @@ public:
         return static_cast<u8*>(heap_) + heap_size_;
     }
 
-    u32 GetHeapUsed() const
+    usize GetHeapUsed() const
     {
         return heap_used_;
     }

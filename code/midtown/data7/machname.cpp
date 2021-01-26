@@ -20,7 +20,7 @@ define_dummy_symbol(data7_machname);
 
 #include "machname.h"
 
-void GetMachineName(char* buffer, i32 buffer_len)
+void GetMachineName(char* buffer, isize buffer_len)
 {
     arts_strcpy(buffer, buffer_len, "Open1560");
 }

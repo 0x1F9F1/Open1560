@@ -151,9 +151,9 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
 
         DWORD written = 0;
 
-        if (!WriteConsoleA(output, buffer, std::strlen(buffer), &written, 0))
+        if (!WriteConsoleA(output, buffer, static_cast<DWORD>(std::strlen(buffer)), &written, 0))
         {
-            WriteFile(output, buffer, std::strlen(buffer), &written, 0);
+            WriteFile(output, buffer, static_cast<DWORD>(std::strlen(buffer)), &written, 0);
         }
 
         SetConsoleTextAttribute(output, PrinterColors[0]);
@@ -163,7 +163,7 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
     {
         DWORD written = 0;
 
-        WriteFile(DebugLogFile, buffer, std::strlen(buffer), &written, 0);
+        WriteFile(DebugLogFile, buffer, static_cast<DWORD>(std::strlen(buffer)), &written, 0);
 
         if (level >= 3)
             FlushFileBuffers(DebugLogFile);
@@ -208,7 +208,7 @@ void LogToFile()
         return LogToFile("Open1560.log");
 
     char machname[128];
-    GetMachineName(machname, ARTS_SSIZE(machname));
+    GetMachineName(machname, ARTS_SIZE(machname));
 
     char filename[128];
     arts_sprintf(filename, "%s-%04d%02d%02d-%02d%02d%02d.log", machname, tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,

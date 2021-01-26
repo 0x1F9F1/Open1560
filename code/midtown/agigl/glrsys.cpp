@@ -145,7 +145,7 @@ public:
     {
         const u32 slice = GetSectionSize();
 
-        for (usize i = 0; i < NumFences; ++i)
+        for (u32 i = 0; i < NumFences; ++i)
         {
             u32 start = i * slice;
 

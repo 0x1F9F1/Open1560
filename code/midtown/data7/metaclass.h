@@ -46,7 +46,7 @@ struct MetaField
 {
     MetaField* Next {nullptr};
     const char* Name {nullptr};
-    u32 Offset {0};
+    usize Offset {0};
     MetaType* Type {nullptr};
 };
 
@@ -65,7 +65,7 @@ class MetaClass
 {
 public:
     // 0x577AA0 | ??0MetaClass@@QAE@PADIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z
-    ARTS_EXPORT MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32),
+    ARTS_EXPORT MetaClass(const char* name, usize size, void* (*allocate)(isize), void (*free)(void*, isize),
         void (*declare)(void), class MetaClass* parent);
 
     // 0x577B20 | ??1MetaClass@@QAE@XZ
@@ -96,12 +96,12 @@ public:
         return size_;
     }
 
-    void* Allocate(i32 count)
+    void* Allocate(isize count)
     {
         return allocate_ ? allocate_(count) : nullptr;
     }
 
-    void Free(void* ptr, i32 count)
+    void Free(void* ptr, isize count)
     {
         free_(ptr, count);
     }
@@ -147,9 +147,9 @@ public:
 
 private:
     const char* name_ {nullptr};
-    u32 size_ {0};
-    void* (*allocate_)(i32) {nullptr};
-    void (*free_)(void*, i32) {nullptr};
+    usize size_ {0};
+    void* (*allocate_)(isize) {nullptr};
+    void (*free_)(void*, isize) {nullptr};
     void (*declare_)() {nullptr};
     MetaClass* parent_ {nullptr};
 

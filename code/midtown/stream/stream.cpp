@@ -27,7 +27,7 @@ define_dummy_symbol(stream_stream);
 
 constexpr bool IsLittleEndian = true;
 
-Stream::Stream(void* buffer, i32 buffer_size, class FileSystem* file_system)
+Stream::Stream(void* buffer, isize buffer_size, class FileSystem* file_system)
     : buffer_(static_cast<u8*>(buffer))
     , buffer_capacity_(buffer_size)
     , file_system_(file_system)
@@ -84,9 +84,9 @@ void Stream::Error(const char* msg)
     Errorf("%s: %s", msg, buffer);
 }
 
-i32 Stream::Flush()
+isize Stream::Flush()
 {
-    i32 count = 0;
+    isize count = 0;
 
     if (buffer_read_)
     {
@@ -108,7 +108,7 @@ i32 Stream::Flush()
     return count;
 }
 
-i32 Stream::Get(u16* values, i32 count)
+isize Stream::Get(u16* values, isize count)
 {
     count = Read(values, count * sizeof(*values)) / sizeof(*values);
 
@@ -118,7 +118,7 @@ i32 Stream::Get(u16* values, i32 count)
     return count;
 }
 
-i32 Stream::Get(u32* values, i32 count)
+isize Stream::Get(u32* values, isize count)
 {
     count = Read(values, count * sizeof(*values)) / sizeof(*values);
 
@@ -128,9 +128,9 @@ i32 Stream::Get(u32* values, i32 count)
     return count;
 }
 
-i32 Stream::GetString(char* buffer, i32 buffer_len)
+isize Stream::GetString(char* buffer, isize buffer_len)
 {
-    u32 len = Get<u32>();
+    usize len = Get<u32>();
 
     if (len <= static_cast<u32>(buffer_len)) // TODO: Should this be "<" to ensure a null terminator?
         return Get(reinterpret_cast<u8*>(buffer), len);
@@ -150,7 +150,7 @@ i32 Stream::GetString(char* buffer, i32 buffer_len)
 
 CString Stream::GetString()
 {
-    u32 length = Get<u32>();
+    usize length = Get<u32>();
 
     if (length == 0)
         return nullptr;
@@ -160,11 +160,11 @@ CString Stream::GetString()
     return result;
 }
 
-i32 Stream::Printf(ARTS_FORMAT_STRING char const* format, ...)
+isize Stream::Printf(ARTS_FORMAT_STRING char const* format, ...)
 {
     std::va_list va;
     va_start(va, format);
-    i32 result = Vprintf(format, va);
+    isize result = Vprintf(format, va);
     va_end(va);
     return result;
 }
@@ -192,7 +192,7 @@ i32 Stream::Vscanf(const char* format, std::va_list va)
     UnGetCh(ch);
 
     char buffer[256];
-    i32 length = arts_fgets(buffer, ARTS_SIZE(buffer), this);
+    isize length = arts_fgets(buffer, ARTS_SIZE(buffer), this);
 
     if (!length)
         return 0;
@@ -225,14 +225,14 @@ i32 Stream::Vscanf(const char* format, std::va_list va)
     return result;
 }
 
-i32 Stream::Gets(char* buffer, i32 buffer_len)
+isize Stream::Gets(char* buffer, isize buffer_len)
 {
     if (buffer_len == 0)
         return 0;
 
     buffer_len -= 1;
 
-    i32 total = 0;
+    isize total = 0;
 
     while (total < buffer_len)
     {
@@ -252,7 +252,7 @@ i32 Stream::Gets(char* buffer, i32 buffer_len)
     return total;
 }
 
-i32 Stream::Put(f32 value)
+isize Stream::Put(f32 value)
 {
     if (swap_endian_)
         ByteSwap(value);
@@ -260,7 +260,7 @@ i32 Stream::Put(f32 value)
     return Write(&value, sizeof(value)) / sizeof(value);
 }
 
-i32 Stream::Put(u16 value)
+isize Stream::Put(u16 value)
 {
     if (swap_endian_)
         ByteSwap(value);
@@ -268,7 +268,7 @@ i32 Stream::Put(u16 value)
     return Write(&value, sizeof(value)) / sizeof(value);
 }
 
-i32 Stream::Put(u32 value)
+isize Stream::Put(u32 value)
 {
     if (swap_endian_)
         ByteSwap(value);
@@ -276,16 +276,16 @@ i32 Stream::Put(u32 value)
     return Write(&value, sizeof(value)) / sizeof(value);
 }
 
-i32 Stream::Put(u8 value)
+isize Stream::Put(u8 value)
 {
     return Write(&value, sizeof(value)) / sizeof(value);
 }
 
-i32 Stream::Put(const u16* values, i32 count)
+isize Stream::Put(const u16* values, isize count)
 {
     if (swap_endian_)
     {
-        i32 result = 0;
+        isize result = 0;
 
         for (i32 i = 0; i < count; ++i)
             result += Put(values[i]);
@@ -298,11 +298,11 @@ i32 Stream::Put(const u16* values, i32 count)
     }
 }
 
-i32 Stream::Put(const u32* values, i32 count)
+isize Stream::Put(const u32* values, isize count)
 {
     if (swap_endian_)
     {
-        i32 result = 0;
+        isize result = 0;
 
         for (i32 i = 0; i < count; ++i)
             result += Put(values[i]);
@@ -315,26 +315,25 @@ i32 Stream::Put(const u32* values, i32 count)
     }
 }
 
-i32 Stream::Put(const u8* values, i32 count)
+isize Stream::Put(const u8* values, isize count)
 {
     return Write(values, sizeof(*values) * count) / sizeof(*values);
 }
 
-i32 Stream::PutString(const char* str)
+isize Stream::PutString(const char* str)
 {
-    u32 len = std::strlen(str) + 1;
-
-    Put(len);
+    usize len = std::strlen(str) + 1;
+    Put(static_cast<u32>(len));
     return Put(reinterpret_cast<const u8*>(str), len);
 }
 
-i32 Stream::Read(void* ptr, i32 size)
+isize Stream::Read(void* ptr, isize size)
 {
     if ((buffer_read_ == 0) && (buffer_head_ != 0) && (Flush() < 0))
         return -1;
 
-    i32 total = 0;
-    i32 buffered = buffer_read_ - buffer_head_;
+    isize total = 0;
+    isize buffered = buffer_read_ - buffer_head_;
 
     if (size > buffered)
     {
@@ -351,9 +350,9 @@ i32 Stream::Read(void* ptr, i32 size)
 
         position_ += buffer_head_;
 
-        if (size > buffer_capacity_)
+        if (size > static_cast<isize>(buffer_capacity_))
         {
-            i32 raw_read = RawRead(ptr, size);
+            isize raw_read = RawRead(ptr, size);
 
             buffer_head_ = 0;
             buffer_read_ = 0;
@@ -367,7 +366,7 @@ i32 Stream::Read(void* ptr, i32 size)
             return total;
         }
 
-        i32 raw_read = RawRead(buffer_, buffer_capacity_);
+        isize raw_read = RawRead(buffer_, buffer_capacity_);
 
         buffer_head_ = 0;
         buffer_read_ = raw_read;
@@ -385,7 +384,7 @@ i32 Stream::Read(void* ptr, i32 size)
         size = buffered;
 
     std::memcpy(ptr, buffer_ + buffer_head_, size);
-    buffer_head_ += size;
+    buffer_head_ += static_cast<u32>(size);
     total += size;
 
     return total;
@@ -412,24 +411,24 @@ i32 Stream::Size()
     return RawSize();
 }
 
-i32 Stream::Vprintf(char const* format, std::va_list va)
+isize Stream::Vprintf(char const* format, std::va_list va)
 {
     char buffer[256];
     arts_vsprintf(buffer, format, va);
     return Write(buffer, std::strlen(buffer));
 }
 
-i32 Stream::Write(const void* ptr, i32 size)
+isize Stream::Write(const void* ptr, isize size)
 {
     if ((buffer_read_ != 0) && (Flush() < 0))
         return -1;
 
-    if (size >= buffer_capacity_)
+    if (size >= static_cast<isize>(buffer_capacity_))
     {
         if (Flush() < 0)
             return -1;
 
-        i32 written = RawWrite(ptr, size);
+        isize written = RawWrite(ptr, size);
 
         if (written < 0)
             written = -1;
@@ -437,9 +436,9 @@ i32 Stream::Write(const void* ptr, i32 size)
         return written;
     }
 
-    i32 pending = size;
+    isize pending = size;
 
-    if (i32 avail = buffer_capacity_ - buffer_head_; pending >= avail)
+    if (isize avail = buffer_capacity_ - buffer_head_; pending >= avail)
     {
         std::memcpy(buffer_ + buffer_head_, ptr, avail);
         buffer_head_ = buffer_capacity_;
@@ -465,26 +464,26 @@ i32 Stream::AlignSize()
     return 1;
 }
 
-i32 Stream::GetError(char* buf, i32 buf_len)
+i32 Stream::GetError(char* buf, isize buf_len)
 {
     i32 error = errno;
     strerror_s(buf, usize(buf_len), error);
     return error;
 }
 
-void Stream::SwapLongs(u32* values, i32 count)
+void Stream::SwapLongs(u32* values, isize count)
 {
     for (i32 i = 0; i < count; ++i)
         ByteSwap(values[i]);
 }
 
-void Stream::SwapShorts(u16* values, i32 count)
+void Stream::SwapShorts(u16* values, isize count)
 {
     for (i32 i = 0; i < count; ++i)
         ByteSwap(values[i]);
 }
 
-i32 arts_fgets(char* buffer, i32 buffer_len, class Stream* stream)
+isize arts_fgets(char* buffer, isize buffer_len, class Stream* stream)
 {
     return stream->Gets(buffer, buffer_len);
 }

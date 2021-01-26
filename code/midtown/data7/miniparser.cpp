@@ -229,12 +229,12 @@ i32 MiniParser::NextToken()
 
 void MiniParser::PlaceLabel(void* ptr)
 {
-    Printf(":%08x", u32(ptr));
+    Printf(":%08zx", reinterpret_cast<usize>(ptr));
 }
 
 void MiniParser::PlaceLabelRef(void* ptr)
 {
-    Printf("$%08x", u32(ptr));
+    Printf("$%08zx", reinterpret_cast<usize>(ptr));
 }
 
 void MiniParser::PrintString(const char* str, i32 len)

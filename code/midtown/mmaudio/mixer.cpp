@@ -31,7 +31,7 @@ MixerCTL::MixerCTL(HWND window)
 {
     static u32 msgs[] {MM_WOM_OPEN};
 
-    RegisterMap("Mixer", msgs, ARTS_SIZE(msgs), this);
+    RegisterMap("Mixer", msgs, ARTS_SSIZE32(msgs), this);
 }
 
 MixerCTL::~MixerCTL()

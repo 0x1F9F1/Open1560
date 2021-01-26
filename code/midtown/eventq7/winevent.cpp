@@ -51,7 +51,7 @@ static u32 WinEventHandlerMsgs[] {WM_MOUSEMOVE, WM_LBUTTONDOWN, WM_RBUTTONDOWN, 
 
 WINEventHandler::WINEventHandler()
 {
-    RegisterMap("EventQ", WinEventHandlerMsgs, ARTS_SIZE(WinEventHandlerMsgs), this);
+    RegisterMap("EventQ", WinEventHandlerMsgs, ARTS_SSIZE32(WinEventHandlerMsgs), this);
 }
 
 WINEventHandler::~WINEventHandler()

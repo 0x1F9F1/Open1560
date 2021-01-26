@@ -159,19 +159,19 @@ public:
     ARTS_EXPORT b32 ChangeDir(const char* path) override;
 
     // 0x560B80 | ?CreateOn@VirtualFileSystem@@UAEPAVStream@@PADPAXH@Z
-    ARTS_EXPORT Owner<class Stream> CreateOn(const char* path, void* buffer, i32 buffer_len) override;
+    ARTS_EXPORT Owner<class Stream> CreateOn(const char* path, void* buffer, isize buffer_len) override;
 
     // 0x560BB0 | ?FirstEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAD@Z
     ARTS_EXPORT struct FileInfo* FirstEntry(const char* path) override;
 
     // 0x560BA0 | ?GetDir@VirtualFileSystem@@UAEHPADH@Z
-    ARTS_EXPORT b32 GetDir(char* buffer, i32 buffer_len) override;
+    ARTS_EXPORT b32 GetDir(char* buffer, isize buffer_len) override;
 
     // 0x560D00 | ?NextEntry@VirtualFileSystem@@UAEPAUFileInfo@@PAU2@@Z
     ARTS_EXPORT struct FileInfo* NextEntry(struct FileInfo* info) override;
 
     // 0x560AD0 | ?OpenOn@VirtualFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    ARTS_EXPORT Owner<class Stream> OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len) override;
+    ARTS_EXPORT Owner<class Stream> OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len) override;
 
     // 0x560A50 | ?PagerInfo@VirtualFileSystem@@UAEHPADAAUPagerInfo_t@@@Z
     ARTS_EXPORT b32 PagerInfo(const char* path, struct PagerInfo_t& info) override;
@@ -185,7 +185,7 @@ public:
     // 0x560800 | ?ExpandName@VirtualFileSystem@@SAXPADPAUVirtualFileInode@@0@Z
     [[deprecated]] ARTS_EXPORT static void ExpandName(char* buf, struct VirtualFileInode* node, const char* names);
 
-    static void ExpandName(char* buf, i32 buf_len, struct VirtualFileInode* node, const char* names);
+    static void ExpandName(char* buf, isize buf_len, struct VirtualFileInode* node, const char* names);
 
     // 0x560920 | ?Lookup@VirtualFileSystem@@SAPAUVirtualFileInode@@PAU2@HPAD1@Z
     ARTS_EXPORT static struct VirtualFileInode* Lookup(
@@ -194,13 +194,13 @@ public:
     // 0x560790 | ?NormalizeName@VirtualFileSystem@@SAXPAD0@Z
     [[deprecated]] ARTS_EXPORT static void NormalizeName(char* buf, const char* path);
 
-    static void NormalizeName(char* buf, i32 buf_len, const char* path);
+    static void NormalizeName(char* buf, isize buf_len, const char* path);
 
 private:
     friend struct VirtualFileEntry;
 
     VirtualFileInode* Lookup(const char* path);
-    void ExpandName(char* buf, i32 buf_len, struct VirtualFileInode* node);
+    void ExpandName(char* buf, isize buf_len, struct VirtualFileInode* node);
 
     void ValidateNodes();
 

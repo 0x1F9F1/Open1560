@@ -30,7 +30,7 @@ struct Vector3Type final : MetaType
 
 public:
     // 0x5673F0 | ?Delete@Vector3Type@@UAEXPAXH@Z
-    ARTS_EXPORT void Delete(void* ptr, i32 len) override
+    ARTS_EXPORT void Delete(void* ptr, isize len) override
     {
         MetaDelete<Vector3>(ptr, len);
     }
@@ -46,7 +46,7 @@ public:
     }
 
     // 0x5673A0 | ?New@Vector3Type@@UAEPAXH@Z
-    ARTS_EXPORT void* New(i32 count) override
+    ARTS_EXPORT void* New(isize count) override
     {
         return MetaNew<Vector3>(count);
     }
@@ -60,7 +60,7 @@ public:
     }
 
     // 0x567390 | ?SizeOf@Vector3Type@@UAEIXZ
-    ARTS_EXPORT u32 SizeOf() override
+    ARTS_EXPORT usize SizeOf() override
     {
         return sizeof(Vector3);
     }

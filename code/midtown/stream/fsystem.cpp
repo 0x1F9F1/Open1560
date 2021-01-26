@@ -123,7 +123,8 @@ static i32 Contains(const char* strs, const char* str)
 static void ExpandEnvs(char* /*str*/)
 {}
 
-b32 FileSystem::Search(const char* file, const char* folder, const char* ext, i32 ext_id, char* output, i32 buffer_len)
+b32 FileSystem::Search(
+    const char* file, const char* folder, const char* ext, i32 ext_id, char* output, isize buffer_len)
 {
     // NOTE: Incompatible
 
@@ -135,7 +136,7 @@ b32 FileSystem::Search(const char* file, const char* folder, const char* ext, i3
 
     if (IsPhysicalPath(file_name))
     {
-        for (i32 i = std::strlen(file) - 1; i >= 0; --i)
+        for (isize i = std::strlen(file) - 1; i >= 0; --i)
         {
             if (IsPathSeparator(file[i]))
             {
@@ -151,7 +152,7 @@ b32 FileSystem::Search(const char* file, const char* folder, const char* ext, i3
 
     if (ext)
     {
-        for (i32 i = std::strlen(file_name) - 1; i >= 0; --i)
+        for (isize i = std::strlen(file_name) - 1; i >= 0; --i)
         {
             if (file_name[i] == '.')
             {
@@ -211,7 +212,7 @@ b32 FileSystem::Search(const char* file, const char* folder, const char* ext, i3
     return false;
 }
 
-Owner<class Stream> FileSystem::OpenAny(const char* path, b32 read_only, void* buffer, i32 buffer_len)
+Owner<class Stream> FileSystem::OpenAny(const char* path, b32 read_only, void* buffer, isize buffer_len)
 {
     for (i32 i = 0; i < FSCount; ++i)
     {
@@ -238,7 +239,7 @@ b32 FileSystem::PagerInfoAny(const char* path, struct PagerInfo_t& pager)
 }
 
 class FileSystem* FileSystem::SearchAll(
-    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len)
+    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len)
 {
     // NOTE: Incompatible
 
@@ -257,7 +258,7 @@ void FileSystem::NotifyDelete()
 {}
 
 class FileSystem* FindFile(
-    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len)
+    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len)
 {
     // NOTE: Incompatible
 
@@ -278,7 +279,7 @@ Owner<class Stream> OpenFile(
 }
 
 Owner<class Stream> OpenFile(
-    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, i32 buffer_len, const char* desc)
+    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len, const char* desc)
 {
     // NOTE: Incompatible
 

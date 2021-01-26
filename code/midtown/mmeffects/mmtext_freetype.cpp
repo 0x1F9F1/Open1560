@@ -198,7 +198,7 @@ static unsigned long mmFont_IoFunc(FT_Stream stream, unsigned long offset, unsig
     if (file->Seek(static_cast<i32>(offset)) != static_cast<i32>(offset))
         return count ? 0 : 1;
 
-    return file->Read(buffer, static_cast<i32>(count));
+    return static_cast<unsigned long>(file->Read(buffer, static_cast<isize>(count)));
 };
 
 static void mmFont_CloseFunc(FT_Stream stream)

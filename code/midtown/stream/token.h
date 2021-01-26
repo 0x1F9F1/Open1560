@@ -42,7 +42,7 @@ public:
     ARTS_EXPORT i32 GetInt();
 
     // 0x561600 | ?GetToken@Tokenizer@@QAEHPADH@Z
-    ARTS_EXPORT i32 GetToken(char* buffer, i32 buffer_len);
+    ARTS_EXPORT i32 GetToken(char* buffer, isize buffer_len);
 
     // 0x5617D0 | ?IgnoreToken@Tokenizer@@QAEXXZ
     ARTS_EXPORT void IgnoreToken();

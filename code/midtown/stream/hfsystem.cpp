@@ -42,7 +42,7 @@ static inline constexpr bool IsStdPath(const char* path) noexcept
     return (path[0] == '-') && !path[1];
 }
 
-Owner<class Stream> HierFileSystem::CreateOn(const char* path, void* buffer, i32 buffer_len)
+Owner<class Stream> HierFileSystem::CreateOn(const char* path, void* buffer, isize buffer_len)
 {
     Ptr<FileStream> result = MakeUnique<FileStream>(buffer, buffer_len, this);
 
@@ -107,7 +107,7 @@ struct FileInfo* HierFileSystem::FirstEntry(const char* path)
     return result.release();
 }
 
-b32 HierFileSystem::GetDir(char* buffer, i32 buffer_len)
+b32 HierFileSystem::GetDir(char* buffer, isize buffer_len)
 {
     return _getcwd(buffer, buffer_len) != nullptr;
 }
@@ -131,7 +131,7 @@ struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* info)
     return info;
 }
 
-Owner<class Stream> HierFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, i32 buffer_len)
+Owner<class Stream> HierFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len)
 {
     path = FQN(path);
 

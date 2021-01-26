@@ -24,7 +24,7 @@
 ARTS_CLANG_DIAGNOSTIC_IGNORED("-Winvalid-offsetof");
 
 template <typename T>
-inline void* MetaNew([[maybe_unused]] i32 len)
+inline void* MetaNew([[maybe_unused]] isize len)
 {
     if constexpr (std::is_default_constructible_v<T>)
     {
@@ -40,7 +40,7 @@ inline void* MetaNew([[maybe_unused]] i32 len)
 }
 
 template <typename T>
-inline void MetaDelete(void* ptr, i32 len)
+inline void MetaDelete(void* ptr, isize len)
 {
     if (ptr)
     {

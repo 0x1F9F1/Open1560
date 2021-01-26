@@ -54,7 +54,7 @@ struct asMemoryAllocator::Node
 #if SIZE_MAX <= UINT32_MAX
         return reinterpret_cast<Node*>(Status & 0xFFFFFFFC);
 #else
-        const u32 dist = uStatus & 0xFFFFFFFC;
+        const u32 dist = Status & 0xFFFFFFFC;
 
         if (dist)
         {
@@ -78,7 +78,7 @@ struct asMemoryAllocator::Node
         {
             const usize dist = reinterpret_cast<usize>(this) - reinterpret_cast<usize>(n);
             ArDebugAssert((dist & 0x3) == 0, "");
-            uStatus |= static_cast<u32>(dist);
+            Status |= static_cast<u32>(dist);
         }
 #endif
     }
@@ -369,7 +369,7 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
     if (debug_)
     {
         std::memset(result, 0xCD, size);
-        n->SetDebugGuards(real_size, reinterpret_cast<u32>(caller));
+        n->SetDebugGuards(real_size, static_cast<u32>(reinterpret_cast<usize>(caller))); // FIXME: 64-bit incompatible
         result += Node::DebugLowerGuardSize;
     }
 
@@ -561,7 +561,7 @@ void* asMemoryAllocator::Reallocate(void* ptr, usize size)
 
 void* asMemoryAllocator::Reallocate(void* ptr, usize size, void* caller)
 {
-    u32 old_size = 0;
+    usize old_size = 0;
 
     if (ptr)
     {
@@ -771,7 +771,7 @@ void asMemoryAllocator::Verify(void* ptr)
 {
     ArAssert(heap_ && heap_size_, "Heap not initialized");
 
-    if (u32 const lock_count = lock_count_)
+    if (usize const lock_count = lock_count_)
     {
         lock_count_ = 0;
         Warningf("Memory allocated or freed while locked!");
@@ -834,7 +834,7 @@ asMemoryAllocator::FreeNode* asMemoryAllocator::FindFirstFit(usize size, usize a
 
     offset += sizeof(Node);
 
-    for (u32 i = GetBucketIndex(size); i < ARTS_SIZE(buckets_); ++i)
+    for (u32 i = GetBucketIndex(size); i < ARTS_SIZE32(buckets_); ++i)
     {
         for (FreeNode* n = buckets_[i]; n; n = n->NextFree)
         {

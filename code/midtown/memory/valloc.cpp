@@ -36,7 +36,7 @@ asSafeHeap::~asSafeHeap()
     Kill();
 }
 
-void asSafeHeap::Init(i32 heap_size, b32 multi_heap)
+void asSafeHeap::Init(isize heap_size, b32 multi_heap)
 {
     // TODO: Move param to ApplicationHelper
     MultiHeapCount = PARAM_multiheap.get_or<i32>(4);
@@ -46,7 +46,7 @@ void asSafeHeap::Init(i32 heap_size, b32 multi_heap)
     SYSTEM_INFO sys_info;
     GetSystemInfo(&sys_info);
 
-    heap_size = (heap_size + sys_info.dwPageSize - 1) & ~(sys_info.dwPageSize - 1);
+    heap_size = (heap_size + sys_info.dwPageSize - 1) & ~isize(sys_info.dwPageSize - 1);
 
     heap_size_ = heap_size;
     multi_heap_ = multi_heap;

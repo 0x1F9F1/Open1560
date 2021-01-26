@@ -23,14 +23,14 @@ define_dummy_symbol(data7_memstat);
 #include "memory/allocator.h"
 
 // 0x578B80 | ?getMem@@YAHXZ
-ARTS_EXPORT /*static*/ i32 getMem()
+ARTS_EXPORT /*static*/ isize getMem()
 {
     return ALLOCATOR.GetHeapUsed();
 }
 
 static constexpr const i32 MAX_CHECK = 16;
 
-static i32 MemStatValues[MAX_CHECK] {};
+static isize MemStatValues[MAX_CHECK] {};
 static const char* MemStatNames[MAX_CHECK] {};
 
 void BeginMemStat(char const* name)
@@ -54,10 +54,10 @@ void EndMemStat()
 
         --beginStackCount;
 
-        i32 prev = MemStatValues[beginStackCount];
-        i32 current = getMem();
+        isize prev = MemStatValues[beginStackCount];
+        isize current = getMem();
 
-        Warningf("%*sMemStat: '%s' %dK before, %dK after, %dK difference", beginStackCount, "",
+        Warningf("%*sMemStat: '%s' %zdK before, %zdK after, %zdK difference", beginStackCount, "",
             MemStatNames[beginStackCount], prev >> 10, current >> 10, (current - prev) >> 10);
     }
 }

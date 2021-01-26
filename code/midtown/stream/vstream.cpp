@@ -23,7 +23,7 @@ define_dummy_symbol(stream_vstream);
 #include "vfsystem.h"
 
 VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode* file_node, void* buffer,
-    i32 buffer_size, class FileSystem* file_system)
+    isize buffer_size, class FileSystem* file_system)
     : Stream(buffer, buffer_size, file_system)
     , base_stream_(base_stream)
     , data_offset_(file_node->GetOffset())
@@ -57,7 +57,7 @@ b32 VirtualStream::GetPagingInfo(usize& handle, u32& offset, u32& size)
     return true;
 }
 
-i32 VirtualStream::RawRead(void* ptr, i32 size)
+isize VirtualStream::RawRead(void* ptr, isize size)
 {
     LockGuard lock(lock_);
 
@@ -69,9 +69,7 @@ i32 VirtualStream::RawRead(void* ptr, i32 size)
         Seek(here);
     }
 
-    i32 result = base_stream_->Read(ptr, std::min<i32>(size, i32(data_size_) - here));
-
-    return result;
+    return base_stream_->Read(ptr, std::min<isize>(size, isize(data_size_) - here));
 }
 
 i32 VirtualStream::RawSeek(i32 pos)
@@ -89,7 +87,7 @@ i32 VirtualStream::RawTell()
     return base_stream_->Tell() - data_offset_;
 }
 
-i32 VirtualStream::RawWrite(const void*, i32)
+isize VirtualStream::RawWrite(const void*, isize)
 {
     return -1;
 }

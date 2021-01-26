@@ -80,7 +80,7 @@ class Stream : public Base
 
 public:
     // 0x55E8B0 | ??0Stream@@QAE@PAXHPAVFileSystem@@@Z
-    ARTS_EXPORT Stream(void* buffer, i32 buffer_size, class FileSystem* file_system);
+    ARTS_EXPORT Stream(void* buffer, isize buffer_size, class FileSystem* file_system);
 
     // 0x55F500 | ??_GStream@@UAEPAXI@Z
     // 0x55E940 | ??1Stream@@UAE@XZ
@@ -95,9 +95,9 @@ public:
     // 0x55EDA0 | ?GetPagingInfo@Stream@@UAEHAAI00@Z
     ARTS_EXPORT virtual b32 GetPagingInfo(usize& handle, u32& offset, u32& size);
 
-    virtual i32 RawRead(void* arg1, i32 arg2) = 0;
+    virtual isize RawRead(void* arg1, isize arg2) = 0;
 
-    virtual i32 RawWrite(const void* arg1, i32 arg2) = 0;
+    virtual isize RawWrite(const void* arg1, isize arg2) = 0;
 
     virtual i32 RawSeek(i32 arg1) = 0;
 
@@ -112,16 +112,16 @@ public:
     ARTS_EXPORT void Error(const char* msg);
 
     // 0x55ECC0 | ?Flush@Stream@@QAEHXZ
-    ARTS_EXPORT i32 Flush();
+    ARTS_EXPORT isize Flush();
 
     // 0x55F190 | ?Get@Stream@@QAEHPAGH@Z
-    ARTS_EXPORT i32 Get(u16* values, i32 count);
+    ARTS_EXPORT isize Get(u16* values, isize count);
 
     // 0x55F1D0 | ?Get@Stream@@QAEHPAKH@Z
-    ARTS_EXPORT i32 Get(u32* values, i32 count);
+    ARTS_EXPORT isize Get(u32* values, isize count);
 
     // 0x55F170 | ?Get@Stream@@QAEHPAEH@Z
-    ARTS_EXPORT i32 Get(u8* values, i32 count)
+    ARTS_EXPORT isize Get(u8* values, isize count)
     {
         return Read(values, count);
     }
@@ -165,39 +165,39 @@ public:
     }
 
     // 0x55EEF0 | ?GetString@Stream@@QAEHPADH@Z | unused
-    ARTS_EXPORT i32 GetString(char* buffer, i32 buffer_len);
+    ARTS_EXPORT isize GetString(char* buffer, isize buffer_len);
 
     CString GetString();
 
     // 0x55EDF0 | ?Printf@Stream@@QAAHPBDZZ | unused
-    ARTS_EXPORT i32 Printf(ARTS_FORMAT_STRING char const* format, ...);
+    ARTS_EXPORT isize Printf(ARTS_FORMAT_STRING char const* format, ...);
 
     i32 Scanf(const char* format, ...);
 
     i32 Vscanf(const char* format, std::va_list va);
 
-    i32 Gets(char* buffer, i32 buffer_len);
+    isize Gets(char* buffer, isize buffer_len);
 
     // 0x55F020 | ?Put@Stream@@QAEHM@Z
-    ARTS_EXPORT i32 Put(f32 value);
+    ARTS_EXPORT isize Put(f32 value);
 
     // 0x55EFA0 | ?Put@Stream@@QAEHG@Z
-    ARTS_EXPORT i32 Put(u16 value);
+    ARTS_EXPORT isize Put(u16 value);
 
     // 0x55EFD0 | ?Put@Stream@@QAEHK@Z
-    ARTS_EXPORT i32 Put(u32 value);
+    ARTS_EXPORT isize Put(u32 value);
 
     // 0x55EF80 | ?Put@Stream@@QAEHE@Z
-    ARTS_EXPORT i32 Put(u8 value);
+    ARTS_EXPORT isize Put(u8 value);
 
     // 0x55F0A0 | ?Put@Stream@@QAEHPAGH@Z
-    ARTS_EXPORT i32 Put(const u16* values, i32 count);
+    ARTS_EXPORT isize Put(const u16* values, isize count);
 
     // 0x55F100 | ?Put@Stream@@QAEHPAKH@Z
-    ARTS_EXPORT i32 Put(const u32* values, i32 count);
+    ARTS_EXPORT isize Put(const u32* values, isize count);
 
     // 0x55F080 | ?Put@Stream@@QAEHPAEH@Z
-    ARTS_EXPORT i32 Put(const u8* values, i32 count);
+    ARTS_EXPORT isize Put(const u8* values, isize count);
 
     // 0x55EC30 | ?PutCh@Stream@@QAEHE@Z
     ARTS_EXPORT i32 PutCh(u8 value)
@@ -217,10 +217,10 @@ public:
     }
 
     // 0x55EEB0 | ?PutString@Stream@@QAEHPAD@Z
-    ARTS_EXPORT i32 PutString(const char* str);
+    ARTS_EXPORT isize PutString(const char* str);
 
     // 0x55E9C0 | ?Read@Stream@@QAEHPAXH@Z
-    ARTS_EXPORT i32 Read(void* ptr, i32 size);
+    ARTS_EXPORT isize Read(void* ptr, isize size);
 
     // 0x55EC60 | ?Seek@Stream@@QAEHH@Z
     ARTS_EXPORT i32 Seek(i32 position);
@@ -235,16 +235,16 @@ public:
     }
 
     // 0x55EE40 | ?Vprintf@Stream@@QAEHPBDPAD@Z
-    ARTS_EXPORT i32 Vprintf(char const* format, std::va_list va);
+    ARTS_EXPORT isize Vprintf(char const* format, std::va_list va);
 
     // 0x55EB00 | ?Write@Stream@@QAEHPAXH@Z
-    ARTS_EXPORT i32 Write(const void* ptr, i32 size);
+    ARTS_EXPORT isize Write(const void* ptr, isize size);
 
     template <typename T>
     T Get();
 
     template <typename T>
-    void GetN(T* values, i32 count);
+    void GetN(T* values, isize count);
 
 protected:
     // 0x55EE90 | ?RawDebug@Stream@@MAEXXZ
@@ -254,16 +254,16 @@ protected:
     ARTS_EXPORT virtual i32 AlignSize();
 
     // 0x55ED40 | ?GetError@Stream@@MAEHPADH@Z
-    ARTS_EXPORT virtual i32 GetError(char* buf, i32 buf_len);
+    ARTS_EXPORT virtual i32 GetError(char* buf, isize buf_len);
 
     u8* buffer_ {nullptr};
 
     // TODO: Use u64
     u32 position_ {0};
 
-    i32 buffer_head_ {0};
-    i32 buffer_read_ {0};
-    i32 buffer_capacity_ {0};
+    u32 buffer_head_ {0};
+    u32 buffer_read_ {0};
+    u32 buffer_capacity_ {0};
 
     FileSystem* file_system_ {nullptr};
 
@@ -277,10 +277,10 @@ protected:
 
 private:
     // 0x55F240 | ?SwapLongs@Stream@@CAXPAKH@Z
-    ARTS_EXPORT static void SwapLongs(u32* values, i32 count);
+    ARTS_EXPORT static void SwapLongs(u32* values, isize count);
 
     // 0x55F210 | ?SwapShorts@Stream@@CAXPAGH@Z
-    ARTS_EXPORT static void SwapShorts(u16* values, i32 count);
+    ARTS_EXPORT static void SwapShorts(u16* values, isize count);
 };
 
 check_size(Stream, 0x20);
@@ -322,7 +322,7 @@ ARTS_NOINLINE inline T Stream::Get()
 }
 
 template <typename T>
-ARTS_NOINLINE inline void Stream::GetN(T* values, i32 count)
+ARTS_NOINLINE inline void Stream::GetN(T* values, isize count)
 {
     // TODO: Handle incomplete read
     Read(values, sizeof(T) * count);

@@ -56,8 +56,8 @@ agiTexSorter::agiTexSorter()
     MaxVertsPerSet = VtxSize;
     MaxIndicesPerSet = IdxSize;
 
-    MaxOpaqueSetCount = ARTS_SIZE(OpaquePolySets);
-    MaxAlphaSetCount = ARTS_SIZE(AlphaPolySets);
+    MaxOpaqueSetCount = ARTS_SSIZE32(OpaquePolySets);
+    MaxAlphaSetCount = ARTS_SSIZE32(AlphaPolySets);
 
     BigPolySet.Init(BigVtxSize, BigIdxSize);
 

@@ -82,7 +82,7 @@ ARTS_EXPORT int WINAPI MidtownMain(
 
     MetaClass::FixupClasses();
 
-    GetModuleFileNameA(0, Main_ExecPath, ARTS_SIZE(Main_ExecPath));
+    GetModuleFileNameA(0, Main_ExecPath, ARTS_SIZE32(Main_ExecPath));
 
     usize argc = 0;
     Main_Argv[argc++] = Main_ExecPath;

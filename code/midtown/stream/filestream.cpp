@@ -31,7 +31,7 @@ FileStream::FileStream(i32 handle)
     , file_handle_(handle)
 {}
 
-FileStream::FileStream(void* buffer, i32 buffer_size, class FileSystem* file_system)
+FileStream::FileStream(void* buffer, isize buffer_size, class FileSystem* file_system)
     : Stream(buffer, buffer_size, file_system)
 {}
 
@@ -94,7 +94,7 @@ i32 FileStream::Open(const char* path, b32 read_only)
     return file_handle_;
 }
 
-i32 FileStream::RawRead(void* ptr, i32 size)
+isize FileStream::RawRead(void* ptr, isize size)
 {
     return _read(file_handle_, ptr, size);
 }
@@ -120,7 +120,7 @@ i32 FileStream::RawTell()
     return _lseek(file_handle_, 0, SEEK_CUR);
 }
 
-i32 FileStream::RawWrite(const void* ptr, i32 size)
+isize FileStream::RawWrite(const void* ptr, isize size)
 {
     return _write(file_handle_, ptr, size);
 }

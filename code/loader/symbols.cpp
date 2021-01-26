@@ -8279,7 +8279,7 @@ const SymbolInfo* LookupBaseSymbol(std::string_view name)
 const SymbolInfo* LookupBaseSymbolAddress(usize addr)
 {
     if (auto find = std::lower_bound(std::begin(BaseSymbols), std::end(BaseSymbols), addr,
-            [](const SymbolInfo& lhs, u32 addr) { return lhs.Address < addr; });
+            [](const SymbolInfo& lhs, usize addr) { return lhs.Address < addr; });
         find != std::end(BaseSymbols) && find->Address == addr)
     {
         return &*find;
@@ -8334,11 +8334,11 @@ void SymbolInfo::Hook(mem::pointer new_address) const
         case 2: // "Complex" Data (With Deltas)
         {
             mem::pointer addr = 0x400000;
-            i32 delta = 0;
+            isize delta = 0;
 
             while (true)
             {
-                u32 off = leb128_decode_usize(&input);
+                usize off = leb128_decode_usize(&input);
                 if (off == 0)
                     break;
                 addr += off;

@@ -37,7 +37,7 @@ MetaField** MetaClass::ppField {nullptr};
 
 MetaClass MetaClass::RootMetaClass {"Root", 0, nullptr, nullptr, nullptr, nullptr};
 
-MetaClass::MetaClass(const char* name, u32 size, void* (*allocate)(i32), void (*free)(void*, i32),
+MetaClass::MetaClass(const char* name, usize size, void* (*allocate)(isize), void (*free)(void*, isize),
     void (*declare)(void), class MetaClass* parent)
     : name_(name)
     , size_(size)

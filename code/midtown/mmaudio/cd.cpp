@@ -27,7 +27,7 @@ CDMan::CDMan(HWND window)
 {
     static u32 msgs[] {MM_MCINOTIFY};
 
-    RegisterMap("CD Player", msgs, ARTS_SIZE(msgs), this);
+    RegisterMap("CD Player", msgs, ARTS_SSIZE32(msgs), this);
 }
 
 CDMan::~CDMan()
