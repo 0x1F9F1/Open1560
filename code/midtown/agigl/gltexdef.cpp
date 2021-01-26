@@ -147,18 +147,31 @@ i32 agiGLTexDef::BeginGfx()
     // FIXME: Calculate alignment from pointer
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
-    GLenum internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA : GL_RGB;
+    GLenum internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
     SurfaceSize = 0;
 
     i32 num_levels =
         mip_maps ? std::clamp<i32>(surface->MipMapCount, 1, CaluclateMipMapLevels(surface->Width, surface->Height)) : 1;
 
+    if (Pipe()->HasExtension("GL_ARB_texture_storage"))
+    {
+        glTexStorage2D(GL_TEXTURE_2D, num_levels, internal, surface->Width, surface->Height);
+    }
+    else
+    {
+        for (i32 i = 0; i < num_levels; ++i)
+        {
+            i32 width = (std::max<i32>) (surface->Width >> i, 1);
+            i32 height = (std::max<i32>) (surface->Height >> i, 1);
+
+            glTexImage2D(GL_TEXTURE_2D, i, internal, width, height, 0, format, type, NULL);
+        }
+    }
+
     for (i32 i = 0; i < num_levels; ++i)
     {
         i32 width = (std::max<i32>) (surface->Width >> i, 1);
         i32 height = (std::max<i32>) (surface->Height >> i, 1);
-
-        glTexImage2D(GL_TEXTURE_2D, i, internal, width, height, 0, format, type, NULL);
 
         glTexSubImage2D(
             GL_TEXTURE_2D, i, 0, 0, width, height, format, type, static_cast<u8*>(surface->Surface) + SurfaceSize);
