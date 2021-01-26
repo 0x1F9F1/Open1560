@@ -104,6 +104,9 @@ static mem::cmd_param PARAM_window_menu {"windowmenu"};
 static mem::cmd_param PARAM_border {"border"};
 static mem::cmd_param PARAM_afilter {"afilter"};
 
+agiGLPipeline::agiGLPipeline() = default;
+agiGLPipeline::~agiGLPipeline() = default;
+
 i32 agiGLPipeline::BeginGfx()
 {
     if (gfx_started_)

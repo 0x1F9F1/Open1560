@@ -19,14 +19,18 @@
 #pragma once
 
 #include "agi/pipeline.h"
-#include "agi/rsys.h"
 #include "data7/hash.h"
 
 #include "core/minwin.h"
 
+class agiGLRasterizer;
+
 class agiGLPipeline final : public agiPipeline
 {
 public:
+    agiGLPipeline();
+    ~agiGLPipeline();
+
     i32 BeginGfx() override;
     void EndGfx() override;
 
@@ -84,7 +88,7 @@ private:
 
     HashTable extensions_ {128, "Extensions"};
 
-    Rc<agiRasterizer> rasterizer_ {};
+    Rc<agiGLRasterizer> rasterizer_ {};
 
     i32 gl_major_version_ {0};
     i32 gl_minor_version_ {0};

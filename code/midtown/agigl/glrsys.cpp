@@ -29,7 +29,7 @@
 
 #include <glad/glad.h>
 
-static u32 ImmDrawMode = 0;
+static u32 ImmPrimType = 0;
 
 static agiVtx* ImmVtxBase = nullptr;
 static u32 ImmVtxCount = 0;
@@ -424,6 +424,15 @@ i32 agiGLRasterizer::BeginGfx()
         Displayf("OpenGL VAO not supported");
     }
 
+    enum class DrawMode : i32
+    {
+        DrawRange = 0,     // glDrawRangeElements
+        DrawRangeBase = 1, // glDrawRangeElementsBaseVertex
+
+        // DrawIndirect = 2,      // glDrawElementsInstancedBaseVertexBaseInstance
+        // MultiDrawIndirect = 3, // glMultiDrawElementsIndirect
+    };
+
     enum class StreamMode : i32
     {
         BufferData = 0,
@@ -439,9 +448,15 @@ i32 agiGLRasterizer::BeginGfx()
         MapUnsafe = 6,
     };
 
+    DrawMode draw_mode = DrawMode::DrawRange;
     StreamMode stream_mode = StreamMode::BufferData;
 
-    if (Pipe()->HasExtension("GL_ARB_draw_elements_base_vertex") && Pipe()->HasExtension("GL_ARB_sync"))
+    if (Pipe()->HasExtension("GL_ARB_draw_elements_base_vertex"))
+    {
+        draw_mode = DrawMode::DrawRangeBase;
+    }
+
+    if ((draw_mode != DrawMode::DrawRange) && Pipe()->HasExtension("GL_ARB_sync"))
     {
         if (Pipe()->HasExtension("GL_ARB_map_buffer_range"))
         {
@@ -518,9 +533,6 @@ i32 agiGLRasterizer::BeginGfx()
     PrintGlErrors();
 
     vbo_->Bind();
-
-    if (ibo_)
-        ibo_->Bind();
 
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(agiScreenVtx),
         reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x0))); // xyzw
@@ -656,6 +668,11 @@ void main()
     u32 white = 0xFFFFFFFF;
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, &white);
 
+    vbo_->Bind();
+
+    if (ibo_)
+        ibo_->Bind();
+
     PrintGlErrors();
 
     return AGI_ERROR_SUCCESS;
@@ -708,12 +725,12 @@ void agiGLRasterizer::Line(i32 i0, i32 i1)
     indices[1] = static_cast<u16>(i1);
 }
 
-u16* agiGLRasterizer::ImmAddIndices(u32 draw_mode, u16 count)
+u16* agiGLRasterizer::ImmAddIndices(u32 prim_type, u16 count)
 {
-    if ((draw_mode != ImmDrawMode) || (ImmIdxCount + count > ARTS_SIZE(ImmIdxBuffer)))
+    if ((prim_type != ImmPrimType) || (ImmIdxCount + count > ARTS_SIZE(ImmIdxBuffer)))
     {
         ImmDraw();
-        ImmDrawMode = draw_mode;
+        ImmPrimType = prim_type;
     }
 
     u16* result = &ImmIdxBuffer[ImmIdxCount];
@@ -724,7 +741,7 @@ u16* agiGLRasterizer::ImmAddIndices(u32 draw_mode, u16 count)
 void agiGLRasterizer::ImmDraw()
 {
     if (ImmVtxCount && ImmIdxCount)
-        DrawMesh(ImmDrawMode, ImmVtxBase, ImmVtxCount, ImmIdxBuffer, std::exchange(ImmIdxCount, 0));
+        DrawMesh(ImmPrimType, ImmVtxBase, ImmVtxCount, ImmIdxBuffer, std::exchange(ImmIdxCount, 0));
 }
 
 void agiGLRasterizer::Card(i32, i32)
@@ -1073,7 +1090,7 @@ void agiGLRasterizer::FlushGlState()
     real_state_ = state_;
 }
 
-void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count)
+void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count)
 {
     if (!(ActiveFlag & 0x1) || (vertex_count == 0) || (index_count == 0))
         return;
@@ -1091,7 +1108,7 @@ void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, current_min_filter_);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, current_mag_filter_);
 
-    u32 vtx_offset = vbo_->Upload(vertices, vertex_count * sizeof(agiScreenVtx));
+    u32 vtx_offset = vbo_->Upload(vertices, vertex_count * sizeof(agiScreenVtx)) / sizeof(agiScreenVtx);
 
     const void* idx_offset = ibo_
         ? reinterpret_cast<const void*>(static_cast<isize>(ibo_->Upload(indices, index_count * sizeof(u16))))
@@ -1103,11 +1120,11 @@ void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count
     if (vtx_offset)
     {
         glDrawRangeElementsBaseVertex(
-            draw_mode, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset, vtx_offset / sizeof(agiScreenVtx));
+            prim_type, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset, vtx_offset);
     }
     else
     {
-        glDrawRangeElements(draw_mode, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset);
+        glDrawRangeElements(prim_type, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset);
     }
 
     vbo_->SetFences();
