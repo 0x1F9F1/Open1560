@@ -185,7 +185,7 @@ i32 DataCache::BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* co
 
         for (i32 j = 1; j <= max_objects_; ++j)
         {
-            DataCacheObject& dco = objects_[i];
+            DataCacheObject& dco = objects_[j];
 
             if ((dco.nLockCount == 0) && (dco.nMaxSize >= maxsize) && (dco.nMaxSize <= max_size) &&
                 (dco.nAge < max_age))
