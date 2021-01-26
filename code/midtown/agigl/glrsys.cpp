@@ -25,6 +25,7 @@
 #include "eventq7/winevent.h"
 #include "glerror.h"
 #include "gltexdef.h"
+#include "pcwindis/setupdata.h"
 
 #include <glad/glad.h>
 
@@ -61,6 +62,8 @@ public:
     }
 
     virtual u32 Upload(const void* data, u32 length) = 0;
+
+    virtual void SetFences() = 0;
 };
 
 class agiGLBasicStreamBuffer final : public agiGLStreamBuffer
@@ -85,6 +88,9 @@ public:
 
         return 0;
     }
+
+    void SetFences() override
+    {}
 };
 
 class agiGLFencedStreamBuffer : public agiGLStreamBuffer
@@ -103,39 +109,57 @@ public:
         for (usize i = 0; i < NumFences; ++i)
         {
             if (Fences[i])
-            {
-                glClientWaitSync(Fences[i], 0, UINT64_MAX);
                 glDeleteSync(Fences[i]);
-            }
         }
     }
 
-    void FenceSection(usize index, bool lock)
+    void LockSection(usize index)
     {
-        if (lock == (Fences[index] != NULL))
+        if (Fences[index] != NULL)
             return;
 
-        if (lock)
-        {
-            Fences[index] = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
-        }
-        else
-        {
-            if (glClientWaitSync(Fences[index], 0, UINT64_MAX) != GL_ALREADY_SIGNALED)
-            {
-                // We should have picked a larger capacity.
-                // Errorf("Fenced %u", index);
-            }
+        Fences[index] = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
+    }
 
-            glDeleteSync(Fences[index]);
-            Fences[index] = nullptr;
+    void UnlockSection(usize index)
+    {
+        if (Fences[index] == NULL)
+            return;
+
+        if (glClientWaitSync(Fences[index], 0, UINT64_MAX) != GL_ALREADY_SIGNALED)
+        {
+            // We should have picked a larger capacity.
+            // Errorf("Fenced %u", index);
+        }
+
+        glDeleteSync(Fences[index]);
+        Fences[index] = nullptr;
+    }
+
+    u32 GetSectionSize() const
+    {
+        return (Capacity + NumFences - 1) / NumFences;
+    }
+
+    void UnlockRange(u32 offset, u32 length, bool exclusive)
+    {
+        const u32 slice = GetSectionSize();
+
+        for (usize i = 0; i < NumFences; ++i)
+        {
+            u32 start = i * slice;
+
+            if ((offset < (start + slice)) && ((offset + length) > start))
+                UnlockSection(i);
+            else if (exclusive)
+                LockSection(i);
         }
     }
 
-    void FenceAll(bool lock)
+    void WaitForAll()
     {
         for (usize i = 0; i < NumFences; ++i)
-            FenceSection(i, lock);
+            UnlockSection(i);
     }
 
     void CheckFence(u32 length)
@@ -145,19 +169,18 @@ public:
 
         if (Offset + length > Capacity)
         {
-            FenceAll(true);
-
             Offset = 0;
+
+            if (Fences[(Offset + length) / GetSectionSize()] == NULL)
+                Abortf("Data wrapped onto unlocked data (%u, %u)", Offset + length, Capacity);
         }
 
-        const u32 slice = (Capacity + NumFences - 1) / NumFences;
+        UnlockRange(Offset, length, false);
+    }
 
-        for (usize i = 0; i < NumFences; ++i)
-        {
-            u32 start = i * slice;
-
-            FenceSection(i, (Offset >= (start + slice)) || (Offset + length) < start);
-        }
+    void SetFences() override
+    {
+        UnlockRange(Offset, 0, true);
     }
 };
 
@@ -206,7 +229,7 @@ public:
 
     ~agiGLPinnedStreamBuffer()
     {
-        FenceAll(false);
+        WaitForAll();
 
         VirtualFree(Memory, 0, MEM_RELEASE);
     }
@@ -689,8 +712,7 @@ u16* agiGLRasterizer::ImmAddIndices(u32 draw_mode, u16 count)
 {
     if ((draw_mode != ImmDrawMode) || (ImmIdxCount + count > ARTS_SIZE(ImmIdxBuffer)))
     {
-        FlushState();
-
+        ImmDraw();
         ImmDrawMode = draw_mode;
     }
 
@@ -739,16 +761,16 @@ void agiGLRasterizer::FlushAgiState()
     {
         agiLastState.Texture = texture;
 
-        if (u32 handle = texture ? texture->GetHandle() : white_texture_; handle != state_.Texture)
+        if (u32 handle = texture ? texture->GetHandle() : white_texture_; handle != current_texture_)
         {
-            state_.Texture = handle;
+            current_texture_ = handle;
 
             ++STATS.TextureChanges;
 
             if (texture)
                 STATS.TxlsXrfd += texture->SurfaceSize;
 
-            if (texture && state_.Texture)
+            if (texture && current_texture_)
             {
                 agiTexFilter tex_filter = agiCurState.GetTexFilter();
 
@@ -786,14 +808,14 @@ void agiGLRasterizer::FlushAgiState()
                         }
                     }
 
-                    state_.MinFilter = min_filter;
-                    state_.MagFilter = mag_filter;
+                    current_min_filter_ = min_filter;
+                    current_mag_filter_ = mag_filter;
                 }
             }
         }
     }
 
-#define SET_GL_STATE(NAME, VALUE) state_.Set(state_.NAME, VALUE, state_.Touched_##NAME)
+#define SET_GL_STATE(NAME, VALUE) SetState(&State::NAME, VALUE, Touched_##NAME)
 
     if (bool zwrite = agiCurState.GetZWrite(); zwrite != agiLastState.ZWrite)
     {
@@ -853,12 +875,15 @@ void agiGLRasterizer::FlushAgiState()
     bool alpha_mode = agiCurState.GetAlphaEnable();
     u8 alpha_ref = agiCurState.GetAlphaRef();
 
-#if 1
-    alpha_mode = true;
-#else
-    if (texture)
-        alpha_mode |= (texture->Tex.Flags & agiTexParameters::Alpha);
-#endif
+    if (GetRendererInfo().AdditiveBlending)
+    {
+        alpha_mode = true;
+    }
+    else
+    {
+        if (texture)
+            alpha_mode |= texture->Tex.HasAlpha();
+    }
 
     if (alpha_mode != agiLastState.AlphaEnable || alpha_ref != agiLastState.AlphaRef)
     {
@@ -906,12 +931,8 @@ void agiGLRasterizer::FlushAgiState()
             default: Quitf("bad blend mode"); break;
         }
 
-        if (blend_s != state_.BlendFuncS || blend_d != state_.BlendFuncD)
-        {
-            state_.BlendFuncS = blend_s;
-            state_.BlendFuncD = blend_d;
-            state_.Touched |= State::Touched_BlendFunc;
-        }
+        SET_GL_STATE(BlendFuncS, blend_s);
+        SET_GL_STATE(BlendFuncD, blend_d);
     }
 
     if (agiCullMode cull_mode = agiCurState.GetCullMode(); cull_mode != agiLastState.CullMode)
@@ -973,52 +994,83 @@ void agiGLRasterizer::FlushAgiState()
 
 void agiGLRasterizer::FlushGlState()
 {
-    if (state_.Touched == 0)
+    if (touched_ == 0)
         return;
 
     ARTS_TIMED(agiStateChanges);
     ++STATS.StateChanges;
 
-    if (state_.Touched & (State::Touched_DepthMask | State::Touched_DepthTest | State::Touched_DepthFunc))
+    if (touched_ & (Touched_DepthMask | Touched_DepthTest | Touched_DepthFunc))
     {
-        if (state_.Touched & State::Touched_DepthMask)
+        if (touched_ & Touched_DepthMask)
+        {
             glDepthMask(state_.DepthMask);
+            ++STATS.StateChangeCalls;
+        }
 
-        if (state_.Touched & State::Touched_DepthTest)
+        if (touched_ & Touched_DepthTest)
+        {
             (state_.DepthTest ? glEnable : glDisable)(GL_DEPTH_TEST);
+            ++STATS.StateChangeCalls;
+        }
 
-        if (state_.Touched & State::Touched_DepthFunc)
+        if (touched_ & Touched_DepthFunc)
+        {
             glDepthFunc(state_.DepthFunc);
+            ++STATS.StateChangeCalls;
+        }
     }
 
-    if (state_.Touched & State::Touched_PolygonMode)
+    if (touched_ & Touched_PolygonMode)
+    {
         glPolygonMode(GL_FRONT_AND_BACK, state_.PolygonMode);
+        ++STATS.StateChangeCalls;
+    }
 
-    if (state_.Touched & State::Touched_Fog)
+    if (touched_ & Touched_Fog)
+    {
         glUniform4f(uniform_fog_, state_.Fog.x, state_.Fog.y, state_.Fog.z, state_.Fog.w);
+        ++STATS.StateChangeCalls;
+    }
 
-    if (state_.Touched & (State::Touched_Blend | State::Touched_AlphaRef | State::Touched_BlendFunc))
+    if (touched_ & (Touched_Blend | Touched_AlphaRef | Touched_BlendFuncS | Touched_BlendFuncD))
     {
-        if (state_.Touched & State::Touched_Blend)
+        if (touched_ & Touched_Blend)
+        {
             (state_.Blend ? glEnable : glDisable)(GL_BLEND);
+            ++STATS.StateChangeCalls;
+        }
 
-        if (state_.Touched & State::Touched_AlphaRef)
+        if (touched_ & Touched_AlphaRef)
+        {
             glUniform1f(uniform_alpha_ref_, state_.AlphaRef);
+            ++STATS.StateChangeCalls;
+        }
 
-        if (state_.Touched & State::Touched_BlendFunc)
+        if (touched_ & (Touched_BlendFuncS | Touched_BlendFuncD))
+        {
             glBlendFunc(state_.BlendFuncS, state_.BlendFuncD);
+            ++STATS.StateChangeCalls;
+        }
     }
 
-    if (state_.Touched & (State::Touched_CullFace | State::Touched_FrontFace))
+    if (touched_ & (Touched_CullFace | Touched_FrontFace))
     {
-        if (state_.Touched & State::Touched_CullFace)
+        if (touched_ & Touched_CullFace)
+        {
             (state_.CullFace ? glEnable : glDisable)(GL_CULL_FACE);
+            ++STATS.StateChangeCalls;
+        }
 
-        if (state_.Touched & State::Touched_FrontFace)
+        if (touched_ & Touched_FrontFace)
+        {
             glFrontFace(state_.FrontFace);
+            ++STATS.StateChangeCalls;
+        }
     }
 
-    state_.Touched = 0;
+    touched_ = 0;
+    real_state_ = state_;
 }
 
 void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count)
@@ -1026,16 +1078,18 @@ void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count
     if (!(ActiveFlag & 0x1) || (vertex_count == 0) || (index_count == 0))
         return;
 
-    FlushState();
+    FlushAgiState();
 
-    if (state_.Texture == 0)
+    if (current_texture_ == 0)
         return;
 
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, state_.Texture);
+    FlushGlState();
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, state_.MinFilter);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, state_.MagFilter);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, current_texture_);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, current_min_filter_);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, current_mag_filter_);
 
     u32 vtx_offset = vbo_->Upload(vertices, vertex_count * sizeof(agiScreenVtx));
 
@@ -1055,4 +1109,9 @@ void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count
     {
         glDrawRangeElements(draw_mode, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset);
     }
+
+    vbo_->SetFences();
+
+    if (ibo_)
+        ibo_->SetFences();
 }

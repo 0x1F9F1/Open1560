@@ -70,35 +70,12 @@ private:
     u32 uniform_alpha_ref_ {0};
     u32 uniform_fog_ {0};
 
+    u32 current_texture_ {0};
+    u32 current_min_filter_ {0};
+    u32 current_mag_filter_ {0};
+
     struct State
     {
-        enum Touched_ : u32
-        {
-            // Touched_Texture = 1 << 0,
-
-            Touched_DepthMask = 1 << 1,
-            Touched_DepthTest = 1 << 2,
-            Touched_DepthFunc = 1 << 3,
-
-            Touched_PolygonMode = 1 << 4,
-
-            Touched_Blend = 1 << 5,
-            Touched_AlphaRef = 1 << 6,
-
-            Touched_BlendFunc = 1 << 7,
-
-            Touched_CullFace = 1 << 8,
-            Touched_FrontFace = 1 << 9,
-
-            Touched_Fog = 1 << 10,
-        };
-
-        u32 Touched {0};
-
-        u32 Texture {0};
-        u32 MinFilter {0};
-        u32 MagFilter {0};
-
         bool DepthMask {false};
         bool DepthTest {false};
         u32 DepthFunc {0};
@@ -115,14 +92,40 @@ private:
         u32 FrontFace {0};
 
         Vector4 Fog {};
-
-        template <typename T>
-        inline void Set(T& state, T value, u32 touched)
-        {
-            Touched |= (state != value) ? touched : 0;
-            state = value;
-        }
     };
 
+    enum Touched_ : u32
+    {
+        Touched_DepthMask = 1 << 0,
+        Touched_DepthTest = 1 << 1,
+        Touched_DepthFunc = 1 << 2,
+
+        Touched_PolygonMode = 1 << 3,
+
+        Touched_Blend = 1 << 4,
+        Touched_AlphaRef = 1 << 5,
+
+        Touched_BlendFuncS = 1 << 6,
+        Touched_BlendFuncD = 1 << 7,
+
+        Touched_CullFace = 1 << 8,
+        Touched_FrontFace = 1 << 9,
+
+        Touched_Fog = 1 << 10,
+    };
+
+    template <typename T>
+    inline void SetState(T State::*state, T value, u32 touched)
+    {
+        if (real_state_.*state == value)
+            touched_ &= ~touched;
+        else
+            touched_ |= touched;
+
+        state_.*state = value;
+    }
+
+    u32 touched_ {0};
     State state_ {};
+    State real_state_ {};
 };
