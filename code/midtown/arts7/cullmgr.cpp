@@ -80,7 +80,7 @@ static void PrintMemoryUsage()
             char symbol[128];
             LookupAddress(symbol, ARTS_SIZE(symbol), source.uSource);
 
-            Statsf("%5zu, %5zu, %3zu | %s", source.nNodes, source.cbUsed >> 10, source.cbOverhead >> 10, symbol);
+            Statsf("%5zu, %9zu, %10zu | %s", source.nNodes, source.cbUsed >> 10, source.cbOverhead >> 10, symbol);
         }
     }
 }

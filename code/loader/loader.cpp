@@ -212,12 +212,12 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         // Checked in GetPackedTexture, only necessary if agiRQ.TextureQuality <= 2
         // create_patch("aiVehicleOpponent::Init", "agiRQ.TextureQuality", 0x44DC2A, "\xEB\x06", 2);
 
-        create_patch("CACHE", "Capacity", 0x4029DA + 1, "\x00\x10\x00\x00", 4);
-        create_patch("CACHE", "HeapSize", 0x4029DF + 1, "\x00\x00\x40\x00", 4);
+        create_patch("CACHE", "Capacity", 0x4029DA + 1, "\x00\x10\x00\x00", 4); //    0x800 ->   0x1000 (2x)
+        create_patch("CACHE", "HeapSize", 0x4029DF + 1, "\x00\x00\x20\x00", 4); // 0x100000 -> 0x200000 (2x)
         create_hook("CACHE", "Shutdown", 0x402D98, 0x577070, hook_type::call);
 
-        create_patch("TEXCACHE", "Capacity", 0x4029F3 + 1, "\x00\x02\x00\x00", 4);
-        create_patch("TEXCACHE", "HeapSize", 0x4029F8 + 1, "\x00\x00\x00\x02", 4);
+        create_patch("TEXCACHE", "Capacity", 0x4029F3 + 1, "\x00\x02\x00\x00", 4); //    0x100 ->    0x200 (2x)
+        create_patch("TEXCACHE", "HeapSize", 0x4029F8 + 1, "\x00\x00\x40\x00", 4); // 0x200000 -> 0x400000 (2x)
         create_hook("TEXCACHE", "Shutdown", 0x402D8E, 0x577070, hook_type::call);
 
         if (false) // Hack, replaces 16-bit handler with 32-bit handler
