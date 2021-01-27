@@ -34,7 +34,7 @@ static u32 ImmPrimType = 0;
 static agiVtx* ImmVtxBase = nullptr;
 static u32 ImmVtxCount = 0;
 
-static u16 ImmIdxBuffer[4096];
+static alignas(16) u16 ImmIdxBuffer[4096];
 static u32 ImmIdxCount = 0;
 
 class agiGLStreamBuffer
@@ -126,10 +126,12 @@ public:
         if (Fences[index] == NULL)
             return;
 
-        if (glClientWaitSync(Fences[index], 0, UINT64_MAX) != GL_ALREADY_SIGNALED)
+        if (u32 state = glClientWaitSync(Fences[index], 0, 0);
+            state != GL_ALREADY_SIGNALED && state != GL_CONDITION_SATISFIED)
         {
             // We should have picked a larger capacity.
             // Errorf("Fenced %u", index);
+            glClientWaitSync(Fences[index], GL_SYNC_FLUSH_COMMANDS_BIT, UINT64_MAX);
         }
 
         glDeleteSync(Fences[index]);
@@ -180,6 +182,8 @@ public:
 
     void SetFences() override
     {
+        Offset = (Offset + 0xF) & ~usize(0xF);
+
         UnlockRange(Offset, 0, true);
     }
 };

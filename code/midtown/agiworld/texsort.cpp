@@ -101,31 +101,33 @@ agiPolySet::~agiPolySet()
     Kill();
 }
 
+static constexpr usize PolyAlignment = 64;
+
 void agiPolySet::Init(i32 verts, i32 indices)
 {
     if (agiCurState.GetMaxTextures() <= 1)
     {
-        Verts = new agiScreenVtx[verts];
+        Verts = static_cast<agiScreenVtx*>(arts_aligned_alloc(verts * sizeof(agiScreenVtx), PolyAlignment));
     }
     else
     {
-        Verts2 = new agiScreenVtx2[verts];
+        Verts2 = static_cast<agiScreenVtx2*>(arts_aligned_alloc(verts * sizeof(agiScreenVtx2), PolyAlignment));
         Verts = reinterpret_cast<agiScreenVtx*>(Verts2);
     }
 
     MaxVerts = verts;
     MaxIndices = indices;
-    Indices = new u16[indices];
+    Indices = static_cast<u16*>(arts_aligned_alloc(indices * sizeof(u16), PolyAlignment));
 }
 
 void agiPolySet::Kill()
 {
     if (Verts2)
-        delete[] Verts2;
+        arts_aligned_free(Verts2, PolyAlignment);
     else
-        delete[] Verts;
+        arts_aligned_free(Verts, PolyAlignment);
 
-    delete[] Indices;
+    arts_aligned_free(Indices, PolyAlignment);
 
     Verts = nullptr;
     Verts2 = nullptr;

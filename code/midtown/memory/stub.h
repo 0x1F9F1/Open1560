@@ -18,14 +18,6 @@
 
 #pragma once
 
-#include <intrin.h>
-
-#ifdef _MSC_VER
-#    define ArReturnAddress() _ReturnAddress()
-#else
-#    define ArReturnAddress() __builtin_return_address()
-#endif
-
 /*
     memory:stub
 
@@ -47,6 +39,14 @@
     0x521790 | __CrtMemCheckpoint
     0x5217D0 | __CrtDumpMemoryLeaks
 */
+
+#include <intrin.h>
+
+#ifdef _MSC_VER
+#    define ArReturnAddress() _ReturnAddress()
+#else
+#    define ArReturnAddress() __builtin_return_address()
+#endif
 
 // 0x5215C0 | ??3@YAXPAX@Z
 
@@ -86,3 +86,7 @@ ARTS_EXPORT std::size_t arts_msize(void* ptr);
 
 // 0x521510 | _realloc
 ARTS_EXPORT void* arts_realloc(void* ptr, std::size_t size);
+
+void* arts_aligned_alloc(std::size_t size, std::size_t align);
+
+void arts_aligned_free(void* ptr, std::size_t align);

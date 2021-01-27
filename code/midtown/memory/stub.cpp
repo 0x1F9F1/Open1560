@@ -146,3 +146,13 @@ ARTS_EXPORT ARTS_NOINLINE void arts_operator_delete(void* ptr)
 {
     CURHEAP->Free(ptr);
 }
+
+void* arts_aligned_alloc(std::size_t size, std::size_t align)
+{
+    return CURHEAP->Allocate(size, align, ArReturnAddress());
+}
+
+void arts_aligned_free(void* ptr, [[maybe_unused]] std::size_t align)
+{
+    CURHEAP->Free(ptr);
+}
