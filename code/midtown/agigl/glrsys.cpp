@@ -521,6 +521,7 @@ i32 agiGLRasterizer::BeginGfx()
             const u32 vertex_count = 0x20000;
             vbo_ = new agiGLPinnedStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
             ibo_ = new agiGLPinnedStreamBuffer(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
+            break;
         }
 
         case StreamMode::MapUnsafe: {
