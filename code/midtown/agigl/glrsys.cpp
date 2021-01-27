@@ -592,7 +592,7 @@ void main()
 {
     out_Color = texture(u_Texture, frag_UV.xy / frag_UV.z) * frag_Color;
 
-    if (out_Color.a <= u_AlphaRef)
+    if (out_Color.w <= u_AlphaRef)
         discard;
 
     out_Color.xyz = mix(out_Color.xyz, u_Fog.xyz, (1.0 - frag_Specular.w) * u_Fog.w);

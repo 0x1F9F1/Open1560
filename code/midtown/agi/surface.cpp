@@ -91,12 +91,14 @@ static void copyrow4444_to_888amul(void* dst, void* src, u32 len, u32 step)
         u32 v = src16[src_off >> 16];
         src_off += step;
 
-        // rgb = (rgb * a) / 15
-        u32 amul = (v >> 12) * 0x89;
-        u32 rb = (((((v << 8) | v) & 0xF000F) * amul) >> 11) & 0xF000F;
-        v = ((((v & 0xF0) * amul) >> 7) & 0xF00) | rb;
-
-        *dst32++ = v | (v << 4);
+        // rgb = (rgb * a) * (255 / 225)
+        // (255 / 225) == (17 / 15)
+        // (x * 17) / 15 == (x * 17 * 0x889) >> 15
+        u32 amul = (v >> 12) * 0x9119;
+        u32 r = ((v & 0x00F) * amul) >> 15;
+        u32 g = ((v & 0x0F0) * amul) >> 11;
+        u32 b = ((v & 0xF00) * amul) >> 7;
+        *dst32++ = r | (g & 0xFF00) | (b & 0xFF0000);
     }
 }
 
@@ -264,6 +266,9 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters
                 break;
 
             case 0xF00: // 4444
+                // 4444_to_565, 4444_to_5551, 4444_to_555 do alpha multiplication, but 4444_to_8888 and 4444_to_8888rev do not.
+                // Therefore, 4444_to_888amul was added to do the alpha multiplication when needed
+
                 switch (PixelFormat.RBitMask)
                 {
                     case 0xFF0000u:
