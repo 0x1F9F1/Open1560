@@ -281,6 +281,24 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         // create_patch("AudManager::Disable", "Actually disable sfx/music", 0x4E9098 + 1, "\x00\x00\x00\x00", 4);
 
+        for (usize addr : {
+                 0x4F5B6E,
+                 0x4F5C15,
+                 0x4F5E2C,
+
+                 0x4F4CD6,
+                 0x4F52E2,
+                 0x4F533C,
+                 0x4F5397,
+                 0x4F53BA,
+                 0x4F53EA,
+                 0x4F541A,
+                 0x4F54D3,
+             })
+        {
+            create_patch("StreamObj", "Disable Thread Suspend", addr, "\x58\x31\xC0\x90\x90\x90", 6);
+        }
+
         constexpr u32 pxt_checks[][2] {
             {0x444609, 0x444642}, // ?Draw@aiTrafficLightInstance@@UAIXH@Z
             {0x451DA5, 0x451DDE}, // ?Draw@aiVehicleInstance@@UAIXH@Z
