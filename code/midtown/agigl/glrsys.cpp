@@ -268,8 +268,8 @@ public:
             Target, Capacity, NULL, GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | (coherent ? GL_MAP_COHERENT_BIT : 0));
 
         Mapping = glMapBufferRange(Target, 0, Capacity,
-            GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_UNSYNCHRONIZED_BIT | GL_MAP_FLUSH_EXPLICIT_BIT |
-                GL_MAP_INVALIDATE_BUFFER_BIT | (coherent ? GL_MAP_COHERENT_BIT : 0));
+            GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_UNSYNCHRONIZED_BIT | GL_MAP_INVALIDATE_BUFFER_BIT |
+                (coherent ? GL_MAP_COHERENT_BIT : GL_MAP_FLUSH_EXPLICIT_BIT));
     }
 
     ~agiGLPersistentStreamBuffer() override
@@ -462,17 +462,14 @@ i32 agiGLRasterizer::BeginGfx()
 
     if ((draw_mode != DrawMode::DrawRange) && Pipe()->HasExtension("GL_ARB_sync"))
     {
-        if (Pipe()->HasExtension("GL_ARB_map_buffer_range"))
-        {
-            // Persistent storage should always be faster
-            // TODO: Decide on Persistent vs Coherent for integrated graphics (Intel(R) HD Graphics, AMD PALM)
-            stream_mode =
-                Pipe()->HasExtension("GL_ARB_buffer_storage") ? StreamMode::MapPersistent : StreamMode::MapRange;
-        }
-
-        if (stream_mode != StreamMode::MapPersistent && Pipe()->HasExtension("GL_AMD_pinned_memory"))
+        if (Pipe()->HasExtension("GL_AMD_pinned_memory"))
         {
             stream_mode = StreamMode::AmdPinned;
+        }
+        else if (Pipe()->HasExtension("GL_ARB_map_buffer_range"))
+        {
+            stream_mode =
+                Pipe()->HasExtension("GL_ARB_buffer_storage") ? StreamMode::MapCoherent : StreamMode::MapRange;
         }
     }
 
