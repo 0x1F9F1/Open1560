@@ -281,6 +281,12 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         // create_patch("AudManager::Disable", "Actually disable sfx/music", 0x4E9098 + 1, "\x00\x00\x00\x00", 4);
 
+        create_patch("mmGame::Init", "Use MapName", 0x40EEDF,
+            "\x89\x5D\xFC\x89\x87\xBC\x00\x00\x00\x8D\xB7\xB4\x74\x01\x00\x89\x75\xC8\x8B\x0D\xE4\x84\x70\x00\xE8\x24"
+            "\xCF\x0B\x00\x83\xC0\x2C\x50\x56\xE8\x3A\x66\x18\x00\x83\xC4\x08\x0F\xB6\x00\x24\xDF\x3C\x43\x0F\x94\xD0"
+            "\xA3\xE0\x84\x70\x00\x90\x90\x90\x90\x90\x90\x90\x90",
+            0x41);
+
         for (usize addr : {
                  0x4F5B6E,
                  0x4F5C15,
