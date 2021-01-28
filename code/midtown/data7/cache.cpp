@@ -183,7 +183,7 @@ i32 DataCache::BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* co
         u32 max_age = age_;
         u32 max_size = AlignSize(maxsize + (maxsize >> i));
 
-        for (u32 j = 1; j <= max_objects_; ++j)
+        for (u32 j = 1; j <= cur_objects_; ++j)
         {
             DataCacheObject& dco = objects_[j];
 
