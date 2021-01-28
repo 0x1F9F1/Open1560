@@ -101,10 +101,22 @@ void dxiDirectInputCreate()
 {
     if (PARAM_dpiaware.get_or(true))
     {
+        // Fixes mouse drift when display scale is not 100%
+
         SetProcessDPIAware();
     }
 
+#if DIRECTINPUT_VERSION == 0x0800
+    HRESULT(WINAPI * pDirectInput8Create)
+    (HINSTANCE hinst, DWORD dwVersion, REFIID riidltf, LPVOID * ppvOut, LPUNKNOWN punkOuter) =
+        reinterpret_cast<decltype(pDirectInput8Create)>(
+            GetProcAddress(LoadLibraryA("dinput8.dll"), "DirectInput8Create"));
+
+    HRESULT err =
+        pDirectInput8Create(GetModuleHandle(NULL), DIRECTINPUT_VERSION, IID_IDirectInput8A, (void**) &lpDI, NULL);
+#else
     HRESULT err = DirectInputCreateA_Impl(GetModuleHandleA(NULL), DIRECTINPUT_VERSION, &lpDI, 0);
+#endif
 
     if (err != 0)
         Quitf("DirectInputCreate failed, code %x", err);
