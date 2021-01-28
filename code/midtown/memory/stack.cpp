@@ -327,7 +327,7 @@ ARTS_NOINLINE void StackTraceback(i32 depth)
 ARTS_NOINLINE void StackTraceback(i32 depth, i32 skipped)
 {
     isize frames[32];
-    i32 num_frames = StackTraceback(std::min(depth, 32), frames, skipped + 1);
+    i32 num_frames = StackTraceback(std::min(depth, ARTS_SSIZE32(frames)), frames, skipped + 1);
     DumpStackTraceback(frames, num_frames);
 }
 
@@ -385,8 +385,8 @@ i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
     stack_frame.AddrFrame.Offset = context->Ebp;
     stack_frame.AddrFrame.Mode = AddrModeFlat;
 
-    i32 frames[16];
-    i32 num_frames = StackTraceback(16, frames, 0, context);
+    i32 frames[32];
+    i32 num_frames = StackTraceback(ARTS_SSIZE32(frames), frames, 0, context);
     DumpStackTraceback(frames, num_frames);
 
 #ifndef ARTS_FINAL
