@@ -46,14 +46,15 @@ window     | false | Puts the game in a window
 windowmenu | false | Puts the game in a borderless window when in the menu
 
 ## Advanced
-Name       | Value | Description
-agiverbose | false | Enables AGI (graphics) logging
-cleandir   | true  | Deletes various debug files from the games directory
-fontscale  |       | Sets the debug font scale
-gldebug    |       | Sets the OpenGL debug output level
-glstream   |       | Sets the mode for streaming data to the GPU
-sync       | true  | Disables multi-threading
-thinfont   | true  | Enables the debug font slightly thinner
+Name        | Value | Description
+agiverbose  | false | Enables AGI (graphics) logging
+cleandir    | true  | Deletes various debug files from the games directory
+fontscale   |       | Sets the debug font scale
+gldebug     |       | Sets the OpenGL debug output level
+gllinewidth |       | Sets the width of lines (sparks)
+glstream    |       | Sets the mode for streaming data to the GPU
+sync        | true  | Disables multi-threading
+thinfont    | true  | Enables the debug font slightly thinner
 
 ## DirectDraw (disabled)
 Name       | Value | Description
