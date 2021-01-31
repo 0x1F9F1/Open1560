@@ -3,7 +3,9 @@ Open1560 is an open source re-implementation of Midtown Madness 1 beta 1560.
 To run, extract the files in the zip directly into your Midtown Madness 1 directory and then run Open1560.exe.
 
 # Setup
-In most cases, Open1560 should run optimally straight away. However, there are certain things you may wish to change:
+In most cases, Open1560 should run optimally straight away.
+You do not need to install the XP patch, or use dgVoodoo.
+However, there are certain things you may wish to change:
 * If you have a laptop, ensure you are using the correct GPU.
 * If you have low performance (particularly when using integrated graphics), try using the `-glstream 6` argument. Note, this is unsafe and may cause system instability.
 * If you still have low performance, consider disabling cloud shadows and/or the rear view mirror.
@@ -63,4 +65,4 @@ voodooaa   | false | Fixes text rendering when using dgVodooo's anti aliasing
 
 # Dev/Debug Functions
 Beta 1560 contains many debug functions/hotkeys. To enter debug mode, press CTRL+ALT+SHIFT+F4.
-For a llist of hotkeys, see https://github.com/0x1F9F1/Open1560/blob/master/extra/keys.txt
+For a list of hotkeys, see https://github.com/0x1F9F1/Open1560/blob/master/extra/keys.txt

@@ -287,6 +287,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
             "\xA3\xE0\x84\x70\x00\x90\x90\x90\x90\x90\x90\x90\x90",
             0x41);
 
+        create_patch("mmInterface::InitLobby", "Max Lobby Players", 0x40CD1B + 1, "\x08", 1);
+
         for (usize addr : {
                  0x4F5B6E,
                  0x4F5C15,

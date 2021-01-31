@@ -168,8 +168,8 @@ public:
     // DrawMode & 3 = FillMode
     // 0x0: None
     // 0x1: Point
-    // 0x2: Line (Wireframe)
-    // 0x3: Fill (Depth)
+    // 0x2: Wire
+    // 0x3: Solid
 
     // if (DrawMode == 3): DepthTest=0, ZWriteEnable=0, AlphaEnable=1, BlendMode=5, specular=0xFF202020
     // if (DrawMode == 15): TexCoord
