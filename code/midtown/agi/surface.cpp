@@ -31,13 +31,13 @@ define_dummy_symbol(agi_surface);
 ARTS_IMPORT /*static*/ void RescaleJpeg(u32 arg1, u32 arg2, u8* arg3, struct jpeg_decompress_struct& arg4);
 
 // 0x55B7E0 | ?copyrow4444_to_555@@YAXPAX0II@Z
-ARTS_IMPORT /*static*/ void copyrow4444_to_555(void* arg1, void* arg2, u32 arg3, u32 arg4);
+ARTS_IMPORT /*static*/ void copyrow4444_to_555(void* dst, void* src, u32 len, u32 step);
 
 // 0x55B8E0 | ?copyrow4444_to_5551@@YAXPAX0II@Z
-ARTS_IMPORT /*static*/ void copyrow4444_to_5551(void* arg1, void* arg2, u32 arg3, u32 arg4);
+ARTS_IMPORT /*static*/ void copyrow4444_to_5551(void* dst, void* src, u32 len, u32 step);
 
 // 0x55B860 | ?copyrow4444_to_565@@YAXPAX0II@Z
-ARTS_IMPORT /*static*/ void copyrow4444_to_565(void* arg1, void* arg2, u32 arg3, u32 arg4);
+ARTS_IMPORT /*static*/ void copyrow4444_to_565(void* dst, void* src, u32 len, u32 step);
 
 // 0x55B6C0 | ?copyrow4444_to_8888@@YAXPAX0II@Z
 static void copyrow4444_to_8888(void* dst, void* src, u32 len, u32 step)
@@ -57,10 +57,8 @@ static void copyrow4444_to_8888(void* dst, void* src, u32 len, u32 step)
             __m128i dst_lo = _mm_loadu_si128((const __m128i*) (src16));
             src16 += 8;
 
-            __m128i dst_hi = dst_lo;
-
+            __m128i dst_hi = _mm_and_si128(dst_lo, mask_hi);
             dst_lo = _mm_and_si128(dst_lo, mask_lo);
-            dst_hi = _mm_and_si128(dst_hi, mask_hi);
 
             dst_lo = _mm_or_si128(dst_lo, _mm_slli_epi16(dst_lo, 4));
             dst_hi = _mm_or_si128(dst_hi, _mm_srli_epi16(dst_hi, 4));
@@ -86,14 +84,46 @@ static void copyrow4444_to_888amul(void* dst, void* src, u32 len, u32 step)
     u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
     u16* ARTS_RESTRICT src16 = static_cast<u16*>(src);
 
+    // (x * 0xFF) / (0xF * 0xF) == (x * 0x11) / 0xF == (x * 0x11 * 0x889) >> 15 == (x * 0x9119) >> 15
+
+    if (step == 0x10000 && len >= 4)
+    {
+        const __m128i mask_alpha = _mm_set1_epi32(0x001E001E);
+        const __m128i mask_color = _mm_set1_epi32(0x000F0F0F);
+        const __m128i mult_color = _mm_set1_epi32(0x91199119);
+
+        do
+        {
+            len -= 4;
+
+            __m128i dst_lo = _mm_loadu_si64((const __m128i*) (src16));
+            src16 += 4;
+
+            __m128i alphas_16 = _mm_and_si128(_mm_srli_epi16(dst_lo, 11), mask_alpha);
+            alphas_16 = _mm_unpacklo_epi16(alphas_16, alphas_16);
+
+            dst_lo = _mm_and_si128(_mm_unpacklo_epi8(dst_lo, _mm_srli_epi16(dst_lo, 4)), mask_color);
+
+            __m128i dst_hi = _mm_unpackhi_epi8(dst_lo, _mm_setzero_si128());
+            dst_lo = _mm_unpacklo_epi8(dst_lo, _mm_setzero_si128());
+
+            dst_lo = _mm_mullo_epi16(dst_lo, _mm_unpacklo_epi16(alphas_16, alphas_16));
+            dst_hi = _mm_mullo_epi16(dst_hi, _mm_unpackhi_epi16(alphas_16, alphas_16));
+
+            dst_lo = _mm_mulhi_epu16(dst_lo, mult_color);
+            dst_hi = _mm_mulhi_epu16(dst_hi, mult_color);
+
+            _mm_storeu_si128((__m128i*) dst32, _mm_packus_epi16(dst_lo, dst_hi));
+
+            dst32 += 4;
+        } while (len >= 4);
+    }
+
     for (u32 src_off = 0; len; --len)
     {
         u32 v = src16[src_off >> 16];
         src_off += step;
 
-        // rgb = (rgb * a) * (255 / 225)
-        // (255 / 225) == (17 / 15)
-        // (x * 17) / 15 == (x * 17 * 0x889) >> 15
         u32 amul = (v >> 12) * 0x9119;
         u32 r = ((v & 0x00F) * amul) >> 15;
         u32 g = ((v & 0x0F0) * amul) >> 11;
@@ -103,13 +133,13 @@ static void copyrow4444_to_888amul(void* dst, void* src, u32 len, u32 step)
 }
 
 // 0x55B750 | ?copyrow4444_to_8888rev@@YAXPAX0II@Z
-ARTS_IMPORT /*static*/ void copyrow4444_to_8888rev(void* arg1, void* arg2, u32 arg3, u32 arg4);
+ARTS_IMPORT /*static*/ void copyrow4444_to_8888rev(void* dst, void* src, u32 len, u32 step);
 
 // 0x55B510 | ?copyrow565_to_555@@YAXPAX0II@Z
-ARTS_IMPORT /*static*/ void copyrow565_to_555(void* arg1, void* arg2, u32 arg3, u32 arg4);
+ARTS_IMPORT /*static*/ void copyrow565_to_555(void* dst, void* src, u32 len, u32 step);
 
 // 0x55B560 | ?copyrow565_to_5551@@YAXPAX0II@Z
-ARTS_IMPORT /*static*/ void copyrow565_to_5551(void* arg1, void* arg2, u32 arg3, u32 arg4);
+ARTS_IMPORT /*static*/ void copyrow565_to_5551(void* dst, void* src, u32 len, u32 step);
 
 // 0x55B5C0 | ?copyrow565_to_888@@YAXPAX0II@Z
 static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
@@ -130,7 +160,6 @@ static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
             len -= 8;
 
             __m128i dst_lo = _mm_loadu_si128((const __m128i*) (src16));
-
             src16 += 8;
 
             __m128i dst_r = _mm_slli_epi16(_mm_mulhi_epu16(_mm_and_si128(dst_lo, mask_F800), mult_0108), 8);
@@ -156,7 +185,7 @@ static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
 }
 
 // 0x55B640 | ?copyrow565_to_888rev@@YAXPAX0II@Z
-ARTS_IMPORT /*static*/ void copyrow565_to_888rev(void* arg1, void* arg2, u32 arg3, u32 arg4);
+ARTS_IMPORT /*static*/ void copyrow565_to_888rev(void* dst, void* src, u32 len, u32 step);
 
 static void copyrow_8(void* dst, void* src, u32 len, u32 step)
 {
@@ -201,10 +230,10 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod)
 
 void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters* params)
 {
-    u32 dst_width = Width;
-    u32 dst_height = Height;
-    i32 dst_pitch = Pitch;
-    u8* dst_surface = static_cast<u8*>(Surface);
+    u32 const dst_width = Width;
+    u32 const dst_height = Height;
+    i32 const dst_pitch = Pitch;
+    u8* const dst_surface = static_cast<u8*>(Surface);
 
     // FIXME: Surfaces with a PackShift don't have their pitch updated. This should really be corrected in agiSurfaceDesc::Load.
     src->FixPitch();
@@ -302,8 +331,10 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters
             PixelFormat.RBitMask, PixelFormat.GBitMask, PixelFormat.BBitMask, PixelFormat.RGBAlphaBitMask);
     }
 
-    u32 src_x_step = (src_width << 16) / dst_width;
-    u32 src_y_step = (src_height << 16) / dst_height;
+    // 16:16 fixed point arithmetic
+    // Avoids costly div instructions inside the for loop
+    u32 const src_x_step = (src_width << 16) / dst_width;
+    u32 const src_y_step = (src_height << 16) / dst_height;
 
     for (u32 dst_y = 0, src_y = 0; dst_y < dst_height; ++dst_y, src_y += src_y_step)
     {

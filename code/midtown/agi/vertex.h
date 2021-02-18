@@ -29,14 +29,12 @@ enum class agiVtxType : i32
 // D3DFVF_TLVERTEX
 struct agiScreenVtx
 {
-    f32 x;
-    f32 y;
-    f32 z;
-    f32 w;
-    u32 color;
-    u32 specular;
-    f32 tu;
-    f32 tv;
+    f32 x, y;     // screen position
+    f32 z;        // Z-buffer depth
+    f32 w;        // reciprocal homogeneous W
+    u32 color;    // diffuse color
+    u32 specular; // specular color
+    f32 tu, tv;   // texture coordinates
 };
 
 check_size(agiScreenVtx, 0x20);
@@ -44,16 +42,13 @@ check_size(agiScreenVtx, 0x20);
 // (D3DFVF_TLVERTEX | D3DFVF_TEX2) & ~D3DFVF_TEX1
 struct agiScreenVtx2
 {
-    f32 x;
-    f32 y;
-    f32 z;
-    f32 w;
-    u32 color;
-    u32 specular;
-    f32 tu1;
-    f32 tv1;
-    f32 tu2;
-    f32 tv2;
+    f32 x, y;     // screen position
+    f32 z;        // Z-buffer depth
+    f32 w;        // reciprocal homogeneous W
+    u32 color;    // diffuse color
+    u32 specular; // specular color
+    f32 tu1, tv1; // texture 1 coordinates
+    f32 tu2, tv2; // texture 2 coordinates
 };
 
 check_size(agiScreenVtx2, 0x28);
