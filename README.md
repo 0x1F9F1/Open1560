@@ -8,6 +8,16 @@ Open1560 is an open source re-implementation of Midtown Madness Sneak Preview Be
 This project is a bottom-up rewrite of Midtown Madness 1, using the original binary to provide functions that have not been implemented yet.<br/>
 The intention is to allow the fixing of bugs, implementation of new features and porting to platforms unsupported by the original.<br/>
 
+Current changes include:
+* OpenGL Renderer
+* Audio Fixes
+* Crash Fixes
+* Input Fixes
+* Stuttering Fixes
+* Improved Debug Menu
+* Improved Performance
+* Improved/Fixed Text Rendering
+
 ![Preview](extra/preview.png)
 
 ## Installation
