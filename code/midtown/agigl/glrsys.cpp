@@ -345,10 +345,7 @@ public:
 
 void agiGLRasterizer::EndGfx()
 {
-    delete vbo_;
     vbo_ = nullptr;
-
-    delete ibo_;
     ibo_ = nullptr;
 
     if (vao_ != 0)
@@ -411,6 +408,12 @@ static u32 CompileShader(u32 type, const char* src)
 
     return shader;
 }
+
+agiGLRasterizer::agiGLRasterizer(class agiPipeline* pipe)
+    : agiRasterizer(pipe)
+{}
+
+agiGLRasterizer::~agiGLRasterizer() = default;
 
 static mem::cmd_param PARAM_glstream {"glstream"};
 static mem::cmd_param PARAM_gllinewidth {"gllinewidth"};
@@ -491,7 +494,7 @@ i32 agiGLRasterizer::BeginGfx()
             // OpenGL 3.3 removes client-side vertex/index arrays, but we only try and target 3.2 (or lower) by default
             const u32 vertex_count = 0x2000; // Capacity is not important, just to try and pre-allocate some space
             const bool orphan = stream_mode == StreamMode::BufferSubData;
-            vbo_ = new agiGLBasicStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), orphan);
+            vbo_ = MakeUnique<agiGLBasicStreamBuffer>(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), orphan);
             ibo_ = nullptr;
             break;
         }
@@ -499,8 +502,8 @@ i32 agiGLRasterizer::BeginGfx()
         case StreamMode::MapRange: {
             // Capacity is fixed
             const u32 vertex_count = 0x20000;
-            vbo_ = new agiGLAsyncStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
-            ibo_ = new agiGLAsyncStreamBuffer(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
+            vbo_ = MakeUnique<agiGLAsyncStreamBuffer>(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
+            ibo_ = MakeUnique<agiGLAsyncStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
             break;
         }
 
@@ -509,24 +512,26 @@ i32 agiGLRasterizer::BeginGfx()
             // Capacity is fixed
             const u32 vertex_count = 0x20000;
             const bool coherent = stream_mode == StreamMode::MapCoherent;
-            vbo_ = new agiGLPersistentStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), coherent);
-            ibo_ = new agiGLPersistentStreamBuffer(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16), coherent);
+            vbo_ =
+                MakeUnique<agiGLPersistentStreamBuffer>(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), coherent);
+            ibo_ = MakeUnique<agiGLPersistentStreamBuffer>(
+                GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16), coherent);
             break;
         }
 
         case StreamMode::AmdPinned: {
             // Capacity is fixed
             const u32 vertex_count = 0x20000;
-            vbo_ = new agiGLPinnedStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
-            ibo_ = new agiGLPinnedStreamBuffer(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
+            vbo_ = MakeUnique<agiGLPinnedStreamBuffer>(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
+            ibo_ = MakeUnique<agiGLPinnedStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
             break;
         }
 
         case StreamMode::MapUnsafe: {
             // Capacity is fixed
             const u32 vertex_count = 0x20000;
-            vbo_ = new agiGLRiskyAsyncStreamBuffer(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
-            ibo_ = new agiGLRiskyAsyncStreamBuffer(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
+            vbo_ = MakeUnique<agiGLRiskyAsyncStreamBuffer>(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
+            ibo_ = MakeUnique<agiGLRiskyAsyncStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
             break;
         }
 
@@ -900,18 +905,10 @@ void agiGLRasterizer::FlushAgiState()
         SET_GL_STATE(PolygonMode, poly_mode);
     }
 
-    bool alpha_mode = agiCurState.GetAlphaEnable();
-    u8 alpha_ref = agiCurState.GetAlphaRef();
+    bool alpha_mode =
+        agiCurState.GetAlphaEnable() || GetRendererInfo().AdditiveBlending || (texture && texture->Tex.HasAlpha());
 
-    if (GetRendererInfo().AdditiveBlending)
-    {
-        alpha_mode = true;
-    }
-    else
-    {
-        if (texture)
-            alpha_mode |= texture->Tex.HasAlpha();
-    }
+    u8 alpha_ref = agiCurState.GetAlphaRef();
 
     if (alpha_mode != agiLastState.AlphaEnable || alpha_ref != agiLastState.AlphaRef)
     {
@@ -1028,25 +1025,22 @@ void agiGLRasterizer::FlushGlState()
     ARTS_TIMED(agiStateChanges);
     ++STATS.StateChanges;
 
-    if (touched_ & (Touched_DepthMask | Touched_DepthTest | Touched_DepthFunc))
+    if (touched_ & Touched_DepthMask)
     {
-        if (touched_ & Touched_DepthMask)
-        {
-            glDepthMask(state_.DepthMask);
-            ++STATS.StateChangeCalls;
-        }
+        glDepthMask(state_.DepthMask);
+        ++STATS.StateChangeCalls;
+    }
 
-        if (touched_ & Touched_DepthTest)
-        {
-            (state_.DepthTest ? glEnable : glDisable)(GL_DEPTH_TEST);
-            ++STATS.StateChangeCalls;
-        }
+    if (touched_ & Touched_DepthTest)
+    {
+        (state_.DepthTest ? glEnable : glDisable)(GL_DEPTH_TEST);
+        ++STATS.StateChangeCalls;
+    }
 
-        if (touched_ & Touched_DepthFunc)
-        {
-            glDepthFunc(state_.DepthFunc);
-            ++STATS.StateChangeCalls;
-        }
+    if (touched_ & Touched_DepthFunc)
+    {
+        glDepthFunc(state_.DepthFunc);
+        ++STATS.StateChangeCalls;
     }
 
     if (touched_ & Touched_PolygonMode)
@@ -1061,40 +1055,34 @@ void agiGLRasterizer::FlushGlState()
         ++STATS.StateChangeCalls;
     }
 
-    if (touched_ & (Touched_Blend | Touched_AlphaRef | Touched_BlendFuncS | Touched_BlendFuncD))
+    if (touched_ & Touched_Blend)
     {
-        if (touched_ & Touched_Blend)
-        {
-            (state_.Blend ? glEnable : glDisable)(GL_BLEND);
-            ++STATS.StateChangeCalls;
-        }
-
-        if (touched_ & Touched_AlphaRef)
-        {
-            glUniform1f(uniform_alpha_ref_, state_.AlphaRef);
-            ++STATS.StateChangeCalls;
-        }
-
-        if (touched_ & (Touched_BlendFuncS | Touched_BlendFuncD))
-        {
-            glBlendFunc(state_.BlendFuncS, state_.BlendFuncD);
-            ++STATS.StateChangeCalls;
-        }
+        (state_.Blend ? glEnable : glDisable)(GL_BLEND);
+        ++STATS.StateChangeCalls;
     }
 
-    if (touched_ & (Touched_CullFace | Touched_FrontFace))
+    if (touched_ & Touched_AlphaRef)
     {
-        if (touched_ & Touched_CullFace)
-        {
-            (state_.CullFace ? glEnable : glDisable)(GL_CULL_FACE);
-            ++STATS.StateChangeCalls;
-        }
+        glUniform1f(uniform_alpha_ref_, state_.AlphaRef);
+        ++STATS.StateChangeCalls;
+    }
 
-        if (touched_ & Touched_FrontFace)
-        {
-            glFrontFace(state_.FrontFace);
-            ++STATS.StateChangeCalls;
-        }
+    if (touched_ & (Touched_BlendFuncS | Touched_BlendFuncD))
+    {
+        glBlendFunc(state_.BlendFuncS, state_.BlendFuncD);
+        ++STATS.StateChangeCalls;
+    }
+
+    if (touched_ & Touched_CullFace)
+    {
+        (state_.CullFace ? glEnable : glDisable)(GL_CULL_FACE);
+        ++STATS.StateChangeCalls;
+    }
+
+    if (touched_ & Touched_FrontFace)
+    {
+        glFrontFace(state_.FrontFace);
+        ++STATS.StateChangeCalls;
     }
 
     touched_ = 0;

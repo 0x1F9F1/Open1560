@@ -27,9 +27,8 @@ class agiGLStreamBuffer;
 class agiGLRasterizer final : public agiRasterizer
 {
 public:
-    agiGLRasterizer(class agiPipeline* pipe)
-        : agiRasterizer(pipe)
-    {}
+    agiGLRasterizer(class agiPipeline* pipe);
+    ~agiGLRasterizer();
 
     void EndGfx() override;
     i32 BeginGfx() override;
@@ -60,8 +59,8 @@ private:
 
     void DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count);
 
-    agiGLStreamBuffer* vbo_ {nullptr};
-    agiGLStreamBuffer* ibo_ {nullptr};
+    Ptr<agiGLStreamBuffer> vbo_;
+    Ptr<agiGLStreamBuffer> ibo_;
 
     u32 vao_ {0};
     u32 shader_ {0};
