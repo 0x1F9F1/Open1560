@@ -84,7 +84,7 @@ static void copyrow4444_to_888amul(void* dst, void* src, u32 len, u32 step)
     u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
     u16* ARTS_RESTRICT src16 = static_cast<u16*>(src);
 
-    // (x * 0xFF) / (0xF * 0xF) == (x * 0x11) / 0xF == (x * 0x11 * 0x889) >> 15 == (x * 0x9119) >> 15
+    // (x * 0xFF) / (0xF * 0xF) == (x * 0x11) / 0xF == (x * 0x11 * 0x889) >> 15 == (x * 0x9119) >> 15 == (x * 0x1223) >> 12
 
     if (step == 0x10000 && len >= 4)
     {
@@ -124,10 +124,10 @@ static void copyrow4444_to_888amul(void* dst, void* src, u32 len, u32 step)
         u32 v = src16[src_off >> 16];
         src_off += step;
 
-        u32 amul = (v >> 12) * 0x9119;
-        u32 r = ((v & 0x00F) * amul) >> 15;
-        u32 g = ((v & 0x0F0) * amul) >> 11;
-        u32 b = ((v & 0xF00) * amul) >> 7;
+        u32 amul = (v >> 12) * 0x1223;
+        u32 r = ((v & 0x00F) * amul) >> 12;
+        u32 g = ((v & 0x0F0) * amul) >> 8;
+        u32 b = ((v & 0xF00) * amul) >> 4;
         *dst32++ = r | (g & 0xFF00) | (b & 0xFF0000);
     }
 }
