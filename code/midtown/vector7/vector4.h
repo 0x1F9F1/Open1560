@@ -45,14 +45,12 @@
 
 #include "data7/metatype.h"
 
-#include "nan.h"
-
 class Vector4
 {
 public:
-    inline Vector4() noexcept = default;
+    constexpr inline Vector4() noexcept = default;
 
-    constexpr Vector4(f32 x, f32 y, f32 z, f32 w) noexcept
+    constexpr inline Vector4(f32 x, f32 y, f32 z, f32 w) noexcept
         : x(x)
         , y(y)
         , z(z)
@@ -97,10 +95,10 @@ public:
         return (x != other.x) || (y != other.y) || (z != other.z) || (w != other.w);
     }
 
-    f32 x ARTS_DEBUG_NAN;
-    f32 y ARTS_DEBUG_NAN;
-    f32 z ARTS_DEBUG_NAN;
-    f32 w ARTS_DEBUG_NAN;
+    f32 x {};
+    f32 y {};
+    f32 z {};
+    f32 w {};
 };
 
 check_size(Vector4, 0x10);

@@ -42,14 +42,13 @@
 
 #include "core/endian.h"
 #include "data7/metatype.h"
-#include "nan.h"
 
 class Vector2
 {
 public:
-    inline Vector2() noexcept = default;
+    constexpr inline Vector2() noexcept = default;
 
-    constexpr Vector2(f32 x, f32 y) noexcept
+    constexpr inline Vector2(f32 x, f32 y) noexcept
         : x(x)
         , y(y)
     {}
@@ -69,8 +68,8 @@ public:
     // 0x5711E0 | ?Mag@Vector2@@QBEMXZ
     ARTS_IMPORT f32 Mag() const;
 
-    f32 x ARTS_DEBUG_NAN;
-    f32 y ARTS_DEBUG_NAN;
+    f32 x {};
+    f32 y {};
 };
 
 check_size(Vector2, 0x8);

@@ -685,7 +685,7 @@ include_dummy_symbol(mmeffects_damage);
 // include_dummy_symbol(mmeffects_mmnumber);
 include_dummy_symbol(mmeffects_mmtext);
 // include_dummy_symbol(mmeffects_mousesteerbar);
-// include_dummy_symbol(mmeffects_ptx);
+include_dummy_symbol(mmeffects_ptx);
 include_dummy_symbol(mmeffects_vehform);
 
 // include_dummy_symbol(mmgame_cd);

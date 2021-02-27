@@ -18,8 +18,8 @@ arts_component "mmeffects"
         "mmtext.h",
         -- "mousesteerbar.cpp",
         -- "mousesteerbar.h",
-        -- "ptx.cpp",
-        -- "ptx.h",
+        "ptx.cpp",
+        "ptx.h",
         "vehform.cpp",
         "vehform.h",
     }

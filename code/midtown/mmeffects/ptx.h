@@ -40,7 +40,14 @@
     0x7195D0 | int EnablePtxSorting | ?EnablePtxSorting@@3HA
 */
 
+#include "agiworld/meshrend.h"
 #include "arts7/node.h"
+#include "vector7/vector3.h"
+
+struct asSparkInfo;
+struct asSparkPos;
+class agiTexDef;
+class Matrix34;
 
 class asParticles final : public asNode
 {
@@ -48,43 +55,53 @@ class asParticles final : public asNode
 
 public:
     // 0x5000B0 | ??0asParticles@@QAE@XZ
-    ARTS_IMPORT asParticles();
+    ARTS_EXPORT asParticles();
 
     // 0x5009A0 | ??_EasParticles@@UAEPAXI@Z
     // 0x500120 | ??1asParticles@@UAE@XZ
-    ARTS_IMPORT ~asParticles() override;
+    ARTS_EXPORT ~asParticles() override;
 
     // 0x500750 | ?AddWidgets@asParticles@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(class Bank* bank) override;
 
     // 0x5005F0 | ?Blast@asParticles@@QAEXHPAVasBirthRule@@@Z
-    ARTS_IMPORT void Blast(i32 arg1, class asBirthRule* arg2);
+    ARTS_EXPORT void Blast(i32 num_sparks, class asBirthRule* birth_rule);
 
     // 0x5006B0 | ?Cull@asParticles@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
-
-    // 0x500990 | ?GetClass@asParticles@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_EXPORT void Cull() override;
 
     // 0x5001A0 | ?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z
-    ARTS_IMPORT void Init(i32 arg1, i32 arg2, i32 arg3, i32 arg4, struct agiMeshCardVertex* arg5);
+    ARTS_EXPORT void Init(i32 max_particles, i32 arg2, i32 arg3, i32 vert_count, struct agiMeshCardVertex* vertices);
 
     // 0x500210 | ?Reset@asParticles@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // 0x500250 | ?SetTexture@asParticles@@QAEXPAD@Z
-    ARTS_IMPORT void SetTexture(char* arg1);
+    ARTS_EXPORT void SetTexture(char* name);
 
     // 0x500220 | ?SetTexture@asParticles@@QAEXPAVagiTexDef@@@Z
-    ARTS_IMPORT void SetTexture(class agiTexDef* arg1);
+    ARTS_EXPORT void SetTexture(agiTexDef* texture);
 
     // 0x5002A0 | ?Update@asParticles@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x500830 | ?DeclareFields@asParticles@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
+    VIRTUAL_META_DECLARE;
 
-    u8 gap20[0x4C];
+private:
+    i32 SparkCapacity {0};
+    i32 SparkCount {0};
+    Ptr<asSparkInfo[]> Sparks {};
+    Ptr<asSparkPos[]> SparkPositions {};
+    Rc<agiTexDef> Texture {};
+    agiMeshCardInfo MeshCard {};
+    Matrix34* Matrix {nullptr};
+    f32 Elapsed {0.0f};
+    f32 SpewRate {0.0f};
+    f32 TimeTillBlast {0.0f};
+    asBirthRule* BirthRule {nullptr};
+    Vector3 Wind {0.0f, 0.0f, 0.0f};
+    f32 WindDensity {0.0f};
+    f32 Gravity {-9.8f};
 };
 
 check_size(asParticles, 0x6C);

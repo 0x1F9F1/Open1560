@@ -77,15 +77,14 @@
 
 #include "core/endian.h"
 #include "data7/metatype.h"
-#include "nan.h"
 
 class Vector3
 {
 public:
-    inline Vector3() noexcept = default;
+    constexpr inline Vector3() noexcept = default;
 
     // 0x43C100 | ??0Vector3@@QAE@MMM@Z | inline
-    constexpr Vector3(f32 x, f32 y, f32 z) noexcept
+    constexpr inline Vector3(f32 x, f32 y, f32 z) noexcept
         : x(x)
         , y(y)
         , z(z)
@@ -238,9 +237,9 @@ public:
     // 0x566300 | ?rgbtohsv@Vector3@@QAEXXZ | unused
     ARTS_IMPORT void rgbtohsv();
 
-    f32 x ARTS_DEBUG_NAN;
-    f32 y ARTS_DEBUG_NAN;
-    f32 z ARTS_DEBUG_NAN;
+    f32 x {};
+    f32 y {};
+    f32 z {};
 };
 
 check_size(Vector3, 0xC);

@@ -13,7 +13,7 @@ Build | Build Date | Name | Details
 Found in an old .icd alongside the 1560 builds. Needs a custom mmlang.dll to run.
 
 ## 1560
-Sneak Preview CD. Contained Debug and Release builds (plus an old 1549 build).
+Sneak Preview CD. Contained Debug and Release builds (plus an old 1549 build).\
 Available at https://archive.org/details/midtown-madness-sneak-preview-beta-and-sales-avi.
 
 ## 1588

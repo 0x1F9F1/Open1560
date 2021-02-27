@@ -49,7 +49,7 @@ agiRefreshable::~agiRefreshable()
         pipe_->NotifyDelete(this);
 }
 
-void agiRefreshable::AddRef()
+ARTS_NOINLINE void agiRefreshable::AddRef()
 {
     ValidatePtr("AddRef");
 
@@ -88,7 +88,7 @@ b32 agiRefreshable::IsTexture()
     return false;
 }
 
-void agiRefreshable::ValidatePtr(const char* reason)
+ARTS_NOINLINE void agiRefreshable::ValidatePtr(const char* reason)
 {
     usize volatile ptr = reinterpret_cast<usize>(this);
 

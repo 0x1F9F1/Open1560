@@ -81,9 +81,6 @@ public:
     // 0x4C0F20 | ?Update@mmDropDown@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4C0F30 | ?DeclareFields@mmDropDown@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
-
     VIRTUAL_META_DECLARE;
 
 private:

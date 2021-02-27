@@ -159,13 +159,26 @@ ARTS_IMPORT extern f32 ShadowFudge;
 // 0x64A6EC | ?SphMapColor@@3IA
 ARTS_IMPORT extern u32 SphMapColor;
 
+struct agiMeshCardVertex
+{
+    f32 Width;
+    f32 Height;
+    f32 dword8;
+    f32 dwordC;
+};
+
+check_size(agiMeshCardVertex, 0x10);
+
 struct agiMeshCardInfo
 {
 public:
     // 0x50EC90 | ?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z
     ARTS_IMPORT void Init(i32 arg1, struct agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
 
-    u8 gap0[0x10];
+    u32 VertCount {0};
+    u32 PointCount {0};
+    Vector2* Points {nullptr};
+    Vector2* Points2 {nullptr};
 };
 
 check_size(agiMeshCardInfo, 0x10);
