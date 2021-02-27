@@ -418,19 +418,71 @@ agiGLRasterizer::~agiGLRasterizer() = default;
 static mem::cmd_param PARAM_glstream {"glstream"};
 static mem::cmd_param PARAM_gllinewidth {"gllinewidth"};
 
+enum class agiGLAttribType
+{
+    Float2,
+    Float4,
+    BGRA,
+};
+
+struct agiGLVertexAttrib
+{
+    u32 Index;
+    agiGLAttribType Type;
+    const char* Name;
+    usize Offset;
+    usize Stride;
+};
+
+// clang-format off
+static const agiGLVertexAttrib agiScreenVtx_Attribs[] {
+    {0, agiGLAttribType::Float4, "in_Position", offsetof(agiScreenVtx, x),        sizeof(agiScreenVtx)},
+    {1, agiGLAttribType::BGRA,   "in_Color",    offsetof(agiScreenVtx, color),    sizeof(agiScreenVtx)},
+    {2, agiGLAttribType::BGRA,   "in_Specular", offsetof(agiScreenVtx, specular), sizeof(agiScreenVtx)},
+    {3, agiGLAttribType::Float2, "in_UV",       offsetof(agiScreenVtx, tu),       sizeof(agiScreenVtx)},
+};
+// clang-format on
+
+static void BindVertexAttribs(const agiGLVertexAttrib* attribs, usize count, const void* pointer)
+{
+    for (usize i = 0; i < count; ++i)
+    {
+        const agiGLVertexAttrib& attrib = attribs[i];
+
+        GLint size = 0;
+        GLenum type = 0;
+        GLboolean normalized = GL_FALSE;
+
+        switch (attrib.Type)
+        {
+            case agiGLAttribType::Float2:
+                size = 2;
+                type = GL_FLOAT;
+                break;
+
+            case agiGLAttribType::Float4:
+                size = 4;
+                type = GL_FLOAT;
+                break;
+
+            case agiGLAttribType::BGRA:
+                size = GL_BGRA;
+                type = GL_UNSIGNED_BYTE;
+                normalized = GL_TRUE;
+                break;
+
+            default: Abortf("Invalid Vertex Attrib Type");
+        }
+
+        glVertexAttribPointer(attrib.Index, size, type, normalized, static_cast<GLsizei>(attrib.Stride),
+            static_cast<const unsigned char*>(pointer) + attrib.Offset);
+        glEnableVertexAttribArray(attrib.Index);
+    }
+}
+
 i32 agiGLRasterizer::BeginGfx()
 {
     PrintGlErrors();
-
-    if (Pipe()->HasExtension("GL_ARB_vertex_array_object"))
-    {
-        glGenVertexArrays(1, &vao_);
-        glBindVertexArray(vao_);
-    }
-    else
-    {
-        Displayf("OpenGL VAO not supported");
-    }
 
     enum class DrawMode : i32
     {
@@ -454,6 +506,8 @@ i32 agiGLRasterizer::BeginGfx()
         AmdPinned = 5,
 
         MapUnsafe = 6,
+
+        ClientSide = 7,
     };
 
     DrawMode draw_mode = DrawMode::DrawRange;
@@ -480,7 +534,7 @@ i32 agiGLRasterizer::BeginGfx()
     const char* gl_version = (const char*) glGetString(GL_VERSION);
 
     if (i32 mode = 0; PARAM_glstream.get(mode))
-        stream_mode = static_cast<StreamMode>(mode); // Will crash using an invalid mode, but let's have some fun
+        stream_mode = static_cast<StreamMode>(mode);
     else if ((stream_mode == StreamMode::MapRange) && !std::strstr(gl_version, "Mesa"))
         stream_mode =
             StreamMode::BufferSubData; // Mesa seems to get a mid-large perf boost, others seem slightly slower
@@ -535,28 +589,33 @@ i32 agiGLRasterizer::BeginGfx()
             break;
         }
 
+        case StreamMode::ClientSide: {
+            vbo_ = nullptr;
+            ibo_ = nullptr;
+            break;
+        }
+
         default: Quitf("Invalid Stream Mode");
     }
 
     PrintGlErrors();
 
-    vbo_->Bind();
+    if (vbo_)
+    {
+        if (Pipe()->HasExtension("GL_ARB_vertex_array_object"))
+        {
+            glGenVertexArrays(1, &vao_);
+            glBindVertexArray(vao_);
+        }
+        else
+        {
+            Displayf("OpenGL VAO not supported");
+        }
 
-    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(agiScreenVtx),
-        reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x0))); // xyzw
-    glEnableVertexAttribArray(0);
+        vbo_->Bind();
 
-    glVertexAttribPointer(1, GL_BGRA, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(agiScreenVtx),
-        reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x10))); // color
-    glEnableVertexAttribArray(1);
-
-    glVertexAttribPointer(2, GL_BGRA, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(agiScreenVtx),
-        reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x14))); // specular
-    glEnableVertexAttribArray(2);
-
-    glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, sizeof(agiScreenVtx),
-        reinterpret_cast<const GLvoid*>(static_cast<GLintptr>(0x18))); // uv
-    glEnableVertexAttribArray(3);
+        BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), nullptr);
+    }
 
     u32 vs = CompileShader(GL_VERTEX_SHADER, R"(
 #version 130
@@ -610,10 +669,8 @@ void main()
     glAttachShader(shader_, vs);
     glAttachShader(shader_, fs);
 
-    glBindAttribLocation(shader_, 0, "in_Position");
-    glBindAttribLocation(shader_, 1, "in_Color");
-    glBindAttribLocation(shader_, 2, "in_Specular");
-    glBindAttribLocation(shader_, 3, "in_UV");
+    for (const auto& attrib : agiScreenVtx_Attribs)
+        glBindAttribLocation(shader_, attrib.Index, attrib.Name);
 
     glLinkProgram(shader_);
 
@@ -646,29 +703,29 @@ void main()
     f32 z_near = -1.0f;
     f32 z_far = 1.0f;
 
-    GLfloat transform[4][4];
+    const GLfloat transform[16] {
+        2.0f / (right - left),
+        0.0f,
+        0.0f,
+        0.0f,
 
-    transform[0][0] = 2.0f / (right - left);
-    transform[0][1] = 0.0f;
-    transform[0][2] = 0.0f;
-    transform[0][3] = 0.0f;
+        0.0f,
+        2.0f / (top - bottom),
+        0.0f,
+        0.0f,
 
-    transform[1][0] = 0.0f;
-    transform[1][1] = 2.0f / (top - bottom);
-    transform[1][2] = 0.0f;
-    transform[1][3] = 0.0f;
+        0.0f,
+        0.0f,
+        -2.0f / (z_far - z_near),
+        0.0f,
 
-    transform[2][0] = 0.0f;
-    transform[2][1] = 0.0f;
-    transform[2][2] = -2.0f / (z_far - z_near);
-    transform[2][3] = 0.0f;
+        -(right + left) / (right - left),
+        -(top + bottom) / (top - bottom),
+        -(z_far + z_near) / (z_far - z_near),
+        1.0f,
+    };
 
-    transform[3][0] = -(right + left) / (right - left);
-    transform[3][1] = -(top + bottom) / (top - bottom);
-    transform[3][2] = -(z_far + z_near) / (z_far - z_near);
-    transform[3][3] = 1.0f;
-
-    glUniformMatrix4fv(glGetUniformLocation(shader_, "u_Transform"), 1, GL_FALSE, (const GLfloat*) &transform);
+    glUniformMatrix4fv(glGetUniformLocation(shader_, "u_Transform"), 1, GL_FALSE, transform);
 
     glGenTextures(1, &white_texture_);
     glBindTexture(GL_TEXTURE_2D, white_texture_);
@@ -684,7 +741,8 @@ void main()
 
     glLineWidth(line_width);
 
-    vbo_->Bind();
+    if (vbo_)
+        vbo_->Bind();
 
     if (ibo_)
         ibo_->Bind();
@@ -1107,7 +1165,16 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, current_min_filter_);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, current_mag_filter_);
 
-    u32 vtx_offset = vbo_->Upload(vertices, vertex_count * sizeof(agiScreenVtx)) / sizeof(agiScreenVtx);
+    u32 vtx_offset = 0;
+
+    if (vbo_)
+    {
+        vtx_offset = vbo_->Upload(vertices, vertex_count * sizeof(agiScreenVtx)) / sizeof(agiScreenVtx);
+    }
+    else
+    {
+        BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), vertices);
+    }
 
     const void* idx_offset = ibo_
         ? reinterpret_cast<const void*>(static_cast<isize>(ibo_->Upload(indices, index_count * sizeof(u16))))
@@ -1126,7 +1193,8 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
         glDrawRangeElements(prim_type, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset);
     }
 
-    vbo_->SetFences();
+    if (vbo_)
+        vbo_->SetFences();
 
     if (ibo_)
         ibo_->SetFences();
