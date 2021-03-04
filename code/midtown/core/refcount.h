@@ -278,7 +278,7 @@ template <typename T>
 using RcOwner = Rc<T>;
 
 template <typename T>
-inline Rc<T> AsRc(RcOwner<T> ptr)
+ARTS_FORCEINLINE Rc<T> AsRc(RcOwner<T> ptr)
 {
     return ptr;
 }
@@ -287,7 +287,7 @@ template <typename T>
 using RcOwner = T*;
 
 template <typename T>
-inline Rc<T> AsRc(RcOwner<T> ptr)
+ARTS_FORCEINLINE Rc<T> AsRc(RcOwner<T> ptr)
 {
     return Rc<T>(ptr);
 }

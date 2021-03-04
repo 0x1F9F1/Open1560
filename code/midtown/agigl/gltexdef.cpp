@@ -138,9 +138,6 @@ i32 agiGLTexDef::BeginGfx()
         default: Quitf("Invalid Format");
     }
 
-    i32 prev_texture = 0;
-    glGetIntegerv(GL_TEXTURE_BINDING_2D, &prev_texture);
-
     glGenTextures(1, &texture_);
     glBindTexture(GL_TEXTURE_2D, texture_);
 
@@ -219,8 +216,6 @@ i32 agiGLTexDef::BeginGfx()
     // NOTE: Textures created by the pager NEED to be synchronied.
     //       This requires a glFlush (slow-ish) or glFenceSync (GL 3.2+).
     // glFlush();
-
-    glBindTexture(GL_TEXTURE_2D, prev_texture);
 
     page_state_ = 0;
     state_ = 2;
@@ -307,16 +302,11 @@ void agiGLTexDef::Unlock(agiTexLock& lock)
         default: Quitf("Invalid Format");
     }
 
-    i32 prev_texture = 0;
-    glGetIntegerv(GL_TEXTURE_BINDING_2D, &prev_texture);
-
     glBindTexture(GL_TEXTURE_2D, texture_);
     glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, lock.Width, lock.Height, format, type, lock.Surface);
 
     lock.ColorModel->Release();
     lock = {};
-
-    glBindTexture(GL_TEXTURE_2D, prev_texture);
 }
 
 b32 agiGLTexDef::IsAvailable()

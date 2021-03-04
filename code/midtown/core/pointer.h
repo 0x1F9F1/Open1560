@@ -29,19 +29,19 @@ template <typename T>
 using Owner = Ptr<T>;
 
 template <typename T>
-inline Ptr<T> AsPtr(Owner<T> ptr)
+ARTS_FORCEINLINE Ptr<T> AsPtr(Owner<T> ptr)
 {
     return ptr;
 }
 
-#    define AsOwner(PTR) std::move((PTR))
+#    define AsOwner(PTR) (std::move((PTR)))
 #    define AsRaw(PTR) ((PTR).release())
 #else
 template <typename T>
 using Owner = T*;
 
 template <typename T>
-inline Ptr<T> AsPtr(Owner<T> ptr)
+ARTS_FORCEINLINE Ptr<T> AsPtr(Owner<T> ptr)
 {
     return Ptr<T>(ptr);
 }

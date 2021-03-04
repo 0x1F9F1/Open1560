@@ -218,6 +218,8 @@ i32 agiGLPipeline::BeginGfx()
 
     HGLRC modern_gl_context = NULL;
 
+    DebugMessageLevel = PARAM_gldebug.get_or(-1);
+
     if (!PARAM_legacygl.get_or(false) && HasExtension("WGL_ARB_pixel_format") && HasExtension("WGL_ARB_create_context"))
     {
         Displayf("Creating modern OpenGL context");
@@ -259,12 +261,19 @@ i32 agiGLPipeline::BeginGfx()
             if (HasExtension("WGL_ARB_create_context_profile"))
             {
                 attribs[num_attribs++] = WGL_CONTEXT_PROFILE_MASK_ARB;
-                attribs[num_attribs++] =
-#ifdef ARTS_DEBUG
-                    WGL_CONTEXT_CORE_PROFILE_BIT_ARB | WGL_CONTEXT_DEBUG_BIT_ARB;
-#else
-                    WGL_CONTEXT_CORE_PROFILE_BIT_ARB;
-#endif
+
+                int profile_mask = WGL_CONTEXT_CORE_PROFILE_BIT_ARB;
+
+                if (DebugMessageLevel > -1)
+                    profile_mask |= WGL_CONTEXT_DEBUG_BIT_ARB;
+
+                attribs[num_attribs++] = profile_mask;
+            }
+
+            if ((DebugMessageLevel < 0) && HasExtension("WGL_ARB_create_context_no_error"))
+            {
+                attribs[num_attribs++] = WGL_CONTEXT_OPENGL_NO_ERROR_ARB;
+                attribs[num_attribs++] = 1;
             }
 
             attribs[num_attribs++] = 0;
@@ -284,8 +293,8 @@ i32 agiGLPipeline::BeginGfx()
 
     if (modern_gl_context != NULL)
     {
-        wglDeleteContext(gl_context_);
         wglMakeCurrent(window_dc_, modern_gl_context);
+        wglDeleteContext(gl_context_);
         gl_context_ = modern_gl_context;
 
         // Reload extensions, just in case
@@ -304,8 +313,6 @@ i32 agiGLPipeline::BeginGfx()
     Displayf("OpenGL Shader Version: %s", glGetString(GL_SHADING_LANGUAGE_VERSION));
     Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
     Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
-
-    DebugMessageLevel = PARAM_gldebug.get_or(-1);
 
     if ((DebugMessageLevel > -1) && HasExtension("GL_KHR_debug"))
     {
