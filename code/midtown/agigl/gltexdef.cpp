@@ -49,6 +49,30 @@ static u32 CaluclateMipMapLevels(u32 width, u32 height)
     return 1 + ilog2(std::max(width, height));
 }
 
+static inline void color_key_to_alpha(u32* pixels, u32 len)
+{
+    if (len >= 4)
+    {
+        const __m128i color_mask = _mm_set1_epi32(0x00FFFFFF);
+        const __m128i alpha_mask = _mm_set1_epi32(0xFF000000);
+        const __m128i color_key = _mm_setzero_si128();
+
+        do
+        {
+            len -= 4;
+
+            const __m128i colors16 = _mm_loadu_si128((const __m128i*) (pixels));
+            const __m128i mask = _mm_cmpeq_epi32(_mm_and_si128(colors16, color_mask), color_key);
+            _mm_storeu_si128((__m128i*) pixels, _mm_or_si128(colors16, _mm_andnot_si128(mask, alpha_mask)));
+
+            pixels += 4;
+        } while (len >= 4);
+    }
+
+    for (u32 i = 0; i < len; ++i)
+        pixels[i] |= (pixels[i] & 0xFFFFFF) ? 0xFF000000 : 0;
+}
+
 i32 agiGLTexDef::BeginGfx()
 {
     if (Surface == nullptr)
@@ -95,11 +119,9 @@ i32 agiGLTexDef::BeginGfx()
 
             for (u32 y = 0; y < temp_surface->Height; ++y)
             {
-                u32* pixels =
-                    reinterpret_cast<u32*>(static_cast<u8*>(temp_surface->Surface) + (y * temp_surface->Pitch));
-
-                for (u32 x = 0; x < temp_surface->Width; ++x)
-                    pixels[x] |= (pixels[x] & 0xFFFFFF) ? 0xFF000000 : 0;
+                color_key_to_alpha(
+                    reinterpret_cast<u32*>(static_cast<u8*>(temp_surface->Surface) + (y * temp_surface->Pitch)),
+                    temp_surface->Width);
             }
 
             Tex.Flags &= ~agiTexParameters::Chromakey;
