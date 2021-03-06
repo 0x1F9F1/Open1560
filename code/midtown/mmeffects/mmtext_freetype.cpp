@@ -53,6 +53,23 @@ private:
     char name_[256] {};
     i32 height_ {0};
 
+    struct mmGlyph
+    {
+        i32 Top {0};
+        i32 Left {0};
+        i32 AdvanceX {0};
+
+        u32 Rows {0};
+        u32 Width {0};
+        i32 Pitch {0};
+        Ptr<u8[]> Buffer;
+    };
+
+    Ptr<mmGlyph> glyphs_[128] {};
+    mmGlyph temp_glyph_;
+
+    const mmGlyph& LoadChar(u32 char_code);
+
 public:
     void Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format);
     void Kill();
@@ -78,15 +95,50 @@ i32 mmFont::GetWidth(const char* text)
 
     for (usize i = 0; text[i]; ++i)
     {
-        FT_Load_Char(face_, static_cast<unsigned char>(text[i]), FT_LOAD_TARGET_MONO);
+        const mmGlyph& glyph = LoadChar(static_cast<unsigned char>(text[i]));
 
-        if (i == 0 && face_->glyph->bitmap_left < 0)
-            width -= face_->glyph->bitmap_left << 6;
+        if (i == 0 && glyph.Left < 0)
+            width -= glyph.Left << 6;
 
-        width += face_->glyph->advance.x;
+        width += glyph.AdvanceX;
     }
 
     return (width + 63) >> 6;
+}
+
+const mmFont::mmGlyph& mmFont::LoadChar(u32 char_code)
+{
+    mmGlyph* result = nullptr;
+
+    // TODO: Cache all chars
+    if (char_code < ARTS_SIZE32(glyphs_))
+    {
+        if (result = glyphs_[char_code].get(); result)
+            return *result;
+
+        glyphs_[char_code] = MakeUnique<mmGlyph>();
+        result = glyphs_[char_code].get();
+    }
+    else
+    {
+        result = &temp_glyph_;
+    }
+
+    FT_Load_Char(face_, char_code, FT_LOAD_RENDER | FT_LOAD_MONOCHROME | FT_LOAD_TARGET_MONO);
+
+    result->Left = face_->glyph->bitmap_left;
+    result->Top = face_->glyph->bitmap_top;
+    result->AdvanceX = face_->glyph->advance.x;
+
+    result->Rows = face_->glyph->bitmap.rows;
+    result->Width = face_->glyph->bitmap.width;
+    result->Pitch = face_->glyph->bitmap.pitch;
+
+    usize buffer_size = result->Rows * result->Pitch;
+    result->Buffer.reset(new u8[buffer_size]);
+    std::memcpy(result->Buffer.get(), face_->glyph->bitmap.buffer, buffer_size);
+
+    return *result;
 }
 
 void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format)
@@ -131,34 +183,33 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
 
     for (usize i = 0; text[i]; ++i)
     {
-        FT_Load_Char(
-            face_, static_cast<unsigned char>(text[i]), FT_LOAD_RENDER | FT_LOAD_MONOCHROME | FT_LOAD_TARGET_MONO);
+        const mmGlyph& glyph = LoadChar(static_cast<unsigned char>(text[i]));
 
         if ((i == 0) && (format & MM_TEXT_PADDING))
-            x -= face_->glyph->bitmap_left << 6;
+            x -= glyph.Left << 6;
 
-        for (u32 src_y = 0; src_y < face_->glyph->bitmap.rows; ++src_y)
+        for (u32 src_y = 0; src_y < glyph.Rows; ++src_y)
         {
-            u32 src_y_off = src_y * face_->glyph->bitmap.pitch;
+            u32 src_y_off = src_y * glyph.Pitch;
 
-            u32 dst_y = (y >> 6) + src_y - face_->glyph->bitmap_top;
+            u32 dst_y = (y >> 6) + src_y - glyph.Top;
 
             if (static_cast<i32>(dst_y) >= height)
                 continue;
 
-            for (u32 src_x = 0; src_x < face_->glyph->bitmap.width; ++src_x)
+            for (u32 src_x = 0; src_x < glyph.Width; ++src_x)
             {
-                u32 dst_x = (x >> 6) + src_x + face_->glyph->bitmap_left;
+                u32 dst_x = (x >> 6) + src_x + glyph.Left;
 
                 if (static_cast<i32>(dst_x) >= width)
                     continue;
 
-                if (face_->glyph->bitmap.buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
+                if (glyph.Buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
                     cmodel->SetPixel(surface, dst_x, dst_y, color);
             }
         }
 
-        x += face_->glyph->advance.x;
+        x += glyph.AdvanceX;
     }
 }
 
