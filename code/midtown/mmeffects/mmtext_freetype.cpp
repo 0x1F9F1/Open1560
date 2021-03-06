@@ -151,6 +151,9 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
     i32 width = rect.right - rect.left;
     i32 height = rect.bottom - rect.top;
 
+    // TODO: Add MM_TEXT_WORDBREAK support (used by PUResults)
+    // TODO: Add UTF-8 support
+
     if (format & (MM_TEXT_CENTER | MM_TEXT_RIGHT))
     {
         i32 text_width = GetWidth(text);
