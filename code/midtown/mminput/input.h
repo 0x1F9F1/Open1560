@@ -118,8 +118,99 @@ ARTS_IMPORT void testsuperq();
 // 0x719254 | ?GameInputPtr@@3PAVmmInput@@A
 ARTS_IMPORT extern class mmInput* GameInputPtr;
 
+#define IOID_MAP 0
+#define IOID_FMAP 1
+#define IOID_MAPRES 2
+#define IOID_HUD 3
+#define IOID_STR 4
+#define IOID_STRL 5
+#define IOID_STRR 6
+#define IOID_THROT 7
+#define IOID_BRAKE 8
+#define IOID_HAND 9
+#define IOID_CAM 10
+#define IOID_XVIEW 11
+#define IOID_HORN 12
+#define IOID_LOKL 13
+#define IOID_LOKR 14
+#define IOID_LOKB 15
+#define IOID_LOKF 16
+#define IOID_WFOV 17
+#define IOID_DASH 18
+#define IOID_TRANS 19
+#define IOID_UPSH 20
+#define IOID_DWNS 21
+#define IOID_REV 22
+#define IOID_WYPTN 23
+#define IOID_WYPTP 24
+#define IOID_CDSHOW 25
+#define IOID_CDPLAY 26
+#define IOID_CDPRIOR 27
+#define IOID_CDNEXT 28
+#define IOID_MIRROR 29
+#define IOID_PAN 30
+#define IOID_31 31
+#define IOID_32 32
+#define IOID_COUNT 33
+
 // 0x719220 | ?IODev@@3PAVmmIODev@@A
 ARTS_IMPORT extern class mmIODev* IODev;
+
+namespace ioType
+{
+    enum ioType_ : i32
+    {
+        kUndef = 0,
+        kDiscrete = 1,
+        kContinuous = 2,
+        kEvent = 3,
+    };
+}
+
+enum mmInputType : i32
+{
+    mmiMOUSE = 0,
+    mmiKEYBOARD = 1,
+    mmiJOYSTICK = 2,
+    mmiGAMEPAD = 3,
+    mmiWHEEL2AXIS = 4,
+};
+
+#define MM_MOUSE 2
+#define MM_KEYBOARD 3
+#define MM_JOYSTICK1 4
+
+// Unsupported
+#define MM_JOYSTICK2 5
+#define MM_JOYSTICK3 6
+#define MM_JOYSTICK4 7
+
+enum : i32
+{
+    kXaxis = 10,
+    kYaxis = 11,
+    kZaxis = 12,
+    kUaxis = 13,
+    kRaxis = 14,
+    kVaxis = 15,
+    kPOVaxis = 16,
+    kXaxisLeft = 17,
+    kXaxisRight = 18,
+    kYaxisUp = 19,
+    kYaxisDown = 20,
+    kJButton1 = 21,
+    kJButton2 = 22,
+    kJButton3 = 23,
+    kJButton4 = 24,
+    kJButton5 = 25,
+    kJButton6 = 26,
+    kJButton7 = 27,
+    kJButton8 = 28,
+    kJButton9 = 29,
+    kJButton10 = 30,
+    kJButton11 = 31,
+    kJButton12 = 32,
+};
 
 // 0x719268 | ?InputConfiguration@@3HA
 ARTS_IMPORT extern i32 InputConfiguration;
