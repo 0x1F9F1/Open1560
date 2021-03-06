@@ -44,7 +44,15 @@ public:
     }
 
     // 0x5768F0 | ?Time@Timer@@QAEMXZ
-    ARTS_EXPORT f32 Time();
+    ARTS_EXPORT f32 Time()
+    {
+        return (Ticks() - start_ticks_) * TicksToSeconds;
+    }
+
+    f32 TimeMS()
+    {
+        return (Ticks() - start_ticks_) * TicksToMilliseconds;
+    }
 
     // 0x576920 | ?BeginBenchmark@Timer@@SAXXZ | unused
     ARTS_EXPORT static void BeginBenchmark();
@@ -60,6 +68,8 @@ public:
 
     // 0x90A66C | ?TicksToSeconds@Timer@@2MA
     static f32 TicksToSeconds;
+
+    static f32 TicksToMilliseconds;
 
 private:
     ulong start_ticks_ {0};

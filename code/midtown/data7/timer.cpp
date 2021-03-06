@@ -30,6 +30,7 @@ static u32 TimerOldPriorityClass = 0;
 static u32 TimerOldPriority = 0;
 
 f32 Timer::TicksToSeconds = 0.0f;
+f32 Timer::TicksToMilliseconds = 0.0f;
 
 ARTS_NOINLINE Timer::Timer()
 {
@@ -40,17 +41,19 @@ ARTS_NOINLINE Timer::Timer()
         TimerMode = QueryPerformanceFrequency(&frequency) ? 2 : 1;
 
         if (TimerMode == 1)
+        {
             TicksToSeconds = 0.001f;
+            TicksToMilliseconds = 1.0f;
+
+        }
         else
+        {
             TicksToSeconds = 1.0f / frequency.QuadPart;
+            TicksToMilliseconds = 1000.0f / frequency.QuadPart;
+        }
     }
 
     Reset();
-}
-
-ARTS_NOINLINE f32 Timer::Time()
-{
-    return (Ticks() - start_ticks_) * TicksToSeconds;
 }
 
 void Timer::BeginBenchmark()
@@ -76,7 +79,7 @@ void Timer::Sleep(i32 ms)
     ::Sleep(ms);
 }
 
-ulong Timer::Ticks()
+ARTS_NOINLINE ulong Timer::Ticks()
 {
     if (TimerMode == 1)
     {
