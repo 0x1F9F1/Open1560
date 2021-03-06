@@ -163,8 +163,14 @@ i32 agiGLTexDef::BeginGfx()
     glGenTextures(1, &texture_);
     glBindTexture(GL_TEXTURE_2D, texture_);
 
-    // FIXME: Calculate alignment from pointer
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    for (u32 i = 0; i < 4; ++i)
+    {
+        if ((surface->Pitch & (0x7 >> i)) == 0)
+        {
+            glPixelStorei(GL_UNPACK_ALIGNMENT, 0x8 >> i);
+            break;
+        }
+    }
 
     GLenum internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
     SurfaceSize = 0;

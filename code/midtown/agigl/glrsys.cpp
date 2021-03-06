@@ -130,7 +130,7 @@ public:
             state != GL_ALREADY_SIGNALED && state != GL_CONDITION_SATISFIED)
         {
             // We should have picked a larger capacity.
-            // Errorf("Fenced %u", index);
+            Errorf("Fenced %u", index);
             glClientWaitSync(Fences[index], GL_SYNC_FLUSH_COMMANDS_BIT, UINT64_MAX);
         }
 
@@ -549,6 +549,8 @@ i32 agiGLRasterizer::BeginGfx()
 
     Displayf("OpenGL: Using buffer stream mode %i", stream_mode);
 
+    u32 stream_vertex_count = 0x40000;
+
     switch (stream_mode)
     {
         case StreamMode::BufferData:
@@ -563,37 +565,32 @@ i32 agiGLRasterizer::BeginGfx()
 
         case StreamMode::MapRange: {
             // Capacity is fixed
-            const u32 vertex_count = 0x20000;
-            vbo_ = MakeUnique<agiGLAsyncStreamBuffer>(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
-            ibo_ = MakeUnique<agiGLAsyncStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
+            vbo_ = MakeUnique<agiGLAsyncStreamBuffer>(GL_ARRAY_BUFFER, stream_vertex_count * sizeof(agiScreenVtx));
+            ibo_ = MakeUnique<agiGLAsyncStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, stream_vertex_count * 3 * sizeof(u16));
             break;
         }
 
         case StreamMode::MapPersistent:
         case StreamMode::MapCoherent: {
-            // Capacity is fixed
-            const u32 vertex_count = 0x20000;
             const bool coherent = stream_mode == StreamMode::MapCoherent;
-            vbo_ =
-                MakeUnique<agiGLPersistentStreamBuffer>(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), coherent);
+
+            vbo_ = MakeUnique<agiGLPersistentStreamBuffer>(
+                GL_ARRAY_BUFFER, stream_vertex_count * sizeof(agiScreenVtx), coherent);
             ibo_ = MakeUnique<agiGLPersistentStreamBuffer>(
-                GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16), coherent);
+                GL_ELEMENT_ARRAY_BUFFER, stream_vertex_count * 3 * sizeof(u16), coherent);
             break;
         }
 
         case StreamMode::AmdPinned: {
-            // Capacity is fixed
-            const u32 vertex_count = 0x20000;
-            vbo_ = MakeUnique<agiGLPinnedStreamBuffer>(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
-            ibo_ = MakeUnique<agiGLPinnedStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
+            vbo_ = MakeUnique<agiGLPinnedStreamBuffer>(GL_ARRAY_BUFFER, stream_vertex_count * sizeof(agiScreenVtx));
+            ibo_ = MakeUnique<agiGLPinnedStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, stream_vertex_count * 3 * sizeof(u16));
             break;
         }
 
         case StreamMode::MapUnsafe: {
-            // Capacity is fixed
-            const u32 vertex_count = 0x20000;
-            vbo_ = MakeUnique<agiGLRiskyAsyncStreamBuffer>(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx));
-            ibo_ = MakeUnique<agiGLRiskyAsyncStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, vertex_count * 3 * sizeof(u16));
+            vbo_ = MakeUnique<agiGLRiskyAsyncStreamBuffer>(GL_ARRAY_BUFFER, stream_vertex_count * sizeof(agiScreenVtx));
+            ibo_ =
+                MakeUnique<agiGLRiskyAsyncStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, stream_vertex_count * 3 * sizeof(u16));
             break;
         }
 
