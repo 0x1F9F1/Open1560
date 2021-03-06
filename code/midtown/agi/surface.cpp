@@ -362,6 +362,7 @@ void agiSurfaceDesc::Init(i32 width, i32 height)
     SCaps.Caps = 0;
 
     Load();
+    Clear();
 }
 
 [[nodiscard]] Owner<agiSurfaceDesc> agiSurfaceDesc::Init(i32 width, i32 height, const agiSurfaceDesc& desc)
@@ -374,7 +375,7 @@ void agiSurfaceDesc::Init(i32 width, i32 height)
 void agiSurfaceDesc::Load()
 {
     if (Surface == nullptr)
-        Surface = new u8[Pitch * Height] {};
+        Surface = new u8[Pitch * Height];
 }
 
 void agiSurfaceDesc::Clear()
