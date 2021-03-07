@@ -136,16 +136,19 @@ i32 agiPipeline::BeginAllGfx()
     UI_Width = width_;
     UI_Height = height_;
 
-    f32 game_aspect = 640.0f / 480.0f;
-    f32 ui_aspect = static_cast<f32>(UI_Width) / static_cast<f32>(UI_Height);
+    if (Pipe()->IsHardware())
+    {
+        f32 game_aspect = 640.0f / 480.0f;
+        f32 ui_aspect = static_cast<f32>(UI_Width) / static_cast<f32>(UI_Height);
 
-    if (ui_aspect > game_aspect)
-        UI_Width = static_cast<i32>(UI_Width * (game_aspect / ui_aspect));
-    else if (ui_aspect < game_aspect)
-        UI_Height = static_cast<i32>(UI_Height * (ui_aspect / game_aspect));
+        if (ui_aspect > game_aspect)
+            UI_Width = static_cast<i32>(UI_Width * (game_aspect / ui_aspect));
+        else if (ui_aspect < game_aspect)
+            UI_Height = static_cast<i32>(UI_Height * (ui_aspect / game_aspect));
 
-    UI_XPos = (width_ - UI_Width) / 2;
-    UI_YPos = (height_ - UI_Height) / 2;
+        UI_XPos = (width_ - UI_Width) / 2;
+        UI_YPos = (height_ - UI_Height) / 2;
+    }
 
     Displayf("UI Position: x=%i, y=%i, w=%i, h=%i", UI_XPos, UI_YPos, UI_Width, UI_Height);
 
