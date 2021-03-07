@@ -13,6 +13,9 @@ arts_component "agigl"
         "glerror.cpp",
         "glerror.h",
 
+        "glstream.cpp",
+        "glstream.h",
+
         "wglext.h",
     }
 

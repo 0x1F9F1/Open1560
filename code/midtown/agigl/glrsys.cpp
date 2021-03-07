@@ -23,9 +23,11 @@
 #include "agi/texdef.h"
 #include "data7/utimer.h"
 #include "eventq7/winevent.h"
-#include "glerror.h"
-#include "gltexdef.h"
 #include "pcwindis/setupdata.h"
+
+#include "glerror.h"
+#include "glstream.h"
+#include "gltexdef.h"
 
 #include <glad/glad.h>
 
@@ -36,312 +38,6 @@ static u32 ImmVtxCount = 0;
 
 static alignas(16) u16 ImmIdxBuffer[4096];
 static u32 ImmIdxCount = 0;
-
-class agiGLStreamBuffer
-{
-public:
-    u32 Target {0};
-    u32 Buffer {0};
-    u32 Capacity {0};
-
-    agiGLStreamBuffer(u32 target, u32 capacity)
-        : Target(target)
-        , Capacity(capacity)
-    {
-        glGenBuffers(1, &Buffer);
-    }
-
-    virtual ~agiGLStreamBuffer()
-    {
-        glDeleteBuffers(1, &Buffer);
-    }
-
-    void Bind()
-    {
-        glBindBuffer(Target, Buffer);
-    }
-
-    virtual u32 Upload(const void* data, u32 length) = 0;
-
-    virtual void SetFences() = 0;
-};
-
-class agiGLBasicStreamBuffer final : public agiGLStreamBuffer
-{
-public:
-    bool Orphan {false};
-
-    agiGLBasicStreamBuffer(u32 target, u32 capacity, bool orphan)
-        : agiGLStreamBuffer(target, capacity)
-        , Orphan(orphan)
-    {
-        glBindBuffer(Target, Buffer);
-        glBufferData(Target, Capacity, NULL, GL_STREAM_DRAW);
-    }
-
-    u32 Upload(const void* data, u32 length) override
-    {
-        glBufferData(Target, length, Orphan ? NULL : data, GL_STREAM_DRAW);
-
-        if (Orphan)
-            glBufferSubData(Target, 0, length, data);
-
-        return 0;
-    }
-
-    void SetFences() override
-    {}
-};
-
-class agiGLFencedStreamBuffer : public agiGLStreamBuffer
-{
-public:
-    // More fences could reduce the chance of waiting, at the cost of checking them more often.
-    static constexpr usize NumFences = 4;
-
-    GLsync Fences[NumFences] {};
-    u32 Offset {0};
-
-    using agiGLStreamBuffer::agiGLStreamBuffer;
-
-    ~agiGLFencedStreamBuffer() override
-    {
-        for (usize i = 0; i < NumFences; ++i)
-        {
-            if (Fences[i])
-                glDeleteSync(Fences[i]);
-        }
-    }
-
-    void LockSection(usize index)
-    {
-        if (Fences[index] != NULL)
-            return;
-
-        Fences[index] = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
-    }
-
-    void UnlockSection(usize index)
-    {
-        if (Fences[index] == NULL)
-            return;
-
-        if (u32 state = glClientWaitSync(Fences[index], 0, 0);
-            state != GL_ALREADY_SIGNALED && state != GL_CONDITION_SATISFIED)
-        {
-            // We should have picked a larger capacity.
-            Errorf("Fenced %u", index);
-            glClientWaitSync(Fences[index], GL_SYNC_FLUSH_COMMANDS_BIT, UINT64_MAX);
-        }
-
-        glDeleteSync(Fences[index]);
-        Fences[index] = nullptr;
-    }
-
-    u32 GetSectionSize() const
-    {
-        return (Capacity + NumFences - 1) / NumFences;
-    }
-
-    void UnlockRange(u32 offset, u32 length, bool exclusive)
-    {
-        const u32 slice = GetSectionSize();
-
-        for (u32 i = 0; i < NumFences; ++i)
-        {
-            u32 start = i * slice;
-
-            if ((offset < (start + slice)) && ((offset + length) > start))
-                UnlockSection(i);
-            else if (exclusive)
-                LockSection(i);
-        }
-    }
-
-    void WaitForAll()
-    {
-        for (usize i = 0; i < NumFences; ++i)
-            UnlockSection(i);
-    }
-
-    void CheckFence(u32 length)
-    {
-        if (length > Capacity)
-            Abortf("Data is too large (%u > %u)", length, Capacity);
-
-        if (Offset + length > Capacity)
-        {
-            Offset = 0;
-
-            if (Fences[(Offset + length) / GetSectionSize()] == NULL)
-                Abortf("Data wrapped onto unlocked data (%u, %u)", Offset + length, Capacity);
-        }
-
-        UnlockRange(Offset, length, false);
-    }
-
-    void SetFences() override
-    {
-        Offset = (Offset + 0xF) & ~usize(0xF);
-
-        UnlockRange(Offset, 0, true);
-    }
-};
-
-class agiGLAsyncStreamBuffer final : public agiGLFencedStreamBuffer
-{
-public:
-    agiGLAsyncStreamBuffer(u32 target, u32 capacity)
-        : agiGLFencedStreamBuffer(target, capacity)
-    {
-        glBindBuffer(Target, Buffer);
-        glBufferData(Target, Capacity, NULL, GL_DYNAMIC_DRAW);
-    }
-
-    u32 Upload(const void* data, u32 length) override
-    {
-        CheckFence(length);
-
-        u32 offset = Offset;
-        void* dst = glMapBufferRange(
-            Target, offset, length, GL_MAP_WRITE_BIT | GL_MAP_UNSYNCHRONIZED_BIT | GL_MAP_INVALIDATE_RANGE_BIT);
-        std::memcpy(dst, data, length);
-        glUnmapBuffer(Target);
-
-        Offset = offset + length;
-
-        return offset;
-    }
-};
-
-class agiGLPinnedStreamBuffer final : public agiGLFencedStreamBuffer
-{
-public:
-    void* Memory {nullptr};
-
-    agiGLPinnedStreamBuffer(u32 target, u32 capacity)
-        : agiGLFencedStreamBuffer(target, capacity)
-    {
-        Memory = VirtualAlloc(NULL, capacity, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
-
-        glBindBuffer(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, Buffer);
-        glBufferData(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, capacity, Memory, GL_DYNAMIC_DRAW);
-        glBindBuffer(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, 0);
-
-        glBindBuffer(Target, Buffer);
-    }
-
-    ~agiGLPinnedStreamBuffer()
-    {
-        WaitForAll();
-
-        VirtualFree(Memory, 0, MEM_RELEASE);
-    }
-
-    u32 Upload(const void* data, u32 length) override
-    {
-        CheckFence(length);
-
-        u32 offset = Offset;
-        void* dst = static_cast<u8*>(Memory) + offset;
-        std::memcpy(dst, data, length);
-
-        Offset = offset + length;
-
-        return offset;
-    }
-};
-
-class agiGLPersistentStreamBuffer final : public agiGLFencedStreamBuffer
-{
-public:
-    void* Mapping {nullptr};
-    bool Coherent {false};
-
-    agiGLPersistentStreamBuffer(u32 target, u32 capacity, bool coherent)
-        : agiGLFencedStreamBuffer(target, capacity)
-        , Coherent(coherent)
-    {
-        glBindBuffer(Target, Buffer);
-
-        glBufferStorage(
-            Target, Capacity, NULL, GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | (coherent ? GL_MAP_COHERENT_BIT : 0));
-
-        Mapping = glMapBufferRange(Target, 0, Capacity,
-            GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_UNSYNCHRONIZED_BIT | GL_MAP_INVALIDATE_BUFFER_BIT |
-                (coherent ? GL_MAP_COHERENT_BIT : GL_MAP_FLUSH_EXPLICIT_BIT));
-    }
-
-    ~agiGLPersistentStreamBuffer() override
-    {
-        if (Mapping)
-        {
-            glBindBuffer(Target, Buffer);
-            glUnmapBuffer(Target);
-        }
-    }
-
-    u32 Upload(const void* data, u32 length) override
-    {
-        CheckFence(length);
-
-        u32 offset = Offset;
-        void* dst = static_cast<u8*>(Mapping) + offset;
-        std::memcpy(dst, data, length);
-
-        if (!Coherent)
-            glFlushMappedBufferRange(Target, offset, length);
-
-        Offset = offset + length;
-
-        return offset;
-    }
-};
-
-class agiGLRiskyAsyncStreamBuffer final : public agiGLFencedStreamBuffer
-{
-public:
-    void* Mapping {nullptr};
-
-    agiGLRiskyAsyncStreamBuffer(u32 target, u32 capacity)
-        : agiGLFencedStreamBuffer(target, capacity)
-    {
-        glBindBuffer(Target, Buffer);
-        glBufferData(Target, Capacity, NULL, GL_DYNAMIC_DRAW);
-
-        // This is very unsafe. The mapping is no longer "valid" after unmapping the buffer.
-        // However, if this is a mapping directly to the GPU memory, it is unlikely to move while the buffer exists.
-        Mapping = glMapBuffer(Target, GL_WRITE_ONLY);
-        glUnmapBuffer(Target);
-
-        if (MEMORY_BASIC_INFORMATION info; VirtualQuery(Mapping, &info, sizeof(info)))
-        {
-            // info.State == MEM_COMMIT; // 0x1000
-            // info.Protect == PAGE_READWRITE | PAGE_WRITECOMBINE; // 0x404
-            // info.Type == MEM_PRIVATE; // 0x20000
-            Displayf("OpenGL Buffer Mapping State: %X, %X, %X", info.State, info.Protect, info.Type);
-
-            if (info.State != MEM_COMMIT || info.Protect != (PAGE_READWRITE | PAGE_WRITECOMBINE) ||
-                info.Type != MEM_PRIVATE)
-            {
-                Warningf("Unexpected mapping state, this may crash");
-            }
-        }
-    }
-
-    u32 Upload(const void* data, u32 length) override
-    {
-        CheckFence(length);
-
-        u32 offset = Offset;
-        void* dst = static_cast<u8*>(Mapping) + offset;
-        std::memcpy(dst, data, length);
-
-        Offset = offset + length;
-
-        return offset;
-    }
-};
 
 void agiGLRasterizer::EndGfx()
 {
@@ -1170,7 +866,7 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, current_min_filter_);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, current_mag_filter_);
 
-    u32 vtx_offset = 0;
+    usize vtx_offset = 0;
 
     if (vbo_)
     {
@@ -1181,9 +877,8 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
         BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), vertices);
     }
 
-    const void* idx_offset = ibo_
-        ? reinterpret_cast<const void*>(static_cast<isize>(ibo_->Upload(indices, index_count * sizeof(u16))))
-        : indices;
+    const void* idx_offset =
+        ibo_ ? reinterpret_cast<const void*>(ibo_->Upload(indices, index_count * sizeof(u16))) : indices;
 
     ARTS_TIMED(agiRasterization);
     ++STATS.GeomCalls;
@@ -1191,7 +886,7 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
     if (vtx_offset)
     {
         glDrawRangeElementsBaseVertex(
-            prim_type, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset, vtx_offset);
+            prim_type, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset, static_cast<GLint>(vtx_offset));
     }
     else
     {

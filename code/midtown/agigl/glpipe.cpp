@@ -218,7 +218,13 @@ i32 agiGLPipeline::BeginGfx()
 
     HGLRC modern_gl_context = NULL;
 
-    DebugMessageLevel = PARAM_gldebug.get_or(-1);
+    DebugMessageLevel = PARAM_gldebug.get_or(
+#ifdef ARTS_DEBUG
+        1
+#else
+        -1
+#endif
+    );
 
     if (!PARAM_legacygl.get_or(false) && HasExtension("WGL_ARB_pixel_format") && HasExtension("WGL_ARB_create_context"))
     {
