@@ -352,7 +352,7 @@ void agiSurfaceDesc::Init(i32 width, i32 height)
     Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH;
     Width = width;
     Height = height;
-    Pitch = width * GetPixelSize();
+    Pitch = (width * GetPixelSize() + 3) & ~3;
     Surface = nullptr;
     MipMapCount = 0;
     SCaps.Caps = 0;

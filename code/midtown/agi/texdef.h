@@ -140,8 +140,8 @@ check_size(agiTexParameters, 0x30);
 struct agiTexLock
 {
     agiColorModel* ColorModel {nullptr};
-    i32 Width {0};
-    i32 Height {0};
+    u32 Width {0};
+    u32 Height {0};
     i32 Pitch {0};
     void* Surface {nullptr};
 };

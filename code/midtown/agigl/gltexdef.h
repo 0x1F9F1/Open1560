@@ -53,4 +53,5 @@ private:
     void* fence_ {0};
 
     Ptr<agiSurfaceDesc> temp_surface_ {};
+    bool touched_ {false};
 };

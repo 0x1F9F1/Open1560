@@ -134,27 +134,32 @@ i32 agiGLTexDef::BeginGfx()
 
     GLenum format = 0;
     GLenum type = 0;
+    GLenum internal = 0;
 
     switch (surface->PixelFormat.RBitMask)
     {
         case 0xF800: // 565
             format = GL_RGB;
             type = GL_UNSIGNED_SHORT_5_6_5;
+            internal = GL_RGB8;
             break;
 
         case 0xF00: // 4444
             format = GL_BGRA;
             type = GL_UNSIGNED_SHORT_4_4_4_4_REV;
+            internal = GL_RGBA4;
             break;
 
         case 0xFF:
             format = surface->PixelFormat.RGBAlphaBitMask ? GL_RGBA : GL_RGB;
             type = GL_UNSIGNED_BYTE;
+            internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
             break;
 
         case 0xFF0000:
             format = surface->PixelFormat.RGBAlphaBitMask ? GL_BGRA : GL_BGR;
             type = GL_UNSIGNED_BYTE;
+            internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
             break;
 
         default: Quitf("Invalid Format");
@@ -172,7 +177,6 @@ i32 agiGLTexDef::BeginGfx()
         }
     }
 
-    GLenum internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
     SurfaceSize = 0;
 
     i32 num_levels =
@@ -296,43 +300,13 @@ b32 agiGLTexDef::Lock(agiTexLock& lock)
     lock.Height = temp_surface_->Height;
     lock.Pitch = temp_surface_->Pitch;
     lock.Surface = temp_surface_->Surface;
+    touched_ = true;
 
     return true;
 }
 
 void agiGLTexDef::Unlock(agiTexLock& lock)
 {
-    GLenum format = 0;
-    GLenum type = 0;
-
-    switch (lock.ColorModel->GetMaskR())
-    {
-        case 0xF800: // 565
-            format = GL_RGB;
-            type = GL_UNSIGNED_SHORT_5_6_5;
-            break;
-
-        case 0xF00: // 4444
-            format = GL_BGRA;
-            type = GL_UNSIGNED_SHORT_4_4_4_4_REV;
-            break;
-
-        case 0xFF:
-            format = lock.ColorModel->BitCountA ? GL_RGBA : GL_RGB;
-            type = GL_UNSIGNED_BYTE;
-            break;
-
-        case 0xFF0000:
-            format = lock.ColorModel->BitCountA ? GL_BGRA : GL_BGR;
-            type = GL_UNSIGNED_BYTE;
-            break;
-
-        default: Quitf("Invalid Format");
-    }
-
-    glBindTexture(GL_TEXTURE_2D, texture_);
-    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, lock.Width, lock.Height, format, type, lock.Surface);
-
     lock.ColorModel->Release();
     lock = {};
 }
@@ -365,6 +339,45 @@ u32 agiGLTexDef::GetHandle()
         {
             Warningf("agiGLTexDef::Request - Texture '%s' didn't init properly", Tex.Name);
         }
+    }
+
+    if (touched_)
+    {
+        touched_ = false;
+
+        GLenum format = 0;
+        GLenum type = 0;
+
+        switch (temp_surface_->PixelFormat.RBitMask)
+        {
+            case 0xF800: // 565
+                format = GL_RGB;
+                type = GL_UNSIGNED_SHORT_5_6_5;
+                break;
+
+            case 0xF00: // 4444
+                format = GL_BGRA;
+                type = GL_UNSIGNED_SHORT_4_4_4_4_REV;
+                break;
+
+            case 0xFF:
+                format = temp_surface_->PixelFormat.RGBAlphaBitMask ? GL_RGBA : GL_RGB;
+                type = GL_UNSIGNED_BYTE;
+                break;
+
+            case 0xFF0000:
+                format = temp_surface_->PixelFormat.RGBAlphaBitMask ? GL_BGRA : GL_BGR;
+                type = GL_UNSIGNED_BYTE;
+                break;
+
+            default: Quitf("Invalid Format");
+        }
+
+        glBindTexture(GL_TEXTURE_2D, texture_);
+
+        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+        glTexSubImage2D(
+            GL_TEXTURE_2D, 0, 0, 0, temp_surface_->Width, temp_surface_->Height, format, type, temp_surface_->Surface);
     }
 
     return CheckFence() ? texture_ : 0;
