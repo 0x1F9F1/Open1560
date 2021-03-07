@@ -19,13 +19,11 @@
 #include "mmtext.h"
 
 #include "agi/bitmap.h"
+#include "agi/pipeline.h"
 #include "agi/surface.h"
-#include "agid3d/ddpipe.h"
 #include "core/minwin.h"
 #include "localize/localize.h"
 #include "pcwindis/dxinit.h"
-
-#include <ddraw.h>
 
 #ifdef CreateFont
 #    undef CreateFont
@@ -166,7 +164,7 @@ agiBitmap* mmText::CreateFitBitmap(char* text, void* font, i32 color, i32 bg_col
 
 static i32 GetFontQuality()
 {
-    return ANTIALIASED_QUALITY;
+    return NONANTIALIASED_QUALITY;
 }
 
 void* mmText::CreateFont(const char* font_name, i32 height)
@@ -202,62 +200,66 @@ void mmText::DeleteFont(void* font)
 }
 
 static agiSurfaceDesc* TextSurfaceAGI = nullptr;
-static IDirectDrawSurface4* TextSurfaceDD = nullptr;
 static HDC TextSurfaceDC = nullptr;
+static HBITMAP TextSurfaceDIB = nullptr;
+static void* TextSurfacePixels = nullptr;
 
 void* mmText::GetDC(agiSurfaceDesc* surface)
 {
     TextSurfaceAGI = surface;
+    TextSurfaceDC = CreateCompatibleDC(NULL);
 
-    DDSURFACEDESC2 sd {sizeof(sd)};
-    sd.dwFlags = DDSD_CAPS | DDSD_WIDTH | DDSD_HEIGHT;
-    sd.dwWidth = surface->Width;
-    sd.dwHeight = surface->Height;
-    sd.ddsCaps.dwCaps = DDSCAPS_SYSTEMMEMORY;
-
-    if (lpDD4->CreateSurface(&sd, &TextSurfaceDD, nullptr))
+    struct BITMAPINFORGB
     {
-        return nullptr;
-    }
+        BITMAPINFOHEADER bmiHeader;
+        DWORD dwBitMasks[3];
+    };
 
-    if (TextSurfaceDD->GetDC(&TextSurfaceDC))
-    {
-        TextSurfaceDD->Release();
-        return nullptr;
-    }
+    BITMAPINFORGB bmi {};
+    bmi.bmiHeader.biSize = sizeof(bmi);
+    bmi.bmiHeader.biWidth = surface->Width;
+    bmi.bmiHeader.biHeight = surface->Height;
+    bmi.bmiHeader.biPlanes = 1;
+    bmi.bmiHeader.biBitCount = (WORD) PixelFormat_0565.RGBBitCount;
+    bmi.bmiHeader.biCompression = BI_BITFIELDS;
+    bmi.dwBitMasks[0] = PixelFormat_0565.RBitMask;
+    bmi.dwBitMasks[1] = PixelFormat_0565.GBitMask;
+    bmi.dwBitMasks[2] = PixelFormat_0565.BBitMask;
+
+    TextSurfaceDIB = CreateDIBSection(TextSurfaceDC, (const BITMAPINFO*) &bmi, 0, &TextSurfacePixels, NULL, 0);
+    SelectObject(TextSurfaceDC, TextSurfaceDIB);
 
     return TextSurfaceDC;
 }
 
 void mmText::ReleaseDC()
 {
-    if (TextSurfaceDD->ReleaseDC(TextSurfaceDC))
-    {
-        TextSurfaceDD->Release();
-        return;
-    }
-
     // Assume only querying size if surface == nullptr
     if (TextSurfaceAGI->Surface != nullptr)
     {
-        DDSURFACEDESC2 sd {sizeof(sd)};
+        agiSurfaceDesc sd {sizeof(sd)};
+        sd.Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH | AGISD_PIXELFORMAT;
+        sd.Width = TextSurfaceAGI->Width;
+        sd.Height = TextSurfaceAGI->Height;
+        sd.PixelFormat = PixelFormat_0565;
 
-        if (TextSurfaceDD->Lock(nullptr, &sd, 0, nullptr))
-        {
-            TextSurfaceDD->Release();
-            return;
-        }
+        // Windows bitmaps are DWORD aligned and upside down
+        sd.Pitch = TextSurfaceAGI->Width * 2;
+        sd.Pitch = (sd.Pitch + 3) & ~3;
 
-        agiSurfaceDesc agi_sd = ConvertSurfaceDesc(sd);
-        TextSurfaceAGI->CopyFrom(&agi_sd, 0);
+        sd.Surface = static_cast<u8*>(TextSurfacePixels) + (sd.Pitch * (sd.Height - 1));
+        sd.Pitch = -sd.Pitch;
 
-        TextSurfaceDD->Unlock(nullptr);
+        TextSurfaceAGI->CopyFrom(&sd, 0);
     }
 
-    if (TextSurfaceDD->Release())
-        Errorf("mmText::ReleaseDC problem!");
+    DeleteObject(TextSurfaceDIB);
+    DeleteDC(TextSurfaceDC);
 
-    TextSurfaceDD = nullptr;
+    TextSurfaceAGI = nullptr;
+    TextSurfaceDC = nullptr;
+    TextSurfaceDIB = nullptr;
+    TextSurfacePixels = nullptr;
 }
 
 void mmTextNode::GetTextDimensions(void* font, LocString* text, f32& width, f32& height)
@@ -313,7 +315,6 @@ void mmTextNode::RenderText(
 
     if (dc)
     {
-        SetTextColor(dc, fg_color_);
         SetBkMode(dc, TRANSPARENT);
 
         if (SetBkColor(dc, bg_color_) == -1)
@@ -322,7 +323,6 @@ void mmTextNode::RenderText(
         HGDIOBJ prev_brush = SelectObject(dc, GetStockObject(NULL_BRUSH));
         HGDIOBJ prev_pen = SelectObject(dc, GetStockObject(WHITE_PEN));
 
-        format_ = DT_NOPREFIX;
         empty_ = true;
 
         // TODO: Should this use num_lines ?
@@ -333,7 +333,7 @@ void mmTextNode::RenderText(
             if (!((1 << i) & enabled_lines))
                 continue;
 
-            if ((std::strlen(line.Text) == 0) && !(line.Effects & 0x40))
+            if ((std::strlen(line.Text) == 0) && !(line.Effects & MM_TEXT_REQUIRED))
                 continue;
 
             empty_ = false;
@@ -346,29 +346,32 @@ void mmTextNode::RenderText(
 
             if (line.Effects)
             {
-                SIZE size {};
-                GetTextExtentPoint32A(dc, line.Text, std::strlen(line.Text), &size);
-
+                // SIZE size {};
+                // GetTextExtentPoint32A(dc, line.Text, std::strlen(line.Text), &size);
                 // TODO: Should this use the size from GetTextExtentPoint32A ?
-                SetRect(&rc, line.X, line.Y, text_bitmap_->GetWidth(), text_bitmap_->GetHeight());
+                // SetRect(&rc, line.X, line.Y, text_bitmap_->GetWidth(), text_bitmap_->GetHeight());
 
-                if (line.Effects & 0x2)
-                    format_ |= DT_CENTER;
+                if (line.Effects & MM_TEXT_CENTER)
+                    format |= DT_CENTER;
 
-                if (line.Effects & 0x1)
-                    format_ |= DT_VCENTER | DT_SINGLELINE;
+                if (line.Effects & MM_TEXT_VCENTER)
+                    format |= DT_VCENTER | DT_SINGLELINE;
 
-                if (line.Effects & 0x20)
-                    format_ |= DT_WORDBREAK;
+                if (line.Effects & MM_TEXT_WORDBREAK)
+                    format |= DT_WORDBREAK;
 
-                if (line.Effects & 0x4)
+                if (line.Effects & MM_TEXT_BORDER)
                     Rectangle(dc, rc.left, rc.top, rc.right, rc.bottom);
 
-                if (line.Effects & 0x10)
+                if ((line.Effects & MM_TEXT_PADDING) && (rc.right - rc.left) > 4)
+                {
                     rc.left += 2;
-
-                format = format_;
+                    rc.right -= 2;
+                }
             }
+
+            COLORREF hl_color = 0x00FFFF;
+            SetTextColor(dc, (line.Effects & MM_TEXT_HIGHLIGHT) ? hl_color : fg_color_);
 
             DrawTextA(dc, line.Text, std::strlen(line.Text), &rc, format);
             SelectObject(dc, prev_font);

@@ -27,6 +27,19 @@ define_dummy_symbol(agi_surface);
 
 #include <emmintrin.h>
 
+// clang-format off
+const agiPixelFormat PixelFormat_8888 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000};
+const agiPixelFormat PixelFormat_0888 = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0x00000000};
+
+const agiPixelFormat PixelFormat_1555 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 16, 0x7C00, 0x03E0, 0x001F, 0x8000};
+const agiPixelFormat PixelFormat_4444 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 16, 0x0F00, 0x00F0, 0x000F, 0xF000};
+const agiPixelFormat PixelFormat_0565 = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 16, 0xF800, 0x07E0, 0x001F, 0x0000};
+const agiPixelFormat PixelFormat_0555 = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 16, 0x7C00, 0x03E0, 0x001F, 0x0000};
+
+const agiPixelFormat PixelFormat_Pallete8 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_PALETTEINDEXED8, 0, 8, 0, 0, 0, 0};
+const agiPixelFormat PixelFormat_Pallete4 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_PALETTEINDEXED4, 0, 4, 0, 0, 0, 0};
+// clang-format on
+
 // 0x55AAE0 | ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
 ARTS_IMPORT /*static*/ void RescaleJpeg(u32 arg1, u32 arg2, u8* arg3, struct jpeg_decompress_struct& arg4);
 
@@ -426,6 +439,9 @@ void agiSurfaceDesc::Fill(i32 x, i32 y, i32 width, i32 height, u32 color)
 
 void agiSurfaceDesc::FixPitch()
 {
+    if (Pitch < 0)
+        return;
+
     i32 pitch = Width * GetPixelSize();
 
     if (!(Flags & AGISD_PITCH) || (pitch > Pitch) || (pitch * 2 <= Pitch))
