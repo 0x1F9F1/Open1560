@@ -200,38 +200,21 @@ static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
 // 0x55B640 | ?copyrow565_to_888rev@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow565_to_888rev(void* dst, void* src, u32 len, u32 step);
 
-static void copyrow_8(void* dst, void* src, u32 len, u32 step)
+template <typename T>
+static void copyrow_basic(void* dst, void* src, u32 len, u32 step)
 {
-    u8* ARTS_RESTRICT dst8 = static_cast<u8*>(dst);
-    u8* ARTS_RESTRICT src8 = static_cast<u8*>(src);
+    T* ARTS_RESTRICT dstT = static_cast<T*>(dst);
+    T* ARTS_RESTRICT srcT = static_cast<T*>(src);
 
-    for (u32 src_off = 0; len; --len)
+    if (step == 0x10000)
     {
-        *dst8++ = src8[src_off >> 16];
-        src_off += step;
+        std::memcpy(dstT, srcT, len * sizeof(T));
+        return;
     }
-}
-
-static void copyrow_16(void* dst, void* src, u32 len, u32 step)
-{
-    u16* ARTS_RESTRICT dst16 = static_cast<u16*>(dst);
-    u16* ARTS_RESTRICT src16 = static_cast<u16*>(src);
 
     for (u32 src_off = 0; len; --len)
     {
-        *dst16++ = src16[src_off >> 16];
-        src_off += step;
-    }
-}
-
-static void copyrow_32(void* dst, void* src, u32 len, u32 step)
-{
-    u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
-    u32* ARTS_RESTRICT src32 = static_cast<u32*>(src);
-
-    for (u32 src_off = 0; len; --len)
-    {
-        *dst32++ = src32[src_off >> 16];
+        *dstT++ = srcT[src_off >> 16];
         src_off += step;
     }
 }
@@ -277,9 +260,9 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters
 
         switch (GetPixelSize())
         {
-            case sizeof(u8): copy_row = copyrow_8; break;
-            case sizeof(u16): copy_row = copyrow_16; break;
-            case sizeof(u32): copy_row = copyrow_32; break;
+            case sizeof(u8): copy_row = copyrow_basic<u8>; break;
+            case sizeof(u16): copy_row = copyrow_basic<u16>; break;
+            case sizeof(u32): copy_row = copyrow_basic<u32>; break;
 
             default: Quitf("Invalid Pixel Format");
         }

@@ -199,67 +199,69 @@ void mmText::DeleteFont(void* font)
     DeleteObject(font);
 }
 
-static agiSurfaceDesc* TextSurfaceAGI = nullptr;
+static agiSurfaceDesc* TextSurface = nullptr;
 static HDC TextSurfaceDC = nullptr;
 static HBITMAP TextSurfaceDIB = nullptr;
-static void* TextSurfacePixels = nullptr;
+
+static agiSurfaceDesc TextSurfaceTemp {
+    sizeof(TextSurfaceTemp), AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH | AGISD_PIXELFORMAT};
 
 void* mmText::GetDC(agiSurfaceDesc* surface)
 {
-    TextSurfaceAGI = surface;
+    TextSurface = surface;
+
+    TextSurfaceTemp.Width = surface->Width;
+    TextSurfaceTemp.Height = surface->Height;
+
     TextSurfaceDC = CreateCompatibleDC(NULL);
 
-    struct BITMAPINFORGB
+    BITMAPV4HEADER bmi {sizeof(bmi)};
+
+    bmi.bV4Size = sizeof(bmi);
+    bmi.bV4Width = surface->Width;
+    bmi.bV4Height = surface->Height;
+    bmi.bV4Planes = 1;
+
+    switch (surface->PixelFormat.RBitMask)
     {
-        BITMAPINFOHEADER bmiHeader;
-        DWORD dwBitMasks[3];
-    };
+        case 0x0000FF:
+        case 0xFF0000:
+        case 0x7C00:
+        case 0xF800: TextSurfaceTemp.PixelFormat = surface->PixelFormat; break;
 
-    BITMAPINFORGB bmi {};
-    bmi.bmiHeader.biSize = sizeof(bmi);
-    bmi.bmiHeader.biWidth = surface->Width;
-    bmi.bmiHeader.biHeight = surface->Height;
-    bmi.bmiHeader.biPlanes = 1;
-    bmi.bmiHeader.biBitCount = (WORD) PixelFormat_0565.RGBBitCount;
-    bmi.bmiHeader.biCompression = BI_BITFIELDS;
-    bmi.dwBitMasks[0] = PixelFormat_0565.RBitMask;
-    bmi.dwBitMasks[1] = PixelFormat_0565.GBitMask;
-    bmi.dwBitMasks[2] = PixelFormat_0565.BBitMask;
+        default: Quitf("Invalid Pixel Format");
+    }
 
-    TextSurfaceDIB = CreateDIBSection(TextSurfaceDC, (const BITMAPINFO*) &bmi, 0, &TextSurfacePixels, NULL, 0);
+    bmi.bV4BitCount = (WORD) TextSurfaceTemp.PixelFormat.RGBBitCount;
+    bmi.bV4V4Compression = BI_BITFIELDS;
+    bmi.bV4RedMask = TextSurfaceTemp.PixelFormat.RBitMask;
+    bmi.bV4GreenMask = TextSurfaceTemp.PixelFormat.GBitMask;
+    bmi.bV4BlueMask = TextSurfaceTemp.PixelFormat.BBitMask;
+    bmi.bV4AlphaMask = TextSurfaceTemp.PixelFormat.RGBAlphaBitMask;
+
+    TextSurfaceDIB = CreateDIBSection(TextSurfaceDC, (const BITMAPINFO*) &bmi, 0, &TextSurfaceTemp.Surface, NULL, 0);
     SelectObject(TextSurfaceDC, TextSurfaceDIB);
+
+    // Windows bitmaps are DWORD aligned and upside down
+    TextSurfaceTemp.Pitch = ((surface->Width * TextSurfaceTemp.PixelFormat.RGBBitCount + 31) & ~31) >> 3;
+    TextSurfaceTemp.Surface =
+        static_cast<u8*>(TextSurfaceTemp.Surface) + TextSurfaceTemp.Pitch * (TextSurfaceTemp.Height - 1);
+    TextSurfaceTemp.Pitch = -TextSurfaceTemp.Pitch;
 
     return TextSurfaceDC;
 }
 
 void mmText::ReleaseDC()
 {
-    // Assume only querying size if surface == nullptr
-    if (TextSurfaceAGI->Surface != nullptr)
-    {
-        agiSurfaceDesc sd {sizeof(sd)};
-        sd.Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH | AGISD_PIXELFORMAT;
-        sd.Width = TextSurfaceAGI->Width;
-        sd.Height = TextSurfaceAGI->Height;
-        sd.PixelFormat = PixelFormat_0565;
-
-        // Windows bitmaps are DWORD aligned and upside down
-        sd.Pitch = TextSurfaceAGI->Width * 2;
-        sd.Pitch = (sd.Pitch + 3) & ~3;
-
-        sd.Surface = static_cast<u8*>(TextSurfacePixels) + (sd.Pitch * (sd.Height - 1));
-        sd.Pitch = -sd.Pitch;
-
-        TextSurfaceAGI->CopyFrom(&sd, 0);
-    }
+    if (TextSurface->Surface != nullptr)
+        TextSurface->CopyFrom(&TextSurfaceTemp, 0);
 
     DeleteObject(TextSurfaceDIB);
     DeleteDC(TextSurfaceDC);
 
-    TextSurfaceAGI = nullptr;
+    TextSurface = nullptr;
     TextSurfaceDC = nullptr;
     TextSurfaceDIB = nullptr;
-    TextSurfacePixels = nullptr;
 }
 
 void mmTextNode::GetTextDimensions(void* font, LocString* text, f32& width, f32& height)
