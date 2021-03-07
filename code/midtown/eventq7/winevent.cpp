@@ -511,6 +511,8 @@ void WINEventHandler::Update(i32)
     }
 }
 
+static mem::cmd_param PARAM_pause {"pause"};
+
 LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     if (eqReplay::Playback)
@@ -679,6 +681,8 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
                 }
                 else
                 {
+                    focused = !PARAM_pause.get_or(true);
+
                     Displayf("EventQ: Losing focus, blocking.");
                 }
             }
