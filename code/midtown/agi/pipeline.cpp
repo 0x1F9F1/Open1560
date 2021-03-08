@@ -359,16 +359,17 @@ void agiPipeline::ValidateObject(agiRefreshable* ptr)
     }
 }
 
-static mem::cmd_param PARAM_agi_verbose {"agiverbose"};
+static mem::cmd_param PARAM_agiverbose {"agiverbose"};
 
 agiPipeline::agiPipeline()
 {
-    agiVerbose = PARAM_agi_verbose.get_or(false);
+    agiVerbose = PARAM_agiverbose.get_or(false);
 
     window_ = GetRootWindow();
 
+    // Set 24-bit float precision (f32)
     unsigned int current = 0;
-    _controlfp_s(&current, 0x20000, 0x30000);
+    _controlfp_s(&current, _PC_24, _MCW_PC);
 
     PROBER = 0;
 }
