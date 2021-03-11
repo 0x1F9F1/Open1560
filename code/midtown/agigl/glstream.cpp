@@ -145,8 +145,6 @@ void agiGLFencedStreamBuffer::CheckFence(usize length)
 
 void agiGLFencedStreamBuffer::SetFences()
 {
-    Offset = (Offset + 0xF) & ~usize(0xF);
-
     UnlockRange(Offset, 0, true);
 }
 
@@ -167,7 +165,7 @@ usize agiGLAsyncStreamBuffer::Upload(const void* data, usize length)
     std::memcpy(dst, data, length);
     glUnmapBuffer(Target);
 
-    Offset = offset + length;
+    Offset = (offset + length + 0xF) & ~usize(0xF);
 
     return offset;
 }
@@ -199,7 +197,7 @@ usize agiGLPinnedStreamBuffer::Upload(const void* data, usize length)
     void* dst = static_cast<u8*>(Memory) + offset;
     std::memcpy(dst, data, length);
 
-    Offset = offset + length;
+    Offset = (offset + length + 0xF) & ~usize(0xF);
 
     return offset;
 }
@@ -238,7 +236,7 @@ usize agiGLPersistentStreamBuffer::Upload(const void* data, usize length)
     if (!Coherent)
         glFlushMappedBufferRange(Target, offset, length);
 
-    Offset = offset + length;
+    Offset = (offset + length + 0xF) & ~usize(0xF);
 
     return offset;
 }
@@ -277,7 +275,7 @@ usize agiGLRiskyAsyncStreamBuffer::Upload(const void* data, usize length)
     void* dst = static_cast<u8*>(Mapping) + offset;
     std::memcpy(dst, data, length);
 
-    Offset = offset + length;
+    Offset = (offset + length + 0xF) & ~usize(0xF);
 
     return offset;
 }
