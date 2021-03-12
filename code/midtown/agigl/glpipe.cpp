@@ -783,16 +783,19 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 
     agiTexDef* texture = static_cast<agiGLBitmap*>(src)->GetHandle();
 
-    auto old_tex = agiCurState.SetTexture(texture);
+    bool debug_draw = agiCurState.GetDrawMode() == 0x3;
+
+    auto old_tex = agiCurState.SetTexture(debug_draw ? nullptr : texture);
     auto old_draw_mode = agiCurState.SetDrawMode(0xF);
     auto old_depth = agiCurState.SetZEnable(false);
     auto old_zwrite = agiCurState.SetZWrite(false);
-    auto old_alpha = agiCurState.SetAlphaEnable(false);
+    auto old_alpha = agiCurState.SetAlphaEnable(debug_draw ? true : false);
     auto old_filter = agiCurState.SetTexFilter(agiTexFilter::Point);
     auto old_fog_mode = agiCurState.SetFogMode(agiFogMode::None);
     auto old_fog_color = agiCurState.SetFogColor(0x00000000);
+    auto old_blend_set = agiCurState.SetBlendSet(debug_draw ? agiBlendSet::One_One : agiBlendSet::SrcAlpha_InvSrcAlpha);
 
-    agiScreenVtx blank {0.0f, 0.0f, 0.0f, 1.0f, 0xFFFFFFFF, 0xFFFFFFFF, 0.0f, 0.0f};
+    agiScreenVtx blank {0.0f, 0.0f, 0.0f, 1.0f, debug_draw ? 0xFF000044 : 0xFFFFFFFF, 0xFFFFFFFF, 0.0f, 0.0f};
     agiScreenVtx verts[4] {blank, blank, blank, blank};
     u16 indices[6] {0, 1, 2, 0, 2, 3};
 
@@ -821,6 +824,7 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     agiCurState.SetTexFilter(old_filter);
     agiCurState.SetFogMode(old_fog_mode);
     agiCurState.SetFogColor(old_fog_color);
+    agiCurState.SetBlendSet(old_blend_set);
 }
 
 void agiGLPipeline::ClearAll(i32 color)
