@@ -67,16 +67,17 @@ struct agiPixelFormat // DDPIXELFORMAT
     u32 RGBAlphaBitMask {0};
 };
 
-extern const agiPixelFormat PixelFormat_8888;
-extern const agiPixelFormat PixelFormat_0888;
+extern const agiPixelFormat PixelFormat_A8R8G8B8;
+extern const agiPixelFormat PixelFormat_A8B8G8R8;
+extern const agiPixelFormat PixelFormat_X8R8G8B8;
+extern const agiPixelFormat PixelFormat_X8B8G8R8;
 
-extern const agiPixelFormat PixelFormat_1555;
-extern const agiPixelFormat PixelFormat_4444;
-extern const agiPixelFormat PixelFormat_0565;
-extern const agiPixelFormat PixelFormat_0555;
+extern const agiPixelFormat PixelFormat_A4R4G4B4;
+extern const agiPixelFormat PixelFormat_A1R5G5B5;
+extern const agiPixelFormat PixelFormat_X1R5G5B5;
+extern const agiPixelFormat PixelFormat_R5G6B5;
 
-extern const agiPixelFormat PixelFormat_Pallete8;
-extern const agiPixelFormat PixelFormat_Pallete4;
+extern const agiPixelFormat PixelFormat_P8;
 
 struct agiDDSCAPS2 // DDSCAPS2
 {

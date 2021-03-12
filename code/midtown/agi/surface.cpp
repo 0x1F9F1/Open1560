@@ -28,16 +28,17 @@ define_dummy_symbol(agi_surface);
 #include <emmintrin.h>
 
 // clang-format off
-const agiPixelFormat PixelFormat_8888 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000};
-const agiPixelFormat PixelFormat_0888 = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0x00000000};
+const agiPixelFormat PixelFormat_A8R8G8B8 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000};
+const agiPixelFormat PixelFormat_A8B8G8R8 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 32, 0x000000FF, 0x0000FF00, 0x00FF0000, 0xFF000000};
+const agiPixelFormat PixelFormat_X8R8G8B8 = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 32, 0x00FF0000, 0x0000FF00, 0x000000FF};
+const agiPixelFormat PixelFormat_X8B8G8R8 = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 32, 0x000000FF, 0x0000FF00, 0x00FF0000};
 
-const agiPixelFormat PixelFormat_1555 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 16, 0x7C00, 0x03E0, 0x001F, 0x8000};
-const agiPixelFormat PixelFormat_4444 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 16, 0x0F00, 0x00F0, 0x000F, 0xF000};
-const agiPixelFormat PixelFormat_0565 = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 16, 0xF800, 0x07E0, 0x001F, 0x0000};
-const agiPixelFormat PixelFormat_0555 = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 16, 0x7C00, 0x03E0, 0x001F, 0x0000};
+const agiPixelFormat PixelFormat_A4R4G4B4 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 16, 0x0F00, 0x00F0, 0x000F, 0xF000};
+const agiPixelFormat PixelFormat_A1R5G5B5 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 16, 0x7C00, 0x03E0, 0x001F, 0x8000};
+const agiPixelFormat PixelFormat_X1R5G5B5 = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 16, 0x7C00, 0x03E0, 0x001F, 0x0000};
+const agiPixelFormat PixelFormat_R5G6B5   = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 16, 0xF800, 0x07E0, 0x001F, 0x0000};
 
-const agiPixelFormat PixelFormat_Pallete8 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_PALETTEINDEXED8, 0, 8, 0, 0, 0, 0};
-const agiPixelFormat PixelFormat_Pallete4 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_PALETTEINDEXED4, 0, 4, 0, 0, 0, 0};
+const agiPixelFormat PixelFormat_P8 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_PALETTEINDEXED8, 0, 8, 0, 0, 0, 0};
 // clang-format on
 
 // 0x55AAE0 | ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z

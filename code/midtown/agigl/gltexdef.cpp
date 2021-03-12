@@ -141,7 +141,7 @@ i32 agiGLTexDef::BeginGfx()
         case 0xF800: // 565
             format = GL_RGB;
             type = GL_UNSIGNED_SHORT_5_6_5;
-            internal = GL_RGB8;
+            internal = Pipe()->HasExtension("GL_ARB_ES2_compatibility") ? GL_RGB565 : GL_RGB8;
             break;
 
         case 0xF00: // 4444
@@ -152,18 +152,34 @@ i32 agiGLTexDef::BeginGfx()
 
         case 0xFF:
             format = surface->PixelFormat.RGBAlphaBitMask ? GL_RGBA : GL_RGB;
-            type = GL_UNSIGNED_BYTE;
+            type = GL_UNSIGNED_INT_8_8_8_8_REV;
             internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
             break;
 
         case 0xFF0000:
             format = surface->PixelFormat.RGBAlphaBitMask ? GL_BGRA : GL_BGR;
-            type = GL_UNSIGNED_BYTE;
+            type = GL_UNSIGNED_INT_8_8_8_8_REV;
             internal = (Tex.Flags & agiTexParameters::Alpha) ? GL_RGBA8 : GL_RGB8;
             break;
 
         default: Quitf("Invalid Format");
     }
+
+#if 0
+    if (Pipe()->HasExtension("GL_ARB_internalformat_query2"))
+    {
+        GLint internal_format = 0;
+        GLint internal_type = 0;
+        glGetInternalformativ(GL_TEXTURE_2D, internal, GL_TEXTURE_IMAGE_FORMAT, 1, &internal_format);
+        glGetInternalformativ(GL_TEXTURE_2D, internal, GL_TEXTURE_IMAGE_TYPE, 1, &internal_type);
+
+        if ((format != GLenum(internal_format)) || (type != GLenum(internal_type)))
+        {
+            Warningf("OpenGL Texture Conversion: %s wanted %04X, %04X, got %04X, %04X", GetName(), format, type,
+                internal_format, internal_type);
+        }
+    }
+#endif
 
     glGenTextures(1, &texture_);
     glBindTexture(GL_TEXTURE_2D, texture_);

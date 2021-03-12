@@ -354,7 +354,7 @@ i32 agiGLPipeline::BeginGfx()
 
     // TODO: Should this have alpha?
     screen_format_.Flags = AGISD_PIXELFORMAT;
-    screen_format_.PixelFormat = PixelFormat_8888;
+    screen_format_.PixelFormat = PixelFormat_A8R8G8B8;
 
     alpha_color_model_ = AsRc(agiColorModel::FindMatch(&screen_format_));
     opaque_color_model_ = alpha_color_model_;
