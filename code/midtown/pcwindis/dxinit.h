@@ -75,12 +75,7 @@ ARTS_IMPORT void* dxiMemoryAllocate(struct IDirectDrawSurface4** arg1, u32 arg2)
 ARTS_IMPORT void dxiMemoryFree(struct IDirectDrawSurface4* arg1);
 
 // 0x574690 | ?dxiScreenShot@@YAXPAD@Z
-#ifdef ARTS_ENABLE_OPENGL
-ARTS_EXPORT
-#else
-ARTS_IMPORT
-#endif
-void dxiScreenShot(char* file_name);
+ARTS_EXPORT void dxiScreenShot(char* file_name);
 
 // 0x573D80 | ?dxiSetDisplayMode@@YAXXZ
 ARTS_EXPORT void dxiSetDisplayMode();

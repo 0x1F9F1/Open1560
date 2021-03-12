@@ -122,25 +122,80 @@ void dxiDirectInputCreate()
         Quitf("DirectInputCreate failed, code %x", err);
 }
 
-static inline void dxiRestoreDisplayMode()
-{
-#ifndef ARTS_DISABLE_DDRAW
-    if (dxiIsFullScreen() && lpDD4)
-    {
-        lpDD4->RestoreDisplayMode();
-        lpDD4->SetCooperativeLevel(hwndMain, DDSCL_NORMAL);
-    }
-#endif
-}
-
 #ifdef ARTS_ENABLE_OPENGL
 #    include "agigl/glpipe.h"
+#endif
+
+// 0x574940 | ?translate555@@YAXPAEPAGI@Z
+ARTS_IMPORT /*static*/ void translate555(u8* output, u16* input, u32 width);
+
+// 0x5748D0 | ?translate565@@YAXPAEPAGI@Z
+ARTS_IMPORT /*static*/ void translate565(u8* output, u16* input, u32 width);
+
+Ptr<u8[]> dxiScreenShot(i32& width, i32& height)
+{
+    if (lpdsRend == nullptr)
+        return nullptr;
+
+    DDSURFACEDESC2 sd {sizeof(sd)};
+
+    if (lpdsRend->Lock(NULL, &sd, DDLOCK_WAIT, NULL))
+    {
+        Errorf("Error locking surface for screenshot.");
+        return nullptr;
+    }
+
+    width = static_cast<i32>(sd.dwWidth);
+    height = static_cast<i32>(sd.dwHeight);
+
+    void (*translate)(u8 * output, u16 * input, u32 width) = nullptr;
+
+    switch (sd.ddpfPixelFormat.dwRBitMask)
+    {
+        case 0x7C00: translate = translate555; break;
+        case 0xF800: translate = translate565; break;
+    }
+
+    Ptr<u8[]> buffer;
+
+    if (translate)
+    {
+        buffer = MakeUnique<u8[]>(width * height * 3);
+
+        // Translate and flip horizontally
+        for (i32 i = 0; i < height; ++i)
+        {
+            translate(buffer.get() + (i * width * 3),
+                reinterpret_cast<u16*>(static_cast<u8*>(sd.lpSurface) + (sd.lPitch * (height - i - 1))), sd.dwWidth);
+        }
+    }
+    else
+    {
+        Errorf("Unknown framebuffer format %X %X %X", sd.ddpfPixelFormat.dwRBitMask, sd.ddpfPixelFormat.dwGBitMask,
+            sd.ddpfPixelFormat.dwBBitMask);
+    }
+
+    lpdsRend->Unlock(NULL);
+
+    return buffer;
+}
 
 void dxiScreenShot(char* file_name)
 {
     i32 width = 0;
     i32 height = 0;
-    Ptr<u8[]> pixels = glScreenShot(width, height);
+    Ptr<u8[]> pixels;
+
+    if (lpdsRend)
+    {
+        pixels = dxiScreenShot(width, height);
+    }
+    else
+    {
+#ifdef ARTS_ENABLE_OPENGL
+        pixels = glScreenShot(width, height);
+#endif
+    }
 
     if (pixels == nullptr)
         return;
@@ -222,6 +277,16 @@ void dxiScreenShot(char* file_name)
         }
 
         CloseClipboard();
+    }
+}
+
+#ifndef ARTS_DISABLE_DDRAW
+static inline void dxiRestoreDisplayMode()
+{
+    if (dxiIsFullScreen() && lpDD4)
+    {
+        lpDD4->RestoreDisplayMode();
+        lpDD4->SetCooperativeLevel(hwndMain, DDSCL_NORMAL);
     }
 }
 #endif
@@ -317,9 +382,3 @@ void dxiWindowCreate(const char* title)
     ShowWindow(hwndMain, SW_SHOWNORMAL);
     UpdateWindow(hwndMain);
 }
-
-// 0x574940 | ?translate555@@YAXPAEPAGI@Z
-ARTS_IMPORT /*static*/ void translate555(u8* arg1, u16* arg2, u32 arg3);
-
-// 0x5748D0 | ?translate565@@YAXPAEPAGI@Z
-ARTS_IMPORT /*static*/ void translate565(u8* arg1, u16* arg2, u32 arg3);
