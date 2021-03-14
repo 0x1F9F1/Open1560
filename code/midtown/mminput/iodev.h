@@ -65,7 +65,7 @@ public:
     ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x4E5580 | ?GetComponentType@mmIODev@@QAEHHH@Z
-    ARTS_IMPORT i32 GetComponentType(i32 arg1, i32 arg2);
+    ARTS_EXPORT i32 GetComponentType(i32 device, i32 component);
 
     // 0x4E52C0 | ?GetDescription@mmIODev@@QAEXPAD@Z
     ARTS_IMPORT void GetDescription(char* arg1);

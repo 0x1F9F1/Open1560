@@ -44,12 +44,8 @@ struct mmStatePack
     i32 CurrentCar;
     i32 field_4;
 
-    // 0 | Mouse
-    // 1 | Keyboard
-    // 2 | Joystick
-    // 3 | Gamepad
-    // 4 | Wheel
-    i32 ControllerType;
+    // mmInputType
+    i32 InputType;
 
     i32 NetworkStatus;
     i32 NumPlayers;

@@ -19,3 +19,33 @@
 define_dummy_symbol(mminput_iodev);
 
 #include "iodev.h"
+
+#include "input.h"
+
+using namespace ioType;
+using namespace mmJoyInput;
+
+i32 mmIODev::GetComponentType(i32 device, i32 component)
+{
+    switch (device)
+    {
+        case MM_MOUSE: {
+            if (component == kXaxis || component == kYaxis)
+                return kContinuous;
+
+            return kDiscrete;
+        }
+
+        case MM_JOYSTICK1:
+        case MM_JOYSTICK2:
+        case MM_JOYSTICK3:
+        case MM_JOYSTICK4: {
+            if (component >= kJButton1 && component <= kJButton12)
+                return kDiscrete;
+
+            return kContinuous;
+        }
+
+        default: return kDiscrete;
+    }
+}

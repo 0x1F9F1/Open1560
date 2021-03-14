@@ -61,6 +61,48 @@
     0x61FD00 | const mmRoadFF::`vftable' | ??_7mmRoadFF@@6B@
 */
 
+#include <dinput.h>
+
+class mmSpringFF;
+class mmFrictionFF;
+class mmRoadFF;
+class mmCollideFF;
+
+struct mmJaxis
+{
+public:
+    // 0x4E6080 | ??0mmJaxis@@QAE@XZ
+    ARTS_IMPORT mmJaxis();
+
+    // 0x4E60A0 | ??1mmJaxis@@QAE@XZ
+    ARTS_IMPORT ~mmJaxis() = default;
+
+    // 0x4E6130 | ?Capture@mmJaxis@@QAEHXZ
+    ARTS_IMPORT i32 Capture();
+
+    // 0x4E60D0 | ?Normalize@mmJaxis@@QAEXM@Z
+    ARTS_IMPORT void Normalize(f32 arg1);
+
+    // 0x4E60F0 | ?NormalizePOV@mmJaxis@@QAEXK@Z
+    ARTS_IMPORT void NormalizePOV(ulong arg1);
+
+    // 0x4E6160 | ?ResetCapture@mmJaxis@@QAEXXZ
+    ARTS_IMPORT void ResetCapture();
+
+    // 0x4E60B0 | ?SetRange@mmJaxis@@QAEXMM@Z
+    ARTS_IMPORT void SetRange(f32 arg1, f32 arg2);
+
+    f32 CapStart;
+    f32 Value;
+    f32 Range;
+    f32 Min;
+    f32 DeadMin;
+    f32 DeadMax;
+    b32 Enabled;
+};
+
+check_size(mmJaxis, 0x1C);
+
 struct mmJoystick final
 {
 public:
@@ -75,7 +117,7 @@ public:
     ARTS_IMPORT i32 DisableAutoCenter();
 
     // 0x4E6850 | ?GetAxis@mmJoystick@@QAEMH@Z
-    ARTS_IMPORT f32 GetAxis(i32 arg1);
+    ARTS_EXPORT f32 GetAxis(i32 axis);
 
     // 0x4E6950 | ?GetButton@mmJoystick@@QAEMH@Z
     ARTS_IMPORT f32 GetButton(i32 arg1);
@@ -108,7 +150,7 @@ public:
     ARTS_IMPORT i32 PlaySteer();
 
     // 0x4E6720 | ?Poll@mmJoystick@@QAEKXZ
-    ARTS_IMPORT u32 Poll();
+    ARTS_IMPORT ulong Poll();
 
     // 0x4E6DD0 | ?PrintDeviceCaps@mmJoystick@@QAEXXZ
     ARTS_IMPORT void PrintDeviceCaps();
@@ -123,7 +165,7 @@ public:
     ARTS_IMPORT i32 SetFriction(i32 arg1);
 
     // 0x4E6C30 | ?SetShake@mmJoystick@@QAEHKK@Z | unused
-    ARTS_IMPORT i32 SetShake(u32 arg1, u32 arg2);
+    ARTS_IMPORT i32 SetShake(ulong arg1, ulong arg2);
 
     // 0x4E6CC0 | ?SetSteer@mmJoystick@@QAEHJ@Z | unused
     ARTS_IMPORT i32 SetSteer(i32 arg1);
@@ -138,44 +180,33 @@ public:
     ARTS_IMPORT i32 StopSteer();
 
     // 0x4E6980 | ?Update@mmJoystick@@QAEXXZ
-    ARTS_IMPORT void Update();
+    ARTS_EXPORT void Update();
 
     // 0x4E6470 | ?inputPrepareDevice@mmJoystick@@QAEHXZ
     ARTS_IMPORT i32 inputPrepareDevice();
 
-    u8 gap0[0x3A8];
+    IDirectInputDevice2A* DInput;
+    b32 EnableFF;
+    DIJOYSTATE JoyState;
+    DIDEVCAPS DevCaps;
+    DIDEVICEINSTANCEA DevInfo;
+    mmSpringFF* SpringFF;
+    mmFrictionFF* FrictionFF;
+    mmRoadFF* RoadFF;
+    mmCollideFF* CollideFF;
+    mmJaxis XAxis;
+    mmJaxis YAxis;
+    mmJaxis ZAxis;
+    mmJaxis RAxis;
+    mmJaxis UAxis;
+    mmJaxis VAxis;
+    mmJaxis PovAxis;
+    u32 ButtonFlags;
+    u32 Capture;
+    i32 State;
 };
 
 check_size(mmJoystick, 0x3A8);
-
-struct mmJaxis
-{
-public:
-    // 0x4E6080 | ??0mmJaxis@@QAE@XZ
-    ARTS_IMPORT mmJaxis();
-
-    // 0x4E60A0 | ??1mmJaxis@@QAE@XZ
-    ARTS_IMPORT ~mmJaxis() = default;
-
-    // 0x4E6130 | ?Capture@mmJaxis@@QAEHXZ
-    ARTS_IMPORT i32 Capture();
-
-    // 0x4E60D0 | ?Normalize@mmJaxis@@QAEXM@Z
-    ARTS_IMPORT void Normalize(f32 arg1);
-
-    // 0x4E60F0 | ?NormalizePOV@mmJaxis@@QAEXK@Z
-    ARTS_IMPORT void NormalizePOV(u32 arg1);
-
-    // 0x4E6160 | ?ResetCapture@mmJaxis@@QAEXXZ
-    ARTS_IMPORT void ResetCapture();
-
-    // 0x4E60B0 | ?SetRange@mmJaxis@@QAEXMM@Z
-    ARTS_IMPORT void SetRange(f32 arg1, f32 arg2);
-
-    u8 gap0[0x1C];
-};
-
-check_size(mmJaxis, 0x1C);
 
 // 0x4E6FB0 | ?DecodeDIErrorMFlag@@YAXJ@Z
 ARTS_IMPORT void DecodeDIErrorMFlag(i32 arg1);

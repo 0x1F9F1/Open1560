@@ -44,7 +44,6 @@ ARTS_NOINLINE Timer::Timer()
         {
             TicksToSeconds = 0.001f;
             TicksToMilliseconds = 1.0f;
-
         }
         else
         {

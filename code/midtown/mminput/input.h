@@ -118,40 +118,57 @@ ARTS_IMPORT void testsuperq();
 // 0x719254 | ?GameInputPtr@@3PAVmmInput@@A
 ARTS_IMPORT extern class mmInput* GameInputPtr;
 
-#define IOID_MAP 0
-#define IOID_FMAP 1
-#define IOID_MAPRES 2
-#define IOID_HUD 3
-#define IOID_STR 4
-#define IOID_STRL 5
-#define IOID_STRR 6
-#define IOID_THROT 7
-#define IOID_BRAKE 8
-#define IOID_HAND 9
-#define IOID_CAM 10
-#define IOID_XVIEW 11
-#define IOID_HORN 12
-#define IOID_LOKL 13
-#define IOID_LOKR 14
-#define IOID_LOKB 15
-#define IOID_LOKF 16
-#define IOID_WFOV 17
-#define IOID_DASH 18
-#define IOID_TRANS 19
-#define IOID_UPSH 20
-#define IOID_DWNS 21
-#define IOID_REV 22
-#define IOID_WYPTN 23
-#define IOID_WYPTP 24
-#define IOID_CDSHOW 25
-#define IOID_CDPLAY 26
-#define IOID_CDPRIOR 27
-#define IOID_CDNEXT 28
-#define IOID_MIRROR 29
-#define IOID_PAN 30
-#define IOID_31 31
-#define IOID_32 32
+// mmIO Flags
+#define IO_FLAG_EVENT 0x1
+#define IO_FLAG_DISCRETE 0x2
+#define IO_FLAG_CONTINUOUS 0x4
+
+// mmIODev Index
+#define IOID_MAP 0      // Map Toggle (Event)
+#define IOID_FMAP 1     // Full Screen Map (Event)
+#define IOID_MAPRES 2   // Map Resolution (Event)
+#define IOID_HUD 3      // HUD Toggle (Event)
+#define IOID_STR 4      // Steering (Continuous)
+#define IOID_STRL 5     // Steer Left (Discrete)
+#define IOID_STRR 6     // Steer Right (Discrete)
+#define IOID_THROT 7    // Throttle (Discrete | Continuous)
+#define IOID_BRAKE 8    // Brakes (Discrete | Continuous)
+#define IOID_HAND 9     // Handbrake (Discrete)
+#define IOID_CAM 10     // Change Camera (Event)
+#define IOID_XVIEW 11   // External View (Event)
+#define IOID_HORN 12    // Horn (Discrete | Continuous)
+#define IOID_LOKL 13    // Look Left (Discrete | Continuous)
+#define IOID_LOKR 14    // Look Right (Discrete | Continuous)
+#define IOID_LOKB 15    // Look Back (Discrete | Continuous)
+#define IOID_LOKF 16    // Look Forward (Discrete | Continuous)
+#define IOID_WFOV 17    // Wide Angle (Event)
+#define IOID_DASH 18    // Dashboard On/Off (Event)
+#define IOID_TRANS 19   // Transmission (Event)
+#define IOID_UPSH 20    // Shift Up (Event)
+#define IOID_DWNS 21    // Shift Down (Event)
+#define IOID_REV 22     // Reverse (Event)
+#define IOID_WYPTN 23   // Next Waypoint (Event)
+#define IOID_WYPTP 24   // Prev. Waypoint (Event)
+#define IOID_CDSHOW 25  // Toggle CD Player (Event)
+#define IOID_CDPLAY 26  // Start/Stop CD (Event)
+#define IOID_CDPRIOR 27 // Prev. CD Track (Event)
+#define IOID_CDNEXT 28  // Next CD Track (Event)
+#define IOID_MIRROR 29  // Rear View Mirror (Event)
+#define IOID_PAN 30     // Camera Pan (Continuous)
+#define IOID_OPPPOS 31  // Opponent Position (Event)
+#define IOID_CHAT 32    // Enter Chat Msg (Event)
 #define IOID_COUNT 33
+
+// mmInput::PollStates
+#define MM_POLL_KEYBOARD 0x10000
+#define MM_POLL_MOUSE 0x20000
+#define MM_POLL_JOYSTICK 0x40000
+
+// mmJoyMan::PollJoyButtons
+#define MM_POLL_JOY_BUTTONS_SHIFT 8 // Joystick index of button pressed ((index + 1) << 8)
+
+// mmJoyMan::PollJoyAxes
+#define MM_POLL_JOY_AXES_INDEX 0x1000 // Joystick index of axis pressed (0x1000 << index)
 
 // 0x719220 | ?IODev@@3PAVmmIODev@@A
 ARTS_IMPORT extern class mmIODev* IODev;
@@ -161,8 +178,8 @@ namespace ioType
     enum ioType_ : i32
     {
         kUndef = 0,
-        kDiscrete = 1,
-        kContinuous = 2,
+        kDiscrete = 1,   // Key/Button
+        kContinuous = 2, // Mouse/Joystick
         kEvent = 3,
     };
 }
@@ -185,32 +202,35 @@ enum mmInputType : i32
 #define MM_JOYSTICK3 6
 #define MM_JOYSTICK4 7
 
-enum : i32
+namespace mmJoyInput
 {
-    kXaxis = 10,
-    kYaxis = 11,
-    kZaxis = 12,
-    kUaxis = 13,
-    kRaxis = 14,
-    kVaxis = 15,
-    kPOVaxis = 16,
-    kXaxisLeft = 17,
-    kXaxisRight = 18,
-    kYaxisUp = 19,
-    kYaxisDown = 20,
-    kJButton1 = 21,
-    kJButton2 = 22,
-    kJButton3 = 23,
-    kJButton4 = 24,
-    kJButton5 = 25,
-    kJButton6 = 26,
-    kJButton7 = 27,
-    kJButton8 = 28,
-    kJButton9 = 29,
-    kJButton10 = 30,
-    kJButton11 = 31,
-    kJButton12 = 32,
-};
+    enum mmJoyInput_ : i32
+    {
+        kXaxis = 10,
+        kYaxis = 11,
+        kZaxis = 12,
+        kUaxis = 13,
+        kRaxis = 14,
+        kVaxis = 15,
+        kPOVaxis = 16,
+        kXaxisLeft = 17,
+        kXaxisRight = 18,
+        kYaxisUp = 19,
+        kYaxisDown = 20,
+        kJButton1 = 21,
+        kJButton2 = 22,
+        kJButton3 = 23,
+        kJButton4 = 24,
+        kJButton5 = 25,
+        kJButton6 = 26,
+        kJButton7 = 27,
+        kJButton8 = 28,
+        kJButton9 = 29,
+        kJButton10 = 30,
+        kJButton11 = 31,
+        kJButton12 = 32,
+    };
+}
 
 // 0x719268 | ?InputConfiguration@@3HA
 ARTS_IMPORT extern i32 InputConfiguration;
