@@ -46,9 +46,13 @@ check_size(dxiResolution, 8);
 struct dxiRendererInfo_t
 {
     b32 Valid;
-    i32 Valid2;
-    i32 Hardware2;
-    i32 field_C;
+    b32 Usable;
+    i32 Type2;
+
+    // 0xA6 for Software
+    // 0x85 for Hardware
+    u32 Flags;
+
     b32 SmoothAlpha;
     b32 AdditiveBlending;
     b32 VertexFog;
@@ -67,18 +71,14 @@ struct dxiRendererInfo_t
     GUID InterfaceGuid;
     GUID DriverGuid;
 
-    // 0 | None
-    // 1 | Software
+    // 0 | Software
+    // 1 | Primary Surface (GDI)
     // 2 | Hardware
     i32 Type;
+
     dxiResolution Resolutions[32];
     i32 ResCount;
     i32 ResChoice;
-
-    bool IsHardware() const
-    {
-        return Type == 2;
-    }
 };
 
 check_size(dxiRendererInfo_t, 0x198);

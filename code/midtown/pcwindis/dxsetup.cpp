@@ -119,9 +119,9 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     info = {};
 
     info.Valid = true;
-    info.Valid2 = true;
-    info.Hardware2 = true;
-    info.field_C = 0;
+    info.Usable = true;
+    info.Type2 = 2;
+    info.Flags = 0;
 
     info.SmoothAlpha = true;
     info.AdditiveBlending = true;

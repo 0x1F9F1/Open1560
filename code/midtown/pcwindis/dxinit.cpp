@@ -45,7 +45,7 @@ static inline GUID* dxiGetInterfaceGUID()
 {
     dxiRendererInfo_t& info = GetRendererInfo();
 
-    return (info.IsHardware() && dxiIsFullScreen()) ? &info.InterfaceGuid : nullptr;
+    return ((info.Type == 2) && dxiIsFullScreen()) ? &info.InterfaceGuid : nullptr;
 }
 
 static GUID* dxiCurrentInterfaceGUID = nullptr;

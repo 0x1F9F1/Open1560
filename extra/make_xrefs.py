@@ -55,6 +55,7 @@ for sym_addr, (sym_name, sym_is_func, sym_refs) in raw_xrefs.items():
 
         for addr, delta in sym_refs:
             offset = addr - prev_addr
+            assert offset >= 0
             data += encode_uleb128(offset)
             if not no_deltas:
                 data += encode_ileb128(delta - prev_delta)

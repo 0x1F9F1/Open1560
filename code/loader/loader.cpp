@@ -155,6 +155,35 @@ static std::size_t InitExportHooks(HMODULE instance)
 #    define CI_BUILD_STRING "Dev"
 #endif
 
+static void FixAppCompatFlags()
+{
+    HKEY hKey = NULL;
+    if (RegOpenKeyExW(HKEY_LOCAL_MACHINE, LR"(SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers)", 0,
+            KEY_READ | KEY_WRITE | KEY_WOW64_64KEY, &hKey) != ERROR_SUCCESS)
+        return;
+
+    WCHAR exe_name[256];
+    if (GetModuleFileNameW(NULL, exe_name, ARTS_SIZE32(exe_name)) == 0)
+        return;
+
+    WCHAR value[256];
+    DWORD dwType = 0;
+    DWORD cbData = sizeof(value);
+
+    if (DWORD error = RegQueryValueExW(hKey, exe_name, NULL, &dwType, (BYTE*) value, &cbData);
+        (error != ERROR_SUCCESS) || (dwType != REG_SZ) || std::wcsstr(value, L"DWM8And16BitMitigation"))
+
+    {
+        const WCHAR new_flags[] = L"Disable8And16BitModes DirectPlayEnumOrder";
+        error = RegSetValueExW(hKey, exe_name, 0, REG_SZ, (const BYTE*) new_flags, sizeof(new_flags));
+
+        if (error == ERROR_ACCESS_DENIED)
+            Warningf("Run Open1560 once as admin to fix AppCompatFlags");
+    }
+
+    RegCloseKey(hKey);
+}
+
 BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
     if (fdwReason == DLL_PROCESS_ATTACH)
@@ -191,6 +220,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         VERSION_STRING = const_cast<char*>("Open1560: " CI_BUILD_STRING " / " __DATE__ " " __TIME__);
 
         Displayf("Build: %s", VERSION_STRING);
+
+        FixAppCompatFlags();
 
         patch_jmp("HW Menu", "Enable HW Menu Rendering", 0x401DB4, jump_type::always);
 

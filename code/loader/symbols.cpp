@@ -8298,9 +8298,9 @@ static usize leb128_decode_usize(const void** input)
     {
         u8 v = *input8++;
         result |= (v & 0x7F) << shift;
+        shift += 7;
         if ((v & 0x80) == 0)
             break;
-        shift += 7;
     }
 
     *input = input8;
