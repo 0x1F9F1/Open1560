@@ -276,7 +276,7 @@ RcOwner<agiBitmap> agiPipeline::GetBitmap(const char* name, f32 sx, f32 sy, i32 
         return AsOwner(AddRc(result));
     }
 
-    Rc<agiBitmap> result {CreateBitmap()};
+    Rc<agiBitmap> result = AsRc(CreateBitmap());
 
     if (result->Init(name, sx, sy, flags) != AGI_ERROR_SUCCESS)
         return nullptr;

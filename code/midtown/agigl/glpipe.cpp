@@ -188,7 +188,8 @@ i32 agiGLPipeline::BeginGfx()
     i32 window_height = window_rect.bottom - window_rect.top;
 
     SetWindowPos(hwnd, HWND_TOP, info.mi.rcMonitor.left + (horz_res - window_width) / 2,
-        info.mi.rcMonitor.top + (vert_res - window_height) / 2, window_width, window_height, SWP_SHOWWINDOW);
+        info.mi.rcMonitor.top + (vert_res - window_height) / 2, window_width, window_height,
+        SWP_SHOWWINDOW | SWP_FRAMECHANGED | SWP_NOCOPYBITS);
 
     SetFocus(hwnd);
 
@@ -447,6 +448,10 @@ i32 agiGLPipeline::BeginGfx()
 
     Displayf("Using %s framebuffer (msaa=%i)", builtin_fb ? "builtin" : "custom", msaa_level);
 
+    // Clear the builtin frame buffer (avoid ugly remains/ghost image)
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    SwapBuffers(window_dc_);
+
     if (!builtin_fb)
     {
         glGenFramebuffers(1, &fbo_);
@@ -552,7 +557,7 @@ void agiGLPipeline::BeginFrame()
     if (wglGetCurrentContext() != gl_context_)
         wglMakeCurrent(window_dc_, gl_context_);
 
-    if (PARAM_frameclear.get_or(true))
+    if (PARAM_frameclear.get_or(false))
     {
         glDisable(GL_SCISSOR_TEST);
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
