@@ -378,6 +378,7 @@ void mmText::Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font_
     rc.right = screen_x + size.cx;
     rc.bottom = screen_y + size.cy;
 
+    surface->Load();
     surface->Clear();
 
     font->Draw(surface, text, rc, 0xFFFFFF, 0);
@@ -399,6 +400,7 @@ void mmText::Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font
     rc.right = screen_x + size.cx;
     rc.bottom = screen_y + size.cy;
 
+    surface->Load();
     surface->Clear();
 
     font->Draw(surface, text, rc, color, MM_TEXT_RIGHT);

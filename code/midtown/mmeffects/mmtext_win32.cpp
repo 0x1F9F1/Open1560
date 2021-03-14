@@ -36,6 +36,8 @@ static u32 TwiddleColor(u32 color)
 
 void mmText::Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font)
 {
+    surface->Load();
+
     HDC dc = static_cast<HDC>(GetDC(surface));
 
     if (dc)
@@ -57,6 +59,8 @@ void mmText::Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font)
 
 void mmText::Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font, u32 color)
 {
+    surface->Load();
+
     HDC dc = static_cast<HDC>(GetDC(surface));
 
     if (dc)

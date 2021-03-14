@@ -43,8 +43,7 @@ void mmTextNode::Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 fl
     text_bitmap_ = AsRc(Pipe()->CreateBitmap());
 
     // NOTE: This won't work with agiSWBitmap. agiSWBitmap::BeginGfx doesn't set its state, and is missing the added check whether the surface is null
-    // FIXME: mmNumberFont::Load[Loc]Font uses mmText::Draw2 instead of mmTextNode::Cull, so it doesn't load the surface before drawing.
-    if (Pipe()->IsHardware() && !(num_lines == 1 && x_ == 0.5f && y_ == 0.5f))
+    if (Pipe()->IsHardware())
         flags |= AGI_BITMAP_UNLOAD_ALWAYS;
 
     text_bitmap_->Init(name, width * Pipe()->GetWidth(), height * Pipe()->GetHeight(), flags);
