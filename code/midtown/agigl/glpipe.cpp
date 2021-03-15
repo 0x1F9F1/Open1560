@@ -557,7 +557,7 @@ void agiGLPipeline::BeginFrame()
     if (wglGetCurrentContext() != gl_context_)
         wglMakeCurrent(window_dc_, gl_context_);
 
-    if (PARAM_frameclear.get_or(false))
+    if (PARAM_frameclear.get_or(true))
     {
         glDisable(GL_SCISSOR_TEST);
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
