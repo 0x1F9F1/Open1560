@@ -211,7 +211,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
             return (lhs.uWidth != rhs.uWidth) ? (lhs.uWidth < rhs.uWidth) : (lhs.uHeight < rhs.uHeight);
         });
 
-    if ((iMonitor.dwFlags & MONITORINFOF_PRIMARY) == MONITORINFOF_PRIMARY)
+    if (iMonitor.dwFlags & MONITORINFOF_PRIMARY)
     {
         Displayf("Display '%s' (%i) is primary", info.Name, dxiRendererCount);
 

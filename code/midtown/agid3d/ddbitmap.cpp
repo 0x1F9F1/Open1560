@@ -66,7 +66,7 @@ i32 agiDDBitmap::BeginGfx()
     ddsdDest.dwWidth = width_;
     ddsdDest.dwFlags = DDSD_CAPS | DDSD_WIDTH | DDSD_HEIGHT;
     ddsdDest.dwHeight = height_;
-    ddsdDest.ddsCaps.dwCaps = (flags_ & AGI_BITMAP_OFFSCREEN) != 0 ? DDSCAPS_OFFSCREENPLAIN : DDSCAPS_SYSTEMMEMORY;
+    ddsdDest.ddsCaps.dwCaps = (flags_ & AGI_BITMAP_OFFSCREEN) ? DDSCAPS_OFFSCREENPLAIN : DDSCAPS_SYSTEMMEMORY;
 
     if (Pipe()->GetDirectDraw()->CreateSurface(&ddsdDest, &d_surf_, nullptr))
     {
