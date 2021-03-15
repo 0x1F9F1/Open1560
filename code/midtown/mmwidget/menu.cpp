@@ -20,10 +20,17 @@ define_dummy_symbol(mmwidget_menu);
 
 #include "menu.h"
 
+#include "widget.h"
+
 void UIMenu::PostSetup()
 {}
 
 i32 UIMenu::IsAnOptionMenu()
 {
     return 0;
+}
+
+void UIMenu::ClearAction()
+{
+    state_ = 2;
 }

@@ -215,7 +215,7 @@ public:
     ARTS_IMPORT void CheckMouseHits();
 
     // 0x4ACB60 | ?ClearAction@UIMenu@@QAEXXZ
-    ARTS_IMPORT void ClearAction();
+    ARTS_EXPORT void ClearAction();
 
     // 0x4AEA70 | ?ClearSelected@UIMenu@@QAEXXZ
     ARTS_IMPORT void ClearSelected();
@@ -307,11 +307,26 @@ public:
     // 0x641858 | ?WIDGET_WIDTH@UIMenu@@2MA
     ARTS_IMPORT static f32 WIDGET_WIDTH;
 
+    i32 GetMenuID() const
+    {
+        return menu_id_;
+    }
+
+    i32 GetWidgetCount() const
+    {
+        return widget_count_;
+    }
+
+    uiWidget* GetWidget(i32 index) const
+    {
+        return widgets_[index];
+    }
+
 protected:
     i32 action_source_;
     i32 state_;
-    i32 field_28;
-    i32 field_2C;
+    i32 enabled_;
+    i32 menu_id_;
     i32 field_30;
     i32 widget_count_;
     i32 field_38;

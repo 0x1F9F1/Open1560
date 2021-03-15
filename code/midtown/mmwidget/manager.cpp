@@ -22,6 +22,10 @@ define_dummy_symbol(mmwidget_manager);
 
 #include "agi/pipeline.h"
 
+#include "menu.h"
+#include "pointer.h"
+#include "widget.h"
+
 void MenuManager::AddPointer()
 {}
 
@@ -35,11 +39,11 @@ void MenuManager::GetScale(f32& x, f32& y, f32& width, f32& height)
 {
     if (HasScale())
     {
-        x = StartX;
-        y = StartY;
+        x = start_x_;
+        y = start_y_;
 
-        width = ScaleX;
-        height = ScaleY;
+        width = scale_x_;
+        height = scale_y_;
     }
     else
     {
@@ -57,3 +61,133 @@ void MenuManager::GetScale(f32& x, f32& y, f32& width, f32& height)
     width = width * UI_ScaleX;
     height = height * UI_ScaleY;
 }
+
+void MenuManager::SetFocus(UIMenu* menu)
+{
+    active_menu_ = menu;
+}
+
+i32 MenuManager::Switch(i32 id)
+{
+    // The logic for updating popups is wierd/slightly broken.
+    // If PUControls is opened and closed using F1, it locks up the menu system because the MenuManager is no longer being updated
+    if (is_popup_)
+    {
+        SwitchNow(id);
+    }
+    else
+    {
+        next_active_menu_id_ = id;
+    }
+
+    return id;
+}
+
+void MenuManager::Update()
+{
+    if (next_active_menu_id_ != -1)
+    {
+        SwitchNow(next_active_menu_id_);
+        next_active_menu_id_ = -1;
+    }
+
+    last_drawn_ = nullptr;
+
+    asNode::Update();
+
+    if (last_drawn_)
+        last_drawn_->Update();
+
+    pointer_->Update();
+}
+
+void MenuManager::SwitchNow(i32 id)
+{
+    if (id == active_menu_id_)
+        return;
+
+    bool had_previous = false;
+
+    if (num_menus_ > 0 && active_menu_id_ >= 0)
+    {
+        had_previous = true;
+        Disable(active_menu_id_);
+    }
+
+    Enable(id);
+    active_menu_id_ = id;
+
+    if (had_previous && !is_popup_)
+        PlayMenuSwitchSound();
+
+    if (had_previous || is_popup_)
+    {
+        if (active_menu_)
+        {
+            active_menu_->ClearAction();
+            active_menu_->ClearWidgets();
+        }
+
+        SetFocus(GetCurrentMenu());
+
+        active_menu_->SetSelected();
+    }
+}
+
+UIMenu* MenuManager::GetCurrentMenu()
+{
+    i32 index = FindMenu(active_menu_id_);
+
+    return (index >= 0) ? menus_[index] : nullptr;
+}
+
+void MenuManager::Enable(i32 id)
+{
+    i32 index = FindMenu(id);
+
+    if (index < 0)
+        return;
+
+    active_menu_id_ = id;
+
+    if (!HasScale() || is_popup_)
+    {
+        menus_[index]->Enable();
+
+        if (HasScale())
+            AdjustPopupCard(menus_[index]);
+
+        CheckBG(menus_[index]);
+    }
+}
+
+i32 MenuManager::CurrentMenuSelected()
+{
+    if (dialog_menu_)
+        return dialog_menu_->GetMenuID();
+
+    return active_menu_id_;
+}
+
+void MenuManager::Disable(i32 id)
+{
+    if (id == -1)
+        id = active_menu_id_;
+
+    i32 index = FindMenu(id);
+
+    if (index >= 0)
+        menus_[index]->Disable();
+}
+
+run_once([] {
+    for (usize addr : {
+             0x4086B4,
+             0x4086D7,
+             0x40870A,
+             0x408722,
+         })
+    {
+        create_hook("mmInterface::ShowMain", "Menu Switching", addr, &MenuManager::Switch, hook_type::call);
+    }
+});

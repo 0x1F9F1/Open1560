@@ -152,7 +152,7 @@ public:
     ARTS_IMPORT void CloseDialog();
 
     // 0x4B1480 | ?CurrentMenuSelected@MenuManager@@QAEHXZ
-    ARTS_IMPORT i32 CurrentMenuSelected();
+    ARTS_EXPORT i32 CurrentMenuSelected();
 
     // 0x4B0DC0 | ?DeclareLastDrawn@MenuManager@@QAEXPAVasNode@@@Z
     ARTS_IMPORT void DeclareLastDrawn(class asNode* arg1);
@@ -161,7 +161,7 @@ public:
     ARTS_IMPORT void DeleteMenu(class UIMenu* arg1);
 
     // 0x4B0C00 | ?Disable@MenuManager@@QAEXH@Z
-    ARTS_IMPORT void Disable(i32 arg1);
+    ARTS_EXPORT void Disable(i32 id);
 
     // 0x4B0C60 | ?DisableNavBar@MenuManager@@QAEXXZ
     ARTS_IMPORT void DisableNavBar();
@@ -170,7 +170,7 @@ public:
     ARTS_IMPORT void DisablePU();
 
     // 0x4B0B90 | ?Enable@MenuManager@@QAEXH@Z
-    ARTS_IMPORT void Enable(i32 arg1);
+    ARTS_EXPORT void Enable(i32 id);
 
     // 0x4B0C40 | ?EnableNavBar@MenuManager@@QAEXXZ
     ARTS_IMPORT void EnableNavBar();
@@ -191,7 +191,7 @@ public:
     ARTS_IMPORT char* GetControllerName(i32 arg1);
 
     // 0x4B1410 | ?GetCurrentMenu@MenuManager@@QAEPAVUIMenu@@XZ
-    ARTS_IMPORT class UIMenu* GetCurrentMenu();
+    ARTS_EXPORT class UIMenu* GetCurrentMenu();
 
     // 0x4B0740 | ?GetFGColor@MenuManager@@QAEAAVVector4@@H@Z
     ARTS_IMPORT class Vector4& GetFGColor(i32 arg1);
@@ -260,13 +260,13 @@ public:
     ARTS_IMPORT void SetDefaultBackgroundImage(char* arg1);
 
     // 0x4B1550 | ?SetFocus@MenuManager@@QAEXPAVUIMenu@@@Z
-    ARTS_IMPORT void SetFocus(class UIMenu* arg1);
+    ARTS_EXPORT void SetFocus(class UIMenu* menu);
 
     // 0x4B1620 | ?SetPreviousMenu@MenuManager@@QAEXH@Z
     ARTS_IMPORT void SetPreviousMenu(i32 arg1);
 
     // 0x4B1560 | ?Switch@MenuManager@@QAEHH@Z
-    ARTS_IMPORT i32 Switch(i32 arg1);
+    ARTS_EXPORT i32 Switch(i32 id);
 
     // 0x4B1370 | ?SwitchFocus@MenuManager@@QAEXPAVUIMenu@@@Z
     ARTS_IMPORT void SwitchFocus(class UIMenu* arg1);
@@ -278,7 +278,7 @@ public:
     ARTS_IMPORT void TogglePU();
 
     // 0x4B0E00 | ?Update@MenuManager@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     // 0x705960 | ?Instance@MenuManager@@2PAV1@A
     ARTS_IMPORT static class MenuManager* Instance;
@@ -297,22 +297,24 @@ private:
     // 0x4B1730 | ?PlayMenuSwitchSound@MenuManager@@AAEXXZ
     ARTS_IMPORT void PlayMenuSwitchSound();
 
-    eqEventQ* EventQ;
-    asCamera* MenuCamera;
-    asViewCS* MenuCS;
-    asLamp* Lamps;
-    asLinearCS* LinearCSs;
-    uiNavBar* NavBar;
+    void SwitchNow(i32 id);
+
+    eqEventQ* event_q_;
+    asCamera* menu_camera_;
+    asViewCS* menu_cs_;
+    asLamp* lamps_;
+    asLinearCS* lcss_;
+    uiNavBar* nav_bar_;
     i32 field_38;
-    i32 HasActiveWidget;
+    i32 has_active_widget_;
     b32 has_scale_;
-    b32 Enabled;
-    uiWidget* FocusedWidget;
-    uiWidget* ActiveWidget;
+    b32 is_popup_;
+    uiWidget* focused_widget_;
+    uiWidget* active_widget_;
     i32 field_50;
-    WArray* WidgetArray;
-    MArray* MenuArray;
-    string ControllerNames;
+    WArray* widget_array_;
+    MArray* menu_array_;
+    string controller_names_;
     string string64;
     string string6C;
     string string74;
@@ -323,41 +325,41 @@ private:
     string string9C;
     string stringA4;
     string stringAC;
-    f32 StartX;
-    f32 StartY;
-    f32 ScaleX;
-    f32 ScaleY;
-    sfPointer* Pointer;
+    f32 start_x_;
+    f32 start_y_;
+    f32 scale_x_;
+    f32 scale_y_;
+    sfPointer* pointer_;
     i32 field_C8;
     i32 field_CC;
     b32 field_D0;
     f32 field_D4;
     f32 field_D8;
-    UIMenu* DialogMenu;
-    UIMenu* UnderlayMenu;
-    asNode* LastDrawn;
-    UIMenu** Menus;
-    UIMenu* ActiveMenu;
-    Card2D* Popup;
+    UIMenu* dialog_menu_;
+    UIMenu* underlay_menu_;
+    asNode* last_drawn_;
+    UIMenu** menus_;
+    UIMenu* active_menu_;
+    Card2D* popup_;
     mmTextNode* dwordF4;
-    i32 MaxMenus;
-    i32 NumMenus;
+    i32 max_menus_;
+    i32 num_menus_;
     i32 field_100;
-    i32 field_104;
-    void* LocFont1;
-    void* Font1;
-    void* Font3;
-    void* Font2;
-    void* Font4;
-    void* Font5;
-    void* Font6;
-    void* LocFont2;
-    i32 ActiveMenuID;
-    AudSound* MoveSelectorSound;
-    AudSound* SelectionMadeSound;
-    AudSound* SwitchSound;
-    AudSound* UiSounds;
-    char* DefaultBackground;
+    i32 next_active_menu_id_; // Slightly Repurposed
+    void* font_size_12_;
+    void* font_size_24_;
+    void* font_size_16_;
+    void* font_size_20_;
+    void* font_size_32_;
+    void* font_size_48_;
+    void* font_size_64_;
+    void* font_size_14_;
+    i32 active_menu_id_;
+    AudSound* move_selector_sound_;
+    AudSound* selection_made_sound_;
+    AudSound* switch_sound_;
+    AudSound* ui_sounds_;
+    char* default_background_;
 };
 
 check_size(MenuManager, 0x140);
