@@ -449,8 +449,8 @@ i32 agiGLPipeline::BeginGfx()
     Displayf("Using %s framebuffer (msaa=%i)", builtin_fb ? "builtin" : "custom", msaa_level);
 
     // Clear the builtin frame buffer (avoid ugly remains/ghost image)
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-    SwapBuffers(window_dc_);
+    // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    // SwapBuffers(window_dc_);
 
     if (!builtin_fb)
     {
