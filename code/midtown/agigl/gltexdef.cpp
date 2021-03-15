@@ -141,7 +141,7 @@ i32 agiGLTexDef::BeginGfx()
         case 0xF800: // 565
             format = GL_RGB;
             type = GL_UNSIGNED_SHORT_5_6_5;
-            internal = Pipe()->HasExtension("GL_ARB_ES2_compatibility") ? GL_RGB565 : GL_RGB8;
+            internal = /*Pipe()->HasExtension("GL_ARB_ES2_compatibility") ? GL_RGB565 :*/ GL_RGB8;
             break;
 
         case 0xF00: // 4444
