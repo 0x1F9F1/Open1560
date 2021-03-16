@@ -48,7 +48,7 @@ struct asSparkPos
 {
     i8 Frame;
     i8 Rotation;
-    f32 Scale;
+    f32 Radius;
     u32 Color;
     Vector3 Position;
 };
@@ -120,6 +120,7 @@ void asParticles::Blast(i32 num_sparks, asBirthRule* birth_rule)
 
     for (i32 i = 0; i < num_sparks; ++i, ++SparkCount)
     {
+        // TODO: Store the relevant asBirthRule info in asSparkInfo
         birth_rule->InitSpark(&Sparks[SparkCount], &SparkPositions[SparkCount]);
 
         if (Matrix)
@@ -147,7 +148,7 @@ void asParticles::Cull()
         for (i32 i = 0; i < SparkCount; ++i)
         {
             asSparkPos& pos = SparkPositions[i];
-            agiMeshSet::DrawCard(pos.Position, pos.Scale, pos.Rotation >> 2, pos.Color, pos.Frame);
+            agiMeshSet::DrawCard(pos.Position, pos.Radius, pos.Rotation >> 2, pos.Color, pos.Frame);
         }
     }
 }
@@ -157,6 +158,7 @@ const f32 ParticleFrameRate = 60.0f;
 void asParticles::Update()
 {
     f32 delta = ARTSPTR->GetUpdateDelta();
+    f32 frames_delta = delta * ParticleFrameRate;
 
     i32 old_frames = static_cast<i32>(Elapsed * ParticleFrameRate);
     Elapsed += delta;
@@ -173,12 +175,33 @@ void asParticles::Update()
             Blast(spew_delta, 0);
     }
 
-    for (i32 i = 0; i < SparkCount; ++i)
+    for (i32 i = 0; i < SparkCount;)
     {
         asSparkInfo& info = Sparks[i];
         asSparkPos& pos = SparkPositions[i];
 
         info.Life -= delta;
+
+        if (info.Life < 0.0f || (pos.Position.y < -50.0f) || !(pos.Color & 0xFF000000))
+        {
+            --SparkCount;
+            Sparks[i] = Sparks[SparkCount];
+            SparkPositions[i] = SparkPositions[SparkCount];
+            continue;
+        }
+
+        Vector3 velocity = Wind - info.Velocity;
+        velocity *= velocity.Mag() * WindDensity * info.Drag * info.Mass;
+        velocity.y += info.Gravity;
+        info.Velocity += velocity * delta;
+
+        // Apply a rough approximation of damping (per-frame exponential calculations are silly)
+        // Was: info.Velocity *= info.Damp
+        info.Velocity *= ((info.Damp - 1.0f) * frames_delta) + 1.0f;
+        // info.Velocity *= std::powf(info.Damp, delta * ParticleFrameRate);
+
+        pos.Position += info.Velocity * delta;
+        pos.Radius += info.DRadius * frames_delta;
 
         if ((pos.Position.y < 0.0f) && BirthRule && (BirthRule->BirthFlags & asBirthRule::kSplashes))
         {
@@ -191,51 +214,32 @@ void asParticles::Update()
             info.Velocity.z = 0.0f;
             info.Life = 0.1f;
         }
-        else if (info.Life >= 0.0f && (pos.Position.y >= -50.0f) && (pos.Color & 0xFF000000))
+
+        if (frames)
         {
-            Vector3 velocity = Wind - info.Velocity;
-            velocity *= velocity.Mag() * WindDensity * info.Drag * info.Mass;
-            velocity.y += info.Gravity;
-            info.Velocity += velocity * delta;
-
-            // Apply a rough approximation of damping (per-frame exponential calculations are silly)
-            // Was: info.Velocity *= info.Damp
-            info.Velocity *= ((info.Damp - 1.0f) * delta * ParticleFrameRate) + 1.0f;
-            // info.Velocity *= std::powf(info.Damp, delta * ParticleFrameRate);
-
-            pos.Position += info.Velocity * delta;
-            pos.Scale += info.DRadius * delta * ParticleFrameRate;
-
-            if (frames)
+            if (info.DAlpha && pos.Color)
             {
-                if (info.DAlpha && pos.Color)
-                {
-                    i32 d_alpha = info.DAlpha * frames;
+                i32 d_alpha = info.DAlpha * frames;
 
-                    if (i32 alpha = pos.Color >> 24; alpha + d_alpha >= 0)
-                        pos.Color += (d_alpha << 24);
-                    else
-                        pos.Color -= (alpha << 24);
-                }
+                if (i32 alpha = pos.Color >> 24; alpha + d_alpha >= 0)
+                    pos.Color += (d_alpha << 24);
+                else
+                    pos.Color -= (alpha << 24);
+            }
 
-                pos.Rotation += static_cast<i8>(info.DRotation * frames);
+            pos.Rotation += static_cast<i8>(info.DRotation * frames);
 
-                if (BirthRule && (BirthRule->BirthFlags & asBirthRule::kCycleFrames))
-                {
-                    i32 start = BirthRule->TexFrameStart;
-                    i32 end = BirthRule->TexFrameEnd;
+            if (BirthRule && (BirthRule->BirthFlags & asBirthRule::kCycleFrames))
+            {
+                i32 start = BirthRule->TexFrameStart;
+                i32 end = BirthRule->TexFrameEnd;
 
-                    if (start < end)
-                        pos.Frame = static_cast<i8>(start + (pos.Frame - start + frames) % (end - start));
-                }
+                if (start < end)
+                    pos.Frame = static_cast<i8>(start + (pos.Frame - start + frames) % (end - start));
             }
         }
-        else
-        {
-            --SparkCount;
-            Sparks[i] = Sparks[SparkCount];
-            SparkPositions[i] = SparkPositions[SparkCount];
-        }
+
+        ++i;
     }
 }
 
