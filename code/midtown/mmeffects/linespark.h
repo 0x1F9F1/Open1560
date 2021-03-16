@@ -33,8 +33,10 @@
     0x719600 | class HashTable SLH | ?SLH@@3VHashTable@@A
 */
 
+#include "vector7/vector3.h"
+
 // 0x501700 | ?GetSparkLut@@YAPAVasSparkLut@@PAD@Z
-ARTS_IMPORT class asSparkLut* GetSparkLut(char* arg1);
+ARTS_IMPORT class asSparkLut* GetSparkLut(char* path);
 
 // 0x719600 | ?SLH@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable SLH;
@@ -43,13 +45,15 @@ class asSparkLut
 {
 public:
     // 0x501740 | ?Init@asSparkLut@@QAEXPAD@Z
-    ARTS_IMPORT void Init(char* arg1);
+    ARTS_IMPORT void Init(char* path);
+
+    u32* Colors {nullptr};
+    i32 RowShift {0};
+    i32 Height {0};
 
 private:
     // 0x64A0D8 | ?BuiltinClut@asSparkLut@@0PAIA
     ARTS_IMPORT static u32 BuiltinClut[32];
-
-    u8 gap0[0xC];
 };
 
 check_size(asSparkLut, 0xC);
@@ -58,7 +62,7 @@ struct asLineSparks
 {
 public:
     // 0x501A10 | ?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z | unused
-    ARTS_IMPORT void AddWidgets(class Bank* arg1);
+    ARTS_IMPORT void AddWidgets(class Bank* bank);
 
     // 0x502190 | ?Draw@asLineSparks@@QAEXXZ
     ARTS_IMPORT void Draw();
@@ -70,12 +74,32 @@ public:
     ARTS_IMPORT void RadialBlast(i32 arg1, class Vector3& arg2, class Vector3& arg3);
 
     // 0x501F80 | ?Update@asLineSparks@@QAEXXZ
-    ARTS_IMPORT void Update();
+    ARTS_EXPORT void Update();
 
     // 0x501FC0 | ?Update@asLineSparks@@QAEXM@Z
     ARTS_IMPORT void Update(f32 arg1);
 
-    u8 gap0[0x5C];
+    i32 field_0;
+    asSparkLut* Lut;
+    Vector3* SparkStarts;
+    Vector3* SparkEnds;
+    Vector3* SparkVelocities;
+    Vector3 PosVary;
+    u8* SparkRows;
+    u8* SparkColumns;
+    u32* SparkColors;
+    i32 NumSparks;
+    i32 NumActive;
+    f32 GroundY;
+    f32 Gravity;
+    f32 VelXZMin;
+    f32 VelXZMax;
+    f32 VelYMin;
+    f32 VelYMax;
+    f32 TrailLength;
+    f32 SampleFraction;
+    f32 SampleTime;
+    f32 FadeRate;
 };
 
 check_size(asLineSparks, 0x5C);

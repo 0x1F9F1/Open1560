@@ -716,7 +716,7 @@ include_dummy_symbol(mmcityinfo_vehlist);
 // include_dummy_symbol(mmeffects_birth);
 // include_dummy_symbol(mmeffects_card2d);
 include_dummy_symbol(mmeffects_damage);
-// include_dummy_symbol(mmeffects_linespark);
+include_dummy_symbol(mmeffects_linespark);
 // include_dummy_symbol(mmeffects_meshform);
 // include_dummy_symbol(mmeffects_mmnumber);
 include_dummy_symbol(mmeffects_mmtext);
