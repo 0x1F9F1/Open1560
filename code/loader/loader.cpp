@@ -323,6 +323,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("mmInterface::InitLobby", "Max Lobby Players", 0x40CD1B + 1, "\x08", 1);
 
+        create_patch("mmWheel::Update", "Wheel Speed", 0x47F179, "\xDD\xD8\x90\x90\x90\x90", 6);
+
         for (usize addr : {
                  0x4F5B6E,
                  0x4F5C15,
