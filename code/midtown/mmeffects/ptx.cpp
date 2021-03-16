@@ -25,6 +25,7 @@ define_dummy_symbol(mmeffects_ptx);
 #include "agi/viewport.h"
 #include "agiworld/texsort.h"
 #include "arts7/bank.h"
+#include "arts7/sim.h"
 #include "birth.h"
 #include "data7/metadefine.h"
 
@@ -32,7 +33,7 @@ struct asSparkInfo
 {
     f32 Life;
     Vector3 Velocity;
-    f32 VelocityScale;
+    f32 Mass;
     f32 Drag;
     f32 Damp;
     f32 Gravity;
@@ -45,7 +46,7 @@ check_size(asSparkInfo, 0x28);
 
 struct asSparkPos
 {
-    i8 CurrentFrame;
+    i8 Frame;
     i8 Rotation;
     f32 Scale;
     u32 Color;
@@ -146,7 +147,95 @@ void asParticles::Cull()
         for (i32 i = 0; i < SparkCount; ++i)
         {
             asSparkPos& pos = SparkPositions[i];
-            agiMeshSet::DrawCard(pos.Position, pos.Scale, pos.Rotation >> 2, pos.Color, pos.CurrentFrame);
+            agiMeshSet::DrawCard(pos.Position, pos.Scale, pos.Rotation >> 2, pos.Color, pos.Frame);
+        }
+    }
+}
+
+const f32 ParticleFrameRate = 35.0f;
+
+void asParticles::Update()
+{
+    f32 delta = ARTSPTR->GetUpdateDelta();
+
+    i32 old_frames = static_cast<i32>(Elapsed * ParticleFrameRate);
+    Elapsed += delta;
+
+    i32 frames = static_cast<i32>(Elapsed * ParticleFrameRate) - old_frames;
+
+    if (BirthRule && (Elapsed < BirthRule->SpewRateLimit || (BirthRule->SpewRateLimit == 0.0f)))
+    {
+        SpewFraction += BirthRule->SpewRate * delta;
+        i32 spew_delta = static_cast<i32>(SpewFraction);
+        SpewFraction -= static_cast<f32>(spew_delta);
+
+        if (spew_delta)
+            Blast(spew_delta, 0);
+    }
+
+    for (i32 i = 0; i < SparkCount; ++i)
+    {
+        asSparkInfo& info = Sparks[i];
+        asSparkPos& pos = SparkPositions[i];
+
+        info.Life -= delta;
+
+        if ((pos.Position.y < 0.0f) && BirthRule && (BirthRule->BirthFlags & asBirthRule::kSplashes))
+        {
+            pos.Position.y = 0.0f;
+            pos.Frame += 4;
+            info.Gravity = 0.0f;
+            info.Mass = 0.0f;
+            info.Velocity.x = 0.0f;
+            info.Velocity.y = 0.0f;
+            info.Velocity.z = 0.0f;
+            info.Life = 0.1f;
+        }
+        else if (info.Life >= 0.0f && (pos.Position.y >= -50.0f) && (pos.Color & 0xFF000000))
+        {
+            Vector3 velocity = Wind - info.Velocity;
+            velocity *= velocity.Mag() * WindDensity * info.Drag * info.Mass;
+            velocity.y += info.Gravity;
+            info.Velocity += velocity * delta;
+
+            // Apply a rough approximation of damping (per-frame exponential calculations are silly)
+            // Was: info.Velocity *= info.Damp
+            f32 damping = (info.Damp - 1) * delta * ParticleFrameRate;
+            info.Velocity += info.Velocity * damping;
+            // info.Velocity *= std::powf(info.Damp, delta * ParticleFrameRate);
+
+            pos.Position += info.Velocity * delta;
+            pos.Scale += info.DRadius * delta * ParticleFrameRate;
+
+            if (frames)
+            {
+                if (info.DAlpha && pos.Color)
+                {
+                    i32 d_alpha = info.DAlpha * frames;
+
+                    if (i32 alpha = pos.Color >> 24; alpha + d_alpha >= 0)
+                        pos.Color += (d_alpha << 24);
+                    else
+                        pos.Color -= (alpha << 24);
+                }
+
+                pos.Rotation += static_cast<i8>(info.DRotation * frames);
+
+                if (BirthRule && (BirthRule->BirthFlags & asBirthRule::kCycleFrames))
+                {
+                    i32 start = BirthRule->TexFrameStart;
+                    i32 end = BirthRule->TexFrameEnd;
+
+                    if (start < end)
+                        pos.Frame = static_cast<i8>(start + (pos.Frame - start + frames) % (end - start));
+                }
+            }
+        }
+        else
+        {
+            --SparkCount;
+            Sparks[i] = Sparks[SparkCount];
+            SparkPositions[i] = SparkPositions[SparkCount];
         }
     }
 }

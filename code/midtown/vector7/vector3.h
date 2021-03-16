@@ -94,25 +94,46 @@ public:
     ARTS_IMPORT class Vector3 operator%(class Vector3 const& arg1) const;
 
     // 0x451320 | ??DVector3@@QBE?AV0@M@Z | inline
-    ARTS_IMPORT class Vector3 operator*(f32 arg1) const;
+    ARTS_EXPORT class Vector3 operator*(f32 value) const
+    {
+        return {x * value, y * value, z * value};
+    }
 
     // 0x4DEBD0 | ??XVector3@@QAEXM@Z | inline
-    ARTS_IMPORT void operator*=(f32 arg1);
+    ARTS_EXPORT void operator*=(f32 value)
+    {
+        *this = {x * value, y * value, z * value};
+    }
 
     // 0x4512F0 | ??HVector3@@QBE?AV0@ABV0@@Z | inline
-    ARTS_IMPORT class Vector3 operator+(class Vector3 const& arg1) const;
+    ARTS_EXPORT class Vector3 operator+(class Vector3 const& other) const
+    {
+        return {x + other.x, y + other.y, z + other.z};
+    }
 
     // 0x4DBB50 | ??YVector3@@QAEXABV0@@Z | inline
-    ARTS_IMPORT void operator+=(class Vector3 const& arg1);
+    ARTS_EXPORT void operator+=(class Vector3 const& other)
+    {
+        *this = {x + other.x, y + other.y, z + other.z};
+    }
 
     // 0x459E70 | ??GVector3@@QBE?AV0@XZ | inline
-    ARTS_IMPORT class Vector3 operator-() const;
+    ARTS_EXPORT class Vector3 operator-() const
+    {
+        return {-x, -y, -z};
+    }
 
     // 0x43FFA0 | ??GVector3@@QBE?AV0@ABV0@@Z | inline
-    ARTS_IMPORT class Vector3 operator-(class Vector3 const& arg1) const;
+    ARTS_EXPORT class Vector3 operator-(class Vector3 const& other) const
+    {
+        return {x - other.x, y - other.y, z - other.z};
+    }
 
     // 0x4DEBA0 | ??ZVector3@@QAEXABV0@@Z | inline
-    ARTS_IMPORT void operator-=(class Vector3 const& arg1);
+    ARTS_EXPORT void operator-=(class Vector3 const& other)
+    {
+        *this = {x - other.x, y - other.y, z - other.z};
+    }
 
     // 0x4D9080 | ??KVector3@@QBE?AV0@M@Z | inline
     ARTS_IMPORT class Vector3 operator/(f32 arg1) const;

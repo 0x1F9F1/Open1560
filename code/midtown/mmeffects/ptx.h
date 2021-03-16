@@ -83,7 +83,7 @@ public:
     ARTS_EXPORT void SetTexture(agiTexDef* texture);
 
     // 0x5002A0 | ?Update@asParticles@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
     VIRTUAL_META_DECLARE;
 
@@ -97,7 +97,7 @@ private:
     Matrix34* Matrix {nullptr};
     f32 Elapsed {0.0f};
     f32 SpewRate {0.0f};
-    f32 TimeTillBlast {0.0f};
+    f32 SpewFraction {0.0f};
     asBirthRule* BirthRule {nullptr};
     Vector3 Wind {0.0f, 0.0f, 0.0f};
     f32 WindDensity {0.0f};

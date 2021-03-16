@@ -33,6 +33,9 @@
 
 #include "arts7/node.h"
 
+struct asSparkInfo;
+struct asSparkPos;
+
 class asBirthRule final : public asNode
 {
     // const asBirthRule::`vftable' @ 0x620740
@@ -57,7 +60,43 @@ public:
     // 0x5012A0 | ?DeclareFields@asBirthRule@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x90];
+    Vector3 Position;
+    Vector3 PositionVar;
+    Vector3 Velocity;
+    Vector3 VelocityVar;
+    f32 Life;
+    f32 LifeVar;
+    f32 Mass;
+    f32 MassVar;
+    f32 Radius;
+    f32 RadiusVar;
+    f32 DRadius;
+    f32 DRadiusVar;
+    f32 Drag;
+    f32 DragVar;
+    f32 Damp;
+    f32 DampVar;
+    f32 SpewRate;
+    f32 SpewRateLimit;
+    f32 Gravity;
+    i32 DAlpha;
+    i32 DAlphaVar;
+    i32 DRotation;
+    i32 DRotationVar;
+    i32 TexFrameStart;
+    i32 TexFrameEnd;
+    i32 InitialBlast;
+
+    enum BirthFlags_
+    {
+        kStationary = 0x1,
+        kCycleFrames = 0x4,
+        kSplashes = 0x8,
+    };
+
+    i32 BirthFlags;
+
+    void (*InitCallback)(struct asSparkInfo*, struct asSparkPos*);
 };
 
 check_size(asBirthRule, 0xB0);

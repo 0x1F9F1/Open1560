@@ -201,6 +201,11 @@ public:
         return draw_mode_;
     }
 
+    f32 GetUpdateDelta() const
+    {
+        return seconds_;
+    }
+
     VIRTUAL_META_DECLARE;
 
 private:
