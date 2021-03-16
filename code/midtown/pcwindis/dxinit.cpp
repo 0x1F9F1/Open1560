@@ -350,34 +350,35 @@ void dxiShutdown()
 
 static ATOM dxiWindowClass = 0;
 
+#define AGI_WINDOW_CLASS "agiwindow"
+
 void dxiWindowCreate(const char* title)
 {
     if (hwndMain != NULL)
         return;
 
+    HINSTANCE hInstance = GetModuleHandle(NULL);
+
     if (!dxiWindowClass)
     {
-        WNDCLASSA wnd_class {};
+        WNDCLASSA wc {};
 
-        wnd_class.style = CS_VREDRAW | CS_HREDRAW;
-        wnd_class.lpfnWndProc = &MasterWindowProc;
-        wnd_class.cbClsExtra = 0;
-        wnd_class.cbWndExtra = 0;
-        wnd_class.hInstance = 0;
+        wc.style = CS_OWNDC;
+        wc.lpfnWndProc = &MasterWindowProc;
+        wc.cbClsExtra = 0;
+        wc.cbWndExtra = 0;
+        wc.hInstance = hInstance;
+        wc.hIcon = dxiIcon ? LoadIcon(hInstance, MAKEINTRESOURCE(dxiIcon)) : LoadIcon(NULL, IDI_APPLICATION);
+        wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+        wc.hbrBackground = (HBRUSH) GetStockObject(BLACK_BRUSH);
+        wc.lpszMenuName = NULL;
+        wc.lpszClassName = AGI_WINDOW_CLASS;
 
-        wnd_class.hIcon =
-            dxiIcon ? LoadIcon(GetModuleHandleA(NULL), MAKEINTRESOURCE(dxiIcon)) : LoadIcon(NULL, IDI_APPLICATION);
-
-        wnd_class.hCursor = LoadCursor(NULL, IDC_ARROW);
-
-        wnd_class.hbrBackground = CreateSolidBrush(RGB(0, 0, 0));
-        wnd_class.lpszMenuName = 0;
-        wnd_class.lpszClassName = "agiwindow";
-
-        dxiWindowClass = RegisterClassA(&wnd_class);
+        dxiWindowClass = RegisterClassA(&wc);
     }
 
-    hwndMain = CreateWindowExA(0, "agiwindow", title, WS_POPUP, 0, 0, dxiWidth, dxiHeight, NULL, NULL, NULL, NULL);
+    hwndMain =
+        CreateWindowExA(0, AGI_WINDOW_CLASS, title, WS_POPUP, 0, 0, dxiWidth, dxiHeight, NULL, NULL, hInstance, NULL);
 
     ShowWindow(hwndMain, SW_SHOWNORMAL);
     UpdateWindow(hwndMain);
