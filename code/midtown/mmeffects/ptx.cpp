@@ -152,7 +152,7 @@ void asParticles::Cull()
     }
 }
 
-const f32 ParticleFrameRate = 35.0f;
+const f32 ParticleFrameRate = 60.0f;
 
 void asParticles::Update()
 {
@@ -200,8 +200,7 @@ void asParticles::Update()
 
             // Apply a rough approximation of damping (per-frame exponential calculations are silly)
             // Was: info.Velocity *= info.Damp
-            f32 damping = (info.Damp - 1) * delta * ParticleFrameRate;
-            info.Velocity += info.Velocity * damping;
+            info.Velocity *= ((info.Damp - 1.0f) * delta * ParticleFrameRate) + 1.0f;
             // info.Velocity *= std::powf(info.Damp, delta * ParticleFrameRate);
 
             pos.Position += info.Velocity * delta;
