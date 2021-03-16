@@ -24,13 +24,45 @@ define_dummy_symbol(mmeffects_linespark);
 
 void asLineSparks::Update()
 {
-    // TODO: Smoothly animate the sparks, only using fixed update for fading
-    SampleFraction += ARTSPTR->GetUpdateDelta() / SampleTime;
-    i32 delta = static_cast<i32>(SampleFraction);
-    SampleFraction -= static_cast<f32>(delta);
+    const f32 delta = ARTSPTR->GetUpdateDelta();
 
-    if (delta)
-        Update(delta * SampleTime);
+    FadeFraction += (delta * FadeRate) / SampleTime;
+    const i32 frames = static_cast<i32>(FadeFraction);
+    FadeFraction -= static_cast<f32>(frames);
+
+    const f32 gravity = Gravity * delta;
+    const f32 trail = TrailLength * delta;
+    const i32 fade = static_cast<i32>(frames * SampleTime);
+
+    for (i32 i = 0; i < NumActive;)
+    {
+        if (fade)
+        {
+            i32 column = SparkColumns[i] + fade;
+
+            if (column < 0)
+            {
+                --NumActive;
+                SparkStarts[i] = SparkStarts[NumActive];
+                SparkColumns[i] = SparkColumns[NumActive];
+                SparkRows[i] = SparkRows[NumActive];
+                SparkVelocities[i] = SparkVelocities[NumActive];
+                continue;
+            }
+
+            SparkColumns[i] = static_cast<u8>(column);
+            SparkColors[i] = Lut->Colors[SparkRows[i] + (SparkColumns[i] >> Lut->RowShift)];
+        }
+
+        SparkEnds[i] = SparkStarts[i] + SparkVelocities[i] * SampleTime;
+        SparkVelocities[i].y += gravity;
+        SparkStarts[i] += SparkVelocities[i] * delta;
+
+        if ((SparkStarts[i].y < GroundY) && (SparkVelocities[i].y < 0.0f))
+            SparkVelocities[i].y = SparkVelocities[i].y * -0.8f;
+
+        ++i;
+    }
 }
 
 run_once([] {

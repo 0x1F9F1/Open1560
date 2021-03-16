@@ -77,7 +77,7 @@ public:
     ARTS_EXPORT void Update();
 
     // 0x501FC0 | ?Update@asLineSparks@@QAEXM@Z
-    ARTS_IMPORT void Update(f32 arg1);
+    ARTS_IMPORT void Update(f32 delta);
 
     i32 field_0;
     asSparkLut* Lut;
@@ -97,7 +97,7 @@ public:
     f32 VelYMin;
     f32 VelYMax;
     f32 TrailLength;
-    f32 SampleFraction;
+    f32 FadeFraction;
     f32 SampleTime;
     f32 FadeRate;
 };
