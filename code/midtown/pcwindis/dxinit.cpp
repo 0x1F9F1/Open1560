@@ -95,17 +95,8 @@ void dxiDirectDrawSurfaceDestroy()
 extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
     HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA* ppDI, LPUNKNOWN punkOuter);
 
-static mem::cmd_param PARAM_dpiaware {"dpiaware"};
-
 void dxiDirectInputCreate()
 {
-    if (PARAM_dpiaware.get_or(true))
-    {
-        // Fixes mouse drift when display scale is not 100%
-
-        SetProcessDPIAware();
-    }
-
 #if DIRECTINPUT_VERSION == 0x0800
     HRESULT(WINAPI * pDirectInput8Create)
     (HINSTANCE hinst, DWORD dwVersion, REFIID riidltf, LPVOID * ppvOut, LPUNKNOWN punkOuter) =

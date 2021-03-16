@@ -198,6 +198,9 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         SetProcessDEPPolicy(PROCESS_DEP_ENABLE);
 
+        // Fixes mouse drift when display scale is not 100%
+        SetProcessDPIAware();
+
         if (GetConsoleWindow() == NULL)
         {
             AllocConsole();
