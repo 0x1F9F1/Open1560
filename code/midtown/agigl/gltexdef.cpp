@@ -291,6 +291,7 @@ void agiGLTexDef::EndGfx()
         temp_surface_ = nullptr;
     }
 
+    touched_ = false;
     state_ = 0;
 }
 
