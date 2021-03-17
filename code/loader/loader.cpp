@@ -366,6 +366,13 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
             create_hook("PtxCount", "Avoid particle limit crash", from, to, hook_type::jmp);
         }
 
+        patch_jmp("aiGoalChase::Update", "No Speed Boost", 0x461004, jump_type::always);
+        create_patch("aiGoalChase::CalcSpeed", "No Brake Boost", 0x462B0F, "\xEB\x2A", 2);
+
+        // patch_jmp("aiGoalChase::Update", "No Steering boost", 0x460FB0, jump_type::always);
+        // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4627E6, "\xEB\x2A", 2);
+        // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4629F9, "\xEB\x3A", 2);
+
 #ifndef ARTS_FINAL
         {
             patch_jmp("", "", 0x4744DD, jump_type::never);
