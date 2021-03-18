@@ -191,7 +191,7 @@ i32 agiGLPipeline::BeginGfx()
         info.mi.rcMonitor.top + (vert_res - window_height) / 2, window_width, window_height,
         SWP_SHOWWINDOW | SWP_FRAMECHANGED | SWP_NOCOPYBITS);
 
-    SetFocus(hwnd);
+    SetForegroundWindow(hwnd);
 
     window_dc_ = GetDC(hwnd);
 
