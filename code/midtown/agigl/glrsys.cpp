@@ -437,8 +437,7 @@ void main()
     GLfloat line_width_range[2];
     glGetFloatv(GL_ALIASED_LINE_WIDTH_RANGE, line_width_range);
 
-    f32 line_width = std::clamp(
-        PARAM_gllinewidth.get_or(Pipe()->GetRenderHeight() / 480.0f), line_width_range[0], line_width_range[1]);
+    f32 line_width = std::clamp(PARAM_gllinewidth.get_or(1.0f), line_width_range[0], line_width_range[1]);
 
     glLineWidth(line_width);
 

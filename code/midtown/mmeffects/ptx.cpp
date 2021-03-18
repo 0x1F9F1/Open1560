@@ -71,6 +71,9 @@ void asParticles::Reset()
 
 void asParticles::Init(i32 max_particles, i32 arg2, i32 arg3, i32 vert_count, agiMeshCardVertex* vertices)
 {
+    // Increase max particles
+    max_particles *= 4;
+
     SparkCapacity = max_particles;
     Sparks = MakeUnique<asSparkInfo[]>(max_particles);
     SparkPositions = MakeUnique<asSparkPos[]>(max_particles);

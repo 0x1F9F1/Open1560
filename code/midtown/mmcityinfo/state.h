@@ -69,7 +69,17 @@ struct mmStatePack
     f32 PhysicsRealism;
     i32 EnableFF;
     i32 DisableCustomEvents;
+
+    // 0 | Sun
+    // 1 | Fog
+    // 2 | Rain
+    // 3 | Snow
     i32 Weather;
+
+    // 0 | Morning
+    // 1 | Noon
+    // 2 | Sunset
+    // 2 | Night
     i32 TimeOfDay;
     char CarName[80];
     i32 CurrentColor;
