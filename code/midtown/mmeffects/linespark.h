@@ -98,7 +98,7 @@ public:
     f32 VelYMax;
     f32 TrailLength;
     f32 FadeFraction;
-    f32 SampleTime;
+    f32 SampleRate;
     f32 FadeRate;
 };
 

@@ -22,17 +22,18 @@ define_dummy_symbol(mmeffects_linespark);
 
 #include "arts7/sim.h"
 
+const f32 SparkLength = 1.0f / 30.0f;
+
 void asLineSparks::Update()
 {
     const f32 delta = ARTSPTR->GetUpdateDelta();
 
-    FadeFraction += (delta * FadeRate) / SampleTime;
-    const i32 frames = static_cast<i32>(FadeFraction);
-    FadeFraction -= static_cast<f32>(frames);
+    FadeFraction += delta * FadeRate;
+    const i32 fade = static_cast<i32>(FadeFraction);
+    FadeFraction -= static_cast<f32>(fade);
 
     const f32 gravity = Gravity * delta;
     const f32 trail = TrailLength * delta;
-    const i32 fade = static_cast<i32>(frames * SampleTime);
 
     for (i32 i = 0; i < NumActive;)
     {
@@ -54,9 +55,9 @@ void asLineSparks::Update()
             SparkColors[i] = Lut->Colors[SparkRows[i] + (SparkColumns[i] >> Lut->RowShift)];
         }
 
-        SparkEnds[i] = SparkStarts[i] + SparkVelocities[i] * SampleTime;
         SparkVelocities[i].y += gravity;
         SparkStarts[i] += SparkVelocities[i] * delta;
+        SparkEnds[i] = SparkStarts[i] + SparkVelocities[i] * SparkLength;
 
         if ((SparkStarts[i].y < GroundY) && (SparkVelocities[i].y < 0.0f))
             SparkVelocities[i].y = SparkVelocities[i].y * -0.8f;
