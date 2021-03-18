@@ -219,7 +219,7 @@ private:
     Timer frame_timer_;
     i32 frame_lock_;
     f32 seconds_;
-    f32 fps_;
+    f32 inv_seconds_;
     f32 elapsed_;
     f32 actual_elapsed_;
     i32 updates_;
@@ -254,6 +254,7 @@ private:
     i32 show_ui_;
     i32 frame_step_;
 
+    // New Fields
     bool smooth_;
     f32 delta_drift_;
     f32 target_delta_;

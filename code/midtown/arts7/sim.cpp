@@ -81,7 +81,7 @@ void asSimulation::FirstUpdate()
 
 void asSimulation::ResetClock()
 {
-    fps_ = 1.0f;
+    inv_seconds_ = 1.0f;
     elapsed_ = 0.0f;
     full_updates_ = 0;
     updates_ = 0;
@@ -153,7 +153,7 @@ void asSimulation::Update()
 
     full_update_ = false;
     ++full_updates_;
-    fps_ = 1.0f / seconds_;
+    inv_seconds_ = 1.0f / seconds_;
 
     for (i32 sample = 1; sample <= num_samples; ++sample)
     {
