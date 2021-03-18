@@ -689,29 +689,12 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 
             if (focused)
             {
-                CurrentKeyModifiers = 0;
-
-                if (input_method_)
-                {
-                    geinputAcquireKeyboard();
-                    geinputGetBufferedKeyboard(nullptr);
-                }
-
-                if (input_method_ == 3)
-                    geinputAcquireMouse();
-
                 SetPriorityClass(GetCurrentProcess(), OldPriorityClass);
                 ActiveFlag |= 1;
                 RestoreApplication();
             }
             else
             {
-                if (input_method_)
-                    geinputUnacquireKeyboard();
-
-                if (input_method_ == 3)
-                    geinputUnacquireMouse();
-
                 DeactivateApplication();
                 OldPriorityClass = GetPriorityClass(GetCurrentProcess());
                 SetPriorityClass(GetCurrentProcess(), IDLE_PRIORITY_CLASS);
@@ -724,6 +707,28 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
         case WM_SETFOCUS:
         case WM_KILLFOCUS: {
             bool focused = uMsg == WM_SETFOCUS;
+
+            if (focused)
+            {
+                CurrentKeyModifiers = 0;
+
+                if (input_method_)
+                {
+                    geinputAcquireKeyboard();
+                    geinputGetBufferedKeyboard(nullptr);
+                }
+
+                if (input_method_ == 3)
+                    geinputAcquireMouse();
+            }
+            else
+            {
+                if (input_method_)
+                    geinputUnacquireKeyboard();
+
+                if (input_method_ == 3)
+                    geinputUnacquireMouse();
+            }
 
             for (eqEventMonitor* monitor : monitors_)
             {
