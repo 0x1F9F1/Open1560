@@ -30,7 +30,7 @@ f32 mmJoystick::GetAxis(i32 axis)
     {
         case kXaxis: return XAxis.Value;
         case kYaxis: return YAxis.Value;
-        case kZaxis: return ZAxis.Value;
+        case kZaxis: return -ZAxis.Value;
         case kUaxis: return UAxis.Value;
         case kRaxis: return RAxis.Value;
         case kVaxis: return VAxis.Value;
