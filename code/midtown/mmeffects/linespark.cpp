@@ -71,4 +71,7 @@ run_once([] {
     // Time shouldn't actually be factored into this at all, since it isn't happening each frame
     // SampleTime was just easy to access and provides the desired scale
     create_patch("mmCar::Impact", "Spark Count", 0x474226, "\x8B\x8E\xC8\x18\x00\x00\xD9\x81\xEC\x00\x00\x00", 12);
+
+    f32 fade_rate = -256.0f / 1.0f; // Was -650.0f (~0.4s)
+    create_patch("asLineSparks::Init", "FadeRate", 0x5019F3, &fade_rate, sizeof(fade_rate));
 });
