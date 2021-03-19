@@ -24,5 +24,7 @@
     0x4E7310 | struct LocString * __cdecl AngelReadKeyString(unsigned int) | ?AngelReadKeyString@@YAPAULocString@@I@Z
 */
 
+#include "localize/localize.h"
+
 // 0x4E7310 | ?AngelReadKeyString@@YAPAULocString@@I@Z
 ARTS_IMPORT struct LocString* AngelReadKeyString(u32 arg1);

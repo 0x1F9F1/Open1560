@@ -42,6 +42,12 @@ f32 mmJoystick::GetAxis(i32 axis)
         case kYaxisUp: return (std::max)(-YAxis.Value, 0.0f);
         case kYaxisDown: return (std::max)(+YAxis.Value, 0.0f);
 
+        case kZaxisUp: return (std::max)(-ZAxis.Value, 0.0f);
+        case kZaxisDown: return (std::max)(+ZAxis.Value, 0.0f);
+
+        case kRaxisUp: return (std::max)(-RAxis.Value, 0.0f);
+        case kRaxisDown: return (std::max)(+RAxis.Value, 0.0f);
+
         default: return 0.0f;
     }
 }
@@ -55,6 +61,7 @@ void mmJoystick::Update()
         State = 0;
         i32 state = 0;
 
+        // TODO Capture U/V/POV axis?
         if ((state = XAxis.Capture()) != 0)
         {
             State = (state == 1) ? kXaxisRight : kXaxisLeft;
@@ -65,11 +72,11 @@ void mmJoystick::Update()
         }
         else if ((state = ZAxis.Capture()) != 0)
         {
-            State = kZaxis; // TODO: Allow separate ZAxis Up/Down
+            State = (state == 1) ? kZaxisDown : kZaxisUp;
         }
         else if ((state = RAxis.Capture()) != 0)
         {
-            State = kRaxis;
+            State = (state == 1) ? kRaxisDown : kRaxisUp;
         }
     }
 }

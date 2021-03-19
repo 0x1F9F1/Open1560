@@ -68,7 +68,9 @@ public:
     ARTS_EXPORT i32 GetComponentType(i32 device, i32 component);
 
     // 0x4E52C0 | ?GetDescription@mmIODev@@QAEXPAD@Z
-    ARTS_IMPORT void GetDescription(char* arg1);
+    [[deprecated]] ARTS_EXPORT void GetDescription(char* buffer);
+
+    void GetDescription(char* buffer, usize buflen);
 
     // 0x4E50B0 | ?Init@mmIODev@@QAEXH_J@Z
     ARTS_IMPORT void Init(i32 arg1, i64 arg2);
@@ -94,7 +96,12 @@ public:
     // 0x4E58A0 | ?DeclareFields@mmIODev@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap88[0x20];
+    i32 IoType;
+    u32 dword8C;
+    i64 IoidBits;
+    i32 Device;
+    i32 Component;
+    u64 State;
 };
 
 check_size(mmIODev, 0xA8);

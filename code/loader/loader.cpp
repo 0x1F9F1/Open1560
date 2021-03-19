@@ -768,7 +768,7 @@ include_dummy_symbol(mminput_input);
 include_dummy_symbol(mminput_iodev);
 // include_dummy_symbol(mminput_joyman);
 include_dummy_symbol(mminput_joystick);
-// include_dummy_symbol(mminput_localize);
+include_dummy_symbol(mminput_localize);
 // include_dummy_symbol(mminput_road);
 // include_dummy_symbol(mminput_spring);
 

@@ -229,6 +229,15 @@ namespace mmJoyInput
         kJButton10 = 30,
         kJButton11 = 31,
         kJButton12 = 32,
+
+        // New
+        // TODO: Handle in mmInput::ProcessJoyEvents
+        // TODO: Handle in mmInput::BuildCaptureIO
+        kZaxisUp = 33,
+        kZaxisDown = 34,
+
+        kRaxisUp = 35,
+        kRaxisDown = 36,
     };
 }
 
