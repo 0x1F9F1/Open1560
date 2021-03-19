@@ -79,7 +79,7 @@ struct mmStatePack
     // 0 | Morning
     // 1 | Noon
     // 2 | Sunset
-    // 2 | Night
+    // 3 | Night
     i32 TimeOfDay;
     char CarName[80];
     i32 CurrentColor;
