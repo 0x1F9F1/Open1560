@@ -77,29 +77,35 @@ void ArgSet::ParseArgs(i32 argc, const char** argv)
     while (index < argc)
     {
         const char* arg = argv[index];
+        bool valid = false;
 
         if (arg[0] != '-')
         {
             Errorf("ARGSET::ParseArgs()- unknown flag format: %c (arg %d)", arg[0], index);
-            break;
         }
-
-        if (arg[1] == '\0')
+        else if (arg[1] == '\0')
         {
             Errorf("ARGSET::ParseArgs()- no flag specified (arg %d)", index);
-            break;
         }
-
-        if (IsDigit(arg[1]))
+        else if (IsDigit(arg[1]))
         {
             Errorf("ARGSET::ParseArgs()- can't have digit %c as flag (arg %d)", arg[1], index);
-            break;
+        }
+        else if (!std::strcmp(arg, "-help"))
+        {
+            Usage();
+
+            std::exit(0);
+        }
+        else
+        {
+            valid = true;
         }
 
-        if (!std::strcmp(arg, "-help"))
-        {
-            break;
-        }
+        ++index;
+
+        if (!valid)
+            continue;
 
         asArg* value = Args[static_cast<u8>(arg[1] & 0x7F)];
 
@@ -111,8 +117,6 @@ void ArgSet::ParseArgs(i32 argc, const char** argv)
             if (arg[2] == '\0')
                 Args[static_cast<u8>(value->Flag & 0x7F)] = value;
         }
-
-        ++index;
 
         i32 count = 0;
 
@@ -137,13 +141,6 @@ void ArgSet::ParseArgs(i32 argc, const char** argv)
         }
 
         value->Found = true;
-    }
-
-    if (index < argc)
-    {
-        Usage();
-
-        std::exit(0);
     }
 }
 
