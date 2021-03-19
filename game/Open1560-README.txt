@@ -13,6 +13,9 @@ However, there are certain things you may wish to change:
 * To enable anti-aliasing, use the `-msaa <LEVEL>` argument (possible levels are 1, 2, 4 or 8). Note, this may not be available on certain older/integrated GPUs.
 * If running through wine, use https://github.com/0x1F9F1/Open1560/blob/master/extra/wine1560.sh (or manually set the WINEDLLOVERRIDES to prefer native dinput)
 
+# Common Issues
+The application was unable to start correctly (0xc0000022): Activate DirectPlay
+
 # Command Line Arguments
 Open1560 uses command line arguments to configure certain aspects of the game.
 For a tutorial on how to use command line arguments, see https://www.bleepingcomputer.com/tutorials/understanding-command-line-arguments-and-how-to-use-them/
