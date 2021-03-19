@@ -55,6 +55,12 @@ void MixerCTL::SetDeviceNum(u32 device_num)
             wave_id = device_num;
     }
 
+    MIXERCAPSA mxcaps;
+
+    Displayf("Using Mixer '%s' (%i, %i)",
+        (mixerGetDevCapsA(wave_id, &mxcaps, sizeof(mxcaps)) == MMSYSERR_NOERROR) ? mxcaps.szPname : "[INVALID]",
+        wave_id, device_num);
+
     device_id_ = wave_id;
 }
 
