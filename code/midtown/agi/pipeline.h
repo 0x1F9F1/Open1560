@@ -333,6 +333,7 @@ protected:
     // 0x4 | Single Buffer ?
     // 0x10 | Enable Z Buffer
     // 0x20 | Enable Z Buffer 2 ? (-debug, -primary)
+    // 0x80 | Low?
     // 0x100 | Enable TexLut (-paltex)
     // 0x400 | Ramp Emulation (-ramp)
     // 0x800 | RGB Emulation (-rgb, -debug)

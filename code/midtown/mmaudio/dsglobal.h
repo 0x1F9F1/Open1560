@@ -264,7 +264,7 @@ private:
     u32 NumDevices;
     i32 BitDepth;
     i32 Flags;
-    i32 field_8C;
+    i32 AudFlags;
     u8 byte90;
     i32 HasDSBuffer;
     i32 field_98;
