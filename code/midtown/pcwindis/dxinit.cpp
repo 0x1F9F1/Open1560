@@ -98,6 +98,9 @@ extern "C" HRESULT WINAPI DirectInputCreateA_Impl(
 void dxiDirectInputCreate()
 {
 #if DIRECTINPUT_VERSION == 0x0800
+    create_patch("CLSID_IDirectInputDevice2A", "Replace with IID_IDirectInputDevice8A", 0x624A58,
+        &IID_IDirectInputDevice8A, sizeof(IID_IDirectInputDevice8A));
+
     HRESULT(WINAPI * pDirectInput8Create)
     (HINSTANCE hinst, DWORD dwVersion, REFIID riidltf, LPVOID * ppvOut, LPUNKNOWN punkOuter) =
         reinterpret_cast<decltype(pDirectInput8Create)>(
