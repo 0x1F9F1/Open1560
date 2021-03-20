@@ -61,7 +61,6 @@ void mmJoystick::Update()
         State = 0;
         i32 state = 0;
 
-        // TODO Capture U/V/POV axis?
         if ((state = XAxis.Capture()) != 0)
         {
             State = (state == 1) ? kXaxisRight : kXaxisLeft;
@@ -74,9 +73,17 @@ void mmJoystick::Update()
         {
             State = (state == 1) ? kZaxisDown : kZaxisUp;
         }
+        else if ((state = UAxis.Capture()) != 0) // FIXME: Needs to be updated in mmJoystick::Poll
+        {
+            State = kUaxis; // TODO: Separate Up/Down
+        }
         else if ((state = RAxis.Capture()) != 0)
         {
             State = (state == 1) ? kRaxisDown : kRaxisUp;
+        }
+        else if ((state = VAxis.Capture()) != 0) // FIXME: Needs to be updated in mmJoystick::Poll
+        {
+            State = kVaxis; // TODO: Separate Up/Down
         }
     }
 }
