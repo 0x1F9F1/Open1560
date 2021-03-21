@@ -31,6 +31,7 @@ define_dummy_symbol(agi_print);
 
 static mem::cmd_param PARAM_font_scale {"fontscale"};
 static mem::cmd_param PARAM_thin_font {"thinfont"};
+static mem::cmd_param PARAM_alphafont {"alphafont"};
 
 i32 agiFontWidth = 0;
 i32 agiFontHeight = 0;
@@ -46,6 +47,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     // Split into 16 per row, with 6 rows
 
     i32 const font_scale = std::clamp(PARAM_font_scale.get_or<i32>(Pipe()->GetHeight() / 480), 1, 4);
+    bool alpha = false;
 
     agiFontWidth = font_scale * 8;
     agiFontHeight = font_scale * 8;
@@ -57,11 +59,12 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
 
     if (Pipe()->IsHardware())
     {
+        alpha = PARAM_alphafont.get_or(false);
         surface = AsPtr(agiSurfaceDesc::Init(256, 64, Pipe()->GetScreenFormat()));
 
         Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface.get()));
 
-        u32 const black = cmodel->GetColor(0x00, 0x00, 0x00, 0xFF);
+        u32 const black = cmodel->GetColor(0x00, 0x00, 0x00, alpha ? 0x00 : 0xFF);
         u32 const white = cmodel->GetColor(0xFF, 0xFF, 0xFF, 0xFF);
 
         u8 const* chars = CharSet;
@@ -86,13 +89,9 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     }
     else
     {
-        agiSurfaceDesc format {};
-
-        format = {sizeof(format)};
+        agiSurfaceDesc format {sizeof(format)};
         format.Flags = AGISD_PIXELFORMAT;
-        format.PixelFormat = {sizeof(format.PixelFormat)};
-        format.PixelFormat.Flags = AGIPF_RGB | AGIPF_PALETTEINDEXED8;
-        format.PixelFormat.RGBBitCount = 8;
+        format.PixelFormat = PixelFormat_P8;
 
         surface = AsPtr(agiSurfaceDesc::Init(256, 64, format));
 
@@ -126,6 +125,10 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     agiTexParameters params {};
     arts_strcpy(params.Name, "*BUILTIN");
     params.Flags |= agiTexParameters::NoMipMaps | agiTexParameters::KeepLoaded;
+
+    if (alpha)
+        params.Flags |= agiTexParameters::Alpha;
+
     texture->Init(params, std::move(surface));
 
     BuiltinFontTexture = texture;

@@ -375,6 +375,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4629F9, "\xEB\x3A", 2);
 
 #ifndef ARTS_FINAL
+        // create_patch("ApplicationHelper", "No paging in menus", 0x4029A6, "\x00\x00\x00\x00", 4);
+
         {
             patch_jmp("", "", 0x4744DD, jump_type::never);
 
