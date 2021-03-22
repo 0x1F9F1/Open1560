@@ -96,6 +96,7 @@ class agiRefreshable;
 class agiBitmap;
 class agiColorModel;
 class agiRenderer;
+class ipcMessageQueue;
 
 struct agiMemStatus
 {
@@ -490,6 +491,8 @@ ARTS_IMPORT extern ulong agiTransformTimer;
 
 // 0x8FACA0 | ?agiTraverseTimer@@3KA
 ARTS_IMPORT extern ulong agiTraverseTimer;
+
+extern ipcMessageQueue GFXPAGER;
 
 extern i32 UI_XPos;
 extern i32 UI_YPos;

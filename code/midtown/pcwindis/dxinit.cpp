@@ -26,6 +26,9 @@ define_dummy_symbol(pcwindis_dxinit);
 #include "pcwindis.h"
 #include "setupdata.h"
 
+#include "data7/ipc.h"
+#include <miniz.h>
+
 template <typename T>
 inline void SafeRelease(T*& ptr)
 {
@@ -174,6 +177,118 @@ Ptr<u8[]> dxiScreenShot(i32& width, i32& height)
     return buffer;
 }
 
+struct ScreenShotContext
+{
+    Ptr<u8[]> Pixels;
+    i32 Width;
+    i32 Height;
+    CString Filename;
+};
+
+static void SaveScreenShot(void* ctx)
+{
+    Ptr<ScreenShotContext> context {static_cast<ScreenShotContext*>(ctx)};
+
+    auto& [pixels, width, height, wanted_file_name] = *context;
+
+    if (OpenClipboard(NULL))
+    {
+        if (EmptyClipboard())
+        {
+            i32 pixels_size = 3 * width * height;
+
+            BITMAPFILEHEADER file_header {};
+            file_header.bfType = 0x4D42;
+            file_header.bfSize = 54 + pixels_size;
+            file_header.bfReserved1 = 0;
+            file_header.bfReserved2 = 0;
+            file_header.bfOffBits = 54;
+
+            BITMAPINFOHEADER info_header {};
+            info_header.biSize = sizeof(info_header);
+            info_header.biWidth = width;
+            info_header.biHeight = height;
+            info_header.biPlanes = 1;
+            info_header.biBitCount = 24;
+            info_header.biCompression = BI_RGB;
+            info_header.biSizeImage = 0;
+            info_header.biXPelsPerMeter = width;
+            info_header.biYPelsPerMeter = height;
+            info_header.biClrUsed = 0;
+            info_header.biClrImportant = 0;
+
+            if (HGLOBAL clip_handle = GlobalAlloc(GMEM_MOVEABLE, sizeof(info_header) + pixels_size))
+            {
+                if (u8* clip_data = static_cast<u8*>(GlobalLock(clip_handle)))
+                {
+                    std::memcpy(clip_data + 0x0, &info_header, sizeof(info_header));
+                    std::memcpy(clip_data + sizeof(info_header), pixels.get(), pixels_size);
+
+                    GlobalUnlock(clip_handle);
+                }
+
+                SetClipboardData(CF_DIB, clip_handle);
+            }
+        }
+
+        CloseClipboard();
+    }
+
+    char name_buffer[64];
+    const char* file_name = wanted_file_name.get();
+
+    if (file_name == nullptr)
+    {
+        i32 shot_num = 0;
+        WIN32_FIND_DATAA find_data;
+
+        if (HANDLE find_handle = FindFirstFileA("screen/SHOT*.PNG", &find_data); find_handle != INVALID_HANDLE_VALUE)
+        {
+            do
+            {
+                if (!arts_strnicmp(find_data.cFileName, "SHOT", 4))
+                    shot_num = std::max<i32>(shot_num, std::atoi(find_data.cFileName + 4));
+            } while (FindNextFileA(find_handle, &find_data));
+
+            FindClose(find_handle);
+        }
+
+        CreateDirectoryA("screen", NULL);
+
+        arts_sprintf(name_buffer, "screen/SHOT%04d.PNG", shot_num + 1);
+        file_name = name_buffer;
+    }
+
+    // BGR -> RGB
+    for (i32 i = 0; i < height; ++i)
+    {
+        u8* row = pixels.get() + (i * width * 3);
+
+        for (i32 j = 0; j < width; ++j, row += 3)
+        {
+            u8 tmp = row[0];
+            row[0] = row[2];
+            row[2] = tmp;
+        }
+    }
+
+    size_t png_size = 0;
+    if (void* png_data =
+            tdefl_write_image_to_png_file_in_memory_ex(pixels.get(), width, height, 3, &png_size, 10, true);
+        png_data)
+    {
+        if (HANDLE file = CreateFileA(file_name, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+            file != INVALID_HANDLE_VALUE)
+        {
+            DWORD written = 0;
+            WriteFile(file, png_data, png_size, &written, NULL);
+            CloseHandle(file);
+        }
+
+        mz_free(png_data);
+    }
+}
+
 void dxiScreenShot(char* file_name)
 {
     i32 width = 0;
@@ -194,84 +309,7 @@ void dxiScreenShot(char* file_name)
     if (pixels == nullptr)
         return;
 
-    i32 pixels_size = 3 * width * height;
-
-    BITMAPFILEHEADER file_header {};
-    file_header.bfType = 0x4D42;
-    file_header.bfSize = 54 + pixels_size;
-    file_header.bfReserved1 = 0;
-    file_header.bfReserved2 = 0;
-    file_header.bfOffBits = 54;
-
-    BITMAPINFOHEADER info_header {};
-    info_header.biSize = sizeof(info_header);
-    info_header.biWidth = width;
-    info_header.biHeight = height;
-    info_header.biPlanes = 1;
-    info_header.biBitCount = 24;
-    info_header.biCompression = BI_RGB;
-    info_header.biSizeImage = 0;
-    info_header.biXPelsPerMeter = width;
-    info_header.biYPelsPerMeter = height;
-    info_header.biClrUsed = 0;
-    info_header.biClrImportant = 0;
-
-    char name_buffer[64];
-
-    if (file_name == nullptr)
-    {
-        i32 shot_num = 0;
-        WIN32_FIND_DATAA find_data;
-
-        if (HANDLE find_handle = FindFirstFileA("screen/SHOT*.BMP", &find_data); find_handle != INVALID_HANDLE_VALUE)
-        {
-            do
-            {
-                if (!arts_strnicmp(find_data.cFileName, "SHOT", 4))
-                    shot_num = std::max<i32>(shot_num, std::atoi(find_data.cFileName + 4));
-            } while (FindNextFileA(find_handle, &find_data));
-
-            FindClose(find_handle);
-        }
-
-        CreateDirectoryA("screen", NULL);
-        arts_sprintf(name_buffer, "screen/SHOT%04d.BMP", shot_num + 1);
-        file_name = name_buffer;
-    }
-
-    if (HANDLE file = CreateFileA(file_name, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-        file != INVALID_HANDLE_VALUE)
-    {
-        DWORD written = 0;
-        WriteFile(file, &file_header, sizeof(file_header), &written, NULL);
-        WriteFile(file, &info_header, sizeof(info_header), &written, NULL);
-        WriteFile(file, pixels.get(), pixels_size, &written, NULL);
-
-        CloseHandle(file);
-    }
-
-    if (OpenClipboard(NULL))
-    {
-        if (EmptyClipboard())
-        {
-            if (HGLOBAL clip_handle = GlobalAlloc(GMEM_MOVEABLE, sizeof(info_header) + pixels_size))
-            {
-                if (u8* clip_data = static_cast<u8*>(GlobalLock(clip_handle)))
-                {
-                    std::memcpy(clip_data + 0x0, &info_header, sizeof(info_header));
-                    std::memcpy(clip_data + sizeof(info_header), pixels.get(), pixels_size);
-
-                    GlobalUnlock(clip_handle);
-                }
-
-                SetClipboardData(CF_DIB, clip_handle);
-
-                GlobalFree(clip_handle);
-            }
-        }
-
-        CloseClipboard();
-    }
+    GFXPAGER.Send(SaveScreenShot, new ScreenShotContext {std::move(pixels), width, height, file_name});
 }
 
 #ifndef ARTS_DISABLE_DDRAW

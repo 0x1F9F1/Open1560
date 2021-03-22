@@ -7,6 +7,7 @@ SOL_DIR = path.join(VENDOR_DIR, "sol-3.0.3")
 FREETYPE_DIR = path.join(VENDOR_DIR, "freetype-2.10.4")
 GLAD_DIR = path.join(VENDOR_DIR, "glad")
 WGL_DIR = path.join(VENDOR_DIR, "wgl")
+MINIZ_DIR = path.join(VENDOR_DIR, "miniz")
 
 function includeMem()
     includedirs { MEM_DIR }
@@ -27,6 +28,10 @@ end
 
 function includeWgl()
     includedirs { WGL_DIR }
+end
+
+function includeMiniz()
+    includedirs { MINIZ_DIR }
 end
 
 -- function includeLua()
@@ -67,3 +72,23 @@ project "glad"
     }
 
     includeGlad()
+
+project "miniz"
+    kind "StaticLib"
+    language "C"
+    warnings "Off"
+
+    files
+    {
+        path.join(MINIZ_DIR, "**.h"),
+        path.join(MINIZ_DIR, "**.c")
+    }
+
+    includeMiniz()
+
+    defines {
+        "MINIZ_NO_ARCHIVE_APIS",
+        "MINIZ_NO_ZLIB_APIS",
+        "MINIZ_NO_STDIO",
+        "MINIZ_NO_TIME"
+    }

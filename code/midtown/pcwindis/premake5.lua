@@ -12,4 +12,6 @@ arts_component "pcwindis"
         "setupdata.h",
     }
 
-    links { "dxguid" }
+    includeMiniz()
+
+    links { "dxguid", "miniz" }

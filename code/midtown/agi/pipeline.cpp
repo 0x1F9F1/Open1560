@@ -100,7 +100,7 @@ void agiPipeline::UnlockFrameBuffer()
 void agiPipeline::DumpStatus(struct agiMemStatus& /*arg1*/)
 {}
 
-static extern_var(0x8FAC78, ipcMessageQueue, GFXPAGER);
+ipcMessageQueue GFXPAGER;
 
 i32 UI_XPos = 0;
 i32 UI_YPos = 0;
