@@ -106,6 +106,8 @@ void asSafeHeap::Activate()
 
 void asSafeHeap::Deactivate()
 {
+    ALLOCATOR.Kill();
+
     if (multi_heap_)
     {
         // VirtualFree without the MEM_RELEASE flag may free memory but not address descriptors
@@ -114,6 +116,4 @@ void asSafeHeap::Deactivate()
     }
 
     current_heap_ = 0;
-
-    ALLOCATOR.Kill();
 }

@@ -550,6 +550,9 @@ void asMemoryAllocator::Init(void* heap, usize heap_size, b32 use_nodes)
 
 void asMemoryAllocator::Kill()
 {
+    if (initialized_ && debug_)
+        SanityCheck();
+
     heap_ = nullptr;
     initialized_ = false;
 }
