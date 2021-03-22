@@ -859,8 +859,8 @@ void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
     verts[3].x = verts[0].x = static_cast<f32>(x);
     verts[1].y = verts[0].y = static_cast<f32>(y);
 
-    verts[1].x = verts[2].x = static_cast<f32>(x + width + 1);
-    verts[3].y = verts[2].y = static_cast<f32>(y + height + 1);
+    verts[1].x = verts[2].x = static_cast<f32>(x + width);
+    verts[3].y = verts[2].y = static_cast<f32>(y + height);
 
     RAST->Mesh(agiVtxType::Screen, (agiVtx*) verts, 4, indices, 6);
 
