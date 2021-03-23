@@ -157,6 +157,8 @@ private:
     void Lock() const;
     void Unlock() const;
 
+    const char* DoSanityCheck() const;
+
     b32 initialized_ {false};
     b32 debug_ {false};
     void* heap_ {nullptr};
@@ -169,6 +171,8 @@ private:
 
     // New Fields
     mutable RecursiveTicketLock lock_ {};
+    std::atomic<usize> alloc_id_ {0};
+    usize last_allocs_[16] {};
 };
 
 // check_size(asMemoryAllocator, 0xA0);

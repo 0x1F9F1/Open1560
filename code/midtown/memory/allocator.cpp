@@ -265,6 +265,7 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
     {
         size += Node::DebugGuardOverhead;
         align_offset += Node::DebugLowerGuardSize;
+        last_allocs_[alloc_id_++ % ARTS_SIZE(last_allocs_)] = reinterpret_cast<usize>(caller);
     }
 
     if (size <= MinAllocSize)
@@ -327,6 +328,8 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
     }
 
     usize next_gap = reinterpret_cast<usize>(next) - reinterpret_cast<usize>(n) - sizeof(Node);
+
+    ArDebugAssert(next_gap >= size, "Node Too Small");
 
     if (usize extra = next_gap - size; extra > SplitNodeThresh)
     {
@@ -529,6 +532,7 @@ void asMemoryAllocator::Init(void* heap, usize heap_size, b32 use_nodes)
     heap_size_ = heap_size;
     heap_used_ = heap_size;
     use_nodes_ = use_nodes;
+    alloc_id_ = 0;
 
     initialized_ = true;
 
@@ -608,77 +612,34 @@ void asMemoryAllocator::SanityCheck()
 
     Lock();
 
-    b32 is_invalid = 0;
-
-    Node* last = nullptr;
-    usize total = 0;
-    usize total_used = 0;
+    const char* is_invalid = nullptr;
 
     ARTS_EXCEPTION_BEGIN
     {
-        for (Node* n = GetFirstNode(); n != GetHeapEnd(); last = n, n = n->GetNext())
-        {
-            u32 source = 0;
-
-            if (debug_ && n->IsAllocated())
-            {
-                source = n->GetAllocSource();
-
-                if (!n->CheckLowerGuard())
-                    is_invalid |= HeapAssert(n->GetData(), "Lower Guard Word", source);
-
-                if (!n->CheckUpperGuard())
-                    is_invalid |= HeapAssert(n->GetData(), "Upper Guard Word", source);
-            }
-
-            if (n->GetPrev() != last)
-                is_invalid |= HeapAssert(n, "Linked List", source);
-
-            if (n->IsPendingSanity())
-                is_invalid |= HeapAssert(n, "Pending Sanity Check", source);
-
-            if (n->IsAllocated())
-                ++total_used;
-            else
-                n->SetPendingSanity(true);
-
-            ++total;
-        }
-
-        if (is_invalid)
-            Abortf("Memory Allocator Corrupted");
-
-        if (last)
-            ArAssert(last->GetNext() == GetHeapEnd(), "Memory Allocator Corrupted");
-
-        usize total_free = 0;
-
-        for (usize i = 0; i < ARTS_SIZE(buckets_); ++i)
-        {
-            for (FreeNode *n = buckets_[i], *prev_free = nullptr; n; prev_free = n, n = n->NextFree)
-            {
-                if (n->PrevFree != prev_free)
-                    is_invalid |= HeapAssert(n, "Invalid Prev Node");
-
-                if (!n->IsPendingSanity())
-                    is_invalid |= HeapAssert(n, "Missing Sanity Check");
-
-                n->SetPendingSanity(false);
-
-                ++total_free;
-            }
-        }
-
-        for (Node* n = GetFirstNode(); n != GetHeapEnd(); n = n->GetNext())
-            ArAssert(!n->IsPendingSanity(), "Pending Sanity Check");
-
-        ArAssert(total_used + total_free == total, "Mismatched Node Count");
-
-        // Displayf("Sanity Checked %u nodes (%u used, %u free)", total, total_used, total_free);
+        is_invalid = DoSanityCheck();
     }
     ARTS_EXCEPTION_END
     {
-        Abortf("Exception caught during sanity check");
+        is_invalid = "Exception";
+    }
+
+    if (is_invalid)
+    {
+        usize alloc_id = alloc_id_;
+
+        if (debug_)
+        {
+            Displayf("Last %zu allocations:", ARTS_SIZE(last_allocs_));
+
+            for (usize i = 0; i < ARTS_SIZE(last_allocs_); ++i)
+            {
+                char address[128];
+                LookupAddress(address, ARTS_SIZE(address), last_allocs_[(alloc_id - i - 1) % ARTS_SIZE(last_allocs_)]);
+                Displayf("  %2zu: %s", i, address);
+            }
+        }
+
+        Abortf("Memory Allocator Corrupted: %s (allocid = %u)", is_invalid, alloc_id);
     }
 
     Unlock();
@@ -826,7 +787,11 @@ void asMemoryAllocator::Verify(void* ptr)
             }
 
             if (is_invalid)
-                Abortf("Memory allocator node corrupt");
+            {
+                SanityCheck();
+
+                Abortf("Memory Allocator Node Corrupt");
+            }
         }
     }
 }
@@ -842,7 +807,7 @@ asMemoryAllocator::FreeNode* asMemoryAllocator::FindFirstFit(usize size, usize a
         for (FreeNode* n = buckets_[i]; n; n = n->NextFree)
         {
             usize const node_size = n->Size;
-            usize const required = size + ((offset - reinterpret_cast<usize>(n)) & lower_mask);
+            usize const required = size + (-isize(reinterpret_cast<usize>(n) + offset) & lower_mask);
 
             if (node_size >= required)
                 return n;
@@ -865,6 +830,87 @@ void asMemoryAllocator::Lock() const
 void asMemoryAllocator::Unlock() const
 {
     lock_.unlock();
+}
+
+const char* asMemoryAllocator::DoSanityCheck() const
+{
+    b32 is_invalid = 0;
+
+    Node* last = nullptr;
+    usize total = 0;
+    usize total_used = 0;
+
+    for (Node *n = GetFirstNode(), *next = nullptr; n != GetHeapEnd(); last = n, n = next)
+    {
+        u32 source = (debug_ && n->IsAllocated()) ? n->GetAllocSource() : 0;
+
+        next = n->GetNext();
+
+        if (next < n)
+            is_invalid |= HeapAssert(n, "Negative Node Size", source);
+
+        if (next > GetHeapEnd())
+            is_invalid |= HeapAssert(n, "Node Size", source);
+
+        if (n->GetPrev() != last)
+            is_invalid |= HeapAssert(n, "Linked List", source);
+
+        if (n->IsPendingSanity())
+            is_invalid |= HeapAssert(n, "Pending Sanity Check", source);
+
+        if (debug_ && n->IsAllocated())
+        {
+            if (!n->CheckLowerGuard())
+                is_invalid |= HeapAssert(n->GetData(), "Lower Guard Word", source);
+
+            if (!n->CheckUpperGuard())
+                is_invalid |= HeapAssert(n->GetData(), "Upper Guard Word", source);
+        }
+
+        if (n->IsAllocated())
+            ++total_used;
+        else
+            n->SetPendingSanity(true);
+
+        ++total;
+    }
+
+    if (is_invalid)
+        return "Initial Traversal";
+
+    if (last && (last->GetNext() != GetHeapEnd()))
+        return "Incomplete Traversal";
+
+    usize total_free = 0;
+
+    for (usize i = 0; i < ARTS_SIZE(buckets_); ++i)
+    {
+        for (FreeNode *n = buckets_[i], *prev_free = nullptr; n; prev_free = n, n = n->NextFree)
+        {
+            if (n->PrevFree != prev_free)
+                is_invalid |= HeapAssert(n, "Invalid Prev Node");
+
+            if (!n->IsPendingSanity())
+                is_invalid |= HeapAssert(n, "Missing Sanity Check");
+
+            n->SetPendingSanity(false);
+
+            ++total_free;
+        }
+    }
+
+    for (Node* n = GetFirstNode(); n != GetHeapEnd(); n = n->GetNext())
+    {
+        if (n->IsPendingSanity())
+            return "Pending Sanity Check";
+    }
+
+    if (total_used + total_free != total)
+        return "Mismatched Node Count";
+
+    // Displayf("Sanity Checked %u nodes (%u used, %u free)", total, total_used, total_free);
+
+    return nullptr;
 }
 
 ARTS_EXPORT asMemoryAllocator ALLOCATOR;

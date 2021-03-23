@@ -80,7 +80,10 @@ static mem::cmd_param PARAM_safeheap {"safeheap"};
 void asSafeHeap::Restart()
 {
     if (!PARAM_safeheap.get_or(true))
+    {
+        ALLOCATOR.DumpStats();
         return;
+    }
 
     Deactivate();
 
