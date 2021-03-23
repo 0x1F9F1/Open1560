@@ -26,6 +26,7 @@ define_dummy_symbol(pcwindis_dxinit);
 #include "pcwindis.h"
 #include "setupdata.h"
 
+#include "agi/pipeline.h"
 #include "data7/ipc.h"
 #include <miniz.h>
 
