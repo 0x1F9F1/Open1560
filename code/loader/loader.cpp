@@ -326,6 +326,9 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("mmWheel::Update", "Wheel Speed", 0x47F179, "\xDD\xD8\x90\x90\x90\x90", 6);
 
+        f32 skid_thresh = 0.5f;
+        create_patch("SkidRotationThresh", "Fix skids", 0x63C014, &skid_thresh, sizeof(skid_thresh));
+
         for (usize addr : {
                  0x4F5B6E,
                  0x4F5C15,
