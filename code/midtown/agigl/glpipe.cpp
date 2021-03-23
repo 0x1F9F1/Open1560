@@ -928,7 +928,7 @@ Ptr<u8[]> glScreenShot(i32& width, i32& height)
     width = viewport[2];
     height = viewport[3];
 
-    Ptr<u8[]> buffer = MakeUnique<u8[]>(width * height * 3);
+    Ptr<u8[]> buffer = MakeUniqueUninit<u8[]>(width * height * 3);
 
     if (buffer)
     {

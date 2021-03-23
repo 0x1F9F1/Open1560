@@ -158,7 +158,7 @@ Ptr<u8[]> dxiScreenShot(i32& width, i32& height)
 
     if (translate)
     {
-        buffer = MakeUnique<u8[]>(width * height * 3);
+        buffer = MakeUniqueUninit<u8[]>(width * height * 3);
 
         // Translate and flip horizontally
         for (i32 i = 0; i < height; ++i)

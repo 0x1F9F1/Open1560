@@ -32,10 +32,10 @@ VirtualFileSystem::VirtualFileSystem(class Stream* stream)
     if (file_header_.Magic != AresMagic)
         Quitf("VFS::VFS: Not a valid AngelRes file.");
 
-    file_nodes_ = MakeUnique<VirtualFileInode[]>(file_header_.NodeCount);
+    file_nodes_ = MakeUniqueUninit<VirtualFileInode[]>(file_header_.NodeCount);
     base_stream_->Read(file_nodes_.get(), file_header_.NodeCount * sizeof(VirtualFileInode));
 
-    file_names_ = MakeUnique<char[]>(file_header_.NamesSize);
+    file_names_ = MakeUniqueUninit<char[]>(file_header_.NamesSize);
     base_stream_->Read(file_names_.get(), file_header_.NamesSize);
 
     ValidateNodes();

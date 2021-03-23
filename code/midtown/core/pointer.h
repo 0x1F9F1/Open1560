@@ -63,3 +63,17 @@ template <typename T>
 
     return Ptr<T>(new std::remove_extent_t<T>[size] {});
 }
+
+template <typename T>
+[[nodiscard]] inline std::enable_if_t<!std::is_array_v<T>, Ptr<T>> MakeUniqueUninit()
+{
+    return Ptr<T>(new T);
+}
+
+template <typename T>
+[[nodiscard]] inline std::enable_if_t<std::is_array_v<T>, Ptr<T>> MakeUniqueUninit(usize size)
+{
+    static_assert(std::extent_v<T> == 0, "Cannot MakeUnique with non-zero array extent");
+
+    return Ptr<T>(new std::remove_extent_t<T>[size]);
+}
