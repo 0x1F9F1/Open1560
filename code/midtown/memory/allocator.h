@@ -157,7 +157,7 @@ private:
     void Lock() const;
     void Unlock() const;
 
-    const char* DoSanityCheck() const;
+    bool DoSanityCheck() const;
 
     b32 initialized_ {false};
     b32 debug_ {false};

@@ -612,7 +612,7 @@ void asMemoryAllocator::SanityCheck()
 
     Lock();
 
-    const char* is_invalid = nullptr;
+    bool is_invalid = false;
 
     ARTS_EXCEPTION_BEGIN
     {
@@ -620,7 +620,7 @@ void asMemoryAllocator::SanityCheck()
     }
     ARTS_EXCEPTION_END
     {
-        is_invalid = "Exception";
+        is_invalid = true;
     }
 
     if (is_invalid)
@@ -639,7 +639,7 @@ void asMemoryAllocator::SanityCheck()
             }
         }
 
-        Abortf("Memory Allocator Corrupted: %s (allocid = %u)", is_invalid, alloc_id);
+        Abortf("Memory Allocator Corrupted (allocid = %u)", alloc_id);
     }
 
     Unlock();
@@ -832,13 +832,12 @@ void asMemoryAllocator::Unlock() const
     lock_.unlock();
 }
 
-const char* asMemoryAllocator::DoSanityCheck() const
+bool asMemoryAllocator::DoSanityCheck() const
 {
-    b32 is_invalid = 0;
-
     Node* last = nullptr;
     usize total = 0;
     usize total_used = 0;
+    usize errors = 0;
 
     for (Node *n = GetFirstNode(), *next = nullptr; n != GetHeapEnd(); last = n, n = next)
     {
@@ -846,25 +845,25 @@ const char* asMemoryAllocator::DoSanityCheck() const
 
         next = n->GetNext();
 
-        if (next < n)
-            is_invalid |= HeapAssert(n, "Negative Node Size", source);
+        if (next <= n)
+            errors += HeapAssert(n, "Node Direction", source);
 
         if (next > GetHeapEnd())
-            is_invalid |= HeapAssert(n, "Node Size", source);
+            errors += HeapAssert(n, "Node Size", source);
 
         if (n->GetPrev() != last)
-            is_invalid |= HeapAssert(n, "Linked List", source);
+            errors += HeapAssert(n, "Linked List", source);
 
         if (n->IsPendingSanity())
-            is_invalid |= HeapAssert(n, "Pending Sanity Check", source);
+            errors += HeapAssert(n, "Pending Sanity Check", source);
 
         if (debug_ && n->IsAllocated())
         {
             if (!n->CheckLowerGuard())
-                is_invalid |= HeapAssert(n->GetData(), "Lower Guard Word", source);
+                errors += HeapAssert(n, "Lower Guard Word", source);
 
             if (!n->CheckUpperGuard())
-                is_invalid |= HeapAssert(n->GetData(), "Upper Guard Word", source);
+                errors += HeapAssert(n, "Upper Guard Word", source);
         }
 
         if (n->IsAllocated())
@@ -873,10 +872,10 @@ const char* asMemoryAllocator::DoSanityCheck() const
             n->SetPendingSanity(true);
 
         ++total;
-    }
 
-    if (is_invalid)
-        return "Initial Traversal";
+        if (errors > 20)
+            return true;
+    }
 
     if (last && (last->GetNext() != GetHeapEnd()))
         return "Incomplete Traversal";
@@ -885,24 +884,30 @@ const char* asMemoryAllocator::DoSanityCheck() const
 
     for (usize i = 0; i < ARTS_SIZE(buckets_); ++i)
     {
-        for (FreeNode *n = buckets_[i], *prev_free = nullptr; n; prev_free = n, n = n->NextFree)
+        for (FreeNode *n = buckets_[i], *prev = nullptr; n; prev = n, n = n->NextFree)
         {
-            if (n->PrevFree != prev_free)
-                is_invalid |= HeapAssert(n, "Invalid Prev Node");
+            if (n->PrevFree != prev)
+                errors += HeapAssert(n, "Invalid Prev Node");
 
             if (!n->IsPendingSanity())
-                is_invalid |= HeapAssert(n, "Missing Sanity Check");
+                errors += HeapAssert(n, "Missing Sanity Check");
 
             n->SetPendingSanity(false);
 
             ++total_free;
+
+            if (errors > 20)
+                return true;
         }
     }
 
     for (Node* n = GetFirstNode(); n != GetHeapEnd(); n = n->GetNext())
     {
         if (n->IsPendingSanity())
-            return "Pending Sanity Check";
+            errors += HeapAssert(n, "Pending Sanity Check");
+
+        if (errors > 20)
+            return true;
     }
 
     if (total_used + total_free != total)
@@ -910,7 +915,7 @@ const char* asMemoryAllocator::DoSanityCheck() const
 
     // Displayf("Sanity Checked %u nodes (%u used, %u free)", total, total_used, total_free);
 
-    return nullptr;
+    return errors != 0;
 }
 
 ARTS_EXPORT asMemoryAllocator ALLOCATOR;
