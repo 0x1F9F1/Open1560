@@ -31,6 +31,8 @@
 
 #include <ft2build.h>
 
+#include <vector>
+
 #include <freetype/freetype.h>
 #include <freetype/ftmodapi.h>
 
@@ -104,6 +106,15 @@ public:
         return {GetWidth(text), GetHeight()};
     }
 
+    struct mmLineInfo
+    {
+        const char* Start {nullptr};
+        const char* End {nullptr};
+        i32 Width {0};
+    };
+
+    std::vector<mmLineInfo> GetLines(const char* text, i32 max_width);
+
     static mmFont* Create(const char* font_name, i32 height, i32 weight);
 };
 
@@ -162,75 +173,81 @@ const mmFont::mmGlyph& mmFont::LoadChar(u32 char_code)
 void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format)
 {
     Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface));
+    color = cmodel->GetColor(agiRgba::FromABGR(color | 0xFF000000));
 
     i32 x = rect.left;
     i32 y = rect.top;
 
-    i32 width = rect.right - rect.left;
-    i32 height = rect.bottom - rect.top;
+    i32 rect_width = rect.right - rect.left;
+    i32 rect_height = rect.bottom - rect.top;
 
-    // TODO: Add MM_TEXT_WORDBREAK support (used by PUResults)
+    i32 max_x = std::min<i32>(rect.right, surface->Width);
+    i32 max_y = std::min<i32>(rect.bottom, surface->Height);
+
     // TODO: Add UTF-8 support
+    std::vector<mmLineInfo> lines = GetLines(text, (format & MM_TEXT_WORDBREAK) ? (rect_width << 6) : 0);
 
-    if (format & (MM_TEXT_CENTER | MM_TEXT_RIGHT))
+    for (const auto& line : lines)
     {
-        i32 text_width = GetWidth(text);
+        i32 line_x = x;
+        i32 line_y = y;
+        y += GetHeight();
 
-        if (format & MM_TEXT_CENTER)
-            x += (width - text_width) / 2;
-        else if (format & MM_TEXT_RIGHT)
-            x += (width - text_width);
-    }
-
-    if (format & (MM_TEXT_VCENTER | MM_TEXT_BOTTOM))
-    {
-        i32 text_height = GetHeight();
-
-        if (format & MM_TEXT_VCENTER)
-            y += (height - text_height) / 2;
-        else if (format & MM_TEXT_BOTTOM)
-            y += (height - text_height);
-    }
-
-    x <<= 6;
-    y <<= 6;
-
-    y += face_->size->metrics.ascender;
-
-    color = cmodel->GetColor(agiRgba::FromABGR(color | 0xFF000000));
-
-    width = std::min<i32>(rect.right, surface->Width);
-    height = std::min<i32>(rect.bottom, surface->Height);
-
-    for (usize i = 0; text[i]; ++i)
-    {
-        const mmGlyph& glyph = LoadChar(static_cast<unsigned char>(text[i]));
-
-        if ((i == 0) && (format & MM_TEXT_PADDING))
-            x -= glyph.Left << 6;
-
-        for (u32 src_y = 0; src_y < glyph.Rows; ++src_y)
+        if (format & (MM_TEXT_CENTER | MM_TEXT_RIGHT))
         {
-            u32 src_y_off = src_y * glyph.Pitch;
+            i32 text_width = line.Width >> 6;
 
-            u32 dst_y = (y >> 6) + src_y - glyph.Top;
+            if (format & MM_TEXT_CENTER)
+                line_x += (rect_width - text_width) / 2;
+            else if (format & MM_TEXT_RIGHT)
+                line_x += (rect_width - text_width);
+        }
 
-            if (static_cast<i32>(dst_y) >= height)
-                continue;
-
-            for (u32 src_x = 0; src_x < glyph.Width; ++src_x)
+        if (!(format & MM_TEXT_WORDBREAK))
+        {
+            if (format & (MM_TEXT_VCENTER | MM_TEXT_BOTTOM))
             {
-                u32 dst_x = (x >> 6) + src_x + glyph.Left;
+                i32 text_height = GetHeight();
 
-                if (static_cast<i32>(dst_x) >= width)
-                    continue;
-
-                if (glyph.Buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
-                    cmodel->SetPixel(surface, dst_x, dst_y, color);
+                if (format & MM_TEXT_VCENTER)
+                    line_y += (rect_height - text_height) / 2;
+                else if (format & MM_TEXT_BOTTOM)
+                    line_y += (rect_height - text_height);
             }
         }
 
-        x += glyph.AdvanceX;
+        line_x <<= 6;
+        line_y <<= 6;
+        line_y += face_->size->metrics.ascender;
+
+        for (const char* str = line.Start; str != line.End; ++str)
+        {
+            const mmGlyph& glyph = LoadChar(static_cast<unsigned char>(*str));
+
+            if ((str == line.Start) && (glyph.Left < 0))
+                line_x -= glyph.Left << 6;
+
+            for (u32 src_y = 0, src_y_off = 0; src_y < glyph.Rows; ++src_y, src_y_off += glyph.Pitch)
+            {
+                u32 dst_y = (line_y >> 6) + src_y - glyph.Top;
+
+                if (static_cast<i32>(dst_y) >= max_y)
+                    continue;
+
+                for (u32 src_x = 0; src_x < glyph.Width; ++src_x)
+                {
+                    u32 dst_x = (line_x >> 6) + src_x + glyph.Left;
+
+                    if (static_cast<i32>(dst_x) >= max_x)
+                        continue;
+
+                    if (glyph.Buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
+                        cmodel->SetPixel(surface, dst_x, dst_y, color);
+                }
+            }
+
+            line_x += glyph.AdvanceX;
+        }
     }
 }
 
@@ -290,6 +307,84 @@ static void mmFont_Shutdown()
 }
 
 static FT_MemoryRec_ mmFont_MemoryRec {nullptr, mmFont_AllocFunc, mmFont_FreeFunc, mmFont_ReallocFunc};
+
+std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width)
+{
+    std::vector<mmLineInfo> lines;
+
+    const char* curr_start = nullptr;
+    const char* curr_end = nullptr;
+    i32 curr_width = 0;
+    i32 trim_width = 0;
+    bool flush = false;
+
+    while (true)
+    {
+        unsigned char c = *text;
+
+        if (c == '\0')
+            flush = true;
+
+        if (flush)
+        {
+            lines.push_back({curr_start, curr_end ? curr_end : curr_start, trim_width});
+            flush = false;
+            curr_start = nullptr;
+        }
+
+        if (c == '\0')
+            return lines;
+
+        if (curr_start == nullptr)
+        {
+            curr_start = text;
+            curr_end = nullptr;
+            curr_width = 0;
+            trim_width = 0;
+        }
+
+        if (max_width && IsSpace(c))
+        {
+            if (c == '\n')
+            {
+                ++text;
+                flush = true;
+                continue;
+            }
+
+            if (!curr_end)
+            {
+                ++text;
+                curr_start = text;
+                continue;
+            }
+        }
+
+        const mmGlyph& glyph = LoadChar(static_cast<unsigned char>(c));
+
+        i32 width = curr_width;
+
+        if ((width == 0) && (glyph.Left < 0))
+            width -= glyph.Left << 6;
+
+        width += glyph.AdvanceX;
+
+        if (max_width && curr_width && (width >= max_width))
+        {
+            flush = true;
+            continue;
+        }
+
+        curr_width = width;
+        ++text;
+
+        if (!IsSpace(c))
+        {
+            trim_width = curr_width;
+            curr_end = text;
+        }
+    }
+}
 
 mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
 {
