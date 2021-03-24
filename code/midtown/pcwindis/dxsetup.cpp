@@ -103,6 +103,27 @@ ARTS_IMPORT /*static*/ void UnlockScreen();
 #ifdef ARTS_ENABLE_OPENGL
 static mem::cmd_param PARAM_config {"config"};
 
+static void GetMonitorName(char* buffer, usize buflen, const char* szDevice)
+{
+    buffer[0] = '\0';
+
+    DISPLAY_DEVICEA device {sizeof(device)};
+
+    for (DWORD i = 0; EnumDisplayDevicesA(szDevice, i, &device, 0); ++i)
+    {
+        if (device.StateFlags & DISPLAY_DEVICE_MIRRORING_DRIVER)
+            continue;
+
+        if (device.StateFlags & DISPLAY_DEVICE_ACTIVE)
+        {
+            arts_sprintf(buffer, buflen, "%s on ", device.DeviceString);
+            break;
+        }
+    }
+
+    arts_strcat(buffer, buflen, szDevice);
+}
+
 static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
     [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
 {
@@ -131,10 +152,8 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     info.HaveMipmaps = true;
     info.SpecialFlags = 0;
 
-    arts_strcpy(info.Name, iMonitor.szDevice);
-
-    info.InterfaceGuid = {};
-    info.DriverGuid = {};
+    GetMonitorName(info.Name, ARTS_SIZE(info.Name), iMonitor.szDevice);
+    arts_strcpy(info.Device, iMonitor.szDevice);
 
     info.Type = 2;
 
@@ -237,9 +256,12 @@ static BOOL CALLBACK CountRendererCallback(HMONITOR hMonitor, [[maybe_unused]] H
 
     i32& count = *(i32*) (lParam);
 
+    char name[64] {};
+    GetMonitorName(name, ARTS_SIZE(name), iMonitor.szDevice);
+
     for (i32 i = 0; i < dxiRendererCount; ++i)
     {
-        if (std::strcmp(iMonitor.szDevice, dxiInfo[i].Name) == 0)
+        if (std::strcmp(name, dxiInfo[i].Name) == 0)
         {
             ++count;
 

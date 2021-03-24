@@ -131,7 +131,7 @@ i32 agiGLPipeline::BeginGfx()
             if (!GetMonitorInfoA(hMonitor, &mi.mi))
                 return TRUE;
 
-            if (std::strcmp(GetRendererInfo().Name, mi.mi.szDevice))
+            if (std::strcmp(GetRendererInfo().Device, mi.mi.szDevice))
                 return TRUE;
 
             mi.monitor = hMonitor;

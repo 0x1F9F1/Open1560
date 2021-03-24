@@ -85,8 +85,8 @@ b32 dxiReadConfigFile()
         *std::strrchr(name, ']') = '\0';
         arts_strcpy(info.Name, &name[1]);
 
-        strtoguid(&info.InterfaceGuid, interface_guid);
-        strtoguid(&info.DriverGuid, driver_guid);
+        strtoguid(&info.Guid.Interface, interface_guid);
+        strtoguid(&info.Guid.Driver, driver_guid);
 
         for (i32 j = 0; j < info.ResCount; ++j)
         {

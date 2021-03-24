@@ -68,8 +68,18 @@ struct dxiRendererInfo_t
     // 0x10 | ShadowZBias = 0.001 (1588+)
     u32 SpecialFlags;
     char Name[64];
-    GUID InterfaceGuid;
-    GUID DriverGuid;
+
+    union
+    {
+        struct
+        {
+            GUID Interface;
+            GUID Driver;
+        } Guid;
+
+        // MONITORINFOEX.szDevice
+        char Device[32];
+    };
 
     // 0 | Software
     // 1 | Primary Surface (GDI)
