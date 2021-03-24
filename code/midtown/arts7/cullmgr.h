@@ -127,9 +127,9 @@ private:
     i32 num_cullables_2D_ {0};
     i32 max_cullables_2D_ {0};
 
-    Ptr<asCullable* []> cullables_ { nullptr };
-    Ptr<asCullable* []> cullables_2D_ { nullptr };
-    Ptr<Matrix34* []> transforms_ { nullptr };
+    Ptr<asCullable*[]> cullables_;
+    Ptr<asCullable*[]> cullables_2D_;
+    Ptr<Matrix34*[]> transforms_;
 
     f32 current_fps_ {0.0f};
     f32 average_fps_ {0.0f};
