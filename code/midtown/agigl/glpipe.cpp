@@ -168,11 +168,11 @@ i32 agiGLPipeline::BeginGfx()
 
     Displayf("Window Resolution: %u x %u", horz_res_, vert_res_);
 
-    LONG window_style = WS_POPUP;
+    LONG window_style = 0;
 
     if (dxiIsFullScreen() || (width_ == horz_res) || (height_ == vert_res) || !PARAM_border.get_or(true))
     {
-        window_style = WS_POPUP;
+        window_style = IsDebuggerPresent() ? WS_OVERLAPPED : WS_POPUP;
     }
     else
     {

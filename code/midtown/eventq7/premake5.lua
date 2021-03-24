@@ -15,3 +15,5 @@ arts_component "eventq7"
 
         "key_codes.h",
     }
+
+    links { "dinput8" }

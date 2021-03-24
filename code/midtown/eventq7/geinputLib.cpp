@@ -28,6 +28,8 @@ define_dummy_symbol(eventq7_geinputLib);
 static extern_var(0x909424, IDirectInputDeviceA*, MouseDevice);
 static extern_var(0x909428, IDirectInputDeviceA*, KeyboardDevice);
 
+static extern_var(0x90942C, HANDLE, MouseEvent);
+
 void geinputAcquireMouse()
 {
     if (MouseDevice)
@@ -38,6 +40,29 @@ void geinputUnacquireMouse()
 {
     if (MouseDevice)
         MouseDevice->Unacquire();
+}
+
+void geinputCleanup()
+{
+    if (MouseDevice)
+    {
+        MouseDevice->Unacquire();
+        MouseDevice->Release();
+        MouseDevice = nullptr;
+    }
+
+    if (MouseEvent)
+    {
+        CloseHandle(MouseEvent);
+        MouseEvent = NULL;
+    }
+
+    if (KeyboardDevice)
+    {
+        KeyboardDevice->Unacquire();
+        KeyboardDevice->Release();
+        KeyboardDevice = nullptr;
+    }
 }
 
 void geinputClearCache()
@@ -173,6 +198,90 @@ void geinputGetMouse(ilong* mouse_x, ilong* mouse_y, i8* l_button, i8* r_button,
         *m_button = (MOUSESTATE.rgbButtons[2] & 0x80) != 0;
 }
 
+// 0x564050 | ?DIError@@YAPADH@Z
+ARTS_EXPORT /*static*/ const char* DIError(i32 error)
+{
+    static char buffer[64]; // FIXME: Static buffer
+    arts_sprintf(buffer, "Error 0x%08X", error);
+    return buffer;
+}
+
+i32 inputSetup(i32 width, i32 height, b32 enable_mouse, i32 /*arg4*/, i32 /*arg5*/)
+{
+    InputWndHeight = height;
+    InputWndWidth = width;
+
+    if (enable_mouse)
+    {
+        if (HRESULT err = lpDI->CreateDevice(GUID_SysMouse, &MouseDevice, 0); err < 0)
+            Quitf("DirectInput::CreateDevice: %s", DIError(err));
+
+        if (HRESULT err = MouseDevice->SetDataFormat(&c_dfDIMouse); err < 0)
+            Quitf("DirectInput::SetDataFormat: %s", DIError(err));
+
+        if (HRESULT err = MouseDevice->SetCooperativeLevel(GetActiveWindow(), DISCL_FOREGROUND | DISCL_EXCLUSIVE);
+            err < 0)
+            Quitf("DirectInput::SetCooperativeLevel: %s", DIError(err));
+
+        MouseEvent = CreateEventA(NULL, FALSE, FALSE, NULL);
+
+        if (!MouseEvent)
+            Quitf("CreateEvent: failed.");
+
+        if (MouseDevice->SetEventNotification(MouseEvent) < 0)
+        {
+            MessageBoxA(GetActiveWindow(), "Could not associate event", "System mouse", 0);
+            std::exit(1);
+        }
+
+        DIPROPDWORD prop_buffersize;
+        prop_buffersize.diph = {sizeof(prop_buffersize), sizeof(prop_buffersize.diph), 0, DIPH_DEVICE};
+        prop_buffersize.dwData = 16;
+
+        if (MouseDevice->SetProperty(DIPROP_BUFFERSIZE, &prop_buffersize.diph) < 0)
+        {
+            MessageBoxA(GetActiveWindow(), "Could not set properties", "System mouse", 0);
+            std::exit(1);
+        }
+
+        DIPROPDWORD prop_axismode;
+        prop_axismode.diph = {sizeof(prop_axismode), sizeof(prop_axismode.diph), 0, DIPH_DEVICE};
+        prop_axismode.dwData = DIPROPAXISMODE_ABS;
+
+        if (MouseDevice->SetProperty(DIPROP_AXISMODE, &prop_axismode.diph) < 0)
+        {
+            MessageBoxA(GetActiveWindow(), "Could not set properties", "System mouse (absolute mode)", 0);
+            std::exit(1);
+        }
+
+        if (MouseDevice)
+            MouseDevice->Acquire();
+    }
+
+    if (lpDI->CreateDevice(GUID_SysKeyboard, &KeyboardDevice, 0) < 0)
+    {
+        MessageBoxA(GetActiveWindow(), "Can not create device", "System keyboard COM interface", 0);
+        std::exit(1);
+    }
+
+    if (KeyboardDevice->SetDataFormat(&c_dfDIKeyboard) < 0)
+    {
+        MessageBoxA(GetActiveWindow(), "Could not set device parameters", "System keyboard", 0);
+        std::exit(1);
+    }
+
+    DIPROPDWORD prop_buffersize;
+    prop_buffersize.diph = {sizeof(prop_buffersize), sizeof(prop_buffersize.diph), 0, DIPH_DEVICE};
+    prop_buffersize.dwData = 32;
+
+    KeyboardDevice->SetProperty(DIPROP_BUFFERSIZE, &prop_buffersize.diph);
+
+    if (KeyboardDevice)
+        KeyboardDevice->Acquire();
+
+    return 0;
+}
+
 void geinputAcquireKeyboard()
 {
     if (KeyboardDevice)
@@ -183,12 +292,4 @@ void geinputUnacquireKeyboard()
 {
     if (KeyboardDevice)
         KeyboardDevice->Unacquire();
-}
-
-// 0x564050 | ?DIError@@YAPADH@Z
-ARTS_EXPORT /*static*/ const char* DIError(i32 error)
-{
-    static char buffer[64]; // FIXME: Static buffer
-    arts_sprintf(buffer, "Error 0x%08X", error);
-    return buffer;
 }

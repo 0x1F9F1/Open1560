@@ -98,7 +98,7 @@ protected:
 
     b32 debug_ {false};
     u32 tracked_events_ {0};
-    i32 field_C {-1};
+    i32 channels_ {-1};
     eqEventMonitor* monitors_[8] {};
     u32 wants_motion_ {1};
     i32 mouse_x_ {0};
@@ -124,7 +124,7 @@ class eqEventMonitor
 
 public:
     // 0x5632A0 | ??0eqEventMonitor@@QAE@H@Z
-    ARTS_EXPORT eqEventMonitor(i32 arg1);
+    ARTS_EXPORT eqEventMonitor(i32 channels);
 
     // 0x5639B0 | ??_EeqEventMonitor@@UAEPAXI@Z
     // 0x5639B0 | ??_GeqEventMonitor@@UAEPAXI@Z
@@ -159,7 +159,7 @@ public:
     eqEventHandler* handler_ {nullptr};
     u32 field_8 {0};
     i32 handler_index_ {0};
-    u32 field_10 {0};
+    u32 channels_ {0};
 };
 
 check_size(eqEventMonitor, 0x14);

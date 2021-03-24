@@ -40,7 +40,7 @@ ARTS_EXPORT void geinputAcquireMouse();
 ARTS_EXPORT void geinputUnacquireMouse();
 
 // 0x564570 | ?geinputCleanup@@YAXXZ
-ARTS_IMPORT void geinputCleanup();
+ARTS_EXPORT void geinputCleanup();
 
 // 0x564610 | ?geinputClearCache@@YAXXZ | unused
 ARTS_EXPORT void geinputClearCache();
@@ -56,7 +56,7 @@ ARTS_EXPORT void geinputGetMouse(ilong* mouse_x, ilong* mouse_y, i8* l_button, i
     ilong* mouse_raw_y, ilong* mouse_raw_z, i8* m_button);
 
 // 0x563DE0 | ?inputSetup@@YAHHHHHH@Z
-ARTS_IMPORT i32 inputSetup(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+ARTS_EXPORT i32 inputSetup(i32 width, i32 height, b32 enable_mouse, i32 arg4, i32 arg5);
 
 void geinputAcquireKeyboard();
 void geinputUnacquireKeyboard();

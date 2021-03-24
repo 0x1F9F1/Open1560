@@ -147,8 +147,8 @@ const char* eqEventHandler::EKeyName(i32 key_code)
     }
 }
 
-eqEventMonitor::eqEventMonitor(i32 arg1)
-    : field_10(arg1)
+eqEventMonitor::eqEventMonitor(i32 channels)
+    : channels_(channels)
 {}
 
 eqEventMonitor::~eqEventMonitor()
