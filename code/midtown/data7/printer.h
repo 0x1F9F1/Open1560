@@ -86,6 +86,8 @@ ARTS_EXPORT void LogToFile(const char* file);
 
 void CloseLogFile();
 
+void LogToConsole();
+
 // 0x576E90 | ?LogToMonochromeMonitor@@YAXXZ
 ARTS_IMPORT void LogToMonochromeMonitor();
 

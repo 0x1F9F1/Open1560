@@ -292,6 +292,19 @@ void CloseLogFile()
     DeleteFileA("MM.LOCK");
 }
 
+void LogToConsole()
+{
+    if (GetConsoleWindow() == NULL)
+    {
+        AllocConsole();
+        SetConsoleTitleA("Open1560");
+
+        std::FILE* f = nullptr;
+        freopen_s(&f, "CONOUT$", "w", stdout);
+        freopen_s(&f, "CONOUT$", "w", stderr);
+    }
+}
+
 void Quit(char const* message)
 {
     if (message)

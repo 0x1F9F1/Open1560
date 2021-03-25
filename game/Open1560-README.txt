@@ -38,6 +38,7 @@ afilter    | 16    | Anisotropic filtering level
 border     | true  | Enables a border when in windowed mode
 cdid       | false | Enables CD music in the menu when using a virtual CD
 config     | false | Forces redetection of graphics modes
+console    | false | Enables console logging
 fovfix     | true  | Enables FOV scaling based on resolution
 legacygl   | false | Uses a legacy OpenGL context (enabled by default on Intel iGPUs)
 maxaspect  |       | Maximum aspect ratio of available resolutions

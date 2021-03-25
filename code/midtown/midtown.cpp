@@ -71,6 +71,7 @@ static char* Main_Argv[128] {};
 alignas(16) static u8 Main_InitHeap[0x10000];
 
 static mem::cmd_param PARAM_clean_dir {"cleandir"};
+static mem::cmd_param PARAM_console {"console"};
 
 ARTS_EXPORT int WINAPI MidtownMain(
     HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR lpCmdLine, int /*nShowCmd*/)
@@ -130,6 +131,11 @@ ARTS_EXPORT int WINAPI MidtownMain(
 
     mem::cmd_param::init(static_cast<int>(argc), Main_Argv);
 
+    if (PARAM_console.get_or(false))
+    {
+        LogToConsole();
+    }
+
     Application(static_cast<int>(argc), Main_Argv);
 
     Displayf("Good bye.");
@@ -139,7 +145,21 @@ ARTS_EXPORT int WINAPI MidtownMain(
 #ifdef ARTS_FINAL
     if (PARAM_clean_dir.get_or(true))
     {
-        system("del /Q *.csv last.rpl crash.rpl portals.s");
+        DeleteFileA("last.rpl");
+        DeleteFileA("crash.rpl");
+        DeleteFileA("portals.s");
+
+        WIN32_FIND_DATAA find_data;
+
+        if (HANDLE find_handle = FindFirstFileA("*.csv", &find_data); find_handle != INVALID_HANDLE_VALUE)
+        {
+            do
+            {
+                DeleteFileA(find_data.cFileName);
+            } while (FindNextFileA(find_handle, &find_data));
+
+            FindClose(find_handle);
+        }
     }
 #endif
 

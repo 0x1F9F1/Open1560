@@ -201,15 +201,9 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         // Fixes mouse drift when display scale is not 100%
         SetProcessDPIAware();
 
-        if (GetConsoleWindow() == NULL)
-        {
-            AllocConsole();
-            SetConsoleTitleA("Open1560");
-
-            std::FILE* f = nullptr;
-            freopen_s(&f, "CONOUT$", "w", stdout);
-            freopen_s(&f, "CONOUT$", "w", stderr);
-        }
+#ifndef ARTS_FINAL
+        LogToConsole();
+#endif
 
         InitBaseSymbols();
 
