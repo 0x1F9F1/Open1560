@@ -265,7 +265,10 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
     {
         size += Node::DebugGuardOverhead;
         align_offset += Node::DebugLowerGuardSize;
+
+#ifndef ARTS_FINAL
         last_allocs_[alloc_id_++ % ARTS_SIZE(last_allocs_)] = reinterpret_cast<usize>(caller);
+#endif
     }
 
     if (size <= MinAllocSize)
@@ -532,7 +535,10 @@ void asMemoryAllocator::Init(void* heap, usize heap_size, b32 use_nodes)
     heap_size_ = heap_size;
     heap_used_ = heap_size;
     use_nodes_ = use_nodes;
+
+#ifndef ARTS_FINAL
     alloc_id_ = 0;
+#endif
 
     initialized_ = true;
 
@@ -625,6 +631,7 @@ void asMemoryAllocator::SanityCheck()
 
     if (is_invalid)
     {
+#ifndef ARTS_FINAL
         usize alloc_id = alloc_id_;
 
         if (debug_)
@@ -640,6 +647,9 @@ void asMemoryAllocator::SanityCheck()
         }
 
         Abortf("Memory Allocator Corrupted (allocid = %u)", alloc_id);
+#else
+        Abortf("Memory Allocator Corrupted");
+#endif
     }
 
     Unlock();

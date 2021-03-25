@@ -171,8 +171,11 @@ private:
 
     // New Fields
     mutable RecursiveTicketLock lock_ {};
+
+#ifndef ARTS_FINAL
     std::atomic<usize> alloc_id_ {0};
     usize last_allocs_[16] {};
+#endif
 };
 
 // check_size(asMemoryAllocator, 0xA0);
