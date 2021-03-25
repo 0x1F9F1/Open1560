@@ -808,18 +808,14 @@ void asMemoryAllocator::Verify(void* ptr)
 
 asMemoryAllocator::FreeNode* asMemoryAllocator::FindFirstFit(usize size, usize align, usize offset)
 {
-    usize const lower_mask = align - 1;
-
-    offset += sizeof(Node);
+    align -= 1;
+    offset = -isize(offset + sizeof(Node));
 
     for (u32 i = GetBucketIndex(size); i < ARTS_SIZE32(buckets_); ++i)
     {
         for (FreeNode* n = buckets_[i]; n; n = n->NextFree)
         {
-            usize const node_size = n->Size;
-            usize const required = size + (-isize(reinterpret_cast<usize>(n) + offset) & lower_mask);
-
-            if (node_size >= required)
+            if (n->Size >= size + ((offset - reinterpret_cast<usize>(n)) & align))
                 return n;
         }
     }
