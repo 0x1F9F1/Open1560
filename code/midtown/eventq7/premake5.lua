@@ -13,7 +13,8 @@ arts_component "eventq7"
         "winevent.cpp",
         "winevent.h",
 
-        "key_codes.h",
+        "keys.cpp",
+        "keys.h",
     }
 
     links { "dinput8" }

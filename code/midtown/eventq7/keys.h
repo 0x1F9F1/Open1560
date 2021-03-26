@@ -20,7 +20,7 @@
 
 // clang-format off
 
-// DirectInput keyboard scan codes
+// Keyboard Scan Codes (Matches DIK_*)
 
 #define EQ_KEY_ESCAPE          0x01
 #define EQ_KEY_1               0x02
@@ -520,3 +520,5 @@
 #define EQ_VK_OEM_CLEAR      0xFE
 
 // clang-format on
+
+u8 VirtualKeyToScanCode(u32 key);

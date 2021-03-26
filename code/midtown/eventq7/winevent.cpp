@@ -21,7 +21,7 @@ define_dummy_symbol(eventq7_winevent);
 #include "winevent.h"
 
 #include "geinputLib.h"
-#include "key_codes.h"
+#include "keys.h"
 #include "mmaudio/manager.h"
 #include "pcwindis/pcwindis.h"
 #include "replay.h"
@@ -134,36 +134,36 @@ const char* WINEventHandler::GKeyName(i32 arg1)
 {
     switch (arg1)
     {
-        case VK_BACK: return "BACK";
-        case VK_TAB: return "TAB";
+        case EQ_VK_BACK: return "BACK";
+        case EQ_VK_TAB: return "TAB";
 
-        case VK_CLEAR: return "CLEAR";
-        case VK_RETURN: return "RETURN";
+        case EQ_VK_CLEAR: return "CLEAR";
+        case EQ_VK_RETURN: return "RETURN";
 
-        case VK_SHIFT: return "SHIFT";
-        case VK_CONTROL: return "CONTROL";
-        case VK_MENU: return "MENU";
-        case VK_PAUSE: return "PAUSE";
-        case VK_CAPITAL: return "CAPITAL";
+        case EQ_VK_SHIFT: return "SHIFT";
+        case EQ_VK_CONTROL: return "CONTROL";
+        case EQ_VK_MENU: return "MENU";
+        case EQ_VK_PAUSE: return "PAUSE";
+        case EQ_VK_CAPITAL: return "CAPITAL";
 
-        case VK_ESCAPE: return "ESCAPE";
+        case EQ_VK_ESCAPE: return "ESCAPE";
 
-        case VK_SPACE: return "SPACE";
-        case VK_PRIOR: return "PRIOR";
-        case VK_NEXT: return "NEXT";
-        case VK_END: return "END";
-        case VK_HOME: return "HOME";
-        case VK_LEFT: return "LEFT";
-        case VK_UP: return "UP";
-        case VK_RIGHT: return "RIGHT";
-        case VK_DOWN: return "DOWN";
-        case VK_SELECT: return "SELECT";
-        case VK_PRINT: return "PRINT";
-        case VK_EXECUTE: return "EXECUTE";
-        case VK_SNAPSHOT: return "SNAPSHOT";
-        case VK_INSERT: return "INSERT";
-        case VK_DELETE: return "DELETE";
-        case VK_HELP: return "HELP";
+        case EQ_VK_SPACE: return "SPACE";
+        case EQ_VK_PRIOR: return "PRIOR";
+        case EQ_VK_NEXT: return "NEXT";
+        case EQ_VK_END: return "END";
+        case EQ_VK_HOME: return "HOME";
+        case EQ_VK_LEFT: return "LEFT";
+        case EQ_VK_UP: return "UP";
+        case EQ_VK_RIGHT: return "RIGHT";
+        case EQ_VK_DOWN: return "DOWN";
+        case EQ_VK_SELECT: return "SELECT";
+        case EQ_VK_PRINT: return "PRINT";
+        case EQ_VK_EXECUTE: return "EXECUTE";
+        case EQ_VK_SNAPSHOT: return "SNAPSHOT";
+        case EQ_VK_INSERT: return "INSERT";
+        case EQ_VK_DELETE: return "DELETE";
+        case EQ_VK_HELP: return "HELP";
 
         case '0': return "0";
         case '1': return "1";
@@ -203,190 +203,81 @@ const char* WINEventHandler::GKeyName(i32 arg1)
         case 'Y': return "Y";
         case 'Z': return "Z";
 
-        case VK_LWIN: return "LWIN";
-        case VK_RWIN: return "RWIN";
-        case VK_APPS: return "APPS";
+        case EQ_VK_LWIN: return "LWIN";
+        case EQ_VK_RWIN: return "RWIN";
+        case EQ_VK_APPS: return "APPS";
 
-        case VK_NUMPAD0: return "NUMPAD0";
-        case VK_NUMPAD1: return "NUMPAD1";
-        case VK_NUMPAD2: return "NUMPAD2";
-        case VK_NUMPAD3: return "NUMPAD3";
-        case VK_NUMPAD4: return "NUMPAD4";
-        case VK_NUMPAD5: return "NUMPAD5";
-        case VK_NUMPAD6: return "NUMPAD6";
-        case VK_NUMPAD7: return "NUMPAD7";
-        case VK_NUMPAD8: return "NUMPAD8";
-        case VK_NUMPAD9: return "NUMPAD9";
+        case EQ_VK_NUMPAD0: return "NUMPAD0";
+        case EQ_VK_NUMPAD1: return "NUMPAD1";
+        case EQ_VK_NUMPAD2: return "NUMPAD2";
+        case EQ_VK_NUMPAD3: return "NUMPAD3";
+        case EQ_VK_NUMPAD4: return "NUMPAD4";
+        case EQ_VK_NUMPAD5: return "NUMPAD5";
+        case EQ_VK_NUMPAD6: return "NUMPAD6";
+        case EQ_VK_NUMPAD7: return "NUMPAD7";
+        case EQ_VK_NUMPAD8: return "NUMPAD8";
+        case EQ_VK_NUMPAD9: return "NUMPAD9";
 
-        case VK_MULTIPLY: return "MULTIPLY";
-        case VK_ADD: return "ADD";
-        case VK_SEPARATOR: return "SEPARATOR";
-        case VK_SUBTRACT: return "SUBTRACT";
-        case VK_DECIMAL: return "DECIMAL";
-        case VK_DIVIDE: return "DIVIDE";
+        case EQ_VK_MULTIPLY: return "MULTIPLY";
+        case EQ_VK_ADD: return "ADD";
+        case EQ_VK_SEPARATOR: return "SEPARATOR";
+        case EQ_VK_SUBTRACT: return "SUBTRACT";
+        case EQ_VK_DECIMAL: return "DECIMAL";
+        case EQ_VK_DIVIDE: return "DIVIDE";
 
-        case VK_F1: return "F1";
-        case VK_F2: return "F2";
-        case VK_F3: return "F3";
-        case VK_F4: return "F4";
-        case VK_F5: return "F5";
-        case VK_F6: return "F6";
-        case VK_F7: return "F7";
-        case VK_F8: return "F8";
-        case VK_F9: return "F9";
-        case VK_F10: return "F10";
-        case VK_F11: return "F11";
-        case VK_F12: return "F12";
-        case VK_F13: return "F13";
-        case VK_F14: return "F14";
-        case VK_F15: return "F15";
-        case VK_F16: return "F16";
-        case VK_F17: return "F17";
-        case VK_F18: return "F18";
-        case VK_F19: return "F19";
-        case VK_F20: return "F20";
-        case VK_F21: return "F21";
-        case VK_F22: return "F22";
-        case VK_F23: return "F23";
-        case VK_F24: return "F24";
+        case EQ_VK_F1: return "F1";
+        case EQ_VK_F2: return "F2";
+        case EQ_VK_F3: return "F3";
+        case EQ_VK_F4: return "F4";
+        case EQ_VK_F5: return "F5";
+        case EQ_VK_F6: return "F6";
+        case EQ_VK_F7: return "F7";
+        case EQ_VK_F8: return "F8";
+        case EQ_VK_F9: return "F9";
+        case EQ_VK_F10: return "F10";
+        case EQ_VK_F11: return "F11";
+        case EQ_VK_F12: return "F12";
+        case EQ_VK_F13: return "F13";
+        case EQ_VK_F14: return "F14";
+        case EQ_VK_F15: return "F15";
+        case EQ_VK_F16: return "F16";
+        case EQ_VK_F17: return "F17";
+        case EQ_VK_F18: return "F18";
+        case EQ_VK_F19: return "F19";
+        case EQ_VK_F20: return "F20";
+        case EQ_VK_F21: return "F21";
+        case EQ_VK_F22: return "F22";
+        case EQ_VK_F23: return "F23";
+        case EQ_VK_F24: return "F24";
 
 #if 0
-        case VK_NAVIGATION_VIEW: return "NAVIGATION_VIEW";
-        case VK_NAVIGATION_MENU: return "NAVIGATION_MENU";
-        case VK_NAVIGATION_UP: return "NAVIGATION_UP";
-        case VK_NAVIGATION_DOWN: return "NAVIGATION_DOWN";
-        case VK_NAVIGATION_LEFT: return "NAVIGATION_LEFT";
-        case VK_NAVIGATION_RIGHT: return "NAVIGATION_RIGHT";
-        case VK_NAVIGATION_ACCEPT: return "NAVIGATION_ACCEPT";
-        case VK_NAVIGATION_CANCEL: return "NAVIGATION_CANCEL";
+        case EQ_VK_NAVIGATION_VIEW: return "NAVIGATION_VIEW";
+        case EQ_VK_NAVIGATION_MENU: return "NAVIGATION_MENU";
+        case EQ_VK_NAVIGATION_UP: return "NAVIGATION_UP";
+        case EQ_VK_NAVIGATION_DOWN: return "NAVIGATION_DOWN";
+        case EQ_VK_NAVIGATION_LEFT: return "NAVIGATION_LEFT";
+        case EQ_VK_NAVIGATION_RIGHT: return "NAVIGATION_RIGHT";
+        case EQ_VK_NAVIGATION_ACCEPT: return "NAVIGATION_ACCEPT";
+        case EQ_VK_NAVIGATION_CANCEL: return "NAVIGATION_CANCEL";
 #endif
 
-        case VK_NUMLOCK: return "NUMLOCK";
-        case VK_SCROLL: return "SCROLL";
+        case EQ_VK_NUMLOCK: return "NUMLOCK";
+        case EQ_VK_SCROLL: return "SCROLL";
 
-        case VK_OEM_1: return "OEM_1";
-        case VK_OEM_PLUS: return "OEM_PLUS";
-        case VK_OEM_COMMA: return "OEM_COMMA";
-        case VK_OEM_MINUS: return "OEM_MINUS";
-        case VK_OEM_PERIOD: return "OEM_PERIOD";
-        case VK_OEM_2: return "OEM_2";
-        case VK_OEM_3: return "OEM_3";
-        case VK_OEM_4: return "OEM_4";
-        case VK_OEM_5: return "OEM_5";
-        case VK_OEM_6: return "OEM_6";
-        case VK_OEM_7: return "OEM_7";
-        case VK_OEM_8: return "OEM_8";
+        case EQ_VK_OEM_1: return "OEM_1";
+        case EQ_VK_OEM_PLUS: return "OEM_PLUS";
+        case EQ_VK_OEM_COMMA: return "OEM_COMMA";
+        case EQ_VK_OEM_MINUS: return "OEM_MINUS";
+        case EQ_VK_OEM_PERIOD: return "OEM_PERIOD";
+        case EQ_VK_OEM_2: return "OEM_2";
+        case EQ_VK_OEM_3: return "OEM_3";
+        case EQ_VK_OEM_4: return "OEM_4";
+        case EQ_VK_OEM_5: return "OEM_5";
+        case EQ_VK_OEM_6: return "OEM_6";
+        case EQ_VK_OEM_7: return "OEM_7";
+        case EQ_VK_OEM_8: return "OEM_8";
 
         default: return "[Unknown]";
-    }
-}
-
-u8 ConvertVirtualKeyCode(DWORD key)
-{
-    switch (key)
-    {
-        case VK_BACK: return EQ_KEY_BACK;
-        case VK_TAB: return EQ_KEY_TAB;
-        case VK_RETURN: return EQ_KEY_RETURN;
-        case VK_SHIFT: return EQ_KEY_LSHIFT;
-        case VK_CONTROL: return EQ_KEY_LCONTROL;
-        case VK_CAPITAL: return EQ_KEY_CAPITAL;
-        case VK_ESCAPE: return EQ_KEY_ESCAPE;
-        case VK_SPACE: return EQ_KEY_SPACE;
-        case VK_PRIOR: return EQ_KEY_PRIOR;
-        case VK_NEXT: return EQ_KEY_NEXT;
-        case VK_END: return EQ_KEY_END;
-        case VK_HOME: return EQ_KEY_HOME;
-        case VK_LEFT: return EQ_KEY_LEFT;
-        case VK_UP: return EQ_KEY_UP;
-        case VK_RIGHT: return EQ_KEY_RIGHT;
-        case VK_DOWN: return EQ_KEY_DOWN;
-        case VK_INSERT: return EQ_KEY_INSERT;
-        case VK_DELETE: return EQ_KEY_DELETE;
-
-        case '0': return EQ_KEY_0;
-        case '1': return EQ_KEY_1;
-        case '2': return EQ_KEY_2;
-        case '3': return EQ_KEY_3;
-        case '4': return EQ_KEY_4;
-        case '5': return EQ_KEY_5;
-        case '6': return EQ_KEY_6;
-        case '7': return EQ_KEY_7;
-        case '8': return EQ_KEY_8;
-        case '9': return EQ_KEY_9;
-
-        case 'A': return EQ_KEY_A;
-        case 'B': return EQ_KEY_B;
-        case 'C': return EQ_KEY_C;
-        case 'D': return EQ_KEY_D;
-        case 'E': return EQ_KEY_E;
-        case 'F': return EQ_KEY_F;
-        case 'G': return EQ_KEY_G;
-        case 'H': return EQ_KEY_H;
-        case 'I': return EQ_KEY_I;
-        case 'J': return EQ_KEY_J;
-        case 'K': return EQ_KEY_K;
-        case 'L': return EQ_KEY_L;
-        case 'M': return EQ_KEY_M;
-        case 'N': return EQ_KEY_N;
-        case 'O': return EQ_KEY_O;
-        case 'P': return EQ_KEY_P;
-        case 'Q': return EQ_KEY_Q;
-        case 'R': return EQ_KEY_R;
-        case 'S': return EQ_KEY_S;
-        case 'T': return EQ_KEY_T;
-        case 'U': return EQ_KEY_U;
-        case 'V': return EQ_KEY_V;
-        case 'W': return EQ_KEY_W;
-        case 'X': return EQ_KEY_X;
-        case 'Y': return EQ_KEY_Y;
-        case 'Z': return EQ_KEY_Z;
-
-        case VK_LWIN: return EQ_KEY_LWIN;
-        case VK_RWIN: return EQ_KEY_RWIN;
-        case VK_APPS: return EQ_KEY_APPS;
-        case VK_NUMPAD0: return EQ_KEY_NUMPAD0;
-        case VK_NUMPAD1: return EQ_KEY_NUMPAD1;
-        case VK_NUMPAD2: return EQ_KEY_NUMPAD2;
-        case VK_NUMPAD3: return EQ_KEY_NUMPAD3;
-        case VK_NUMPAD4: return EQ_KEY_NUMPAD4;
-        case VK_NUMPAD5: return EQ_KEY_NUMPAD5;
-        case VK_NUMPAD6: return EQ_KEY_NUMPAD6;
-        case VK_NUMPAD7: return EQ_KEY_NUMPAD7;
-        case VK_NUMPAD8: return EQ_KEY_NUMPAD8;
-        case VK_NUMPAD9: return EQ_KEY_NUMPAD9;
-        case VK_MULTIPLY: return EQ_KEY_MULTIPLY;
-        case VK_ADD: return EQ_KEY_ADD;
-        case VK_SUBTRACT: return EQ_KEY_SUBTRACT;
-        case VK_DECIMAL: return EQ_KEY_DECIMAL;
-        case VK_DIVIDE: return EQ_KEY_DIVIDE;
-
-        case VK_F1: return EQ_KEY_F1;
-        case VK_F2: return EQ_KEY_F2;
-        case VK_F3: return EQ_KEY_F3;
-        case VK_F4: return EQ_KEY_F4;
-        case VK_F5: return EQ_KEY_F5;
-        case VK_F6: return EQ_KEY_F6;
-        case VK_F7: return EQ_KEY_F7;
-        case VK_F8: return EQ_KEY_F8;
-        case VK_F9: return EQ_KEY_F9;
-        case VK_F10: return EQ_KEY_F10;
-        case VK_F11: return EQ_KEY_F11;
-        case VK_F12: return EQ_KEY_F12;
-        case VK_F13: return EQ_KEY_F13;
-        case VK_F14: return EQ_KEY_F14;
-        case VK_F15: return EQ_KEY_F15;
-
-        case VK_NUMLOCK: return EQ_KEY_NUMLOCK;
-        case VK_SCROLL: return EQ_KEY_SCROLL;
-        case VK_LSHIFT: return EQ_KEY_LSHIFT;
-        case VK_RSHIFT: return EQ_KEY_RSHIFT;
-        case VK_LCONTROL: return EQ_KEY_LCONTROL;
-        case VK_RCONTROL: return EQ_KEY_RCONTROL;
-        case VK_LMENU: return EQ_KEY_LMENU;
-        case VK_RMENU: return EQ_KEY_RMENU;
-
-        default: return 0;
     }
 }
 
@@ -395,7 +286,7 @@ void WINEventHandler::Update(i32)
     buttons_ &= ~(EQ_BUTTON_WHEEL_UP | EQ_BUTTON_WHEEL_DOWN);
 
     MSG msg;
-    while (ActiveFlag ? PeekMessageA(&msg, 0, 0, 0, 1u) : GetMessageA(&msg, 0, 0, 0))
+    while (ActiveFlag ? PeekMessageA(&msg, 0, 0, 0, PM_REMOVE) : GetMessageA(&msg, 0, 0, 0))
     {
         TranslateMessage(&msg);
         DispatchMessageA(&msg);
@@ -453,7 +344,7 @@ void WINEventHandler::Update(i32)
         if (BYTE key_states[256]; GetKeyboardState(key_states))
         {
             for (i32 i = 0; i < 256; ++i)
-                key_states_[ConvertVirtualKeyCode(i)] = !!(key_states[i] & 0x80);
+                key_states_[VirtualKeyToScanCode(i)] = !!(key_states[i] & 0x80);
         }
     }
 
@@ -599,9 +490,9 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
 
             switch (wParam)
             {
-                case VK_CONTROL: key_mods = EQ_KMOD_CTRL; break;
-                case VK_MENU: key_mods = EQ_KMOD_ALT; break;
-                case VK_SHIFT: key_mods = EQ_KMOD_SHIFT; break;
+                case EQ_VK_CONTROL: key_mods = EQ_KMOD_CTRL; break;
+                case EQ_VK_MENU: key_mods = EQ_KMOD_ALT; break;
+                case EQ_VK_SHIFT: key_mods = EQ_KMOD_SHIFT; break;
             }
 
             if ((uMsg == WM_KEYDOWN) || (uMsg == WM_SYSKEYDOWN))

@@ -21,7 +21,7 @@ define_dummy_symbol(mminput_input);
 #include "input.h"
 
 #include "eventq7/eventq.h"
-#include "eventq7/key_codes.h"
+#include "eventq7/keys.h"
 
 i32 mmInput::GamepadConnected()
 {
@@ -36,6 +36,37 @@ i32 mmInput::JoystickConnected()
 i32 mmInput::WheelConnected()
 {
     return 0;
+}
+
+void mmInput::ProcessKeyboardEvents()
+{
+    eqEvent event;
+
+    while (Events->Pop(&event))
+    {
+        bool scan = false;
+
+        if (event.Common.Type == eqEventType::Keyboard)
+        {
+            event.Key.VirtualKey = VirtualKeyToScanCode(event.Key.VirtualKey);
+            scan = event.Key.Modifiers & EQ_KMOD_DOWN;
+        }
+        else if (event.Common.Type == eqEventType::Mouse)
+        {
+            scan = event.Mouse.Buttons;
+        }
+
+        if (scan)
+        {
+            if (i64 index = ScanForEvent(&event); index > 0)
+                PutEventInQueue(index);
+        }
+    }
+}
+
+void mmInput::ProcessMouseEvents()
+{
+    // Merged with ProcessKeyboardEvents
 }
 
 b32 mmInput::GetNextKeyboardEvent(eqEvent* event)

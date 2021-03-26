@@ -23,7 +23,7 @@ define_dummy_symbol(arts7_midgets);
 #include "agi/pipeline.h"
 #include "agi/print.h"
 #include "cullmgr.h"
-#include "eventq7/key_codes.h"
+#include "eventq7/keys.h"
 #include "sim.h"
 #include "vector7/vector2.h"
 #include "vector7/vector3.h"

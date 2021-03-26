@@ -71,6 +71,9 @@ void geinputClearCache()
 // TODO: Pass in max number of presses
 i32 geinputGetBufferedKeyboard(i8* presses)
 {
+    if (KeyboardDevice == nullptr)
+        return 0;
+
     DIDEVICEOBJECTDATA data[32];
     DWORD dwItems = ARTS_SIZE32(data);
 

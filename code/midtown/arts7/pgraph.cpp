@@ -26,7 +26,7 @@ define_dummy_symbol(arts7_pgraph);
 #include "agi/rsys.h"
 #include "agi/vertex.h"
 #include "data7/timer.h"
-#include "eventq7/key_codes.h"
+#include "eventq7/keys.h"
 #include "sim.h"
 #include "vector7/vector3.h"
 

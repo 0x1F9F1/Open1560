@@ -26,7 +26,7 @@ define_dummy_symbol(arts7_sim);
 #include "agi/texlib.h"
 #include "cullmgr.h"
 #include "data7/metadefine.h"
-#include "eventq7/key_codes.h"
+#include "eventq7/keys.h"
 #include "midgets.h"
 #include "stream/vfsystem.h"
 

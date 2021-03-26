@@ -20,7 +20,7 @@ define_dummy_symbol(eventq7_event);
 
 #include "event.h"
 
-#include "key_codes.h"
+#include "keys.h"
 #include "stream/stream.h"
 
 static mem::cmd_param PARAM_event_dbg {"eventdbg"};

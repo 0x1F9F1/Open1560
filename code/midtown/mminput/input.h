@@ -475,10 +475,10 @@ private:
     ARTS_IMPORT void ProcessJoyEvents();
 
     // 0x4E2530 | ?ProcessKeyboardEvents@mmInput@@AAEXXZ
-    ARTS_IMPORT void ProcessKeyboardEvents();
+    ARTS_EXPORT void ProcessKeyboardEvents();
 
     // 0x4E24D0 | ?ProcessMouseEvents@mmInput@@AAEXXZ
-    ARTS_IMPORT void ProcessMouseEvents();
+    ARTS_EXPORT void ProcessMouseEvents();
 
     // 0x4E2600 | ?ProcessStates@mmInput@@AAE_JXZ
     ARTS_IMPORT i64 ProcessStates();

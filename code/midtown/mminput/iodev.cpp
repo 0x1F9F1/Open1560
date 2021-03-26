@@ -20,7 +20,7 @@ define_dummy_symbol(mminput_iodev);
 
 #include "iodev.h"
 
-#include "eventq7/key_codes.h"
+#include "eventq7/keys.h"
 #include "input.h"
 #include "localize.h"
 
