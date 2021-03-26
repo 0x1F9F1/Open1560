@@ -88,6 +88,10 @@ private:
     // 0x562720 | ?WindowProc@WINEventHandler@@EAEJPAUHWND__@@IIJ@Z
     ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
+    void OnKeyPress(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+    void OnCharPress(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+    void OnMouse(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
     // 0 = GetKeyboardState
     // 1 = geinputGetKeyboard
     // 3 = geinputGetMouse

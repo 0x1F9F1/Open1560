@@ -309,7 +309,7 @@ public:
     ARTS_IMPORT void ClearEventHitFlags();
 
     // 0x4E3990 | ?DeviceConnected@mmInput@@QAEHXZ
-    ARTS_IMPORT i32 DeviceConnected();
+    ARTS_IMPORT b32 DeviceConnected();
 
     // 0x4E3A60 | ?DoingFF@mmInput@@QAEHXZ
     ARTS_IMPORT i32 DoingFF();
@@ -339,7 +339,7 @@ public:
     ARTS_IMPORT void ForceAssignment(class mmIO* arg1);
 
     // 0x4E39B0 | ?GamepadConnected@mmInput@@QAEHXZ
-    ARTS_EXPORT i32 GamepadConnected();
+    ARTS_EXPORT b32 GamepadConnected();
 
     // 0x4E33A0 | ?GetBrakes@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetBrakes();
@@ -375,13 +375,13 @@ public:
     ARTS_IMPORT i32 IsAlreadyAssigned(class mmIO* arg1, i32 arg2, i32 arg3, i32 arg4);
 
     // 0x4E39A0 | ?JoystickConnected@mmInput@@QAEHXZ
-    ARTS_EXPORT i32 JoystickConnected();
+    ARTS_EXPORT b32 JoystickConnected();
 
     // 0x4E3A00 | ?JoystickHasCoolie@mmInput@@QAEHXZ
-    ARTS_IMPORT i32 JoystickHasCoolie();
+    ARTS_IMPORT b32 JoystickHasCoolie();
 
     // 0x4E3A10 | ?JoystickHasThrottle@mmInput@@QAEHXZ | unused
-    ARTS_IMPORT i32 JoystickHasThrottle();
+    ARTS_IMPORT b32 JoystickHasThrottle();
 
     // 0x4E3C50 | ?LoadConfig@mmInput@@QAEHPAVStream@@@Z | unused
     ARTS_IMPORT i32 LoadConfig(class Stream* arg1);
@@ -441,10 +441,10 @@ public:
     ARTS_IMPORT void Update() override;
 
     // 0x4E39C0 | ?WheelConnected@mmInput@@QAEHXZ
-    ARTS_EXPORT i32 WheelConnected();
+    ARTS_EXPORT b32 WheelConnected();
 
     // 0x4E3A20 | ?WheelHas3Axis@mmInput@@QAEHXZ | unused
-    ARTS_IMPORT i32 WheelHas3Axis();
+    ARTS_IMPORT b32 WheelHas3Axis();
 
     // 0x4E40E0 | ?DeclareFields@mmInput@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -460,7 +460,7 @@ private:
     ARTS_IMPORT f32 FilterDiscreteSteering(f32 arg1);
 
     // 0x4E2580 | ?GetBufferedKeyboardData@mmInput@@AAEXXZ
-    ARTS_IMPORT void GetBufferedKeyboardData();
+    ARTS_EXPORT void GetBufferedKeyboardData();
 
     // 0x4E25A0 | ?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z
     ARTS_EXPORT b32 GetNextKeyboardEvent(union eqEvent* event);
@@ -469,7 +469,7 @@ private:
     ARTS_IMPORT void PollContinuous(class mmIO* arg1);
 
     // 0x4E25E0 | ?ProcessEvents@mmInput@@AAEXXZ
-    ARTS_IMPORT void ProcessEvents();
+    ARTS_EXPORT void ProcessEvents();
 
     // 0x4E28C0 | ?ProcessJoyEvents@mmInput@@AAEXXZ
     ARTS_IMPORT void ProcessJoyEvents();

@@ -21,21 +21,31 @@ define_dummy_symbol(mminput_input);
 #include "input.h"
 
 #include "eventq7/eventq.h"
+#include "eventq7/geinputLib.h"
 #include "eventq7/keys.h"
 
-i32 mmInput::GamepadConnected()
+// TODO: Decide type of connected joystick (mmJoystick::DevInfo::dwDevType)
+b32 mmInput::GamepadConnected()
 {
-    return 0;
+    return false;
 }
 
-i32 mmInput::JoystickConnected()
+b32 mmInput::JoystickConnected()
 {
-    return 0;
+    return false;
 }
 
-i32 mmInput::WheelConnected()
+b32 mmInput::WheelConnected()
 {
-    return 0;
+    return false;
+}
+
+void mmInput::ProcessEvents()
+{
+    ProcessMouseEvents();
+    ProcessKeyboardEvents();
+    ProcessJoyEvents();
+    ClearEventHitFlags();
 }
 
 void mmInput::ProcessKeyboardEvents()
@@ -67,6 +77,11 @@ void mmInput::ProcessKeyboardEvents()
 void mmInput::ProcessMouseEvents()
 {
     // Merged with ProcessKeyboardEvents
+}
+
+void mmInput::GetBufferedKeyboardData()
+{
+    NumKeyboardInputs = geinputGetBufferedKeyboard(KeyboardPresses);
 }
 
 b32 mmInput::GetNextKeyboardEvent(eqEvent* event)

@@ -421,64 +421,7 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
         case WM_RBUTTONUP:
         case WM_MBUTTONDOWN:
         case WM_MBUTTONUP: {
-            if (uMsg == WM_MOUSEMOVE)
-            {
-                if (!wants_motion_ && !(wParam & (MK_LBUTTON | MK_RBUTTON | MK_MBUTTON)))
-                    break;
-            }
-
-            mouse_x_ = GET_X_LPARAM(lParam);
-            mouse_y_ = GET_Y_LPARAM(lParam);
-
-            buttons_ = 0;
-
-            if (wParam & MK_LBUTTON)
-                buttons_ |= EQ_BUTTON_LEFT;
-
-            if (wParam & MK_RBUTTON)
-                buttons_ |= EQ_BUTTON_RIGHT;
-
-            if (wParam & MK_MBUTTON)
-                buttons_ |= EQ_BUTTON_MIDDLE;
-
-            if (uMsg == WM_MOUSEWHEEL)
-            {
-                MouseScrollWheelPosition += GET_WHEEL_DELTA_WPARAM(wParam);
-
-                if (MouseScrollWheelPosition >= 120)
-                {
-                    MouseScrollWheelPosition -= 120;
-                    buttons_ |= EQ_BUTTON_WHEEL_UP;
-                }
-                else if (MouseScrollWheelPosition <= -120)
-                {
-                    MouseScrollWheelPosition += 120;
-                    buttons_ |= EQ_BUTTON_WHEEL_DOWN;
-                }
-            }
-
-            RECT rect;
-            GetWindowRect(hwnd, &rect);
-
-            if (tracked_events_ & 0x1)
-                AdjustMouse(mouse_x_, mouse_y_);
-
-            u32 changed_buttons = buttons_ ^ prev_buttons_;
-            u32 new_buttons = buttons_ & changed_buttons;
-
-            for (eqEventMonitor* monitor : monitors_)
-            {
-                if (monitor && (monitor->channels_ & channels_))
-                    monitor->Mouse(
-                        hwnd, new_buttons, changed_buttons, buttons_, mouse_x_, mouse_y_, rect.left, rect.top);
-            }
-
-            if (eqReplay::Recording)
-                eqEventReplayChannel.QueueMouse(
-                    new_buttons, changed_buttons, buttons_, mouse_x_, mouse_y_, rect.left, rect.top);
-
-            prev_buttons_ = buttons_;
-
+            OnMouse(hwnd, uMsg, wParam, lParam);
             break;
         }
 
@@ -486,57 +429,12 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
         case WM_KEYUP:
         case WM_SYSKEYDOWN:
         case WM_SYSKEYUP: {
-            u32 key_mods = 0;
-
-            switch (wParam)
-            {
-                case EQ_VK_CONTROL: key_mods = EQ_KMOD_CTRL; break;
-                case EQ_VK_MENU: key_mods = EQ_KMOD_ALT; break;
-                case EQ_VK_SHIFT: key_mods = EQ_KMOD_SHIFT; break;
-            }
-
-            if ((uMsg == WM_KEYDOWN) || (uMsg == WM_SYSKEYDOWN))
-                CurrentKeyModifiers |= key_mods;
-            else
-                CurrentKeyModifiers &= ~key_mods;
-
-            u32 modifiers = CurrentKeyModifiers;
-
-            if (!(lParam & 0x80000000))
-            {
-                modifiers |= EQ_KMOD_DOWN;
-
-                if (lParam & 0x40000000)
-                    modifiers |= EQ_KMOD_REPEAT;
-            }
-
-            for (eqEventMonitor* monitor : monitors_)
-            {
-                if (monitor && (monitor->channels_ & channels_))
-                    monitor->Keyboard(hwnd, modifiers, wParam, 0, lParam);
-            }
-
-            if (eqReplay::Recording)
-                eqEventReplayChannel.QueueKeyboard(modifiers, wParam, 0, 0);
-
+            OnKeyPress(hwnd, uMsg, wParam, lParam);
             break;
         }
 
         case WM_CHAR: {
-            u32 modifiers = CurrentKeyModifiers;
-
-            if (!(lParam & 0x80000000))
-                modifiers |= EQ_KMOD_DOWN;
-
-            for (eqEventMonitor* monitor : monitors_)
-            {
-                if (monitor && (monitor->channels_ & channels_))
-                    monitor->Keyboard(hwnd, modifiers, 0, wParam, lParam);
-            }
-
-            if (eqReplay::Recording)
-                eqEventReplayChannel.QueueKeyboard(modifiers, 0, wParam, 0);
-
+            OnCharPress(hwnd, uMsg, wParam, lParam);
             break;
         }
 
@@ -657,4 +555,134 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
     }
 
     return result;
+}
+
+void WINEventHandler::OnKeyPress(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    u32 key_mods = 0;
+
+    switch (wParam)
+    {
+        case EQ_VK_CONTROL: key_mods = EQ_KMOD_CTRL; break;
+        case EQ_VK_MENU: key_mods = EQ_KMOD_ALT; break;
+        case EQ_VK_SHIFT: key_mods = EQ_KMOD_SHIFT; break;
+    }
+
+    if ((uMsg == WM_KEYDOWN) || (uMsg == WM_SYSKEYDOWN))
+        CurrentKeyModifiers |= key_mods;
+    else
+        CurrentKeyModifiers &= ~key_mods;
+
+    u32 modifiers = CurrentKeyModifiers;
+
+    if (!(lParam & 0x80000000))
+    {
+        modifiers |= EQ_KMOD_DOWN;
+
+        if (lParam & 0x40000000)
+            modifiers |= EQ_KMOD_REPEAT;
+    }
+
+    for (eqEventMonitor* monitor : monitors_)
+    {
+        if (monitor && (monitor->channels_ & channels_))
+            monitor->Keyboard(hwnd, modifiers, wParam, 0, lParam);
+    }
+
+    if (eqReplay::Recording)
+        eqEventReplayChannel.QueueKeyboard(modifiers, wParam, 0, 0);
+}
+
+void WINEventHandler::OnCharPress(HWND hwnd, UINT /*uMsg*/, WPARAM wParam, LPARAM lParam)
+{
+    u32 modifiers = CurrentKeyModifiers;
+
+    if (!(lParam & 0x80000000))
+    {
+        modifiers |= EQ_KMOD_DOWN;
+
+        if (lParam & 0x40000000)
+            modifiers |= EQ_KMOD_REPEAT;
+    }
+
+    for (eqEventMonitor* monitor : monitors_)
+    {
+        if (monitor && (monitor->channels_ & channels_))
+            monitor->Keyboard(hwnd, modifiers, 0, wParam, lParam);
+    }
+
+    if (eqReplay::Recording)
+        eqEventReplayChannel.QueueKeyboard(modifiers, 0, wParam, 0);
+}
+
+void WINEventHandler::OnMouse(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    if (uMsg == WM_MOUSEMOVE)
+    {
+        if (!wants_motion_ && !(wParam & (MK_LBUTTON | MK_RBUTTON | MK_MBUTTON)))
+            return;
+    }
+
+    buttons_ = 0;
+
+    if (wParam & MK_LBUTTON)
+        buttons_ |= EQ_BUTTON_LEFT;
+
+    if (wParam & MK_RBUTTON)
+        buttons_ |= EQ_BUTTON_RIGHT;
+
+    if (wParam & MK_MBUTTON)
+        buttons_ |= EQ_BUTTON_MIDDLE;
+
+    if (uMsg == WM_MOUSEWHEEL) // Not sent when using MouseDevice
+    {
+        MouseScrollWheelPosition += GET_WHEEL_DELTA_WPARAM(wParam);
+        u32 key_press = 0;
+
+        if (MouseScrollWheelPosition >= WHEEL_DELTA)
+        {
+            MouseScrollWheelPosition -= WHEEL_DELTA;
+            buttons_ |= EQ_BUTTON_WHEEL_UP;
+            key_press = EQ_VK_LEFT;
+        }
+        else if (MouseScrollWheelPosition <= -WHEEL_DELTA)
+        {
+            MouseScrollWheelPosition += WHEEL_DELTA;
+            buttons_ |= EQ_BUTTON_WHEEL_DOWN;
+            key_press = EQ_VK_RIGHT;
+        }
+
+        // Emulates scrolling for widgets which support VK_[LEFT/RIGHT]
+        // if (key_press)
+        // {
+        //     OnKeyPress(hwnd, WM_KEYDOWN, key_press, 0x00000000);
+        //     OnKeyPress(hwnd, WM_KEYUP, key_press, 0xC0000000);
+        // }
+    }
+    else
+    {
+        mouse_x_ = GET_X_LPARAM(lParam);
+        mouse_y_ = GET_Y_LPARAM(lParam);
+    }
+
+    RECT rect;
+    GetWindowRect(hwnd, &rect);
+
+    if (tracked_events_ & 0x1)
+        AdjustMouse(mouse_x_, mouse_y_);
+
+    u32 changed_buttons = buttons_ ^ prev_buttons_;
+    u32 new_buttons = buttons_ & changed_buttons;
+
+    for (eqEventMonitor* monitor : monitors_)
+    {
+        if (monitor && (monitor->channels_ & channels_))
+            monitor->Mouse(hwnd, new_buttons, changed_buttons, buttons_, mouse_x_, mouse_y_, rect.left, rect.top);
+    }
+
+    if (eqReplay::Recording)
+        eqEventReplayChannel.QueueMouse(
+            new_buttons, changed_buttons, buttons_, mouse_x_, mouse_y_, rect.left, rect.top);
+
+    prev_buttons_ = buttons_;
 }
