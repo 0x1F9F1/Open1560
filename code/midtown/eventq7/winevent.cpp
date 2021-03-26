@@ -503,7 +503,12 @@ LRESULT WINEventHandler::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM 
             u32 modifiers = CurrentKeyModifiers;
 
             if (!(lParam & 0x80000000))
+            {
                 modifiers |= EQ_KMOD_DOWN;
+
+                if (lParam & 0x40000000)
+                    modifiers |= EQ_KMOD_REPEAT;
+            }
 
             for (eqEventMonitor* monitor : monitors_)
             {

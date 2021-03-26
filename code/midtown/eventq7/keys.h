@@ -171,6 +171,7 @@
 #define EQ_KMOD_SHIFT  0x2
 #define EQ_KMOD_CTRL   0x4
 #define EQ_KMOD_ALT    0x8
+#define EQ_KMOD_REPEAT 0x10 // NEW
 
 #define EQ_BUTTON_LEFT          0x1
 #define EQ_BUTTON_RIGHT         0x2

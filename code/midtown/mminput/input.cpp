@@ -49,7 +49,7 @@ void mmInput::ProcessKeyboardEvents()
         if (event.Common.Type == eqEventType::Keyboard)
         {
             event.Key.VirtualKey = VirtualKeyToScanCode(event.Key.VirtualKey);
-            scan = event.Key.Modifiers & EQ_KMOD_DOWN;
+            scan = (event.Key.Modifiers & EQ_KMOD_DOWN) && !(event.Key.Modifiers & EQ_KMOD_REPEAT);
         }
         else if (event.Common.Type == eqEventType::Mouse)
         {
