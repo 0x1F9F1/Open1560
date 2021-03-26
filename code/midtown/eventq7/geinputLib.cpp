@@ -230,7 +230,7 @@ i32 inputSetup(i32 width, i32 height, b32 enable_mouse, i32 /*arg4*/, i32 /*arg5
 
         if (MouseDevice->SetEventNotification(MouseEvent) < 0)
         {
-            MessageBoxA(GetActiveWindow(), "Could not associate event", "System mouse", 0);
+            MessageBoxA(NULL, "Could not associate event", "System mouse", 0);
             std::exit(1);
         }
 
@@ -240,7 +240,7 @@ i32 inputSetup(i32 width, i32 height, b32 enable_mouse, i32 /*arg4*/, i32 /*arg5
 
         if (MouseDevice->SetProperty(DIPROP_BUFFERSIZE, &prop_buffersize.diph) < 0)
         {
-            MessageBoxA(GetActiveWindow(), "Could not set properties", "System mouse", 0);
+            MessageBoxA(NULL, "Could not set properties", "System mouse", 0);
             std::exit(1);
         }
 
@@ -250,7 +250,7 @@ i32 inputSetup(i32 width, i32 height, b32 enable_mouse, i32 /*arg4*/, i32 /*arg5
 
         if (MouseDevice->SetProperty(DIPROP_AXISMODE, &prop_axismode.diph) < 0)
         {
-            MessageBoxA(GetActiveWindow(), "Could not set properties", "System mouse (absolute mode)", 0);
+            MessageBoxA(NULL, "Could not set properties", "System mouse (absolute mode)", 0);
             std::exit(1);
         }
 
@@ -260,13 +260,13 @@ i32 inputSetup(i32 width, i32 height, b32 enable_mouse, i32 /*arg4*/, i32 /*arg5
 
     if (lpDI->CreateDevice(GUID_SysKeyboard, &KeyboardDevice, 0) < 0)
     {
-        MessageBoxA(GetActiveWindow(), "Can not create device", "System keyboard COM interface", 0);
+        MessageBoxA(NULL, "Can not create device", "System keyboard COM interface", 0);
         std::exit(1);
     }
 
     if (KeyboardDevice->SetDataFormat(&c_dfDIKeyboard) < 0)
     {
-        MessageBoxA(GetActiveWindow(), "Could not set device parameters", "System keyboard", 0);
+        MessageBoxA(NULL, "Could not set device parameters", "System keyboard", 0);
         std::exit(1);
     }
 

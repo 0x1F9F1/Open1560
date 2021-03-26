@@ -183,7 +183,7 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
         }
         else
         {
-            MessageBoxA(GetActiveWindow(), buffer, "Fatal Error", MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
+            MessageBoxA(NULL, buffer, "Fatal Error", MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
         }
 
         if (level == 3)
