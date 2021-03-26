@@ -501,6 +501,11 @@ void mmText::Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font
     font->Draw(surface, text, rc, color, MM_TEXT_RIGHT);
 }
 
+static u32 TwiddleColor(u32 color)
+{
+    return ((color >> 16) & 0xFF) | (color & 0xFF00) | ((color & 0xFF) << 16);
+}
+
 RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color, i32 bg_color)
 {
     Rc<agiBitmap> bitmap = AsRc(Pipe()->CreateBitmap());
@@ -533,7 +538,7 @@ RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color
                 rc.right = i + size.cx;
                 rc.bottom = j + size.cy;
 
-                font->Draw(bitmap->GetSurface(), text, rc, bg_color, 0);
+                font->Draw(bitmap->GetSurface(), text, rc, TwiddleColor(bg_color), 0);
             }
         }
     }
@@ -553,7 +558,7 @@ RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color
         rc.bottom += 1;
     }
 
-    font->Draw(bitmap->GetSurface(), text, rc, color, 0);
+    font->Draw(bitmap->GetSurface(), text, rc, TwiddleColor(color), 0);
 
     bitmap->EndGfx();
     bitmap->SafeBeginGfx();

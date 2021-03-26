@@ -85,6 +85,10 @@ struct mmStatePack
     i32 CurrentColor;
     char NetName[80];
     f32 TimeLimit;
+
+    // -1 | Loading
+    //  0 | Menus
+    //  1 | Race
     i32 GameState;
     i32 DisableDamage;
     i32 DisableAI;
