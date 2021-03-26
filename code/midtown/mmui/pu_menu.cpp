@@ -30,7 +30,7 @@ PUMenuBase::PUMenuBase(
 {
     if (background)
     {
-        if (MenuManager::Instance->HasScale())
+        if (MenuManager::Instance->Is3D())
         {
             if (menu_id == 9) // FIXME: Need to adjust PUResults text positions
                 bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, UI_FullW, UI_FullH, 0));

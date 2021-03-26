@@ -185,7 +185,7 @@ public:
     ARTS_IMPORT void Flush();
 
     // 0x4B1520 | ?ForceCurrentFocus@MenuManager@@QAEXXZ
-    ARTS_IMPORT void ForceCurrentFocus();
+    ARTS_EXPORT void ForceCurrentFocus();
 
     // 0x4B05D0 | ?GetControllerName@MenuManager@@QAEPADH@Z
     ARTS_IMPORT char* GetControllerName(i32 arg1);
@@ -283,9 +283,9 @@ public:
     // 0x705960 | ?Instance@MenuManager@@2PAV1@A
     ARTS_IMPORT static class MenuManager* Instance;
 
-    bool HasScale() const
+    bool Is3D() const
     {
-        return has_scale_;
+        return is_3D_;
     }
 
     bool GetFieldD0() const
@@ -307,7 +307,7 @@ private:
     uiNavBar* nav_bar_;
     i32 field_38;
     i32 has_active_widget_;
-    b32 has_scale_;
+    b32 is_3D_;
     b32 is_popup_;
     uiWidget* focused_widget_;
     uiWidget* active_widget_;

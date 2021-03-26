@@ -64,6 +64,9 @@ Enter: Select
 P: Return to parent menu
 1-9: Go to child menu+
 
+In Menus (With DebugMode):
+F12 - Next Menu/Dialog
+
 & 1 = PRESSED
 & 2 = SHIFT
 & 4 = CTRL

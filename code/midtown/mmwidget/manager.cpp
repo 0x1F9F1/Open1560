@@ -37,7 +37,7 @@ ARTS_IMPORT /*static*/ u32 ARTS_STDCALL HelpWatcher(void* arg1);
 
 void MenuManager::GetScale(f32& x, f32& y, f32& width, f32& height)
 {
-    if (HasScale())
+    if (Is3D())
     {
         x = start_x_;
         y = start_y_;
@@ -85,11 +85,7 @@ i32 MenuManager::Switch(i32 id)
 
 void MenuManager::Update()
 {
-    if (next_active_menu_id_ != -1)
-    {
-        SwitchNow(next_active_menu_id_);
-        next_active_menu_id_ = -1;
-    }
+    ForceCurrentFocus();
 
     last_drawn_ = nullptr;
 
@@ -134,6 +130,15 @@ void MenuManager::SwitchNow(i32 id)
     }
 }
 
+void MenuManager::ForceCurrentFocus()
+{
+    if (next_active_menu_id_ != -1)
+    {
+        SwitchNow(next_active_menu_id_);
+        next_active_menu_id_ = -1;
+    }
+}
+
 UIMenu* MenuManager::GetCurrentMenu()
 {
     i32 index = FindMenu(active_menu_id_);
@@ -150,11 +155,11 @@ void MenuManager::Enable(i32 id)
 
     active_menu_id_ = id;
 
-    if (!HasScale() || is_popup_)
+    if (!Is3D() || is_popup_)
     {
         menus_[index]->Enable();
 
-        if (HasScale())
+        if (Is3D())
             AdjustPopupCard(menus_[index]);
 
         CheckBG(menus_[index]);

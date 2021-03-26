@@ -201,9 +201,12 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         // Fixes mouse drift when display scale is not 100%
         SetProcessDPIAware();
 
-#ifndef ARTS_FINAL
-        LogToConsole();
+#ifdef ARTS_FINAL
+        if (IsDebuggerPresent())
 #endif
+        {
+            LogToConsole();
+        }
 
         InitBaseSymbols();
 
