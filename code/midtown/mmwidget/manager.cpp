@@ -71,7 +71,7 @@ i32 MenuManager::Switch(i32 id)
 {
     // The logic for updating popups is wierd/slightly broken.
     // If PUControls is opened and closed using F1, it locks up the menu system because the MenuManager is no longer being updated
-    if (is_popup_)
+    if (is_popup_ || active_menu_id_ < 0)
     {
         SwitchNow(id);
     }
