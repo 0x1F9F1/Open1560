@@ -409,7 +409,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         }
 #endif
 
-        std::size_t init_count = mem::init_function::init();
+        std::size_t init_count = mem::init_function::ROOT().init();
         Displayf("Processed %zu Init Functions", init_count);
     }
 

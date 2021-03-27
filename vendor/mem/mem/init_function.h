@@ -29,70 +29,48 @@ namespace mem
     public:
         using callback_t = void (*)();
 
-    private:
-        static init_function*& ROOT() noexcept;
-
-        init_function* next_ {nullptr};
-        callback_t callback_ {nullptr};
-
-        init_function(init_function*& parent, callback_t callback) noexcept;
-
-    public:
+        constexpr init_function() noexcept = default;
         init_function(callback_t callback) noexcept;
         init_function(init_function& parent, callback_t callback) noexcept;
-
-#if defined(MEM_INIT_FUNCTION_USE_DESTRUCTOR)
-        ~init_function();
-#endif
 
         init_function(const init_function&) = delete;
         init_function(init_function&&) = delete;
 
-        static std::size_t init();
-    };
+        std::size_t init();
 
-    MEM_STRONG_INLINE init_function::init_function(init_function*& parent, callback_t callback) noexcept
-        : next_(parent)
-        , callback_(callback)
-    {
-        parent = this;
-    }
+        static init_function& ROOT() noexcept;
+
+    private:
+        callback_t callback_ {nullptr};
+        init_function* next_ {nullptr};
+    };
 
     MEM_STRONG_INLINE init_function::init_function(callback_t callback) noexcept
         : init_function(ROOT(), callback)
     {}
 
     MEM_STRONG_INLINE init_function::init_function(init_function& parent, callback_t callback) noexcept
-        : init_function(parent.next_, callback)
-    {}
-
-    MEM_STRONG_INLINE init_function*& init_function::ROOT() noexcept
+        : callback_(callback)
+        , next_(parent.next_)
     {
-        static init_function* root {nullptr};
+        parent.next_ = this;
+    }
+
+    MEM_STRONG_INLINE init_function& init_function::ROOT() noexcept
+    {
+        static init_function root;
 
         return root;
     }
-
-#if defined(MEM_INIT_FUNCTION_USE_DESTRUCTOR)
-    MEM_STRONG_INLINE init_function::~init_function()
-    {
-        for (init_function** i = &ROOT(); *i; i = &(*i)->next_)
-        {
-            if (*i == this)
-            {
-                *i = next_;
-
-                break;
-            }
-        }
-    }
-#endif
 
     MEM_STRONG_INLINE std::size_t init_function::init()
     {
         std::size_t total = 0;
 
-        for (init_function* i = ROOT(); i;)
+        init_function* i = next_;
+        next_ = nullptr;
+
+        while (i)
         {
             if (i->callback_)
             {
@@ -106,8 +84,6 @@ namespace mem
             i->next_ = nullptr;
             i = j;
         }
-
-        ROOT() = nullptr;
 
         return total;
     }
