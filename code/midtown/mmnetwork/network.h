@@ -281,6 +281,13 @@ private:
     GUID* app_guid_;
     DPMSG_GENERIC* recv_buffer_;
     i32 recv_buffer_size_;
+
+    // 1549: 4
+    // 1560: 5
+    // 1588: 5
+    // 1532 NET: 6
+    // 1532 VW: 7
+    // 1589: 10
     f32 game_version_;
     i32 max_players_;
     i32 in_session_;
