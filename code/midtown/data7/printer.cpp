@@ -271,7 +271,7 @@ void LogToFile(const char* file)
         Warningf("Failed to create lock file");
     }
 
-    DebugLogFile = CreateFileA(file, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    DebugLogFile = CreateFileA(file, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (DebugLogFile == INVALID_HANDLE_VALUE)
     {
