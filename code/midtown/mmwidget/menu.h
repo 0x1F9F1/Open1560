@@ -312,6 +312,11 @@ public:
         return menu_id_;
     }
 
+    i32 GetPreviousMenuID() const
+    {
+        return prev_menu_id_;
+    }
+
     i32 GetWidgetCount() const
     {
         return widget_count_;

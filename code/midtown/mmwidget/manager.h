@@ -200,7 +200,7 @@ public:
     ARTS_IMPORT void* GetFont(i32 arg1);
 
     // 0x4B1650 | ?GetPreviousMenu@MenuManager@@QAEHXZ
-    ARTS_IMPORT i32 GetPreviousMenu();
+    ARTS_EXPORT i32 GetPreviousMenu();
 
     // 0x4AF140 | ?GetScale@MenuManager@@QAEXAAM000@Z
     ARTS_EXPORT void GetScale(f32& x, f32& y, f32& width, f32& height);

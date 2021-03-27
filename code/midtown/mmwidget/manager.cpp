@@ -35,6 +35,14 @@ void MenuManager::AddWidgets(class Bank* /*arg1*/)
 // 0x4B1B30 | ?HelpWatcher@@YGKPAX@Z
 ARTS_IMPORT /*static*/ u32 ARTS_STDCALL HelpWatcher(void* arg1);
 
+i32 MenuManager::GetPreviousMenu()
+{
+    if (UIMenu* menu = GetCurrentMenu())
+        return menu->GetPreviousMenuID();
+
+    return -1;
+}
+
 void MenuManager::GetScale(f32& x, f32& y, f32& width, f32& height)
 {
     if (Is3D())
@@ -179,9 +187,7 @@ void MenuManager::Disable(i32 id)
     if (id == -1)
         id = active_menu_id_;
 
-    i32 index = FindMenu(id);
-
-    if (index >= 0)
+    if (i32 index = FindMenu(id); index >= 0)
         menus_[index]->Disable();
 }
 
