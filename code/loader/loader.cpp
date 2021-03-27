@@ -223,20 +223,13 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         FixAppCompatFlags();
 
-        // Run export hooks first to avoid corrupting any patches 
+        // Run export hooks first to avoid corrupting any patches
         std::size_t export_hook_count = InitExportHooks(hinstDLL);
         Displayf("Processed %zu Export Hooks", export_hook_count);
 
         patch_jmp("HW Menu", "Enable HW Menu Rendering", 0x401DB4, jump_type::always);
 
         create_patch("Heap Size", "Increase Heap Size", 0x401E11, "\x05\x00\x00\x00\x04", 5); // add eax, 0x4000000
-
-#ifndef ARTS_FINAL
-        patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
-        patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
-
-        create_patch("mmLoader::Init", "Enable Text Transparency", 0x48B766 + 1, "\x01", 1);
-#endif
 
         patch_jmp("agiDDPipeline::CopyBitmap", "Disable Manual Blit", 0x5330AE, jump_type::always);
 
@@ -378,7 +371,14 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4627E6, "\xEB\x2A", 2);
         // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4629F9, "\xEB\x3A", 2);
 
+        create_patch("MenuManager::ScanGlobalKeys", "Debug Text Alignment", 0x4B11DA + 1, "\x07", 1);
+
 #ifndef ARTS_FINAL
+        patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
+        patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
+
+        create_patch("mmLoader::Init", "Enable Text Transparency", 0x48B766 + 1, "\x01", 1);
+
         // create_patch("ApplicationHelper", "No paging in menus", 0x4029A6, "\x00\x00\x00\x00", 4);
 
         {

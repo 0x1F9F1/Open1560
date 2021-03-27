@@ -412,7 +412,4 @@ void dxiWindowCreate(const char* title)
 
     hwndMain = CreateWindowExA(
         WS_EX_APPWINDOW, AGI_WINDOW_CLASS, title, WS_POPUP, 0, 0, dxiWidth, dxiHeight, NULL, NULL, hInstance, NULL);
-
-    ShowWindow(hwndMain, SW_SHOWNORMAL);
-    UpdateWindow(hwndMain);
 }

@@ -928,17 +928,18 @@ asMemoryAllocator ALLOCATOR;
 
 asMemoryAllocator* StaticAllocator()
 {
-    static asMemoryAllocator* ptr = nullptr;
-    static alignas(asMemoryAllocator) char storage[sizeof(asMemoryAllocator)];
-    static alignas(128) char heap[0x10000];
+    static asMemoryAllocator* allocator = nullptr;
 
-    if (ptr == nullptr)
+    if (allocator == nullptr)
     {
-        ptr = new (storage) asMemoryAllocator();
-        ptr->Init(heap, sizeof(heap), true);
+        static alignas(asMemoryAllocator) unsigned char storage[sizeof(asMemoryAllocator)];
+        allocator = new (storage) asMemoryAllocator();
+
+        static alignas(128) unsigned char heap[0x10000];
+        allocator->Init(heap, sizeof(heap), true);
     }
 
-    return ptr;
+    return allocator;
 }
 
 asMemoryAllocator* CURHEAP = StaticAllocator();
