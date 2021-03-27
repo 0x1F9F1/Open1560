@@ -223,6 +223,10 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         FixAppCompatFlags();
 
+        // Run export hooks first to avoid corrupting any patches 
+        std::size_t export_hook_count = InitExportHooks(hinstDLL);
+        Displayf("Processed %zu Export Hooks", export_hook_count);
+
         patch_jmp("HW Menu", "Enable HW Menu Rendering", 0x401DB4, jump_type::always);
 
         create_patch("Heap Size", "Increase Heap Size", 0x401E11, "\x05\x00\x00\x00\x04", 5); // add eax, 0x4000000
@@ -405,25 +409,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         }
 #endif
 
-        Displayf("Begin Init Functions");
-
         std::size_t init_count = mem::init_function::init();
-
         Displayf("Processed %zu Init Functions", init_count);
-
-        asMemoryAllocator init_alloc;
-        usize init_heap_size = 0x40000;
-        void* init_heap = std::malloc(init_heap_size);
-        init_alloc.Init(init_heap, init_heap_size, true);
-
-        CURHEAP = &init_alloc;
-        std::size_t export_hook_count = InitExportHooks(hinstDLL);
-        CURHEAP = nullptr;
-
-        init_alloc.Kill();
-        std::free(init_heap);
-
-        Displayf("Processed %zu Export Hooks", export_hook_count);
     }
 
     return TRUE;

@@ -92,10 +92,7 @@ ARTS_NOINLINE void* arts_realloc(void* ptr, std::size_t size)
 
 static asMemoryAllocator* GetDbgHeap(int block_type)
 {
-    if (!CRTALLOCATOR.IsInitialized())
-        CRTALLOCATOR.Init(CRTHEAP, sizeof(CRTHEAP), true);
-
-    return block_type ? &CRTALLOCATOR : &ALLOCATOR;
+    return block_type ? StaticAllocator() : &ALLOCATOR;
 }
 
 ARTS_EXPORT ARTS_NOINLINE void* arts_calloc_dbg(std::size_t num, std::size_t size, int block_type, const char*, int)

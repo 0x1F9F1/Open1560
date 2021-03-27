@@ -184,10 +184,10 @@ private:
 ARTS_EXPORT extern class asMemoryAllocator ALLOCATOR;
 
 // 0x780690 | ?CRTALLOCATOR@@3VasMemoryAllocator@@A
-ARTS_EXPORT extern class asMemoryAllocator CRTALLOCATOR;
 
 // 0x780730 | ?CRTHEAP@@3PAEA
-extern u8 CRTHEAP[32768];
 
 // 0x780688 | ?CURHEAP@@3PAVasMemoryAllocator@@A
-ARTS_IMPORT extern class asMemoryAllocator* CURHEAP;
+ARTS_EXPORT extern class asMemoryAllocator* CURHEAP;
+
+asMemoryAllocator* StaticAllocator();

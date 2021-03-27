@@ -20,16 +20,14 @@ define_dummy_symbol(midtown);
 
 #include "midtown.h"
 
-#include <mem/cmd_param-inl.h>
-
 #include "data7/callback.h"
 #include "data7/ipc.h"
 #include "data7/metaclass.h"
-#include "memory/allocator.h"
 #include "memory/stack.h"
 #include "mmcityinfo/state.h"
 #include "pcwindis/dxinit.h"
 
+#include <mem/cmd_param-inl.h>
 #include <mem/module.h>
 #include <mem/pattern.h>
 
@@ -68,19 +66,12 @@ CallbackArray GameResetCallbacks {GameResetCallback_, ARTS_SIZE(GameResetCallbac
 static char Main_ExecPath[1024] {};
 static char* Main_Argv[128] {};
 
-alignas(16) static u8 Main_InitHeap[0x10000];
-
 static mem::cmd_param PARAM_clean_dir {"cleandir"};
 static mem::cmd_param PARAM_console {"console"};
 
 ARTS_EXPORT int WINAPI MidtownMain(
     HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR lpCmdLine, int /*nShowCmd*/)
 {
-    asMemoryAllocator init_alloc;
-    init_alloc.Init(Main_InitHeap, sizeof(Main_InitHeap), 1);
-
-    CURHEAP = &init_alloc;
-
     MetaClass::FixupClasses();
 
     GetModuleFileNameA(0, Main_ExecPath, ARTS_SIZE32(Main_ExecPath));

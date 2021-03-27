@@ -924,9 +924,26 @@ bool asMemoryAllocator::DoSanityCheck() const
     return errors != 0;
 }
 
-ARTS_EXPORT asMemoryAllocator ALLOCATOR;
+asMemoryAllocator ALLOCATOR;
 
-// TODO: Fix initialization of CRTALLOCATOR by __[malloc/realloc/calloc/free]_dbg
-ARTS_EXPORT asMemoryAllocator CRTALLOCATOR;
+asMemoryAllocator* StaticAllocator()
+{
+    static asMemoryAllocator* ptr = nullptr;
+    static alignas(asMemoryAllocator) char storage[sizeof(asMemoryAllocator)];
+    static alignas(128) char heap[0x10000];
 
-u8 CRTHEAP[32768];
+    if (ptr == nullptr)
+    {
+        ptr = new (storage) asMemoryAllocator();
+        ptr->Init(heap, sizeof(heap), true);
+    }
+
+    return ptr;
+}
+
+asMemoryAllocator* CURHEAP = StaticAllocator();
+
+run_once([] {
+    create_patch("CRTALLOCATOR", "Fix CRTALLOCATOR", 0x520970, "\xC3", 1);
+    create_patch("CRTALLOCATOR", "Fix CRTALLOCATOR", 0x40185D, "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90", 10);
+});
