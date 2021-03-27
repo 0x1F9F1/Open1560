@@ -20,14 +20,16 @@ define_dummy_symbol(midtown);
 
 #include "midtown.h"
 
+#include <mem/cmd_param-inl.h>
+
 #include "data7/callback.h"
 #include "data7/ipc.h"
 #include "data7/metaclass.h"
+#include "memory/allocator.h"
 #include "memory/stack.h"
 #include "mmcityinfo/state.h"
 #include "pcwindis/dxinit.h"
 
-#include <mem/cmd_param-inl.h>
 #include <mem/module.h>
 #include <mem/pattern.h>
 
@@ -60,74 +62,56 @@ ARTS_EXPORT /*static*/ char* exeDirFile(char* buffer, char* file)
     return buffer;
 }
 
-static Callback GameResetCallback_[32];
-CallbackArray GameResetCallbacks {GameResetCallback_, ARTS_SIZE(GameResetCallback_)};
+#include <shellapi.h>
 
-static char Main_ExecPath[1024] {};
-static char* Main_Argv[128] {};
+static char** GetCommandLineUTF8(int* pNumArgs)
+{
+    int argc = 0;
+    LPWSTR* wargv = CommandLineToArgvW(GetCommandLineW(), &argc);
+
+    int size = 0;
+    size += sizeof(char*) * (argc + 1);
+
+    for (int i = 0; i < argc; ++i)
+        size += WideCharToMultiByte(CP_UTF8, 0, wargv[i], -1, NULL, 0, NULL, NULL);
+
+    void* result = arts_malloc(size);
+
+    size = 0;
+    size += sizeof(char*) * (argc + 1);
+
+    for (int i = 0; i < argc; ++i)
+    {
+        char* arg = static_cast<char*>(result) + size;
+        size += WideCharToMultiByte(CP_UTF8, 0, wargv[i], -1, arg, INT_MAX, NULL, NULL);
+        static_cast<char**>(result)[i] = arg;
+    }
+
+    static_cast<char**>(result)[argc] = nullptr;
+
+    LocalFree(wargv);
+
+    *pNumArgs = argc;
+    return static_cast<char**>(result);
+}
 
 static mem::cmd_param PARAM_clean_dir {"cleandir"};
 static mem::cmd_param PARAM_console {"console"};
 
 ARTS_EXPORT int WINAPI MidtownMain(
-    HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR lpCmdLine, int /*nShowCmd*/)
+    HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*nShowCmd*/)
 {
     MetaClass::FixupClasses();
 
-    GetModuleFileNameA(0, Main_ExecPath, ARTS_SIZE32(Main_ExecPath));
+    int argc = 0;
+    char** argv = GetCommandLineUTF8(&argc);
 
-    usize argc = 0;
-    Main_Argv[argc++] = Main_ExecPath;
-
-    char* current = lpCmdLine;
-
-    while (*current)
-    {
-        current += std::strspn(current, " \t");
-
-        char* cmd_start = nullptr;
-
-        if (*current == '"')
-        {
-            ++current;
-
-            cmd_start = current;
-
-            current = std::strchr(current, '"');
-
-            ArAssert(current != nullptr, "Unclosed CMD line string");
-        }
-        else if (*current != '\0')
-        {
-            cmd_start = current;
-
-            current += std::strcspn(current, " \t");
-        }
-        else
-        {
-            break;
-        }
-
-        if (*current)
-        {
-            *current++ = '\0';
-        }
-
-        ArAssert(argc < ARTS_SIZE(Main_Argv), "Too Many CMD arguments");
-        Main_Argv[argc++] = cmd_start;
-    }
-
-    ArAssert(argc < ARTS_SIZE(Main_Argv), "Too Many CMD arguments");
-    Main_Argv[argc] = nullptr;
-
-    mem::cmd_param::init(static_cast<int>(argc), Main_Argv);
+    mem::cmd_param::init(argc, argv);
 
     if (PARAM_console.get_or(false))
-    {
         LogToConsole();
-    }
 
-    Application(static_cast<int>(argc), Main_Argv);
+    Application(argc, argv);
 
     Displayf("Good bye.");
 
@@ -154,10 +138,11 @@ ARTS_EXPORT int WINAPI MidtownMain(
     }
 #endif
 
-    // Timer::Sleep(500);
-
     return 0;
 }
+
+static Callback GameResetCallback_[32];
+CallbackArray GameResetCallbacks {GameResetCallback_, ARTS_SIZE(GameResetCallback_)};
 
 static void CallGameResetCallbacks()
 {
