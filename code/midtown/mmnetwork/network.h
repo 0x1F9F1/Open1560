@@ -86,6 +86,11 @@
     0x6A8918 | class asNetwork NETMGR | ?NETMGR@@3VasNetwork@@A
 */
 
+#include "data7/callback.h"
+
+#include <dplay.h>
+#include <dplobby.h>
+
 class asNetwork
 {
 public:
@@ -260,7 +265,29 @@ public:
     // 0x4890F0 | ?WaitForLobbyConnection@asNetwork@@QAEXH@Z
     ARTS_IMPORT void WaitForLobbyConnection(i32 arg1);
 
-    u8 gap0[0x64];
+    bool InLobby() const
+    {
+        return in_lobby_;
+    }
+
+private:
+    i32 state_;
+    Callback sys_message_cb_;
+    Callback app_message_cb_;
+    IDirectPlay4A* dplay_;
+    IDirectPlayLobby3A* dplobby_;
+    DPID player_id_;
+    DPLCONNECTION* dpconnection_;
+    GUID* app_guid_;
+    DPMSG_GENERIC* recv_buffer_;
+    i32 recv_buffer_size_;
+    f32 game_version_;
+    i32 max_players_;
+    i32 in_session_;
+    i32 in_lobby_;
+    i32 secure_;
+    i32 caps_;
+    bool is_host_;
 };
 
 check_size(asNetwork, 0x64);
@@ -276,7 +303,7 @@ ARTS_IMPORT i32 ARTS_STDCALL EnumModemAddress(struct _GUID const& arg1, u32 arg2
 ARTS_IMPORT i32 ARTS_STDCALL EnumPlayersCallback(u32 arg1, u32 arg2, struct DPNAME const* arg3, u32 arg4, void* arg5);
 
 // 0x48B0B0 | ?EnumSessionCallback@@YGHPBUDPSESSIONDESC2@@PAKKPAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL EnumSessionCallback(struct DPSESSIONDESC2 const* arg1, u32* arg2, u32 arg3, void* arg4);
+ARTS_IMPORT i32 ARTS_STDCALL EnumSessionCallback(DPSESSIONDESC2 const* arg1, u32* arg2, u32 arg3, void* arg4);
 
 // 0x6A8918 | ?NETMGR@@3VasNetwork@@A
 ARTS_IMPORT extern class asNetwork NETMGR;

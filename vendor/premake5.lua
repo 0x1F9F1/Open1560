@@ -8,6 +8,7 @@ FREETYPE_DIR = path.join(VENDOR_DIR, "freetype-2.10.4")
 GLAD_DIR = path.join(VENDOR_DIR, "glad")
 WGL_DIR = path.join(VENDOR_DIR, "wgl")
 MINIZ_DIR = path.join(VENDOR_DIR, "miniz")
+DX6_DIR = path.join(VENDOR_DIR, "dx6")
 
 function includeMem()
     includedirs { MEM_DIR }
@@ -32,6 +33,10 @@ end
 
 function includeMiniz()
     includedirs { MINIZ_DIR }
+end
+
+function includeDX6()
+    includedirs { path.join(DX6_DIR, "include") }
 end
 
 -- function includeLua()

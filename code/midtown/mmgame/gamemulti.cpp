@@ -20,8 +20,24 @@ define_dummy_symbol(mmgame_gamemulti);
 
 #include "gamemulti.h"
 
+#include "mmnetwork/network.h"
+
 void mmGameMulti::NextRace()
 {}
+
+void mmGameMulti::QuitNetwork()
+{
+    if (NETMGR.InLobby())
+    {
+        NETMGR.Logout();
+    }
+    else
+    {
+        NETMGR.DestroyPlayer();
+        NETMGR.CloseSession();
+        NETMGR.Deallocate();
+    }
+}
 
 void mmGameMulti::UpdateDebugKeyInput(i32 /*arg1*/)
 {}

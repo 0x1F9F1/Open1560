@@ -726,7 +726,7 @@ include_dummy_symbol(mmeffects_vehform);
 // include_dummy_symbol(mmgame_game);
 // include_dummy_symbol(mmgame_gameedit);
 // include_dummy_symbol(mmgame_gameman);
-// include_dummy_symbol(mmgame_gamemulti);
+include_dummy_symbol(mmgame_gamemulti);
 // include_dummy_symbol(mmgame_gamesingle);
 // include_dummy_symbol(mmgame_gauge);
 // include_dummy_symbol(mmgame_hud);

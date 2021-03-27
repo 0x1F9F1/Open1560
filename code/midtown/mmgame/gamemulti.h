@@ -131,7 +131,7 @@ public:
     ARTS_IMPORT i32 ParseChatMessage(char* arg1, i32 arg2);
 
     // 0x432140 | ?QuitNetwork@mmGameMulti@@QAEXXZ
-    ARTS_IMPORT void QuitNetwork();
+    ARTS_EXPORT void QuitNetwork();
 
     // 0x431EE0 | ?RegisterMapNetObjects@mmGameMulti@@QAEXH@Z
     ARTS_IMPORT void RegisterMapNetObjects(i32 arg1);
