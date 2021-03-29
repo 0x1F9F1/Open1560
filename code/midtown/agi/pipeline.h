@@ -356,8 +356,12 @@ protected:
     // 0x2 | 24-bit
     // 0x4 | 32-bit
     i32 valid_bit_depths_ {0};
+
     agiSurfaceDesc screen_format_ {};
-    u8 gap1C4[0xF8] {};
+
+    // TODO: Initialize these (alpha/opaque?)
+    agiSurfaceDesc screen_format_2_ {};
+    agiSurfaceDesc screen_format_3_ {};
 
     Rc<agiColorModel> hi_color_model_;
     Rc<agiColorModel> opaque_color_model_;
