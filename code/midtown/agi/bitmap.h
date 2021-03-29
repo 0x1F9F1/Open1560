@@ -98,9 +98,9 @@ protected:
     // 0x55A640 | ??1agiBitmap@@MAE@XZ
     ARTS_EXPORT ~agiBitmap() override;
 
-    CString name_ {};
+    CString name_;
 
-    Ptr<agiSurfaceDesc> surface_ {};
+    Ptr<agiSurfaceDesc> surface_;
 
     // AGI_BITMAP_*
     u32 flags_ {0};

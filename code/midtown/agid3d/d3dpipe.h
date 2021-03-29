@@ -181,7 +181,7 @@ protected:
     CLSID d3d_guid_ {};
     D3DDEVICEDESC device_desc_ {};
     char* device_name_ {nullptr};
-    Rc<agiRasterizer> rasterizer_ {};
+    Rc<agiRasterizer> rasterizer_;
 };
 
 check_size(agiD3DPipeline, 0x49C);

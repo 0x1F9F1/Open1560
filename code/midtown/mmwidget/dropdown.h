@@ -87,8 +87,8 @@ private:
     // 0x4C0C70 | ?SetString@mmDropDown@@AAEXVstring@@@Z
     ARTS_IMPORT void SetString(class string arg1);
 
-    Ptr<mmTextNode[]> ValueNodes {};
-    Ptr<u32[]> DropIndex {};
+    Ptr<mmTextNode[]> ValueNodes;
+    Ptr<u32[]> DropIndex;
     i32 Highlighted {-1};
     i32 field_2C {0};
     i32 Enabled {0};

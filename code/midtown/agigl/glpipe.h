@@ -88,7 +88,7 @@ private:
 
     HashTable extensions_ {128, "Extensions"};
 
-    Rc<agiGLRasterizer> rasterizer_ {};
+    Rc<agiGLRasterizer> rasterizer_;
 
     i32 gl_major_version_ {0};
     i32 gl_minor_version_ {0};

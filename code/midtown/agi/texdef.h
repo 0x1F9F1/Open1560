@@ -215,7 +215,7 @@ public:
         return Surface->Height;
     }
 
-    Ptr<agiSurfaceDesc> Surface {};
+    Ptr<agiSurfaceDesc> Surface;
     agiTexParameters Tex {};
     agiPolySet* PolySet {nullptr};
     i32 SceneIndex {0};
@@ -293,7 +293,7 @@ protected:
     ARTS_EXPORT ~agiTexLut() override = default;
 
     u32 palette_[256] {};
-    CString name_ {};
+    CString name_;
 };
 
 check_size(agiTexLut, 0x41C);

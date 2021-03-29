@@ -126,7 +126,7 @@ private:
     u32 read_index_ {0};
     u32 max_messages_ {0};
     b32 blocking_ {false};
-    Ptr<ipcMessage[]> messages_ {};
+    Ptr<ipcMessage[]> messages_;
     usize send_event_ {0};
     usize read_event_ {0};
     CriticalSection mutex_ {};

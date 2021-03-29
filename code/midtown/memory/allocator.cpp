@@ -23,6 +23,10 @@ define_dummy_symbol(memory_allocator);
 #include "core/minwin.h"
 #include "stack.h"
 
+#ifndef STATIC_HEAP_SIZE
+#    define STATIC_HEAP_SIZE 0x10000
+#endif
+
 // Upper Guard  : 0x55
 // Lower Guard  : 0xAA
 // Uninitialized: 0xCD
@@ -353,8 +357,6 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
     }
     else
     {
-        ArDebugAssert(next_gap >= size, "");
-
         n->Size = next_gap;
 
         if (next < GetHeapEnd())
@@ -935,7 +937,7 @@ asMemoryAllocator* StaticAllocator()
         static alignas(asMemoryAllocator) unsigned char storage[sizeof(asMemoryAllocator)];
         allocator = new (storage) asMemoryAllocator();
 
-        static alignas(128) unsigned char heap[0x10000];
+        static alignas(128) unsigned char heap[STATIC_HEAP_SIZE];
         allocator->Init(heap, sizeof(heap), true);
     }
 

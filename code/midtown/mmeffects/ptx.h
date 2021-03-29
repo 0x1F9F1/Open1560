@@ -90,9 +90,9 @@ public:
 private:
     i32 SparkCapacity {0};
     i32 SparkCount {0};
-    Ptr<asSparkInfo[]> Sparks {};
-    Ptr<asSparkPos[]> SparkPositions {};
-    Rc<agiTexDef> Texture {};
+    Ptr<asSparkInfo[]> Sparks;
+    Ptr<asSparkPos[]> SparkPositions;
+    Rc<agiTexDef> Texture;
     agiMeshCardInfo MeshCard {};
     Matrix34* Matrix {nullptr};
     f32 Elapsed {0.0f};

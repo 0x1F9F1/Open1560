@@ -81,7 +81,7 @@ public:
 
 protected:
     i32 field_90 {0};
-    Rc<agiBitmap> bg_bitmap_ {};
+    Rc<agiBitmap> bg_bitmap_;
     UIButton* exit_button_ {nullptr};
     i32 bg_x_ {0};
     i32 bg_y_ {0};

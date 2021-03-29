@@ -54,7 +54,7 @@ private:
     // 0x4A9470 | ?PreSetup@PUKey@@EAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    Ptr<mmTextNode> text_node_ {};
+    Ptr<mmTextNode> text_node_;
     i32 key_count_ {0};
     f32 title_pos_ {0.0f};
 };

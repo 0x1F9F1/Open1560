@@ -52,6 +52,6 @@ private:
     u32 texture_ {0};
     void* fence_ {0};
 
-    Ptr<agiSurfaceDesc> temp_surface_ {};
+    Ptr<agiSurfaceDesc> temp_surface_;
     bool touched_ {false};
 };

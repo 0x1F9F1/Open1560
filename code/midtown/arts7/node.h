@@ -221,7 +221,7 @@ private:
     asNode* child_node_ {nullptr};
     asNode* parent_node_ {nullptr};
 
-    CString node_name_ {};
+    CString node_name_;
 
     // 0x1 | Active
     // 0x2 | ?

@@ -85,7 +85,7 @@ private:
         Ptr<u8[]> Buffer;
     };
 
-    Ptr<mmGlyph> glyphs_[128] {};
+    Ptr<mmGlyph> glyphs_[128];
     mmGlyph temp_glyph_;
 
     const mmGlyph& LoadChar(u32 char_code);

@@ -204,10 +204,10 @@ private:
 
     void ValidateNodes();
 
-    Ptr<Stream> base_stream_ {};
+    Ptr<Stream> base_stream_;
     AresHeader file_header_ {};
-    Ptr<VirtualFileInode[]> file_nodes_ {};
-    Ptr<char[]> file_names_ {};
+    Ptr<VirtualFileInode[]> file_nodes_;
+    Ptr<char[]> file_names_;
 };
 
 check_size(VirtualFileSystem, 0x24);

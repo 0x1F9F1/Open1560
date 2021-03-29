@@ -186,8 +186,8 @@ private:
     i32 max_lines_ {0};
     u32 enabled_lines_ {0xFFFFFFFF};
     mmText int30_ {};
-    Ptr<mmTextData[]> lines_ {};
-    Rc<agiBitmap> text_bitmap_ {};
+    Ptr<mmTextData[]> lines_;
+    Rc<agiBitmap> text_bitmap_;
     u32 touched_ {1};
     u32 empty_ {0};
     u32 format_ {0};

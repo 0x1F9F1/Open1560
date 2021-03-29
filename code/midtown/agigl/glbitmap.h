@@ -41,5 +41,5 @@ public:
     }
 
 private:
-    Rc<agiTexDef> tex_def_ {};
+    Rc<agiTexDef> tex_def_;
 };
