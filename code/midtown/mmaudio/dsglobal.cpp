@@ -24,7 +24,7 @@ define_dummy_symbol(mmaudio_dsglobal);
 
 #include "stream/stream.h"
 
-typedef WINUSERAPI HRESULT(WINAPI* LPFNDLLGETCLASSOBJECT)(const CLSID&, const IID&, void**);
+typedef HRESULT(WINAPI* LPFNDLLGETCLASSOBJECT)(const CLSID&, const IID&, void**);
 
 static bool DirectSoundPrivateCreate(LPKSPROPERTYSET* ppKsPropertySet)
 {

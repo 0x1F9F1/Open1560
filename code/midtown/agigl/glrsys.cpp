@@ -36,7 +36,7 @@ static u32 ImmPrimType = 0;
 static agiVtx* ImmVtxBase = nullptr;
 static u32 ImmVtxCount = 0;
 
-static alignas(16) u16 ImmIdxBuffer[4096];
+alignas(16) static u16 ImmIdxBuffer[4096];
 static u32 ImmIdxCount = 0;
 
 void agiGLRasterizer::EndGfx()

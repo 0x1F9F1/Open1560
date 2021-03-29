@@ -119,9 +119,7 @@ private:
     // 0x578780 | ?Proc@ipcMessageQueue@@CGKPAX@Z
     ARTS_EXPORT static ulong ARTS_STDCALL Proc(void* param);
 
-    // TODO: Make atomic
-    volatile b32 initialized_ {false};
-
+    std::atomic<b32> initialized_ {false};
     u32 send_index_ {0};
     u32 read_index_ {0};
     u32 max_messages_ {0};

@@ -200,7 +200,7 @@ public:
     ARTS_IMPORT void HandleAppMessage(void* arg1);
 
     // 0x48ABE0 | ?HandleSysMessage@asNetwork@@QAEXPAUDPMSG_GENERIC@@@Z
-    ARTS_IMPORT void HandleSysMessage(struct DPMSG_GENERIC* arg1);
+    ARTS_IMPORT void HandleSysMessage(DPMSG_GENERIC* arg1);
 
     // 0x489020 | ?Initialize@asNetwork@@QAEHHHH@Z
     ARTS_IMPORT i32 Initialize(i32 arg1, i32 arg2, i32 arg3);
@@ -290,8 +290,8 @@ private:
     // 1589: 10
     f32 game_version_;
     i32 max_players_;
-    i32 in_session_;
-    i32 in_lobby_;
+    b32 in_session_;
+    b32 in_lobby_;
     i32 secure_;
     i32 caps_;
     bool is_host_;
@@ -301,13 +301,13 @@ check_size(asNetwork, 0x64);
 
 // 0x48B170 | ?EnumConnectionsCallback@@YGHPBU_GUID@@PAXKPBUDPNAME@@K1@Z
 ARTS_IMPORT i32 ARTS_STDCALL EnumConnectionsCallback(
-    struct _GUID const* arg1, void* arg2, u32 arg3, struct DPNAME const* arg4, u32 arg5, void* arg6);
+    struct _GUID const* arg1, void* arg2, u32 arg3, DPNAME const* arg4, u32 arg5, void* arg6);
 
 // 0x48B430 | ?EnumModemAddress@@YGHABU_GUID@@KPBXPAX@Z
 ARTS_IMPORT i32 ARTS_STDCALL EnumModemAddress(struct _GUID const& arg1, u32 arg2, void const* arg3, void* arg4);
 
 // 0x48B1E0 | ?EnumPlayersCallback@@YGHKKPBUDPNAME@@KPAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL EnumPlayersCallback(u32 arg1, u32 arg2, struct DPNAME const* arg3, u32 arg4, void* arg5);
+ARTS_IMPORT i32 ARTS_STDCALL EnumPlayersCallback(u32 arg1, u32 arg2, DPNAME const* arg3, u32 arg4, void* arg5);
 
 // 0x48B0B0 | ?EnumSessionCallback@@YGHPBUDPSESSIONDESC2@@PAKKPAX@Z
 ARTS_IMPORT i32 ARTS_STDCALL EnumSessionCallback(DPSESSIONDESC2 const* arg1, u32* arg2, u32 arg3, void* arg4);
