@@ -886,7 +886,7 @@ bool asMemoryAllocator::DoSanityCheck() const
     }
 
     if (last && (last->GetNext() != GetHeapEnd()))
-        return "Incomplete Traversal";
+        return true;
 
     usize total_free = 0;
 
@@ -919,7 +919,7 @@ bool asMemoryAllocator::DoSanityCheck() const
     }
 
     if (total_used + total_free != total)
-        return "Mismatched Node Count";
+        return true;
 
     // Displayf("Sanity Checked %u nodes (%u used, %u free)", total, total_used, total_free);
 
@@ -934,10 +934,10 @@ asMemoryAllocator* StaticAllocator()
 
     if (allocator == nullptr)
     {
-        static alignas(asMemoryAllocator) unsigned char storage[sizeof(asMemoryAllocator)];
+        alignas(asMemoryAllocator) static unsigned char storage[sizeof(asMemoryAllocator)];
         allocator = new (storage) asMemoryAllocator();
 
-        static alignas(128) unsigned char heap[STATIC_HEAP_SIZE];
+        alignas(64) static unsigned char heap[STATIC_HEAP_SIZE];
         allocator->Init(heap, sizeof(heap), true);
     }
 
