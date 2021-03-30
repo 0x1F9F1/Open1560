@@ -20,7 +20,38 @@ define_dummy_symbol(localize_localize);
 
 #include "localize.h"
 
-#include <algorithm>
+#if ARTS_LOCALIZE_MODE == 2
+#    include "core/minwin.h"
+
+#    define LANG_STRING_COUNT 16
+#    define LANG_STRING_SIZE 512
+
+static char LangStrings[LANG_STRING_COUNT][LANG_STRING_SIZE];
+static usize LangStringIndex = 0;
+static HMODULE LangStringDLL = NULL;
+
+LocString* AngelReadString(u32 index)
+{
+    if (index == 376) // Buffer Overflow in Russian
+        return LOC_TEXT("%d x %d - Recommended");
+
+    if (LangStringDLL == NULL)
+        LangStringDLL = LoadLibraryA("MMLANG.DLL");
+
+    char* buffer = LangStrings[LangStringIndex];
+
+    if (++LangStringIndex == ARTS_SIZE(LangStrings))
+        LangStringIndex = 0;
+
+    // FIXME: This won't work with WIN32 -A APIs which expect ANSI text
+    wchar_t wbuffer[LANG_STRING_SIZE];
+    LoadStringW(LangStringDLL, index, wbuffer, LANG_STRING_SIZE);
+    WideCharToMultiByte(CP_UTF8, 0, wbuffer, -1, buffer, LANG_STRING_SIZE, NULL, NULL);
+
+    return LOC_TEXT(buffer);
+}
+#else
+#    include <algorithm>
 
 struct LangString
 {
@@ -28,14 +59,14 @@ struct LangString
     const char* Value;
 };
 
-#define X(ID, VALUE) const char LOC_STR_VAR(ID)[] {VALUE};
-#include "lang_english.h"
-#undef X
+#    define X(ID, VALUE) const char LOC_STR_VAR(ID)[] {VALUE};
+#    include "lang_english.h"
+#    undef X
 
 static constexpr LangString LangStrings[] {
-#define X(ID, VALUE) {ID, LOC_STR_VAR(ID)},
-#include "lang_english.h"
-#undef X
+#    define X(ID, VALUE) {ID, LOC_STR_VAR(ID)},
+#    include "lang_english.h"
+#    undef X
 };
 
 LocString* AngelReadString(u32 index)
@@ -47,3 +78,4 @@ LocString* AngelReadString(u32 index)
 
     return LOC_TEXT(result);
 }
+#endif

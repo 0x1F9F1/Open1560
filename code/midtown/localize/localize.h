@@ -27,6 +27,11 @@
 
 #include "string_ids.h"
 
+// 0 | Use builtin strings
+// 1 | Use AngelReadString with builtin strings
+// 2 | Use AngelReadString with MMLANG
+#define ARTS_LOCALIZE_MODE 0
+
 struct LocString
 {
     char Text[1];
@@ -40,11 +45,10 @@ ARTS_EXPORT struct LocString* AngelReadString(u32 index);
 // 0x520010 | ?GetLocTime@@YAPADM@Z
 ARTS_IMPORT char* GetLocTime(f32 arg1);
 
-#define LOC_STR_VAR(ID) (ARTS_CONCAT(MM_LANG_STR_, ID))
-
-#ifdef ARTS_FINAL
+#if ARTS_LOCALIZE_MODE != 0
 #    define LOC_STRING(ID) (AngelReadString(ID))
 #else
+#    define LOC_STR_VAR(ID) (ARTS_CONCAT(MM_LANG_STR_, ID))
 #    define X(ID, VALUE) extern const char LOC_STR_VAR(ID)[];
 #    include "lang_english.h"
 #    undef X
