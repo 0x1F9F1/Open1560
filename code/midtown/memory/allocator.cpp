@@ -946,7 +946,7 @@ asMemoryAllocator* StaticAllocator()
 
 asMemoryAllocator* CURHEAP = StaticAllocator();
 
-run_once([] {
+run_once(INIT_early, [] {
     create_patch("CRTALLOCATOR", "Fix CRTALLOCATOR", 0x520970, "\xC3", 1);
     create_patch("CRTALLOCATOR", "Fix CRTALLOCATOR", 0x40185D, "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90", 10);
 });

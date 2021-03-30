@@ -126,3 +126,5 @@ using extern_var_t = T;
 #    pragma warning(disable : 4722) // destructor never returns, potential memory leak
 #    pragma warning(disable : 4702) // unreachable code
 #endif
+
+extern mem::init_function INIT_early;
