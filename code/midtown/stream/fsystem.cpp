@@ -315,13 +315,3 @@ Owner<class Stream> OpenFile(
 }
 
 class FileSystem* FileSystem::FS[MAX_FILESYSTEMS] {};
-
-run_once([] {
-    // Fix references to FileSystem::FS
-    u32 fs_addr = reinterpret_cast<u32>(FileSystem::FS);
-    write_protected(0x4CBFDF + 1, &fs_addr, 4); // mmCityList::LoadAll
-    write_protected(0x4CC3EF + 1, &fs_addr, 4); // mmVehList::LoadAll
-
-    fs_addr -= 4;
-    write_protected(0x402DD0 + 3, &fs_addr, 4); // ApplicationHelper
-});

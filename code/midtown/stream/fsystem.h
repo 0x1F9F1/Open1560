@@ -104,7 +104,7 @@ public:
     static constexpr i32 MAX_FILESYSTEMS = 128;
 
     // 0x907A38 | ?FS@FileSystem@@2PAPAV1@A
-    static class FileSystem* FS[MAX_FILESYSTEMS];
+    ARTS_EXPORT static class FileSystem* FS[MAX_FILESYSTEMS];
 
     // 0x907A30 | ?FSCount@FileSystem@@2HA
     ARTS_IMPORT static i32 FSCount;
