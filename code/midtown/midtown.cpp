@@ -244,10 +244,7 @@ void InitPatches()
 
     create_patch("ApplicationHelper", "Increase Heap Size", 0x401E11, "\x05\x00\x00\x00\x04", 5); // add eax, 0x4000000
 
-    patch_jmp("agiDDPipeline::CopyBitmap", "Disable Manual Blit", 0x5330AE, jump_type::always);
-
     patch_jmp("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, jump_type::always);
-    patch_jmp("AutoDetect", "Additive Blending Check", 0x49994B, jump_type::always);
     patch_jmp("SetTexQualString", "Additive Blending Check", 0x49A29F, jump_type::never);
 
     // Checked in GetPackedTexture, only necessary if agiRQ.TextureQuality <= 2
@@ -326,7 +323,6 @@ void InitPatches()
         "\xA3\xE0\x84\x70\x00\x90\x90\x90\x90\x90\x90\x90\x90",
         0x41);
 
-    create_patch("mmInterface::InitLobby", "Max Lobby Players", 0x40CD1B + 1, "\x08", 1);
     create_patch("asNetwork::JoinLobbySession", "Max Lobby Players", 0x4891EC + 3, "\x08", 1);
 
     create_patch("mmWheel::Update", "Wheel Speed", 0x47F179, "\xDD\xD8\x90\x90\x90\x90", 6);
@@ -392,8 +388,6 @@ void InitPatches()
 #ifndef ARTS_FINAL
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
-
-    create_patch("mmLoader::Init", "Enable Text Transparency", 0x48B766 + 1, "\x01", 1);
 
     // create_patch("ApplicationHelper", "No paging in menus", 0x4029A6, "\x00\x00\x00\x00", 4);
 

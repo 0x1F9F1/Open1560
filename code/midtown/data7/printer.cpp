@@ -219,6 +219,9 @@ void LogToFile()
 
 void LogToFile(const char* file)
 {
+    if (DebugLogFile != INVALID_HANDLE_VALUE)
+        return;
+
     HANDLE lock_file =
         CreateFileA("MM.LOCK", GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 
