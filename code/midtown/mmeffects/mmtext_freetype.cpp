@@ -23,6 +23,7 @@
 #include "agi/pipeline.h"
 #include "agi/rgba.h"
 #include "agi/surface.h"
+#include "core/utf8.h"
 #include "data7/callback.h"
 #include "data7/hash.h"
 #include "localize/localize.h"
@@ -94,8 +95,6 @@ public:
     void Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format);
     void Kill();
 
-    i32 GetWidth(const char* text);
-
     i32 GetHeight()
     {
         return height_;
@@ -103,7 +102,7 @@ public:
 
     mmSize GetExtents(const char* text)
     {
-        return {GetWidth(text), GetHeight()};
+        return {(GetLines(text, 0)[0].Width + 63) >> 6, GetHeight()};
     }
 
     struct mmLineInfo
@@ -118,21 +117,39 @@ public:
     static mmFont* Create(const char* font_name, i32 height, i32 weight);
 };
 
-i32 mmFont::GetWidth(const char* text)
+// TODO: Handle invalid codepoints
+inline u32 DecodeUTF8(const char** text)
 {
-    i32 width = 0;
+    u32 codepoint = 0;
+    u32 state = 0;
+    const char* s = *text;
 
-    for (usize i = 0; text[i]; ++i)
+    while (*s)
     {
-        const mmGlyph& glyph = LoadChar(static_cast<unsigned char>(text[i]));
-
-        if (i == 0 && glyph.Left < 0)
-            width -= glyph.Left << 6;
-
-        width += glyph.AdvanceX;
+        if (DecodeUTF8(&state, &codepoint, static_cast<unsigned char>(*s++)) == UTF8_ACCEPT)
+            break;
     }
 
-    return (width + 63) >> 6;
+    *text = s;
+
+    return (state == UTF8_ACCEPT) ? codepoint : 0;
+}
+
+inline u32 DecodeUTF8(const char** text, const char* end)
+{
+    u32 codepoint = 0;
+    u32 state = 0;
+    const char* s = *text;
+
+    while (s != end)
+    {
+        if (DecodeUTF8(&state, &codepoint, static_cast<unsigned char>(*s++)) == UTF8_ACCEPT)
+            break;
+    }
+
+    *text = s;
+
+    return (state == UTF8_ACCEPT) ? codepoint : 0;
 }
 
 const mmFont::mmGlyph& mmFont::LoadChar(u32 char_code)
@@ -181,6 +198,9 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
     i32 rect_width = rect.right - rect.left;
     i32 rect_height = rect.bottom - rect.top;
 
+    if (rect_width <= 0 || rect_height <= 0)
+        return;
+
     i32 max_x = std::min<i32>(rect.right, surface->Width);
     i32 max_y = std::min<i32>(rect.bottom, surface->Height);
 
@@ -220,11 +240,14 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
         line_y <<= 6;
         line_y += face_->size->metrics.ascender;
 
-        for (const char* str = line.Start; str != line.End; ++str)
-        {
-            const mmGlyph& glyph = LoadChar(static_cast<unsigned char>(*str));
+        const char* str = line.Start;
+        u32 codepoint = 0;
 
-            if ((str == line.Start) && (glyph.Left < 0))
+        while ((codepoint = DecodeUTF8(&str, line.End)) != 0)
+        {
+            const mmGlyph& glyph = LoadChar(codepoint);
+
+            if ((str == line.Start) && (glyph.Left < 0)) // FIXME (str is now incremented)
                 line_x -= glyph.Left << 6;
 
             for (u32 src_y = 0, src_y_off = 0; src_y < glyph.Rows; ++src_y, src_y_off += glyph.Pitch)
@@ -320,9 +343,10 @@ std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width
 
     while (true)
     {
-        unsigned char c = *text;
+        const char* here = text;
+        u32 codepoint = DecodeUTF8(&here);
 
-        if (c == '\0')
+        if (codepoint == '\0')
             flush = true;
 
         if (flush)
@@ -332,7 +356,7 @@ std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width
             curr_start = nullptr;
         }
 
-        if (c == '\0')
+        if (codepoint == '\0')
             return lines;
 
         if (curr_start == nullptr)
@@ -343,24 +367,24 @@ std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width
             trim_width = 0;
         }
 
-        if (max_width && IsSpace(c))
+        if (max_width && IsSpace(codepoint))
         {
-            if (c == '\n')
+            if (codepoint == '\n')
             {
-                ++text;
+                text = here;
                 flush = true;
                 continue;
             }
 
             if (!curr_end)
             {
-                ++text;
+                text = here;
                 curr_start = text;
                 continue;
             }
         }
 
-        const mmGlyph& glyph = LoadChar(static_cast<unsigned char>(c));
+        const mmGlyph& glyph = LoadChar(codepoint);
 
         i32 width = curr_width;
 
@@ -376,9 +400,9 @@ std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width
         }
 
         curr_width = width;
-        ++text;
+        text = here;
 
-        if (!IsSpace(c))
+        if (!IsSpace(codepoint))
         {
             trim_width = curr_width;
             curr_end = text;
@@ -416,12 +440,17 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
     {
         font_path.append("BROADW.TTF");
     }
-    else // Gill Sans MT
+    else if (!std::strcmp(font_name, "Gill Sans MT"))
     {
         if (weight >= 700)
             font_path.append("GILB____.TTF");
         else
             font_path.append("GIL_____.TTF");
+    }
+    else
+    {
+        // Unknown font (hope for the best)
+        font_path = "C:\\WINDOWS\\FONTS\\VERDANA.TTF";
     }
 
     Stream* file = arts_fopen(font_path, "r");
@@ -459,46 +488,25 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
 
 void mmText::Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font_ptr)
 {
-    mmFont* font = static_cast<mmFont*>(font_ptr);
-
-    i32 screen_x = static_cast<i32>(Pipe()->GetWidth() * x);
-    i32 screen_y = static_cast<i32>(Pipe()->GetHeight() * y);
-
-    mmSize size = font->GetExtents(text);
-
-    mmRect rc {};
-
-    rc.left = screen_x;
-    rc.top = screen_y;
-    rc.right = screen_x + size.cx;
-    rc.bottom = screen_y + size.cy;
-
-    surface->Load();
-    surface->Clear();
-
-    font->Draw(surface, text, rc, 0xFFFFFF, 0);
+    return Draw2(surface, x, y, text, font_ptr, 0xFFFFFF);
 }
 
 void mmText::Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font_ptr, u32 color)
 {
     mmFont* font = static_cast<mmFont*>(font_ptr);
 
-    i32 screen_x = static_cast<i32>(Pipe()->GetWidth() * x);
-    i32 screen_y = static_cast<i32>(Pipe()->GetHeight() * y);
-
-    mmSize size = font->GetExtents(text);
-
-    mmRect rc {};
-
-    rc.left = screen_x;
-    rc.top = screen_y;
-    rc.right = screen_x + size.cx;
-    rc.bottom = screen_y + size.cy;
+    // NOTE: x and y are always 0
+    mmRect rc {
+        static_cast<i32>(Pipe()->GetWidth() * x),
+        static_cast<i32>(Pipe()->GetHeight() * y),
+        static_cast<i32>(surface->Width),
+        static_cast<i32>(surface->Height),
+    };
 
     surface->Load();
     surface->Clear();
 
-    font->Draw(surface, text, rc, color, MM_TEXT_RIGHT);
+    font->Draw(surface, text, rc, color, 0);
 }
 
 static u32 TwiddleColor(u32 color)
@@ -543,12 +551,7 @@ RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color
         }
     }
 
-    mmRect rc {};
-
-    rc.top = 0;
-    rc.left = 0;
-    rc.right = size.cx;
-    rc.bottom = size.cy;
+    mmRect rc {0, 0, size.cx, size.cy};
 
     if (bg_color != -1)
     {
@@ -665,10 +668,10 @@ void mmTextNode::RenderText(
             surface->Fill(rc.right - 1, rc.top, 1, rc.bottom - rc.top, border_color);
         }
 
-        if ((line.Effects & MM_TEXT_PADDING) && (rc.right - rc.left) > 6)
+        if ((line.Effects & MM_TEXT_PADDING) && (rc.right - rc.left) > 4)
         {
             rc.left += 3;
-            rc.right -= 3;
+            rc.right -= 1;
         }
 
         i32 hl_color = 0x00FFFF;

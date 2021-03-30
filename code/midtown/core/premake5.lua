@@ -21,4 +21,5 @@ arts_component "core"
         "refcount.h",
         "tuple.h",
         "container.h",
+        "utf8.h"
     }
