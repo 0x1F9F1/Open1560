@@ -14,4 +14,4 @@ arts_component "pcwindis"
 
     includeMiniz()
 
-    links { "dxguid", "miniz" }
+    links { "miniz" }

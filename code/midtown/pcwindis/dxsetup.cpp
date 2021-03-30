@@ -40,7 +40,7 @@ ARTS_IMPORT /*static*/ i32 ARTS_STDCALL EnumTextures(struct _DDPIXELFORMAT* arg1
 // 0x575FD0 | ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
 static long WINAPI EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
 {
-    if (ddpf->dwRGBBitCount == 24)
+    if (ddpf->dwRGBBitCount == 16)
         std::memcpy(ctx, ddpf, sizeof(*ddpf));
 
     return 1;
