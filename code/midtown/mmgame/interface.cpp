@@ -23,6 +23,8 @@ define_dummy_symbol(mmgame_interface);
 #include "data7/timer.h"
 #include "memory/allocator.h"
 #include "midtown.h"
+#include "mmcityinfo/state.h"
+#include "mmnetwork/network.h"
 
 // 0x409CD0 | ?IsModemDialin@@YA_NXZ
 ARTS_IMPORT /*static*/ bool IsModemDialin();
@@ -37,4 +39,25 @@ void ReportTimeAlloc(f32 time)
 {
     Displayf(
         "*********Load time %f = %f seconds, %dK Allocated", time, LoadTimer.Time(), ALLOCATOR.GetHeapUsed() >> 10);
+}
+
+static extern_var(0x6A6F1C, b32, JoinViaZone);
+
+void mmInterface::InitLobby()
+{
+    NETMGR.InitializeLobby(8, false);
+
+    if (!JoinViaZone)
+    {
+        if (NETMGR.JoinLobbySession())
+        {
+            NETMGR.SetSysCallback(MFA2(mmInterface::MessageCallback, this, nullptr));
+            NETMGR.SetAppCallback(MFA2(mmInterface::MessageCallback2, this, nullptr));
+        }
+        else
+        {
+            MMSTATE.NetworkStatus = 0;
+            JoinViaZone = true;
+        }
+    }
 }

@@ -140,7 +140,7 @@ public:
     ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x40CD10 | ?InitLobby@mmInterface@@QAEXXZ
-    ARTS_IMPORT void InitLobby();
+    ARTS_EXPORT void InitLobby();
 
     // 0x407A90 | ?InitPlayerInfo@mmInterface@@QAEXXZ
     ARTS_IMPORT void InitPlayerInfo();

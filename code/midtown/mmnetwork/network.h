@@ -270,6 +270,16 @@ public:
         return in_lobby_;
     }
 
+    void SetSysCallback(Callback cb)
+    {
+        sys_message_cb_ = cb;
+    }
+
+    void SetAppCallback(Callback cb)
+    {
+        app_message_cb_ = cb;
+    }
+
 private:
     i32 state_;
     Callback sys_message_cb_;
