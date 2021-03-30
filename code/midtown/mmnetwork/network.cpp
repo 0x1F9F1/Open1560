@@ -21,3 +21,24 @@ define_dummy_symbol(mmnetwork_network);
 #include "network.h"
 
 static extern_var(0x6A8980, i32, NumModems);
+
+b32 asNetwork::InitializeLobby(i32 max_players, b32 secure)
+{
+    CoInitialize(NULL);
+
+    if (dplobby_ == nullptr)
+    {
+        if (CoCreateInstance(CLSID_DirectPlayLobby, 0, 1u, IID_IDirectPlayLobby3A, (LPVOID*) &dplobby_))
+        {
+            in_lobby_ = false;
+            CoUninitialize();
+            return false;
+        }
+    }
+
+    max_players_ = max_players;
+    secure_ = secure;
+
+    Debugf("Lobby interface created or already created.");
+    return true;
+}

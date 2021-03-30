@@ -206,7 +206,7 @@ public:
     ARTS_IMPORT i32 Initialize(i32 arg1, i32 arg2, i32 arg3);
 
     // 0x489080 | ?InitializeLobby@asNetwork@@QAEHHH@Z
-    ARTS_IMPORT i32 InitializeLobby(i32 arg1, i32 arg2);
+    ARTS_EXPORT b32 InitializeLobby(i32 max_players, b32 secure);
 
     // 0x489150 | ?JoinLobbySession@asNetwork@@QAEHXZ
     ARTS_IMPORT i32 JoinLobbySession();
