@@ -373,6 +373,11 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         create_patch("MenuManager::ScanGlobalKeys", "Debug Text Alignment", 0x4B11DA + 1, "\x07", 1);
 
+        for (usize addr : {0x413BC0, 0x415D72, 0x417A90})
+        {
+            create_patch("LocPlayerName", "lea don't mov", addr, "\x8D", 1);
+        }
+
 #ifndef ARTS_FINAL
         patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
         patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
