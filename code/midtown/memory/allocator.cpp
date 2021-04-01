@@ -944,9 +944,11 @@ asMemoryAllocator* StaticAllocator()
     return allocator;
 }
 
-asMemoryAllocator* CURHEAP = StaticAllocator();
-
 run_once(INIT_early, [] {
     create_patch("CRTALLOCATOR", "Fix CRTALLOCATOR", 0x520970, "\xC3", 1);
     create_patch("CRTALLOCATOR", "Fix CRTALLOCATOR", 0x40185D, "\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90", 10);
 });
+
+ARTS_MSVC_DIAGNOSTIC_IGNORED(4073);
+ARTS_PRAGMA(init_seg(lib));
+asMemoryAllocator* CURHEAP = StaticAllocator();
