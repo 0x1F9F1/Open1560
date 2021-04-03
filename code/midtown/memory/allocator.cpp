@@ -251,7 +251,7 @@ void* asMemoryAllocator::Allocate(usize size, usize align, void* caller)
     static constexpr usize MinAllocSize = sizeof(FreeNode) - sizeof(Node);
     static constexpr usize MinAllocAlign =
         std::max<usize>(4, alignof(FreeNode)); // Node uses the lower 2 bits for other stuff
-    static constexpr usize SplitNodeThresh = sizeof(FreeNode);
+    static constexpr usize SplitNodeThresh = std::max<usize>(sizeof(Node) + 16, sizeof(FreeNode));
 
     static_assert(SplitNodeThresh >= sizeof(FreeNode));
 
@@ -682,6 +682,28 @@ void asMemoryAllocator::DumpStats()
     Warningf(" Used Nodes: %10u", stats.nUsedNodes);
     Warningf(" Free Nodes: %10u", stats.nFreeNodes);
 
+    for (u32 i = 0; i < ARTS_SIZE(buckets_); ++i)
+    {
+        u32 count = 0;
+        u32 size = 0;
+        u32 min_size = UINT32_MAX;
+        u32 max_size = 0;
+
+        for (FreeNode* n = buckets_[i]; n; n = n->NextFree)
+        {
+            ++count;
+            size += n->Size;
+            min_size = std::min(min_size, n->Size);
+            max_size = std::max(max_size, n->Size);
+        }
+
+        if (count)
+        {
+            Displayf("Bucket %2u: %4u nodes, 0x%05X KB (%u min, %u max, %u avg)", i, count, size >> 10, min_size,
+                max_size, size / count);
+        }
+    }
+
     if (num_sources)
     {
         Warningf("** %u Alloc Sources **", num_sources);
@@ -813,7 +835,7 @@ asMemoryAllocator::FreeNode* asMemoryAllocator::FindFirstFit(usize size, usize a
     align -= 1;
     offset = -isize(offset + sizeof(Node));
 
-    for (u32 i = GetBucketIndex(size); i < ARTS_SIZE32(buckets_); ++i)
+    for (u32 i = GetBucketIndex(size + (size >> 1)); i < ARTS_SIZE32(buckets_); ++i)
     {
         for (FreeNode* n = buckets_[i]; n; n = n->NextFree)
         {

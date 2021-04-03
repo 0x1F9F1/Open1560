@@ -29,8 +29,6 @@
 #include "loader.h"
 #include "symbols.h"
 
-#include <charconv>
-
 #include <dinput.h>
 
 #include <mem/module.h>
