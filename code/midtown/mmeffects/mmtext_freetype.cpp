@@ -388,7 +388,7 @@ std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width
 
         i32 width = curr_width;
 
-        if ((width == 0) && (glyph.Left < 0))
+        if ((text == curr_start) && (glyph.Left < 0))
             width -= glyph.Left << 6;
 
         width += glyph.AdvanceX;
@@ -402,7 +402,7 @@ std::vector<mmFont::mmLineInfo> mmFont::GetLines(const char* text, i32 max_width
         curr_width = width;
         text = here;
 
-        if (!IsSpace(codepoint))
+        if (!max_width || !IsSpace(codepoint))
         {
             trim_width = curr_width;
             curr_end = text;
