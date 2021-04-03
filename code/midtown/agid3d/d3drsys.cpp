@@ -117,7 +117,7 @@ void agiD3DRasterizer::Mesh2(agiScreenVtx2* verts, i32 vert_count, u16* indices,
 
     if ((ActiveFlag & 1) && EnableDraw)
     {
-        ARTS_TIMED(agiRasterization);
+        ARTS_UTIMED(agiRasterization);
 
         DD_TRY(Pipe()->GetD3DDevice()->DrawIndexedPrimitive(D3DPT_TRIANGLELIST,
             (D3DFVF_TLVERTEX | D3DFVF_TEX2) & ~D3DFVF_TEX1, verts, vert_count, indices, index_count,
@@ -235,7 +235,7 @@ void agiD3DRasterizer::FlushState()
 
     if (VtxIndexCount)
     {
-        ARTS_TIMED(agiRasterization);
+        ARTS_UTIMED(agiRasterization);
 
         ++STATS.GeomCalls;
 
@@ -272,7 +272,7 @@ void agiD3DRasterizer::FlushState()
     if (!agiCurState.IsTouched())
         return;
 
-    ARTS_TIMED(agiStateChanges);
+    ARTS_UTIMED(agiStateChanges);
     ++STATS.StateChanges;
 
     IDirect3DDevice3* dev = Pipe()->GetD3DDevice();

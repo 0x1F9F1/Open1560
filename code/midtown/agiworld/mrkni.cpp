@@ -46,7 +46,7 @@ static __m128 KniMax;
 
 void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count)
 {
-    ARTS_TIMED(agiInvertTimer);
+    ARTS_UTIMED(agiInvertTimer);
 
     if (UseKNI)
     {

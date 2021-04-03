@@ -95,7 +95,7 @@ static extern_var(0x64A6D8, i32, ClipMask);
 #ifndef ARTS_ENABLE_KNI
 void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count)
 {
-    ARTS_TIMED(agiInvertTimer);
+    ARTS_UTIMED(agiInvertTimer);
 
     for (i32 i = 0; i < count; ++i)
     {
@@ -227,7 +227,7 @@ static extern_var(0x719E48, b32, OnlyZClip);
 
 void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
 {
-    ARTS_TIMED(agiClipTimer);
+    ARTS_UTIMED(agiClipTimer);
 
     if (ClippedVertCount > 2032 || ClippedTriCount == 512)
         Quitf("ClipTri: clip buffer overflow");

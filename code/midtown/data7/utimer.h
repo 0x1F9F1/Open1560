@@ -25,20 +25,22 @@
     0x90B4B4 | float ut2float | ?ut2float@@3MA
 */
 
+ulong adjust_utimer(f32 elapsed, ulong prev);
+
 // 0x57C4C0 | ?utimer@@YAKXZ
-ARTS_IMPORT ulong utimer();
+ARTS_EXPORT ulong utimer();
 
 // 0x90B4B4 | ?ut2float@@3MA
-ARTS_IMPORT extern f32 ut2float;
+ARTS_EXPORT extern f32 ut2float;
 
-struct u_timer
+struct scoped_utimer
 {
-    u_timer(ulong* total)
+    scoped_utimer(ulong* total)
         : start_(utimer())
         , total_(total)
     {}
 
-    ~u_timer()
+    ~scoped_utimer()
     {
         *total_ += utimer() - start_;
     }
@@ -47,8 +49,8 @@ struct u_timer
     ulong* const total_ {nullptr};
 };
 
-#define ARTS_TIMED(VAR)                   \
-    u_timer ARTS_CONCAT(timer_, __LINE__) \
-    {                                     \
-        &VAR                              \
+#define ARTS_UTIMED(VAR)                        \
+    scoped_utimer ARTS_CONCAT(timer_, __LINE__) \
+    {                                           \
+        &VAR                                    \
     }

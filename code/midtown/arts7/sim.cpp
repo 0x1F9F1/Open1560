@@ -26,6 +26,7 @@ define_dummy_symbol(arts7_sim);
 #include "agi/texlib.h"
 #include "cullmgr.h"
 #include "data7/metadefine.h"
+#include "data7/utimer.h"
 #include "eventq7/keys.h"
 #include "midgets.h"
 #include "stream/vfsystem.h"
@@ -94,6 +95,7 @@ void asSimulation::ResetClock()
     smooth_ = PARAM_smoothstep.get_or(true);
     target_delta_ = 1.0f / 30.0f;
     delta_drift_ = 0.0f;
+    prev_utimer_ = 0;
 }
 
 void asSimulation::Update()
@@ -110,6 +112,8 @@ void asSimulation::Update()
 
     f32 delta = frame_timer_.Time();
     frame_timer_.Reset();
+
+    prev_utimer_ = adjust_utimer(delta, prev_utimer_);
 
     actual_elapsed_ += delta;
     bench_elapsed_ += delta;

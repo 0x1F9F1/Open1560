@@ -19,3 +19,55 @@
 define_dummy_symbol(data7_utimer);
 
 #include "utimer.h"
+#include "timer.h"
+
+#include "core/minwin.h"
+
+static i32 utimer_mode = 1;
+f32 ut2float = 0.0f;
+
+#define ARTS_RDTSC() static_cast<ulong>(__rdtsc())
+
+ulong adjust_utimer(f32 elapsed, ulong prev)
+{
+    if (utimer_mode == 2)
+        return 0;
+
+    ulong now = ARTS_RDTSC();
+
+    if (prev)
+        ut2float = (elapsed * 1000.0f) / (now - prev);
+
+    return now;
+}
+
+static ARTS_NOINLINE ulong init_utimer()
+{
+    if (utimer_mode == 2)
+        return 0;
+
+    __try
+    {
+        Timer t;
+        ulong start = ARTS_RDTSC();
+
+        Timer::Sleep(100);
+        adjust_utimer(t.Time(), start);
+    }
+    __except (EXCEPTION_EXECUTE_HANDLER)
+    {
+        utimer_mode = 2;
+        return 0;
+    }
+
+    utimer_mode = 0;
+    return ARTS_RDTSC();
+}
+
+ulong utimer()
+{
+    if (utimer_mode)
+        return init_utimer();
+
+    return ARTS_RDTSC();
+}

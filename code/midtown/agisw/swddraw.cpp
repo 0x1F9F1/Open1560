@@ -47,7 +47,7 @@ ARTS_IMPORT /*static*/ void ddEndFrame();
 // 0x535030 | ?ddEndScene@@YAXXZ
 ARTS_EXPORT /*static*/ void ddEndScene()
 {
-    ARTS_TIMED(agiEndScene);
+    ARTS_UTIMED(agiEndScene);
     lpdsRend->Unlock(NULL);
     swScreen = 0;
 }
@@ -93,7 +93,7 @@ ARTS_EXPORT /*static*/ void ddStartFrame()
 // 0x534FD0 | ?ddStartScene@@YAXXZ
 ARTS_EXPORT /*static*/ void ddStartScene()
 {
-    ARTS_TIMED(agiBeginScene);
+    ARTS_UTIMED(agiBeginScene);
 
     DDSURFACEDESC2 sd {sizeof(sd)};
     lpdsRend->Lock(NULL, &sd, DDLOCK_WAIT, NULL);

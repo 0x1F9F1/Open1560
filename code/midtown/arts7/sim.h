@@ -258,6 +258,7 @@ private:
     bool smooth_;
     f32 delta_drift_;
     f32 target_delta_;
+    ulong prev_utimer_;
 };
 
 // check_size(asSimulation, 0x2B0);

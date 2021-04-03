@@ -780,7 +780,7 @@ void agiGLRasterizer::FlushGlState()
     if (touched_ == 0)
         return;
 
-    ARTS_TIMED(agiStateChanges);
+    ARTS_UTIMED(agiStateChanges);
     ++STATS.StateChanges;
 
     if (touched_ & Touched_DepthMask)
@@ -879,7 +879,7 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
     const void* idx_offset =
         ibo_ ? reinterpret_cast<const void*>(ibo_->Upload(indices, index_count * sizeof(u16))) : indices;
 
-    ARTS_TIMED(agiRasterization);
+    ARTS_UTIMED(agiRasterization);
     ++STATS.GeomCalls;
 
     if (vtx_offset)

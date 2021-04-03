@@ -71,7 +71,7 @@ i32 agiD3DViewport::BeginGfx()
 
 void agiD3DViewport::Clear(i32 flags)
 {
-    ARTS_TIMED(agiClearViewport);
+    ARTS_UTIMED(agiClearViewport);
 
     i32 width = Pipe()->GetWidth();
     i32 height = Pipe()->GetHeight();

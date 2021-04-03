@@ -550,7 +550,7 @@ static mem::cmd_param PARAM_frameclear {"frameclear"};
 
 void agiGLPipeline::BeginFrame()
 {
-    ARTS_TIMED(agiBeginFrame);
+    ARTS_UTIMED(agiBeginFrame);
 
     agiPipeline::BeginFrame();
 
@@ -572,7 +572,7 @@ void agiGLPipeline::BeginFrame()
 
 void agiGLPipeline::BeginScene()
 {
-    ARTS_TIMED(agiBeginScene);
+    ARTS_UTIMED(agiBeginScene);
 
     if (ZTrick)
     {
@@ -606,7 +606,7 @@ void agiGLPipeline::BeginScene()
 
 void agiGLPipeline::EndScene()
 {
-    ARTS_TIMED(agiEndScene);
+    ARTS_UTIMED(agiEndScene);
 
     rasterizer_->EndGroup();
     in_scene_ = false;
@@ -713,7 +713,7 @@ HGLRC agiGLPipeline::CreateSharedContext()
 
 void agiGLPipeline::EndFrame()
 {
-    ARTS_TIMED(agiEndFrame);
+    ARTS_UTIMED(agiEndFrame);
 
     if (fbo_ != 0)
     {
@@ -782,7 +782,7 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     agiBitmapPixels += width * height;
 
     // FIXME: This overlaps with the rasterizer timer
-    // ARTS_TIMED(agiCopyBitmap);
+    // ARTS_UTIMED(agiCopyBitmap);
 
     // RAST->BeginGroup();
 

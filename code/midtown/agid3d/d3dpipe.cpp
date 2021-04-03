@@ -58,7 +58,7 @@ agiD3DPipeline::~agiD3DPipeline()
 
 void agiD3DPipeline::BeginFrame()
 {
-    ARTS_TIMED(agiBeginFrame);
+    ARTS_UTIMED(agiBeginFrame);
 
     if (d_front_->IsLost() && (ActiveFlag & 0x1))
     {
@@ -480,7 +480,7 @@ i32 agiD3DPipeline::BeginGfx()
 
 void agiD3DPipeline::BeginScene()
 {
-    ARTS_TIMED(agiBeginScene);
+    ARTS_UTIMED(agiBeginScene);
 
     agiPipeline::BeginScene();
     in_scene_ = true;
@@ -507,7 +507,7 @@ void agiD3DPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x,
 {
     if (ActiveFlag & 0x1)
     {
-        ARTS_TIMED(agiCopyBitmap);
+        ARTS_UTIMED(agiCopyBitmap);
 
         agiDDPipeline::CopyBitmap(dst_x, dst_y, src, src_x, src_y, width, height);
     }
@@ -583,7 +583,7 @@ void agiD3DPipeline::DumpStatus(agiMemStatus& status)
 
 void agiD3DPipeline::EndFrame()
 {
-    ARTS_TIMED(agiEndFrame);
+    ARTS_UTIMED(agiEndFrame);
 
     RECT r {};
     r.left = 0;
@@ -647,7 +647,7 @@ void agiD3DPipeline::EndGfx()
 
 void agiD3DPipeline::EndScene()
 {
-    ARTS_TIMED(agiEndScene);
+    ARTS_UTIMED(agiEndScene);
 
     in_scene_ = false;
     renderer_->EndGroup();

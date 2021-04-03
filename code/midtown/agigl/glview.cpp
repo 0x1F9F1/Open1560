@@ -65,7 +65,7 @@ void agiGLViewport::SetBackground(Vector3& color)
 
 void agiGLViewport::Clear(i32 flags)
 {
-    ARTS_TIMED(agiClearViewport);
+    ARTS_UTIMED(agiClearViewport);
 
     GLbitfield mask = 0;
 
