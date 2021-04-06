@@ -70,3 +70,8 @@ void mmHudMap::DrawOpponents()
             DrawOrientedBitmap(icon.Position, bitmap);
     }
 }
+
+run_once([] {
+    create_hook(
+        "mmPlayer::~mmPlayer", "Call mmHudMap Destructor", 0x42D453, &class_proxy<mmHudMap>::dtor, hook_type::call);
+});
