@@ -80,6 +80,12 @@ struct class_proxy
     }
 };
 
+template <typename T>
+inline void* alloc_proxy(std::size_t /*size*/)
+{
+    return operator new(sizeof(T));
+}
+
 #define auto_hook_ctor(ADDRESS, TYPE, ...) \
     create_hook(#TYPE "::" #TYPE, "", ADDRESS, &class_proxy<TYPE>::ctor<__VA_ARGS__>)
 

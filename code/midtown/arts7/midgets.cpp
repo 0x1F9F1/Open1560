@@ -904,7 +904,4 @@ void asMidgets::PushColumn(i32 /*arg1*/)
 void asMidgets::PopColumn()
 {}
 
-run_once([] {
-    u32 midgets_size = sizeof(asMidgets);
-    create_patch("asMidgets Size", "Size of asMidgets", 0x521A11 + 1, &midgets_size, sizeof(midgets_size));
-});
+run_once([] { create_hook("new asMidgets", "Size of asMidgets", 0x521A1C, alloc_proxy<asMidgets>, hook_type::call); });

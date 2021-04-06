@@ -268,6 +268,5 @@ META_DEFINE_CHILD("asSimulation", asSimulation, asNode)
 {}
 
 run_once([] {
-    u32 sim_size = sizeof(asSimulation);
-    create_patch("asSimulation Size", "Size of asSimulation", 0x40264B + 1, &sim_size, sizeof(sim_size));
+    create_hook("new asSimulation", "Size of asSimulation", 0x402650, alloc_proxy<asSimulation>, hook_type::call);
 });
