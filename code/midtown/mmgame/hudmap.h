@@ -61,6 +61,27 @@
 
 #include "arts7/node.h"
 
+#include "vector7/vector2.h"
+
+class Callback;
+class aiMap;
+class mmWaypoints;
+class mmPlayer;
+class Matrix34;
+class agiBitmap;
+
+struct OppIconInfo
+{
+    u32 Color;
+    b32 Enabled;
+    Matrix34* Position;
+    i32 Place;
+    char Name[16];
+    agiBitmap* Bitmap;
+};
+
+check_size(OppIconInfo, 0x24);
+
 class mmHudMap final : public asNode
 {
     // const mmHudMap::`vftable' @ 0x61AE70
@@ -71,7 +92,7 @@ public:
 
     // 0x429F70 | ??_EmmHudMap@@UAEPAXI@Z
     // 0x429FD0 | ??1mmHudMap@@UAE@XZ | inline
-    ARTS_IMPORT ~mmHudMap() override = default;
+    ARTS_EXPORT ~mmHudMap() override;
 
     // 0x428810 | ?Activate@mmHudMap@@QAEXXZ
     ARTS_IMPORT void Activate();
@@ -145,7 +166,7 @@ private:
     ARTS_IMPORT void DrawCopsnRobbers();
 
     // 0x4295F0 | ?DrawOpponents@mmHudMap@@AAEXXZ
-    ARTS_IMPORT void DrawOpponents();
+    ARTS_EXPORT void DrawOpponents();
 
     // 0x429410 | ?DrawOriented@mmHudMap@@AAEXPAVMatrix34@@I@Z | unused
     ARTS_IMPORT void DrawOriented(class Matrix34* arg1, u32 arg2);
@@ -165,7 +186,82 @@ private:
     // 0x429B20 | ?WorldToBitmap@mmHudMap@@AAE?AUPoint@@PAVVector3@@@Z
     ARTS_IMPORT struct Point WorldToBitmap(class Vector3* arg1);
 
-    u8 gap20[0x2A8];
+    aiMap* AiMap;
+    mmWaypoints* Waypoints;
+    i32 dword28;
+    Vector3* MiscPositions[100];
+    i32 NumMiscPositions;
+    Vector3* CnrPos1;
+    Vector3* CnrPos2;
+    Vector3* CnrPos3;
+    b32 WideFov;
+    i32 field_1D0;
+    mmPlayer* Player;
+    OppIconInfo* OppIcons;
+    i32 field_1DC;
+    i32 field_1E0;
+    i32 Mode;
+    Matrix34* Transform;
+    mmHUD* Hud;
+    agiBitmap* Resolutions[2];
+    agiBitmap* Current;
+    i32 field_1FC;
+    i32 field_200;
+    i32 field_204;
+    i32 field_208;
+    i32 field_20C;
+    i32 field_210;
+    i32 field_214;
+    i32 field_218;
+    i16 NumOpps;
+    i16 field_21E;
+    Vector2 MinX;
+    Vector2 MaxX;
+    f32 ScaleX;
+    f32 ScaleY;
+    i32 field_238;
+    i32 field_23C;
+    i32 field_240;
+    i32 field_244;
+    i32 MapSrcX;
+    i32 MapSrcY;
+    i32 MapWidth;
+    i32 MapHeight;
+    i32 MapDstX;
+    i32 MapDstY;
+
+    agiBitmap* Dot_Hideout;
+    agiBitmap* Dot_Bank;
+    agiBitmap* Dot_Gold;
+    agiBitmap* Dot_Grey;
+    agiBitmap* Dot_Yellow;
+    agiBitmap* Dot_Finish;
+
+    agiBitmap* Icon_Player;
+    agiBitmap* Icon_Cop;
+
+    agiBitmap* Icon_Blue;
+    agiBitmap* Icon_Green;
+    agiBitmap* Icon_Red;
+    agiBitmap* Icon_Yellow;
+    agiBitmap* Icon_Orange;
+    agiBitmap* Icon_Purple;
+    agiBitmap* Icon_Cyan;
+
+    // 1588+
+    static agiBitmap* Icon_Pink;
+
+    asCamera* Camera;
+    i32 ShowAllCops;
+    f32 dword2A4;
+    f32 dword2A8;
+    Callback* CullCallback;
+    i32 dword2B0;
+    i32 dword2B4;
+    f32 dword2B8;
+    f32 dword2BC;
+    i32 field_2C0;
+    i16 DisableHudmap;
 };
 
 check_size(mmHudMap, 0x2C8);

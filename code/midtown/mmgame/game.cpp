@@ -19,3 +19,18 @@
 define_dummy_symbol(mmgame_game);
 
 #include "game.h"
+
+u32 IconColor[8] {
+    0xFF0000EF, // Blue
+    0xFF00EF00, // Green
+    0xFFEF0000, // Red
+    0xFFFFFF00, // Yellow
+    0xFFFF5A00, // Orange
+    0xFFB400FF, // Purple
+    0xFF00FFFF, // Cyan
+    0xFFFF0390, // Pink
+};
+
+run_once([] {
+    create_hook("IconColor", "Add Player 8 Icon", 0x40E9AC, IconColor + ARTS_SIZE(IconColor), hook_type::pointer);
+});

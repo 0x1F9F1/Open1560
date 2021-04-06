@@ -19,3 +19,54 @@
 define_dummy_symbol(mmgame_hudmap);
 
 #include "hudmap.h"
+
+#include "agi/bitmap.h"
+#include "agi/pipeline.h"
+
+agiBitmap* mmHudMap::Icon_Pink = nullptr;
+
+mmHudMap::~mmHudMap()
+{
+    if (Icon_Pink)
+    {
+        Icon_Pink->Release();
+        Icon_Pink = nullptr;
+    }
+}
+
+void mmHudMap::DrawOpponents()
+{
+    for (i16 i = 0; i < NumOpps; ++i)
+    {
+        const OppIconInfo& icon = OppIcons[i];
+
+        if (!icon.Enabled || !icon.Position)
+            continue;
+
+        agiBitmap* bitmap = nullptr;
+
+        switch (icon.Color)
+        {
+            case 0xFF0000EF: bitmap = Icon_Blue; break;
+            case 0xFF00EF00: bitmap = Icon_Green; break;
+            case 0xFFEF0000: bitmap = Icon_Red; break;
+            case 0xFFFFFF00: bitmap = Icon_Yellow; break;
+            case 0xFFFF5A00: bitmap = Icon_Orange; break;
+            case 0xFFB400FF: bitmap = Icon_Purple; break;
+            case 0xFF00FFFF: bitmap = Icon_Cyan; break;
+            case 0xFFFF0390:
+                if (Icon_Pink == nullptr)
+                {
+                    // TODO: Move to mmHudMap::Init
+                    // icon_grey is actually pink
+                    Icon_Pink = Pipe()->GetBitmap("icon_grey", 0.0, 0.0, AGI_BITMAP_TRANSPARENT | AGI_BITMAP_OFFSCREEN);
+                }
+
+                bitmap = Icon_Pink;
+                break;
+        }
+
+        if (bitmap)
+            DrawOrientedBitmap(icon.Position, bitmap);
+    }
+}

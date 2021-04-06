@@ -536,14 +536,14 @@ include_dummy_symbol(mmeffects_vehform);
 
 // include_dummy_symbol(mmgame_cd);
 // include_dummy_symbol(mmgame_dash);
-// include_dummy_symbol(mmgame_game);
+include_dummy_symbol(mmgame_game);
 // include_dummy_symbol(mmgame_gameedit);
 // include_dummy_symbol(mmgame_gameman);
 include_dummy_symbol(mmgame_gamemulti);
 // include_dummy_symbol(mmgame_gamesingle);
 // include_dummy_symbol(mmgame_gauge);
 // include_dummy_symbol(mmgame_hud);
-// include_dummy_symbol(mmgame_hudmap);
+include_dummy_symbol(mmgame_hudmap);
 // include_dummy_symbol(mmgame_icons);
 include_dummy_symbol(mmgame_interface);
 // include_dummy_symbol(mmgame_mmambientaudio);

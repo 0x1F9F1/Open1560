@@ -190,7 +190,7 @@ check_size(foobar, 0x20);
 ARTS_IMPORT extern class mmBangerData* BangerProjectile;
 
 // 0x635AC8 | ?IconColor@@3PAIA
-ARTS_IMPORT extern u32 IconColor[7];
+ARTS_EXPORT extern u32 IconColor[8];
 
 // 0x6A6F30 | ?LocPlayerName@@3PADA
 ARTS_IMPORT extern char LocPlayerName[20];
