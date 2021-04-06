@@ -60,12 +60,12 @@ struct LangString
 };
 
 #    define X(ID, VALUE) const char LOC_STR_VAR(ID)[] {VALUE};
-#    include "lang_english.h"
+#    include ARTS_LANG_HEADER
 #    undef X
 
 static constexpr LangString LangStrings[] {
 #    define X(ID, VALUE) {ID, LOC_STR_VAR(ID)},
-#    include "lang_english.h"
+#    include ARTS_LANG_HEADER
 #    undef X
 };
 

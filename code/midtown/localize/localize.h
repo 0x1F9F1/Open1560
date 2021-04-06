@@ -31,6 +31,7 @@
 // 1 | Use AngelReadString with builtin strings
 // 2 | Use AngelReadString with MMLANG
 #define ARTS_LOCALIZE_MODE 0
+#define ARTS_LANG_HEADER "lang_english.h"
 
 struct LocString
 {
@@ -50,7 +51,7 @@ ARTS_IMPORT char* GetLocTime(f32 arg1);
 #else
 #    define LOC_STR_VAR(ID) (ARTS_CONCAT(MM_LANG_STR_, ID))
 #    define X(ID, VALUE) extern const char LOC_STR_VAR(ID)[];
-#    include "lang_english.h"
+#    include ARTS_LANG_HEADER
 #    undef X
 #    define LOC_STRING(ID) LOC_TEXT(LOC_STR_VAR(ID))
 #endif

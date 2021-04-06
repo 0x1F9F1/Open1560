@@ -4,5 +4,7 @@ arts_component "localize"
         "localize.h",
 
         "string_ids.h",
+
         "lang_english.h",
+        "lang_russian.h",
     }

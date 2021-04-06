@@ -66,7 +66,7 @@ workspace "Open1560"
     --     architecture "x86_64"
 
     filter "toolset:msc*"
-        buildoptions { "/permissive-" }
+        buildoptions { "/permissive-", "/utf-8" }
 
     filter "toolset:msc-v*"
         buildoptions { "/Zc:throwingNew" }

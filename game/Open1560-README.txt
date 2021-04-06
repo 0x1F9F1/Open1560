@@ -1,4 +1,4 @@
-# Open1560
+# https://github.com/0x1F9F1/Open1560
 Open1560 is an open source re-implementation of Midtown Madness 1 beta 1560.
 To run, extract the files in the zip directly into your Midtown Madness 1 directory and then run Open1560.exe.
 When running for the first time it is recommended to run as administrator so the correct AppCompatFlags can be applied
