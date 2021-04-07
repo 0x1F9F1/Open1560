@@ -372,7 +372,7 @@ include_dummy_symbol(memory_valloc);
 // include_dummy_symbol(mmai_aiMap);
 // include_dummy_symbol(mmai_aiPath);
 // include_dummy_symbol(mmai_aiPedestrian);
-// include_dummy_symbol(mmai_aiPoliceForce);
+include_dummy_symbol(mmai_aiPoliceForce);
 // include_dummy_symbol(mmai_aiRailSet);
 // include_dummy_symbol(mmai_aiStuck);
 // include_dummy_symbol(mmai_aiTrafficLight);

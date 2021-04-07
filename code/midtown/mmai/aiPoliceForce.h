@@ -31,34 +31,50 @@
     0x44EA60 | public: int __thiscall aiPoliceForce::State(class mmCar *,class mmCar *,float) | ?State@aiPoliceForce@@QAEHPAVmmCar@@0M@Z
 */
 
+#include "data7/timer.h"
+
+class mmCar;
+
 struct aiPoliceForce final
 {
 public:
     // 0x44E7E0 | ??0aiPoliceForce@@QAE@XZ
-    ARTS_IMPORT aiPoliceForce();
+    ARTS_EXPORT aiPoliceForce();
 
     // 0x44E800 | ??1aiPoliceForce@@QAE@XZ
-    ARTS_IMPORT ~aiPoliceForce() = default;
+    ARTS_EXPORT ~aiPoliceForce() = default;
 
     // 0x44E860 | ?Find@aiPoliceForce@@QAEHPAVmmCar@@0@Z
-    ARTS_IMPORT i32 Find(class mmCar* arg1, class mmCar* arg2);
+    ARTS_EXPORT i32 Find(class mmCar* cop, class mmCar* perp);
 
     // 0x44E8D0 | ?RegisterPerp@aiPoliceForce@@QAEHPAVmmCar@@0@Z
-    ARTS_IMPORT i32 RegisterPerp(class mmCar* arg1, class mmCar* arg2);
+    ARTS_EXPORT b32 RegisterPerp(class mmCar* cop, class mmCar* perp);
 
     // 0x44E810 | ?Reset@aiPoliceForce@@QAEXXZ
-    ARTS_IMPORT void Reset();
+    ARTS_EXPORT void Reset();
 
     // 0x44EA60 | ?State@aiPoliceForce@@QAEHPAVmmCar@@0M@Z
-    ARTS_IMPORT i32 State(class mmCar* arg1, class mmCar* arg2, f32 arg3);
+    ARTS_EXPORT i32 State(class mmCar* cop, class mmCar* perp, f32 dist);
 
     // 0x44E970 | ?UnRegisterCop@aiPoliceForce@@QAEHPAVmmCar@@0@Z
-    ARTS_IMPORT i32 UnRegisterCop(class mmCar* arg1, class mmCar* arg2);
+    ARTS_EXPORT b32 UnRegisterCop(class mmCar* arg1, class mmCar* arg2);
 
     // 0x44E850 | ?Update@aiPoliceForce@@QAEXXZ
     ARTS_EXPORT void Update();
 
-    u8 gap0[0x3C];
+private:
+    static constexpr usize MaxPerps = 3;
+    static constexpr usize MaxCops = 16;
+
+    Timer last_register_;
+    i16 num_perps_ {0};
+    i16 num_cops_[MaxPerps] {};
+    mmCar* perps_[MaxPerps] {};
+    mmCar* cops_[MaxPerps][MaxCops] {};
+    i16 max_cops_ {0};
+
+    i32 FindPerp(mmCar* perp);
+    i32 FindCop(i32 index, mmCar* cop);
 };
 
-check_size(aiPoliceForce, 0x3C);
+// check_size(aiPoliceForce, 0x3C);

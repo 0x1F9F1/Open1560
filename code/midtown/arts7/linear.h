@@ -60,6 +60,11 @@ public:
     // 0x525B20 | ?Update@asLinearCS@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
+    Vector3& GetPos()
+    {
+        return matrix_.m3;
+    }
+
     Matrix34* GetView()
     {
         return &view_;

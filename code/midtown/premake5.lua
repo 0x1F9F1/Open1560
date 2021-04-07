@@ -24,7 +24,7 @@ include "data7"
 include "eventq7"
 include "localize"
 include "memory"
--- include "mmai"
+include "mmai"
 -- include "mmanim"
 include "mmaudio"
 -- include "mmbangers"
@@ -80,7 +80,7 @@ arts_component "midtown"
         "arts_eventq7",
         "arts_localize",
         "arts_memory",
-        -- "arts_mmai",
+        "arts_mmai",
         -- "arts_mmanim",
         "arts_mmaudio",
         -- "arts_mmbangers",

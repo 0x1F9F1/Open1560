@@ -419,5 +419,8 @@ void InitPatches()
         const char* wp_name = "pt_check";
         create_patch("", "", 0x4124A7 + 1, &wp_name, sizeof(wp_name));
     }
+
+    patch_jmp("", "", 0x474371, jump_type::never);
+    patch_jmp("", "", 0x42A8E8, jump_type::never);
 #endif
 }

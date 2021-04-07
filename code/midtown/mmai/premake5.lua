@@ -28,8 +28,8 @@ arts_component "mmai"
         -- "aiPath.h",
         -- "aiPedestrian.cpp",
         -- "aiPedestrian.h",
-        -- "aiPoliceForce.cpp",
-        -- "aiPoliceForce.h",
+        "aiPoliceForce.cpp",
+        "aiPoliceForce.h",
         -- "aiRailSet.cpp",
         -- "aiRailSet.h",
         -- "aiStuck.cpp",
@@ -55,4 +55,3 @@ arts_component "mmai"
         -- "arraylist.cpp",
         -- "arraylist.h",
     }
-

@@ -27,9 +27,10 @@ For a tutorial on how to use command line arguments, see https://www.bleepingcom
 
 ## Game
 Name       | Value | Description
-nodamage   | false | Disables Damage
-allrace    | false | Unlocks All Races
 allcars    | false | Unlocks All Cars
+allrace    | false | Unlocks All Races
+maxcops    | 3     | Max cops chasing you at once
+nodamage   | false | Disables Damage
 
 ## Basic
 Name       | Value | Description
