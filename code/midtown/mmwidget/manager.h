@@ -227,7 +227,7 @@ public:
     ARTS_IMPORT void LoadRaceNames();
 
     // 0x4B14A0 | ?MenuState@MenuManager@@QAEHH@Z
-    ARTS_IMPORT i32 MenuState(i32 arg1);
+    ARTS_EXPORT i32 MenuState(i32 menu);
 
     // 0x4AF1B0 | ?MouseAction@MenuManager@@QAEPAVuiWidget@@HMM@Z
     ARTS_IMPORT class uiWidget* MouseAction(i32 arg1, f32 arg2, f32 arg3);

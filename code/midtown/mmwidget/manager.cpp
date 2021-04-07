@@ -191,6 +191,20 @@ void MenuManager::Disable(i32 id)
         menus_[index]->Disable();
 }
 
+i32 MenuManager::MenuState(i32 menu)
+{
+    if (dialog_menu_)
+        return dialog_menu_->GetState();
+
+    if (menu == -1)
+        menu = active_menu_id_;
+
+    if (i32 index = FindMenu(menu); index >= 0)
+        return menus_[index]->GetState();
+
+    return 0;
+}
+
 run_once([] {
     for (usize addr : {
              0x4086B4,

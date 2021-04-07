@@ -307,6 +307,11 @@ public:
     // 0x641858 | ?WIDGET_WIDTH@UIMenu@@2MA
     ARTS_IMPORT static f32 WIDGET_WIDTH;
 
+    i32 GetState() const
+    {
+        return state_;
+    }
+
     i32 GetMenuID() const
     {
         return menu_id_;
