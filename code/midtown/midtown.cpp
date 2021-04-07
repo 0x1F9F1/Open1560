@@ -385,6 +385,8 @@ void InitPatches()
         create_patch("LocPlayerName", "lea don't mov", addr, "\x8D", 1);
     }
 
+    create_patch("mmMultiCR::OppStealGold", "Icon Number", 0x41D93C + 6, "\x0A\x00\x00\x00", 4);
+
 #ifndef ARTS_FINAL
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
