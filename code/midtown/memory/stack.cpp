@@ -21,6 +21,7 @@ define_dummy_symbol(memory_stack);
 #include "stack.h"
 
 #include "core/minwin.h"
+#include "memory/allocator.h"
 
 #include <DbgHelp.h>
 #include <intrin.h>
@@ -388,6 +389,9 @@ i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
     i32 frames[32];
     i32 num_frames = StackTraceback(ARTS_SSIZE32(frames), frames, 0, context);
     DumpStackTraceback(frames, num_frames);
+
+    if (CURHEAP)
+        CURHEAP->SanityCheck();
 
 #ifndef ARTS_FINAL
     if (IsDebuggerPresent())
