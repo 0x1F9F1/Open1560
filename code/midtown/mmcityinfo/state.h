@@ -55,6 +55,13 @@ struct mmStatePack
     i32 field_20;
     i32 Closing;
     i32 field_28;
+
+    // 0 | Cruise
+    // 1 | Checkpoint
+    // 2 | Cops & Robbers
+    // 3 | Circuit
+    // 4 | Blitz
+    // 5 | Edit
     i32 GameMode;
     i32 EventId;
     f32 Difficulty;

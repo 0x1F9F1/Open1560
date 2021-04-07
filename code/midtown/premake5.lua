@@ -30,7 +30,7 @@ include "mmaudio"
 -- include "mmbangers"
 -- include "mmcamcs"
 -- include "mmcamtour"
--- include "mmcar"
+include "mmcar"
 include "mmcity"
 include "mmcityinfo"
 -- include "mmdjpeg"
@@ -86,7 +86,7 @@ arts_component "midtown"
         -- "arts_mmbangers",
         -- "arts_mmcamcs",
         -- "arts_mmcamtour",
-        -- "arts_mmcar",
+        "arts_mmcar",
         "arts_mmcity",
         "arts_mmcityinfo",
         -- "arts_mmdjpeg",

@@ -19,3 +19,25 @@
 define_dummy_symbol(mmcar_shard);
 
 #include "shard.h"
+
+class mmShardManager* mmShardManager::Instances[64];
+
+mmShardManager::mmShardManager()
+{
+    ArAssert(NumInstances < ARTS_SSIZE32(Instances), "Too Many ShardManagers");
+    Index = NumInstances++;
+    Instances[Index] = this;
+}
+
+mmShardManager::~mmShardManager()
+{
+    Instances[Index] = Instances[--NumInstances];
+}
+
+mmShardManager* mmShardManager::GetInstance(i32 index)
+{
+    if (index >= 0 && index < NumInstances)
+        return Instances[index];
+
+    return nullptr;
+}

@@ -42,8 +42,8 @@ arts_component "mmcar"
         -- "policecaraudio.h",
         -- "roadff.cpp",
         -- "roadff.h",
-        -- "shard.cpp",
-        -- "shard.h",
+        "shard.cpp",
+        "shard.h",
         -- "shock.cpp",
         -- "shock.h",
         -- "skid.cpp",
@@ -63,4 +63,3 @@ arts_component "mmcar"
         -- "wheel.cpp",
         -- "wheel.h",
     }
-

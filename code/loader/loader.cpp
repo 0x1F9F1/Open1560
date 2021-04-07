@@ -455,7 +455,7 @@ include_dummy_symbol(mmaudio_mixer);
 // include_dummy_symbol(mmcar_playercaraudio);
 // include_dummy_symbol(mmcar_policecaraudio);
 // include_dummy_symbol(mmcar_roadff);
-// include_dummy_symbol(mmcar_shard);
+include_dummy_symbol(mmcar_shard);
 // include_dummy_symbol(mmcar_shock);
 // include_dummy_symbol(mmcar_skid);
 // include_dummy_symbol(mmcar_splash);

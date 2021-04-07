@@ -54,6 +54,9 @@
 #include "arts7/node.h"
 #include "mmcity/inst.h"
 
+class agiTexDef;
+class mmCarSim;
+
 class mmShard final : public mmMatrixInstance
 {
     // const mmShard::`vftable' @ 0x61C2C0
@@ -95,11 +98,11 @@ class mmShardManager final : public asNode
 
 public:
     // 0x4787F0 | ??0mmShardManager@@QAE@XZ
-    ARTS_IMPORT mmShardManager();
+    ARTS_EXPORT mmShardManager();
 
     // 0x4791D0 | ??_EmmShardManager@@UAEPAXI@Z
     // 0x478860 | ??1mmShardManager@@UAE@XZ
-    ARTS_IMPORT ~mmShardManager() override;
+    ARTS_EXPORT ~mmShardManager() override;
 
     // 0x478C90 | ?AddWidgets@mmShardManager@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
@@ -129,16 +132,29 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // 0x4788D0 | ?GetInstance@mmShardManager@@SAPAV1@H@Z
-    ARTS_IMPORT static class mmShardManager* GetInstance(i32 arg1);
+    ARTS_EXPORT static class mmShardManager* GetInstance(i32 index);
 
 protected:
     // 0x6A7F18 | ?Instances@mmShardManager@@1PAPAV1@A
-    ARTS_IMPORT static class mmShardManager* Instances[20];
+    ARTS_EXPORT static class mmShardManager* Instances[64];
 
     // 0x6A7F90 | ?NumInstances@mmShardManager@@1HA
     ARTS_IMPORT static i32 NumInstances;
 
-    u8 gap20[0x34];
+private:
+    mmCarSim* CarSim {nullptr};
+    Ptr<mmShard[]> Shards;
+    i32 ShardCount {0};
+    i32 ShardHead {0};
+    f32 ImpThresh {3500.0f};
+    f32 ImpPerShard {0.0f};
+    f32 VelXCoeff {0.3f};
+    f32 VelYCoeff {0.3f};
+    f32 VelZCoeff {0.2f};
+    f32 AngVelCoeff {1.8f};
+    f32 SpeedThresh {5.0f};
+    i32 Index {0};
+    agiTexDef* TexDef {nullptr};
 };
 
 check_size(mmShardManager, 0x54);
