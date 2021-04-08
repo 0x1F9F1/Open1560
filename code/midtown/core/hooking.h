@@ -43,6 +43,15 @@ enum class jump_type
     never,
 };
 
+template <typename T>
+struct type_identity
+{
+    using type = T;
+};
+
+template <typename T>
+using type_identity_t = typename type_identity<T>::type;
+
 extern std::size_t HookCount;
 extern std::size_t PatchCount;
 
@@ -55,6 +64,16 @@ void create_hook(const char* name, const char* description, mem::pointer target,
 void create_patch(const char* name, const char* description, mem::pointer dest, mem::pointer src, std::size_t size);
 
 void patch_jmp(const char* name, const char* description, mem::pointer target, jump_type mode);
+
+template <typename... Args>
+inline void create_packed_patch(
+    const char* name, const char* description, mem::pointer dest, type_identity_t<const Args&>... args)
+{
+    unsigned char buffer[(sizeof(Args) + ...)];
+    unsigned char* here = buffer;
+    ((std::memcpy(here, &args, sizeof(args)), here += sizeof(args)), ...);
+    create_patch(name, description, dest, buffer, sizeof(buffer));
+}
 
 #define auto_hook(ADDRESS, FUNC) create_hook(#FUNC, "", ADDRESS, &FUNC)
 #define auto_hook_typed(ADDRESS, FUNC, TYPE) create_hook(#FUNC, "", ADDRESS, static_cast<TYPE>(&FUNC))
@@ -84,6 +103,12 @@ template <typename T>
 inline void* alloc_proxy(std::size_t /*size*/)
 {
     return operator new(sizeof(T));
+}
+
+template <std::size_t N>
+inline void* alloc_proxy(std::size_t /*size*/)
+{
+    return operator new(N);
 }
 
 #define auto_hook_ctor(ADDRESS, TYPE, ...) \

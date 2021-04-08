@@ -242,7 +242,7 @@ void InitPatches()
 {
     patch_jmp("ApplicationHelper", "Enable HW Menu Rendering", 0x401DB4, jump_type::always);
 
-    create_patch("ApplicationHelper", "Increase Heap Size", 0x401E11, "\x05\x00\x00\x00\x04", 5); // add eax, 0x4000000
+    create_packed_patch<u32>("ApplicationHelper", "Increase Heap Size", 0x401E11 + 1, 64 << 20);
 
     patch_jmp("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, jump_type::always);
     patch_jmp("SetTexQualString", "Additive Blending Check", 0x49A29F, jump_type::never);
@@ -250,12 +250,13 @@ void InitPatches()
     // Checked in GetPackedTexture, only necessary if agiRQ.TextureQuality <= 2
     // create_patch("aiVehicleOpponent::Init", "agiRQ.TextureQuality", 0x44DC2A, "\xEB\x06", 2);
 
-    create_patch("CACHE", "Capacity", 0x4029DA + 1, "\x00\x10\x00\x00", 4); //    0x800 ->   0x1000 (2x)
-    create_patch("CACHE", "HeapSize", 0x4029DF + 1, "\x00\x00\x20\x00", 4); // 0x100000 -> 0x200000 (2x)
+    // Double Cache Limits
+    create_packed_patch<u32>("CACHE", "Capacity", 0x4029DA + 1, 0x1000);
+    create_packed_patch<u32>("CACHE", "HeapSize", 0x4029DF + 1, 2 << 20);
     create_hook("CACHE", "Shutdown", 0x402D98, 0x577070, hook_type::call);
 
-    create_patch("TEXCACHE", "Capacity", 0x4029F3 + 1, "\x00\x02\x00\x00", 4); //    0x100 ->    0x200 (2x)
-    create_patch("TEXCACHE", "HeapSize", 0x4029F8 + 1, "\x00\x00\x40\x00", 4); // 0x200000 -> 0x400000 (2x)
+    create_packed_patch<u32>("TEXCACHE", "Capacity", 0x4029F3 + 1, 0x200);
+    create_packed_patch<u32>("TEXCACHE", "HeapSize", 0x4029F8 + 1, 4 << 20);
     create_hook("TEXCACHE", "Shutdown", 0x402D8E, 0x577070, hook_type::call);
 
     if (false) // Hack, replaces 16-bit handler with 32-bit handler
@@ -268,6 +269,7 @@ void InitPatches()
     // Allocates 2 extra agiTexDef slots instead of 1, in case TextureCount == 0 (Assumes new memory is zeroed out)
     // Won't avoid some crashes, but should help avoid any out of bounds reads or writes
     // This also needs to be patched in agiMeshSet::DoPageIn
+    // lea edx,[ecx*4+0x8]
     create_patch("agiMeshSet::BinaryLoad", "Avoid empty texdefs", 0x502D43, "\x8D\x14\x8D\x08\x00\x00\x00", 7);
 
     // Hack, avoids attempting to access freed memory (https://github.com/0x1F9F1/Open1560/issues/15)
@@ -284,18 +286,20 @@ void InitPatches()
 
     patch_jmp("PolarCamCS", "No Collision", 0x4FAFF4, jump_type::always);
 
-    create_patch("PolarCamCS", "Increase Max XCAM Distance", 0x620340, "\x00\x00\x7A\x43", 4);
+    create_packed_patch<f32>("PolarCamCS", "Increase Max XCAM Distance", 0x620340, 250.0f);
 
     create_patch("aiVehicleOpponent::Reset", "Fix List::Clear memory leak", 0x44DE4D,
         "\x89\xF9\xE8\x3C\xE4\x12\x00\x90\x8B\xD3\x42", 11);
+
     create_patch(
         "aiVehiclePolice::Reset", "Fix List::Clear memory leak", 0x44511C, "\x89\xF9\xE8\x6D\x71\x13\x00\x90", 8);
 
     create_patch("agiSWTexDef::BeginGfx", "MipMapCount Comparison", 0x537797, "\x7E", 1);
     create_patch("agiSWTexDef::EndGfx", "MipMapCount Comparison", 0x537833, "\x7E", 1);
 
-    create_patch("TestResolution", "Max Software Resolution", 0x575E6C + 3, "\x00\x08", 2);
-    create_patch("TestResolution", "Max Software Resolution", 0x575E73 + 2, "\x00\x08", 2);
+    // Software renderer breaks with resolutions > 2048. Is this just a DDRAW limit?
+    create_packed_patch<u16>("TestResolution", "Max Software Resolution", 0x575E6C + 3, 2048);
+    create_packed_patch<u16>("TestResolution", "Max Software Resolution", 0x575E73 + 2, 2048);
 
     create_patch("agiSWTexLut::BeginGfx", "Fixed Fog Calculation", 0x5379F2,
         "\xB8\x00\x01\x00\x00\x89\x45\xE4\x46\xC1\xE6\x05\x29\xF0\x90\x90\x90", 0x11);
@@ -323,12 +327,11 @@ void InitPatches()
         "\xA3\xE0\x84\x70\x00\x90\x90\x90\x90\x90\x90\x90\x90",
         0x41);
 
-    create_patch("asNetwork::JoinLobbySession", "Max Lobby Players", 0x4891EC + 3, "\x08", 1);
+    create_packed_patch<u32>("asNetwork::JoinLobbySession", "Max Lobby Players", 0x4891EC + 3, 8);
 
     create_patch("mmWheel::Update", "Wheel Speed", 0x47F179, "\xDD\xD8\x90\x90\x90\x90", 6);
 
-    f32 skid_thresh = 0.5f;
-    create_patch("SkidRotationThresh", "Fix skids", 0x63C014, &skid_thresh, sizeof(skid_thresh));
+    create_packed_patch<f32>("SkidRotationThresh", "Fix skids", 0x63C014, 0.5f);
 
     for (usize addr : {
              0x4F5B6E,
@@ -378,26 +381,35 @@ void InitPatches()
     // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4627E6, "\xEB\x2A", 2);
     // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4629F9, "\xEB\x3A", 2);
 
-    create_patch("MenuManager::ScanGlobalKeys", "Debug Text Alignment", 0x4B11DA + 1, "\x07", 1);
+    create_packed_patch<u8>(
+        "MenuManager::ScanGlobalKeys", "Debug Text Alignment", 0x4B11DA + 1, 0x7); // CENTER | VCENTER | BORDER
 
     for (usize addr : {0x413BC0, 0x415D72, 0x417A90})
     {
         create_patch("LocPlayerName", "lea don't mov", addr, "\x8D", 1);
     }
 
-    create_patch("mmMultiCR::OppStealGold", "Icon Number", 0x41D93C + 6, "\x0A\x00\x00\x00", 4);
+    create_packed_patch<u32>("mmMultiCR::OppStealGold", "Icon Number", 0x41D93C + 6, 10);
 
 #ifndef ARTS_FINAL
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
 
-    // create_patch("ApplicationHelper", "No paging in menus", 0x4029A6, "\x00\x00\x00\x00", 4);
+    // create_packed_patch<u32>("ApplicationHelper", "No paging in menus", 0x4029A6, 0);
 
     {
-        patch_jmp("", "", 0x4744DD, jump_type::never);
+        for (usize addr : {
+                 0x4743C9,
+                 0x47441D,
+                 0x474471,
+                 0x4744DD,
+             })
+        {
+            patch_jmp("mmCar::VehNameRemap", "Egg Check", addr, jump_type::never);
+        }
 
         // Ambient Vehicle Colors
-        u32 new_colors[] {
+        static const u32 AmbientVehiclePalette[] {
             0xFFB58900, // Yellow
             0xFFCB4B16, // Orange
             0xFFDC322F, // Red
@@ -406,21 +418,30 @@ void InitPatches()
             0xFF268BD2, // Blue
             0xFF2AA198, // Cyan
             0xFF859900, // Green
-            0xFF073642, // Base02
-            0xFFEEE8D5, // Base2
         };
 
-        std::memcpy((u32*) 0x639888, new_colors, sizeof(new_colors));
+        create_hook("aiVehicleAmbient::Init", "Custom Ambient Colors", 0x44EFF1,
+            alloc_proxy<ARTS_SIZE(AmbientVehiclePalette) * sizeof(u32**)>, hook_type::call);
+
+        create_packed_patch<const void*>(
+            "aiVehicleAmbient::Init", "Custom Ambient Colors", 0x44EFF6 + 1, &AmbientVehiclePalette);
+
+        create_packed_patch<u32>(
+            "aiVehicleAmbient::Init", "Custom Ambient Colors", 0x44F008 + 3, ARTS_SIZE32(AmbientVehiclePalette));
+
+        create_packed_patch<u32>(
+            "aiVehicleAmbient::Init", "Custom Ambient Colors", 0x44F100 + 1, ARTS_SIZE32(AmbientVehiclePalette));
     }
 
-    create_patch("", "", 0x4022B7 + 6, "\x05", 1);
+    create_patch("ApplicationHelper", "Use -race for Edit GameMode", 0x4022B7 + 6, "\x05", 1);
 
     {
         const char* wp_name = "pt_check";
-        create_patch("", "", 0x4124A7 + 1, &wp_name, sizeof(wp_name));
+        create_patch(
+            "mmGameEdit::InitGameObjects", "Use a valid waypoint object", 0x4124A7 + 1, &wp_name, sizeof(wp_name));
     }
 
-    patch_jmp("", "", 0x474371, jump_type::never);
-    patch_jmp("", "", 0x42A8E8, jump_type::never);
+    patch_jmp("mmCar::VehNameRemap", "Work in all game modes", 0x474371, jump_type::never);
+    patch_jmp("mmPlayer::Init", "Enable FreeCam when not in DevelopmentMode", 0x42A8E8, jump_type::never);
 #endif
 }
