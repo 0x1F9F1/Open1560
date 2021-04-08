@@ -1,0 +1,37 @@
+NumCells; // Number of cells in this file
+MaxCells; // Highest cell index
+
+for i from 0 to NumCells:
+    CellIndex; // Index of this cell
+
+    /*
+        0x1   | _A
+        0x2   | _L
+        0x4   | _M
+        0x8   | _H
+        0x10  |
+        0x20  | _A2
+        0x40  | _L2
+        0x80  | _M2
+        0x100 | _H2
+    */
+    ModelFlags;
+
+    /*
+        0x1 | Is Tunnel (Echo, No Lighting, No Reflections, No Ptx)
+        0x2 | Indoors
+        0x4 | ???
+        0x8 | ???
+        0x10 | ???
+        0x20 | ???
+        0x20 | ZEnable
+        0x40 | No Skids
+        0x80 | FogValue = 0.25
+        0x100 | ???
+    */
+    RoomFlags;
+
+    NumVisitTags;
+
+    // Cells which are always visible from this cell
+    VisitTags[NumVisitTags];

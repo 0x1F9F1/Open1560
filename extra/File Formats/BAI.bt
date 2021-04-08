@@ -1,0 +1,92 @@
+//------------------------------------------------
+//--- 010 Editor v8.0 Binary Template
+//
+//      File:
+//   Authors:
+//   Version:
+//   Purpose:
+//  Category:
+// File Mask:
+//  ID Bytes:
+//   History:
+//------------------------------------------------
+
+struct Vector3
+{
+    float x;
+    float y;
+    float z;
+};
+
+struct aiPath
+{
+    ushort ID;
+    ushort VertexCount;
+    ushort NumLanes;
+    ushort NumSidewalks;
+    ushort TrafficLightIndex;
+    ushort IntersectionType;
+    ushort IsAlwaysBlocked;
+    ushort IsPedBlocked;
+    ushort IsDivided;
+    ushort IsFlat;
+    ushort HasBridge;
+    ushort IsAlley;
+    float RoadLength;
+    float SpeedLimit;
+    char StopLightName[32];
+    uint ParentID;
+    uint EdgeIndex;
+    uint PathIndex;
+    float SubSectionOffsets[VertexCount * (NumLanes + NumSidewalks)] <optimize=false>;
+    float CenterOffsets[VertexCount] <optimize=false>;
+    uint IntersectionIDs[2] <optimize=false>;
+    Vector3 LaneVertices[VertexCount * (NumLanes + NumSidewalks)] <optimize=false>;
+    Vector3 CenterVertices[VertexCount] <optimize=false>;
+    Vector3 VertXDirs[VertexCount] <optimize=false>;
+    Vector3 Normals[VertexCount] <optimize=false>;
+    Vector3 VertZDirs[VertexCount] <optimize=false>;
+    Vector3 SubSectionDirs[VertexCount] <optimize=false>;
+    Vector3 SidewalkVertices[VertexCount * 2] <optimize=false>;
+    Vector3 LBoundaries[VertexCount] <optimize=false>;
+    Vector3 TrafficLightPos;
+    Vector3 TrafficLightDir;
+    float LaneWidths[5];
+    float LaneLengths[10];
+};
+
+struct aiIntersection
+{
+    ushort ID;
+    Vector3 Position;
+
+    ushort NumSinkPaths;
+    uint SinkPathIDs[NumSinkPaths] <optimize=false>;
+
+    ushort NumSourcePaths;
+    uint SourcePathIDs[NumSourcePaths] <optimize=false>;
+
+    uint PathIDs[NumSinkPaths + NumSourcePaths] <optimize=false>;
+    float RoadDirections[NumSinkPaths + NumSourcePaths] <optimize=false>;
+};
+
+struct CArrayList
+{
+    uint NumItems;
+
+    if (NumItems > 0)
+        uint Items[NumItems] <optimize=false>;
+};
+
+struct aiMap
+{
+    ushort NumIntersections;
+    ushort NumPaths;
+    aiPath Paths[NumPaths] <optimize=false>;
+    aiIntersection Intersections[NumIntersections] <optimize=false>;
+    uint NumCells;
+    CArrayList AmbientRoadIDs[NumCells] <optimize=false>;
+    CArrayList PedRoadIDs[NumCells] <optimize=false>;
+};
+
+aiMap file;

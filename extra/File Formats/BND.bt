@@ -1,0 +1,73 @@
+//------------------------------------------------
+//--- 010 Editor v7.0.2 Binary Template
+//
+//      File:
+//   Authors:
+//   Version:
+//   Purpose:
+//  Category:
+// File Mask:
+//  ID Bytes:
+//   History:
+//------------------------------------------------
+struct Vector3
+{
+    float x;
+    float y;
+    float z;
+};
+
+struct Polygon
+{
+  ushort word0;
+  ubyte MtlIndex;
+  ubyte Flags;
+  ushort VertIndices[4];
+  Vector3 SomeVecs[4];
+  float Corners[4];
+};
+
+struct BND
+{
+    long Magic; // BND2
+    Vector3 Offset;
+    long Width;
+    long RowCount;
+    long Height;
+    Vector3 Center;
+    float Radius;
+    float RadiusSqr;
+    Vector3 Min;
+    Vector3 Max;
+    long NumVerts;
+    long NumPolys;
+    long unk5;
+    long numVerticesUnk;
+    long EdgeCount;
+    float ScaledDistX;
+    float ZDist;
+    long numIndices;
+    float HeightScale;
+    long unk12;
+
+    Vector3 vertices[NumVerts];
+    Polygon polys[NumPolys + 1];
+    Vector3 verticesUnk[numVerticesUnk];
+    long Edges0[EdgeCount];
+    long Edges1[EdgeCount];
+    Vector3 EdgeNormals[EdgeCount];
+    float Edges2[EdgeCount];
+
+    if (Width)
+    {
+        if (RowCount)
+        {
+            float RowOffsets[Height];
+            ushort RowSomethings[Width * Height];
+            ushort Indices[numIndices];
+            ubyte FixedHeights[Width * Height];
+        }
+    }
+};
+
+BND file;

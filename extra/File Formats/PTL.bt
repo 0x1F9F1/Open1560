@@ -1,0 +1,29 @@
+struct Vector3
+{
+    float x;
+    float y;
+    float z;
+};
+
+uint dword0;
+uint PortalCount;
+
+if (dword0 != 0)
+    Vector3 Vecs[dword0];
+
+struct PtlPortal
+{
+    byte Flags;
+    byte EdgeCount;
+    ushort gap2;
+    ushort Cell1;
+    ushort Cell2;
+    float Height;
+    Vector3 Min;
+    Vector3 Max;
+
+    if (EdgeCount == 3) {
+        // Printf("3 Edges: %i -> %i\n", Cell1, Cell2);
+        Vector3 SomeEdge;
+    }
+} Portals[PortalCount] <optimize=false>;
