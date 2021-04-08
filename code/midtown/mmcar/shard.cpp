@@ -31,7 +31,8 @@ mmShardManager::mmShardManager()
 
 mmShardManager::~mmShardManager()
 {
-    Instances[Index] = Instances[--NumInstances];
+    // FIXME: Incorrectly assumes destruction order
+    --NumInstances;
 }
 
 mmShardManager* mmShardManager::GetInstance(i32 index)

@@ -40,6 +40,29 @@ class Vector2;
 class Vector3;
 class Vector4;
 
+// agiMeshSet::Flags
+#define AGI_MESH_SET_DYNTEX 0x1  // agiMeshSet::TexCoords
+#define AGI_MESH_SET_LIT 0x2     // agiMeshSet::Normals
+#define AGI_MESH_SET_CPV 0x4     // agiMeshSet::Colors
+#define AGI_MESH_SET_OFFSET 0x8  // agiMeshSet::Vertices are offset
+#define AGI_MESH_SET_PLANES 0x10 // agiMeshSet::Planes
+
+// GetMeshSet
+// mesh->Flags = flags & AGI_MESH_SET_FLAGS_MASK
+#define AGI_MESH_SET_FLAGS_MASK \
+    (AGI_MESH_SET_DYNTEX | AGI_MESH_SET_LIT | AGI_MESH_SET_CPV | AGI_MESH_SET_OFFSET | AGI_MESH_SET_PLANES)
+
+// if (!(flags & 0x100) && (EnablePaging & 2) && FileSystem::PagerInfoAny(bms_path, &pager))
+#define AGI_MESH_SET_KEEP_LOADED 0x100 // Overlaps with AGI_MESH_SET_VARIANT_MASK, why?
+
+// if (flags & 0xF00) mesh->Variant = flags >> 8
+#define AGI_MESH_SET_VARIANT_MASK 0xF00
+#define AGI_MESH_SET_VARIANT_SHIFT 8
+
+// mmInstance::GetMeshSetSet
+#define AGI_MESH_SET_SET_NO_BOUND 0x40
+#define AGI_MESH_SET_SET_BREAKABLE 0x80 // strcat(bnd_name, "_break")
+
 class agiMeshSet
 {
 public:
@@ -369,8 +392,11 @@ public:
     Vector2* TexCoords {nullptr};
     u32* Colors {nullptr};
     Vector4* Planes {nullptr};
+
+    // CacheHandle must be stored directly after Pager
     PagerInfo_t Pager {};
-    i32 Handle {0};
+    i32 CacheHandle {0};
+
     u16* VertexIndices {nullptr};
     u16* SurfaceIndices {nullptr};
     u8* TextureIndices {nullptr};
@@ -383,9 +409,10 @@ public:
     i32 IndicesCount {0};
     u8 TextureCount {0};
     u8 VariationCount {0};
+
     u8 Flags {0};
     u8 Resident {0};
-    u32 field_58 {0};
+    u32 Variant {0};
     agiTexDef*** Textures {nullptr};
 
 private:

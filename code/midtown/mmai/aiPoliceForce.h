@@ -57,7 +57,7 @@ public:
     ARTS_EXPORT i32 State(class mmCar* cop, class mmCar* perp, f32 dist);
 
     // 0x44E970 | ?UnRegisterCop@aiPoliceForce@@QAEHPAVmmCar@@0@Z
-    ARTS_EXPORT b32 UnRegisterCop(class mmCar* arg1, class mmCar* arg2);
+    ARTS_EXPORT b32 UnRegisterCop(class mmCar* cop, class mmCar* perp);
 
     // 0x44E850 | ?Update@aiPoliceForce@@QAEXXZ
     ARTS_EXPORT void Update();

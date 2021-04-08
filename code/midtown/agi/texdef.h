@@ -231,6 +231,7 @@ protected:
     // 0x556230 | ??1agiTexDef@@MAE@XZ
     ARTS_EXPORT ~agiTexDef() override;
 
+    // CacheHandle must be stored directly after Pager
     PagerInfo_t pager_ {};
     i32 cache_handle_ {0};
 
@@ -264,7 +265,7 @@ ARTS_IMPORT extern i32 TexBytesPaged;
 ARTS_IMPORT extern class HashTable TexLutHash;
 
 // 0x656838 | ?TexSearchPath@@3PADA
-ARTS_IMPORT extern char* TexSearchPath;
+ARTS_IMPORT extern char* TexSearchPath; // Null Separated
 
 // 0x8FAFC8 | ?TexsPaged@@3HA
 ARTS_IMPORT extern i32 TexsPaged;

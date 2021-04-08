@@ -26,6 +26,8 @@ agiMeshSet::agiMeshSet() = default;
 
 agiMeshSet::~agiMeshSet()
 {
+    EndGfx();
+
     if (Textures)
     {
         for (i32 i = 0; i < VariationCount; ++i)

@@ -90,7 +90,7 @@ ARTS_EXPORT const char* FQN(const char* path);
 ARTS_IMPORT extern class HierFileSystem HFS;
 
 // 0x907BD0 | ?HierAllowPath@@3PADA
-ARTS_IMPORT extern char* HierAllowPath;
+ARTS_IMPORT extern char* HierAllowPath; // Null Separated
 
 // 0x907B40 | ?HierPrefix@@3PADA
 ARTS_IMPORT extern char* HierPrefix;
