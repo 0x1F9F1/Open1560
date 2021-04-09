@@ -30,7 +30,10 @@ VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode*
     , data_size_(file_node->GetSize())
 {
     RawSeek(0);
-    flags_ |= 0x2;
+
+    if (base_stream_->SupportsMapping())
+        flags_ |= AGI_STREAM_SUPPORTS_MAPPING;
+
     lock_.init();
 }
 

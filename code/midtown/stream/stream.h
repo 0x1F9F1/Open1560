@@ -74,6 +74,9 @@
 
 #include "core/endian.h"
 
+#define AGI_STREAM_MANAGED_BUFFER 0x1
+#define AGI_STREAM_SUPPORTS_MAPPING 0x2
+
 class Stream : public Base
 {
     // const Stream::`vftable' @ 0x6218E8
@@ -246,6 +249,11 @@ public:
     template <typename T>
     void GetN(T* values, isize count);
 
+    bool SupportsMapping() const
+    {
+        return flags_ & AGI_STREAM_SUPPORTS_MAPPING;
+    }
+
 protected:
     // 0x55EE90 | ?RawDebug@Stream@@MAEXXZ
     ARTS_EXPORT virtual void RawDebug();
@@ -267,8 +275,7 @@ protected:
 
     FileSystem* file_system_ {nullptr};
 
-    // 0x1 | Allocated Buffer
-    // 0x2 | Virtual/Offset/Supports File Mapping?
+    // AGI_STREAM_*
     u8 flags_ {0};
 
     u8 swap_endian_ {false};

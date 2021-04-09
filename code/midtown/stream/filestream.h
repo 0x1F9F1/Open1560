@@ -66,6 +66,8 @@ public:
     // 0x561840 | ?Create@FileStream@@QAEHPAD@Z
     ARTS_EXPORT i32 Create(const char* path);
 
+    void* GetMapping() override;
+
     // 0x561830 | ?GetPagerHandle@FileStream@@UAEIXZ
     ARTS_EXPORT usize GetPagerHandle() override;
 
@@ -96,15 +98,19 @@ public:
     // 0x561930 | ?Stdout@FileStream@@QAEHXZ
     ARTS_EXPORT i32 Stdout();
 
+protected:
+    i32 GetError(char* buf, isize buf_len) override;
+
 private:
-    i32 file_handle_ {-1};
+    void* file_handle_ {nullptr};
     void* pager_handle_ {nullptr};
+    void* file_mapping_ {nullptr};
 };
 
-check_size(FileStream, 0x28);
+// check_size(FileStream, 0x28);
 
 // 0x908C08 | ?__stdin@@3VFileStream@@A
-// ARTS_IMPORT extern class FileStream __stdin;
+ARTS_EXPORT extern class FileStream __stdin;
 
 // 0x908BE0 | ?__stdout@@3VFileStream@@A
-// ARTS_IMPORT extern class FileStream __stdout;
+ARTS_EXPORT extern class FileStream __stdout;
