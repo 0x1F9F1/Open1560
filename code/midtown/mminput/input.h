@@ -449,6 +449,8 @@ public:
     // 0x4E40E0 | ?DeclareFields@mmInput@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    ARTS_ZEROED;
+
 private:
     // 0x4E3EB0 | ?AddWidgets@mmInput@@EAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;

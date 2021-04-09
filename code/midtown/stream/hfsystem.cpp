@@ -83,7 +83,7 @@ struct FileInfo* HierFileSystem::FirstEntry(const char* path)
     if (!QueryOn(path))
         return nullptr;
 
-    CStringBuffer<256> needle;
+    CStringBuffer<1024> needle;
     needle.assign(path);
     needle.append("/*");
 

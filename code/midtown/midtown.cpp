@@ -91,6 +91,118 @@ ARTS_EXPORT /*static*/ char* exeDirFile(char* buffer, char* file)
 static Callback GameResetCallback_[32];
 CallbackArray GameResetCallbacks {GameResetCallback_, ARTS_SIZE(GameResetCallback_)};
 
+static void CheckSystem()
+{
+    if (HANDLE mutex = CreateMutexA(NULL, FALSE, "MidtownMadnessMutex");
+        (mutex == NULL) || (WaitForSingleObject(mutex, 1) != WAIT_OBJECT_0))
+    {
+        MessageBoxA(NULL, LOC_STR(MM_IDS_ALREADY_RUNNING), APPTITLE, MB_ICONERROR);
+        Quit();
+    }
+
+    if (MEMORYSTATUSEX memory {sizeof(memory)}; GlobalMemoryStatusEx(&memory))
+    {
+        Displayf("Avail Phys: %lldM  Avail Page: %lldM  Avail addr: %lldM", memory.ullAvailPhys >> 20,
+            memory.ullAvailPageFile >> 20, memory.ullAvailVirtual >> 20);
+
+        if (memory.ullAvailPageFile + memory.ullAvailPhys < (80 << 20))
+        {
+            MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_MEMORY), APPTITLE, MB_ICONERROR);
+            Quit();
+        }
+    }
+
+    if (ULARGE_INTEGER free_bytes; GetDiskFreeSpaceExA(NULL, &free_bytes, NULL, NULL))
+    {
+        if (free_bytes.QuadPart < (128 << 10))
+        {
+            MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_DISK), APPTITLE, 0);
+        }
+    }
+}
+
+static void SetDefaultState()
+{
+    MMSTATE.AudNumChannels = 32;
+    MMSTATE.AudFlags = AudManager::GetHiSampleSizeMask() | AudManager::GetHiResMask() | AudManager::GetStereoOnMask() |
+        AudManager::GetCommentaryOnMask() | AudManager::GetCDMusicOnMask() | AudManager::GetSoundFXOnMask();
+    arts_strcpy(MMSTATE.AudDeviceName, "");
+    MMSTATE.HasMidtownCD = false;
+    MMSTATE.WaveVolume = 1.0f;
+    MMSTATE.CDVolume = 0.5f;
+    MMSTATE.AudBalance = 0.0f;
+    MMSTATE.CurrentCar = 2;
+    MMSTATE.AmbientDensity = 0.33f;
+    MMSTATE.CopDensity = 1.0f;
+    MMSTATE.MaxOpponents = 7.0f;
+    MMSTATE.CopBehaviorFlag = 0;
+    MMSTATE.PedDensity = 1.0f;
+    MMSTATE.GameMode = mmGameMode::Cruise;
+    MMSTATE.EventId = 0;
+    MMSTATE.AutoTransmission = true;
+    MMSTATE.EnableFF = true;
+    MMSTATE.PhysicsRealism = 0.75f;
+    MMSTATE.Weather = 0;
+    MMSTATE.TimeOfDay = 1;
+    MMSTATE.InputType = 0;
+    MMSTATE.DisableDamage = false;
+    MMSTATE.DisableAI = false;
+    MMSTATE.TimeLimit = 0.0f;
+    MMSTATE.UnlockAllRaces = false;
+    MMSTATE.SuperCops = false;
+    MMSTATE.AmbientCount = 100;
+    MMSTATE.CameraIndex = 0;
+    MMSTATE.HudmapMode = 0;
+    MMSTATE.WideFov = false;
+    MMSTATE.DashView = false;
+    arts_strcpy(MMSTATE.IntroText, "");
+}
+
+static void LoadArchives(const char* path)
+{
+    char module_path[1024];
+
+    if (!path)
+    {
+        GetModuleFileNameA(NULL, module_path, ARTS_SIZE32(module_path));
+
+        if (char* dir = std::strrchr(module_path, '\\'))
+        {
+            *dir = '\0';
+            path = module_path;
+        }
+        else
+        {
+            path = ".";
+        }
+    }
+
+    for (FileInfo* f = HFS.FirstEntry(path); f; f = HFS.NextEntry(f))
+    {
+        if (char* ext = std::strrchr(f->Path, '.');
+            ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
+        {
+            char file_path[1024];
+            arts_sprintf(file_path, "%s/%s", path, f->Path);
+
+            if (Stream* stream = arts_fopen(file_path, "r"))
+            {
+                Displayf("Adding '%s' in autosearch...", f->Path);
+                new VirtualFileSystem(stream);
+                // DevelopmentMode = false;
+            }
+        }
+    }
+}
+
+static void UnloadArchives()
+{
+    while (FileSystem::FSCount > 1) // Leave HFS
+    {
+        delete FileSystem::FS[FileSystem::FSCount - 1];
+    }
+}
+
 void ApplicationHelper(i32 argc, char** argv)
 {
     CloseCallback = GameCloseCallback;
@@ -186,7 +298,8 @@ void ApplicationHelper(i32 argc, char** argv)
         }
         else if (ARG("-ime"))
         {
-            bHaveIME = true;
+            // TODO: Fix IME
+            // bHaveIME = true;
         }
     }
 
@@ -217,32 +330,7 @@ void ApplicationHelper(i32 argc, char** argv)
             (page_override & ARTS_PAGE_BOUNDS) ? "bounds" : "", (page_override & ARTS_PAGE_GEOMETRY) ? "geom" : "");
     }
 
-    if (HANDLE mutex = CreateMutexA(NULL, FALSE, "MidtownMadnessMutex");
-        (mutex == NULL) || (WaitForSingleObject(mutex, 1) != WAIT_OBJECT_0))
-    {
-        MessageBoxA(NULL, LOC_STR(MM_IDS_ALREADY_RUNNING), APPTITLE, MB_ICONERROR);
-        Quit();
-    }
-
-    if (MEMORYSTATUSEX memory {sizeof(memory)}; GlobalMemoryStatusEx(&memory))
-    {
-        Displayf("Avail Phys: %lldM  Avail Page: %lldM  Avail addr: %lldM", memory.ullAvailPhys >> 20,
-            memory.ullAvailPageFile >> 20, memory.ullAvailVirtual >> 20);
-
-        if (memory.ullAvailPageFile + memory.ullAvailPhys < (80 << 20))
-        {
-            MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_MEMORY), APPTITLE, MB_ICONERROR);
-            Quit();
-        }
-    }
-
-    if (ULARGE_INTEGER free_bytes; GetDiskFreeSpaceExA(NULL, &free_bytes, NULL, NULL))
-    {
-        if (free_bytes.QuadPart < (128 << 10))
-        {
-            MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_DISK), APPTITLE, 0);
-        }
-    }
+    CheckSystem();
 
     dxiConfig(argc, argv);
     ShowCursor(FALSE);
@@ -276,42 +364,9 @@ void ApplicationHelper(i32 argc, char** argv)
     CURHEAP = &ALLOCATOR;
     SAFEHEAP.Init((ALLOCATOR.IsDebug() ? 80 : 64) << 20, true);
 
+    SetDefaultState();
+
     bool no_ui = false;
-
-    MMSTATE.AudNumChannels = 32;
-    MMSTATE.AudFlags = AudManager::GetHiSampleSizeMask() | AudManager::GetHiResMask() | AudManager::GetStereoOnMask() |
-        AudManager::GetCommentaryOnMask() | AudManager::GetCDMusicOnMask() | AudManager::GetSoundFXOnMask();
-    MMSTATE.AudDeviceName[0] = 0;
-    MMSTATE.HasMidtownCD = false;
-    MMSTATE.WaveVolume = 1.0f;
-    MMSTATE.CDVolume = 0.5f;
-    MMSTATE.AudBalance = 0.0f;
-    MMSTATE.CurrentCar = 2;
-    MMSTATE.AmbientDensity = 0.33f;
-    MMSTATE.CopDensity = 1.0f;
-    MMSTATE.MaxOpponents = 7.0f;
-    MMSTATE.CopBehaviorFlag = 0;
-    MMSTATE.PedDensity = 1.0f;
-    MMSTATE.GameMode = mmGameMode::Cruise;
-    MMSTATE.EventId = 0;
-    MMSTATE.AutoTransmission = true;
-    MMSTATE.EnableFF = true;
-    MMSTATE.PhysicsRealism = 0.75f;
-    MMSTATE.Weather = 0;
-    MMSTATE.TimeOfDay = 1;
-    MMSTATE.InputType = 0;
-    MMSTATE.DisableDamage = false;
-    MMSTATE.DisableAI = false;
-    MMSTATE.TimeLimit = 0.0f;
-    MMSTATE.UnlockAllRaces = false;
-    MMSTATE.SuperCops = false;
-    MMSTATE.AmbientCount = 100;
-    MMSTATE.CameraIndex = 0;
-    MMSTATE.HudmapMode = 0;
-    MMSTATE.WideFov = false;
-    MMSTATE.DashView = false;
-    arts_strcpy(MMSTATE.IntroText, "");
-
     /*const*/ char* replay_name = nullptr;
     int priority = 2;
 
@@ -327,6 +382,7 @@ void ApplicationHelper(i32 argc, char** argv)
                 veh_name = veh->sValues[0];
 
             MMSTATE.NoUI = true;
+            no_ui = true;
             arts_strcpy(MMSTATE.CarName, veh_name);
             MMSTATE.GameState = 1;
         }
@@ -468,8 +524,6 @@ void ApplicationHelper(i32 argc, char** argv)
         arts_strcpy(CityName, DEFAULT_CITY);
     }
 
-    char ar_path_buffer[1024];
-
     while (!MMSTATE.Closing)
     {
         LoadTimer.Reset();
@@ -503,37 +557,7 @@ void ApplicationHelper(i32 argc, char** argv)
 
             if (!VFS)
             {
-                if (!ar_path)
-                {
-                    GetModuleFileNameA(NULL, ar_path_buffer, ARTS_SIZE32(ar_path_buffer));
-
-                    if (char* dir = std::strrchr(ar_path_buffer, '\\'))
-                    {
-                        *dir = '\0';
-                        ar_path = ar_path_buffer;
-                    }
-                    else
-                    {
-                        ar_path = ".";
-                    }
-                }
-
-                for (FileInfo* f = HFS.FirstEntry(ar_path); f; f = HFS.NextEntry(f))
-                {
-                    if (char* ext = std::strrchr(f->Path, '.');
-                        ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
-                    {
-                        char path[1024];
-                        arts_sprintf(path, "%s/%s", ar_path, f->Path);
-
-                        if (Stream* stream = arts_fopen(path, "r"))
-                        {
-                            Displayf("Adding '%s' in autosearch...", f->Path);
-                            new VirtualFileSystem(stream);
-                            // DevelopmentMode = false;
-                        }
-                    }
-                }
+                LoadArchives(ar_path);
 
                 if (Stream* phys_db = arts_fopen("mtl/physics.db", "r"))
                 {
@@ -669,10 +693,9 @@ void ApplicationHelper(i32 argc, char** argv)
         MMSTATE.Closing = 0;
 
         ALLOCATOR.SanityCheck();
-
         // TouchMemory(ALLOCATOR.GetHeapStart(), ALLOCATOR.GetHeapSize());
-        module_init.End();
 
+        module_init.End();
         Displayf("********* Load time = %f seconds; %dK allocated.", LoadTimer.Time(), ALLOCATOR.GetHeapUsed() >> 10);
 
         if (show_cursor)
@@ -720,8 +743,7 @@ void ApplicationHelper(i32 argc, char** argv)
 
         if (!VFS)
         {
-            while (FileSystem::FSCount > 1) // Leave the HFS
-                delete FileSystem::FS[FileSystem::FSCount - 1];
+            UnloadArchives();
         }
 
         delete ARTSPTR;

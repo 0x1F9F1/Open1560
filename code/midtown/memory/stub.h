@@ -90,3 +90,13 @@ ARTS_EXPORT void* arts_realloc(void* ptr, std::size_t size);
 void* arts_aligned_alloc(std::size_t size, std::size_t align);
 
 void arts_aligned_free(void* ptr, std::size_t align);
+
+#define ARTS_ZEROED                               \
+    static void* operator new(std::size_t size)   \
+    {                                             \
+        return arts_calloc(1, size);              \
+    }                                             \
+    static void* operator new[](std::size_t size) \
+    {                                             \
+        return arts_calloc(1, size);              \
+    }
