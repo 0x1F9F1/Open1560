@@ -65,11 +65,6 @@ private:
         FontHash.Insert(name_, this);
     }
 
-    ~mmFont()
-    {
-        Kill();
-    }
-
     FT_Face face_ {nullptr};
     char name_[256] {};
     i32 height_ {0};
@@ -92,8 +87,9 @@ private:
     const mmGlyph& LoadChar(u32 char_code);
 
 public:
+    ~mmFont();
+
     void Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 color, u32 format);
-    void Kill();
 
     i32 GetHeight()
     {
@@ -274,17 +270,13 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
     }
 }
 
-void mmFont::Kill()
+mmFont::~mmFont()
 {
     if (face_)
     {
         FT_Stream stream = face_->stream;
         FT_Done_Face(face_);
         delete stream;
-
-        FontHash.Delete(name_);
-
-        face_ = nullptr;
     }
 }
 
@@ -322,10 +314,8 @@ static FT_Library mmFont_Library = nullptr;
 
 static void mmFont_Shutdown()
 {
-    FontHash.Kill(nullptr, [](void*, const char* key, void*) { Displayf("Font '%s' Leaked", key); });
-
+    FontHash.Kill(nullptr, [](void*, const char*, void* value) { delete static_cast<mmFont*>(value); });
     FT_Done_Library(mmFont_Library);
-
     mmFont_Library = nullptr;
 }
 
@@ -419,7 +409,7 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
 
         FT_Add_Default_Modules(mmFont_Library);
 
-        GameResetCallbacks.Append(CFA(mmFont_Shutdown));
+        OnGameReset.Append(CFA(mmFont_Shutdown));
     }
 
     char name[256];

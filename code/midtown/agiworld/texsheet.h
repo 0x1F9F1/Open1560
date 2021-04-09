@@ -108,6 +108,11 @@ public:
     // 0x5120D0 | ?Save@agiTexSheet@@QAEXPAD@Z | unused
     ARTS_IMPORT void Save(char* arg1);
 
+    i32 GetPropCount() const
+    {
+        return prop_count_;
+    }
+
 private:
     agiTexProp* props_ {nullptr};
     i32 prop_count_ {0};

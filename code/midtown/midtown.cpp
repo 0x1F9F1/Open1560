@@ -88,8 +88,8 @@ ARTS_EXPORT /*static*/ char* exeDirFile(char* buffer, char* file)
     return buffer;
 }
 
-static Callback GameResetCallback_[32];
-CallbackArray GameResetCallbacks {GameResetCallback_, ARTS_SIZE(GameResetCallback_)};
+static Callback GameResetCallbacks[32];
+CallbackArray OnGameReset {GameResetCallbacks, ARTS_SIZE(GameResetCallbacks)};
 
 static void CheckSystem()
 {
@@ -739,7 +739,7 @@ void ApplicationHelper(i32 argc, char** argv)
         delete GameInputPtr;
         delete AUDMGRPTR;
 
-        GameResetCallbacks.Invoke(true);
+        OnGameReset.Invoke(true);
 
         if (!VFS)
         {

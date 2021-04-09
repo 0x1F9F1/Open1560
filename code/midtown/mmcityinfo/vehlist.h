@@ -44,39 +44,42 @@ class mmVehList final
 
 public:
     // 0x4CC080 | ??0mmVehList@@QAE@XZ
-    ARTS_IMPORT mmVehList();
+    ARTS_EXPORT mmVehList();
 
     // 0x4CC460 | ??_GmmVehList@@UAEPAXI@Z
     // 0x4CC460 | ??_EmmVehList@@UAEPAXI@Z
     // 0x4CC0A0 | ??1mmVehList@@UAE@XZ
-    ARTS_IMPORT virtual ~mmVehList();
+    ARTS_EXPORT virtual ~mmVehList();
 
     // 0x4CC1C0 | ?GetVehicleID@mmVehList@@QAEHPAD@Z
-    ARTS_IMPORT i32 GetVehicleID(char* arg1);
+    ARTS_EXPORT i32 GetVehicleID(char* name);
 
     // 0x4CC140 | ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@PAD@Z
     ARTS_EXPORT class mmVehInfo* GetVehicleInfo(const char* name);
 
     // 0x4CC110 | ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@H@Z
-    ARTS_IMPORT class mmVehInfo* GetVehicleInfo(i32 arg1);
+    ARTS_EXPORT class mmVehInfo* GetVehicleInfo(i32 index);
 
     // 0x4CC100 | ?Init@mmVehList@@QAEXH@Z | unused
-    ARTS_IMPORT void Init(i32 arg1);
+    ARTS_EXPORT void Init(i32 arg1);
 
     // 0x4CC240 | ?Load@mmVehList@@QAEXPAD@Z
-    ARTS_IMPORT void Load(char* arg1);
+    ARTS_EXPORT void Load(char* name);
 
     // 0x4CC3C0 | ?LoadAll@mmVehList@@QAEXXZ
-    ARTS_IMPORT void LoadAll();
+    ARTS_EXPORT void LoadAll();
 
     // 0x4CC370 | ?Print@mmVehList@@QAEXXZ | unused
-    ARTS_IMPORT void Print();
+    ARTS_EXPORT void Print();
 
-    mmVehInfo** Vehicles {nullptr};
+    void SetDefaultVehicle(const char* name);
+
+    Ptr<mmVehInfo*[]> Vehicles;
     i32 NumVehicles {0};
+    mmVehInfo* DefaultVehicle {nullptr};
 };
 
-check_size(mmVehList, 0xC);
+// check_size(mmVehList, 0xC);
 
 // 0x7084EC | ?VehicleListPtr@@3PAVmmVehList@@A
 ARTS_IMPORT extern class mmVehList* VehicleListPtr;

@@ -20,6 +20,33 @@ define_dummy_symbol(mmcityinfo_vehlist);
 
 #include "vehlist.h"
 
+#include "agiworld/texsheet.h"
+#include "stream/fsystem.h"
+
+mmVehList::mmVehList()
+{
+    VehicleListPtr = this;
+}
+
+mmVehList::~mmVehList()
+{
+    for (i32 i = 0; i < NumVehicles; ++i)
+        delete Vehicles[i];
+
+    VehicleListPtr = nullptr;
+}
+
+i32 mmVehList::GetVehicleID(char* name)
+{
+    for (i32 i = 0; i < NumVehicles; ++i)
+    {
+        if (!std::strcmp(name, Vehicles[i]->BaseName))
+            return i;
+    }
+
+    return -1;
+}
+
 mmVehInfo* mmVehList::GetVehicleInfo(const char* name)
 {
     for (i32 i = 0; i < NumVehicles; ++i)
@@ -28,11 +55,83 @@ mmVehInfo* mmVehList::GetVehicleInfo(const char* name)
             return vehicle;
     }
 
-    Errorf("Missing vehicle '%s'", name);
+    return DefaultVehicle;
+}
 
-    // Avoid crashes from missing vehicles
-    if (std::strcmp(name, "vpbug") != 0)
-        return GetVehicleInfo("vpbug");
+mmVehInfo* mmVehList::GetVehicleInfo(i32 index)
+{
+    if (index >= 0 && index < NumVehicles)
+        return Vehicles[index];
+
+    Errorf("mmVehList::GetVehicleInfo Illegal id(%d)", index);
 
     return nullptr;
 }
+
+void mmVehList::Init(i32 /*arg1*/)
+{
+    NumVehicles = 0;
+}
+
+void mmVehList::Load(char* name)
+{
+    char path[64];
+    arts_sprintf(path, "tune/%s", name);
+
+    Ptr<mmVehInfo> info = MakeUnique<mmVehInfo>();
+
+    if (!info->Load(path) || GetVehicleID(info->BaseName) >= 0)
+        return;
+
+    Ptr<mmVehInfo*[]> vehicles = MakeUniqueUninit<mmVehInfo*[]>(NumVehicles + 1);
+
+    for (i32 i = 0; i < NumVehicles; ++i)
+        vehicles[i] = Vehicles[i];
+
+    vehicles[NumVehicles] = info.release();
+    Vehicles.swap(vehicles);
+    ++NumVehicles;
+}
+
+void mmVehList::LoadAll()
+{
+    if (!TEXSHEET.GetPropCount())
+        TEXSHEET.Load(const_cast<char*>("mtl/global.tsh"));
+
+    for (i32 i = 0; i < FileSystem::FSCount; ++i)
+    {
+        FileSystem* fs = FileSystem::FS[i];
+
+        for (FileInfo* f = fs->FirstEntry("tune"); f; f = fs->NextEntry(f))
+        {
+            if (const char* ext = std::strrchr(f->Path, '.'); ext && !arts_stricmp(ext, ".INFO"))
+                Load(f->Path);
+        }
+    }
+
+    SetDefaultVehicle("vpbug");
+}
+
+void mmVehList::Print()
+{
+    for (i32 i = 0; i < NumVehicles; ++i)
+    {
+        Displayf("******VEHICLE # %d", i + 1);
+        Vehicles[i]->Print();
+        Displayf("");
+    }
+}
+
+void mmVehList::SetDefaultVehicle(const char* name)
+{
+    DefaultVehicle = GetVehicleInfo(name);
+
+    ArAssert(DefaultVehicle, "Invalid Default Vehicle");
+}
+
+run_once([] {
+    for (usize addr : {0x403EEC, 0x406B8B})
+    {
+        create_hook("mmVehList", "Size of mmVehList", addr, alloc_proxy<mmVehList>, hook_type::call);
+    }
+});

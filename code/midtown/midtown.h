@@ -71,15 +71,13 @@ ARTS_IMPORT class agiPipeline* CreatePipeline(i32 argc, char** argv);
 ARTS_EXPORT i32 GameFilter(struct _EXCEPTION_POINTERS* exception);
 
 // 0x4015A0 | ?GameLoop@@YAXPAVmmInterface@@PAVmmGameManager@@PAD@Z
-ARTS_IMPORT void GameLoop(class mmInterface* arg1, class mmGameManager* arg2, char* arg3);
+ARTS_IMPORT void GameLoop(class mmInterface* mm_interface, class mmGameManager* game_manager, char* replay_name);
 
 // 0x4012D0 | ?GenerateLoadScreenName@@YAHXZ
 ARTS_IMPORT i32 GenerateLoadScreenName();
 
 // 0x402F40 | ?InitAudioManager@@YAXXZ
 ARTS_IMPORT void InitAudioManager();
-
-// 0x403C00 | ??_H@YGXPAXIHP6EX0@Z@Z | invalid name
 
 // 0x63468C | ?APPTITLE@@3PADA
 ARTS_IMPORT extern char* APPTITLE;
@@ -146,6 +144,4 @@ ARTS_IMPORT extern ulong hImmContext; // TODO: Use usize/void*
 // 0x634684 | ?page_override@@3HA
 ARTS_IMPORT extern i32 page_override;
 
-class CallbackArray;
-
-extern CallbackArray GameResetCallbacks;
+extern class CallbackArray OnGameReset;
