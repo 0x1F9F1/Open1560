@@ -74,8 +74,8 @@
 
 #include "core/endian.h"
 
-#define AGI_STREAM_MANAGED_BUFFER 0x1
-#define AGI_STREAM_SUPPORTS_MAPPING 0x2
+#define ARTS_STREAM_MANAGED_BUFFER 0x1
+#define ARTS_STREAM_SUPPORTS_MAPPING 0x2
 
 class Stream : public Base
 {
@@ -251,7 +251,7 @@ public:
 
     bool SupportsMapping() const
     {
-        return flags_ & AGI_STREAM_SUPPORTS_MAPPING;
+        return flags_ & ARTS_STREAM_SUPPORTS_MAPPING;
     }
 
 protected:
@@ -275,7 +275,7 @@ protected:
 
     FileSystem* file_system_ {nullptr};
 
-    // AGI_STREAM_*
+    // ARTS_STREAM_*
     u8 flags_ {0};
 
     u8 swap_endian_ {false};

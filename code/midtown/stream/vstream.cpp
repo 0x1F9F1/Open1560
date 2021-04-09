@@ -32,7 +32,7 @@ VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode*
     RawSeek(0);
 
     if (base_stream_->SupportsMapping())
-        flags_ |= AGI_STREAM_SUPPORTS_MAPPING;
+        flags_ |= ARTS_STREAM_SUPPORTS_MAPPING;
 
     lock_.init();
 }

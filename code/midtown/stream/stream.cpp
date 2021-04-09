@@ -36,7 +36,7 @@ Stream::Stream(void* buffer, isize buffer_size, class FileSystem* file_system)
     if (buffer_ == nullptr && buffer_capacity_ != 0)
     {
         buffer_ = new u8[buffer_capacity_];
-        flags_ |= AGI_STREAM_MANAGED_BUFFER;
+        flags_ |= ARTS_STREAM_MANAGED_BUFFER;
     }
 
     swap_endian_ = little_endian_;
@@ -52,7 +52,7 @@ Stream::~Stream()
     if (file_system_)
         file_system_->NotifyDelete();
 
-    if (flags_ & AGI_STREAM_MANAGED_BUFFER)
+    if (flags_ & ARTS_STREAM_MANAGED_BUFFER)
         delete[] buffer_;
 
     buffer_ = nullptr;

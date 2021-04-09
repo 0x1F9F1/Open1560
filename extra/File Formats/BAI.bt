@@ -78,8 +78,8 @@ struct CArrayList
         uint Items[NumItems] <optimize=false>;
 };
 
-struct aiMap
-{
+// struct aiMap
+// {
     ushort NumIntersections;
     ushort NumPaths;
     aiPath Paths[NumPaths] <optimize=false>;
@@ -87,6 +87,4 @@ struct aiMap
     uint NumCells;
     CArrayList AmbientRoadIDs[NumCells] <optimize=false>;
     CArrayList PedRoadIDs[NumCells] <optimize=false>;
-};
-
-aiMap file;
+// };

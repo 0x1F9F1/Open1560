@@ -139,7 +139,7 @@ i32 FileStream::Open(const char* path, b32 read_only)
             if (file_mapping_ == nullptr)
                 return -1;
 
-            flags_ |= AGI_STREAM_SUPPORTS_MAPPING;
+            flags_ |= ARTS_STREAM_SUPPORTS_MAPPING;
         }
     }
 
