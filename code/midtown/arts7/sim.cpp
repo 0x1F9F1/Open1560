@@ -23,16 +23,83 @@ define_dummy_symbol(arts7_sim);
 #include "agi/light.h"
 #include "agi/mtllib.h"
 #include "agi/physlib.h"
+#include "agi/pipeline.h"
+#include "agi/print.h"
 #include "agi/texlib.h"
 #include "cullmgr.h"
 #include "data7/metadefine.h"
 #include "data7/utimer.h"
 #include "eventq7/keys.h"
 #include "midgets.h"
+#include "midtown.h"
 #include "stream/vfsystem.h"
 
-void InitBank(i32 /*arg1*/, char** /*arg2*/)
+static extern_var(0x7907F8, b32, PipelineInitialized);
+static extern_var(0x79080C, i32, PipelineWidth);
+static extern_var(0x7907FC, i32, PipelineHeight);
+
+void InitBank(i32 /*argc*/, char** /*argv*/)
 {}
+
+i32 InitPipeline(char* title, i32 argc, char** argv)
+{
+    if (PipelineInitialized)
+        Quitf("Tried to InitPipeline twice.");
+
+    PipelineInitialized = true;
+
+    Argc = argc;
+    Argv = argv;
+
+    agiPipeline::CurrentPipe = CreatePipeline(argc, argv);
+
+    if (Pipe()->Validate())
+        Quit("Couldn't start renderer");
+
+    PipelineWidth = Pipe()->GetWidth();
+    PipelineHeight = Pipe()->GetWidth();
+
+    Pipe()->SetWindow(CreatePipelineAttachableWindow(title, 0, 0, Pipe()->GetWidth(), Pipe()->GetHeight(), nullptr));
+
+    i32 error = Pipe()->BeginAllGfx();
+
+    if (error == 0)
+    {
+        agiPrintInit();
+
+        Pipe()->ClearAll(0);
+    }
+
+    return error;
+}
+
+static extern_var(0x790780, agiLight*, g_Light);
+
+void ShutdownPipeline()
+{
+    if (!PipelineInitialized)
+    {
+        Errorf("ShutdownPipeline w/out InitPipeline.");
+        return;
+    }
+
+    PipelineInitialized = false;
+
+    if (g_Light)
+        g_Light->Release();
+
+    agiPrintShutdown();
+
+    Pipe()->EndAllGfx();
+
+    delete agiPipeline::CurrentPipe;
+    agiPipeline::CurrentPipe = nullptr;
+
+    DestroyPipelineAttachableWindow();
+
+    if (eqReplay::Recording)
+        eqReplay::ShutdownRecord();
+}
 
 // 0x523510 | ?IsValidPointer@@YAHPAXIH@Z
 ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
@@ -40,7 +107,6 @@ ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
 // 0x521C20 | ?QuietPrinter@@YAXHPBDPAD@Z
 ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, char const* arg2, char* arg3);
 
-static extern_var(0x790780, agiLight*, g_Light);
 static extern_var(0x790788, agiLightParameters, SunParams);
 
 static mem::cmd_param PARAM_smoothstep {"smoothstep"};

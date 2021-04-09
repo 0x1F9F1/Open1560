@@ -160,7 +160,7 @@ public:
     ARTS_EXPORT virtual void CopyBitmap(
         i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height);
 
-    virtual void ClearAll(i32 arg1) = 0;
+    virtual void ClearAll(i32 color) = 0;
 
     // 0x556070 | ?ClearRect@agiPipeline@@UAEXHHHHI@Z
     ARTS_EXPORT virtual void ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color);
@@ -316,6 +316,11 @@ public:
     i32 GetVertRes() const
     {
         return vert_res_;
+    }
+
+    void SetWindow(void* window)
+    {
+        window_ = window;
     }
 
 protected:

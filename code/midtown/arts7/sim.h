@@ -269,16 +269,16 @@ private:
 // check_size(asSimulation, 0x2B0);
 
 // 0x522FC0 | ?InitBank@@YAXHPAPAD@Z | unused
-ARTS_EXPORT void InitBank(i32 arg1, char** arg2);
+ARTS_EXPORT void InitBank(i32 argc, char** argv);
 
 // 0x523210 | ?InitPipeline@@YAHPADHPAPAD@Z
-ARTS_IMPORT i32 InitPipeline(char* arg1, i32 arg2, char** arg3);
+ARTS_EXPORT i32 InitPipeline(char* title, i32 argc, char** argv);
 
 // 0x523340 | ?RestartPipeline@@YAHHHHHH@Z | unused
 ARTS_IMPORT i32 RestartPipeline(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
 // 0x5232D0 | ?ShutdownPipeline@@YAXXZ
-ARTS_IMPORT void ShutdownPipeline();
+ARTS_EXPORT void ShutdownPipeline();
 
 // 0x5225F0 | ?invert@@YANN@Z | unused
 ARTS_IMPORT f64 invert(f64 arg1);
