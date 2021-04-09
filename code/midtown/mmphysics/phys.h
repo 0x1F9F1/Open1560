@@ -81,6 +81,10 @@
 
 #include "arts7/node.h"
 
+#include "osample.h"
+
+struct mmInstChain;
+
 class mmPhysExec final : public asNode
 {
     // const mmPhysExec::`vftable' @ 0x61F9D8
@@ -168,6 +172,11 @@ public:
     // 0x4D8EF0 | ?DeclareFields@mmPhysicsMGR@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    void SetGravity(f32 gravity)
+    {
+        Gravity = gravity;
+    }
+
 protected:
     // 0x4D4B50 | ?ClosestNeighboringCullRoom@mmPhysicsMGR@@IAEHH@Z
     ARTS_IMPORT i32 ClosestNeighboringCullRoom(i32 arg1);
@@ -199,7 +208,24 @@ protected:
     // 0x716F70 | ?Instance@mmPhysicsMGR@@1PAV1@A
     ARTS_IMPORT static class mmPhysicsMGR* Instance;
 
-    u8 gap20[0x204];
+private:
+    i32 dword20;
+    asInertialCS* PlayerICS;
+    mmInstance* PlayerInst;
+    i32 ReduceOversampling;
+    f32 Gravity;
+    i32 dword34;
+    i32 NumBounds;
+    mmBoundTemplate* Bounds[64];
+    i32 CylinderCollisions;
+    mmPhysExec PhysExec;
+    asOverSample Sample;
+    mmViewCS* PlayerVCS;
+    i16 Movers[64];
+    i16 NumMovers;
+    i16 field_21A;
+    mmBoundTemplate* BoundTemplate;
+    mmInstChain* PropsChain;
 };
 
 check_size(mmPhysicsMGR, 0x224);

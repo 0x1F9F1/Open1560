@@ -62,6 +62,8 @@ public:
     // 0x579010 | ?Usage@ArgSet@@QAEXXZ
     ARTS_EXPORT void Usage();
 
+    asArg* operator[](char flag);
+
     asArg* Args[128] {};
     void* UsageText {nullptr};
     char* Path {nullptr};
@@ -71,3 +73,10 @@ check_size(ArgSet, 0x208);
 
 // 0x90AEF0 | ?GBArgs@@3VArgSet@@A
 ARTS_IMPORT extern class ArgSet GBArgs;
+
+inline asArg* ArgSet::operator[](char flag)
+{
+    asArg* result = Args[flag];
+
+    return (result && result->Found) ? result : nullptr;
+}

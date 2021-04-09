@@ -144,7 +144,7 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
 
     arts_strcat(buffer, "\n");
 
-    if (EnableNormalOutput || true)
+    if (EnableNormalOutput)
     {
         HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(output, PrinterColors[level]);

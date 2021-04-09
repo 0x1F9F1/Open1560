@@ -92,7 +92,7 @@ void LogToConsole();
 ARTS_IMPORT void LogToMonochromeMonitor();
 
 // 0x576DD0 | ?Quit@@YAXPBD@Z
-void Quit(char const* message);
+void Quit(char const* message = nullptr);
 
 // 0x661AA8 | ?EnableDebugOutput@@3HA
 ARTS_IMPORT extern i32 EnableDebugOutput;

@@ -193,7 +193,7 @@ public:
     ARTS_IMPORT void DeallocateUIADF();
 
     // 0x4E9090 | ?Disable@AudManager@@QAEXFF@Z
-    ARTS_IMPORT void Disable(i16 arg1, i16 arg2);
+    ARTS_IMPORT void Disable(i16 sfx_mode, i16 cd_mode);
 
     // 0x4E93C0 | ?DisableCD@AudManager@@QAEXXZ | unused
     ARTS_IMPORT void DisableCD();
@@ -286,7 +286,7 @@ public:
     ARTS_IMPORT void LoadUIADF();
 
     // 0x4E9230 | ?PlayCDTrack@AudManager@@QAEHHH@Z
-    ARTS_IMPORT i32 PlayCDTrack(i32 arg1, i32 arg2);
+    ARTS_IMPORT i32 PlayCDTrack(i32 track, b32 restart);
 
     // 0x4E92B0 | ?PlayCDTrack@AudManager@@QAEHHEEEH@Z
     ARTS_IMPORT i32 PlayCDTrack(i32 arg1, u8 arg2, u8 arg3, u8 arg4, i32 arg5);

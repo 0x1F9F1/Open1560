@@ -119,7 +119,7 @@ ARTS_IMPORT extern char defcarname[80];
 // 0x6A6E40 | ?szSearchPath@@3PADA
 ARTS_IMPORT extern char szSearchPath[128];
 
-enum mmGameMode : i32;
+enum class mmGameMode : i32;
 
 class mmInterface final : public asNode
 {

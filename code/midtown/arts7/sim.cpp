@@ -266,7 +266,3 @@ const char* asNode::VerifyTree()
 
 META_DEFINE_CHILD("asSimulation", asSimulation, asNode)
 {}
-
-run_once([] {
-    create_hook("new asSimulation", "Size of asSimulation", 0x402650, alloc_proxy<asSimulation>, hook_type::call);
-});

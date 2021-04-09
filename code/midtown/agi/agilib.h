@@ -51,6 +51,7 @@ public:
 
     void Kill()
     {
+        // Kill the hash table first, incase the params/defs try to look something up
         lookup_.Kill();
 
         while (count_)

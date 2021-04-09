@@ -39,3 +39,40 @@ ARTS_IMPORT extern i32 EnableMemStat;
 
 // 0x90AEA8 | ?beginStackCount@@3HA
 ARTS_IMPORT extern i32 beginStackCount;
+
+struct MemStat
+{
+    const char* Name {nullptr};
+
+    MemStat(const char* name)
+    {
+        Begin(name);
+    }
+
+    ~MemStat()
+    {
+        End();
+    }
+
+    void Begin(const char* name)
+    {
+        End();
+        BeginMemStat(name);
+        Name = name;
+    }
+
+    void End()
+    {
+        if (Name)
+        {
+            EndMemStat();
+            Name = nullptr;
+        }
+    }
+};
+
+#define ARTS_MEM_STAT(NAME)                   \
+    MemStat ARTS_CONCAT(mem_stat_, ARTS_LINE) \
+    {                                         \
+        NAME                                  \
+    }

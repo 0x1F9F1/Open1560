@@ -20,20 +20,46 @@ define_dummy_symbol(midtown);
 
 #include "midtown.h"
 
-#include <mem/cmd_param-inl.h>
-
+#include "agi/physlib.h"
+#include "agi/pipeline.h"
+#include "agi/texdef.h"
+#include "arts7/sim.h"
+#include "data7/args.h"
+#include "data7/cache.h"
 #include "data7/callback.h"
 #include "data7/ipc.h"
+#include "data7/memstat.h"
 #include "data7/metaclass.h"
+#include "data7/pager.h"
+#include "data7/timer.h"
+#include "eventq7/winevent.h"
+#include "localize/localize.h"
 #include "memory/allocator.h"
 #include "memory/stack.h"
+#include "memory/valloc.h"
+#include "mmaudio/manager.h"
+#include "mmcamtour/gamerecord.h"
+#include "mmcity/loader.h"
 #include "mmcityinfo/state.h"
+#include "mmgame/gameman.h"
+#include "mmgame/interface.h"
+#include "mminput/input.h"
+#include "mmphysics/phys.h"
 #include "pcwindis/dxinit.h"
+#include "pcwindis/dxsetup.h"
+#include "pcwindis/setupdata.h"
+#include "stream/hfsystem.h"
+#include "stream/stream.h"
+#include "stream/vfsystem.h"
+#include "vector7/randmath.h"
 
+#include <mem/cmd_param-inl.h>
 #include <mem/module.h>
 #include <mem/pattern.h>
 
 #include "core/minwin.h"
+
+const char* DEFAULT_CITY = "chicago";
 
 // 0x402F20 | ?GameCloseCallback@@YAXXZ
 ARTS_EXPORT /*static*/ void GameCloseCallback()
@@ -60,6 +86,667 @@ ARTS_EXPORT /*static*/ char* exeDirFile(char* buffer, char* file)
     arts_strcat(buffer, buf_len, file);
 
     return buffer;
+}
+
+static Callback GameResetCallback_[32];
+CallbackArray GameResetCallbacks {GameResetCallback_, ARTS_SIZE(GameResetCallback_)};
+
+void ApplicationHelper(i32 argc, char** argv)
+{
+    CloseCallback = GameCloseCallback;
+
+    bool log_to_file = true;
+    bool window = false;
+    bool no_audio = false;
+    int path_filter = 1;
+    const char* ar_path = nullptr;
+    DevelopmentMode = false;
+    ALLOCATOR.SetDebug(true);
+
+#define ARG(NAME) !std::strcmp(arg, NAME)
+#define ARGN(NAME) !std::strncmp(arg, NAME, std::strlen(NAME))
+
+    for (int i = 1; i < argc;)
+    {
+        char* arg = argv[i++];
+
+        if (ARGN("-test"))
+        {
+            /*static char test_ar_path[128];
+            arts_sprintf(test_ar_path, "c:\\mm\\shop\\build\\test%s.ar", arg + 5);
+
+            argv[argc++] = const_cast<char*>("-path");
+            argv[argc++] = const_cast<char*>(".");
+            argv[argc++] = const_cast<char*>("-archive");
+            argv[argc++] = test_ar_path;*/
+        }
+        else if (ARG("-window"))
+        {
+            window = true;
+        }
+        else if (ARG("-sw"))
+        {
+            dxiRendererChoice = 0;
+        }
+        else if (ARG("-noaudio"))
+        {
+            no_audio = true;
+        }
+        else if (ARG("-log"))
+        {
+            log_to_file = true;
+        }
+        else if (ARG("-path"))
+        {
+            DevelopmentMode = true;
+            path_filter = 0;
+        }
+        else if (ARG("-fasttune"))
+        {
+            path_filter = 2;
+        }
+        else if (ARGN("-page"))
+        {
+            arg += 5;
+
+            if (*arg)
+            {
+                page_override = 0;
+
+                for (; *arg; ++arg)
+                {
+                    switch (*arg)
+                    {
+                        case 't': page_override |= ARTS_PAGE_TEXTURES; break;
+                        case 'g': page_override |= ARTS_PAGE_GEOMETRY; break;
+                        case 'b': page_override |= ARTS_PAGE_BOUNDS; break;
+                    }
+                }
+            }
+            else
+            {
+                page_override = ARTS_PAGE_TEXTURES | ARTS_PAGE_GEOMETRY | ARTS_PAGE_BOUNDS;
+            }
+        }
+        else if (ARG("-nopage"))
+        {
+            page_override = 0;
+        }
+        else if (ARG("-sync"))
+        {
+            SynchronousMessageQueues = true;
+        }
+        else if (ARG("-adir"))
+        {
+            ar_path = argv[i++];
+        }
+        else if (ARG("-nobc"))
+        {
+            ALLOCATOR.SetDebug(false);
+        }
+        else if (ARG("-ime"))
+        {
+            bHaveIME = true;
+        }
+    }
+
+    GBArgs.ParseArgs(argc, const_cast<const char**>(argv));
+
+    if (GBArgs['f'] || window)
+    {
+        log_to_file = false;
+    }
+    else
+    {
+        // EnableNormalOutput = false;
+        EnableDebugOutput = false;
+    }
+
+    if (log_to_file)
+        LogToFile();
+
+    Displayf("%s - %s", APPTITLE, VERSION_STRING);
+
+    if (page_override == -1)
+    {
+        Warningf("**** PAGING: As specified in UI");
+    }
+    else
+    {
+        Warningf("**** PAGING: (%s %s %s)", (page_override & ARTS_PAGE_TEXTURES) ? "textures" : "",
+            (page_override & ARTS_PAGE_BOUNDS) ? "bounds" : "", (page_override & ARTS_PAGE_GEOMETRY) ? "geom" : "");
+    }
+
+    if (HANDLE mutex = CreateMutexA(NULL, FALSE, "MidtownMadnessMutex");
+        (mutex == NULL) || (WaitForSingleObject(mutex, 1) != WAIT_OBJECT_0))
+    {
+        MessageBoxA(NULL, LOC_STR(MM_IDS_ALREADY_RUNNING), APPTITLE, MB_ICONERROR);
+        Quit();
+    }
+
+    if (MEMORYSTATUSEX memory {sizeof(memory)}; GlobalMemoryStatusEx(&memory))
+    {
+        Displayf("Avail Phys: %lldM  Avail Page: %lldM  Avail addr: %lldM", memory.ullAvailPhys >> 20,
+            memory.ullAvailPageFile >> 20, memory.ullAvailVirtual >> 20);
+
+        if (memory.ullAvailPageFile + memory.ullAvailPhys < (80 << 20))
+        {
+            MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_MEMORY), APPTITLE, MB_ICONERROR);
+            Quit();
+        }
+    }
+
+    if (ULARGE_INTEGER free_bytes; GetDiskFreeSpaceExA(NULL, &free_bytes, NULL, NULL))
+    {
+        if (free_bytes.QuadPart < (128 << 10))
+        {
+            MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_DISK), APPTITLE, 0);
+        }
+    }
+
+    dxiConfig(argc, argv);
+    ShowCursor(FALSE);
+    bool show_cursor = true;
+
+    dxiInit(APPTITLE, argc, argv);
+    Displayf("dxiInit returned.");
+
+    // TODO: Fix IME
+    /*if (ImmGetContext(hwndMain))
+    {
+        bHaveIME = 1;
+        hImmContext = reinterpret_cast<ulong>(ImmAssociateContext(hwndMain, 0));
+    }*/
+
+    switch (path_filter)
+    {
+        case 0: // Allow everything (dev)
+            HierAllowPath = nullptr;
+            break;
+
+        case 1: // Only allow access to save data (default)
+            HierAllowPath = const_cast<char*>("players\0");
+            break;
+
+        case 2: // Allow access to tuning data (fasttune)
+            HierAllowPath = const_cast<char*>("players\0race\0tune\0");
+            break;
+    }
+
+    CURHEAP = &ALLOCATOR;
+    SAFEHEAP.Init((ALLOCATOR.IsDebug() ? 80 : 64) << 20, true);
+
+    bool no_ui = false;
+
+    MMSTATE.AudNumChannels = 32;
+    MMSTATE.AudFlags = AudManager::GetHiSampleSizeMask() | AudManager::GetHiResMask() | AudManager::GetStereoOnMask() |
+        AudManager::GetCommentaryOnMask() | AudManager::GetCDMusicOnMask() | AudManager::GetSoundFXOnMask();
+    MMSTATE.AudDeviceName[0] = 0;
+    MMSTATE.HasMidtownCD = false;
+    MMSTATE.WaveVolume = 1.0f;
+    MMSTATE.CDVolume = 0.5f;
+    MMSTATE.AudBalance = 0.0f;
+    MMSTATE.CurrentCar = 2;
+    MMSTATE.AmbientDensity = 0.33f;
+    MMSTATE.CopDensity = 1.0f;
+    MMSTATE.MaxOpponents = 7.0f;
+    MMSTATE.CopBehaviorFlag = 0;
+    MMSTATE.PedDensity = 1.0f;
+    MMSTATE.GameMode = mmGameMode::Cruise;
+    MMSTATE.EventId = 0;
+    MMSTATE.AutoTransmission = true;
+    MMSTATE.EnableFF = true;
+    MMSTATE.PhysicsRealism = 0.75f;
+    MMSTATE.Weather = 0;
+    MMSTATE.TimeOfDay = 1;
+    MMSTATE.InputType = 0;
+    MMSTATE.DisableDamage = false;
+    MMSTATE.DisableAI = false;
+    MMSTATE.TimeLimit = 0.0f;
+    MMSTATE.UnlockAllRaces = false;
+    MMSTATE.SuperCops = false;
+    MMSTATE.AmbientCount = 100;
+    MMSTATE.CameraIndex = 0;
+    MMSTATE.HudmapMode = 0;
+    MMSTATE.WideFov = false;
+    MMSTATE.DashView = false;
+    arts_strcpy(MMSTATE.IntroText, "");
+
+    /*const*/ char* replay_name = nullptr;
+    int priority = 2;
+
+    for (int i = 1; i < argc;)
+    {
+        char* arg = argv[i++];
+
+        if (ARG("-noui"))
+        {
+            const char* veh_name = "vpbug";
+
+            if (asArg* veh = GBArgs['v'])
+                veh_name = veh->sValues[0];
+
+            MMSTATE.NoUI = true;
+            arts_strcpy(MMSTATE.CarName, veh_name);
+            MMSTATE.GameState = 1;
+        }
+        else if (ARG("-keyboard"))
+        {
+            MMSTATE.InputType = 1;
+        }
+        else if (ARG("-joystick"))
+        {
+            MMSTATE.InputType = 2;
+        }
+        else if (ARG("-wheel"))
+        {
+            MMSTATE.InputType = 4;
+        }
+        else if (ARG("-nodamage"))
+        {
+            MMSTATE.DisableDamage = true;
+        }
+        else if (ARG("-allrace"))
+        {
+            MMSTATE.UnlockAllRaces = true;
+        }
+        else if (ARG("-allcars"))
+        {
+            AllCars = true;
+        }
+        else if (ARG("-stoabs"))
+        {
+            BlitzCheatTime = 800;
+            MMSTATE.DisableDamage = true;
+            MMSTATE.UnlockAllRaces = true;
+            AllCars = true;
+        }
+        else if (ARG("-supercops"))
+        {
+            MMSTATE.SuperCops = true;
+        }
+        else if (ARG("-ambient"))
+        {
+            MMSTATE.AmbientCount = std::atoi(argv[i++]);
+        }
+        else if (ARG("-noai"))
+        {
+            MMSTATE.AmbientDensity = 0.0f;
+            MMSTATE.CopDensity = 0.0f;
+            MMSTATE.MaxOpponents = 0.0f;
+            MMSTATE.DisableAI = true;
+        }
+        else if (ARG("-nopcops"))
+        {
+            MMSTATE.CopDensity = 0.0f;
+        }
+        else if (ARG("-blitztime"))
+        {
+            BlitzCheatTime = std::atoi(argv[i++]);
+        }
+        else if (ARG("-race"))
+        {
+            MMSTATE.GameMode = mmGameMode::Race;
+            MMSTATE.EventId = std::atoi(argv[i++]);
+        }
+        else if (ARG("-circuit"))
+        {
+            MMSTATE.GameMode = mmGameMode::Circuit;
+            MMSTATE.EventId = std::atoi(argv[i++]);
+        }
+        else if (ARG("-blitz"))
+        {
+            MMSTATE.GameMode = mmGameMode::Blitz;
+            MMSTATE.EventId = std::atoi(argv[i++]);
+        }
+        else if (ARG("-edit"))
+        {
+            MMSTATE.GameMode = mmGameMode::Edit;
+        }
+        else if (ARG("-archivecycle"))
+        {
+            CycleTest = 2;
+        }
+        else if (ARG("-sample"))
+        {
+            SampleStats = true;
+        }
+        else if (ARG("-dragtimer"))
+        {
+            DragTimer = true;
+        }
+        else if (ARG("-noopponents"))
+        {
+            MMSTATE.MaxOpponents = 0.0f;
+        }
+        else if (ARG("-prio"))
+        {
+            priority = std::atoi(argv[i++]);
+        }
+        else if (ARG("-crash"))
+        {
+            replay_name = argv[i++];
+        }
+        else if (ARG("-damagescale"))
+        {
+            GlobalDamageScale = static_cast<f32>(std::atof(argv[i++]));
+        }
+    }
+
+#undef ARG
+#undef ARGN
+
+    if (priority >= 0 && priority < 4)
+    {
+        static const char* const priority_names[4] = {"idle", "normal", "high", "REALTIME"};
+        Warningf("Running with %s priority class.", priority_names[priority]);
+
+        static u32 const priority_classes[4] {
+            IDLE_PRIORITY_CLASS, NORMAL_PRIORITY_CLASS, HIGH_PRIORITY_CLASS, REALTIME_PRIORITY_CLASS};
+        SetPriorityClass(GetCurrentProcess(), priority_classes[priority]);
+    }
+
+    PHYS.SetGravity(-19.8f);
+    InitialCursorState = window ? 0 : -1;
+
+    if (CycleTest == 0 && GBArgs['c'])
+    {
+        if (asArg* time = GBArgs['c'])
+        {
+            CycleTest = 1;
+            CycleTime = std::clamp<f32>(time->fValues[0], 5.0f, 600.0f);
+        }
+    }
+
+    if (asArg* city = GBArgs['l'])
+    {
+        arts_strcpy(CityName, city->sValues[0]);
+        MMSTATE.GameMode = mmGameMode::Cruise;
+    }
+    else
+    {
+        arts_strcpy(CityName, DEFAULT_CITY);
+    }
+
+    char ar_path_buffer[1024];
+
+    while (!MMSTATE.Closing)
+    {
+        LoadTimer.Reset();
+        SAFEHEAP.Restart();
+
+        MemStat module_init {"Module init"};
+        InitEventQueue();
+
+        {
+            ARTS_MEM_STAT("AGI Startup");
+
+            if (InitPipeline(APPTITLE, argc, argv))
+            {
+                ShutdownPipeline();
+                DeallocateEventQueue();
+
+                if (!MMSTATE.GameState)
+                    Quitf("Can't start UI, this should never happen.");
+
+                MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_VRAM), APPTITLE, MB_ICONERROR);
+                MMSTATE.GameState = 0;
+                continue;
+            }
+        }
+
+        {
+            ARTS_MEM_STAT("ARTS Init");
+
+            /*ARTSPTR = */ new asSimulation();
+            ARTSPTR->Init(const_cast<char*>("."), argc, argv);
+
+            if (!VFS)
+            {
+                if (!ar_path)
+                {
+                    GetModuleFileNameA(NULL, ar_path_buffer, ARTS_SIZE32(ar_path_buffer));
+
+                    if (char* dir = std::strrchr(ar_path_buffer, '\\'))
+                    {
+                        *dir = '\0';
+                        ar_path = ar_path_buffer;
+                    }
+                    else
+                    {
+                        ar_path = ".";
+                    }
+                }
+
+                for (FileInfo* f = HFS.FirstEntry(ar_path); f; f = HFS.NextEntry(f))
+                {
+                    if (char* ext = std::strrchr(f->Path, '.');
+                        ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
+                    {
+                        char path[1024];
+                        arts_sprintf(path, "%s/%s", ar_path, f->Path);
+
+                        if (Stream* stream = arts_fopen(path, "r"))
+                        {
+                            Displayf("Adding '%s' in autosearch...", f->Path);
+                            new VirtualFileSystem(stream);
+                            // DevelopmentMode = false;
+                        }
+                    }
+                }
+
+                if (Stream* phys_db = arts_fopen("mtl/physics.db", "r"))
+                {
+                    agiPhysLib.Load(phys_db);
+                    delete phys_db;
+                }
+            }
+        }
+
+        if (!GBArgs['f'] && !window)
+            ARTSPTR->SetDebug(false);
+
+        {
+            ARTS_MEM_STAT("Audio manager");
+
+            InitAudioManager();
+
+            if (no_audio)
+                AUDMGRPTR->Disable(-1, -1);
+        }
+
+        {
+            ARTS_MEM_STAT("GameInput");
+
+            /*GameInputPtr = */ new mmInput();
+            GameInputPtr->AttachToPipe();
+            GameInputPtr->Init(MMSTATE.InputType);
+        }
+
+        mmGameManager* game_manager = nullptr;
+        mmInterface* mm_interface = nullptr;
+
+        {
+            mmLoader loader;
+
+            if (page_override == -1)
+            {
+                if (MMSTATE.GameState)
+                    EnablePaging = MMSTATE.EnablePaging ? (ARTS_PAGE_TEXTURES | ARTS_PAGE_GEOMETRY) : 0;
+                else
+                    EnablePaging = ARTS_PAGE_TEXTURES;
+            }
+            else
+            {
+                EnablePaging = page_override;
+            }
+
+            {
+                ARTS_MEM_STAT("Cache and pager.");
+
+                if (EnablePaging)
+                {
+                    CACHE.Init(2 << 20, 2048, "CACHE");
+                    TEXCACHE.Init(4 << 20, 256, "TEXCACHE");
+                }
+
+                PAGER.Init(128, false);
+            }
+
+            loader.Reset();
+
+            switch (MMSTATE.GameState)
+            {
+                case 0: {
+                    loader.Init(const_cast<char*>("title_screen"), 0.0f, 0.0f);
+
+                    if (GraphicsChange)
+                    {
+                        loader.BeginTask(LOC_STRING(MM_IDS_LOADING_GRAPHICS), 0.0f);
+                    }
+                    else
+                    {
+                        if (MMSTATE.HasMidtownCD)
+                            AUDMGRPTR->PlayCDTrack(3, true);
+
+                        loader.BeginTask(LOC_STRING(MM_IDS_LOADING_INTERFACE), 0.0f);
+                    }
+
+                    mm_interface = new mmInterface();
+                    ARTSPTR->AddChild(mm_interface);
+
+                    mm_interface->Reset();
+                    mm_interface->ShowMain(CycleState);
+
+                    CycleState = 1;
+                    break;
+                }
+
+                case 1: {
+                    if (GenerateLoadScreenName())
+                        loader.Init(LoadScreen, 366.0f / 640.0f, 414.0f / 480.0f);
+                    else
+                        loader.Init(LoadScreen, 15.0f / 640.0f, 456.0f / 480.0f);
+
+                    ARTS_MEM_STAT("GameManager");
+
+                    loader.BeginTask(LOC_STRING(MM_IDS_LOADING_RACE), 0.0f);
+
+                    AUDMGRPTR->AssignWaveVolume(MMSTATE.WaveVolume);
+                    AUDMGRPTR->AssignCDVolume(MMSTATE.CDVolume);
+
+                    if (MMSTATE.HasMidtownCD)
+                        AUDMGRPTR->PlayCDTrack(2, true);
+
+                    game_manager = /*mmGameManager::Instance = */ new mmGameManager();
+                    ARTSPTR->AddChild(game_manager);
+
+                    game_manager->Reset();
+
+                    CycleState = 2;
+
+                    if (SampleStats)
+                    {
+                        SystemStatsRecord = new mmGameRecord(0.1f);
+                        SystemStatsRecord->Init(1000);
+                    }
+
+                    if (replay_name)
+                        game_manager->LoadReplay(replay_name);
+
+                    break;
+                }
+
+                default: Quitf("Invalid GameState %i", MMSTATE.GameState);
+            }
+
+            ARTSPTR->ResChange(Pipe()->GetWidth(), Pipe()->GetHeight());
+
+            loader.EndTask(0.0f);
+        }
+
+        MMSTATE.GameState = -1;
+        MMSTATE.Closing = 0;
+
+        ALLOCATOR.SanityCheck();
+
+        // TouchMemory(ALLOCATOR.GetHeapStart(), ALLOCATOR.GetHeapSize());
+        module_init.End();
+
+        Displayf("********* Load time = %f seconds; %dK allocated.", LoadTimer.Time(), ALLOCATOR.GetHeapUsed() >> 10);
+
+        if (show_cursor)
+        {
+            ShowCursor(TRUE);
+            show_cursor = false;
+        }
+
+        GameLoop(mm_interface, game_manager, replay_name);
+
+        if (game_manager)
+        {
+            if (SampleStats)
+            {
+                char csv_name[80];
+                arts_sprintf(csv_name, "gstat_%d_%d_%04d.csv", MMSTATE.GameMode, MMSTATE.EventId,
+                    static_cast<i32>(frand() * 1000.0f));
+                SystemStatsRecord->Dump(csv_name);
+
+                delete SystemStatsRecord;
+                SystemStatsRecord = nullptr;
+            }
+
+            if (!replay_name)
+                game_manager->SaveReplay(const_cast<char*>("last.rpl"));
+        }
+
+        PAGER.Shutdown();
+        AUDMGRPTR->Disable(-1, -1);
+        ALLOCATOR.SanityCheck();
+
+        delete mm_interface;
+        delete game_manager;
+
+        if (EnablePaging)
+        {
+            TEXCACHE.Shutdown();
+            CACHE.Shutdown();
+        }
+
+        delete GameInputPtr;
+        delete AUDMGRPTR;
+
+        GameResetCallbacks.Invoke(true);
+
+        if (!VFS)
+        {
+            while (FileSystem::FSCount > 1) // Leave the HFS
+                delete FileSystem::FS[FileSystem::FSCount - 1];
+        }
+
+        delete ARTSPTR;
+
+        ShutdownPipeline();
+
+        // TODO: Fix IME
+        /*if (bHaveIME)
+        {
+            dxiShutdown();
+            ChangeDisplaySettingsA(0, 0);
+        }*/
+
+        DeallocateEventQueue();
+
+        HashTable::KillAll();
+        MetaClass::UndeclareAll();
+
+        if (no_ui)
+            break;
+    }
+
+    SAFEHEAP.Kill();
+    dxiShutdown();
+    dxiChangeDisplaySettings(0, 0, 0);
 }
 
 #include <shellapi.h>
@@ -147,15 +834,6 @@ ARTS_EXPORT int WINAPI MidtownMain(
     return 0;
 }
 
-static Callback GameResetCallback_[32];
-CallbackArray GameResetCallbacks {GameResetCallback_, ARTS_SIZE(GameResetCallback_)};
-
-static void CallGameResetCallbacks()
-{
-    // TODO: Move this to ApplicationHelper
-    GameResetCallbacks.Invoke(true);
-}
-
 static mem::cmd_param PARAM_affinity {"affinity"};
 static mem::cmd_param PARAM_sync {"sync"};
 static mem::cmd_param PARAM_res_hack {"reshack"};
@@ -164,10 +842,6 @@ void Application(i32 argc, char** argv)
 {
     ARTS_EXCEPTION_BEGIN
     {
-        // Needs to be called before FileSystem destruction
-        create_hook(
-            "CallGameResetCallbacks", "GameResetCallbacks after ~AudManager", 0x4E829F, &CallGameResetCallbacks);
-
         dxiIcon = 111;
 
         u32 affinity = PARAM_affinity.get_or<u32>(0);
@@ -240,24 +914,11 @@ i32 GameFilter(struct _EXCEPTION_POINTERS* exception)
 
 void InitPatches()
 {
-    patch_jmp("ApplicationHelper", "Enable HW Menu Rendering", 0x401DB4, jump_type::always);
-
-    create_packed_patch<u32>("ApplicationHelper", "Increase Heap Size", 0x401E11 + 1, 64 << 20);
-
     patch_jmp("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, jump_type::always);
     patch_jmp("SetTexQualString", "Additive Blending Check", 0x49A29F, jump_type::never);
 
     // Checked in GetPackedTexture, only necessary if agiRQ.TextureQuality <= 2
     // create_patch("aiVehicleOpponent::Init", "agiRQ.TextureQuality", 0x44DC2A, "\xEB\x06", 2);
-
-    // Double Cache Limits
-    create_packed_patch<u32>("CACHE", "Capacity", 0x4029DA + 1, 0x1000);
-    create_packed_patch<u32>("CACHE", "HeapSize", 0x4029DF + 1, 2 << 20);
-    create_hook("CACHE", "Shutdown", 0x402D98, 0x577070, hook_type::call);
-
-    create_packed_patch<u32>("TEXCACHE", "Capacity", 0x4029F3 + 1, 0x200);
-    create_packed_patch<u32>("TEXCACHE", "HeapSize", 0x4029F8 + 1, 4 << 20);
-    create_hook("TEXCACHE", "Shutdown", 0x402D8E, 0x577070, hook_type::call);
 
     if (false) // Hack, replaces 16-bit handler with 32-bit handler
     {
@@ -311,8 +972,6 @@ void InitPatches()
     patch_jmp("mmInterface::PlayerFillStats", "Always Show Score", 0x40C414, jump_type::never);
 
     create_patch("DriverMenu::DisplayDriverInfo", "Fix score alignment", 0x6410E0, "%d", 3);
-
-    create_patch("ApplicationHelper", "DevelopmentMode", 0x40278A, "\x90\x90\x90\x90\x90\x90", 6);
 
     patch_jmp("mmCullCity::Init", "DevelopmentMode", 0x48C851, jump_type::always);
 
@@ -395,8 +1054,6 @@ void InitPatches()
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
 
-    // create_packed_patch<u32>("ApplicationHelper", "No paging in menus", 0x4029A6, 0);
-
     {
         for (usize addr : {
                  0x4743C9,
@@ -432,8 +1089,6 @@ void InitPatches()
         create_packed_patch<u32>(
             "aiVehicleAmbient::Init", "Custom Ambient Colors", 0x44F100 + 1, ARTS_SIZE32(AmbientVehiclePalette));
     }
-
-    create_patch("ApplicationHelper", "Use -race for Edit GameMode", 0x4022B7 + 6, "\x05", 1);
 
     {
         const char* wp_name = "pt_check";

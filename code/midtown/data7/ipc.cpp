@@ -132,10 +132,6 @@ void ipcMessageQueue::Init(i32 max_messages, b32 blocking)
     if (initialized_)
         Quitf("ipcMessageQueue::Init - didn't Shutdown first?");
 
-    // TODO: Increase PAGER.Init(64, false);
-    if (max_messages == 64)
-        max_messages = 128;
-
     read_index_ = 0;
     send_index_ = 0;
 

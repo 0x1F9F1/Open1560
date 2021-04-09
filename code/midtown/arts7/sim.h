@@ -125,7 +125,7 @@ public:
     ARTS_IMPORT void FrameLock(i32 arg1, i32 arg2);
 
     // 0x521C40 | ?Init@asSimulation@@QAEXPADHPAPAD@Z
-    ARTS_IMPORT void Init(char* arg1, i32 arg2, char** arg3);
+    ARTS_IMPORT void Init(char* proj_path, i32 argc, char** argv);
 
     // 0x522FA0 | ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
     ARTS_IMPORT void OpenPhysicsBank();
@@ -189,6 +189,11 @@ public:
     {
         ArAssert(camera_depth_ > 0, "Camera underflow");
         current_view_ = cameras_[--camera_depth_]->GetView();
+    }
+
+    void SetDebug(bool debug)
+    {
+        no_debug_ = !debug;
     }
 
     bool IsDebugDrawEnabled() const

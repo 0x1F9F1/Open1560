@@ -59,13 +59,13 @@
 // 0x4031A0 | _WinMain@16 | void
 
 // 0x4030C0 | ?Application@@YAXHPAPAD@Z
-ARTS_EXPORT void Application(i32 arg1, char** arg2);
+ARTS_EXPORT void Application(i32 argc, char** argv);
 
 // 0x401830 | ?ApplicationHelper@@YAXHPAPAD@Z
-ARTS_IMPORT void ApplicationHelper(i32 arg1, char** arg2);
+ARTS_EXPORT void ApplicationHelper(i32 argc, char** argv);
 
 // 0x4010B0 | ?CreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-ARTS_IMPORT class agiPipeline* CreatePipeline(i32 arg1, char** arg2);
+ARTS_IMPORT class agiPipeline* CreatePipeline(i32 argc, char** argv);
 
 // 0x4014B0 | ?GameFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z
 ARTS_EXPORT i32 GameFilter(struct _EXCEPTION_POINTERS* exception);
@@ -129,6 +129,8 @@ ARTS_IMPORT extern class mmGameRecord* SystemStatsRecord;
 // 0x634690 | ?VERSION_STRING@@3PADA
 ARTS_IMPORT extern char* VERSION_STRING;
 
+extern const char* DEFAULT_CITY;
+
 // 0x672040 | ?__VtPauseSampling@@3P6AHXZA
 ARTS_IMPORT extern i32 (*__VtPauseSampling)(void);
 
@@ -139,7 +141,7 @@ ARTS_IMPORT extern i32 (*__VtResumeSampling)(void);
 ARTS_IMPORT extern i32 bHaveIME;
 
 // 0x672048 | ?hImmContext@@3KA
-ARTS_IMPORT extern u32 hImmContext;
+ARTS_IMPORT extern ulong hImmContext; // TODO: Use usize/void*
 
 // 0x634684 | ?page_override@@3HA
 ARTS_IMPORT extern i32 page_override;

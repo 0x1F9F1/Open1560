@@ -47,7 +47,7 @@
 
 struct FileInfo
 {
-    char Path[256] {};
+    char Path[256] {}; // TODO: Increase buffer size to 1024
     b32 IsDirectory {false};
 
     // TODO: Use inheritance instead of Context pointer

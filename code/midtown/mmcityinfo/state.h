@@ -39,6 +39,16 @@ ARTS_IMPORT extern i32 CHICAGO;
 // 0x706368 | ?MMCURRPLAYER@@3VmmPlayerData@@A
 ARTS_IMPORT extern class mmPlayerData MMCURRPLAYER;
 
+enum class mmGameMode : i32
+{
+    Cruise = 0,
+    Race = 1, // Checkpoint
+    CnR = 2,
+    Circuit = 3,
+    Blitz = 4,
+    Edit = 5,
+};
+
 struct mmStatePack
 {
     i32 CurrentCar;
@@ -50,32 +60,26 @@ struct mmStatePack
     i32 NetworkStatus;
     i32 NumPlayers;
     i32 field_14;
-    i32 CopBehaviorFlag;
+    i32 CopBehaviorFlag; // Cops chase opponents?
     i32 NoUI;
     i32 field_20;
     i32 Closing;
     i32 field_28;
 
-    // 0 | Cruise
-    // 1 | Checkpoint
-    // 2 | Cops & Robbers
-    // 3 | Circuit
-    // 4 | Blitz
-    // 5 | Edit
-    i32 GameMode;
+    mmGameMode GameMode;
     i32 EventId;
-    f32 Difficulty;
+    f32 RaceDifficulty;
     i32 AutoTransmission;
     i32 field_3C;
     i32 field_40;
     i32 field_44;
     f32 AmbientDensity;
     f32 PedDensity;
-    f32 NumCops;
+    f32 CopDensity;
     f32 MaxOpponents;
     f32 PhysicsRealism;
     i32 EnableFF;
-    i32 DisableCustomEvents;
+    i32 UnlockAllRaces;
 
     // 0 | Sun
     // 1 | Fog
@@ -97,12 +101,15 @@ struct mmStatePack
     //  0 | Menus
     //  1 | Race
     i32 GameState;
-    i32 DisableDamage;
-    i32 DisableAI;
-    i32 DisablePerpEscape;
+    b32 DisableDamage;
+    b32 DisableAI;
+    b32 SuperCops;
     i32 AmbientCount;
     i32 NumLaps;
-    i32 ProfessionalMode;
+
+    // 0 | Amateur
+    // 1 | Professional
+    i32 Difficulty;
     f32 WaveVolume;
     f32 AudBalance;
     f32 CDVolume;
@@ -110,7 +117,7 @@ struct mmStatePack
     i16 AudNumChannels;
     char field_142[20];
     char AudDeviceName[200];
-    i8 EnableCDPlayer;
+    bool HasMidtownCD;
     i32 FreeForAll;
     i32 CREnableTimer;
     i32 IsRobber;
@@ -122,12 +129,12 @@ struct mmStatePack
     char IntroText[160];
     i8 CameraIndex;
     i8 HudmapMode;
-    i8 WideView;
-    i8 DashView;
-    i8 EnableMirror;
-    i8 ExternalView;
-    i8 XcamView;
-    i8 IconsState;
+    bool WideFov;
+    bool DashView;
+    bool EnableMirror;
+    bool ExternalView;
+    bool XcamView;
+    bool ShowPositions;
     i8 MapRes;
     b32 DisablePeds;
     b32 EnablePaging;

@@ -117,6 +117,11 @@ public:
         return initialized_;
     }
 
+    bool IsDebug() const
+    {
+        return debug_;
+    }
+
     usize GetHeapSize() const
     {
         return heap_size_;
