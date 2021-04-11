@@ -120,7 +120,7 @@ C:\\mm\\shop:
     tex16o:
     tune:
 
-mmGameEdit: -noai -noui -race (patched)
+mmGameEdit: -noai -noui -edit
     P: Create waypoint at last saved position
     U: Create waypoint at current position
     D: Teleport to camera position

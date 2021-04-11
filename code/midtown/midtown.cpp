@@ -1075,6 +1075,12 @@ void InitPatches()
 
     patch_jmp("mmPlayer::Init", "Enable FreeCam when not in DevelopmentMode", 0x42A8E8, jump_type::never);
 
+    create_packed_patch<u8, f32, u8, u8, u8>(
+        "mmGameEdit::InitGameObjects", "Use a valid waypoint object", 0x412495, 0x68, 7.5f, 0x6A, 0x03, 0x90);
+
+    create_packed_patch<const char*>(
+        "mmGameEdit::InitGameObjects", "Use a valid waypoint object", 0x4124A7 + 1, "pt_check");
+
 #ifndef ARTS_FINAL
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
@@ -1113,12 +1119,6 @@ void InitPatches()
 
         create_packed_patch<u32>(
             "aiVehicleAmbient::Init", "Custom Ambient Colors", 0x44F100 + 1, ARTS_SIZE32(AmbientVehiclePalette));
-    }
-
-    {
-        const char* wp_name = "pt_check";
-        create_patch(
-            "mmGameEdit::InitGameObjects", "Use a valid waypoint object", 0x4124A7 + 1, &wp_name, sizeof(wp_name));
     }
 
     patch_jmp("mmCar::VehNameRemap", "Work in all game modes", 0x474371, jump_type::never);
