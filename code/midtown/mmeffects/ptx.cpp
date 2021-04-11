@@ -157,17 +157,17 @@ void asParticles::Cull()
     }
 }
 
-const f32 ParticleFrameRate = 60.0f;
+static const f32 PtxFrameRate = 60.0f;
 
 void asParticles::Update()
 {
     f32 delta = ARTSPTR->GetUpdateDelta();
-    f32 frames_delta = delta * ParticleFrameRate;
+    f32 frames_delta = delta * PtxFrameRate;
 
-    i32 old_frames = static_cast<i32>(Elapsed * ParticleFrameRate);
+    i32 old_frames = static_cast<i32>(Elapsed * PtxFrameRate);
     Elapsed += delta;
 
-    i32 frames = static_cast<i32>(Elapsed * ParticleFrameRate) - old_frames;
+    i32 frames = static_cast<i32>(Elapsed * PtxFrameRate) - old_frames;
 
     if (BirthRule && (Elapsed < BirthRule->SpewRateLimit || (BirthRule->SpewRateLimit == 0.0f)))
     {

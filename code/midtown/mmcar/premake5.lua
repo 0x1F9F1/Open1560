@@ -60,6 +60,6 @@ arts_component "mmcar"
         -- "trailer.h",
         -- "transmission.cpp",
         -- "transmission.h",
-        -- "wheel.cpp",
-        -- "wheel.h",
+        "wheel.cpp",
+        "wheel.h",
     }

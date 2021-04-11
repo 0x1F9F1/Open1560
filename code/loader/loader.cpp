@@ -468,7 +468,7 @@ include_dummy_symbol(mmcar_shard);
 // include_dummy_symbol(mmcar_surfaceaudioinfo);
 // include_dummy_symbol(mmcar_trailer);
 // include_dummy_symbol(mmcar_transmission);
-// include_dummy_symbol(mmcar_wheel);
+include_dummy_symbol(mmcar_wheel);
 
 // include_dummy_symbol(mmcity_anim);
 // include_dummy_symbol(mmcity_cellrend);

@@ -19,3 +19,17 @@
 define_dummy_symbol(mmcar_wheel);
 
 #include "wheel.h"
+
+#include "arts7/sim.h"
+#include "mmbangers/active.h"
+
+void mmWheel::GenerateSkidParticles()
+{
+    ParticleCount += ParticleMultiplier * PtxMaxSkidCount * ARTSPTR->GetUpdateDelta();
+}
+
+static const f32 PtxFrameRate = 60.0f;
+
+static mem::cmd_param PARAM_maxskid {"maxskid"};
+
+run_once([] { mmWheel::PtxMaxSkidCount = PtxFrameRate * PARAM_maxskid.get_or(1.0f); });

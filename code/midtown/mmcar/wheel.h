@@ -47,6 +47,11 @@
 */
 
 #include "arts7/linear.h"
+#include "mmdyna/isect.h"
+
+class mmCarSim;
+class mmPolygon;
+class agiPhysParameters;
 
 class mmWheel final : public asLinearCS
 {
@@ -76,7 +81,7 @@ public:
     ARTS_IMPORT void CopyVars(class mmWheel* arg1);
 
     // 0x47F340 | ?GenerateSkidParticles@mmWheel@@QAEXXZ
-    ARTS_IMPORT void GenerateSkidParticles();
+    ARTS_EXPORT void GenerateSkidParticles();
 
     // 0x47FDC0 | ?GetClass@mmWheel@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
@@ -115,7 +120,73 @@ public:
     // 0x63C490 | ?PtxMaxSkidCount@mmWheel@@2MA
     ARTS_IMPORT static f32 PtxMaxSkidCount;
 
-    u8 gap88[0x1E0];
+    mmCarSim* CarSim;
+    asInertialCS* ICS;
+    i32 Flags;
+    f32 Spring;
+    f32 Damping;
+    f32 SteeringRatio;
+    f32 BrakeRatio;
+    f32 StaticFriction;
+    f32 SuspensionLimit;
+    f32 SuspensionBlend;
+    f32 RenderableSuspensionLimit;
+    i32 NumWheels;
+    mmIntersection Intersection;
+    i32 dword168;
+    Vector3 field_16C;
+    Vector3 field_178;
+    Vector3 field_184;
+    Vector3 Center;
+    Vector3 Position;
+    f32 Radius;
+    f32 Width;
+    f32 NormalLoad;
+    f32 BumpHeight;
+    f32 BumpWidth;
+    f32 BumpDepth;
+    i32 dword1C0;
+    i32 gap1C4;
+    f32 Wobble;
+    f32 Rotation;
+    f32 MaybeGrip;
+    f32 Steering;
+    f32 Suspension;
+    f32 CurrentLoad;
+    f32 BlendedLoad;
+    f32 dword1E4;
+    f32 OtherNormalLoad;
+    i32 dword1EC;
+    i32 OnGround;
+    f32 Friction;
+    f32 dword1F8;
+    f32 dword1FC;
+    f32 field_200;
+    f32 field_204;
+    f32 dword208;
+    f32 RotationSpeed;
+    f32 LatSlipPercent;
+    f32 LongSlipPercent;
+    f32 RubberSpring;
+    f32 RubberDamp;
+    f32 OptimumSlipPercent;
+    f32 StaticFric;
+    f32 SlidingFric;
+    f32 RubberSpringLat;
+    f32 RubberDampLat;
+    f32 FricMultiplier;
+    f32 SteerMultiplier;
+    f32 UnkFriction1;
+    f32 UnkFriction2;
+    i32 dword244;
+    f32 SteeringInput;
+    f32 BrakingInput;
+    mmBoundTemplate* Bound;
+    mmPolygon* HitPoly;
+    agiPhysParameters* Phys;
+    f32 PtxCount;
+    f32 ParticleCount;
+    i32 field_264;
 };
 
 check_size(mmWheel, 0x268);
