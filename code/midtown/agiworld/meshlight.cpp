@@ -38,7 +38,8 @@ static union mmx fill1Normal;
 static union mmx fill2Normal;
 
 // 0x510EE0 | ?mmxTriple@@YAXPAI0HPAEH@Z
-static void mmxTriple(u32* output, u32* colors, i32 stride, u8* normals, i32 count)
+static void mmxTriple(
+    u32* ARTS_RESTRICT output, u32* ARTS_RESTRICT colors, i32 stride, u8* ARTS_RESTRICT normals, i32 count)
 {
     for (i32 i = 0; i < count; ++i, colors += stride)
     {
@@ -97,9 +98,9 @@ static ARTS_FORCEINLINE void PackNormalMMX(union mmx& output, const Vector3& inp
     // 0.8: 0x3333 | -0.8: -0x3333
     // 0.9: 0x399A | -0.9: -0x399A
     // 1.0: 0x4000 | -1.0: -0x4000
-    output.m16[0] = static_cast<u16>(mem::bit_cast<u32>(input.x + 768.0f));
+    output.m16[0] = static_cast<u16>(mem::bit_cast<u32>(input.z + 768.0f));
     output.m16[1] = static_cast<u16>(mem::bit_cast<u32>(input.y + 768.0f));
-    output.m16[2] = static_cast<u16>(mem::bit_cast<u32>(input.z + 768.0f));
+    output.m16[2] = static_cast<u16>(mem::bit_cast<u32>(input.x + 768.0f));
     output.m16[3] = 0;
 }
 #endif
