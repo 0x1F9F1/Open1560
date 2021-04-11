@@ -1071,6 +1071,9 @@ void InitPatches()
     }
 
     create_packed_patch<u32>("mmMultiCR::OppStealGold", "Icon Number", 0x41D93C + 6, 10);
+    create_packed_patch<u32>("mmGame::Init", "Icon Number", 0x40F21E + 1, 11);
+
+    patch_jmp("mmPlayer::Init", "Enable FreeCam when not in DevelopmentMode", 0x42A8E8, jump_type::never);
 
 #ifndef ARTS_FINAL
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
@@ -1119,6 +1122,5 @@ void InitPatches()
     }
 
     patch_jmp("mmCar::VehNameRemap", "Work in all game modes", 0x474371, jump_type::never);
-    patch_jmp("mmPlayer::Init", "Enable FreeCam when not in DevelopmentMode", 0x42A8E8, jump_type::never);
 #endif
 }

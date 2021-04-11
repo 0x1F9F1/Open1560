@@ -20,8 +20,6 @@ define_dummy_symbol(stream_filestream);
 
 #include "filestream.h"
 
-// TODO: Avoid using io.h functions
-
 #include "core/minwin.h"
 
 HANDLE CopyIoHandle(i32 handle)

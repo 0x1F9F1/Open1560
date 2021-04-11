@@ -27,6 +27,7 @@ static mem::cmd_param PARAM_maxcops {"maxcops"};
 
 aiPoliceForce::aiPoliceForce()
 {
+    // TODO: Add a field to AIMAP
     max_cops_ = std::min<i16>(PARAM_maxcops.get_or<i16>(3), MaxCops);
 
     Reset();
