@@ -219,7 +219,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
     _mm_store_ps(&output[i].x, output_real_128)
 
 #define ARTS_KNI_TRANSFORM_FOG \
-    fogout[i] = static_cast<u8>(_mm_cvt_ss2si(_mm_sub_ss(fog_max, _mm_min_ss(_mm_mul_ss(output_128, fog), fog_max))));
+    fogout[i] = ~static_cast<u8>(_mm_cvtt_ss2si(_mm_min_ss(_mm_mul_ss(output_128, fog), fog_max)));
 
 #define ARTS_KNI_TRANSFORM_CODES_INIT const __m128 abs_mask = _mm_castsi128_ps(_mm_set1_epi32(0x7FFFFFFF));
 

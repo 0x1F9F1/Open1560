@@ -294,7 +294,11 @@ include_dummy_symbol(agiworld_meshload);
 include_dummy_symbol(agiworld_meshrend);
 include_dummy_symbol(agiworld_meshsave);
 include_dummy_symbol(agiworld_meshset);
+
+#ifdef ARTS_ENABLE_KNI
 include_dummy_symbol(agiworld_mrkni);
+#endif
+
 include_dummy_symbol(agiworld_packnorm);
 include_dummy_symbol(agiworld_quality);
 // include_dummy_symbol(agiworld_skeleton);
