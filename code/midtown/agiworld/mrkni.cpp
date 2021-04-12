@@ -188,16 +188,16 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
     }
 }
 
-#define ARTS_KNI_TRANSFORM_INIT                                                                                      \
-    const __m128 m0 = _mm_shuffle_ps(                                                                                \
-        _mm_load_ps(&M.m0.z), _mm_castsi128_ps(_mm_loadl_epi64((const __m128i*) &M.m0.x)), _MM_SHUFFLE(0, 1, 0, 0)); \
-    const __m128 m1 = _mm_shuffle_ps(                                                                                \
-        _mm_load_ps(&M.m1.z), _mm_castsi128_ps(_mm_loadl_epi64((const __m128i*) &M.m1.x)), _MM_SHUFFLE(0, 1, 0, 0)); \
-    const __m128 m2 = _mm_shuffle_ps(                                                                                \
-        _mm_load_ps(&M.m2.z), _mm_castsi128_ps(_mm_loadl_epi64((const __m128i*) &M.m2.x)), _MM_SHUFFLE(0, 1, 0, 0)); \
-    const __m128 m3 = _mm_shuffle_ps(                                                                                \
-        _mm_load_ps(&M.m3.z), _mm_castsi128_ps(_mm_loadl_epi64((const __m128i*) &M.m3.x)), _MM_SHUFFLE(0, 1, 0, 0)); \
-    const __m128 zz = _mm_load_ss(&ProjZZ);                                                                          \
+#define ARTS_KNI_TRANSFORM_INIT                                                                                   \
+    const __m128 mdata0 = _mm_load_ps((const f32*) (&M) + 0);                                                     \
+    const __m128 mdata4 = _mm_load_ps((const f32*) (&M) + 4);                                                     \
+    const __m128 mdata8 = _mm_load_ps((const f32*) (&M) + 8);                                                     \
+    const __m128 m0 = _mm_shuffle_ps(mdata0, mdata0, _MM_SHUFFLE(0, 1, 2, 2));                                    \
+    const __m128 m1 =                                                                                             \
+        _mm_shuffle_ps(mdata4, _mm_shuffle_ps(mdata0, mdata4, _MM_SHUFFLE(0, 0, 0, 3)), _MM_SHUFFLE(0, 2, 1, 1)); \
+    const __m128 m2 = _mm_shuffle_ps(mdata8, mdata4, _MM_SHUFFLE(2, 3, 0, 0));                                    \
+    const __m128 m3 = _mm_shuffle_ps(mdata8, mdata8, _MM_SHUFFLE(1, 2, 3, 3));                                    \
+    const __m128 zz = _mm_load_ss(&ProjZZ);                                                                       \
     const __m128 zw = _mm_load_ss(&ProjZW)
 
 #define ARTS_KNI_TRANSFORM_FOG_INIT            \
