@@ -13,6 +13,9 @@ if (dword0 != 0)
 
 struct PtlPortal
 {
+    // 0x1 | Enabled?
+    // 0x2 | Group Something
+    // type = (Flags & 2) ? 'O' : (Flags & 4) ? 'S' : 'P';
     byte Flags;
     byte EdgeCount;
     ushort gap2;
