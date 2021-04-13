@@ -199,6 +199,9 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
 
 void LogToFile()
 {
+    if (DebugLogFile != INVALID_HANDLE_VALUE)
+        return;
+
     std::time_t time;
     std::time(&time);
 

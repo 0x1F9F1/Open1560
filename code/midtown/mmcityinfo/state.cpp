@@ -20,6 +20,8 @@ define_dummy_symbol(mmcityinfo_state);
 
 #include "state.h"
 
+#include "data7/args.h"
+#include "midtown.h"
 #include "mmaudio/manager.h"
 
 void mmStatePack::SetDefaults()
@@ -30,7 +32,7 @@ void mmStatePack::SetDefaults()
     NumPlayers = 0;
     CopBehaviorFlag = 0;
     NoUI = false;
-    Closing = false;
+    Shutdown = false;
     GameMode = mmGameMode::Cruise;
     EventId = 0;
     RaceDifficulty = 0.0f;
@@ -82,4 +84,127 @@ void mmStatePack::SetDefaults()
     DisablePeds = false;
     EnablePaging = false;
     Interlaced = false;
+}
+
+bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
+{
+    bool no_ui = false;
+
+#define ARG(NAME) !std::strcmp(arg, NAME)
+
+    for (int i = 1; i < argc;)
+    {
+        // FIXME: Extra args may read out of bounds
+        char* arg = argv[i++];
+
+        if (ARG("-noui"))
+        {
+            const char* veh_name = "vpbug";
+
+            if (asArg* veh = GBArgs['v'])
+                veh_name = veh->sValues[0];
+
+            MMSTATE.NoUI = true;
+            no_ui = true;
+            arts_strcpy(MMSTATE.CarName, veh_name);
+            MMSTATE.GameState = 1;
+        }
+        else if (ARG("-keyboard"))
+        {
+            MMSTATE.InputType = mmInputType::Keyboard;
+        }
+        else if (ARG("-joystick"))
+        {
+            MMSTATE.InputType = mmInputType::Joystick;
+        }
+        else if (ARG("-wheel"))
+        {
+            MMSTATE.InputType = mmInputType::Wheel2Axis;
+        }
+        else if (ARG("-nodamage"))
+        {
+            MMSTATE.DisableDamage = true;
+        }
+        else if (ARG("-allrace"))
+        {
+            MMSTATE.UnlockAllRaces = true;
+        }
+        else if (ARG("-allcars"))
+        {
+            AllCars = true;
+        }
+        else if (ARG("-stoabs"))
+        {
+            BlitzCheatTime = 800;
+            MMSTATE.DisableDamage = true;
+            MMSTATE.UnlockAllRaces = true;
+            AllCars = true;
+        }
+        else if (ARG("-supercops"))
+        {
+            MMSTATE.SuperCops = true;
+        }
+        else if (ARG("-ambient"))
+        {
+            MMSTATE.AmbientCount = std::atoi(argv[i++]);
+        }
+        else if (ARG("-noai"))
+        {
+            MMSTATE.AmbientDensity = 0.0f;
+            MMSTATE.CopDensity = 0.0f;
+            MMSTATE.MaxOpponents = 0.0f;
+            MMSTATE.DisableAI = true;
+        }
+        else if (ARG("-nopcops"))
+        {
+            MMSTATE.CopDensity = 0.0f;
+        }
+        else if (ARG("-blitztime"))
+        {
+            BlitzCheatTime = std::atoi(argv[i++]);
+        }
+        else if (ARG("-race"))
+        {
+            MMSTATE.GameMode = mmGameMode::Race;
+            MMSTATE.EventId = std::atoi(argv[i++]);
+        }
+        else if (ARG("-circuit"))
+        {
+            MMSTATE.GameMode = mmGameMode::Circuit;
+            MMSTATE.EventId = std::atoi(argv[i++]);
+        }
+        else if (ARG("-blitz"))
+        {
+            MMSTATE.GameMode = mmGameMode::Blitz;
+            MMSTATE.EventId = std::atoi(argv[i++]);
+        }
+        else if (ARG("-edit"))
+        {
+            MMSTATE.GameMode = mmGameMode::Edit;
+        }
+        else if (ARG("-archivecycle"))
+        {
+            CycleTest = 2;
+        }
+        else if (ARG("-sample"))
+        {
+            SampleStats = true;
+        }
+        else if (ARG("-dragtimer"))
+        {
+            DragTimer = true;
+        }
+        else if (ARG("-noopponents"))
+        {
+            MMSTATE.MaxOpponents = 0.0f;
+        }
+        else if (ARG("-damagescale"))
+        {
+            GlobalDamageScale = static_cast<f32>(std::atof(argv[i++]));
+        }
+    }
+
+#undef ARG
+
+    return no_ui;
 }

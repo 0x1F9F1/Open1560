@@ -69,7 +69,7 @@ const char* DEFAULT_CITY = "chicago";
 ARTS_EXPORT /*static*/ void GameCloseCallback()
 {
     MMSTATE.GameState = 0;
-    MMSTATE.Closing = 1;
+    MMSTATE.Shutdown = true;
 }
 
 // 0x402E70 | ?TouchMemory@@YAXPAXH@Z
@@ -170,20 +170,267 @@ static void UnloadArchives()
     }
 }
 
+#define ARG(NAME) !std::strcmp(arg, NAME)
+#define ARGN(NAME) !std::strncmp(arg, NAME, std::strlen(NAME))
+
+static void MainPhase(i32 argc, char** argv)
+{
+    LoadTimer.Reset();
+
+    char* replay_name = nullptr;
+    char* ar_path = nullptr;
+    bool no_audio = false;
+
+    for (int i = 1; i < argc;)
+    {
+        // FIXME: Extra args may read out of bounds
+        char* arg = argv[i++];
+
+        if (ARG("-crash"))
+        {
+            replay_name = argv[i++];
+        }
+        else if (ARG("-adir"))
+        {
+            ar_path = argv[i++];
+        }
+        else if (ARG("-noaudio"))
+        {
+            no_audio = true;
+        }
+    }
+
+    MemStat module_init {"Module init"};
+    InitEventQueue();
+
+    {
+        ARTS_MEM_STAT("AGI Startup");
+
+        if (InitPipeline(APPTITLE, argc, argv))
+        {
+            ShutdownPipeline();
+            DeallocateEventQueue();
+
+            if (!MMSTATE.GameState)
+                Quitf("Can't start UI, this should never happen.");
+
+            MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_VRAM), APPTITLE, MB_ICONERROR);
+            MMSTATE.GameState = 0;
+            return;
+        }
+    }
+
+    {
+        ARTS_MEM_STAT("ARTS Init");
+
+        /*ARTSPTR = */ new asSimulation();
+        ARTSPTR->Init(const_cast<char*>("."), argc, argv);
+
+        if (!VFS)
+        {
+            LoadArchives(ar_path);
+            agiPhysLib.Load("mtl/physics.db");
+        }
+    }
+
+    if (!GBArgs['f'])
+        ARTSPTR->SetDebug(false);
+
+    {
+        ARTS_MEM_STAT("Audio manager");
+
+        InitAudioManager();
+
+        if (no_audio)
+            AUDMGRPTR->Disable(-1, -1);
+    }
+
+    {
+        ARTS_MEM_STAT("GameInput");
+
+        /*GameInputPtr = */ new mmInput();
+        GameInputPtr->AttachToPipe();
+        GameInputPtr->Init(static_cast<i32>(MMSTATE.InputType));
+    }
+
+    mmGameManager* game_manager = nullptr;
+    mmInterface* mm_interface = nullptr;
+
+    {
+        mmLoader loader;
+
+        if (page_override == -1)
+        {
+            if (MMSTATE.GameState)
+                EnablePaging = MMSTATE.EnablePaging ? (ARTS_PAGE_TEXTURES | ARTS_PAGE_GEOMETRY) : 0;
+            else
+                EnablePaging = ARTS_PAGE_TEXTURES;
+        }
+        else
+        {
+            EnablePaging = page_override;
+        }
+
+        {
+            ARTS_MEM_STAT("Cache and pager.");
+
+            if (EnablePaging)
+            {
+                CACHE.Init(2 << 20, 2048, "CACHE");
+                TEXCACHE.Init(4 << 20, 256, "TEXCACHE");
+            }
+
+            PAGER.Init(128, false);
+        }
+
+        loader.Reset();
+
+        switch (MMSTATE.GameState)
+        {
+            case 0: {
+                loader.Init(const_cast<char*>("title_screen"), 0.0f, 0.0f);
+
+                if (GraphicsChange)
+                {
+                    loader.BeginTask(LOC_STRING(MM_IDS_LOADING_GRAPHICS), 0.0f);
+                }
+                else
+                {
+                    if (MMSTATE.HasMidtownCD)
+                        AUDMGRPTR->PlayCDTrack(3, true);
+
+                    loader.BeginTask(LOC_STRING(MM_IDS_LOADING_INTERFACE), 0.0f);
+                }
+
+                mm_interface = new mmInterface();
+                ARTSPTR->AddChild(mm_interface);
+
+                mm_interface->Reset();
+                mm_interface->ShowMain(CycleState);
+
+                CycleState = 1;
+                break;
+            }
+
+            case 1: {
+                if (GenerateLoadScreenName())
+                    loader.Init(LoadScreen, 366.0f / 640.0f, 414.0f / 480.0f);
+                else
+                    loader.Init(LoadScreen, 15.0f / 640.0f, 456.0f / 480.0f);
+
+                ARTS_MEM_STAT("GameManager");
+
+                loader.BeginTask(LOC_STRING(MM_IDS_LOADING_RACE), 0.0f);
+
+                AUDMGRPTR->AssignWaveVolume(MMSTATE.WaveVolume);
+                AUDMGRPTR->AssignCDVolume(MMSTATE.CDVolume);
+
+                if (MMSTATE.HasMidtownCD)
+                    AUDMGRPTR->PlayCDTrack(2, true);
+
+                game_manager = /*mmGameManager::Instance = */ new mmGameManager();
+                ARTSPTR->AddChild(game_manager);
+
+                game_manager->Reset();
+
+                CycleState = 2;
+
+                if (SampleStats)
+                {
+                    SystemStatsRecord = new mmGameRecord(0.1f);
+                    SystemStatsRecord->Init(1000);
+                }
+
+                if (replay_name)
+                    game_manager->LoadReplay(replay_name);
+
+                break;
+            }
+
+            default: Quitf("Invalid GameState %i", MMSTATE.GameState);
+        }
+
+        ARTSPTR->ResChange(Pipe()->GetWidth(), Pipe()->GetHeight());
+
+        loader.EndTask(0.0f);
+    }
+
+    MMSTATE.GameState = -1;
+    MMSTATE.Shutdown = false;
+
+    ALLOCATOR.SanityCheck();
+    // TouchMemory(ALLOCATOR.GetHeapStart(), ALLOCATOR.GetHeapSize());
+
+    module_init.End();
+    Displayf("********* Load time = %f seconds; %dK allocated.", LoadTimer.Time(), ALLOCATOR.GetHeapUsed() >> 10);
+
+    GameLoop(mm_interface, game_manager, replay_name);
+
+    if (game_manager)
+    {
+        if (SampleStats)
+        {
+            char csv_name[80];
+            arts_sprintf(csv_name, "gstat_%d_%d_%04d.csv", MMSTATE.GameMode, MMSTATE.EventId,
+                static_cast<i32>(frand() * 1000.0f));
+            SystemStatsRecord->Dump(csv_name);
+
+            delete SystemStatsRecord;
+            SystemStatsRecord = nullptr;
+        }
+
+        if (!replay_name)
+            game_manager->SaveReplay(const_cast<char*>("last.rpl"));
+    }
+
+    PAGER.Shutdown();
+    AUDMGRPTR->Disable(-1, -1);
+    ALLOCATOR.SanityCheck();
+
+    delete mm_interface;
+    delete game_manager;
+
+    if (EnablePaging)
+    {
+        TEXCACHE.Shutdown();
+        CACHE.Shutdown();
+    }
+
+    delete GameInputPtr;
+    delete AUDMGRPTR;
+
+    OnGameReset.Invoke(true);
+
+    if (!VFS)
+    {
+        UnloadArchives();
+    }
+
+    delete ARTSPTR;
+
+    ShutdownPipeline();
+
+    // TODO: Fix IME
+    /*if (bHaveIME)
+        {
+            dxiShutdown();
+            ChangeDisplaySettingsA(0, 0);
+        }*/
+
+    DeallocateEventQueue();
+
+    HashTable::KillAll();
+    MetaClass::UndeclareAll();
+}
+
 void ApplicationHelper(i32 argc, char** argv)
 {
     CloseCallback = GameCloseCallback;
 
-    bool log_to_file = true;
-    bool window = false;
-    bool no_audio = false;
     int path_filter = 1;
-    const char* ar_path = nullptr;
+    int priority = 2;
     DevelopmentMode = false;
     ALLOCATOR.SetDebug(true);
-
-#define ARG(NAME) !std::strcmp(arg, NAME)
-#define ARGN(NAME) !std::strncmp(arg, NAME, std::strlen(NAME))
 
     for (int i = 1; i < argc;)
     {
@@ -199,21 +446,13 @@ void ApplicationHelper(i32 argc, char** argv)
             argv[argc++] = const_cast<char*>("-archive");
             argv[argc++] = test_ar_path;*/
         }
-        else if (ARG("-window"))
-        {
-            window = true;
-        }
         else if (ARG("-sw"))
         {
             dxiRendererChoice = 0;
         }
-        else if (ARG("-noaudio"))
-        {
-            no_audio = true;
-        }
         else if (ARG("-log"))
         {
-            log_to_file = true;
+            LogToFile();
         }
         else if (ARG("-path"))
         {
@@ -255,10 +494,6 @@ void ApplicationHelper(i32 argc, char** argv)
         {
             SynchronousMessageQueues = true;
         }
-        else if (ARG("-adir"))
-        {
-            ar_path = argv[i++];
-        }
         else if (ARG("-nobc"))
         {
             ALLOCATOR.SetDebug(false);
@@ -268,22 +503,26 @@ void ApplicationHelper(i32 argc, char** argv)
             // TODO: Fix IME
             // bHaveIME = true;
         }
+        else if (ARG("-prio"))
+        {
+            priority = std::atoi(argv[i++]);
+        }
+    }
+
+    if (priority >= 0 && priority < 4)
+    {
+        static const char* const priority_names[4] = {"idle", "normal", "high", "REALTIME"};
+        Warningf("Running with %s priority class.", priority_names[priority]);
+
+        static u32 const priority_classes[4] {
+            IDLE_PRIORITY_CLASS, NORMAL_PRIORITY_CLASS, HIGH_PRIORITY_CLASS, REALTIME_PRIORITY_CLASS};
+        SetPriorityClass(GetCurrentProcess(), priority_classes[priority]);
     }
 
     GBArgs.ParseArgs(argc, const_cast<const char**>(argv));
 
-    if (GBArgs['f'] || window)
-    {
-        log_to_file = false;
-    }
-    else
-    {
-        // EnableNormalOutput = false;
+    if (!GBArgs['f'])
         EnableDebugOutput = false;
-    }
-
-    if (log_to_file)
-        LogToFile();
 
     Displayf("%s - %s", APPTITLE, VERSION_STRING);
 
@@ -301,7 +540,7 @@ void ApplicationHelper(i32 argc, char** argv)
 
     dxiConfig(argc, argv);
     ShowCursor(FALSE);
-    bool show_cursor = true;
+    InitialCursorState = -1;
 
     dxiInit(APPTITLE, argc, argv);
     Displayf("dxiInit returned.");
@@ -332,146 +571,9 @@ void ApplicationHelper(i32 argc, char** argv)
     SAFEHEAP.Init((ALLOCATOR.IsDebug() ? 80 : 64) << 20, true);
 
     MMSTATE.SetDefaults();
-
-    bool no_ui = false;
-    /*const*/ char* replay_name = nullptr;
-    int priority = 2;
-
-    for (int i = 1; i < argc;)
-    {
-        // FIXME: Extra args may read out of bounds
-        char* arg = argv[i++];
-
-        if (ARG("-noui"))
-        {
-            const char* veh_name = "vpbug";
-
-            if (asArg* veh = GBArgs['v'])
-                veh_name = veh->sValues[0];
-
-            MMSTATE.NoUI = true;
-            no_ui = true;
-            arts_strcpy(MMSTATE.CarName, veh_name);
-            MMSTATE.GameState = 1;
-        }
-        else if (ARG("-keyboard"))
-        {
-            MMSTATE.InputType = mmInputType::Keyboard;
-        }
-        else if (ARG("-joystick"))
-        {
-            MMSTATE.InputType = mmInputType::Joystick;
-        }
-        else if (ARG("-wheel"))
-        {
-            MMSTATE.InputType = mmInputType::Wheel2Axis;
-        }
-        else if (ARG("-nodamage"))
-        {
-            MMSTATE.DisableDamage = true;
-        }
-        else if (ARG("-allrace"))
-        {
-            MMSTATE.UnlockAllRaces = true;
-        }
-        else if (ARG("-allcars"))
-        {
-            AllCars = true;
-        }
-        else if (ARG("-stoabs"))
-        {
-            BlitzCheatTime = 800;
-            MMSTATE.DisableDamage = true;
-            MMSTATE.UnlockAllRaces = true;
-            AllCars = true;
-        }
-        else if (ARG("-supercops"))
-        {
-            MMSTATE.SuperCops = true;
-        }
-        else if (ARG("-ambient"))
-        {
-            MMSTATE.AmbientCount = std::atoi(argv[i++]);
-        }
-        else if (ARG("-noai"))
-        {
-            MMSTATE.AmbientDensity = 0.0f;
-            MMSTATE.CopDensity = 0.0f;
-            MMSTATE.MaxOpponents = 0.0f;
-            MMSTATE.DisableAI = true;
-        }
-        else if (ARG("-nopcops"))
-        {
-            MMSTATE.CopDensity = 0.0f;
-        }
-        else if (ARG("-blitztime"))
-        {
-            BlitzCheatTime = std::atoi(argv[i++]);
-        }
-        else if (ARG("-race"))
-        {
-            MMSTATE.GameMode = mmGameMode::Race;
-            MMSTATE.EventId = std::atoi(argv[i++]);
-        }
-        else if (ARG("-circuit"))
-        {
-            MMSTATE.GameMode = mmGameMode::Circuit;
-            MMSTATE.EventId = std::atoi(argv[i++]);
-        }
-        else if (ARG("-blitz"))
-        {
-            MMSTATE.GameMode = mmGameMode::Blitz;
-            MMSTATE.EventId = std::atoi(argv[i++]);
-        }
-        else if (ARG("-edit"))
-        {
-            MMSTATE.GameMode = mmGameMode::Edit;
-        }
-        else if (ARG("-archivecycle"))
-        {
-            CycleTest = 2;
-        }
-        else if (ARG("-sample"))
-        {
-            SampleStats = true;
-        }
-        else if (ARG("-dragtimer"))
-        {
-            DragTimer = true;
-        }
-        else if (ARG("-noopponents"))
-        {
-            MMSTATE.MaxOpponents = 0.0f;
-        }
-        else if (ARG("-prio"))
-        {
-            priority = std::atoi(argv[i++]);
-        }
-        else if (ARG("-crash"))
-        {
-            replay_name = argv[i++];
-        }
-        else if (ARG("-damagescale"))
-        {
-            GlobalDamageScale = static_cast<f32>(std::atof(argv[i++]));
-        }
-    }
-
-#undef ARG
-#undef ARGN
-
-    if (priority >= 0 && priority < 4)
-    {
-        static const char* const priority_names[4] = {"idle", "normal", "high", "REALTIME"};
-        Warningf("Running with %s priority class.", priority_names[priority]);
-
-        static u32 const priority_classes[4] {
-            IDLE_PRIORITY_CLASS, NORMAL_PRIORITY_CLASS, HIGH_PRIORITY_CLASS, REALTIME_PRIORITY_CLASS};
-        SetPriorityClass(GetCurrentProcess(), priority_classes[priority]);
-    }
+    bool no_ui = MMSTATE.ParseStateArgs(argc, argv);
 
     PHYS.SetGravity(-19.8f);
-    InitialCursorState = window ? 0 : -1;
 
     if (CycleTest == 0 && GBArgs['c'])
     {
@@ -492,238 +594,10 @@ void ApplicationHelper(i32 argc, char** argv)
         arts_strcpy(CityName, DEFAULT_CITY);
     }
 
-    while (!MMSTATE.Closing)
+    while (!MMSTATE.Shutdown)
     {
-        LoadTimer.Reset();
         SAFEHEAP.Restart();
-
-        MemStat module_init {"Module init"};
-        InitEventQueue();
-
-        {
-            ARTS_MEM_STAT("AGI Startup");
-
-            if (InitPipeline(APPTITLE, argc, argv))
-            {
-                ShutdownPipeline();
-                DeallocateEventQueue();
-
-                if (!MMSTATE.GameState)
-                    Quitf("Can't start UI, this should never happen.");
-
-                MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_VRAM), APPTITLE, MB_ICONERROR);
-                MMSTATE.GameState = 0;
-                continue;
-            }
-        }
-
-        {
-            ARTS_MEM_STAT("ARTS Init");
-
-            /*ARTSPTR = */ new asSimulation();
-            ARTSPTR->Init(const_cast<char*>("."), argc, argv);
-
-            if (!VFS)
-            {
-                LoadArchives(ar_path);
-                agiPhysLib.Load("mtl/physics.db");
-            }
-        }
-
-        if (!GBArgs['f'] && !window)
-            ARTSPTR->SetDebug(false);
-
-        {
-            ARTS_MEM_STAT("Audio manager");
-
-            InitAudioManager();
-
-            if (no_audio)
-                AUDMGRPTR->Disable(-1, -1);
-        }
-
-        {
-            ARTS_MEM_STAT("GameInput");
-
-            /*GameInputPtr = */ new mmInput();
-            GameInputPtr->AttachToPipe();
-            GameInputPtr->Init(static_cast<i32>(MMSTATE.InputType));
-        }
-
-        mmGameManager* game_manager = nullptr;
-        mmInterface* mm_interface = nullptr;
-
-        {
-            mmLoader loader;
-
-            if (page_override == -1)
-            {
-                if (MMSTATE.GameState)
-                    EnablePaging = MMSTATE.EnablePaging ? (ARTS_PAGE_TEXTURES | ARTS_PAGE_GEOMETRY) : 0;
-                else
-                    EnablePaging = ARTS_PAGE_TEXTURES;
-            }
-            else
-            {
-                EnablePaging = page_override;
-            }
-
-            {
-                ARTS_MEM_STAT("Cache and pager.");
-
-                if (EnablePaging)
-                {
-                    CACHE.Init(2 << 20, 2048, "CACHE");
-                    TEXCACHE.Init(4 << 20, 256, "TEXCACHE");
-                }
-
-                PAGER.Init(128, false);
-            }
-
-            loader.Reset();
-
-            switch (MMSTATE.GameState)
-            {
-                case 0: {
-                    loader.Init(const_cast<char*>("title_screen"), 0.0f, 0.0f);
-
-                    if (GraphicsChange)
-                    {
-                        loader.BeginTask(LOC_STRING(MM_IDS_LOADING_GRAPHICS), 0.0f);
-                    }
-                    else
-                    {
-                        if (MMSTATE.HasMidtownCD)
-                            AUDMGRPTR->PlayCDTrack(3, true);
-
-                        loader.BeginTask(LOC_STRING(MM_IDS_LOADING_INTERFACE), 0.0f);
-                    }
-
-                    mm_interface = new mmInterface();
-                    ARTSPTR->AddChild(mm_interface);
-
-                    mm_interface->Reset();
-                    mm_interface->ShowMain(CycleState);
-
-                    CycleState = 1;
-                    break;
-                }
-
-                case 1: {
-                    if (GenerateLoadScreenName())
-                        loader.Init(LoadScreen, 366.0f / 640.0f, 414.0f / 480.0f);
-                    else
-                        loader.Init(LoadScreen, 15.0f / 640.0f, 456.0f / 480.0f);
-
-                    ARTS_MEM_STAT("GameManager");
-
-                    loader.BeginTask(LOC_STRING(MM_IDS_LOADING_RACE), 0.0f);
-
-                    AUDMGRPTR->AssignWaveVolume(MMSTATE.WaveVolume);
-                    AUDMGRPTR->AssignCDVolume(MMSTATE.CDVolume);
-
-                    if (MMSTATE.HasMidtownCD)
-                        AUDMGRPTR->PlayCDTrack(2, true);
-
-                    game_manager = /*mmGameManager::Instance = */ new mmGameManager();
-                    ARTSPTR->AddChild(game_manager);
-
-                    game_manager->Reset();
-
-                    CycleState = 2;
-
-                    if (SampleStats)
-                    {
-                        SystemStatsRecord = new mmGameRecord(0.1f);
-                        SystemStatsRecord->Init(1000);
-                    }
-
-                    if (replay_name)
-                        game_manager->LoadReplay(replay_name);
-
-                    break;
-                }
-
-                default: Quitf("Invalid GameState %i", MMSTATE.GameState);
-            }
-
-            ARTSPTR->ResChange(Pipe()->GetWidth(), Pipe()->GetHeight());
-
-            loader.EndTask(0.0f);
-        }
-
-        MMSTATE.GameState = -1;
-        MMSTATE.Closing = 0;
-
-        ALLOCATOR.SanityCheck();
-        // TouchMemory(ALLOCATOR.GetHeapStart(), ALLOCATOR.GetHeapSize());
-
-        module_init.End();
-        Displayf("********* Load time = %f seconds; %dK allocated.", LoadTimer.Time(), ALLOCATOR.GetHeapUsed() >> 10);
-
-        if (show_cursor)
-        {
-            ShowCursor(TRUE);
-            show_cursor = false;
-        }
-
-        GameLoop(mm_interface, game_manager, replay_name);
-
-        if (game_manager)
-        {
-            if (SampleStats)
-            {
-                char csv_name[80];
-                arts_sprintf(csv_name, "gstat_%d_%d_%04d.csv", MMSTATE.GameMode, MMSTATE.EventId,
-                    static_cast<i32>(frand() * 1000.0f));
-                SystemStatsRecord->Dump(csv_name);
-
-                delete SystemStatsRecord;
-                SystemStatsRecord = nullptr;
-            }
-
-            if (!replay_name)
-                game_manager->SaveReplay(const_cast<char*>("last.rpl"));
-        }
-
-        PAGER.Shutdown();
-        AUDMGRPTR->Disable(-1, -1);
-        ALLOCATOR.SanityCheck();
-
-        delete mm_interface;
-        delete game_manager;
-
-        if (EnablePaging)
-        {
-            TEXCACHE.Shutdown();
-            CACHE.Shutdown();
-        }
-
-        delete GameInputPtr;
-        delete AUDMGRPTR;
-
-        OnGameReset.Invoke(true);
-
-        if (!VFS)
-        {
-            UnloadArchives();
-        }
-
-        delete ARTSPTR;
-
-        ShutdownPipeline();
-
-        // TODO: Fix IME
-        /*if (bHaveIME)
-        {
-            dxiShutdown();
-            ChangeDisplaySettingsA(0, 0);
-        }*/
-
-        DeallocateEventQueue();
-
-        HashTable::KillAll();
-        MetaClass::UndeclareAll();
+        MainPhase(argc, argv);
 
         if (no_ui)
             break;
@@ -733,6 +607,9 @@ void ApplicationHelper(i32 argc, char** argv)
     dxiShutdown();
     dxiChangeDisplaySettings(0, 0, 0);
 }
+
+#undef ARG
+#undef ARGN
 
 agiPipeline* CreatePipeline(i32 argc, char** argv)
 {

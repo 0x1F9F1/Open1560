@@ -77,7 +77,7 @@ struct mmStatePack
     i32 CopBehaviorFlag; // Cops chase opponents?
     i32 NoUI;
     i32 field_20;
-    i32 Closing;
+    i32 Shutdown;
     i32 field_28;
 
     mmGameMode GameMode;
@@ -164,6 +164,7 @@ struct mmStatePack
     b32 Interlaced;
 
     void SetDefaults();
+    bool ParseStateArgs(i32 argc, char** argv);
 };
 
 check_size(mmStatePack, 0x2F8);
