@@ -103,6 +103,73 @@ b32 dxiReadConfigFile()
     return true;
 }
 
+void dxiWriteConfigFile()
+{
+    Ptr<Stream> output {arts_fopen(".\\video.cfg", "w")};
+
+    if (output == nullptr)
+        return;
+
+    output->Printf("FileVersion=%d\n", ConfigFileVersion);
+    output->Printf("RendererCount=%d\n", dxiRendererCount);
+    output->Printf("RendererChoice=%d\n", dxiRendererChoice);
+
+    for (i32 i = 0; i < dxiRendererCount; ++i)
+    {
+        dxiRendererInfo_t& info = dxiInfo[i];
+
+        output->Printf("[%s]\n", info.Name);
+        output->Printf("Type=%d\n", info.Type);
+
+        char guid[64];
+        guidtostr(guid, &info.Guid.Interface);
+        output->Printf("InterfaceGuid=%s\n", guid);
+        guidtostr(guid, &info.Guid.Driver);
+        output->Printf("DriverGuid=%s\n", guid);
+
+        output->Printf("bSmoothAlpha=%d\n", info.SmoothAlpha);
+        output->Printf("bAdditiveBlending=%d\n", info.AdditiveBlending);
+        output->Printf("bVertexFog=%d\n", info.VertexFog);
+        output->Printf("bMultiTexture=%d\n", info.MultiTexture);
+        output->Printf("bTexturePalette=%d\n", info.TexturePalette);
+        output->Printf("bHaveMipmaps=%d\n", info.HaveMipmaps);
+        output->Printf("uSpecialFlags=%d\n", info.SpecialFlags);
+        output->Printf("Resolutions=%d\n", info.ResCount);
+
+        for (i32 j = 0; j < info.ResCount; ++j)
+        {
+            dxiResolution& res = info.Resolutions[j];
+
+            output->Printf("%d %d %u\n", res.uWidth, res.uHeight, res.uTexMem);
+        }
+
+        output->Printf("ResChoice=%d\n", info.ResChoice);
+    }
+}
+
+i32 dxiResClosestMatch(i32 renderer, i32 width, i32 height)
+{
+    dxiRendererInfo_t& info = dxiInfo[renderer];
+
+    i32 target_pixels = width * height;
+    i32 best_index = 0;
+    i32 best_pixels = 0;
+
+    for (i32 i = 0; i < info.ResCount; ++i)
+    {
+        dxiResolution& res = info.Resolutions[i];
+        i32 pixels = res.uWidth * res.uHeight;
+
+        if ((i == 0) || (std::abs(pixels - target_pixels) < std::abs(best_pixels - target_pixels)))
+        {
+            best_index = i;
+            best_pixels = pixels;
+        }
+    }
+
+    return best_index;
+}
+
 i32 dxiResGetRecommended(i32 renderer, [[maybe_unused]] i32 cpu_speed)
 {
     dxiRendererInfo_t& info = dxiInfo[renderer];
