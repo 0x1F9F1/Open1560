@@ -65,7 +65,7 @@ ARTS_EXPORT void Application(i32 argc, char** argv);
 ARTS_EXPORT void ApplicationHelper(i32 argc, char** argv);
 
 // 0x4010B0 | ?CreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-ARTS_IMPORT class agiPipeline* CreatePipeline(i32 argc, char** argv);
+ARTS_EXPORT class agiPipeline* CreatePipeline(i32 argc, char** argv);
 
 // 0x4014B0 | ?GameFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z
 ARTS_EXPORT i32 GameFilter(struct _EXCEPTION_POINTERS* exception);

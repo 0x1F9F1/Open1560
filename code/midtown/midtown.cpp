@@ -23,6 +23,9 @@ define_dummy_symbol(midtown);
 #include "agi/physlib.h"
 #include "agi/pipeline.h"
 #include "agi/texdef.h"
+#include "agid3d/pcpipe.h"
+#include "agisw/swddraw.h"
+#include "agisw/swpipe.h"
 #include "arts7/sim.h"
 #include "data7/args.h"
 #include "data7/cache.h"
@@ -45,6 +48,7 @@ define_dummy_symbol(midtown);
 #include "mmgame/interface.h"
 #include "mminput/input.h"
 #include "mmphysics/phys.h"
+#include "mmui/graphics.h"
 #include "pcwindis/dxinit.h"
 #include "pcwindis/dxsetup.h"
 #include "pcwindis/setupdata.h"
@@ -765,6 +769,78 @@ void ApplicationHelper(i32 argc, char** argv)
     SAFEHEAP.Kill();
     dxiShutdown();
     dxiChangeDisplaySettings(0, 0, 0);
+}
+
+agiPipeline* CreatePipeline(i32 argc, char** argv)
+{
+    dxiRendererInfo_t& info = GetRendererInfo();
+
+    if (bHaveIME)
+    {
+        dxiShutdown();
+
+        if (MMSTATE.GameState)
+        {
+            dxiFlags = (dxiFlags & ~DXI_FLAG_SYSTEM_MEMORY) | DXI_FLAG_FULL_SCREEN | DXI_FLAG_DOUBLE_BUFFER;
+            InitialCursorState = -1;
+        }
+        else
+        {
+            dxiFlags = (dxiFlags & ~(DXI_FLAG_FULL_SCREEN | DXI_FLAG_DOUBLE_BUFFER)) | DXI_FLAG_SYSTEM_MEMORY;
+
+            if (dxiChangeDisplaySettings(640, 480, 16))
+            {
+                MessageBoxA(NULL, LOC_STR(MM_IDS_USE_HIGH_COLOR), APPTITLE, MB_ICONERROR);
+                Quit();
+            }
+
+            InitialCursorState = 0;
+        }
+
+        dxiInit(APPTITLE, 0, 0);
+    }
+
+    agiPipeline* pipe = nullptr;
+
+    if (MMSTATE.GameState)
+    {
+        i32 res_choice = info.ResChoice;
+        bRenderToSystem = RenderToSystemMemory;
+
+        pipe = info.Type ? d3dCreatePipeline(argc, argv) : swCreatePipeline(argc, argv);
+
+        if (info.ResCount)
+        {
+            dxiResolution& res = info.Resolutions[res_choice];
+            pipe->SetRes(res.uWidth, res.uHeight);
+        }
+
+        if (pipe->Validate())
+        {
+            pipe->EndAllGfx();
+            delete pipe;
+
+            MessageBoxA(NULL, LOC_STR(MM_IDS_GRAPHICS_ERROR), APPTITLE, MB_ICONERROR);
+
+            pipe = swCreatePipeline(argc, argv);
+            pipe->SetRes(640, 480);
+        }
+    }
+    else
+    {
+        bRenderToSystem = true;
+
+        pipe = (info.Type && !bHaveIME) ? d3dCreatePipeline(argc, argv) : swCreatePipeline(argc, argv);
+        pipe->SetRes(640, 480);
+
+        if (pipe->Validate())
+        {
+            MessageBoxA(NULL, LOC_STR(MM_IDS_REDETECT_VIDEO), APPTITLE, MB_ICONERROR);
+            Quit();
+        }
+    }
+
+    return pipe;
 }
 
 #include <shellapi.h>

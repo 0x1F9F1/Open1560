@@ -167,6 +167,9 @@ public:
 
     // 0x534950 | ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z | inline
     ARTS_IMPORT void SetBackground(class Vector3& arg1) override;
+
+private:
+    u32 clear_color_ {0};
 };
 
 check_size(agiSWViewport, 0x14C);

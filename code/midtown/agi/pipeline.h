@@ -318,6 +318,12 @@ public:
         return vert_res_;
     }
 
+    void SetRes(i32 width, i32 height)
+    {
+        width_ = width;
+        height_ = height;
+    }
+
     void SetWindow(void* window)
     {
         window_ = window;
