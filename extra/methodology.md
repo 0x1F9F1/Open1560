@@ -50,6 +50,7 @@ Variables are hooked by replacing all pointers to them with pointers to the new 
 The table of pointers to replace is stored in `xrefs.json`/`symbols.cpp`.\
 Because x86 does not use rip-relative addressing, this was generated using the relocation table along with some manual analysis to find the size of each variable and fixup any special cases.\
 Most notably was dealing with indexing by some negative offset i.e `mmInstance::MeshSetTable[MeshIndex - 1]`, since this would be optimised to `(mmInstance::MeshSetTable - 1)[MeshIndex]`, such that the pointer would point before the variable.
+If the variable type is not trivially constructible and destructible, the original static initializer also must be disabled.
 
 # IDA
 ## Offset (user-defined) - Ctrl+R

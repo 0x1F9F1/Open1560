@@ -125,9 +125,9 @@ enum class agiCmpFunc : u8 // gfxZFunc
 
 enum class agiTexFilter : u8
 {
-    Point = 0,
-    Bilinear = 1,
-    Trilinear = 2,
+    Point = 0,     // Point
+    Bilinear = 1,  // Linear
+    Trilinear = 2, // Nicest
 };
 
 enum class agiBlendOp : u8

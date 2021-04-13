@@ -179,7 +179,7 @@ static void LoadArchives(const char* path)
 
     for (FileInfo* f = HFS.FirstEntry(path); f; f = HFS.NextEntry(f))
     {
-        if (char* ext = std::strrchr(f->Path, '.');
+        if (const char* ext = std::strrchr(f->Path, '.');
             ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
         {
             char file_path[1024];
@@ -1011,18 +1011,17 @@ void InitPatches()
     create_packed_patch<f32>("SkidRotationThresh", "Fix skids", 0x63C014, 0.5f);
 
     for (usize addr : {
-             0x4F5B6E,
-             0x4F5C15,
-             0x4F5E2C,
-
-             0x4F4CD6,
-             0x4F52E2,
-             0x4F533C,
-             0x4F5397,
-             0x4F53BA,
-             0x4F53EA,
-             0x4F541A,
-             0x4F54D3,
+             0x4F5B6E, // ?SetupNotifications@StreamObj@@QAEHXZ
+             0x4F5C15, // ?HandleNotifications@@YAKPAX@Z
+             0x4F5E2C, // ?HandleNotifications@@YAKPAX@Z
+             0x4F4CD6, // ??1StreamObj@@QAE@XZ
+             0x4F52E2, // ?Play@StreamObj@@QAEHXZ
+             0x4F533C, // ?SetPlayOneShotEvent@StreamObj@@QAEXPAD@Z
+             0x4F5397, // ?SetStopEvent@StreamObj@@QAEXXZ
+             0x4F53BA, // ?SetVolumeEvent@StreamObj@@QAEXM@Z
+             0x4F53EA, // ?SetFrequencyEvent@StreamObj@@QAEXM@Z
+             0x4F541A, // ?SetPanEvent@StreamObj@@QAEXM@Z
+             0x4F54D3, // ?Play@StreamObj@@QAEHPAD@Z
          })
     {
         create_patch("StreamObj", "Disable Thread Suspend", addr, "\x58\x31\xC0\x90\x90\x90", 6);

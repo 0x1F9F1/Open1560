@@ -66,7 +66,7 @@ ARTS_EXPORT void dxiDirectDrawSurfaceDestroy();
 ARTS_EXPORT void dxiDirectInputCreate();
 
 // 0x574550 | ?dxiInit@@YAXPADHPAPAD@Z
-ARTS_IMPORT void dxiInit(char* arg1, i32 arg2, char** arg3);
+ARTS_EXPORT void dxiInit(char* title, i32 argc, char** argv);
 
 // 0x5742C0 | ?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z | unused
 ARTS_IMPORT void* dxiMemoryAllocate(struct IDirectDrawSurface4** arg1, u32 arg2);
@@ -89,31 +89,32 @@ ARTS_EXPORT void dxiWindowCreate(const char* title);
 // 0x660F18 | ?dxiDepth@@3HA
 ARTS_IMPORT extern i32 dxiDepth;
 
+#define DXI_FLAG_FULL_SCREEN 0x1
+#define DXI_FLAG_SYSTEM_MEMORY 0x2
+#define DXI_FLAG_DOUBLE_BUFFER 0x4
+#define DXI_FLAG_TRIPLE_BUFFER 0x8
+
 // 0x660F1C | ?dxiFlags@@3HA
-// 0x1 | FullScreen
-// 0x2 | System Memory
-// 0x4 | Double Buffer
-// 0x8 | Triple Buffer
 ARTS_IMPORT extern i32 dxiFlags;
 
 inline bool dxiIsFullScreen()
 {
-    return dxiFlags & 0x1;
+    return dxiFlags & DXI_FLAG_FULL_SCREEN;
 }
 
 inline bool dxiUseSystemMemory()
 {
-    return dxiFlags & 0x2;
+    return dxiFlags & DXI_FLAG_SYSTEM_MEMORY;
 }
 
 inline bool dxiDoubleBuffer()
 {
-    return dxiFlags & 0x4;
+    return dxiFlags & DXI_FLAG_DOUBLE_BUFFER;
 }
 
 inline bool dxiTripleBuffer()
 {
-    return dxiFlags & 0x8;
+    return dxiFlags & DXI_FLAG_TRIPLE_BUFFER;
 }
 
 // 0x660F14 | ?dxiHeight@@3HA

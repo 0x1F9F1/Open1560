@@ -46,9 +46,9 @@ struct agiTexProp
     char Palette[4] {};
 
     // PackShift Levels
-    i8 High {0};   // agiRQ.TextureQuality  > 1
-    i8 Medium {0}; // agiRQ.TextureQuality == 1
-    i8 Low {0};    // agiRQ.TextureQuality == 0
+    u8 High {0};   // agiRQ.TextureQuality  > 1
+    u8 Medium {0}; // agiRQ.TextureQuality == 1
+    u8 Low {0};    // agiRQ.TextureQuality == 0
 
     enum : u32
     {

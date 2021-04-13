@@ -162,7 +162,6 @@ void asSimulation::Init(char* proj_path, i32 argc, char** argv)
     GBArgs.ParseArgs(argc, const_cast<const char**>(argv));
 
 #define ARG(NAME) !std::strcmp(arg, NAME)
-#define ARGN(NAME) !std::strncmp(arg, NAME, std::strlen(NAME))
 
     for (int i = 1; i < argc;)
     {
@@ -237,7 +236,6 @@ void asSimulation::Init(char* proj_path, i32 argc, char** argv)
     }
 
 #undef ARG
-#undef ARGN
 
     _CrtSetDbgFlag(dbg_flags);
 

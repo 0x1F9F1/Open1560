@@ -120,6 +120,48 @@ void dxiDirectInputCreate()
         Quitf("DirectInputCreate failed, code %x", err);
 }
 
+void dxiInit(char* title, i32 argc, char** argv)
+{
+#define ARG(NAME) !std::strcmp(arg, NAME)
+
+    for (int i = 1; i < argc;)
+    {
+        char* arg = argv[i++];
+
+        if (ARG("-triple"))
+        {
+            dxiFlags |= DXI_FLAG_TRIPLE_BUFFER;
+        }
+        else if (ARG("-sysmem"))
+        {
+            dxiFlags |= DXI_FLAG_SYSTEM_MEMORY;
+        }
+        else if (ARG("-single"))
+        {
+            dxiFlags &= ~DXI_FLAG_DOUBLE_BUFFER;
+        }
+        else if (ARG("-window"))
+        {
+            dxiFlags &= ~DXI_FLAG_FULL_SCREEN;
+        }
+        else if (ARG("-width"))
+        {
+            dxiWidth = std::atoi(argv[i++]);
+        }
+        else if (ARG("-height"))
+        {
+            dxiHeight = std::atoi(argv[i++]);
+        }
+    }
+
+#undef ARG
+
+    dxiWindowCreate(title);
+    dxiDirectDrawCreate();
+    dxiSetDisplayMode();
+    dxiDirectInputCreate();
+}
+
 #ifdef ARTS_ENABLE_OPENGL
 #    include "agigl/glpipe.h"
 #endif
