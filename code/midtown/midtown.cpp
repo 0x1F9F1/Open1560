@@ -1045,6 +1045,36 @@ b32 GenerateLoadScreenName()
     return false;
 }
 
+void InitAudioManager()
+{
+    /*AUDMGRPTR = */ new AudManager();
+
+    AUDMGRPTR->SteroOn = (MMSTATE.AudFlags & AudManager::GetStereoOnMask()) != 0;
+
+    AUDMGRPTR->Init(150, MMSTATE.AudFlags & (AudManager::GetDSound3DMask() | AudManager::GetUsingEAXMask()),
+        MMSTATE.AudDeviceName, // FIXME: This is empty the first time
+        (MMSTATE.AudFlags & AudManager::GetSoundFXOnMask()) != 0,
+        (MMSTATE.AudFlags & AudManager::GetCDMusicOnMask()) != 0);
+
+    AUDMGRPTR->NotDsound3D = !(AudManager::GetDSound3DMask() & MMSTATE.AudFlags);
+
+    if (AUDMGRPTR->EAXEnabled() && (MMSTATE.AudFlags & AudManager::GetUsingEAXMask()) &&
+        (MMSTATE.AudFlags & AudManager::GetDSound3DMask()))
+    {
+        AUDMGRPTR->AlwaysEAX(true);
+        AUDMGRPTR->SetEAXPreset(EAX_ENVIRONMENT_CITY, 0.114329f, 1.865f, 0.221129f);
+    }
+
+    MMSTATE.HasMidtownCD = AUDMGRPTR->CheckCDFile(const_cast<char*>("cdid.txt"));
+
+    if (!MMSTATE.HasMidtownCD)
+        AUDMGRPTR->SetCDPlayMode(1);
+
+    AUDMGRPTR->AssignWaveVolume(0.0f);
+    AUDMGRPTR->AssignCDVolume(0.0f);
+    AUDMGRPTR->SetNumChannels(MMSTATE.AudNumChannels);
+}
+
 void InitPatches()
 {
     patch_jmp("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, jump_type::always);

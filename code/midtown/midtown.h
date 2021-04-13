@@ -77,7 +77,7 @@ ARTS_IMPORT void GameLoop(class mmInterface* mm_interface, class mmGameManager* 
 ARTS_EXPORT b32 GenerateLoadScreenName();
 
 // 0x402F40 | ?InitAudioManager@@YAXXZ
-ARTS_IMPORT void InitAudioManager();
+ARTS_EXPORT void InitAudioManager();
 
 // 0x63468C | ?APPTITLE@@3PADA
 ARTS_IMPORT extern char* APPTITLE;

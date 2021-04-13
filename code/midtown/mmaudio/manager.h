@@ -123,6 +123,12 @@
 
 #include "arts7/node.h"
 
+#include <eax.h>
+
+class SoundObj;
+class AudHead;
+class Vector3;
+
 class AudManager final : public asNode
 {
     // const AudManager::`vftable' @ 0x61FD48
@@ -334,7 +340,7 @@ public:
     ARTS_IMPORT i32 SetEAXPreset(struct EAX_REVERBPROPERTIES* arg1);
 
     // 0x4E9970 | ?SetEAXPreset@AudManager@@QAEHKMMM@Z
-    ARTS_IMPORT i32 SetEAXPreset(u32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT i32 SetEAXPreset(ulong environment, f32 volume, f32 decay_time, f32 damping);
 
     // 0x4E9B70 | ?SetEAXReverbVolume@AudManager@@QAEHM@Z | unused
     ARTS_IMPORT i32 SetEAXReverbVolume(f32 arg1);
@@ -403,6 +409,45 @@ public:
 
     ARTS_DIAGNOSTIC_POP;
 
+    i32 dword20;
+    i32 NumChannels;
+    i32 field_28;
+    i32 field_2C;
+    i32 field_30;
+    i32 MaxSounds;
+    i32 MaxStreams;
+    i32 NumSounds;
+    i32 NumStreams;
+    i32 dword44;
+    i32 HasDSound;
+    i32 SteroOn;
+    i32 AudFlags;
+    i16 word54;
+    i16 CDIsPlayer;
+    i16 NotDsound3D;
+    i16 SfxOn;
+    i16 CdMusicOn;
+    u8 CDTrack;
+    u8 CDMinute;
+    u8 CDSecond;
+    u8 CDFrame;
+    i8 CDPlayMode;
+    i32 SampleRate;
+    i16 word68;
+    Bank* Bank;
+    f32 dword70;
+    f32 dword74;
+    f32 dword78;
+    AudSound** Channels;
+    AudSound** Sounds;
+    AudSound** Streams;
+    SoundObj* Listener;
+    AudHead* Head;
+    Vector3* dword90;
+    mmVoiceCommentary* VoiceCommentary;
+    char* DefaultDeviceName;
+    EAX_REVERBPROPERTIES* Reverb;
+
 private:
     // 0x4E9820 | ?CreateListenerSoundObj@AudManager@@AAEIXZ
     ARTS_IMPORT u32 CreateListenerSoundObj();
@@ -412,8 +457,6 @@ private:
 
     // 0x4E9650 | ?Update3DCDMusic@AudManager@@AAEXXZ
     ARTS_IMPORT void Update3DCDMusic();
-
-    u8 gap20[0x80];
 };
 
 check_size(AudManager, 0xA0);
