@@ -37,11 +37,7 @@ VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode*
     lock_.init();
 }
 
-VirtualStream::~VirtualStream()
-{
-    // TODO: Does this really need to call flush? It can't write anything.
-    Flush();
-}
+VirtualStream::~VirtualStream() = default;
 
 void* VirtualStream::GetMapping()
 {
@@ -66,11 +62,8 @@ isize VirtualStream::RawRead(void* ptr, isize size)
 
     i32 here = RawTell();
 
-    if (here < 0 || u32(here) > data_size_)
-    {
-        here = position_; // TODO: Should this be `here = Tell()`?
-        Seek(here);
-    }
+    if (here != static_cast<i32>(position_))
+        here = RawSeek(position_);
 
     return base_stream_->Read(ptr, std::min<isize>(size, isize(data_size_) - here));
 }

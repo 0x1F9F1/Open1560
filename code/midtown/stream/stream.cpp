@@ -392,8 +392,16 @@ isize Stream::Read(void* ptr, isize size)
 
 i32 Stream::Seek(i32 position)
 {
-    // TODO: Avoid Flush/RawSeek when position is inside the buffer
     // TODO: Add origin param, similar to fseek
+
+    if (buffer_read_)
+    {
+        if (u32 rel_offset = position - position_; rel_offset < buffer_read_)
+        {
+            buffer_head_ = rel_offset;
+            return position;
+        }
+    }
 
     if (Flush() < 0)
         return -1;

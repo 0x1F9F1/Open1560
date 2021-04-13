@@ -293,7 +293,7 @@ private:
 check_size(Stream, 0x20);
 
 // 0x55F3E0 | ?fgets@@YAHPADHPAVStream@@@Z
-ARTS_EXPORT i32 arts_fgets(char* buffer, i32 buffer_len, class Stream* stream);
+ARTS_EXPORT isize arts_fgets(char* buffer, isize buffer_len, class Stream* stream);
 
 // 0x55F2F0 | ?fopen@@YAPAVStream@@PAD0@Z
 ARTS_EXPORT class Stream* arts_fopen(const char* path, const char* mode);
