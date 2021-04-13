@@ -123,6 +123,8 @@
 
 #include "arts7/node.h"
 
+#include <guiddef.h>
+
 #include <eax.h>
 
 class SoundObj;

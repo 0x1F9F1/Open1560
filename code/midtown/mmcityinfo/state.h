@@ -49,13 +49,27 @@ enum class mmGameMode : i32
     Edit = 5,
 };
 
+enum class mmSkillLevel : i32
+{
+    Amateur = 0,
+    Professional = 1,
+};
+
+enum class mmInputType : i32
+{
+    Mouse = 0,      // mmiMOUSE
+    Keyboard = 1,   // mmiKEYBOARD
+    Joystick = 2,   // mmiJOYSTICK
+    Gamepad = 3,    // mmiGAMEPAD
+    Wheel2Axis = 4, // mmiWHEEL2AXIS
+};
+
 struct mmStatePack
 {
     i32 CurrentCar;
     i32 field_4;
 
-    // mmInputType
-    i32 InputType;
+    mmInputType InputType;
 
     i32 NetworkStatus;
     i32 NumPlayers;
@@ -69,7 +83,7 @@ struct mmStatePack
     mmGameMode GameMode;
     i32 EventId;
     f32 RaceDifficulty;
-    i32 AutoTransmission;
+    b32 AutoTransmission;
     i32 field_3C;
     i32 field_40;
     i32 field_44;
@@ -107,9 +121,9 @@ struct mmStatePack
     i32 AmbientCount;
     i32 NumLaps;
 
-    // 0 | Amateur
-    // 1 | Professional
-    i32 Difficulty;
+    mmSkillLevel Difficulty;
+
+    // Audio
     f32 WaveVolume;
     f32 AudBalance;
     f32 CDVolume;
@@ -118,15 +132,21 @@ struct mmStatePack
     char field_142[20];
     char AudDeviceName[200];
     bool HasMidtownCD;
+
+    // CnR
     i32 FreeForAll;
     i32 CREnableTimer;
     i32 IsRobber;
     f32 CRTimeLimit;
     i32 CRTimeLimit2;
     i32 CRGoldMass;
+
     i32 field_238;
     i32 field_23C;
+
     char IntroText[160];
+
+    // Camera
     i8 CameraIndex;
     i8 HudmapMode;
     bool WideFov;
@@ -134,11 +154,16 @@ struct mmStatePack
     bool EnableMirror;
     bool ExternalView;
     bool XcamView;
+
+    // HUD
     bool ShowPositions;
     i8 MapRes;
+
     b32 DisablePeds;
     b32 EnablePaging;
     b32 Interlaced;
+
+    void SetDefaults();
 };
 
 check_size(mmStatePack, 0x2F8);

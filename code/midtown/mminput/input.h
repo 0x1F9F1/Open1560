@@ -184,15 +184,6 @@ namespace ioType
     };
 }
 
-enum mmInputType : i32
-{
-    mmiMOUSE = 0,
-    mmiKEYBOARD = 1,
-    mmiJOYSTICK = 2,
-    mmiGAMEPAD = 3,
-    mmiWHEEL2AXIS = 4,
-};
-
 #define MM_MOUSE 2
 #define MM_KEYBOARD 3
 #define MM_JOYSTICK1 4

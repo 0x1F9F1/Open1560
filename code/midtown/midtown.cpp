@@ -125,43 +125,6 @@ static void CheckSystem()
     }
 }
 
-static void SetDefaultState()
-{
-    MMSTATE.AudNumChannels = 32;
-    MMSTATE.AudFlags = AudManager::GetHiSampleSizeMask() | AudManager::GetHiResMask() | AudManager::GetStereoOnMask() |
-        AudManager::GetCommentaryOnMask() | AudManager::GetCDMusicOnMask() | AudManager::GetSoundFXOnMask();
-    arts_strcpy(MMSTATE.AudDeviceName, "");
-    MMSTATE.HasMidtownCD = false;
-    MMSTATE.WaveVolume = 1.0f;
-    MMSTATE.CDVolume = 0.5f;
-    MMSTATE.AudBalance = 0.0f;
-    MMSTATE.CurrentCar = 2;
-    MMSTATE.AmbientDensity = 0.33f;
-    MMSTATE.CopDensity = 1.0f;
-    MMSTATE.MaxOpponents = 7.0f;
-    MMSTATE.CopBehaviorFlag = 0;
-    MMSTATE.PedDensity = 1.0f;
-    MMSTATE.GameMode = mmGameMode::Cruise;
-    MMSTATE.EventId = 0;
-    MMSTATE.AutoTransmission = true;
-    MMSTATE.EnableFF = true;
-    MMSTATE.PhysicsRealism = 0.75f;
-    MMSTATE.Weather = 0;
-    MMSTATE.TimeOfDay = 1;
-    MMSTATE.InputType = 0;
-    MMSTATE.DisableDamage = false;
-    MMSTATE.DisableAI = false;
-    MMSTATE.TimeLimit = 0.0f;
-    MMSTATE.UnlockAllRaces = false;
-    MMSTATE.SuperCops = false;
-    MMSTATE.AmbientCount = 100;
-    MMSTATE.CameraIndex = 0;
-    MMSTATE.HudmapMode = 0;
-    MMSTATE.WideFov = false;
-    MMSTATE.DashView = false;
-    arts_strcpy(MMSTATE.IntroText, "");
-}
-
 static void LoadArchives(const char* path)
 {
     char module_path[1024];
@@ -368,7 +331,7 @@ void ApplicationHelper(i32 argc, char** argv)
     CURHEAP = &ALLOCATOR;
     SAFEHEAP.Init((ALLOCATOR.IsDebug() ? 80 : 64) << 20, true);
 
-    SetDefaultState();
+    MMSTATE.SetDefaults();
 
     bool no_ui = false;
     /*const*/ char* replay_name = nullptr;
@@ -393,15 +356,15 @@ void ApplicationHelper(i32 argc, char** argv)
         }
         else if (ARG("-keyboard"))
         {
-            MMSTATE.InputType = 1;
+            MMSTATE.InputType = mmInputType::Keyboard;
         }
         else if (ARG("-joystick"))
         {
-            MMSTATE.InputType = 2;
+            MMSTATE.InputType = mmInputType::Joystick;
         }
         else if (ARG("-wheel"))
         {
-            MMSTATE.InputType = 4;
+            MMSTATE.InputType = mmInputType::Wheel2Axis;
         }
         else if (ARG("-nodamage"))
         {
@@ -584,7 +547,7 @@ void ApplicationHelper(i32 argc, char** argv)
 
             /*GameInputPtr = */ new mmInput();
             GameInputPtr->AttachToPipe();
-            GameInputPtr->Init(MMSTATE.InputType);
+            GameInputPtr->Init(static_cast<i32>(MMSTATE.InputType));
         }
 
         mmGameManager* game_manager = nullptr;
