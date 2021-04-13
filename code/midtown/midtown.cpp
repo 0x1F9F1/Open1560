@@ -372,6 +372,7 @@ void ApplicationHelper(i32 argc, char** argv)
 
     for (int i = 1; i < argc;)
     {
+        // FIXME: Extra args may read out of bounds
         char* arg = argv[i++];
 
         if (ARG("-noui"))
@@ -558,12 +559,7 @@ void ApplicationHelper(i32 argc, char** argv)
             if (!VFS)
             {
                 LoadArchives(ar_path);
-
-                if (Stream* phys_db = arts_fopen("mtl/physics.db", "r"))
-                {
-                    agiPhysLib.Load(phys_db);
-                    delete phys_db;
-                }
+                agiPhysLib.Load("mtl/physics.db");
             }
         }
 

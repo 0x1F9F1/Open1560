@@ -29,4 +29,4 @@
 ARTS_EXPORT void HexDump(const void* data, i32 length);
 
 // 0x6622CC | ?DevelopmentMode@@3HA
-ARTS_IMPORT extern i32 DevelopmentMode;
+ARTS_IMPORT extern b32 DevelopmentMode;

@@ -19,3 +19,10 @@
 define_dummy_symbol(vector7_vector4);
 
 #include "vector4.h"
+
+#include "vector3.h"
+
+Vector3::operator Vector4() const
+{
+    return Vector4(x, y, z, 0.0f);
+}

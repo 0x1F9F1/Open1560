@@ -91,6 +91,9 @@ public:
     // 0x521A60 | ??1asSimulation@@UAE@XZ
     ARTS_EXPORT ~asSimulation() override;
 
+    // 0x521C40 | ?Init@asSimulation@@QAEXPADHPAPAD@Z
+    ARTS_EXPORT void Init(char* proj_path, i32 argc, char** argv);
+
     // 0x522FD0 | ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
@@ -123,9 +126,6 @@ public:
 
     // 0x522E30 | ?FrameLock@asSimulation@@QAEXHH@Z | unused
     ARTS_IMPORT void FrameLock(i32 arg1, i32 arg2);
-
-    // 0x521C40 | ?Init@asSimulation@@QAEXPADHPAPAD@Z
-    ARTS_IMPORT void Init(char* proj_path, i32 argc, char** argv);
 
     // 0x522FA0 | ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
     ARTS_IMPORT void OpenPhysicsBank();
@@ -255,9 +255,9 @@ private:
     i32 field_298;
     i32 draw_mode_;
     i32 physics_bank_open_;
-    i32 no_debug_;
-    i32 show_ui_;
-    i32 frame_step_;
+    b32 no_debug_;
+    b32 show_ui_;
+    b32 frame_step_;
 
     // New Fields
     bool smooth_;

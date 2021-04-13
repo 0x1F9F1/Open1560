@@ -41,10 +41,10 @@ asNode::~asNode()
 
 void asNode::Update()
 {
-    if (DebugMemory & 0x2)
+    if (DebugMemory & ARTS_DEBUG_UPDATEMEM)
         ALLOCATOR.SanityCheck();
 
-    if (DebugMemory & 0x4)
+    if (DebugMemory & ARTS_DEBUG_UPDATE)
     {
         if (const char* msg = VerifyTree())
             Quitf("Before update: %s", msg);
@@ -71,7 +71,7 @@ void asNode::Update()
         }
     }
 
-    if (DebugMemory & 0x4)
+    if (DebugMemory & ARTS_DEBUG_UPDATE)
     {
         if (const char* msg = VerifyTree())
             Quitf("After update: %s", msg);

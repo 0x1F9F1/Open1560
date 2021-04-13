@@ -234,9 +234,10 @@ private:
 
 check_size(asNode, 0x20);
 
-// 0x1 | SanityCheck in asSimulation::Simulate | -simdbg
-// 0x2 | SanityCheck in asNode::Update         | -updatememdbg
-// 0x4 | VerifyTree  in asNode::Update         | -updatedbg
+#define ARTS_DEBUG_SIM 0x1       // SanityCheck in asSimulation::Simulate | -simdbg
+#define ARTS_DEBUG_UPDATEMEM 0x2 // SanityCheck in asNode::Update         | -updatememdbg
+#define ARTS_DEBUG_UPDATE 0x4    // VerifyTree  in asNode::Update         | -updatedbg
+
 // 0x790830 | ?DebugMemory@@3HA
 ARTS_IMPORT extern i32 DebugMemory;
 

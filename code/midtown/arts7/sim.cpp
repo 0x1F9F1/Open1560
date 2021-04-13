@@ -20,6 +20,7 @@ define_dummy_symbol(arts7_sim);
 
 #include "sim.h"
 
+#include "agi/getdlp.h"
 #include "agi/light.h"
 #include "agi/mtllib.h"
 #include "agi/physlib.h"
@@ -27,12 +28,19 @@ define_dummy_symbol(arts7_sim);
 #include "agi/print.h"
 #include "agi/texlib.h"
 #include "cullmgr.h"
+#include "data7/args.h"
+#include "data7/memstat.h"
 #include "data7/metadefine.h"
+#include "data7/str.h"
 #include "data7/utimer.h"
 #include "eventq7/keys.h"
 #include "midgets.h"
 #include "midtown.h"
+#include "stream/hfsystem.h"
 #include "stream/vfsystem.h"
+
+#include <crtdbg.h>
+#include <cstdlib>
 
 static extern_var(0x7907F8, b32, PipelineInitialized);
 static extern_var(0x79080C, i32, PipelineWidth);
@@ -108,6 +116,7 @@ ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
 ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, char const* arg2, char* arg3);
 
 static extern_var(0x790788, agiLightParameters, SunParams);
+static extern_var(0x790780, agiLight*, SunLight);
 
 static mem::cmd_param PARAM_smoothstep {"smoothstep"};
 
@@ -136,6 +145,160 @@ asSimulation::~asSimulation()
         delete VFS;
         VFS = nullptr;
     }
+}
+
+void asSimulation::Init(char* proj_path, i32 argc, char** argv)
+{
+    seconds_ = 4321.0f;
+
+    char* proj_path_env = arts_getenv("ARTS_PROJ");
+
+    if (proj_path_env)
+        proj_path = proj_path_env;
+
+    const char* vfs_path = nullptr;
+    i32 dbg_flags = _CRTDBG_ALLOC_MEM_DF;
+
+    GBArgs.ParseArgs(argc, const_cast<const char**>(argv));
+
+#define ARG(NAME) !std::strcmp(arg, NAME)
+#define ARGN(NAME) !std::strncmp(arg, NAME, std::strlen(NAME))
+
+    for (int i = 1; i < argc;)
+    {
+        // FIXME: Extra args may read out of bounds
+        char* arg = argv[i++];
+
+        if (ARG("-ui"))
+        {
+            show_ui_ = true;
+        }
+        else if (ARG("-path"))
+        {
+            proj_path = argv[i++];
+        }
+        else if (ARG("-fsverbose"))
+        {
+            fsVerbose = true;
+        }
+        else if (ARG("-logopen"))
+        {
+            LogOpenOn = true;
+        }
+        else if (ARG("-quiet"))
+        {
+            Errorf("Message output disabled.");
+            Quiet();
+        }
+        else if (ARG("-com"))
+        {
+            i32 port = std::atoi(argv[i++]);
+            i32 rate = std::atoi(argv[i++]);
+
+            if (!port || !rate || !LogToCommPort(port, rate))
+                Errorf("Cannot open port '%s' (%d,%d)", argv[i - 2], port, rate);
+        }
+        else if (ARG("-mono"))
+        {
+            LogToMonochromeMonitor();
+        }
+        else if (ARG("-record"))
+        {
+            eqReplay::InitRecord(argv[i++]);
+        }
+        else if (ARG("-playback"))
+        {
+            eqReplay::InitPlayback(argv[i++]);
+        }
+        else if (ARG("-archive"))
+        {
+            vfs_path = argv[i++];
+        }
+        if (ARG("-simdbg"))
+        {
+            DebugMemory |= ARTS_DEBUG_SIM;
+        }
+        else if (ARG("-updatememdbg"))
+        {
+            DebugMemory |= ARTS_DEBUG_UPDATEMEM;
+        }
+        else if (ARG("-updatedbg"))
+        {
+            DebugMemory |= ARTS_DEBUG_UPDATE;
+        }
+        else if (ARG("-heapdbg"))
+        {
+            dbg_flags |= _CRTDBG_CHECK_ALWAYS_DF;
+        }
+        else if (ARG("-leakdbg"))
+        {
+            dbg_flags |= _CRTDBG_LEAK_CHECK_DF;
+        }
+    }
+
+#undef ARG
+#undef ARGN
+
+    _CrtSetDbgFlag(dbg_flags);
+
+    if (fsVerbose)
+        Displayf("Using '%s' for project path.", proj_path);
+
+    char exe_path[1024];
+
+    if (!vfs_path)
+    {
+        arts_strcpy(exe_path, *argv);
+
+        if (char* ext = std::strrchr(exe_path, '.')) // Replace file extension with .ar
+        {
+            ++ext;
+            arts_strcpy(ext, ext - exe_path, "AR");
+            vfs_path = exe_path;
+        }
+    }
+
+    if (vfs_path)
+    {
+        Stream* vfs_stream = arts_fopen(vfs_path, "r");
+
+        if (fsVerbose)
+        {
+            Displayf("VFS '%s' %s found.", vfs_path, vfs_stream ? "" : "NOT");
+        }
+
+        if (vfs_stream)
+        {
+            DevelopmentMode = false;
+            ARTS_MEM_STAT("VFS");
+            VFS = new VirtualFileSystem(vfs_stream);
+        }
+    }
+
+    arts_strcpy(ProjPath, proj_path);
+    HierPrefix = ProjPath;
+
+    arts_sprintf(ExecPath, "%s\\bin\\", proj_path);
+    arts_strcpy(ImageExts, ".tx1|.rla|.bmp|.tif|.TIF|.tga|.s3t");
+
+    CheckLibraries();
+
+    agiMtlLib.Init(0);
+    agiTexLib.Init(0);
+    agiPhysLib.Load("mtl/physics.db");
+
+    if (!CULLMGR)
+    {
+        CULLMGR = new asCullManager(1024, 128);
+    }
+
+    SunParams.SetPosition({1000.0f, 1000.0f, 1000.0f});
+    SunLight = Pipe()->CreateLight();
+
+    if (SunLight)
+        SunLight->Init(SunParams);
+
+    arts_free(proj_path_env);
 }
 
 void asSimulation::FirstUpdate()

@@ -52,6 +52,16 @@ public:
         Touched = true;
     }
 
+    void Touch()
+    {
+        Touched = true;
+    }
+
+    void SetPosition(Vector3 position)
+    {
+        Position = position;
+    }
+
     u32 Flags {0x3};
     b32 Touched {true};
     Vector3 Ambient {0.0f, 0.0f, 0.0f};

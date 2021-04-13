@@ -189,9 +189,9 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
 }
 
 #define ARTS_KNI_TRANSFORM_INIT                                                                                   \
-    const __m128 mdata0 = _mm_loadu_ps((const f32*) (&M) + 0);                                                     \
-    const __m128 mdata4 = _mm_loadu_ps((const f32*) (&M) + 4);                                                     \
-    const __m128 mdata8 = _mm_loadu_ps((const f32*) (&M) + 8);                                                     \
+    const __m128 mdata0 = _mm_loadu_ps((const f32*) (&M) + 0);                                                    \
+    const __m128 mdata4 = _mm_loadu_ps((const f32*) (&M) + 4);                                                    \
+    const __m128 mdata8 = _mm_loadu_ps((const f32*) (&M) + 8);                                                    \
     const __m128 m0 = _mm_shuffle_ps(mdata0, mdata0, _MM_SHUFFLE(0, 1, 2, 2));                                    \
     const __m128 m1 =                                                                                             \
         _mm_shuffle_ps(mdata4, _mm_shuffle_ps(mdata0, mdata4, _MM_SHUFFLE(0, 0, 0, 3)), _MM_SHUFFLE(0, 2, 1, 1)); \

@@ -18,6 +18,8 @@
 
 #include "string.h"
 
+#include <stdlib.h>
+
 ARTS_NOINLINE char* arts_strdup(const char* str)
 {
     char* ptr = nullptr;
@@ -33,6 +35,19 @@ ARTS_NOINLINE char* arts_strdup(const char* str)
     }
 
     return ptr;
+}
+
+ARTS_NOINLINE char* arts_getenv(const char* name)
+{
+    char* buffer;
+
+    if (_dupenv_s(&buffer, nullptr, name))
+        return nullptr;
+
+    char* result = arts_strdup(buffer);
+    free(buffer);
+
+    return result;
 }
 
 run_once([] { create_hook("arts_strdup", "", 0x5A4720, &arts_strdup); });

@@ -133,6 +133,15 @@ public:
         }
     }
 
+    void Load(const char* path)
+    {
+        if (Stream* file = arts_fopen(path, "r"))
+        {
+            Load(file);
+            delete file;
+        }
+    }
+
     void Save(Stream* output)
     {
         output->Put(static_cast<u32>(count_));

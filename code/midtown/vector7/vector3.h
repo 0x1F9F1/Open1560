@@ -263,6 +263,8 @@ public:
         return (x * other.x) + (y * other.y) + (z * other.z);
     }
 
+    operator Vector4() const;
+
     f32 x {};
     f32 y {};
     f32 z {};
