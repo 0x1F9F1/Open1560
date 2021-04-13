@@ -41,8 +41,8 @@ ARTS_IMPORT extern class mmPlayerData MMCURRPLAYER;
 
 enum class mmGameMode : i32
 {
-    Cruise = 0,
-    Race = 1, // Checkpoint
+    Cruise = 0, // Roam
+    Race = 1,   // Checkpoint
     CnR = 2,
     Circuit = 3,
     Blitz = 4,

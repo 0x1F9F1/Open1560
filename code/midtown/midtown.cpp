@@ -1006,6 +1006,45 @@ i32 GameFilter(struct _EXCEPTION_POINTERS* exception)
     return ExceptionFilter(exception);
 }
 
+b32 GenerateLoadScreenName()
+{
+    arts_strcpy(LoadScreen, "title_screen");
+
+    // TODO: Handle other cities
+    // TODO: Use mmCityInfo.MapName
+    if (std::strcmp(CityName, "chicago"))
+        return false;
+
+    char name[40];
+    arts_strcpy(name, CityName);
+
+    switch (MMSTATE.GameMode)
+    {
+        case mmGameMode::Cruise:
+            arts_strcat(name, "ro");
+            arts_sprintf(LoadScreen, "%s", name);
+            return true;
+        case mmGameMode::Race:
+            arts_strcat(name, "ch");
+            arts_sprintf(LoadScreen, "%s%d", name, MMSTATE.EventId + 1);
+            return true;
+        case mmGameMode::CnR:
+            arts_strcat(name, "cr");
+            arts_sprintf(LoadScreen, "%s", name);
+            return true;
+        case mmGameMode::Circuit:
+            arts_strcat(name, "ci");
+            arts_sprintf(LoadScreen, "%s%d", name, MMSTATE.EventId + 1);
+            return true;
+        case mmGameMode::Blitz:
+            arts_strcat(name, "bl");
+            arts_sprintf(LoadScreen, "%s%d", name, MMSTATE.EventId + 1);
+            return true;
+    }
+
+    return false;
+}
+
 void InitPatches()
 {
     patch_jmp("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, jump_type::always);

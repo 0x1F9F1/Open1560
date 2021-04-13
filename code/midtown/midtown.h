@@ -74,7 +74,7 @@ ARTS_EXPORT i32 GameFilter(struct _EXCEPTION_POINTERS* exception);
 ARTS_IMPORT void GameLoop(class mmInterface* mm_interface, class mmGameManager* game_manager, char* replay_name);
 
 // 0x4012D0 | ?GenerateLoadScreenName@@YAHXZ
-ARTS_IMPORT i32 GenerateLoadScreenName();
+ARTS_EXPORT b32 GenerateLoadScreenName();
 
 // 0x402F40 | ?InitAudioManager@@YAXXZ
 ARTS_IMPORT void InitAudioManager();
