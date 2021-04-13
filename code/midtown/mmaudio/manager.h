@@ -141,6 +141,8 @@ public:
     // 0x4E8160 | ??1AudManager@@UAE@XZ
     ARTS_IMPORT ~AudManager() override;
 
+    ARTS_ZEROED;
+
     // 0x4E8E40 | ?AddSound@AudManager@@QAEHPAVAudSound@@@Z
     ARTS_IMPORT i32 AddSound(class AudSound* arg1);
 
