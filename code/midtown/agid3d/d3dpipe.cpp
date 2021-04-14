@@ -172,6 +172,12 @@ i32 agiD3DPipeline::BeginGfx()
     }
 
     DD_TRY(d3d_->CreateDevice(d3d_guid_, d_rend_, &d3d_device_, nullptr));
+
+    if (d3d_device_ == nullptr)
+        Quitf("Failed to create D3D Device.\n"
+              "If you are using native DDRAW and a resolution larger than 2048, try using the -reshack command "
+              "parameter.");
+
     d3ddev = d3d_device_;
     d3d_state_init();
 

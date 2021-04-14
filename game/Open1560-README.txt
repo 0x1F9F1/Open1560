@@ -40,12 +40,14 @@ border     | true  | Enables a border when in windowed mode
 cdid       | false | Enables CD music in the menu when using a virtual CD
 config     | false | Forces redetection of graphics modes
 console    | false | Enables console logging
+d3d        | false | Use the D3D renderer
 fovfix     | true  | Enables FOV scaling based on resolution
 legacygl   | false | Uses a legacy OpenGL context (enabled by default on Intel iGPUs)
 maxaspect  |       | Maximum aspect ratio of available resolutions
 minaspect  |       | Minimum aspect ratio of available resolutions
 msaa       | 0     | Sets the anti-aliasing level (does not work with legacy OpenGL)
 nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl)
+opengl     | true  | Use the OpenGL renderer
 prio       | 2     | Sets the process priority
 scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered
 smoothstep | true  | Smoothes out the time between frames to avoid stutter
@@ -64,7 +66,7 @@ glstream    |       | Sets the mode for streaming data to the GPU
 sync        | true  | Disables multi-threading
 thinfont    | true  | Makes the debug font slightly thinner
 
-## DirectDraw (disabled)
+## DirectDraw
 Name       | Value | Description
 reshack    | true  | Enables resolutions above 2048x2048 when using MS ddraw
 voodooaa   | false | Fixes text rendering when using dgVodooo's anti aliasing
