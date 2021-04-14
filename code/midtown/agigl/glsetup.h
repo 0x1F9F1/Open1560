@@ -16,15 +16,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(agid3d_pcpipe);
+#pragma once
 
-#include "pcpipe.h"
-
-#include "d3drpipe.h"
-
-Owner<agiPipeline> d3dCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
-{
-    Ptr<agiD3DRPipeline> result = MakeUnique<agiD3DRPipeline>();
-    result->Init();
-    return AsOwner(result);
-}
+void EnumerateRenderersGL();
+bool ValidateRenderersGL();

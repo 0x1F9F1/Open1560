@@ -12,6 +12,8 @@ arts_component "agigl"
         "glrsys.h",
         "glerror.cpp",
         "glerror.h",
+        "glsetup.cpp",
+        "glsetup.h",
 
         "glstream.cpp",
         "glstream.h",

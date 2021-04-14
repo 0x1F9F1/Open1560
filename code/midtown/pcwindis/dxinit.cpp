@@ -56,7 +56,6 @@ static GUID* dxiCurrentInterfaceGUID = nullptr;
 
 void dxiDirectDrawCreate()
 {
-#ifndef ARTS_DISABLE_DDRAW
     HMODULE ddraw = GetModuleHandleA("DDRAW.DLL");
 
     if (ddraw == nullptr)
@@ -84,7 +83,6 @@ void dxiDirectDrawCreate()
     {
         Quitf("dxiDirectDrawCreate: SetCooperativeLevel failed.");
     }
-#endif
 }
 
 void dxiDirectDrawSurfaceDestroy()
@@ -157,14 +155,15 @@ void dxiInit(char* title, i32 argc, char** argv)
 #undef ARG
 
     dxiWindowCreate(title);
-    dxiDirectDrawCreate();
-    dxiSetDisplayMode();
+
+    if (GetRendererInfo().Type != 3)
+    {
+        dxiDirectDrawCreate();
+        dxiSetDisplayMode();
+    }
+
     dxiDirectInputCreate();
 }
-
-#ifdef ARTS_ENABLE_OPENGL
-#    include "agigl/glpipe.h"
-#endif
 
 // 0x574940 | ?translate555@@YAXPAEPAGI@Z
 ARTS_IMPORT /*static*/ void translate555(u8* output, u16* input, u32 width);
@@ -332,6 +331,10 @@ static void SaveScreenShot(void* ctx)
     }
 }
 
+#ifdef ARTS_ENABLE_OPENGL
+#    include "agigl/glpipe.h"
+#endif
+
 void dxiScreenShot(char* file_name)
 {
     i32 width = 0;
@@ -342,12 +345,12 @@ void dxiScreenShot(char* file_name)
     {
         pixels = dxiScreenShot(width, height);
     }
+#ifdef ARTS_ENABLE_OPENGL
     else
     {
-#ifdef ARTS_ENABLE_OPENGL
         pixels = glScreenShot(width, height);
-#endif
     }
+#endif
 
     if (pixels == nullptr)
         return;
@@ -355,7 +358,6 @@ void dxiScreenShot(char* file_name)
     GFXPAGER.Send(SaveScreenShot, new ScreenShotContext {std::move(pixels), width, height, file_name});
 }
 
-#ifndef ARTS_DISABLE_DDRAW
 static inline void dxiRestoreDisplayMode()
 {
     if (dxiIsFullScreen() && lpDD4)
@@ -364,11 +366,9 @@ static inline void dxiRestoreDisplayMode()
         lpDD4->SetCooperativeLevel(hwndMain, DDSCL_NORMAL);
     }
 }
-#endif
 
 void dxiSetDisplayMode()
 {
-#ifndef ARTS_DISABLE_DDRAW
     dxiDirectDrawSurfaceDestroy();
 
     if (dxiCurrentInterfaceGUID != dxiGetInterfaceGUID())
@@ -402,19 +402,16 @@ void dxiSetDisplayMode()
     }
 
     dxiDirectDrawSurfaceCreate();
-#endif
 }
 
 void dxiShutdown()
 {
     SafeRelease(lpDI);
 
-#ifndef ARTS_DISABLE_DDRAW
     dxiDirectDrawSurfaceDestroy();
     dxiRestoreDisplayMode();
 
     SafeRelease(lpDD4);
-#endif
 
     if (hwndMain)
     {

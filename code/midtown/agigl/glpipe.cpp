@@ -942,3 +942,10 @@ Ptr<u8[]> glScreenShot(i32& width, i32& height)
 
     return buffer;
 }
+
+Owner<agiPipeline> glCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
+{
+    Ptr<agiGLPipeline> result = MakeUnique<agiGLPipeline>();
+    result->Init();
+    return AsOwner(result);
+}

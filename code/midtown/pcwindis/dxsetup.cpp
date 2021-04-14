@@ -22,6 +22,8 @@ define_dummy_symbol(pcwindis_dxsetup);
 
 #include "data7/speed.h"
 #include "data7/timer.h"
+#include "localize/localize.h"
+#include "midtown.h"
 #include "mmui/graphics.h"
 #include "setupdata.h"
 
@@ -100,236 +102,101 @@ ARTS_IMPORT /*static*/ i32 TestResolution(struct IDirectDraw4* arg1, struct dxiR
 // 0x575AD0 | ?UnlockScreen@@YAXXZ
 ARTS_IMPORT /*static*/ void UnlockScreen();
 
-#ifdef ARTS_ENABLE_OPENGL
-static mem::cmd_param PARAM_config {"config"};
-
-static void GetMonitorName(char* buffer, usize buflen, const char* szDevice)
+static bool ValidateRenderersDX6()
 {
-    buffer[0] = '\0';
+    HMODULE hddraw = GetModuleHandleA("DDRAW.DLL");
 
-    DISPLAY_DEVICEA device {sizeof(device)};
+    if (hddraw == nullptr)
+        return false;
 
-    for (DWORD i = 0; EnumDisplayDevicesA(szDevice, i, &device, 0); ++i)
-    {
-        if (device.StateFlags & DISPLAY_DEVICE_MIRRORING_DRIVER)
-            continue;
+    auto pDirectDrawCreate = reinterpret_cast<decltype(&DirectDrawCreate)>(GetProcAddress(hddraw, "DirectDrawCreate"));
 
-        if (device.StateFlags & DISPLAY_DEVICE_ACTIVE)
-        {
-            arts_sprintf(buffer, buflen, "%s on ", device.DeviceString);
-            break;
-        }
-    }
+    if (pDirectDrawCreate == nullptr)
+        return false;
 
-    arts_strcat(buffer, buflen, szDevice);
-}
-
-static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
-    [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
-{
-    if (dxiRendererCount >= ARTS_SSIZE(dxiInfo))
-        return FALSE;
-
-    MONITORINFOEXA iMonitor {sizeof(MONITORINFOEXA)};
-
-    if (!GetMonitorInfoA(hMonitor, &iMonitor))
-        return TRUE;
-
-    dxiRendererInfo_t& info = dxiInfo[dxiRendererCount];
-
-    info = {};
-
-    info.Valid = true;
-    info.Usable = true;
-    info.Type2 = 2;
-    info.Flags = 0;
-
-    info.SmoothAlpha = true;
-    info.AdditiveBlending = true;
-    info.VertexFog = true;
-    info.MultiTexture = true;
-    info.TexturePalette = true;
-    info.HaveMipmaps = true;
-    info.SpecialFlags = 0;
-
-    GetMonitorName(info.Name, ARTS_SIZE(info.Name), iMonitor.szDevice);
-    arts_strcpy(info.Device, iMonitor.szDevice);
-
-    info.Type = 2;
-
-    info.ResCount = 0;
-    info.ResChoice = -1;
-
-    Displayf("Renderer: '%s'", info.Name);
-
-    DEVMODEA cur_dev_mode {};
-
-    if (!EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &cur_dev_mode))
-        Quitf("Failed to get current display settings");
-
-    f32 current_ar = static_cast<f32>(cur_dev_mode.dmPelsWidth) / static_cast<f32>(cur_dev_mode.dmPelsHeight);
-
-    f32 min_aspect = PARAM_min_aspect.get_or<f32>(current_ar * 0.8f);
-    f32 max_aspect = PARAM_max_aspect.get_or<f32>(current_ar * 1.2f);
-
-    DEVMODEA dev_mode {};
-
-    for (DWORD i = 0; EnumDisplaySettingsA(iMonitor.szDevice, i, &dev_mode); ++i)
-    {
-        if (info.ResCount >= ARTS_SSIZE(info.Resolutions))
-            break;
-
-        if (dev_mode.dmDisplayFlags & DM_INTERLACED)
-            continue;
-
-        if (dev_mode.dmPelsWidth < 640 || dev_mode.dmPelsHeight < 480 || dev_mode.dmBitsPerPel < 32)
-            continue;
-
-        if (dev_mode.dmPelsWidth > cur_dev_mode.dmPelsWidth || dev_mode.dmPelsHeight > cur_dev_mode.dmPelsHeight)
-            continue;
-
-        if (dev_mode.dmPelsHeight > 720)
-        {
-            if (f32 ar = static_cast<f32>(dev_mode.dmPelsWidth) / static_cast<f32>(dev_mode.dmPelsHeight);
-                ar < min_aspect || ar > max_aspect)
-                continue;
-        }
-
-        bool exists = false;
-
-        for (i32 j = 0; j < info.ResCount; ++j)
-        {
-            dxiResolution& res = info.Resolutions[j];
-
-            if (res.uWidth == dev_mode.dmPelsWidth && res.uHeight == dev_mode.dmPelsHeight)
-            {
-                exists = true;
-                break;
-            }
-        }
-
-        if (exists)
-            continue;
-
-        dxiResolution& res = info.Resolutions[info.ResCount];
-
-        res.uWidth = static_cast<u16>(dev_mode.dmPelsWidth);
-        res.uHeight = static_cast<u16>(dev_mode.dmPelsHeight);
-        res.uTexMem = 128 << 20;
-
-        Displayf("Resolution: %u x %u", res.uWidth, res.uHeight);
-
-        ++info.ResCount;
-    }
-
-    if (info.ResCount == 0)
-        return TRUE;
-
-    std::sort(
-        info.Resolutions, info.Resolutions + info.ResCount, [](const dxiResolution& lhs, const dxiResolution& rhs) {
-            return (lhs.uWidth != rhs.uWidth) ? (lhs.uWidth < rhs.uWidth) : (lhs.uHeight < rhs.uHeight);
-        });
-
-    if (iMonitor.dwFlags & MONITORINFOF_PRIMARY)
-    {
-        Displayf("Display '%s' (%i) is primary", info.Name, dxiRendererCount);
-
-        if (dxiRendererChoice == -1)
-            dxiRendererChoice = dxiRendererCount;
-    }
-
-    info.ResChoice = dxiResClosestMatch(
-        dxiRendererCount, static_cast<i32>(720.0f * current_ar), (std::min<i32>) (720, cur_dev_mode.dmPelsHeight));
-
-    ++dxiRendererCount;
-
-    return TRUE;
-}
-
-static BOOL CALLBACK CountRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
-    [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
-{
-    MONITORINFOEXA iMonitor {sizeof(MONITORINFOEXA)};
-
-    if (!GetMonitorInfoA(hMonitor, &iMonitor))
-        return TRUE;
-
-    i32& count = *(i32*) (lParam);
-
-    char name[64] {};
-    GetMonitorName(name, ARTS_SIZE(name), iMonitor.szDevice);
+    i32 count = 0;
 
     for (i32 i = 0; i < dxiRendererCount; ++i)
     {
-        if (std::strcmp(name, dxiInfo[i].Name) == 0)
+        dxiRendererInfo_t& info = dxiInfo[i];
+
+        if (info.Type == 3)
+            return false;
+
+        IDirectDraw* ddraw = nullptr;
+
+        if (pDirectDrawCreate((info.Type == 2) ? &info.Guid.Interface : nullptr, &ddraw, NULL))
+            return false;
+
+        IDirectDraw4* ddraw4 = nullptr;
+        DDDEVICEIDENTIFIER ident;
+
+        if (ddraw->QueryInterface(IID_IDirectDraw4, (LPVOID*) &ddraw4))
+            NeedDX6();
+
+        if (!ddraw4->GetDeviceIdentifier(&ident, 0) &&
+            !std::memcmp(&ident.guidDeviceIdentifier, &info.Guid.Driver, sizeof(GUID)))
         {
             ++count;
-
-            return TRUE;
         }
+
+        ddraw4->Release();
+        ddraw->Release();
     }
 
-    count = -1;
-
-    return FALSE;
+    return count == dxiRendererCount;
 }
-
-static void EnumerateRenderers3()
-{
-    dxiRendererCount = 0;
-    dxiRendererChoice = -1;
-
-    EnumDisplayMonitors(NULL, NULL, AddRendererCallback, NULL);
-
-    if (dxiRendererCount == 0)
-        Quitf("No Valid Renderers");
-
-    if (dxiRendererChoice == -1)
-        dxiRendererChoice = 0;
-
-    for (i32 i = 0; i < dxiRendererCount; ++i)
-    {
-        dxiRendererInfo_t& info = dxiInfo[dxiRendererCount];
-
-        if (info.ResChoice == -1)
-            info.ResChoice = dxiResGetRecommended(i, dxiCpuSpeed);
-
-        AutoDetect(i, info.ResChoice);
-    }
-}
-#endif
 
 #ifdef ARTS_ENABLE_OPENGL
+#    include "agigl/glsetup.h"
+
+static mem::cmd_param PARAM_opengl {"opengl"};
+static mem::cmd_param PARAM_d3d {"d3d"};
+#endif
+
+static mem::cmd_param PARAM_config {"config"};
+
 void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 {
     dxiCpuSpeed = ComputeCpuSpeed();
 
-    bool redetect = PARAM_config.get_or(false);
+    bool (*validate)() = ValidateRenderersDX6;
+    void (*enumerate)() = EnumerateRenderers2;
 
-    if (!redetect)
+    if (PARAM_d3d)
     {
-        redetect = !dxiReadConfigFile();
-
-        if (!redetect)
-        {
-            i32 count = 0;
-            EnumDisplayMonitors(NULL, NULL, CountRendererCallback, (LPARAM) &count);
-            redetect = count != dxiRendererCount;
-        }
+        validate = ValidateRenderersDX6;
+        enumerate = EnumerateRenderers2;
     }
-
-    if (redetect)
+#ifdef ARTS_ENABLE_OPENGL
+    else if (PARAM_opengl.get_or(true))
     {
+        validate = ValidateRenderersGL;
+        enumerate = EnumerateRenderersGL;
+    }
+#endif
+
+    if (PARAM_config.get_or(false) || !dxiReadConfigFile() || !validate())
+    {
+        dxiRendererChoice = -1;
+
         Timer detect_time;
-        EnumerateRenderers3();
-        Displayf("DETECT TIME: %f s", detect_time.Time());
+        enumerate();
+        Displayf("DETECT TIME: %f ms", detect_time.TimeMS());
+
+        if (dxiRendererCount == 0)
+        {
+            MessageBoxA(NULL, LOC_STR(MM_IDS_NO_RENDERERS), APPTITLE, MB_OK);
+            ExitProcess(0);
+        }
+
+        if (dxiRendererChoice == -1)
+            dxiRendererChoice = std::min<i32>(1, dxiRendererCount - 1);
 
         dxiWriteConfigFile();
-
         AutoDetect(-1, -1);
     }
 }
-#endif
 
 run_once([] {
     auto_hook(0x575FD0, EnumZ);

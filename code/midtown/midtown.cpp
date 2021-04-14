@@ -63,6 +63,10 @@ define_dummy_symbol(midtown);
 
 #include "core/minwin.h"
 
+#ifdef ARTS_ENABLE_OPENGL
+#    include "agigl/glpipe.h"
+#endif
+
 const char* DEFAULT_CITY = "chicago";
 
 // 0x402F20 | ?GameCloseCallback@@YAXXZ
@@ -120,7 +124,7 @@ static void CheckSystem()
     {
         if (free_bytes.QuadPart < (128 << 10))
         {
-            MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_DISK), APPTITLE, 0);
+            MessageBoxA(NULL, LOC_STR(MM_IDS_LOW_DISK), APPTITLE, MB_OK);
         }
     }
 }
@@ -647,7 +651,16 @@ agiPipeline* CreatePipeline(i32 argc, char** argv)
         i32 res_choice = info.ResChoice;
         bRenderToSystem = RenderToSystemMemory;
 
-        pipe = info.Type ? d3dCreatePipeline(argc, argv) : swCreatePipeline(argc, argv);
+        switch (info.Type)
+        {
+            case 0: pipe = swCreatePipeline(argc, argv); break;
+            case 1:
+            case 2: pipe = d3dCreatePipeline(argc, argv); break;
+
+#ifdef ARTS_ENABLE_OPENGL
+            case 3: pipe = glCreatePipeline(argc, argv); break;
+#endif
+        }
 
         if (info.ResCount)
         {
@@ -670,7 +683,17 @@ agiPipeline* CreatePipeline(i32 argc, char** argv)
     {
         bRenderToSystem = true;
 
-        pipe = (info.Type && !bHaveIME) ? d3dCreatePipeline(argc, argv) : swCreatePipeline(argc, argv);
+        switch (bHaveIME ? 0 : info.Type)
+        {
+            case 0: pipe = swCreatePipeline(argc, argv); break;
+            case 1:
+            case 2: pipe = d3dCreatePipeline(argc, argv); break;
+
+#ifdef ARTS_ENABLE_OPENGL
+            case 3: pipe = glCreatePipeline(argc, argv); break;
+#endif
+        }
+
         pipe->SetRes(640, 480);
 
         if (pipe->Validate())
@@ -797,7 +820,6 @@ void Application(i32 argc, char** argv)
             }
         }
 
-#ifndef ARTS_DISABLE_DDRAW
         if (PARAM_res_hack.get_or(false))
         {
             wchar_t d3dim_path[MAX_PATH];
@@ -829,7 +851,6 @@ void Application(i32 argc, char** argv)
                 Displayf("ResHack - d3dim not found");
             }
         }
-#endif
 
         ApplicationHelper(argc, argv);
     }

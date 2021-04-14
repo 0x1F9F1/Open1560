@@ -82,8 +82,9 @@ struct dxiRendererInfo_t
     };
 
     // 0 | Software
-    // 1 | Primary Surface (GDI)
-    // 2 | Hardware
+    // 1 | DX6 Primary Surface (GDI)
+    // 2 | DX6 Hardware
+    // 3 | OpenGL
     i32 Type;
 
     dxiResolution Resolutions[32];

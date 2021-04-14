@@ -1,15 +1,9 @@
 newoption {
-   trigger     = "ARTS_DISABLE_DDRAW",
-   description = "Disable most DDRAW calls",
-}
-
-newoption {
-   trigger     = "ARTS_ENABLE_OPENGL",
+   trigger     = "ARTS_DISABLE_OPENGL",
    description = "Compile OpenGL Renderer",
 }
 
-ARTS_DISABLE_DDRAW = _OPTIONS['ARTS_DISABLE_DDRAW'] or false
-ARTS_ENABLE_OPENGL = _OPTIONS['ARTS_ENABLE_OPENGL'] or ARTS_DISABLE_DDRAW
+ARTS_ENABLE_OPENGL = not (_OPTIONS['ARTS_DISABLE_OPENGL'] or false)
 
 include "core"
 
@@ -45,13 +39,6 @@ include "mmwidget"
 include "pcwindis"
 include "stream"
 include "vector7"
-
-if ARTS_DISABLE_DDRAW then
-    project "*"
-        defines { "ARTS_DISABLE_DDRAW" }
-
-    ARTS_ENABLE_OPENGL = true
-end
 
 if ARTS_ENABLE_OPENGL then
     include "agigl"

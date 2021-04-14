@@ -542,4 +542,4 @@
 #define MM_IDS_523 523
 #define MM_IDS_524 524
 #define MM_IDS_525 525
-#define MM_IDS_526 526
+#define MM_IDS_NO_RENDERERS 526

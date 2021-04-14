@@ -115,3 +115,5 @@ private:
 };
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height);
+
+Owner<agiPipeline> glCreatePipeline(i32 argc, char** argv);
