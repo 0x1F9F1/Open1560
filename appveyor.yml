@@ -13,7 +13,7 @@ environment:
 #   - cmd: git submodule update --init --recursive
 
 build_script:
-  - cmd: tools\premake5.exe "%PREMAKE_GENERATOR%" --MM1_GAME_DIRECTORY="%cd%/build/output/" --ARTS_DISABLE_DDRAW
+  - cmd: tools\premake5.exe "%PREMAKE_GENERATOR%" --MM1_GAME_DIRECTORY="%cd%/build/output/"
   - cmd: msbuild -verbosity:minimal -nologo -m /p:Configuration="%BUILD_TYPE%" /p:Platform=Win32 "build/Open1560.sln"
 
 artifacts:
