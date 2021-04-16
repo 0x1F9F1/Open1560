@@ -45,8 +45,8 @@ void agiMeshSet::BinarySave(Stream* stream)
     stream->Write(&TextureCount, sizeof(TextureCount));
     stream->Write(&Flags, sizeof(Flags));
 
-    u16 always_zero = 0;
-    stream->Write(&always_zero, sizeof(always_zero));
+    u16 padding = 0;
+    stream->Write(&padding, sizeof(padding));
 
     u32 cache_size = 0;
 

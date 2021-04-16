@@ -82,6 +82,12 @@ void agiTexDef::CheckSurface()
         Tex.Flags &= ~agiTexParameters::Chromakey;
 }
 
+// Same as DataCache alignment
+static inline constexpr usize AlignSize(usize value) noexcept
+{
+    return (value + 7) & ~usize(7); // FIXME: 64-bit requires 16-byte alignment
+}
+
 void agiTexDef::DoPageIn()
 {
     // NOTE: 64-bit incompatible
@@ -125,7 +131,7 @@ void agiTexDef::DoPageIn()
         surface_size -= current_surface_size;
     }
 
-    if (!TEXCACHE.BeginObject(&cache_handle_, PageOutCallback, this, surface_size))
+    if (!TEXCACHE.BeginObject(&cache_handle_, PageOutCallback, this, AlignSize(surface_size)))
     {
         page_state_ = 0;
 

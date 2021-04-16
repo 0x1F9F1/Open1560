@@ -177,7 +177,7 @@ public:
     ARTS_IMPORT void Offset(class Vector3 arg1);
 
     // 0x514B00 | ?PageIn@agiMeshSet@@QAEXXZ
-    ARTS_IMPORT void PageIn();
+    ARTS_EXPORT void PageIn();
 
     // 0x507920 | ?ShadowGeometry@agiMeshSet@@QAEHIPAVVector3@@ABVVector4@@ABV2@@Z | agiworld:meshrend
     ARTS_IMPORT i32 ShadowGeometry(u32 arg1, class Vector3* arg2, class Vector4 const& arg3, class Vector3 const& arg4);
@@ -364,13 +364,13 @@ private:
     ARTS_IMPORT void BeginGfx();
 
     // 0x5032A0 | ?DoPageIn@agiMeshSet@@AAEXXZ | agiworld:meshload
-    ARTS_IMPORT void DoPageIn();
+    ARTS_EXPORT void DoPageIn();
 
     // 0x505E30 | ?EndGfx@agiMeshSet@@AAEXXZ | agiworld:meshrend
     ARTS_IMPORT void EndGfx();
 
     // 0x514AF0 | ?PageInCallback@agiMeshSet@@CAXPAX@Z
-    ARTS_IMPORT static void PageInCallback(void* arg1);
+    ARTS_EXPORT static void PageInCallback(void* param);
 
     // 0x503180 | ?PageOutCallback@agiMeshSet@@CAXPAXH@Z | agiworld:meshload
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
@@ -412,6 +412,10 @@ public:
     u8 VariationCount {0};
 
     u8 Flags {0};
+
+    // 0 | Unloaded
+    // 1 | Requested
+    // 2 | Loaded
     u8 Resident {0};
     u32 Variant {0};
     agiTexDef*** Textures {nullptr};

@@ -21,6 +21,7 @@ define_dummy_symbol(agiworld_meshset);
 #include "meshset.h"
 
 #include "agi/texdef.h"
+#include "data7/ipc.h"
 #include "vector7/geomath.h"
 #include "vector7/vector3.h"
 #include "vector7/vector4.h"
@@ -93,4 +94,18 @@ void agiMeshSet::ComputePlaneEquations()
     Magnitude = std::sqrt(mag_sqr);
 
     GetBoundInfo(VertexCount, Vertices, nullptr, nullptr, nullptr, &BoundingBoxMagnitude);
+}
+
+void agiMeshSet::PageIn()
+{
+    if (!Resident)
+    {
+        ++Resident;
+        PAGER.Send(PageInCallback, this);
+    }
+}
+
+void agiMeshSet::PageInCallback(void* param)
+{
+    static_cast<agiMeshSet*>(param)->DoPageIn();
 }
