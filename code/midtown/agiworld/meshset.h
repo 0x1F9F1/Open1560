@@ -93,7 +93,7 @@ public:
     ARTS_EXPORT b32 DrawLit(agiMeshLighter lighter, u32 flags, u32* colors);
 
     // 0x507120 | ?DrawLitEnv@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@AAVMatrix34@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void DrawLitEnv(agiMeshLighter lighter, class agiTexDef* env_map, class Matrix34& transform, u32 flags);
+    ARTS_EXPORT void DrawLitEnv(agiMeshLighter lighter, class agiTexDef* env_map, class Matrix34& transform, u32 flags);
 
     // 0x507250 | ?DrawLitSph@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@I@Z | agiworld:meshrend
     ARTS_IMPORT void DrawLitSph(agiMeshLighter lighter, class agiTexDef* sph_map, u32 flags);

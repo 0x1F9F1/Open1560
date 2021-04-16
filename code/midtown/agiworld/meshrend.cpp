@@ -21,6 +21,8 @@ define_dummy_symbol(agiworld_meshrend);
 #include "meshrend.h"
 
 #include "agi/pipeline.h"
+#include "agi/rsys.h"
+#include "agiworld/quality.h"
 #include "data7/b2f.h"
 #include "data7/utimer.h"
 #include "memory/alloca.h"
@@ -307,7 +309,12 @@ b32 agiMeshSet::DrawColor(u32 color, u32 flags)
             if (colors)
             {
                 u32* shaded = ARTS_ALLOCA(u32, AdjunctCount);
-                agiBlendColors(shaded, colors, AdjunctCount, color);
+
+                {
+                    ARTS_UTIMED(agiLightTimer);
+                    agiBlendColors(shaded, colors, AdjunctCount, color);
+                }
+
                 colors = shaded;
                 color = 0xFFFFFFFF;
             }
@@ -357,4 +364,42 @@ b32 agiMeshSet::DrawLit(agiMeshLighter lighter, u32 flags, u32* colors)
     }
 
     return drawn;
+}
+
+void agiMeshSet::DrawLitEnv(agiMeshLighter lighter, agiTexDef* env_map, Matrix34& transform, u32 flags)
+{
+    if (LockIfResident())
+    {
+        if (agiCurState.GetMaxTextures() > 1 && agiRQ.EnvMap)
+        {
+            if (Geometry(flags, Vertices, Planes) <= 0xFF)
+            {
+                u32* colors = Colors;
+
+                if (lighter)
+                {
+                    u32* shaded = ARTS_ALLOCA(u32, AdjunctCount);
+
+                    {
+                        ARTS_UTIMED(agiLightTimer);
+                        lighter(codes, shaded, colors, this);
+                    }
+
+                    colors = shaded;
+                }
+
+                MultiTexEnvMap(colors, 0xFFFFFFFF, env_map, transform);
+            }
+        }
+        else if (DrawLit(lighter, flags, nullptr) && env_map)
+        {
+            EnvMap(transform, env_map, 0xFFFFFFFF);
+        }
+
+        Unlock();
+    }
+    else
+    {
+        PageIn();
+    }
 }
