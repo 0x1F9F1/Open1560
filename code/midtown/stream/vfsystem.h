@@ -46,19 +46,19 @@ static constexpr u32 AresMagic = 0x53455241;
 
 struct AresHeader
 {
-    u32 Magic {0};
-    u32 NodeCount {0};
-    u32 RootCount {0};
-    u32 NamesSize {0};
+    u32 Magic;
+    u32 NodeCount;
+    u32 RootCount;
+    u32 NamesSize;
 };
 
 check_size(AresHeader, 0x10);
 
 struct VirtualFileInode
 {
-    u32 field_0 {0};
-    u32 field_4 {0};
-    u32 field_8 {0};
+    u32 field_0;
+    u32 field_4;
+    u32 field_8;
 
     u32 GetOffset() const
     {

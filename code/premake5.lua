@@ -15,10 +15,8 @@ function useARTSPCH()
     includedirs { ARTS_DIR }
     forceincludes { "arts_pch.h" }
 
-    filter "configurations:not Final"
-        pchsource(path.join(ARTS_DIR, "arts_pch.cpp"))
-        pchheader("arts_pch.h")
-    filter {}
+    pchsource(path.join(ARTS_DIR, "arts_pch.cpp"))
+    pchheader("arts_pch.h")
 end
 
 function arts_component(name)
