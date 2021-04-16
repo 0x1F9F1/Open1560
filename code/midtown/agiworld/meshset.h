@@ -82,7 +82,7 @@ public:
     ARTS_EXPORT void ComputePlaneEquations();
 
     // 0x506ED0 | ?Draw@agiMeshSet@@QAEHI@Z | agiworld:meshrend
-    ARTS_IMPORT i32 Draw(u32 flags);
+    ARTS_EXPORT b32 Draw(u32 flags);
 
     // 0x506FD0 | ?DrawColor@agiMeshSet@@QAEHII@Z | agiworld:meshrend
     ARTS_EXPORT b32 DrawColor(u32 color, u32 flags);

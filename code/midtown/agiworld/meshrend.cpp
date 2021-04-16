@@ -269,13 +269,38 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
     }
 }
 
+b32 agiMeshSet::Draw(u32 flags)
+{
+    if (!this)
+        return false;
+
+    bool drawn = false;
+
+    if (LockIfResident())
+    {
+        if (Geometry(flags, Vertices, Planes) <= 0xFF)
+        {
+            FirstPass(Colors, TexCoords, 0xFFFFFFFF);
+            drawn = true;
+        }
+
+        Unlock();
+    }
+    else
+    {
+        PageIn();
+    }
+
+    return drawn;
+}
+
 b32 agiMeshSet::DrawColor(u32 color, u32 flags)
 {
     bool drawn = false;
 
     if (LockIfResident())
     {
-        if (Geometry(flags, Vertices, Planes) <= 255)
+        if (Geometry(flags, Vertices, Planes) <= 0xFF)
         {
             u32* colors = Colors;
 
