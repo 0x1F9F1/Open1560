@@ -20,4 +20,4 @@
 
 #include <malloc.h>
 
-#define ARTS_ALLOCA(TYPE, COUNT) static_cast<TYPE*>(_alloca(sizeof(TYPE) * COUNT))
+#define ARTS_ALLOCA(TYPE, COUNT) static_cast<TYPE*>(_alloca(sizeof(TYPE) * (COUNT)))

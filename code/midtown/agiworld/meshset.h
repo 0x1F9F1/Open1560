@@ -73,29 +73,30 @@ public:
     ARTS_EXPORT ~agiMeshSet();
 
     // 0x502BD0 | ?BinaryLoad@agiMeshSet@@QAEXPAVStream@@@Z | agiworld:meshload
-    ARTS_IMPORT void BinaryLoad(class Stream* arg1);
+    ARTS_EXPORT void BinaryLoad(class Stream* stream);
 
     // 0x516B30 | ?BinarySave@agiMeshSet@@QAEXPAVStream@@@Z | agiworld:meshsave
-    ARTS_IMPORT void BinarySave(class Stream* arg1);
+    ARTS_EXPORT void BinarySave(class Stream* stream);
 
     // 0x5148D0 | ?ComputePlaneEquations@agiMeshSet@@QAEXXZ
     ARTS_IMPORT void ComputePlaneEquations();
 
     // 0x506ED0 | ?Draw@agiMeshSet@@QAEHI@Z | agiworld:meshrend
-    ARTS_IMPORT i32 Draw(u32 arg1);
+    ARTS_IMPORT i32 Draw(u32 flags);
 
     // 0x506FD0 | ?DrawColor@agiMeshSet@@QAEHII@Z | agiworld:meshrend
     ARTS_EXPORT b32 DrawColor(u32 color, u32 flags);
 
     // 0x507040 | ?DrawLit@agiMeshSet@@QAEHP6AXPAEPAI1PAV1@@ZI1@Z | agiworld:meshrend
-    ARTS_IMPORT i32 DrawLit(void (*arg1)(u8*, u32*, u32*, class agiMeshSet*), u32 arg2, u32* arg3);
+    ARTS_IMPORT i32 DrawLit(void (*lighter)(u8*, u32*, u32*, class agiMeshSet*), u32 flags, u32* colors);
 
     // 0x507120 | ?DrawLitEnv@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@AAVMatrix34@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void DrawLitEnv(
-        void (*arg1)(u8*, u32*, u32*, class agiMeshSet*), class agiTexDef* arg2, class Matrix34& arg3, u32 arg4);
+    ARTS_IMPORT void DrawLitEnv(void (*lighter)(u8*, u32*, u32*, class agiMeshSet*), class agiTexDef* env_map,
+        class Matrix34& transform, u32 flags);
 
     // 0x507250 | ?DrawLitSph@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void DrawLitSph(void (*arg1)(u8*, u32*, u32*, class agiMeshSet*), class agiTexDef* arg2, u32 arg3);
+    ARTS_IMPORT void DrawLitSph(
+        void (*lighter)(u8*, u32*, u32*, class agiMeshSet*), class agiTexDef* sph_map, u32 flags);
 
     // 0x50EBC0 | ?DrawNormals@agiMeshSet@@QAEXAAVVector3@@@Z | agiworld:meshrend
     ARTS_IMPORT void DrawNormals(class Vector3& arg1);

@@ -249,6 +249,10 @@ public:
     template <typename T>
     void GetN(T* values, isize count);
 
+    // Returns file mapping if available, otherwise allocates a buffer and reads
+    template <typename T>
+    /*const */ T* ReadMapped(isize count);
+
     bool SupportsMapping() const
     {
         return flags_ & ARTS_STREAM_SUPPORTS_MAPPING;
@@ -339,4 +343,23 @@ ARTS_NOINLINE inline void Stream::GetN(T* values, isize count)
         for (i32 i = 0; i < count; ++i)
             ByteSwap<T>(values[i]);
     }
+}
+
+template <typename T>
+inline T* Stream::ReadMapped(isize count)
+{
+    T* result = nullptr;
+
+    if (EnableBinaryFileMapping && SupportsMapping())
+    {
+        result = reinterpret_cast<T*>(static_cast<u8*>(GetMapping()) + Tell());
+        Seek(Tell() + count * sizeof(T));
+    }
+    else
+    {
+        result = new T[count];
+        Read(result, count * sizeof(T));
+    }
+
+    return result;
 }

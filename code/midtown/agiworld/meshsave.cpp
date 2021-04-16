@@ -19,3 +19,90 @@
 define_dummy_symbol(agiworld_meshsave);
 
 #include "meshsave.h"
+
+#include "agi/texdef.h"
+#include "meshset.h"
+#include "stream/stream.h"
+#include "vector7/vector2.h"
+#include "vector7/vector3.h"
+#include "vector7/vector4.h"
+
+// Same as DataCache alignment
+static inline constexpr usize AlignSize(usize value) noexcept
+{
+    return (value + 7) & ~usize(7); // FIXME: 64-bit requires 16-byte alignment
+}
+
+void agiMeshSet::BinarySave(Stream* stream)
+{
+    stream->Write(&VertexCount, sizeof(VertexCount));
+    stream->Write(&AdjunctCount, sizeof(AdjunctCount));
+    stream->Write(&SurfaceCount, sizeof(SurfaceCount));
+    stream->Write(&IndicesCount, sizeof(IndicesCount));
+    stream->Write(&Magnitude, sizeof(Magnitude));
+    stream->Write(&MagnitudeSqr, sizeof(MagnitudeSqr));
+    stream->Write(&BoundingBoxMagnitude, sizeof(BoundingBoxMagnitude));
+    stream->Write(&TextureCount, sizeof(TextureCount));
+    stream->Write(&Flags, sizeof(Flags));
+
+    u16 always_zero = 0;
+    stream->Write(&always_zero, sizeof(always_zero));
+
+    u32 cache_size = 0;
+
+    cache_size += AlignSize(VertexCount * sizeof(*Vertices));
+
+    if (VertexCount >= 16)
+        cache_size += AlignSize(8 * sizeof(Vector3));
+
+    if (Flags & AGI_MESH_SET_LIT)
+        cache_size += AlignSize(AdjunctCount * sizeof(*Normals));
+
+    if (Flags & AGI_MESH_SET_DYNTEX)
+        cache_size += AlignSize(AdjunctCount * sizeof(*TexCoords));
+
+    if (Flags & AGI_MESH_SET_CPV)
+        cache_size += AlignSize(AdjunctCount * sizeof(*Colors));
+
+    cache_size += AlignSize(AdjunctCount * sizeof(*VertexIndices));
+
+    if (Flags & AGI_MESH_SET_PLANES)
+        cache_size += AlignSize(SurfaceCount * sizeof(*Planes));
+
+    cache_size += AlignSize(SurfaceCount * sizeof(*TextureIndices));
+    cache_size += AlignSize(IndicesCount * sizeof(*SurfaceIndices));
+
+    stream->Write(&cache_size, sizeof(cache_size));
+
+    for (u8 i = 1; i <= TextureCount; ++i)
+    {
+        agiTexParameters params {};
+
+        if (Textures[i])
+            params = Textures[0][i]->Tex;
+
+        stream->Write(&params, sizeof(params));
+    }
+
+    stream->Write(Vertices, VertexCount * sizeof(*Vertices));
+
+    if (VertexCount >= 16)
+        stream->Write(BoundingBox, 8 * sizeof(*BoundingBox));
+
+    if (Flags & AGI_MESH_SET_LIT)
+        stream->Write(Normals, AdjunctCount * sizeof(*Normals));
+
+    if (Flags & AGI_MESH_SET_DYNTEX)
+        stream->Write(TexCoords, AdjunctCount * sizeof(*TexCoords));
+
+    if (Flags & AGI_MESH_SET_CPV)
+        stream->Write(Colors, AdjunctCount * sizeof(*Colors));
+
+    stream->Write(VertexIndices, AdjunctCount * sizeof(*VertexIndices));
+
+    if (Flags & AGI_MESH_SET_PLANES)
+        stream->Write(Planes, SurfaceCount * sizeof(*Planes));
+
+    stream->Write(TextureIndices, SurfaceCount * sizeof(*TextureIndices));
+    stream->Write(SurfaceIndices, IndicesCount * sizeof(*SurfaceIndices));
+}

@@ -43,7 +43,8 @@ ARTS_IMPORT extern i32 IsSnowing;
 // 0x73E70C | ?MeshCurrentObject@@3PADA
 ARTS_IMPORT extern char* MeshCurrentObject;
 
-struct GetMeshSet::N::operator++ ::DLPVertex2
+#if 0
+struct GetMeshSet_DLPVertex2
 {
 public:
     // 0x5140E0 | ??0DLPVertex2@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@XZ
@@ -53,9 +54,9 @@ public:
     ARTS_IMPORT ARTS_CDECL DLPVertex2(char* arg1, char* arg2, class Vector3* arg3, i32 arg4);
 };
 
-check_size(GetMeshSet::N::operator++ ::DLPVertex2, 0x0);
+check_size(GetMeshSet_DLPVertex2, 0x0);
 
-struct GetMeshSet::N::operator++ ::nbuf
+struct GetMeshSet_nbuf
 {
 public:
     // 0x514150 | ??0nbuf@?EN@??GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z@QAE@XZ
@@ -65,4 +66,5 @@ public:
     ARTS_IMPORT ARTS_CDECL nbuf(char* arg1, char* arg2, class Vector3* arg3, i32 arg4);
 };
 
-check_size(GetMeshSet::N::operator++ ::nbuf, 0x0);
+check_size(GetMeshSet_nbuf, 0x0);
+#endif
