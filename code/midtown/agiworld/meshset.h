@@ -79,7 +79,7 @@ public:
     ARTS_EXPORT void BinarySave(class Stream* stream);
 
     // 0x5148D0 | ?ComputePlaneEquations@agiMeshSet@@QAEXXZ
-    ARTS_IMPORT void ComputePlaneEquations();
+    ARTS_EXPORT void ComputePlaneEquations();
 
     // 0x506ED0 | ?Draw@agiMeshSet@@QAEHI@Z | agiworld:meshrend
     ARTS_IMPORT i32 Draw(u32 flags);

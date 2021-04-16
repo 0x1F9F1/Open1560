@@ -43,8 +43,8 @@ ARTS_IMPORT void ComputeMirrorMatrix(class Matrix34& arg1, class Vector4& arg2);
 ARTS_IMPORT void ComputeShadowMatrix(class Matrix34& arg1, class Vector4& arg2);
 
 // 0x571790 | ?GetBoundInfo@@YAXHPAVVector3@@000PAM@Z
-ARTS_IMPORT void GetBoundInfo(
-    i32 arg1, class Vector3* arg2, class Vector3* arg3, class Vector3* arg4, class Vector3* arg5, f32* arg6);
+ARTS_IMPORT void GetBoundInfo(i32 vert_count, class Vector3* vertices, class Vector3* out_min, class Vector3* out_max,
+    class Vector3* out_center, f32* out_mag);
 
 // 0x571730 | ?GetBoundSphere@@YA?AVVector4@@HPAVVector3@@@Z | unused
 ARTS_IMPORT class Vector4 GetBoundSphere(i32 arg1, class Vector3* arg2);

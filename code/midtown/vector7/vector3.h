@@ -258,6 +258,11 @@ public:
     // 0x566300 | ?rgbtohsv@Vector3@@QAEXXZ | unused
     ARTS_IMPORT void rgbtohsv();
 
+    f32 Mag2() const
+    {
+        return (x * x) + (y * y) + (z * z);
+    }
+
     f32 Dist2(const Vector3& other) const
     {
         return (x * other.x) + (y * other.y) + (z * other.z);
