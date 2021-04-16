@@ -326,3 +326,35 @@ b32 agiMeshSet::DrawColor(u32 color, u32 flags)
 
     return drawn;
 }
+
+b32 agiMeshSet::DrawLit(agiMeshLighter lighter, u32 flags, u32* colors)
+{
+    if (!lighter)
+        return Draw(flags);
+
+    bool drawn = false;
+
+    if (LockIfResident())
+    {
+        if (Geometry(flags, Vertices, Planes) <= 0xFF)
+        {
+            u32* shaded = ARTS_ALLOCA(u32, AdjunctCount);
+
+            {
+                ARTS_UTIMED(agiLightTimer);
+                lighter(codes, shaded, colors ? colors : Colors, this);
+            }
+
+            FirstPass(shaded, TexCoords, 0);
+            drawn = true;
+        }
+
+        Unlock();
+    }
+    else
+    {
+        PageIn();
+    }
+
+    return drawn;
+}

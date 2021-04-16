@@ -63,6 +63,8 @@ class Vector4;
 #define AGI_MESH_SET_SET_NO_BOUND 0x40
 #define AGI_MESH_SET_SET_BREAKABLE 0x80 // strcat(bnd_name, "_break")
 
+using agiMeshLighter = void (*)(u8* codes, u32* output, u32* colors, class agiMeshSet* mesh);
+
 class agiMeshSet
 {
 public:
@@ -88,15 +90,13 @@ public:
     ARTS_EXPORT b32 DrawColor(u32 color, u32 flags);
 
     // 0x507040 | ?DrawLit@agiMeshSet@@QAEHP6AXPAEPAI1PAV1@@ZI1@Z | agiworld:meshrend
-    ARTS_IMPORT i32 DrawLit(void (*lighter)(u8*, u32*, u32*, class agiMeshSet*), u32 flags, u32* colors);
+    ARTS_EXPORT b32 DrawLit(agiMeshLighter lighter, u32 flags, u32* colors);
 
     // 0x507120 | ?DrawLitEnv@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@AAVMatrix34@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void DrawLitEnv(void (*lighter)(u8*, u32*, u32*, class agiMeshSet*), class agiTexDef* env_map,
-        class Matrix34& transform, u32 flags);
+    ARTS_IMPORT void DrawLitEnv(agiMeshLighter lighter, class agiTexDef* env_map, class Matrix34& transform, u32 flags);
 
     // 0x507250 | ?DrawLitSph@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void DrawLitSph(
-        void (*lighter)(u8*, u32*, u32*, class agiMeshSet*), class agiTexDef* sph_map, u32 flags);
+    ARTS_IMPORT void DrawLitSph(agiMeshLighter lighter, class agiTexDef* sph_map, u32 flags);
 
     // 0x50EBC0 | ?DrawNormals@agiMeshSet@@QAEXAAVVector3@@@Z | agiworld:meshrend
     ARTS_IMPORT void DrawNormals(class Vector3& arg1);
@@ -108,7 +108,7 @@ public:
     ARTS_IMPORT void EnvMap(class Matrix34& arg1, class agiTexDef* arg2, u32 arg3);
 
     // 0x50D0E0 | ?FirstPass@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass(u32* colors, class Vector2* tex_coords, u32 color);
 
     // 0x509FE0 | ?FirstPass_HW_UV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
     ARTS_IMPORT void FirstPass_HW_UV_CPV_DYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
