@@ -58,7 +58,7 @@ void agiMeshSet::BinarySave(Stream* stream)
     if (Flags & AGI_MESH_SET_LIT)
         cache_size += AlignSize(AdjunctCount * sizeof(*Normals));
 
-    if (Flags & AGI_MESH_SET_DYNTEX)
+    if (Flags & AGI_MESH_SET_UV)
         cache_size += AlignSize(AdjunctCount * sizeof(*TexCoords));
 
     if (Flags & AGI_MESH_SET_CPV)
@@ -92,7 +92,7 @@ void agiMeshSet::BinarySave(Stream* stream)
     if (Flags & AGI_MESH_SET_LIT)
         stream->Write(Normals, AdjunctCount * sizeof(*Normals));
 
-    if (Flags & AGI_MESH_SET_DYNTEX)
+    if (Flags & AGI_MESH_SET_UV)
         stream->Write(TexCoords, AdjunctCount * sizeof(*TexCoords));
 
     if (Flags & AGI_MESH_SET_CPV)

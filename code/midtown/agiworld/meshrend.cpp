@@ -403,3 +403,42 @@ void agiMeshSet::DrawLitEnv(agiMeshLighter lighter, agiTexDef* env_map, Matrix34
         PageIn();
     }
 }
+
+static void (agiMeshSet::*const FirstPassFunctions[2][2][2][2])(u32* colors, Vector2* tex_coords, u32 color) {
+    {
+        {
+            {&agiMeshSet::FirstPass_HW_UV_CPV_noDYNTEX, &agiMeshSet::FirstPass_HW_UV_CPV_DYNTEX},
+            {&agiMeshSet::FirstPass_HW_UV_noCPV_noDYNTEX, &agiMeshSet::FirstPass_HW_UV_noCPV_DYNTEX},
+        },
+        {
+            {&agiMeshSet::FirstPass_HW_noUV_CPV_noDYNTEX, &agiMeshSet::FirstPass_HW_noUV_CPV_DYNTEX},
+            {&agiMeshSet::FirstPass_HW_noUV_noCPV_noDYNTEX, &agiMeshSet::FirstPass_HW_noUV_noCPV_DYNTEX},
+        },
+    },
+    {
+        {
+            {&agiMeshSet::FirstPass_SW_UV_CPV_noDYNTEX, &agiMeshSet::FirstPass_SW_UV_CPV_DYNTEX},
+            {&agiMeshSet::FirstPass_SW_UV_noCPV_noDYNTEX, &agiMeshSet::FirstPass_SW_UV_noCPV_DYNTEX},
+        },
+        {
+            {&agiMeshSet::FirstPass_SW_noUV_CPV_noDYNTEX, &agiMeshSet::FirstPass_SW_noUV_CPV_DYNTEX},
+            {&agiMeshSet::FirstPass_SW_noUV_noCPV_noDYNTEX, &agiMeshSet::FirstPass_SW_noUV_noCPV_DYNTEX},
+        },
+    },
+};
+
+static extern_var(0x725134, i32, DynTexFlag); // mmCarModel::Draw, mmVehicleForm::Cull
+
+void agiMeshSet::FirstPass(u32* colors, Vector2* tex_coords, u32 color)
+{
+    if (agiCurState.GetDrawMode() == 3)
+    {
+        colors = nullptr;
+        color = 0xFF202020;
+    }
+
+    ARTS_UTIMED(agiFirstPass);
+
+    (this->*FirstPassFunctions[agiCurState.GetSoftwareRendering()][tex_coords == nullptr][colors == nullptr][(DynTexFlag & AGI_MESH_DRAW_DYNTEX) != 0])(
+        colors, tex_coords, color);
+}

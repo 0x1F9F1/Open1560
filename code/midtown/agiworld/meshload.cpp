@@ -95,7 +95,7 @@ void agiMeshSet::BinaryLoad(Stream* stream)
     if (Flags & AGI_MESH_SET_LIT)
         Normals = stream->ReadMapped<u8>(AdjunctCount);
 
-    if (Flags & AGI_MESH_SET_DYNTEX)
+    if (Flags & AGI_MESH_SET_UV)
         TexCoords = stream->ReadMapped<Vector2>(AdjunctCount);
 
     if (Flags & AGI_MESH_SET_CPV)
@@ -217,7 +217,7 @@ void agiMeshSet::DoPageIn()
     if (Flags & AGI_MESH_SET_LIT)
         X(Normals, AdjunctCount);
 
-    if (Flags & AGI_MESH_SET_DYNTEX)
+    if (Flags & AGI_MESH_SET_UV)
         X(TexCoords, AdjunctCount);
 
     if (Flags & AGI_MESH_SET_CPV)

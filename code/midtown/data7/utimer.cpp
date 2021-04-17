@@ -64,7 +64,7 @@ static ARTS_NOINLINE ulong init_utimer()
     return ARTS_RDTSC();
 }
 
-ulong utimer()
+ARTS_NOINLINE ulong utimer()
 {
     if (utimer_mode)
         return init_utimer();

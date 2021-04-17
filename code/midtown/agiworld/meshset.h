@@ -41,7 +41,7 @@ class Vector3;
 class Vector4;
 
 // agiMeshSet::Flags
-#define AGI_MESH_SET_DYNTEX 0x1  // agiMeshSet::TexCoords
+#define AGI_MESH_SET_UV 0x1      // agiMeshSet::TexCoords
 #define AGI_MESH_SET_LIT 0x2     // agiMeshSet::Normals
 #define AGI_MESH_SET_CPV 0x4     // agiMeshSet::Colors
 #define AGI_MESH_SET_OFFSET 0x8  // agiMeshSet::Vertices are offset
@@ -50,7 +50,7 @@ class Vector4;
 // GetMeshSet
 // mesh->Flags = flags & AGI_MESH_SET_FLAGS_MASK
 #define AGI_MESH_SET_FLAGS_MASK \
-    (AGI_MESH_SET_DYNTEX | AGI_MESH_SET_LIT | AGI_MESH_SET_CPV | AGI_MESH_SET_OFFSET | AGI_MESH_SET_PLANES)
+    (AGI_MESH_SET_UV | AGI_MESH_SET_LIT | AGI_MESH_SET_CPV | AGI_MESH_SET_OFFSET | AGI_MESH_SET_PLANES)
 
 // if (!(flags & 0x100) && (EnablePaging & 2) && FileSystem::PagerInfoAny(bms_path, &pager))
 #define AGI_MESH_SET_KEEP_LOADED 0x100 // Overlaps with AGI_MESH_SET_VARIANT_MASK, why?
@@ -64,6 +64,10 @@ class Vector4;
 #define AGI_MESH_SET_SET_BREAKABLE 0x80 // strcat(bnd_name, "_break")
 
 using agiMeshLighter = void (*)(u8* codes, u32* output, u32* colors, class agiMeshSet* mesh);
+
+#define AGI_MESH_DRAW_CULL 0x1
+#define AGI_MESH_DRAW_DYNTEX 0x8
+#define AGI_MESH_DRAW_VARIANT_SHIFT 4
 
 class agiMeshSet
 {
@@ -108,7 +112,7 @@ public:
     ARTS_IMPORT void EnvMap(class Matrix34& arg1, class agiTexDef* arg2, u32 arg3);
 
     // 0x50D0E0 | ?FirstPass@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass(u32* colors, class Vector2* tex_coords, u32 color);
+    ARTS_EXPORT void FirstPass(u32* colors, class Vector2* tex_coords, u32 color);
 
     // 0x509FE0 | ?FirstPass_HW_UV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
     ARTS_IMPORT void FirstPass_HW_UV_CPV_DYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
