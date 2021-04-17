@@ -238,7 +238,7 @@ protected:
     // 0 | Paged Out
     // 1 | Paging In
     // 2 | Paged In
-    i32 page_state_ {0};
+    std::atomic<i32> page_state_ {0};
 };
 
 check_size(agiTexDef, 0x74);

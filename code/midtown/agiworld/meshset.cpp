@@ -21,6 +21,7 @@ define_dummy_symbol(agiworld_meshset);
 #include "meshset.h"
 
 #include "agi/texdef.h"
+#include "data7/cache.h"
 #include "data7/ipc.h"
 #include "vector7/geomath.h"
 #include "vector7/vector3.h"
@@ -96,6 +97,18 @@ void agiMeshSet::ComputePlaneEquations()
     GetBoundInfo(VertexCount, Vertices, nullptr, nullptr, nullptr, &BoundingBoxMagnitude);
 }
 
+void agiMeshSet::Offset(Vector3 offset)
+{
+    if (Flags & AGI_MESH_SET_OFFSET)
+        return;
+
+    for (i32 i = 0; i < VertexCount; ++i)
+        Vertices[i] -= offset;
+
+    Flags |= AGI_MESH_SET_OFFSET;
+    ComputePlaneEquations();
+}
+
 void agiMeshSet::PageIn()
 {
     if (!Resident)
@@ -108,4 +121,48 @@ void agiMeshSet::PageIn()
 void agiMeshSet::PageInCallback(void* param)
 {
     static_cast<agiMeshSet*>(param)->DoPageIn();
+}
+
+b32 agiMeshSet::IsFullyResident(i32 variant)
+{
+    if (Resident < 2)
+    {
+        PageIn();
+        return false;
+    }
+
+    agiTexDef** textures = Textures[variant];
+    bool resident = true;
+
+    for (u8 i = 1; i <= TextureCount; ++i)
+    {
+        agiTexDef* texture = textures[i];
+
+        if (texture->HaveGfxStarted())
+        {
+            if (!texture->IsAvailable())
+                resident = false;
+        }
+        else
+        {
+            texture->Request();
+            resident = false;
+        }
+    }
+
+    return resident;
+}
+
+b32 agiMeshSet::LockIfResident()
+{
+    return (Resident > 1) && (!CacheHandle || CACHE.Lock(&CacheHandle));
+}
+
+void agiMeshSet::MakeResident()
+{
+    while (!LockIfResident())
+    {
+        PageIn();
+        ipcYield();
+    }
 }

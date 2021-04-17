@@ -166,19 +166,19 @@ public:
     ARTS_IMPORT i32 Geometry(u32 arg1, class Vector3* arg2, class Vector4* arg3);
 
     // 0x514BC0 | ?IsFullyResident@agiMeshSet@@QAEHH@Z
-    ARTS_IMPORT i32 IsFullyResident(i32 arg1);
+    ARTS_EXPORT b32 IsFullyResident(i32 variant);
 
     // 0x514B20 | ?LockIfResident@agiMeshSet@@QAEHXZ
-    ARTS_IMPORT i32 LockIfResident();
+    ARTS_EXPORT b32 LockIfResident();
 
     // 0x514B90 | ?MakeResident@agiMeshSet@@QAEXXZ
-    ARTS_IMPORT void MakeResident();
+    ARTS_EXPORT void MakeResident();
 
     // 0x50D170 | ?MultiTexEnvMap@agiMeshSet@@QAEXPAIIPAVagiTexDef@@AAVMatrix34@@@Z | agiworld:meshrend
     ARTS_IMPORT void MultiTexEnvMap(u32* arg1, u32 arg2, class agiTexDef* arg3, class Matrix34& arg4);
 
     // 0x514880 | ?Offset@agiMeshSet@@QAEXVVector3@@@Z
-    ARTS_IMPORT void Offset(class Vector3 arg1);
+    ARTS_EXPORT void Offset(class Vector3 offset);
 
     // 0x514B00 | ?PageIn@agiMeshSet@@QAEXXZ
     ARTS_EXPORT void PageIn();
@@ -420,7 +420,8 @@ public:
     // 0 | Unloaded
     // 1 | Requested
     // 2 | Loaded
-    u8 Resident {0};
+    std::atomic<u8> Resident {0};
+
     u32 Variant {0};
     agiTexDef*** Textures {nullptr};
 
