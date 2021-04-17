@@ -268,18 +268,12 @@ void agiTexDef::PageInCallback(void* param)
 
 void agiTexDef::PageOutCallback(void* param, isize delta)
 {
-    agiTexDef* tex = static_cast<agiTexDef*>(param);
+    agiTexDef* self = static_cast<agiTexDef*>(param);
 
-    if (delta)
-    {
-        if (void* surface = tex->Surface->Surface)
-            tex->Surface->Surface = static_cast<u8*>(surface) + delta;
-    }
-    else
-    {
-        tex->Surface->Surface = nullptr;
-        tex->page_state_ = 0;
-    }
+    PointerFixup(self->Surface->Surface, delta);
+
+    if (delta == 0)
+        self->page_state_ = 0;
 }
 
 agiTexDef::agiTexDef(agiPipeline* pipe)

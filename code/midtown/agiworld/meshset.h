@@ -65,9 +65,9 @@ class Vector4;
 
 using agiMeshLighter = void (*)(u8* codes, u32* output, u32* colors, class agiMeshSet* mesh);
 
-#define AGI_MESH_DRAW_CULL 0x1
-#define AGI_MESH_DRAW_DYNTEX 0x8
-#define AGI_MESH_DRAW_VARIANT_SHIFT 4
+#define AGI_MESH_DRAW_CULL 0x1        // Use agiMeshSet::codes
+#define AGI_MESH_DRAW_DYNTEX 0x8      // Do not share vertices between textures
+#define AGI_MESH_DRAW_VARIANT_SHIFT 4 // CurrentMeshSetVariant = flags >> 4
 
 class agiMeshSet
 {
@@ -377,7 +377,7 @@ private:
     ARTS_EXPORT static void PageInCallback(void* param);
 
     // 0x503180 | ?PageOutCallback@agiMeshSet@@CAXPAXH@Z | agiworld:meshload
-    ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
+    ARTS_EXPORT static void PageOutCallback(void* param, isize delta);
 
 public:
     Vector3* Vertices {nullptr};

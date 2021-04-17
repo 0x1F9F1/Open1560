@@ -142,6 +142,7 @@ void agiMeshSet::DoPageIn()
     X(TextureCount);
     X(Flags);
 
+    // Ensures agiTexParameters are correctly aligned
     u16 padding;
     X(padding);
 
@@ -235,4 +236,30 @@ void agiMeshSet::DoPageIn()
 
     Resident = 2;
     CACHE.EndObject(CacheHandle);
+}
+
+void agiMeshSet::PageOutCallback(void* param, isize delta)
+{
+    agiMeshSet* self = static_cast<agiMeshSet*>(param);
+
+#define X(NAME) PointerFixup(self->NAME, delta)
+
+    for (i32 i = 0; i < self->VariationCount; ++i)
+        X(Textures[i]);
+
+    X(Textures);
+    X(Vertices);
+    X(BoundingBox);
+    X(Normals);
+    X(TexCoords);
+    X(Colors);
+    X(VertexIndices);
+    X(Planes);
+    X(TextureIndices);
+    X(SurfaceIndices);
+
+#undef X
+
+    if (delta == 0)
+        self->Resident = 0;
 }
