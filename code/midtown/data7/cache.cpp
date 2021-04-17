@@ -260,9 +260,18 @@ void DataCache::Flush()
 
 void DataCache::GetStatus(u32& objects, u32& bytes, u32& waste)
 {
-    objects = 100 * cur_objects_ / max_objects_;
-    bytes = 100 * heap_used_ / heap_size_;
-    waste = 100 * cur_waste_ / max_waste_;
+    if (objects_)
+    {
+        objects = 100 * cur_objects_ / max_objects_;
+        bytes = 100 * heap_used_ / heap_size_;
+        waste = 100 * cur_waste_ / max_waste_;
+    }
+    else
+    {
+        objects = 0;
+        bytes = 0;
+        waste = 0;
+    }
 }
 
 static mem::cmd_param PARAM_cacheage {"cacheage"};
