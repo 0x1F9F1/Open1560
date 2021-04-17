@@ -162,6 +162,7 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 
     bool (*validate)() = ValidateRenderersDX6;
     void (*enumerate)() = EnumerateRenderers2;
+    bool show_message = true;
 
     if (PARAM_d3d)
     {
@@ -173,11 +174,21 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
     {
         validate = ValidateRenderersGL;
         enumerate = EnumerateRenderersGL;
+        show_message = false;
     }
 #endif
 
     if (PARAM_config.get_or(false) || !dxiReadConfigFile() || !validate())
     {
+        if (show_message)
+        {
+            if (MessageBoxA(NULL, LOC_STR(MM_IDS_DETECTING_GPU), APPTITLE, MB_OKCANCEL) != IDOK)
+            {
+                Errorf("User declined GPU detection");
+                ExitProcess(0);
+            }
+        }
+
         dxiRendererChoice = -1;
 
         Timer detect_time;

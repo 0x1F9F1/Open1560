@@ -541,7 +541,7 @@ X(MM_IDS_521, "A '%s' video board was found but is not supported because it does
 X(MM_IDS_522, "A '%s' video board was found but is not supported because it is missing too many 3-D features.")
 X(MM_IDS_523, "A '%s' video board was found but is not supported because it needs at least two MBs of video memory.")
 X(MM_IDS_524, "Software Renderer")
-X(MM_IDS_525, "Click OK to have Midtown Madness detect the presence of a hardware accelerator card. This may take a few seconds, during which your screen may flicker.")
+X(MM_IDS_DETECTING_GPU, "Click OK to have Midtown Madness detect the presence of a hardware accelerator card. This may take a few seconds, during which your screen may flicker.")
 X(MM_IDS_NO_RENDERERS, "No suitable video boards found, application cannot run.")
 
 // clang-format on

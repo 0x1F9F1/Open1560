@@ -541,5 +541,5 @@
 #define MM_IDS_522 522
 #define MM_IDS_523 523
 #define MM_IDS_524 524
-#define MM_IDS_525 525
+#define MM_IDS_DETECTING_GPU 525
 #define MM_IDS_NO_RENDERERS 526
