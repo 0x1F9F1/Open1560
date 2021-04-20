@@ -105,20 +105,20 @@ public:
 
     // 0x4F1750 | ?DSGetWaveFile@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAKPAPAX@Z
     ARTS_IMPORT i32 DSGetWaveFile(
-        struct HINSTANCE__* arg1, char const* arg2, struct tWAVEFORMATEX** arg3, u8** arg4, u32* arg5, void** arg6);
+        struct HINSTANCE__* arg1, char const* arg2, struct tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5, void** arg6);
 
     // 0x4F1510 | ?DSGetWaveResource@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
     ARTS_IMPORT i32 DSGetWaveResource(
-        struct HINSTANCE__* arg1, char const* arg2, struct tWAVEFORMATEX** arg3, u8** arg4, u32* arg5);
+        struct HINSTANCE__* arg1, char const* arg2, struct tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5);
 
     // 0x4F1030 | ?DSLoadSoundBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
-    ARTS_IMPORT struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, u32 arg2);
+    ARTS_IMPORT struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, ulong arg2);
 
     // 0x4F1210 | ?DSLoadSoundBuffer@SoundObj@@QAEXGK@Z
-    ARTS_IMPORT void DSLoadSoundBuffer(u16 arg1, u32 arg2);
+    ARTS_IMPORT void DSLoadSoundBuffer(u16 arg1, ulong arg2);
 
     // 0x4F2290 | ?DSParseWaveResource@SoundObj@@QAEHPAXPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
-    ARTS_IMPORT i32 DSParseWaveResource(void* arg1, struct tWAVEFORMATEX** arg2, u8** arg3, u32* arg4);
+    ARTS_IMPORT i32 DSParseWaveResource(void* arg1, struct tWAVEFORMATEX** arg2, u8** arg3, ulong* arg4);
 
     // 0x4F0CA0 | ?DeallocateEffects@SoundObj@@QAEXXZ
     ARTS_IMPORT void DeallocateEffects();
@@ -139,10 +139,10 @@ public:
     ARTS_IMPORT struct tWAVEFORMATEX* GetFormat();
 
     // 0x4F1BD0 | ?Init@SoundObj@@QAEHPBDKF@Z
-    ARTS_IMPORT i32 Init(char const* arg1, u32 arg2, i16 arg3);
+    ARTS_IMPORT i32 Init(char const* arg1, ulong arg2, i16 arg3);
 
     // 0x4F1C90 | ?Init@SoundObj@@QAEHGKF@Z
-    ARTS_IMPORT i32 Init(u16 arg1, u32 arg2, i16 arg3);
+    ARTS_IMPORT i32 Init(u16 arg1, ulong arg2, i16 arg3);
 
     // 0x4F1A20 | ?InitDummy@SoundObj@@QAEHXZ
     ARTS_IMPORT i32 InitDummy();
@@ -151,7 +151,7 @@ public:
     ARTS_IMPORT i16 IsPlaying(i16 arg1);
 
     // 0x4F1EE0 | ?Play@SoundObj@@QAEHKPAD@Z
-    ARTS_IMPORT i32 Play(u32 arg1, char* arg2);
+    ARTS_IMPORT i32 Play(ulong arg1, char* arg2);
 
     // 0x4F1350 | ?ReadADFRecord@SoundObj@@QAEXG@Z
     ARTS_IMPORT void ReadADFRecord(u16 arg1);
@@ -160,16 +160,16 @@ public:
     ARTS_IMPORT i16 ReadyOneShotLayerBuf();
 
     // 0x4F2C00 | ?Set3DMode@SoundObj@@QAEXK@Z
-    ARTS_IMPORT void Set3DMode(u32 arg1);
+    ARTS_IMPORT void Set3DMode(ulong arg1);
 
     // 0x4F2C50 | ?SetConeAngles@SoundObj@@QAEXKK@Z
-    ARTS_IMPORT void SetConeAngles(u32 arg1, u32 arg2);
+    ARTS_IMPORT void SetConeAngles(ulong arg1, ulong arg2);
 
     // 0x4F2C90 | ?SetConeOrientation@SoundObj@@QAEXPAVVector3@@@Z
     ARTS_IMPORT void SetConeOrientation(class Vector3* arg1);
 
     // 0x4F2C20 | ?SetConeOutsideVolume@SoundObj@@QAEXJ@Z
-    ARTS_IMPORT void SetConeOutsideVolume(i32 arg1);
+    ARTS_IMPORT void SetConeOutsideVolume(ilong arg1);
 
     // 0x4F0D70 | ?SetDelayTime@SoundObj@@QAEXM@Z
     ARTS_IMPORT void SetDelayTime(f32 arg1);
@@ -190,7 +190,7 @@ public:
     ARTS_IMPORT void SetPan(f32 arg1);
 
     // 0x4F1EC0 | ?SetPlayPosition@SoundObj@@QAEXK@Z
-    ARTS_IMPORT void SetPlayPosition(u32 arg1);
+    ARTS_IMPORT void SetPlayPosition(ulong arg1);
 
     // 0x4F25A0 | ?SetPosition@SoundObj@@QAEXMMM@Z
     ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2, f32 arg3);

@@ -69,7 +69,7 @@ public:
     ARTS_IMPORT void AddRosterName(char* arg1);
 
     // 0x4A2250 | ?AddRosterName@NetArena@@QAEXPAULocString@@00K@Z
-    ARTS_IMPORT void AddRosterName(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3, u32 arg4);
+    ARTS_IMPORT void AddRosterName(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3, ulong arg4);
 
     // 0x4A20B0 | ?ChatEntry@NetArena@@QAEXXZ
     ARTS_IMPORT void ChatEntry();
@@ -117,7 +117,7 @@ public:
     ARTS_IMPORT void SetHost(i32 arg1);
 
     // 0x4A2620 | ?SetReady@NetArena@@QAEXKH@Z
-    ARTS_IMPORT void SetReady(u32 arg1, i32 arg2);
+    ARTS_IMPORT void SetReady(ulong arg1, i32 arg2);
 
     u8 gap90[0xA0];
 };

@@ -101,7 +101,7 @@ public:
     ARTS_IMPORT ~asNetwork();
 
     // 0x48AE30 | ?ChatMessage@asNetwork@@QAEXKPAD@Z | unused
-    ARTS_IMPORT void ChatMessage(u32 arg1, char* arg2);
+    ARTS_IMPORT void ChatMessage(ulong arg1, char* arg2);
 
     // 0x48A3A0 | ?CloseSession@asNetwork@@QAEXXZ
     ARTS_IMPORT void CloseSession();
@@ -170,16 +170,16 @@ public:
     ARTS_IMPORT i32 GetNumSessions();
 
     // 0x489F00 | ?GetPlayerData@asNetwork@@QAEHKPAXH@Z
-    ARTS_IMPORT i32 GetPlayerData(u32 arg1, void* arg2, i32 arg3);
+    ARTS_IMPORT i32 GetPlayerData(ulong arg1, void* arg2, i32 arg3);
 
     // 0x489B00 | ?GetPlayerID@asNetwork@@QAEKH@Z
-    ARTS_IMPORT u32 GetPlayerID(i32 arg1);
+    ARTS_IMPORT ulong GetPlayerID(i32 arg1);
 
     // 0x489C00 | ?GetPlayerName@asNetwork@@QAEPADK@Z
-    ARTS_IMPORT char* GetPlayerName(u32 arg1);
+    ARTS_IMPORT char* GetPlayerName(ulong arg1);
 
     // 0x489CC0 | ?GetPlayerName@asNetwork@@QAEHKPAD@Z
-    ARTS_IMPORT i32 GetPlayerName(u32 arg1, char* arg2);
+    ARTS_IMPORT i32 GetPlayerName(ulong arg1, char* arg2);
 
     // 0x489AA0 | ?GetPlayers@asNetwork@@QAEHPAU_GUID@@@Z
     ARTS_IMPORT i32 GetPlayers(struct _GUID* arg1);
@@ -221,7 +221,7 @@ public:
     ARTS_IMPORT void Logout();
 
     // 0x489FB0 | ?Ping@asNetwork@@QAEKK@Z | unused
-    ARTS_IMPORT u32 Ping(u32 arg1);
+    ARTS_IMPORT ulong Ping(ulong arg1);
 
     // 0x48AA20 | ?PollLobby@asNetwork@@QAEHXZ
     ARTS_IMPORT i32 PollLobby();
@@ -233,7 +233,7 @@ public:
     ARTS_IMPORT void SealSession();
 
     // 0x48AEF0 | ?Send@asNetwork@@QAEXKPAXKH@Z
-    ARTS_IMPORT void Send(u32 arg1, void* arg2, u32 arg3, i32 arg4);
+    ARTS_IMPORT void Send(ulong arg1, void* arg2, ulong arg3, i32 arg4);
 
     // 0x489280 | ?SendLobbyProperty@asNetwork@@QAEXPAXH@Z | unused
     ARTS_IMPORT void SendLobbyProperty(void* arg1, i32 arg2);
@@ -242,7 +242,7 @@ public:
     ARTS_IMPORT void SetEnumSessionLock(i32 arg1, i32 arg2);
 
     // 0x489DA0 | ?SetPlayerData@asNetwork@@QAEXKPAXH@Z
-    ARTS_IMPORT void SetPlayerData(u32 arg1, void* arg2, i32 arg3);
+    ARTS_IMPORT void SetPlayerData(ulong arg1, void* arg2, i32 arg3);
 
     // 0x4898B0 | ?SetProtocol@asNetwork@@QAEHH@Z
     ARTS_IMPORT i32 SetProtocol(i32 arg1);
@@ -311,16 +311,16 @@ check_size(asNetwork, 0x64);
 
 // 0x48B170 | ?EnumConnectionsCallback@@YGHPBU_GUID@@PAXKPBUDPNAME@@K1@Z
 ARTS_IMPORT i32 ARTS_STDCALL EnumConnectionsCallback(
-    struct _GUID const* arg1, void* arg2, u32 arg3, DPNAME const* arg4, u32 arg5, void* arg6);
+    struct _GUID const* arg1, void* arg2, ulong arg3, DPNAME const* arg4, ulong arg5, void* arg6);
 
 // 0x48B430 | ?EnumModemAddress@@YGHABU_GUID@@KPBXPAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL EnumModemAddress(struct _GUID const& arg1, u32 arg2, void const* arg3, void* arg4);
+ARTS_IMPORT i32 ARTS_STDCALL EnumModemAddress(struct _GUID const& arg1, ulong arg2, void const* arg3, void* arg4);
 
 // 0x48B1E0 | ?EnumPlayersCallback@@YGHKKPBUDPNAME@@KPAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL EnumPlayersCallback(u32 arg1, u32 arg2, DPNAME const* arg3, u32 arg4, void* arg5);
+ARTS_IMPORT i32 ARTS_STDCALL EnumPlayersCallback(ulong arg1, ulong arg2, DPNAME const* arg3, ulong arg4, void* arg5);
 
 // 0x48B0B0 | ?EnumSessionCallback@@YGHPBUDPSESSIONDESC2@@PAKKPAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL EnumSessionCallback(DPSESSIONDESC2 const* arg1, u32* arg2, u32 arg3, void* arg4);
+ARTS_IMPORT i32 ARTS_STDCALL EnumSessionCallback(DPSESSIONDESC2 const* arg1, ulong* arg2, ulong arg3, void* arg4);
 
 // 0x6A8918 | ?NETMGR@@3VasNetwork@@A
 ARTS_IMPORT extern class asNetwork NETMGR;

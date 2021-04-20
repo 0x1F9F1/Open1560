@@ -55,7 +55,7 @@ public:
     ARTS_IMPORT ~PURoster() override = default;
 
     // 0x4A8F00 | ?AddName@PURoster@@QAEXPADKH@Z
-    ARTS_IMPORT void AddName(char* arg1, u32 arg2, i32 arg3);
+    ARTS_IMPORT void AddName(char* arg1, ulong arg2, i32 arg3);
 
     // 0x4A8E30 | ?BootButtonCB@PURoster@@QAEXXZ
     ARTS_IMPORT void BootButtonCB();
@@ -67,16 +67,16 @@ public:
     ARTS_IMPORT i32 FindRosterName(char* arg1);
 
     // 0x4A9360 | ?FindRosterName@PURoster@@QAEHK@Z
-    ARTS_IMPORT i32 FindRosterName(u32 arg1);
+    ARTS_IMPORT i32 FindRosterName(ulong arg1);
 
     // 0x4A92A0 | ?PostNames@PURoster@@QAEXXZ
     ARTS_IMPORT void PostNames();
 
     // 0x4A9110 | ?RemoveName@PURoster@@QAEXK@Z
-    ARTS_IMPORT void RemoveName(u32 arg1);
+    ARTS_IMPORT void RemoveName(ulong arg1);
 
     // 0x4A8FD0 | ?RemoveName@PURoster@@QAEXPADK@Z
-    ARTS_IMPORT void RemoveName(char* arg1, u32 arg2);
+    ARTS_IMPORT void RemoveName(char* arg1, ulong arg2);
 
     // 0x4A8E20 | ?Reset@PURoster@@UAEXXZ
     ARTS_IMPORT void Reset() override;

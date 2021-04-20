@@ -66,7 +66,7 @@ public:
     ARTS_IMPORT void Deactivate();
 
     // 0x432900 | ?Init@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
-    ARTS_IMPORT void Init(class mmCar* arg1, char* arg2, i32 arg3, u32 arg4, char* arg5);
+    ARTS_IMPORT void Init(class mmCar* arg1, char* arg2, i32 arg3, ulong arg4, char* arg5);
 
     // 0x432BD0 | ?PositionUpdate@mmNetObject@@QAEXPAUNETGAME_MSG@@@Z
     ARTS_IMPORT void PositionUpdate(struct NETGAME_MSG* arg1);
@@ -75,7 +75,7 @@ public:
     ARTS_IMPORT void Predict();
 
     // 0x432980 | ?ReInit@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
-    ARTS_IMPORT void ReInit(class mmCar* arg1, char* arg2, i32 arg3, u32 arg4, char* arg5);
+    ARTS_IMPORT void ReInit(class mmCar* arg1, char* arg2, i32 arg3, ulong arg4, char* arg5);
 
     // 0x432A50 | ?SetActive@mmNetObject@@QAEXH@Z
     ARTS_IMPORT void SetActive(i32 arg1);

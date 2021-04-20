@@ -99,7 +99,6 @@ public:
 
             if (old)
                 old->Release();
-
 #endif
         }
 

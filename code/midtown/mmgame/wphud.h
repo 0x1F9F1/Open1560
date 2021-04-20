@@ -165,10 +165,10 @@ public:
     ARTS_IMPORT void ActivateGold();
 
     // 0x4260B0 | ?ActivateRosterGold@mmCRHUD@@QAEXK@Z
-    ARTS_IMPORT void ActivateRosterGold(u32 arg1);
+    ARTS_IMPORT void ActivateRosterGold(ulong arg1);
 
     // 0x425C50 | ?AddPlayer@mmCRHUD@@QAEXPADKHI@Z
-    ARTS_IMPORT void AddPlayer(char* arg1, u32 arg2, i32 arg3, u32 arg4);
+    ARTS_IMPORT void AddPlayer(char* arg1, ulong arg2, i32 arg3, u32 arg4);
 
     // 0x4260A0 | ?DeactivateGold@mmCRHUD@@QAEXXZ
     ARTS_IMPORT void DeactivateGold();
@@ -180,7 +180,7 @@ public:
     ARTS_IMPORT void Init(class asLinearCS* arg1, char* arg2, enum mmCRGameClass arg3);
 
     // 0x425F20 | ?RemovePlayer@mmCRHUD@@QAEXK@Z
-    ARTS_IMPORT void RemovePlayer(u32 arg1);
+    ARTS_IMPORT void RemovePlayer(ulong arg1);
 
     // 0x426180 | ?Reset@mmCRHUD@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -198,7 +198,7 @@ public:
     ARTS_IMPORT void SetScore(char* arg1);
 
     // 0x425EB0 | ?SetScore@mmCRHUD@@QAEXKH@Z
-    ARTS_IMPORT void SetScore(u32 arg1, i32 arg2);
+    ARTS_IMPORT void SetScore(ulong arg1, i32 arg2);
 
     // 0x425C20 | ?ToggleScores@mmCRHUD@@QAEXXZ | unused
     ARTS_IMPORT void ToggleScores();

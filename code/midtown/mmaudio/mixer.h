@@ -60,7 +60,7 @@ public:
     ARTS_IMPORT void Set(f32 arg1, f32 arg2);
 
     // 0x4EE110 | ?Value@VolumeDW@@QAEKXZ | unused
-    ARTS_IMPORT u32 Value();
+    ARTS_IMPORT ulong Value();
 
     u8 gap0[0xC];
 };
@@ -89,10 +89,10 @@ public:
     ARTS_IMPORT void AssignCDVolume(f32 arg1);
 
     // 0x4EE580 | ?AssignMixerBalance@MixerCTL@@QAEKMK@Z
-    ARTS_IMPORT u32 AssignMixerBalance(f32 arg1, u32 arg2);
+    ARTS_IMPORT u32 AssignMixerBalance(f32 arg1, ulong arg2);
 
     // 0x4EE320 | ?AssignMixerVolume@MixerCTL@@QAEKMK@Z
-    ARTS_IMPORT u32 AssignMixerVolume(f32 arg1, u32 arg2);
+    ARTS_IMPORT u32 AssignMixerVolume(f32 arg1, ulong arg2);
 
     // 0x4EE1F0 | ?AssignWaveBalance@MixerCTL@@QAEXM@Z
     ARTS_IMPORT void AssignWaveBalance(f32 arg1);
@@ -107,7 +107,7 @@ public:
     ARTS_IMPORT f32 GetCDVolume();
 
     // 0x4EE830 | ?GetMixerBalance@MixerCTL@@QAEMK@Z
-    ARTS_IMPORT f32 GetMixerBalance(u32 arg1);
+    ARTS_IMPORT f32 GetMixerBalance(ulong arg1);
 
     // 0x4EE2A0 | ?GetWaveBalance@MixerCTL@@QAEMXZ
     ARTS_IMPORT f32 GetWaveBalance();
@@ -116,7 +116,7 @@ public:
     ARTS_IMPORT f32 GetWaveVolume();
 
     // 0x4EE140 | ?Init@MixerCTL@@QAEKXZ
-    ARTS_IMPORT u32 Init();
+    ARTS_IMPORT ulong Init();
 
     // 0x4EE290 | ?RefreshAll@MixerCTL@@QAEXK@Z | unused
     ARTS_EXPORT void RefreshAll(ulong arg1);

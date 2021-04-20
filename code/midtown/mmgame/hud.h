@@ -116,7 +116,7 @@ public:
     ARTS_IMPORT void ActivateGold();
 
     // 0x405F30 | ?AddPlayer@mmHUD@@QAEXPADKHH@Z
-    ARTS_IMPORT void AddPlayer(char* arg1, u32 arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT void AddPlayer(char* arg1, ulong arg2, i32 arg3, i32 arg4);
 
     // 0x406170 | ?AddWidgets@mmHUD@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
@@ -161,7 +161,7 @@ public:
     ARTS_IMPORT void RecordPosition(char* arg1);
 
     // 0x405F80 | ?RemovePlayer@mmHUD@@QAEXK@Z
-    ARTS_IMPORT void RemovePlayer(u32 arg1);
+    ARTS_IMPORT void RemovePlayer(ulong arg1);
 
     // 0x4050C0 | ?ResChange@mmHUD@@UAEXHH@Z
     ARTS_IMPORT void ResChange(i32 arg1, i32 arg2) override;
@@ -185,7 +185,7 @@ public:
     ARTS_IMPORT void SetScore(char* arg1);
 
     // 0x405F60 | ?SetScore@mmHUD@@QAEXKH@Z
-    ARTS_IMPORT void SetScore(u32 arg1, i32 arg2);
+    ARTS_IMPORT void SetScore(ulong arg1, i32 arg2);
 
     // 0x405E00 | ?SetStandings@mmHUD@@QAEXHH@Z
     ARTS_IMPORT void SetStandings(i32 arg1, i32 arg2);

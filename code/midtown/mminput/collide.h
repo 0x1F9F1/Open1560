@@ -36,7 +36,7 @@ class mmCollideFF final : public mmEffectFF
 
 public:
     // 0x4E7660 | ?Assign@mmCollideFF@@QAEHJJ@Z
-    ARTS_IMPORT i32 Assign(i32 arg1, i32 arg2);
+    ARTS_IMPORT i32 Assign(ilong arg1, ilong arg2);
 
     // 0x4E7470 | ?Init@mmCollideFF@@UAEHPAUIDirectInputDevice2A@@@Z
     ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;

@@ -54,7 +54,7 @@
 #include "game.h"
 
 // 0x416C90 | ?ThreadFunc@@YGKPAX@Z | unused
-ARTS_IMPORT u32 ARTS_STDCALL ThreadFunc(void* arg1);
+ARTS_IMPORT ulong ARTS_STDCALL ThreadFunc(void* arg1);
 
 // 0x6A7110 | ?mmGameSingleMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmGameSingleMetaClass;

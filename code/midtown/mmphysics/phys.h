@@ -266,10 +266,10 @@ ARTS_IMPORT extern class mmEdgeBodyIsect EBISECTS[32];
 ARTS_IMPORT extern class mmIntersection ISECTS[32];
 
 // 0x7188BC | ?ImpactCallbackTime@@3KA
-ARTS_IMPORT extern u32 ImpactCallbackTime;
+ARTS_IMPORT extern ulong ImpactCallbackTime;
 
 // 0x716F80 | ?ImpactTime@@3KA
-ARTS_IMPORT extern u32 ImpactTime;
+ARTS_IMPORT extern ulong ImpactTime;
 
 // 0x718698 | ?PHYS@@3VmmPhysicsMGR@@A
 ARTS_IMPORT extern class mmPhysicsMGR PHYS;
@@ -281,10 +281,10 @@ ARTS_IMPORT extern f32 PhysUpdate;
 // ARTS_IMPORT extern class MetaClass mmPhysicsMGRMetaClass;
 
 // 0x7188C0 | ?physCollisions@@3KA
-ARTS_IMPORT extern u32 physCollisions;
+ARTS_IMPORT extern ulong physCollisions;
 
 // 0x718590 | ?physTerrainCollisions@@3KA
-ARTS_IMPORT extern u32 physTerrainCollisions;
+ARTS_IMPORT extern ulong physTerrainCollisions;
 
 // 0x7190D0 | ?physUpdate@@3KA
-ARTS_IMPORT extern u32 physUpdate;
+ARTS_IMPORT extern ulong physUpdate;

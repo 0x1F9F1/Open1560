@@ -27,4 +27,4 @@ void ControlSetup::POVCB()
 {}
 
 // 0x4A37A0 | ?CalibrateWatcher@@YGKPAX@Z
-ARTS_IMPORT /*static*/ u32 ARTS_STDCALL CalibrateWatcher(void* arg1);
+ARTS_IMPORT /*static*/ ulong ARTS_STDCALL CalibrateWatcher(void* arg1);

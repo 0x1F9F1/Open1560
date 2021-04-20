@@ -65,7 +65,7 @@ public:
     ARTS_IMPORT i32 DSCreateSoundBuffer();
 
     // 0x4F4E50 | ?DSLoadSoundBuffer@StreamObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
-    ARTS_IMPORT struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, u32 arg2);
+    ARTS_IMPORT struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, ulong arg2);
 
     // 0x4F5540 | ?FillDataBuffer@StreamObj@@QAEHI@Z
     ARTS_IMPORT i32 FillDataBuffer(u32 arg1);
@@ -74,7 +74,7 @@ public:
     ARTS_IMPORT class Stream* GetFileStreamPtr();
 
     // 0x4F5200 | ?Init@StreamObj@@QAEHPBDK@Z
-    ARTS_IMPORT i32 Init(char const* arg1, u32 arg2);
+    ARTS_IMPORT i32 Init(char const* arg1, ulong arg2);
 
     // 0x4F5750 | ?IsPlaying@StreamObj@@QAEFXZ
     ARTS_IMPORT i16 IsPlaying();
@@ -95,7 +95,7 @@ public:
     ARTS_IMPORT void SetFrequencyEvent(f32 arg1);
 
     // 0x4F60B0 | ?SetLoopPointInfo@StreamObj@@QAEXKKIFF@Z
-    ARTS_IMPORT void SetLoopPointInfo(u32 arg1, u32 arg2, u32 arg3, i16 arg4, i16 arg5);
+    ARTS_IMPORT void SetLoopPointInfo(ulong arg1, ulong arg2, u32 arg3, i16 arg4, i16 arg5);
 
     // 0x4F6050 | ?SetNumLoopIndices@StreamObj@@QAEXF@Z
     ARTS_IMPORT void SetNumLoopIndices(i16 arg1);
@@ -110,7 +110,7 @@ public:
     ARTS_IMPORT void SetPlayOneShotEvent(char* arg1);
 
     // 0x4F5270 | ?SetPlayPosition@StreamObj@@QAEXK@Z | unused
-    ARTS_IMPORT void SetPlayPosition(u32 arg1);
+    ARTS_IMPORT void SetPlayPosition(ulong arg1);
 
     // 0x4F6290 | ?SetPlayingFlag@StreamObj@@QAEXF@Z
     ARTS_IMPORT void SetPlayingFlag(i16 arg1);
@@ -146,4 +146,4 @@ private:
 check_size(StreamObj, 0x138);
 
 // 0x4F5B80 | ?HandleNotifications@@YAKPAX@Z
-ARTS_IMPORT u32 HandleNotifications(void* arg1);
+ARTS_IMPORT ulong HandleNotifications(void* arg1);

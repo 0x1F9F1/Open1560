@@ -187,10 +187,10 @@ private:
     ARTS_IMPORT void SendChangeSet(i32 arg1);
 
     // 0x41F1C0 | ?SendGameState@mmMultiCR@@AAEXK@Z
-    ARTS_IMPORT void SendGameState(u32 arg1);
+    ARTS_IMPORT void SendGameState(ulong arg1);
 
     // 0x41F2C0 | ?SendGoldAck@mmMultiCR@@AAEXK@Z
-    ARTS_IMPORT void SendGoldAck(u32 arg1);
+    ARTS_IMPORT void SendGoldAck(ulong arg1);
 
     // 0x41F300 | ?SendGoldDeliver@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void SendGoldDeliver();
@@ -202,7 +202,7 @@ private:
     ARTS_IMPORT void SendLimitReached(i32 arg1);
 
     // 0x41F260 | ?SendSetup@mmMultiCR@@AAEXK@Z | unused
-    ARTS_EXPORT void SendSetup(u32 arg1);
+    ARTS_EXPORT void SendSetup(ulong arg1);
 
     // 0x41F3D0 | ?SendTimeWarning@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void SendTimeWarning(i32 arg1);

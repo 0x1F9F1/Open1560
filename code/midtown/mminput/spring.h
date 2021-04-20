@@ -36,7 +36,7 @@ class mmSpringFF final : public mmEffectFF
 
 public:
     // 0x4E7E80 | ?Assign@mmSpringFF@@QAEHJ@Z
-    ARTS_IMPORT i32 Assign(i32 arg1);
+    ARTS_IMPORT i32 Assign(ilong arg1);
 
     // 0x4E7D50 | ?Init@mmSpringFF@@UAEHPAUIDirectInputDevice2A@@@Z
     ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;

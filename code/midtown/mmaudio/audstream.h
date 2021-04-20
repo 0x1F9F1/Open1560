@@ -65,7 +65,7 @@ class AudStream final : public asNode
 
 public:
     // 0x4F35A0 | ??0AudStream@@QAE@KHF@Z
-    ARTS_IMPORT AudStream(u32 arg1, i32 arg2, i16 arg3);
+    ARTS_IMPORT AudStream(ulong arg1, i32 arg2, i16 arg3);
 
     // 0x4F4210 | ??_EAudStream@@UAEPAXI@Z
     // 0x4F4210 | ??_GAudStream@@UAEPAXI@Z
@@ -118,7 +118,7 @@ public:
     ARTS_IMPORT void SetLoopIndex(i16 arg1);
 
     // 0x4F41B0 | ?SetLoopPointInfo@AudStream@@QAEXKKIFF@Z | unused
-    ARTS_IMPORT void SetLoopPointInfo(u32 arg1, u32 arg2, u32 arg3, i16 arg4, i16 arg5);
+    ARTS_IMPORT void SetLoopPointInfo(ulong arg1, ulong arg2, u32 arg3, i16 arg4, i16 arg5);
 
     // 0x4F4150 | ?SetNumLoopIndices@AudStream@@QAEXF@Z | unused
     ARTS_IMPORT void SetNumLoopIndices(i16 arg1);
@@ -127,7 +127,7 @@ public:
     ARTS_IMPORT void SetPan(f32 arg1, i32 arg2);
 
     // 0x4F3B50 | ?SetPlayPosition@AudStream@@QAEXK@Z | unused
-    ARTS_EXPORT void SetPlayPosition(u32 arg1);
+    ARTS_EXPORT void SetPlayPosition(ulong arg1);
 
     // 0x4F37E0 | ?SetPriority@AudStream@@QAEXH@Z
     ARTS_IMPORT void SetPriority(i32 arg1);
@@ -148,17 +148,17 @@ public:
     ARTS_IMPORT void Update() override;
 
     // 0x4F4100 | ?Get2DFlags@AudStream@@SA?BKXZ | unused
-    ARTS_IMPORT static u32 const Get2DFlags();
+    ARTS_IMPORT static ulong const Get2DFlags();
 
     // 0x4F4120 | ?GetFreqChange2DFlags@AudStream@@SA?BKXZ
-    ARTS_IMPORT static u32 const GetFreqChange2DFlags();
+    ARTS_IMPORT static ulong const GetFreqChange2DFlags();
 
 private:
     // 0x61FF24 | ?s_DWDefault2DCtrlFlags@AudStream@@0KB
-    ARTS_IMPORT static u32 const s_DWDefault2DCtrlFlags;
+    ARTS_IMPORT static ulong const s_DWDefault2DCtrlFlags;
 
     // 0x61FF28 | ?s_DWFreqChange2DCtrlFlags@AudStream@@0KB
-    ARTS_IMPORT static u32 const s_DWFreqChange2DCtrlFlags;
+    ARTS_IMPORT static ulong const s_DWFreqChange2DCtrlFlags;
 
     u8 gap20[0x34];
 };

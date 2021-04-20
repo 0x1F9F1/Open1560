@@ -58,7 +58,7 @@ public:
     ARTS_IMPORT void EndGfx() override;
 
     // 0x533750 | ?GetHandle@agiD3DMtlDef@@QAEKXZ | unused
-    ARTS_IMPORT u32 GetHandle();
+    ARTS_IMPORT ulong GetHandle();
 
     u8 gap80[0x8];
 };

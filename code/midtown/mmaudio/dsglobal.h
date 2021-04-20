@@ -154,28 +154,28 @@ public:
     bool GetWaveDeviceID(u32 device_num, u32& wave_id);
 
     // 0x4F09F0 | ?GetNum3DHallBufs@DSGlobal@@QAEKXZ | unused
-    ARTS_IMPORT u32 GetNum3DHallBufs();
+    ARTS_IMPORT ulong GetNum3DHallBufs();
 
     // 0x4EF550 | ?Init@DSGlobal@@QAEHKEPAIPADFF@Z
-    ARTS_IMPORT i32 Init(u32 arg1, u8 arg2, u32* arg3, char* arg4, i16 arg5, i16 arg6);
+    ARTS_IMPORT i32 Init(ulong arg1, u8 arg2, u32* arg3, char* arg4, i16 arg5, i16 arg6);
 
     // 0x4EF770 | ?Init3DListener@DSGlobal@@QAEHMMMMM@Z
     ARTS_IMPORT i32 Init3DListener(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // 0x4F01C0 | ?InitCityADF@DSGlobal@@QAEHPADHK@Z
-    ARTS_IMPORT i32 InitCityADF(char* arg1, i32 arg2, u32 arg3);
+    ARTS_IMPORT i32 InitCityADF(char* arg1, i32 arg2, ulong arg3);
 
     // 0x4EFBD0 | ?InitPrimarySoundBuffer@DSGlobal@@QAEHKEPAD@Z
-    ARTS_IMPORT b32 InitPrimarySoundBuffer(u32 sample_rate, u8 stero, char* device_name);
+    ARTS_IMPORT b32 InitPrimarySoundBuffer(ulong sample_rate, u8 stero, char* device_name);
 
     // 0x4F0280 | ?InitUIADF@DSGlobal@@QAEHPADHK@Z
-    ARTS_IMPORT i32 InitUIADF(char* arg1, i32 arg2, u32 arg3);
+    ARTS_IMPORT i32 InitUIADF(char* arg1, i32 arg2, ulong arg3);
 
     // 0x4F0AC0 | ?IsAlwaysEAX@DSGlobal@@QAEIXZ
     ARTS_IMPORT u32 IsAlwaysEAX();
 
     // 0x4EFFB0 | ?LoadCityADF@DSGlobal@@QAEHPADHK@Z
-    ARTS_IMPORT i32 LoadCityADF(char* arg1, i32 arg2, u32 arg3);
+    ARTS_IMPORT i32 LoadCityADF(char* arg1, i32 arg2, ulong arg3);
 
     // 0x4EFE10 | ?LoadUIADF@DSGlobal@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadUIADF(char* arg1);
@@ -190,10 +190,10 @@ public:
     ARTS_IMPORT void SetDeviceRating(struct tag_dsdevdesc* arg1);
 
     // 0x4F0580 | ?SetPrimaryBufferFormat@DSGlobal@@QAEXKE@Z
-    ARTS_IMPORT void SetPrimaryBufferFormat(u32 arg1, u8 arg2);
+    ARTS_IMPORT void SetPrimaryBufferFormat(ulong arg1, u8 arg2);
 
     // 0x4F0730 | ?TranslateDSError@DSGlobal@@QAEPADJ@Z
-    ARTS_IMPORT char* TranslateDSError(i32 arg1);
+    ARTS_IMPORT char* TranslateDSError(ilong arg1);
 
     // 0x4F0A90 | ?GetCDMusicOnMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetCDMusicOnMask();
@@ -283,7 +283,7 @@ check_size(DSGlobal, 0xB8);
 ARTS_IMPORT i32 ARTS_STDCALL DSEnumProc(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
 
 // 0x4F04D0 | ?FormatCodeToWFX@@YAHKPAUtWAVEFORMATEX@@@Z
-ARTS_IMPORT i32 FormatCodeToWFX(u32 arg1, struct tWAVEFORMATEX* arg2);
+ARTS_IMPORT i32 FormatCodeToWFX(ulong arg1, struct tWAVEFORMATEX* arg2);
 
 // 0x4EF850 | ?IsDSDeviceInList@@YAHPAU_GUID@@@Z
 ARTS_IMPORT i32 IsDSDeviceInList(struct _GUID* arg1);

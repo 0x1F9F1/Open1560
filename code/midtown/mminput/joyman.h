@@ -83,7 +83,7 @@ public:
     ARTS_IMPORT i32 GetJoyButton(i32 arg1, i32 arg2);
 
     // 0x4E5E50 | ?GetOneButton@mmJoyMan@@QAEHJ@Z
-    ARTS_IMPORT i32 GetOneButton(i32 arg1);
+    ARTS_IMPORT i32 GetOneButton(ilong arg1);
 
     // 0x4E5FE0 | ?HasCoolie@mmJoyMan@@QAEHXZ
     ARTS_IMPORT i32 HasCoolie();

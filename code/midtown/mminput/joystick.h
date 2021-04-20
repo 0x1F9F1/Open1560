@@ -162,13 +162,13 @@ public:
     ARTS_IMPORT i32 SetDeadZone(f32 arg1);
 
     // 0x4E6D20 | ?SetFriction@mmJoystick@@QAEHJ@Z | unused
-    ARTS_IMPORT i32 SetFriction(i32 arg1);
+    ARTS_IMPORT i32 SetFriction(ilong arg1);
 
     // 0x4E6C30 | ?SetShake@mmJoystick@@QAEHKK@Z | unused
     ARTS_IMPORT i32 SetShake(ulong arg1, ulong arg2);
 
     // 0x4E6CC0 | ?SetSteer@mmJoystick@@QAEHJ@Z | unused
-    ARTS_IMPORT i32 SetSteer(i32 arg1);
+    ARTS_IMPORT i32 SetSteer(ilong arg1);
 
     // 0x4E6D60 | ?StopFriction@mmJoystick@@QAEHXZ | unused
     ARTS_IMPORT i32 StopFriction();
@@ -209,4 +209,4 @@ public:
 check_size(mmJoystick, 0x3A8);
 
 // 0x4E6FB0 | ?DecodeDIErrorMFlag@@YAXJ@Z
-ARTS_IMPORT void DecodeDIErrorMFlag(i32 arg1);
+ARTS_IMPORT void DecodeDIErrorMFlag(ilong arg1);

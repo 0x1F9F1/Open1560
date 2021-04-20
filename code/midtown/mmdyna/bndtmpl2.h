@@ -51,7 +51,7 @@
 */
 
 // 0x517620 | ?EdgeInList@@YA_NHHJPAH0@Z
-ARTS_IMPORT bool EdgeInList(i32 arg1, i32 arg2, i32 arg3, i32* arg4, i32* arg5);
+ARTS_IMPORT bool EdgeInList(i32 arg1, i32 arg2, ilong arg3, i32* arg4, i32* arg5);
 
 // 0x77EE30 | ?BoundBytesPaged@@3HA
 ARTS_IMPORT extern i32 BoundBytesPaged;

@@ -36,7 +36,7 @@ class mmRoadFF final : public mmEffectFF
 
 public:
     // 0x4E78F0 | ?Assign@mmRoadFF@@QAEHJJ@Z
-    ARTS_IMPORT i32 Assign(i32 arg1, i32 arg2);
+    ARTS_IMPORT i32 Assign(ilong arg1, ilong arg2);
 
     // 0x4E77C0 | ?Init@mmRoadFF@@UAEHPAUIDirectInputDevice2A@@@Z
     ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;

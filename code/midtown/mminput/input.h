@@ -357,7 +357,7 @@ public:
     ARTS_IMPORT f32 GetThrottleVal();
 
     // 0x4E0ED0 | ?IOInit@mmInput@@QAEXHPAULocString@@J@Z
-    ARTS_IMPORT void IOInit(i32 arg1, struct LocString* arg2, i32 arg3);
+    ARTS_IMPORT void IOInit(i32 arg1, struct LocString* arg2, ilong arg3);
 
     // 0x4E1C60 | ?Init@mmInput@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);

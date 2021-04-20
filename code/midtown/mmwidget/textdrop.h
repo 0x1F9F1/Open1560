@@ -88,7 +88,7 @@ public:
     ARTS_IMPORT void SetData(i32* arg1);
 
     // 0x4B38F0 | ?SetDisabledMask@UITextDropdown@@QAEXJ@Z
-    ARTS_IMPORT void SetDisabledMask(i32 arg1);
+    ARTS_IMPORT void SetDisabledMask(ilong arg1);
 
     // 0x4B33A0 | ?SetPos@UITextDropdown@@QAEXMM@Z | unused
     ARTS_EXPORT void SetPos(f32 arg1, f32 arg2);

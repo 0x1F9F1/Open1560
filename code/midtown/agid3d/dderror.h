@@ -29,7 +29,7 @@
 */
 
 // 0x532090 | ?DDErrorToString@@YAPADJ@Z
-ARTS_IMPORT char* DDErrorToString(i32 arg1);
+ARTS_IMPORT char* DDErrorToString(ilong arg1);
 
 // 0x532890 | ?__DDRelease@@YAXPAUIUnknown@@PBD1H@Z
 ARTS_IMPORT void __DDRelease(struct IUnknown* arg1, char const* arg2, char const* arg3, i32 arg4);

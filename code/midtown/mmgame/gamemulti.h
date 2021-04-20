@@ -140,7 +140,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // 0x4324D0 | ?SendBootMsg@mmGameMulti@@QAEXK@Z
-    ARTS_IMPORT void SendBootMsg(u32 arg1);
+    ARTS_IMPORT void SendBootMsg(ulong arg1);
 
     // 0x4321D0 | ?SendChatMessage@mmGameMulti@@UAEXPAD@Z
     ARTS_IMPORT void SendChatMessage(char* arg1) override;
@@ -149,7 +149,7 @@ public:
     ARTS_IMPORT void SendMsg(i32 arg1);
 
     // 0x432290 | ?SendToChatMessage@mmGameMulti@@QAEXPADK@Z
-    ARTS_IMPORT void SendToChatMessage(char* arg1, u32 arg2);
+    ARTS_IMPORT void SendToChatMessage(char* arg1, ulong arg2);
 
     // 0x430EF0 | ?SystemMessageCB@mmGameMulti@@QAEXPAX0@Z
     ARTS_IMPORT void SystemMessageCB(void* arg1, void* arg2);

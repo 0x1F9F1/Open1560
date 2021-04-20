@@ -30,7 +30,7 @@ define_dummy_symbol(mmgame_interface);
 ARTS_IMPORT /*static*/ bool IsModemDialin();
 
 // 0x409D50 | ?ZoneWatcher@@YGKPAX@Z
-ARTS_IMPORT /*static*/ u32 ARTS_STDCALL ZoneWatcher(void* arg1);
+ARTS_IMPORT /*static*/ ulong ARTS_STDCALL ZoneWatcher(void* arg1);
 
 void mmInterface::SetStateRace(i32 /*arg1*/)
 {}

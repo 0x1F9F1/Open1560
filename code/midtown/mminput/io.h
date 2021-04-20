@@ -64,7 +64,7 @@ public:
     ARTS_IMPORT void GetDescription(char* arg1);
 
     // 0x4E4BB0 | ?Init@mmIO@@QAEXPADHJ@Z
-    ARTS_IMPORT void Init(char* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT void Init(char* arg1, i32 arg2, ilong arg3);
 
     // 0x4E4C10 | ?InitDev@mmIO@@QAEXH_JHHH@Z
     ARTS_IMPORT void InitDev(i32 arg1, i64 arg2, i32 arg3, i32 arg4, i32 arg5);

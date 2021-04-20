@@ -36,7 +36,7 @@ class mmFrictionFF final : public mmEffectFF
 
 public:
     // 0x4E7BE0 | ?Assign@mmFrictionFF@@QAEHJ@Z
-    ARTS_IMPORT i32 Assign(i32 arg1);
+    ARTS_IMPORT i32 Assign(ilong arg1);
 
     // 0x4E7AA0 | ?Init@mmFrictionFF@@UAEHPAUIDirectInputDevice2A@@@Z
     ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;

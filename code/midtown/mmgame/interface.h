@@ -312,7 +312,7 @@ private:
     ARTS_IMPORT void RequestProverb();
 
     // 0x40E330 | ?SendBootMsg@mmInterface@@AAEXK@Z | unused
-    ARTS_IMPORT void SendBootMsg(u32 arg1);
+    ARTS_IMPORT void SendBootMsg(ulong arg1);
 
     // 0x40E250 | ?SendChatMessage@mmInterface@@AAEXPAX@Z
     ARTS_IMPORT void SendChatMessage(void* arg1);

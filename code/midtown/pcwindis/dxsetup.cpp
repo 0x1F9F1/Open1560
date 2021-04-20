@@ -37,7 +37,7 @@ ARTS_IMPORT /*static*/ i32 CheckSoftwareRenderer(struct IDirectDraw4* arg1, stru
 ARTS_IMPORT /*static*/ i32 ARTS_STDCALL EnumCounter(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
 
 // 0x576470 | ?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z
-ARTS_IMPORT /*static*/ i32 ARTS_STDCALL EnumTextures(struct _DDPIXELFORMAT* arg1, void* arg2);
+ARTS_IMPORT /*static*/ ilong ARTS_STDCALL EnumTextures(struct _DDPIXELFORMAT* arg1, void* arg2);
 
 // 0x575FD0 | ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
 static long WINAPI EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
@@ -55,10 +55,10 @@ ARTS_IMPORT /*static*/ void EnumerateRenderers2();
 ARTS_IMPORT /*static*/ i32 ARTS_STDCALL Enumerator(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
 
 // 0x5764B0 | ?GetSpecialFlags@@YAIKK@Z
-ARTS_IMPORT /*static*/ u32 GetSpecialFlags(u32 arg1, u32 arg2);
+ARTS_IMPORT /*static*/ u32 GetSpecialFlags(ulong arg1, ulong arg2);
 
 // 0x575A10 | ?LockScreen@@YAJPAUIDirectDraw4@@@Z
-ARTS_IMPORT /*static*/ i32 LockScreen(struct IDirectDraw4* arg1);
+ARTS_IMPORT /*static*/ ilong LockScreen(struct IDirectDraw4* arg1);
 
 static mem::cmd_param PARAM_min_aspect {"minaspect"};
 static mem::cmd_param PARAM_max_aspect {"maxaspect"};
@@ -94,7 +94,7 @@ ARTS_IMPORT /*static*/ void MyDirectDrawEnumerate(
 ARTS_IMPORT /*static*/ void NeedDX6();
 
 // 0x5764A0 | ?NotLameChipset@@YAHKK@Z
-ARTS_IMPORT /*static*/ i32 NotLameChipset(u32 arg1, u32 arg2);
+ARTS_IMPORT /*static*/ i32 NotLameChipset(ulong arg1, ulong arg2);
 
 // 0x575AF0 | ?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z
 ARTS_IMPORT /*static*/ i32 TestResolution(struct IDirectDraw4* arg1, struct dxiRendererInfo_t& arg2);

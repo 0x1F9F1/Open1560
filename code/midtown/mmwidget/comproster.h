@@ -58,7 +58,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // 0x4B7940 | ?Init@mmCompRoster@@QAEXPAD00K@Z
-    ARTS_IMPORT void Init(char* arg1, char* arg2, char* arg3, u32 arg4);
+    ARTS_IMPORT void Init(char* arg1, char* arg2, char* arg3, ulong arg4);
 
     // 0x4B79C0 | ?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z | unused
     ARTS_EXPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,

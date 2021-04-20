@@ -121,10 +121,10 @@ check_size(agiDDPipeline, 0x32C);
 ARTS_IMPORT i32 ARTS_STDCALL DDCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
 
 // 0x532950 | ?EnumModesCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z | unused
-ARTS_IMPORT i32 ARTS_STDCALL EnumModesCallback(struct _DDSURFACEDESC2* arg1, void* arg2);
+ARTS_IMPORT ilong ARTS_STDCALL EnumModesCallback(struct _DDSURFACEDESC2* arg1, void* arg2);
 
 // 0x532A00 | ?EnumSurfsCallback@@YGJPAUIDirectDrawSurface@@PAU_DDSURFACEDESC@@PAX@Z | unused
-ARTS_IMPORT i32 ARTS_STDCALL EnumSurfsCallback(
+ARTS_IMPORT ilong ARTS_STDCALL EnumSurfsCallback(
     struct IDirectDrawSurface* arg1, struct _DDSURFACEDESC* arg2, void* arg3);
 
 inline DDSURFACEDESC2 ConvertSurfaceDesc(const agiSurfaceDesc& surface)

@@ -76,7 +76,7 @@ public:
     ARTS_IMPORT i32 GetCount();
 
     // 0x4BE4B0 | ?GetDisabledMask@TextDropWidget@@QAEJXZ
-    ARTS_IMPORT i32 GetDisabledMask();
+    ARTS_IMPORT ilong GetDisabledMask();
 
     // 0x4BE380 | ?Inc@TextDropWidget@@QAEHXZ | unused
     ARTS_IMPORT i32 Inc();
@@ -95,7 +95,7 @@ public:
     ARTS_IMPORT void SetActive(i32 arg1);
 
     // 0x4BE490 | ?SetDisabledMask@TextDropWidget@@QAEXJ@Z
-    ARTS_IMPORT void SetDisabledMask(i32 arg1);
+    ARTS_IMPORT void SetDisabledMask(ilong arg1);
 
     // 0x4BE310 | ?SetHighlight@TextDropWidget@@QAEHH@Z
     ARTS_IMPORT i32 SetHighlight(i32 arg1);

@@ -58,7 +58,7 @@ public:
     ARTS_IMPORT f32 GetDecayTime();
 
     // 0x4F4970 | ?GetEnvironment@CReverb@@QAEKXZ
-    ARTS_IMPORT u32 GetEnvironment();
+    ARTS_IMPORT ulong GetEnvironment();
 
     // 0x4F49B0 | ?GetVolume@CReverb@@QAEMXZ
     ARTS_IMPORT f32 GetVolume();
@@ -76,20 +76,20 @@ public:
     ARTS_IMPORT void SetDecayTime(f32 arg1);
 
     // 0x4F4870 | ?SetEnvironment@CReverb@@QAEXK@Z
-    ARTS_IMPORT void SetEnvironment(u32 arg1);
+    ARTS_IMPORT void SetEnvironment(ulong arg1);
 
     // 0x4F4950 | ?SetPreset@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
     ARTS_IMPORT void SetPreset(struct EAX_REVERBPROPERTIES* arg1);
 
     // 0x4F4910 | ?SetPreset@CReverb@@QAEXKMMM@Z
-    ARTS_IMPORT void SetPreset(u32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT void SetPreset(ulong arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // 0x4F4890 | ?SetVolume@CReverb@@QAEXM@Z
     ARTS_IMPORT void SetVolume(f32 arg1);
 
 private:
     // 0x4F4820 | ?QueryProperty@CReverb@@AAEHK@Z
-    ARTS_IMPORT i32 QueryProperty(u32 arg1);
+    ARTS_IMPORT i32 QueryProperty(ulong arg1);
 
     u8 gap0[0x4];
 };
