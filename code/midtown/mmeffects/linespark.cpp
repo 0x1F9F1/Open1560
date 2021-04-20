@@ -20,9 +20,53 @@ define_dummy_symbol(mmeffects_linespark);
 
 #include "linespark.h"
 
+#include "agi/rsys.h"
+#include "agi/viewport.h"
+#include "agiworld/meshset.h"
 #include "arts7/sim.h"
 
-const f32 SparkLength = 1.0f / 30.0f;
+static const f32 SparkLength = 1.0f / 30.0f;
+
+void asLineSparks::Draw()
+{
+    GetActiveViewport()->SetWorld(const_cast<Matrix34&>(IDENTITY));
+    agiMeshSet::Init(false);
+
+    auto alpha = agiCurState.SetAlphaEnable(true);
+    auto texture = agiCurState.SetTexture(nullptr);
+
+    agiMeshSet::DrawLines(SparkStarts.get(), SparkEnds.get(), SparkColors.get(), NumActive);
+
+    agiCurState.SetAlphaEnable(alpha);
+    agiCurState.SetTexture(texture);
+}
+
+void asLineSparks::Init(i32 num_sparks, asSparkLut* lut)
+{
+    NumSparks = num_sparks;
+    SparkColors = MakeUniqueUninit<u32[]>(num_sparks);
+    SparkVelocities = MakeUniqueUninit<Vector3[]>(num_sparks);
+    SparkStarts = MakeUniqueUninit<Vector3[]>(num_sparks);
+    SparkEnds = MakeUniqueUninit<Vector3[]>(num_sparks);
+    SparkRows = MakeUniqueUninit<u8[]>(num_sparks);
+    SparkColumns = MakeUniqueUninit<u8[]>(num_sparks);
+    NumActive = 0;
+    field_0 = 0;
+    GroundY = 0.0f;
+    Gravity = -10.0f;
+    VelXZMin = 6.0f;
+    VelXZMax = 7.0f;
+    VelYMin = 4.0f;
+    VelYMax = 5.0f;
+    TrailLength = -0.036f;
+    SampleRate = 1.0f / 30.0f;
+
+    // Note: The software renderer does not alpha blend (so sparks are fully bright while visible)
+    FadeRate = -256.0f / 0.5f; // 0.5 seconds (was ~0.4 seconds)
+    FadeFraction = 0.0f;
+    PosVary = {0.1f, 0.1f, 0.1f};
+    Lut = lut;
+}
 
 void asLineSparks::Update()
 {
@@ -67,11 +111,8 @@ void asLineSparks::Update()
 }
 
 run_once([] {
-    // Use Sparks.SampleTime instead of ARTSPTR.DeltaTime to calculate number of sparks
-    // Time shouldn't actually be factored into this at all, since it isn't happening each frame
-    // SampleTime was just easy to access and provides the desired scale
-    create_patch("mmCar::Impact", "Spark Count", 0x474226, "\x8B\x8E\xC8\x18\x00\x00\xD9\x81\xEC\x00\x00\x00", 12);
-
-    f32 fade_rate = -256.0f / 1.0f; // Was -650.0f (~0.4s)
-    create_patch("asLineSparks::Init", "FadeRate", 0x5019F3, &fade_rate, sizeof(fade_rate));
+    // TODO: Move to mmCar
+    static const f32 spark_multiplier = 16.0f / 30.0f;
+    create_patch("mmCar::Impact", "Spark Count", 0x47422C, "\xD9\xE8\x90\x90\x90\x90", 6);
+    create_packed_patch<const void*>("mmCar::Impact", "Spark Count", 0x474235 + 2, &spark_multiplier);
 });

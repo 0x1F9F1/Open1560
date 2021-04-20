@@ -65,10 +65,10 @@ public:
     ARTS_IMPORT void AddWidgets(class Bank* bank);
 
     // 0x502190 | ?Draw@asLineSparks@@QAEXXZ
-    ARTS_IMPORT void Draw();
+    ARTS_EXPORT void Draw();
 
     // 0x501920 | ?Init@asLineSparks@@QAEXHPAVasSparkLut@@@Z
-    ARTS_IMPORT void Init(i32 arg1, class asSparkLut* arg2);
+    ARTS_EXPORT void Init(i32 num_sparks, class asSparkLut* lut);
 
     // 0x501C40 | ?RadialBlast@asLineSparks@@QAEXHAAVVector3@@0@Z
     ARTS_IMPORT void RadialBlast(i32 arg1, class Vector3& arg2, class Vector3& arg3);
@@ -79,27 +79,27 @@ public:
     // 0x501FC0 | ?Update@asLineSparks@@QAEXM@Z
     ARTS_IMPORT void Update(f32 delta);
 
-    i32 field_0;
-    asSparkLut* Lut;
-    Vector3* SparkStarts;
-    Vector3* SparkEnds;
-    Vector3* SparkVelocities;
-    Vector3 PosVary;
-    u8* SparkRows;
-    u8* SparkColumns;
-    u32* SparkColors;
-    i32 NumSparks;
-    i32 NumActive;
-    f32 GroundY;
-    f32 Gravity;
-    f32 VelXZMin;
-    f32 VelXZMax;
-    f32 VelYMin;
-    f32 VelYMax;
-    f32 TrailLength;
-    f32 FadeFraction;
-    f32 SampleRate;
-    f32 FadeRate;
+    i32 field_0 {0};
+    asSparkLut* Lut {nullptr};
+    Ptr<Vector3[]> SparkStarts;
+    Ptr<Vector3[]> SparkEnds;
+    Ptr<Vector3[]> SparkVelocities;
+    Vector3 PosVary {};
+    Ptr<u8[]> SparkRows;
+    Ptr<u8[]> SparkColumns;
+    Ptr<u32[]> SparkColors;
+    i32 NumSparks {0};
+    i32 NumActive {0};
+    f32 GroundY {0.0f};
+    f32 Gravity {0.0f};
+    f32 VelXZMin {0.0f};
+    f32 VelXZMax {0.0f};
+    f32 VelYMin {0.0f};
+    f32 VelYMax {0.0f};
+    f32 TrailLength {0.0f};
+    f32 FadeFraction {0.0f};
+    f32 SampleRate {0.0f};
+    f32 FadeRate {0.0f};
 };
 
 check_size(asLineSparks, 0x5C);
