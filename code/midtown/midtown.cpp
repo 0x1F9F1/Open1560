@@ -543,8 +543,7 @@ void ApplicationHelper(i32 argc, char** argv)
     CheckSystem();
 
     dxiConfig(argc, argv);
-    ShowCursor(FALSE);
-    InitialCursorState = -1;
+    InitialCursorState = 0;
 
     dxiInit(APPTITLE, argc, argv);
     Displayf("dxiInit returned.");

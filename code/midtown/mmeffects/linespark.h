@@ -77,7 +77,7 @@ public:
     ARTS_EXPORT void Update();
 
     // 0x501FC0 | ?Update@asLineSparks@@QAEXM@Z
-    ARTS_IMPORT void Update(f32 delta);
+    ARTS_EXPORT void Update(f32 delta);
 
     i32 field_0 {0};
     asSparkLut* Lut {nullptr};

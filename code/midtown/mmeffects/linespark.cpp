@@ -70,8 +70,11 @@ void asLineSparks::Init(i32 num_sparks, asSparkLut* lut)
 
 void asLineSparks::Update()
 {
-    const f32 delta = ARTSPTR->GetUpdateDelta();
+    Update(ARTSPTR->GetUpdateDelta());
+}
 
+void asLineSparks::Update(f32 delta)
+{
     FadeFraction += delta * FadeRate;
     const i32 fade = static_cast<i32>(FadeFraction);
     FadeFraction -= static_cast<f32>(fade);
