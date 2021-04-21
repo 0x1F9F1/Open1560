@@ -151,10 +151,11 @@ static bool ValidateRenderersDX6()
 #    include "agigl/glsetup.h"
 
 static mem::cmd_param PARAM_opengl {"opengl"};
-static mem::cmd_param PARAM_d3d {"d3d"};
 #endif
 
+static mem::cmd_param PARAM_d3d {"d3d"};
 static mem::cmd_param PARAM_config {"config"};
+static mem::cmd_param PARAM_sw {"sw"};
 
 void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 {
@@ -164,7 +165,7 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
     void (*enumerate)() = EnumerateRenderers2;
     bool show_message = true;
 
-    if (PARAM_d3d)
+    if (PARAM_d3d || PARAM_sw)
     {
         validate = ValidateRenderersDX6;
         enumerate = EnumerateRenderers2;
@@ -207,6 +208,9 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
         dxiWriteConfigFile();
         AutoDetect(-1, -1);
     }
+
+    if (PARAM_sw)
+        dxiRendererChoice = 0;
 }
 
 run_once([] {
