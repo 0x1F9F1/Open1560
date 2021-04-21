@@ -197,8 +197,8 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
     if (rect_width <= 0 || rect_height <= 0)
         return;
 
-    i32 max_x = std::min<i32>(rect.right, surface->Width);
-    i32 max_y = std::min<i32>(rect.bottom, surface->Height);
+    u32 max_x = std::min<u32>(rect.right, surface->Width);
+    u32 max_y = std::min<u32>(rect.bottom, surface->Height);
 
     // TODO: Add UTF-8 support
     std::vector<mmLineInfo> lines = GetLines(text, (format & MM_TEXT_WORDBREAK) ? (rect_width << 6) : 0);
@@ -250,14 +250,14 @@ void mmFont::Draw(agiSurfaceDesc* surface, const char* text, mmRect rect, u32 co
             {
                 u32 dst_y = (line_y >> 6) + src_y - glyph.Top;
 
-                if (static_cast<i32>(dst_y) >= max_y)
+                if (dst_y >= max_y)
                     continue;
 
                 for (u32 src_x = 0; src_x < glyph.Width; ++src_x)
                 {
                     u32 dst_x = (line_x >> 6) + src_x + glyph.Left;
 
-                    if (static_cast<i32>(dst_x) >= max_x)
+                    if (dst_x >= max_x)
                         continue;
 
                     if (glyph.Buffer[src_y_off + (src_x >> 3)] & (0x80 >> (src_x & 0x7)))
