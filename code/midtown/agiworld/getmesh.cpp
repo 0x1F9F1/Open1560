@@ -19,3 +19,94 @@
 define_dummy_symbol(agiworld_getmesh);
 
 #include "getmesh.h"
+#include "agi/texdef.h"
+#include "pcwindis/setupdata.h"
+#include "texsheet.h"
+
+#include <algorithm>
+
+static bool CheckEquals(const char* name, std::initializer_list<const char*> names)
+{
+    return std::find_if(names.begin(), names.end(), [name](const char* other) { return !std::strcmp(name, other); }) !=
+        names.end();
+}
+
+static bool CheckSuffix(const char* name, std::initializer_list<const char*> names)
+{
+    return std::find_if(names.begin(), names.end(), [name](const char* suffix) {
+        usize str_len = std::strlen(name);
+        usize suffix_len = std::strlen(suffix);
+        return (suffix_len <= str_len) && !std::strncmp(name + str_len - suffix_len, suffix, suffix_len);
+    }) != names.end();
+}
+
+void FixTexFlags(agiTexParameters& tex)
+{
+    agiTexProp* prop = TEXSHEET.Lookup(tex.Name, 0);
+
+    if (!prop)
+        return;
+
+    tex.Flags |= agiTexParameters::WrapU | agiTexParameters::WrapV;
+
+    u32 clamp_mode = prop->Flags & agiTexProp::ClampModeMask;
+
+    switch (clamp_mode)
+    {
+        case agiTexProp::ClampUOrBoth:
+        case agiTexProp::ClampUOrNeither: tex.Flags &= ~agiTexParameters::WrapU; break;
+
+        case agiTexProp::ClampVOrBoth:
+        case agiTexProp::ClampVOrNeither: tex.Flags &= ~agiTexParameters::WrapV; break;
+
+        case agiTexProp::ClampBoth: tex.Flags &= ~(agiTexParameters::WrapU | agiTexParameters::WrapV); break;
+    }
+
+    if (prop->Flags & agiTexProp::Transparent)
+        tex.Flags |= agiTexParameters::Alpha;
+
+    if (prop->Flags & (agiTexProp::Chromakey | (GetRendererInfo().AdditiveBlending ? agiTexProp::AlphaGlow : 0)))
+        tex.Flags |= agiTexParameters::Chromakey;
+
+    tex.Color = prop->Color; // TODO: TEXSHEET.AllowRemapping ? prop->NightColor : prop->DayColor
+
+    if (prop->Flags & agiTexProp::AlphaGlow)
+    {
+        tex.Props |= agiTexProp::AlphaGlow;
+
+        if (!GetRendererInfo().AdditiveBlending)
+            tex.Flags |= agiTexParameters::Alpha;
+    }
+
+    if (prop->Flags & agiTexProp::Snowable)
+    {
+        tex.Props |= agiTexProp::Snowable;
+        tex.Flags |= agiTexParameters::KeepLoaded | agiTexParameters::NoMipMaps;
+    }
+
+    if (prop->Flags & agiTexProp::Shadow)
+        tex.Props |= agiTexProp::Shadow;
+
+    if (prop->Flags & agiTexProp::DullOrDamaged)
+        tex.Props |= agiTexProp::DullOrDamaged;
+
+    if (prop->Flags & agiTexProp::NotLit)
+        tex.Props |= agiTexProp::NotLit;
+
+    if (prop->Flags & agiTexProp::RoadFloorCeiling)
+        tex.Flags |= agiTexParameters::NoMipMaps;
+
+    if (CheckEquals(tex.Name, {"WOMFACE", "MANFACE", "37_INSIDE"}))
+        tex.Props = agiTexProp::AlwaysModulate;
+
+    if (!std::strcmp(tex.Name, {"SNOW"}))
+        tex.Flags |= agiTexParameters::KeepLoaded;
+
+    if (CheckEquals(tex.Name,
+            {"T_STOP", "CHECK_POINT_02", "T_1WAY", "T_2WAY", "T_75", "T_DO_NOT_ENTER", "T_EXIT", "T_GLASS", "T_L_ONLY",
+                "T_PARK02", "T_WRONGWAY", "FREEWAY_EXITS", "VPSEMI_TRAILER_BED", "T_TUN_TOP", "VABUS_SD"}))
+        tex.Props |= agiTexProp::AlwaysPerspCorrect;
+
+    if (CheckSuffix(tex.Name, {"WHL", "TIRE"})) // Fix tire reflections in menus
+        tex.Props |= agiTexProp::DullOrDamaged;
+}

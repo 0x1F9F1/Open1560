@@ -31,8 +31,10 @@
     0x73E70C | char * MeshCurrentObject | ?MeshCurrentObject@@3PADA
 */
 
+class agiTexParameters;
+
 // 0x512610 | ?FixTexFlags@@YAXAAVagiTexParameters@@@Z
-ARTS_IMPORT void FixTexFlags(class agiTexParameters& arg1);
+ARTS_EXPORT void FixTexFlags(class agiTexParameters& tex);
 
 // 0x5128A0 | ?GetMeshSet@@YAPAVagiMeshSet@@PAD0PAVVector3@@H@Z
 ARTS_IMPORT class agiMeshSet* GetMeshSet(char* arg1, char* arg2, class Vector3* arg3, i32 arg4);

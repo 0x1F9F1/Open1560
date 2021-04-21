@@ -286,7 +286,7 @@ include_dummy_symbol(agisw_swddraw);
 // include_dummy_symbol(agisw_swtexdef);
 
 // include_dummy_symbol(agiworld_bone);
-// include_dummy_symbol(agiworld_getmesh);
+include_dummy_symbol(agiworld_getmesh);
 // include_dummy_symbol(agiworld_getmodel);
 include_dummy_symbol(agiworld_meshlight);
 include_dummy_symbol(agiworld_meshload);

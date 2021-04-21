@@ -68,6 +68,8 @@ struct agiTexProp
         RoadFloorCeiling = 0x2000,   // e
         AlwaysModulate = 0x4000,     // m
         AlwaysPerspCorrect = 0x8000, // p
+
+        ClampModeMask = ClampUOrBoth | ClampVOrBoth | ClampBoth | ClampUOrNeither | ClampVOrNeither,
     };
 
     u32 Flags {0};
@@ -116,7 +118,7 @@ public:
 private:
     agiTexProp* props_ {nullptr};
     i32 prop_count_ {0};
-    b32 allow_remapping_ {false};
+    b32 allow_remapping_ {false}; // Usealternate
 };
 
 check_size(agiTexSheet, 0xC);

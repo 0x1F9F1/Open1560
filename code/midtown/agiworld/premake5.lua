@@ -9,8 +9,8 @@ arts_component "agiworld"
     files {
         -- "bone.cpp",
         -- "bone.h",
-        -- "getmesh.cpp",
-        -- "getmesh.h",
+        "getmesh.cpp",
+        "getmesh.h",
         -- "getmodel.cpp",
         -- "getmodel.h",
         "meshlight.cpp",
