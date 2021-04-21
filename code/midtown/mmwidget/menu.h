@@ -269,7 +269,7 @@ public:
     ARTS_IMPORT void ScaleWidget(f32& arg1, f32& arg2, f32& arg3, f32& arg4);
 
     // 0x4ACE40 | ?ScanInput@UIMenu@@QAEHPATeqEvent@@@Z
-    ARTS_IMPORT i32 ScanInput(union eqEvent* arg1);
+    ARTS_EXPORT b32 ScanInput(union eqEvent* event);
 
     // 0x4ACB20 | ?SetAction@UIMenu@@QAEXW4eSource@1@@Z
     ARTS_IMPORT void SetAction(enum UIMenu::eSource arg1);

@@ -51,7 +51,7 @@ void UIMenu::CheckInput()
         {
             if (is_key_press != 1)
             {
-                state_ = 2;
+                ClearAction();
                 continue;
             }
         }
@@ -73,4 +73,15 @@ i32 UIMenu::IsAnOptionMenu()
 void UIMenu::ClearAction()
 {
     state_ = 2;
+}
+
+b32 UIMenu::ScanInput(eqEvent* event)
+{
+    if (!IsActive() || (event->Common.Type != eqEventType::Keyboard) || !(event->Key.Modifiers & EQ_KMOD_DOWN))
+        return false;
+
+    // TODO: return result of ScanGlobalKeys?
+    MenuManager::Instance->ScanGlobalKeys(event->Key.VirtualKey);
+
+    return true;
 }
