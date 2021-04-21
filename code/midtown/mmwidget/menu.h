@@ -118,7 +118,7 @@ public:
     ARTS_IMPORT virtual void BackUp();
 
     // 0x4ACE80 | ?CheckInput@UIMenu@@UAEXXZ
-    ARTS_IMPORT virtual void CheckInput();
+    ARTS_EXPORT virtual void CheckInput();
 
     // 0x49C4F0 | ?IsAnOptionMenu@UIMenu@@UAEHXZ | inline
     ARTS_EXPORT virtual i32 IsAnOptionMenu();

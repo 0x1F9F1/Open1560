@@ -20,10 +20,50 @@ define_dummy_symbol(mmwidget_menu);
 
 #include "menu.h"
 
+#include "arts7/midgets.h"
+#include "eventq7/keys.h"
+#include "manager.h"
 #include "widget.h"
 
 void UIMenu::PostSetup()
 {}
+
+void UIMenu::CheckInput()
+{
+    // Ignore any events while midgets are open
+    if (MIDGETSPTR->IsOpen())
+    {
+        MenuManager::Instance->GetEventQ()->Clear();
+        return;
+    }
+
+    eqEvent event;
+
+    while (MenuManager::Instance->GetEventQ()->Pop(&event))
+    {
+        if (event.Common.Type != eqEventType::Keyboard)
+            continue;
+
+        // Returns 1 if the menu is active, and the event is for a key press
+        i32 is_key_press = ScanInput(&event);
+
+        if (event.Key.VirtualKey == EQ_VK_ESCAPE)
+        {
+            if (is_key_press != 1)
+            {
+                state_ = 2;
+                continue;
+            }
+        }
+        else if ((event.Key.VirtualKey < 8 || is_key_press != 1) &&
+            (event.Key.AsciiChar < 8 || is_key_press != 1)) // Ignore mouse buttons?
+        {
+            continue;
+        }
+
+        KeyboardAction(event);
+    }
+}
 
 i32 UIMenu::IsAnOptionMenu()
 {

@@ -283,6 +283,11 @@ public:
     // 0x705960 | ?Instance@MenuManager@@2PAV1@A
     ARTS_IMPORT static class MenuManager* Instance;
 
+    eqEventQ* GetEventQ()
+    {
+        return event_q_;
+    }
+
     bool Is3D() const
     {
         return is_3D_;
