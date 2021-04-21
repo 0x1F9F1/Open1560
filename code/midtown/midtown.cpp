@@ -159,7 +159,7 @@ static void LoadArchives(const char* path)
             if (Stream* stream = arts_fopen(file_path, "r"))
             {
                 Displayf("Adding '%s' in autosearch...", f->Path);
-                new VirtualFileSystem(stream);
+                /*FileSystem::FS[...] = */ new VirtualFileSystem(stream);
                 // DevelopmentMode = false;
             }
         }

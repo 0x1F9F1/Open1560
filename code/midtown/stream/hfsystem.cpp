@@ -24,9 +24,6 @@ define_dummy_symbol(stream_hfsystem);
 #include "data7/pager.h"
 #include "filestream.h"
 
-#include <direct.h>
-#include <io.h>
-
 HierFileSystem::HierFileSystem() = default;
 HierFileSystem::~HierFileSystem() = default;
 
@@ -34,7 +31,7 @@ HierFileSystem::~HierFileSystem() = default;
 
 b32 HierFileSystem::ChangeDir(const char* path)
 {
-    return _chdir(path) >= 0;
+    return SetCurrentDirectoryA(path);
 }
 
 static inline constexpr bool IsStdPath(const char* path) noexcept
@@ -109,7 +106,7 @@ struct FileInfo* HierFileSystem::FirstEntry(const char* path)
 
 b32 HierFileSystem::GetDir(char* buffer, isize buffer_len)
 {
-    return _getcwd(buffer, buffer_len) != nullptr;
+    return GetCurrentDirectoryA(buffer_len, buffer) != 0;
 }
 
 struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* info)
@@ -185,7 +182,7 @@ b32 HierFileSystem::QueryOn(const char* path)
         Warningf("Allowing access to real file: '%s'", path);
     }
 
-    return _access(FQN(path), 4) == 0;
+    return GetFileAttributesA(path) != INVALID_FILE_ATTRIBUTES;
 }
 
 b32 HierFileSystem::ValidPath(const char*)
