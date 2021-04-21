@@ -42,9 +42,9 @@
 
 #include "arts7/node.h"
 
-class agiRefreshable;
-struct mmText;
-class mmTextNode;
+// Rewritten using 1588+ logic
+
+class agiBitmap;
 
 class mmNumber final : public asNode
 {
@@ -82,7 +82,7 @@ private:
     f32 x_ {0.0f};
     f32 y_ {0.0f};
     mmNumberFont* font_;
-    Ptr<mmTextNode> text_node_;
+    char gap2C[0x4]; // TODO: Remove this
     char text_[80];
 };
 
@@ -93,6 +93,8 @@ class mmNumberFont
 public:
     // 0x4FE660 | ??0mmNumberFont@@QAE@XZ
     ARTS_EXPORT mmNumberFont();
+
+    mmNumberFont(const char* chars);
 
     // 0x4FE730 | ??1mmNumberFont@@QAE@XZ
     ARTS_EXPORT ~mmNumberFont();
@@ -106,17 +108,14 @@ public:
 private:
     friend class mmNumber;
 
-    Rc<agiRefreshable> field_0;
-    Ptr<mmText> Text;
     void* Font {nullptr};
-    i32 field_C {16};
-    i32 field_10 {3};
-    Ptr<mmTextNode[]> TextNodes;
-    f32 CharHeight {32.0f};
-    f32 CharWidth {32.0f};
-    Ptr<i32[]> CharWidths;
+    const char* Chars {nullptr};
+    usize Count {0};
+    agiBitmap** Bitmaps {nullptr};
 
-    void Init(i32 height, u32 color);
+    char gap10[0x14]; // TODO: Remove this
+
+    void Init(u32 color);
 };
 
 check_size(mmNumberFont, 0x24);
