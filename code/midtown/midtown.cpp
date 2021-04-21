@@ -614,7 +614,7 @@ void ApplicationHelper(i32 argc, char** argv)
 #undef ARG
 #undef ARGN
 
-agiPipeline* CreatePipeline(i32 argc, char** argv)
+Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 {
     dxiRendererInfo_t& info = GetRendererInfo();
 
@@ -643,7 +643,7 @@ agiPipeline* CreatePipeline(i32 argc, char** argv)
         dxiInit(APPTITLE, 0, 0);
     }
 
-    agiPipeline* pipe = nullptr;
+    Ptr<agiPipeline> pipe;
 
     if (MMSTATE.GameState)
     {
@@ -652,12 +652,12 @@ agiPipeline* CreatePipeline(i32 argc, char** argv)
 
         switch (info.Type)
         {
-            case 0: pipe = swCreatePipeline(argc, argv); break;
+            case 0: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
             case 1:
-            case 2: pipe = d3dCreatePipeline(argc, argv); break;
+            case 2: pipe = AsPtr(d3dCreatePipeline(argc, argv)); break;
 
 #ifdef ARTS_ENABLE_OPENGL
-            case 3: pipe = glCreatePipeline(argc, argv); break;
+            case 3: pipe = AsPtr(glCreatePipeline(argc, argv)); break;
 #endif
         }
 
@@ -670,11 +670,11 @@ agiPipeline* CreatePipeline(i32 argc, char** argv)
         if (pipe->Validate())
         {
             pipe->EndAllGfx();
-            delete pipe;
+            pipe = nullptr;
 
             MessageBoxA(NULL, LOC_STR(MM_IDS_GRAPHICS_ERROR), APPTITLE, MB_ICONERROR);
 
-            pipe = swCreatePipeline(argc, argv);
+            pipe = AsPtr(swCreatePipeline(argc, argv));
             pipe->SetRes(640, 480);
         }
     }
@@ -684,12 +684,12 @@ agiPipeline* CreatePipeline(i32 argc, char** argv)
 
         switch (bHaveIME ? 0 : info.Type)
         {
-            case 0: pipe = swCreatePipeline(argc, argv); break;
+            case 0: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
             case 1:
-            case 2: pipe = d3dCreatePipeline(argc, argv); break;
+            case 2: pipe = AsPtr(d3dCreatePipeline(argc, argv)); break;
 
 #ifdef ARTS_ENABLE_OPENGL
-            case 3: pipe = glCreatePipeline(argc, argv); break;
+            case 3: pipe = AsPtr(glCreatePipeline(argc, argv)); break;
 #endif
         }
 
@@ -702,7 +702,7 @@ agiPipeline* CreatePipeline(i32 argc, char** argv)
         }
     }
 
-    return pipe;
+    return AsOwner(pipe);
 }
 
 #include <shellapi.h>

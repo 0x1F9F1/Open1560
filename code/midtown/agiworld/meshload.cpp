@@ -75,7 +75,7 @@ void agiMeshSet::BinaryLoad(Stream* stream)
         {
             if (textures[j].Name[0])
             {
-                Textures[i][j] = GetPackedTexture(textures[j].Name, i);
+                Textures[i][j] = AsRaw(GetPackedTexture(textures[j].Name, i));
 
                 if (!Textures[i][j])
                     Errorf("MESH %s: Texture '%s' not found.", MeshCurrentObject, textures[j].Name);
@@ -188,7 +188,7 @@ void agiMeshSet::DoPageIn()
         {
             if (textures[j].Name[0])
             {
-                Textures[i][j] = GetPackedTexture(textures[j].Name, i);
+                Textures[i][j] = AsRaw(GetPackedTexture(textures[j].Name, i));
 
                 if (!Textures[i][j])
                     Errorf("MESH %s: Texture '%s' not found.", MeshCurrentObject, textures[j].Name);

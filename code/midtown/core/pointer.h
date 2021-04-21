@@ -28,24 +28,14 @@ using Ptr = std::unique_ptr<T>;
 template <typename T>
 using Owner = Ptr<T>;
 
-template <typename T>
-ARTS_FORCEINLINE Ptr<T> AsPtr(Owner<T> ptr)
-{
-    return ptr;
-}
-
+#    define AsPtr(PTR) (PTR)
 #    define AsOwner(PTR) (std::move((PTR)))
 #    define AsRaw(PTR) ((PTR).release())
 #else
 template <typename T>
 using Owner = T*;
 
-template <typename T>
-ARTS_FORCEINLINE Ptr<T> AsPtr(Owner<T> ptr)
-{
-    return Ptr<T>(ptr);
-}
-
+#    define AsPtr(PTR) (Ptr<std::remove_pointer_t<decltype(PTR)>>((PTR)))
 #    define AsOwner(PTR) ((PTR).release())
 #    define AsRaw(PTR) (PTR)
 #endif

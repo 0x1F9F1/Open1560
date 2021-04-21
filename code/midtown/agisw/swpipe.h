@@ -102,28 +102,28 @@ public:
         i32 arg1, i32 arg2, class agiBitmap* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7) override;
 
     // 0x534450 | ?CreateBitmap@agiSWPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_IMPORT class agiBitmap* CreateBitmap() override;
+    ARTS_IMPORT RcOwner<class agiBitmap> CreateBitmap() override;
 
     // 0x5340E0 | ?CreateDLP@agiSWPipeline@@UAEPAVDLP@@XZ
-    ARTS_IMPORT class DLP* CreateDLP() override;
+    ARTS_IMPORT RcOwner<class DLP> CreateDLP() override;
 
     // 0x534140 | ?CreateLight@agiSWPipeline@@UAEPAVagiLight@@XZ
-    ARTS_IMPORT class agiLight* CreateLight() override;
+    ARTS_IMPORT RcOwner<class agiLight> CreateLight() override;
 
     // 0x534320 | ?CreateLightModel@agiSWPipeline@@UAEPAVagiLightModel@@XZ
-    ARTS_IMPORT class agiLightModel* CreateLightModel() override;
+    ARTS_IMPORT RcOwner<class agiLightModel> CreateLightModel() override;
 
     // 0x534440 | ?CreateMtlDef@agiSWPipeline@@UAEPAVagiMtlDef@@XZ
-    ARTS_EXPORT class agiMtlDef* CreateMtlDef() override;
+    ARTS_EXPORT RcOwner<class agiMtlDef> CreateMtlDef() override;
 
     // 0x534380 | ?CreateTexDef@agiSWPipeline@@UAEPAVagiTexDef@@XZ
-    ARTS_IMPORT class agiTexDef* CreateTexDef() override;
+    ARTS_IMPORT RcOwner<class agiTexDef> CreateTexDef() override;
 
     // 0x5343E0 | ?CreateTexLut@agiSWPipeline@@UAEPAVagiTexLut@@XZ
-    ARTS_IMPORT class agiTexLut* CreateTexLut() override;
+    ARTS_IMPORT RcOwner<class agiTexLut> CreateTexLut() override;
 
     // 0x534290 | ?CreateViewport@agiSWPipeline@@UAEPAVagiViewport@@XZ
-    ARTS_IMPORT class agiViewport* CreateViewport() override;
+    ARTS_IMPORT RcOwner<class agiViewport> CreateViewport() override;
 
     // 0x5340C0 | ?EndFrame@agiSWPipeline@@UAEXXZ
     ARTS_IMPORT void EndFrame() override;
@@ -141,7 +141,7 @@ public:
 check_size(agiSWPipeline, 0x2F0);
 
 // 0x534690 | ?swCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-ARTS_IMPORT class agiPipeline* swCreatePipeline(i32 arg1, char** arg2);
+ARTS_IMPORT Owner<class agiPipeline> swCreatePipeline(i32 arg1, char** arg2);
 
 class agiSWViewport final : public agiViewport
 {

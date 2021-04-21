@@ -59,7 +59,7 @@ i32 InitPipeline(char* title, i32 argc, char** argv)
     Argc = argc;
     Argv = argv;
 
-    agiPipeline::CurrentPipe = CreatePipeline(argc, argv);
+    agiPipeline::CurrentPipe = AsRaw(CreatePipeline(argc, argv));
 
     if (Pipe()->Validate())
         Quit("Couldn't start renderer");
@@ -291,7 +291,7 @@ void asSimulation::Init(char* proj_path, i32 argc, char** argv)
     }
 
     SunParams.SetPosition({1000.0f, 1000.0f, 1000.0f});
-    SunLight = Pipe()->CreateLight();
+    SunLight = AsRaw(Pipe()->CreateLight());
 
     if (SunLight)
         SunLight->Init(SunParams);

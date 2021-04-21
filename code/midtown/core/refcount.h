@@ -276,18 +276,10 @@ template <typename T>
 template <typename T>
 using RcOwner = Rc<T>;
 
-template <typename T>
-ARTS_FORCEINLINE Rc<T> AsRc(RcOwner<T> ptr)
-{
-    return ptr;
-}
+#    define AsRc(PTR) (PTR)
 #else
 template <typename T>
 using RcOwner = T*;
 
-template <typename T>
-ARTS_FORCEINLINE Rc<T> AsRc(RcOwner<T> ptr)
-{
-    return Rc<T>(ptr);
-}
+#    define AsRc(PTR) (Rc<std::remove_pointer_t<decltype(PTR)>>((PTR)))
 #endif
