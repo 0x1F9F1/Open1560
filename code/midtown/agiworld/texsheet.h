@@ -118,7 +118,7 @@ public:
 private:
     agiTexProp* props_ {nullptr};
     i32 prop_count_ {0};
-    b32 allow_remapping_ {false}; // Usealternate
+    b32 allow_remapping_ {false}; // UseAlternate
 };
 
 check_size(agiTexSheet, 0xC);

@@ -1081,6 +1081,12 @@ void InitPatches()
     create_packed_patch<const char*>(
         "mmGameEdit::InitGameObjects", "Use a valid waypoint object", 0x4124A7 + 1, "pt_check");
 
+    create_packed_patch<f32>("Vehicle::Vehicle", "Camera Viewport X", 0x4A522E + 1, 34.0f / 640.0f);
+    create_packed_patch<f32>("Vehicle::Vehicle", "Camera Viewport Y", 0x4A5229 + 1, 175.0f / 480.0f);
+    create_packed_patch<f32>("Vehicle::Vehicle", "Camera Viewport W", 0x4A5224 + 1, 290.0f / 640.0f);
+    create_packed_patch<f32>("Vehicle::Vehicle", "Camera Viewport H", 0x4A521F + 1, 216.0f / 480.0f);
+    create_packed_patch<f32>("VehicleSelectBase::InitCarSelection", "Camera Viewport Offset", 0x49B043 + 3, 2.3f);
+
 #ifndef ARTS_FINAL
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA4B, jump_type::never);
