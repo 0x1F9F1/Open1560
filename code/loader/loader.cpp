@@ -532,7 +532,7 @@ include_dummy_symbol(mmcityinfo_vehlist);
 include_dummy_symbol(mmeffects_damage);
 include_dummy_symbol(mmeffects_linespark);
 // include_dummy_symbol(mmeffects_meshform);
-// include_dummy_symbol(mmeffects_mmnumber);
+include_dummy_symbol(mmeffects_mmnumber);
 include_dummy_symbol(mmeffects_mmtext);
 // include_dummy_symbol(mmeffects_mousesteerbar);
 include_dummy_symbol(mmeffects_ptx);

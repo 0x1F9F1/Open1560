@@ -42,43 +42,48 @@
 
 #include "arts7/node.h"
 
+class agiRefreshable;
+struct mmText;
+class mmTextNode;
+
 class mmNumber final : public asNode
 {
     // const mmNumber::`vftable' @ 0x620618
 
 public:
     // 0x4FEA10 | ??0mmNumber@@QAE@XZ
-    ARTS_IMPORT mmNumber();
+    ARTS_EXPORT mmNumber();
 
     // 0x4262A0 | ??_EmmNumber@@UAEPAXI@Z
     // 0x4FEAA0 | ??1mmNumber@@UAE@XZ
-    ARTS_IMPORT ~mmNumber() override = default;
+    ARTS_EXPORT ~mmNumber() override;
+
+    // 0x4FEB90 | ?Cull@mmNumber@@UAEXXZ
+    ARTS_EXPORT void Cull() override;
+
+    // 0x4FEAB0 | ?Init@mmNumber@@QAEXPAVmmNumberFont@@MM@Z
+    ARTS_EXPORT void Init(class mmNumberFont* font, f32 x, f32 y);
+
+    // 0x4FEB50 | ?Printf@mmNumber@@QAAXPBDZZ
+    ARTS_EXPORT void Printf(char const* format, ...);
+
+    // 0x4FEB20 | ?SetString@mmNumber@@QAEXPAD@Z
+    ARTS_EXPORT void SetString(char* text);
+
+    // 0x4FEB70 | ?Update@mmNumber@@UAEXXZ
+    ARTS_EXPORT void Update() override;
 
     // 0x4FECA0 | ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 
-    // 0x4FEB90 | ?Cull@mmNumber@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    VIRTUAL_META_DECLARE;
 
-    // 0x4FEE20 | ?GetClass@mmNumber@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
-
-    // 0x4FEAB0 | ?Init@mmNumber@@QAEXPAVmmNumberFont@@MM@Z
-    ARTS_IMPORT void Init(class mmNumberFont* arg1, f32 arg2, f32 arg3);
-
-    // 0x4FEB50 | ?Printf@mmNumber@@QAAXPBDZZ
-    ARTS_IMPORT void Printf(char const* arg1, ...);
-
-    // 0x4FEB20 | ?SetString@mmNumber@@QAEXPAD@Z
-    ARTS_IMPORT void SetString(char* arg1);
-
-    // 0x4FEB70 | ?Update@mmNumber@@UAEXXZ
-    ARTS_IMPORT void Update() override;
-
-    // 0x4FECB0 | ?DeclareFields@mmNumber@@SAXXZ
-    ARTS_IMPORT static void DeclareFields();
-
-    u8 gap20[0x60];
+private:
+    f32 x_ {0.0f};
+    f32 y_ {0.0f};
+    mmNumberFont* font_;
+    Ptr<mmTextNode> text_node_;
+    char text_[80];
 };
 
 check_size(mmNumber, 0x80);
@@ -87,24 +92,37 @@ class mmNumberFont
 {
 public:
     // 0x4FE660 | ??0mmNumberFont@@QAE@XZ
-    ARTS_IMPORT mmNumberFont();
+    ARTS_EXPORT mmNumberFont();
 
     // 0x4FE730 | ??1mmNumberFont@@QAE@XZ
-    ARTS_IMPORT ~mmNumberFont();
+    ARTS_EXPORT ~mmNumberFont();
 
     // 0x4FE780 | ?LoadFont@mmNumberFont@@QAEXPADHI@Z
-    ARTS_IMPORT void LoadFont(char* arg1, i32 arg2, u32 arg3);
+    ARTS_EXPORT void LoadFont(char* font, i32 height, u32 color);
 
     // 0x4FE880 | ?LoadLocFont@mmNumberFont@@QAEXPADPAULocString@@HI@Z
-    ARTS_IMPORT void LoadLocFont(char* arg1, struct LocString* arg2, i32 arg3, u32 arg4);
+    ARTS_EXPORT void LoadLocFont(char* font, struct LocString* params, i32 screen_width, u32 color);
 
-    u8 gap0[0x24];
+private:
+    friend class mmNumber;
+
+    Rc<agiRefreshable> field_0;
+    Ptr<mmText> Text;
+    void* Font {nullptr};
+    i32 field_C {16};
+    i32 field_10 {3};
+    Ptr<mmTextNode[]> TextNodes;
+    f32 CharHeight {32.0f};
+    f32 CharWidth {32.0f};
+    Ptr<i32[]> CharWidths;
+
+    void Init(i32 height, u32 color);
 };
 
 check_size(mmNumberFont, 0x24);
 
 // 0x649C9C | ?NUMBERSTRING@@3PADA
-ARTS_IMPORT extern char* NUMBERSTRING;
+ARTS_EXPORT extern char* NUMBERSTRING;
 
 // 0x719570 | ?mmNumberMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmNumberMetaClass;

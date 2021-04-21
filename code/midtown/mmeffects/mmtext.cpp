@@ -22,6 +22,7 @@ define_dummy_symbol(mmeffects_mmtext);
 
 #include "agi/bitmap.h"
 #include "agi/pipeline.h"
+#include "localize/localize.h"
 
 mmTextNode::mmTextNode() = default;
 mmTextNode::~mmTextNode() = default;
@@ -83,4 +84,23 @@ void mmTextNode::Cull()
 
         Pipe()->CopyBitmap(x, y, text_bitmap_.get(), 0, 0, text_bitmap_->GetWidth(), text_bitmap_->GetHeight());
     }
+}
+
+mmLocFontInfo::mmLocFontInfo(LocString* params)
+{
+    Context = arts_strdup(params->Text);
+    char* context = nullptr;
+
+    FontName = arts_strtok(Context, ",", &context);
+
+    HeightLow = std::atoi(arts_strtok(nullptr, ",", &context));
+    HeightHigh = std::atoi(arts_strtok(nullptr, ",", &context));
+
+    CharSet = std::atoi(arts_strtok(nullptr, ",", &context));
+    Weight = std::atoi(arts_strtok(nullptr, ",", &context));
+}
+
+mmLocFontInfo::~mmLocFontInfo()
+{
+    arts_free(Context);
 }

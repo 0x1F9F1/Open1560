@@ -179,6 +179,11 @@ public:
     // 0x4FFB30 | ?Update@mmTextNode@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
+    agiBitmap* GetBitmap()
+    {
+        return text_bitmap_.get();
+    }
+
 private:
     f32 x_ {0.0f};
     f32 y_ {0.0f};
@@ -196,6 +201,23 @@ private:
 };
 
 check_size(mmTextNode, 0x54);
+
+struct mmLocFontInfo
+{
+    mmLocFontInfo(LocString* params);
+    ~mmLocFontInfo();
+
+    char* FontName;
+
+    i32 HeightLow;  // Pipe < 640
+    i32 HeightHigh; // Pipe >= 640
+
+    i32 CharSet;
+    i32 Weight;
+
+private:
+    char* Context;
+};
 
 // 0x4FEE30 | ?ddGDIFlip@@YAXXZ | unused
 ARTS_IMPORT void ddGDIFlip();
