@@ -97,9 +97,9 @@ void FixTexFlags(agiTexParameters& tex)
         tex.Flags |= agiTexParameters::NoMipMaps;
 
     if (CheckEquals(tex.Name, {"WOMFACE", "MANFACE", "37_INSIDE"}))
-        tex.Props = agiTexProp::AlwaysModulate;
+        tex.Props |= agiTexProp::AlwaysModulate;
 
-    if (!std::strcmp(tex.Name, {"SNOW"}))
+    if (!std::strcmp(tex.Name, "SNOW"))
         tex.Flags |= agiTexParameters::KeepLoaded;
 
     if (CheckEquals(tex.Name,
