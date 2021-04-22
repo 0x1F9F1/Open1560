@@ -68,7 +68,7 @@ static bool IsGoodResolution(i32 width, i32 height, i32 type)
     if (width < 640 || height < 480)
         return false;
 
-    if ((type == 0) && (width >= 2048 || height >= 2048))
+    if ((type == 0) && (width >= 4096 || height >= 4096))
         return false;
 
     if (height <= 720)

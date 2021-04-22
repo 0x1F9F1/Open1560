@@ -981,10 +981,6 @@ void InitPatches()
     create_patch("agiSWTexDef::BeginGfx", "MipMapCount Comparison", 0x537797, "\x7E", 1);
     create_patch("agiSWTexDef::EndGfx", "MipMapCount Comparison", 0x537833, "\x7E", 1);
 
-    // Software renderer breaks with resolutions > 2048. Is this just a DDRAW limit?
-    create_packed_patch<u16>("TestResolution", "Max Software Resolution", 0x575E6C + 3, 2048);
-    create_packed_patch<u16>("TestResolution", "Max Software Resolution", 0x575E73 + 2, 2048);
-
     create_patch("agiSWTexLut::BeginGfx", "Fixed Fog Calculation", 0x5379F2,
         "\xB8\x00\x01\x00\x00\x89\x45\xE4\x46\xC1\xE6\x05\x29\xF0\x90\x90\x90", 0x11);
 
@@ -1086,6 +1082,85 @@ void InitPatches()
     create_packed_patch<f32>("Vehicle::Vehicle", "Camera Viewport W", 0x4A5224 + 1, 290.0f / 640.0f);
     create_packed_patch<f32>("Vehicle::Vehicle", "Camera Viewport H", 0x4A521F + 1, 216.0f / 480.0f);
     create_packed_patch<f32>("VehicleSelectBase::InitCarSelection", "Camera Viewport Offset", 0x49B043 + 3, 2.3f);
+
+    {
+        // sw[Tri/Quad/Poly] uses Q12.10 for casting vertices to integers
+
+        // This currently does not change anything apart from the mask, which can actually fit 1 more bit (increasing the res limit to 4096x4096)
+        const u32 whole_bits = 12; // TODO: Why not just use 22?
+
+        for (usize addr : {
+                 0x53697B, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    shr     esi, 0Ah
+                 0x536999, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    shr     eax, 0Ah
+                 0x5369BC, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    shr     eax, 0Ah
+                 0x5369DA, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    shr     ecx, 0Ah
+                 0x536A00, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    shr     edx, 0Ah
+                 0x536A20, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    shr     edi, 0Ah
+
+                 0x536B75, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  shr     esi, 0Ah
+                 0x536B93, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  shr     esi, 0Ah
+                 0x536BB9, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  shr     esi, 0Ah
+                 0x536BD7, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  shr     esi, 0Ah
+                 0x536C00, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  shr     esi, 0Ah
+                 0x536C21, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  shr     esi, 0Ah
+                 0x536C4D, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  shr     esi, 0Ah
+                 0x536C6E, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  shr     esi, 0Ah
+
+                 0x536F98, // ?swPoly@@YAXPAUagiScreenVtx@@H@Z    shr     ecx, 0Ah
+                 0x536FB6, // ?swPoly@@YAXPAUagiScreenVtx@@H@Z    shr     ecx, 0Ah
+                 0x537005, // ?swPoly@@YAXPAUagiScreenVtx@@H@Z    shr     eax, 0Ah
+                 0x537022, // ?swPoly@@YAXPAUagiScreenVtx@@H@Z    shr     ecx, 0Ah
+             })
+        {
+            create_packed_patch<u8>("Software Renderer", "Max Software Resolution", addr + 2,
+                static_cast<u8>(22 - whole_bits)); // shr x, 10
+        }
+
+        for (usize addr : {
+                 0x53697E, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    and     esi, 7FFh
+                 0x53699C, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    and     eax, 7FFh
+                 0x5369BF, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    and     eax, 7FFh
+                 0x5369DD, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    and     ecx, 7FFh
+                 0x536A03, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    and     edx, 7FFh
+                 0x536A23, // ?swTri@@YAXPAUagiScreenVtx@@00@Z    and     edi, 7FFh
+
+                 0x536B78, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  and     esi, 7FFh
+                 0x536B96, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  and     esi, 7FFh
+                 0x536BBC, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  and     esi, 7FFh
+                 0x536BDA, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  and     esi, 7FFh
+                 0x536C03, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  and     esi, 7FFh
+                 0x536C24, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  and     esi, 7FFh
+                 0x536C50, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  and     esi, 7FFh
+                 0x536C71, // ?swQuad@@YAXPAUagiScreenVtx@@000@Z  and     esi, 7FFh
+
+                 0x536F9B, // ?swPoly@@YAXPAUagiScreenVtx@@H@Z    and     ecx, 7FFh
+                 0x536FB9, // ?swPoly@@YAXPAUagiScreenVtx@@H@Z    and     ecx, 7FFh
+                 0x537008, // ?swPoly@@YAXPAUagiScreenVtx@@H@Z    and     eax, 7FFh
+                 0x537025, // ?swPoly@@YAXPAUagiScreenVtx@@H@Z    and     ecx, 7FFh
+             })
+        {
+            switch (*(const u8*) (addr))
+            {
+                case 0x25: addr += 1; break;
+                case 0x81: addr += 2; break;
+            }
+
+            create_packed_patch<u32>(
+                "Software Renderer", "Max Software Resolution", addr, (1 << whole_bits) - 1); // and x, 7FF
+        }
+
+        create_packed_patch<f32>(
+            "Software Renderer", "Max Software Resolution", 0x6212D4, -static_cast<f32>(3 << whole_bits)); // -12288.0
+        create_packed_patch<f32>(
+            "Software Renderer", "Max Software Resolution", 0x652258, static_cast<f32>(3 << whole_bits)); // 12288.0
+        create_packed_patch<u8>("Software Renderer", "Max Software Resolution", 0x537450 + 2,
+            static_cast<u8>(whole_bits)); // lea     ecx, [eax+0Ch]
+
+        create_packed_patch<u16>(
+            "TestResolution", "Max Software Resolution", 0x575E6C + 3, static_cast<u16>(1 << whole_bits));
+        create_packed_patch<u16>(
+            "TestResolution", "Max Software Resolution", 0x575E73 + 2, static_cast<u16>(1 << whole_bits));
+    }
 
 #ifndef ARTS_FINAL
     patch_jmp("mmLoader::Update", "Enable Task String", 0x48BA2D, jump_type::never);

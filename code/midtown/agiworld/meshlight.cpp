@@ -84,7 +84,7 @@ static void mmxTriple(
     _m_empty();
 }
 
-// Converts normals from -1.0..1.0 to -0x4000..0x4000
+// Converts normals from -1.0..1.0 to -0x4000..0x4000 (Q8.14)
 static ARTS_FORCEINLINE void PackNormalMMX(union mmx& output, const Vector3& input)
 {
     // 0.0: 0x0000
