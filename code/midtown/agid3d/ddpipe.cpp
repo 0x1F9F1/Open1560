@@ -24,6 +24,7 @@ define_dummy_symbol(agid3d_ddpipe);
 #include "agi/cmodel8.h"
 #include "agi/error.h"
 #include "agi/palette.h"
+#include "agi/rsys.h"
 #include "agi/texdef.h"
 #include "ddbitmap.h"
 #include "dderror.h"
@@ -216,6 +217,9 @@ void agiDDPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 {
     ++agiBitmapCount;
     agiBitmapPixels += width * height;
+
+    // TODO: Implement DrawMode 3
+    // TODO: ARTS_UTIMED(agiCopyBitmap);
 
     RECT rect {};
     rect.left = src_x;

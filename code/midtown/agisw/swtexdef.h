@@ -103,7 +103,8 @@ public:
     // 0x537B30 | ?EndGfx@agiSWTexLut@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
-    u8 gap420[0x1000];
+    u32 fog_color_ {0};
+    u16 intensities_[8][256];
 };
 
 check_size(agiSWTexLut, 0x1420);

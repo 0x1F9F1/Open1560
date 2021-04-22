@@ -67,7 +67,7 @@ i32 agiD3DTexDef::BeginGfx()
 
     SurfaceSize = Surface->Height * Surface->Pitch; // Only used for stats
 
-    if (Tex.Props & agiTexProp::AlphaGlow && GetRendererInfo().AdditiveBlending)
+    if ((Tex.Props & agiTexProp::AlphaGlow) && GetRendererInfo().AdditiveBlending)
         Tex.Flags &= ~agiTexParameters::Alpha;
 
     DDSURFACEDESC2 sd = ConvertSurfaceDesc(*Surface);
