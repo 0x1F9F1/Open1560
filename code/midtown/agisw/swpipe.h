@@ -69,6 +69,8 @@
 #include "agi/pipeline.h"
 #include "agi/viewport.h"
 
+#include "pcwindis/dxinit.h"
+
 #include <ddraw.h>
 
 class agiSWPipeline final : public agiPipeline
@@ -140,6 +142,11 @@ public:
 
     // 0x533DC0 | ?Validate@agiSWPipeline@@UAEHXZ
     ARTS_EXPORT i32 Validate() override;
+
+    IDirectDraw4* GetDirectDraw() const
+    {
+        return lpDD4;
+    }
 };
 
 check_size(agiSWPipeline, 0x2F0);

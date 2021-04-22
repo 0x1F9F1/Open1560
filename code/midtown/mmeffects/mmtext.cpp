@@ -42,12 +42,8 @@ void mmTextNode::Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 fl
     arts_sprintf(name, "*TextNode:%p", this);
 
     text_bitmap_ = AsRc(Pipe()->CreateBitmap());
-
-    // NOTE: This won't work with agiSWBitmap. agiSWBitmap::BeginGfx doesn't set its state, and is missing the added check whether the surface is null
-    if (Pipe()->IsHardware())
-        flags |= AGI_BITMAP_UNLOAD_ALWAYS;
-
-    text_bitmap_->Init(name, width * Pipe()->GetWidth(), height * Pipe()->GetHeight(), flags);
+    text_bitmap_->Init(
+        name, width * Pipe()->GetWidth(), height * Pipe()->GetHeight(), flags | AGI_BITMAP_UNLOAD_ALWAYS);
 
     // hl_color_ = 0xFFFFFF00
 }

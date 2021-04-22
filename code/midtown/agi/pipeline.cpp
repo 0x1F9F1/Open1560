@@ -136,7 +136,6 @@ i32 agiPipeline::BeginAllGfx()
     UI_Width = width_;
     UI_Height = height_;
 
-    if (Pipe()->IsHardware())
     {
         f32 game_aspect = 640.0f / 480.0f;
         f32 ui_aspect = static_cast<f32>(UI_Width) / static_cast<f32>(UI_Height);

@@ -63,9 +63,12 @@ ARTS_IMPORT /*static*/ ilong LockScreen(struct IDirectDraw4* arg1);
 static mem::cmd_param PARAM_min_aspect {"minaspect"};
 static mem::cmd_param PARAM_max_aspect {"maxaspect"};
 
-static bool IsGoodResolution(i32 width, i32 height)
+static bool IsGoodResolution(i32 width, i32 height, i32 type)
 {
     if (width < 640 || height < 480)
+        return false;
+
+    if ((type == 0) && (width >= 2048 || height >= 2048))
         return false;
 
     if (height <= 720)
@@ -83,7 +86,7 @@ ARTS_EXPORT /*static*/ long WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
 
     if (info->ResCount < 32)
     {
-        if (IsGoodResolution(sd->dwWidth, sd->dwHeight) && (sd->ddpfPixelFormat.dwRGBBitCount == 16))
+        if (IsGoodResolution(sd->dwWidth, sd->dwHeight, info->Type) && (sd->ddpfPixelFormat.dwRGBBitCount == 16))
         {
             info->Resolutions[info->ResCount].uWidth = static_cast<u16>(sd->dwWidth);
             info->Resolutions[info->ResCount].uHeight = static_cast<u16>(sd->dwHeight);

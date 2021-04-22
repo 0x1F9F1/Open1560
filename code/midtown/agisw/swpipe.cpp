@@ -23,6 +23,7 @@ define_dummy_symbol(agisw_swpipe);
 #include "agi/error.h"
 #include "agi/palette.h"
 #include "agi/texdef.h"
+#include "agid3d/dderror.h"
 #include "agirend/bilight.h"
 #include "agirend/bilmodel.h"
 #include "agirend/lighter.h"
@@ -86,6 +87,17 @@ check_size(agiSWViewport, 0x14C);
 
 static DDCOLORKEY ddk {};
 
+inline DDSURFACEDESC2 ConvertSurfaceDesc(const agiSurfaceDesc& surface)
+{
+    return mem::bit_cast<DDSURFACEDESC2>(surface); // FIXME: 64-bit incompatible
+}
+
+inline agiSurfaceDesc ConvertSurfaceDesc(const DDSURFACEDESC2& surface)
+{
+    return mem::bit_cast<agiSurfaceDesc>(surface); // FIXME: 64-bit incompatible
+}
+
+// TODO: Merge with agiDDBitmap (identical code)
 class agiSWBitmap final : public agiBitmap
 {
     // const agiSWBitmap::`vftable' @ 0x621288
@@ -95,16 +107,99 @@ public:
         : agiBitmap(pipe)
     {}
 
+    agiSWPipeline* Pipe() const
+    {
+        return static_cast<agiSWPipeline*>(agiRefreshable::Pipe());
+    }
+
     // 0x534DF0 | ??_GagiSWBitmap@@UAEPAXI@Z
     // 0x534DF0 | ??_EagiSWBitmap@@UAEPAXI@Z
     // 0x534E20 | ??1agiSWBitmap@@UAE@XZ | inline
-    ARTS_EXPORT ~agiSWBitmap() override = default;
+    ARTS_EXPORT ~agiSWBitmap() override
+    {
+        EndGfx();
+    }
 
     // 0x534C20 | ?BeginGfx@agiSWBitmap@@UAEHXZ | inline
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override
+    {
+        if (!Pipe()->HaveGfxStarted())
+            return AGI_ERROR_SUCCESS;
+
+        if (state_ != 0)
+            return AGI_ERROR_ALREADY_INITIALIZED;
+
+        if (surface_ == nullptr)
+            return AGI_ERROR_OBJECT_EMPTY;
+
+        if (width_scale_ == 0.0f || height_scale_ == 0.0f)
+        {
+            if (name_[0] != '*')
+                surface_->Reload(name_.get(), BitmapSearchPath, 0, 0, 0, 0, 0);
+
+            width_ = surface_->Width;
+            height_ = surface_->Height;
+        }
+        else
+        {
+            width_ = static_cast<i32>(UI_Width * width_scale_ + 0.5f);
+            height_ = static_cast<i32>(UI_Height * height_scale_ + 0.5f);
+
+            if (name_[0] != '*')
+                surface_->Reload(name_.get(), BitmapSearchPath, 0, 0, 0, width_, height_);
+        }
+
+        if (surface_->Surface == nullptr)
+            return AGI_ERROR_OBJECT_EMPTY;
+
+        DDSURFACEDESC2 ddsdDest {sizeof(ddsdDest)};
+
+        ddsdDest.dwWidth = width_;
+        ddsdDest.dwFlags = DDSD_CAPS | DDSD_WIDTH | DDSD_HEIGHT;
+        ddsdDest.dwHeight = height_;
+        ddsdDest.ddsCaps.dwCaps = (flags_ & AGI_BITMAP_OFFSCREEN) ? DDSCAPS_OFFSCREENPLAIN : DDSCAPS_SYSTEMMEMORY;
+
+        if (Pipe()->GetDirectDraw()->CreateSurface(&ddsdDest, &d_surf_, nullptr))
+        {
+            Quitf("CreateSurface: '%s': %d x %d %dbpp failed.", name_.get(), ddsdDest.dwWidth, ddsdDest.dwHeight,
+                ddsdDest.ddpfPixelFormat.dwRGBBitCount);
+        }
+
+        DD_TRY(d_surf_->Lock(nullptr, &ddsdDest, DDLOCK_WAIT, nullptr));
+
+        agiSurfaceDesc surface = ConvertSurfaceDesc(ddsdDest);
+        surface.CopyFrom(surface_.get(), 0);
+
+        DD_TRY(d_surf_->Unlock(nullptr));
+
+        state_ = 1;
+
+        DDSCAPS2 caps {};
+        caps.dwCaps = DDSCAPS_TEXTURE;
+        DWORD dwTotal = 0;
+        DWORD dwFree = 0;
+        DD_TRY(Pipe()->GetDirectDraw()->GetAvailableVidMem(&caps, &dwTotal, &dwFree));
+
+        agiDisplayf("Bitmap %s: %d bytes texture memory total, %d available", name_.get(), dwTotal, dwFree);
+
+        if (name_[0] != '*' || (flags_ & AGI_BITMAP_UNLOAD_ALWAYS))
+            surface_->Unload();
+
+        UpdateFlags();
+
+        return AGI_ERROR_SUCCESS;
+    }
 
     // 0x534DC0 | ?EndGfx@agiSWBitmap@@UAEXXZ | inline
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override
+    {
+        if (state_ != 0)
+        {
+            DD_RELEASE(d_surf_);
+
+            state_ = 0;
+        }
+    }
 
     // 0x534DE0 | ?Restore@agiSWBitmap@@UAEXXZ | inline
     ARTS_EXPORT void Restore() override
@@ -116,7 +211,7 @@ public:
     // 0x534DA0 | ?UpdateFlags@agiSWBitmap@@UAEXXZ | inline
     ARTS_EXPORT void UpdateFlags() override
     {
-        d_surf_->SetColorKey(DDCKEY_SRCBLT, IsTransparent() ? &ddk : nullptr);
+        DD_TRY(d_surf_->SetColorKey(DDCKEY_SRCBLT, IsTransparent() ? &ddk : nullptr));
     }
 
     IDirectDrawSurface4* GetDDSurface() const
