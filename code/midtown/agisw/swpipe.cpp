@@ -44,22 +44,34 @@ public:
     // 0x534BE0 | ??_EagiSWViewport@@UAEPAXI@Z
     // 0x534BE0 | ??_GagiSWViewport@@UAEPAXI@Z
     // 0x534C10 | ??1agiSWViewport@@UAE@XZ | inline
-    ARTS_IMPORT ~agiSWViewport() override = default;
+    ARTS_EXPORT ~agiSWViewport() override = default;
 
     // 0x534930 | ?Activate@agiSWViewport@@UAEXXZ | inline
-    ARTS_IMPORT void Activate() override;
+    ARTS_EXPORT void Activate() override
+    {
+        agiViewport::Active = this;
+        ++agiViewParameters::ViewSerial;
+        ++agiViewParameters::MtxSerial;
+    }
 
     // 0x534BC0 | ?BeginGfx@agiSWViewport@@UAEHXZ | inline
-    ARTS_EXPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override
+    {
+        return AGI_ERROR_SUCCESS;
+    }
 
     // 0x5349B0 | ?Clear@agiSWViewport@@UAEXH@Z | inline
-    ARTS_IMPORT void Clear(i32 arg1) override;
+    ARTS_IMPORT void Clear(i32 color) override;
 
     // 0x534BD0 | ?EndGfx@agiSWViewport@@UAEXXZ | inline
-    ARTS_EXPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override
+    {}
 
     // 0x534950 | ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z | inline
-    ARTS_IMPORT void SetBackground(class Vector3& arg1) override;
+    ARTS_EXPORT void SetBackground(class Vector3& color) override
+    {
+        clear_color_ = Pipe()->GetHiColorModel()->GetColor(color);
+    }
 
 private:
     u32 clear_color_ {0};
@@ -67,17 +79,21 @@ private:
 
 check_size(agiSWViewport, 0x14C);
 
+static DDCOLORKEY ddk {};
+
 class agiSWBitmap final : public agiBitmap
 {
     // const agiSWBitmap::`vftable' @ 0x621288
 
 public:
-    using agiBitmap::agiBitmap;
+    agiSWBitmap(class agiSWPipeline* pipe)
+        : agiBitmap(pipe)
+    {}
 
     // 0x534DF0 | ??_GagiSWBitmap@@UAEPAXI@Z
     // 0x534DF0 | ??_EagiSWBitmap@@UAEPAXI@Z
     // 0x534E20 | ??1agiSWBitmap@@UAE@XZ | inline
-    ARTS_IMPORT ~agiSWBitmap() override = default;
+    ARTS_EXPORT ~agiSWBitmap() override = default;
 
     // 0x534C20 | ?BeginGfx@agiSWBitmap@@UAEHXZ | inline
     ARTS_IMPORT i32 BeginGfx() override;
@@ -86,10 +102,17 @@ public:
     ARTS_IMPORT void EndGfx() override;
 
     // 0x534DE0 | ?Restore@agiSWBitmap@@UAEXXZ | inline
-    ARTS_IMPORT void Restore() override;
+    ARTS_EXPORT void Restore() override
+    {
+        EndGfx();
+        BeginGfx();
+    }
 
     // 0x534DA0 | ?UpdateFlags@agiSWBitmap@@UAEXXZ | inline
-    ARTS_IMPORT void UpdateFlags() override;
+    ARTS_EXPORT void UpdateFlags() override
+    {
+        d_surf_->SetColorKey(DDCKEY_SRCBLT, IsTransparent() ? &ddk : nullptr);
+    }
 
     IDirectDrawSurface4* GetDDSurface() const
     {
@@ -255,11 +278,3 @@ ARTS_EXPORT /*static*/ void zmemset(u16* values, u32 count)
 {
     std::memset(values, 0xFF, count * sizeof(u16[4]));
 }
-
-i32 agiSWViewport::BeginGfx()
-{
-    return AGI_ERROR_SUCCESS;
-}
-
-void agiSWViewport::EndGfx()
-{}
