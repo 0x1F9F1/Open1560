@@ -19,17 +19,22 @@
 define_dummy_symbol(agisw_swpipe);
 
 #include "swpipe.h"
+#include "agi/cmodel8.h"
 #include "agi/error.h"
+#include "agi/palette.h"
 #include "agi/texdef.h"
 #include "agirend/bilight.h"
 #include "agirend/bilmodel.h"
 #include "agirend/lighter.h"
 #include "agirend/rdlp.h"
+#include "agirend/zbrender.h"
 #include "core/minwin.h"
 #include "data7/utimer.h"
 #include "eventq7/winevent.h"
 #include "pcwindis/dxinit.h"
+#include "swddraw.h"
 #include "swrend.h"
+#include "swrsys.h"
 #include "swtexdef.h"
 
 class agiSWViewport final : public agiViewport
@@ -136,6 +141,35 @@ agiSWPipeline::agiSWPipeline(i32 /*argc*/, char** /*argv*/)
 
 agiSWPipeline::~agiSWPipeline() = default;
 
+static mem::cmd_param PARAM_width {"width"};
+static mem::cmd_param PARAM_height {"height"};
+static mem::cmd_param PARAM_depth {"depth"};
+static mem::cmd_param PARAM_vsync {"vsync"};
+
+static mem::cmd_param PARAM_pack {"pack"};
+static mem::cmd_param PARAM_annotate {"annotate"};
+
+void agiSWPipeline::Init()
+{
+    width_ = PARAM_width.get_or<i32>(640);
+    height_ = PARAM_height.get_or<i32>(480);
+    bit_depth_ = PARAM_depth.get_or<i32>(16);
+
+    device_flags_1_ = 0x0;
+    is_software_ = true;
+
+    if (PARAM_vsync.get_or(true))
+        device_flags_1_ |= 0x1;
+
+    device_flags_2_ = device_flags_1_;
+    device_flags_3_ = device_flags_1_;
+
+    PackShift = PARAM_pack.get_or<i32>(0);
+    AnnotateTextures = PARAM_annotate.get_or(false);
+
+    ddAttach(device_flags_1_, bit_depth_);
+}
+
 void agiSWPipeline::BeginFrame()
 {
     agiPipeline::BeginFrame();
@@ -146,6 +180,46 @@ void agiSWPipeline::BeginFrame()
         lpdsFront->Restore();
         RestoreAll();
     }
+}
+
+i32 agiSWPipeline::BeginGfx()
+{
+    gfx_started_ = true;
+
+    dxiWidth = width_;
+    dxiHeight = height_;
+    dxiDepth = bit_depth_;
+
+    dxiSetDisplayMode();
+    swFbStart();
+
+    screen_format_ = swScreenDesc;
+    swInit();
+
+    // FIXME: Leaks agiSWRasterizer
+    renderer_ = MakeRc<agiZBufRenderer>(new agiSWRasterizer(this));
+
+    if (bit_depth_ == 8)
+    {
+        hi_color_model_ = MakeRc<agiColorModel8>(&agiPal);
+    }
+    else
+    {
+        hi_color_model_ = AsRc(agiColorModel::FindMatch(swRedMask, swGreenMask, swBlueMask, 0));
+    }
+
+    text_color_model_ = hi_color_model_;
+
+    opaque_color_model_ = MakeRc<agiColorModel8>(&agiPal);
+    alpha_color_model_ = opaque_color_model_;
+
+    TexSearchPath = const_cast<char*>("texp\0");
+
+    agiCurState.SetTexturePerspective(true);
+    valid_bit_depths_ = 0x1;
+    agiCurState.SetMaxTextures(1);
+
+    return AGI_ERROR_SUCCESS;
 }
 
 void agiSWPipeline::BeginScene()
@@ -277,4 +351,11 @@ i32 agiSWPipeline::Validate()
 ARTS_EXPORT /*static*/ void zmemset(u16* values, u32 count)
 {
     std::memset(values, 0xFF, count * sizeof(u16[4]));
+}
+
+Owner<class agiPipeline> swCreatePipeline(i32 argc, char** argv)
+{
+    Ptr<agiSWPipeline> result = MakeUnique<agiSWPipeline>(argc, argv);
+    result->Init();
+    return AsOwner(result);
 }

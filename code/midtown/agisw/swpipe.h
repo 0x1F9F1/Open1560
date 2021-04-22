@@ -84,11 +84,13 @@ public:
     // 0x533E50 | ??1agiSWPipeline@@UAE@XZ
     ARTS_EXPORT ~agiSWPipeline() override;
 
+    void Init();
+
     // 0x534030 | ?BeginFrame@agiSWPipeline@@UAEXXZ
     ARTS_EXPORT void BeginFrame() override;
 
     // 0x533E60 | ?BeginGfx@agiSWPipeline@@UAEHXZ
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // 0x534070 | ?BeginScene@agiSWPipeline@@UAEXXZ
     ARTS_EXPORT void BeginScene() override;
@@ -143,4 +145,4 @@ public:
 check_size(agiSWPipeline, 0x2F0);
 
 // 0x534690 | ?swCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-ARTS_IMPORT Owner<class agiPipeline> swCreatePipeline(i32 arg1, char** arg2);
+ARTS_EXPORT Owner<class agiPipeline> swCreatePipeline(i32 argc, char** argv);

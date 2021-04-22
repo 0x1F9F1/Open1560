@@ -63,6 +63,19 @@ ARTS_IMPORT /*static*/ ilong LockScreen(struct IDirectDraw4* arg1);
 static mem::cmd_param PARAM_min_aspect {"minaspect"};
 static mem::cmd_param PARAM_max_aspect {"maxaspect"};
 
+static bool IsGoodResolution(i32 width, i32 height)
+{
+    if (width < 640 || height < 480)
+        return false;
+
+    if (height <= 720)
+        return true;
+
+    f32 ar = static_cast<f32>(width) / static_cast<f32>(height);
+
+    return ar >= PARAM_min_aspect.get_or<f32>(1.6f) && ar <= PARAM_max_aspect.get_or<f32>(2.4f);
+}
+
 // 0x575F40 | ?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z
 ARTS_EXPORT /*static*/ long WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
 {
@@ -70,11 +83,7 @@ ARTS_EXPORT /*static*/ long WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
 
     if (info->ResCount < 32)
     {
-        f32 ar = static_cast<f32>(sd->dwWidth) / static_cast<f32>(sd->dwHeight);
-
-        if (sd->dwWidth >= 640 && sd->dwHeight >= 480 &&
-            sd->ddpfPixelFormat.dwRGBBitCount == ((info->Type != 0) ? 32u : 16u) &&
-            ar >= PARAM_min_aspect.get_or<f32>(1.6f) && ar <= PARAM_max_aspect.get_or<f32>(2.4f))
+        if (IsGoodResolution(sd->dwWidth, sd->dwHeight) && (sd->ddpfPixelFormat.dwRGBBitCount == 16))
         {
             info->Resolutions[info->ResCount].uWidth = static_cast<u16>(sd->dwWidth);
             info->Resolutions[info->ResCount].uHeight = static_cast<u16>(sd->dwHeight);

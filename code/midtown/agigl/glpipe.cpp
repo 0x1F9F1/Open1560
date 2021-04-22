@@ -882,6 +882,7 @@ static mem::cmd_param PARAM_depth {"depth"};
 static mem::cmd_param PARAM_vsync {"vsync"};
 static mem::cmd_param PARAM_pack {"pack"};
 static mem::cmd_param PARAM_integrated {"integrated"};
+static mem::cmd_param PARAM_annotate {"annotate"};
 
 extern "C"
 {
@@ -906,6 +907,7 @@ void agiGLPipeline::Init()
     device_flags_3_ = device_flags_1_;
 
     PackShift = PARAM_pack.get_or<i32>(0);
+    AnnotateTextures = PARAM_annotate.get_or(false);
 
     if (PARAM_integrated)
     {
