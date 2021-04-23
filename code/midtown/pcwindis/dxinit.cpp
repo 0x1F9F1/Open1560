@@ -49,7 +49,7 @@ static inline GUID* dxiGetInterfaceGUID()
 {
     dxiRendererInfo_t& info = GetRendererInfo();
 
-    return ((info.Type == 2) && dxiIsFullScreen()) ? &info.Guid.Interface : nullptr;
+    return ((info.Type == dxiRendererType::DX6) && dxiIsFullScreen()) ? &info.Guid.Interface : nullptr;
 }
 
 static GUID* dxiCurrentInterfaceGUID = nullptr;
@@ -156,7 +156,7 @@ void dxiInit(char* title, i32 argc, char** argv)
 
     dxiWindowCreate(title);
 
-    if (GetRendererInfo().Type != 3)
+    if (GetRendererInfo().Type != dxiRendererType::OpenGL)
     {
         dxiDirectDrawCreate();
         dxiSetDisplayMode();

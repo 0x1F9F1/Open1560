@@ -43,6 +43,14 @@ struct dxiResolution
 
 check_size(dxiResolution, 8);
 
+enum class dxiRendererType : i32
+{
+    Software,
+    DX6_GDI,
+    DX6,
+    OpenGL,
+};
+
 struct dxiRendererInfo_t
 {
     b32 Valid;
@@ -85,7 +93,17 @@ struct dxiRendererInfo_t
     // 1 | DX6 Primary Surface (GDI)
     // 2 | DX6 Hardware
     // 3 | OpenGL
-    i32 Type;
+    dxiRendererType Type;
+
+    bool IsSoftware() const
+    {
+        return Type == dxiRendererType::Software;
+    }
+
+    bool IsHardware() const
+    {
+        return Type != dxiRendererType::Software;
+    }
 
     dxiResolution Resolutions[32];
     i32 ResCount;

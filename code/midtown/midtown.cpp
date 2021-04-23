@@ -652,12 +652,12 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
         switch (info.Type)
         {
-            case 0: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
-            case 1:
-            case 2: pipe = AsPtr(d3dCreatePipeline(argc, argv)); break;
+            case dxiRendererType::Software: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
+            case dxiRendererType::DX6_GDI:
+            case dxiRendererType::DX6: pipe = AsPtr(d3dCreatePipeline(argc, argv)); break;
 
 #ifdef ARTS_ENABLE_OPENGL
-            case 3: pipe = AsPtr(glCreatePipeline(argc, argv)); break;
+            case dxiRendererType::OpenGL: pipe = AsPtr(glCreatePipeline(argc, argv)); break;
 #endif
         }
 
@@ -682,14 +682,14 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
     {
         bRenderToSystem = true;
 
-        switch (bHaveIME ? 0 : info.Type)
+        switch (bHaveIME ? dxiRendererType::Software : info.Type)
         {
-            case 0: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
-            case 1:
-            case 2: pipe = AsPtr(d3dCreatePipeline(argc, argv)); break;
+            case dxiRendererType::Software: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
+            case dxiRendererType::DX6_GDI:
+            case dxiRendererType::DX6: pipe = AsPtr(d3dCreatePipeline(argc, argv)); break;
 
 #ifdef ARTS_ENABLE_OPENGL
-            case 3: pipe = AsPtr(glCreatePipeline(argc, argv)); break;
+            case dxiRendererType::OpenGL: pipe = AsPtr(glCreatePipeline(argc, argv)); break;
 #endif
         }
 

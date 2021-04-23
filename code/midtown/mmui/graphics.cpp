@@ -42,15 +42,10 @@ void AutoDetect(i32 renderer, i32 resolution)
 
     dxiResolution& res = info.Resolutions[resolution];
 
-    if (info.Type == 2)
-        agiRQ.TerrainQuality = AGI_QUALITY_VERY_HIGH;
-    else if (info.Type != 0)
-        agiRQ.TerrainQuality = AGI_QUALITY_HIGH;
-    else
-        agiRQ.TerrainQuality = AGI_QUALITY_MEDIUM;
-
-    if (info.Type != 0)
+    if (info.Type != dxiRendererType::Software)
     {
+        agiRQ.TerrainQuality = AGI_QUALITY_VERY_HIGH;
+
         if (res.uTexMem > 0x2000000) // 32 MB
             agiRQ.TextureQuality = AGI_QUALITY_VERY_HIGH;
         else if (res.uTexMem > 0x400000) // 4 MB
@@ -65,6 +60,7 @@ void AutoDetect(i32 renderer, i32 resolution)
     }
     else
     {
+        agiRQ.TerrainQuality = AGI_QUALITY_MEDIUM;
         agiRQ.TextureQuality = (res.uWidth >= 512) ? AGI_QUALITY_HIGH : AGI_QUALITY_MEDIUM;
     }
 

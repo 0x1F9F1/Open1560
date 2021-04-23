@@ -174,7 +174,7 @@ i32 dxiResGetRecommended(i32 renderer, [[maybe_unused]] i32 cpu_speed)
 {
     dxiRendererInfo_t& info = dxiInfo[renderer];
 
-    if (info.Type == 0)
+    if (info.Type == dxiRendererType::Software)
         return dxiResClosestMatch(renderer, 640, 480);
     else
         return dxiResClosestMatch(renderer, 1280, 720);

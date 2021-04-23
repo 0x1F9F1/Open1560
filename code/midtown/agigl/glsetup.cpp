@@ -79,7 +79,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     GetMonitorName(info.Name, ARTS_SIZE(info.Name), iMonitor.szDevice);
     arts_strcpy(info.Device, iMonitor.szDevice);
 
-    info.Type = 3;
+    info.Type = dxiRendererType::OpenGL;
 
     info.ResCount = 0;
     info.ResChoice = -1;
@@ -187,7 +187,7 @@ static BOOL CALLBACK CountRendererCallback(HMONITOR hMonitor, [[maybe_unused]] H
     {
         dxiRendererInfo_t& info = dxiInfo[i];
 
-        if ((info.Type == 3) && !std::strcmp(name, dxiInfo[i].Name))
+        if ((info.Type == dxiRendererType::OpenGL) && !std::strcmp(name, dxiInfo[i].Name))
         {
             ++count;
 

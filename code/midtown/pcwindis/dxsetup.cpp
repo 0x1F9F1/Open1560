@@ -63,12 +63,12 @@ ARTS_IMPORT /*static*/ ilong LockScreen(struct IDirectDraw4* arg1);
 static mem::cmd_param PARAM_min_aspect {"minaspect"};
 static mem::cmd_param PARAM_max_aspect {"maxaspect"};
 
-static bool IsGoodResolution(i32 width, i32 height, i32 type)
+static bool IsGoodResolution(i32 width, i32 height, dxiRendererType type)
 {
     if (width < 640 || height < 480)
         return false;
 
-    if ((type == 0) && (width >= 4096 || height >= 4096))
+    if ((type == dxiRendererType::Software) && (width >= 4096 || height >= 4096))
         return false;
 
     if (height <= 720)
@@ -132,12 +132,12 @@ static bool ValidateRenderersDX6()
     {
         dxiRendererInfo_t& info = dxiInfo[i];
 
-        if (info.Type == 3)
+        if (info.Type == dxiRendererType::OpenGL)
             return false;
 
         IDirectDraw* ddraw = nullptr;
 
-        if (pDirectDrawCreate((info.Type == 2) ? &info.Guid.Interface : nullptr, &ddraw, NULL))
+        if (pDirectDrawCreate((info.Type == dxiRendererType::DX6) ? &info.Guid.Interface : nullptr, &ddraw, NULL))
             return false;
 
         IDirectDraw4* ddraw4 = nullptr;
