@@ -22,6 +22,12 @@ define_dummy_symbol(data7_mmx);
 
 #include <intrin.h>
 
+b32 HaveKNI = false;
+b32 HaveMMX = false;
+b32 HavePPro = false;
+b32 UseKNI = false;
+b32 UseMMX = false;
+
 static i32 cpuid()
 {
     int values[4];

@@ -45,44 +45,46 @@ class mmCityList final
 
 public:
     // 0x4CBC10 | ??0mmCityList@@QAE@XZ
-    ARTS_IMPORT mmCityList();
+    ARTS_EXPORT mmCityList();
 
     // 0x4CC050 | ??_GmmCityList@@UAEPAXI@Z
     // 0x4CC050 | ??_EmmCityList@@UAEPAXI@Z
     // 0x4CBC30 | ??1mmCityList@@UAE@XZ
-    ARTS_IMPORT virtual ~mmCityList();
+    ARTS_EXPORT virtual ~mmCityList();
 
     // 0x4CBD50 | ?GetCityID@mmCityList@@QAEHPAD@Z
-    ARTS_IMPORT i32 GetCityID(char* arg1);
+    ARTS_EXPORT i32 GetCityID(char* name);
 
     // 0x4CBCD0 | ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@PAD@Z
-    ARTS_IMPORT class mmCityInfo* GetCityInfo(char* arg1);
+    ARTS_EXPORT class mmCityInfo* GetCityInfo(char* name);
 
     // 0x4CBCA0 | ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@H@Z
-    ARTS_IMPORT class mmCityInfo* GetCityInfo(i32 arg1);
+    ARTS_EXPORT class mmCityInfo* GetCityInfo(i32 index);
 
     // 0x4CBE20 | ?GetCurrentCity@mmCityList@@QAEPAVmmCityInfo@@XZ
-    ARTS_IMPORT class mmCityInfo* GetCurrentCity();
+    ARTS_EXPORT class mmCityInfo* GetCurrentCity();
 
     // 0x4CBC90 | ?Init@mmCityList@@QAEXH@Z | unused
-    ARTS_IMPORT void Init(i32 arg1);
+    ARTS_EXPORT void Init(i32 arg1);
 
     // 0x4CBE30 | ?Load@mmCityList@@QAEXPAD@Z
-    ARTS_IMPORT void Load(char* arg1);
+    ARTS_EXPORT void Load(char* name);
 
     // 0x4CBFA0 | ?LoadAll@mmCityList@@QAEXXZ
-    ARTS_IMPORT void LoadAll();
+    ARTS_EXPORT void LoadAll();
 
     // 0x4CBF60 | ?Print@mmCityList@@QAEXXZ | unused
-    ARTS_IMPORT void Print();
+    ARTS_EXPORT void Print();
 
     // 0x4CBDD0 | ?SetCurrentCity@mmCityList@@QAEXPAD@Z
-    ARTS_IMPORT void SetCurrentCity(char* arg1);
+    ARTS_EXPORT void SetCurrentCity(char* name);
 
     // 0x4CBDF0 | ?SetCurrentCity@mmCityList@@QAEXH@Z
-    ARTS_IMPORT void SetCurrentCity(i32 arg1);
+    ARTS_EXPORT void SetCurrentCity(i32 index);
 
-    u8 gap4[0xC];
+    Ptr<mmCityInfo*[]> Cities;
+    i32 NumCities {0};
+    i32 CurrentCity {0};
 };
 
 check_size(mmCityList, 0x10);

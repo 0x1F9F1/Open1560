@@ -31,19 +31,19 @@
 */
 
 // 0x90B4AC | ?HaveKNI@@3HA
-ARTS_IMPORT extern i32 HaveKNI;
+ARTS_EXPORT extern b32 HaveKNI;
 
 // 0x90B4B0 | ?HaveMMX@@3HA
-ARTS_IMPORT extern i32 HaveMMX;
+ARTS_EXPORT extern b32 HaveMMX;
 
 // 0x90B4A8 | ?HavePPro@@3HA
-ARTS_IMPORT extern i32 HavePPro;
+ARTS_EXPORT extern b32 HavePPro;
 
 // 0x90B4A0 | ?UseKNI@@3HA
-ARTS_IMPORT extern i32 UseKNI;
+ARTS_EXPORT extern b32 UseKNI;
 
 // 0x90B4A4 | ?UseMMX@@3HA
-ARTS_IMPORT extern i32 UseMMX;
+ARTS_EXPORT extern b32 UseMMX;
 
 struct initHaveMMX
 {

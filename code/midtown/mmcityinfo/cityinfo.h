@@ -35,17 +35,28 @@ class mmCityInfo final
 
 public:
     // 0x4D3620 | ??0mmCityInfo@@QAE@XZ
-    ARTS_IMPORT mmCityInfo();
+    ARTS_EXPORT mmCityInfo();
 
     // 0x4D39A0 | ??_EmmCityInfo@@UAEPAXI@Z
     // 0x4D39A0 | ??_GmmCityInfo@@UAEPAXI@Z
     // 0x4D3640 | ??1mmCityInfo@@UAE@XZ
-    ARTS_IMPORT virtual ~mmCityInfo() = default;
+    ARTS_EXPORT virtual ~mmCityInfo();
 
     // 0x4D3650 | ?Load@mmCityInfo@@QAEHPAD@Z
-    ARTS_IMPORT i32 Load(char* arg1);
+    ARTS_IMPORT b32 Load(char* path);
 
-    u8 gap4[0x9C];
+    char LocalizedName[40];
+    char MapName[40];
+    char RaceDir[40];
+    CString BlitzNames;
+    CString RaceNames;
+    CString CircuitNames;
+    b32 Loaded {false};
+    i32 BlitzCount {0};
+    i32 CheckpointCount {0};
+    i32 CircuitCount {0};
+    i32 field_98 {0};
+    i32 field_9C {0};
 };
 
 check_size(mmCityInfo, 0xA0);

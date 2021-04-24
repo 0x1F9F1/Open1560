@@ -484,8 +484,8 @@ include_dummy_symbol(mmcity_loader);
 // include_dummy_symbol(mmcity_renderweb);
 // include_dummy_symbol(mmcity_sky);
 
-// include_dummy_symbol(mmcityinfo_cityinfo);
-// include_dummy_symbol(mmcityinfo_citylist);
+include_dummy_symbol(mmcityinfo_cityinfo);
+include_dummy_symbol(mmcityinfo_citylist);
 // include_dummy_symbol(mmcityinfo_crc);
 // include_dummy_symbol(mmcityinfo_infobase);
 // include_dummy_symbol(mmcityinfo_mapdata);

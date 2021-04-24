@@ -1,9 +1,9 @@
 arts_component "mmcityinfo"
     files {
-        -- "cityinfo.cpp",
-        -- "cityinfo.h",
-        -- "citylist.cpp",
-        -- "citylist.h",
+        "cityinfo.cpp",
+        "cityinfo.h",
+        "citylist.cpp",
+        "citylist.h",
         -- "crc.cpp",
         -- "crc.h",
         -- "infobase.cpp",

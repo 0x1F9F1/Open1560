@@ -19,3 +19,8 @@
 define_dummy_symbol(mmcityinfo_cityinfo);
 
 #include "cityinfo.h"
+
+#include "stream/stream.h"
+
+mmCityInfo::mmCityInfo() = default;
+mmCityInfo::~mmCityInfo() = default;
