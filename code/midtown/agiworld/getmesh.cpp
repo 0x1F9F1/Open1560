@@ -31,15 +31,6 @@ static bool CheckEquals(const char* name, std::initializer_list<const char*> nam
         names.end();
 }
 
-static bool CheckSuffix(const char* name, std::initializer_list<const char*> names)
-{
-    return std::find_if(names.begin(), names.end(), [name](const char* suffix) {
-        usize str_len = std::strlen(name);
-        usize suffix_len = std::strlen(suffix);
-        return (suffix_len <= str_len) && !std::strncmp(name + str_len - suffix_len, suffix, suffix_len);
-    }) != names.end();
-}
-
 void FixTexFlags(agiTexParameters& tex)
 {
     agiTexProp* prop = TEXSHEET.Lookup(tex.Name, 0);
@@ -107,6 +98,7 @@ void FixTexFlags(agiTexParameters& tex)
                 "T_PARK02", "T_WRONGWAY", "FREEWAY_EXITS", "VPSEMI_TRAILER_BED", "T_TUN_TOP", "VABUS_SD"}))
         tex.Props |= agiTexProp::AlwaysPerspCorrect;
 
-    if (CheckSuffix(tex.Name, {"WHL", "TIRE"})) // Fix tire reflections in menus
+    // Reflections will draw over a transparent texture even if part of it is not visible
+    if (tex.Flags & agiTexParameters::Alpha)
         tex.Props |= agiTexProp::DullOrDamaged;
 }
