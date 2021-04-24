@@ -19,3 +19,8 @@
 define_dummy_symbol(data7_pager);
 
 #include "pager.h"
+
+PagerInfo_t::~PagerInfo_t()
+{
+    arts_free(Name);
+}

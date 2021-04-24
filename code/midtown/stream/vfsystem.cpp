@@ -144,7 +144,7 @@ b32 VirtualFileSystem::PagerInfo(const char* path, struct PagerInfo_t& info)
     info.Handle = base_stream_->GetPagerHandle();
     info.Offset = node->GetOffset();
     info.Size = node->GetSize();
-    info.Name = &file_names_[node->GetNameOffset()]; // FIXME: This points to a packed name
+    info.Name = arts_strdup(path); // FIXME: Memory leak
 
     return true;
 }

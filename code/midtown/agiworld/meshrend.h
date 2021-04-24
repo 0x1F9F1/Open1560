@@ -161,10 +161,8 @@ ARTS_IMPORT extern u32 SphMapColor;
 
 struct agiMeshCardVertex
 {
-    f32 Width;
-    f32 Height;
-    f32 dword8;
-    f32 dwordC;
+    f32 x, y;
+    f32 tu, tv;
 };
 
 check_size(agiMeshCardVertex, 0x10);
@@ -177,8 +175,8 @@ public:
 
     u32 VertCount {0};
     u32 PointCount {0};
-    Vector2* Points {nullptr};
-    Vector2* Points2 {nullptr};
+    Vector2* Vertices {nullptr};
+    Vector2* TexCoords {nullptr};
 };
 
 check_size(agiMeshCardInfo, 0x10);

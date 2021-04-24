@@ -152,10 +152,6 @@ using extern_var_t = T;
 // #    define export_hook(ADDRESS)
 #        define extern_var mem_extern_var
 #    endif
-
-#    pragma warning(disable : 4505) // unreferenced local function has been removed
-#    pragma warning(disable : 4722) // destructor never returns, potential memory leak
-#    pragma warning(disable : 4702) // unreachable code
 #endif
 
 extern mem::init_function INIT_early;

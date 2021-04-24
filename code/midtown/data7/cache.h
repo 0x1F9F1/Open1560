@@ -91,6 +91,22 @@ public:
 
     void Free(i32 handle);
 
+    u32 GetEvictedObjects() const
+    {
+        return evicted_objects_;
+    }
+
+    u32 GetEvictedBytes() const
+    {
+        return evicted_bytes_;
+    }
+
+    void ResetEvictionCounter()
+    {
+        evicted_objects_ = 0;
+        evicted_bytes_ = 0;
+    }
+
 private:
     // 0x5773A0 | ?CleanEndOfHeap@DataCache@@AAEXXZ
     ARTS_EXPORT void CleanEndOfHeap();
@@ -107,8 +123,8 @@ private:
 
     DataCacheObject& GetObject(i32 handle);
 
-    u32 aged_objects_ {0};
-    u32 aged_bytes_ {0};
+    u32 evicted_objects_ {0};
+    u32 evicted_bytes_ {0};
 
     // Must always be indexed by > 0
     DataCacheObject* objects_ {nullptr}; // pObjects

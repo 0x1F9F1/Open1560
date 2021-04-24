@@ -35,7 +35,7 @@ struct DataCacheObject
     // Handle must be stored directly after a PagerInfo_t
     i32* pHandle {nullptr};
 
-    u8 bUsed {0};
+    bool bUsed {0};
     u8 nLockCount {0};
 
     u32 nTotalSize {0};
@@ -53,6 +53,13 @@ struct DataCacheObject
 };
 
 check_size(DataCacheObject, 0x20);
+
+inline DataCacheObject& DataCache::GetObject(i32 handle)
+{
+    ArAssert(handle > 0, "Invalid Handle");
+
+    return objects_[handle];
+}
 
 static inline constexpr usize AlignSize(usize value) noexcept
 {
@@ -91,8 +98,8 @@ void DataCache::Age()
             Unload(i);
 
             cur_waste_ += dco.nMaxSize;
-            aged_bytes_ += dco.nMaxSize;
-            ++aged_objects_;
+            evicted_bytes_ += dco.nMaxSize;
+            ++evicted_objects_;
         }
     }
 
@@ -280,8 +287,8 @@ void DataCache::Init(u32 heap_size, i32 handle_count, const char* name)
 {
     MaxObjectAge = PARAM_cacheage.get_or<u32>(1000);
 
-    aged_objects_ = 0;
-    aged_bytes_ = 0;
+    evicted_objects_ = 0;
+    evicted_bytes_ = 0;
 
     objects_ = new DataCacheObject[handle_count];
     --objects_;
@@ -467,11 +474,4 @@ void DataCache::Unload(i32 handle)
     dco.nTotalSize = 0;
     *dco.pHandle = 0;
     dco.pHandle = nullptr;
-}
-
-inline DataCacheObject& DataCache::GetObject(i32 handle)
-{
-    ArAssert(handle > 0, "Invalid Handle");
-
-    return objects_[handle];
 }

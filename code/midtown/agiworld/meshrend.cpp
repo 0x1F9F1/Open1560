@@ -28,6 +28,26 @@ define_dummy_symbol(agiworld_meshrend);
 #include "memory/alloca.h"
 #include "vector7/matrix34.h"
 
+struct CV
+{
+    Vector4 Pos;
+    Vector3 UV;
+    u8 Fog;
+    u8 Indices[3];
+};
+
+check_size(CV, 0x20);
+
+struct CT
+{
+    i32 Index;
+    i32 Count;
+    i32 Tri[3];
+    CT* Next;
+};
+
+check_size(CT, 0x18);
+
 // 0x506380 | ?ClipNX@@YIXAAUCV@@0@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNX(struct CV& arg1, struct CV& arg2);
 
@@ -65,10 +85,48 @@ ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPZ(struct CV& arg1, struct CV& arg
 ARTS_IMPORT /*static*/ i32 ClipPZ(struct CV* arg1, struct CV* arg2, i32 arg3);
 
 // 0x5061B0 | ?FullClip@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 FullClip(struct CV* arg1, struct CV* arg2, i32 arg3);
+ARTS_EXPORT /*static*/ i32 FullClip(struct CV* ARTS_RESTRICT output, struct CV* ARTS_RESTRICT input, i32 count)
+{
+    if (count = ClipNZ(output, input, count); count == 0)
+        return 0;
+
+    if (count = ClipNX(input, output, count); count == 0)
+        return 0;
+
+    if (count = ClipPX(output, input, count); count == 0)
+        return 0;
+
+    if (count = ClipNY(input, output, count); count == 0)
+        return 0;
+
+    if (count = ClipPY(output, input, count); count == 0)
+        return 0;
+
+    if (count = ClipPZ(input, output, count); count == 0)
+        return 0;
+
+    for (i32 i = 0; i < count; ++i)
+        output[i] = input[i];
+
+    return count;
+}
 
 // 0x506EA0 | ?ZClipOnly@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ZClipOnly(struct CV* arg1, struct CV* arg2, i32 arg3);
+ARTS_EXPORT /*static*/ i32 ZClipOnly(struct CV* ARTS_RESTRICT output, struct CV* ARTS_RESTRICT input, i32 count)
+{
+    if (count = ClipNZ(output, input, count); count == 0)
+        return 0;
+
+    if (count = ClipPZ(input, output, count); count == 0)
+        return 0;
+
+    // NOTE: Original code did not copy the verts
+    // Without the copy, there are artifacts, since the last clip wrote to the input
+    for (i32 i = 0; i < count; ++i)
+        output[i] = input[i];
+
+    return count;
+}
 
 #define ARTS_TRANSFORM_DOT                                                                  \
     output[i].x = M.m0.x * input[i].x + M.m1.x * input[i].y + M.m2.x * input[i].z + M.m3.x; \
@@ -199,25 +257,6 @@ void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 co
 }
 #endif
 
-struct CV
-{
-    Vector4 Pos;
-    Vector3 UV;
-    u8 Fog;
-};
-
-check_size(CV, 0x20);
-
-struct CT
-{
-    i32 Index;
-    i32 Count;
-    i32 Tri[3];
-    CT* Next;
-};
-
-check_size(CT, 0x18);
-
 static extern_var(0x725138, i32, ClippedVertCount);
 static extern_var(0x720EB0, i32, ClippedTriCount);
 static extern_var(0x72D390, CV[2048], ClippedVerts);
@@ -225,8 +264,26 @@ static extern_var(0x71DE98, CT[512], ClippedTris);
 static extern_var(0x719848, CT* [256], ClippedTextures);
 static extern_var(0x719E48, b32, OnlyZClip);
 
-// TODO: Process all clipped CV's at once, similar to ToScreen
+// A simple wrapper to avoid default constructing elements
+template <typename T, std::size_t N>
+struct PodArray
+{
+    static_assert(std::is_trivially_copy_assignable_v<T>);
 
+    alignas(T) unsigned char Data[N][sizeof(T)];
+
+    operator T*()
+    {
+        return reinterpret_cast<T*>(Data);
+    }
+
+    operator const T*() const
+    {
+        return reinterpret_cast<const T*>(Data);
+    }
+};
+
+// TODO: Process all clipped CV's at once, similar to ToScreen
 void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
 {
     ARTS_UTIMED(agiClipTimer);
@@ -234,8 +291,7 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
     if (ClippedVertCount > 2032 || ClippedTriCount == 512)
         Quitf("ClipTri: clip buffer overflow");
 
-    // TODO: Understand why there are 16
-    CV verts[16];
+    PodArray<CV, 16> verts;
 
     verts[0] = {out[VertexIndices[i1]], {1.0f, 0.0f, 0.0f}};
     verts[1] = {out[VertexIndices[i2]], {0.0f, 1.0f, 0.0f}};
