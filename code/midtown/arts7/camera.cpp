@@ -31,21 +31,24 @@ static mem::cmd_param PARAM_fovfix {"fovfix"};
 
 void asCamera::SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip)
 {
-    // TODO: Handle better handling of auto aspect ratio?
-    if (aspect == 0.0f)
-        aspect = 640.0f / 480.0f;
-
-    // TODO: Store the vertical fov instead, and handle this in asCamera::Update?
+    // Aspect is supposed to represent the intended aspect ratio for the provided horizontal FOV
+    // However, if it is ever set to 0, it will always be ignored from then on (this is the case in-game)
+    // This means the value is basically useless, so instead assume it was intended for a 4:3 display
+    // This preserves intended vertical FOV on wider screens, including in the dash view
+    //
+    // TODO: Store the vertical fov instead, and handle this in asCamera::Update
     // https://forum.unity.com/threads/adjust-fov-based-on-aspect-ratio-how.474627/#post-3097919
     if (PARAM_fovfix.get_or(true))
     {
-        // Calculate the vertical fov, based on the intended aspect ratio
+        aspect = (640.0f * x_size_) / (480.0f * y_size_);
+
+        // Calculate the vertical FOV, based on the intended aspect ratio
         f32 vert_fov = 2.0f * std::atan2(std::tan(horz_fov * 0.5f), aspect);
 
         // Now calculate the actual aspect ratio
         aspect = (Pipe()->GetWidth() * x_size_) / (Pipe()->GetHeight() * y_size_);
 
-        // Calculate the horizontal fov, based on the actual aspect ratio
+        // Calculate the horizontal FOV, based on the actual aspect ratio
         horz_fov = 2.0f * std::atan(aspect * std::tan(vert_fov * 0.5f));
     }
 
@@ -60,6 +63,7 @@ void asCamera::SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip)
     }
     else
     {
+        // auto_aspect_ = false;
         aspect_ = aspect;
     }
 }
