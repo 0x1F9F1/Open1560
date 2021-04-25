@@ -192,7 +192,7 @@ public:
         arts_strncat(buffer_, value, len);
     }
 
-    void sprintf(const char* format, ...)
+    void sprintf(ARTS_FORMAT_STRING const char* format, ...)
     {
         std::va_list va;
         va_start(va, format);
@@ -200,7 +200,7 @@ public:
         va_end(va);
     }
 
-    void vsprintf(const char* format, std::va_list va)
+    void vsprintf(ARTS_FORMAT_STRING const char* format, std::va_list va)
     {
         arts_vsprintf(buffer_, format, va);
     }

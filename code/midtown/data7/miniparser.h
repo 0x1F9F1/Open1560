@@ -72,10 +72,10 @@ public:
     virtual void RawPutCh(i32 arg1) = 0;
 
     // 0x57C7B0 | ?Commentf@MiniParser@@QAAXPBDZZ | unused
-    ARTS_EXPORT void Commentf(char const* format, ...);
+    ARTS_EXPORT void Commentf(ARTS_FORMAT_STRING char const* format, ...);
 
     // 0x57C710 | ?Errorf@MiniParser@@QAAXPBDZZ
-    ARTS_EXPORT void Errorf(char const* format, ...);
+    ARTS_EXPORT void Errorf(ARTS_FORMAT_STRING char const* format, ...);
 
     // 0x57CD80 | ?FloatVal@MiniParser@@QAEMXZ
     ARTS_EXPORT f32 FloatVal();
@@ -108,7 +108,7 @@ public:
     ARTS_EXPORT void PrintString(const char* str, i32 len);
 
     // 0x57C660 | ?Printf@MiniParser@@QAAXPBDZZ
-    ARTS_EXPORT void Printf(char const* format, ...);
+    ARTS_EXPORT void Printf(ARTS_FORMAT_STRING char const* format, ...);
 
     // 0x57CAD0 | ?PutBack@MiniParser@@QAEXH@Z
     ARTS_EXPORT void PutBack(i32 token);
