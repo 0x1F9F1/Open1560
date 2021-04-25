@@ -150,10 +150,10 @@ public:
             params_[i]->Save(output);
     }
 
-    Param* GetParam(i32 index)
+    Param& operator[](i32 index)
     {
         ArAssert(index > 0 && index <= count_, "Invalid index");
-        return params_[index - 1];
+        return *params_[index - 1];
     }
 
     Def** GetDef(i32 index)

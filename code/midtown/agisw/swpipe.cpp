@@ -21,6 +21,7 @@ define_dummy_symbol(agisw_swpipe);
 #include "swpipe.h"
 #include "agi/cmodel8.h"
 #include "agi/error.h"
+#include "agi/mtldef.h"
 #include "agi/palette.h"
 #include "agi/texdef.h"
 #include "agid3d/dderror.h"

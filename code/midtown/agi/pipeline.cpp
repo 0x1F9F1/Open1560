@@ -35,6 +35,7 @@ define_dummy_symbol(agi_pipeline);
 #include "refresh.h"
 #include "rsys.h"
 #include "texdef.h"
+#include "texlib.h"
 
 i32 agiPipeline::Validate()
 {
@@ -281,6 +282,55 @@ RcOwner<agiBitmap> agiPipeline::GetBitmap(const char* name, f32 sx, f32 sy, i32 
         return nullptr;
 
     BitmapHash.Insert(buffer, result.get());
+
+    return AsOwner(result);
+}
+
+RcOwner<class agiTexDef> agiPipeline::GetTexture(char* name, i32 pack_shift)
+{
+    return GetTexture(agiTexLib.Lookup(name), pack_shift);
+}
+
+RcOwner<class agiTexDef> agiPipeline::GetTexture(i32 index, i32 pack_shift)
+{
+    if (index == 0)
+        return nullptr;
+
+    if (char* name = arts_getenv("ONE_TEXTURE"))
+    {
+        index = agiTexLib.Lookup(name);
+        arts_free(name);
+    }
+
+    agiTexDef** tex_def = agiTexLib.GetDef(index);
+    // NOTE: Originally checked if tex_def == nullptr, but that isn't possible
+
+    // NOTE: Originally checked if PackShift != 0, but that isn't necessary
+    pack_shift = std::max(pack_shift, PackShift);
+
+    Rc<agiTexDef> result = AddRc(*tex_def);
+
+    if (result)
+    {
+        if (result->PackShift != pack_shift)
+            Warningf("Texture '%s' wants pack=%d, already has %d", result->Tex.Name, pack_shift, result->PackShift);
+    }
+    else
+    {
+        result = AsRc(CreateTexDef());
+
+        if (result)
+        {
+            *tex_def = result.get();
+            result->PackShift = pack_shift;
+
+            if (result->Init(agiTexLib[index]) != AGI_ERROR_SUCCESS)
+            {
+                *tex_def = nullptr;
+                result = nullptr;
+            }
+        }
+    }
 
     return AsOwner(result);
 }

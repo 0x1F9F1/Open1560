@@ -170,11 +170,11 @@ RcOwner<class agiTexDef> GetPackedTexture(char* name, i32 variation)
     FixTexFlags(tex);
     arts_strcpy(tex.Name, TEXSHEET.RemapName(full_name, variation));
 
-    agiTexParameters* lib_tex = agiTexLib.GetParam(agiTexLib.Add(tex));
+    agiTexParameters& lib_tex = agiTexLib[agiTexLib.Add(tex)];
 
-    lib_tex->Flags &= ~(agiTexParameters::Alpha | agiTexParameters::WrapU | agiTexParameters::WrapV);
-    lib_tex->Flags |= tex.Flags;
-    lib_tex->Props |= tex.Props;
+    lib_tex.Flags &= ~(agiTexParameters::Alpha | agiTexParameters::WrapU | agiTexParameters::WrapV);
+    lib_tex.Flags |= tex.Flags;
+    lib_tex.Props |= tex.Props;
 
     // NOTE: Originally chcked if prop is null, but that isn't possible
 
@@ -182,7 +182,7 @@ RcOwner<class agiTexDef> GetPackedTexture(char* name, i32 variation)
         ? prop->Height
         : (agiRQ.TextureQuality >= AGI_QUALITY_MEDIUM) ? prop->Medium : prop->Low;
 
-    lib_tex->field_28 = (prop->Flags & agiTexProp::Snowable) ? 4.0f : 2.0f;
+    lib_tex.field_28 = (prop->Flags & agiTexProp::Snowable) ? 4.0f : 2.0f;
 
     Rc<agiTexDef> texture = AsRc(Pipe()->GetTexture(tex.Name, pack_shift));
 

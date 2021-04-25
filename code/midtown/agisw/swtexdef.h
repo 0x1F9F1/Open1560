@@ -65,10 +65,10 @@ public:
     ARTS_IMPORT void EndGfx() override;
 
     // 0x537810 | ?IsAvailable@agiSWTexDef@@UAEHXZ
-    ARTS_IMPORT i32 IsAvailable() override;
+    ARTS_IMPORT b32 IsAvailable() override;
 
     // 0x537870 | ?Lock@agiSWTexDef@@UAEHAAUagiTexLock@@@Z
-    ARTS_IMPORT i32 Lock(struct agiTexLock& arg1) override;
+    ARTS_IMPORT b32 Lock(struct agiTexLock& arg1) override;
 
     // 0x5378D0 | ?Request@agiSWTexDef@@UAEXXZ
     ARTS_IMPORT void Request() override;

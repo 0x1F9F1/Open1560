@@ -40,11 +40,10 @@
 */
 
 #include "refresh.h"
+#include "vertex.h"
 
 class agiTexDef;
 class agiMtlDef;
-
-#include "agi/vertex.h"
 
 class agiRasterizer : public agiRefreshable
 {

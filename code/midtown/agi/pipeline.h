@@ -222,10 +222,10 @@ public:
     ARTS_IMPORT RcOwner<class agiTexLut> GetTexLut(char* arg1);
 
     // 0x5555C0 | ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@PADH@Z
-    ARTS_IMPORT RcOwner<class agiTexDef> GetTexture(char* name, i32 pack_shift);
+    ARTS_EXPORT RcOwner<class agiTexDef> GetTexture(char* name, i32 pack_shift);
 
     // 0x555620 | ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z
-    ARTS_IMPORT RcOwner<class agiTexDef> GetTexture(i32 index, i32 pack_shift);
+    ARTS_EXPORT RcOwner<class agiTexDef> GetTexture(i32 index, i32 pack_shift);
 
     // 0x555550 | ?Init@agiPipeline@@QAEHPADHHHHHHPAX@Z | unused
     ARTS_EXPORT i32 Init(const char* name, i32 x, i32 y, i32 width, i32 height, i32 bit_depth, i32 flags, void* window);
