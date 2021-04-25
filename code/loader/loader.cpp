@@ -216,6 +216,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         VERSION_STRING = const_cast<char*>("Open1560: " CI_BUILD_STRING " / " __DATE__ " " __TIME__);
 
         Displayf("Build: %s", VERSION_STRING);
+        Displayf("Download updates at https://github.com/0x1F9F1/Open1560");
 
         FixAppCompatFlags();
 
