@@ -95,8 +95,7 @@ void mmVehList::Load(char* name)
 
 void mmVehList::LoadAll()
 {
-    if (!TEXSHEET.GetPropCount())
-        TEXSHEET.Load(const_cast<char*>("mtl/global.tsh"));
+    InitTexSheet();
 
     for (i32 i = 0; i < FileSystem::FSCount; ++i)
     {

@@ -145,7 +145,7 @@ private:
 check_size(agiTexSorter, 0x1);
 
 // 0x5043E0 | ?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z
-ARTS_IMPORT RcOwner<class agiTexDef> GetPackedTexture(char* arg1, i32 arg2);
+ARTS_EXPORT RcOwner<class agiTexDef> GetPackedTexture(char* name, i32 variation);
 
 // 0x719838 | ?DisableFogOnAlphaGlow@@3HA
 ARTS_IMPORT extern i32 DisableFogOnAlphaGlow;

@@ -45,8 +45,8 @@ void agiTexParameters::Load(Stream* file)
     file->Get(&LOD, 1);
     file->Get(&MaxLOD, 1);
 
-    u8 byte23;
-    file->Get(&byte23, 1);
+    u8 align = 0;
+    file->Get(&align, 1);
 }
 
 void agiTexParameters::Save(Stream* file)
@@ -341,7 +341,7 @@ i32 agiTexLut::Init(const char* name)
     if (!arts_stricmp(name, "*grey") || !arts_stricmp(name, "*gray"))
     {
         for (u32 i = 0; i < ARTS_SIZE(palette_); ++i)
-            palette_[i] = i * 0x10101;
+            palette_[i] = i * 0x010101;
     }
     else
     {

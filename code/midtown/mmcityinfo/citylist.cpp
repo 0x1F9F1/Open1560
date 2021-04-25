@@ -101,8 +101,7 @@ void mmCityList::Load(char* name)
 
 void mmCityList::LoadAll()
 {
-    if (!TEXSHEET.GetPropCount())
-        TEXSHEET.Load(const_cast<char*>("mtl/global.tsh"));
+    InitTexSheet();
 
     Load(const_cast<char*>("Chicago.cinfo")); // Load Chicago first
 

@@ -20,8 +20,14 @@ define_dummy_symbol(agiworld_texsort);
 
 #include "texsort.h"
 
+#include "agi/pipeline.h"
 #include "agi/rsys.h"
+#include "agi/texdef.h"
+#include "agi/texlib.h"
 #include "arts7/bank.h"
+#include "getmesh.h"
+#include "quality.h"
+#include "texsheet.h"
 
 // Note: codes/fogout/nextFactet/out are limited to 16384
 
@@ -132,6 +138,60 @@ void agiPolySet::Kill()
     Verts = nullptr;
     Verts2 = nullptr;
     Indices = nullptr;
+}
+
+RcOwner<class agiTexDef> GetPackedTexture(char* name, i32 variation)
+{
+    static i32 mutex = 0;
+    ArAssert(++mutex == 1, "Wow, what a great mutex");
+
+    InitTexSheet();
+
+    char full_name[64];
+    arts_strcpy(full_name, name);
+
+    if (TextureSuffix)
+        arts_strcat(full_name, TextureSuffix);
+
+    agiTexProp* prop = TEXSHEET.Lookup(full_name);
+
+    if (!prop)
+    {
+        arts_strcpy(full_name, name);
+        prop = TEXSHEET.Lookup(full_name);
+    }
+
+    if (!prop)
+        Quitf("Trying to load texture not in texsheet: '%s' (mesh = %s)", name, MeshCurrentObject);
+
+    agiTexParameters tex;
+    arts_strcpy(tex.Name, full_name);
+
+    FixTexFlags(tex);
+    arts_strcpy(tex.Name, TEXSHEET.RemapName(full_name, variation));
+
+    agiTexParameters* lib_tex = agiTexLib.GetParam(agiTexLib.Add(tex));
+
+    lib_tex->Flags &= ~(agiTexParameters::Alpha | agiTexParameters::WrapU | agiTexParameters::WrapV);
+    lib_tex->Flags |= tex.Flags;
+    lib_tex->Props |= tex.Props;
+
+    // NOTE: Originally chcked if prop is null, but that isn't possible
+
+    i32 pack_shift = (agiRQ.TextureQuality >= AGI_QUALITY_HIGH)
+        ? prop->Height
+        : (agiRQ.TextureQuality >= AGI_QUALITY_MEDIUM) ? prop->Medium : prop->Low;
+
+    lib_tex->field_28 = (prop->Flags & agiTexProp::Snowable) ? 4.0f : 2.0f;
+
+    Rc<agiTexDef> texture = AsRc(Pipe()->GetTexture(tex.Name, pack_shift));
+
+    if (!texture)
+        Warningf("HEY!  Texture '%s' (%s,var=%d,pack=%d) didn't load.", full_name, tex.Name, variation, pack_shift);
+
+    --mutex;
+
+    return AsOwner(texture);
 }
 
 run_once([] {

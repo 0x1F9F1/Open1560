@@ -99,7 +99,7 @@ public:
     ARTS_IMPORT void Load(char* arg1);
 
     // 0x512340 | ?Lookup@agiTexSheet@@QAEPAUagiTexProp@@PADH@Z
-    ARTS_IMPORT struct agiTexProp* Lookup(char* arg1, i32 arg2);
+    ARTS_IMPORT struct agiTexProp* Lookup(char* name, i32 variation = 0);
 
     // 0x5123A0 | ?LookupAlternate@agiTexSheet@@QAEPAUagiTexProp@@PAD@Z | unused
     ARTS_IMPORT struct agiTexProp* LookupAlternate(char* arg1);
@@ -122,3 +122,9 @@ private:
 };
 
 check_size(agiTexSheet, 0xC);
+
+inline void InitTexSheet()
+{
+    if (!TEXSHEET.GetPropCount())
+        TEXSHEET.Load(const_cast<char*>("mtl/global.tsh"));
+}

@@ -106,7 +106,7 @@ public:
     // Mirrors agiTexProp::Flags
     u32 Props {0};
 
-    f32 field_28 {0.0f};
+    f32 field_28 {0.0f}; // Snowable ? 4.0f : 2.0f
     u32 Color {0};
 
     bool HasAlpha() const
