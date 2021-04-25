@@ -614,6 +614,9 @@ void ApplicationHelper(i32 argc, char** argv)
 #undef ARG
 #undef ARGN
 
+static mem::cmd_param PARAM_width {"width"};
+static mem::cmd_param PARAM_height {"height"};
+
 Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 {
     dxiRendererInfo_t& info = GetRendererInfo();
@@ -661,11 +664,17 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 #endif
         }
 
+        i32 width = pipe->GetWidth();
+        i32 height = pipe->GetHeight();
+
         if (info.ResCount)
         {
             dxiResolution& res = info.Resolutions[res_choice];
-            pipe->SetRes(res.uWidth, res.uHeight);
+            width = res.uWidth;
+            height = res.uHeight;
         }
+
+        pipe->SetRes(PARAM_width.get_or(width), PARAM_height.get_or(height));
 
         if (pipe->Validate())
         {
