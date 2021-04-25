@@ -25,26 +25,43 @@ define_dummy_symbol(arts7_camera);
 #include "agi/pipeline.h"
 #include "agi/rsys.h"
 #include "agi/viewport.h"
-#include "arts7/sim.h"
+#include "sim.h"
 
 static mem::cmd_param PARAM_fovfix {"fovfix"};
 
-void asCamera::SetView(f32 horz_fov, f32 vert_fov, f32 near_clip, f32 far_clip)
+void asCamera::SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip)
 {
+    // TODO: Handle better handling of auto aspect ratio?
+    if (aspect == 0.0f)
+        aspect = 640.0f / 480.0f;
+
+    // TODO: Store the vertical fov instead, and handle this in asCamera::Update?
+    // https://forum.unity.com/threads/adjust-fov-based-on-aspect-ratio-how.474627/#post-3097919
     if (PARAM_fovfix.get_or(true))
     {
-        f32 fov_scale = (Pipe()->GetWidth() * x_size_) / (Pipe()->GetHeight() * y_size_);
+        // Calculate the vertical fov, based on the intended aspect ratio
+        f32 vert_fov = 2.0f * std::atan(std::tan(horz_fov * 0.5f) / aspect);
 
-        if (vert_fov == 1.25f)
-        {
-            horz_fov *= fov_scale * 0.75f;
-        }
+        // Now calculate the actual aspect ratio
+        aspect = (Pipe()->GetWidth() * x_size_) / (Pipe()->GetHeight() * y_size_);
+
+        // Calculate the horizontal fov, based on the actual aspect ratio
+        horz_fov = 2.0f * std::atan(aspect * tan(vert_fov * 0.5f));
     }
 
     fov_ = horz_fov;
-    auto_aspect_ = true;
     near_clip_ = near_clip;
     far_clip_ = far_clip;
+
+    if (aspect == 0.0f)
+    {
+        auto_aspect_ = true;
+        aspect_ = 1.0f;
+    }
+    else
+    {
+        aspect_ = aspect;
+    }
 }
 
 void asCamera::DrawBegin()

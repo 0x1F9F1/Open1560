@@ -144,7 +144,7 @@ public:
     ARTS_IMPORT void SetUnderlayCB(class agiBitmap* arg1, class Callback* arg2);
 
     // 0x529BC0 | ?SetView@asCamera@@QAEXMMMM@Z
-    ARTS_EXPORT void SetView(f32 horz_fov, f32 vert_fov, f32 near_clip, f32 far_clip);
+    ARTS_EXPORT void SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip);
 
     // 0x529B70 | ?SetViewport@asCamera@@QAEXMMMMH@Z
     ARTS_IMPORT void SetViewport(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5);

@@ -45,6 +45,7 @@
 #include "refresh.h"
 
 #include "vector7/matrix34.h"
+#include "vector7/vector2.h"
 
 class agiViewParameters
 {
@@ -100,15 +101,11 @@ public:
     Matrix34 Model;
     Matrix34 View;
     Matrix34 ModelView;
-    f32 float104;
-    f32 float108;
-    f32 float10C;
-    f32 float110;
-    f32 float114;
-    f32 float118;
-    f32 float11C;
-    f32 float120;
-    f32 float124;
+    Vector2 field_104;
+    Vector2 field_10C;
+    Vector2 field_114;
+    Vector2 field_11C;
+    f32 field_124;
     i32 Orthographic;
 };
 

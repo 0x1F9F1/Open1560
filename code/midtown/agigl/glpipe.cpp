@@ -170,7 +170,7 @@ i32 agiGLPipeline::BeginGfx()
 
     LONG window_style = 0;
 
-    if (dxiIsFullScreen() || (width_ == horz_res) || (height_ == vert_res) || !PARAM_border.get_or(true))
+    if (dxiIsFullScreen() || (width_ >= horz_res) || (height_ >= vert_res) || !PARAM_border.get_or(true))
     {
         window_style = IsDebuggerPresent() ? WS_OVERLAPPED : WS_POPUP;
     }
