@@ -50,6 +50,9 @@ void asCamera::SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip)
 
         // Calculate the horizontal FOV, based on the actual aspect ratio
         horz_fov = 2.0f * std::atan(aspect * std::tan(vert_fov * 0.5f));
+
+        // Use auto aspect
+        aspect = 0.0f;
     }
 
     fov_ = horz_fov;
