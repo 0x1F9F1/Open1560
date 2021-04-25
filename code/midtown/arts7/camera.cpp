@@ -40,13 +40,13 @@ void asCamera::SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip)
     if (PARAM_fovfix.get_or(true))
     {
         // Calculate the vertical fov, based on the intended aspect ratio
-        f32 vert_fov = 2.0f * std::atan(std::tan(horz_fov * 0.5f) / aspect);
+        f32 vert_fov = 2.0f * std::atan2(std::tan(horz_fov * 0.5f), aspect);
 
         // Now calculate the actual aspect ratio
         aspect = (Pipe()->GetWidth() * x_size_) / (Pipe()->GetHeight() * y_size_);
 
         // Calculate the horizontal fov, based on the actual aspect ratio
-        horz_fov = 2.0f * std::atan(aspect * tan(vert_fov * 0.5f));
+        horz_fov = 2.0f * std::atan(aspect * std::tan(vert_fov * 0.5f));
     }
 
     fov_ = horz_fov;

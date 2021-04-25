@@ -274,15 +274,6 @@ check_size(Matrix34, 0x30);
 // 0x56A7F0 | ??D@YA?AVMatrix34@@MABV0@@Z | unused
 ARTS_IMPORT class Matrix34 operator*(f32 arg1, class Matrix34 const& arg2);
 
-// 0x56D8B0 | ?ASinf@@YAMM@Z | inline
-ARTS_IMPORT f32 ASinf(f32 arg1);
-
-// 0x56D980 | ?ATan2f@@YAMMM@Z | inline
-ARTS_IMPORT f32 ATan2f(f32 arg1, f32 arg2);
-
-// 0x56D950 | ?asinf_fast@@YAMM@Z | inline
-ARTS_IMPORT f32 asinf_fast(f32 arg1);
-
 // 0x909490 | ?IDENTITY@@3VMatrix34@@A
 inline constexpr const Matrix34 IDENTITY {
     {1.0f, 0.0f, 0.0f},
