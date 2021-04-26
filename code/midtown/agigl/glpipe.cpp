@@ -458,7 +458,10 @@ i32 agiGLPipeline::BeginGfx()
         glBindFramebuffer(GL_FRAMEBUFFER, fbo_);
         glGenRenderbuffers(2, rbo_);
 
-        blit_filter_ = GL_NEAREST;
+        if (render_width_ > blit_width_ || render_height_ > blit_height_)
+            blit_filter_ = GL_LINEAR;
+        else
+            blit_filter_ = GL_NEAREST;
 
         if (msaa_level)
         {
