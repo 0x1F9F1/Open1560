@@ -427,6 +427,8 @@ static void MainPhase(i32 argc, char** argv)
     MetaClass::UndeclareAll();
 }
 
+static mem::cmd_param PARAM_heapsize {"heapsize"};
+
 void ApplicationHelper(i32 argc, char** argv)
 {
     CloseCallback = GameCloseCallback;
@@ -571,7 +573,7 @@ void ApplicationHelper(i32 argc, char** argv)
     }
 
     CURHEAP = &ALLOCATOR;
-    SAFEHEAP.Init((ALLOCATOR.IsDebug() ? 80 : 64) << 20, true);
+    SAFEHEAP.Init((PARAM_heapsize.get_or(64) + (ALLOCATOR.IsDebug() ? 16 : 0)) << 20, true);
 
     MMSTATE.SetDefaults();
     bool no_ui = MMSTATE.ParseStateArgs(argc, argv);

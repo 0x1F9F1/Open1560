@@ -42,6 +42,7 @@ config     | false | Forces redetection of graphics modes
 console    | false | Enables console logging
 d3d        | false | Use the D3D renderer
 fovfix     | true  | Enables FOV scaling based on resolution
+heapsize   | 64    | The size in MB of the game heap
 legacygl   | false | Uses a legacy OpenGL context (enabled by default on Intel iGPUs)
 maxaspect  |       | Maximum aspect ratio of available resolutions
 minaspect  |       | Minimum aspect ratio of available resolutions
