@@ -60,7 +60,7 @@ void agiD3DPipeline::BeginFrame()
 {
     ARTS_UTIMED(agiBeginFrame);
 
-    if (d_front_->IsLost() && (ActiveFlag & 0x1))
+    if (d_front_->IsLost() && IsAppActive())
     {
         d_draw_->RestoreAllSurfaces();
         Displayf("Trying to restore stuff...");
@@ -491,7 +491,7 @@ void agiD3DPipeline::BeginScene()
     agiPipeline::BeginScene();
     in_scene_ = true;
 
-    if (ActiveFlag & 0x1)
+    if (IsAppActive())
     {
         DD_TRY(d3d_device_->BeginScene());
     }
@@ -511,7 +511,7 @@ void agiD3DPipeline::ClearAll(i32 color)
 
 void agiD3DPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height)
 {
-    if (ActiveFlag & 0x1)
+    if (IsAppActive())
     {
         ARTS_UTIMED(agiCopyBitmap);
 
@@ -658,7 +658,7 @@ void agiD3DPipeline::EndScene()
     in_scene_ = false;
     renderer_->EndGroup();
 
-    if (ActiveFlag & 0x1)
+    if (IsAppActive())
     {
         DD_TRY(d3d_device_->EndScene());
     }

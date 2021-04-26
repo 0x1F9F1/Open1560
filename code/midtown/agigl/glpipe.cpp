@@ -774,7 +774,7 @@ RcOwner<class agiBitmap> agiGLPipeline::CreateBitmap()
 
 void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height)
 {
-    if (!(ActiveFlag & 0x1))
+    if (!IsAppActive())
         return;
 
     // FIXME: https://github.com/0x1F9F1/Open1560/issues/22

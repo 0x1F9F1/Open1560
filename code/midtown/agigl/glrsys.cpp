@@ -849,7 +849,7 @@ void agiGLRasterizer::FlushGlState()
 
 void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count)
 {
-    if (!(ActiveFlag & 0x1) || (vertex_count == 0) || (index_count == 0))
+    if (!IsAppActive() || (vertex_count == 0) || (index_count == 0))
         return;
 
     FlushAgiState();

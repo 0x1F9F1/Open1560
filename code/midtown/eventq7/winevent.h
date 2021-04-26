@@ -118,3 +118,8 @@ ARTS_IMPORT extern i32 InitialCursorState;
 
 // 0x908C48 | ?eqRestoreFlag@@3HA
 ARTS_IMPORT extern i32 eqRestoreFlag;
+
+inline bool IsAppActive()
+{
+    return ActiveFlag & 0x1;
+}

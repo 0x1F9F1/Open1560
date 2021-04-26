@@ -362,7 +362,7 @@ void agiSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 
     // TODO: Implement DrawMode 3
 
-    if ((ActiveFlag & 0x1) && (dst_x >= 0) && (dst_x + width <= width_) && (dst_y >= 0) && (dst_y + height <= height_))
+    if (IsAppActive() && (dst_x >= 0) && (dst_x + width <= width_) && (dst_y >= 0) && (dst_y + height <= height_))
     {
         ARTS_UTIMED(agiCopyBitmap);
 

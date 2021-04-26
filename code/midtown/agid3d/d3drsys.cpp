@@ -230,7 +230,7 @@ static void d3d_set_render_state(D3DRENDERSTATETYPE type, DWORD state)
 
 void agiD3DRasterizer::FlushState()
 {
-    if (!(ActiveFlag & 0x1))
+    if (!IsAppActive())
         return;
 
     if (VtxIndexCount)
