@@ -40,16 +40,19 @@ void asCamera::SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip)
     // https://forum.unity.com/threads/adjust-fov-based-on-aspect-ratio-how.474627/#post-3097919
     if (PARAM_fovfix.get_or(true))
     {
-        aspect = (640.0f * x_size_) / (480.0f * y_size_);
+        // Calculate the horizontal tangent
+        f32 horz_tan = std::tan(horz_fov * 0.5f);
 
-        // Calculate the vertical FOV, based on the intended aspect ratio
-        f32 vert_fov = 2.0f * std::atan2(std::tan(horz_fov * 0.5f), aspect);
+        aspect = 640.0f / 480.0f;
+
+        // Calculate the vertical tangent, based on the intended (4:3) aspect ratio
+        f32 vert_tan = horz_tan / aspect;
 
         // Now calculate the actual aspect ratio
-        aspect = (Pipe()->GetWidth() * x_size_) / (Pipe()->GetHeight() * y_size_);
+        aspect = static_cast<f32>(Pipe()->GetWidth()) / static_cast<f32>(Pipe()->GetHeight());
 
         // Calculate the horizontal FOV, based on the actual aspect ratio
-        horz_fov = 2.0f * std::atan(aspect * std::tan(vert_fov * 0.5f));
+        horz_fov = 2.0f * std::atan(vert_tan * aspect);
 
         // Use auto aspect
         aspect = 0.0f;
