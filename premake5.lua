@@ -41,6 +41,7 @@ workspace "Open1560"
     editAndContinue "Off"
     symbols "On"
     debugformat "c7"
+    inlining "Auto"
 
     filter "kind:*App or SharedLib"
         targetdir "bin/%{prj.name}/%{cfg.platform}_%{cfg.buildcfg}"
