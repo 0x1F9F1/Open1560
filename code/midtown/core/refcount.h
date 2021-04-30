@@ -75,7 +75,7 @@ public:
     ARTS_FORCEINLINE Rc& operator=(std::nullptr_t)
     {
 #if RC_USE_SWAP
-        Rc(nullptr).swap(*this);
+        Rc().swap(*this);
 #else
         T* old = ptr_;
         ptr_ = nullptr;
@@ -173,7 +173,7 @@ public:
     ARTS_FORCEINLINE void reset(std::nullptr_t = nullptr)
     {
 #if RC_USE_SWAP
-        Rc(nullptr).swap(*this);
+        Rc().swap(*this);
 #else
         T* old = ptr_;
         ptr_ = nullptr;

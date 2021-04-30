@@ -20,10 +20,7 @@ define_dummy_symbol(data7_speed);
 
 #include "speed.h"
 
-// 0x57CF40 | ?rdtsc@@YAIXZ
-// ARTS_IMPORT /*static*/ u32 rdtsc();
-
 u32 ComputeCpuSpeed()
 {
-    return 1000;
+    return 1000; // 1 GHz
 }
