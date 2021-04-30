@@ -29,6 +29,7 @@ define_dummy_symbol(arts7_sim);
 #include "agi/texlib.h"
 #include "cullmgr.h"
 #include "data7/args.h"
+#include "data7/ipc.h"
 #include "data7/memstat.h"
 #include "data7/metadefine.h"
 #include "data7/str.h"
@@ -117,8 +118,6 @@ ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, char const* arg2, char* arg3)
 
 static extern_var(0x790788, agiLightParameters, SunParams);
 static extern_var(0x790780, agiLight*, SunLight);
-
-static mem::cmd_param PARAM_smoothstep {"smoothstep"};
 
 asSimulation::~asSimulation()
 {
@@ -307,6 +306,9 @@ void asSimulation::FirstUpdate()
     seconds_ = 0.0f;
 }
 
+static mem::cmd_param PARAM_smoothstep {"smoothstep"};
+static mem::cmd_param PARAM_maxfps {"maxfps"};
+
 void asSimulation::ResetClock()
 {
     inv_seconds_ = 1.0f;
@@ -323,6 +325,9 @@ void asSimulation::ResetClock()
     target_delta_ = 1.0f / 30.0f;
     delta_drift_ = 0.0f;
     prev_utimer_ = 0;
+
+    f32 max_fps = PARAM_maxfps.get_or(0.0f);
+    max_fps_delta_ = (max_fps > 0.0f) ? (1.0f / max_fps) : 0.0f;
 }
 
 void asSimulation::Update()
@@ -338,6 +343,17 @@ void asSimulation::Update()
     Timer timer;
 
     f32 delta = frame_timer_.Time();
+
+    if (max_fps_delta_)
+    {
+        while (delta < max_fps_delta_)
+        {
+            ipcYield();
+
+            delta = frame_timer_.Time();
+        }
+    }
+
     frame_timer_.Reset();
 
     prev_utimer_ = adjust_utimer(delta, prev_utimer_);
