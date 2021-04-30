@@ -946,6 +946,8 @@ void InitAudioManager()
     AUDMGRPTR->SetNumChannels(MMSTATE.AudNumChannels);
 }
 
+static mem::cmd_param PARAM_speedycops {"speedycops"};
+
 void InitPatches()
 {
     patch_jmp("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, jump_type::always);
@@ -1062,12 +1064,15 @@ void InitPatches()
         create_hook("PtxCount", "Avoid particle limit crash", from, to, hook_type::jmp);
     }
 
-    patch_jmp("aiGoalChase::Update", "No Speed Boost", 0x461004, jump_type::always);
-    create_patch("aiGoalChase::CalcSpeed", "No Brake Boost", 0x462B0F, "\xEB\x2A", 2);
+    if (!PARAM_speedycops.get_or(false))
+    {
+        patch_jmp("aiGoalChase::Update", "No Speed Boost", 0x461004, jump_type::always);
+        create_patch("aiGoalChase::CalcSpeed", "No Brake Boost", 0x462B0F, "\xEB\x2A", 2);
 
-    // patch_jmp("aiGoalChase::Update", "No Steering boost", 0x460FB0, jump_type::always);
-    // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4627E6, "\xEB\x2A", 2);
-    // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4629F9, "\xEB\x3A", 2);
+        // patch_jmp("aiGoalChase::Update", "No Steering boost", 0x460FB0, jump_type::always);
+        // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4627E6, "\xEB\x2A", 2);
+        // create_patch("aiGoalChase::CalcSpeed", "No Steering boost", 0x4629F9, "\xEB\x3A", 2);
+    }
 
     create_packed_patch<u8>(
         "MenuManager::ScanGlobalKeys", "Debug Text Alignment", 0x4B11DA + 1, 0x7); // CENTER | VCENTER | BORDER
