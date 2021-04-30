@@ -45,6 +45,7 @@ fovfix     | true  | Enables FOV scaling based on resolution
 heapsize   | 64    | The size in MB of the game heap
 legacygl   | false | Uses a legacy OpenGL context (enabled by default on Intel iGPUs)
 maxaspect  |       | Maximum aspect ratio of available resolutions
+maxfps     | 0     | Limits the max fps
 minaspect  |       | Minimum aspect ratio of available resolutions
 msaa       | 0     | Sets the anti-aliasing level (does not work with legacy OpenGL)
 nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl)
@@ -52,6 +53,8 @@ opengl     | true  | Use the OpenGL renderer
 prio       | 2     | Sets the process priority
 scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered
 smoothstep | true  | Smoothes out the time between frames to avoid stutter
+speedrun   | false | Enables speedrunning conditions (currently -nosmoothstep -maxfps=60 -speedycops)
+speedycops | false | Enables the vanilla cop speed boost (fps dependant)
 vsync      | true  | Enables vertical sync
 window     | false | Puts the game in a window
 windowmenu | false | Puts the game in a borderless window when in the menu

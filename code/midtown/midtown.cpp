@@ -752,6 +752,8 @@ static char** GetCommandLineUTF8(int* pNumArgs)
 static mem::cmd_param PARAM_clean_dir {"cleandir"};
 static mem::cmd_param PARAM_console {"console"};
 
+static mem::cmd_param PARAM_speedrun {"speedrun"};
+
 void InitPatches();
 
 ARTS_EXPORT int WINAPI MidtownMain(
@@ -761,6 +763,13 @@ ARTS_EXPORT int WINAPI MidtownMain(
     char** argv = GetCommandLineUTF8(&argc);
 
     mem::cmd_param::init(argc, argv);
+
+    if (PARAM_speedrun)
+    {
+        const char* const args[] {"", "-nosmoothstep", "-maxfps=60", "-speedycops"};
+
+        mem::cmd_param::init(ARTS_SSIZE32(args), args);
+    }
 
     if (PARAM_console.get_or(false))
         LogToConsole();
