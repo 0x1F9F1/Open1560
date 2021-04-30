@@ -780,7 +780,11 @@ ARTS_EXPORT int WINAPI MidtownMain(
 
     MetaClass::FixupClasses();
 
+    timeBeginPeriod(0);
+
     Application(argc, argv);
+
+    timeEndPeriod(0);
 
     Displayf("Good bye.");
 
