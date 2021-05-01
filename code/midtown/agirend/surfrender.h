@@ -50,6 +50,9 @@
 
 #include "agi/render.h"
 
+class agiRasterizer;
+class agiLighter;
+
 class agiSurfRenderer : public agiRenderer
 {
     // const agiSurfRenderer::`vftable' @ 0x6214A0
@@ -59,10 +62,10 @@ public:
     ARTS_IMPORT agiSurfRenderer(class agiRasterizer* arg1);
 
     // 0x554D70 | ?BeginDraw@agiSurfRenderer@@UAEXH@Z
-    ARTS_IMPORT void BeginDraw(i32 arg1) override;
+    ARTS_EXPORT void BeginDraw(i32 flags) override;
 
     // 0x552DC0 | ?BeginGroup@agiSurfRenderer@@UAEXXZ
-    ARTS_IMPORT void BeginGroup() override;
+    ARTS_EXPORT void BeginGroup() override;
 
     // 0x5544F0 | ?Draw@agiSurfRenderer@@UAEXPAVDLP@@H@Z
     ARTS_IMPORT void Draw(class DLP* arg1, i32 arg2) override;
@@ -107,7 +110,8 @@ private:
     // 0x552E00 | ?AddSurface@agiSurfRenderer@@CAHPAUagiPatch@@HHHH@Z
     ARTS_IMPORT static i32 AddSurface(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
-    u8 gapC[0x8];
+    agiRasterizer* rasterizer_ {nullptr};
+    agiLighter* lighter_ {nullptr};
 };
 
 check_size(agiSurfRenderer, 0x14);
@@ -120,3 +124,5 @@ ARTS_IMPORT extern i32 NoClip;
 
 // 0x8FAC14 | ?ZTrick@@3HA
 ARTS_IMPORT extern i32 ZTrick;
+
+void UpdateZTrick();

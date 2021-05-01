@@ -27,7 +27,6 @@ define_dummy_symbol(agid3d_d3drpipe);
 #include "agirend/bilight.h"
 #include "agirend/bilmodel.h"
 #include "agirend/lighter.h"
-#include "agirend/projvtx.h"
 #include "agirend/rdlp.h"
 #include "agirend/zbrender.h"
 #include "d3drsys.h"
@@ -46,27 +45,7 @@ i32 agiD3DRPipeline::BeginGfx()
 
 void agiD3DRPipeline::BeginScene()
 {
-    if (ZTrick)
-    {
-        if (agiCurState.GetZFunc() == agiCmpFunc::LessEqual)
-        {
-            agiCurState.SetZFunc(agiCmpFunc::GreaterEqual);
-            DepthScale = -0.24f;
-            DepthOffset = 0.75f;
-        }
-        else
-        {
-            agiCurState.SetZFunc(agiCmpFunc::LessEqual);
-            DepthScale = 0.24f;
-            DepthOffset = 0.25f;
-        }
-    }
-    else
-    {
-        agiCurState.SetZFunc(agiCmpFunc::LessEqual);
-        DepthScale = 0.5f;
-        DepthOffset = 0.5f;
-    }
+    UpdateZTrick();
 
     agiD3DPipeline::BeginScene();
     agiLighter::BeginScene();

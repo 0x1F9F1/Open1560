@@ -35,6 +35,8 @@
 
 #include "refresh.h"
 
+#include "vector7/vector4.h"
+
 class agiLightModelParameters
 {
 public:
@@ -47,7 +49,13 @@ public:
     // 0x55BCD0 | ??4agiLightModelParameters@@QAEXABV0@@Z
     ARTS_IMPORT void operator=(class agiLightModelParameters const& arg1);
 
-    u8 gap0[0x28];
+    Vector4 Ambient;
+    b32 LocalViewer;
+    u32 dword14;
+    u32 dword18;
+    b32 Enabled;
+    b32 Monochromatic;
+    b32 Changed;
 };
 
 check_size(agiLightModelParameters, 0x28);
@@ -70,11 +78,11 @@ public:
     // 0x55BD50 | ?Init@agiLightModel@@QAEHABVagiLightModelParameters@@@Z
     ARTS_IMPORT i32 Init(class agiLightModelParameters const& arg1);
 
+    agiLightModelParameters Params;
+
 protected:
     // 0x55BD00 | ??0agiLightModel@@IAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiLightModel(class agiPipeline* arg1);
-
-    u8 gap18[0x28];
 };
 
 check_size(agiLightModel, 0x40);

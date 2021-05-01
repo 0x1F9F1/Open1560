@@ -24,7 +24,6 @@
 #include "agirend/bilight.h"
 #include "agirend/bilmodel.h"
 #include "agirend/lighter.h"
-#include "agirend/projvtx.h"
 #include "agirend/rdlp.h"
 #include "agirend/zbrender.h"
 #include "data7/utimer.h"
@@ -577,27 +576,7 @@ void agiGLPipeline::BeginScene()
 {
     ARTS_UTIMED(agiBeginScene);
 
-    if (ZTrick)
-    {
-        if (agiCurState.GetZFunc() == agiCmpFunc::LessEqual)
-        {
-            agiCurState.SetZFunc(agiCmpFunc::GreaterEqual);
-            DepthScale = -0.24f;
-            DepthOffset = 0.75f;
-        }
-        else
-        {
-            agiCurState.SetZFunc(agiCmpFunc::LessEqual);
-            DepthScale = 0.24f;
-            DepthOffset = 0.25f;
-        }
-    }
-    else
-    {
-        agiCurState.SetZFunc(agiCmpFunc::LessEqual);
-        DepthScale = 0.5f;
-        DepthOffset = 0.5f;
-    }
+    UpdateZTrick();
 
     agiPipeline::BeginScene();
     agiLighter::BeginScene();

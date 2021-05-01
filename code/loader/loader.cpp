@@ -276,7 +276,7 @@ include_dummy_symbol(agid3d_pcpipe);
 // include_dummy_symbol(agirend_lighter);
 // include_dummy_symbol(agirend_projvtx);
 // include_dummy_symbol(agirend_rdlp);
-// include_dummy_symbol(agirend_surfrender);
+include_dummy_symbol(agirend_surfrender);
 // include_dummy_symbol(agirend_zbrender);
 
 include_dummy_symbol(agisw_swddraw);

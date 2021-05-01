@@ -19,3 +19,55 @@
 define_dummy_symbol(agirend_surfrender);
 
 #include "surfrender.h"
+
+#include "agi/lmodel.h"
+#include "agi/rsys.h"
+#include "agiworld/meshset.h"
+#include "lighter.h"
+#include "projvtx.h"
+
+void agiSurfRenderer::BeginDraw(i32 flags)
+{
+    agiProjVtx::Init(flags & 1, lighter_, 0xFFFFFFFF);
+
+    BeginGroup();
+}
+
+void agiSurfRenderer::BeginGroup()
+{
+    agiSurfRenderer::VertexCount = 1;
+    agiSurfRenderer::SurfaceCount = 0;
+
+    if (agiLighter::LMODEL)
+    {
+        if (agiLighter::LMODEL->Params.Monochromatic)
+            lighter_ = &MONOLIGHTER;
+        else
+            lighter_ = &RGBLIGHTER;
+    }
+}
+
+void UpdateZTrick()
+{
+    if (ZTrick)
+    {
+        if (agiCurState.GetZFunc() == agiCmpFunc::LessEqual)
+        {
+            agiCurState.SetZFunc(agiCmpFunc::GreaterEqual);
+            DepthScale = -0.24f;
+            DepthOffset = 0.75f;
+        }
+        else
+        {
+            agiCurState.SetZFunc(agiCmpFunc::LessEqual);
+            DepthScale = 0.24f;
+            DepthOffset = 0.25f;
+        }
+    }
+    else
+    {
+        agiCurState.SetZFunc(agiCmpFunc::LessEqual);
+        DepthScale = agiMeshSet::DepthScale;
+        DepthOffset = agiMeshSet::DepthOffset;
+    }
+}

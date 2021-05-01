@@ -10,9 +10,8 @@ arts_component "agirend"
         -- "projvtx.h",
         -- "rdlp.cpp",
         -- "rdlp.h",
-        -- "surfrender.cpp",
-        -- "surfrender.h",
+        "surfrender.cpp",
+        "surfrender.h",
         -- "zbrender.cpp",
         -- "zbrender.h",
     }
-

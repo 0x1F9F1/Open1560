@@ -9,7 +9,7 @@ include "core"
 
 include "agi"
 include "agid3d"
--- include "agirend"
+include "agirend"
 include "agisw"
 include "agiworld"
 include "arts7"
@@ -58,7 +58,7 @@ arts_component "midtown"
 
         "arts_agi",
         "arts_agid3d",
-        -- "arts_agirend",
+        "arts_agirend",
         "arts_agisw",
         "arts_agiworld",
         "arts_arts7",
