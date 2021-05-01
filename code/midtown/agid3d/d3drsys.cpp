@@ -36,24 +36,8 @@ static u16* VtxIndex = nullptr;
 static i32 VtxIndexCount = 0;
 static u16 VtxIndices[1024] {};
 
-static f32 VtxScreenOffset = 0.0f;
-static bool VtxNeedOffset = false;
-
-static mem::cmd_param PARAM_voodooaa {"voodooaa"};
-
 i32 agiD3DRasterizer::BeginGfx()
 {
-    // // FIXME: This half pixel offset shouldn't be required.
-    if (PARAM_voodooaa)
-    {
-        Displayf("Using half-pixel offset");
-        VtxScreenOffset = -0.5f;
-    }
-    else
-    {
-        VtxScreenOffset = 0.0f;
-    }
-
     return 0;
 }
 
@@ -104,7 +88,6 @@ void agiD3DRasterizer::Mesh(agiVtxType type, agiVtx* verts, i32 vert_count, u16*
     PrimType = D3DPT_TRIANGLELIST;
     VtxIndex = indices;
     VtxIndexCount = index_count;
-    VtxNeedOffset = true;
 
     FlushState();
 }
@@ -182,7 +165,6 @@ void agiD3DRasterizer::Verts(agiVtxType type, agiVtx* verts, i32 vert_count)
     VtxBase = verts;
     VtxCount = vert_count;
     VtxIndex = VtxIndices;
-    VtxNeedOffset = true;
 }
 
 // TODO: Store data in agiD3DRasterizer
@@ -241,24 +223,6 @@ void agiD3DRasterizer::FlushState()
 
         if (EnableDraw)
         {
-            // FIXME: This may end up offsetting verts more than once if they are re-used.
-            if (VtxNeedOffset)
-            {
-                if (f32 offset = VtxScreenOffset; offset != 0.0f)
-                {
-                    agiScreenVtx* verts = static_cast<agiScreenVtx*>(VtxBase);
-                    i32 count = VtxCount;
-
-                    for (i32 i = 0; i < count; ++i)
-                    {
-                        verts[i].x += offset;
-                        verts[i].y += offset;
-                    }
-                }
-
-                VtxNeedOffset = false;
-            }
-
             DD_TRY(Pipe()->GetD3DDevice()->DrawIndexedPrimitive(
                 PrimType, D3DFVF_TLVERTEX, VtxBase, VtxCount, VtxIndex, VtxIndexCount, GetVertexFlags(VtxType)));
         }
