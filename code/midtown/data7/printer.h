@@ -110,7 +110,7 @@ ARTS_IMPORT extern i32 MessageFirst;
 ARTS_IMPORT extern u16* MonoPointer;
 
 // 0x661AB8 | ?Printer@@3P6AXHPBDPAD@ZA
-ARTS_IMPORT extern void (*Printer)(i32, char const*, std::va_list);
+ARTS_EXPORT extern void (*Printer)(i32 level, char const* format, std::va_list args);
 
 // 0x661AC0 | ?__assertFailed@@3PADA
 ARTS_IMPORT extern char __assertFailed[];

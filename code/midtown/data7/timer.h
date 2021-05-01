@@ -31,6 +31,7 @@
     0x90A66C | public: static float Timer::TicksToSeconds | ?TicksToSeconds@Timer@@2MA
 */
 
+// TODO: Use u64 for ticks
 class Timer
 {
 public:

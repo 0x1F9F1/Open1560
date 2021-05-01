@@ -49,12 +49,12 @@ f32 Timer::WaitUntil(f32 target)
         if (wait <= 0.0f)
             return now;
 
-        if (wait >= 0.002f) // 2 ms
+        if (wait >= 0.0015f) // 1.5 ms
         {
             // Sleep is generally accurate to at least ~15.6 ms (1000 ms / 64).
             // timeBeginPeriod(1) increases this to ~0.97 ms (1000 ms / 1024).
-            // Fugde the last 1.5 ms just in case.
-            Sleep(static_cast<i32>((wait - 0.0015f) * 1000.0f));
+            // Fugde the last 1-1.5 ms just in case.
+            Sleep(static_cast<i32>((wait - 0.001f) * 1000.0f));
         }
         else
         {
