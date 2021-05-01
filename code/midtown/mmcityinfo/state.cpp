@@ -104,30 +104,30 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
             if (asArg* veh = GBArgs['v'])
                 veh_name = veh->sValues[0];
 
-            MMSTATE.NoUI = true;
+            NoUI = true;
             no_ui = true;
-            arts_strcpy(MMSTATE.CarName, veh_name);
-            MMSTATE.GameState = 1;
+            arts_strcpy(CarName, veh_name);
+            GameState = 1;
         }
         else if (ARG("-keyboard"))
         {
-            MMSTATE.InputType = mmInputType::Keyboard;
+            InputType = mmInputType::Keyboard;
         }
         else if (ARG("-joystick"))
         {
-            MMSTATE.InputType = mmInputType::Joystick;
+            InputType = mmInputType::Joystick;
         }
         else if (ARG("-wheel"))
         {
-            MMSTATE.InputType = mmInputType::Wheel2Axis;
+            InputType = mmInputType::Wheel2Axis;
         }
         else if (ARG("-nodamage"))
         {
-            MMSTATE.DisableDamage = true;
+            DisableDamage = true;
         }
         else if (ARG("-allrace"))
         {
-            MMSTATE.UnlockAllRaces = true;
+            UnlockAllRaces = true;
         }
         else if (ARG("-allcars"))
         {
@@ -136,28 +136,28 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
         else if (ARG("-stoabs"))
         {
             BlitzCheatTime = 800;
-            MMSTATE.DisableDamage = true;
-            MMSTATE.UnlockAllRaces = true;
+            DisableDamage = true;
+            UnlockAllRaces = true;
             AllCars = true;
         }
         else if (ARG("-supercops"))
         {
-            MMSTATE.SuperCops = true;
+            SuperCops = true;
         }
         else if (ARG("-ambient"))
         {
-            MMSTATE.AmbientCount = std::atoi(argv[i++]);
+            AmbientCount = std::atoi(argv[i++]);
         }
         else if (ARG("-noai"))
         {
-            MMSTATE.AmbientDensity = 0.0f;
-            MMSTATE.CopDensity = 0.0f;
-            MMSTATE.MaxOpponents = 0.0f;
-            MMSTATE.DisableAI = true;
+            AmbientDensity = 0.0f;
+            CopDensity = 0.0f;
+            MaxOpponents = 0.0f;
+            DisableAI = true;
         }
         else if (ARG("-nopcops"))
         {
-            MMSTATE.CopDensity = 0.0f;
+            CopDensity = 0.0f;
         }
         else if (ARG("-blitztime"))
         {
@@ -165,22 +165,22 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
         }
         else if (ARG("-race"))
         {
-            MMSTATE.GameMode = mmGameMode::Race;
-            MMSTATE.EventId = std::atoi(argv[i++]);
+            GameMode = mmGameMode::Race;
+            EventId = std::atoi(argv[i++]);
         }
         else if (ARG("-circuit"))
         {
-            MMSTATE.GameMode = mmGameMode::Circuit;
-            MMSTATE.EventId = std::atoi(argv[i++]);
+            GameMode = mmGameMode::Circuit;
+            EventId = std::atoi(argv[i++]);
         }
         else if (ARG("-blitz"))
         {
-            MMSTATE.GameMode = mmGameMode::Blitz;
-            MMSTATE.EventId = std::atoi(argv[i++]);
+            GameMode = mmGameMode::Blitz;
+            EventId = std::atoi(argv[i++]);
         }
         else if (ARG("-edit"))
         {
-            MMSTATE.GameMode = mmGameMode::Edit;
+            GameMode = mmGameMode::Edit;
         }
         else if (ARG("-archivecycle"))
         {
@@ -196,7 +196,7 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
         }
         else if (ARG("-noopponents"))
         {
-            MMSTATE.MaxOpponents = 0.0f;
+            MaxOpponents = 0.0f;
         }
         else if (ARG("-damagescale"))
         {
