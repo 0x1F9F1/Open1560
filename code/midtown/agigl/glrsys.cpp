@@ -334,7 +334,7 @@ uniform mat4 u_Transform;
 
 void main()
 {
-    gl_Position = u_Transform * vec4(in_Position.x, in_Position.y, 1.0 - in_Position.z, 1.0);
+    gl_Position = u_Transform * vec4(in_Position.xyz, 1.0);
     frag_Color = in_Color;
     frag_Specular = in_Specular;
     frag_UV = vec3(in_UV * in_Position.w, in_Position.w);
@@ -401,8 +401,8 @@ void main()
     f32 top = 0.0f;
     f32 bottom = static_cast<f32>(Pipe()->GetHeight());
 
-    f32 z_near = -1.0f;
-    f32 z_far = 1.0f;
+    f32 z_near = 0.0f;
+    f32 z_far = -1.0f;
 
     const GLfloat transform[16] {
         2.0f / (right - left),
