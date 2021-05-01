@@ -77,6 +77,16 @@ void agiD3DRasterizer::Line(i32 i1, i32 i2)
 
 void agiD3DRasterizer::Mesh(agiVtxType type, agiVtx* verts, i32 vert_count, u16* indices, i32 index_count)
 {
+    if (indices == (u16*) 0x64A778)
+    {
+        // FIXME: agiMeshSet::DrawWideLines does not check the indices count (this should never trigger)
+        ArAssert(index_count <= 144, "Too Many Indices");
+
+        // FIXME: agiMeshSet::DrawWideLines does not set vert.w (causes artifacts on Windows 7)
+        for (i32 i = 0; i < vert_count; ++i)
+            verts[i].Screen.w = 1.0f;
+    }
+
     ArAssert(type == agiVtxType::Screen, "Invalid Vertex Type");
 
     STATS.Tris += static_cast<i32>(index_count / 3.0f);
