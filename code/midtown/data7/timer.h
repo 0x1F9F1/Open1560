@@ -54,6 +54,8 @@ public:
         return (Ticks() - start_ticks_) * TicksToMilliseconds;
     }
 
+    f32 WaitUntil(f32 target);
+
     // 0x576920 | ?BeginBenchmark@Timer@@SAXXZ | unused
     ARTS_EXPORT static void BeginBenchmark();
 
@@ -66,13 +68,17 @@ public:
     // 0x576830 | ?Ticks@Timer@@SAKXZ
     ARTS_EXPORT static ulong Ticks();
 
+    static u32 SetPeriod(u32 period);
+
     // 0x90A66C | ?TicksToSeconds@Timer@@2MA
     static f32 TicksToSeconds;
 
     static f32 TicksToMilliseconds;
 
 private:
-    ulong start_ticks_ {0};
+    static void Init();
+
+    ulong start_ticks_;
 };
 
 check_size(Timer, 0x4);

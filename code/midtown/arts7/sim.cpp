@@ -344,14 +344,9 @@ void asSimulation::Update()
 
     f32 delta = frame_timer_.Time();
 
-    if (max_fps_delta_)
+    if (max_fps_delta_ && delta < max_fps_delta_)
     {
-        while (delta < max_fps_delta_)
-        {
-            ipcYield();
-
-            delta = frame_timer_.Time();
-        }
+        delta = frame_timer_.WaitUntil(max_fps_delta_);
     }
 
     frame_timer_.Reset();

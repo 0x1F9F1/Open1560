@@ -751,6 +751,7 @@ static char** GetCommandLineUTF8(int* pNumArgs)
 
 static mem::cmd_param PARAM_clean_dir {"cleandir"};
 static mem::cmd_param PARAM_console {"console"};
+static mem::cmd_param PARAM_period {"period"};
 
 static mem::cmd_param PARAM_speedrun {"speedrun"};
 
@@ -780,11 +781,12 @@ ARTS_EXPORT int WINAPI MidtownMain(
 
     MetaClass::FixupClasses();
 
-    timeBeginPeriod(0);
+    if (u32 period = PARAM_period.get_or<u32>(1); Timer::SetPeriod(period) != period)
+        Errorf("Failed to set timer period to %u", period);
 
     Application(argc, argv);
 
-    timeEndPeriod(0);
+    Timer::SetPeriod(0);
 
     Displayf("Good bye.");
 
