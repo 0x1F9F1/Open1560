@@ -395,36 +395,60 @@ void main()
     uniform_fog_ = glGetUniformLocation(shader_, "u_Fog");
     glUniform4f(uniform_fog_, 1.0f, 1.0f, 1.0f, 0.0f);
 
-    f32 left = 0.0f;
-    f32 right = static_cast<f32>(Pipe()->GetWidth());
+    // Converts from screen coordinates ([0, Width], [0, Height], [0, 1]) to NDC
+    GLfloat transform[16] {};
 
-    f32 top = 0.0f;
-    f32 bottom = static_cast<f32>(Pipe()->GetHeight());
+    // x = 2x / width - 1
+    transform[0] = 2.0f / Pipe()->GetWidth();
+    transform[12] = -1.0f;
 
-    f32 z_near = 0.0f;
-    f32 z_far = -1.0f;
+    // y = -2y / height + 1
+    transform[5] = -2.0f / Pipe()->GetHeight();
+    transform[13] = 1.0f;
 
-    const GLfloat transform[16] {
-        2.0f / (right - left),
-        0.0f,
-        0.0f,
-        0.0f,
+    // z = 2z - 1
+    transform[10] = 2.0f;
+    transform[14] = -1.0f;
 
-        0.0f,
-        2.0f / (top - bottom),
-        0.0f,
-        0.0f,
+    // w = 1
+    transform[15] = 1.0f;
 
-        0.0f,
-        0.0f,
-        -2.0f / (z_far - z_near),
-        0.0f,
+    left_handed_ = false;
 
-        -(right + left) / (right - left),
-        -(top + bottom) / (top - bottom),
-        -(z_far + z_near) / (z_far - z_near),
-        1.0f,
-    };
+    // Designed for floating point framebuffers
+    // TODO: Experiment with glDepthRangedNV
+    // https://nlguillemot.wordpress.com/2016/12/07/reversed-z-in-opengl/
+    reversed_z_ = false;
+
+#ifndef ARTS_FINAL
+    if (Pipe()->HasExtension("GL_ARB_clip_control"))
+    {
+        left_handed_ = true;
+        // reversed_z_ = true;
+
+        glClipControl(left_handed_ ? GL_UPPER_LEFT : GL_LOWER_LEFT, GL_ZERO_TO_ONE);
+
+        if (left_handed_)
+        {
+            // y = 2y / height - 1
+            transform[5] = -transform[5];
+            transform[13] = -transform[13];
+        }
+
+        if (reversed_z_)
+        {
+            // z = -1z + 1
+            transform[10] = -1.0f;
+            transform[14] = 1.0f;
+        }
+        else
+        {
+            // z = z
+            transform[10] = 1.0f;
+            transform[14] = 0.0f;
+        }
+    }
+#endif
 
     glUniformMatrix4fv(glGetUniformLocation(shader_, "u_Transform"), 1, GL_FALSE, transform);
 
@@ -632,12 +656,12 @@ void agiGLRasterizer::FlushAgiState()
         switch (zfunc)
         {
             case agiCmpFunc::Never: depth_func = GL_NEVER; break;
-            case agiCmpFunc::Less: depth_func = GL_LESS; break;
+            case agiCmpFunc::Less: depth_func = reversed_z_ ? GL_GREATER : GL_LESS; break;
             case agiCmpFunc::Equal: depth_func = GL_EQUAL; break;
-            case agiCmpFunc::LessEqual: depth_func = GL_LEQUAL; break;
-            case agiCmpFunc::Greater: depth_func = GL_GREATER; break;
+            case agiCmpFunc::LessEqual: depth_func = reversed_z_ ? GL_GEQUAL : GL_LEQUAL; break;
+            case agiCmpFunc::Greater: depth_func = reversed_z_ ? GL_LESS : GL_GREATER; break;
             case agiCmpFunc::Notequal: depth_func = GL_NOTEQUAL; break;
-            case agiCmpFunc::GreaterEqual: depth_func = GL_GEQUAL; break;
+            case agiCmpFunc::GreaterEqual: depth_func = reversed_z_ ? GL_LEQUAL : GL_GEQUAL; break;
             case agiCmpFunc::Always: depth_func = GL_ALWAYS; break;
         }
 
@@ -724,11 +748,13 @@ void agiGLRasterizer::FlushAgiState()
 
         u32 front_face = 0;
 
+        // DirectX uses CW. CullMode specifies which triangles are NOT drawn
+        // OpenGL uses CCW. glFrontFace specifies which triangles ARE drawn
         switch (cull_mode)
         {
             case agiCullMode::None: front_face = 0; break;
-            case agiCullMode::CW: front_face = GL_CCW; break;
-            case agiCullMode::CCW: front_face = GL_CW; break;
+            case agiCullMode::CW: front_face = left_handed_ ? GL_CW : GL_CCW; break;
+            case agiCullMode::CCW: front_face = left_handed_ ? GL_CCW : GL_CW; break;
         }
 
         SET_GL_STATE(CullFace, front_face != 0);

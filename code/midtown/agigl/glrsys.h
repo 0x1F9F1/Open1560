@@ -49,6 +49,11 @@ public:
         return static_cast<agiGLPipeline*>(agiRefreshable::Pipe());
     }
 
+    bool ReversedZ() const
+    {
+        return reversed_z_;
+    }
+
 private:
     void FlushState();
     void FlushAgiState();
@@ -72,6 +77,9 @@ private:
     u32 current_texture_ {0};
     u32 current_min_filter_ {0};
     u32 current_mag_filter_ {0};
+
+    bool left_handed_ {false};
+    bool reversed_z_ {false};
 
     struct State
     {

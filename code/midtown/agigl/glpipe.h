@@ -82,6 +82,11 @@ public:
         return max_anisotropy_;
     }
 
+    agiGLRasterizer* Rast()
+    {
+        return rasterizer_.get();
+    }
+
 private:
     HDC window_dc_ {nullptr};
     HGLRC gl_context_ {nullptr};
