@@ -219,12 +219,28 @@ Ptr<u8[]> dxiScreenShot(i32& width, i32& height)
     return buffer;
 }
 
+static std::atomic<bool> TakingScreenshot {false};
+
 struct ScreenShotContext
 {
     Ptr<u8[]> Pixels;
     i32 Width;
     i32 Height;
     CString Filename;
+
+    ScreenShotContext(Ptr<u8[]> pixels, i32 width, i32 height, CString file_name)
+        : Pixels(std::move(pixels))
+        , Width(width)
+        , Height(height)
+        , Filename(std::move(file_name))
+    {
+        TakingScreenshot = true;
+    }
+
+    ~ScreenShotContext()
+    {
+        TakingScreenshot = false;
+    }
 };
 
 static void SaveScreenShot(void* ctx)
@@ -337,6 +353,9 @@ static void SaveScreenShot(void* ctx)
 
 void dxiScreenShot(char* file_name)
 {
+    if (TakingScreenshot)
+        return;
+
     i32 width = 0;
     i32 height = 0;
     Ptr<u8[]> pixels;
