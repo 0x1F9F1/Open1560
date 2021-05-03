@@ -43,6 +43,15 @@ void asLineSparks::Draw()
 
 void asLineSparks::Init(i32 num_sparks, asSparkLut* lut)
 {
+    // FIXME: asLineSparks has no constructor (or destructor).
+    // If the memory is not zeroed before, they will contain garbage. (See mmGameMulti::BootStrapCars)
+    SparkColors.release();
+    SparkVelocities.release();
+    SparkStarts.release();
+    SparkEnds.release();
+    SparkRows.release();
+    SparkColumns.release();
+
     NumSparks = num_sparks;
     SparkColors = MakeUniqueUninit<u32[]>(num_sparks);
     SparkVelocities = MakeUniqueUninit<Vector3[]>(num_sparks);
