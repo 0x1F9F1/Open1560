@@ -413,7 +413,7 @@ void main()
     // w = 1
     transform[15] = 1.0f;
 
-    left_handed_ = false;
+    flip_winding_ = false;
 
     // Designed for floating point framebuffers
     // TODO: Experiment with glDepthRangedNV
@@ -556,12 +556,6 @@ void agiGLRasterizer::Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, 
     DrawMesh(GL_TRIANGLES, vertices, vertex_count, indices, index_count);
 }
 
-void agiGLRasterizer::FlushState()
-{
-    FlushAgiState();
-    FlushGlState();
-}
-
 void agiGLRasterizer::FlushAgiState()
 {
     if (agiCurState.GetDrawMode() != 15)
@@ -592,42 +586,42 @@ void agiGLRasterizer::FlushAgiState()
                 if (texture->Tex.DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
                     tex_filter = agiTexFilter::Bilinear;
 
-                if (tex_filter != agiLastState.TexFilter)
+                GLenum min_filter = GL_NEAREST;
+                GLenum mag_filter = GL_NEAREST;
+
+                switch (tex_filter)
                 {
-                    agiLastState.TexFilter = tex_filter;
+                    case agiTexFilter::Trilinear: {
+                        min_filter = GL_LINEAR_MIPMAP_LINEAR;
+                        mag_filter = GL_LINEAR;
 
-                    GLenum min_filter = GL_NEAREST;
-                    GLenum mag_filter = GL_NEAREST;
-
-                    switch (tex_filter)
-                    {
-                        case agiTexFilter::Trilinear: {
-                            min_filter = GL_LINEAR_MIPMAP_LINEAR;
-                            mag_filter = GL_LINEAR;
-
-                            break;
-                        }
-
-                        case agiTexFilter::Bilinear: {
-                            min_filter = GL_LINEAR;
-                            mag_filter = GL_LINEAR;
-
-                            break;
-                        }
-
-                        case agiTexFilter::Point: {
-                            min_filter = GL_NEAREST;
-                            mag_filter = GL_NEAREST;
-
-                            break;
-                        }
+                        break;
                     }
 
-                    current_min_filter_ = min_filter;
-                    current_mag_filter_ = mag_filter;
+                    case agiTexFilter::Bilinear: {
+                        min_filter = GL_LINEAR;
+                        mag_filter = GL_LINEAR;
+
+                        break;
+                    }
+
+                    case agiTexFilter::Point: {
+                        min_filter = GL_NEAREST;
+                        mag_filter = GL_NEAREST;
+
+                        break;
+                    }
                 }
+
+                current_min_filter_ = min_filter;
+                current_mag_filter_ = mag_filter;
             }
         }
+    }
+
+    if (agiTexFilter tex_filter = agiCurState.GetTexFilter(); tex_filter != agiLastState.TexFilter)
+    {
+        agiLastState.TexFilter = tex_filter;
     }
 
 #define SET_GL_STATE(NAME, VALUE) SetState(&State::NAME, VALUE, Touched_##NAME)
@@ -646,8 +640,7 @@ void agiGLRasterizer::FlushAgiState()
         SET_GL_STATE(DepthTest, zenable);
     }
 
-    if (agiCmpFunc zfunc = agiCurState.GetZEnable() ? agiCurState.GetZFunc() : agiCmpFunc::Always;
-        zfunc != agiLastState.ZFunc)
+    if (agiCmpFunc zfunc = agiCurState.GetZFunc(); zfunc != agiLastState.ZFunc)
     {
         agiLastState.ZFunc = zfunc;
 
@@ -748,13 +741,13 @@ void agiGLRasterizer::FlushAgiState()
 
         u32 front_face = 0;
 
-        // DirectX uses CW. CullMode specifies which triangles are NOT drawn
-        // OpenGL uses CCW. glFrontFace specifies which triangles ARE drawn
+        // DirectX CullMode specifies which triangles are NOT drawn
+        // OpenGL glFrontFace specifies which triangles ARE drawn
         switch (cull_mode)
         {
             case agiCullMode::None: front_face = 0; break;
-            case agiCullMode::CW: front_face = left_handed_ ? GL_CW : GL_CCW; break;
-            case agiCullMode::CCW: front_face = left_handed_ ? GL_CCW : GL_CW; break;
+            case agiCullMode::CW: front_face = flip_winding_ ? GL_CW : GL_CCW; break;
+            case agiCullMode::CCW: front_face = flip_winding_ ? GL_CCW : GL_CW; break;
         }
 
         SET_GL_STATE(CullFace, front_face != 0);
@@ -888,8 +881,8 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, current_texture_);
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, current_min_filter_);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, current_mag_filter_);
+    if (agiGLTexDef* texture = static_cast<agiGLTexDef*>(agiCurState.GetTexture()))
+        texture->SetFilters(current_min_filter_, current_mag_filter_);
 
     usize vtx_offset = 0;
 

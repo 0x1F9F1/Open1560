@@ -232,8 +232,7 @@ i32 agiGLTexDef::BeginGfx()
     glTexParameteri(
         GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (Tex.Flags & agiTexParameters::WrapV) ? GL_REPEAT : GL_CLAMP_TO_EDGE);
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    SetFilters(GL_LINEAR, GL_LINEAR);
 
     if (num_levels != 1)
     {
@@ -298,6 +297,21 @@ void agiGLTexDef::EndGfx()
 void agiGLTexDef::Set(Vector2& arg1, Vector2& arg2)
 {
     arg1 = arg2;
+}
+
+void agiGLTexDef::SetFilters(u32 min, u32 mag)
+{
+    if (min != min_filter_)
+    {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min);
+        min_filter_ = min;
+    }
+
+    if (mag != mag_filter_)
+    {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag);
+        mag_filter_ = mag;
+    }
 }
 
 b32 agiGLTexDef::Lock(agiTexLock& lock)

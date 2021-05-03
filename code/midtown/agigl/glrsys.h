@@ -55,7 +55,6 @@ public:
     }
 
 private:
-    void FlushState();
     void FlushAgiState();
     void FlushGlState();
 
@@ -78,7 +77,7 @@ private:
     u32 current_min_filter_ {0};
     u32 current_mag_filter_ {0};
 
-    bool left_handed_ {false};
+    bool flip_winding_ {false};
     bool reversed_z_ {false};
 
     struct State

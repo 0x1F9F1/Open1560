@@ -33,6 +33,9 @@ public:
     void EndGfx() override;
     void Set(Vector2& arg1, Vector2& arg2) override;
 
+    // Assumes texture is actively bound
+    void SetFilters(u32 min, u32 mag);
+
     b32 Lock(struct agiTexLock& lock) override;
     void Unlock(struct agiTexLock& lock) override;
 
@@ -51,6 +54,9 @@ private:
 
     u32 texture_ {0};
     void* fence_ {0};
+
+    u32 min_filter_ {0};
+    u32 mag_filter_ {0};
 
     Ptr<agiSurfaceDesc> temp_surface_;
     bool touched_ {false};
