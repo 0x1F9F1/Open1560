@@ -423,12 +423,12 @@ void main()
 #ifndef ARTS_FINAL
     if (Pipe()->HasExtension("GL_ARB_clip_control"))
     {
-        left_handed_ = true;
+        flip_winding_ = true;
         // reversed_z_ = true;
 
-        glClipControl(left_handed_ ? GL_UPPER_LEFT : GL_LOWER_LEFT, GL_ZERO_TO_ONE);
+        glClipControl(flip_winding_ ? GL_UPPER_LEFT : GL_LOWER_LEFT, GL_ZERO_TO_ONE);
 
-        if (left_handed_)
+        if (flip_winding_)
         {
             // y = 2y / height - 1
             transform[5] = -transform[5];

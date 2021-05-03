@@ -23,14 +23,14 @@ define_dummy_symbol(mmcar_wheel);
 #include "arts7/sim.h"
 #include "mmbangers/active.h"
 
-// FIXME: This also needs to factor in the wheel rotation delta
+// TODO: This also needs to factor in the wheel rotation delta
 void mmWheel::GenerateSkidParticles()
 {
-    ParticleCount += ParticleMultiplier * PtxMaxSkidCount /* * ARTSPTR->GetUpdateDelta()*/;
+    ParticleCount += ParticleMultiplier * PtxMaxSkidCount * ARTSPTR->GetUpdateDelta();
 }
 
-// static const f32 PtxFrameRate = 60.0f;
+static const f32 PtxFrameRate = 60.0f;
 
-// static mem::cmd_param PARAM_maxskid {"maxskid"};
+static mem::cmd_param PARAM_maxskid {"maxskid"};
 
-// run_once([] { mmWheel::PtxMaxSkidCount = PtxFrameRate * PARAM_maxskid.get_or(1.0f); });
+run_once([] { mmWheel::PtxMaxSkidCount = PtxFrameRate * PARAM_maxskid.get_or(1.0f); });
