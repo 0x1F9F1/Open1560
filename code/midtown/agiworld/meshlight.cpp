@@ -43,12 +43,17 @@ static void mmxTriple(
 {
     for (i32 i = 0; i < count; ++i, colors += stride)
     {
+        // Normals/Colors use 1:1:14 fixed point
+        // Each _m_pmulhw shifts the radix point by 2
+
         __m64 normal = UnpackNormalMMX[normals[i]].mm;
 
+        // intensity = intensity * normal
         __m64 key_intensity = _m_pmulhw(normal, keyNormal.mm);
         __m64 fill1_intensity = _m_pmulhw(normal, fill1Normal.mm);
         __m64 fill2_intensity = _m_pmulhw(normal, fill2Normal.mm);
 
+        // intensity.rgba = intensity.r + intensity.b + intensity.a
         __m64 temp = _m_psrlqi(key_intensity, 0x10);
         key_intensity = _m_paddw(key_intensity, temp);
         key_intensity = _m_paddw(key_intensity, _m_psrlqi(temp, 0x10));
@@ -67,37 +72,31 @@ static void mmxTriple(
         fill2_intensity = _m_punpcklwd(fill2_intensity, fill2_intensity);
         fill2_intensity = _m_punpcklwd(fill2_intensity, fill2_intensity);
 
+        // intensity = max(intensity, 0.0) * color
         key_intensity = _m_pmulhw(_m_pand(key_intensity, _m_pcmpgtw(key_intensity, minus1.mm)), keyColor.mm);
         fill1_intensity = _m_pmulhw(_m_pand(fill1_intensity, _m_pcmpgtw(fill1_intensity, minus1.mm)), fill1Color.mm);
         fill2_intensity = _m_pmulhw(_m_pand(fill2_intensity, _m_pcmpgtw(fill2_intensity, minus1.mm)), fill2Color.mm);
 
+        // intensity = key + fill1 + fill2 + amb
         __m64 intensity = _m_paddw(_m_paddw(_m_paddw(key_intensity, fill1_intensity), fill2_intensity), ambColor.mm);
+
+        // intensity.rgb = min(intensity.rgb, 1.0)
+        // intensity.a = 1.0
         intensity = _m_psubw(_m_paddsw(intensity, clampSSS_3_10.mm), unclampSSS_3_10.mm);
 
-        __m64 color_64 = _mm_cvtsi32_si64(*colors);
+        __m64 color_64 = _m_from_int(*colors);
         color_64 = _m_psrlwi(_m_punpcklbw(color_64, color_64), 1);
         color_64 = _m_psrlwi(_m_pmulhw(color_64, intensity), 1);
 
-        output[i] = _mm_cvtsi64_si32(_m_packuswb(color_64, color_64));
+        output[i] = _m_to_int(_m_packuswb(color_64, color_64));
     }
 
     _m_empty();
 }
 
-// Converts normals from -1.0..1.0 to -0x4000..0x4000 (Q8.14)
+// Quantize signed normals using 1:1:14 | [-1.0, +1.0] -> [-0x4000,+0x4000]
 static ARTS_FORCEINLINE void PackNormalMMX(union mmx& output, const Vector3& input)
 {
-    // 0.0: 0x0000
-    // 0.1: 0x0666 | -0.1: -0x0666
-    // 0.2: 0x0CCD | -0.2: -0x0CCD
-    // 0.3: 0x1333 | -0.3: -0x1333
-    // 0.4: 0x199A | -0.4: -0x199A
-    // 0.5: 0x2000 | -0.5: -0x2000
-    // 0.6: 0x2666 | -0.6: -0x2666
-    // 0.7: 0x2CCD | -0.7: -0x2CCD
-    // 0.8: 0x3333 | -0.8: -0x3333
-    // 0.9: 0x399A | -0.9: -0x399A
-    // 1.0: 0x4000 | -1.0: -0x4000
     output.m16[0] = static_cast<u16>(mem::bit_cast<u32>(input.z + 768.0f));
     output.m16[1] = static_cast<u16>(mem::bit_cast<u32>(input.y + 768.0f));
     output.m16[2] = static_cast<u16>(mem::bit_cast<u32>(input.x + 768.0f));

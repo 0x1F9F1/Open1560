@@ -724,9 +724,7 @@ void asMemoryAllocator::DumpStats()
 
 usize asMemoryAllocator::SizeOf(void* ptr) const
 {
-    Node* n = Node::From(ptr, debug_);
-
-    return debug_ ? n->GetUserSize() : n->Size;
+    return debug_ ? Node::From(ptr, true)->GetUserSize() : Node::From(ptr, false)->Size;
 }
 
 void asMemoryAllocator::Link(FreeNode* n)
