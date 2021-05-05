@@ -26,7 +26,7 @@ enum class agiVtxType : i32
     Screen, // agiScreenVtx
 };
 
-// D3DFVF_TLVERTEX
+// D3DFVF_TLVERTEX == D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_SPECULAR | D3DFVF_TEX1
 struct agiScreenVtx
 {
     f32 x, y;     // screen position

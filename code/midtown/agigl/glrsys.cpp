@@ -24,6 +24,7 @@
 #include "data7/utimer.h"
 #include "eventq7/winevent.h"
 #include "pcwindis/setupdata.h"
+#include "stream/stream.h"
 
 #include "glerror.h"
 #include "glstream.h"
@@ -318,6 +319,9 @@ i32 agiGLRasterizer::BeginGfx()
         BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), nullptr);
     }
 
+    // TODO: Use built-in perspective correction
+    // gl_Position.w = 1.0 / in_Position.w;
+    // gl_Position.xyz *= gl_Position.w;
     u32 vs = CompileShader(GL_VERTEX_SHADER, R"(
 #version 130
 
@@ -327,16 +331,17 @@ in vec4 in_Specular;
 in vec2 in_UV;
 
 out vec4 frag_Color;
-out vec4 frag_Specular;
+out vec4 frag_Fog;
 out vec3 frag_UV;
 
 uniform mat4 u_Transform;
+uniform vec4 u_Fog;
 
 void main()
 {
     gl_Position = u_Transform * vec4(in_Position.xyz, 1.0);
     frag_Color = in_Color;
-    frag_Specular = in_Specular;
+    frag_Fog = u_Fog * -in_Specular.w + u_Fog + vec4(0.0, 0.0, 0.0, 1.0);
     frag_UV = vec3(in_UV * in_Position.w, in_Position.w);
 }
 )");
@@ -345,23 +350,28 @@ void main()
 #version 130
 
 in vec4 frag_Color;
-in vec4 frag_Specular;
+in vec4 frag_Fog;
 in vec3 frag_UV;
 
 out vec4 out_Color;
 
 uniform sampler2D u_Texture;
+
+#if ENABLE_ALPHA_REF
 uniform float u_AlphaRef;
-uniform vec4 u_Fog;
+#endif
 
 void main()
 {
-    out_Color = texture(u_Texture, frag_UV.xy / frag_UV.z) * frag_Color;
+    out_Color = textureProj(u_Texture, frag_UV) * frag_Color;
 
+#if ENABLE_ALPHA_REF
+    // Ignored by software renderer, only used by mmDashView, only ever 0
     if (out_Color.w <= u_AlphaRef)
         discard;
+#endif
 
-    out_Color.xyz = mix(out_Color.xyz, u_Fog.xyz, (1.0 - frag_Specular.w) * u_Fog.w);
+    out_Color.xyz = out_Color.xyz * frag_Fog.w + frag_Fog.xyz;
 }
 )");
 
@@ -385,6 +395,25 @@ void main()
 
     glUseProgram(shader_);
 
+#if 0
+    if (Pipe()->HasExtension("GL_ARB_get_program_binary"))
+    {
+        GLint buffer_size = 0;
+        glGetProgramiv(shader_, GL_PROGRAM_BINARY_LENGTH, &buffer_size);
+        u8* buffer = new u8[buffer_size];
+
+        GLsizei length = 0;
+        GLenum binary_format = 0;
+        glGetProgramBinary(shader_, buffer_size, &length, &binary_format, buffer);
+
+        if (Ptr<Stream> output {arts_fopen("shader.bin", "w")})
+        {
+            output->Write(&binary_format, sizeof(binary_format));
+            output->Write(buffer, buffer_size);
+        }
+    }
+#endif
+
     PrintGlErrors();
 
     glUniform1i(glGetUniformLocation(shader_, "u_Texture"), 0);
@@ -393,7 +422,7 @@ void main()
     glUniform1f(uniform_alpha_ref_, 0.0f);
 
     uniform_fog_ = glGetUniformLocation(shader_, "u_Fog");
-    glUniform4f(uniform_fog_, 1.0f, 1.0f, 1.0f, 0.0f);
+    glUniform4f(uniform_fog_, 0.0f, 0.0f, 0.0f, 0.0f);
 
     // Converts from screen coordinates ([0, Width], [0, Height], [0, 1]) to NDC
     GLfloat transform[16] {};
@@ -777,12 +806,17 @@ void agiGLRasterizer::FlushAgiState()
         agiLastState.FogMode = fog_mode;
         agiLastState.FogColor = fog_color;
 
-        Vector4 fog {
-            ((fog_color >> 16) & 0xFF) / 255.0f,
-            ((fog_color >> 8) & 0xFF) / 255.0f,
-            (fog_color & 0xFF) / 255.0f,
-            (fog_mode == agiFogMode::Vertex) ? 1.0f : 0.0f,
-        };
+        Vector4 fog {};
+
+        if (fog_mode == agiFogMode::Vertex)
+        {
+            fog = Vector4 {
+                ((fog_color >> 16) & 0xFF) / 255.0f,
+                ((fog_color >> 8) & 0xFF) / 255.0f,
+                (fog_color & 0xFF) / 255.0f,
+                -1.0f,
+            };
+        }
 
         SET_GL_STATE(Fog, fog);
     }

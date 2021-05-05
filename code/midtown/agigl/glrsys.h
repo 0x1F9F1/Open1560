@@ -70,8 +70,8 @@ private:
     u32 shader_ {0};
     u32 white_texture_ {0};
 
-    u32 uniform_alpha_ref_ {0};
-    u32 uniform_fog_ {0};
+    i32 uniform_alpha_ref_ {0};
+    i32 uniform_fog_ {0};
 
     u32 current_texture_ {0};
     u32 current_min_filter_ {0};

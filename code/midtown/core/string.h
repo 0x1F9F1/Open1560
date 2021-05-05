@@ -38,12 +38,12 @@
 
 #define arts_strtok strtok_s
 
-char* arts_strdup(const char* str);
+char* arts_strdup(const char* str); // StringDuplicate
 char* arts_getenv(const char* name);
 
 class Stream;
 
-class CString
+class CString // ConstString
 {
 public:
     constexpr CString() = default;
