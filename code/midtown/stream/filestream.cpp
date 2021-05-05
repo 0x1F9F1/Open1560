@@ -121,7 +121,8 @@ i32 FileStream::Open(const char* path, b32 read_only)
 
     if (read_only)
     {
-        pager_handle_ = ReOpenFile(file_handle_, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, 0);
+        pager_handle_ = CreateFileA(
+            path, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
         if (pager_handle_ == INVALID_HANDLE_VALUE)
             return -1;
