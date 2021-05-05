@@ -46,6 +46,8 @@ static __m128 KniMax;
 
 void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count)
 {
+    static constexpr u32 CLIP_SCREEN_32 = AGI_MESH_CLIP_SCREEN * 0x01010101;
+
     ARTS_UTIMED(agiInvertTimer);
 
     if (UseKNI)
@@ -87,7 +89,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
                 // NOTE: This is undefined behaviour. A safer version would use std::bit_cast/equivalent
                 u32 codes32 = *reinterpret_cast<const u32*>(in_codes);
 
-                if (codes32 == 0x40404040)
+                if (codes32 == CLIP_SCREEN_32)
                 {
                     __m128 vert_0 = _mm_load_ps(&verts[0].x);
                     __m128 vert_1 = _mm_load_ps(&verts[1].x);
@@ -137,7 +139,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
                 code = *in_codes;
             }
 
-            if (code == 0x40)
+            if (code == AGI_MESH_CLIP_SCREEN)
             {
                 __m128 vert = _mm_load_ps(&verts->x);
 
@@ -172,7 +174,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
 
     for (i32 i = 0; i < count; ++i)
     {
-        if (in_codes[i] != 0x40)
+        if (in_codes[i] != AGI_MESH_CLIP_SCREEN)
             continue;
 
         Vector4* vert = &verts[i];
@@ -230,8 +232,8 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
                      _mm_shuffle_ps(output_abs_128, output_abs_128, _MM_SHUFFLE(3, 3, 3, 3)), output_abs_128)) & \
         0x7;                                                                                                     \
     out_codes[i] = ClipMask & CodesLookup[(is_neg << 3) + is_clip];                                              \
-    clip_or |= out_codes[i];                                                                                     \
-    clip_and &= out_codes[i];
+    clip_any |= out_codes[i];                                                                                    \
+    clip_all &= out_codes[i];
 
 static extern_var(0x64A6D8, i32, ClipMask);
 
@@ -292,8 +294,8 @@ u32 agiMeshSet::TransformOutcode(
     STATS.VertsOut += count;
     STATS.VertsXfrm += count;
 
-    u8 clip_or = 0;
-    u8 clip_and = 0xFF;
+    u8 clip_any = 0;
+    u8 clip_all = 0xFF;
 
     ARTS_KNI_TRANSFORM_INIT;
     ARTS_KNI_TRANSFORM_CODES_INIT;
@@ -318,7 +320,7 @@ u32 agiMeshSet::TransformOutcode(
         }
     }
 
-    return clip_or | (clip_and << 8);
+    return clip_any | (clip_all << 8);
 }
 
 void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 count, u32 color)

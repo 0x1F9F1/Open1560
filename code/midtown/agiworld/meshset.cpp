@@ -24,8 +24,6 @@ define_dummy_symbol(agiworld_meshset);
 #include "data7/cache.h"
 #include "data7/ipc.h"
 #include "vector7/geomath.h"
-#include "vector7/vector3.h"
-#include "vector7/vector4.h"
 
 agiMeshSet::agiMeshSet() = default;
 

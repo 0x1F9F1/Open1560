@@ -28,6 +28,43 @@ define_dummy_symbol(agiworld_meshrend);
 #include "memory/alloca.h"
 #include "vector7/matrix34.h"
 
+f32 agiMeshSet::DepthOffset = 0.5f;
+f32 agiMeshSet::DepthScale = 0.5f;
+
+i32 agiMeshSet::EyePlaneCount = 0;
+i32 agiMeshSet::EyePlanesHit = 0;
+Vector3 agiMeshSet::EyePos {};
+
+b32 agiMeshSet::FlipX = false;
+f32 agiMeshSet::FogValue = 0.0f;
+b32 agiMeshSet::MirrorMode = false;
+b32 agiMeshSet::AllowEyeBackfacing = false;
+
+Vector3 agiMeshSet::LocPos {};
+Matrix34 agiMeshSet::M {};
+
+f32 agiMeshSet::HalfHeight = 0.0f;
+f32 agiMeshSet::HalfWidth = 0.0f;
+f32 agiMeshSet::MaxX = 0.0f;
+f32 agiMeshSet::MaxY = 0.0f;
+f32 agiMeshSet::MinX = 0.0f;
+f32 agiMeshSet::MinY = 0.0f;
+f32 agiMeshSet::OffsX = 0.0f;
+f32 agiMeshSet::OffsY = 0.0f;
+f32 agiMeshSet::ProjZW = 0.0f;
+f32 agiMeshSet::ProjZZ = 0.0f;
+
+u32 agiMeshSet::MtxSerial = 0;
+u32 agiMeshSet::ViewSerial = 0;
+
+alignas(64) u8 agiMeshSet::codes[16384];
+alignas(64) i16 agiMeshSet::firstFacet[256];
+alignas(64) u8 agiMeshSet::fogout[16384];
+alignas(64) i16 agiMeshSet::indexCounts[256];
+alignas(64) i16 agiMeshSet::nextFacet[16384];
+alignas(64) Vector4 agiMeshSet::out[16384];
+alignas(64) i16 agiMeshSet::vertCounts[256];
+
 struct CV
 {
     Vector4 Pos;
@@ -147,8 +184,8 @@ static inline u8 CalculateFog(f32 w, f32 fog)
         ((((w_abs - std::abs(output[i].x)) < 0.0f) << ((output[i].x < 0.0f) + 0)) |    \
             (((w_abs - std::abs(output[i].y)) < 0.0f) << ((output[i].y < 0.0f) + 2)) | \
             (((w_abs - std::abs(output[i].z)) < 0.0f) << ((output[i].z < 0.0f) + 4))); \
-    clip_or |= out_codes[i];                                                           \
-    clip_and &= out_codes[i];
+    clip_any |= out_codes[i];                                                          \
+    clip_all &= out_codes[i];
 
 static extern_var(0x64A6D8, i32, ClipMask);
 
@@ -159,7 +196,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
 
     for (i32 i = 0; i < count; ++i)
     {
-        if (in_codes[i] != 0x40)
+        if (in_codes[i] != AGI_MESH_CLIP_SCREEN)
             continue;
 
         Vector4* vert = &verts[i];
@@ -202,8 +239,8 @@ u32 agiMeshSet::TransformOutcode(
     STATS.VertsOut += count;
     STATS.VertsXfrm += count;
 
-    u8 clip_or = 0;
-    u8 clip_and = 0xFF;
+    u8 clip_any = 0;
+    u8 clip_all = 0xFF;
 
     if (FogValue == 0.0f)
     {
@@ -223,7 +260,7 @@ u32 agiMeshSet::TransformOutcode(
         }
     }
 
-    return clip_or | (clip_and << 8);
+    return clip_any | (clip_all << 8);
 }
 
 void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 count, u32 color)
@@ -497,4 +534,158 @@ void agiMeshSet::FirstPass(u32* colors, Vector2* tex_coords, u32 color)
 
     (this->*FirstPassFunctions[agiCurState.GetSoftwareRendering()][tex_coords == nullptr][colors == nullptr][(DynTexFlag & AGI_MESH_DRAW_DYNTEX) != 0])(
         colors, tex_coords, color);
+}
+
+static extern_var(0x719840, i32, CurrentMeshSetVariant);
+
+template <typename T>
+static inline void fill_bytes(T* dst, usize len, u8 value)
+{
+    std::memset(dst, value, len * sizeof(T));
+}
+
+i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes) ARTS_RESTRICT
+{
+    ArAssert(Resident == 2, "Mesh not loaded");
+
+    ClippedVertCount = 0;
+    ClippedTriCount = 0;
+    fill_bytes(ClippedTextures, TextureCount + 1, 0);
+
+    Init(planes && (SurfaceCount > 1));
+
+    u32 clip_mask = (flags & AGI_MESH_DRAW_CLIP) ? AGI_MESH_CLIP_ANY : 0; // clip_any | (clip_all << 8)
+
+    {
+        ARTS_UTIMED(agiTransformTimer);
+
+        // If available, transform the bounding box, checking how visible it is
+        if (clip_mask && BoundingBox)
+        {
+            clip_mask = TransformOutcode(codes, out, BoundingBox, 8);
+
+            if (clip_mask > 0xFF) // All verts are clipped (not visible)
+                return clip_mask;
+        }
+
+        if (clip_mask)
+        {
+            clip_mask = TransformOutcode(codes, out, verts, VertexCount);
+
+            if (clip_mask > 0xFF) // All verts are clipped (not visible)
+                return clip_mask;
+        }
+        else // Assume nothing needs clipping
+        {
+            Transform(out, verts, VertexCount);
+            fill_bytes(codes, VertexCount, 0);
+        }
+    }
+
+    {
+        ARTS_UTIMED(agiTraverseTimer);
+
+        fill_bytes(firstFacet, TextureCount + 1, 0xFF);
+        fill_bytes(vertCounts, TextureCount + 1, 0);
+        fill_bytes(indexCounts, TextureCount + 1, 0);
+
+        DynTexFlag = flags & AGI_MESH_DRAW_DYNTEX;
+        CurrentMeshSetVariant = std::min<i32>(flags >> AGI_MESH_DRAW_VARIANT_SHIFT, VariationCount - 1);
+
+        if (clip_mask)
+        {
+            for (i32 i = 0; i < SurfaceCount; ++i)
+            {
+                const u16* ARTS_RESTRICT surface = &SurfaceIndices[i * 4];
+
+                u8 clip_any = codes[VertexIndices[surface[0]]] | codes[VertexIndices[surface[1]]] |
+                    codes[VertexIndices[surface[2]]];
+
+                u8 clip_all = codes[VertexIndices[surface[0]]] & codes[VertexIndices[surface[1]]] &
+                    codes[VertexIndices[surface[2]]];
+
+                i16 num_verts;
+                i16 num_index;
+
+                if (surface[3])
+                {
+                    clip_any |= codes[VertexIndices[surface[3]]];
+                    clip_all &= codes[VertexIndices[surface[3]]];
+                    num_verts = 4;
+                    num_index = 6;
+                }
+                else
+                {
+                    num_verts = 3;
+                    num_index = 3;
+                }
+
+                if (!(clip_all & AGI_MESH_CLIP_ANY) && (!planes || !IsBackfacing(planes[i])))
+                {
+                    u8 texture = TextureIndices[i];
+
+                    if (clip_any & AGI_MESH_CLIP_ANY)
+                    {
+                        if (surface[3])
+                        {
+                            ClipTri(surface[1], surface[2], surface[3], texture);
+                            ClipTri(surface[1], surface[3], surface[0], texture);
+                        }
+                        else
+                        {
+                            ClipTri(surface[0], surface[1], surface[2], texture);
+                        }
+                    }
+                    else
+                    {
+                        vertCounts[texture] += num_verts;
+                        indexCounts[texture] += num_index;
+                        nextFacet[i] = firstFacet[texture];
+                        firstFacet[texture] = static_cast<i16>(i);
+                    }
+
+                    codes[VertexIndices[surface[0]]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[VertexIndices[surface[1]]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[VertexIndices[surface[2]]] |= AGI_MESH_CLIP_SCREEN;
+
+                    if (surface[3])
+                        codes[VertexIndices[surface[3]]] |= AGI_MESH_CLIP_SCREEN;
+                }
+            }
+        }
+        else
+        {
+            for (i32 i = 0; i < SurfaceCount; ++i)
+            {
+                if (!planes || !IsBackfacing(planes[i]))
+                {
+                    u8 texture = TextureIndices[i];
+                    const u16* ARTS_RESTRICT surface = &SurfaceIndices[i * 4];
+
+                    if (surface[3])
+                    {
+                        vertCounts[texture] += 4;
+                        indexCounts[texture] += 6;
+                        codes[VertexIndices[surface[3]]] |= AGI_MESH_CLIP_SCREEN;
+                    }
+                    else
+                    {
+                        vertCounts[texture] += 3;
+                        indexCounts[texture] += 3;
+                    }
+
+                    codes[VertexIndices[surface[0]]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[VertexIndices[surface[1]]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[VertexIndices[surface[2]]] |= AGI_MESH_CLIP_SCREEN;
+
+                    nextFacet[i] = firstFacet[texture];
+                    firstFacet[texture] = static_cast<i16>(i);
+                }
+            }
+        }
+    }
+
+    ToScreen(codes, out, VertexCount);
+
+    return clip_mask;
 }

@@ -35,10 +35,9 @@
 */
 
 #include "data7/pager.h"
-
-class Vector2;
-class Vector3;
-class Vector4;
+#include "vector7/vector2.h"
+#include "vector7/vector3.h"
+#include "vector7/vector4.h"
 
 // agiMeshSet::Flags
 #define AGI_MESH_SET_UV 0x1      // agiMeshSet::TexCoords
@@ -65,9 +64,18 @@ class Vector4;
 
 using agiMeshLighter = void (*)(u8* codes, u32* output, u32* colors, class agiMeshSet* mesh);
 
-#define AGI_MESH_DRAW_CULL 0x1        // Use agiMeshSet::codes
+#define AGI_MESH_DRAW_CLIP 0x1        // Use agiMeshSet::codes
 #define AGI_MESH_DRAW_DYNTEX 0x8      // Do not share vertices between textures
 #define AGI_MESH_DRAW_VARIANT_SHIFT 4 // CurrentMeshSetVariant = flags >> 4
+
+#define AGI_MESH_CLIP_NX 0x01     // Clip -X
+#define AGI_MESH_CLIP_PX 0x02     // Clip +X
+#define AGI_MESH_CLIP_NZ 0x04     // Clip -Z
+#define AGI_MESH_CLIP_PZ 0x08     // Clip +Z
+#define AGI_MESH_CLIP_NY 0x10     // Clip -Y
+#define AGI_MESH_CLIP_PY 0x20     // Clip +Y
+#define AGI_MESH_CLIP_ANY 0x3F    // Clip *
+#define AGI_MESH_CLIP_SCREEN 0x40 // ToScreen
 
 class agiMeshSet
 {
@@ -163,7 +171,7 @@ public:
     ARTS_IMPORT void FirstPass_SW_noUV_noCPV_noDYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
 
     // 0x507320 | ?Geometry@agiMeshSet@@QAEHIPAVVector3@@PAVVector4@@@Z | agiworld:meshrend
-    ARTS_IMPORT i32 Geometry(u32 arg1, class Vector3* arg2, class Vector4* arg3);
+    ARTS_EXPORT i32 Geometry(u32 flags, class Vector3* verts, class Vector4* planes);
 
     // 0x514BC0 | ?IsFullyResident@agiMeshSet@@QAEHH@Z
     ARTS_EXPORT b32 IsFullyResident(i32 variant);
@@ -226,44 +234,38 @@ public:
     ARTS_IMPORT static struct agiMeshCardVertex DefaultQuad[4];
 
     // 0x64A6E0 | ?DepthOffset@agiMeshSet@@2MA | agiworld:meshrend
-    ARTS_IMPORT static f32 DepthOffset;
+    ARTS_EXPORT static f32 DepthOffset;
 
     // 0x64A6DC | ?DepthScale@agiMeshSet@@2MA | agiworld:meshrend
-    ARTS_IMPORT static f32 DepthScale;
+    ARTS_EXPORT static f32 DepthScale;
 
     // 0x720ED8 | ?EyePlaneCount@agiMeshSet@@2HA | agiworld:meshrend
-    ARTS_IMPORT static i32 EyePlaneCount;
+    ARTS_EXPORT static i32 EyePlaneCount;
 
     // 0x73D398 | ?EyePlanes@agiMeshSet@@2PAVVector4@@A | agiworld:meshrend
     ARTS_IMPORT static class Vector4 EyePlanes[2];
 
     // 0x725130 | ?EyePlanesHit@agiMeshSet@@2HA | agiworld:meshrend
-    ARTS_IMPORT static i32 EyePlanesHit;
+    ARTS_EXPORT static i32 EyePlanesHit;
 
     // 0x71DE50 | ?EyePos@agiMeshSet@@2VVector3@@A | agiworld:meshrend
-    ARTS_IMPORT static class Vector3 EyePos;
+    ARTS_EXPORT static class Vector3 EyePos;
 
     // 0x72D154 | ?FlipX@agiMeshSet@@2HA | agiworld:meshrend
-    ARTS_IMPORT static i32 FlipX;
+    ARTS_EXPORT static b32 FlipX;
 
     // 0x72D158 | ?FogValue@agiMeshSet@@2MA | agiworld:meshrend
-    ARTS_IMPORT static f32 FogValue;
+    ARTS_EXPORT static f32 FogValue;
 
     // 0x720EB8 | ?HitEyePlanes@agiMeshSet@@2PAVVector4@@A | agiworld:meshrend
     ARTS_IMPORT static class Vector4 HitEyePlanes[2];
 
     // 0x7210E4 | ?MirrorMode@agiMeshSet@@2HA | agiworld:meshrend
-    ARTS_IMPORT static i32 MirrorMode;
+    ARTS_EXPORT static b32 MirrorMode;
 
-    // 0x01 | Clip -X
-    // 0x02 | Clip +X
-    // 0x04 | Clip -Z
-    // 0x08 | Clip +Z
-    // 0x10 | Clip -Y
-    // 0x20 | Clip +Y
-    // 0x40 | ToScreen
+    // AGI_MESH_CLIP_*
     // 0x719E50 | ?codes@agiMeshSet@@2PAEA | agiworld:meshrend
-    ARTS_IMPORT static u8 codes[16384];
+    ARTS_EXPORT static alignas(64) u8 codes[16384];
 
 protected:
     // 0x505E40 | ?ClipTri@agiMeshSet@@IAEXHHHH@Z | agiworld:meshrend
@@ -300,68 +302,68 @@ protected:
         class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count);
 
     // 0x73D3BC | ?AllowEyeBackfacing@agiMeshSet@@1HA | agiworld:meshrend
-    ARTS_IMPORT static i32 AllowEyeBackfacing;
+    ARTS_EXPORT static b32 AllowEyeBackfacing;
 
     // 0x73D3C0 | ?HalfHeight@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_IMPORT static f32 HalfHeight;
+    ARTS_EXPORT static f32 HalfHeight;
 
     // 0x72513C | ?HalfWidth@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_IMPORT static f32 HalfWidth;
+    ARTS_EXPORT static f32 HalfWidth;
 
     // 0x72D148 | ?LocPos@agiMeshSet@@1VVector3@@A | agiworld:meshrend
-    ARTS_IMPORT static class Vector3 LocPos;
+    ARTS_EXPORT static class Vector3 LocPos;
 
     // 0x71DE60 | ?M@agiMeshSet@@1VMatrix34@@A | agiworld:meshrend
-    ARTS_IMPORT static class Matrix34 M;
+    ARTS_EXPORT static class Matrix34 M;
 
     // 0x720EDC | ?MaxX@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_IMPORT static f32 MaxX;
+    ARTS_EXPORT static f32 MaxX;
 
     // 0x720E98 | ?MaxY@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_IMPORT static f32 MaxY;
+    ARTS_EXPORT static f32 MaxY;
 
     // 0x73D390 | ?MinX@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_IMPORT static f32 MinX;
+    ARTS_EXPORT static f32 MinX;
 
     // 0x7210E0 | ?MinY@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_IMPORT static f32 MinY;
+    ARTS_EXPORT static f32 MinY;
 
     // 0x719E4C | ?MtxSerial@agiMeshSet@@1IA | agiworld:meshrend
-    ARTS_IMPORT static u32 MtxSerial;
+    ARTS_EXPORT static u32 MtxSerial;
 
     // 0x71DE90 | ?OffsX@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_IMPORT static f32 OffsX;
+    ARTS_EXPORT static f32 OffsX;
 
     // 0x73D3B8 | ?OffsY@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_IMPORT static f32 OffsY;
+    ARTS_EXPORT static f32 OffsY;
 
     // 0x72512C | ?ProjZW@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_IMPORT static f32 ProjZW;
+    ARTS_EXPORT static f32 ProjZW;
 
     // 0x72D140 | ?ProjZZ@agiMeshSet@@1MA | agiworld:meshrend
-    ARTS_IMPORT static f32 ProjZZ;
+    ARTS_EXPORT static f32 ProjZZ;
 
     // 0x725128 | ?ViewSerial@agiMeshSet@@1IA | agiworld:meshrend
-    ARTS_IMPORT static u32 ViewSerial;
+    ARTS_EXPORT static u32 ViewSerial;
 
     // 0x72D160 | ?firstFacet@agiMeshSet@@1PAFA | agiworld:meshrend
-    ARTS_IMPORT static i16 firstFacet[256];
+    ARTS_EXPORT static alignas(64) i16 firstFacet[256];
 
     // 0x721128 | ?fogout@agiMeshSet@@1PAEA | agiworld:meshrend
-    ARTS_IMPORT static u8 fogout[16384];
+    ARTS_EXPORT static alignas(64) u8 fogout[16384];
 
     // 0x719C48 | ?indexCounts@agiMeshSet@@1PAFA | agiworld:meshrend
-    ARTS_IMPORT static i16 indexCounts[256];
+    ARTS_EXPORT static alignas(64) i16 indexCounts[256];
 
     // 0x725140 | ?nextFacet@agiMeshSet@@1PAFA | agiworld:meshrend
-    ARTS_IMPORT static i16 nextFacet[16384];
+    ARTS_EXPORT static alignas(64) i16 nextFacet[16384];
 
     // Must be 16-byte aligned
     // 0x73EE30 | ?out@agiMeshSet@@1PAVVector4@@A | agiworld:mrkni
-    ARTS_IMPORT static class Vector4 out[16384];
+    ARTS_EXPORT static alignas(64) class Vector4 out[16384];
 
     // 0x720EE0 | ?vertCounts@agiMeshSet@@1PAFA | agiworld:meshrend
-    ARTS_IMPORT static i16 vertCounts[256];
+    ARTS_EXPORT static alignas(64) i16 vertCounts[256];
 
 private:
     // 0x505E20 | ?BeginGfx@agiMeshSet@@AAEXXZ | agiworld:meshrend | unused
@@ -378,6 +380,12 @@ private:
 
     // 0x503180 | ?PageOutCallback@agiMeshSet@@CAXPAXH@Z | agiworld:meshload
     ARTS_EXPORT static void PageOutCallback(void* param, isize delta);
+
+    static inline bool IsBackfacing(const Vector4& plane)
+    {
+        return AllowEyeBackfacing &&
+            MirrorMode != (plane.x * EyePos.x + plane.y * EyePos.y + plane.z * EyePos.z + plane.w < 0.0f);
+    }
 
 public:
     Vector3* Vertices {nullptr};
