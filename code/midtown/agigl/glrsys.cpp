@@ -356,20 +356,15 @@ in vec3 frag_UV;
 out vec4 out_Color;
 
 uniform sampler2D u_Texture;
-
-#if ENABLE_ALPHA_REF
 uniform float u_AlphaRef;
-#endif
 
 void main()
 {
     out_Color = textureProj(u_Texture, frag_UV) * frag_Color;
 
-#if ENABLE_ALPHA_REF
     // Ignored by software renderer, only used by mmDashView, only ever 0
     if (out_Color.w <= u_AlphaRef)
         discard;
-#endif
 
     out_Color.xyz = out_Color.xyz * frag_Fog.w + frag_Fog.xyz;
 }
