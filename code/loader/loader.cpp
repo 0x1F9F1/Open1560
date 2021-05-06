@@ -194,10 +194,18 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
             std::exit(1);
         }
 
-        SetProcessDEPPolicy(PROCESS_DEP_ENABLE);
+        if (auto _SetProcessDEPPolicy = reinterpret_cast<BOOL(WINAPI*)(DWORD)>(
+                GetProcAddress(GetModuleHandleA("KERNEL32.DLL"), "SetProcessDEPPolicy")))
+        {
+            _SetProcessDEPPolicy(0x00000001 /*PROCESS_DEP_ENABLE*/);
+        };
 
         // Fixes mouse drift when display scale is not 100%
-        SetProcessDPIAware();
+        if (auto _SetProcessDPIAware = reinterpret_cast<BOOL(WINAPI*)()>(
+                GetProcAddress(GetModuleHandleA("USER32.DLL"), "SetProcessDPIAware")))
+        {
+            _SetProcessDPIAware();
+        };
 
 #ifdef ARTS_FINAL
         if (IsDebuggerPresent())

@@ -94,11 +94,30 @@ static void CheckProgram(u32 program)
     Quitf("Failed to link program:\n%s", log_text);
 }
 
-static u32 CompileShader(u32 type, const char* src)
+static u32 CompileShader(u32 type, i32 glsl_version, const char* src)
 {
     u32 shader = glCreateShader(type);
 
-    glShaderSource(shader, 1, &src, 0);
+    const char* strings[3] {"", "", src};
+
+    switch (glsl_version)
+    {
+        case 110: strings[0] = "#version 110\n#define SHADER_VERSION 110\n"; break;
+        case 130: strings[0] = "#version 130\n#define SHADER_VERSION 130\n"; break;
+        default: Quitf("Invalid GLSL Version %i", glsl_version);
+    }
+
+    if (glsl_version < 130)
+    {
+        switch (type)
+        {
+            case GL_VERTEX_SHADER: strings[1] = "#define in attribute\n#define out varying\n"; break;
+            case GL_FRAGMENT_SHADER: strings[1] = "#define in varying\n"; break;
+            default: Quitf("Invalid Shader Type %u", type);
+        }
+    }
+
+    glShaderSource(shader, ARTS_SSIZE(strings), strings, 0);
     glCompileShader(shader);
 
     CheckShader(shader);
@@ -236,6 +255,9 @@ i32 agiGLRasterizer::BeginGfx()
         }
     }
 
+    if (Pipe()->HasExtension("GL_ARB_compatibility") || !Pipe()->HasVersion(3, 0))
+        stream_mode = StreamMode::ClientSide;
+
     const char* gl_version = (const char*) glGetString(GL_VERSION);
 
     if (i32 mode = 0; PARAM_glstream.get(mode))
@@ -319,12 +341,19 @@ i32 agiGLRasterizer::BeginGfx()
         BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), nullptr);
     }
 
+    i32 glsl_version = Pipe()->GetShaderVersion();
+
+    if (glsl_version >= 130)
+        glsl_version = 130;
+    else
+        glsl_version = 110;
+
+    Displayf("OpenGL: Using shader version %i", glsl_version);
+
     // TODO: Use built-in perspective correction
     // gl_Position.w = 1.0 / in_Position.w;
     // gl_Position.xyz *= gl_Position.w;
-    u32 vs = CompileShader(GL_VERTEX_SHADER, R"(
-#version 130
-
+    u32 vs = CompileShader(GL_VERTEX_SHADER, glsl_version, R"(
 in vec4 in_Position;
 in vec4 in_Color;
 in vec4 in_Specular;
@@ -346,21 +375,24 @@ void main()
 }
 )");
 
-    u32 fs = CompileShader(GL_FRAGMENT_SHADER, R"(
-#version 130
-
+    u32 fs = CompileShader(GL_FRAGMENT_SHADER, glsl_version, R"(
 in vec4 frag_Color;
 in vec4 frag_Fog;
 in vec3 frag_UV;
 
+#if SHADER_VERSION >= 130
 out vec4 out_Color;
+#define texture2DProj textureProj
+#else
+#define out_Color gl_FragColor
+#endif
 
 uniform sampler2D u_Texture;
 uniform float u_AlphaRef;
 
 void main()
 {
-    out_Color = textureProj(u_Texture, frag_UV) * frag_Color;
+    out_Color = texture2DProj(u_Texture, frag_UV) * frag_Color;
 
     // Ignored by software renderer, only used by mmDashView, only ever 0
     if (out_Color.w <= u_AlphaRef)

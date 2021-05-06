@@ -214,7 +214,7 @@ i32 agiGLPipeline::BeginGfx()
 
     wglMakeCurrent(window_dc_, gl_context_);
 
-    InitExtensions();
+    InitVersioning();
 
     HGLRC modern_gl_context = NULL;
 
@@ -304,7 +304,7 @@ i32 agiGLPipeline::BeginGfx()
         gl_context_ = modern_gl_context;
 
         // Reload extensions, just in case
-        InitExtensions();
+        InitVersioning();
     }
     else
     {
@@ -316,7 +316,6 @@ i32 agiGLPipeline::BeginGfx()
     if (gladLoadGL() != 1)
         Quitf("Failed to load GLAD");
 
-    Displayf("OpenGL Shader Version: %s", glGetString(GL_SHADING_LANGUAGE_VERSION));
     Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
     Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
 
@@ -627,7 +626,7 @@ static void ParseExtensionString(HashTable& table, const char* extensions, isize
     arts_free(exts);
 }
 
-void agiGLPipeline::InitExtensions()
+void agiGLPipeline::InitVersioning()
 {
     extensions_.Kill();
 
@@ -671,6 +670,25 @@ void agiGLPipeline::InitExtensions()
         ParseExtensionString(extensions_, wglGetExtensionsStringARB(window_dc_), 3);
 
     Displayf("OpenGL Extension Count: %i", extensions_.Size());
+
+    const char* glsl_version = (const char*) arts_glGetString(GL_SHADING_LANGUAGE_VERSION);
+
+    if (HasVersion(3, 3))
+    {
+        shader_version_ = (gl_major_version_ * 100) + (gl_minor_version_ * 10);
+    }
+    else
+    {
+        i32 glsl_major_version = 0;
+        i32 glsl_minor_version = 0;
+
+        if (arts_sscanf(glsl_version, "%i.%i", &glsl_major_version, &glsl_minor_version) != 2)
+            Quitf("Failed to get GLSL version");
+
+        shader_version_ = (glsl_major_version * 100) + glsl_minor_version;
+    }
+
+    Displayf("OpenGL Shader Version: %i (%s)", shader_version_, glsl_version);
 }
 
 HGLRC agiGLPipeline::CreateSharedContext()

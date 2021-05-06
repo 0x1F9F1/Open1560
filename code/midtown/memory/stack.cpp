@@ -175,12 +175,7 @@ static void InitDebugSymbols()
         DbgHelpLoaded = SymInitialize(GetCurrentProcess(), NULL, TRUE);
 
         if (!DbgHelpLoaded)
-        {
-            if (DWORD error = GetLastError(); error == ERROR_INVALID_PARAMETER)
-                DbgHelpLoaded = true;
-            else
-                Errorf("Failed to load debug symbols, error: 0x%08X", error);
-        }
+            Errorf("Failed to load debug symbols, error: 0x%08X", GetLastError());
 
         MapSymbolsLoaded = true;
     }

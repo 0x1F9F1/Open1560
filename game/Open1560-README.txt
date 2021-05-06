@@ -8,7 +8,7 @@ In most cases, Open1560 should run optimally straight away.
 You do not need to install the XP patch, or use dgVoodoo.
 However, there are certain things you may wish to change:
 * If you have a laptop, ensure you are using the correct GPU.
-* If you have low performance (particularly when using integrated graphics), try using the `-glstream 6` argument. Note, this is unsafe and may cause system instability.
+* If you have low performance (particularly when using integrated graphics), try using the `-legacygl` argument.
 * If you still have low performance, consider disabling cloud shadows and/or the rear view mirror.
 * To enable anti-aliasing, use the `-msaa <LEVEL>` argument (possible levels are 1, 2, 4 or 8). Note, this may not be available on certain older/integrated GPUs.
 * If running through wine, use https://github.com/0x1F9F1/Open1560/blob/master/extra/wine1560.sh (or manually set the WINEDLLOVERRIDES to prefer native dinput)

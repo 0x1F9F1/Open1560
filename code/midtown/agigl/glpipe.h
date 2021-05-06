@@ -82,6 +82,11 @@ public:
         return max_anisotropy_;
     }
 
+    i32 GetShaderVersion() const
+    {
+        return shader_version_;
+    }
+
     agiGLRasterizer* Rast()
     {
         return rasterizer_.get();
@@ -97,6 +102,8 @@ private:
 
     i32 gl_major_version_ {0};
     i32 gl_minor_version_ {0};
+
+    i32 shader_version_ {0};
 
     u32 fbo_ {0};
     u32 rbo_[2] {0};
@@ -114,7 +121,7 @@ private:
 
     i32 max_anisotropy_ {0};
 
-    void InitExtensions();
+    void InitVersioning();
 
     HGLRC CreateSharedContext();
 };
