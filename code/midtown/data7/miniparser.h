@@ -137,7 +137,7 @@ private:
 
     char buffer_[256] {};
     i32 error_count_ {0};
-    CString name_;
+    ConstString name_;
     i32 current_char_ {' '};
     i32 indentation_ {0};
     i32 current_line_ {1};

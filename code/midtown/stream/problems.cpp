@@ -29,9 +29,9 @@ static constexpr usize MAX_PROBLEMS = 4096;
 struct problem_t
 {
 public:
-    CString Message;
-    CString Target;
-    CString Location;
+    ConstString Message;
+    ConstString Target;
+    ConstString Location;
     i32 Count {1};
 };
 
@@ -145,7 +145,7 @@ void RegisterProblem(const char* message, const char* target, const char* locati
         }
     }
 
-    Problems[NumProblems++] = new problem_t {CString(message), CString(target), CString(location), 1};
+    Problems[NumProblems++] = new problem_t {ConstString(message), ConstString(target), ConstString(location), 1};
 
     if (NumProblems == MAX_PROBLEMS - 1)
         RegisterProblem("Out of space in problem database", nullptr, "Problem Database");

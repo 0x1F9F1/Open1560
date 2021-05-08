@@ -226,9 +226,9 @@ struct ScreenShotContext
     Ptr<u8[]> Pixels;
     i32 Width;
     i32 Height;
-    CString Filename;
+    ConstString Filename;
 
-    ScreenShotContext(Ptr<u8[]> pixels, i32 width, i32 height, CString file_name)
+    ScreenShotContext(Ptr<u8[]> pixels, i32 width, i32 height, ConstString file_name)
         : Pixels(std::move(pixels))
         , Width(width)
         , Height(height)
@@ -374,7 +374,7 @@ void dxiScreenShot(char* file_name)
     if (pixels == nullptr)
         return;
 
-    GFXPAGER.Send(SaveScreenShot, new ScreenShotContext {std::move(pixels), width, height, CString(file_name)});
+    GFXPAGER.Send(SaveScreenShot, new ScreenShotContext {std::move(pixels), width, height, ConstString(file_name)});
 }
 
 static inline void dxiRestoreDisplayMode()

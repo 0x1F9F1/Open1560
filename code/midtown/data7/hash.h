@@ -40,7 +40,7 @@
 
 struct HashEntry
 {
-    CString Key;
+    ConstString Key;
     void* Value {nullptr};
     HashEntry* Next {nullptr};
 };

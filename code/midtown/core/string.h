@@ -43,54 +43,54 @@ char* arts_getenv(const char* name);
 
 class Stream;
 
-class CString // ConstString
+class ConstString
 {
 public:
-    constexpr CString() = default;
+    constexpr ConstString() = default;
 
-    constexpr CString(std::nullptr_t)
+    constexpr ConstString(std::nullptr_t)
         : data_(nullptr)
     {}
 
-    explicit CString(const char* value)
+    explicit ConstString(const char* value)
         : data_(arts_strdup(value))
     {}
 
-    explicit CString(usize capacity)
+    explicit ConstString(usize capacity)
         : data_(static_cast<char*>(arts_malloc(capacity)))
     {}
 
-    CString(const CString& other)
-        : CString(other.data_)
+    ConstString(const ConstString& other)
+        : ConstString(other.data_)
     {}
 
-    CString(CString&& other) noexcept
+    ConstString(ConstString&& other) noexcept
     {
         data_ = other.data_;
         other.data_ = nullptr;
     }
 
-    ~CString() noexcept
+    ~ConstString() noexcept
     {
         if (data_)
             arts_free(data_);
     }
 
-    CString& operator=(const char* value)
+    ConstString& operator=(const char* value)
     {
         assign(value);
 
         return *this;
     }
 
-    CString& operator=(const CString& value)
+    ConstString& operator=(const ConstString& value)
     {
         assign(value.data_);
 
         return *this;
     }
 
-    CString& operator=(CString&& value) noexcept
+    ConstString& operator=(ConstString&& value) noexcept
     {
         if (data_)
             arts_free(data_);
@@ -142,7 +142,7 @@ private:
     char* data_ {nullptr};
 };
 
-static_assert(sizeof(CString) == sizeof(char*));
+static_assert(sizeof(ConstString) == sizeof(char*));
 
 template <usize N>
 class CStringBuffer
@@ -289,32 +289,32 @@ inline bool IsLetter(i32 value)
     return (value >= 'A' && value <= 'Z') || (value >= 'a' && value <= 'z');
 }
 
-inline bool operator==(const CString& lhs, const CString& rhs)
+inline bool operator==(const ConstString& lhs, const ConstString& rhs)
 {
     return std::strcmp(lhs.get(), rhs.get()) == 0;
 }
 
-inline bool operator==(const CString& lhs, const char* rhs)
+inline bool operator==(const ConstString& lhs, const char* rhs)
 {
     return std::strcmp(lhs.get(), rhs) == 0;
 }
 
-inline bool operator==(const char* lhs, const CString& rhs)
+inline bool operator==(const char* lhs, const ConstString& rhs)
 {
     return std::strcmp(lhs, rhs.get()) == 0;
 }
 
-inline bool operator!=(const CString& lhs, const CString& rhs)
+inline bool operator!=(const ConstString& lhs, const ConstString& rhs)
 {
     return std::strcmp(lhs.get(), rhs.get()) != 0;
 }
 
-inline bool operator!=(const CString& lhs, const char* rhs)
+inline bool operator!=(const ConstString& lhs, const char* rhs)
 {
     return std::strcmp(lhs.get(), rhs) != 0;
 }
 
-inline bool operator!=(const char* lhs, const CString& rhs)
+inline bool operator!=(const char* lhs, const ConstString& rhs)
 {
     return std::strcmp(lhs, rhs.get()) != 0;
 }

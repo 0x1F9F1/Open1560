@@ -341,7 +341,7 @@ protected:
     i32 widget_count_;
     i32 field_38;
     uiWidget** widgets_;
-    CString menu_name_;
+    ConstString menu_name_;
     char* field_44;
     i32 field_48;
     f32 menu_x_;
@@ -360,7 +360,7 @@ protected:
     i32 active_widget_id_;
     f32 field_84;
     i32 field_88;
-    CString background_name_;
+    ConstString background_name_;
 };
 
 check_size(UIMenu, 0x90);

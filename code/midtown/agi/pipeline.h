@@ -333,7 +333,7 @@ protected:
     // 0x555480 | ??0agiPipeline@@IAE@XZ
     ARTS_EXPORT agiPipeline();
 
-    CString name_;
+    ConstString name_;
     i32 x_ {0};
     i32 y_ {0};
     i32 width_ {0};

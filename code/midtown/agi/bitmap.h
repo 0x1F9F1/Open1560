@@ -98,7 +98,7 @@ protected:
     // 0x55A640 | ??1agiBitmap@@MAE@XZ
     ARTS_EXPORT ~agiBitmap() override;
 
-    CString name_;
+    ConstString name_;
 
     Ptr<agiSurfaceDesc> surface_;
 

@@ -227,7 +227,7 @@ const MetaType* CreateMetaType_<char*>()
 }
 
 template <>
-const MetaType* CreateMetaType_<CString>()
+const MetaType* CreateMetaType_<ConstString>()
 {
     return &StringInst;
 }

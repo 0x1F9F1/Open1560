@@ -413,7 +413,7 @@ template <>
 const MetaType* CreateMetaType_<char*>();
 
 template <>
-const MetaType* CreateMetaType_<CString>();
+const MetaType* CreateMetaType_<ConstString>();
 
 // 0x90B478 | ?CharInst@@3UCharType@@A
 // ARTS_IMPORT extern struct CharType CharInst;

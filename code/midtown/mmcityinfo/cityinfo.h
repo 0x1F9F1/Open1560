@@ -48,9 +48,9 @@ public:
     char LocalizedName[40];
     char MapName[40];
     char RaceDir[40];
-    CString BlitzNames;
-    CString RaceNames;
-    CString CircuitNames;
+    ConstString BlitzNames;
+    ConstString RaceNames;
+    ConstString CircuitNames;
     b32 Loaded {false};
     i32 BlitzCount {0};
     i32 CheckpointCount {0};

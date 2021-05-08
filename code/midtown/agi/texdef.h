@@ -294,7 +294,7 @@ protected:
     ARTS_EXPORT ~agiTexLut() override = default;
 
     u32 palette_[256] {};
-    CString name_;
+    ConstString name_;
 };
 
 check_size(agiTexLut, 0x41C);

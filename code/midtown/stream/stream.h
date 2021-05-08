@@ -170,7 +170,7 @@ public:
     // 0x55EEF0 | ?GetString@Stream@@QAEHPADH@Z | unused
     ARTS_EXPORT isize GetString(char* buffer, isize buffer_len);
 
-    CString GetString();
+    ConstString GetString();
 
     // 0x55EDF0 | ?Printf@Stream@@QAAHPBDZZ | unused
     ARTS_EXPORT isize Printf(ARTS_FORMAT_STRING char const* format, ...);

@@ -47,7 +47,7 @@ public:
     virtual void Key(i32 key, i32 flags) = 0;
 
     char Text[64];
-    CString Name;
+    ConstString Name;
 };
 
 check_size(MI, 0x48);

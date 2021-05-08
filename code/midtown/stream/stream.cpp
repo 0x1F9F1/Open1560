@@ -148,14 +148,14 @@ isize Stream::GetString(char* buffer, isize buffer_len)
     return buffer_len;
 }
 
-CString Stream::GetString()
+ConstString Stream::GetString()
 {
     usize length = Get<u32>();
 
     if (length == 0)
         return nullptr;
 
-    CString result {length};
+    ConstString result {length};
     Read(result.get(), length);
     return result;
 }

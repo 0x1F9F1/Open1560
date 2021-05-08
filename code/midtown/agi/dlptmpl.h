@@ -147,7 +147,7 @@ private:
     i32 NumVertices {0};
     Ptr<Vector3[]> Vertices;
 
-    CString Name;
+    ConstString Name;
 
     i32 MtlCount {0};
     i32 TexCount {0};
@@ -220,7 +220,7 @@ public:
     i16 PhysIdx {0};
 
     Ptr<DLPVertex[]> Vertices;
-    CString Name;
+    ConstString Name;
 };
 
 check_size(DLPPatch, 0x18);

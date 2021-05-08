@@ -201,8 +201,8 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         };
 
         // Fixes mouse drift when display scale is not 100%
-        if (auto _SetProcessDPIAware = reinterpret_cast<BOOL(WINAPI*)()>(
-                GetProcAddress(GetModuleHandleA("USER32.DLL"), "SetProcessDPIAware")))
+        if (auto _SetProcessDPIAware =
+                reinterpret_cast<BOOL(WINAPI*)()>(GetProcAddress(GetModuleHandleA("USER32.DLL"), "SetProcessDPIAware")))
         {
             _SetProcessDPIAware();
         };
