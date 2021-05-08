@@ -24,7 +24,8 @@ MM1_COMMAND_LINE = _OPTIONS['MM1_COMMAND_LINE'] or read_file_line('CommandLine.t
 workspace "Open1560"
     location "build"
 
-    -- No longer works, thanks to broken (missing) virtual vector deleting destructors
+    -- Crashes with clang, due to missing vector deleting destructors
+    -- https://bugs.llvm.org/show_bug.cgi?id=19398
     -- toolset "msc-ClangCL"
 
     configurations { "Debug", "Release", "Final" }

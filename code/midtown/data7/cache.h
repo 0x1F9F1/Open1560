@@ -159,6 +159,8 @@ ARTS_IMPORT extern class DataCache CACHE;
 template <typename T>
 inline void PointerFixup(T*& ptr, isize delta)
 {
-    if (ptr)
-        ptr = delta ? reinterpret_cast<T*>(reinterpret_cast<u8*>(ptr) + delta) : nullptr;
+    if (delta)
+        ptr = ptr ? reinterpret_cast<T*>(reinterpret_cast<u8*>(ptr) + delta) : nullptr;
+    else
+        ptr = nullptr;
 }
