@@ -25,8 +25,6 @@ define_dummy_symbol(mmeffects_linespark);
 #include "agiworld/meshset.h"
 #include "arts7/sim.h"
 
-static const f32 SparkLength = 1.0f / 30.0f;
-
 void asLineSparks::Draw()
 {
     GetActiveViewport()->SetWorld(const_cast<Matrix34&>(IDENTITY));
@@ -89,7 +87,7 @@ void asLineSparks::Update(f32 delta)
     FadeFraction -= static_cast<f32>(fade);
 
     const f32 gravity = Gravity * delta;
-    const f32 trail = TrailLength * delta;
+    const f32 trail = SampleRate * (TrailLength - 1.0f);
 
     for (i32 i = 0; i < NumActive;)
     {
@@ -113,7 +111,7 @@ void asLineSparks::Update(f32 delta)
 
         SparkVelocities[i].y += gravity;
         SparkStarts[i] += SparkVelocities[i] * delta;
-        SparkEnds[i] = SparkStarts[i] + SparkVelocities[i] * SparkLength;
+        SparkEnds[i] = SparkStarts[i] + SparkVelocities[i] * trail;
 
         if ((SparkStarts[i].y < GroundY) && (SparkVelocities[i].y < 0.0f))
             SparkVelocities[i].y = SparkVelocities[i].y * -0.8f;
