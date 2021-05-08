@@ -210,7 +210,7 @@ i32 agiGLPipeline::BeginGfx()
     gl_context_ = wglCreateContext(window_dc_);
 
     if (gl_context_ == NULL)
-        Quitf("Failed to create legacy OpenGL context");
+        Quitf("Failed to create legacy OpenGL context: 0x%08X", GetLastError());
 
     wglMakeCurrent(window_dc_, gl_context_);
 
@@ -287,7 +287,7 @@ i32 agiGLPipeline::BeginGfx()
             modern_gl_context = wglCreateContextAttribsARB(window_dc_, 0, attribs);
 
             if (modern_gl_context == NULL)
-                Errorf("Failed to create modern OpenGL context");
+                Errorf("Failed to create modern OpenGL context: 0x%08X", GetLastError());
         }
         else
         {
@@ -302,8 +302,6 @@ i32 agiGLPipeline::BeginGfx()
         wglMakeCurrent(window_dc_, modern_gl_context);
         wglDeleteContext(gl_context_);
         gl_context_ = modern_gl_context;
-
-        // Reload extensions, just in case
         InitVersioning();
     }
     else

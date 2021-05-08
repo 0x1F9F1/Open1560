@@ -131,12 +131,15 @@ enum class agiTexFilter : u8
 
 enum class agiBlendOp : u8
 {
+    // Color = Texture
     // COLOROP = SELECTARG1, COLORARG1 = TEXTURE, ALPHAOP = SELECTARG1, ALPHAARG1 = TEXTURE
     One = 0,
 
+    // Color = Texture * Diffuse
     // COLOROP = MODULATE,   COLORARG1 = TEXTURE, ALPHAOP = MODULATE,   ALPHAARG1 = TEXTURE, COLORARG2 = DIFFUSE
     Modulate = 1,
 
+    // Color = Diffuse
     // COLOROP = DISABLE
     Disable = 2,
 };

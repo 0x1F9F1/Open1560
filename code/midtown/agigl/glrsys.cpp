@@ -102,8 +102,8 @@ static u32 CompileShader(u32 type, i32 glsl_version, const char* src)
 
     switch (glsl_version)
     {
-        case 110: strings[0] = "#version 110\n#define SHADER_VERSION 110\n"; break;
-        case 130: strings[0] = "#version 130\n#define SHADER_VERSION 130\n"; break;
+        case 110: strings[0] = "#version 110\n"; break;
+        case 130: strings[0] = "#version 130\n"; break;
         default: Quitf("Invalid GLSL Version %i", glsl_version);
     }
 
@@ -380,7 +380,7 @@ in vec4 frag_Color;
 in vec4 frag_Fog;
 in vec3 frag_UV;
 
-#if SHADER_VERSION >= 130
+#if __VERSION__  >= 130
 out vec4 out_Color;
 #define texture2DProj textureProj
 #else
