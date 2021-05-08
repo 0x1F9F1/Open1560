@@ -374,7 +374,7 @@ void dxiScreenShot(char* file_name)
     if (pixels == nullptr)
         return;
 
-    GFXPAGER.Send(SaveScreenShot, new ScreenShotContext {std::move(pixels), width, height, file_name});
+    GFXPAGER.Send(SaveScreenShot, new ScreenShotContext {std::move(pixels), width, height, CString(file_name)});
 }
 
 static inline void dxiRestoreDisplayMode()

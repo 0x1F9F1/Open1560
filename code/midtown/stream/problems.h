@@ -29,21 +29,10 @@
 */
 
 // 0x560E10 | ?DumpProblems@@YAXXZ
-ARTS_IMPORT void DumpProblems();
+ARTS_EXPORT void DumpProblems();
 
 // 0x560DB0 | ?InitProblems@@YAXXZ
-ARTS_IMPORT void InitProblems();
+ARTS_EXPORT void InitProblems();
 
 // 0x561100 | ?RegisterProblem@@YAXPAD00@Z
-ARTS_IMPORT void RegisterProblem(char* arg1, char* arg2, char* arg3);
-
-struct problem_t
-{
-public:
-    // 0x561340 | ??1problem_t@@QAE@XZ | inline
-    ARTS_IMPORT ~problem_t();
-
-    u8 gap0[0x10];
-};
-
-check_size(problem_t, 0x10);
+ARTS_EXPORT void RegisterProblem(const char* message, const char* target, const char* location);

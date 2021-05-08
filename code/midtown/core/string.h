@@ -52,11 +52,11 @@ public:
         : data_(nullptr)
     {}
 
-    CString(const char* value)
+    explicit CString(const char* value)
         : data_(arts_strdup(value))
     {}
 
-    CString(usize capacity)
+    explicit CString(usize capacity)
         : data_(static_cast<char*>(arts_malloc(capacity)))
     {}
 
@@ -297,4 +297,24 @@ inline bool operator==(const CString& lhs, const CString& rhs)
 inline bool operator==(const CString& lhs, const char* rhs)
 {
     return std::strcmp(lhs.get(), rhs) == 0;
+}
+
+inline bool operator==(const char* lhs, const CString& rhs)
+{
+    return std::strcmp(lhs, rhs.get()) == 0;
+}
+
+inline bool operator!=(const CString& lhs, const CString& rhs)
+{
+    return std::strcmp(lhs.get(), rhs.get()) != 0;
+}
+
+inline bool operator!=(const CString& lhs, const char* rhs)
+{
+    return std::strcmp(lhs.get(), rhs) != 0;
+}
+
+inline bool operator!=(const char* lhs, const CString& rhs)
+{
+    return std::strcmp(lhs, rhs.get()) != 0;
 }
