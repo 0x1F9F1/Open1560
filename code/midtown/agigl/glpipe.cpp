@@ -117,14 +117,11 @@ i32 agiGLPipeline::BeginGfx()
     struct MonitorInfo
     {
         HMONITOR monitor;
-        MONITORINFOEXA mi;
-    };
+        MONITORINFOEXA mi {{sizeof(mi)}};
 
-    MonitorInfo info {NULL, {sizeof(info.mi)}};
-
-    EnumDisplayMonitors(
-        NULL, NULL,
-        [](HMONITOR hMonitor, HDC, [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam) -> BOOL {
+        static BOOL CALLBACK MonitorCallback(
+            HMONITOR hMonitor, HDC, [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
+        {
             MonitorInfo& mi = *(MonitorInfo*) (lParam);
 
             if (!GetMonitorInfoA(hMonitor, &mi.mi))
@@ -136,8 +133,11 @@ i32 agiGLPipeline::BeginGfx()
             mi.monitor = hMonitor;
 
             return FALSE;
-        },
-        (LPARAM) &info);
+        }
+    };
+
+    MonitorInfo info {};
+    EnumDisplayMonitors(NULL, NULL, MonitorInfo::MonitorCallback, (LPARAM) &info);
 
     HWND hwnd = static_cast<HWND>(window_);
 

@@ -58,4 +58,6 @@
 
 #include "arts7/node.h"
 
-// #include <sol/sol.hpp>
+ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wmissing-field-initializers");
+ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wunused-private-field");
+ARTS_CLANG_DIAGNOSTIC_IGNORED("-Woverloaded-virtual");

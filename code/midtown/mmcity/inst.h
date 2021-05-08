@@ -294,14 +294,9 @@ public:
     // 0x493470 | ?GetPos@mmMatrixInstance@@UAIAAVVector3@@XZ
     ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
-    ARTS_DIAGNOSTIC_PUSH;
-    ARTS_CLANG_DIAGNOSTIC_IGNORED("-Woverloaded-virtual");
-
     // 0x493480 | ?Init@mmMatrixInstance@@QAEHPADAAVVector3@@11H0@Z
     ARTS_IMPORT i32 Init(
         char* arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4, i32 arg5, char* arg6);
-
-    ARTS_DIAGNOSTIC_POP;
 
     // 0x4935C0 | ?SizeOf@mmMatrixInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
@@ -482,13 +477,8 @@ public:
     // 0x4951C0 | ?GetClass@mmStaticInstance@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    ARTS_DIAGNOSTIC_PUSH;
-    ARTS_CLANG_DIAGNOSTIC_IGNORED("-Woverloaded-virtual");
-
     // 0x493610 | ?Init@mmStaticInstance@@QAEHPADAAVVector3@@1MH0@Z | unused
     ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, i32 arg5, char* arg6);
-
-    ARTS_DIAGNOSTIC_POP;
 
     // 0x494220 | ?Relight@mmStaticInstance@@UAIXXZ
     ARTS_EXPORT void ARTS_FASTCALL Relight() override;

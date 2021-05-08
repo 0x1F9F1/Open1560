@@ -366,7 +366,8 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
 
 b32 agiMeshSet::Draw(u32 flags)
 {
-    if (!this)
+    // FIXME: Avoid this check
+    if (agiMeshSet* volatile this_ptr = this; !this_ptr)
         return false;
 
     bool drawn = false;
@@ -544,7 +545,7 @@ static inline void fill_bytes(T* dst, usize len, u8 value)
     std::memset(dst, value, len * sizeof(T));
 }
 
-i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes) ARTS_RESTRICT
+i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
 {
     ArAssert(Resident == 2, "Mesh not loaded");
 

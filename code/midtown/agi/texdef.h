@@ -69,6 +69,8 @@
 #include "data7/pager.h"
 #include "surface.h"
 
+#include <atomic>
+
 class agiPolySet;
 class agiColorModel;
 

@@ -158,13 +158,13 @@ static const agiGLVertexAttrib agiScreenVtx_Attribs[] {
     {3, agiGLAttribType::Float2, "in_UV",       offsetof(agiScreenVtx, tu),       sizeof(agiScreenVtx)},
 };
 
-static const agiGLVertexAttrib agiScreenVtx2_Attribs[] {
-    {0, agiGLAttribType::Float4, "in_Position", offsetof(agiScreenVtx2, x),        sizeof(agiScreenVtx2)},
-    {1, agiGLAttribType::BGRA,   "in_Color",    offsetof(agiScreenVtx2, color),    sizeof(agiScreenVtx2)},
-    {2, agiGLAttribType::BGRA,   "in_Specular", offsetof(agiScreenVtx2, specular), sizeof(agiScreenVtx2)},
-    {3, agiGLAttribType::Float2, "in_UV1",      offsetof(agiScreenVtx2, tu1),      sizeof(agiScreenVtx2)},
-    {4, agiGLAttribType::Float2, "in_UV2",      offsetof(agiScreenVtx2, tu2),      sizeof(agiScreenVtx2)},
-};
+//static const agiGLVertexAttrib agiScreenVtx2_Attribs[] {
+//    {0, agiGLAttribType::Float4, "in_Position", offsetof(agiScreenVtx2, x),        sizeof(agiScreenVtx2)},
+//    {1, agiGLAttribType::BGRA,   "in_Color",    offsetof(agiScreenVtx2, color),    sizeof(agiScreenVtx2)},
+//    {2, agiGLAttribType::BGRA,   "in_Specular", offsetof(agiScreenVtx2, specular), sizeof(agiScreenVtx2)},
+//    {3, agiGLAttribType::Float2, "in_UV1",      offsetof(agiScreenVtx2, tu1),      sizeof(agiScreenVtx2)},
+//    {4, agiGLAttribType::Float2, "in_UV2",      offsetof(agiScreenVtx2, tu2),      sizeof(agiScreenVtx2)},
+//};
 // clang-format on
 
 static void BindVertexAttribs(const agiGLVertexAttrib* attribs, usize count, const void* pointer)
@@ -550,10 +550,9 @@ void agiGLRasterizer::Verts(agiVtxType type, agiVtx* vertices, i32 vertex_count)
     ImmVtxCount = vertex_count;
 }
 
-void agiGLRasterizer::Points(agiVtxType type, agiVtx* vertices, i32 vertex_count)
-{
-    unimplemented(type, vertices, vertex_count);
-}
+void agiGLRasterizer::Points(
+    [[maybe_unused]] agiVtxType type, [[maybe_unused]] agiVtx* vertices, [[maybe_unused]] i32 vertex_count)
+{}
 
 void agiGLRasterizer::SetVertCount(i32 vertex_count)
 {

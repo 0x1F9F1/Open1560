@@ -195,6 +195,9 @@ public:
     // 0x4F0730 | ?TranslateDSError@DSGlobal@@QAEPADJ@Z
     ARTS_IMPORT char* TranslateDSError(ilong arg1);
 
+    ARTS_DIAGNOSTIC_PUSH;
+    ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers");
+
     // 0x4F0A90 | ?GetCDMusicOnMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetCDMusicOnMask();
 
@@ -221,6 +224,8 @@ public:
 
     // 0x4F0AA0 | ?GetUsingEAXMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetUsingEAXMask();
+
+    ARTS_DIAGNOSTIC_POP;
 
 private:
     // 0x61FEF0 | ?s_iAlwaysEAXMask@DSGlobal@@0IB

@@ -46,6 +46,8 @@
 
 #include "mutex.h"
 
+#include <atomic>
+
 // 0x578740 | ?ipcCloseHandle@@YAXI@Z
 ARTS_EXPORT void ipcCloseHandle(usize handle);
 

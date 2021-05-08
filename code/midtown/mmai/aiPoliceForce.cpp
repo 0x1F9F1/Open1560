@@ -73,7 +73,7 @@ void aiPoliceForce::Reset()
 {
     num_perps_ = 0;
 
-    for (i32 i = 0; i < MaxPerps; ++i)
+    for (usize i = 0; i < MaxPerps; ++i)
     {
         perps_[i] = nullptr;
         num_cops_[i] = 0;

@@ -926,9 +926,8 @@ b32 GenerateLoadScreenName()
             arts_strcat(name, "bl");
             arts_sprintf(LoadScreen, "%s%d", name, MMSTATE.EventId + 1);
             return true;
+        default: return false;
     }
-
-    return false;
 }
 
 void InitAudioManager()

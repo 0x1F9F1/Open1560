@@ -172,7 +172,10 @@ private:
     usize lock_count_ {0};
     b32 use_nodes_ {false};
     FreeNode* buckets_[32] {};
+
+#ifndef ARTS_STANDALONE
     Node* last_ {nullptr};
+#endif
 
     // New Fields
     mutable RecursiveTicketLock lock_ {};

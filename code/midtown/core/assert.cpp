@@ -32,8 +32,3 @@
 {
     Abortf("Check Failure: '%s' in %s:%u", data.message, data.filename, data.linenum);
 }
-
-[[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArUnimplemented(const ArSourceLocation& location)
-{
-    Abortf("Unimplemented Function: %s in %s:%u", location.function, location.filename, location.linenum);
-}

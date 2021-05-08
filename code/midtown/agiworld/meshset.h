@@ -39,6 +39,8 @@
 #include "vector7/vector3.h"
 #include "vector7/vector4.h"
 
+#include <atomic>
+
 // agiMeshSet::Flags
 #define AGI_MESH_SET_UV 0x1      // agiMeshSet::TexCoords
 #define AGI_MESH_SET_LIT 0x2     // agiMeshSet::Normals
@@ -265,7 +267,7 @@ public:
 
     // AGI_MESH_CLIP_*
     // 0x719E50 | ?codes@agiMeshSet@@2PAEA | agiworld:meshrend
-    ARTS_EXPORT static alignas(64) u8 codes[16384];
+    ARTS_EXPORT static u8 codes[16384];
 
 protected:
     // 0x505E40 | ?ClipTri@agiMeshSet@@IAEXHHHH@Z | agiworld:meshrend
@@ -347,23 +349,23 @@ protected:
     ARTS_EXPORT static u32 ViewSerial;
 
     // 0x72D160 | ?firstFacet@agiMeshSet@@1PAFA | agiworld:meshrend
-    ARTS_EXPORT static alignas(64) i16 firstFacet[256];
+    ARTS_EXPORT static i16 firstFacet[256];
 
     // 0x721128 | ?fogout@agiMeshSet@@1PAEA | agiworld:meshrend
-    ARTS_EXPORT static alignas(64) u8 fogout[16384];
+    ARTS_EXPORT static u8 fogout[16384];
 
     // 0x719C48 | ?indexCounts@agiMeshSet@@1PAFA | agiworld:meshrend
-    ARTS_EXPORT static alignas(64) i16 indexCounts[256];
+    ARTS_EXPORT static i16 indexCounts[256];
 
     // 0x725140 | ?nextFacet@agiMeshSet@@1PAFA | agiworld:meshrend
-    ARTS_EXPORT static alignas(64) i16 nextFacet[16384];
+    ARTS_EXPORT static i16 nextFacet[16384];
 
     // Must be 16-byte aligned
     // 0x73EE30 | ?out@agiMeshSet@@1PAVVector4@@A | agiworld:mrkni
-    ARTS_EXPORT static alignas(64) class Vector4 out[16384];
+    ARTS_EXPORT static class Vector4 out[16384];
 
     // 0x720EE0 | ?vertCounts@agiMeshSet@@1PAFA | agiworld:meshrend
-    ARTS_EXPORT static alignas(64) i16 vertCounts[256];
+    ARTS_EXPORT static i16 vertCounts[256];
 
 private:
     // 0x505E20 | ?BeginGfx@agiMeshSet@@AAEXXZ | agiworld:meshrend | unused

@@ -239,7 +239,7 @@ public:
     ARTS_IMPORT char** GetDeviceNames();
 
     // 0x4E9A60 | ?GetEAXAll@AudManager@@QAEXPAUEAX_REVERBPROPERTIES@@@Z | unused
-    ARTS_IMPORT void GetEAXAll(struct EAX_REVERBPROPERTIES* arg1);
+    ARTS_IMPORT void GetEAXAll(EAX_REVERBPROPERTIES* arg1);
 
     // 0x4E9D60 | ?GetEAXDamping@AudManager@@QAEMXZ | unused
     ARTS_IMPORT f32 GetEAXDamping();
@@ -341,7 +341,7 @@ public:
     ARTS_IMPORT i32 SetEAXEnvironmet(u32 arg1);
 
     // 0x4E99F0 | ?SetEAXPreset@AudManager@@QAEHPAUEAX_REVERBPROPERTIES@@@Z
-    ARTS_IMPORT i32 SetEAXPreset(struct EAX_REVERBPROPERTIES* arg1);
+    ARTS_IMPORT i32 SetEAXPreset(EAX_REVERBPROPERTIES* arg1);
 
     // 0x4E9970 | ?SetEAXPreset@AudManager@@QAEHKMMM@Z
     ARTS_IMPORT i32 SetEAXPreset(ulong environment, f32 volume, f32 decay_time, f32 damping);
@@ -382,7 +382,7 @@ public:
     // TODO: Remove const from return type
 
     ARTS_DIAGNOSTIC_PUSH;
-    ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers")
+    ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers");
 
     // 0x4E9F30 | ?GetCDMusicOnMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetCDMusicOnMask();

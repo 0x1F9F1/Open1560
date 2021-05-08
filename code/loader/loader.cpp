@@ -103,7 +103,9 @@ static std::size_t InitExportHooks(HMODULE instance)
     LogHooks = false;
 
     mem::module::nt(instance).enum_exports(
-        [&total, &remaps](std::string_view name, std::uint32_t /*ordinal*/, mem::pointer address) {
+        [&total, &remaps](const char* namez, std::uint32_t /*ordinal*/, mem::pointer address) {
+            std::string_view name = namez ? namez : "";
+
             if (auto find = remaps.find(name); find != remaps.end())
                 name = find->second;
 

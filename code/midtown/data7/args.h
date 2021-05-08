@@ -76,7 +76,7 @@ ARTS_IMPORT extern class ArgSet GBArgs;
 
 inline asArg* ArgSet::operator[](char flag)
 {
-    asArg* result = Args[flag];
+    asArg* result = Args[static_cast<u8>(flag & 0x7F)];
 
     return (result && result->Found) ? result : nullptr;
 }

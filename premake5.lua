@@ -25,7 +25,7 @@ workspace "Open1560"
     location "build"
 
     -- No longer works, thanks to broken (missing) virtual vector deleting destructors
-    -- toolset "msc-llvm"
+    -- toolset "msc-ClangCL"
 
     configurations { "Debug", "Release", "Final" }
     platforms { "Win32" }

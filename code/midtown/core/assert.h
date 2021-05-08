@@ -77,11 +77,3 @@ struct ArAssertData
 
 #define ArAssert ArEnabledAssert
 #define ArCheck ArEnabledCheck
-
-#define unimplemented(...)                                                           \
-    do                                                                               \
-    {                                                                                \
-        static_cast<void>(0, __VA_ARGS__);                                           \
-        static constexpr ::ArSourceLocation ar_unimpl_location {AR_SOURCE_LOCATION}; \
-        ArUnimplemented(ar_unimpl_location);                                         \
-    } while (false)

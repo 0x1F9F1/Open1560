@@ -54,7 +54,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     if (dxiRendererCount >= ARTS_SSIZE(dxiInfo))
         return FALSE;
 
-    MONITORINFOEXA iMonitor {sizeof(MONITORINFOEXA)};
+    MONITORINFOEXA iMonitor {{sizeof(iMonitor)}};
 
     if (!GetMonitorInfoA(hMonitor, &iMonitor))
         return TRUE;
@@ -173,7 +173,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
 static BOOL CALLBACK CountRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
     [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
 {
-    MONITORINFOEXA iMonitor {sizeof(MONITORINFOEXA)};
+    MONITORINFOEXA iMonitor {{sizeof(iMonitor)}};
 
     if (!GetMonitorInfoA(hMonitor, &iMonitor))
         return TRUE;

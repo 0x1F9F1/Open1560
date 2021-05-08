@@ -82,7 +82,11 @@ private:
     f32 x_ {0.0f};
     f32 y_ {0.0f};
     mmNumberFont* font_;
+
+#ifndef ARTS_STANDALONE
     char gap2C[0x4]; // TODO: Remove this
+#endif
+
     char text_[80];
 };
 
@@ -113,7 +117,9 @@ private:
     usize Count {0};
     agiBitmap** Bitmaps {nullptr};
 
+#ifndef ARTS_STANDALONE
     char gap10[0x14]; // TODO: Remove this
+#endif
 
     void Init(u32 color);
 };
