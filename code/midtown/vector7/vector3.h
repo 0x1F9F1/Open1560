@@ -343,9 +343,8 @@ template <>
 const MetaType* CreateMetaType_<Vector3>();
 
 template <>
-ARTS_FORCEINLINE void ByteSwap<Vector3>(Vector3& value) noexcept
+ARTS_FORCEINLINE Vector3 ByteSwap<Vector3>(Vector3 value) noexcept
 {
-    ByteSwap(value.x);
-    ByteSwap(value.y);
-    ByteSwap(value.z);
+    ByteSwapV(value.x, value.y, value.z);
+    return value;
 }

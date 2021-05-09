@@ -26,70 +26,75 @@
 #endif
 
 template <typename T>
-ARTS_FORCEINLINE void ByteSwap(T& value) noexcept;
+[[nodiscard]] ARTS_FORCEINLINE T ByteSwap(T value) noexcept = delete;
 
 // TODO: Add i8, i16, i32, i64
 
 template <>
-ARTS_FORCEINLINE void ByteSwap<u8>(u8&) noexcept
-{}
+[[nodiscard]] ARTS_FORCEINLINE u8 ByteSwap<u8>(u8 value) noexcept
+{
+    return value;
+}
 
 template <>
-ARTS_FORCEINLINE void ByteSwap<u16>(u16& value) noexcept
+[[nodiscard]] ARTS_FORCEINLINE u16 ByteSwap<u16>(u16 value) noexcept
 {
 #if ARTS_HAS_BUILTIN(__builtin_bswap16)
-    value = __builtin_bswap16(value);
+    return __builtin_bswap16(value);
 #elif defined(_MSC_VER)
-    value = _byteswap_ushort(value);
+    return _byteswap_ushort(value);
 #else
-    value = (value >> 8) | (value << 8);
+    return (value >> 8) | (value << 8);
 #endif
 }
 
 template <>
-ARTS_FORCEINLINE void ByteSwap<u32>(u32& value) noexcept
+[[nodiscard]] ARTS_FORCEINLINE u32 ByteSwap<u32>(u32 value) noexcept
 {
 #if ARTS_HAS_BUILTIN(__builtin_bswap32)
-    value = __builtin_bswap32(value);
+    return __builtin_bswap32(value);
 #elif defined(_MSC_VER)
-    value = _byteswap_ulong(value);
+    return _byteswap_ulong(value);
 #else
-    value = (value << 24) | ((value & 0x0000FF00) << 8) | ((value & 0x00FF0000) >> 8) | (value >> 24);
+    return (value << 24) | ((value & 0x0000FF00) << 8) | ((value & 0x00FF0000) >> 8) | (value >> 24);
 #endif
 }
 
 template <>
-ARTS_FORCEINLINE void ByteSwap<u64>(u64& value) noexcept
+[[nodiscard]] ARTS_FORCEINLINE u64 ByteSwap<u64>(u64 value) noexcept
 {
 #if ARTS_HAS_BUILTIN(__builtin_bswap64)
-    value = __builtin_bswap64(value);
+    return __builtin_bswap64(value);
 #elif defined(_MSC_VER)
-    value = _byteswap_uint64(value);
+    return _byteswap_uint64(value);
 #else
-    value = (value >> 56) | ((value & 0x00FF000000000000) << 40) | ((value & 0x0000FF0000000000) << 24) |
+    return (value >> 56) | ((value & 0x00FF000000000000) << 40) | ((value & 0x0000FF0000000000) << 24) |
         ((value & 0x000000FF00000000) << 8) | ((value & 0x00000000FF000000) >> 8) |
         ((value & 0x0000000000FF0000) >> 24) | ((value & 0x000000000000FF00) >> 40) | (value << 56);
 #endif
 }
 
 template <>
-ARTS_FORCEINLINE void ByteSwap<f32>(f32& value) noexcept
+[[nodiscard]] ARTS_FORCEINLINE f32 ByteSwap<f32>(f32 value) noexcept
 {
-    u32 uvalue = mem::bit_cast<u32>(value);
-    ByteSwap(uvalue);
-    value = mem::bit_cast<f32>(uvalue);
+    return mem::bit_cast<f32>(ByteSwap(mem::bit_cast<u32>(value)));
 }
 
 template <>
-ARTS_FORCEINLINE void ByteSwap<f64>(f64& value) noexcept
+[[nodiscard]] ARTS_FORCEINLINE f64 ByteSwap<f64>(f64 value) noexcept
 {
-    u64 uvalue = mem::bit_cast<u64>(value);
-    ByteSwap(uvalue);
-    value = mem::bit_cast<f64>(uvalue);
+    return mem::bit_cast<f64>(ByteSwap(mem::bit_cast<u64>(value)));
 }
 
 template <typename... Args>
 ARTS_FORCEINLINE void ByteSwapV(Args&... args) noexcept
 {
-    (ByteSwap<Args>(args), ...);
+    ((args = ByteSwap<Args>(args)), ...);
+}
+
+template <typename T>
+ARTS_FORCEINLINE void ByteSwapN(T* ARTS_RESTRICT values, usize count) noexcept
+{
+    for (usize i = 0; i < count; ++i)
+        values[i] = ByteSwap<T>(values[i]);
 }

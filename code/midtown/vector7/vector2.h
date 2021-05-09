@@ -130,8 +130,8 @@ ARTS_IMPORT extern struct Vector2Type Vector2Inst;
 #endif
 
 template <>
-ARTS_FORCEINLINE void ByteSwap<Vector2>(Vector2& value) noexcept
+ARTS_FORCEINLINE Vector2 ByteSwap<Vector2>(Vector2 value) noexcept
 {
-    ByteSwap(value.x);
-    ByteSwap(value.y);
+    ByteSwapV(value.x, value.y);
+    return value;
 }

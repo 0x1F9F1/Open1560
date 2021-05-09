@@ -327,7 +327,7 @@ ARTS_NOINLINE inline T Stream::Get()
     Read(&value, sizeof(value));
 
     if (swap_endian_)
-        ByteSwap<T>(value);
+        value = ByteSwap<T>(value);
 
     return value;
 }
@@ -339,10 +339,7 @@ ARTS_NOINLINE inline void Stream::GetN(T* values, isize count)
     Read(values, sizeof(T) * count);
 
     if (swap_endian_)
-    {
-        for (i32 i = 0; i < count; ++i)
-            ByteSwap<T>(values[i]);
-    }
+        ByteSwapN(values, count);
 }
 
 template <typename T>

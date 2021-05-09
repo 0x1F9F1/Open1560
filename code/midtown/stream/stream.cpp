@@ -255,7 +255,7 @@ isize Stream::Gets(char* buffer, isize buffer_len)
 isize Stream::Put(f32 value)
 {
     if (swap_endian_)
-        ByteSwap(value);
+        value = ByteSwap(value);
 
     return Write(&value, sizeof(value)) / sizeof(value);
 }
@@ -263,7 +263,7 @@ isize Stream::Put(f32 value)
 isize Stream::Put(u16 value)
 {
     if (swap_endian_)
-        ByteSwap(value);
+        value = ByteSwap(value);
 
     return Write(&value, sizeof(value)) / sizeof(value);
 }
@@ -271,7 +271,7 @@ isize Stream::Put(u16 value)
 isize Stream::Put(u32 value)
 {
     if (swap_endian_)
-        ByteSwap(value);
+        value = ByteSwap(value);
 
     return Write(&value, sizeof(value)) / sizeof(value);
 }
@@ -481,14 +481,12 @@ i32 Stream::GetError(char* buf, isize buf_len)
 
 void Stream::SwapLongs(u32* values, isize count)
 {
-    for (i32 i = 0; i < count; ++i)
-        ByteSwap(values[i]);
+    ByteSwapN(values, count);
 }
 
 void Stream::SwapShorts(u16* values, isize count)
 {
-    for (i32 i = 0; i < count; ++i)
-        ByteSwap(values[i]);
+    ByteSwapN(values, count);
 }
 
 isize arts_fgets(char* buffer, isize buffer_len, class Stream* stream)
