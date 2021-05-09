@@ -226,8 +226,50 @@ const MetaType* CreateMetaType_<char*>()
     return &StringInst;
 }
 
+struct ConstStringType final : MetaType
+{
+public:
+    void Delete(void*, isize) override
+    {
+        // TODO: Implement this?
+    }
+
+    void Load(class MiniParser* parser, void* ptr) override
+    {
+        ConstString& str = *static_cast<ConstString*>(ptr);
+
+        if (parser->NextToken() != MiniParser::LabelRefToken) // TODO: Are all other tokens really valid?
+            str = arts_strdup(parser->GetBuffer());
+        else
+            str = nullptr;
+    }
+
+    void* New(isize count) override
+    {
+        if (count)
+            return new ConstString[count] {};
+        else
+            return new ConstString();
+    }
+
+    void Save(class MiniParser* parser, void* ptr) override
+    {
+        if (ConstString& str = *static_cast<ConstString*>(ptr))
+            parser->PrintString(str.get(), 1024);
+        else
+            parser->Printf("$0");
+    }
+
+    usize SizeOf() override
+    {
+        return sizeof(ConstString);
+    }
+};
+
+static const ConstStringType ConstStringInst;
+
 template <>
 const MetaType* CreateMetaType_<ConstString>()
 {
-    return &StringInst;
+    return &ConstStringInst;
 }

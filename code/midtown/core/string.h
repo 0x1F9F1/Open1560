@@ -46,9 +46,9 @@ class Stream;
 class ConstString
 {
 public:
-    constexpr ConstString() = default;
+    constexpr ConstString() noexcept = default;
 
-    constexpr ConstString(std::nullptr_t)
+    constexpr ConstString(std::nullptr_t) noexcept
         : data_(nullptr)
     {}
 
@@ -118,24 +118,29 @@ public:
         }
     }
 
-    char* get()
+    char* get() noexcept
     {
         return data_;
     }
 
-    const char* get() const
+    const char* get() const noexcept
     {
         return data_;
     }
 
-    char& operator[](usize index)
+    char& operator[](usize index) noexcept
     {
         return data_[index];
     }
 
-    const char& operator[](usize index) const
+    const char& operator[](usize index) const noexcept
     {
         return data_[index];
+    }
+
+    explicit operator bool() const noexcept
+    {
+        return data_ != nullptr;
     }
 
 private:
