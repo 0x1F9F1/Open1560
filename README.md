@@ -3,7 +3,7 @@
 ![Preview](extra/preview.png)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qiyykgn9vb6kk9mj/branch/master?svg=true)](https://ci.appveyor.com/project/0x1F9F1/Open1560/branch/master)
-[![Chat On Discord](https://img.shields.io/discord/239900961731117059?color=7289DA&logo=discord)](https://discord.com/invite/t2zv2w7)
+[![Chat On Discord](https://img.shields.io/discord/239900961731117059?color=7289DA&logo=discord)](https://discord.gg/HHZz27sFEH)
 
 Open1560 is an open source re-implementation of Midtown Madness Sneak Preview Beta / Build 1560.
 
@@ -33,4 +33,4 @@ Current changes include:
     * No, Open1560 uses an OpenGL 3 renderer.
 
 ## Support
-If you are having problems or wish to report a bug, [join the discord](https://discord.com/invite/t2zv2w7) or [create an issue](https://github.com/0x1F9F1/Open1560/issues/new)
+If you are having problems or wish to report a bug, [join the discord](https://discord.gg/HHZz27sFEH) or [create an issue](https://github.com/0x1F9F1/Open1560/issues/new)
