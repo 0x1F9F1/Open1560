@@ -68,7 +68,14 @@
 class Matrix44
 {
 public:
-    inline Matrix44() noexcept = default;
+    constexpr inline Matrix44() noexcept = default;
+
+    constexpr inline Matrix44(Vector4 m0, Vector4 m1, Vector4 m2, Vector4 m3) noexcept
+        : m0(m0)
+        , m1(m1)
+        , m2(m2)
+        , m3(m3)
+    {}
 
     // 0x56E500 | ??0Matrix44@@QAE@ABVMatrix34@@@Z
     ARTS_IMPORT Matrix44(class Matrix34 const& arg1);

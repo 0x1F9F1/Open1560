@@ -178,9 +178,9 @@ RcOwner<class agiTexDef> GetPackedTexture(char* name, i32 variation)
 
     // NOTE: Originally chcked if prop is null, but that isn't possible
 
-    i32 pack_shift = (agiRQ.TextureQuality >= AGI_QUALITY_HIGH)
-        ? prop->High
-        : (agiRQ.TextureQuality >= AGI_QUALITY_MEDIUM) ? prop->Medium : prop->Low;
+    i32 pack_shift = (agiRQ.TextureQuality >= AGI_QUALITY_HIGH) ? prop->High
+        : (agiRQ.TextureQuality >= AGI_QUALITY_MEDIUM)          ? prop->Medium
+                                                                : prop->Low;
 
     lib_tex.field_28 = (prop->Flags & agiTexProp::Snowable) ? 4.0f : 2.0f;
 

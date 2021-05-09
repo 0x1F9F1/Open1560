@@ -36,17 +36,17 @@ f32 mmJoystick::GetAxis(i32 axis)
         case kVaxis: return VAxis.Value;
         case kPOVaxis: return PovAxis.Value;
 
-        case kXaxisLeft: return (std::max)(-XAxis.Value, 0.0f);
-        case kXaxisRight: return (std::max)(+XAxis.Value, 0.0f);
+        case kXaxisLeft: return (std::max) (-XAxis.Value, 0.0f);
+        case kXaxisRight: return (std::max) (+XAxis.Value, 0.0f);
 
-        case kYaxisUp: return (std::max)(-YAxis.Value, 0.0f);
-        case kYaxisDown: return (std::max)(+YAxis.Value, 0.0f);
+        case kYaxisUp: return (std::max) (-YAxis.Value, 0.0f);
+        case kYaxisDown: return (std::max) (+YAxis.Value, 0.0f);
 
-        case kZaxisUp: return (std::max)(-ZAxis.Value, 0.0f);
-        case kZaxisDown: return (std::max)(+ZAxis.Value, 0.0f);
+        case kZaxisUp: return (std::max) (-ZAxis.Value, 0.0f);
+        case kZaxisDown: return (std::max) (+ZAxis.Value, 0.0f);
 
-        case kRaxisUp: return (std::max)(-RAxis.Value, 0.0f);
-        case kRaxisDown: return (std::max)(+RAxis.Value, 0.0f);
+        case kRaxisUp: return (std::max) (-RAxis.Value, 0.0f);
+        case kRaxisDown: return (std::max) (+RAxis.Value, 0.0f);
 
         default: return 0.0f;
     }

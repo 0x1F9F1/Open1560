@@ -241,8 +241,9 @@ i32 agiTexDef::Reload()
     CheckSurface();
 
     agiDisplayf("'%s' is %s texture", Tex.Name,
-        (Tex.Flags & agiTexParameters::Chromakey) ? "chromakey"
-                                                  : (Tex.Flags & agiTexParameters::Alpha) ? "alpha" : "opaque");
+        (Tex.Flags & agiTexParameters::Chromakey)   ? "chromakey"
+            : (Tex.Flags & agiTexParameters::Alpha) ? "alpha"
+                                                    : "opaque");
 
     return AGI_ERROR_SUCCESS;
 }

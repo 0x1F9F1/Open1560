@@ -89,9 +89,9 @@ class Matrix34
 {
 public:
     // 0x478540 | ??0Matrix34@@QAE@XZ | inline
-    inline Matrix34() noexcept = default;
+    constexpr inline Matrix34() noexcept = default;
 
-    constexpr Matrix34(Vector3 m0, Vector3 m1, Vector3 m2, Vector3 m3) noexcept
+    constexpr inline Matrix34(Vector3 m0, Vector3 m1, Vector3 m2, Vector3 m3) noexcept
         : m0(m0)
         , m1(m1)
         , m2(m2)
