@@ -242,21 +242,25 @@ i32 agiGLRasterizer::BeginGfx()
         draw_mode = DrawMode::DrawRangeBase;
     }
 
-    if ((draw_mode != DrawMode::DrawRange) && Pipe()->HasExtension("GL_ARB_sync"))
+    if (Pipe()->IsCoreProfile())
     {
-        if (Pipe()->HasExtension("GL_AMD_pinned_memory"))
+        if ((draw_mode != DrawMode::DrawRange) && Pipe()->HasExtension("GL_ARB_sync"))
         {
-            stream_mode = StreamMode::AmdPinned;
-        }
-        else if (Pipe()->HasExtension("GL_ARB_map_buffer_range"))
-        {
-            stream_mode =
-                Pipe()->HasExtension("GL_ARB_buffer_storage") ? StreamMode::MapCoherent : StreamMode::MapRange;
+            if (Pipe()->HasExtension("GL_AMD_pinned_memory"))
+            {
+                stream_mode = StreamMode::AmdPinned;
+            }
+            else if (Pipe()->HasExtension("GL_ARB_map_buffer_range"))
+            {
+                stream_mode =
+                    Pipe()->HasExtension("GL_ARB_buffer_storage") ? StreamMode::MapCoherent : StreamMode::MapRange;
+            }
         }
     }
-
-    if (Pipe()->HasExtension("GL_ARB_compatibility") || !Pipe()->HasVersion(3, 0))
+    else
+    {
         stream_mode = StreamMode::ClientSide;
+    }
 
     const char* gl_version = (const char*) glGetString(GL_VERSION);
 

@@ -644,10 +644,15 @@ void agiGLPipeline::InitVersioning()
     if (arts_sscanf(gl_version, "%i.%i", &gl_major_version_, &gl_minor_version_) != 2)
         Quitf("Failed to get OpenGL version");
 
+    profile_mask_ = 0;
+
     if (HasVersion(3, 0))
     {
         PFNGLGETINTEGERVPROC arts_glGetIntegerv = (PFNGLGETINTEGERVPROC) GetProcAddress(opengl32_dll, "glGetIntegerv");
         PFNGLGETSTRINGIPROC arts_glGetStringi = (PFNGLGETSTRINGIPROC) wglGetProcAddress("glGetStringi");
+
+        if (HasVersion(3, 2))
+            arts_glGetIntegerv(GL_CONTEXT_PROFILE_MASK, &profile_mask_);
 
         i32 num_extensions = 0;
         arts_glGetIntegerv(GL_NUM_EXTENSIONS, &num_extensions);

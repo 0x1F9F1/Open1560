@@ -82,6 +82,11 @@ public:
         return max_anisotropy_;
     }
 
+    bool IsCoreProfile() const
+    {
+        return profile_mask_ & 0x00000001; // GL_CONTEXT_CORE_PROFILE_BIT
+    }
+
     i32 GetShaderVersion() const
     {
         return shader_version_;
@@ -102,7 +107,7 @@ private:
 
     i32 gl_major_version_ {0};
     i32 gl_minor_version_ {0};
-
+    i32 profile_mask_ {0};
     i32 shader_version_ {0};
 
     u32 fbo_ {0};
