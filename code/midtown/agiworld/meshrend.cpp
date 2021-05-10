@@ -294,6 +294,11 @@ void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 co
 }
 #endif
 
+void agiMeshSet::SetFog(f32 fog, i32 /*arg2*/)
+{
+    FogValue = fog ? (255.0f / fog) : 0.0f;
+}
+
 static extern_var(0x725138, i32, ClippedVertCount);
 static extern_var(0x720EB0, i32, ClippedTriCount);
 static extern_var(0x72D390, CV[2048], ClippedVerts);

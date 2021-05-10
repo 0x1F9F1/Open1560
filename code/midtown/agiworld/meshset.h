@@ -200,10 +200,10 @@ public:
     ARTS_IMPORT void SphereMap(class agiTexDef* arg1, u32 arg2);
 
     // 0x514B50 | ?Unlock@agiMeshSet@@QAEXXZ
-    ARTS_IMPORT void Unlock();
+    ARTS_EXPORT void Unlock();
 
     // 0x514B70 | ?UnlockAndFree@agiMeshSet@@QAEXXZ
-    ARTS_IMPORT void UnlockAndFree();
+    ARTS_EXPORT void UnlockAndFree();
 
     // 0x50EE70 | ?DrawCard@agiMeshSet@@SAXAAVVector3@@MIII@Z | agiworld:meshrend
     ARTS_IMPORT static void DrawCard(class Vector3& arg1, f32 arg2, u32 arg3, u32 arg4, u32 arg5);
@@ -230,7 +230,7 @@ public:
     ARTS_IMPORT static void LocalizeDirection(class Vector3& arg1, class Vector3& arg2);
 
     // 0x5050C0 | ?SetFog@agiMeshSet@@SAXMH@Z | agiworld:meshrend
-    ARTS_IMPORT static void SetFog(f32 arg1, i32 arg2);
+    ARTS_EXPORT static void SetFog(f32 fog, i32 arg2);
 
     // 0x64A730 | ?DefaultQuad@agiMeshSet@@2PAUagiMeshCardVertex@@A | agiworld:meshrend
     ARTS_IMPORT static struct agiMeshCardVertex DefaultQuad[4];

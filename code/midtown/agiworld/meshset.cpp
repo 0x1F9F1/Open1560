@@ -116,6 +116,18 @@ void agiMeshSet::PageIn()
     }
 }
 
+void agiMeshSet::Unlock()
+{
+    if (CacheHandle)
+        CACHE.Unlock(CacheHandle);
+}
+
+void agiMeshSet::UnlockAndFree()
+{
+    if (CacheHandle)
+        CACHE.UnlockAndFree(CacheHandle);
+}
+
 void agiMeshSet::PageInCallback(void* param)
 {
     static_cast<agiMeshSet*>(param)->DoPageIn();
