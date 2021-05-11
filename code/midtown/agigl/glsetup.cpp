@@ -65,7 +65,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
 
     info.Valid = true;
     info.Usable = true;
-    info.Type2 = 3;
+    info.Type2 = dxiRendererType::OpenGL;
     info.Flags = 0;
 
     info.SmoothAlpha = true;

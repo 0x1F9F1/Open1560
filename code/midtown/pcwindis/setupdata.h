@@ -55,7 +55,7 @@ struct dxiRendererInfo_t
 {
     b32 Valid;
     b32 Usable;
-    i32 Type2;
+    dxiRendererType Type2; // Assigned to, but unused
 
     // 0xA6 for Software
     // 0x85 for Hardware
@@ -94,11 +94,6 @@ struct dxiRendererInfo_t
     // 2 | DX6 Hardware
     // 3 | OpenGL
     dxiRendererType Type;
-
-    bool IsSoftware() const
-    {
-        return Type == dxiRendererType::Software;
-    }
 
     bool IsHardware() const
     {

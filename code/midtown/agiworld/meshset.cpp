@@ -57,7 +57,7 @@ void agiMeshSet::ComputePlaneEquations()
 
     Planes = new Vector4[SurfaceCount];
 
-    for (i32 i = 0; i < SurfaceCount; ++i)
+    for (u32 i = 0; i < SurfaceCount; ++i)
     {
         u16* indices = &SurfaceIndices[i * 4];
 
@@ -86,7 +86,7 @@ void agiMeshSet::ComputePlaneEquations()
 
     f32 mag_sqr = 0.0f;
 
-    for (i32 i = 0; i < VertexCount; ++i)
+    for (u32 i = 0; i < VertexCount; ++i)
         mag_sqr = std::max(mag_sqr, Vertices[i].Mag2());
 
     MagnitudeSqr = mag_sqr;
@@ -100,7 +100,7 @@ void agiMeshSet::Offset(Vector3 offset)
     if (Flags & AGI_MESH_SET_OFFSET)
         return;
 
-    for (i32 i = 0; i < VertexCount; ++i)
+    for (u32 i = 0; i < VertexCount; ++i)
         Vertices[i] -= offset;
 
     Flags |= AGI_MESH_SET_OFFSET;

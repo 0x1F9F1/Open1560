@@ -136,7 +136,7 @@
 ARTS_IMPORT u32 EyePlaneOutcode(u8* arg1, u8 arg2, class Vector4& arg3, class Vector3* arg4, i32 arg5);
 
 // 0x504690 | ?SetClipMode@@YAXH@Z | unused
-ARTS_IMPORT void SetClipMode(i32 arg1);
+ARTS_EXPORT void SetClipMode(b32 mask_only_z);
 
 // 0x505E00 | ?begin_invert@@YIXPAVVector4@@@Z | unused
 ARTS_IMPORT void ARTS_FASTCALL begin_invert(class Vector4* arg1);

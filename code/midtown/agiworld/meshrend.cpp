@@ -22,10 +22,12 @@ define_dummy_symbol(agiworld_meshrend);
 
 #include "agi/pipeline.h"
 #include "agi/rsys.h"
+#include "agi/viewport.h"
 #include "agiworld/quality.h"
 #include "data7/b2f.h"
 #include "data7/utimer.h"
 #include "memory/alloca.h"
+#include "pcwindis/setupdata.h"
 #include "vector7/matrix34.h"
 
 f32 agiMeshSet::DepthOffset = 0.5f;
@@ -84,6 +86,20 @@ struct CT
 };
 
 check_size(CT, 0x18);
+
+static extern_var(0x725138, i32, ClippedVertCount);
+static extern_var(0x720EB0, i32, ClippedTriCount);
+static extern_var(0x72D390, CV[2048], ClippedVerts);
+static extern_var(0x71DE98, CT[512], ClippedTris);
+static extern_var(0x719848, CT* [256], ClippedTextures);
+static extern_var(0x719E48, b32, OnlyZClip);
+static extern_var(0x64A6D8, i32, ClipMask);
+
+void SetClipMode(b32 mask_only_z)
+{
+    ClipMask = mask_only_z ? (AGI_MESH_CLIP_NZ | AGI_MESH_CLIP_PZ) : AGI_MESH_CLIP_ANY;
+    OnlyZClip = true;
+}
 
 // 0x506380 | ?ClipNX@@YIXAAUCV@@0@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNX(struct CV& arg1, struct CV& arg2);
@@ -186,8 +202,6 @@ static inline u8 CalculateFog(f32 w, f32 fog)
             (((w_abs - std::abs(output[i].z)) < 0.0f) << ((output[i].z < 0.0f) + 4))); \
     clip_any |= out_codes[i];                                                          \
     clip_all &= out_codes[i];
-
-static extern_var(0x64A6D8, i32, ClipMask);
 
 #ifndef ARTS_ENABLE_KNI
 void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count)
@@ -298,13 +312,6 @@ void agiMeshSet::SetFog(f32 fog, i32 /*arg2*/)
 {
     FogValue = fog ? (255.0f / fog) : 0.0f;
 }
-
-static extern_var(0x725138, i32, ClippedVertCount);
-static extern_var(0x720EB0, i32, ClippedTriCount);
-static extern_var(0x72D390, CV[2048], ClippedVerts);
-static extern_var(0x71DE98, CT[512], ClippedTris);
-static extern_var(0x719848, CT* [256], ClippedTextures);
-static extern_var(0x719E48, b32, OnlyZClip);
 
 // A simple wrapper to avoid default constructing elements
 template <typename T, std::size_t N>
@@ -600,7 +607,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
 
         if (clip_mask)
         {
-            for (i32 i = 0; i < SurfaceCount; ++i)
+            for (u32 i = 0; i < SurfaceCount; ++i)
             {
                 const u16* ARTS_RESTRICT surface = &SurfaceIndices[i * 4];
 
@@ -661,7 +668,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
         }
         else
         {
-            for (i32 i = 0; i < SurfaceCount; ++i)
+            for (u32 i = 0; i < SurfaceCount; ++i)
             {
                 if (!planes || !IsBackfacing(planes[i]))
                 {

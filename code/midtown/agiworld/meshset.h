@@ -72,10 +72,10 @@ using agiMeshLighter = void (*)(u8* codes, u32* output, u32* colors, class agiMe
 
 #define AGI_MESH_CLIP_NX 0x01     // Clip -X
 #define AGI_MESH_CLIP_PX 0x02     // Clip +X
-#define AGI_MESH_CLIP_NZ 0x04     // Clip -Z
-#define AGI_MESH_CLIP_PZ 0x08     // Clip +Z
-#define AGI_MESH_CLIP_NY 0x10     // Clip -Y
-#define AGI_MESH_CLIP_PY 0x20     // Clip +Y
+#define AGI_MESH_CLIP_NY 0x04     // Clip -Y
+#define AGI_MESH_CLIP_PY 0x08     // Clip +Y
+#define AGI_MESH_CLIP_NZ 0x10     // Clip -Z
+#define AGI_MESH_CLIP_PZ 0x20     // Clip +Z
 #define AGI_MESH_CLIP_ANY 0x3F    // Clip *
 #define AGI_MESH_CLIP_SCREEN 0x40 // ToScreen
 
@@ -418,13 +418,14 @@ public:
     f32 Magnitude {0.0f};
     f32 MagnitudeSqr {0.0f};
     f32 BoundingBoxMagnitude {0.0f};
-    i32 VertexCount {0};
-    i32 AdjunctCount {0};
-    i32 SurfaceCount {0};
-    i32 IndicesCount {0};
+    u32 VertexCount {0};
+    u32 AdjunctCount {0};
+    u32 SurfaceCount {0};
+    u32 IndicesCount {0};
     u8 TextureCount {0};
     u8 VariationCount {0};
 
+    // AGI_MESH_SET_*
     u8 Flags {0};
 
     // 0 | Unloaded

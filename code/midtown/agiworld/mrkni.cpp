@@ -86,7 +86,6 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
 
             if (count >= 4)
             {
-                // NOTE: This is undefined behaviour. A safer version would use std::bit_cast/equivalent
                 u32 codes32 = *reinterpret_cast<const u32*>(in_codes);
 
                 if (codes32 == CLIP_SCREEN_32)
