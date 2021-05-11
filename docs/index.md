@@ -2,12 +2,8 @@
 
 1. Download and install the [**Visual C++ 2019 Redistributable**](https://aka.ms/vs/16/release/vc_redist.x86.exe).
 2. Download the [**Latest Version**](https://ci.appveyor.com/api/projects/0x1F9F1/Open1560/artifacts/build/Open1560.zip?branch=master) and extract the files directly into your MM1 directory (retail or beta).
-3. Read **Open1560-README.txt**
+3. Read [**Open1560-README**](./setup.md)
 4. To play, run **Open1560.exe**
-
-# Setup
-
-Go [here](./setup.md) for setup information
 
 # FAQ
 
