@@ -724,8 +724,16 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
         }
         else
         {
-            // Either: we didn't use TransformOutcode, or we don't care about the clipping it returned. Either way, zero out the codes
-            fill_bytes(codes, VertexCount, 0);
+#define CLIP_ALL_TO_SCREEN // ToScreen is cheaper than 9-12 memory accesses
+
+            // Either we didn't use TransformOutcode, or we don't care about the clipping it returned. Either way, initialize codes
+            fill_bytes(codes, VertexCount,
+#ifdef CLIP_ALL_TO_SCREEN
+                AGI_MESH_CLIP_SCREEN
+#else
+                0
+#endif
+            );
 
             for (u32 i = 0; i < SurfaceCount; ++i)
             {
@@ -738,7 +746,10 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                     {
                         vertCounts[texture] += 4;
                         indexCounts[texture] += 6;
+
+#ifndef CLIP_ALL_TO_SCREEN
                         codes[VertexIndices[surface[3]]] |= AGI_MESH_CLIP_SCREEN;
+#endif
                     }
                     else
                     {
@@ -746,9 +757,11 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                         indexCounts[texture] += 3;
                     }
 
+#ifndef CLIP_ALL_TO_SCREEN
                     codes[VertexIndices[surface[0]]] |= AGI_MESH_CLIP_SCREEN;
                     codes[VertexIndices[surface[1]]] |= AGI_MESH_CLIP_SCREEN;
                     codes[VertexIndices[surface[2]]] |= AGI_MESH_CLIP_SCREEN;
+#endif
 
                     nextFacet[i] = firstFacet[texture];
                     firstFacet[texture] = static_cast<i16>(i);
