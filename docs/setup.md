@@ -18,65 +18,65 @@ Open1560 uses command line arguments to configure certain aspects of the game.<b
 For a tutorial on how to use command line arguments, see https://www.bleepingcomputer.com/tutorials/understanding-command-line-arguments-and-how-to-use-them/
 
 ## Examples
-|||
---- | ---
--window    | Sets window to true (1)
--nowindow  | Sets window to false (0)
--msaa 4    | Sets msaa to 4
+| Value      | Description |
+| ---------- | --- |
+| -window    | Sets window to true (1) |
+| -nowindow  | Sets window to false (0) |
+| -msaa 4    | Sets msaa to 4 |
 
 ## Game
-Name       | Value | Description
----        | --- | ---
-allcars    | false | Unlocks All Cars
-allrace    | false | Unlocks All Races
-maxcops    | 3     | Max cops chasing you at once
-nodamage   | false | Disables Damage
+| Name       | Value | Description |
+| ---------- | ----- | --- |
+| allcars    | false | Unlocks All Cars |
+| allrace    | false | Unlocks All Races |
+| maxcops    | 3     | Max cops chasing you at once |
+| nodamage   | false | Disables Damage |
 
 ## Basic
-Name       | Value | Description
----        | ---   | ---
-affinity   | 0     | Sets the process affinity
-afilter    | 16    | Anisotropic filtering level
-border     | true  | Enables a border when in windowed mode
-cdid       | false | Enables CD music in the menu when using a virtual CD
-config     | false | Forces redetection of graphics modes
-console    | false | Enables console logging
-d3d        | false | Use the D3D renderer
-fovfix     | true  | Enables FOV scaling based on resolution
-heapsize   | 64    | The size in MB of the game heap
-legacygl   | false | Uses a legacy OpenGL context (enabled by default on Intel iGPUs)
-maxaspect  |       | Maximum aspect ratio of available resolutions
-maxfps     | 0     | Limits the max fps
-minaspect  |       | Minimum aspect ratio of available resolutions
-msaa       | 0     | Sets the anti-aliasing level (does not work with legacy OpenGL)
-nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl)
-opengl     | true  | Use the OpenGL renderer
-prio       | 2     | Sets the process priority
-scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered
-smoothstep | true  | Smoothes out the time between frames to avoid stutter
-speedrun   | false | Enables speedrunning conditions (currently -nosmoothstep -maxfps=60 -speedycops)
-speedycops | false | Enables the vanilla cop speed boost (fps dependant)
-vsync      | true  | Enables vertical sync
-window     | false | Puts the game in a window
-windowmenu | false | Puts the game in a borderless window when in the menu
+| Name       | Value | Description |
+| ---------- | ----- | --- |
+| affinity   | 0     | Sets the process affinity |
+| afilter    | 16    | Anisotropic filtering level |
+| border     | true  | Enables a border when in windowed mode |
+| cdid       | false | Enables CD music in the menu when using a virtual CD |
+| config     | false | Forces redetection of graphics modes |
+| console    | false | Enables console logging |
+| d3d        | false | Use the D3D renderer |
+| fovfix     | true  | Enables FOV scaling based on resolution |
+| heapsize   | 64    | The size in MB of the game heap |
+| legacygl   | false | Uses a legacy OpenGL context (enabled by default on Intel iGPUs) |
+| maxaspect  |       | Maximum aspect ratio of available resolutions |
+| maxfps     | 0     | Limits the max fps |
+| minaspect  |       | Minimum aspect ratio of available resolutions |
+| msaa       | 0     | Sets the anti-aliasing level (does not work with legacy OpenGL) |
+| nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl) |
+| opengl     | true  | Use the OpenGL renderer |
+| prio       | 2     | Sets the process priority |
+| scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered |
+| smoothstep | true  | Smoothes out the time between frames to avoid stutter |
+| speedrun   | false | Enables speedrunning conditions (currently -nosmoothstep -maxfps=60 -speedycops) |
+| speedycops | false | Enables the vanilla cop speed boost (fps dependant) |
+| vsync      | true  | Enables vertical sync |
+| window     | false | Puts the game in a window |
+| windowmenu | false | Puts the game in a borderless window when in the menu |
 
 ## Advanced
-Name        | Value | Description
----         | ---   | ---
-agiverbose  | false | Enables AGI (graphics) logging
-cleandir    | true  | Deletes various debug files from the games directory
-fontscale   |       | Sets the debug font scale
-gldebug     | -1    | Sets the OpenGL debug output level
-gllinewidth |       | Sets the width of lines (sparks)
-glstream    |       | Sets the mode for streaming data to the GPU
-sync        | true  | Disables multi-threading
-thinfont    | true  | Makes the debug font slightly thinner
+| Name        | Value | Description |
+| ----------- | ----- | --- |
+| agiverbose  | false | Enables AGI (graphics) logging |
+| cleandir    | true  | Deletes various debug files from the games directory |
+| fontscale   |       | Sets the debug font scale |
+| gldebug     | -1    | Sets the OpenGL debug output level |
+| gllinewidth |       | Sets the width of lines (sparks) |
+| glstream    |       | Sets the mode for streaming data to the GPU |
+| sync        | true  | Disables multi-threading |
+| thinfont    | true  | Makes the debug font slightly thinner |
 
 ## DirectDraw
-Name       | Value | Description
----        | ---   | ---
-reshack    | true  | Enables resolutions above 2048x2048 when using MS ddraw
-voodooaa   | false | Fixes text rendering when using dgVodooo's anti aliasing
+| Name       | Value | Description |
+| ---------- | ---   | --- |
+| reshack    | true  | Enables resolutions above 2048x2048 when using MS ddraw |
+| voodooaa   | false | Fixes text rendering when using dgVodooo's anti aliasing |
 
 # Dev/Debug Functions
 Beta 1560 contains many debug functions/hotkeys. To enter debug mode, press CTRL+ALT+SHIFT+F4.
