@@ -4,6 +4,9 @@
 3. Read **Open1560-README.txt**
 4. To play, run **Open1560.exe**
 
+## Setup
+Go [here](./setup.md) for setup information
+
 ## FAQ
 * Do I need to install the XP patch?
     * No, Open1560 works with or without the XP patch.
