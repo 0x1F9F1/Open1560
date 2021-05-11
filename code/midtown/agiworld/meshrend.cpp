@@ -79,16 +79,16 @@ check_size(CV, 0x20);
 
 struct CT
 {
-    i32 Index;
-    i32 Count;
-    i32 Tri[3];
+    u32 Index;
+    u32 Count;
+    u32 Tri[3];
     CT* Next;
 };
 
 check_size(CT, 0x18);
 
-static extern_var(0x725138, i32, ClippedVertCount);
-static extern_var(0x720EB0, i32, ClippedTriCount);
+static extern_var(0x725138, u32, ClippedVertCount);
+static extern_var(0x720EB0, u32, ClippedTriCount);
 static extern_var(0x72D390, CV[2048], ClippedVerts);
 static extern_var(0x71DE98, CT[512], ClippedTris);
 static extern_var(0x719848, CT* [256], ClippedTextures);
@@ -337,7 +337,7 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
 {
     ARTS_UTIMED(agiClipTimer);
 
-    if (ClippedVertCount > 2032 || ClippedTriCount == 512)
+    if ((ClippedVertCount + 16) > ARTS_SIZE(ClippedVerts) || ClippedTriCount == ARTS_SIZE(ClippedTris))
         Quitf("ClipTri: clip buffer overflow");
 
     PodArray<CV, 16> verts;
@@ -346,12 +346,12 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
     verts[1] = {out[VertexIndices[i2]], {0.0f, 1.0f, 0.0f}};
     verts[2] = {out[VertexIndices[i3]], {0.0f, 0.0f, 1.0f}};
 
-    i32 count = OnlyZClip ? ZClipOnly(&ClippedVerts[ClippedVertCount], verts, 3)
+    u32 count = OnlyZClip ? ZClipOnly(&ClippedVerts[ClippedVertCount], verts, 3)
                           : FullClip(&ClippedVerts[ClippedVertCount], verts, 3);
 
     if (count)
     {
-        for (i32 i = 0; i < count; ++i)
+        for (u32 i = 0; i < count; ++i)
         {
             CV* vert = &ClippedVerts[ClippedVertCount + i];
 
@@ -369,11 +369,66 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
             ClampToScreen(&vert->Pos);
         }
 
-        ClippedTris[ClippedTriCount] = {ClippedVertCount, count, {i1, i2, i3}, ClippedTextures[texture]};
+        ClippedTris[ClippedTriCount] = {ClippedVertCount, count,
+            {static_cast<u32>(i1), static_cast<u32>(i2), static_cast<u32>(i3)}, ClippedTextures[texture]};
         ClippedTextures[texture] = &ClippedTris[ClippedTriCount];
         ++ClippedTriCount;
         ClippedVertCount += count;
     }
+}
+
+void agiMeshSet::InitViewport(agiViewParameters& params)
+{
+    f32 width = static_cast<f32>(Pipe()->GetWidth());
+    f32 height = static_cast<f32>(Pipe()->GetHeight());
+
+    HalfWidth = std::floor(width * params.Width * 0.5f);
+    HalfHeight = -std::floor(height * params.Height * 0.5f);
+
+    OffsX = width * params.X + HalfWidth;
+    OffsY = height * (1.0f - params.Y) + HalfHeight;
+
+    if (GetRendererInfo().SpecialFlags & 0x8)
+        HalfHeight *= 1.01f;
+
+    MinX = OffsX - HalfWidth;
+    MaxX = OffsX + HalfWidth;
+    MinY = OffsY + HalfHeight;
+    MaxY = OffsY - HalfHeight;
+
+    if (GetRendererInfo().SpecialFlags & 0x20)
+    {
+        // TODO: Use viewport scissor region
+        // TODO: Allow custom [Min/Max]Z
+        if (MinX <= 0.0f && MaxX >= width && MinY <= 0.0f && MaxY >= height)
+        {
+            MinX = -INFINITY;
+            MaxX = +INFINITY;
+            MinY = -INFINITY;
+            MaxY = +INFINITY;
+            SetClipMode(false);
+        }
+        else
+        {
+            ClipMask = AGI_MESH_CLIP_ANY;
+            OnlyZClip = false;
+        }
+    }
+    else
+    {
+        MinX = std::max(MinX, std::floor(params.X * width));
+        MaxX = std::min(MaxX, std::ceil((params.X + params.Width) * width));
+        MinY = std::max(MinY, std::floor((1.0f - (params.Y + params.Height)) * height));
+        MaxY = std::min(MaxY, std::ceil((1.0f - params.Y) * height));
+
+        MinX = std::max(MinX, 0.0f);
+        MaxX = std::min(MaxX, width);
+        MinY = std::max(MinY, 0.0f);
+        MaxY = std::min(MaxY, height);
+    }
+
+    if (FlipX)
+        HalfWidth = -HalfWidth;
 }
 
 b32 agiMeshSet::Draw(u32 flags)

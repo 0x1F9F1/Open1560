@@ -74,6 +74,7 @@ struct dxiRendererInfo_t
     // 0x4 | NoColorKey
     // 0x8 | agiMeshSet::HalfHeight *= 1.01
     // 0x10 | ShadowZBias = 0.001 (1588+)
+    // 0x20 | Hardware Clipping (Open1560+)
     u32 SpecialFlags;
     char Name[64];
 

@@ -279,7 +279,7 @@ protected:
     ARTS_IMPORT static void ARTS_FASTCALL InitMtx(class agiViewParameters& arg1, i32 arg2);
 
     // 0x504EB0 | ?InitViewport@agiMeshSet@@KIXAAVagiViewParameters@@@Z | agiworld:meshrend
-    ARTS_IMPORT static void ARTS_FASTCALL InitViewport(class agiViewParameters& arg1);
+    ARTS_EXPORT static void ARTS_FASTCALL InitViewport(class agiViewParameters& params);
 
     // 0x504C80 | ?ShadowInit@agiMeshSet@@KIXABVVector4@@ABVVector3@@@Z | agiworld:meshrend
     ARTS_IMPORT static void ARTS_FASTCALL ShadowInit(class Vector4 const& arg1, class Vector3 const& arg2);

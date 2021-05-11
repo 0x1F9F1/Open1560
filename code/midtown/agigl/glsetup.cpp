@@ -74,7 +74,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     info.MultiTexture = true;
     info.TexturePalette = true;
     info.HaveMipmaps = true;
-    info.SpecialFlags = 0;
+    info.SpecialFlags = 0x20;
 
     GetMonitorName(info.Name, ARTS_SIZE(info.Name), iMonitor.szDevice);
     arts_strcpy(info.Device, iMonitor.szDevice);
