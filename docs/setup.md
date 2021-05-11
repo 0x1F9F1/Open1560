@@ -1,4 +1,5 @@
 # Setup
+
 In most cases, Open1560 should run optimally straight away.
 You do not need to install the XP patch, or use dgVoodoo.
 However, there are certain things you may wish to change:
@@ -10,14 +11,17 @@ However, there are certain things you may wish to change:
 * If running through wine, download [wine1560.sh](https://raw.githubusercontent.com/0x1F9F1/Open1560/master/extra/wine1560.sh), or manually set the WINEDLLOVERRIDES to prefer native dinput
 
 # Common Issues
+
 * The application was unable to start correctly (0xc0000022)
     * Activate DirectPlay
 
 # Command Line Arguments
+
 Open1560 uses command line arguments to configure certain aspects of the game.<br/>
 For a tutorial on how to use command line arguments, see https://www.bleepingcomputer.com/tutorials/understanding-command-line-arguments-and-how-to-use-them/
 
 ## Examples
+
 | Value      | Description |
 | ---------- | --- |
 | -window    | Sets window to true (1) |
@@ -25,6 +29,7 @@ For a tutorial on how to use command line arguments, see https://www.bleepingcom
 | -msaa 4    | Sets msaa to 4 |
 
 ## Game
+
 | Name       | Value | Description |
 | ---------- | ----- | --- |
 | allcars    | false | Unlocks All Cars |
@@ -33,6 +38,7 @@ For a tutorial on how to use command line arguments, see https://www.bleepingcom
 | nodamage   | false | Disables Damage |
 
 ## Basic
+
 | Name       | Value | Description |
 | ---------- | ----- | --- |
 | affinity   | 0     | Sets the process affinity |
@@ -61,6 +67,7 @@ For a tutorial on how to use command line arguments, see https://www.bleepingcom
 | windowmenu | false | Puts the game in a borderless window when in the menu |
 
 ## Advanced
+
 | Name        | Value | Description |
 | ----------- | ----- | --- |
 | agiverbose  | false | Enables AGI (graphics) logging |
@@ -73,11 +80,13 @@ For a tutorial on how to use command line arguments, see https://www.bleepingcom
 | thinfont    | true  | Makes the debug font slightly thinner |
 
 ## DirectDraw
+
 | Name       | Value | Description |
 | ---------- | ---   | --- |
 | reshack    | true  | Enables resolutions above 2048x2048 when using MS ddraw |
 | voodooaa   | false | Fixes text rendering when using dgVodooo's anti aliasing |
 
 # Dev/Debug Functions
+
 Beta 1560 contains many debug functions/hotkeys. To enter debug mode, press CTRL+ALT+SHIFT+F4.
 For a list of hotkeys, see https://github.com/0x1F9F1/Open1560/blob/master/extra/keys.txt

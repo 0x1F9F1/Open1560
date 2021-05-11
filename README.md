@@ -12,6 +12,7 @@ This project is a bottom-up rewrite of Midtown Madness 1, using the original bin
 The intention is to allow the fixing of bugs, implementation of new features and porting to platforms unsupported by the original.<br/>
 
 ## Changes
+
 Current changes include:
 * OpenGL Renderer
 * Audio Fixes
