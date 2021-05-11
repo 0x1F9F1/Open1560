@@ -93,7 +93,7 @@ static extern_var(0x72D390, CV[2048], ClippedVerts);
 static extern_var(0x71DE98, CT[512], ClippedTris);
 static extern_var(0x719848, CT* [256], ClippedTextures);
 static extern_var(0x719E48, b32, OnlyZClip);
-static extern_var(0x64A6D8, i32, ClipMask);
+static extern_var(0x64A6D8, u32, ClipMask);
 
 void SetClipMode(b32 mask_only_z)
 {
@@ -196,12 +196,13 @@ static inline u8 CalculateFog(f32 w, f32 fog)
 
 #define ARTS_TRANSFORM_CODE                                                            \
     f32 w_abs = std::abs(output[i].w);                                                 \
-    out_codes[i] = ClipMask &                                                          \
+    u8 = ClipMask &                                                                    \
         ((((w_abs - std::abs(output[i].x)) < 0.0f) << ((output[i].x < 0.0f) + 0)) |    \
             (((w_abs - std::abs(output[i].y)) < 0.0f) << ((output[i].y < 0.0f) + 2)) | \
             (((w_abs - std::abs(output[i].z)) < 0.0f) << ((output[i].z < 0.0f) + 4))); \
-    clip_any |= out_codes[i];                                                          \
-    clip_all &= out_codes[i];
+    clip_any |= clip_code;                                                             \
+    clip_all &= clip_code;                                                             \
+    out_codes[i] = clip_code & ClipMask;
 
 #ifndef ARTS_ENABLE_KNI
 void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count)
@@ -406,12 +407,13 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
             MaxX = +INFINITY;
             MinY = -INFINITY;
             MaxY = +INFINITY;
-            SetClipMode(false);
+            OnlyZClip = true;
+            ClipMask = AGI_MESH_CLIP_NZ | AGI_MESH_CLIP_PZ;
         }
         else
         {
-            ClipMask = AGI_MESH_CLIP_ANY;
             OnlyZClip = false;
+            ClipMask = AGI_MESH_CLIP_ANY;
         }
     }
     else
@@ -636,7 +638,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                 return clip_mask;
         }
 
-        if (clip_mask)
+        if (clip_mask & ClipMask)
         {
             clip_mask = TransformOutcode(codes, out, verts, VertexCount);
 
@@ -646,7 +648,6 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
         else // Assume nothing needs clipping
         {
             Transform(out, verts, VertexCount);
-            fill_bytes(codes, VertexCount, 0);
         }
     }
 
@@ -660,7 +661,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
         DynTexFlag = flags & AGI_MESH_DRAW_DYNTEX;
         CurrentMeshSetVariant = std::min<i32>(flags >> AGI_MESH_DRAW_VARIANT_SHIFT, VariationCount - 1);
 
-        if (clip_mask)
+        if (clip_mask & ClipMask)
         {
             for (u32 i = 0; i < SurfaceCount; ++i)
             {
@@ -723,6 +724,9 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
         }
         else
         {
+            // Either: we didn't use TransformOutcode, or we don't care about the clipping it returned. Either way, zero out the codes
+            fill_bytes(codes, VertexCount, 0);
+
             for (u32 i = 0; i < SurfaceCount; ++i)
             {
                 if (!planes || !IsBackfacing(planes[i]))

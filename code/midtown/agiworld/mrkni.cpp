@@ -230,11 +230,12 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
     u8 is_clip = _mm_movemask_ps(_mm_sub_ps(                                                                     \
                      _mm_shuffle_ps(output_abs_128, output_abs_128, _MM_SHUFFLE(3, 3, 3, 3)), output_abs_128)) & \
         0x7;                                                                                                     \
-    out_codes[i] = ClipMask & CodesLookup[(is_neg << 3) + is_clip];                                              \
-    clip_any |= out_codes[i];                                                                                    \
-    clip_all &= out_codes[i];
+    u8 clip_code = CodesLookup[(is_neg << 3) + is_clip];                                                         \
+    clip_any |= clip_code;                                                                                       \
+    clip_all &= clip_code;                                                                                       \
+    out_codes[i] = clip_code & ClipMask;
 
-static extern_var(0x64A6D8, i32, ClipMask);
+static extern_var(0x64A6D8, u32, ClipMask);
 
 void agiMeshSet::Transform(class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count)
 {
