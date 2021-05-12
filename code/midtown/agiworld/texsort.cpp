@@ -97,6 +97,41 @@ void agiTexSorter::AddWidgets(Bank* bank)
     bank->AddSlider("MaxIndicesPerSet", &MaxIndicesPerSet, 8, IdxSize, 4.0f, NullCallback);
 }
 
+static extern_var(0x719748, agiPolySet*, ColoredPolySet);
+
+void agiTexSorter::Cull(b32 alpha)
+{
+    for (i32 i = 0; i < OpaqueSetCount; ++i)
+    {
+        DoTexture(OpaquePolySets[i]);
+
+        if (OpaquePolySets[i]->Textures[0])
+            OpaquePolySets[i]->Textures[0]->PolySet = nullptr;
+        else
+            ColoredPolySet = nullptr;
+    }
+
+    OpaqueSetCount = 0;
+
+    if (alpha)
+    {
+        if (EnvPolySet.Textures[0])
+        {
+            DoTexture(&EnvPolySet);
+            EnvPolySet.Textures[0]->PolySet = 0;
+            EnvPolySet.Textures[0] = 0;
+        }
+
+        for (i32 i = 0; i < AlphaSetCount; ++i)
+        {
+            DoTexture(AlphaPolySets[i]);
+            AlphaPolySets[i]->Textures[0]->PolySet = 0;
+        }
+
+        AlphaSetCount = 0;
+    }
+}
+
 agiPolySet::agiPolySet(i32 verts, i32 indices)
 {
     Init(verts, indices);

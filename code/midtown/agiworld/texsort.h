@@ -72,7 +72,7 @@ public:
     ARTS_EXPORT void AddWidgets(class Bank* bank);
 
     // 0x504090 | ?Cull@agiTexSorter@@QAEXH@Z
-    ARTS_IMPORT void Cull(i32 arg1);
+    ARTS_EXPORT void Cull(b32 alpha);
 
     // 0x503B20 | ?BeginVerts@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
     ARTS_IMPORT static class agiPolySet* BeginVerts(class agiTexDef* arg1, i32 arg2, i32 arg3);
