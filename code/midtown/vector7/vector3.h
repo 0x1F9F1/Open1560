@@ -268,6 +268,16 @@ public:
         return (x * other.x) + (y * other.y) + (z * other.z);
     }
 
+    constexpr inline bool operator==(const Vector3& other) const noexcept
+    {
+        return (x == other.x) && (y == other.y) && (z == other.z);
+    }
+
+    constexpr inline bool operator!=(const Vector3& other) const noexcept
+    {
+        return (x != other.x) || (y != other.y) || (z != other.z);
+    }
+
     operator Vector4() const;
 
     f32 x {};

@@ -68,6 +68,16 @@ public:
     // 0x5711E0 | ?Mag@Vector2@@QBEMXZ
     ARTS_IMPORT f32 Mag() const;
 
+    constexpr inline bool operator==(const Vector2& other) const noexcept
+    {
+        return (x == other.x) && (y == other.y);
+    }
+
+    constexpr inline bool operator!=(const Vector2& other) const noexcept
+    {
+        return (x != other.x) || (y != other.y);
+    }
+
     f32 x {};
     f32 y {};
 };
