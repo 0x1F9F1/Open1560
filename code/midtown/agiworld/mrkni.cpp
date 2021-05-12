@@ -235,7 +235,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
     clip_all &= clip_code;                                                                                       \
     out_codes[i] = clip_code & ClipMask;
 
-static extern_var(0x64A6D8, u32, ClipMask);
+extern u32 ClipMask;
 
 void agiMeshSet::Transform(class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count)
 {

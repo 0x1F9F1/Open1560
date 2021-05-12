@@ -29,6 +29,7 @@ define_dummy_symbol(agiworld_meshrend);
 #include "memory/alloca.h"
 #include "pcwindis/setupdata.h"
 #include "vector7/matrix34.h"
+#include "vector7/matrix44.h"
 
 f32 agiMeshSet::DepthOffset = 0.5f;
 f32 agiMeshSet::DepthScale = 0.5f;
@@ -87,13 +88,15 @@ struct CT
 
 check_size(CT, 0x18);
 
-static extern_var(0x725138, u32, ClippedVertCount);
-static extern_var(0x720EB0, u32, ClippedTriCount);
+static u32 ClippedVertCount = 0;
+static u32 ClippedTriCount = 0;
 static extern_var(0x72D390, CV[2048], ClippedVerts);
 static extern_var(0x71DE98, CT[512], ClippedTris);
 static extern_var(0x719848, CT* [256], ClippedTextures);
-static extern_var(0x719E48, b32, OnlyZClip);
-static extern_var(0x64A6D8, u32, ClipMask);
+static bool OnlyZClip = false;
+static extern_var(0x7210E8, Matrix44, ShadowMatrix);
+
+u32 ClipMask = AGI_MESH_CLIP_ANY;
 
 void SetClipMode(b32 mask_only_z)
 {
@@ -181,12 +184,6 @@ ARTS_EXPORT /*static*/ i32 ZClipOnly(struct CV* ARTS_RESTRICT output, struct CV*
     return count;
 }
 
-#define ARTS_TRANSFORM_DOT                                                                  \
-    output[i].x = M.m0.x * input[i].x + M.m1.x * input[i].y + M.m2.x * input[i].z + M.m3.x; \
-    output[i].y = M.m0.y * input[i].x + M.m1.y * input[i].y + M.m2.y * input[i].z + M.m3.y; \
-    output[i].w = M.m0.z * input[i].x + M.m1.z * input[i].y + M.m2.z * input[i].z + M.m3.z; \
-    output[i].z = output[i].w * ProjZZ + ProjZW
-
 static inline u8 CalculateFog(f32 w, f32 fog)
 {
     return ~FloatToByte(std::min<f32>(w * fog, 255.0f));
@@ -196,7 +193,7 @@ static inline u8 CalculateFog(f32 w, f32 fog)
 
 #define ARTS_TRANSFORM_CODE                                                            \
     f32 w_abs = std::abs(output[i].w);                                                 \
-    u8 = ClipMask &                                                                    \
+    u8 clip_code = ClipMask &                                                          \
         ((((w_abs - std::abs(output[i].x)) < 0.0f) << ((output[i].x < 0.0f) + 0)) |    \
             (((w_abs - std::abs(output[i].y)) < 0.0f) << ((output[i].y < 0.0f) + 2)) | \
             (((w_abs - std::abs(output[i].z)) < 0.0f) << ((output[i].z < 0.0f) + 4))); \
@@ -226,6 +223,12 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
         ClampToScreen(vert);
     }
 }
+
+#    define ARTS_TRANSFORM_DOT                                                                  \
+        output[i].x = M.m0.x * input[i].x + M.m1.x * input[i].y + M.m2.x * input[i].z + M.m3.x; \
+        output[i].y = M.m0.y * input[i].x + M.m1.y * input[i].y + M.m2.y * input[i].z + M.m3.y; \
+        output[i].w = M.m0.z * input[i].x + M.m1.z * input[i].y + M.m2.z * input[i].z + M.m3.z; \
+        output[i].z = output[i].w * ProjZZ + ProjZW
 
 void agiMeshSet::Transform(class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count)
 {
@@ -308,6 +311,67 @@ void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 co
     }
 }
 #endif
+
+#define ARTS_SHADOW_TRANSFORM_DOT                                                                                    \
+    output[i].x = ShadowMatrix.m0.x * input[i].x + ShadowMatrix.m1.x * input[i].y + ShadowMatrix.m2.x * input[i].z + \
+        ShadowMatrix.m3.x;                                                                                           \
+    output[i].y = ShadowMatrix.m0.y * input[i].x + ShadowMatrix.m1.y * input[i].y + ShadowMatrix.m2.y * input[i].z + \
+        ShadowMatrix.m3.y;                                                                                           \
+    output[i].z = ShadowMatrix.m0.z * input[i].x + ShadowMatrix.m1.z * input[i].y + ShadowMatrix.m2.z * input[i].z + \
+        ShadowMatrix.m3.z;                                                                                           \
+    output[i].w = ShadowMatrix.m0.w * input[i].x + ShadowMatrix.m1.w * input[i].y + ShadowMatrix.m2.w * input[i].z + \
+        ShadowMatrix.m3.w;
+
+void agiMeshSet::ShadowTransform(Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count)
+{
+    STATS.VertsXfrm += count;
+
+    if (FogValue == 0.0f)
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            ARTS_SHADOW_TRANSFORM_DOT;
+        }
+    }
+    else
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            ARTS_SHADOW_TRANSFORM_DOT;
+            ARTS_TRANSFORM_FOG;
+        }
+    }
+}
+
+u32 agiMeshSet::ShadowTransformOutcode(
+    u8* ARTS_RESTRICT out_codes, Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count)
+{
+    STATS.VertsOut += count;
+    STATS.VertsXfrm += count;
+
+    u8 clip_any = 0;
+    u8 clip_all = 0xFF;
+
+    if (FogValue == 0.0f)
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            ARTS_SHADOW_TRANSFORM_DOT;
+            ARTS_TRANSFORM_CODE;
+        }
+    }
+    else
+    {
+        for (i32 i = 0; i < count; ++i)
+        {
+            ARTS_SHADOW_TRANSFORM_DOT;
+            ARTS_TRANSFORM_FOG;
+            ARTS_TRANSFORM_CODE;
+        }
+    }
+
+    return clip_any | (clip_all << 8);
+}
 
 void agiMeshSet::SetFog(f32 fog, i32 /*arg2*/)
 {
@@ -614,6 +678,8 @@ static inline void fill_bytes(T* dst, usize len, u8 value)
     std::memset(dst, value, len * sizeof(T));
 }
 
+#define CLIP_ALL_TO_SCREEN // ToScreen is cheaper than 9-12 memory accesses
+
 i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
 {
     ArAssert(Resident == 2, "Mesh not loaded");
@@ -724,8 +790,6 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
         }
         else
         {
-#define CLIP_ALL_TO_SCREEN // ToScreen is cheaper than 9-12 memory accesses
-
             // Either we didn't use TransformOutcode, or we don't care about the clipping it returned. Either way, initialize codes
             fill_bytes(codes, VertexCount,
 #ifdef CLIP_ALL_TO_SCREEN
@@ -766,6 +830,153 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                     nextFacet[i] = firstFacet[texture];
                     firstFacet[texture] = static_cast<i16>(i);
                 }
+            }
+        }
+    }
+
+    ToScreen(codes, out, VertexCount);
+
+    return clip_mask;
+}
+
+i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface_dir, Vector3 const& light_dir)
+{
+    ClippedVertCount = 0;
+    ClippedTriCount = 0;
+    ClippedTextures[0] = 0;
+    ShadowInit(surface_dir, light_dir);
+
+    u32 clip_mask = (flags & AGI_MESH_DRAW_CLIP) ? AGI_MESH_CLIP_ANY : 0; // clip_any | (clip_all << 8)
+
+    {
+        ARTS_UTIMED(agiTransformTimer);
+
+        // If available, transform the bounding box, checking how visible it is
+        if (clip_mask && BoundingBox)
+        {
+            clip_mask = ShadowTransformOutcode(codes, out, BoundingBox, 8);
+
+            if (clip_mask > 0xFF) // All verts are clipped (not visible)
+                return clip_mask;
+        }
+
+        if (clip_mask & ClipMask)
+        {
+            clip_mask = ShadowTransformOutcode(codes, out, verts, VertexCount);
+
+            if (clip_mask > 0xFF) // All verts are clipped (not visible)
+                return clip_mask;
+        }
+        else // Assume nothing needs clipping
+        {
+            ShadowTransform(out, verts, VertexCount);
+        }
+    }
+
+    {
+        ARTS_UTIMED(agiTraverseTimer);
+
+        firstFacet[0] = -1;
+        vertCounts[0] = 0;
+        indexCounts[0] = 0;
+
+        if (clip_mask & ClipMask)
+        {
+            for (u32 i = 0; i < SurfaceCount; ++i)
+            {
+                const u16* ARTS_RESTRICT surface = &SurfaceIndices[i * 4];
+
+                u8 clip_any = codes[VertexIndices[surface[0]]] | codes[VertexIndices[surface[1]]] |
+                    codes[VertexIndices[surface[2]]];
+
+                u8 clip_all = codes[VertexIndices[surface[0]]] & codes[VertexIndices[surface[1]]] &
+                    codes[VertexIndices[surface[2]]];
+
+                i16 num_verts;
+                i16 num_index;
+
+                if (surface[3])
+                {
+                    clip_any |= codes[VertexIndices[surface[3]]];
+                    clip_all &= codes[VertexIndices[surface[3]]];
+                    num_verts = 4;
+                    num_index = 6;
+                }
+                else
+                {
+                    num_verts = 3;
+                    num_index = 3;
+                }
+
+                if (!(clip_all & AGI_MESH_CLIP_ANY))
+                {
+                    if (clip_any & AGI_MESH_CLIP_ANY)
+                    {
+                        if (surface[3])
+                        {
+                            ClipTri(surface[1], surface[2], surface[3], 0);
+                            ClipTri(surface[1], surface[3], surface[0], 0);
+                        }
+                        else
+                        {
+                            ClipTri(surface[0], surface[1], surface[2], 0);
+                        }
+                    }
+                    else
+                    {
+                        vertCounts[0] += num_verts;
+                        indexCounts[0] += num_index;
+                        nextFacet[i] = firstFacet[0];
+                        firstFacet[0] = static_cast<i16>(i);
+                    }
+
+                    codes[VertexIndices[surface[0]]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[VertexIndices[surface[1]]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[VertexIndices[surface[2]]] |= AGI_MESH_CLIP_SCREEN;
+
+                    if (surface[3])
+                        codes[VertexIndices[surface[3]]] |= AGI_MESH_CLIP_SCREEN;
+                }
+            }
+        }
+        else
+        {
+            // Either we didn't use TransformOutcode, or we don't care about the clipping it returned. Either way, initialize codes
+            fill_bytes(codes, VertexCount,
+#ifdef CLIP_ALL_TO_SCREEN
+                AGI_MESH_CLIP_SCREEN
+#else
+                0
+#endif
+            );
+
+            for (u32 i = 0; i < SurfaceCount; ++i)
+            {
+                const u16* ARTS_RESTRICT surface = &SurfaceIndices[i * 4];
+
+                if (surface[3])
+                {
+                    vertCounts[0] += 4;
+                    indexCounts[0] += 6;
+
+#ifndef CLIP_ALL_TO_SCREEN
+                    codes[VertexIndices[surface[3]]] |= AGI_MESH_CLIP_SCREEN;
+#endif
+                }
+                else
+                {
+                    vertCounts[0] += 3;
+                    indexCounts[0] += 3;
+                }
+
+#ifndef CLIP_ALL_TO_SCREEN
+                codes[VertexIndices[surface[0]]] |= AGI_MESH_CLIP_SCREEN;
+                codes[VertexIndices[surface[1]]] |= AGI_MESH_CLIP_SCREEN;
+                codes[VertexIndices[surface[2]]] |= AGI_MESH_CLIP_SCREEN;
+#endif
+
+                nextFacet[i] = firstFacet[0];
+                firstFacet[0] = static_cast<i16>(i);
             }
         }
     }

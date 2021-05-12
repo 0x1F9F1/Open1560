@@ -194,7 +194,8 @@ public:
     ARTS_EXPORT void PageIn();
 
     // 0x507920 | ?ShadowGeometry@agiMeshSet@@QAEHIPAVVector3@@ABVVector4@@ABV2@@Z | agiworld:meshrend
-    ARTS_IMPORT i32 ShadowGeometry(u32 arg1, class Vector3* arg2, class Vector4 const& arg3, class Vector3 const& arg4);
+    ARTS_EXPORT i32 ShadowGeometry(
+        u32 flags, class Vector3* verts, class Vector4 const& surface_dir, class Vector3 const& light_dir);
 
     // 0x50E1D0 | ?SphereMap@agiMeshSet@@QAEXPAVagiTexDef@@I@Z | agiworld:meshrend
     ARTS_IMPORT void SphereMap(class agiTexDef* arg1, u32 arg2);
@@ -285,11 +286,12 @@ protected:
     ARTS_IMPORT static void ARTS_FASTCALL ShadowInit(class Vector4 const& arg1, class Vector3 const& arg2);
 
     // 0x505360 | ?ShadowTransform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    ARTS_IMPORT static void ARTS_FASTCALL ShadowTransform(class Vector4* arg1, class Vector3* arg2, i32 arg3);
+    ARTS_EXPORT static void ARTS_FASTCALL ShadowTransform(
+        class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count);
 
     // 0x505A30 | ?ShadowTransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    ARTS_IMPORT static u32 ARTS_FASTCALL ShadowTransformOutcode(
-        u8* arg1, class Vector4* arg2, class Vector3* arg3, i32 arg4);
+    ARTS_EXPORT static u32 ARTS_FASTCALL ShadowTransformOutcode(u8* ARTS_RESTRICT out_codes,
+        class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count);
 
     // 0x516620 | ?ToScreen@agiMeshSet@@KIXPAEPAVVector4@@H@Z | agiworld:mrkni
     ARTS_EXPORT static void ARTS_FASTCALL ToScreen(

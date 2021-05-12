@@ -48,6 +48,8 @@ static void GetMonitorName(char* buffer, usize buflen, const char* szDevice)
 static mem::cmd_param PARAM_min_aspect {"minaspect"};
 static mem::cmd_param PARAM_max_aspect {"maxaspect"};
 
+static const u32 SpecialFlags_GL = 0x20;
+
 static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
     [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
 {
@@ -74,7 +76,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     info.MultiTexture = true;
     info.TexturePalette = true;
     info.HaveMipmaps = true;
-    info.SpecialFlags = 0x20;
+    info.SpecialFlags = SpecialFlags_GL;
 
     GetMonitorName(info.Name, ARTS_SIZE(info.Name), iMonitor.szDevice);
     arts_strcpy(info.Device, iMonitor.szDevice);
@@ -187,16 +189,20 @@ static BOOL CALLBACK CountRendererCallback(HMONITOR hMonitor, [[maybe_unused]] H
     {
         dxiRendererInfo_t& info = dxiInfo[i];
 
-        if ((info.Type == dxiRendererType::OpenGL) && !std::strcmp(name, dxiInfo[i].Name))
-        {
-            ++count;
+        if (info.Type != dxiRendererType::OpenGL)
+            continue;
 
-            return TRUE;
-        }
+        if (info.SpecialFlags != SpecialFlags_GL)
+            continue;
+
+        if (std::strcmp(name, dxiInfo[i].Name))
+            continue;
+
+        ++count;
+        return TRUE;
     }
 
     count = -1;
-
     return FALSE;
 }
 
