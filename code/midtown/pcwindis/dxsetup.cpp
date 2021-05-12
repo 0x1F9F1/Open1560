@@ -202,7 +202,9 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
             }
         }
 
+        std::memset(dxiInfo, 0, sizeof(dxiInfo));
         dxiRendererChoice = -1;
+        dxiRendererCount = 0;
 
         Timer detect_time;
         enumerate();
