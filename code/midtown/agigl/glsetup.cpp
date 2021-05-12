@@ -48,7 +48,7 @@ static void GetMonitorName(char* buffer, usize buflen, const char* szDevice)
 static mem::cmd_param PARAM_min_aspect {"minaspect"};
 static mem::cmd_param PARAM_max_aspect {"maxaspect"};
 
-static const u32 SpecialFlags_GL = 0x20;
+static const u32 SpecialFlags_GL = 0x0;
 
 static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
     [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)

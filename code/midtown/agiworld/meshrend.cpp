@@ -31,9 +31,9 @@ define_dummy_symbol(agiworld_meshrend);
 #include "vector7/matrix34.h"
 #include "vector7/matrix44.h"
 
-#ifdef ARTS_ENABLE_KNI
-#    define CLIP_ALL_TO_SCREEN // ToScreen is cheaper than 9-12 memory accesses
-#endif
+// #ifdef ARTS_ENABLE_KNI
+// #    define CLIP_ALL_TO_SCREEN
+// #endif
 
 f32 agiMeshSet::DepthOffset = 0.5f;
 f32 agiMeshSet::DepthScale = 0.5f;
