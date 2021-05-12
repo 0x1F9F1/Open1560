@@ -358,8 +358,15 @@ static const char* GetExceptionCodeString(DWORD code)
     return nullptr;
 }
 
+thread_local bool InException {false};
+
 i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
 {
+    if (InException)
+        Abortf("Exception occured during handler");
+
+    InException = true;
+
     CONTEXT* context = exception->ContextRecord;
     EXCEPTION_RECORD* record = exception->ExceptionRecord;
 
@@ -387,6 +394,8 @@ i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
 
     if (CURHEAP)
         CURHEAP->SanityCheck();
+
+    InException = false;
 
 #ifndef ARTS_FINAL
     if (IsDebuggerPresent())
