@@ -113,7 +113,14 @@ public:
     static mmFont* Create(const char* font_name, i32 height, i32 weight);
 };
 
-// TODO: Handle invalid codepoints
+inline bool StopDecoding(u32 state)
+{
+    return (state == UTF8_ACCEPT) || (state == UTF8_REJECT);
+}
+
+// TODO: Handle encoding of foreign game files
+static const u32 ErrorCodepoint = '?';
+
 inline u32 DecodeUTF8(const char** text)
 {
     u32 codepoint = 0;
@@ -122,13 +129,16 @@ inline u32 DecodeUTF8(const char** text)
 
     while (*s)
     {
-        if (DecodeUTF8(&state, &codepoint, static_cast<unsigned char>(*s++)) == UTF8_ACCEPT)
+        if (StopDecoding(DecodeUTF8(&state, &codepoint, static_cast<unsigned char>(*s++))))
             break;
     }
 
     *text = s;
 
-    return (state == UTF8_ACCEPT) ? codepoint : 0;
+    if (state != UTF8_ACCEPT)
+        codepoint = ErrorCodepoint;
+
+    return codepoint;
 }
 
 inline u32 DecodeUTF8(const char** text, const char* end)
@@ -139,13 +149,16 @@ inline u32 DecodeUTF8(const char** text, const char* end)
 
     while (s != end)
     {
-        if (DecodeUTF8(&state, &codepoint, static_cast<unsigned char>(*s++)) == UTF8_ACCEPT)
+        if (StopDecoding(DecodeUTF8(&state, &codepoint, static_cast<unsigned char>(*s++))))
             break;
     }
 
     *text = s;
 
-    return (state == UTF8_ACCEPT) ? codepoint : 0;
+    if (state != UTF8_ACCEPT)
+        codepoint = ErrorCodepoint;
+
+    return codepoint;
 }
 
 const mmFont::mmGlyph& mmFont::LoadChar(u32 char_code)

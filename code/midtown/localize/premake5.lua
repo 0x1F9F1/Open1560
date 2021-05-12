@@ -7,4 +7,5 @@ arts_component "localize"
 
         "lang_english.h",
         "lang_russian.h",
+        "lang_german.h",
     }
