@@ -213,7 +213,8 @@ public:
     ARTS_EXPORT static void DrawLines(class Vector3* starts, class Vector3* ends, u32* colors, i32 count);
 
     // 0x50FE00 | ?DrawWideLines@agiMeshSet@@SAXPAVVector3@@0PAMPAIH@Z | agiworld:meshrend
-    ARTS_IMPORT static void DrawWideLines(class Vector3* arg1, class Vector3* arg2, f32* arg3, u32* arg4, i32 arg5);
+    ARTS_EXPORT static void DrawWideLines(
+        class Vector3* starts, class Vector3* ends, f32* widths, u32* colors, i32 count);
 
     // 0x504C00 | ?Init@agiMeshSet@@SIXH@Z | agiworld:meshrend
     ARTS_IMPORT static void ARTS_FASTCALL Init(i32 arg1);

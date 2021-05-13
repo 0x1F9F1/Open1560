@@ -993,13 +993,13 @@ void agiMeshSet::DrawLines(Vector3* starts, Vector3* ends, u32* colors, i32 coun
     agiMeshSet::Init(false);
 
     agiScreenVtx* ARTS_RESTRICT verts = ARTS_ALLOCA(agiScreenVtx, count * 2);
-    i32 stored = 0;
+    u32 stored = 0;
 
-    for (i32 i = 0; i < count; ++i)
+    for (; count; --count)
     {
-        Vector3 start = starts[i];
-        Vector3 end = ends[i];
-        u32 color = colors[i];
+        Vector3 start = *starts++;
+        Vector3 end = *ends++;
+        u32 color = *colors++;
 
         f32 start_w = M.m0.z * start.x + M.m1.z * start.y + M.m2.z * start.z + M.m3.z;
         f32 start_z = start_w * ProjZZ + ProjZW;
@@ -1056,5 +1056,179 @@ void agiMeshSet::DrawLines(Vector3* starts, Vector3* ends, u32* colors, i32 coun
         ArAssert((stored & 1) == 0, "Invalid Vertex Count");
 
         RAST->LineList(agiVtxType::Screen, (agiVtx*) verts, stored);
+    }
+}
+
+// clang-format off
+static u16 QuadIndices[144] {
+     0,  1,  2,  0,  2,  3,
+     4,  5,  6,  4,  6,  7,
+     8,  9, 10,  8, 10, 11,
+    12, 13, 14, 12, 14, 15,
+    16, 17, 18, 16, 18, 19,
+    20, 21, 22, 20, 22, 23,
+    24, 25, 26, 24, 26, 27,
+    28, 29, 30, 28, 30, 31,
+    32, 33, 34, 32, 34, 35,
+    36, 37, 38, 36, 38, 39,
+    40, 41, 42, 40, 42, 43,
+    44, 45, 46, 44, 46, 47,
+    48, 49, 50, 48, 50, 51,
+    52, 53, 54, 52, 54, 55,
+    56, 57, 58, 56, 58, 59,
+    60, 61, 62, 60, 62, 63,
+    64, 65, 66, 64, 66, 67,
+    68, 69, 70, 68, 70, 71,
+    72, 73, 74, 72, 74, 75,
+    76, 77, 78, 76, 78, 79,
+    80, 81, 82, 80, 82, 83,
+    84, 85, 86, 84, 86, 87,
+    88, 89, 90, 88, 90, 91,
+    92, 93, 94, 92, 94, 95,
+};
+// clang-format on
+
+void agiMeshSet::DrawWideLines(class Vector3* starts, class Vector3* ends, f32* widths, u32* colors, i32 count)
+{
+    const agiViewParameters& params = GetActiveViewport()->GetParams();
+
+    agiMeshSet::Init(false);
+
+    agiScreenVtx* ARTS_RESTRICT verts = ARTS_ALLOCA(agiScreenVtx, count * 4);
+    u32 specular = CalculateFog(M.m3.z, FogValue) << 24;
+
+    u32 stored = 0;
+    u32 num_indices = 0;
+
+    for (; count; --count)
+    {
+        Vector3 start = *starts++;
+        Vector3 end = *ends++;
+        f32 start_width = *widths++;
+        f32 end_width = *widths++;
+        u32 color = *colors++;
+
+        f32 start_w = M.m0.z * start.x + M.m1.z * start.y + M.m2.z * start.z + M.m3.z;
+        f32 start_z = start_w * ProjZZ + ProjZW;
+
+        if (-start_w > start_z || start_z > start_w)
+            continue;
+
+        f32 end_w = M.m0.z * end.x + M.m1.z * end.y + M.m2.z * end.z + M.m3.z;
+        f32 end_z = end_w * ProjZZ + ProjZW;
+
+        if (-end_w > end_z || end_z > end_w)
+            continue;
+
+        f32 start_x = M.m0.x * start.x + M.m1.x * start.y + M.m2.x * start.z + M.m3.x;
+        f32 start_y = M.m0.y * start.x + M.m1.y * start.y + M.m2.y * start.z + M.m3.y;
+
+        if (-start_w > start_x || start_x > start_w || -start_w > start_y || start_y > start_w)
+            continue;
+
+        f32 end_x = M.m0.x * end.x + M.m1.x * end.y + M.m2.x * end.z + M.m3.x;
+        f32 end_y = M.m0.y * end.x + M.m1.y * end.y + M.m2.y * end.z + M.m3.y;
+
+        if (-end_w > end_x || end_x > end_w || -end_w > end_y || end_y > end_w)
+            continue;
+
+        f32 start_rhw = 1.0f / start_w;
+        f32 end_rhw = 1.0f / end_w;
+
+        start_x = start_x * start_rhw * HalfWidth + OffsX;
+        start_y = start_y * start_rhw * HalfHeight + OffsY;
+
+        end_x = end_x * end_rhw * HalfWidth + OffsX;
+        end_y = end_y * end_rhw * HalfHeight + OffsY;
+
+        if (std::abs(start_y - end_y) >= std::abs(start_x - end_x))
+        {
+            start_width = (start_width * params.ProjX + start_z * params.ProjXZ) * start_rhw * HalfWidth;
+            end_width = (end_width * params.ProjX + end_z * params.ProjXZ) * end_rhw * HalfWidth;
+
+            verts[stored + 0].x = start_x + start_width;
+            verts[stored + 0].y = start_y;
+
+            verts[stored + 1].x = start_x - start_width;
+            verts[stored + 1].y = start_y;
+
+            verts[stored + 2].x = end_x - end_width;
+            verts[stored + 2].y = end_y;
+
+            verts[stored + 3].x = end_x + end_width;
+            verts[stored + 3].y = end_y;
+        }
+        else
+        {
+            start_width = (start_width * params.ProjY + start_z * params.ProjYZ) * start_rhw * HalfHeight;
+            end_width = (end_width * params.ProjY + end_z * params.ProjYZ) * end_rhw * HalfHeight;
+
+            verts[stored + 0].x = start_x;
+            verts[stored + 0].y = start_y - start_width;
+
+            verts[stored + 1].x = start_x;
+            verts[stored + 1].y = start_y + start_width;
+
+            verts[stored + 2].x = end_x;
+            verts[stored + 2].y = end_y + end_width;
+
+            verts[stored + 3].x = end_x;
+            verts[stored + 3].y = end_y - end_width;
+        }
+
+        start_z = start_z * start_rhw * DepthScale + DepthOffset;
+        end_z = end_z * end_rhw * DepthScale + DepthOffset;
+
+        start_z = std::max(std::min(start_z, 1.0f), 0.0f);
+        end_z = std::max(std::min(end_z, 1.0f), 0.0f);
+
+        verts[stored + 0].z = start_z;
+        verts[stored + 0].w = start_rhw;
+        verts[stored + 0].color = color;
+        verts[stored + 0].specular = specular;
+        verts[stored + 0].tu = 0.0f;
+        verts[stored + 0].tv = 0.0f;
+
+        verts[stored + 1].z = start_z;
+        verts[stored + 1].w = start_rhw;
+        verts[stored + 1].color = color;
+        verts[stored + 1].specular = specular;
+        verts[stored + 1].tu = 0.0f;
+        verts[stored + 1].tv = 0.0f;
+
+        verts[stored + 2].z = end_z;
+        verts[stored + 2].w = end_rhw;
+        verts[stored + 2].color = color;
+        verts[stored + 2].specular = specular;
+        verts[stored + 2].tu = 0.0f;
+        verts[stored + 2].tv = 0.0f;
+
+        verts[stored + 3].z = end_z;
+        verts[stored + 3].w = end_rhw;
+        verts[stored + 3].color = color;
+        verts[stored + 3].specular = specular;
+        verts[stored + 3].tu = 0.0f;
+        verts[stored + 3].tv = 0.0f;
+
+        for (i32 i = 0; i < 4; ++i)
+        {
+            verts[stored + i].x = std::max(std::min(verts[stored + i].x, MaxX), MinX);
+            verts[stored + i].y = std::max(std::min(verts[stored + i].y, MaxY), MinY);
+        }
+
+        stored += 4;
+        num_indices += 6;
+    }
+
+    if (stored)
+    {
+        ArAssert(num_indices <= ARTS_SIZE32(QuadIndices), "Too Many Indices");
+
+        agiCullMode old_cull = agiCurState.SetCullMode(agiCullMode::None);
+        agiCurState.SetTexture(nullptr);
+
+        RAST->Mesh(agiVtxType::Screen, (agiVtx*) verts, stored, QuadIndices, num_indices);
+
+        agiCurState.SetCullMode(old_cull);
     }
 }
