@@ -215,14 +215,14 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
         if (in_codes[i] != AGI_MESH_CLIP_SCREEN)
             continue;
 
-        Vector4* vert = &verts[i];
+        Vector4& vert = verts[i];
 
-        f32 const inv_w = 1.0f / vert->w;
+        f32 const inv_w = 1.0f / vert.w;
 
-        vert->x = (vert->x * inv_w * HalfWidth) + OffsX;
-        vert->y = (vert->y * inv_w * HalfHeight) + OffsY;
-        vert->z = (vert->z * inv_w * DepthScale) + DepthOffset;
-        vert->w = inv_w;
+        vert.x = (vert.x * inv_w * HalfWidth) + OffsX;
+        vert.y = (vert.y * inv_w * HalfHeight) + OffsY;
+        vert.z = (vert.z * inv_w * DepthScale) + DepthOffset;
+        vert.w = inv_w;
 
         ClampToScreen(vert);
     }
@@ -435,7 +435,7 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
             vert->Pos.z = z;
             vert->Pos.w = inv_w;
 
-            ClampToScreen(&vert->Pos);
+            ClampToScreen(vert->Pos);
         }
 
         ClippedTris[ClippedTriCount] = {ClippedVertCount, count,
@@ -986,4 +986,75 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface
     ToScreen(codes, out, VertexCount);
 
     return clip_mask;
+}
+
+void agiMeshSet::DrawLines(Vector3* starts, Vector3* ends, u32* colors, i32 count)
+{
+    agiMeshSet::Init(false);
+
+    agiScreenVtx* ARTS_RESTRICT verts = ARTS_ALLOCA(agiScreenVtx, count * 2);
+    i32 stored = 0;
+
+    for (i32 i = 0; i < count; ++i)
+    {
+        Vector3 start = starts[i];
+        Vector3 end = ends[i];
+        u32 color = colors[i];
+
+        f32 start_w = M.m0.z * start.x + M.m1.z * start.y + M.m2.z * start.z + M.m3.z;
+        f32 start_z = start_w * ProjZZ + ProjZW;
+
+        if (-start_w > start_z || start_z > start_w)
+            continue;
+
+        f32 end_w = M.m0.z * end.x + M.m1.z * end.y + M.m2.z * end.z + M.m3.z;
+        f32 end_z = end_w * ProjZZ + ProjZW;
+
+        if (-end_w > end_z || end_z > end_w)
+            continue;
+
+        f32 start_x = M.m0.x * start.x + M.m1.x * start.y + M.m2.x * start.z + M.m3.x;
+        f32 start_y = M.m0.y * start.x + M.m1.y * start.y + M.m2.y * start.z + M.m3.y;
+
+        if (-start_w > start_x || start_x > start_w || -start_w > start_y || start_y > start_w)
+            continue;
+
+        f32 end_x = M.m0.x * end.x + M.m1.x * end.y + M.m2.x * end.z + M.m3.x;
+        f32 end_y = M.m0.y * end.x + M.m1.y * end.y + M.m2.y * end.z + M.m3.y;
+
+        if (-end_w > end_x || end_x > end_w || -end_w > end_y || end_y > end_w)
+            continue;
+
+        f32 start_rhw = 1.0f / start_w;
+        f32 end_rhw = 1.0f / end_w;
+
+        verts[stored].x = start_x * start_rhw * HalfWidth + OffsX;
+        verts[stored].y = start_y * start_rhw * HalfHeight + OffsY;
+        verts[stored].z = start_z * start_rhw * DepthScale + DepthOffset;
+        verts[stored].w = start_rhw;
+        verts[stored].color = color;
+        verts[stored].specular = 0xFF000000;
+        verts[stored].tv = 0.0f;
+        verts[stored].tu = 0.0f;
+        ClampToScreen(verts[stored]);
+        ++stored;
+
+        verts[stored].x = end_x * end_rhw * HalfWidth + OffsX;
+        verts[stored].y = end_y * end_rhw * HalfHeight + OffsY;
+        verts[stored].z = end_z * end_rhw * DepthScale + DepthOffset;
+        verts[stored].w = end_rhw;
+        verts[stored].color = color;
+        verts[stored].specular = 0xFF000000;
+        verts[stored].tv = 0.0f;
+        verts[stored].tu = 0.0f;
+        ClampToScreen(verts[stored]);
+        ++stored;
+    }
+
+    if (stored)
+    {
+        ArAssert((stored & 1) == 0, "Invalid Vertex Count");
+
+        RAST->LineList(agiVtxType::Screen, (agiVtx*) verts, stored);
+    }
 }

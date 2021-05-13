@@ -210,7 +210,7 @@ public:
     ARTS_IMPORT static void DrawCard(class Vector3& arg1, f32 arg2, u32 arg3, u32 arg4, u32 arg5);
 
     // 0x50F9B0 | ?DrawLines@agiMeshSet@@SAXPAVVector3@@0PAIH@Z | agiworld:meshrend
-    ARTS_IMPORT static void DrawLines(class Vector3* arg1, class Vector3* arg2, u32* arg3, i32 arg4);
+    ARTS_EXPORT static void DrawLines(class Vector3* starts, class Vector3* ends, u32* colors, i32 count);
 
     // 0x50FE00 | ?DrawWideLines@agiMeshSet@@SAXPAVVector3@@0PAMPAIH@Z | agiworld:meshrend
     ARTS_IMPORT static void DrawWideLines(class Vector3* arg1, class Vector3* arg2, f32* arg3, u32* arg4, i32 arg5);
@@ -274,7 +274,8 @@ protected:
     // 0x505E40 | ?ClipTri@agiMeshSet@@IAEXHHHH@Z | agiworld:meshrend
     ARTS_EXPORT void ClipTri(i32 i1, i32 i2, i32 i3, i32 texture);
 
-    static void ARTS_FASTCALL ClampToScreen(Vector4* vert);
+    template <typename T>
+    static void ARTS_FASTCALL ClampToScreen(T& vert);
 
     // 0x504730 | ?InitMtx@agiMeshSet@@KIXAAVagiViewParameters@@H@Z | agiworld:meshrend
     ARTS_IMPORT static void ARTS_FASTCALL InitMtx(class agiViewParameters& arg1, i32 arg2);

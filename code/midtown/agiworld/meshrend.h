@@ -181,15 +181,16 @@ public:
 
 check_size(agiMeshCardInfo, 0x10);
 
-inline void agiMeshSet::ClampToScreen(Vector4* vert)
+template <typename T>
+inline void agiMeshSet::ClampToScreen(T& vert)
 {
-    vert->x = std::min<f32>(vert->x, MaxX);
-    vert->y = std::min<f32>(vert->y, MaxY);
-    vert->z = std::min<f32>(vert->z, 1.0f);
+    vert.x = std::min<f32>(vert.x, MaxX);
+    vert.y = std::min<f32>(vert.y, MaxY);
+    vert.z = std::min<f32>(vert.z, 1.0f);
 
-    vert->x = std::max<f32>(vert->x, MinX);
-    vert->y = std::max<f32>(vert->y, MinY);
-    vert->z = std::max<f32>(vert->z, 0.0f);
+    vert.x = std::max<f32>(vert.x, MinX);
+    vert.y = std::max<f32>(vert.y, MinY);
+    vert.z = std::max<f32>(vert.z, 0.0f);
 }
 
 void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 count, u32 color);

@@ -176,14 +176,14 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
         if (in_codes[i] != AGI_MESH_CLIP_SCREEN)
             continue;
 
-        Vector4* vert = &verts[i];
+        Vector4& vert = verts[i];
 
-        f32 const inv_w = 1.0f / vert->w;
+        f32 const inv_w = 1.0f / vert.w;
 
-        vert->x = (vert->x * inv_w * HalfWidth) + OffsX;
-        vert->y = (vert->y * inv_w * HalfHeight) + OffsY;
-        vert->z = (vert->z * inv_w * DepthScale) + DepthOffset;
-        vert->w = inv_w;
+        vert.x = (vert.x * inv_w * HalfWidth) + OffsX;
+        vert.y = (vert.y * inv_w * HalfHeight) + OffsY;
+        vert.z = (vert.z * inv_w * DepthScale) + DepthOffset;
+        vert.w = inv_w;
 
         ClampToScreen(vert);
     }
