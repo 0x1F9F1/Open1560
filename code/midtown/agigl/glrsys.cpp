@@ -98,14 +98,10 @@ static u32 CompileShader(u32 type, i32 glsl_version, const char* src)
 {
     u32 shader = glCreateShader(type);
 
-    const char* strings[3] {"", "", src};
+    char version_string[64];
+    arts_sprintf(version_string, "#version %i\n", glsl_version);
 
-    switch (glsl_version)
-    {
-        case 110: strings[0] = "#version 110\n"; break;
-        case 130: strings[0] = "#version 130\n"; break;
-        default: Quitf("Invalid GLSL Version %i", glsl_version);
-    }
+    const char* strings[3] {version_string, "", src};
 
     if (glsl_version < 130)
     {
@@ -345,12 +341,7 @@ i32 agiGLRasterizer::BeginGfx()
         BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), nullptr);
     }
 
-    i32 glsl_version = Pipe()->GetShaderVersion();
-
-    if (glsl_version >= 130)
-        glsl_version = 130;
-    else
-        glsl_version = 110;
+    i32 glsl_version = std::min(Pipe()->GetShaderVersion(), 130);
 
     Displayf("OpenGL: Using shader version %i", glsl_version);
 
@@ -365,7 +356,8 @@ out vec4 frag_Fog;
 out vec2 frag_UV;
 
 uniform mat4 u_Transform;
-uniform vec4 u_Fog;
+uniform vec4 u_FogMode;
+uniform vec3 u_FogColor;
 
 void main()
 {
@@ -373,8 +365,28 @@ void main()
     gl_Position.w = 1.0 / in_Position.w;
     gl_Position.xyz *= gl_Position.w;
     frag_Color = in_Color;
-    frag_Fog = u_Fog * -in_Specular.w + u_Fog + vec4(0.0, 0.0, 0.0, 1.0);
-    float fog;
+
+    if (u_FogMode.x != 0.0)
+    {
+        float fog;
+
+        if (u_FogMode.x == 2.0) // Vertex
+        {
+            fog = in_Specular.w;
+        }
+        else // Pixel
+        {
+            float depth = in_Position.z * gl_Position.w;
+            fog = clamp((u_FogMode.y - depth) * u_FogMode.z, 0.0, 1.0);
+        }
+
+        frag_Fog = vec4(u_FogColor * (1.0 - fog), fog);
+    }
+    else // None
+    {
+        frag_Fog = vec4(0.0, 0.0, 0.0, 1.0);
+    }
+
     frag_UV = in_UV;
 }
 )");
@@ -452,8 +464,11 @@ void main()
     uniform_alpha_ref_ = glGetUniformLocation(shader_, "u_AlphaRef");
     glUniform1f(uniform_alpha_ref_, 0.0f);
 
-    uniform_fog_ = glGetUniformLocation(shader_, "u_Fog");
-    glUniform4f(uniform_fog_, 0.0f, 0.0f, 0.0f, 0.0f);
+    uniform_fog_mode_ = glGetUniformLocation(shader_, "u_FogMode");
+    glUniform4f(uniform_fog_mode_, 0.0f, 0.0f, 0.0f, 0.0f);
+
+    uniform_fog_color_ = glGetUniformLocation(shader_, "u_FogColor");
+    glUniform3f(uniform_fog_color_, 0.0f, 0.0f, 0.0f);
 
     // Converts from screen coordinates ([0, Width], [0, Height], [0, 1]) to NDC
     GLfloat transform[16] {};
@@ -826,34 +841,41 @@ void agiGLRasterizer::FlushAgiState()
         //}
     }
 
-    // TODO: Support pixel fog?
-
     agiFogMode fog_mode = agiCurState.GetFogMode();
-    u32 fog_color = agiCurState.GetFogColor();
+    f32 fog_start = agiCurState.GetFogStart();
+    f32 fog_end = agiCurState.GetFogEnd();
+    f32 fog_density = agiCurState.GetFogDensity();
 
-    if (fog_mode != agiLastState.FogMode || fog_color != agiLastState.FogColor)
+    if (fog_mode != agiLastState.FogMode || fog_start != agiLastState.FogStart || fog_end != agiLastState.FogEnd ||
+        fog_density != agiLastState.FogDensity)
     {
         agiLastState.FogMode = fog_mode;
-        agiLastState.FogColor = fog_color;
+        agiLastState.FogStart = fog_start;
+        agiLastState.FogEnd = fog_end;
+        agiLastState.FogDensity = fog_density;
 
-        Vector4 fog {};
+        Vector4 mode {
+            static_cast<f32>(fog_mode),
+            fog_end,
+            (fog_start == fog_end) ? 0.0f : (1.0f / (fog_end - fog_start)),
+            fog_density,
+        };
 
-        if (fog_mode == agiFogMode::Vertex)
-        {
-            fog = Vector4 {
-                ((fog_color >> 16) & 0xFF) / 255.0f,
-                ((fog_color >> 8) & 0xFF) / 255.0f,
-                (fog_color & 0xFF) / 255.0f,
-                -1.0f,
-            };
-        }
-
-        SET_GL_STATE(Fog, fog);
+        SET_GL_STATE(FogMode, mode);
     }
 
-    agiLastState.FogStart = agiCurState.GetFogStart();
-    agiLastState.FogEnd = agiCurState.GetFogEnd();
-    agiLastState.FogDensity = agiCurState.GetFogDensity();
+    if (u32 fog_color = agiCurState.GetFogColor(); fog_color != agiLastState.FogColor)
+    {
+        agiLastState.FogColor = fog_color;
+
+        Vector3 color {
+            ((fog_color >> 16) & 0xFF) / 255.0f,
+            ((fog_color >> 8) & 0xFF) / 255.0f,
+            (fog_color & 0xFF) / 255.0f,
+        };
+
+        SET_GL_STATE(FogColor, color);
+    }
 
     agiCurState.ClearTouched();
 }
@@ -890,12 +912,6 @@ void agiGLRasterizer::FlushGlState()
         ++STATS.StateChangeCalls;
     }
 
-    if (touched_ & Touched_Fog)
-    {
-        glUniform4f(uniform_fog_, state_.Fog.x, state_.Fog.y, state_.Fog.z, state_.Fog.w);
-        ++STATS.StateChangeCalls;
-    }
-
     if (touched_ & Touched_Blend)
     {
         (state_.Blend ? glEnable : glDisable)(GL_BLEND);
@@ -923,6 +939,18 @@ void agiGLRasterizer::FlushGlState()
     if (touched_ & Touched_FrontFace)
     {
         glFrontFace(state_.FrontFace);
+        ++STATS.StateChangeCalls;
+    }
+
+    if (touched_ & Touched_FogMode)
+    {
+        glUniform4f(uniform_fog_mode_, state_.FogMode.x, state_.FogMode.y, state_.FogMode.z, state_.FogMode.w);
+        ++STATS.StateChangeCalls;
+    }
+
+    if (touched_ & Touched_FogColor)
+    {
+        glUniform3f(uniform_fog_color_, state_.FogColor.x, state_.FogColor.y, state_.FogColor.z);
         ++STATS.StateChangeCalls;
     }
 

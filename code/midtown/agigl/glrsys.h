@@ -20,6 +20,8 @@
 
 #include "agi/rsys.h"
 #include "glpipe.h"
+#include "vector7/vector2.h"
+#include "vector7/vector3.h"
 #include "vector7/vector4.h"
 
 class agiGLStreamBuffer;
@@ -71,7 +73,8 @@ private:
     u32 white_texture_ {0};
 
     i32 uniform_alpha_ref_ {0};
-    i32 uniform_fog_ {0};
+    i32 uniform_fog_mode_ {0};
+    i32 uniform_fog_color_ {0};
 
     u32 current_texture_ {0};
     u32 current_min_filter_ {0};
@@ -97,7 +100,8 @@ private:
         bool CullFace {false};
         u32 FrontFace {0};
 
-        Vector4 Fog {};
+        Vector4 FogMode {};
+        Vector3 FogColor {};
     };
 
     enum Touched_ : u32
@@ -117,7 +121,8 @@ private:
         Touched_CullFace = 1 << 8,
         Touched_FrontFace = 1 << 9,
 
-        Touched_Fog = 1 << 10,
+        Touched_FogMode = 1 << 10,
+        Touched_FogColor = 1 << 11,
     };
 
     template <typename T>
