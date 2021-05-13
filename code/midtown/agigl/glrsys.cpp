@@ -354,9 +354,6 @@ i32 agiGLRasterizer::BeginGfx()
 
     Displayf("OpenGL: Using shader version %i", glsl_version);
 
-    // TODO: Use built-in perspective correction
-    // gl_Position.w = 1.0 / in_Position.w;
-    // gl_Position.xyz *= gl_Position.w;
     u32 vs = CompileShader(GL_VERTEX_SHADER, glsl_version, R"(
 in vec4 in_Position;
 in vec4 in_Color;
@@ -365,7 +362,7 @@ in vec2 in_UV;
 
 out vec4 frag_Color;
 out vec4 frag_Fog;
-out vec3 frag_UV;
+out vec2 frag_UV;
 
 uniform mat4 u_Transform;
 uniform vec4 u_Fog;
@@ -373,20 +370,23 @@ uniform vec4 u_Fog;
 void main()
 {
     gl_Position = u_Transform * vec4(in_Position.xyz, 1.0);
+    gl_Position.w = 1.0 / in_Position.w;
+    gl_Position.xyz *= gl_Position.w;
     frag_Color = in_Color;
     frag_Fog = u_Fog * -in_Specular.w + u_Fog + vec4(0.0, 0.0, 0.0, 1.0);
-    frag_UV = vec3(in_UV * in_Position.w, in_Position.w);
+    float fog;
+    frag_UV = in_UV;
 }
 )");
 
     u32 fs = CompileShader(GL_FRAGMENT_SHADER, glsl_version, R"(
 in vec4 frag_Color;
 in vec4 frag_Fog;
-in vec3 frag_UV;
+in vec2 frag_UV;
 
 #if __VERSION__  >= 130
 out vec4 out_Color;
-#define texture2DProj textureProj
+#define texture2D texture
 #else
 #define out_Color gl_FragColor
 #endif
@@ -396,7 +396,7 @@ uniform float u_AlphaRef;
 
 void main()
 {
-    out_Color = texture2DProj(u_Texture, frag_UV) * frag_Color;
+    out_Color = texture2D(u_Texture, frag_UV) * frag_Color;
 
     // Ignored by software renderer, only used by mmDashView, only ever 0
     if (out_Color.w <= u_AlphaRef)
