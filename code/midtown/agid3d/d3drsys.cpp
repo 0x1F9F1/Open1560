@@ -418,32 +418,43 @@ void agiD3DRasterizer::FlushState()
         DWORD mip_filter = D3DTFP_NONE;
         DWORD anisotropy = 0;
 
-        if (tex_filter == agiTexFilter::Point)
+        switch (tex_filter)
         {
-            mag_filter = D3DTFG_POINT;
-            min_filter = D3DTFN_POINT;
-        }
-        else if (Pipe()->GetTextureFilter() & 0x4)
-        {
-            mag_filter = D3DTFG_ANISOTROPIC;
-            min_filter = D3DTFN_ANISOTROPIC;
-            anisotropy = 16;
-        }
-        else
-        {
-            mag_filter = D3DTFG_LINEAR;
-            min_filter = D3DTFN_LINEAR;
-        }
-
-        if (tex_filter == agiTexFilter::Trilinear)
-        {
-            if (agiCurState.GetMaxTextures() == 1 && Pipe()->GetTextureFilter() & 0x2)
-            {
-                mip_filter = D3DTFP_LINEAR;
+            case agiTexFilter::Point: {
+                mag_filter = D3DTFG_POINT;
+                min_filter = D3DTFN_POINT;
+                break;
             }
-            else if (Pipe()->GetTextureFilter() & 1)
-            {
-                mip_filter = D3DTFP_POINT;
+
+            case agiTexFilter::Bilinear: {
+                mag_filter = D3DTFG_LINEAR;
+                min_filter = D3DTFN_LINEAR;
+                break;
+            }
+
+            case agiTexFilter::Trilinear: {
+                if (Pipe()->GetTextureFilter() & 0x4)
+                {
+                    mag_filter = D3DTFG_ANISOTROPIC;
+                    min_filter = D3DTFN_ANISOTROPIC;
+                    anisotropy = 16;
+                }
+                else
+                {
+                    mag_filter = D3DTFG_LINEAR;
+                    min_filter = D3DTFN_LINEAR;
+                }
+
+                if (agiCurState.GetMaxTextures() == 1 && Pipe()->GetTextureFilter() & 0x2)
+                {
+                    mip_filter = D3DTFP_LINEAR;
+                }
+                else if (Pipe()->GetTextureFilter() & 1)
+                {
+                    mip_filter = D3DTFP_POINT;
+                }
+
+                break;
             }
         }
 

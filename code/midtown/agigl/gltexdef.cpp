@@ -290,6 +290,9 @@ void agiGLTexDef::EndGfx()
         temp_surface_ = nullptr;
     }
 
+    min_filter_ = 0;
+    mag_filter_ = 0;
+
     touched_ = false;
     state_ = 0;
 }

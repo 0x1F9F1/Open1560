@@ -95,6 +95,7 @@ ARTS_IMPORT extern b32 SynchronousMessageQueues;
 
 struct ipcMessage;
 
+// A bounded, multi-producer, single-consumer FIFO worker queue
 class ipcMessageQueue
 {
 public:

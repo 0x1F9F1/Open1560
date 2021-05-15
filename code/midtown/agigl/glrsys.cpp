@@ -639,6 +639,7 @@ void agiGLRasterizer::FlushAgiState()
         return;
 
     agiGLTexDef* texture = static_cast<agiGLTexDef*>(agiCurState.GetTexture());
+    agiTexFilter tex_filter = agiCurState.GetTexFilter();
 
     if (texture != agiLastState.Texture)
     {
@@ -655,7 +656,6 @@ void agiGLRasterizer::FlushAgiState()
 
             if (texture && current_texture_)
             {
-                agiTexFilter tex_filter = agiCurState.GetTexFilter();
 
                 if (texture->Tex.DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
                     tex_filter = agiTexFilter::Bilinear;
@@ -668,21 +668,18 @@ void agiGLRasterizer::FlushAgiState()
                     case agiTexFilter::Trilinear: {
                         min_filter = GL_LINEAR_MIPMAP_LINEAR;
                         mag_filter = GL_LINEAR;
-
                         break;
                     }
 
                     case agiTexFilter::Bilinear: {
                         min_filter = GL_LINEAR;
                         mag_filter = GL_LINEAR;
-
                         break;
                     }
 
                     case agiTexFilter::Point: {
                         min_filter = GL_NEAREST;
                         mag_filter = GL_NEAREST;
-
                         break;
                     }
                 }
@@ -693,7 +690,7 @@ void agiGLRasterizer::FlushAgiState()
         }
     }
 
-    if (agiTexFilter tex_filter = agiCurState.GetTexFilter(); tex_filter != agiLastState.TexFilter)
+    if (tex_filter != agiLastState.TexFilter)
     {
         agiLastState.TexFilter = tex_filter;
     }
