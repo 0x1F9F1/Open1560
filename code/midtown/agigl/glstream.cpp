@@ -93,7 +93,7 @@ void agiGLFencedStreamBuffer::UnlockSection(usize index)
         state != GL_ALREADY_SIGNALED && state != GL_CONDITION_SATISFIED)
     {
         // We should have picked a larger capacity.
-        Errorf("Fenced %u", index);
+        // Errorf("Fenced %u", index);
         glClientWaitSync(static_cast<GLsync>(Fences[index]), GL_SYNC_FLUSH_COMMANDS_BIT, UINT64_MAX);
     }
 
