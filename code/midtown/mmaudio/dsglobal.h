@@ -80,6 +80,8 @@
 
 #include <Windows.h>
 
+#include <mmeapi.h>
+
 #include <dsound.h>
 
 typedef struct tag_dsdevdesc

@@ -656,7 +656,6 @@ void agiGLRasterizer::FlushAgiState()
 
             if (texture && current_texture_)
             {
-
                 if (texture->Tex.DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
                     tex_filter = agiTexFilter::Bilinear;
 

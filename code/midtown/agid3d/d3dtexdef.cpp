@@ -70,7 +70,7 @@ i32 agiD3DTexDef::BeginGfx()
     if ((Tex.Props & agiTexProp::AlphaGlow) && GetRendererInfo().AdditiveBlending)
         Tex.Flags &= ~agiTexParameters::Alpha;
 
-    DDSURFACEDESC2 sd = ConvertSurfaceDesc(*Surface);
+    DDSURFACEDESC2 sd = Surface->ToDDSD2();
     sd.ddpfPixelFormat = (Tex.Flags & agiTexParameters::Alpha) ? Pipe()->GetAlphaFormat() : Pipe()->GetOpaqueFormat();
     sd.dwReserved = 0; // lpLut/szLut
 
@@ -125,9 +125,9 @@ i32 agiD3DTexDef::BeginGfx()
 
         if (ddsd.ddpfPixelFormat.dwFlags & DDPF_RGB)
         {
-            agiSurfaceDesc agisd = ConvertSurfaceDesc(ddsd);
+            agiSurfaceDesc agisd = agiSurfaceDesc::FromDDSD2(ddsd);
             agisd.CopyFrom(Surface.get(), mip_level, &Tex);
-            ddsd = ConvertSurfaceDesc(agisd);
+            ddsd = agisd.ToDDSD2();
             ++mip_level;
         }
 

@@ -27,16 +27,6 @@ define_dummy_symbol(agisw_swddraw);
 #include "pcwindis/dxinit.h"
 #include "swrend.h"
 
-inline DDSURFACEDESC2 ConvertSurfaceDesc(const agiSurfaceDesc& surface)
-{
-    return mem::bit_cast<DDSURFACEDESC2>(surface); // FIXME: 64-bit incompatible
-}
-
-inline agiSurfaceDesc ConvertSurfaceDesc(const DDSURFACEDESC2& surface)
-{
-    return mem::bit_cast<agiSurfaceDesc>(surface); // FIXME: 64-bit incompatible
-}
-
 // 0x534FA0 | ?ddEnd@@YAXXZ
 ARTS_EXPORT /*static*/ void ddEnd()
 {}
@@ -62,7 +52,7 @@ ARTS_EXPORT /*static*/ void ddStart()
     lpdsRend->Lock(NULL, &sd, DDLOCK_WAIT, NULL);
     lpdsRend->Unlock(NULL);
 
-    swScreenDesc = ConvertSurfaceDesc(sd);
+    swScreenDesc = agiSurfaceDesc::FromDDSD2(sd);
 
     if (!(sd.ddpfPixelFormat.dwFlags & DDPF_RGB))
         Quitf("ddStart: Require RGB color!");

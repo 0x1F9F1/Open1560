@@ -25,6 +25,7 @@ define_dummy_symbol(agi_surface);
 #include "cmodel.h"
 #include "texdef.h"
 
+#include <ddraw.h>
 #include <emmintrin.h>
 
 // clang-format off
@@ -433,4 +434,14 @@ void agiSurfaceDesc::FixPitch()
         Pitch = pitch;
         Flags |= AGISD_PITCH;
     }
+}
+
+DDSURFACEDESC2 agiSurfaceDesc::ToDDSD2()
+{
+    return mem::bit_cast<DDSURFACEDESC2>(*this); // FIXME: 64-bit incompatible
+}
+
+agiSurfaceDesc agiSurfaceDesc::FromDDSD2(const DDSURFACEDESC2& sd)
+{
+    return mem::bit_cast<agiSurfaceDesc>(sd); // FIXME: 64-bit incompatible
 }

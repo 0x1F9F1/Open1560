@@ -660,7 +660,7 @@ include_dummy_symbol(mmwidget_dropdown);
 include_dummy_symbol(mmwidget_manager);
 include_dummy_symbol(mmwidget_menu);
 // include_dummy_symbol(mmwidget_mexbutton);
-// include_dummy_symbol(mmwidget_mstore);
+include_dummy_symbol(mmwidget_mstore);
 // include_dummy_symbol(mmwidget_navbar);
 // include_dummy_symbol(mmwidget_pointer);
 // include_dummy_symbol(mmwidget_slider);

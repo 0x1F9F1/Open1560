@@ -91,6 +91,7 @@ static inline constexpr usize AlignSize(usize value) noexcept
 void agiTexDef::DoPageIn()
 {
     // NOTE: 64-bit incompatible
+    static_assert(sizeof(*Surface) == 0x7C);
     pager_.Read(Surface.get(), 0x4, sizeof(*Surface));
 
     // FIXME: Some RV3 textures (SKY_*) have incorrect pitch.

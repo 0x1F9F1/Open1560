@@ -46,14 +46,14 @@ void MArray::Read(char* name)
         char* split_context = nullptr;
 
         [[maybe_unused]] char* menu_name = arts_strtok(buffer, ",", &split_context);
-        [[maybe_unused]] char* background = arts_strtok(buffer, ",", &split_context);
-        i32 menu_id = std::atoi(arts_strtok(0, ",", &split_context));
+        [[maybe_unused]] char* background = arts_strtok(nullptr, ",", &split_context);
+        i32 menu_id = std::atoi(arts_strtok(nullptr, ",", &split_context));
 
         Vector4 pos;
-        pos.w = std::atoi(arts_strtok(0, ",", &split_context)) / 640.0f; // x
-        pos.x = std::atoi(arts_strtok(0, ",", &split_context)) / 480.0f; // y
-        pos.y = std::atoi(arts_strtok(0, ",", &split_context)) / 640.0f; // w
-        pos.z = std::atoi(arts_strtok(0, ",", &split_context)) / 480.0f; // h
+        pos.w = std::atoi(arts_strtok(nullptr, ",", &split_context)) / 640.0f; // x
+        pos.x = std::atoi(arts_strtok(nullptr, ",", &split_context)) / 480.0f; // y
+        pos.y = std::atoi(arts_strtok(nullptr, ",", &split_context)) / 640.0f; // w
+        pos.z = std::atoi(arts_strtok(nullptr, ",", &split_context)) / 480.0f; // h
 
         AddMenuData(menu_id, pos, nullptr);
     }

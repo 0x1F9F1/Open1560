@@ -32,7 +32,7 @@
     0x4AC590 | public: int __thiscall WArray::RetrieveWidgetData(int,int,float &,float &,float &,float &) | ?RetrieveWidgetData@WArray@@QAEHHHAAM000@Z
 */
 
-struct WArray
+class WArray
 {
 public:
     // 0x4ABE40 | ??0WArray@@QAE@XZ

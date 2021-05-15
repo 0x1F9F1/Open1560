@@ -31,7 +31,7 @@
     0x4ABD60 | public: int __thiscall MArray::RetrieveMenuData(int,float &,float &,float &,float &) | ?RetrieveMenuData@MArray@@QAEHHAAM000@Z
 */
 
-struct MArray
+class MArray
 {
 public:
     // 0x4AB7B0 | ??0MArray@@QAE@XZ

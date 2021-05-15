@@ -169,7 +169,7 @@ i32 agiDDPipeline::BeginGfx()
         // NOTE: Originally used lpdsFront
         d_front_->GetSurfaceDesc(&screen_desc);
 
-        screen_format_ = ConvertSurfaceDesc(screen_desc);
+        screen_format_ = agiSurfaceDesc::FromDDSD2(screen_desc);
         d_pix_format_ = screen_desc.ddpfPixelFormat;
 
         hi_color_model_ = AsRc(agiColorModel::FindMatch(d_pix_format_.dwRBitMask, d_pix_format_.dwGBitMask,
@@ -268,7 +268,7 @@ b32 agiDDPipeline::LockFrameBuffer(agiSurfaceDesc& surface)
     if (d_rend_->Lock(nullptr, &ddsd, DDLOCK_WAIT, nullptr))
         return false;
 
-    surface = ConvertSurfaceDesc(ddsd);
+    surface = agiSurfaceDesc::FromDDSD2(ddsd);
 
     return true;
 }

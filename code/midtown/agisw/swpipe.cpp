@@ -88,16 +88,6 @@ check_size(agiSWViewport, 0x14C);
 
 static DDCOLORKEY ddk {};
 
-inline DDSURFACEDESC2 ConvertSurfaceDesc(const agiSurfaceDesc& surface)
-{
-    return mem::bit_cast<DDSURFACEDESC2>(surface); // FIXME: 64-bit incompatible
-}
-
-inline agiSurfaceDesc ConvertSurfaceDesc(const DDSURFACEDESC2& surface)
-{
-    return mem::bit_cast<agiSurfaceDesc>(surface); // FIXME: 64-bit incompatible
-}
-
 // TODO: Merge with agiDDBitmap (identical code)
 class agiSWBitmap final : public agiBitmap
 {
@@ -168,7 +158,7 @@ public:
 
         DD_TRY(d_surf_->Lock(nullptr, &ddsdDest, DDLOCK_WAIT, nullptr));
 
-        agiSurfaceDesc surface = ConvertSurfaceDesc(ddsdDest);
+        agiSurfaceDesc surface = agiSurfaceDesc::FromDDSD2(ddsdDest);
         surface.CopyFrom(surface_.get(), 0);
 
         DD_TRY(d_surf_->Unlock(nullptr));

@@ -99,6 +99,8 @@ struct agiDDSCAPS2 // DDSCAPS2
 
 // TODO: Allow safe conversion to/from DDSURFACEDESC2 (instead of bitcasting)
 
+typedef struct _DDSURFACEDESC2 DDSURFACEDESC2;
+
 class agiSurfaceDesc // DDSURFACEDESC2
 {
 public:
@@ -130,6 +132,9 @@ public:
     void Fill(i32 x, i32 y, i32 width, i32 height, u32 color);
 
     void FixPitch();
+
+    DDSURFACEDESC2 ToDDSD2();
+    static agiSurfaceDesc FromDDSD2(const DDSURFACEDESC2& sd);
 
     u32 GetPixelSize() const
     {

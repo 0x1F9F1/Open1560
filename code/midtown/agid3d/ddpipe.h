@@ -127,16 +127,6 @@ ARTS_IMPORT ilong ARTS_STDCALL EnumModesCallback(struct _DDSURFACEDESC2* arg1, v
 ARTS_IMPORT ilong ARTS_STDCALL EnumSurfsCallback(
     struct IDirectDrawSurface* arg1, struct _DDSURFACEDESC* arg2, void* arg3);
 
-inline DDSURFACEDESC2 ConvertSurfaceDesc(const agiSurfaceDesc& surface)
-{
-    return mem::bit_cast<DDSURFACEDESC2>(surface); // FIXME: 64-bit incompatible
-}
-
-inline agiSurfaceDesc ConvertSurfaceDesc(const DDSURFACEDESC2& surface)
-{
-    return mem::bit_cast<agiSurfaceDesc>(surface); // FIXME: 64-bit incompatible
-}
-
 template <typename T>
 inline void SafeRelease(T*& ptr)
 {

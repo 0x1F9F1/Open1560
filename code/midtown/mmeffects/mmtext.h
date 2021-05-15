@@ -54,6 +54,10 @@
 
 #include "arts7/node.h"
 
+#ifdef CreateFont
+#    undef CreateFont
+#endif
+
 struct mmText
 {
 public:
