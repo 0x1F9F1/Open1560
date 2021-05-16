@@ -30,13 +30,12 @@ public:
         : ptr_(nullptr)
     {}
 
-    template <typename U, typename = std::enable_if_t<std::is_convertible_v<U*, T*>>>
-    ARTS_FORCEINLINE explicit Rc(U* ptr) noexcept
+    ARTS_FORCEINLINE explicit Rc(T* ptr) noexcept
         : ptr_(ptr)
     {}
 
     template <typename U, typename = std::enable_if_t<std::is_convertible_v<U*, T*>>>
-    ARTS_FORCEINLINE Rc(Ptr<U> ptr) noexcept
+    ARTS_FORCEINLINE Rc(Ptr<U>&& ptr) noexcept
         : ptr_(ptr.release())
     {}
 
@@ -170,21 +169,7 @@ public:
         return *this;
     }
 
-    ARTS_FORCEINLINE void reset(std::nullptr_t = nullptr)
-    {
-#if RC_USE_SWAP
-        Rc().swap(*this);
-#else
-        T* old = ptr_;
-        ptr_ = nullptr;
-
-        if (old)
-            old->Release();
-#endif
-    }
-
-    template <typename U, typename = std::enable_if_t<std::is_convertible_v<U*, T*>>>
-    ARTS_FORCEINLINE void reset(U* ptr)
+    ARTS_FORCEINLINE void reset(T* ptr = nullptr)
     {
 #if RC_USE_SWAP
         Rc(ptr).swap(*this);
