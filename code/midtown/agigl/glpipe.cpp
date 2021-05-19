@@ -45,7 +45,6 @@
 
 #include <wglext.h>
 
-static PFNWGLGETEXTENSIONSSTRINGARBPROC wglGetExtensionsStringARB = NULL;
 static PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB = NULL;
 static PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = NULL;
 static PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
@@ -626,20 +625,22 @@ static void ParseExtensionString(HashTable& table, const char* extensions, isize
 
 void agiGLPipeline::InitVersioning()
 {
+    const auto get_proc = [open_gl = GetModuleHandleA("opengl32.dll")](const char* name) {
+        void* result = wglGetProcAddress(name);
+
+        if (result == nullptr)
+            result = GetProcAddress(open_gl, name);
+
+        return result;
+    };
+
     extensions_.Kill();
 
-    HMODULE opengl32_dll = GetModuleHandleA("opengl32.dll");
+    auto agi_glGetString = (PFNGLGETSTRINGPROC) get_proc("glGetString");
 
-    PFNGLGETSTRINGPROC arts_glGetString = (PFNGLGETSTRINGPROC) GetProcAddress(opengl32_dll, "glGetString");
-
-    const char* gl_version = (const char*) arts_glGetString(GL_VERSION);
+    const char* gl_version = (const char*) agi_glGetString(GL_VERSION);
 
     Displayf("OpenGL Version: %s", gl_version);
-
-    wglGetExtensionsStringARB = (PFNWGLGETEXTENSIONSSTRINGARBPROC) wglGetProcAddress("wglGetExtensionsStringARB");
-    wglChoosePixelFormatARB = (PFNWGLCHOOSEPIXELFORMATARBPROC) wglGetProcAddress("wglChoosePixelFormatARB");
-    wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) wglGetProcAddress("wglCreateContextAttribsARB");
-    wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) wglGetProcAddress("wglSwapIntervalEXT");
 
     if (arts_sscanf(gl_version, "%i.%i", &gl_major_version_, &gl_minor_version_) != 2)
         Quitf("Failed to get OpenGL version");
@@ -648,33 +649,33 @@ void agiGLPipeline::InitVersioning()
 
     if (HasVersion(3, 0))
     {
-        PFNGLGETINTEGERVPROC arts_glGetIntegerv = (PFNGLGETINTEGERVPROC) GetProcAddress(opengl32_dll, "glGetIntegerv");
-        PFNGLGETSTRINGIPROC arts_glGetStringi = (PFNGLGETSTRINGIPROC) wglGetProcAddress("glGetStringi");
+        auto agi_glGetIntegerv = (PFNGLGETINTEGERVPROC) get_proc("glGetIntegerv");
+        auto agi_glGetStringi = (PFNGLGETSTRINGIPROC) get_proc("glGetStringi");
 
         if (HasVersion(3, 2))
-            arts_glGetIntegerv(GL_CONTEXT_PROFILE_MASK, &profile_mask_);
+            agi_glGetIntegerv(GL_CONTEXT_PROFILE_MASK, &profile_mask_);
 
         i32 num_extensions = 0;
-        arts_glGetIntegerv(GL_NUM_EXTENSIONS, &num_extensions);
+        agi_glGetIntegerv(GL_NUM_EXTENSIONS, &num_extensions);
 
         for (i32 i = 0; i < num_extensions; ++i)
-            extensions_.Insert((const char*) arts_glGetStringi(GL_EXTENSIONS, i), (void*) 2);
+            extensions_.Insert((const char*) agi_glGetStringi(GL_EXTENSIONS, i), (void*) 2);
     }
     else if (HasVersion(2, 0))
     {
-        ParseExtensionString(extensions_, (const char*) arts_glGetString(GL_EXTENSIONS), 1);
+        ParseExtensionString(extensions_, (const char*) agi_glGetString(GL_EXTENSIONS), 1);
     }
     else
     {
         Quitf("OpenGL 1.X not supported");
     }
 
-    if (wglGetExtensionsStringARB)
-        ParseExtensionString(extensions_, wglGetExtensionsStringARB(window_dc_), 3);
+    if (auto agi_wglGetExtensionsStringARB = (PFNWGLGETEXTENSIONSSTRINGARBPROC) get_proc("wglGetExtensionsStringARB"))
+        ParseExtensionString(extensions_, agi_wglGetExtensionsStringARB(window_dc_), 3);
 
     Displayf("OpenGL Extension Count: %i", extensions_.Size());
 
-    const char* glsl_version = (const char*) arts_glGetString(GL_SHADING_LANGUAGE_VERSION);
+    const char* glsl_version = (const char*) agi_glGetString(GL_SHADING_LANGUAGE_VERSION);
 
     if (HasVersion(3, 3))
     {
@@ -692,6 +693,10 @@ void agiGLPipeline::InitVersioning()
     }
 
     Displayf("OpenGL Shader Version: %i (%s)", shader_version_, glsl_version);
+
+    wglChoosePixelFormatARB = (PFNWGLCHOOSEPIXELFORMATARBPROC) get_proc("wglChoosePixelFormatARB");
+    wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) get_proc("wglCreateContextAttribsARB");
+    wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) get_proc("wglSwapIntervalEXT");
 }
 
 HGLRC agiGLPipeline::CreateSharedContext()
