@@ -28,7 +28,17 @@ define_dummy_symbol(data7_printer);
 #include "machname.h"
 #include "memory/stack.h"
 
+b32 EnableDebugOutput = true;
+b32 EnableNormalOutput = true;
+
+char MessageFifo[32][256];
+i32 MessageFirst = 0;
+
+u16* MonoPointer = nullptr;
+
 void (*Printer)(i32 level, char const* format, std::va_list args) = DefaultPrinter;
+
+char __assertFailed[] = "Assertion failed (%s,%d): '%s'";
 
 void Printerf(i32 level, ARTS_FORMAT_STRING char const* format, ...)
 {
@@ -142,7 +152,7 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
         arts_strcat(buffer, buffer2);
     }
 
-    arts_strncpy(MessageFifo[(++MessageFirst + 9) % 10], buffer, 79);
+    arts_strncpy(MessageFifo[MessageFirst++ % ARTS_SIZE(MessageFifo)], buffer, ARTS_SIZE(MessageFifo[0]) - 1);
 
     arts_strcat(buffer, "\r\n");
 

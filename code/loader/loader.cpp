@@ -218,9 +218,6 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 
         InitBaseSymbols();
 
-        // Must run first
-        create_hook("DefaultPrinter", "Use a custom printer", 0x5769C0, &DefaultPrinter);
-
         LogToFile("Open1560.log");
 
         VERSION_STRING = const_cast<char*>("Open1560: " CI_BUILD_STRING " / " __DATE__ " " __TIME__);
