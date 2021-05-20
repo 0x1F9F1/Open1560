@@ -910,7 +910,7 @@ b32 GenerateLoadScreenName()
             arts_strcat(name, "ro");
             arts_sprintf(LoadScreen, "%s", name);
             return true;
-        case mmGameMode::Race:
+        case mmGameMode::Checkpoint:
             arts_strcat(name, "ch");
             arts_sprintf(LoadScreen, "%s%d", name, MMSTATE.EventId + 1);
             return true;

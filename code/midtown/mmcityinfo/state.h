@@ -41,12 +41,12 @@ ARTS_IMPORT extern class mmPlayerData MMCURRPLAYER;
 
 enum class mmGameMode : i32
 {
-    Cruise = 0, // Roam
-    Race = 1,   // Checkpoint
-    CnR = 2,
-    Circuit = 3,
-    Blitz = 4,
-    Edit = 5,
+    Cruise = 0,     // roam/ro
+    Checkpoint = 1, // waypt/race/ch, -race
+    CnR = 2,        // cops/cr
+    Circuit = 3,    // circ/circuit/ci, -circuit
+    Blitz = 4,      // blitz/bl, -blitz
+    Edit = 5,       // -edit
 };
 
 enum class mmSkillLevel : i32
@@ -62,6 +62,20 @@ enum class mmInputType : i32
     Joystick = 2,   // mmiJOYSTICK
     Gamepad = 3,    // mmiGAMEPAD
     Wheel2Axis = 4, // mmiWHEEL2AXIS
+};
+
+enum class mmCRGameClass : i32
+{
+    FreeForAll = 0,  // melee
+    CopsRobbers = 1, // copr
+    RobberTeams = 2, // rvsr
+};
+
+enum class mmCRLimitMode : i32
+{
+    None = 0,
+    Time = 1,
+    Points = 2,
 };
 
 struct mmStatePack
@@ -133,12 +147,12 @@ struct mmStatePack
     char AudDeviceName[200];
     bool HasMidtownCD;
 
-    // CnR
-    i32 FreeForAll;
-    i32 CREnableTimer;
-    i32 IsRobber;
+    // Cops and Robbers
+    mmCRGameClass CRGameClass;
+    mmCRLimitMode CRLimitMode;
+    i32 CRIsRobber;
     f32 CRTimeLimit;
-    i32 CRTimeLimit2;
+    i32 CRScoreLimit;
     i32 CRGoldMass;
 
     i32 field_238;

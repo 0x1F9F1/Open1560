@@ -65,12 +65,14 @@ void mmStatePack::SetDefaults()
     AudNumChannels = 32;
     arts_strcpy(AudDeviceName, "Primary Sound Driver");
     HasMidtownCD = false;
-    FreeForAll = false;
-    CREnableTimer = false;
-    IsRobber = false;
-    CRTimeLimit = false;
-    CRTimeLimit2 = false;
-    CRGoldMass = {};
+
+    CRGameClass = mmCRGameClass::FreeForAll;
+    CRLimitMode = mmCRLimitMode::None;
+    CRIsRobber = false;
+    CRTimeLimit = 0.0f;
+    CRScoreLimit = 0;
+    CRGoldMass = 0;
+
     arts_strcpy(IntroText, "Loading Open1560");
     CameraIndex = 0;
     HudmapMode = 0;
@@ -165,7 +167,7 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
         }
         else if (ARG("-race"))
         {
-            GameMode = mmGameMode::Race;
+            GameMode = mmGameMode::Checkpoint;
             EventId = std::atoi(argv[i++]);
         }
         else if (ARG("-circuit"))
