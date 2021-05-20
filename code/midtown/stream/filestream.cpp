@@ -22,7 +22,7 @@ define_dummy_symbol(stream_filestream);
 
 #include "core/minwin.h"
 
-HANDLE CopyIoHandle(i32 handle)
+static HANDLE CopyIoHandle(i32 handle)
 {
     DWORD std_handle = 0;
 
@@ -221,6 +221,6 @@ run_once([] {
 
     if (EnableBinaryFileMapping) // Sliding modifies TexCoords inplace, which crashes when read-only mapping
         patch_jmp("mmCellRenderer::Cull", "No Sliding", 0x4990FF, jump_type::always);
-
-    create_patch("FileStream", "Custom FileStream", 0x561AB0, "\xC3", 1);
 });
+
+run_once(INIT_early, [] { create_patch("FileStream", "Custom FileStream", 0x561AB0, "\xC3", 1); });

@@ -27,6 +27,8 @@ define_dummy_symbol(stream_stream);
 
 constexpr bool IsLittleEndian = true;
 
+b32 EnableBinaryFileMapping = false;
+
 Stream::Stream(void* buffer, isize buffer_size, class FileSystem* file_system)
     : buffer_(static_cast<u8*>(buffer))
     , buffer_capacity_(buffer_size)

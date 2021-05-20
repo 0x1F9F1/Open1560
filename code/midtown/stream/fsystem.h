@@ -107,7 +107,7 @@ public:
     ARTS_EXPORT static class FileSystem* FS[MAX_FILESYSTEMS];
 
     // 0x907A30 | ?FSCount@FileSystem@@2HA
-    ARTS_IMPORT static i32 FSCount;
+    ARTS_EXPORT static i32 FSCount;
 
     static inline constexpr bool IsPathSeparator(char c) noexcept
     {
@@ -148,4 +148,4 @@ Owner<class Stream> OpenFile(const char* file, const char* folder, const char* e
     isize buffer_len, const char* desc);
 
 // 0x907B38 | ?fsVerbose@@3HA
-ARTS_IMPORT extern i32 fsVerbose;
+ARTS_EXPORT extern b32 fsVerbose;

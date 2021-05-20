@@ -22,6 +22,11 @@ define_dummy_symbol(stream_fsystem);
 
 #include "stream.h"
 
+class FileSystem* FileSystem::FS[MAX_FILESYSTEMS] {};
+i32 FileSystem::FSCount = 0;
+
+b32 fsVerbose = false;
+
 FileSystem::FileSystem()
 {
     if (FSCount >= MAX_FILESYSTEMS)
@@ -313,5 +318,3 @@ Owner<class Stream> OpenFile(
 
     return AsOwner(result);
 }
-
-class FileSystem* FileSystem::FS[MAX_FILESYSTEMS] {};

@@ -87,13 +87,13 @@ check_size(HierFileSystem, 0x8);
 ARTS_EXPORT const char* FQN(const char* path);
 
 // 0x907BC8 | ?HFS@@3VHierFileSystem@@A
-ARTS_IMPORT extern class HierFileSystem HFS;
+ARTS_EXPORT extern class HierFileSystem HFS;
 
 // 0x907BD0 | ?HierAllowPath@@3PADA
-ARTS_IMPORT extern char* HierAllowPath; // Null Separated
+ARTS_EXPORT extern char* HierAllowPath; // Null Separated
 
 // 0x907B40 | ?HierPrefix@@3PADA
-ARTS_IMPORT extern char* HierPrefix;
+ARTS_EXPORT extern char* HierPrefix;
 
 // 0x907BD4 | ?LogOpenOn@@3HA
-ARTS_IMPORT extern i32 LogOpenOn;
+ARTS_EXPORT extern b32 LogOpenOn;

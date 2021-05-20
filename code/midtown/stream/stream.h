@@ -312,7 +312,7 @@ ARTS_EXPORT i32 arts_fscanf(class Stream* stream, char const* format, ...);
 ARTS_EXPORT i32 arts_fseek(class Stream* stream, i32 offset, i32 origin);
 
 // 0x907960 | ?EnableBinaryFileMapping@@3HA
-ARTS_IMPORT extern i32 EnableBinaryFileMapping;
+ARTS_EXPORT extern b32 EnableBinaryFileMapping;
 
 // 0x55F3B0 | _printf | void
 

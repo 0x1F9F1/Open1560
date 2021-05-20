@@ -24,6 +24,12 @@ define_dummy_symbol(stream_hfsystem);
 #include "data7/pager.h"
 #include "filestream.h"
 
+HierFileSystem HFS {};
+
+char* HierAllowPath = nullptr;
+char* HierPrefix = nullptr;
+b32 LogOpenOn = false;
+
 HierFileSystem::HierFileSystem() = default;
 HierFileSystem::~HierFileSystem() = default;
 
@@ -228,3 +234,5 @@ void PagerInfo_t::Read(void* buffer, u32 offset, u32 size)
     if (!ReadFile(reinterpret_cast<HANDLE>(Handle), buffer, size, &bytes_read, &overlapped) || (bytes_read != size))
         Errorf("PagerInfo_t(%s)::Read - Failed to read 0x%X bytes @ 0x%X: 0x%08X", Name, size, offset, GetLastError());
 }
+
+run_once(INIT_early, [] { create_patch("HierFileSystem", "Custom HierFileSystem", 0x560590, "\xC3", 1); });
