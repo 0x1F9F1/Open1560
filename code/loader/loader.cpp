@@ -32,6 +32,7 @@
 #include <dinput.h>
 
 #include <mem/module.h>
+#include <mem/pattern.h>
 
 #pragma comment(linker, "/EXPORT:DirectInputCreateA=_DirectInputCreateA_Impl@16")
 
@@ -173,10 +174,18 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
     if (fdwReason == DLL_PROCESS_ATTACH)
     {
-        if (std::strcmp(mem::pointer(0x6346BC).as<const char*>(), "Angel: 1560 / Apr  2 1999 19:10:27") != 0)
+        if (mem::pointer ver_string =
+                mem::default_scanner(mem::pattern("Angel: ", nullptr)).scan(mem::module::main());
+            ver_string != 0x6346BC)
         {
-            MessageBoxA(NULL, "Invalid MM1 Version Detected", "Fatal Error",
-                MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
+            char buffer[256];
+
+            arts_sprintf(buffer,
+                "Invalid Game Version '%s'\n"
+                "Use the Open1560.exe provided in the download",
+                ver_string ? ver_string.as<const char*>() : "<INVALID>");
+
+            MessageBoxA(NULL, buffer, "Invalid Version", MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
 
             std::exit(1);
         }
