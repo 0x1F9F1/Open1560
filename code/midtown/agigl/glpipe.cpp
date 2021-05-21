@@ -792,7 +792,7 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     // FIXME: This overlaps with the rasterizer timer
     // ARTS_UTIMED(agiCopyBitmap);
 
-    // RAST->BeginGroup();
+    // rasterizer_->BeginGroup();
 
     agiTexDef* texture = static_cast<agiGLBitmap*>(src)->GetHandle();
 
@@ -825,9 +825,9 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
     verts[1].tu = verts[2].tu = (src_x + width) * inv_tex_w;
     verts[3].tv = verts[2].tv = (src_y + height) * inv_tex_h;
 
-    RAST->Mesh(agiVtxType::Screen, (agiVtx*) verts, 4, indices, 6);
+    rasterizer_->Mesh(agiVtxType::Screen, (agiVtx*) verts, 4, indices, 6);
 
-    // RAST->EndGroup();
+    // rasterizer_->EndGroup();
 
     agiCurState.SetTexture(old_tex);
     agiCurState.SetDrawMode(old_draw_mode);
@@ -849,7 +849,7 @@ void agiGLPipeline::ClearAll(i32 color)
 
 void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
 {
-    // RAST->BeginGroup();
+    // rasterizer_->BeginGroup();
 
     auto tex = agiCurState.SetTexture(nullptr);
     auto draw_mode = agiCurState.SetDrawMode(0xF);
@@ -870,9 +870,9 @@ void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
     verts[1].x = verts[2].x = static_cast<f32>(x + width);
     verts[3].y = verts[2].y = static_cast<f32>(y + height);
 
-    RAST->Mesh(agiVtxType::Screen, (agiVtx*) verts, 4, indices, 6);
+    rasterizer_->Mesh(agiVtxType::Screen, (agiVtx*) verts, 4, indices, 6);
 
-    // RAST->EndGroup();
+    // rasterizer_->EndGroup();
 
     agiCurState.SetTexture(tex);
     agiCurState.SetDrawMode(draw_mode);
