@@ -22,6 +22,7 @@ define_dummy_symbol(memory_stack);
 
 #include "core/minwin.h"
 #include "memory/allocator.h"
+#include "stream/stream.h"
 
 #include <DbgHelp.h>
 #include <intrin.h>
@@ -215,6 +216,11 @@ void DumpStackTraceback(i32* frames, i32 count)
     }
 }
 
+ARTS_NOINLINE i32 LogStackTraceback(isize* frames, i32 count)
+{
+    return StackTraceback(count, frames, 1);
+}
+
 void LookupAddress(char* buffer, usize buflen, usize address)
 {
     InitDebugSymbols();
@@ -405,4 +411,91 @@ i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
 #endif
 
     return EXCEPTION_EXECUTE_HANDLER;
+}
+
+static extern_var(0x7805D8, Stream*, DebugLogStream);
+static extern_var(0x7805D0, b32, DebugLogReading);
+
+void DebugLogInit(b32 reading)
+{
+    if (DebugLogStream)
+        return;
+
+    DebugLogReading = reading;
+    DebugLogStream = arts_fopen("c:\\debug.log", reading ? "r" : "w");
+}
+
+void DebugLogShutdown()
+{
+    delete DebugLogStream;
+}
+
+void DebugLog(i32 tag, void* data, i32 size)
+{
+    if (DebugLogStream == nullptr)
+        return;
+
+    isize addrs[8] {};
+    StackTraceback(8, addrs, 1);
+
+    if (DebugLogReading)
+    {
+        i32 ftag = 0;
+        i32 fsize = 0;
+
+        DebugLogStream->Read(&ftag, sizeof(ftag));
+        DebugLogStream->Read(&fsize, sizeof(fsize));
+
+        u8 fbuffer[256];
+        ArAssert(fsize <= sizeof(fbuffer), "Invalid Input Size");
+        DebugLogStream->Read(fbuffer, fsize);
+
+        isize faddrs[8] {};
+        DebugLogStream->Read(faddrs, sizeof(faddrs));
+
+        bool invalid = false;
+
+        if (tag != ftag)
+        {
+            Errorf("DebugLog: Current tag %x != stored %x", tag, ftag);
+            invalid = true;
+        }
+
+        if (size != fsize)
+        {
+            Errorf("DebugLog: Current size %d != stored %d", size, fsize);
+            invalid = true;
+        }
+
+        if (std::memcmp(data, fbuffer, size))
+        {
+            Errorf("DebugLog: Current data != stored data");
+            Displayf("CURRENT:");
+            HexDump(data, size);
+            Displayf("STORED:");
+            HexDump(fbuffer, fsize);
+            invalid = true;
+        }
+
+        // FIXME: This won't work properly with ASLR
+        if (std::memcmp(addrs, faddrs, sizeof(faddrs)))
+        {
+            Errorf("DebugLog: Stack backtrace mismatch");
+            Displayf("CURRENT:");
+            DumpStackTraceback(addrs, ARTS_SSIZE32(addrs));
+            Displayf("STORED:");
+            DumpStackTraceback(faddrs, ARTS_SSIZE32(faddrs));
+            invalid = true;
+        }
+
+        if (invalid)
+            Quitf("DebugLog mismatch, aborting.");
+    }
+    else
+    {
+        DebugLogStream->Write(&tag, sizeof(tag));
+        DebugLogStream->Write(&size, sizeof(size));
+        DebugLogStream->Write(data, size);
+        DebugLogStream->Write(addrs, sizeof(addrs));
+    }
 }

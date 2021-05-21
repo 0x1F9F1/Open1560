@@ -40,9 +40,7 @@ void FixTexFlags(agiTexParameters& tex)
 
     tex.Flags |= agiTexParameters::WrapU | agiTexParameters::WrapV;
 
-    u32 clamp_mode = prop->Flags & agiTexProp::ClampModeMask;
-
-    switch (clamp_mode)
+    switch (prop->Flags & agiTexProp::ClampModeMask)
     {
         case agiTexProp::ClampUOrBoth:
         case agiTexProp::ClampUOrNeither: tex.Flags &= ~agiTexParameters::WrapU; break;

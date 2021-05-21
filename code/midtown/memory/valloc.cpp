@@ -24,6 +24,8 @@ define_dummy_symbol(memory_valloc);
 
 #include "allocator.h"
 
+asSafeHeap SAFEHEAP {};
+
 static usize MultiHeapCount = 4;
 
 static mem::cmd_param PARAM_multiheap {"multiheap"};
@@ -120,3 +122,5 @@ void asSafeHeap::Deactivate()
 
     current_heap_ = 0;
 }
+
+patch_static_ctors(0x521350);

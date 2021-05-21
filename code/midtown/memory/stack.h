@@ -35,13 +35,13 @@
 // #define ARTS_NO_EXCEPTION_CATCHING
 
 // 0x520720 | ?DebugLog@@YAXHPAXH@Z
-ARTS_IMPORT void DebugLog(i32 arg1, void* arg2, i32 arg3);
+ARTS_EXPORT void DebugLog(i32 tag, void* data, i32 size);
 
 // 0x5206C0 | ?DebugLogInit@@YAXH@Z | unused
-ARTS_IMPORT void DebugLogInit(i32 arg1);
+ARTS_EXPORT void DebugLogInit(b32 reading);
 
 // 0x520700 | ?DebugLogShutdown@@YAXXZ
-ARTS_IMPORT void DebugLogShutdown();
+ARTS_EXPORT void DebugLogShutdown();
 
 // 0x5204C0 | ?DoStackTraceback@@YAXHPAH@Z
 ARTS_EXPORT void DoStackTraceback(i32 depth, isize* frame);
@@ -50,7 +50,7 @@ ARTS_EXPORT void DoStackTraceback(i32 depth, isize* frame);
 ARTS_EXPORT void DumpStackTraceback(isize* frames, i32 count);
 
 // 0x5205B0 | ?LogStackTraceback@@YAHPAHH@Z
-ARTS_IMPORT i32 LogStackTraceback(i32* arg1, i32 arg2);
+[[deprecated]] ARTS_EXPORT i32 LogStackTraceback(isize* frames, i32 count);
 
 void LookupAddress(char* buffer, usize buflen, usize address);
 
