@@ -114,7 +114,7 @@ private:
     ARTS_EXPORT void RemoveMe();
 
     // 0x90AE5C | ?First@HashTable@@0PAV1@A
-    ARTS_IMPORT static class HashTable* First;
+    ARTS_EXPORT static class HashTable* First;
 
     i32 bucket_count_ {0};
     i32 value_count_ {0};

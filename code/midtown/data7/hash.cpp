@@ -20,6 +20,8 @@ define_dummy_symbol(data7_hash);
 
 #include "hash.h"
 
+HashTable* HashTable::First = nullptr;
+
 void HashTable::operator=(class HashTable& other)
 {
     // TODO: Why is this bucket_count_ - 1?
