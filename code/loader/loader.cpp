@@ -96,14 +96,14 @@ static std::size_t InitExportHooks(HMODULE instance)
         remaps.emplace(symbol, value);
     }
 
-    std::size_t total = 0;
-
     Displayf("Processing exports");
 
     LogHooks = false;
 
+    std::vector<std::pair<const SymbolInfo*, mem::pointer>> symbols;
+
     mem::module::nt(instance).enum_exports(
-        [&total, &remaps](const char* namez, std::uint32_t /*ordinal*/, mem::pointer address) {
+        [&remaps, &symbols](const char* namez, std::uint32_t /*ordinal*/, mem::pointer address) {
             std::string_view name = namez ? namez : "";
 
             if (auto find = remaps.find(name); find != remaps.end())
@@ -118,17 +118,26 @@ static std::size_t InitExportHooks(HMODULE instance)
                     char replaced[256];
                     arts_strncpy(replaced, name.data(), name.size());
 
-                    // Hacky replacement of mangled const char* -> char*
-                    while (char* s = std::strstr(replaced, "PBD"))
-                        std::memcpy(s, "PAD", 3);
+                    char* here = replaced;
 
-                    // Hacky replacement of mangled const void* -> void*
-                    while (char* s = std::strstr(replaced, "PBX"))
-                        std::memcpy(s, "PAX", 3);
+                    if (*here == '?')
+                    {
+                        // Skip qualified name
+                        while (*here != '@' && *here != '\0')
+                            here += std::strcspn(here, "@") + 1;
 
-                    // Hacky replacement of mangled T* __restrict -> T*
-                    while (char* s = std::strstr(replaced, "PI"))
-                        std::memmove(s + 1, s + 2, std::strlen(s + 1));
+                        // Hacky replacement of mangled const char* -> char*
+                        while (char* s = std::strstr(here, "PBD"))
+                            std::memcpy(s, "PAD", 3);
+
+                        // Hacky replacement of mangled const void* -> void*
+                        while (char* s = std::strstr(here, "PBX"))
+                            std::memcpy(s, "PAX", 3);
+
+                        // Hacky replacement of mangled T* __restrict -> T*
+                        while (char* s = std::strstr(here, "PI"))
+                            std::memmove(s + 1, s + 2, std::strlen(s + 1));
+                    }
 
                     symbol = LookupBaseSymbol(replaced);
                 }
@@ -138,17 +147,22 @@ static std::size_t InitExportHooks(HMODULE instance)
                     Quitf("Unrecogized Symbol '%.*s'", name.size(), name.data());
                 }
 
-                symbol->Hook(address);
-
-                ++total;
+                symbols.emplace_back(symbol, address);
             }
 
             return false;
         });
 
+    // Hook functions after data variables, to avoid clobbering a jump hook
+    std::sort(symbols.begin(), symbols.end(),
+        [](const auto& lhs, const auto& rhs) { return lhs.first->IsFunction() < rhs.first->IsFunction(); });
+
+    for (const auto& [symbol, address] : symbols)
+        symbol->Hook(address);
+
     LogHooks = true;
 
-    return total;
+    return symbols.size();
 }
 
 #ifndef CI_BUILD_STRING

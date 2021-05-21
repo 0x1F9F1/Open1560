@@ -8315,6 +8315,13 @@ static isize leb128_decode_isize(const void** input)
     return (result >> 1) ^ -isize(result & 1);
 }
 
+bool SymbolInfo::IsFunction() const
+{
+    const void* input = reinterpret_cast<const u8*>(BaseSymbolData) + DataIndex;
+    usize type = leb128_decode_usize(&input);
+    return type == 0;
+}
+
 void SymbolInfo::Hook(mem::pointer new_address) const
 {
     const void* input = reinterpret_cast<const u8*>(BaseSymbolData) + DataIndex;

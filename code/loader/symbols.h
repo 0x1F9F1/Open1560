@@ -27,6 +27,7 @@ struct SymbolInfo
     u16 DataIndex;
     u16 HashNext;
 
+    bool IsFunction() const;
     void Hook(mem::pointer new_address) const;
 };
 
