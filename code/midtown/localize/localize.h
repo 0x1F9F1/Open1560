@@ -44,7 +44,7 @@ struct LocString
 ARTS_EXPORT struct LocString* AngelReadString(u32 index);
 
 // 0x520010 | ?GetLocTime@@YAPADM@Z
-ARTS_IMPORT char* GetLocTime(f32 arg1);
+ARTS_EXPORT char* GetLocTime(f32 time);
 
 #if ARTS_LOCALIZE_MODE != 0
 #    define LOC_STRING(ID) (AngelReadString(ID))

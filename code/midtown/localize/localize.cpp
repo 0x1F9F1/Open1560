@@ -79,3 +79,25 @@ LocString* AngelReadString(u32 index)
     return LOC_TEXT(result);
 }
 #endif
+
+char* GetLocTime(f32 time)
+{
+    static char buffer[64]; // FIXME: Static buffer
+
+    if (time <= 0.0f)
+    {
+        arts_sprintf(buffer, "  ---  ");
+    }
+    else
+    {
+        double whole = 0.0;
+
+        i32 centis = static_cast<i32>(std::modf(time + 0.005, &whole) * 100.0);
+        i32 minutes = static_cast<i32>(whole / 60.0);
+        i32 seconds = static_cast<i32>(whole - minutes * 60.0);
+
+        arts_sprintf(buffer, "%d:%02d:%02d", minutes, seconds, centis);
+    }
+
+    return buffer;
+}
