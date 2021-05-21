@@ -19,3 +19,7 @@
 define_dummy_symbol(agi_physlib);
 
 #include "physlib.h"
+
+agiLib<agiPhysParameters, agiPhysDef> agiPhysLib {"agiPhysLib"};
+
+patch_static_ctors(0x5570E0);

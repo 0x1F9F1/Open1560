@@ -241,7 +241,7 @@ include_dummy_symbol(midtown);
 
 include_dummy_symbol(agi_bitmap);
 include_dummy_symbol(agi_cmodel);
-// include_dummy_symbol(agi_cmodel8);
+include_dummy_symbol(agi_cmodel8);
 include_dummy_symbol(agi_cmodelx);
 // include_dummy_symbol(agi_dlp);
 include_dummy_symbol(agi_dlptmpl);

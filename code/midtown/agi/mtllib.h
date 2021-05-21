@@ -53,6 +53,6 @@ public:
 #endif
 
 // 0x903198 | ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
-ARTS_IMPORT extern class agiLib<class agiMtlParameters, class agiMtlDef> agiMtlLib;
+ARTS_EXPORT extern class agiLib<class agiMtlParameters, class agiMtlDef> agiMtlLib;
 
 check_size(agiMtlLib, 0x4014);

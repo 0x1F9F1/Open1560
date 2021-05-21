@@ -19,3 +19,7 @@
 define_dummy_symbol(agi_texlib);
 
 #include "texlib.h"
+
+agiLib<agiTexParameters, agiTexDef> agiTexLib {"agiTexLib"};
+
+patch_static_ctors(0x558160);

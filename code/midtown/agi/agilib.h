@@ -135,10 +135,9 @@ public:
 
     void Load(const char* path)
     {
-        if (Stream* file = arts_fopen(path, "r"))
+        if (Ptr<Stream> file {arts_fopen(path, "r")})
         {
-            Load(file);
-            delete file;
+            Load(file.get());
         }
     }
 

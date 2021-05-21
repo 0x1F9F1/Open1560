@@ -42,7 +42,7 @@ void StreamMiniParser::RawPutCh(i32 value)
 
 void StreamMiniParser::Load(class MetaClass* cls, const char* path, void* ptr)
 {
-    Ptr<Stream> input(arts_fopen(path, "r"));
+    Ptr<Stream> input {arts_fopen(path, "r")};
 
     if (input)
     {
@@ -61,7 +61,7 @@ void StreamMiniParser::Load(class MetaClass* cls, const char* path, void* ptr)
 
 void StreamMiniParser::Save(class MetaClass* cls, const char* path, void* ptr)
 {
-    Ptr<Stream> output(arts_fopen(path, "w"));
+    Ptr<Stream> output {arts_fopen(path, "w")};
 
     if (output)
     {

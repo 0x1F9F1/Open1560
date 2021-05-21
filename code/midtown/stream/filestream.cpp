@@ -223,4 +223,4 @@ run_once([] {
         patch_jmp("mmCellRenderer::Cull", "No Sliding", 0x4990FF, jump_type::always);
 });
 
-run_once(INIT_early, [] { create_patch("FileStream", "Custom FileStream", 0x561AB0, "\xC3", 1); });
+patch_static_ctors(0x561AB0);

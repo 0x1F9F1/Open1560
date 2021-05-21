@@ -22,6 +22,16 @@ define_dummy_symbol(agi_rsys);
 
 #include "pipeline.h"
 
+agiRasterizer* RAST = nullptr;
+
+// Unused
+struct agiRenderOpts
+{};
+
+agiRenderOpts ROPTS {};
+agiRendState agiCurState {};
+agiRendStateStruct agiLastState {};
+
 agiRasterizer::agiRasterizer(agiPipeline* pipe)
     : agiRefreshable(pipe)
 {

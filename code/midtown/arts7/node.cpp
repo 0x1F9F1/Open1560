@@ -269,7 +269,7 @@ b32 asNode::InsertChild(i32 index, class asNode* child)
 
 b32 asNode::Load(const char* path)
 {
-    Ptr<Stream> input(arts_fopen(path, "r"));
+    Ptr<Stream> input {arts_fopen(path, "r")};
 
     if (!input)
     {
@@ -377,7 +377,7 @@ void asNode::ResetTime()
 
 b32 asNode::Save(const char* path)
 {
-    Ptr<Stream> output(arts_fopen(path, "w"));
+    Ptr<Stream> output {arts_fopen(path, "w")};
 
     if (!output)
     {

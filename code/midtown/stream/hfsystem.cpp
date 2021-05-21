@@ -235,4 +235,4 @@ void PagerInfo_t::Read(void* buffer, u32 offset, u32 size)
         Errorf("PagerInfo_t(%s)::Read - Failed to read 0x%X bytes @ 0x%X: 0x%08X", Name, size, offset, GetLastError());
 }
 
-run_once(INIT_early, [] { create_patch("HierFileSystem", "Custom HierFileSystem", 0x560590, "\xC3", 1); });
+patch_static_ctors(0x560590);

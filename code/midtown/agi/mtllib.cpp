@@ -19,3 +19,7 @@
 define_dummy_symbol(agi_mtllib);
 
 #include "mtllib.h"
+
+agiLib<agiMtlParameters, agiMtlDef> agiMtlLib {"agiMtlLib"};
+
+patch_static_ctors(0x55B970);

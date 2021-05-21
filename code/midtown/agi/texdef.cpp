@@ -347,7 +347,7 @@ i32 agiTexLut::Init(const char* name)
     }
     else
     {
-        Ptr<Stream> file(arts_fopen(name, "r"));
+        Ptr<Stream> file {arts_fopen(name, "r")};
 
         if (file == nullptr)
             return -1;
