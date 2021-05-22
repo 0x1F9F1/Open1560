@@ -77,7 +77,6 @@ For a tutorial on how to use command line arguments, see https://www.bleepingcom
 | gllinewidth |       | Sets the width of lines (sparks) |
 | glstream    |       | Sets the mode for streaming data to the GPU |
 | sync        | true  | Disables multi-threading |
-| thinfont    | true  | Makes the debug font slightly thinner |
 
 ## DirectDraw
 

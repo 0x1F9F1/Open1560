@@ -30,7 +30,6 @@ define_dummy_symbol(agi_print);
 #include <algorithm>
 
 static mem::cmd_param PARAM_font_scale {"fontscale"};
-static mem::cmd_param PARAM_thin_font {"thinfont"};
 static mem::cmd_param PARAM_alphafont {"alphafont"};
 
 i32 agiFontWidth = 0;
@@ -46,14 +45,11 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     // 96 8x8 characters, from 0x20 to 0x7F
     // Split into 16 per row, with 6 rows
 
-    i32 const font_scale = std::clamp(PARAM_font_scale.get_or<i32>(Pipe()->GetHeight() / 480), 1, 4);
+    i32 const font_scale = std::max(PARAM_font_scale.get_or<i32>(Pipe()->GetHeight() / 60), 8);
     bool alpha = false;
 
-    agiFontWidth = font_scale * 8;
-    agiFontHeight = font_scale * 8;
-
-    if (font_scale > 1 && !PARAM_thin_font.get_or(true))
-        agiFontWidth += 8;
+    agiFontWidth = font_scale;
+    agiFontHeight = font_scale;
 
     Ptr<agiSurfaceDesc> surface;
 
