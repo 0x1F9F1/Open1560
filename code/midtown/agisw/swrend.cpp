@@ -20,6 +20,8 @@ define_dummy_symbol(agisw_swrend);
 
 #include "swrend.h"
 
+#include "agi/rsys.h"
+
 void ARTS_FASTCALL __setupNone(struct swSurface* /*arg1*/)
 {}
 
@@ -58,3 +60,11 @@ ARTS_IMPORT /*static*/ u32 swFindColor565(u32 arg1);
 
 // 0x535460 | ?swSetupEdgeScan@@YAXPAUswEdge@@HH@Z
 ARTS_IMPORT /*static*/ void swSetupEdgeScan(struct swEdge* arg1, i32 arg2, i32 arg3);
+
+void swKill()
+{
+    delete[] swDepthBuffer;
+    swDepthBuffer = nullptr;
+
+    agiCurState.SetSoftwareRendering(false);
+}

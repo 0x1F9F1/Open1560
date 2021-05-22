@@ -178,7 +178,7 @@ ARTS_IMPORT struct swSurface* swInitSurface(
     struct agiScreenVtx arg1, struct agiScreenVtx arg2, struct agiScreenVtx arg3, u32 arg4);
 
 // 0x537410 | ?swKill@@YAXXZ
-ARTS_IMPORT void swKill();
+ARTS_EXPORT void swKill();
 
 // 0x537360 | ?swLine@@YAXPAUagiScreenVtx@@0@Z
 ARTS_IMPORT void swLine(struct agiScreenVtx* arg1, struct agiScreenVtx* arg2);
