@@ -461,7 +461,7 @@ i32 agiGLPipeline::BeginGfx()
         if (msaa_level)
         {
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
-            glRenderbufferStorageMultisample(GL_RENDERBUFFER, msaa_level, GL_RGB8, render_width_, render_height_);
+            glRenderbufferStorageMultisample(GL_RENDERBUFFER, msaa_level, GL_RGBA8, render_width_, render_height_);
             glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rbo_[0]);
 
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[1]);
@@ -475,7 +475,7 @@ i32 agiGLPipeline::BeginGfx()
         else
         {
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_RGB8, render_width_, render_height_);
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, render_width_, render_height_);
             glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rbo_[0]);
 
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[1]);
