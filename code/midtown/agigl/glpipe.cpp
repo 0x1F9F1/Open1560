@@ -461,7 +461,7 @@ i32 agiGLPipeline::BeginGfx()
         if (msaa_level)
         {
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
-            glRenderbufferStorageMultisample(GL_RENDERBUFFER, msaa_level, GL_RGBA8, render_width_, render_height_);
+            glRenderbufferStorageMultisample(GL_RENDERBUFFER, msaa_level, GL_RGB8, render_width_, render_height_);
             glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rbo_[0]);
 
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[1]);
@@ -475,7 +475,7 @@ i32 agiGLPipeline::BeginGfx()
         else
         {
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
-            glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, render_width_, render_height_);
+            glRenderbufferStorage(GL_RENDERBUFFER, GL_RGB8, render_width_, render_height_);
             glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rbo_[0]);
 
             glBindRenderbuffer(GL_RENDERBUFFER, rbo_[1]);
@@ -517,7 +517,7 @@ void agiGLPipeline::EndGfx()
     if (fbo_ != 0)
     {
         glDeleteFramebuffers(1, &fbo_);
-        glDeleteFramebuffers(2, rbo_);
+        glDeleteRenderbuffers(2, rbo_);
 
         fbo_ = 0;
         rbo_[0] = 0;
@@ -727,7 +727,6 @@ void agiGLPipeline::EndFrame()
     {
         glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
         glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo_);
-        glDrawBuffer(GL_BACK);
         glBlitFramebuffer(render_x_, render_y_, render_x_ + render_width_, render_y_ + render_height_, blit_x_, blit_y_,
             blit_x_ + blit_width_, blit_y_ + blit_height_, GL_COLOR_BUFFER_BIT, blit_filter_);
     }
