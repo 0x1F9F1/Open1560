@@ -65,7 +65,7 @@ namespace mem
         const byte* bytes = pattern.bytes();
         const byte* masks = pattern.masks();
 
-        hash.update(0x435E89AB7);
+        hash.update(0x435E89AB);
         hash.update(bytes, length);
 
         hash.update(0xAE1E9528);

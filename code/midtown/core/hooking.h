@@ -160,4 +160,4 @@ using extern_var_t = T;
 #    endif
 #endif
 
-extern mem::init_function INIT_early;
+extern mem::init_function* INIT_early;

@@ -777,7 +777,7 @@ ARTS_EXPORT int WINAPI MidtownMain(
 
     InitPatches();
 
-    Displayf("Processed %zu Init Functions", mem::init_function::ROOT().init());
+    Displayf("Processed %zu Init Functions", mem::init_function::init());
 
     MetaClass::FixupClasses();
 

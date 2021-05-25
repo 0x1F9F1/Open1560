@@ -174,8 +174,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
 {
     if (fdwReason == DLL_PROCESS_ATTACH)
     {
-        if (mem::pointer ver_string =
-                mem::default_scanner(mem::pattern("Angel: ", nullptr)).scan(mem::module::main());
+        if (mem::pointer ver_string = mem::scan(mem::pattern("Angel: ", nullptr), mem::module::main());
             ver_string != 0x6346BC)
         {
             char buffer[256];
@@ -223,7 +222,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         Displayf("Processed %zu Export Hooks", InitExportHooks(hinstDLL));
 
         // Run init functions which need to be happen before WinMain
-        Displayf("Processed %zu Early Init Functions", INIT_early.init());
+        Displayf("Processed %zu Early Init Functions", mem::init_function::init(INIT_early));
     }
 
     return TRUE;

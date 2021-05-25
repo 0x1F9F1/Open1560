@@ -23,7 +23,7 @@
 #include <mem/module.h>
 #include <mem/protect.h>
 
-mem::init_function INIT_early;
+mem::init_function* INIT_early {nullptr};
 
 void write_protected(mem::pointer dest, mem::pointer src, std::size_t length)
 {

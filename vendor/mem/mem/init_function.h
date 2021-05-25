@@ -31,14 +31,14 @@ namespace mem
 
         constexpr init_function() noexcept = default;
         init_function(callback_t callback) noexcept;
-        init_function(init_function& parent, callback_t callback) noexcept;
+        init_function(init_function*& parent, callback_t callback) noexcept;
 
         init_function(const init_function&) = delete;
         init_function(init_function&&) = delete;
 
-        std::size_t init();
+        static std::size_t init(init_function*& root = ROOT(), bool clear = true);
 
-        static init_function& ROOT() noexcept;
+        static init_function*& ROOT() noexcept;
 
     private:
         callback_t callback_ {nullptr};
@@ -49,39 +49,46 @@ namespace mem
         : init_function(ROOT(), callback)
     {}
 
-    MEM_STRONG_INLINE init_function::init_function(init_function& parent, callback_t callback) noexcept
+    MEM_STRONG_INLINE init_function::init_function(init_function*& parent, callback_t callback) noexcept
         : callback_(callback)
-        , next_(parent.next_)
+        , next_(parent)
     {
-        parent.next_ = this;
+        parent = this;
     }
 
-    MEM_STRONG_INLINE init_function& init_function::ROOT() noexcept
+    MEM_STRONG_INLINE init_function*& init_function::ROOT() noexcept
     {
-        static init_function root;
+        static init_function* root {nullptr};
 
         return root;
     }
 
-    MEM_STRONG_INLINE std::size_t init_function::init()
+    MEM_STRONG_INLINE std::size_t init_function::init(init_function*& root, bool clear)
     {
         std::size_t total = 0;
 
-        init_function* i = next_;
-        next_ = nullptr;
+        init_function* i = root;
+
+        if (clear)
+            root = nullptr;
 
         while (i)
         {
             if (i->callback_)
             {
                 i->callback_();
-                i->callback_ = nullptr;
+
+                if (clear)
+                    i->callback_ = nullptr;
 
                 ++total;
             }
 
             init_function* j = i->next_;
-            i->next_ = nullptr;
+
+            if (clear)
+                i->next_ = nullptr;
+
             i = j;
         }
 

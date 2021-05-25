@@ -28,6 +28,8 @@
 
 namespace mem
 {
+    class region;
+
     class pattern
     {
     private:
@@ -68,6 +70,9 @@ namespace mem
 
         std::string to_string() const;
     };
+
+    mem::pointer scan(const mem::pattern& pattern, mem::region range);
+    std::vector<mem::pointer> scan_all(const mem::pattern& pattern, mem::region range);
 
     inline bool pattern::parse_chunk(char_queue& input, char wildcard)
     {
@@ -454,6 +459,16 @@ namespace mem
 namespace mem
 {
     using default_scanner = class simd_scanner;
-}
+
+    inline mem::pointer scan(const mem::pattern& pattern, mem::region range)
+    {
+        return mem::default_scanner(pattern).scan(range);
+    }
+
+    inline std::vector<mem::pointer> scan_all(const mem::pattern& pattern, mem::region range)
+    {
+        return mem::default_scanner(pattern).scan_all(range);
+    }
+} // namespace mem
 
 #endif // MEM_PATTERN_BRICK_H
