@@ -183,15 +183,7 @@ i32 agiGLTexDef::BeginGfx()
 
     glGenTextures(1, &texture_);
     glBindTexture(GL_TEXTURE_2D, texture_);
-
-    for (u32 i = 0; i < 4; ++i)
-    {
-        if ((surface->Pitch & (0x7 >> i)) == 0)
-        {
-            glPixelStorei(GL_UNPACK_ALIGNMENT, 0x8 >> i);
-            break;
-        }
-    }
+    glPixelStorei(GL_UNPACK_ALIGNMENT, std::clamp<u32>(surface->Pitch & -surface->Pitch, 1, 8));
 
     SurfaceSize = 0;
 

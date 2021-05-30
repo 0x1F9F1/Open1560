@@ -108,6 +108,7 @@ b32 HashTable::Insert(const char* key, void* value)
 
     buckets_[bucket] = new HashEntry {ConstString(key), value, buckets_[bucket]};
 
+    // TODO: Check before inserting
     if (++value_count_ > bucket_count_) // TODO: Reduce load factor
         Recompute(bucket_count_ * 4);   // TODO: Reduce growth factor
 
