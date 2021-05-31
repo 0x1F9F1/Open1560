@@ -151,19 +151,19 @@ i32 dxiResClosestMatch(i32 renderer, i32 width, i32 height)
 {
     dxiRendererInfo_t& info = dxiInfo[renderer];
 
-    i32 target_pixels = width * height;
     i32 best_index = 0;
-    i32 best_pixels = 0;
+    i32 best_extra = INT32_MAX;
 
     for (i32 i = 0; i < info.ResCount; ++i)
     {
         dxiResolution& res = info.Resolutions[i];
-        i32 pixels = res.uWidth * res.uHeight;
 
-        if ((i == 0) || (std::abs(pixels - target_pixels) < std::abs(best_pixels - target_pixels)))
+        i32 extra = std::abs(width - res.uWidth) * height + std::abs(height - res.uHeight) * width;
+
+        if (extra < best_extra)
         {
             best_index = i;
-            best_pixels = pixels;
+            best_extra = extra;
         }
     }
 
@@ -174,8 +174,18 @@ i32 dxiResGetRecommended(i32 renderer, [[maybe_unused]] i32 cpu_speed)
 {
     dxiRendererInfo_t& info = dxiInfo[renderer];
 
-    if (info.Type == dxiRendererType::Software)
-        return dxiResClosestMatch(renderer, 640, 480);
-    else
-        return dxiResClosestMatch(renderer, 1280, 720);
+    switch (info.Type)
+    {
+        case dxiRendererType::Software: return dxiResClosestMatch(renderer, 640, 480);
+
+        case dxiRendererType::OpenGL: {
+            dxiResolution& native_res = info.Resolutions[info.ResCount - 1];
+            i32 target_height = (std::min<i32>) (768, native_res.uHeight);
+
+            return dxiResClosestMatch(
+                renderer, (target_height * native_res.uWidth) / native_res.uHeight, target_height);
+        }
+
+        default: return dxiResClosestMatch(renderer, 1280, 720);
+    }
 }
