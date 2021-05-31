@@ -94,7 +94,7 @@ i32 aiPoliceForce::State(mmCar* cop, mmCar* perp, f32 cop_dist)
     }
 
     i32 best = 0;
-    f32 best_dist = 1000000000.0f;
+    f32 best_dist = 1e9f;
 
     for (i32 j = 0; j < num_cops_[i]; ++j)
     {

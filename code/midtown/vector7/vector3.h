@@ -265,7 +265,7 @@ public:
 
     f32 Dist2(const Vector3& other) const
     {
-        return (x * other.x) + (y * other.y) + (z * other.z);
+        return (*this - other).Mag2();
     }
 
     constexpr inline bool operator==(const Vector3& other) const noexcept
