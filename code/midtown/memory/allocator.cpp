@@ -622,11 +622,11 @@ void asMemoryAllocator::SanityCheck()
 
     bool is_invalid = false;
 
-    ARTS_EXCEPTION_BEGIN
+    __try
     {
         is_invalid = DoSanityCheck();
     }
-    ARTS_EXCEPTION_END
+    __except (EXCEPTION_EXECUTE_HANDLER)
     {
         is_invalid = true;
     }
