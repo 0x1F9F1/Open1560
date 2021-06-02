@@ -26,7 +26,6 @@
 
 #include "midtown.h"
 
-#include "loader.h"
 #include "symbols.h"
 
 #include <dinput.h>

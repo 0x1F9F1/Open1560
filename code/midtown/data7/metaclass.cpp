@@ -306,9 +306,10 @@ void MetaClass::FixupClasses()
 
         if (auto find = fixups.find(cls->name_); find != fixups.end() && find->second != cls)
         {
+            // NOTE: This will cause the MetaClass destructor to be called twice
             if (auto symbol = LookupBaseSymbolAddress(reinterpret_cast<usize>(cls)))
             {
-                symbol->Hook(cls);
+                symbol->Hook(find->second);
             }
             else
             {

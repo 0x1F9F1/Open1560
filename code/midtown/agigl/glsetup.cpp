@@ -92,7 +92,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     if (!EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &cur_dev_mode))
     {
         Errorf("Failed to get monitor display settings");
-        return FALSE;
+        return TRUE;
     }
 
     // Choosing resolutions to list is fairly arbitrary for two main reasons:
