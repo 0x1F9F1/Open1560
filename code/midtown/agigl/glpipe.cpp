@@ -245,23 +245,20 @@ i32 agiGLPipeline::BeginGfx()
 
         if (num_formats != 0)
         {
-            i32 major_version = 3;
-            i32 minor_version = 2;
-
-            if (!HasVersion(major_version, minor_version))
-            {
-                major_version = 1;
-                minor_version = 0;
-            }
-
             int attribs[9];
             int num_attribs = 0;
 
-            attribs[num_attribs++] = WGL_CONTEXT_MAJOR_VERSION_ARB;
-            attribs[num_attribs++] = major_version;
+            i32 major_version = 3;
+            i32 minor_version = 2;
 
-            attribs[num_attribs++] = WGL_CONTEXT_MINOR_VERSION_ARB;
-            attribs[num_attribs++] = minor_version;
+            if (HasVersion(major_version, minor_version))
+            {
+                attribs[num_attribs++] = WGL_CONTEXT_MAJOR_VERSION_ARB;
+                attribs[num_attribs++] = major_version;
+
+                attribs[num_attribs++] = WGL_CONTEXT_MINOR_VERSION_ARB;
+                attribs[num_attribs++] = minor_version;
+            }
 
             if (HasExtension("WGL_ARB_create_context_profile"))
             {
