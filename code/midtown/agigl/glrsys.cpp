@@ -491,7 +491,6 @@ void main()
     flip_winding_ = false;
 
     // Designed for floating point framebuffers
-    // TODO: Experiment with glDepthRangedNV
     // https://nlguillemot.wordpress.com/2016/12/07/reversed-z-in-opengl/
     reversed_z_ = false;
 
@@ -499,7 +498,6 @@ void main()
     if (Pipe()->HasExtension("GL_ARB_clip_control"))
     {
         flip_winding_ = true;
-        // reversed_z_ = true;
 
         glClipControl(flip_winding_ ? GL_UPPER_LEFT : GL_LOWER_LEFT, GL_ZERO_TO_ONE);
 
@@ -510,20 +508,25 @@ void main()
             transform[13] = -transform[13];
         }
 
-        if (reversed_z_)
-        {
-            // z = -1z + 1
-            transform[10] = -1.0f;
-            transform[14] = 1.0f;
-        }
-        else
-        {
-            // z = z
-            transform[10] = 1.0f;
-            transform[14] = 0.0f;
-        }
+        transform[10] = 1.0f;
+        transform[14] = 0.0f;
+    }
+    else if (Pipe()->HasExtension("GL_NV_depth_buffer_float"))
+    {
+        glDepthRangedNV(-1.0, 1.0);
+    }
+    else
+    {
+        // May clamp to (0, 1), but that doesn't matter since it's the default
+        glDepthRange(-1.0, 1.0);
     }
 #endif
+
+    if (reversed_z_)
+    {
+        transform[14] += transform[10];
+        transform[10] = -transform[10];
+    }
 
     glUniformMatrix4fv(glGetUniformLocation(shader_, "u_Transform"), 1, GL_FALSE, transform);
 
