@@ -158,7 +158,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     {
         u32 height = (curr_height * ratio[0]) / ratio[1];
 
-        static const u32 valid_small_heights[] {480, 540, 576, 600, 720, 768, 800, 900, 960};
+        static const u32 valid_small_heights[] {480, 540, 576, 600, 720, 768, 800, 900, 960, 1080};
 
         if (std::find(std::begin(valid_small_heights), std::end(valid_small_heights), height) !=
             std::end(valid_small_heights))
