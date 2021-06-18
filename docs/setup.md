@@ -74,7 +74,6 @@ For a tutorial on how to use command line arguments, see https://www.bleepingcom
 | cleandir    | true  | Deletes various debug files from the games directory |
 | fontscale   |       | Sets the debug font scale |
 | gldebug     | -1    | Sets the OpenGL debug output level |
-| gllinewidth |       | Sets the width of lines (sparks) |
 | glstream    |       | Sets the mode for streaming data to the GPU |
 | sync        | true  | Disables multi-threading |
 

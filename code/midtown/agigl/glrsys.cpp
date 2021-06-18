@@ -128,7 +128,6 @@ agiGLRasterizer::agiGLRasterizer(class agiPipeline* pipe)
 agiGLRasterizer::~agiGLRasterizer() = default;
 
 static mem::cmd_param PARAM_glstream {"glstream"};
-static mem::cmd_param PARAM_gllinewidth {"gllinewidth"};
 
 enum class agiGLAttribType
 {
@@ -536,12 +535,8 @@ void main()
     u32 white = 0xFFFFFFFF;
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, &white);
 
-    GLfloat line_width_range[2];
-    glGetFloatv(GL_ALIASED_LINE_WIDTH_RANGE, line_width_range);
 
-    f32 line_width = std::clamp(PARAM_gllinewidth.get_or(1.0f), line_width_range[0], line_width_range[1]);
 
-    glLineWidth(line_width);
 
     if (vbo_)
         vbo_->Bind();
