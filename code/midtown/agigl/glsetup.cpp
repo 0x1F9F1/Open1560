@@ -39,15 +39,16 @@ static void GetMonitorName(char* buffer, usize buflen, const char* szDevice)
 
         if (device.StateFlags & DISPLAY_DEVICE_ACTIVE)
         {
-            arts_sprintf(buffer, buflen, "%s on ", device.DeviceString);
+            arts_snprintf(buffer, buflen, ARTS_TRUNCATE, "%s on ", device.DeviceString);
+
             break;
         }
     }
 
-    arts_strcat(buffer, buflen, szDevice);
+    arts_strncat(buffer, buflen, szDevice, ARTS_TRUNCATE);
 }
 
-static const u32 SpecialFlags_GL = 0x10;
+static const u32 SpecialFlags_GL = 0x10 | 0x20;
 
 static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
     [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
@@ -198,9 +199,6 @@ static BOOL CALLBACK CountRendererCallback(HMONITOR hMonitor, [[maybe_unused]] H
 
     i32& count = *(i32*) (lParam);
 
-    char name[64] {};
-    GetMonitorName(name, ARTS_SIZE(name), iMonitor.szDevice);
-
     DEVMODEA cur_dev_mode {};
 
     if (!EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &cur_dev_mode))
@@ -215,6 +213,12 @@ static BOOL CALLBACK CountRendererCallback(HMONITOR hMonitor, [[maybe_unused]] H
 
         if (info.SpecialFlags != SpecialFlags_GL)
             continue;
+
+        if (std::strcmp(iMonitor.szDevice, info.Device))
+            continue;
+
+        char name[64] {};
+        GetMonitorName(name, ARTS_SIZE(name), iMonitor.szDevice);
 
         if (std::strcmp(name, info.Name))
             continue;
