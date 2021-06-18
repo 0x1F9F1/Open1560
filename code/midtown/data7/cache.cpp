@@ -61,9 +61,9 @@ inline DataCacheObject& DataCache::GetObject(i32 handle)
     return objects_[handle];
 }
 
-static inline constexpr usize AlignSize(usize value) noexcept
+static inline constexpr u32 AlignSize(u32 value) noexcept
 {
-    return (value + 7) & ~usize(7); // FIXME: 64-bit requires 16-byte alignment
+    return (value + 7) & ~u32(7); // FIXME: 64-bit requires 16-byte alignment
 }
 
 DataCache::DataCache() = default;

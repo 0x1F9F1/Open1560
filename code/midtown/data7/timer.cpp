@@ -97,6 +97,7 @@ void Timer::Sleep(i32 ms)
 
 ulong Timer::Ticks()
 {
+    // On Windows XP or later, QueryPerformanceCounter will always succeed
     LARGE_INTEGER perf_count;
     QueryPerformanceCounter(&perf_count);
     return perf_count.LowPart;

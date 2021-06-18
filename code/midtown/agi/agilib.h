@@ -86,7 +86,7 @@ public:
             ArAssert(count_ < agiLibMax, "Too many values");
 
             params_[count_] = new Param(param);
-            lookup_.Insert(param.Name, reinterpret_cast<void*>(count_ + 1));
+            lookup_.Insert(param.Name, reinterpret_cast<void*>(static_cast<isize>(count_ + 1)));
             defs_[count_] = nullptr;
 
             index = count_ + 1;
