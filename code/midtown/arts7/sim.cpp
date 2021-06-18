@@ -463,15 +463,18 @@ void asSimulation::Widgets()
 
 void asSimulation::SmoothDelta(f32& delta)
 {
+    // Ignore very large deltas
+    if (delta >= 0.5f)
+        return;
+
     f32 raw_delta = delta;
 
     delta += delta_drift_ * 0.2f;
     delta += (target_delta_ - delta) * 0.8f;
+    delta = std::clamp(delta, raw_delta * 0.2f, raw_delta * 5.0f);
 
-    target_delta_ += (raw_delta - target_delta_) * 0.1f;
-
+    target_delta_ += (delta - target_delta_) * 0.2f;
     delta_drift_ += raw_delta - delta;
-    delta_drift_ = std::clamp(delta_drift_, -0.05f, 0.05f);
 }
 
 const char* asNode::VerifyTree()
