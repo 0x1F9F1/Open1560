@@ -625,7 +625,7 @@ void agiD3DPipeline::EndFrame()
             DD_TRY(d_back_->BltFast(0, 0, d_rend_, &r, DDBLTFAST_NOCOLORKEY | DDBLTFAST_WAIT));
         }
 
-        DD_TRY(d_front_->Flip(nullptr, DDFLIP_WAIT));
+        DD_TRY(d_front_->Flip(nullptr, (device_flags_1_ & 0x1) ? DDFLIP_WAIT : DDFLIP_NOVSYNC));
     }
 
     agiPipeline::EndFrame();

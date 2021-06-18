@@ -48,6 +48,7 @@ agiDDPipeline::~agiDDPipeline()
 static mem::cmd_param PARAM_width {"width"};
 static mem::cmd_param PARAM_height {"height"};
 static mem::cmd_param PARAM_depth {"depth"};
+static mem::cmd_param PARAM_vsync {"vsync"};
 
 static mem::cmd_param PARAM_labelf {"labelf"};
 static mem::cmd_param PARAM_labelp {"labelp"};
@@ -82,6 +83,10 @@ void agiDDPipeline::Init()
     AnnotateTextures = PARAM_annotate.get_or(false);
 
     device_flags_1_ = 0x1032; // hal, zbuffer, vram
+
+    if (PARAM_vsync.get_or(true))
+        device_flags_1_ |= 0x1;
+
     device_flags_3_ = 0x0;
 
     device_flags_2_ = device_flags_1_;
