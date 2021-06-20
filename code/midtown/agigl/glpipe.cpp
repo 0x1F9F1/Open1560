@@ -771,13 +771,6 @@ static mem::cmd_param PARAM_pack {"pack"};
 static mem::cmd_param PARAM_integrated {"integrated"};
 static mem::cmd_param PARAM_annotate {"annotate"};
 
-extern "C"
-{
-    // FIXME: These do not work from a DLL
-    ARTS_EXPORT u32 NvOptimusEnablement = 1;
-    ARTS_EXPORT u32 AmdPowerXpressRequestHighPerformance = 1;
-}
-
 void agiGLPipeline::Init()
 {
     // TODO: Properly use width/height/depth
@@ -796,11 +789,15 @@ void agiGLPipeline::Init()
     PackShift = PARAM_pack.get_or<i32>(0);
     AnnotateTextures = PARAM_annotate.get_or(false);
 
-    if (PARAM_integrated)
-    {
-        NvOptimusEnablement = 0;
-        AmdPowerXpressRequestHighPerformance = 0;
-    }
+    bool use_gpu = !PARAM_integrated.get_or(false);
+    HINSTANCE hInstance = GetModuleHandle(NULL);
+
+    if (void* AmdPowerXpressRequestHighPerformance = GetProcAddress(hInstance, "AmdPowerXpressRequestHighPerformance"))
+        *static_cast<DWORD*>(AmdPowerXpressRequestHighPerformance) = use_gpu;
+
+    // NOTE: NVIDIA seems to only care about NvOptimusEnablement being present, not the value, despite what their documentation says
+    if (void* NvOptimusEnablement = GetProcAddress(hInstance, "NvOptimusEnablement"))
+        *static_cast<DWORD*>(NvOptimusEnablement) = use_gpu;
 }
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height)
