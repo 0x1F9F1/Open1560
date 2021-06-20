@@ -86,6 +86,7 @@ void asPerfGraph::Cull()
 
     i32 x_offset = pipe_width - num_samples_;
 
+    f32 min_height = 1e9f;
     f32 max_height = 0.0f;
     f32 total_height = 0.0f;
     i32 total = 0;
@@ -103,10 +104,11 @@ void asPerfGraph::Cull()
         {
             i32 line_bottom = pipe_height - static_cast<i32>(height * scale);
             height += component_history_[k][i];
-            i32 line_top = pipe_height - static_cast<i32>(height * scale);
 
-            if (line_bottom >= 0)
+            if ((mode_ < 2) && (line_bottom >= 0))
             {
+                i32 line_top = pipe_height - static_cast<i32>(height * scale);
+
                 if (line_top < 0)
                     line_top = 0;
 
@@ -137,7 +139,7 @@ void asPerfGraph::Cull()
                 verts[2] = blank;
                 verts[3] = blank;
 
-                i32 offset = x_offset + (scroll_ ? total : i);
+                i32 offset = x_offset + (mode_ ? total : i);
 
                 verts[3].x = verts[0].x = static_cast<f32>(offset);
                 verts[1].x = verts[2].x = static_cast<f32>(offset + 1);
@@ -159,6 +161,9 @@ void asPerfGraph::Cull()
             if (++k == num_components_)
                 k = 0;
         }
+
+        if (height < min_height)
+            min_height = height;
 
         if (height > max_height)
             max_height = height;
@@ -183,23 +188,26 @@ void asPerfGraph::Cull()
     agiCurState.SetFogMode(fog_mode);
     agiCurState.SetFogColor(fog_color);
 
-    for (i32 height = 0, step = std::clamp<i32>(static_cast<i32>(std::round(max_height * 0.05f)), 1, 5),
-             prev = pipe_height;
-         height <= max_height;)
+    if (mode_ < 2)
     {
-        height += step;
-
-        i32 line_top = pipe_height - static_cast<i32>(height * scale) - 1;
-
-        if (line_top < 0)
-            break;
-
-        Pipe()->ClearRect(x_offset, line_top, pipe_width - x_offset, 1, 0);
-
-        if (line_top + agiFontHeight <= prev)
+        for (i32 height = 0, step = std::clamp<i32>(static_cast<i32>(std::round(max_height * 0.05f)), 1, 5),
+                 prev = pipe_height;
+             height <= max_height;)
         {
-            agiPrintf(x_offset, line_top, 0xFFFFFFFF, "%2i", height);
-            prev = line_top;
+            height += step;
+
+            i32 line_top = pipe_height - static_cast<i32>(height * scale) - 1;
+
+            if (line_top < 0)
+                break;
+
+            Pipe()->ClearRect(x_offset, line_top, pipe_width - x_offset, 1, 0);
+
+            if (line_top + agiFontHeight <= prev)
+            {
+                agiPrintf(x_offset, line_top, 0xFFFFFFFF, "%2i", height);
+                prev = line_top;
+            }
         }
     }
 
@@ -219,10 +227,13 @@ void asPerfGraph::Cull()
     {
         f32 avg_height = total_height / total;
 
-        agiPrintf(0, text_y, 0xFFFFFFFF, "   %5.2f Avg", avg_height);
+        agiPrintf(0, text_y, 0xFFFFFFFF, "   %5.2f Min", min_height);
         text_y += agiFontHeight;
 
         agiPrintf(0, text_y, 0xFFFFFFFF, "   %5.2f Max", max_height);
+        text_y += agiFontHeight;
+
+        agiPrintf(0, text_y, 0xFFFFFFFF, "   %5.2f Avg", avg_height);
         text_y += agiFontHeight;
 
         auto_scale_ +=
@@ -239,7 +250,7 @@ void asPerfGraph::Key(i32 vkey)
         case EQ_VK_F2: graph_scale_ *= 0.5f; break;
         case EQ_VK_F3: graph_scale_ *= 2.0f; break;
         case EQ_VK_F4: maim_component_ = (maim_component_ + 1) % num_components_; break;
-        case EQ_VK_F5: scroll_ ^= true; break;
+        case EQ_VK_F5: mode_ = (mode_ + 1) % 3; break;
 
         // TODO: Move somewhere else?
         case EQ_VK_F6: asNode::TimingCount = 100; break;
@@ -269,6 +280,7 @@ void asPerfGraph::Update()
     for (i32 i = 1; i < num_components_; ++i)
     {
         f32 value = *component_value_[i] * 1000.0f;
+        *component_value_[i] = 0.0f;
         component_history_[i][write_index_] = value;
         total += value;
     }

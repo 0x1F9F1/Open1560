@@ -27,6 +27,7 @@ define_dummy_symbol(arts7_cullmgr);
 #include "memory/stack.h"
 #include "midtown.h"
 #include "pgraph.h"
+#include "sim.h"
 
 static extern_var(0x790868, f32, CurrentFrameTime);
 
@@ -145,8 +146,8 @@ void asCullManager::Reset()
     num_cullables_ = 0;
     num_cullables_2D_ = 0;
 
-    current_fps_ = 0.0f;
-    average_fps_ = 0.0f;
+    current_frame_time_ = 0.0f;
+    average_frame_time_ = 0.0f;
     stats_counter_ = 0;
 
     frame_timer_.Reset();
@@ -160,16 +161,13 @@ void asCullManager::DisplayVersionString()
 
 void asCullManager::PrintMiniStats()
 {
-    current_fps_ = 1.0f / CurrentFrameTime;
+    current_frame_time_ = CurrentFrameTime;
 
-    if (++stats_counter_ > std::clamp<f32>(average_fps_, 10.0f, 1000.0f))
-    {
-        average_fps_ = static_cast<f32>(stats_counter_) / stats_timer_.Time();
-        stats_timer_.Reset();
-        stats_counter_ = 0;
-    }
+    f32 frame_weight = std::clamp(current_frame_time_, 0.01f, 0.5f);
+    average_frame_time_ += (current_frame_time_ - average_frame_time_) * frame_weight;
 
-    Statsf("%6.2f/%6.2f fps (%5.2fms/f)", current_fps_, average_fps_, CurrentFrameTime * 1000.0f);
+    Statsf("%4.f fps (%5.2f/%5.2f ms/f)", std::round(1.0f / average_frame_time_), current_frame_time_ * 1000.0f,
+        average_frame_time_ * 1000.0f);
 }
 
 void asCullManager::PrintStats()
@@ -178,6 +176,7 @@ void asCullManager::PrintStats()
 
     agiStats stats = STATS;
 
+    Statsf("Sim Delta:%5.2f", ARTSPTR->GetUpdateDelta() * 1000.0f);
     Statsf("CULLMGR 3D:%4.1f/2D:%4.1f/Updt:%4.1fms", UpdateTime3D * 1000.0f, (UpdateTime2D - UpdateTime3D) * 1000.0f,
         (CurrentFrameTime - UpdateTime2D) * 1000.0f);
     Statsf("DLPs Drawn:%-3dClipped:%-3d", stats.DlpDrawn, stats.DlpClipped);

@@ -70,7 +70,7 @@ private:
 
     f32 auto_scale_ {10.0f};
     i32 num_samples_ {0};
-    bool scroll_ {true};
+    i32 mode_ {0};
 };
 
 // check_size(asPerfGraph, 0x94);

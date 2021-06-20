@@ -131,8 +131,8 @@ private:
     Ptr<asCullable*[]> cullables_2D_;
     Ptr<Matrix34*[]> transforms_;
 
-    f32 current_fps_ {0.0f};
-    f32 average_fps_ {0.0f};
+    f32 current_frame_time_ {0.0f};
+    f32 average_frame_time_ {0.0f};
 
     Timer frame_timer_ {};
     Timer stats_timer_ {};
