@@ -212,42 +212,32 @@ i32 agiGLRasterizer::BeginGfx()
 {
     PrintGlErrors();
 
-    /*
-        https://www.khronos.org/opengl/wiki/Buffer_Object_Streaming
-
-        Relative Frame Time of StreamModes (lower is better)
-
-        Device                                              | BufferData | MapRange | Persistent | ClientSide
-        NVIDIA GTX 1080 Ti 460.79, Windows 10, No Threading |       1.43 |     1.27 |       1.00 |       1.06
-        NVIDIA GTX 1080 Ti 460.79, Windows 10,    Threading |       1.25 |     3.84 |       1.00 |       1.63
-        SVGA3D,   Mesa 20.1.8,     VMWare Linux             |       1.92 |     1.48 |            |       1.00
-        AMD PALM, Mesa 20.2.6,     Linux                    |       1.55 |     1.04 |       1.00 |       1.20
-
-        When persistent buffers (GL_ARB_buffer_storage/GL_AMD_pinned_memory) are available, they are the fastest.
-        The rest of a time, it varies heavily depending on drivers, threaded optimisation, etc.
-    */
     enum class StreamMode : i32
     {
+        // Decent performance, compatible with everything
         BufferData = 0,
 
+        // Decent to abysmal performance, apart from on Mesa
         MapRange = 2,
 
+        // Best performance, if supported
         MapPersistent = 3,
         MapCoherent = 4,
-
         AmdPinned = 5,
 
+        // Should not be used, but gives a good idea of upload performance when persistent buffers are not available
         MapUnsafe = 6,
 
+        // Great to decent performance, not available in core contexts.
         ClientSide = 7,
     };
 
-    StreamMode stream_mode = StreamMode::BufferData;
-    const char* gl_version = (const char*) glGetString(GL_VERSION);
+    StreamMode stream_mode = StreamMode::ClientSide;
 
-    if (agiGL->IsCoreProfile())
     {
+        bool core = agiGL->IsCoreProfile();
         bool async = agiGL->HasExtension("GL_ARB_sync");
+        const char* version = (const char*) glGetString(GL_VERSION);
 
         if (async && agiGL->HasExtension("GL_AMD_pinned_memory"))
         {
@@ -256,22 +246,17 @@ i32 agiGLRasterizer::BeginGfx()
         else if (agiGL->HasExtension("GL_ARB_map_buffer_range"))
         {
             if (async && agiGL->HasExtension("GL_ARB_buffer_storage"))
-            {
                 stream_mode = StreamMode::MapCoherent;
-            }
-            else if (std::strstr(gl_version, "Mesa"))
-            {
+            else if (core && std::strstr(version, "Mesa"))
                 stream_mode = StreamMode::MapRange;
-            }
         }
-    }
-    else
-    {
-        stream_mode = StreamMode::ClientSide;
-    }
 
-    if (i32 mode = 0; PARAM_glstream.get(mode))
-        stream_mode = static_cast<StreamMode>(mode);
+        if (i32 mode = 0; PARAM_glstream.get(mode))
+            stream_mode = static_cast<StreamMode>(mode);
+
+        if (core && stream_mode == StreamMode::ClientSide)
+            stream_mode = StreamMode::BufferData;
+    }
 
     Displayf("OpenGL: Using buffer stream mode %i", stream_mode);
 
@@ -280,7 +265,7 @@ i32 agiGLRasterizer::BeginGfx()
     switch (stream_mode)
     {
         case StreamMode::BufferData: {
-            // OpenGL 3.3 removes client-side vertex/index arrays, but we only try and target 3.2 (or lower) by default
+            // OpenGL 3.3 removes client-side index arrays, but we only try and target 3.2 (or lower) by default
             vbo_ = MakeUnique<agiGLBasicStreamBuffer>();
             ibo_ = false;
             break;
