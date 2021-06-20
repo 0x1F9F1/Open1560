@@ -80,8 +80,8 @@ i32 FileStream::Close()
 
     if (file_handle_ != INVALID_HANDLE_VALUE)
     {
-        result = CloseHandle(pager_handle_) ? 1 : -1;
-        pager_handle_ = INVALID_HANDLE_VALUE;
+        result = CloseHandle(file_handle_) ? 1 : -1;
+        file_handle_ = INVALID_HANDLE_VALUE;
     }
 
     return result;
