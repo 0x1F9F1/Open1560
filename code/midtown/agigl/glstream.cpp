@@ -18,12 +18,19 @@
 
 #include "glstream.h"
 
+#include "glcontext.h"
+
 #include "core/minwin.h"
+
 #include <glad/glad.h>
 
-agiGLStreamBuffer::agiGLStreamBuffer(u32 target, usize capacity)
-    : Target(target)
-    , Capacity(capacity)
+static constexpr usize AlignUp(usize value, usize align)
+{
+    value += align - 1;
+    return value - (value % align);
+}
+
+agiGLStreamBuffer::agiGLStreamBuffer()
 {
     glGenBuffers(1, &Buffer);
 }
@@ -33,38 +40,92 @@ agiGLStreamBuffer::~agiGLStreamBuffer()
     glDeleteBuffers(1, &Buffer);
 }
 
-void agiGLStreamBuffer::Bind()
-{
-    glBindBuffer(Target, Buffer);
-}
-
-void agiGLStreamBuffer::Unbind()
-{
-    glBindBuffer(Target, 0);
-}
-
-agiGLBasicStreamBuffer::agiGLBasicStreamBuffer(u32 target, usize capacity, bool orphan)
-    : agiGLStreamBuffer(target, capacity)
-    , Orphan(orphan)
-{
-    glBindBuffer(Target, Buffer);
-    glBufferData(Target, Capacity, NULL, GL_STREAM_DRAW);
-}
-
-usize agiGLBasicStreamBuffer::Upload(const void* data, usize length)
-{
-    glBufferData(Target, length, Orphan ? NULL : data, GL_STREAM_DRAW);
-
-    if (Orphan)
-        glBufferSubData(Target, 0, length, data);
-
-    return 0;
-}
-
-void agiGLBasicStreamBuffer::SetFences()
+void agiGLStreamBuffer::Discard()
 {}
 
-agiGLFencedStreamBuffer::~agiGLFencedStreamBuffer()
+agiGLBasicStreamBuffer::agiGLBasicStreamBuffer()
+    : agiGLStreamBuffer()
+{}
+
+void agiGLBasicStreamBuffer::Upload(const void** values, const usize* lengths, const usize* aligns, usize count)
+{
+    usize offset = 0;
+
+    for (usize i = 0; i < count; ++i)
+        offset = AlignUp(offset, aligns[i]) + lengths[i];
+
+    glBufferData(GL_ARRAY_BUFFER, offset, NULL, GL_STREAM_DRAW);
+    offset = 0;
+
+    for (usize i = 0; i < count; ++i)
+    {
+        offset = AlignUp(offset, aligns[i]);
+        glBufferSubData(GL_ARRAY_BUFFER, offset, lengths[i], values[i]);
+        values[i] = reinterpret_cast<const void*>(offset);
+        offset += lengths[i];
+    }
+}
+
+agiGLMappedStreamBuffer::agiGLMappedStreamBuffer(usize capacity)
+    : agiGLStreamBuffer()
+    , Capacity(AlignUp(capacity, 4096))
+{}
+
+void agiGLMappedStreamBuffer::Upload(const void** values, const usize* lengths, const usize* aligns, usize count)
+{
+    usize length = 0;
+
+    for (usize i = 0; i < count; ++i)
+        length += lengths[i] + aligns[i] - 1;
+
+    if (length > Capacity)
+        Abortf("Data is too large (%u > %u)", length, Capacity);
+
+    usize offset = Offset;
+
+    if (offset + length > Capacity)
+        offset = 0;
+
+    void* dest = Map(offset, length);
+    usize here = offset;
+
+    for (usize i = 0; i < count; ++i)
+    {
+        here = AlignUp(here, aligns[i]);
+        std::memcpy(static_cast<u8*>(dest) + (here - offset), values[i], lengths[i]);
+        values[i] = reinterpret_cast<const void*>(here);
+        here += lengths[i];
+    }
+
+    Unmap(offset, length);
+
+    Offset = here;
+}
+
+agiGLMapRangeStreamBuffer::agiGLMapRangeStreamBuffer(usize capacity)
+    : agiGLMappedStreamBuffer(capacity)
+{
+    glBindBuffer(GL_ARRAY_BUFFER, Buffer);
+    glBufferData(GL_ARRAY_BUFFER, Capacity, NULL, GL_STREAM_DRAW);
+}
+
+void* agiGLMapRangeStreamBuffer::Map(usize offset, usize length)
+{
+    return glMapBufferRange(GL_ARRAY_BUFFER, offset, length,
+        GL_MAP_WRITE_BIT |
+            (offset ? (GL_MAP_UNSYNCHRONIZED_BIT | GL_MAP_INVALIDATE_RANGE_BIT) : GL_MAP_INVALIDATE_BUFFER_BIT));
+}
+
+void agiGLMapRangeStreamBuffer::Unmap([[maybe_unused]] usize offset, [[maybe_unused]] usize length)
+{
+    glUnmapBuffer(GL_ARRAY_BUFFER);
+}
+
+agiGLMappedRingStreamBuffer::agiGLMappedRingStreamBuffer(usize capacity)
+    : agiGLMappedStreamBuffer(capacity)
+{}
+
+agiGLMappedRingStreamBuffer::~agiGLMappedRingStreamBuffer()
 {
     for (usize i = 0; i < NumFences; ++i)
     {
@@ -76,7 +137,7 @@ agiGLFencedStreamBuffer::~agiGLFencedStreamBuffer()
     }
 }
 
-void agiGLFencedStreamBuffer::LockSection(usize index)
+void agiGLMappedRingStreamBuffer::LockSection(usize index)
 {
     if (Fences[index] != NULL)
         return;
@@ -84,7 +145,7 @@ void agiGLFencedStreamBuffer::LockSection(usize index)
     Fences[index] = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
 }
 
-void agiGLFencedStreamBuffer::UnlockSection(usize index)
+void agiGLMappedRingStreamBuffer::UnlockSection(usize index)
 {
     if (Fences[index] == NULL)
         return;
@@ -101,14 +162,9 @@ void agiGLFencedStreamBuffer::UnlockSection(usize index)
     Fences[index] = nullptr;
 }
 
-usize agiGLFencedStreamBuffer::GetSectionSize() const
+void agiGLMappedRingStreamBuffer::UnlockRange(usize offset, usize length, bool exclusive)
 {
-    return (Capacity + NumFences - 1) / NumFences;
-}
-
-void agiGLFencedStreamBuffer::UnlockRange(u32 offset, usize length, bool exclusive)
-{
-    const usize slice = GetSectionSize();
+    const usize slice = (Capacity + NumFences - 1) / NumFences;
 
     for (usize i = 0; i < NumFences; ++i)
     {
@@ -121,136 +177,91 @@ void agiGLFencedStreamBuffer::UnlockRange(u32 offset, usize length, bool exclusi
     }
 }
 
-void agiGLFencedStreamBuffer::WaitForAll()
+void agiGLMappedRingStreamBuffer::WaitForAll()
 {
     for (usize i = 0; i < NumFences; ++i)
         UnlockSection(i);
 }
 
-void agiGLFencedStreamBuffer::CheckFence(usize length)
+void* agiGLMappedRingStreamBuffer::Map(usize offset, usize length)
 {
-    if (length > Capacity)
-        Abortf("Data is too large (%u > %u)", length, Capacity);
-
-    if (Offset + length > Capacity)
+    if (offset == 0)
     {
-        Offset = 0;
-
-        if (Fences[(Offset + length) / GetSectionSize()] == NULL)
-            Abortf("Data wrapped onto unlocked data (%u, %u)", Offset + length, Capacity);
+        for (usize i = 0; i < NumFences; ++i)
+            LockSection(i);
     }
 
-    UnlockRange(Offset, length, false);
+    UnlockRange(offset, length, false);
+
+    return static_cast<u8*>(Mapping) + offset;
 }
 
-void agiGLFencedStreamBuffer::SetFences()
+void agiGLMappedRingStreamBuffer::Unmap([[maybe_unused]] usize offset, [[maybe_unused]] usize length)
+{}
+
+void agiGLMappedRingStreamBuffer::Discard()
 {
     UnlockRange(Offset, 0, true);
 }
 
-agiGLAsyncStreamBuffer::agiGLAsyncStreamBuffer(u32 target, usize capacity)
-    : agiGLFencedStreamBuffer(target, capacity)
-{
-    glBindBuffer(Target, Buffer);
-    glBufferData(Target, Capacity, NULL, GL_DYNAMIC_DRAW);
-}
-
-usize agiGLAsyncStreamBuffer::Upload(const void* data, usize length)
-{
-    CheckFence(length);
-
-    usize offset = Offset;
-    void* dst = glMapBufferRange(
-        Target, offset, length, GL_MAP_WRITE_BIT | GL_MAP_UNSYNCHRONIZED_BIT | GL_MAP_INVALIDATE_RANGE_BIT);
-    std::memcpy(dst, data, length);
-    glUnmapBuffer(Target);
-
-    Offset = (offset + length + 0xF) & ~usize(0xF);
-
-    return offset;
-}
-
-agiGLPinnedStreamBuffer::agiGLPinnedStreamBuffer(u32 target, usize capacity)
-    : agiGLFencedStreamBuffer(target, capacity)
-{
-    Memory = VirtualAlloc(NULL, capacity, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
-
-    glBindBuffer(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, Buffer);
-    glBufferData(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, capacity, Memory, GL_DYNAMIC_DRAW);
-    glBindBuffer(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, 0);
-
-    glBindBuffer(Target, Buffer);
-}
-
-agiGLPinnedStreamBuffer::~agiGLPinnedStreamBuffer()
-{
-    WaitForAll();
-
-    VirtualFree(Memory, 0, MEM_RELEASE);
-}
-
-usize agiGLPinnedStreamBuffer::Upload(const void* data, usize length)
-{
-    CheckFence(length);
-
-    usize offset = Offset;
-    void* dst = static_cast<u8*>(Memory) + offset;
-    std::memcpy(dst, data, length);
-
-    Offset = (offset + length + 0xF) & ~usize(0xF);
-
-    return offset;
-}
-
-agiGLPersistentStreamBuffer::agiGLPersistentStreamBuffer(u32 target, usize capacity, bool coherent)
-    : agiGLFencedStreamBuffer(target, capacity)
+agiGLPersistentStreamBuffer::agiGLPersistentStreamBuffer(usize capacity, bool coherent)
+    : agiGLMappedRingStreamBuffer(capacity)
     , Coherent(coherent)
 {
-    glBindBuffer(Target, Buffer);
+    glBindBuffer(GL_ARRAY_BUFFER, Buffer);
 
-    glBufferStorage(
-        Target, Capacity, NULL, GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | (coherent ? GL_MAP_COHERENT_BIT : 0));
+    glBufferStorage(GL_ARRAY_BUFFER, Capacity, NULL,
+        GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | (coherent ? GL_MAP_COHERENT_BIT : 0));
 
-    Mapping = glMapBufferRange(Target, 0, Capacity,
+    Mapping = glMapBufferRange(GL_ARRAY_BUFFER, 0, Capacity,
         GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_UNSYNCHRONIZED_BIT | GL_MAP_INVALIDATE_BUFFER_BIT |
-            (coherent ? GL_MAP_COHERENT_BIT : GL_MAP_FLUSH_EXPLICIT_BIT));
+            (Coherent ? GL_MAP_COHERENT_BIT : GL_MAP_FLUSH_EXPLICIT_BIT));
 }
 
 agiGLPersistentStreamBuffer::~agiGLPersistentStreamBuffer()
 {
     if (Mapping)
     {
-        glBindBuffer(Target, Buffer);
-        glUnmapBuffer(Target);
+        glBindBuffer(GL_ARRAY_BUFFER, Buffer);
+        glUnmapBuffer(GL_ARRAY_BUFFER);
     }
 }
 
-usize agiGLPersistentStreamBuffer::Upload(const void* data, usize length)
+void agiGLPersistentStreamBuffer::Unmap(usize offset, usize length)
 {
-    CheckFence(length);
-
-    usize offset = Offset;
-    void* dst = static_cast<u8*>(Mapping) + offset;
-    std::memcpy(dst, data, length);
-
     if (!Coherent)
-        glFlushMappedBufferRange(Target, offset, length);
-
-    Offset = (offset + length + 0xF) & ~usize(0xF);
-
-    return offset;
+        glFlushMappedBufferRange(GL_ARRAY_BUFFER, offset, length);
 }
 
-agiGLRiskyAsyncStreamBuffer::agiGLRiskyAsyncStreamBuffer(u32 target, usize capacity)
-    : agiGLFencedStreamBuffer(target, capacity)
+agiGLAMDPinnedStreamBuffer::agiGLAMDPinnedStreamBuffer(usize capacity)
+    : agiGLMappedRingStreamBuffer(capacity)
 {
-    glBindBuffer(Target, Buffer);
-    glBufferData(Target, Capacity, NULL, GL_DYNAMIC_DRAW);
+    Mapping = VirtualAlloc(NULL, Capacity, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
+
+    glBindBuffer(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, Buffer);
+    glBufferData(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, Capacity, Mapping, GL_STREAM_DRAW);
+    glBindBuffer(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, Buffer);
+}
+
+agiGLAMDPinnedStreamBuffer::~agiGLAMDPinnedStreamBuffer()
+{
+    WaitForAll();
+
+    VirtualFree(Mapping, 0, MEM_RELEASE);
+}
+
+agiGLMapUnsafeStreamBuffer::agiGLMapUnsafeStreamBuffer(usize capacity)
+    : agiGLMappedRingStreamBuffer(capacity)
+{
+    glBindBuffer(GL_ARRAY_BUFFER, Buffer);
+    glBufferData(GL_ARRAY_BUFFER, Capacity, NULL, GL_STREAM_DRAW);
 
     // This is very unsafe. The mapping is no longer "valid" after unmapping the buffer.
-    // However, if this is a mapping directly to the GPU memory, it is unlikely to move while the buffer exists.
-    Mapping = glMapBuffer(Target, GL_WRITE_ONLY);
-    glUnmapBuffer(Target);
+    // However, if this is a mapping directly to the GPU memory, hopefully it won't move while the buffer exists.
+    Mapping = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+    glUnmapBuffer(GL_ARRAY_BUFFER);
 
     if (MEMORY_BASIC_INFORMATION info; VirtualQuery(Mapping, &info, sizeof(info)))
     {
@@ -265,17 +276,4 @@ agiGLRiskyAsyncStreamBuffer::agiGLRiskyAsyncStreamBuffer(u32 target, usize capac
             Warningf("Unexpected mapping state, this may crash");
         }
     }
-}
-
-usize agiGLRiskyAsyncStreamBuffer::Upload(const void* data, usize length)
-{
-    CheckFence(length);
-
-    usize offset = Offset;
-    void* dst = static_cast<u8*>(Mapping) + offset;
-    std::memcpy(dst, data, length);
-
-    Offset = (offset + length + 0xF) & ~usize(0xF);
-
-    return offset;
 }

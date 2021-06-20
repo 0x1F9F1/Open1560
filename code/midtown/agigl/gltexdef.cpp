@@ -20,9 +20,11 @@
 
 #include "agi/error.h"
 #include "agiworld/texsheet.h"
-#include "glerror.h"
 #include "pcwindis/setupdata.h"
 #include "vector7/vector2.h"
+
+#include "glcontext.h"
+#include "glerror.h"
 
 #include <glad/glad.h>
 
@@ -41,7 +43,7 @@ static u32 ilog2(u32 value)
     value |= value >> 8;
     value |= value >> 16;
 
-    return MultiplyDeBruijnBitPosition[static_cast<u32>(value * 0x07C4ACDD) >> 27];
+    return MultiplyDeBruijnBitPosition[(value * 0x07C4ACDDu) >> 27];
 }
 
 static u32 CaluclateMipMapLevels(u32 width, u32 height)
@@ -90,7 +92,7 @@ i32 agiGLTexDef::BeginGfx()
     }
 
     // TODO: Fix thread safety/set context during PAGER startup
-    if (wglGetCurrentContext() == NULL)
+    if (agiGL == nullptr)
     {
         return AGI_ERROR_SUCCESS;
     }
@@ -190,7 +192,7 @@ i32 agiGLTexDef::BeginGfx()
     i32 num_levels =
         mip_maps ? std::clamp<i32>(surface->MipMapCount, 1, CaluclateMipMapLevels(surface->Width, surface->Height)) : 1;
 
-    if (Pipe()->HasExtension("GL_ARB_texture_storage"))
+    if (agiGL->HasExtension("GL_ARB_texture_storage"))
     {
         glTexStorage2D(GL_TEXTURE_2D, num_levels, internal, surface->Width, surface->Height);
     }
@@ -228,7 +230,7 @@ i32 agiGLTexDef::BeginGfx()
 
     if (num_levels != 1)
     {
-        if (u32 max_af = Pipe()->GetMaxAnisotropy(); max_af > 0)
+        if (u32 max_af = agiGL->GetMaxAnisotropy(); max_af > 0)
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, static_cast<f32>(max_af));
     }
     else
@@ -247,7 +249,7 @@ i32 agiGLTexDef::BeginGfx()
         Surface->Unload();
 
     if ((EnablePaging & ARTS_PAGE_TEXTURES) && !(Tex.Flags & agiTexParameters::KeepLoaded) &&
-        Pipe()->HasExtension("GL_ARB_sync"))
+        agiGL->HasExtension("GL_ARB_sync"))
     {
         fence_ = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
     }
@@ -296,16 +298,21 @@ void agiGLTexDef::Set(Vector2& arg1, Vector2& arg2)
 
 void agiGLTexDef::SetFilters(u32 min, u32 mag)
 {
+    if (min == min_filter_ && mag == mag_filter_)
+        return;
+
+    glBindTexture(GL_TEXTURE_2D, texture_);
+
     if (min != min_filter_)
     {
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min);
         min_filter_ = min;
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min);
     }
 
     if (mag != mag_filter_)
     {
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag);
         mag_filter_ = mag;
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag);
     }
 }
 

@@ -33,6 +33,7 @@
 #include "pcwindis/setupdata.h"
 
 #include "glbitmap.h"
+#include "glcontext.h"
 #include "glerror.h"
 #include "glrsys.h"
 #include "gltexdef.h"
@@ -45,9 +46,9 @@
 
 #include <wglext.h>
 
-static PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB = NULL;
-static PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = NULL;
-static PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
+extern PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB;
+extern PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB;
+extern PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
 
 static const char* GetDebugTypeString(GLenum value)
 {
@@ -100,7 +101,6 @@ static mem::cmd_param PARAM_scaling {"scaling"};
 static mem::cmd_param PARAM_native_res {"nativeres"};
 static mem::cmd_param PARAM_window_menu {"windowmenu"};
 static mem::cmd_param PARAM_border {"border"};
-static mem::cmd_param PARAM_afilter {"afilter"};
 
 agiGLPipeline::agiGLPipeline() = default;
 agiGLPipeline::~agiGLPipeline() = default;
@@ -206,16 +206,12 @@ i32 agiGLPipeline::BeginGfx()
 
     SetPixelFormat(window_dc_, format, &pfd);
 
-    gl_context_ = wglCreateContext(window_dc_);
+    HGLRC gl_context = wglCreateContext(window_dc_);
 
-    if (gl_context_ == NULL)
+    if (gl_context == NULL)
         Quitf("Failed to create legacy OpenGL context: 0x%08X", GetLastError());
 
-    wglMakeCurrent(window_dc_, gl_context_);
-
-    InitVersioning();
-
-    HGLRC modern_gl_context = NULL;
+    gl_context_ = MakeUnique<agiGLContext>(window_dc_, gl_context);
 
     DebugMessageLevel = PARAM_gldebug.get_or(
 #ifdef ARTS_DEBUG
@@ -225,115 +221,149 @@ i32 agiGLPipeline::BeginGfx()
 #endif
     );
 
-    if (!PARAM_legacygl.get_or(false) && HasExtension("WGL_ARB_pixel_format") && HasExtension("WGL_ARB_create_context"))
+    if (gl_context_->HasExtension("WGL_ARB_create_context"))
     {
         Displayf("Creating modern OpenGL context");
 
-        const int pixel_attribs[] {
-            // clang-format off
-            WGL_DRAW_TO_WINDOW_ARB, GL_TRUE,
-            WGL_SUPPORT_OPENGL_ARB, GL_TRUE,
-            WGL_DOUBLE_BUFFER_ARB, GL_TRUE,
-            WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
-            WGL_COLOR_BITS_ARB, 32,
-            0,
-            // clang-format on
-        };
-
-        UINT num_formats = 0;
-        wglChoosePixelFormatARB(window_dc_, pixel_attribs, NULL, 1, &format, &num_formats);
-
-        if (num_formats != 0)
+        if (gl_context_->HasExtension("WGL_ARB_pixel_format"))
         {
-            int attribs[9];
-            int num_attribs = 0;
+            const int pixel_attribs[] {
+                // clang-format off
+                WGL_DRAW_TO_WINDOW_ARB, GL_TRUE,
+                WGL_SUPPORT_OPENGL_ARB, GL_TRUE,
+                WGL_DOUBLE_BUFFER_ARB, GL_TRUE,
+                WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
+                WGL_COLOR_BITS_ARB, 32,
+                WGL_DEPTH_BITS_ARB, 24,
+                0,
+                // clang-format on
+            };
 
-            i32 major_version = 3;
-            i32 minor_version = 2;
-
-            if (HasVersion(major_version, minor_version))
+            if (UINT num_formats = 0;
+                wglChoosePixelFormatARB(window_dc_, pixel_attribs, NULL, 1, &format, &num_formats) && num_formats)
             {
-                attribs[num_attribs++] = WGL_CONTEXT_MAJOR_VERSION_ARB;
-                attribs[num_attribs++] = major_version;
-
-                attribs[num_attribs++] = WGL_CONTEXT_MINOR_VERSION_ARB;
-                attribs[num_attribs++] = minor_version;
+                DescribePixelFormat(window_dc_, format, sizeof(pfd), &pfd);
+                SetPixelFormat(window_dc_, format, &pfd);
             }
-
-            if (HasExtension("WGL_ARB_create_context_profile"))
+            else
             {
-                attribs[num_attribs++] = WGL_CONTEXT_PROFILE_MASK_ARB;
-
-                int profile_mask = WGL_CONTEXT_CORE_PROFILE_BIT_ARB;
-
-                if (DebugMessageLevel > -1)
-                    profile_mask |= WGL_CONTEXT_DEBUG_BIT_ARB;
-
-                attribs[num_attribs++] = profile_mask;
+                Errorf("Failed to choose pixel format");
             }
+        }
 
-            if ((DebugMessageLevel < 0) && HasExtension("WGL_ARB_create_context_no_error"))
+        int attribs[11];
+        int num_attribs = 0;
+
+        attribs[num_attribs++] = WGL_CONTEXT_MAJOR_VERSION_ARB;
+        attribs[num_attribs++] = 1;
+
+        attribs[num_attribs++] = WGL_CONTEXT_MINOR_VERSION_ARB;
+        attribs[num_attribs++] = 0;
+
+        bool legacy_gl = PARAM_legacygl.get_or(false);
+
+        // wglCreateContext contexts are required to support legacy functionality
+        // If the legacy context is compatibility 3.2+, it probably supports core and compatibility 3.2+
+        // Otherwise, if WGL_ARB_create_context_profile is supported, it probably only supports core 3.2+
+        if (gl_context_->HasExtension("WGL_ARB_create_context_profile") &&
+            gl_context_->HasVersion(legacy_gl ? 320 : 310))
+        {
+            attribs[1] = 3;
+            attribs[3] = 2;
+
+            int profile_mask = legacy_gl ? WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB : WGL_CONTEXT_CORE_PROFILE_BIT_ARB;
+
+            attribs[num_attribs++] = WGL_CONTEXT_PROFILE_MASK_ARB;
+            attribs[num_attribs++] = profile_mask;
+        }
+        else if (gl_context_->HasVersion(310))
+        {
+            attribs[1] = 3;
+            attribs[3] = 1;
+        }
+
+        {
+            int context_flags = 0;
+
+            if (DebugMessageLevel > -1)
+                context_flags |= WGL_CONTEXT_DEBUG_BIT_ARB;
+
+#if 0
+            context_flags |= WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB;
+#endif
+
+            attribs[num_attribs++] = WGL_CONTEXT_FLAGS_ARB;
+            attribs[num_attribs++] = context_flags;
+        }
+
+        if ((DebugMessageLevel < 0) && gl_context_->HasExtension("WGL_ARB_create_context_no_error"))
+        {
+            attribs[num_attribs++] = WGL_CONTEXT_OPENGL_NO_ERROR_ARB;
+            attribs[num_attribs++] = 1;
+        }
+
+        attribs[num_attribs++] = 0;
+
+        HGLRC modern_gl_context = NULL;
+
+        while ((modern_gl_context = wglCreateContextAttribsARB(window_dc_, 0, attribs)) == NULL)
+        {
+            if (attribs[1] == 3)
             {
-                attribs[num_attribs++] = WGL_CONTEXT_OPENGL_NO_ERROR_ARB;
-                attribs[num_attribs++] = 1;
+                if (attribs[3] > 0)
+                    --attribs[3];
+                else
+                    attribs[1] = 1;
             }
+            else
+            {
+                break;
+            }
+        }
 
-            attribs[num_attribs++] = 0;
-
-            modern_gl_context = wglCreateContextAttribsARB(window_dc_, 0, attribs);
-
-            if (modern_gl_context == NULL)
-                Errorf("Failed to create modern OpenGL context: 0x%08X", GetLastError());
+        if (modern_gl_context)
+        {
+            gl_context_ = MakeUnique<agiGLContext>(window_dc_, modern_gl_context);
         }
         else
         {
-            Errorf("Failed to choose pixel format");
+            Errorf("Failed to create modern OpenGL context: 0x%08X", GetLastError());
         }
     }
 
-    bool builtin_fb = false;
-
-    if (modern_gl_context != NULL)
-    {
-        wglMakeCurrent(window_dc_, modern_gl_context);
-        wglDeleteContext(gl_context_);
-        gl_context_ = modern_gl_context;
-        InitVersioning();
-    }
-    else
-    {
-        Displayf("Using legacy OpenGL context");
-
-        builtin_fb = true;
-    }
-
-    if (gladLoadGL() != 1)
+    if (gladLoadGLLoader([](const char* name) -> void* { return agiGL->GetProc(name); }) != 1)
         Quitf("Failed to load GLAD");
+
+    gl_context_->Init();
 
     Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
     Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
 
-    if ((DebugMessageLevel > -1) && HasExtension("GL_KHR_debug"))
+    if ((DebugMessageLevel > -1) && gl_context_->HasExtension("GL_KHR_debug"))
     {
         Displayf("Using glDebugMessageCallback");
+
         glEnable(GL_DEBUG_OUTPUT);
+#ifndef ARTS_FINAL
+        glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+#endif
         glDebugMessageCallback(DebugMessageCallback, 0);
     }
 
     if (DebugMessageLevel > 1)
     {
         Displayf("*** Begin OpenGL Extensions ***");
-        for (HashIterator i(&extensions_); i.Next();)
+        for (HashIterator i(gl_context_->GetExtensions()); i.Next();)
             Displayf("%s", i->Key.get());
         Displayf("*** End OpenGL Extensions ***");
     }
 
-    if (HasExtension("WGL_EXT_swap_control"))
+    if (gl_context_->HasExtension("WGL_EXT_swap_control"))
     {
         int interval = 0;
 
         if (device_flags_1_ & 0x1)
-            interval = HasExtension("WGL_EXT_swap_control_tear") ? -1 : 1;
+            interval = gl_context_->HasExtension("WGL_EXT_swap_control_tear") ? -1 : 1;
 
         Displayf("wglSwapIntervalEXT(%i)", interval);
 
@@ -342,7 +372,6 @@ i32 agiGLPipeline::BeginGfx()
     }
 
     // FIXME: Check pixel format masks
-
     screen_format_ = {sizeof(screen_format_)};
 
     // TODO: Should this have alpha?
@@ -396,13 +425,11 @@ i32 agiGLPipeline::BeginGfx()
     blit_x_ = (horz_res_ - blit_width_) / 2;
     blit_y_ = (vert_res_ - blit_height_) / 2;
 
-    if (!builtin_fb && !HasExtension("GL_ARB_framebuffer_object"))
-        builtin_fb = true;
+    bool builtin_fb = !gl_context_->HasExtension("GL_ARB_framebuffer_object");
 
-    // OpenGL doesn't support blit scaling when using MSAA
     i32 msaa_level = 0;
 
-    if (!builtin_fb && HasExtension("GL_ARB_texture_multisample"))
+    if (!builtin_fb && gl_context_->HasExtension("GL_ARB_texture_multisample"))
     {
         GLint max_samples = 0;
         glGetIntegerv(GL_MAX_SAMPLES, &max_samples);
@@ -411,7 +438,7 @@ i32 agiGLPipeline::BeginGfx()
 
     bool native_res = builtin_fb || PARAM_native_res.get_or(true);
 
-    if (msaa_level != 0 && !HasExtension("GL_EXT_framebuffer_multisample_blit_scaled"))
+    if (msaa_level != 0 && !gl_context_->HasExtension("GL_EXT_framebuffer_multisample_blit_scaled"))
     {
         Errorf("Multisample scaling not supported");
 
@@ -493,17 +520,6 @@ i32 agiGLPipeline::BeginGfx()
 
     glViewport(render_x_, render_y_, render_width_, render_height_);
 
-    if (HasExtension("GL_EXT_texture_filter_anisotropic"))
-    {
-        glGetIntegerv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &max_anisotropy_);
-        max_anisotropy_ = std::min(max_anisotropy_, PARAM_afilter.get_or(16));
-        Displayf("Max Anisotropy = %i", max_anisotropy_);
-    }
-    else
-    {
-        max_anisotropy_ = 0;
-    }
-
     gfx_started_ = true;
 
     return AGI_ERROR_SUCCESS;
@@ -521,11 +537,9 @@ void agiGLPipeline::EndGfx()
         rbo_[1] = 0;
     }
 
-    wglMakeCurrent(NULL, NULL);
-    wglDeleteContext(gl_context_);
-    ReleaseDC(static_cast<HWND>(window_), window_dc_);
+    gl_context_ = nullptr;
 
-    gl_context_ = NULL;
+    ReleaseDC(static_cast<HWND>(window_), window_dc_);
     window_dc_ = NULL;
 
     text_color_model_ = nullptr;
@@ -537,8 +551,6 @@ void agiGLPipeline::EndGfx()
     rasterizer_ = nullptr;
 
     gfx_started_ = false;
-
-    extensions_.Kill();
 }
 
 static mem::cmd_param PARAM_frameclear {"frameclear"};
@@ -549,14 +561,13 @@ void agiGLPipeline::BeginFrame()
 
     agiPipeline::BeginFrame();
 
-    if (wglGetCurrentContext() != gl_context_)
-        wglMakeCurrent(window_dc_, gl_context_);
+    gl_context_->MakeCurrent();
 
     if (PARAM_frameclear.get_or(true))
     {
-        glDisable(GL_SCISSOR_TEST);
+        agiGL->EnableDisable(GL_SCISSOR_TEST, false);
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     if (fbo_ != 0)
@@ -587,133 +598,6 @@ void agiGLPipeline::EndScene()
     in_scene_ = false;
 
     agiPipeline::EndScene();
-}
-
-bool agiGLPipeline::HasExtension(const char* name)
-{
-    return extensions_.Access(name) != nullptr;
-}
-
-bool agiGLPipeline::HasVersion(i32 major, i32 minor)
-{
-    return (gl_major_version_ != major) ? (gl_major_version_ >= major) : (gl_minor_version_ >= minor);
-}
-
-static void ParseExtensionString(HashTable& table, const char* extensions, isize category)
-{
-    char* exts = arts_strdup(extensions);
-
-    if (exts == nullptr)
-        return;
-
-    for (char *curr = exts, *next = nullptr; curr; curr = next)
-    {
-        if (*curr == ' ')
-            break;
-
-        if (next = std::strchr(curr, ' '); next)
-            *next++ = '\0';
-
-        table.Insert(curr, (void*) category);
-    }
-
-    arts_free(exts);
-}
-
-void agiGLPipeline::InitVersioning()
-{
-    const auto get_proc = [open_gl = GetModuleHandleA("opengl32.dll")](const char* name) {
-        void* result = wglGetProcAddress(name);
-
-        if (result == nullptr)
-            result = GetProcAddress(open_gl, name);
-
-        return result;
-    };
-
-    extensions_.Kill();
-
-    auto agi_glGetString = (PFNGLGETSTRINGPROC) get_proc("glGetString");
-
-    const char* gl_version = (const char*) agi_glGetString(GL_VERSION);
-
-    Displayf("OpenGL Version: %s", gl_version);
-
-    if (arts_sscanf(gl_version, "%i.%i", &gl_major_version_, &gl_minor_version_) != 2)
-        Quitf("Failed to get OpenGL version");
-
-    profile_mask_ = 0;
-
-    if (HasVersion(3, 0))
-    {
-        auto agi_glGetIntegerv = (PFNGLGETINTEGERVPROC) get_proc("glGetIntegerv");
-        auto agi_glGetStringi = (PFNGLGETSTRINGIPROC) get_proc("glGetStringi");
-
-        if (HasVersion(3, 2))
-            agi_glGetIntegerv(GL_CONTEXT_PROFILE_MASK, &profile_mask_);
-
-        i32 num_extensions = 0;
-        agi_glGetIntegerv(GL_NUM_EXTENSIONS, &num_extensions);
-
-        for (i32 i = 0; i < num_extensions; ++i)
-            extensions_.Insert((const char*) agi_glGetStringi(GL_EXTENSIONS, i), (void*) 2);
-    }
-    else if (HasVersion(2, 0))
-    {
-        ParseExtensionString(extensions_, (const char*) agi_glGetString(GL_EXTENSIONS), 1);
-    }
-    else
-    {
-        Quitf("OpenGL 1.X not supported");
-    }
-
-    if (auto agi_wglGetExtensionsStringARB = (PFNWGLGETEXTENSIONSSTRINGARBPROC) get_proc("wglGetExtensionsStringARB"))
-        ParseExtensionString(extensions_, agi_wglGetExtensionsStringARB(window_dc_), 3);
-
-    Displayf("OpenGL Extension Count: %i", extensions_.Size());
-
-    const char* glsl_version = (const char*) agi_glGetString(GL_SHADING_LANGUAGE_VERSION);
-
-    if (HasVersion(3, 3))
-    {
-        shader_version_ = (gl_major_version_ * 100) + (gl_minor_version_ * 10);
-    }
-    else
-    {
-        i32 glsl_major_version = 0;
-        i32 glsl_minor_version = 0;
-
-        if (arts_sscanf(glsl_version, "%i.%i", &glsl_major_version, &glsl_minor_version) != 2)
-            Quitf("Failed to get GLSL version");
-
-        shader_version_ = (glsl_major_version * 100) + glsl_minor_version;
-    }
-
-    Displayf("OpenGL Shader Version: %i (%s)", shader_version_, glsl_version);
-
-    wglChoosePixelFormatARB = (PFNWGLCHOOSEPIXELFORMATARBPROC) get_proc("wglChoosePixelFormatARB");
-    wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) get_proc("wglCreateContextAttribsARB");
-    wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) get_proc("wglSwapIntervalEXT");
-}
-
-HGLRC agiGLPipeline::CreateSharedContext()
-{
-    HGLRC context = NULL;
-
-    if (HasExtension("WGL_ARB_create_context"))
-    {
-        context = wglCreateContextAttribsARB(window_dc_, gl_context_, NULL);
-    }
-
-    if (context == NULL)
-    {
-        context = wglCreateContext(window_dc_);
-
-        if (context != NULL)
-            wglShareLists(gl_context_, context);
-    }
-
-    return context;
 }
 
 void agiGLPipeline::EndFrame()
@@ -839,7 +723,6 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 void agiGLPipeline::ClearAll(i32 color)
 {
     glClearColor((color & 0xFF) / 255.0f, ((color >> 8) & 0xFF) / 255.0f, ((color >> 16) & 0xFF) / 255.0f, 1.0f);
-
     glClear(GL_COLOR_BUFFER_BIT);
 }
 

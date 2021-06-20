@@ -26,6 +26,7 @@
 #include "pcwindis/setupdata.h"
 #include "stream/stream.h"
 
+#include "glcontext.h"
 #include "glerror.h"
 #include "glstream.h"
 #include "gltexdef.h"
@@ -43,7 +44,6 @@ static u32 ImmIdxCount = 0;
 void agiGLRasterizer::EndGfx()
 {
     vbo_ = nullptr;
-    ibo_ = nullptr;
 
     if (vao_ != 0)
     {
@@ -162,6 +162,16 @@ static const agiGLVertexAttrib agiScreenVtx_Attribs[] {
 //};
 // clang-format on
 
+static void EnableVertexAttribs(const agiGLVertexAttrib* attribs, usize count, bool enabled)
+{
+    for (usize i = 0; i < count; ++i)
+    {
+        const agiGLVertexAttrib& attrib = attribs[i];
+
+        (enabled ? glEnableVertexAttribArray : glDisableVertexAttribArray)(attrib.Index);
+    }
+}
+
 static void BindVertexAttribs(const agiGLVertexAttrib* attribs, usize count, const void* pointer)
 {
     for (usize i = 0; i < count; ++i)
@@ -195,7 +205,6 @@ static void BindVertexAttribs(const agiGLVertexAttrib* attribs, usize count, con
 
         glVertexAttribPointer(attrib.Index, size, type, normalized, static_cast<GLsizei>(attrib.Stride),
             static_cast<const unsigned char*>(pointer) + attrib.Offset);
-        glEnableVertexAttribArray(attrib.Index);
     }
 }
 
@@ -203,19 +212,23 @@ i32 agiGLRasterizer::BeginGfx()
 {
     PrintGlErrors();
 
-    enum class DrawMode : i32
-    {
-        DrawRange = 0,     // glDrawRangeElements
-        DrawRangeBase = 1, // glDrawRangeElementsBaseVertex
+    /*
+        https://www.khronos.org/opengl/wiki/Buffer_Object_Streaming
 
-        // DrawIndirect = 2,      // glDrawElementsInstancedBaseVertexBaseInstance
-        // MultiDrawIndirect = 3, // glMultiDrawElementsIndirect
-    };
+        Relative Frame Time of StreamModes (lower is better)
 
+        Device                                              | BufferData | MapRange | Persistent | ClientSide
+        NVIDIA GTX 1080 Ti 460.79, Windows 10, No Threading |       1.43 |     1.27 |       1.00 |       1.06
+        NVIDIA GTX 1080 Ti 460.79, Windows 10,    Threading |       1.25 |     3.84 |       1.00 |       1.63
+        SVGA3D,   Mesa 20.1.8,     VMWare Linux             |       1.92 |     1.48 |            |       1.00
+        AMD PALM, Mesa 20.2.6,     Linux                    |       1.55 |     1.04 |       1.00 |       1.20
+
+        When persistent buffers (GL_ARB_buffer_storage/GL_AMD_pinned_memory) are available, they are the fastest.
+        The rest of a time, it varies heavily depending on drivers, threaded optimisation, etc.
+    */
     enum class StreamMode : i32
     {
         BufferData = 0,
-        BufferSubData = 1,
 
         MapRange = 2,
 
@@ -229,26 +242,26 @@ i32 agiGLRasterizer::BeginGfx()
         ClientSide = 7,
     };
 
-    DrawMode draw_mode = DrawMode::DrawRange;
     StreamMode stream_mode = StreamMode::BufferData;
+    const char* gl_version = (const char*) glGetString(GL_VERSION);
 
-    if (Pipe()->HasExtension("GL_ARB_draw_elements_base_vertex"))
+    if (agiGL->IsCoreProfile())
     {
-        draw_mode = DrawMode::DrawRangeBase;
-    }
+        bool async = agiGL->HasExtension("GL_ARB_sync");
 
-    if (Pipe()->IsCoreProfile())
-    {
-        if ((draw_mode != DrawMode::DrawRange) && Pipe()->HasExtension("GL_ARB_sync"))
+        if (async && agiGL->HasExtension("GL_AMD_pinned_memory"))
         {
-            if (Pipe()->HasExtension("GL_AMD_pinned_memory"))
+            stream_mode = StreamMode::AmdPinned;
+        }
+        else if (agiGL->HasExtension("GL_ARB_map_buffer_range"))
+        {
+            if (async && agiGL->HasExtension("GL_ARB_buffer_storage"))
             {
-                stream_mode = StreamMode::AmdPinned;
+                stream_mode = StreamMode::MapCoherent;
             }
-            else if (Pipe()->HasExtension("GL_ARB_map_buffer_range"))
+            else if (std::strstr(gl_version, "Mesa"))
             {
-                stream_mode =
-                    Pipe()->HasExtension("GL_ARB_buffer_storage") ? StreamMode::MapCoherent : StreamMode::MapRange;
+                stream_mode = StreamMode::MapRange;
             }
         }
     }
@@ -257,64 +270,50 @@ i32 agiGLRasterizer::BeginGfx()
         stream_mode = StreamMode::ClientSide;
     }
 
-    const char* gl_version = (const char*) glGetString(GL_VERSION);
-
     if (i32 mode = 0; PARAM_glstream.get(mode))
         stream_mode = static_cast<StreamMode>(mode);
-    else if ((stream_mode == StreamMode::MapRange) && !std::strstr(gl_version, "Mesa"))
-        stream_mode =
-            StreamMode::BufferSubData; // Mesa seems to get a mid-large perf boost, others seem slightly slower
 
     Displayf("OpenGL: Using buffer stream mode %i", stream_mode);
 
-    u32 stream_vertex_count = 0x40000;
+    usize vbo_size = 16 << 20;
 
     switch (stream_mode)
     {
-        case StreamMode::BufferData:
-        case StreamMode::BufferSubData: {
+        case StreamMode::BufferData: {
             // OpenGL 3.3 removes client-side vertex/index arrays, but we only try and target 3.2 (or lower) by default
-            const u32 vertex_count = 0x2000; // Capacity is not important, just to try and pre-allocate some space
-            const bool orphan = stream_mode == StreamMode::BufferSubData;
-            vbo_ = MakeUnique<agiGLBasicStreamBuffer>(GL_ARRAY_BUFFER, vertex_count * sizeof(agiScreenVtx), orphan);
-            ibo_ = nullptr;
+            vbo_ = MakeUnique<agiGLBasicStreamBuffer>();
+            ibo_ = false;
             break;
         }
 
         case StreamMode::MapRange: {
-            // Capacity is fixed
-            vbo_ = MakeUnique<agiGLAsyncStreamBuffer>(GL_ARRAY_BUFFER, stream_vertex_count * sizeof(agiScreenVtx));
-            ibo_ = MakeUnique<agiGLAsyncStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, stream_vertex_count * 3 * sizeof(u16));
+            vbo_ = MakeUnique<agiGLMapRangeStreamBuffer>(vbo_size);
+            ibo_ = true;
             break;
         }
 
         case StreamMode::MapPersistent:
         case StreamMode::MapCoherent: {
-            const bool coherent = stream_mode == StreamMode::MapCoherent;
-
-            vbo_ = MakeUnique<agiGLPersistentStreamBuffer>(
-                GL_ARRAY_BUFFER, stream_vertex_count * sizeof(agiScreenVtx), coherent);
-            ibo_ = MakeUnique<agiGLPersistentStreamBuffer>(
-                GL_ELEMENT_ARRAY_BUFFER, stream_vertex_count * 3 * sizeof(u16), coherent);
+            vbo_ = MakeUnique<agiGLPersistentStreamBuffer>(vbo_size, stream_mode == StreamMode::MapCoherent);
+            ibo_ = true;
             break;
         }
 
         case StreamMode::AmdPinned: {
-            vbo_ = MakeUnique<agiGLPinnedStreamBuffer>(GL_ARRAY_BUFFER, stream_vertex_count * sizeof(agiScreenVtx));
-            ibo_ = MakeUnique<agiGLPinnedStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, stream_vertex_count * 3 * sizeof(u16));
+            vbo_ = MakeUnique<agiGLAMDPinnedStreamBuffer>(vbo_size);
+            ibo_ = true;
             break;
         }
 
         case StreamMode::MapUnsafe: {
-            vbo_ = MakeUnique<agiGLRiskyAsyncStreamBuffer>(GL_ARRAY_BUFFER, stream_vertex_count * sizeof(agiScreenVtx));
-            ibo_ =
-                MakeUnique<agiGLRiskyAsyncStreamBuffer>(GL_ELEMENT_ARRAY_BUFFER, stream_vertex_count * 3 * sizeof(u16));
+            vbo_ = MakeUnique<agiGLMapUnsafeStreamBuffer>(vbo_size);
+            ibo_ = true;
             break;
         }
 
         case StreamMode::ClientSide: {
             vbo_ = nullptr;
-            ibo_ = nullptr;
+            ibo_ = false;
             break;
         }
 
@@ -325,7 +324,7 @@ i32 agiGLRasterizer::BeginGfx()
 
     if (vbo_)
     {
-        if (Pipe()->HasExtension("GL_ARB_vertex_array_object"))
+        if (agiGL->HasExtension("GL_ARB_vertex_array_object"))
         {
             glGenVertexArrays(1, &vao_);
             glBindVertexArray(vao_);
@@ -334,13 +333,9 @@ i32 agiGLRasterizer::BeginGfx()
         {
             Displayf("OpenGL VAO not supported");
         }
-
-        vbo_->Bind();
-
-        BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), nullptr);
     }
 
-    i32 glsl_version = std::min(Pipe()->GetShaderVersion(), 130);
+    i32 glsl_version = std::min(agiGL->GetShaderVersion(), 130);
 
     Displayf("OpenGL: Using shader version %i", glsl_version);
 
@@ -461,13 +456,16 @@ void main()
     glUniform1i(glGetUniformLocation(shader_, "u_Texture"), 0);
 
     uniform_alpha_ref_ = glGetUniformLocation(shader_, "u_AlphaRef");
-    glUniform1f(uniform_alpha_ref_, 0.0f);
+    alpha_ref_ = 0.0f;
+    glUniform1f(uniform_alpha_ref_, alpha_ref_);
 
     uniform_fog_mode_ = glGetUniformLocation(shader_, "u_FogMode");
-    glUniform4f(uniform_fog_mode_, 0.0f, 0.0f, 0.0f, 0.0f);
+    fog_mode_ = {0.0f, 0.0f, 0.0f, 0.0f};
+    glUniform4f(uniform_fog_mode_, fog_mode_.x, fog_mode_.y, fog_mode_.z, fog_mode_.w);
 
     uniform_fog_color_ = glGetUniformLocation(shader_, "u_FogColor");
-    glUniform3f(uniform_fog_color_, 0.0f, 0.0f, 0.0f);
+    fog_color_ = {0.0f, 0.0f, 0.0f};
+    glUniform3f(uniform_fog_color_, fog_color_.x, fog_color_.y, fog_color_.z);
 
     // Converts from screen coordinates ([0, Width], [0, Height], [0, 1]) to NDC
     GLfloat transform[16] {};
@@ -490,11 +488,11 @@ void main()
     flip_winding_ = false;
 
     // Designed for floating point framebuffers
+    // Broken on some old OpenGL2 drivers
     // https://nlguillemot.wordpress.com/2016/12/07/reversed-z-in-opengl/
     reversed_z_ = false;
 
-#ifndef ARTS_FINAL
-    if (Pipe()->HasExtension("GL_ARB_clip_control"))
+    if (agiGL->HasExtension("GL_ARB_clip_control"))
     {
         flip_winding_ = true;
 
@@ -510,22 +508,18 @@ void main()
         transform[10] = 1.0f;
         transform[14] = 0.0f;
     }
-    else if (Pipe()->HasExtension("GL_NV_depth_buffer_float"))
+    else if (agiGL->HasExtension("GL_NV_depth_buffer_float"))
     {
         glDepthRangedNV(-1.0, 1.0);
     }
-    else
-    {
-        // May clamp to (0, 1), but that doesn't matter since it's the default
-        glDepthRange(-1.0, 1.0);
-    }
-#endif
 
     if (reversed_z_)
     {
         transform[14] += transform[10];
         transform[10] = -transform[10];
     }
+
+    glClearDepth(reversed_z_ ? 0.0 : 1.0);
 
     glUniformMatrix4fv(glGetUniformLocation(shader_, "u_Transform"), 1, GL_FALSE, transform);
 
@@ -535,14 +529,13 @@ void main()
     u32 white = 0xFFFFFFFF;
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, &white);
 
+    glBindBuffer(GL_ARRAY_BUFFER, vbo_ ? vbo_->Buffer : 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_ ? vbo_->Buffer : 0);
 
-
-
-    if (vbo_)
-        vbo_->Bind();
-
-    if (ibo_)
-        ibo_->Bind();
+    draw_base_vertex_ = vbo_ && agiGL->HasExtension("GL_ARB_draw_elements_base_vertex");
+    last_vtx_offset_ = nullptr;
+    BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), nullptr);
+    EnableVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), true);
 
     PrintGlErrors();
 
@@ -628,13 +621,16 @@ void agiGLRasterizer::Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, 
     DrawMesh(GL_TRIANGLES, vertices, vertex_count, indices, index_count);
 }
 
-void agiGLRasterizer::FlushAgiState()
+void agiGLRasterizer::FlushState()
 {
     if (agiCurState.GetDrawMode() != 15)
         agiCurState.SetTexture(nullptr);
 
     if (!agiCurState.IsTouched())
         return;
+
+    ARTS_UTIMED(agiStateChanges);
+    ++STATS.StateChanges;
 
     agiGLTexDef* texture = static_cast<agiGLTexDef*>(agiCurState.GetTexture());
     agiTexFilter tex_filter = agiCurState.GetTexFilter();
@@ -681,8 +677,7 @@ void agiGLRasterizer::FlushAgiState()
                     }
                 }
 
-                current_min_filter_ = min_filter;
-                current_mag_filter_ = mag_filter;
+                texture->SetFilters(min_filter, mag_filter);
             }
         }
     }
@@ -692,20 +687,19 @@ void agiGLRasterizer::FlushAgiState()
         agiLastState.TexFilter = tex_filter;
     }
 
-#define SET_GL_STATE(NAME, VALUE) SetState(&State::NAME, VALUE, Touched_##NAME)
-
     if (bool zwrite = agiCurState.GetZWrite(); zwrite != agiLastState.ZWrite)
     {
         agiLastState.ZWrite = zwrite;
 
-        SET_GL_STATE(DepthMask, zwrite);
+        agiGL->DepthMask(zwrite);
+        ++STATS.StateChangeCalls;
     }
 
     if (bool zenable = agiCurState.GetZEnable(); zenable != agiLastState.ZEnable)
     {
         agiLastState.ZEnable = zenable;
-
-        SET_GL_STATE(DepthTest, zenable);
+        agiGL->EnableDisable(GL_DEPTH_TEST, zenable);
+        ++STATS.StateChangeCalls;
     }
 
     if (agiCmpFunc zfunc = agiCurState.GetZFunc(); zfunc != agiLastState.ZFunc)
@@ -726,7 +720,8 @@ void agiGLRasterizer::FlushAgiState()
             case agiCmpFunc::Always: depth_func = GL_ALWAYS; break;
         }
 
-        SET_GL_STATE(DepthFunc, depth_func);
+        agiGL->DepthFunc(depth_func);
+        ++STATS.StateChangeCalls;
     }
 
     agiLastState.TexturePerspective = agiCurState.GetTexturePerspective();
@@ -745,21 +740,31 @@ void agiGLRasterizer::FlushAgiState()
             case 3: poly_mode = GL_FILL; break;
         }
 
-        SET_GL_STATE(PolygonMode, poly_mode);
+        agiGL->PolygonMode(poly_mode);
+        ++STATS.StateChangeCalls;
     }
 
-    bool alpha_mode =
+    bool alpha_enable =
         agiCurState.GetAlphaEnable() || GetRendererInfo().AdditiveBlending || (texture && texture->Tex.HasAlpha());
 
     u8 alpha_ref = agiCurState.GetAlphaRef();
 
-    if (alpha_mode != agiLastState.AlphaEnable || alpha_ref != agiLastState.AlphaRef)
+    if (alpha_enable != agiLastState.AlphaEnable || alpha_ref != agiLastState.AlphaRef)
     {
-        agiLastState.AlphaEnable = alpha_mode;
+        agiLastState.AlphaEnable = alpha_enable;
         agiLastState.AlphaRef = alpha_ref;
 
-        SET_GL_STATE(Blend, alpha_mode);
-        SET_GL_STATE(AlphaRef, alpha_mode ? (alpha_ref / 255.0f) : 0.0f);
+        agiGL->EnableDisable(GL_BLEND, alpha_enable);
+        ++STATS.StateChangeCalls;
+
+        f32 falpha_ref = alpha_enable ? (alpha_ref / 255.0f) : 0.0f;
+
+        if (alpha_ref_ != falpha_ref)
+        {
+            alpha_ref_ = falpha_ref;
+            glUniform1f(uniform_alpha_ref_, falpha_ref);
+            ++STATS.StateChangeCalls;
+        }
     }
 
     if (agiBlendSet blend_set = agiCurState.GetBlendSet(); blend_set != agiLastState.BlendSet)
@@ -799,8 +804,8 @@ void agiGLRasterizer::FlushAgiState()
             default: Quitf("bad blend mode"); break;
         }
 
-        SET_GL_STATE(BlendFuncS, blend_s);
-        SET_GL_STATE(BlendFuncD, blend_d);
+        agiGL->BlendFunc(blend_s, blend_d);
+        ++STATS.StateChangeCalls;
     }
 
     if (agiCullMode cull_mode = agiCurState.GetCullMode(); cull_mode != agiLastState.CullMode)
@@ -818,10 +823,14 @@ void agiGLRasterizer::FlushAgiState()
             case agiCullMode::CCW: front_face = flip_winding_ ? GL_CCW : GL_CW; break;
         }
 
-        SET_GL_STATE(CullFace, front_face != 0);
+        agiGL->EnableDisable(GL_CULL_FACE, front_face != 0);
+        ++STATS.StateChangeCalls;
 
         if (front_face != 0)
-            SET_GL_STATE(FrontFace, front_face);
+        {
+            agiGL->FrontFace(front_face);
+            ++STATS.StateChangeCalls;
+        }
     }
 
     if (agiBlendOp blend_op = agiCurState.GetBlendOp(); blend_op != agiLastState.BlendOp)
@@ -855,7 +864,12 @@ void agiGLRasterizer::FlushAgiState()
             fog_density,
         };
 
-        SET_GL_STATE(FogMode, mode);
+        if (fog_mode_ != mode)
+        {
+            fog_mode_ = mode;
+            glUniform4f(uniform_fog_mode_, mode.x, mode.y, mode.z, mode.w);
+            ++STATS.StateChangeCalls;
+        }
     }
 
     if (u32 fog_color = agiCurState.GetFogColor(); fog_color != agiLastState.FogColor)
@@ -868,88 +882,15 @@ void agiGLRasterizer::FlushAgiState()
             (fog_color & 0xFF) / 255.0f,
         };
 
-        SET_GL_STATE(FogColor, color);
+        if (fog_color_ != color)
+        {
+            fog_color_ = color;
+            glUniform3f(uniform_fog_color_, color.x, color.y, color.z);
+            ++STATS.StateChangeCalls;
+        }
     }
 
     agiCurState.ClearTouched();
-}
-
-void agiGLRasterizer::FlushGlState()
-{
-    if (touched_ == 0)
-        return;
-
-    ARTS_UTIMED(agiStateChanges);
-    ++STATS.StateChanges;
-
-    if (touched_ & Touched_DepthMask)
-    {
-        glDepthMask(state_.DepthMask);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (touched_ & Touched_DepthTest)
-    {
-        (state_.DepthTest ? glEnable : glDisable)(GL_DEPTH_TEST);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (touched_ & Touched_DepthFunc)
-    {
-        glDepthFunc(state_.DepthFunc);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (touched_ & Touched_PolygonMode)
-    {
-        glPolygonMode(GL_FRONT_AND_BACK, state_.PolygonMode);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (touched_ & Touched_Blend)
-    {
-        (state_.Blend ? glEnable : glDisable)(GL_BLEND);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (touched_ & Touched_AlphaRef)
-    {
-        glUniform1f(uniform_alpha_ref_, state_.AlphaRef);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (touched_ & (Touched_BlendFuncS | Touched_BlendFuncD))
-    {
-        glBlendFunc(state_.BlendFuncS, state_.BlendFuncD);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (touched_ & Touched_CullFace)
-    {
-        (state_.CullFace ? glEnable : glDisable)(GL_CULL_FACE);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (touched_ & Touched_FrontFace)
-    {
-        glFrontFace(state_.FrontFace);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (touched_ & Touched_FogMode)
-    {
-        glUniform4f(uniform_fog_mode_, state_.FogMode.x, state_.FogMode.y, state_.FogMode.z, state_.FogMode.w);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (touched_ & Touched_FogColor)
-    {
-        glUniform3f(uniform_fog_color_, state_.FogColor.x, state_.FogColor.y, state_.FogColor.z);
-        ++STATS.StateChangeCalls;
-    }
-
-    touched_ = 0;
-    real_state_ = state_;
 }
 
 void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count)
@@ -957,49 +898,43 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
     if (!IsAppActive() || (vertex_count == 0) || (index_count == 0))
         return;
 
-    FlushAgiState();
+    FlushState();
 
     if (current_texture_ == 0)
         return;
 
-    FlushGlState();
-
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, current_texture_);
-
-    if (agiGLTexDef* texture = static_cast<agiGLTexDef*>(agiCurState.GetTexture()))
-        texture->SetFilters(current_min_filter_, current_mag_filter_);
-
-    usize vtx_offset = 0;
-
-    if (vbo_)
-    {
-        vtx_offset = vbo_->Upload(vertices, vertex_count * sizeof(agiScreenVtx)) / sizeof(agiScreenVtx);
-    }
-    else
-    {
-        BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), vertices);
-    }
-
-    const void* idx_offset =
-        ibo_ ? reinterpret_cast<const void*>(ibo_->Upload(indices, index_count * sizeof(u16))) : indices;
-
     ARTS_UTIMED(agiRasterization);
     ++STATS.GeomCalls;
 
-    if (vtx_offset)
+    agiGL->BindTextureUnit(GL_TEXTURE_2D, current_texture_, 0);
+
+    const void* offsets[2] {vertices, indices};
+
+    if (vbo_)
     {
-        glDrawRangeElementsBaseVertex(
-            prim_type, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset, static_cast<GLint>(vtx_offset));
+        const usize lengths[2] {vertex_count * sizeof(agiScreenVtx), index_count * sizeof(u16)};
+        const usize aligns[2] {sizeof(agiScreenVtx), sizeof(u16)};
+        vbo_->Upload(offsets, lengths, aligns, ibo_ ? 2 : 1);
+    }
+
+    const auto [vtx_offset, idx_offset] = offsets;
+
+    if (draw_base_vertex_ && vtx_offset)
+    {
+        glDrawRangeElementsBaseVertex(prim_type, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset,
+            reinterpret_cast<usize>(vtx_offset) / sizeof(agiScreenVtx));
     }
     else
     {
+        if (vtx_offset != last_vtx_offset_)
+        {
+            BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), vtx_offset);
+            last_vtx_offset_ = vtx_offset;
+        }
+
         glDrawRangeElements(prim_type, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset);
     }
 
     if (vbo_)
-        vbo_->SetFences();
-
-    if (ibo_)
-        ibo_->SetFences();
+        vbo_->Discard();
 }

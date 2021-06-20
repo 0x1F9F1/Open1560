@@ -21,92 +21,92 @@
 class agiGLStreamBuffer
 {
 public:
-    u32 Target {0};
     u32 Buffer {0};
-    usize Capacity {0};
 
-    agiGLStreamBuffer(u32 target, usize capacity);
+    agiGLStreamBuffer();
     virtual ~agiGLStreamBuffer();
 
-    void Bind();
-    void Unbind();
+    ARTS_NON_COPYABLE(agiGLStreamBuffer);
 
-    virtual usize Upload(const void* data, usize length) = 0;
-    virtual void SetFences() = 0;
+    virtual void Upload(const void** values, const usize* lengths, const usize* aligns, usize count) = 0;
+    virtual void Discard();
 };
 
 class agiGLBasicStreamBuffer final : public agiGLStreamBuffer
 {
 public:
-    bool Orphan {false};
+    agiGLBasicStreamBuffer();
 
-    agiGLBasicStreamBuffer(u32 target, usize capacity, bool orphan);
-
-    usize Upload(const void* data, u32 length) override;
-    void SetFences() override;
+    void Upload(const void** values, const usize* lengths, const usize* aligns, usize count) override;
 };
 
-class agiGLFencedStreamBuffer : public agiGLStreamBuffer
+class agiGLMappedStreamBuffer : public agiGLStreamBuffer
+{
+public:
+    usize Capacity {0};
+    usize Offset {0};
+
+    agiGLMappedStreamBuffer(usize capacity);
+
+    void Upload(const void** values, const usize* lengths, const usize* aligns, usize count) override;
+
+    virtual void* Map(usize offset, usize length) = 0;
+    virtual void Unmap(usize offset, usize length) = 0;
+};
+
+class agiGLMapRangeStreamBuffer final : public agiGLMappedStreamBuffer
+{
+public:
+    agiGLMapRangeStreamBuffer(usize capacity);
+
+    void* Map(usize offset, usize length) override;
+    void Unmap(usize offset, usize length) override;
+};
+
+class agiGLMappedRingStreamBuffer : public agiGLMappedStreamBuffer
 {
 public:
     // More fences could reduce the chance of waiting, at the cost of checking them more often.
     static constexpr usize NumFences = 4;
 
+    void* Mapping {nullptr};
     void* Fences[NumFences] {};
-    usize Offset {0};
 
-    using agiGLStreamBuffer::agiGLStreamBuffer;
-    ~agiGLFencedStreamBuffer() override;
+    agiGLMappedRingStreamBuffer(usize capacity);
+    ~agiGLMappedRingStreamBuffer() override;
 
     void LockSection(usize index);
     void UnlockSection(usize index);
 
-    usize GetSectionSize() const;
-    void UnlockRange(u32 offset, usize length, bool exclusive);
-
+    void UnlockRange(usize offset, usize length, bool exclusive);
     void WaitForAll();
-    void CheckFence(usize length);
 
-    void SetFences() override;
+    void* Map(usize offset, usize length) override;
+    void Unmap(usize offset, usize length) override;
+
+    void Discard() override;
 };
 
-class agiGLAsyncStreamBuffer final : public agiGLFencedStreamBuffer
+class agiGLPersistentStreamBuffer final : public agiGLMappedRingStreamBuffer
 {
 public:
-    agiGLAsyncStreamBuffer(u32 target, usize capacity);
-
-    usize Upload(const void* data, usize length) override;
-};
-
-class agiGLPinnedStreamBuffer final : public agiGLFencedStreamBuffer
-{
-public:
-    void* Memory {nullptr};
-
-    agiGLPinnedStreamBuffer(u32 target, usize capacity);
-    ~agiGLPinnedStreamBuffer() override;
-
-    usize Upload(const void* data, usize length) override;
-};
-
-class agiGLPersistentStreamBuffer final : public agiGLFencedStreamBuffer
-{
-public:
-    void* Mapping {nullptr};
     bool Coherent {false};
 
-    agiGLPersistentStreamBuffer(u32 target, usize capacity, bool coherent);
+    agiGLPersistentStreamBuffer(usize capacity, bool coherent);
     ~agiGLPersistentStreamBuffer() override;
 
-    usize Upload(const void* data, usize length) override;
+    void Unmap(usize offset, usize length) override;
 };
 
-class agiGLRiskyAsyncStreamBuffer final : public agiGLFencedStreamBuffer
+class agiGLAMDPinnedStreamBuffer final : public agiGLMappedRingStreamBuffer
 {
 public:
-    void* Mapping {nullptr};
+    agiGLAMDPinnedStreamBuffer(usize capacity);
+    ~agiGLAMDPinnedStreamBuffer() override;
+};
 
-    agiGLRiskyAsyncStreamBuffer(u32 target, u32 capacity);
-
-    usize Upload(const void* data, usize length) override;
+class agiGLMapUnsafeStreamBuffer final : public agiGLMappedRingStreamBuffer
+{
+public:
+    agiGLMapUnsafeStreamBuffer(usize capacity);
 };

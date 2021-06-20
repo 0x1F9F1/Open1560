@@ -24,6 +24,7 @@
 #include "core/minwin.h"
 
 class agiGLRasterizer;
+class agiGLContext;
 
 class agiGLPipeline final : public agiPipeline
 {
@@ -54,9 +55,6 @@ public:
 
     void Init();
 
-    bool HasExtension(const char* name);
-    bool HasVersion(i32 major, i32 minor);
-
     u32 GetRenderX() const
     {
         return render_x_;
@@ -77,21 +75,6 @@ public:
         return render_height_;
     }
 
-    i32 GetMaxAnisotropy() const
-    {
-        return max_anisotropy_;
-    }
-
-    bool IsCoreProfile() const
-    {
-        return profile_mask_ & 0x00000001; // GL_CONTEXT_CORE_PROFILE_BIT
-    }
-
-    i32 GetShaderVersion() const
-    {
-        return shader_version_;
-    }
-
     agiGLRasterizer* Rast()
     {
         return rasterizer_.get();
@@ -99,16 +82,9 @@ public:
 
 private:
     HDC window_dc_ {nullptr};
-    HGLRC gl_context_ {nullptr};
 
-    HashTable extensions_ {128, "Extensions"};
-
+    Ptr<agiGLContext> gl_context_;
     Rc<agiGLRasterizer> rasterizer_;
-
-    i32 gl_major_version_ {0};
-    i32 gl_minor_version_ {0};
-    i32 profile_mask_ {0};
-    i32 shader_version_ {0};
 
     u32 fbo_ {0};
     u32 rbo_[2] {0};
@@ -123,12 +99,6 @@ private:
     u32 blit_width_ {0};
     u32 blit_height_ {0};
     u32 blit_filter_ {0};
-
-    i32 max_anisotropy_ {0};
-
-    void InitVersioning();
-
-    HGLRC CreateSharedContext();
 };
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height);

@@ -2,6 +2,8 @@ arts_component "agigl"
     files {
         "glpipe.cpp",
         "glpipe.h",
+        "glcontext.cpp",
+        "glcontext.h",
         "gltexdef.cpp",
         "gltexdef.h",
         "glview.cpp",

@@ -51,14 +51,8 @@ public:
         return static_cast<agiGLPipeline*>(agiRefreshable::Pipe());
     }
 
-    bool ReversedZ() const
-    {
-        return reversed_z_;
-    }
-
 private:
-    void FlushAgiState();
-    void FlushGlState();
+    void FlushState();
 
     u16* ImmAddIndices(u32 draw_mode, u16 count);
     void ImmDraw();
@@ -66,77 +60,26 @@ private:
     void DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count);
 
     Ptr<agiGLStreamBuffer> vbo_;
-    Ptr<agiGLStreamBuffer> ibo_;
+    bool ibo_ {false};
 
     u32 vao_ {0};
     u32 shader_ {0};
     u32 white_texture_ {0};
 
     i32 uniform_alpha_ref_ {0};
+    f32 alpha_ref_ {0.0f};
+
     i32 uniform_fog_mode_ {0};
+    Vector4 fog_mode_ {};
+
     i32 uniform_fog_color_ {0};
+    Vector3 fog_color_ {};
 
     u32 current_texture_ {0};
-    u32 current_min_filter_ {0};
-    u32 current_mag_filter_ {0};
 
     bool flip_winding_ {false};
     bool reversed_z_ {false};
 
-    struct State
-    {
-        bool DepthMask {false};
-        bool DepthTest {false};
-        u32 DepthFunc {0};
-
-        u32 PolygonMode {0};
-
-        bool Blend {false};
-        f32 AlphaRef {0.0f};
-
-        u32 BlendFuncS {0};
-        u32 BlendFuncD {0};
-
-        bool CullFace {false};
-        u32 FrontFace {0};
-
-        Vector4 FogMode {};
-        Vector3 FogColor {};
-    };
-
-    enum Touched_ : u32
-    {
-        Touched_DepthMask = 1 << 0,
-        Touched_DepthTest = 1 << 1,
-        Touched_DepthFunc = 1 << 2,
-
-        Touched_PolygonMode = 1 << 3,
-
-        Touched_Blend = 1 << 4,
-        Touched_AlphaRef = 1 << 5,
-
-        Touched_BlendFuncS = 1 << 6,
-        Touched_BlendFuncD = 1 << 7,
-
-        Touched_CullFace = 1 << 8,
-        Touched_FrontFace = 1 << 9,
-
-        Touched_FogMode = 1 << 10,
-        Touched_FogColor = 1 << 11,
-    };
-
-    template <typename T>
-    inline void SetState(T State::*state, T value, u32 touched)
-    {
-        if (real_state_.*state == value)
-            touched_ &= ~touched;
-        else
-            touched_ |= touched;
-
-        state_.*state = value;
-    }
-
-    u32 touched_ {0};
-    State state_ {};
-    State real_state_ {};
+    bool draw_base_vertex_ {false};
+    const void* last_vtx_offset_ {nullptr};
 };

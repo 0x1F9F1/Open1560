@@ -239,7 +239,7 @@ void agiPipeline::DumpStatus()
     for (agiRefreshable* i = objects_; i; i = i->next_)
         agiDisplayf("Refreshable: %s", i->GetName());
 
-    for (HashIterator i(&DLPTemplateHash); i.Next();)
+    for (HashIterator i(DLPTemplateHash); i.Next();)
         agiDisplayf("Template %s @ %p", i->Key.get(), i->Value);
 }
 

@@ -22,6 +22,8 @@
 #include "agi/pipeline.h"
 #include "agi/rsys.h"
 #include "data7/utimer.h"
+
+#include "glcontext.h"
 #include "glerror.h"
 #include "glrsys.h"
 
@@ -75,8 +77,7 @@ void agiGLViewport::Clear(i32 flags)
         mask |= GL_DEPTH_BUFFER_BIT;
 
         agiCurState.SetZWrite(true);
-        glDepthMask(GL_TRUE);
-        glClearDepth(Pipe()->Rast()->ReversedZ() ? 0.0 : 1.0);
+        agiGL->DepthMask(true);
     }
 
     if (flags & AGI_VIEW_CLEAR_TARGET)
@@ -94,7 +95,7 @@ void agiGLViewport::Clear(i32 flags)
         i32 width = Pipe()->GetRenderWidth();
         i32 height = Pipe()->GetRenderHeight();
 
-        glEnable(GL_SCISSOR_TEST);
+        agiGL->EnableDisable(GL_SCISSOR_TEST, true);
 
         glScissor(x + static_cast<GLint>(width * params_.X), y + static_cast<GLint>(height * params_.Y),
             static_cast<GLsizei>(std::ceil(width * params_.Width)),
@@ -102,6 +103,6 @@ void agiGLViewport::Clear(i32 flags)
 
         glClear(mask);
 
-        glDisable(GL_SCISSOR_TEST);
+        agiGL->EnableDisable(GL_SCISSOR_TEST, false);
     }
 }

@@ -129,8 +129,8 @@ check_size(HashTable, 0x10);
 struct HashIterator
 {
 public:
-    HashIterator(HashTable* table)
-        : Table(table)
+    HashIterator(HashTable& table)
+        : Table(&table)
     {}
 
     // 0x578040 | ?Begin@HashIterator@@QAEXXZ
