@@ -718,10 +718,10 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
 #include <shellapi.h>
 
-static char** GetCommandLineUTF8(int* pNumArgs)
+static char** GetCommandLineUTF8(const wchar_t* wCmdLine, int* pNumArgs)
 {
     int argc = 0;
-    LPWSTR* wargv = CommandLineToArgvW(GetCommandLineW(), &argc);
+    LPWSTR* wargv = CommandLineToArgvW(wCmdLine, &argc);
 
     int size = 0;
     size += sizeof(char*) * (argc + 1);
@@ -749,6 +749,44 @@ static char** GetCommandLineUTF8(int* pNumArgs)
     return static_cast<char**>(result);
 }
 
+static char** GetCommandLineUTF8(int* pNumArgs)
+{
+    return GetCommandLineUTF8(GetCommandLineW(), pNumArgs);
+}
+
+static char** GetCommandFileUTF8(int* pNumArgs)
+{
+    HANDLE handle =
+        CreateFileA("commandline.txt", GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+
+    if (handle == INVALID_HANDLE_VALUE)
+        return nullptr;
+
+    DWORD file_size = GetFileSize(handle, NULL);
+    LPCH file_data = (LPCH) arts_malloc(file_size);
+    ReadFile(handle, file_data, file_size, &file_size, NULL);
+    CloseHandle(handle);
+
+    for (DWORD i = 0; i < file_size; ++i)
+    {
+        if (file_data[i] < 0x20)
+            file_data[i] = ' ';
+    }
+
+    int wide_size = MultiByteToWideChar(CP_UTF8, 0, file_data, (int) file_size, NULL, 0);
+    wchar_t* wide_data = (wchar_t*) arts_malloc((wide_size + 4) * sizeof(wchar_t));
+
+    std::wmemcpy(wide_data, L"\"\" ", 3);
+    MultiByteToWideChar(CP_UTF8, 0, file_data, (int) file_size, wide_data + 3, wide_size);
+    wide_data[wide_size + 3] = L'\0';
+    arts_free(file_data);
+
+    char** result = GetCommandLineUTF8(wide_data, pNumArgs);
+    arts_free(wide_data);
+
+    return result;
+}
+
 static mem::cmd_param PARAM_clean_dir {"cleandir"};
 static mem::cmd_param PARAM_console {"console"};
 static mem::cmd_param PARAM_period {"period"};
@@ -761,8 +799,16 @@ ARTS_EXPORT int WINAPI MidtownMain(
     HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*nShowCmd*/)
 {
     int argc = 0;
-    char** argv = GetCommandLineUTF8(&argc);
+    char** argv = GetCommandFileUTF8(&argc);
 
+    if (argv)
+    {
+        mem::cmd_param::init(argc, argv);
+        arts_free(argv);
+    }
+
+    argc = 0;
+    argv = GetCommandLineUTF8(&argc);
     mem::cmd_param::init(argc, argv);
 
     if (PARAM_speedrun)
