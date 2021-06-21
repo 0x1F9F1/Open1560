@@ -195,15 +195,14 @@ static inline u8 CalculateFog(f32 w, f32 fog)
 
 #define ARTS_TRANSFORM_FOG fogout[i] = CalculateFog(output[i].w, FogValue)
 
-#define ARTS_TRANSFORM_CODE                                                            \
-    f32 w_abs = std::abs(output[i].w);                                                 \
-    u8 clip_code = ClipMask &                                                          \
-        ((((w_abs - std::abs(output[i].x)) < 0.0f) << ((output[i].x < 0.0f) + 0)) |    \
-            (((w_abs - std::abs(output[i].y)) < 0.0f) << ((output[i].y < 0.0f) + 2)) | \
-            (((w_abs - std::abs(output[i].z)) < 0.0f) << ((output[i].z < 0.0f) + 4))); \
-    clip_any |= clip_code;                                                             \
-    clip_all &= clip_code;                                                             \
-    out_codes[i] = clip_code & ClipMask;
+#define ARTS_TRANSFORM_CODE                                                                    \
+    f32 w_abs = std::abs(output[i].w);                                                         \
+    u8 clip_code = ((((w_abs - std::abs(output[i].x)) < 0.0f) << ((output[i].x < 0.0f) + 0)) | \
+        (((w_abs - std::abs(output[i].y)) < 0.0f) << ((output[i].y < 0.0f) + 2)) |             \
+        (((w_abs - std::abs(output[i].z)) < 0.0f) << ((output[i].z < 0.0f) + 4)));             \
+    clip_any |= clip_code;                                                                     \
+    clip_all &= clip_code;                                                                     \
+    out_codes[i] = clip_code;
 
 #ifndef ARTS_ENABLE_KNI
 void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count)
@@ -212,7 +211,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
 
     for (i32 i = 0; i < count; ++i)
     {
-        if (in_codes[i] != AGI_MESH_CLIP_SCREEN)
+        if (!(in_codes[i] & AGI_MESH_CLIP_SCREEN))
             continue;
 
         Vector4& vert = verts[i];
@@ -706,7 +705,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                 return clip_mask;
         }
 
-        if (clip_mask & ClipMask)
+        if (clip_mask)
         {
             clip_mask = TransformOutcode(codes, out, verts, VertexCount);
 
@@ -729,25 +728,29 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
         DynTexFlag = flags & AGI_MESH_DRAW_DYNTEX;
         CurrentMeshSetVariant = std::min<i32>(flags >> AGI_MESH_DRAW_VARIANT_SHIFT, VariationCount - 1);
 
-        if (clip_mask & ClipMask)
+        if (clip_mask)
         {
             for (u32 i = 0; i < SurfaceCount; ++i)
             {
-                const u16* ARTS_RESTRICT surface = &SurfaceIndices[i * 4];
+                u16 surface[4];
+                std::memcpy(surface, &SurfaceIndices[i * 4], sizeof(surface));
 
-                u8 clip_any = codes[VertexIndices[surface[0]]] | codes[VertexIndices[surface[1]]] |
-                    codes[VertexIndices[surface[2]]];
+                u16 indices[4];
+                indices[0] = VertexIndices[surface[0]];
+                indices[1] = VertexIndices[surface[1]];
+                indices[2] = VertexIndices[surface[2]];
 
-                u8 clip_all = codes[VertexIndices[surface[0]]] & codes[VertexIndices[surface[1]]] &
-                    codes[VertexIndices[surface[2]]];
+                u8 clip_any = codes[indices[0]] | codes[indices[1]] | codes[indices[2]];
+                u8 clip_all = codes[indices[0]] & codes[indices[1]] & codes[indices[2]];
 
                 i16 num_verts;
                 i16 num_index;
 
                 if (surface[3])
                 {
-                    clip_any |= codes[VertexIndices[surface[3]]];
-                    clip_all &= codes[VertexIndices[surface[3]]];
+                    indices[3] = VertexIndices[surface[3]];
+                    clip_any |= codes[indices[3]];
+                    clip_all &= codes[indices[3]];
                     num_verts = 4;
                     num_index = 6;
                 }
@@ -761,7 +764,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                 {
                     u8 texture = TextureIndices[i];
 
-                    if (clip_any & AGI_MESH_CLIP_ANY)
+                    if (clip_any & ClipMask)
                     {
                         if (surface[3])
                         {
@@ -779,14 +782,14 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                         indexCounts[texture] += num_index;
                         nextFacet[i] = firstFacet[texture];
                         firstFacet[texture] = static_cast<i16>(i);
+
+                        codes[indices[0]] |= AGI_MESH_CLIP_SCREEN;
+                        codes[indices[1]] |= AGI_MESH_CLIP_SCREEN;
+                        codes[indices[2]] |= AGI_MESH_CLIP_SCREEN;
+
+                        if (surface[3])
+                            codes[indices[3]] |= AGI_MESH_CLIP_SCREEN;
                     }
-
-                    codes[VertexIndices[surface[0]]] |= AGI_MESH_CLIP_SCREEN;
-                    codes[VertexIndices[surface[1]]] |= AGI_MESH_CLIP_SCREEN;
-                    codes[VertexIndices[surface[2]]] |= AGI_MESH_CLIP_SCREEN;
-
-                    if (surface[3])
-                        codes[VertexIndices[surface[3]]] |= AGI_MESH_CLIP_SCREEN;
                 }
             }
         }
@@ -862,7 +865,7 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface
                 return clip_mask;
         }
 
-        if (clip_mask & ClipMask)
+        if (clip_mask)
         {
             clip_mask = ShadowTransformOutcode(codes, out, verts, VertexCount);
 
@@ -882,25 +885,29 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface
         vertCounts[0] = 0;
         indexCounts[0] = 0;
 
-        if (clip_mask & ClipMask)
+        if (clip_mask)
         {
             for (u32 i = 0; i < SurfaceCount; ++i)
             {
-                const u16* ARTS_RESTRICT surface = &SurfaceIndices[i * 4];
+                u16 surface[4];
+                std::memcpy(surface, &SurfaceIndices[i * 4], sizeof(surface));
 
-                u8 clip_any = codes[VertexIndices[surface[0]]] | codes[VertexIndices[surface[1]]] |
-                    codes[VertexIndices[surface[2]]];
+                u16 indices[4];
+                indices[0] = VertexIndices[surface[0]];
+                indices[1] = VertexIndices[surface[1]];
+                indices[2] = VertexIndices[surface[2]];
 
-                u8 clip_all = codes[VertexIndices[surface[0]]] & codes[VertexIndices[surface[1]]] &
-                    codes[VertexIndices[surface[2]]];
+                u8 clip_any = codes[indices[0]] | codes[indices[1]] | codes[indices[2]];
+                u8 clip_all = codes[indices[0]] & codes[indices[1]] & codes[indices[2]];
 
                 i16 num_verts;
                 i16 num_index;
 
                 if (surface[3])
                 {
-                    clip_any |= codes[VertexIndices[surface[3]]];
-                    clip_all &= codes[VertexIndices[surface[3]]];
+                    indices[3] = VertexIndices[surface[3]];
+                    clip_any |= codes[indices[3]];
+                    clip_all &= codes[indices[3]];
                     num_verts = 4;
                     num_index = 6;
                 }
@@ -912,7 +919,7 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface
 
                 if (!(clip_all & AGI_MESH_CLIP_ANY))
                 {
-                    if (clip_any & AGI_MESH_CLIP_ANY)
+                    if (clip_any & ClipMask)
                     {
                         if (surface[3])
                         {
@@ -930,14 +937,14 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface
                         indexCounts[0] += num_index;
                         nextFacet[i] = firstFacet[0];
                         firstFacet[0] = static_cast<i16>(i);
+
+                        codes[indices[0]] |= AGI_MESH_CLIP_SCREEN;
+                        codes[indices[1]] |= AGI_MESH_CLIP_SCREEN;
+                        codes[indices[2]] |= AGI_MESH_CLIP_SCREEN;
+
+                        if (surface[3])
+                            codes[indices[3]] |= AGI_MESH_CLIP_SCREEN;
                     }
-
-                    codes[VertexIndices[surface[0]]] |= AGI_MESH_CLIP_SCREEN;
-                    codes[VertexIndices[surface[1]]] |= AGI_MESH_CLIP_SCREEN;
-                    codes[VertexIndices[surface[2]]] |= AGI_MESH_CLIP_SCREEN;
-
-                    if (surface[3])
-                        codes[VertexIndices[surface[3]]] |= AGI_MESH_CLIP_SCREEN;
                 }
             }
         }
