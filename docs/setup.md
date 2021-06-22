@@ -18,6 +18,7 @@ However, there are certain things you may wish to change:
 # Command Line Arguments
 
 Open1560 uses command line arguments to configure certain aspects of the game.<br/>
+These can be passed on the command line, or in a file named `commandline.txt`.<br/>
 For a tutorial on how to use command line arguments, see https://www.bleepingcomputer.com/tutorials/understanding-command-line-arguments-and-how-to-use-them/
 
 ## Examples
