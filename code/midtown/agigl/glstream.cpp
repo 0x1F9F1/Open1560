@@ -123,7 +123,10 @@ void agiGLMapRangeStreamBuffer::Unmap([[maybe_unused]] usize offset, [[maybe_unu
 
 agiGLMappedRingStreamBuffer::agiGLMappedRingStreamBuffer(usize capacity)
     : agiGLMappedStreamBuffer(capacity)
-{}
+{
+    for (usize i = 0; i < NumFences; ++i)
+        Fences[i] = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
+}
 
 agiGLMappedRingStreamBuffer::~agiGLMappedRingStreamBuffer()
 {
@@ -164,7 +167,7 @@ void agiGLMappedRingStreamBuffer::UnlockSection(usize index)
 
 void agiGLMappedRingStreamBuffer::UnlockRange(usize offset, usize length, bool exclusive)
 {
-    const usize slice = (Capacity + NumFences - 1) / NumFences;
+    const usize slice = GetSectionSize();
 
     for (usize i = 0; i < NumFences; ++i)
     {
@@ -187,8 +190,8 @@ void* agiGLMappedRingStreamBuffer::Map(usize offset, usize length)
 {
     if (offset == 0)
     {
-        for (usize i = 0; i < NumFences; ++i)
-            LockSection(i);
+        if (Fences[length / GetSectionSize()] == NULL)
+            Quitf("Wrapped onto unlocked data (%u, %u)", length, Capacity);
     }
 
     UnlockRange(offset, length, false);

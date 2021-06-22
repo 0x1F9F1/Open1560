@@ -85,6 +85,11 @@ public:
     void Unmap(usize offset, usize length) override;
 
     void Discard() override;
+
+    usize GetSectionSize() const
+    {
+        return (Capacity + NumFences - 1) / NumFences;
+    }
 };
 
 class agiGLPersistentStreamBuffer final : public agiGLMappedRingStreamBuffer
