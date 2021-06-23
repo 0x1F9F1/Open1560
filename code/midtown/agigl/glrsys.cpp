@@ -27,7 +27,6 @@
 #include "stream/stream.h"
 
 #include "glcontext.h"
-#include "glerror.h"
 #include "glstream.h"
 #include "gltexdef.h"
 
@@ -66,7 +65,7 @@ static void CheckShader(u32 shader)
     if (is_compiled)
         return;
 
-    PrintGlErrors();
+    agiGL->CheckErrors();
 
     GLint log_length = 0;
     glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &log_length);
@@ -84,7 +83,7 @@ static void CheckProgram(u32 program)
     if (is_compiled)
         return;
 
-    PrintGlErrors();
+    agiGL->CheckErrors();
 
     GLint log_length = 0;
     glGetShaderiv(program, GL_INFO_LOG_LENGTH, &log_length);
@@ -210,7 +209,7 @@ static void BindVertexAttribs(const agiGLVertexAttrib* attribs, usize count, con
 
 i32 agiGLRasterizer::BeginGfx()
 {
-    PrintGlErrors();
+    agiGL->CheckErrors();
 
     enum class StreamMode : i32
     {
@@ -305,7 +304,7 @@ i32 agiGLRasterizer::BeginGfx()
         default: Quitf("Invalid Stream Mode");
     }
 
-    PrintGlErrors();
+    agiGL->CheckErrors();
 
     if (vbo_)
     {
@@ -436,7 +435,7 @@ void main()
     }
 #endif
 
-    PrintGlErrors();
+    agiGL->CheckErrors();
 
     glUniform1i(glGetUniformLocation(shader_, "u_Texture"), 0);
 
@@ -473,7 +472,6 @@ void main()
     flip_winding_ = false;
 
     // Designed for floating point framebuffers
-    // Broken on some old OpenGL2 drivers
     // https://nlguillemot.wordpress.com/2016/12/07/reversed-z-in-opengl/
     reversed_z_ = false;
 
@@ -522,7 +520,7 @@ void main()
     BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), nullptr);
     EnableVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), true);
 
-    PrintGlErrors();
+    agiGL->CheckErrors();
 
     return AGI_ERROR_SUCCESS;
 }

@@ -34,7 +34,6 @@
 
 #include "glbitmap.h"
 #include "glcontext.h"
-#include "glerror.h"
 #include "glrsys.h"
 #include "gltexdef.h"
 #include "glview.h"
@@ -49,50 +48,6 @@
 extern PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB;
 extern PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB;
 extern PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
-
-static const char* GetDebugTypeString(GLenum value)
-{
-    switch (value)
-    {
-        case GL_DEBUG_TYPE_ERROR: return "Error";
-        case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR: return "Deprecated Behaviour";
-        case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR: return "Undefined Behaviour";
-        case GL_DEBUG_TYPE_PORTABILITY: return "Portability";
-        case GL_DEBUG_TYPE_PERFORMANCE: return "Performance";
-        case GL_DEBUG_TYPE_OTHER: return "Other";
-        case GL_DEBUG_TYPE_MARKER: return "Marker";
-        case GL_DEBUG_TYPE_PUSH_GROUP: return "Push Group";
-        case GL_DEBUG_TYPE_POP_GROUP: return "Pop Group";
-
-        default: return "Invalid";
-    }
-}
-
-static i32 GetDebugSeverityPriority(GLenum value)
-{
-    switch (value)
-    {
-        case GL_DEBUG_SEVERITY_HIGH: return 2;
-        case GL_DEBUG_SEVERITY_MEDIUM: return 1;
-        case GL_DEBUG_SEVERITY_LOW: return 0;
-        case GL_DEBUG_SEVERITY_NOTIFICATION: return 0;
-
-        default: return 2;
-    }
-}
-
-static i32 DebugMessageLevel = 0;
-
-static void GLAPIENTRY DebugMessageCallback([[maybe_unused]] GLenum source, GLenum type, [[maybe_unused]] GLuint id,
-    GLenum severity, [[maybe_unused]] GLsizei length, const GLchar* message, [[maybe_unused]] const void* userParam)
-{
-    i32 priority = GetDebugSeverityPriority(severity);
-
-    if (priority < DebugMessageLevel)
-        return;
-
-    Printerf(priority, "GL Message: %X %s: %s", severity, GetDebugTypeString(type), message);
-}
 
 static mem::cmd_param PARAM_legacygl {"legacygl"};
 static mem::cmd_param PARAM_gldebug {"gldebug"};
@@ -211,15 +166,15 @@ i32 agiGLPipeline::BeginGfx()
     if (gl_context == NULL)
         Quitf("Failed to create legacy OpenGL context: 0x%08X", GetLastError());
 
-    gl_context_ = MakeUnique<agiGLContext>(window_dc_, gl_context);
-
-    DebugMessageLevel = PARAM_gldebug.get_or(
+    i32 debug_level = PARAM_gldebug.get_or(
 #ifdef ARTS_DEBUG
         1
 #else
         -1
 #endif
     );
+
+    gl_context_ = MakeUnique<agiGLContext>(window_dc_, gl_context, debug_level);
 
     if (gl_context_->HasExtension("WGL_ARB_create_context"))
     {
@@ -285,7 +240,7 @@ i32 agiGLPipeline::BeginGfx()
         {
             int context_flags = 0;
 
-            if (DebugMessageLevel > -1)
+            if (debug_level > 0)
                 context_flags |= WGL_CONTEXT_DEBUG_BIT_ARB;
 
 #if 0
@@ -296,7 +251,7 @@ i32 agiGLPipeline::BeginGfx()
             attribs[num_attribs++] = context_flags;
         }
 
-        if ((DebugMessageLevel < 0) && gl_context_->HasExtension("WGL_ARB_create_context_no_error"))
+        if ((debug_level < 0) && gl_context_->HasExtension("WGL_ARB_create_context_no_error"))
         {
             attribs[num_attribs++] = WGL_CONTEXT_OPENGL_NO_ERROR_ARB;
             attribs[num_attribs++] = 1;
@@ -323,7 +278,7 @@ i32 agiGLPipeline::BeginGfx()
 
         if (modern_gl_context)
         {
-            gl_context_ = MakeUnique<agiGLContext>(window_dc_, modern_gl_context);
+            gl_context_ = MakeUnique<agiGLContext>(window_dc_, modern_gl_context, debug_level);
         }
         else
         {
@@ -338,25 +293,6 @@ i32 agiGLPipeline::BeginGfx()
 
     Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
     Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
-
-    if ((DebugMessageLevel > -1) && gl_context_->HasExtension("GL_KHR_debug"))
-    {
-        Displayf("Using glDebugMessageCallback");
-
-        glEnable(GL_DEBUG_OUTPUT);
-#ifndef ARTS_FINAL
-        glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-#endif
-        glDebugMessageCallback(DebugMessageCallback, 0);
-    }
-
-    if (DebugMessageLevel > 1)
-    {
-        Displayf("*** Begin OpenGL Extensions ***");
-        for (HashIterator i(gl_context_->GetExtensions()); i.Next();)
-            Displayf("%s", i->Key.get());
-        Displayf("*** End OpenGL Extensions ***");
-    }
 
     if (gl_context_->HasExtension("WGL_EXT_swap_control"))
     {
@@ -463,7 +399,7 @@ i32 agiGLPipeline::BeginGfx()
     render_x_ = 0;
     render_y_ = 0;
 
-    PrintGlErrors();
+    gl_context_->CheckErrors();
 
     Displayf("Using %s framebuffer (msaa=%i)", builtin_fb ? "builtin" : "custom", msaa_level);
 
@@ -509,14 +445,14 @@ i32 agiGLPipeline::BeginGfx()
 
         if (GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER); status != GL_FRAMEBUFFER_COMPLETE)
             Quitf("Failed to create framebuffer: 0x%08X", status);
-
-        PrintGlErrors();
     }
     else
     {
         std::swap(render_x_, blit_x_);
         std::swap(render_y_, blit_y_);
     }
+
+    gl_context_->CheckErrors();
 
     glViewport(render_x_, render_y_, render_width_, render_height_);
 
@@ -617,7 +553,7 @@ void agiGLPipeline::EndFrame()
     if (!dxiDoubleBuffer())
         glFinish();
 
-    PrintGlErrors();
+    gl_context_->CheckErrors();
 
     agiPipeline::EndFrame();
 }
@@ -823,8 +759,6 @@ Ptr<u8[]> glScreenShot(i32& width, i32& height)
         // FIXME: Does not work with MSAA (FBO anti-alias method is not valid for read pixels.)
         glReadPixels(x, y, width, height, GL_BGR, GL_UNSIGNED_BYTE, buffer.get());
     }
-
-    PrintGlErrors();
 
     return buffer;
 }

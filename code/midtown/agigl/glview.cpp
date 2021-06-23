@@ -24,7 +24,6 @@
 #include "data7/utimer.h"
 
 #include "glcontext.h"
-#include "glerror.h"
 #include "glrsys.h"
 
 #include <glad/glad.h>

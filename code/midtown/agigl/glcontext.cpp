@@ -28,9 +28,10 @@ PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB = NULL;
 PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = NULL;
 PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
 
-agiGLContext::agiGLContext(void* window_dc, void* gl_context)
+agiGLContext::agiGLContext(void* window_dc, void* gl_context, i32 debug_level)
     : window_dc_(window_dc)
     , gl_context_(gl_context)
+    , debug_level_(debug_level)
 {
     MakeCurrent();
 
@@ -106,6 +107,7 @@ void agiGLContext::InitVersioning()
         Quitf("Failed to get OpenGL version");
 
     gl_version_ = (major_version * 100) + (minor_version * 10);
+    context_flags_ = 0;
     profile_mask_ = 0;
 
     if (HasVersion(300))
@@ -116,6 +118,8 @@ void agiGLContext::InitVersioning()
         agi_glGetIntegerv(GL_MINOR_VERSION, &minor_version);
         gl_version_ = (major_version * 100) + (minor_version * 10);
 
+        agi_glGetIntegerv(GL_CONTEXT_FLAGS, &context_flags_);
+
         if (HasVersion(320))
             agi_glGetIntegerv(GL_CONTEXT_PROFILE_MASK, &profile_mask_);
 
@@ -125,7 +129,10 @@ void agiGLContext::InitVersioning()
         auto agi_glGetStringi = (PFNGLGETSTRINGIPROC) GetProc("glGetStringi");
 
         for (i32 i = 0; i < num_extensions; ++i)
-            extensions_.Insert((const char*) agi_glGetStringi(GL_EXTENSIONS, i), (void*) 2);
+        {
+            if (const char* ext = (const char*) agi_glGetStringi(GL_EXTENSIONS, i))
+                extensions_.Insert(ext, (void*) 2);
+        }
     }
     else if (HasVersion(200))
     {
@@ -179,10 +186,89 @@ void agiGLContext::InitExtensions()
     }
 }
 
+static void APIENTRY GlDebugMessageCallback([[maybe_unused]] GLenum source, GLenum type, [[maybe_unused]] GLuint id,
+    GLenum severity, [[maybe_unused]] GLsizei length, const GLchar* message, [[maybe_unused]] const void* userParam)
+{
+    i32 print_level = 2;
+    const char* level = "Unknown";
+    const char* type_name = "Unknown";
+
+    switch (severity)
+    {
+        case GL_DEBUG_SEVERITY_HIGH:
+            level = "High";
+            print_level = 2;
+            break;
+        case GL_DEBUG_SEVERITY_MEDIUM:
+            level = "Medium";
+            print_level = 1;
+            break;
+        case GL_DEBUG_SEVERITY_LOW:
+            level = "Low";
+            print_level = 0;
+            break;
+        case GL_DEBUG_SEVERITY_NOTIFICATION:
+            level = "Notification";
+            print_level = 0;
+            break;
+    }
+
+    switch (type)
+    {
+        case GL_DEBUG_TYPE_ERROR: type_name = "Error"; break;
+        case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR: type_name = "Deprecated Behaviour"; break;
+        case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR: type_name = "Undefined Behaviour"; break;
+        case GL_DEBUG_TYPE_PORTABILITY: type_name = "Portability"; break;
+        case GL_DEBUG_TYPE_PERFORMANCE: type_name = "Performance"; break;
+        case GL_DEBUG_TYPE_OTHER: type_name = "Other"; break;
+        case GL_DEBUG_TYPE_MARKER: type_name = "Marker"; break;
+        case GL_DEBUG_TYPE_PUSH_GROUP: type_name = "Push Group"; break;
+        case GL_DEBUG_TYPE_POP_GROUP: type_name = "Pop Group"; break;
+    }
+
+    Printerf(print_level, "OpenGL: %s (%s): %s", type_name, level, message);
+}
+
 static mem::cmd_param PARAM_afilter {"afilter"};
 
 void agiGLContext::Init()
 {
+    if (debug_level_ > 1)
+    {
+        Displayf("OpenGL Extensions:");
+
+        for (HashIterator i(extensions_); i.Next();)
+            Displayf("    %s", i->Key.get());
+
+        Displayf("");
+    }
+
+    if ((debug_level_ < 0) || (context_flags_ & GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR))
+        error_count_ = -1;
+    else if (debug_level_ > 0)
+        error_count_ = 1;
+    else
+        error_count_ = 0;
+
+    if ((context_flags_ & GL_CONTEXT_FLAG_DEBUG_BIT) && HasExtension("GL_KHR_debug"))
+    {
+        Displayf("Using glDebugMessageCallback");
+
+        glDebugMessageCallback(GlDebugMessageCallback, nullptr);
+
+#define X(SEVERITY, LEVEL) glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, SEVERITY, 0, NULL, debug_level_ >= LEVEL)
+        X(GL_DEBUG_SEVERITY_HIGH, 0);
+        X(GL_DEBUG_SEVERITY_MEDIUM, 1);
+        X(GL_DEBUG_SEVERITY_LOW, 3);
+        X(GL_DEBUG_SEVERITY_NOTIFICATION, 4);
+#undef X
+
+        if (debug_level_ >= 2)
+            glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+
+        glEnable(GL_DEBUG_OUTPUT);
+    }
+
     direct_state_access_ = IsCoreProfile() && HasExtension("GL_ARB_direct_state_access");
     max_anisotropy_ = 0;
 
@@ -200,6 +286,42 @@ void agiGLContext::Init()
     front_face_ = GL_CCW;
     blend_func_s_ = GL_ONE;
     blend_func_d_ = GL_ZERO;
+}
+
+static const char* GetGLErrorName(u32 error)
+{
+    switch (error)
+    {
+        case GL_INVALID_ENUM: return "Invalid Enum";
+        case GL_INVALID_VALUE: return "Invalid Value";
+        case GL_INVALID_OPERATION: return "Invalid Operation";
+        case GL_INVALID_FRAMEBUFFER_OPERATION: return "Invalid Framebuffer Operation";
+        case GL_OUT_OF_MEMORY: return "Out Of Memory";
+        case GL_STACK_UNDERFLOW: return "Stack Underflow";
+        case GL_STACK_OVERFLOW: return "Stack Overflow";
+        default: return "Unknown";
+    }
+}
+
+void agiGLContext::CheckErrors(bool lazy)
+{
+    if (error_count_ < (lazy ? 1 : 0))
+        return;
+
+    if (error_count_ >= 100)
+        return;
+
+    for (u32 error; (error = glGetError()) != GL_NO_ERROR;)
+    {
+        Errorf("GL Error: %s (%08X)", GetGLErrorName(error), error);
+
+        if (++error_count_ >= 100)
+        {
+            Errorf("GL: Too many errors!");
+
+            break;
+        }
+    }
 }
 
 void agiGLContext::ActiveTexture(u32 unit)

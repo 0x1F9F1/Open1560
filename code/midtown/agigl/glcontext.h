@@ -25,7 +25,7 @@ class agiGLRasterizer;
 class agiGLContext final
 {
 public:
-    agiGLContext(void* window_dc, void* gl_context);
+    agiGLContext(void* window_dc, void* gl_context, i32 debug_level);
     ~agiGLContext();
 
     ARTS_NON_COPYABLE(agiGLContext);
@@ -34,6 +34,7 @@ public:
     void* GetProc(const char* name);
 
     void Init();
+    void CheckErrors(bool lazy = false);
 
     void ActiveTexture(u32 unit);
     void BindTextureUnit(u32 target, u32 texture, u32 unit);
@@ -44,11 +45,6 @@ public:
     void DepthFunc(u32 func);
     void FrontFace(u32 face);
     void BlendFunc(u32 sfactor, u32 dfactor);
-
-    HashTable& GetExtensions()
-    {
-        return extensions_;
-    }
 
     bool HasExtension(const char* name)
     {
@@ -91,8 +87,12 @@ private:
     HashTable extensions_ {128, "Extensions"};
 
     i32 gl_version_ {0};
+    i32 context_flags_ {0};
     i32 profile_mask_ {0};
+
     i32 shader_version_ {0};
+    i32 debug_level_ {0};
+    i32 error_count_ {0};
 
     bool direct_state_access_ {false};
     i32 max_anisotropy_ {0};

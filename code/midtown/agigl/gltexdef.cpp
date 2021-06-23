@@ -24,7 +24,6 @@
 #include "vector7/vector2.h"
 
 #include "glcontext.h"
-#include "glerror.h"
 
 #include <glad/glad.h>
 
@@ -257,6 +256,8 @@ i32 agiGLTexDef::BeginGfx()
     // NOTE: Textures created by the pager NEED to be synchronied.
     //       This requires a glFlush (slow-ish) or glFenceSync (GL 3.2+).
     // glFlush();
+
+    agiGL->CheckErrors(true);
 
     page_state_ = 0;
     state_ = 2;
