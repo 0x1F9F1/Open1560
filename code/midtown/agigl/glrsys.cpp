@@ -50,8 +50,11 @@ void agiGLRasterizer::EndGfx()
         vao_ = 0;
     }
 
-    glDeleteProgram(shader_);
-    shader_ = 0;
+    if (shader_ != 0)
+    {
+        glDeleteProgram(shader_);
+        shader_ = 0;
+    }
 
     glDeleteTextures(1, &white_texture_);
     white_texture_ = 0;
@@ -125,8 +128,6 @@ agiGLRasterizer::agiGLRasterizer(class agiPipeline* pipe)
 {}
 
 agiGLRasterizer::~agiGLRasterizer() = default;
-
-static mem::cmd_param PARAM_glstream {"glstream"};
 
 enum class agiGLAttribType
 {
@@ -207,10 +208,108 @@ static void BindVertexAttribs(const agiGLVertexAttrib* attribs, usize count, con
     }
 }
 
+static mem::cmd_param PARAM_ancientgl {"ancientgl"};
+
 i32 agiGLRasterizer::BeginGfx()
 {
     agiGL->CheckErrors();
 
+    if (agiGL->IsCoreProfile() || (agiGL->HasVersion(200) && !PARAM_ancientgl.get_or(false)))
+    {
+        InitModern();
+    }
+
+    // Converts from screen coordinates ([0, Width], [0, Height], [0, 1]) to NDC
+    GLfloat transform[16] {};
+
+    // x = 2x / width - 1
+    transform[0] = 2.0f / Pipe()->GetWidth();
+    transform[12] = -1.0f;
+
+    // y = -2y / height + 1
+    transform[5] = -2.0f / Pipe()->GetHeight();
+    transform[13] = 1.0f;
+
+    // z = 2z - 1
+    transform[10] = 2.0f;
+    transform[14] = -1.0f;
+
+    // w = 1
+    transform[15] = 1.0f;
+
+    flip_winding_ = false;
+
+    // Designed for floating point framebuffers
+    // https://nlguillemot.wordpress.com/2016/12/07/reversed-z-in-opengl/
+    reversed_z_ = false;
+
+    if (agiGL->HasExtension(/*450,*/ "GL_ARB_clip_control"))
+    {
+        flip_winding_ = true;
+
+        glClipControl(flip_winding_ ? GL_UPPER_LEFT : GL_LOWER_LEFT, GL_ZERO_TO_ONE);
+
+        if (flip_winding_)
+        {
+            // y = 2y / height - 1
+            transform[5] = -transform[5];
+            transform[13] = -transform[13];
+        }
+
+        transform[10] = 1.0f;
+        transform[14] = 0.0f;
+    }
+    else if (agiGL->HasExtension("GL_NV_depth_buffer_float"))
+    {
+        glDepthRangedNV(-1.0, 1.0);
+    }
+
+    if (reversed_z_)
+    {
+        transform[14] += transform[10];
+        transform[10] = -transform[10];
+    }
+
+    glClearDepth(reversed_z_ ? 0.0 : 1.0);
+
+    glGenTextures(1, &white_texture_);
+    glBindTexture(GL_TEXTURE_2D, white_texture_);
+
+    u32 white = 0xFFFFFFFF;
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, &white);
+
+    if (shader_)
+    {
+        glUniformMatrix4fv(glGetUniformLocation(shader_, "u_Transform"), 1, GL_FALSE, transform);
+
+        glBindBuffer(GL_ARRAY_BUFFER, vbo_ ? vbo_->Buffer : 0);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_ ? vbo_->Buffer : 0);
+
+        draw_base_vertex_ = vbo_ && agiGL->HasExtension(320, "GL_ARB_draw_elements_base_vertex");
+        last_vtx_offset_ = nullptr;
+        BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), nullptr);
+        EnableVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), true);
+    }
+    else
+    {
+        glEnable(GL_TEXTURE_2D);
+
+        glFogi(GL_FOG_MODE, GL_LINEAR);
+        glFogi(GL_FOG_COORD_SRC, GL_FOG_COORD);
+
+        glMatrixMode(GL_PROJECTION);
+        glLoadMatrixf(transform);
+    }
+
+    agiGL->CheckErrors();
+
+    return AGI_ERROR_SUCCESS;
+}
+
+static mem::cmd_param PARAM_glstream {"glstream"};
+
+void agiGLRasterizer::InitModern()
+{
     enum class StreamMode : i32
     {
         // Decent performance, compatible with everything
@@ -235,16 +334,16 @@ i32 agiGLRasterizer::BeginGfx()
 
     {
         bool core = agiGL->IsCoreProfile();
-        bool async = agiGL->HasExtension("GL_ARB_sync");
+        bool async = agiGL->HasExtension(320, "GL_ARB_sync");
         const char* version = (const char*) glGetString(GL_VERSION);
 
         if (async && agiGL->HasExtension("GL_AMD_pinned_memory"))
         {
             stream_mode = StreamMode::AmdPinned;
         }
-        else if (agiGL->HasExtension("GL_ARB_map_buffer_range"))
+        else if (agiGL->HasExtension(300, "GL_ARB_map_buffer_range"))
         {
-            if (async && agiGL->HasExtension("GL_ARB_buffer_storage"))
+            if (async && agiGL->HasExtension(/*440,*/ "GL_ARB_buffer_storage"))
                 stream_mode = StreamMode::MapCoherent;
             else if (core && std::strstr(version, "Mesa"))
                 stream_mode = StreamMode::MapRange;
@@ -308,7 +407,7 @@ i32 agiGLRasterizer::BeginGfx()
 
     if (vbo_)
     {
-        if (agiGL->HasExtension("GL_ARB_vertex_array_object"))
+        if (agiGL->HasExtension(300, "GL_ARB_vertex_array_object"))
         {
             glGenVertexArrays(1, &vao_);
             glBindVertexArray(vao_);
@@ -451,78 +550,7 @@ void main()
     fog_color_ = {0.0f, 0.0f, 0.0f};
     glUniform3f(uniform_fog_color_, fog_color_.x, fog_color_.y, fog_color_.z);
 
-    // Converts from screen coordinates ([0, Width], [0, Height], [0, 1]) to NDC
-    GLfloat transform[16] {};
-
-    // x = 2x / width - 1
-    transform[0] = 2.0f / Pipe()->GetWidth();
-    transform[12] = -1.0f;
-
-    // y = -2y / height + 1
-    transform[5] = -2.0f / Pipe()->GetHeight();
-    transform[13] = 1.0f;
-
-    // z = 2z - 1
-    transform[10] = 2.0f;
-    transform[14] = -1.0f;
-
-    // w = 1
-    transform[15] = 1.0f;
-
-    flip_winding_ = false;
-
-    // Designed for floating point framebuffers
-    // https://nlguillemot.wordpress.com/2016/12/07/reversed-z-in-opengl/
-    reversed_z_ = false;
-
-    if (agiGL->HasExtension("GL_ARB_clip_control"))
-    {
-        flip_winding_ = true;
-
-        glClipControl(flip_winding_ ? GL_UPPER_LEFT : GL_LOWER_LEFT, GL_ZERO_TO_ONE);
-
-        if (flip_winding_)
-        {
-            // y = 2y / height - 1
-            transform[5] = -transform[5];
-            transform[13] = -transform[13];
-        }
-
-        transform[10] = 1.0f;
-        transform[14] = 0.0f;
-    }
-    else if (agiGL->HasExtension("GL_NV_depth_buffer_float"))
-    {
-        glDepthRangedNV(-1.0, 1.0);
-    }
-
-    if (reversed_z_)
-    {
-        transform[14] += transform[10];
-        transform[10] = -transform[10];
-    }
-
-    glClearDepth(reversed_z_ ? 0.0 : 1.0);
-
-    glUniformMatrix4fv(glGetUniformLocation(shader_, "u_Transform"), 1, GL_FALSE, transform);
-
-    glGenTextures(1, &white_texture_);
-    glBindTexture(GL_TEXTURE_2D, white_texture_);
-
-    u32 white = 0xFFFFFFFF;
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, &white);
-
-    glBindBuffer(GL_ARRAY_BUFFER, vbo_ ? vbo_->Buffer : 0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_ ? vbo_->Buffer : 0);
-
-    draw_base_vertex_ = vbo_ && agiGL->HasExtension("GL_ARB_draw_elements_base_vertex");
-    last_vtx_offset_ = nullptr;
-    BindVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), nullptr);
-    EnableVertexAttribs(agiScreenVtx_Attribs, ARTS_SIZE(agiScreenVtx_Attribs), true);
-
     agiGL->CheckErrors();
-
-    return AGI_ERROR_SUCCESS;
 }
 
 void agiGLRasterizer::BeginGroup()
@@ -707,8 +735,22 @@ void agiGLRasterizer::FlushState()
         ++STATS.StateChangeCalls;
     }
 
-    agiLastState.TexturePerspective = agiCurState.GetTexturePerspective();
-    agiLastState.SmoothShading = agiCurState.GetSmoothShading();
+    if (bool texture_perspective = agiCurState.GetTexturePerspective();
+        texture_perspective != agiLastState.TexturePerspective)
+    {
+        agiLastState.TexturePerspective = texture_perspective;
+
+        if (shader_ == 0)
+            glHint(GL_PERSPECTIVE_CORRECTION_HINT, texture_perspective ? GL_NICEST : GL_FASTEST);
+    }
+
+    if (bool smooth_shading = agiCurState.GetSmoothShading(); smooth_shading != agiLastState.SmoothShading)
+    {
+        agiLastState.SmoothShading = smooth_shading;
+
+        if (shader_ == 0)
+            glShadeModel(smooth_shading ? GL_SMOOTH : GL_FLAT);
+    }
 
     if (u8 draw_mode = agiCurState.GetDrawMode(); draw_mode != agiLastState.DrawMode)
     {
@@ -740,13 +782,27 @@ void agiGLRasterizer::FlushState()
         agiGL->EnableDisable(GL_BLEND, alpha_enable);
         ++STATS.StateChangeCalls;
 
-        f32 falpha_ref = alpha_enable ? (alpha_ref / 255.0f) : 0.0f;
-
-        if (alpha_ref_ != falpha_ref)
+        if (shader_)
         {
-            alpha_ref_ = falpha_ref;
-            glUniform1f(uniform_alpha_ref_, falpha_ref);
+            f32 falpha_ref = alpha_enable ? (alpha_ref / 255.0f) : 0.0f;
+
+            if (alpha_ref_ != falpha_ref)
+            {
+                alpha_ref_ = falpha_ref;
+                glUniform1f(uniform_alpha_ref_, falpha_ref);
+                ++STATS.StateChangeCalls;
+            }
+        }
+        else
+        {
+            agiGL->EnableDisable(GL_ALPHA_TEST, alpha_enable);
             ++STATS.StateChangeCalls;
+
+            if (alpha_enable)
+            {
+                glAlphaFunc(GL_GREATER, alpha_ref / 255.0f);
+                ++STATS.StateChangeCalls;
+            }
         }
     }
 
@@ -840,18 +896,39 @@ void agiGLRasterizer::FlushState()
         agiLastState.FogEnd = fog_end;
         agiLastState.FogDensity = fog_density;
 
-        Vector4 mode {
-            static_cast<f32>(fog_mode),
-            fog_end,
-            (fog_start == fog_end) ? 0.0f : (1.0f / (fog_end - fog_start)),
-            fog_density,
-        };
-
-        if (fog_mode_ != mode)
+        if (shader_)
         {
-            fog_mode_ = mode;
-            glUniform4f(uniform_fog_mode_, mode.x, mode.y, mode.z, mode.w);
-            ++STATS.StateChangeCalls;
+            Vector4 mode {
+                static_cast<f32>(fog_mode),
+                fog_end,
+                (fog_start == fog_end) ? 0.0f : (1.0f / (fog_end - fog_start)),
+                fog_density,
+            };
+
+            if (fog_mode_ != mode)
+            {
+                fog_mode_ = mode;
+                glUniform4f(uniform_fog_mode_, mode.x, mode.y, mode.z, mode.w);
+                ++STATS.StateChangeCalls;
+            }
+        }
+        else
+        {
+            agiGL->EnableDisable(GL_FOG, fog_mode != agiFogMode::None);
+
+            if (fog_mode != agiFogMode::None)
+            {
+                if (fog_mode == agiFogMode::Pixel)
+                {
+                    glFogf(GL_FOG_START, fog_start);
+                    glFogf(GL_FOG_END, fog_end);
+                }
+                else
+                {
+                    glFogf(GL_FOG_START, 255.0f);
+                    glFogf(GL_FOG_END, 0.0f);
+                }
+            }
         }
     }
 
@@ -865,18 +942,26 @@ void agiGLRasterizer::FlushState()
             (fog_color & 0xFF) / 255.0f,
         };
 
-        if (fog_color_ != color)
+        if (shader_)
         {
-            fog_color_ = color;
-            glUniform3f(uniform_fog_color_, color.x, color.y, color.z);
-            ++STATS.StateChangeCalls;
+            if (fog_color_ != color)
+            {
+                fog_color_ = color;
+                glUniform3f(uniform_fog_color_, color.x, color.y, color.z);
+                ++STATS.StateChangeCalls;
+            }
+        }
+        else
+        {
+            f32 gl_fog_color[4] {color.x, color.y, color.z, 1.0f};
+            glFogfv(GL_FOG_COLOR, gl_fog_color);
         }
     }
 
     agiCurState.ClearTouched();
 }
 
-void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count)
+void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count)
 {
     if (!IsAppActive() || (vertex_count == 0) || (index_count == 0))
         return;
@@ -891,6 +976,39 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
 
     agiGL->BindTextureUnit(GL_TEXTURE_2D, current_texture_, 0);
 
+    if (shader_ == 0)
+    {
+        glBegin(draw_mode);
+
+        for (i32 i = 0; i < index_count; ++i)
+        {
+            const agiScreenVtx& vert = vertices[indices[i]].Screen;
+
+            if (agiCurState.GetDrawMode() == 15)
+            {
+                if (agiCurState.GetTexturePerspective())
+                    glTexCoord4f(vert.tu * vert.w, vert.tv * vert.w, 0.0f, vert.w);
+                else
+                    glTexCoord2f(vert.tu, vert.tv);
+            }
+
+            glColor4ub((vert.color >> 16) & 0xFF, (vert.color >> 8) & 0xFF, (vert.color >> 0) & 0xFF,
+                (vert.color >> 24) & 0xFF);
+
+            switch (agiCurState.GetFogMode())
+            {
+                case agiFogMode::Pixel: glFogCoordf(vert.z / vert.w); break;
+                case agiFogMode::Vertex: glFogCoordf(static_cast<f32>(vert.specular >> 24)); break;
+            }
+
+            glVertex3f(vert.x, vert.y, vert.z);
+        }
+
+        glEnd();
+
+        return;
+    }
+
     const void* offsets[2] {vertices, indices};
 
     if (vbo_)
@@ -904,7 +1022,7 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
 
     if (draw_base_vertex_ && vtx_offset)
     {
-        glDrawRangeElementsBaseVertex(prim_type, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset,
+        glDrawRangeElementsBaseVertex(draw_mode, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset,
             reinterpret_cast<usize>(vtx_offset) / sizeof(agiScreenVtx));
     }
     else
@@ -915,7 +1033,7 @@ void agiGLRasterizer::DrawMesh(u32 prim_type, agiVtx* vertices, i32 vertex_count
             last_vtx_offset_ = vtx_offset;
         }
 
-        glDrawRangeElements(prim_type, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset);
+        glDrawRangeElements(draw_mode, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset);
     }
 
     if (vbo_)

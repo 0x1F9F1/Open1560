@@ -52,6 +52,8 @@ public:
     }
 
 private:
+    void InitModern();
+
     void FlushState();
 
     u16* ImmAddIndices(u32 draw_mode, u16 count);
@@ -59,26 +61,26 @@ private:
 
     void DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count);
 
+    u32 white_texture_ {0};
+    u32 current_texture_ {0};
+
+    bool flip_winding_ {false};
+    bool reversed_z_ {false};
+
     Ptr<agiGLStreamBuffer> vbo_;
     bool ibo_ {false};
 
     u32 vao_ {0};
     u32 shader_ {0};
-    u32 white_texture_ {0};
 
-    i32 uniform_alpha_ref_ {0};
+    i32 uniform_alpha_ref_ {-1};
     f32 alpha_ref_ {0.0f};
 
-    i32 uniform_fog_mode_ {0};
+    i32 uniform_fog_mode_ {-1};
     Vector4 fog_mode_ {};
 
-    i32 uniform_fog_color_ {0};
+    i32 uniform_fog_color_ {-1};
     Vector3 fog_color_ {};
-
-    u32 current_texture_ {0};
-
-    bool flip_winding_ {false};
-    bool reversed_z_ {false};
 
     bool draw_base_vertex_ {false};
     const void* last_vtx_offset_ {nullptr};

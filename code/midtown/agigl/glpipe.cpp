@@ -323,6 +323,7 @@ i32 agiGLPipeline::BeginGfx()
     agiCurState.SetBlendSet(agiBlendSet::SrcAlpha_InvSrcAlpha);
     agiCurState.SetTexturePerspective(true);
     agiCurState.SetMaxTextures(1);
+    agiCurState.SetSmoothShading(true);
 
     rasterizer_ = MakeRc<agiGLRasterizer>(this);
     renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
@@ -361,11 +362,11 @@ i32 agiGLPipeline::BeginGfx()
     blit_x_ = (horz_res_ - blit_width_) / 2;
     blit_y_ = (vert_res_ - blit_height_) / 2;
 
-    bool builtin_fb = !gl_context_->HasExtension("GL_ARB_framebuffer_object");
+    bool builtin_fb = !gl_context_->HasExtension(300, "GL_ARB_framebuffer_object");
 
     i32 msaa_level = 0;
 
-    if (!builtin_fb && gl_context_->HasExtension("GL_ARB_texture_multisample"))
+    if (!builtin_fb && gl_context_->HasExtension(320, "GL_ARB_texture_multisample"))
     {
         GLint max_samples = 0;
         glGetIntegerv(GL_MAX_SAMPLES, &max_samples);

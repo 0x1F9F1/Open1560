@@ -19,7 +19,7 @@ However, there are certain things you may wish to change:
 
 Open1560 uses command line arguments to configure certain aspects of the game.<br/>
 These can be passed on the command line, or in a file named `commandline.txt`.<br/>
-For a tutorial on how to use command line arguments, see https://www.bleepingcomputer.com/tutorials/understanding-command-line-arguments-and-how-to-use-them/
+For a tutorial on how to use command line arguments, click [here](https://www.bleepingcomputer.com/tutorials/understanding-command-line-arguments-and-how-to-use-them/).
 
 ## Examples
 
@@ -51,7 +51,7 @@ For a tutorial on how to use command line arguments, see https://www.bleepingcom
 | d3d        | false | Use the D3D renderer |
 | fovfix     | true  | Enables FOV scaling based on resolution |
 | heapsize   | 64    | The size in MB of the game heap |
-| legacygl   | false | Uses a legacy OpenGL context (enabled by default on Intel iGPUs) |
+| legacygl   | false | Uses a legacy/compatibility OpenGL context |
 | maxaspect  |       | Maximum aspect ratio of available resolutions |
 | maxfps     | 0     | Limits the max fps |
 | minaspect  |       | Minimum aspect ratio of available resolutions |
@@ -72,6 +72,7 @@ For a tutorial on how to use command line arguments, see https://www.bleepingcom
 | Name        | Value | Description |
 | ----------- | ----- | --- |
 | agiverbose  | false | Enables AGI (graphics) logging |
+| ancientgl   |       | Use fixed-function OpenGL pipeline (glBegin/glEnd).
 | cleandir    | true  | Deletes various debug files from the games directory |
 | fontscale   |       | Sets the debug font scale |
 | gldebug     | -1    | Sets the OpenGL debug output level |

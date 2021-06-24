@@ -51,6 +51,11 @@ public:
         return extensions_.Access(name) != nullptr;
     }
 
+    bool HasExtension(i32 version, const char* name)
+    {
+        return (gl_version_ >= version) || (extensions_.Access(name) != nullptr);
+    }
+
     i32 GetVersion() const
     {
         return gl_version_;
@@ -98,7 +103,7 @@ private:
     i32 max_anisotropy_ {0};
 
     u32 active_texture_unit_ {0};
-    bool capabilities_[4] {};
+    bool capabilities_[6] {};
     bool depth_mask_ {};
     u32 polygon_mode_ {0};
     u32 depth_func_ {0};

@@ -134,38 +134,51 @@ void agiGLContext::InitVersioning()
                 extensions_.Insert(ext, (void*) 2);
         }
     }
-    else if (HasVersion(200))
+    else if (HasVersion(110))
     {
         ParseExtensionString(extensions_, (const char*) agi_glGetString(GL_EXTENSIONS), 1);
     }
-    else
-    {
-        Quitf("OpenGL 1.X not supported");
-    }
 
-    if (auto agi_wglGetExtensionsStringARB = (PFNWGLGETEXTENSIONSSTRINGARBPROC) GetProc("wglGetExtensionsStringARB"))
-        ParseExtensionString(extensions_, agi_wglGetExtensionsStringARB(static_cast<HDC>(window_dc_)), 3);
+    {
+        auto agi_wglGetExtensionsStringARB = (PFNWGLGETEXTENSIONSSTRINGARBPROC) GetProc("wglGetExtensionsStringARB");
+        auto agi_wglGetExtensionsStringEXT = (PFNWGLGETEXTENSIONSSTRINGEXTPROC) GetProc("wglGetExtensionsStringEXT");
+
+        const char* wgl_exts = nullptr;
+
+        if (agi_wglGetExtensionsStringARB)
+            wgl_exts = agi_wglGetExtensionsStringARB(static_cast<HDC>(window_dc_));
+        else if (agi_wglGetExtensionsStringEXT)
+            wgl_exts = agi_wglGetExtensionsStringEXT();
+
+        if (wgl_exts)
+            ParseExtensionString(extensions_, wgl_exts, 3);
+    }
 
     Displayf("OpenGL Extension Count: %i", extensions_.Size());
 
-    const char* glsl_version = (const char*) agi_glGetString(GL_SHADING_LANGUAGE_VERSION);
+    shader_version_ = 0;
 
-    if (HasVersion(330))
+    if (HasVersion(200))
     {
-        shader_version_ = gl_version_;
+        const char* glsl_version = (const char*) agi_glGetString(GL_SHADING_LANGUAGE_VERSION);
+
+        if (HasVersion(330))
+        {
+            shader_version_ = gl_version_;
+        }
+        else
+        {
+            i32 glsl_major_version = 0;
+            i32 glsl_minor_version = 0;
+
+            if (arts_sscanf(glsl_version, "%i.%i", &glsl_major_version, &glsl_minor_version) != 2)
+                Quitf("Failed to get GLSL version");
+
+            shader_version_ = (glsl_major_version * 100) + glsl_minor_version;
+        }
+
+        Displayf("OpenGL Shader Version: %i (%s)", shader_version_, glsl_version);
     }
-    else
-    {
-        i32 glsl_major_version = 0;
-        i32 glsl_minor_version = 0;
-
-        if (arts_sscanf(glsl_version, "%i.%i", &glsl_major_version, &glsl_minor_version) != 2)
-            Quitf("Failed to get GLSL version");
-
-        shader_version_ = (glsl_major_version * 100) + glsl_minor_version;
-    }
-
-    Displayf("OpenGL Shader Version: %i (%s)", shader_version_, glsl_version);
 }
 
 void agiGLContext::InitExtensions()
@@ -250,7 +263,7 @@ void agiGLContext::Init()
     else
         error_count_ = 0;
 
-    if ((context_flags_ & GL_CONTEXT_FLAG_DEBUG_BIT) && HasExtension("GL_KHR_debug"))
+    if ((context_flags_ & GL_CONTEXT_FLAG_DEBUG_BIT) && HasExtension(/*430,*/ "GL_KHR_debug"))
     {
         Displayf("Using glDebugMessageCallback");
 
@@ -269,7 +282,7 @@ void agiGLContext::Init()
         glEnable(GL_DEBUG_OUTPUT);
     }
 
-    direct_state_access_ = IsCoreProfile() && HasExtension("GL_ARB_direct_state_access");
+    direct_state_access_ = IsCoreProfile() && HasExtension(/*450,*/ "GL_ARB_direct_state_access");
     max_anisotropy_ = 0;
 
     if (HasExtension("GL_EXT_texture_filter_anisotropic"))
@@ -355,6 +368,8 @@ static u32 GetCapabilityIndex(u32 cap)
         case GL_CULL_FACE: return 1;
         case GL_DEPTH_TEST: return 2;
         case GL_SCISSOR_TEST: return 3;
+        case GL_ALPHA_TEST: return 4;
+        case GL_FOG: return 5;
 
         default: Quitf("Invalid Capability %X", cap);
     }

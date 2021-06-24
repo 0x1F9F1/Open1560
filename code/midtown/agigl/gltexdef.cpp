@@ -191,7 +191,7 @@ i32 agiGLTexDef::BeginGfx()
     i32 num_levels =
         mip_maps ? std::clamp<i32>(surface->MipMapCount, 1, CaluclateMipMapLevels(surface->Width, surface->Height)) : 1;
 
-    if (agiGL->HasExtension("GL_ARB_texture_storage"))
+    if (agiGL->HasExtension(/*420,*/ "GL_ARB_texture_storage"))
     {
         glTexStorage2D(GL_TEXTURE_2D, num_levels, internal, surface->Width, surface->Height);
     }
@@ -248,7 +248,7 @@ i32 agiGLTexDef::BeginGfx()
         Surface->Unload();
 
     if ((EnablePaging & ARTS_PAGE_TEXTURES) && !(Tex.Flags & agiTexParameters::KeepLoaded) &&
-        agiGL->HasExtension("GL_ARB_sync"))
+        agiGL->HasExtension(320, "GL_ARB_sync"))
     {
         fence_ = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
     }
