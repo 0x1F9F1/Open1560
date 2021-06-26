@@ -219,23 +219,25 @@ i32 agiGLRasterizer::BeginGfx()
         InitModern();
     }
 
-    // Converts from screen coordinates ([0, Width], [0, Height], [0, 1]) to NDC
-    GLfloat transform[16] {};
+    // Convert from screen coordinates { [0, Width], [0, Height], [0, 1], RHW } to NDC
+    GLfloat proj_mul[4];
+    GLfloat proj_add[4];
 
     // x = 2x / width - 1
-    transform[0] = 2.0f / Pipe()->GetWidth();
-    transform[12] = -1.0f;
+    proj_mul[0] = 2.0f / Pipe()->GetWidth();
+    proj_add[0] = -1.0f;
 
     // y = -2y / height + 1
-    transform[5] = -2.0f / Pipe()->GetHeight();
-    transform[13] = 1.0f;
+    proj_mul[1] = -2.0f / Pipe()->GetHeight();
+    proj_add[1] = 1.0f;
 
     // z = 2z - 1
-    transform[10] = 2.0f;
-    transform[14] = -1.0f;
+    proj_mul[2] = 2.0f;
+    proj_add[2] = -1.0f;
 
     // w = 1
-    transform[15] = 1.0f;
+    proj_mul[3] = 0.0f;
+    proj_add[3] = 1.0f;
 
     flip_winding_ = false;
 
@@ -252,12 +254,12 @@ i32 agiGLRasterizer::BeginGfx()
         if (flip_winding_)
         {
             // y = 2y / height - 1
-            transform[5] = -transform[5];
-            transform[13] = -transform[13];
+            proj_mul[1] = -proj_mul[1];
+            proj_add[1] = -proj_add[1];
         }
 
-        transform[10] = 1.0f;
-        transform[14] = 0.0f;
+        proj_mul[2] = 1.0f;
+        proj_add[2] = 0.0f;
     }
     else if (agiGL->HasExtension("GL_NV_depth_buffer_float"))
     {
@@ -266,8 +268,8 @@ i32 agiGLRasterizer::BeginGfx()
 
     if (reversed_z_)
     {
-        transform[14] += transform[10];
-        transform[10] = -transform[10];
+        proj_add[2] += proj_mul[2];
+        proj_mul[2] = -proj_mul[2];
     }
 
     glClearDepth(reversed_z_ ? 0.0 : 1.0);
@@ -280,7 +282,8 @@ i32 agiGLRasterizer::BeginGfx()
 
     if (shader_)
     {
-        glUniformMatrix4fv(glGetUniformLocation(shader_, "u_Transform"), 1, GL_FALSE, transform);
+        glUniform4fv(glGetUniformLocation(shader_, "u_Transform[0]"), 1, proj_mul);
+        glUniform4fv(glGetUniformLocation(shader_, "u_Transform[1]"), 1, proj_add);
 
         glBindBuffer(GL_ARRAY_BUFFER, vbo_ ? vbo_->Buffer : 0);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_ ? vbo_->Buffer : 0);
@@ -298,7 +301,17 @@ i32 agiGLRasterizer::BeginGfx()
         glFogi(GL_FOG_COORD_SRC, GL_FOG_COORD);
 
         glMatrixMode(GL_PROJECTION);
-        glLoadMatrixf(transform);
+
+        // clang-format off
+        GLfloat projection[16] {
+            proj_mul[0],        0.0f,        0.0f, 0.0f,
+                   0.0f, proj_mul[1],        0.0f, 0.0f,
+                   0.0f,        0.0f, proj_mul[2], 0.0f,
+            proj_add[0], proj_add[1], proj_add[2], 1.0f,
+        };
+        // clang-format on
+
+        glLoadMatrixf(projection);
     }
 
     agiGL->CheckErrors();
@@ -432,39 +445,37 @@ out vec4 frag_Color;
 out vec4 frag_Fog;
 out vec2 frag_UV;
 
-uniform mat4 u_Transform;
+uniform vec4 u_Transform[2];
 uniform vec4 u_FogMode;
 uniform vec3 u_FogColor;
 
 void main()
 {
-    gl_Position = u_Transform * vec4(in_Position.xyz, 1.0);
-    gl_Position.w = 1.0 / in_Position.w;
-    gl_Position.xyz *= gl_Position.w;
+    gl_Position = u_Transform[0] * in_Position + u_Transform[1];
+    gl_Position /= in_Position.w;
+
     frag_Color = in_Color;
+    frag_Fog = vec4(0.0);
+    frag_UV = in_UV;
 
     if (u_FogMode.x != 0.0)
     {
         float fog;
 
-        if (u_FogMode.x == 2.0) // Vertex
-        {
-            fog = in_Specular.w;
-        }
-        else // Pixel
+        if (u_FogMode.x == 1.0) // Pixel
         {
             float depth = in_Position.z * gl_Position.w;
-            fog = clamp((u_FogMode.y - depth) * u_FogMode.z, 0.0, 1.0);
+            // clamping in the vertex shader assumes assumes Z is pre-clipped
+            fog = clamp(depth * u_FogMode.z + u_FogMode.y, 0.0, 1.0);
+        }
+        else // Vertex
+        {
+            fog = in_Specular.w; 
         }
 
-        frag_Fog = vec4(u_FogColor * (1.0 - fog), fog);
+        frag_Fog.xyz = u_FogColor * (1.0 - fog);
+        frag_Color.xyz *= fog;
     }
-    else // None
-    {
-        frag_Fog = vec4(0.0, 0.0, 0.0, 1.0);
-    }
-
-    frag_UV = in_UV;
 }
 )");
 
@@ -485,13 +496,11 @@ uniform float u_AlphaRef;
 
 void main()
 {
-    out_Color = texture2D(u_Texture, frag_UV) * frag_Color;
+    out_Color = texture2D(u_Texture, frag_UV) * frag_Color + frag_Fog;
 
     // Ignored by software renderer, only used by mmDashView, only ever 0
     if (out_Color.w <= u_AlphaRef)
         discard;
-
-    out_Color.xyz = out_Color.xyz * frag_Fog.w + frag_Fog.xyz;
 }
 )");
 
@@ -516,7 +525,7 @@ void main()
     glUseProgram(shader_);
 
 #if 0
-    if (Pipe()->HasExtension("GL_ARB_get_program_binary"))
+    if (agiGL->HasExtension("GL_ARB_get_program_binary"))
     {
         GLint buffer_size = 0;
         glGetProgramiv(shader_, GL_PROGRAM_BINARY_LENGTH, &buffer_size);
@@ -898,10 +907,13 @@ void agiGLRasterizer::FlushState()
 
         if (shader_)
         {
+            // (end - c) / (end - start) == (end - c) * inv_fog_range == (c * -inv_fog_range) + (end * inv_fog_range)
+            f32 inv_fog_range = (fog_start == fog_end) ? 0.0f : (1.0f / (fog_end - fog_start));
+
             Vector4 mode {
                 static_cast<f32>(fog_mode),
-                fog_end,
-                (fog_start == fog_end) ? 0.0f : (1.0f / (fog_end - fog_start)),
+                fog_end * inv_fog_range,
+                -inv_fog_range,
                 fog_density,
             };
 
