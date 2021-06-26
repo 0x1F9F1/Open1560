@@ -20,6 +20,11 @@ define_dummy_symbol(mmcity_cullcity);
 
 #include "cullcity.h"
 
+#include "agi/rsys.h"
+#include "agisw/swrend.h"
+#include "agiworld/meshset.h"
+#include "agiworld/quality.h"
+
 void mmRunwayLight::AddWidgets(class Bank* /*arg1*/)
 {}
 
@@ -46,3 +51,39 @@ ARTS_IMPORT /*static*/ void parseRGB(u32& arg1);
 
 // 0x48E330 | ?parseVector3@@YAXAAVVector3@@@Z
 ARTS_IMPORT /*static*/ void parseVector3(class Vector3& arg1);
+
+void mmCullCity::Cull()
+{
+    // TODO: Use proper members
+    u32 SkyColor = mem::field<u32>(this, 0x34D54);
+    b32 UseFogEnd2 = mem::field<b32>(this, 0x34D58);
+    f32 FogEnd = mem::field<f32>(this, 0x34D5C);
+    f32 FogEnd2 = mem::field<f32>(this, 0x34D60);
+
+    if (FogEnd == 0.0f || agiCurState.GetDrawMode() == 3)
+    {
+        agiCurState.SetFogMode(agiFogMode::None);
+        agiMeshSet::SetFog(0.0, 0);
+    }
+    else
+    {
+        agiCurState.SetFogMode(UsePixelFog ? agiFogMode::Pixel : agiFogMode::Vertex);
+        agiCurState.SetFogColor(SkyColor | swIsInterlaced);
+        FogEnd = std::min(FogEnd, agiRQ.FarClip);
+
+        if (UsePixelFog)
+        {
+            agiMeshSet::SetFog(0.0f, 0);
+            agiCurState.SetFogStart(1.0f);
+            agiCurState.SetFogEnd(FogEnd);
+        }
+        else if (UseFogEnd2)
+        {
+            agiMeshSet::SetFog(FogEnd2, UseFogEnd2);
+        }
+        else
+        {
+            agiMeshSet::SetFog(FogEnd, 0);
+        }
+    }
+}

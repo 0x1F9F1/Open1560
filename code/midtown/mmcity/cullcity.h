@@ -125,7 +125,7 @@ public:
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 
     // 0x48D820 | ?Cull@mmCullCity@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // 0x48FA30 | ?GetClass@mmCullCity@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
@@ -306,8 +306,8 @@ struct t_mmEnvSetup
     const char* Sky;
     const char* SphereMap;
     const char* ShadowMap;
-    f32 field_C;
-    f32 field_10;
+    f32 EnvVel;
+    f32 SkyHeight;
     f32 FogEnd;
     u32 SkyColor;
     f32 field_1C;
