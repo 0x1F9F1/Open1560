@@ -782,14 +782,14 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                         indexCounts[texture] += num_index;
                         nextFacet[i] = firstFacet[texture];
                         firstFacet[texture] = static_cast<i16>(i);
-
-                        codes[indices[0]] |= AGI_MESH_CLIP_SCREEN;
-                        codes[indices[1]] |= AGI_MESH_CLIP_SCREEN;
-                        codes[indices[2]] |= AGI_MESH_CLIP_SCREEN;
-
-                        if (surface[3])
-                            codes[indices[3]] |= AGI_MESH_CLIP_SCREEN;
                     }
+
+                    codes[indices[0]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[indices[1]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[indices[2]] |= AGI_MESH_CLIP_SCREEN;
+
+                    if (surface[3])
+                        codes[indices[3]] |= AGI_MESH_CLIP_SCREEN;
                 }
             }
         }
@@ -937,14 +937,14 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface
                         indexCounts[0] += num_index;
                         nextFacet[i] = firstFacet[0];
                         firstFacet[0] = static_cast<i16>(i);
-
-                        codes[indices[0]] |= AGI_MESH_CLIP_SCREEN;
-                        codes[indices[1]] |= AGI_MESH_CLIP_SCREEN;
-                        codes[indices[2]] |= AGI_MESH_CLIP_SCREEN;
-
-                        if (surface[3])
-                            codes[indices[3]] |= AGI_MESH_CLIP_SCREEN;
                     }
+
+                    codes[indices[0]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[indices[1]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[indices[2]] |= AGI_MESH_CLIP_SCREEN;
+
+                    if (surface[3])
+                        codes[indices[3]] |= AGI_MESH_CLIP_SCREEN;
                 }
             }
         }
