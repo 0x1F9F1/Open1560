@@ -75,22 +75,23 @@ public:
     ARTS_EXPORT void Cull(b32 alpha);
 
     // 0x503B20 | ?BeginVerts@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
-    ARTS_IMPORT static class agiPolySet* BeginVerts(class agiTexDef* arg1, i32 arg2, i32 arg3);
+    ARTS_EXPORT static class agiPolySet* BeginVerts(class agiTexDef* texture, i32 vert_count, i32 index_count);
 
     // 0x503D70 | ?BeginVerts2@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@0HH@Z
-    ARTS_IMPORT static class agiPolySet* BeginVerts2(class agiTexDef* arg1, class agiTexDef* arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT static class agiPolySet* BeginVerts2(
+        class agiTexDef* texture1, class agiTexDef* texture2, i32 vert_count, i32 index_count);
 
     // 0x504150 | ?DoTexture@agiTexSorter@@SAXPAVagiPolySet@@@Z
     ARTS_IMPORT static void DoTexture(class agiPolySet* arg1);
 
     // 0x503FF0 | ?EndVerts@agiTexSorter@@SAXXZ
-    ARTS_IMPORT static void EndVerts();
+    ARTS_EXPORT static void EndVerts();
 
     // 0x504040 | ?EndVerts2@agiTexSorter@@SAXXZ
     ARTS_IMPORT static void EndVerts2();
 
     // 0x503A60 | ?GetEnv@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
-    ARTS_IMPORT static class agiPolySet* GetEnv(class agiTexDef* arg1, i32 arg2, i32 arg3);
+    ARTS_EXPORT static class agiPolySet* GetEnv(class agiTexDef* texture, i32 vert_count, i32 index_count);
 
     // 0x719788 | ?AlphaPolySets@agiTexSorter@@2PAPAVagiPolySet@@A
     ARTS_EXPORT static class agiPolySet* AlphaPolySets[32];

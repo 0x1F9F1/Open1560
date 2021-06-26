@@ -98,17 +98,23 @@ void agiTexSorter::AddWidgets(Bank* bank)
 }
 
 static extern_var(0x719748, agiPolySet*, ColoredPolySet);
+static extern_var(0x719740, agiPolySet*, LastPolySet);
+
+static agiPolySet** ActivePolySet(agiTexDef* texture)
+{
+    return texture ? &texture->PolySet : &ColoredPolySet;
+}
 
 void agiTexSorter::Cull(b32 alpha)
 {
+    // TODO: Avoid calls from mmCellRenderer::Cull?
+    // if (usize ret = (usize) _ReturnAddress(); ret == 0x499286 || ret == 0x4991BE)
+    //     return;
+
     for (i32 i = 0; i < OpaqueSetCount; ++i)
     {
         DoTexture(OpaquePolySets[i]);
-
-        if (OpaquePolySets[i]->Textures[0])
-            OpaquePolySets[i]->Textures[0]->PolySet = nullptr;
-        else
-            ColoredPolySet = nullptr;
+        *ActivePolySet(OpaquePolySets[i]->Textures[0]) = nullptr;
     }
 
     OpaqueSetCount = 0;
@@ -118,18 +124,140 @@ void agiTexSorter::Cull(b32 alpha)
         if (EnvPolySet.Textures[0])
         {
             DoTexture(&EnvPolySet);
-            EnvPolySet.Textures[0]->PolySet = 0;
-            EnvPolySet.Textures[0] = 0;
+            EnvPolySet.Textures[0]->PolySet = nullptr;
+            EnvPolySet.Textures[0] = nullptr;
         }
 
         for (i32 i = 0; i < AlphaSetCount; ++i)
         {
             DoTexture(AlphaPolySets[i]);
-            AlphaPolySets[i]->Textures[0]->PolySet = 0;
+            AlphaPolySets[i]->Textures[0]->PolySet = nullptr;
         }
 
         AlphaSetCount = 0;
     }
+}
+
+agiPolySet* agiTexSorter::BeginVerts(agiTexDef* texture, i32 vert_count, i32 index_count)
+{
+    ArAssert(!LastPolySet, "Missing EndVerts call");
+
+    if (!EnableTexSorting || vert_count > MaxVertsPerSet || index_count > MaxIndicesPerSet)
+    {
+        ArAssert(vert_count <= BigVtxSize && index_count <= BigIdxSize, "Too many verts");
+
+        BigPolySet.Textures[0] = texture;
+        BigPolySet.MultiTex = false;
+        ++BigPoolFlushes;
+        LastPolySet = &BigPolySet;
+        return &BigPolySet;
+    }
+
+    agiPolySet** active_set = ActivePolySet(texture);
+    agiPolySet* result = *active_set;
+
+    if (result)
+    {
+        if ((vert_count + result->VertCount > MaxVertsPerSet) ||
+            (index_count + result->IndexCount > MaxIndicesPerSet) || result->MultiTex)
+        {
+            ++OverflowFlushes;
+
+            if (texture && (texture->Tex.HasAlpha() || (texture->Tex.Props & agiTexProp::AlphaGlow)))
+                Instance->Cull(false);
+
+            DoTexture(result);
+            result->MultiTex = false;
+        }
+        else
+        {
+            result->BaseIndex = result->VertCount;
+        }
+    }
+    else
+    {
+        if (texture && (texture->Tex.HasAlpha() || (texture->Tex.Props & agiTexProp::AlphaGlow)))
+        {
+            if (AlphaSetCount >= MaxAlphaSetCount)
+            {
+                for (i32 i = 0; i < AlphaSetCount; ++i)
+                    Displayf("Texture '%s'", AlphaPolySets[i]->Textures[0]->Tex.Name);
+
+                Quitf("Too many alpha textures in scene!");
+            }
+
+            result = AlphaPolySets[AlphaSetCount++];
+        }
+        else if (OpaqueSetCount >= MaxOpaqueSetCount)
+        {
+            // Find and flush the largest vert set
+            result = OpaquePolySets[0];
+            i32 best_verts = OpaquePolySets[0]->VertCount;
+
+            for (i32 i = 1; i < OpaqueSetCount; ++i)
+            {
+                if (best_verts < OpaquePolySets[i]->VertCount)
+                {
+                    best_verts = OpaquePolySets[i]->VertCount;
+                    result = OpaquePolySets[i];
+                }
+            }
+
+            ++OutOfPoolFlushes;
+            DoTexture(result);
+            *ActivePolySet(result->Textures[0]) = nullptr;
+        }
+        else
+        {
+            result = OpaquePolySets[OpaqueSetCount++];
+        }
+
+        *active_set = result;
+        result->Textures[0] = texture;
+        result->MultiTex = false;
+    }
+
+    LastPolySet = result;
+    return result;
+}
+
+void agiTexSorter::EndVerts()
+{
+    ArAssert(LastPolySet, "Missing BeginVerts call");
+
+    if (LastPolySet == &BigPolySet)
+        DoTexture(&BigPolySet);
+
+    LastPolySet = nullptr;
+}
+
+agiPolySet* agiTexSorter::GetEnv(agiTexDef* texture, i32 vert_count, i32 index_count)
+{
+    ArAssert(vert_count <= EnvVtxSize && index_count <= EnvIdxSize, "Too many verts");
+
+    if (!texture->PolySet && EnvPolySet.Textures[0])
+    {
+        ++EnvMapFlushes;
+        Instance->Cull(false);
+        DoTexture(&EnvPolySet);
+        EnvPolySet.Textures[0]->PolySet = nullptr;
+    }
+
+    texture->PolySet = &EnvPolySet;
+
+    if ((vert_count + EnvPolySet.VertCount <= EnvVtxSize) && (index_count + EnvPolySet.IndexCount <= EnvIdxSize))
+    {
+        EnvPolySet.BaseIndex = EnvPolySet.VertCount;
+        EnvPolySet.Textures[0] = texture;
+    }
+    else
+    {
+        ++EnvMapFlushes;
+        Instance->Cull(false);
+        DoTexture(&EnvPolySet);
+    }
+
+    return &EnvPolySet;
 }
 
 agiPolySet::agiPolySet(i32 verts, i32 indices)
@@ -211,7 +339,7 @@ RcOwner<class agiTexDef> GetPackedTexture(char* name, i32 variation)
     lib_tex.Flags |= tex.Flags;
     lib_tex.Props |= tex.Props;
 
-    // NOTE: Originally chcked if prop is null, but that isn't possible
+    // NOTE: Originally checked if prop is null, but that isn't possible
 
     i32 pack_shift = (agiRQ.TextureQuality >= AGI_QUALITY_HIGH) ? prop->High
         : (agiRQ.TextureQuality >= AGI_QUALITY_MEDIUM)          ? prop->Medium
@@ -230,12 +358,8 @@ RcOwner<class agiTexDef> GetPackedTexture(char* name, i32 variation)
 }
 
 run_once([] {
-    create_patch("BigVtxSize", "agiTexSorter::BeginVerts", 0x503B29 + 2, &BigVtxSize, 4);
-    create_patch("BigIdxSize", "agiTexSorter::BeginVerts", 0x503B31 + 3, &BigIdxSize, 4);
-
     create_patch("BigVtxSize", "agiTexSorter::BeginVerts2", 0x503D79 + 2, &BigVtxSize, 4);
     create_patch("BigIdxSize", "agiTexSorter::BeginVerts2", 0x503D81 + 3, &BigIdxSize, 4);
 
-    create_patch("EnvVtxSize", "agiTexSorter::GetEnv", 0x503AB9 + 2, &EnvVtxSize, 4);
-    create_patch("EnvIdxSize", "agiTexSorter::GetEnv", 0x503ACC + 2, &EnvIdxSize, 4);
+    create_patch("agiMeshSet::DrawCard", "Invalid indices count", 0x50F718, "\x8D\x0C\x52", 3);
 });
