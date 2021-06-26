@@ -22,6 +22,30 @@ define_dummy_symbol(mmcity_inst);
 
 #include "heap.h"
 
+f32 mmInstance::LodTable[3 /*Inst Type*/][4 /*Terrain Quality*/][3 /*Lod Dist*/] {
+    {
+        // FACADES
+        {200.0f, 150.0f, 100.0f},
+        {350.0f, 250.0f, 150.0f},
+        {700.0f, 500.0f, 300.0f},
+        {700.0f, 500.0f, 300.0f},
+    },
+    {
+        // BANGERS
+        {100.0f, 50.0f, 20.0f},
+        {150.0f, 85.0f, 35.0f},
+        {250.0f, 160.0f, 60.0f},
+        {250.0f, 200.0f, 150.0f},
+    },
+    {
+        // UPPERS
+        {9999.0f, 0.0f, 0.0f},
+        {9999.0f, 100.0f, 0.0f},
+        {9999.0f, 500.0f, 300.0f},
+        {9999.0f, 600.0f, 400.0f},
+    },
+};
+
 class mmPhysEntity* mmInstance::GetEntity()
 {
     return nullptr;

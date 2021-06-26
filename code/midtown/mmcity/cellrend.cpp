@@ -20,5 +20,12 @@ define_dummy_symbol(mmcity_cellrend);
 
 #include "cellrend.h"
 
+f32 StaticTerrainLodTable[4][2] {
+    {150.0f, 50.0f},
+    {200.0f, 100.0f},
+    {250.0f, 150.0f},
+    {325.0f, 200.0f},
+};
+
 void mmCellRenderer::Relight()
 {}

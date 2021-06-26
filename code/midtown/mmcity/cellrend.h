@@ -86,4 +86,4 @@ ARTS_IMPORT extern i32 EnableSlide;
 ARTS_IMPORT extern f32 ObjectMaxDist;
 
 // 0x6401C0 | ?StaticTerrainLodTable@@3PAY01MA
-ARTS_IMPORT extern f32 StaticTerrainLodTable[4][2];
+ARTS_EXPORT extern f32 StaticTerrainLodTable[4][2];

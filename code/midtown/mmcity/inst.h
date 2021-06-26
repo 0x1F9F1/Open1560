@@ -233,7 +233,7 @@ public:
     ARTS_IMPORT static void (*DynamicLighter)(u8*, u32*, u32*, class agiMeshSet*);
 
     // 0x63F828 | ?LodTable@mmInstance@@2PAY132MA
-    ARTS_IMPORT static f32 LodTable[3][4][3];
+    ARTS_EXPORT static f32 LodTable[3][4][3];
 
     // 0x7055D0 | ?LodTableIndex@mmInstance@@2HA
     ARTS_IMPORT static i32 LodTableIndex;

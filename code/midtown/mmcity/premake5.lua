@@ -2,8 +2,8 @@ arts_component "mmcity"
     files {
         -- "anim.cpp",
         -- "anim.h",
-        -- "cellrend.cpp",
-        -- "cellrend.h",
+        "cellrend.cpp",
+        "cellrend.h",
         "cullcity.cpp",
         "cullcity.h",
         "heap.cpp",
