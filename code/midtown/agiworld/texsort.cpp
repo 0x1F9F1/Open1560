@@ -107,10 +107,6 @@ static agiPolySet** ActivePolySet(agiTexDef* texture)
 
 void agiTexSorter::Cull(b32 alpha)
 {
-    // TODO: Avoid calls from mmCellRenderer::Cull?
-    // if (usize ret = (usize) _ReturnAddress(); ret == 0x499286 || ret == 0x4991BE)
-    //     return;
-
     for (i32 i = 0; i < OpaqueSetCount; ++i)
     {
         DoTexture(OpaquePolySets[i]);
@@ -362,4 +358,7 @@ run_once([] {
     create_patch("BigIdxSize", "agiTexSorter::BeginVerts2", 0x503D81 + 3, &BigIdxSize, 4);
 
     create_patch("agiMeshSet::DrawCard", "Invalid indices count", 0x50F718, "\x8D\x0C\x52", 3);
+
+    for (usize addr : {0x499281, 0x4991B9})
+        create_patch("mmCellRenderer::Cull", "Don't flush TexSorter", addr, "\x83\xC4\x04\x90\x90", 5);
 });
