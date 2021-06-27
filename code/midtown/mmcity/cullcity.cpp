@@ -69,7 +69,9 @@ void mmCullCity::Cull()
     {
         agiCurState.SetFogMode(UsePixelFog ? agiFogMode::Pixel : agiFogMode::Vertex);
         agiCurState.SetFogColor(SkyColor | swIsInterlaced);
-        FogEnd = std::min(FogEnd, agiRQ.FarClip);
+
+        if (!agiCurState.GetSoftwareRendering())
+            FogEnd = std::min(FogEnd, agiRQ.FarClip);
 
         if (UsePixelFog)
         {
