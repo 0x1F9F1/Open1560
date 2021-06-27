@@ -125,7 +125,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
         {
             __m128 vert = _mm_load_ps(&verts->x);
 
-            // xyzw -> wzxy
+            // xyzw -> wzyx
             vert = _mm_shuffle_ps(vert, vert, _MM_SHUFFLE(0, 1, 2, 3));
 
             // The maximum relative error for this approximation is less than 1.5*2^-12.
@@ -142,7 +142,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
             vert = _mm_max_ps(_mm_min_ps(vert, KniMax), KniMin);
             vert = _mm_move_ss(vert, inv_w);
 
-            // wzxy -> xyzw
+            // wzyx -> xyzw
             vert = _mm_shuffle_ps(vert, vert, _MM_SHUFFLE(0, 1, 2, 3));
 
             _mm_store_ps(&verts->x, vert);

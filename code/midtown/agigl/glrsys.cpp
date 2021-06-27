@@ -973,6 +973,50 @@ void agiGLRasterizer::FlushState()
     agiCurState.ClearTouched();
 }
 
+static void DrawMeshImm(u32 draw_mode, agiVtx* vertices, u16* indices, i32 index_count)
+{
+    glBegin(draw_mode);
+
+    for (i32 i = 0; i < index_count; ++i)
+    {
+        agiScreenVtx vert = vertices[indices[i]].Screen;
+
+#ifdef ARTS_ENABLE_KNI
+        __m128 pos = _mm_load_ps(&vert.x);
+        __m128 w = _mm_shuffle_ps(pos, pos, _MM_SHUFFLE(3, 3, 3, 3));
+        pos = _mm_shuffle_ps(
+            pos, _mm_shuffle_ps(_mm_set_ss(1.0f), pos, _MM_SHUFFLE(3, 2, 1, 0)), _MM_SHUFFLE(0, 2, 1, 0));
+        __m128 rhw = _mm_rcp_ps(w);
+        rhw = _mm_sub_ps(_mm_add_ps(rhw, rhw), _mm_mul_ps(_mm_mul_ps(rhw, rhw), w));
+        pos = _mm_mul_ps(pos, rhw);
+        _mm_store_ps(&vert.x, pos);
+#else
+        f32 w = 1.0f / vert.w;
+        vert.w = 1.0f;
+        vert.x *= w;
+        vert.y *= w;
+        vert.z *= w;
+        vert.w *= w;
+#endif
+
+        if (agiCurState.GetDrawMode() == 15)
+            glTexCoord2fv(&vert.tu);
+
+        glColor4ub(
+            (vert.color >> 16) & 0xFF, (vert.color >> 8) & 0xFF, (vert.color >> 0) & 0xFF, (vert.color >> 24) & 0xFF);
+
+        switch (agiCurState.GetFogMode())
+        {
+            case agiFogMode::Pixel: glFogCoordf(vert.z); break;
+            case agiFogMode::Vertex: glFogCoordf(static_cast<f32>(vert.specular >> 24)); break;
+        }
+
+        glVertex4fv(&vert.x);
+    }
+
+    glEnd();
+}
+
 void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count)
 {
     if (!IsAppActive() || (vertex_count == 0) || (index_count == 0))
@@ -990,35 +1034,7 @@ void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count
 
     if (shader_ == 0)
     {
-        glBegin(draw_mode);
-
-        for (i32 i = 0; i < index_count; ++i)
-        {
-            const agiScreenVtx& vert = vertices[indices[i]].Screen;
-
-            if (agiCurState.GetDrawMode() == 15)
-            {
-                if (agiCurState.GetTexturePerspective())
-                    glTexCoord4f(vert.tu * vert.w, vert.tv * vert.w, 0.0f, vert.w);
-                else
-                    glTexCoord2f(vert.tu, vert.tv);
-            }
-
-            glColor4ub((vert.color >> 16) & 0xFF, (vert.color >> 8) & 0xFF, (vert.color >> 0) & 0xFF,
-                (vert.color >> 24) & 0xFF);
-
-            switch (agiCurState.GetFogMode())
-            {
-                case agiFogMode::Pixel: glFogCoordf(vert.z / vert.w); break;
-                case agiFogMode::Vertex: glFogCoordf(static_cast<f32>(vert.specular >> 24)); break;
-            }
-
-            glVertex3f(vert.x, vert.y, vert.z);
-        }
-
-        glEnd();
-
-        return;
+        return DrawMeshImm(draw_mode, vertices, indices, index_count);
     }
 
     const void* offsets[2] {vertices, indices};
