@@ -22,7 +22,7 @@ define_dummy_symbol(data7_timer);
 
 #include "core/minwin.h"
 
-#include <timeapi.h>
+#include <SDL_timer.h>
 
 // https://randomascii.wordpress.com/2012/06/05/in-praise-of-idleness/
 // https://randomascii.wordpress.com/2013/04/02/sleep-variation-investigated/
@@ -54,7 +54,7 @@ f32 Timer::WaitUntil(f32 target)
             // Sleep is generally accurate to at least ~15.6 ms (1000 ms / 64).
             // timeBeginPeriod(1) increases this to ~0.97 ms (1000 ms / 1024).
             // Fugde the last 1-1.5 ms just in case.
-            Sleep(static_cast<i32>((wait - 0.001f) * 1000.0f));
+            SDL_Delay(static_cast<i32>((wait - 0.001f) * 1000.0f));
         }
         else
         {
@@ -92,40 +92,17 @@ void Timer::EndBenchmark()
 
 void Timer::Sleep(i32 ms)
 {
-    ::Sleep(ms);
+    SDL_Delay(ms);
 }
 
 ulong Timer::Ticks()
 {
-    // On Windows XP or later, QueryPerformanceCounter will always succeed
-    LARGE_INTEGER perf_count;
-    QueryPerformanceCounter(&perf_count);
-    return perf_count.LowPart;
-}
-
-u32 Timer::SetPeriod(u32 period)
-{
-    static u32 TimerPeriod = 0;
-
-    if (period != TimerPeriod)
-    {
-        if (TimerPeriod)
-            timeEndPeriod(TimerPeriod);
-
-        TimerPeriod = period;
-
-        if (TimerPeriod && timeBeginPeriod(TimerPeriod) != TIMERR_NOERROR)
-            TimerPeriod = 0;
-    }
-
-    return TimerPeriod;
+    return static_cast<ulong>(SDL_GetPerformanceCounter());
 }
 
 ARTS_NOINLINE void Timer::Init()
 {
-    LARGE_INTEGER frequency;
-    ArAssert(QueryPerformanceFrequency(&frequency) && frequency.QuadPart, "Failed to query performance frequency");
-
-    TicksToSeconds = 1.0f / frequency.QuadPart;
-    TicksToMilliseconds = 1000.0f / frequency.QuadPart;
+    u64 frequency = SDL_GetPerformanceFrequency();
+    TicksToSeconds = 1.0f / frequency;
+    TicksToMilliseconds = 1000.0f / frequency;
 }

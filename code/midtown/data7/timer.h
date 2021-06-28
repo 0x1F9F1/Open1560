@@ -69,8 +69,6 @@ public:
     // 0x576830 | ?Ticks@Timer@@SAKXZ
     ARTS_EXPORT static ulong Ticks();
 
-    static u32 SetPeriod(u32 period);
-
     // 0x90A66C | ?TicksToSeconds@Timer@@2MA
     ARTS_EXPORT static f32 TicksToSeconds;
 

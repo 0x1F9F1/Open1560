@@ -835,12 +835,15 @@ int main(int argc, char** argv)
 
     MetaClass::FixupClasses();
 
-    if (u32 period = PARAM_period.get_or<u32>(1); Timer::SetPeriod(period) != period)
-        Errorf("Failed to set timer period to %u", period);
+    {
+        char period[16];
+        arts_sprintf(period, "%u", PARAM_period.get_or<u32>(1));
+
+        if (!SDL_SetHintWithPriority(SDL_HINT_TIMER_RESOLUTION, "1", SDL_HINT_OVERRIDE))
+            Errorf("Failed to set timer period to %s", period);
+    }
 
     Application(argc, argv);
-
-    Timer::SetPeriod(0);
 
     SDL_Quit();
 
