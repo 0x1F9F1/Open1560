@@ -470,7 +470,7 @@ void main()
         }
         else // Vertex
         {
-            fog = in_Specular.w; 
+            fog = in_Specular.w;
         }
 
         frag_Fog.xyz = u_FogColor * (1.0 - fog);
