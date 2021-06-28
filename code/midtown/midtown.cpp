@@ -61,6 +61,9 @@ define_dummy_symbol(midtown);
 #include <mem/module.h>
 #include <mem/pattern.h>
 
+#define SDL_MAIN_NEEDED
+#include <SDL.h>
+
 #include "core/minwin.h"
 
 #ifdef ARTS_ENABLE_OPENGL
@@ -749,11 +752,6 @@ static char** GetCommandLineUTF8(const wchar_t* wCmdLine, int* pNumArgs)
     return static_cast<char**>(result);
 }
 
-static char** GetCommandLineUTF8(int* pNumArgs)
-{
-    return GetCommandLineUTF8(GetCommandLineW(), pNumArgs);
-}
-
 static char** GetCommandFileUTF8(int* pNumArgs)
 {
     HANDLE handle =
@@ -795,20 +793,30 @@ static mem::cmd_param PARAM_speedrun {"speedrun"};
 
 void InitPatches();
 
-ARTS_EXPORT int WINAPI MidtownMain(
-    HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*nShowCmd*/)
-{
-    int argc = 0;
-    char** argv = GetCommandFileUTF8(&argc);
+extern "C" int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE PrevInstance, LPSTR lpCmdLine, int nShowCmd);
 
-    if (argv)
+ARTS_EXPORT int WINAPI MidtownMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
+{
+    return WinMain(hInstance, hPrevInstance, lpCmdLine, nShowCmd);
+}
+
+int main(int argc, char** argv)
+{
+    if (SDL_Init(SDL_INIT_VIDEO) != 0)
     {
-        mem::cmd_param::init(argc, argv);
-        arts_free(argv);
+        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
+        return 1;
     }
 
-    argc = 0;
-    argv = GetCommandLineUTF8(&argc);
+    {
+        int file_argc = 0;
+        if (char** file_argv = GetCommandFileUTF8(&file_argc))
+        {
+            mem::cmd_param::init(file_argc, file_argv);
+            arts_free(file_argv);
+        }
+    }
+
     mem::cmd_param::init(argc, argv);
 
     if (PARAM_speedrun)
@@ -833,6 +841,8 @@ ARTS_EXPORT int WINAPI MidtownMain(
     Application(argc, argv);
 
     Timer::SetPeriod(0);
+
+    SDL_Quit();
 
     Displayf("Good bye.");
 

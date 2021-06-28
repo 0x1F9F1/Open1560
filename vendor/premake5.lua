@@ -8,6 +8,7 @@ GLAD_DIR = path.join(VENDOR_DIR, "glad")
 WGL_DIR = path.join(VENDOR_DIR, "wgl")
 MINIZ_DIR = path.join(VENDOR_DIR, "miniz")
 DX6_DIR = path.join(VENDOR_DIR, "dx6")
+SDL2_DIR = path.join(VENDOR_DIR, "SDL2-2.0.14")
 
 function includeMem()
     includedirs { MEM_DIR }
@@ -36,6 +37,11 @@ end
 
 function includeDX6()
     includedirs { path.join(DX6_DIR, "include") }
+end
+
+function includeSDL2()
+    includedirs { path.join(SDL2_DIR, "include") }
+    libdirs { path.join(SDL2_DIR, "lib/x86") }
 end
 
 -- function includeLua()

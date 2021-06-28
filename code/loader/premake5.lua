@@ -32,6 +32,7 @@ project "Open1560"
             '{COPY} "%{cfg.buildtarget.abspath}" "' .. MM1_GAME_DIRECTORY .. '"',
             '{COPY} "%{cfg.buildtarget.directory}%{cfg.buildtarget.basename}.pdb" "' .. MM1_GAME_DIRECTORY .. '"',
             '{COPY} "' .. game_files .. '" "' .. MM1_GAME_DIRECTORY .. '"',
+            '{COPY} "' .. path.join(SDL2_DIR, "lib/x86/SDL2.dll") .. '" "' .. MM1_GAME_DIRECTORY .. '"',
         }
 
         debugdir (MM1_GAME_DIRECTORY)

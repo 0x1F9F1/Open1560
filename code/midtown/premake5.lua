@@ -47,6 +47,9 @@ if ARTS_ENABLE_OPENGL then
         defines { "ARTS_ENABLE_OPENGL" }
 end
 
+project "*"
+    includeSDL2()
+
 arts_component "midtown"
     files {
         "midtown.cpp",
@@ -90,6 +93,8 @@ arts_component "midtown"
         "arts_vector7",
 
         -- "lua",
+        "SDL2",
+        "SDL2main",
     }
 
     if ARTS_ENABLE_OPENGL then
