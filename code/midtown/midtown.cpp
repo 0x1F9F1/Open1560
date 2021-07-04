@@ -548,6 +548,7 @@ void ApplicationHelper(i32 argc, char** argv)
     CheckSystem();
 
     dxiConfig(argc, argv);
+    SDL_ShowCursor(0);
     InitialCursorState = 0;
 
     dxiInit(APPTITLE, argc, argv);
@@ -802,19 +803,38 @@ ARTS_EXPORT int WINAPI MidtownMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 int main(int argc, char** argv)
 {
-    if (SDL_Init(SDL_INIT_VIDEO) != 0)
+    if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO) != 0)
     {
         SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
+
         return 1;
     }
 
+    SDL_SetHintWithPriority(
+        SDL_HINT_TIMER_RESOLUTION, arts_formatf<16>("%u", PARAM_period.get_or<u32>(1)), SDL_HINT_OVERRIDE);
+
+    SDL_LogSetOutputFunction(
+        [](void* /*userdata*/, int /*category*/, SDL_LogPriority priority, const char* message) {
+            i32 level = 0;
+
+            switch (priority)
+            {
+                case SDL_LOG_PRIORITY_VERBOSE: level = 0; break;
+                case SDL_LOG_PRIORITY_DEBUG: level = 0; break;
+                case SDL_LOG_PRIORITY_INFO: level = 0; break;
+                case SDL_LOG_PRIORITY_WARN: level = 1; break;
+                case SDL_LOG_PRIORITY_ERROR: level = 2; break;
+                case SDL_LOG_PRIORITY_CRITICAL: level = 2; break; // TODO: Make fatal?
+            }
+
+            Printerf(level, "%s", message);
+        },
+        nullptr);
+
+    if (int file_argc = 0; char** file_argv = GetCommandFileUTF8(&file_argc))
     {
-        int file_argc = 0;
-        if (char** file_argv = GetCommandFileUTF8(&file_argc))
-        {
-            mem::cmd_param::init(file_argc, file_argv);
-            arts_free(file_argv);
-        }
+        mem::cmd_param::init(file_argc, file_argv);
+        arts_free(file_argv);
     }
 
     mem::cmd_param::init(argc, argv);
@@ -834,14 +854,6 @@ int main(int argc, char** argv)
     Displayf("Processed %zu Init Functions", mem::init_function::init());
 
     MetaClass::FixupClasses();
-
-    {
-        char period[16];
-        arts_sprintf(period, "%u", PARAM_period.get_or<u32>(1));
-
-        if (!SDL_SetHintWithPriority(SDL_HINT_TIMER_RESOLUTION, "1", SDL_HINT_OVERRIDE))
-            Errorf("Failed to set timer period to %s", period);
-    }
 
     Application(argc, argv);
 

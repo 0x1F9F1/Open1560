@@ -25,25 +25,11 @@ define_dummy_symbol(eventq7_winevent);
 #include "mmaudio/manager.h"
 #include "pcwindis/pcwindis.h"
 #include "replay.h"
+#include "sdlevent.h"
 
 #include <windowsx.h>
 
 #include <array>
-
-void DeallocateEventQueue()
-{
-    delete eqEventHandler::SuperQ;
-
-    eqEventHandler::SuperQ = nullptr;
-}
-
-void InitEventQueue()
-{
-    if (eqEventHandler::SuperQ == nullptr)
-    {
-        eqEventHandler::SuperQ = new WINEventHandler();
-    }
-}
 
 static u32 WinEventHandlerMsgs[] {WM_MOUSEMOVE, WM_LBUTTONDOWN, WM_RBUTTONDOWN, WM_MBUTTONDOWN, WM_LBUTTONUP,
     WM_RBUTTONUP, WM_MBUTTONUP, WM_KILLFOCUS, WM_SETFOCUS, WM_KEYDOWN, WM_KEYUP, WM_CHAR, WM_ACTIVATE, WM_SIZE,
@@ -352,8 +338,8 @@ void WINEventHandler::Update(i32)
     {
         mouse_x_ = eqEventReplayChannel.MouseX;
         mouse_y_ = eqEventReplayChannel.MouseY;
-        mouse_raw_x_ = eqEventReplayChannel.MouseRawX;
-        mouse_raw_y_ = eqEventReplayChannel.MouseRawY;
+        mouse_virtual_x_ = eqEventReplayChannel.MouseRawX;
+        mouse_virtual_y_ = eqEventReplayChannel.MouseRawY;
         buttons_ = eqEventReplayChannel.Flags;
     }
     else if (input_method_ == 3)
@@ -375,8 +361,8 @@ void WINEventHandler::Update(i32)
         mouse_x_ = mouse_x;
         mouse_y_ = mouse_y;
 
-        mouse_raw_x_ = mouse_raw_x;
-        mouse_raw_y_ = mouse_raw_y;
+        mouse_virtual_x_ = mouse_raw_x;
+        mouse_virtual_y_ = mouse_raw_y;
 
         buttons_ = 0;
 
@@ -396,8 +382,8 @@ void WINEventHandler::Update(i32)
 
         eqEventReplayChannel.MouseX = mouse_x_;
         eqEventReplayChannel.MouseY = mouse_y_;
-        eqEventReplayChannel.MouseRawX = mouse_raw_x_;
-        eqEventReplayChannel.MouseRawY = mouse_raw_y_;
+        eqEventReplayChannel.MouseRawX = mouse_virtual_x_;
+        eqEventReplayChannel.MouseRawY = mouse_virtual_y_;
         eqEventReplayChannel.Flags = buttons_;
     }
 }

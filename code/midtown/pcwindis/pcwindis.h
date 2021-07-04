@@ -28,6 +28,8 @@
 
 #include "core/minwin.h"
 
+void SDLWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
 // 0x5765F0 | ?MasterWindowProc@@YGJPAUHWND__@@IIJ@Z
 ARTS_EXPORT LRESULT ARTS_STDCALL MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 

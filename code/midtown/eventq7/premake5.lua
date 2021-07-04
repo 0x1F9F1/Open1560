@@ -12,6 +12,8 @@ arts_component "eventq7"
         "replay.h",
         "winevent.cpp",
         "winevent.h",
+        "sdlevent.cpp",
+        "sdlevent.h",
 
         "keys.cpp",
         "keys.h",

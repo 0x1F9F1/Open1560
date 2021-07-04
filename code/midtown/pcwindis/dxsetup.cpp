@@ -22,6 +22,7 @@ define_dummy_symbol(pcwindis_dxsetup);
 
 #include "data7/speed.h"
 #include "data7/timer.h"
+#include "dxinit.h"
 #include "localize/localize.h"
 #include "midtown.h"
 #include "mmui/graphics.h"
@@ -112,7 +113,10 @@ ARTS_IMPORT /*static*/ i32 NotLameChipset(ulong arg1, ulong arg2);
 ARTS_IMPORT /*static*/ i32 TestResolution(struct IDirectDraw4* arg1, struct dxiRendererInfo_t& arg2);
 
 // 0x575AD0 | ?UnlockScreen@@YAXXZ
-ARTS_IMPORT /*static*/ void UnlockScreen();
+ARTS_EXPORT /*static*/ void UnlockScreen()
+{
+    dxiWindowDestroy();
+}
 
 static bool ValidateRenderersDX6()
 {

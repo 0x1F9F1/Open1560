@@ -50,6 +50,8 @@
     0x909678 | struct IDirectDrawSurface4 * lpdsRend | ?lpdsRend@@3PAUIDirectDrawSurface4@@A
 */
 
+#include "setupdata.h"
+
 // 0x573C60 | ?dxiChangeDisplaySettings@@YAHHHH@Z
 ARTS_EXPORT i32 dxiChangeDisplaySettings(i32 width, i32 height, i32 bpp);
 
@@ -84,7 +86,12 @@ ARTS_EXPORT void dxiSetDisplayMode();
 ARTS_EXPORT void dxiShutdown();
 
 // 0x573B80 | ?dxiWindowCreate@@YAXPAD@Z
+// This should only be in LockScreen
 ARTS_EXPORT void dxiWindowCreate(const char* title);
+
+void dxiWindowCreate(const char* title, dxiRendererType type);
+
+void dxiWindowDestroy();
 
 // 0x660F18 | ?dxiDepth@@3HA
 ARTS_IMPORT extern i32 dxiDepth;
@@ -149,3 +156,7 @@ ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsFront;
 
 // 0x909678 | ?lpdsRend@@3PAUIDirectDrawSurface4@@A
 ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsRend;
+
+typedef struct SDL_Window SDL_Window;
+
+extern SDL_Window* g_MainWindow;

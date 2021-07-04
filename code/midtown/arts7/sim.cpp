@@ -44,8 +44,6 @@ define_dummy_symbol(arts7_sim);
 #include <cstdlib>
 
 static extern_var(0x7907F8, b32, PipelineInitialized);
-static extern_var(0x79080C, i32, PipelineWidth);
-static extern_var(0x7907FC, i32, PipelineHeight);
 
 void InitBank(i32 /*argc*/, char** /*argv*/)
 {}
@@ -64,9 +62,6 @@ i32 InitPipeline(char* title, i32 argc, char** argv)
 
     if (Pipe()->Validate())
         Quit("Couldn't start renderer");
-
-    PipelineWidth = Pipe()->GetWidth();
-    PipelineHeight = Pipe()->GetWidth();
 
     Pipe()->SetWindow(CreatePipelineAttachableWindow(title, 0, 0, Pipe()->GetWidth(), Pipe()->GetHeight(), nullptr));
 

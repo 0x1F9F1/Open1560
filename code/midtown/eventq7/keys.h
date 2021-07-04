@@ -111,6 +111,10 @@
 #define EQ_KEY_F13             0x64    /*                     (NEC PC98) */
 #define EQ_KEY_F14             0x65    /*                     (NEC PC98) */
 #define EQ_KEY_F15             0x66    /*                     (NEC PC98) */
+#define EQ_KEY_F16             0x67
+#define EQ_KEY_F17             0x68
+#define EQ_KEY_F18             0x69
+#define EQ_KEY_F19             0x6A
 #define EQ_KEY_KANA            0x70    /* (Japanese keyboard)            */
 #define EQ_KEY_ABNT_C1         0x73    /* /? on Brazilian keyboard */
 #define EQ_KEY_CONVERT         0x79    /* (Japanese keyboard)            */

@@ -5,10 +5,11 @@ You do not need to install the XP patch, or use dgVoodoo.
 However, there are certain things you may wish to change:
 * If you have a laptop, ensure you are using the correct GPU.
 * If you have low performance:
+    * If using Wine, try enabling threaded OpenGL with the environment variables `mesa_glthread=true` for Mesa, or `__GL_THREADED_OPTIMIZATIONS=1` for Nvidia
     * Try using the `-legacygl` argument.
     * Consider disabling cloud shadows, the rear view mirror, or lowering the far clip distance.
 * To enable anti-aliasing, use the `-msaa <LEVEL>` argument (possible levels are 1, 2, 4 or 8). This may not be available on certain older/integrated GPUs.
-* If running through wine, download [wine1560.sh](https://raw.githubusercontent.com/0x1F9F1/Open1560/master/extra/wine1560.sh), or manually set the WINEDLLOVERRIDES to prefer native dinput
+* If using Wine, download [wine1560.sh](https://raw.githubusercontent.com/0x1F9F1/Open1560/master/extra/wine1560.sh), or manually set the WINEDLLOVERRIDES to prefer native dinput
 
 # Common Issues
 

@@ -92,6 +92,8 @@
 #include "cmodel.h"
 #include "render.h"
 
+typedef struct SDL_Window SDL_Window;
+
 class agiRefreshable;
 class agiBitmap;
 class agiColorModel;
@@ -228,7 +230,7 @@ public:
     ARTS_EXPORT RcOwner<class agiTexDef> GetTexture(i32 index, i32 pack_shift);
 
     // 0x555550 | ?Init@agiPipeline@@QAEHPADHHHHHHPAX@Z | unused
-    ARTS_EXPORT i32 Init(const char* name, i32 x, i32 y, i32 width, i32 height, i32 bit_depth, i32 flags, void* window);
+    i32 Init(const char* name, i32 x, i32 y, i32 width, i32 height, i32 bit_depth, i32 flags, SDL_Window* window);
 
     // 0x555E70 | ?NotifyDelete@agiPipeline@@QAEXPAVagiRefreshable@@@Z
     ARTS_EXPORT void NotifyDelete(class agiRefreshable* ptr);
@@ -324,7 +326,7 @@ public:
         height_ = height;
     }
 
-    void SetWindow(void* window)
+    void SetWindow(SDL_Window* window)
     {
         window_ = window;
     }
@@ -355,7 +357,7 @@ protected:
     i32 device_flags_2_ {0};
     i32 device_flags_3_ {0}; // UI Flags
 
-    void* window_ {nullptr};
+    SDL_Window* window_ {nullptr};
     i32 horz_res_ {0};
     i32 vert_res_ {0};
     f32 scale_ {1.0f};
@@ -404,13 +406,13 @@ inline agiPipeline* Pipe()
 }
 
 // 0x555F80 | ?CreatePipelineAttachableWindow@@YAPAXPADHHHHPAX@Z
-ARTS_EXPORT void* CreatePipelineAttachableWindow(char* title, i32 x, i32 y, i32 width, i32 height, void* ptr);
+SDL_Window* CreatePipelineAttachableWindow(char* title, i32 x, i32 y, i32 width, i32 height, void* ptr);
 
 // 0x555F90 | ?DestroyPipelineAttachableWindow@@YAXXZ
 ARTS_EXPORT void DestroyPipelineAttachableWindow();
 
 // 0x555F70 | ?GetRootWindow@@YAPAXXZ
-ARTS_EXPORT void* GetRootWindow();
+SDL_Window* GetRootWindow();
 
 // 0x8FACE0 | ?DrawModeAnd@@3HA
 ARTS_IMPORT extern i32 DrawModeAnd;

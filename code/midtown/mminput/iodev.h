@@ -107,7 +107,7 @@ public:
 check_size(mmIODev, 0xA8);
 
 // 0x4E5260 | ?ConvertDItoString@@YAHHPADH@Z
-ARTS_IMPORT i32 ConvertDItoString(i32 arg1, char* arg2, i32 arg3);
+ARTS_EXPORT b32 ConvertDItoString(i32 vsc, char* buffer, i32 buflen);
 
 // 0x719288 | ?mmIODevMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmIODevMetaClass;

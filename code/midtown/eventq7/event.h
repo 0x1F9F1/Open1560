@@ -112,8 +112,8 @@ protected:
     f32 center_y_ {0.0f};
     f32 scale_x_ {0.0f};
     f32 scale_y_ {0.0f};
-    i32 mouse_raw_x_ {0};
-    i32 mouse_raw_y_ {0};
+    i32 mouse_virtual_x_ {0};
+    i32 mouse_virtual_y_ {0};
 };
 
 check_size(eqEventHandler, 0x164);

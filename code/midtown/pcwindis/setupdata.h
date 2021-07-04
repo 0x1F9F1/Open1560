@@ -85,8 +85,17 @@ struct dxiRendererInfo_t
             GUID Driver;
         } Guid;
 
-        // MONITORINFOEX.szDevice
-        char Device[32];
+        struct
+        {
+            u32 Format;
+            i32 RefreshRate;
+            i32 Left;
+            i32 Top;
+            u32 Width;
+            u32 Height;
+            i32 Index;
+            u32 Padding;
+        } SDL;
     };
 
     // 0 | Software

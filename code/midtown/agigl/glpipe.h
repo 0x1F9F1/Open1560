@@ -81,8 +81,6 @@ public:
     }
 
 private:
-    HDC window_dc_ {nullptr};
-
     Ptr<agiGLContext> gl_context_;
     Rc<agiGLRasterizer> rasterizer_;
 

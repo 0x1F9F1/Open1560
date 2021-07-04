@@ -38,18 +38,8 @@
 #include "gltexdef.h"
 #include "glview.h"
 
-#include <Windows.h>
-#include <wingdi.h>
-
 #include <glad/glad.h>
 
-#include <wglext.h>
-
-extern PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB;
-extern PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB;
-extern PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
-
-static mem::cmd_param PARAM_legacygl {"legacygl"};
 static mem::cmd_param PARAM_gldebug {"gldebug"};
 static mem::cmd_param PARAM_msaa {"msaa"};
 static mem::cmd_param PARAM_scaling {"scaling"};
@@ -68,103 +58,30 @@ i32 agiGLPipeline::BeginGfx()
     valid_bit_depths_ = 0x4;
     flags_ = 0x1 | 0x4 | 0x10;
 
-    struct MonitorInfo
-    {
-        HMONITOR monitor;
-        MONITORINFOEXA mi {{sizeof(mi)}};
-
-        static BOOL CALLBACK MonitorCallback(
-            HMONITOR hMonitor, HDC, [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
-        {
-            MonitorInfo& mi = *(MonitorInfo*) (lParam);
-
-            if (!GetMonitorInfoA(hMonitor, &mi.mi))
-                return TRUE;
-
-            if (std::strcmp(GetRendererInfo().Device, mi.mi.szDevice))
-                return TRUE;
-
-            mi.monitor = hMonitor;
-
-            return FALSE;
-        }
-    };
-
-    MonitorInfo info {};
-    EnumDisplayMonitors(NULL, NULL, MonitorInfo::MonitorCallback, (LPARAM) &info);
-
-    HWND hwnd = static_cast<HWND>(window_);
-
-    if (info.monitor == NULL)
-    {
-        Displayf("Failed to find monitor, using nearest");
-        info.monitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
-        GetMonitorInfoA(info.monitor, &info.mi);
-    }
-
-    i32 horz_res = info.mi.rcMonitor.right - info.mi.rcMonitor.left;
-    i32 vert_res = info.mi.rcMonitor.bottom - info.mi.rcMonitor.top;
+    dxiRendererInfo_t& info = GetRendererInfo();
 
     if (dxiIsFullScreen() && !(PARAM_window_menu && MMSTATE.GameState == 0))
     {
-        horz_res_ = horz_res;
-        vert_res_ = vert_res;
+        if (info.SDL.Index != SDL_GetWindowDisplayIndex(window_))
+        {
+            // Cannot move/resize window when fullscreen
+            SDL_SetWindowFullscreen(window_, 0);
+            SDL_SetWindowPosition(window_, SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index),
+                SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index));
+        }
+
+        SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN_DESKTOP);
     }
     else
     {
-        horz_res_ = width_;
-        vert_res_ = height_;
+        SDL_SetWindowFullscreen(window_, 0);
+        SDL_SetWindowBordered(window_, PARAM_border.get_or(true) ? SDL_TRUE : SDL_FALSE);
+        SDL_SetWindowSize(window_, width_, height_);
+        SDL_SetWindowPosition(
+            window_, SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index), SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index));
     }
 
-    dxiWidth = horz_res_;
-    dxiHeight = vert_res_;
-
-    Displayf("Window Resolution: %u x %u", horz_res_, vert_res_);
-
-    LONG window_style = 0;
-
-    if (dxiIsFullScreen() || (width_ >= horz_res) || (height_ >= vert_res) || !PARAM_border.get_or(true))
-    {
-        window_style = IsDebuggerPresent() ? WS_OVERLAPPED : WS_POPUP;
-    }
-    else
-    {
-        window_style = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU;
-    }
-
-    SetWindowLongA(hwnd, GWL_STYLE, window_style);
-
-    RECT window_rect {0, 0, horz_res_, vert_res_};
-    AdjustWindowRect(&window_rect, window_style, FALSE);
-
-    i32 window_width = window_rect.right - window_rect.left;
-    i32 window_height = window_rect.bottom - window_rect.top;
-
-    SetWindowPos(hwnd, HWND_TOP, info.mi.rcMonitor.left + (horz_res - window_width) / 2,
-        info.mi.rcMonitor.top + (vert_res - window_height) / 2, window_width, window_height,
-        SWP_SHOWWINDOW | SWP_FRAMECHANGED | SWP_NOCOPYBITS);
-
-    SetForegroundWindow(hwnd);
-
-    window_dc_ = GetDC(hwnd);
-
-    PIXELFORMATDESCRIPTOR pfd {sizeof(pfd)};
-
-    pfd.nVersion = 1;
-    pfd.dwFlags = PFD_SUPPORT_OPENGL | PFD_DRAW_TO_WINDOW | PFD_DOUBLEBUFFER;
-    pfd.iPixelType = PFD_TYPE_RGBA;
-    pfd.cColorBits = 32;
-    pfd.cDepthBits = 24;
-    pfd.iLayerType = PFD_MAIN_PLANE;
-
-    int format = ChoosePixelFormat(window_dc_, &pfd);
-
-    SetPixelFormat(window_dc_, format, &pfd);
-
-    HGLRC gl_context = wglCreateContext(window_dc_);
-
-    if (gl_context == NULL)
-        Quitf("Failed to create legacy OpenGL context: 0x%08X", GetLastError());
+    SDL_RaiseWindow(window_);
 
     i32 debug_level = PARAM_gldebug.get_or(
 #ifdef ARTS_DEBUG
@@ -174,137 +91,37 @@ i32 agiGLPipeline::BeginGfx()
 #endif
     );
 
-    gl_context_ = MakeUnique<agiGLContext>(window_dc_, gl_context, debug_level);
+    SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
+    SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
+    SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+    SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
 
-    if (gl_context_->HasExtension("WGL_ARB_create_context"))
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, (debug_level > 0) ? SDL_GL_CONTEXT_DEBUG_FLAG : 0);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_NO_ERROR, (debug_level < 0));
+
+    SDL_GLContext context = SDL_GL_CreateContext(window_);
+
+    if (context == nullptr)
+        Quitf("Failed to create OpenGL context: %s", SDL_GetError());
+
+    gl_context_ = MakeUnique<agiGLContext>(window_, context, debug_level);
+
+    SDL_GL_GetDrawableSize(window_, &horz_res_, &vert_res_);
+
+    dxiWidth = horz_res_;
+    dxiHeight = vert_res_;
+
+    Displayf("Window Resolution: %u x %u", horz_res_, vert_res_);
+
+    if (device_flags_1_ & 0x1)
     {
-        Displayf("Creating modern OpenGL context");
-
-        if (gl_context_->HasExtension("WGL_ARB_pixel_format"))
-        {
-            const int pixel_attribs[] {
-                // clang-format off
-                WGL_DRAW_TO_WINDOW_ARB, GL_TRUE,
-                WGL_SUPPORT_OPENGL_ARB, GL_TRUE,
-                WGL_DOUBLE_BUFFER_ARB, GL_TRUE,
-                WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
-                WGL_COLOR_BITS_ARB, 32,
-                WGL_DEPTH_BITS_ARB, 24,
-                0,
-                // clang-format on
-            };
-
-            if (UINT num_formats = 0;
-                wglChoosePixelFormatARB(window_dc_, pixel_attribs, NULL, 1, &format, &num_formats) && num_formats)
-            {
-                DescribePixelFormat(window_dc_, format, sizeof(pfd), &pfd);
-                SetPixelFormat(window_dc_, format, &pfd);
-            }
-            else
-            {
-                Errorf("Failed to choose pixel format");
-            }
-        }
-
-        int attribs[11];
-        int num_attribs = 0;
-
-        attribs[num_attribs++] = WGL_CONTEXT_MAJOR_VERSION_ARB;
-        attribs[num_attribs++] = 1;
-
-        attribs[num_attribs++] = WGL_CONTEXT_MINOR_VERSION_ARB;
-        attribs[num_attribs++] = 0;
-
-        bool legacy_gl = PARAM_legacygl.get_or(false);
-
-        // wglCreateContext contexts are required to support legacy functionality
-        // If the legacy context is compatibility 3.2+, it probably supports core and compatibility 3.2+
-        // Otherwise, if WGL_ARB_create_context_profile is supported, it probably only supports core 3.2+
-        if (gl_context_->HasExtension("WGL_ARB_create_context_profile") &&
-            gl_context_->HasVersion(legacy_gl ? 320 : 310))
-        {
-            attribs[1] = 3;
-            attribs[3] = 2;
-
-            int profile_mask = legacy_gl ? WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB : WGL_CONTEXT_CORE_PROFILE_BIT_ARB;
-
-            attribs[num_attribs++] = WGL_CONTEXT_PROFILE_MASK_ARB;
-            attribs[num_attribs++] = profile_mask;
-        }
-        else if (gl_context_->HasVersion(310))
-        {
-            attribs[1] = 3;
-            attribs[3] = 1;
-        }
-
-        {
-            int context_flags = 0;
-
-            if (debug_level > 0)
-                context_flags |= WGL_CONTEXT_DEBUG_BIT_ARB;
-
-#if 0
-            context_flags |= WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB;
-#endif
-
-            attribs[num_attribs++] = WGL_CONTEXT_FLAGS_ARB;
-            attribs[num_attribs++] = context_flags;
-        }
-
-        if ((debug_level < 0) && gl_context_->HasExtension("WGL_ARB_create_context_no_error"))
-        {
-            attribs[num_attribs++] = WGL_CONTEXT_OPENGL_NO_ERROR_ARB;
-            attribs[num_attribs++] = 1;
-        }
-
-        attribs[num_attribs++] = 0;
-
-        HGLRC modern_gl_context = NULL;
-
-        while ((modern_gl_context = wglCreateContextAttribsARB(window_dc_, 0, attribs)) == NULL)
-        {
-            if (attribs[1] == 3)
-            {
-                if (attribs[3] > 0)
-                    --attribs[3];
-                else
-                    attribs[1] = 1;
-            }
-            else
-            {
-                break;
-            }
-        }
-
-        if (modern_gl_context)
-        {
-            gl_context_ = MakeUnique<agiGLContext>(window_dc_, modern_gl_context, debug_level);
-        }
-        else
-        {
-            Errorf("Failed to create modern OpenGL context: 0x%08X", GetLastError());
-        }
+        if (SDL_GL_SetSwapInterval(-1) == -1)
+            SDL_GL_SetSwapInterval(1);
     }
-
-    if (gladLoadGLLoader([](const char* name) -> void* { return agiGL->GetProc(name); }) != 1)
-        Quitf("Failed to load GLAD");
-
-    gl_context_->Init();
-
-    Displayf("OpenGL Vendor: %s", glGetString(GL_VENDOR));
-    Displayf("OpenGL Renderer: %s", glGetString(GL_RENDERER));
-
-    if (gl_context_->HasExtension("WGL_EXT_swap_control"))
+    else
     {
-        int interval = 0;
-
-        if (device_flags_1_ & 0x1)
-            interval = gl_context_->HasExtension("WGL_EXT_swap_control_tear") ? -1 : 1;
-
-        Displayf("wglSwapIntervalEXT(%i)", interval);
-
-        if (!wglSwapIntervalEXT(interval))
-            Errorf("wglSwapIntervalEXT failed: %08X", GetLastError());
+        SDL_GL_SetSwapInterval(0);
     }
 
     // FIXME: Check pixel format masks
@@ -406,7 +223,7 @@ i32 agiGLPipeline::BeginGfx()
 
     // Clear the builtin frame buffer (avoid ugly remains/ghost image)
     // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-    // SwapBuffers(window_dc_);
+    // SDL_GL_SwapWindow(window_);
 
     if (!builtin_fb)
     {
@@ -474,11 +291,6 @@ void agiGLPipeline::EndGfx()
         rbo_[1] = 0;
     }
 
-    gl_context_ = nullptr;
-
-    ReleaseDC(static_cast<HWND>(window_), window_dc_);
-    window_dc_ = NULL;
-
     text_color_model_ = nullptr;
     hi_color_model_ = nullptr;
     opaque_color_model_ = nullptr;
@@ -486,6 +298,8 @@ void agiGLPipeline::EndGfx()
 
     renderer_ = nullptr;
     rasterizer_ = nullptr;
+
+    gl_context_ = nullptr;
 
     gfx_started_ = false;
 }
@@ -549,7 +363,7 @@ void agiGLPipeline::EndFrame()
             blit_x_ + blit_width_, blit_y_ + blit_height_, GL_COLOR_BUFFER_BIT, blit_filter_);
     }
 
-    SwapBuffers(window_dc_);
+    SDL_GL_SwapWindow(window_);
 
     if (!dxiDoubleBuffer())
         glFinish();

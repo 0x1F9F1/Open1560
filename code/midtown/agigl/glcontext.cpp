@@ -18,33 +18,25 @@
 
 #include "glcontext.h"
 
-#include <Windows.h>
-
 #include <glad/glad.h>
 
-#include <wglext.h>
-
-PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB = NULL;
-PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = NULL;
-PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
-
-agiGLContext::agiGLContext(void* window_dc, void* gl_context, i32 debug_level)
-    : window_dc_(window_dc)
+agiGLContext::agiGLContext(SDL_Window* window, SDL_GLContext gl_context, i32 debug_level)
+    : window_(window)
     , gl_context_(gl_context)
     , debug_level_(debug_level)
 {
     MakeCurrent();
-
     InitVersioning();
-    InitExtensions();
+
+    if (gladLoadGLLoader(agiGLContext::GetProc) != 1)
+        Quitf("Failed to load GLAD");
+
+    InitState();
 }
 
 agiGLContext::~agiGLContext()
 {
-    if (wglGetCurrentContext() == gl_context_)
-        wglMakeCurrent(NULL, NULL);
-
-    wglDeleteContext(static_cast<HGLRC>(gl_context_));
+    SDL_GL_DeleteContext(gl_context_);
 
     if (agiGL == this)
         agiGL = nullptr;
@@ -52,21 +44,15 @@ agiGLContext::~agiGLContext()
 
 void agiGLContext::MakeCurrent()
 {
-    // wglMakeCurrent causes a flush, which is slow
-    if ((wglGetCurrentDC() != window_dc_) || (wglGetCurrentContext() != gl_context_))
-        wglMakeCurrent(static_cast<HDC>(window_dc_), static_cast<HGLRC>(gl_context_));
+    if ((SDL_GL_GetCurrentWindow() != window_) || (SDL_GL_GetCurrentContext() != gl_context_))
+        SDL_GL_MakeCurrent(window_, gl_context_);
 
     agiGL = this;
 }
 
 void* agiGLContext::GetProc(const char* name)
 {
-    void* result = wglGetProcAddress(name);
-
-    if (result == nullptr)
-        result = GetProcAddress(static_cast<HMODULE>(gl_module_), name);
-
-    return result;
+    return SDL_GL_GetProcAddress(name);
 }
 
 static void ParseExtensionString(HashTable& table, const char* extensions, isize category)
@@ -92,13 +78,9 @@ static void ParseExtensionString(HashTable& table, const char* extensions, isize
 
 void agiGLContext::InitVersioning()
 {
-    gl_module_ = GetModuleHandleA("opengl32.dll");
-
     auto agi_glGetString = (PFNGLGETSTRINGPROC) GetProc("glGetString");
 
     const char* gl_version = (const char*) agi_glGetString(GL_VERSION);
-
-    Displayf("OpenGL Version: %s", gl_version);
 
     i32 major_version = 0;
     i32 minor_version = 0;
@@ -109,6 +91,10 @@ void agiGLContext::InitVersioning()
     gl_version_ = (major_version * 100) + (minor_version * 10);
     context_flags_ = 0;
     profile_mask_ = 0;
+
+    Displayf("OpenGL Version: %s", gl_version);
+    Displayf("OpenGL Vendor: %s", agi_glGetString(GL_VENDOR));
+    Displayf("OpenGL Renderer: %s", agi_glGetString(GL_RENDERER));
 
     if (HasVersion(300))
     {
@@ -139,20 +125,10 @@ void agiGLContext::InitVersioning()
         ParseExtensionString(extensions_, (const char*) agi_glGetString(GL_EXTENSIONS), 1);
     }
 
-    {
-        auto agi_wglGetExtensionsStringARB = (PFNWGLGETEXTENSIONSSTRINGARBPROC) GetProc("wglGetExtensionsStringARB");
-        auto agi_wglGetExtensionsStringEXT = (PFNWGLGETEXTENSIONSSTRINGEXTPROC) GetProc("wglGetExtensionsStringEXT");
-
-        const char* wgl_exts = nullptr;
-
-        if (agi_wglGetExtensionsStringARB)
-            wgl_exts = agi_wglGetExtensionsStringARB(static_cast<HDC>(window_dc_));
-        else if (agi_wglGetExtensionsStringEXT)
-            wgl_exts = agi_wglGetExtensionsStringEXT();
-
-        if (wgl_exts)
-            ParseExtensionString(extensions_, wgl_exts, 3);
-    }
+    Displayf("OpenGL Profile: %i %s", gl_version_,
+        (profile_mask_ & GL_CONTEXT_CORE_PROFILE_BIT)                ? "Core"
+            : (profile_mask_ & GL_CONTEXT_COMPATIBILITY_PROFILE_BIT) ? "Compatibility"
+                                                                     : "Legacy");
 
     Displayf("OpenGL Extension Count: %i", extensions_.Size());
 
@@ -178,24 +154,6 @@ void agiGLContext::InitVersioning()
         }
 
         Displayf("OpenGL Shader Version: %i (%s)", shader_version_, glsl_version);
-    }
-}
-
-void agiGLContext::InitExtensions()
-{
-    if (HasExtension("WGL_ARB_pixel_format"))
-    {
-        wglChoosePixelFormatARB = (PFNWGLCHOOSEPIXELFORMATARBPROC) GetProc("wglChoosePixelFormatARB");
-    }
-
-    if (HasExtension("WGL_ARB_create_context"))
-    {
-        wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) GetProc("wglCreateContextAttribsARB");
-    }
-
-    if (HasExtension("WGL_EXT_swap_control"))
-    {
-        wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC) GetProc("wglSwapIntervalEXT");
     }
 }
 
@@ -244,7 +202,7 @@ static void APIENTRY GlDebugMessageCallback([[maybe_unused]] GLenum source, GLen
 
 static mem::cmd_param PARAM_afilter {"afilter"};
 
-void agiGLContext::Init()
+void agiGLContext::InitState()
 {
     if (debug_level_ > 1)
     {

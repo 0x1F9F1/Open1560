@@ -172,6 +172,11 @@ public:
         assign(value);
     }
 
+    CStringBuffer(ARTS_FORMAT_STRING const char* format, std::va_list va)
+    {
+        arts_vsprintf(buffer_, format, va);
+    }
+
     CStringBuffer& operator=(const char* value)
     {
         assign(value);
@@ -329,4 +334,14 @@ inline bool operator!=(const ConstString& lhs, const char* rhs)
 inline bool operator!=(const char* lhs, const ConstString& rhs)
 {
     return std::strcmp(lhs, rhs.get()) != 0;
+}
+
+template <usize N>
+inline CStringBuffer<N> arts_formatf(const char* format, ...)
+{
+    std::va_list va;
+    va_start(va, format);
+    CStringBuffer<N> result { format, va };
+    va_end(va);
+    return result;
 }

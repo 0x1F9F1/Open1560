@@ -46,7 +46,7 @@ b32 dxiReadConfigFile()
         return false;
     }
 
-    if (dxiRendererCount > ARTS_SSIZE(dxiInfo))
+    if ((dxiRendererCount == 0) || (dxiRendererCount > ARTS_SSIZE(dxiInfo)))
         return false;
 
     for (i32 i = 0; i < dxiRendererCount; ++i)

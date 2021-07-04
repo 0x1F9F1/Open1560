@@ -20,20 +20,21 @@
 
 #include "data7/hash.h"
 
+#include <SDL_video.h>
+
 class agiGLRasterizer;
 
 class agiGLContext final
 {
 public:
-    agiGLContext(void* window_dc, void* gl_context, i32 debug_level);
+    agiGLContext(SDL_Window* window, SDL_GLContext gl_context, i32 debug_level);
     ~agiGLContext();
 
     ARTS_NON_COPYABLE(agiGLContext);
 
     void MakeCurrent();
-    void* GetProc(const char* name);
+    static void* GetProc(const char* name);
 
-    void Init();
     void CheckErrors(bool lazy = false);
 
     void ActiveTexture(u32 unit);
@@ -83,11 +84,10 @@ public:
 
 private:
     void InitVersioning();
-    void InitExtensions();
+    void InitState();
 
-    void* gl_module_ {nullptr};
-    void* window_dc_ {nullptr};
-    void* gl_context_ {nullptr};
+    SDL_Window* window_ {nullptr};
+    SDL_GLContext gl_context_ {nullptr};
 
     HashTable extensions_ {128, "Extensions"};
 

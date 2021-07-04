@@ -24,6 +24,8 @@ define_dummy_symbol(mminput_iodev);
 #include "input.h"
 #include "localize.h"
 
+#include "core/minwin.h"
+
 using namespace ioType;
 using namespace mmJoyInput;
 
@@ -133,4 +135,15 @@ void mmIODev::GetDescription(char* buffer, usize buflen)
             break;
         }
     }
+}
+
+b32 ConvertDItoString(i32 vsc, char* buffer, i32 buflen)
+{
+    u32 lparam = ((vsc & 0x7F) << 16) | ((vsc & 0x80) << 17);
+
+    if (GetKeyNameTextA(lparam, buffer, buflen))
+        return true;
+
+    arts_sprintf(buffer, buflen, "Key #%x", vsc);
+    return false;
 }

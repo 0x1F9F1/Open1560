@@ -20,15 +20,22 @@ define_dummy_symbol(pcwindis_dxinit);
 
 #include "dxinit.h"
 
-#include <ddraw.h>
-#include <dinput.h>
-
 #include "pcwindis.h"
 #include "setupdata.h"
 
 #include "agi/pipeline.h"
 #include "data7/ipc.h"
+
+#include <SDL_hints.h>
+#include <SDL_system.h>
+#include <SDL_syswm.h>
+#include <SDL_video.h>
+
+#include <ddraw.h>
+#include <dinput.h>
 #include <miniz.h>
+
+SDL_Window* g_MainWindow = nullptr;
 
 template <typename T>
 inline void SafeRelease(T*& ptr)
@@ -154,7 +161,7 @@ void dxiInit(char* title, i32 argc, char** argv)
 
 #undef ARG
 
-    dxiWindowCreate(title);
+    dxiWindowCreate(title, GetRendererInfo().Type);
 
     if (GetRendererInfo().Type != dxiRendererType::OpenGL)
     {
@@ -397,6 +404,9 @@ void dxiSetDisplayMode()
         dxiDirectDrawCreate();
     }
 
+    SDL_SetWindowResizable(g_MainWindow, dxiIsFullScreen() ? SDL_TRUE : SDL_FALSE);
+    SDL_SetWindowPosition(g_MainWindow, 0, 0);
+
     if (dxiIsFullScreen())
     {
         Displayf("dxiSetDisplayMode(%d,%d,%d)", dxiWidth, dxiHeight, dxiDepth);
@@ -408,16 +418,10 @@ void dxiSetDisplayMode()
             Quitf(
                 "dxiDirectDrawCreate: SetDisplayMode(%d,%d,%d) failed: code %08X.", dxiWidth, dxiHeight, dxiDepth, err);
         }
-
-        MONITORINFO info {sizeof(MONITORINFO)};
-        GetMonitorInfo(MonitorFromWindow(hwndMain, MONITOR_DEFAULTTONEAREST), &info);
-
-        SetWindowPos(hwndMain, HWND_TOP, info.rcMonitor.left, info.rcMonitor.top,
-            info.rcMonitor.right - info.rcMonitor.left, info.rcMonitor.bottom - info.rcMonitor.top, SWP_NOZORDER);
     }
     else
     {
-        SetWindowPos(hwndMain, HWND_TOP, 0, 0, dxiWidth, dxiHeight, SWP_NOMOVE | SWP_NOZORDER);
+        SDL_SetWindowSize(g_MainWindow, dxiWidth, dxiHeight);
     }
 
     dxiDirectDrawSurfaceCreate();
@@ -432,25 +436,20 @@ void dxiShutdown()
 
     SafeRelease(lpDD4);
 
-    if (hwndMain)
-    {
-        DestroyWindow(hwndMain);
-        hwndMain = NULL;
-    }
+    dxiWindowDestroy();
 }
-
-static ATOM dxiWindowClass = 0;
-
-#define AGI_WINDOW_CLASS "agiwindow"
 
 void dxiWindowCreate(const char* title)
 {
+#if 0
+    return dxiWindowCreate(title, dxiRendererType::Software);
+#else
     if (hwndMain != NULL)
         return;
 
     HINSTANCE hInstance = GetModuleHandle(NULL);
 
-    if (!dxiWindowClass)
+    if (static ATOM agiWindowClass = 0; agiWindowClass == 0)
     {
         WNDCLASSA wc {};
 
@@ -463,14 +462,80 @@ void dxiWindowCreate(const char* title)
         wc.hCursor = LoadCursor(NULL, IDC_ARROW);
         wc.hbrBackground = (HBRUSH) GetStockObject(BLACK_BRUSH);
         wc.lpszMenuName = NULL;
-        wc.lpszClassName = AGI_WINDOW_CLASS;
+        wc.lpszClassName = "agiwindow";
 
-        dxiWindowClass = RegisterClassA(&wc);
+        agiWindowClass = RegisterClassA(&wc);
     }
 
-    hwndMain =
-        CreateWindowExA(WS_EX_APPWINDOW, AGI_WINDOW_CLASS, title, WS_POPUP, 0, 0, 0, 0, NULL, NULL, hInstance, NULL);
+    hwndMain = CreateWindowExA(
+        WS_EX_APPWINDOW, "agiwindow", title, WS_POPUP, 0, 0, dxiWidth, dxiHeight, NULL, NULL, hInstance, NULL);
 
     ShowWindow(hwndMain, SW_SHOWNORMAL);
     UpdateWindow(hwndMain);
+#endif
+}
+
+static mem::cmd_param PARAM_legacygl {"legacygl"};
+
+void dxiWindowCreate(const char* title, dxiRendererType type)
+{
+    // if (type != dxiRendererType::OpenGL)
+    //     return dxiWindowCreate(title);
+
+    if (g_MainWindow != NULL)
+        return;
+
+    u32 window_flags = SDL_WINDOW_BORDERLESS;
+
+    if (type == dxiRendererType::OpenGL)
+    {
+#ifdef ARTS_ENABLE_OPENGL
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,
+            PARAM_legacygl.get_or(false) ? SDL_GL_CONTEXT_PROFILE_COMPATIBILITY : SDL_GL_CONTEXT_PROFILE_CORE);
+
+        window_flags |= SDL_WINDOW_OPENGL;
+#endif
+    }
+    else
+    {
+        // DDRAW will likely try and change the window size
+        window_flags |= SDL_WINDOW_RESIZABLE;
+    }
+
+    SDL_SetHintWithPriority(SDL_HINT_WINDOWS_INTRESOURCE_ICON, arts_formatf<16>("%i", dxiIcon), SDL_HINT_OVERRIDE);
+
+    g_MainWindow = SDL_CreateWindow(title, 0, 0, 0, 0, window_flags);
+
+    SDL_SetWindowsMessageHook(
+        [](void* /*userdata*/, void* hWnd, unsigned int message, u64 wParam, i64 lParam) {
+            SDLWindowProc(static_cast<HWND>(hWnd), message, static_cast<WPARAM>(wParam), static_cast<LPARAM>(lParam));
+        },
+        nullptr);
+
+    SDL_SysWMinfo wm_info {};
+    SDL_VERSION(&wm_info.version);
+    ArAssert(SDL_GetWindowWMInfo(g_MainWindow, &wm_info), "Failed to get native window handle");
+    hwndMain = wm_info.info.win.window;
+
+    SDL_SetHintWithPriority(SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4, "1", SDL_HINT_OVERRIDE);
+}
+
+void dxiWindowDestroy()
+{
+    if (g_MainWindow)
+    {
+        if (!(SDL_GetWindowFlags(g_MainWindow) & SDL_WINDOW_FOREIGN))
+            hwndMain = NULL;
+
+        SDL_DestroyWindow(g_MainWindow);
+        g_MainWindow = nullptr;
+    }
+
+    if (hwndMain)
+    {
+        DestroyWindow(hwndMain);
+        hwndMain = NULL;
+    }
 }

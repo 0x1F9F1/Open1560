@@ -18,48 +18,17 @@
 
 #include "glsetup.h"
 
-#include "core/minwin.h"
-#include "mmui/graphics.h"
-
-#include "pcwindis/dxsetup.h"
 #include "pcwindis/setupdata.h"
 
+#include <SDL_video.h>
 #include <numeric>
-
-static void GetMonitorName(char* buffer, usize buflen, const char* szDevice)
-{
-    buffer[0] = '\0';
-
-    DISPLAY_DEVICEA device {sizeof(device)};
-
-    for (DWORD i = 0; EnumDisplayDevicesA(szDevice, i, &device, 0); ++i)
-    {
-        if (device.StateFlags & DISPLAY_DEVICE_MIRRORING_DRIVER)
-            continue;
-
-        if (device.StateFlags & DISPLAY_DEVICE_ACTIVE)
-        {
-            arts_snprintf(buffer, buflen, ARTS_TRUNCATE, "%s on ", device.DeviceString);
-
-            break;
-        }
-    }
-
-    arts_strncat(buffer, buflen, szDevice, ARTS_TRUNCATE);
-}
 
 static const u32 SpecialFlags_GL = 0x10 | 0x20;
 
-static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
-    [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
+static void AddVideoDisplay(i32 index)
 {
     if (dxiRendererCount >= ARTS_SSIZE(dxiInfo))
-        return FALSE;
-
-    MONITORINFOEXA iMonitor {{sizeof(iMonitor)}};
-
-    if (!GetMonitorInfoA(hMonitor, &iMonitor))
-        return TRUE;
+        return;
 
     dxiRendererInfo_t& info = dxiInfo[dxiRendererCount];
 
@@ -78,36 +47,51 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     info.HaveMipmaps = true;
     info.SpecialFlags = SpecialFlags_GL;
 
-    GetMonitorName(info.Name, ARTS_SIZE(info.Name), iMonitor.szDevice);
-    arts_strcpy(info.Device, iMonitor.szDevice);
+    const char* name = SDL_GetDisplayName(index);
+    if (name == nullptr)
+        return;
+
+    SDL_Rect bounds;
+    if (SDL_GetDisplayBounds(index, &bounds) != 0)
+        return;
+
+    SDL_DisplayMode mode;
+    if (SDL_GetDesktopDisplayMode(index, &mode) != 0)
+        return;
+
+    arts_strncpy(info.Name, name, ARTS_TRUNCATE);
+
+    // Pipes are used as the list separator
+    for (char* s = info.Name; *s; ++s)
+    {
+        if (*s == '|')
+            *s = ' ';
+    }
+
+    info.SDL.Left = bounds.x;
+    info.SDL.Top = bounds.y;
+    info.SDL.Width = bounds.w;
+    info.SDL.Height = bounds.h;
+    info.SDL.Format = mode.format;
+    info.SDL.RefreshRate = mode.refresh_rate;
 
     info.Type = dxiRendererType::OpenGL;
 
     info.ResCount = 0;
     info.ResChoice = -1;
 
-    Displayf("Renderer: '%s'", info.Name);
-
-    DEVMODEA cur_dev_mode {};
-
-    if (!EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &cur_dev_mode))
-    {
-        Errorf("Failed to get monitor display settings");
-        return TRUE;
-    }
+    Displayf("Renderer: '%s' @ {%i,%i}, Refresh=%i", info.Name, info.SDL.Left, info.SDL.Top, info.SDL.RefreshRate);
 
     // Choosing resolutions to list is fairly arbitrary for two main reasons:
     // * By default the OpenGL pipe always renders using the native resolution, so only the UI is affected.
     // * Frame buffers support arbitrary resolutions.
-    // Asking EnumDisplaySettingsA is just as arbitrary, since that has no bearing what OpenGL supports.
-    // So instead, try and pick a small set of fairly sane resolutions.
     // TODO: Allow picking a custom resolution in the UI, similar to -width/-height
 
     const auto add_resolution = [&](u32 width, u32 height) {
-        if (height < 480 || height > cur_dev_mode.dmPelsHeight)
+        if (height < 480 || height > info.SDL.Height)
             return false;
 
-        if (width < 640 || width > cur_dev_mode.dmPelsWidth)
+        if (width < 640 || width > info.SDL.Width)
             return false;
 
         for (i32 i = 0; i < info.ResCount; ++i)
@@ -123,9 +107,9 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
         return true;
     };
 
-    u32 max_scale = std::gcd(cur_dev_mode.dmPelsWidth, cur_dev_mode.dmPelsHeight);
-    u32 aspect_w = cur_dev_mode.dmPelsWidth / max_scale;
-    u32 aspect_h = cur_dev_mode.dmPelsHeight / max_scale;
+    u32 max_scale = std::gcd(info.SDL.Width, info.SDL.Height);
+    u32 aspect_w = info.SDL.Width / max_scale;
+    u32 aspect_h = info.SDL.Height / max_scale;
 
     const auto add_height = [&](u32 height) {
         // TODO: Add 16:9 if the monitor is ultra-wide?
@@ -135,7 +119,7 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
 
     add_height(480);
 
-    u32 curr_height = cur_dev_mode.dmPelsHeight;
+    u32 curr_height = info.SDL.Height;
 
     for (;; curr_height /= 2)
     {
@@ -169,73 +153,24 @@ static BOOL CALLBACK AddRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC
     }
 
     if (info.ResCount == 0)
-        return TRUE;
+        return;
 
     std::sort(
         info.Resolutions, info.Resolutions + info.ResCount, [](const dxiResolution& lhs, const dxiResolution& rhs) {
             return (lhs.uHeight != rhs.uHeight) ? (lhs.uHeight < rhs.uHeight) : (lhs.uWidth < rhs.uWidth);
         });
 
-    if (iMonitor.dwFlags & MONITORINFOF_PRIMARY)
+    if (info.SDL.Left == 0 && info.SDL.Top == 0)
     {
         Displayf("Display '%s' (%i) is primary", info.Name, dxiRendererCount);
+
+        arts_strncat(info.Name, " (Primary)", ARTS_TRUNCATE);
 
         if (dxiRendererChoice == -1)
             dxiRendererChoice = dxiRendererCount;
     }
 
     ++dxiRendererCount;
-
-    return TRUE;
-}
-
-static BOOL CALLBACK CountRendererCallback(HMONITOR hMonitor, [[maybe_unused]] HDC hdcMonitor,
-    [[maybe_unused]] LPRECT lprcMonitor, [[maybe_unused]] LPARAM lParam)
-{
-    MONITORINFOEXA iMonitor {{sizeof(iMonitor)}};
-
-    if (!GetMonitorInfoA(hMonitor, &iMonitor))
-        return TRUE;
-
-    i32& count = *(i32*) (lParam);
-
-    DEVMODEA cur_dev_mode {};
-
-    if (!EnumDisplaySettingsA(iMonitor.szDevice, ENUM_CURRENT_SETTINGS, &cur_dev_mode))
-        return TRUE;
-
-    for (i32 i = 0; i < dxiRendererCount; ++i)
-    {
-        dxiRendererInfo_t& info = dxiInfo[i];
-
-        if (info.Type != dxiRendererType::OpenGL)
-            continue;
-
-        if (info.SpecialFlags != SpecialFlags_GL)
-            continue;
-
-        if (std::strcmp(iMonitor.szDevice, info.Device))
-            continue;
-
-        char name[64] {};
-        GetMonitorName(name, ARTS_SIZE(name), iMonitor.szDevice);
-
-        if (std::strcmp(name, info.Name))
-            continue;
-
-        if (info.ResCount == 0)
-            break;
-
-        if (dxiResolution& res = info.Resolutions[info.ResCount - 1];
-            res.uWidth != cur_dev_mode.dmPelsWidth || res.uHeight != cur_dev_mode.dmPelsHeight)
-            break;
-
-        ++count;
-        return TRUE;
-    }
-
-    count = -1;
-    return FALSE;
 }
 
 void EnumerateRenderersGL()
@@ -243,7 +178,8 @@ void EnumerateRenderersGL()
     dxiRendererCount = 0;
     dxiRendererChoice = -1;
 
-    EnumDisplayMonitors(NULL, NULL, AddRendererCallback, NULL);
+    for (i32 i = 0, count = SDL_GetNumVideoDisplays(); i < count; ++i)
+        AddVideoDisplay(i);
 
     if (dxiRendererCount == 0)
         Quitf("No Valid Renderers");
@@ -256,13 +192,76 @@ void EnumerateRenderersGL()
         dxiRendererInfo_t& info = dxiInfo[i];
 
         if (info.ResChoice == -1)
-            info.ResChoice = dxiResGetRecommended(i, dxiCpuSpeed);
+            info.ResChoice = dxiResGetRecommended(i, 0);
     }
 }
 
 bool ValidateRenderersGL()
 {
-    i32 count = 0;
-    EnumDisplayMonitors(NULL, NULL, CountRendererCallback, (LPARAM) &count);
-    return count == dxiRendererCount;
+    i32 pending = 0;
+
+    for (i32 i = 0; i < dxiRendererCount; ++i)
+    {
+        dxiRendererInfo_t& info = dxiInfo[i];
+
+        if (info.Type != dxiRendererType::OpenGL)
+            continue;
+
+        if (info.SpecialFlags != SpecialFlags_GL)
+            continue;
+
+        info.SDL.Index = -1;
+        ++pending;
+    }
+
+    for (i32 i = 0, count = SDL_GetNumVideoDisplays(); i < count; ++i)
+    {
+        const char* name = SDL_GetDisplayName(i);
+        if (name == nullptr)
+            continue;
+
+        SDL_Rect bounds;
+        if (SDL_GetDisplayBounds(i, &bounds) != 0)
+            continue;
+
+        SDL_DisplayMode mode;
+        if (SDL_GetDesktopDisplayMode(i, &mode) != 0)
+            continue;
+
+        bool found = false;
+
+        for (i32 j = 0; j < dxiRendererCount; ++j)
+        {
+            dxiRendererInfo_t& info = dxiInfo[j];
+
+            if (info.Type != dxiRendererType::OpenGL)
+                continue;
+
+            if (info.SpecialFlags != SpecialFlags_GL)
+                continue;
+
+            if (std::strncmp(info.Name, name, std::strlen(name)) != 0)
+                continue;
+
+            if ((info.SDL.Format != mode.format) || (info.SDL.RefreshRate != mode.refresh_rate))
+                continue;
+
+            if ((info.SDL.Left != bounds.x) || (info.SDL.Top != bounds.y))
+                continue;
+
+            if ((info.SDL.Width != static_cast<u32>(bounds.w)) || (info.SDL.Height != static_cast<u32>(bounds.h)))
+                continue;
+
+            info.SDL.Index = i;
+            found = true;
+            break;
+        }
+
+        if (!found)
+            return false;
+
+        --pending;
+    }
+
+    return pending == 0;
 }

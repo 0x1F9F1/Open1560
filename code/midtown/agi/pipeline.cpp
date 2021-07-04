@@ -335,21 +335,22 @@ RcOwner<class agiTexDef> agiPipeline::GetTexture(i32 index, i32 pack_shift)
     return AsOwner(result);
 }
 
-void* CreatePipelineAttachableWindow(
+SDL_Window* CreatePipelineAttachableWindow(
     char* /*title*/, i32 /*x*/, i32 /*y*/, i32 /*width*/, i32 /*height*/, void* /*ptr*/)
 {
-    return hwndMain;
+    return g_MainWindow;
 }
 
 void DestroyPipelineAttachableWindow()
 {}
 
-void* GetRootWindow()
+SDL_Window* GetRootWindow()
 {
-    return GetDesktopWindow();
+    return g_MainWindow;
 }
 
-i32 agiPipeline::Init(const char* name, i32 x, i32 y, i32 width, i32 height, i32 bit_depth, i32 flags, void* window)
+i32 agiPipeline::Init(
+    const char* name, i32 x, i32 y, i32 width, i32 height, i32 bit_depth, i32 flags, SDL_Window* window)
 {
     EndAllGfx();
 

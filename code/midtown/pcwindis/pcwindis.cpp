@@ -35,7 +35,7 @@ static constexpr usize MAX_MAP_ENTRIES = 16;
 static MapEntry MapEntries[MAX_MAP_ENTRIES] {};
 static i32 NumMapEntries = 0;
 
-LRESULT ARTS_STDCALL MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+static bool HandleMessage(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT& lResult)
 {
     for (i32 i = NumMapEntries; i > 0; --i)
     {
@@ -44,11 +44,27 @@ LRESULT ARTS_STDCALL MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARA
         for (i32 j = 0; j < entry.NumMsgs; ++j)
         {
             if (entry.Msgs[j] == uMsg)
-                return entry.Handler->WindowProc(hwnd, uMsg, wParam, lParam);
+            {
+                lResult = entry.Handler->WindowProc(hwnd, uMsg, wParam, lParam);
+
+                return true;
+            }
         }
     }
 
-    return DefWindowProcA(hwnd, uMsg, wParam, lParam);
+    return false;
+}
+
+void SDLWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    LRESULT lResult = 0;
+    HandleMessage(hwnd, uMsg, wParam, lParam, lResult);
+}
+
+LRESULT ARTS_STDCALL MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    LRESULT lResult = 0;
+    return HandleMessage(hwnd, uMsg, wParam, lParam, lResult) ? lResult : DefWindowProcA(hwnd, uMsg, wParam, lParam);
 }
 
 void RegisterMap(const char* name, u32* msgs, i32 num_msgs, class Dispatchable* handler)
