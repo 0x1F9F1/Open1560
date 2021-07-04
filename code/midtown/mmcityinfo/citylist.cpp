@@ -81,12 +81,9 @@ void mmCityList::Init(i32 /*arg1*/)
 
 void mmCityList::Load(char* name)
 {
-    char path[64];
-    arts_sprintf(path, "tune/%s", name);
-
     Ptr<mmCityInfo> info = MakeUnique<mmCityInfo>();
 
-    if (!info->Load(path) || GetCityID(info->RaceDir) >= 0)
+    if (!info->Load(arts_formatf<64>("tune/%s", name)) || GetCityID(info->RaceDir) >= 0)
         return;
 
     Ptr<mmCityInfo*[]> cities = MakeUniqueUninit<mmCityInfo*[]>(NumCities + 1);

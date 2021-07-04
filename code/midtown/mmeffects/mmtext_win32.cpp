@@ -106,12 +106,10 @@ agiBitmap* mmText::CreateFitBitmap(char* text, void* font, i32 color, i32 bg_col
     agiBitmap* bitmap = Pipe()->CreateBitmap();
 
     {
-        char name[256];
-        arts_sprintf(name, "*FitBitmap:%p", bitmap);
-
         i32 extra = (bg_color != -1) ? 2 : 0;
-        bitmap->Init(name, static_cast<f32>(size.cx + extra), static_cast<f32>(size.cy + extra),
-            AGI_BITMAP_TRANSPARENT | AGI_BITMAP_OFFSCREEN);
+
+        bitmap->Init(arts_formatf<256>("*FitBitmap:%p", bitmap), static_cast<f32>(size.cx + extra),
+            static_cast<f32>(size.cy + extra), AGI_BITMAP_TRANSPARENT | AGI_BITMAP_OFFSCREEN);
     }
 
     HDC dc = static_cast<HDC>(GetDC(bitmap->GetSurface()));
@@ -262,12 +260,10 @@ void mmTextNode::GetTextDimensions(void* font, LocString* text, f32& width, f32&
 
     if (text_bitmap_ == nullptr)
     {
-        char name[256];
-        arts_sprintf(name, "*TextNode:%ptemp", this);
-
         text_bitmap_.reset(Pipe()->CreateBitmap());
 
-        text_bitmap_->Init(name, Pipe()->GetWidth() * width, Pipe()->GetHeight() * height, 0);
+        text_bitmap_->Init(
+            arts_formatf<256>("*TextNode:%ptemp", this), Pipe()->GetWidth() * width, Pipe()->GetHeight() * height, 0);
 
         created_bitmap = true;
     }

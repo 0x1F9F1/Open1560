@@ -100,8 +100,7 @@ static u32 CompileShader(u32 type, i32 glsl_version, const char* src)
 {
     u32 shader = glCreateShader(type);
 
-    char version_string[64];
-    arts_sprintf(version_string, "#version %i\n", glsl_version);
+    const auto version_string = arts_formatf<64>("#version %i\n", glsl_version);
 
     const char* strings[3] {version_string, "", src};
 

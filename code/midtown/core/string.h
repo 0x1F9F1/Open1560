@@ -156,6 +156,12 @@ private:
 
 static_assert(sizeof(ConstString) == sizeof(char*));
 
+class arts_format_t
+{};
+
+class arts_vformat_t
+{};
+
 template <usize N>
 class CStringBuffer
 {
@@ -172,16 +178,17 @@ public:
         assign(value);
     }
 
-    CStringBuffer(ARTS_FORMAT_STRING const char* format, std::va_list va)
+    CStringBuffer(arts_vformat_t, ARTS_FORMAT_STRING const char* format, std::va_list va)
     {
         arts_vsprintf(buffer_, format, va);
     }
 
-    CStringBuffer& operator=(const char* value)
+    CStringBuffer(arts_format_t, ARTS_FORMAT_STRING const char* format, ...)
     {
-        assign(value);
-
-        return *this;
+        std::va_list va;
+        va_start(va, format);
+        arts_vsprintf(buffer_, format, va);
+        va_end(va);
     }
 
     void clear()
@@ -209,25 +216,17 @@ public:
         arts_strncat(buffer_, value, len);
     }
 
-    void sprintf(ARTS_FORMAT_STRING const char* format, ...)
-    {
-        std::va_list va;
-        va_start(va, format);
-        arts_vsprintf(buffer_, format, va);
-        va_end(va);
-    }
-
-    void vsprintf(ARTS_FORMAT_STRING const char* format, std::va_list va)
-    {
-        arts_vsprintf(buffer_, format, va);
-    }
-
     char* get()
     {
         return buffer_;
     }
 
     const char* get() const
+    {
+        return buffer_;
+    }
+
+    operator char*()
     {
         return buffer_;
     }
@@ -336,12 +335,14 @@ inline bool operator!=(const char* lhs, const ConstString& rhs)
     return std::strcmp(lhs, rhs.get()) != 0;
 }
 
-template <usize N>
-inline CStringBuffer<N> arts_formatf(const char* format, ...)
+template <usize N, typename... Args>
+ARTS_FORCEINLINE CStringBuffer<N> arts_formatf(const char* format, const Args&... args)
 {
-    std::va_list va;
-    va_start(va, format);
-    CStringBuffer<N> result { format, va };
-    va_end(va);
-    return result;
+    return CStringBuffer<N> {arts_format_t {}, format, args...};
+}
+
+template <usize N>
+ARTS_FORCEINLINE CStringBuffer<N> arts_vformatf(const char* format, std::va_list va)
+{
+    return CStringBuffer<N> {arts_vformat_t {}, format, va};
 }

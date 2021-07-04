@@ -63,10 +63,7 @@ void DumpProblems()
     {
         std::qsort(Problems, NumProblems, sizeof(*Problems), cmpProblem);
 
-        char output_path[1024];
-        arts_sprintf(output_path, "%s/problems.txt", ProjPath);
-
-        if (Ptr<Stream> output {arts_fopen(output_path, "w")})
+        if (Ptr<Stream> output {arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/problems.txt", ProjPath), "w")})
         {
             output->Printf("Total Problems: %i\n", NumProblems);
 

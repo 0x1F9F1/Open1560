@@ -132,34 +132,31 @@ static void CheckSystem()
     }
 }
 
-static void LoadArchives(const char* path)
+static void LoadArchives(const char* base_path)
 {
-    char module_path[1024];
+    char module_path[ARTS_MAX_PATH];
 
-    if (!path)
+    if (!base_path)
     {
         GetModuleFileNameA(NULL, module_path, ARTS_SIZE32(module_path));
 
         if (char* dir = std::strrchr(module_path, '\\'))
         {
             *dir = '\0';
-            path = module_path;
+            base_path = module_path;
         }
         else
         {
-            path = ".";
+            base_path = ".";
         }
     }
 
-    for (FileInfo* f = HFS.FirstEntry(path); f; f = HFS.NextEntry(f))
+    for (FileInfo* f = HFS.FirstEntry(base_path); f; f = HFS.NextEntry(f))
     {
         if (const char* ext = std::strrchr(f->Path, '.');
             ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
         {
-            char file_path[1024];
-            arts_sprintf(file_path, "%s/%s", path, f->Path);
-
-            if (Stream* stream = arts_fopen(file_path, "r"))
+            if (Stream* stream = arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/%s", base_path, f->Path), "r"))
             {
                 Displayf("Adding '%s' in autosearch...", f->Path);
                 /*FileSystem::FS[...] = */ new VirtualFileSystem(stream);
@@ -377,10 +374,8 @@ static void MainPhase(i32 argc, char** argv)
     {
         if (SampleStats)
         {
-            char csv_name[80];
-            arts_sprintf(csv_name, "gstat_%d_%d_%04d.csv", MMSTATE.GameMode, MMSTATE.EventId,
-                static_cast<i32>(frand() * 1000.0f));
-            SystemStatsRecord->Dump(csv_name);
+            SystemStatsRecord->Dump(arts_formatf<80>(
+                "gstat_%d_%d_%04d.csv", MMSTATE.GameMode, MMSTATE.EventId, static_cast<i32>(frand() * 1000.0f)));
 
             delete SystemStatsRecord;
             SystemStatsRecord = nullptr;

@@ -22,17 +22,13 @@ define_dummy_symbol(data7_miniparser);
 
 void MiniParser::Commentf(ARTS_FORMAT_STRING char const* format, ...)
 {
-    CStringBuffer<1024> buffer;
-
-    std::va_list va;
-    va_start(va, format);
-    buffer.vsprintf(format, va);
-    va_end(va);
-
     PutCh(';');
     PutCh(' ');
 
-    PutString(buffer);
+    std::va_list va;
+    va_start(va, format);
+    PutString(arts_vformatf<1024>(format, va));
+    va_end(va);
 }
 
 static i32 TotalParserErrors = 0;
@@ -43,19 +39,19 @@ void MiniParser::Errorf(ARTS_FORMAT_STRING char const* format, ...)
 
     if (TotalParserErrors < 25)
     {
-        CStringBuffer<1024> buffer;
-
-        std::va_list va;
-        va_start(va, format);
-        buffer.vsprintf(format, va);
-        va_end(va);
-
         ++error_count_;
 
         if (error_count_ < 10)
-            ::Errorf("Parser(%s,%d): %s", name_.get(), current_line_, buffer.get());
+        {
+            std::va_list va;
+            va_start(va, format);
+            ::Errorf("Parser(%s,%d): %s", name_.get(), current_line_, arts_vformatf<1024>(format, va));
+            va_end(va);
+        }
         else if (error_count_ == 10)
+        {
             ::Errorf("This file sucks, change it!");
+        }
     }
     else if (TotalParserErrors == 25)
     {
@@ -264,14 +260,10 @@ void MiniParser::PrintString(const char* str, i32 len)
 
 void MiniParser::Printf(ARTS_FORMAT_STRING char const* format, ...)
 {
-    CStringBuffer<1024> buffer;
-
     std::va_list va;
     va_start(va, format);
-    buffer.vsprintf(format, va);
+    PutString(arts_vformatf<1024>(format, va));
     va_end(va);
-
-    PutString(buffer);
 }
 
 void MiniParser::PutBack(i32 token)

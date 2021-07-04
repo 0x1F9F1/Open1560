@@ -176,14 +176,11 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
         if (mem::pointer ver_string = mem::scan(mem::pattern("Angel: ", nullptr), mem::module::main());
             ver_string != 0x6346BC)
         {
-            char buffer[256];
-
-            arts_sprintf(buffer,
-                "Invalid Game Version '%s'\n"
-                "Use the Open1560.exe provided in the download",
-                ver_string ? ver_string.as<const char*>() : "<INVALID>");
-
-            MessageBoxA(NULL, buffer, "Invalid Version", MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
+            MessageBoxA(NULL,
+                arts_formatf<256>("Invalid Game Version '%s'\n"
+                                  "Use the Open1560.exe provided in the download",
+                    ver_string ? ver_string.as<const char*>() : "<INVALID>"),
+                "Invalid Version", MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
 
             std::exit(1);
         }

@@ -175,16 +175,14 @@ b32 FileSystem::Search(
 
     if (ext_id >= 1 && ext_id <= 9999)
     {
-        char ext_id_str[256];
-        arts_sprintf(ext_id_str, ".%04d", ext_id);
-        arts_strcat(file_name, ext_id_str);
+        arts_strcat(file_name, arts_formatf<16>(".%04d", ext_id));
     }
 
     char folders[256];
-    arts_strcpy(folders, file_path[0] ? file_path : (folder && *folder) ? folder : ".");
+    arts_strcpy(folders, *file_path ? file_path : (folder && *folder) ? folder : ".");
 
     char exts[256];
-    arts_strcpy(exts, file_ext[0] ? file_ext : (ext && *ext) ? ext : "");
+    arts_strcpy(exts, *file_ext ? file_ext : (ext && *ext) ? ext : "");
 
     i32 num_folders = NumSubStrings(folders);
     i32 num_exts = NumSubStrings(exts);

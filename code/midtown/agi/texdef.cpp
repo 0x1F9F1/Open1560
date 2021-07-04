@@ -316,13 +316,12 @@ void UpdateLutQueue()
     {
         i32 index = (lutQhead + 1) % ARTS_SIZE(lutQ);
 
-        char buffer[32];
-        arts_sprintf(buffer, "texp/nbr%s.lut", lutQ[index].Name);
+        auto path = arts_formatf<32>("texp/nbr%s.lut", lutQ[index].Name);
 
-        *lutQ[index].Lut = AsRaw(Pipe()->GetTexLut(buffer));
+        *lutQ[index].Lut = AsRaw(Pipe()->GetTexLut(path));
 
         if (*lutQ[index].Lut == nullptr)
-            Errorf("Lut '%s' didn't load.", buffer);
+            Errorf("Lut '%s' didn't load.", path.get());
 
         lutQhead = index;
     }

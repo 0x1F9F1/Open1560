@@ -236,7 +236,7 @@ void asSimulation::Init(char* proj_path, i32 argc, char** argv)
     if (fsVerbose)
         Displayf("Using '%s' for project path.", proj_path);
 
-    char exe_path[1024];
+    char exe_path[ARTS_MAX_PATH];
 
     if (!vfs_path)
     {

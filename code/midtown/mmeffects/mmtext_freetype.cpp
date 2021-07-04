@@ -60,13 +60,10 @@ private:
         : face_(face)
         , height_(height)
     {
-        arts_strcpy(name_, name);
-
-        FontHash.Insert(name_, this);
+        FontHash.Insert(name, this);
     }
 
     FT_Face face_ {nullptr};
-    char name_[256] {};
     i32 height_ {0};
 
     struct mmGlyph
@@ -425,8 +422,7 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
         OnGameReset.Append(CFA(mmFont_Shutdown));
     }
 
-    char name[256];
-    arts_sprintf(name, "%s, %i, %i", font_name, height, weight);
+    const auto name = arts_formatf<256>("%s, %i, %i", font_name, height, weight);
 
     if (mmFont* font = static_cast<mmFont*>(FontHash.Access(name)))
     {
@@ -453,7 +449,7 @@ mmFont* mmFont::Create(const char* font_name, i32 height, i32 weight)
     else
     {
         // Unknown font (hope for the best)
-        font_path = "C:\\WINDOWS\\FONTS\\VERDANA.TTF";
+        font_path.assign("C:\\WINDOWS\\FONTS\\VERDANA.TTF");
     }
 
     Stream* file = arts_fopen(font_path, "r");
@@ -527,13 +523,10 @@ RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color
     size.cx += size.cx & 1;
 
     {
-        char name[256];
-        arts_sprintf(name, "*FitBitmap:%p", bitmap.get());
-
         i32 extra = (bg_color != -1) ? 2 : 0;
 
-        bitmap->Init(name, static_cast<f32>(size.cx + extra), static_cast<f32>(size.cy + extra),
-            AGI_BITMAP_TRANSPARENT | AGI_BITMAP_OFFSCREEN);
+        bitmap->Init(arts_formatf<256>("*FitBitmap:%p", bitmap.get()), static_cast<f32>(size.cx + extra),
+            static_cast<f32>(size.cy + extra), AGI_BITMAP_TRANSPARENT | AGI_BITMAP_OFFSCREEN);
     }
 
     if (bg_color != -1)

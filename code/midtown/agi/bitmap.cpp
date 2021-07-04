@@ -104,8 +104,6 @@ agiBitmap::~agiBitmap()
         surface_->Unload();
 
     // TODO: Should this use width_ and height_ instead of width_scale_ and height_scale_?
-    char buffer[64];
-    arts_sprintf(buffer, "%s.%x.%x.%d", name_.get(), mem::bit_cast<u32>(width_scale_),
-        mem::bit_cast<u32>(height_scale_), flags_);
-    BitmapHash.Delete(buffer);
+    BitmapHash.Delete(arts_formatf<64>(
+        "%s.%x.%x.%d", name_.get(), mem::bit_cast<u32>(width_scale_), mem::bit_cast<u32>(height_scale_), flags_));
 }

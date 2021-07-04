@@ -75,12 +75,9 @@ void mmVehList::Init(i32 /*arg1*/)
 
 void mmVehList::Load(char* name)
 {
-    char path[64];
-    arts_sprintf(path, "tune/%s", name);
-
     Ptr<mmVehInfo> info = MakeUnique<mmVehInfo>();
 
-    if (!info->Load(path) || GetVehicleID(info->BaseName) >= 0)
+    if (!info->Load(arts_formatf<64>("tune/%s", name)) || GetVehicleID(info->BaseName) >= 0)
         return;
 
     Ptr<mmVehInfo*[]> vehicles = MakeUniqueUninit<mmVehInfo*[]>(NumVehicles + 1);

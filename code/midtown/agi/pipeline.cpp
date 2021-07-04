@@ -268,10 +268,9 @@ void agiPipeline::EndAllGfx()
 
 RcOwner<agiBitmap> agiPipeline::GetBitmap(const char* name, f32 sx, f32 sy, i32 flags)
 {
-    char buffer[64];
-    arts_sprintf(buffer, "%s.%x.%x.%d", name, mem::bit_cast<u32>(sx), mem::bit_cast<u32>(sy), flags);
+    auto full_name = arts_formatf<64>("%s.%x.%x.%d", name, mem::bit_cast<u32>(sx), mem::bit_cast<u32>(sy), flags);
 
-    if (agiBitmap* result = static_cast<agiBitmap*>(BitmapHash.Access(buffer)))
+    if (agiBitmap* result = static_cast<agiBitmap*>(BitmapHash.Access(full_name)))
     {
         return AsOwner(AddRc(result));
     }
@@ -281,7 +280,7 @@ RcOwner<agiBitmap> agiPipeline::GetBitmap(const char* name, f32 sx, f32 sy, i32 
     if (result->Init(name, sx, sy, flags) != AGI_ERROR_SUCCESS)
         return nullptr;
 
-    BitmapHash.Insert(buffer, result.get());
+    BitmapHash.Insert(full_name, result.get());
 
     return AsOwner(result);
 }

@@ -100,11 +100,10 @@ void asNode::Load()
     if (!name || !std::strncmp(name, "_", 1))
         name = "default";
 
-    CStringBuffer<128> buffer;
-    buffer.sprintf(".%s", GetNodeType());
+    string type = string(arts_formatf<128>(".%s", GetNodeType()));
 
     string path;
-    path.SaveName(name, 0, "tune", buffer.get());
+    path.SaveName(name, 0, "tune", type);
 
     Load(path.get());
 }
@@ -116,11 +115,10 @@ void asNode::Save()
     if (!name || !std::strncmp(name, "_", 1))
         name = "default";
 
-    CStringBuffer<128> buffer;
-    buffer.sprintf(".%s", GetNodeType());
+    string type = string(arts_formatf<128>(".%s", GetNodeType()));
 
     string path;
-    path.SaveName(name, 0, "tune", buffer.get());
+    path.SaveName(name, 0, "tune", type);
 
     Save(path.get());
 }

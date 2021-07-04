@@ -206,7 +206,7 @@ const char* FQN(const char* path)
     if (FileSystem::IsPhysicalPath(path))
         return path;
 
-    static char buffer[128]; // FIXME: Static buffer
+    static char buffer[ARTS_MAX_PATH]; // FIXME: Static buffer
 
     arts_strcpy(buffer, prefix);
 

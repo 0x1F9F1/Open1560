@@ -225,9 +225,8 @@ void LogToFile()
     char machname[128];
     GetMachineName(machname, ARTS_SIZE(machname));
 
-    char filename[128];
-    arts_sprintf(filename, "%s-%04d%02d%02d-%02d%02d%02d.log", machname, tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
-        tm.tm_hour, tm.tm_min, tm.tm_sec);
+    const auto filename = arts_formatf<128>("%s-%04d%02d%02d-%02d%02d%02d.log", machname, tm.tm_year + 1900,
+        tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
 
     LogToFile(filename);
 }
@@ -252,10 +251,7 @@ void LogToFile(const char* file)
             {
                 CreateDirectoryA("crashes", NULL);
 
-                char new_name[256];
-                arts_sprintf(new_name, "crashes/Open1560-%.15s.log", time_string);
-
-                if (!MoveFileA(file, new_name))
+                if (!MoveFileA(file, arts_formatf<256>("crashes/Open1560-%.15s.log", time_string)))
                 {
                     Warningf("Failed to save log file");
                 }

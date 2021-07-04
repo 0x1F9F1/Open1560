@@ -106,33 +106,17 @@ bkButton* asMidgets::AddButton(const char* arg1, Callback arg2)
 
 void asMidgets::AddColor(const char* arg1, Vector3* arg2, Callback arg3)
 {
-    CStringBuffer<128> buffer;
-
-    buffer.sprintf("%s R", arg1);
-    AddSlider(buffer.get(), &arg2->x, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
-
-    buffer.sprintf("%s G", arg1);
-    AddSlider(buffer.get(), &arg2->y, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
-
-    buffer.sprintf("%s B", arg1);
-    AddSlider(buffer.get(), &arg2->z, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
+    AddSlider(arts_formatf<128>("%s R", arg1), &arg2->x, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
+    AddSlider(arts_formatf<128>("%s G", arg1), &arg2->y, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
+    AddSlider(arts_formatf<128>("%s B", arg1), &arg2->z, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
 }
 
 void asMidgets::AddColor(const char* arg1, Vector4* arg2, Callback arg3)
 {
-    CStringBuffer<128> buffer;
-
-    buffer.sprintf("%s R", arg1);
-    AddSlider(buffer.get(), &arg2->x, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
-
-    buffer.sprintf("%s G", arg1);
-    AddSlider(buffer.get(), &arg2->y, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
-
-    buffer.sprintf("%s B", arg1);
-    AddSlider(buffer.get(), &arg2->z, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
-
-    buffer.sprintf("%s A", arg1);
-    AddSlider(buffer.get(), &arg2->w, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
+    AddSlider(arts_formatf<128>("%s R", arg1), &arg2->x, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
+    AddSlider(arts_formatf<128>("%s G", arg1), &arg2->y, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
+    AddSlider(arts_formatf<128>("%s B", arg1), &arg2->z, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
+    AddSlider(arts_formatf<128>("%s A", arg1), &arg2->w, 0.0f, 1.0f, 1.0f / 255.0f, arg3);
 }
 
 void asMidgets::AddFileButton(const char* arg1, [[maybe_unused]] Callback arg2)
@@ -451,44 +435,23 @@ bkButton* asMidgets::AddToggle(const char* arg1, i32* arg2, i32 arg3, Callback a
 
 void asMidgets::AddVector(const char* arg1, Vector2* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6)
 {
-    CStringBuffer<128> buffer;
-
-    buffer.sprintf("%s X", arg1);
-    AddSlider(buffer.get(), &arg2->x, arg3, arg4, arg5, arg6);
-
-    buffer.sprintf("%s Y", arg1);
-    AddSlider(buffer.get(), &arg2->y, arg3, arg4, arg5, arg6);
+    AddSlider(arts_formatf<128>("%s X", arg1), &arg2->x, arg3, arg4, arg5, arg6);
+    AddSlider(arts_formatf<128>("%s Y", arg1), &arg2->y, arg3, arg4, arg5, arg6);
 }
 
 void asMidgets::AddVector(const char* arg1, Vector3* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6)
 {
-    CStringBuffer<128> buffer;
-
-    buffer.sprintf("%s X", arg1);
-    AddSlider(buffer.get(), &arg2->x, arg3, arg4, arg5, arg6);
-
-    buffer.sprintf("%s Y", arg1);
-    AddSlider(buffer.get(), &arg2->y, arg3, arg4, arg5, arg6);
-
-    buffer.sprintf("%s Z", arg1);
-    AddSlider(buffer.get(), &arg2->z, arg3, arg4, arg5, arg6);
+    AddSlider(arts_formatf<128>("%s X", arg1), &arg2->x, arg3, arg4, arg5, arg6);
+    AddSlider(arts_formatf<128>("%s Y", arg1), &arg2->y, arg3, arg4, arg5, arg6);
+    AddSlider(arts_formatf<128>("%s Z", arg1), &arg2->z, arg3, arg4, arg5, arg6);
 }
 
 void asMidgets::AddVector(const char* arg1, Vector4* arg2, f32 arg3, f32 arg4, f32 arg5, Callback arg6)
 {
-    CStringBuffer<128> buffer;
-
-    buffer.sprintf("%s X", arg1);
-    AddSlider(buffer.get(), &arg2->x, arg3, arg4, arg5, arg6);
-
-    buffer.sprintf("%s Y", arg1);
-    AddSlider(buffer.get(), &arg2->y, arg3, arg4, arg5, arg6);
-
-    buffer.sprintf("%s Z", arg1);
-    AddSlider(buffer.get(), &arg2->z, arg3, arg4, arg5, arg6);
-
-    buffer.sprintf("%s W", arg1);
-    AddSlider(buffer.get(), &arg2->w, arg3, arg4, arg5, arg6);
+    AddSlider(arts_formatf<128>("%s X", arg1), &arg2->x, arg3, arg4, arg5, arg6);
+    AddSlider(arts_formatf<128>("%s Y", arg1), &arg2->y, arg3, arg4, arg5, arg6);
+    AddSlider(arts_formatf<128>("%s Z", arg1), &arg2->z, arg3, arg4, arg5, arg6);
+    AddSlider(arts_formatf<128>("%s W", arg1), &arg2->w, arg3, arg4, arg5, arg6);
 }
 
 void asMidgets::Cull()
