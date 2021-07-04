@@ -26,6 +26,10 @@ define_dummy_symbol(pcwindis_dxinit);
 #include "agi/pipeline.h"
 #include "data7/ipc.h"
 
+#ifdef ARTS_ENABLE_OPENGL
+#    include "agigl/glpipe.h"
+#endif
+
 #include <SDL_hints.h>
 #include <SDL_system.h>
 #include <SDL_syswm.h>
@@ -354,10 +358,6 @@ static void SaveScreenShot(void* ctx)
     }
 }
 
-#ifdef ARTS_ENABLE_OPENGL
-#    include "agigl/glpipe.h"
-#endif
-
 void dxiScreenShot(char* file_name)
 {
     if (TakingScreenshot)
@@ -441,9 +441,6 @@ void dxiShutdown()
 
 void dxiWindowCreate(const char* title)
 {
-#if 0
-    return dxiWindowCreate(title, dxiRendererType::Software);
-#else
     if (hwndMain != NULL)
         return;
 
@@ -467,20 +464,19 @@ void dxiWindowCreate(const char* title)
         agiWindowClass = RegisterClassA(&wc);
     }
 
-    hwndMain = CreateWindowExA(
-        WS_EX_APPWINDOW, "agiwindow", title, WS_POPUP, 0, 0, dxiWidth, dxiHeight, NULL, NULL, hInstance, NULL);
+    hwndMain = CreateWindowExA(WS_EX_APPWINDOW, "agiwindow", title, WS_POPUP, 0, 0, 0, 0, NULL, NULL, hInstance, NULL);
 
     ShowWindow(hwndMain, SW_SHOWNORMAL);
     UpdateWindow(hwndMain);
-#endif
 }
 
 static mem::cmd_param PARAM_legacygl {"legacygl"};
+static mem::cmd_param PARAM_sdlwindow {"sdlwindow"};
 
 void dxiWindowCreate(const char* title, dxiRendererType type)
 {
-    // if (type != dxiRendererType::OpenGL)
-    //     return dxiWindowCreate(title);
+    if ((type != dxiRendererType::OpenGL) && !PARAM_sdlwindow.get_or(false))
+        return dxiWindowCreate(title);
 
     if (g_MainWindow != NULL)
         return;
@@ -505,6 +501,7 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
     }
 
     SDL_SetHintWithPriority(SDL_HINT_WINDOWS_INTRESOURCE_ICON, arts_formatf<16>("%i", dxiIcon), SDL_HINT_OVERRIDE);
+    SDL_SetHintWithPriority(SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4, "1", SDL_HINT_OVERRIDE);
 
     g_MainWindow = SDL_CreateWindow(title, 0, 0, 0, 0, window_flags);
 
@@ -518,8 +515,6 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
     SDL_VERSION(&wm_info.version);
     ArAssert(SDL_GetWindowWMInfo(g_MainWindow, &wm_info), "Failed to get native window handle");
     hwndMain = wm_info.info.win.window;
-
-    SDL_SetHintWithPriority(SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4, "1", SDL_HINT_OVERRIDE);
 }
 
 void dxiWindowDestroy()
