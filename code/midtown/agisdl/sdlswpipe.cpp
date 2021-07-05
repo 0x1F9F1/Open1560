@@ -80,8 +80,8 @@ public:
         SDL_Rect rect {
             static_cast<i32>(width * params_.X),
             static_cast<i32>(height * (1.0f - (params_.Y + params_.Height))),
-            static_cast<i32>(width * params_.Width),
-            static_cast<i32>(height * params_.Height),
+            static_cast<i32>(std::ceil(width * params_.Width)),
+            static_cast<i32>(std::ceil(height * params_.Height)),
         };
 
         if (flags & AGI_VIEW_CLEAR_TARGET)
@@ -399,23 +399,28 @@ void agiSDLSWPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
 
 void agiSDLSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height)
 {
+    if (!IsAppActive())
+        return;
+
+    // FIXME: https://github.com/0x1F9F1/Open1560/issues/22
+    if (src_y + height > src->GetHeight())
+        return;
+
     ++agiBitmapCount;
     agiBitmapPixels += width * height;
 
+    // FIXME: This overlaps with the rasterizer timer
+    ARTS_UTIMED(agiCopyBitmap);
+
     // TODO: Implement DrawMode 3
 
-    if (IsAppActive() && (dst_x >= 0) && (dst_x + width <= width_) && (dst_y >= 0) && (dst_y + height <= height_))
-    {
-        ARTS_UTIMED(agiCopyBitmap);
+    if ((dst_x == 0) && (dst_y == 0) && (width == width_) && (height == height_))
+        std::memset(swDepthBuffer, 0xFF, sizeof(u16) * swFbWidth * swFbHeight);
 
-        if ((dst_x == 0) && (dst_y == 0) && (width == width_) && (height == height_))
-            std::memset(swDepthBuffer, 0xFF, sizeof(u16) * swFbWidth * swFbHeight);
+    SDL_Rect src_rect {src_x, src_y, width, height};
+    SDL_Rect dst_rect {dst_x, dst_y, width, height};
 
-        SDL_Rect src_rect {src_x, src_y, width, height};
-        SDL_Rect dst_rect {dst_x, dst_y, width, height};
-
-        SDL_BlitScaled(static_cast<agiSDLBitmap*>(src)->GetSurface(), &src_rect, render_surface_, &dst_rect);
-    }
+    SDL_BlitScaled(static_cast<agiSDLBitmap*>(src)->GetSurface(), &src_rect, render_surface_, &dst_rect);
 }
 
 RcOwner<class agiBitmap> agiSDLSWPipeline::CreateBitmap()

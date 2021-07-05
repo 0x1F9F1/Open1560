@@ -42,7 +42,7 @@ void AutoDetect(i32 renderer, i32 resolution)
 
     dxiResolution& res = info.Resolutions[resolution];
 
-    if (info.Type != dxiRendererType::DX6_Soft)
+    if (info.Type != dxiRendererType::DX6_Soft && info.Type != dxiRendererType::SDL2)
     {
         agiRQ.TerrainQuality = AGI_QUALITY_VERY_HIGH;
 
@@ -57,11 +57,14 @@ void AutoDetect(i32 renderer, i32 resolution)
 
         if (info.SpecialFlags & 0x2)
             agiRQ.TextureQuality = AGI_QUALITY_LOW;
+
+        agiRQ.FarClip = 1000.0f;
     }
     else
     {
         agiRQ.TerrainQuality = AGI_QUALITY_MEDIUM;
         agiRQ.TextureQuality = (res.uWidth >= 512) ? AGI_QUALITY_HIGH : AGI_QUALITY_MEDIUM;
+        agiRQ.FarClip = 600.0f;
     }
 
     MaxTextureQuality = AGI_QUALITY_VERY_HIGH;
@@ -70,7 +73,6 @@ void AutoDetect(i32 renderer, i32 resolution)
 
     agiRQ.TexturedSky = true;
     agiRQ.Shadow = AGI_QUALITY_VERY_HIGH;
-    agiRQ.FarClip = 1000.0;
 
     agiRQ.LightQuality = AGI_QUALITY_VERY_HIGH;
     LightQualityOption = static_cast<f32>(agiRQ.LightQuality);
