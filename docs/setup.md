@@ -4,12 +4,14 @@ In most cases, Open1560 should run optimally straight away.
 You do not need to install the XP patch, or use dgVoodoo.
 However, there are certain things you may wish to change:
 * If you have a laptop, ensure you are using the correct GPU.
+* To enable anti-aliasing, use the `-msaa <LEVEL>` argument (possible levels are 1, 2, 4 or 8). This may not be available on certain older/integrated GPUs.
 * If you have low performance:
-    * If using Wine, try enabling threaded OpenGL with the environment variables `mesa_glthread=true` for Mesa, or `__GL_THREADED_OPTIMIZATIONS=1` for Nvidia
     * Try using the `-legacygl` argument.
     * Consider disabling cloud shadows, the rear view mirror, or lowering the far clip distance.
-* To enable anti-aliasing, use the `-msaa <LEVEL>` argument (possible levels are 1, 2, 4 or 8). This may not be available on certain older/integrated GPUs.
-* If using Wine, download [wine1560.sh](https://raw.githubusercontent.com/0x1F9F1/Open1560/master/extra/wine1560.sh), or manually set the WINEDLLOVERRIDES to prefer native dinput
+* If using Wine:
+    * Download [wine1560.sh](https://raw.githubusercontent.com/0x1F9F1/Open1560/master/extra/wine1560.sh), or manually set the `WINEDLLOVERRIDES` to prefer native dinput.
+    * If the hardware renderer is slow, try enabling threaded OpenGL with the environment variable `mesa_glthread=true` for Mesa, or `__GL_THREADED_OPTIMIZATIONS=1` for Nvidia.
+    * If the software renderer is slow, try setting the environment variable `SDL_RENDER_DRIVER=opengl`.
 
 # Common Issues
 
@@ -60,7 +62,7 @@ For a tutorial on how to use command line arguments, click [here](https://www.bl
 | nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl) |
 | opengl     | true  | Use the OpenGL renderer |
 | prio       | 2     | Sets the process priority |
-| scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered |
+| scaling    | 0     | Sets the scaling mode. 0 = Stretched (Keep Aspect), 1 = Stretched, 2 = Centered, 3 = Centered (Integer Scaling) |
 | smoothstep | true  | Smoothes out the time between frames to avoid stutter |
 | speedrun   | false | Enables speedrunning conditions (currently -nosmoothstep -maxfps=60 -speedycops) |
 | speedycops | false | Enables the vanilla cop speed boost (fps dependant) |

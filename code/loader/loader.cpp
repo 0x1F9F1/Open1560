@@ -189,14 +189,14 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
                 GetProcAddress(GetModuleHandleA("KERNEL32.DLL"), "SetProcessDEPPolicy")))
         {
             _SetProcessDEPPolicy(0x00000001 /*PROCESS_DEP_ENABLE*/);
-        };
+        }
 
         // Fixes mouse drift when display scale is not 100%
         if (auto _SetProcessDPIAware =
                 reinterpret_cast<BOOL(WINAPI*)()>(GetProcAddress(GetModuleHandleA("USER32.DLL"), "SetProcessDPIAware")))
         {
             _SetProcessDPIAware();
-        };
+        }
 
 #ifdef ARTS_FINAL
         if (IsDebuggerPresent())

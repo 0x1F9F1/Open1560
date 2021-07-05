@@ -143,6 +143,8 @@ public:
     // 0x533DC0 | ?Validate@agiSWPipeline@@UAEHXZ
     ARTS_EXPORT i32 Validate() override;
 
+    b32 PrintIs3D() override;
+
     IDirectDraw4* GetDirectDraw() const
     {
         return lpDD4;

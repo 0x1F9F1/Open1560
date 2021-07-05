@@ -16,16 +16,22 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "glsetup.h"
+#include "sdlsetup.h"
 
 #include "pcwindis/setupdata.h"
 
 #include <SDL_video.h>
 #include <numeric>
 
-static const u32 SpecialFlags_GL = 0x10 | 0x20;
+static u32 GetSpecialFlags(dxiRendererType type)
+{
+    if (type == dxiRendererType::OpenGL)
+        return 0x10 | 0x20;
 
-static void AddVideoDisplay(i32 index)
+    return 0;
+}
+
+static void AddVideoDisplay(i32 index, dxiRendererType type)
 {
     if (dxiRendererCount >= ARTS_SSIZE(dxiInfo))
         return;
@@ -36,16 +42,16 @@ static void AddVideoDisplay(i32 index)
 
     info.Valid = true;
     info.Usable = true;
-    info.Type2 = dxiRendererType::OpenGL;
+    info.Type2 = type;
     info.Flags = 0;
 
-    info.SmoothAlpha = true;
+    info.SmoothAlpha = (type != dxiRendererType::SDL2);
     info.AdditiveBlending = true;
     info.VertexFog = true;
     info.MultiTexture = true;
     info.TexturePalette = true;
     info.HaveMipmaps = true;
-    info.SpecialFlags = SpecialFlags_GL;
+    info.SpecialFlags = GetSpecialFlags(type);
 
     const char* name = SDL_GetDisplayName(index);
     if (name == nullptr)
@@ -61,6 +67,9 @@ static void AddVideoDisplay(i32 index)
 
     arts_strncpy(info.Name, name, ARTS_TRUNCATE);
 
+    if (type == dxiRendererType::SDL2)
+        arts_strncat(info.Name, " (Software)", ARTS_TRUNCATE);
+
     // Pipes are used as the list separator
     for (char* s = info.Name; *s; ++s)
     {
@@ -75,7 +84,7 @@ static void AddVideoDisplay(i32 index)
     info.SDL.Format = mode.format;
     info.SDL.RefreshRate = mode.refresh_rate;
 
-    info.Type = dxiRendererType::OpenGL;
+    info.Type = type;
 
     info.ResCount = 0;
     info.ResChoice = -1;
@@ -160,26 +169,26 @@ static void AddVideoDisplay(i32 index)
             return (lhs.uHeight != rhs.uHeight) ? (lhs.uHeight < rhs.uHeight) : (lhs.uWidth < rhs.uWidth);
         });
 
-    if (info.SDL.Left == 0 && info.SDL.Top == 0)
+    if (info.SDL.Left == 0 && info.SDL.Top == 0 && dxiRendererChoice == -1)
     {
         Displayf("Display '%s' (%i) is primary", info.Name, dxiRendererCount);
-
         arts_strncat(info.Name, " (Primary)", ARTS_TRUNCATE);
-
-        if (dxiRendererChoice == -1)
-            dxiRendererChoice = dxiRendererCount;
+        dxiRendererChoice = dxiRendererCount;
     }
 
     ++dxiRendererCount;
 }
 
-void EnumerateRenderersGL()
+void EnumerateRenderersSDL()
 {
     dxiRendererCount = 0;
     dxiRendererChoice = -1;
 
     for (i32 i = 0, count = SDL_GetNumVideoDisplays(); i < count; ++i)
-        AddVideoDisplay(i);
+        AddVideoDisplay(i, dxiRendererType::OpenGL);
+
+    for (i32 i = 0, count = SDL_GetNumVideoDisplays(); i < count; ++i)
+        AddVideoDisplay(i, dxiRendererType::SDL2);
 
     if (dxiRendererCount == 0)
         Quitf("No Valid Renderers");
@@ -196,22 +205,16 @@ void EnumerateRenderersGL()
     }
 }
 
-bool ValidateRenderersGL()
+bool ValidateRenderersSDL()
 {
-    i32 pending = 0;
-
     for (i32 i = 0; i < dxiRendererCount; ++i)
     {
         dxiRendererInfo_t& info = dxiInfo[i];
 
-        if (info.Type != dxiRendererType::OpenGL)
-            continue;
-
-        if (info.SpecialFlags != SpecialFlags_GL)
-            continue;
+        if (info.Type != dxiRendererType::OpenGL && info.Type != dxiRendererType::SDL2)
+            return false;
 
         info.SDL.Index = -1;
-        ++pending;
     }
 
     for (i32 i = 0, count = SDL_GetNumVideoDisplays(); i < count; ++i)
@@ -234,13 +237,10 @@ bool ValidateRenderersGL()
         {
             dxiRendererInfo_t& info = dxiInfo[j];
 
-            if (info.Type != dxiRendererType::OpenGL)
+            if (info.SpecialFlags != GetSpecialFlags(info.Type))
                 continue;
 
-            if (info.SpecialFlags != SpecialFlags_GL)
-                continue;
-
-            if (std::strncmp(info.Name, name, std::strlen(name)) != 0)
+            if (std::strncmp(info.Name, name, std::min(ARTS_SIZE(info.Name), std::strlen(name))) != 0)
                 continue;
 
             if ((info.SDL.Format != mode.format) || (info.SDL.RefreshRate != mode.refresh_rate))
@@ -254,14 +254,11 @@ bool ValidateRenderersGL()
 
             info.SDL.Index = i;
             found = true;
-            break;
         }
 
         if (!found)
             return false;
-
-        --pending;
     }
 
-    return pending == 0;
+    return true;
 }

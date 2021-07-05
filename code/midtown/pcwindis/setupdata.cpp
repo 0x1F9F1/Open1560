@@ -28,6 +28,10 @@ ARTS_IMPORT /*static*/ void guidtostr(char* arg1, struct _GUID* arg2);
 // 0x574DF0 | ?strtoguid@@YAXPAU_GUID@@PAD@Z
 ARTS_IMPORT /*static*/ void strtoguid(struct _GUID* arg1, char* arg2);
 
+dxiRendererInfo_t dxiInfo[16];
+i32 dxiRendererChoice = -1;
+i32 dxiRendererCount = 0;
+
 static const u32 ConfigFileVersion = 112;
 
 b32 dxiReadConfigFile()
@@ -176,7 +180,8 @@ i32 dxiResGetRecommended(i32 renderer, [[maybe_unused]] i32 cpu_speed)
 
     switch (info.Type)
     {
-        case dxiRendererType::Software: return dxiResClosestMatch(renderer, 640, 480);
+        case dxiRendererType::DX6_Soft:
+        case dxiRendererType::SDL2: return dxiResClosestMatch(renderer, 640, 480);
 
         case dxiRendererType::OpenGL: {
             dxiResolution& native_res = info.Resolutions[info.ResCount - 1];

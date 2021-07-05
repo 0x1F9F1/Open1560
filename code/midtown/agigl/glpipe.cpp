@@ -42,10 +42,7 @@
 
 static mem::cmd_param PARAM_gldebug {"gldebug"};
 static mem::cmd_param PARAM_msaa {"msaa"};
-static mem::cmd_param PARAM_scaling {"scaling"};
 static mem::cmd_param PARAM_native_res {"nativeres"};
-static mem::cmd_param PARAM_window_menu {"windowmenu"};
-static mem::cmd_param PARAM_border {"border"};
 
 agiGLPipeline::agiGLPipeline() = default;
 agiGLPipeline::~agiGLPipeline() = default;
@@ -58,30 +55,7 @@ i32 agiGLPipeline::BeginGfx()
     valid_bit_depths_ = 0x4;
     flags_ = 0x1 | 0x4 | 0x10;
 
-    dxiRendererInfo_t& info = GetRendererInfo();
-
-    if (dxiIsFullScreen() && !(PARAM_window_menu && MMSTATE.GameState == 0))
-    {
-        if (info.SDL.Index != SDL_GetWindowDisplayIndex(window_))
-        {
-            // Cannot move/resize window when fullscreen
-            SDL_SetWindowFullscreen(window_, 0);
-            SDL_SetWindowPosition(window_, SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index),
-                SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index));
-        }
-
-        SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN_DESKTOP);
-    }
-    else
-    {
-        SDL_SetWindowFullscreen(window_, 0);
-        SDL_SetWindowBordered(window_, PARAM_border.get_or(true) ? SDL_TRUE : SDL_FALSE);
-        SDL_SetWindowSize(window_, width_, height_);
-        SDL_SetWindowPosition(
-            window_, SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index), SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index));
-    }
-
-    SDL_RaiseWindow(window_);
+    agiSDLPipeline::BeginGfx();
 
     i32 debug_level = PARAM_gldebug.get_or(
 #ifdef ARTS_DEBUG
@@ -136,6 +110,8 @@ i32 agiGLPipeline::BeginGfx()
     hi_color_model_ = alpha_color_model_;
     text_color_model_ = alpha_color_model_;
 
+    TexSearchPath = const_cast<char*>("tex16a\0tex16o\0tex16\0");
+
     agiCurState.SetCullMode(agiCullMode::None);
     agiCurState.SetBlendSet(agiBlendSet::SrcAlpha_InvSrcAlpha);
     agiCurState.SetTexturePerspective(true);
@@ -145,36 +121,7 @@ i32 agiGLPipeline::BeginGfx()
     rasterizer_ = MakeRc<agiGLRasterizer>(this);
     renderer_ = MakeRc<agiZBufRenderer>(rasterizer_.get());
 
-    switch (i32 scaling_mode = PARAM_scaling.get_or(0))
-    {
-        case 0: // Stretched, Keep Aspect
-        case 1: // Stretched
-        {
-            blit_width_ = horz_res_;
-            blit_height_ = vert_res_;
-
-            if (scaling_mode == 0)
-            {
-                f32 game_aspect = static_cast<f32>(width_) / static_cast<f32>(height_);
-                f32 draw_aspect = static_cast<f32>(blit_width_) / static_cast<f32>(blit_height_);
-
-                if (draw_aspect > game_aspect)
-                    blit_width_ = static_cast<i32>(blit_width_ * (game_aspect / draw_aspect));
-                else if (draw_aspect < game_aspect)
-                    blit_height_ = static_cast<i32>(blit_height_ * (draw_aspect / game_aspect));
-            }
-
-            break;
-        }
-
-        case 2: // Centered
-        {
-            blit_width_ = width_;
-            blit_height_ = height_;
-
-            break;
-        }
-    }
+    InitScaling();
 
     blit_x_ = (horz_res_ - blit_width_) / 2;
     blit_y_ = (vert_res_ - blit_height_) / 2;
@@ -519,7 +466,6 @@ static mem::cmd_param PARAM_height {"height"};
 static mem::cmd_param PARAM_depth {"depth"};
 static mem::cmd_param PARAM_vsync {"vsync"};
 static mem::cmd_param PARAM_pack {"pack"};
-static mem::cmd_param PARAM_integrated {"integrated"};
 static mem::cmd_param PARAM_annotate {"annotate"};
 
 void agiGLPipeline::Init()
@@ -539,16 +485,6 @@ void agiGLPipeline::Init()
 
     PackShift = PARAM_pack.get_or<i32>(0);
     AnnotateTextures = PARAM_annotate.get_or(false);
-
-    bool use_gpu = !PARAM_integrated.get_or(false);
-    HINSTANCE hInstance = GetModuleHandle(NULL);
-
-    if (void* AmdPowerXpressRequestHighPerformance = GetProcAddress(hInstance, "AmdPowerXpressRequestHighPerformance"))
-        *static_cast<DWORD*>(AmdPowerXpressRequestHighPerformance) = use_gpu;
-
-    // NOTE: NVIDIA seems to only care about NvOptimusEnablement being present, not the value, despite what their documentation says
-    if (void* NvOptimusEnablement = GetProcAddress(hInstance, "NvOptimusEnablement"))
-        *static_cast<DWORD*>(NvOptimusEnablement) = use_gpu;
 }
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height)

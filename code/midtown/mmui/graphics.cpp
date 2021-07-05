@@ -42,7 +42,7 @@ void AutoDetect(i32 renderer, i32 resolution)
 
     dxiResolution& res = info.Resolutions[resolution];
 
-    if (info.Type != dxiRendererType::Software)
+    if (info.Type != dxiRendererType::DX6_Soft)
     {
         agiRQ.TerrainQuality = AGI_QUALITY_VERY_HIGH;
 

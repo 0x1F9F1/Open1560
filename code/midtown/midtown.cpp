@@ -24,6 +24,7 @@ define_dummy_symbol(midtown);
 #include "agi/pipeline.h"
 #include "agi/texdef.h"
 #include "agid3d/pcpipe.h"
+#include "agisdl/sdlswpipe.h"
 #include "agisw/swddraw.h"
 #include "agisw/swpipe.h"
 #include "arts7/sim.h"
@@ -51,6 +52,7 @@ define_dummy_symbol(midtown);
 #include "mmui/graphics.h"
 #include "pcwindis/dxinit.h"
 #include "pcwindis/dxsetup.h"
+#include "pcwindis/pcwindis.h"
 #include "pcwindis/setupdata.h"
 #include "stream/hfsystem.h"
 #include "stream/stream.h"
@@ -656,12 +658,13 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
 
         switch (info.Type)
         {
-            case dxiRendererType::Software: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
+            case dxiRendererType::DX6_Soft: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
             case dxiRendererType::DX6_GDI:
             case dxiRendererType::DX6: pipe = AsPtr(d3dCreatePipeline(argc, argv)); break;
 
 #ifdef ARTS_ENABLE_OPENGL
             case dxiRendererType::OpenGL: pipe = AsPtr(glCreatePipeline(argc, argv)); break;
+            case dxiRendererType::SDL2: pipe = AsPtr(sdlCreatePipeline(argc, argv)); break;
 #endif
         }
 
@@ -692,14 +695,15 @@ Owner<agiPipeline> CreatePipeline(i32 argc, char** argv)
     {
         bRenderToSystem = true;
 
-        switch (bHaveIME ? dxiRendererType::Software : info.Type)
+        switch (bHaveIME ? dxiRendererType::DX6_Soft : info.Type)
         {
-            case dxiRendererType::Software: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
+            case dxiRendererType::DX6_Soft: pipe = AsPtr(swCreatePipeline(argc, argv)); break;
             case dxiRendererType::DX6_GDI:
             case dxiRendererType::DX6: pipe = AsPtr(d3dCreatePipeline(argc, argv)); break;
 
 #ifdef ARTS_ENABLE_OPENGL
             case dxiRendererType::OpenGL: pipe = AsPtr(glCreatePipeline(argc, argv)); break;
+            case dxiRendererType::SDL2: pipe = AsPtr(sdlCreatePipeline(argc, argv)); break;
 #endif
         }
 
@@ -758,7 +762,10 @@ static char** GetCommandFileUTF8(int* pNumArgs)
 
     DWORD file_size = GetFileSize(handle, NULL);
     LPCH file_data = (LPCH) arts_malloc(file_size);
-    ReadFile(handle, file_data, file_size, &file_size, NULL);
+
+    if (!ReadFile(handle, file_data, file_size, &file_size, NULL))
+        return nullptr;
+
     CloseHandle(handle);
 
     for (DWORD i = 0; i < file_size; ++i)
@@ -823,6 +830,12 @@ int main(int argc, char** argv)
             }
 
             Printerf(level, "%s", message);
+        },
+        nullptr);
+
+    SDL_SetWindowsMessageHook(
+        [](void* /*userdata*/, void* hWnd, unsigned int message, u64 wParam, i64 lParam) {
+            SDLWindowProc(static_cast<HWND>(hWnd), message, static_cast<WPARAM>(wParam), static_cast<LPARAM>(lParam));
         },
         nullptr);
 

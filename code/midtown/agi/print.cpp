@@ -267,13 +267,9 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
 
 b32 agiPipeline::PrintIs3D()
 {
-    // FIXME: If PrintIs3D is false, then Cull is technically drawing stuff outside of BeginScene.
-    // This works with the agiD3DPipeline (though probably shouldn't), but fails with the agiSWPipeline, as the framebuffer is only locked between scenes.
-
-    if (Pipe()->IsHardware())
-        return false;
-
-    return true;
+    // NOTE: If PrintIs3D is false, then Cull is drawing stuff outside of BeginScene.
+    // This fails with agiSWPipeline, as the framebuffer is only locked between scenes.
+    return false;
 }
 
 void agiPipeline::PrintInit()

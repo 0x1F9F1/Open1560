@@ -464,6 +464,9 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
     MinY = OffsY + HalfHeight;
     MaxY = OffsY - HalfHeight;
 
+    OnlyZClip = false;
+    ClipMask = AGI_MESH_CLIP_ANY;
+
     if (GetRendererInfo().SpecialFlags & 0x20)
     {
         // TODO: Use viewport scissor region
@@ -474,13 +477,7 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
             MaxX = +INFINITY;
             MinY = -INFINITY;
             MaxY = +INFINITY;
-            OnlyZClip = true;
             ClipMask = AGI_MESH_CLIP_NZ | AGI_MESH_CLIP_PZ;
-        }
-        else
-        {
-            OnlyZClip = false;
-            ClipMask = AGI_MESH_CLIP_ANY;
         }
     }
     else

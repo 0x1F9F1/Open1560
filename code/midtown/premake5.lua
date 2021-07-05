@@ -42,6 +42,7 @@ include "vector7"
 
 if ARTS_ENABLE_OPENGL then
     include "agigl"
+    include "agisdl"
 
     project "*"
         defines { "ARTS_ENABLE_OPENGL" }
@@ -49,6 +50,7 @@ end
 
 project "*"
     includeSDL2()
+
 
 arts_component "midtown"
     files {
@@ -98,5 +100,5 @@ arts_component "midtown"
     }
 
     if ARTS_ENABLE_OPENGL then
-        links { "arts_agigl" }
+        links { "arts_agigl", "arts_agisdl" }
     end

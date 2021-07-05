@@ -45,10 +45,11 @@ check_size(dxiResolution, 8);
 
 enum class dxiRendererType : i32
 {
-    Software,
-    DX6_GDI,
-    DX6,
-    OpenGL,
+    DX6_Soft = 0, // DX6 Software
+    DX6_GDI = 1,  // DX6 Hardware (Primary Surface)
+    DX6 = 2,      // DX6 Hardware
+    OpenGL = 3,   // OpenGL Hardware
+    SDL2 = 4,     // SDL_Renderer Software
 };
 
 struct dxiRendererInfo_t
@@ -98,16 +99,7 @@ struct dxiRendererInfo_t
         } SDL;
     };
 
-    // 0 | Software
-    // 1 | DX6 Primary Surface (GDI)
-    // 2 | DX6 Hardware
-    // 3 | OpenGL
     dxiRendererType Type;
-
-    bool IsHardware() const
-    {
-        return Type != dxiRendererType::Software;
-    }
 
     dxiResolution Resolutions[32];
     i32 ResCount;
@@ -129,13 +121,13 @@ ARTS_EXPORT i32 dxiResClosestMatch(i32 renderer, i32 width, i32 height);
 ARTS_EXPORT i32 dxiResGetRecommended(i32 renderer, i32 cpu_speed);
 
 // 0x909680 | ?dxiInfo@@3PAUdxiRendererInfo_t@@A
-ARTS_IMPORT extern struct dxiRendererInfo_t dxiInfo[8];
+ARTS_EXPORT extern struct dxiRendererInfo_t dxiInfo[16];
 
 // 0x661380 | ?dxiRendererChoice@@3HA
-ARTS_IMPORT extern i32 dxiRendererChoice;
+ARTS_EXPORT extern i32 dxiRendererChoice;
 
 // 0x90A350 | ?dxiRendererCount@@3HA
-ARTS_IMPORT extern i32 dxiRendererCount;
+ARTS_EXPORT extern i32 dxiRendererCount;
 
 inline dxiRendererInfo_t& GetRendererInfo()
 {

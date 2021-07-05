@@ -31,7 +31,6 @@ define_dummy_symbol(pcwindis_dxinit);
 #endif
 
 #include <SDL_hints.h>
-#include <SDL_system.h>
 #include <SDL_syswm.h>
 #include <SDL_video.h>
 
@@ -129,6 +128,8 @@ void dxiDirectInputCreate()
         Quitf("DirectInputCreate failed, code %x", err);
 }
 
+static mem::cmd_param PARAM_integrated {"integrated"};
+
 void dxiInit(char* title, i32 argc, char** argv)
 {
 #define ARG(NAME) !std::strcmp(arg, NAME)
@@ -164,6 +165,19 @@ void dxiInit(char* title, i32 argc, char** argv)
     }
 
 #undef ARG
+
+    {
+        bool use_gpu = !PARAM_integrated.get_or(false);
+        HINSTANCE hInstance = GetModuleHandle(NULL);
+
+        if (void* AmdPowerXpressRequestHighPerformance =
+                GetProcAddress(hInstance, "AmdPowerXpressRequestHighPerformance"))
+            *static_cast<DWORD*>(AmdPowerXpressRequestHighPerformance) = use_gpu;
+
+        // NOTE: NVIDIA seems to only care about NvOptimusEnablement being present, not the value, despite what their documentation says
+        if (void* NvOptimusEnablement = GetProcAddress(hInstance, "NvOptimusEnablement"))
+            *static_cast<DWORD*>(NvOptimusEnablement) = use_gpu;
+    }
 
     dxiWindowCreate(title, GetRendererInfo().Type);
 
@@ -475,7 +489,12 @@ static mem::cmd_param PARAM_sdlwindow {"sdlwindow"};
 
 void dxiWindowCreate(const char* title, dxiRendererType type)
 {
-    if ((type != dxiRendererType::OpenGL) && !PARAM_sdlwindow.get_or(false))
+    // FIXME: Changing renderer does not re-create the window
+    // This means if there is any possibility you might use SDL2 or OpenGL, you need an SDL2+OpenGL window
+
+    bool is_sdl = (type == dxiRendererType::OpenGL) || (type == dxiRendererType::SDL2);
+
+    if (!is_sdl && !PARAM_sdlwindow.get_or(false))
         return dxiWindowCreate(title);
 
     if (g_MainWindow != NULL)
@@ -483,7 +502,7 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
 
     u32 window_flags = SDL_WINDOW_BORDERLESS;
 
-    if (type == dxiRendererType::OpenGL)
+    if (is_sdl)
     {
 #ifdef ARTS_ENABLE_OPENGL
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
@@ -504,12 +523,6 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
     SDL_SetHintWithPriority(SDL_HINT_WINDOWS_NO_CLOSE_ON_ALT_F4, "1", SDL_HINT_OVERRIDE);
 
     g_MainWindow = SDL_CreateWindow(title, 0, 0, 0, 0, window_flags);
-
-    SDL_SetWindowsMessageHook(
-        [](void* /*userdata*/, void* hWnd, unsigned int message, u64 wParam, i64 lParam) {
-            SDLWindowProc(static_cast<HWND>(hWnd), message, static_cast<WPARAM>(wParam), static_cast<LPARAM>(lParam));
-        },
-        nullptr);
 
     SDL_SysWMinfo wm_info {};
     SDL_VERSION(&wm_info.version);

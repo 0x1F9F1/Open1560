@@ -18,15 +18,13 @@
 
 #pragma once
 
-#include "agi/pipeline.h"
+#include "agisdl/sdlpipe.h"
 #include "data7/hash.h"
-
-#include "core/minwin.h"
 
 class agiGLRasterizer;
 class agiGLContext;
 
-class agiGLPipeline final : public agiPipeline
+class agiGLPipeline final : public agiSDLPipeline
 {
 public:
     agiGLPipeline();
@@ -87,15 +85,11 @@ private:
     u32 fbo_ {0};
     u32 rbo_[2] {0};
 
-    u32 render_x_ {0};
-    u32 render_y_ {0};
-    u32 render_width_ {0};
-    u32 render_height_ {0};
+    i32 render_x_ {0};
+    i32 render_y_ {0};
+    i32 render_width_ {0};
+    i32 render_height_ {0};
 
-    u32 blit_x_ {0};
-    u32 blit_y_ {0};
-    u32 blit_width_ {0};
-    u32 blit_height_ {0};
     u32 blit_filter_ {0};
 };
 

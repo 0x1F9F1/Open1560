@@ -437,6 +437,11 @@ i32 agiSWPipeline::Validate()
     return AGI_ERROR_SUCCESS;
 }
 
+b32 agiSWPipeline::PrintIs3D()
+{
+    return true;
+}
+
 // 0x5342F0 | ?zmemset@@YAXPAGI@Z
 ARTS_EXPORT /*static*/ void zmemset(u16* values, u32 count)
 {

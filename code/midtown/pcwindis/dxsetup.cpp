@@ -69,7 +69,7 @@ static bool IsGoodResolution(i32 width, i32 height, dxiRendererType type)
     if (width < 640 || height < 480)
         return false;
 
-    if ((type == dxiRendererType::Software) && (width >= 4096 || height >= 4096))
+    if ((type == dxiRendererType::DX6_Soft) && (width >= 4096 || height >= 4096))
         return false;
 
     if (height <= 720)
@@ -164,7 +164,7 @@ static bool ValidateRenderersDX6()
 }
 
 #ifdef ARTS_ENABLE_OPENGL
-#    include "agigl/glsetup.h"
+#    include "agisdl/sdlsetup.h"
 
 static mem::cmd_param PARAM_opengl {"opengl"};
 #endif
@@ -189,8 +189,8 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 #ifdef ARTS_ENABLE_OPENGL
     else if (PARAM_opengl.get_or(true))
     {
-        validate = ValidateRenderersGL;
-        enumerate = EnumerateRenderersGL;
+        validate = ValidateRenderersSDL;
+        enumerate = EnumerateRenderersSDL;
         show_message = false;
     }
 #endif

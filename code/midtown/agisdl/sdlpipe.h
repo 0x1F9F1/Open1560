@@ -18,5 +18,21 @@
 
 #pragma once
 
-void EnumerateRenderersGL();
-bool ValidateRenderersGL();
+#include "agi/pipeline.h"
+
+class agiSDLPipeline : public agiPipeline
+{
+public:
+    agiSDLPipeline() = default;
+    ~agiSDLPipeline() = default;
+
+    i32 BeginGfx() override = 0;
+
+protected:
+    void InitScaling();
+
+    i32 blit_x_ {0};
+    i32 blit_y_ {0};
+    i32 blit_width_ {0};
+    i32 blit_height_ {0};
+};
