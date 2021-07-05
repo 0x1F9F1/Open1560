@@ -28,6 +28,7 @@ define_dummy_symbol(pcwindis_dxinit);
 
 #ifdef ARTS_ENABLE_OPENGL
 #    include "agigl/glpipe.h"
+#    include "agisdl/sdlswpipe.h"
 #endif
 
 #include <SDL_hints.h>
@@ -379,18 +380,19 @@ void dxiScreenShot(char* file_name)
 
     i32 width = 0;
     i32 height = 0;
+
     Ptr<u8[]> pixels;
 
-    if (lpdsRend)
-    {
-        pixels = dxiScreenShot(width, height);
-    }
 #ifdef ARTS_ENABLE_OPENGL
-    else
-    {
+    if (pixels == nullptr)
+        pixels = sdlScreenShot(width, height);
+
+    if (pixels == nullptr)
         pixels = glScreenShot(width, height);
-    }
+
 #endif
+    if (pixels == nullptr)
+        pixels = dxiScreenShot(width, height);
 
     if (pixels == nullptr)
         return;
@@ -510,7 +512,7 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,
             PARAM_legacygl.get_or(false) ? SDL_GL_CONTEXT_PROFILE_COMPATIBILITY : SDL_GL_CONTEXT_PROFILE_CORE);
 
-        window_flags |= SDL_WINDOW_OPENGL;
+        window_flags |= SDL_WINDOW_OPENGL /*| SDL_WINDOW_FULLSCREEN_DESKTOP*/;
 #endif
     }
     else

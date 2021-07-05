@@ -63,4 +63,6 @@ private:
     SDL_Surface* render_surface_ {nullptr};
 };
 
+Ptr<u8[]> sdlScreenShot(i32& width, i32& height);
+
 Owner<class agiPipeline> sdlCreatePipeline(i32 argc, char** argv);

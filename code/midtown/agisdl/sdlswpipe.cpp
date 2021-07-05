@@ -316,6 +316,9 @@ i32 agiSDLSWPipeline::BeginGfx()
 
     InitScaling();
 
+    SDL_Rect viewport {blit_x_, blit_y_, blit_width_, blit_height_};
+    SDL_RenderSetViewport(sdl_renderer_, &viewport);
+
     render_texture_ =
         SDL_CreateTexture(sdl_renderer_, SDL_PIXELFORMAT_RGB565, SDL_TEXTUREACCESS_STREAMING, width_, height_);
 
@@ -462,8 +465,7 @@ void agiSDLSWPipeline::EndFrame()
     SDL_UnlockTexture(render_texture_);
     render_surface_ = nullptr;
 
-    SDL_Rect dst_rect {blit_x_, blit_y_, blit_width_, blit_height_};
-    SDL_RenderCopy(sdl_renderer_, render_texture_, NULL, &dst_rect);
+    SDL_RenderCopy(sdl_renderer_, render_texture_, NULL, NULL);
 
     SDL_RenderPresent(sdl_renderer_);
 
@@ -500,6 +502,66 @@ void agiSDLSWPipeline::EndScene()
 i32 agiSDLSWPipeline::Validate()
 {
     return AGI_ERROR_SUCCESS;
+}
+
+static void TranslatePixels(u8* data, i32 width, i32 height)
+{
+    // Flip vertically
+    for (i32 y = 0; y < height / 2; ++y)
+    {
+        u32* lhs = (u32*) &data[y * width * 4];
+        u32* rhs = (u32*) &data[(height - y - 1) * width * 4];
+
+        for (i32 x = 0; x < width; ++x)
+        {
+            u32 temp = lhs[x];
+            lhs[x] = rhs[x];
+            rhs[x] = temp;
+        }
+    }
+
+    // BGRA -> BGR
+    u8* src = data;
+    u8* dst = data;
+    for (i32 i = 0, count = width * height; i < count; ++i)
+    {
+        dst[0] = src[0];
+        dst[1] = src[1];
+        dst[2] = src[2];
+        src += 4;
+        dst += 3;
+    }
+}
+
+Ptr<u8[]> sdlScreenShot(i32& width, i32& height)
+{
+    SDL_Window* window = SDL_GetGrabbedWindow();
+
+    if (window == nullptr)
+        return nullptr;
+
+    SDL_Renderer* renderer = SDL_GetRenderer(window);
+
+    if (renderer == nullptr)
+        return nullptr;
+
+    SDL_Rect view;
+    SDL_RenderGetViewport(renderer, &view);
+
+    width = view.w;
+    height = view.h;
+
+    Ptr<u8[]> buffer = MakeUniqueUninit<u8[]>(width * height * 4);
+
+    if (buffer == nullptr)
+        return nullptr;
+
+    if (SDL_RenderReadPixels(renderer, &view, SDL_PIXELFORMAT_ARGB8888, buffer.get(), width * 4) != 0)
+        return nullptr;
+
+    TranslatePixels(buffer.get(), width, height);
+
+    return buffer;
 }
 
 Owner<class agiPipeline> sdlCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
