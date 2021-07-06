@@ -97,10 +97,16 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
     // TODO: Allow picking a custom resolution in the UI, similar to -width/-height
 
     const auto add_resolution = [&](u32 width, u32 height) {
+        width += width & 1;
+        height += height & 1;
+
         if (height < 480 || height > info.SDL.Height)
             return false;
 
         if (width < 640 || width > info.SDL.Width)
+            return false;
+
+        if (IsSoftwareRenderer(info.Type) && (width > 4096 || height > 4096))
             return false;
 
         for (i32 i = 0; i < info.ResCount; ++i)
@@ -109,10 +115,8 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
                 return false;
         }
 
-        info.Resolutions[info.ResCount++] =
-            dxiResolution {static_cast<u16>(width), static_cast<u16>(height), 128 << 20};
+        info.Resolutions[info.ResCount++] = {static_cast<u16>(width), static_cast<u16>(height), 128 << 20};
 
-        Displayf("Resolution: %u x %u", width, height);
         return true;
     };
 
@@ -211,7 +215,7 @@ bool ValidateRenderersSDL()
     {
         dxiRendererInfo_t& info = dxiInfo[i];
 
-        if (info.Type != dxiRendererType::OpenGL && info.Type != dxiRendererType::SDL2)
+        if (!IsSDLRenderer(info.Type))
             return false;
 
         info.SDL.Index = -1;

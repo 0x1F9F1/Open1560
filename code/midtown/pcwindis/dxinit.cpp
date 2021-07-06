@@ -180,9 +180,11 @@ void dxiInit(char* title, i32 argc, char** argv)
             *static_cast<DWORD*>(NvOptimusEnablement) = use_gpu;
     }
 
-    dxiWindowCreate(title, GetRendererInfo().Type);
+    dxiRendererType type = GetRendererInfo().Type;
 
-    if (GetRendererInfo().Type != dxiRendererType::OpenGL)
+    dxiWindowCreate(title, type);
+
+    if (IsDX6Renderer(type))
     {
         dxiDirectDrawCreate();
         dxiSetDisplayMode();
@@ -489,22 +491,26 @@ void dxiWindowCreate(const char* title)
 static mem::cmd_param PARAM_legacygl {"legacygl"};
 static mem::cmd_param PARAM_sdlwindow {"sdlwindow"};
 
+static dxiRendererType s_WindowType = dxiRendererType::Invalid;
+
 void dxiWindowCreate(const char* title, dxiRendererType type)
 {
-    // FIXME: Changing renderer does not re-create the window
-    // This means if there is any possibility you might use SDL2 or OpenGL, you need an SDL2+OpenGL window
-
-    bool is_sdl = (type == dxiRendererType::OpenGL) || (type == dxiRendererType::SDL2);
-
-    if (!is_sdl && !PARAM_sdlwindow.get_or(false))
+    if (!IsSDLRenderer(type) && !PARAM_sdlwindow.get_or(false))
         return dxiWindowCreate(title);
 
     if (g_MainWindow != NULL)
-        return;
+    {
+        if (s_WindowType == type)
+            return;
+
+        dxiWindowDestroy();
+    }
+
+    s_WindowType = type;
 
     u32 window_flags = SDL_WINDOW_BORDERLESS;
 
-    if (is_sdl)
+    if (type == dxiRendererType::OpenGL)
     {
 #ifdef ARTS_ENABLE_OPENGL
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
@@ -515,7 +521,7 @@ void dxiWindowCreate(const char* title, dxiRendererType type)
         window_flags |= SDL_WINDOW_OPENGL /*| SDL_WINDOW_FULLSCREEN_DESKTOP*/;
 #endif
     }
-    else
+    else if (IsDX6Renderer(type))
     {
         // DDRAW will likely try and change the window size
         window_flags |= SDL_WINDOW_RESIZABLE;
@@ -548,4 +554,6 @@ void dxiWindowDestroy()
         DestroyWindow(hwndMain);
         hwndMain = NULL;
     }
+
+    s_WindowType = dxiRendererType::Invalid;
 }

@@ -450,7 +450,7 @@ uniform vec3 u_FogColor;
 
 void main()
 {
-    gl_Position = u_Transform[0] * in_Position + u_Transform[1];
+    gl_Position = in_Position * u_Transform[0] + u_Transform[1];
     gl_Position /= in_Position.w;
 
     frag_Color = in_Color;

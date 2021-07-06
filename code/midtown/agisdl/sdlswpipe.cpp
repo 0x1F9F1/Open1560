@@ -40,6 +40,7 @@
 #include "pcwindis/dxinit.h"
 
 #include <SDL_render.h>
+#include <SDL_syswm.h>
 
 static void zmemset(u16* values, u32 count)
 {
@@ -307,6 +308,12 @@ i32 agiSDLSWPipeline::BeginGfx()
 
     sdl_renderer_ = SDL_CreateRenderer(
         window_, -1, SDL_RENDERER_ACCELERATED | ((device_flags_1_ & 0x1) ? SDL_RENDERER_PRESENTVSYNC : 0));
+
+    // FIXME: SDL_CreateRenderer can silently recreate the underlying window
+    SDL_SysWMinfo wm_info {};
+    SDL_VERSION(&wm_info.version);
+    ArAssert(SDL_GetWindowWMInfo(window_, &wm_info), "Failed to get native window handle");
+    hwndMain = wm_info.info.win.window;
 
     SDL_RendererInfo info;
     SDL_GetRendererInfo(sdl_renderer_, &info);

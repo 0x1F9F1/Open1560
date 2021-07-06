@@ -162,9 +162,8 @@ i32 dxiResClosestMatch(i32 renderer, i32 width, i32 height)
     {
         dxiResolution& res = info.Resolutions[i];
 
-        i32 extra = std::abs(width - res.uWidth) * height + std::abs(height - res.uHeight) * width;
-
-        if (extra < best_extra)
+        if (i32 extra = std::abs(width - res.uWidth) * height + std::abs(height - res.uHeight) * width;
+            extra < best_extra)
         {
             best_index = i;
             best_extra = extra;
@@ -178,19 +177,22 @@ i32 dxiResGetRecommended(i32 renderer, [[maybe_unused]] i32 cpu_speed)
 {
     dxiRendererInfo_t& info = dxiInfo[renderer];
 
-    switch (info.Type)
+    // Assume largest resolution is native
+    dxiResolution* native_res = nullptr;
+    u32 best_total = 0;
+
+    for (i32 i = 0; i < info.ResCount; ++i)
     {
-        case dxiRendererType::DX6_Soft:
-        case dxiRendererType::SDL2: return dxiResClosestMatch(renderer, 640, 480);
+        dxiResolution& res = info.Resolutions[i];
 
-        case dxiRendererType::OpenGL: {
-            dxiResolution& native_res = info.Resolutions[info.ResCount - 1];
-            i32 target_height = (std::min<i32>) (768, native_res.uHeight);
-
-            return dxiResClosestMatch(
-                renderer, (target_height * native_res.uWidth) / native_res.uHeight, target_height);
+        if (u32 total = res.uWidth * res.uHeight; total > best_total)
+        {
+            native_res = &res;
+            best_total = total;
         }
-
-        default: return dxiResClosestMatch(renderer, 1280, 720);
     }
+
+    u32 target_height = !IsSoftwareRenderer(info.Type) ? std::min<u32>(768, native_res->uHeight) : 480;
+
+    return dxiResClosestMatch(renderer, (target_height * native_res->uWidth) / native_res->uHeight, target_height);
 }

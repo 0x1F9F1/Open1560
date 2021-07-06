@@ -136,7 +136,7 @@ static bool ValidateRenderersDX6()
     {
         dxiRendererInfo_t& info = dxiInfo[i];
 
-        if (info.Type == dxiRendererType::OpenGL)
+        if (!IsDX6Renderer(info.Type))
             return false;
 
         IDirectDraw* ddraw = nullptr;
