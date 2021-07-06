@@ -123,9 +123,6 @@ i32 agiGLPipeline::BeginGfx()
 
     InitScaling();
 
-    blit_x_ = (horz_res_ - blit_width_) / 2;
-    blit_y_ = (vert_res_ - blit_height_) / 2;
-
     bool builtin_fb = !gl_context_->HasExtension(300, "GL_ARB_framebuffer_object");
 
     i32 msaa_level = 0;
@@ -489,7 +486,7 @@ void agiGLPipeline::Init()
 
 Ptr<u8[]> glScreenShot(i32& width, i32& height)
 {
-    if (wglGetCurrentContext() == NULL)
+    if (agiGL == nullptr)
         return nullptr;
 
     GLint viewport[4] {};
