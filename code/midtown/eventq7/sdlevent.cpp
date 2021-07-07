@@ -45,7 +45,9 @@ void InitEventQueue()
         eqEventHandler::SuperQ = new WINEventHandler();
 }
 
-i32 SDLEventHandler::BeginGfx(i32 width, i32 height, b32 fullscreen)
+static mem::cmd_param PARAM_mousemode {"mousemode"};
+
+i32 SDLEventHandler::BeginGfx(i32 width, i32 height, [[maybe_unused]] b32 fullscreen)
 {
     center_x_ = width / 2.0f;
     center_y_ = height / 2.0f;
@@ -62,9 +64,23 @@ i32 SDLEventHandler::BeginGfx(i32 width, i32 height, b32 fullscreen)
     mouse_width_ = width;
     mouse_height_ = height;
 
-    SDL_SetWindowGrab(g_MainWindow, fullscreen ? SDL_TRUE : SDL_FALSE);
-    // SDL_SetHintWithPriority(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, "1", SDL_HINT_OVERRIDE);
-    SDL_SetRelativeMouseMode(SDL_TRUE);
+    tracking_x_ = 0;
+    tracking_y_ = 0;
+    tracked_events_ = 0x0;
+
+    SDL_SetWindowGrab(g_MainWindow, SDL_TRUE);
+
+    if (i32 mouse_mode = PARAM_mousemode.get_or(0); mouse_mode == 2)
+    {
+        SDL_SetRelativeMouseMode(SDL_FALSE);
+        SDL_WarpMouseInWindow(g_MainWindow, mouse_x_, mouse_y_);
+        tracked_events_ |= 0x1;
+    }
+    else
+    {
+        SDL_SetHint(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, (mouse_mode == 1) ? "1" : "0");
+        SDL_SetRelativeMouseMode(SDL_TRUE);
+    }
 
     return 0;
 }
@@ -100,8 +116,11 @@ void SDLEventHandler::Update(i32)
     {
         SDL_Event event;
 
-        if (SDL_WaitEvent(&event))
-            HandleEvent(event);
+        while (ActiveFlag == 0)
+        {
+            if (SDL_WaitEvent(&event))
+                HandleEvent(event);
+        }
     }
 
     if (mouse_moved_)
@@ -120,7 +139,7 @@ void SDLEventHandler::EndTracking()
 
 const char* SDLEventHandler::GKeyName(i32 /*key*/)
 {
-    return "Unknown";
+    return "[Unknown]";
 }
 
 static void TranslateScancode(SDL_Scancode scan, i32& vkey, u8& vsc);
@@ -138,8 +157,19 @@ void SDLEventHandler::HandleEvent(const SDL_Event& event)
             mouse_virtual_x_ += event.motion.xrel;
             mouse_virtual_y_ += event.motion.yrel;
 
-            mouse_x_ = std::clamp(mouse_x_ + event.motion.xrel, 0, mouse_width_);
-            mouse_y_ = std::clamp(mouse_y_ + event.motion.yrel, 0, mouse_height_);
+            if (tracked_events_ & 0x1)
+            {
+                mouse_x_ = std::clamp(event.motion.x - tracking_x_, 0, mouse_width_);
+                mouse_y_ = std::clamp(event.motion.y - tracking_y_, 0, mouse_height_);
+
+                tracking_x_ = event.motion.x - mouse_x_;
+                tracking_y_ = event.motion.y - mouse_y_;
+            }
+            else
+            {
+                mouse_x_ = std::clamp(mouse_x_ + event.motion.xrel, 0, mouse_width_);
+                mouse_y_ = std::clamp(mouse_y_ + event.motion.yrel, 0, mouse_height_);
+            }
 
             // Avoid redudant events, and only send a maximum of one per frame
             if (mouse_x_ != old_x || mouse_y_ != old_y)

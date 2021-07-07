@@ -12,6 +12,7 @@ However, there are certain things you may wish to change:
     * Download [wine1560.sh](https://raw.githubusercontent.com/0x1F9F1/Open1560/master/extra/wine1560.sh), or manually set the `WINEDLLOVERRIDES` to prefer native dinput.
     * If the hardware renderer is slow, try enabling threaded OpenGL with the environment variable `mesa_glthread=true` for Mesa, or `__GL_THREADED_OPTIMIZATIONS=1` for Nvidia.
     * If the software renderer is slow, try setting the environment variable `SDL_RENDER_DRIVER=opengl`.
+* If your cursor does not move properly, try `-mousemode 1` or `-mousemode 2`.
 
 # Common Issues
 
@@ -58,6 +59,7 @@ For a tutorial on how to use command line arguments, click [here](https://www.bl
 | maxaspect  |       | Maximum aspect ratio of available resolutions |
 | maxfps     | 0     | Limits the max fps |
 | minaspect  |       | Minimum aspect ratio of available resolutions |
+| mousemode  | 0     | Mouse mode. 0 = Relative (Raw Input), 1 = Relative (Mouse Warping), 2 = Absolute |
 | msaa       | 0     | Sets the anti-aliasing level (does not work with legacy OpenGL) |
 | nativeres  | true  | Enables rendering internally at the native window resolution (enabled when using -msaa or -legacygl) |
 | opengl     | true  | Use the OpenGL renderer |

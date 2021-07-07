@@ -104,8 +104,8 @@ protected:
     i32 mouse_x_ {0};
     i32 mouse_y_ {0};
     u32 buttons_ {0};
-    i32 cursor_x_ {0};
-    i32 cursor_y_ {0};
+    i32 tracking_x_ {0};
+    i32 tracking_y_ {0};
     u32 prev_buttons_ {0};
     u8 key_states_[256] {};
     f32 center_x_ {0.0f};

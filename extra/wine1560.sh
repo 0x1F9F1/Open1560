@@ -7,7 +7,7 @@ export SDL_RENDER_DRIVER=opengl
 # export mesa_glthread=true
 
 # Enable threaded OpenGL for Nvidia
-# export `__GL_THREADED_OPTIMIZATIONS=1
+# export __GL_THREADED_OPTIMIZATIONS=1
 
 # Prefer native dinput and ddraw
 export WINEDLLOVERRIDES="dinput,ddraw=n,b"

@@ -50,12 +50,12 @@ void WINEventHandler::AdjustMouse(i32& mouse_x, i32& mouse_y)
     POINT point;
     GetCursorPos(&point);
 
-    if (point.x != cursor_x_ || point.y != cursor_y_)
+    if (point.x != tracking_x_ || point.y != tracking_y_)
     {
-        SetCursorPos(cursor_x_, cursor_y_);
+        SetCursorPos(tracking_x_, tracking_y_);
 
-        mouse_x = cursor_x_ + (cursor_x_ - point.x);
-        mouse_y = cursor_y_ + (cursor_y_ - point.y);
+        mouse_x = tracking_x_ + (tracking_x_ - point.x);
+        mouse_y = tracking_y_ + (tracking_y_ - point.y);
 
         tracked_events_ |= 0x2;
     }
@@ -93,8 +93,8 @@ void WINEventHandler::BeginTracking()
     POINT point;
     GetCursorPos(&point);
 
-    cursor_x_ = point.x;
-    cursor_y_ = point.y;
+    tracking_x_ = point.x;
+    tracking_y_ = point.y;
 }
 
 void WINEventHandler::EndGfx()
@@ -113,7 +113,7 @@ void WINEventHandler::EndTracking()
 {
     tracked_events_ &= ~0x1;
 
-    SetCursorPos(cursor_x_, cursor_y_);
+    SetCursorPos(tracking_x_, tracking_y_);
 }
 
 const char* WINEventHandler::GKeyName(i32 arg1)
