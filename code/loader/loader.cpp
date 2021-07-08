@@ -683,7 +683,7 @@ include_dummy_symbol(stream_vstream);
 
 // include_dummy_symbol(vector7_algmath);
 // include_dummy_symbol(vector7_const);
-// include_dummy_symbol(vector7_geomath);
+include_dummy_symbol(vector7_geomath);
 include_dummy_symbol(vector7_matrix34);
 // include_dummy_symbol(vector7_matrix44);
 // include_dummy_symbol(vector7_quat);

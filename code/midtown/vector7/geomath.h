@@ -40,7 +40,7 @@ ARTS_IMPORT i32 CollideTri(class Vector3 const& arg1, class Vector3 const& arg2,
 ARTS_IMPORT void ComputeMirrorMatrix(class Matrix34& arg1, class Vector4& arg2);
 
 // 0x572430 | ?ComputeShadowMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z
-ARTS_IMPORT void ComputeShadowMatrix(class Matrix34& arg1, class Vector4& arg2);
+ARTS_EXPORT void ComputeShadowMatrix(class Matrix34& matrix, class Vector4& normal);
 
 // 0x571790 | ?GetBoundInfo@@YAXHPAVVector3@@000PAM@Z
 ARTS_IMPORT void GetBoundInfo(i32 vert_count, class Vector3* vertices, class Vector3* out_min, class Vector3* out_max,
