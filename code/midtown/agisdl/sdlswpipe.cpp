@@ -424,10 +424,14 @@ void agiSDLSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_
     if ((dst_x == 0) && (dst_y == 0) && (width == width_) && (height == height_))
         std::memset(swDepthBuffer, 0xFF, sizeof(u16) * swFbWidth * swFbHeight);
 
-    SDL_Rect src_rect {src_x, src_y, width, height};
+    SDL_Surface* src_surface = static_cast<agiSDLBitmap*>(src)->GetSurface();
+
+    SDL_Rect src_rect {
+        src_x, src_y, std::clamp(width, 1, src_surface->w - src_x), std::clamp(height, 1, src_surface->h - src_y)};
+
     SDL_Rect dst_rect {dst_x, dst_y, width, height};
 
-    SDL_BlitScaled(static_cast<agiSDLBitmap*>(src)->GetSurface(), &src_rect, render_surface_, &dst_rect);
+    SDL_BlitScaled(src_surface, &src_rect, render_surface_, &dst_rect);
 }
 
 RcOwner<class agiBitmap> agiSDLSWPipeline::CreateBitmap()
