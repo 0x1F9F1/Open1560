@@ -843,6 +843,9 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
 
 i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface_dir, Vector3 const& light_dir)
 {
+    // TODO: Move to agiMeshSet::DrawShadow or mmBangerInstance::DrawShadow
+    agiCurState.SetTexture(nullptr);
+
     ClippedVertCount = 0;
     ClippedTriCount = 0;
     ClippedTextures[0] = 0;
@@ -877,6 +880,9 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface
 
     {
         ARTS_UTIMED(agiTraverseTimer);
+
+        DynTexFlag = 0;
+        CurrentMeshSetVariant = 0;
 
         firstFacet[0] = -1;
         vertCounts[0] = 0;
