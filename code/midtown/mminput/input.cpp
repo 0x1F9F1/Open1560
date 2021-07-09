@@ -58,13 +58,16 @@ void mmInput::ProcessKeyboardEvents()
 
         if (event.Common.Type == eqEventType::Keyboard)
         {
-            event.Key.VirtualKey = VirtualKeyToScanCode(event.Key.VirtualKey);
+            if (event.Key.Char == 0) // Ignore WM_CHAR/SDL_TEXTINPUT
+            {
+                event.Key.Key = VirtualKeyToScanCode(event.Key.Key);
 
-            if (event.Key.VirtualKey == 0)
-                event.Key.VirtualKey = ((event.Key.State >> 16) & 0xFF) | ((event.Key.State >> 17) & 0x1);
+                if (event.Key.Key == 0)
+                    event.Key.Key = ((event.Key.State >> 16) & 0xFF) | ((event.Key.State >> 17) & 0x80);
 
-            scan = (event.Key.VirtualKey != 0) && (event.Key.Modifiers & EQ_KMOD_DOWN) &&
-                !(event.Key.Modifiers & EQ_KMOD_REPEAT);
+                scan = (event.Key.Key != 0) && (event.Key.Modifiers & EQ_KMOD_DOWN) &&
+                    !(event.Key.Modifiers & EQ_KMOD_REPEAT);
+            }
         }
         else if (event.Common.Type == eqEventType::Mouse)
         {

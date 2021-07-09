@@ -47,7 +47,7 @@ void UIMenu::CheckInput()
         // Returns 1 if the menu is active, and the event is for a key press
         i32 is_key_press = ScanInput(&event);
 
-        if (event.Key.VirtualKey == EQ_VK_ESCAPE)
+        if (event.Key.Key == EQ_VK_ESCAPE)
         {
             if (is_key_press != 1)
             {
@@ -55,8 +55,8 @@ void UIMenu::CheckInput()
                 continue;
             }
         }
-        else if ((event.Key.VirtualKey < 8 || is_key_press != 1) &&
-            (event.Key.AsciiChar < 8 || is_key_press != 1)) // Ignore mouse buttons?
+        else if ((event.Key.Key < 8 || is_key_press != 1) &&
+            (event.Key.Char < 8 || is_key_press != 1)) // Ignore mouse buttons?
         {
             continue;
         }
@@ -81,7 +81,7 @@ b32 UIMenu::ScanInput(eqEvent* event)
         return false;
 
     // TODO: return result of ScanGlobalKeys?
-    MenuManager::Instance->ScanGlobalKeys(event->Key.VirtualKey);
+    MenuManager::Instance->ScanGlobalKeys(event->Key.Key);
 
     return true;
 }

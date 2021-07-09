@@ -71,10 +71,10 @@ struct eqRefocusEvent : eqCommonEvent
 
 struct eqKeyboardEvent : eqCommonEvent
 {
-    i32 Modifiers;
-    i32 VirtualKey;
-    i32 AsciiChar;
-    i32 State;
+    i32 Modifiers; // EQ_KMOD_*
+    i32 Key;       // EQ_KEY_* or EQ_VK_*
+    i32 Char;      // Input character
+    i32 State;     // Win32 Keystroke Message Flags
 };
 
 struct eqMouseEvent : eqCommonEvent

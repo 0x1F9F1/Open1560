@@ -667,7 +667,7 @@ void asMidgets::Update()
     while (event_queue_.Pop(&ev))
     {
         if ((ev.Common.Type == eqEventType::Keyboard) && (ev.Key.Modifiers & EQ_KMOD_DOWN))
-            UpdateKey(ev.Key.VirtualKey, ev.Key.Modifiers);
+            UpdateKey(ev.Key.Key, ev.Key.Modifiers);
     }
 
     CULLMGR->DeclarePrint(this);

@@ -439,7 +439,7 @@ void asSimulation::Widgets()
     for (eqEvent event; widgets_queue_.Pop(&event);)
     {
         if ((event.Common.Type == eqEventType::Keyboard) && (event.Key.Modifiers == (EQ_KMOD_DOWN | EQ_KMOD_CTRL)) &&
-            (event.Key.VirtualKey == EQ_VK_M) && !no_debug_)
+            (event.Key.Key == EQ_VK_M) && !no_debug_)
         {
             if (MIDGETSPTR->IsOpen() && MIDGETSPTR->GetVisibleLines() == 5)
             {
