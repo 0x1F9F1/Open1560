@@ -109,6 +109,9 @@
 #include "arts7/node.h"
 #include "inst.h"
 
+class agiTexDef;
+class Matrix34;
+
 class mmCullCity final : public asNode
 {
     // const mmCullCity::`vftable' @ 0x61CCD8
@@ -172,6 +175,16 @@ public:
     // 0x4A9F40 | ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
     ARTS_IMPORT static class mmCullCity* GetInstance();
 
+    agiTexDef* GetShadowMap()
+    {
+        return mem::field<agiTexDef*>(this, 0x34B48);
+    }
+
+    Matrix34& GetEnvTransform()
+    {
+        return mem::field<Matrix34>(this, 0x34B50);
+    }
+
 private:
     // 0x48C2C0 | ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
     ARTS_IMPORT void AddInstance(i32 arg1, char* arg2, char* arg3, i32 arg4, class Vector3* arg5, class Vector3* arg6,
@@ -186,6 +199,8 @@ private:
     // 0x48D2F0 | ?UpdateSnowTextures@mmCullCity@@AAEXXZ
     ARTS_IMPORT void UpdateSnowTextures();
 
+    friend mmCullCity* CullCity();
+
     // 0x6A8E28 | ?Instance@mmCullCity@@0PAV1@A
     ARTS_IMPORT static class mmCullCity* Instance;
 
@@ -193,6 +208,11 @@ private:
 };
 
 check_size(mmCullCity, 0x34D6C);
+
+inline mmCullCity* CullCity()
+{
+    return mmCullCity::Instance;
+}
 
 class mmUpperInstance final : public mmMatrixInstance
 {

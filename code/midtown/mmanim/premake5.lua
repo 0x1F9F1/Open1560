@@ -1,7 +1,7 @@
 arts_component "mmanim"
     files {
-        -- "AnimDOF.cpp",
-        -- "AnimDOF.h",
+        "AnimDOF.cpp",
+        "AnimDOF.h",
         -- "AnimMgr.cpp",
         -- "AnimMgr.h",
         -- "AnimSpline.cpp",
@@ -23,4 +23,3 @@ arts_component "mmanim"
         -- "traincar.cpp",
         -- "traincar.h",
     }
-

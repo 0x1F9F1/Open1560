@@ -62,7 +62,7 @@ public:
     ARTS_IMPORT ~mmDrawbridgeInstance() override = default;
 
     // 0x4C4460 | ?Draw@mmDrawbridgeInstance@@UAIXH@Z
-    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL Draw(i32 lod) override;
 
     // 0x4C4510 | ?InitBridge@mmDrawbridgeInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
     ARTS_IMPORT i32 InitBridge(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);

@@ -385,7 +385,7 @@ include_dummy_symbol(mmai_aiPoliceForce);
 // include_dummy_symbol(mmai_aipedaudiomanager);
 // include_dummy_symbol(mmai_arraylist);
 
-// include_dummy_symbol(mmanim_AnimDOF);
+include_dummy_symbol(mmanim_AnimDOF);
 // include_dummy_symbol(mmanim_AnimMgr);
 // include_dummy_symbol(mmanim_AnimSpline);
 // include_dummy_symbol(mmanim_AnimTrigger);

@@ -210,7 +210,7 @@ public:
     ARTS_IMPORT class MetaClass* GetClass() override;
 
     // 0x492BE0 | ?GetResidentMeshSet@mmInstance@@QAEPAVagiMeshSet@@HHH@Z
-    ARTS_IMPORT class agiMeshSet* GetResidentMeshSet(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT class agiMeshSet* GetResidentMeshSet(i32 lod, i32 index, i32 variant);
 
     // 0x493250 | ?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
     ARTS_IMPORT void InitMeshes(char* arg1, i32 arg2, char* arg3, class Vector3* arg4);
