@@ -68,7 +68,6 @@ private:
     bool reversed_z_ {false};
 
     Ptr<agiGLStreamBuffer> vbo_;
-    bool ibo_ {false};
 
     u32 vao_ {0};
     u32 shader_ {0};

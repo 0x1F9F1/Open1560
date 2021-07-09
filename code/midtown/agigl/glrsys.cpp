@@ -284,8 +284,9 @@ i32 agiGLRasterizer::BeginGfx()
         glUniform4fv(glGetUniformLocation(shader_, "u_Transform[0]"), 1, proj_mul);
         glUniform4fv(glGetUniformLocation(shader_, "u_Transform[1]"), 1, proj_add);
 
-        glBindBuffer(GL_ARRAY_BUFFER, vbo_ ? vbo_->Buffer : 0);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_ ? vbo_->Buffer : 0);
+        u32 buffer = vbo_ ? vbo_->Buffer : 0;
+        glBindBuffer(GL_ARRAY_BUFFER, buffer);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer);
 
         draw_base_vertex_ = vbo_ && agiGL->HasExtension(320, "GL_ARB_draw_elements_base_vertex");
         last_vtx_offset_ = nullptr;
@@ -345,9 +346,7 @@ void agiGLRasterizer::InitModern()
     StreamMode stream_mode = StreamMode::ClientSide;
 
     {
-        bool core = agiGL->IsCoreProfile();
         bool async = agiGL->HasExtension(320, "GL_ARB_sync");
-        const char* version = (const char*) glGetString(GL_VERSION);
 
         if (async && agiGL->HasExtension("GL_AMD_pinned_memory"))
         {
@@ -357,14 +356,14 @@ void agiGLRasterizer::InitModern()
         {
             if (async && agiGL->HasExtension(/*440,*/ "GL_ARB_buffer_storage"))
                 stream_mode = StreamMode::MapCoherent;
-            else if (core && std::strstr(version, "Mesa"))
-                stream_mode = StreamMode::MapRange;
+            // else
+            //     stream_mode = StreamMode::MapRange;
         }
 
         if (i32 mode = 0; PARAM_glstream.get(mode))
             stream_mode = static_cast<StreamMode>(mode);
 
-        if (core && stream_mode == StreamMode::ClientSide)
+        if (agiGL->IsCoreProfile() && stream_mode == StreamMode::ClientSide)
             stream_mode = StreamMode::BufferData;
     }
 
@@ -375,40 +374,33 @@ void agiGLRasterizer::InitModern()
     switch (stream_mode)
     {
         case StreamMode::BufferData: {
-            // OpenGL 3.3 removes client-side index arrays, but we only try and target 3.2 (or lower) by default
             vbo_ = MakeUnique<agiGLBasicStreamBuffer>();
-            ibo_ = false;
             break;
         }
 
         case StreamMode::MapRange: {
             vbo_ = MakeUnique<agiGLMapRangeStreamBuffer>(vbo_size);
-            ibo_ = true;
             break;
         }
 
         case StreamMode::MapPersistent:
         case StreamMode::MapCoherent: {
             vbo_ = MakeUnique<agiGLPersistentStreamBuffer>(vbo_size, stream_mode == StreamMode::MapCoherent);
-            ibo_ = true;
             break;
         }
 
         case StreamMode::AmdPinned: {
             vbo_ = MakeUnique<agiGLAMDPinnedStreamBuffer>(vbo_size);
-            ibo_ = true;
             break;
         }
 
         case StreamMode::MapUnsafe: {
             vbo_ = MakeUnique<agiGLMapUnsafeStreamBuffer>(vbo_size);
-            ibo_ = true;
             break;
         }
 
         case StreamMode::ClientSide: {
             vbo_ = nullptr;
-            ibo_ = false;
             break;
         }
 
@@ -1042,12 +1034,12 @@ void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count
     {
         const usize lengths[2] {vertex_count * sizeof(agiScreenVtx), index_count * sizeof(u16)};
         const usize aligns[2] {sizeof(agiScreenVtx), sizeof(u16)};
-        vbo_->Upload(offsets, lengths, aligns, ibo_ ? 2 : 1);
+        vbo_->Upload(offsets, lengths, aligns, 2);
     }
 
     const auto [vtx_offset, idx_offset] = offsets;
 
-    if (draw_base_vertex_ && vtx_offset)
+    if (draw_base_vertex_)
     {
         glDrawRangeElementsBaseVertex(draw_mode, 0, vertex_count, index_count, GL_UNSIGNED_SHORT, idx_offset,
             reinterpret_cast<usize>(vtx_offset) / sizeof(agiScreenVtx));

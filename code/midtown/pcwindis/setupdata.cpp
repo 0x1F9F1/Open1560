@@ -192,7 +192,7 @@ i32 dxiResGetRecommended(i32 renderer, [[maybe_unused]] i32 cpu_speed)
         }
     }
 
-    u32 target_height = !IsSoftwareRenderer(info.Type) ? std::min<u32>(768, native_res->uHeight) : 480;
+    u32 target_height = std::min<u32>(IsSoftwareRenderer(info.Type) ? 480 : 768, native_res->uHeight);
 
     return dxiResClosestMatch(renderer, (target_height * native_res->uWidth) / native_res->uHeight, target_height);
 }

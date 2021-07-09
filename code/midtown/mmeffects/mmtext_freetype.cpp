@@ -187,7 +187,7 @@ const mmFont::mmGlyph& mmFont::LoadChar(u32 char_code)
     result->Pitch = face_->glyph->bitmap.pitch;
 
     usize buffer_size = result->Rows * result->Pitch;
-    result->Buffer.reset(new u8[buffer_size]);
+    result->Buffer = MakeUniqueUninit<u8[]>(buffer_size);
     std::memcpy(result->Buffer.get(), face_->glyph->bitmap.buffer, buffer_size);
 
     return *result;
