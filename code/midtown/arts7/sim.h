@@ -158,14 +158,14 @@ public:
     // 0x5229C0 | ?Widgets@asSimulation@@QAEXXZ
     ARTS_EXPORT void Widgets();
 
-    Matrix34* GetCurrentView()
+    Matrix34* GetCurrentCamera()
     {
-        return current_view_;
+        return current_camera_;
     }
 
-    void SetCurrentView(Matrix34* view)
+    void SetCurrentCamera(Matrix34* view)
     {
-        current_view_ = view;
+        current_camera_ = view;
     }
 
     asBenchStats& GetStats()
@@ -177,13 +177,13 @@ public:
     {
         ArAssert(++camera_depth_ < ARTS_SSIZE(cameras_), "Too Many Cameras");
         cameras_[camera_depth_] = camera;
-        current_view_ = camera->GetView();
+        current_camera_ = camera->GetCamera();
     }
 
     void PopCamera()
     {
         ArAssert(camera_depth_ > 0, "Camera underflow");
-        current_view_ = cameras_[--camera_depth_]->GetView();
+        current_camera_ = cameras_[--camera_depth_]->GetCamera();
     }
 
     void SetDebug(bool debug)
@@ -215,7 +215,7 @@ private:
     i32 camera_depth_;
     asLinearCS* cameras_[32];
     asLinearCS root_camera_;
-    Matrix34* current_view_;
+    Matrix34* current_camera_;
     Timer frame_timer_;
     i32 frame_lock_;
     f32 seconds_;

@@ -145,7 +145,7 @@ void asParticles::Cull()
 
     if (SparkCount)
     {
-        GetActiveViewport()->SetWorld(const_cast<Matrix34&>(IDENTITY));
+        Viewport()->SetWorld(const_cast<Matrix34&>(IDENTITY));
         agiCurState.SetTexture(Texture.get());
         agiMeshSet::InitCards(MeshCard);
 

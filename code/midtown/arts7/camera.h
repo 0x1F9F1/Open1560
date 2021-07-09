@@ -191,8 +191,8 @@ private:
     f32 aspect_ {0.0f};
     f32 near_clip_ {0.0f};
     f32 far_clip_ {0.0f};
-    f32 float80;
-    f32 float84;
+    f32 float_80;
+    f32 float_84;
 
     f32 left_clip_scale_ {0.0f};
     f32 right_clip_scale_ {0.0f};
@@ -207,18 +207,18 @@ private:
     b32 auto_aspect_ {false};
     i32 draw_mode_ {0};
     i32 field_C0;
-    f32 floatC4;
+    f32 float_C4;
     i32 field_C8;
     i32 field_CC;
 
     Vector3 fog_color_ {};
     f32 fog_density_ {0.0f};
-    f32 floatE0;
+    f32 float_E0;
     f32 fog_start_ {0.0f};
     f32 fog_end_ {0.0f};
 
-    Matrix34 matrixEC {};
-    Matrix34 model_ {};
+    Matrix34 camera_ {};
+    Matrix34 view_ {};
 
     i32 field_14C;
     i32 field_150;
@@ -227,11 +227,11 @@ private:
     i32 field_15C;
 
     i32 pause_fade_ {0};
-    f32 fade_speed_ {0.0f};
     f32 fade_amount_ {0.0f};
+    f32 fade_speed_ {0.0f};
     f32 max_fade_ {0.0f};
     Vector3 fade_color_ {};
-    f32 float17C;
+    f32 float_17C;
     i32 fade_ticks_ {0};
     i32 field_184;
 };

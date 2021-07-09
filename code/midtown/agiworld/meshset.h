@@ -116,7 +116,7 @@ public:
     ARTS_IMPORT void DrawNormals(class Vector3& arg1);
 
     // 0x506F40 | ?DrawShadow@agiMeshSet@@QAEXIABVVector4@@ABVVector3@@@Z | agiworld:meshrend
-    ARTS_IMPORT void DrawShadow(u32 arg1, class Vector4 const& arg2, class Vector3 const& arg3);
+    ARTS_EXPORT void DrawShadow(u32 flags, class Vector4 const& plane, class Vector3 const& light_dir);
 
     // 0x50DB10 | ?EnvMap@agiMeshSet@@QAEXAAVMatrix34@@PAVagiTexDef@@I@Z | agiworld:meshrend
     ARTS_IMPORT void EnvMap(class Matrix34& arg1, class agiTexDef* arg2, u32 arg3);

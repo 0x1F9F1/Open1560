@@ -65,16 +65,16 @@ public:
         return matrix_.m3;
     }
 
-    Matrix34* GetView()
+    Matrix34* GetCamera()
     {
-        return &view_;
+        return &camera_;
     }
 
     VIRTUAL_META_DECLARE;
 
 private:
     Matrix34 matrix_ {};
-    Matrix34 view_ {};
+    Matrix34 camera_ {};
     i32 global_ {};
     asLinearCS* inherit_ {};
 };

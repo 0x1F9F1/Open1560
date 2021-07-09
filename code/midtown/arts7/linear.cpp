@@ -29,7 +29,7 @@ define_dummy_symbol(arts7_linear);
 
 asLinearCS::asLinearCS()
     : matrix_(IDENTITY)
-    , view_(IDENTITY)
+    , camera_(IDENTITY)
 {
     SetNodeFlag2(false);
 }
@@ -57,7 +57,7 @@ void asLinearCS::AddWidgets(Bank* bank)
 
 void asLinearCS::Cull()
 {
-    DrawBegin(view_);
+    DrawBegin(camera_);
     DrawColor(ColRed);
     DrawLine(ORIGIN, XAXIS);
     DrawColor(ColGreen);
@@ -77,11 +77,11 @@ void asLinearCS::Update()
 {
     if (global_)
     {
-        view_ = inherit_ ? inherit_->view_ : matrix_;
+        camera_ = inherit_ ? inherit_->camera_ : matrix_;
     }
     else
     {
-        view_.Dot(matrix_, inherit_ ? inherit_->view_ : *ARTSPTR->GetCurrentView());
+        camera_.Dot(matrix_, inherit_ ? inherit_->camera_ : *ARTSPTR->GetCurrentCamera());
     }
 
     ARTSPTR->GetStats().LCSUpdates++;

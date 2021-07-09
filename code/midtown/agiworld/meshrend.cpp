@@ -631,6 +631,27 @@ void agiMeshSet::DrawLitEnv(agiMeshLighter lighter, agiTexDef* env_map, Matrix34
     }
 }
 
+void agiMeshSet::DrawShadow(u32 flags, Vector4 const& plane, Vector3 const& light_dir)
+{
+    if (const Vector3& camera = ViewParams().Camera.m3;
+        camera.x * plane.x + camera.y * plane.y + camera.z * plane.z + plane.w < 0.0f)
+        return;
+
+    if (LockIfResident())
+    {
+        if (ShadowGeometry(flags, Vertices, plane, light_dir) <= 0xFF)
+        {
+            FirstPass(nullptr, nullptr, ShadowColor);
+        }
+
+        Unlock();
+    }
+    else
+    {
+        PageIn();
+    }
+}
+
 static void (agiMeshSet::*const FirstPassFunctions[2][2][2][2])(u32* colors, Vector2* tex_coords, u32 color) {
     {
         {
@@ -658,6 +679,12 @@ static extern_var(0x725134, i32, DynTexFlag); // mmCarModel::Draw, mmVehicleForm
 
 void agiMeshSet::FirstPass(u32* colors, Vector2* tex_coords, u32 color)
 {
+    // FIXME: SW_noUV_* does not unbind the current texture
+    if (tex_coords == nullptr)
+    {
+        agiCurState.SetTexture(nullptr);
+    }
+
     if (agiCurState.GetDrawMode() == 3)
     {
         colors = nullptr;
@@ -841,15 +868,12 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
     return clip_mask;
 }
 
-i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface_dir, Vector3 const& light_dir)
+i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& plane, Vector3 const& light_dir)
 {
-    // TODO: Move to agiMeshSet::DrawShadow or mmBangerInstance::DrawShadow
-    agiCurState.SetTexture(nullptr);
-
     ClippedVertCount = 0;
     ClippedTriCount = 0;
     ClippedTextures[0] = 0;
-    ShadowInit(surface_dir, light_dir);
+    ShadowInit(plane, light_dir);
 
     u32 clip_mask = (flags & AGI_MESH_DRAW_CLIP) ? AGI_MESH_CLIP_ANY : 0; // clip_any | (clip_all << 8)
 
@@ -1100,7 +1124,7 @@ static u16 QuadIndices[144] {
 
 void agiMeshSet::DrawWideLines(class Vector3* starts, class Vector3* ends, f32* widths, u32* colors, i32 count)
 {
-    const agiViewParameters& params = GetActiveViewport()->GetParams();
+    const agiViewParameters& vp = ViewParams();
 
     agiMeshSet::Init(false);
 
@@ -1153,8 +1177,8 @@ void agiMeshSet::DrawWideLines(class Vector3* starts, class Vector3* ends, f32* 
 
         if (std::abs(start_y - end_y) >= std::abs(start_x - end_x))
         {
-            start_width = (start_width * params.ProjX + start_z * params.ProjXZ) * start_rhw * HalfWidth;
-            end_width = (end_width * params.ProjX + end_z * params.ProjXZ) * end_rhw * HalfWidth;
+            start_width = (start_width * vp.ProjX + start_z * vp.ProjXZ) * start_rhw * HalfWidth;
+            end_width = (end_width * vp.ProjX + end_z * vp.ProjXZ) * end_rhw * HalfWidth;
 
             verts[stored + 0].x = start_x + start_width;
             verts[stored + 0].y = start_y;
@@ -1170,8 +1194,8 @@ void agiMeshSet::DrawWideLines(class Vector3* starts, class Vector3* ends, f32* 
         }
         else
         {
-            start_width = (start_width * params.ProjY + start_z * params.ProjYZ) * start_rhw * HalfHeight;
-            end_width = (end_width * params.ProjY + end_z * params.ProjYZ) * end_rhw * HalfHeight;
+            start_width = (start_width * vp.ProjY + start_z * vp.ProjYZ) * start_rhw * HalfHeight;
+            end_width = (end_width * vp.ProjY + end_z * vp.ProjYZ) * end_rhw * HalfHeight;
 
             verts[stored + 0].x = start_x;
             verts[stored + 0].y = start_y - start_width;

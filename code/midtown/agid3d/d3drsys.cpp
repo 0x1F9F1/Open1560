@@ -650,7 +650,7 @@ void agiD3DRasterizer::FlushState()
 
         if (fog_mode == agiFogMode::Pixel)
         {
-            const agiViewParameters& vp = GetActiveViewport()->GetParams();
+            const agiViewParameters& vp = ViewParams();
 
             agiLastState.FogStart = fog_start;
 

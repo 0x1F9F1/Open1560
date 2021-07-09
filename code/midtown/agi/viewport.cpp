@@ -23,6 +23,13 @@ define_dummy_symbol(agi_viewport);
 #include "pipeline.h"
 #include "vector7/matrix34.h"
 
+void agiViewParameters::SetWorld(Matrix34& world)
+{
+    Model = world;
+    ModelView.Dot(Model, View);
+    ++MtxSerial;
+}
+
 agiViewport::agiViewport(class agiPipeline* pipe)
     : agiRefreshable(pipe)
     , field_144_(pipe_->GetDword38())
@@ -30,21 +37,23 @@ agiViewport::agiViewport(class agiPipeline* pipe)
 
 agiViewport::~agiViewport()
 {
-    if (this == agiViewport::Active)
-        agiViewport::Active = nullptr;
+    if (this == Active)
+        Active = nullptr;
 }
 
 void agiViewport::SetWorld(class Matrix34& world)
 {
-    params_.View = world;
-    params_.ModelView.Dot(params_.View, params_.Model);
-    ++agiViewParameters::MtxSerial;
+    params_.SetWorld(world);
 }
 
 f32 agiViewport::Aspect()
 {
     if (state_)
-        return (Pipe()->GetWidth() * params_.Width) / (Pipe()->GetHeight() * params_.Height);
+    {
+        agiPipeline* pipe = Pipe();
+
+        return (pipe->GetWidth() * params_.Width) / (pipe->GetHeight() * params_.Height);
+    }
 
     return params_.Width / params_.Height;
 }

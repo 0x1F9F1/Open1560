@@ -74,6 +74,8 @@ public:
     // 0x557490 | ?SphereVisible@agiViewParameters@@QAEHAAVVector3@@M@Z
     ARTS_IMPORT i32 SphereVisible(class Vector3& arg1, f32 arg2);
 
+    void SetWorld(class Matrix34& world);
+
     // 0x8FF044 | ?MtxSerial@agiViewParameters@@2IA
     ARTS_IMPORT static u32 MtxSerial;
 
@@ -97,9 +99,9 @@ public:
     f32 ProjYZ;
     f32 Left;
     f32 Right;
-    Matrix34 CurrentTransform;
-    Matrix34 Model;
+    Matrix34 Camera;
     Matrix34 View;
+    Matrix34 Model; // World
     Matrix34 ModelView;
     Vector2 field_104;
     Vector2 field_10C;
@@ -151,7 +153,7 @@ protected:
     // 0x8FF048 | ?Active@agiViewport@@1PAV1@A
     ARTS_IMPORT static class agiViewport* Active;
 
-    friend agiViewport* GetActiveViewport();
+    friend agiViewport* Viewport();
 
     agiViewParameters params_;
     u32 field_144_; // ViewIndex ?
@@ -160,7 +162,12 @@ protected:
 
 check_size(agiViewport, 0x148);
 
-inline agiViewport* GetActiveViewport()
+inline agiViewport* Viewport()
 {
     return agiViewport::Active;
+}
+
+inline const agiViewParameters& ViewParams()
+{
+    return Viewport()->GetParams();
 }
