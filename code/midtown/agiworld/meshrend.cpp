@@ -477,6 +477,8 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
             MaxX = +INFINITY;
             MinY = -INFINITY;
             MaxY = +INFINITY;
+
+            OnlyZClip = true;
             ClipMask = AGI_MESH_CLIP_NZ | AGI_MESH_CLIP_PZ;
         }
     }
