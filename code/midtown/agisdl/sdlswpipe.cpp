@@ -193,16 +193,10 @@ public:
 
         sdl_surface_ = SDL_CreateRGBSurfaceWithFormat(0, width_, height_, 16, format);
 
-        SDL_LockSurface(sdl_surface_);
-
-        agiSurfaceDesc surface = *surface_;
-        surface.Width = sdl_surface_->w;
-        surface.Height = sdl_surface_->h;
-        surface.Surface = sdl_surface_->pixels;
-        surface.Pitch = sdl_surface_->pitch;
-        surface.CopyFrom(surface_.get(), 0);
-
-        SDL_UnlockSurface(sdl_surface_);
+        SDL_Surface* source = SDL_CreateRGBSurfaceWithFormatFrom(
+            surface_->Surface, surface_->Width, surface_->Height, 16, surface_->Pitch, format);
+        SDL_BlitScaled(source, NULL, sdl_surface_, NULL);
+        SDL_FreeSurface(source);
 
         state_ = 1;
 
@@ -302,6 +296,7 @@ i32 agiSDLSWPipeline::BeginGfx()
     if (gfx_started_)
         return AGI_ERROR_ALREADY_INITIALIZED;
 
+    bit_depth_ = 16;
     valid_bit_depths_ = 0x1;
 
     agiSDLPipeline::BeginGfx();

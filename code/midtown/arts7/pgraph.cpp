@@ -100,7 +100,7 @@ void asPerfGraph::Cull()
 
         f32 height = 0.0f;
 
-        for (i32 j = 0, k = maim_component_; j < num_components_; ++j)
+        for (i32 j = 0, k = main_component_; j < num_components_; ++j)
         {
             i32 line_bottom = pipe_height - static_cast<i32>(height * scale);
             height += component_history_[k][i];
@@ -249,7 +249,7 @@ void asPerfGraph::Key(i32 vkey)
     {
         case EQ_VK_F2: graph_scale_ *= 0.5f; break;
         case EQ_VK_F3: graph_scale_ *= 2.0f; break;
-        case EQ_VK_F4: maim_component_ = (maim_component_ + 1) % num_components_; break;
+        case EQ_VK_F4: main_component_ = (main_component_ + 1) % num_components_; break;
         case EQ_VK_F5: mode_ = (mode_ + 1) % 3; break;
 
         // TODO: Move somewhere else?

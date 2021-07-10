@@ -59,7 +59,7 @@ private:
     static constexpr i32 MaxComponents = 8;
 
     i32 num_components_ {0};
-    i32 maim_component_ {0};
+    i32 main_component_ {0};
     f32* component_history_[MaxComponents] {};
     const char* component_name_[MaxComponents] {};
     f32* component_value_[MaxComponents] {};

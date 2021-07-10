@@ -165,6 +165,59 @@ void agiPrintf(i32 x, i32 y, i32 color, ARTS_FORMAT_STRING char const* format, .
     agiPrint(x, y, color, buffer);
 }
 
+// Clip a quad, assuming verts[0] is top-left and verts[2] is bottom-right
+static bool ClipQuad(agiScreenVtx* verts)
+{
+    f32 pipe_width = static_cast<f32>(Pipe()->GetWidth());
+    f32 pipe_height = static_cast<f32>(Pipe()->GetHeight());
+
+    if (verts[0].x < 0.0f)
+    {
+        verts[0].tu += ((verts[2].tu - verts[0].tu) / (verts[2].x - verts[0].x) * (0.0f - verts[0].x));
+        verts[0].x = 0.0f;
+        verts[0].color = 0xFFFF0000;
+    }
+    else if (verts[0].x >= pipe_width)
+    {
+        return false;
+    }
+
+    if (f32 x = verts[2].x; x > pipe_width)
+    {
+        verts[2].tu -= ((verts[2].tu - verts[0].tu) / (verts[2].x - verts[0].x) * (verts[2].x - pipe_width));
+        verts[2].x = pipe_width;
+        verts[2].color = 0xFFFF0000;
+    }
+    else if (x <= 0.0f)
+    {
+        return false;
+    }
+
+    if (f32 y = verts[0].y; y < 0.0f)
+    {
+        verts[0].tv += ((verts[2].tv - verts[0].tv) / (verts[2].y - verts[0].y) * (0.0f - verts[0].y));
+        verts[0].y = 0.0f;
+        verts[0].color = 0xFF00FF00;
+    }
+    else if (y >= pipe_height)
+    {
+        return false;
+    }
+
+    if (f32 y = verts[2].y; y > pipe_height)
+    {
+        verts[2].tv -= ((verts[2].tv - verts[0].tv) / (verts[2].y - verts[0].y) * (verts[2].y - pipe_height));
+        verts[2].y = pipe_height;
+        verts[2].color = 0xFF00FF00;
+    }
+    else if (y <= 0.0f)
+    {
+        return false;
+    }
+
+    return true;
+}
+
 void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* text)
 {
     if (y + agiFontHeight <= 0 || y >= Pipe()->GetHeight())
@@ -186,6 +239,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
     auto filter = agiCurState.SetTexFilter(agiTexFilter::Point);
     auto fog_mode = agiCurState.SetFogMode(agiFogMode::None);
     auto fog_color = agiCurState.SetFogColor(0x00000000);
+    auto persp = agiCurState.SetTexturePerspective(false);
 
     const u16 buf_size = 64;
 
@@ -224,15 +278,28 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
         verts[2] = blank;
         verts[3] = blank;
 
-        verts[3].x = verts[0].x = static_cast<f32>(x);
-        verts[1].y = verts[0].y = static_cast<f32>(y);
-        verts[3].tu = verts[0].tu = font_x * inv_font_w;
-        verts[1].tv = verts[0].tv = font_y * inv_font_h;
+        verts[0].x = static_cast<f32>(x);
+        verts[0].y = static_cast<f32>(y);
+        verts[0].tu = font_x * inv_font_w;
+        verts[0].tv = font_y * inv_font_h;
 
-        verts[1].x = verts[2].x = static_cast<f32>(x + agiFontWidth);
-        verts[3].y = verts[2].y = static_cast<f32>(y + agiFontHeight);
-        verts[1].tu = verts[2].tu = (font_x + 8) * inv_font_w;
-        verts[3].tv = verts[2].tv = (font_y + 8) * inv_font_h;
+        verts[2].x = static_cast<f32>(x + agiFontWidth);
+        verts[2].y = static_cast<f32>(y + agiFontHeight);
+        verts[2].tu = (font_x + 8) * inv_font_w;
+        verts[2].tv = (font_y + 8) * inv_font_h;
+
+        if (agiCurState.GetSoftwareRendering() && !ClipQuad(verts))
+            continue;
+
+        verts[1].x = verts[2].x;
+        verts[1].y = verts[0].y;
+        verts[1].tu = verts[2].tu;
+        verts[1].tv = verts[0].tv;
+
+        verts[3].x = verts[0].x;
+        verts[3].y = verts[2].y;
+        verts[3].tu = verts[0].tu;
+        verts[3].tv = verts[2].tv;
 
         u16 base = count * 4;
 
@@ -243,7 +310,12 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
         indices[4] = base + 2;
         indices[5] = base + 3;
 
-        ++count;
+        if (++count == buf_size)
+        {
+            RAST->Mesh(agiVtxType::Screen, (agiVtx*) vert_buf, count * 4, index_buf, count * 6);
+
+            count = 0;
+        }
 
         x += agiFontWidth;
     }
@@ -263,6 +335,7 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
     agiCurState.SetTexFilter(filter);
     agiCurState.SetFogMode(fog_mode);
     agiCurState.SetFogColor(fog_color);
+    agiCurState.SetTexturePerspective(persp);
 }
 
 b32 agiPipeline::PrintIs3D()
