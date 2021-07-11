@@ -47,7 +47,7 @@ void InitEventQueue()
 
 static mem::cmd_param PARAM_mousemode {"mousemode"};
 
-i32 SDLEventHandler::BeginGfx(i32 width, i32 height, [[maybe_unused]] b32 fullscreen)
+i32 SDLEventHandler::BeginGfx(i32 width, i32 height, b32 fullscreen)
 {
     center_x_ = width / 2.0f;
     center_y_ = height / 2.0f;
@@ -68,18 +68,16 @@ i32 SDLEventHandler::BeginGfx(i32 width, i32 height, [[maybe_unused]] b32 fullsc
     tracking_y_ = 0;
     tracked_events_ = 0x0;
 
+    SDL_RaiseWindow(g_MainWindow);
     SDL_SetWindowGrab(g_MainWindow, SDL_TRUE);
 
-    if (i32 mouse_mode = PARAM_mousemode.get_or(0); mouse_mode == 2)
+    i32 mouse_mode = PARAM_mousemode.get_or(fullscreen ? 0 : 2);
+    SDL_SetHint(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, (mouse_mode == 1) ? "1" : "0");
+
+    if ((SDL_SetRelativeMouseMode((mouse_mode != 2) ? SDL_TRUE : SDL_FALSE) < 0) || (mouse_mode == 2))
     {
-        SDL_SetRelativeMouseMode(SDL_FALSE);
         SDL_WarpMouseInWindow(g_MainWindow, mouse_x_, mouse_y_);
         tracked_events_ |= 0x1;
-    }
-    else
-    {
-        SDL_SetHint(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, (mouse_mode == 1) ? "1" : "0");
-        SDL_SetRelativeMouseMode(SDL_TRUE);
     }
 
     return 0;
@@ -87,8 +85,8 @@ i32 SDLEventHandler::BeginGfx(i32 width, i32 height, [[maybe_unused]] b32 fullsc
 
 void SDLEventHandler::EndGfx()
 {
-    SDL_SetWindowGrab(g_MainWindow, SDL_FALSE);
     SDL_SetRelativeMouseMode(SDL_FALSE);
+    SDL_SetWindowGrab(g_MainWindow, SDL_FALSE);
 }
 
 #define EQ_SEND(NAME, ...)                               \

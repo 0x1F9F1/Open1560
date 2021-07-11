@@ -51,8 +51,6 @@ i32 agiSDLPipeline::BeginGfx()
             window_, SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index), SDL_WINDOWPOS_CENTERED_DISPLAY(info.SDL.Index));
     }
 
-    SDL_RaiseWindow(window_);
-
     return 0;
 }
 
