@@ -871,14 +871,6 @@ bool asMemoryAllocator::DoSanityCheck() const
     {
         u32 source = (debug_ && n->IsAllocated()) ? n->GetAllocSource() : 0;
 
-        next = n->GetNext();
-
-        if (next <= n)
-            errors += HeapAssert(n, "Node Direction", source);
-
-        if (next > GetHeapEnd())
-            errors += HeapAssert(n, "Node Size", source);
-
         if (n->GetPrev() != last)
             errors += HeapAssert(n, "Linked List", source);
 
@@ -898,6 +890,14 @@ bool asMemoryAllocator::DoSanityCheck() const
             ++total_used;
         else
             n->SetPendingSanity(true);
+
+        next = n->GetNext();
+
+        if (next <= n)
+            return HeapAssert(n, "Node Direction", source);
+
+        if (next > GetHeapEnd())
+            return HeapAssert(n, "Node Size", source);
 
         ++total;
 
