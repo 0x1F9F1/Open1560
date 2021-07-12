@@ -42,24 +42,49 @@ MixerCTL::~MixerCTL()
 void MixerCTL::RefreshAll(ulong /*arg1*/)
 {}
 
+static bool GetWaveDeviceIDFromName(const char* device_name, u32& wave_id)
+{
+    for (u32 i = 0, count = mixerGetNumDevs(); i < count; ++i)
+    {
+        if (MIXERCAPSA mxcaps; mixerGetDevCapsA(i, &mxcaps, sizeof(mxcaps)) == MMSYSERR_NOERROR)
+        {
+            if (std::strncmp(mxcaps.szPname, device_name, 31) == 0)
+            {
+                wave_id = i;
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
 void MixerCTL::SetDeviceNum(u32 device_num)
 {
     u32 wave_id = 0;
+    const char* device_name = nullptr;
 
-    if (!DSGlobalPtr || !DSGlobalPtr->GetWaveDeviceID(device_num, wave_id))
+    if (DSGlobalPtr)
     {
-        Errorf("MixerCTL::SetDeviceNum: Couldn't find mixer for device #%u", device_num);
+        device_name = DSGlobalPtr->GetDeviceName(device_num);
 
-        // Just hope for the best if it's a valid mixer ID
-        if (device_num < mixerGetNumDevs())
-            wave_id = device_num;
+        // Try and query the device ID directly from DirectSound
+        if (!DSGlobalPtr->GetWaveDeviceID(device_num, wave_id) || (wave_id >= mixerGetNumDevs()))
+        {
+            // If that fails, try and find the mixer with the matching name
+            if (!device_name || !GetWaveDeviceIDFromName(device_name, wave_id))
+            {
+                // If that fails, default to 0 (which should be the Default Device/Primary Sound Driver)
+                wave_id = 0;
+            }
+        }
     }
 
     MIXERCAPSA mxcaps;
 
-    Displayf("Using Mixer '%s' (%i, %i)",
+    Displayf("Using Mixer '%s' (%i) for Device '%s' (%i)",
         (mixerGetDevCapsA(wave_id, &mxcaps, sizeof(mxcaps)) == MMSYSERR_NOERROR) ? mxcaps.szPname : "[INVALID]",
-        wave_id, device_num);
+        wave_id, device_name ? device_name : "[INVALID]", device_num);
 
     device_id_ = wave_id;
 }

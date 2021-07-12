@@ -155,6 +155,8 @@ public:
 
     bool GetWaveDeviceID(u32 device_num, u32& wave_id);
 
+    const char* GetDeviceName(u32 index);
+
     // 0x4F09F0 | ?GetNum3DHallBufs@DSGlobal@@QAEKXZ | unused
     ARTS_IMPORT ulong GetNum3DHallBufs();
 

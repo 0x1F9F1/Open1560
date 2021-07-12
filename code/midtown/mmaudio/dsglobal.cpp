@@ -60,13 +60,13 @@ static bool GetInfoFromDSoundGUID(GUID i_sGUID, u32& dwWaveID)
     {
         DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_DATA sDirectSoundDeviceDescription {};
         sDirectSoundDeviceDescription.DeviceId = i_sGUID;
+        sDirectSoundDeviceDescription.DataFlow = DIRECTSOUNDDEVICE_DATAFLOW_RENDER;
 
         ULONG ulBytesReturned = 0;
 
-        pKsPropertySet->Get(DSPROPSETID_DirectSoundDevice, DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION, NULL, 0,
-            &sDirectSoundDeviceDescription, sizeof(sDirectSoundDeviceDescription), &ulBytesReturned);
-
-        if (ulBytesReturned)
+        if (SUCCEEDED(pKsPropertySet->Get(DSPROPSETID_DirectSoundDevice, DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION, NULL,
+                0, &sDirectSoundDeviceDescription, sizeof(sDirectSoundDeviceDescription), &ulBytesReturned)) &&
+            ulBytesReturned)
         {
             PDSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_DATA psDirectSoundDeviceDescription =
                 (PDSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_DATA) new BYTE[ulBytesReturned];
@@ -77,7 +77,7 @@ static bool GetInfoFromDSoundGUID(GUID i_sGUID, u32& dwWaveID)
                     NULL, 0, psDirectSoundDeviceDescription, ulBytesReturned, &ulBytesReturned)))
             {
                 dwWaveID = psDirectSoundDeviceDescription->WaveDeviceId;
-                success = TRUE;
+                success = dwWaveID;
             }
 
             delete[] psDirectSoundDeviceDescription;
@@ -105,6 +105,11 @@ bool DSGlobal::GetWaveDeviceID(u32 device_num, u32& wave_id)
         return GetInfoFromDSoundGUID(DevicesArray[device_num]->guDevice, wave_id);
 
     return false;
+}
+
+const char* DSGlobal::GetDeviceName(u32 index)
+{
+    return (index < NumDevices) ? DevicesArray[index]->pszDeviceDesc : nullptr;
 }
 
 static mem::cmd_param PARAM_cdid {"cdid"};
