@@ -26,31 +26,28 @@ define_dummy_symbol(mminput_iodev);
 
 #include "core/minwin.h"
 
-using namespace ioType;
-using namespace mmJoyInput;
-
 i32 mmIODev::GetComponentType(i32 device, i32 component)
 {
     switch (device)
     {
-        case MM_MOUSE: {
-            if (component == kXaxis || component == kYaxis)
-                return kContinuous;
+        case mmIODevice::Mouse: {
+            if (component == mmJoyInput::Xaxis || component == mmJoyInput::Yaxis)
+                return ioType::Continuous;
 
-            return kDiscrete;
+            return ioType::Discrete;
         }
 
-        case MM_JOYSTICK1:
-        case MM_JOYSTICK2:
-        case MM_JOYSTICK3:
-        case MM_JOYSTICK4: {
-            if (component >= kJButton1 && component <= kJButton12)
-                return kDiscrete;
+        case mmIODevice::Joystick1:
+        case mmIODevice::Joystick2:
+        case mmIODevice::Joystick3:
+        case mmIODevice::Joystick4: {
+            if (component >= mmJoyInput::JButton1 && component <= mmJoyInput::JButton12)
+                return ioType::Discrete;
 
-            return kContinuous;
+            return ioType::Continuous;
         }
 
-        default: return kDiscrete;
+        default: return ioType::Discrete;
     }
 }
 
@@ -63,22 +60,22 @@ void mmIODev::GetDescription(char* buffer, usize buflen)
 {
     switch (Device)
     {
-        case MM_MOUSE: {
+        case mmIODevice::Mouse: {
             const char* desc = LocStrUndef;
 
             switch (Component)
             {
-                case EQ_BUTTON_LEFT: desc = LOC_STR(MM_IDS_LEFT_MOUSE_BUTTON); break;
-                case EQ_BUTTON_RIGHT: desc = LOC_STR(MM_IDS_RIGHT_MOUSE_BUTTON); break;
-                case kXaxis: desc = LOC_STR(MM_IDS_MOUSE_X_AXIS); break;
-                case kYaxis: desc = LOC_STR(MM_IDS_MOUSE_Y_AXIS); break;
+                case mmJoyInput::MButtonLeft: desc = LOC_STR(MM_IDS_LEFT_MOUSE_BUTTON); break;
+                case mmJoyInput::MButtonRight: desc = LOC_STR(MM_IDS_RIGHT_MOUSE_BUTTON); break;
+                case mmJoyInput::Xaxis: desc = LOC_STR(MM_IDS_MOUSE_X_AXIS); break;
+                case mmJoyInput::Yaxis: desc = LOC_STR(MM_IDS_MOUSE_Y_AXIS); break;
             }
 
             arts_strcpy(buffer, buflen, desc);
             break;
         }
 
-        case MM_KEYBOARD: {
+        case mmIODevice::Keyboard: {
             if (UseDIKey)
             {
                 arts_strcpy(buffer, buflen, AngelReadKeyString(Component)->Text);
@@ -90,13 +87,14 @@ void mmIODev::GetDescription(char* buffer, usize buflen)
             break;
         }
 
-        case MM_JOYSTICK1:
-        case MM_JOYSTICK2:
-        case MM_JOYSTICK3:
-        case MM_JOYSTICK4: {
-            if (Component >= kJButton1 && Component <= kJButton12)
+        case mmIODevice::Joystick1:
+        case mmIODevice::Joystick2:
+        case mmIODevice::Joystick3:
+        case mmIODevice::Joystick4: {
+            if (Component >= mmJoyInput::JButton1 && Component <= mmJoyInput::JButton12)
             {
-                arts_sprintf(buffer, buflen, "%s %s %d", LocStrJoystick, LocStrButton, (Component - kJButton1) + 1);
+                arts_sprintf(
+                    buffer, buflen, "%s %s %d", LocStrJoystick, LocStrButton, (Component - mmJoyInput::JButton1) + 1);
             }
             else
             {
@@ -104,23 +102,23 @@ void mmIODev::GetDescription(char* buffer, usize buflen)
 
                 switch (Component)
                 {
-                    case kXaxis: desc = LOC_STR(MM_IDS_X_AXIS); break;
-                    case kYaxis: desc = LOC_STR(MM_IDS_Y_AXIS); break;
-                    case kZaxis: desc = LOC_STR(MM_IDS_Z_AXIS); break;
-                    case kUaxis: desc = LOC_STR(MM_IDS_U_AXIS); break;
-                    case kRaxis: desc = LOC_STR(MM_IDS_R_AXIS); break;
-                    case kVaxis: desc = LOC_STR(MM_IDS_V_AXIS); break;
-                    case kPOVaxis: desc = LOC_STR(MM_IDS_POV_AXIS); break;
-                    case kXaxisLeft: desc = LOC_STR(MM_IDS_X_AXIS_LEFT); break;
-                    case kXaxisRight: desc = LOC_STR(MM_IDS_X_AXIS_RIGHT); break;
-                    case kYaxisUp: desc = LOC_STR(MM_IDS_Y_AXIS_UP); break;
-                    case kYaxisDown: desc = LOC_STR(MM_IDS_Y_AXIS_DOWN); break;
+                    case mmJoyInput::Xaxis: desc = LOC_STR(MM_IDS_X_AXIS); break;
+                    case mmJoyInput::Yaxis: desc = LOC_STR(MM_IDS_Y_AXIS); break;
+                    case mmJoyInput::Zaxis: desc = LOC_STR(MM_IDS_Z_AXIS); break;
+                    case mmJoyInput::Uaxis: desc = LOC_STR(MM_IDS_U_AXIS); break;
+                    case mmJoyInput::Raxis: desc = LOC_STR(MM_IDS_R_AXIS); break;
+                    case mmJoyInput::Vaxis: desc = LOC_STR(MM_IDS_V_AXIS); break;
+                    case mmJoyInput::POVaxis: desc = LOC_STR(MM_IDS_POV_AXIS); break;
+                    case mmJoyInput::XaxisLeft: desc = LOC_STR(MM_IDS_X_AXIS_LEFT); break;
+                    case mmJoyInput::XaxisRight: desc = LOC_STR(MM_IDS_X_AXIS_RIGHT); break;
+                    case mmJoyInput::YaxisUp: desc = LOC_STR(MM_IDS_Y_AXIS_UP); break;
+                    case mmJoyInput::YaxisDown: desc = LOC_STR(MM_IDS_Y_AXIS_DOWN); break;
 
-                    case kZaxisUp: desc = "Z Axis Up"; break;     // TODO: Localize
-                    case kZaxisDown: desc = "Z Axis Down"; break; // TODO: Localize
+                    case mmJoyInput::ZaxisUp: desc = "Z Axis Up"; break;     // TODO: Localize
+                    case mmJoyInput::ZaxisDown: desc = "Z Axis Down"; break; // TODO: Localize
 
-                    case kRaxisUp: desc = "R Axis Up"; break;     // TODO: Localize
-                    case kRaxisDown: desc = "R Axis Down"; break; // TODO: Localize
+                    case mmJoyInput::RaxisUp: desc = "R Axis Up"; break;     // TODO: Localize
+                    case mmJoyInput::RaxisDown: desc = "R Axis Down"; break; // TODO: Localize
                 }
 
                 arts_sprintf(buffer, buflen, "%s %s", LocStrJoystick, desc);

@@ -96,11 +96,11 @@ public:
     // 0x4E58A0 | ?DeclareFields@mmIODev@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    i32 IoType;
+    i32 IoType; // ioType
     u32 dword8C;
     i64 IoidBits;
-    i32 Device;
-    i32 Component;
+    i32 Device;    // mmIODevice
+    i32 Component; // mmJoyInput
     u64 State;
 };
 

@@ -22,31 +22,29 @@ define_dummy_symbol(mminput_joystick);
 
 #include "input.h"
 
-using namespace mmJoyInput;
-
 f32 mmJoystick::GetAxis(i32 axis)
 {
     switch (axis)
     {
-        case kXaxis: return XAxis.Value;
-        case kYaxis: return YAxis.Value;
-        case kZaxis: return -ZAxis.Value;
-        case kUaxis: return UAxis.Value;
-        case kRaxis: return RAxis.Value;
-        case kVaxis: return VAxis.Value;
-        case kPOVaxis: return PovAxis.Value;
+        case mmJoyInput::Xaxis: return XAxis.Value;
+        case mmJoyInput::Yaxis: return YAxis.Value;
+        case mmJoyInput::Zaxis: return -ZAxis.Value;
+        case mmJoyInput::Uaxis: return UAxis.Value;
+        case mmJoyInput::Raxis: return RAxis.Value;
+        case mmJoyInput::Vaxis: return VAxis.Value;
+        case mmJoyInput::POVaxis: return PovAxis.Value;
 
-        case kXaxisLeft: return (std::max) (-XAxis.Value, 0.0f);
-        case kXaxisRight: return (std::max) (+XAxis.Value, 0.0f);
+        case mmJoyInput::XaxisLeft: return (std::max) (-XAxis.Value, 0.0f);
+        case mmJoyInput::XaxisRight: return (std::max) (+XAxis.Value, 0.0f);
 
-        case kYaxisUp: return (std::max) (-YAxis.Value, 0.0f);
-        case kYaxisDown: return (std::max) (+YAxis.Value, 0.0f);
+        case mmJoyInput::YaxisUp: return (std::max) (-YAxis.Value, 0.0f);
+        case mmJoyInput::YaxisDown: return (std::max) (+YAxis.Value, 0.0f);
 
-        case kZaxisUp: return (std::max) (-ZAxis.Value, 0.0f);
-        case kZaxisDown: return (std::max) (+ZAxis.Value, 0.0f);
+        case mmJoyInput::ZaxisUp: return (std::max) (-ZAxis.Value, 0.0f);
+        case mmJoyInput::ZaxisDown: return (std::max) (+ZAxis.Value, 0.0f);
 
-        case kRaxisUp: return (std::max) (-RAxis.Value, 0.0f);
-        case kRaxisDown: return (std::max) (+RAxis.Value, 0.0f);
+        case mmJoyInput::RaxisUp: return (std::max) (-RAxis.Value, 0.0f);
+        case mmJoyInput::RaxisDown: return (std::max) (+RAxis.Value, 0.0f);
 
         default: return 0.0f;
     }
@@ -63,27 +61,27 @@ void mmJoystick::Update()
 
         if ((state = XAxis.Capture()) != 0)
         {
-            State = (state == 1) ? kXaxisRight : kXaxisLeft;
+            State = (state == 1) ? mmJoyInput::XaxisRight : mmJoyInput::XaxisLeft;
         }
         else if ((state = YAxis.Capture()) != 0)
         {
-            State = (state == 1) ? kYaxisDown : kYaxisUp;
+            State = (state == 1) ? mmJoyInput::YaxisDown : mmJoyInput::YaxisUp;
         }
         else if ((state = ZAxis.Capture()) != 0)
         {
-            State = (state == 1) ? kZaxisDown : kZaxisUp;
+            State = (state == 1) ? mmJoyInput::ZaxisDown : mmJoyInput::ZaxisUp;
         }
         else if ((state = UAxis.Capture()) != 0) // FIXME: Needs to be updated in mmJoystick::Poll
         {
-            State = kUaxis; // TODO: Separate Up/Down
+            State = mmJoyInput::Uaxis; // TODO: Separate Up/Down
         }
         else if ((state = RAxis.Capture()) != 0)
         {
-            State = (state == 1) ? kRaxisDown : kRaxisUp;
+            State = (state == 1) ? mmJoyInput::RaxisDown : mmJoyInput::RaxisUp;
         }
         else if ((state = VAxis.Capture()) != 0) // FIXME: Needs to be updated in mmJoystick::Poll
         {
-            State = kVaxis; // TODO: Separate Up/Down
+            State = mmJoyInput::Vaxis; // TODO: Separate Up/Down
         }
     }
 }

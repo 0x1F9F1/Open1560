@@ -173,64 +173,71 @@ ARTS_IMPORT extern class mmInput* GameInputPtr;
 // 0x719220 | ?IODev@@3PAVmmIODev@@A
 ARTS_IMPORT extern class mmIODev* IODev;
 
-namespace ioType
+namespace $
 {
-    enum ioType_ : i32
+    enum ioType : i32 // 'k' prefix
     {
-        kUndef = 0,
-        kDiscrete = 1,   // Key/Button
-        kContinuous = 2, // Mouse/Joystick
-        kEvent = 3,
+        Undef = 0,
+        Discrete = 1,   // Key/Button
+        Continuous = 2, // Mouse/Joystick
+        Event = 3,
     };
-}
 
-#define MM_MOUSE 2
-#define MM_KEYBOARD 3
-#define MM_JOYSTICK1 4
-
-// Unsupported
-#define MM_JOYSTICK2 5
-#define MM_JOYSTICK3 6
-#define MM_JOYSTICK4 7
-
-namespace mmJoyInput
-{
-    enum mmJoyInput_ : i32
+    enum mmIODevice : i32
     {
-        kXaxis = 10,
-        kYaxis = 11,
-        kZaxis = 12,
-        kUaxis = 13,
-        kRaxis = 14,
-        kVaxis = 15,
-        kPOVaxis = 16,
-        kXaxisLeft = 17,
-        kXaxisRight = 18,
-        kYaxisUp = 19,
-        kYaxisDown = 20,
-        kJButton1 = 21,
-        kJButton2 = 22,
-        kJButton3 = 23,
-        kJButton4 = 24,
-        kJButton5 = 25,
-        kJButton6 = 26,
-        kJButton7 = 27,
-        kJButton8 = 28,
-        kJButton9 = 29,
-        kJButton10 = 30,
-        kJButton11 = 31,
-        kJButton12 = 32,
+        Mouse = 2,     // MM_MOUSE
+        Keyboard = 3,  // MM_KEYBOARD
+        Joystick1 = 4, // MM_JOYSTICK1
+
+        // Unsupported
+        Joystick2 = 5, // MM_JOYSTICK2
+        Joystick3 = 6, // MM_JOYSTICK3
+        Joystick4 = 7, // MM_JOYSTICK4
+    };
+
+    enum mmJoyInput : i32 // 'k' prefix
+    {
+        MButtonLeft = 1,  // EQ_BUTTON_LEFT
+        MButtonRight = 2, // EQ_BUTTON_RIGHT
+
+        Xaxis = 10,
+        Yaxis = 11,
+        Zaxis = 12,
+        Uaxis = 13,
+        Raxis = 14,
+        Vaxis = 15,
+        POVaxis = 16,
+        XaxisLeft = 17,
+        XaxisRight = 18,
+        YaxisUp = 19,
+        YaxisDown = 20,
+        JButton1 = 21,
+        JButton2 = 22,
+        JButton3 = 23,
+        JButton4 = 24,
+        JButton5 = 25,
+        JButton6 = 26,
+        JButton7 = 27,
+        JButton8 = 28,
+        JButton9 = 29,
+        JButton10 = 30,
+        JButton11 = 31,
+        JButton12 = 32,
 
         // New
         // TODO: Handle in mmInput::ProcessJoyEvents
         // TODO: Handle in mmInput::BuildCaptureIO
-        kZaxisUp = 33,
-        kZaxisDown = 34,
+        ZaxisUp = 33,
+        ZaxisDown = 34,
 
-        kRaxisUp = 35,
-        kRaxisDown = 36,
+        RaxisUp = 35,
+        RaxisDown = 36,
     };
-}
+} // namespace $
+
+using $::ioType;
+using $::mmIODevice;
+using $::mmJoyInput;
 
 // 0x719268 | ?InputConfiguration@@3HA
 ARTS_IMPORT extern i32 InputConfiguration;
