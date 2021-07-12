@@ -20,7 +20,12 @@ define_dummy_symbol(agisw_swrend);
 
 #include "swrend.h"
 
+#include "agi/pipeline.h"
 #include "agi/rsys.h"
+#include "data7/utimer.h"
+#include "eventq7/winevent.h"
+
+static extern_var(0x7960A8, u32 (*)(u32), swFindColor);
 
 void ARTS_FASTCALL __setupNone(struct swSurface* /*arg1*/)
 {}
@@ -67,4 +72,23 @@ void swKill()
     swDepthBuffer = nullptr;
 
     agiCurState.SetSoftwareRendering(false);
+}
+
+void swLine(agiScreenVtx* start, agiScreenVtx* end)
+{
+    if (!IsAppActive())
+        return;
+
+    ARTS_UTIMED(agiRasterization);
+
+    // NOTE: Quantizing rounds upwards, casting rounds to zero (truncates)
+    // NOTE: This needs to be clamped, otherwise it can write out of bounds
+#define X(V, LIMIT) std::min<i32>(static_cast<u16>(mem::bit_cast<u32>(V + 12582912.0f)), LIMIT)
+    i32 start_x = X(start->x, swFbWidth - 1);
+    i32 start_y = X(start->y, swFbHeight - 1);
+    i32 end_x = X(end->x, swFbWidth - 1);
+    i32 end_y = X(end->y, swFbHeight - 1);
+#undef X
+
+    swLineInt(start_x, start_y, end_x, end_y, swFindColor(start->color));
 }

@@ -181,10 +181,10 @@ ARTS_IMPORT struct swSurface* swInitSurface(
 ARTS_EXPORT void swKill();
 
 // 0x537360 | ?swLine@@YAXPAUagiScreenVtx@@0@Z
-ARTS_IMPORT void swLine(struct agiScreenVtx* arg1, struct agiScreenVtx* arg2);
+ARTS_EXPORT void swLine(struct agiScreenVtx* start, struct agiScreenVtx* end);
 
 // 0x537270 | ?swLineInt@@YAXHHHHH@Z
-ARTS_IMPORT void swLineInt(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+ARTS_IMPORT void swLineInt(i32 start_x, i32 start_y, i32 end_x, i32 end_y, i32 color);
 
 // 0x536EE0 | ?swPoly@@YAXPAUagiScreenVtx@@H@Z
 ARTS_IMPORT void swPoly(struct agiScreenVtx* arg1, i32 arg2);

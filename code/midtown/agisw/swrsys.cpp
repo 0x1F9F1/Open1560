@@ -20,6 +20,11 @@ define_dummy_symbol(agisw_swrsys);
 
 #include "swrsys.h"
 
+#include "agi/pipeline.h"
+#include "swrend.h"
+
+static extern_var(0x7A0018, agiScreenVtx*, swVtxBase);
+
 i32 agiSWRasterizer::BeginGfx()
 {
     return 0;
@@ -33,6 +38,36 @@ void agiSWRasterizer::EndGfx()
 
 void agiSWRasterizer::EndGroup()
 {}
+
+void agiSWRasterizer::Line(i32 i1, i32 i2)
+{
+    ++STATS.Lines;
+
+    swLine(&swVtxBase[i1], &swVtxBase[i2]);
+}
+
+void agiSWRasterizer::Mesh([[maybe_unused]] agiVtxType type, agiVtx* vertices, [[maybe_unused]] i32 vertex_count,
+    u16* indices, i32 index_count)
+{
+    while (index_count > 0)
+    {
+        // FIXME: Potentially reading out of bounds
+
+        if (*indices == indices[3] && indices[2] == indices[4])
+        {
+            swQuad(&vertices[*indices].Screen, &vertices[indices[1]].Screen, &vertices[indices[2]].Screen,
+                &vertices[indices[5]].Screen);
+            index_count -= 6;
+            indices += 6;
+        }
+        else
+        {
+            swTri(&vertices[*indices].Screen, &vertices[indices[1]].Screen, &vertices[indices[2]].Screen);
+            index_count -= 3;
+            indices += 3;
+        }
+    }
+}
 
 void agiSWRasterizer::Points(enum agiVtxType /*arg1*/, union agiVtx* /*arg2*/, i32 /*arg3*/)
 {}

@@ -8,8 +8,8 @@ arts_component "agisw"
         "swpipe.h",
         "swrend.cpp",
         "swrend.h",
-        -- "swrsys.cpp",
-        -- "swrsys.h",
+        "swrsys.cpp",
+        "swrsys.h",
         -- "swtexdef.cpp",
         -- "swtexdef.h",
     }

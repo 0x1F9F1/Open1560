@@ -71,10 +71,10 @@ public:
     ARTS_EXPORT void EndGroup() override;
 
     // 0x537CB0 | ?Line@agiSWRasterizer@@UAEXHH@Z
-    ARTS_IMPORT void Line(i32 arg1, i32 arg2) override;
+    ARTS_EXPORT void Line(i32 i1, i32 i2) override;
 
     // 0x537D10 | ?Mesh@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
-    ARTS_IMPORT void Mesh(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3, u16* arg4, i32 arg5) override;
+    ARTS_EXPORT void Mesh(enum agiVtxType type, union agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) override;
 
     // 0x537D00 | ?Points@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
     ARTS_EXPORT void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
