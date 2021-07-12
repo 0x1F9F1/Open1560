@@ -130,33 +130,37 @@ static void AddVideoDisplay(i32 index, dxiRendererType type)
         add_resolution((height * 4) / 3, height);
     };
 
+    // Always add 480p
     add_height(480);
 
-    u32 curr_height = info.SDL.Height;
+    u32 small_height = info.SDL.Height;
 
-    for (;; curr_height /= 2)
+    // Add integer scaling resolutions
+    for (u32 i = 1; i < 100; ++i)
     {
-        add_height(curr_height);
+        u32 height = info.SDL.Height / i;
 
-        if (curr_height <= 2048)
+        if (height >= 1024)
+            small_height = height;
+
+        if (height < 480)
             break;
+
+        add_height(height);
     }
 
     static const u32 small_height_ratios[][2] {
         {4, 5}, // 80%
         {3, 4}, // 75%
         {2, 3}, // 66%
-        {1, 2}, // 50%
-        {2, 5}, // 40%
-        {1, 3}, // 33%
-        {1, 4}, // 25%
     };
 
+    // Add some smaller resolutions
     for (const u32* ratio : small_height_ratios)
     {
-        u32 height = (curr_height * ratio[0]) / ratio[1];
+        u32 height = (small_height * ratio[0]) / ratio[1];
 
-        static const u32 valid_small_heights[] {480, 540, 576, 600, 720, 768, 800, 900, 960, 1080};
+        static const u32 valid_small_heights[] {540, 576, 600, 720, 768, 800, 900, 960, 1080};
 
         if (std::find(std::begin(valid_small_heights), std::end(valid_small_heights), height) !=
             std::end(valid_small_heights))
