@@ -705,41 +705,46 @@ void agiGLRasterizer::FlushState()
         agiLastState.TexFilter = tex_filter;
     }
 
-    if (bool zwrite = agiCurState.GetZWrite(); zwrite != agiLastState.ZWrite)
-    {
-        agiLastState.ZWrite = zwrite;
+    bool zenable = agiCurState.GetZEnable();
 
-        agiGL->DepthMask(zwrite);
-        ++STATS.StateChangeCalls;
-    }
-
-    if (bool zenable = agiCurState.GetZEnable(); zenable != agiLastState.ZEnable)
+    if (zenable != agiLastState.ZEnable)
     {
         agiLastState.ZEnable = zenable;
         agiGL->EnableDisable(GL_DEPTH_TEST, zenable);
         ++STATS.StateChangeCalls;
     }
 
-    if (agiCmpFunc zfunc = agiCurState.GetZFunc(); zfunc != agiLastState.ZFunc)
+    if (zenable)
     {
-        agiLastState.ZFunc = zfunc;
-
-        GLenum depth_func = 0;
-
-        switch (zfunc)
+        if (bool zwrite = agiCurState.GetZWrite(); zwrite != agiLastState.ZWrite)
         {
-            case agiCmpFunc::Never: depth_func = GL_NEVER; break;
-            case agiCmpFunc::Less: depth_func = reversed_z_ ? GL_GREATER : GL_LESS; break;
-            case agiCmpFunc::Equal: depth_func = GL_EQUAL; break;
-            case agiCmpFunc::LessEqual: depth_func = reversed_z_ ? GL_GEQUAL : GL_LEQUAL; break;
-            case agiCmpFunc::Greater: depth_func = reversed_z_ ? GL_LESS : GL_GREATER; break;
-            case agiCmpFunc::Notequal: depth_func = GL_NOTEQUAL; break;
-            case agiCmpFunc::GreaterEqual: depth_func = reversed_z_ ? GL_LEQUAL : GL_GEQUAL; break;
-            case agiCmpFunc::Always: depth_func = GL_ALWAYS; break;
+            agiLastState.ZWrite = zwrite;
+
+            agiGL->DepthMask(zwrite);
+            ++STATS.StateChangeCalls;
         }
 
-        agiGL->DepthFunc(depth_func);
-        ++STATS.StateChangeCalls;
+        if (agiCmpFunc zfunc = agiCurState.GetZFunc(); zfunc != agiLastState.ZFunc)
+        {
+            agiLastState.ZFunc = zfunc;
+
+            GLenum depth_func = 0;
+
+            switch (zfunc)
+            {
+                case agiCmpFunc::Never: depth_func = GL_NEVER; break;
+                case agiCmpFunc::Less: depth_func = reversed_z_ ? GL_GREATER : GL_LESS; break;
+                case agiCmpFunc::Equal: depth_func = GL_EQUAL; break;
+                case agiCmpFunc::LessEqual: depth_func = reversed_z_ ? GL_GEQUAL : GL_LEQUAL; break;
+                case agiCmpFunc::Greater: depth_func = reversed_z_ ? GL_LESS : GL_GREATER; break;
+                case agiCmpFunc::Notequal: depth_func = GL_NOTEQUAL; break;
+                case agiCmpFunc::GreaterEqual: depth_func = reversed_z_ ? GL_LEQUAL : GL_GEQUAL; break;
+                case agiCmpFunc::Always: depth_func = GL_ALWAYS; break;
+            }
+
+            agiGL->DepthFunc(depth_func);
+            ++STATS.StateChangeCalls;
+        }
     }
 
     if (bool texture_perspective = agiCurState.GetTexturePerspective();
