@@ -1043,9 +1043,6 @@ static mem::cmd_param PARAM_speedycops {"speedycops"};
 
 void InitPatches()
 {
-    patch_jmp("mmCullCity::InitTimeOfDayAndWeather", "Additive Blending Check", 0x48DDD2, jump_type::always);
-    patch_jmp("SetTexQualString", "Additive Blending Check", 0x49A29F, jump_type::never);
-
     // Checked in GetPackedTexture, only necessary if agiRQ.TextureQuality <= 2
     // create_patch("aiVehicleOpponent::Init", "agiRQ.TextureQuality", 0x44DC2A, "\xEB\x06", 2);
 
@@ -1055,12 +1052,6 @@ void InitPatches()
         create_patch("mmCullCity::UpdateSnowTextures", "32-bit snow", 0x48D439, "\x8D\x04\xBA", 3);
         create_patch("mmCullCity::UpdateSnowTextures", "32-bit snow", 0x48D47E, "\x8B\x00\x89\x04\x93\x90\x90", 7);
     }
-
-    // Allocates 2 extra agiTexDef slots instead of 1, in case TextureCount == 0 (Assumes new memory is zeroed out)
-    // Won't avoid some crashes, but should help avoid any out of bounds reads or writes
-    // This also needs to be patched in agiMeshSet::DoPageIn
-    // lea edx,[ecx*4+0x8]
-    create_patch("agiMeshSet::BinaryLoad", "Avoid empty texdefs", 0x502D43, "\x8D\x14\x8D\x08\x00\x00\x00", 7);
 
     // Hack, avoids attempting to access freed memory (https://github.com/0x1F9F1/Open1560/issues/15)
     // Luckily the aiVehicleSpline destructor doesn't do actually do anything anyway (apart from set mmInstanceHeap.HeapHead, which we want to avoid anyway)
