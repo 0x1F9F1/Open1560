@@ -188,18 +188,43 @@ void asCullManager::PrintStats()
     Statsf("TxlsXfrd:%-4dKXtraTex:%-3d", (stats.TxlsXrfd + 1023) >> 10, stats.XtraTex);
 }
 
+extern const char* PrinterPrefixes[5];
+
+u32 const agiPrinterColors[5] {
+    0xFFFFFFFF,
+    0xFFFFFF00,
+    0xFFFF0000,
+    0xFFFF0000,
+    0xFFFF0000,
+};
+
 void Statsf(ARTS_FORMAT_STRING char const* format, ...)
 {
-    char buffer[128];
+    char buffer[256];
     std::va_list va;
     va_start(va, format);
     arts_vsprintf(buffer, format, va);
     va_end(va);
 
-    agiPrint(0, StatsTextOffset, CULLMGR->GetTextColor(), buffer);
+    u32 color = CULLMGR->GetTextColor();
+    const char* text = buffer;
+
+    for (i32 i = 4; i > 0; --i)
+    {
+        if (std::size_t length = std::strlen(PrinterPrefixes[i]); std::strncmp(text, PrinterPrefixes[i], length) == 0)
+        {
+            color = agiPrinterColors[i];
+            text += length;
+            break;
+        }
+    }
+
+    agiPrint(0, StatsTextOffset, color, text);
 
     StatsTextOffset += agiFontHeight;
 }
 
 META_DEFINE_CHILD("asCullManager", asCullManager, asNode)
 {}
+
+run_once([] { patch_jmp("asCullManager::Update", "Don't set colors", 0x5250A4, jump_type::always); });

@@ -124,7 +124,7 @@ void PDebug(ARTS_FORMAT_STRING char const* format, ...)
 
 static HANDLE DebugLogFile = INVALID_HANDLE_VALUE;
 
-static constexpr const char* PrinterPrefixes[5] {
+const char* PrinterPrefixes[5] {
     "",
     "WARNING: ",
     "ERROR: ",

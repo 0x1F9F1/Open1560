@@ -109,11 +109,11 @@ protected:
     ARTS_EXPORT void PrintStats();
 
 private:
-    u32 text_color_ {0};
+    u32 text_color_ {0xFFFFFFFF};
 
-    u32 color_red_ {0};
-    u32 color_green_ {0};
-    u32 color_blue_ {0};
+    u32 color_red_ {0xFFFF0000};
+    u32 color_green_ {0xFF00FF00};
+    u32 color_blue_ {0xFF0000FF};
 
     b32 debug_ {0};
 

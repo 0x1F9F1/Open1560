@@ -20,6 +20,7 @@ define_dummy_symbol(agi_print);
 
 #include "print.h"
 
+#include "agiworld/texsheet.h"
 #include "bitmap.h"
 #include "cmodel.h"
 #include "pipeline.h"
@@ -125,6 +126,8 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     if (alpha)
         params.Flags |= agiTexParameters::Alpha;
 
+    params.Props |= agiTexProp::AlwaysModulate;
+
     texture->Init(params, std::move(surface));
 
     BuiltinFontTexture = texture;
@@ -218,7 +221,7 @@ static bool ClipQuad(agiScreenVtx* verts)
     return true;
 }
 
-void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* text)
+void agiPipeline::Print(i32 x, i32 y, i32 color, char const* text)
 {
     if (y + agiFontHeight <= 0 || y >= Pipe()->GetHeight())
         return;
@@ -246,8 +249,9 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
     agiScreenVtx vert_buf[buf_size * 4];
     u16 index_buf[buf_size * 6];
 
-    u32 color = 0xFFFFFFFF;
     u16 count = 0;
+
+    agiScreenVtx const blank {0.0f, 0.0f, 0.0f, 1.0f, static_cast<u32>(color), 0xFFFFFFFF, 0.0f, 0.0f};
 
     while (*text)
     {
@@ -270,8 +274,6 @@ void agiPipeline::Print(i32 x, i32 y, [[maybe_unused]] i32 color_, char const* t
 
         agiScreenVtx* verts = &vert_buf[count * 4];
         u16* indices = &index_buf[count * 6];
-
-        agiScreenVtx blank {0.0f, 0.0f, 0.0f, 1.0f, color, 0xFFFFFFFF, 0.0f, 0.0f};
 
         verts[0] = blank;
         verts[1] = blank;
@@ -456,3 +458,5 @@ const u8 CharSet[96 * 8] {
     0x10, 0x38, 0x6C, 0xC6, 0xC6, 0xC6, 0xFE, 0x00, // '\x7F'
     // clang-format on
 };
+
+run_once([] { create_patch("DrawLabelf", "Ignore DrawColor", 0x52D9EE, "\x31\xC9\x49\x90\x90\x90", 6); });
