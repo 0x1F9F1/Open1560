@@ -351,7 +351,7 @@ void agiSurfaceDesc::Unload()
 
 void agiSurfaceDesc::Init(i32 width, i32 height)
 {
-    Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH;
+    Flags = AGISD_WIDTH | AGISD_HEIGHT | AGISD_PITCH | AGISD_PIXELFORMAT;
     Width = width;
     Height = height;
     Pitch = (width * GetPixelSize() + 3) & ~3;
@@ -429,7 +429,7 @@ void agiSurfaceDesc::FixPitch()
 
     i32 pitch = Width * GetPixelSize();
 
-    if (!(Flags & AGISD_PITCH) || (pitch > Pitch) || (pitch * 2 <= Pitch))
+    if (!(Flags & AGISD_PITCH) || (pitch > Pitch) || ((std::max) ((pitch + 3) & ~3, pitch * 2) <= Pitch))
     {
         Pitch = pitch;
         Flags |= AGISD_PITCH;

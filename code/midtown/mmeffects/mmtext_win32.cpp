@@ -209,7 +209,8 @@ void* mmText::GetDC(agiSurfaceDesc* surface)
 
     bmi.bV4Size = sizeof(bmi);
     bmi.bV4Width = surface->Width;
-    bmi.bV4Height = surface->Height;
+    // A positive value for the height indicates a bottom-up DIB while a negative value for the height indicates a top-down DIB
+    bmi.bV4Height = -static_cast<LONG>(surface->Height);
     bmi.bV4Planes = 1;
 
     switch (surface->PixelFormat.RBitMask)
@@ -232,11 +233,8 @@ void* mmText::GetDC(agiSurfaceDesc* surface)
     TextSurfaceDIB = CreateDIBSection(TextSurfaceDC, (const BITMAPINFO*) &bmi, 0, &TextSurfaceTemp.Surface, NULL, 0);
     SelectObject(TextSurfaceDC, TextSurfaceDIB);
 
-    // Windows bitmaps are DWORD aligned and upside down
+    // Windows bitmaps are DWORD (32-bit) aligned
     TextSurfaceTemp.Pitch = ((surface->Width * TextSurfaceTemp.PixelFormat.RGBBitCount + 31) & ~31) >> 3;
-    TextSurfaceTemp.Surface =
-        static_cast<u8*>(TextSurfaceTemp.Surface) + TextSurfaceTemp.Pitch * (TextSurfaceTemp.Height - 1);
-    TextSurfaceTemp.Pitch = -TextSurfaceTemp.Pitch;
 
     return TextSurfaceDC;
 }
