@@ -55,9 +55,6 @@ void agiGLRasterizer::EndGfx()
         glDeleteProgram(shader_);
         shader_ = 0;
     }
-
-    glDeleteTextures(1, &white_texture_);
-    white_texture_ = 0;
 }
 
 static void CheckShader(u32 shader)
@@ -273,12 +270,6 @@ i32 agiGLRasterizer::BeginGfx()
 
     glClearDepth(reversed_z_ ? 0.0 : 1.0);
 
-    glGenTextures(1, &white_texture_);
-    glBindTexture(GL_TEXTURE_2D, white_texture_);
-
-    u32 white = 0xFFFFFFFF;
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, &white);
-
     if (shader_)
     {
         glUniform4fv(glGetUniformLocation(shader_, "u_Transform[0]"), 1, proj_mul);
@@ -295,8 +286,6 @@ i32 agiGLRasterizer::BeginGfx()
     }
     else
     {
-        glEnable(GL_TEXTURE_2D);
-
         glFogi(GL_FOG_MODE, GL_LINEAR);
         glFogi(GL_FOG_COORD_SRC, GL_FOG_COORD);
 
@@ -439,13 +428,14 @@ out vec2 frag_UV;
 uniform vec4 u_Transform[2];
 uniform vec4 u_FogMode;
 uniform vec3 u_FogColor;
+uniform bvec2 u_TexEnv;
 
 void main()
 {
     gl_Position = in_Position * u_Transform[0] + u_Transform[1];
     gl_Position /= in_Position.w;
+    frag_Color = (u_TexEnv.x) ? in_Color : vec4(1.0);
 
-    frag_Color = in_Color;
     frag_Fog = vec4(0.0);
     frag_UV = in_UV;
 
@@ -484,10 +474,16 @@ out vec4 out_Color;
 
 uniform sampler2D u_Texture;
 uniform float u_AlphaRef;
+uniform bvec2 u_TexEnv;
 
 void main()
 {
-    out_Color = texture2D(u_Texture, frag_UV) * frag_Color + frag_Fog;
+    out_Color = frag_Color;
+
+    if (u_TexEnv.y)
+        out_Color *= texture2D(u_Texture, frag_UV);
+
+    out_Color += frag_Fog;
 
     // Ignored by software renderer, only used by mmDashView, only ever 0
     if (out_Color.w <= u_AlphaRef)
@@ -536,11 +532,17 @@ void main()
 
     agiGL->CheckErrors();
 
+    agiGL->BindTextureUnit(GL_TEXTURE_2D, 0, 0);
+    current_texture_ = 0;
     glUniform1i(glGetUniformLocation(shader_, "u_Texture"), 0);
 
     uniform_alpha_ref_ = glGetUniformLocation(shader_, "u_AlphaRef");
     alpha_ref_ = 0.0f;
     glUniform1f(uniform_alpha_ref_, alpha_ref_);
+
+    uniform_tex_env_ = glGetUniformLocation(shader_, "u_TexEnv");
+    tex_env_ = agiTexEnv::Disable;
+    glUniform2i(uniform_tex_env_, tex_env_ != agiTexEnv::Replace, tex_env_ != agiTexEnv::Disable);
 
     uniform_fog_mode_ = glGetUniformLocation(shader_, "u_FogMode");
     fog_mode_ = {0.0f, 0.0f, 0.0f, 0.0f};
@@ -650,46 +652,51 @@ void agiGLRasterizer::FlushState()
     {
         agiLastState.Texture = texture;
 
-        if (u32 handle = texture ? texture->GetHandle() : white_texture_; handle != current_texture_)
+        if (texture)
         {
-            current_texture_ = handle;
+            if (u32 handle = texture->GetHandle(); handle != current_texture_)
+            {
+                current_texture_ = handle;
 
-            ++STATS.TextureChanges;
-
-            if (texture)
+                ++STATS.TextureChanges;
                 STATS.TxlsXrfd += texture->SurfaceSize;
 
-            if (texture && current_texture_)
-            {
-                if (texture->Tex.DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
-                    tex_filter = agiTexFilter::Bilinear;
-
-                GLenum min_filter = GL_NEAREST;
-                GLenum mag_filter = GL_NEAREST;
-
-                switch (tex_filter)
+                if (current_texture_)
                 {
-                    case agiTexFilter::Trilinear: {
-                        min_filter = GL_LINEAR_MIPMAP_LINEAR;
-                        mag_filter = GL_LINEAR;
-                        break;
+                    if (texture->Tex.DisableMipMaps() && tex_filter > agiTexFilter::Bilinear)
+                        tex_filter = agiTexFilter::Bilinear;
+
+                    GLenum min_filter = GL_NEAREST;
+                    GLenum mag_filter = GL_NEAREST;
+
+                    switch (tex_filter)
+                    {
+                        case agiTexFilter::Trilinear: {
+                            min_filter = GL_LINEAR_MIPMAP_LINEAR;
+                            mag_filter = GL_LINEAR;
+                            break;
+                        }
+
+                        case agiTexFilter::Bilinear: {
+                            min_filter = GL_LINEAR;
+                            mag_filter = GL_LINEAR;
+                            break;
+                        }
+
+                        case agiTexFilter::Point: {
+                            min_filter = GL_NEAREST;
+                            mag_filter = GL_NEAREST;
+                            break;
+                        }
                     }
 
-                    case agiTexFilter::Bilinear: {
-                        min_filter = GL_LINEAR;
-                        mag_filter = GL_LINEAR;
-                        break;
-                    }
-
-                    case agiTexFilter::Point: {
-                        min_filter = GL_NEAREST;
-                        mag_filter = GL_NEAREST;
-                        break;
-                    }
+                    texture->SetFilters(min_filter, mag_filter);
                 }
-
-                texture->SetFilters(min_filter, mag_filter);
             }
+        }
+        else
+        {
+            current_texture_ = 0;
         }
     }
 
@@ -872,15 +879,30 @@ void agiGLRasterizer::FlushState()
         }
     }
 
-    if (agiBlendOp blend_op = agiCurState.GetBlendOp(); blend_op != agiLastState.BlendOp)
+    if (agiTexEnv tex_env = agiLastState.Texture ? agiCurState.GetTexEnv() : agiTexEnv::Disable;
+        tex_env != agiLastState.TexEnv)
     {
-        agiLastState.BlendOp = blend_op;
+        agiLastState.TexEnv = tex_env;
 
-        //switch (blend_op)
-        //{
-        //    case agiBlendOp::One: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE); break;
-        //    case agiBlendOp::Modulate: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE); break;
-        //}
+        if (tex_env != tex_env_)
+        {
+            tex_env_ = tex_env;
+
+            if (shader_)
+            {
+                glUniform2i(uniform_tex_env_, tex_env_ != agiTexEnv::Replace, tex_env_ != agiTexEnv::Disable);
+            }
+            else
+            {
+                switch (tex_env)
+                {
+                    case agiTexEnv::Replace: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE); break;
+                    case agiTexEnv::Modulate: glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE); break;
+                }
+            }
+
+            ++STATS.StateChangeCalls;
+        }
     }
 
     agiFogMode fog_mode = agiCurState.GetFogMode();
@@ -964,7 +986,7 @@ void agiGLRasterizer::FlushState()
     agiCurState.ClearTouched();
 }
 
-static void DrawMeshImm(u32 draw_mode, agiVtx* vertices, u16* indices, i32 index_count)
+void DrawMeshImm(u32 draw_mode, agiVtx* vertices, u16* indices, i32 index_count)
 {
     glBegin(draw_mode);
 
@@ -990,13 +1012,13 @@ static void DrawMeshImm(u32 draw_mode, agiVtx* vertices, u16* indices, i32 index
         vert.w *= w;
 #endif
 
-        if (agiCurState.GetDrawMode() == 15)
+        if (agiLastState.TexEnv != agiTexEnv::Disable)
             glTexCoord2fv(&vert.tu);
 
         glColor4ub(
             (vert.color >> 16) & 0xFF, (vert.color >> 8) & 0xFF, (vert.color >> 0) & 0xFF, (vert.color >> 24) & 0xFF);
 
-        switch (agiCurState.GetFogMode())
+        switch (agiLastState.FogMode)
         {
             case agiFogMode::Pixel: glFogCoordf(vert.z); break;
             case agiFogMode::Vertex: glFogCoordf(static_cast<f32>(vert.specular >> 24)); break;
@@ -1015,16 +1037,21 @@ void agiGLRasterizer::DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count
 
     FlushState();
 
-    if (current_texture_ == 0)
+    if ((current_texture_ == 0) && (tex_env_ != agiTexEnv::Disable))
         return;
 
     ARTS_UTIMED(agiRasterization);
     ++STATS.GeomCalls;
 
-    agiGL->BindTextureUnit(GL_TEXTURE_2D, current_texture_, 0);
+    if (current_texture_ != 0)
+    {
+        agiGL->BindTextureUnit(GL_TEXTURE_2D, current_texture_, 0);
+    }
 
     if (shader_ == 0)
     {
+        agiGL->EnableDisable(GL_TEXTURE_2D, current_texture_ != 0);
+
         return DrawMeshImm(draw_mode, vertices, indices, index_count);
     }
 

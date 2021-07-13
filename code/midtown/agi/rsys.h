@@ -129,11 +129,11 @@ enum class agiTexFilter : u8
     Trilinear = 2, // Nicest
 };
 
-enum class agiBlendOp : u8
+enum class agiTexEnv : u8
 {
     // Color = Texture
     // COLOROP = SELECTARG1, COLORARG1 = TEXTURE, ALPHAOP = SELECTARG1, ALPHAARG1 = TEXTURE
-    One = 0,
+    Replace = 0,
 
     // Color = Texture * Diffuse
     // COLOROP = MODULATE,   COLORARG1 = TEXTURE, ALPHAOP = MODULATE,   ALPHAARG1 = TEXTURE, COLORARG2 = DIFFUSE
@@ -184,7 +184,7 @@ public:
 
     agiTexFilter TexFilter {};
 
-    agiBlendOp BlendOp {};
+    agiTexEnv TexEnv {};
 
     agiCullMode CullMode {};
 
@@ -266,7 +266,7 @@ public:
     AGI_RSTATE_MEMBER(SmoothShading)
     AGI_RSTATE_MEMBER(DrawMode)
     AGI_RSTATE_MEMBER(TexFilter)
-    AGI_RSTATE_MEMBER(BlendOp)
+    AGI_RSTATE_MEMBER(TexEnv)
     AGI_RSTATE_MEMBER(CullMode)
     AGI_RSTATE_MEMBER(ZFunc)
     AGI_RSTATE_MEMBER(FogMode)

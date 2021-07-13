@@ -61,7 +61,6 @@ private:
 
     void DrawMesh(u32 draw_mode, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count);
 
-    u32 white_texture_ {0};
     u32 current_texture_ {0};
 
     bool flip_winding_ {false};
@@ -74,6 +73,9 @@ private:
 
     i32 uniform_alpha_ref_ {-1};
     f32 alpha_ref_ {0.0f};
+
+    i32 uniform_tex_env_ {-1};
+    agiTexEnv tex_env_ {0};
 
     i32 uniform_fog_mode_ {-1};
     Vector4 fog_mode_ {};

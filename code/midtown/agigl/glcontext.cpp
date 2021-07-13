@@ -328,6 +328,7 @@ static u32 GetCapabilityIndex(u32 cap)
         case GL_SCISSOR_TEST: return 3;
         case GL_ALPHA_TEST: return 4;
         case GL_FOG: return 5;
+        case GL_TEXTURE_2D: return 6;
 
         default: Quitf("Invalid Capability %X", cap);
     }

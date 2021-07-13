@@ -45,7 +45,7 @@ agiRasterizer::agiRasterizer(agiPipeline* pipe)
 
     if (pipe->IsHardware())
     {
-        agiCurState.SetBlendOp(agiBlendOp::Modulate);
+        agiCurState.SetTexEnv(agiTexEnv::Modulate);
     }
 
     agiCurState.SetAlphaRef(0);

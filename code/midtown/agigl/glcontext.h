@@ -103,7 +103,7 @@ private:
     i32 max_anisotropy_ {0};
 
     u32 active_texture_unit_ {0};
-    bool capabilities_[6] {};
+    bool capabilities_[7] {};
     bool depth_mask_ {};
     u32 polygon_mode_ {0};
     u32 depth_func_ {0};

@@ -243,7 +243,7 @@ void agiD3DRasterizer::FlushState()
 
     agiTexFilter tex_filter = agiCurState.GetTexFilter();
     bool alpha_enable = agiCurState.GetAlphaEnable();
-    agiBlendOp blend_op = agiCurState.GetBlendOp();
+    agiTexEnv tex_env = agiCurState.GetTexEnv();
 
     agiD3DTexDef* texture = static_cast<agiD3DTexDef*>(agiCurState.GetTexture());
     agiD3DTexDef* texture2 = static_cast<agiD3DTexDef*>(agiCurState.GetTexture2());
@@ -329,7 +329,7 @@ void agiD3DRasterizer::FlushState()
         }
         else
         {
-            blend_op = agiBlendOp::Disable;
+            tex_env = agiTexEnv::Disable;
             EnableDraw = true;
         }
 
@@ -343,7 +343,7 @@ void agiD3DRasterizer::FlushState()
     if (texture2)
     {
         alpha_enable = false;
-        blend_op = agiBlendOp::One;
+        tex_env = agiTexEnv::Replace;
     }
 
     if (!agiEnableZBuffer)
@@ -504,11 +504,11 @@ void agiD3DRasterizer::FlushState()
         agiLastState.AlphaRef = alpha_ref;
     }
 
-    if (stage_changed || blend_op != agiLastState.BlendOp)
+    if (stage_changed || tex_env != agiLastState.TexEnv)
     {
-        switch (blend_op)
+        switch (tex_env)
         {
-            case agiBlendOp::One: {
+            case agiTexEnv::Replace: {
                 d3d_set_texture_stage_state(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
                 d3d_set_texture_stage_state(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
                 d3d_set_texture_stage_state(0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG1);
@@ -517,7 +517,7 @@ void agiD3DRasterizer::FlushState()
                 break;
             }
 
-            case agiBlendOp::Modulate: {
+            case agiTexEnv::Modulate: {
                 d3d_set_texture_stage_state(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
                 d3d_set_texture_stage_state(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
                 d3d_set_texture_stage_state(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
@@ -528,7 +528,7 @@ void agiD3DRasterizer::FlushState()
                 break;
             }
 
-            case agiBlendOp::Disable: {
+            case agiTexEnv::Disable: {
                 d3d_set_texture_stage_state(0, D3DTSS_COLOROP, D3DTOP_DISABLE);
 
                 DD_TRY(dev->SetTexture(0, nullptr));
@@ -537,7 +537,7 @@ void agiD3DRasterizer::FlushState()
             }
         }
 
-        agiLastState.BlendOp = blend_op;
+        agiLastState.TexEnv = tex_env;
     }
 
     bool wrap_u = agiCurState.GetWrapU();
