@@ -252,6 +252,8 @@ void SDLEventHandler::HandleEvent(const SDL_Event& event)
     }
 }
 
+static mem::cmd_param PARAM_pause {"pause"};
+
 void SDLEventHandler::HandleWindowEvent(const SDL_WindowEvent& event)
 {
     switch (event.event)
@@ -270,7 +272,7 @@ void SDLEventHandler::HandleWindowEvent(const SDL_WindowEvent& event)
             }
             else
             {
-                if (ActiveFlag & 1)
+                if ((ActiveFlag & 1) && PARAM_pause.get_or(true))
                 {
                     DeactivateApplication();
                     ActiveFlag &= ~1;

@@ -66,7 +66,7 @@ void asPerfGraph::Cull()
     // RAST->BeginGroup();
 
     auto tex = agiCurState.SetTexture(nullptr);
-    auto draw_mode = agiCurState.SetDrawMode(0xF);
+    auto draw_mode = agiCurState.SetDrawMode(agiDrawTextured);
     auto depth = agiCurState.SetZEnable(false);
     auto zwrite = agiCurState.SetZWrite(false);
     auto alpha = agiCurState.SetAlphaEnable(true);

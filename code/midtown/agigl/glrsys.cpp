@@ -101,11 +101,18 @@ static u32 CompileShader(u32 type, i32 glsl_version, const char* src)
 
     const char* strings[3] {version_string, "", src};
 
-    if (glsl_version < 130)
+    if (glsl_version >= 130)
+    {
+        strings[1] = "#define texture2D texture\n";
+    }
+    else
     {
         switch (type)
         {
-            case GL_VERTEX_SHADER: strings[1] = "#define in attribute\n#define out varying\n"; break;
+            case GL_VERTEX_SHADER:
+                strings[1] = "#define in attribute\n"
+                             "#define out varying\n";
+                break;
             case GL_FRAGMENT_SHADER: strings[1] = "#define in varying\n"; break;
             default: Quitf("Invalid Shader Type %u", type);
         }
@@ -214,6 +221,10 @@ i32 agiGLRasterizer::BeginGfx()
     {
         InitModern();
     }
+
+    // Follow DirectX convention
+    // if (agiGL->HasExtension(320, "GL_ARB_provoking_vertex"))
+    //     glProvokingVertex(GL_FIRST_VERTEX_CONVENTION);
 
     // Convert from screen coordinates { [0, Width], [0, Height], [0, 1], RHW } to NDC
     GLfloat proj_mul[4];
@@ -434,20 +445,20 @@ void main()
 {
     gl_Position = in_Position * u_Transform[0] + u_Transform[1];
     gl_Position /= in_Position.w;
-    frag_Color = (u_TexEnv.x) ? in_Color : vec4(1.0);
+    frag_Color = u_TexEnv[0] ? in_Color : vec4(1.0);
 
     frag_Fog = vec4(0.0);
     frag_UV = in_UV;
 
-    if (u_FogMode.x != 0.0)
+    if (u_FogMode[0] != 0.0)
     {
         float fog;
 
-        if (u_FogMode.x == 1.0) // Pixel
+        if (u_FogMode[0] == 1.0) // Pixel
         {
             float depth = in_Position.z * gl_Position.w;
             // clamping in the vertex shader assumes assumes Z is pre-clipped
-            fog = clamp(depth * u_FogMode.z + u_FogMode.y, 0.0, 1.0);
+            fog = clamp(depth * u_FogMode[1] + u_FogMode[2], 0.0, 1.0);
         }
         else // Vertex
         {
@@ -465,9 +476,8 @@ in vec4 frag_Color;
 in vec4 frag_Fog;
 in vec2 frag_UV;
 
-#if __VERSION__  >= 130
+#if __VERSION__ >= 130
 out vec4 out_Color;
-#define texture2D texture
 #else
 #define out_Color gl_FragColor
 #endif
@@ -480,7 +490,7 @@ void main()
 {
     out_Color = frag_Color;
 
-    if (u_TexEnv.y)
+    if (u_TexEnv[1])
         out_Color *= texture2D(u_Texture, frag_UV);
 
     out_Color += frag_Fog;
@@ -629,23 +639,22 @@ void agiGLRasterizer::Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, 
 {
     ArAssert(type == agiVtxType::Screen, "Invalid Vertex Type");
 
-    STATS.Tris += static_cast<i32>(index_count / 3.0f);
+    STATS.Tris += index_count / 3;
 
     DrawMesh(GL_TRIANGLES, vertices, vertex_count, indices, index_count);
 }
 
 void agiGLRasterizer::FlushState()
 {
-    if (agiCurState.GetDrawMode() != 15)
-        agiCurState.SetTexture(nullptr);
-
     if (!agiCurState.IsTouched())
         return;
 
     ARTS_UTIMED(agiStateChanges);
     ++STATS.StateChanges;
 
-    agiGLTexDef* texture = static_cast<agiGLTexDef*>(agiCurState.GetTexture());
+    agiGLTexDef* texture =
+        (agiCurState.GetDrawMode() == agiDrawTextured) ? static_cast<agiGLTexDef*>(agiCurState.GetTexture()) : nullptr;
+
     agiTexFilter tex_filter = agiCurState.GetTexFilter();
 
     if (texture != agiLastState.Texture)
@@ -764,17 +773,17 @@ void agiGLRasterizer::FlushState()
             glShadeModel(smooth_shading ? GL_SMOOTH : GL_FLAT);
     }
 
-    if (u8 draw_mode = agiCurState.GetDrawMode(); draw_mode != agiLastState.DrawMode)
+    if (agiDrawMode draw_mode = agiCurState.GetDrawMode(); draw_mode != agiLastState.DrawMode)
     {
         agiLastState.DrawMode = draw_mode;
 
         GLenum poly_mode = GL_FILL;
 
-        switch (draw_mode & 0x3)
+        switch (static_cast<agiFillMode>(draw_mode & agiDrawFillMask))
         {
-            case 1: poly_mode = GL_POINT; break;
-            case 2: poly_mode = GL_LINE; break;
-            case 3: poly_mode = GL_FILL; break;
+            case agiFillMode::Point: poly_mode = GL_POINT; break;
+            case agiFillMode::Wire: poly_mode = GL_LINE; break;
+            case agiFillMode::Solid: poly_mode = GL_FILL; break;
         }
 
         agiGL->PolygonMode(poly_mode);
@@ -884,8 +893,7 @@ void agiGLRasterizer::FlushState()
         }
     }
 
-    if (agiTexEnv tex_env = agiLastState.Texture ? agiCurState.GetTexEnv() : agiTexEnv::Disable;
-        tex_env != agiLastState.TexEnv)
+    if (agiTexEnv tex_env = texture ? agiCurState.GetTexEnv() : agiTexEnv::Disable; tex_env != agiLastState.TexEnv)
     {
         agiLastState.TexEnv = tex_env;
 
@@ -930,8 +938,8 @@ void agiGLRasterizer::FlushState()
 
             Vector4 mode {
                 static_cast<f32>(fog_mode),
-                fog_end * inv_fog_range,
                 -inv_fog_range,
+                fog_end * inv_fog_range,
                 fog_density,
             };
 
@@ -991,7 +999,7 @@ void agiGLRasterizer::FlushState()
     agiCurState.ClearTouched();
 }
 
-void DrawMeshImm(u32 draw_mode, agiVtx* vertices, u16* indices, i32 index_count)
+static void DrawMeshImm(u32 draw_mode, agiVtx* vertices, u16* indices, i32 index_count)
 {
     glBegin(draw_mode);
 

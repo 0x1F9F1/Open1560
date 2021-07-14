@@ -151,6 +151,26 @@ enum class agiFogMode : u8
     Vertex,
 };
 
+enum class agiFillMode : u8
+{
+    Point = 0x1,
+    Wire = 0x2,
+    Solid = 0x3,
+};
+
+enum agiDrawMode : u8
+{
+    agiDrawFillMask = 0x3,
+
+#define X(DRAW, FILL) (DRAW << 2) | static_cast<u8>(agiFillMode::FILL)
+    agiDrawWireframe = X(0, Wire),
+    agiDrawDepth = X(0, Solid),
+    agiDrawColored = X(1, Solid),
+    agiDrawSolid = X(2, Solid),
+    agiDrawTextured = X(3, Solid),
+#undef X
+};
+
 struct agiRendStateStruct
 {
 public:
@@ -163,24 +183,11 @@ public:
 
     agiBlendSet BlendSet {};
 
-    // 0: FLAT
-    // 1: GOURAUD
+    // false: Flat (Provoking Vertex)
+    // true : Interpolate
     bool SmoothShading {false};
 
-    // DrawMode & 3 = FillMode
-    // 0x0: None
-    // 0x1: Point
-    // 0x2: Wire
-    // 0x3: Solid
-
-    // if (DrawMode == 3): DepthTest=0, ZWriteEnable=0, AlphaEnable=1, BlendMode=5, specular=0xFF202020
-    // if (DrawMode == 15): TexCoord
-    // if (DrawMode != 3) Color
-
-    // 0x4: Enable Textures?
-    // 0xB: Solid, No EnvMap,SphereMap
-    // 0xF: Tex
-    u8 DrawMode {0};
+    agiDrawMode DrawMode {};
 
     agiTexFilter TexFilter {};
 

@@ -60,7 +60,7 @@ void mmCullCity::Cull()
     f32 FogEnd = mem::field<f32>(this, 0x34D5C);
     f32 FogEnd2 = mem::field<f32>(this, 0x34D60);
 
-    if (FogEnd == 0.0f || agiCurState.GetDrawMode() == 3)
+    if (FogEnd == 0.0f || agiCurState.GetDrawMode() == agiDrawDepth)
     {
         agiCurState.SetFogMode(agiFogMode::None);
         agiMeshSet::SetFog(0.0, 0);

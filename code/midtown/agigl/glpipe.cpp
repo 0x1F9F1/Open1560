@@ -380,10 +380,10 @@ void agiGLPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, 
 
     agiTexDef* texture = static_cast<agiGLBitmap*>(src)->GetHandle();
 
-    bool debug_draw = agiCurState.GetDrawMode() == 0x3;
+    bool debug_draw = agiCurState.GetDrawMode() == agiDrawDepth;
 
     auto old_tex = agiCurState.SetTexture(debug_draw ? nullptr : texture);
-    auto old_draw_mode = agiCurState.SetDrawMode(0xF);
+    auto old_draw_mode = agiCurState.SetDrawMode(agiDrawTextured);
     auto old_depth = agiCurState.SetZEnable(false);
     auto old_zwrite = agiCurState.SetZWrite(false);
     auto old_alpha = agiCurState.SetAlphaEnable(debug_draw ? true : false);
@@ -435,7 +435,7 @@ void agiGLPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
     // rasterizer_->BeginGroup();
 
     auto tex = agiCurState.SetTexture(nullptr);
-    auto draw_mode = agiCurState.SetDrawMode(0xF);
+    auto draw_mode = agiCurState.SetDrawMode(agiDrawTextured);
     auto depth = agiCurState.SetZEnable(false);
     auto zwrite = agiCurState.SetZWrite(false);
     auto alpha = agiCurState.SetAlphaEnable(false);

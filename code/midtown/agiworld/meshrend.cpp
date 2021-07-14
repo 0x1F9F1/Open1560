@@ -687,7 +687,7 @@ void agiMeshSet::FirstPass(u32* colors, Vector2* tex_coords, u32 color)
         agiCurState.SetTexture(nullptr);
     }
 
-    if (agiCurState.GetDrawMode() == 3)
+    if (agiCurState.GetDrawMode() == agiDrawDepth)
     {
         colors = nullptr;
         color = 0xFF202020;

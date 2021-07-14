@@ -37,7 +37,7 @@ agiRasterizer::agiRasterizer(agiPipeline* pipe)
 {
     agiLastState.Reset();
 
-    agiCurState.SetDrawMode(15);
+    agiCurState.SetDrawMode(agiDrawTextured);
     agiCurState.SetZFunc(agiCmpFunc::LessEqual);
     agiCurState.SetSpecularEnable(false);
     agiCurState.Setbyte30(0);

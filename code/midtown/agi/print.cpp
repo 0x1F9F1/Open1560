@@ -235,7 +235,7 @@ void agiPipeline::Print(i32 x, i32 y, i32 color, char const* text)
     f32 const inv_font_h = 1.0f / BuiltinFontTexture->GetHeight();
 
     auto tex = agiCurState.SetTexture(BuiltinFontTexture.get());
-    auto draw_mode = agiCurState.SetDrawMode(0xF);
+    auto draw_mode = agiCurState.SetDrawMode(agiDrawTextured);
     auto depth = agiCurState.SetZEnable(false);
     auto zwrite = agiCurState.SetZWrite(false);
     auto alpha = agiCurState.SetAlphaEnable(false);

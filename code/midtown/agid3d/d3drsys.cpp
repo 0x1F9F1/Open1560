@@ -230,7 +230,7 @@ void agiD3DRasterizer::FlushState()
         VtxIndexCount = 0;
     }
 
-    if (agiCurState.GetDrawMode() != 15)
+    if (agiCurState.GetDrawMode() != agiDrawTextured)
         agiCurState.SetTexture(nullptr);
 
     if (!agiCurState.IsTouched())
@@ -481,15 +481,15 @@ void agiD3DRasterizer::FlushState()
         agiLastState.SmoothShading = smooth_shading;
     }
 
-    if (u8 draw_mode = agiCurState.GetDrawMode(); draw_mode != agiLastState.DrawMode)
+    if (agiDrawMode draw_mode = agiCurState.GetDrawMode(); draw_mode != agiLastState.DrawMode)
     {
-        DWORD fill_mode = 0;
+        DWORD fill_mode = D3DFILL_SOLID;
 
-        switch (draw_mode & 0x3)
+        switch (static_cast<agiFillMode>(draw_mode & agiDrawFillMask))
         {
-            case 1: fill_mode = D3DFILL_POINT; break;
-            case 2: fill_mode = D3DFILL_WIREFRAME; break;
-            case 3: fill_mode = D3DFILL_SOLID; break;
+            case agiFillMode::Point: fill_mode = D3DFILL_POINT; break;
+            case agiFillMode::Wire: fill_mode = D3DFILL_WIREFRAME; break;
+            case agiFillMode::Solid: fill_mode = D3DFILL_SOLID; break;
         }
 
         d3d_set_render_state(D3DRENDERSTATE_FILLMODE, fill_mode);
