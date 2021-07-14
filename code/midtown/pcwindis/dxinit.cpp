@@ -281,14 +281,8 @@ static void SaveScreenShot(void* ctx)
     {
         if (EmptyClipboard())
         {
-            i32 pixels_size = 3 * width * height;
-
-            BITMAPFILEHEADER file_header {};
-            file_header.bfType = 0x4D42;
-            file_header.bfSize = 54 + pixels_size;
-            file_header.bfReserved1 = 0;
-            file_header.bfReserved2 = 0;
-            file_header.bfOffBits = 54;
+            i32 src_pitch = width * 3;
+            i32 dst_pitch = (src_pitch + 3) & ~3;
 
             BITMAPINFOHEADER info_header {};
             info_header.biSize = sizeof(info_header);
@@ -303,12 +297,16 @@ static void SaveScreenShot(void* ctx)
             info_header.biClrUsed = 0;
             info_header.biClrImportant = 0;
 
-            if (HGLOBAL clip_handle = GlobalAlloc(GMEM_MOVEABLE, sizeof(info_header) + pixels_size))
+            if (HGLOBAL clip_handle =
+                    GlobalAlloc(GMEM_MOVEABLE | GMEM_ZEROINIT, sizeof(info_header) + dst_pitch * height))
             {
                 if (u8* clip_data = static_cast<u8*>(GlobalLock(clip_handle)))
                 {
-                    std::memcpy(clip_data + 0x0, &info_header, sizeof(info_header));
-                    std::memcpy(clip_data + sizeof(info_header), pixels.get(), pixels_size);
+                    std::memcpy(clip_data, &info_header, sizeof(info_header));
+                    clip_data += sizeof(info_header);
+
+                    for (i32 i = 0; i < height; ++i)
+                        std::memcpy(&clip_data[i * dst_pitch], &pixels[i * src_pitch], src_pitch);
 
                     GlobalUnlock(clip_handle);
                 }
@@ -391,8 +389,8 @@ void dxiScreenShot(char* file_name)
 
     if (pixels == nullptr)
         pixels = glScreenShot(width, height);
-
 #endif
+
     if (pixels == nullptr)
         pixels = dxiScreenShot(width, height);
 
