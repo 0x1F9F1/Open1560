@@ -211,7 +211,7 @@ public:
 private:
     void SmoothDelta(f32& delta);
 
-    i32 in_escape_;
+    b32 in_escape_;
     i32 camera_depth_;
     asLinearCS* cameras_[32];
     asLinearCS root_camera_;
@@ -224,7 +224,7 @@ private:
     f32 actual_elapsed_;
     i32 updates_;
     i32 full_updates_;
-    i32 first_frame_;
+    b32 first_frame_;
     b32 full_update_;
     i32 sample_mode_;
     f32 fixed_fps_;
@@ -233,7 +233,7 @@ private:
     f32 max_frame_delta_;
     i32 max_samples_;
     i32 frame_samples_;
-    i32 paused_;
+    b32 paused_;
     i32 frame_count_;
     b32 print_bench_stats_;
     i32 field_184;
@@ -249,7 +249,7 @@ private:
     i32 field_294;
     i32 field_298;
     i32 draw_mode_;
-    i32 physics_bank_open_;
+    b32 physics_bank_open_;
     b32 no_debug_;
     b32 show_ui_;
     b32 frame_step_;

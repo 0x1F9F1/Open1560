@@ -181,6 +181,9 @@ public:
         if (surface_->Surface == nullptr)
             return AGI_ERROR_OBJECT_EMPTY;
 
+        // FIXME: Some RV3 bitmaps (ICON_*) have incorrect pitch.
+        surface_->FixPitch();
+
         u32 format = 0;
 
         switch (surface_->PixelFormat.RBitMask)

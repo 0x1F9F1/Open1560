@@ -427,6 +427,14 @@ void agiSurfaceDesc::FixPitch()
     if (Pitch < 0)
         return;
 
+    // Some RV3 textures have linear size instead of pitch
+    if (Flags & AGISD_LINEARSIZE)
+    {
+        Pitch /= Height;
+        Flags &= ~AGISD_LINEARSIZE;
+        Flags |= AGISD_PITCH;
+    }
+
     i32 pitch = Width * GetPixelSize();
 
     if (!(Flags & AGISD_PITCH) || (pitch > Pitch) || ((std::max) ((pitch + 3) & ~3, pitch * 2) <= Pitch))

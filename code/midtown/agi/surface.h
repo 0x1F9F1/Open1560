@@ -96,6 +96,7 @@ struct agiDDSCAPS2 // DDSCAPS2
 #define AGISD_CKSRCOVERLAY 0x00008000l
 #define AGISD_CKSRCBLT 0x00010000l
 #define AGISD_MIPMAPCOUNT 0x00020000l
+#define AGISD_LINEARSIZE 0x00080000l
 
 // TODO: Allow safe conversion to/from DDSURFACEDESC2 (instead of bitcasting)
 
