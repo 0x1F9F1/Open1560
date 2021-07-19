@@ -44,7 +44,7 @@ agiGLContext::~agiGLContext()
 
 void agiGLContext::MakeCurrent()
 {
-    if ((SDL_GL_GetCurrentWindow() != window_) || (SDL_GL_GetCurrentContext() != gl_context_))
+    if (SDL_GL_GetCurrentContext() != gl_context_)
         SDL_GL_MakeCurrent(window_, gl_context_);
 
     agiGL = this;
@@ -59,14 +59,8 @@ static void ParseExtensionString(HashTable& table, const char* extensions, isize
 {
     char* exts = arts_strdup(extensions);
 
-    if (exts == nullptr)
-        return;
-
-    for (char *curr = exts, *next = nullptr; curr; curr = next)
+    for (char *curr = exts, *next = nullptr; curr && *curr != '\0' && *curr != ' '; curr = next)
     {
-        if (*curr == ' ')
-            break;
-
         if (next = std::strchr(curr, ' '); next)
             *next++ = '\0';
 
@@ -125,10 +119,13 @@ void agiGLContext::InitVersioning()
         ParseExtensionString(extensions_, (const char*) agi_glGetString(GL_EXTENSIONS), 1);
     }
 
-    Displayf("OpenGL Profile: %i %s", gl_version_,
+    Displayf("OpenGL %i %s%s%s%s", gl_version_,
         (profile_mask_ & GL_CONTEXT_CORE_PROFILE_BIT)                ? "Core"
             : (profile_mask_ & GL_CONTEXT_COMPATIBILITY_PROFILE_BIT) ? "Compatibility"
-                                                                     : "Legacy");
+                                                                     : "Legacy",
+        (context_flags_ & GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT) ? ", Forward Compatible" : "",
+        (context_flags_ & GL_CONTEXT_FLAG_DEBUG_BIT) ? ", Debug" : "",
+        (context_flags_ & GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR) ? ", No Error" : "");
 
     Displayf("OpenGL Extension Count: %i", extensions_.Size());
 
