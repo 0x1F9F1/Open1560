@@ -136,7 +136,7 @@ enum class agiGLAttribType
 {
     Float2,
     Float4,
-    BGRA,
+    Byte4_UNorm,
 };
 
 struct agiGLVertexAttrib
@@ -150,18 +150,18 @@ struct agiGLVertexAttrib
 
 // clang-format off
 static const agiGLVertexAttrib agiScreenVtx_Attribs[] {
-    {0, agiGLAttribType::Float4, "in_Position", offsetof(agiScreenVtx, x),        sizeof(agiScreenVtx)},
-    {1, agiGLAttribType::BGRA,   "in_Color",    offsetof(agiScreenVtx, color),    sizeof(agiScreenVtx)},
-    {2, agiGLAttribType::BGRA,   "in_Specular", offsetof(agiScreenVtx, specular), sizeof(agiScreenVtx)},
-    {3, agiGLAttribType::Float2, "in_UV",       offsetof(agiScreenVtx, tu),       sizeof(agiScreenVtx)},
+    {0, agiGLAttribType::Float4,      "in_Position", offsetof(agiScreenVtx, x),        sizeof(agiScreenVtx)},
+    {1, agiGLAttribType::Byte4_UNorm, "in_Color",    offsetof(agiScreenVtx, color),    sizeof(agiScreenVtx)},
+    {2, agiGLAttribType::Byte4_UNorm, "in_Specular", offsetof(agiScreenVtx, specular), sizeof(agiScreenVtx)},
+    {3, agiGLAttribType::Float2,      "in_UV",       offsetof(agiScreenVtx, tu),       sizeof(agiScreenVtx)},
 };
 
 //static const agiGLVertexAttrib agiScreenVtx2_Attribs[] {
-//    {0, agiGLAttribType::Float4, "in_Position", offsetof(agiScreenVtx2, x),        sizeof(agiScreenVtx2)},
-//    {1, agiGLAttribType::BGRA,   "in_Color",    offsetof(agiScreenVtx2, color),    sizeof(agiScreenVtx2)},
-//    {2, agiGLAttribType::BGRA,   "in_Specular", offsetof(agiScreenVtx2, specular), sizeof(agiScreenVtx2)},
-//    {3, agiGLAttribType::Float2, "in_UV1",      offsetof(agiScreenVtx2, tu1),      sizeof(agiScreenVtx2)},
-//    {4, agiGLAttribType::Float2, "in_UV2",      offsetof(agiScreenVtx2, tu2),      sizeof(agiScreenVtx2)},
+//    {0, agiGLAttribType::Float4,      "in_Position", offsetof(agiScreenVtx2, x),        sizeof(agiScreenVtx2)},
+//    {1, agiGLAttribType::Byte4_UNorm, "in_Color",    offsetof(agiScreenVtx2, color),    sizeof(agiScreenVtx2)},
+//    {2, agiGLAttribType::Byte4_UNorm, "in_Specular", offsetof(agiScreenVtx2, specular), sizeof(agiScreenVtx2)},
+//    {3, agiGLAttribType::Float2,      "in_UV1",      offsetof(agiScreenVtx2, tu1),      sizeof(agiScreenVtx2)},
+//    {4, agiGLAttribType::Float2,      "in_UV2",      offsetof(agiScreenVtx2, tu2),      sizeof(agiScreenVtx2)},
 //};
 // clang-format on
 
@@ -197,8 +197,8 @@ static void BindVertexAttribs(const agiGLVertexAttrib* attribs, usize count, con
                 type = GL_FLOAT;
                 break;
 
-            case agiGLAttribType::BGRA:
-                size = GL_BGRA;
+            case agiGLAttribType::Byte4_UNorm:
+                size = 4;
                 type = GL_UNSIGNED_BYTE;
                 normalized = GL_TRUE;
                 break;
@@ -445,7 +445,7 @@ void main()
 {
     gl_Position = in_Position * u_Transform[0] + u_Transform[1];
     gl_Position /= in_Position.w;
-    frag_Color = u_TexEnv[0] ? in_Color : vec4(1.0);
+    frag_Color = u_TexEnv[0] ? in_Color.bgra : vec4(1.0);
 
     frag_Fog = vec4(0.0);
     frag_UV = in_UV;
@@ -462,11 +462,11 @@ void main()
         }
         else // Vertex
         {
-            fog = in_Specular.w;
+            fog = in_Specular.a;
         }
 
-        frag_Fog.xyz = u_FogColor * (1.0 - fog);
-        frag_Color.xyz *= fog;
+        frag_Fog.rgb = u_FogColor * (1.0 - fog);
+        frag_Color.rgb *= fog;
     }
 }
 )");
@@ -496,7 +496,7 @@ void main()
     out_Color += frag_Fog;
 
     // Ignored by software renderer, only used by mmDashView, only ever 0
-    if (out_Color.w <= u_AlphaRef)
+    if (out_Color.a <= u_AlphaRef)
         discard;
 }
 )");
