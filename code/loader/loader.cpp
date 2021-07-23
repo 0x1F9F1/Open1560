@@ -182,7 +182,7 @@ BOOL APIENTRY DllMain(HMODULE hinstDLL, DWORD fdwReason, LPVOID /*lpvReserved*/)
                     ver_string ? ver_string.as<const char*>() : "<INVALID>"),
                 "Invalid Version", MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
 
-            std::exit(1);
+            TerminateProcess(GetCurrentProcess(), 1);
         }
 
         if (auto _SetProcessDEPPolicy = reinterpret_cast<BOOL(WINAPI*)(DWORD)>(
