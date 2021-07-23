@@ -252,7 +252,7 @@ void asSimulation::Init(char* proj_path, i32 argc, char** argv)
 
     if (vfs_path)
     {
-        Stream* vfs_stream = arts_fopen(vfs_path, "r");
+        Ptr<Stream> vfs_stream {arts_fopen(vfs_path, "r")};
 
         if (fsVerbose)
         {
@@ -263,7 +263,7 @@ void asSimulation::Init(char* proj_path, i32 argc, char** argv)
         {
             DevelopmentMode = false;
             ARTS_MEM_STAT("VFS");
-            VFS = new VirtualFileSystem(vfs_stream);
+            VFS = new VirtualFileSystem(AsOwner(vfs_stream));
         }
     }
 

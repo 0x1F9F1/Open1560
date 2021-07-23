@@ -153,18 +153,53 @@ static void LoadArchives(const char* base_path)
         }
     }
 
-    for (FileInfo* f = HFS.FirstEntry(base_path); f; f = HFS.NextEntry(f))
+    char* files[256];
+    usize file_count = 0;
+
+    if (Ptr<Stream> input {arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/mods.txt", base_path), "r")})
     {
-        if (const char* ext = std::strrchr(f->Path, '.');
-            ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
+        char path[ARTS_MAX_PATH];
+
+        while (input->Gets(path, ARTS_SSIZE(path)))
         {
-            if (Stream* stream = arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/%s", base_path, f->Path), "r"))
+            if (char* end = std::strpbrk(path, "\r\n"))
+                *end = '\0';
+
+            if (path[0] != '\0' && path[0] != '#')
             {
-                Displayf("Adding '%s' in autosearch...", f->Path);
-                /*FileSystem::FS[...] = */ new VirtualFileSystem(stream);
-                // DevelopmentMode = false;
+                if (file_count < ARTS_SIZE(files))
+                    files[file_count++] = arts_strdup(path);
             }
         }
+    }
+    else
+    {
+        for (FileInfo* f = HFS.FirstEntry(base_path); f; f = HFS.NextEntry(f))
+        {
+            if (const char* ext = std::strrchr(f->Path, '.');
+                ext && !arts_stricmp(ext, ".AR") && arts_strnicmp(f->Path, "TEST", 4))
+            {
+                if (file_count < ARTS_SIZE(files))
+                    files[file_count++] = arts_strdup(f->Path);
+            }
+        }
+
+        std::sort(
+            files, files + file_count, [](const char* lhs, const char* rhs) { return std::strcmp(lhs, rhs) < 0; });
+    }
+
+    for (usize i = 0; i < file_count; ++i)
+    {
+        char* path = files[i];
+
+        if (Ptr<Stream> stream {arts_fopen(arts_formatf<ARTS_MAX_PATH>("%s/%s", base_path, path), "r")})
+        {
+            Displayf("Adding '%s' in autosearch...", path);
+            /*FileSystem::FS[...] = */ new VirtualFileSystem(AsOwner(stream));
+            // DevelopmentMode = false;
+        }
+
+        arts_free(path);
     }
 }
 

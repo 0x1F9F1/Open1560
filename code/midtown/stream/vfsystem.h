@@ -149,7 +149,7 @@ class VirtualFileSystem final : public FileSystem
 
 public:
     // 0x560650 | ??0VirtualFileSystem@@QAE@PAVStream@@@Z
-    ARTS_EXPORT VirtualFileSystem(class Stream* stream);
+    ARTS_EXPORT VirtualFileSystem(Owner<class Stream> stream);
 
     // 0x560D80 | ??_EVirtualFileSystem@@UAEPAXI@Z
     // 0x560710 | ??1VirtualFileSystem@@UAE@XZ

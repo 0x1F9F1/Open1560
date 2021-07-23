@@ -24,8 +24,8 @@ define_dummy_symbol(stream_vfsystem);
 #include "stream.h"
 #include "vstream.h"
 
-VirtualFileSystem::VirtualFileSystem(class Stream* stream)
-    : base_stream_(stream)
+VirtualFileSystem::VirtualFileSystem(Owner<class Stream> stream)
+    : base_stream_(std::move(stream))
 {
     base_stream_->Read(&file_header_, sizeof(file_header_));
 
