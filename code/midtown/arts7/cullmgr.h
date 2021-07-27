@@ -71,19 +71,19 @@ public:
     ARTS_EXPORT virtual void DeclareCamera(class asCamera* camera);
 
     // 0x5254A0 | ?DeclareCullable@asCullManager@@UAEXPAVasCullable@@@Z
-    ARTS_IMPORT virtual void DeclareCullable(class asCullable* cullable);
+    ARTS_EXPORT virtual void DeclareCullable(class asCullable* cullable);
 
     // 0x525550 | ?DeclareCullable2D@asCullManager@@UAEXPAVasCullable@@@Z
-    ARTS_IMPORT virtual void DeclareCullable2D(class asCullable* cullable);
+    ARTS_EXPORT virtual void DeclareCullable2D(class asCullable* cullable);
 
     // 0x525400 | ?AddPage@asCullManager@@QAEXVCallback@@@Z
     ARTS_EXPORT void AddPage(class Callback callback);
 
     // 0x5255F0 | ?DeclareBitmap@asCullManager@@QAEXPAVasCullable@@PAVagiBitmap@@@Z
-    ARTS_IMPORT void DeclareBitmap(class asCullable* cullable, class agiBitmap* bitmap);
+    ARTS_EXPORT void DeclareBitmap(class asCullable* cullable, class agiBitmap* bitmap);
 
     // 0x525660 | ?DeclarePrint@asCullManager@@QAEXPAVasCullable@@@Z
-    ARTS_IMPORT void DeclarePrint(class asCullable* cullable);
+    ARTS_EXPORT void DeclarePrint(class asCullable* cullable);
 
     // 0x524DF0 | ?Reset@asCullManager@@UAEXXZ
     ARTS_EXPORT void Reset() override;
@@ -144,7 +144,8 @@ private:
 
     Callback page_callbacks_[16] {};
 
-    // TODO: Is this mutex necessary? It never seems to be initialized.
+    // NOTE: The mutex is never initialized
+    // FIXME: ipcWaitSingle is still used in asCullManager::Update
     Mutex mutex_ {};
 };
 

@@ -18,19 +18,24 @@
 
 #include "mutex.h"
 
-#include "core/minwin.h"
+#include <SDL_mutex.h>
+
+Mutex::~Mutex()
+{
+    close();
+}
 
 void Mutex::init()
 {
     if (handle_ == nullptr)
-        handle_ = CreateMutexA(NULL, FALSE, NULL);
+        handle_ = SDL_CreateMutex();
 }
 
 void Mutex::close()
 {
     if (handle_)
     {
-        CloseHandle(handle_);
+        SDL_DestroyMutex(handle_);
         handle_ = nullptr;
     }
 }
@@ -38,47 +43,50 @@ void Mutex::close()
 void Mutex::lock()
 {
     if (handle_)
-        WaitForSingleObject(handle_, INFINITE);
+        SDL_LockMutex(handle_);
 }
 
 void Mutex::unlock()
 {
     if (handle_)
-        ReleaseMutex(handle_);
+        SDL_UnlockMutex(handle_);
 }
 
-void CriticalSection::init()
+Condvar::~Condvar()
+{
+    close();
+}
+
+void Condvar::init()
 {
     if (handle_ == nullptr)
-    {
-        handle_ = new CRITICAL_SECTION;
-
-        InitializeCriticalSectionAndSpinCount(static_cast<CRITICAL_SECTION*>(handle_), 2000);
-    }
+        handle_ = SDL_CreateCond();
 }
 
-void CriticalSection::close()
+void Condvar::close()
 {
     if (handle_)
     {
-        DeleteCriticalSection(static_cast<CRITICAL_SECTION*>(handle_));
-        delete static_cast<CRITICAL_SECTION*>(handle_);
+        SDL_DestroyCond(handle_);
         handle_ = nullptr;
     }
 }
 
-void CriticalSection::lock()
+void Condvar::notify_one()
 {
     if (handle_)
-    {
-        EnterCriticalSection(static_cast<CRITICAL_SECTION*>(handle_));
-    }
+        SDL_CondSignal(handle_);
 }
 
-void CriticalSection::unlock()
+void Condvar::notify_all()
 {
     if (handle_)
-    {
-        LeaveCriticalSection(static_cast<CRITICAL_SECTION*>(handle_));
-    }
+        SDL_CondBroadcast(handle_);
+}
+
+void Condvar::wait(UniqueLock<Mutex>& mutex)
+{
+    ArAssert(mutex.owns_lock(), "Mutex not locked");
+
+    SDL_CondWait(handle_, mutex.mutex()->native_handle());
 }

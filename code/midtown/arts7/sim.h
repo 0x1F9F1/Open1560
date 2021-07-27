@@ -206,6 +206,11 @@ public:
         return seconds_;
     }
 
+    bool IsFullUpdate() const
+    {
+        return full_update_;
+    }
+
     VIRTUAL_META_DECLARE;
 
 private:

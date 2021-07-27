@@ -18,51 +18,31 @@
 
 #pragma once
 
-// TODO: Use critical section instead of mutex
+typedef struct SDL_mutex SDL_mutex;
+typedef struct SDL_cond SDL_cond;
 
 class Mutex
 {
 public:
     constexpr Mutex() = default;
 
-    ~Mutex()
-    {
-        close();
-    }
+    ~Mutex();
 
     ARTS_NON_COPYABLE(Mutex);
 
-    // Must call init and close, to match ipc.h semantics
     void init();
     void close();
 
     void lock();
     void unlock();
 
-private:
-    void* handle_ {nullptr};
-};
-
-class CriticalSection
-{
-public:
-    constexpr CriticalSection() = default;
-
-    ~CriticalSection()
+    SDL_mutex* native_handle() const
     {
-        close();
+        return handle_;
     }
 
-    ARTS_NON_COPYABLE(CriticalSection);
-
-    void init();
-    void close();
-
-    void lock();
-    void unlock();
-
 private:
-    void* handle_ {nullptr};
+    SDL_mutex* handle_ {nullptr};
 };
 
 template <typename T>
@@ -88,3 +68,74 @@ private:
 
 template <typename T>
 LockGuard(T&) -> LockGuard<T>;
+
+template <typename T>
+class UniqueLock
+{
+public:
+    UniqueLock(T& mutex)
+        : mutex_(&mutex)
+    {
+        lock();
+    }
+
+    ~UniqueLock()
+    {
+        if (locked_)
+            unlock();
+    }
+
+    ARTS_NON_COPYABLE(UniqueLock);
+
+    void lock()
+    {
+        ArAssert(!locked_, "Mutex already locked");
+        mutex_->lock();
+        locked_ = true;
+    }
+
+    void unlock()
+    {
+        ArAssert(locked_, "Mutex not locked");
+        mutex_->unlock();
+        locked_ = false;
+    }
+
+    T* mutex() const
+    {
+        return mutex_;
+    }
+
+    bool owns_lock() const
+    {
+        return locked_;
+    }
+
+private:
+    T* const mutex_ {nullptr};
+    bool locked_ {false};
+};
+
+template <typename T>
+UniqueLock(T&) -> UniqueLock<T>;
+
+class Condvar
+{
+public:
+    constexpr Condvar() = default;
+
+    ~Condvar();
+
+    ARTS_NON_COPYABLE(Condvar);
+
+    void init();
+    void close();
+
+    void notify_one();
+    void notify_all();
+
+    void wait(UniqueLock<Mutex>& mutex);
+
+private:
+    SDL_cond* handle_ {nullptr};
+};

@@ -49,16 +49,16 @@
 #include <atomic>
 
 // 0x578740 | ?ipcCloseHandle@@YAXI@Z
-ARTS_EXPORT void ipcCloseHandle(usize handle);
+[[deprecated]] ARTS_EXPORT void ipcCloseHandle(usize handle);
 
 // 0x578B00 | ?ipcCloseSpinLock@@YAXPAI@Z | unused
 ARTS_EXPORT void ipcCloseSpinLock(u32* value);
 
 // 0x578650 | ?ipcCreateEvent@@YAIH@Z
-ARTS_EXPORT usize ipcCreateEvent(b32 initial_state);
+[[deprecated]] ARTS_EXPORT usize ipcCreateEvent(b32 initial_state);
 
 // 0x578670 | ?ipcCreateMutex@@YAIH@Z
-ARTS_EXPORT usize ipcCreateMutex(b32 initial_owner);
+[[deprecated]] ARTS_EXPORT usize ipcCreateMutex(b32 initial_owner);
 
 // 0x578AF0 | ?ipcCreateSpinLock@@YAXPAI@Z | unused
 ARTS_EXPORT void ipcCreateSpinLock(u32* value);
@@ -66,8 +66,12 @@ ARTS_EXPORT void ipcCreateSpinLock(u32* value);
 // 0x578690 | ?ipcCreateThread@@YAIP6GKPAX@Z0PAK@Z
 ARTS_EXPORT usize ipcCreateThread(ulong(ARTS_STDCALL* start)(void*), void* param, ulong* thread_id);
 
+void ipcWaitThreadExit(usize thread);
+
+void ipcDeleteThread(usize thread);
+
 // 0x5786D0 | ?ipcReleaseMutex@@YAXI@Z
-ARTS_EXPORT void ipcReleaseMutex(usize handle);
+[[deprecated]] ARTS_EXPORT void ipcReleaseMutex(usize mutex);
 
 // 0x578770 | ?ipcSleep@@YAXI@Z | unused
 ARTS_EXPORT void ipcSleep(u32 milli_seconds);
@@ -79,13 +83,13 @@ ARTS_EXPORT void ipcSpinLock(u32* value);
 ARTS_EXPORT void ipcSpinUnlock(u32* value);
 
 // 0x5786B0 | ?ipcTriggerEvent@@YAXI@Z
-ARTS_EXPORT void ipcTriggerEvent(usize handle);
+[[deprecated]] ARTS_EXPORT void ipcTriggerEvent(usize event);
 
 // 0x578720 | ?ipcWaitMultiple@@YAHHPAIH@Z | unused
-ARTS_EXPORT i32 ipcWaitMultiple(i32 count, usize* handles, b32 wait_all);
+[[deprecated]] ARTS_EXPORT i32 ipcWaitMultiple(i32 count, usize* handles, b32 wait_all);
 
 // 0x5786F0 | ?ipcWaitSingle@@YAXI@Z
-ARTS_EXPORT void ipcWaitSingle(usize handle);
+[[deprecated]] ARTS_EXPORT void ipcWaitSingle(usize handle);
 
 // 0x578760 | ?ipcYield@@YAXXZ
 ARTS_EXPORT void ipcYield();
@@ -113,8 +117,6 @@ public:
     // 0x578920 | ?Shutdown@ipcMessageQueue@@QAEXXZ
     ARTS_EXPORT void Shutdown();
 
-    void Wait();
-
 private:
     // 0x578790 | ?MessageLoop@ipcMessageQueue@@AAEHXZ
     ARTS_EXPORT i32 MessageLoop();
@@ -128,9 +130,9 @@ private:
     u32 max_messages_ {0};
     b32 blocking_ {false};
     Ptr<ipcMessage[]> messages_;
-    usize send_event_ {0};
-    usize read_event_ {0};
-    CriticalSection mutex_ {};
+    Condvar send_event_ {};
+    Condvar done_event_ {};
+    Mutex mutex_ {};
     usize proc_thread_ {0};
 };
 

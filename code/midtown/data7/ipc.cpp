@@ -63,6 +63,18 @@ usize ipcCreateThread(ulong(ARTS_STDCALL* start)(void*), void* param, ulong* thr
     return reinterpret_cast<usize>(CreateThread(nullptr, 0, start, param, 0, thread_id));
 }
 
+void ipcWaitThreadExit(usize thread)
+{
+    if (thread)
+        WaitForSingleObject(reinterpret_cast<HANDLE>(thread), INFINITE);
+}
+
+void ipcDeleteThread(usize thread)
+{
+    if (thread)
+        CloseHandle(reinterpret_cast<HANDLE>(thread));
+}
+
 void ipcReleaseMutex(usize handle)
 {
     if (handle)
@@ -138,12 +150,14 @@ void ipcMessageQueue::Init(i32 max_messages, b32 blocking)
     if (blocking)
         max_messages = 2;
 
+    ArAssert(max_messages >= 2, "Queue must have at least 2 message slots");
+
     blocking_ = blocking;
     max_messages_ = max_messages;
     messages_ = MakeUnique<ipcMessage[]>(max_messages);
 
-    send_event_ = ipcCreateEvent(false);
-    read_event_ = ipcCreateEvent(false);
+    send_event_.init();
+    done_event_.init();
     mutex_.init();
 
     initialized_ = true;
@@ -161,36 +175,38 @@ void ipcMessageQueue::Send(void (*func)(void*), void* param)
         return;
     }
 
+    UniqueLock lock(mutex_);
     u32 send_index = 0;
 
     while (true)
     {
-        mutex_.lock();
-
+        // Get the next send index
         send_index = send_index_ + 1;
 
         if (send_index == max_messages_)
             send_index = 0;
 
-        if (read_index_ != send_index)
+        // Check if the queue is full
+        if (send_index != read_index_)
             break;
 
-        mutex_.unlock();
-
-        ipcWaitSingle(read_event_);
+        // The queue is full, wait for some messages to be processed
+        done_event_.wait(lock);
     }
 
+    // The queue is empty, will need to wake up the worker thread
     bool trigger_send = read_index_ == send_index_;
+
     send_index_ = send_index;
     messages_[send_index_] = {func, param};
 
-    mutex_.unlock();
-
+    // If necessary, wake up the worker thread
     if (trigger_send)
-        ipcTriggerEvent(send_event_);
+        send_event_.notify_one();
 
+    // If blocking, wait for the event to be processed
     if (blocking_)
-        ipcWaitSingle(read_event_);
+        done_event_.wait(lock);
 }
 
 void ipcMessageQueue::Shutdown()
@@ -199,58 +215,46 @@ void ipcMessageQueue::Shutdown()
         return;
 
     initialized_ = false;
+    send_event_.notify_one();
 
-    ipcTriggerEvent(send_event_);
-    ipcWaitSingle(proc_thread_);
-    ipcCloseHandle(proc_thread_);
-    ipcCloseHandle(send_event_);
-    ipcCloseHandle(read_event_);
+    ipcWaitThreadExit(proc_thread_);
+    ipcDeleteThread(proc_thread_);
+
+    send_event_.close();
+    done_event_.close();
     mutex_.close();
-
     messages_ = nullptr;
-}
-
-void ipcMessageQueue::Wait()
-{
-    while (initialized_)
-    {
-        mutex_.lock();
-        bool stop = read_index_ == send_index_;
-        mutex_.unlock();
-
-        if (stop)
-            break;
-
-        ipcWaitSingle(read_event_);
-    }
 }
 
 i32 ipcMessageQueue::MessageLoop()
 {
     ARTS_EXCEPTION_BEGIN
     {
+        UniqueLock lock(mutex_);
+
         while (initialized_)
         {
-            ipcWaitSingle(send_event_);
-
-            while (true)
+            // Check if the queue is empty
+            while (read_index_ != send_index_)
             {
-                mutex_.lock();
-
-                if (read_index_ == send_index_)
-                    break;
-
+                // Get the next read index
                 if (++read_index_ == max_messages_)
                     read_index_ = 0;
 
+                // Copy the message
                 ipcMessage msg = messages_[read_index_];
 
-                mutex_.unlock();
+                // Process the message, temporarily unlocking the mutex
+                lock.unlock();
                 msg.Function(msg.Param);
-                ipcTriggerEvent(read_event_);
+                lock.lock();
+
+                // Notify that a message has been processed
+                done_event_.notify_one();
             }
 
-            mutex_.unlock();
+            // The queue is empty, wait for something to be sent
+            send_event_.wait(lock);
         }
     }
     ARTS_EXCEPTION_END

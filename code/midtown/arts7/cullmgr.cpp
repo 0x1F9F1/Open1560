@@ -19,6 +19,7 @@
 define_dummy_symbol(arts7_cullmgr);
 
 #include "cullmgr.h"
+#include "agi/bitmap.h"
 #include "agi/pipeline.h"
 #include "agi/print.h"
 #include "data7/metadefine.h"
@@ -131,11 +132,72 @@ void asCullManager::DeclareCamera(asCamera* camera)
     }
 }
 
+void asCullManager::DeclareCullable(asCullable* cullable)
+{
+    ArAssert(cullable, "Cullable is null");
+
+    LockGuard lock(mutex_);
+
+    if (ARTSPTR->IsFullUpdate())
+    {
+        if (num_cullables_ >= max_cullables_)
+        {
+            Warningf("Increase CULLMGR::MaxCullables!. MaxCullables=%d", max_cullables_);
+        }
+        else
+        {
+            cullables_[num_cullables_] = cullable;
+            transforms_[num_cullables_] = ARTSPTR->GetCurrentCamera();
+            ++num_cullables_;
+        }
+    }
+}
+
+void asCullManager::DeclareCullable2D(asCullable* cullable)
+{
+    ArAssert(cullable, "Cullable2D is null");
+
+    LockGuard lock(mutex_);
+
+    if (ARTSPTR->IsFullUpdate())
+    {
+        if (num_cullables_2D_ >= max_cullables_2D_)
+        {
+            Warningf("Increase CULLMGR::MaxCullables2D!. MaxCullables2D=%d", max_cullables_2D_);
+        }
+        else
+        {
+            cullables_2D_[num_cullables_2D_] = cullable;
+            ++num_cullables_2D_;
+        }
+    }
+}
+
 void asCullManager::AddPage(Callback callback)
 {
     ArAssert(num_pages_ < ARTS_SIZE(page_callbacks_), "Too Many Pages");
 
     page_callbacks_[num_pages_++] = callback;
+}
+
+void asCullManager::DeclareBitmap(asCullable* cullable, agiBitmap* bitmap)
+{
+    ArAssert(cullable, "Bitmap Cullable is null");
+
+    if (bitmap && bitmap->Is3D())
+        DeclareCullable(cullable);
+    else
+        DeclareCullable2D(cullable);
+}
+
+void asCullManager::DeclarePrint(asCullable* cullable)
+{
+    ArAssert(cullable, "Print Cullable is null");
+
+    if (agiPrintIs3D())
+        DeclareCullable(cullable);
+    else
+        DeclareCullable2D(cullable);
 }
 
 void asCullManager::Reset()

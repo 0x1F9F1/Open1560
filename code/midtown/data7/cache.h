@@ -145,8 +145,8 @@ private:
 
     u32 object_locks_ {0};
 
-    CriticalSection cache_lock_ {};
-    CriticalSection object_lock_ {};
+    Mutex cache_lock_ {};
+    Mutex object_lock_ {};
 
     const char* name_ {nullptr};
 };
