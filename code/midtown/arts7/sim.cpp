@@ -321,7 +321,7 @@ void asSimulation::ResetClock()
     delta_drift_ = 0.0f;
     prev_utimer_ = 0;
 
-    f32 max_fps = PARAM_maxfps.get_or(0.0f);
+    f32 max_fps = PARAM_maxfps.get_or(500.0f);
     max_fps_delta_ = (max_fps > 0.0f) ? (1.0f / max_fps) : 0.0f;
 }
 
