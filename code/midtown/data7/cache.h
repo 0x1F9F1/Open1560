@@ -154,7 +154,7 @@ private:
 check_size(DataCache, 0x40);
 
 // 0x90A9B0 | ?CACHE@@3VDataCache@@A
-ARTS_IMPORT extern class DataCache CACHE;
+ARTS_EXPORT extern class DataCache CACHE;
 
 template <typename T>
 inline void PointerFixup(T*& ptr, isize delta)

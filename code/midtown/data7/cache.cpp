@@ -26,6 +26,8 @@ define_dummy_symbol(data7_cache);
 // Max age before an object is automatically unloaded
 static u32 MaxObjectAge = 1000;
 
+ARTS_EXPORT class DataCache CACHE;
+
 struct DataCacheObject
 {
     u32 nAge {0};
@@ -340,10 +342,12 @@ b32 DataCache::Lock(i32* handle)
 
 void DataCache::Shutdown()
 {
+    if (heap_ == nullptr)
+        return;
+
     Flush();
 
-    ++objects_;
-    delete[] objects_;
+    delete[] (objects_ + 1);
     objects_ = nullptr;
 
     delete[] heap_;
