@@ -76,8 +76,10 @@ public:
     // 0x42D370 | ??1mmPlayer@@UAE@XZ | inline
     ARTS_IMPORT ~mmPlayer() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x42C590 | ?AddWidgets@mmPlayer@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x42A380 | ?AfterLoad@mmPlayer@@UAEXXZ
     ARTS_EXPORT void AfterLoad() override;

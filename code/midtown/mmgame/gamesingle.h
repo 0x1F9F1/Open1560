@@ -71,8 +71,10 @@ public:
     // 0x416D30 | ??1mmGameSingle@@UAE@XZ
     ARTS_IMPORT ~mmGameSingle() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4189E0 | ?AddWidgets@mmGameSingle@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x418D00 | ?GetClass@mmGameSingle@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

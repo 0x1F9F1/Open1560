@@ -49,8 +49,10 @@ public:
     // 0x470330 | ??1mmForce@@UAE@XZ | inline
     ARTS_IMPORT ~mmForce() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x480E10 | ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x480F80 | ?GetClass@mmForce@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

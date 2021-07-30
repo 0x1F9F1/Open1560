@@ -67,8 +67,10 @@ public:
     // 0x4C9BE0 | ??1mmBangerData@@UAE@XZ | inline
     ARTS_IMPORT ~mmBangerData() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4C85E0 | ?AddWidgets@mmBangerData@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4C8E70 | ?Bootstrap@mmBangerData@@QAEHPAD0@Z
     ARTS_IMPORT i32 Bootstrap(char* arg1, char* arg2);
@@ -117,8 +119,10 @@ public:
     // 0x4C8C10 | ?AddBangerDataEntry@mmBangerDataManager@@QAEHPAD0@Z
     ARTS_IMPORT i32 AddBangerDataEntry(char* arg1, char* arg2);
 
+#ifdef ARTS_DEV_BUILD
     // 0x4C8550 | ?AddWidgets@mmBangerDataManager@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4C9A40 | ?GetClass@mmBangerDataManager@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

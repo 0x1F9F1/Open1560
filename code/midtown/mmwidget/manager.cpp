@@ -29,8 +29,10 @@ define_dummy_symbol(mmwidget_manager);
 void MenuManager::AddPointer()
 {}
 
+#ifdef ARTS_DEV_BUILD
 void MenuManager::AddWidgets(class Bank* /*arg1*/)
 {}
+#endif
 
 // 0x4B1B30 | ?HelpWatcher@@YGKPAX@Z
 ARTS_IMPORT /*static*/ ulong ARTS_STDCALL HelpWatcher(void* arg1);

@@ -3,13 +3,14 @@ newoption {
    description = "Compile OpenGL Renderer",
 }
 
+ARTS_DEV_BUILD = true
 ARTS_ENABLE_OPENGL = not (_OPTIONS['ARTS_DISABLE_OPENGL'] or false)
 
 include "core"
 
 include "agi"
 include "agid3d"
-include "agirend"
+
 include "agisw"
 include "agiworld"
 include "arts7"
@@ -23,7 +24,6 @@ include "mmanim"
 include "mmaudio"
 -- include "mmbangers"
 -- include "mmcamcs"
--- include "mmcamtour"
 include "mmcar"
 include "mmcity"
 include "mmcityinfo"
@@ -40,6 +40,14 @@ include "pcwindis"
 include "stream"
 include "vector7"
 
+if ARTS_DEV_BUILD then
+    include "agirend"
+    -- include "mmcamtour"
+
+    project "*"
+        defines { "ARTS_DEV_BUILD" }
+end
+
 if ARTS_ENABLE_OPENGL then
     include "agigl"
     include "agisdl"
@@ -50,7 +58,6 @@ end
 
 project "*"
     includeSDL2()
-
 
 arts_component "midtown"
     files {
@@ -63,7 +70,6 @@ arts_component "midtown"
 
         "arts_agi",
         "arts_agid3d",
-        "arts_agirend",
         "arts_agisw",
         "arts_agiworld",
         "arts_arts7",
@@ -77,7 +83,6 @@ arts_component "midtown"
         "arts_mmaudio",
         -- "arts_mmbangers",
         -- "arts_mmcamcs",
-        -- "arts_mmcamtour",
         "arts_mmcar",
         "arts_mmcity",
         "arts_mmcityinfo",
@@ -99,6 +104,16 @@ arts_component "midtown"
         "SDL2main",
     }
 
+    if ARTS_DEV_BUILD then
+        links {
+            "arts_agirend",
+            -- "arts_mmcamtour",
+        }
+    end
+
     if ARTS_ENABLE_OPENGL then
-        links { "arts_agigl", "arts_agisdl" }
+        links {
+            "arts_agigl",
+            "arts_agisdl",
+        }
     end

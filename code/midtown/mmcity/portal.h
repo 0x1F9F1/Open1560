@@ -75,17 +75,21 @@ public:
     ARTS_IMPORT struct asPortalEdge* AddEdge(
         char* arg1, struct asPortalCell* arg2, struct asPortalCell* arg3, i32 arg4);
 
+#ifdef ARTS_DEV_BUILD
     // 0x497540 | ?AddWidgets@asPortalWeb@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4969F0 | ?BuildGroups@asPortalWeb@@QAEXXZ
     ARTS_IMPORT void BuildGroups();
 
+#ifdef ARTS_DEV_BUILD
     // 0x495B70 | ?BuildVisibilityList@asPortalWeb@@QAEHAAVMatrix34@@PAPAUasPortalCell@@HM@Z
     ARTS_IMPORT i32 BuildVisibilityList(class Matrix34& arg1, struct asPortalCell** arg2, i32 arg3, f32 arg4);
 
     // 0x495DD0 | ?BuildVisibilityList@asPortalWeb@@QAEHAAVVector3@@PAPAUasPortalCell@@HM@Z
     ARTS_IMPORT i32 BuildVisibilityList(class Vector3& arg1, struct asPortalCell** arg2, i32 arg3, f32 arg4);
+#endif
 
     // 0x496FE0 | ?Cull@asPortalWeb@@QAEXH@Z
     ARTS_IMPORT void Cull(i32 arg1);
@@ -99,11 +103,15 @@ public:
     // 0x497770 | ?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x497530 | ?LockTarget@asPortalWeb@@QAEXXZ
     ARTS_IMPORT void LockTarget();
+#endif
 
+#ifdef ARTS_DEV_BUILD
     // 0x497400 | ?Stats@asPortalWeb@@QAEXXZ
     ARTS_IMPORT void Stats();
+#endif
 
     // 0x495EE0 | ?Update@asPortalWeb@@UAEXXZ
     ARTS_IMPORT void Update() override;

@@ -69,8 +69,10 @@ public:
     ARTS_IMPORT void Update() override;
 
 private:
+#ifdef ARTS_DEV_BUILD
     // 0x4FE540 | ?AddWidgets@Card2D@@EAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4FE330 | ?Cull@Card2D@@EAEXXZ
     ARTS_IMPORT void Cull() override;

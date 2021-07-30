@@ -100,11 +100,13 @@ ARTS_EXPORT extern b32 EnableDebugOutput;
 // 0x661AA4 | ?EnableNormalOutput@@3HA
 ARTS_EXPORT extern b32 EnableNormalOutput;
 
+#ifdef ARTS_DEV_BUILD
 // 0x90A688 | ?MessageFifo@@3PAY0FA@DA
 extern char MessageFifo[32][256];
 
 // 0x90A680 | ?MessageFirst@@3HA
 ARTS_EXPORT extern i32 MessageFirst;
+#endif
 
 // 0x90A684 | ?MonoPointer@@3PAGA
 ARTS_EXPORT extern u16* MonoPointer;

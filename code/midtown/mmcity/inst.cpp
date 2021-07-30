@@ -85,8 +85,10 @@ ARTS_IMPORT /*static*/ void MatrixFromPoints(class Matrix34& arg1, class Vector3
 void mmMatrixInstance::Hit(class mmInstance* /*arg1*/)
 {}
 
+#ifdef ARTS_DEV_BUILD
 void mmMatrixInstance::AddWidgets(class Bank* /*arg1*/)
 {}
+#endif
 
 void ARTS_FASTCALL mmStaticInstance::Relight()
 {}

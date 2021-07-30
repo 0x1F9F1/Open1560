@@ -130,8 +130,10 @@ public:
     // 0x4AFB50 | ?AddPointer@MenuManager@@QAEXXZ
     ARTS_EXPORT void AddPointer();
 
+#ifdef ARTS_DEV_BUILD
     // 0x4B1400 | ?AddWidgets@MenuManager@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4B0A50 | ?AdjustPopupCard@MenuManager@@QAEXPAVUIMenu@@@Z
     ARTS_IMPORT void AdjustPopupCard(class UIMenu* arg1);

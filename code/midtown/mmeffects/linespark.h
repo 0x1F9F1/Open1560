@@ -61,8 +61,10 @@ check_size(asSparkLut, 0xC);
 struct asLineSparks
 {
 public:
+#ifdef ARTS_DEV_BUILD
     // 0x501A10 | ?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z | unused
     ARTS_IMPORT void AddWidgets(class Bank* bank);
+#endif
 
     // 0x502190 | ?Draw@asLineSparks@@QAEXXZ
     ARTS_EXPORT void Draw();

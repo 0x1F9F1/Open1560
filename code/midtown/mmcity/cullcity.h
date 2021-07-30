@@ -124,8 +124,10 @@ public:
     // 0x48BD70 | ??1mmCullCity@@UAE@XZ
     ARTS_IMPORT ~mmCullCity() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x48E4B0 | ?AddWidgets@mmCullCity@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x48D820 | ?Cull@mmCullCity@@UAEXXZ
     ARTS_EXPORT void Cull() override;
@@ -244,8 +246,10 @@ public:
     // 0x48FA70 | ??1mmRunwayLight@@UAE@XZ | inline
     ARTS_IMPORT ~mmRunwayLight() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x48FA40 | ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z | inline
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x48C1B0 | ?Draw@mmRunwayLight@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
@@ -273,14 +277,18 @@ check_size(mmRunwayLight, 0x60);
 // 0x48DA00 | ?fix_clip@@YAXXZ
 ARTS_IMPORT void fix_clip();
 
+#ifdef ARTS_DEV_BUILD
 // 0x48E450 | ?fix_fog@@YAXXZ
 ARTS_IMPORT void fix_fog();
+#endif
 
 // 0x48DA70 | ?fix_lighting@@YAXXZ
 ARTS_IMPORT void fix_lighting();
 
+#ifdef ARTS_DEV_BUILD
 // 0x48E480 | ?fix_shadow@@YAXXZ
 ARTS_IMPORT void fix_shadow();
+#endif
 
 // 0x63E4E4 | ?BoneScale@@3MA
 ARTS_IMPORT extern f32 BoneScale;
@@ -300,12 +308,15 @@ ARTS_IMPORT extern f32 FadeScale;
 // 0x6A8E30 | ?PlaneFudge@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 PlaneFudge;
 
+#ifdef ARTS_DEV_BUILD
 // 0x6A8E70 | ?StaticLog@@3PAVStream@@A
 ARTS_IMPORT extern class Stream* StaticLog;
+#endif
 
 // 0x6A8E20 | ?UsePixelFog@@3HA
 ARTS_IMPORT extern i32 UsePixelFog;
 
+#ifdef ARTS_DEV_BUILD
 // 0x6A8DDC | ?ambTriCount@@3HA
 ARTS_IMPORT extern i32 ambTriCount;
 
@@ -317,6 +328,7 @@ ARTS_IMPORT extern i32 carTriCount;
 
 // 0x6A8DCC | ?facadeTriCount@@3HA
 ARTS_IMPORT extern i32 facadeTriCount;
+#endif
 
 // 0x6A8E40 | ?mmCullCityMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmCullCityMetaClass;
@@ -340,5 +352,7 @@ check_size(t_mmEnvSetup, 0x28);
 // 0x63E260 | ?mmEnvSetup@@3PAY03Ut_mmEnvSetup@@A
 ARTS_IMPORT extern struct t_mmEnvSetup mmEnvSetup[4][4];
 
+#ifdef ARTS_DEV_BUILD
 // 0x6A8E24 | ?pedTriCount@@3HA
 ARTS_IMPORT extern i32 pedTriCount;
+#endif

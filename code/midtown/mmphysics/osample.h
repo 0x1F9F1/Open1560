@@ -47,8 +47,10 @@ public:
     // 0x42D300 | ??1asOverSample@@UAE@XZ | inline
     ARTS_IMPORT ~asOverSample() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4DEE30 | ?AddWidgets@asOverSample@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4DF060 | ?GetClass@asOverSample@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

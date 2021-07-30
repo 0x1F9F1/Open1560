@@ -57,8 +57,10 @@ public:
     // 0x470390 | ??1mmTransmission@@UAE@XZ | inline
     ARTS_IMPORT ~mmTransmission() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x470790 | ?AddWidgets@mmTransmission@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4706F0 | ?Automatic@mmTransmission@@QAEXH@Z
     ARTS_IMPORT void Automatic(i32 arg1);

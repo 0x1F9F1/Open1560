@@ -51,8 +51,10 @@ public:
     // 0x406960 | ??1mmCDPlayer@@UAE@XZ | inline
     ARTS_IMPORT ~mmCDPlayer() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4234C0 | ?AddWidgets@mmCDPlayer@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x423210 | ?Cull@mmCDPlayer@@UAEXXZ
     ARTS_IMPORT void Cull() override;

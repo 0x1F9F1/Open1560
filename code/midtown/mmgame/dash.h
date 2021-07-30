@@ -71,8 +71,10 @@ public:
     // 0x406910 | ??1mmExternalView@@UAE@XZ | inline
     ARTS_IMPORT ~mmExternalView() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4224E0 | ?AddWidgets@mmExternalView@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x422340 | ?Cull@mmExternalView@@UAEXXZ
     ARTS_IMPORT void Cull() override;
@@ -115,8 +117,10 @@ public:
     // 0x421D60 | ?ActivateUntilTransitionIsOver@mmDashView@@QAEXXZ
     ARTS_IMPORT void ActivateUntilTransitionIsOver();
 
+#ifdef ARTS_DEV_BUILD
     // 0x4227D0 | ?AddWidgets@mmDashView@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x421CC0 | ?AfterLoad@mmDashView@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;

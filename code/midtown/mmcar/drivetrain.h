@@ -53,8 +53,10 @@ public:
     // 0x47FEF0 | ?AddWheel@mmDrivetrain@@QAEHPAVmmWheel@@@Z
     ARTS_IMPORT i32 AddWheel(class mmWheel* arg1);
 
+#ifdef ARTS_DEV_BUILD
     // 0x4803E0 | ?AddWidgets@mmDrivetrain@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x47FEC0 | ?Attach@mmDrivetrain@@QAEXXZ
     ARTS_IMPORT void Attach();

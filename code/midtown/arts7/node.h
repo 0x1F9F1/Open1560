@@ -94,6 +94,7 @@ public:
     // 0x523F70 | ?Save@asNode@@UAEXXZ
     ARTS_EXPORT virtual void Save();
 
+#ifdef ARTS_DEV_BUILD
     // 0x524330 | ?AddWidgets@asNode@@UAEXPAVBank@@@Z
     ARTS_EXPORT virtual void AddWidgets(class Bank* bank);
 
@@ -105,6 +106,7 @@ public:
 
     // 0x524400 | ?AddButton@asNode@@QAEXPAVBank@@AAH@Z | unused
     ARTS_EXPORT void AddButton(class Bank* arg1, i32& arg2);
+#endif
 
     // 0x523A70 | ?AddChild@asNode@@QAEHPAV1@@Z
     ARTS_EXPORT b32 AddChild(class asNode* child);
@@ -136,8 +138,10 @@ public:
     // 0x523D00 | ?NumChildren@asNode@@QAEHXZ
     ARTS_EXPORT i32 NumChildren();
 
+#ifdef ARTS_DEV_BUILD
     // 0x5239D0 | ?PerfReport@asNode@@QAEXPAVStream@@H@Z
     ARTS_EXPORT void PerfReport(class Stream* output, i32 indent);
+#endif
 
     // 0x523C60 | ?RemoveAllChildren@asNode@@QAEXXZ
     ARTS_EXPORT void RemoveAllChildren();
@@ -148,8 +152,10 @@ public:
     // 0x523B80 | ?RemoveChild@asNode@@QAEHH@Z
     ARTS_EXPORT b32 RemoveChild(i32 idx);
 
+#ifdef ARTS_DEV_BUILD
     // 0x5239B0 | ?ResetTime@asNode@@QAEXXZ
     ARTS_EXPORT void ResetTime();
+#endif
 
     // 0x523EC0 | ?Save@asNode@@QAEHPAD@Z
     ARTS_EXPORT b32 Save(const char* path);
@@ -211,11 +217,15 @@ public:
 
     VIRTUAL_META_DECLARE;
 
+#ifdef ARTS_DEV_BUILD
     // 0x790834 | ?TimingCount@asNode@@2HA
     ARTS_IMPORT static i32 TimingCount;
+#endif
 
 private:
+#ifdef ARTS_DEV_BUILD
     float update_time_ {0.0f};
+#endif
 
     asNode* next_node_ {nullptr};
     asNode* child_node_ {nullptr};
@@ -229,7 +239,9 @@ private:
     // 0x400 | Update While Paused
     i32 node_flags_ {0x3};
 
+#ifdef ARTS_DEV_BUILD
     class Bank* current_bank_ {nullptr};
+#endif
 };
 
 check_size(asNode, 0x20);

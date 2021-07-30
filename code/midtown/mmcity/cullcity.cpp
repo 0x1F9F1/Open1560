@@ -25,8 +25,10 @@ define_dummy_symbol(mmcity_cullcity);
 #include "agiworld/meshset.h"
 #include "agiworld/quality.h"
 
+#ifdef ARTS_DEV_BUILD
 void mmRunwayLight::AddWidgets(class Bank* /*arg1*/)
 {}
+#endif
 
 void ARTS_FASTCALL mmRunwayLight::FromMatrix(class Matrix34 const& /*arg1*/)
 {}

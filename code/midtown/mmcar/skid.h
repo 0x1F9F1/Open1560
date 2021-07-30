@@ -70,8 +70,10 @@ public:
     // 0x4778A0 | ?AddSkid@mmSkid@@QAEXAAVMatrix34@@PAVVector3@@PAVagiPhysParameters@@M@Z
     ARTS_IMPORT void AddSkid(class Matrix34& arg1, class Vector3* arg2, class agiPhysParameters* arg3, f32 arg4);
 
+#ifdef ARTS_DEV_BUILD
     // 0x478550 | ?AddWidgets@mmSkid@@UAEXPAVBank@@@Z | inline
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x477AA0 | ?Draw@mmSkid@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;

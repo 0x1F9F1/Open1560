@@ -104,8 +104,10 @@ public:
     // 0x4EA530 | ??1AudSound@@UAE@XZ
     ARTS_IMPORT ~AudSound() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4EB6E0 | ?AddWidgets@AudSound@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4EB9E0 | ?AllOneShotLayersPlaying@AudSound@@QAEHXZ
     ARTS_IMPORT i32 AllOneShotLayersPlaying();

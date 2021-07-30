@@ -48,8 +48,10 @@ public:
     // 0x5258C0 | ?Cull@asCullable@@UAEXXZ
     ARTS_EXPORT virtual void Cull();
 
+#ifdef ARTS_DEV_BUILD
     // 0x5258D0 | ?AddWidgets@asCullable@@QAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* bank);
+#endif
 
     VIRTUAL_META_DECLARE;
 };

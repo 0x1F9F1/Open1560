@@ -56,5 +56,7 @@ public:
 
 check_size(asBound, 0x3C);
 
+#ifdef ARTS_DEV_BUILD
 // 0x719194 | ?ImpactCallbackCount@@3HA
 ARTS_IMPORT extern i32 ImpactCallbackCount;
+#endif

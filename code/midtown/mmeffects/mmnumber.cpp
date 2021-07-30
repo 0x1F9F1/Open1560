@@ -57,8 +57,10 @@ void mmNumber::Cull()
     }
 }
 
+#ifdef ARTS_DEV_BUILD
 void mmNumber::AddWidgets(class Bank* /*arg1*/)
 {}
+#endif
 
 void mmNumber::Init(mmNumberFont* font, f32 x, f32 y)
 {

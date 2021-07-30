@@ -108,6 +108,7 @@ public:
     // 0x517680 | ?ComputeEdges@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void ComputeEdges();
 
+#ifdef ARTS_DEV_BUILD
     // 0x51FCF0 | ?Draw@mmBoundTemplate@@QAEXXZ
     ARTS_IMPORT void Draw();
 
@@ -125,6 +126,7 @@ public:
 
     // 0x51FE00 | ?DrawTable@mmBoundTemplate@@QAEXXZ
     ARTS_IMPORT void DrawTable();
+#endif
 
     // 0x5171D0 | ?InitGeometry@mmBoundTemplate@@QAEXHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void InitGeometry(i32 arg1, i32 arg2);

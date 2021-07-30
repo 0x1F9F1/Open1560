@@ -8,8 +8,7 @@ arts_component "mmcityinfo"
         -- "crc.h",
         -- "infobase.cpp",
         -- "infobase.h",
-        -- "mapdata.cpp",
-        -- "mapdata.h",
+
         -- "miscdata.cpp",
         -- "miscdata.h",
         -- "playercfg.cpp",
@@ -31,3 +30,10 @@ arts_component "mmcityinfo"
         "vehlist.cpp",
         "vehlist.h",
     }
+
+    if ARTS_DEV_BUILD then
+        files {
+            "mapdata.cpp",
+            "mapdata.h",
+        }
+    end

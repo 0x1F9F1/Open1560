@@ -47,8 +47,10 @@ public:
     // 0x470320 | ??1asAero@@UAE@XZ | inline
     ARTS_IMPORT ~asAero() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4E0330 | ?AddWidgets@asAero@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4E0670 | ?GetClass@asAero@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

@@ -455,6 +455,7 @@ ARTS_IMPORT extern struct agiStats STATS;
 // 0x6565B8 | ?ZFill@@3HA
 ARTS_IMPORT extern i32 ZFill;
 
+#ifdef ARTS_DEV_BUILD
 // 0x8FAC5C | ?agiBeginFrame@@3KA
 ARTS_IMPORT extern ulong agiBeginFrame;
 
@@ -475,10 +476,12 @@ ARTS_IMPORT extern ulong agiClipTimer;
 
 // 0x8FAC64 | ?agiCopyBitmap@@3KA
 ARTS_IMPORT extern ulong agiCopyBitmap;
+#endif
 
 // 0x6565BC | ?agiEnableZBuffer@@3DA
 ARTS_IMPORT extern char agiEnableZBuffer;
 
+#ifdef ARTS_DEV_BUILD
 // 0x8FAC6C | ?agiEndFrame@@3KA
 ARTS_IMPORT extern ulong agiEndFrame;
 
@@ -508,6 +511,7 @@ ARTS_IMPORT extern ulong agiTransformTimer;
 
 // 0x8FACA0 | ?agiTraverseTimer@@3KA
 ARTS_IMPORT extern ulong agiTraverseTimer;
+#endif
 
 extern ipcMessageQueue GFXPAGER;
 

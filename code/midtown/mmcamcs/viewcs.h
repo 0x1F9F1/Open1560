@@ -55,8 +55,10 @@ public:
     // 0x4F9070 | ??1mmViewCS@@UAE@XZ
     ARTS_IMPORT ~mmViewCS() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4F9560 | ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z | inline
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4F9320 | ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z | unused
     ARTS_IMPORT void ForceMatrixDelta(class Matrix34 const& arg1);

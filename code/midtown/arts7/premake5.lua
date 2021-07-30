@@ -1,7 +1,6 @@
 arts_component "arts7"
     files {
-        "bank.cpp",
-        "bank.h",
+
         "benchstats.cpp",
         "benchstats.h",
         "camera.cpp",
@@ -18,16 +17,23 @@ arts_component "arts7"
         -- "lamp.h",
         "linear.cpp",
         "linear.h",
-        "midgets.cpp",
-        "midgets.h",
+
         "node.cpp",
         "node.h",
-        "pgraph.cpp",
-        "pgraph.h",
+
         "sim.cpp",
         "sim.h",
         -- "view.cpp",
         -- "view.h",
-
-        "bank.h",
     }
+
+    if ARTS_DEV_BUILD then
+        files {
+            "bank.cpp",
+            "bank.h",
+            "midgets.cpp",
+            "midgets.h",
+            "pgraph.cpp",
+            "pgraph.h",
+        }
+    end

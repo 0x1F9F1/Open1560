@@ -76,8 +76,10 @@ public:
     // 0x479BB0 | ?Activate@mmTrailer@@QAEXXZ
     ARTS_IMPORT void Activate();
 
+#ifdef ARTS_DEV_BUILD
     // 0x479E40 | ?AddWidgets@mmTrailer@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x479B40 | ?AfterLoad@mmTrailer@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;
@@ -136,8 +138,10 @@ public:
     // 0x47A140 | ??1mmTrailerInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmTrailerInstance() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x47A300 | ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z | inline
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x479730 | ?AttachEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
     ARTS_IMPORT class mmPhysEntity* AttachEntity() override;

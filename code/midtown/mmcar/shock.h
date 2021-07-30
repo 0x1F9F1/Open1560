@@ -46,8 +46,10 @@ public:
     // 0x470380 | ??1mmShock@@UAE@XZ | inline
     ARTS_IMPORT ~mmShock() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x47D280 | ?AddWidgets@mmShock@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x47D410 | ?GetClass@mmShock@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

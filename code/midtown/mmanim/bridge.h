@@ -76,8 +76,10 @@ public:
     // 0x4C17C0 | ??1mmBridgeMgr@@UAE@XZ
     ARTS_IMPORT ~mmBridgeMgr() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4C1CD0 | ?AddWidgets@mmBridgeMgr@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4C1860 | ?Cull@mmBridgeMgr@@UAEXXZ
     ARTS_IMPORT void Cull() override;
@@ -118,8 +120,10 @@ public:
     // 0x4C2010 | ??1mmBridgeSet@@UAE@XZ
     ARTS_IMPORT ~mmBridgeSet() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4C27D0 | ?AddWidgets@mmBridgeSet@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4C2730 | ?Cull@mmBridgeSet@@UAEXXZ
     ARTS_IMPORT void Cull() override;

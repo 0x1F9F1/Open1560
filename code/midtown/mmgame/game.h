@@ -109,8 +109,10 @@ public:
 
     virtual class mmWaypoints* GetWaypoints() = 0;
 
+#ifdef ARTS_DEV_BUILD
     // 0x411E30 | ?AddWidgets@mmGame@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x40F9C0 | ?CollideAIOpponents@mmGame@@QAEXXZ
     ARTS_IMPORT void CollideAIOpponents();

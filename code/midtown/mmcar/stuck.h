@@ -49,8 +49,10 @@ public:
     // 0x470300 | ??1mmStuck@@UAE@XZ | inline
     ARTS_IMPORT ~mmStuck() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x47C7D0 | ?AddWidgets@mmStuck@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x47C540 | ?Impact@mmStuck@@QAEXXZ
     ARTS_IMPORT void Impact();

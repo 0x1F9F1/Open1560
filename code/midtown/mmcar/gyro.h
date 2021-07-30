@@ -47,8 +47,10 @@ public:
     // 0x470340 | ??1VehGyro@@UAE@XZ | inline
     ARTS_IMPORT ~VehGyro() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x480930 | ?AddWidgets@VehGyro@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x480B70 | ?GetClass@VehGyro@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

@@ -49,8 +49,10 @@ public:
     // 0x42D2F0 | ??1PostCamCS@@UAE@XZ | inline
     ARTS_IMPORT ~PostCamCS() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4F97A0 | ?AddWidgets@PostCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4F9930 | ?GetClass@PostCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

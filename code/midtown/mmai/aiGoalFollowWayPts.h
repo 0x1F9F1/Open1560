@@ -70,8 +70,10 @@ public:
     // 0x46A2D0 | ?GetClass@aiGoalFollowWayPts@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT virtual class MetaClass* GetClass();
 
+#ifdef ARTS_DEV_BUILD
     // 0x46A0E0 | ?AddWidgets@aiGoalFollowWayPts@@QAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1);
+#endif
 
     // 0x4668C0 | ?Context@aiGoalFollowWayPts@@UAEHXZ
     ARTS_IMPORT i32 Context() override;

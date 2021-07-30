@@ -61,8 +61,10 @@ public:
     // 0x4F6A50 | ?SetST@BaseCamCS@@UAEXPAM@Z | inline
     ARTS_EXPORT virtual void SetST(f32* arg1);
 
+#ifdef ARTS_DEV_BUILD
     // 0x4FBF40 | ?AddWidgets@BaseCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4FBEB0 | ?AfterLoad@BaseCamCS@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;

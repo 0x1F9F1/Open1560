@@ -47,8 +47,10 @@ public:
     // 0x502950 | ??1mmMouseSteerBar@@UAE@XZ
     ARTS_IMPORT ~mmMouseSteerBar() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x502AB0 | ?AddWidgets@mmMouseSteerBar@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x502A30 | ?Cull@mmMouseSteerBar@@UAEXXZ
     ARTS_IMPORT void Cull() override;

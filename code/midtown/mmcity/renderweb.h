@@ -76,14 +76,18 @@ public:
     // 0x48FD40 | ??1asRenderWeb@@UAE@XZ
     ARTS_IMPORT ~asRenderWeb() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x491690 | ?AddWidgets@asRenderWeb@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x490FF0 | ?Cull@asRenderWeb@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x491610 | ?DrawAllBounds@asRenderWeb@@QAEXXZ
     ARTS_IMPORT void DrawAllBounds();
+#endif
 
     // 0x4915A0 | ?GetCellNeighbors@asRenderWeb@@QAEHHPAPAUasPortalCell@@H@Z
     ARTS_IMPORT i32 GetCellNeighbors(i32 arg1, struct asPortalCell** arg2, i32 arg3);
@@ -172,6 +176,7 @@ ARTS_IMPORT extern i32 ZWRITE;
 // 0x6A8EE8 | ?asRenderWebMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asRenderWebMetaClass;
 
+#ifdef ARTS_DEV_BUILD
 // 0x6A8EE0 | ?pass1Count@@3HA
 ARTS_IMPORT extern i32 pass1Count;
 
@@ -186,3 +191,4 @@ ARTS_IMPORT extern i32 pass4Count;
 
 // 0x6A8ECC | ?upperCount@@3HA
 ARTS_IMPORT extern i32 upperCount;
+#endif

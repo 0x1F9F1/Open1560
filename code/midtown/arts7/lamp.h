@@ -51,8 +51,10 @@ public:
     // 0x5260C0 | ??1asLamp@@UAE@XZ
     ARTS_IMPORT ~asLamp() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x526310 | ?AddWidgets@asLamp@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x526290 | ?Cull@asLamp@@UAEXXZ
     ARTS_IMPORT void Cull() override;

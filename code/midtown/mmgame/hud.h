@@ -118,8 +118,10 @@ public:
     // 0x405F30 | ?AddPlayer@mmHUD@@QAEXPADKHH@Z
     ARTS_IMPORT void AddPlayer(char* arg1, ulong arg2, i32 arg3, i32 arg4);
 
+#ifdef ARTS_DEV_BUILD
     // 0x406170 | ?AddWidgets@mmHUD@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x405D30 | ?Cull@mmHUD@@UAEXXZ
     ARTS_IMPORT void Cull() override;

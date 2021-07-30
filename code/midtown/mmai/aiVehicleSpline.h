@@ -91,8 +91,10 @@ public:
     // 0x45C3E0 | ?GetClass@aiVehicleSpline@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT virtual class MetaClass* GetClass();
 
+#ifdef ARTS_DEV_BUILD
     // 0x45C1F0 | ?AddWidgets@aiVehicleSpline@@QAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1);
+#endif
 
     // 0x45BC50 | ?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ | unused
     ARTS_IMPORT void AvoidPlayerCollision();

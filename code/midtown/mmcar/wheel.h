@@ -65,8 +65,10 @@ public:
     // 0x470360 | ??1mmWheel@@UAE@XZ | inline
     ARTS_IMPORT ~mmWheel() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x47F6D0 | ?AddWidgets@mmWheel@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x47DA10 | ?AfterLoad@mmWheel@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;

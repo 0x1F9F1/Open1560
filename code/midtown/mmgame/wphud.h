@@ -86,8 +86,10 @@ public:
     // 0x4242B0 | ??1mmWPHUD@@UAE@XZ
     ARTS_IMPORT ~mmWPHUD() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x424780 | ?AddWidgets@mmWPHUD@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x424770 | ?Cull@mmWPHUD@@UAEXXZ
     ARTS_EXPORT void Cull() override;

@@ -127,6 +127,7 @@
 
 #include <eax.h>
 
+class Bank;
 class SoundObj;
 class AudHead;
 class Vector3;
@@ -151,8 +152,10 @@ public:
     // 0x4E8EA0 | ?AddStream@AudManager@@QAEHPAVAudStream@@@Z
     ARTS_IMPORT i32 AddStream(class AudStream* arg1);
 
+#ifdef ARTS_DEV_BUILD
     // 0x4E9610 | ?AddWidgets@AudManager@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4E97D0 | ?AlwaysEAX@AudManager@@QAEXI@Z
     ARTS_IMPORT void AlwaysEAX(u32 arg1);
@@ -438,7 +441,7 @@ public:
     i8 CDPlayMode;
     i32 SampleRate;
     i16 word68;
-    Bank* Bank;
+    Bank* Widgets;
     f32 dword70;
     f32 dword74;
     f32 dword78;

@@ -40,6 +40,7 @@ ARTS_IMPORT /*static*/ i32 ARTS_STDCALL EnumCounter(struct _GUID* arg1, char* ar
 // 0x576470 | ?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z
 ARTS_IMPORT /*static*/ ilong ARTS_STDCALL EnumTextures(struct _DDPIXELFORMAT* arg1, void* arg2);
 
+#ifndef ARTS_STANDALONE // Just to shut up warnings
 // 0x575FD0 | ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
 static long WINAPI EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
 {
@@ -48,6 +49,7 @@ static long WINAPI EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
 
     return 1;
 }
+#endif
 
 // 0x5757D0 | ?EnumerateRenderers2@@YAXXZ
 ARTS_IMPORT /*static*/ void EnumerateRenderers2();

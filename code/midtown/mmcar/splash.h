@@ -51,8 +51,10 @@ public:
     // 0x4811C0 | ?Activate@mmSplash@@QAEXM@Z
     ARTS_IMPORT void Activate(f32 arg1);
 
+#ifdef ARTS_DEV_BUILD
     // 0x481420 | ?AddWidgets@mmSplash@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x481070 | ?Init@mmSplash@@QAEXPAVasInertialCS@@VVector3@@1@Z
     ARTS_IMPORT void Init(class asInertialCS* arg1, class Vector3 arg2, class Vector3 arg3);

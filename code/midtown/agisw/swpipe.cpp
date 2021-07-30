@@ -347,8 +347,10 @@ void agiSWPipeline::ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color)
 
 void agiSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height)
 {
+#ifdef ARTS_DEV_BUILD
     ++agiBitmapCount;
     agiBitmapPixels += width * height;
+#endif
 
     // TODO: Implement DrawMode 3
 

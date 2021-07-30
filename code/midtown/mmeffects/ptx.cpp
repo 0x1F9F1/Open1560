@@ -81,6 +81,7 @@ void asParticles::Init(i32 max_particles, i32 arg2, i32 arg3, i32 vert_count, ag
     MeshCard.Init(vert_count, vertices, 32, arg2, arg3);
 }
 
+#ifdef ARTS_DEV_BUILD
 void asParticles::AddWidgets(Bank* bank)
 {
     asNode::AddWidgets(bank);
@@ -90,6 +91,7 @@ void asParticles::AddWidgets(Bank* bank)
     bank->AddSlider("Wind Density", &WindDensity, 0.0f, 10000.0f, 0.1f, NullCallback);
     bank->AddSlider("Gravity", &Gravity, -100000.0f, 10000.0f, 0.1f, NullCallback);
 }
+#endif
 
 void asParticles::SetTexture(char* name)
 {

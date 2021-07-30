@@ -60,11 +60,15 @@ public:
     // 0x412220 | ??1mmGameEdit@@UAE@XZ
     ARTS_IMPORT ~mmGameEdit() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x412860 | ?AddWidgets@mmGameEdit@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
+#ifdef ARTS_DEV_BUILD
     // 0x412B20 | ?ChangeWPCallback@mmGameEdit@@QAEXXZ
     ARTS_IMPORT void ChangeWPCallback();
+#endif
 
     // 0x412D00 | ?GetClass@mmGameEdit@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
@@ -96,8 +100,10 @@ public:
     // 0x412760 | ?Reset@mmGameEdit@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x412A80 | ?SetWPCallback@mmGameEdit@@QAEXXZ
     ARTS_IMPORT void SetWPCallback();
+#endif
 
     // 0x4127F0 | ?Update@mmGameEdit@@UAEXXZ
     ARTS_IMPORT void Update() override;

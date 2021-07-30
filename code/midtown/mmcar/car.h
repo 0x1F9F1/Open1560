@@ -68,8 +68,10 @@ public:
     // 0x42D1F0 | ??1mmCar@@UAE@XZ | inline
     ARTS_IMPORT ~mmCar() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4745E0 | ?AddWidgets@mmCar@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x473E70 | ?ClearDamage@mmCar@@QAEXXZ
     ARTS_IMPORT void ClearDamage();
@@ -131,6 +133,7 @@ public:
     // 0x474640 | ?DeclareFields@mmCar@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+#ifdef ARTS_DEV_BUILD
     // 0x6A7E6C | ?PostUpdateTime@mmCar@@2MA
     ARTS_IMPORT static f32 PostUpdateTime;
 
@@ -142,6 +145,7 @@ public:
 
     // 0x6A7E68 | ?UpdateTime@mmCar@@2MA
     ARTS_IMPORT static f32 UpdateTime;
+#endif
 
     u8 gap20[0x22EC];
 };

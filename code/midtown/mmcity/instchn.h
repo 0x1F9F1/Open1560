@@ -47,8 +47,10 @@ public:
     // 0x492290 | ??1mmInstChain@@QAE@XZ
     ARTS_IMPORT ~mmInstChain();
 
+#ifdef ARTS_DEV_BUILD
     // 0x492980 | ?AddWidgets@mmInstChain@@QAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1);
+#endif
 
     // 0x4924C0 | ?Draw@mmInstChain@@QAEXFFIHM@Z
     ARTS_IMPORT void Draw(i16 arg1, i16 arg2, u32 arg3, i32 arg4, f32 arg5);

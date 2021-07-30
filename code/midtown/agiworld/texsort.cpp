@@ -91,11 +91,13 @@ agiTexSorter::~agiTexSorter()
     Instance = nullptr;
 }
 
+#ifdef ARTS_DEV_BUILD
 void agiTexSorter::AddWidgets(Bank* bank)
 {
     bank->AddSlider("MaxVertsPerSet", &MaxVertsPerSet, 8, VtxSize, 4.0f, NullCallback);
     bank->AddSlider("MaxIndicesPerSet", &MaxIndicesPerSet, 8, IdxSize, 4.0f, NullCallback);
 }
+#endif
 
 static extern_var(0x719748, agiPolySet*, ColoredPolySet);
 static extern_var(0x719740, agiPolySet*, LastPolySet);

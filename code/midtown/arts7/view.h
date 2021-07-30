@@ -55,8 +55,10 @@ public:
     // 0x52CE50 | ??1asViewCS@@UAE@XZ | inline
     ARTS_IMPORT ~asViewCS() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x52C780 | ?AddWidgets@asViewCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x52C770 | ?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z | unused
     ARTS_EXPORT void FileIO(class MiniParser* arg1);

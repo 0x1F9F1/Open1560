@@ -61,8 +61,10 @@ public:
     // 0x500120 | ??1asParticles@@UAE@XZ
     ARTS_EXPORT ~asParticles() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x500750 | ?AddWidgets@asParticles@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* bank) override;
+#endif
 
     // 0x5005F0 | ?Blast@asParticles@@QAEXHPAVasBirthRule@@@Z
     ARTS_EXPORT void Blast(i32 num_sparks, class asBirthRule* birth_rule);

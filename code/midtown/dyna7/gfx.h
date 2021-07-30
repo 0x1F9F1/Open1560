@@ -61,6 +61,7 @@
     0x790CC8 | class Vector3 ColWhite | ?ColWhite@@3VVector3@@A
 */
 
+#ifdef ARTS_DEV_BUILD
 // 0x52D800 | ?DrawBegin@@YAXAAVMatrix34@@@Z
 ARTS_IMPORT void DrawBegin(class Matrix34& arg1);
 
@@ -103,6 +104,7 @@ ARTS_IMPORT void DrawWireSphere(class Vector4& arg1);
 
 // 0x52D320 | ?DrawWireSphere@@YAXAAVVector3@@M@Z
 ARTS_IMPORT void DrawWireSphere(class Vector3& arg1, f32 arg2);
+#endif
 
 // 0x790A98 | ?ColBlack@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 ColBlack;

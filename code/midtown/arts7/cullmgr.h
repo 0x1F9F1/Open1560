@@ -76,8 +76,10 @@ public:
     // 0x525550 | ?DeclareCullable2D@asCullManager@@UAEXPAVasCullable@@@Z
     ARTS_EXPORT virtual void DeclareCullable2D(class asCullable* cullable);
 
+#ifdef ARTS_DEV_BUILD
     // 0x525400 | ?AddPage@asCullManager@@QAEXVCallback@@@Z
     ARTS_EXPORT void AddPage(class Callback callback);
+#endif
 
     // 0x5255F0 | ?DeclareBitmap@asCullManager@@QAEXPAVasCullable@@PAVagiBitmap@@@Z
     ARTS_EXPORT void DeclareBitmap(class asCullable* cullable, class agiBitmap* bitmap);
@@ -139,10 +141,12 @@ private:
 
     u32 stats_counter_ {0};
 
+#ifdef ARTS_DEV_BUILD
     u32 current_page_ {0};
     u32 num_pages_ {0};
 
     Callback page_callbacks_[16] {};
+#endif
 
     // NOTE: The mutex is never initialized
     // FIXME: ipcWaitSingle is still used in asCullManager::Update

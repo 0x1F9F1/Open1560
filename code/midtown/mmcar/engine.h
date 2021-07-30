@@ -55,8 +55,10 @@ public:
     // 0x47C990 | ??1mmEngine@@UAE@XZ
     ARTS_IMPORT ~mmEngine() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x47CE70 | ?AddWidgets@mmEngine@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x47C9D0 | ?AfterLoad@mmEngine@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;

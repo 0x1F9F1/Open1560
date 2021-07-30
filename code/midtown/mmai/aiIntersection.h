@@ -54,11 +54,13 @@ public:
     // 0x447920 | ?CreateRoadMap@aiIntersection@@QAEXXZ
     ARTS_IMPORT void CreateRoadMap();
 
+#ifdef ARTS_DEV_BUILD
     // 0x4478B0 | ?DrawId@aiIntersection@@QAEXXZ
     ARTS_IMPORT void DrawId();
 
     // 0x447880 | ?DrawPaths@aiIntersection@@QAEXXZ
     ARTS_IMPORT void DrawPaths();
+#endif
 
     // 0x4478F0 | ?Dump@aiIntersection@@QAEXXZ | unused
     ARTS_IMPORT void Dump();

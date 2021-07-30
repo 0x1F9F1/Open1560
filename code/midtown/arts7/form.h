@@ -55,8 +55,10 @@ public:
     // 0x5283C0 | ??1asForm@@UAE@XZ
     ARTS_IMPORT ~asForm() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x5288E0 | ?AddWidgets@asForm@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x528520 | ?Cull@asForm@@UAEXXZ
     ARTS_IMPORT void Cull() override;

@@ -82,8 +82,10 @@ public:
     // 0x4DAD70 | ?GetCMatrix@asInertialCS@@UBEXAAVMatrix34@@ABVVector3@@@Z
     ARTS_IMPORT virtual void GetCMatrix(class Matrix34& arg1, class Vector3 const& arg2);
 
+#ifdef ARTS_DEV_BUILD
     // 0x4DB190 | ?AddWidgets@asInertialCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4DA5D0 | ?ApplyAngImpulse@asInertialCS@@QAEXABVVector3@@@Z
     ARTS_IMPORT void ApplyAngImpulse(class Vector3 const& arg1);

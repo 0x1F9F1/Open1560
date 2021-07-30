@@ -29,6 +29,8 @@ define_dummy_symbol(arts7_midgets);
 #include "vector7/vector3.h"
 #include "vector7/vector4.h"
 
+ARTS_EXPORT class asMidgets* MIDGETSPTR = nullptr;
+
 class MI
 {
     // const MI::`vftable' @ 0x620CA8

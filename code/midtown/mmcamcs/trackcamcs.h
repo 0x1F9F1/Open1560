@@ -61,8 +61,10 @@ public:
     // 0x4F6D00 | ??1TrackCamCS@@UAE@XZ
     ARTS_IMPORT ~TrackCamCS() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4F6DE0 | ?AddWidgets@TrackCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4F6D90 | ?AfterLoad@TrackCamCS@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;

@@ -41,8 +41,10 @@ public:
     // 0x51A1B0 | ??0mmIntersection@@QAE@XZ
     ARTS_IMPORT mmIntersection();
 
+#ifdef ARTS_DEV_BUILD
     // 0x51A5A0 | ?Draw@mmIntersection@@QAEXXZ | unused
     ARTS_IMPORT void Draw();
+#endif
 
     // 0x51A1C0 | ?InitSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
     ARTS_IMPORT void InitSegment(
@@ -75,8 +77,10 @@ public:
     // 0x51A650 | ??0mmEdgeBodyIsect@@QAE@XZ
     ARTS_IMPORT mmEdgeBodyIsect();
 
+#ifdef ARTS_DEV_BUILD
     // 0x51A720 | ?Draw@mmEdgeBodyIsect@@QAEXXZ | unused
     ARTS_IMPORT void Draw();
+#endif
 
     // 0x51A680 | ?InitSegment@mmEdgeBodyIsect@@QAEXABVVector3@@0HH0M@Z
     ARTS_IMPORT void InitSegment(

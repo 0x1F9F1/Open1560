@@ -189,7 +189,9 @@ public:
     // 0x493130 | ?Reset@mmInstance@@UAEXXZ
     ARTS_EXPORT virtual void Reset();
 
+#ifdef ARTS_DEV_BUILD
     virtual void AddWidgets(class Bank* arg1) = 0;
+#endif
 
     // 0x492B20 | ?Init@mmInstance@@UAEHPADAAVVector3@@1H0@Z
     ARTS_EXPORT virtual i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5);
@@ -282,8 +284,10 @@ public:
     // 0x4935B0 | ?Hit@mmMatrixInstance@@UAEXPAVmmInstance@@@Z
     ARTS_EXPORT virtual void Hit(class mmInstance* arg1);
 
+#ifdef ARTS_DEV_BUILD
     // 0x4935D0 | ?AddWidgets@mmMatrixInstance@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x493440 | ?FromMatrix@mmMatrixInstance@@UAIXABVMatrix34@@@Z
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
@@ -390,8 +394,10 @@ ARTS_IMPORT i32 GetPolyInfo(class agiMeshSet* arg1);
 // 0x492BC0 | ?formatf@@YAPADPBDZZ
 ARTS_IMPORT char* formatf(char const* arg1, ...);
 
+#ifdef ARTS_DEV_BUILD
 // 0x63F8B8 | ?EnableFacadeSideClipping@@3HA
 ARTS_IMPORT extern i32 EnableFacadeSideClipping;
+#endif
 
 // 0x7055D8 | ?mmBuildingInstanceMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmBuildingInstanceMetaClass;
@@ -430,8 +436,10 @@ public:
     // 0x4932E0 | ??1mmYInstance@@UAE@XZ
     ARTS_IMPORT ~mmYInstance() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4933B0 | ?AddWidgets@mmYInstance@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4932F0 | ?FromMatrix@mmYInstance@@UAIXABVMatrix34@@@Z
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
@@ -468,8 +476,10 @@ public:
     // 0x493600 | ??1mmStaticInstance@@UAE@XZ
     ARTS_IMPORT ~mmStaticInstance() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x494960 | ?AddWidgets@mmStaticInstance@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x494230 | ?Draw@mmStaticInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;

@@ -65,8 +65,10 @@ public:
     // 0x414C90 | ??1mmSingleCircuit@@UAE@XZ
     ARTS_IMPORT ~mmSingleCircuit() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4167A0 | ?AddWidgets@mmSingleCircuit@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x416AB0 | ?GetClass@mmSingleCircuit@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

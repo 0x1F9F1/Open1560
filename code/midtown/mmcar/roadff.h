@@ -53,8 +53,10 @@ public:
     // 0x481510 | ??1mmCarRoadFF@@UAE@XZ
     ARTS_IMPORT ~mmCarRoadFF() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x481810 | ?AddWidgets@mmCarRoadFF@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x481570 | ?AssignProperties@mmCarRoadFF@@QAEXMH@Z
     ARTS_IMPORT void AssignProperties(f32 arg1, i32 arg2);

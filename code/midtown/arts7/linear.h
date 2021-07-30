@@ -48,8 +48,10 @@ public:
     // 0x422F00 | ??1asLinearCS@@UAE@XZ | inline
     ARTS_EXPORT ~asLinearCS() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x525CC0 | ?AddWidgets@asLinearCS@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* bank) override;
+#endif
 
     // 0x525C00 | ?Cull@asLinearCS@@UAEXXZ
     ARTS_EXPORT void Cull() override;

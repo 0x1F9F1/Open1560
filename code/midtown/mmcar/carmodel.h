@@ -73,8 +73,10 @@ public:
     // 0x4730A0 | ?Activate@mmCarModel@@QAEXXZ
     ARTS_IMPORT void Activate();
 
+#ifdef ARTS_DEV_BUILD
     // 0x4730E0 | ?AddWidgets@mmCarModel@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x472D90 | ?ApplyDamage@mmCarModel@@QAEXAAVVector3@@M@Z
     ARTS_IMPORT void ApplyDamage(class Vector3& arg1, f32 arg2);

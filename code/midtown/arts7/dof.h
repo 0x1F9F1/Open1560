@@ -53,8 +53,10 @@ public:
     // 0x52ADE0 | ??4asDofCS@@QAEXABV0@@Z | unused
     ARTS_IMPORT void operator=(class asDofCS const& arg1);
 
+#ifdef ARTS_DEV_BUILD
     // 0x52B600 | ?AddWidgets@asDofCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x52B5D0 | ?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z | unused
     ARTS_EXPORT void FileIO(class MiniParser* arg1);
@@ -75,8 +77,10 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
 protected:
+#ifdef ARTS_DEV_BUILD
     // 0x52B5E0 | ?ModeCB@asDofCS@@IAEXXZ
     ARTS_IMPORT void ModeCB();
+#endif
 
     u8 gap88[0x70];
 };

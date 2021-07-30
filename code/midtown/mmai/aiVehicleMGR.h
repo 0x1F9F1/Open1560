@@ -121,8 +121,10 @@ public:
     // 0x45C550 | ??1aiVehicleInstance@@UAE@XZ | inline
     ARTS_IMPORT ~aiVehicleInstance() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x45C510 | ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z | inline
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x451F70 | ?AttachEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
     ARTS_IMPORT class mmPhysEntity* AttachEntity() override;
@@ -229,8 +231,10 @@ public:
     // 0x453040 | ?AddVehicleDataEntry@aiVehicleManager@@QAEHPAD@Z
     ARTS_IMPORT i32 AddVehicleDataEntry(char* arg1);
 
+#ifdef ARTS_DEV_BUILD
     // 0x453380 | ?AddWidgets@aiVehicleManager@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x452C20 | ?Attach@aiVehicleManager@@QAEPAVaiVehicleActive@@PAVaiVehicleInstance@@@Z
     ARTS_IMPORT class aiVehicleActive* Attach(class aiVehicleInstance* arg1);
@@ -276,8 +280,10 @@ public:
     // 0x453B90 | ??1aiVehicleData@@UAE@XZ | inline
     ARTS_IMPORT ~aiVehicleData() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x453390 | ?AddWidgets@aiVehicleData@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4539F0 | ?GetClass@aiVehicleData@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

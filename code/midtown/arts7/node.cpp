@@ -50,6 +50,7 @@ void asNode::Update()
             Quitf("Before update: %s", msg);
     }
 
+#ifdef ARTS_DEV_BUILD
     if (TimingCount)
     {
         for (asNode* n = child_node_; n; n = n->next_node_)
@@ -63,6 +64,7 @@ void asNode::Update()
         }
     }
     else
+#endif
     {
         for (asNode* n = child_node_; n; n = n->next_node_)
         {
@@ -123,6 +125,7 @@ void asNode::Save()
     Save(path.get());
 }
 
+#ifdef ARTS_DEV_BUILD
 void asNode::AddWidgets(class Bank* bank)
 {
     current_bank_ = bank;
@@ -146,6 +149,7 @@ void asNode::CloseWidgets()
 
 void asNode::AddButton(class Bank* /*arg1*/, i32& /*arg2*/)
 {}
+#endif
 
 b32 asNode::AddChild(class asNode* child)
 {
@@ -301,6 +305,7 @@ i32 asNode::NumChildren()
     return count;
 }
 
+#ifdef ARTS_DEV_BUILD
 void asNode::PerfReport(class Stream* output, i32 indent)
 {
     f32 self_update = update_time_;
@@ -319,6 +324,7 @@ void asNode::PerfReport(class Stream* output, i32 indent)
     for (asNode* n = child_node_; n; n = n->next_node_)
         n->PerfReport(output, indent + 1);
 }
+#endif
 
 void asNode::RemoveAllChildren()
 {
@@ -365,6 +371,7 @@ b32 asNode::RemoveChild(i32 idx)
     return true;
 }
 
+#ifdef ARTS_DEV_BUILD
 void asNode::ResetTime()
 {
     update_time_ = 0.0f;
@@ -372,6 +379,7 @@ void asNode::ResetTime()
     for (asNode* n = child_node_; n; n = n->next_node_)
         n->ResetTime();
 }
+#endif
 
 b32 asNode::Save(const char* path)
 {

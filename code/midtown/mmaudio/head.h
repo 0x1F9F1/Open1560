@@ -52,8 +52,10 @@ public:
     // 0x4EBD00 | ??1AudHead@@UAE@XZ
     ARTS_IMPORT ~AudHead() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4EBEF0 | ?AddWidgets@AudHead@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4EC030 | ?GetHeadPtr@AudHead@@QAEPAVMatrix34@@XZ
     ARTS_IMPORT class Matrix34* GetHeadPtr();

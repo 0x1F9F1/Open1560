@@ -332,8 +332,10 @@ void asSimulation::Update()
     else if (seconds_ == 1234.0f)
         Quitf("ARTS.Init() not called");
 
+#ifdef ARTS_DEV_BUILD
     if (!frame_step_ || paused_)
         vector_count_ = 0;
+#endif
 
     Timer timer;
 
@@ -411,6 +413,7 @@ void asSimulation::Update()
         first_frame_ = 0;
     }
 
+#ifdef ARTS_DEV_BUILD
     if (physics_bank_open_)
     {
         if (g_Light)
@@ -421,15 +424,18 @@ void asSimulation::Update()
 
         CULLMGR->DeclareCullable(this);
     }
+#endif
 
     curr_stats_.UpdateTime += timer.Time();
 
+#ifdef ARTS_DEV_BUILD
     if (TimingCount && !--TimingCount)
     {
         Ptr<Stream> report {arts_fopen("perf.rpt", "w")};
 
         PerfReport(report.get(), 0);
     }
+#endif
 }
 
 void asSimulation::Widgets()

@@ -12,8 +12,7 @@ arts_component "agi"
         -- "dlp.h",
         "dlptmpl.cpp",
         "dlptmpl.h",
-        -- "dyndlp.cpp",
-        -- "dyndlp.h",
+
         "error.cpp",
         "error.h",
         "getdlp.cpp",
@@ -38,12 +37,10 @@ arts_component "agi"
         "print.h",
         "refresh.cpp",
         "refresh.h",
-        "render.cpp",
-        "render.h",
+
         "rsys.cpp",
         "rsys.h",
-        -- "smap.cpp",
-        -- "smap.h",
+
         "surface.cpp",
         "surface.h",
         "texdef.cpp",
@@ -57,3 +54,14 @@ arts_component "agi"
         "agilib.h",
         "vertex.h",
     }
+
+    if ARTS_DEV_BUILD then
+        files {
+            -- "dyndlp.cpp",
+            -- "dyndlp.h",
+            "render.cpp",
+            "render.h",
+            -- "smap.cpp",
+            -- "smap.h",
+        }
+    end

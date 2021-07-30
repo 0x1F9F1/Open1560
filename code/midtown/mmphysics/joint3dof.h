@@ -77,8 +77,10 @@ public:
     // 0x4DEC60 | ??1Joint3Dof@@UAE@XZ | inline
     ARTS_IMPORT ~Joint3Dof() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4DE9A0 | ?AddWidgets@Joint3Dof@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4DD3A0 | ?BreakJoint@Joint3Dof@@QAEXXZ
     ARTS_IMPORT void BreakJoint();

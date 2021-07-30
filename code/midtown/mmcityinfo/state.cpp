@@ -184,6 +184,7 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
         {
             GameMode = mmGameMode::Edit;
         }
+#ifdef ARTS_DEV_BUILD
         else if (ARG("-archivecycle"))
         {
             CycleTest = 2;
@@ -196,6 +197,7 @@ bool mmStatePack::ParseStateArgs(i32 argc, char** argv)
         {
             DragTimer = true;
         }
+#endif
         else if (ARG("-noopponents"))
         {
             MaxOpponents = 0.0f;

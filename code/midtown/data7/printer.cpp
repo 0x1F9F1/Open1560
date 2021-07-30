@@ -31,8 +31,10 @@ define_dummy_symbol(data7_printer);
 b32 EnableDebugOutput = true;
 b32 EnableNormalOutput = true;
 
+#ifdef ARTS_DEV_BUILD
 char MessageFifo[32][256];
 i32 MessageFirst = 0;
+#endif
 
 u16* MonoPointer = nullptr;
 
@@ -152,7 +154,9 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
         arts_strcat(buffer, buffer2);
     }
 
+#ifdef ARTS_DEV_BUILD
     arts_strncpy(MessageFifo[MessageFirst++ % ARTS_SIZE(MessageFifo)], buffer, ARTS_SIZE(MessageFifo[0]) - 1);
+#endif
 
     arts_strcat(buffer, "\r\n");
 

@@ -127,6 +127,7 @@ public:
     // 0x43F9D0 | ?ContinuityError@aiPath@@QAEHH@Z | unused
     ARTS_IMPORT i32 ContinuityError(i32 arg1);
 
+#ifdef ARTS_DEV_BUILD
     // 0x43E0C0 | ?Draw@aiPath@@QAEXXZ
     ARTS_IMPORT void Draw();
 
@@ -138,6 +139,7 @@ public:
 
     // 0x43E3E0 | ?DrawVehicleIds@aiPath@@QAEXXZ | unused
     ARTS_IMPORT void DrawVehicleIds();
+#endif
 
     // 0x43E450 | ?Dump@aiPath@@QAEXXZ | unused
     ARTS_IMPORT void Dump();

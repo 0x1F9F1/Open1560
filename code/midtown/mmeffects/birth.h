@@ -48,8 +48,10 @@ public:
     // 0x453BC0 | ??1asBirthRule@@UAE@XZ | inline
     ARTS_IMPORT ~asBirthRule() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x500D30 | ?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x501620 | ?GetClass@asBirthRule@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

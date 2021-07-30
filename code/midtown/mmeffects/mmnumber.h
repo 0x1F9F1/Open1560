@@ -73,8 +73,10 @@ public:
     // 0x4FEB70 | ?Update@mmNumber@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4FECA0 | ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     VIRTUAL_META_DECLARE;
 

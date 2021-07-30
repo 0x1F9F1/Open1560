@@ -37,6 +37,7 @@ static extern_var(0x790874, f32, UpdateTime3D);
 
 static extern_var(0x790878, i32, StatsTextOffset);
 
+#ifdef ARTS_DEV_BUILD
 static void PrintPerfGraph()
 {
     PGRAPH->Cull();
@@ -86,6 +87,7 @@ static void PrintMemoryUsage()
         }
     }
 }
+#endif
 
 asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
     : max_cullables_(max_cullables)
@@ -98,6 +100,7 @@ asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
 
     SetUpdateWhilePaused(true);
 
+#ifdef ARTS_DEV_BUILD
     AddPage(MFA(asCullManager::PrintMiniStats, this));
     AddPage(MFA(asCullManager::PrintStats, this));
     AddPage(CFA(PrintPerfGraph));
@@ -109,6 +112,7 @@ asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
     PGRAPH = new asPerfGraph();
     PGRAPH->AddComponent("3D", &UpdateTime3D, ColGreen);
     PGRAPH->AddComponent("2D", &UpdateTime2D, ColBlue);
+#endif
 }
 
 asCullManager::~asCullManager()
@@ -173,12 +177,14 @@ void asCullManager::DeclareCullable2D(asCullable* cullable)
     }
 }
 
+#ifdef ARTS_DEV_BUILD
 void asCullManager::AddPage(Callback callback)
 {
     ArAssert(num_pages_ < ARTS_SIZE(page_callbacks_), "Too Many Pages");
 
     page_callbacks_[num_pages_++] = callback;
 }
+#endif
 
 void asCullManager::DeclareBitmap(asCullable* cullable, agiBitmap* bitmap)
 {

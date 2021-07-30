@@ -34,6 +34,7 @@ asLinearCS::asLinearCS()
     SetNodeFlag2(false);
 }
 
+#ifdef ARTS_DEV_BUILD
 void asLinearCS::AddWidgets(Bank* bank)
 {
     bank->SetLabel("LinearCS");
@@ -54,9 +55,11 @@ void asLinearCS::AddWidgets(Bank* bank)
 
     asNode::AddWidgets(bank);
 }
+#endif
 
 void asLinearCS::Cull()
 {
+#ifdef ARTS_DEV_BUILD
     DrawBegin(camera_);
     DrawColor(ColRed);
     DrawLine(ORIGIN, XAXIS);
@@ -68,6 +71,7 @@ void asLinearCS::Cull()
     DrawLabelf(XAXIS, const_cast<char*>("x"));
     DrawLabelf(YAXIS, const_cast<char*>("y"));
     DrawLabelf(ZAXIS, const_cast<char*>("z"));
+#endif
 }
 
 void asLinearCS::FileIO(class MiniParser* /*arg1*/)
@@ -90,10 +94,12 @@ void asLinearCS::Update()
 
     asNode::Update();
 
+#ifdef ARTS_DEV_BUILD
     if (ARTSPTR->IsDebugDrawEnabled() && (DynaDrawMode & 0x200))
     {
         CULLMGR->DeclareCullable(this);
     }
+#endif
 
     ARTSPTR->PopCamera();
 }

@@ -104,8 +104,10 @@ public:
     // 0x478860 | ??1mmShardManager@@UAE@XZ
     ARTS_EXPORT ~mmShardManager() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x478C90 | ?AddWidgets@mmShardManager@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x478A60 | ?EmitAllShards@mmShardManager@@QAEXVVector3@@M@Z
     ARTS_IMPORT void EmitAllShards(class Vector3 arg1, f32 arg2);

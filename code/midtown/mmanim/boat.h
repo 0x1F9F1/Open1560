@@ -62,8 +62,10 @@ public:
     // 0x4C7200 | ??1mmBoat@@UAE@XZ
     ARTS_IMPORT ~mmBoat() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4C7820 | ?AddWidgets@mmBoat@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4C77A0 | ?AdjustPhaseOffsets@mmBoat@@QAEXXZ
     ARTS_IMPORT void AdjustPhaseOffsets();

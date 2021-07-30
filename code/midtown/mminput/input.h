@@ -450,8 +450,10 @@ public:
     ARTS_ZEROED;
 
 private:
+#ifdef ARTS_DEV_BUILD
     // 0x4E3EB0 | ?AddWidgets@mmInput@@EAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4E2890 | ?EventToButton@mmInput@@AAEHH@Z | unused
     ARTS_IMPORT i32 EventToButton(i32 arg1);

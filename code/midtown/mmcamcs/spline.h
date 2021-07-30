@@ -53,8 +53,10 @@ public:
     // 0x4F8F40 | ??1Spline@@UAE@XZ | inline
     ARTS_IMPORT ~Spline() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4FDB80 | ?AddWidgets@Spline@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4FD5B0 | ?CalcCoeff@Spline@@QAEXXZ
     ARTS_IMPORT void CalcCoeff();

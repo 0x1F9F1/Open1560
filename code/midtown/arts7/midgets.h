@@ -272,4 +272,4 @@ private:
 // check_size(asMidgets, 0x87C);
 
 // 0x790928 | ?MIDGETSPTR@@3PAVasMidgets@@A
-ARTS_IMPORT extern class asMidgets* MIDGETSPTR;
+ARTS_EXPORT extern class asMidgets* MIDGETSPTR;

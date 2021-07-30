@@ -68,8 +68,10 @@ public:
     // 0x503A50 | ??1agiTexSorter@@QAE@XZ
     ARTS_EXPORT ~agiTexSorter();
 
+#ifdef ARTS_DEV_BUILD
     // 0x504620 | ?AddWidgets@agiTexSorter@@QAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* bank);
+#endif
 
     // 0x504090 | ?Cull@agiTexSorter@@QAEXH@Z
     ARTS_EXPORT void Cull(b32 alpha);

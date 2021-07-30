@@ -119,8 +119,10 @@ public:
     // 0x46C340 | ?AddPlayerSpecifics@mmCarSim@@QAEXXZ
     ARTS_IMPORT void AddPlayerSpecifics();
 
+#ifdef ARTS_DEV_BUILD
     // 0x46E840 | ?AddWidgets@mmCarSim@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x46D540 | ?AfterLoad@mmCarSim@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;

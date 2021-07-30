@@ -54,8 +54,10 @@ public:
     // 0x433780 | ??1mmWaypointInstance@@UAE@XZ
     ARTS_IMPORT ~mmWaypointInstance() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x433B90 | ?AddWidgets@mmWaypointInstance@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4337A0 | ?ComputeLod@mmWaypointInstance@@UAEHMM@Z
     ARTS_IMPORT i32 ComputeLod(f32 arg1, f32 arg2) override;

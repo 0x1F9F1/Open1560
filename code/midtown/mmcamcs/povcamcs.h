@@ -52,8 +52,10 @@ public:
     // 0x4F63B0 | ??1PovCamCS@@UAE@XZ
     ARTS_IMPORT ~PovCamCS() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4F6460 | ?AddWidgets@PovCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4F6410 | ?AfterLoad@PovCamCS@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;

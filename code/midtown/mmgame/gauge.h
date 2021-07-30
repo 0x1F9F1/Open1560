@@ -57,8 +57,10 @@ public:
     // 0x422F10 | ??1RadialGauge@@UAE@XZ | inline
     ARTS_IMPORT ~RadialGauge() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x423910 | ?AddWidgets@RadialGauge@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x423A40 | ?Cull@RadialGauge@@UAEXXZ
     ARTS_IMPORT void Cull() override;

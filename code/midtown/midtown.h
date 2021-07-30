@@ -94,14 +94,18 @@ ARTS_IMPORT extern char CityName[40];
 // 0x672084 | ?CycleState@@3HA
 ARTS_IMPORT extern i32 CycleState;
 
+#ifdef ARTS_DEV_BUILD
 // 0x672078 | ?CycleTest@@3HA
 ARTS_IMPORT extern i32 CycleTest;
+#endif
 
 // 0x634680 | ?CycleTime@@3MA
 ARTS_IMPORT extern f32 CycleTime;
 
+#ifdef ARTS_DEV_BUILD
 // 0x672080 | ?DragTimer@@3HA
 ARTS_IMPORT extern i32 DragTimer;
+#endif
 
 // 0x634688 | ?GlobalDamageScale@@3MA
 ARTS_IMPORT extern f32 GlobalDamageScale;
@@ -118,8 +122,10 @@ ARTS_IMPORT extern char LoadScreen[40];
 // 0x671E38 | ?LoadTimer@@3VTimer@@A
 ARTS_IMPORT extern class Timer LoadTimer;
 
+#ifdef ARTS_DEV_BUILD
 // 0x67207C | ?SampleStats@@3HA
 ARTS_IMPORT extern i32 SampleStats;
+#endif
 
 // 0x672044 | ?SystemStatsRecord@@3PAVmmGameRecord@@A
 ARTS_IMPORT extern class mmGameRecord* SystemStatsRecord;

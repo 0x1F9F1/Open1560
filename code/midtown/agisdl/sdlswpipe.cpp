@@ -411,8 +411,10 @@ void agiSDLSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_
     if (src_y + height > src->GetHeight())
         return;
 
+#ifdef ARTS_DEV_BUILD
     ++agiBitmapCount;
     agiBitmapPixels += width * height;
+#endif
 
     // FIXME: This overlaps with the rasterizer timer
     ARTS_UTIMED(agiCopyBitmap);

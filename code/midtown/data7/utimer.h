@@ -33,6 +33,7 @@ ARTS_EXPORT ulong utimer();
 // 0x90B4B4 | ?ut2float@@3MA
 ARTS_EXPORT extern f32 ut2float;
 
+#ifdef ARTS_DEV_BUILD
 struct scoped_utimer
 {
     scoped_utimer(ulong* total)
@@ -49,8 +50,11 @@ struct scoped_utimer
     ulong* const total_ {nullptr};
 };
 
-#define ARTS_UTIMED(VAR)                        \
-    scoped_utimer ARTS_CONCAT(timer_, __LINE__) \
-    {                                           \
-        &VAR                                    \
-    }
+#    define ARTS_UTIMED(VAR)                        \
+        scoped_utimer ARTS_CONCAT(timer_, __LINE__) \
+        {                                           \
+            &VAR                                    \
+        }
+#else
+#    define ARTS_UTIMED(VAR)
+#endif

@@ -83,8 +83,10 @@ public:
     // 0x528BB0 | ??1asCamera@@UAE@XZ
     ARTS_IMPORT ~asCamera() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x52A040 | ?AddWidgets@asCamera@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x5297D0 | ?DrawBegin@asCamera@@QAEXXZ
     ARTS_EXPORT void DrawBegin();
@@ -238,6 +240,7 @@ private:
 
 check_size(asCamera, 0x18C);
 
+#ifdef ARTS_DEV_BUILD
 // 0x529FF0 | ?FadeItIn@@YAXPAVasCamera@@@Z
 ARTS_IMPORT void FadeItIn(class asCamera* arg1);
 
@@ -252,6 +255,7 @@ ARTS_IMPORT void ViewIt(class asCamera* arg1);
 
 // 0x64DF5C | ?Duration@@3MA
 ARTS_IMPORT extern f32 Duration;
+#endif
 
 // 0x790980 | ?VW@@3PAVagiViewport@@A
 ARTS_IMPORT extern class agiViewport* VW;

@@ -87,8 +87,10 @@ public:
     // 0x4043B0 | ??1mmGameManager@@UAE@XZ
     ARTS_IMPORT ~mmGameManager() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4049B0 | ?AddWidgets@mmGameManager@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4044C0 | ?BeDone@mmGameManager@@QAEXXZ
     ARTS_IMPORT void BeDone();

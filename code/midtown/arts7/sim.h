@@ -94,8 +94,10 @@ public:
     // 0x521C40 | ?Init@asSimulation@@QAEXPADHPAPAD@Z
     ARTS_EXPORT void Init(char* proj_path, i32 argc, char** argv);
 
+#ifdef ARTS_DEV_BUILD
     // 0x522FD0 | ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x522CF0 | ?BeginOverSample@asSimulation@@QAEXH@Z
     ARTS_IMPORT void BeginOverSample(i32 arg1);
@@ -103,11 +105,13 @@ public:
     // 0x522E40 | ?Benchmark@asSimulation@@QAEXXZ
     ARTS_IMPORT void Benchmark();
 
+#ifdef ARTS_DEV_BUILD
     // 0x522C20 | ?Cull@asSimulation@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
     // 0x522B80 | ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
     ARTS_IMPORT void DeclareVector(class Vector3 const* arg1, class Vector3 const* arg2, class Vector3 const* arg3);
+#endif
 
     // 0x522600 | ?Device@asSimulation@@QAEXXZ
     ARTS_IMPORT void Device();
@@ -127,8 +131,10 @@ public:
     // 0x522E30 | ?FrameLock@asSimulation@@QAEXHH@Z | unused
     ARTS_IMPORT void FrameLock(i32 arg1, i32 arg2);
 
+#ifdef ARTS_DEV_BUILD
     // 0x522FA0 | ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
     ARTS_IMPORT void OpenPhysicsBank();
+#endif
 
     // 0x522EC0 | ?Pause@asSimulation@@QAEXXZ
     ARTS_IMPORT void Pause();
@@ -191,10 +197,12 @@ public:
         no_debug_ = !debug;
     }
 
+#ifdef ARTS_DEV_BUILD
     bool IsDebugDrawEnabled() const
     {
         return physics_bank_open_;
     }
+#endif
 
     i32 GetDrawMode() const
     {
@@ -245,16 +253,28 @@ private:
     f32 bench_elapsed_;
     asBenchStats curr_stats_;
     asBenchStats prev_stats_;
+
+#ifdef ARTS_DEV_BUILD
     i32 vector_count_;
     Ptr<Vector3[]> vector_starts_;
     Ptr<Vector3[]> vector_ends_;
     Ptr<Vector3[]> vector_colors_;
+#endif
+
     eqEventQ keys_queue_;
     eqEventQ widgets_queue_;
+
+#ifdef ARTS_DEV_BUILD
     i32 field_294;
     i32 field_298;
+#endif
+
     i32 draw_mode_;
+
+#ifdef ARTS_DEV_BUILD
     b32 physics_bank_open_;
+#endif
+
     b32 no_debug_;
     b32 show_ui_;
     b32 frame_step_;
@@ -269,8 +289,10 @@ private:
 
 // check_size(asSimulation, 0x2B0);
 
+#ifdef ARTS_DEV_BUILD
 // 0x522FC0 | ?InitBank@@YAXHPAPAD@Z | unused
 ARTS_EXPORT void InitBank(i32 argc, char** argv);
+#endif
 
 // 0x523210 | ?InitPipeline@@YAHPADHPAPAD@Z
 ARTS_EXPORT i32 InitPipeline(char* title, i32 argc, char** argv);
@@ -281,8 +303,10 @@ ARTS_IMPORT i32 RestartPipeline(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5
 // 0x5232D0 | ?ShutdownPipeline@@YAXXZ
 ARTS_EXPORT void ShutdownPipeline();
 
+#ifdef ARTS_DEV_BUILD
 // 0x5225F0 | ?invert@@YANN@Z | unused
 ARTS_IMPORT f64 invert(f64 arg1);
+#endif
 
 // 0x79077C | ?ARTSPTR@@3PAVasSimulation@@A
 ARTS_IMPORT extern class asSimulation* ARTSPTR;

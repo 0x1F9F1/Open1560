@@ -48,8 +48,10 @@ public:
     // 0x42D2E0 | ??1PreCamCS@@UAE@XZ | inline
     ARTS_IMPORT ~PreCamCS() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4F9B20 | ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4F9D80 | ?GetClass@PreCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

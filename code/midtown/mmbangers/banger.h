@@ -69,8 +69,10 @@ public:
     // 0x444740 | ??1mmBangerInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmBangerInstance() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x444710 | ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z | inline
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4CA490 | ?AttachEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
     ARTS_IMPORT class mmPhysEntity* AttachEntity() override;

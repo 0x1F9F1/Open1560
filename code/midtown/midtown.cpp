@@ -376,11 +376,13 @@ static void MainPhase(i32 argc, char** argv)
 
                 CycleState = 2;
 
+#ifdef ARTS_DEV_BUILD
                 if (SampleStats)
                 {
                     SystemStatsRecord = new mmGameRecord(0.1f);
                     SystemStatsRecord->Init(1000);
                 }
+#endif
 
                 if (replay_name)
                     game_manager->LoadReplay(replay_name);
@@ -407,6 +409,7 @@ static void MainPhase(i32 argc, char** argv)
 
     GameLoop(mm_interface, game_manager, replay_name);
 
+#ifdef ARTS_DEV_BUILD
     if (game_manager)
     {
         if (SampleStats)
@@ -421,6 +424,7 @@ static void MainPhase(i32 argc, char** argv)
         if (!replay_name)
             game_manager->SaveReplay(const_cast<char*>("last.rpl"));
     }
+#endif
 
     PAGER.Shutdown();
     AUDMGRPTR->Disable(-1, -1);
@@ -616,6 +620,7 @@ void ApplicationHelper(i32 argc, char** argv)
 
     PHYS.SetGravity(-19.8f);
 
+#ifdef ARTS_DEV_BUILD
     if (CycleTest == 0 && GBArgs['c'])
     {
         if (asArg* time = GBArgs['c'])
@@ -624,6 +629,7 @@ void ApplicationHelper(i32 argc, char** argv)
             CycleTime = std::clamp<f32>(time->fValues[0], 5.0f, 600.0f);
         }
     }
+#endif
 
     if (asArg* city = GBArgs['l'])
     {

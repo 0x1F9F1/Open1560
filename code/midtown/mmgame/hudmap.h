@@ -97,8 +97,10 @@ public:
     // 0x428810 | ?Activate@mmHudMap@@QAEXXZ
     ARTS_IMPORT void Activate();
 
+#ifdef ARTS_DEV_BUILD
     // 0x429C60 | ?AddWidgets@mmHudMap@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x428E50 | ?Cull@mmHudMap@@UAEXXZ
     ARTS_IMPORT void Cull() override;

@@ -117,11 +117,19 @@ void asCamera::DrawBegin()
 
     i32 clear_flags = clear_flags_;
 
-    if (draw_mode < agiDrawSolid || ARTSPTR->IsDebugDrawEnabled())
+    if (draw_mode < agiDrawSolid
+#ifdef ARTS_DEV_BUILD
+        || ARTSPTR->IsDebugDrawEnabled()
+#endif
+    )
+    {
         clear_flags |= AGI_VIEW_CLEAR_TARGET;
+    }
 
     if (underlay_bitmap_ && !underlay_callback_ && agiCurState.GetDrawMode() != agiDrawDepth)
+    {
         clear_flags &= ~AGI_VIEW_CLEAR_TARGET;
+    }
 
     viewport_->Clear(clear_flags);
 

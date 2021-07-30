@@ -49,8 +49,10 @@ public:
     // 0x4FC420 | ??1AppCamCS@@UAE@XZ
     ARTS_IMPORT ~AppCamCS() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4FCDB0 | ?AddWidgets@AppCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4FD380 | ?GetClass@AppCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

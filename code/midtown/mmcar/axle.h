@@ -46,8 +46,10 @@ public:
     // 0x470370 | ??1mmAxle@@UAE@XZ | inline
     ARTS_IMPORT ~mmAxle() override = default;
 
+#ifdef ARTS_DEV_BUILD
     // 0x47D590 | ?AddWidgets@mmAxle@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x47D720 | ?GetClass@mmAxle@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;

@@ -134,8 +134,10 @@ public:
     // 0x43B500 | ?AddPedestrian@aiMap@@QAEXPAVaiPedestrian@@@Z
     ARTS_IMPORT void AddPedestrian(class aiPedestrian* arg1);
 
+#ifdef ARTS_DEV_BUILD
     // 0x43BBE0 | ?AddWidgets@aiMap@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x436CF0 | ?AllwaysGreen@aiMap@@QAEXXZ | unused
     ARTS_IMPORT void AllwaysGreen();
@@ -255,8 +257,10 @@ public:
     // 0x435FB0 | ?Reset@aiMap@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x435770 | ?Stats@aiMap@@QAEXXZ
     ARTS_IMPORT void Stats();
+#endif
 
     // 0x4362F0 | ?Update@aiMap@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -284,11 +288,13 @@ private:
     // 0x43B160 | ?AdjustPedestrians@aiMap@@AAEXHH@Z
     ARTS_IMPORT void AdjustPedestrians(i32 arg1, i32 arg2);
 
+#ifdef ARTS_DEV_BUILD
     // 0x439800 | ?CreateAmbAppRoadMap@aiMap@@AAEXXZ
     ARTS_IMPORT void CreateAmbAppRoadMap();
 
     // 0x439D80 | ?CreatePedAppRoadMap@aiMap@@AAEXXZ
     ARTS_IMPORT void CreatePedAppRoadMap();
+#endif
 
     // 0x43A400 | ?FindRoad@aiMap@@AAEHPAVCArrayList@@H@Z
     ARTS_IMPORT i32 FindRoad(class CArrayList* arg1, i32 arg2);

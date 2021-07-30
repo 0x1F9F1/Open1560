@@ -121,8 +121,10 @@ public:
     // 0x4D43A0 | ??1mmPhysicsMGR@@UAE@XZ
     ARTS_IMPORT ~mmPhysicsMGR() override;
 
+#ifdef ARTS_DEV_BUILD
     // 0x4D8E00 | ?AddWidgets@mmPhysicsMGR@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
 
     // 0x4D6460 | ?Collide@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z
     ARTS_IMPORT i32 Collide(class mmIntersection* arg1, i32 arg2, i16 arg3, i16 arg4);
@@ -199,8 +201,10 @@ protected:
     // 0x4D4A30 | ?GatherRoomCollidables@mmPhysicsMGR@@IAEXHFH@Z
     ARTS_IMPORT void GatherRoomCollidables(i32 arg1, i16 arg2, i32 arg3);
 
+#ifdef ARTS_DEV_BUILD
     // 0x4D5520 | ?Stats@mmPhysicsMGR@@IAEXXZ
     ARTS_IMPORT void Stats();
+#endif
 
     // 0x4D5730 | ?TrivialCollideInstances@mmPhysicsMGR@@IAEHPAVmmInstance@@0@Z
     ARTS_IMPORT i32 TrivialCollideInstances(class mmInstance* arg1, class mmInstance* arg2);
@@ -265,11 +269,13 @@ ARTS_IMPORT extern class mmEdgeBodyIsect EBISECTS[32];
 // 0x716F90 | ?ISECTS@@3PAVmmIntersection@@A
 ARTS_IMPORT extern class mmIntersection ISECTS[32];
 
+#ifdef ARTS_DEV_BUILD
 // 0x7188BC | ?ImpactCallbackTime@@3KA
 ARTS_IMPORT extern ulong ImpactCallbackTime;
 
 // 0x716F80 | ?ImpactTime@@3KA
 ARTS_IMPORT extern ulong ImpactTime;
+#endif
 
 // 0x718698 | ?PHYS@@3VmmPhysicsMGR@@A
 ARTS_IMPORT extern class mmPhysicsMGR PHYS;
@@ -280,6 +286,7 @@ ARTS_IMPORT extern f32 PhysUpdate;
 // 0x70A548 | ?mmPhysicsMGRMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmPhysicsMGRMetaClass;
 
+#ifdef ARTS_DEV_BUILD
 // 0x7188C0 | ?physCollisions@@3KA
 ARTS_IMPORT extern ulong physCollisions;
 
@@ -288,3 +295,4 @@ ARTS_IMPORT extern ulong physTerrainCollisions;
 
 // 0x7190D0 | ?physUpdate@@3KA
 ARTS_IMPORT extern ulong physUpdate;
+#endif

@@ -58,8 +58,10 @@ private:
     // 0x51CDB0 | ?CornersHeight@mmPolygon@@AAEMMMMM@Z
     ARTS_IMPORT f32 CornersHeight(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
+#ifdef ARTS_DEV_BUILD
     // 0x51C2A0 | ?Draw@mmPolygon@@AAEXXZ
     ARTS_IMPORT void Draw();
+#endif
 
     // 0x51AEB0 | ?FullSegment@mmPolygon@@AAEHPAVmmEdgeBodyIsect@@@Z
     ARTS_IMPORT i32 FullSegment(class mmEdgeBodyIsect* arg1);
