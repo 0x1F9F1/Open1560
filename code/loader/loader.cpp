@@ -232,7 +232,6 @@ include_dummy_symbol(agi_cmodel8);
 include_dummy_symbol(agi_cmodelx);
 // include_dummy_symbol(agi_dlp);
 include_dummy_symbol(agi_dlptmpl);
-// include_dummy_symbol(agi_dyndlp);
 include_dummy_symbol(agi_error);
 include_dummy_symbol(agi_getdlp);
 include_dummy_symbol(agi_light);
@@ -245,9 +244,7 @@ include_dummy_symbol(agi_physlib);
 include_dummy_symbol(agi_pipeline);
 include_dummy_symbol(agi_print);
 include_dummy_symbol(agi_refresh);
-include_dummy_symbol(agi_render);
 include_dummy_symbol(agi_rsys);
-// include_dummy_symbol(agi_smap);
 include_dummy_symbol(agi_surface);
 include_dummy_symbol(agi_texdef);
 include_dummy_symbol(agi_texlib);
@@ -264,14 +261,6 @@ include_dummy_symbol(agid3d_ddbitmap);
 // include_dummy_symbol(agid3d_dderror);
 include_dummy_symbol(agid3d_ddpipe);
 include_dummy_symbol(agid3d_pcpipe);
-
-// include_dummy_symbol(agirend_bilight);
-// include_dummy_symbol(agirend_bilmodel);
-// include_dummy_symbol(agirend_lighter);
-// include_dummy_symbol(agirend_projvtx);
-// include_dummy_symbol(agirend_rdlp);
-include_dummy_symbol(agirend_surfrender);
-// include_dummy_symbol(agirend_zbrender);
 
 include_dummy_symbol(agisw_swddraw);
 // include_dummy_symbol(agisw_swemitrunall);
@@ -309,9 +298,7 @@ include_dummy_symbol(arts7_cullmgr);
 // include_dummy_symbol(arts7_form);
 // include_dummy_symbol(arts7_lamp);
 include_dummy_symbol(arts7_linear);
-include_dummy_symbol(arts7_midgets);
 include_dummy_symbol(arts7_node);
-include_dummy_symbol(arts7_pgraph);
 include_dummy_symbol(arts7_sim);
 // include_dummy_symbol(arts7_view);
 
@@ -431,8 +418,6 @@ include_dummy_symbol(mmaudio_mixer);
 // include_dummy_symbol(mmcamcs_transitioncs);
 // include_dummy_symbol(mmcamcs_viewcs);
 
-// include_dummy_symbol(mmcamtour_gamerecord);
-
 // include_dummy_symbol(mmcar_axle);
 // include_dummy_symbol(mmcar_car);
 // include_dummy_symbol(mmcar_carmodel);
@@ -483,7 +468,6 @@ include_dummy_symbol(mmcityinfo_cityinfo);
 include_dummy_symbol(mmcityinfo_citylist);
 // include_dummy_symbol(mmcityinfo_crc);
 // include_dummy_symbol(mmcityinfo_infobase);
-// include_dummy_symbol(mmcityinfo_mapdata);
 // include_dummy_symbol(mmcityinfo_miscdata);
 // include_dummy_symbol(mmcityinfo_playercfg);
 // include_dummy_symbol(mmcityinfo_playerdata);
@@ -693,3 +677,24 @@ include_dummy_symbol(vector7_matrix34);
 include_dummy_symbol(vector7_vector2);
 include_dummy_symbol(vector7_vector3);
 include_dummy_symbol(vector7_vector4);
+
+#ifdef ARTS_DEV_BUILD
+// include_dummy_symbol(agi_dyndlp);
+include_dummy_symbol(agi_render);
+// include_dummy_symbol(agi_smap);
+
+// include_dummy_symbol(agirend_bilight);
+// include_dummy_symbol(agirend_bilmodel);
+// include_dummy_symbol(agirend_lighter);
+// include_dummy_symbol(agirend_projvtx);
+// include_dummy_symbol(agirend_rdlp);
+include_dummy_symbol(agirend_surfrender);
+// include_dummy_symbol(agirend_zbrender);
+
+include_dummy_symbol(arts7_midgets);
+include_dummy_symbol(arts7_pgraph);
+
+// include_dummy_symbol(mmcamtour_gamerecord);
+
+// include_dummy_symbol(mmcityinfo_mapdata);
+#endif
