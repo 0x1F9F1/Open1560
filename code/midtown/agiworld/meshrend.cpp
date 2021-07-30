@@ -94,11 +94,11 @@ check_size(CT, 0x18);
 
 static u32 ClippedVertCount = 0;
 static u32 ClippedTriCount = 0;
-static extern_var(0x72D390, CV[2048], ClippedVerts);
-static extern_var(0x71DE98, CT[512], ClippedTris);
-static extern_var(0x719848, CT* [256], ClippedTextures);
+ARTS_IMPORT extern CV ClippedVerts[2048];
+ARTS_IMPORT extern CT ClippedTris[512];
+ARTS_IMPORT extern CT* ClippedTextures[256];
 static bool OnlyZClip = false;
-static extern_var(0x7210E8, Matrix44, ShadowMatrix);
+ARTS_IMPORT extern Matrix44 ShadowMatrix;
 
 u32 ClipMask = AGI_MESH_CLIP_ANY;
 
@@ -677,7 +677,7 @@ static void (agiMeshSet::*const FirstPassFunctions[2][2][2][2])(u32* colors, Vec
     },
 };
 
-static extern_var(0x725134, i32, DynTexFlag); // mmCarModel::Draw, mmVehicleForm::Cull
+ARTS_IMPORT extern i32 DynTexFlag; // mmCarModel::Draw, mmVehicleForm::Cull
 
 void agiMeshSet::FirstPass(u32* colors, Vector2* tex_coords, u32 color)
 {
@@ -699,7 +699,7 @@ void agiMeshSet::FirstPass(u32* colors, Vector2* tex_coords, u32 color)
         colors, tex_coords, color);
 }
 
-static extern_var(0x719840, i32, CurrentMeshSetVariant);
+ARTS_IMPORT extern i32 CurrentMeshSetVariant;
 
 template <typename T>
 static inline void fill_bytes(T* dst, usize len, u8 value)

@@ -43,7 +43,7 @@ define_dummy_symbol(arts7_sim);
 #include <crtdbg.h>
 #include <cstdlib>
 
-static extern_var(0x7907F8, b32, PipelineInitialized);
+ARTS_IMPORT extern b32 PipelineInitialized;
 
 void InitBank(i32 /*argc*/, char** /*argv*/)
 {}
@@ -77,7 +77,8 @@ i32 InitPipeline(char* title, i32 argc, char** argv)
     return error;
 }
 
-static extern_var(0x790780, agiLight*, g_Light);
+ARTS_IMPORT extern agiLightParameters SunParams;
+ARTS_IMPORT extern agiLight* SunLight;
 
 void ShutdownPipeline()
 {
@@ -89,8 +90,8 @@ void ShutdownPipeline()
 
     PipelineInitialized = false;
 
-    if (g_Light)
-        g_Light->Release();
+    if (SunLight)
+        SunLight->Release();
 
     agiPrintShutdown();
 
@@ -110,9 +111,6 @@ ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
 
 // 0x521C20 | ?QuietPrinter@@YAXHPBDPAD@Z
 ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, char const* arg2, char* arg3);
-
-static extern_var(0x790788, agiLightParameters, SunParams);
-static extern_var(0x790780, agiLight*, SunLight);
 
 asSimulation::~asSimulation()
 {
@@ -416,10 +414,10 @@ void asSimulation::Update()
 #ifdef ARTS_DEV_BUILD
     if (physics_bank_open_)
     {
-        if (g_Light)
+        if (SunLight)
         {
-            g_Light->Init(SunParams);
-            g_Light->Update();
+            SunLight->Init(SunParams);
+            SunLight->Update();
         }
 
         CULLMGR->DeclareCullable(this);

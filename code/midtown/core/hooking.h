@@ -22,9 +22,6 @@
 #include <mem/macros.h>
 #include <mem/stub.h>
 
-using namespace mem::conventions;
-using mem::stub;
-
 #define Ty(...) __VA_ARGS__
 
 enum class hook_type
@@ -133,31 +130,11 @@ inline void* alloc_proxy(std::size_t /*size*/)
 #    define define_dummy_symbol mem_define_dummy_symbol
 #    define include_dummy_symbol mem_include_dummy_symbol
 #    define run_once(...)
-
-template <typename T>
-using extern_var_t = T;
-
-#    define extern_var(ADDRESS, TYPE, NAME) \
-        extern_var_t<TYPE> NAME             \
-        {}
 #else
 #    define check_size mem_check_size
 #    define define_dummy_symbol mem_define_dummy_symbol
 #    define include_dummy_symbol mem_include_dummy_symbol
 #    define run_once mem_run_once
-
-// Custom extern_var to force MSVC to mark the references as constant
-#    if defined(_MSC_VER) && !defined(__INTELLISENSE__) && !defined(__clang__)
-#        pragma const_seg(".rdata")
-#        undef extern_var
-#        define extern_var(ADDRESS, TYPE, NAME)                                                  \
-            __declspec(allocate(".rdata")) typename std::add_lvalue_reference<TYPE>::type NAME = \
-                *reinterpret_cast<typename std::add_pointer<TYPE>::type>(usize(ADDRESS));
-// #    define export_hook(ADDRESS) __pragma(comment(linker, "/EXPORT:" __FUNCDNAME__ ":Hook_" #    ADDRESS "=" __FUNCDNAME__))
-#    else
-// #    define export_hook(ADDRESS)
-#        define extern_var mem_extern_var
-#    endif
 #endif
 
 extern mem::init_function* INIT_early;

@@ -18,6 +18,46 @@
 
 #include "symbols.h"
 
+#define import_symbol(ADDRESS, NAME)                                              \
+    __pragma(comment(linker, "/ALTERNATENAME:__imp_" NAME "=_Symbol_" #ADDRESS)); \
+    extern "C" const usize Symbol_##ADDRESS = ADDRESS;
+
+import_symbol(0x5248E0, "?PrintRenderPerf@@YAXXZ");
+import_symbol(0x6A6F1C, "?JoinViaZone@@3HA");
+import_symbol(0x7057E8, "?LightQualityOption@@3MA");
+import_symbol(0x705804, "?MaxTextureQuality@@3HA");
+import_symbol(0x719740, "?LastPolySet@@3PAVagiPolySet@@A");
+import_symbol(0x719748, "?ColoredPolySet@@3PAVagiPolySet@@A");
+import_symbol(0x719808, "?BigPolySet@@3VagiPolySet@@A");
+import_symbol(0x719840, "?CurrentMeshSetVariant@@3HA");
+import_symbol(0x719848, "?ClippedTextures@@3PAPAUCT@@A");
+import_symbol(0x71DE98, "?ClippedTris@@3PAUCT@@A");
+import_symbol(0x7210E8, "?ShadowMatrix@@3VMatrix44@@A");
+import_symbol(0x725134, "?DynTexFlag@@3HA");
+import_symbol(0x72D390, "?ClippedVerts@@3PAUCV@@A");
+import_symbol(0x7805D0, "?DebugLogReading@@3HA");
+import_symbol(0x7805D8, "?DebugLogStream@@3PAVStream@@A");
+import_symbol(0x790780, "?SunLight@@3PAVagiLight@@A");
+import_symbol(0x790788, "?SunParams@@3VagiLightParameters@@A");
+import_symbol(0x7907F8, "?PipelineInitialized@@3HA");
+import_symbol(0x790868, "?CurrentFrameTime@@3MA");
+import_symbol(0x790870, "?UpdateTime2D@@3MA");
+import_symbol(0x790874, "?UpdateTime3D@@3MA");
+import_symbol(0x790878, "?StatsTextOffset@@3HA");
+import_symbol(0x7957D8, "?TextureFormats@@3PAU_DDPIXELFORMAT@@A");
+import_symbol(0x795BDC, "?WantedDeviceName@@3PBDB");
+import_symbol(0x795BE0, "?TextureFormatCount@@3HA");
+import_symbol(0x795C08, "?TotalTextureMem@@3HA");
+import_symbol(0x795C1C, "?SurfaceDumpStream@@3PAVStream@@A");
+import_symbol(0x795D34, "?bEnableVerticalSync@@3HA");
+import_symbol(0x7960A8, "?swFindColor@@3P6AII@ZA");
+import_symbol(0x7A0018, "?swVtxBase@@3PAUagiScreenVtx@@A");
+import_symbol(0x9092B4, "?InputWndWidth@@3JA");
+import_symbol(0x9092BC, "?InputWndHeight@@3JA");
+import_symbol(0x909424, "?MouseDevice@@3PAUIDirectInputDeviceA@@A");
+import_symbol(0x909428, "?KeyboardDevice@@3PAUIDirectInputDeviceA@@A");
+import_symbol(0x90942C, "?MouseEvent@@3PAXA");
+
 const char* const NewSymbols[] {
     "DirectInputCreateA=",
     "NvOptimusEnablement=",

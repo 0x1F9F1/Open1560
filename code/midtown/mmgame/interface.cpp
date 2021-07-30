@@ -41,7 +41,7 @@ void ReportTimeAlloc(f32 time)
         "*********Load time %f = %f seconds, %dK Allocated", time, LoadTimer.Time(), ALLOCATOR.GetHeapUsed() >> 10);
 }
 
-static extern_var(0x6A6F1C, b32, JoinViaZone);
+ARTS_IMPORT extern b32 JoinViaZone;
 
 void mmInterface::InitLobby()
 {

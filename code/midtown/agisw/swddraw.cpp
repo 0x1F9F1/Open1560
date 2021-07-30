@@ -92,7 +92,7 @@ ARTS_EXPORT /*static*/ void ddStartScene()
 
 static i32 swBitDepth = 0; // Unused
 
-static extern_var(0x795D34, i32, bEnableVerticalSync);
+ARTS_IMPORT extern i32 bEnableVerticalSync;
 
 void ddAttach(i32 flags, i32 bit_depth)
 {

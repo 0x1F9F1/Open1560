@@ -413,8 +413,8 @@ i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
     return EXCEPTION_EXECUTE_HANDLER;
 }
 
-static extern_var(0x7805D8, Stream*, DebugLogStream);
-static extern_var(0x7805D0, b32, DebugLogReading);
+ARTS_IMPORT extern Stream* DebugLogStream;
+ARTS_IMPORT extern b32 DebugLogReading;
 
 void DebugLogInit(b32 reading)
 {

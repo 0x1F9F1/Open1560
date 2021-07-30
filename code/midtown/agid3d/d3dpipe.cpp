@@ -76,7 +76,7 @@ void agiD3DPipeline::BeginFrame()
     agiPipeline::BeginFrame();
 }
 
-static extern_var(0x795BDC, const char*, WantedDeviceName);
+ARTS_IMPORT extern const char* WantedDeviceName;
 
 static DDPIXELFORMAT ZBufferFormat;
 
@@ -92,8 +92,8 @@ static long ARTS_STDCALL EnumZ(struct _DDPIXELFORMAT* format, void* context)
     return 1;
 }
 
-static extern_var(0x7957D8, DDPIXELFORMAT[32], TextureFormats);
-static extern_var(0x795BE0, i32, TextureFormatCount);
+ARTS_IMPORT extern DDPIXELFORMAT TextureFormats[32];
+ARTS_IMPORT extern i32 TextureFormatCount;
 
 static mem::cmd_param PARAM_afilter {"afilter"};
 
@@ -557,8 +557,8 @@ void agiD3DPipeline::Defragment()
     d3d_->EvictManagedTextures();
 }
 
-static extern_var(0x795C1C, Stream*, SurfaceDumpStream);
-static extern_var(0x795C08, i32, TotalTextureMem);
+ARTS_IMPORT extern Stream* SurfaceDumpStream;
+ARTS_IMPORT extern i32 TotalTextureMem;
 
 void agiD3DPipeline::DumpStatus(agiMemStatus& status)
 {

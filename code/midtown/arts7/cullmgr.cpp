@@ -30,12 +30,12 @@ define_dummy_symbol(arts7_cullmgr);
 #include "pgraph.h"
 #include "sim.h"
 
-static extern_var(0x790868, f32, CurrentFrameTime);
+ARTS_IMPORT extern f32 CurrentFrameTime;
 
-static extern_var(0x790870, f32, UpdateTime2D);
-static extern_var(0x790874, f32, UpdateTime3D);
+ARTS_IMPORT extern f32 UpdateTime2D;
+ARTS_IMPORT extern f32 UpdateTime3D;
 
-static extern_var(0x790878, i32, StatsTextOffset);
+ARTS_IMPORT extern i32 StatsTextOffset;
 
 #ifdef ARTS_DEV_BUILD
 static void PrintPerfGraph()
@@ -43,10 +43,7 @@ static void PrintPerfGraph()
     PGRAPH->Cull();
 }
 
-static void PrintRenderPerf()
-{
-    return stub<cdecl_t<void>>(0x5248E0);
-}
+ARTS_IMPORT void PrintRenderPerf();
 
 static void PrintMessages()
 {

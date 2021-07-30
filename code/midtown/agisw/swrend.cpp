@@ -25,7 +25,7 @@ define_dummy_symbol(agisw_swrend);
 #include "data7/utimer.h"
 #include "eventq7/winevent.h"
 
-static extern_var(0x7960A8, u32 (*)(u32), swFindColor);
+ARTS_IMPORT extern u32 (*swFindColor)(u32);
 
 void ARTS_FASTCALL __setupNone(struct swSurface* /*arg1*/)
 {}

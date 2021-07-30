@@ -25,10 +25,10 @@ define_dummy_symbol(eventq7_geinputLib);
 
 #include <dinput.h>
 
-static extern_var(0x909424, IDirectInputDeviceA*, MouseDevice);
-static extern_var(0x909428, IDirectInputDeviceA*, KeyboardDevice);
+ARTS_IMPORT extern IDirectInputDeviceA* MouseDevice;
+ARTS_IMPORT extern IDirectInputDeviceA* KeyboardDevice;
 
-static extern_var(0x90942C, HANDLE, MouseEvent);
+ARTS_IMPORT extern HANDLE MouseEvent;
 
 void geinputAcquireMouse()
 {
@@ -125,8 +125,8 @@ static ilong MouseRawStartX = 0;
 static ilong MouseRawStartY = 0;
 
 // FIXME: These are 640 x 480 even ingame
-static extern_var(0x9092B4, ilong, InputWndWidth);
-static extern_var(0x9092BC, ilong, InputWndHeight);
+ARTS_IMPORT extern ilong InputWndWidth;
+ARTS_IMPORT extern ilong InputWndHeight;
 
 void geinputGetMouse(ilong* mouse_x, ilong* mouse_y, i8* l_button, i8* r_button, ilong* mouse_raw_x, ilong* mouse_raw_y,
     ilong* mouse_raw_z, i8* m_button)
