@@ -30,7 +30,10 @@ struct PagerInfo_t
     usize Handle {0};
     u32 Offset {0};
     u32 Size {0};
+
+#ifdef ARTS_DEV_BUILD
     char* Name {nullptr};
+#endif
 
     ~PagerInfo_t();
 
