@@ -3,6 +3,7 @@ newoption {
    description = "Compile OpenGL Renderer",
 }
 
+ARTS_TARGET_BUILD = 1560
 ARTS_DEV_BUILD = true
 ARTS_ENABLE_OPENGL = not (_OPTIONS['ARTS_DISABLE_OPENGL'] or false)
 
@@ -39,6 +40,9 @@ include "mmwidget"
 include "pcwindis"
 include "stream"
 include "vector7"
+
+project "*"
+    defines { "ARTS_TARGET_BUILD=" .. ARTS_TARGET_BUILD }
 
 if ARTS_DEV_BUILD then
     include "agirend"

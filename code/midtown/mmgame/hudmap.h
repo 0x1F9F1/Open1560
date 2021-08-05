@@ -250,8 +250,10 @@ private:
     agiBitmap* Icon_Purple;
     agiBitmap* Icon_Cyan;
 
-    // 1588+
-    static agiBitmap* Icon_Pink;
+#if ARTS_TARGET_BUILD < 1588
+    static
+#endif
+        agiBitmap* Icon_Pink;
 
     asCamera* Camera;
     i32 ShowAllCops;

@@ -23,15 +23,19 @@ define_dummy_symbol(mmgame_hudmap);
 #include "agi/bitmap.h"
 #include "agi/pipeline.h"
 
+#if ARTS_TARGET_BUILD < 1588
 agiBitmap* mmHudMap::Icon_Pink = nullptr;
+#endif
 
 mmHudMap::~mmHudMap()
 {
+#if ARTS_TARGET_BUILD < 1588
     if (Icon_Pink)
     {
         Icon_Pink->Release();
         Icon_Pink = nullptr;
     }
+#endif
 }
 
 void mmHudMap::DrawOpponents()
@@ -55,6 +59,7 @@ void mmHudMap::DrawOpponents()
             case 0xFFB400FF: bitmap = Icon_Purple; break;
             case 0xFF00FFFF: bitmap = Icon_Cyan; break;
             case 0xFFFF0390:
+#if ARTS_TARGET_BUILD < 1588
                 if (Icon_Pink == nullptr)
                 {
                     // TODO: Move to mmHudMap::Init
@@ -62,6 +67,7 @@ void mmHudMap::DrawOpponents()
                     Icon_Pink =
                         AsRaw(Pipe()->GetBitmap("icon_grey", 0.0, 0.0, AGI_BITMAP_TRANSPARENT | AGI_BITMAP_OFFSCREEN));
                 }
+#endif
 
                 bitmap = Icon_Pink;
                 break;

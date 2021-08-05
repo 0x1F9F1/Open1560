@@ -20,6 +20,11 @@
 
 // #define ARTS_STANDALONE
 
+#ifdef ARTS_STANDALONE
+#    undef ARTS_TARGET_BUILD
+#    define ARTS_TARGET_BUILD 9999
+#endif
+
 // Windows XP
 #define WINVER 0x0501
 #define _WIN32_WINNT 0x0501

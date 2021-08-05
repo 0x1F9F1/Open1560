@@ -77,8 +77,6 @@
 #define ARTS_STREAM_MANAGED_BUFFER 0x1
 #define ARTS_STREAM_SUPPORTS_MAPPING 0x2
 
-#define ARTS_MAX_PATH 1024
-
 class Stream : public Base
 {
     // const Stream::`vftable'

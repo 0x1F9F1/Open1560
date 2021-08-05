@@ -45,9 +45,12 @@
 
 #include "data7/base.h"
 
+#define ARTS_MAX_PATH 1024
+
 struct FileInfo
 {
-    char Path[256] {}; // TODO: Increase buffer size to 1024 (ARTS_MAX_PATH)
+    char Path[(ARTS_TARGET_BUILD > 1560) ? ARTS_MAX_PATH : 256] {};
+
     b32 IsDirectory {false};
 
     // TODO: Use inheritance instead of Context pointer

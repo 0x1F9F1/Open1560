@@ -85,7 +85,7 @@ private:
     f32 y_ {0.0f};
     mmNumberFont* font_;
 
-#ifndef ARTS_STANDALONE
+#if ARTS_TARGET_BUILD < 1588
     char gap2C[0x4]; // TODO: Remove this
 #endif
 
@@ -119,7 +119,7 @@ private:
     usize Count {0};
     agiBitmap** Bitmaps {nullptr};
 
-#ifndef ARTS_STANDALONE
+#if ARTS_TARGET_BUILD < 1588
     char gap10[0x14]; // TODO: Remove this
 #endif
 
