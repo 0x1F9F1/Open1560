@@ -35,28 +35,28 @@
 
 class aiGoalCollision final : public aiGoal
 {
-    // const aiGoalCollision::`vftable' @ 0x61BD48
+    // const aiGoalCollision::`vftable'
 
 public:
-    // 0x46B2F0 | ??0aiGoalCollision@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
+    // ??0aiGoalCollision@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
     ARTS_IMPORT aiGoalCollision(class aiRailSet* arg1, class aiVehicleSpline* arg2);
 
-    // 0x46B320 | ??1aiGoalCollision@@QAE@XZ
+    // ??1aiGoalCollision@@QAE@XZ
     ARTS_IMPORT ~aiGoalCollision() = default;
 
-    // 0x46B3D0 | ?Context@aiGoalCollision@@UAEHXZ
+    // ?Context@aiGoalCollision@@UAEHXZ
     ARTS_IMPORT i32 Context() override;
 
-    // 0x46B330 | ?Init@aiGoalCollision@@UAEXXZ
+    // ?Init@aiGoalCollision@@UAEXXZ
     ARTS_IMPORT void Init() override;
 
-    // 0x46B3F0 | ?Priority@aiGoalCollision@@UAEHXZ
+    // ?Priority@aiGoalCollision@@UAEHXZ
     ARTS_IMPORT i32 Priority() override;
 
-    // 0x46B340 | ?Reset@aiGoalCollision@@UAEXXZ
+    // ?Reset@aiGoalCollision@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x46B350 | ?Update@aiGoalCollision@@UAEXXZ
+    // ?Update@aiGoalCollision@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap8[0x8];

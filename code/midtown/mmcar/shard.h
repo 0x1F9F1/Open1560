@@ -59,32 +59,32 @@ class mmCarSim;
 
 class mmShard final : public mmMatrixInstance
 {
-    // const mmShard::`vftable' @ 0x61C2C0
+    // const mmShard::`vftable'
 
 public:
-    // 0x478560 | ??0mmShard@@QAE@XZ
+    // ??0mmShard@@QAE@XZ
     ARTS_IMPORT mmShard();
 
-    // 0x479170 | ??_EmmShard@@UAEPAXI@Z
-    // 0x4785D0 | ??1mmShard@@UAE@XZ
+    // ??_EmmShard@@UAEPAXI@Z
+    // ??1mmShard@@UAE@XZ
     ARTS_EXPORT ~mmShard() override = default;
 
-    // 0x4785E0 | ?AddShard@mmShard@@QAEXVVector3@@00M@Z
+    // ?AddShard@mmShard@@QAEXVVector3@@00M@Z
     ARTS_IMPORT void AddShard(class Vector3 arg1, class Vector3 arg2, class Vector3 arg3, f32 arg4);
 
-    // 0x478730 | ?Draw@mmShard@@UAIXH@Z
+    // ?Draw@mmShard@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
-    // 0x478F80 | ?GetClass@mmShard@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmShard@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4785A0 | ?Init@mmShard@@QAEXPADH@Z
+    // ?Init@mmShard@@QAEXPADH@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2);
 
-    // 0x478640 | ?Update@mmShard@@QAEXXZ
+    // ?Update@mmShard@@QAEXXZ
     ARTS_IMPORT void Update();
 
-    // 0x478E00 | ?DeclareFields@mmShard@@SAXXZ
+    // ?DeclareFields@mmShard@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap44[0x20];
@@ -94,53 +94,53 @@ check_size(mmShard, 0x64);
 
 class mmShardManager final : public asNode
 {
-    // const mmShardManager::`vftable' @ 0x61C350
+    // const mmShardManager::`vftable'
 
 public:
-    // 0x4787F0 | ??0mmShardManager@@QAE@XZ
+    // ??0mmShardManager@@QAE@XZ
     ARTS_EXPORT mmShardManager();
 
-    // 0x4791D0 | ??_EmmShardManager@@UAEPAXI@Z
-    // 0x478860 | ??1mmShardManager@@UAE@XZ
+    // ??_EmmShardManager@@UAEPAXI@Z
+    // ??1mmShardManager@@UAE@XZ
     ARTS_EXPORT ~mmShardManager() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x478C90 | ?AddWidgets@mmShardManager@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmShardManager@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x478A60 | ?EmitAllShards@mmShardManager@@QAEXVVector3@@M@Z
+    // ?EmitAllShards@mmShardManager@@QAEXVVector3@@M@Z
     ARTS_IMPORT void EmitAllShards(class Vector3 arg1, f32 arg2);
 
-    // 0x478AB0 | ?EmitShard@mmShardManager@@QAEXVVector3@@M@Z
+    // ?EmitShard@mmShardManager@@QAEXVVector3@@M@Z
     ARTS_IMPORT void EmitShard(class Vector3 arg1, f32 arg2);
 
-    // 0x4789F0 | ?EmitShards@mmShardManager@@QAEXVVector3@@MM@Z
+    // ?EmitShards@mmShardManager@@QAEXVVector3@@MM@Z
     ARTS_IMPORT void EmitShards(class Vector3 arg1, f32 arg2, f32 arg3);
 
-    // 0x479160 | ?GetClass@mmShardManager@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmShardManager@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4788F0 | ?Init@mmShardManager@@QAEXPADHPAVmmCarSim@@@Z
+    // ?Init@mmShardManager@@QAEXPADHPAVmmCarSim@@@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2, class mmCarSim* arg3);
 
-    // 0x4789E0 | ?ReInit@mmShardManager@@QAEXPAVmmCarSim@@@Z | unused
+    // ?ReInit@mmShardManager@@QAEXPAVmmCarSim@@@Z | unused
     ARTS_IMPORT void ReInit(class mmCarSim* arg1);
 
-    // 0x478C60 | ?Update@mmShardManager@@UAEXXZ
+    // ?Update@mmShardManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x478F90 | ?DeclareFields@mmShardManager@@SAXXZ
+    // ?DeclareFields@mmShardManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    // 0x4788D0 | ?GetInstance@mmShardManager@@SAPAV1@H@Z
+    // ?GetInstance@mmShardManager@@SAPAV1@H@Z
     ARTS_EXPORT static class mmShardManager* GetInstance(i32 index);
 
 protected:
-    // 0x6A7F18 | ?Instances@mmShardManager@@1PAPAV1@A
+    // ?Instances@mmShardManager@@1PAPAV1@A
     ARTS_EXPORT static class mmShardManager* Instances[64];
 
-    // 0x6A7F90 | ?NumInstances@mmShardManager@@1HA
+    // ?NumInstances@mmShardManager@@1HA
     ARTS_IMPORT static i32 NumInstances;
 
 private:
@@ -161,8 +161,8 @@ private:
 
 check_size(mmShardManager, 0x54);
 
-// 0x6A7EF0 | ?mmShardManagerMetaClass@@3VMetaClass@@A
+// ?mmShardManagerMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmShardManagerMetaClass;
 
-// 0x6A7F68 | ?mmShardMetaClass@@3VMetaClass@@A
+// ?mmShardMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmShardMetaClass;

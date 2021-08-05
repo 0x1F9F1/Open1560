@@ -51,65 +51,65 @@
 
 #include "optionsbase.h"
 
-// 0x499710 | ?AutoDetect@@YAXHH@Z
+// ?AutoDetect@@YAXHH@Z
 ARTS_EXPORT void AutoDetect(i32 renderer, i32 resolution);
 
-// 0x705820 | ?RenderToSystemMemory@@3HA
+// ?RenderToSystemMemory@@3HA
 ARTS_IMPORT extern i32 RenderToSystemMemory;
 
-// 0x705824 | ?TextureLevel@@3HA
+// ?TextureLevel@@3HA
 ARTS_IMPORT extern i32 TextureLevel;
 
-// 0x7057EC | ?data1@@3HA
+// ?data1@@3HA
 ARTS_IMPORT extern i32 data1;
 
-// 0x7057F0 | ?data2@@3HA
+// ?data2@@3HA
 ARTS_IMPORT extern i32 data2;
 
-// 0x7057F4 | ?data3@@3HA
+// ?data3@@3HA
 ARTS_IMPORT extern i32 data3;
 
-// 0x7057F8 | ?data4@@3HA
+// ?data4@@3HA
 ARTS_IMPORT extern i32 data4;
 
-// 0x7057FC | ?data5@@3HA
+// ?data5@@3HA
 ARTS_IMPORT extern i32 data5;
 
-// 0x705800 | ?data6@@3HA
+// ?data6@@3HA
 ARTS_IMPORT extern i32 data6;
 
 class GraphicsOptions final : public OptionsBase
 {
-    // const GraphicsOptions::`vftable' @ 0x61D370
+    // const GraphicsOptions::`vftable'
 
 public:
-    // 0x499970 | ??0GraphicsOptions@@QAE@H@Z
+    // ??0GraphicsOptions@@QAE@H@Z
     ARTS_IMPORT GraphicsOptions(i32 arg1);
 
-    // 0x49A6A0 | ??_GGraphicsOptions@@UAEPAXI@Z
-    // 0x49A6A0 | ??_EGraphicsOptions@@UAEPAXI@Z
-    // 0x49A2F0 | ??1GraphicsOptions@@UAE@XZ
+    // ??_GGraphicsOptions@@UAEPAXI@Z
+    // ??_EGraphicsOptions@@UAEPAXI@Z
+    // ??1GraphicsOptions@@UAE@XZ
     ARTS_IMPORT ~GraphicsOptions() override;
 
-    // 0x49A610 | ?CancelAction@GraphicsOptions@@UAEXXZ
+    // ?CancelAction@GraphicsOptions@@UAEXXZ
     ARTS_IMPORT void CancelAction() override;
 
-    // 0x49A640 | ?DoneAction@GraphicsOptions@@UAEXXZ
+    // ?DoneAction@GraphicsOptions@@UAEXXZ
     ARTS_IMPORT void DoneAction() override;
 
-    // 0x49A5A0 | ?PreSetup@GraphicsOptions@@UAEXXZ
+    // ?PreSetup@GraphicsOptions@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x49A5C0 | ?ResetDefaultAction@GraphicsOptions@@UAEXXZ
+    // ?ResetDefaultAction@GraphicsOptions@@UAEXXZ
     ARTS_IMPORT void ResetDefaultAction() override;
 
-    // 0x49A370 | ?SetLightQuality@GraphicsOptions@@QAEXXZ
+    // ?SetLightQuality@GraphicsOptions@@QAEXXZ
     ARTS_IMPORT void SetLightQuality();
 
-    // 0x49A390 | ?SetRenderer@GraphicsOptions@@QAEXXZ
+    // ?SetRenderer@GraphicsOptions@@QAEXXZ
     ARTS_IMPORT void SetRenderer();
 
-    // 0x49A350 | ?SetResolution@GraphicsOptions@@QAEXXZ
+    // ?SetResolution@GraphicsOptions@@QAEXXZ
     ARTS_IMPORT void SetResolution();
 
     u8 gap6EC8[0x20];

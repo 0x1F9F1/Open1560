@@ -50,66 +50,66 @@
 
 class RaceMenuBase : public UIMenu
 {
-    // const RaceMenuBase::`vftable' @ 0x61DD00
+    // const RaceMenuBase::`vftable'
 
 public:
-    // 0x4A63C0 | ??0RaceMenuBase@@QAE@H@Z
+    // ??0RaceMenuBase@@QAE@H@Z
     ARTS_IMPORT RaceMenuBase(i32 arg1);
 
-    // 0x4A8050 | ??_GRaceMenuBase@@UAEPAXI@Z
-    // 0x4A8050 | ??_ERaceMenuBase@@UAEPAXI@Z
-    // 0x4A72C0 | ??1RaceMenuBase@@UAE@XZ
+    // ??_GRaceMenuBase@@UAEPAXI@Z
+    // ??_ERaceMenuBase@@UAEPAXI@Z
+    // ??1RaceMenuBase@@UAE@XZ
     ARTS_IMPORT ~RaceMenuBase() override;
 
-    // 0x4A4F60 | ?UsesLobby@RaceMenuBase@@UAEXH@Z | inline
+    // ?UsesLobby@RaceMenuBase@@UAEXH@Z | inline
     ARTS_EXPORT virtual void UsesLobby(i32 arg1);
 
-    // 0x4A79B0 | ?AICallback@RaceMenuBase@@QAEXXZ
+    // ?AICallback@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void AICallback();
 
-    // 0x4A7A20 | ?ChangeLocalVals@RaceMenuBase@@QAEXXZ
+    // ?ChangeLocalVals@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void ChangeLocalVals();
 
-    // 0x4A7690 | ?CheatCallback@RaceMenuBase@@QAEXXZ | unused
+    // ?CheatCallback@RaceMenuBase@@QAEXXZ | unused
     ARTS_IMPORT void CheatCallback();
 
-    // 0x4A7750 | ?CityChange@RaceMenuBase@@QAEXXZ
+    // ?CityChange@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void CityChange();
 
-    // 0x4A7340 | ?FocusDescription@RaceMenuBase@@QAEXH@Z
+    // ?FocusDescription@RaceMenuBase@@QAEXH@Z
     ARTS_IMPORT void FocusDescription(i32 arg1);
 
-    // 0x4A78D0 | ?GameCallback@RaceMenuBase@@QAEXXZ
+    // ?GameCallback@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void GameCallback();
 
-    // 0x4A6500 | ?Init@RaceMenuBase@@QAEXH@Z
+    // ?Init@RaceMenuBase@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x4A7670 | ?IsEnvEnabled@RaceMenuBase@@QAEHXZ
+    // ?IsEnvEnabled@RaceMenuBase@@QAEHXZ
     ARTS_IMPORT i32 IsEnvEnabled();
 
-    // 0x4A7950 | ?LapsCallback@RaceMenuBase@@QAEXXZ
+    // ?LapsCallback@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void LapsCallback();
 
-    // 0x4A73A0 | ?SetRW@RaceMenuBase@@QAEXXZ
+    // ?SetRW@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void SetRW();
 
-    // 0x4A7CB0 | ?SetStateRace@RaceMenuBase@@QAEXXZ
+    // ?SetStateRace@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void SetStateRace();
 
-    // 0x4A76A0 | ?SyncRaceState@RaceMenuBase@@QAEXXZ
+    // ?SyncRaceState@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void SyncRaceState();
 
-    // 0x4A7A10 | ?TimeCallback@RaceMenuBase@@QAEXXZ | unused
+    // ?TimeCallback@RaceMenuBase@@QAEXXZ | unused
     ARTS_IMPORT void TimeCallback();
 
-    // 0x4A7960 | ?WPCallback@RaceMenuBase@@QAEXXZ
+    // ?WPCallback@RaceMenuBase@@QAEXXZ
     ARTS_IMPORT void WPCallback();
 
-    // 0x4A7A00 | ?WeatherCallback@RaceMenuBase@@QAEXXZ | unused
+    // ?WeatherCallback@RaceMenuBase@@QAEXXZ | unused
     ARTS_IMPORT void WeatherCallback();
 
-    // 0x4A7370 | ?WidgetOnOff@RaceMenuBase@@QAEXHPAVuiWidget@@@Z
+    // ?WidgetOnOff@RaceMenuBase@@QAEXHPAVuiWidget@@@Z
     ARTS_IMPORT void WidgetOnOff(i32 arg1, class uiWidget* arg2);
 
     u8 gap90[0xF00];
@@ -117,8 +117,8 @@ public:
 
 check_size(RaceMenuBase, 0xF90);
 
-// 0x64119C | ?GoldDamageScale@@3MA
+// ?GoldDamageScale@@3MA
 ARTS_IMPORT extern f32 GoldDamageScale;
 
-// 0x641198 | ?GoldHPScale@@3MA
+// ?GoldHPScale@@3MA
 ARTS_IMPORT extern f32 GoldHPScale;

@@ -38,28 +38,28 @@ class mmCar;
 struct aiPoliceForce final
 {
 public:
-    // 0x44E7E0 | ??0aiPoliceForce@@QAE@XZ
+    // ??0aiPoliceForce@@QAE@XZ
     ARTS_EXPORT aiPoliceForce();
 
-    // 0x44E800 | ??1aiPoliceForce@@QAE@XZ
+    // ??1aiPoliceForce@@QAE@XZ
     ARTS_EXPORT ~aiPoliceForce() = default;
 
-    // 0x44E860 | ?Find@aiPoliceForce@@QAEHPAVmmCar@@0@Z
+    // ?Find@aiPoliceForce@@QAEHPAVmmCar@@0@Z
     ARTS_EXPORT i32 Find(class mmCar* cop, class mmCar* perp);
 
-    // 0x44E8D0 | ?RegisterPerp@aiPoliceForce@@QAEHPAVmmCar@@0@Z
+    // ?RegisterPerp@aiPoliceForce@@QAEHPAVmmCar@@0@Z
     ARTS_EXPORT b32 RegisterPerp(class mmCar* cop, class mmCar* perp);
 
-    // 0x44E810 | ?Reset@aiPoliceForce@@QAEXXZ
+    // ?Reset@aiPoliceForce@@QAEXXZ
     ARTS_EXPORT void Reset();
 
-    // 0x44EA60 | ?State@aiPoliceForce@@QAEHPAVmmCar@@0M@Z
+    // ?State@aiPoliceForce@@QAEHPAVmmCar@@0M@Z
     ARTS_EXPORT i32 State(class mmCar* cop, class mmCar* perp, f32 dist);
 
-    // 0x44E970 | ?UnRegisterCop@aiPoliceForce@@QAEHPAVmmCar@@0@Z
+    // ?UnRegisterCop@aiPoliceForce@@QAEHPAVmmCar@@0@Z
     ARTS_EXPORT b32 UnRegisterCop(class mmCar* cop, class mmCar* perp);
 
-    // 0x44E850 | ?Update@aiPoliceForce@@QAEXXZ
+    // ?Update@aiPoliceForce@@QAEXXZ
     ARTS_EXPORT void Update();
 
 private:

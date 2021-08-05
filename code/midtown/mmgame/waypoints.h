@@ -67,104 +67,104 @@
 
 class mmWaypoints final : public asNode
 {
-    // const mmWaypoints::`vftable' @ 0x61AF78
+    // const mmWaypoints::`vftable'
 
 public:
-    // 0x42D540 | ??0mmWaypoints@@QAE@XZ
+    // ??0mmWaypoints@@QAE@XZ
     ARTS_IMPORT mmWaypoints();
 
-    // 0x430320 | ??_EmmWaypoints@@UAEPAXI@Z
-    // 0x430320 | ??_GmmWaypoints@@UAEPAXI@Z
-    // 0x42DB20 | ??1mmWaypoints@@UAE@XZ
+    // ??_EmmWaypoints@@UAEPAXI@Z
+    // ??_GmmWaypoints@@UAEPAXI@Z
+    // ??1mmWaypoints@@UAE@XZ
     ARTS_IMPORT ~mmWaypoints() override;
 
-    // 0x42F200 | ?AIWPHit@mmWaypoints@@QAEHHHVMatrix34@@VVector3@@M@Z
+    // ?AIWPHit@mmWaypoints@@QAEHHHVMatrix34@@VVector3@@M@Z
     ARTS_IMPORT i32 AIWPHit(i32 arg1, i32 arg2, class Matrix34 arg3, class Vector3 arg4, f32 arg5);
 
-    // 0x42F4C0 | ?AnyAIWPHit@mmWaypoints@@QAEHAAIHVMatrix34@@VVector3@@M@Z
+    // ?AnyAIWPHit@mmWaypoints@@QAEHAAIHVMatrix34@@VVector3@@M@Z
     ARTS_IMPORT i32 AnyAIWPHit(u32& arg1, i32 arg2, class Matrix34 arg3, class Vector3 arg4, f32 arg5);
 
-    // 0x42FAA0 | ?AnyWPHits@mmWaypoints@@QAEHH@Z
+    // ?AnyWPHits@mmWaypoints@@QAEHH@Z
     ARTS_IMPORT i32 AnyWPHits(i32 arg1);
 
-    // 0x42D950 | ?BlitzRemove@mmWaypoints@@QAEHH@Z
+    // ?BlitzRemove@mmWaypoints@@QAEHH@Z
     ARTS_IMPORT i32 BlitzRemove(i32 arg1);
 
-    // 0x42E920 | ?CalculateGatePoints@mmWaypoints@@QAEXVVector3@@MMPAVVector2@@1@Z
+    // ?CalculateGatePoints@mmWaypoints@@QAEXVVector3@@MMPAVVector2@@1@Z
     ARTS_IMPORT void CalculateGatePoints(
         class Vector3 arg1, f32 arg2, f32 arg3, class Vector2* arg4, class Vector2* arg5);
 
-    // 0x42FF60 | ?ClearWaypoint@mmWaypoints@@QAEXH@Z
+    // ?ClearWaypoint@mmWaypoints@@QAEXH@Z
     ARTS_IMPORT void ClearWaypoint(i32 arg1);
 
-    // 0x42E910 | ?Cull@mmWaypoints@@UAEXXZ
+    // ?Cull@mmWaypoints@@UAEXXZ
     ARTS_EXPORT void Cull() override;
 
-    // 0x42F130 | ?CycleCurrentWaypoint@mmWaypoints@@QAEXH@Z
+    // ?CycleCurrentWaypoint@mmWaypoints@@QAEXH@Z
     ARTS_IMPORT void CycleCurrentWaypoint(i32 arg1);
 
-    // 0x42ED30 | ?DeactivateFinish@mmWaypoints@@QAEXXZ
+    // ?DeactivateFinish@mmWaypoints@@QAEXXZ
     ARTS_IMPORT void DeactivateFinish();
 
-    // 0x430020 | ?DisplayHUDMessage@mmWaypoints@@QAEXHH@Z
+    // ?DisplayHUDMessage@mmWaypoints@@QAEXHH@Z
     ARTS_IMPORT void DisplayHUDMessage(i32 arg1, i32 arg2);
 
-    // 0x42EF00 | ?GenerateHitRooms@mmWaypoints@@QAEXXZ
+    // ?GenerateHitRooms@mmWaypoints@@QAEXXZ
     ARTS_IMPORT void GenerateHitRooms();
 
-    // 0x42F050 | ?GetClosestWaypoint@mmWaypoints@@QAEXXZ
+    // ?GetClosestWaypoint@mmWaypoints@@QAEXXZ
     ARTS_IMPORT void GetClosestWaypoint();
 
-    // 0x42EED0 | ?GetHeading@mmWaypoints@@QAEMH@Z
+    // ?GetHeading@mmWaypoints@@QAEMH@Z
     ARTS_IMPORT f32 GetHeading(i32 arg1);
 
-    // 0x42EF60 | ?GetHitRoom@mmWaypoints@@QAEHH@Z
+    // ?GetHitRoom@mmWaypoints@@QAEHH@Z
     ARTS_IMPORT i32 GetHitRoom(i32 arg1);
 
-    // 0x42F1B0 | ?GetLastWaypoint@mmWaypoints@@QAEXXZ
+    // ?GetLastWaypoint@mmWaypoints@@QAEXXZ
     ARTS_IMPORT void GetLastWaypoint();
 
-    // 0x42F1A0 | ?GetNextWaypoint@mmWaypoints@@QAEXXZ
+    // ?GetNextWaypoint@mmWaypoints@@QAEXXZ
     ARTS_IMPORT void GetNextWaypoint();
 
-    // 0x42EE40 | ?GetStart@mmWaypoints@@QAEXAAVVector3@@@Z
+    // ?GetStart@mmWaypoints@@QAEXAAVVector3@@@Z
     ARTS_IMPORT void GetStart(class Vector3& arg1);
 
-    // 0x42DB00 | ?GetStartAngle@mmWaypoints@@QAEMXZ
+    // ?GetStartAngle@mmWaypoints@@QAEMXZ
     ARTS_IMPORT f32 GetStartAngle();
 
-    // 0x42EE80 | ?GetWaypoint@mmWaypoints@@QAEXHAAVVector3@@@Z
+    // ?GetWaypoint@mmWaypoints@@QAEXHAAVVector3@@@Z
     ARTS_IMPORT void GetWaypoint(i32 arg1, class Vector3& arg2);
 
-    // 0x42D9D0 | ?Init@mmWaypoints@@QAEHPAVmmPlayer@@PADHHHH@Z
+    // ?Init@mmWaypoints@@QAEHPAVmmPlayer@@PADHHHH@Z
     ARTS_IMPORT i32 Init(class mmPlayer* arg1, char* arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);
 
-    // 0x42FD50 | ?LineIntersect@mmWaypoints@@QAEHVVector2@@000M@Z
+    // ?LineIntersect@mmWaypoints@@QAEHVVector2@@000M@Z
     ARTS_IMPORT i32 LineIntersect(
         class Vector2 arg1, class Vector2 arg2, class Vector2 arg3, class Vector2 arg4, f32 arg5);
 
-    // 0x42DC20 | ?LoadCSV@mmWaypoints@@QAEHPADH@Z
+    // ?LoadCSV@mmWaypoints@@QAEHPADH@Z
     ARTS_IMPORT i32 LoadCSV(char* arg1, i32 arg2);
 
-    // 0x42ED50 | ?Reset@mmWaypoints@@UAEXXZ
+    // ?Reset@mmWaypoints@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x42F010 | ?ResetAllTags@mmWaypoints@@QAEXXZ
+    // ?ResetAllTags@mmWaypoints@@QAEXXZ
     ARTS_IMPORT void ResetAllTags();
 
-    // 0x42EF80 | ?SetArrow@mmWaypoints@@QAEXXZ
+    // ?SetArrow@mmWaypoints@@QAEXXZ
     ARTS_IMPORT void SetArrow();
 
-    // 0x42F1C0 | ?SetCurrentGoals@mmWaypoints@@QAEXH@Z
+    // ?SetCurrentGoals@mmWaypoints@@QAEXH@Z
     ARTS_IMPORT void SetCurrentGoals(i32 arg1);
 
-    // 0x42E9A0 | ?Update@mmWaypoints@@UAEXXZ
+    // ?Update@mmWaypoints@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x42EFA0 | ?UpdateWPHUD@mmWaypoints@@QAEXXZ
+    // ?UpdateWPHUD@mmWaypoints@@QAEXXZ
     ARTS_IMPORT void UpdateWPHUD();
 
-    // 0x42F820 | ?WPHit@mmWaypoints@@QAEHHVVector3@@HH@Z
+    // ?WPHit@mmWaypoints@@QAEHHVVector3@@HH@Z
     ARTS_IMPORT i32 WPHit(i32 arg1, class Vector3 arg2, i32 arg3, i32 arg4);
 
     u8 gap20[0x8C];
@@ -175,16 +175,16 @@ check_size(mmWaypoints, 0xAC);
 struct mmGate
 {
 public:
-    // 0x430250 | ?Check@mmGate@@QAEHVVector2@@0@Z | unused
+    // ?Check@mmGate@@QAEHVVector2@@0@Z | unused
     ARTS_IMPORT i32 Check(class Vector2 arg1, class Vector2 arg2);
 
-    // 0x430210 | ?CloseEnough@mmGate@@QAEHMM@Z
+    // ?CloseEnough@mmGate@@QAEHMM@Z
     ARTS_IMPORT i32 CloseEnough(f32 arg1, f32 arg2);
 
-    // 0x430170 | ?Init@mmGate@@QAEXVVector2@@0@Z | unused
+    // ?Init@mmGate@@QAEXVVector2@@0@Z | unused
     ARTS_IMPORT void Init(class Vector2 arg1, class Vector2 arg2);
 
-    // 0x4301F0 | ?LineEq@mmGate@@QAEMMM@Z
+    // ?LineEq@mmGate@@QAEMMM@Z
     ARTS_IMPORT f32 LineEq(f32 arg1, f32 arg2);
 
     u8 gap0[0x18];
@@ -192,5 +192,5 @@ public:
 
 check_size(mmGate, 0x18);
 
-// 0x6A7788 | ?Size@@3VVector3@@A
+// ?Size@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 Size;

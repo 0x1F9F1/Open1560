@@ -132,31 +132,31 @@
 
 #include "vector7/vector4.h"
 
-// 0x505990 | ?EyePlaneOutcode@@YAIPAEEAAVVector4@@PAVVector3@@H@Z | unused
+// ?EyePlaneOutcode@@YAIPAEEAAVVector4@@PAVVector3@@H@Z | unused
 ARTS_IMPORT u32 EyePlaneOutcode(u8* arg1, u8 arg2, class Vector4& arg3, class Vector3* arg4, i32 arg5);
 
-// 0x504690 | ?SetClipMode@@YAXH@Z | unused
+// ?SetClipMode@@YAXH@Z | unused
 ARTS_EXPORT void SetClipMode(b32 mask_only_z);
 
-// 0x505E00 | ?begin_invert@@YIXPAVVector4@@@Z | unused
+// ?begin_invert@@YIXPAVVector4@@@Z | unused
 ARTS_IMPORT void ARTS_FASTCALL begin_invert(class Vector4* arg1);
 
-// 0x505E10 | ?end_invert@@YIXPAVVector4@@@Z | unused
+// ?end_invert@@YIXPAVVector4@@@Z | unused
 ARTS_IMPORT void ARTS_FASTCALL end_invert(class Vector4* arg1);
 
-// 0x64A770 | ?MaxCardSize@@3MA
+// ?MaxCardSize@@3MA
 ARTS_IMPORT extern f32 MaxCardSize;
 
-// 0x73D3C4 | ?MinCardSize@@3MA
+// ?MinCardSize@@3MA
 ARTS_IMPORT extern f32 MinCardSize;
 
-// 0x64A6E8 | ?ShadowColor@@3IA
+// ?ShadowColor@@3IA
 ARTS_IMPORT extern u32 ShadowColor;
 
-// 0x64A6E4 | ?ShadowFudge@@3MA
+// ?ShadowFudge@@3MA
 ARTS_IMPORT extern f32 ShadowFudge;
 
-// 0x64A6EC | ?SphMapColor@@3IA
+// ?SphMapColor@@3IA
 ARTS_IMPORT extern u32 SphMapColor;
 
 struct agiMeshCardVertex
@@ -170,7 +170,7 @@ check_size(agiMeshCardVertex, 0x10);
 struct agiMeshCardInfo
 {
 public:
-    // 0x50EC90 | ?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z
+    // ?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z
     ARTS_IMPORT void Init(i32 arg1, struct agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
 
     u32 VertCount {0};

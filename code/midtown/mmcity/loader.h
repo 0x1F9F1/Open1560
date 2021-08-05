@@ -50,45 +50,45 @@
 
 class mmLoader final : public asCullable
 {
-    // const mmLoader::`vftable' @ 0x61CBC8
+    // const mmLoader::`vftable'
 
 public:
-    // 0x48B530 | ??0mmLoader@@QAE@XZ
+    // ??0mmLoader@@QAE@XZ
     ARTS_IMPORT mmLoader();
 
-    // 0x48BB20 | ??_EmmLoader@@UAEPAXI@Z
-    // 0x48B680 | ??1mmLoader@@UAE@XZ
+    // ??_EmmLoader@@UAEPAXI@Z
+    // ??1mmLoader@@UAE@XZ
     ARTS_IMPORT ~mmLoader() override;
 
-    // 0x48B850 | ?BeginTask@mmLoader@@QAEXPAULocString@@M@Z
+    // ?BeginTask@mmLoader@@QAEXPAULocString@@M@Z
     ARTS_IMPORT void BeginTask(struct LocString* arg1, f32 arg2);
 
-    // 0x48BA70 | ?Cull@mmLoader@@UAEXXZ
+    // ?Cull@mmLoader@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x48B8D0 | ?EndTask@mmLoader@@QAEXM@Z
+    // ?EndTask@mmLoader@@QAEXM@Z
     ARTS_IMPORT void EndTask(f32 arg1);
 
-    // 0x48B720 | ?Init@mmLoader@@QAEXPADMM@Z
+    // ?Init@mmLoader@@QAEXPADMM@Z
     ARTS_EXPORT void Init(char* underlay_name, f32 bar_x, f32 bar_y);
 
-    // 0x48B970 | ?Percent@mmLoader@@QAEXH@Z | unused
+    // ?Percent@mmLoader@@QAEXH@Z | unused
     ARTS_IMPORT void Percent(i32 arg1);
 
-    // 0x48B9C0 | ?Reset@mmLoader@@QAEXXZ
+    // ?Reset@mmLoader@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    // 0x48B820 | ?SetIntroText@mmLoader@@QAEXPAULocString@@@Z
+    // ?SetIntroText@mmLoader@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetIntroText(struct LocString* arg1);
 
-    // 0x48B810 | ?Shutdown@mmLoader@@QAEXXZ | unused
+    // ?Shutdown@mmLoader@@QAEXXZ | unused
     ARTS_IMPORT void Shutdown();
 
-    // 0x48B9E0 | ?Update@mmLoader@@QAEXXZ
+    // ?Update@mmLoader@@QAEXXZ
     ARTS_IMPORT void Update();
 
 private:
-    // 0x6A8DA4 | ?Current@mmLoader@@0PAV1@A
+    // ?Current@mmLoader@@0PAV1@A
     ARTS_IMPORT static class mmLoader* Current;
 
     i32 task_percent_ {0};
@@ -113,8 +113,8 @@ private:
 
 check_size(mmLoader, 0x2C4);
 
-// 0x6A8DA8 | ?IntroFont@@3PAXA
+// ?IntroFont@@3PAXA
 ARTS_IMPORT extern void* IntroFont;
 
-// 0x6A8DAC | ?myFont@@3PAXA
+// ?myFont@@3PAXA
 ARTS_IMPORT extern void* myFont;

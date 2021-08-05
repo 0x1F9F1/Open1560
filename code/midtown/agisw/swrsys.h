@@ -44,52 +44,52 @@
 
 class agiSWRasterizer final : public agiRasterizer
 {
-    // const agiSWRasterizer::`vftable' @ 0x621338
+    // const agiSWRasterizer::`vftable'
 
 public:
-    // 0x537BB0 | ??0agiSWRasterizer@@QAE@PAVagiPipeline@@@Z
+    // ??0agiSWRasterizer@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiSWRasterizer(class agiPipeline* arg1);
 
-    // 0x537DC0 | ??_GagiSWRasterizer@@UAEPAXI@Z
-    // 0x537DC0 | ??_EagiSWRasterizer@@UAEPAXI@Z
-    // 0x537BD0 | ??1agiSWRasterizer@@UAE@XZ
+    // ??_GagiSWRasterizer@@UAEPAXI@Z
+    // ??_EagiSWRasterizer@@UAEPAXI@Z
+    // ??1agiSWRasterizer@@UAE@XZ
     ARTS_IMPORT ~agiSWRasterizer() override = default;
 
-    // 0x537BE0 | ?BeginGfx@agiSWRasterizer@@UAEHXZ
+    // ?BeginGfx@agiSWRasterizer@@UAEHXZ
     ARTS_EXPORT i32 BeginGfx() override;
 
-    // 0x537C00 | ?BeginGroup@agiSWRasterizer@@UAEXXZ
+    // ?BeginGroup@agiSWRasterizer@@UAEXXZ
     ARTS_EXPORT void BeginGroup() override;
 
-    // 0x537CF0 | ?Card@agiSWRasterizer@@UAEXHH@Z
+    // ?Card@agiSWRasterizer@@UAEXHH@Z
     ARTS_IMPORT void Card(i32 arg1, i32 arg2) override;
 
-    // 0x537BF0 | ?EndGfx@agiSWRasterizer@@UAEXXZ
+    // ?EndGfx@agiSWRasterizer@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
-    // 0x537C10 | ?EndGroup@agiSWRasterizer@@UAEXXZ
+    // ?EndGroup@agiSWRasterizer@@UAEXXZ
     ARTS_EXPORT void EndGroup() override;
 
-    // 0x537CB0 | ?Line@agiSWRasterizer@@UAEXHH@Z
+    // ?Line@agiSWRasterizer@@UAEXHH@Z
     ARTS_EXPORT void Line(i32 i1, i32 i2) override;
 
-    // 0x537D10 | ?Mesh@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
+    // ?Mesh@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
     ARTS_EXPORT void Mesh(
         enum agiVtxType type, union agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) override;
 
-    // 0x537D00 | ?Points@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
+    // ?Points@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
     ARTS_EXPORT void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
 
-    // 0x537C70 | ?Quad@agiSWRasterizer@@UAEXHHHH@Z
+    // ?Quad@agiSWRasterizer@@UAEXHHHH@Z
     ARTS_IMPORT void Quad(i32 arg1, i32 arg2, i32 arg3, i32 arg4) override;
 
-    // 0x537C30 | ?SetVertCount@agiSWRasterizer@@UAEXH@Z
+    // ?SetVertCount@agiSWRasterizer@@UAEXH@Z
     ARTS_EXPORT void SetVertCount(i32 arg1) override;
 
-    // 0x537C40 | ?Triangle@agiSWRasterizer@@UAEXHHH@Z
+    // ?Triangle@agiSWRasterizer@@UAEXHHH@Z
     ARTS_IMPORT void Triangle(i32 arg1, i32 arg2, i32 arg3) override;
 
-    // 0x537C20 | ?Verts@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
+    // ?Verts@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
     ARTS_IMPORT void Verts(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
 };
 

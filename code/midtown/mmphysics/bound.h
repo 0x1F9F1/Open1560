@@ -34,21 +34,21 @@
 
 class asBound final : public asNode
 {
-    // const asBound::`vftable' @ 0x61FBB8
+    // const asBound::`vftable'
 
 public:
-    // 0x4DF0D0 | ??0asBound@@QAE@XZ
+    // ??0asBound@@QAE@XZ
     ARTS_IMPORT asBound();
 
-    // 0x4DFBE0 | ??_GasBound@@UAEPAXI@Z
-    // 0x4DFBE0 | ??_EasBound@@UAEPAXI@Z
-    // 0x453A40 | ??1asBound@@UAE@XZ | inline
+    // ??_GasBound@@UAEPAXI@Z
+    // ??_EasBound@@UAEPAXI@Z
+    // ??1asBound@@UAE@XZ | inline
     ARTS_IMPORT ~asBound() override = default;
 
-    // 0x4DFAF0 | ?GetPhysMtl@asBound@@QAEAAVagiPhysParameters@@ABVmmPolygon@@@Z
+    // ?GetPhysMtl@asBound@@QAEAAVagiPhysParameters@@ABVmmPolygon@@@Z
     ARTS_IMPORT class agiPhysParameters& GetPhysMtl(class mmPolygon const& arg1);
 
-    // 0x4DF110 | ?Impact@asBound@@QAEHPAVmmIntersection@@PAV1@HHH@Z
+    // ?Impact@asBound@@QAEHPAVmmIntersection@@PAV1@HHH@Z
     ARTS_IMPORT i32 Impact(class mmIntersection* arg1, class asBound* arg2, i32 arg3, i32 arg4, i32 arg5);
 
     u8 gap20[0x1C];
@@ -57,6 +57,6 @@ public:
 check_size(asBound, 0x3C);
 
 #ifdef ARTS_DEV_BUILD
-// 0x719194 | ?ImpactCallbackCount@@3HA
+// ?ImpactCallbackCount@@3HA
 ARTS_IMPORT extern i32 ImpactCallbackCount;
 #endif

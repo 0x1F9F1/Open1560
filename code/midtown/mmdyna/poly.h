@@ -42,56 +42,56 @@
 class mmPolygon
 {
 public:
-    // 0x51A7E0 | ??0mmPolygon@@QAE@XZ
+    // ??0mmPolygon@@QAE@XZ
     ARTS_IMPORT mmPolygon();
 
 private:
-    // 0x51D080 | ?CheckCellXSide@mmPolygon@@AAEMMMM@Z
+    // ?CheckCellXSide@mmPolygon@@AAEMMMM@Z
     ARTS_IMPORT f32 CheckCellXSide(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x51D170 | ?CheckCellZSide@mmPolygon@@AAEMMMM@Z
+    // ?CheckCellZSide@mmPolygon@@AAEMMMM@Z
     ARTS_IMPORT f32 CheckCellZSide(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x51CFD0 | ?CheckCorner@mmPolygon@@AAEMMMPAM00@Z
+    // ?CheckCorner@mmPolygon@@AAEMMMPAM00@Z
     ARTS_IMPORT f32 CheckCorner(f32 arg1, f32 arg2, f32* arg3, f32* arg4, f32* arg5);
 
-    // 0x51CDB0 | ?CornersHeight@mmPolygon@@AAEMMMMM@Z
+    // ?CornersHeight@mmPolygon@@AAEMMMMM@Z
     ARTS_IMPORT f32 CornersHeight(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x51C2A0 | ?Draw@mmPolygon@@AAEXXZ
+    // ?Draw@mmPolygon@@AAEXXZ
     ARTS_IMPORT void Draw();
 #endif
 
-    // 0x51AEB0 | ?FullSegment@mmPolygon@@AAEHPAVmmEdgeBodyIsect@@@Z
+    // ?FullSegment@mmPolygon@@AAEHPAVmmEdgeBodyIsect@@@Z
     ARTS_IMPORT i32 FullSegment(class mmEdgeBodyIsect* arg1);
 
-    // 0x51B440 | ?FullSegment@mmPolygon@@AAEHPAVmmIntersection@@@Z
+    // ?FullSegment@mmPolygon@@AAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 FullSegment(class mmIntersection* arg1);
 
-    // 0x51BC80 | ?FullSphere@mmPolygon@@AAEHPAVmmIntersection@@@Z
+    // ?FullSphere@mmPolygon@@AAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 FullSphere(class mmIntersection* arg1);
 
-    // 0x51B990 | ?GetCorner@mmPolygon@@AAEHAAVVector3@@00000AAM@Z
+    // ?GetCorner@mmPolygon@@AAEHAAVVector3@@00000AAM@Z
     ARTS_IMPORT i32 GetCorner(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
         class Vector3& arg5, class Vector3& arg6, f32& arg7);
 
-    // 0x51ADA0 | ?GetST@mmPolygon@@AAEXPAVVector3@@0PAVmmBoundTemplate@@@Z | unused
+    // ?GetST@mmPolygon@@AAEXPAVVector3@@0PAVmmBoundTemplate@@@Z | unused
     ARTS_IMPORT void GetST(class Vector3* arg1, class Vector3* arg2, class mmBoundTemplate* arg3);
 
-    // 0x51A820 | ?Init@mmPolygon@@AAEXXZ
+    // ?Init@mmPolygon@@AAEXXZ
     ARTS_IMPORT void Init();
 
-    // 0x51CC60 | ?MaxY@mmPolygon@@AAEMMMMM@Z
+    // ?MaxY@mmPolygon@@AAEMMMMM@Z
     ARTS_IMPORT f32 MaxY(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x51C320 | ?Plot@mmPolygon@@AAEXPAVmmBoundTemplate@@H@Z
+    // ?Plot@mmPolygon@@AAEXPAVmmBoundTemplate@@H@Z
     ARTS_IMPORT void Plot(class mmBoundTemplate* arg1, i32 arg2);
 
-    // 0x51CBD0 | ?PlotScan@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
+    // ?PlotScan@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
     ARTS_IMPORT void PlotScan(i32 arg1, i32 arg2, i32 arg3, class mmBoundTemplate* arg4, i32 arg5);
 
-    // 0x51C380 | ?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
+    // ?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
     ARTS_IMPORT void PlotTriangle(i32 arg1, i32 arg2, i32 arg3, class mmBoundTemplate* arg4, i32 arg5);
 
     u8 gap0[0x4C];

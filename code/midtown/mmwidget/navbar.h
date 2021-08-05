@@ -43,48 +43,48 @@
 
 class uiNavBar final : public UIMenu
 {
-    // const uiNavBar::`vftable' @ 0x61E3B8
+    // const uiNavBar::`vftable'
 
 public:
-    // 0x4B1D00 | ??0uiNavBar@@QAE@H@Z
+    // ??0uiNavBar@@QAE@H@Z
     ARTS_IMPORT uiNavBar(i32 arg1);
 
-    // 0x4B2120 | ??_EuiNavBar@@UAEPAXI@Z
-    // 0x4B2120 | ??_GuiNavBar@@UAEPAXI@Z
-    // 0x4B1F70 | ??1uiNavBar@@UAE@XZ
+    // ??_EuiNavBar@@UAEPAXI@Z
+    // ??_GuiNavBar@@UAEPAXI@Z
+    // ??1uiNavBar@@UAE@XZ
     ARTS_IMPORT ~uiNavBar() override = default;
 
-    // 0x4B2150 | ?BackUp@uiNavBar@@UAEXXZ | inline
+    // ?BackUp@uiNavBar@@UAEXXZ | inline
     ARTS_EXPORT void BackUp() override;
 
-    // 0x4B1F10 | ?Help@uiNavBar@@QAEXXZ
+    // ?Help@uiNavBar@@QAEXXZ
     ARTS_IMPORT void Help();
 
-    // 0x4B1F20 | ?Minimize@uiNavBar@@QAEXXZ
+    // ?Minimize@uiNavBar@@QAEXXZ
     ARTS_IMPORT void Minimize();
 
-    // 0x4B1F90 | ?OptionActive@uiNavBar@@QAEXXZ
+    // ?OptionActive@uiNavBar@@QAEXXZ
     ARTS_IMPORT void OptionActive();
 
-    // 0x4B1FB0 | ?OptionInActive@uiNavBar@@QAEXXZ
+    // ?OptionInActive@uiNavBar@@QAEXXZ
     ARTS_IMPORT void OptionInActive();
 
-    // 0x4B1F80 | ?ResetState@uiNavBar@@QAEXXZ | unused
+    // ?ResetState@uiNavBar@@QAEXXZ | unused
     ARTS_IMPORT void ResetState();
 
-    // 0x4B2100 | ?SetPrevBitmap@uiNavBar@@QAEXPAD@Z | unused
+    // ?SetPrevBitmap@uiNavBar@@QAEXPAD@Z | unused
     ARTS_IMPORT void SetPrevBitmap(char* arg1);
 
-    // 0x4B2070 | ?SetPrevPos@uiNavBar@@QAEXMM@Z
+    // ?SetPrevPos@uiNavBar@@QAEXMM@Z
     ARTS_IMPORT void SetPrevPos(f32 arg1, f32 arg2);
 
-    // 0x4B20E0 | ?TurnOffPrev@uiNavBar@@QAEXXZ
+    // ?TurnOffPrev@uiNavBar@@QAEXXZ
     ARTS_IMPORT void TurnOffPrev();
 
-    // 0x4B20C0 | ?TurnOnPrev@uiNavBar@@QAEXXZ
+    // ?TurnOnPrev@uiNavBar@@QAEXXZ
     ARTS_IMPORT void TurnOnPrev();
 
-    // 0x4B1FD0 | ?Update@uiNavBar@@UAEXXZ
+    // ?Update@uiNavBar@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap90[0x30];

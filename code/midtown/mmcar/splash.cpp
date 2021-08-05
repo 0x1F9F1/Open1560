@@ -20,5 +20,5 @@ define_dummy_symbol(mmcar_splash);
 
 #include "splash.h"
 
-// 0x481050 | ?SplashCB@@YAXPAVmmSplash@@@Z
+// ?SplashCB@@YAXPAVmmSplash@@@Z
 ARTS_IMPORT /*static*/ void SplashCB(class mmSplash* arg1);

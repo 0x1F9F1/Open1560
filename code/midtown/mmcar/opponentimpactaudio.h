@@ -47,68 +47,68 @@
 class mmOpponentImpactAudio
 {
 public:
-    // 0x47A3B0 | ??0mmOpponentImpactAudio@@QAE@XZ
+    // ??0mmOpponentImpactAudio@@QAE@XZ
     ARTS_IMPORT mmOpponentImpactAudio();
 
-    // 0x47A570 | ??1mmOpponentImpactAudio@@QAE@XZ
+    // ??1mmOpponentImpactAudio@@QAE@XZ
     ARTS_IMPORT ~mmOpponentImpactAudio();
 
-    // 0x47A7E0 | ?Disable3DMode@mmOpponentImpactAudio@@QAEXXZ
+    // ?Disable3DMode@mmOpponentImpactAudio@@QAEXXZ
     ARTS_IMPORT void Disable3DMode();
 
-    // 0x47A770 | ?Enable3DMode@mmOpponentImpactAudio@@QAEXPAVVector3@@@Z
+    // ?Enable3DMode@mmOpponentImpactAudio@@QAEXPAVVector3@@@Z
     ARTS_IMPORT void Enable3DMode(class Vector3* arg1);
 
-    // 0x47A5A0 | ?Play@mmOpponentImpactAudio@@QAEXMFMM@Z
+    // ?Play@mmOpponentImpactAudio@@QAEXMFMM@Z
     ARTS_IMPORT void Play(f32 arg1, i16 arg2, f32 arg3, f32 arg4);
 
-    // 0x47A710 | ?Update@mmOpponentImpactAudio@@QAEXXZ
+    // ?Update@mmOpponentImpactAudio@@QAEXXZ
     ARTS_IMPORT void Update();
 
-    // 0x47A7D0 | ?GetSecondsElapsed@mmOpponentImpactAudio@@SAMXZ
+    // ?GetSecondsElapsed@mmOpponentImpactAudio@@SAMXZ
     ARTS_IMPORT static f32 GetSecondsElapsed();
 
-    // 0x47A7C0 | ?SetSecondsElapsed@mmOpponentImpactAudio@@SAXM@Z
+    // ?SetSecondsElapsed@mmOpponentImpactAudio@@SAXM@Z
     ARTS_IMPORT static void SetSecondsElapsed(f32 arg1);
 
 private:
-    // 0x63C1E8 | ?m_fBareMinimum@mmOpponentImpactAudio@@0MA
+    // ?m_fBareMinimum@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fBareMinimum;
 
-    // 0x6A7FCC | ?m_fHugeVolumeMultiplier@mmOpponentImpactAudio@@0MA
+    // ?m_fHugeVolumeMultiplier@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fHugeVolumeMultiplier;
 
-    // 0x63C208 | ?m_fMaxHugeVolume@mmOpponentImpactAudio@@0MA
+    // ?m_fMaxHugeVolume@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fMaxHugeVolume;
 
-    // 0x63C200 | ?m_fMaxMedVolume@mmOpponentImpactAudio@@0MA
+    // ?m_fMaxMedVolume@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fMaxMedVolume;
 
-    // 0x63C1F8 | ?m_fMaxSoftVolume@mmOpponentImpactAudio@@0MA
+    // ?m_fMaxSoftVolume@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fMaxSoftVolume;
 
-    // 0x6A7FC8 | ?m_fMedVolumeMultiplier@mmOpponentImpactAudio@@0MA
+    // ?m_fMedVolumeMultiplier@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fMedVolumeMultiplier;
 
-    // 0x63C1F0 | ?m_fMedium@mmOpponentImpactAudio@@0MA
+    // ?m_fMedium@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fMedium;
 
-    // 0x63C204 | ?m_fMinHugeVolume@mmOpponentImpactAudio@@0MA
+    // ?m_fMinHugeVolume@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fMinHugeVolume;
 
-    // 0x63C1FC | ?m_fMinMedVolume@mmOpponentImpactAudio@@0MA
+    // ?m_fMinMedVolume@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fMinMedVolume;
 
-    // 0x63C1F4 | ?m_fMinSoftVolume@mmOpponentImpactAudio@@0MA
+    // ?m_fMinSoftVolume@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fMinSoftVolume;
 
-    // 0x63C1EC | ?m_fSoft@mmOpponentImpactAudio@@0MA
+    // ?m_fSoft@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fSoft;
 
-    // 0x6A7FC4 | ?m_fSoftVolumeMultiplier@mmOpponentImpactAudio@@0MA
+    // ?m_fSoftVolumeMultiplier@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 m_fSoftVolumeMultiplier;
 
-    // 0x6A7FC0 | ?s_fSecondsElapsed@mmOpponentImpactAudio@@0MA
+    // ?s_fSecondsElapsed@mmOpponentImpactAudio@@0MA
     ARTS_IMPORT static f32 s_fSecondsElapsed;
 
     u8 gap0[0x18];

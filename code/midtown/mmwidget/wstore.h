@@ -35,31 +35,31 @@
 class WArray
 {
 public:
-    // 0x4ABE40 | ??0WArray@@QAE@XZ
+    // ??0WArray@@QAE@XZ
     ARTS_IMPORT WArray();
 
-    // 0x4ABE50 | ??1WArray@@QAE@XZ
+    // ??1WArray@@QAE@XZ
     ARTS_IMPORT ~WArray();
 
-    // 0x4AC510 | ?AddWidgetData@WArray@@QAEXHHAAVVector4@@PAD@Z
+    // ?AddWidgetData@WArray@@QAEXHHAAVVector4@@PAD@Z
     ARTS_IMPORT void AddWidgetData(i32 arg1, i32 arg2, class Vector4& arg3, char* arg4);
 
-    // 0x4AC0C0 | ?DumpMenu@WArray@@QAEXPAVStream@@PAVUIMenu@@@Z
+    // ?DumpMenu@WArray@@QAEXPAVStream@@PAVUIMenu@@@Z
     ARTS_IMPORT void DumpMenu(class Stream* arg1, class UIMenu* arg2);
 
-    // 0x4AC320 | ?Flush@WArray@@QAEXXZ | unused
+    // ?Flush@WArray@@QAEXXZ | unused
     ARTS_EXPORT void Flush();
 
-    // 0x4ABE60 | ?Init@WArray@@QAEXH@Z
+    // ?Init@WArray@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x4AC330 | ?Read@WArray@@QAEXPAD@Z
+    // ?Read@WArray@@QAEXPAD@Z
     ARTS_EXPORT void Read(char* name);
 
-    // 0x4AC590 | ?RetrieveWidgetData@WArray@@QAEHHHAAM000@Z
+    // ?RetrieveWidgetData@WArray@@QAEHHHAAM000@Z
     ARTS_IMPORT i32 RetrieveWidgetData(i32 arg1, i32 arg2, f32& arg3, f32& arg4, f32& arg5, f32& arg6);
 
-    // 0x4ABEA0 | ?Write@WArray@@QAEXPAD@Z
+    // ?Write@WArray@@QAEXPAD@Z
     ARTS_IMPORT void Write(char* arg1);
 
     u8 gap0[0xC];

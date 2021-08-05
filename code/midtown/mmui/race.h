@@ -39,33 +39,33 @@
 
 class RaceMenu final : public RaceMenuBase
 {
-    // const RaceMenu::`vftable' @ 0x61DAC8
+    // const RaceMenu::`vftable'
 
 public:
-    // 0x4A4C30 | ??0RaceMenu@@QAE@H@Z
+    // ??0RaceMenu@@QAE@H@Z
     ARTS_IMPORT RaceMenu(i32 arg1);
 
-    // 0x4A4F30 | ??_ERaceMenu@@UAEPAXI@Z
-    // 0x4A4F30 | ??_GRaceMenu@@UAEPAXI@Z
-    // 0x4A4CF0 | ??1RaceMenu@@UAE@XZ
+    // ??_ERaceMenu@@UAEPAXI@Z
+    // ??_GRaceMenu@@UAEPAXI@Z
+    // ??1RaceMenu@@UAE@XZ
     ARTS_IMPORT ~RaceMenu() override = default;
 
-    // 0x4A4D00 | ?GetRaceID@RaceMenu@@QAEHXZ | unused
+    // ?GetRaceID@RaceMenu@@QAEHXZ | unused
     ARTS_IMPORT i32 GetRaceID();
 
-    // 0x4A4E10 | ?GetRaceName@RaceMenu@@QAEPADW4mmGameMode@@H@Z | unused
+    // ?GetRaceName@RaceMenu@@QAEPADW4mmGameMode@@H@Z | unused
     ARTS_IMPORT char* GetRaceName(enum mmGameMode arg1, i32 arg2);
 
-    // 0x4A4DB0 | ?SetBlitzMask@RaceMenu@@QAEXH@Z
+    // ?SetBlitzMask@RaceMenu@@QAEXH@Z
     ARTS_IMPORT void SetBlitzMask(i32 arg1);
 
-    // 0x4A4DD0 | ?SetCheckpointMask@RaceMenu@@QAEXH@Z
+    // ?SetCheckpointMask@RaceMenu@@QAEXH@Z
     ARTS_IMPORT void SetCheckpointMask(i32 arg1);
 
-    // 0x4A4DF0 | ?SetCircuitMask@RaceMenu@@QAEXH@Z
+    // ?SetCircuitMask@RaceMenu@@QAEXH@Z
     ARTS_IMPORT void SetCircuitMask(i32 arg1);
 
-    // 0x4A4D90 | ?SetProgressMask@RaceMenu@@QAEXH@Z
+    // ?SetProgressMask@RaceMenu@@QAEXH@Z
     ARTS_IMPORT void SetProgressMask(i32 arg1);
 
     u8 gapF90[0x4];

@@ -24,7 +24,7 @@
     0x4955C0 | void __cdecl mmHeapError(void) | ?mmHeapError@@YAXXZ
 */
 
-// 0x4955C0 | ?mmHeapError@@YAXXZ
+// ?mmHeapError@@YAXXZ
 [[noreturn]] ARTS_EXPORT void mmHeapError();
 
 template <typename T>

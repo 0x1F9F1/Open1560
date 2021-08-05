@@ -26,7 +26,7 @@
 
 class Dispatchable
 {
-    // const Dispatchable::`vftable' @ 0x621A9C
+    // const Dispatchable::`vftable'
 
 public:
     virtual LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) = 0;

@@ -26,27 +26,27 @@
 
 class mmPhysEntity : public asNode
 {
-    // const mmPhysEntity::`vftable' @ 0x61B8A0
+    // const mmPhysEntity::`vftable'
 
 public:
-    // 0x453B40 | ??_GmmPhysEntity@@UAEPAXI@Z
-    // 0x453B40 | ??_EmmPhysEntity@@UAEPAXI@Z
-    // 0x42D510 | ??1mmPhysEntity@@UAE@XZ | inline
+    // ??_GmmPhysEntity@@UAEPAXI@Z
+    // ??_EmmPhysEntity@@UAEPAXI@Z
+    // ??1mmPhysEntity@@UAE@XZ | inline
     ARTS_IMPORT ~mmPhysEntity() override = default;
 
-    // 0x453B00 | ?PostUpdate@mmPhysEntity@@UAEXXZ | inline
+    // ?PostUpdate@mmPhysEntity@@UAEXXZ | inline
     ARTS_EXPORT virtual void PostUpdate();
 
-    // 0x453B10 | ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ | inline
+    // ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ | inline
     ARTS_EXPORT virtual class asBound* GetBound();
 
-    // 0x453B20 | ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ | inline
+    // ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ | inline
     ARTS_EXPORT virtual class asInertialCS* GetICS();
 
-    // 0x453B30 | ?DetachMe@mmPhysEntity@@UAEXXZ | inline
+    // ?DetachMe@mmPhysEntity@@UAEXXZ | inline
     ARTS_EXPORT virtual void DetachMe();
 
-    // 0x453AF0 | ?Update@mmPhysEntity@@UAEXXZ | inline
+    // ?Update@mmPhysEntity@@UAEXXZ | inline
     ARTS_EXPORT void Update() override;
 };
 

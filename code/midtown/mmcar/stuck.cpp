@@ -20,5 +20,5 @@ define_dummy_symbol(mmcar_stuck);
 
 #include "stuck.h"
 
-// 0x47C4F0 | ?StuckCB@@YAXPAVmmStuck@@@Z
+// ?StuckCB@@YAXPAVmmStuck@@@Z
 ARTS_IMPORT /*static*/ void StuckCB(class mmStuck* arg1);

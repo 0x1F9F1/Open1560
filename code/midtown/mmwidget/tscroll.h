@@ -51,74 +51,74 @@
 
 class UITextScroll final : public uiWidget
 {
-    // const UITextScroll::`vftable' @ 0x61EA98
+    // const UITextScroll::`vftable'
 
 public:
-    // 0x4B87F0 | ??0UITextScroll@@QAE@XZ
+    // ??0UITextScroll@@QAE@XZ
     ARTS_IMPORT UITextScroll();
 
-    // 0x4B95D0 | ??_EUITextScroll@@UAEPAXI@Z
-    // 0x4B95D0 | ??_GUITextScroll@@UAEPAXI@Z
-    // 0x4B8900 | ??1UITextScroll@@UAE@XZ
+    // ??_EUITextScroll@@UAEPAXI@Z
+    // ??_GUITextScroll@@UAEPAXI@Z
+    // ??1UITextScroll@@UAE@XZ
     ARTS_IMPORT ~UITextScroll() override;
 
-    // 0x4B9160 | ?Action@UITextScroll@@UAEXTeqEvent@@@Z
+    // ?Action@UITextScroll@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4B8FE0 | ?GetCurrentString@UITextScroll@@QAEXPADH@Z | unused
+    // ?GetCurrentString@UITextScroll@@QAEXPADH@Z | unused
     ARTS_IMPORT void GetCurrentString(char* arg1, i32 arg2);
 
-    // 0x4B9080 | ?GetHit@UITextScroll@@QAEHMM@Z
+    // ?GetHit@UITextScroll@@QAEHMM@Z
     ARTS_IMPORT i32 GetHit(f32 arg1, f32 arg2);
 
-    // 0x4B8980 | ?Init@UITextScroll@@QAEXPAXMMMMVstring@@HPAHVCallback@@@Z
+    // ?Init@UITextScroll@@QAEXPAXMMMMVstring@@HPAHVCallback@@@Z
     ARTS_IMPORT void Init(void* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, class string arg6, i32 arg7, i32* arg8,
         class Callback arg9);
 
-    // 0x4B8CF0 | ?InitVScroll@UITextScroll@@QAEXMMM@Z
+    // ?InitVScroll@UITextScroll@@QAEXMMM@Z
     ARTS_EXPORT void InitVScroll(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4B8D90 | ?Recalc@UITextScroll@@QAEXVstring@@@Z
+    // ?Recalc@UITextScroll@@QAEXVstring@@@Z
     ARTS_IMPORT void Recalc(class string arg1);
 
-    // 0x4B9030 | ?SetHighlight@UITextScroll@@QAEXH@Z | unused
+    // ?SetHighlight@UITextScroll@@QAEXH@Z | unused
     ARTS_IMPORT void SetHighlight(i32 arg1);
 
-    // 0x4B92B0 | ?SetText@UITextScroll@@QAEXHPAULocString@@@Z
+    // ?SetText@UITextScroll@@QAEXHPAULocString@@@Z
     ARTS_IMPORT void SetText(i32 arg1, struct LocString* arg2);
 
-    // 0x4B8D60 | ?SetVScrollPos@UITextScroll@@QAEXXZ
+    // ?SetVScrollPos@UITextScroll@@QAEXXZ
     ARTS_IMPORT void SetVScrollPos();
 
-    // 0x4B8D40 | ?SetVScrollVals@UITextScroll@@QAEXXZ
+    // ?SetVScrollVals@UITextScroll@@QAEXXZ
     ARTS_IMPORT void SetVScrollVals();
 
-    // 0x4B9210 | ?Switch@UITextScroll@@UAEXH@Z
+    // ?Switch@UITextScroll@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // 0x4B8D00 | ?VScrollCB@UITextScroll@@QAEXXZ
+    // ?VScrollCB@UITextScroll@@QAEXXZ
     ARTS_IMPORT void VScrollCB();
 
 private:
-    // 0x4B9530 | ?AddTextScrollLine@UITextScroll@@AAEXPAD@Z | unused
+    // ?AddTextScrollLine@UITextScroll@@AAEXPAD@Z | unused
     ARTS_IMPORT void AddTextScrollLine(char* arg1);
 
-    // 0x4B94A0 | ?AddTextScrollLine@UITextScroll@@AAEXPADH@Z
+    // ?AddTextScrollLine@UITextScroll@@AAEXPADH@Z
     ARTS_IMPORT void AddTextScrollLine(char* arg1, i32 arg2);
 
-    // 0x4B8F00 | ?FillScroll@UITextScroll@@AAEXXZ
+    // ?FillScroll@UITextScroll@@AAEXXZ
     ARTS_IMPORT void FillScroll();
 
-    // 0x4B9370 | ?InitTextScroll@UITextScroll@@AAEXVstring@@@Z
+    // ?InitTextScroll@UITextScroll@@AAEXVstring@@@Z
     ARTS_IMPORT void InitTextScroll(class string arg1);
 
-    // 0x4B9100 | ?KeyAction@UITextScroll@@AAEXXZ | unused
+    // ?KeyAction@UITextScroll@@AAEXXZ | unused
     ARTS_IMPORT void KeyAction();
 
-    // 0x4B92F0 | ?ResetTextScroll@UITextScroll@@AAEXXZ
+    // ?ResetTextScroll@UITextScroll@@AAEXXZ
     ARTS_IMPORT void ResetTextScroll();
 
-    // 0x4B9250 | ?SetTextColor@UITextScroll@@AAEXXZ
+    // ?SetTextColor@UITextScroll@@AAEXXZ
     ARTS_IMPORT void SetTextColor();
 
     u8 gap74[0x70];

@@ -46,54 +46,54 @@
 
 class HierFileSystem final : public FileSystem
 {
-    // const HierFileSystem::`vftable' @ 0x621968
+    // const HierFileSystem::`vftable'
 
 public:
-    // 0x55FF50 | ??0HierFileSystem@@QAE@XZ
+    // ??0HierFileSystem@@QAE@XZ
     ARTS_EXPORT HierFileSystem();
 
-    // 0x560620 | ??_GHierFileSystem@@UAEPAXI@Z
-    // 0x55FF70 | ??1HierFileSystem@@UAE@XZ
+    // ??_GHierFileSystem@@UAEPAXI@Z
+    // ??1HierFileSystem@@UAE@XZ
     ARTS_EXPORT ~HierFileSystem() override;
 
-    // 0x560380 | ?ChangeDir@HierFileSystem@@UAEHPAD@Z
+    // ?ChangeDir@HierFileSystem@@UAEHPAD@Z
     ARTS_EXPORT b32 ChangeDir(const char* path) override;
 
-    // 0x5602A0 | ?CreateOn@HierFileSystem@@UAEPAVStream@@PADPAXH@Z
+    // ?CreateOn@HierFileSystem@@UAEPAVStream@@PADPAXH@Z
     ARTS_EXPORT Owner<class Stream> CreateOn(const char* path, void* buffer, isize buffer_len) override;
 
-    // 0x5603C0 | ?FirstEntry@HierFileSystem@@UAEPAUFileInfo@@PAD@Z
+    // ?FirstEntry@HierFileSystem@@UAEPAUFileInfo@@PAD@Z
     ARTS_EXPORT struct FileInfo* FirstEntry(const char* path) override;
 
-    // 0x5603A0 | ?GetDir@HierFileSystem@@UAEHPADH@Z
+    // ?GetDir@HierFileSystem@@UAEHPADH@Z
     ARTS_EXPORT b32 GetDir(char* buffer, isize buffer_len) override;
 
-    // 0x560500 | ?NextEntry@HierFileSystem@@UAEPAUFileInfo@@PAU2@@Z
+    // ?NextEntry@HierFileSystem@@UAEPAUFileInfo@@PAU2@@Z
     ARTS_EXPORT struct FileInfo* NextEntry(struct FileInfo* info) override;
 
-    // 0x560100 | ?OpenOn@HierFileSystem@@UAEPAVStream@@PADHPAXH@Z
+    // ?OpenOn@HierFileSystem@@UAEPAVStream@@PADHPAXH@Z
     ARTS_EXPORT Owner<class Stream> OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len) override;
 
-    // 0x560040 | ?QueryOn@HierFileSystem@@UAEHPAD@Z
+    // ?QueryOn@HierFileSystem@@UAEHPAD@Z
     ARTS_EXPORT b32 QueryOn(const char* path) override;
 
-    // 0x55FF80 | ?ValidPath@HierFileSystem@@UAEHPAD@Z
+    // ?ValidPath@HierFileSystem@@UAEHPAD@Z
     ARTS_EXPORT b32 ValidPath(const char* path) override;
 };
 
 check_size(HierFileSystem, 0x8);
 
-// 0x55FF90 | ?FQN@@YAPADPAD@Z
+// ?FQN@@YAPADPAD@Z
 ARTS_EXPORT const char* FQN(const char* path);
 
-// 0x907BC8 | ?HFS@@3VHierFileSystem@@A
+// ?HFS@@3VHierFileSystem@@A
 ARTS_EXPORT extern class HierFileSystem HFS;
 
-// 0x907BD0 | ?HierAllowPath@@3PADA
+// ?HierAllowPath@@3PADA
 ARTS_EXPORT extern char* HierAllowPath; // Null Separated
 
-// 0x907B40 | ?HierPrefix@@3PADA
+// ?HierPrefix@@3PADA
 ARTS_EXPORT extern char* HierPrefix;
 
-// 0x907BD4 | ?LogOpenOn@@3HA
+// ?LogOpenOn@@3HA
 ARTS_EXPORT extern b32 LogOpenOn;

@@ -42,53 +42,53 @@
 class CReverb
 {
 public:
-    // 0x4F4760 | ??0CReverb@@QAE@PAUIDirectSound3DBuffer@@@Z
+    // ??0CReverb@@QAE@PAUIDirectSound3DBuffer@@@Z
     ARTS_IMPORT CReverb(struct IDirectSound3DBuffer* arg1);
 
-    // 0x4F4800 | ??1CReverb@@QAE@XZ
+    // ??1CReverb@@QAE@XZ
     ARTS_IMPORT ~CReverb();
 
-    // 0x4F4A70 | ?GetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
+    // ?GetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
     ARTS_IMPORT void GetAll(struct EAX_REVERBPROPERTIES* arg1);
 
-    // 0x4F4A30 | ?GetDamping@CReverb@@QAEMXZ
+    // ?GetDamping@CReverb@@QAEMXZ
     ARTS_IMPORT f32 GetDamping();
 
-    // 0x4F49F0 | ?GetDecayTime@CReverb@@QAEMXZ
+    // ?GetDecayTime@CReverb@@QAEMXZ
     ARTS_IMPORT f32 GetDecayTime();
 
-    // 0x4F4970 | ?GetEnvironment@CReverb@@QAEKXZ
+    // ?GetEnvironment@CReverb@@QAEKXZ
     ARTS_IMPORT ulong GetEnvironment();
 
-    // 0x4F49B0 | ?GetVolume@CReverb@@QAEMXZ
+    // ?GetVolume@CReverb@@QAEMXZ
     ARTS_IMPORT f32 GetVolume();
 
-    // 0x4F4810 | ?PropertySetOk@CReverb@@QAEHXZ
+    // ?PropertySetOk@CReverb@@QAEHXZ
     ARTS_IMPORT i32 PropertySetOk();
 
-    // 0x4F48F0 | ?SetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z | unused
+    // ?SetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z | unused
     ARTS_IMPORT void SetAll(struct EAX_REVERBPROPERTIES* arg1);
 
-    // 0x4F48D0 | ?SetDamping@CReverb@@QAEXM@Z
+    // ?SetDamping@CReverb@@QAEXM@Z
     ARTS_IMPORT void SetDamping(f32 arg1);
 
-    // 0x4F48B0 | ?SetDecayTime@CReverb@@QAEXM@Z
+    // ?SetDecayTime@CReverb@@QAEXM@Z
     ARTS_IMPORT void SetDecayTime(f32 arg1);
 
-    // 0x4F4870 | ?SetEnvironment@CReverb@@QAEXK@Z
+    // ?SetEnvironment@CReverb@@QAEXK@Z
     ARTS_IMPORT void SetEnvironment(ulong arg1);
 
-    // 0x4F4950 | ?SetPreset@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
+    // ?SetPreset@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
     ARTS_IMPORT void SetPreset(struct EAX_REVERBPROPERTIES* arg1);
 
-    // 0x4F4910 | ?SetPreset@CReverb@@QAEXKMMM@Z
+    // ?SetPreset@CReverb@@QAEXKMMM@Z
     ARTS_IMPORT void SetPreset(ulong arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x4F4890 | ?SetVolume@CReverb@@QAEXM@Z
+    // ?SetVolume@CReverb@@QAEXM@Z
     ARTS_IMPORT void SetVolume(f32 arg1);
 
 private:
-    // 0x4F4820 | ?QueryProperty@CReverb@@AAEHK@Z
+    // ?QueryProperty@CReverb@@AAEHK@Z
     ARTS_IMPORT i32 QueryProperty(ulong arg1);
 
     u8 gap0[0x4];

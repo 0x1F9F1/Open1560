@@ -36,31 +36,31 @@
 
 class mmShock final : public asLinearCS
 {
-    // const mmShock::`vftable' @ 0x61C640
+    // const mmShock::`vftable'
 
 public:
-    // 0x47D1F0 | ??0mmShock@@QAE@XZ
+    // ??0mmShock@@QAE@XZ
     ARTS_IMPORT mmShock();
 
-    // 0x47D420 | ??_EmmShock@@UAEPAXI@Z
-    // 0x470380 | ??1mmShock@@UAE@XZ | inline
+    // ??_EmmShock@@UAEPAXI@Z
+    // ??1mmShock@@UAE@XZ | inline
     ARTS_IMPORT ~mmShock() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x47D280 | ?AddWidgets@mmShock@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmShock@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x47D410 | ?GetClass@mmShock@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmShock@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x47D210 | ?Init@mmShock@@QAEXPAD0PAVmmWheel@@@Z | unused
+    // ?Init@mmShock@@QAEXPAD0PAVmmWheel@@@Z | unused
     ARTS_IMPORT void Init(char* arg1, char* arg2, class mmWheel* arg3);
 
-    // 0x47D270 | ?Update@mmShock@@UAEXXZ
+    // ?Update@mmShock@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x47D2A0 | ?DeclareFields@mmShock@@SAXXZ
+    // ?DeclareFields@mmShock@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x10];
@@ -68,5 +68,5 @@ public:
 
 check_size(mmShock, 0x98);
 
-// 0x6A8058 | ?mmShockMetaClass@@3VMetaClass@@A
+// ?mmShockMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmShockMetaClass;

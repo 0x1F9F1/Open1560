@@ -28,16 +28,16 @@
     0x90AEA8 | int beginStackCount | ?beginStackCount@@3HA
 */
 
-// 0x578B20 | ?BeginMemStat@@YAXPBD@Z
+// ?BeginMemStat@@YAXPBD@Z
 ARTS_EXPORT void BeginMemStat(char const* name);
 
-// 0x578BB0 | ?EndMemStat@@YAXXZ
+// ?EndMemStat@@YAXXZ
 ARTS_EXPORT void EndMemStat();
 
-// 0x6620A8 | ?EnableMemStat@@3HA
+// ?EnableMemStat@@3HA
 ARTS_IMPORT extern i32 EnableMemStat;
 
-// 0x90AEA8 | ?beginStackCount@@3HA
+// ?beginStackCount@@3HA
 ARTS_IMPORT extern i32 beginStackCount;
 
 struct MemStat

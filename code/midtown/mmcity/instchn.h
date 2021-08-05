@@ -41,36 +41,36 @@
 struct mmInstChain
 {
 public:
-    // 0x492280 | ??0mmInstChain@@QAE@XZ
+    // ??0mmInstChain@@QAE@XZ
     ARTS_IMPORT mmInstChain();
 
-    // 0x492290 | ??1mmInstChain@@QAE@XZ
+    // ??1mmInstChain@@QAE@XZ
     ARTS_IMPORT ~mmInstChain();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x492980 | ?AddWidgets@mmInstChain@@QAEXPAVBank@@@Z
+    // ?AddWidgets@mmInstChain@@QAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1);
 #endif
 
-    // 0x4924C0 | ?Draw@mmInstChain@@QAEXFFIHM@Z
+    // ?Draw@mmInstChain@@QAEXFFIHM@Z
     ARTS_IMPORT void Draw(i16 arg1, i16 arg2, u32 arg3, i32 arg4, f32 arg5);
 
-    // 0x4922B0 | ?Init@mmInstChain@@QAEXH@Z
+    // ?Init@mmInstChain@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x492310 | ?Parent@mmInstChain@@QAEXPAVmmInstance@@F@Z
+    // ?Parent@mmInstChain@@QAEXPAVmmInstance@@F@Z
     ARTS_IMPORT void Parent(class mmInstance* arg1, i16 arg2);
 
-    // 0x492490 | ?Relight@mmInstChain@@QAEXF@Z
+    // ?Relight@mmInstChain@@QAEXF@Z
     ARTS_IMPORT void Relight(i16 arg1);
 
-    // 0x492470 | ?RelightEverything@mmInstChain@@QAEXXZ
+    // ?RelightEverything@mmInstChain@@QAEXXZ
     ARTS_IMPORT void RelightEverything();
 
-    // 0x492440 | ?Reparent@mmInstChain@@QAEXPAVmmInstance@@F@Z
+    // ?Reparent@mmInstChain@@QAEXPAVmmInstance@@F@Z
     ARTS_IMPORT void Reparent(class mmInstance* arg1, i16 arg2);
 
-    // 0x4923A0 | ?Unparent@mmInstChain@@QAEXPAVmmInstance@@@Z
+    // ?Unparent@mmInstChain@@QAEXPAVmmInstance@@@Z
     ARTS_IMPORT void Unparent(class mmInstance* arg1);
 
     u8 gap0[0xC];
@@ -78,17 +78,17 @@ public:
 
 check_size(mmInstChain, 0xC);
 
-// 0x63F6B4 | ?EnableSphereCull@@3HA
+// ?EnableSphereCull@@3HA
 ARTS_IMPORT extern i32 EnableSphereCull;
 
-// 0x6ED4E8 | ?LabelInstances@@3HA
+// ?LabelInstances@@3HA
 ARTS_IMPORT extern i32 LabelInstances;
 
-// 0x6ED4F0 | ?NormalsOnInstances@@3HA
+// ?NormalsOnInstances@@3HA
 ARTS_IMPORT extern i32 NormalsOnInstances;
 
-// 0x6ED4EC | ?WorstCount@@3HA
+// ?WorstCount@@3HA
 ARTS_IMPORT extern i32 WorstCount;
 
-// 0x6ED4E4 | ?WorstRoom@@3HA
+// ?WorstRoom@@3HA
 ARTS_IMPORT extern i32 WorstRoom;

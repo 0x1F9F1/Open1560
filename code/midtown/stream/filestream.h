@@ -47,55 +47,55 @@
 
 class FileStream final : public Stream
 {
-    // const FileStream::`vftable' @ 0x6219F8
+    // const FileStream::`vftable'
 
 public:
-    // 0x5618E0 | ??0FileStream@@QAE@H@Z
+    // ??0FileStream@@QAE@H@Z
     ARTS_EXPORT FileStream(i32 handle);
 
-    // 0x5617F0 | ??0FileStream@@QAE@PAXHPAVFileSystem@@@Z
+    // ??0FileStream@@QAE@PAXHPAVFileSystem@@@Z
     ARTS_EXPORT FileStream(void* buffer, isize buffer_size, class FileSystem* file_system);
 
-    // 0x561B10 | ??_EFileStream@@UAEPAXI@Z
-    // 0x561A60 | ??1FileStream@@UAE@XZ
+    // ??_EFileStream@@UAEPAXI@Z
+    // ??1FileStream@@UAE@XZ
     ARTS_EXPORT ~FileStream() override;
 
-    // 0x561A20 | ?Close@FileStream@@QAEHXZ
+    // ?Close@FileStream@@QAEHXZ
     ARTS_EXPORT i32 Close();
 
-    // 0x561840 | ?Create@FileStream@@QAEHPAD@Z
+    // ?Create@FileStream@@QAEHPAD@Z
     ARTS_EXPORT i32 Create(const char* path);
 
     void* GetMapping() override;
 
-    // 0x561830 | ?GetPagerHandle@FileStream@@UAEIXZ
+    // ?GetPagerHandle@FileStream@@UAEIXZ
     ARTS_EXPORT usize GetPagerHandle() override;
 
-    // 0x561870 | ?Open@FileStream@@QAEHPADH@Z
+    // ?Open@FileStream@@QAEHPADH@Z
     ARTS_EXPORT i32 Open(const char* path, b32 read_only);
 
-    // 0x561970 | ?RawRead@FileStream@@UAEHPAXH@Z
+    // ?RawRead@FileStream@@UAEHPAXH@Z
     ARTS_EXPORT isize RawRead(void* ptr, isize size) override;
 
-    // 0x5619B0 | ?RawSeek@FileStream@@UAEHH@Z
+    // ?RawSeek@FileStream@@UAEHH@Z
     ARTS_EXPORT i32 RawSeek(i32 pos) override;
 
-    // 0x5619F0 | ?RawSize@FileStream@@UAEHXZ
+    // ?RawSize@FileStream@@UAEHXZ
     ARTS_EXPORT i32 RawSize() override;
 
-    // 0x5619D0 | ?RawTell@FileStream@@UAEHXZ
+    // ?RawTell@FileStream@@UAEHXZ
     ARTS_EXPORT i32 RawTell() override;
 
-    // 0x561990 | ?RawWrite@FileStream@@UAEHPAXH@Z
+    // ?RawWrite@FileStream@@UAEHPAXH@Z
     ARTS_EXPORT isize RawWrite(const void* ptr, isize size) override;
 
-    // 0x561950 | ?Stderr@FileStream@@QAEHXZ | unused
+    // ?Stderr@FileStream@@QAEHXZ | unused
     ARTS_EXPORT i32 Stderr();
 
-    // 0x561910 | ?Stdin@FileStream@@QAEHXZ
+    // ?Stdin@FileStream@@QAEHXZ
     ARTS_EXPORT i32 Stdin();
 
-    // 0x561930 | ?Stdout@FileStream@@QAEHXZ
+    // ?Stdout@FileStream@@QAEHXZ
     ARTS_EXPORT i32 Stdout();
 
 protected:
@@ -109,8 +109,8 @@ private:
 
 // check_size(FileStream, 0x28);
 
-// 0x908C08 | ?__stdin@@3VFileStream@@A
+// ?__stdin@@3VFileStream@@A
 ARTS_EXPORT extern class FileStream __stdin;
 
-// 0x908BE0 | ?__stdout@@3VFileStream@@A
+// ?__stdout@@3VFileStream@@A
 ARTS_EXPORT extern class FileStream __stdout;

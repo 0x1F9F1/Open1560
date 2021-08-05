@@ -26,10 +26,10 @@ define_dummy_symbol(mmgame_interface);
 #include "mmcityinfo/state.h"
 #include "mmnetwork/network.h"
 
-// 0x409CD0 | ?IsModemDialin@@YA_NXZ
+// ?IsModemDialin@@YA_NXZ
 ARTS_IMPORT /*static*/ bool IsModemDialin();
 
-// 0x409D50 | ?ZoneWatcher@@YGKPAX@Z
+// ?ZoneWatcher@@YGKPAX@Z
 ARTS_IMPORT /*static*/ ulong ARTS_STDCALL ZoneWatcher(void* arg1);
 
 void mmInterface::SetStateRace(i32 /*arg1*/)

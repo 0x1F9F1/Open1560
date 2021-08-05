@@ -47,56 +47,56 @@
 
 class aiGoalRandomDrive final : public aiGoal
 {
-    // const aiGoalRandomDrive::`vftable' @ 0x61BAE0
+    // const aiGoalRandomDrive::`vftable'
 
 public:
-    // 0x45C7E0 | ??0aiGoalRandomDrive@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
+    // ??0aiGoalRandomDrive@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
     ARTS_IMPORT aiGoalRandomDrive(class aiRailSet* arg1, class aiVehicleSpline* arg2);
 
-    // 0x45C8A0 | ??1aiGoalRandomDrive@@QAE@XZ
+    // ??1aiGoalRandomDrive@@QAE@XZ
     ARTS_IMPORT ~aiGoalRandomDrive() = default;
 
-    // 0x45D440 | ?Context@aiGoalRandomDrive@@UAEHXZ
+    // ?Context@aiGoalRandomDrive@@UAEHXZ
     ARTS_IMPORT i32 Context() override;
 
-    // 0x45F690 | ?Dump@aiGoalRandomDrive@@QAEXXZ
+    // ?Dump@aiGoalRandomDrive@@QAEXXZ
     ARTS_IMPORT void Dump();
 
-    // 0x45C8B0 | ?Init@aiGoalRandomDrive@@UAEXXZ
+    // ?Init@aiGoalRandomDrive@@UAEXXZ
     ARTS_IMPORT void Init() override;
 
-    // 0x45D460 | ?Priority@aiGoalRandomDrive@@UAEHXZ
+    // ?Priority@aiGoalRandomDrive@@UAEHXZ
     ARTS_IMPORT i32 Priority() override;
 
-    // 0x45C8D0 | ?Reset@aiGoalRandomDrive@@UAEXXZ
+    // ?Reset@aiGoalRandomDrive@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x45E250 | ?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z | unused
+    // ?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z | unused
     ARTS_IMPORT void SolvePosition(class Vector3& arg1, f32 arg2);
 
-    // 0x45D320 | ?Update@aiGoalRandomDrive@@UAEXXZ
+    // ?Update@aiGoalRandomDrive@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
-    // 0x45DE10 | ?AnyVehiclesComingThisWay@aiGoalRandomDrive@@AAEHXZ
+    // ?AnyVehiclesComingThisWay@aiGoalRandomDrive@@AAEHXZ
     ARTS_IMPORT i32 AnyVehiclesComingThisWay();
 
-    // 0x45E020 | ?AvoidCollision@aiGoalRandomDrive@@AAEXPAVaiVehicleSpline@@M@Z
+    // ?AvoidCollision@aiGoalRandomDrive@@AAEXPAVaiVehicleSpline@@M@Z
     ARTS_IMPORT void AvoidCollision(class aiVehicleSpline* arg1, f32 arg2);
 
-    // 0x45F1A0 | ?ChangeLanes@aiGoalRandomDrive@@AAEXXZ
+    // ?ChangeLanes@aiGoalRandomDrive@@AAEXXZ
     ARTS_IMPORT void ChangeLanes();
 
-    // 0x45DC00 | ?OkayToEnterIntersection@aiGoalRandomDrive@@AAEHXZ
+    // ?OkayToEnterIntersection@aiGoalRandomDrive@@AAEHXZ
     ARTS_IMPORT i32 OkayToEnterIntersection();
 
-    // 0x45F0B0 | ?SolveLane@aiGoalRandomDrive@@AAEXXZ
+    // ?SolveLane@aiGoalRandomDrive@@AAEXXZ
     ARTS_IMPORT void SolveLane();
 
-    // 0x45E2A0 | ?SolveRailType@aiGoalRandomDrive@@AAEXXZ
+    // ?SolveRailType@aiGoalRandomDrive@@AAEXXZ
     ARTS_IMPORT void SolveRailType();
 
-    // 0x45D470 | ?SolveVelocity@aiGoalRandomDrive@@AAEXXZ
+    // ?SolveVelocity@aiGoalRandomDrive@@AAEXXZ
     ARTS_IMPORT void SolveVelocity();
 
     u8 gap8[0xC];

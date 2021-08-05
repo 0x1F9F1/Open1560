@@ -47,36 +47,36 @@
 
 class agiSWTexDef final : public agiTexDef
 {
-    // const agiSWTexDef::`vftable' @ 0x6212D8
+    // const agiSWTexDef::`vftable'
 
 public:
-    // 0x5376D0 | ??0agiSWTexDef@@QAE@PAVagiSWPipeline@@@Z
+    // ??0agiSWTexDef@@QAE@PAVagiSWPipeline@@@Z
     ARTS_IMPORT agiSWTexDef(class agiSWPipeline* arg1);
 
-    // 0x537B40 | ??_GagiSWTexDef@@UAEPAXI@Z
-    // 0x537B40 | ??_EagiSWTexDef@@UAEPAXI@Z
-    // 0x537700 | ??1agiSWTexDef@@UAE@XZ
+    // ??_GagiSWTexDef@@UAEPAXI@Z
+    // ??_EagiSWTexDef@@UAEPAXI@Z
+    // ??1agiSWTexDef@@UAE@XZ
     ARTS_IMPORT ~agiSWTexDef() override = default;
 
-    // 0x537730 | ?BeginGfx@agiSWTexDef@@UAEHXZ
+    // ?BeginGfx@agiSWTexDef@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
-    // 0x537820 | ?EndGfx@agiSWTexDef@@UAEXXZ
+    // ?EndGfx@agiSWTexDef@@UAEXXZ
     ARTS_IMPORT void EndGfx() override;
 
-    // 0x537810 | ?IsAvailable@agiSWTexDef@@UAEHXZ
+    // ?IsAvailable@agiSWTexDef@@UAEHXZ
     ARTS_IMPORT b32 IsAvailable() override;
 
-    // 0x537870 | ?Lock@agiSWTexDef@@UAEHAAUagiTexLock@@@Z
+    // ?Lock@agiSWTexDef@@UAEHAAUagiTexLock@@@Z
     ARTS_IMPORT b32 Lock(struct agiTexLock& arg1) override;
 
-    // 0x5378D0 | ?Request@agiSWTexDef@@UAEXXZ
+    // ?Request@agiSWTexDef@@UAEXXZ
     ARTS_IMPORT void Request() override;
 
-    // 0x537710 | ?Set@agiSWTexDef@@UAEXAAVVector2@@0@Z
+    // ?Set@agiSWTexDef@@UAEXAAVVector2@@0@Z
     ARTS_IMPORT void Set(class Vector2& arg1, class Vector2& arg2) override;
 
-    // 0x5378C0 | ?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z
+    // ?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z
     ARTS_EXPORT void Unlock(struct agiTexLock& arg1) override;
 
     u8 gap74[0x28];
@@ -86,21 +86,21 @@ check_size(agiSWTexDef, 0x9C);
 
 class agiSWTexLut final : public agiTexLut
 {
-    // const agiSWTexLut::`vftable' @ 0x621308
+    // const agiSWTexLut::`vftable'
 
 public:
-    // 0x537930 | ??0agiSWTexLut@@QAE@PAVagiSWPipeline@@@Z
+    // ??0agiSWTexLut@@QAE@PAVagiSWPipeline@@@Z
     ARTS_IMPORT agiSWTexLut(class agiSWPipeline* arg1);
 
-    // 0x537B70 | ??_GagiSWTexLut@@UAEPAXI@Z
-    // 0x537B70 | ??_EagiSWTexLut@@UAEPAXI@Z
-    // 0x537BA0 | ??1agiSWTexLut@@UAE@XZ | inline
+    // ??_GagiSWTexLut@@UAEPAXI@Z
+    // ??_EagiSWTexLut@@UAEPAXI@Z
+    // ??1agiSWTexLut@@UAE@XZ | inline
     ARTS_IMPORT ~agiSWTexLut() override = default;
 
-    // 0x537950 | ?BeginGfx@agiSWTexLut@@UAEHXZ
+    // ?BeginGfx@agiSWTexLut@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
-    // 0x537B30 | ?EndGfx@agiSWTexLut@@UAEXXZ
+    // ?EndGfx@agiSWTexLut@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
     u32 fog_color_ {0};
@@ -109,5 +109,5 @@ public:
 
 check_size(agiSWTexLut, 0x1420);
 
-// 0x652304 | ?swLutInvGamma@@3MA
+// ?swLutInvGamma@@3MA
 ARTS_IMPORT extern f32 swLutInvGamma;

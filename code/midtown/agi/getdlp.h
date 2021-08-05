@@ -30,20 +30,20 @@
     0x8FAFE0 | int FlagGetDLPTemplateCalls | ?FlagGetDLPTemplateCalls@@3HA
 */
 
-// 0x556A30 | ?CheckLibraries@@YAXXZ
+// ?CheckLibraries@@YAXXZ
 ARTS_IMPORT void CheckLibraries();
 
-// 0x556B60 | ?GetDLPTemplate@@YAPAVDLPTemplate@@PAD@Z
+// ?GetDLPTemplate@@YAPAVDLPTemplate@@PAD@Z
 ARTS_IMPORT class DLPTemplate* GetDLPTemplate(char* arg1);
 
-// 0x556DF0 | ?GetGroupVerts@@YAHPAD0PAVVector3@@H@Z | unused
+// ?GetGroupVerts@@YAHPAD0PAVVector3@@H@Z | unused
 ARTS_IMPORT i32 GetGroupVerts(char* arg1, char* arg2, class Vector3* arg3, i32 arg4);
 
-// 0x5569D0 | ?OutOfDate@@YAHPAD0@Z
+// ?OutOfDate@@YAHPAD0@Z
 ARTS_EXPORT b32 OutOfDate(char* lhs, char* rhs);
 
-// 0x8FAFD0 | ?DLPTemplateBadHash@@3VHashTable@@A
+// ?DLPTemplateBadHash@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable DLPTemplateBadHash;
 
-// 0x8FAFE0 | ?FlagGetDLPTemplateCalls@@3HA
+// ?FlagGetDLPTemplateCalls@@3HA
 ARTS_IMPORT extern i32 FlagGetDLPTemplateCalls;

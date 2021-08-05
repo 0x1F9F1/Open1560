@@ -25,8 +25,8 @@
     0x6622CC | int DevelopmentMode | ?DevelopmentMode@@3HA
 */
 
-// 0x5790A0 | ?HexDump@@YAXPAXH@Z
+// ?HexDump@@YAXPAXH@Z
 ARTS_EXPORT void HexDump(const void* data, i32 length);
 
-// 0x6622CC | ?DevelopmentMode@@3HA
+// ?DevelopmentMode@@3HA
 ARTS_IMPORT extern b32 DevelopmentMode;

@@ -62,100 +62,100 @@
 
 class aiVehiclePolice final : public aiVehicleSpline
 {
-    // const aiVehiclePolice::`vftable' @ 0x61B538
+    // const aiVehiclePolice::`vftable'
 
 public:
-    // 0x444790 | ??0aiVehiclePolice@@QAE@XZ
+    // ??0aiVehiclePolice@@QAE@XZ
     ARTS_IMPORT aiVehiclePolice();
 
-    // 0x43BF50 | ??_EaiVehiclePolice@@QAEPAXI@Z | unused
-    // 0x4447F0 | ??1aiVehiclePolice@@QAE@XZ
+    // ??_EaiVehiclePolice@@QAEPAXI@Z | unused
+    // ??1aiVehiclePolice@@QAE@XZ
     ARTS_IMPORT ~aiVehiclePolice();
 
-    // 0x446370 | ?AssignSounds@aiVehiclePolice@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
+    // ?AssignSounds@aiVehiclePolice@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
     ARTS_IMPORT void AssignSounds(class AudSound* arg1, class AudSound* arg2, class AudSound* arg3,
         class AudSound* arg4, class mmOpponentImpactAudio* arg5, class AudSound* arg6);
 
-    // 0x445F20 | ?Backup@aiVehiclePolice@@QAEXXZ | unused
+    // ?Backup@aiVehiclePolice@@QAEXXZ | unused
     ARTS_IMPORT void Backup();
 
-    // 0x445E20 | ?ConfigCar@aiVehiclePolice@@QAEXXZ
+    // ?ConfigCar@aiVehiclePolice@@QAEXXZ
     ARTS_IMPORT void ConfigCar();
 
-    // 0x4460B0 | ?DrawDamage@aiVehiclePolice@@QAEXXZ | unused
+    // ?DrawDamage@aiVehiclePolice@@QAEXXZ | unused
     ARTS_IMPORT void DrawDamage();
 
-    // 0x446100 | ?DrawId@aiVehiclePolice@@UAEXXZ
+    // ?DrawId@aiVehiclePolice@@UAEXXZ
     ARTS_IMPORT void DrawId() override;
 
-    // 0x445F40 | ?DrawTargetPt@aiVehiclePolice@@QAEXXZ
+    // ?DrawTargetPt@aiVehiclePolice@@QAEXXZ
     ARTS_IMPORT void DrawTargetPt();
 
-    // 0x4463B0 | ?Dump@aiVehiclePolice@@QAEXXZ
+    // ?Dump@aiVehiclePolice@@QAEXXZ
     ARTS_IMPORT void Dump();
 
-    // 0x4463A0 | ?GetAudioPtr@aiVehiclePolice@@QAEPAVmmPoliceCarAudio@@XZ
+    // ?GetAudioPtr@aiVehiclePolice@@QAEPAVmmPoliceCarAudio@@XZ
     ARTS_IMPORT class mmPoliceCarAudio* GetAudioPtr();
 
-    // 0x446170 | ?GetCarAudioPtr@aiVehiclePolice@@QAEPAVmmPoliceCarAudio@@XZ
+    // ?GetCarAudioPtr@aiVehiclePolice@@QAEPAVmmPoliceCarAudio@@XZ
     ARTS_IMPORT class mmPoliceCarAudio* GetCarAudioPtr();
 
-    // 0x446270 | ?GetDistanceToPlayer2@aiVehiclePolice@@QAEMXZ
+    // ?GetDistanceToPlayer2@aiVehiclePolice@@QAEMXZ
     ARTS_IMPORT f32 GetDistanceToPlayer2();
 
-    // 0x446180 | ?GetEngineSoundIndex@aiVehiclePolice@@QAEHXZ
+    // ?GetEngineSoundIndex@aiVehiclePolice@@QAEHXZ
     ARTS_IMPORT i32 GetEngineSoundIndex();
 
-    // 0x4459D0 | ?InPersuit@aiVehiclePolice@@QAEHXZ
+    // ?InPersuit@aiVehiclePolice@@QAEHXZ
     ARTS_IMPORT i32 InPersuit();
 
-    // 0x444930 | ?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z
+    // ?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z
     ARTS_IMPORT void Init(i32 arg1, class aiRaceData* arg2);
 
-    // 0x445A00 | ?IsPerpInRange@aiVehiclePolice@@QAEHPAVmmCar@@@Z | unused
+    // ?IsPerpInRange@aiVehiclePolice@@QAEHPAVmmCar@@@Z | unused
     ARTS_IMPORT i32 IsPerpInRange(class mmCar* arg1);
 
-    // 0x445DB0 | ?PerpEscapes@aiVehiclePolice@@QAEXE@Z
+    // ?PerpEscapes@aiVehiclePolice@@QAEXE@Z
     ARTS_IMPORT void PerpEscapes(u8 arg1);
 
-    // 0x446280 | ?PlayVoice@aiVehiclePolice@@QAEXXZ
+    // ?PlayVoice@aiVehiclePolice@@QAEXXZ
     ARTS_IMPORT void PlayVoice();
 
-    // 0x444B40 | ?Reset@aiVehiclePolice@@UAEXXZ
+    // ?Reset@aiVehiclePolice@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4451D0 | ?ResetPed@aiVehiclePolice@@QAEXXZ
+    // ?ResetPed@aiVehiclePolice@@QAEXXZ
     ARTS_IMPORT void ResetPed();
 
-    // 0x4462E0 | ?SetAudioCloserMinDistMult@aiVehiclePolice@@QAEXM@Z
+    // ?SetAudioCloserMinDistMult@aiVehiclePolice@@QAEXM@Z
     ARTS_IMPORT void SetAudioCloserMinDistMult(f32 arg1);
 
-    // 0x4462B0 | ?SetAudioMaxDistance@aiVehiclePolice@@QAEXM@Z
+    // ?SetAudioMaxDistance@aiVehiclePolice@@QAEXM@Z
     ARTS_IMPORT void SetAudioMaxDistance(f32 arg1);
 
-    // 0x446290 | ?SetAudioMinDistance@aiVehiclePolice@@QAEXM@Z
+    // ?SetAudioMinDistance@aiVehiclePolice@@QAEXM@Z
     ARTS_IMPORT void SetAudioMinDistance(f32 arg1);
 
-    // 0x446190 | ?SetMainSirenLoop@aiVehiclePolice@@QAEXH@Z
+    // ?SetMainSirenLoop@aiVehiclePolice@@QAEXH@Z
     ARTS_IMPORT void SetMainSirenLoop(i32 arg1);
 
-    // 0x446620 | ?Type@aiVehiclePolice@@UAEHXZ | inline
+    // ?Type@aiVehiclePolice@@UAEHXZ | inline
     ARTS_IMPORT i32 Type() override;
 
-    // 0x446150 | ?UnAssignSounds@aiVehiclePolice@@QAEXXZ
+    // ?UnAssignSounds@aiVehiclePolice@@QAEXXZ
     ARTS_IMPORT void UnAssignSounds();
 
-    // 0x4453D0 | ?Update@aiVehiclePolice@@UAEXXZ
+    // ?Update@aiVehiclePolice@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4461B0 | ?UpdateAudio@aiVehiclePolice@@QAEXXZ
+    // ?UpdateAudio@aiVehiclePolice@@QAEXXZ
     ARTS_IMPORT void UpdateAudio();
 
 private:
-    // 0x446300 | ?AddToAiAudMgr@aiVehiclePolice@@AAEXXZ
+    // ?AddToAiAudMgr@aiVehiclePolice@@AAEXXZ
     ARTS_IMPORT void AddToAiAudMgr();
 
-    // 0x445C70 | ?FindPerp@aiVehiclePolice@@AAEHHHPAVaiPath@@HH@Z
+    // ?FindPerp@aiVehiclePolice@@AAEHHHPAVaiPath@@HH@Z
     ARTS_IMPORT i32 FindPerp(i32 arg1, i32 arg2, class aiPath* arg3, i32 arg4, i32 arg5);
 
     u8 gapD8[0x2344];

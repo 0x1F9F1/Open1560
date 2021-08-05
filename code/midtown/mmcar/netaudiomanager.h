@@ -52,70 +52,70 @@
 
 class NetAudioManager final : public asNode
 {
-    // const NetAudioManager::`vftable' @ 0x61C1C8
+    // const NetAudioManager::`vftable'
 
 public:
-    // 0x4751D0 | ??0NetAudioManager@@QAE@XZ
+    // ??0NetAudioManager@@QAE@XZ
     ARTS_IMPORT NetAudioManager();
 
-    // 0x4777E0 | ??_ENetAudioManager@@UAEPAXI@Z
-    // 0x4777E0 | ??_GNetAudioManager@@UAEPAXI@Z
-    // 0x4753B0 | ??1NetAudioManager@@UAE@XZ
+    // ??_ENetAudioManager@@UAEPAXI@Z
+    // ??_GNetAudioManager@@UAEPAXI@Z
+    // ??1NetAudioManager@@UAE@XZ
     ARTS_IMPORT ~NetAudioManager() override;
 
-    // 0x475770 | ?AddVehicle@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z
+    // ?AddVehicle@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z
     ARTS_IMPORT i16 AddVehicle(class mmNetworkCarAudio* arg1);
 
-    // 0x476D20 | ?AllocateAddOnEngine@NetAudioManager@@QAEFPAD@Z
+    // ?AllocateAddOnEngine@NetAudioManager@@QAEFPAD@Z
     ARTS_IMPORT i16 AllocateAddOnEngine(char* arg1);
 
-    // 0x476EF0 | ?AllocateEngine@NetAudioManager@@QAEPAPAVAudSound@@PAD@Z
+    // ?AllocateEngine@NetAudioManager@@QAEPAPAVAudSound@@PAD@Z
     ARTS_IMPORT class AudSound** AllocateEngine(char* arg1);
 
-    // 0x476BA0 | ?AllocateEngine@NetAudioManager@@QAEXF@Z
+    // ?AllocateEngine@NetAudioManager@@QAEXF@Z
     ARTS_IMPORT void AllocateEngine(i16 arg1);
 
-    // 0x477170 | ?AllocateHorn@NetAudioManager@@QAEXF@Z
+    // ?AllocateHorn@NetAudioManager@@QAEXF@Z
     ARTS_IMPORT void AllocateHorn(i16 arg1);
 
-    // 0x4775E0 | ?AllocateImpacts@NetAudioManager@@QAEXXZ
+    // ?AllocateImpacts@NetAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateImpacts();
 
-    // 0x477670 | ?AllocatePoliceSiren@NetAudioManager@@QAEXXZ
+    // ?AllocatePoliceSiren@NetAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocatePoliceSiren();
 
-    // 0x477020 | ?AllocateReverseBeep@NetAudioManager@@QAEXXZ
+    // ?AllocateReverseBeep@NetAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateReverseBeep();
 
-    // 0x477360 | ?AllocateSkids@NetAudioManager@@QAEXXZ
+    // ?AllocateSkids@NetAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateSkids();
 
-    // 0x476000 | ?AssignSounds@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z
+    // ?AssignSounds@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z
     ARTS_IMPORT void AssignSounds(class mmNetworkCarAudio* arg1, i16 arg2);
 
-    // 0x475E70 | ?EchoOff@NetAudioManager@@QAEXXZ
+    // ?EchoOff@NetAudioManager@@QAEXXZ
     ARTS_IMPORT void EchoOff();
 
-    // 0x475B00 | ?EchoOn@NetAudioManager@@QAEXM@Z
+    // ?EchoOn@NetAudioManager@@QAEXM@Z
     ARTS_IMPORT void EchoOn(f32 arg1);
 
-    // 0x475860 | ?FindGreatestDistance@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z
+    // ?FindGreatestDistance@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z
     ARTS_IMPORT i16 FindGreatestDistance(class mmNetworkCarAudio* arg1);
 
-    // 0x475900 | ?FindUnusedSlot@NetAudioManager@@QAEFXZ
+    // ?FindUnusedSlot@NetAudioManager@@QAEFXZ
     ARTS_IMPORT i16 FindUnusedSlot();
 
-    // 0x476B60 | ?GetAvailableDistance@NetAudioManager@@QAEMXZ
+    // ?GetAvailableDistance@NetAudioManager@@QAEMXZ
     ARTS_IMPORT f32 GetAvailableDistance();
 
-    // 0x475800 | ?RemoveVehicle@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z
+    // ?RemoveVehicle@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z
     ARTS_IMPORT void RemoveVehicle(class mmNetworkCarAudio* arg1, i16 arg2);
 
-    // 0x475940 | ?Update@NetAudioManager@@UAEXXZ
+    // ?Update@NetAudioManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
-    // 0x476940 | ?AssignAddOnSounds@NetAudioManager@@AAEXPAVmmNetworkCarAudio@@F@Z
+    // ?AssignAddOnSounds@NetAudioManager@@AAEXPAVmmNetworkCarAudio@@F@Z
     ARTS_IMPORT void AssignAddOnSounds(class mmNetworkCarAudio* arg1, i16 arg2);
 
     u8 gap20[0x54];
@@ -123,5 +123,5 @@ private:
 
 check_size(NetAudioManager, 0x74);
 
-// 0x6A7E98 | ?NETAUDMGRPTR@@3PAVNetAudioManager@@A
+// ?NETAUDMGRPTR@@3PAVNetAudioManager@@A
 ARTS_IMPORT extern class NetAudioManager* NETAUDMGRPTR;

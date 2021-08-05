@@ -28,7 +28,7 @@ define_dummy_symbol(data7_metatype);
 
 struct PtrToType final : MetaType
 {
-    // const PtrToType::`vftable' @ 0x620AB8
+    // const PtrToType::`vftable'
 
     PtrToType(MetaType* target)
         : TargetType(target)
@@ -36,29 +36,29 @@ struct PtrToType final : MetaType
 
     MetaType* TargetType {nullptr};
 
-    // 0x57B5E0 | ?Delete@PtrToType@@UAEXPAXH@Z
+    // ?Delete@PtrToType@@UAEXPAXH@Z
     ARTS_EXPORT void Delete(void*, isize) override
     {}
 
-    // 0x57B5B0 | ?Load@PtrToType@@UAEXPAVMiniParser@@PAX@Z
+    // ?Load@PtrToType@@UAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Load(class MiniParser* parser, void*) override
     {
         parser->Match(MiniParser::LabelRefToken);
     }
 
-    // 0x57B5D0 | ?New@PtrToType@@UAEPAXH@Z
+    // ?New@PtrToType@@UAEPAXH@Z
     ARTS_EXPORT void* New(isize) override
     {
         return nullptr;
     }
 
-    // 0x57B590 | ?Save@PtrToType@@UAEXPAVMiniParser@@PAX@Z
+    // ?Save@PtrToType@@UAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
     {
         parser->PlaceLabelRef(*static_cast<void**>(ptr));
     }
 
-    // 0x57B5F0 | ?SizeOf@PtrToType@@UAEIXZ
+    // ?SizeOf@PtrToType@@UAEIXZ
     ARTS_EXPORT usize SizeOf() override
     {
         return sizeof(void*);
@@ -74,7 +74,7 @@ ARTS_NOINLINE struct MetaType* PtrTo(struct MetaType* target)
 
 struct StructType final : MetaType
 {
-    // const StructType::`vftable' @ 0x61BEE8
+    // const StructType::`vftable'
 
     StructType(MetaClass* target)
         : TargetClass(target)
@@ -82,31 +82,31 @@ struct StructType final : MetaType
 
     MetaClass* TargetClass {nullptr};
 
-    // 0x57B9D0 | ?Delete@StructType@@UAEXPAXH@Z
+    // ?Delete@StructType@@UAEXPAXH@Z
     ARTS_EXPORT void Delete(void* ptr, isize count) override
     {
         TargetClass->Free(ptr, count);
     }
 
-    // 0x57B980 | ?Load@StructType@@UAEXPAVMiniParser@@PAX@Z
+    // ?Load@StructType@@UAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Load(class MiniParser* parser, void* ptr) override
     {
         TargetClass->Load(parser, ptr);
     }
 
-    // 0x57B9B0 | ?New@StructType@@UAEPAXH@Z
+    // ?New@StructType@@UAEPAXH@Z
     ARTS_EXPORT void* New(isize count) override
     {
         return TargetClass->Allocate(count);
     }
 
-    // 0x57B960 | ?Save@StructType@@UAEXPAVMiniParser@@PAX@Z
+    // ?Save@StructType@@UAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
     {
         TargetClass->Save(parser, ptr);
     }
 
-    // 0x57B9A0 | ?SizeOf@StructType@@UAEIXZ
+    // ?SizeOf@StructType@@UAEIXZ
     ARTS_EXPORT usize SizeOf() override
     {
         return TargetClass->GetSize();
@@ -122,34 +122,34 @@ ARTS_NOINLINE struct MetaType* Struct(class MetaClass* target)
 
 struct SignedIntType final : MetaType
 {
-    // const SignedIntType::`vftable' @ 0x621E28
+    // const SignedIntType::`vftable'
 
 public:
-    // 0x57BE90 | ?Delete@SignedIntType@@UAEXPAXH@Z
+    // ?Delete@SignedIntType@@UAEXPAXH@Z
     ARTS_EXPORT void Delete(void* ptr, isize len) override
     {
         MetaDelete<i32>(ptr, len);
     }
 
-    // 0x57BE30 | ?Load@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
+    // ?Load@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Load(class MiniParser* parser, void* ptr) override
     {
         *static_cast<i32*>(ptr) = parser->IntVal();
     }
 
-    // 0x57BE60 | ?New@SignedIntType@@UAEPAXH@Z
+    // ?New@SignedIntType@@UAEPAXH@Z
     ARTS_EXPORT void* New(isize count) override
     {
         return MetaNew<i32>(count);
     }
 
-    // 0x57BE10 | ?Save@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
+    // ?Save@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
     {
         parser->Printf("%" PRIi32 " ", *static_cast<i32*>(ptr));
     }
 
-    // 0x57BE50 | ?SizeOf@SignedIntType@@UAEIXZ
+    // ?SizeOf@SignedIntType@@UAEIXZ
     ARTS_EXPORT usize SizeOf() override
     {
         return sizeof(i32);
@@ -168,16 +168,16 @@ const MetaType* CreateMetaType_<signed int>()
 
 struct StringType final : MetaType
 {
-    // const StringType::`vftable' @ 0x621E88
+    // const StringType::`vftable'
 
 public:
-    // 0x57C260 | ?Delete@StringType@@UAEXPAXH@Z
+    // ?Delete@StringType@@UAEXPAXH@Z
     ARTS_EXPORT void Delete(void*, isize) override
     {
         // TODO: Implement this?
     }
 
-    // 0x57C1D0 | ?Load@StringType@@UAEXPAVMiniParser@@PAX@Z
+    // ?Load@StringType@@UAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Load(class MiniParser* parser, void* ptr) override
     {
         char*& str = *static_cast<char**>(ptr);
@@ -191,7 +191,7 @@ public:
             str = nullptr;
     }
 
-    // 0x57C220 | ?New@StringType@@UAEPAXH@Z
+    // ?New@StringType@@UAEPAXH@Z
     ARTS_EXPORT void* New(isize count) override
     {
         if (count)
@@ -200,7 +200,7 @@ public:
             return new char*();
     }
 
-    // 0x57C190 | ?Save@StringType@@UAEXPAVMiniParser@@PAX@Z
+    // ?Save@StringType@@UAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
     {
         if (char* str = *static_cast<char**>(ptr))
@@ -209,7 +209,7 @@ public:
             parser->Printf("$0");
     }
 
-    // 0x57C270 | ?SizeOf@StringType@@UAEIXZ
+    // ?SizeOf@StringType@@UAEIXZ
     ARTS_EXPORT usize SizeOf() override
     {
         return sizeof(char*);

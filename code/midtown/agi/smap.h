@@ -27,6 +27,6 @@
 class agiShadowMap
 {
 private:
-    // 0x6573E0 | ?Converter@agiShadowMap@@0NA
+    // ?Converter@agiShadowMap@@0NA
     ARTS_IMPORT static f64 Converter;
 };

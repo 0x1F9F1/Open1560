@@ -53,91 +53,91 @@
 
 #include "game.h"
 
-// 0x416C90 | ?ThreadFunc@@YGKPAX@Z | unused
+// ?ThreadFunc@@YGKPAX@Z | unused
 ARTS_IMPORT ulong ARTS_STDCALL ThreadFunc(void* arg1);
 
-// 0x6A7110 | ?mmGameSingleMetaClass@@3VMetaClass@@A
+// ?mmGameSingleMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmGameSingleMetaClass;
 
 class mmGameSingle final : public mmGame
 {
-    // const mmGameSingle::`vftable' @ 0x61A728
+    // const mmGameSingle::`vftable'
 
 public:
-    // 0x416CA0 | ??0mmGameSingle@@QAE@XZ
+    // ??0mmGameSingle@@QAE@XZ
     ARTS_IMPORT mmGameSingle();
 
-    // 0x418E60 | ??_EmmGameSingle@@UAEPAXI@Z
-    // 0x416D30 | ??1mmGameSingle@@UAE@XZ
+    // ??_EmmGameSingle@@UAEPAXI@Z
+    // ??1mmGameSingle@@UAE@XZ
     ARTS_IMPORT ~mmGameSingle() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4189E0 | ?AddWidgets@mmGameSingle@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmGameSingle@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x418D00 | ?GetClass@mmGameSingle@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmGameSingle@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x418ED0 | ?GetWaypoints@mmGameSingle@@UAEPAVmmWaypoints@@XZ | inline
+    // ?GetWaypoints@mmGameSingle@@UAEPAVmmWaypoints@@XZ | inline
     ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
 
-    // 0x4175A0 | ?HitWaterHandler@mmGameSingle@@UAEXXZ
+    // ?HitWaterHandler@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void HitWaterHandler() override;
 
-    // 0x416DF0 | ?Init@mmGameSingle@@QAEHXZ
+    // ?Init@mmGameSingle@@QAEHXZ
     ARTS_IMPORT i32 Init();
 
-    // 0x417040 | ?InitGameObjects@mmGameSingle@@UAEXXZ
+    // ?InitGameObjects@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void InitGameObjects() override;
 
-    // 0x416FE0 | ?InitHUD@mmGameSingle@@UAEXXZ
+    // ?InitHUD@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void InitHUD() override;
 
-    // 0x416F70 | ?InitMyPlayer@mmGameSingle@@UAEXXZ
+    // ?InitMyPlayer@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void InitMyPlayer() override;
 
-    // 0x417340 | ?InitOtherPlayers@mmGameSingle@@UAEXXZ
+    // ?InitOtherPlayers@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void InitOtherPlayers() override;
 
-    // 0x418840 | ?NextRace@mmGameSingle@@UAEXXZ
+    // ?NextRace@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void NextRace() override;
 
-    // 0x4173A0 | ?Reset@mmGameSingle@@UAEXXZ
+    // ?Reset@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x417640 | ?Update@mmGameSingle@@UAEXXZ
+    // ?Update@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x418EC0 | ?UpdateDebugKeyInput@mmGameSingle@@UAEXH@Z | inline
+    // ?UpdateDebugKeyInput@mmGameSingle@@UAEXH@Z | inline
     ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
-    // 0x4176A0 | ?UpdateGame@mmGameSingle@@UAEXXZ
+    // ?UpdateGame@mmGameSingle@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;
 
-    // 0x417660 | ?UpdateGameInput@mmGameSingle@@UAEXH@Z
+    // ?UpdateGameInput@mmGameSingle@@UAEXH@Z
     ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
 
-    // 0x417EF0 | ?UpdateScore@mmGameSingle@@QAEXXZ
+    // ?UpdateScore@mmGameSingle@@QAEXXZ
     ARTS_IMPORT void UpdateScore();
 
-    // 0x418B90 | ?DeclareFields@mmGameSingle@@SAXXZ
+    // ?DeclareFields@mmGameSingle@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x417530 | ?DisableRacers@mmGameSingle@@AAEXXZ
+    // ?DisableRacers@mmGameSingle@@AAEXXZ
     ARTS_IMPORT void DisableRacers();
 
-    // 0x4174A0 | ?EnableRacers@mmGameSingle@@AAEXXZ
+    // ?EnableRacers@mmGameSingle@@AAEXXZ
     ARTS_IMPORT void EnableRacers();
 
-    // 0x418270 | ?FinishMessage@mmGameSingle@@AAEXHH@Z
+    // ?FinishMessage@mmGameSingle@@AAEXHH@Z
     ARTS_IMPORT void FinishMessage(i32 arg1, i32 arg2);
 
-    // 0x4187F0 | ?ProgressCheck@mmGameSingle@@AAEHHH@Z
+    // ?ProgressCheck@mmGameSingle@@AAEHHH@Z
     ARTS_IMPORT i32 ProgressCheck(i32 arg1, i32 arg2);
 
-    // 0x4183F0 | ?RegisterFinish@mmGameSingle@@AAEHXZ
+    // ?RegisterFinish@mmGameSingle@@AAEHXZ
     ARTS_IMPORT i32 RegisterFinish();
 
     u8 gap1E570[0x80];

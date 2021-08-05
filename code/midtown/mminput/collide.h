@@ -32,22 +32,22 @@
 
 class mmCollideFF final : public mmEffectFF
 {
-    // const mmCollideFF::`vftable' @ 0x61FCE0
+    // const mmCollideFF::`vftable'
 
 public:
-    // 0x4E7660 | ?Assign@mmCollideFF@@QAEHJJ@Z
+    // ?Assign@mmCollideFF@@QAEHJJ@Z
     ARTS_IMPORT i32 Assign(ilong arg1, ilong arg2);
 
-    // 0x4E7470 | ?Init@mmCollideFF@@UAEHPAUIDirectInputDevice2A@@@Z
+    // ?Init@mmCollideFF@@UAEHPAUIDirectInputDevice2A@@@Z
     ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;
 
-    // 0x4E7760 | ?Play@mmCollideFF@@UAEHXZ
+    // ?Play@mmCollideFF@@UAEHXZ
     ARTS_IMPORT i32 Play() override;
 
-    // 0x4E7630 | ?SetValues@mmCollideFF@@UAEHMM@Z
+    // ?SetValues@mmCollideFF@@UAEHMM@Z
     ARTS_IMPORT i32 SetValues(f32 arg1, f32 arg2) override;
 
-    // 0x4E77B0 | ?Stop@mmCollideFF@@UAEHXZ
+    // ?Stop@mmCollideFF@@UAEHXZ
     ARTS_IMPORT i32 Stop() override;
 
     u8 gap80[0x18];

@@ -49,59 +49,59 @@
 
 class mmMiscData final : public mmInfoBase
 {
-    // const mmMiscData::`vftable' @ 0x61F8B8
+    // const mmMiscData::`vftable'
 
 public:
-    // 0x4CC490 | ??0mmMiscData@@QAE@XZ
+    // ??0mmMiscData@@QAE@XZ
     ARTS_IMPORT mmMiscData();
 
-    // 0x4CD9A0 | ??_EmmMiscData@@UAEPAXI@Z
-    // 0x4CC5A0 | ??1mmMiscData@@UAE@XZ
+    // ??_EmmMiscData@@UAEPAXI@Z
+    // ??1mmMiscData@@UAE@XZ
     ARTS_IMPORT ~mmMiscData() override;
 
-    // 0x4CD540 | ?CheckBlitz@mmMiscData@@QAEHPADMH0HH@Z
+    // ?CheckBlitz@mmMiscData@@QAEHPADMH0HH@Z
     ARTS_IMPORT i32 CheckBlitz(char* arg1, f32 arg2, i32 arg3, char* arg4, i32 arg5, i32 arg6);
 
-    // 0x4CD200 | ?CheckCheckpoint@mmMiscData@@QAEHPADMH0HH@Z
+    // ?CheckCheckpoint@mmMiscData@@QAEHPADMH0HH@Z
     ARTS_IMPORT i32 CheckCheckpoint(char* arg1, f32 arg2, i32 arg3, char* arg4, i32 arg5, i32 arg6);
 
-    // 0x4CD3A0 | ?CheckCircuit@mmMiscData@@QAEHPADMH0HH@Z
+    // ?CheckCircuit@mmMiscData@@QAEHPADMH0HH@Z
     ARTS_IMPORT i32 CheckCircuit(char* arg1, f32 arg2, i32 arg3, char* arg4, i32 arg5, i32 arg6);
 
-    // 0x4CCFA0 | ?GetBestBlitzScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    // ?GetBestBlitzScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
     ARTS_IMPORT class mmRecord GetBestBlitzScore(i32 arg1, i32 arg2);
 
-    // 0x4CCC10 | ?GetBestBlitzTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    // ?GetBestBlitzTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
     ARTS_IMPORT class mmRecord GetBestBlitzTime(i32 arg1, i32 arg2);
 
-    // 0x4CD0D0 | ?GetBestCircuitScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    // ?GetBestCircuitScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
     ARTS_IMPORT class mmRecord GetBestCircuitScore(i32 arg1, i32 arg2);
 
-    // 0x4CCD40 | ?GetBestCircuitTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    // ?GetBestCircuitTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
     ARTS_IMPORT class mmRecord GetBestCircuitTime(i32 arg1, i32 arg2);
 
-    // 0x4CCE70 | ?GetBestRaceScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    // ?GetBestRaceScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
     ARTS_IMPORT class mmRecord GetBestRaceScore(i32 arg1, i32 arg2);
 
-    // 0x4CCAE0 | ?GetBestRaceTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
+    // ?GetBestRaceTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
     ARTS_IMPORT class mmRecord GetBestRaceTime(i32 arg1, i32 arg2);
 
-    // 0x4CD960 | ?GetClass@mmMiscData@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmMiscData@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4CC6A0 | ?Load@mmMiscData@@QAEHPAD@Z
+    // ?Load@mmMiscData@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
 
-    // 0x4CC7A0 | ?LoadBinary@mmMiscData@@QAEHPAD@Z
+    // ?LoadBinary@mmMiscData@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadBinary(char* arg1);
 
-    // 0x4CC710 | ?Save@mmMiscData@@QAEHPADH@Z
+    // ?Save@mmMiscData@@QAEHPADH@Z
     ARTS_IMPORT i32 Save(char* arg1, i32 arg2);
 
-    // 0x4CC960 | ?SaveBinary@mmMiscData@@QAEHPAD@Z
+    // ?SaveBinary@mmMiscData@@QAEHPAD@Z
     ARTS_IMPORT i32 SaveBinary(char* arg1);
 
-    // 0x4CD6E0 | ?DeclareFields@mmMiscData@@SAXXZ
+    // ?DeclareFields@mmMiscData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x17340];
@@ -109,5 +109,5 @@ public:
 
 check_size(mmMiscData, 0x173C8);
 
-// 0x7084F8 | ?mmMiscDataMetaClass@@3VMetaClass@@A
+// ?mmMiscDataMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmMiscDataMetaClass;

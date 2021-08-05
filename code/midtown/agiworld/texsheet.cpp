@@ -20,5 +20,5 @@ define_dummy_symbol(agiworld_texsheet);
 
 #include "texsheet.h"
 
-// 0x512080 | ?cmpTex@@YAHPBX0@Z
+// ?cmpTex@@YAHPBX0@Z
 ARTS_IMPORT /*static*/ i32 cmpTex(void const* arg1, void const* arg2);

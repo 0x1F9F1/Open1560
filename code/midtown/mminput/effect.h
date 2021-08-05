@@ -30,29 +30,29 @@
     0x61FD10 | const mmEffectFF::`vftable' | ??_7mmEffectFF@@6B@
 */
 
-// 0x4E7350 | ?inputEnumEffectTypeProc@@YGHPBUDIEFFECTINFOA@@PAX@Z
+// ?inputEnumEffectTypeProc@@YGHPBUDIEFFECTINFOA@@PAX@Z
 ARTS_IMPORT i32 ARTS_STDCALL inputEnumEffectTypeProc(struct DIEFFECTINFOA const* arg1, void* arg2);
 
 class mmEffectFF
 {
-    // const mmEffectFF::`vftable' @ 0x61FD10
+    // const mmEffectFF::`vftable'
 
 public:
-    // 0x4E73B0 | ??0mmEffectFF@@QAE@XZ
+    // ??0mmEffectFF@@QAE@XZ
     ARTS_IMPORT mmEffectFF();
 
-    // 0x4E7420 | ??1mmEffectFF@@QAE@XZ
+    // ??1mmEffectFF@@QAE@XZ
     ARTS_IMPORT ~mmEffectFF();
 
     virtual i32 Init(struct IDirectInputDevice2A* arg1) = 0;
 
-    // 0x4E7440 | ?Play@mmEffectFF@@UAEHXZ | inline
+    // ?Play@mmEffectFF@@UAEHXZ | inline
     ARTS_EXPORT virtual i32 Play();
 
-    // 0x4E7450 | ?Stop@mmEffectFF@@UAEHXZ | inline
+    // ?Stop@mmEffectFF@@UAEHXZ | inline
     ARTS_EXPORT virtual i32 Stop();
 
-    // 0x4E7460 | ?SetValues@mmEffectFF@@UAEHMM@Z | inline
+    // ?SetValues@mmEffectFF@@UAEHMM@Z | inline
     ARTS_IMPORT virtual i32 SetValues(f32 arg1, f32 arg2);
 
     u8 gap4[0x7C];

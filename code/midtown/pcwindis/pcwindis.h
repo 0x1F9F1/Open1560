@@ -30,11 +30,11 @@
 
 void SDLWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-// 0x5765F0 | ?MasterWindowProc@@YGJPAUHWND__@@IIJ@Z
+// ?MasterWindowProc@@YGJPAUHWND__@@IIJ@Z
 ARTS_EXPORT LRESULT ARTS_STDCALL MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-// 0x576670 | ?RegisterMap@@YAXPADPAIHPAVDispatchable@@@Z
+// ?RegisterMap@@YAXPADPAIHPAVDispatchable@@@Z
 ARTS_EXPORT void RegisterMap(const char* name, u32* msgs, i32 num_msgs, class Dispatchable* handler);
 
-// 0x576750 | ?UnregisterMap@@YAXPAD@Z
+// ?UnregisterMap@@YAXPAD@Z
 ARTS_EXPORT void UnregisterMap(const char* name);

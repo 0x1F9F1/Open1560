@@ -48,63 +48,63 @@
 
 class DriverMenu final : public UIMenu
 {
-    // const DriverMenu::`vftable' @ 0x61DBF0
+    // const DriverMenu::`vftable'
 
 public:
-    // 0x4A5350 | ??0DriverMenu@@QAE@H@Z
+    // ??0DriverMenu@@QAE@H@Z
     ARTS_IMPORT DriverMenu(i32 arg1);
 
-    // 0x4A5E00 | ??_EDriverMenu@@UAEPAXI@Z
-    // 0x4A5E00 | ??_GDriverMenu@@UAEPAXI@Z
-    // 0x4A5850 | ??1DriverMenu@@UAE@XZ
+    // ??_EDriverMenu@@UAEPAXI@Z
+    // ??_GDriverMenu@@UAEPAXI@Z
+    // ??1DriverMenu@@UAE@XZ
     ARTS_IMPORT ~DriverMenu() override;
 
-    // 0x4A5B80 | ?AddPlayer@DriverMenu@@QAEXPAD@Z
+    // ?AddPlayer@DriverMenu@@QAEXPAD@Z
     ARTS_IMPORT void AddPlayer(char* arg1);
 
-    // 0x4A5B10 | ?DecPlayer@DriverMenu@@QAEXXZ | unused
+    // ?DecPlayer@DriverMenu@@QAEXXZ | unused
     ARTS_IMPORT void DecPlayer();
 
-    // 0x4A5CA0 | ?DeleteCB@DriverMenu@@QAEXXZ
+    // ?DeleteCB@DriverMenu@@QAEXXZ
     ARTS_IMPORT void DeleteCB();
 
-    // 0x4A5CE0 | ?DisplayDriverInfo@DriverMenu@@QAEXPAD0000H@Z
+    // ?DisplayDriverInfo@DriverMenu@@QAEXPAD0000H@Z
     ARTS_IMPORT void DisplayDriverInfo(char* arg1, char* arg2, char* arg3, char* arg4, char* arg5, i32 arg6);
 
-    // 0x4A5CD0 | ?EnterNewPlayer@DriverMenu@@QAEXXZ | unused
+    // ?EnterNewPlayer@DriverMenu@@QAEXXZ | unused
     ARTS_IMPORT void EnterNewPlayer();
 
-    // 0x4A5CC0 | ?GetNewDriverName@DriverMenu@@QAEPADXZ | unused
+    // ?GetNewDriverName@DriverMenu@@QAEPADXZ | unused
     ARTS_IMPORT char* GetNewDriverName();
 
-    // 0x4A5B40 | ?IncPlayer@DriverMenu@@QAEXXZ | unused
+    // ?IncPlayer@DriverMenu@@QAEXXZ | unused
     ARTS_IMPORT void IncPlayer();
 
-    // 0x4A5460 | ?InitPlayerSelection@DriverMenu@@QAEXXZ
+    // ?InitPlayerSelection@DriverMenu@@QAEXXZ
     ARTS_IMPORT void InitPlayerSelection();
 
-    // 0x4A5CB0 | ?NewPlayer@DriverMenu@@QAEXXZ | unused
+    // ?NewPlayer@DriverMenu@@QAEXXZ | unused
     ARTS_EXPORT void NewPlayer();
 
-    // 0x4A5430 | ?PreSetup@DriverMenu@@UAEXXZ
+    // ?PreSetup@DriverMenu@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x4A5B70 | ?RemoveAllPlayers@DriverMenu@@QAEXXZ
+    // ?RemoveAllPlayers@DriverMenu@@QAEXXZ
     ARTS_IMPORT void RemoveAllPlayers();
 
-    // 0x4A58C0 | ?RemovePlayer@DriverMenu@@QAEXPAD@Z
+    // ?RemovePlayer@DriverMenu@@QAEXPAD@Z
     ARTS_IMPORT void RemovePlayer(char* arg1);
 
-    // 0x4A5DA0 | ?SetController@DriverMenu@@QAEXPAD@Z
+    // ?SetController@DriverMenu@@QAEXPAD@Z
     ARTS_IMPORT void SetController(char* arg1);
 
-    // 0x4A5DC0 | ?SetNetName@DriverMenu@@QAEXPAD@Z
+    // ?SetNetName@DriverMenu@@QAEXPAD@Z
     ARTS_IMPORT void SetNetName(char* arg1);
 
-    // 0x4A5B00 | ?SetPlayerPick@DriverMenu@@QAEXH@Z
+    // ?SetPlayerPick@DriverMenu@@QAEXH@Z
     ARTS_IMPORT void SetPlayerPick(i32 arg1);
 
-    // 0x4A5C90 | ?TDPickCB@DriverMenu@@QAEXXZ
+    // ?TDPickCB@DriverMenu@@QAEXXZ
     ARTS_IMPORT void TDPickCB();
 
     u8 gap90[0x9C];

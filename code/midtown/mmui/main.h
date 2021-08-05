@@ -33,18 +33,18 @@
 
 class MainMenu final : public UIMenu
 {
-    // const MainMenu::`vftable' @ 0x61DCB0
+    // const MainMenu::`vftable'
 
 public:
-    // 0x4A61F0 | ??0MainMenu@@QAE@H@Z
+    // ??0MainMenu@@QAE@H@Z
     ARTS_IMPORT MainMenu(i32 arg1);
 
-    // 0x4A6390 | ??_GMainMenu@@UAEPAXI@Z
-    // 0x4A6390 | ??_EMainMenu@@UAEPAXI@Z
-    // 0x4A6370 | ??1MainMenu@@UAE@XZ
+    // ??_GMainMenu@@UAEPAXI@Z
+    // ??_EMainMenu@@UAEPAXI@Z
+    // ??1MainMenu@@UAE@XZ
     ARTS_IMPORT ~MainMenu() override = default;
 
-    // 0x4A6380 | ?PreSetup@MainMenu@@UAEXXZ
+    // ?PreSetup@MainMenu@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 };
 

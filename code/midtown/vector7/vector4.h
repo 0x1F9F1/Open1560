@@ -57,32 +57,32 @@ public:
         , w(w)
     {}
 
-    // 0x56DD00 | ??7Vector4@@QBE?AV0@XZ
+    // ??7Vector4@@QBE?AV0@XZ
     ARTS_IMPORT class Vector4 operator!() const;
 
-    // 0x56DC70 | ??KVector4@@QBE?AV0@M@Z | unused
+    // ??KVector4@@QBE?AV0@M@Z | unused
     ARTS_IMPORT class Vector4 operator/(f32 arg1) const;
 
-    // 0x570D70 | ??TVector4@@QBEMABV0@@Z | inline
+    // ??TVector4@@QBEMABV0@@Z | inline
     ARTS_IMPORT f32 operator^(class Vector4 const& arg1) const;
 
-    // 0x56DD80 | ?Bilinear@Vector4@@QAEXMMABV1@000@Z | unused
+    // ?Bilinear@Vector4@@QAEXMMABV1@000@Z | unused
     ARTS_IMPORT void Bilinear(f32 arg1, f32 arg2, class Vector4 const& arg3, class Vector4 const& arg4,
         class Vector4 const& arg5, class Vector4 const& arg6);
 
-    // 0x56DDD0 | ?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z
+    // ?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z
     ARTS_IMPORT void CalculatePlane(class Vector3 const& arg1, class Vector3 const& arg2, class Vector3 const& arg3);
 
-    // 0x56DED0 | ?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z | unused
+    // ?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z | unused
     ARTS_IMPORT void GetLookAt(class Vector3 const& arg1, class Vector3* arg2, class Vector3* arg3) const;
 
-    // 0x56DF50 | ?Lerp@Vector4@@QAEXMABV1@0@Z
+    // ?Lerp@Vector4@@QAEXMABV1@0@Z
     ARTS_IMPORT void Lerp(f32 arg1, class Vector4 const& arg2, class Vector4 const& arg3);
 
-    // 0x56DBA0 | ?Mag@Vector4@@QBEMXZ | unused
+    // ?Mag@Vector4@@QBEMXZ | unused
     ARTS_IMPORT f32 Mag() const;
 
-    // 0x570D50 | ?Set@Vector4@@QAEXMMMM@Z | inline
+    // ?Set@Vector4@@QAEXMMMM@Z | inline
     ARTS_IMPORT void Set(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     constexpr inline bool operator==(const Vector4& other) const noexcept
@@ -107,23 +107,23 @@ check_size(Vector4, 0x10);
 class Vector4Array
 {
 public:
-    // 0x56E1F0 | ??4Vector4Array@@QAEXAAV0@@Z | unused
+    // ??4Vector4Array@@QAEXAAV0@@Z | unused
     ARTS_IMPORT void operator=(class Vector4Array& arg1);
 
-    // 0x56E170 | ??AVector4Array@@QAEAAVVector4@@H@Z | unused
+    // ??AVector4Array@@QAEAAVVector4@@H@Z | unused
     ARTS_IMPORT class Vector4& operator[](i32 arg1);
 
-    // 0x56E2F0 | ?BlockCopy@Vector4Array@@QAEXAAV1@@Z | unused
+    // ?BlockCopy@Vector4Array@@QAEXAAV1@@Z | unused
     ARTS_IMPORT void BlockCopy(class Vector4Array& arg1);
 
-    // 0x56E0B0 | ?Delete@Vector4Array@@QAEXXZ
+    // ?Delete@Vector4Array@@QAEXXZ
     ARTS_IMPORT void Delete();
 
-    // 0x56E040 | ?Init@Vector4Array@@QAEXH@Z | unused
+    // ?Init@Vector4Array@@QAEXH@Z | unused
     ARTS_IMPORT void Init(i32 arg1);
 
 private:
-    // 0x56E100 | ?NewTable@Vector4Array@@AAEXH@Z
+    // ?NewTable@Vector4Array@@AAEXH@Z
     ARTS_IMPORT void NewTable(i32 arg1);
 
     u8 gap0[0x14];
@@ -133,27 +133,27 @@ check_size(Vector4Array, 0x14);
 
 struct Vector4Type final : MetaType
 {
-    // const Vector4Type::`vftable' @ 0x621C38
+    // const Vector4Type::`vftable'
 
 public:
-    // 0x56E4D0 | ?Delete@Vector4Type@@UAEXPAXH@Z
+    // ?Delete@Vector4Type@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
-    // 0x56E430 | ?Load@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
+    // ?Load@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
     ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
 
-    // 0x56E480 | ?New@Vector4Type@@UAEPAXH@Z
+    // ?New@Vector4Type@@UAEPAXH@Z
     ARTS_IMPORT void* New(i32 arg1) override;
 
-    // 0x56E3F0 | ?Save@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
+    // ?Save@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
     ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
 
-    // 0x56E470 | ?SizeOf@Vector4Type@@UAEIXZ
+    // ?SizeOf@Vector4Type@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
 };
 
 check_size(Vector4Type, 0x4);
 
-// 0x9094EC | ?Vector4Inst@@3UVector4Type@@A
+// ?Vector4Inst@@3UVector4Type@@A
 ARTS_IMPORT extern struct Vector4Type Vector4Inst;
 #endif

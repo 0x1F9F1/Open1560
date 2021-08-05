@@ -46,59 +46,59 @@
 
 class mmPoliceCarAudio final : public mmOpponentCarAudio
 {
-    // const mmPoliceCarAudio::`vftable' @ 0x61C4A0
+    // const mmPoliceCarAudio::`vftable'
 
 public:
-    // 0x47A800 | ??0mmPoliceCarAudio@@QAE@PAVmmCarSim@@M@Z
+    // ??0mmPoliceCarAudio@@QAE@PAVmmCarSim@@M@Z
     ARTS_IMPORT mmPoliceCarAudio(class mmCarSim* arg1, f32 arg2);
 
-    // 0x47B920 | ??_EmmPoliceCarAudio@@UAEPAXI@Z
-    // 0x47B920 | ??_GmmPoliceCarAudio@@UAEPAXI@Z
-    // 0x47A8E0 | ??1mmPoliceCarAudio@@UAE@XZ
+    // ??_EmmPoliceCarAudio@@UAEPAXI@Z
+    // ??_GmmPoliceCarAudio@@UAEPAXI@Z
+    // ??1mmPoliceCarAudio@@UAE@XZ
     ARTS_IMPORT ~mmPoliceCarAudio() override = default;
 
-    // 0x47B6A0 | ?AssignSounds@mmPoliceCarAudio@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
+    // ?AssignSounds@mmPoliceCarAudio@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
     ARTS_IMPORT void AssignSounds(class AudSound* arg1, class AudSound* arg2, class AudSound* arg3,
         class AudSound* arg4, class mmOpponentImpactAudio* arg5, class AudSound* arg6);
 
-    // 0x47AAD0 | ?DamageSiren@mmPoliceCarAudio@@QAEXXZ
+    // ?DamageSiren@mmPoliceCarAudio@@QAEXXZ
     ARTS_IMPORT void DamageSiren();
 
-    // 0x47A8F0 | ?ExplosionIsPlaying@mmPoliceCarAudio@@QAEHXZ
+    // ?ExplosionIsPlaying@mmPoliceCarAudio@@QAEHXZ
     ARTS_IMPORT i32 ExplosionIsPlaying();
 
-    // 0x47AA20 | ?PlayExplosion@mmPoliceCarAudio@@QAEXXZ
+    // ?PlayExplosion@mmPoliceCarAudio@@QAEXXZ
     ARTS_IMPORT void PlayExplosion();
 
-    // 0x47B600 | ?PlayVoice@mmPoliceCarAudio@@QAEXXZ
+    // ?PlayVoice@mmPoliceCarAudio@@QAEXXZ
     ARTS_IMPORT void PlayVoice();
 
-    // 0x47A910 | ?StartSiren@mmPoliceCarAudio@@QAEXXZ
+    // ?StartSiren@mmPoliceCarAudio@@QAEXXZ
     ARTS_IMPORT void StartSiren();
 
-    // 0x47A9C0 | ?StopSiren@mmPoliceCarAudio@@QAEXXZ
+    // ?StopSiren@mmPoliceCarAudio@@QAEXXZ
     ARTS_IMPORT void StopSiren();
 
-    // 0x47B770 | ?UnAssignSounds@mmPoliceCarAudio@@QAEXXZ
+    // ?UnAssignSounds@mmPoliceCarAudio@@QAEXXZ
     ARTS_IMPORT void UnAssignSounds();
 
-    // 0x47AC30 | ?Update@mmPoliceCarAudio@@QAEXHMM@Z
+    // ?Update@mmPoliceCarAudio@@QAEXHMM@Z
     ARTS_IMPORT void Update(i32 arg1, f32 arg2, f32 arg3);
 
-    // 0x47B400 | ?UpdateDoppler@mmPoliceCarAudio@@QAEXXZ
+    // ?UpdateDoppler@mmPoliceCarAudio@@QAEXXZ
     ARTS_IMPORT void UpdateDoppler();
 
-    // 0x47B410 | ?UpdateDoppler@mmPoliceCarAudio@@QAEXM@Z
+    // ?UpdateDoppler@mmPoliceCarAudio@@QAEXM@Z
     ARTS_IMPORT void UpdateDoppler(f32 arg1);
 
 private:
-    // 0x47AFE0 | ?FluctuateFastSiren@mmPoliceCarAudio@@AAEXXZ
+    // ?FluctuateFastSiren@mmPoliceCarAudio@@AAEXXZ
     ARTS_IMPORT void FluctuateFastSiren();
 
-    // 0x47AD50 | ?FluctuateSlowSiren@mmPoliceCarAudio@@AAEXXZ
+    // ?FluctuateSlowSiren@mmPoliceCarAudio@@AAEXXZ
     ARTS_IMPORT void FluctuateSlowSiren();
 
-    // 0x6A7FE8 | ?s_iPlayingFluctuator@mmPoliceCarAudio@@0FA
+    // ?s_iPlayingFluctuator@mmPoliceCarAudio@@0FA
     ARTS_IMPORT static i16 s_iPlayingFluctuator;
 
     u8 gapE0[0x34];

@@ -55,94 +55,94 @@
     0x73E6B8 | union mmx fill2Color | ?fill2Color@@3Tmmx@@A
 */
 
-// 0x5111E0 | ?agiBeginCones@@YAXXZ
+// ?agiBeginCones@@YAXXZ
 ARTS_IMPORT void agiBeginCones();
 
-// 0x5112C0 | ?agiConeLighter@@YAXPAEPAI1PAVagiMeshSet@@@Z
+// ?agiConeLighter@@YAXPAEPAI1PAVagiMeshSet@@@Z
 ARTS_IMPORT void agiConeLighter(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4);
 
-// 0x5111F0 | ?agiDeclareCone@@YAXAAVVector3@@00MM0H@Z
+// ?agiDeclareCone@@YAXAAVVector3@@00MM0H@Z
 ARTS_IMPORT void agiDeclareCone(
     class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, f32 arg5, class Vector3& arg6, i32 arg7);
 
-// 0x5118F0 | ?agiDrawCones@@YAXXZ | unused
+// ?agiDrawCones@@YAXXZ | unused
 ARTS_IMPORT void agiDrawCones();
 
-// 0x510730 | ?agiMeshLighterQuarter@@YAXPAEPAI1PAVagiMeshSet@@@Z
+// ?agiMeshLighterQuarter@@YAXPAEPAI1PAVagiMeshSet@@@Z
 ARTS_IMPORT void agiMeshLighterQuarter(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4);
 
-// 0x510640 | ?agiMeshLighterReset@@YAXXZ
+// ?agiMeshLighterReset@@YAXXZ
 ARTS_IMPORT void agiMeshLighterReset();
 
-// 0x5119F0 | ?agiMeshLighterSpecular@@YAXPAEPAI1PAVagiMeshSet@@@Z | unused
+// ?agiMeshLighterSpecular@@YAXPAEPAI1PAVagiMeshSet@@@Z | unused
 ARTS_IMPORT void agiMeshLighterSpecular(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4);
 
-// 0x510AE0 | ?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z
+// ?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z
 ARTS_EXPORT void agiMeshLighterTriple(
     u8* ARTS_RESTRICT codes, u32* ARTS_RESTRICT output, u32* ARTS_RESTRICT colors, class agiMeshSet* mesh);
 
-// 0x5108F0 | ?agiMeshLighterUpdateColors@@YAXXZ
+// ?agiMeshLighterUpdateColors@@YAXXZ
 ARTS_IMPORT void agiMeshLighterUpdateColors();
 
-// 0x511010 | ?agiMeshPrelight@@YAXPAIPAVagiMeshSet@@AAVMatrix34@@@Z | unused
+// ?agiMeshPrelight@@YAXPAIPAVagiMeshSet@@AAVMatrix34@@@Z | unused
 ARTS_IMPORT void agiMeshPrelight(u32* arg1, class agiMeshSet* arg2, class Matrix34& arg3);
 
-// 0x73E660 | ?agiMeshLighterAmbient@@3VVector3@@A
+// ?agiMeshLighterAmbient@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 agiMeshLighterAmbient;
 
-// 0x64ABC0 | ?agiMeshLighterConeRange2@@3MA
+// ?agiMeshLighterConeRange2@@3MA
 ARTS_IMPORT extern f32 agiMeshLighterConeRange2;
 
-// 0x73E628 | ?agiMeshLighterFill1@@3VVector3@@A
+// ?agiMeshLighterFill1@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 agiMeshLighterFill1;
 
-// 0x73E6A8 | ?agiMeshLighterFill1Color@@3VVector3@@A
+// ?agiMeshLighterFill1Color@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 agiMeshLighterFill1Color;
 
-// 0x73E638 | ?agiMeshLighterFill2@@3VVector3@@A
+// ?agiMeshLighterFill2@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 agiMeshLighterFill2;
 
-// 0x73E688 | ?agiMeshLighterFill2Color@@3VVector3@@A
+// ?agiMeshLighterFill2Color@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 agiMeshLighterFill2Color;
 
-// 0x64ABBC | ?agiMeshLighterMax@@3MA
+// ?agiMeshLighterMax@@3MA
 ARTS_IMPORT extern f32 agiMeshLighterMax;
 
-// 0x64ABB8 | ?agiMeshLighterMin@@3MA
+// ?agiMeshLighterMin@@3MA
 ARTS_IMPORT extern f32 agiMeshLighterMin;
 
-// 0x73E648 | ?agiMeshLighterSpecularColor@@3VVector3@@A
+// ?agiMeshLighterSpecularColor@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 agiMeshLighterSpecularColor;
 
-// 0x64ABC8 | ?agiMeshLighterSpecularExponent@@3MA
+// ?agiMeshLighterSpecularExponent@@3MA
 ARTS_IMPORT extern f32 agiMeshLighterSpecularExponent;
 
-// 0x73E618 | ?agiMeshLighterSun@@3VVector3@@A
+// ?agiMeshLighterSun@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 agiMeshLighterSun;
 
-// 0x73D3E0 | ?agiMeshLighterSunColor@@3VVector3@@A
+// ?agiMeshLighterSunColor@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 agiMeshLighterSunColor;
 
-// 0x73E670 | ?ambColor@@3Tmmx@@A
+// ?ambColor@@3Tmmx@@A
 ARTS_IMPORT extern union mmx ambColor;
 
-// 0x73E678 | ?clampSSS_3_10@@3Tmmx@@A
+// ?clampSSS_3_10@@3Tmmx@@A
 ARTS_IMPORT extern union mmx clampSSS_3_10;
 
-// 0x73E680 | ?fill1Color@@3Tmmx@@A
+// ?fill1Color@@3Tmmx@@A
 ARTS_IMPORT extern union mmx fill1Color;
 
-// 0x73E6B8 | ?fill2Color@@3Tmmx@@A
+// ?fill2Color@@3Tmmx@@A
 ARTS_IMPORT extern union mmx fill2Color;
 
-// 0x73D3F8 | ?keyColor@@3Tmmx@@A
+// ?keyColor@@3Tmmx@@A
 ARTS_IMPORT extern union mmx keyColor;
 
-// 0x73D3D8 | ?minus1@@3Tmmx@@A
+// ?minus1@@3Tmmx@@A
 ARTS_IMPORT extern union mmx minus1;
 
-// 0x73E658 | ?unclampSSS_3_10@@3Tmmx@@A
+// ?unclampSSS_3_10@@3Tmmx@@A
 ARTS_IMPORT extern union mmx unclampSSS_3_10;
 
-// 0x73D3F0 | ?zero@@3Tmmx@@A
+// ?zero@@3Tmmx@@A
 ARTS_IMPORT extern union mmx zero;

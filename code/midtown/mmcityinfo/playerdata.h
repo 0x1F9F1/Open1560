@@ -68,39 +68,39 @@
 
 class mmPlayerRecord final : public mmInfoBase
 {
-    // const mmPlayerRecord::`vftable' @ 0x61A608
+    // const mmPlayerRecord::`vftable'
 
 public:
-    // 0x4CFC30 | ??0mmPlayerRecord@@QAE@XZ
+    // ??0mmPlayerRecord@@QAE@XZ
     ARTS_IMPORT mmPlayerRecord();
 
-    // 0x414A50 | ??0mmPlayerRecord@@QAE@ABV0@@Z | inline
+    // ??0mmPlayerRecord@@QAE@ABV0@@Z | inline
     ARTS_IMPORT mmPlayerRecord(class mmPlayerRecord const& arg1);
 
-    // 0x4D11F0 | ??_EmmPlayerRecord@@UAEPAXI@Z
-    // 0x414B00 | ??_GmmPlayerRecord@@UAEPAXI@Z | unused
-    // 0x4CFC50 | ??1mmPlayerRecord@@UAE@XZ
+    // ??_EmmPlayerRecord@@UAEPAXI@Z
+    // ??_GmmPlayerRecord@@UAEPAXI@Z | unused
+    // ??1mmPlayerRecord@@UAE@XZ
     ARTS_IMPORT ~mmPlayerRecord() override = default;
 
-    // 0x4CFC90 | ??4mmPlayerRecord@@QAEXAAV0@@Z
+    // ??4mmPlayerRecord@@QAEXAAV0@@Z
     ARTS_IMPORT void operator=(class mmPlayerRecord& arg1);
 
-    // 0x4CFCE0 | ?ComputeCRC@mmPlayerRecord@@QAEIXZ
+    // ?ComputeCRC@mmPlayerRecord@@QAEIXZ
     ARTS_IMPORT u32 ComputeCRC();
 
-    // 0x4D0010 | ?GetClass@mmPlayerRecord@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmPlayerRecord@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4CFDC0 | ?LoadBinary@mmPlayerRecord@@QAEHPAVStream@@@Z
+    // ?LoadBinary@mmPlayerRecord@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 LoadBinary(class Stream* arg1);
 
-    // 0x4CFC60 | ?Reset@mmPlayerRecord@@QAEXXZ
+    // ?Reset@mmPlayerRecord@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    // 0x4CFD40 | ?SaveBinary@mmPlayerRecord@@QAEHPAVStream@@@Z
+    // ?SaveBinary@mmPlayerRecord@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 SaveBinary(class Stream* arg1);
 
-    // 0x4CFE40 | ?DeclareFields@mmPlayerRecord@@SAXXZ
+    // ?DeclareFields@mmPlayerRecord@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x5C];
@@ -110,96 +110,96 @@ check_size(mmPlayerRecord, 0xE4);
 
 class mmPlayerData final : public mmInfoBase
 {
-    // const mmPlayerData::`vftable' @ 0x61F898
+    // const mmPlayerData::`vftable'
 
 public:
-    // 0x4D0020 | ??0mmPlayerData@@QAE@XZ
+    // ??0mmPlayerData@@QAE@XZ
     ARTS_IMPORT mmPlayerData();
 
-    // 0x4D1250 | ??_EmmPlayerData@@UAEPAXI@Z
-    // 0x4CBBE0 | ??_GmmPlayerData@@UAEPAXI@Z | unused
-    // 0x4CBB40 | ??1mmPlayerData@@UAE@XZ | inline
+    // ??_EmmPlayerData@@UAEPAXI@Z
+    // ??_GmmPlayerData@@UAEPAXI@Z | unused
+    // ??1mmPlayerData@@UAE@XZ | inline
     ARTS_IMPORT ~mmPlayerData() override;
 
-    // 0x4D0140 | ??4mmPlayerData@@QAEXAAV0@@Z | unused
+    // ??4mmPlayerData@@QAEXAAV0@@Z | unused
     ARTS_IMPORT void operator=(class mmPlayerData& arg1);
 
-    // 0x4D09E0 | ?ComputeCRC@mmPlayerData@@QAEIXZ
+    // ?ComputeCRC@mmPlayerData@@QAEIXZ
     ARTS_IMPORT u32 ComputeCRC();
 
-    // 0x4D02B0 | ?GetBlitzMask@mmPlayerData@@QAEHXZ
+    // ?GetBlitzMask@mmPlayerData@@QAEHXZ
     ARTS_IMPORT i32 GetBlitzMask();
 
-    // 0x4D0340 | ?GetBlitzPassed@mmPlayerData@@QAEHXZ
+    // ?GetBlitzPassed@mmPlayerData@@QAEHXZ
     ARTS_IMPORT i32 GetBlitzPassed();
 
-    // 0x4D02E0 | ?GetCheckpointMask@mmPlayerData@@QAEHXZ
+    // ?GetCheckpointMask@mmPlayerData@@QAEHXZ
     ARTS_IMPORT i32 GetCheckpointMask();
 
-    // 0x4D0360 | ?GetCheckpointPassed@mmPlayerData@@QAEHXZ
+    // ?GetCheckpointPassed@mmPlayerData@@QAEHXZ
     ARTS_IMPORT i32 GetCheckpointPassed();
 
-    // 0x4D0290 | ?GetCheckpointProgress@mmPlayerData@@QAEHH@Z
+    // ?GetCheckpointProgress@mmPlayerData@@QAEHH@Z
     ARTS_IMPORT i32 GetCheckpointProgress(i32 arg1);
 
-    // 0x4D0310 | ?GetCircuitMask@mmPlayerData@@QAEHXZ
+    // ?GetCircuitMask@mmPlayerData@@QAEHXZ
     ARTS_IMPORT i32 GetCircuitMask();
 
-    // 0x4D0380 | ?GetCircuitPassed@mmPlayerData@@QAEHXZ
+    // ?GetCircuitPassed@mmPlayerData@@QAEHXZ
     ARTS_IMPORT i32 GetCircuitPassed();
 
-    // 0x4D11E0 | ?GetClass@mmPlayerData@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmPlayerData@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4D0900 | ?GetFileName@mmPlayerData@@QAEPADXZ
+    // ?GetFileName@mmPlayerData@@QAEPADXZ
     ARTS_IMPORT char* GetFileName();
 
-    // 0x4D0860 | ?GetName@mmPlayerData@@QAEPADXZ
+    // ?GetName@mmPlayerData@@QAEPADXZ
     ARTS_IMPORT char* GetName();
 
-    // 0x4D08B0 | ?GetNetName@mmPlayerData@@QAEPADXZ
+    // ?GetNetName@mmPlayerData@@QAEPADXZ
     ARTS_IMPORT char* GetNetName();
 
-    // 0x4D03A0 | ?GetTotalPassed@mmPlayerData@@QAEHXZ
+    // ?GetTotalPassed@mmPlayerData@@QAEHXZ
     ARTS_IMPORT i32 GetTotalPassed();
 
-    // 0x4D03C0 | ?GetTotalScore@mmPlayerData@@QAEHXZ
+    // ?GetTotalScore@mmPlayerData@@QAEHXZ
     ARTS_IMPORT i32 GetTotalScore();
 
-    // 0x4D0910 | ?Load@mmPlayerData@@QAEHPAD@Z
+    // ?Load@mmPlayerData@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
 
-    // 0x4D0A90 | ?LoadBinary@mmPlayerData@@QAEHPAD@Z
+    // ?LoadBinary@mmPlayerData@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadBinary(char* arg1);
 
-    // 0x4D04A0 | ?RegisterFinish@mmPlayerData@@QAEHVmmPlayerRecord@@HH@Z
+    // ?RegisterFinish@mmPlayerData@@QAEHVmmPlayerRecord@@HH@Z
     ARTS_IMPORT i32 RegisterFinish(class mmPlayerRecord arg1, i32 arg2, i32 arg3);
 
-    // 0x4D0280 | ?RegisterFinish@mmPlayerData@@QAEHHMD@Z | unused
+    // ?RegisterFinish@mmPlayerData@@QAEHHMD@Z | unused
     ARTS_EXPORT i32 RegisterFinish(i32 arg1, f32 arg2, char arg3);
 
-    // 0x4D0750 | ?Reset@mmPlayerData@@QAEXXZ
+    // ?Reset@mmPlayerData@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    // 0x4D0410 | ?ResolveCheckpointProgress@mmPlayerData@@QAEXXZ
+    // ?ResolveCheckpointProgress@mmPlayerData@@QAEXXZ
     ARTS_IMPORT void ResolveCheckpointProgress();
 
-    // 0x4D0940 | ?Save@mmPlayerData@@QAEHPADH@Z
+    // ?Save@mmPlayerData@@QAEHPADH@Z
     ARTS_IMPORT i32 Save(char* arg1, i32 arg2);
 
-    // 0x4D0CF0 | ?SaveBinary@mmPlayerData@@QAEHPAD@Z
+    // ?SaveBinary@mmPlayerData@@QAEHPAD@Z
     ARTS_IMPORT i32 SaveBinary(char* arg1);
 
-    // 0x4D08C0 | ?SetFileName@mmPlayerData@@QAEXPAD@Z
+    // ?SetFileName@mmPlayerData@@QAEXPAD@Z
     ARTS_IMPORT void SetFileName(char* arg1);
 
-    // 0x4D0820 | ?SetName@mmPlayerData@@QAEXPAD@Z
+    // ?SetName@mmPlayerData@@QAEXPAD@Z
     ARTS_IMPORT void SetName(char* arg1);
 
-    // 0x4D0870 | ?SetNetName@mmPlayerData@@QAEXPAD@Z
+    // ?SetNetName@mmPlayerData@@QAEXPAD@Z
     ARTS_IMPORT void SetNetName(char* arg1);
 
-    // 0x4D0F00 | ?DeclareFields@mmPlayerData@@SAXXZ
+    // ?DeclareFields@mmPlayerData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x20F0];
@@ -207,8 +207,8 @@ public:
 
 check_size(mmPlayerData, 0x2178);
 
-// 0x708570 | ?mmPlayerDataMetaClass@@3VMetaClass@@A
+// ?mmPlayerDataMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmPlayerDataMetaClass;
 
-// 0x708598 | ?mmPlayerRecordMetaClass@@3VMetaClass@@A
+// ?mmPlayerRecordMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmPlayerRecordMetaClass;

@@ -112,10 +112,10 @@
 
 #include "arts7/node.h"
 
-// 0x4E06E0 | ?testsuperq@@YAXXZ | unused
+// ?testsuperq@@YAXXZ | unused
 ARTS_IMPORT void testsuperq();
 
-// 0x719254 | ?GameInputPtr@@3PAVmmInput@@A
+// ?GameInputPtr@@3PAVmmInput@@A
 ARTS_IMPORT extern class mmInput* GameInputPtr;
 
 // mmIO Flags
@@ -170,7 +170,7 @@ ARTS_IMPORT extern class mmInput* GameInputPtr;
 // mmJoyMan::PollJoyAxes
 #define MM_POLL_JOY_AXES_INDEX 0x1000 // Joystick index of axis pressed (0x1000 << index)
 
-// 0x719220 | ?IODev@@3PAVmmIODev@@A
+// ?IODev@@3PAVmmIODev@@A
 ARTS_IMPORT extern class mmIODev* IODev;
 
 namespace $
@@ -239,31 +239,31 @@ using $::ioType;
 using $::mmIODevice;
 using $::mmJoyInput;
 
-// 0x719268 | ?InputConfiguration@@3HA
+// ?InputConfiguration@@3HA
 ARTS_IMPORT extern i32 InputConfiguration;
 
-// 0x719258 | ?LocStrButton@@3PADA
+// ?LocStrButton@@3PADA
 ARTS_IMPORT extern char* LocStrButton;
 
-// 0x719260 | ?LocStrJoystick@@3PADA
+// ?LocStrJoystick@@3PADA
 ARTS_IMPORT extern char* LocStrJoystick;
 
-// 0x719250 | ?LocStrKey@@3PADA
+// ?LocStrKey@@3PADA
 ARTS_IMPORT extern char* LocStrKey;
 
-// 0x71925C | ?LocStrUndef@@3PADA
+// ?LocStrUndef@@3PADA
 ARTS_IMPORT extern char* LocStrUndef;
 
-// 0x719264 | ?UseDIKey@@3HA
+// ?UseDIKey@@3HA
 ARTS_IMPORT extern i32 UseDIKey;
 
-// 0x71926C | ?gpdi@@3PAUIDirectInputA@@A
+// ?gpdi@@3PAUIDirectInputA@@A
 ARTS_IMPORT extern struct IDirectInputA* gpdi;
 
-// 0x719228 | ?mmInputMetaClass@@3VMetaClass@@A
+// ?mmInputMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmInputMetaClass;
 
-// 0x719270 | ?testValue@@3MA
+// ?testValue@@3MA
 ARTS_IMPORT extern f32 testValue;
 
 class mmJoyMan;
@@ -272,226 +272,226 @@ class eqEventQ;
 
 class mmInput final : public asNode
 {
-    // const mmInput::`vftable' @ 0x61FC38
+    // const mmInput::`vftable'
 
 public:
-    // 0x4E0710 | ??0mmInput@@QAE@XZ
+    // ??0mmInput@@QAE@XZ
     ARTS_IMPORT mmInput();
 
-    // 0x4E4B00 | ??_EmmInput@@UAEPAXI@Z
-    // 0x4E0930 | ??1mmInput@@UAE@XZ
+    // ??_EmmInput@@UAEPAXI@Z
+    // ??1mmInput@@UAE@XZ
     ARTS_IMPORT ~mmInput() override;
 
-    // 0x4E21F0 | ?AssignIO@mmInput@@QAEXPAVmmIO@@HH@Z
+    // ?AssignIO@mmInput@@QAEXPAVmmIO@@HH@Z
     ARTS_IMPORT void AssignIO(class mmIO* arg1, i32 arg2, i32 arg3);
 
-    // 0x4E09F0 | ?AttachToPipe@mmInput@@QAEHXZ
+    // ?AttachToPipe@mmInput@@QAEHXZ
     ARTS_IMPORT i32 AttachToPipe();
 
-    // 0x4E0F00 | ?AutoSetup@mmInput@@QAEXXZ
+    // ?AutoSetup@mmInput@@QAEXXZ
     ARTS_IMPORT void AutoSetup();
 
-    // 0x4E3CE0 | ?BinaryLoadConfig@mmInput@@QAEHPAVStream@@@Z
+    // ?BinaryLoadConfig@mmInput@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 BinaryLoadConfig(class Stream* arg1);
 
-    // 0x4E3E20 | ?BinarySaveConfig@mmInput@@QAEHPAVStream@@@Z
+    // ?BinarySaveConfig@mmInput@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 BinarySaveConfig(class Stream* arg1);
 
-    // 0x4E1EB0 | ?BuildCaptureIO@mmInput@@QAEHHPAVmmIO@@TeqEvent@@@Z
+    // ?BuildCaptureIO@mmInput@@QAEHHPAVmmIO@@TeqEvent@@@Z
     ARTS_IMPORT i32 BuildCaptureIO(i32 arg1, class mmIO* arg2, union eqEvent arg3);
 
-    // 0x4E1E80 | ?CaptureState@mmInput@@QAEXH@Z
+    // ?CaptureState@mmInput@@QAEXH@Z
     ARTS_IMPORT void CaptureState(i32 arg1);
 
-    // 0x4E24B0 | ?ClearEventHitFlags@mmInput@@QAEXXZ
+    // ?ClearEventHitFlags@mmInput@@QAEXXZ
     ARTS_IMPORT void ClearEventHitFlags();
 
-    // 0x4E3990 | ?DeviceConnected@mmInput@@QAEHXZ
+    // ?DeviceConnected@mmInput@@QAEHXZ
     ARTS_IMPORT b32 DeviceConnected();
 
-    // 0x4E3A60 | ?DoingFF@mmInput@@QAEHXZ
+    // ?DoingFF@mmInput@@QAEHXZ
     ARTS_IMPORT i32 DoingFF();
 
-    // 0x4E3BC0 | ?FFIsPlaying@mmInput@@QAEHH@Z
+    // ?FFIsPlaying@mmInput@@QAEHH@Z
     ARTS_IMPORT i32 FFIsPlaying(i32 arg1);
 
-    // 0x4E3B60 | ?FFPlay@mmInput@@QAEHH@Z
+    // ?FFPlay@mmInput@@QAEHH@Z
     ARTS_IMPORT i32 FFPlay(i32 arg1);
 
-    // 0x4E3BF0 | ?FFSetValues@mmInput@@QAEHHMM@Z
+    // ?FFSetValues@mmInput@@QAEHHMM@Z
     ARTS_IMPORT i32 FFSetValues(i32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4E3B90 | ?FFStop@mmInput@@QAEHH@Z
+    // ?FFStop@mmInput@@QAEHH@Z
     ARTS_IMPORT i32 FFStop(i32 arg1);
 
-    // 0x4E3650 | ?FilterGamepadSteering@mmInput@@QAEMXZ
+    // ?FilterGamepadSteering@mmInput@@QAEMXZ
     ARTS_IMPORT f32 FilterGamepadSteering();
 
-    // 0x4E1E40 | ?FlagIODevChanged@mmInput@@QAEXXZ
+    // ?FlagIODevChanged@mmInput@@QAEXXZ
     ARTS_IMPORT void FlagIODevChanged();
 
-    // 0x4E2450 | ?Flush@mmInput@@QAEXXZ
+    // ?Flush@mmInput@@QAEXXZ
     ARTS_IMPORT void Flush();
 
-    // 0x4E2070 | ?ForceAssignment@mmInput@@QAEXPAVmmIO@@@Z
+    // ?ForceAssignment@mmInput@@QAEXPAVmmIO@@@Z
     ARTS_IMPORT void ForceAssignment(class mmIO* arg1);
 
-    // 0x4E39B0 | ?GamepadConnected@mmInput@@QAEHXZ
+    // ?GamepadConnected@mmInput@@QAEHXZ
     ARTS_EXPORT b32 GamepadConnected();
 
-    // 0x4E33A0 | ?GetBrakes@mmInput@@QAEMXZ
+    // ?GetBrakes@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetBrakes();
 
-    // 0x4E33C0 | ?GetBrakesVal@mmInput@@QAEMXZ
+    // ?GetBrakesVal@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetBrakesVal();
 
-    // 0x4E3890 | ?GetCamPan@mmInput@@QAEMXZ
+    // ?GetCamPan@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetCamPan();
 
-    // 0x4E4290 | ?GetClass@mmInput@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmInput@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4E3430 | ?GetHandBrake@mmInput@@QAEMXZ
+    // ?GetHandBrake@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetHandBrake();
 
-    // 0x4E37E0 | ?GetSteering@mmInput@@QAEMXZ
+    // ?GetSteering@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetSteering();
 
-    // 0x4E3310 | ?GetThrottle@mmInput@@QAEMXZ
+    // ?GetThrottle@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetThrottle();
 
-    // 0x4E3330 | ?GetThrottleVal@mmInput@@QAEMXZ
+    // ?GetThrottleVal@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetThrottleVal();
 
-    // 0x4E0ED0 | ?IOInit@mmInput@@QAEXHPAULocString@@J@Z
+    // ?IOInit@mmInput@@QAEXHPAULocString@@J@Z
     ARTS_IMPORT void IOInit(i32 arg1, struct LocString* arg2, ilong arg3);
 
-    // 0x4E1C60 | ?Init@mmInput@@QAEXH@Z
+    // ?Init@mmInput@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x4E2110 | ?IsAlreadyAssigned@mmInput@@QAEHPAVmmIO@@HHH@Z
+    // ?IsAlreadyAssigned@mmInput@@QAEHPAVmmIO@@HHH@Z
     ARTS_IMPORT i32 IsAlreadyAssigned(class mmIO* arg1, i32 arg2, i32 arg3, i32 arg4);
 
-    // 0x4E39A0 | ?JoystickConnected@mmInput@@QAEHXZ
+    // ?JoystickConnected@mmInput@@QAEHXZ
     ARTS_EXPORT b32 JoystickConnected();
 
-    // 0x4E3A00 | ?JoystickHasCoolie@mmInput@@QAEHXZ
+    // ?JoystickHasCoolie@mmInput@@QAEHXZ
     ARTS_IMPORT b32 JoystickHasCoolie();
 
-    // 0x4E3A10 | ?JoystickHasThrottle@mmInput@@QAEHXZ | unused
+    // ?JoystickHasThrottle@mmInput@@QAEHXZ | unused
     ARTS_IMPORT b32 JoystickHasThrottle();
 
-    // 0x4E3C50 | ?LoadConfig@mmInput@@QAEHPAVStream@@@Z | unused
+    // ?LoadConfig@mmInput@@QAEHPAVStream@@@Z | unused
     ARTS_IMPORT i32 LoadConfig(class Stream* arg1);
 
-    // 0x4E2370 | ?PollStates@mmInput@@QAEHXZ
+    // ?PollStates@mmInput@@QAEHXZ
     ARTS_IMPORT i32 PollStates();
 
-    // 0x4E2420 | ?PollSuperQ@mmInput@@QAEHXZ
+    // ?PollSuperQ@mmInput@@QAEHXZ
     ARTS_IMPORT i32 PollSuperQ();
 
-    // 0x4E3C20 | ?PopEvent@mmInput@@QAEHPAH@Z
+    // ?PopEvent@mmInput@@QAEHPAH@Z
     ARTS_IMPORT i32 PopEvent(i32* arg1);
 
-    // 0x4E42A0 | ?PrintIODev@mmInput@@QAEXXZ | unused
+    // ?PrintIODev@mmInput@@QAEXXZ | unused
     ARTS_IMPORT void PrintIODev();
 
-    // 0x4E0EA0 | ?Reset@mmInput@@UAEXXZ
+    // ?Reset@mmInput@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4E1010 | ?RestoreDefaultConfig@mmInput@@QAEXH@Z
+    // ?RestoreDefaultConfig@mmInput@@QAEXH@Z
     ARTS_IMPORT void RestoreDefaultConfig(i32 arg1);
 
-    // 0x4E1E60 | ?ReturnStateCaptured@mmInput@@QAEHXZ
+    // ?ReturnStateCaptured@mmInput@@QAEHXZ
     ARTS_IMPORT i32 ReturnStateCaptured();
 
-    // 0x4E2090 | ?SanityCheck@mmInput@@QAEHPAVmmIO@@HH@Z
+    // ?SanityCheck@mmInput@@QAEHPAVmmIO@@HH@Z
     ARTS_IMPORT i32 SanityCheck(class mmIO* arg1, i32 arg2, i32 arg3);
 
-    // 0x4E0FD0 | ?SaveCB@mmInput@@QAEXXZ
+    // ?SaveCB@mmInput@@QAEXXZ
     ARTS_IMPORT void SaveCB();
 
-    // 0x4E4370 | ?SaveCodeConfig@mmInput@@QAEHPAVStream@@@Z
+    // ?SaveCodeConfig@mmInput@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 SaveCodeConfig(class Stream* arg1);
 
-    // 0x4E3DA0 | ?SaveConfig@mmInput@@QAEHPAVStream@@@Z | unused
+    // ?SaveConfig@mmInput@@QAEHPAVStream@@@Z | unused
     ARTS_IMPORT i32 SaveConfig(class Stream* arg1);
 
-    // 0x4E39D0 | ?SetDeadZone@mmInput@@QAEXM@Z | unused
+    // ?SetDeadZone@mmInput@@QAEXM@Z | unused
     ARTS_IMPORT void SetDeadZone(f32 arg1);
 
-    // 0x4E1070 | ?SetDefaultConfig@mmInput@@QAEXH@Z
+    // ?SetDefaultConfig@mmInput@@QAEXH@Z
     ARTS_IMPORT void SetDefaultConfig(i32 arg1);
 
-    // 0x4E3AA0 | ?SetForceFeedbackScale@mmInput@@QAEXM@Z | unused
+    // ?SetForceFeedbackScale@mmInput@@QAEXM@Z | unused
     ARTS_IMPORT void SetForceFeedbackScale(f32 arg1);
 
-    // 0x4E3AF0 | ?SetRoadForceScale@mmInput@@QAEXM@Z | unused
+    // ?SetRoadForceScale@mmInput@@QAEXM@Z | unused
     ARTS_IMPORT void SetRoadForceScale(f32 arg1);
 
-    // 0x4E3A90 | ?StopAllFF@mmInput@@QAEXXZ
+    // ?StopAllFF@mmInput@@QAEXXZ
     ARTS_IMPORT void StopAllFF();
 
-    // 0x4E3B40 | ?ToggleFFEnabled@mmInput@@QAEHH@Z
+    // ?ToggleFFEnabled@mmInput@@QAEHH@Z
     ARTS_IMPORT i32 ToggleFFEnabled(i32 arg1);
 
-    // 0x4E2290 | ?Update@mmInput@@UAEXXZ
+    // ?Update@mmInput@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4E39C0 | ?WheelConnected@mmInput@@QAEHXZ
+    // ?WheelConnected@mmInput@@QAEHXZ
     ARTS_EXPORT b32 WheelConnected();
 
-    // 0x4E3A20 | ?WheelHas3Axis@mmInput@@QAEHXZ | unused
+    // ?WheelHas3Axis@mmInput@@QAEHXZ | unused
     ARTS_IMPORT b32 WheelHas3Axis();
 
-    // 0x4E40E0 | ?DeclareFields@mmInput@@SAXXZ
+    // ?DeclareFields@mmInput@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     ARTS_ZEROED;
 
 private:
 #ifdef ARTS_DEV_BUILD
-    // 0x4E3EB0 | ?AddWidgets@mmInput@@EAEXPAVBank@@@Z
+    // ?AddWidgets@mmInput@@EAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4E2890 | ?EventToButton@mmInput@@AAEHH@Z | unused
+    // ?EventToButton@mmInput@@AAEHH@Z | unused
     ARTS_IMPORT i32 EventToButton(i32 arg1);
 
-    // 0x4E34B0 | ?FilterDiscreteSteering@mmInput@@AAEMM@Z
+    // ?FilterDiscreteSteering@mmInput@@AAEMM@Z
     ARTS_IMPORT f32 FilterDiscreteSteering(f32 arg1);
 
-    // 0x4E2580 | ?GetBufferedKeyboardData@mmInput@@AAEXXZ
+    // ?GetBufferedKeyboardData@mmInput@@AAEXXZ
     ARTS_EXPORT void GetBufferedKeyboardData();
 
-    // 0x4E25A0 | ?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z
+    // ?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z
     ARTS_EXPORT b32 GetNextKeyboardEvent(union eqEvent* event);
 
-    // 0x4E2E80 | ?PollContinuous@mmInput@@AAEXPAVmmIO@@@Z
+    // ?PollContinuous@mmInput@@AAEXPAVmmIO@@@Z
     ARTS_IMPORT void PollContinuous(class mmIO* arg1);
 
-    // 0x4E25E0 | ?ProcessEvents@mmInput@@AAEXXZ
+    // ?ProcessEvents@mmInput@@AAEXXZ
     ARTS_EXPORT void ProcessEvents();
 
-    // 0x4E28C0 | ?ProcessJoyEvents@mmInput@@AAEXXZ
+    // ?ProcessJoyEvents@mmInput@@AAEXXZ
     ARTS_IMPORT void ProcessJoyEvents();
 
-    // 0x4E2530 | ?ProcessKeyboardEvents@mmInput@@AAEXXZ
+    // ?ProcessKeyboardEvents@mmInput@@AAEXXZ
     ARTS_EXPORT void ProcessKeyboardEvents();
 
-    // 0x4E24D0 | ?ProcessMouseEvents@mmInput@@AAEXXZ
+    // ?ProcessMouseEvents@mmInput@@AAEXXZ
     ARTS_EXPORT void ProcessMouseEvents();
 
-    // 0x4E2600 | ?ProcessStates@mmInput@@AAE_JXZ
+    // ?ProcessStates@mmInput@@AAE_JXZ
     ARTS_IMPORT i64 ProcessStates();
 
-    // 0x4E2E50 | ?PutEventInQueue@mmInput@@AAEX_J@Z
+    // ?PutEventInQueue@mmInput@@AAEX_J@Z
     ARTS_IMPORT void PutEventInQueue(i64 arg1);
 
-    // 0x4E2D90 | ?ScanForEvent@mmInput@@AAE_JPATeqEvent@@@Z
+    // ?ScanForEvent@mmInput@@AAE_JPATeqEvent@@@Z
     ARTS_IMPORT i64 ScanForEvent(union eqEvent* arg1);
 
-    // 0x4E26E0 | ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
+    // ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
     ARTS_IMPORT i64 ScanState(class mmIO* arg1);
 
     mmJoyMan* Joy;

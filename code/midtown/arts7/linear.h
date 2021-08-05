@@ -38,28 +38,28 @@
 
 class asLinearCS : public asNode
 {
-    // const asLinearCS::`vftable' @ 0x620B40
+    // const asLinearCS::`vftable'
 
 public:
-    // 0x525AB0 | ??0asLinearCS@@QAE@XZ
+    // ??0asLinearCS@@QAE@XZ
     ARTS_EXPORT asLinearCS();
 
-    // 0x4B1CA0 | ??_EasLinearCS@@UAEPAXI@Z
-    // 0x422F00 | ??1asLinearCS@@UAE@XZ | inline
+    // ??_EasLinearCS@@UAEPAXI@Z
+    // ??1asLinearCS@@UAE@XZ | inline
     ARTS_EXPORT ~asLinearCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x525CC0 | ?AddWidgets@asLinearCS@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asLinearCS@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* bank) override;
 #endif
 
-    // 0x525C00 | ?Cull@asLinearCS@@UAEXXZ
+    // ?Cull@asLinearCS@@UAEXXZ
     ARTS_EXPORT void Cull() override;
 
-    // 0x525CB0 | ?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z | unused
+    // ?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z | unused
     ARTS_EXPORT void FileIO(class MiniParser* arg1);
 
-    // 0x525B20 | ?Update@asLinearCS@@UAEXXZ
+    // ?Update@asLinearCS@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
     Vector3& GetPos()
@@ -83,5 +83,5 @@ private:
 
 check_size(asLinearCS, 0x88);
 
-// 0x7908D8 | ?asLinearCSMetaClass@@3VMetaClass@@A
+// ?asLinearCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asLinearCSMetaClass;

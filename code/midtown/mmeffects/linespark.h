@@ -35,16 +35,16 @@
 
 #include "vector7/vector3.h"
 
-// 0x501700 | ?GetSparkLut@@YAPAVasSparkLut@@PAD@Z
+// ?GetSparkLut@@YAPAVasSparkLut@@PAD@Z
 ARTS_IMPORT class asSparkLut* GetSparkLut(char* path);
 
-// 0x719600 | ?SLH@@3VHashTable@@A
+// ?SLH@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable SLH;
 
 class asSparkLut
 {
 public:
-    // 0x501740 | ?Init@asSparkLut@@QAEXPAD@Z
+    // ?Init@asSparkLut@@QAEXPAD@Z
     ARTS_IMPORT void Init(char* path);
 
     u32* Colors {nullptr};
@@ -52,7 +52,7 @@ public:
     i32 Height {0};
 
 private:
-    // 0x64A0D8 | ?BuiltinClut@asSparkLut@@0PAIA
+    // ?BuiltinClut@asSparkLut@@0PAIA
     ARTS_IMPORT static u32 BuiltinClut[32];
 };
 
@@ -62,23 +62,23 @@ struct asLineSparks
 {
 public:
 #ifdef ARTS_DEV_BUILD
-    // 0x501A10 | ?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z | unused
+    // ?AddWidgets@asLineSparks@@QAEXPAVBank@@@Z | unused
     ARTS_IMPORT void AddWidgets(class Bank* bank);
 #endif
 
-    // 0x502190 | ?Draw@asLineSparks@@QAEXXZ
+    // ?Draw@asLineSparks@@QAEXXZ
     ARTS_EXPORT void Draw();
 
-    // 0x501920 | ?Init@asLineSparks@@QAEXHPAVasSparkLut@@@Z
+    // ?Init@asLineSparks@@QAEXHPAVasSparkLut@@@Z
     ARTS_EXPORT void Init(i32 num_sparks, class asSparkLut* lut);
 
-    // 0x501C40 | ?RadialBlast@asLineSparks@@QAEXHAAVVector3@@0@Z
+    // ?RadialBlast@asLineSparks@@QAEXHAAVVector3@@0@Z
     ARTS_IMPORT void RadialBlast(i32 arg1, class Vector3& arg2, class Vector3& arg3);
 
-    // 0x501F80 | ?Update@asLineSparks@@QAEXXZ
+    // ?Update@asLineSparks@@QAEXXZ
     ARTS_EXPORT void Update();
 
-    // 0x501FC0 | ?Update@asLineSparks@@QAEXM@Z
+    // ?Update@asLineSparks@@QAEXM@Z
     ARTS_EXPORT void Update(f32 delta);
 
     i32 field_0 {0};

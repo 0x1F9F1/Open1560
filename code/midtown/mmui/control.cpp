@@ -26,5 +26,5 @@ void ControlSetup::DoneAction()
 void ControlSetup::POVCB()
 {}
 
-// 0x4A37A0 | ?CalibrateWatcher@@YGKPAX@Z
+// ?CalibrateWatcher@@YGKPAX@Z
 ARTS_IMPORT /*static*/ ulong ARTS_STDCALL CalibrateWatcher(void* arg1);

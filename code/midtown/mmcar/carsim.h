@@ -82,145 +82,145 @@
 
 #include "arts7/node.h"
 
-// 0x46B8F0 | ?IMPACTCB@@YAXPAVmmCarSim@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M3@Z
+// ?IMPACTCB@@YAXPAVmmCarSim@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M3@Z
 ARTS_IMPORT void IMPACTCB(class mmCarSim* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4,
     f32 arg5, class Vector3* arg6);
 
-// 0x4703A0 | ?Struct@@YAPAUMetaType@@PAVMetaClass@@@Z | inline
+// ?Struct@@YAPAUMetaType@@PAVMetaClass@@@Z | inline
 ARTS_IMPORT struct MetaType* Struct(class MetaClass* arg1);
 
-// 0x6A7C78 | ?HitWaterTimer@@3MA
+// ?HitWaterTimer@@3MA
 ARTS_IMPORT extern f32 HitWaterTimer;
 
-// 0x63ABC0 | ?MetricFactor@@3MA
+// ?MetricFactor@@3MA
 ARTS_IMPORT extern f32 MetricFactor;
 
-// 0x6A7C40 | ?PlayerPos@@3VVector3@@A
+// ?PlayerPos@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 PlayerPos;
 
-// 0x63ABC4 | ?WeatherFriction@@3MA
+// ?WeatherFriction@@3MA
 ARTS_IMPORT extern f32 WeatherFriction;
 
-// 0x6A7C50 | ?mmCarSimMetaClass@@3VMetaClass@@A
+// ?mmCarSimMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmCarSimMetaClass;
 
 class mmCarSim final : public asNode
 {
-    // const mmCarSim::`vftable' @ 0x61BEA8
+    // const mmCarSim::`vftable'
 
 public:
-    // 0x46B950 | ??0mmCarSim@@QAE@XZ
+    // ??0mmCarSim@@QAE@XZ
     ARTS_IMPORT mmCarSim();
 
-    // 0x4703D0 | ??_EmmCarSim@@UAEPAXI@Z
-    // 0x46C040 | ??1mmCarSim@@UAE@XZ
+    // ??_EmmCarSim@@UAEPAXI@Z
+    // ??1mmCarSim@@UAE@XZ
     ARTS_IMPORT ~mmCarSim() override;
 
-    // 0x46C340 | ?AddPlayerSpecifics@mmCarSim@@QAEXXZ
+    // ?AddPlayerSpecifics@mmCarSim@@QAEXXZ
     ARTS_IMPORT void AddPlayerSpecifics();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x46E840 | ?AddWidgets@mmCarSim@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmCarSim@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x46D540 | ?AfterLoad@mmCarSim@@UAEXXZ
+    // ?AfterLoad@mmCarSim@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;
 
-    // 0x46D600 | ?BeforeSave@mmCarSim@@UAEXXZ
+    // ?BeforeSave@mmCarSim@@UAEXXZ
     ARTS_IMPORT void BeforeSave() override;
 
-    // 0x46D080 | ?ConfigureDrivetrain@mmCarSim@@QAEXXZ
+    // ?ConfigureDrivetrain@mmCarSim@@QAEXXZ
     ARTS_IMPORT void ConfigureDrivetrain();
 
-    // 0x46E080 | ?Explode@mmCarSim@@QAEXXZ
+    // ?Explode@mmCarSim@@QAEXXZ
     ARTS_IMPORT void Explode();
 
-    // 0x4701A0 | ?GetClass@mmCarSim@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmCarSim@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x46C500 | ?Init@mmCarSim@@QAEXPADPAVmmCar@@H@Z
+    // ?Init@mmCarSim@@QAEXPADPAVmmCar@@H@Z
     ARTS_IMPORT void Init(char* arg1, class mmCar* arg2, i32 arg3);
 
-    // 0x46F5B0 | ?InitPtx@mmCarSim@@QAEXXZ
+    // ?InitPtx@mmCarSim@@QAEXXZ
     ARTS_IMPORT void InitPtx();
 
-    // 0x46BFF0 | ?OnGround@mmCarSim@@QAEHXZ
+    // ?OnGround@mmCarSim@@QAEHXZ
     ARTS_IMPORT i32 OnGround();
 
-    // 0x46C3C0 | ?PlayHorn@mmCarSim@@QAEXXZ
+    // ?PlayHorn@mmCarSim@@QAEXXZ
     ARTS_IMPORT void PlayHorn();
 
-    // 0x46FAA0 | ?PlayImpactAudio@mmCarSim@@QAEXFPAVmmIntersection@@PAVVector3@@@Z
+    // ?PlayImpactAudio@mmCarSim@@QAEXFPAVmmIntersection@@PAVVector3@@@Z
     ARTS_IMPORT void PlayImpactAudio(i16 arg1, class mmIntersection* arg2, class Vector3* arg3);
 
-    // 0x46CB20 | ?ReInit@mmCarSim@@QAEXPAD@Z
+    // ?ReInit@mmCarSim@@QAEXPAD@Z
     ARTS_IMPORT void ReInit(char* arg1);
 
-    // 0x46D060 | ?ReconfigureDrivetrain@mmCarSim@@QAEXXZ
+    // ?ReconfigureDrivetrain@mmCarSim@@QAEXXZ
     ARTS_IMPORT void ReconfigureDrivetrain();
 
-    // 0x46E830 | ?RemoveNetVehicleAudio@mmCarSim@@QAEXXZ
+    // ?RemoveNetVehicleAudio@mmCarSim@@QAEXXZ
     ARTS_IMPORT void RemoveNetVehicleAudio();
 
-    // 0x46D6B0 | ?Reset@mmCarSim@@UAEXXZ
+    // ?Reset@mmCarSim@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x46D020 | ?RestoreImpactParams@mmCarSim@@QAEXXZ
+    // ?RestoreImpactParams@mmCarSim@@QAEXXZ
     ARTS_IMPORT void RestoreImpactParams();
 
-    // 0x46D040 | ?SetHackedImpactParams@mmCarSim@@QAEXXZ
+    // ?SetHackedImpactParams@mmCarSim@@QAEXXZ
     ARTS_IMPORT void SetHackedImpactParams();
 
-    // 0x46D500 | ?SetResetPos@mmCarSim@@QAEXAAVVector3@@@Z
+    // ?SetResetPos@mmCarSim@@QAEXAAVVector3@@@Z
     ARTS_IMPORT void SetResetPos(class Vector3& arg1);
 
-    // 0x46E7E0 | ?ShouldSkid@mmCarSim@@QAEHXZ
+    // ?ShouldSkid@mmCarSim@@QAEHXZ
     ARTS_IMPORT i32 ShouldSkid();
 
-    // 0x46C4A0 | ?StartSiren@mmCarSim@@QAEXXZ
+    // ?StartSiren@mmCarSim@@QAEXXZ
     ARTS_IMPORT void StartSiren();
 
-    // 0x46C430 | ?StopHorn@mmCarSim@@QAEXXZ
+    // ?StopHorn@mmCarSim@@QAEXXZ
     ARTS_IMPORT void StopHorn();
 
-    // 0x46C4D0 | ?StopSiren@mmCarSim@@QAEXXZ
+    // ?StopSiren@mmCarSim@@QAEXXZ
     ARTS_IMPORT void StopSiren();
 
-    // 0x46D300 | ?UnconfigureDrivetrain@mmCarSim@@QAEXXZ
+    // ?UnconfigureDrivetrain@mmCarSim@@QAEXXZ
     ARTS_IMPORT void UnconfigureDrivetrain();
 
-    // 0x46D860 | ?Update@mmCarSim@@UAEXXZ
+    // ?Update@mmCarSim@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x46E270 | ?UpdateDamage@mmCarSim@@QAEXXZ
+    // ?UpdateDamage@mmCarSim@@QAEXXZ
     ARTS_IMPORT void UpdateDamage();
 
-    // 0x46E160 | ?UpdateExhaust@mmCarSim@@QAEXXZ
+    // ?UpdateExhaust@mmCarSim@@QAEXXZ
     ARTS_IMPORT void UpdateExhaust();
 
-    // 0x46E520 | ?UpdateFF@mmCarSim@@QAEXXZ
+    // ?UpdateFF@mmCarSim@@QAEXXZ
     ARTS_IMPORT void UpdateFF();
 
-    // 0x46D680 | ?UpdateICSParams@mmCarSim@@QAEXXZ
+    // ?UpdateICSParams@mmCarSim@@QAEXXZ
     ARTS_IMPORT void UpdateICSParams();
 
-    // 0x46FBC0 | ?DeclareFields@mmCarSim@@SAXXZ
+    // ?DeclareFields@mmCarSim@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    // 0x46C030 | ?SetGlobalTuning@mmCarSim@@SAXMM@Z
+    // ?SetGlobalTuning@mmCarSim@@SAXMM@Z
     ARTS_EXPORT static void SetGlobalTuning(f32 arg1, f32 arg2);
 
-    // 0x6A7C94 | ?DirtTex@mmCarSim@@2PAVagiTexDef@@A
+    // ?DirtTex@mmCarSim@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* DirtTex;
 
-    // 0x6A7C90 | ?GrassTex@mmCarSim@@2PAVagiTexDef@@A
+    // ?GrassTex@mmCarSim@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* GrassTex;
 
-    // 0x6A7C9C | ?PlayerRawSteering@mmCarSim@@2MA
+    // ?PlayerRawSteering@mmCarSim@@2MA
     ARTS_IMPORT static f32 PlayerRawSteering;
 
-    // 0x6A7C98 | ?SnowTex@mmCarSim@@2PAVagiTexDef@@A
+    // ?SnowTex@mmCarSim@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* SnowTex;
 
     u8 gap20[0x1F8C];

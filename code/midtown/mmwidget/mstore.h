@@ -34,28 +34,28 @@
 class MArray
 {
 public:
-    // 0x4AB7B0 | ??0MArray@@QAE@XZ
+    // ??0MArray@@QAE@XZ
     ARTS_IMPORT MArray();
 
-    // 0x4AB7C0 | ??1MArray@@QAE@XZ | unused
+    // ??1MArray@@QAE@XZ | unused
     ARTS_IMPORT ~MArray();
 
-    // 0x4ABCF0 | ?AddMenuData@MArray@@QAEXHAAVVector4@@PAD@Z
+    // ?AddMenuData@MArray@@QAEXHAAVVector4@@PAD@Z
     ARTS_IMPORT void AddMenuData(i32 arg1, class Vector4& arg2, char* arg3);
 
-    // 0x4ABB20 | ?Flush@MArray@@QAEXXZ | unused
+    // ?Flush@MArray@@QAEXXZ | unused
     ARTS_EXPORT void Flush();
 
-    // 0x4AB7D0 | ?Init@MArray@@QAEXH@Z
+    // ?Init@MArray@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x4ABB30 | ?Read@MArray@@QAEXPAD@Z
+    // ?Read@MArray@@QAEXPAD@Z
     ARTS_EXPORT void Read(char* name);
 
-    // 0x4ABD60 | ?RetrieveMenuData@MArray@@QAEHHAAM000@Z | unused
+    // ?RetrieveMenuData@MArray@@QAEHHAAM000@Z | unused
     ARTS_IMPORT i32 RetrieveMenuData(i32 arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5);
 
-    // 0x4AB810 | ?Write@MArray@@QAEXPAD@Z
+    // ?Write@MArray@@QAEXPAD@Z
     ARTS_IMPORT void Write(char* arg1);
 
     u8 gap0[0xC];

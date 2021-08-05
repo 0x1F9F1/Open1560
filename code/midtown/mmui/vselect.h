@@ -61,81 +61,81 @@
 
 class VehicleSelectBase : public UIMenu
 {
-    // const VehicleSelectBase::`vftable' @ 0x61D3D0
+    // const VehicleSelectBase::`vftable'
 
 public:
-    // 0x49A790 | ??0VehicleSelectBase@@QAE@H@Z
+    // ??0VehicleSelectBase@@QAE@H@Z
     ARTS_IMPORT VehicleSelectBase(i32 arg1);
 
-    // 0x49C3A0 | ??_EVehicleSelectBase@@UAEPAXI@Z
-    // 0x49C3A0 | ??_GVehicleSelectBase@@UAEPAXI@Z
-    // 0x49B7D0 | ??1VehicleSelectBase@@UAE@XZ
+    // ??_EVehicleSelectBase@@UAEPAXI@Z
+    // ??_GVehicleSelectBase@@UAEPAXI@Z
+    // ??1VehicleSelectBase@@UAE@XZ
     ARTS_IMPORT ~VehicleSelectBase() override;
 
-    // 0x49B990 | ?AllSetCar@VehicleSelectBase@@QAEXPADH@Z
+    // ?AllSetCar@VehicleSelectBase@@QAEXPADH@Z
     ARTS_IMPORT void AllSetCar(char* arg1, i32 arg2);
 
-    // 0x49C000 | ?AssignVehicleStats@VehicleSelectBase@@QAEXHMMMM@Z
+    // ?AssignVehicleStats@VehicleSelectBase@@QAEXHMMMM@Z
     ARTS_IMPORT void AssignVehicleStats(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x49BC50 | ?CarMod@VehicleSelectBase@@QAEXAAH@Z
+    // ?CarMod@VehicleSelectBase@@QAEXAAH@Z
     ARTS_IMPORT void CarMod(i32& arg1);
 
-    // 0x49AA70 | ?ColorCB@VehicleSelectBase@@QAEXXZ
+    // ?ColorCB@VehicleSelectBase@@QAEXXZ
     ARTS_IMPORT void ColorCB();
 
-    // 0x49BBD0 | ?CurrentVehicleIsLocked@VehicleSelectBase@@QAEHXZ
+    // ?CurrentVehicleIsLocked@VehicleSelectBase@@QAEHXZ
     ARTS_IMPORT i32 CurrentVehicleIsLocked();
 
-    // 0x49C500 | ?DecCar@VehicleSelectBase@@QAEXXZ | inline
+    // ?DecCar@VehicleSelectBase@@QAEXXZ | inline
     ARTS_IMPORT void DecCar();
 
-    // 0x49A9B0 | ?DecColor@VehicleSelectBase@@QAEXXZ
+    // ?DecColor@VehicleSelectBase@@QAEXXZ
     ARTS_IMPORT void DecColor();
 
-    // 0x49C1E0 | ?FillStats@VehicleSelectBase@@QAEXXZ
+    // ?FillStats@VehicleSelectBase@@QAEXXZ
     ARTS_IMPORT void FillStats();
 
-    // 0x49BAA0 | ?GetCarTitle@VehicleSelectBase@@QAEPADHPADFPAVstring@@@Z
+    // ?GetCarTitle@VehicleSelectBase@@QAEPADHPADFPAVstring@@@Z
     ARTS_IMPORT char* GetCarTitle(i32 arg1, char* arg2, i16 arg3, class string* arg4);
 
-    // 0x49C510 | ?IncCar@VehicleSelectBase@@QAEXXZ | inline
+    // ?IncCar@VehicleSelectBase@@QAEXXZ | inline
     ARTS_IMPORT void IncCar();
 
-    // 0x49A8F0 | ?IncColor@VehicleSelectBase@@QAEXXZ
+    // ?IncColor@VehicleSelectBase@@QAEXXZ
     ARTS_IMPORT void IncColor();
 
-    // 0x49AA90 | ?InitCarSelection@VehicleSelectBase@@QAEXHMMMM@Z
+    // ?InitCarSelection@VehicleSelectBase@@QAEXHMMMM@Z
     ARTS_IMPORT void InitCarSelection(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x49BF60 | ?LoadStats@VehicleSelectBase@@QAEHPAD@Z
+    // ?LoadStats@VehicleSelectBase@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadStats(char* arg1);
 
-    // 0x49B960 | ?PostSetup@VehicleSelectBase@@UAEXXZ
+    // ?PostSetup@VehicleSelectBase@@UAEXXZ
     ARTS_IMPORT void PostSetup() override;
 
-    // 0x49B870 | ?PreSetup@VehicleSelectBase@@UAEXXZ
+    // ?PreSetup@VehicleSelectBase@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x49B9F0 | ?Reset@VehicleSelectBase@@UAEXXZ
+    // ?Reset@VehicleSelectBase@@UAEXXZ
     ARTS_EXPORT void Reset() override;
 
-    // 0x49BBF0 | ?SetLastUnlockedVehicle@VehicleSelectBase@@QAEXXZ
+    // ?SetLastUnlockedVehicle@VehicleSelectBase@@QAEXXZ
     ARTS_IMPORT void SetLastUnlockedVehicle();
 
-    // 0x49C230 | ?SetLockedLabel@VehicleSelectBase@@QAEXXZ
+    // ?SetLockedLabel@VehicleSelectBase@@QAEXXZ
     ARTS_IMPORT void SetLockedLabel();
 
-    // 0x49BC80 | ?SetPick@VehicleSelectBase@@QAEXHF@Z
+    // ?SetPick@VehicleSelectBase@@QAEXHF@Z
     ARTS_IMPORT void SetPick(i32 arg1, i16 arg2);
 
-    // 0x49C520 | ?SetShowcaseFlag@VehicleSelectBase@@QAEXXZ | inline
+    // ?SetShowcaseFlag@VehicleSelectBase@@QAEXXZ | inline
     ARTS_IMPORT void SetShowcaseFlag();
 
-    // 0x49B9E0 | ?TDPickCB@VehicleSelectBase@@QAEXXZ
+    // ?TDPickCB@VehicleSelectBase@@QAEXXZ
     ARTS_IMPORT void TDPickCB();
 
-    // 0x49BA00 | ?Update@VehicleSelectBase@@UAEXXZ
+    // ?Update@VehicleSelectBase@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap90[0xD8];

@@ -39,36 +39,36 @@
 
 class asMeshSetForm final : public asNode
 {
-    // const asMeshSetForm::`vftable' @ 0x6206B0
+    // const asMeshSetForm::`vftable'
 
 public:
-    // 0x4FFEA0 | ??0asMeshSetForm@@QAE@XZ
+    // ??0asMeshSetForm@@QAE@XZ
     ARTS_IMPORT asMeshSetForm();
 
-    // 0x500070 | ??_GasMeshSetForm@@UAEPAXI@Z
-    // 0x500070 | ??_EasMeshSetForm@@UAEPAXI@Z
-    // 0x5000A0 | ??1asMeshSetForm@@UAE@XZ | inline
+    // ??_GasMeshSetForm@@UAEPAXI@Z
+    // ??_EasMeshSetForm@@UAEPAXI@Z
+    // ??1asMeshSetForm@@UAE@XZ | inline
     ARTS_IMPORT ~asMeshSetForm() override = default;
 
-    // 0x4FFF60 | ?Cull@asMeshSetForm@@UAEXXZ
+    // ?Cull@asMeshSetForm@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4FFEC0 | ?SetShape@asMeshSetForm@@QAEXPAD0PAVVector3@@@Z
+    // ?SetShape@asMeshSetForm@@QAEXPAD0PAVVector3@@@Z
     ARTS_IMPORT void SetShape(char* arg1, char* arg2, class Vector3* arg3);
 
-    // 0x4FFF00 | ?SetZRead@asMeshSetForm@@QAEXH@Z
+    // ?SetZRead@asMeshSetForm@@QAEXH@Z
     ARTS_IMPORT void SetZRead(i32 arg1);
 
-    // 0x4FFF20 | ?SetZWrite@asMeshSetForm@@QAEXH@Z
+    // ?SetZWrite@asMeshSetForm@@QAEXH@Z
     ARTS_IMPORT void SetZWrite(i32 arg1);
 
-    // 0x4FFF40 | ?Update@asMeshSetForm@@UAEXXZ
+    // ?Update@asMeshSetForm@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x649D8C | ?Lighter@asMeshSetForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
+    // ?Lighter@asMeshSetForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
     ARTS_IMPORT static void (*Lighter)(u8*, u32*, u32*, class agiMeshSet*);
 
-    // 0x7195A4 | ?SphMapTex@asMeshSetForm@@2PAVagiTexDef@@A
+    // ?SphMapTex@asMeshSetForm@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* SphMapTex;
 
     u8 gap20[0xC];

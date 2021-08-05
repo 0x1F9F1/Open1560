@@ -34,35 +34,35 @@
     0x790DE8 | int DrawLabelPArg | ?DrawLabelPArg@@3HA
 */
 
-// 0x52DFC0 | ?d3dCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
+// ?d3dCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
 ARTS_EXPORT Owner<class agiPipeline> d3dCreatePipeline(i32 argc, char** argv);
 
-// 0x790DCC | ?AutoMip@@3HA
+// ?AutoMip@@3HA
 ARTS_IMPORT extern b32 AutoMip;
 
-// 0x790DD0 | ?DrawLabelFArg@@3HA
+// ?DrawLabelFArg@@3HA
 ARTS_IMPORT extern b32 DrawLabelFArg;
 
-// 0x790DE8 | ?DrawLabelPArg@@3HA
+// ?DrawLabelPArg@@3HA
 ARTS_IMPORT extern b32 DrawLabelPArg;
 
-// 0x790DE0 | ?ForceSquare@@3HA
+// ?ForceSquare@@3HA
 ARTS_IMPORT extern b32 ForceSquare;
 
-// 0x790DDC | ?FullMip@@3HA
+// ?FullMip@@3HA
 ARTS_IMPORT extern b32 FullMip;
 
-// 0x790DC8 | ?MaxTexMem@@3HA
+// ?MaxTexMem@@3HA
 ARTS_IMPORT extern i32 MaxTexMem;
 
-// 0x790DE4 | ?NoBlitHack@@3HA
+// ?NoBlitHack@@3HA
 ARTS_IMPORT extern b32 NoBlitHack;
 
-// 0x790DD4 | ?NoMip@@3HA
+// ?NoMip@@3HA
 ARTS_IMPORT extern b32 NoMip;
 
-// 0x790DC4 | ?NoMultiTexture@@3HA
+// ?NoMultiTexture@@3HA
 ARTS_IMPORT extern b32 NoMultiTexture;
 
-// 0x790DD8 | ?NormalizedFog@@3HA
+// ?NormalizedFog@@3HA
 ARTS_IMPORT extern b32 NormalizedFog;

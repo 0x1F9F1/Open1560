@@ -28,15 +28,15 @@
 
 class agiRenderer
 {
-    // const agiRenderer::`vftable' @ 0x6214D0
+    // const agiRenderer::`vftable'
 
 public:
-    // 0x55DD80 | ??0agiRenderer@@QAE@XZ
+    // ??0agiRenderer@@QAE@XZ
     ARTS_IMPORT agiRenderer();
 
 protected:
-    // 0x555230 | ??_GagiRenderer@@MAEPAXI@Z
-    // 0x555230 | ??_EagiRenderer@@MAEPAXI@Z
+    // ??_GagiRenderer@@MAEPAXI@Z
+    // ??_EagiRenderer@@MAEPAXI@Z
     ARTS_IMPORT virtual ~agiRenderer();
 
 public:
@@ -86,8 +86,8 @@ protected:
 
 check_size(agiRenderer, 0xC);
 
-// 0x907898 | ?agiCurCardState@@3VagiCardState@@A
+// ?agiCurCardState@@3VagiCardState@@A
 ARTS_IMPORT extern class agiCardState agiCurCardState;
 
-// 0x907868 | ?agiLastCardState@@3UagiCardStateStruct@@A
+// ?agiLastCardState@@3UagiCardStateStruct@@A
 ARTS_IMPORT extern struct agiCardStateStruct agiLastCardState;

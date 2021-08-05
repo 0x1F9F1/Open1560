@@ -35,24 +35,24 @@
 
 class agiBILightModel final : public agiLightModel
 {
-    // const agiBILightModel::`vftable' @ 0x621508
+    // const agiBILightModel::`vftable'
 
 public:
-    // 0x555260 | ??0agiBILightModel@@QAE@PAVagiPipeline@@@Z
+    // ??0agiBILightModel@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiBILightModel(class agiPipeline* arg1);
 
-    // 0x555340 | ??_GagiBILightModel@@UAEPAXI@Z
-    // 0x555340 | ??_EagiBILightModel@@UAEPAXI@Z
-    // 0x555280 | ??1agiBILightModel@@UAE@XZ
+    // ??_GagiBILightModel@@UAEPAXI@Z
+    // ??_EagiBILightModel@@UAEPAXI@Z
+    // ??1agiBILightModel@@UAE@XZ
     ARTS_IMPORT ~agiBILightModel() override;
 
-    // 0x555320 | ?Activate@agiBILightModel@@UAEHXZ
+    // ?Activate@agiBILightModel@@UAEHXZ
     ARTS_IMPORT i32 Activate() override;
 
-    // 0x5552E0 | ?BeginGfx@agiBILightModel@@UAEHXZ
+    // ?BeginGfx@agiBILightModel@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
-    // 0x555310 | ?EndGfx@agiBILightModel@@UAEXXZ
+    // ?EndGfx@agiBILightModel@@UAEXXZ
     ARTS_IMPORT void EndGfx() override;
 };
 

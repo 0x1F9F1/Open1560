@@ -84,58 +84,58 @@ struct DLPVertex;
 class DLPTemplate
 {
 public:
-    // 0x5582E0 | ??0DLPTemplate@@QAE@PAD@Z
+    // ??0DLPTemplate@@QAE@PAD@Z
     ARTS_EXPORT DLPTemplate(char* name);
 
-    // 0x5597C0 | ?AddRef@DLPTemplate@@QAEXXZ
+    // ?AddRef@DLPTemplate@@QAEXXZ
     ARTS_EXPORT void AddRef()
     {
         ++RefCount;
     }
 
-    // 0x559A00 | ?BoundBox@DLPTemplate@@QAEHAAVVector3@@0PAD@Z
+    // ?BoundBox@DLPTemplate@@QAEHAAVVector3@@0PAD@Z
     ARTS_IMPORT i32 BoundBox(class Vector3& arg1, class Vector3& arg2, char* arg3);
 
-    // 0x559930 | ?GetCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z
+    // ?GetCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z
     ARTS_IMPORT i32 GetCentroid(class Vector3& arg1, char* arg2);
 
-    // 0x5599B0 | ?GetGroupVertex@DLPTemplate@@QAEPAVVector3@@PAD@Z | unused
+    // ?GetGroupVertex@DLPTemplate@@QAEPAVVector3@@PAD@Z | unused
     ARTS_IMPORT class Vector3* GetGroupVertex(char* arg1);
 
-    // 0x559800 | ?GetVertexCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z | unused
+    // ?GetVertexCentroid@DLPTemplate@@QAEHAAVVector3@@PAD@Z | unused
     ARTS_IMPORT i32 GetVertexCentroid(class Vector3& arg1, char* arg2);
 
-    // 0x559630 | ?GroupExists@DLPTemplate@@QAEPAVDLPGroup@@PAD@Z
+    // ?GroupExists@DLPTemplate@@QAEPAVDLPGroup@@PAD@Z
     ARTS_IMPORT class DLPGroup* GroupExists(char* arg1);
 
-    // 0x5583D0 | ?Init@DLPTemplate@@QAEXHHH@Z
+    // ?Init@DLPTemplate@@QAEXHHH@Z
     ARTS_IMPORT void Init(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x558A40 | ?InitRemap@DLPTemplate@@QAEXAAV?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@AAV?$agiLib@VagiTexParameters@@VagiTexDef@@@@AAV?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@@Z
+    // ?InitRemap@DLPTemplate@@QAEXAAV?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@AAV?$agiLib@VagiTexParameters@@VagiTexDef@@@@AAV?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@@Z
     ARTS_IMPORT void InitRemap(class agiLib<class agiMtlParameters, class agiMtlDef>& mlib,
         class agiLib<class agiTexParameters, class agiTexDef>& tlib,
         class agiLib<class agiPhysParameters, class agiPhysDef>& plib);
 
-    // 0x558B60 | ?Load@DLPTemplate@@QAEHPAD@Z | unused
+    // ?Load@DLPTemplate@@QAEHPAD@Z | unused
     ARTS_EXPORT i32 Load(char* path);
 
-    // 0x558640 | ?Load@DLPTemplate@@QAEXPAVStream@@@Z
+    // ?Load@DLPTemplate@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Load(class Stream* file);
 
-    // 0x558BA0 | ?Print@DLPTemplate@@QAEXPAVStream@@@Z | unused
+    // ?Print@DLPTemplate@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Print(class Stream* arg1);
 
-    // 0x5597D0 | ?Release@DLPTemplate@@QAEHXZ
+    // ?Release@DLPTemplate@@QAEHXZ
     ARTS_IMPORT i32 Release();
 
-    // 0x5596B0 | ?Restrict@DLPTemplate@@QAEHPAD@Z
+    // ?Restrict@DLPTemplate@@QAEHPAD@Z
     ARTS_IMPORT i32 Restrict(char* arg1);
 
-    // 0x558500 | ?Save@DLPTemplate@@QAEXPAVStream@@@Z | unused
+    // ?Save@DLPTemplate@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Save(class Stream* arg1);
 
 private:
-    // 0x558330 | ??1DLPTemplate@@AAE@XZ
+    // ??1DLPTemplate@@AAE@XZ
     ARTS_EXPORT ~DLPTemplate();
 
     i32 NumGroups {0};
@@ -167,23 +167,23 @@ check_size(DLPTemplate, 0x3C);
 class DLPPatch
 {
 public:
-    // 0x55A310 | ??0DLPPatch@@QAE@XZ | inline
+    // ??0DLPPatch@@QAE@XZ | inline
     ARTS_EXPORT DLPPatch() = default;
 
-    // 0x559C80 | ??_EDLPPatch@@QAEPAXI@Z | unused
-    // 0x55A320 | ??1DLPPatch@@QAE@XZ | inline
+    // ??_EDLPPatch@@QAEPAXI@Z | unused
+    // ??1DLPPatch@@QAE@XZ | inline
     ARTS_EXPORT ~DLPPatch() = default;
 
-    // 0x558990 | ?GetProp@DLPPatch@@QAEPADPAD@Z | unused
+    // ?GetProp@DLPPatch@@QAEPADPAD@Z | unused
     ARTS_IMPORT char* GetProp(char* arg1);
 
-    // 0x559080 | ?Load@DLPPatch@@QAEXPAVStream@@@Z
+    // ?Load@DLPPatch@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Load(class Stream* file);
 
-    // 0x559250 | ?Print@DLPPatch@@QAEXPAVStream@@@Z
+    // ?Print@DLPPatch@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Print(class Stream* arg1);
 
-    // 0x559180 | ?Save@DLPPatch@@QAEXPAVStream@@@Z
+    // ?Save@DLPPatch@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
 
     i16 SRes {0};
@@ -228,26 +228,26 @@ check_size(DLPPatch, 0x18);
 class DLPGroup final
 {
 public:
-    // 0x558C90 | ??0DLPGroup@@QAE@XZ
+    // ??0DLPGroup@@QAE@XZ
     ARTS_EXPORT DLPGroup() = default;
 
-    // 0x558CB0 | ??0DLPGroup@@QAE@PAVDLPTemplate@@PAV0@@Z
+    // ??0DLPGroup@@QAE@PAVDLPTemplate@@PAV0@@Z
     ARTS_IMPORT DLPGroup(class DLPTemplate* arg1, class DLPGroup* arg2);
 
-    // 0x559C20 | ??_EDLPGroup@@QAEPAXI@Z | unused
-    // 0x558E90 | ??1DLPGroup@@QAE@XZ
+    // ??_EDLPGroup@@QAEPAXI@Z | unused
+    // ??1DLPGroup@@QAE@XZ
     ARTS_EXPORT ~DLPGroup() = default;
 
-    // 0x559040 | ?Init@DLPGroup@@QAEXHH@Z
+    // ?Init@DLPGroup@@QAEXHH@Z
     ARTS_EXPORT void Init(i32 num_verts, i32 num_patches);
 
-    // 0x558EC0 | ?Load@DLPGroup@@QAEXPAVStream@@@Z
+    // ?Load@DLPGroup@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Load(class Stream* file);
 
-    // 0x558FC0 | ?Print@DLPGroup@@QAEXPAVStream@@@Z
+    // ?Print@DLPGroup@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Print(class Stream* arg1);
 
-    // 0x558F40 | ?Save@DLPGroup@@QAEXPAVStream@@@Z
+    // ?Save@DLPGroup@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
 
     char Name[32] {};
@@ -261,28 +261,28 @@ public:
 
 check_size(DLPGroup, 0x30);
 
-// 0x5593A0 | ?PackAngle@@YAIM@Z
+// ?PackAngle@@YAIM@Z
 ARTS_IMPORT u32 PackAngle(f32 arg1);
 
-// 0x559400 | ?PackNormal@@YAXAAGAAVVector3@@@Z | unused
+// ?PackNormal@@YAXAAGAAVVector3@@@Z | unused
 ARTS_IMPORT void PackNormal(u16& arg1, class Vector3& arg2);
 
-// 0x559310 | ?UnpackAngle@@YAME@Z
+// ?UnpackAngle@@YAME@Z
 ARTS_IMPORT f32 UnpackAngle(u8 arg1);
 
-// 0x559340 | ?UnpackNormal@@YAXAAVVector3@@AAG@Z | unused
+// ?UnpackNormal@@YAXAAVVector3@@AAG@Z | unused
 ARTS_IMPORT void UnpackNormal(class Vector3& arg1, u16& arg2);
 
-// 0x903130 | ?DLPTemplateHash@@3VHashTable@@A
+// ?DLPTemplateHash@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable DLPTemplateHash;
 
 struct DLPVertex
 {
 public:
-    // 0x5594D0 | ?Load@DLPVertex@@QAEXPAVStream@@@Z
+    // ?Load@DLPVertex@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Load(class Stream* file);
 
-    // 0x5595A0 | ?Save@DLPVertex@@QAEXPAVStream@@@Z
+    // ?Save@DLPVertex@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
 
     u32 Id {0};

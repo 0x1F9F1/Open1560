@@ -26,16 +26,16 @@ define_dummy_symbol(vector7_vector3);
 
 struct Vector3Type final : MetaType
 {
-    // const Vector3Type::`vftable' @ 0x621BA0
+    // const Vector3Type::`vftable'
 
 public:
-    // 0x5673F0 | ?Delete@Vector3Type@@UAEXPAXH@Z
+    // ?Delete@Vector3Type@@UAEXPAXH@Z
     ARTS_EXPORT void Delete(void* ptr, isize len) override
     {
         MetaDelete<Vector3>(ptr, len);
     }
 
-    // 0x567360 | ?Load@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
+    // ?Load@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Load(class MiniParser* parser, void* ptr) override
     {
         Vector3* val = static_cast<Vector3*>(ptr);
@@ -45,13 +45,13 @@ public:
         val->z = parser->FloatVal();
     }
 
-    // 0x5673A0 | ?New@Vector3Type@@UAEPAXH@Z
+    // ?New@Vector3Type@@UAEPAXH@Z
     ARTS_EXPORT void* New(isize count) override
     {
         return MetaNew<Vector3>(count);
     }
 
-    // 0x567320 | ?Save@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
+    // ?Save@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
     {
         Vector3* val = static_cast<Vector3*>(ptr);
@@ -59,7 +59,7 @@ public:
         parser->Printf("%.4g %.4g %.4g", val->x, val->y, val->z);
     }
 
-    // 0x567390 | ?SizeOf@Vector3Type@@UAEIXZ
+    // ?SizeOf@Vector3Type@@UAEIXZ
     ARTS_EXPORT usize SizeOf() override
     {
         return sizeof(Vector3);

@@ -29,20 +29,20 @@
     0x6220E8 | int const * const jpeg_natural_order | ?jpeg_natural_order@@3PBHB
 */
 
-// 0x580F50 | ?jcopy_block_row@@YAXPAY0EA@F0I@Z | unused
+// ?jcopy_block_row@@YAXPAY0EA@F0I@Z | unused
 ARTS_IMPORT void jcopy_block_row(i16 (*arg1)[64], i16 (*arg2)[64], u32 arg3);
 
-// 0x580F00 | ?jcopy_sample_rows@@YAXPAPAEH0HHI@Z
+// ?jcopy_sample_rows@@YAXPAPAEH0HHI@Z
 ARTS_IMPORT void jcopy_sample_rows(u8** arg1, i32 arg2, u8** arg3, i32 arg4, i32 arg5, u32 arg6);
 
-// 0x580EC0 | ?jdiv_round_up@@YAJJJ@Z
+// ?jdiv_round_up@@YAJJJ@Z
 ARTS_IMPORT i32 jdiv_round_up(i32 arg1, i32 arg2);
 
-// 0x580EE0 | ?jround_up@@YAJJJ@Z
+// ?jround_up@@YAJJJ@Z
 ARTS_IMPORT i32 jround_up(i32 arg1, i32 arg2);
 
-// 0x580F80 | ?jzero_far@@YAXPAXI@Z
+// ?jzero_far@@YAXPAXI@Z
 ARTS_IMPORT void jzero_far(void* arg1, u32 arg2);
 
-// 0x6220E8 | ?jpeg_natural_order@@3PBHB
+// ?jpeg_natural_order@@3PBHB
 ARTS_IMPORT extern i32 const* const jpeg_natural_order;

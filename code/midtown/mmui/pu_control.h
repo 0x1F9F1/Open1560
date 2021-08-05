@@ -37,30 +37,30 @@
 
 class PUControl final : public PUMenuBase
 {
-    // const PUControl::`vftable' @ 0x61DFA8
+    // const PUControl::`vftable'
 
 public:
-    // 0x4A9F50 | ??0PUControl@@QAE@HMMMM@Z
+    // ??0PUControl@@QAE@HMMMM@Z
     ARTS_IMPORT PUControl(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x4AA3C0 | ??_EPUControl@@UAEPAXI@Z
-    // 0x4AA3C0 | ??_GPUControl@@UAEPAXI@Z
-    // 0x4AA250 | ??1PUControl@@UAE@XZ
+    // ??_EPUControl@@UAEPAXI@Z
+    // ??_GPUControl@@UAEPAXI@Z
+    // ??1PUControl@@UAE@XZ
     ARTS_IMPORT ~PUControl() override;
 
-    // 0x4AA2D0 | ?CancelAction@PUControl@@QAEXXZ
+    // ?CancelAction@PUControl@@QAEXXZ
     ARTS_IMPORT void CancelAction();
 
-    // 0x4AA380 | ?ControlSelect@PUControl@@QAEXXZ
+    // ?ControlSelect@PUControl@@QAEXXZ
     ARTS_IMPORT void ControlSelect();
 
-    // 0x4AA2B0 | ?PreSetup@PUControl@@UAEXXZ
+    // ?PreSetup@PUControl@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x4AA2F0 | ?SetRWStates@PUControl@@QAEXXZ
+    // ?SetRWStates@PUControl@@QAEXXZ
     ARTS_IMPORT void SetRWStates();
 
-    // 0x4AA3B0 | ?SetSensitivityCB@PUControl@@QAEXXZ
+    // ?SetSensitivityCB@PUControl@@QAEXXZ
     ARTS_IMPORT void SetSensitivityCB();
 
     u8 gapC0[0x18];

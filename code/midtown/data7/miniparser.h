@@ -45,7 +45,7 @@
 
 class MiniParser
 {
-    // const MiniParser::`vftable' @ 0x621EC8
+    // const MiniParser::`vftable'
 
 public:
     enum Token : i32
@@ -59,64 +59,64 @@ public:
         FloatToken = 261,
     };
 
-    // 0x57C5E0 | ??0MiniParser@@QAE@PAD@Z
+    // ??0MiniParser@@QAE@PAD@Z
     ARTS_EXPORT MiniParser(const char* name)
         : name_(name)
     {}
 
-    // 0x57C640 | ??1MiniParser@@QAE@XZ
+    // ??1MiniParser@@QAE@XZ
     ARTS_EXPORT ~MiniParser() = default;
 
     virtual i32 RawGetCh() = 0;
 
     virtual void RawPutCh(i32 arg1) = 0;
 
-    // 0x57C7B0 | ?Commentf@MiniParser@@QAAXPBDZZ | unused
+    // ?Commentf@MiniParser@@QAAXPBDZZ | unused
     ARTS_EXPORT void Commentf(ARTS_FORMAT_STRING char const* format, ...);
 
-    // 0x57C710 | ?Errorf@MiniParser@@QAAXPBDZZ
+    // ?Errorf@MiniParser@@QAAXPBDZZ
     ARTS_EXPORT void Errorf(ARTS_FORMAT_STRING char const* format, ...);
 
-    // 0x57CD80 | ?FloatVal@MiniParser@@QAEMXZ
+    // ?FloatVal@MiniParser@@QAEMXZ
     ARTS_EXPORT f32 FloatVal();
 
-    // 0x57C810 | ?GetCh@MiniParser@@QAEHXZ
+    // ?GetCh@MiniParser@@QAEHXZ
     ARTS_EXPORT i32 GetCh();
 
-    // 0x57C880 | ?Indent@MiniParser@@QAEXH@Z
+    // ?Indent@MiniParser@@QAEXH@Z
     ARTS_EXPORT void Indent(i32 amount);
 
-    // 0x57CD40 | ?Int64Val@MiniParser@@QAE_JXZ
+    // ?Int64Val@MiniParser@@QAE_JXZ
     ARTS_EXPORT i64 Int64Val();
 
-    // 0x57CD00 | ?IntVal@MiniParser@@QAEHXZ
+    // ?IntVal@MiniParser@@QAEHXZ
     ARTS_EXPORT i32 IntVal();
 
-    // 0x57C8A0 | ?Match@MiniParser@@QAEXH@Z
+    // ?Match@MiniParser@@QAEXH@Z
     ARTS_EXPORT void Match(i32 expected);
 
-    // 0x57CB00 | ?NextToken@MiniParser@@QAEHXZ
+    // ?NextToken@MiniParser@@QAEHXZ
     ARTS_EXPORT i32 NextToken();
 
-    // 0x57CA80 | ?PlaceLabel@MiniParser@@QAEXPAX@Z
+    // ?PlaceLabel@MiniParser@@QAEXPAX@Z
     ARTS_EXPORT void PlaceLabel(void* ptr);
 
-    // 0x57CAA0 | ?PlaceLabelRef@MiniParser@@QAEXPAX@Z
+    // ?PlaceLabelRef@MiniParser@@QAEXPAX@Z
     ARTS_EXPORT void PlaceLabelRef(void* ptr);
 
-    // 0x57C6B0 | ?PrintString@MiniParser@@QAEXPADH@Z
+    // ?PrintString@MiniParser@@QAEXPADH@Z
     ARTS_EXPORT void PrintString(const char* str, i32 len);
 
-    // 0x57C660 | ?Printf@MiniParser@@QAAXPBDZZ
+    // ?Printf@MiniParser@@QAAXPBDZZ
     ARTS_EXPORT void Printf(ARTS_FORMAT_STRING char const* format, ...);
 
-    // 0x57CAD0 | ?PutBack@MiniParser@@QAEXH@Z
+    // ?PutBack@MiniParser@@QAEXH@Z
     ARTS_EXPORT void PutBack(i32 token);
 
-    // 0x57C830 | ?PutCh@MiniParser@@QAEXH@Z
+    // ?PutCh@MiniParser@@QAEXH@Z
     ARTS_EXPORT void PutCh(i32 value);
 
-    // 0x57CAC0 | ?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z | unused
+    // ?ResolveLabel@MiniParser@@QAEPAXPADPAPAX@Z | unused
     ARTS_EXPORT void* ResolveLabel(char* arg1, void** arg2);
 
     const char* GetBuffer() const
@@ -129,7 +129,7 @@ public:
         return error_count_;
     }
 
-    // 0x57C8E0 | ?TokenName@MiniParser@@SAPADH@Z
+    // ?TokenName@MiniParser@@SAPADH@Z
     ARTS_EXPORT static const char* TokenName(i32 token);
 
 private:

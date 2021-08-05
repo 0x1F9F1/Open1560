@@ -62,37 +62,37 @@ public:
         First = this;
     }
 
-    // 0x498950 | ??1HashTable@@QAE@XZ | inline
+    // ??1HashTable@@QAE@XZ | inline
     ARTS_EXPORT ~HashTable()
     {
         Kill();
         RemoveMe();
     }
 
-    // 0x578180 | ??4HashTable@@QAEXAAV0@@Z | unused
+    // ??4HashTable@@QAEXAAV0@@Z | unused
     ARTS_EXPORT void operator=(class HashTable& other);
 
-    // 0x578430 | ?Access@HashTable@@QAEPAXPAD@Z
+    // ?Access@HashTable@@QAEPAXPAD@Z
     ARTS_EXPORT void* Access(const char* key);
 
-    // 0x5783F0 | ?Change@HashTable@@QAEHPAD0@Z | unused
+    // ?Change@HashTable@@QAEHPAD0@Z | unused
     ARTS_EXPORT b32 Change(const char* old_key, const char* new_key);
 
-    // 0x5782B0 | ?Delete@HashTable@@QAEHPAD@Z
+    // ?Delete@HashTable@@QAEHPAD@Z
     ARTS_EXPORT b32 Delete(const char* key);
 
-    // 0x5780A0 | ?Init@HashTable@@QAEXH@Z
+    // ?Init@HashTable@@QAEXH@Z
     ARTS_EXPORT void Init(i32 bucket_count);
 
-    // 0x5781D0 | ?Insert@HashTable@@QAEHPADPAX@Z
+    // ?Insert@HashTable@@QAEHPADPAX@Z
     ARTS_EXPORT b32 Insert(const char* key, void* value);
 
-    // 0x578110 | ?Kill@HashTable@@QAEXXZ
+    // ?Kill@HashTable@@QAEXXZ
     ARTS_EXPORT void Kill();
 
     void Kill(void* context, void (*callback)(void* context, const char* key, void* value));
 
-    // 0x578610 | ?KillAll@HashTable@@SAXXZ
+    // ?KillAll@HashTable@@SAXXZ
     ARTS_EXPORT static void KillAll();
 
     i32 Size() const
@@ -101,19 +101,19 @@ public:
     }
 
 private:
-    // 0x578500 | ?ComputePrime@HashTable@@AAEHH@Z
+    // ?ComputePrime@HashTable@@AAEHH@Z
     ARTS_EXPORT i32 ComputePrime(i32 value);
 
-    // 0x5784C0 | ?Hash@HashTable@@AAEHPAD@Z
+    // ?Hash@HashTable@@AAEHPAD@Z
     ARTS_EXPORT u32 Hash(const char* key);
 
-    // 0x578550 | ?Recompute@HashTable@@AAEXH@Z
+    // ?Recompute@HashTable@@AAEXH@Z
     ARTS_EXPORT void Recompute(i32 capacity);
 
-    // 0x578630 | ?RemoveMe@HashTable@@AAEXXZ
+    // ?RemoveMe@HashTable@@AAEXXZ
     ARTS_EXPORT void RemoveMe();
 
-    // 0x90AE5C | ?First@HashTable@@0PAV1@A
+    // ?First@HashTable@@0PAV1@A
     ARTS_EXPORT static class HashTable* First;
 
     i32 bucket_count_ {0};
@@ -133,10 +133,10 @@ public:
         : Table(&table)
     {}
 
-    // 0x578040 | ?Begin@HashIterator@@QAEXXZ
+    // ?Begin@HashIterator@@QAEXXZ
     ARTS_EXPORT void Begin();
 
-    // 0x578050 | ?Next@HashIterator@@QAEHXZ
+    // ?Next@HashIterator@@QAEHXZ
     ARTS_EXPORT b32 Next();
 
     HashEntry* operator->() const

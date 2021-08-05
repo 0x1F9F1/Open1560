@@ -34,26 +34,26 @@
 class asSafeHeap
 {
 public:
-    // 0x521390 | ??0asSafeHeap@@QAE@XZ
+    // ??0asSafeHeap@@QAE@XZ
     ARTS_EXPORT asSafeHeap();
 
-    // 0x5213A0 | ??1asSafeHeap@@QAE@XZ
+    // ??1asSafeHeap@@QAE@XZ
     ARTS_EXPORT ~asSafeHeap();
 
-    // 0x5213B0 | ?Init@asSafeHeap@@QAEXHH@Z
+    // ?Init@asSafeHeap@@QAEXHH@Z
     ARTS_EXPORT void Init(isize heap_size, b32 multi_heap);
 
-    // 0x521450 | ?Kill@asSafeHeap@@QAEXXZ
+    // ?Kill@asSafeHeap@@QAEXXZ
     ARTS_EXPORT void Kill();
 
-    // 0x521420 | ?Restart@asSafeHeap@@QAEXXZ
+    // ?Restart@asSafeHeap@@QAEXXZ
     ARTS_EXPORT void Restart();
 
 protected:
-    // 0x521480 | ?Activate@asSafeHeap@@IAEXXZ
+    // ?Activate@asSafeHeap@@IAEXXZ
     ARTS_EXPORT void Activate();
 
-    // 0x5214C0 | ?Deactivate@asSafeHeap@@IAEXXZ
+    // ?Deactivate@asSafeHeap@@IAEXXZ
     ARTS_EXPORT void Deactivate();
 
 private:
@@ -66,5 +66,5 @@ private:
 
 check_size(asSafeHeap, 0x14);
 
-// 0x790730 | ?SAFEHEAP@@3VasSafeHeap@@A
+// ?SAFEHEAP@@3VasSafeHeap@@A
 ARTS_EXPORT extern class asSafeHeap SAFEHEAP;

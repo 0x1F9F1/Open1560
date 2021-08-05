@@ -45,55 +45,55 @@
 
 class mmIODev final : public mmInfoBase
 {
-    // const mmIODev::`vftable' @ 0x61FCA8
+    // const mmIODev::`vftable'
 
 public:
-    // 0x4E5060 | ??0mmIODev@@QAE@XZ
+    // ??0mmIODev@@QAE@XZ
     ARTS_IMPORT mmIODev();
 
-    // 0x4E4AA0 | ??_EmmIODev@@UAEPAXI@Z
-    // 0x4E50A0 | ??1mmIODev@@UAE@XZ
+    // ??_EmmIODev@@UAEPAXI@Z
+    // ??1mmIODev@@UAE@XZ
     ARTS_IMPORT ~mmIODev() override = default;
 
-    // 0x4E5200 | ??8mmIODev@@QAEHPATeqEvent@@@Z
+    // ??8mmIODev@@QAEHPATeqEvent@@@Z
     ARTS_IMPORT i32 operator==(union eqEvent* arg1);
 
-    // 0x4E50E0 | ?Assign@mmIODev@@QAEXHHH@Z
+    // ?Assign@mmIODev@@QAEXHHH@Z
     ARTS_IMPORT void Assign(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x4E5A50 | ?GetClass@mmIODev@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmIODev@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4E5580 | ?GetComponentType@mmIODev@@QAEHHH@Z
+    // ?GetComponentType@mmIODev@@QAEHHH@Z
     ARTS_EXPORT i32 GetComponentType(i32 device, i32 component);
 
-    // 0x4E52C0 | ?GetDescription@mmIODev@@QAEXPAD@Z
+    // ?GetDescription@mmIODev@@QAEXPAD@Z
     [[deprecated]] ARTS_EXPORT void GetDescription(char* buffer);
 
     void GetDescription(char* buffer, usize buflen);
 
-    // 0x4E50B0 | ?Init@mmIODev@@QAEXH_J@Z
+    // ?Init@mmIODev@@QAEXH_J@Z
     ARTS_IMPORT void Init(i32 arg1, i64 arg2);
 
-    // 0x4E5670 | ?Print@mmIODev@@QAEXH@Z
+    // ?Print@mmIODev@@QAEXH@Z
     ARTS_IMPORT void Print(i32 arg1);
 
-    // 0x4E57F0 | ?Read@mmIODev@@QAEHPAVStream@@@Z
+    // ?Read@mmIODev@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 Read(class Stream* arg1);
 
-    // 0x4E5850 | ?ReadBinary@mmIODev@@QAEHPAVStream@@@Z
+    // ?ReadBinary@mmIODev@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 ReadBinary(class Stream* arg1);
 
-    // 0x4E55F0 | ?SanityCheckioType@mmIODev@@QAEHHHH@Z
+    // ?SanityCheckioType@mmIODev@@QAEHHHH@Z
     ARTS_IMPORT i32 SanityCheckioType(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x4E5740 | ?Write@mmIODev@@QAEHPAVStream@@@Z
+    // ?Write@mmIODev@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 Write(class Stream* arg1);
 
-    // 0x4E57A0 | ?WriteBinary@mmIODev@@QAEHPAVStream@@@Z
+    // ?WriteBinary@mmIODev@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 WriteBinary(class Stream* arg1);
 
-    // 0x4E58A0 | ?DeclareFields@mmIODev@@SAXXZ
+    // ?DeclareFields@mmIODev@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     i32 IoType; // ioType
@@ -106,8 +106,8 @@ public:
 
 check_size(mmIODev, 0xA8);
 
-// 0x4E5260 | ?ConvertDItoString@@YAHHPADH@Z
+// ?ConvertDItoString@@YAHHPADH@Z
 ARTS_EXPORT b32 ConvertDItoString(i32 vsc, char* buffer, i32 buflen);
 
-// 0x719288 | ?mmIODevMetaClass@@3VMetaClass@@A
+// ?mmIODevMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmIODevMetaClass;

@@ -36,25 +36,25 @@ class Stream;
 
 class StreamMiniParser final : public MiniParser
 {
-    // const StreamMiniParser::`vftable' @ 0x6219E8
+    // const StreamMiniParser::`vftable'
 
 public:
-    // 0x561370 | ??0StreamMiniParser@@QAE@PADPAVStream@@@Z
+    // ??0StreamMiniParser@@QAE@PADPAVStream@@@Z
     ARTS_EXPORT StreamMiniParser(const char* name, Owner<class Stream> stream);
 
-    // 0x5613A0 | ??1StreamMiniParser@@QAE@XZ
+    // ??1StreamMiniParser@@QAE@XZ
     ARTS_EXPORT ~StreamMiniParser();
 
-    // 0x561440 | ?RawGetCh@StreamMiniParser@@UAEHXZ
+    // ?RawGetCh@StreamMiniParser@@UAEHXZ
     ARTS_EXPORT i32 RawGetCh() override;
 
-    // 0x561400 | ?RawPutCh@StreamMiniParser@@UAEXH@Z
+    // ?RawPutCh@StreamMiniParser@@UAEXH@Z
     ARTS_EXPORT void RawPutCh(i32 arg1) override;
 
-    // 0x561470 | ?Load@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z | unused
+    // ?Load@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z | unused
     ARTS_EXPORT static void Load(class MetaClass* cls, const char* path, void* ptr);
 
-    // 0x561520 | ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z | unused
+    // ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z | unused
     ARTS_EXPORT static void Save(class MetaClass* cls, const char* path, void* ptr);
 
 private:

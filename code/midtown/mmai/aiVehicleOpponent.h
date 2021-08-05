@@ -52,79 +52,79 @@
 
 class aiVehicleOpponent final : public aiVehicle
 {
-    // const aiVehicleOpponent::`vftable' @ 0x61B6F8
+    // const aiVehicleOpponent::`vftable'
 
 public:
-    // 0x44DA70 | ??0aiVehicleOpponent@@QAE@XZ
+    // ??0aiVehicleOpponent@@QAE@XZ
     ARTS_IMPORT aiVehicleOpponent();
 
-    // 0x43BFB0 | ??_EaiVehicleOpponent@@QAEPAXI@Z | unused
-    // 0x44DAD0 | ??1aiVehicleOpponent@@QAE@XZ
+    // ??_EaiVehicleOpponent@@QAEPAXI@Z | unused
+    // ??1aiVehicleOpponent@@QAE@XZ
     ARTS_IMPORT ~aiVehicleOpponent();
 
-    // 0x44E670 | ?GetClass@aiVehicleOpponent@@UAEPAVMetaClass@@XZ
+    // ?GetClass@aiVehicleOpponent@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT virtual class MetaClass* GetClass();
 
-    // 0x44E490 | ?AddWidget@aiVehicleOpponent@@QAEXPAVBank@@@Z
+    // ?AddWidget@aiVehicleOpponent@@QAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidget(class Bank* arg1);
 
-    // 0x44E4B0 | ?AssignSounds@aiVehicleOpponent@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
+    // ?AssignSounds@aiVehicleOpponent@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
     ARTS_IMPORT void AssignSounds(
         class AudSound* arg1, class AudSound* arg2, class mmOpponentImpactAudio* arg3, class AudSound* arg4);
 
-    // 0x44E2A0 | ?DrawDamage@aiVehicleOpponent@@QAEXXZ | unused
+    // ?DrawDamage@aiVehicleOpponent@@QAEXXZ | unused
     ARTS_EXPORT void DrawDamage();
 
-    // 0x44E2B0 | ?DrawId@aiVehicleOpponent@@UAEXXZ
+    // ?DrawId@aiVehicleOpponent@@UAEXXZ
     ARTS_IMPORT void DrawId() override;
 
-    // 0x44E130 | ?DrawTargetPt@aiVehicleOpponent@@QAEXXZ
+    // ?DrawTargetPt@aiVehicleOpponent@@QAEXXZ
     ARTS_IMPORT void DrawTargetPt();
 
-    // 0x44E060 | ?Dump@aiVehicleOpponent@@QAEXXZ
+    // ?Dump@aiVehicleOpponent@@QAEXXZ
     ARTS_IMPORT void Dump();
 
-    // 0x44E420 | ?GetCarAudioPtr@aiVehicleOpponent@@QAEPAVmmOpponentCarAudio@@XZ
+    // ?GetCarAudioPtr@aiVehicleOpponent@@QAEPAVmmOpponentCarAudio@@XZ
     ARTS_IMPORT class mmOpponentCarAudio* GetCarAudioPtr();
 
-    // 0x44E3A0 | ?GetDistanceToPlayer2@aiVehicleOpponent@@QAEMXZ
+    // ?GetDistanceToPlayer2@aiVehicleOpponent@@QAEMXZ
     ARTS_IMPORT f32 GetDistanceToPlayer2();
 
-    // 0x44E120 | ?GetEngineSoundIndex@aiVehicleOpponent@@QAEHXZ
+    // ?GetEngineSoundIndex@aiVehicleOpponent@@QAEHXZ
     ARTS_IMPORT i32 GetEngineSoundIndex();
 
-    // 0x44DC00 | ?Init@aiVehicleOpponent@@QAEXHPAVaiRaceData@@PAD@Z
+    // ?Init@aiVehicleOpponent@@QAEXHPAVaiRaceData@@PAD@Z
     ARTS_IMPORT void Init(i32 arg1, class aiRaceData* arg2, char* arg3);
 
-    // 0x44DE10 | ?Reset@aiVehicleOpponent@@UAEXXZ
+    // ?Reset@aiVehicleOpponent@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x44E400 | ?SetAudioCloserMinDistMult@aiVehicleOpponent@@QAEXM@Z
+    // ?SetAudioCloserMinDistMult@aiVehicleOpponent@@QAEXM@Z
     ARTS_IMPORT void SetAudioCloserMinDistMult(f32 arg1);
 
-    // 0x44E3D0 | ?SetAudioMaxDistance@aiVehicleOpponent@@QAEXM@Z
+    // ?SetAudioMaxDistance@aiVehicleOpponent@@QAEXM@Z
     ARTS_IMPORT void SetAudioMaxDistance(f32 arg1);
 
-    // 0x44E3B0 | ?SetAudioMinDistance@aiVehicleOpponent@@QAEXM@Z
+    // ?SetAudioMinDistance@aiVehicleOpponent@@QAEXM@Z
     ARTS_IMPORT void SetAudioMinDistance(f32 arg1);
 
-    // 0x44E7D0 | ?Type@aiVehicleOpponent@@UAEHXZ | inline
+    // ?Type@aiVehicleOpponent@@UAEHXZ | inline
     ARTS_IMPORT i32 Type() override;
 
-    // 0x44E100 | ?UnAssignSounds@aiVehicleOpponent@@QAEXXZ
+    // ?UnAssignSounds@aiVehicleOpponent@@QAEXXZ
     ARTS_IMPORT void UnAssignSounds();
 
-    // 0x44DED0 | ?Update@aiVehicleOpponent@@UAEXXZ
+    // ?Update@aiVehicleOpponent@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x44E300 | ?UpdateAudio@aiVehicleOpponent@@QAEXXZ
+    // ?UpdateAudio@aiVehicleOpponent@@QAEXXZ
     ARTS_IMPORT void UpdateAudio();
 
-    // 0x44E4E0 | ?DeclareFields@aiVehicleOpponent@@SAXXZ
+    // ?DeclareFields@aiVehicleOpponent@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x44E430 | ?AddToAiAudMgr@aiVehicleOpponent@@AAEXXZ
+    // ?AddToAiAudMgr@aiVehicleOpponent@@AAEXXZ
     ARTS_IMPORT void AddToAiAudMgr();
 
     u8 gap14[0x23A8];
@@ -132,5 +132,5 @@ private:
 
 check_size(aiVehicleOpponent, 0x23BC);
 
-// 0x6A7A58 | ?aiVehicleOpponentMetaClass@@3VMetaClass@@A
+// ?aiVehicleOpponentMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass aiVehicleOpponentMetaClass;

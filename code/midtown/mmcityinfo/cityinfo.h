@@ -31,18 +31,18 @@
 
 class mmCityInfo final
 {
-    // const mmCityInfo::`vftable' @ 0x61F944
+    // const mmCityInfo::`vftable'
 
 public:
-    // 0x4D3620 | ??0mmCityInfo@@QAE@XZ
+    // ??0mmCityInfo@@QAE@XZ
     ARTS_EXPORT mmCityInfo();
 
-    // 0x4D39A0 | ??_EmmCityInfo@@UAEPAXI@Z
-    // 0x4D39A0 | ??_GmmCityInfo@@UAEPAXI@Z
-    // 0x4D3640 | ??1mmCityInfo@@UAE@XZ
+    // ??_EmmCityInfo@@UAEPAXI@Z
+    // ??_GmmCityInfo@@UAEPAXI@Z
+    // ??1mmCityInfo@@UAE@XZ
     ARTS_EXPORT virtual ~mmCityInfo();
 
-    // 0x4D3650 | ?Load@mmCityInfo@@QAEHPAD@Z
+    // ?Load@mmCityInfo@@QAEHPAD@Z
     ARTS_IMPORT b32 Load(char* path);
 
     char LocalizedName[40];

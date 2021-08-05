@@ -36,30 +36,30 @@
 
 class mmAnimTrainCar final : public mmMatrixInstance
 {
-    // const mmAnimTrainCar::`vftable' @ 0x61F658
+    // const mmAnimTrainCar::`vftable'
 
 public:
-    // 0x4C8030 | ??0mmAnimTrainCar@@QAE@XZ
+    // ??0mmAnimTrainCar@@QAE@XZ
     ARTS_IMPORT mmAnimTrainCar();
 
-    // 0x4C7060 | ??_EmmAnimTrainCar@@UAEPAXI@Z
-    // 0x4C8190 | ??_GmmAnimTrainCar@@UAEPAXI@Z | unused
-    // 0x4C8050 | ??1mmAnimTrainCar@@UAE@XZ
+    // ??_EmmAnimTrainCar@@UAEPAXI@Z
+    // ??_GmmAnimTrainCar@@UAEPAXI@Z | unused
+    // ??1mmAnimTrainCar@@UAE@XZ
     ARTS_IMPORT ~mmAnimTrainCar() override = default;
 
-    // 0x4C8100 | ?Draw@mmAnimTrainCar@@UAIXH@Z
+    // ?Draw@mmAnimTrainCar@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
-    // 0x4C8060 | ?Init@mmAnimTrainCar@@QAEXPAD0@Z
+    // ?Init@mmAnimTrainCar@@QAEXPAD0@Z
     ARTS_IMPORT void Init(char* arg1, char* arg2);
 
-    // 0x4C8150 | ?Reset@mmAnimTrainCar@@UAEXXZ
+    // ?Reset@mmAnimTrainCar@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4C80E0 | ?SetMatrix@mmAnimTrainCar@@QAEXAAVMatrix34@@@Z
+    // ?SetMatrix@mmAnimTrainCar@@QAEXAAVMatrix34@@@Z
     ARTS_IMPORT void SetMatrix(class Matrix34& arg1);
 
-    // 0x4C8160 | ?SetStart@mmAnimTrainCar@@QAEXMM@Z
+    // ?SetStart@mmAnimTrainCar@@QAEXMM@Z
     ARTS_IMPORT void SetStart(f32 arg1, f32 arg2);
 
     u8 gap44[0x14];

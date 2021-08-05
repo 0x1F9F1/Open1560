@@ -58,44 +58,44 @@
 
 class mmBangerInstance : public mmInstance
 {
-    // const mmBangerInstance::`vftable' @ 0x61B480
+    // const mmBangerInstance::`vftable'
 
 public:
-    // 0x4446F0 | ??0mmBangerInstance@@QAE@XZ | inline
+    // ??0mmBangerInstance@@QAE@XZ | inline
     ARTS_IMPORT mmBangerInstance();
 
-    // 0x444720 | ??_EmmBangerInstance@@UAEPAXI@Z
-    // 0x444720 | ??_GmmBangerInstance@@UAEPAXI@Z
-    // 0x444740 | ??1mmBangerInstance@@UAE@XZ | inline
+    // ??_EmmBangerInstance@@UAEPAXI@Z
+    // ??_GmmBangerInstance@@UAEPAXI@Z
+    // ??1mmBangerInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmBangerInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x444710 | ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z | inline
+    // ?AddWidgets@mmBangerInstance@@UAEXPAVBank@@@Z | inline
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4CA490 | ?AttachEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
+    // ?AttachEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
     ARTS_IMPORT class mmPhysEntity* AttachEntity() override;
 
-    // 0x4C9C30 | ?ComputeLod@mmBangerInstance@@UAEHMM@Z
+    // ?ComputeLod@mmBangerInstance@@UAEHMM@Z
     ARTS_IMPORT i32 ComputeLod(f32 arg1, f32 arg2) override;
 
-    // 0x4C9C50 | ?Draw@mmBangerInstance@@UAIXH@Z
+    // ?Draw@mmBangerInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
-    // 0x4C9E50 | ?DrawGlow@mmBangerInstance@@UAIXXZ
+    // ?DrawGlow@mmBangerInstance@@UAIXXZ
     ARTS_IMPORT void ARTS_FASTCALL DrawGlow() override;
 
-    // 0x4CA110 | ?DrawShadow@mmBangerInstance@@UAIXXZ
+    // ?DrawShadow@mmBangerInstance@@UAIXXZ
     ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
-    // 0x4CA460 | ?GetData@mmBangerInstance@@QAEPAVmmBangerData@@XZ
+    // ?GetData@mmBangerInstance@@QAEPAVmmBangerData@@XZ
     ARTS_IMPORT class mmBangerData* GetData();
 
-    // 0x4CA480 | ?GetEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
+    // ?GetEntity@mmBangerInstance@@UAEPAVmmPhysEntity@@XZ
     ARTS_IMPORT class mmPhysEntity* GetEntity() override;
 
-    // 0x4CA4D0 | ?GetVelocity@mmBangerInstance@@UAE?AVVector3@@XZ
+    // ?GetVelocity@mmBangerInstance@@UAE?AVVector3@@XZ
     ARTS_IMPORT class Vector3 GetVelocity() override;
 
     u8 gap14[0x8];
@@ -105,39 +105,39 @@ check_size(mmBangerInstance, 0x1C);
 
 class mmUnhitBangerInstance : public mmBangerInstance
 {
-    // const mmUnhitBangerInstance::`vftable' @ 0x61CED8
+    // const mmUnhitBangerInstance::`vftable'
 
 public:
-    // 0x4C4E20 | ??0mmUnhitBangerInstance@@QAE@XZ | inline
+    // ??0mmUnhitBangerInstance@@QAE@XZ | inline
     ARTS_IMPORT mmUnhitBangerInstance();
 
-    // 0x48FC50 | ??_GmmUnhitBangerInstance@@UAEPAXI@Z
-    // 0x48FC50 | ??_EmmUnhitBangerInstance@@UAEPAXI@Z
-    // 0x48FC70 | ??1mmUnhitBangerInstance@@UAE@XZ | inline
+    // ??_GmmUnhitBangerInstance@@UAEPAXI@Z
+    // ??_EmmUnhitBangerInstance@@UAEPAXI@Z
+    // ??1mmUnhitBangerInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmUnhitBangerInstance() override = default;
 
-    // 0x4CA810 | ?FromMatrix@mmUnhitBangerInstance@@UAIXABVMatrix34@@@Z
+    // ?FromMatrix@mmUnhitBangerInstance@@UAIXABVMatrix34@@@Z
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
-    // 0x4CA8D0 | ?GetPos@mmUnhitBangerInstance@@UAIAAVVector3@@XZ
+    // ?GetPos@mmUnhitBangerInstance@@UAIAAVVector3@@XZ
     ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
-    // 0x4CA8E0 | ?Impact@mmUnhitBangerInstance@@UAEXPAVmmInstance@@PAVVector3@@@Z
+    // ?Impact@mmUnhitBangerInstance@@UAEXPAVmmInstance@@PAVVector3@@@Z
     ARTS_IMPORT void Impact(class mmInstance* arg1, class Vector3* arg2) override;
 
-    // 0x4CA5F0 | ?Init@mmUnhitBangerInstance@@UAEHPADAAVVector3@@1H0@Z
+    // ?Init@mmUnhitBangerInstance@@UAEHPADAAVVector3@@1H0@Z
     ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5) override;
 
-    // 0x4CA560 | ?InitBreakables@mmUnhitBangerInstance@@QAEXPAD0PAVmmBangerData@@@Z
+    // ?InitBreakables@mmUnhitBangerInstance@@QAEXPAD0PAVmmBangerData@@@Z
     ARTS_IMPORT void InitBreakables(char* arg1, char* arg2, class mmBangerData* arg3);
 
-    // 0x4CA830 | ?Reset@mmUnhitBangerInstance@@UAEXXZ
+    // ?Reset@mmUnhitBangerInstance@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x444750 | ?SizeOf@mmUnhitBangerInstance@@UAEIXZ | inline
+    // ?SizeOf@mmUnhitBangerInstance@@UAEIXZ | inline
     ARTS_IMPORT u32 SizeOf() override;
 
-    // 0x4CA880 | ?ToMatrix@mmUnhitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
+    // ?ToMatrix@mmUnhitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
     u8 gap1C[0x14];
@@ -147,25 +147,25 @@ check_size(mmUnhitBangerInstance, 0x30);
 
 class mmBangerManager final : public asNode
 {
-    // const mmBangerManager::`vftable' @ 0x61CD18
+    // const mmBangerManager::`vftable'
 
 public:
-    // 0x48FC80 | ??_GmmBangerManager@@UAEPAXI@Z
-    // 0x48FC80 | ??_EmmBangerManager@@UAEPAXI@Z
-    // 0x48FCB0 | ??1mmBangerManager@@UAE@XZ | inline
+    // ??_GmmBangerManager@@UAEPAXI@Z
+    // ??_EmmBangerManager@@UAEPAXI@Z
+    // ??1mmBangerManager@@UAE@XZ | inline
     ARTS_IMPORT ~mmBangerManager() override = default;
 
-    // 0x4CAC70 | ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ
+    // ?GetBanger@mmBangerManager@@QAEPAVmmHitBangerInstance@@XZ
     ARTS_IMPORT class mmHitBangerInstance* GetBanger();
 
-    // 0x4CACD0 | ?Init@mmBangerManager@@QAEXH@Z
+    // ?Init@mmBangerManager@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x4CAD90 | ?Reset@mmBangerManager@@UAEXXZ
+    // ?Reset@mmBangerManager@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
 protected:
-    // 0x706048 | ?Instance@mmBangerManager@@1PAV1@A
+    // ?Instance@mmBangerManager@@1PAV1@A
     ARTS_IMPORT static class mmBangerManager* Instance;
 
     u8 gap20[0xC];
@@ -175,32 +175,32 @@ check_size(mmBangerManager, 0x2C);
 
 class mmHitBangerInstance final : public mmBangerInstance
 {
-    // const mmHitBangerInstance::`vftable' @ 0x61F7A0
+    // const mmHitBangerInstance::`vftable'
 
 public:
-    // 0x4CAE60 | ??0mmHitBangerInstance@@QAE@XZ | inline
+    // ??0mmHitBangerInstance@@QAE@XZ | inline
     ARTS_IMPORT mmHitBangerInstance();
 
-    // 0x4CAE00 | ??_EmmHitBangerInstance@@UAEPAXI@Z
-    // 0x4CAED0 | ??1mmHitBangerInstance@@UAE@XZ | inline
+    // ??_EmmHitBangerInstance@@UAEPAXI@Z
+    // ??1mmHitBangerInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmHitBangerInstance() override = default;
 
-    // 0x4CAC40 | ?Detach@mmHitBangerInstance@@UAEXXZ
+    // ?Detach@mmHitBangerInstance@@UAEXXZ
     ARTS_IMPORT void Detach() override;
 
-    // 0x4C9F20 | ?Draw@mmHitBangerInstance@@UAIXH@Z
+    // ?Draw@mmHitBangerInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
-    // 0x4CA520 | ?FromMatrix@mmHitBangerInstance@@UAIXABVMatrix34@@@Z
+    // ?FromMatrix@mmHitBangerInstance@@UAIXABVMatrix34@@@Z
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
-    // 0x4CA550 | ?GetPos@mmHitBangerInstance@@UAIAAVVector3@@XZ
+    // ?GetPos@mmHitBangerInstance@@UAIAAVVector3@@XZ
     ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
-    // 0x4CAEC0 | ?SizeOf@mmHitBangerInstance@@UAEIXZ | inline
+    // ?SizeOf@mmHitBangerInstance@@UAEIXZ | inline
     ARTS_IMPORT u32 SizeOf() override;
 
-    // 0x4CA540 | ?ToMatrix@mmHitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
+    // ?ToMatrix@mmHitBangerInstance@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
     u8 gap1C[0x34];
@@ -208,5 +208,5 @@ public:
 
 check_size(mmHitBangerInstance, 0x50);
 
-// 0x642C8C | ?ExpensiveShadows@@3HA
+// ?ExpensiveShadows@@3HA
 ARTS_IMPORT extern i32 ExpensiveShadows;

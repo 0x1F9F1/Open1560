@@ -23,7 +23,7 @@ define_dummy_symbol(agiworld_meshlight);
 #include "packnorm.h"
 #include "vector7/vector3.h"
 
-// 0x5116B0 | ?agiInitCones@@YAXAAVMatrix34@@M@Z
+// ?agiInitCones@@YAXAAVMatrix34@@M@Z
 ARTS_IMPORT /*static*/ void agiInitCones(class Matrix34& arg1, f32 arg2);
 
 #ifdef ARTS_ENABLE_KNI
@@ -37,7 +37,7 @@ static union mmx keyNormal;
 static union mmx fill1Normal;
 static union mmx fill2Normal;
 
-// 0x510EE0 | ?mmxTriple@@YAXPAI0HPAEH@Z
+// ?mmxTriple@@YAXPAI0HPAEH@Z
 static void mmxTriple(
     u32* ARTS_RESTRICT output, u32* ARTS_RESTRICT colors, i32 stride, u8* ARTS_RESTRICT normals, i32 count)
 {

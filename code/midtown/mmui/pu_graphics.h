@@ -38,21 +38,21 @@
 
 class PUGraphics final : public PUMenuBase
 {
-    // const PUGraphics::`vftable' @ 0x61DF48
+    // const PUGraphics::`vftable'
 
 public:
-    // 0x4A9960 | ??0PUGraphics@@QAE@HMMMM@Z
+    // ??0PUGraphics@@QAE@HMMMM@Z
     ARTS_IMPORT PUGraphics(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x4A9F10 | ??_GPUGraphics@@UAEPAXI@Z
-    // 0x4A9F10 | ??_EPUGraphics@@UAEPAXI@Z
-    // 0x4A9EE0 | ??1PUGraphics@@UAE@XZ
+    // ??_GPUGraphics@@UAEPAXI@Z
+    // ??_EPUGraphics@@UAEPAXI@Z
+    // ??1PUGraphics@@UAE@XZ
     ARTS_IMPORT ~PUGraphics() override = default;
 
-    // 0x4A9F00 | ?CancelAction@PUGraphics@@QAEXXZ
+    // ?CancelAction@PUGraphics@@QAEXXZ
     ARTS_IMPORT void CancelAction();
 
-    // 0x4A9EF0 | ?PreSetup@PUGraphics@@UAEXXZ
+    // ?PreSetup@PUGraphics@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 };
 

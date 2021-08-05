@@ -35,28 +35,28 @@
 
 class aiGoalStop final : public aiGoal
 {
-    // const aiGoalStop::`vftable' @ 0x61BB18
+    // const aiGoalStop::`vftable'
 
 public:
-    // 0x45F710 | ??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z
+    // ??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z
     ARTS_IMPORT aiGoalStop(class mmCar* arg1, i16* arg2);
 
-    // 0x45F740 | ??1aiGoalStop@@QAE@XZ
+    // ??1aiGoalStop@@QAE@XZ
     ARTS_IMPORT ~aiGoalStop() = default;
 
-    // 0x45F7D0 | ?Context@aiGoalStop@@UAEHXZ
+    // ?Context@aiGoalStop@@UAEHXZ
     ARTS_IMPORT i32 Context() override;
 
-    // 0x45F750 | ?Init@aiGoalStop@@UAEXXZ
+    // ?Init@aiGoalStop@@UAEXXZ
     ARTS_IMPORT void Init() override;
 
-    // 0x45F7F0 | ?Priority@aiGoalStop@@UAEHXZ
+    // ?Priority@aiGoalStop@@UAEHXZ
     ARTS_IMPORT i32 Priority() override;
 
-    // 0x45F760 | ?Reset@aiGoalStop@@UAEXXZ
+    // ?Reset@aiGoalStop@@UAEXXZ
     ARTS_EXPORT void Reset() override;
 
-    // 0x45F770 | ?Update@aiGoalStop@@UAEXXZ
+    // ?Update@aiGoalStop@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap8[0x8];

@@ -34,21 +34,21 @@
 
 class PUChat final : public PUMenuBase
 {
-    // const PUChat::`vftable' @ 0x61DED8
+    // const PUChat::`vftable'
 
 public:
-    // 0x4A9780 | ??0PUChat@@QAE@HMMMMPAD@Z
+    // ??0PUChat@@QAE@HMMMMPAD@Z
     ARTS_IMPORT PUChat(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x4A9930 | ??_EPUChat@@UAEPAXI@Z
-    // 0x4A9930 | ??_GPUChat@@UAEPAXI@Z
-    // 0x4A9880 | ??1PUChat@@UAE@XZ
+    // ??_EPUChat@@UAEPAXI@Z
+    // ??_GPUChat@@UAEPAXI@Z
+    // ??1PUChat@@UAE@XZ
     ARTS_IMPORT ~PUChat() override = default;
 
-    // 0x4A98D0 | ?ChatEntry@PUChat@@QAEXXZ
+    // ?ChatEntry@PUChat@@QAEXXZ
     ARTS_IMPORT void ChatEntry();
 
-    // 0x4A9890 | ?ClearChat@PUChat@@QAEXXZ
+    // ?ClearChat@PUChat@@QAEXXZ
     ARTS_IMPORT void ClearChat();
 
     u8 gapC0[0x68];

@@ -41,22 +41,22 @@
 
 class mmCellRenderer final : public asPortalRenderable
 {
-    // const mmCellRenderer::`vftable' @ 0x61D320
+    // const mmCellRenderer::`vftable'
 
 public:
-    // 0x498970 | ??0mmCellRenderer@@QAE@XZ
+    // ??0mmCellRenderer@@QAE@XZ
     ARTS_IMPORT mmCellRenderer();
 
-    // 0x4989A0 | ??1mmCellRenderer@@QAE@XZ | unused
+    // ??1mmCellRenderer@@QAE@XZ | unused
     ARTS_IMPORT ~mmCellRenderer();
 
-    // 0x498FA0 | ?Cull@mmCellRenderer@@UAEXH@Z
+    // ?Cull@mmCellRenderer@@UAEXH@Z
     ARTS_IMPORT void Cull(i32 arg1) override;
 
-    // 0x4989E0 | ?Init@mmCellRenderer@@QAEXPADHHHHPAH@Z
+    // ?Init@mmCellRenderer@@QAEXPADHHHHPAH@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32* arg6);
 
-    // 0x498F90 | ?Relight@mmCellRenderer@@QAEXXZ
+    // ?Relight@mmCellRenderer@@QAEXXZ
     ARTS_EXPORT void Relight();
 
     u8 gap4[0x44];
@@ -64,26 +64,26 @@ public:
 
 check_size(mmCellRenderer, 0x48);
 
-// 0x7057BC | ?CRPass1Only@@3HA
+// ?CRPass1Only@@3HA
 ARTS_IMPORT extern i32 CRPass1Only;
 
-// 0x7057DC | ?CRPass3Only@@3HA
+// ?CRPass3Only@@3HA
 ARTS_IMPORT extern i32 CRPass3Only;
 
-// 0x7057B8 | ?CRPassBoth@@3HA
+// ?CRPassBoth@@3HA
 ARTS_IMPORT extern i32 CRPassBoth;
 
-// 0x7057C0 | ?CellTriCount@@3PAHA
+// ?CellTriCount@@3PAHA
 ARTS_IMPORT extern i32 CellTriCount[3];
 
-// 0x7057D0 | ?CellTypeCount@@3PAHA
+// ?CellTypeCount@@3PAHA
 ARTS_IMPORT extern i32 CellTypeCount[3];
 
-// 0x6401E4 | ?EnableSlide@@3HA
+// ?EnableSlide@@3HA
 ARTS_IMPORT extern i32 EnableSlide;
 
-// 0x6401E0 | ?ObjectMaxDist@@3MA
+// ?ObjectMaxDist@@3MA
 ARTS_IMPORT extern f32 ObjectMaxDist;
 
-// 0x6401C0 | ?StaticTerrainLodTable@@3PAY01MA
+// ?StaticTerrainLodTable@@3PAY01MA
 ARTS_EXPORT extern f32 StaticTerrainLodTable[4][2];

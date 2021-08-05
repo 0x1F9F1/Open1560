@@ -52,64 +52,64 @@
 
 class mmBoat final : public asNode
 {
-    // const mmBoat::`vftable' @ 0x61F5F8
+    // const mmBoat::`vftable'
 
 public:
-    // 0x4C7120 | ??0mmBoat@@QAE@XZ
+    // ??0mmBoat@@QAE@XZ
     ARTS_IMPORT mmBoat();
 
-    // 0x4C7FD0 | ??_EmmBoat@@UAEPAXI@Z
-    // 0x4C7200 | ??1mmBoat@@UAE@XZ
+    // ??_EmmBoat@@UAEPAXI@Z
+    // ??1mmBoat@@UAE@XZ
     ARTS_IMPORT ~mmBoat() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4C7820 | ?AddWidgets@mmBoat@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmBoat@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4C77A0 | ?AdjustPhaseOffsets@mmBoat@@QAEXXZ
+    // ?AdjustPhaseOffsets@mmBoat@@QAEXXZ
     ARTS_IMPORT void AdjustPhaseOffsets();
 
-    // 0x4C7910 | ?CalculateCubics@mmBoat@@QAEXH@Z
+    // ?CalculateCubics@mmBoat@@QAEXH@Z
     ARTS_IMPORT void CalculateCubics(i32 arg1);
 
-    // 0x4C7C90 | ?ComputeXZCurve@mmBoat@@QAEXAAVVector3@@000@Z
+    // ?ComputeXZCurve@mmBoat@@QAEXAAVVector3@@000@Z
     ARTS_IMPORT void ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4);
 
-    // 0x4C7FC0 | ?GetClass@mmBoat@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmBoat@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4C7270 | ?Init@mmBoat@@QAEXHPAD0PAVVector3@@HHPAM@Z | unused
+    // ?Init@mmBoat@@QAEXHPAD0PAVVector3@@HHPAM@Z | unused
     ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3, class Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
 
-    // 0x4C7570 | ?Reset@mmBoat@@UAEXXZ
+    // ?Reset@mmBoat@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4C76A0 | ?ReverseCalcPathSpeed@mmBoat@@QAEXXZ
+    // ?ReverseCalcPathSpeed@mmBoat@@QAEXXZ
     ARTS_IMPORT void ReverseCalcPathSpeed();
 
-    // 0x4C7650 | ?SetPathSpeed@mmBoat@@QAEXXZ
+    // ?SetPathSpeed@mmBoat@@QAEXXZ
     ARTS_IMPORT void SetPathSpeed();
 
-    // 0x4C7670 | ?SetRock@mmBoat@@QAEXMM@Z | unused
+    // ?SetRock@mmBoat@@QAEXMM@Z | unused
     ARTS_IMPORT void SetRock(f32 arg1, f32 arg2);
 
-    // 0x4C76C0 | ?SolvePosition@mmBoat@@QAEXAAVVector3@@AAM@Z
+    // ?SolvePosition@mmBoat@@QAEXAAVVector3@@AAM@Z
     ARTS_IMPORT void SolvePosition(class Vector3& arg1, f32& arg2);
 
-    // 0x4C7B20 | ?SolveVector@mmBoat@@QAEXMAAVVector3@@0@Z | unused
+    // ?SolveVector@mmBoat@@QAEXMAAVVector3@@0@Z | unused
     ARTS_IMPORT void SolveVector(f32 arg1, class Vector3& arg2, class Vector3& arg3);
 
-    // 0x4C7D80 | ?SolveXZCurve@mmBoat@@QAEXAAVVector3@@0M@Z
+    // ?SolveXZCurve@mmBoat@@QAEXAAVVector3@@0M@Z
     ARTS_IMPORT void SolveXZCurve(class Vector3& arg1, class Vector3& arg2, f32 arg3);
 
-    // 0x4C75D0 | ?Update@mmBoat@@UAEXXZ
+    // ?Update@mmBoat@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4C7600 | ?UpdatePathPosition@mmBoat@@QAEXXZ
+    // ?UpdatePathPosition@mmBoat@@QAEXXZ
     ARTS_IMPORT void UpdatePathPosition();
 
-    // 0x4C7E50 | ?DeclareFields@mmBoat@@SAXXZ
+    // ?DeclareFields@mmBoat@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x384];
@@ -117,17 +117,17 @@ public:
 
 check_size(mmBoat, 0x3A4);
 
-// 0x705F70 | ?CatmullBasis@@3VMatrix44@@A
+// ?CatmullBasis@@3VMatrix44@@A
 ARTS_IMPORT extern class Matrix44 CatmullBasis;
 
-// 0x642848 | ?GSFDef@@3MA
+// ?GSFDef@@3MA
 ARTS_IMPORT extern f32 GSFDef;
 
-// 0x705F30 | ?_Hermite@@3VMatrix44@@A
+// ?_Hermite@@3VMatrix44@@A
 ARTS_IMPORT extern class Matrix44 _Hermite;
 
-// 0x642808 | ?cb@@3PAMA
+// ?cb@@3PAMA
 ARTS_IMPORT extern f32 cb[16];
 
-// 0x705F08 | ?mmBoatMetaClass@@3VMetaClass@@A
+// ?mmBoatMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmBoatMetaClass;

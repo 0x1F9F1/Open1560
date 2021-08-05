@@ -20,5 +20,5 @@ define_dummy_symbol(agid3d_d3dmtldef);
 
 #include "d3dmtldef.h"
 
-// 0x533720 | ?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z
+// ?xlat@@YAXAAU_D3DCOLORVALUE@@AAVVector4@@@Z
 ARTS_IMPORT /*static*/ void xlat(struct _D3DCOLORVALUE& arg1, class Vector4& arg2);

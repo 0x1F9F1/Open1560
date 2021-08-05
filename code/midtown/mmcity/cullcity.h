@@ -114,67 +114,67 @@ class Matrix34;
 
 class mmCullCity final : public asNode
 {
-    // const mmCullCity::`vftable' @ 0x61CCD8
+    // const mmCullCity::`vftable'
 
 public:
-    // 0x48BB90 | ??0mmCullCity@@QAE@XZ
+    // ??0mmCullCity@@QAE@XZ
     ARTS_IMPORT mmCullCity();
 
-    // 0x48FAB0 | ??_EmmCullCity@@UAEPAXI@Z
-    // 0x48BD70 | ??1mmCullCity@@UAE@XZ
+    // ??_EmmCullCity@@UAEPAXI@Z
+    // ??1mmCullCity@@UAE@XZ
     ARTS_IMPORT ~mmCullCity() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x48E4B0 | ?AddWidgets@mmCullCity@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmCullCity@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x48D820 | ?Cull@mmCullCity@@UAEXXZ
+    // ?Cull@mmCullCity@@UAEXXZ
     ARTS_EXPORT void Cull() override;
 
-    // 0x48FA30 | ?GetClass@mmCullCity@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmCullCity@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x48BF10 | ?GetHitId@mmCullCity@@QAEFAAVVector3@@@Z
+    // ?GetHitId@mmCullCity@@QAEFAAVVector3@@@Z
     ARTS_IMPORT i16 GetHitId(class Vector3& arg1);
 
-    // 0x48D960 | ?GetRoomFlags@mmCullCity@@QAEFF@Z
+    // ?GetRoomFlags@mmCullCity@@QAEFF@Z
     ARTS_IMPORT i16 GetRoomFlags(i16 arg1);
 
-    // 0x48C6D0 | ?Init@mmCullCity@@QAEXPADPAVasCamera@@@Z
+    // ?Init@mmCullCity@@QAEXPADPAVasCamera@@@Z
     ARTS_IMPORT void Init(char* arg1, class asCamera* arg2);
 
-    // 0x48CEA0 | ?InitObjectDetail@mmCullCity@@QAEXXZ
+    // ?InitObjectDetail@mmCullCity@@QAEXXZ
     ARTS_IMPORT void InitObjectDetail();
 
-    // 0x48D590 | ?IsPolyWater@mmCullCity@@QAEHPAVmmPolygon@@@Z
+    // ?IsPolyWater@mmCullCity@@QAEHPAVmmPolygon@@@Z
     ARTS_IMPORT i32 IsPolyWater(class mmPolygon* arg1);
 
-    // 0x48CED0 | ?LoadBangers@mmCullCity@@QAEXPAD@Z
+    // ?LoadBangers@mmCullCity@@QAEXPAD@Z
     ARTS_IMPORT void LoadBangers(char* arg1);
 
-    // 0x48CFF0 | ?LoadFacades@mmCullCity@@QAEXPAD@Z
+    // ?LoadFacades@mmCullCity@@QAEXPAD@Z
     ARTS_IMPORT void LoadFacades(char* arg1);
 
-    // 0x48D9A0 | ?RelightEverything@mmCullCity@@QAEXXZ
+    // ?RelightEverything@mmCullCity@@QAEXXZ
     ARTS_IMPORT void RelightEverything();
 
-    // 0x48C640 | ?ReparentObject@mmCullCity@@QAEXPAVmmInstance@@@Z
+    // ?ReparentObject@mmCullCity@@QAEXPAVmmInstance@@@Z
     ARTS_IMPORT void ReparentObject(class mmInstance* arg1);
 
-    // 0x48CDD0 | ?Reset@mmCullCity@@UAEXXZ
+    // ?Reset@mmCullCity@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x48D950 | ?ToggleSky@mmCullCity@@QAEXXZ
+    // ?ToggleSky@mmCullCity@@QAEXXZ
     ARTS_IMPORT void ToggleSky();
 
-    // 0x48D5D0 | ?Update@mmCullCity@@UAEXXZ
+    // ?Update@mmCullCity@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x48F8C0 | ?DeclareFields@mmCullCity@@SAXXZ
+    // ?DeclareFields@mmCullCity@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    // 0x4A9F40 | ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
+    // ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
     ARTS_IMPORT static class mmCullCity* GetInstance();
 
     agiTexDef* GetShadowMap()
@@ -188,22 +188,22 @@ public:
     }
 
 private:
-    // 0x48C2C0 | ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
+    // ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
     ARTS_IMPORT void AddInstance(i32 arg1, char* arg2, char* arg3, i32 arg4, class Vector3* arg5, class Vector3* arg6,
         class Vector3* arg7, f32 arg8);
 
-    // 0x48D100 | ?InitSnowTextures@mmCullCity@@AAEXXZ
+    // ?InitSnowTextures@mmCullCity@@AAEXXZ
     ARTS_IMPORT void InitSnowTextures();
 
-    // 0x48DB10 | ?InitTimeOfDayAndWeather@mmCullCity@@AAEXXZ
+    // ?InitTimeOfDayAndWeather@mmCullCity@@AAEXXZ
     ARTS_IMPORT void InitTimeOfDayAndWeather();
 
-    // 0x48D2F0 | ?UpdateSnowTextures@mmCullCity@@AAEXXZ
+    // ?UpdateSnowTextures@mmCullCity@@AAEXXZ
     ARTS_IMPORT void UpdateSnowTextures();
 
     friend mmCullCity* CullCity();
 
-    // 0x6A8E28 | ?Instance@mmCullCity@@0PAV1@A
+    // ?Instance@mmCullCity@@0PAV1@A
     ARTS_IMPORT static class mmCullCity* Instance;
 
     u8 gap20[0x34D4C];
@@ -218,16 +218,16 @@ inline mmCullCity* CullCity()
 
 class mmUpperInstance final : public mmMatrixInstance
 {
-    // const mmUpperInstance::`vftable' @ 0x61CDB8
+    // const mmUpperInstance::`vftable'
 
 public:
-    // 0x48FA80 | ??_GmmUpperInstance@@UAEPAXI@Z
-    // 0x48FA80 | ??_EmmUpperInstance@@UAEPAXI@Z
-    // 0x48FAA0 | ??1mmUpperInstance@@UAE@XZ | inline
+    // ??_GmmUpperInstance@@UAEPAXI@Z
+    // ??_EmmUpperInstance@@UAEPAXI@Z
+    // ??1mmUpperInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmUpperInstance() override = default;
 
 private:
-    // 0x48BF40 | ?Draw@mmUpperInstance@@EAIXH@Z
+    // ?Draw@mmUpperInstance@@EAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 };
 
@@ -235,38 +235,38 @@ check_size(mmUpperInstance, 0x44);
 
 class mmRunwayLight final : public mmInstance
 {
-    // const mmRunwayLight::`vftable' @ 0x61CD58
+    // const mmRunwayLight::`vftable'
 
 public:
-    // 0x48BFA0 | ??0mmRunwayLight@@QAE@PADAAVVector3@@1@Z
+    // ??0mmRunwayLight@@QAE@PADAAVVector3@@1@Z
     ARTS_IMPORT mmRunwayLight(char* arg1, class Vector3& arg2, class Vector3& arg3);
 
-    // 0x48FA50 | ??_EmmRunwayLight@@UAEPAXI@Z
-    // 0x48FA50 | ??_GmmRunwayLight@@UAEPAXI@Z
-    // 0x48FA70 | ??1mmRunwayLight@@UAE@XZ | inline
+    // ??_EmmRunwayLight@@UAEPAXI@Z
+    // ??_GmmRunwayLight@@UAEPAXI@Z
+    // ??1mmRunwayLight@@UAE@XZ | inline
     ARTS_IMPORT ~mmRunwayLight() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x48FA40 | ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z | inline
+    // ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z | inline
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x48C1B0 | ?Draw@mmRunwayLight@@UAIXH@Z
+    // ?Draw@mmRunwayLight@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
-    // 0x48C170 | ?FromMatrix@mmRunwayLight@@UAIXABVMatrix34@@@Z
+    // ?FromMatrix@mmRunwayLight@@UAIXABVMatrix34@@@Z
     ARTS_EXPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
-    // 0x48C160 | ?GetPos@mmRunwayLight@@UAIAAVVector3@@XZ
+    // ?GetPos@mmRunwayLight@@UAIAAVVector3@@XZ
     ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
-    // 0x48C2B0 | ?GetScale@mmRunwayLight@@UAIMXZ
+    // ?GetScale@mmRunwayLight@@UAIMXZ
     ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
-    // 0x48C180 | ?ToMatrix@mmRunwayLight@@UAIAAVMatrix34@@AAV2@@Z
+    // ?ToMatrix@mmRunwayLight@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
-    // 0x6A8E74 | ?Phase@mmRunwayLight@@2MA
+    // ?Phase@mmRunwayLight@@2MA
     ARTS_IMPORT static f32 Phase;
 
     u8 gap14[0x4C];
@@ -274,63 +274,63 @@ public:
 
 check_size(mmRunwayLight, 0x60);
 
-// 0x48DA00 | ?fix_clip@@YAXXZ
+// ?fix_clip@@YAXXZ
 ARTS_IMPORT void fix_clip();
 
 #ifdef ARTS_DEV_BUILD
-// 0x48E450 | ?fix_fog@@YAXXZ
+// ?fix_fog@@YAXXZ
 ARTS_IMPORT void fix_fog();
 #endif
 
-// 0x48DA70 | ?fix_lighting@@YAXXZ
+// ?fix_lighting@@YAXXZ
 ARTS_IMPORT void fix_lighting();
 
 #ifdef ARTS_DEV_BUILD
-// 0x48E480 | ?fix_shadow@@YAXXZ
+// ?fix_shadow@@YAXXZ
 ARTS_IMPORT void fix_shadow();
 #endif
 
-// 0x63E4E4 | ?BoneScale@@3MA
+// ?BoneScale@@3MA
 ARTS_IMPORT extern f32 BoneScale;
 
-// 0x6A8E7C | ?DisableUpper@@3HA
+// ?DisableUpper@@3HA
 ARTS_IMPORT extern i32 DisableUpper;
 
-// 0x6A8DD0 | ?EnvVel@@3MA
+// ?EnvVel@@3MA
 ARTS_IMPORT extern f32 EnvVel;
 
-// 0x6A8E68 | ?FadeConstant@@3MA
+// ?FadeConstant@@3MA
 ARTS_IMPORT extern f32 FadeConstant;
 
-// 0x6A8E78 | ?FadeScale@@3MA
+// ?FadeScale@@3MA
 ARTS_IMPORT extern f32 FadeScale;
 
-// 0x6A8E30 | ?PlaneFudge@@3VVector3@@A
+// ?PlaneFudge@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 PlaneFudge;
 
 #ifdef ARTS_DEV_BUILD
-// 0x6A8E70 | ?StaticLog@@3PAVStream@@A
+// ?StaticLog@@3PAVStream@@A
 ARTS_IMPORT extern class Stream* StaticLog;
 #endif
 
-// 0x6A8E20 | ?UsePixelFog@@3HA
+// ?UsePixelFog@@3HA
 ARTS_IMPORT extern i32 UsePixelFog;
 
 #ifdef ARTS_DEV_BUILD
-// 0x6A8DDC | ?ambTriCount@@3HA
+// ?ambTriCount@@3HA
 ARTS_IMPORT extern i32 ambTriCount;
 
-// 0x6A8DE4 | ?bangerTriCount@@3HA
+// ?bangerTriCount@@3HA
 ARTS_IMPORT extern i32 bangerTriCount;
 
-// 0x6A8DE0 | ?carTriCount@@3HA
+// ?carTriCount@@3HA
 ARTS_IMPORT extern i32 carTriCount;
 
-// 0x6A8DCC | ?facadeTriCount@@3HA
+// ?facadeTriCount@@3HA
 ARTS_IMPORT extern i32 facadeTriCount;
 #endif
 
-// 0x6A8E40 | ?mmCullCityMetaClass@@3VMetaClass@@A
+// ?mmCullCityMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmCullCityMetaClass;
 
 struct t_mmEnvSetup
@@ -349,10 +349,10 @@ struct t_mmEnvSetup
 
 check_size(t_mmEnvSetup, 0x28);
 
-// 0x63E260 | ?mmEnvSetup@@3PAY03Ut_mmEnvSetup@@A
+// ?mmEnvSetup@@3PAY03Ut_mmEnvSetup@@A
 ARTS_IMPORT extern struct t_mmEnvSetup mmEnvSetup[4][4];
 
 #ifdef ARTS_DEV_BUILD
-// 0x6A8E24 | ?pedTriCount@@3HA
+// ?pedTriCount@@3HA
 ARTS_IMPORT extern i32 pedTriCount;
 #endif

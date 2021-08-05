@@ -32,15 +32,15 @@
 
 class PUMain final : public PUMenuBase
 {
-    // const PUMain::`vftable' @ 0x61E198
+    // const PUMain::`vftable'
 
 public:
-    // 0x4AADA0 | ??0PUMain@@QAE@HMMMMPAD@Z
+    // ??0PUMain@@QAE@HMMMMPAD@Z
     ARTS_IMPORT PUMain(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x4AAFB0 | ??_GPUMain@@UAEPAXI@Z
-    // 0x4AAFB0 | ??_EPUMain@@UAEPAXI@Z
-    // 0x4AAFA0 | ??1PUMain@@UAE@XZ
+    // ??_GPUMain@@UAEPAXI@Z
+    // ??_EPUMain@@UAEPAXI@Z
+    // ??1PUMain@@UAE@XZ
     ARTS_IMPORT ~PUMain() override = default;
 };
 

@@ -42,44 +42,44 @@
 
 class PovCamCS final : public CarCamCS
 {
-    // const PovCamCS::`vftable' @ 0x620000
+    // const PovCamCS::`vftable'
 
 public:
-    // 0x4F62B0 | ??0PovCamCS@@QAE@XZ
+    // ??0PovCamCS@@QAE@XZ
     ARTS_IMPORT PovCamCS();
 
-    // 0x4F69F0 | ??_EPovCamCS@@UAEPAXI@Z
-    // 0x4F63B0 | ??1PovCamCS@@UAE@XZ
+    // ??_EPovCamCS@@UAEPAXI@Z
+    // ??1PovCamCS@@UAE@XZ
     ARTS_IMPORT ~PovCamCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4F6460 | ?AddWidgets@PovCamCS@@UAEXPAVBank@@@Z
+    // ?AddWidgets@PovCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4F6410 | ?AfterLoad@PovCamCS@@UAEXXZ
+    // ?AfterLoad@PovCamCS@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;
 
-    // 0x4F69B0 | ?GetClass@PovCamCS@@UAEPAVMetaClass@@XZ
+    // ?GetClass@PovCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4F63C0 | ?MakeActive@PovCamCS@@UAEXXZ
+    // ?MakeActive@PovCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;
 
-    // 0x4F6420 | ?Reset@PovCamCS@@UAEXXZ
+    // ?Reset@PovCamCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4F6530 | ?Update@PovCamCS@@UAEXXZ
+    // ?Update@PovCamCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4F6550 | ?UpdateInput@PovCamCS@@UAEXXZ
+    // ?UpdateInput@PovCamCS@@UAEXXZ
     ARTS_EXPORT void UpdateInput() override;
 
-    // 0x4F6800 | ?DeclareFields@PovCamCS@@SAXXZ
+    // ?DeclareFields@PovCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x4F6560 | ?UpdatePOV@PovCamCS@@AAEXXZ
+    // ?UpdatePOV@PovCamCS@@AAEXXZ
     ARTS_IMPORT void UpdatePOV();
 
     u8 gap118[0x2C];
@@ -87,5 +87,5 @@ private:
 
 check_size(PovCamCS, 0x144);
 
-// 0x719350 | ?PovCamCSMetaClass@@3VMetaClass@@A
+// ?PovCamCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass PovCamCSMetaClass;

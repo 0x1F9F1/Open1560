@@ -41,16 +41,16 @@
 class agiMtlParameters
 {
 public:
-    // 0x55DAB0 | ??0agiMtlParameters@@QAE@XZ
+    // ??0agiMtlParameters@@QAE@XZ
     ARTS_IMPORT agiMtlParameters();
 
-    // 0x55DBE0 | ??4agiMtlParameters@@QAEXABV0@@Z
+    // ??4agiMtlParameters@@QAEXABV0@@Z
     ARTS_IMPORT void operator=(class agiMtlParameters const& arg1);
 
-    // 0x55DB00 | ?Load@agiMtlParameters@@QAEXPAVStream@@@Z
+    // ?Load@agiMtlParameters@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Load(class Stream* arg1);
 
-    // 0x55DB70 | ?Save@agiMtlParameters@@QAEXPAVStream@@@Z
+    // ?Save@agiMtlParameters@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Save(class Stream* arg1);
 
     char Name[32] {};
@@ -69,22 +69,22 @@ check_size(agiMtlParameters, 0x68);
 
 class agiMtlDef : public agiRefreshable
 {
-    // const agiMtlDef::`vftable' @ 0x621888
+    // const agiMtlDef::`vftable'
 
 public:
-    // 0x55DD30 | ?GetName@agiMtlDef@@UAEPADXZ
+    // ?GetName@agiMtlDef@@UAEPADXZ
     ARTS_IMPORT char* GetName() override;
 
-    // 0x55DC50 | ?Init@agiMtlDef@@QAEHABVagiMtlParameters@@@Z
+    // ?Init@agiMtlDef@@QAEHABVagiMtlParameters@@@Z
     ARTS_IMPORT i32 Init(class agiMtlParameters const& arg1);
 
 protected:
-    // 0x55DC00 | ??0agiMtlDef@@IAE@PAVagiPipeline@@@Z
+    // ??0agiMtlDef@@IAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiMtlDef(class agiPipeline* arg1);
 
-    // 0x55DD50 | ??_EagiMtlDef@@MAEPAXI@Z
-    // 0x55DD50 | ??_GagiMtlDef@@MAEPAXI@Z
-    // 0x55DC80 | ??1agiMtlDef@@MAE@XZ
+    // ??_EagiMtlDef@@MAEPAXI@Z
+    // ??_GagiMtlDef@@MAEPAXI@Z
+    // ??1agiMtlDef@@MAE@XZ
     ARTS_IMPORT ~agiMtlDef() override;
 
     u8 gap18[0x68];

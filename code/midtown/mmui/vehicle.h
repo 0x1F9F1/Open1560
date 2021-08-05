@@ -36,27 +36,27 @@
 
 class Vehicle final : public VehicleSelectBase
 {
-    // const Vehicle::`vftable' @ 0x61DB70
+    // const Vehicle::`vftable'
 
 public:
-    // 0x4A51D0 | ??0Vehicle@@QAE@H@Z
+    // ??0Vehicle@@QAE@H@Z
     ARTS_IMPORT Vehicle(i32 arg1);
 
-    // 0x4A5320 | ??_EVehicle@@UAEPAXI@Z
-    // 0x4A5320 | ??_GVehicle@@UAEPAXI@Z
-    // 0x4A52B0 | ??1Vehicle@@UAE@XZ
+    // ??_EVehicle@@UAEPAXI@Z
+    // ??_GVehicle@@UAEPAXI@Z
+    // ??1Vehicle@@UAE@XZ
     ARTS_IMPORT ~Vehicle() override = default;
 
-    // 0x4A5310 | ?PostSetup@Vehicle@@UAEXXZ
+    // ?PostSetup@Vehicle@@UAEXXZ
     ARTS_IMPORT void PostSetup() override;
 
-    // 0x4A5300 | ?PreSetup@Vehicle@@UAEXXZ
+    // ?PreSetup@Vehicle@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x4A52C0 | ?SetSubMenu@Vehicle@@QAEXH@Z
+    // ?SetSubMenu@Vehicle@@QAEXH@Z
     ARTS_IMPORT void SetSubMenu(i32 arg1);
 
-    // 0x4A52E0 | ?SetSubMenuButtons@Vehicle@@QAEXXZ
+    // ?SetSubMenuButtons@Vehicle@@QAEXXZ
     ARTS_IMPORT void SetSubMenuButtons();
 
     u8 gap168[0x1C];

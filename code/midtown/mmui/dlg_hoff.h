@@ -37,30 +37,30 @@
 
 class Dialog_HallOfFame final : public PUMenuBase
 {
-    // const Dialog_HallOfFame::`vftable' @ 0x61D608
+    // const Dialog_HallOfFame::`vftable'
 
 public:
-    // 0x49E3E0 | ??0Dialog_HallOfFame@@QAE@HMMMMPAD@Z
+    // ??0Dialog_HallOfFame@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_HallOfFame(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x49EBE0 | ??_EDialog_HallOfFame@@UAEPAXI@Z
-    // 0x49EBE0 | ??_GDialog_HallOfFame@@UAEPAXI@Z
-    // 0x49E7E0 | ??1Dialog_HallOfFame@@UAE@XZ
+    // ??_EDialog_HallOfFame@@UAEPAXI@Z
+    // ??_GDialog_HallOfFame@@UAEPAXI@Z
+    // ??1Dialog_HallOfFame@@UAE@XZ
     ARTS_IMPORT ~Dialog_HallOfFame() override = default;
 
-    // 0x49E800 | ?AddRaceRecord@Dialog_HallOfFame@@QAEXHPAD00H00@Z
+    // ?AddRaceRecord@Dialog_HallOfFame@@QAEXHPAD00H00@Z
     ARTS_IMPORT void AddRaceRecord(i32 arg1, char* arg2, char* arg3, char* arg4, i32 arg5, char* arg6, char* arg7);
 
-    // 0x49EA50 | ?InitRaceRecord@Dialog_HallOfFame@@QAEXXZ
+    // ?InitRaceRecord@Dialog_HallOfFame@@QAEXXZ
     ARTS_IMPORT void InitRaceRecord();
 
-    // 0x49E7F0 | ?PreSetup@Dialog_HallOfFame@@UAEXXZ
+    // ?PreSetup@Dialog_HallOfFame@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x49E940 | ?ResetRaceRecord@Dialog_HallOfFame@@QAEXXZ
+    // ?ResetRaceRecord@Dialog_HallOfFame@@QAEXXZ
     ARTS_IMPORT void ResetRaceRecord();
 
-    // 0x49E9D0 | ?SetSortState@Dialog_HallOfFame@@QAEXXZ
+    // ?SetSortState@Dialog_HallOfFame@@QAEXXZ
     ARTS_IMPORT void SetSortState();
 
     u8 gapC0[0x24];

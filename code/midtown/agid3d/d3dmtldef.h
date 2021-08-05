@@ -37,27 +37,27 @@
 
 class agiD3DMtlDef final : public agiMtlDef
 {
-    // const agiD3DMtlDef::`vftable' @ 0x621170
+    // const agiD3DMtlDef::`vftable'
 
 public:
-    // 0x533560 | ??0agiD3DMtlDef@@QAE@PAVagiPipeline@@@Z
+    // ??0agiD3DMtlDef@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiD3DMtlDef(class agiPipeline* arg1);
 
-    // 0x533770 | ??_GagiD3DMtlDef@@UAEPAXI@Z
-    // 0x533770 | ??_EagiD3DMtlDef@@UAEPAXI@Z
-    // 0x533660 | ??1agiD3DMtlDef@@UAE@XZ
+    // ??_GagiD3DMtlDef@@UAEPAXI@Z
+    // ??_EagiD3DMtlDef@@UAEPAXI@Z
+    // ??1agiD3DMtlDef@@UAE@XZ
     ARTS_IMPORT ~agiD3DMtlDef() override = default;
 
-    // 0x533670 | ?Activate@agiD3DMtlDef@@QAEXXZ
+    // ?Activate@agiD3DMtlDef@@QAEXXZ
     ARTS_IMPORT void Activate();
 
-    // 0x533590 | ?BeginGfx@agiD3DMtlDef@@UAEHXZ
+    // ?BeginGfx@agiD3DMtlDef@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
-    // 0x533620 | ?EndGfx@agiD3DMtlDef@@UAEXXZ
+    // ?EndGfx@agiD3DMtlDef@@UAEXXZ
     ARTS_IMPORT void EndGfx() override;
 
-    // 0x533750 | ?GetHandle@agiD3DMtlDef@@QAEKXZ | unused
+    // ?GetHandle@agiD3DMtlDef@@QAEKXZ | unused
     ARTS_IMPORT ulong GetHandle();
 
     u8 gap80[0x8];

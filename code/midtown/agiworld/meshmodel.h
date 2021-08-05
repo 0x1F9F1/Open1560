@@ -34,20 +34,20 @@
 class agiMeshModel final : public agiMeshSet
 {
 public:
-    // 0x5142B0 | ?ModelDraw@agiMeshModel@@QAEHIPAVagiLitAnimation@@H@Z
+    // ?ModelDraw@agiMeshModel@@QAEHIPAVagiLitAnimation@@H@Z
     ARTS_IMPORT i32 ModelDraw(u32 arg1, class agiLitAnimation* arg2, i32 arg3);
 
-    // 0x5142D0 | ?ModelDraw@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
+    // ?ModelDraw@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
     ARTS_IMPORT i32 ModelDraw(u32 arg1, class bnAnimation* arg2, i32 arg3);
 
-    // 0x5144F0 | ?ModelDrawLit@agiMeshModel@@QAEHP6AXPAEPAI1PAVagiMeshSet@@@ZIPAVagiLitAnimation@@H@Z
+    // ?ModelDrawLit@agiMeshModel@@QAEHP6AXPAEPAI1PAVagiMeshSet@@@ZIPAVagiLitAnimation@@H@Z
     ARTS_IMPORT i32 ModelDrawLit(
         void (*arg1)(u8*, u32*, u32*, class agiMeshSet*), u32 arg2, class agiLitAnimation* arg3, i32 arg4);
 
-    // 0x514330 | ?ModelDrawSkel@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
+    // ?ModelDrawSkel@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
     ARTS_IMPORT i32 ModelDrawSkel(u32 arg1, class bnAnimation* arg2, i32 arg3);
 
-    // 0x5141B0 | ?ModelGeometry@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
+    // ?ModelGeometry@agiMeshModel@@QAEHIPAVbnAnimation@@H@Z
     ARTS_IMPORT i32 ModelGeometry(u32 arg1, class bnAnimation* arg2, i32 arg3);
 
     u8 gap64[0x44];
@@ -58,7 +58,7 @@ check_size(agiMeshModel, 0xA8);
 class agiLitAnimation
 {
 public:
-    // 0x5145C0 | ??0agiLitAnimation@@QAE@PAVagiMeshModel@@PAVbnAnimation@@PAVStream@@@Z
+    // ??0agiLitAnimation@@QAE@PAVagiMeshModel@@PAVbnAnimation@@PAVStream@@@Z
     ARTS_IMPORT agiLitAnimation(class agiMeshModel* arg1, class bnAnimation* arg2, class Stream* arg3);
 
     u8 gap0[0x10];

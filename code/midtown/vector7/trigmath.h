@@ -33,41 +33,41 @@
     0x6608C8 | float * TRIGMATH_ATANTABLE | ?TRIGMATH_ATANTABLE@@3PAMA
 */
 
-// 0x56D8B0 | ?ASinf@@YAMM@Z | inline
+// ?ASinf@@YAMM@Z | inline
 ARTS_IMPORT f32 ASinf(f32 arg1);
 
-// 0x56D980 | ?ATan2f@@YAMMM@Z | inline
+// ?ATan2f@@YAMMM@Z | inline
 ARTS_IMPORT f32 ATan2f(f32 arg1, f32 arg2);
 
-// 0x56D950 | ?asinf_fast@@YAMM@Z | inline
+// ?asinf_fast@@YAMM@Z | inline
 ARTS_IMPORT f32 asinf_fast(f32 arg1);
 
-// 0x5733D0 | ?atan2f_fast@@YAMMM@Z
+// ?atan2f_fast@@YAMMM@Z
 ARTS_IMPORT f32 atan2f_fast(f32 arg1, f32 arg2);
 
-// 0x573450 | ?atan2f_faster@@YAMMM@Z
+// ?atan2f_faster@@YAMMM@Z
 ARTS_IMPORT f32 atan2f_faster(f32 arg1, f32 arg2);
 
-// 0x5732F0 | ?atanf_fast@@YAMM@Z
+// ?atanf_fast@@YAMM@Z
 ARTS_IMPORT f32 atanf_fast(f32 arg1);
 
-// 0x5732C0 | ?atanf_fast_large_values@@YAMM@Z
+// ?atanf_fast_large_values@@YAMM@Z
 ARTS_IMPORT f32 atanf_fast_large_values(f32 arg1);
 
-// 0x573370 | ?atanf_faster@@YAMM@Z
+// ?atanf_faster@@YAMM@Z
 ARTS_IMPORT f32 atanf_faster(f32 arg1);
 
-// 0x573250 | ?tanf_fast@@YAMM@Z | unused
+// ?tanf_fast@@YAMM@Z | unused
 ARTS_IMPORT f32 tanf_fast(f32 arg1);
 
-// 0x6608C8 | ?TRIGMATH_ATANTABLE@@3PAMA
+// ?TRIGMATH_ATANTABLE@@3PAMA
 ARTS_IMPORT extern f32 TRIGMATH_ATANTABLE[401];
 
-// 0x65E878 | ?TRIGMATH_COSTABLE@@3PAMA
+// ?TRIGMATH_COSTABLE@@3PAMA
 ARTS_IMPORT extern f32 TRIGMATH_COSTABLE[1034];
 
-// 0x65F8A0 | ?TRIGMATH_TANTABLE@@3PAMA
+// ?TRIGMATH_TANTABLE@@3PAMA
 ARTS_IMPORT extern f32 TRIGMATH_TANTABLE[1034];
 
-// 0x65A548 | ?asintable@@3PAMA
+// ?asintable@@3PAMA
 ARTS_IMPORT extern f32 asintable[4300];

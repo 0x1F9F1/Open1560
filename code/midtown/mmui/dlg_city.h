@@ -34,21 +34,21 @@
 
 class Dialog_City final : public PUMenuBase
 {
-    // const Dialog_City::`vftable' @ 0x61D4E8
+    // const Dialog_City::`vftable'
 
 public:
-    // 0x49D730 | ??0Dialog_City@@QAE@HMMMMPAD@Z
+    // ??0Dialog_City@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_City(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x49DA80 | ??_GDialog_City@@UAEPAXI@Z
-    // 0x49DA80 | ??_EDialog_City@@UAEPAXI@Z
-    // 0x49D9B0 | ??1Dialog_City@@UAE@XZ
+    // ??_GDialog_City@@UAEPAXI@Z
+    // ??_EDialog_City@@UAEPAXI@Z
+    // ??1Dialog_City@@UAE@XZ
     ARTS_IMPORT ~Dialog_City() override;
 
-    // 0x49DA20 | ?DoneCB@Dialog_City@@QAEXXZ
+    // ?DoneCB@Dialog_City@@QAEXXZ
     ARTS_IMPORT void DoneCB();
 
-    // 0x49DA10 | ?PreSetup@Dialog_City@@UAEXXZ
+    // ?PreSetup@Dialog_City@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
     u8 gapC0[0xC];

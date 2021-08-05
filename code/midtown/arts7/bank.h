@@ -30,7 +30,7 @@ class bkSlider;
 
 class Bank
 {
-    // const Bank::`vftable' @ 0x620C40
+    // const Bank::`vftable'
 
 public:
     virtual void SetLabel(const char* title) = 0;

@@ -68,120 +68,120 @@
 
 class NetSelectMenu final : public UIMenu
 {
-    // const NetSelectMenu::`vftable' @ 0x61DA78
+    // const NetSelectMenu::`vftable'
 
 public:
-    // 0x4A3BA0 | ??0NetSelectMenu@@QAE@H@Z
+    // ??0NetSelectMenu@@QAE@H@Z
     ARTS_IMPORT NetSelectMenu(i32 arg1);
 
-    // 0x4A4C00 | ??_GNetSelectMenu@@UAEPAXI@Z
-    // 0x4A4C00 | ??_ENetSelectMenu@@UAEPAXI@Z
-    // 0x4A42F0 | ??1NetSelectMenu@@UAE@XZ
+    // ??_GNetSelectMenu@@UAEPAXI@Z
+    // ??_ENetSelectMenu@@UAEPAXI@Z
+    // ??1NetSelectMenu@@UAE@XZ
     ARTS_IMPORT ~NetSelectMenu() override;
 
-    // 0x4A4960 | ?AddModem@NetSelectMenu@@QAEXPADH@Z | unused
+    // ?AddModem@NetSelectMenu@@QAEXPADH@Z | unused
     ARTS_IMPORT void AddModem(char* arg1, i32 arg2);
 
-    // 0x4A4950 | ?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z | unused
+    // ?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z | unused
     ARTS_EXPORT void AddWidgetToList(i32 arg1, class uiWidget* arg2);
 
-    // 0x4A4690 | ?BuildAllTheIPXWidgets@NetSelectMenu@@QAEXMMMM@Z
+    // ?BuildAllTheIPXWidgets@NetSelectMenu@@QAEXMMMM@Z
     ARTS_EXPORT void BuildAllTheIPXWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x4A4580 | ?BuildAllTheModemWidgets@NetSelectMenu@@QAEXMMMMPAD@Z
+    // ?BuildAllTheModemWidgets@NetSelectMenu@@QAEXMMMMPAD@Z
     ARTS_IMPORT void BuildAllTheModemWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4, char* arg5);
 
-    // 0x4A46A0 | ?BuildAllTheTCPWidgets@NetSelectMenu@@QAEXMMMM@Z
+    // ?BuildAllTheTCPWidgets@NetSelectMenu@@QAEXMMMM@Z
     ARTS_EXPORT void BuildAllTheTCPWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x4A4720 | ?BuildComs@NetSelectMenu@@QAEXXZ
+    // ?BuildComs@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void BuildComs();
 
-    // 0x4A4A60 | ?ClearProtocol@NetSelectMenu@@QAEXXZ
+    // ?ClearProtocol@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void ClearProtocol();
 
-    // 0x4A44D0 | ?DisableSessions@NetSelectMenu@@QAEXXZ
+    // ?DisableSessions@NetSelectMenu@@QAEXXZ
     ARTS_EXPORT void DisableSessions();
 
-    // 0x4A4420 | ?FocusDescription@NetSelectMenu@@QAEXH@Z
+    // ?FocusDescription@NetSelectMenu@@QAEXH@Z
     ARTS_IMPORT void FocusDescription(i32 arg1);
 
-    // 0x4A4B40 | ?GetCommPack@NetSelectMenu@@QAEPAUNETCOMMPACK@@XZ
+    // ?GetCommPack@NetSelectMenu@@QAEPAUNETCOMMPACK@@XZ
     ARTS_IMPORT struct NETCOMMPACK* GetCommPack();
 
-    // 0x4A4410 | ?GetHostJoin@NetSelectMenu@@QAEHXZ
+    // ?GetHostJoin@NetSelectMenu@@QAEHXZ
     ARTS_IMPORT i32 GetHostJoin();
 
-    // 0x4A46C0 | ?GetSessionID@NetSelectMenu@@QAEHXZ
+    // ?GetSessionID@NetSelectMenu@@QAEHXZ
     ARTS_IMPORT i32 GetSessionID();
 
-    // 0x4A46B0 | ?GetSessions@NetSelectMenu@@QAEPAVUITextScroll@@XZ
+    // ?GetSessions@NetSelectMenu@@QAEPAVUITextScroll@@XZ
     ARTS_IMPORT class UITextScroll* GetSessions();
 
-    // 0x4A43F0 | ?HostCB@NetSelectMenu@@QAEXXZ
+    // ?HostCB@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void HostCB();
 
-    // 0x4A4700 | ?IPAddressCallback@NetSelectMenu@@QAEXXZ
+    // ?IPAddressCallback@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void IPAddressCallback();
 
-    // 0x4A4400 | ?JoinCB@NetSelectMenu@@QAEXXZ
+    // ?JoinCB@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void JoinCB();
 
-    // 0x4A44B0 | ?JoinCallback@NetSelectMenu@@QAEXXZ
+    // ?JoinCallback@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void JoinCallback();
 
-    // 0x4A4B70 | ?NetNameCB@NetSelectMenu@@QAEXXZ
+    // ?NetNameCB@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void NetNameCB();
 
-    // 0x4A43D0 | ?PostSetup@NetSelectMenu@@UAEXXZ
+    // ?PostSetup@NetSelectMenu@@UAEXXZ
     ARTS_IMPORT void PostSetup() override;
 
-    // 0x4A4360 | ?PreSetup@NetSelectMenu@@UAEXXZ
+    // ?PreSetup@NetSelectMenu@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x4A44E0 | ?ProtocolBack@NetSelectMenu@@QAEXXZ
+    // ?ProtocolBack@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void ProtocolBack();
 
-    // 0x4A4930 | ?ReparentWidgets@NetSelectMenu@@QAEXH@Z | unused
+    // ?ReparentWidgets@NetSelectMenu@@QAEXH@Z | unused
     ARTS_EXPORT void ReparentWidgets(i32 arg1);
 
-    // 0x4A4820 | ?SetComs@NetSelectMenu@@QAEXXZ
+    // ?SetComs@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void SetComs();
 
-    // 0x4A44A0 | ?SetDescription@NetSelectMenu@@QAEXPAULocString@@@Z
+    // ?SetDescription@NetSelectMenu@@QAEXPAULocString@@@Z
     ARTS_EXPORT void SetDescription(struct LocString* arg1);
 
-    // 0x4A4560 | ?SetIPAddress@NetSelectMenu@@QAEXPAD@Z
+    // ?SetIPAddress@NetSelectMenu@@QAEXPAD@Z
     ARTS_IMPORT void SetIPAddress(char* arg1);
 
-    // 0x4A4A70 | ?SetIPXButton@NetSelectMenu@@QAEXH@Z
+    // ?SetIPXButton@NetSelectMenu@@QAEXH@Z
     ARTS_IMPORT void SetIPXButton(i32 arg1);
 
-    // 0x4A4AE0 | ?SetModemButton@NetSelectMenu@@QAEXH@Z
+    // ?SetModemButton@NetSelectMenu@@QAEXH@Z
     ARTS_IMPORT void SetModemButton(i32 arg1);
 
-    // 0x4A4500 | ?SetNetname@NetSelectMenu@@QAEXPAD@Z
+    // ?SetNetname@NetSelectMenu@@QAEXPAD@Z
     ARTS_IMPORT void SetNetname(char* arg1);
 
-    // 0x4A4540 | ?SetPhoneNumber@NetSelectMenu@@QAEXPAD@Z
+    // ?SetPhoneNumber@NetSelectMenu@@QAEXPAD@Z
     ARTS_IMPORT void SetPhoneNumber(char* arg1);
 
-    // 0x4A4B10 | ?SetSerialButton@NetSelectMenu@@QAEXH@Z
+    // ?SetSerialButton@NetSelectMenu@@QAEXH@Z
     ARTS_IMPORT void SetSerialButton(i32 arg1);
 
-    // 0x4A46D0 | ?SetSession@NetSelectMenu@@QAEXPADH@Z
+    // ?SetSession@NetSelectMenu@@QAEXPADH@Z
     ARTS_IMPORT void SetSession(char* arg1, i32 arg2);
 
-    // 0x4A4AA0 | ?SetTCPLocalButton@NetSelectMenu@@QAEXH@Z
+    // ?SetTCPLocalButton@NetSelectMenu@@QAEXH@Z
     ARTS_EXPORT void SetTCPLocalButton(i32 arg1);
 
-    // 0x4A4AB0 | ?SetTCPNetButton@NetSelectMenu@@QAEXH@Z
+    // ?SetTCPNetButton@NetSelectMenu@@QAEXH@Z
     ARTS_IMPORT void SetTCPNetButton(i32 arg1);
 
-    // 0x4A44C0 | ?ShowTCPIPNetSessions@NetSelectMenu@@QAEXXZ
+    // ?ShowTCPIPNetSessions@NetSelectMenu@@QAEXXZ
     ARTS_EXPORT void ShowTCPIPNetSessions();
 
-    // 0x4A4940 | ?WidgetSwitch@NetSelectMenu@@QAEXHH@Z
+    // ?WidgetSwitch@NetSelectMenu@@QAEXHH@Z
     ARTS_EXPORT void WidgetSwitch(i32 arg1, i32 arg2);
 
     u8 gap90[0x1EC];

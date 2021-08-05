@@ -31,24 +31,24 @@
     0x909448 | void (__cdecl* LogRandomCalls)(void) | ?LogRandomCalls@@3P6AXXZA
 */
 
-// 0x564A70 | ?frand@@YAMXZ
+// ?frand@@YAMXZ
 ARTS_IMPORT f32 frand();
 
-// 0x564A90 | ?frand@@YAMH@Z | unused
+// ?frand@@YAMH@Z | unused
 ARTS_IMPORT f32 frand(i32 arg1);
 
-// 0x564A30 | ?irand@@YAHXZ
+// ?irand@@YAHXZ
 ARTS_IMPORT i32 irand();
 
-// 0x564A00 | ?irand@@YAHH@Z
+// ?irand@@YAHH@Z
 ARTS_IMPORT i32 irand(i32 arg1);
 
-// 0x909448 | ?LogRandomCalls@@3P6AXXZA
+// ?LogRandomCalls@@3P6AXXZA
 ARTS_IMPORT extern void (*LogRandomCalls)(void);
 
-// 0x564AB0 | _rand | void
+// _rand | void
 
-// 0x564AC0 | _srand | void
+// _srand | void
 
-// 0x658A60 | ?gRandSeed@@3HA
+// ?gRandSeed@@3HA
 ARTS_IMPORT extern i32 gRandSeed;

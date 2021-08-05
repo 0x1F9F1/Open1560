@@ -36,32 +36,32 @@
 
 class aiGoalBackup final : public aiGoal
 {
-    // const aiGoalBackup::`vftable' @ 0x61BB50
+    // const aiGoalBackup::`vftable'
 
 public:
-    // 0x45F830 | ??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z
+    // ??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z
     ARTS_IMPORT aiGoalBackup(class aiRailSet* arg1, class mmCar* arg2, i16* arg3);
 
-    // 0x45F860 | ??1aiGoalBackup@@QAE@XZ
+    // ??1aiGoalBackup@@QAE@XZ
     ARTS_IMPORT ~aiGoalBackup() = default;
 
-    // 0x45F880 | ?Context@aiGoalBackup@@UAEHXZ
+    // ?Context@aiGoalBackup@@UAEHXZ
     ARTS_IMPORT i32 Context() override;
 
-    // 0x45F870 | ?Init@aiGoalBackup@@UAEXXZ
+    // ?Init@aiGoalBackup@@UAEXXZ
     ARTS_IMPORT void Init() override;
 
-    // 0x45F890 | ?Priority@aiGoalBackup@@UAEHXZ
+    // ?Priority@aiGoalBackup@@UAEHXZ
     ARTS_IMPORT i32 Priority() override;
 
-    // 0x45F8A0 | ?Reset@aiGoalBackup@@UAEXXZ
+    // ?Reset@aiGoalBackup@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x45F8D0 | ?Update@aiGoalBackup@@UAEXXZ
+    // ?Update@aiGoalBackup@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
-    // 0x45FC10 | ?FinishedBackingUp@aiGoalBackup@@AAEXXZ
+    // ?FinishedBackingUp@aiGoalBackup@@AAEXXZ
     ARTS_IMPORT void FinishedBackingUp();
 
     u8 gap8[0xC];

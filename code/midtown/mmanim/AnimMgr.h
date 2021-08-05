@@ -40,35 +40,35 @@
 
 class mmAnimMgr final : public asNode
 {
-    // const mmAnimMgr::`vftable' @ 0x61F308
+    // const mmAnimMgr::`vftable'
 
 public:
-    // 0x4C1110 | ??0mmAnimMgr@@QAE@XZ
+    // ??0mmAnimMgr@@QAE@XZ
     ARTS_IMPORT mmAnimMgr();
 
-    // 0x4C1620 | ??_EmmAnimMgr@@UAEPAXI@Z
-    // 0x4C1190 | ??1mmAnimMgr@@UAE@XZ
+    // ??_EmmAnimMgr@@UAEPAXI@Z
+    // ??1mmAnimMgr@@UAE@XZ
     ARTS_IMPORT ~mmAnimMgr() override;
 
-    // 0x4C13C0 | ?AirlinerSwap@mmAnimMgr@@QAEXXZ
+    // ?AirlinerSwap@mmAnimMgr@@QAEXXZ
     ARTS_IMPORT void AirlinerSwap();
 
-    // 0x4C15B0 | ?GetClass@mmAnimMgr@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmAnimMgr@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4C11F0 | ?Init@mmAnimMgr@@QAEHPADPAVmmInstance@@PAPAV2@H@Z
+    // ?Init@mmAnimMgr@@QAEHPADPAVmmInstance@@PAPAV2@H@Z
     ARTS_IMPORT i32 Init(char* arg1, class mmInstance* arg2, class mmInstance** arg3, i32 arg4);
 
-    // 0x4C13B0 | ?TestDOFAct@mmAnimMgr@@QAEXH@Z
+    // ?TestDOFAct@mmAnimMgr@@QAEXH@Z
     ARTS_EXPORT void TestDOFAct(i32 arg1);
 
-    // 0x4C1400 | ?UFOSwap@mmAnimMgr@@QAEXXZ
+    // ?UFOSwap@mmAnimMgr@@QAEXXZ
     ARTS_IMPORT void UFOSwap();
 
-    // 0x4C13A0 | ?Update@mmAnimMgr@@UAEXXZ
+    // ?Update@mmAnimMgr@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4C1440 | ?DeclareFields@mmAnimMgr@@SAXXZ
+    // ?DeclareFields@mmAnimMgr@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x2690];
@@ -76,5 +76,5 @@ public:
 
 check_size(mmAnimMgr, 0x26B0);
 
-// 0x705D68 | ?mmAnimMgrMetaClass@@3VMetaClass@@A
+// ?mmAnimMgrMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmAnimMgrMetaClass;

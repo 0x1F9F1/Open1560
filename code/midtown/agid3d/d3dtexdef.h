@@ -46,47 +46,47 @@
 
 class agiD3DTexDef final : public agiTexDef
 {
-    // const agiD3DTexDef::`vftable' @ 0x621090
+    // const agiD3DTexDef::`vftable'
 
 public:
-    // 0x5319A0 | ??0agiD3DTexDef@@QAE@PAVagiPipeline@@@Z
+    // ??0agiD3DTexDef@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiD3DTexDef(class agiPipeline* pipe)
         : agiTexDef(pipe)
     {}
 
-    // 0x532060 | ??_EagiD3DTexDef@@UAEPAXI@Z
-    // 0x532060 | ??_GagiD3DTexDef@@UAEPAXI@Z
-    // 0x5319D0 | ??1agiD3DTexDef@@UAE@XZ
+    // ??_EagiD3DTexDef@@UAEPAXI@Z
+    // ??_GagiD3DTexDef@@UAEPAXI@Z
+    // ??1agiD3DTexDef@@UAE@XZ
     ARTS_EXPORT ~agiD3DTexDef() override = default;
 
-    // 0x5319E0 | ?BeginGfx@agiD3DTexDef@@UAEHXZ
+    // ?BeginGfx@agiD3DTexDef@@UAEHXZ
     ARTS_EXPORT i32 BeginGfx() override;
 
-    // 0x531EF0 | ?EndGfx@agiD3DTexDef@@UAEXXZ
+    // ?EndGfx@agiD3DTexDef@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
-    // 0x531DA0 | ?GetHandle@agiD3DTexDef@@QAEPAUIDirect3DTexture2@@H@Z
+    // ?GetHandle@agiD3DTexDef@@QAEPAUIDirect3DTexture2@@H@Z
     ARTS_EXPORT struct IDirect3DTexture2* GetHandle(i32 stage);
 
-    // 0x531F60 | ?IsAvailable@agiD3DTexDef@@UAEHXZ
+    // ?IsAvailable@agiD3DTexDef@@UAEHXZ
     ARTS_EXPORT b32 IsAvailable() override;
 
-    // 0x531E20 | ?Lock@agiD3DTexDef@@UAEHAAUagiTexLock@@@Z
+    // ?Lock@agiD3DTexDef@@UAEHAAUagiTexLock@@@Z
     ARTS_EXPORT b32 Lock(struct agiTexLock& lock) override;
 
-    // 0x531D40 | ?Request@agiD3DTexDef@@UAEXXZ
+    // ?Request@agiD3DTexDef@@UAEXXZ
     ARTS_EXPORT void Request() override;
 
-    // 0x531F90 | ?Restore@agiD3DTexDef@@UAEXXZ
+    // ?Restore@agiD3DTexDef@@UAEXXZ
     ARTS_EXPORT void Restore() override;
 
-    // 0x531F70 | ?Set@agiD3DTexDef@@UAEXAAVVector2@@0@Z
+    // ?Set@agiD3DTexDef@@UAEXAAVVector2@@0@Z
     ARTS_EXPORT void Set(class Vector2& arg1, class Vector2& arg2) override;
 
-    // 0x531EC0 | ?Unlock@agiD3DTexDef@@UAEXAAUagiTexLock@@@Z
+    // ?Unlock@agiD3DTexDef@@UAEXAAUagiTexLock@@@Z
     ARTS_EXPORT void Unlock(struct agiTexLock& lock) override;
 
-    // 0x52FA90 | ?Prober@agiD3DTexDef@@SAXPAX@Z | agid3d:d3dpipe
+    // ?Prober@agiD3DTexDef@@SAXPAX@Z | agid3d:d3dpipe
     ARTS_EXPORT static void Prober(void* arg1);
 
     agiD3DPipeline* Pipe() const
@@ -111,22 +111,22 @@ check_size(agiD3DTexDef, 0x88);
 
 class agiD3DTexLut final : public agiTexLut
 {
-    // const agiD3DTexLut::`vftable' @ 0x620FF8
+    // const agiD3DTexLut::`vftable'
 
 public:
     agiD3DTexLut(agiPipeline* pipe)
         : agiTexLut(pipe)
     {}
 
-    // 0x5315C0 | ??_GagiD3DTexLut@@UAEPAXI@Z
-    // 0x5315C0 | ??_EagiD3DTexLut@@UAEPAXI@Z
-    // 0x5315F0 | ??1agiD3DTexLut@@UAE@XZ | inline
+    // ??_GagiD3DTexLut@@UAEPAXI@Z
+    // ??_EagiD3DTexLut@@UAEPAXI@Z
+    // ??1agiD3DTexLut@@UAE@XZ | inline
     ARTS_IMPORT ~agiD3DTexLut() override = default;
 
-    // 0x531FD0 | ?BeginGfx@agiD3DTexLut@@UAEHXZ
+    // ?BeginGfx@agiD3DTexLut@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
-    // 0x532020 | ?EndGfx@agiD3DTexLut@@UAEXXZ
+    // ?EndGfx@agiD3DTexLut@@UAEXXZ
     ARTS_IMPORT void EndGfx() override;
 
 private:
@@ -135,5 +135,5 @@ private:
 
 check_size(agiD3DTexLut, 0x420);
 
-// 0x795C38 | ?DontCacheTextures@@3HA
+// ?DontCacheTextures@@3HA
 ARTS_IMPORT extern i32 DontCacheTextures;

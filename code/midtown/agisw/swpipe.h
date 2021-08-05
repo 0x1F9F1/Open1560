@@ -75,72 +75,72 @@
 
 class agiSWPipeline final : public agiPipeline
 {
-    // const agiSWPipeline::`vftable' @ 0x6211D8
+    // const agiSWPipeline::`vftable'
 
 public:
-    // 0x533DD0 | ??0agiSWPipeline@@QAE@HPAPAD@Z
+    // ??0agiSWPipeline@@QAE@HPAPAD@Z
     ARTS_EXPORT agiSWPipeline(i32 argc, char** argv);
 
-    // 0x534900 | ??_GagiSWPipeline@@UAEPAXI@Z
-    // 0x534900 | ??_EagiSWPipeline@@UAEPAXI@Z
-    // 0x533E50 | ??1agiSWPipeline@@UAE@XZ
+    // ??_GagiSWPipeline@@UAEPAXI@Z
+    // ??_EagiSWPipeline@@UAEPAXI@Z
+    // ??1agiSWPipeline@@UAE@XZ
     ARTS_EXPORT ~agiSWPipeline() override;
 
     void Init();
 
-    // 0x534030 | ?BeginFrame@agiSWPipeline@@UAEXXZ
+    // ?BeginFrame@agiSWPipeline@@UAEXXZ
     ARTS_EXPORT void BeginFrame() override;
 
-    // 0x533E60 | ?BeginGfx@agiSWPipeline@@UAEHXZ
+    // ?BeginGfx@agiSWPipeline@@UAEHXZ
     ARTS_EXPORT i32 BeginGfx() override;
 
-    // 0x534070 | ?BeginScene@agiSWPipeline@@UAEXXZ
+    // ?BeginScene@agiSWPipeline@@UAEXXZ
     ARTS_EXPORT void BeginScene() override;
 
-    // 0x5341A0 | ?ClearAll@agiSWPipeline@@UAEXH@Z
+    // ?ClearAll@agiSWPipeline@@UAEXH@Z
     ARTS_EXPORT void ClearAll(i32 color) override;
 
-    // 0x534230 | ?ClearRect@agiSWPipeline@@UAEXHHHHI@Z
+    // ?ClearRect@agiSWPipeline@@UAEXHHHHI@Z
     ARTS_EXPORT void ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color) override;
 
-    // 0x5344C0 | ?CopyBitmap@agiSWPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
+    // ?CopyBitmap@agiSWPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
     ARTS_EXPORT void CopyBitmap(
         i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
-    // 0x534450 | ?CreateBitmap@agiSWPipeline@@UAEPAVagiBitmap@@XZ
+    // ?CreateBitmap@agiSWPipeline@@UAEPAVagiBitmap@@XZ
     ARTS_EXPORT RcOwner<class agiBitmap> CreateBitmap() override;
 
-    // 0x5340E0 | ?CreateDLP@agiSWPipeline@@UAEPAVDLP@@XZ
+    // ?CreateDLP@agiSWPipeline@@UAEPAVDLP@@XZ
     ARTS_EXPORT RcOwner<class DLP> CreateDLP() override;
 
-    // 0x534140 | ?CreateLight@agiSWPipeline@@UAEPAVagiLight@@XZ
+    // ?CreateLight@agiSWPipeline@@UAEPAVagiLight@@XZ
     ARTS_EXPORT RcOwner<class agiLight> CreateLight() override;
 
-    // 0x534320 | ?CreateLightModel@agiSWPipeline@@UAEPAVagiLightModel@@XZ
+    // ?CreateLightModel@agiSWPipeline@@UAEPAVagiLightModel@@XZ
     ARTS_EXPORT RcOwner<class agiLightModel> CreateLightModel() override;
 
-    // 0x534440 | ?CreateMtlDef@agiSWPipeline@@UAEPAVagiMtlDef@@XZ
+    // ?CreateMtlDef@agiSWPipeline@@UAEPAVagiMtlDef@@XZ
     ARTS_EXPORT RcOwner<class agiMtlDef> CreateMtlDef() override;
 
-    // 0x534380 | ?CreateTexDef@agiSWPipeline@@UAEPAVagiTexDef@@XZ
+    // ?CreateTexDef@agiSWPipeline@@UAEPAVagiTexDef@@XZ
     ARTS_EXPORT RcOwner<class agiTexDef> CreateTexDef() override;
 
-    // 0x5343E0 | ?CreateTexLut@agiSWPipeline@@UAEPAVagiTexLut@@XZ
+    // ?CreateTexLut@agiSWPipeline@@UAEPAVagiTexLut@@XZ
     ARTS_EXPORT RcOwner<class agiTexLut> CreateTexLut() override;
 
-    // 0x534290 | ?CreateViewport@agiSWPipeline@@UAEPAVagiViewport@@XZ
+    // ?CreateViewport@agiSWPipeline@@UAEPAVagiViewport@@XZ
     ARTS_EXPORT RcOwner<class agiViewport> CreateViewport() override;
 
-    // 0x5340C0 | ?EndFrame@agiSWPipeline@@UAEXXZ
+    // ?EndFrame@agiSWPipeline@@UAEXXZ
     ARTS_EXPORT void EndFrame() override;
 
-    // 0x534010 | ?EndGfx@agiSWPipeline@@UAEXXZ
+    // ?EndGfx@agiSWPipeline@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
-    // 0x5340A0 | ?EndScene@agiSWPipeline@@UAEXXZ
+    // ?EndScene@agiSWPipeline@@UAEXXZ
     ARTS_EXPORT void EndScene() override;
 
-    // 0x533DC0 | ?Validate@agiSWPipeline@@UAEHXZ
+    // ?Validate@agiSWPipeline@@UAEHXZ
     ARTS_EXPORT i32 Validate() override;
 
     b32 PrintIs3D() override;
@@ -153,5 +153,5 @@ public:
 
 check_size(agiSWPipeline, 0x2F0);
 
-// 0x534690 | ?swCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
+// ?swCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
 ARTS_EXPORT Owner<class agiPipeline> swCreatePipeline(i32 argc, char** argv);

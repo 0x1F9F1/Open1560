@@ -47,21 +47,21 @@ class agiMtlDef;
 
 class agiRasterizer : public agiRefreshable
 {
-    // const agiRasterizer::`vftable' @ 0x621660
+    // const agiRasterizer::`vftable'
 
 public:
-    // 0x557BE0 | ??0agiRasterizer@@QAE@PAVagiPipeline@@@Z
+    // ??0agiRasterizer@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiRasterizer(class agiPipeline* pipe);
 
-    // 0x557E40 | ??_GagiRasterizer@@UAEPAXI@Z
-    // 0x557E40 | ??_EagiRasterizer@@UAEPAXI@Z
-    // 0x557D10 | ??1agiRasterizer@@UAE@XZ
+    // ??_GagiRasterizer@@UAEPAXI@Z
+    // ??_EagiRasterizer@@UAEPAXI@Z
+    // ??1agiRasterizer@@UAE@XZ
     ARTS_EXPORT ~agiRasterizer() override = default;
 
-    // 0x557D20 | ?BeginGroup@agiRasterizer@@UAEXXZ
+    // ?BeginGroup@agiRasterizer@@UAEXXZ
     ARTS_EXPORT virtual void BeginGroup();
 
-    // 0x557D30 | ?EndGroup@agiRasterizer@@UAEXXZ
+    // ?EndGroup@agiRasterizer@@UAEXXZ
     ARTS_EXPORT virtual void EndGroup();
 
     virtual void Verts(enum agiVtxType type, union agiVtx* vertices, i32 vertex_count) = 0;
@@ -72,10 +72,10 @@ public:
 
     virtual void Triangle(i32 v0, i32 v1, i32 v2) = 0;
 
-    // 0x557D40 | ?Quad@agiRasterizer@@UAEXHHHH@Z
+    // ?Quad@agiRasterizer@@UAEXHHHH@Z
     ARTS_EXPORT virtual void Quad(i32 v0, i32 v1, i32 v2, i32 v3);
 
-    // 0x557D70 | ?Poly@agiRasterizer@@UAEXPAHH@Z
+    // ?Poly@agiRasterizer@@UAEXPAHH@Z
     ARTS_EXPORT virtual void Poly(i32* indices, i32 count);
 
     virtual void Line(i32 v0, i32 v1) = 0;
@@ -85,10 +85,10 @@ public:
     virtual void Mesh(
         enum agiVtxType type, union agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) = 0;
 
-    // 0x557DB0 | ?Mesh2@agiRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z
+    // ?Mesh2@agiRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z
     ARTS_EXPORT virtual void Mesh2(struct agiScreenVtx2* vertices, i32 vertex_count, u16* indices, i32 index_count);
 
-    // 0x557DD0 | ?LineList@agiRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
+    // ?LineList@agiRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
     ARTS_EXPORT virtual void LineList(enum agiVtxType type, union agiVtx* vertices, i32 vertex_count);
 };
 
@@ -174,7 +174,7 @@ enum agiDrawMode : u8
 struct agiRendStateStruct
 {
 public:
-    // 0x557CE0 | ?Reset@agiRendStateStruct@@QAEXXZ
+    // ?Reset@agiRendStateStruct@@QAEXXZ
     ARTS_EXPORT void Reset();
 
     agiMtlDef* Mtl {nullptr};
@@ -303,14 +303,14 @@ public:
 
 check_size(agiRendState, 0x40);
 
-// 0x8FF0D0 | ?RAST@@3PAVagiRasterizer@@A
+// ?RAST@@3PAVagiRasterizer@@A
 ARTS_EXPORT extern class agiRasterizer* RAST;
 
-// 0x656BD0 | ?ROPTS@@3UagiRenderOpts@@A
+// ?ROPTS@@3UagiRenderOpts@@A
 ARTS_EXPORT extern struct agiRenderOpts ROPTS;
 
-// 0x8FF090 | ?agiCurState@@3VagiRendState@@A
+// ?agiCurState@@3VagiRendState@@A
 ARTS_EXPORT extern class agiRendState agiCurState;
 
-// 0x8FF050 | ?agiLastState@@3UagiRendStateStruct@@A
+// ?agiLastState@@3UagiRendStateStruct@@A
 ARTS_EXPORT extern struct agiRendStateStruct agiLastState;

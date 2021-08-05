@@ -35,30 +35,30 @@
 
 class mmAnimExcel final
 {
-    // const mmAnimExcel::`vftable' @ 0x61F3EC
+    // const mmAnimExcel::`vftable'
 
 public:
-    // 0x4C34D0 | ??0mmAnimExcel@@QAE@XZ
+    // ??0mmAnimExcel@@QAE@XZ
     ARTS_IMPORT mmAnimExcel();
 
-    // 0x4C37A0 | ??_EmmAnimExcel@@UAEPAXI@Z
-    // 0x4C37A0 | ??_GmmAnimExcel@@UAEPAXI@Z
-    // 0x4C34F0 | ??1mmAnimExcel@@UAE@XZ
+    // ??_EmmAnimExcel@@UAEPAXI@Z
+    // ??_GmmAnimExcel@@UAEPAXI@Z
+    // ??1mmAnimExcel@@UAE@XZ
     ARTS_IMPORT virtual ~mmAnimExcel();
 
-    // 0x4C3600 | ?AddFile@mmAnimExcel@@QAEXPAD0@Z
+    // ?AddFile@mmAnimExcel@@QAEXPAD0@Z
     ARTS_IMPORT void AddFile(char* arg1, char* arg2);
 
-    // 0x4C3770 | ?GetName@mmAnimExcel@@QAEPADH@Z
+    // ?GetName@mmAnimExcel@@QAEPADH@Z
     ARTS_IMPORT char* GetName(i32 arg1);
 
-    // 0x4C35C0 | ?GetNextName@mmAnimExcel@@QAEPADXZ | unused
+    // ?GetNextName@mmAnimExcel@@QAEPADXZ | unused
     ARTS_IMPORT char* GetNextName();
 
-    // 0x4C3740 | ?GetPriorName@mmAnimExcel@@QAEPADXZ | unused
+    // ?GetPriorName@mmAnimExcel@@QAEPADXZ | unused
     ARTS_IMPORT char* GetPriorName();
 
-    // 0x4C3530 | ?Init@mmAnimExcel@@QAEHPAD0@Z
+    // ?Init@mmAnimExcel@@QAEHPAD0@Z
     ARTS_IMPORT i32 Init(char* arg1, char* arg2);
 
     u8 gap4[0xC];

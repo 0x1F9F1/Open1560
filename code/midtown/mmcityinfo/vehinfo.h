@@ -33,27 +33,27 @@
 
 class mmVehInfo final
 {
-    // const mmVehInfo::`vftable' @ 0x61F948
+    // const mmVehInfo::`vftable'
 
 public:
-    // 0x4D39D0 | ??0mmVehInfo@@QAE@XZ
+    // ??0mmVehInfo@@QAE@XZ
     ARTS_IMPORT mmVehInfo();
 
-    // 0x4D3C90 | ??_EmmVehInfo@@UAEPAXI@Z
-    // 0x4D3C90 | ??_GmmVehInfo@@UAEPAXI@Z
-    // 0x4D39F0 | ??1mmVehInfo@@UAE@XZ
+    // ??_EmmVehInfo@@UAEPAXI@Z
+    // ??_GmmVehInfo@@UAEPAXI@Z
+    // ??1mmVehInfo@@UAE@XZ
     ARTS_IMPORT virtual ~mmVehInfo() = default;
 
-    // 0x4D3BE0 | ?HasColorVariations@mmVehInfo@@QAEHXZ | unused
+    // ?HasColorVariations@mmVehInfo@@QAEHXZ | unused
     ARTS_IMPORT i32 HasColorVariations();
 
-    // 0x49C590 | ?IsValid@mmVehInfo@@QAEHXZ | inline
+    // ?IsValid@mmVehInfo@@QAEHXZ | inline
     ARTS_IMPORT i32 IsValid();
 
-    // 0x4D3A00 | ?Load@mmVehInfo@@QAEHPAD@Z
+    // ?Load@mmVehInfo@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
 
-    // 0x4D3C00 | ?Print@mmVehInfo@@QAEXXZ
+    // ?Print@mmVehInfo@@QAEXXZ
     ARTS_IMPORT void Print();
 
     char BaseName[40] {};

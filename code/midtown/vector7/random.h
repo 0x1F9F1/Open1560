@@ -29,13 +29,13 @@
 struct Random
 {
 public:
-    // 0x56DB10 | ?Normal@Random@@QAEMMM@Z | unused
+    // ?Normal@Random@@QAEMMM@Z | unused
     ARTS_IMPORT f32 Normal(f32 arg1, f32 arg2);
 
-    // 0x56DAB0 | ?Number@Random@@QAEMXZ
+    // ?Number@Random@@QAEMXZ
     ARTS_IMPORT f32 Number();
 
-    // 0x56D9F0 | ?Seed@Random@@QAEXH@Z
+    // ?Seed@Random@@QAEXH@Z
     ARTS_IMPORT void Seed(i32 arg1);
 
     u8 gap0[0xE8];

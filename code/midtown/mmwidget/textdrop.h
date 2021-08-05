@@ -48,64 +48,64 @@
 
 class UITextDropdown final : public uiWidget
 {
-    // const UITextDropdown::`vftable' @ 0x61E4F8
+    // const UITextDropdown::`vftable'
 
 public:
-    // 0x4B2ED0 | ??0UITextDropdown@@QAE@XZ
+    // ??0UITextDropdown@@QAE@XZ
     ARTS_IMPORT UITextDropdown();
 
-    // 0x4B3980 | ??_GUITextDropdown@@UAEPAXI@Z
-    // 0x4B3980 | ??_EUITextDropdown@@UAEPAXI@Z
-    // 0x4B2F60 | ??1UITextDropdown@@UAE@XZ
+    // ??_GUITextDropdown@@UAEPAXI@Z
+    // ??_EUITextDropdown@@UAEPAXI@Z
+    // ??1UITextDropdown@@UAE@XZ
     ARTS_IMPORT ~UITextDropdown() override;
 
-    // 0x4B3680 | ?Action@UITextDropdown@@UAEXTeqEvent@@@Z
+    // ?Action@UITextDropdown@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4B3910 | ?AnyEnabled@UITextDropdown@@QAEHXZ | unused
+    // ?AnyEnabled@UITextDropdown@@QAEHXZ | unused
     ARTS_IMPORT i32 AnyEnabled();
 
-    // 0x4B33B0 | ?AssignString@UITextDropdown@@QAEXVstring@@@Z
+    // ?AssignString@UITextDropdown@@QAEXVstring@@@Z
     ARTS_IMPORT void AssignString(class string arg1);
 
-    // 0x4B3510 | ?CaptureAction@UITextDropdown@@UAEXTeqEvent@@@Z
+    // ?CaptureAction@UITextDropdown@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void CaptureAction(union eqEvent arg1) override;
 
-    // 0x4B3920 | ?Cull@UITextDropdown@@UAEXXZ
+    // ?Cull@UITextDropdown@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4B3390 | ?GetScreenHeight@UITextDropdown@@UAEMXZ
+    // ?GetScreenHeight@UITextDropdown@@UAEMXZ
     ARTS_IMPORT f32 GetScreenHeight() override;
 
-    // 0x4B38B0 | ?GetValue@UITextDropdown@@QAEHXZ | unused
+    // ?GetValue@UITextDropdown@@QAEHXZ | unused
     ARTS_IMPORT i32 GetValue();
 
-    // 0x4B2FD0 | ?Init@UITextDropdown@@QAEXPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z
+    // ?Init@UITextDropdown@@QAEXPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z
     ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7,
         i32 arg8, i32 arg9, i32 arg10, class Callback arg11, char* arg12);
 
-    // 0x4B3460 | ?SetData@UITextDropdown@@QAEXPAH@Z
+    // ?SetData@UITextDropdown@@QAEXPAH@Z
     ARTS_IMPORT void SetData(i32* arg1);
 
-    // 0x4B38F0 | ?SetDisabledMask@UITextDropdown@@QAEXJ@Z
+    // ?SetDisabledMask@UITextDropdown@@QAEXJ@Z
     ARTS_IMPORT void SetDisabledMask(ilong arg1);
 
-    // 0x4B33A0 | ?SetPos@UITextDropdown@@QAEXMM@Z | unused
+    // ?SetPos@UITextDropdown@@QAEXMM@Z | unused
     ARTS_EXPORT void SetPos(f32 arg1, f32 arg2);
 
-    // 0x4B3830 | ?SetSliderFocus@UITextDropdown@@QAEXH@Z
+    // ?SetSliderFocus@UITextDropdown@@QAEXH@Z
     ARTS_IMPORT void SetSliderFocus(i32 arg1);
 
-    // 0x4B3500 | ?SetText@UITextDropdown@@QAEXPAULocString@@@Z | unused
+    // ?SetText@UITextDropdown@@QAEXPAULocString@@@Z | unused
     ARTS_EXPORT void SetText(struct LocString* arg1);
 
-    // 0x4B38C0 | ?SetValue@UITextDropdown@@QAEHH@Z
+    // ?SetValue@UITextDropdown@@QAEHH@Z
     ARTS_IMPORT i32 SetValue(i32 arg1);
 
-    // 0x4B37B0 | ?Switch@UITextDropdown@@UAEXH@Z
+    // ?Switch@UITextDropdown@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // 0x4B3490 | ?Update@UITextDropdown@@UAEXXZ
+    // ?Update@UITextDropdown@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap74[0x90];

@@ -79,7 +79,7 @@ i32 mmInstance::Init(char* /*arg1*/, class Vector3& /*arg2*/, class Vector3& /*a
     return 0;
 }
 
-// 0x493670 | ?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z
+// ?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z
 ARTS_IMPORT /*static*/ void MatrixFromPoints(class Matrix34& arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4);
 
 void mmMatrixInstance::Hit(class mmInstance* /*arg1*/)

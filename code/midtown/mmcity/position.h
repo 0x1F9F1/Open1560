@@ -34,28 +34,28 @@
 struct mmPositions
 {
 public:
-    // 0x491E00 | ??0mmPositions@@QAE@XZ
+    // ??0mmPositions@@QAE@XZ
     ARTS_IMPORT mmPositions();
 
-    // 0x492050 | ?Dump@mmPositions@@QAEXPAD@Z | unused
+    // ?Dump@mmPositions@@QAEXPAD@Z | unused
     ARTS_IMPORT void Dump(char* arg1);
 
-    // 0x492010 | ?GetCount@mmPositions@@QAEHXZ
+    // ?GetCount@mmPositions@@QAEHXZ
     ARTS_IMPORT i32 GetCount();
 
-    // 0x492020 | ?GetVector4@mmPositions@@QAEAAVVector4@@H@Z | unused
+    // ?GetVector4@mmPositions@@QAEAAVVector4@@H@Z | unused
     ARTS_IMPORT class Vector4& GetVector4(i32 arg1);
 
-    // 0x491E10 | ?Init@mmPositions@@QAEXH@Z
+    // ?Init@mmPositions@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x491E40 | ?Load@mmPositions@@QAEHPAD@Z
+    // ?Load@mmPositions@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
 
-    // 0x4920F0 | ?Recall@mmPositions@@QAEHHPAVMatrix34@@PAHPAD@Z
+    // ?Recall@mmPositions@@QAEHHPAVMatrix34@@PAHPAD@Z
     ARTS_IMPORT i32 Recall(i32 arg1, class Matrix34* arg2, i32* arg3, char* arg4);
 
-    // 0x492180 | ?Register@mmPositions@@QAEHAAVVector4@@HHHHPAD@Z
+    // ?Register@mmPositions@@QAEHAAVVector4@@HHHHPAD@Z
     ARTS_IMPORT i32 Register(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
 
     u8 gap0[0xC];

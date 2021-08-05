@@ -34,31 +34,31 @@
 
 class OptionsBase : public UIMenu
 {
-    // const OptionsBase::`vftable' @ 0x61E250
+    // const OptionsBase::`vftable'
 
 public:
-    // 0x4AB4C0 | ??0OptionsBase@@QAE@H@Z
+    // ??0OptionsBase@@QAE@H@Z
     ARTS_IMPORT OptionsBase(i32 arg1);
 
-    // 0x4AB6A0 | ??_GOptionsBase@@UAEPAXI@Z
-    // 0x4AB6A0 | ??_EOptionsBase@@UAEPAXI@Z
-    // 0x4AB650 | ??1OptionsBase@@UAE@XZ
+    // ??_GOptionsBase@@UAEPAXI@Z
+    // ??_EOptionsBase@@UAEPAXI@Z
+    // ??1OptionsBase@@UAE@XZ
     ARTS_IMPORT ~OptionsBase() override;
 
     virtual void CancelAction() = 0;
 
     virtual void DoneAction() = 0;
 
-    // 0x4AB6F0 | ?ResetDefaultAction@OptionsBase@@UAEXXZ | inline
+    // ?ResetDefaultAction@OptionsBase@@UAEXXZ | inline
     ARTS_EXPORT virtual void ResetDefaultAction();
 
-    // 0x49A6D0 | ?StoreCurrentSetup@OptionsBase@@UAEXXZ | inline
+    // ?StoreCurrentSetup@OptionsBase@@UAEXXZ | inline
     ARTS_EXPORT virtual void StoreCurrentSetup();
 
-    // 0x4AB620 | ?CreateTitle@OptionsBase@@QAEXPAULocString@@@Z | unused
+    // ?CreateTitle@OptionsBase@@QAEXPAULocString@@@Z | unused
     ARTS_IMPORT void CreateTitle(struct LocString* arg1);
 
-    // 0x49A6E0 | ?IsAnOptionMenu@OptionsBase@@UAEHXZ | inline
+    // ?IsAnOptionMenu@OptionsBase@@UAEHXZ | inline
     ARTS_IMPORT i32 IsAnOptionMenu() override;
 
     u8 gap90[0x6E38];

@@ -37,7 +37,7 @@ public:
 
 check_size(problem_t, 0x10);
 
-// 0x561050 | ?cmpProblem@@YAHPBX0@Z
+// ?cmpProblem@@YAHPBX0@Z
 ARTS_EXPORT /*static*/ i32 cmpProblem(void const* a, void const* b)
 {
     const problem_t& lhs = **static_cast<problem_t* const*>(a);

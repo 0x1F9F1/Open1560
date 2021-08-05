@@ -112,43 +112,43 @@ check_size(eqEvent, 0x24);
 
 class eqEventQ final : public eqEventMonitor
 {
-    // const eqEventQ::`vftable' @ 0x621B00
+    // const eqEventQ::`vftable'
 
 public:
-    // 0x5639F0 | ??0eqEventQ@@QAE@HHH@Z
+    // ??0eqEventQ@@QAE@HHH@Z
     ARTS_EXPORT eqEventQ(i32 arg1, i32 enabled_events, i32 max_events);
 
-    // 0x563DB0 | ??_GeqEventQ@@UAEPAXI@Z
-    // 0x563DB0 | ??_EeqEventQ@@UAEPAXI@Z
-    // 0x563A80 | ??1eqEventQ@@UAE@XZ
+    // ??_GeqEventQ@@UAEPAXI@Z
+    // ??_EeqEventQ@@UAEPAXI@Z
+    // ??1eqEventQ@@UAE@XZ
     ARTS_EXPORT ~eqEventQ() override;
 
-    // 0x563CC0 | ?Activate@eqEventQ@@UAEXPAXH@Z
+    // ?Activate@eqEventQ@@UAEXPAXH@Z
     ARTS_EXPORT void Activate(void* window, b32 active) override;
 
-    // 0x563C80 | ?Destroy@eqEventQ@@UAEXPAX@Z
+    // ?Destroy@eqEventQ@@UAEXPAX@Z
     ARTS_EXPORT void Destroy(void* window) override;
 
-    // 0x563C20 | ?Keyboard@eqEventQ@@UAEXPAXHHHH@Z
+    // ?Keyboard@eqEventQ@@UAEXPAXHHHH@Z
     ARTS_EXPORT void Keyboard(void* window, i32 modifiers, i32 virtual_key, i32 ascii_key, i32 state) override;
 
-    // 0x563B90 | ?Mouse@eqEventQ@@UAEXPAXHHHHHHH@Z
+    // ?Mouse@eqEventQ@@UAEXPAXHHHHHHH@Z
     ARTS_EXPORT void Mouse(void* window, i32 new_buttons, i32 changed_buttons, i32 buttons, i32 mouse_x, i32 mouse_y,
         i32 window_x, i32 window_y) override;
 
-    // 0x563D40 | ?Pop@eqEventQ@@QAEHPATeqEvent@@@Z
+    // ?Pop@eqEventQ@@QAEHPATeqEvent@@@Z
     ARTS_EXPORT b32 Pop(union eqEvent* event);
 
-    // 0x563AF0 | ?Redraw@eqEventQ@@UAEXPAXHHHH@Z
+    // ?Redraw@eqEventQ@@UAEXPAXHHHH@Z
     ARTS_EXPORT void Redraw(void* window, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
 
-    // 0x563B50 | ?Refocus@eqEventQ@@UAEXPAXH@Z
+    // ?Refocus@eqEventQ@@UAEXPAXH@Z
     ARTS_EXPORT void Refocus(void* window, i32 focused) override;
 
     void Clear();
 
 private:
-    // 0x563D00 | ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
+    // ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
     ARTS_EXPORT void Queue(union eqEvent& event);
 
     Ptr<eqEvent[]> events_;

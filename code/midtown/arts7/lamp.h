@@ -41,47 +41,47 @@
 
 class asLamp final : public asNode
 {
-    // const asLamp::`vftable' @ 0x620B80
+    // const asLamp::`vftable'
 
 public:
-    // 0x526000 | ??0asLamp@@QAE@XZ
+    // ??0asLamp@@QAE@XZ
     ARTS_IMPORT asLamp();
 
-    // 0x4B1C40 | ??_EasLamp@@UAEPAXI@Z
-    // 0x5260C0 | ??1asLamp@@UAE@XZ
+    // ??_EasLamp@@UAEPAXI@Z
+    // ??1asLamp@@UAE@XZ
     ARTS_IMPORT ~asLamp() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x526310 | ?AddWidgets@asLamp@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asLamp@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x526290 | ?Cull@asLamp@@UAEXXZ
+    // ?Cull@asLamp@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x5262E0 | ?FileIO@asLamp@@QAEXPAVMiniParser@@@Z | unused
+    // ?FileIO@asLamp@@QAEXPAVMiniParser@@@Z | unused
     ARTS_EXPORT void FileIO(class MiniParser* arg1);
 
-    // 0x5267E0 | ?GetClass@asLamp@@UAEPAVMetaClass@@XZ
+    // ?GetClass@asLamp@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x526130 | ?SetColor@asLamp@@QAEXABVVector3@@M@Z
+    // ?SetColor@asLamp@@QAEXABVVector3@@M@Z
     ARTS_IMPORT void SetColor(class Vector3 const& arg1, f32 arg2);
 
-    // 0x526170 | ?SetDistant@asLamp@@QAEXXZ
+    // ?SetDistant@asLamp@@QAEXXZ
     ARTS_IMPORT void SetDistant();
 
-    // 0x526180 | ?SetPoint@asLamp@@QAEXXZ | unused
+    // ?SetPoint@asLamp@@QAEXXZ | unused
     ARTS_IMPORT void SetPoint();
 
-    // 0x526190 | ?Update@asLamp@@UAEXXZ
+    // ?Update@asLamp@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x526680 | ?DeclareFields@asLamp@@SAXXZ
+    // ?DeclareFields@asLamp@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x5262F0 | ?Regen@asLamp@@AAEXXZ
+    // ?Regen@asLamp@@AAEXXZ
     ARTS_IMPORT void Regen();
 
     u8 gap20[0x10];
@@ -89,5 +89,5 @@ private:
 
 check_size(asLamp, 0x30);
 
-// 0x790900 | ?asLampMetaClass@@3VMetaClass@@A
+// ?asLampMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asLampMetaClass;

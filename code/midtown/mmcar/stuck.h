@@ -38,35 +38,35 @@
 
 class mmStuck final : public asNode
 {
-    // const mmStuck::`vftable' @ 0x61C540
+    // const mmStuck::`vftable'
 
 public:
-    // 0x47C480 | ??0mmStuck@@QAE@XZ
+    // ??0mmStuck@@QAE@XZ
     ARTS_IMPORT mmStuck();
 
-    // 0x47C900 | ??_GmmStuck@@UAEPAXI@Z
-    // 0x47C900 | ??_EmmStuck@@UAEPAXI@Z
-    // 0x470300 | ??1mmStuck@@UAE@XZ | inline
+    // ??_GmmStuck@@UAEPAXI@Z
+    // ??_EmmStuck@@UAEPAXI@Z
+    // ??1mmStuck@@UAE@XZ | inline
     ARTS_IMPORT ~mmStuck() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x47C7D0 | ?AddWidgets@mmStuck@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmStuck@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x47C540 | ?Impact@mmStuck@@QAEXXZ
+    // ?Impact@mmStuck@@QAEXXZ
     ARTS_IMPORT void Impact();
 
-    // 0x47C520 | ?Init@mmStuck@@QAEXPAVmmCarSim@@@Z
+    // ?Init@mmStuck@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void Init(class mmCarSim* arg1);
 
-    // 0x47C560 | ?Pegged@mmStuck@@QAEHXZ
+    // ?Pegged@mmStuck@@QAEHXZ
     ARTS_IMPORT i32 Pegged();
 
-    // 0x47C550 | ?Reset@mmStuck@@UAEXXZ
+    // ?Reset@mmStuck@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x47C5B0 | ?Update@mmStuck@@UAEXXZ
+    // ?Update@mmStuck@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x38];

@@ -32,34 +32,34 @@
     0x6A8F18 | int DontClearPositions | ?DontClearPositions@@3HA
 */
 
-// 0x491B40 | ?DumpPositions@@YAXPAD@Z
+// ?DumpPositions@@YAXPAD@Z
 ARTS_IMPORT void DumpPositions(char* arg1);
 
-// 0x491B00 | ?GetPositionCount@@YAHXZ
+// ?GetPositionCount@@YAHXZ
 ARTS_IMPORT i32 GetPositionCount();
 
-// 0x491B10 | ?GetPositionVector4@@YAAAVVector4@@H@Z
+// ?GetPositionVector4@@YAAAVVector4@@H@Z
 ARTS_IMPORT class Vector4& GetPositionVector4(i32 arg1);
 
-// 0x491900 | ?InitPositions@@YAXXZ
+// ?InitPositions@@YAXXZ
 ARTS_IMPORT void InitPositions();
 
-// 0x491940 | ?LoadPositions@@YAXPAD@Z
+// ?LoadPositions@@YAXPAD@Z
 ARTS_IMPORT void LoadPositions(char* arg1);
 
-// 0x491C00 | ?RecallPosition@@YAHHPAVMatrix34@@PAHPAD@Z
+// ?RecallPosition@@YAHHPAVMatrix34@@PAHPAD@Z
 ARTS_IMPORT i32 RecallPosition(i32 arg1, class Matrix34* arg2, i32* arg3, char* arg4);
 
-// 0x491C90 | ?RegisterPosition@@YAHAAVVector4@@HHHHPAD@Z
+// ?RegisterPosition@@YAHAAVVector4@@HHHHPAD@Z
 ARTS_IMPORT i32 RegisterPosition(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
 
-// 0x6A8F18 | ?DontClearPositions@@3HA
+// ?DontClearPositions@@3HA
 ARTS_IMPORT extern i32 DontClearPositions;
 
 struct position_t
 {
 public:
-    // 0x491DF0 | ??1position_t@@QAE@XZ | inline
+    // ??1position_t@@QAE@XZ | inline
     ARTS_IMPORT ~position_t();
 
     u8 gap0[0x24];

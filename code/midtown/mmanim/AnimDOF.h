@@ -53,18 +53,18 @@
 
 class mmDrawbridgeInstance final : public mmDofBangerInstance
 {
-    // const mmDrawbridgeInstance::`vftable' @ 0x61F4D8
+    // const mmDrawbridgeInstance::`vftable'
 
 public:
-    // 0x4C4D90 | ??_GmmDrawbridgeInstance@@UAEPAXI@Z
-    // 0x4C4D90 | ??_EmmDrawbridgeInstance@@UAEPAXI@Z
-    // 0x4C4DB0 | ??1mmDrawbridgeInstance@@UAE@XZ | inline
+    // ??_GmmDrawbridgeInstance@@UAEPAXI@Z
+    // ??_EmmDrawbridgeInstance@@UAEPAXI@Z
+    // ??1mmDrawbridgeInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmDrawbridgeInstance() override = default;
 
-    // 0x4C4460 | ?Draw@mmDrawbridgeInstance@@UAIXH@Z
+    // ?Draw@mmDrawbridgeInstance@@UAIXH@Z
     ARTS_EXPORT void ARTS_FASTCALL Draw(i32 lod) override;
 
-    // 0x4C4510 | ?InitBridge@mmDrawbridgeInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
+    // ?InitBridge@mmDrawbridgeInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
     ARTS_IMPORT i32 InitBridge(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
 };
 
@@ -72,36 +72,36 @@ check_size(mmDrawbridgeInstance, 0x34);
 
 class mmAnimDOF final
 {
-    // const mmAnimDOF::`vftable' @ 0x61F470
+    // const mmAnimDOF::`vftable'
 
 public:
-    // 0x4C4550 | ??0mmAnimDOF@@QAE@XZ
+    // ??0mmAnimDOF@@QAE@XZ
     ARTS_IMPORT mmAnimDOF();
 
-    // 0x4C4DC0 | ??_EmmAnimDOF@@QAEPAXI@Z | unused
-    // 0x4C4570 | ??1mmAnimDOF@@QAE@XZ
+    // ??_EmmAnimDOF@@QAEPAXI@Z | unused
+    // ??1mmAnimDOF@@QAE@XZ
     ARTS_IMPORT ~mmAnimDOF() = default;
 
-    // 0x4C4D80 | ?GetClass@mmAnimDOF@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmAnimDOF@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT virtual class MetaClass* GetClass();
 
-    // 0x4C4580 | ?Init@mmAnimDOF@@QAEHPAVmmAnimTrigger@@PADAAVVector3@@2HPAH@Z
+    // ?Init@mmAnimDOF@@QAEHPAVmmAnimTrigger@@PADAAVVector3@@2HPAH@Z
     ARTS_IMPORT i32 Init(
         class mmAnimTrigger* arg1, char* arg2, class Vector3& arg3, class Vector3& arg4, i32 arg5, i32* arg6);
 
-    // 0x4C4900 | ?Reset@mmAnimDOF@@QAEXXZ
+    // ?Reset@mmAnimDOF@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    // 0x4C4BB0 | ?SetState@mmAnimDOF@@QAEXH@Z
+    // ?SetState@mmAnimDOF@@QAEXH@Z
     ARTS_IMPORT void SetState(i32 arg1);
 
-    // 0x4C4B60 | ?SetSwitch@mmAnimDOF@@QAEXH@Z
+    // ?SetSwitch@mmAnimDOF@@QAEXH@Z
     ARTS_IMPORT void SetSwitch(i32 arg1);
 
-    // 0x4C4940 | ?Update@mmAnimDOF@@QAEXXZ
+    // ?Update@mmAnimDOF@@QAEXXZ
     ARTS_IMPORT void Update();
 
-    // 0x4C4BF0 | ?DeclareFields@mmAnimDOF@@SAXXZ
+    // ?DeclareFields@mmAnimDOF@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap4[0x94];
@@ -109,5 +109,5 @@ public:
 
 check_size(mmAnimDOF, 0x98);
 
-// 0x705E20 | ?mmAnimDOFMetaClass@@3VMetaClass@@A
+// ?mmAnimDOFMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmAnimDOFMetaClass;

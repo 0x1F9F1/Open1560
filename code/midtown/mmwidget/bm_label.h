@@ -40,39 +40,39 @@
 
 class UIBMLabel final : public uiWidget
 {
-    // const UIBMLabel::`vftable' @ 0x61E608
+    // const UIBMLabel::`vftable'
 
 public:
-    // 0x4B4280 | ??0UIBMLabel@@QAE@XZ
+    // ??0UIBMLabel@@QAE@XZ
     ARTS_IMPORT UIBMLabel();
 
-    // 0x4B4800 | ??_EUIBMLabel@@UAEPAXI@Z
-    // 0x4B42F0 | ??1UIBMLabel@@UAE@XZ
+    // ??_EUIBMLabel@@UAEPAXI@Z
+    // ??1UIBMLabel@@UAE@XZ
     ARTS_IMPORT ~UIBMLabel() override;
 
-    // 0x4B45C0 | ?CreateDummyBitmap@UIBMLabel@@QAEPAVagiBitmap@@XZ
+    // ?CreateDummyBitmap@UIBMLabel@@QAEPAVagiBitmap@@XZ
     ARTS_IMPORT class agiBitmap* CreateDummyBitmap();
 
-    // 0x4B4640 | ?Cull@UIBMLabel@@UAEXXZ
+    // ?Cull@UIBMLabel@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4B47F0 | ?GetClass@UIBMLabel@@UAEPAVMetaClass@@XZ
+    // ?GetClass@UIBMLabel@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4B4360 | ?Init@UIBMLabel@@QAEXPAVstring@@MMPAH@Z
+    // ?Init@UIBMLabel@@QAEXPAVstring@@MMPAH@Z
     ARTS_IMPORT void Init(class string* arg1, f32 arg2, f32 arg3, i32* arg4);
 
-    // 0x4B4440 | ?SetBitmapName@UIBMLabel@@QAEXPAVstring@@@Z
+    // ?SetBitmapName@UIBMLabel@@QAEXPAVstring@@@Z
     ARTS_IMPORT void SetBitmapName(class string* arg1);
 
-    // 0x4B4610 | ?Update@UIBMLabel@@UAEXXZ
+    // ?Update@UIBMLabel@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4B4680 | ?DeclareFields@UIBMLabel@@SAXXZ
+    // ?DeclareFields@UIBMLabel@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x4B44E0 | ?LoadBitmap@UIBMLabel@@AAEXXZ
+    // ?LoadBitmap@UIBMLabel@@AAEXXZ
     ARTS_IMPORT void LoadBitmap();
 
     u8 gap74[0x2C];
@@ -80,5 +80,5 @@ private:
 
 check_size(UIBMLabel, 0xA0);
 
-// 0x7059A0 | ?UIBMLabelMetaClass@@3VMetaClass@@A
+// ?UIBMLabelMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass UIBMLabelMetaClass;

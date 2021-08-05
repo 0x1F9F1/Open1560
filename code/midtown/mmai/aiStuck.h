@@ -38,35 +38,35 @@
 
 class aiStuck final : public asNode
 {
-    // const aiStuck::`vftable' @ 0x61BD60
+    // const aiStuck::`vftable'
 
 public:
-    // 0x46B400 | ??0aiStuck@@QAE@XZ
+    // ??0aiStuck@@QAE@XZ
     ARTS_IMPORT aiStuck();
 
-    // 0x46B8A0 | ??_GaiStuck@@UAEPAXI@Z
-    // 0x46B8A0 | ??_EaiStuck@@UAEPAXI@Z
-    // 0x4658E0 | ??1aiStuck@@UAE@XZ | inline
+    // ??_GaiStuck@@UAEPAXI@Z
+    // ??_EaiStuck@@UAEPAXI@Z
+    // ??1aiStuck@@UAE@XZ | inline
     ARTS_IMPORT ~aiStuck() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x46B770 | ?AddWidgets@aiStuck@@UAEXPAVBank@@@Z
+    // ?AddWidgets@aiStuck@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x46B4C0 | ?Impact@aiStuck@@QAEXXZ | unused
+    // ?Impact@aiStuck@@QAEXXZ | unused
     ARTS_IMPORT void Impact();
 
-    // 0x46B4A0 | ?Init@aiStuck@@QAEXPAVmmCarSim@@@Z
+    // ?Init@aiStuck@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void Init(class mmCarSim* arg1);
 
-    // 0x46B4E0 | ?Pegged@aiStuck@@QAEHXZ
+    // ?Pegged@aiStuck@@QAEHXZ
     ARTS_IMPORT i32 Pegged();
 
-    // 0x46B4D0 | ?Reset@aiStuck@@UAEXXZ
+    // ?Reset@aiStuck@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x46B550 | ?Update@aiStuck@@UAEXXZ
+    // ?Update@aiStuck@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x38];

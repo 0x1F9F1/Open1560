@@ -33,25 +33,25 @@ void mmRunwayLight::AddWidgets(class Bank* /*arg1*/)
 void ARTS_FASTCALL mmRunwayLight::FromMatrix(class Matrix34 const& /*arg1*/)
 {}
 
-// 0x48E220 | ?fix_fill1@@YAXXZ
+// ?fix_fill1@@YAXXZ
 ARTS_IMPORT /*static*/ void fix_fill1();
 
-// 0x48E290 | ?fix_fill2@@YAXXZ
+// ?fix_fill2@@YAXXZ
 ARTS_IMPORT /*static*/ void fix_fill2();
 
-// 0x48E1B0 | ?fix_sun@@YAXXZ
+// ?fix_sun@@YAXXZ
 ARTS_IMPORT /*static*/ void fix_sun();
 
-// 0x48E3D0 | ?parseARGB@@YAXAAI@Z
+// ?parseARGB@@YAXAAI@Z
 ARTS_IMPORT /*static*/ void parseARGB(u32& arg1);
 
-// 0x48E300 | ?parseFloat@@YAXAAM@Z
+// ?parseFloat@@YAXAAM@Z
 ARTS_IMPORT /*static*/ void parseFloat(f32& arg1);
 
-// 0x48E360 | ?parseRGB@@YAXAAI@Z
+// ?parseRGB@@YAXAAI@Z
 ARTS_IMPORT /*static*/ void parseRGB(u32& arg1);
 
-// 0x48E330 | ?parseVector3@@YAXAAVVector3@@@Z
+// ?parseVector3@@YAXAAVVector3@@@Z
 ARTS_IMPORT /*static*/ void parseVector3(class Vector3& arg1);
 
 void mmCullCity::Cull()

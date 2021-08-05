@@ -39,30 +39,30 @@ class agiMeshSet;
 
 class mmVehicleForm final : public asNode
 {
-    // const mmVehicleForm::`vftable' @ 0x6207A0
+    // const mmVehicleForm::`vftable'
 
 public:
-    // 0x5026B0 | ??0mmVehicleForm@@QAE@XZ
+    // ??0mmVehicleForm@@QAE@XZ
     ARTS_EXPORT mmVehicleForm();
 
-    // 0x49C440 | ??_EmmVehicleForm@@UAEPAXI@Z
-    // 0x502900 | ??_GmmVehicleForm@@UAEPAXI@Z | unused
-    // 0x49C4A0 | ??1mmVehicleForm@@UAE@XZ | inline
+    // ??_EmmVehicleForm@@UAEPAXI@Z
+    // ??_GmmVehicleForm@@UAEPAXI@Z | unused
+    // ??1mmVehicleForm@@UAE@XZ | inline
     ARTS_EXPORT ~mmVehicleForm() override;
 
-    // 0x5027A0 | ?Cull@mmVehicleForm@@UAEXXZ
+    // ?Cull@mmVehicleForm@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x502710 | ?SetShape@mmVehicleForm@@QAEXPAD00PAVVector3@@@Z
+    // ?SetShape@mmVehicleForm@@QAEXPAD00PAVVector3@@@Z
     ARTS_IMPORT void SetShape(char* arg1, char* arg2, char* arg3, class Vector3* arg4);
 
-    // 0x502780 | ?Update@mmVehicleForm@@UAEXXZ
+    // ?Update@mmVehicleForm@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
-    // 0x64A348 | ?Lighter@mmVehicleForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
+    // ?Lighter@mmVehicleForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
     ARTS_IMPORT static void (*Lighter)(u8*, u32*, u32*, class agiMeshSet*);
 
-    // 0x719610 | ?SphMapTex@mmVehicleForm@@2PAVagiTexDef@@A
+    // ?SphMapTex@mmVehicleForm@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* SphMapTex;
 
 private:

@@ -42,48 +42,48 @@
 
 class mmAnimSpline final : public asNode
 {
-    // const mmAnimSpline::`vftable' @ 0x61F3F0
+    // const mmAnimSpline::`vftable'
 
 public:
-    // 0x4C37D0 | ??0mmAnimSpline@@QAE@XZ
+    // ??0mmAnimSpline@@QAE@XZ
     ARTS_IMPORT mmAnimSpline();
 
-    // 0x4C15C0 | ??_EmmAnimSpline@@UAEPAXI@Z
-    // 0x4C3CE0 | ??_GmmAnimSpline@@UAEPAXI@Z | unused
-    // 0x4C37F0 | ??1mmAnimSpline@@UAE@XZ
+    // ??_EmmAnimSpline@@UAEPAXI@Z
+    // ??_GmmAnimSpline@@UAEPAXI@Z | unused
+    // ??1mmAnimSpline@@UAE@XZ
     ARTS_IMPORT ~mmAnimSpline() override;
 
-    // 0x4C39F0 | ?AddVector@mmAnimSpline@@QAEXAAVVector3@@@Z
+    // ?AddVector@mmAnimSpline@@QAEXAAVVector3@@@Z
     ARTS_IMPORT void AddVector(class Vector3& arg1);
 
-    // 0x4C3C10 | ?AirlinerSwap@mmAnimSpline@@QAEXXZ
+    // ?AirlinerSwap@mmAnimSpline@@QAEXXZ
     ARTS_IMPORT void AirlinerSwap();
 
-    // 0x4C39D0 | ?ClearVectors@mmAnimSpline@@QAEXXZ
+    // ?ClearVectors@mmAnimSpline@@QAEXXZ
     ARTS_IMPORT void ClearVectors();
 
-    // 0x4C3850 | ?Init@mmAnimSpline@@QAEHPADH@Z
+    // ?Init@mmAnimSpline@@QAEHPADH@Z
     ARTS_IMPORT i32 Init(char* arg1, i32 arg2);
 
-    // 0x4C3A90 | ?InitBoat@mmAnimSpline@@QAEHXZ
+    // ?InitBoat@mmAnimSpline@@QAEHXZ
     ARTS_EXPORT i32 InitBoat();
 
-    // 0x4C3AA0 | ?InitPlane@mmAnimSpline@@QAEHXZ
+    // ?InitPlane@mmAnimSpline@@QAEHXZ
     ARTS_IMPORT i32 InitPlane();
 
-    // 0x4C3B40 | ?InitTrain@mmAnimSpline@@QAEHXZ
+    // ?InitTrain@mmAnimSpline@@QAEHXZ
     ARTS_IMPORT i32 InitTrain();
 
-    // 0x4C38F0 | ?LoadFile@mmAnimSpline@@QAEHPAD@Z
+    // ?LoadFile@mmAnimSpline@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadFile(char* arg1);
 
-    // 0x4C3BF0 | ?Reset@mmAnimSpline@@UAEXXZ
+    // ?Reset@mmAnimSpline@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4C3CC0 | ?UFOSwap@mmAnimSpline@@QAEXXZ
+    // ?UFOSwap@mmAnimSpline@@QAEXXZ
     ARTS_IMPORT void UFOSwap();
 
-    // 0x4C3BC0 | ?Update@mmAnimSpline@@UAEXXZ
+    // ?Update@mmAnimSpline@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x14];

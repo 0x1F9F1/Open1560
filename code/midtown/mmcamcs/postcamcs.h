@@ -39,37 +39,37 @@
 
 class PostCamCS final : public CarCamCS
 {
-    // const PostCamCS::`vftable' @ 0x620190
+    // const PostCamCS::`vftable'
 
 public:
-    // 0x4F9570 | ??0PostCamCS@@QAE@XZ
+    // ??0PostCamCS@@QAE@XZ
     ARTS_IMPORT PostCamCS();
 
-    // 0x4F9970 | ??_EPostCamCS@@UAEPAXI@Z
-    // 0x42D2F0 | ??1PostCamCS@@UAE@XZ | inline
+    // ??_EPostCamCS@@UAEPAXI@Z
+    // ??1PostCamCS@@UAE@XZ | inline
     ARTS_IMPORT ~PostCamCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4F97A0 | ?AddWidgets@PostCamCS@@UAEXPAVBank@@@Z
+    // ?AddWidgets@PostCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4F9930 | ?GetClass@PostCamCS@@UAEPAVMetaClass@@XZ
+    // ?GetClass@PostCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4F95C0 | ?Init@PostCamCS@@QAEXPAVmmCar@@@Z
+    // ?Init@PostCamCS@@QAEXPAVmmCar@@@Z
     ARTS_IMPORT void Init(class mmCar* arg1);
 
-    // 0x4F95F0 | ?MakeActive@PostCamCS@@UAEXXZ
+    // ?MakeActive@PostCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;
 
-    // 0x4F95E0 | ?Reset@PostCamCS@@UAEXXZ
+    // ?Reset@PostCamCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4F9670 | ?Update@PostCamCS@@UAEXXZ
+    // ?Update@PostCamCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4F97C0 | ?DeclareFields@PostCamCS@@SAXXZ
+    // ?DeclareFields@PostCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap118[0x14];
@@ -77,5 +77,5 @@ public:
 
 check_size(PostCamCS, 0x12C);
 
-// 0x7193D8 | ?PostCamCSMetaClass@@3VMetaClass@@A
+// ?PostCamCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass PostCamCSMetaClass;

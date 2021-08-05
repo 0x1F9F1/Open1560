@@ -61,105 +61,105 @@
 
 class aiGoalChase final : public aiGoal
 {
-    // const aiGoalChase::`vftable' @ 0x61BC28
+    // const aiGoalChase::`vftable'
 
 public:
-    // 0x45FCC0 | ??0aiGoalChase@@QAE@PAVaiVehiclePolice@@PAVaiRailSet@@PAPAVmmCar@@PAFPAVVector3@@3@Z
+    // ??0aiGoalChase@@QAE@PAVaiVehiclePolice@@PAVaiRailSet@@PAPAVmmCar@@PAFPAVVector3@@3@Z
     ARTS_IMPORT aiGoalChase(class aiVehiclePolice* arg1, class aiRailSet* arg2, class mmCar** arg3, i16* arg4,
         class Vector3* arg5, i16* arg6);
 
-    // 0x45FD70 | ??1aiGoalChase@@QAE@XZ
+    // ??1aiGoalChase@@QAE@XZ
     ARTS_IMPORT ~aiGoalChase();
 
-    // 0x460080 | ?Context@aiGoalChase@@UAEHXZ
+    // ?Context@aiGoalChase@@UAEHXZ
     ARTS_IMPORT i32 Context() override;
 
-    // 0x4655D0 | ?Dump@aiGoalChase@@QAEXXZ
+    // ?Dump@aiGoalChase@@QAEXXZ
     ARTS_IMPORT void Dump();
 
-    // 0x45FDC0 | ?Init@aiGoalChase@@UAEXXZ
+    // ?Init@aiGoalChase@@UAEXXZ
     ARTS_IMPORT void Init() override;
 
-    // 0x460760 | ?Priority@aiGoalChase@@UAEHXZ
+    // ?Priority@aiGoalChase@@UAEHXZ
     ARTS_IMPORT i32 Priority() override;
 
-    // 0x45FED0 | ?Reset@aiGoalChase@@UAEXXZ
+    // ?Reset@aiGoalChase@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x460770 | ?Update@aiGoalChase@@UAEXXZ
+    // ?Update@aiGoalChase@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
-    // 0x464F10 | ?AddToBlockedRange@aiGoalChase@@AAEXMMM@Z
+    // ?AddToBlockedRange@aiGoalChase@@AAEXMMM@Z
     ARTS_IMPORT void AddToBlockedRange(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4650B0 | ?AvoidAmbientCollision@aiGoalChase@@AAEXH@Z
+    // ?AvoidAmbientCollision@aiGoalChase@@AAEXH@Z
     ARTS_IMPORT void AvoidAmbientCollision(i32 arg1);
 
-    // 0x462030 | ?AvoidCopCollision@aiGoalChase@@AAEXPAVaiVehiclePolice@@@Z
+    // ?AvoidCopCollision@aiGoalChase@@AAEXPAVaiVehiclePolice@@@Z
     ARTS_IMPORT void AvoidCopCollision(class aiVehiclePolice* arg1);
 
-    // 0x463570 | ?Barricade@aiGoalChase@@AAEXXZ
+    // ?Barricade@aiGoalChase@@AAEXXZ
     ARTS_IMPORT void Barricade();
 
-    // 0x463A00 | ?Block@aiGoalChase@@AAEXXZ
+    // ?Block@aiGoalChase@@AAEXXZ
     ARTS_IMPORT void Block();
 
-    // 0x462430 | ?CalcSpeed@aiGoalChase@@AAEXM@Z
+    // ?CalcSpeed@aiGoalChase@@AAEXM@Z
     ARTS_IMPORT void CalcSpeed(f32 arg1);
 
-    // 0x463090 | ?CloseInOpenArea@aiGoalChase@@AAEXXZ
+    // ?CloseInOpenArea@aiGoalChase@@AAEXXZ
     ARTS_IMPORT void CloseInOpenArea();
 
-    // 0x462BB0 | ?CloseInRoad@aiGoalChase@@AAEXXZ
+    // ?CloseInRoad@aiGoalChase@@AAEXXZ
     ARTS_IMPORT void CloseInRoad();
 
-    // 0x460600 | ?Collision@aiGoalChase@@AAEHPAVmmCar@@@Z
+    // ?Collision@aiGoalChase@@AAEHPAVmmCar@@@Z
     ARTS_IMPORT i32 Collision(class mmCar* arg1);
 
-    // 0x464000 | ?DetectAmbientCollision@aiGoalChase@@AAEHPAH@Z
+    // ?DetectAmbientCollision@aiGoalChase@@AAEHPAH@Z
     ARTS_IMPORT i32 DetectAmbientCollision(i32* arg1);
 
-    // 0x461EF0 | ?DetectCopCollision@aiGoalChase@@AAEPAVaiVehiclePolice@@XZ
+    // ?DetectCopCollision@aiGoalChase@@AAEPAVaiVehiclePolice@@XZ
     ARTS_IMPORT class aiVehiclePolice* DetectCopCollision();
 
-    // 0x461DC0 | ?FindPerp@aiGoalChase@@AAEHHHPAVaiPath@@@Z
+    // ?FindPerp@aiGoalChase@@AAEHHHPAVaiPath@@@Z
     ARTS_IMPORT i32 FindPerp(i32 arg1, i32 arg2, class aiPath* arg3);
 
-    // 0x462300 | ?Follow@aiGoalChase@@AAEXXZ
+    // ?Follow@aiGoalChase@@AAEXXZ
     ARTS_IMPORT void Follow();
 
-    // 0x460420 | ?Fov@aiGoalChase@@AAEHPAVmmCar@@@Z
+    // ?Fov@aiGoalChase@@AAEHPAVmmCar@@@Z
     ARTS_IMPORT i32 Fov(class mmCar* arg1);
 
-    // 0x460620 | ?HitMe@aiGoalChase@@AAEHPAVmmCar@@@Z
+    // ?HitMe@aiGoalChase@@AAEHPAVmmCar@@@Z
     ARTS_IMPORT i32 HitMe(class mmCar* arg1);
 
-    // 0x460670 | ?IsPerpACop@aiGoalChase@@AAEHPAVmmCar@@@Z
+    // ?IsPerpACop@aiGoalChase@@AAEHPAVmmCar@@@Z
     ARTS_IMPORT i32 IsPerpACop(class mmCar* arg1);
 
-    // 0x461B60 | ?LocatePerpFromInt@aiGoalChase@@AAEHPAVaiIntersection@@PAPAVaiPath@@@Z
+    // ?LocatePerpFromInt@aiGoalChase@@AAEHPAVaiIntersection@@PAPAVaiPath@@@Z
     ARTS_IMPORT i32 LocatePerpFromInt(class aiIntersection* arg1, class aiPath** arg2);
 
-    // 0x461490 | ?LocatePerpFromRoad@aiGoalChase@@AAEHPAVaiPath@@PAPAV2@1@Z
+    // ?LocatePerpFromRoad@aiGoalChase@@AAEHPAVaiPath@@PAPAV2@1@Z
     ARTS_IMPORT i32 LocatePerpFromRoad(class aiPath* arg1, class aiPath** arg2, class aiPath** arg3);
 
-    // 0x460690 | ?OffRoad@aiGoalChase@@AAEHPAVmmCar@@@Z
+    // ?OffRoad@aiGoalChase@@AAEHPAVmmCar@@@Z
     ARTS_IMPORT i32 OffRoad(class mmCar* arg1);
 
-    // 0x4613F0 | ?PlanRoute@aiGoalChase@@AAEHXZ
+    // ?PlanRoute@aiGoalChase@@AAEHXZ
     ARTS_IMPORT i32 PlanRoute();
 
-    // 0x465310 | ?ProcessCollision@aiGoalChase@@AAEXH@Z
+    // ?ProcessCollision@aiGoalChase@@AAEXH@Z
     ARTS_IMPORT void ProcessCollision(i32 arg1);
 
-    // 0x463E10 | ?Push@aiGoalChase@@AAEXXZ
+    // ?Push@aiGoalChase@@AAEXXZ
     ARTS_IMPORT void Push();
 
-    // 0x4605B0 | ?Speeding@aiGoalChase@@AAEHPAVmmCar@@@Z
+    // ?Speeding@aiGoalChase@@AAEHPAVmmCar@@@Z
     ARTS_IMPORT i32 Speeding(class mmCar* arg1);
 
-    // 0x460640 | ?Stopped@aiGoalChase@@AAEHPAVmmCar@@@Z
+    // ?Stopped@aiGoalChase@@AAEHPAVmmCar@@@Z
     ARTS_IMPORT i32 Stopped(class mmCar* arg1);
 
     u8 gap8[0x1A4];

@@ -43,49 +43,49 @@
 
 class mmCompDRecord final : public mmCompBase
 {
-    // const mmCompDRecord::`vftable' @ 0x61E800
+    // const mmCompDRecord::`vftable'
 
 public:
-    // 0x4B5A80 | ??0mmCompDRecord@@QAE@XZ
+    // ??0mmCompDRecord@@QAE@XZ
     ARTS_IMPORT mmCompDRecord();
 
-    // 0x4B6060 | ??_EmmCompDRecord@@UAEPAXI@Z
-    // 0x4B6060 | ??_GmmCompDRecord@@UAEPAXI@Z
-    // 0x4B5AC0 | ??1mmCompDRecord@@UAE@XZ
+    // ??_EmmCompDRecord@@UAEPAXI@Z
+    // ??_GmmCompDRecord@@UAEPAXI@Z
+    // ??1mmCompDRecord@@UAE@XZ
     ARTS_IMPORT ~mmCompDRecord() override;
 
-    // 0x4B5FC0 | ?Cull@mmCompDRecord@@UAEXXZ
+    // ?Cull@mmCompDRecord@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4B6090 | ?DisableBlt@mmCompDRecord@@UAEXXZ | inline
+    // ?DisableBlt@mmCompDRecord@@UAEXXZ | inline
     ARTS_EXPORT void DisableBlt() override;
 
-    // 0x4B5B70 | ?Init@mmCompDRecord@@QAEXHPADM0HHH@Z
+    // ?Init@mmCompDRecord@@QAEXHPADM0HHH@Z
     ARTS_IMPORT void Init(i32 arg1, char* arg2, f32 arg3, char* arg4, i32 arg5, i32 arg6, i32 arg7);
 
-    // 0x4B5C60 | ?InitTitle@mmCompDRecord@@QAEXMMMMPAULocString@@0000H@Z
+    // ?InitTitle@mmCompDRecord@@QAEXMMMMPAULocString@@0000H@Z
     ARTS_IMPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
         struct LocString* arg7, struct LocString* arg8, struct LocString* arg9, i32 arg10);
 
-    // 0x4B5CD0 | ?LoadBitmap@mmCompDRecord@@QAEXPAD@Z
+    // ?LoadBitmap@mmCompDRecord@@QAEXPAD@Z
     ARTS_IMPORT void LoadBitmap(char* arg1);
 
-    // 0x4B5D40 | ?Reset@mmCompDRecord@@UAEXXZ
+    // ?Reset@mmCompDRecord@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4B5F70 | ?SetBltXY@mmCompDRecord@@UAEXMM@Z
+    // ?SetBltXY@mmCompDRecord@@UAEXMM@Z
     ARTS_IMPORT void SetBltXY(f32 arg1, f32 arg2) override;
 
-    // 0x4B5F40 | ?SetGeometry@mmCompDRecord@@UAEXMMMM@Z
+    // ?SetGeometry@mmCompDRecord@@UAEXMMMM@Z
     ARTS_IMPORT void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
 
-    // 0x4B5EA0 | ?SetPosition@mmCompDRecord@@UAEXPAVmmTextNode@@HM@Z
+    // ?SetPosition@mmCompDRecord@@UAEXPAVmmTextNode@@HM@Z
     ARTS_IMPORT void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
 
-    // 0x4B5D80 | ?SetSubwidgetGeometry@mmCompDRecord@@QAEXXZ
+    // ?SetSubwidgetGeometry@mmCompDRecord@@QAEXXZ
     ARTS_IMPORT void SetSubwidgetGeometry();
 
-    // 0x4B5D50 | ?Update@mmCompDRecord@@UAEXXZ
+    // ?Update@mmCompDRecord@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap48[0x5C];

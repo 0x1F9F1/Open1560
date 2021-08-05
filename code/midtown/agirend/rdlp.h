@@ -48,34 +48,34 @@
 
 class RDLP final : public DLP
 {
-    // const RDLP::`vftable' @ 0x6213B8
+    // const RDLP::`vftable'
 
 public:
-    // 0x550800 | ??0RDLP@@QAE@PAVagiPipeline@@@Z
+    // ??0RDLP@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT RDLP(class agiPipeline* arg1);
 
-    // 0x5515E0 | ??_ERDLP@@UAEPAXI@Z
-    // 0x5515E0 | ??_GRDLP@@UAEPAXI@Z
-    // 0x550850 | ??1RDLP@@UAE@XZ
+    // ??_ERDLP@@UAEPAXI@Z
+    // ??_GRDLP@@UAEPAXI@Z
+    // ??1RDLP@@UAE@XZ
     ARTS_IMPORT ~RDLP() override;
 
-    // 0x550C40 | ?BeginGfx@RDLP@@UAEHXZ
+    // ?BeginGfx@RDLP@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
-    // 0x551200 | ?EndGfx@RDLP@@UAEXXZ
+    // ?EndGfx@RDLP@@UAEXXZ
     ARTS_IMPORT void EndGfx() override;
 
-    // 0x551540 | ?FixROpts@RDLP@@UAEXHH@Z
+    // ?FixROpts@RDLP@@UAEXHH@Z
     ARTS_IMPORT void FixROpts(i32 arg1, i32 arg2) override;
 
-    // 0x551490 | ?GetDynamic@RDLP@@UAEPAVDynamicDLP@@H@Z
+    // ?GetDynamic@RDLP@@UAEPAVDynamicDLP@@H@Z
     ARTS_IMPORT class DynamicDLP* GetDynamic(i32 arg1) override;
 
-    // 0x551530 | ?GetMultipass@RDLP@@UAEPAVMultipassDLP@@H@Z
+    // ?GetMultipass@RDLP@@UAEPAVMultipassDLP@@H@Z
     ARTS_EXPORT class MultipassDLP* GetMultipass(i32 arg1) override;
 
 private:
-    // 0x5508A0 | ?InitFacet@RDLP@@AAEHPAUagiPatch@@HHHH@Z
+    // ?InitFacet@RDLP@@AAEHPAUagiPatch@@HHHH@Z
     ARTS_IMPORT i32 InitFacet(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     u8 gap94[0x18];
@@ -85,27 +85,27 @@ check_size(RDLP, 0xAC);
 
 class RDynamicDLP final : public DynamicDLP
 {
-    // const RDynamicDLP::`vftable' @ 0x6213F0
+    // const RDynamicDLP::`vftable'
 
 public:
-    // 0x551290 | ??0RDynamicDLP@@QAE@HPAVRDLP@@@Z
+    // ??0RDynamicDLP@@QAE@HPAVRDLP@@@Z
     ARTS_IMPORT RDynamicDLP(i32 arg1, class RDLP* arg2);
 
-    // 0x551610 | ??_ERDynamicDLP@@UAEPAXI@Z
-    // 0x551610 | ??_GRDynamicDLP@@UAEPAXI@Z
-    // 0x5512F0 | ??1RDynamicDLP@@UAE@XZ
+    // ??_ERDynamicDLP@@UAEPAXI@Z
+    // ??_GRDynamicDLP@@UAEPAXI@Z
+    // ??1RDynamicDLP@@UAE@XZ
     ARTS_IMPORT ~RDynamicDLP() override;
 
-    // 0x551360 | ?Init@RDynamicDLP@@UAEHPAD@Z
+    // ?Init@RDynamicDLP@@UAEHPAD@Z
     ARTS_IMPORT i32 Init(char* arg1) override;
 
-    // 0x551440 | ?Lock@RDynamicDLP@@UAEXXZ
+    // ?Lock@RDynamicDLP@@UAEXXZ
     ARTS_IMPORT void Lock() override;
 
-    // 0x5513B0 | ?SetTexture@RDynamicDLP@@UAEXF@Z
+    // ?SetTexture@RDynamicDLP@@UAEXF@Z
     ARTS_IMPORT void SetTexture(i16 arg1) override;
 
-    // 0x551480 | ?Unlock@RDynamicDLP@@UAEXXZ
+    // ?Unlock@RDynamicDLP@@UAEXXZ
     ARTS_IMPORT void Unlock() override;
 
     u8 gap24[0x4];

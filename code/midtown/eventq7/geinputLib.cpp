@@ -201,7 +201,7 @@ void geinputGetMouse(ilong* mouse_x, ilong* mouse_y, i8* l_button, i8* r_button,
         *m_button = (MOUSESTATE.rgbButtons[2] & 0x80) != 0;
 }
 
-// 0x564050 | ?DIError@@YAPADH@Z
+// ?DIError@@YAPADH@Z
 ARTS_EXPORT /*static*/ const char* DIError(i32 error)
 {
     static char buffer[64]; // FIXME: Static buffer

@@ -52,76 +52,76 @@
 
 class UICompositeScroll final : public uiWidget
 {
-    // const UICompositeScroll::`vftable' @ 0x61E778
+    // const UICompositeScroll::`vftable'
 
 public:
-    // 0x4B4EF0 | ??0UICompositeScroll@@QAE@XZ
+    // ??0UICompositeScroll@@QAE@XZ
     ARTS_IMPORT UICompositeScroll();
 
-    // 0x4B5A50 | ??_EUICompositeScroll@@UAEPAXI@Z
-    // 0x4B5A50 | ??_GUICompositeScroll@@UAEPAXI@Z
-    // 0x4B4FD0 | ??1UICompositeScroll@@UAE@XZ
+    // ??_EUICompositeScroll@@UAEPAXI@Z
+    // ??_GUICompositeScroll@@UAEPAXI@Z
+    // ??1UICompositeScroll@@UAE@XZ
     ARTS_IMPORT ~UICompositeScroll() override;
 
-    // 0x4B57A0 | ?Action@UICompositeScroll@@UAEXTeqEvent@@@Z
+    // ?Action@UICompositeScroll@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4B5360 | ?AddComponent@UICompositeScroll@@QAEXPAVmmCompBase@@@Z
+    // ?AddComponent@UICompositeScroll@@QAEXPAVmmCompBase@@@Z
     ARTS_IMPORT void AddComponent(class mmCompBase* arg1);
 
-    // 0x4B5430 | ?AddTitle@UICompositeScroll@@QAEXPAVmmCompBase@@@Z | unused
+    // ?AddTitle@UICompositeScroll@@QAEXPAVmmCompBase@@@Z | unused
     ARTS_IMPORT void AddTitle(class mmCompBase* arg1);
 
-    // 0x4B5920 | ?CaptureAction@UICompositeScroll@@UAEXTeqEvent@@@Z
+    // ?CaptureAction@UICompositeScroll@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void CaptureAction(union eqEvent arg1) override;
 
-    // 0x4B59D0 | ?Clear@UICompositeScroll@@QAEXXZ
+    // ?Clear@UICompositeScroll@@QAEXXZ
     ARTS_IMPORT void Clear();
 
-    // 0x4B59F0 | ?GetHeight@UICompositeScroll@@QAEMXZ | unused
+    // ?GetHeight@UICompositeScroll@@QAEMXZ | unused
     ARTS_IMPORT f32 GetHeight();
 
-    // 0x4B5720 | ?GetHit@UICompositeScroll@@QAEHMM@Z
+    // ?GetHit@UICompositeScroll@@QAEHMM@Z
     ARTS_IMPORT i32 GetHit(f32 arg1, f32 arg2);
 
-    // 0x4B5450 | ?GetSelectedCount@UICompositeScroll@@QAEHXZ
+    // ?GetSelectedCount@UICompositeScroll@@QAEHXZ
     ARTS_IMPORT i32 GetSelectedCount();
 
-    // 0x4B5050 | ?Init@UICompositeScroll@@QAEXMMMMMHPAHHHVCallback@@@Z
+    // ?Init@UICompositeScroll@@QAEXMMMMMHPAHHHVCallback@@@Z
     ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, i32 arg6, i32* arg7, i32 arg8, i32 arg9,
         class Callback arg10);
 
-    // 0x4B5290 | ?InitVScroll@UICompositeScroll@@QAEXMMM@Z
+    // ?InitVScroll@UICompositeScroll@@QAEXMMM@Z
     ARTS_IMPORT void InitVScroll(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4B54A0 | ?Redraw@UICompositeScroll@@QAEXXZ
+    // ?Redraw@UICompositeScroll@@QAEXXZ
     ARTS_IMPORT void Redraw();
 
-    // 0x4B5310 | ?RemoveAllComponentChildren@UICompositeScroll@@QAEXXZ
+    // ?RemoveAllComponentChildren@UICompositeScroll@@QAEXXZ
     ARTS_IMPORT void RemoveAllComponentChildren();
 
-    // 0x4B56F0 | ?Reset@UICompositeScroll@@UAEXXZ
+    // ?Reset@UICompositeScroll@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4B59E0 | ?SetHightlight@UICompositeScroll@@QAEXXZ
+    // ?SetHightlight@UICompositeScroll@@QAEXXZ
     ARTS_EXPORT void SetHightlight();
 
-    // 0x4B5A10 | ?SetPosition@UICompositeScroll@@QAEXH@Z
+    // ?SetPosition@UICompositeScroll@@QAEXH@Z
     ARTS_IMPORT void SetPosition(i32 arg1);
 
-    // 0x4B56B0 | ?SetVScrollPos@UICompositeScroll@@QAEXXZ
+    // ?SetVScrollPos@UICompositeScroll@@QAEXXZ
     ARTS_IMPORT void SetVScrollPos();
 
-    // 0x4B5660 | ?SetVScrollVals@UICompositeScroll@@QAEXXZ
+    // ?SetVScrollVals@UICompositeScroll@@QAEXXZ
     ARTS_IMPORT void SetVScrollVals();
 
-    // 0x4B5990 | ?Switch@UICompositeScroll@@UAEXH@Z
+    // ?Switch@UICompositeScroll@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // 0x4B5710 | ?Update@UICompositeScroll@@UAEXXZ
+    // ?Update@UICompositeScroll@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4B55F0 | ?VScrollCB@UICompositeScroll@@QAEXXZ
+    // ?VScrollCB@UICompositeScroll@@QAEXXZ
     ARTS_IMPORT void VScrollCB();
 
     u8 gap74[0x70];

@@ -32,22 +32,22 @@
 class Tokenizer
 {
 public:
-    // 0x5615D0 | ??0Tokenizer@@QAE@PBDPAVStream@@@Z
+    // ??0Tokenizer@@QAE@PBDPAVStream@@@Z
     ARTS_EXPORT Tokenizer(char const* name, class Stream* input);
 
-    // 0x561770 | ?GetFloat@Tokenizer@@QAEMXZ
+    // ?GetFloat@Tokenizer@@QAEMXZ
     ARTS_EXPORT f32 GetFloat();
 
-    // 0x561710 | ?GetInt@Tokenizer@@QAEHXZ
+    // ?GetInt@Tokenizer@@QAEHXZ
     ARTS_EXPORT i32 GetInt();
 
-    // 0x561600 | ?GetToken@Tokenizer@@QAEHPADH@Z
+    // ?GetToken@Tokenizer@@QAEHPADH@Z
     ARTS_EXPORT i32 GetToken(char* buffer, isize buffer_len);
 
-    // 0x5617D0 | ?IgnoreToken@Tokenizer@@QAEXXZ
+    // ?IgnoreToken@Tokenizer@@QAEXXZ
     ARTS_EXPORT void IgnoreToken();
 
-    // 0x561690 | ?MatchToken@Tokenizer@@QAEXPAD@Z
+    // ?MatchToken@Tokenizer@@QAEXPAD@Z
     ARTS_EXPORT void MatchToken(const char* value);
 
 private:

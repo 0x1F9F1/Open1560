@@ -24,5 +24,5 @@
     0x583130 | void __cdecl jinit_color_deconverter(struct jpeg_decompress_struct *) | ?jinit_color_deconverter@@YAXPAUjpeg_decompress_struct@@@Z
 */
 
-// 0x583130 | ?jinit_color_deconverter@@YAXPAUjpeg_decompress_struct@@@Z
+// ?jinit_color_deconverter@@YAXPAUjpeg_decompress_struct@@@Z
 ARTS_IMPORT void jinit_color_deconverter(struct jpeg_decompress_struct* arg1);

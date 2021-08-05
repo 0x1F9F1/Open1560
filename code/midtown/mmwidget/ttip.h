@@ -36,27 +36,27 @@
 
 class mmToolTip final : public asNode
 {
-    // const mmToolTip::`vftable' @ 0x61F190
+    // const mmToolTip::`vftable'
 
 public:
-    // 0x4BF0E0 | ??0mmToolTip@@QAE@XZ | unused
+    // ??0mmToolTip@@QAE@XZ | unused
     ARTS_IMPORT mmToolTip();
 
-    // 0x4BF2A0 | ??_GmmToolTip@@UAEPAXI@Z
-    // 0x4BF2A0 | ??_EmmToolTip@@UAEPAXI@Z
-    // 0x4BF150 | ??1mmToolTip@@UAE@XZ
+    // ??_GmmToolTip@@UAEPAXI@Z
+    // ??_EmmToolTip@@UAEPAXI@Z
+    // ??1mmToolTip@@UAE@XZ
     ARTS_IMPORT ~mmToolTip() override;
 
-    // 0x4BF1B0 | ?Init@mmToolTip@@QAEXPAVUIMenu@@PAULocString@@@Z | unused
+    // ?Init@mmToolTip@@QAEXPAVUIMenu@@PAULocString@@@Z | unused
     ARTS_IMPORT void Init(class UIMenu* arg1, struct LocString* arg2);
 
-    // 0x4BF260 | ?SetText@mmToolTip@@QAEXPAULocString@@@Z
+    // ?SetText@mmToolTip@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetText(struct LocString* arg1);
 
-    // 0x4BF280 | ?Switch@mmToolTip@@QAEXH@Z
+    // ?Switch@mmToolTip@@QAEXH@Z
     ARTS_EXPORT void Switch(i32 arg1);
 
-    // 0x4BF290 | ?Update@mmToolTip@@UAEXXZ
+    // ?Update@mmToolTip@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
     u8 gap20[0x14];

@@ -91,7 +91,7 @@
 
 class UIMenu : public asNode
 {
-    // const UIMenu::`vftable' @ 0x61E2E8
+    // const UIMenu::`vftable'
 
 public:
     enum class eSource : i32
@@ -100,211 +100,211 @@ public:
         Mouse
     };
 
-    // 0x4AC7F0 | ??0UIMenu@@QAE@H@Z
+    // ??0UIMenu@@QAE@H@Z
     ARTS_IMPORT UIMenu(i32 menu_id);
 
-    // 0x4AED30 | ??_EUIMenu@@UAEPAXI@Z
-    // 0x4AED30 | ??_GUIMenu@@UAEPAXI@Z
-    // 0x4AC8F0 | ??1UIMenu@@UAE@XZ
+    // ??_EUIMenu@@UAEPAXI@Z
+    // ??_GUIMenu@@UAEPAXI@Z
+    // ??1UIMenu@@UAE@XZ
     ARTS_IMPORT ~UIMenu() override;
 
-    // 0x4ACAD0 | ?PreSetup@UIMenu@@UAEXXZ
+    // ?PreSetup@UIMenu@@UAEXXZ
     ARTS_IMPORT virtual void PreSetup();
 
-    // 0x4ACB00 | ?PostSetup@UIMenu@@UAEXXZ
+    // ?PostSetup@UIMenu@@UAEXXZ
     ARTS_EXPORT virtual void PostSetup();
 
-    // 0x4ACBA0 | ?BackUp@UIMenu@@UAEXXZ
+    // ?BackUp@UIMenu@@UAEXXZ
     ARTS_IMPORT virtual void BackUp();
 
-    // 0x4ACE80 | ?CheckInput@UIMenu@@UAEXXZ
+    // ?CheckInput@UIMenu@@UAEXXZ
     ARTS_EXPORT virtual void CheckInput();
 
-    // 0x49C4F0 | ?IsAnOptionMenu@UIMenu@@UAEHXZ | inline
+    // ?IsAnOptionMenu@UIMenu@@UAEHXZ | inline
     ARTS_EXPORT virtual i32 IsAnOptionMenu();
 
-    // 0x4AE3F0 | ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
+    // ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
     ARTS_IMPORT class UIBMButton* AddBMButton(i32 arg1, char* arg2, f32 arg3, f32 arg4, i32 arg5, class Callback arg6,
         i32* arg7, i32 arg8, i32 arg9, class Callback arg10);
 
-    // 0x4ADD60 | ?AddBMLabel@UIMenu@@QAEPAVUIBMLabel@@HPADPAVstring@@MMPAH@Z
+    // ?AddBMLabel@UIMenu@@QAEPAVUIBMLabel@@HPADPAVstring@@MMPAH@Z
     ARTS_IMPORT class UIBMLabel* AddBMLabel(i32 arg1, char* arg2, class string* arg3, f32 arg4, f32 arg5, i32* arg6);
 
-    // 0x4ADB30 | ?AddButton@UIMenu@@QAEPAVUIButton@@HPAULocString@@MMMMHHVCallback@@@Z
+    // ?AddButton@UIMenu@@QAEPAVUIButton@@HPAULocString@@MMMMHHVCallback@@@Z
     ARTS_IMPORT class UIButton* AddButton(i32 arg1, struct LocString* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6,
         i32 arg7, i32 arg8, class Callback arg9);
 
-    // 0x4AE580 | ?AddCWArray@UIMenu@@QAEPAVUICWArray@@HMMMMHVCallback@@@Z
+    // ?AddCWArray@UIMenu@@QAEPAVUICWArray@@HMMMMHVCallback@@@Z
     ARTS_IMPORT class UICWArray* AddCWArray(
         i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, i32 arg6, class Callback arg7);
 
-    // 0x4AD630 | ?AddCompScroll@UIMenu@@QAEPAVUICompositeScroll@@HMMMMMHPAHHHVCallback@@@Z
+    // ?AddCompScroll@UIMenu@@QAEPAVUICompositeScroll@@HMMMMMHPAHHHVCallback@@@Z
     ARTS_IMPORT class UICompositeScroll* AddCompScroll(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6,
         i32 arg7, i32* arg8, i32 arg9, i32 arg10, class Callback arg11);
 
-    // 0x4ACF60 | ?AddHotSpot@UIMenu@@QAEPAVuiWidget@@HPADMMMMVCallback@@@Z
+    // ?AddHotSpot@UIMenu@@QAEPAVuiWidget@@HPADMMMMVCallback@@@Z
     ARTS_IMPORT class uiWidget* AddHotSpot(
         i32 arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class Callback arg7);
 
-    // 0x4ADE70 | ?AddIcon@UIMenu@@QAEPAVUIIcon@@HPADMM@Z | unused
+    // ?AddIcon@UIMenu@@QAEPAVUIIcon@@HPADMM@Z | unused
     ARTS_IMPORT class UIIcon* AddIcon(i32 arg1, char* arg2, f32 arg3, f32 arg4);
 
-    // 0x4ADF80 | ?AddIconW@UIMenu@@QAEPAVUIIconW@@HPAULocString@@PADMMMMVCallback@@@Z | unused
+    // ?AddIconW@UIMenu@@QAEPAVUIIconW@@HPAULocString@@PADMMMMVCallback@@@Z | unused
     ARTS_IMPORT class UIIconW* AddIconW(
         i32 arg1, struct LocString* arg2, char* arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, class Callback arg8);
 
-    // 0x4ADC50 | ?AddLabel@UIMenu@@QAEPAVUILabel@@HPAULocString@@MMMMHH@Z
+    // ?AddLabel@UIMenu@@QAEPAVUILabel@@HPAULocString@@MMMMHH@Z
     ARTS_IMPORT class UILabel* AddLabel(
         i32 arg1, struct LocString* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8);
 
-    // 0x4AE2D0 | ?AddMex@UIMenu@@QAEPAVUIMexButton@@HPAULocString@@PAHHMMMMHHVCallback@@@Z | unused
+    // ?AddMex@UIMenu@@QAEPAVUIMexButton@@HPAULocString@@PAHHMMMMHHVCallback@@@Z | unused
     ARTS_IMPORT class UIMexButton* AddMex(i32 arg1, struct LocString* arg2, i32* arg3, i32 arg4, f32 arg5, f32 arg6,
         f32 arg7, f32 arg8, i32 arg9, i32 arg10, class Callback arg11);
 
-    // 0x4AD9F0 | ?AddSlider@UIMenu@@QAEPAVUISlider@@HPAULocString@@PAMMMMMMMHHHHVCallback@@@Z
+    // ?AddSlider@UIMenu@@QAEPAVUISlider@@HPAULocString@@PAMMMMMMMHHHHVCallback@@@Z
     ARTS_IMPORT class UISlider* AddSlider(i32 arg1, struct LocString* arg2, f32* arg3, f32 arg4, f32 arg5, f32 arg6,
         f32 arg7, f32 arg8, f32 arg9, i32 arg10, i32 arg11, i32 arg12, i32 arg13, class Callback arg14);
 
-    // 0x4AD040 | ?AddTextDropdown@UIMenu@@QAEPAVUITextDropdown@@HPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z
+    // ?AddTextDropdown@UIMenu@@QAEPAVUITextDropdown@@HPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z
     ARTS_IMPORT class UITextDropdown* AddTextDropdown(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5,
         f32 arg6, f32 arg7, class string arg8, i32 arg9, i32 arg10, i32 arg11, class Callback arg12, char* arg13);
 
-    // 0x4AD7B0 | ?AddTextField@UIMenu@@QAEPAVUITextField@@HPAULocString@@PADMMMMHHHHHVCallback@@@Z
+    // ?AddTextField@UIMenu@@QAEPAVUITextField@@HPAULocString@@PADMMMMHHHHHVCallback@@@Z
     ARTS_IMPORT class UITextField* AddTextField(i32 arg1, struct LocString* arg2, char* arg3, f32 arg4, f32 arg5,
         f32 arg6, f32 arg7, i32 arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, class Callback arg13);
 
-    // 0x4AD1C0 | ?AddTextRoller@UIMenu@@QAEPAVUITextRoller@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z | unused
+    // ?AddTextRoller@UIMenu@@QAEPAVUITextRoller@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z | unused
     ARTS_IMPORT class UITextRoller* AddTextRoller(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5,
         f32 arg6, f32 arg7, class string arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, class Callback arg13);
 
-    // 0x4AD310 | ?AddTextRoller2@UIMenu@@QAEPAVUITextRoller2@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z
+    // ?AddTextRoller2@UIMenu@@QAEPAVUITextRoller2@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z
     ARTS_IMPORT class UITextRoller2* AddTextRoller2(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5,
         f32 arg6, f32 arg7, class string arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, class Callback arg13);
 
-    // 0x4AD490 | ?AddTextScroll@UIMenu@@QAEPAVUITextScroll@@HPAXMMMMVstring@@HPAHVCallback@@@Z
+    // ?AddTextScroll@UIMenu@@QAEPAVUITextScroll@@HPAXMMMMVstring@@HPAHVCallback@@@Z
     ARTS_IMPORT class UITextScroll* AddTextScroll(i32 arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6,
         class string arg7, i32 arg8, i32* arg9, class Callback arg10);
 
-    // 0x4AE090 | ?AddToggle@UIMenu@@QAEPAVUIToggleButton@@HPAULocString@@PAHMMMMHHVCallback@@@Z | unused
+    // ?AddToggle@UIMenu@@QAEPAVUIToggleButton@@HPAULocString@@PAHMMMMHHVCallback@@@Z | unused
     ARTS_IMPORT class UIToggleButton* AddToggle(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5,
         f32 arg6, f32 arg7, i32 arg8, i32 arg9, class Callback arg10);
 
-    // 0x4AE1B0 | ?AddToggle2@UIMenu@@QAEPAVUIToggleButton2@@HPAULocString@@PAHMMMMHHVCallback@@@Z
+    // ?AddToggle2@UIMenu@@QAEPAVUIToggleButton2@@HPAULocString@@PAHMMMMHHVCallback@@@Z
     ARTS_IMPORT class UIToggleButton2* AddToggle2(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5,
         f32 arg6, f32 arg7, i32 arg8, i32 arg9, class Callback arg10);
 
-    // 0x4AD920 | ?AddUIControl@UIMenu@@QAEPAVUIControlWidget@@HMMMMMPAVmmIO@@VCallback@@@Z | unused
+    // ?AddUIControl@UIMenu@@QAEPAVUIControlWidget@@HMMMMMPAVmmIO@@VCallback@@@Z | unused
     ARTS_IMPORT class UIControlWidget* AddUIControl(
         i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class mmIO* arg7, class Callback arg8);
 
-    // 0x4AE6C0 | ?AddVScrollBar@UIMenu@@QAEPAVUIVScrollBar@@HPAHMMMMMMHHVCallback@@@Z | unused
+    // ?AddVScrollBar@UIMenu@@QAEPAVUIVScrollBar@@HPAHMMMMMMHHVCallback@@@Z | unused
     ARTS_IMPORT class UIVScrollBar* AddVScrollBar(i32 arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7,
         f32 arg8, i32 arg9, i32 arg10, class Callback arg11);
 
-    // 0x4AEC40 | ?AddWidget@UIMenu@@QAEXPAVuiWidget@@PADMMMMH1@Z
+    // ?AddWidget@UIMenu@@QAEXPAVuiWidget@@PADMMMMH1@Z
     ARTS_IMPORT void AddWidget(
         class uiWidget* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, char* arg8);
 
-    // 0x4AC9E0 | ?AssignBackground@UIMenu@@QAEXPAD@Z
+    // ?AssignBackground@UIMenu@@QAEXPAD@Z
     ARTS_IMPORT void AssignBackground(char* arg1);
 
-    // 0x4AC990 | ?AssignName@UIMenu@@QAEXPAULocString@@@Z
+    // ?AssignName@UIMenu@@QAEXPAULocString@@@Z
     ARTS_IMPORT void AssignName(struct LocString* arg1);
 
-    // 0x4AEAD0 | ?CheckMouseHits@UIMenu@@QAEXXZ
+    // ?CheckMouseHits@UIMenu@@QAEXXZ
     ARTS_IMPORT void CheckMouseHits();
 
-    // 0x4ACB60 | ?ClearAction@UIMenu@@QAEXXZ
+    // ?ClearAction@UIMenu@@QAEXXZ
     ARTS_EXPORT void ClearAction();
 
-    // 0x4AEA70 | ?ClearSelected@UIMenu@@QAEXXZ
+    // ?ClearSelected@UIMenu@@QAEXXZ
     ARTS_IMPORT void ClearSelected();
 
-    // 0x4ACB70 | ?ClearToolTip@UIMenu@@QAEXXZ
+    // ?ClearToolTip@UIMenu@@QAEXXZ
     ARTS_IMPORT void ClearToolTip();
 
-    // 0x4AEAA0 | ?ClearWidgets@UIMenu@@QAEXXZ
+    // ?ClearWidgets@UIMenu@@QAEXXZ
     ARTS_IMPORT void ClearWidgets();
 
-    // 0x4ACD90 | ?Decrement@UIMenu@@QAEHXZ
+    // ?Decrement@UIMenu@@QAEHXZ
     ARTS_IMPORT i32 Decrement();
 
-    // 0x4ACAB0 | ?Disable@UIMenu@@QAEXXZ
+    // ?Disable@UIMenu@@QAEXXZ
     ARTS_IMPORT void Disable();
 
-    // 0x4ACC70 | ?DisableIME@UIMenu@@QAEXXZ
+    // ?DisableIME@UIMenu@@QAEXXZ
     ARTS_IMPORT void DisableIME();
 
-    // 0x4ACA30 | ?Enable@UIMenu@@QAEXXZ
+    // ?Enable@UIMenu@@QAEXXZ
     ARTS_IMPORT void Enable();
 
-    // 0x4ACC90 | ?FindTheFirstFocusWidget@UIMenu@@QAEHXZ
+    // ?FindTheFirstFocusWidget@UIMenu@@QAEHXZ
     ARTS_IMPORT i32 FindTheFirstFocusWidget();
 
-    // 0x4ACB40 | ?ForceWidgetAction@UIMenu@@QAEXH@Z | unused
+    // ?ForceWidgetAction@UIMenu@@QAEXH@Z | unused
     ARTS_IMPORT void ForceWidgetAction(i32 arg1);
 
-    // 0x4ACC30 | ?GetBstate@UIMenu@@QAEHXZ
+    // ?GetBstate@UIMenu@@QAEHXZ
     ARTS_IMPORT i32 GetBstate();
 
-    // 0x4ACC40 | ?GetDimensions@UIMenu@@QAEXAAM000@Z
+    // ?GetDimensions@UIMenu@@QAEXAAM000@Z
     ARTS_IMPORT void GetDimensions(f32& arg1, f32& arg2, f32& arg3, f32& arg4);
 
-    // 0x4ACC20 | ?GetWidgetID@UIMenu@@QAEHXZ
+    // ?GetWidgetID@UIMenu@@QAEHXZ
     ARTS_IMPORT i32 GetWidgetID();
 
-    // 0x4ACCD0 | ?Increment@UIMenu@@QAEHXZ
+    // ?Increment@UIMenu@@QAEHXZ
     ARTS_IMPORT i32 Increment();
 
-    // 0x4AE880 | ?KeyboardAction@UIMenu@@QAEXTeqEvent@@@Z
+    // ?KeyboardAction@UIMenu@@QAEXTeqEvent@@@Z
     ARTS_IMPORT void KeyboardAction(union eqEvent arg1);
 
-    // 0x4AE810 | ?MouseAction@UIMenu@@QAEXTeqEvent@@@Z
+    // ?MouseAction@UIMenu@@QAEXTeqEvent@@@Z
     ARTS_IMPORT void MouseAction(union eqEvent arg1);
 
-    // 0x4AE910 | ?MouseHitCheck@UIMenu@@QAEPAVuiWidget@@HMM@Z
+    // ?MouseHitCheck@UIMenu@@QAEPAVuiWidget@@HMM@Z
     ARTS_IMPORT class uiWidget* MouseHitCheck(i32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4ACF20 | ?ScaleWidget@UIMenu@@QAEXAAM000@Z
+    // ?ScaleWidget@UIMenu@@QAEXAAM000@Z
     ARTS_IMPORT void ScaleWidget(f32& arg1, f32& arg2, f32& arg3, f32& arg4);
 
-    // 0x4ACE40 | ?ScanInput@UIMenu@@QAEHPATeqEvent@@@Z
+    // ?ScanInput@UIMenu@@QAEHPATeqEvent@@@Z
     ARTS_EXPORT b32 ScanInput(union eqEvent* event);
 
-    // 0x4ACB20 | ?SetAction@UIMenu@@QAEXW4eSource@1@@Z
+    // ?SetAction@UIMenu@@QAEXW4eSource@1@@Z
     ARTS_IMPORT void SetAction(enum UIMenu::eSource arg1);
 
-    // 0x4ACBB0 | ?SetBstate@UIMenu@@QAEXH@Z
+    // ?SetBstate@UIMenu@@QAEXH@Z
     ARTS_IMPORT void SetBstate(i32 arg1);
 
-    // 0x4ACBE0 | ?SetFocusWidget@UIMenu@@QAEXH@Z
+    // ?SetFocusWidget@UIMenu@@QAEXH@Z
     ARTS_IMPORT void SetFocusWidget(i32 arg1);
 
-    // 0x4AEA40 | ?SetSelected@UIMenu@@QAEXXZ
+    // ?SetSelected@UIMenu@@QAEXXZ
     ARTS_IMPORT void SetSelected();
 
-    // 0x4ACB10 | ?Update@UIMenu@@UAEXXZ
+    // ?Update@UIMenu@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x641854 | ?UI_BOTTOM_MARGIN@UIMenu@@2MA
+    // ?UI_BOTTOM_MARGIN@UIMenu@@2MA
     ARTS_IMPORT static f32 UI_BOTTOM_MARGIN;
 
-    // 0x641848 | ?UI_LEFT_MARGIN@UIMenu@@2MA
+    // ?UI_LEFT_MARGIN@UIMenu@@2MA
     ARTS_IMPORT static f32 UI_LEFT_MARGIN;
 
-    // 0x64184C | ?UI_LEFT_MARGIN2@UIMenu@@2MA
+    // ?UI_LEFT_MARGIN2@UIMenu@@2MA
     ARTS_IMPORT static f32 UI_LEFT_MARGIN2;
 
-    // 0x70595C | ?UI_RIGHT_MARGIN@UIMenu@@2MA
+    // ?UI_RIGHT_MARGIN@UIMenu@@2MA
     ARTS_IMPORT static f32 UI_RIGHT_MARGIN;
 
-    // 0x641850 | ?UI_TOP_MARGIN@UIMenu@@2MA
+    // ?UI_TOP_MARGIN@UIMenu@@2MA
     ARTS_IMPORT static f32 UI_TOP_MARGIN;
 
-    // 0x64185C | ?WIDGET_HEIGHT@UIMenu@@2MA
+    // ?WIDGET_HEIGHT@UIMenu@@2MA
     ARTS_IMPORT static f32 WIDGET_HEIGHT;
 
-    // 0x641858 | ?WIDGET_WIDTH@UIMenu@@2MA
+    // ?WIDGET_WIDTH@UIMenu@@2MA
     ARTS_IMPORT static f32 WIDGET_WIDTH;
 
     i32 GetState() const

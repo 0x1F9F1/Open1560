@@ -36,27 +36,27 @@
 
 class mmIcons final : public asNode
 {
-    // const mmIcons::`vftable' @ 0x61AD28
+    // const mmIcons::`vftable'
 
 public:
-    // 0x426390 | ??0mmIcons@@QAE@XZ
+    // ??0mmIcons@@QAE@XZ
     ARTS_IMPORT mmIcons();
 
-    // 0x426B70 | ??_GmmIcons@@UAEPAXI@Z
-    // 0x426B70 | ??_EmmIcons@@UAEPAXI@Z
-    // 0x426410 | ??1mmIcons@@UAE@XZ
+    // ??_GmmIcons@@UAEPAXI@Z
+    // ??_EmmIcons@@UAEPAXI@Z
+    // ??1mmIcons@@UAE@XZ
     ARTS_IMPORT ~mmIcons() override;
 
-    // 0x426570 | ?Cull@mmIcons@@UAEXXZ
+    // ?Cull@mmIcons@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x426470 | ?Init@mmIcons@@QAEXPAVMatrix34@@MM@Z
+    // ?Init@mmIcons@@QAEXPAVMatrix34@@MM@Z
     ARTS_IMPORT void Init(class Matrix34* arg1, f32 arg2, f32 arg3);
 
-    // 0x4264B0 | ?RegisterOpponents@mmIcons@@QAEXPAUOppIconInfo@@HPAX@Z
+    // ?RegisterOpponents@mmIcons@@QAEXPAUOppIconInfo@@HPAX@Z
     ARTS_IMPORT void RegisterOpponents(struct OppIconInfo* arg1, i32 arg2, void* arg3);
 
-    // 0x426530 | ?Update@mmIcons@@UAEXXZ
+    // ?Update@mmIcons@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x3C];

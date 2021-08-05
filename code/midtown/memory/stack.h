@@ -34,32 +34,32 @@
 
 // #define ARTS_NO_EXCEPTION_CATCHING
 
-// 0x520720 | ?DebugLog@@YAXHPAXH@Z
+// ?DebugLog@@YAXHPAXH@Z
 ARTS_EXPORT void DebugLog(i32 tag, void* data, i32 size);
 
-// 0x5206C0 | ?DebugLogInit@@YAXH@Z | unused
+// ?DebugLogInit@@YAXH@Z | unused
 ARTS_EXPORT void DebugLogInit(b32 reading);
 
-// 0x520700 | ?DebugLogShutdown@@YAXXZ
+// ?DebugLogShutdown@@YAXXZ
 ARTS_EXPORT void DebugLogShutdown();
 
-// 0x5204C0 | ?DoStackTraceback@@YAXHPAH@Z
+// ?DoStackTraceback@@YAXHPAH@Z
 ARTS_EXPORT void DoStackTraceback(i32 depth, isize* frame);
 
-// 0x520670 | ?DumpStackTraceback@@YAXPAHH@Z
+// ?DumpStackTraceback@@YAXPAHH@Z
 ARTS_EXPORT void DumpStackTraceback(isize* frames, i32 count);
 
-// 0x5205B0 | ?LogStackTraceback@@YAHPAHH@Z
+// ?LogStackTraceback@@YAHPAHH@Z
 [[deprecated]] ARTS_EXPORT i32 LogStackTraceback(isize* frames, i32 count);
 
 void LookupAddress(char* buffer, usize buflen, usize address);
 
-// 0x520130 | ?LookupAddress@@YAXPADH@Z
+// ?LookupAddress@@YAXPADH@Z
 // void LookupAddress(char* buffer, i32 address);
 
 i32 StackTraceback(i32 depth, isize* frames, i32 skipped);
 
-// 0x520590 | ?StackTraceback@@YAXH@Z
+// ?StackTraceback@@YAXH@Z
 ARTS_EXPORT void StackTraceback(i32 depth);
 
 void StackTraceback(i32 depth, i32 skipped);

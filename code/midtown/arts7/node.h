@@ -64,109 +64,109 @@
 
 class asNode : public asCullable
 {
-    // const asNode::`vftable' @ 0x620A78
+    // const asNode::`vftable'
 
 public:
-    // 0x5237C0 | ??0asNode@@QAE@XZ
+    // ??0asNode@@QAE@XZ
     ARTS_EXPORT asNode() = default;
 
-    // 0x524640 | ??_EasNode@@UAEPAXI@Z
-    // 0x5237F0 | ??1asNode@@UAE@XZ
+    // ??_EasNode@@UAEPAXI@Z
+    // ??1asNode@@UAE@XZ
     ARTS_EXPORT ~asNode() override = 0;
 
     ARTS_NON_COPYABLE(asNode);
 
-    // 0x523890 | ?Update@asNode@@UAEXXZ
+    // ?Update@asNode@@UAEXXZ
     ARTS_EXPORT virtual void Update();
 
-    // 0x523960 | ?Reset@asNode@@UAEXXZ
+    // ?Reset@asNode@@UAEXXZ
     ARTS_EXPORT virtual void Reset();
 
-    // 0x523980 | ?ResChange@asNode@@UAEXHH@Z
+    // ?ResChange@asNode@@UAEXHH@Z
     ARTS_EXPORT virtual void ResChange(i32 width, i32 height);
 
-    // 0x404BB0 | ?UpdatePaused@asNode@@UAEXXZ | inline
+    // ?UpdatePaused@asNode@@UAEXXZ | inline
     ARTS_EXPORT virtual void UpdatePaused();
 
-    // 0x524150 | ?Load@asNode@@UAEXXZ
+    // ?Load@asNode@@UAEXXZ
     ARTS_EXPORT virtual void Load();
 
-    // 0x523F70 | ?Save@asNode@@UAEXXZ
+    // ?Save@asNode@@UAEXXZ
     ARTS_EXPORT virtual void Save();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x524330 | ?AddWidgets@asNode@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asNode@@UAEXPAVBank@@@Z
     ARTS_EXPORT virtual void AddWidgets(class Bank* bank);
 
-    // 0x5243E0 | ?OpenWidgets@asNode@@UAEXPADPAVbkWindow@@@Z
+    // ?OpenWidgets@asNode@@UAEXPADPAVbkWindow@@@Z
     ARTS_EXPORT virtual void OpenWidgets(char* arg1, class bkWindow* arg2);
 
-    // 0x5243F0 | ?CloseWidgets@asNode@@UAEXXZ
+    // ?CloseWidgets@asNode@@UAEXXZ
     ARTS_EXPORT virtual void CloseWidgets();
 
-    // 0x524400 | ?AddButton@asNode@@QAEXPAVBank@@AAH@Z | unused
+    // ?AddButton@asNode@@QAEXPAVBank@@AAH@Z | unused
     ARTS_EXPORT void AddButton(class Bank* arg1, i32& arg2);
 #endif
 
-    // 0x523A70 | ?AddChild@asNode@@QAEHPAV1@@Z
+    // ?AddChild@asNode@@QAEHPAV1@@Z
     ARTS_EXPORT b32 AddChild(class asNode* child);
 
-    // 0x523C80 | ?GetChild@asNode@@QAEPAV1@H@Z
+    // ?GetChild@asNode@@QAEPAV1@H@Z
     ARTS_EXPORT class asNode* GetChild(i32 index);
 
-    // 0x523CC0 | ?GetLastChild@asNode@@QAEPAV1@XZ | unused
+    // ?GetLastChild@asNode@@QAEPAV1@XZ | unused
     ARTS_EXPORT class asNode* GetLastChild();
 
-    // 0x523CB0 | ?GetNext@asNode@@QAEPAV1@XZ | unused
+    // ?GetNext@asNode@@QAEPAV1@XZ | unused
     ARTS_EXPORT class asNode* GetNext()
     {
         return next_node_;
     }
 
-    // 0x523DC0 | ?GetNodeType@asNode@@QAEPADXZ | unused
+    // ?GetNodeType@asNode@@QAEPADXZ | unused
     ARTS_EXPORT const char* GetNodeType();
 
-    // 0x523D80 | ?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z | unused
+    // ?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z | unused
     ARTS_EXPORT class asNode* GetParent(class MetaClass* cls);
 
-    // 0x523AF0 | ?InsertChild@asNode@@QAEHHPAV1@@Z
+    // ?InsertChild@asNode@@QAEHHPAV1@@Z
     ARTS_EXPORT b32 InsertChild(i32 index, class asNode* child);
 
-    // 0x523DD0 | ?Load@asNode@@QAEHPAD@Z
+    // ?Load@asNode@@QAEHPAD@Z
     ARTS_EXPORT b32 Load(const char* path);
 
-    // 0x523D00 | ?NumChildren@asNode@@QAEHXZ
+    // ?NumChildren@asNode@@QAEHXZ
     ARTS_EXPORT i32 NumChildren();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x5239D0 | ?PerfReport@asNode@@QAEXPAVStream@@H@Z
+    // ?PerfReport@asNode@@QAEXPAVStream@@H@Z
     ARTS_EXPORT void PerfReport(class Stream* output, i32 indent);
 #endif
 
-    // 0x523C60 | ?RemoveAllChildren@asNode@@QAEXXZ
+    // ?RemoveAllChildren@asNode@@QAEXXZ
     ARTS_EXPORT void RemoveAllChildren();
 
-    // 0x523C20 | ?RemoveChild@asNode@@QAEHPAV1@@Z
+    // ?RemoveChild@asNode@@QAEHPAV1@@Z
     ARTS_EXPORT b32 RemoveChild(class asNode* child);
 
-    // 0x523B80 | ?RemoveChild@asNode@@QAEHH@Z
+    // ?RemoveChild@asNode@@QAEHH@Z
     ARTS_EXPORT b32 RemoveChild(i32 idx);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x5239B0 | ?ResetTime@asNode@@QAEXXZ
+    // ?ResetTime@asNode@@QAEXXZ
     ARTS_EXPORT void ResetTime();
 #endif
 
-    // 0x523EC0 | ?Save@asNode@@QAEHPAD@Z
+    // ?Save@asNode@@QAEHPAD@Z
     ARTS_EXPORT b32 Save(const char* path);
 
-    // 0x523860 | ?SetName@asNode@@QAEXPAD@Z
+    // ?SetName@asNode@@QAEXPAD@Z
     ARTS_EXPORT void SetName(const char* name);
 
-    // 0x523D20 | ?SwitchTo@asNode@@QAEXH@Z | unused
+    // ?SwitchTo@asNode@@QAEXH@Z | unused
     ARTS_EXPORT void SwitchTo(i32 idx);
 
-    // 0x523440 | ?VerifyTree@asNode@@QAEPADXZ | arts7:sim
+    // ?VerifyTree@asNode@@QAEPADXZ | arts7:sim
     ARTS_EXPORT const char* VerifyTree();
 
     bool IsActive() const
@@ -218,7 +218,7 @@ public:
     VIRTUAL_META_DECLARE;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x790834 | ?TimingCount@asNode@@2HA
+    // ?TimingCount@asNode@@2HA
     ARTS_IMPORT static i32 TimingCount;
 #endif
 
@@ -250,8 +250,8 @@ check_size(asNode, 0x20);
 #define ARTS_DEBUG_UPDATEMEM 0x2 // SanityCheck in asNode::Update         | -updatememdbg
 #define ARTS_DEBUG_UPDATE 0x4    // VerifyTree  in asNode::Update         | -updatedbg
 
-// 0x790830 | ?DebugMemory@@3HA
+// ?DebugMemory@@3HA
 ARTS_IMPORT extern i32 DebugMemory;
 
-// 0x790838 | ?asNodeMetaClass@@3VMetaClass@@A
+// ?asNodeMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asNodeMetaClass;

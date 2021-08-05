@@ -76,156 +76,156 @@
 class aiPath
 {
 public:
-    // 0x43C390 | ??0aiPath@@QAE@H@Z
+    // ??0aiPath@@QAE@H@Z
     ARTS_IMPORT aiPath(i32 arg1);
 
-    // 0x43C3C0 | ??1aiPath@@QAE@XZ
+    // ??1aiPath@@QAE@XZ
     ARTS_IMPORT ~aiPath();
 
-    // 0x43CFA0 | ?AddPathVerts@aiPath@@QAEXPAVVector3@@H@Z
+    // ?AddPathVerts@aiPath@@QAEXPAVVector3@@H@Z
     ARTS_IMPORT void AddPathVerts(class Vector3* arg1, i32 arg2);
 
-    // 0x43C670 | ?AddPathVerts@aiPath@@QAEXAAVmmRoadSect@@HH@Z
+    // ?AddPathVerts@aiPath@@QAEXAAVmmRoadSect@@HH@Z
     ARTS_IMPORT void AddPathVerts(class mmRoadSect& arg1, i32 arg2, i32 arg3);
 
-    // 0x43FE80 | ?AddPedestrian@aiPath@@QAEXPAVaiPedestrian@@@Z
+    // ?AddPedestrian@aiPath@@QAEXPAVaiPedestrian@@@Z
     ARTS_IMPORT void AddPedestrian(class aiPedestrian* arg1);
 
-    // 0x43FB80 | ?AddVehicle@aiPath@@QAEXPAVaiVehicleSpline@@HM@Z
+    // ?AddVehicle@aiPath@@QAEXPAVaiVehicleSpline@@HM@Z
     ARTS_IMPORT void AddVehicle(class aiVehicleSpline* arg1, i32 arg2, f32 arg3);
 
-    // 0x43E650 | ?AllwaysGo@aiPath@@QAEXH@Z
+    // ?AllwaysGo@aiPath@@QAEXH@Z
     ARTS_IMPORT void AllwaysGo(i32 arg1);
 
-    // 0x43E4F0 | ?AllwaysStop@aiPath@@QAEXH@Z
+    // ?AllwaysStop@aiPath@@QAEXH@Z
     ARTS_IMPORT void AllwaysStop(i32 arg1);
 
-    // 0x43F020 | ?AmbientCenterDistance@aiPath@@QAEXPAVaiVehicleSpline@@PAM111@Z
+    // ?AmbientCenterDistance@aiPath@@QAEXPAVaiVehicleSpline@@PAM111@Z
     ARTS_IMPORT void AmbientCenterDistance(class aiVehicleSpline* arg1, f32* arg2, f32* arg3, f32* arg4, f32* arg5);
 
-    // 0x43FF30 | ?Blocked@aiPath@@QAEXH@Z
+    // ?Blocked@aiPath@@QAEXH@Z
     ARTS_IMPORT void Blocked(i32 arg1);
 
-    // 0x43D610 | ?CalcCenterVerts@aiPath@@QAEXAAVmmRoadSect@@H@Z
+    // ?CalcCenterVerts@aiPath@@QAEXAAVmmRoadSect@@H@Z
     ARTS_IMPORT void CalcCenterVerts(class mmRoadSect& arg1, i32 arg2);
 
-    // 0x43ED00 | ?CenterDistance@aiPath@@QAEHAAVVector3@@PAFPAM2@Z
+    // ?CenterDistance@aiPath@@QAEHAAVVector3@@PAFPAM2@Z
     ARTS_IMPORT i32 CenterDistance(class Vector3& arg1, i16* arg2, f32* arg3, f32* arg4);
 
-    // 0x43E840 | ?CenterIndex@aiPath@@QAEHM@Z
+    // ?CenterIndex@aiPath@@QAEHM@Z
     ARTS_IMPORT i32 CenterIndex(f32 arg1);
 
-    // 0x43E670 | ?CenterLength@aiPath@@QAEMHH@Z
+    // ?CenterLength@aiPath@@QAEMHH@Z
     ARTS_IMPORT f32 CenterLength(i32 arg1, i32 arg2);
 
-    // 0x43E8E0 | ?CenterPosition@aiPath@@QAEXMAAVVector3@@@Z | unused
+    // ?CenterPosition@aiPath@@QAEXMAAVVector3@@@Z | unused
     ARTS_IMPORT void CenterPosition(f32 arg1, class Vector3& arg2);
 
-    // 0x440020 | ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z | inline
+    // ?CenterVertice@aiPath@@QAEPAVVector3@@H@Z | inline
     ARTS_IMPORT class Vector3* CenterVertice(i32 arg1);
 
-    // 0x43F9D0 | ?ContinuityError@aiPath@@QAEHH@Z | unused
+    // ?ContinuityError@aiPath@@QAEHH@Z | unused
     ARTS_IMPORT i32 ContinuityError(i32 arg1);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x43E0C0 | ?Draw@aiPath@@QAEXXZ
+    // ?Draw@aiPath@@QAEXXZ
     ARTS_IMPORT void Draw();
 
-    // 0x43E370 | ?DrawId@aiPath@@QAEXXZ
+    // ?DrawId@aiPath@@QAEXXZ
     ARTS_IMPORT void DrawId();
 
-    // 0x43E280 | ?DrawNormals@aiPath@@QAEXXZ
+    // ?DrawNormals@aiPath@@QAEXXZ
     ARTS_IMPORT void DrawNormals();
 
-    // 0x43E3E0 | ?DrawVehicleIds@aiPath@@QAEXXZ | unused
+    // ?DrawVehicleIds@aiPath@@QAEXXZ | unused
     ARTS_IMPORT void DrawVehicleIds();
 #endif
 
-    // 0x43E450 | ?Dump@aiPath@@QAEXXZ | unused
+    // ?Dump@aiPath@@QAEXXZ | unused
     ARTS_IMPORT void Dump();
 
-    // 0x43E6B0 | ?GetHeading@aiPath@@QAEMMH@Z
+    // ?GetHeading@aiPath@@QAEMMH@Z
     ARTS_IMPORT f32 GetHeading(f32 arg1, i32 arg2);
 
-    // 0x43EA60 | ?Index@aiPath@@QAEHAAVVector3@@@Z
+    // ?Index@aiPath@@QAEHAAVVector3@@@Z
     ARTS_IMPORT i32 Index(class Vector3& arg1);
 
-    // 0x43E9B0 | ?Index@aiPath@@QAEHMH@Z
+    // ?Index@aiPath@@QAEHMH@Z
     ARTS_IMPORT i32 Index(f32 arg1, i32 arg2);
 
-    // 0x43F7D0 | ?IntersectionEntryPt@aiPath@@QAEXAAVVector3@@HM@Z
+    // ?IntersectionEntryPt@aiPath@@QAEXAAVVector3@@HM@Z
     ARTS_IMPORT void IntersectionEntryPt(class Vector3& arg1, i32 arg2, f32 arg3);
 
-    // 0x43F890 | ?IntersectionEntryVector@aiPath@@QAEXAAVVector3@@M@Z
+    // ?IntersectionEntryVector@aiPath@@QAEXAAVVector3@@M@Z
     ARTS_IMPORT void IntersectionEntryVector(class Vector3& arg1, f32 arg2);
 
-    // 0x43F910 | ?IntersectionExitVector@aiPath@@QAEXAAVVector3@@M@Z
+    // ?IntersectionExitVector@aiPath@@QAEXAAVVector3@@M@Z
     ARTS_IMPORT void IntersectionExitVector(class Vector3& arg1, f32 arg2);
 
-    // 0x459E90 | ?LBoundary@aiPath@@QAEPAVVector3@@H@Z | inline
+    // ?LBoundary@aiPath@@QAEPAVVector3@@H@Z | inline
     ARTS_IMPORT class Vector3* LBoundary(i32 arg1);
 
-    // 0x43F980 | ?NumVehiclesAfterDist@aiPath@@QAEHHM@Z
+    // ?NumVehiclesAfterDist@aiPath@@QAEHHM@Z
     ARTS_IMPORT i32 NumVehiclesAfterDist(i32 arg1, f32 arg2);
 
-    // 0x43FA30 | ?PopVehicle@aiPath@@QAEXPAVaiVehicleSpline@@H@Z
+    // ?PopVehicle@aiPath@@QAEXPAVaiVehicleSpline@@H@Z
     ARTS_IMPORT void PopVehicle(class aiVehicleSpline* arg1, i32 arg2);
 
-    // 0x43FB10 | ?PushVehicle@aiPath@@QAEXPAVaiVehicleSpline@@H@Z
+    // ?PushVehicle@aiPath@@QAEXPAVaiVehicleSpline@@H@Z
     ARTS_IMPORT void PushVehicle(class aiVehicleSpline* arg1, i32 arg2);
 
-    // 0x43DBC0 | ?ReadBinary@aiPath@@QAEXPAVStream@@@Z
+    // ?ReadBinary@aiPath@@QAEXPAVStream@@@Z
     ARTS_IMPORT void ReadBinary(class Stream* arg1);
 
-    // 0x43FEC0 | ?RemovePedestrian@aiPath@@QAEXPAVaiPedestrian@@@Z
+    // ?RemovePedestrian@aiPath@@QAEXPAVaiPedestrian@@@Z
     ARTS_IMPORT void RemovePedestrian(class aiPedestrian* arg1);
 
-    // 0x43FCB0 | ?RemoveVehicle@aiPath@@QAEHPAVaiVehicleSpline@@H@Z
+    // ?RemoveVehicle@aiPath@@QAEHPAVaiVehicleSpline@@H@Z
     ARTS_IMPORT i32 RemoveVehicle(class aiVehicleSpline* arg1, i32 arg2);
 
-    // 0x43C450 | ?Reset@aiPath@@QAEXXZ
+    // ?Reset@aiPath@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    // 0x43C640 | ?ResetVehicleReactTicks@aiPath@@QAEXXZ
+    // ?ResetVehicleReactTicks@aiPath@@QAEXXZ
     ARTS_IMPORT void ResetVehicleReactTicks();
 
-    // 0x43FDC0 | ?RoadCapacity@aiPath@@QAEHPAVaiVehicleSpline@@H@Z
+    // ?RoadCapacity@aiPath@@QAEHPAVaiVehicleSpline@@H@Z
     ARTS_IMPORT i32 RoadCapacity(class aiVehicleSpline* arg1, i32 arg2);
 
-    // 0x43EB60 | ?RoadDistance@aiPath@@QAEXAAVVector3@@PAFPAMF2@Z
+    // ?RoadDistance@aiPath@@QAEXAAVVector3@@PAFPAMF2@Z
     ARTS_IMPORT void RoadDistance(class Vector3& arg1, i16* arg2, f32* arg3, i16 arg4, f32* arg5);
 
-    // 0x43D950 | ?SaveBinary@aiPath@@QAEXPAVStream@@@Z
+    // ?SaveBinary@aiPath@@QAEXPAVStream@@@Z
     ARTS_IMPORT void SaveBinary(class Stream* arg1);
 
-    // 0x43E5D0 | ?StopDestinationSources@aiPath@@QAEXH@Z
+    // ?StopDestinationSources@aiPath@@QAEXH@Z
     ARTS_IMPORT void StopDestinationSources(i32 arg1);
 
-    // 0x43E510 | ?StopIncomingRoads@aiPath@@QAEXH@Z | unused
+    // ?StopIncomingRoads@aiPath@@QAEXH@Z | unused
     ARTS_IMPORT void StopIncomingRoads(i32 arg1);
 
-    // 0x43F780 | ?SubSectionDir@aiPath@@QAEXAAVVector3@@HHM@Z
+    // ?SubSectionDir@aiPath@@QAEXAAVVector3@@HHM@Z
     ARTS_IMPORT void SubSectionDir(class Vector3& arg1, i32 arg2, i32 arg3, f32 arg4);
 
-    // 0x43E780 | ?SubSectionDist@aiPath@@QAEMMH@Z
+    // ?SubSectionDist@aiPath@@QAEMMH@Z
     ARTS_IMPORT f32 SubSectionDist(f32 arg1, i32 arg2);
 
-    // 0x43E690 | ?SubSectionLength@aiPath@@QAEMHH@Z
+    // ?SubSectionLength@aiPath@@QAEMHH@Z
     ARTS_IMPORT f32 SubSectionLength(i32 arg1, i32 arg2);
 
-    // 0x43F710 | ?SubSectionPt@aiPath@@QAEXAAVVector3@@HHM@Z
+    // ?SubSectionPt@aiPath@@QAEXAAVVector3@@HHM@Z
     ARTS_IMPORT void SubSectionPt(class Vector3& arg1, i32 arg2, i32 arg3, f32 arg4);
 
-    // 0x43C490 | ?UpdateAmbients@aiPath@@QAEXXZ
+    // ?UpdateAmbients@aiPath@@QAEXXZ
     ARTS_IMPORT void UpdateAmbients();
 
-    // 0x43C5A0 | ?UpdatePedestrians@aiPath@@QAEXXZ
+    // ?UpdatePedestrians@aiPath@@QAEXXZ
     ARTS_IMPORT void UpdatePedestrians();
 
-    // 0x43FF50 | ?VertXDir@aiPath@@QAEPAVVector3@@H@Z | inline
+    // ?VertXDir@aiPath@@QAEPAVVector3@@H@Z | inline
     ARTS_IMPORT class Vector3* VertXDir(i32 arg1);
 
-    // 0x43FFD0 | ?VertZDir@aiPath@@QAEPAVVector3@@H@Z | inline
+    // ?VertZDir@aiPath@@QAEPAVVector3@@H@Z | inline
     ARTS_IMPORT class Vector3* VertZDir(i32 arg1);
 
     u8 gap0[0x104];

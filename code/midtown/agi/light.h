@@ -41,10 +41,10 @@
 class agiLightParameters
 {
 public:
-    // 0x55B9E0 | ??0agiLightParameters@@QAE@XZ
+    // ??0agiLightParameters@@QAE@XZ
     ARTS_EXPORT agiLightParameters() = default;
 
-    // 0x55BA60 | ??4agiLightParameters@@QAEXABV0@@Z
+    // ??4agiLightParameters@@QAEXABV0@@Z
     ARTS_EXPORT void operator=(class agiLightParameters const& rhs)
     {
         std::memcpy(this, &rhs, sizeof(*this));
@@ -85,28 +85,28 @@ check_size(agiLightParameters, 0x70);
 
 class agiLight : public agiRefreshable
 {
-    // const agiLight::`vftable' @ 0x621720
+    // const agiLight::`vftable'
 
 public:
-    // 0x55BA80 | ??0agiLight@@QAE@PAVagiPipeline@@@Z
+    // ??0agiLight@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiLight(class agiPipeline* pipe)
         : agiRefreshable(pipe)
     {}
 
-    // 0x55BB40 | ??_EagiLight@@UAEPAXI@Z
-    // 0x55BB40 | ??_GagiLight@@UAEPAXI@Z
-    // 0x55BB10 | ??1agiLight@@UAE@XZ
+    // ??_EagiLight@@UAEPAXI@Z
+    // ??_GagiLight@@UAEPAXI@Z
+    // ??1agiLight@@UAE@XZ
     ARTS_EXPORT ~agiLight() override = default;
 
     virtual i32 Update() = 0;
 
-    // 0x55BB00 | ?Remove@agiLight@@UAEXXZ
+    // ?Remove@agiLight@@UAEXXZ
     ARTS_EXPORT virtual void Remove();
 
-    // 0x55BB20 | ?GetName@agiLight@@UAEPADXZ
+    // ?GetName@agiLight@@UAEPADXZ
     ARTS_EXPORT char* GetName() override;
 
-    // 0x55BAD0 | ?Init@agiLight@@QAEHABVagiLightParameters@@@Z
+    // ?Init@agiLight@@QAEHABVagiLightParameters@@@Z
     ARTS_EXPORT i32 Init(class agiLightParameters const& params);
 
     agiLightParameters Params {};

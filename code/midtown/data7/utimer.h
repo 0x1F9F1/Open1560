@@ -27,10 +27,10 @@
 
 ulong adjust_utimer(f32 elapsed, ulong prev);
 
-// 0x57C4C0 | ?utimer@@YAKXZ
+// ?utimer@@YAKXZ
 ARTS_EXPORT ulong utimer();
 
-// 0x90B4B4 | ?ut2float@@3MA
+// ?ut2float@@3MA
 ARTS_EXPORT extern f32 ut2float;
 
 #ifdef ARTS_DEV_BUILD

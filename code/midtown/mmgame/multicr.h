@@ -79,153 +79,153 @@
 
 class mmMultiCR final : public mmGameMulti
 {
-    // const mmMultiCR::`vftable' @ 0x61A960
+    // const mmMultiCR::`vftable'
 
 public:
-    // 0x41BFB0 | ??0mmMultiCR@@QAE@XZ
+    // ??0mmMultiCR@@QAE@XZ
     ARTS_IMPORT mmMultiCR();
 
-    // 0x41F8C0 | ??_EmmMultiCR@@UAEPAXI@Z
-    // 0x41C070 | ??1mmMultiCR@@UAE@XZ
+    // ??_EmmMultiCR@@UAEPAXI@Z
+    // ??1mmMultiCR@@UAE@XZ
     ARTS_IMPORT ~mmMultiCR() override;
 
-    // 0x41D1A0 | ?ChangePlayerData@mmMultiCR@@QAEXXZ
+    // ?ChangePlayerData@mmMultiCR@@QAEXXZ
     ARTS_IMPORT void ChangePlayerData();
 
-    // 0x41D810 | ?DropThruCityHandler@mmMultiCR@@UAEXXZ
+    // ?DropThruCityHandler@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void DropThruCityHandler() override;
 
-    // 0x41D180 | ?FondleCarMass@mmMultiCR@@QAEXPAVmmCar@@M@Z
+    // ?FondleCarMass@mmMultiCR@@QAEXPAVmmCar@@M@Z
     ARTS_IMPORT void FondleCarMass(class mmCar* arg1, f32 arg2);
 
-    // 0x41E6E0 | ?GameMessage@mmMultiCR@@UAEXPAUNETGAME_MSG@@@Z
+    // ?GameMessage@mmMultiCR@@UAEXPAUNETGAME_MSG@@@Z
     ARTS_IMPORT void GameMessage(struct NETGAME_MSG* arg1) override;
 
-    // 0x41F760 | ?GetClass@mmMultiCR@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmMultiCR@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x41F920 | ?GetWaypoints@mmMultiCR@@UAEPAVmmWaypoints@@XZ | inline
+    // ?GetWaypoints@mmMultiCR@@UAEPAVmmWaypoints@@XZ | inline
     ARTS_EXPORT class mmWaypoints* GetWaypoints() override;
 
-    // 0x41D760 | ?HitWaterHandler@mmMultiCR@@UAEXXZ
+    // ?HitWaterHandler@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void HitWaterHandler() override;
 
-    // 0x41D090 | ?ImpactCallback@mmMultiCR@@QAEXXZ
+    // ?ImpactCallback@mmMultiCR@@QAEXXZ
     ARTS_IMPORT void ImpactCallback();
 
-    // 0x41C140 | ?Init@mmMultiCR@@QAEHXZ
+    // ?Init@mmMultiCR@@QAEHXZ
     ARTS_IMPORT i32 Init();
 
-    // 0x41C4E0 | ?InitGameObjects@mmMultiCR@@UAEXXZ
+    // ?InitGameObjects@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void InitGameObjects() override;
 
-    // 0x41C3A0 | ?InitHUD@mmMultiCR@@UAEXXZ
+    // ?InitHUD@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void InitHUD() override;
 
-    // 0x41C2A0 | ?InitMyPlayer@mmMultiCR@@UAEXXZ
+    // ?InitMyPlayer@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void InitMyPlayer() override;
 
-    // 0x41C940 | ?InitNetworkPlayers@mmMultiCR@@UAEXXZ
+    // ?InitNetworkPlayers@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void InitNetworkPlayers() override;
 
-    // 0x41CF40 | ?LoadCSV@mmMultiCR@@QAEHPAD@Z
+    // ?LoadCSV@mmMultiCR@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadCSV(char* arg1);
 
-    // 0x41CEA0 | ?LoadSets@mmMultiCR@@QAEHPAD@Z
+    // ?LoadSets@mmMultiCR@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadSets(char* arg1);
 
-    // 0x41CCC0 | ?Reset@mmMultiCR@@UAEXXZ
+    // ?Reset@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x41D210 | ?ResetPositions@mmMultiCR@@QAEXH@Z
+    // ?ResetPositions@mmMultiCR@@QAEXH@Z
     ARTS_IMPORT void ResetPositions(i32 arg1);
 
-    // 0x41E490 | ?SystemMessage@mmMultiCR@@UAEXPAUNETSYS_MSG@@@Z
+    // ?SystemMessage@mmMultiCR@@UAEXPAUNETSYS_MSG@@@Z
     ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
 
-    // 0x41F560 | ?UpdateDebugKeyInput@mmMultiCR@@UAEXH@Z
+    // ?UpdateDebugKeyInput@mmMultiCR@@UAEXH@Z
     ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
-    // 0x41D380 | ?UpdateGame@mmMultiCR@@UAEXXZ
+    // ?UpdateGame@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;
 
-    // 0x41D340 | ?UpdateGameInput@mmMultiCR@@UAEXH@Z
+    // ?UpdateGameInput@mmMultiCR@@UAEXH@Z
     ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
 
-    // 0x41F5E0 | ?DeclareFields@mmMultiCR@@SAXXZ
+    // ?DeclareFields@mmMultiCR@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x41F570 | ?CycleInterest@mmMultiCR@@AAEXH@Z | unused
+    // ?CycleInterest@mmMultiCR@@AAEXH@Z | unused
     ARTS_IMPORT void CycleInterest(i32 arg1);
 
-    // 0x41F130 | ?DisplayTimeWarning@mmMultiCR@@AAEXH@Z
+    // ?DisplayTimeWarning@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void DisplayTimeWarning(i32 arg1);
 
-    // 0x41DA30 | ?DropGold@mmMultiCR@@AAEXVVector3@@H@Z
+    // ?DropGold@mmMultiCR@@AAEXVVector3@@H@Z
     ARTS_IMPORT void DropGold(class Vector3 arg1, i32 arg2);
 
-    // 0x41E290 | ?FillResults@mmMultiCR@@AAEXXZ
+    // ?FillResults@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void FillResults();
 
-    // 0x41D970 | ?FindGround@mmMultiCR@@AAEXVVector3@@AAV2@@Z
+    // ?FindGround@mmMultiCR@@AAEXVVector3@@AAV2@@Z
     ARTS_IMPORT void FindGround(class Vector3 arg1, class Vector3& arg2);
 
-    // 0x41D1F0 | ?GetRandomIndex@mmMultiCR@@AAEHXZ
+    // ?GetRandomIndex@mmMultiCR@@AAEHXZ
     ARTS_IMPORT i32 GetRandomIndex();
 
-    // 0x41D900 | ?OppStealGold@mmMultiCR@@AAEXH@Z
+    // ?OppStealGold@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void OppStealGold(i32 arg1);
 
-    // 0x41F530 | ?Score@mmMultiCR@@AAEXH@Z
+    // ?Score@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void Score(i32 arg1);
 
-    // 0x41D330 | ?SelectTeams@mmMultiCR@@AAEHXZ | unused
+    // ?SelectTeams@mmMultiCR@@AAEHXZ | unused
     ARTS_EXPORT i32 SelectTeams();
 
-    // 0x41F350 | ?SendChangeSet@mmMultiCR@@AAEXH@Z | unused
+    // ?SendChangeSet@mmMultiCR@@AAEXH@Z | unused
     ARTS_IMPORT void SendChangeSet(i32 arg1);
 
-    // 0x41F1C0 | ?SendGameState@mmMultiCR@@AAEXK@Z
+    // ?SendGameState@mmMultiCR@@AAEXK@Z
     ARTS_IMPORT void SendGameState(ulong arg1);
 
-    // 0x41F2C0 | ?SendGoldAck@mmMultiCR@@AAEXK@Z
+    // ?SendGoldAck@mmMultiCR@@AAEXK@Z
     ARTS_IMPORT void SendGoldAck(ulong arg1);
 
-    // 0x41F300 | ?SendGoldDeliver@mmMultiCR@@AAEXXZ
+    // ?SendGoldDeliver@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void SendGoldDeliver();
 
-    // 0x41F270 | ?SendGoldDrop@mmMultiCR@@AAEXVVector3@@@Z
+    // ?SendGoldDrop@mmMultiCR@@AAEXVVector3@@@Z
     ARTS_IMPORT void SendGoldDrop(class Vector3 arg1);
 
-    // 0x41F390 | ?SendLimitReached@mmMultiCR@@AAEXH@Z
+    // ?SendLimitReached@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void SendLimitReached(i32 arg1);
 
-    // 0x41F260 | ?SendSetup@mmMultiCR@@AAEXK@Z | unused
+    // ?SendSetup@mmMultiCR@@AAEXK@Z | unused
     ARTS_EXPORT void SendSetup(ulong arg1);
 
-    // 0x41F3D0 | ?SendTimeWarning@mmMultiCR@@AAEXH@Z
+    // ?SendTimeWarning@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void SendTimeWarning(i32 arg1);
 
-    // 0x41D8C0 | ?StealGold@mmMultiCR@@AAEXPAVmmCar@@@Z
+    // ?StealGold@mmMultiCR@@AAEXPAVmmCar@@@Z
     ARTS_IMPORT void StealGold(class mmCar* arg1);
 
-    // 0x41DFA0 | ?UpdateBank@mmMultiCR@@AAEXXZ
+    // ?UpdateBank@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateBank();
 
-    // 0x41DC20 | ?UpdateGold@mmMultiCR@@AAEXXZ
+    // ?UpdateGold@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateGold();
 
-    // 0x41F410 | ?UpdateHUD@mmMultiCR@@AAEXXZ
+    // ?UpdateHUD@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateHUD();
 
-    // 0x41DE50 | ?UpdateHideout@mmMultiCR@@AAEXXZ
+    // ?UpdateHideout@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateHideout();
 
-    // 0x41E0F0 | ?UpdateLimit@mmMultiCR@@AAEXXZ
+    // ?UpdateLimit@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateLimit();
 
-    // 0x41EFC0 | ?UpdateTimeWarning@mmMultiCR@@AAEXXZ
+    // ?UpdateTimeWarning@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateTimeWarning();
 
     u8 gap1EEA8[0x88];
@@ -233,8 +233,8 @@ private:
 
 check_size(mmMultiCR, 0x1EF30);
 
-// 0x6A7240 | ?TwoPlayers@@3HA
+// ?TwoPlayers@@3HA
 ARTS_IMPORT extern i32 TwoPlayers;
 
-// 0x6A7210 | ?mmMultiCRMetaClass@@3VMetaClass@@A
+// ?mmMultiCRMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmMultiCRMetaClass;

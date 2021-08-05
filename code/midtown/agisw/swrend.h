@@ -122,265 +122,265 @@
     0x79FF10 | int LODBIAS | ?LODBIAS@@3HA
 */
 
-// 0x5351C0 | ?__emitDebug@@YIXPAUswSurface@@H@Z | unused
+// ?__emitDebug@@YIXPAUswSurface@@H@Z | unused
 ARTS_IMPORT void ARTS_FASTCALL __emitDebug(struct swSurface* arg1, i32 arg2);
 
-// 0x535220 | ?__emitDepthComplexity@@YIXH@Z
+// ?__emitDepthComplexity@@YIXH@Z
 ARTS_IMPORT void ARTS_FASTCALL __emitDepthComplexity(i32 arg1);
 
-// 0x535260 | ?__emitSolid@@YIXH@Z
+// ?__emitSolid@@YIXH@Z
 ARTS_IMPORT void ARTS_FASTCALL __emitSolid(i32 arg1);
 
-// 0x5352B0 | ?__emitSolidZ@@YIXH@Z
+// ?__emitSolidZ@@YIXH@Z
 ARTS_IMPORT void ARTS_FASTCALL __emitSolidZ(i32 arg1);
 
-// 0x535320 | ?__emitWireframe@@YIXH@Z
+// ?__emitWireframe@@YIXH@Z
 ARTS_IMPORT void ARTS_FASTCALL __emitWireframe(i32 arg1);
 
-// 0x535890 | ?__setupNone@@YIXPAUswSurface@@@Z
+// ?__setupNone@@YIXPAUswSurface@@@Z
 ARTS_EXPORT void ARTS_FASTCALL __setupNone(struct swSurface* arg1);
 
-// 0x535510 | ?__setupUV@@YIXPAUswSurface@@@Z
+// ?__setupUV@@YIXPAUswSurface@@@Z
 ARTS_IMPORT void ARTS_FASTCALL __setupUV(struct swSurface* arg1);
 
-// 0x5356E0 | ?__setupUVI@@YIXPAUswSurface@@@Z | unused
+// ?__setupUVI@@YIXPAUswSurface@@@Z | unused
 ARTS_IMPORT void ARTS_FASTCALL __setupUVI(struct swSurface* arg1);
 
-// 0x5357B0 | ?__setupUVIZ@@YIXPAUswSurface@@@Z | unused
+// ?__setupUVIZ@@YIXPAUswSurface@@@Z | unused
 ARTS_IMPORT void ARTS_FASTCALL __setupUVIZ(struct swSurface* arg1);
 
-// 0x5355D0 | ?__setupUVZ@@YIXPAUswSurface@@@Z
+// ?__setupUVZ@@YIXPAUswSurface@@@Z
 ARTS_IMPORT void ARTS_FASTCALL __setupUVZ(struct swSurface* arg1);
 
-// 0x5356A0 | ?__setupZ@@YIXPAUswSurface@@@Z
+// ?__setupZ@@YIXPAUswSurface@@@Z
 ARTS_IMPORT void ARTS_FASTCALL __setupZ(struct swSurface* arg1);
 
-// 0x5358A0 | ?__spanLinear@@YIXPAUswSurface@@H@Z
+// ?__spanLinear@@YIXPAUswSurface@@H@Z
 ARTS_IMPORT void ARTS_FASTCALL __spanLinear(struct swSurface* arg1, i32 arg2);
 
-// 0x5358D0 | ?__spanLinearZwrite@@YIXPAUswSurface@@H@Z
+// ?__spanLinearZwrite@@YIXPAUswSurface@@H@Z
 ARTS_IMPORT void ARTS_FASTCALL __spanLinearZwrite(struct swSurface* arg1, i32 arg2);
 
-// 0x5359D0 | ?__spanPerspXY@@YIXPAUswSurface@@H@Z
+// ?__spanPerspXY@@YIXPAUswSurface@@H@Z
 ARTS_IMPORT void ARTS_FASTCALL __spanPerspXY(struct swSurface* arg1, i32 arg2);
 
-// 0x535BD0 | ?__spanPerspXYZwrite@@YIXPAUswSurface@@H@Z
+// ?__spanPerspXYZwrite@@YIXPAUswSurface@@H@Z
 ARTS_IMPORT void ARTS_FASTCALL __spanPerspXYZwrite(struct swSurface* arg1, i32 arg2);
 
-// 0x535340 | ?swAddEdge@@YAXHH@Z
+// ?swAddEdge@@YAXHH@Z
 ARTS_IMPORT void swAddEdge(i32 arg1, i32 arg2);
 
-// 0x537480 | ?swInit@@YAXXZ
+// ?swInit@@YAXXZ
 ARTS_IMPORT void swInit();
 
-// 0x535E30 | ?swInitSurface@@YAPAUswSurface@@UagiScreenVtx@@00I@Z
+// ?swInitSurface@@YAPAUswSurface@@UagiScreenVtx@@00I@Z
 ARTS_IMPORT struct swSurface* swInitSurface(
     struct agiScreenVtx arg1, struct agiScreenVtx arg2, struct agiScreenVtx arg3, u32 arg4);
 
-// 0x537410 | ?swKill@@YAXXZ
+// ?swKill@@YAXXZ
 ARTS_EXPORT void swKill();
 
-// 0x537360 | ?swLine@@YAXPAUagiScreenVtx@@0@Z
+// ?swLine@@YAXPAUagiScreenVtx@@0@Z
 ARTS_EXPORT void swLine(struct agiScreenVtx* start, struct agiScreenVtx* end);
 
-// 0x537270 | ?swLineInt@@YAXHHHHH@Z
+// ?swLineInt@@YAXHHHHH@Z
 ARTS_IMPORT void swLineInt(i32 start_x, i32 start_y, i32 end_x, i32 end_y, i32 color);
 
-// 0x536EE0 | ?swPoly@@YAXPAUagiScreenVtx@@H@Z
+// ?swPoly@@YAXPAUagiScreenVtx@@H@Z
 ARTS_IMPORT void swPoly(struct agiScreenVtx* arg1, i32 arg2);
 
-// 0x536B10 | ?swQuad@@YAXPAUagiScreenVtx@@000@Z
+// ?swQuad@@YAXPAUagiScreenVtx@@000@Z
 ARTS_IMPORT void swQuad(
     struct agiScreenVtx* arg1, struct agiScreenVtx* arg2, struct agiScreenVtx* arg3, struct agiScreenVtx* arg4);
 
-// 0x535BF0 | ?swScanSurface@@YAXPAUswSurface@@@Z
+// ?swScanSurface@@YAXPAUswSurface@@@Z
 ARTS_IMPORT void swScanSurface(struct swSurface* arg1);
 
-// 0x536880 | ?swScanSurfaces@@YAXXZ
+// ?swScanSurfaces@@YAXXZ
 ARTS_IMPORT void swScanSurfaces();
 
-// 0x537440 | ?swSetInterlace@@YAXH@Z
+// ?swSetInterlace@@YAXH@Z
 ARTS_IMPORT void swSetInterlace(i32 arg1);
 
-// 0x536950 | ?swTri@@YAXPAUagiScreenVtx@@00@Z
+// ?swTri@@YAXPAUagiScreenVtx@@00@Z
 ARTS_IMPORT void swTri(struct agiScreenVtx* arg1, struct agiScreenVtx* arg2, struct agiScreenVtx* arg3);
 
-// 0x652260 | ?BACKFACE@@3HA
+// ?BACKFACE@@3HA
 ARTS_IMPORT extern i32 BACKFACE;
 
-// 0x796048 | ?BADEDGE@@3HA
+// ?BADEDGE@@3HA
 ARTS_IMPORT extern i32 BADEDGE;
 
-// 0x795F70 | ?EnableParabolic@@3HA
+// ?EnableParabolic@@3HA
 ARTS_IMPORT extern i32 EnableParabolic;
 
-// 0x795F4C | ?FLIPLOD@@3HA
+// ?FLIPLOD@@3HA
 ARTS_IMPORT extern i32 FLIPLOD;
 
-// 0x65225C | ?FLIPWINDING@@3HA
+// ?FLIPWINDING@@3HA
 ARTS_IMPORT extern i32 FLIPWINDING;
 
-// 0x79FF10 | ?LODBIAS@@3HA
+// ?LODBIAS@@3HA
 ARTS_IMPORT extern i32 LODBIAS;
 
-// 0x65226C | ?PERSP2@@3HA
+// ?PERSP2@@3HA
 ARTS_IMPORT extern i32 PERSP2;
 
-// 0x652270 | ?PERSP_THRESH@@3MA
+// ?PERSP_THRESH@@3MA
 ARTS_IMPORT extern f32 PERSP_THRESH;
 
-// 0x6522C0 | ?QUADS@@3HA
+// ?QUADS@@3HA
 ARTS_IMPORT extern i32 QUADS;
 
-// 0x652264 | ?XPTHRESH@@3HA
+// ?XPTHRESH@@3HA
 ARTS_IMPORT extern i32 XPTHRESH;
 
-// 0x652268 | ?YPTHRESH@@3HA
+// ?YPTHRESH@@3HA
 ARTS_IMPORT extern i32 YPTHRESH;
 
-// 0x795F84 | ?debugTri@@3HA
+// ?debugTri@@3HA
 ARTS_IMPORT extern i32 debugTri;
 
-// 0x795FA8 | ?debugTriGate@@3HA
+// ?debugTriGate@@3HA
 ARTS_IMPORT extern i32 debugTriGate;
 
-// 0x79BEE8 | ?debugTriMatch@@3HA
+// ?debugTriMatch@@3HA
 ARTS_IMPORT extern i32 debugTriMatch;
 
-// 0x795FAC | ?swActualScreenStride@@3IA
+// ?swActualScreenStride@@3IA
 ARTS_IMPORT extern u32 swActualScreenStride;
 
-// 0x795FFC | ?swBlueMask@@3HA
+// ?swBlueMask@@3HA
 ARTS_IMPORT extern i32 swBlueMask;
 
-// 0x7960B0 | ?swBytesPerPixel@@3HA
+// ?swBytesPerPixel@@3HA
 ARTS_IMPORT extern i32 swBytesPerPixel;
 
-// 0x795FB0 | ?swClampAdd@@3P6IIII@ZA
+// ?swClampAdd@@3P6IIII@ZA
 ARTS_IMPORT extern u32(ARTS_FASTCALL* swClampAdd)(u32, u32);
 
-// 0x795F54 | ?swCurrentDepthLine@@3PAGA
+// ?swCurrentDepthLine@@3PAGA
 ARTS_IMPORT extern u16* swCurrentDepthLine;
 
-// 0x7960D0 | ?swCurrentLut@@3PAGA
+// ?swCurrentLut@@3PAGA
 ARTS_IMPORT extern u16* swCurrentLut;
 
-// 0x7960AC | ?swCurrentScanline@@3PAXA
+// ?swCurrentScanline@@3PAXA
 ARTS_IMPORT extern void* swCurrentScanline;
 
-// 0x795F48 | ?swDepthBuffer@@3PAGA
+// ?swDepthBuffer@@3PAGA
 ARTS_IMPORT extern u16* swDepthBuffer;
 
-// 0x7960BC | ?swFbEnd@@3P6AXXZA
+// ?swFbEnd@@3P6AXXZA
 ARTS_IMPORT extern void (*swFbEnd)(void);
 
-// 0x795F74 | ?swFbEndFrame@@3P6AXXZA
+// ?swFbEndFrame@@3P6AXXZA
 ARTS_IMPORT extern void (*swFbEndFrame)(void);
 
-// 0x7960C8 | ?swFbEndScene@@3P6AXXZA
+// ?swFbEndScene@@3P6AXXZA
 ARTS_IMPORT extern void (*swFbEndScene)(void);
 
-// 0x65204C | ?swFbHeight@@3HA
+// ?swFbHeight@@3HA
 ARTS_IMPORT extern i32 swFbHeight;
 
-// 0x7960B4 | ?swFbParent@@3PAXA
+// ?swFbParent@@3PAXA
 ARTS_IMPORT extern void* swFbParent;
 
-// 0x7960CC | ?swFbStart@@3P6AXXZA
+// ?swFbStart@@3P6AXXZA
 ARTS_IMPORT extern void (*swFbStart)(void);
 
-// 0x795F60 | ?swFbStartFrame@@3P6AXXZA
+// ?swFbStartFrame@@3P6AXXZA
 ARTS_IMPORT extern void (*swFbStartFrame)(void);
 
-// 0x795FF8 | ?swFbStartScene@@3P6AXXZA
+// ?swFbStartScene@@3P6AXXZA
 ARTS_IMPORT extern void (*swFbStartScene)(void);
 
-// 0x652048 | ?swFbWidth@@3HA
+// ?swFbWidth@@3HA
 ARTS_IMPORT extern i32 swFbWidth;
 
-// 0x79FF08 | ?swFbX@@3HA
+// ?swFbX@@3HA
 ARTS_IMPORT extern i32 swFbX;
 
-// 0x79FF0C | ?swFbY@@3HA
+// ?swFbY@@3HA
 ARTS_IMPORT extern i32 swFbY;
 
-// 0x7960B8 | ?swFrameOffset@@3IA
+// ?swFrameOffset@@3IA
 ARTS_IMPORT extern u32 swFrameOffset;
 
-// 0x795FA0 | ?swGreenMask@@3HA
+// ?swGreenMask@@3HA
 ARTS_IMPORT extern i32 swGreenMask;
 
-// 0x79BEF0 | ?swInfo@@3UswRastInfo@@A
+// ?swInfo@@3UswRastInfo@@A
 ARTS_IMPORT extern struct swRastInfo swInfo;
 
-// 0x796044 | ?swIsInterlaced@@3HA
+// ?swIsInterlaced@@3HA
 ARTS_IMPORT extern i32 swIsInterlaced;
 
-// 0x795F78 | ?swPixelSizeShift@@3HA
+// ?swPixelSizeShift@@3HA
 ARTS_IMPORT extern i32 swPixelSizeShift;
 
-// 0x7960C0 | ?swRedMask@@3HA
+// ?swRedMask@@3HA
 ARTS_IMPORT extern i32 swRedMask;
 
-// 0x795F50 | ?swScreen@@3PAXA
+// ?swScreen@@3PAXA
 ARTS_IMPORT extern void* swScreen;
 
-// 0x79FF04 | ?swScreenStride@@3IA
+// ?swScreenStride@@3IA
 ARTS_IMPORT extern u32 swScreenStride;
 
-// 0x795F7C | ?swStippleTest@@3PAEA
+// ?swStippleTest@@3PAEA
 ARTS_IMPORT extern u8* swStippleTest;
 
-// 0x795F68 | ?swr_color@@3HA
+// ?swr_color@@3HA
 ARTS_IMPORT extern i32 swr_color;
 
-// 0x796094 | ?swr_ddu@@3HA
+// ?swr_ddu@@3HA
 ARTS_IMPORT extern i32 swr_ddu;
 
-// 0x796098 | ?swr_ddv@@3HA
+// ?swr_ddv@@3HA
 ARTS_IMPORT extern i32 swr_ddv;
 
-// 0x7960C4 | ?swr_dest@@3PAXA
+// ?swr_dest@@3PAXA
 ARTS_IMPORT extern void* swr_dest;
 
-// 0x795F80 | ?swr_di@@3HA
+// ?swr_di@@3HA
 ARTS_IMPORT extern i32 swr_di;
 
-// 0x795F88 | ?swr_du@@3HA
+// ?swr_du@@3HA
 ARTS_IMPORT extern i32 swr_du;
 
-// 0x795F8C | ?swr_dv@@3HA
+// ?swr_dv@@3HA
 ARTS_IMPORT extern i32 swr_dv;
 
-// 0x795F90 | ?swr_dz@@3HA
+// ?swr_dz@@3HA
 ARTS_IMPORT extern i32 swr_dz;
 
-// 0x796090 | ?swr_i@@3HA
+// ?swr_i@@3HA
 ARTS_IMPORT extern i32 swr_i;
 
-// 0x795F5C | ?swr_sizes@@3Tswr_sizes_t@@A
+// ?swr_sizes@@3Tswr_sizes_t@@A
 ARTS_IMPORT extern union swr_sizes_t swr_sizes;
 
-// 0x79FF00 | ?swr_src@@3PAXA
+// ?swr_src@@3PAXA
 ARTS_IMPORT extern void* swr_src;
 
-// 0x795F6C | ?swr_texmask@@3HA
+// ?swr_texmask@@3HA
 ARTS_IMPORT extern i32 swr_texmask;
 
-// 0x79BEE4 | ?swr_texshift@@3HA
+// ?swr_texshift@@3HA
 ARTS_IMPORT extern i32 swr_texshift;
 
-// 0x79604C | ?swr_texstride@@3HA
+// ?swr_texstride@@3HA
 ARTS_IMPORT extern i32 swr_texstride;
 
-// 0x79609C | ?swr_u@@3HA
+// ?swr_u@@3HA
 ARTS_IMPORT extern i32 swr_u;
 
-// 0x7960A0 | ?swr_v@@3HA
+// ?swr_v@@3HA
 ARTS_IMPORT extern i32 swr_v;
 
-// 0x7960A4 | ?swr_z@@3HA
+// ?swr_z@@3HA
 ARTS_IMPORT extern i32 swr_z;
 
-// 0x795F98 | ?swr_zb@@3PAGA
+// ?swr_zb@@3PAGA
 ARTS_IMPORT extern u16* swr_zb;

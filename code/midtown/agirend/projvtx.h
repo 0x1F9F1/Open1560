@@ -54,87 +54,87 @@
 struct agiProjVtx
 {
 public:
-    // 0x552BA0 | ?Init@agiProjVtx@@SAXHPAVagiLighter@@I@Z
+    // ?Init@agiProjVtx@@SAXHPAVagiLighter@@I@Z
     ARTS_IMPORT static void Init(i32 arg1, class agiLighter* arg2, u32 arg3);
 
-    // 0x5524F0 | ?InitMtx@agiProjVtx@@SAXAAVMatrix34@@MMMM@Z
+    // ?InitMtx@agiProjVtx@@SAXAAVMatrix34@@MMMM@Z
     ARTS_IMPORT static void InitMtx(class Matrix34& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x552710 | ?Project@agiProjVtx@@SAHHPAUagiLitVtx@@@Z
+    // ?Project@agiProjVtx@@SAHHPAUagiLitVtx@@@Z
     ARTS_IMPORT static i32 Project(i32 arg1, struct agiLitVtx* arg2);
 
-    // 0x552630 | ?SetOutcode@agiProjVtx@@SAXH@Z
+    // ?SetOutcode@agiProjVtx@@SAXH@Z
     ARTS_IMPORT static void SetOutcode(i32 arg1);
 
-    // 0x552A20 | ?ToScreen@agiProjVtx@@SAXH@Z
+    // ?ToScreen@agiProjVtx@@SAXH@Z
     ARTS_IMPORT static void ToScreen(i32 arg1);
 
-    // 0x8B3220 | ?Adj@agiProjVtx@@2PAUagiAdjunctData@@A
+    // ?Adj@agiProjVtx@@2PAUagiAdjunctData@@A
     ARTS_IMPORT static struct agiAdjunctData Adj[6968];
 
-    // 0x8B3210 | ?HalfHeight@agiProjVtx@@2MA
+    // ?HalfHeight@agiProjVtx@@2MA
     ARTS_IMPORT static f32 HalfHeight;
 
-    // 0x8BABF4 | ?HalfWidth@agiProjVtx@@2MA
+    // ?HalfWidth@agiProjVtx@@2MA
     ARTS_IMPORT static f32 HalfWidth;
 
-    // 0x8B9B98 | ?LIGHTER@agiProjVtx@@2PAVagiLighter@@A
+    // ?LIGHTER@agiProjVtx@@2PAVagiLighter@@A
     ARTS_IMPORT static class agiLighter* LIGHTER;
 
-    // 0x8B31D8 | ?M@agiProjVtx@@2VMatrix34@@A
+    // ?M@agiProjVtx@@2VMatrix34@@A
     ARTS_IMPORT static class Matrix34 M;
 
-    // 0x8B9BA0 | ?M2@agiProjVtx@@2VMatrix34@@A
+    // ?M2@agiProjVtx@@2VMatrix34@@A
     ARTS_IMPORT static class Matrix34 M2;
 
-    // 0x8B9BE0 | ?NeedsClip@agiProjVtx@@2HA
+    // ?NeedsClip@agiProjVtx@@2HA
     ARTS_IMPORT static i32 NeedsClip;
 
-    // 0x7E02CC | ?NoModelView@agiProjVtx@@2HA
+    // ?NoModelView@agiProjVtx@@2HA
     ARTS_IMPORT static i32 NoModelView;
 
-    // 0x7E02D0 | ?OffsX@agiProjVtx@@2MA
+    // ?OffsX@agiProjVtx@@2MA
     ARTS_IMPORT static f32 OffsX;
 
-    // 0x8B9BE8 | ?OffsY@agiProjVtx@@2MA
+    // ?OffsY@agiProjVtx@@2MA
     ARTS_IMPORT static f32 OffsY;
 
-    // 0x8B9BD8 | ?Orthographic@agiProjVtx@@2HA
+    // ?Orthographic@agiProjVtx@@2HA
     ARTS_IMPORT static i32 Orthographic;
 
-    // 0x8B3214 | ?ProjX@agiProjVtx@@2MA
+    // ?ProjX@agiProjVtx@@2MA
     ARTS_IMPORT static f32 ProjX;
 
-    // 0x8B9BD0 | ?ProjXZ@agiProjVtx@@2MA
+    // ?ProjXZ@agiProjVtx@@2MA
     ARTS_IMPORT static f32 ProjXZ;
 
-    // 0x8B9BDC | ?ProjY@agiProjVtx@@2MA
+    // ?ProjY@agiProjVtx@@2MA
     ARTS_IMPORT static f32 ProjY;
 
-    // 0x8B3208 | ?ProjYZ@agiProjVtx@@2MA
+    // ?ProjYZ@agiProjVtx@@2MA
     ARTS_IMPORT static f32 ProjYZ;
 
-    // 0x7E02C8 | ?ProjZW@agiProjVtx@@2MA
+    // ?ProjZW@agiProjVtx@@2MA
     ARTS_IMPORT static f32 ProjZW;
 
-    // 0x8B9BE4 | ?ProjZZ@agiProjVtx@@2MA
+    // ?ProjZZ@agiProjVtx@@2MA
     ARTS_IMPORT static f32 ProjZZ;
 
-    // 0x8B9BD4 | ?ScreenHeight@agiProjVtx@@2MA
+    // ?ScreenHeight@agiProjVtx@@2MA
     ARTS_IMPORT static f32 ScreenHeight;
 
-    // 0x8BABF0 | ?ScreenWidth@agiProjVtx@@2MA
+    // ?ScreenWidth@agiProjVtx@@2MA
     ARTS_IMPORT static f32 ScreenWidth;
 
-    // 0x7E02D8 | ?Vtx@agiProjVtx@@2PATagiVtx@@A
+    // ?Vtx@agiProjVtx@@2PATagiVtx@@A
     ARTS_IMPORT static union agiVtx Vtx[6968];
 };
 
-// 0x656588 | ?DepthOffset@@3MA
+// ?DepthOffset@@3MA
 ARTS_IMPORT extern f32 DepthOffset;
 
-// 0x65658C | ?DepthScale@@3MA
+// ?DepthScale@@3MA
 ARTS_IMPORT extern f32 DepthScale;
 
-// 0x8B320C | ?clip_pz@@3HA
+// ?clip_pz@@3HA
 ARTS_IMPORT extern i32 clip_pz;

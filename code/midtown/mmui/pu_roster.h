@@ -43,48 +43,48 @@
 
 class PURoster final : public PUMenuBase
 {
-    // const PURoster::`vftable' @ 0x61DE08
+    // const PURoster::`vftable'
 
 public:
-    // 0x4A8CA0 | ??0PURoster@@QAE@HMMMM@Z
+    // ??0PURoster@@QAE@HMMMM@Z
     ARTS_IMPORT PURoster(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x4A9390 | ??_GPURoster@@UAEPAXI@Z
-    // 0x4A9390 | ??_EPURoster@@UAEPAXI@Z
-    // 0x4A8E10 | ??1PURoster@@UAE@XZ
+    // ??_GPURoster@@UAEPAXI@Z
+    // ??_EPURoster@@UAEPAXI@Z
+    // ??1PURoster@@UAE@XZ
     ARTS_IMPORT ~PURoster() override = default;
 
-    // 0x4A8F00 | ?AddName@PURoster@@QAEXPADKH@Z
+    // ?AddName@PURoster@@QAEXPADKH@Z
     ARTS_IMPORT void AddName(char* arg1, ulong arg2, i32 arg3);
 
-    // 0x4A8E30 | ?BootButtonCB@PURoster@@QAEXXZ
+    // ?BootButtonCB@PURoster@@QAEXXZ
     ARTS_IMPORT void BootButtonCB();
 
-    // 0x4A9240 | ?ClearNames@PURoster@@QAEXXZ
+    // ?ClearNames@PURoster@@QAEXXZ
     ARTS_IMPORT void ClearNames();
 
-    // 0x4A92F0 | ?FindRosterName@PURoster@@QAEHPAD@Z | unused
+    // ?FindRosterName@PURoster@@QAEHPAD@Z | unused
     ARTS_IMPORT i32 FindRosterName(char* arg1);
 
-    // 0x4A9360 | ?FindRosterName@PURoster@@QAEHK@Z
+    // ?FindRosterName@PURoster@@QAEHK@Z
     ARTS_IMPORT i32 FindRosterName(ulong arg1);
 
-    // 0x4A92A0 | ?PostNames@PURoster@@QAEXXZ
+    // ?PostNames@PURoster@@QAEXXZ
     ARTS_IMPORT void PostNames();
 
-    // 0x4A9110 | ?RemoveName@PURoster@@QAEXK@Z
+    // ?RemoveName@PURoster@@QAEXK@Z
     ARTS_IMPORT void RemoveName(ulong arg1);
 
-    // 0x4A8FD0 | ?RemoveName@PURoster@@QAEXPADK@Z
+    // ?RemoveName@PURoster@@QAEXPADK@Z
     ARTS_IMPORT void RemoveName(char* arg1, ulong arg2);
 
-    // 0x4A8E20 | ?Reset@PURoster@@UAEXXZ
+    // ?Reset@PURoster@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4A92D0 | ?SetBootCB@PURoster@@QAEXVCallback@@@Z
+    // ?SetBootCB@PURoster@@QAEXVCallback@@@Z
     ARTS_IMPORT void SetBootCB(class Callback arg1);
 
-    // 0x4A8E90 | ?SetHost@PURoster@@QAEXH@Z | unused
+    // ?SetHost@PURoster@@QAEXH@Z | unused
     ARTS_IMPORT void SetHost(i32 arg1);
 
     u8 gapC0[0x180];

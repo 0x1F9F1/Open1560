@@ -37,31 +37,31 @@
 
 class asOverSample final : public asNode
 {
-    // const asOverSample::`vftable' @ 0x61FB28
+    // const asOverSample::`vftable'
 
 public:
-    // 0x4DED20 | ??0asOverSample@@QAE@XZ
+    // ??0asOverSample@@QAE@XZ
     ARTS_IMPORT asOverSample();
 
-    // 0x4DF070 | ??_EasOverSample@@UAEPAXI@Z
-    // 0x42D300 | ??1asOverSample@@UAE@XZ | inline
+    // ??_EasOverSample@@UAEPAXI@Z
+    // ??1asOverSample@@UAE@XZ | inline
     ARTS_IMPORT ~asOverSample() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4DEE30 | ?AddWidgets@asOverSample@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asOverSample@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4DF060 | ?GetClass@asOverSample@@UAEPAVMetaClass@@XZ
+    // ?GetClass@asOverSample@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4DED50 | ?RealTime@asOverSample@@QAEXM@Z
+    // ?RealTime@asOverSample@@QAEXM@Z
     ARTS_IMPORT void RealTime(f32 arg1);
 
-    // 0x4DED70 | ?Update@asOverSample@@UAEXXZ
+    // ?Update@asOverSample@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4DEEE0 | ?DeclareFields@asOverSample@@SAXXZ
+    // ?DeclareFields@asOverSample@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x10];
@@ -69,8 +69,8 @@ public:
 
 check_size(asOverSample, 0x30);
 
-// 0x719188 | ?BenchOSample@@3HA
+// ?BenchOSample@@3HA
 ARTS_IMPORT extern i32 BenchOSample;
 
-// 0x719160 | ?asOverSampleMetaClass@@3VMetaClass@@A
+// ?asOverSampleMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asOverSampleMetaClass;

@@ -45,51 +45,51 @@
 
 class mmNetObject final : public asNetObject
 {
-    // const mmNetObject::`vftable' @ 0x61B120
+    // const mmNetObject::`vftable'
 
 public:
-    // 0x432740 | ??0mmNetObject@@QAE@XZ
+    // ??0mmNetObject@@QAE@XZ
     ARTS_IMPORT mmNetObject();
 
-    // 0x4331D0 | ??_GmmNetObject@@UAEPAXI@Z
-    // 0x4331D0 | ??_EmmNetObject@@UAEPAXI@Z
-    // 0x4327F0 | ??1mmNetObject@@UAE@XZ
+    // ??_GmmNetObject@@UAEPAXI@Z
+    // ??_EmmNetObject@@UAEPAXI@Z
+    // ??1mmNetObject@@UAE@XZ
     ARTS_IMPORT ~mmNetObject() override = default;
 
-    // 0x432850 | ?Activate@mmNetObject@@QAEXXZ
+    // ?Activate@mmNetObject@@QAEXXZ
     ARTS_IMPORT void Activate();
 
-    // 0x432800 | ?Clear@mmNetObject@@QAEXXZ
+    // ?Clear@mmNetObject@@QAEXXZ
     ARTS_IMPORT void Clear();
 
-    // 0x4328A0 | ?Deactivate@mmNetObject@@QAEXXZ
+    // ?Deactivate@mmNetObject@@QAEXXZ
     ARTS_IMPORT void Deactivate();
 
-    // 0x432900 | ?Init@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
+    // ?Init@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
     ARTS_IMPORT void Init(class mmCar* arg1, char* arg2, i32 arg3, ulong arg4, char* arg5);
 
-    // 0x432BD0 | ?PositionUpdate@mmNetObject@@QAEXPAUNETGAME_MSG@@@Z
+    // ?PositionUpdate@mmNetObject@@QAEXPAUNETGAME_MSG@@@Z
     ARTS_IMPORT void PositionUpdate(struct NETGAME_MSG* arg1);
 
-    // 0x432F80 | ?Predict@mmNetObject@@QAEXXZ
+    // ?Predict@mmNetObject@@QAEXXZ
     ARTS_IMPORT void Predict();
 
-    // 0x432980 | ?ReInit@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
+    // ?ReInit@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
     ARTS_IMPORT void ReInit(class mmCar* arg1, char* arg2, i32 arg3, ulong arg4, char* arg5);
 
-    // 0x432A50 | ?SetActive@mmNetObject@@QAEXH@Z
+    // ?SetActive@mmNetObject@@QAEXH@Z
     ARTS_IMPORT void SetActive(i32 arg1);
 
-    // 0x432A40 | ?SetCar@mmNetObject@@QAEXPAVmmCar@@@Z
+    // ?SetCar@mmNetObject@@QAEXPAVmmCar@@@Z
     ARTS_IMPORT void SetCar(class mmCar* arg1);
 
-    // 0x432A80 | ?SetLocalData@mmNetObject@@UAEXXZ
+    // ?SetLocalData@mmNetObject@@UAEXXZ
     ARTS_IMPORT void SetLocalData() override;
 
-    // 0x432A70 | ?SetScore@mmNetObject@@QAEXH@Z | unused
+    // ?SetScore@mmNetObject@@QAEXH@Z | unused
     ARTS_IMPORT void SetScore(i32 arg1);
 
-    // 0x433130 | ?Update@mmNetObject@@UAEXXZ
+    // ?Update@mmNetObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap28[0xCC];
@@ -97,5 +97,5 @@ public:
 
 check_size(mmNetObject, 0xF4);
 
-// 0x6A77E8 | ?time_delta@@3MA
+// ?time_delta@@3MA
 ARTS_IMPORT extern f32 time_delta;

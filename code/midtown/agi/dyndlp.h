@@ -32,16 +32,16 @@
 
 class DynamicDLP
 {
-    // const DynamicDLP::`vftable' @ 0x6218D0
+    // const DynamicDLP::`vftable'
 
 public:
-    // 0x55E5B0 | ??0DynamicDLP@@QAE@H@Z
+    // ??0DynamicDLP@@QAE@H@Z
     ARTS_IMPORT DynamicDLP(i32 arg1);
 
 protected:
-    // 0x55E880 | ??_EDynamicDLP@@MAEPAXI@Z
-    // 0x55E880 | ??_GDynamicDLP@@MAEPAXI@Z
-    // 0x55E5E0 | ??1DynamicDLP@@MAE@XZ
+    // ??_EDynamicDLP@@MAEPAXI@Z
+    // ??_GDynamicDLP@@MAEPAXI@Z
+    // ??1DynamicDLP@@MAE@XZ
     ARTS_IMPORT virtual ~DynamicDLP();
 
 public:
@@ -53,10 +53,10 @@ public:
 
     virtual void SetTexture(i16 arg1) = 0;
 
-    // 0x55E620 | ?InitOffsets@DynamicDLP@@QAEHPAVDLP@@PAD@Z
+    // ?InitOffsets@DynamicDLP@@QAEHPAVDLP@@PAD@Z
     ARTS_IMPORT i32 InitOffsets(class DLP* arg1, char* arg2);
 
-    // 0x55E600 | ?Release@DynamicDLP@@QAEHXZ | unused
+    // ?Release@DynamicDLP@@QAEHXZ | unused
     ARTS_IMPORT i32 Release();
 
     u8 gap4[0x20];

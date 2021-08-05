@@ -48,63 +48,63 @@
 
 class mmOpponentCarAudio : public asNode
 {
-    // const mmOpponentCarAudio::`vftable' @ 0x61C500
+    // const mmOpponentCarAudio::`vftable'
 
 public:
-    // 0x47C430 | ??0mmOpponentCarAudio@@QAE@XZ | inline
+    // ??0mmOpponentCarAudio@@QAE@XZ | inline
     ARTS_IMPORT mmOpponentCarAudio();
 
-    // 0x47B950 | ??0mmOpponentCarAudio@@QAE@PAVmmCarSim@@@Z
+    // ??0mmOpponentCarAudio@@QAE@PAVmmCarSim@@@Z
     ARTS_IMPORT mmOpponentCarAudio(class mmCarSim* arg1);
 
-    // 0x47C3D0 | ??_EmmOpponentCarAudio@@UAEPAXI@Z
-    // 0x47B9C0 | ??1mmOpponentCarAudio@@UAE@XZ
+    // ??_EmmOpponentCarAudio@@UAEPAXI@Z
+    // ??1mmOpponentCarAudio@@UAE@XZ
     ARTS_IMPORT ~mmOpponentCarAudio() override;
 
-    // 0x47BF50 | ?AssignSounds@mmOpponentCarAudio@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
+    // ?AssignSounds@mmOpponentCarAudio@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
     ARTS_IMPORT void AssignSounds(
         class AudSound* arg1, class AudSound* arg2, class mmOpponentImpactAudio* arg3, class AudSound* arg4);
 
-    // 0x47BC80 | ?CalculateDistToPlayer2@mmOpponentCarAudio@@QAEXXZ
+    // ?CalculateDistToPlayer2@mmOpponentCarAudio@@QAEXXZ
     ARTS_IMPORT void CalculateDistToPlayer2();
 
-    // 0x47BDB0 | ?CalculateDoppler@mmOpponentCarAudio@@QAEXM@Z
+    // ?CalculateDoppler@mmOpponentCarAudio@@QAEXM@Z
     ARTS_IMPORT void CalculateDoppler(f32 arg1);
 
-    // 0x47BD60 | ?CalculatePan@mmOpponentCarAudio@@QAEXXZ
+    // ?CalculatePan@mmOpponentCarAudio@@QAEXXZ
     ARTS_IMPORT void CalculatePan();
 
-    // 0x47C2A0 | ?GetClass@mmOpponentCarAudio@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmOpponentCarAudio@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x47BA30 | ?Init@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
+    // ?Init@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void Init(class mmCarSim* arg1);
 
-    // 0x47BF20 | ?LoadSucessful@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
+    // ?LoadSucessful@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void LoadSucessful(class mmCarSim* arg1);
 
-    // 0x47BB80 | ?PlayReverseBeep@mmOpponentCarAudio@@QAEXXZ | unused
+    // ?PlayReverseBeep@mmOpponentCarAudio@@QAEXXZ | unused
     ARTS_IMPORT void PlayReverseBeep();
 
-    // 0x47BF00 | ?Reset@mmOpponentCarAudio@@UAEXXZ
+    // ?Reset@mmOpponentCarAudio@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x47C0C0 | ?SetMinAmpSpeed@mmOpponentCarAudio@@QAEXM@Z
+    // ?SetMinAmpSpeed@mmOpponentCarAudio@@QAEXM@Z
     ARTS_IMPORT void SetMinAmpSpeed(f32 arg1);
 
-    // 0x47C020 | ?UnAssignSounds@mmOpponentCarAudio@@QAEXXZ
+    // ?UnAssignSounds@mmOpponentCarAudio@@QAEXXZ
     ARTS_IMPORT void UnAssignSounds();
 
-    // 0x47BBE0 | ?Update@mmOpponentCarAudio@@QAEXHMM@Z
+    // ?Update@mmOpponentCarAudio@@QAEXHMM@Z
     ARTS_IMPORT void Update(i32 arg1, f32 arg2, f32 arg3);
 
-    // 0x47BDE0 | ?UpdateDoppler@mmOpponentCarAudio@@QAEXXZ
+    // ?UpdateDoppler@mmOpponentCarAudio@@QAEXXZ
     ARTS_IMPORT void UpdateDoppler();
 
-    // 0x47BDF0 | ?UpdateDoppler@mmOpponentCarAudio@@QAEXM@Z
+    // ?UpdateDoppler@mmOpponentCarAudio@@QAEXM@Z
     ARTS_IMPORT void UpdateDoppler(f32 arg1);
 
-    // 0x47C0E0 | ?DeclareFields@mmOpponentCarAudio@@SAXXZ
+    // ?DeclareFields@mmOpponentCarAudio@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0xC0];
@@ -112,5 +112,5 @@ public:
 
 check_size(mmOpponentCarAudio, 0xE0);
 
-// 0x6A7FF8 | ?mmOpponentCarAudioMetaClass@@3VMetaClass@@A
+// ?mmOpponentCarAudioMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmOpponentCarAudioMetaClass;

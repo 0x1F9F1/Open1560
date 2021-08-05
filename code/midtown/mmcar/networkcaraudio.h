@@ -50,68 +50,68 @@
 
 class mmNetworkCarAudio final : public asNode
 {
-    // const mmNetworkCarAudio::`vftable' @ 0x61CA30
+    // const mmNetworkCarAudio::`vftable'
 
 public:
-    // 0x484700 | ??0mmNetworkCarAudio@@QAE@XZ | inline
+    // ??0mmNetworkCarAudio@@QAE@XZ | inline
     ARTS_IMPORT mmNetworkCarAudio();
 
-    // 0x483440 | ??0mmNetworkCarAudio@@QAE@PAVmmCarSim@@@Z
+    // ??0mmNetworkCarAudio@@QAE@PAVmmCarSim@@@Z
     ARTS_IMPORT mmNetworkCarAudio(class mmCarSim* arg1);
 
-    // 0x4846A0 | ??_EmmNetworkCarAudio@@UAEPAXI@Z
-    // 0x483630 | ??1mmNetworkCarAudio@@UAE@XZ
+    // ??_EmmNetworkCarAudio@@UAEPAXI@Z
+    // ??1mmNetworkCarAudio@@UAE@XZ
     ARTS_IMPORT ~mmNetworkCarAudio() override;
 
-    // 0x483EC0 | ?CalculateDistToPlayer2@mmNetworkCarAudio@@QAEXXZ
+    // ?CalculateDistToPlayer2@mmNetworkCarAudio@@QAEXXZ
     ARTS_IMPORT void CalculateDistToPlayer2();
 
-    // 0x483F80 | ?CalculateDoppler@mmNetworkCarAudio@@QAEXXZ
+    // ?CalculateDoppler@mmNetworkCarAudio@@QAEXXZ
     ARTS_IMPORT void CalculateDoppler();
 
-    // 0x483E10 | ?DeactivateAudio@mmNetworkCarAudio@@QAEXXZ
+    // ?DeactivateAudio@mmNetworkCarAudio@@QAEXXZ
     ARTS_IMPORT void DeactivateAudio();
 
-    // 0x483A60 | ?FluctuateFastSiren@mmNetworkCarAudio@@QAEXXZ
+    // ?FluctuateFastSiren@mmNetworkCarAudio@@QAEXXZ
     ARTS_IMPORT void FluctuateFastSiren();
 
-    // 0x483810 | ?FluctuateSlowSiren@mmNetworkCarAudio@@QAEXXZ
+    // ?FluctuateSlowSiren@mmNetworkCarAudio@@QAEXXZ
     ARTS_IMPORT void FluctuateSlowSiren();
 
-    // 0x484570 | ?GetClass@mmNetworkCarAudio@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmNetworkCarAudio@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4834A0 | ?Init@mmNetworkCarAudio@@QAEXPAVmmCarSim@@G@Z
+    // ?Init@mmNetworkCarAudio@@QAEXPAVmmCarSim@@G@Z
     ARTS_IMPORT void Init(class mmCarSim* arg1, u16 arg2);
 
-    // 0x484320 | ?LoadSucessful@mmNetworkCarAudio@@QAEXPAVmmCarSim@@@Z
+    // ?LoadSucessful@mmNetworkCarAudio@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void LoadSucessful(class mmCarSim* arg1);
 
-    // 0x484300 | ?RemoveFromManager@mmNetworkCarAudio@@QAEXXZ
+    // ?RemoveFromManager@mmNetworkCarAudio@@QAEXXZ
     ARTS_IMPORT void RemoveFromManager();
 
-    // 0x4842E0 | ?Reset@mmNetworkCarAudio@@UAEXXZ
+    // ?Reset@mmNetworkCarAudio@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x484290 | ?StartSiren@mmNetworkCarAudio@@QAEXXZ
+    // ?StartSiren@mmNetworkCarAudio@@QAEXXZ
     ARTS_IMPORT void StartSiren();
 
-    // 0x484250 | ?StopSiren@mmNetworkCarAudio@@QAEXXZ
+    // ?StopSiren@mmNetworkCarAudio@@QAEXXZ
     ARTS_IMPORT void StopSiren();
 
-    // 0x4836A0 | ?Update@mmNetworkCarAudio@@UAEXXZ
+    // ?Update@mmNetworkCarAudio@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4836E0 | ?UpdateAudio@mmNetworkCarAudio@@QAEXXZ
+    // ?UpdateAudio@mmNetworkCarAudio@@QAEXXZ
     ARTS_IMPORT void UpdateAudio();
 
-    // 0x483FA0 | ?UpdateDoppler@mmNetworkCarAudio@@QAEXXZ
+    // ?UpdateDoppler@mmNetworkCarAudio@@QAEXXZ
     ARTS_IMPORT void UpdateDoppler();
 
-    // 0x4843A0 | ?DeclareFields@mmNetworkCarAudio@@SAXXZ
+    // ?DeclareFields@mmNetworkCarAudio@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    // 0x6A822C | ?s_iPlayingFluctuator@mmNetworkCarAudio@@2FA
+    // ?s_iPlayingFluctuator@mmNetworkCarAudio@@2FA
     ARTS_IMPORT static i16 s_iPlayingFluctuator;
 
     u8 gap20[0xB4];
@@ -119,5 +119,5 @@ public:
 
 check_size(mmNetworkCarAudio, 0xD4);
 
-// 0x6A81F0 | ?mmNetworkCarAudioMetaClass@@3VMetaClass@@A
+// ?mmNetworkCarAudioMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmNetworkCarAudioMetaClass;

@@ -37,22 +37,22 @@ class Vector3;
 class asPerfGraph
 {
 public:
-    // 0x52A8A0 | ??0asPerfGraph@@QAE@XZ
+    // ??0asPerfGraph@@QAE@XZ
     ARTS_EXPORT asPerfGraph();
 
-    // 0x52A930 | ??1asPerfGraph@@QAE@XZ
+    // ??1asPerfGraph@@QAE@XZ
     ARTS_EXPORT ~asPerfGraph();
 
-    // 0x52A960 | ?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z
+    // ?AddComponent@asPerfGraph@@QAEXPADPAMAAVVector3@@@Z
     ARTS_EXPORT void AddComponent(const char* name, f32* value, const Vector3& color);
 
-    // 0x52AB30 | ?Cull@asPerfGraph@@QAEXXZ
+    // ?Cull@asPerfGraph@@QAEXXZ
     ARTS_EXPORT void Cull();
 
-    // 0x52A9E0 | ?Key@asPerfGraph@@QAEXH@Z
+    // ?Key@asPerfGraph@@QAEXH@Z
     ARTS_EXPORT void Key(i32 vkey);
 
-    // 0x52AA30 | ?Update@asPerfGraph@@QAEXXZ
+    // ?Update@asPerfGraph@@QAEXXZ
     ARTS_EXPORT void Update();
 
 private:
@@ -75,5 +75,5 @@ private:
 
 // check_size(asPerfGraph, 0x94);
 
-// 0x790984 | ?PGRAPH@@3PAVasPerfGraph@@A
+// ?PGRAPH@@3PAVasPerfGraph@@A
 ARTS_IMPORT extern class asPerfGraph* PGRAPH;

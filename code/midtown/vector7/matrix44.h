@@ -77,76 +77,76 @@ public:
         , m3(m3)
     {}
 
-    // 0x56E500 | ??0Matrix44@@QAE@ABVMatrix34@@@Z
+    // ??0Matrix44@@QAE@ABVMatrix34@@@Z
     ARTS_IMPORT Matrix44(class Matrix34 const& arg1);
 
-    // 0x570C80 | ??0Matrix44@@QAE@ABV0@@Z | inline
+    // ??0Matrix44@@QAE@ABV0@@Z | inline
     ARTS_IMPORT Matrix44(class Matrix44 const& arg1);
 
-    // 0x56EA80 | ??DMatrix44@@QBE?AV0@M@Z | unused
+    // ??DMatrix44@@QBE?AV0@M@Z | unused
     ARTS_IMPORT class Matrix44 operator*(f32 arg1) const;
 
-    // 0x56E570 | ??HMatrix44@@QBE?AV0@ABV0@@Z | unused
+    // ??HMatrix44@@QBE?AV0@ABV0@@Z | unused
     ARTS_IMPORT class Matrix44 operator+(class Matrix44 const& arg1) const;
 
-    // 0x56E820 | ??GMatrix44@@QBE?AV0@XZ | unused
+    // ??GMatrix44@@QBE?AV0@XZ | unused
     ARTS_IMPORT class Matrix44 operator-() const;
 
-    // 0x56E6D0 | ??GMatrix44@@QBE?AV0@ABV0@@Z | unused
+    // ??GMatrix44@@QBE?AV0@ABV0@@Z | unused
     ARTS_IMPORT class Matrix44 operator-(class Matrix44 const& arg1) const;
 
-    // 0x56EBD0 | ??KMatrix44@@QBE?AV0@M@Z | unused
+    // ??KMatrix44@@QBE?AV0@M@Z | unused
     ARTS_IMPORT class Matrix44 operator/(f32 arg1) const;
 
-    // 0x56EDB0 | ??TMatrix44@@QBE?AV0@ABV0@@Z
+    // ??TMatrix44@@QBE?AV0@ABV0@@Z
     ARTS_IMPORT class Matrix44 operator^(class Matrix44 const& arg1) const;
 
-    // 0x56F2F0 | ??TMatrix44@@QBE?AVVector4@@ABV1@@Z
+    // ??TMatrix44@@QBE?AVVector4@@ABV1@@Z
     ARTS_IMPORT class Vector4 operator^(class Vector4 const& arg1) const;
 
-    // 0x56F690 | ?Determinant@Matrix44@@QBEMXZ
+    // ?Determinant@Matrix44@@QBEMXZ
     ARTS_IMPORT f32 Determinant() const;
 
-    // 0x56F020 | ?Dot@Matrix44@@QAEXABV1@0@Z
+    // ?Dot@Matrix44@@QAEXABV1@0@Z
     ARTS_IMPORT void Dot(class Matrix44 const& arg1, class Matrix44 const& arg2);
 
-    // 0x5709D0 | ?FromQuaternion@Matrix44@@QAEXABVQuaternion@@@Z
+    // ?FromQuaternion@Matrix44@@QAEXABVQuaternion@@@Z
     ARTS_IMPORT void FromQuaternion(class Quaternion const& arg1);
 
-    // 0x570460 | ?Identity@Matrix44@@QAEXXZ
+    // ?Identity@Matrix44@@QAEXXZ
     ARTS_IMPORT void Identity();
 
-    // 0x56F8E0 | ?Inverse@Matrix44@@QBE?AV1@XZ | unused
+    // ?Inverse@Matrix44@@QBE?AV1@XZ | unused
     ARTS_IMPORT class Matrix44 Inverse() const;
 
-    // 0x56F580 | ?Ortho@Matrix44@@QAEXMMMMMM@Z | unused
+    // ?Ortho@Matrix44@@QAEXMMMMMM@Z | unused
     ARTS_IMPORT void Ortho(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
 
-    // 0x56F490 | ?Perspective@Matrix44@@QAEXMMMM@Z | unused
+    // ?Perspective@Matrix44@@QAEXMMMM@Z | unused
     ARTS_IMPORT void Perspective(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x570B10 | ?Print@Matrix44@@QBEXXZ | unused
+    // ?Print@Matrix44@@QBEXXZ | unused
     ARTS_IMPORT void Print() const;
 
-    // 0x5704A0 | ?Rotate@Matrix44@@QAEXDM@Z | unused
+    // ?Rotate@Matrix44@@QAEXDM@Z | unused
     ARTS_IMPORT void Rotate(char arg1, f32 arg2);
 
-    // 0x570680 | ?Rotate@Matrix44@@QAEXABVVector3@@0@Z
+    // ?Rotate@Matrix44@@QAEXABVVector3@@0@Z
     ARTS_IMPORT void Rotate(class Vector3 const& arg1, class Vector3 const& arg2);
 
-    // 0x570620 | ?Rotate@Matrix44@@QAEXABVVector3@@M@Z | unused
+    // ?Rotate@Matrix44@@QAEXABVVector3@@M@Z | unused
     ARTS_IMPORT void Rotate(class Vector3 const& arg1, f32 arg2);
 
-    // 0x570970 | ?Scale@Matrix44@@QAEXABVVector3@@M@Z | unused
+    // ?Scale@Matrix44@@QAEXABVVector3@@M@Z | unused
     ARTS_IMPORT void Scale(class Vector3 const& arg1, f32 arg2);
 
-    // 0x570920 | ?Scale@Matrix44@@QAEXMMM@Z
+    // ?Scale@Matrix44@@QAEXMMM@Z
     ARTS_IMPORT void Scale(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x5708D0 | ?Translate@Matrix44@@QAEXMMM@Z | unused
+    // ?Translate@Matrix44@@QAEXMMM@Z | unused
     ARTS_IMPORT void Translate(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x570380 | ?Transpose@Matrix44@@QBE?AV1@XZ
+    // ?Transpose@Matrix44@@QBE?AV1@XZ
     ARTS_IMPORT class Matrix44 Transpose() const;
 
     Vector4 m0;
@@ -157,41 +157,41 @@ public:
 
 check_size(Matrix44, 0x40);
 
-// 0x56E920 | ??D@YA?AVMatrix44@@MABV0@@Z | unused
+// ??D@YA?AVMatrix44@@MABV0@@Z | unused
 ARTS_IMPORT class Matrix44 operator*(f32 arg1, class Matrix44 const& arg2);
 
-// 0x56F3F0 | ??T@YA?AVVector3@@ABV0@ABVMatrix44@@@Z | unused
+// ??T@YA?AVVector3@@ABV0@ABVMatrix44@@@Z | unused
 ARTS_IMPORT class Vector3 operator^(class Vector3 const& arg1, class Matrix44 const& arg2);
 
-// 0x56F460 | ??T@YA?AVVector4@@ABV0@ABVMatrix44@@@Z
+// ??T@YA?AVVector4@@ABV0@ABVMatrix44@@@Z
 ARTS_IMPORT class Vector4 operator^(class Vector4 const& arg1, class Matrix44 const& arg2);
 
-// 0x909530 | ?BezierBasis@@3VMatrix44@@A
+// ?BezierBasis@@3VMatrix44@@A
 ARTS_IMPORT extern class Matrix44 BezierBasis;
 
-// 0x9095B0 | ?BezierTranspose@@3VMatrix44@@A
+// ?BezierTranspose@@3VMatrix44@@A
 ARTS_IMPORT extern class Matrix44 BezierTranspose;
 
-// 0x9094F0 | ?HermiteBasis@@3VMatrix44@@A
+// ?HermiteBasis@@3VMatrix44@@A
 ARTS_IMPORT extern class Matrix44 HermiteBasis;
 
-// 0x909570 | ?HermiteTranspose@@3VMatrix44@@A
+// ?HermiteTranspose@@3VMatrix44@@A
 ARTS_IMPORT extern class Matrix44 HermiteTranspose;
 
-// 0x9095F0 | ?Identity@@3VMatrix44@@A
+// ?Identity@@3VMatrix44@@A
 ARTS_IMPORT extern class Matrix44 Identity;
 
-// 0x658DB0 | ?bb@@3PAMA
+// ?bb@@3PAMA
 ARTS_IMPORT extern f32 bb[16];
 
-// 0x658DF0 | ?bt@@3PAMA
+// ?bt@@3PAMA
 ARTS_IMPORT extern f32 bt[16];
 
-// 0x658E30 | ?hb@@3PAMA
+// ?hb@@3PAMA
 ARTS_IMPORT extern f32 hb[16];
 
-// 0x658E70 | ?ht@@3PAMA
+// ?ht@@3PAMA
 ARTS_IMPORT extern f32 ht[16];
 
-// 0x658D70 | ?id@@3PAMA
+// ?id@@3PAMA
 ARTS_IMPORT extern f32 id[16];

@@ -42,19 +42,19 @@ const agiPixelFormat PixelFormat_R5G6B5   = {sizeof(agiPixelFormat), AGIPF_RGB, 
 const agiPixelFormat PixelFormat_P8 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_PALETTEINDEXED8, 0, 8, 0, 0, 0, 0};
 // clang-format on
 
-// 0x55AAE0 | ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
+// ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
 ARTS_IMPORT /*static*/ void RescaleJpeg(u32 arg1, u32 arg2, u8* arg3, struct jpeg_decompress_struct& arg4);
 
-// 0x55B7E0 | ?copyrow4444_to_555@@YAXPAX0II@Z
+// ?copyrow4444_to_555@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow4444_to_555(void* dst, void* src, u32 len, u32 step);
 
-// 0x55B8E0 | ?copyrow4444_to_5551@@YAXPAX0II@Z
+// ?copyrow4444_to_5551@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow4444_to_5551(void* dst, void* src, u32 len, u32 step);
 
-// 0x55B860 | ?copyrow4444_to_565@@YAXPAX0II@Z
+// ?copyrow4444_to_565@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow4444_to_565(void* dst, void* src, u32 len, u32 step);
 
-// 0x55B6C0 | ?copyrow4444_to_8888@@YAXPAX0II@Z
+// ?copyrow4444_to_8888@@YAXPAX0II@Z
 static void copyrow4444_to_8888(void* dst, void* src, u32 len, u32 step)
 {
     u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
@@ -147,16 +147,16 @@ static void copyrow4444_to_888amul(void* dst, void* src, u32 len, u32 step)
     }
 }
 
-// 0x55B750 | ?copyrow4444_to_8888rev@@YAXPAX0II@Z
+// ?copyrow4444_to_8888rev@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow4444_to_8888rev(void* dst, void* src, u32 len, u32 step);
 
-// 0x55B510 | ?copyrow565_to_555@@YAXPAX0II@Z
+// ?copyrow565_to_555@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow565_to_555(void* dst, void* src, u32 len, u32 step);
 
-// 0x55B560 | ?copyrow565_to_5551@@YAXPAX0II@Z
+// ?copyrow565_to_5551@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow565_to_5551(void* dst, void* src, u32 len, u32 step);
 
-// 0x55B5C0 | ?copyrow565_to_888@@YAXPAX0II@Z
+// ?copyrow565_to_888@@YAXPAX0II@Z
 static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
 {
     u32* ARTS_RESTRICT dst32 = static_cast<u32*>(dst);
@@ -199,7 +199,7 @@ static void copyrow565_to_888(void* dst, void* src, u32 len, u32 step)
     }
 }
 
-// 0x55B640 | ?copyrow565_to_888rev@@YAXPAX0II@Z
+// ?copyrow565_to_888rev@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow565_to_888rev(void* dst, void* src, u32 len, u32 step);
 
 template <typename T>

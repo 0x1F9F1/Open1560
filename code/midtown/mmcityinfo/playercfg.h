@@ -56,77 +56,77 @@
 
 class mmPlayerConfig final : public mmInfoBase
 {
-    // const mmPlayerConfig::`vftable' @ 0x61F8E8
+    // const mmPlayerConfig::`vftable'
 
 public:
-    // 0x4CDA00 | ??0mmPlayerConfig@@QAE@XZ
+    // ??0mmPlayerConfig@@QAE@XZ
     ARTS_IMPORT mmPlayerConfig();
 
-    // 0x4CEEA0 | ??_EmmPlayerConfig@@UAEPAXI@Z
-    // 0x4CDAA0 | ??1mmPlayerConfig@@UAE@XZ
+    // ??_EmmPlayerConfig@@UAEPAXI@Z
+    // ??1mmPlayerConfig@@UAE@XZ
     ARTS_IMPORT ~mmPlayerConfig() override;
 
-    // 0x4CDB10 | ??4mmPlayerConfig@@QAEXAAV0@@Z | unused
+    // ??4mmPlayerConfig@@QAEXAAV0@@Z | unused
     ARTS_IMPORT void operator=(class mmPlayerConfig& arg1);
 
-    // 0x4CE800 | ?DefaultAudio@mmPlayerConfig@@QAEXXZ
+    // ?DefaultAudio@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void DefaultAudio();
 
-    // 0x4CE910 | ?DefaultControls@mmPlayerConfig@@QAEXXZ
+    // ?DefaultControls@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void DefaultControls();
 
-    // 0x4CE9C0 | ?DefaultGraphics@mmPlayerConfig@@QAEXXZ | unused
+    // ?DefaultGraphics@mmPlayerConfig@@QAEXXZ | unused
     ARTS_IMPORT void DefaultGraphics();
 
-    // 0x4CE970 | ?DefaultViewSettings@mmPlayerConfig@@QAEXXZ
+    // ?DefaultViewSettings@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void DefaultViewSettings();
 
-    // 0x4CE650 | ?GetAudio@mmPlayerConfig@@QAEXXZ
+    // ?GetAudio@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void GetAudio();
 
-    // 0x4CEE70 | ?GetClass@mmPlayerConfig@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmPlayerConfig@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4CE6C0 | ?GetControls@mmPlayerConfig@@QAEXXZ
+    // ?GetControls@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void GetControls();
 
-    // 0x4CE630 | ?GetGraphics@mmPlayerConfig@@QAEXXZ
+    // ?GetGraphics@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void GetGraphics();
 
-    // 0x4CE7A0 | ?GetViewSettings@mmPlayerConfig@@QAEXXZ
+    // ?GetViewSettings@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void GetViewSettings();
 
-    // 0x4CDC90 | ?Load@mmPlayerConfig@@QAEHPAD@Z
+    // ?Load@mmPlayerConfig@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
 
-    // 0x4CDD60 | ?LoadBinary@mmPlayerConfig@@QAEHPAD@Z
+    // ?LoadBinary@mmPlayerConfig@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadBinary(char* arg1);
 
-    // 0x4CE9B0 | ?Reset@mmPlayerConfig@@QAEXXZ
+    // ?Reset@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    // 0x4CE240 | ?Save@mmPlayerConfig@@QAEHPADH@Z
+    // ?Save@mmPlayerConfig@@QAEHPADH@Z
     ARTS_IMPORT i32 Save(char* arg1, i32 arg2);
 
-    // 0x4CDFE0 | ?SaveBinary@mmPlayerConfig@@QAEHPAD@Z
+    // ?SaveBinary@mmPlayerConfig@@QAEHPAD@Z
     ARTS_IMPORT i32 SaveBinary(char* arg1);
 
-    // 0x4CE2E0 | ?SetAudio@mmPlayerConfig@@QAEXXZ
+    // ?SetAudio@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void SetAudio();
 
-    // 0x4CE450 | ?SetControls@mmPlayerConfig@@QAEXXZ
+    // ?SetControls@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void SetControls();
 
-    // 0x4CE230 | ?SetDefaults@mmPlayerConfig@@QAEXXZ | unused
+    // ?SetDefaults@mmPlayerConfig@@QAEXXZ | unused
     ARTS_IMPORT void SetDefaults();
 
-    // 0x4CE640 | ?SetGraphics@mmPlayerConfig@@QAEXXZ
+    // ?SetGraphics@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void SetGraphics();
 
-    // 0x4CE7D0 | ?SetViewSettings@mmPlayerConfig@@QAEXXZ
+    // ?SetViewSettings@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void SetViewSettings();
 
-    // 0x4CE9E0 | ?DeclareFields@mmPlayerConfig@@SAXXZ
+    // ?DeclareFields@mmPlayerConfig@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x6DA8];
@@ -137,10 +137,10 @@ check_size(mmPlayerConfig, 0x6E30);
 struct mmGfxCFG
 {
 public:
-    // 0x4CE540 | ?Get@mmGfxCFG@@QAEXXZ
+    // ?Get@mmGfxCFG@@QAEXXZ
     ARTS_IMPORT void Get();
 
-    // 0x4CE5B0 | ?Set@mmGfxCFG@@QAEXXZ
+    // ?Set@mmGfxCFG@@QAEXXZ
     ARTS_IMPORT void Set();
 
     u8 gap0[0x34];
@@ -151,7 +151,7 @@ check_size(mmGfxCFG, 0x34);
 struct mmCtrlCFG
 {
 public:
-    // 0x4CEE80 | ??1mmCtrlCFG@@QAE@XZ | inline
+    // ??1mmCtrlCFG@@QAE@XZ | inline
     ARTS_IMPORT ~mmCtrlCFG();
 
     u8 gap0[0x6C80];
@@ -159,5 +159,5 @@ public:
 
 check_size(mmCtrlCFG, 0x6C80);
 
-// 0x708520 | ?mmPlayerConfigMetaClass@@3VMetaClass@@A
+// ?mmPlayerConfigMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmPlayerConfigMetaClass;

@@ -28,8 +28,8 @@
     0x719618 | int MeshesPaged | ?MeshesPaged@@3HA
 */
 
-// 0x719614 | ?MeshBytesPaged@@3HA
+// ?MeshBytesPaged@@3HA
 ARTS_IMPORT extern i32 MeshBytesPaged;
 
-// 0x719618 | ?MeshesPaged@@3HA
+// ?MeshesPaged@@3HA
 ARTS_IMPORT extern i32 MeshesPaged;

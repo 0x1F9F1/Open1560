@@ -52,40 +52,40 @@
 
 #include "setupdata.h"
 
-// 0x573C60 | ?dxiChangeDisplaySettings@@YAHHHH@Z
+// ?dxiChangeDisplaySettings@@YAHHHH@Z
 ARTS_EXPORT i32 dxiChangeDisplaySettings(i32 width, i32 height, i32 bpp);
 
-// 0x573CC0 | ?dxiDirectDrawCreate@@YAXXZ
+// ?dxiDirectDrawCreate@@YAXXZ
 ARTS_EXPORT void dxiDirectDrawCreate();
 
-// 0x573EC0 | ?dxiDirectDrawSurfaceCreate@@YAXXZ
+// ?dxiDirectDrawSurfaceCreate@@YAXXZ
 ARTS_IMPORT void dxiDirectDrawSurfaceCreate();
 
-// 0x574190 | ?dxiDirectDrawSurfaceDestroy@@YAXXZ
+// ?dxiDirectDrawSurfaceDestroy@@YAXXZ
 ARTS_EXPORT void dxiDirectDrawSurfaceDestroy();
 
-// 0x574200 | ?dxiDirectInputCreate@@YAXXZ
+// ?dxiDirectInputCreate@@YAXXZ
 ARTS_EXPORT void dxiDirectInputCreate();
 
-// 0x574550 | ?dxiInit@@YAXPADHPAPAD@Z
+// ?dxiInit@@YAXPADHPAPAD@Z
 ARTS_EXPORT void dxiInit(char* title, i32 argc, char** argv);
 
-// 0x5742C0 | ?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z | unused
+// ?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z | unused
 ARTS_IMPORT void* dxiMemoryAllocate(struct IDirectDrawSurface4** arg1, u32 arg2);
 
-// 0x5744E0 | ?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z | unused
+// ?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z | unused
 ARTS_IMPORT void dxiMemoryFree(struct IDirectDrawSurface4* arg1);
 
-// 0x574690 | ?dxiScreenShot@@YAXPAD@Z
+// ?dxiScreenShot@@YAXPAD@Z
 ARTS_EXPORT void dxiScreenShot(char* file_name);
 
-// 0x573D80 | ?dxiSetDisplayMode@@YAXXZ
+// ?dxiSetDisplayMode@@YAXXZ
 ARTS_EXPORT void dxiSetDisplayMode();
 
-// 0x574240 | ?dxiShutdown@@YAXXZ
+// ?dxiShutdown@@YAXXZ
 ARTS_EXPORT void dxiShutdown();
 
-// 0x573B80 | ?dxiWindowCreate@@YAXPAD@Z
+// ?dxiWindowCreate@@YAXPAD@Z
 // This should only be in LockScreen
 ARTS_EXPORT void dxiWindowCreate(const char* title);
 
@@ -93,7 +93,7 @@ void dxiWindowCreate(const char* title, dxiRendererType type);
 
 void dxiWindowDestroy();
 
-// 0x660F18 | ?dxiDepth@@3HA
+// ?dxiDepth@@3HA
 ARTS_IMPORT extern i32 dxiDepth;
 
 #define DXI_FLAG_FULL_SCREEN 0x1
@@ -101,7 +101,7 @@ ARTS_IMPORT extern i32 dxiDepth;
 #define DXI_FLAG_DOUBLE_BUFFER 0x4
 #define DXI_FLAG_TRIPLE_BUFFER 0x8
 
-// 0x660F1C | ?dxiFlags@@3HA
+// ?dxiFlags@@3HA
 ARTS_IMPORT extern i32 dxiFlags;
 
 inline bool dxiIsFullScreen()
@@ -124,37 +124,37 @@ inline bool dxiTripleBuffer()
     return dxiFlags & DXI_FLAG_TRIPLE_BUFFER;
 }
 
-// 0x660F14 | ?dxiHeight@@3HA
+// ?dxiHeight@@3HA
 ARTS_IMPORT extern i32 dxiHeight;
 
-// 0x909650 | ?dxiIcon@@3HA
+// ?dxiIcon@@3HA
 ARTS_IMPORT extern i32 dxiIcon;
 
-// 0x660F10 | ?dxiWidth@@3HA
+// ?dxiWidth@@3HA
 ARTS_IMPORT extern i32 dxiWidth;
 
-// 0x909668 | ?hwndMain@@3PAUHWND__@@A
+// ?hwndMain@@3PAUHWND__@@A
 ARTS_IMPORT extern struct HWND__* hwndMain;
 
-// 0x909674 | ?lpClip@@3PAUIDirectDrawClipper@@A
+// ?lpClip@@3PAUIDirectDrawClipper@@A
 ARTS_IMPORT extern struct IDirectDrawClipper* lpClip;
 
-// 0x909660 | ?lpDD4@@3PAUIDirectDraw4@@A
+// ?lpDD4@@3PAUIDirectDraw4@@A
 ARTS_IMPORT extern struct IDirectDraw4* lpDD4;
 
-// 0x90965C | ?lpDI@@3PAUIDirectInputA@@A
+// ?lpDI@@3PAUIDirectInputA@@A
 ARTS_IMPORT extern struct IDirectInputA* lpDI;
 
-// 0x909670 | ?lpdsBack@@3PAUIDirectDrawSurface4@@A
+// ?lpdsBack@@3PAUIDirectDrawSurface4@@A
 ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsBack;
 
-// 0x909658 | ?lpdsBack2@@3PAUIDirectDrawSurface4@@A
+// ?lpdsBack2@@3PAUIDirectDrawSurface4@@A
 ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsBack2;
 
-// 0x909664 | ?lpdsFront@@3PAUIDirectDrawSurface4@@A
+// ?lpdsFront@@3PAUIDirectDrawSurface4@@A
 ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsFront;
 
-// 0x909678 | ?lpdsRend@@3PAUIDirectDrawSurface4@@A
+// ?lpdsRend@@3PAUIDirectDrawSurface4@@A
 ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsRend;
 
 typedef struct SDL_Window SDL_Window;

@@ -41,42 +41,42 @@
 
 class sfPointer final : public asNode
 {
-    // const sfPointer::`vftable' @ 0x61F0A8
+    // const sfPointer::`vftable'
 
 public:
-    // 0x4BD970 | ??0sfPointer@@QAE@XZ
+    // ??0sfPointer@@QAE@XZ
     ARTS_IMPORT sfPointer();
 
-    // 0x4BDF30 | ??_EsfPointer@@UAEPAXI@Z
-    // 0x4BD9A0 | ??1sfPointer@@UAE@XZ
+    // ??_EsfPointer@@UAEPAXI@Z
+    // ??1sfPointer@@UAE@XZ
     ARTS_IMPORT ~sfPointer() override;
 
-    // 0x4BDD30 | ?Cull@sfPointer@@UAEXXZ
+    // ?Cull@sfPointer@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4BDF20 | ?GetClass@sfPointer@@UAEPAVMetaClass@@XZ
+    // ?GetClass@sfPointer@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4BDA80 | ?GetPointerHeight@sfPointer@@QAEMXZ
+    // ?GetPointerHeight@sfPointer@@QAEMXZ
     ARTS_IMPORT f32 GetPointerHeight();
 
-    // 0x4BDA00 | ?Init@sfPointer@@QAEXXZ
+    // ?Init@sfPointer@@QAEXXZ
     ARTS_IMPORT void Init();
 
-    // 0x4BDA20 | ?ResChange@sfPointer@@UAEXHH@Z
+    // ?ResChange@sfPointer@@UAEXHH@Z
     ARTS_IMPORT void ResChange(i32 arg1, i32 arg2) override;
 
-    // 0x4BDA90 | ?Update@sfPointer@@UAEXXZ
+    // ?Update@sfPointer@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4BDD20 | ?WaitForRelease@sfPointer@@QAEXXZ
+    // ?WaitForRelease@sfPointer@@QAEXXZ
     ARTS_IMPORT void WaitForRelease();
 
-    // 0x4BDDB0 | ?DeclareFields@sfPointer@@SAXXZ
+    // ?DeclareFields@sfPointer@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x4BDD10 | ?UpdateAttached@sfPointer@@AAEXXZ | unused
+    // ?UpdateAttached@sfPointer@@AAEXXZ | unused
     ARTS_EXPORT void UpdateAttached();
 
     u8 gap20[0x34];
@@ -84,5 +84,5 @@ private:
 
 check_size(sfPointer, 0x54);
 
-// 0x705C50 | ?sfPointerMetaClass@@3VMetaClass@@A
+// ?sfPointerMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass sfPointerMetaClass;

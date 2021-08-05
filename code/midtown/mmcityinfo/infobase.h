@@ -35,30 +35,30 @@
 
 class mmInfoBase : public Base
 {
-    // const mmInfoBase::`vftable' @ 0x61A620
+    // const mmInfoBase::`vftable'
 
 public:
-    // 0x4D12B0 | ??0mmInfoBase@@QAE@XZ
+    // ??0mmInfoBase@@QAE@XZ
     ARTS_IMPORT mmInfoBase();
 
-    // 0x4D15E0 | ??_EmmInfoBase@@UAEPAXI@Z
-    // 0x414B90 | ??_GmmInfoBase@@UAEPAXI@Z | unused
-    // 0x414BC0 | ??1mmInfoBase@@UAE@XZ | inline
+    // ??_EmmInfoBase@@UAEPAXI@Z
+    // ??_GmmInfoBase@@UAEPAXI@Z | unused
+    // ??1mmInfoBase@@UAE@XZ | inline
     ARTS_IMPORT ~mmInfoBase() override = default;
 
-    // 0x4D15D0 | ?GetClass@mmInfoBase@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmInfoBase@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4D12E0 | ?Load@mmInfoBase@@QAEHPAD@Z
+    // ?Load@mmInfoBase@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
 
-    // 0x4D1390 | ?Save@mmInfoBase@@QAEHPAD@Z
+    // ?Save@mmInfoBase@@QAEHPAD@Z
     ARTS_IMPORT i32 Save(char* arg1);
 
-    // 0x4D1440 | ?SetIOPath@mmInfoBase@@QAEXPAD@Z
+    // ?SetIOPath@mmInfoBase@@QAEXPAD@Z
     ARTS_IMPORT void SetIOPath(char* arg1);
 
-    // 0x4D1460 | ?DeclareFields@mmInfoBase@@SAXXZ
+    // ?DeclareFields@mmInfoBase@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap4[0x84];
@@ -66,5 +66,5 @@ public:
 
 check_size(mmInfoBase, 0x88);
 
-// 0x7085C8 | ?mmInfoBaseMetaClass@@3VMetaClass@@A
+// ?mmInfoBaseMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmInfoBaseMetaClass;

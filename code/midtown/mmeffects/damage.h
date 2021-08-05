@@ -33,19 +33,19 @@ class agiMeshSet;
 struct mmDamage
 {
 public:
-    // 0x502220 | ??0mmDamage@@QAE@XZ
+    // ??0mmDamage@@QAE@XZ
     ARTS_IMPORT mmDamage();
 
-    // 0x502230 | ??1mmDamage@@QAE@XZ
+    // ??1mmDamage@@QAE@XZ
     ARTS_IMPORT ~mmDamage();
 
-    // 0x502470 | ?Apply@mmDamage@@QAEXAAVVector3@@M@Z
+    // ?Apply@mmDamage@@QAEXAAVVector3@@M@Z
     ARTS_IMPORT void Apply(class Vector3& arg1, f32 arg2);
 
-    // 0x502240 | ?Init@mmDamage@@QAEXPAVagiMeshSet@@@Z
+    // ?Init@mmDamage@@QAEXPAVagiMeshSet@@@Z
     ARTS_IMPORT void Init(class agiMeshSet* arg1);
 
-    // 0x502420 | ?Reset@mmDamage@@QAEXH@Z
+    // ?Reset@mmDamage@@QAEXH@Z
     ARTS_IMPORT void Reset(i32 arg1);
 
 private:

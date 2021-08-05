@@ -40,13 +40,13 @@
 class agiLightModelParameters
 {
 public:
-    // 0x55BCA0 | ??0agiLightModelParameters@@QAE@XZ
+    // ??0agiLightModelParameters@@QAE@XZ
     ARTS_IMPORT agiLightModelParameters();
 
-    // 0x55BCF0 | ??1agiLightModelParameters@@QAE@XZ
+    // ??1agiLightModelParameters@@QAE@XZ
     ARTS_IMPORT ~agiLightModelParameters() = default;
 
-    // 0x55BCD0 | ??4agiLightModelParameters@@QAEXABV0@@Z
+    // ??4agiLightModelParameters@@QAEXABV0@@Z
     ARTS_IMPORT void operator=(class agiLightModelParameters const& arg1);
 
     Vector4 Ambient;
@@ -62,26 +62,26 @@ check_size(agiLightModelParameters, 0x28);
 
 class agiLightModel : public agiRefreshable
 {
-    // const agiLightModel::`vftable' @ 0x621760
+    // const agiLightModel::`vftable'
 
 public:
-    // 0x55BDF0 | ??_EagiLightModel@@UAEPAXI@Z
-    // 0x55BDF0 | ??_GagiLightModel@@UAEPAXI@Z
-    // 0x55BD80 | ??1agiLightModel@@UAE@XZ
+    // ??_EagiLightModel@@UAEPAXI@Z
+    // ??_GagiLightModel@@UAEPAXI@Z
+    // ??1agiLightModel@@UAE@XZ
     ARTS_IMPORT ~agiLightModel() override;
 
     virtual i32 Activate() = 0;
 
-    // 0x55BDD0 | ?GetName@agiLightModel@@UAEPADXZ
+    // ?GetName@agiLightModel@@UAEPADXZ
     ARTS_IMPORT char* GetName() override;
 
-    // 0x55BD50 | ?Init@agiLightModel@@QAEHABVagiLightModelParameters@@@Z
+    // ?Init@agiLightModel@@QAEHABVagiLightModelParameters@@@Z
     ARTS_IMPORT i32 Init(class agiLightModelParameters const& arg1);
 
     agiLightModelParameters Params;
 
 protected:
-    // 0x55BD00 | ??0agiLightModel@@IAE@PAVagiPipeline@@@Z
+    // ??0agiLightModel@@IAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiLightModel(class agiPipeline* arg1);
 };
 

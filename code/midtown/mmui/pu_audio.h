@@ -38,34 +38,34 @@
 
 class PUAudioOptions final : public PUMenuBase
 {
-    // const PUAudioOptions::`vftable' @ 0x61E0A8
+    // const PUAudioOptions::`vftable'
 
 public:
-    // 0x4AA790 | ??0PUAudioOptions@@QAE@HMMMM@Z
+    // ??0PUAudioOptions@@QAE@HMMMM@Z
     ARTS_IMPORT PUAudioOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x4AAA70 | ??_GPUAudioOptions@@UAEPAXI@Z
-    // 0x4AAA70 | ??_EPUAudioOptions@@UAEPAXI@Z
-    // 0x4AA9D0 | ??1PUAudioOptions@@UAE@XZ
+    // ??_GPUAudioOptions@@UAEPAXI@Z
+    // ??_EPUAudioOptions@@UAEPAXI@Z
+    // ??1PUAudioOptions@@UAE@XZ
     ARTS_IMPORT ~PUAudioOptions() override = default;
 
-    // 0x4AAA60 | ?CancelAction@PUAudioOptions@@QAEXXZ
+    // ?CancelAction@PUAudioOptions@@QAEXXZ
     ARTS_IMPORT void CancelAction();
 
-    // 0x4AAA50 | ?PreSetup@PUAudioOptions@@UAEXXZ
+    // ?PreSetup@PUAudioOptions@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x4AAA20 | ?SetBalance@PUAudioOptions@@QAEXXZ
+    // ?SetBalance@PUAudioOptions@@QAEXXZ
     ARTS_IMPORT void SetBalance();
 
-    // 0x4AAA00 | ?SetCDVolume@PUAudioOptions@@QAEXXZ
+    // ?SetCDVolume@PUAudioOptions@@QAEXXZ
     ARTS_IMPORT void SetCDVolume();
 
-    // 0x4AA9E0 | ?SetWaveVolume@PUAudioOptions@@QAEXXZ
+    // ?SetWaveVolume@PUAudioOptions@@QAEXXZ
     ARTS_IMPORT void SetWaveVolume();
 };
 
 check_size(PUAudioOptions, 0xC0);
 
-// 0x705958 | ?PUOptionsConfig@@3PAVmmPlayerConfig@@A
+// ?PUOptionsConfig@@3PAVmmPlayerConfig@@A
 ARTS_IMPORT extern class mmPlayerConfig* PUOptionsConfig;

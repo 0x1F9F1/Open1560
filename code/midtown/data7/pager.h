@@ -37,7 +37,7 @@ struct PagerInfo_t
 
     ~PagerInfo_t();
 
-    // 0x5605D0 | ?Read@PagerInfo_t@@QAEXPAXII@Z | stream:hfsystem
+    // ?Read@PagerInfo_t@@QAEXPAXII@Z | stream:hfsystem
     ARTS_EXPORT void Read(void* buffer, u32 offset, u32 size);
 };
 
@@ -47,8 +47,8 @@ check_size(PagerInfo_t, 0x10);
 #define ARTS_PAGE_GEOMETRY 0x2
 #define ARTS_PAGE_BOUNDS 0x4
 
-// 0x90AA18 | ?EnablePaging@@3HA
+// ?EnablePaging@@3HA
 ARTS_IMPORT extern i32 EnablePaging; // ARTS_PAGE_*
 
-// 0x90A9F0 | ?PAGER@@3VipcMessageQueue@@A
+// ?PAGER@@3VipcMessageQueue@@A
 ARTS_IMPORT extern class ipcMessageQueue PAGER;

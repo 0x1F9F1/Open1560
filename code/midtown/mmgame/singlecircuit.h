@@ -55,86 +55,86 @@
 
 class mmSingleCircuit final : public mmGame
 {
-    // const mmSingleCircuit::`vftable' @ 0x61A680
+    // const mmSingleCircuit::`vftable'
 
 public:
-    // 0x414BF0 | ??0mmSingleCircuit@@QAE@XZ
+    // ??0mmSingleCircuit@@QAE@XZ
     ARTS_IMPORT mmSingleCircuit();
 
-    // 0x416C10 | ??_EmmSingleCircuit@@UAEPAXI@Z
-    // 0x414C90 | ??1mmSingleCircuit@@UAE@XZ
+    // ??_EmmSingleCircuit@@UAEPAXI@Z
+    // ??1mmSingleCircuit@@UAE@XZ
     ARTS_IMPORT ~mmSingleCircuit() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4167A0 | ?AddWidgets@mmSingleCircuit@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmSingleCircuit@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x416AB0 | ?GetClass@mmSingleCircuit@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmSingleCircuit@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x416C80 | ?GetWaypoints@mmSingleCircuit@@UAEPAVmmWaypoints@@XZ | inline
+    // ?GetWaypoints@mmSingleCircuit@@UAEPAVmmWaypoints@@XZ | inline
     ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
 
-    // 0x4152E0 | ?HitWaterHandler@mmSingleCircuit@@UAEXXZ
+    // ?HitWaterHandler@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void HitWaterHandler() override;
 
-    // 0x414D50 | ?Init@mmSingleCircuit@@QAEHXZ
+    // ?Init@mmSingleCircuit@@QAEHXZ
     ARTS_IMPORT i32 Init();
 
-    // 0x414F90 | ?InitGameObjects@mmSingleCircuit@@UAEXXZ
+    // ?InitGameObjects@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void InitGameObjects() override;
 
-    // 0x414F40 | ?InitHUD@mmSingleCircuit@@UAEXXZ
+    // ?InitHUD@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void InitHUD() override;
 
-    // 0x414ED0 | ?InitMyPlayer@mmSingleCircuit@@UAEXXZ
+    // ?InitMyPlayer@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void InitMyPlayer() override;
 
-    // 0x415200 | ?InitOtherPlayers@mmSingleCircuit@@UAEXXZ
+    // ?InitOtherPlayers@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void InitOtherPlayers() override;
 
-    // 0x416620 | ?NextRace@mmSingleCircuit@@UAEXXZ
+    // ?NextRace@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void NextRace() override;
 
-    // 0x415210 | ?Reset@mmSingleCircuit@@UAEXXZ
+    // ?Reset@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x415490 | ?Update@mmSingleCircuit@@UAEXXZ
+    // ?Update@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x416C70 | ?UpdateDebugKeyInput@mmSingleCircuit@@UAEXH@Z | inline
+    // ?UpdateDebugKeyInput@mmSingleCircuit@@UAEXH@Z | inline
     ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
-    // 0x415850 | ?UpdateGame@mmSingleCircuit@@UAEXXZ
+    // ?UpdateGame@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;
 
-    // 0x4154B0 | ?UpdateGameInput@mmSingleCircuit@@UAEXH@Z
+    // ?UpdateGameInput@mmSingleCircuit@@UAEXH@Z
     ARTS_EXPORT void UpdateGameInput(i32 arg1) override;
 
-    // 0x4154C0 | ?UpdateScore@mmSingleCircuit@@QAEXXZ
+    // ?UpdateScore@mmSingleCircuit@@QAEXXZ
     ARTS_IMPORT void UpdateScore();
 
-    // 0x416940 | ?DeclareFields@mmSingleCircuit@@SAXXZ
+    // ?DeclareFields@mmSingleCircuit@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x415420 | ?DisableRacers@mmSingleCircuit@@AAEXXZ
+    // ?DisableRacers@mmSingleCircuit@@AAEXXZ
     ARTS_IMPORT void DisableRacers();
 
-    // 0x415390 | ?EnableRacers@mmSingleCircuit@@AAEXXZ
+    // ?EnableRacers@mmSingleCircuit@@AAEXXZ
     ARTS_IMPORT void EnableRacers();
 
-    // 0x415FE0 | ?FinishMessage@mmSingleCircuit@@AAEXHH@Z
+    // ?FinishMessage@mmSingleCircuit@@AAEXHH@Z
     ARTS_IMPORT void FinishMessage(i32 arg1, i32 arg2);
 
-    // 0x4165F0 | ?ProgressCheck@mmSingleCircuit@@AAEHHH@Z
+    // ?ProgressCheck@mmSingleCircuit@@AAEHHH@Z
     ARTS_IMPORT i32 ProgressCheck(i32 arg1, i32 arg2);
 
-    // 0x4161D0 | ?RegisterFinish@mmSingleCircuit@@AAEHXZ
+    // ?RegisterFinish@mmSingleCircuit@@AAEHXZ
     ARTS_IMPORT i32 RegisterFinish();
 
-    // 0x416170 | ?RegisterLap@mmSingleCircuit@@AAEHXZ
+    // ?RegisterLap@mmSingleCircuit@@AAEHXZ
     ARTS_IMPORT i32 RegisterLap();
 
     u8 gap1E570[0x90];
@@ -142,5 +142,5 @@ private:
 
 check_size(mmSingleCircuit, 0x1E600);
 
-// 0x6A70A8 | ?mmSingleCircuitMetaClass@@3VMetaClass@@A
+// ?mmSingleCircuitMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmSingleCircuitMetaClass;

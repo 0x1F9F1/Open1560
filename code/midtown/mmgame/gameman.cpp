@@ -26,10 +26,10 @@ define_dummy_symbol(mmgame_gameman);
 #include "data7/cache.h"
 #include "mmdyna/bndtmpl2.h"
 
-// 0x4046D0 | ?DoScan@@YAXPAX@Z
+// ?DoScan@@YAXPAX@Z
 ARTS_IMPORT /*static*/ void DoScan(void* arg1);
 
-// 0x404390 | ?randcall@@YAXXZ
+// ?randcall@@YAXXZ
 ARTS_IMPORT /*static*/ void randcall();
 
 void ShowGameManagerStats()

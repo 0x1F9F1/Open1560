@@ -61,103 +61,103 @@
 
 class AudStream final : public asNode
 {
-    // const AudStream::`vftable' @ 0x61FF40
+    // const AudStream::`vftable'
 
 public:
-    // 0x4F35A0 | ??0AudStream@@QAE@KHF@Z
+    // ??0AudStream@@QAE@KHF@Z
     ARTS_IMPORT AudStream(ulong arg1, i32 arg2, i16 arg3);
 
-    // 0x4F4210 | ??_EAudStream@@UAEPAXI@Z
-    // 0x4F4210 | ??_GAudStream@@UAEPAXI@Z
-    // 0x4F36E0 | ??1AudStream@@UAE@XZ
+    // ??_EAudStream@@UAEPAXI@Z
+    // ??_GAudStream@@UAEPAXI@Z
+    // ??1AudStream@@UAE@XZ
     ARTS_IMPORT ~AudStream() override;
 
-    // 0x4F3800 | ?DeallocateStreamObjs@AudStream@@QAEXXZ
+    // ?DeallocateStreamObjs@AudStream@@QAEXXZ
     ARTS_IMPORT void DeallocateStreamObjs();
 
-    // 0x4F3AC0 | ?Disable@AudStream@@QAEXXZ | unused
+    // ?Disable@AudStream@@QAEXXZ | unused
     ARTS_IMPORT void Disable();
 
-    // 0x4F3AB0 | ?Enable@AudStream@@QAEXXZ | unused
+    // ?Enable@AudStream@@QAEXXZ | unused
     ARTS_IMPORT void Enable();
 
-    // 0x4F4140 | ?GetCurrentSoundObj@AudStream@@QAEPAVStreamObj@@XZ | unused
+    // ?GetCurrentSoundObj@AudStream@@QAEPAVStreamObj@@XZ | unused
     ARTS_IMPORT class StreamObj* GetCurrentSoundObj();
 
-    // 0x4F3FA0 | ?GetFrequency@AudStream@@QAEMH@Z | unused
+    // ?GetFrequency@AudStream@@QAEMH@Z | unused
     ARTS_IMPORT f32 GetFrequency(i32 arg1);
 
-    // 0x4F40E0 | ?IsPlaying@AudStream@@QAEHXZ
+    // ?IsPlaying@AudStream@@QAEHXZ
     ARTS_IMPORT i32 IsPlaying();
 
-    // 0x4F3910 | ?Load@AudStream@@QAEHPADH@Z
+    // ?Load@AudStream@@QAEHPADH@Z
     ARTS_IMPORT i32 Load(char* arg1, i32 arg2);
 
-    // 0x4F3E40 | ?PlayLoop@AudStream@@QAEXMM@Z | unused
+    // ?PlayLoop@AudStream@@QAEXMM@Z | unused
     ARTS_IMPORT void PlayLoop(f32 arg1, f32 arg2);
 
-    // 0x4F3D20 | ?PlayLoop@AudStream@@QAEXPADMM@Z | unused
+    // ?PlayLoop@AudStream@@QAEXPADMM@Z | unused
     ARTS_IMPORT void PlayLoop(char* arg1, f32 arg2, f32 arg3);
 
-    // 0x4F3B60 | ?PlayOnce@AudStream@@QAEXMM@Z | unused
+    // ?PlayOnce@AudStream@@QAEXMM@Z | unused
     ARTS_IMPORT void PlayOnce(f32 arg1, f32 arg2);
 
-    // 0x4F3C10 | ?PlayOnce@AudStream@@QAEXPADMM@Z
+    // ?PlayOnce@AudStream@@QAEXPADMM@Z
     ARTS_IMPORT void PlayOnce(char* arg1, f32 arg2, f32 arg3);
 
-    // 0x4F3890 | ?ReallocateStreamObjs@AudStream@@QAEXXZ
+    // ?ReallocateStreamObjs@AudStream@@QAEXXZ
     ARTS_IMPORT void ReallocateStreamObjs();
 
-    // 0x4F3AE0 | ?Reset@AudStream@@UAEXXZ
+    // ?Reset@AudStream@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4F3F30 | ?SetFrequency@AudStream@@QAEXMH@Z
+    // ?SetFrequency@AudStream@@QAEXMH@Z
     ARTS_IMPORT void SetFrequency(f32 arg1, i32 arg2);
 
-    // 0x4F4180 | ?SetLoopIndex@AudStream@@QAEXF@Z | unused
+    // ?SetLoopIndex@AudStream@@QAEXF@Z | unused
     ARTS_IMPORT void SetLoopIndex(i16 arg1);
 
-    // 0x4F41B0 | ?SetLoopPointInfo@AudStream@@QAEXKKIFF@Z | unused
+    // ?SetLoopPointInfo@AudStream@@QAEXKKIFF@Z | unused
     ARTS_IMPORT void SetLoopPointInfo(ulong arg1, ulong arg2, u32 arg3, i16 arg4, i16 arg5);
 
-    // 0x4F4150 | ?SetNumLoopIndices@AudStream@@QAEXF@Z | unused
+    // ?SetNumLoopIndices@AudStream@@QAEXF@Z | unused
     ARTS_IMPORT void SetNumLoopIndices(i16 arg1);
 
-    // 0x4F4050 | ?SetPan@AudStream@@QAEXMH@Z
+    // ?SetPan@AudStream@@QAEXMH@Z
     ARTS_IMPORT void SetPan(f32 arg1, i32 arg2);
 
-    // 0x4F3B50 | ?SetPlayPosition@AudStream@@QAEXK@Z | unused
+    // ?SetPlayPosition@AudStream@@QAEXK@Z | unused
     ARTS_EXPORT void SetPlayPosition(ulong arg1);
 
-    // 0x4F37E0 | ?SetPriority@AudStream@@QAEXH@Z
+    // ?SetPriority@AudStream@@QAEXH@Z
     ARTS_IMPORT void SetPriority(i32 arg1);
 
-    // 0x4F3FE0 | ?SetVolume@AudStream@@QAEXMH@Z
+    // ?SetVolume@AudStream@@QAEXMH@Z
     ARTS_IMPORT void SetVolume(f32 arg1, i32 arg2);
 
-    // 0x4F41F0 | ?SetupNotifications@AudStream@@QAEXXZ | unused
+    // ?SetupNotifications@AudStream@@QAEXXZ | unused
     ARTS_IMPORT void SetupNotifications();
 
-    // 0x4F3EF0 | ?Stop@AudStream@@QAEXXZ
+    // ?Stop@AudStream@@QAEXXZ
     ARTS_IMPORT void Stop();
 
-    // 0x4F3F10 | ?StopNow@AudStream@@QAEXXZ | unused
+    // ?StopNow@AudStream@@QAEXXZ | unused
     ARTS_IMPORT void StopNow();
 
-    // 0x4F3B00 | ?Update@AudStream@@UAEXXZ
+    // ?Update@AudStream@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4F4100 | ?Get2DFlags@AudStream@@SA?BKXZ | unused
+    // ?Get2DFlags@AudStream@@SA?BKXZ | unused
     ARTS_IMPORT static ulong const Get2DFlags();
 
-    // 0x4F4120 | ?GetFreqChange2DFlags@AudStream@@SA?BKXZ
+    // ?GetFreqChange2DFlags@AudStream@@SA?BKXZ
     ARTS_IMPORT static ulong const GetFreqChange2DFlags();
 
 private:
-    // 0x61FF24 | ?s_DWDefault2DCtrlFlags@AudStream@@0KB
+    // ?s_DWDefault2DCtrlFlags@AudStream@@0KB
     ARTS_IMPORT static ulong const s_DWDefault2DCtrlFlags;
 
-    // 0x61FF28 | ?s_DWFreqChange2DCtrlFlags@AudStream@@0KB
+    // ?s_DWFreqChange2DCtrlFlags@AudStream@@0KB
     ARTS_IMPORT static ulong const s_DWFreqChange2DCtrlFlags;
 
     u8 gap20[0x34];

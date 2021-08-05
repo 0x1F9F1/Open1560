@@ -48,62 +48,62 @@
 
 class VSWidget final : public asNode
 {
-    // const VSWidget::`vftable' @ 0x61F1E0
+    // const VSWidget::`vftable'
 
 public:
-    // 0x4BF2F0 | ??0VSWidget@@QAE@XZ
+    // ??0VSWidget@@QAE@XZ
     ARTS_IMPORT VSWidget();
 
-    // 0x4BFEB0 | ??_EVSWidget@@UAEPAXI@Z
-    // 0x4BF370 | ??1VSWidget@@UAE@XZ
+    // ??_EVSWidget@@UAEPAXI@Z
+    // ??1VSWidget@@UAE@XZ
     ARTS_IMPORT ~VSWidget() override;
 
-    // 0x4BF950 | ?Action@VSWidget@@QAEHTeqEvent@@MMH@Z
+    // ?Action@VSWidget@@QAEHTeqEvent@@MMH@Z
     ARTS_IMPORT i32 Action(union eqEvent arg1, f32 arg2, f32 arg3, i32 arg4);
 
-    // 0x4BF5A0 | ?CalcTroughRatio@VSWidget@@QAEXM@Z
+    // ?CalcTroughRatio@VSWidget@@QAEXM@Z
     ARTS_IMPORT void CalcTroughRatio(f32 arg1);
 
-    // 0x4BFBB0 | ?Cull@VSWidget@@UAEXXZ
+    // ?Cull@VSWidget@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4BF770 | ?Dec@VSWidget@@QAEMXZ
+    // ?Dec@VSWidget@@QAEMXZ
     ARTS_IMPORT f32 Dec();
 
-    // 0x4BFA00 | ?EvalMouseXY@VSWidget@@QAEXMMH@Z
+    // ?EvalMouseXY@VSWidget@@QAEXMMH@Z
     ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2, i32 arg3);
 
-    // 0x4BFEA0 | ?GetClass@VSWidget@@UAEPAVMetaClass@@XZ
+    // ?GetClass@VSWidget@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4BF710 | ?Inc@VSWidget@@QAEMXZ
+    // ?Inc@VSWidget@@QAEMXZ
     ARTS_IMPORT f32 Inc();
 
-    // 0x4BF3F0 | ?Init@VSWidget@@QAEXMMMMPAHVCallback@@H@Z
+    // ?Init@VSWidget@@QAEXMMMMPAHVCallback@@H@Z
     ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32* arg5, class Callback arg6, i32 arg7);
 
-    // 0x4BF450 | ?LoadBitmap@VSWidget@@QAEXXZ
+    // ?LoadBitmap@VSWidget@@QAEXXZ
     ARTS_IMPORT void LoadBitmap();
 
-    // 0x4BF620 | ?SetHotSpots@VSWidget@@QAEXXZ
+    // ?SetHotSpots@VSWidget@@QAEXXZ
     ARTS_IMPORT void SetHotSpots();
 
-    // 0x4BF7D0 | ?SetStep@VSWidget@@QAEXHM@Z
+    // ?SetStep@VSWidget@@QAEXHM@Z
     ARTS_IMPORT void SetStep(i32 arg1, f32 arg2);
 
-    // 0x4BF840 | ?SetTrough@VSWidget@@QAEXM@Z
+    // ?SetTrough@VSWidget@@QAEXM@Z
     ARTS_IMPORT void SetTrough(f32 arg1);
 
-    // 0x4BF900 | ?Switch@VSWidget@@QAEXHMM@Z
+    // ?Switch@VSWidget@@QAEXHMM@Z
     ARTS_IMPORT void Switch(i32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4BF6D0 | ?SyncData@VSWidget@@QAEXXZ
+    // ?SyncData@VSWidget@@QAEXXZ
     ARTS_IMPORT void SyncData();
 
-    // 0x4BF8D0 | ?Update@VSWidget@@UAEXXZ
+    // ?Update@VSWidget@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4BFD30 | ?DeclareFields@VSWidget@@SAXXZ
+    // ?DeclareFields@VSWidget@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0xB0];
@@ -111,5 +111,5 @@ public:
 
 check_size(VSWidget, 0xD0);
 
-// 0x705CC8 | ?VSWidgetMetaClass@@3VMetaClass@@A
+// ?VSWidgetMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass VSWidgetMetaClass;

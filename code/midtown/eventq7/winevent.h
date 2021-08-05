@@ -51,41 +51,41 @@ class WINEventHandler final
     : public eqEventHandler
     , public Dispatchable
 {
-    // const WINEventHandler::`vftable'{for `Dispatchable'} @ 0x621A78
-    // const WINEventHandler::`vftable'{for `eqEventHandler'} @ 0x621A80
+    // const WINEventHandler::`vftable'{for `Dispatchable'}
+    // const WINEventHandler::`vftable'{for `eqEventHandler'}
 
 public:
-    // 0x561D90 | ??0WINEventHandler@@QAE@XZ
+    // ??0WINEventHandler@@QAE@XZ
     ARTS_EXPORT WINEventHandler();
 
-    // 0x562E80 | ??_EWINEventHandler@@UAEPAXI@Z
-    // 0x562E80 | ??_GWINEventHandler@@UAEPAXI@Z
-    // 0x561EC0 | ??1WINEventHandler@@UAE@XZ
+    // ??_EWINEventHandler@@UAEPAXI@Z
+    // ??_GWINEventHandler@@UAEPAXI@Z
+    // ??1WINEventHandler@@UAE@XZ
     ARTS_EXPORT ~WINEventHandler() override;
 
-    // 0x562660 | ?AdjustMouse@WINEventHandler@@QAEXAAH0@Z
+    // ?AdjustMouse@WINEventHandler@@QAEXAAH0@Z
     ARTS_EXPORT void AdjustMouse(i32& mouse_x, i32& mouse_y);
 
-    // 0x561F20 | ?BeginGfx@WINEventHandler@@UAEHHHH@Z
+    // ?BeginGfx@WINEventHandler@@UAEHHHH@Z
     ARTS_EXPORT i32 BeginGfx(i32 width, i32 height, b32 fullscreen) override;
 
-    // 0x562610 | ?BeginTracking@WINEventHandler@@UAEXXZ
+    // ?BeginTracking@WINEventHandler@@UAEXXZ
     ARTS_EXPORT void BeginTracking() override;
 
-    // 0x561FC0 | ?EndGfx@WINEventHandler@@UAEXXZ
+    // ?EndGfx@WINEventHandler@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
-    // 0x562640 | ?EndTracking@WINEventHandler@@UAEXXZ
+    // ?EndTracking@WINEventHandler@@UAEXXZ
     ARTS_EXPORT void EndTracking() override;
 
-    // 0x561FE0 | ?GKeyName@WINEventHandler@@UAEPADH@Z
+    // ?GKeyName@WINEventHandler@@UAEPADH@Z
     ARTS_EXPORT const char* GKeyName(i32 arg1) override;
 
-    // 0x562350 | ?Update@WINEventHandler@@UAEXH@Z
+    // ?Update@WINEventHandler@@UAEXH@Z
     ARTS_EXPORT void Update(i32 arg1) override;
 
 private:
-    // 0x562720 | ?WindowProc@WINEventHandler@@EAEJPAUHWND__@@IIJ@Z
+    // ?WindowProc@WINEventHandler@@EAEJPAUHWND__@@IIJ@Z
     ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
     void OnKeyPress(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -100,23 +100,23 @@ private:
 
 check_size(WINEventHandler, 0x16C);
 
-// 0x562E60 | ?DeallocateEventQueue@@YAXXZ
+// ?DeallocateEventQueue@@YAXXZ
 ARTS_EXPORT void DeallocateEventQueue();
 
-// 0x562DF0 | ?InitEventQueue@@YAXXZ
+// ?InitEventQueue@@YAXXZ
 ARTS_EXPORT void InitEventQueue();
 
-// 0x657820 | ?ActiveFlag@@3HA
+// ?ActiveFlag@@3HA
 // 0x1 | Focused/Active
 ARTS_IMPORT extern i32 ActiveFlag;
 
-// 0x908C34 | ?CloseCallback@@3P6AXXZA
+// ?CloseCallback@@3P6AXXZA
 ARTS_IMPORT extern void (*CloseCallback)(void);
 
-// 0x908C38 | ?InitialCursorState@@3HA
+// ?InitialCursorState@@3HA
 ARTS_IMPORT extern i32 InitialCursorState;
 
-// 0x908C48 | ?eqRestoreFlag@@3HA
+// ?eqRestoreFlag@@3HA
 ARTS_IMPORT extern i32 eqRestoreFlag;
 
 // TODO: Move this somewhere else

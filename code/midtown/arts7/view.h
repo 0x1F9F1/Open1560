@@ -45,55 +45,55 @@
 
 class asViewCS final : public asLinearCS
 {
-    // const asViewCS::`vftable' @ 0x620E40
+    // const asViewCS::`vftable'
 
 public:
-    // 0x52BBA0 | ??0asViewCS@@QAE@XZ
+    // ??0asViewCS@@QAE@XZ
     ARTS_IMPORT asViewCS();
 
-    // 0x52CDF0 | ??_EasViewCS@@UAEPAXI@Z
-    // 0x52CE50 | ??1asViewCS@@UAE@XZ | inline
+    // ??_EasViewCS@@UAEPAXI@Z
+    // ??1asViewCS@@UAE@XZ | inline
     ARTS_IMPORT ~asViewCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x52C780 | ?AddWidgets@asViewCS@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asViewCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x52C770 | ?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z | unused
+    // ?FileIO@asViewCS@@QAEXPAVMiniParser@@@Z | unused
     ARTS_EXPORT void FileIO(class MiniParser* arg1);
 
-    // 0x52CDE0 | ?GetClass@asViewCS@@UAEPAVMetaClass@@XZ
+    // ?GetClass@asViewCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x52BD30 | ?Reset@asViewCS@@UAEXXZ
+    // ?Reset@asViewCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x52BCD0 | ?SetAzimuth@asViewCS@@QAEXXZ
+    // ?SetAzimuth@asViewCS@@QAEXXZ
     ARTS_IMPORT void SetAzimuth();
 
-    // 0x52BF00 | ?Update@asViewCS@@UAEXXZ
+    // ?Update@asViewCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x52C220 | ?UpdateLookAt@asViewCS@@QAEXXZ
+    // ?UpdateLookAt@asViewCS@@QAEXXZ
     ARTS_IMPORT void UpdateLookAt();
 
-    // 0x52C1D0 | ?UpdatePOV@asViewCS@@QAEXXZ
+    // ?UpdatePOV@asViewCS@@QAEXXZ
     ARTS_IMPORT void UpdatePOV();
 
-    // 0x52BF80 | ?UpdatePolar@asViewCS@@QAEXXZ
+    // ?UpdatePolar@asViewCS@@QAEXXZ
     ARTS_IMPORT void UpdatePolar();
 
-    // 0x52C0C0 | ?UpdateRoam@asViewCS@@QAEXXZ
+    // ?UpdateRoam@asViewCS@@QAEXXZ
     ARTS_IMPORT void UpdateRoam();
 
-    // 0x52C640 | ?UpdateStereo@asViewCS@@QAEXXZ
+    // ?UpdateStereo@asViewCS@@QAEXXZ
     ARTS_IMPORT void UpdateStereo();
 
-    // 0x52C280 | ?UpdateTrack@asViewCS@@QAEXXZ
+    // ?UpdateTrack@asViewCS@@QAEXXZ
     ARTS_IMPORT void UpdateTrack();
 
-    // 0x52CC70 | ?DeclareFields@asViewCS@@SAXXZ
+    // ?DeclareFields@asViewCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x9C];
@@ -101,5 +101,5 @@ public:
 
 check_size(asViewCS, 0x124);
 
-// 0x7909B8 | ?asViewCSMetaClass@@3VMetaClass@@A
+// ?asViewCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asViewCSMetaClass;

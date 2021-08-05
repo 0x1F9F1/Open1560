@@ -40,41 +40,41 @@
 
 class EngineAudioOpponent final : public asNode
 {
-    // const EngineAudioOpponent::`vftable' @ 0x61CA90
+    // const EngineAudioOpponent::`vftable'
 
 public:
-    // 0x485800 | ??0EngineAudioOpponent@@QAE@XZ
+    // ??0EngineAudioOpponent@@QAE@XZ
     ARTS_IMPORT EngineAudioOpponent();
 
-    // 0x485DA0 | ??_EEngineAudioOpponent@@UAEPAXI@Z
-    // 0x485860 | ??1EngineAudioOpponent@@UAE@XZ
+    // ??_EEngineAudioOpponent@@UAEPAXI@Z
+    // ??1EngineAudioOpponent@@UAE@XZ
     ARTS_IMPORT ~EngineAudioOpponent() override;
 
-    // 0x485A10 | ?ClearName@EngineAudioOpponent@@QAEXXZ
+    // ?ClearName@EngineAudioOpponent@@QAEXXZ
     ARTS_IMPORT void ClearName();
 
-    // 0x485A50 | ?Disable3DMode@EngineAudioOpponent@@QAEXXZ
+    // ?Disable3DMode@EngineAudioOpponent@@QAEXXZ
     ARTS_IMPORT void Disable3DMode();
 
-    // 0x485A30 | ?Enable3DMode@EngineAudioOpponent@@QAEXPAVVector3@@@Z
+    // ?Enable3DMode@EngineAudioOpponent@@QAEXPAVVector3@@@Z
     ARTS_IMPORT void Enable3DMode(class Vector3* arg1);
 
-    // 0x485C70 | ?GetClass@EngineAudioOpponent@@UAEPAVMetaClass@@XZ
+    // ?GetClass@EngineAudioOpponent@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x485890 | ?Init@EngineAudioOpponent@@QAEXXZ
+    // ?Init@EngineAudioOpponent@@QAEXXZ
     ARTS_IMPORT void Init();
 
-    // 0x485900 | ?Init@EngineAudioOpponent@@QAEXF@Z | unused
+    // ?Init@EngineAudioOpponent@@QAEXF@Z | unused
     ARTS_IMPORT void Init(i16 arg1);
 
-    // 0x477810 | ?SetSoundPtr@EngineAudioOpponent@@QAEXPAVAudSound@@@Z | inline
+    // ?SetSoundPtr@EngineAudioOpponent@@QAEXPAVAudSound@@@Z | inline
     ARTS_IMPORT void SetSoundPtr(class AudSound* arg1);
 
-    // 0x485940 | ?UpdateRPM@EngineAudioOpponent@@QAEXM@Z
+    // ?UpdateRPM@EngineAudioOpponent@@QAEXM@Z
     ARTS_IMPORT void UpdateRPM(f32 arg1);
 
-    // 0x485A60 | ?DeclareFields@EngineAudioOpponent@@SAXXZ
+    // ?DeclareFields@EngineAudioOpponent@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x34];
@@ -82,5 +82,5 @@ public:
 
 check_size(EngineAudioOpponent, 0x54);
 
-// 0x6A8248 | ?EngineAudioOpponentMetaClass@@3VMetaClass@@A
+// ?EngineAudioOpponentMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass EngineAudioOpponentMetaClass;

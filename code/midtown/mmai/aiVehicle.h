@@ -31,26 +31,26 @@
 
 class aiVehicle
 {
-    // const aiVehicle::`vftable' @ 0x61BC40
+    // const aiVehicle::`vftable'
 
 public:
-    // 0x4658F0 | ??0aiVehicle@@QAE@XZ
+    // ??0aiVehicle@@QAE@XZ
     ARTS_IMPORT aiVehicle();
 
-    // 0x465910 | ??1aiVehicle@@QAE@XZ
+    // ??1aiVehicle@@QAE@XZ
     ARTS_IMPORT ~aiVehicle();
 
-    // 0x465940 | ?Update@aiVehicle@@UAEXXZ
+    // ?Update@aiVehicle@@UAEXXZ
     ARTS_IMPORT virtual void Update();
 
-    // 0x465930 | ?Reset@aiVehicle@@UAEXXZ
+    // ?Reset@aiVehicle@@UAEXXZ
     ARTS_IMPORT virtual void Reset();
 
     virtual i32 Type() = 0;
 
     virtual void DrawId() = 0;
 
-    // 0x465920 | ?Init@aiVehicle@@QAEXH@Z
+    // ?Init@aiVehicle@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
     u8 gap4[0x10];

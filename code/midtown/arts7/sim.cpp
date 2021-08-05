@@ -106,10 +106,10 @@ void ShutdownPipeline()
         eqReplay::ShutdownRecord();
 }
 
-// 0x523510 | ?IsValidPointer@@YAHPAXIH@Z
+// ?IsValidPointer@@YAHPAXIH@Z
 ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
 
-// 0x521C20 | ?QuietPrinter@@YAXHPBDPAD@Z
+// ?QuietPrinter@@YAXHPBDPAD@Z
 ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, char const* arg2, char* arg3);
 
 asSimulation::~asSimulation()

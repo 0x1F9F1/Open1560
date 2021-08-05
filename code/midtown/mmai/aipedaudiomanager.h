@@ -40,36 +40,36 @@
 
 class aiPedAudioManager final : public asNode
 {
-    // const aiPedAudioManager::`vftable' @ 0x61B568
+    // const aiPedAudioManager::`vftable'
 
 public:
-    // 0x446C80 | ??0aiPedAudioManager@@QAE@XZ
+    // ??0aiPedAudioManager@@QAE@XZ
     ARTS_IMPORT aiPedAudioManager();
 
-    // 0x4472B0 | ??_GaiPedAudioManager@@UAEPAXI@Z
-    // 0x4472B0 | ??_EaiPedAudioManager@@UAEPAXI@Z
-    // 0x446F80 | ??1aiPedAudioManager@@UAE@XZ
+    // ??_GaiPedAudioManager@@UAEPAXI@Z
+    // ??_EaiPedAudioManager@@UAEPAXI@Z
+    // ??1aiPedAudioManager@@UAE@XZ
     ARTS_IMPORT ~aiPedAudioManager() override;
 
-    // 0x447030 | ?Add@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z
+    // ?Add@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z
     ARTS_IMPORT i16 Add(class aiPedestrian* arg1);
 
-    // 0x447280 | ?AssignSounds@aiPedAudioManager@@QAEXF@Z
+    // ?AssignSounds@aiPedAudioManager@@QAEXF@Z
     ARTS_IMPORT void AssignSounds(i16 arg1);
 
-    // 0x447150 | ?FindGreatestDistance@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z
+    // ?FindGreatestDistance@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z
     ARTS_IMPORT i16 FindGreatestDistance(class aiPedestrian* arg1);
 
-    // 0x4471E0 | ?FindUnusedSlot@aiPedAudioManager@@QAEFXZ
+    // ?FindUnusedSlot@aiPedAudioManager@@QAEFXZ
     ARTS_IMPORT i16 FindUnusedSlot();
 
-    // 0x4472A0 | ?RandomizeSeconds@aiPedAudioManager@@QAEXMM@Z | unused
+    // ?RandomizeSeconds@aiPedAudioManager@@QAEXMM@Z | unused
     ARTS_EXPORT void RandomizeSeconds(f32 arg1, f32 arg2);
 
-    // 0x4470E0 | ?Remove@aiPedAudioManager@@QAEXPAVaiPedestrian@@F@Z
+    // ?Remove@aiPedAudioManager@@QAEXPAVaiPedestrian@@F@Z
     ARTS_IMPORT void Remove(class aiPedestrian* arg1, i16 arg2);
 
-    // 0x447220 | ?Update@aiPedAudioManager@@UAEXXZ
+    // ?Update@aiPedAudioManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x100];
@@ -77,5 +77,5 @@ public:
 
 check_size(aiPedAudioManager, 0x120);
 
-// 0x6A79AC | ?AIPEDAUDMGRPTR@@3PAVaiPedAudioManager@@A
+// ?AIPEDAUDMGRPTR@@3PAVaiPedAudioManager@@A
 ARTS_IMPORT extern class aiPedAudioManager* AIPEDAUDMGRPTR;

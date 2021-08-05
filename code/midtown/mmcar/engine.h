@@ -45,55 +45,55 @@
 
 class mmEngine final : public asNode
 {
-    // const mmEngine::`vftable' @ 0x61C600
+    // const mmEngine::`vftable'
 
 public:
-    // 0x47C930 | ??0mmEngine@@QAE@XZ
+    // ??0mmEngine@@QAE@XZ
     ARTS_IMPORT mmEngine();
 
-    // 0x47D190 | ??_EmmEngine@@UAEPAXI@Z
-    // 0x47C990 | ??1mmEngine@@UAE@XZ
+    // ??_EmmEngine@@UAEPAXI@Z
+    // ??1mmEngine@@UAE@XZ
     ARTS_IMPORT ~mmEngine() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x47CE70 | ?AddWidgets@mmEngine@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmEngine@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x47C9D0 | ?AfterLoad@mmEngine@@UAEXXZ
+    // ?AfterLoad@mmEngine@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;
 
-    // 0x47CBB0 | ?CalcTorque@mmEngine@@QAEMM@Z
+    // ?CalcTorque@mmEngine@@QAEMM@Z
     ARTS_IMPORT f32 CalcTorque(f32 arg1);
 
-    // 0x47CAE0 | ?CalcTorqueAtFullThrottle@mmEngine@@QAEMXZ
+    // ?CalcTorqueAtFullThrottle@mmEngine@@QAEMXZ
     ARTS_IMPORT f32 CalcTorqueAtFullThrottle();
 
-    // 0x47CB70 | ?CalcTorqueAtZeroThrottle@mmEngine@@QAEMXZ
+    // ?CalcTorqueAtZeroThrottle@mmEngine@@QAEMXZ
     ARTS_IMPORT f32 CalcTorqueAtZeroThrottle();
 
-    // 0x47CA60 | ?ComputeConstants@mmEngine@@QAEXXZ
+    // ?ComputeConstants@mmEngine@@QAEXXZ
     ARTS_IMPORT void ComputeConstants();
 
-    // 0x47D180 | ?GetClass@mmEngine@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmEngine@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x47C9A0 | ?Init@mmEngine@@QAEXPAVmmCarSim@@@Z
+    // ?Init@mmEngine@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void Init(class mmCarSim* arg1);
 
-    // 0x47C9E0 | ?Load@mmEngine@@QAEXPAVStream@@@Z | unused
+    // ?Load@mmEngine@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Load(class Stream* arg1);
 
-    // 0x47CC60 | ?Reset@mmEngine@@UAEXXZ
+    // ?Reset@mmEngine@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x47CBE0 | ?Save@mmEngine@@QAEXPAVStream@@@Z | unused
+    // ?Save@mmEngine@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Save(class Stream* arg1);
 
-    // 0x47CC90 | ?Update@mmEngine@@UAEXXZ
+    // ?Update@mmEngine@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x47CFC0 | ?DeclareFields@mmEngine@@SAXXZ
+    // ?DeclareFields@mmEngine@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x5C];
@@ -101,5 +101,5 @@ public:
 
 check_size(mmEngine, 0x7C);
 
-// 0x6A8030 | ?mmEngineMetaClass@@3VMetaClass@@A
+// ?mmEngineMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmEngineMetaClass;

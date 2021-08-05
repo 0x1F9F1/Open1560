@@ -37,34 +37,34 @@
 
 class VehGyro final : public asNode
 {
-    // const VehGyro::`vftable' @ 0x61C810
+    // const VehGyro::`vftable'
 
 public:
-    // 0x480660 | ??0VehGyro@@QAE@XZ
+    // ??0VehGyro@@QAE@XZ
     ARTS_IMPORT VehGyro();
 
-    // 0x480B80 | ??_EVehGyro@@UAEPAXI@Z
-    // 0x470340 | ??1VehGyro@@UAE@XZ | inline
+    // ??_EVehGyro@@UAEPAXI@Z
+    // ??1VehGyro@@UAE@XZ | inline
     ARTS_IMPORT ~VehGyro() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x480930 | ?AddWidgets@VehGyro@@UAEXPAVBank@@@Z
+    // ?AddWidgets@VehGyro@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x480B70 | ?GetClass@VehGyro@@UAEPAVMetaClass@@XZ
+    // ?GetClass@VehGyro@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x480690 | ?Load@VehGyro@@QAEXPAVStream@@@Z | unused
+    // ?Load@VehGyro@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Load(class Stream* arg1);
 
-    // 0x480700 | ?Save@VehGyro@@QAEXPAVStream@@@Z | unused
+    // ?Save@VehGyro@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Save(class Stream* arg1);
 
-    // 0x480780 | ?Update@VehGyro@@UAEXXZ
+    // ?Update@VehGyro@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4809E0 | ?DeclareFields@VehGyro@@SAXXZ
+    // ?DeclareFields@VehGyro@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x14];
@@ -72,5 +72,5 @@ public:
 
 check_size(VehGyro, 0x34);
 
-// 0x6A8120 | ?VehGyroMetaClass@@3VMetaClass@@A
+// ?VehGyroMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass VehGyroMetaClass;

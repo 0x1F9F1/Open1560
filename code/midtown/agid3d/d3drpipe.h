@@ -41,43 +41,43 @@
 
 class agiD3DRPipeline final : public agiD3DPipeline
 {
-    // const agiD3DRPipeline::`vftable' @ 0x621010
+    // const agiD3DRPipeline::`vftable'
 
 public:
-    // 0x531600 | ??0agiD3DRPipeline@@QAE@XZ
+    // ??0agiD3DRPipeline@@QAE@XZ
     ARTS_EXPORT agiD3DRPipeline() = default;
 
-    // 0x531970 | ??_GagiD3DRPipeline@@UAEPAXI@Z
-    // 0x531970 | ??_EagiD3DRPipeline@@UAEPAXI@Z
-    // 0x531620 | ??1agiD3DRPipeline@@UAE@XZ
+    // ??_GagiD3DRPipeline@@UAEPAXI@Z
+    // ??_EagiD3DRPipeline@@UAEPAXI@Z
+    // ??1agiD3DRPipeline@@UAE@XZ
     ARTS_EXPORT ~agiD3DRPipeline() override = default;
 
-    // 0x531630 | ?BeginGfx@agiD3DRPipeline@@UAEHXZ
+    // ?BeginGfx@agiD3DRPipeline@@UAEHXZ
     ARTS_EXPORT i32 BeginGfx() override;
 
-    // 0x5317F0 | ?BeginScene@agiD3DRPipeline@@UAEXXZ
+    // ?BeginScene@agiD3DRPipeline@@UAEXXZ
     ARTS_EXPORT void BeginScene() override;
 
-    // 0x531790 | ?CreateDLP@agiD3DRPipeline@@UAEPAVDLP@@XZ
+    // ?CreateDLP@agiD3DRPipeline@@UAEPAVDLP@@XZ
     ARTS_EXPORT RcOwner<class DLP> CreateDLP() override;
 
-    // 0x531910 | ?CreateLight@agiD3DRPipeline@@UAEPAVagiLight@@XZ
+    // ?CreateLight@agiD3DRPipeline@@UAEPAVagiLight@@XZ
     ARTS_EXPORT RcOwner<class agiLight> CreateLight() override;
 
-    // 0x5318B0 | ?CreateLightModel@agiD3DRPipeline@@UAEPAVagiLightModel@@XZ
+    // ?CreateLightModel@agiD3DRPipeline@@UAEPAVagiLightModel@@XZ
     ARTS_EXPORT RcOwner<class agiLightModel> CreateLightModel() override;
 
-    // 0x531730 | ?CreateViewport@agiD3DRPipeline@@UAEPAVagiViewport@@XZ
+    // ?CreateViewport@agiD3DRPipeline@@UAEPAVagiViewport@@XZ
     ARTS_EXPORT RcOwner<class agiViewport> CreateViewport() override;
 
-    // 0x531700 | ?EndGfx@agiD3DRPipeline@@UAEXXZ
+    // ?EndGfx@agiD3DRPipeline@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
-    // 0x531890 | ?EndScene@agiD3DRPipeline@@UAEXXZ
+    // ?EndScene@agiD3DRPipeline@@UAEXXZ
     ARTS_EXPORT void EndScene() override;
 };
 
 check_size(agiD3DRPipeline, 0x49C);
 
-// 0x795C34 | ?UseSimpleRenderer@@3HA
+// ?UseSimpleRenderer@@3HA
 ARTS_IMPORT extern i32 UseSimpleRenderer;

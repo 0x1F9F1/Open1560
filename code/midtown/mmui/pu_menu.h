@@ -41,42 +41,42 @@
 
 class PUMenuBase : public UIMenu
 {
-    // const PUMenuBase::`vftable' @ 0x61E200
+    // const PUMenuBase::`vftable'
 
 public:
-    // 0x4AAFE0 | ??0PUMenuBase@@QAE@HMMMMPAD@Z
+    // ??0PUMenuBase@@QAE@HMMMMPAD@Z
     ARTS_EXPORT PUMenuBase(i32 menu_id, f32 x, f32 y, f32 width, f32 height, char* background);
 
-    // 0x4AB490 | ??_EPUMenuBase@@UAEPAXI@Z
-    // 0x4AB490 | ??_GPUMenuBase@@UAEPAXI@Z
-    // 0x4AB1B0 | ??1PUMenuBase@@UAE@XZ
+    // ??_EPUMenuBase@@UAEPAXI@Z
+    // ??_GPUMenuBase@@UAEPAXI@Z
+    // ??1PUMenuBase@@UAE@XZ
     ARTS_IMPORT ~PUMenuBase() override;
 
-    // 0x4AB390 | ?AddExit@PUMenuBase@@QAEMMMMM@Z
+    // ?AddExit@PUMenuBase@@QAEMMMMM@Z
     ARTS_IMPORT f32 AddExit(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x4AB2F0 | ?AddOKCancel@PUMenuBase@@QAEXVCallback@@0@Z
+    // ?AddOKCancel@PUMenuBase@@QAEXVCallback@@0@Z
     ARTS_IMPORT void AddOKCancel(class Callback arg1, class Callback arg2);
 
-    // 0x4AB280 | ?AddPrevious@PUMenuBase@@QAEMMMMM@Z
+    // ?AddPrevious@PUMenuBase@@QAEMMMMM@Z
     ARTS_IMPORT f32 AddPrevious(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x4AB210 | ?CreateDummyBitmap@PUMenuBase@@QAEPAVagiBitmap@@XZ
+    // ?CreateDummyBitmap@PUMenuBase@@QAEPAVagiBitmap@@XZ
     ARTS_IMPORT RcOwner<class agiBitmap> CreateDummyBitmap();
 
-    // 0x4AB270 | ?CreateTitle@PUMenuBase@@QAEMXZ
+    // ?CreateTitle@PUMenuBase@@QAEMXZ
     ARTS_IMPORT f32 CreateTitle();
 
-    // 0x4AB430 | ?Cull@PUMenuBase@@UAEXXZ
+    // ?Cull@PUMenuBase@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4AB470 | ?DisableExit@PUMenuBase@@QAEXXZ
+    // ?DisableExit@PUMenuBase@@QAEXXZ
     ARTS_IMPORT void DisableExit();
 
-    // 0x4AB480 | ?EnableExit@PUMenuBase@@QAEXXZ
+    // ?EnableExit@PUMenuBase@@QAEXXZ
     ARTS_IMPORT void EnableExit();
 
-    // 0x4AB400 | ?Update@PUMenuBase@@UAEXXZ
+    // ?Update@PUMenuBase@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 protected:

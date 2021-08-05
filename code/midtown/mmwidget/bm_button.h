@@ -58,94 +58,94 @@
 
 class UIBMButton final : public uiWidget
 {
-    // const UIBMButton::`vftable' @ 0x61E878
+    // const UIBMButton::`vftable'
 
 public:
-    // 0x4B60A0 | ??0UIBMButton@@QAE@XZ
+    // ??0UIBMButton@@QAE@XZ
     ARTS_IMPORT UIBMButton();
 
-    // 0x4B72B0 | ??_EUIBMButton@@UAEPAXI@Z
-    // 0x4B6140 | ??1UIBMButton@@UAE@XZ
+    // ??_EUIBMButton@@UAEPAXI@Z
+    // ??1UIBMButton@@UAE@XZ
     ARTS_IMPORT ~UIBMButton() override;
 
-    // 0x4B69A0 | ?Action@UIBMButton@@UAEXTeqEvent@@@Z
+    // ?Action@UIBMButton@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4B64F0 | ?CreateDummyBitmap@UIBMButton@@QAEPAVagiBitmap@@XZ
+    // ?CreateDummyBitmap@UIBMButton@@QAEPAVagiBitmap@@XZ
     ARTS_IMPORT class agiBitmap* CreateDummyBitmap();
 
-    // 0x4B6D20 | ?Cull@UIBMButton@@UAEXXZ
+    // ?Cull@UIBMButton@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4B7290 | ?Disable@UIBMButton@@UAEXXZ | inline
+    // ?Disable@UIBMButton@@UAEXXZ | inline
     ARTS_IMPORT void Disable() override;
 
-    // 0x4B6750 | ?DoToggle@UIBMButton@@QAEXXZ
+    // ?DoToggle@UIBMButton@@QAEXXZ
     ARTS_IMPORT void DoToggle();
 
-    // 0x4B7270 | ?Enable@UIBMButton@@UAEXXZ | inline
+    // ?Enable@UIBMButton@@UAEXXZ | inline
     ARTS_IMPORT void Enable() override;
 
-    // 0x4B7260 | ?GetClass@UIBMButton@@UAEPAVMetaClass@@XZ
+    // ?GetClass@UIBMButton@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4B64C0 | ?GetDiv@UIBMButton@@QAEHXZ
+    // ?GetDiv@UIBMButton@@QAEHXZ
     ARTS_IMPORT i32 GetDiv();
 
-    // 0x4B66F0 | ?GetHitArea@UIBMButton@@QAEXAAM0@Z
+    // ?GetHitArea@UIBMButton@@QAEXAAM0@Z
     ARTS_IMPORT void GetHitArea(f32& arg1, f32& arg2);
 
-    // 0x4B6D10 | ?GetScreenHeight@UIBMButton@@UAEMXZ
+    // ?GetScreenHeight@UIBMButton@@UAEMXZ
     ARTS_IMPORT f32 GetScreenHeight() override;
 
-    // 0x4B61C0 | ?Init@UIBMButton@@QAEXPADMMHHPAHHHPAULocString@@VCallback@@3@Z
+    // ?Init@UIBMButton@@QAEXPADMMHHPAHHHPAULocString@@VCallback@@3@Z
     ARTS_IMPORT void Init(char* arg1, f32 arg2, f32 arg3, i32 arg4, i32 arg5, i32* arg6, i32 arg7, i32 arg8,
         struct LocString* arg9, class Callback arg10, class Callback arg11);
 
-    // 0x4B6810 | ?Kill@UIBMButton@@QAEXXZ
+    // ?Kill@UIBMButton@@QAEXXZ
     ARTS_IMPORT void Kill();
 
-    // 0x4B6450 | ?LoadBitmap@UIBMButton@@QAEXPAD@Z
+    // ?LoadBitmap@UIBMButton@@QAEXPAD@Z
     ARTS_IMPORT void LoadBitmap(char* arg1);
 
-    // 0x4B6A50 | ?MexOff@UIBMButton@@QAEXXZ
+    // ?MexOff@UIBMButton@@QAEXXZ
     ARTS_IMPORT void MexOff();
 
-    // 0x4B6A60 | ?MexOn@UIBMButton@@QAEXXZ
+    // ?MexOn@UIBMButton@@QAEXXZ
     ARTS_IMPORT void MexOn();
 
-    // 0x4B6AA0 | ?MexToggle@UIBMButton@@QAEXXZ | unused
+    // ?MexToggle@UIBMButton@@QAEXXZ | unused
     ARTS_IMPORT void MexToggle();
 
-    // 0x4B6C60 | ?ReturnDescription@UIBMButton@@UAEPADXZ
+    // ?ReturnDescription@UIBMButton@@UAEPADXZ
     ARTS_IMPORT char* ReturnDescription() override;
 
-    // 0x4B6580 | ?SetPosition@UIBMButton@@UAEXMM@Z
+    // ?SetPosition@UIBMButton@@UAEXMM@Z
     ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2) override;
 
-    // 0x4B6870 | ?Switch@UIBMButton@@UAEXH@Z
+    // ?Switch@UIBMButton@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // 0x4B6830 | ?Unkill@UIBMButton@@QAEXXZ
+    // ?Unkill@UIBMButton@@QAEXXZ
     ARTS_IMPORT void Unkill();
 
-    // 0x4B6AD0 | ?Update@UIBMButton@@UAEXXZ
+    // ?Update@UIBMButton@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4B70F0 | ?DeclareFields@UIBMButton@@SAXXZ
+    // ?DeclareFields@UIBMButton@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x4B6550 | ?GetSize@UIBMButton@@AAEXXZ
+    // ?GetSize@UIBMButton@@AAEXXZ
     ARTS_IMPORT void GetSize();
 
-    // 0x4B70C0 | ?PlaySound@UIBMButton@@AAEXXZ
+    // ?PlaySound@UIBMButton@@AAEXXZ
     ARTS_IMPORT void PlaySound();
 
-    // 0x4B6ED0 | ?AllocateSounds@UIBMButton@@CAXXZ
+    // ?AllocateSounds@UIBMButton@@CAXXZ
     ARTS_IMPORT static void AllocateSounds();
 
-    // 0x705A08 | ?s_pSound@UIBMButton@@0PAVAudSound@@A
+    // ?s_pSound@UIBMButton@@0PAVAudSound@@A
     ARTS_IMPORT static class AudSound* s_pSound;
 
     u8 gap74[0x7C];
@@ -153,5 +153,5 @@ private:
 
 check_size(UIBMButton, 0xF0);
 
-// 0x7059D0 | ?UIBMButtonMetaClass@@3VMetaClass@@A
+// ?UIBMButtonMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass UIBMButtonMetaClass;

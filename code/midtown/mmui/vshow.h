@@ -34,21 +34,21 @@
 
 class VehShowcase final : public UIMenu
 {
-    // const VehShowcase::`vftable' @ 0x61DB20
+    // const VehShowcase::`vftable'
 
 public:
-    // 0x4A4F70 | ??0VehShowcase@@QAE@H@Z
+    // ??0VehShowcase@@QAE@H@Z
     ARTS_IMPORT VehShowcase(i32 arg1);
 
-    // 0x4A51A0 | ??_GVehShowcase@@UAEPAXI@Z
-    // 0x4A51A0 | ??_EVehShowcase@@UAEPAXI@Z
-    // 0x4A50C0 | ??1VehShowcase@@UAE@XZ
+    // ??_GVehShowcase@@UAEPAXI@Z
+    // ??_EVehShowcase@@UAEPAXI@Z
+    // ??1VehShowcase@@UAE@XZ
     ARTS_IMPORT ~VehShowcase() override;
 
-    // 0x4A5190 | ?PostSetup@VehShowcase@@UAEXXZ
+    // ?PostSetup@VehShowcase@@UAEXXZ
     ARTS_EXPORT void PostSetup() override;
 
-    // 0x4A5120 | ?PreSetup@VehShowcase@@UAEXXZ
+    // ?PreSetup@VehShowcase@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
     u8 gap90[0x8];

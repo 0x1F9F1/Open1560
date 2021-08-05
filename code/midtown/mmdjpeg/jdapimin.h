@@ -31,26 +31,26 @@
     0x57D4A0 | unsigned char __cdecl jpeg_finish_decompress(struct jpeg_decompress_struct *) | ?jpeg_finish_decompress@@YAEPAUjpeg_decompress_struct@@@Z
 */
 
-// 0x57D000 | ?jpeg_CreateDecompress@@YAXPAUjpeg_decompress_struct@@HI@Z
+// ?jpeg_CreateDecompress@@YAXPAUjpeg_decompress_struct@@HI@Z
 ARTS_IMPORT void jpeg_CreateDecompress(struct jpeg_decompress_struct* arg1, i32 arg2, u32 arg3);
 
-// 0x57D100 | ?jpeg_abort_decompress@@YAXPAUjpeg_decompress_struct@@@Z | unused
+// ?jpeg_abort_decompress@@YAXPAUjpeg_decompress_struct@@@Z | unused
 ARTS_IMPORT void jpeg_abort_decompress(struct jpeg_decompress_struct* arg1);
 
-// 0x57D1A0 | ?jpeg_consume_input@@YAHPAUjpeg_decompress_struct@@@Z
+// ?jpeg_consume_input@@YAHPAUjpeg_decompress_struct@@@Z
 ARTS_IMPORT i32 jpeg_consume_input(struct jpeg_decompress_struct* arg1);
 
-// 0x57D0E0 | ?jpeg_destroy_decompress@@YAXPAUjpeg_decompress_struct@@@Z
+// ?jpeg_destroy_decompress@@YAXPAUjpeg_decompress_struct@@@Z
 ARTS_IMPORT void jpeg_destroy_decompress(struct jpeg_decompress_struct* arg1);
 
-// 0x57D4A0 | ?jpeg_finish_decompress@@YAEPAUjpeg_decompress_struct@@@Z
+// ?jpeg_finish_decompress@@YAEPAUjpeg_decompress_struct@@@Z
 ARTS_IMPORT u8 jpeg_finish_decompress(struct jpeg_decompress_struct* arg1);
 
-// 0x57D460 | ?jpeg_has_multiple_scans@@YAEPAUjpeg_decompress_struct@@@Z | unused
+// ?jpeg_has_multiple_scans@@YAEPAUjpeg_decompress_struct@@@Z | unused
 ARTS_IMPORT u8 jpeg_has_multiple_scans(struct jpeg_decompress_struct* arg1);
 
-// 0x57D420 | ?jpeg_input_complete@@YAEPAUjpeg_decompress_struct@@@Z | unused
+// ?jpeg_input_complete@@YAEPAUjpeg_decompress_struct@@@Z | unused
 ARTS_IMPORT u8 jpeg_input_complete(struct jpeg_decompress_struct* arg1);
 
-// 0x57D120 | ?jpeg_read_header@@YAHPAUjpeg_decompress_struct@@E@Z
+// ?jpeg_read_header@@YAHPAUjpeg_decompress_struct@@E@Z
 ARTS_IMPORT i32 jpeg_read_header(struct jpeg_decompress_struct* arg1, u8 arg2);

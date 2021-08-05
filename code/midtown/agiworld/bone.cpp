@@ -23,5 +23,5 @@ define_dummy_symbol(agiworld_bone);
 void bnBone::Draw()
 {}
 
-// 0x517090 | ?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z
+// ?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z
 ARTS_IMPORT /*static*/ void Matrix34__FromEulersXZY(class Matrix34& arg1, class Vector3 const& arg2);

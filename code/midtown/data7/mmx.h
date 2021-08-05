@@ -30,25 +30,25 @@
     0x90B4B0 | int HaveMMX | ?HaveMMX@@3HA
 */
 
-// 0x90B4AC | ?HaveKNI@@3HA
+// ?HaveKNI@@3HA
 ARTS_EXPORT extern b32 HaveKNI;
 
-// 0x90B4B0 | ?HaveMMX@@3HA
+// ?HaveMMX@@3HA
 ARTS_EXPORT extern b32 HaveMMX;
 
-// 0x90B4A8 | ?HavePPro@@3HA
+// ?HavePPro@@3HA
 ARTS_EXPORT extern b32 HavePPro;
 
-// 0x90B4A0 | ?UseKNI@@3HA
+// ?UseKNI@@3HA
 ARTS_EXPORT extern b32 UseKNI;
 
-// 0x90B4A4 | ?UseMMX@@3HA
+// ?UseMMX@@3HA
 ARTS_EXPORT extern b32 UseMMX;
 
 struct initHaveMMX
 {
 public:
-    // 0x57C410 | ??0initHaveMMX@@QAE@XZ | inline
+    // ??0initHaveMMX@@QAE@XZ | inline
     ARTS_EXPORT initHaveMMX();
 };
 

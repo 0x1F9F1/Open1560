@@ -42,44 +42,44 @@
 
 class EngineAudio final : public asNode
 {
-    // const EngineAudio::`vftable' @ 0x61CAE8
+    // const EngineAudio::`vftable'
 
 public:
-    // 0x4864D0 | ??0EngineAudio@@QAE@XZ
+    // ??0EngineAudio@@QAE@XZ
     ARTS_IMPORT EngineAudio();
 
-    // 0x4870B0 | ??_EEngineAudio@@UAEPAXI@Z
-    // 0x486940 | ??1EngineAudio@@UAE@XZ
+    // ??_EEngineAudio@@UAEPAXI@Z
+    // ??1EngineAudio@@UAE@XZ
     ARTS_IMPORT ~EngineAudio() override;
 
-    // 0x486B30 | ?UpdateRPM@EngineAudio@@UAEXM@Z
+    // ?UpdateRPM@EngineAudio@@UAEXM@Z
     ARTS_IMPORT virtual void UpdateRPM(f32 arg1);
 
-    // 0x486A40 | ?EchoOff@EngineAudio@@QAEXXZ
+    // ?EchoOff@EngineAudio@@QAEXXZ
     ARTS_IMPORT void EchoOff();
 
-    // 0x4869F0 | ?EchoOn@EngineAudio@@QAEXM@Z
+    // ?EchoOn@EngineAudio@@QAEXM@Z
     ARTS_IMPORT void EchoOn(f32 arg1);
 
-    // 0x486A70 | ?EnableClutch@EngineAudio@@QAEXPADM@Z
+    // ?EnableClutch@EngineAudio@@QAEXPADM@Z
     ARTS_IMPORT void EnableClutch(char* arg1, f32 arg2);
 
-    // 0x4870A0 | ?GetClass@EngineAudio@@UAEPAVMetaClass@@XZ
+    // ?GetClass@EngineAudio@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x486550 | ?Init@EngineAudio@@QAEXPAVVector3@@@Z
+    // ?Init@EngineAudio@@QAEXPAVVector3@@@Z
     ARTS_IMPORT void Init(class Vector3* arg1);
 
-    // 0x4867A0 | ?Init@EngineAudio@@QAEXPAD0@Z
+    // ?Init@EngineAudio@@QAEXPAD0@Z
     ARTS_IMPORT void Init(char* arg1, char* arg2);
 
-    // 0x486D90 | ?ResetVolume@EngineAudio@@QAEXXZ
+    // ?ResetVolume@EngineAudio@@QAEXXZ
     ARTS_IMPORT void ResetVolume();
 
-    // 0x486DB0 | ?Stop@EngineAudio@@QAEXXZ | unused
+    // ?Stop@EngineAudio@@QAEXXZ | unused
     ARTS_IMPORT void Stop();
 
-    // 0x486DF0 | ?DeclareFields@EngineAudio@@SAXXZ
+    // ?DeclareFields@EngineAudio@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x70];
@@ -87,5 +87,5 @@ public:
 
 check_size(EngineAudio, 0x90);
 
-// 0x6A82A0 | ?EngineAudioMetaClass@@3VMetaClass@@A
+// ?EngineAudioMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass EngineAudioMetaClass;

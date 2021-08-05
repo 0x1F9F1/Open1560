@@ -30,16 +30,16 @@
 struct ControlBase
 {
 public:
-    // 0x4AB700 | ??0ControlBase@@QAE@XZ
+    // ??0ControlBase@@QAE@XZ
     ARTS_IMPORT ControlBase();
 
-    // 0x4AB710 | ??1ControlBase@@QAE@XZ
+    // ??1ControlBase@@QAE@XZ
     ARTS_IMPORT ~ControlBase() = default;
 
-    // 0x4AB720 | ?InitSensitivity@ControlBase@@QAEXXZ
+    // ?InitSensitivity@ControlBase@@QAEXXZ
     ARTS_IMPORT void InitSensitivity();
 
-    // 0x4AB780 | ?SetSensitivity@ControlBase@@QAEXXZ
+    // ?SetSensitivity@ControlBase@@QAEXXZ
     ARTS_IMPORT void SetSensitivity();
 
     u8 gap0[0x14];

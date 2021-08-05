@@ -39,42 +39,42 @@
 
 class Card2D final : public asNode
 {
-    // const Card2D::`vftable' @ 0x6205B8
+    // const Card2D::`vftable'
 
 public:
-    // 0x4FE150 | ??0Card2D@@QAE@XZ
+    // ??0Card2D@@QAE@XZ
     ARTS_IMPORT Card2D();
 
-    // 0x4FE620 | ??_ECard2D@@UAEPAXI@Z
-    // 0x4FE620 | ??_GCard2D@@UAEPAXI@Z
-    // 0x4FE650 | ??1Card2D@@UAE@XZ | inline
+    // ??_ECard2D@@UAEPAXI@Z
+    // ??_GCard2D@@UAEPAXI@Z
+    // ??1Card2D@@UAE@XZ | inline
     ARTS_IMPORT ~Card2D() override = default;
 
-    // 0x4FE170 | ?Init@Card2D@@QAEXPAVasCamera@@MMMMM@Z
+    // ?Init@Card2D@@QAEXPAVasCamera@@MMMMM@Z
     ARTS_IMPORT void Init(class asCamera* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
 
-    // 0x4FE2C0 | ?SetAlpha@Card2D@@QAEXM@Z
+    // ?SetAlpha@Card2D@@QAEXM@Z
     ARTS_IMPORT void SetAlpha(f32 arg1);
 
-    // 0x49C530 | ?SetColor@Card2D@@QAEXVVector4@@@Z | inline
+    // ?SetColor@Card2D@@QAEXVVector4@@@Z | inline
     ARTS_IMPORT void SetColor(class Vector4 arg1);
 
-    // 0x4FE1B0 | ?SetDimensions@Card2D@@QAEXMMMM@Z
+    // ?SetDimensions@Card2D@@QAEXMMMM@Z
     ARTS_IMPORT void SetDimensions(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x4FE2A0 | ?SetPosition@Card2D@@QAEXMM@Z
+    // ?SetPosition@Card2D@@QAEXMM@Z
     ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2);
 
-    // 0x4FE320 | ?Update@Card2D@@UAEXXZ
+    // ?Update@Card2D@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
 #ifdef ARTS_DEV_BUILD
-    // 0x4FE540 | ?AddWidgets@Card2D@@EAEXPAVBank@@@Z
+    // ?AddWidgets@Card2D@@EAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4FE330 | ?Cull@Card2D@@EAEXXZ
+    // ?Cull@Card2D@@EAEXXZ
     ARTS_IMPORT void Cull() override;
 
     u8 gap20[0x18];

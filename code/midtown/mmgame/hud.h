@@ -99,133 +99,133 @@
 
 class mmHUD final : public asNode
 {
-    // const mmHUD::`vftable' @ 0x61A1C8
+    // const mmHUD::`vftable'
 
 public:
-    // 0x404C20 | ??0mmHUD@@QAE@XZ
+    // ??0mmHUD@@QAE@XZ
     ARTS_IMPORT mmHUD();
 
-    // 0x406A20 | ??_EmmHUD@@UAEPAXI@Z
-    // 0x405190 | ??1mmHUD@@UAE@XZ
+    // ??_EmmHUD@@UAEPAXI@Z
+    // ??1mmHUD@@UAE@XZ
     ARTS_IMPORT ~mmHUD() override;
 
-    // 0x405800 | ?ActivateDash@mmHUD@@QAEXXZ
+    // ?ActivateDash@mmHUD@@QAEXXZ
     ARTS_IMPORT void ActivateDash();
 
-    // 0x405FA0 | ?ActivateGold@mmHUD@@QAEXXZ
+    // ?ActivateGold@mmHUD@@QAEXXZ
     ARTS_IMPORT void ActivateGold();
 
-    // 0x405F30 | ?AddPlayer@mmHUD@@QAEXPADKHH@Z
+    // ?AddPlayer@mmHUD@@QAEXPADKHH@Z
     ARTS_IMPORT void AddPlayer(char* arg1, ulong arg2, i32 arg3, i32 arg4);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x406170 | ?AddWidgets@mmHUD@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmHUD@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x405D30 | ?Cull@mmHUD@@UAEXXZ
+    // ?Cull@mmHUD@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x405830 | ?DeactivateDash@mmHUD@@QAEXXZ
+    // ?DeactivateDash@mmHUD@@QAEXXZ
     ARTS_IMPORT void DeactivateDash();
 
-    // 0x405FB0 | ?DeactivateGold@mmHUD@@QAEXXZ
+    // ?DeactivateGold@mmHUD@@QAEXXZ
     ARTS_IMPORT void DeactivateGold();
 
-    // 0x405700 | ?Disable@mmHUD@@QAEXH@Z
+    // ?Disable@mmHUD@@QAEXH@Z
     ARTS_IMPORT void Disable(i32 arg1);
 
-    // 0x4056C0 | ?Enable@mmHUD@@QAEXXZ
+    // ?Enable@mmHUD@@QAEXXZ
     ARTS_IMPORT void Enable();
 
-    // 0x4068D0 | ?GetClass@mmHUD@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmHUD@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x406060 | ?GetPosHdg@mmHUD@@QAEXAAVVector4@@@Z
+    // ?GetPosHdg@mmHUD@@QAEXAAVVector4@@@Z
     ARTS_IMPORT void GetPosHdg(class Vector4& arg1);
 
-    // 0x405FC0 | ?GetTime@mmHUD@@QAEXPADM@Z
+    // ?GetTime@mmHUD@@QAEXPADM@Z
     ARTS_IMPORT void GetTime(char* arg1, f32 arg2);
 
-    // 0x4053E0 | ?Init@mmHUD@@QAEXPADPAVmmPlayer@@@Z
+    // ?Init@mmHUD@@QAEXPADPAVmmPlayer@@@Z
     ARTS_IMPORT void Init(char* arg1, class mmPlayer* arg2);
 
-    // 0x405860 | ?IsDashActive@mmHUD@@QAEHXZ
+    // ?IsDashActive@mmHUD@@QAEHXZ
     ARTS_IMPORT i32 IsDashActive();
 
-    // 0x405FE0 | ?PlayNetAlert@mmHUD@@QAEXXZ
+    // ?PlayNetAlert@mmHUD@@QAEXXZ
     ARTS_IMPORT void PlayNetAlert();
 
-    // 0x405060 | ?PostChatMessage@mmHUD@@QAEXPAD@Z
+    // ?PostChatMessage@mmHUD@@QAEXPAD@Z
     ARTS_IMPORT void PostChatMessage(char* arg1);
 
-    // 0x4060F0 | ?RecordPosition@mmHUD@@QAEXPAD@Z
+    // ?RecordPosition@mmHUD@@QAEXPAD@Z
     ARTS_IMPORT void RecordPosition(char* arg1);
 
-    // 0x405F80 | ?RemovePlayer@mmHUD@@QAEXK@Z
+    // ?RemovePlayer@mmHUD@@QAEXK@Z
     ARTS_IMPORT void RemovePlayer(ulong arg1);
 
-    // 0x4050C0 | ?ResChange@mmHUD@@UAEXHH@Z
+    // ?ResChange@mmHUD@@UAEXHH@Z
     ARTS_IMPORT void ResChange(i32 arg1, i32 arg2) override;
 
-    // 0x405870 | ?Reset@mmHUD@@UAEXXZ
+    // ?Reset@mmHUD@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x405360 | ?ResetTimers@mmHUD@@QAEXXZ
+    // ?ResetTimers@mmHUD@@QAEXXZ
     ARTS_IMPORT void ResetTimers();
 
-    // 0x405E40 | ?SetLapTime@mmHUD@@QAEXHMH@Z
+    // ?SetLapTime@mmHUD@@QAEXHMH@Z
     ARTS_IMPORT void SetLapTime(i32 arg1, f32 arg2, i32 arg3);
 
-    // 0x405EA0 | ?SetMessage@mmHUD@@QAEXPAULocString@@MH@Z
+    // ?SetMessage@mmHUD@@QAEXPAULocString@@MH@Z
     ARTS_IMPORT void SetMessage(struct LocString* arg1, f32 arg2, i32 arg3);
 
-    // 0x405EE0 | ?SetMessage2@mmHUD@@QAEXPAULocString@@@Z
+    // ?SetMessage2@mmHUD@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetMessage2(struct LocString* arg1);
 
-    // 0x405F10 | ?SetScore@mmHUD@@QAEXPAD@Z
+    // ?SetScore@mmHUD@@QAEXPAD@Z
     ARTS_IMPORT void SetScore(char* arg1);
 
-    // 0x405F60 | ?SetScore@mmHUD@@QAEXKH@Z
+    // ?SetScore@mmHUD@@QAEXKH@Z
     ARTS_IMPORT void SetScore(ulong arg1, i32 arg2);
 
-    // 0x405E00 | ?SetStandings@mmHUD@@QAEXHH@Z
+    // ?SetStandings@mmHUD@@QAEXHH@Z
     ARTS_IMPORT void SetStandings(i32 arg1, i32 arg2);
 
-    // 0x405E80 | ?SetWPCleared@mmHUD@@QAEXHH@Z
+    // ?SetWPCleared@mmHUD@@QAEXHH@Z
     ARTS_IMPORT void SetWPCleared(i32 arg1, i32 arg2);
 
-    // 0x405390 | ?ShowClockTime@mmHUD@@QAEXXZ | unused
+    // ?ShowClockTime@mmHUD@@QAEXXZ | unused
     ARTS_IMPORT void ShowClockTime();
 
-    // 0x405320 | ?StartTimers@mmHUD@@QAEXXZ
+    // ?StartTimers@mmHUD@@QAEXXZ
     ARTS_IMPORT void StartTimers();
 
-    // 0x405340 | ?StopTimers@mmHUD@@QAEXXZ
+    // ?StopTimers@mmHUD@@QAEXXZ
     ARTS_IMPORT void StopTimers();
 
-    // 0x405750 | ?Toggle@mmHUD@@QAEXXZ | unused
+    // ?Toggle@mmHUD@@QAEXXZ | unused
     ARTS_IMPORT void Toggle();
 
-    // 0x4057C0 | ?ToggleDash@mmHUD@@QAEXXZ
+    // ?ToggleDash@mmHUD@@QAEXXZ
     ARTS_IMPORT void ToggleDash();
 
-    // 0x405770 | ?ToggleExternalView@mmHUD@@QAEXXZ
+    // ?ToggleExternalView@mmHUD@@QAEXXZ
     ARTS_IMPORT void ToggleExternalView();
 
-    // 0x405D10 | ?ToggleMirror@mmHUD@@QAEXXZ
+    // ?ToggleMirror@mmHUD@@QAEXXZ
     ARTS_IMPORT void ToggleMirror();
 
-    // 0x406000 | ?TogglePositionDisplay@mmHUD@@QAEXH@Z
+    // ?TogglePositionDisplay@mmHUD@@QAEXH@Z
     ARTS_IMPORT void TogglePositionDisplay(i32 arg1);
 
-    // 0x405910 | ?Update@mmHUD@@UAEXXZ
+    // ?Update@mmHUD@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x405CE0 | ?UpdatePaused@mmHUD@@UAEXXZ
+    // ?UpdatePaused@mmHUD@@UAEXXZ
     ARTS_IMPORT void UpdatePaused() override;
 
-    // 0x406760 | ?DeclareFields@mmHUD@@SAXXZ
+    // ?DeclareFields@mmHUD@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0xE74];
@@ -235,36 +235,36 @@ check_size(mmHUD, 0xE94);
 
 class mmTimer final : public asNode
 {
-    // const mmTimer::`vftable' @ 0x61A208
+    // const mmTimer::`vftable'
 
 public:
-    // 0x4061E0 | ??0mmTimer@@QAE@XZ
+    // ??0mmTimer@@QAE@XZ
     ARTS_IMPORT mmTimer();
 
-    // 0x4069C0 | ??_GmmTimer@@UAEPAXI@Z
-    // 0x4069C0 | ??_EmmTimer@@UAEPAXI@Z
-    // 0x406200 | ??1mmTimer@@UAE@XZ
+    // ??_GmmTimer@@UAEPAXI@Z
+    // ??_EmmTimer@@UAEPAXI@Z
+    // ??1mmTimer@@UAE@XZ
     ARTS_IMPORT ~mmTimer() override = default;
 
-    // 0x406230 | ?GetTime@mmTimer@@QAEMXZ
+    // ?GetTime@mmTimer@@QAEMXZ
     ARTS_IMPORT f32 GetTime();
 
-    // 0x406210 | ?Init@mmTimer@@QAEXHM@Z
+    // ?Init@mmTimer@@QAEXHM@Z
     ARTS_IMPORT void Init(i32 arg1, f32 arg2);
 
-    // 0x406290 | ?Reset@mmTimer@@UAEXXZ
+    // ?Reset@mmTimer@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4062A0 | ?Start@mmTimer@@QAEXXZ
+    // ?Start@mmTimer@@QAEXXZ
     ARTS_IMPORT void Start();
 
-    // 0x4062C0 | ?StartStop@mmTimer@@QAEXXZ | unused
+    // ?StartStop@mmTimer@@QAEXXZ | unused
     ARTS_IMPORT void StartStop();
 
-    // 0x4062B0 | ?Stop@mmTimer@@QAEXXZ
+    // ?Stop@mmTimer@@QAEXXZ
     ARTS_IMPORT void Stop();
 
-    // 0x406240 | ?Update@mmTimer@@UAEXXZ
+    // ?Update@mmTimer@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x10];
@@ -274,31 +274,31 @@ check_size(mmTimer, 0x30);
 
 class mmArrow final : public asNode
 {
-    // const mmArrow::`vftable' @ 0x61A248
+    // const mmArrow::`vftable'
 
 public:
-    // 0x4062D0 | ??0mmArrow@@QAE@XZ
+    // ??0mmArrow@@QAE@XZ
     ARTS_IMPORT mmArrow();
 
-    // 0x4069F0 | ??_GmmArrow@@UAEPAXI@Z
-    // 0x4069F0 | ??_EmmArrow@@UAEPAXI@Z
-    // 0x406450 | ??1mmArrow@@UAE@XZ
+    // ??_GmmArrow@@UAEPAXI@Z
+    // ??_EmmArrow@@UAEPAXI@Z
+    // ??1mmArrow@@UAE@XZ
     ARTS_IMPORT ~mmArrow() override;
 
-    // 0x4064C0 | ?Init@mmArrow@@QAEXPAVMatrix34@@@Z
+    // ?Init@mmArrow@@QAEXPAVMatrix34@@@Z
     ARTS_IMPORT void Init(class Matrix34* arg1);
 
-    // 0x4064D0 | ?Reset@mmArrow@@UAEXXZ
+    // ?Reset@mmArrow@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4064E0 | ?SetInterest@mmArrow@@QAEXPAVVector3@@@Z
+    // ?SetInterest@mmArrow@@QAEXPAVVector3@@@Z
     ARTS_IMPORT void SetInterest(class Vector3* arg1);
 
-    // 0x406560 | ?Update@mmArrow@@UAEXXZ
+    // ?Update@mmArrow@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
-    // 0x4064F0 | ?ReColorArrow@mmArrow@@AAEXH@Z
+    // ?ReColorArrow@mmArrow@@AAEXH@Z
     ARTS_IMPORT void ReColorArrow(i32 arg1);
 
     u8 gap20[0x18];
@@ -306,17 +306,17 @@ private:
 
 check_size(mmArrow, 0x38);
 
-// 0x635174 | ?FirstPrintTime@@3HA
+// ?FirstPrintTime@@3HA
 ARTS_IMPORT extern i32 FirstPrintTime;
 
-// 0x6A6DD0 | ?LastResetTime@@3MA
+// ?LastResetTime@@3MA
 ARTS_IMPORT extern f32 LastResetTime;
 
-// 0x635170 | ?arotX@@3MA
+// ?arotX@@3MA
 ARTS_IMPORT extern f32 arotX;
 
-// 0x6A6D98 | ?defmass@@3MA
+// ?defmass@@3MA
 ARTS_IMPORT extern f32 defmass;
 
-// 0x6A6DA8 | ?mmHUDMetaClass@@3VMetaClass@@A
+// ?mmHUDMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmHUDMetaClass;

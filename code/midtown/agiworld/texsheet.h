@@ -34,10 +34,10 @@
     0x73E6C0 | class agiTexSheet TEXSHEET | ?TEXSHEET@@3VagiTexSheet@@A
 */
 
-// 0x511B30 | ?mystrtok@@YAPADPADPBD@Z
+// ?mystrtok@@YAPADPADPBD@Z
 ARTS_IMPORT char* mystrtok(char* str, char const* delims);
 
-// 0x73E6C0 | ?TEXSHEET@@3VagiTexSheet@@A
+// ?TEXSHEET@@3VagiTexSheet@@A
 ARTS_IMPORT extern class agiTexSheet TEXSHEET;
 
 struct agiTexProp
@@ -86,28 +86,28 @@ check_size(agiTexProp, 0x20);
 class agiTexSheet
 {
 public:
-    // 0x5124A0 | ?Add@agiTexSheet@@QAEXPAD@Z | unused
+    // ?Add@agiTexSheet@@QAEXPAD@Z | unused
     ARTS_IMPORT void Add(char* arg1);
 
-    // 0x512410 | ?GetVariationCount@agiTexSheet@@QAEHPAD@Z
+    // ?GetVariationCount@agiTexSheet@@QAEHPAD@Z
     ARTS_IMPORT i32 GetVariationCount(char* arg1);
 
-    // 0x5120A0 | ?Kill@agiTexSheet@@QAEXXZ
+    // ?Kill@agiTexSheet@@QAEXXZ
     ARTS_IMPORT void Kill();
 
-    // 0x511B90 | ?Load@agiTexSheet@@QAEXPAD@Z
+    // ?Load@agiTexSheet@@QAEXPAD@Z
     ARTS_IMPORT void Load(char* arg1);
 
-    // 0x512340 | ?Lookup@agiTexSheet@@QAEPAUagiTexProp@@PADH@Z
+    // ?Lookup@agiTexSheet@@QAEPAUagiTexProp@@PADH@Z
     ARTS_IMPORT struct agiTexProp* Lookup(char* name, i32 variation = 0);
 
-    // 0x5123A0 | ?LookupAlternate@agiTexSheet@@QAEPAUagiTexProp@@PAD@Z | unused
+    // ?LookupAlternate@agiTexSheet@@QAEPAUagiTexProp@@PAD@Z | unused
     ARTS_IMPORT struct agiTexProp* LookupAlternate(char* arg1);
 
-    // 0x512460 | ?RemapName@agiTexSheet@@QAEPADPADH@Z
+    // ?RemapName@agiTexSheet@@QAEPADPADH@Z
     ARTS_IMPORT char* RemapName(char* arg1, i32 arg2);
 
-    // 0x5120D0 | ?Save@agiTexSheet@@QAEXPAD@Z | unused
+    // ?Save@agiTexSheet@@QAEXPAD@Z | unused
     ARTS_IMPORT void Save(char* arg1);
 
     i32 GetPropCount() const

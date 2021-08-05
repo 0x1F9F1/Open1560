@@ -48,33 +48,33 @@ class agiBitmap;
 
 class mmNumber final : public asNode
 {
-    // const mmNumber::`vftable' @ 0x620618
+    // const mmNumber::`vftable'
 
 public:
-    // 0x4FEA10 | ??0mmNumber@@QAE@XZ
+    // ??0mmNumber@@QAE@XZ
     ARTS_EXPORT mmNumber();
 
-    // 0x4262A0 | ??_EmmNumber@@UAEPAXI@Z
-    // 0x4FEAA0 | ??1mmNumber@@UAE@XZ
+    // ??_EmmNumber@@UAEPAXI@Z
+    // ??1mmNumber@@UAE@XZ
     ARTS_EXPORT ~mmNumber() override;
 
-    // 0x4FEB90 | ?Cull@mmNumber@@UAEXXZ
+    // ?Cull@mmNumber@@UAEXXZ
     ARTS_EXPORT void Cull() override;
 
-    // 0x4FEAB0 | ?Init@mmNumber@@QAEXPAVmmNumberFont@@MM@Z
+    // ?Init@mmNumber@@QAEXPAVmmNumberFont@@MM@Z
     ARTS_EXPORT void Init(class mmNumberFont* font, f32 x, f32 y);
 
-    // 0x4FEB50 | ?Printf@mmNumber@@QAAXPBDZZ
+    // ?Printf@mmNumber@@QAAXPBDZZ
     ARTS_EXPORT void Printf(char const* format, ...);
 
-    // 0x4FEB20 | ?SetString@mmNumber@@QAEXPAD@Z
+    // ?SetString@mmNumber@@QAEXPAD@Z
     ARTS_EXPORT void SetString(char* text);
 
-    // 0x4FEB70 | ?Update@mmNumber@@UAEXXZ
+    // ?Update@mmNumber@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4FECA0 | ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
@@ -97,18 +97,18 @@ check_size(mmNumber, 0x80);
 class mmNumberFont
 {
 public:
-    // 0x4FE660 | ??0mmNumberFont@@QAE@XZ
+    // ??0mmNumberFont@@QAE@XZ
     ARTS_EXPORT mmNumberFont();
 
     mmNumberFont(const char* chars);
 
-    // 0x4FE730 | ??1mmNumberFont@@QAE@XZ
+    // ??1mmNumberFont@@QAE@XZ
     ARTS_EXPORT ~mmNumberFont();
 
-    // 0x4FE780 | ?LoadFont@mmNumberFont@@QAEXPADHI@Z
+    // ?LoadFont@mmNumberFont@@QAEXPADHI@Z
     ARTS_EXPORT void LoadFont(char* font, i32 height, u32 color);
 
-    // 0x4FE880 | ?LoadLocFont@mmNumberFont@@QAEXPADPAULocString@@HI@Z
+    // ?LoadLocFont@mmNumberFont@@QAEXPADPAULocString@@HI@Z
     ARTS_EXPORT void LoadLocFont(char* font, struct LocString* params, i32 screen_width, u32 color);
 
 private:
@@ -128,8 +128,8 @@ private:
 
 check_size(mmNumberFont, 0x24);
 
-// 0x649C9C | ?NUMBERSTRING@@3PADA
+// ?NUMBERSTRING@@3PADA
 ARTS_EXPORT extern char* NUMBERSTRING;
 
-// 0x719570 | ?mmNumberMetaClass@@3VMetaClass@@A
+// ?mmNumberMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmNumberMetaClass;

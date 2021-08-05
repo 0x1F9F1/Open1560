@@ -39,28 +39,28 @@
 
 class mmForce final : public asNode
 {
-    // const mmForce::`vftable' @ 0x61C850
+    // const mmForce::`vftable'
 
 public:
-    // 0x480BE0 | ??0mmForce@@QAE@XZ
+    // ??0mmForce@@QAE@XZ
     ARTS_IMPORT mmForce();
 
-    // 0x480F90 | ??_EmmForce@@UAEPAXI@Z
-    // 0x470330 | ??1mmForce@@UAE@XZ | inline
+    // ??_EmmForce@@UAEPAXI@Z
+    // ??1mmForce@@UAE@XZ | inline
     ARTS_IMPORT ~mmForce() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x480E10 | ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x480F80 | ?GetClass@mmForce@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmForce@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x480C00 | ?Update@mmForce@@UAEXXZ
+    // ?Update@mmForce@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x480E20 | ?DeclareFields@mmForce@@SAXXZ
+    // ?DeclareFields@mmForce@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0xC];
@@ -68,17 +68,17 @@ public:
 
 check_size(mmForce, 0x2C);
 
-// 0x63C9F8 | ?YDownForceMax@@3MA
+// ?YDownForceMax@@3MA
 ARTS_IMPORT extern f32 YDownForceMax;
 
-// 0x63C9F0 | ?YDownForceMaxHeight@@3MA
+// ?YDownForceMaxHeight@@3MA
 ARTS_IMPORT extern f32 YDownForceMaxHeight;
 
-// 0x63C9F4 | ?YDownForceMin@@3MA
+// ?YDownForceMin@@3MA
 ARTS_IMPORT extern f32 YDownForceMin;
 
-// 0x63C9EC | ?YDownForceMinHeight@@3MA
+// ?YDownForceMinHeight@@3MA
 ARTS_IMPORT extern f32 YDownForceMinHeight;
 
-// 0x6A8148 | ?mmForceMetaClass@@3VMetaClass@@A
+// ?mmForceMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmForceMetaClass;

@@ -193,10 +193,10 @@ void dxiInit(char* title, i32 argc, char** argv)
     dxiDirectInputCreate();
 }
 
-// 0x574940 | ?translate555@@YAXPAEPAGI@Z
+// ?translate555@@YAXPAEPAGI@Z
 ARTS_IMPORT /*static*/ void translate555(u8* output, u16* input, u32 width);
 
-// 0x5748D0 | ?translate565@@YAXPAEPAGI@Z
+// ?translate565@@YAXPAEPAGI@Z
 ARTS_IMPORT /*static*/ void translate565(u8* output, u16* input, u32 width);
 
 Ptr<u8[]> dxiScreenShot(i32& width, i32& height)

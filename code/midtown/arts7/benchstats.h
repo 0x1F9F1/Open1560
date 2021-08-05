@@ -30,16 +30,16 @@
 class asBenchStats
 {
 public:
-    // 0x52CEB0 | ?Average@asBenchStats@@QAEXPAV1@MH@Z
+    // ?Average@asBenchStats@@QAEXPAV1@MH@Z
     ARTS_IMPORT void Average(class asBenchStats* arg1, f32 arg2, i32 arg3);
 
-    // 0x52CFD0 | ?Current@asBenchStats@@QAEXPAV1@@Z
+    // ?Current@asBenchStats@@QAEXPAV1@@Z
     ARTS_IMPORT void Current(class asBenchStats* arg1);
 
-    // 0x52CEA0 | ?Print@asBenchStats@@QAEXXZ
+    // ?Print@asBenchStats@@QAEXXZ
     ARTS_EXPORT void Print();
 
-    // 0x52CE60 | ?Reset@asBenchStats@@QAEXXZ
+    // ?Reset@asBenchStats@@QAEXXZ
     ARTS_IMPORT void Reset();
 
     i32 field_0;

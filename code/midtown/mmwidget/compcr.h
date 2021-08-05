@@ -42,46 +42,46 @@
 
 class mmCompCRPlayer final : public mmCompBase
 {
-    // const mmCompCRPlayer::`vftable' @ 0x61E8F8
+    // const mmCompCRPlayer::`vftable'
 
 public:
-    // 0x4B7310 | ??0mmCompCRPlayer@@QAE@XZ
+    // ??0mmCompCRPlayer@@QAE@XZ
     ARTS_IMPORT mmCompCRPlayer();
 
-    // 0x4B7810 | ??_EmmCompCRPlayer@@UAEPAXI@Z
-    // 0x4B7810 | ??_GmmCompCRPlayer@@UAEPAXI@Z
-    // 0x4B7340 | ??1mmCompCRPlayer@@UAE@XZ
+    // ??_EmmCompCRPlayer@@UAEPAXI@Z
+    // ??_GmmCompCRPlayer@@UAEPAXI@Z
+    // ??1mmCompCRPlayer@@UAE@XZ
     ARTS_IMPORT ~mmCompCRPlayer() override;
 
-    // 0x4B7770 | ?Cull@mmCompCRPlayer@@UAEXXZ
+    // ?Cull@mmCompCRPlayer@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4B73D0 | ?Init@mmCompCRPlayer@@QAEXPADH0HH@Z
+    // ?Init@mmCompCRPlayer@@QAEXPADH0HH@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2, char* arg3, i32 arg4, i32 arg5);
 
-    // 0x4B7500 | ?InitTitle@mmCompCRPlayer@@QAEXMMMMPAULocString@@000H@Z | unused
+    // ?InitTitle@mmCompCRPlayer@@QAEXMMMMPAULocString@@000H@Z | unused
     ARTS_EXPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
         struct LocString* arg7, struct LocString* arg8, i32 arg9);
 
-    // 0x4B7510 | ?LoadBitmap@mmCompCRPlayer@@QAEXPAD@Z | unused
+    // ?LoadBitmap@mmCompCRPlayer@@QAEXPAD@Z | unused
     ARTS_IMPORT void LoadBitmap(char* arg1);
 
-    // 0x4B7570 | ?Reset@mmCompCRPlayer@@UAEXXZ
+    // ?Reset@mmCompCRPlayer@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4B7740 | ?SetGeometry@mmCompCRPlayer@@UAEXMMMM@Z
+    // ?SetGeometry@mmCompCRPlayer@@UAEXMMMM@Z
     ARTS_IMPORT void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
 
-    // 0x4B7590 | ?SetPoints@mmCompCRPlayer@@QAEXH@Z
+    // ?SetPoints@mmCompCRPlayer@@QAEXH@Z
     ARTS_IMPORT void SetPoints(i32 arg1);
 
-    // 0x4B76B0 | ?SetPosition@mmCompCRPlayer@@UAEXPAVmmTextNode@@HM@Z
+    // ?SetPosition@mmCompCRPlayer@@UAEXPAVmmTextNode@@HM@Z
     ARTS_IMPORT void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
 
-    // 0x4B75B0 | ?SetSubwidgetGeometry@mmCompCRPlayer@@QAEXXZ
+    // ?SetSubwidgetGeometry@mmCompCRPlayer@@QAEXXZ
     ARTS_IMPORT void SetSubwidgetGeometry();
 
-    // 0x4B7580 | ?Update@mmCompCRPlayer@@UAEXXZ
+    // ?Update@mmCompCRPlayer@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap48[0x50];

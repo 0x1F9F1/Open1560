@@ -46,29 +46,29 @@
 
 class RadialGauge final : public asNode
 {
-    // const RadialGauge::`vftable' @ 0x61ABA8
+    // const RadialGauge::`vftable'
 
 public:
-    // 0x423840 | ??0RadialGauge@@QAE@XZ
+    // ??0RadialGauge@@QAE@XZ
     ARTS_IMPORT RadialGauge();
 
-    // 0x424170 | ??_ERadialGauge@@UAEPAXI@Z
-    // 0x424170 | ??_GRadialGauge@@UAEPAXI@Z
-    // 0x422F10 | ??1RadialGauge@@UAE@XZ | inline
+    // ??_ERadialGauge@@UAEPAXI@Z
+    // ??_GRadialGauge@@UAEPAXI@Z
+    // ??1RadialGauge@@UAE@XZ | inline
     ARTS_IMPORT ~RadialGauge() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x423910 | ?AddWidgets@RadialGauge@@UAEXPAVBank@@@Z
+    // ?AddWidgets@RadialGauge@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x423A40 | ?Cull@RadialGauge@@UAEXXZ
+    // ?Cull@RadialGauge@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4238B0 | ?Init@RadialGauge@@QAEXPAD0PAM1M@Z
+    // ?Init@RadialGauge@@QAEXPAD0PAM1M@Z
     ARTS_IMPORT void Init(char* arg1, char* arg2, f32* arg3, f32* arg4, f32 arg5);
 
-    // 0x423920 | ?Update@RadialGauge@@UAEXXZ
+    // ?Update@RadialGauge@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0xAC];
@@ -79,16 +79,16 @@ check_size(RadialGauge, 0xCC);
 struct mmLinearGauge
 {
 public:
-    // 0x423A70 | ??0mmLinearGauge@@QAE@XZ
+    // ??0mmLinearGauge@@QAE@XZ
     ARTS_IMPORT mmLinearGauge();
 
-    // 0x423A80 | ??1mmLinearGauge@@QAE@XZ
+    // ??1mmLinearGauge@@QAE@XZ
     ARTS_IMPORT ~mmLinearGauge();
 
-    // 0x423BA0 | ?Draw@mmLinearGauge@@QAEXXZ
+    // ?Draw@mmLinearGauge@@QAEXXZ
     ARTS_IMPORT void Draw();
 
-    // 0x423A90 | ?Init@mmLinearGauge@@QAEXPADPAM11HPAVmmExternalView@@@Z
+    // ?Init@mmLinearGauge@@QAEXPADPAM11HPAVmmExternalView@@@Z
     ARTS_IMPORT void Init(char* arg1, f32* arg2, f32* arg3, f32* arg4, i32 arg5, class mmExternalView* arg6);
 
     u8 gap0[0x34];
@@ -99,13 +99,13 @@ check_size(mmLinearGauge, 0x34);
 struct mmRadGauge
 {
 public:
-    // 0x423CB0 | ?Draw@mmRadGauge@@QAEXXZ | unused
+    // ?Draw@mmRadGauge@@QAEXXZ | unused
     ARTS_IMPORT void Draw();
 
-    // 0x423C30 | ?Init@mmRadGauge@@QAEXPAM0PAVmmExternalView@@HI@Z | unused
+    // ?Init@mmRadGauge@@QAEXPAM0PAVmmExternalView@@HI@Z | unused
     ARTS_IMPORT void Init(f32* arg1, f32* arg2, class mmExternalView* arg3, i32 arg4, u32 arg5);
 
-    // 0x423C60 | ?ResChange@mmRadGauge@@QAEXXZ
+    // ?ResChange@mmRadGauge@@QAEXXZ
     ARTS_IMPORT void ResChange();
 
     u8 gap0[0x3C];
@@ -116,10 +116,10 @@ check_size(mmRadGauge, 0x3C);
 struct mmGearIndicator
 {
 public:
-    // 0x423F10 | ?Draw@mmGearIndicator@@QAEXXZ
+    // ?Draw@mmGearIndicator@@QAEXXZ
     ARTS_IMPORT void Draw();
 
-    // 0x423DE0 | ?Init@mmGearIndicator@@QAEXPAVmmExternalView@@PAVmmPlayer@@@Z
+    // ?Init@mmGearIndicator@@QAEXPAVmmExternalView@@PAVmmPlayer@@@Z
     ARTS_IMPORT void Init(class mmExternalView* arg1, class mmPlayer* arg2);
 
     u8 gap0[0x40];
@@ -130,10 +130,10 @@ check_size(mmGearIndicator, 0x40);
 struct mmSpeedIndicator
 {
 public:
-    // 0x424020 | ?Draw@mmSpeedIndicator@@QAEXXZ
+    // ?Draw@mmSpeedIndicator@@QAEXXZ
     ARTS_IMPORT void Draw();
 
-    // 0x423F90 | ?Init@mmSpeedIndicator@@QAEXPAVmmExternalView@@PAVmmCarSim@@@Z
+    // ?Init@mmSpeedIndicator@@QAEXPAVmmExternalView@@PAVmmCarSim@@@Z
     ARTS_IMPORT void Init(class mmExternalView* arg1, class mmCarSim* arg2);
 
     u8 gap0[0x38];

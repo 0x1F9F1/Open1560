@@ -34,21 +34,21 @@
 
 class Dialog_NewPlayer final : public PUMenuBase
 {
-    // const Dialog_NewPlayer::`vftable' @ 0x61D710
+    // const Dialog_NewPlayer::`vftable'
 
 public:
-    // 0x49F4B0 | ??0Dialog_NewPlayer@@QAE@HMMMMPAD@Z
+    // ??0Dialog_NewPlayer@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_NewPlayer(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x49F820 | ??_EDialog_NewPlayer@@UAEPAXI@Z
-    // 0x49F820 | ??_GDialog_NewPlayer@@UAEPAXI@Z
-    // 0x49F7D0 | ??1Dialog_NewPlayer@@UAE@XZ
+    // ??_EDialog_NewPlayer@@UAEPAXI@Z
+    // ??_GDialog_NewPlayer@@UAEPAXI@Z
+    // ??1Dialog_NewPlayer@@UAE@XZ
     ARTS_IMPORT ~Dialog_NewPlayer() override = default;
 
-    // 0x49F7E0 | ?EnterNewPlayer@Dialog_NewPlayer@@QAEXXZ
+    // ?EnterNewPlayer@Dialog_NewPlayer@@QAEXXZ
     ARTS_IMPORT void EnterNewPlayer();
 
-    // 0x49F7F0 | ?PreSetup@Dialog_NewPlayer@@UAEXXZ
+    // ?PreSetup@Dialog_NewPlayer@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
     u8 gapC0[0x50];

@@ -43,55 +43,55 @@
 struct mmImpactAudio
 {
 public:
-    // 0x484750 | ??0mmImpactAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z
+    // ??0mmImpactAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z
     ARTS_IMPORT mmImpactAudio(class mmCarSim* arg1, class Vector3* arg2);
 
-    // 0x484D80 | ??1mmImpactAudio@@QAE@XZ
+    // ??1mmImpactAudio@@QAE@XZ
     ARTS_IMPORT ~mmImpactAudio();
 
-    // 0x484E70 | ?EchoOff@mmImpactAudio@@QAEXPAVmmCarSim@@@Z | unused
+    // ?EchoOff@mmImpactAudio@@QAEXPAVmmCarSim@@@Z | unused
     ARTS_IMPORT void EchoOff(class mmCarSim* arg1);
 
-    // 0x484E60 | ?EchoOn@mmImpactAudio@@QAEXPAVmmCarSim@@@Z | unused
+    // ?EchoOn@mmImpactAudio@@QAEXPAVmmCarSim@@@Z | unused
     ARTS_IMPORT void EchoOn(class mmCarSim* arg1);
 
-    // 0x485020 | ?GetBangerPtrs@mmImpactAudio@@QAEXFPAPAVAudSound@@0@Z
+    // ?GetBangerPtrs@mmImpactAudio@@QAEXFPAPAVAudSound@@0@Z
     ARTS_IMPORT void GetBangerPtrs(i16 arg1, class AudSound** arg2, class AudSound** arg3);
 
-    // 0x484E80 | ?Play@mmImpactAudio@@QAEXMFMM@Z
+    // ?Play@mmImpactAudio@@QAEXMFMM@Z
     ARTS_IMPORT void Play(f32 arg1, i16 arg2, f32 arg3, f32 arg4);
 
-    // 0x4852A0 | ?PlayBanger@mmImpactAudio@@QAEXMF@Z
+    // ?PlayBanger@mmImpactAudio@@QAEXMF@Z
     ARTS_IMPORT void PlayBanger(f32 arg1, i16 arg2);
 
-    // 0x485010 | ?PlayCar@mmImpactAudio@@QAEXM@Z
+    // ?PlayCar@mmImpactAudio@@QAEXM@Z
     ARTS_EXPORT void PlayCar(f32 arg1);
 
-    // 0x484F10 | ?PlayWall@mmImpactAudio@@QAEXMMM@Z
+    // ?PlayWall@mmImpactAudio@@QAEXMMM@Z
     ARTS_IMPORT void PlayWall(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4854A0 | ?SetBangerVolumeRange@mmImpactAudio@@QAEXMMMF@Z
+    // ?SetBangerVolumeRange@mmImpactAudio@@QAEXMMMF@Z
     ARTS_IMPORT void SetBangerVolumeRange(f32 arg1, f32 arg2, f32 arg3, i16 arg4);
 
-    // 0x485480 | ?SetWallHugeVolumeMultiplier@mmImpactAudio@@QAEXM@Z
+    // ?SetWallHugeVolumeMultiplier@mmImpactAudio@@QAEXM@Z
     ARTS_IMPORT void SetWallHugeVolumeMultiplier(f32 arg1);
 
-    // 0x485460 | ?SetWallHugeVolumeRange@mmImpactAudio@@QAEXMM@Z
+    // ?SetWallHugeVolumeRange@mmImpactAudio@@QAEXMM@Z
     ARTS_IMPORT void SetWallHugeVolumeRange(f32 arg1, f32 arg2);
 
-    // 0x485440 | ?SetWallMedVolumeMultiplier@mmImpactAudio@@QAEXM@Z
+    // ?SetWallMedVolumeMultiplier@mmImpactAudio@@QAEXM@Z
     ARTS_IMPORT void SetWallMedVolumeMultiplier(f32 arg1);
 
-    // 0x485420 | ?SetWallMedVolumeRange@mmImpactAudio@@QAEXMM@Z
+    // ?SetWallMedVolumeRange@mmImpactAudio@@QAEXMM@Z
     ARTS_IMPORT void SetWallMedVolumeRange(f32 arg1, f32 arg2);
 
-    // 0x485400 | ?SetWallSoftVolumeMultiplier@mmImpactAudio@@QAEXM@Z
+    // ?SetWallSoftVolumeMultiplier@mmImpactAudio@@QAEXM@Z
     ARTS_IMPORT void SetWallSoftVolumeMultiplier(f32 arg1);
 
-    // 0x4853E0 | ?SetWallSoftVolumeRange@mmImpactAudio@@QAEXMM@Z
+    // ?SetWallSoftVolumeRange@mmImpactAudio@@QAEXMM@Z
     ARTS_IMPORT void SetWallSoftVolumeRange(f32 arg1, f32 arg2);
 
-    // 0x485530 | ?Update@mmImpactAudio@@QAEXXZ
+    // ?Update@mmImpactAudio@@QAEXXZ
     ARTS_IMPORT void Update();
 
     u8 gap0[0x1EC];

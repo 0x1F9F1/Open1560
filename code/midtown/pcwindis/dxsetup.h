@@ -43,11 +43,11 @@
 
 #include <ddraw.h>
 
-// 0x575320 | ?MultiMonCallback@@YGHPAU_GUID@@PAD1PAX2@Z
+// ?MultiMonCallback@@YGHPAU_GUID@@PAD1PAX2@Z
 ARTS_IMPORT i32 ARTS_STDCALL MultiMonCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4, void* arg5);
 
-// 0x575360 | ?dxiConfig@@YAXHPAPAD@Z
+// ?dxiConfig@@YAXHPAPAD@Z
 ARTS_EXPORT void dxiConfig(i32 argc, char** argv);
 
-// 0x90A560 | ?dxiCpuSpeed@@3HA
+// ?dxiCpuSpeed@@3HA
 ARTS_IMPORT extern i32 dxiCpuSpeed;

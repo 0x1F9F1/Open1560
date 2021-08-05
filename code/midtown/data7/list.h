@@ -33,21 +33,21 @@ struct List
 public:
     List() = default;
 
-    // 0x57C280 | ??1List@@QAE@XZ
+    // ??1List@@QAE@XZ
     ARTS_EXPORT ~List();
 
     ARTS_NON_COPYABLE(List);
 
-    // 0x57C330 | ?Access@List@@QAEPAXH@Z
+    // ?Access@List@@QAEPAXH@Z
     ARTS_EXPORT void* Access(i32 index);
 
-    // 0x57C360 | ?Delete@List@@QAEHH@Z
+    // ?Delete@List@@QAEHH@Z
     ARTS_EXPORT b32 Delete(i32 index);
 
-    // 0x57C2B0 | ?Insert@List@@QAEHHPAX@Z
+    // ?Insert@List@@QAEHHPAX@Z
     ARTS_EXPORT b32 Insert(i32 index, void* value);
 
-    // 0x57C290 | ?Kill@List@@QAEXXZ
+    // ?Kill@List@@QAEXXZ
     ARTS_EXPORT void Kill();
 
 private:

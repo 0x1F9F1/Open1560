@@ -47,60 +47,60 @@
 
 class mmMultiRace final : public mmGameMulti
 {
-    // const mmMultiRace::`vftable' @ 0x61AA18
+    // const mmMultiRace::`vftable'
 
 public:
-    // 0x41F930 | ??0mmMultiRace@@QAE@XZ
+    // ??0mmMultiRace@@QAE@XZ
     ARTS_IMPORT mmMultiRace();
 
-    // 0x421560 | ??_EmmMultiRace@@UAEPAXI@Z
-    // 0x41F9A0 | ??1mmMultiRace@@UAE@XZ
+    // ??_EmmMultiRace@@UAEPAXI@Z
+    // ??1mmMultiRace@@UAE@XZ
     ARTS_IMPORT ~mmMultiRace() override;
 
-    // 0x420480 | ?ChangePlayerData@mmMultiRace@@QAEXXZ
+    // ?ChangePlayerData@mmMultiRace@@QAEXXZ
     ARTS_IMPORT void ChangePlayerData();
 
-    // 0x420EE0 | ?GameMessage@mmMultiRace@@UAEXPAUNETGAME_MSG@@@Z
+    // ?GameMessage@mmMultiRace@@UAEXPAUNETGAME_MSG@@@Z
     ARTS_IMPORT void GameMessage(struct NETGAME_MSG* arg1) override;
 
-    // 0x421400 | ?GetClass@mmMultiRace@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmMultiRace@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4215C0 | ?GetWaypoints@mmMultiRace@@UAEPAVmmWaypoints@@XZ | inline
+    // ?GetWaypoints@mmMultiRace@@UAEPAVmmWaypoints@@XZ | inline
     ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
 
-    // 0x41FA60 | ?Init@mmMultiRace@@QAEHXZ
+    // ?Init@mmMultiRace@@QAEHXZ
     ARTS_IMPORT i32 Init();
 
-    // 0x41FC70 | ?InitGameObjects@mmMultiRace@@UAEXXZ
+    // ?InitGameObjects@mmMultiRace@@UAEXXZ
     ARTS_IMPORT void InitGameObjects() override;
 
-    // 0x41FC10 | ?InitHUD@mmMultiRace@@UAEXXZ
+    // ?InitHUD@mmMultiRace@@UAEXXZ
     ARTS_IMPORT void InitHUD() override;
 
-    // 0x41FBA0 | ?InitMyPlayer@mmMultiRace@@UAEXXZ
+    // ?InitMyPlayer@mmMultiRace@@UAEXXZ
     ARTS_IMPORT void InitMyPlayer() override;
 
-    // 0x41FF40 | ?InitNetworkPlayers@mmMultiRace@@UAEXXZ
+    // ?InitNetworkPlayers@mmMultiRace@@UAEXXZ
     ARTS_IMPORT void InitNetworkPlayers() override;
 
-    // 0x420370 | ?Reset@mmMultiRace@@UAEXXZ
+    // ?Reset@mmMultiRace@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x420D10 | ?SystemMessage@mmMultiRace@@UAEXPAUNETSYS_MSG@@@Z
+    // ?SystemMessage@mmMultiRace@@UAEXPAUNETSYS_MSG@@@Z
     ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
 
-    // 0x420510 | ?UpdateGame@mmMultiRace@@UAEXXZ
+    // ?UpdateGame@mmMultiRace@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;
 
-    // 0x4204D0 | ?UpdateGameInput@mmMultiRace@@UAEXH@Z
+    // ?UpdateGameInput@mmMultiRace@@UAEXH@Z
     ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
 
-    // 0x421280 | ?DeclareFields@mmMultiRace@@SAXXZ
+    // ?DeclareFields@mmMultiRace@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x421240 | ?SendPlayerFinish@mmMultiRace@@AAEXXZ
+    // ?SendPlayerFinish@mmMultiRace@@AAEXXZ
     ARTS_IMPORT void SendPlayerFinish();
 
     u8 gap1EEA8[0x8];
@@ -108,5 +108,5 @@ private:
 
 check_size(mmMultiRace, 0x1EEB0);
 
-// 0x6A7280 | ?mmMultiRaceMetaClass@@3VMetaClass@@A
+// ?mmMultiRaceMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmMultiRaceMetaClass;

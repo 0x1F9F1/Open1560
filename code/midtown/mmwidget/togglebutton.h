@@ -39,38 +39,38 @@
 
 class UIToggleButton final : public UIButton
 {
-    // const UIToggleButton::`vftable' @ 0x61EE98
+    // const UIToggleButton::`vftable'
 
 public:
-    // 0x4BC490 | ??0UIToggleButton@@QAE@XZ
+    // ??0UIToggleButton@@QAE@XZ
     ARTS_IMPORT UIToggleButton();
 
-    // 0x4BC6F0 | ??_EUIToggleButton@@UAEPAXI@Z
-    // 0x4BC6F0 | ??_GUIToggleButton@@UAEPAXI@Z
-    // 0x4BC510 | ??1UIToggleButton@@UAE@XZ
+    // ??_EUIToggleButton@@UAEPAXI@Z
+    // ??_GUIToggleButton@@UAEPAXI@Z
+    // ??1UIToggleButton@@UAE@XZ
     ARTS_IMPORT ~UIToggleButton() override;
 
-    // 0x4BC660 | ?DoToggle@UIToggleButton@@UAEXXZ
+    // ?DoToggle@UIToggleButton@@UAEXXZ
     ARTS_IMPORT virtual void DoToggle();
 
-    // 0x4BC680 | ?Action@UIToggleButton@@UAEXTeqEvent@@@Z
+    // ?Action@UIToggleButton@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4BC580 | ?Init@UIToggleButton@@QAEXPAULocString@@PAHMMMMHHVCallback@@@Z
+    // ?Init@UIToggleButton@@QAEXPAULocString@@PAHMMMMHHVCallback@@@Z
     ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8,
         class Callback arg9);
 
-    // 0x4BC720 | ?Update@UIToggleButton@@UAEXXZ | inline
+    // ?Update@UIToggleButton@@UAEXXZ | inline
     ARTS_IMPORT void Update() override;
 
 protected:
-    // 0x4BC620 | ?DrawOff@UIToggleButton@@MAEXXZ
+    // ?DrawOff@UIToggleButton@@MAEXXZ
     ARTS_IMPORT virtual void DrawOff();
 
-    // 0x4BC640 | ?DrawOn@UIToggleButton@@MAEXXZ
+    // ?DrawOn@UIToggleButton@@MAEXXZ
     ARTS_IMPORT virtual void DrawOn();
 
-    // 0x705C1C | ?ToggleBMLoaded@UIToggleButton@@1HA
+    // ?ToggleBMLoaded@UIToggleButton@@1HA
     ARTS_IMPORT static i32 ToggleBMLoaded;
 
     u8 gapB4[0x8];

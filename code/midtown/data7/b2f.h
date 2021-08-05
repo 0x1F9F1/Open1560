@@ -24,7 +24,7 @@
     0x662478 | float * ByteToFloatTable | ?ByteToFloatTable@@3PAMA
 */
 
-// 0x662478 | ?ByteToFloatTable@@3PAMA
+// ?ByteToFloatTable@@3PAMA
 extern const f32 ByteToFloatTable[256];
 
 // Use the original but slower float conversion functions

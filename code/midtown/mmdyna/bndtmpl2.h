@@ -50,14 +50,14 @@
     0x77EED8 | class Stream * MakeTableStats | ?MakeTableStats@@3PAVStream@@A
 */
 
-// 0x517620 | ?EdgeInList@@YA_NHHJPAH0@Z
+// ?EdgeInList@@YA_NHHJPAH0@Z
 ARTS_IMPORT bool EdgeInList(i32 arg1, i32 arg2, ilong arg3, i32* arg4, i32* arg5);
 
-// 0x77EE30 | ?BoundBytesPaged@@3HA
+// ?BoundBytesPaged@@3HA
 ARTS_IMPORT extern i32 BoundBytesPaged;
 
-// 0x77EE44 | ?BoundsPaged@@3HA
+// ?BoundsPaged@@3HA
 ARTS_IMPORT extern i32 BoundsPaged;
 
-// 0x77EED8 | ?MakeTableStats@@3PAVStream@@A
+// ?MakeTableStats@@3PAVStream@@A
 ARTS_IMPORT extern class Stream* MakeTableStats;

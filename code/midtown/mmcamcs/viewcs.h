@@ -45,55 +45,55 @@
 
 class mmViewCS final : public asLinearCS
 {
-    // const mmViewCS::`vftable' @ 0x620118
+    // const mmViewCS::`vftable'
 
 public:
-    // 0x4F8FB0 | ??0mmViewCS@@QAE@XZ
+    // ??0mmViewCS@@QAE@XZ
     ARTS_IMPORT mmViewCS();
 
-    // 0x4F9500 | ??_EmmViewCS@@UAEPAXI@Z
-    // 0x4F9070 | ??1mmViewCS@@UAE@XZ
+    // ??_EmmViewCS@@UAEPAXI@Z
+    // ??1mmViewCS@@UAE@XZ
     ARTS_IMPORT ~mmViewCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4F9560 | ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z | inline
+    // ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z | inline
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4F9320 | ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z | unused
+    // ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z | unused
     ARTS_IMPORT void ForceMatrixDelta(class Matrix34 const& arg1);
 
-    // 0x4F9340 | ?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z | unused
+    // ?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z | unused
     ARTS_IMPORT void ForceMatrixDelta(class Vector3 const& arg1);
 
-    // 0x4F94F0 | ?GetClass@mmViewCS@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmViewCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4F9260 | ?Init@mmViewCS@@QAEXXZ
+    // ?Init@mmViewCS@@QAEXXZ
     ARTS_EXPORT void Init();
 
-    // 0x4F9180 | ?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z
+    // ?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z
     ARTS_IMPORT i32 NewCam(class CarCamCS* arg1, i32 arg2, f32 arg3, class Callback arg4);
 
-    // 0x4F9360 | ?OneShot@mmViewCS@@QAEXXZ | unused
+    // ?OneShot@mmViewCS@@QAEXXZ | unused
     ARTS_IMPORT void OneShot();
 
-    // 0x4F92C0 | ?Reset@mmViewCS@@UAEXXZ
+    // ?Reset@mmViewCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4F9270 | ?SetCamera@mmViewCS@@QAEXPAVasCamera@@@Z
+    // ?SetCamera@mmViewCS@@QAEXPAVasCamera@@@Z
     ARTS_IMPORT void SetCamera(class asCamera* arg1);
 
-    // 0x4F9110 | ?SetCurrentCam@mmViewCS@@QAEXPAVCarCamCS@@@Z
+    // ?SetCurrentCam@mmViewCS@@QAEXPAVCarCamCS@@@Z
     ARTS_IMPORT void SetCurrentCam(class CarCamCS* arg1);
 
-    // 0x4F9230 | ?Update@mmViewCS@@UAEXXZ
+    // ?Update@mmViewCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4F9380 | ?DeclareFields@mmViewCS@@SAXXZ
+    // ?DeclareFields@mmViewCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    // 0x4F9080 | ?Instance@mmViewCS@@SAPAV1@PAVasCamera@@@Z
+    // ?Instance@mmViewCS@@SAPAV1@PAVasCamera@@@Z
     ARTS_IMPORT static class mmViewCS* Instance(class asCamera* arg1);
 
     u8 gap88[0x38];
@@ -101,5 +101,5 @@ public:
 
 check_size(mmViewCS, 0xC0);
 
-// 0x7193A8 | ?mmViewCSMetaClass@@3VMetaClass@@A
+// ?mmViewCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmViewCSMetaClass;

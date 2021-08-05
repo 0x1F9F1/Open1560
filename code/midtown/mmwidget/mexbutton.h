@@ -38,35 +38,35 @@
 
 class UIMexButton final : public UIToggleButton2
 {
-    // const UIMexButton::`vftable' @ 0x61EFA8
+    // const UIMexButton::`vftable'
 
 public:
-    // 0x4BCAB0 | ??0UIMexButton@@QAE@XZ
+    // ??0UIMexButton@@QAE@XZ
     ARTS_IMPORT UIMexButton();
 
-    // 0x4BCD30 | ??_EUIMexButton@@UAEPAXI@Z
-    // 0x4BCD30 | ??_GUIMexButton@@UAEPAXI@Z
-    // 0x4BCB30 | ??1UIMexButton@@UAE@XZ
+    // ??_EUIMexButton@@UAEPAXI@Z
+    // ??_GUIMexButton@@UAEPAXI@Z
+    // ??1UIMexButton@@UAE@XZ
     ARTS_IMPORT ~UIMexButton() override = default;
 
-    // 0x4BCCC0 | ?Action@UIMexButton@@UAEXTeqEvent@@@Z
+    // ?Action@UIMexButton@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4BCCA0 | ?DoToggle@UIMexButton@@UAEXXZ
+    // ?DoToggle@UIMexButton@@UAEXXZ
     ARTS_IMPORT void DoToggle() override;
 
-    // 0x4BCB40 | ?Init@UIMexButton@@QAEXPAULocString@@PAHHMMMMHHVCallback@@@Z
+    // ?Init@UIMexButton@@QAEXPAULocString@@PAHHMMMMHHVCallback@@@Z
     ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, i32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, i32 arg8,
         i32 arg9, class Callback arg10);
 
-    // 0x4BCC10 | ?Update@UIMexButton@@UAEXXZ
+    // ?Update@UIMexButton@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
-    // 0x4BCC60 | ?DrawOff@UIMexButton@@EAEXXZ
+    // ?DrawOff@UIMexButton@@EAEXXZ
     ARTS_IMPORT void DrawOff() override;
 
-    // 0x4BCC70 | ?DrawOn@UIMexButton@@EAEXXZ
+    // ?DrawOn@UIMexButton@@EAEXXZ
     ARTS_IMPORT void DrawOn() override;
 
     u8 gapC0[0xC];

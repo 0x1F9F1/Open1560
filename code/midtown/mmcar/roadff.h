@@ -43,49 +43,49 @@
 
 class mmCarRoadFF final : public asNode
 {
-    // const mmCarRoadFF::`vftable' @ 0x61C920
+    // const mmCarRoadFF::`vftable'
 
 public:
-    // 0x4814D0 | ??0mmCarRoadFF@@QAE@XZ
+    // ??0mmCarRoadFF@@QAE@XZ
     ARTS_IMPORT mmCarRoadFF();
 
-    // 0x481AA0 | ??_EmmCarRoadFF@@UAEPAXI@Z
-    // 0x481510 | ??1mmCarRoadFF@@UAE@XZ
+    // ??_EmmCarRoadFF@@UAEPAXI@Z
+    // ??1mmCarRoadFF@@UAE@XZ
     ARTS_IMPORT ~mmCarRoadFF() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x481810 | ?AddWidgets@mmCarRoadFF@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmCarRoadFF@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x481570 | ?AssignProperties@mmCarRoadFF@@QAEXMH@Z
+    // ?AssignProperties@mmCarRoadFF@@QAEXMH@Z
     ARTS_IMPORT void AssignProperties(f32 arg1, i32 arg2);
 
-    // 0x481A90 | ?GetClass@mmCarRoadFF@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmCarRoadFF@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x481760 | ?IsPlaying@mmCarRoadFF@@QAEHXZ
+    // ?IsPlaying@mmCarRoadFF@@QAEHXZ
     ARTS_IMPORT i32 IsPlaying();
 
-    // 0x481730 | ?Reset@mmCarRoadFF@@UAEXXZ
+    // ?Reset@mmCarRoadFF@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x481610 | ?SetFGVals@mmCarRoadFF@@QAEXMMM@Z
+    // ?SetFGVals@mmCarRoadFF@@QAEXMMM@Z
     ARTS_IMPORT void SetFGVals(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x481700 | ?Start@mmCarRoadFF@@QAEXXZ
+    // ?Start@mmCarRoadFF@@QAEXXZ
     ARTS_IMPORT void Start();
 
-    // 0x481720 | ?Stop@mmCarRoadFF@@QAEXXZ
+    // ?Stop@mmCarRoadFF@@QAEXXZ
     ARTS_IMPORT void Stop();
 
-    // 0x481770 | ?Update@mmCarRoadFF@@UAEXXZ
+    // ?Update@mmCarRoadFF@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4817C0 | ?UpdateVals@mmCarRoadFF@@QAEXXZ
+    // ?UpdateVals@mmCarRoadFF@@QAEXXZ
     ARTS_IMPORT void UpdateVals();
 
-    // 0x481920 | ?DeclareFields@mmCarRoadFF@@SAXXZ
+    // ?DeclareFields@mmCarRoadFF@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x24];
@@ -93,5 +93,5 @@ public:
 
 check_size(mmCarRoadFF, 0x44);
 
-// 0x6A8170 | ?mmCarRoadFFMetaClass@@3VMetaClass@@A
+// ?mmCarRoadFFMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmCarRoadFFMetaClass;

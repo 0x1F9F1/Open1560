@@ -37,24 +37,24 @@ void GetMidtownRegString(char* buffer, i32 buffer_len, char* key, char* default_
 
 class AboutMenu final : public UIMenu
 {
-    // const AboutMenu::`vftable' @ 0x61DC40
+    // const AboutMenu::`vftable'
 
 public:
-    // 0x4A5E30 | ??0AboutMenu@@QAE@H@Z
+    // ??0AboutMenu@@QAE@H@Z
     ARTS_IMPORT AboutMenu(i32 arg1);
 
-    // 0x4A61C0 | ??_EAboutMenu@@UAEPAXI@Z
-    // 0x4A61C0 | ??_GAboutMenu@@UAEPAXI@Z
-    // 0x4A6050 | ??1AboutMenu@@UAE@XZ
+    // ??_EAboutMenu@@UAEPAXI@Z
+    // ??_GAboutMenu@@UAEPAXI@Z
+    // ??1AboutMenu@@UAE@XZ
     ARTS_IMPORT ~AboutMenu() override = default;
 
-    // 0x4A6100 | ?Cull@AboutMenu@@UAEXXZ
+    // ?Cull@AboutMenu@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4A6060 | ?PreSetup@AboutMenu@@UAEXXZ
+    // ?PreSetup@AboutMenu@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x4A6080 | ?Update@AboutMenu@@UAEXXZ
+    // ?Update@AboutMenu@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap90[0x20];

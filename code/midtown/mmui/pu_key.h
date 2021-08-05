@@ -36,22 +36,22 @@ class mmTextNode;
 
 class PUKey final : public PUMenuBase
 {
-    // const PUKey::`vftable' @ 0x61DE58
+    // const PUKey::`vftable'
 
 public:
-    // 0x4A93C0 | ??0PUKey@@QAE@HMMMM@Z
+    // ??0PUKey@@QAE@HMMMM@Z
     ARTS_IMPORT PUKey(i32 menu_id, f32 x, f32 y, f32 width, f32 height);
 
-    // 0x4A9750 | ??_GPUKey@@UAEPAXI@Z
-    // 0x4A9750 | ??_EPUKey@@UAEPAXI@Z
-    // 0x4A9460 | ??1PUKey@@UAE@XZ
+    // ??_GPUKey@@UAEPAXI@Z
+    // ??_EPUKey@@UAEPAXI@Z
+    // ??1PUKey@@UAE@XZ
     ARTS_IMPORT ~PUKey() override = default;
 
 private:
-    // 0x4A9710 | ?PostSetup@PUKey@@EAEXXZ
+    // ?PostSetup@PUKey@@EAEXXZ
     ARTS_IMPORT void PostSetup() override;
 
-    // 0x4A9470 | ?PreSetup@PUKey@@EAEXXZ
+    // ?PreSetup@PUKey@@EAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
     Ptr<mmTextNode> text_node_;

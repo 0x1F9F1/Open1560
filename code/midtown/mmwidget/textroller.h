@@ -43,49 +43,49 @@
 
 class UITextRoller final : public uiWidget
 {
-    // const UITextRoller::`vftable' @ 0x61EC88
+    // const UITextRoller::`vftable'
 
 public:
-    // 0x4B9F90 | ??0UITextRoller@@QAE@XZ
+    // ??0UITextRoller@@QAE@XZ
     ARTS_IMPORT UITextRoller();
 
-    // 0x4BAB80 | ??_GUITextRoller@@UAEPAXI@Z
-    // 0x4BAB80 | ??_EUITextRoller@@UAEPAXI@Z
-    // 0x4BA070 | ??1UITextRoller@@UAE@XZ
+    // ??_GUITextRoller@@UAEPAXI@Z
+    // ??_EUITextRoller@@UAEPAXI@Z
+    // ??1UITextRoller@@UAE@XZ
     ARTS_IMPORT ~UITextRoller() override;
 
-    // 0x4BA640 | ?Action@UITextRoller@@UAEXTeqEvent@@@Z
+    // ?Action@UITextRoller@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4BAAD0 | ?Cull@UITextRoller@@UAEXXZ
+    // ?Cull@UITextRoller@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4BAAB0 | ?Dec@UITextRoller@@QAEHXZ
+    // ?Dec@UITextRoller@@QAEHXZ
     ARTS_IMPORT i32 Dec();
 
-    // 0x4BA720 | ?EvalMouseXY@UITextRoller@@QAEXMM@Z
+    // ?EvalMouseXY@UITextRoller@@QAEXMM@Z
     ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2);
 
-    // 0x4BAA90 | ?Inc@UITextRoller@@QAEHXZ
+    // ?Inc@UITextRoller@@QAEHXZ
     ARTS_IMPORT i32 Inc();
 
-    // 0x4BA0E0 | ?Init@UITextRoller@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z
+    // ?Init@UITextRoller@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z
     ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7,
         i32 arg8, i32 arg9, i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
 
-    // 0x4BA950 | ?SetString@UITextRoller@@QAEXVstring@@@Z
+    // ?SetString@UITextRoller@@QAEXVstring@@@Z
     ARTS_IMPORT void SetString(class string arg1);
 
-    // 0x4BAA20 | ?SetText@UITextRoller@@QAEXXZ
+    // ?SetText@UITextRoller@@QAEXXZ
     ARTS_IMPORT void SetText();
 
-    // 0x4BA8B0 | ?SetValue@UITextRoller@@QAEHH@Z
+    // ?SetValue@UITextRoller@@QAEHH@Z
     ARTS_IMPORT i32 SetValue(i32 arg1);
 
-    // 0x4BA610 | ?Switch@UITextRoller@@UAEXH@Z
+    // ?Switch@UITextRoller@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // 0x4BA5B0 | ?Update@UITextRoller@@UAEXXZ
+    // ?Update@UITextRoller@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap74[0x9C];

@@ -40,44 +40,44 @@
 
 class mmCDPlayer final : public asNode
 {
-    // const mmCDPlayer::`vftable' @ 0x61AB40
+    // const mmCDPlayer::`vftable'
 
 public:
-    // 0x422FF0 | ??0mmCDPlayer@@QAE@XZ
+    // ??0mmCDPlayer@@QAE@XZ
     ARTS_IMPORT mmCDPlayer();
 
-    // 0x423810 | ??_GmmCDPlayer@@UAEPAXI@Z
-    // 0x423810 | ??_EmmCDPlayer@@UAEPAXI@Z
-    // 0x406960 | ??1mmCDPlayer@@UAE@XZ | inline
+    // ??_GmmCDPlayer@@UAEPAXI@Z
+    // ??_EmmCDPlayer@@UAEPAXI@Z
+    // ??1mmCDPlayer@@UAE@XZ | inline
     ARTS_IMPORT ~mmCDPlayer() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4234C0 | ?AddWidgets@mmCDPlayer@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmCDPlayer@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x423210 | ?Cull@mmCDPlayer@@UAEXXZ
+    // ?Cull@mmCDPlayer@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x423080 | ?Init@mmCDPlayer@@QAEXPAVmmHUD@@@Z
+    // ?Init@mmCDPlayer@@QAEXPAVmmHUD@@@Z
     ARTS_IMPORT void Init(class mmHUD* arg1);
 
-    // 0x423450 | ?NextTrack@mmCDPlayer@@QAEXXZ
+    // ?NextTrack@mmCDPlayer@@QAEXXZ
     ARTS_IMPORT void NextTrack();
 
-    // 0x423400 | ?PlayStop@mmCDPlayer@@QAEXXZ
+    // ?PlayStop@mmCDPlayer@@QAEXXZ
     ARTS_IMPORT void PlayStop();
 
-    // 0x423750 | ?PrevTrack@mmCDPlayer@@QAEXXZ
+    // ?PrevTrack@mmCDPlayer@@QAEXXZ
     ARTS_IMPORT void PrevTrack();
 
-    // 0x423190 | ?Reset@mmCDPlayer@@UAEXXZ
+    // ?Reset@mmCDPlayer@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4237C0 | ?Toggle@mmCDPlayer@@QAEXXZ
+    // ?Toggle@mmCDPlayer@@QAEXXZ
     ARTS_IMPORT void Toggle();
 
-    // 0x4231A0 | ?Update@mmCDPlayer@@UAEXXZ
+    // ?Update@mmCDPlayer@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x12C];

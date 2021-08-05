@@ -35,24 +35,24 @@
 
 class HostRaceMenu final : public RaceMenuBase
 {
-    // const HostRaceMenu::`vftable' @ 0x61D930
+    // const HostRaceMenu::`vftable'
 
 public:
-    // 0x4A2B60 | ??0HostRaceMenu@@QAE@H@Z
+    // ??0HostRaceMenu@@QAE@H@Z
     ARTS_IMPORT HostRaceMenu(i32 arg1);
 
-    // 0x4A2C70 | ??_EHostRaceMenu@@UAEPAXI@Z
-    // 0x4A2C70 | ??_GHostRaceMenu@@UAEPAXI@Z
-    // 0x4A2C30 | ??1HostRaceMenu@@UAE@XZ
+    // ??_EHostRaceMenu@@UAEPAXI@Z
+    // ??_GHostRaceMenu@@UAEPAXI@Z
+    // ??1HostRaceMenu@@UAE@XZ
     ARTS_IMPORT ~HostRaceMenu() override = default;
 
-    // 0x4A2C50 | ?DisableStart@HostRaceMenu@@QAEXXZ | unused
+    // ?DisableStart@HostRaceMenu@@QAEXXZ | unused
     ARTS_IMPORT void DisableStart();
 
-    // 0x4A2C40 | ?EnableStart@HostRaceMenu@@QAEXXZ | unused
+    // ?EnableStart@HostRaceMenu@@QAEXXZ | unused
     ARTS_IMPORT void EnableStart();
 
-    // 0x4A2C60 | ?UsesLobby@HostRaceMenu@@UAEXH@Z
+    // ?UsesLobby@HostRaceMenu@@UAEXH@Z
     ARTS_EXPORT void UsesLobby(i32 arg1) override;
 
     u8 gapF90[0x8];

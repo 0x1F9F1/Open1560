@@ -37,35 +37,35 @@
 
 class aiGoalAvoidPlayer final : public aiGoal
 {
-    // const aiGoalAvoidPlayer::`vftable' @ 0x61BD10
+    // const aiGoalAvoidPlayer::`vftable'
 
 public:
-    // 0x46A370 | ??0aiGoalAvoidPlayer@@QAE@PAVaiRailSet@@PAVaiVehicleAmbient@@@Z
+    // ??0aiGoalAvoidPlayer@@QAE@PAVaiRailSet@@PAVaiVehicleAmbient@@@Z
     ARTS_IMPORT aiGoalAvoidPlayer(class aiRailSet* arg1, class aiVehicleAmbient* arg2);
 
-    // 0x46A3A0 | ??1aiGoalAvoidPlayer@@QAE@XZ
+    // ??1aiGoalAvoidPlayer@@QAE@XZ
     ARTS_IMPORT ~aiGoalAvoidPlayer() = default;
 
-    // 0x46A970 | ?Context@aiGoalAvoidPlayer@@UAEHXZ
+    // ?Context@aiGoalAvoidPlayer@@UAEHXZ
     ARTS_IMPORT i32 Context() override;
 
-    // 0x46A9A0 | ?Dump@aiGoalAvoidPlayer@@QAEXXZ
+    // ?Dump@aiGoalAvoidPlayer@@QAEXXZ
     ARTS_IMPORT void Dump();
 
-    // 0x46A3B0 | ?Init@aiGoalAvoidPlayer@@UAEXXZ
+    // ?Init@aiGoalAvoidPlayer@@UAEXXZ
     ARTS_IMPORT void Init() override;
 
-    // 0x46A990 | ?Priority@aiGoalAvoidPlayer@@UAEHXZ
+    // ?Priority@aiGoalAvoidPlayer@@UAEHXZ
     ARTS_IMPORT i32 Priority() override;
 
-    // 0x46A3C0 | ?Reset@aiGoalAvoidPlayer@@UAEXXZ
+    // ?Reset@aiGoalAvoidPlayer@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x46A530 | ?Update@aiGoalAvoidPlayer@@UAEXXZ
+    // ?Update@aiGoalAvoidPlayer@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
-    // 0x46A700 | ?AvoidPlayer@aiGoalAvoidPlayer@@AAEXXZ
+    // ?AvoidPlayer@aiGoalAvoidPlayer@@AAEXXZ
     ARTS_IMPORT void AvoidPlayer();
 
     u8 gap8[0x14];

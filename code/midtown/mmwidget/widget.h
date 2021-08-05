@@ -32,60 +32,60 @@
 
 class uiWidget : public asNode
 {
-    // const uiWidget::`vftable' @ 0x61E478
+    // const uiWidget::`vftable'
 
 public:
-    // 0x4B4860 | ??0uiWidget@@QAE@XZ
+    // ??0uiWidget@@QAE@XZ
     ARTS_IMPORT uiWidget();
 
-    // 0x4B2E90 | ??_GuiWidget@@UAEPAXI@Z
-    // 0x4B2E90 | ??_EuiWidget@@UAEPAXI@Z
-    // 0x4B2DB0 | ??1uiWidget@@UAE@XZ | inline
+    // ??_GuiWidget@@UAEPAXI@Z
+    // ??_EuiWidget@@UAEPAXI@Z
+    // ??1uiWidget@@UAE@XZ | inline
     ARTS_IMPORT ~uiWidget() override = default;
 
-    // 0x4B2DC0 | ?Disable@uiWidget@@UAEXXZ | inline
+    // ?Disable@uiWidget@@UAEXXZ | inline
     ARTS_IMPORT virtual void Disable();
 
-    // 0x4B2DD0 | ?Enable@uiWidget@@UAEXXZ | inline
+    // ?Enable@uiWidget@@UAEXXZ | inline
     ARTS_IMPORT virtual void Enable();
 
-    // 0x4B2DE0 | ?TurnOn@uiWidget@@UAEXXZ | inline
+    // ?TurnOn@uiWidget@@UAEXXZ | inline
     ARTS_IMPORT virtual void TurnOn();
 
-    // 0x4B2E00 | ?TurnOff@uiWidget@@UAEXXZ | inline
+    // ?TurnOff@uiWidget@@UAEXXZ | inline
     ARTS_IMPORT virtual void TurnOff();
 
-    // 0x4B2E10 | ?SetReadOnly@uiWidget@@UAEXH@Z | inline
+    // ?SetReadOnly@uiWidget@@UAEXH@Z | inline
     ARTS_IMPORT virtual void SetReadOnly(i32 arg1);
 
-    // 0x4B2E30 | ?Action@uiWidget@@UAEXTeqEvent@@@Z | inline
+    // ?Action@uiWidget@@UAEXTeqEvent@@@Z | inline
     ARTS_EXPORT virtual void Action(union eqEvent arg1);
 
-    // 0x4B2E40 | ?CaptureAction@uiWidget@@UAEXTeqEvent@@@Z | inline
+    // ?CaptureAction@uiWidget@@UAEXTeqEvent@@@Z | inline
     ARTS_EXPORT virtual void CaptureAction(union eqEvent arg1);
 
-    // 0x4B48A0 | ?Switch@uiWidget@@UAEXH@Z
+    // ?Switch@uiWidget@@UAEXH@Z
     ARTS_EXPORT virtual void Switch(i32 arg1);
 
-    // 0x4B2E50 | ?EvalMouseX@uiWidget@@UAEXM@Z | inline
+    // ?EvalMouseX@uiWidget@@UAEXM@Z | inline
     ARTS_EXPORT virtual void EvalMouseX(f32 arg1);
 
-    // 0x4B2E60 | ?ReturnDescription@uiWidget@@UAEPADXZ | inline
+    // ?ReturnDescription@uiWidget@@UAEPADXZ | inline
     ARTS_EXPORT virtual char* ReturnDescription();
 
-    // 0x4B2E70 | ?SetPosition@uiWidget@@UAEXMM@Z | inline
+    // ?SetPosition@uiWidget@@UAEXMM@Z | inline
     ARTS_EXPORT virtual void SetPosition(f32 arg1, f32 arg2);
 
-    // 0x4B2E80 | ?GetScreenHeight@uiWidget@@UAEMXZ | inline
+    // ?GetScreenHeight@uiWidget@@UAEMXZ | inline
     ARTS_IMPORT virtual f32 GetScreenHeight();
 
-    // 0x4B4890 | ?AddToolTip@uiWidget@@QAEXPAVUIMenu@@PAULocString@@@Z
+    // ?AddToolTip@uiWidget@@QAEXPAVUIMenu@@PAULocString@@@Z
     ARTS_EXPORT void AddToolTip(class UIMenu* arg1, struct LocString* arg2);
 
-    // 0x4B48C0 | ?ResetToolTip@uiWidget@@QAEXXZ
+    // ?ResetToolTip@uiWidget@@QAEXXZ
     ARTS_EXPORT void ResetToolTip();
 
-    // 0x4B48D0 | ?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z
+    // ?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetToolTipText(struct LocString* arg1);
 
     u8 gap20[0x54];

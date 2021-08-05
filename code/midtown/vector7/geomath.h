@@ -32,25 +32,25 @@
     0x65A4E0 | float QuadCoplanarTolerance | ?QuadCoplanarTolerance@@3MA
 */
 
-// 0x571D50 | ?CollideTri@@YAHABVVector3@@0000AAMAAV1@2@Z | unused
+// ?CollideTri@@YAHABVVector3@@0000AAMAAV1@2@Z | unused
 ARTS_IMPORT i32 CollideTri(class Vector3 const& arg1, class Vector3 const& arg2, class Vector3 const& arg3,
     class Vector3 const& arg4, class Vector3 const& arg5, f32& arg6, class Vector3& arg7, class Vector3& arg8);
 
-// 0x572360 | ?ComputeMirrorMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z | unused
+// ?ComputeMirrorMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z | unused
 ARTS_IMPORT void ComputeMirrorMatrix(class Matrix34& arg1, class Vector4& arg2);
 
-// 0x572430 | ?ComputeShadowMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z
+// ?ComputeShadowMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z
 ARTS_EXPORT void ComputeShadowMatrix(class Matrix34& matrix, class Vector4& normal);
 
-// 0x571790 | ?GetBoundInfo@@YAXHPAVVector3@@000PAM@Z
+// ?GetBoundInfo@@YAXHPAVVector3@@000PAM@Z
 ARTS_IMPORT void GetBoundInfo(i32 vert_count, class Vector3* vertices, class Vector3* out_min, class Vector3* out_max,
     class Vector3* out_center, f32* out_mag);
 
-// 0x571730 | ?GetBoundSphere@@YA?AVVector4@@HPAVVector3@@@Z | unused
+// ?GetBoundSphere@@YA?AVVector4@@HPAVVector3@@@Z | unused
 ARTS_IMPORT class Vector4 GetBoundSphere(i32 arg1, class Vector3* arg2);
 
-// 0x572210 | ?IsQuadCoplanar@@YAHAAVVector3@@000@Z
+// ?IsQuadCoplanar@@YAHAAVVector3@@000@Z
 ARTS_IMPORT i32 IsQuadCoplanar(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4);
 
-// 0x65A4E0 | ?QuadCoplanarTolerance@@3MA
+// ?QuadCoplanarTolerance@@3MA
 ARTS_IMPORT extern f32 QuadCoplanarTolerance;

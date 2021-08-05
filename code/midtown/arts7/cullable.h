@@ -34,22 +34,22 @@
 
 class asCullable : public Base
 {
-    // const asCullable::`vftable' @ 0x61CBE0
+    // const asCullable::`vftable'
 
 public:
-    // 0x525AA0 | ??0asCullable@@QAE@XZ | inline
+    // ??0asCullable@@QAE@XZ | inline
     ARTS_EXPORT asCullable() = default;
 
-    // 0x525A40 | ??_EasCullable@@UAEPAXI@Z
-    // 0x48BB50 | ??_GasCullable@@UAEPAXI@Z | unused
-    // 0x48BB80 | ??1asCullable@@UAE@XZ | inline
+    // ??_EasCullable@@UAEPAXI@Z
+    // ??_GasCullable@@UAEPAXI@Z | unused
+    // ??1asCullable@@UAE@XZ | inline
     ARTS_EXPORT ~asCullable() override = 0;
 
-    // 0x5258C0 | ?Cull@asCullable@@UAEXXZ
+    // ?Cull@asCullable@@UAEXXZ
     ARTS_EXPORT virtual void Cull();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x5258D0 | ?AddWidgets@asCullable@@QAEXPAVBank@@@Z
+    // ?AddWidgets@asCullable@@QAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* bank);
 #endif
 
@@ -58,7 +58,7 @@ public:
 
 check_size(asCullable, 0x4);
 
-// 0x7908B0 | ?asCullableMetaClass@@3VMetaClass@@A
+// ?asCullableMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asCullableMetaClass;
 
 inline asCullable::~asCullable() = default;

@@ -38,41 +38,41 @@
 class mmIO final
 {
 public:
-    // 0x4E4B60 | ??0mmIO@@QAE@XZ
+    // ??0mmIO@@QAE@XZ
     ARTS_IMPORT mmIO();
 
-    // 0x4E4A40 | ??_EmmIO@@QAEPAXI@Z | unused
-    // 0x4E4B80 | ??1mmIO@@QAE@XZ
+    // ??_EmmIO@@QAEPAXI@Z | unused
+    // ??1mmIO@@QAE@XZ
     ARTS_IMPORT ~mmIO();
 
-    // 0x4E4D20 | ??8mmIO@@QAEHPATeqEvent@@@Z
+    // ??8mmIO@@QAEHPATeqEvent@@@Z
     ARTS_IMPORT i32 operator==(union eqEvent* arg1);
 
-    // 0x4E4CC0 | ?Assign@mmIO@@QAEXHH@Z
+    // ?Assign@mmIO@@QAEXHH@Z
     ARTS_IMPORT void Assign(i32 arg1, i32 arg2);
 
-    // 0x4E4B90 | ?Clear@mmIO@@QAEXXZ | unused
+    // ?Clear@mmIO@@QAEXXZ | unused
     ARTS_IMPORT void Clear();
 
-    // 0x4E4ED0 | ?CompareComponent@mmIO@@QAEHH@Z
+    // ?CompareComponent@mmIO@@QAEHH@Z
     ARTS_IMPORT i32 CompareComponent(i32 arg1);
 
-    // 0x4E4FA0 | ?ForceSettingAcrossConfigs@mmIO@@QAEXH@Z
+    // ?ForceSettingAcrossConfigs@mmIO@@QAEXH@Z
     ARTS_IMPORT void ForceSettingAcrossConfigs(i32 arg1);
 
-    // 0x4E4D70 | ?GetDescription@mmIO@@QAEXPAD@Z
+    // ?GetDescription@mmIO@@QAEXPAD@Z
     ARTS_IMPORT void GetDescription(char* arg1);
 
-    // 0x4E4BB0 | ?Init@mmIO@@QAEXPADHJ@Z
+    // ?Init@mmIO@@QAEXPADHJ@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2, ilong arg3);
 
-    // 0x4E4C10 | ?InitDev@mmIO@@QAEXH_JHHH@Z
+    // ?InitDev@mmIO@@QAEXH_JHHH@Z
     ARTS_IMPORT void InitDev(i32 arg1, i64 arg2, i32 arg3, i32 arg4, i32 arg5);
 
-    // 0x4E4E00 | ?Read@mmIO@@QAEHPAVStream@@@Z
+    // ?Read@mmIO@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 Read(class Stream* arg1);
 
-    // 0x4E4DC0 | ?Write@mmIO@@QAEHPAVStream@@@Z
+    // ?Write@mmIO@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 Write(class Stream* arg1);
 
     u8 gap0[0x1C];

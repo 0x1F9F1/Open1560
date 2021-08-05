@@ -74,18 +74,18 @@ define_dummy_symbol(midtown);
 
 const char* DEFAULT_CITY = "chicago";
 
-// 0x402F20 | ?GameCloseCallback@@YAXXZ
+// ?GameCloseCallback@@YAXXZ
 ARTS_EXPORT /*static*/ void GameCloseCallback()
 {
     MMSTATE.GameState = 0;
     MMSTATE.Shutdown = true;
 }
 
-// 0x402E70 | ?TouchMemory@@YAXPAXH@Z
+// ?TouchMemory@@YAXPAXH@Z
 ARTS_EXPORT /*static*/ void TouchMemory(void*, i32)
 {}
 
-// 0x402EC0 | ?exeDirFile@@YAPADPAD0@Z
+// ?exeDirFile@@YAPADPAD0@Z
 ARTS_EXPORT /*static*/ char* exeDirFile(char* buffer, char* file)
 {
     // FIXME: Unsafe

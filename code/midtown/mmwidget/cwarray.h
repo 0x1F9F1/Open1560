@@ -53,75 +53,75 @@
 
 class UICWArray final : public uiWidget
 {
-    // const UICWArray::`vftable' @ 0x61E9F0
+    // const UICWArray::`vftable'
 
 public:
-    // 0x4B7C70 | ??0UICWArray@@QAE@XZ
+    // ??0UICWArray@@QAE@XZ
     ARTS_IMPORT UICWArray();
 
-    // 0x4B8760 | ??_GUICWArray@@UAEPAXI@Z
-    // 0x4B8760 | ??_EUICWArray@@UAEPAXI@Z
-    // 0x4B7D30 | ??1UICWArray@@UAE@XZ
+    // ??_GUICWArray@@UAEPAXI@Z
+    // ??_EUICWArray@@UAEPAXI@Z
+    // ??1UICWArray@@UAE@XZ
     ARTS_IMPORT ~UICWArray() override = default;
 
-    // 0x4B8560 | ?AcceptCapture@UICWArray@@QAEXXZ
+    // ?AcceptCapture@UICWArray@@QAEXXZ
     ARTS_IMPORT void AcceptCapture();
 
-    // 0x4B82A0 | ?Action@UICWArray@@UAEXTeqEvent@@@Z
+    // ?Action@UICWArray@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4B83D0 | ?CaptureAction@UICWArray@@UAEXTeqEvent@@@Z
+    // ?CaptureAction@UICWArray@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void CaptureAction(union eqEvent arg1) override;
 
-    // 0x4B85E0 | ?CheckCapture@UICWArray@@QAEXXZ
+    // ?CheckCapture@UICWArray@@QAEXXZ
     ARTS_IMPORT void CheckCapture();
 
-    // 0x4B8740 | ?DebugForceSetting@UICWArray@@QAEXXZ | unused
+    // ?DebugForceSetting@UICWArray@@QAEXXZ | unused
     ARTS_IMPORT void DebugForceSetting();
 
-    // 0x4B8720 | ?DefaultCFG@UICWArray@@QAEXXZ
+    // ?DefaultCFG@UICWArray@@QAEXXZ
     ARTS_EXPORT void DefaultCFG();
 
-    // 0x4B84C0 | ?EnterCapture@UICWArray@@QAEXH@Z
+    // ?EnterCapture@UICWArray@@QAEXH@Z
     ARTS_IMPORT void EnterCapture(i32 arg1);
 
-    // 0x4B8530 | ?ForceCapture@UICWArray@@QAEXXZ
+    // ?ForceCapture@UICWArray@@QAEXXZ
     ARTS_IMPORT void ForceCapture();
 
-    // 0x4B7D50 | ?Init@UICWArray@@QAEXMMMMHVCallback@@@Z
+    // ?Init@UICWArray@@QAEXMMMMHVCallback@@@Z
     ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, class Callback arg6);
 
-    // 0x4B86D0 | ?LoadCFG@UICWArray@@QAEXXZ | unused
+    // ?LoadCFG@UICWArray@@QAEXXZ | unused
     ARTS_IMPORT void LoadCFG();
 
-    // 0x4B8100 | ?Redraw@UICWArray@@QAEXXZ
+    // ?Redraw@UICWArray@@QAEXXZ
     ARTS_IMPORT void Redraw();
 
-    // 0x4B7D40 | ?Reset@UICWArray@@UAEXXZ
+    // ?Reset@UICWArray@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4B85B0 | ?ResetCapture@UICWArray@@QAEXXZ
+    // ?ResetCapture@UICWArray@@QAEXXZ
     ARTS_IMPORT void ResetCapture();
 
-    // 0x4B8690 | ?SaveCFG@UICWArray@@QAEXXZ | unused
+    // ?SaveCFG@UICWArray@@QAEXXZ | unused
     ARTS_IMPORT void SaveCFG();
 
-    // 0x4B80C0 | ?SetStartOffset@UICWArray@@QAEXH@Z | unused
+    // ?SetStartOffset@UICWArray@@QAEXH@Z | unused
     ARTS_IMPORT void SetStartOffset(i32 arg1);
 
-    // 0x4B8090 | ?SetVScrollPos@UICWArray@@QAEXXZ
+    // ?SetVScrollPos@UICWArray@@QAEXXZ
     ARTS_IMPORT void SetVScrollPos();
 
-    // 0x4B8020 | ?SetVScrollVals@UICWArray@@QAEXXZ
+    // ?SetVScrollVals@UICWArray@@QAEXXZ
     ARTS_IMPORT void SetVScrollVals();
 
-    // 0x4B8260 | ?Switch@UICWArray@@UAEXH@Z
+    // ?Switch@UICWArray@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // 0x4B8440 | ?Update@UICWArray@@UAEXXZ
+    // ?Update@UICWArray@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4B7FB0 | ?VScrollCB@UICWArray@@QAEXXZ
+    // ?VScrollCB@UICWArray@@QAEXXZ
     ARTS_IMPORT void VScrollCB();
 
     u8 gap74[0x68];

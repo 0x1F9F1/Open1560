@@ -66,91 +66,91 @@
 
 class mmPlayer final : public asNode
 {
-    // const mmPlayer::`vftable' @ 0x61AF00
+    // const mmPlayer::`vftable'
 
 public:
-    // 0x429FF0 | ??0mmPlayer@@QAE@XZ
+    // ??0mmPlayer@@QAE@XZ
     ARTS_IMPORT mmPlayer();
 
-    // 0x42D310 | ??_EmmPlayer@@UAEPAXI@Z
-    // 0x42D370 | ??1mmPlayer@@UAE@XZ | inline
+    // ??_EmmPlayer@@UAEPAXI@Z
+    // ??1mmPlayer@@UAE@XZ | inline
     ARTS_IMPORT ~mmPlayer() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x42C590 | ?AddWidgets@mmPlayer@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmPlayer@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x42A380 | ?AfterLoad@mmPlayer@@UAEXXZ
+    // ?AfterLoad@mmPlayer@@UAEXXZ
     ARTS_EXPORT void AfterLoad() override;
 
-    // 0x42A370 | ?BeforeSave@mmPlayer@@UAEXXZ
+    // ?BeforeSave@mmPlayer@@UAEXXZ
     ARTS_EXPORT void BeforeSave() override;
 
-    // 0x42C4C0 | ?EnableRegen@mmPlayer@@QAEXH@Z
+    // ?EnableRegen@mmPlayer@@QAEXH@Z
     ARTS_IMPORT void EnableRegen(i32 arg1);
 
-    // 0x42D1B0 | ?GetClass@mmPlayer@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmPlayer@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x42A520 | ?Init@mmPlayer@@QAEXPAD0PAVmmGame@@@Z
+    // ?Init@mmPlayer@@QAEXPAD0PAVmmGame@@@Z
     ARTS_IMPORT void Init(char* arg1, char* arg2, class mmGame* arg3);
 
-    // 0x42C490 | ?IsMaxDamaged@mmPlayer@@QAEHXZ
+    // ?IsMaxDamaged@mmPlayer@@QAEHXZ
     ARTS_IMPORT i32 IsMaxDamaged();
 
-    // 0x42AC10 | ?IsPOV@mmPlayer@@QAEHXZ
+    // ?IsPOV@mmPlayer@@QAEHXZ
     ARTS_IMPORT i32 IsPOV();
 
-    // 0x42A390 | ?ReInit@mmPlayer@@QAEXPAD@Z
+    // ?ReInit@mmPlayer@@QAEXPAD@Z
     ARTS_IMPORT void ReInit(char* arg1);
 
-    // 0x42B440 | ?Reset@mmPlayer@@UAEXXZ
+    // ?Reset@mmPlayer@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x42C4E0 | ?ResetDamage@mmPlayer@@QAEXXZ
+    // ?ResetDamage@mmPlayer@@QAEXXZ
     ARTS_IMPORT void ResetDamage();
 
-    // 0x42C420 | ?SetCamInterest@mmPlayer@@QAEXPAVasInertialCS@@@Z
+    // ?SetCamInterest@mmPlayer@@QAEXPAVasInertialCS@@@Z
     ARTS_IMPORT void SetCamInterest(class asInertialCS* arg1);
 
-    // 0x42A9A0 | ?SetMirrorFOV@mmPlayer@@QAEXXZ | unused
+    // ?SetMirrorFOV@mmPlayer@@QAEXXZ | unused
     ARTS_IMPORT void SetMirrorFOV();
 
-    // 0x42AAF0 | ?SetPostRaceCam@mmPlayer@@QAEXXZ
+    // ?SetPostRaceCam@mmPlayer@@QAEXXZ
     ARTS_IMPORT void SetPostRaceCam();
 
-    // 0x42A9D0 | ?SetPreRaceCam@mmPlayer@@QAEXXZ
+    // ?SetPreRaceCam@mmPlayer@@QAEXXZ
     ARTS_IMPORT void SetPreRaceCam();
 
-    // 0x42B5F0 | ?SetSteering@mmPlayer@@QAEXM@Z
+    // ?SetSteering@mmPlayer@@QAEXM@Z
     ARTS_IMPORT void SetSteering(f32 arg1);
 
-    // 0x42AC60 | ?SetWideFOV@mmPlayer@@QAEXH@Z
+    // ?SetWideFOV@mmPlayer@@QAEXH@Z
     ARTS_IMPORT void SetWideFOV(i32 arg1);
 
-    // 0x42AE10 | ?ToggleCam@mmPlayer@@QAEXXZ
+    // ?ToggleCam@mmPlayer@@QAEXXZ
     ARTS_IMPORT void ToggleCam();
 
-    // 0x42B0E0 | ?ToggleDash@mmPlayer@@QAEXXZ
+    // ?ToggleDash@mmPlayer@@QAEXXZ
     ARTS_IMPORT void ToggleDash();
 
-    // 0x42AF30 | ?ToggleExternalView@mmPlayer@@QAEXXZ
+    // ?ToggleExternalView@mmPlayer@@QAEXXZ
     ARTS_IMPORT void ToggleExternalView();
 
-    // 0x42ADF0 | ?ToggleWideFOV@mmPlayer@@QAEXXZ
+    // ?ToggleWideFOV@mmPlayer@@QAEXXZ
     ARTS_IMPORT void ToggleWideFOV();
 
-    // 0x42BBC0 | ?Update@mmPlayer@@UAEXXZ
+    // ?Update@mmPlayer@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x42B310 | ?UpdateHOG@mmPlayer@@QAEXXZ
+    // ?UpdateHOG@mmPlayer@@QAEXXZ
     ARTS_IMPORT void UpdateHOG();
 
-    // 0x42C4F0 | ?UpdateRegen@mmPlayer@@QAEXXZ
+    // ?UpdateRegen@mmPlayer@@QAEXXZ
     ARTS_IMPORT void UpdateRegen();
 
-    // 0x42CD40 | ?DeclareFields@mmPlayer@@SAXXZ
+    // ?DeclareFields@mmPlayer@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x4A78];
@@ -158,8 +158,8 @@ public:
 
 check_size(mmPlayer, 0x4A98);
 
-// 0x6A7778 | ?RestoreCityCam@@3HA
+// ?RestoreCityCam@@3HA
 ARTS_IMPORT extern i32 RestoreCityCam;
 
-// 0x6A7750 | ?mmPlayerMetaClass@@3VMetaClass@@A
+// ?mmPlayerMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmPlayerMetaClass;

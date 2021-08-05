@@ -27,14 +27,14 @@ define_dummy_symbol(agisw_swddraw);
 #include "pcwindis/dxinit.h"
 #include "swrend.h"
 
-// 0x534FA0 | ?ddEnd@@YAXXZ
+// ?ddEnd@@YAXXZ
 ARTS_EXPORT /*static*/ void ddEnd()
 {}
 
-// 0x535070 | ?ddEndFrame@@YAXXZ
+// ?ddEndFrame@@YAXXZ
 ARTS_IMPORT /*static*/ void ddEndFrame();
 
-// 0x535030 | ?ddEndScene@@YAXXZ
+// ?ddEndScene@@YAXXZ
 ARTS_EXPORT /*static*/ void ddEndScene()
 {
     ARTS_UTIMED(agiEndScene);
@@ -42,7 +42,7 @@ ARTS_EXPORT /*static*/ void ddEndScene()
     swScreen = 0;
 }
 
-// 0x534EA0 | ?ddStart@@YAXXZ
+// ?ddStart@@YAXXZ
 ARTS_EXPORT /*static*/ void ddStart()
 {
     swFbWidth = dxiWidth;
@@ -74,13 +74,13 @@ ARTS_EXPORT /*static*/ void ddStart()
         swNibbleLut[i] = static_cast<u8>(i & 0xF);
 }
 
-// 0x534FC0 | ?ddStartFrame@@YAXXZ
+// ?ddStartFrame@@YAXXZ
 ARTS_EXPORT /*static*/ void ddStartFrame()
 {
     debugTri = 0;
 }
 
-// 0x534FD0 | ?ddStartScene@@YAXXZ
+// ?ddStartScene@@YAXXZ
 ARTS_EXPORT /*static*/ void ddStartScene()
 {
     ARTS_UTIMED(agiBeginScene);

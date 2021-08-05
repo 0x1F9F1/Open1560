@@ -38,34 +38,34 @@
 struct bnSkeleton
 {
 public:
-    // 0x514C40 | ??0bnSkeleton@@QAE@XZ
+    // ??0bnSkeleton@@QAE@XZ
     ARTS_IMPORT bnSkeleton();
 
-    // 0x514C50 | ??1bnSkeleton@@QAE@XZ | unused
+    // ??1bnSkeleton@@QAE@XZ | unused
     ARTS_IMPORT ~bnSkeleton();
 
-    // 0x515080 | ?Attach@bnSkeleton@@QAEXQAVMatrix34@@@Z | unused
+    // ?Attach@bnSkeleton@@QAEXQAVMatrix34@@@Z | unused
     ARTS_IMPORT void Attach(class Matrix34* const arg1);
 
-    // 0x515070 | ?Draw@bnSkeleton@@QAEXXZ | unused
+    // ?Draw@bnSkeleton@@QAEXXZ | unused
     ARTS_IMPORT void Draw();
 
-    // 0x515100 | ?FindBone@bnSkeleton@@QAEPAVbnBone@@PADHD@Z
+    // ?FindBone@bnSkeleton@@QAEPAVbnBone@@PADHD@Z
     ARTS_IMPORT class bnBone* FindBone(char* arg1, i32 arg2, char arg3);
 
-    // 0x515220 | ?HowMany@bnSkeleton@@QAEHPADD@Z | unused
+    // ?HowMany@bnSkeleton@@QAEHPADD@Z | unused
     ARTS_IMPORT i32 HowMany(char* arg1, char arg2);
 
-    // 0x514C70 | ?Load@bnSkeleton@@QAEHPBD@Z
+    // ?Load@bnSkeleton@@QAEHPBD@Z
     ARTS_IMPORT i32 Load(char const* arg1);
 
-    // 0x5150B0 | ?Pose@bnSkeleton@@QAEXPBVVector3@@@Z
+    // ?Pose@bnSkeleton@@QAEXPBVVector3@@@Z
     ARTS_IMPORT void Pose(class Vector3 const* arg1);
 
-    // 0x514FA0 | ?Save@bnSkeleton@@QAEHPBD@Z | unused
+    // ?Save@bnSkeleton@@QAEHPBD@Z | unused
     ARTS_IMPORT i32 Save(char const* arg1);
 
-    // 0x515050 | ?Transform@bnSkeleton@@QAEXPAVMatrix34@@@Z
+    // ?Transform@bnSkeleton@@QAEXPAVMatrix34@@@Z
     ARTS_IMPORT void Transform(class Matrix34* arg1);
 
     u8 gap0[0x20];
@@ -76,10 +76,10 @@ check_size(bnSkeleton, 0x20);
 class bnAnimation
 {
 public:
-    // 0x515260 | ?Load@bnAnimation@@QAEHPAD@Z
+    // ?Load@bnAnimation@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
 
-    // 0x5153F0 | ?Lookup@bnAnimation@@SAPAV1@PAD@Z | unused
+    // ?Lookup@bnAnimation@@SAPAV1@PAD@Z | unused
     ARTS_IMPORT static class bnAnimation* Lookup(char* arg1);
 
     u8 gap0[0xC];

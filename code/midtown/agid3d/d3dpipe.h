@@ -68,64 +68,64 @@ class agiRasterizer;
 
 class agiD3DPipeline : public agiDDPipeline
 {
-    // const agiD3DPipeline::`vftable' @ 0x620F78
+    // const agiD3DPipeline::`vftable'
 
 public:
-    // 0x52FB50 | ??0agiD3DPipeline@@QAE@XZ
+    // ??0agiD3DPipeline@@QAE@XZ
     ARTS_EXPORT agiD3DPipeline();
 
-    // 0x531590 | ??_GagiD3DPipeline@@UAEPAXI@Z
-    // 0x531590 | ??_EagiD3DPipeline@@UAEPAXI@Z
-    // 0x5309D0 | ??1agiD3DPipeline@@UAE@XZ
+    // ??_GagiD3DPipeline@@UAEPAXI@Z
+    // ??_EagiD3DPipeline@@UAEPAXI@Z
+    // ??1agiD3DPipeline@@UAE@XZ
     ARTS_EXPORT ~agiD3DPipeline() override;
 
-    // 0x530A40 | ?BeginFrame@agiD3DPipeline@@UAEXXZ
+    // ?BeginFrame@agiD3DPipeline@@UAEXXZ
     ARTS_EXPORT void BeginFrame() override;
 
-    // 0x52FB90 | ?BeginGfx@agiD3DPipeline@@UAEHXZ
+    // ?BeginGfx@agiD3DPipeline@@UAEHXZ
     ARTS_EXPORT i32 BeginGfx() override;
 
-    // 0x530AF0 | ?BeginScene@agiD3DPipeline@@UAEXXZ
+    // ?BeginScene@agiD3DPipeline@@UAEXXZ
     ARTS_EXPORT void BeginScene() override;
 
-    // 0x531400 | ?ClearAll@agiD3DPipeline@@UAEXH@Z
+    // ?ClearAll@agiD3DPipeline@@UAEXH@Z
     ARTS_EXPORT void ClearAll(i32 color) override;
 
-    // 0x531520 | ?CopyBitmap@agiD3DPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
+    // ?CopyBitmap@agiD3DPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
     ARTS_EXPORT void CopyBitmap(
         i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
-    // 0x5314C0 | ?CreateBitmap@agiD3DPipeline@@UAEPAVagiBitmap@@XZ
+    // ?CreateBitmap@agiD3DPipeline@@UAEPAVagiBitmap@@XZ
     ARTS_EXPORT RcOwner<class agiBitmap> CreateBitmap() override;
 
-    // 0x5313A0 | ?CreateLight@agiD3DPipeline@@UAEPAVagiLight@@XZ
+    // ?CreateLight@agiD3DPipeline@@UAEPAVagiLight@@XZ
     ARTS_EXPORT RcOwner<class agiLight> CreateLight() override;
 
-    // 0x531250 | ?CreateMtlDef@agiD3DPipeline@@UAEPAVagiMtlDef@@XZ
+    // ?CreateMtlDef@agiD3DPipeline@@UAEPAVagiMtlDef@@XZ
     ARTS_EXPORT RcOwner<class agiMtlDef> CreateMtlDef() override;
 
-    // 0x5312B0 | ?CreateTexDef@agiD3DPipeline@@UAEPAVagiTexDef@@XZ
+    // ?CreateTexDef@agiD3DPipeline@@UAEPAVagiTexDef@@XZ
     ARTS_EXPORT RcOwner<class agiTexDef> CreateTexDef() override;
 
-    // 0x531310 | ?CreateTexLut@agiD3DPipeline@@UAEPAVagiTexLut@@XZ
+    // ?CreateTexLut@agiD3DPipeline@@UAEPAVagiTexLut@@XZ
     ARTS_EXPORT RcOwner<class agiTexLut> CreateTexLut() override;
 
-    // 0x5311F0 | ?CreateViewport@agiD3DPipeline@@UAEPAVagiViewport@@XZ
+    // ?CreateViewport@agiD3DPipeline@@UAEPAVagiViewport@@XZ
     ARTS_EXPORT RcOwner<class agiViewport> CreateViewport() override;
 
-    // 0x531580 | ?Defragment@agiD3DPipeline@@UAEXXZ
+    // ?Defragment@agiD3DPipeline@@UAEXXZ
     ARTS_EXPORT void Defragment() override;
 
-    // 0x530FE0 | ?DumpStatus@agiD3DPipeline@@UAEXAAUagiMemStatus@@@Z
+    // ?DumpStatus@agiD3DPipeline@@UAEXAAUagiMemStatus@@@Z
     ARTS_EXPORT void DumpStatus(struct agiMemStatus& status) override;
 
-    // 0x530BD0 | ?EndFrame@agiD3DPipeline@@UAEXXZ
+    // ?EndFrame@agiD3DPipeline@@UAEXXZ
     ARTS_EXPORT void EndFrame() override;
 
-    // 0x531100 | ?EndGfx@agiD3DPipeline@@UAEXXZ
+    // ?EndGfx@agiD3DPipeline@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
-    // 0x530B60 | ?EndScene@agiD3DPipeline@@UAEXXZ
+    // ?EndScene@agiD3DPipeline@@UAEXXZ
     ARTS_EXPORT void EndScene() override;
 
     i32 GetFilterCaps() const
@@ -186,27 +186,27 @@ protected:
 
 check_size(agiD3DPipeline, 0x49C);
 
-// 0x530A20 | ?RestoreCallback@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z | unused
+// ?RestoreCallback@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z | unused
 ARTS_IMPORT i32 ARTS_STDCALL RestoreCallback(
     struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
 
-// 0x530D30 | ?callb@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z
+// ?callb@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z
 ARTS_IMPORT long ARTS_STDCALL callb(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
 
-// 0x795C18 | ?AlphaPalette@@3HA
+// ?AlphaPalette@@3HA
 ARTS_IMPORT extern b32 AlphaPalette;
 
-// 0x64E7C8 | ?NoTextureCompression@@3HA
+// ?NoTextureCompression@@3HA
 ARTS_IMPORT extern b32 NoTextureCompression;
 
-// 0x795C20 | ?NotIndependentUV@@3HA
+// ?NotIndependentUV@@3HA
 ARTS_IMPORT extern b32 NotIndependentUV;
 
-// 0x795C0C | ?SeparateTextureMemories@@3HA
+// ?SeparateTextureMemories@@3HA
 ARTS_IMPORT extern b32 SeparateTextureMemories;
 
-// 0x795BD8 | ?agiFOURCC@@3KA
+// ?agiFOURCC@@3KA
 ARTS_IMPORT extern ulong agiFOURCC;
 
-// 0x795C14 | ?dummyGlobal@@3IA
+// ?dummyGlobal@@3IA
 ARTS_IMPORT extern u32 dummyGlobal;

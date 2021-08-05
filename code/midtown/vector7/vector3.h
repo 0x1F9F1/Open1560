@@ -83,179 +83,179 @@ class Vector3
 public:
     constexpr inline Vector3() noexcept = default;
 
-    // 0x43C100 | ??0Vector3@@QAE@MMM@Z | inline
+    // ??0Vector3@@QAE@MMM@Z | inline
     constexpr inline Vector3(f32 x, f32 y, f32 z) noexcept
         : x(x)
         , y(y)
         , z(z)
     {}
 
-    // 0x45C420 | ??LVector3@@QBE?AV0@ABV0@@Z | inline
+    // ??LVector3@@QBE?AV0@ABV0@@Z | inline
     ARTS_IMPORT class Vector3 operator%(class Vector3 const& arg1) const;
 
-    // 0x451320 | ??DVector3@@QBE?AV0@M@Z | inline
+    // ??DVector3@@QBE?AV0@M@Z | inline
     ARTS_EXPORT class Vector3 operator*(f32 value) const
     {
         return {x * value, y * value, z * value};
     }
 
-    // 0x4DEBD0 | ??XVector3@@QAEXM@Z | inline
+    // ??XVector3@@QAEXM@Z | inline
     ARTS_EXPORT void operator*=(f32 value)
     {
         *this = {x * value, y * value, z * value};
     }
 
-    // 0x4512F0 | ??HVector3@@QBE?AV0@ABV0@@Z | inline
+    // ??HVector3@@QBE?AV0@ABV0@@Z | inline
     ARTS_EXPORT class Vector3 operator+(class Vector3 const& other) const
     {
         return {x + other.x, y + other.y, z + other.z};
     }
 
-    // 0x4DBB50 | ??YVector3@@QAEXABV0@@Z | inline
+    // ??YVector3@@QAEXABV0@@Z | inline
     ARTS_EXPORT void operator+=(class Vector3 const& other)
     {
         *this = {x + other.x, y + other.y, z + other.z};
     }
 
-    // 0x459E70 | ??GVector3@@QBE?AV0@XZ | inline
+    // ??GVector3@@QBE?AV0@XZ | inline
     ARTS_EXPORT class Vector3 operator-() const
     {
         return {-x, -y, -z};
     }
 
-    // 0x43FFA0 | ??GVector3@@QBE?AV0@ABV0@@Z | inline
+    // ??GVector3@@QBE?AV0@ABV0@@Z | inline
     ARTS_EXPORT class Vector3 operator-(class Vector3 const& other) const
     {
         return {x - other.x, y - other.y, z - other.z};
     }
 
-    // 0x4DEBA0 | ??ZVector3@@QAEXABV0@@Z | inline
+    // ??ZVector3@@QAEXABV0@@Z | inline
     ARTS_EXPORT void operator-=(class Vector3 const& other)
     {
         *this = {x - other.x, y - other.y, z - other.z};
     }
 
-    // 0x4D9080 | ??KVector3@@QBE?AV0@M@Z | inline
+    // ??KVector3@@QBE?AV0@M@Z | inline
     ARTS_IMPORT class Vector3 operator/(f32 arg1) const;
 
-    // 0x4DEB70 | ??TVector3@@QBE?AV0@ABVMatrix34@@@Z | inline
+    // ??TVector3@@QBE?AV0@ABVMatrix34@@@Z | inline
     ARTS_IMPORT class Vector3 operator^(class Matrix34 const& arg1) const;
 
-    // 0x459E40 | ??TVector3@@QBEMABV0@@Z | inline
+    // ??TVector3@@QBEMABV0@@Z | inline
     ARTS_IMPORT f32 operator^(class Vector3 const& arg1) const;
 
-    // 0x570D00 | ??SVector3@@QBE?AV0@XZ | inline
+    // ??SVector3@@QBE?AV0@XZ | inline
     ARTS_IMPORT class Vector3 operator~() const;
 
-    // 0x52BB70 | ?Add@Vector3@@QAEXABV1@0@Z | inline
+    // ?Add@Vector3@@QAEXABV1@0@Z | inline
     ARTS_IMPORT void Add(class Vector3 const& arg1, class Vector3 const& arg2);
 
-    // 0x564CF0 | ?Angle@Vector3@@QBEMABV1@@Z
+    // ?Angle@Vector3@@QBEMABV1@@Z
     ARTS_IMPORT f32 Angle(class Vector3 const& arg1) const;
 
-    // 0x5656A0 | ?Approach@Vector3@@QAEHABV1@MMPAM@Z
+    // ?Approach@Vector3@@QAEHABV1@MMPAM@Z
     ARTS_IMPORT i32 Approach(class Vector3 const& arg1, f32 arg2, f32 arg3, f32* arg4);
 
-    // 0x564EC0 | ?Area@Vector3@@QBEMABV1@0@Z
+    // ?Area@Vector3@@QBEMABV1@0@Z
     ARTS_IMPORT f32 Area(class Vector3 const& arg1, class Vector3 const& arg2) const;
 
-    // 0x565000 | ?Atan3@Vector3@@QBEMDD@Z | unused
+    // ?Atan3@Vector3@@QBEMDD@Z | unused
     ARTS_IMPORT f32 Atan3(char arg1, char arg2) const;
 
-    // 0x565D00 | ?Bilinear@Vector3@@QAEXMMABV1@000@Z | unused
+    // ?Bilinear@Vector3@@QAEXMMABV1@000@Z | unused
     ARTS_IMPORT void Bilinear(f32 arg1, f32 arg2, class Vector3 const& arg3, class Vector3 const& arg4,
         class Vector3 const& arg5, class Vector3 const& arg6);
 
-    // 0x566820 | ?Bounce@Vector3@@QAEXABV1@M@Z | unused
+    // ?Bounce@Vector3@@QAEXABV1@M@Z | unused
     ARTS_IMPORT void Bounce(class Vector3 const& arg1, f32 arg2);
 
-    // 0x5657E0 | ?CatmullRom@Vector3@@QAEXMABV1@000@Z | unused
+    // ?CatmullRom@Vector3@@QAEXMABV1@000@Z | unused
     ARTS_IMPORT void CatmullRom(f32 arg1, class Vector3 const& arg2, class Vector3 const& arg3,
         class Vector3 const& arg4, class Vector3 const& arg5);
 
-    // 0x5665E0 | ?Clamp@Vector3@@QAEXABV1@0@Z | unused
+    // ?Clamp@Vector3@@QAEXABV1@0@Z | unused
     ARTS_IMPORT void Clamp(class Vector3 const& arg1, class Vector3 const& arg2);
 
-    // 0x566550 | ?Clamp@Vector3@@QAEXMM@Z | unused
+    // ?Clamp@Vector3@@QAEXMM@Z | unused
     ARTS_IMPORT void Clamp(f32 arg1, f32 arg2);
 
-    // 0x564BB0 | ?Cos@Vector3@@QBEMABV1@@Z | unused
+    // ?Cos@Vector3@@QBEMABV1@@Z | unused
     ARTS_IMPORT f32 Cos(class Vector3 const& arg1) const;
 
-    // 0x5724F0 | ?Cross@Vector3@@QAEXABV1@0@Z | inline
+    // ?Cross@Vector3@@QAEXABV1@0@Z | inline
     ARTS_IMPORT void Cross(class Vector3 const& arg1, class Vector3 const& arg2);
 
-    // 0x5669C0 | ?Dist@Vector3@@QBEMABV1@@Z
+    // ?Dist@Vector3@@QBEMABV1@@Z
     ARTS_IMPORT f32 Dist(class Vector3 const& arg1) const;
 
-    // 0x564AE0 | ?Dot@Vector3@@QAIXABV1@ABVMatrix34@@@Z
+    // ?Dot@Vector3@@QAIXABV1@ABVMatrix34@@@Z
     ARTS_IMPORT void ARTS_FASTCALL Dot(class Vector3 const& arg1, class Matrix34 const& arg2);
 
-    // 0x564B50 | ?Dot3x3@Vector3@@QAIXABV1@ABVMatrix34@@@Z
+    // ?Dot3x3@Vector3@@QAIXABV1@ABVMatrix34@@@Z
     ARTS_IMPORT void ARTS_FASTCALL Dot3x3(class Vector3 const& arg1, class Matrix34 const& arg2);
 
-    // 0x5662A0 | ?Equal@Vector3@@QBEIABV1@M@Z
+    // ?Equal@Vector3@@QBEIABV1@M@Z
     ARTS_IMPORT u32 Equal(class Vector3 const& arg1, f32 arg2) const;
 
-    // 0x566680 | ?GetPolar@Vector3@@QBEXABV1@PAVVector4@@PAV1@@Z
+    // ?GetPolar@Vector3@@QBEXABV1@PAVVector4@@PAV1@@Z
     ARTS_IMPORT void GetPolar(class Vector3 const& arg1, class Vector4* arg2, class Vector3* arg3) const;
 
-    // 0x565490 | ?HalfSpace@Vector3@@QBEHABVVector4@@@Z | unused
+    // ?HalfSpace@Vector3@@QBEHABVVector4@@@Z | unused
     ARTS_IMPORT i32 HalfSpace(class Vector4 const& arg1) const;
 
-    // 0x565B50 | ?Hermite@Vector3@@QAEXMABV1@000M@Z | unused
+    // ?Hermite@Vector3@@QAEXMABV1@000M@Z | unused
     ARTS_IMPORT void Hermite(f32 arg1, class Vector3 const& arg2, class Vector3 const& arg3, class Vector3 const& arg4,
         class Vector3 const& arg5, f32 arg6);
 
-    // 0x566960 | ?InvMag@Vector3@@QBEMXZ
+    // ?InvMag@Vector3@@QBEMXZ
     ARTS_IMPORT f32 InvMag() const;
 
-    // 0x5668A0 | ?Mag@Vector3@@QBEMXZ
+    // ?Mag@Vector3@@QBEMXZ
     ARTS_IMPORT f32 Mag() const;
 
-    // 0x5724D0 | ?Neg@Vector3@@QAEXABV1@@Z | inline
+    // ?Neg@Vector3@@QAEXABV1@@Z | inline
     ARTS_IMPORT void Neg(class Vector3 const& arg1);
 
-    // 0x565DD0 | ?PointToLine@Vector3@@QBEMABV1@0@Z | unused
+    // ?PointToLine@Vector3@@QBEMABV1@0@Z | unused
     ARTS_IMPORT f32 PointToLine(class Vector3 const& arg1, class Vector3 const& arg2) const;
 
-    // 0x565EB0 | ?PointToSegment@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z | unused
+    // ?PointToSegment@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z | unused
     ARTS_IMPORT f32 PointToSegment(
         class Vector3 const& arg1, class Vector3 const& arg2, class Vector3& arg3, i32& arg4, f32* arg5) const;
 
-    // 0x566080 | ?PointToSegment2@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z | unused
+    // ?PointToSegment2@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z | unused
     ARTS_IMPORT f32 PointToSegment2(
         class Vector3 const& arg1, class Vector3 const& arg2, class Vector3& arg3, i32& arg4, f32* arg5) const;
 
-    // 0x564F60 | ?Project@Vector3@@QAE?AV1@AAV1@@Z | unused
+    // ?Project@Vector3@@QAE?AV1@AAV1@@Z | unused
     ARTS_IMPORT class Vector3 Project(class Vector3& arg1);
 
-    // 0x565540 | ?RayIntersectPlane@Vector3@@QAEHABV1@0ABVVector4@@M@Z | unused
+    // ?RayIntersectPlane@Vector3@@QAEHABV1@0ABVVector4@@M@Z | unused
     ARTS_IMPORT i32 RayIntersectPlane(
         class Vector3 const& arg1, class Vector3 const& arg2, class Vector4 const& arg3, f32 arg4);
 
-    // 0x5667C0 | ?Rebound@Vector3@@QAEXABV1@M@Z | unused
+    // ?Rebound@Vector3@@QAEXABV1@M@Z | unused
     ARTS_IMPORT void Rebound(class Vector3 const& arg1, f32 arg2);
 
-    // 0x5651C0 | ?Reflect@Vector3@@QBE?AV1@ABV1@@Z | unused
+    // ?Reflect@Vector3@@QBE?AV1@ABV1@@Z | unused
     ARTS_IMPORT class Vector3 Reflect(class Vector3 const& arg1) const;
 
-    // 0x5652C0 | ?Rotate@Vector3@@QAEXMH@Z
+    // ?Rotate@Vector3@@QAEXMH@Z
     ARTS_IMPORT void Rotate(f32 arg1, i32 arg2);
 
-    // 0x45C470 | ?Scale@Vector3@@QAEXABV1@M@Z | inline
+    // ?Scale@Vector3@@QAEXABV1@M@Z | inline
     ARTS_IMPORT void Scale(class Vector3 const& arg1, f32 arg2);
 
-    // 0x4DBB30 | ?Set@Vector3@@QAEXMMM@Z | inline
+    // ?Set@Vector3@@QAEXMMM@Z | inline
     ARTS_IMPORT void Set(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x565990 | ?Slerp@Vector3@@QAEXMABV1@0@Z | unused
+    // ?Slerp@Vector3@@QAEXMABV1@0@Z | unused
     ARTS_IMPORT void Slerp(f32 arg1, class Vector3 const& arg2, class Vector3 const& arg3);
 
-    // 0x566420 | ?hsvtorgb@Vector3@@QAEXXZ | unused
+    // ?hsvtorgb@Vector3@@QAEXXZ | unused
     ARTS_IMPORT void hsvtorgb();
 
-    // 0x566300 | ?rgbtohsv@Vector3@@QAEXXZ | unused
+    // ?rgbtohsv@Vector3@@QAEXXZ | unused
     ARTS_IMPORT void rgbtohsv();
 
     f32 Mag2() const
@@ -287,62 +287,62 @@ public:
 
 check_size(Vector3, 0xC);
 
-// 0x566D00 | ?TransformNormalList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z | unused
+// ?TransformNormalList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z | unused
 ARTS_IMPORT void TransformNormalList(
     class Vector3* arg1, class Vector3 const* arg2, i32 arg3, class Matrix34 const& arg4);
 
-// 0x566DD0 | ?TransformNormalList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z | unused
+// ?TransformNormalList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z | unused
 ARTS_IMPORT void TransformNormalList(
     class Vector3** arg1, class Vector3 const** arg2, i32 arg3, class Matrix34 const& arg4);
 
-// 0x566B70 | ?TransformVertList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z
+// ?TransformVertList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z
 ARTS_IMPORT void TransformVertList(
     class Vector3* arg1, class Vector3 const* arg2, i32 arg3, class Matrix34 const& arg4);
 
-// 0x566C30 | ?TransformVertList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z | unused
+// ?TransformVertList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z | unused
 ARTS_IMPORT void TransformVertList(
     class Vector3** arg1, class Vector3 const** arg2, i32 arg3, class Matrix34 const& arg4);
 
-// 0x566A80 | ?TransformVertNorm@@YAXAAVVector3@@0ABV1@0ABVMatrix34@@@Z | unused
+// ?TransformVertNorm@@YAXAAVVector3@@0ABV1@0ABVMatrix34@@@Z | unused
 ARTS_IMPORT void TransformVertNorm(class Vector3& arg1, class Vector3& arg2, class Vector3 const& arg3,
     class Vector3& arg4, class Matrix34 const& arg5);
 
-// 0x909450 | ?ORIGIN@@3VVector3@@A
+// ?ORIGIN@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 ORIGIN;
 
-// 0x90946C | ?Vector3Inst@@3UVector3Type@@A
+// ?Vector3Inst@@3UVector3Type@@A
 // ARTS_IMPORT struct Vector3Type Vector3Inst;
 
-// 0x909460 | ?XAXIS@@3VVector3@@A
+// ?XAXIS@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 XAXIS;
 
-// 0x909470 | ?YAXIS@@3VVector3@@A
+// ?YAXIS@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 YAXIS;
 
-// 0x909480 | ?ZAXIS@@3VVector3@@A
+// ?ZAXIS@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 ZAXIS;
 
 #if 0
 class Vector3Array
 {
 public:
-    // 0x567030 | ??4Vector3Array@@QAEXAAV0@@Z | unused
+    // ??4Vector3Array@@QAEXAAV0@@Z | unused
     ARTS_IMPORT void operator=(class Vector3Array& arg1);
 
-    // 0x566FB0 | ??AVector3Array@@QAEAAVVector3@@H@Z | unused
+    // ??AVector3Array@@QAEAAVVector3@@H@Z | unused
     ARTS_IMPORT class Vector3& operator[](i32 arg1);
 
-    // 0x567120 | ?BlockCopy@Vector3Array@@QAEXAAV1@@Z | unused
+    // ?BlockCopy@Vector3Array@@QAEXAAV1@@Z | unused
     ARTS_IMPORT void BlockCopy(class Vector3Array& arg1);
 
-    // 0x566EF0 | ?Delete@Vector3Array@@QAEXXZ
+    // ?Delete@Vector3Array@@QAEXXZ
     ARTS_IMPORT void Delete();
 
-    // 0x566E80 | ?Init@Vector3Array@@QAEXH@Z | unused
+    // ?Init@Vector3Array@@QAEXH@Z | unused
     ARTS_IMPORT void Init(i32 arg1);
 
 private:
-    // 0x566F40 | ?NewTable@Vector3Array@@AAEXH@Z
+    // ?NewTable@Vector3Array@@AAEXH@Z
     ARTS_IMPORT void NewTable(i32 arg1);
 };
 

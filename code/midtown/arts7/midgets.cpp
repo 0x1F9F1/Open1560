@@ -33,7 +33,7 @@ ARTS_EXPORT class asMidgets* MIDGETSPTR = nullptr;
 
 class MI
 {
-    // const MI::`vftable' @ 0x620CA8
+    // const MI::`vftable'
 
 public:
     MI(const char* name)
@@ -71,7 +71,7 @@ asMidgets::~asMidgets()
 
 class BMI final : public MI
 {
-    // const BMI::`vftable' @ 0x620CB8
+    // const BMI::`vftable'
 
 public:
     BMI(const char* title, Callback cb)
@@ -79,14 +79,14 @@ public:
         , CB(cb)
     {}
 
-    // 0x527C00 | ?Key@BMI@@UAEXHH@Z | inline
+    // ?Key@BMI@@UAEXHH@Z | inline
     void Key(i32 key, [[maybe_unused]] i32 flags) override
     {
         if (key == EQ_VK_RETURN)
             CB.Call();
     }
 
-    // 0x527C20 | ?Update@BMI@@UAEHH@Z | inline
+    // ?Update@BMI@@UAEHH@Z | inline
     i32 Update([[maybe_unused]] b32 active) override
     {
         arts_sprintf(Text, "[ %s ]", Name.get());
@@ -128,7 +128,7 @@ void asMidgets::AddFileButton(const char* arg1, [[maybe_unused]] Callback arg2)
 
 class TMI final : public MI
 {
-    // const TMI::`vftable' @ 0x620CC0
+    // const TMI::`vftable'
 
 public:
     TMI(const char* title, i32* value, i32 expected, i32 mask, Callback cb)
@@ -139,7 +139,7 @@ public:
         , CB(cb)
     {}
 
-    // 0x527C40 | ?Key@TMI@@UAEXHH@Z | inline
+    // ?Key@TMI@@UAEXHH@Z | inline
     void Key(i32 key, [[maybe_unused]] i32 flags) override
     {
         if (key == EQ_VK_RETURN)
@@ -160,7 +160,7 @@ public:
         }
     }
 
-    // 0x527CA0 | ?Update@TMI@@UAEHH@Z | inline
+    // ?Update@TMI@@UAEHH@Z | inline
     i32 Update([[maybe_unused]] b32 active) override
     {
         i32 value = (Mask != 0) ? ((Mask & *Value) == Expected) : *Value;
@@ -401,16 +401,16 @@ bkSlider* asMidgets::AddTextSlider(const char* arg1, [[maybe_unused]] const char
 
 class SMI final : public MI
 {
-    // const SMI::`vftable' @ 0x620CB0
+    // const SMI::`vftable'
 
 public:
     using MI::MI;
 
-    // 0x527BD0 | ?Key@SMI@@UAEXHH@Z | inline
+    // ?Key@SMI@@UAEXHH@Z | inline
     void Key([[maybe_unused]] i32 key, [[maybe_unused]] i32 flags) override
     {}
 
-    // 0x527BE0 | ?Update@SMI@@UAEHH@Z | inline
+    // ?Update@SMI@@UAEHH@Z | inline
     i32 Update([[maybe_unused]] b32 active) override
     {
         arts_sprintf(Text, "*** %s ***", Name.get());
@@ -596,19 +596,19 @@ void asMidgets::Open(asNode* node)
 
 class SBMI final : public MI
 {
-    // const SBMI::`vftable' @ 0x620D08
+    // const SBMI::`vftable'
 
 public:
     using MI::MI;
 
-    // 0x528340 | ?Key@SBMI@@UAEXHH@Z | inline
+    // ?Key@SBMI@@UAEXHH@Z | inline
     void Key(i32 key, [[maybe_unused]] i32 flags) override
     {
         if (key == EQ_VK_RETURN)
             Start ^= End;
     }
 
-    // 0x528360 | ?Update@SBMI@@UAEHH@Z | inline
+    // ?Update@SBMI@@UAEHH@Z | inline
     i32 Update([[maybe_unused]] b32 active) override
     {
         if (Start)

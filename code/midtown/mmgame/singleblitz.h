@@ -66,78 +66,78 @@
 
 class mmSingleBlitz final : public mmGame
 {
-    // const mmSingleBlitz::`vftable' @ 0x61A550
+    // const mmSingleBlitz::`vftable'
 
 public:
-    // 0x412EF0 | ??0mmSingleBlitz@@QAE@XZ
+    // ??0mmSingleBlitz@@QAE@XZ
     ARTS_IMPORT mmSingleBlitz();
 
-    // 0x414B30 | ??_EmmSingleBlitz@@UAEPAXI@Z
-    // 0x412F90 | ??1mmSingleBlitz@@UAE@XZ
+    // ??_EmmSingleBlitz@@UAEPAXI@Z
+    // ??1mmSingleBlitz@@UAE@XZ
     ARTS_IMPORT ~mmSingleBlitz() override;
 
-    // 0x4148B0 | ?GetClass@mmSingleBlitz@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmSingleBlitz@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x414BE0 | ?GetWaypoints@mmSingleBlitz@@UAEPAVmmWaypoints@@XZ | inline
+    // ?GetWaypoints@mmSingleBlitz@@UAEPAVmmWaypoints@@XZ | inline
     ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
 
-    // 0x413760 | ?HitWaterHandler@mmSingleBlitz@@UAEXXZ
+    // ?HitWaterHandler@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void HitWaterHandler() override;
 
-    // 0x413060 | ?Init@mmSingleBlitz@@QAEHXZ
+    // ?Init@mmSingleBlitz@@QAEHXZ
     ARTS_IMPORT i32 Init();
 
-    // 0x4132D0 | ?InitGameObjects@mmSingleBlitz@@UAEXXZ
+    // ?InitGameObjects@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void InitGameObjects() override;
 
-    // 0x413250 | ?InitHUD@mmSingleBlitz@@UAEXXZ
+    // ?InitHUD@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void InitHUD() override;
 
-    // 0x4131E0 | ?InitMyPlayer@mmSingleBlitz@@UAEXXZ
+    // ?InitMyPlayer@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void InitMyPlayer() override;
 
-    // 0x413540 | ?InitOtherPlayers@mmSingleBlitz@@UAEXXZ
+    // ?InitOtherPlayers@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void InitOtherPlayers() override;
 
-    // 0x4144F0 | ?NextRace@mmSingleBlitz@@UAEXXZ
+    // ?NextRace@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void NextRace() override;
 
-    // 0x414660 | ?PlayTimerWarning@mmSingleBlitz@@QAEXM@Z
+    // ?PlayTimerWarning@mmSingleBlitz@@QAEXM@Z
     ARTS_IMPORT void PlayTimerWarning(f32 arg1);
 
-    // 0x413550 | ?Reset@mmSingleBlitz@@UAEXXZ
+    // ?Reset@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x413800 | ?Update@mmSingleBlitz@@UAEXXZ
+    // ?Update@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x414BD0 | ?UpdateDebugKeyInput@mmSingleBlitz@@UAEXH@Z | inline
+    // ?UpdateDebugKeyInput@mmSingleBlitz@@UAEXH@Z | inline
     ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
-    // 0x413860 | ?UpdateGame@mmSingleBlitz@@UAEXXZ
+    // ?UpdateGame@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;
 
-    // 0x413820 | ?UpdateGameInput@mmSingleBlitz@@UAEXH@Z
+    // ?UpdateGameInput@mmSingleBlitz@@UAEXH@Z
     ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
 
-    // 0x414740 | ?DeclareFields@mmSingleBlitz@@SAXXZ
+    // ?DeclareFields@mmSingleBlitz@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x4136F0 | ?DisableRacers@mmSingleBlitz@@AAEXXZ
+    // ?DisableRacers@mmSingleBlitz@@AAEXXZ
     ARTS_IMPORT void DisableRacers();
 
-    // 0x413660 | ?EnableRacers@mmSingleBlitz@@AAEXXZ
+    // ?EnableRacers@mmSingleBlitz@@AAEXXZ
     ARTS_IMPORT void EnableRacers();
 
-    // 0x4143F0 | ?FinishMessage@mmSingleBlitz@@AAEXH@Z
+    // ?FinishMessage@mmSingleBlitz@@AAEXH@Z
     ARTS_IMPORT void FinishMessage(i32 arg1);
 
-    // 0x414420 | ?ProgressCheck@mmSingleBlitz@@AAEHHH@Z
+    // ?ProgressCheck@mmSingleBlitz@@AAEHHH@Z
     ARTS_IMPORT i32 ProgressCheck(i32 arg1, i32 arg2);
 
-    // 0x4140C0 | ?RegisterFinish@mmSingleBlitz@@AAEHXZ
+    // ?RegisterFinish@mmSingleBlitz@@AAEHXZ
     ARTS_IMPORT i32 RegisterFinish();
 
     u8 gap1E570[0x48];
@@ -145,5 +145,5 @@ private:
 
 check_size(mmSingleBlitz, 0x1E5B8);
 
-// 0x6A7040 | ?mmSingleBlitzMetaClass@@3VMetaClass@@A
+// ?mmSingleBlitzMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmSingleBlitzMetaClass;

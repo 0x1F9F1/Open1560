@@ -40,10 +40,10 @@ struct LocString
 
 #define LOC_TEXT(TEXT) ((struct LocString*) (TEXT))
 
-// 0x5200D0 | ?AngelReadString@@YAPAULocString@@I@Z
+// ?AngelReadString@@YAPAULocString@@I@Z
 ARTS_EXPORT struct LocString* AngelReadString(u32 index);
 
-// 0x520010 | ?GetLocTime@@YAPADM@Z
+// ?GetLocTime@@YAPADM@Z
 ARTS_EXPORT char* GetLocTime(f32 time);
 
 #if ARTS_LOCALIZE_MODE != 0

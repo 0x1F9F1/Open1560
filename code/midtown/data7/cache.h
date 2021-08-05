@@ -49,44 +49,44 @@ struct DataCacheObject;
 class DataCache
 {
 public:
-    // 0x576FC0 | ??0DataCache@@QAE@XZ
+    // ??0DataCache@@QAE@XZ
     ARTS_EXPORT DataCache();
 
     ~DataCache();
 
     ARTS_NON_COPYABLE(DataCache);
 
-    // 0x577750 | ?Age@DataCache@@QAEXXZ
+    // ?Age@DataCache@@QAEXXZ
     ARTS_EXPORT void Age();
 
-    // 0x577920 | ?Allocate@DataCache@@QAEPAXHI@Z
+    // ?Allocate@DataCache@@QAEPAXHI@Z
     ARTS_EXPORT void* Allocate(i32 handle, u32 size);
 
-    // 0x577410 | ?BeginObject@DataCache@@QAEHPAHP6AXPAXH@Z1I@Z
+    // ?BeginObject@DataCache@@QAEHPAHP6AXPAXH@Z1I@Z
     ARTS_EXPORT i32 BeginObject(i32* handle_ptr, DataCacheCallback relocate, void* context, u32 maxsize);
 
-    // 0x577690 | ?EndObject@DataCache@@QAEXH@Z
+    // ?EndObject@DataCache@@QAEXH@Z
     ARTS_EXPORT void EndObject(i32 handle);
 
-    // 0x5776D0 | ?Flush@DataCache@@QAEXXZ
+    // ?Flush@DataCache@@QAEXXZ
     ARTS_EXPORT void Flush();
 
-    // 0x5779D0 | ?GetStatus@DataCache@@QAEXAAI00@Z
+    // ?GetStatus@DataCache@@QAEXAAI00@Z
     ARTS_EXPORT void GetStatus(u32& objects, u32& bytes, u32& waste);
 
-    // 0x576FD0 | ?Init@DataCache@@QAEXIHPAD@Z
+    // ?Init@DataCache@@QAEXIHPAD@Z
     ARTS_EXPORT void Init(u32 heap_size, i32 handle_count, const char* name);
 
-    // 0x5771F0 | ?Lock@DataCache@@QAEHPAH@Z
+    // ?Lock@DataCache@@QAEHPAH@Z
     ARTS_EXPORT b32 Lock(i32* handle);
 
-    // 0x577070 | ?Shutdown@DataCache@@QAEXXZ | unused
+    // ?Shutdown@DataCache@@QAEXXZ | unused
     ARTS_EXPORT void Shutdown();
 
-    // 0x577290 | ?Unlock@DataCache@@QAEXH@Z
+    // ?Unlock@DataCache@@QAEXH@Z
     ARTS_EXPORT void Unlock(i32 handle);
 
-    // 0x577300 | ?UnlockAndFree@DataCache@@QAEXH@Z
+    // ?UnlockAndFree@DataCache@@QAEXH@Z
     ARTS_EXPORT void UnlockAndFree(i32 handle);
 
     void Free(i32 handle);
@@ -108,17 +108,17 @@ public:
     }
 
 private:
-    // 0x5773A0 | ?CleanEndOfHeap@DataCache@@AAEXXZ
+    // ?CleanEndOfHeap@DataCache@@AAEXXZ
     ARTS_EXPORT void CleanEndOfHeap();
 
-    // 0x5775C0 | ?InitObject@DataCache@@AAEXHPAHP6AXPAXH@Z1PAEI@Z
+    // ?InitObject@DataCache@@AAEXHPAHP6AXPAXH@Z1PAEI@Z
     ARTS_EXPORT void InitObject(
         i32 handle, i32* handle_ptr, DataCacheCallback relocate, void* context, u8* data, u32 maxsize);
 
-    // 0x5771A0 | ?Relocate@DataCache@@AAEXPAUDataCacheObject@@PAE@Z
+    // ?Relocate@DataCache@@AAEXPAUDataCacheObject@@PAE@Z
     ARTS_EXPORT void Relocate(DataCacheObject* dco, u8* ptr);
 
-    // 0x5770B0 | ?Unload@DataCache@@AAEXH@Z
+    // ?Unload@DataCache@@AAEXH@Z
     ARTS_EXPORT void Unload(i32 handle);
 
     DataCacheObject& GetObject(i32 handle);
@@ -153,7 +153,7 @@ private:
 
 check_size(DataCache, 0x40);
 
-// 0x90A9B0 | ?CACHE@@3VDataCache@@A
+// ?CACHE@@3VDataCache@@A
 ARTS_EXPORT extern class DataCache CACHE;
 
 template <typename T>

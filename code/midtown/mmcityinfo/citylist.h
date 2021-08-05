@@ -41,45 +41,45 @@
 
 class mmCityList final
 {
-    // const mmCityList::`vftable' @ 0x61F8AC
+    // const mmCityList::`vftable'
 
 public:
-    // 0x4CBC10 | ??0mmCityList@@QAE@XZ
+    // ??0mmCityList@@QAE@XZ
     ARTS_EXPORT mmCityList();
 
-    // 0x4CC050 | ??_GmmCityList@@UAEPAXI@Z
-    // 0x4CC050 | ??_EmmCityList@@UAEPAXI@Z
-    // 0x4CBC30 | ??1mmCityList@@UAE@XZ
+    // ??_GmmCityList@@UAEPAXI@Z
+    // ??_EmmCityList@@UAEPAXI@Z
+    // ??1mmCityList@@UAE@XZ
     ARTS_EXPORT virtual ~mmCityList();
 
-    // 0x4CBD50 | ?GetCityID@mmCityList@@QAEHPAD@Z
+    // ?GetCityID@mmCityList@@QAEHPAD@Z
     ARTS_EXPORT i32 GetCityID(char* name);
 
-    // 0x4CBCD0 | ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@PAD@Z
+    // ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@PAD@Z
     ARTS_EXPORT class mmCityInfo* GetCityInfo(char* name);
 
-    // 0x4CBCA0 | ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@H@Z
+    // ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@H@Z
     ARTS_EXPORT class mmCityInfo* GetCityInfo(i32 index);
 
-    // 0x4CBE20 | ?GetCurrentCity@mmCityList@@QAEPAVmmCityInfo@@XZ
+    // ?GetCurrentCity@mmCityList@@QAEPAVmmCityInfo@@XZ
     ARTS_EXPORT class mmCityInfo* GetCurrentCity();
 
-    // 0x4CBC90 | ?Init@mmCityList@@QAEXH@Z | unused
+    // ?Init@mmCityList@@QAEXH@Z | unused
     ARTS_EXPORT void Init(i32 arg1);
 
-    // 0x4CBE30 | ?Load@mmCityList@@QAEXPAD@Z
+    // ?Load@mmCityList@@QAEXPAD@Z
     ARTS_EXPORT void Load(char* name);
 
-    // 0x4CBFA0 | ?LoadAll@mmCityList@@QAEXXZ
+    // ?LoadAll@mmCityList@@QAEXXZ
     ARTS_EXPORT void LoadAll();
 
-    // 0x4CBF60 | ?Print@mmCityList@@QAEXXZ | unused
+    // ?Print@mmCityList@@QAEXXZ | unused
     ARTS_EXPORT void Print();
 
-    // 0x4CBDD0 | ?SetCurrentCity@mmCityList@@QAEXPAD@Z
+    // ?SetCurrentCity@mmCityList@@QAEXPAD@Z
     ARTS_EXPORT void SetCurrentCity(char* name);
 
-    // 0x4CBDF0 | ?SetCurrentCity@mmCityList@@QAEXH@Z
+    // ?SetCurrentCity@mmCityList@@QAEXH@Z
     ARTS_EXPORT void SetCurrentCity(i32 index);
 
     Ptr<mmCityInfo*[]> Cities;
@@ -89,5 +89,5 @@ public:
 
 check_size(mmCityList, 0x10);
 
-// 0x7084E4 | ?CityListPtr@@3PAVmmCityList@@A
+// ?CityListPtr@@3PAVmmCityList@@A
 ARTS_IMPORT extern class mmCityList* CityListPtr;

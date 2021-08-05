@@ -24,5 +24,5 @@
     0x581730 | void __cdecl jinit_d_coef_controller(struct jpeg_decompress_struct *,unsigned char) | ?jinit_d_coef_controller@@YAXPAUjpeg_decompress_struct@@E@Z
 */
 
-// 0x581730 | ?jinit_d_coef_controller@@YAXPAUjpeg_decompress_struct@@E@Z
+// ?jinit_d_coef_controller@@YAXPAUjpeg_decompress_struct@@E@Z
 ARTS_IMPORT void jinit_d_coef_controller(struct jpeg_decompress_struct* arg1, u8 arg2);

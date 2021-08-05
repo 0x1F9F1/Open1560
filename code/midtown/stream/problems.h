@@ -28,11 +28,11 @@
     0x561340 | public: __thiscall problem_t::~problem_t(void) | ??1problem_t@@QAE@XZ
 */
 
-// 0x560E10 | ?DumpProblems@@YAXXZ
+// ?DumpProblems@@YAXXZ
 ARTS_EXPORT void DumpProblems();
 
-// 0x560DB0 | ?InitProblems@@YAXXZ
+// ?InitProblems@@YAXXZ
 ARTS_EXPORT void InitProblems();
 
-// 0x561100 | ?RegisterProblem@@YAXPAD00@Z
+// ?RegisterProblem@@YAXPAD00@Z
 ARTS_EXPORT void RegisterProblem(const char* message, const char* target, const char* location);

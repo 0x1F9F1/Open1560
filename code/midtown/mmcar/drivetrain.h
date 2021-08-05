@@ -40,43 +40,43 @@
 
 class mmDrivetrain final : public asNode
 {
-    // const mmDrivetrain::`vftable' @ 0x61C780
+    // const mmDrivetrain::`vftable'
 
 public:
-    // 0x47FE60 | ??0mmDrivetrain@@QAE@XZ
+    // ??0mmDrivetrain@@QAE@XZ
     ARTS_IMPORT mmDrivetrain();
 
-    // 0x4805F0 | ??_EmmDrivetrain@@UAEPAXI@Z
-    // 0x470350 | ??1mmDrivetrain@@UAE@XZ | inline
+    // ??_EmmDrivetrain@@UAEPAXI@Z
+    // ??1mmDrivetrain@@UAE@XZ | inline
     ARTS_IMPORT ~mmDrivetrain() override = default;
 
-    // 0x47FEF0 | ?AddWheel@mmDrivetrain@@QAEHPAVmmWheel@@@Z
+    // ?AddWheel@mmDrivetrain@@QAEHPAVmmWheel@@@Z
     ARTS_IMPORT i32 AddWheel(class mmWheel* arg1);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4803E0 | ?AddWidgets@mmDrivetrain@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmDrivetrain@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x47FEC0 | ?Attach@mmDrivetrain@@QAEXXZ
+    // ?Attach@mmDrivetrain@@QAEXXZ
     ARTS_IMPORT void Attach();
 
-    // 0x47FEE0 | ?Detach@mmDrivetrain@@QAEXXZ
+    // ?Detach@mmDrivetrain@@QAEXXZ
     ARTS_IMPORT void Detach();
 
-    // 0x4805E0 | ?GetClass@mmDrivetrain@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmDrivetrain@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x47FE90 | ?Init@mmDrivetrain@@QAEXPAVmmCarSim@@@Z
+    // ?Init@mmDrivetrain@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void Init(class mmCarSim* arg1);
 
-    // 0x480650 | ?Reset@mmDrivetrain@@UAEXXZ | inline
+    // ?Reset@mmDrivetrain@@UAEXXZ | inline
     ARTS_EXPORT void Reset() override;
 
-    // 0x47FF30 | ?Update@mmDrivetrain@@UAEXXZ
+    // ?Update@mmDrivetrain@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x480460 | ?DeclareFields@mmDrivetrain@@SAXXZ
+    // ?DeclareFields@mmDrivetrain@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x28];
@@ -84,5 +84,5 @@ public:
 
 check_size(mmDrivetrain, 0x48);
 
-// 0x6A80F8 | ?mmDrivetrainMetaClass@@3VMetaClass@@A
+// ?mmDrivetrainMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmDrivetrainMetaClass;

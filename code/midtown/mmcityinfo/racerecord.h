@@ -47,63 +47,63 @@
 
 class mmRecord final : public mmInfoBase
 {
-    // const mmRecord::`vftable' @ 0x61F8D0
+    // const mmRecord::`vftable'
 
 public:
-    // 0x4D1640 | ??0mmRecord@@QAE@XZ
+    // ??0mmRecord@@QAE@XZ
     ARTS_IMPORT mmRecord();
 
-    // 0x4D1B60 | ??_EmmRecord@@UAEPAXI@Z
-    // 0x4CD970 | ??_GmmRecord@@UAEPAXI@Z | unused
-    // 0x4D1680 | ??1mmRecord@@UAE@XZ
+    // ??_EmmRecord@@UAEPAXI@Z
+    // ??_GmmRecord@@UAEPAXI@Z | unused
+    // ??1mmRecord@@UAE@XZ
     ARTS_IMPORT ~mmRecord() override = default;
 
-    // 0x4D1780 | ??4mmRecord@@QAEXAAV0@@Z
+    // ??4mmRecord@@QAEXAAV0@@Z
     ARTS_IMPORT void operator=(class mmRecord& arg1);
 
-    // 0x4D1910 | ?ComputeCRC@mmRecord@@QAEIXZ
+    // ?ComputeCRC@mmRecord@@QAEIXZ
     ARTS_IMPORT u32 ComputeCRC();
 
-    // 0x4D16A0 | ?GetCarName@mmRecord@@QAEPADXZ
+    // ?GetCarName@mmRecord@@QAEPADXZ
     ARTS_IMPORT char* GetCarName();
 
-    // 0x4D1B50 | ?GetClass@mmRecord@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmRecord@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4D16B0 | ?GetName@mmRecord@@QAEPADXZ
+    // ?GetName@mmRecord@@QAEPADXZ
     ARTS_IMPORT char* GetName();
 
-    // 0x4D16C0 | ?GetPassed@mmRecord@@QAEHXZ | unused
+    // ?GetPassed@mmRecord@@QAEHXZ | unused
     ARTS_IMPORT i32 GetPassed();
 
-    // 0x4D16D0 | ?GetScore@mmRecord@@QAEHXZ
+    // ?GetScore@mmRecord@@QAEHXZ
     ARTS_IMPORT i32 GetScore();
 
-    // 0x4D1690 | ?GetTime@mmRecord@@QAEMXZ
+    // ?GetTime@mmRecord@@QAEMXZ
     ARTS_IMPORT f32 GetTime();
 
-    // 0x4D1890 | ?LoadBinary@mmRecord@@QAEHPAVStream@@@Z
+    // ?LoadBinary@mmRecord@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 LoadBinary(class Stream* arg1);
 
-    // 0x4D1810 | ?SaveBinary@mmRecord@@QAEHPAVStream@@@Z
+    // ?SaveBinary@mmRecord@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 SaveBinary(class Stream* arg1);
 
-    // 0x4D16F0 | ?SetCarName@mmRecord@@QAEXPAD@Z
+    // ?SetCarName@mmRecord@@QAEXPAD@Z
     ARTS_IMPORT void SetCarName(char* arg1);
 
-    // 0x4D1710 | ?SetName@mmRecord@@QAEXPAD@Z
+    // ?SetName@mmRecord@@QAEXPAD@Z
     ARTS_IMPORT void SetName(char* arg1);
 
-    // 0x4D1750 | ?SetPassed@mmRecord@@QAEXH@Z
+    // ?SetPassed@mmRecord@@QAEXH@Z
     ARTS_IMPORT void SetPassed(i32 arg1);
 
-    // 0x4D1770 | ?SetScore@mmRecord@@QAEXH@Z
+    // ?SetScore@mmRecord@@QAEXH@Z
     ARTS_IMPORT void SetScore(i32 arg1);
 
-    // 0x4D16E0 | ?SetTime@mmRecord@@QAEXM@Z
+    // ?SetTime@mmRecord@@QAEXM@Z
     ARTS_IMPORT void SetTime(f32 arg1);
 
-    // 0x4D1970 | ?DeclareFields@mmRecord@@SAXXZ
+    // ?DeclareFields@mmRecord@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x80];
@@ -111,5 +111,5 @@ public:
 
 check_size(mmRecord, 0x108);
 
-// 0x7085F0 | ?mmRecordMetaClass@@3VMetaClass@@A
+// ?mmRecordMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmRecordMetaClass;

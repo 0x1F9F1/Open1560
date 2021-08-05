@@ -35,25 +35,25 @@
 
 class agiZBufRenderer final : public agiSurfRenderer
 {
-    // const agiZBufRenderer::`vftable' @ 0x621388
+    // const agiZBufRenderer::`vftable'
 
 public:
-    // 0x54FA70 | ??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z
+    // ??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z
     ARTS_IMPORT agiZBufRenderer(class agiRasterizer* arg1);
 
-    // 0x5507D0 | ??_EagiZBufRenderer@@UAEPAXI@Z
-    // 0x5507D0 | ??_GagiZBufRenderer@@UAEPAXI@Z
-    // 0x54FA90 | ??1agiZBufRenderer@@UAE@XZ
+    // ??_EagiZBufRenderer@@UAEPAXI@Z
+    // ??_GagiZBufRenderer@@UAEPAXI@Z
+    // ??1agiZBufRenderer@@UAE@XZ
     ARTS_IMPORT ~agiZBufRenderer() override = default;
 
-    // 0x54FAA0 | ?EndGroup@agiZBufRenderer@@UAEXXZ
+    // ?EndGroup@agiZBufRenderer@@UAEXXZ
     ARTS_IMPORT void EndGroup() override;
 };
 
 check_size(agiZBufRenderer, 0x14);
 
-// 0x65634C | ?aa_expansion@@3MA
+// ?aa_expansion@@3MA
 ARTS_IMPORT extern f32 aa_expansion;
 
-// 0x656348 | ?twiddle@@3HA
+// ?twiddle@@3HA
 ARTS_IMPORT extern i32 twiddle;

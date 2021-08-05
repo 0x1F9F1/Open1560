@@ -33,26 +33,26 @@
 
 class Base
 {
-    // const Base::`vftable' @ 0x61A638
+    // const Base::`vftable'
 
 public:
-    // 0x414AD0 | ??_GBase@@UAEPAXI@Z
-    // 0x5791E0 | ??1Base@@UAE@XZ
+    // ??_GBase@@UAEPAXI@Z
+    // ??1Base@@UAE@XZ
     ARTS_EXPORT virtual ~Base() = 0;
 
-    // 0x579290 | ?GetClass@Base@@UAEPAVMetaClass@@XZ
+    // ?GetClass@Base@@UAEPAVMetaClass@@XZ
     ARTS_EXPORT virtual class MetaClass* GetClass();
 
-    // 0x5791A0 | ?GetTypeNameV@Base@@UAEPADXZ
+    // ?GetTypeNameV@Base@@UAEPADXZ
     ARTS_EXPORT virtual const char* GetTypeNameV();
 
-    // 0x5791C0 | ?BeforeSave@Base@@UAEXXZ
+    // ?BeforeSave@Base@@UAEXXZ
     ARTS_EXPORT virtual void BeforeSave();
 
-    // 0x5791D0 | ?AfterLoad@Base@@UAEXXZ
+    // ?AfterLoad@Base@@UAEXXZ
     ARTS_EXPORT virtual void AfterLoad();
 
-    // 0x5791B0 | ?GetTypeName@Base@@QAEPADXZ
+    // ?GetTypeName@Base@@QAEPADXZ
     ARTS_EXPORT const char* GetTypeName();
 
     META_DECLARE;
@@ -60,7 +60,7 @@ public:
 
 check_size(Base, 0x4);
 
-// 0x90B100 | ?BaseMetaClass@@3VMetaClass@@A
+// ?BaseMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass BaseMetaClass;
 
 inline Base::~Base() = default;

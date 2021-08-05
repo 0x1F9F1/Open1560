@@ -32,22 +32,22 @@
 
 class mmFrictionFF final : public mmEffectFF
 {
-    // const mmFrictionFF::`vftable' @ 0x61FCD0
+    // const mmFrictionFF::`vftable'
 
 public:
-    // 0x4E7BE0 | ?Assign@mmFrictionFF@@QAEHJ@Z
+    // ?Assign@mmFrictionFF@@QAEHJ@Z
     ARTS_IMPORT i32 Assign(ilong arg1);
 
-    // 0x4E7AA0 | ?Init@mmFrictionFF@@UAEHPAUIDirectInputDevice2A@@@Z
+    // ?Init@mmFrictionFF@@UAEHPAUIDirectInputDevice2A@@@Z
     ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;
 
-    // 0x4E7CB0 | ?Play@mmFrictionFF@@UAEHXZ
+    // ?Play@mmFrictionFF@@UAEHXZ
     ARTS_IMPORT i32 Play() override;
 
-    // 0x4E7BB0 | ?SetValues@mmFrictionFF@@UAEHMM@Z
+    // ?SetValues@mmFrictionFF@@UAEHMM@Z
     ARTS_IMPORT i32 SetValues(f32 arg1, f32 arg2) override;
 
-    // 0x4E7D10 | ?Stop@mmFrictionFF@@UAEHXZ
+    // ?Stop@mmFrictionFF@@UAEHXZ
     ARTS_IMPORT i32 Stop() override;
 
     u8 gap80[0x1C];

@@ -55,71 +55,71 @@ class agiPhysParameters;
 
 class mmWheel final : public asLinearCS
 {
-    // const mmWheel::`vftable' @ 0x61C740
+    // const mmWheel::`vftable'
 
 public:
-    // 0x47D790 | ??0mmWheel@@QAE@XZ
+    // ??0mmWheel@@QAE@XZ
     ARTS_IMPORT mmWheel();
 
-    // 0x47FE00 | ??_EmmWheel@@UAEPAXI@Z
-    // 0x470360 | ??1mmWheel@@UAE@XZ | inline
+    // ??_EmmWheel@@UAEPAXI@Z
+    // ??1mmWheel@@UAE@XZ | inline
     ARTS_IMPORT ~mmWheel() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x47F6D0 | ?AddWidgets@mmWheel@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmWheel@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x47DA10 | ?AfterLoad@mmWheel@@UAEXXZ
+    // ?AfterLoad@mmWheel@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;
 
-    // 0x47D950 | ?ComputeConstants@mmWheel@@QAEXXZ
+    // ?ComputeConstants@mmWheel@@QAEXXZ
     ARTS_IMPORT void ComputeConstants();
 
-    // 0x47DBB0 | ?ComputeDwtdw@mmWheel@@QAEMMPAM00@Z
+    // ?ComputeDwtdw@mmWheel@@QAEMMPAM00@Z
     ARTS_IMPORT f32 ComputeDwtdw(f32 arg1, f32* arg2, f32* arg3, f32* arg4);
 
-    // 0x47F5F0 | ?CopyVars@mmWheel@@QAEXPAV1@@Z
+    // ?CopyVars@mmWheel@@QAEXPAV1@@Z
     ARTS_IMPORT void CopyVars(class mmWheel* arg1);
 
-    // 0x47F340 | ?GenerateSkidParticles@mmWheel@@QAEXXZ
+    // ?GenerateSkidParticles@mmWheel@@QAEXXZ
     ARTS_EXPORT void GenerateSkidParticles();
 
-    // 0x47FDC0 | ?GetClass@mmWheel@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmWheel@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x47F6B0 | ?GetSurfaceSound@mmWheel@@QAEHXZ
+    // ?GetSurfaceSound@mmWheel@@QAEHXZ
     ARTS_IMPORT i32 GetSurfaceSound();
 
-    // 0x47DA20 | ?Init@mmWheel@@QAEXPAD0VVector3@@PAVasInertialCS@@HPAVmmBoundTemplate@@H@Z
+    // ?Init@mmWheel@@QAEXPAD0VVector3@@PAVasInertialCS@@HPAVmmBoundTemplate@@H@Z
     ARTS_IMPORT void Init(char* arg1, char* arg2, class Vector3 arg3, class asInertialCS* arg4, i32 arg5,
         class mmBoundTemplate* arg6, i32 arg7);
 
-    // 0x47F3B0 | ?Load@mmWheel@@QAEXPAVStream@@@Z | unused
+    // ?Load@mmWheel@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Load(class Stream* arg1);
 
-    // 0x47F2D0 | ?Reset@mmWheel@@UAEXXZ
+    // ?Reset@mmWheel@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x47F4B0 | ?Save@mmWheel@@QAEXPAVStream@@@Z | unused
+    // ?Save@mmWheel@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Save(class Stream* arg1);
 
-    // 0x47F380 | ?SetFricMultiplier@mmWheel@@QAEXM@Z
+    // ?SetFricMultiplier@mmWheel@@QAEXM@Z
     ARTS_IMPORT void SetFricMultiplier(f32 arg1);
 
-    // 0x47F360 | ?SetInputs@mmWheel@@QAEXMM@Z
+    // ?SetInputs@mmWheel@@QAEXMM@Z
     ARTS_IMPORT void SetInputs(f32 arg1, f32 arg2);
 
-    // 0x47F3A0 | ?SetSteerMultiplier@mmWheel@@QAEXM@Z
+    // ?SetSteerMultiplier@mmWheel@@QAEXM@Z
     ARTS_IMPORT void SetSteerMultiplier(f32 arg1);
 
-    // 0x47E3E0 | ?Update@mmWheel@@UAEXXZ
+    // ?Update@mmWheel@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x47FB00 | ?DeclareFields@mmWheel@@SAXXZ
+    // ?DeclareFields@mmWheel@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    // 0x63C490 | ?PtxMaxSkidCount@mmWheel@@2MA
+    // ?PtxMaxSkidCount@mmWheel@@2MA
     ARTS_IMPORT static f32 PtxMaxSkidCount;
 
     mmCarSim* CarSim;
@@ -193,8 +193,8 @@ public:
 
 check_size(mmWheel, 0x268);
 
-// 0x6A80F4 | ?DispLatZeroThresh@@3MA
+// ?DispLatZeroThresh@@3MA
 ARTS_IMPORT extern f32 DispLatZeroThresh;
 
-// 0x6A80B8 | ?mmWheelMetaClass@@3VMetaClass@@A
+// ?mmWheelMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmWheelMetaClass;

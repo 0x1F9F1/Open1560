@@ -43,50 +43,50 @@
 
 class PointCamCS final : public CarCamCS
 {
-    // const PointCamCS::`vftable' @ 0x620248
+    // const PointCamCS::`vftable'
 
 public:
-    // 0x4F9E20 | ??0PointCamCS@@QAE@XZ
+    // ??0PointCamCS@@QAE@XZ
     ARTS_IMPORT PointCamCS();
 
-    // 0x4FA430 | ??_EPointCamCS@@UAEPAXI@Z
-    // 0x42D2D0 | ??1PointCamCS@@UAE@XZ | inline
+    // ??_EPointCamCS@@UAEPAXI@Z
+    // ??1PointCamCS@@UAE@XZ | inline
     ARTS_IMPORT ~PointCamCS() override = default;
 
-    // 0x4FA3F0 | ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
+    // ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4F9F70 | ?GetPos@PointCamCS@@QAE?AVVector3@@XZ | unused
+    // ?GetPos@PointCamCS@@QAE?AVVector3@@XZ | unused
     ARTS_IMPORT class Vector3 GetPos();
 
-    // 0x4F9E50 | ?Init@PointCamCS@@QAEXPAVmmCar@@@Z
+    // ?Init@PointCamCS@@QAEXPAVmmCar@@@Z
     ARTS_IMPORT void Init(class mmCar* arg1);
 
-    // 0x4F9E90 | ?MakeActive@PointCamCS@@UAEXXZ
+    // ?MakeActive@PointCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;
 
-    // 0x4F9E80 | ?Reset@PointCamCS@@UAEXXZ
+    // ?Reset@PointCamCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4F9F40 | ?SetAppRate@PointCamCS@@QAEXM@Z
+    // ?SetAppRate@PointCamCS@@QAEXM@Z
     ARTS_IMPORT void SetAppRate(f32 arg1);
 
-    // 0x4F9F00 | ?SetMaxDist@PointCamCS@@QAEXM@Z
+    // ?SetMaxDist@PointCamCS@@QAEXM@Z
     ARTS_IMPORT void SetMaxDist(f32 arg1);
 
-    // 0x4F9F20 | ?SetMinDist@PointCamCS@@QAEXM@Z
+    // ?SetMinDist@PointCamCS@@QAEXM@Z
     ARTS_IMPORT void SetMinDist(f32 arg1);
 
-    // 0x4F9EC0 | ?SetPos@PointCamCS@@QAEXAAVVector3@@@Z
+    // ?SetPos@PointCamCS@@QAEXAAVVector3@@@Z
     ARTS_IMPORT void SetPos(class Vector3& arg1);
 
-    // 0x4F9F50 | ?SetVel@PointCamCS@@QAEXAAVVector3@@@Z
+    // ?SetVel@PointCamCS@@QAEXAAVVector3@@@Z
     ARTS_IMPORT void SetVel(class Vector3& arg1);
 
-    // 0x4F9FA0 | ?Update@PointCamCS@@UAEXXZ
+    // ?Update@PointCamCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4FA280 | ?DeclareFields@PointCamCS@@SAXXZ
+    // ?DeclareFields@PointCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap118[0x2C];
@@ -94,5 +94,5 @@ public:
 
 check_size(PointCamCS, 0x144);
 
-// 0x719438 | ?PointCamCSMetaClass@@3VMetaClass@@A
+// ?PointCamCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass PointCamCSMetaClass;

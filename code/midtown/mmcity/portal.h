@@ -54,72 +54,72 @@
 
 class asPortalWeb : public asNode
 {
-    // const asPortalWeb::`vftable' @ 0x61D1E0
+    // const asPortalWeb::`vftable'
 
 public:
-    // 0x495AE0 | ??0asPortalWeb@@QAE@XZ
+    // ??0asPortalWeb@@QAE@XZ
     ARTS_IMPORT asPortalWeb();
 
-    // 0x497780 | ??_EasPortalWeb@@UAEPAXI@Z
-    // 0x497780 | ??_GasPortalWeb@@UAEPAXI@Z
-    // 0x4974C0 | ??1asPortalWeb@@UAE@XZ
+    // ??_EasPortalWeb@@UAEPAXI@Z
+    // ??_GasPortalWeb@@UAEPAXI@Z
+    // ??1asPortalWeb@@UAE@XZ
     ARTS_IMPORT ~asPortalWeb() override;
 
     virtual struct asPortalCell* GetStartCell(
         class Vector3& arg1, struct asPortalCell* arg2, class mmPolygon** arg3) = 0;
 
-    // 0x4957E0 | ?AddCell@asPortalWeb@@QAEPAUasPortalCell@@PADPAVasPortalRenderable@@I@Z
+    // ?AddCell@asPortalWeb@@QAEPAUasPortalCell@@PADPAVasPortalRenderable@@I@Z
     ARTS_IMPORT struct asPortalCell* AddCell(char* arg1, class asPortalRenderable* arg2, u32 arg3);
 
-    // 0x4958E0 | ?AddEdge@asPortalWeb@@QAEPAUasPortalEdge@@PADPAUasPortalCell@@1H@Z
+    // ?AddEdge@asPortalWeb@@QAEPAUasPortalEdge@@PADPAUasPortalCell@@1H@Z
     ARTS_IMPORT struct asPortalEdge* AddEdge(
         char* arg1, struct asPortalCell* arg2, struct asPortalCell* arg3, i32 arg4);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x497540 | ?AddWidgets@asPortalWeb@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asPortalWeb@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4969F0 | ?BuildGroups@asPortalWeb@@QAEXXZ
+    // ?BuildGroups@asPortalWeb@@QAEXXZ
     ARTS_IMPORT void BuildGroups();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x495B70 | ?BuildVisibilityList@asPortalWeb@@QAEHAAVMatrix34@@PAPAUasPortalCell@@HM@Z
+    // ?BuildVisibilityList@asPortalWeb@@QAEHAAVMatrix34@@PAPAUasPortalCell@@HM@Z
     ARTS_IMPORT i32 BuildVisibilityList(class Matrix34& arg1, struct asPortalCell** arg2, i32 arg3, f32 arg4);
 
-    // 0x495DD0 | ?BuildVisibilityList@asPortalWeb@@QAEHAAVVector3@@PAPAUasPortalCell@@HM@Z
+    // ?BuildVisibilityList@asPortalWeb@@QAEHAAVVector3@@PAPAUasPortalCell@@HM@Z
     ARTS_IMPORT i32 BuildVisibilityList(class Vector3& arg1, struct asPortalCell** arg2, i32 arg3, f32 arg4);
 #endif
 
-    // 0x496FE0 | ?Cull@asPortalWeb@@QAEXH@Z
+    // ?Cull@asPortalWeb@@QAEXH@Z
     ARTS_IMPORT void Cull(i32 arg1);
 
-    // 0x495830 | ?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z | unused
+    // ?DeleteCell@asPortalWeb@@QAEXPAUasPortalCell@@@Z | unused
     ARTS_IMPORT void DeleteCell(struct asPortalCell* arg1);
 
-    // 0x4959A0 | ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z | unused
+    // ?DeleteEdge@asPortalWeb@@QAEXPAUasPortalEdge@@@Z | unused
     ARTS_EXPORT void DeleteEdge(struct asPortalEdge* arg1);
 
-    // 0x497770 | ?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ
+    // ?GetClass@asPortalWeb@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x497530 | ?LockTarget@asPortalWeb@@QAEXXZ
+    // ?LockTarget@asPortalWeb@@QAEXXZ
     ARTS_IMPORT void LockTarget();
 #endif
 
 #ifdef ARTS_DEV_BUILD
-    // 0x497400 | ?Stats@asPortalWeb@@QAEXXZ
+    // ?Stats@asPortalWeb@@QAEXXZ
     ARTS_IMPORT void Stats();
 #endif
 
-    // 0x495EE0 | ?Update@asPortalWeb@@UAEXXZ
+    // ?Update@asPortalWeb@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4976D0 | ?DeclareFields@asPortalWeb@@SAXXZ
+    // ?DeclareFields@asPortalWeb@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    // 0x705714 | ?VisitTag@asPortalWeb@@2GA
+    // ?VisitTag@asPortalWeb@@2GA
     ARTS_IMPORT static u16 VisitTag;
 
     u8 gap20[0x902C];
@@ -127,25 +127,25 @@ public:
 
 check_size(asPortalWeb, 0x904C);
 
-// 0x4959B0 | ?LookupCell@@YAPAUasPortalCell@@PAD@Z | unused
+// ?LookupCell@@YAPAUasPortalCell@@PAD@Z | unused
 ARTS_EXPORT struct asPortalCell* LookupCell(char* arg1);
 
-// 0x4959C0 | ?LookupEdge@@YAPAUasPortalCell@@PAD@Z | unused
+// ?LookupEdge@@YAPAUasPortalCell@@PAD@Z | unused
 ARTS_EXPORT struct asPortalCell* LookupEdge(char* arg1);
 
-// 0x705718 | ?asPortalWebMetaClass@@3VMetaClass@@A
+// ?asPortalWebMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asPortalWebMetaClass;
 
 struct asPortalPVS
 {
 public:
-    // 0x4959D0 | ?Init@asPortalPVS@@QAEXHH@Z
+    // ?Init@asPortalPVS@@QAEXHH@Z
     ARTS_IMPORT void Init(i32 arg1, i32 arg2);
 
-    // 0x495AB0 | ?SetVisible@asPortalPVS@@QAEXI@Z
+    // ?SetVisible@asPortalPVS@@QAEXI@Z
     ARTS_IMPORT void SetVisible(u32 arg1);
 
-    // 0x495A30 | ?Create@asPortalPVS@@SAPAU1@HZZ | unused
+    // ?Create@asPortalPVS@@SAPAU1@HZZ | unused
     ARTS_IMPORT static struct asPortalPVS* Create(i32 arg1, ...);
 
     u8 gap0[0x8];
@@ -156,7 +156,7 @@ check_size(asPortalPVS, 0x8);
 struct asPortalEdge
 {
 public:
-    // 0x4977B0 | ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z | inline
+    // ??0asPortalEdge@@QAE@PAUasPortalCell@@0H@Z | inline
     ARTS_IMPORT asPortalEdge(struct asPortalCell* arg1, struct asPortalCell* arg2, i32 arg3);
 
     u8 gap0[0x30];

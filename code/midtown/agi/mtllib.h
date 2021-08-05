@@ -33,26 +33,26 @@
 class agiLib<class agiMtlParameters, class agiMtlDef>
 {
 public:
-    // 0x55B9B0 | ??0?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ | inline
+    // ??0?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ | inline
     ARTS_IMPORT agiLib<class agiMtlParameters, class agiMtlDef>();
 
-    // 0x559CF0 | ??1?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ | inline
+    // ??1?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ | inline
     ARTS_IMPORT ~agiLib<class agiMtlParameters, class agiMtlDef>();
 
-    // 0x559D90 | ?Add@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEHAAVagiMtlParameters@@@Z | inline
+    // ?Add@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEHAAVagiMtlParameters@@@Z | inline
     ARTS_IMPORT i32 Add(class agiMtlParameters& arg1);
 
-    // 0x55A080 | ?Init@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXH@Z | inline
+    // ?Init@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXH@Z | inline
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x55A030 | ?Kill@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXXZ | inline
+    // ?Kill@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXXZ | inline
     ARTS_IMPORT void Kill();
 
     u8 gap0[0x4014];
 };
 #endif
 
-// 0x903198 | ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
+// ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
 ARTS_EXPORT extern class agiLib<class agiMtlParameters, class agiMtlDef> agiMtlLib;
 
 check_size(agiMtlLib, 0x4014);

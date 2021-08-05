@@ -39,32 +39,32 @@
 
 class agiD3DViewport final : public agiViewport
 {
-    // const agiD3DViewport::`vftable' @ 0x621130
+    // const agiD3DViewport::`vftable'
 
 public:
-    // 0x5332D0 | ??0agiD3DViewport@@QAE@PAVagiPipeline@@@Z
+    // ??0agiD3DViewport@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiD3DViewport(class agiPipeline* pipe)
         : agiViewport(pipe)
     {}
 
-    // 0x533530 | ??_EagiD3DViewport@@UAEPAXI@Z
-    // 0x533530 | ??_GagiD3DViewport@@UAEPAXI@Z
-    // 0x533340 | ??1agiD3DViewport@@UAE@XZ
+    // ??_EagiD3DViewport@@UAEPAXI@Z
+    // ??_GagiD3DViewport@@UAEPAXI@Z
+    // ??1agiD3DViewport@@UAE@XZ
     ARTS_IMPORT ~agiD3DViewport() override = default;
 
-    // 0x533350 | ?Activate@agiD3DViewport@@UAEXXZ
+    // ?Activate@agiD3DViewport@@UAEXXZ
     ARTS_EXPORT void Activate() override;
 
-    // 0x533300 | ?BeginGfx@agiD3DViewport@@UAEHXZ
+    // ?BeginGfx@agiD3DViewport@@UAEHXZ
     ARTS_EXPORT i32 BeginGfx() override;
 
-    // 0x533460 | ?Clear@agiD3DViewport@@UAEXH@Z
+    // ?Clear@agiD3DViewport@@UAEXH@Z
     ARTS_EXPORT void Clear(i32 flags) override;
 
-    // 0x533330 | ?EndGfx@agiD3DViewport@@UAEXXZ
+    // ?EndGfx@agiD3DViewport@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
-    // 0x533410 | ?SetBackground@agiD3DViewport@@UAEXAAVVector3@@@Z
+    // ?SetBackground@agiD3DViewport@@UAEXAAVVector3@@@Z
     ARTS_EXPORT void SetBackground(class Vector3& color) override;
 
     agiD3DPipeline* Pipe() const

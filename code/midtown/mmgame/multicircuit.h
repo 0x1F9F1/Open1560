@@ -47,60 +47,60 @@
 
 class mmMultiCircuit final : public mmGameMulti
 {
-    // const mmMultiCircuit::`vftable' @ 0x61A890
+    // const mmMultiCircuit::`vftable'
 
 public:
-    // 0x41A8B0 | ??0mmMultiCircuit@@QAE@XZ
+    // ??0mmMultiCircuit@@QAE@XZ
     ARTS_IMPORT mmMultiCircuit();
 
-    // 0x41BF40 | ??_EmmMultiCircuit@@UAEPAXI@Z
-    // 0x41A920 | ??1mmMultiCircuit@@UAE@XZ
+    // ??_EmmMultiCircuit@@UAEPAXI@Z
+    // ??1mmMultiCircuit@@UAE@XZ
     ARTS_IMPORT ~mmMultiCircuit() override;
 
-    // 0x41B9C0 | ?GameMessage@mmMultiCircuit@@UAEXPAUNETGAME_MSG@@@Z
+    // ?GameMessage@mmMultiCircuit@@UAEXPAUNETGAME_MSG@@@Z
     ARTS_IMPORT void GameMessage(struct NETGAME_MSG* arg1) override;
 
-    // 0x41BDE0 | ?GetClass@mmMultiCircuit@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmMultiCircuit@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x41BFA0 | ?GetWaypoints@mmMultiCircuit@@UAEPAVmmWaypoints@@XZ | inline
+    // ?GetWaypoints@mmMultiCircuit@@UAEPAVmmWaypoints@@XZ | inline
     ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
 
-    // 0x41A9E0 | ?Init@mmMultiCircuit@@QAEHXZ
+    // ?Init@mmMultiCircuit@@QAEHXZ
     ARTS_IMPORT i32 Init();
 
-    // 0x41ABC0 | ?InitGameObjects@mmMultiCircuit@@UAEXXZ
+    // ?InitGameObjects@mmMultiCircuit@@UAEXXZ
     ARTS_IMPORT void InitGameObjects() override;
 
-    // 0x41AB70 | ?InitHUD@mmMultiCircuit@@UAEXXZ
+    // ?InitHUD@mmMultiCircuit@@UAEXXZ
     ARTS_IMPORT void InitHUD() override;
 
-    // 0x41AB00 | ?InitMyPlayer@mmMultiCircuit@@UAEXXZ
+    // ?InitMyPlayer@mmMultiCircuit@@UAEXXZ
     ARTS_IMPORT void InitMyPlayer() override;
 
-    // 0x41AE30 | ?InitNetworkPlayers@mmMultiCircuit@@UAEXXZ
+    // ?InitNetworkPlayers@mmMultiCircuit@@UAEXXZ
     ARTS_IMPORT void InitNetworkPlayers() override;
 
-    // 0x41B190 | ?Reset@mmMultiCircuit@@UAEXXZ
+    // ?Reset@mmMultiCircuit@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x41B830 | ?SystemMessage@mmMultiCircuit@@UAEXPAUNETSYS_MSG@@@Z
+    // ?SystemMessage@mmMultiCircuit@@UAEXPAUNETSYS_MSG@@@Z
     ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
 
-    // 0x41B820 | ?UpdateDebugKeyInput@mmMultiCircuit@@UAEXH@Z
+    // ?UpdateDebugKeyInput@mmMultiCircuit@@UAEXH@Z
     ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
 
-    // 0x41B270 | ?UpdateGame@mmMultiCircuit@@UAEXXZ
+    // ?UpdateGame@mmMultiCircuit@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;
 
-    // 0x41B230 | ?UpdateGameInput@mmMultiCircuit@@UAEXH@Z
+    // ?UpdateGameInput@mmMultiCircuit@@UAEXH@Z
     ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
 
-    // 0x41BC60 | ?DeclareFields@mmMultiCircuit@@SAXXZ
+    // ?DeclareFields@mmMultiCircuit@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x41BC20 | ?SendPlayerFinish@mmMultiCircuit@@AAEXXZ
+    // ?SendPlayerFinish@mmMultiCircuit@@AAEXXZ
     ARTS_IMPORT void SendPlayerFinish();
 
     u8 gap1EEA8[0x8];
@@ -108,5 +108,5 @@ private:
 
 check_size(mmMultiCircuit, 0x1EEB0);
 
-// 0x6A71B8 | ?mmMultiCircuitMetaClass@@3VMetaClass@@A
+// ?mmMultiCircuitMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmMultiCircuitMetaClass;

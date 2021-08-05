@@ -44,51 +44,51 @@
 
 class PUResults final : public PUMenuBase
 {
-    // const PUResults::`vftable' @ 0x61DDA8
+    // const PUResults::`vftable'
 
 public:
-    // 0x4A8080 | ??0PUResults@@QAE@HMMMMPAD@Z
+    // ??0PUResults@@QAE@HMMMMPAD@Z
     ARTS_IMPORT PUResults(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x4A8C70 | ??_GPUResults@@UAEPAXI@Z
-    // 0x4A8C70 | ??_EPUResults@@UAEPAXI@Z
-    // 0x4A89C0 | ??1PUResults@@UAE@XZ
+    // ??_GPUResults@@UAEPAXI@Z
+    // ??_EPUResults@@UAEPAXI@Z
+    // ??1PUResults@@UAE@XZ
     ARTS_IMPORT ~PUResults() override = default;
 
-    // 0x4A8A50 | ?AddName@PUResults@@QAEXHPADM@Z
+    // ?AddName@PUResults@@QAEXHPADM@Z
     ARTS_IMPORT void AddName(i32 arg1, char* arg2, f32 arg3);
 
-    // 0x4A8B00 | ?AddName@PUResults@@QAEXHPADH@Z
+    // ?AddName@PUResults@@QAEXHPADH@Z
     ARTS_IMPORT void AddName(i32 arg1, char* arg2, i32 arg3);
 
-    // 0x4A89D0 | ?AddTitle@PUResults@@QAEXPAULocString@@0@Z
+    // ?AddTitle@PUResults@@QAEXPAULocString@@0@Z
     ARTS_IMPORT void AddTitle(struct LocString* arg1, struct LocString* arg2);
 
-    // 0x4A8BC0 | ?ClearNames@PUResults@@QAEXXZ
+    // ?ClearNames@PUResults@@QAEXXZ
     ARTS_IMPORT void ClearNames();
 
-    // 0x4A8C30 | ?DisableNextRace@PUResults@@QAEXXZ
+    // ?DisableNextRace@PUResults@@QAEXXZ
     ARTS_IMPORT void DisableNextRace();
 
-    // 0x4A8C40 | ?EnableNextRace@PUResults@@QAEXXZ
+    // ?EnableNextRace@PUResults@@QAEXXZ
     ARTS_IMPORT void EnableNextRace();
 
-    // 0x4A81B0 | ?Init320@PUResults@@QAEXXZ
+    // ?Init320@PUResults@@QAEXXZ
     ARTS_IMPORT void Init320();
 
-    // 0x4A8590 | ?Init640@PUResults@@QAEXXZ
+    // ?Init640@PUResults@@QAEXXZ
     ARTS_IMPORT void Init640();
 
-    // 0x4A8A00 | ?Reset@PUResults@@UAEXXZ
+    // ?Reset@PUResults@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4A8A30 | ?RestartRO@PUResults@@QAEXH@Z
+    // ?RestartRO@PUResults@@QAEXH@Z
     ARTS_IMPORT void RestartRO(i32 arg1);
 
-    // 0x4A8A10 | ?RosterRO@PUResults@@QAEXH@Z
+    // ?RosterRO@PUResults@@QAEXH@Z
     ARTS_IMPORT void RosterRO(i32 arg1);
 
-    // 0x4A8C50 | ?SetMessage@PUResults@@QAEXPAULocString@@@Z
+    // ?SetMessage@PUResults@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetMessage(struct LocString* arg1);
 
     u8 gapC0[0x30];

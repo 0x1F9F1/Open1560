@@ -30,13 +30,13 @@
     0x7084E0 | int CHICAGO | ?CHICAGO@@3HA
 */
 
-// 0x706360 | ?CHEATING@@3HA
+// ?CHEATING@@3HA
 ARTS_IMPORT extern i32 CHEATING;
 
-// 0x7084E0 | ?CHICAGO@@3HA
+// ?CHICAGO@@3HA
 ARTS_IMPORT extern i32 CHICAGO;
 
-// 0x706368 | ?MMCURRPLAYER@@3VmmPlayerData@@A
+// ?MMCURRPLAYER@@3VmmPlayerData@@A
 ARTS_IMPORT extern class mmPlayerData MMCURRPLAYER;
 
 enum class mmGameMode : i32
@@ -183,5 +183,5 @@ struct mmStatePack
 
 check_size(mmStatePack, 0x2F8);
 
-// 0x706068 | ?MMSTATE@@3UmmStatePack@@A
+// ?MMSTATE@@3UmmStatePack@@A
 ARTS_IMPORT extern struct mmStatePack MMSTATE;

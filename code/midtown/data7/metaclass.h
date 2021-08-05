@@ -64,26 +64,26 @@ constexpr usize MAX_CLASSES = 512;
 class MetaClass
 {
 public:
-    // 0x577AA0 | ??0MetaClass@@QAE@PADIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z
+    // ??0MetaClass@@QAE@PADIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z
     ARTS_EXPORT MetaClass(const char* name, usize size, void* (*allocate)(isize), void (*free)(void*, isize),
         void (*declare)(void), class MetaClass* parent);
 
-    // 0x577B20 | ??1MetaClass@@QAE@XZ
+    // ??1MetaClass@@QAE@XZ
     ARTS_EXPORT ~MetaClass();
 
-    // 0x577C70 | ?InitFields@MetaClass@@QAEXXZ
+    // ?InitFields@MetaClass@@QAEXXZ
     ARTS_EXPORT void InitFields();
 
-    // 0x577BB0 | ?IsSubclassOf@MetaClass@@QAEHPAV1@@Z
+    // ?IsSubclassOf@MetaClass@@QAEHPAV1@@Z
     ARTS_EXPORT b32 IsSubclassOf(class MetaClass* parent);
 
-    // 0x577E90 | ?Load@MetaClass@@QAEXPAVMiniParser@@PAX@Z
+    // ?Load@MetaClass@@QAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Load(class MiniParser* parser, void* ptr);
 
-    // 0x577C90 | ?Save@MetaClass@@QAEXPAVMiniParser@@PAX@Z
+    // ?Save@MetaClass@@QAEXPAVMiniParser@@PAX@Z
     ARTS_EXPORT void Save(class MiniParser* parser, void* ptr);
 
-    // 0x577DE0 | ?SkipBlock@MetaClass@@QAEXPAVMiniParser@@@Z
+    // ?SkipBlock@MetaClass@@QAEXPAVMiniParser@@@Z
     ARTS_EXPORT void SkipBlock(class MiniParser* parser);
 
     const char* GetName() const
@@ -119,30 +119,30 @@ public:
 
     static void FixupClasses();
 
-    // 0x578000 | ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z
+    // ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z
     ARTS_EXPORT static void DeclareNamedTypedField(const char* name, u32 offset, struct MetaType* type);
 
     static void ARTS_FASTCALL DeclareStaticFields(const std::initializer_list<const StaticMetaField>& fields);
 
-    // 0x577BE0 | ?FindByName@MetaClass@@SAPAV1@PADPAV1@@Z
+    // ?FindByName@MetaClass@@SAPAV1@PADPAV1@@Z
     ARTS_EXPORT static class MetaClass* FindByName(const char* name, class MetaClass* root);
 
-    // 0x577B80 | ?UndeclareAll@MetaClass@@SAXXZ
+    // ?UndeclareAll@MetaClass@@SAXXZ
     ARTS_EXPORT static void UndeclareAll();
 
-    // 0x90AA28 | ?ClassIndex@MetaClass@@2PAPAV1@A
+    // ?ClassIndex@MetaClass@@2PAPAV1@A
     static class MetaClass* ClassIndex[MAX_CLASSES];
 
-    // 0x90AE28 | ?Current@MetaClass@@2PAV1@A
+    // ?Current@MetaClass@@2PAV1@A
     static class MetaClass* Current;
 
-    // 0x90AA20 | ?NextSerial@MetaClass@@2HA
+    // ?NextSerial@MetaClass@@2HA
     static i32 NextSerial;
 
-    // 0x90AE30 | ?RootMetaClass@MetaClass@@2V1@A
+    // ?RootMetaClass@MetaClass@@2V1@A
     static class MetaClass RootMetaClass;
 
-    // 0x90AE2C | ?ppField@MetaClass@@2PAPAUMetaField@@A
+    // ?ppField@MetaClass@@2PAPAUMetaField@@A
     static struct MetaField** ppField;
 
 private:
@@ -166,8 +166,8 @@ private:
 
 check_size(MetaClass, 0x28);
 
-// 0x577C50 | ?__BadSafeCall@@YAXPADPAVBase@@@Z | unused
+// ?__BadSafeCall@@YAXPADPAVBase@@@Z | unused
 ARTS_EXPORT void __BadSafeCall(const char* name, class Base* ptr);
 
-// 0x661EF8 | ?NoDefault@@3HA
+// ?NoDefault@@3HA
 ARTS_IMPORT extern i32 NoDefault;

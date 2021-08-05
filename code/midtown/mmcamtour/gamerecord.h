@@ -35,32 +35,32 @@
 class mmGameRecord
 {
 public:
-    // 0x4FDD70 | ??0mmGameRecord@@QAE@M@Z
+    // ??0mmGameRecord@@QAE@M@Z
     ARTS_IMPORT mmGameRecord(f32 arg1);
 
-    // 0x4FDDA0 | ??1mmGameRecord@@QAE@XZ
+    // ??1mmGameRecord@@QAE@XZ
     ARTS_IMPORT ~mmGameRecord();
 
-    // 0x4FE070 | ?DoScan@mmGameRecord@@QAEXAAVVector4@@@Z
+    // ?DoScan@mmGameRecord@@QAEXAAVVector4@@@Z
     ARTS_IMPORT void DoScan(class Vector4& arg1);
 
-    // 0x4FDE90 | ?Dump@mmGameRecord@@QAEXPAD@Z
+    // ?Dump@mmGameRecord@@QAEXPAD@Z
     ARTS_IMPORT void Dump(char* arg1);
 
-    // 0x4FDE50 | ?GetCount@mmGameRecord@@QAEHXZ | unused
+    // ?GetCount@mmGameRecord@@QAEHXZ | unused
     ARTS_IMPORT i32 GetCount();
 
-    // 0x4FDE60 | ?GetVector4@mmGameRecord@@QAEAAVVector4@@H@Z | unused
+    // ?GetVector4@mmGameRecord@@QAEAAVVector4@@H@Z | unused
     ARTS_IMPORT class Vector4& GetVector4(i32 arg1);
 
-    // 0x4FDDE0 | ?Init@mmGameRecord@@QAEXH@Z
+    // ?Init@mmGameRecord@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x4FDF90 | ?Register@mmGameRecord@@QAEHAAVVector4@@MMMMMMMM@Z
+    // ?Register@mmGameRecord@@QAEHAAVVector4@@MMMMMMMM@Z
     ARTS_IMPORT i32 Register(
         class Vector4& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9);
 
-    // 0x4FE140 | ?Sim@mmGameRecord@@QAEXXZ
+    // ?Sim@mmGameRecord@@QAEXXZ
     ARTS_IMPORT void Sim();
 
     u8 gap0[0x20];

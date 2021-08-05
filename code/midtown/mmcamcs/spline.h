@@ -43,52 +43,52 @@
 
 class Spline final : public asNode
 {
-    // const Spline::`vftable' @ 0x620540
+    // const Spline::`vftable'
 
 public:
-    // 0x4FD3F0 | ??0Spline@@QAE@XZ
+    // ??0Spline@@QAE@XZ
     ARTS_IMPORT Spline();
 
-    // 0x4FDD10 | ??_ESpline@@UAEPAXI@Z
-    // 0x4F8F40 | ??1Spline@@UAE@XZ | inline
+    // ??_ESpline@@UAEPAXI@Z
+    // ??1Spline@@UAE@XZ | inline
     ARTS_IMPORT ~Spline() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4FDB80 | ?AddWidgets@Spline@@UAEXPAVBank@@@Z
+    // ?AddWidgets@Spline@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4FD5B0 | ?CalcCoeff@Spline@@QAEXXZ
+    // ?CalcCoeff@Spline@@QAEXXZ
     ARTS_IMPORT void CalcCoeff();
 
-    // 0x4FDAF0 | ?FixTimeStop@Spline@@QAEXXZ
+    // ?FixTimeStop@Spline@@QAEXXZ
     ARTS_IMPORT void FixTimeStop();
 
-    // 0x4FDD00 | ?GetClass@Spline@@UAEPAVMetaClass@@XZ
+    // ?GetClass@Spline@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4FD550 | ?InRange@Spline@@QAEHXZ
+    // ?InRange@Spline@@QAEHXZ
     ARTS_IMPORT i32 InRange();
 
-    // 0x4FD420 | ?Init@Spline@@QAEXPAMH@Z | unused
+    // ?Init@Spline@@QAEXPAMH@Z | unused
     ARTS_IMPORT void Init(f32* arg1, i32 arg2);
 
-    // 0x4FD9F0 | ?Print@Spline@@QAEXH@Z | unused
+    // ?Print@Spline@@QAEXH@Z | unused
     ARTS_IMPORT void Print(i32 arg1);
 
-    // 0x4FD790 | ?SetGoal@Spline@@QAEXPAMM@Z
+    // ?SetGoal@Spline@@QAEXPAMM@Z
     ARTS_IMPORT void SetGoal(f32* arg1, f32 arg2);
 
-    // 0x4FD710 | ?SetValue@Spline@@QAEXPAM@Z
+    // ?SetValue@Spline@@QAEXPAM@Z
     ARTS_IMPORT void SetValue(f32* arg1);
 
-    // 0x4FD880 | ?Solve@Spline@@QAEXM@Z
+    // ?Solve@Spline@@QAEXM@Z
     ARTS_IMPORT void Solve(f32 arg1);
 
-    // 0x4FDB30 | ?Update@Spline@@UAEXXZ
+    // ?Update@Spline@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4FDB90 | ?DeclareFields@Spline@@SAXXZ
+    // ?DeclareFields@Spline@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x54];
@@ -96,5 +96,5 @@ public:
 
 check_size(Spline, 0x74);
 
-// 0x719548 | ?SplineMetaClass@@3VMetaClass@@A
+// ?SplineMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass SplineMetaClass;

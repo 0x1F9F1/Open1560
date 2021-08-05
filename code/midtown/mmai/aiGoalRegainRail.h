@@ -36,31 +36,31 @@
 
 class aiGoalRegainRail final : public aiGoal
 {
-    // const aiGoalRegainRail::`vftable' @ 0x61BD28
+    // const aiGoalRegainRail::`vftable'
 
 public:
-    // 0x46AA20 | ??0aiGoalRegainRail@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
+    // ??0aiGoalRegainRail@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
     ARTS_IMPORT aiGoalRegainRail(class aiRailSet* arg1, class aiVehicleSpline* arg2);
 
-    // 0x46AA50 | ??1aiGoalRegainRail@@QAE@XZ
+    // ??1aiGoalRegainRail@@QAE@XZ
     ARTS_IMPORT ~aiGoalRegainRail() = default;
 
-    // 0x46B240 | ?Context@aiGoalRegainRail@@UAEHXZ
+    // ?Context@aiGoalRegainRail@@UAEHXZ
     ARTS_IMPORT i32 Context() override;
 
-    // 0x46B270 | ?Dump@aiGoalRegainRail@@QAEXXZ
+    // ?Dump@aiGoalRegainRail@@QAEXXZ
     ARTS_IMPORT void Dump();
 
-    // 0x46AA60 | ?Init@aiGoalRegainRail@@UAEXXZ
+    // ?Init@aiGoalRegainRail@@UAEXXZ
     ARTS_IMPORT void Init() override;
 
-    // 0x46B260 | ?Priority@aiGoalRegainRail@@UAEHXZ
+    // ?Priority@aiGoalRegainRail@@UAEHXZ
     ARTS_IMPORT i32 Priority() override;
 
-    // 0x46AA80 | ?Reset@aiGoalRegainRail@@UAEXXZ
+    // ?Reset@aiGoalRegainRail@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x46B130 | ?Update@aiGoalRegainRail@@UAEXXZ
+    // ?Update@aiGoalRegainRail@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap8[0x20];

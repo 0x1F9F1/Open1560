@@ -27,14 +27,14 @@
     0x580A00 | struct JHUFF_TBL * __cdecl jpeg_alloc_huff_table(struct jpeg_common_struct *) | ?jpeg_alloc_huff_table@@YAPAUJHUFF_TBL@@PAUjpeg_common_struct@@@Z
 */
 
-// 0x580960 | ?jpeg_abort@@YAXPAUjpeg_common_struct@@@Z
+// ?jpeg_abort@@YAXPAUjpeg_common_struct@@@Z
 ARTS_IMPORT void jpeg_abort(struct jpeg_common_struct* arg1);
 
-// 0x580A00 | ?jpeg_alloc_huff_table@@YAPAUJHUFF_TBL@@PAUjpeg_common_struct@@@Z
+// ?jpeg_alloc_huff_table@@YAPAUJHUFF_TBL@@PAUjpeg_common_struct@@@Z
 ARTS_IMPORT struct JHUFF_TBL* jpeg_alloc_huff_table(struct jpeg_common_struct* arg1);
 
-// 0x5809E0 | ?jpeg_alloc_quant_table@@YAPAUJQUANT_TBL@@PAUjpeg_common_struct@@@Z
+// ?jpeg_alloc_quant_table@@YAPAUJQUANT_TBL@@PAUjpeg_common_struct@@@Z
 ARTS_IMPORT struct JQUANT_TBL* jpeg_alloc_quant_table(struct jpeg_common_struct* arg1);
 
-// 0x5809B0 | ?jpeg_destroy@@YAXPAUjpeg_common_struct@@@Z
+// ?jpeg_destroy@@YAXPAUjpeg_common_struct@@@Z
 ARTS_IMPORT void jpeg_destroy(struct jpeg_common_struct* arg1);

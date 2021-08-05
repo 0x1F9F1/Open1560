@@ -108,43 +108,43 @@ void SetClipMode(b32 mask_only_z)
     OnlyZClip = true;
 }
 
-// 0x506380 | ?ClipNX@@YIXAAUCV@@0@Z
+// ?ClipNX@@YIXAAUCV@@0@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNX(struct CV& arg1, struct CV& arg2);
 
-// 0x506260 | ?ClipNX@@YAHPAUCV@@0H@Z
+// ?ClipNX@@YAHPAUCV@@0H@Z
 ARTS_IMPORT /*static*/ i32 ClipNX(struct CV* arg1, struct CV* arg2, i32 arg3);
 
-// 0x5067A0 | ?ClipNY@@YIXAAUCV@@0@Z
+// ?ClipNY@@YIXAAUCV@@0@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNY(struct CV& arg1, struct CV& arg2);
 
-// 0x506680 | ?ClipNY@@YAHPAUCV@@0H@Z
+// ?ClipNY@@YAHPAUCV@@0H@Z
 ARTS_IMPORT /*static*/ i32 ClipNY(struct CV* arg1, struct CV* arg2, i32 arg3);
 
-// 0x506BB0 | ?ClipNZ@@YIXAAUCV@@0@Z
+// ?ClipNZ@@YIXAAUCV@@0@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNZ(struct CV& arg1, struct CV& arg2);
 
-// 0x506A90 | ?ClipNZ@@YAHPAUCV@@0H@Z
+// ?ClipNZ@@YAHPAUCV@@0H@Z
 ARTS_IMPORT /*static*/ i32 ClipNZ(struct CV* arg1, struct CV* arg2, i32 arg3);
 
-// 0x506590 | ?ClipPX@@YIXAAUCV@@0@Z
+// ?ClipPX@@YIXAAUCV@@0@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPX(struct CV& arg1, struct CV& arg2);
 
-// 0x506470 | ?ClipPX@@YAHPAUCV@@0H@Z
+// ?ClipPX@@YAHPAUCV@@0H@Z
 ARTS_IMPORT /*static*/ i32 ClipPX(struct CV* arg1, struct CV* arg2, i32 arg3);
 
-// 0x5069B0 | ?ClipPY@@YIXAAUCV@@0@Z
+// ?ClipPY@@YIXAAUCV@@0@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPY(struct CV& arg1, struct CV& arg2);
 
-// 0x506890 | ?ClipPY@@YAHPAUCV@@0H@Z
+// ?ClipPY@@YAHPAUCV@@0H@Z
 ARTS_IMPORT /*static*/ i32 ClipPY(struct CV* arg1, struct CV* arg2, i32 arg3);
 
-// 0x506DC0 | ?ClipPZ@@YIXAAUCV@@0@Z
+// ?ClipPZ@@YIXAAUCV@@0@Z
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPZ(struct CV& arg1, struct CV& arg2);
 
-// 0x506CA0 | ?ClipPZ@@YAHPAUCV@@0H@Z
+// ?ClipPZ@@YAHPAUCV@@0H@Z
 ARTS_IMPORT /*static*/ i32 ClipPZ(struct CV* arg1, struct CV* arg2, i32 arg3);
 
-// 0x5061B0 | ?FullClip@@YAHPAUCV@@0H@Z
+// ?FullClip@@YAHPAUCV@@0H@Z
 ARTS_EXPORT /*static*/ i32 FullClip(struct CV* ARTS_RESTRICT output, struct CV* ARTS_RESTRICT input, i32 count)
 {
     if (count = ClipNZ(output, input, count); count == 0)
@@ -171,7 +171,7 @@ ARTS_EXPORT /*static*/ i32 FullClip(struct CV* ARTS_RESTRICT output, struct CV* 
     return count;
 }
 
-// 0x506EA0 | ?ZClipOnly@@YAHPAUCV@@0H@Z
+// ?ZClipOnly@@YAHPAUCV@@0H@Z
 ARTS_EXPORT /*static*/ i32 ZClipOnly(struct CV* ARTS_RESTRICT output, struct CV* ARTS_RESTRICT input, i32 count)
 {
     if (count = ClipNZ(output, input, count); count == 0)

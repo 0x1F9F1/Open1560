@@ -32,22 +32,22 @@
 struct mmRainAudio
 {
 public:
-    // 0x433200 | ??0mmRainAudio@@QAE@XZ
+    // ??0mmRainAudio@@QAE@XZ
     ARTS_IMPORT mmRainAudio();
 
-    // 0x433400 | ??1mmRainAudio@@QAE@XZ | unused
+    // ??1mmRainAudio@@QAE@XZ | unused
     ARTS_IMPORT ~mmRainAudio();
 
-    // 0x433440 | ?SetInterior@mmRainAudio@@QAEXE@Z
+    // ?SetInterior@mmRainAudio@@QAEXE@Z
     ARTS_IMPORT void SetInterior(u8 arg1);
 
-    // 0x433540 | ?ShelterOff@mmRainAudio@@QAEXXZ
+    // ?ShelterOff@mmRainAudio@@QAEXXZ
     ARTS_IMPORT void ShelterOff();
 
-    // 0x4334D0 | ?ShelterOn@mmRainAudio@@QAEXXZ
+    // ?ShelterOn@mmRainAudio@@QAEXXZ
     ARTS_IMPORT void ShelterOn();
 
-    // 0x4335B0 | ?Update@mmRainAudio@@QAEXXZ
+    // ?Update@mmRainAudio@@QAEXXZ
     ARTS_IMPORT void Update();
 
     u8 gap0[0x1C];

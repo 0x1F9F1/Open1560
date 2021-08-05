@@ -50,69 +50,69 @@
 
 class mmSlider final : public asNode
 {
-    // const mmSlider::`vftable' @ 0x61F140
+    // const mmSlider::`vftable'
 
 public:
-    // 0x4BE6A0 | ??0mmSlider@@QAE@XZ
+    // ??0mmSlider@@QAE@XZ
     ARTS_IMPORT mmSlider();
 
-    // 0x4BF080 | ??_EmmSlider@@UAEPAXI@Z
-    // 0x4BE730 | ??1mmSlider@@UAE@XZ
+    // ??_EmmSlider@@UAEPAXI@Z
+    // ??1mmSlider@@UAE@XZ
     ARTS_IMPORT ~mmSlider() override;
 
-    // 0x4BED40 | ?Cull@mmSlider@@UAEXXZ
+    // ?Cull@mmSlider@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4BEC10 | ?Dec@mmSlider@@QAEMXZ
+    // ?Dec@mmSlider@@QAEMXZ
     ARTS_IMPORT f32 Dec();
 
-    // 0x4BEAA0 | ?FudgeWidth@mmSlider@@QAEMXZ
+    // ?FudgeWidth@mmSlider@@QAEMXZ
     ARTS_IMPORT f32 FudgeWidth();
 
-    // 0x4BF070 | ?GetClass@mmSlider@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmSlider@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4BEA70 | ?GetScreenHeight@mmSlider@@QAEMXZ
+    // ?GetScreenHeight@mmSlider@@QAEMXZ
     ARTS_IMPORT f32 GetScreenHeight();
 
-    // 0x4BEAF0 | ?GetSliderHotSpots@mmSlider@@QAEXAAM00000@Z
+    // ?GetSliderHotSpots@mmSlider@@QAEXAAM00000@Z
     ARTS_IMPORT void GetSliderHotSpots(f32& arg1, f32& arg2, f32& arg3, f32& arg4, f32& arg5, f32& arg6);
 
-    // 0x4BEBF0 | ?Inc@mmSlider@@QAEMXZ
+    // ?Inc@mmSlider@@QAEMXZ
     ARTS_IMPORT f32 Inc();
 
-    // 0x4BE7D0 | ?Init@mmSlider@@QAEXPADPAVuiWidget@@MMMMHMMHH@Z
+    // ?Init@mmSlider@@QAEXPADPAVuiWidget@@MMMMHMMHH@Z
     ARTS_IMPORT void Init(char* arg1, class uiWidget* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, f32 arg8,
         f32 arg9, i32 arg10, i32 arg11);
 
-    // 0x4BEA00 | ?IsReadWrite@mmSlider@@QAEHXZ
+    // ?IsReadWrite@mmSlider@@QAEHXZ
     ARTS_IMPORT i32 IsReadWrite();
 
-    // 0x4BE830 | ?LoadBitmap@mmSlider@@QAEXPAD@Z
+    // ?LoadBitmap@mmSlider@@QAEXPAD@Z
     ARTS_IMPORT void LoadBitmap(char* arg1);
 
-    // 0x4BEAD0 | ?SetPosition@mmSlider@@QAEXMM@Z
+    // ?SetPosition@mmSlider@@QAEXMM@Z
     ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2);
 
-    // 0x4BECB0 | ?SetRange@mmSlider@@QAEXMM@Z
+    // ?SetRange@mmSlider@@QAEXMM@Z
     ARTS_IMPORT void SetRange(f32 arg1, f32 arg2);
 
-    // 0x4BE9E0 | ?SetReadWrite@mmSlider@@QAEXH@Z
+    // ?SetReadWrite@mmSlider@@QAEXH@Z
     ARTS_IMPORT void SetReadWrite(i32 arg1);
 
-    // 0x4BEC30 | ?SetStep@mmSlider@@QAEXM@Z
+    // ?SetStep@mmSlider@@QAEXM@Z
     ARTS_IMPORT void SetStep(f32 arg1);
 
-    // 0x4BEA10 | ?SetValue@mmSlider@@QAEMM@Z
+    // ?SetValue@mmSlider@@QAEMM@Z
     ARTS_IMPORT f32 SetValue(f32 arg1);
 
-    // 0x4BED20 | ?Update@mmSlider@@UAEXXZ
+    // ?Update@mmSlider@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4BEBC0 | ?UpdatePosition@mmSlider@@QAEXXZ
+    // ?UpdatePosition@mmSlider@@QAEXXZ
     ARTS_IMPORT void UpdatePosition();
 
-    // 0x4BEF00 | ?DeclareFields@mmSlider@@SAXXZ
+    // ?DeclareFields@mmSlider@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x84];
@@ -120,5 +120,5 @@ public:
 
 check_size(mmSlider, 0xA4);
 
-// 0x705CA0 | ?mmSliderMetaClass@@3VMetaClass@@A
+// ?mmSliderMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmSliderMetaClass;

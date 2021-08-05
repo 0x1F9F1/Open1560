@@ -81,23 +81,23 @@
 
 class Stream : public Base
 {
-    // const Stream::`vftable' @ 0x6218E8
+    // const Stream::`vftable'
 
 public:
-    // 0x55E8B0 | ??0Stream@@QAE@PAXHPAVFileSystem@@@Z
+    // ??0Stream@@QAE@PAXHPAVFileSystem@@@Z
     ARTS_EXPORT Stream(void* buffer, isize buffer_size, class FileSystem* file_system);
 
-    // 0x55F500 | ??_GStream@@UAEPAXI@Z
-    // 0x55E940 | ??1Stream@@UAE@XZ
+    // ??_GStream@@UAEPAXI@Z
+    // ??1Stream@@UAE@XZ
     ARTS_EXPORT ~Stream() override;
 
-    // 0x55ED80 | ?GetMapping@Stream@@UAEPAXXZ
+    // ?GetMapping@Stream@@UAEPAXXZ
     ARTS_EXPORT virtual void* GetMapping();
 
-    // 0x55ED90 | ?GetPagerHandle@Stream@@UAEIXZ
+    // ?GetPagerHandle@Stream@@UAEIXZ
     ARTS_EXPORT virtual usize GetPagerHandle();
 
-    // 0x55EDA0 | ?GetPagingInfo@Stream@@UAEHAAI00@Z
+    // ?GetPagingInfo@Stream@@UAEHAAI00@Z
     ARTS_EXPORT virtual b32 GetPagingInfo(usize& handle, u32& offset, u32& size);
 
     virtual isize RawRead(void* arg1, isize arg2) = 0;
@@ -110,28 +110,28 @@ public:
 
     virtual i32 RawSize() = 0;
 
-    // 0x55EEA0 | ?Debug@Stream@@QAEXXZ | unused
+    // ?Debug@Stream@@QAEXXZ | unused
     ARTS_EXPORT void Debug();
 
-    // 0x55EDB0 | ?Error@Stream@@QAEXPAD@Z
+    // ?Error@Stream@@QAEXPAD@Z
     ARTS_EXPORT void Error(const char* msg);
 
-    // 0x55ECC0 | ?Flush@Stream@@QAEHXZ
+    // ?Flush@Stream@@QAEHXZ
     ARTS_EXPORT isize Flush();
 
-    // 0x55F190 | ?Get@Stream@@QAEHPAGH@Z
+    // ?Get@Stream@@QAEHPAGH@Z
     ARTS_EXPORT isize Get(u16* values, isize count);
 
-    // 0x55F1D0 | ?Get@Stream@@QAEHPAKH@Z
+    // ?Get@Stream@@QAEHPAKH@Z
     ARTS_EXPORT isize Get(u32* values, isize count);
 
-    // 0x55F170 | ?Get@Stream@@QAEHPAEH@Z
+    // ?Get@Stream@@QAEHPAEH@Z
     ARTS_EXPORT isize Get(u8* values, isize count)
     {
         return Read(values, count);
     }
 
-    // 0x55EC00 | ?GetCh@Stream@@QAEHXZ
+    // ?GetCh@Stream@@QAEHXZ
     ARTS_EXPORT i32 GetCh()
     {
         if (buffer_head_ < buffer_read_)
@@ -157,24 +157,24 @@ public:
         return -1;
     }
 
-    // 0x55F2B0 | ?GetLong@Stream@@QAEKXZ | unused
+    // ?GetLong@Stream@@QAEKXZ | unused
     [[deprecated]] ARTS_EXPORT u32 GetLong()
     {
         return Get<u32>();
     }
 
-    // 0x55F290 | ?GetShort@Stream@@QAEGXZ | unused
+    // ?GetShort@Stream@@QAEGXZ | unused
     [[deprecated]] ARTS_EXPORT u16 GetShort()
     {
         return Get<u16>();
     }
 
-    // 0x55EEF0 | ?GetString@Stream@@QAEHPADH@Z | unused
+    // ?GetString@Stream@@QAEHPADH@Z | unused
     ARTS_EXPORT isize GetString(char* buffer, isize buffer_len);
 
     ConstString GetString();
 
-    // 0x55EDF0 | ?Printf@Stream@@QAAHPBDZZ | unused
+    // ?Printf@Stream@@QAAHPBDZZ | unused
     ARTS_EXPORT isize Printf(ARTS_FORMAT_STRING char const* format, ...);
 
     i32 Scanf(const char* format, ...);
@@ -183,28 +183,28 @@ public:
 
     isize Gets(char* buffer, isize buffer_len);
 
-    // 0x55F020 | ?Put@Stream@@QAEHM@Z
+    // ?Put@Stream@@QAEHM@Z
     ARTS_EXPORT isize Put(f32 value);
 
-    // 0x55EFA0 | ?Put@Stream@@QAEHG@Z
+    // ?Put@Stream@@QAEHG@Z
     ARTS_EXPORT isize Put(u16 value);
 
-    // 0x55EFD0 | ?Put@Stream@@QAEHK@Z
+    // ?Put@Stream@@QAEHK@Z
     ARTS_EXPORT isize Put(u32 value);
 
-    // 0x55EF80 | ?Put@Stream@@QAEHE@Z
+    // ?Put@Stream@@QAEHE@Z
     ARTS_EXPORT isize Put(u8 value);
 
-    // 0x55F0A0 | ?Put@Stream@@QAEHPAGH@Z
+    // ?Put@Stream@@QAEHPAGH@Z
     ARTS_EXPORT isize Put(const u16* values, isize count);
 
-    // 0x55F100 | ?Put@Stream@@QAEHPAKH@Z
+    // ?Put@Stream@@QAEHPAKH@Z
     ARTS_EXPORT isize Put(const u32* values, isize count);
 
-    // 0x55F080 | ?Put@Stream@@QAEHPAEH@Z
+    // ?Put@Stream@@QAEHPAEH@Z
     ARTS_EXPORT isize Put(const u8* values, isize count);
 
-    // 0x55EC30 | ?PutCh@Stream@@QAEHE@Z
+    // ?PutCh@Stream@@QAEHE@Z
     ARTS_EXPORT i32 PutCh(u8 value)
     {
         if ((buffer_head_ == 0) && (buffer_read_ < buffer_capacity_))
@@ -221,28 +221,28 @@ public:
         return -1;
     }
 
-    // 0x55EEB0 | ?PutString@Stream@@QAEHPAD@Z
+    // ?PutString@Stream@@QAEHPAD@Z
     ARTS_EXPORT isize PutString(const char* str);
 
-    // 0x55E9C0 | ?Read@Stream@@QAEHPAXH@Z
+    // ?Read@Stream@@QAEHPAXH@Z
     ARTS_EXPORT isize Read(void* ptr, isize size);
 
-    // 0x55EC60 | ?Seek@Stream@@QAEHH@Z
+    // ?Seek@Stream@@QAEHH@Z
     ARTS_EXPORT i32 Seek(i32 position);
 
-    // 0x55ECA0 | ?Size@Stream@@QAEHXZ
+    // ?Size@Stream@@QAEHXZ
     ARTS_EXPORT i32 Size();
 
-    // 0x55EC90 | ?Tell@Stream@@QAEHXZ
+    // ?Tell@Stream@@QAEHXZ
     ARTS_EXPORT i32 Tell()
     {
         return position_ + buffer_head_;
     }
 
-    // 0x55EE40 | ?Vprintf@Stream@@QAEHPBDPAD@Z
+    // ?Vprintf@Stream@@QAEHPBDPAD@Z
     ARTS_EXPORT isize Vprintf(char const* format, std::va_list va);
 
-    // 0x55EB00 | ?Write@Stream@@QAEHPAXH@Z
+    // ?Write@Stream@@QAEHPAXH@Z
     ARTS_EXPORT isize Write(const void* ptr, isize size);
 
     template <typename T>
@@ -261,13 +261,13 @@ public:
     }
 
 protected:
-    // 0x55EE90 | ?RawDebug@Stream@@MAEXXZ
+    // ?RawDebug@Stream@@MAEXXZ
     ARTS_EXPORT virtual void RawDebug();
 
-    // 0x55ED30 | ?AlignSize@Stream@@MAEHXZ
+    // ?AlignSize@Stream@@MAEHXZ
     ARTS_EXPORT virtual i32 AlignSize();
 
-    // 0x55ED40 | ?GetError@Stream@@MAEHPADH@Z
+    // ?GetError@Stream@@MAEHPADH@Z
     ARTS_EXPORT virtual i32 GetError(char* buf, isize buf_len);
 
     u8* buffer_ {nullptr};
@@ -289,36 +289,36 @@ protected:
     u8 initialized_ {false};
 
 private:
-    // 0x55F240 | ?SwapLongs@Stream@@CAXPAKH@Z
+    // ?SwapLongs@Stream@@CAXPAKH@Z
     ARTS_EXPORT static void SwapLongs(u32* values, isize count);
 
-    // 0x55F210 | ?SwapShorts@Stream@@CAXPAGH@Z
+    // ?SwapShorts@Stream@@CAXPAGH@Z
     ARTS_EXPORT static void SwapShorts(u16* values, isize count);
 };
 
 check_size(Stream, 0x20);
 
-// 0x55F3E0 | ?fgets@@YAHPADHPAVStream@@@Z
+// ?fgets@@YAHPADHPAVStream@@@Z
 ARTS_EXPORT isize arts_fgets(char* buffer, isize buffer_len, class Stream* stream);
 
-// 0x55F2F0 | ?fopen@@YAPAVStream@@PAD0@Z
+// ?fopen@@YAPAVStream@@PAD0@Z
 ARTS_EXPORT class Stream* arts_fopen(const char* path, const char* mode);
 
-// 0x55F2D0 | ?fprintf@@YAXPAVStream@@PBDZZ
+// ?fprintf@@YAXPAVStream@@PBDZZ
 ARTS_EXPORT void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x55F450 | ?fscanf@@YAHPAVStream@@PBDZZ
+// ?fscanf@@YAHPAVStream@@PBDZZ
 ARTS_EXPORT i32 arts_fscanf(class Stream* stream, char const* format, ...);
 
-// 0x55F330 | ?fseek@@YAHPAVStream@@HH@Z
+// ?fseek@@YAHPAVStream@@HH@Z
 ARTS_EXPORT i32 arts_fseek(class Stream* stream, i32 offset, i32 origin);
 
-// 0x907960 | ?EnableBinaryFileMapping@@3HA
+// ?EnableBinaryFileMapping@@3HA
 ARTS_EXPORT extern b32 EnableBinaryFileMapping;
 
-// 0x55F3B0 | _printf | void
+// _printf | void
 
-// 0x55F390 | _vprintf | void
+// _vprintf | void
 
 template <typename T>
 ARTS_NOINLINE inline T Stream::Get()

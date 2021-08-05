@@ -38,37 +38,37 @@
 
 class PreCamCS final : public CarCamCS
 {
-    // const PreCamCS::`vftable' @ 0x6201E8
+    // const PreCamCS::`vftable'
 
 public:
-    // 0x4F99E0 | ??0PreCamCS@@QAE@XZ
+    // ??0PreCamCS@@QAE@XZ
     ARTS_IMPORT PreCamCS();
 
-    // 0x4F9DC0 | ??_EPreCamCS@@UAEPAXI@Z
-    // 0x42D2E0 | ??1PreCamCS@@UAE@XZ | inline
+    // ??_EPreCamCS@@UAEPAXI@Z
+    // ??1PreCamCS@@UAE@XZ | inline
     ARTS_IMPORT ~PreCamCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4F9B20 | ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z
+    // ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4F9D80 | ?GetClass@PreCamCS@@UAEPAVMetaClass@@XZ
+    // ?GetClass@PreCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4F9A30 | ?Init@PreCamCS@@QAEXPAVmmCar@@@Z
+    // ?Init@PreCamCS@@QAEXPAVmmCar@@@Z
     ARTS_IMPORT void Init(class mmCar* arg1);
 
-    // 0x4F9A70 | ?MakeActive@PreCamCS@@UAEXXZ
+    // ?MakeActive@PreCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;
 
-    // 0x4F9A60 | ?Reset@PreCamCS@@UAEXXZ
+    // ?Reset@PreCamCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4F9AC0 | ?Update@PreCamCS@@UAEXXZ
+    // ?Update@PreCamCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4F9C10 | ?DeclareFields@PreCamCS@@SAXXZ
+    // ?DeclareFields@PreCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap118[0x18];
@@ -76,5 +76,5 @@ public:
 
 check_size(PreCamCS, 0x130);
 
-// 0x719400 | ?PreCamCSMetaClass@@3VMetaClass@@A
+// ?PreCamCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass PreCamCSMetaClass;

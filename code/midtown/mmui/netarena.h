@@ -51,72 +51,72 @@
 
 class NetArena final : public UIMenu
 {
-    // const NetArena::`vftable' @ 0x61D8E0
+    // const NetArena::`vftable'
 
 public:
-    // 0x4A1790 | ??0NetArena@@QAE@H@Z
+    // ??0NetArena@@QAE@H@Z
     ARTS_IMPORT NetArena(i32 arg1);
 
-    // 0x4A2B30 | ??_ENetArena@@UAEPAXI@Z
-    // 0x4A2B30 | ??_GNetArena@@UAEPAXI@Z
-    // 0x4A1D80 | ??1NetArena@@UAE@XZ
+    // ??_ENetArena@@UAEPAXI@Z
+    // ??_GNetArena@@UAEPAXI@Z
+    // ??1NetArena@@UAE@XZ
     ARTS_IMPORT ~NetArena() override;
 
-    // 0x4A1F30 | ?AddGameChatLine@NetArena@@QAEXPAD@Z
+    // ?AddGameChatLine@NetArena@@QAEXPAD@Z
     ARTS_IMPORT void AddGameChatLine(char* arg1);
 
-    // 0x4A2230 | ?AddRosterName@NetArena@@QAEXPAD@Z | unused
+    // ?AddRosterName@NetArena@@QAEXPAD@Z | unused
     ARTS_IMPORT void AddRosterName(char* arg1);
 
-    // 0x4A2250 | ?AddRosterName@NetArena@@QAEXPAULocString@@00K@Z
+    // ?AddRosterName@NetArena@@QAEXPAULocString@@00K@Z
     ARTS_IMPORT void AddRosterName(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3, ulong arg4);
 
-    // 0x4A20B0 | ?ChatEntry@NetArena@@QAEXXZ
+    // ?ChatEntry@NetArena@@QAEXXZ
     ARTS_IMPORT void ChatEntry();
 
-    // 0x4A1E60 | ?DisablePlayButton@NetArena@@QAEXXZ | unused
+    // ?DisablePlayButton@NetArena@@QAEXXZ | unused
     ARTS_IMPORT void DisablePlayButton();
 
-    // 0x4A1E50 | ?EnablePlayButton@NetArena@@QAEXXZ | unused
+    // ?EnablePlayButton@NetArena@@QAEXXZ | unused
     ARTS_IMPORT void EnablePlayButton();
 
-    // 0x4A21C0 | ?FindRosterName@NetArena@@QAEHPAD@Z
+    // ?FindRosterName@NetArena@@QAEHPAD@Z
     ARTS_IMPORT i32 FindRosterName(char* arg1);
 
-    // 0x4A2670 | ?GetRaceName@NetArena@@QAEPADXZ
+    // ?GetRaceName@NetArena@@QAEPADXZ
     ARTS_IMPORT char* GetRaceName();
 
-    // 0x4A1FE0 | ?PostChatMessages@NetArena@@QAEXXZ
+    // ?PostChatMessages@NetArena@@QAEXXZ
     ARTS_IMPORT void PostChatMessages();
 
-    // 0x4A2880 | ?PostHostSettings@NetArena@@QAEXXZ
+    // ?PostHostSettings@NetArena@@QAEXXZ
     ARTS_IMPORT void PostHostSettings();
 
-    // 0x4A2A40 | ?PostPlayerInfo@NetArena@@QAEXPAULocString@@00@Z
+    // ?PostPlayerInfo@NetArena@@QAEXPAULocString@@00@Z
     ARTS_IMPORT void PostPlayerInfo(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3);
 
-    // 0x4A1E40 | ?PreSetup@NetArena@@UAEXXZ
+    // ?PreSetup@NetArena@@UAEXXZ
     ARTS_EXPORT void PreSetup() override;
 
-    // 0x4A23F0 | ?RemoveRosterEntry@NetArena@@QAEXH@Z
+    // ?RemoveRosterEntry@NetArena@@QAEXH@Z
     ARTS_IMPORT void RemoveRosterEntry(i32 arg1);
 
-    // 0x4A25E0 | ?RemoveRosterName@NetArena@@QAEXPAD@Z | unused
+    // ?RemoveRosterName@NetArena@@QAEXPAD@Z | unused
     ARTS_IMPORT void RemoveRosterName(char* arg1);
 
-    // 0x4A1E70 | ?ResetGameChat@NetArena@@QAEXXZ
+    // ?ResetGameChat@NetArena@@QAEXXZ
     ARTS_IMPORT void ResetGameChat();
 
-    // 0x4A24C0 | ?ResetRoster@NetArena@@QAEXXZ
+    // ?ResetRoster@NetArena@@QAEXXZ
     ARTS_IMPORT void ResetRoster();
 
-    // 0x4A2170 | ?RetrieveChatLine@NetArena@@QAEHPAD@Z
+    // ?RetrieveChatLine@NetArena@@QAEHPAD@Z
     ARTS_IMPORT i32 RetrieveChatLine(char* arg1);
 
-    // 0x4A2AF0 | ?SetHost@NetArena@@QAEXH@Z
+    // ?SetHost@NetArena@@QAEXH@Z
     ARTS_IMPORT void SetHost(i32 arg1);
 
-    // 0x4A2620 | ?SetReady@NetArena@@QAEXKH@Z
+    // ?SetReady@NetArena@@QAEXKH@Z
     ARTS_IMPORT void SetReady(ulong arg1, i32 arg2);
 
     u8 gap90[0xA0];

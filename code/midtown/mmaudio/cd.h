@@ -39,42 +39,42 @@
 
 class CDMan final : public Dispatchable
 {
-    // const CDMan::`vftable' @ 0x61FEF8
+    // const CDMan::`vftable'
 
 public:
     CDMan(HWND window);
 
-    // 0x4F4240 | ??1CDMan@@QAE@XZ
+    // ??1CDMan@@QAE@XZ
     ARTS_EXPORT ~CDMan();
 
-    // 0x4F4700 | ?GetNumTracks@CDMan@@QAEFXZ
+    // ?GetNumTracks@CDMan@@QAEFXZ
     ARTS_EXPORT i16 GetNumTracks();
 
     // FIXME: Is actually b32
-    // 0x4F4610 | ?GetPosition@CDMan@@QAEKPAE000@Z
+    // ?GetPosition@CDMan@@QAEKPAE000@Z
     ARTS_EXPORT MCIERROR GetPosition(u8* track, u8* minute, u8* second, u8* frame);
 
-    // 0x4F4280 | ?Init@CDMan@@QAEKF@Z
+    // ?Init@CDMan@@QAEKF@Z
     ARTS_EXPORT MCIERROR Init(b16 close);
 
     // FIXME: Is actually b32
-    // 0x4F4340 | ?PlayTrack@CDMan@@QAEKEE@Z
+    // ?PlayTrack@CDMan@@QAEKEE@Z
     ARTS_EXPORT MCIERROR PlayTrack(u8 track, u8 restart);
 
-    // 0x4F4450 | ?PlayTrack@CDMan@@QAEKEEEEE@Z
+    // ?PlayTrack@CDMan@@QAEKEEEEE@Z
     ARTS_EXPORT MCIERROR PlayTrack(u8 track, u8 minute, u8 second, u8 frame, u8 restart);
 
-    // 0x4F4430 | ?ResumePlay@CDMan@@QAEKXZ
+    // ?ResumePlay@CDMan@@QAEKXZ
     ARTS_EXPORT MCIERROR ResumePlay();
 
-    // 0x4F45A0 | ?SeekTrack@CDMan@@QAEKE@Z | unused
+    // ?SeekTrack@CDMan@@QAEKE@Z | unused
     ARTS_EXPORT MCIERROR SeekTrack(u8 track);
 
-    // 0x4F4560 | ?Stop@CDMan@@QAEKXZ
+    // ?Stop@CDMan@@QAEKXZ
     ARTS_EXPORT MCIERROR Stop();
 
 private:
-    // 0x4F4690 | ?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z
+    // ?WindowProc@CDMan@@EAEJPAUHWND__@@IIJ@Z
     ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
     u16 word4 {0};

@@ -40,45 +40,45 @@
 
 class asDofCS final : public asLinearCS
 {
-    // const asDofCS::`vftable' @ 0x620DF8
+    // const asDofCS::`vftable'
 
 public:
-    // 0x52ACF0 | ??0asDofCS@@QAE@XZ
+    // ??0asDofCS@@QAE@XZ
     ARTS_IMPORT asDofCS();
 
-    // 0x49C3D0 | ??_EasDofCS@@UAEPAXI@Z
-    // 0x49C430 | ??1asDofCS@@UAE@XZ | inline
+    // ??_EasDofCS@@UAEPAXI@Z
+    // ??1asDofCS@@UAE@XZ | inline
     ARTS_IMPORT ~asDofCS() override = default;
 
-    // 0x52ADE0 | ??4asDofCS@@QAEXABV0@@Z | unused
+    // ??4asDofCS@@QAEXABV0@@Z | unused
     ARTS_IMPORT void operator=(class asDofCS const& arg1);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x52B600 | ?AddWidgets@asDofCS@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asDofCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x52B5D0 | ?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z | unused
+    // ?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z | unused
     ARTS_EXPORT void FileIO(class MiniParser* arg1);
 
-    // 0x52BB60 | ?GetClass@asDofCS@@UAEPAVMetaClass@@XZ
+    // ?GetClass@asDofCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x52AF20 | ?Reset@asDofCS@@UAEXXZ
+    // ?Reset@asDofCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x52AF50 | ?SetTime@asDofCS@@QAEXMMH@Z | unused
+    // ?SetTime@asDofCS@@QAEXMMH@Z | unused
     ARTS_IMPORT void SetTime(f32 arg1, f32 arg2, i32 arg3);
 
-    // 0x52AFC0 | ?Update@asDofCS@@UAEXXZ
+    // ?Update@asDofCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x52B9F0 | ?DeclareFields@asDofCS@@SAXXZ
+    // ?DeclareFields@asDofCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 protected:
 #ifdef ARTS_DEV_BUILD
-    // 0x52B5E0 | ?ModeCB@asDofCS@@IAEXXZ
+    // ?ModeCB@asDofCS@@IAEXXZ
     ARTS_IMPORT void ModeCB();
 #endif
 
@@ -87,5 +87,5 @@ protected:
 
 check_size(asDofCS, 0xF8);
 
-// 0x790990 | ?asDofCSMetaClass@@3VMetaClass@@A
+// ?asDofCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asDofCSMetaClass;

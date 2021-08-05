@@ -44,22 +44,22 @@
 
 class agiBitmap : public agiRefreshable
 {
-    // const agiBitmap::`vftable' @ 0x6216F0
+    // const agiBitmap::`vftable'
 
 public:
-    // 0x55A3B0 | ??0agiBitmap@@QAE@PAVagiPipeline@@@Z
+    // ??0agiBitmap@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiBitmap(class agiPipeline* pipe);
 
-    // 0x55A630 | ?UpdateFlags@agiBitmap@@UAEXXZ
+    // ?UpdateFlags@agiBitmap@@UAEXXZ
     ARTS_EXPORT virtual void UpdateFlags();
 
-    // 0x55A6D0 | ?GetName@agiBitmap@@UAEPADXZ
+    // ?GetName@agiBitmap@@UAEPADXZ
     ARTS_EXPORT /*const*/ char* GetName() override;
 
-    // 0x55A3F0 | ?Init@agiBitmap@@QAEHPADMMH@Z
+    // ?Init@agiBitmap@@QAEHPADMMH@Z
     ARTS_EXPORT i32 Init(const char* name, f32 sx, f32 sy, i32 flags);
 
-    // 0x55A600 | ?SetTransparency@agiBitmap@@QAEXH@Z
+    // ?SetTransparency@agiBitmap@@QAEXH@Z
     ARTS_EXPORT void SetTransparency(b32 enabled);
 
     agiSurfaceDesc* GetSurface() const
@@ -93,9 +93,9 @@ public:
     }
 
 protected:
-    // 0x55A6F0 | ??_GagiBitmap@@MAEPAXI@Z
-    // 0x55A6F0 | ??_EagiBitmap@@MAEPAXI@Z
-    // 0x55A640 | ??1agiBitmap@@MAE@XZ
+    // ??_GagiBitmap@@MAEPAXI@Z
+    // ??_EagiBitmap@@MAEPAXI@Z
+    // ??1agiBitmap@@MAE@XZ
     ARTS_EXPORT ~agiBitmap() override;
 
     ConstString name_;
@@ -115,8 +115,8 @@ protected:
 
 check_size(agiBitmap, 0x3C);
 
-// 0x903140 | ?BitmapHash@@3VHashTable@@A
+// ?BitmapHash@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable BitmapHash;
 
-// 0x6570F0 | ?BitmapSearchPath@@3PADA
+// ?BitmapSearchPath@@3PADA
 ARTS_IMPORT extern char* BitmapSearchPath;

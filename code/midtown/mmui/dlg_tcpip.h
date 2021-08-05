@@ -34,21 +34,21 @@
 
 class Dialog_TCPIP final : public PUMenuBase
 {
-    // const Dialog_TCPIP::`vftable' @ 0x61D808
+    // const Dialog_TCPIP::`vftable'
 
 public:
-    // 0x4A0380 | ??0Dialog_TCPIP@@QAE@HMMMMPAD@Z
+    // ??0Dialog_TCPIP@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_TCPIP(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x4A0520 | ??_GDialog_TCPIP@@UAEPAXI@Z
-    // 0x4A0520 | ??_EDialog_TCPIP@@UAEPAXI@Z
-    // 0x4A04F0 | ??1Dialog_TCPIP@@UAE@XZ
+    // ??_GDialog_TCPIP@@UAEPAXI@Z
+    // ??_EDialog_TCPIP@@UAEPAXI@Z
+    // ??1Dialog_TCPIP@@UAE@XZ
     ARTS_IMPORT ~Dialog_TCPIP() override = default;
 
-    // 0x4A0510 | ?IPAddressCallback@Dialog_TCPIP@@QAEXXZ
+    // ?IPAddressCallback@Dialog_TCPIP@@QAEXXZ
     ARTS_IMPORT void IPAddressCallback();
 
-    // 0x4A0500 | ?PreSetup@Dialog_TCPIP@@UAEXXZ
+    // ?PreSetup@Dialog_TCPIP@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
     u8 gapC0[0x2C];

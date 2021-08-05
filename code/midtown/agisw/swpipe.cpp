@@ -41,19 +41,19 @@ define_dummy_symbol(agisw_swpipe);
 
 class agiSWViewport final : public agiViewport
 {
-    // const agiSWViewport::`vftable' @ 0x621248
+    // const agiSWViewport::`vftable'
 
 public:
     agiSWViewport(class agiSWPipeline* pipe)
         : agiViewport(pipe)
     {}
 
-    // 0x534BE0 | ??_EagiSWViewport@@UAEPAXI@Z
-    // 0x534BE0 | ??_GagiSWViewport@@UAEPAXI@Z
-    // 0x534C10 | ??1agiSWViewport@@UAE@XZ | inline
+    // ??_EagiSWViewport@@UAEPAXI@Z
+    // ??_GagiSWViewport@@UAEPAXI@Z
+    // ??1agiSWViewport@@UAE@XZ | inline
     ARTS_EXPORT ~agiSWViewport() override = default;
 
-    // 0x534930 | ?Activate@agiSWViewport@@UAEXXZ | inline
+    // ?Activate@agiSWViewport@@UAEXXZ | inline
     ARTS_EXPORT void Activate() override
     {
         agiViewport::Active = this;
@@ -61,20 +61,20 @@ public:
         ++agiViewParameters::MtxSerial;
     }
 
-    // 0x534BC0 | ?BeginGfx@agiSWViewport@@UAEHXZ | inline
+    // ?BeginGfx@agiSWViewport@@UAEHXZ | inline
     ARTS_EXPORT i32 BeginGfx() override
     {
         return AGI_ERROR_SUCCESS;
     }
 
-    // 0x5349B0 | ?Clear@agiSWViewport@@UAEXH@Z | inline
+    // ?Clear@agiSWViewport@@UAEXH@Z | inline
     ARTS_IMPORT void Clear(i32 color) override;
 
-    // 0x534BD0 | ?EndGfx@agiSWViewport@@UAEXXZ | inline
+    // ?EndGfx@agiSWViewport@@UAEXXZ | inline
     ARTS_EXPORT void EndGfx() override
     {}
 
-    // 0x534950 | ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z | inline
+    // ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z | inline
     ARTS_EXPORT void SetBackground(class Vector3& color) override
     {
         clear_color_ = Pipe()->GetHiColorModel()->GetColor(color);
@@ -91,7 +91,7 @@ static DDCOLORKEY ddk {};
 // TODO: Merge with agiDDBitmap (identical code)
 class agiSWBitmap final : public agiBitmap
 {
-    // const agiSWBitmap::`vftable' @ 0x621288
+    // const agiSWBitmap::`vftable'
 
 public:
     agiSWBitmap(class agiSWPipeline* pipe)
@@ -103,15 +103,15 @@ public:
         return static_cast<agiSWPipeline*>(agiRefreshable::Pipe());
     }
 
-    // 0x534DF0 | ??_GagiSWBitmap@@UAEPAXI@Z
-    // 0x534DF0 | ??_EagiSWBitmap@@UAEPAXI@Z
-    // 0x534E20 | ??1agiSWBitmap@@UAE@XZ | inline
+    // ??_GagiSWBitmap@@UAEPAXI@Z
+    // ??_EagiSWBitmap@@UAEPAXI@Z
+    // ??1agiSWBitmap@@UAE@XZ | inline
     ARTS_EXPORT ~agiSWBitmap() override
     {
         EndGfx();
     }
 
-    // 0x534C20 | ?BeginGfx@agiSWBitmap@@UAEHXZ | inline
+    // ?BeginGfx@agiSWBitmap@@UAEHXZ | inline
     ARTS_EXPORT i32 BeginGfx() override
     {
         if (!Pipe()->HaveGfxStarted())
@@ -181,7 +181,7 @@ public:
         return AGI_ERROR_SUCCESS;
     }
 
-    // 0x534DC0 | ?EndGfx@agiSWBitmap@@UAEXXZ | inline
+    // ?EndGfx@agiSWBitmap@@UAEXXZ | inline
     ARTS_EXPORT void EndGfx() override
     {
         if (state_ != 0)
@@ -192,14 +192,14 @@ public:
         }
     }
 
-    // 0x534DE0 | ?Restore@agiSWBitmap@@UAEXXZ | inline
+    // ?Restore@agiSWBitmap@@UAEXXZ | inline
     ARTS_EXPORT void Restore() override
     {
         EndGfx();
         BeginGfx();
     }
 
-    // 0x534DA0 | ?UpdateFlags@agiSWBitmap@@UAEXXZ | inline
+    // ?UpdateFlags@agiSWBitmap@@UAEXXZ | inline
     ARTS_EXPORT void UpdateFlags() override
     {
         DD_TRY(d_surf_->SetColorKey(DDCKEY_SRCBLT, IsTransparent() ? &ddk : nullptr));
@@ -444,7 +444,7 @@ b32 agiSWPipeline::PrintIs3D()
     return true;
 }
 
-// 0x5342F0 | ?zmemset@@YAXPAGI@Z
+// ?zmemset@@YAXPAGI@Z
 ARTS_EXPORT /*static*/ void zmemset(u16* values, u32 count)
 {
     std::memset(values, 0xFF, count * sizeof(u16[4]));

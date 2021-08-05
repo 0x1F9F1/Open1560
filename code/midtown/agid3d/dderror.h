@@ -28,19 +28,19 @@
     0x795C8C | int DDNeedRestore | ?DDNeedRestore@@3HA
 */
 
-// 0x532090 | ?DDErrorToString@@YAPADJ@Z
+// ?DDErrorToString@@YAPADJ@Z
 ARTS_IMPORT char* DDErrorToString(ilong arg1);
 
-// 0x532890 | ?__DDRelease@@YAXPAUIUnknown@@PBD1H@Z
+// ?__DDRelease@@YAXPAUIUnknown@@PBD1H@Z
 ARTS_IMPORT void __DDRelease(struct IUnknown* arg1, char const* arg2, char const* arg3, i32 arg4);
 
-// 0x5327B0 | ?__DDTry@@YAXHPBD0H@Z
+// ?__DDTry@@YAXHPBD0H@Z
 ARTS_IMPORT void __DDTry(i32 arg1, char const* arg2, char const* arg3, i32 arg4);
 
-// 0x795C88 | ?DDIgnoreErrors@@3HA
+// ?DDIgnoreErrors@@3HA
 ARTS_IMPORT extern b32 DDIgnoreErrors;
 
-// 0x795C8C | ?DDNeedRestore@@3HA
+// ?DDNeedRestore@@3HA
 ARTS_IMPORT extern b32 DDNeedRestore;
 
 #define DD_RELEASE(VALUE)                                     \

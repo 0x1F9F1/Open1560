@@ -41,36 +41,36 @@
 
 class VirtualStream final : public Stream
 {
-    // const VirtualStream::`vftable' @ 0x621A38
+    // const VirtualStream::`vftable'
 
 public:
-    // 0x561B40 | ??0VirtualStream@@QAE@PAVStream@@PAUVirtualFileInode@@PAXHPAVFileSystem@@@Z
+    // ??0VirtualStream@@QAE@PAVStream@@PAUVirtualFileInode@@PAXHPAVFileSystem@@@Z
     ARTS_EXPORT VirtualStream(class Stream* base_stream, struct VirtualFileInode* file_node, void* buffer,
         isize buffer_size, class FileSystem* file_system);
 
-    // 0x561D60 | ??_EVirtualStream@@UAEPAXI@Z
-    // 0x561C00 | ??1VirtualStream@@UAE@XZ
+    // ??_EVirtualStream@@UAEPAXI@Z
+    // ??1VirtualStream@@UAE@XZ
     ARTS_EXPORT ~VirtualStream() override;
 
-    // 0x561D40 | ?GetMapping@VirtualStream@@UAEPAXXZ
+    // ?GetMapping@VirtualStream@@UAEPAXXZ
     ARTS_EXPORT void* GetMapping() override;
 
-    // 0x561BD0 | ?GetPagingInfo@VirtualStream@@UAEHAAI00@Z
+    // ?GetPagingInfo@VirtualStream@@UAEHAAI00@Z
     ARTS_EXPORT b32 GetPagingInfo(usize& handle, u32& offset, u32& size) override;
 
-    // 0x561C60 | ?RawRead@VirtualStream@@UAEHPAXH@Z
+    // ?RawRead@VirtualStream@@UAEHPAXH@Z
     ARTS_EXPORT isize RawRead(void* ptr, isize size) override;
 
-    // 0x561CE0 | ?RawSeek@VirtualStream@@UAEHH@Z
+    // ?RawSeek@VirtualStream@@UAEHH@Z
     ARTS_EXPORT i32 RawSeek(i32 pos) override;
 
-    // 0x561D30 | ?RawSize@VirtualStream@@UAEHXZ
+    // ?RawSize@VirtualStream@@UAEHXZ
     ARTS_EXPORT i32 RawSize() override;
 
-    // 0x561D10 | ?RawTell@VirtualStream@@UAEHXZ
+    // ?RawTell@VirtualStream@@UAEHXZ
     ARTS_EXPORT i32 RawTell() override;
 
-    // 0x561CD0 | ?RawWrite@VirtualStream@@UAEHPAXH@Z
+    // ?RawWrite@VirtualStream@@UAEHPAXH@Z
     ARTS_EXPORT isize RawWrite(const void* ptr, isize size) override;
 
 private:

@@ -49,25 +49,25 @@
 
 class aiTrafficLightSet final : public asNode
 {
-    // const aiTrafficLightSet::`vftable' @ 0x61B438
+    // const aiTrafficLightSet::`vftable'
 
 public:
-    // 0x443F60 | ??0aiTrafficLightSet@@QAE@PAVaiIntersection@@@Z
+    // ??0aiTrafficLightSet@@QAE@PAVaiIntersection@@@Z
     ARTS_IMPORT aiTrafficLightSet(class aiIntersection* arg1);
 
-    // 0x4446C0 | ??_GaiTrafficLightSet@@UAEPAXI@Z
-    // 0x4446C0 | ??_EaiTrafficLightSet@@UAEPAXI@Z
-    // 0x444150 | ??1aiTrafficLightSet@@UAE@XZ
+    // ??_GaiTrafficLightSet@@UAEPAXI@Z
+    // ??_EaiTrafficLightSet@@UAEPAXI@Z
+    // ??1aiTrafficLightSet@@UAE@XZ
     ARTS_IMPORT ~aiTrafficLightSet() override;
 
-    // 0x4441B0 | ?Reset@aiTrafficLightSet@@UAEXXZ
+    // ?Reset@aiTrafficLightSet@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x444250 | ?Update@aiTrafficLightSet@@UAEXXZ
+    // ?Update@aiTrafficLightSet@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
-    // 0x6A7970 | ?ObjCount@aiTrafficLightSet@@0FA
+    // ?ObjCount@aiTrafficLightSet@@0FA
     ARTS_IMPORT static i16 ObjCount;
 
     u8 gap20[0x18];
@@ -77,18 +77,18 @@ check_size(aiTrafficLightSet, 0x38);
 
 class aiTrafficLightInstance final : public mmUnhitBangerInstance
 {
-    // const aiTrafficLightInstance::`vftable' @ 0x61B3D8
+    // const aiTrafficLightInstance::`vftable'
 
 public:
-    // 0x444760 | ??_EaiTrafficLightInstance@@UAEPAXI@Z
-    // 0x444760 | ??_GaiTrafficLightInstance@@UAEPAXI@Z
-    // 0x444780 | ??1aiTrafficLightInstance@@UAE@XZ | inline
+    // ??_EaiTrafficLightInstance@@UAEPAXI@Z
+    // ??_GaiTrafficLightInstance@@UAEPAXI@Z
+    // ??1aiTrafficLightInstance@@UAE@XZ | inline
     ARTS_IMPORT ~aiTrafficLightInstance() override = default;
 
-    // 0x444530 | ?Draw@aiTrafficLightInstance@@UAIXH@Z
+    // ?Draw@aiTrafficLightInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
-    // 0x444330 | ?Init@aiTrafficLightInstance@@UAEHPADAAVVector3@@1H0@Z
+    // ?Init@aiTrafficLightInstance@@UAEHPADAAVVector3@@1H0@Z
     ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5) override;
 
     u8 gap30[0x4];

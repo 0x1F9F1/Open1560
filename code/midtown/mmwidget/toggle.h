@@ -39,36 +39,36 @@
 
 class mmToggle final : public asNode
 {
-    // const mmToggle::`vftable' @ 0x61F270
+    // const mmToggle::`vftable'
 
 public:
-    // 0x4C0370 | ??0mmToggle@@QAE@XZ
+    // ??0mmToggle@@QAE@XZ
     ARTS_IMPORT mmToggle();
 
-    // 0x4C07B0 | ??_EmmToggle@@UAEPAXI@Z
-    // 0x4C0390 | ??1mmToggle@@UAE@XZ
+    // ??_EmmToggle@@UAEPAXI@Z
+    // ??1mmToggle@@UAE@XZ
     ARTS_IMPORT ~mmToggle() override;
 
-    // 0x4C05B0 | ?Cull@mmToggle@@UAEXXZ
+    // ?Cull@mmToggle@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4C07A0 | ?GetClass@mmToggle@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmToggle@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4C03F0 | ?Init@mmToggle@@QAEXPADMMMM@Z
+    // ?Init@mmToggle@@QAEXPADMMMM@Z
     ARTS_IMPORT void Init(char* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x4C0590 | ?Update@mmToggle@@UAEXXZ
+    // ?Update@mmToggle@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4C0630 | ?DeclareFields@mmToggle@@SAXXZ
+    // ?DeclareFields@mmToggle@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x4C0490 | ?LoadBitmap@mmToggle@@AAEXPAD@Z
+    // ?LoadBitmap@mmToggle@@AAEXPAD@Z
     ARTS_IMPORT void LoadBitmap(char* arg1);
 
-    // 0x4C04E0 | ?SetSize@mmToggle@@AAEXMM@Z
+    // ?SetSize@mmToggle@@AAEXMM@Z
     ARTS_IMPORT void SetSize(f32 arg1, f32 arg2);
 
     u8 gap20[0x18];
@@ -76,5 +76,5 @@ private:
 
 check_size(mmToggle, 0x38);
 
-// 0x705D18 | ?mmToggleMetaClass@@3VMetaClass@@A
+// ?mmToggleMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmToggleMetaClass;

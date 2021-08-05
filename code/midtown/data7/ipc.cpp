@@ -24,7 +24,7 @@ define_dummy_symbol(data7_ipc);
 
 #include "memory/stack.h"
 
-// 0x578AB0 | ?compareExchange@@YIHPAIH@Z
+// ?compareExchange@@YIHPAIH@Z
 ARTS_EXPORT /*static*/ i32 ARTS_FASTCALL compareExchange(u32* value, i32 new_value)
 {
     return _InterlockedCompareExchange((long volatile*) value, (long) new_value, (long) (new_value ^ 1));

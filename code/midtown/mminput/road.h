@@ -32,22 +32,22 @@
 
 class mmRoadFF final : public mmEffectFF
 {
-    // const mmRoadFF::`vftable' @ 0x61FD00
+    // const mmRoadFF::`vftable'
 
 public:
-    // 0x4E78F0 | ?Assign@mmRoadFF@@QAEHJJ@Z
+    // ?Assign@mmRoadFF@@QAEHJJ@Z
     ARTS_IMPORT i32 Assign(ilong arg1, ilong arg2);
 
-    // 0x4E77C0 | ?Init@mmRoadFF@@UAEHPAUIDirectInputDevice2A@@@Z
+    // ?Init@mmRoadFF@@UAEHPAUIDirectInputDevice2A@@@Z
     ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;
 
-    // 0x4E79E0 | ?Play@mmRoadFF@@UAEHXZ
+    // ?Play@mmRoadFF@@UAEHXZ
     ARTS_IMPORT i32 Play() override;
 
-    // 0x4E78C0 | ?SetValues@mmRoadFF@@UAEHMM@Z
+    // ?SetValues@mmRoadFF@@UAEHMM@Z
     ARTS_IMPORT i32 SetValues(f32 arg1, f32 arg2) override;
 
-    // 0x4E7A50 | ?Stop@mmRoadFF@@UAEHXZ
+    // ?Stop@mmRoadFF@@UAEHXZ
     ARTS_IMPORT i32 Stop() override;
 
     u8 gap80[0x14];

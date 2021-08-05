@@ -47,58 +47,58 @@
 
 class mmTransmission final : public asNode
 {
-    // const mmTransmission::`vftable' @ 0x61BF18
+    // const mmTransmission::`vftable'
 
 public:
-    // 0x470430 | ??0mmTransmission@@QAE@XZ
+    // ??0mmTransmission@@QAE@XZ
     ARTS_IMPORT mmTransmission();
 
-    // 0x470CF0 | ??_EmmTransmission@@UAEPAXI@Z
-    // 0x470390 | ??1mmTransmission@@UAE@XZ | inline
+    // ??_EmmTransmission@@UAEPAXI@Z
+    // ??1mmTransmission@@UAE@XZ | inline
     ARTS_IMPORT ~mmTransmission() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x470790 | ?AddWidgets@mmTransmission@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmTransmission@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4706F0 | ?Automatic@mmTransmission@@QAEXH@Z
+    // ?Automatic@mmTransmission@@QAEXH@Z
     ARTS_IMPORT void Automatic(i32 arg1);
 
-    // 0x4706C0 | ?CopyTrans@mmTransmission@@QAEXXZ
+    // ?CopyTrans@mmTransmission@@QAEXXZ
     ARTS_IMPORT void CopyTrans();
 
-    // 0x4705A0 | ?Downshift@mmTransmission@@QAEHXZ
+    // ?Downshift@mmTransmission@@QAEHXZ
     ARTS_IMPORT i32 Downshift();
 
-    // 0x470C80 | ?GetClass@mmTransmission@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmTransmission@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x470740 | ?GetCurrentGear@mmTransmission@@QAEHXZ
+    // ?GetCurrentGear@mmTransmission@@QAEHXZ
     ARTS_IMPORT i32 GetCurrentGear();
 
-    // 0x470500 | ?Init@mmTransmission@@QAEXPAVmmCarSim@@@Z
+    // ?Init@mmTransmission@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void Init(class mmCarSim* arg1);
 
-    // 0x470540 | ?Reset@mmTransmission@@UAEXXZ
+    // ?Reset@mmTransmission@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x470750 | ?SetCurrentGear@mmTransmission@@QAEHH@Z
+    // ?SetCurrentGear@mmTransmission@@QAEHH@Z
     ARTS_IMPORT i32 SetCurrentGear(i32 arg1);
 
-    // 0x470720 | ?SetDrive@mmTransmission@@QAEXXZ
+    // ?SetDrive@mmTransmission@@QAEXXZ
     ARTS_IMPORT void SetDrive();
 
-    // 0x470710 | ?SetReverse@mmTransmission@@QAEXXZ
+    // ?SetReverse@mmTransmission@@QAEXXZ
     ARTS_IMPORT void SetReverse();
 
-    // 0x4705C0 | ?Update@mmTransmission@@UAEXXZ
+    // ?Update@mmTransmission@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x470570 | ?Upshift@mmTransmission@@QAEHXZ
+    // ?Upshift@mmTransmission@@QAEHXZ
     ARTS_IMPORT i32 Upshift();
 
-    // 0x470A30 | ?DeclareFields@mmTransmission@@SAXXZ
+    // ?DeclareFields@mmTransmission@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0xB4];
@@ -106,8 +106,8 @@ public:
 
 check_size(mmTransmission, 0xD4);
 
-// 0x470CC0 | ?ArrayOf@@YAPAUMetaType@@PAU1@H@Z | inline
+// ?ArrayOf@@YAPAUMetaType@@PAU1@H@Z | inline
 ARTS_IMPORT struct MetaType* ArrayOf(struct MetaType* arg1, i32 arg2);
 
-// 0x6A7CB8 | ?mmTransmissionMetaClass@@3VMetaClass@@A
+// ?mmTransmissionMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmTransmissionMetaClass;

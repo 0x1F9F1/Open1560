@@ -37,32 +37,32 @@
 
 class AICamCS final : public CarCamCS
 {
-    // const AICamCS::`vftable' @ 0x6202B8
+    // const AICamCS::`vftable'
 
 public:
-    // 0x4FA490 | ??0AICamCS@@QAE@XZ
+    // ??0AICamCS@@QAE@XZ
     ARTS_IMPORT AICamCS();
 
-    // 0x4FAB00 | ??_EAICamCS@@UAEPAXI@Z
-    // 0x42D2C0 | ??1AICamCS@@UAE@XZ | inline
+    // ??_EAICamCS@@UAEPAXI@Z
+    // ??1AICamCS@@UAE@XZ | inline
     ARTS_IMPORT ~AICamCS() override = default;
 
-    // 0x4FAAC0 | ?GetClass@AICamCS@@UAEPAVMetaClass@@XZ
+    // ?GetClass@AICamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4FA4C0 | ?Init@AICamCS@@QAEXPAVmmCar@@@Z
+    // ?Init@AICamCS@@QAEXPAVmmCar@@@Z
     ARTS_IMPORT void Init(class mmCar* arg1);
 
-    // 0x4FA4E0 | ?MakeActive@AICamCS@@UAEXXZ
+    // ?MakeActive@AICamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;
 
-    // 0x4FA4D0 | ?Reset@AICamCS@@UAEXXZ
+    // ?Reset@AICamCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4FA5F0 | ?Update@AICamCS@@UAEXXZ
+    // ?Update@AICamCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4FA950 | ?DeclareFields@AICamCS@@SAXXZ
+    // ?DeclareFields@AICamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap118[0x8];
@@ -70,5 +70,5 @@ public:
 
 check_size(AICamCS, 0x120);
 
-// 0x719468 | ?AICamCSMetaClass@@3VMetaClass@@A
+// ?AICamCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass AICamCSMetaClass;

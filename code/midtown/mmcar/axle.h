@@ -36,31 +36,31 @@
 
 class mmAxle final : public asLinearCS
 {
-    // const mmAxle::`vftable' @ 0x61C680
+    // const mmAxle::`vftable'
 
 public:
-    // 0x47D480 | ??0mmAxle@@QAE@XZ
+    // ??0mmAxle@@QAE@XZ
     ARTS_IMPORT mmAxle();
 
-    // 0x47D730 | ??_EmmAxle@@UAEPAXI@Z
-    // 0x470370 | ??1mmAxle@@UAE@XZ | inline
+    // ??_EmmAxle@@UAEPAXI@Z
+    // ??1mmAxle@@UAE@XZ | inline
     ARTS_IMPORT ~mmAxle() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x47D590 | ?AddWidgets@mmAxle@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmAxle@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x47D720 | ?GetClass@mmAxle@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmAxle@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x47D4A0 | ?Init@mmAxle@@QAEXPAD0PAVmmWheel@@1@Z
+    // ?Init@mmAxle@@QAEXPAD0PAVmmWheel@@1@Z
     ARTS_IMPORT void Init(char* arg1, char* arg2, class mmWheel* arg3, class mmWheel* arg4);
 
-    // 0x47D4F0 | ?Update@mmAxle@@UAEXXZ
+    // ?Update@mmAxle@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x47D5B0 | ?DeclareFields@mmAxle@@SAXXZ
+    // ?DeclareFields@mmAxle@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x14];
@@ -68,5 +68,5 @@ public:
 
 check_size(mmAxle, 0x9C);
 
-// 0x6A8080 | ?mmAxleMetaClass@@3VMetaClass@@A
+// ?mmAxleMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmAxleMetaClass;

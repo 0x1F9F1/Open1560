@@ -34,21 +34,21 @@
 
 class OptionsMenu final : public UIMenu
 {
-    // const OptionsMenu::`vftable' @ 0x61DA00
+    // const OptionsMenu::`vftable'
 
 public:
-    // 0x4A3950 | ??0OptionsMenu@@QAE@H@Z
+    // ??0OptionsMenu@@QAE@H@Z
     ARTS_IMPORT OptionsMenu(i32 arg1);
 
-    // 0x4A3B70 | ??_EOptionsMenu@@UAEPAXI@Z
-    // 0x4A3B70 | ??_GOptionsMenu@@UAEPAXI@Z
-    // 0x4A3B10 | ??1OptionsMenu@@UAE@XZ
+    // ??_EOptionsMenu@@UAEPAXI@Z
+    // ??_GOptionsMenu@@UAEPAXI@Z
+    // ??1OptionsMenu@@UAE@XZ
     ARTS_IMPORT ~OptionsMenu() override = default;
 
-    // 0x4A3B50 | ?PostSetup@OptionsMenu@@UAEXXZ
+    // ?PostSetup@OptionsMenu@@UAEXXZ
     ARTS_IMPORT void PostSetup() override;
 
-    // 0x4A3B20 | ?PreSetup@OptionsMenu@@UAEXXZ
+    // ?PreSetup@OptionsMenu@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
     u8 gap90[0x8];

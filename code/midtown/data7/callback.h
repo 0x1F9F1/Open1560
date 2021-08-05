@@ -57,31 +57,31 @@ public:
     using Member1 = void (Base::*)(void*);
     using Member2 = void (Base::*)(void*, void*);
 
-    // 0x5792C0 | ??0Callback@@QAE@XZ
+    // ??0Callback@@QAE@XZ
     ARTS_EXPORT constexpr Callback() noexcept = default;
 
-    // 0x5793D0 | ??0Callback@@QAE@P6AXXZ@Z
+    // ??0Callback@@QAE@P6AXXZ@Z
     ARTS_EXPORT constexpr Callback(Static0 func) noexcept;
 
-    // 0x5793F0 | ??0Callback@@QAE@P6AXPAX@Z0@Z
+    // ??0Callback@@QAE@P6AXPAX@Z0@Z
     ARTS_EXPORT constexpr Callback(Static1 func, void* param) noexcept;
 
-    // 0x579420 | ??0Callback@@QAE@P6AXPAX0@Z0@Z
+    // ??0Callback@@QAE@P6AXPAX0@Z0@Z
     ARTS_EXPORT constexpr Callback(Static2 func, void* param) noexcept;
 
-    // 0x5792D0 | ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z
+    // ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z
     ARTS_EXPORT constexpr Callback(Member0 func, class Base* this_ptr) noexcept;
 
-    // 0x579310 | ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z
+    // ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z
     ARTS_EXPORT constexpr Callback(Member1 func, class Base* this_ptr, void* param) noexcept;
 
-    // 0x579350 | ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
+    // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
     ARTS_EXPORT constexpr Callback(Member2 func, class Base* this_ptr, void* param) noexcept;
 
-    // 0x579390 | ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z
+    // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z
     ARTS_EXPORT constexpr Callback(Member2 func, class Base* this_ptr, void* param1, void* param2) noexcept;
 
-    // 0x579450 | ?Call@Callback@@QAEXPAX@Z
+    // ?Call@Callback@@QAEXPAX@Z
     ARTS_EXPORT void Call(void* param = nullptr);
 
     bool operator==(const Callback& other) const;
@@ -133,7 +133,7 @@ private:
 
 check_size(Callback, 0x14);
 
-// 0x90B128 | ?NullCallback@@3VCallback@@A
+// ?NullCallback@@3VCallback@@A
 // ARTS_IMPORT extern class Callback NullCallback;
 inline constexpr const Callback NullCallback {};
 

@@ -24,5 +24,5 @@
     0x576F80 | void __cdecl Quitf(char const *,...) | ?Quitf@@YAXPBDZZ
 */
 
-// 0x576F80 | ?Quitf@@YAXPBDZZ
+// ?Quitf@@YAXPBDZZ
 [[noreturn]] ARTS_EXPORT void Quitf(ARTS_FORMAT_STRING char const* format, ...);

@@ -33,18 +33,18 @@
 
 class PUDebug final : public PUMenuBase
 {
-    // const PUDebug::`vftable' @ 0x61E000
+    // const PUDebug::`vftable'
 
 public:
-    // 0x4AA3F0 | ??0PUDebug@@QAE@HMMMM@Z
+    // ??0PUDebug@@QAE@HMMMM@Z
     ARTS_IMPORT PUDebug(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x4AA5B0 | ??_EPUDebug@@UAEPAXI@Z
-    // 0x4AA5B0 | ??_GPUDebug@@UAEPAXI@Z
-    // 0x4AA590 | ??1PUDebug@@UAE@XZ
+    // ??_EPUDebug@@UAEPAXI@Z
+    // ??_GPUDebug@@UAEPAXI@Z
+    // ??1PUDebug@@UAE@XZ
     ARTS_IMPORT ~PUDebug() override = default;
 
-    // 0x4AA5A0 | ?RecordCB@PUDebug@@QAEXXZ
+    // ?RecordCB@PUDebug@@QAEXXZ
     ARTS_IMPORT void RecordCB();
 
     u8 gapC0[0x68];

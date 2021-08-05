@@ -79,166 +79,166 @@
 class SoundObj
 {
 public:
-    // 0x4F0B20 | ??0SoundObj@@QAE@XZ
+    // ??0SoundObj@@QAE@XZ
     ARTS_IMPORT SoundObj();
 
-    // 0x4F0BE0 | ??1SoundObj@@QAE@XZ
+    // ??1SoundObj@@QAE@XZ
     ARTS_IMPORT ~SoundObj();
 
-    // 0x4F2500 | ?AllOneShotLayersPlaying@SoundObj@@QAEFXZ
+    // ?AllOneShotLayersPlaying@SoundObj@@QAEFXZ
     ARTS_IMPORT i16 AllOneShotLayersPlaying();
 
-    // 0x4F15F0 | ?ConvertTo8Bit@SoundObj@@QAEXXZ
+    // ?ConvertTo8Bit@SoundObj@@QAEXXZ
     ARTS_IMPORT void ConvertTo8Bit();
 
-    // 0x4F3370 | ?CreateListenerEAXObj@SoundObj@@QAEGXZ
+    // ?CreateListenerEAXObj@SoundObj@@QAEGXZ
     ARTS_IMPORT u16 CreateListenerEAXObj();
 
-    // 0x4F3410 | ?CreateSecondaryEAXObj@SoundObj@@QAEGXZ
+    // ?CreateSecondaryEAXObj@SoundObj@@QAEGXZ
     ARTS_IMPORT u16 CreateSecondaryEAXObj();
 
-    // 0x4F0FA0 | ?DSCreateSoundBuffer@SoundObj@@QAEHPAPAUIDirectSoundBuffer@@E@Z
+    // ?DSCreateSoundBuffer@SoundObj@@QAEHPAPAUIDirectSoundBuffer@@E@Z
     ARTS_IMPORT i32 DSCreateSoundBuffer(struct IDirectSoundBuffer** arg1, u8 arg2);
 
-    // 0x4F21D0 | ?DSFillSoundBuffer@SoundObj@@QAEHPAUIDirectSoundBuffer@@@Z
+    // ?DSFillSoundBuffer@SoundObj@@QAEHPAUIDirectSoundBuffer@@@Z
     ARTS_IMPORT i32 DSFillSoundBuffer(struct IDirectSoundBuffer* arg1);
 
-    // 0x4F1750 | ?DSGetWaveFile@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAKPAPAX@Z
+    // ?DSGetWaveFile@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAKPAPAX@Z
     ARTS_IMPORT i32 DSGetWaveFile(
         struct HINSTANCE__* arg1, char const* arg2, struct tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5, void** arg6);
 
-    // 0x4F1510 | ?DSGetWaveResource@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
+    // ?DSGetWaveResource@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
     ARTS_IMPORT i32 DSGetWaveResource(
         struct HINSTANCE__* arg1, char const* arg2, struct tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5);
 
-    // 0x4F1030 | ?DSLoadSoundBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
+    // ?DSLoadSoundBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
     ARTS_IMPORT struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, ulong arg2);
 
-    // 0x4F1210 | ?DSLoadSoundBuffer@SoundObj@@QAEXGK@Z
+    // ?DSLoadSoundBuffer@SoundObj@@QAEXGK@Z
     ARTS_IMPORT void DSLoadSoundBuffer(u16 arg1, ulong arg2);
 
-    // 0x4F2290 | ?DSParseWaveResource@SoundObj@@QAEHPAXPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
+    // ?DSParseWaveResource@SoundObj@@QAEHPAXPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
     ARTS_IMPORT i32 DSParseWaveResource(void* arg1, struct tWAVEFORMATEX** arg2, u8** arg3, ulong* arg4);
 
-    // 0x4F0CA0 | ?DeallocateEffects@SoundObj@@QAEXXZ
+    // ?DeallocateEffects@SoundObj@@QAEXXZ
     ARTS_IMPORT void DeallocateEffects();
 
-    // 0x4F3580 | ?Disable3DMode@SoundObj@@QAEXXZ
+    // ?Disable3DMode@SoundObj@@QAEXXZ
     ARTS_IMPORT void Disable3DMode();
 
-    // 0x4F3270 | ?DisableEffect@SoundObj@@QAEXF@Z
+    // ?DisableEffect@SoundObj@@QAEXF@Z
     ARTS_IMPORT void DisableEffect(i16 arg1);
 
-    // 0x4F3550 | ?Enable3DMode@SoundObj@@QAEXXZ
+    // ?Enable3DMode@SoundObj@@QAEXXZ
     ARTS_IMPORT void Enable3DMode();
 
-    // 0x4F0F20 | ?FreeOneShotLayerBuffers@SoundObj@@QAEXXZ
+    // ?FreeOneShotLayerBuffers@SoundObj@@QAEXXZ
     ARTS_IMPORT void FreeOneShotLayerBuffers();
 
-    // 0x4F34D0 | ?GetFormat@SoundObj@@QAEPAUtWAVEFORMATEX@@XZ | unused
+    // ?GetFormat@SoundObj@@QAEPAUtWAVEFORMATEX@@XZ | unused
     ARTS_IMPORT struct tWAVEFORMATEX* GetFormat();
 
-    // 0x4F1BD0 | ?Init@SoundObj@@QAEHPBDKF@Z
+    // ?Init@SoundObj@@QAEHPBDKF@Z
     ARTS_IMPORT i32 Init(char const* arg1, ulong arg2, i16 arg3);
 
-    // 0x4F1C90 | ?Init@SoundObj@@QAEHGKF@Z
+    // ?Init@SoundObj@@QAEHGKF@Z
     ARTS_IMPORT i32 Init(u16 arg1, ulong arg2, i16 arg3);
 
-    // 0x4F1A20 | ?InitDummy@SoundObj@@QAEHXZ
+    // ?InitDummy@SoundObj@@QAEHXZ
     ARTS_IMPORT i32 InitDummy();
 
-    // 0x4F2390 | ?IsPlaying@SoundObj@@QAEFF@Z
+    // ?IsPlaying@SoundObj@@QAEFF@Z
     ARTS_IMPORT i16 IsPlaying(i16 arg1);
 
-    // 0x4F1EE0 | ?Play@SoundObj@@QAEHKPAD@Z
+    // ?Play@SoundObj@@QAEHKPAD@Z
     ARTS_IMPORT i32 Play(ulong arg1, char* arg2);
 
-    // 0x4F1350 | ?ReadADFRecord@SoundObj@@QAEXG@Z
+    // ?ReadADFRecord@SoundObj@@QAEXG@Z
     ARTS_IMPORT void ReadADFRecord(u16 arg1);
 
-    // 0x4F2470 | ?ReadyOneShotLayerBuf@SoundObj@@QAEFXZ
+    // ?ReadyOneShotLayerBuf@SoundObj@@QAEFXZ
     ARTS_IMPORT i16 ReadyOneShotLayerBuf();
 
-    // 0x4F2C00 | ?Set3DMode@SoundObj@@QAEXK@Z
+    // ?Set3DMode@SoundObj@@QAEXK@Z
     ARTS_IMPORT void Set3DMode(ulong arg1);
 
-    // 0x4F2C50 | ?SetConeAngles@SoundObj@@QAEXKK@Z
+    // ?SetConeAngles@SoundObj@@QAEXKK@Z
     ARTS_IMPORT void SetConeAngles(ulong arg1, ulong arg2);
 
-    // 0x4F2C90 | ?SetConeOrientation@SoundObj@@QAEXPAVVector3@@@Z
+    // ?SetConeOrientation@SoundObj@@QAEXPAVVector3@@@Z
     ARTS_IMPORT void SetConeOrientation(class Vector3* arg1);
 
-    // 0x4F2C20 | ?SetConeOutsideVolume@SoundObj@@QAEXJ@Z
+    // ?SetConeOutsideVolume@SoundObj@@QAEXJ@Z
     ARTS_IMPORT void SetConeOutsideVolume(ilong arg1);
 
-    // 0x4F0D70 | ?SetDelayTime@SoundObj@@QAEXM@Z
+    // ?SetDelayTime@SoundObj@@QAEXM@Z
     ARTS_IMPORT void SetDelayTime(f32 arg1);
 
-    // 0x4F2860 | ?SetEchoFrequency@SoundObj@@QAEXM@Z
+    // ?SetEchoFrequency@SoundObj@@QAEXM@Z
     ARTS_IMPORT void SetEchoFrequency(f32 arg1);
 
-    // 0x4F2BA0 | ?SetEchoPan@SoundObj@@QAEXM@Z
+    // ?SetEchoPan@SoundObj@@QAEXM@Z
     ARTS_IMPORT void SetEchoPan(f32 arg1);
 
-    // 0x4F1D40 | ?SetEffect@SoundObj@@QAEXFPAD@Z
+    // ?SetEffect@SoundObj@@QAEXFPAD@Z
     ARTS_IMPORT void SetEffect(i16 arg1, char* arg2);
 
-    // 0x4F2620 | ?SetFrequency@SoundObj@@QAEXM@Z
+    // ?SetFrequency@SoundObj@@QAEXM@Z
     ARTS_IMPORT void SetFrequency(f32 arg1);
 
-    // 0x4F2A60 | ?SetPan@SoundObj@@QAEXM@Z
+    // ?SetPan@SoundObj@@QAEXM@Z
     ARTS_IMPORT void SetPan(f32 arg1);
 
-    // 0x4F1EC0 | ?SetPlayPosition@SoundObj@@QAEXK@Z
+    // ?SetPlayPosition@SoundObj@@QAEXK@Z
     ARTS_IMPORT void SetPlayPosition(ulong arg1);
 
-    // 0x4F25A0 | ?SetPosition@SoundObj@@QAEXMMM@Z
+    // ?SetPosition@SoundObj@@QAEXMMM@Z
     ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4F2BD0 | ?SetRamp@SoundObj@@QAEXMM@Z
+    // ?SetRamp@SoundObj@@QAEXMM@Z
     ARTS_IMPORT void SetRamp(f32 arg1, f32 arg2);
 
-    // 0x4F25E0 | ?SetVelocity@SoundObj@@QAEXMMM@Z
+    // ?SetVelocity@SoundObj@@QAEXMMM@Z
     ARTS_IMPORT void SetVelocity(f32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4F2920 | ?SetVolume@SoundObj@@QAEXM@Z
+    // ?SetVolume@SoundObj@@QAEXM@Z
     ARTS_IMPORT void SetVolume(f32 arg1);
 
-    // 0x4F2CC0 | ?SetupDuplicateBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PAD@Z | unused
+    // ?SetupDuplicateBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PAD@Z | unused
     ARTS_IMPORT struct IDirectSoundBuffer* SetupDuplicateBuffer(char* arg1);
 
-    // 0x4F2D70 | ?SetupEchoBuffer@SoundObj@@QAEXPAD@Z
+    // ?SetupEchoBuffer@SoundObj@@QAEXPAD@Z
     ARTS_IMPORT void SetupEchoBuffer(char* arg1);
 
-    // 0x4F0E90 | ?SetupOneShotLayerBuffers@SoundObj@@QAEFFMPAD@Z
+    // ?SetupOneShotLayerBuffers@SoundObj@@QAEFFMPAD@Z
     ARTS_IMPORT i16 SetupOneShotLayerBuffers(i16 arg1, f32 arg2, char* arg3);
 
-    // 0x4F2120 | ?Stop@SoundObj@@QAEHXZ
+    // ?Stop@SoundObj@@QAEHXZ
     ARTS_IMPORT i32 Stop();
 
-    // 0x4F21B0 | ?StopEchoBuffers@SoundObj@@QAEXXZ
+    // ?StopEchoBuffers@SoundObj@@QAEXXZ
     ARTS_IMPORT void StopEchoBuffers();
 
-    // 0x4F2EC0 | ?UpdateEcho@SoundObj@@QAEXXZ
+    // ?UpdateEcho@SoundObj@@QAEXXZ
     ARTS_IMPORT void UpdateEcho();
 
-    // 0x4F31B0 | ?UpdatePitchEcho@SoundObj@@QAEXXZ
+    // ?UpdatePitchEcho@SoundObj@@QAEXXZ
     ARTS_IMPORT void UpdatePitchEcho();
 
-    // 0x4F2F30 | ?UpdatePlayEcho@SoundObj@@QAEXXZ
+    // ?UpdatePlayEcho@SoundObj@@QAEXXZ
     ARTS_IMPORT void UpdatePlayEcho();
 
-    // 0x4F2E90 | ?UpdateSeconds@SoundObj@@QAEXXZ
+    // ?UpdateSeconds@SoundObj@@QAEXXZ
     ARTS_IMPORT void UpdateSeconds();
 
-    // 0x4F3030 | ?UpdateStopEcho@SoundObj@@QAEXXZ
+    // ?UpdateStopEcho@SoundObj@@QAEXXZ
     ARTS_IMPORT void UpdateStopEcho();
 
-    // 0x4F30F0 | ?UpdateVolumeEcho@SoundObj@@QAEXXZ
+    // ?UpdateVolumeEcho@SoundObj@@QAEXXZ
     ARTS_IMPORT void UpdateVolumeEcho();
 
 private:
-    // 0x4F2E10 | ?SetupChorusBuffer@SoundObj@@AAEPAUIDirectSoundBuffer@@PAD@Z
+    // ?SetupChorusBuffer@SoundObj@@AAEPAUIDirectSoundBuffer@@PAD@Z
     ARTS_IMPORT struct IDirectSoundBuffer* SetupChorusBuffer(char* arg1);
 
     u8 gap0[0x88];

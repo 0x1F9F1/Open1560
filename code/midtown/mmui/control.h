@@ -53,75 +53,75 @@
 
 class ControlSetup final : public OptionsBase
 {
-    // const ControlSetup::`vftable' @ 0x61D9A0
+    // const ControlSetup::`vftable'
 
 public:
-    // 0x4A2CA0 | ??0ControlSetup@@QAE@H@Z
+    // ??0ControlSetup@@QAE@H@Z
     ARTS_IMPORT ControlSetup(i32 arg1);
 
-    // 0x4A3920 | ??_EControlSetup@@UAEPAXI@Z
-    // 0x4A3920 | ??_GControlSetup@@UAEPAXI@Z
-    // 0x4A2E90 | ??1ControlSetup@@UAE@XZ
+    // ??_EControlSetup@@UAEPAXI@Z
+    // ??_GControlSetup@@UAEPAXI@Z
+    // ??1ControlSetup@@UAE@XZ
     ARTS_IMPORT ~ControlSetup() override;
 
-    // 0x4A3210 | ?ActivateDeviceOptions@ControlSetup@@QAEXXZ
+    // ?ActivateDeviceOptions@ControlSetup@@QAEXXZ
     ARTS_IMPORT void ActivateDeviceOptions();
 
-    // 0x4A38A0 | ?BadAssignCB@ControlSetup@@QAEXXZ
+    // ?BadAssignCB@ControlSetup@@QAEXXZ
     ARTS_IMPORT void BadAssignCB();
 
-    // 0x4A3880 | ?CancelAction@ControlSetup@@UAEXXZ
+    // ?CancelAction@ControlSetup@@UAEXXZ
     ARTS_IMPORT void CancelAction() override;
 
-    // 0x4A38E0 | ?CancelBadAssignment@ControlSetup@@QAEXXZ
+    // ?CancelBadAssignment@ControlSetup@@QAEXXZ
     ARTS_IMPORT void CancelBadAssignment();
 
-    // 0x4A38D0 | ?ClearBadAssignment@ControlSetup@@QAEXXZ
+    // ?ClearBadAssignment@ControlSetup@@QAEXXZ
     ARTS_IMPORT void ClearBadAssignment();
 
-    // 0x4A3530 | ?ControlSelect@ControlSetup@@QAEXXZ
+    // ?ControlSelect@ControlSetup@@QAEXXZ
     ARTS_IMPORT void ControlSelect();
 
-    // 0x4A2EF0 | ?CreateDeviceOptions@ControlSetup@@QAEXXZ
+    // ?CreateDeviceOptions@ControlSetup@@QAEXXZ
     ARTS_IMPORT void CreateDeviceOptions();
 
-    // 0x4A31B0 | ?DeactivateAllDeviceOptions@ControlSetup@@QAEXXZ
+    // ?DeactivateAllDeviceOptions@ControlSetup@@QAEXXZ
     ARTS_IMPORT void DeactivateAllDeviceOptions();
 
-    // 0x4A3890 | ?DoneAction@ControlSetup@@UAEXXZ
+    // ?DoneAction@ControlSetup@@UAEXXZ
     ARTS_EXPORT void DoneAction() override;
 
-    // 0x4A35F0 | ?InitCustomControls@ControlSetup@@QAEXXZ
+    // ?InitCustomControls@ControlSetup@@QAEXXZ
     ARTS_IMPORT void InitCustomControls();
 
-    // 0x4A36F0 | ?LaunchJoyCpl@ControlSetup@@QAEXXZ
+    // ?LaunchJoyCpl@ControlSetup@@QAEXXZ
     ARTS_IMPORT void LaunchJoyCpl();
 
-    // 0x4A3510 | ?POVCB@ControlSetup@@QAEXXZ | unused
+    // ?POVCB@ControlSetup@@QAEXXZ | unused
     ARTS_EXPORT void POVCB();
 
-    // 0x4A3580 | ?PreSetup@ControlSetup@@UAEXXZ
+    // ?PreSetup@ControlSetup@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x4A36B0 | ?ResetDefaultAction@ControlSetup@@UAEXXZ
+    // ?ResetDefaultAction@ControlSetup@@UAEXXZ
     ARTS_IMPORT void ResetDefaultAction() override;
 
-    // 0x4A34F0 | ?SetControlPosition@ControlSetup@@QAEMPAVuiWidget@@MM@Z
+    // ?SetControlPosition@ControlSetup@@QAEMPAVuiWidget@@MM@Z
     ARTS_IMPORT f32 SetControlPosition(class uiWidget* arg1, f32 arg2, f32 arg3);
 
-    // 0x4A35B0 | ?SetFFPermissions@ControlSetup@@QAEXXZ
+    // ?SetFFPermissions@ControlSetup@@QAEXXZ
     ARTS_IMPORT void SetFFPermissions();
 
-    // 0x4A3520 | ?SetSensitivityCB@ControlSetup@@QAEXXZ
+    // ?SetSensitivityCB@ControlSetup@@QAEXXZ
     ARTS_IMPORT void SetSensitivityCB();
 
-    // 0x4A36A0 | ?StoreCurrentSetup@ControlSetup@@UAEXXZ
+    // ?StoreCurrentSetup@ControlSetup@@UAEXXZ
     ARTS_IMPORT void StoreCurrentSetup() override;
 
-    // 0x4A3680 | ?Update@ControlSetup@@UAEXXZ
+    // ?Update@ControlSetup@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4A3900 | ?VerifyBadAssignment@ControlSetup@@QAEXXZ
+    // ?VerifyBadAssignment@ControlSetup@@QAEXXZ
     ARTS_IMPORT void VerifyBadAssignment();
 
     u8 gap6EC8[0x40];

@@ -84,108 +84,108 @@ check_size(OppIconInfo, 0x24);
 
 class mmHudMap final : public asNode
 {
-    // const mmHudMap::`vftable' @ 0x61AE70
+    // const mmHudMap::`vftable'
 
 public:
-    // 0x4280C0 | ??0mmHudMap@@QAE@XZ
+    // ??0mmHudMap@@QAE@XZ
     ARTS_IMPORT mmHudMap();
 
-    // 0x429F70 | ??_EmmHudMap@@UAEPAXI@Z
-    // 0x429FD0 | ??1mmHudMap@@UAE@XZ | inline
+    // ??_EmmHudMap@@UAEPAXI@Z
+    // ??1mmHudMap@@UAE@XZ | inline
     ARTS_EXPORT ~mmHudMap() override;
 
-    // 0x428810 | ?Activate@mmHudMap@@QAEXXZ
+    // ?Activate@mmHudMap@@QAEXXZ
     ARTS_IMPORT void Activate();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x429C60 | ?AddWidgets@mmHudMap@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmHudMap@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x428E50 | ?Cull@mmHudMap@@UAEXXZ
+    // ?Cull@mmHudMap@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x428B90 | ?Cycle@mmHudMap@@QAEXXZ
+    // ?Cycle@mmHudMap@@QAEXXZ
     ARTS_IMPORT void Cycle();
 
-    // 0x428840 | ?Deactivate@mmHudMap@@QAEXXZ
+    // ?Deactivate@mmHudMap@@QAEXXZ
     ARTS_IMPORT void Deactivate();
 
-    // 0x429930 | ?DrawMisc@mmHudMap@@QAEXXZ
+    // ?DrawMisc@mmHudMap@@QAEXXZ
     ARTS_IMPORT void DrawMisc();
 
-    // 0x429F30 | ?GetClass@mmHudMap@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmHudMap@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4281B0 | ?Init@mmHudMap@@QAEXPAVasCamera@@PAVMatrix34@@PAVmmHUD@@PAVmmGame@@PAD@Z
+    // ?Init@mmHudMap@@QAEXPAVasCamera@@PAVMatrix34@@PAVmmHUD@@PAVmmGame@@PAD@Z
     ARTS_IMPORT void Init(
         class asCamera* arg1, class Matrix34* arg2, class mmHUD* arg3, class mmGame* arg4, char* arg5);
 
-    // 0x4287B0 | ?RegisterCopsnRobbers@mmHudMap@@QAEXPAPAVVector3@@@Z
+    // ?RegisterCopsnRobbers@mmHudMap@@QAEXPAPAVVector3@@@Z
     ARTS_IMPORT void RegisterCopsnRobbers(class Vector3** arg1);
 
-    // 0x4287E0 | ?RegisterMisc@mmHudMap@@QAEXPAPAVVector3@@H@Z
+    // ?RegisterMisc@mmHudMap@@QAEXPAPAVVector3@@H@Z
     ARTS_IMPORT void RegisterMisc(class Vector3** arg1, i32 arg2);
 
-    // 0x428790 | ?RegisterOpponents@mmHudMap@@QAEXPAUOppIconInfo@@H@Z
+    // ?RegisterOpponents@mmHudMap@@QAEXPAUOppIconInfo@@H@Z
     ARTS_IMPORT void RegisterOpponents(struct OppIconInfo* arg1, i32 arg2);
 
-    // 0x4293D0 | ?ResChanged@mmHudMap@@QAEXXZ
+    // ?ResChanged@mmHudMap@@QAEXXZ
     ARTS_IMPORT void ResChanged();
 
-    // 0x428750 | ?Reset@mmHudMap@@UAEXXZ
+    // ?Reset@mmHudMap@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x428870 | ?SetMode@mmHudMap@@QAEXH@Z
+    // ?SetMode@mmHudMap@@QAEXH@Z
     ARTS_IMPORT void SetMode(i32 arg1);
 
-    // 0x428BC0 | ?ToggleFullScreen@mmHudMap@@QAEXXZ
+    // ?ToggleFullScreen@mmHudMap@@QAEXXZ
     ARTS_IMPORT void ToggleFullScreen();
 
-    // 0x428C00 | ?ToggleMapRes@mmHudMap@@QAEXXZ
+    // ?ToggleMapRes@mmHudMap@@QAEXXZ
     ARTS_IMPORT void ToggleMapRes();
 
-    // 0x428C60 | ?Update@mmHudMap@@UAEXXZ
+    // ?Update@mmHudMap@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x429DC0 | ?DeclareFields@mmHudMap@@SAXXZ
+    // ?DeclareFields@mmHudMap@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x429BC0 | ?BitmapToScreen@mmHudMap@@AAEHPAUPoint@@U2@@Z
+    // ?BitmapToScreen@mmHudMap@@AAEHPAUPoint@@U2@@Z
     ARTS_IMPORT i32 BitmapToScreen(struct Point* arg1, struct Point arg2);
 
-    // 0x428FE0 | ?DrawCentered@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@@Z | unused
+    // ?DrawCentered@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@@Z | unused
     ARTS_IMPORT void DrawCentered(class agiBitmap* arg1, struct Point arg2);
 
-    // 0x429050 | ?DrawClipped@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@MMMM@Z
+    // ?DrawClipped@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@MMMM@Z
     ARTS_IMPORT void DrawClipped(class agiBitmap* arg1, struct Point arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
 
-    // 0x4296B0 | ?DrawCops@mmHudMap@@AAEXXZ
+    // ?DrawCops@mmHudMap@@AAEXXZ
     ARTS_IMPORT void DrawCops();
 
-    // 0x429860 | ?DrawCopsnRobbers@mmHudMap@@AAEXXZ
+    // ?DrawCopsnRobbers@mmHudMap@@AAEXXZ
     ARTS_IMPORT void DrawCopsnRobbers();
 
-    // 0x4295F0 | ?DrawOpponents@mmHudMap@@AAEXXZ
+    // ?DrawOpponents@mmHudMap@@AAEXXZ
     ARTS_EXPORT void DrawOpponents();
 
-    // 0x429410 | ?DrawOriented@mmHudMap@@AAEXPAVMatrix34@@I@Z | unused
+    // ?DrawOriented@mmHudMap@@AAEXPAVMatrix34@@I@Z | unused
     ARTS_IMPORT void DrawOriented(class Matrix34* arg1, u32 arg2);
 
-    // 0x4291F0 | ?DrawOrientedBitmap@mmHudMap@@AAEXPAVMatrix34@@PAVagiBitmap@@@Z
+    // ?DrawOrientedBitmap@mmHudMap@@AAEXPAVMatrix34@@PAVagiBitmap@@@Z
     ARTS_IMPORT void DrawOrientedBitmap(class Matrix34* arg1, class agiBitmap* arg2);
 
-    // 0x429720 | ?DrawWaypoints@mmHudMap@@AAEXXZ
+    // ?DrawWaypoints@mmHudMap@@AAEXXZ
     ARTS_IMPORT void DrawWaypoints();
 
-    // 0x4299A0 | ?FlushVerts@mmHudMap@@AAEXXZ | unused
+    // ?FlushVerts@mmHudMap@@AAEXXZ | unused
     ARTS_IMPORT void FlushVerts();
 
-    // 0x428BF0 | ?GetCurrentMap@mmHudMap@@AAEPAVagiBitmap@@XZ
+    // ?GetCurrentMap@mmHudMap@@AAEPAVagiBitmap@@XZ
     ARTS_IMPORT class agiBitmap* GetCurrentMap();
 
-    // 0x429B20 | ?WorldToBitmap@mmHudMap@@AAE?AUPoint@@PAVVector3@@@Z
+    // ?WorldToBitmap@mmHudMap@@AAE?AUPoint@@PAVVector3@@@Z
     ARTS_IMPORT struct Point WorldToBitmap(class Vector3* arg1);
 
     aiMap* AiMap;
@@ -268,8 +268,8 @@ private:
 
 check_size(mmHudMap, 0x2C8);
 
-// 0x6A7378 | ?Tris@@3PATagiVtx@@A
+// ?Tris@@3PATagiVtx@@A
 ARTS_IMPORT extern union agiVtx Tris[30];
 
-// 0x6A7350 | ?mmHudMapMetaClass@@3VMetaClass@@A
+// ?mmHudMapMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmHudMapMetaClass;

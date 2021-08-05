@@ -31,10 +31,10 @@
 
 class agiColorModel
 {
-    // const agiColorModel::`vftable' @ 0x621740
+    // const agiColorModel::`vftable'
 
 public:
-    // 0x55BB70 | ??1agiColorModel@@MAE@XZ
+    // ??1agiColorModel@@MAE@XZ
     virtual ~agiColorModel() = default;
 
     virtual u32 GetColor(struct agiRgba color) = 0;
@@ -47,22 +47,22 @@ public:
 
     virtual u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) = 0;
 
-    // 0x55BBB0 | ?FindColor@agiColorModel@@QAEIHHHH@Z | unused
+    // ?FindColor@agiColorModel@@QAEIHHHH@Z | unused
     ARTS_EXPORT u32 FindColor(i32 r, i32 g, i32 b, i32 a);
 
-    // 0x55BBE0 | ?GetColor@agiColorModel@@QAEIABVVector3@@@Z
+    // ?GetColor@agiColorModel@@QAEIABVVector3@@@Z
     ARTS_EXPORT u32 GetColor(class Vector3 const& color);
 
-    // 0x55BC40 | ?GetColor@agiColorModel@@QAEIABVVector4@@@Z | unused
+    // ?GetColor@agiColorModel@@QAEIABVVector4@@@Z | unused
     ARTS_EXPORT u32 GetColor(class Vector4 const& color);
 
-    // 0x55BB80 | ?GetColor@agiColorModel@@QAEIHHHH@Z
+    // ?GetColor@agiColorModel@@QAEIHHHH@Z
     ARTS_EXPORT u32 GetColor(i32 r, i32 g, i32 b, i32 a);
 
-    // 0x55D810 | ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z | agi:cmodelx
+    // ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z | agi:cmodelx
     ARTS_EXPORT static RcOwner<class agiColorModel> FindMatch(class agiSurfaceDesc* surface);
 
-    // 0x55D760 | ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z | agi:cmodelx
+    // ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z | agi:cmodelx
     ARTS_EXPORT static RcOwner<class agiColorModel> FindMatch(i32 mask_r, i32 mask_g, i32 mask_b, i32 mask_a);
 
     void AddRef()

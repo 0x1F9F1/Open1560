@@ -29,47 +29,47 @@
 
 class mmCompBase : public asNode
 {
-    // const mmCompBase::`vftable' @ 0x61E6E8
+    // const mmCompBase::`vftable'
 
 public:
-    // 0x4B4EC0 | ??_GmmCompBase@@UAEPAXI@Z
-    // 0x4B4EC0 | ??_EmmCompBase@@UAEPAXI@Z
-    // 0x4B4DF0 | ??1mmCompBase@@UAE@XZ | inline
+    // ??_GmmCompBase@@UAEPAXI@Z
+    // ??_EmmCompBase@@UAEPAXI@Z
+    // ??1mmCompBase@@UAE@XZ | inline
     ARTS_IMPORT ~mmCompBase() override = default;
 
-    // 0x4B4E00 | ?DisableBlt@mmCompBase@@UAEXXZ | inline
+    // ?DisableBlt@mmCompBase@@UAEXXZ | inline
     ARTS_IMPORT virtual void DisableBlt();
 
-    // 0x4B4E10 | ?SetBltXY@mmCompBase@@UAEXMM@Z | inline
+    // ?SetBltXY@mmCompBase@@UAEXMM@Z | inline
     ARTS_IMPORT virtual void SetBltXY(f32 arg1, f32 arg2);
 
-    // 0x4B4E70 | ?Action@mmCompBase@@UAEXTeqEvent@@MMH@Z | inline
+    // ?Action@mmCompBase@@UAEXTeqEvent@@MMH@Z | inline
     ARTS_EXPORT virtual void Action(union eqEvent arg1, f32 arg2, f32 arg3, i32 arg4);
 
-    // 0x4B4E40 | ?Action@mmCompBase@@UAEXTeqEvent@@@Z | inline
+    // ?Action@mmCompBase@@UAEXTeqEvent@@@Z | inline
     ARTS_EXPORT virtual void Action(union eqEvent arg1);
 
-    // 0x4B4E50 | ?CaptureAction@mmCompBase@@UAEXTeqEvent@@@Z | inline
+    // ?CaptureAction@mmCompBase@@UAEXTeqEvent@@@Z | inline
     ARTS_EXPORT virtual void CaptureAction(union eqEvent arg1);
 
-    // 0x4B4E60 | ?Switch@mmCompBase@@UAEXH@Z | inline
+    // ?Switch@mmCompBase@@UAEXH@Z | inline
     ARTS_IMPORT virtual void Switch(i32 arg1);
 
-    // 0x4B4E80 | ?EvalMouseXY@mmCompBase@@UAEXMM@Z | inline
+    // ?EvalMouseXY@mmCompBase@@UAEXMM@Z | inline
     ARTS_EXPORT virtual void EvalMouseXY(f32 arg1, f32 arg2);
 
-    // 0x4B4E90 | ?Highlight@mmCompBase@@UAEXPAVmmTextNode@@H@Z | inline
+    // ?Highlight@mmCompBase@@UAEXPAVmmTextNode@@H@Z | inline
     ARTS_EXPORT virtual void Highlight(class mmTextNode* arg1, i32 arg2);
 
-    // 0x4B4EA0 | ?SetGeometry@mmCompBase@@UAEXMMMM@Z | inline
+    // ?SetGeometry@mmCompBase@@UAEXMMMM@Z | inline
     ARTS_IMPORT virtual void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     virtual void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) = 0;
 
-    // 0x4BF2D0 | ?Reset@mmCompBase@@UAEXXZ
+    // ?Reset@mmCompBase@@UAEXXZ
     ARTS_EXPORT void Reset() override;
 
-    // 0x4BF2E0 | ?Update@mmCompBase@@UAEXXZ
+    // ?Update@mmCompBase@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x28];

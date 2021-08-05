@@ -39,36 +39,36 @@ class agiPipeline;
 
 class agiRefreshable
 {
-    // const agiRefreshable::`vftable' @ 0x621648
+    // const agiRefreshable::`vftable'
 
 public:
-    // 0x557A20 | ??0agiRefreshable@@QAE@PAVagiPipeline@@@Z
+    // ??0agiRefreshable@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiRefreshable(class agiPipeline* pipe);
 
     virtual void EndGfx() = 0;
 
-    // 0x557AD0 | ?Restore@agiRefreshable@@UAEXXZ
+    // ?Restore@agiRefreshable@@UAEXXZ
     ARTS_EXPORT virtual void Restore();
 
-    // 0x557B90 | ?GetName@agiRefreshable@@UAEPADXZ
+    // ?GetName@agiRefreshable@@UAEPADXZ
     ARTS_EXPORT virtual /*const*/ char* GetName();
 
 protected:
-    // 0x557BB0 | ??_EagiRefreshable@@MAEPAXI@Z
-    // 0x557BB0 | ??_GagiRefreshable@@MAEPAXI@Z
-    // 0x557A60 | ??1agiRefreshable@@MAE@XZ
+    // ??_EagiRefreshable@@MAEPAXI@Z
+    // ??_GagiRefreshable@@MAEPAXI@Z
+    // ??1agiRefreshable@@MAE@XZ
     ARTS_EXPORT virtual ~agiRefreshable();
 
 public:
     virtual i32 BeginGfx() = 0;
 
-    // 0x557AE0 | ?AddRef@agiRefreshable@@QAEXXZ
+    // ?AddRef@agiRefreshable@@QAEXXZ
     ARTS_EXPORT void AddRef();
 
-    // 0x557B00 | ?Release@agiRefreshable@@QAEHXZ
+    // ?Release@agiRefreshable@@QAEHXZ
     ARTS_EXPORT i32 Release();
 
-    // 0x557AA0 | ?SafeBeginGfx@agiRefreshable@@QAEHXZ
+    // ?SafeBeginGfx@agiRefreshable@@QAEHXZ
     ARTS_EXPORT i32 SafeBeginGfx();
 
     agiPipeline* Pipe() const
@@ -82,11 +82,11 @@ public:
     }
 
 protected:
-    // 0x557BA0 | ?IsTexture@agiRefreshable@@MAEHXZ
+    // ?IsTexture@agiRefreshable@@MAEHXZ
     ARTS_EXPORT virtual b32 IsTexture();
 
 private:
-    // 0x557B30 | ?ValidatePtr@agiRefreshable@@AAEXPAD@Z
+    // ?ValidatePtr@agiRefreshable@@AAEXPAD@Z
     ARTS_EXPORT void ValidatePtr(const char* reason);
 
     agiRefreshable* prev_ {nullptr};

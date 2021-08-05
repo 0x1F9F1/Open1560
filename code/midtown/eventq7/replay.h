@@ -42,26 +42,26 @@
 
 class eqReplayChannel
 {
-    // const eqReplayChannel::`vftable' @ 0x621B20
+    // const eqReplayChannel::`vftable'
 
 public:
-    // 0x564650 | ??1eqReplayChannel@@QAE@XZ
+    // ??1eqReplayChannel@@QAE@XZ
     ARTS_EXPORT ~eqReplayChannel();
 
-    // 0x564680 | ?InitRecord@eqReplayChannel@@UAEXXZ
+    // ?InitRecord@eqReplayChannel@@UAEXXZ
     ARTS_EXPORT virtual void InitRecord();
 
-    // 0x564690 | ?InitPlayback@eqReplayChannel@@UAEXXZ
+    // ?InitPlayback@eqReplayChannel@@UAEXXZ
     ARTS_EXPORT virtual void InitPlayback();
 
     virtual void DoRecord(class Stream* arg1) = 0;
 
     virtual void DoPlayback(class Stream* arg1) = 0;
 
-    // 0x5646A0 | ?ShutdownRecord@eqReplayChannel@@UAEXXZ
+    // ?ShutdownRecord@eqReplayChannel@@UAEXXZ
     ARTS_EXPORT virtual void ShutdownRecord();
 
-    // 0x5646B0 | ?ShutdownPlayback@eqReplayChannel@@UAEXXZ
+    // ?ShutdownPlayback@eqReplayChannel@@UAEXXZ
     ARTS_EXPORT virtual void ShutdownPlayback();
 
     u32 GetMagic() const
@@ -70,11 +70,11 @@ public:
     }
 
 protected:
-    // 0x564620 | ??0eqReplayChannel@@IAE@K@Z
+    // ??0eqReplayChannel@@IAE@K@Z
     ARTS_EXPORT eqReplayChannel(ulong magic);
 
 private:
-    // 0x909438 | ?First@eqReplayChannel@@0PAV1@A
+    // ?First@eqReplayChannel@@0PAV1@A
     ARTS_IMPORT static class eqReplayChannel* First;
 
     u32 magic_ {0};
@@ -88,31 +88,31 @@ check_size(eqReplayChannel, 0xC);
 class eqReplay
 {
 public:
-    // 0x564920 | ?DoPlayback@eqReplay@@SAXXZ
+    // ?DoPlayback@eqReplay@@SAXXZ
     ARTS_EXPORT static void DoPlayback();
 
-    // 0x5648C0 | ?DoRecord@eqReplay@@SAXXZ
+    // ?DoRecord@eqReplay@@SAXXZ
     ARTS_EXPORT static void DoRecord();
 
-    // 0x564750 | ?InitPlayback@eqReplay@@SAXPAD@Z
+    // ?InitPlayback@eqReplay@@SAXPAD@Z
     ARTS_EXPORT static void InitPlayback(const char* path);
 
-    // 0x5646C0 | ?InitRecord@eqReplay@@SAXPAD@Z
+    // ?InitRecord@eqReplay@@SAXPAD@Z
     ARTS_EXPORT static void InitRecord(const char* path);
 
-    // 0x564860 | ?ShutdownPlayback@eqReplay@@SAXXZ
+    // ?ShutdownPlayback@eqReplay@@SAXXZ
     ARTS_EXPORT static void ShutdownPlayback();
 
-    // 0x564800 | ?ShutdownRecord@eqReplay@@SAXXZ
+    // ?ShutdownRecord@eqReplay@@SAXXZ
     ARTS_EXPORT static void ShutdownRecord();
 
-    // 0x909440 | ?Playback@eqReplay@@2HA
+    // ?Playback@eqReplay@@2HA
     ARTS_IMPORT static b32 Playback;
 
-    // 0x909444 | ?Recording@eqReplay@@2HA
+    // ?Recording@eqReplay@@2HA
     ARTS_IMPORT static b32 Recording;
 
 private:
-    // 0x90943C | ?ReplayStream@eqReplay@@0PAVStream@@A
+    // ?ReplayStream@eqReplay@@0PAVStream@@A
     ARTS_IMPORT static class Stream* ReplayStream;
 };

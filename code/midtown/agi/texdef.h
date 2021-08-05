@@ -77,13 +77,13 @@ class agiColorModel;
 class agiTexParameters
 {
 public:
-    // 0x556100 | ??0agiTexParameters@@QAE@XZ
+    // ??0agiTexParameters@@QAE@XZ
     ARTS_EXPORT agiTexParameters() = default;
 
-    // 0x556120 | ?Load@agiTexParameters@@QAEXPAVStream@@@Z
+    // ?Load@agiTexParameters@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Load(class Stream* file);
 
-    // 0x556170 | ?Save@agiTexParameters@@QAEXPAVStream@@@Z
+    // ?Save@agiTexParameters@@QAEXPAVStream@@@Z
     ARTS_EXPORT void Save(class Stream* file);
 
     char Name[32] {};
@@ -152,59 +152,59 @@ check_size(agiTexLock, 0x14);
 
 class agiTexDef : public agiRefreshable
 {
-    // const agiTexDef::`vftable' @ 0x6215B8
+    // const agiTexDef::`vftable'
 
 public:
-    // 0x5567F0 | ?IsAvailable@agiTexDef@@UAEHXZ
+    // ?IsAvailable@agiTexDef@@UAEHXZ
     ARTS_EXPORT virtual b32 IsAvailable();
 
     virtual void Set(class Vector2& arg1, class Vector2& arg2) = 0;
 
-    // 0x556440 | ?Lock@agiTexDef@@UAEHAAUagiTexLock@@@Z
+    // ?Lock@agiTexDef@@UAEHAAUagiTexLock@@@Z
     ARTS_EXPORT virtual b32 Lock(struct agiTexLock& lock);
 
-    // 0x556450 | ?Unlock@agiTexDef@@UAEXAAUagiTexLock@@@Z
+    // ?Unlock@agiTexDef@@UAEXAAUagiTexLock@@@Z
     ARTS_EXPORT virtual void Unlock(struct agiTexLock& lock);
 
-    // 0x5567E0 | ?Request@agiTexDef@@UAEXXZ
+    // ?Request@agiTexDef@@UAEXXZ
     ARTS_EXPORT virtual void Request();
 
-    // 0x5562F0 | ?CheckSurface@agiTexDef@@QAEXXZ
+    // ?CheckSurface@agiTexDef@@QAEXXZ
     ARTS_EXPORT void CheckSurface();
 
-    // 0x556550 | ?DoPageIn@agiTexDef@@QAEXXZ
+    // ?DoPageIn@agiTexDef@@QAEXXZ
     ARTS_EXPORT void DoPageIn();
 
-    // 0x556400 | ?GetName@agiTexDef@@UAEPADXZ
+    // ?GetName@agiTexDef@@UAEPADXZ
     ARTS_EXPORT char* GetName() override;
 
-    // 0x556380 | ?Init@agiTexDef@@QAEHABVagiTexParameters@@@Z
+    // ?Init@agiTexDef@@QAEHABVagiTexParameters@@@Z
     ARTS_EXPORT i32 Init(class agiTexParameters const& params);
 
     i32 Init(class agiTexParameters const& params, Ptr<agiSurfaceDesc> surface);
 
-    // 0x556430 | ?IsTexture@agiTexDef@@UAEHXZ
+    // ?IsTexture@agiTexDef@@UAEHXZ
     ARTS_EXPORT b32 IsTexture() override;
 
-    // 0x556770 | ?LockSurfaceIfResident@agiTexDef@@QAEHXZ
+    // ?LockSurfaceIfResident@agiTexDef@@QAEHXZ
     ARTS_EXPORT b32 LockSurfaceIfResident();
 
-    // 0x5566B0 | ?PageInSurface@agiTexDef@@QAEXXZ
+    // ?PageInSurface@agiTexDef@@QAEXXZ
     ARTS_EXPORT void PageInSurface();
 
-    // 0x556310 | ?Reload@agiTexDef@@QAEHXZ
+    // ?Reload@agiTexDef@@QAEHXZ
     ARTS_EXPORT i32 Reload();
 
-    // 0x5567C0 | ?UnlockAndFreeSurface@agiTexDef@@QAEXXZ
+    // ?UnlockAndFreeSurface@agiTexDef@@QAEXXZ
     ARTS_EXPORT void UnlockAndFreeSurface();
 
-    // 0x5567A0 | ?UnlockSurface@agiTexDef@@QAEXXZ
+    // ?UnlockSurface@agiTexDef@@QAEXXZ
     ARTS_EXPORT void UnlockSurface();
 
-    // 0x5566A0 | ?PageInCallback@agiTexDef@@SAXPAX@Z
+    // ?PageInCallback@agiTexDef@@SAXPAX@Z
     ARTS_EXPORT static void PageInCallback(void* param);
 
-    // 0x556460 | ?PageOutCallback@agiTexDef@@SAXPAXH@Z
+    // ?PageOutCallback@agiTexDef@@SAXPAXH@Z
     ARTS_EXPORT static void PageOutCallback(void* param, isize delta);
 
     i32 GetWidth() const
@@ -225,12 +225,12 @@ public:
     i32 PackShift {0};
 
 protected:
-    // 0x5561C0 | ??0agiTexDef@@IAE@PAVagiPipeline@@@Z
+    // ??0agiTexDef@@IAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiTexDef(class agiPipeline* pipe);
 
-    // 0x556970 | ??_EagiTexDef@@MAEPAXI@Z
-    // 0x556970 | ??_GagiTexDef@@MAEPAXI@Z
-    // 0x556230 | ??1agiTexDef@@MAE@XZ
+    // ??_EagiTexDef@@MAEPAXI@Z
+    // ??_GagiTexDef@@MAEPAXI@Z
+    // ??1agiTexDef@@MAE@XZ
     ARTS_EXPORT ~agiTexDef() override;
 
     // CacheHandle must be stored directly after Pager
@@ -245,54 +245,54 @@ protected:
 
 check_size(agiTexDef, 0x74);
 
-// 0x556530 | ?ShutdownLutQueue@@YAXXZ
+// ?ShutdownLutQueue@@YAXXZ
 ARTS_EXPORT void ShutdownLutQueue();
 
-// 0x5564A0 | ?UpdateLutQueue@@YAXXZ
+// ?UpdateLutQueue@@YAXXZ
 ARTS_EXPORT void UpdateLutQueue();
 
-// 0x656834 | ?MaxTexSize@@3HA
+// ?MaxTexSize@@3HA
 ARTS_IMPORT extern i32 MaxTexSize;
 
-// 0x8FAD28 | ?PackShift@@3HA
+// ?PackShift@@3HA
 ARTS_IMPORT extern i32 PackShift;
 
-// 0x8FAF88 | ?TEXCACHE@@3VDataCache@@A
+// ?TEXCACHE@@3VDataCache@@A
 ARTS_EXPORT extern class DataCache TEXCACHE;
 
-// 0x8FAD2C | ?TexBytesPaged@@3HA
+// ?TexBytesPaged@@3HA
 ARTS_IMPORT extern i32 TexBytesPaged;
 
-// 0x8FAF70 | ?TexLutHash@@3VHashTable@@A
+// ?TexLutHash@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable TexLutHash;
 
-// 0x656838 | ?TexSearchPath@@3PADA
+// ?TexSearchPath@@3PADA
 ARTS_IMPORT extern char* TexSearchPath; // Null Separated
 
-// 0x8FAFC8 | ?TexsPaged@@3HA
+// ?TexsPaged@@3HA
 ARTS_IMPORT extern i32 TexsPaged;
 
-// 0x8FAD70 | ?lutQ@@3PAUlutQentry@@A
+// ?lutQ@@3PAUlutQentry@@A
 ARTS_IMPORT extern struct lutQentry lutQ[64];
 
 class agiTexLut : public agiRefreshable
 {
-    // const agiTexLut::`vftable' @ 0x6215E8
+    // const agiTexLut::`vftable'
 
 public:
-    // 0x5568D0 | ?GetName@agiTexLut@@UAEPADXZ
+    // ?GetName@agiTexLut@@UAEPADXZ
     ARTS_EXPORT char* GetName() override;
 
-    // 0x556800 | ?Init@agiTexLut@@QAEHPAD@Z
+    // ?Init@agiTexLut@@QAEHPAD@Z
     ARTS_EXPORT i32 Init(const char* name);
 
 protected:
-    // 0x5568F0 | ??0agiTexLut@@IAE@PAVagiPipeline@@@Z
+    // ??0agiTexLut@@IAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiTexLut(class agiPipeline* pipe);
 
-    // 0x5569A0 | ??_GagiTexLut@@MAEPAXI@Z
-    // 0x5569A0 | ??_EagiTexLut@@MAEPAXI@Z
-    // 0x556920 | ??1agiTexLut@@MAE@XZ
+    // ??_GagiTexLut@@MAEPAXI@Z
+    // ??_EagiTexLut@@MAEPAXI@Z
+    // ??1agiTexLut@@MAE@XZ
     ARTS_EXPORT ~agiTexLut() override = default;
 
     u32 palette_[256] {};

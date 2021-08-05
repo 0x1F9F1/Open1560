@@ -35,24 +35,24 @@
 
 class mmWheelCheap final : public asLinearCS
 {
-    // const mmWheelCheap::`vftable' @ 0x61C170
+    // const mmWheelCheap::`vftable'
 
 public:
-    // 0x474880 | ??0mmWheelCheap@@QAE@XZ
+    // ??0mmWheelCheap@@QAE@XZ
     ARTS_IMPORT mmWheelCheap();
 
-    // 0x4751A0 | ??_EmmWheelCheap@@UAEPAXI@Z
-    // 0x4751A0 | ??_GmmWheelCheap@@UAEPAXI@Z
-    // 0x453A50 | ??1mmWheelCheap@@UAE@XZ | inline
+    // ??_EmmWheelCheap@@UAEPAXI@Z
+    // ??_GmmWheelCheap@@UAEPAXI@Z
+    // ??1mmWheelCheap@@UAE@XZ | inline
     ARTS_IMPORT ~mmWheelCheap() override = default;
 
-    // 0x474950 | ?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z
+    // ?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z
     ARTS_IMPORT void Init(class Vector3* arg1, class aiVehicleData* arg2, class asInertialCS* arg3);
 
-    // 0x475180 | ?Reset@mmWheelCheap@@UAEXXZ
+    // ?Reset@mmWheelCheap@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x474A20 | ?Update@mmWheelCheap@@UAEXXZ
+    // ?Update@mmWheelCheap@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap88[0xF4];
@@ -60,5 +60,5 @@ public:
 
 check_size(mmWheelCheap, 0x17C);
 
-// 0x6A7E7C | ?EggFriction@@3MA
+// ?EggFriction@@3MA
 ARTS_IMPORT extern f32 EggFriction;

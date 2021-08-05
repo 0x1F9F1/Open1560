@@ -66,196 +66,196 @@
 class mmBoundTemplate
 {
 public:
-    // 0x51D9A0 | ??0mmBoundTemplate@@QAE@XZ
+    // ??0mmBoundTemplate@@QAE@XZ
     ARTS_IMPORT mmBoundTemplate();
 
-    // 0x51DA60 | ??1mmBoundTemplate@@QAE@XZ
+    // ??1mmBoundTemplate@@QAE@XZ
     ARTS_IMPORT ~mmBoundTemplate();
 
-    // 0x519F70 | ?AddIndex@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
+    // ?AddIndex@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void AddIndex(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x517370 | ?AddQuad@mmBoundTemplate@@QAEXHHHHHH@Z | mmdyna:bndtmpl2
+    // ?AddQuad@mmBoundTemplate@@QAEXHHHHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void AddQuad(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, i32 arg6);
 
-    // 0x51D8F0 | ?AddRef@mmBoundTemplate@@QAEXXZ
+    // ?AddRef@mmBoundTemplate@@QAEXXZ
     ARTS_IMPORT void AddRef();
 
-    // 0x517280 | ?AddTriangle@mmBoundTemplate@@QAEXHHHHH@Z | mmdyna:bndtmpl2
+    // ?AddTriangle@mmBoundTemplate@@QAEXHHHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void AddTriangle(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
-    // 0x51E550 | ?Collide@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    // ?Collide@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 Collide(class mmIntersection* arg1);
 
-    // 0x51E4F0 | ?Collide@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
+    // ?Collide@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
     ARTS_IMPORT i32 Collide(class mmEdgeBodyIsect* arg1, i32 arg2);
 
-    // 0x51DB70 | ?Collide@mmBoundTemplate@@QAEHPAV1@AAVMatrix34@@11PAVmmEdgeBodyIsect@@HHPAVasInertialCS@@3PAVVector3@@4@Z
+    // ?Collide@mmBoundTemplate@@QAEHPAV1@AAVMatrix34@@11PAVmmEdgeBodyIsect@@HHPAVasInertialCS@@3PAVVector3@@4@Z
     ARTS_IMPORT i32 Collide(class mmBoundTemplate* arg1, class Matrix34& arg2, class Matrix34& arg3,
         class Matrix34& arg4, class mmEdgeBodyIsect* arg5, i32 arg6, i32 arg7, class asInertialCS* arg8,
         class asInertialCS* arg9, class Vector3* arg10, class Vector3* arg11);
 
-    // 0x51E240 | ?CollideTerrains@mmBoundTemplate@@QAEHPAPAV1@AAVMatrix34@@PAVmmEdgeBodyIsect@@HH@Z
+    // ?CollideTerrains@mmBoundTemplate@@QAEHPAPAV1@AAVMatrix34@@PAVmmEdgeBodyIsect@@HH@Z
     ARTS_IMPORT i32 CollideTerrains(
         class mmBoundTemplate** arg1, class Matrix34& arg2, class mmEdgeBodyIsect* arg3, i32 arg4, i32 arg5);
 
-    // 0x5175E0 | ?ComputeBounds@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
+    // ?ComputeBounds@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void ComputeBounds();
 
-    // 0x5193A0 | ?ComputeEdgeNormals@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
+    // ?ComputeEdgeNormals@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void ComputeEdgeNormals();
 
-    // 0x517680 | ?ComputeEdges@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
+    // ?ComputeEdges@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void ComputeEdges();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x51FCF0 | ?Draw@mmBoundTemplate@@QAEXXZ
+    // ?Draw@mmBoundTemplate@@QAEXXZ
     ARTS_IMPORT void Draw();
 
-    // 0x51FD70 | ?DrawBox@mmBoundTemplate@@QAEXXZ
+    // ?DrawBox@mmBoundTemplate@@QAEXXZ
     ARTS_IMPORT void DrawBox();
 
-    // 0x51FD90 | ?DrawGeometry@mmBoundTemplate@@QAEXXZ
+    // ?DrawGeometry@mmBoundTemplate@@QAEXXZ
     ARTS_IMPORT void DrawGeometry();
 
-    // 0x520000 | ?DrawGraph@mmBoundTemplate@@QAEXXZ | unused
+    // ?DrawGraph@mmBoundTemplate@@QAEXXZ | unused
     ARTS_EXPORT void DrawGraph();
 
-    // 0x51FD30 | ?DrawSphere@mmBoundTemplate@@QAEXXZ
+    // ?DrawSphere@mmBoundTemplate@@QAEXXZ
     ARTS_IMPORT void DrawSphere();
 
-    // 0x51FE00 | ?DrawTable@mmBoundTemplate@@QAEXXZ
+    // ?DrawTable@mmBoundTemplate@@QAEXXZ
     ARTS_IMPORT void DrawTable();
 #endif
 
-    // 0x5171D0 | ?InitGeometry@mmBoundTemplate@@QAEXHH@Z | mmdyna:bndtmpl2
+    // ?InitGeometry@mmBoundTemplate@@QAEXHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void InitGeometry(i32 arg1, i32 arg2);
 
-    // 0x51F670 | ?LineGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    // ?LineGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 LineGeometry(class mmIntersection* arg1);
 
-    // 0x51F120 | ?LineGeometry@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
+    // ?LineGeometry@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
     ARTS_IMPORT i32 LineGeometry(class mmEdgeBodyIsect* arg1, i32 arg2);
 
-    // 0x51FB20 | ?LineSpan@mmBoundTemplate@@QAEHPAVmmIntersection@@HHH@Z
+    // ?LineSpan@mmBoundTemplate@@QAEHPAVmmIntersection@@HHH@Z
     ARTS_IMPORT i32 LineSpan(class mmIntersection* arg1, i32 arg2, i32 arg3, i32 arg4);
 
-    // 0x51F500 | ?LineSpan@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@HHHH@Z
+    // ?LineSpan@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@HHHH@Z
     ARTS_IMPORT i32 LineSpan(class mmEdgeBodyIsect* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
-    // 0x51F110 | ?LineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    // ?LineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_EXPORT i32 LineSphere(class mmIntersection* arg1);
 
-    // 0x51F7A0 | ?LineTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    // ?LineTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 LineTable(class mmIntersection* arg1);
 
-    // 0x51F1E0 | ?LineTable@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
+    // ?LineTable@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
     ARTS_IMPORT i32 LineTable(class mmEdgeBodyIsect* arg1, i32 arg2);
 
-    // 0x517850 | ?Load@mmBoundTemplate@@QAEHPAD0PAVVector3@@HHHHHH@Z | mmdyna:bndtmpl2
+    // ?Load@mmBoundTemplate@@QAEHPAD0PAVVector3@@HHHHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT i32 Load(
         char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8, i32 arg9);
 
-    // 0x519320 | ?LockIfResident@mmBoundTemplate@@QAEHXZ | mmdyna:bndtmpl2
+    // ?LockIfResident@mmBoundTemplate@@QAEHXZ | mmdyna:bndtmpl2
     ARTS_IMPORT i32 LockIfResident();
 
-    // 0x519300 | ?PageIn@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
+    // ?PageIn@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void PageIn();
 
-    // 0x51A090 | ?PlotLine@mmBoundTemplate@@QAEXVVector3@@0@Z | mmdyna:bndtmpl2 | unused
+    // ?PlotLine@mmBoundTemplate@@QAEXVVector3@@0@Z | mmdyna:bndtmpl2 | unused
     ARTS_IMPORT void PlotLine(class Vector3 arg1, class Vector3 arg2);
 
-    // 0x51A1A0 | ?PlotSpan@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
+    // ?PlotSpan@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
     ARTS_EXPORT void PlotSpan(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x51EA00 | ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
+    // ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
     ARTS_IMPORT i32 QuickLineBox(class mmEdgeBodyIsect* arg1);
 
-    // 0x51EAF0 | ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    // ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 QuickLineBox(class mmIntersection* arg1);
 
-    // 0x51E6C0 | ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
+    // ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
     ARTS_IMPORT i32 QuickLineSphere(class mmEdgeBodyIsect* arg1);
 
-    // 0x51E820 | ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    // ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 QuickLineSphere(class mmIntersection* arg1);
 
-    // 0x51E940 | ?QuickSphereBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    // ?QuickSphereBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 QuickSphereBox(class mmIntersection* arg1);
 
-    // 0x51E620 | ?QuickSphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z | unused
+    // ?QuickSphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z | unused
     ARTS_IMPORT i32 QuickSphereSphere(class mmIntersection* arg1);
 
-    // 0x51D910 | ?Release@mmBoundTemplate@@QAEHXZ
+    // ?Release@mmBoundTemplate@@QAEHXZ
     ARTS_IMPORT i32 Release();
 
-    // 0x51DB20 | ?Reset@mmBoundTemplate@@QAEXXZ | unused
+    // ?Reset@mmBoundTemplate@@QAEXXZ | unused
     ARTS_IMPORT void Reset();
 
-    // 0x51ED80 | ?SphereGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    // ?SphereGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 SphereGeometry(class mmIntersection* arg1);
 
-    // 0x51EBE0 | ?SphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    // ?SphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 SphereSphere(class mmIntersection* arg1);
 
-    // 0x51EEB0 | ?SphereTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
+    // ?SphereTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
     ARTS_IMPORT i32 SphereTable(class mmIntersection* arg1);
 
-    // 0x519380 | ?Unlock@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
+    // ?Unlock@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void Unlock();
 
-    // 0x51D940 | ?ValidatePtr@mmBoundTemplate@@QAEXPAD@Z
+    // ?ValidatePtr@mmBoundTemplate@@QAEXPAD@Z
     ARTS_IMPORT void ValidatePtr(char* arg1);
 
-    // 0x51D2E0 | ?GetBoundTemplate@mmBoundTemplate@@SAPAV1@PAD0PAVVector3@@HHHHH@Z
+    // ?GetBoundTemplate@mmBoundTemplate@@SAPAV1@PAD0PAVVector3@@HHHHH@Z
     ARTS_IMPORT static class mmBoundTemplate* GetBoundTemplate(
         char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
 
-    // 0x51D3F0 | ?MakeBox@mmBoundTemplate@@SAPAV1@PAD0HPAVVector3@@1@Z
+    // ?MakeBox@mmBoundTemplate@@SAPAV1@PAD0HPAVVector3@@1@Z
     ARTS_IMPORT static class mmBoundTemplate* MakeBox(
         char* arg1, char* arg2, i32 arg3, class Vector3* arg4, class Vector3* arg5);
 
-    // 0x77F598 | ?BoundPtr@mmBoundTemplate@@2PAV1@A
+    // ?BoundPtr@mmBoundTemplate@@2PAV1@A
     ARTS_IMPORT static class mmBoundTemplate* BoundPtr;
 
-    // 0x77EED0 | ?ConstructionTable@mmBoundTemplate@@2PAGA | mmdyna:bndtmpl2
+    // ?ConstructionTable@mmBoundTemplate@@2PAGA | mmdyna:bndtmpl2
     ARTS_IMPORT static u16* ConstructionTable;
 
-    // 0x77EE48 | ?DrawGrid@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
+    // ?DrawGrid@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
     ARTS_IMPORT static i32 DrawGrid;
 
-    // 0x77F590 | ?IsectCount@mmBoundTemplate@@2GA
+    // ?IsectCount@mmBoundTemplate@@2GA
     ARTS_IMPORT static u16 IsectCount;
 
-    // 0x77F498 | ?LastIsect@mmBoundTemplate@@2PAGA
+    // ?LastIsect@mmBoundTemplate@@2PAGA
     ARTS_IMPORT static u16* LastIsect;
 
-    // 0x77EED4 | ?MaxPerBucket@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
+    // ?MaxPerBucket@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
     ARTS_IMPORT static i32 MaxPerBucket;
 
-    // 0x77EE3C | ?NumIndexs@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
+    // ?NumIndexs@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
     ARTS_IMPORT static i32 NumIndexs;
 
-    // 0x77F594 | ?VertPtr@mmBoundTemplate@@2PAVVector3@@A
+    // ?VertPtr@mmBoundTemplate@@2PAVVector3@@A
     ARTS_IMPORT static class Vector3* VertPtr;
 
-    // 0x77EE38 | ?WinID@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
+    // ?WinID@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
     ARTS_IMPORT static i32 WinID;
 
 private:
-    // 0x519A30 | ?DoMakeTable@mmBoundTemplate@@AAEXHHH@Z | mmdyna:bndtmpl2
+    // ?DoMakeTable@mmBoundTemplate@@AAEXHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void DoMakeTable(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x518E90 | ?DoPageIn@mmBoundTemplate@@AAEXXZ | mmdyna:bndtmpl2
+    // ?DoPageIn@mmBoundTemplate@@AAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void DoPageIn();
 
-    // 0x519830 | ?MakeTable@mmBoundTemplate@@AAEXHHH@Z | mmdyna:bndtmpl2
+    // ?MakeTable@mmBoundTemplate@@AAEXHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT void MakeTable(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x5192F0 | ?PageInCallback@mmBoundTemplate@@CAXPAX@Z | mmdyna:bndtmpl2
+    // ?PageInCallback@mmBoundTemplate@@CAXPAX@Z | mmdyna:bndtmpl2
     ARTS_IMPORT static void PageInCallback(void* arg1);
 
-    // 0x518D40 | ?PageOutCallback@mmBoundTemplate@@CAXPAXH@Z | mmdyna:bndtmpl2
+    // ?PageOutCallback@mmBoundTemplate@@CAXPAXH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT static void PageOutCallback(void* arg1, i32 arg2);
 
     u8 gap0[0xB4];
@@ -263,8 +263,8 @@ private:
 
 check_size(mmBoundTemplate, 0xB4);
 
-// 0x77F4A0 | ?CollidedLines@@3PAPAHA
+// ?CollidedLines@@3PAPAHA
 ARTS_IMPORT extern i32* CollidedLines[30];
 
-// 0x77F518 | ?InsideVerts@@3PAHA
+// ?InsideVerts@@3PAHA
 ARTS_IMPORT extern i32 InsideVerts[30];

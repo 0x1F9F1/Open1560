@@ -50,69 +50,69 @@
 
 class UIVScrollBar final : public uiWidget
 {
-    // const UIVScrollBar::`vftable' @ 0x61F030
+    // const UIVScrollBar::`vftable'
 
 public:
-    // 0x4BCD60 | ??0UIVScrollBar@@QAE@XZ
+    // ??0UIVScrollBar@@QAE@XZ
     ARTS_IMPORT UIVScrollBar();
 
-    // 0x4BD8B0 | ??_EUIVScrollBar@@UAEPAXI@Z
-    // 0x4BCE00 | ??1UIVScrollBar@@UAE@XZ
+    // ??_EUIVScrollBar@@UAEPAXI@Z
+    // ??1UIVScrollBar@@UAE@XZ
     ARTS_IMPORT ~UIVScrollBar() override;
 
-    // 0x4BD370 | ?Action@UIVScrollBar@@UAEXTeqEvent@@@Z
+    // ?Action@UIVScrollBar@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4BD5B0 | ?Cull@UIVScrollBar@@UAEXXZ
+    // ?Cull@UIVScrollBar@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4BD150 | ?Dec@UIVScrollBar@@QAEMXZ
+    // ?Dec@UIVScrollBar@@QAEMXZ
     ARTS_IMPORT f32 Dec();
 
-    // 0x4BD950 | ?Disable@UIVScrollBar@@UAEXXZ | inline
+    // ?Disable@UIVScrollBar@@UAEXXZ | inline
     ARTS_IMPORT void Disable() override;
 
-    // 0x4BD930 | ?Enable@UIVScrollBar@@UAEXXZ | inline
+    // ?Enable@UIVScrollBar@@UAEXXZ | inline
     ARTS_IMPORT void Enable() override;
 
-    // 0x4BD430 | ?EvalMouseXY@UIVScrollBar@@QAEXMM@Z
+    // ?EvalMouseXY@UIVScrollBar@@QAEXMM@Z
     ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2);
 
-    // 0x4BD8A0 | ?GetClass@UIVScrollBar@@UAEPAVMetaClass@@XZ
+    // ?GetClass@UIVScrollBar@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4BD0F0 | ?Inc@UIVScrollBar@@QAEMXZ
+    // ?Inc@UIVScrollBar@@QAEMXZ
     ARTS_IMPORT f32 Inc();
 
-    // 0x4BCE90 | ?Init@UIVScrollBar@@QAEXMMMMHMMPAHVCallback@@H@Z
+    // ?Init@UIVScrollBar@@QAEXMMMMHMMPAHVCallback@@H@Z
     ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, f32 arg6, f32 arg7, i32* arg8,
         class Callback arg9, i32 arg10);
 
-    // 0x4BCF00 | ?LoadBitmap@UIVScrollBar@@QAEXXZ
+    // ?LoadBitmap@UIVScrollBar@@QAEXXZ
     ARTS_IMPORT void LoadBitmap();
 
-    // 0x4BD030 | ?SetHotSpots@UIVScrollBar@@QAEXXZ
+    // ?SetHotSpots@UIVScrollBar@@QAEXXZ
     ARTS_IMPORT void SetHotSpots();
 
-    // 0x4BD910 | ?SetPosition@UIVScrollBar@@UAEXMM@Z | inline
+    // ?SetPosition@UIVScrollBar@@UAEXMM@Z | inline
     ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2) override;
 
-    // 0x4BD210 | ?SetRange@UIVScrollBar@@QAEXMM@Z
+    // ?SetRange@UIVScrollBar@@QAEXMM@Z
     ARTS_IMPORT void SetRange(f32 arg1, f32 arg2);
 
-    // 0x4BD1B0 | ?SetStep@UIVScrollBar@@QAEXHM@Z
+    // ?SetStep@UIVScrollBar@@QAEXHM@Z
     ARTS_IMPORT void SetStep(i32 arg1, f32 arg2);
 
-    // 0x4BD280 | ?SetTrough@UIVScrollBar@@QAEXMM@Z
+    // ?SetTrough@UIVScrollBar@@QAEXMM@Z
     ARTS_IMPORT void SetTrough(f32 arg1, f32 arg2);
 
-    // 0x4BD320 | ?Switch@UIVScrollBar@@UAEXH@Z
+    // ?Switch@UIVScrollBar@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // 0x4BD300 | ?Update@UIVScrollBar@@UAEXXZ
+    // ?Update@UIVScrollBar@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4BD730 | ?DeclareFields@UIVScrollBar@@SAXXZ
+    // ?DeclareFields@UIVScrollBar@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap74[0x98];
@@ -120,5 +120,5 @@ public:
 
 check_size(UIVScrollBar, 0x10C);
 
-// 0x705C28 | ?UIVScrollBarMetaClass@@3VMetaClass@@A
+// ?UIVScrollBarMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass UIVScrollBarMetaClass;

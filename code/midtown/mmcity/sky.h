@@ -36,29 +36,29 @@
 class mmSky
 {
 public:
-    // 0x4955D0 | ??0mmSky@@QAE@XZ
+    // ??0mmSky@@QAE@XZ
     ARTS_IMPORT mmSky();
 
-    // 0x495610 | ??1mmSky@@QAE@XZ
+    // ??1mmSky@@QAE@XZ
     ARTS_IMPORT ~mmSky();
 
-    // 0x4956A0 | ?Draw@mmSky@@QAEXAAVMatrix34@@@Z
+    // ?Draw@mmSky@@QAEXAAVMatrix34@@@Z
     ARTS_IMPORT void Draw(class Matrix34& arg1);
 
-    // 0x495650 | ?Init@mmSky@@QAEXPAD@Z
+    // ?Init@mmSky@@QAEXPAD@Z
     ARTS_IMPORT void Init(char* arg1);
 
-    // 0x495680 | ?SetTexture@mmSky@@QAEXPAVagiTexDef@@@Z
+    // ?SetTexture@mmSky@@QAEXPAVagiTexDef@@@Z
     ARTS_IMPORT void SetTexture(class agiTexDef* arg1);
 
-    // 0x63FC50 | ?Color@mmSky@@2IA
+    // ?Color@mmSky@@2IA
     ARTS_IMPORT static u32 Color;
 
 private:
-    // 0x7056FC | ?DoFlash@mmSky@@0HA
+    // ?DoFlash@mmSky@@0HA
     ARTS_IMPORT static i32 DoFlash;
 
-    // 0x705704 | ?Instance@mmSky@@0PAV1@A
+    // ?Instance@mmSky@@0PAV1@A
     ARTS_IMPORT static class mmSky* Instance;
 
     u8 gap0[0x8];
@@ -66,8 +66,8 @@ private:
 
 check_size(mmSky, 0x8);
 
-// 0x705700 | ?FlashTex@@3PAVagiTexDef@@A
+// ?FlashTex@@3PAVagiTexDef@@A
 ARTS_IMPORT extern class agiTexDef* FlashTex;
 
-// 0x63FC54 | ?SkyScale@@3MA
+// ?SkyScale@@3MA
 ARTS_IMPORT extern f32 SkyScale;

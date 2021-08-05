@@ -41,45 +41,45 @@
 
 class UIControlWidget final : public uiWidget
 {
-    // const UIControlWidget::`vftable' @ 0x61ED88
+    // const UIControlWidget::`vftable'
 
 public:
-    // 0x4BBA80 | ??0UIControlWidget@@QAE@XZ
+    // ??0UIControlWidget@@QAE@XZ
     ARTS_IMPORT UIControlWidget();
 
-    // 0x4B8790 | ??_EUIControlWidget@@UAEPAXI@Z
-    // 0x4BC0A0 | ??_GUIControlWidget@@UAEPAXI@Z | unused
-    // 0x4BBBA0 | ??1UIControlWidget@@UAE@XZ
+    // ??_EUIControlWidget@@UAEPAXI@Z
+    // ??_GUIControlWidget@@UAEPAXI@Z | unused
+    // ??1UIControlWidget@@UAE@XZ
     ARTS_IMPORT ~UIControlWidget() override;
 
-    // 0x4BBF10 | ?Action@UIControlWidget@@UAEXTeqEvent@@@Z
+    // ?Action@UIControlWidget@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4BC050 | ?DisableField@UIControlWidget@@QAEXXZ
+    // ?DisableField@UIControlWidget@@QAEXXZ
     ARTS_IMPORT void DisableField();
 
-    // 0x4BBFE0 | ?EnableField@UIControlWidget@@QAEXXZ
+    // ?EnableField@UIControlWidget@@QAEXXZ
     ARTS_IMPORT void EnableField();
 
-    // 0x4BBC40 | ?Init@UIControlWidget@@QAEXMMMMMPAVmmIO@@VCallback@@@Z
+    // ?Init@UIControlWidget@@QAEXMMMMMPAVmmIO@@VCallback@@@Z
     ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, class mmIO* arg6, class Callback arg7);
 
-    // 0x4BBE00 | ?SetPosition@UIControlWidget@@QAEXMMMM@Z
+    // ?SetPosition@UIControlWidget@@QAEXMMMM@Z
     ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x4BBF60 | ?Switch@UIControlWidget@@UAEXH@Z
+    // ?Switch@UIControlWidget@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // 0x4BC0E0 | ?TurnOff@UIControlWidget@@UAEXXZ | inline
+    // ?TurnOff@UIControlWidget@@UAEXXZ | inline
     ARTS_IMPORT void TurnOff() override;
 
-    // 0x4BC0D0 | ?TurnOn@UIControlWidget@@UAEXXZ | inline
+    // ?TurnOn@UIControlWidget@@UAEXXZ | inline
     ARTS_IMPORT void TurnOn() override;
 
-    // 0x4BBEC0 | ?Update@UIControlWidget@@UAEXXZ
+    // ?Update@UIControlWidget@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4BBEE0 | ?UpdateField@UIControlWidget@@QAEXXZ
+    // ?UpdateField@UIControlWidget@@QAEXXZ
     ARTS_IMPORT void UpdateField();
 
     u8 gap74[0x44];

@@ -48,53 +48,53 @@
 
 #include <atomic>
 
-// 0x578740 | ?ipcCloseHandle@@YAXI@Z
+// ?ipcCloseHandle@@YAXI@Z
 [[deprecated]] ARTS_EXPORT void ipcCloseHandle(usize handle);
 
-// 0x578B00 | ?ipcCloseSpinLock@@YAXPAI@Z | unused
+// ?ipcCloseSpinLock@@YAXPAI@Z | unused
 ARTS_EXPORT void ipcCloseSpinLock(u32* value);
 
-// 0x578650 | ?ipcCreateEvent@@YAIH@Z
+// ?ipcCreateEvent@@YAIH@Z
 [[deprecated]] ARTS_EXPORT usize ipcCreateEvent(b32 initial_state);
 
-// 0x578670 | ?ipcCreateMutex@@YAIH@Z
+// ?ipcCreateMutex@@YAIH@Z
 [[deprecated]] ARTS_EXPORT usize ipcCreateMutex(b32 initial_owner);
 
-// 0x578AF0 | ?ipcCreateSpinLock@@YAXPAI@Z | unused
+// ?ipcCreateSpinLock@@YAXPAI@Z | unused
 ARTS_EXPORT void ipcCreateSpinLock(u32* value);
 
-// 0x578690 | ?ipcCreateThread@@YAIP6GKPAX@Z0PAK@Z
+// ?ipcCreateThread@@YAIP6GKPAX@Z0PAK@Z
 ARTS_EXPORT usize ipcCreateThread(ulong(ARTS_STDCALL* start)(void*), void* param, ulong* thread_id);
 
 void ipcWaitThreadExit(usize thread);
 
 void ipcDeleteThread(usize thread);
 
-// 0x5786D0 | ?ipcReleaseMutex@@YAXI@Z
+// ?ipcReleaseMutex@@YAXI@Z
 [[deprecated]] ARTS_EXPORT void ipcReleaseMutex(usize mutex);
 
-// 0x578770 | ?ipcSleep@@YAXI@Z | unused
+// ?ipcSleep@@YAXI@Z | unused
 ARTS_EXPORT void ipcSleep(u32 milli_seconds);
 
-// 0x578A70 | ?ipcSpinLock@@YAXPAI@Z
+// ?ipcSpinLock@@YAXPAI@Z
 ARTS_EXPORT void ipcSpinLock(u32* value);
 
-// 0x578AC0 | ?ipcSpunUnlock@@YAXPAI@Z | unused
+// ?ipcSpunUnlock@@YAXPAI@Z | unused
 ARTS_EXPORT void ipcSpinUnlock(u32* value);
 
-// 0x5786B0 | ?ipcTriggerEvent@@YAXI@Z
+// ?ipcTriggerEvent@@YAXI@Z
 [[deprecated]] ARTS_EXPORT void ipcTriggerEvent(usize event);
 
-// 0x578720 | ?ipcWaitMultiple@@YAHHPAIH@Z | unused
+// ?ipcWaitMultiple@@YAHHPAIH@Z | unused
 [[deprecated]] ARTS_EXPORT i32 ipcWaitMultiple(i32 count, usize* handles, b32 wait_all);
 
-// 0x5786F0 | ?ipcWaitSingle@@YAXI@Z
+// ?ipcWaitSingle@@YAXI@Z
 [[deprecated]] ARTS_EXPORT void ipcWaitSingle(usize handle);
 
-// 0x578760 | ?ipcYield@@YAXXZ
+// ?ipcYield@@YAXXZ
 ARTS_EXPORT void ipcYield();
 
-// 0x90AE60 | ?SynchronousMessageQueues@@3HA
+// ?SynchronousMessageQueues@@3HA
 ARTS_IMPORT extern b32 SynchronousMessageQueues;
 
 struct ipcMessage;
@@ -108,20 +108,20 @@ public:
 
     ARTS_NON_COPYABLE(ipcMessageQueue);
 
-    // 0x578870 | ?Init@ipcMessageQueue@@QAEXHH@Z
+    // ?Init@ipcMessageQueue@@QAEXHH@Z
     ARTS_EXPORT void Init(i32 max_messages, b32 blocking);
 
-    // 0x578980 | ?Send@ipcMessageQueue@@QAEXP6AXPAX@Z0@Z
+    // ?Send@ipcMessageQueue@@QAEXP6AXPAX@Z0@Z
     ARTS_EXPORT void Send(void (*func)(void*), void* param);
 
-    // 0x578920 | ?Shutdown@ipcMessageQueue@@QAEXXZ
+    // ?Shutdown@ipcMessageQueue@@QAEXXZ
     ARTS_EXPORT void Shutdown();
 
 private:
-    // 0x578790 | ?MessageLoop@ipcMessageQueue@@AAEHXZ
+    // ?MessageLoop@ipcMessageQueue@@AAEHXZ
     ARTS_EXPORT i32 MessageLoop();
 
-    // 0x578780 | ?Proc@ipcMessageQueue@@CGKPAX@Z
+    // ?Proc@ipcMessageQueue@@CGKPAX@Z
     ARTS_EXPORT static ulong ARTS_STDCALL Proc(void* param);
 
     std::atomic<b32> initialized_ {false};

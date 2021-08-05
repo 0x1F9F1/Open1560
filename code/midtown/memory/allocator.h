@@ -69,38 +69,38 @@ check_size(asMemStats, 0x18);
 class asMemoryAllocator
 {
 public:
-    // 0x5209B0 | ??0asMemoryAllocator@@QAE@XZ
+    // ??0asMemoryAllocator@@QAE@XZ
 
-    // 0x5209C0 | ??1asMemoryAllocator@@QAE@XZ
+    // ??1asMemoryAllocator@@QAE@XZ
 
-    // 0x520A20 | ?Allocate@asMemoryAllocator@@QAEPAXI@Z
+    // ?Allocate@asMemoryAllocator@@QAEPAXI@Z
     ARTS_EXPORT void* Allocate(usize size);
 
     void* Allocate(usize size, usize align, void* caller);
 
-    // 0x520C40 | ?CheckPointer@asMemoryAllocator@@QAEXPAX@Z
+    // ?CheckPointer@asMemoryAllocator@@QAEXPAX@Z
     ARTS_EXPORT void CheckPointer(void* ptr);
 
-    // 0x520C90 | ?Free@asMemoryAllocator@@QAEXPAX@Z
+    // ?Free@asMemoryAllocator@@QAEXPAX@Z
     ARTS_EXPORT void Free(void* ptr);
 
-    // 0x520FC0 | ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
+    // ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
     ARTS_EXPORT void GetStats(struct asMemStats* stats);
 
     void GetStats(struct asMemStats* stats, struct asMemSource* sources, usize* num_sources);
 
-    // 0x5209D0 | ?Init@asMemoryAllocator@@QAEXPAXIH@Z
+    // ?Init@asMemoryAllocator@@QAEXPAXIH@Z
     ARTS_EXPORT void Init(void* heap, usize heap_size, b32 use_nodes);
 
-    // 0x520A10 | ?Kill@asMemoryAllocator@@QAEXXZ
+    // ?Kill@asMemoryAllocator@@QAEXXZ
     ARTS_EXPORT void Kill();
 
-    // 0x520EA0 | ?Reallocate@asMemoryAllocator@@QAEPAXPAXI@Z
+    // ?Reallocate@asMemoryAllocator@@QAEPAXPAXI@Z
     ARTS_EXPORT void* Reallocate(void* ptr, usize size);
 
     void* Reallocate(void* ptr, usize size, void* caller);
 
-    // 0x521090 | ?SanityCheck@asMemoryAllocator@@QAEXXZ
+    // ?SanityCheck@asMemoryAllocator@@QAEXXZ
     ARTS_EXPORT void SanityCheck();
 
     void DumpStats();
@@ -146,13 +146,13 @@ private:
     struct Node;
     struct FreeNode;
 
-    // 0x520E50 | ?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z
+    // ?Link@asMemoryAllocator@@AAEXPAUnode@1@@Z
     ARTS_EXPORT void Link(FreeNode* n);
 
-    // 0x520DF0 | ?Unlink@asMemoryAllocator@@AAEXPAUnode@1@@Z
+    // ?Unlink@asMemoryAllocator@@AAEXPAUnode@1@@Z
     ARTS_EXPORT void Unlink(FreeNode* n);
 
-    // 0x520F00 | ?Verify@asMemoryAllocator@@AAEXPAX@Z
+    // ?Verify@asMemoryAllocator@@AAEXPAX@Z
     ARTS_EXPORT void Verify(void* ptr);
 
     FreeNode* FindFirstFit(usize size, usize align, usize offset);
@@ -188,14 +188,14 @@ private:
 
 // check_size(asMemoryAllocator, 0xA0);
 
-// 0x7805E8 | ?ALLOCATOR@@3VasMemoryAllocator@@A
+// ?ALLOCATOR@@3VasMemoryAllocator@@A
 ARTS_EXPORT extern class asMemoryAllocator ALLOCATOR;
 
-// 0x780690 | ?CRTALLOCATOR@@3VasMemoryAllocator@@A
+// ?CRTALLOCATOR@@3VasMemoryAllocator@@A
 
-// 0x780730 | ?CRTHEAP@@3PAEA
+// ?CRTHEAP@@3PAEA
 
-// 0x780688 | ?CURHEAP@@3PAVasMemoryAllocator@@A
+// ?CURHEAP@@3PAVasMemoryAllocator@@A
 ARTS_EXPORT extern class asMemoryAllocator* CURHEAP;
 
 asMemoryAllocator* StaticAllocator();

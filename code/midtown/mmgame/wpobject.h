@@ -39,33 +39,33 @@
 
 class mmWaypointObject final : public asNode
 {
-    // const mmWaypointObject::`vftable' @ 0x61AFC0
+    // const mmWaypointObject::`vftable'
 
 public:
-    // 0x430370 | ??0mmWaypointObject@@QAE@AAVVector4@@PADHMHM@Z
+    // ??0mmWaypointObject@@QAE@AAVVector4@@PADHMHM@Z
     ARTS_IMPORT mmWaypointObject(class Vector4& arg1, char* arg2, i32 arg3, f32 arg4, i32 arg5, f32 arg6);
 
-    // 0x430660 | ??_EmmWaypointObject@@UAEPAXI@Z
-    // 0x430660 | ??_GmmWaypointObject@@UAEPAXI@Z
-    // 0x430510 | ??1mmWaypointObject@@UAE@XZ
+    // ??_EmmWaypointObject@@UAEPAXI@Z
+    // ??_GmmWaypointObject@@UAEPAXI@Z
+    // ??1mmWaypointObject@@UAE@XZ
     ARTS_IMPORT ~mmWaypointObject() override = default;
 
-    // 0x430540 | ?Activate@mmWaypointObject@@QAEXXZ
+    // ?Activate@mmWaypointObject@@QAEXXZ
     ARTS_IMPORT void Activate();
 
-    // 0x430550 | ?Deactivate@mmWaypointObject@@QAEXXZ
+    // ?Deactivate@mmWaypointObject@@QAEXXZ
     ARTS_IMPORT void Deactivate();
 
-    // 0x4305D0 | ?Move@mmWaypointObject@@QAEXXZ
+    // ?Move@mmWaypointObject@@QAEXXZ
     ARTS_IMPORT void Move();
 
-    // 0x430520 | ?Reset@mmWaypointObject@@UAEXXZ
+    // ?Reset@mmWaypointObject@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x430560 | ?SetHeading@mmWaypointObject@@QAEXM@Z
+    // ?SetHeading@mmWaypointObject@@QAEXM@Z
     ARTS_IMPORT void SetHeading(f32 arg1);
 
-    // 0x430530 | ?Update@mmWaypointObject@@UAEXXZ
+    // ?Update@mmWaypointObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x2C];

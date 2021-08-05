@@ -24,7 +24,7 @@ define_dummy_symbol(mmui_graphics);
 #include "mmcityinfo/state.h"
 #include "pcwindis/setupdata.h"
 
-// 0x49A050 | ?SetTexQualString@@YAXXZ
+// ?SetTexQualString@@YAXXZ
 ARTS_IMPORT /*static*/ void SetTexQualString();
 
 ARTS_IMPORT extern i32 MaxTextureQuality;

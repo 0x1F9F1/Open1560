@@ -40,39 +40,39 @@
 
 class UILabel final : public uiWidget
 {
-    // const UILabel::`vftable' @ 0x61EB28
+    // const UILabel::`vftable'
 
 public:
-    // 0x4B9600 | ??0UILabel@@QAE@XZ
+    // ??0UILabel@@QAE@XZ
     ARTS_IMPORT UILabel();
 
-    // 0x4B98C0 | ??_GUILabel@@UAEPAXI@Z
-    // 0x4B98C0 | ??_EUILabel@@UAEPAXI@Z
-    // 0x4B9690 | ??1UILabel@@UAE@XZ
+    // ??_GUILabel@@UAEPAXI@Z
+    // ??_EUILabel@@UAEPAXI@Z
+    // ??1UILabel@@UAE@XZ
     ARTS_IMPORT ~UILabel() override;
 
-    // 0x4B98F0 | ?Action@UILabel@@UAEXTeqEvent@@@Z | inline
+    // ?Action@UILabel@@UAEXTeqEvent@@@Z | inline
     ARTS_EXPORT void Action(union eqEvent arg1) override;
 
-    // 0x4B96F0 | ?Init@UILabel@@QAEXPAULocString@@HMMMMH@Z
+    // ?Init@UILabel@@QAEXPAULocString@@HMMMMH@Z
     ARTS_IMPORT void Init(struct LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7);
 
-    // 0x4B9820 | ?SetBlink@UILabel@@QAEXH@Z | unused
+    // ?SetBlink@UILabel@@QAEXH@Z | unused
     ARTS_IMPORT void SetBlink(i32 arg1);
 
-    // 0x4B97B0 | ?SetText@UILabel@@QAEXPAULocString@@@Z
+    // ?SetText@UILabel@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetText(struct LocString* arg1);
 
-    // 0x4B9850 | ?Switch@UILabel@@UAEXH@Z
+    // ?Switch@UILabel@@UAEXH@Z
     ARTS_EXPORT void Switch(i32 arg1) override;
 
-    // 0x4B9860 | ?SwitchState@UILabel@@QAEXH@Z
+    // ?SwitchState@UILabel@@QAEXH@Z
     ARTS_IMPORT void SwitchState(i32 arg1);
 
-    // 0x4B97D0 | ?Update@UILabel@@UAEXXZ
+    // ?Update@UILabel@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x705A10 | ?TextHeight@UILabel@@2MA
+    // ?TextHeight@UILabel@@2MA
     ARTS_IMPORT static f32 TextHeight;
 
     u8 gap74[0x14];

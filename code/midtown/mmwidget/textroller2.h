@@ -44,52 +44,52 @@
 
 class UITextRoller2 final : public uiWidget
 {
-    // const UITextRoller2::`vftable' @ 0x61ED08
+    // const UITextRoller2::`vftable'
 
 public:
-    // 0x4BABB0 | ??0UITextRoller2@@QAE@XZ
+    // ??0UITextRoller2@@QAE@XZ
     ARTS_IMPORT UITextRoller2();
 
-    // 0x4BBA50 | ??_EUITextRoller2@@UAEPAXI@Z
-    // 0x4BBA50 | ??_GUITextRoller2@@UAEPAXI@Z
-    // 0x4BAC60 | ??1UITextRoller2@@UAE@XZ
+    // ??_EUITextRoller2@@UAEPAXI@Z
+    // ??_GUITextRoller2@@UAEPAXI@Z
+    // ??1UITextRoller2@@UAE@XZ
     ARTS_IMPORT ~UITextRoller2() override;
 
-    // 0x4BB4C0 | ?Action@UITextRoller2@@UAEXTeqEvent@@@Z
+    // ?Action@UITextRoller2@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4BB980 | ?Cull@UITextRoller2@@UAEXXZ
+    // ?Cull@UITextRoller2@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4BB950 | ?Dec@UITextRoller2@@QAEHXZ
+    // ?Dec@UITextRoller2@@QAEHXZ
     ARTS_IMPORT i32 Dec();
 
-    // 0x4BB5A0 | ?EvalMouseXY@UITextRoller2@@QAEXMM@Z
+    // ?EvalMouseXY@UITextRoller2@@QAEXMM@Z
     ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2);
 
-    // 0x4BB920 | ?Inc@UITextRoller2@@QAEHXZ
+    // ?Inc@UITextRoller2@@QAEHXZ
     ARTS_IMPORT i32 Inc();
 
-    // 0x4BACD0 | ?Init@UITextRoller2@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z
+    // ?Init@UITextRoller2@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z
     ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7,
         i32 arg8, i32 arg9, i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
 
-    // 0x4BB890 | ?SetData@UITextRoller2@@QAEXPAH@Z | unused
+    // ?SetData@UITextRoller2@@QAEXPAH@Z | unused
     ARTS_IMPORT void SetData(i32* arg1);
 
-    // 0x4BB7C0 | ?SetString@UITextRoller2@@QAEXVstring@@@Z
+    // ?SetString@UITextRoller2@@QAEXVstring@@@Z
     ARTS_IMPORT void SetString(class string arg1);
 
-    // 0x4BB8B0 | ?SetText@UITextRoller2@@QAEXXZ
+    // ?SetText@UITextRoller2@@QAEXXZ
     ARTS_IMPORT void SetText();
 
-    // 0x4BB710 | ?SetValue@UITextRoller2@@QAEHH@Z
+    // ?SetValue@UITextRoller2@@QAEHH@Z
     ARTS_IMPORT i32 SetValue(i32 arg1);
 
-    // 0x4BB420 | ?Switch@UITextRoller2@@UAEXH@Z
+    // ?Switch@UITextRoller2@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // 0x4BB3C0 | ?Update@UITextRoller2@@UAEXXZ
+    // ?Update@UITextRoller2@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap74[0xD0];

@@ -34,23 +34,23 @@
 
 class asNetObject : public asNode
 {
-    // const asNetObject::`vftable' @ 0x61CB80
+    // const asNetObject::`vftable'
 
 public:
-    // 0x48B4A0 | ??0asNetObject@@QAE@XZ
+    // ??0asNetObject@@QAE@XZ
     ARTS_IMPORT asNetObject();
 
-    // 0x48B500 | ??_GasNetObject@@UAEPAXI@Z
-    // 0x48B500 | ??_EasNetObject@@UAEPAXI@Z
-    // 0x48B4C0 | ??1asNetObject@@UAE@XZ
+    // ??_GasNetObject@@UAEPAXI@Z
+    // ??_EasNetObject@@UAEPAXI@Z
+    // ??1asNetObject@@UAE@XZ
     ARTS_IMPORT ~asNetObject() override = default;
 
     virtual void SetLocalData() = 0;
 
-    // 0x48B4D0 | ?PositionUpdate@asNetObject@@UAEXPAVMatrix34@@VVector3@@MMM@Z
+    // ?PositionUpdate@asNetObject@@UAEXPAVMatrix34@@VVector3@@MMM@Z
     ARTS_IMPORT virtual void PositionUpdate(class Matrix34* arg1, class Vector3 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x48B4F0 | ?Update@asNetObject@@UAEXXZ
+    // ?Update@asNetObject@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x8];

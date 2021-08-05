@@ -63,76 +63,76 @@
 
 class agiLighter
 {
-    // const agiLighter::`vftable' @ 0x621458
+    // const agiLighter::`vftable'
 
 public:
-    // 0x551740 | ??0agiLighter@@QAE@XZ
+    // ??0agiLighter@@QAE@XZ
     ARTS_IMPORT agiLighter();
 
 protected:
-    // 0x552420 | ??_EagiLighter@@MAEPAXI@Z
-    // 0x552420 | ??_GagiLighter@@MAEPAXI@Z
-    // 0x551750 | ??1agiLighter@@MAE@XZ
+    // ??_EagiLighter@@MAEPAXI@Z
+    // ??_GagiLighter@@MAEPAXI@Z
+    // ??1agiLighter@@MAE@XZ
     ARTS_IMPORT virtual ~agiLighter() = default;
 
 public:
-    // 0x551800 | ?TransformAll@agiLighter@@UAEXPAVMatrix34@@PAVVector3@@I@Z
+    // ?TransformAll@agiLighter@@UAEXPAVMatrix34@@PAVVector3@@I@Z
     ARTS_IMPORT virtual void TransformAll(class Matrix34* arg1, class Vector3* arg2, u32 arg3);
 
     virtual u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) = 0;
 
-    // 0x551760 | ?BeginScene@agiLighter@@SAXXZ
+    // ?BeginScene@agiLighter@@SAXXZ
     ARTS_IMPORT static void BeginScene();
 
-    // 0x551780 | ?DeclareLight@agiLighter@@SAXPAVagiLight@@@Z
+    // ?DeclareLight@agiLighter@@SAXPAVagiLight@@@Z
     ARTS_IMPORT static void DeclareLight(class agiLight* arg1);
 
-    // 0x5517A0 | ?RemoveLight@agiLighter@@SAXPAVagiLight@@@Z
+    // ?RemoveLight@agiLighter@@SAXPAVagiLight@@@Z
     ARTS_IMPORT static void RemoveLight(class agiLight* arg1);
 
-    // 0x7E0170 | ?ACTIVELIGHTS@agiLighter@@2PAPAVagiLight@@A
+    // ?ACTIVELIGHTS@agiLighter@@2PAPAVagiLight@@A
     ARTS_IMPORT static class agiLight* ACTIVELIGHTS[16];
 
-    // 0x7E0080 | ?Attenuate@agiLighter@@2PADA
+    // ?Attenuate@agiLighter@@2PADA
     ARTS_IMPORT static char Attenuate[16];
 
-    // 0x7E0270 | ?CosSpread@agiLighter@@2PAMA
+    // ?CosSpread@agiLighter@@2PAMA
     ARTS_IMPORT static f32 CosSpread[16];
 
-    // 0x7E009C | ?Current@agiLighter@@2HA
+    // ?Current@agiLighter@@2HA
     ARTS_IMPORT static i32 Current;
 
-    // 0x7E01B0 | ?Dir@agiLighter@@2PAVVector3@@A
+    // ?Dir@agiLighter@@2PAVVector3@@A
     ARTS_IMPORT static class Vector3 Dir[16];
 
-    // 0x7E0090 | ?Eye@agiLighter@@2VVector3@@A
+    // ?Eye@agiLighter@@2VVector3@@A
     ARTS_IMPORT static class Vector3 Eye;
 
-    // 0x7E0040 | ?LIGHTS@agiLighter@@2PAPAVagiLight@@A
+    // ?LIGHTS@agiLighter@@2PAPAVagiLight@@A
     ARTS_IMPORT static class agiLight* LIGHTS[16];
 
-    // 0x7E00A4 | ?LMODEL@agiLighter@@2PAVagiLightModel@@A
+    // ?LMODEL@agiLighter@@2PAVagiLightModel@@A
     ARTS_IMPORT static class agiLightModel* LMODEL;
 
-    // 0x7E00A8 | ?LocalViewer@agiLighter@@2HA
+    // ?LocalViewer@agiLighter@@2HA
     ARTS_IMPORT static i32 LocalViewer;
 
-    // 0x7E00B0 | ?Pos@agiLighter@@2PAVVector3@@A
+    // ?Pos@agiLighter@@2PAVVector3@@A
     ARTS_IMPORT static class Vector3 Pos[16];
 
-    // 0x7E0028 | ?Positional@agiLighter@@2PADA
+    // ?Positional@agiLighter@@2PADA
     ARTS_IMPORT static char Positional[16];
 
-    // 0x7E02B0 | ?SceneActive@agiLighter@@2HA
+    // ?SceneActive@agiLighter@@2HA
     ARTS_IMPORT static i32 SceneActive;
 
-    // 0x7E02B8 | ?SceneAmbient@agiLighter@@2VVector3@@A
+    // ?SceneAmbient@agiLighter@@2VVector3@@A
     ARTS_IMPORT static class Vector3 SceneAmbient;
 
-    // 0x7E00A0 | ?SceneCurrent@agiLighter@@2HA
+    // ?SceneCurrent@agiLighter@@2HA
     ARTS_IMPORT static i32 SceneCurrent;
 
-    // 0x7E0038 | ?ShadowMap@agiLighter@@2PAVagiShadowMap@@A
+    // ?ShadowMap@agiLighter@@2PAVagiShadowMap@@A
     ARTS_IMPORT static class agiShadowMap* ShadowMap;
 };
 
@@ -140,18 +140,18 @@ check_size(agiLighter, 0x4);
 
 class agiMonoLighter final : public agiLighter
 {
-    // const agiMonoLighter::`vftable' @ 0x621468
+    // const agiMonoLighter::`vftable'
 
 public:
-    // 0x5519F0 | ??0agiMonoLighter@@QAE@XZ
+    // ??0agiMonoLighter@@QAE@XZ
     ARTS_IMPORT agiMonoLighter();
 
-    // 0x552450 | ??_GagiMonoLighter@@UAEPAXI@Z
-    // 0x552450 | ??_EagiMonoLighter@@UAEPAXI@Z
-    // 0x551A10 | ??1agiMonoLighter@@UAE@XZ
+    // ??_GagiMonoLighter@@UAEPAXI@Z
+    // ??_EagiMonoLighter@@UAEPAXI@Z
+    // ??1agiMonoLighter@@UAE@XZ
     ARTS_IMPORT ~agiMonoLighter() override = default;
 
-    // 0x551A20 | ?LightVertex@agiMonoLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
+    // ?LightVertex@agiMonoLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
     ARTS_IMPORT u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) override;
 };
 
@@ -159,25 +159,25 @@ check_size(agiMonoLighter, 0x4);
 
 class agiRGBLighter final : public agiLighter
 {
-    // const agiRGBLighter::`vftable' @ 0x621478
+    // const agiRGBLighter::`vftable'
 
 public:
-    // 0x551E40 | ??0agiRGBLighter@@QAE@XZ
+    // ??0agiRGBLighter@@QAE@XZ
     ARTS_IMPORT agiRGBLighter();
 
-    // 0x552480 | ??_GagiRGBLighter@@UAEPAXI@Z
-    // 0x552480 | ??_EagiRGBLighter@@UAEPAXI@Z
-    // 0x551E60 | ??1agiRGBLighter@@UAE@XZ
+    // ??_GagiRGBLighter@@UAEPAXI@Z
+    // ??_EagiRGBLighter@@UAEPAXI@Z
+    // ??1agiRGBLighter@@UAE@XZ
     ARTS_IMPORT ~agiRGBLighter() override = default;
 
-    // 0x551E70 | ?LightVertex@agiRGBLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
+    // ?LightVertex@agiRGBLighter@@UAEIIPAUagiLitVtx@@PAVVector3@@@Z
     ARTS_IMPORT u32 LightVertex(u32 arg1, struct agiLitVtx* arg2, class Vector3* arg3) override;
 };
 
 check_size(agiRGBLighter, 0x4);
 
-// 0x7E02B4 | ?MONOLIGHTER@@3VagiMonoLighter@@A
+// ?MONOLIGHTER@@3VagiMonoLighter@@A
 ARTS_IMPORT extern class agiMonoLighter MONOLIGHTER;
 
-// 0x7E0020 | ?RGBLIGHTER@@3VagiRGBLighter@@A
+// ?RGBLIGHTER@@3VagiRGBLighter@@A
 ARTS_IMPORT extern class agiRGBLighter RGBLIGHTER;

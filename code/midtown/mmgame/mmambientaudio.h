@@ -29,13 +29,13 @@
 struct mmAmbientAudio
 {
 public:
-    // 0x427DB0 | ??0mmAmbientAudio@@QAE@PAVmmPlayer@@@Z
+    // ??0mmAmbientAudio@@QAE@PAVmmPlayer@@@Z
     ARTS_IMPORT mmAmbientAudio(class mmPlayer* arg1);
 
-    // 0x427E50 | ??1mmAmbientAudio@@QAE@XZ
+    // ??1mmAmbientAudio@@QAE@XZ
     ARTS_IMPORT ~mmAmbientAudio();
 
-    // 0x427E60 | ?Update@mmAmbientAudio@@QAEXXZ
+    // ?Update@mmAmbientAudio@@QAEXXZ
     ARTS_IMPORT void Update();
 
     u8 gap0[0x14];

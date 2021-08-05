@@ -48,71 +48,71 @@
 
 void Printerf(i32 level, ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x576C70 | ?Displayf@@YAXPBDZZ
+// ?Displayf@@YAXPBDZZ
 ARTS_EXPORT void Displayf(ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x576C90 | ?Printf@@YAXPBDZZ | unused
+// ?Printf@@YAXPBDZZ | unused
 ARTS_EXPORT void Printf(ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x576CB0 | ?Debugf@@YAXPBDZZ
+// ?Debugf@@YAXPBDZZ
 ARTS_EXPORT void Debugf(ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x576CD0 | ?Warningf@@YAXPBDZZ
+// ?Warningf@@YAXPBDZZ
 ARTS_EXPORT void Warningf(ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x576CF0 | ?Errorf@@YAXPBDZZ
+// ?Errorf@@YAXPBDZZ
 ARTS_EXPORT void Errorf(ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x576D10 | ?PErrorf@@YAXPBDZZ | unused
+// ?PErrorf@@YAXPBDZZ | unused
 ARTS_EXPORT void PErrorf(ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x576D60 | ?PDebug@@YAXPBDZZ | unused
+// ?PDebug@@YAXPBDZZ | unused
 ARTS_EXPORT void PDebug(ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x576DB0 | ?Abortf@@YAXPBDZZ
+// ?Abortf@@YAXPBDZZ
 [[noreturn]] ARTS_EXPORT void Abortf(ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x5769C0 | ?DefaultPrinter@@YAXHPBDPAD@Z
+// ?DefaultPrinter@@YAXHPBDPAD@Z
 ARTS_EXPORT void DefaultPrinter(i32 level, char const* format, std::va_list args);
 
-// 0x576E00 | ?LogToCommPort@@YAHHH@Z
+// ?LogToCommPort@@YAHHH@Z
 ARTS_IMPORT i32 LogToCommPort(i32 arg1, i32 arg2);
 
-// 0x576F00 | ?LogToFile@@YAXXZ
+// ?LogToFile@@YAXXZ
 ARTS_EXPORT void LogToFile();
 
-// 0x576EA0 | ?LogToFile@@YAXPAD@Z
+// ?LogToFile@@YAXPAD@Z
 ARTS_EXPORT void LogToFile(const char* file);
 
 void CloseLogFile();
 
 void LogToConsole();
 
-// 0x576E90 | ?LogToMonochromeMonitor@@YAXXZ
+// ?LogToMonochromeMonitor@@YAXXZ
 ARTS_IMPORT void LogToMonochromeMonitor();
 
-// 0x576DD0 | ?Quit@@YAXPBD@Z
+// ?Quit@@YAXPBD@Z
 ARTS_EXPORT void Quit(char const* message = nullptr);
 
-// 0x661AA8 | ?EnableDebugOutput@@3HA
+// ?EnableDebugOutput@@3HA
 ARTS_EXPORT extern b32 EnableDebugOutput;
 
-// 0x661AA4 | ?EnableNormalOutput@@3HA
+// ?EnableNormalOutput@@3HA
 ARTS_EXPORT extern b32 EnableNormalOutput;
 
 #ifdef ARTS_DEV_BUILD
-// 0x90A688 | ?MessageFifo@@3PAY0FA@DA
+// ?MessageFifo@@3PAY0FA@DA
 extern char MessageFifo[32][256];
 
-// 0x90A680 | ?MessageFirst@@3HA
+// ?MessageFirst@@3HA
 ARTS_EXPORT extern i32 MessageFirst;
 #endif
 
-// 0x90A684 | ?MonoPointer@@3PAGA
+// ?MonoPointer@@3PAGA
 ARTS_EXPORT extern u16* MonoPointer;
 
-// 0x661AB8 | ?Printer@@3P6AXHPBDPAD@ZA
+// ?Printer@@3P6AXHPBDPAD@ZA
 ARTS_EXPORT extern void (*Printer)(i32 level, char const* format, std::va_list args);
 
-// 0x661AC0 | ?__assertFailed@@3PADA
+// ?__assertFailed@@3PADA
 ARTS_EXPORT extern char __assertFailed[];

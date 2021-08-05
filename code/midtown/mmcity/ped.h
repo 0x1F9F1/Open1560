@@ -48,32 +48,32 @@
 
 class mmPed final : public mmYInstance
 {
-    // const mmPed::`vftable' @ 0x61D268
+    // const mmPed::`vftable'
 
 public:
-    // 0x497800 | ??0mmPed@@QAE@XZ
+    // ??0mmPed@@QAE@XZ
     ARTS_IMPORT mmPed();
 
-    // 0x497D90 | ??_EmmPed@@UAEPAXI@Z
-    // 0x4978B0 | ??1mmPed@@UAE@XZ
+    // ??_EmmPed@@UAEPAXI@Z
+    // ??1mmPed@@UAE@XZ
     ARTS_IMPORT ~mmPed() override = default;
 
-    // 0x4978E0 | ?Draw@mmPed@@UAIXH@Z
+    // ?Draw@mmPed@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
-    // 0x497C10 | ?GetClass@mmPed@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmPed@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x497820 | ?Init@mmPed@@QAEXPADAAVVector3@@@Z
+    // ?Init@mmPed@@QAEXPADAAVVector3@@@Z
     ARTS_IMPORT void Init(char* arg1, class Vector3& arg2);
 
-    // 0x497930 | ?ToMatrix@mmPed@@UAIAAVMatrix34@@AAV2@@Z
+    // ?ToMatrix@mmPed@@UAIAAVMatrix34@@AAV2@@Z
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
-    // 0x4978C0 | ?Update@mmPed@@QAEXXZ
+    // ?Update@mmPed@@QAEXXZ
     ARTS_IMPORT void Update();
 
-    // 0x497A90 | ?DeclareFields@mmPed@@SAXXZ
+    // ?DeclareFields@mmPed@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap2C[0x8];
@@ -83,26 +83,26 @@ check_size(mmPed, 0x34);
 
 class mmPedManager final : public asNode
 {
-    // const mmPedManager::`vftable' @ 0x61D2D0
+    // const mmPedManager::`vftable'
 
 public:
-    // 0x497980 | ??0mmPedManager@@QAE@XZ
+    // ??0mmPedManager@@QAE@XZ
     ARTS_IMPORT mmPedManager();
 
-    // 0x497DF0 | ??_EmmPedManager@@UAEPAXI@Z
-    // 0x4979A0 | ??1mmPedManager@@UAE@XZ
+    // ??_EmmPedManager@@UAEPAXI@Z
+    // ??1mmPedManager@@UAE@XZ
     ARTS_IMPORT ~mmPedManager() override = default;
 
-    // 0x497D80 | ?GetClass@mmPedManager@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmPedManager@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4979B0 | ?Init@mmPedManager@@QAEXH@Z | unused
+    // ?Init@mmPedManager@@QAEXH@Z | unused
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x497A60 | ?Update@mmPedManager@@UAEXXZ
+    // ?Update@mmPedManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x497C20 | ?DeclareFields@mmPedManager@@SAXXZ
+    // ?DeclareFields@mmPedManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0xC];
@@ -110,8 +110,8 @@ public:
 
 check_size(mmPedManager, 0x2C);
 
-// 0x705740 | ?mmPedManagerMetaClass@@3VMetaClass@@A
+// ?mmPedManagerMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmPedManagerMetaClass;
 
-// 0x705768 | ?mmPedMetaClass@@3VMetaClass@@A
+// ?mmPedMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmPedMetaClass;

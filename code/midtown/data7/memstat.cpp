@@ -22,7 +22,7 @@ define_dummy_symbol(data7_memstat);
 
 #include "memory/allocator.h"
 
-// 0x578B80 | ?getMem@@YAHXZ
+// ?getMem@@YAHXZ
 ARTS_EXPORT /*static*/ isize getMem()
 {
     return ALLOCATOR.GetHeapUsed();

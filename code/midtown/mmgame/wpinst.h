@@ -44,36 +44,36 @@
 
 class mmWaypointInstance final : public mmStaticInstance
 {
-    // const mmWaypointInstance::`vftable' @ 0x61B168
+    // const mmWaypointInstance::`vftable'
 
 public:
-    // 0x433730 | ??0mmWaypointInstance@@QAE@HMM@Z
+    // ??0mmWaypointInstance@@QAE@HMM@Z
     ARTS_IMPORT mmWaypointInstance(i32 arg1, f32 arg2, f32 arg3);
 
-    // 0x433D30 | ??_EmmWaypointInstance@@UAEPAXI@Z
-    // 0x433780 | ??1mmWaypointInstance@@UAE@XZ
+    // ??_EmmWaypointInstance@@UAEPAXI@Z
+    // ??1mmWaypointInstance@@UAE@XZ
     ARTS_IMPORT ~mmWaypointInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x433B90 | ?AddWidgets@mmWaypointInstance@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmWaypointInstance@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4337A0 | ?ComputeLod@mmWaypointInstance@@UAEHMM@Z
+    // ?ComputeLod@mmWaypointInstance@@UAEHMM@Z
     ARTS_IMPORT i32 ComputeLod(f32 arg1, f32 arg2) override;
 
-    // 0x4337C0 | ?Draw@mmWaypointInstance@@UAIXH@Z
+    // ?Draw@mmWaypointInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
-    // 0x433D20 | ?GetClass@mmWaypointInstance@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmWaypointInstance@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x433790 | ?GetScale@mmWaypointInstance@@UAIMXZ
+    // ?GetScale@mmWaypointInstance@@UAIMXZ
     ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
-    // 0x433D90 | ??_FmmWaypointInstance@@QAEXXZ | invalid name
+    // ??_FmmWaypointInstance@@QAEXXZ | invalid name
 
-    // 0x433BA0 | ?DeclareFields@mmWaypointInstance@@SAXXZ
+    // ?DeclareFields@mmWaypointInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap38[0xC];
@@ -81,5 +81,5 @@ public:
 
 check_size(mmWaypointInstance, 0x44);
 
-// 0x6A7800 | ?mmWaypointInstanceMetaClass@@3VMetaClass@@A
+// ?mmWaypointInstanceMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmWaypointInstanceMetaClass;

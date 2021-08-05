@@ -48,60 +48,60 @@
 
 class mmMultiBlitz final : public mmGameMulti
 {
-    // const mmMultiBlitz::`vftable' @ 0x61A7D8
+    // const mmMultiBlitz::`vftable'
 
 public:
-    // 0x418EE0 | ??0mmMultiBlitz@@QAE@XZ
+    // ??0mmMultiBlitz@@QAE@XZ
     ARTS_IMPORT mmMultiBlitz();
 
-    // 0x41A830 | ??_EmmMultiBlitz@@UAEPAXI@Z
-    // 0x418F50 | ??1mmMultiBlitz@@UAE@XZ
+    // ??_EmmMultiBlitz@@UAEPAXI@Z
+    // ??1mmMultiBlitz@@UAE@XZ
     ARTS_IMPORT ~mmMultiBlitz() override;
 
-    // 0x41A1C0 | ?GameMessage@mmMultiBlitz@@UAEXPAUNETGAME_MSG@@@Z
+    // ?GameMessage@mmMultiBlitz@@UAEXPAUNETGAME_MSG@@@Z
     ARTS_IMPORT void GameMessage(struct NETGAME_MSG* arg1) override;
 
-    // 0x41A6D0 | ?GetClass@mmMultiBlitz@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmMultiBlitz@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x41A8A0 | ?GetWaypoints@mmMultiBlitz@@UAEPAVmmWaypoints@@XZ | inline
+    // ?GetWaypoints@mmMultiBlitz@@UAEPAVmmWaypoints@@XZ | inline
     ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
 
-    // 0x419010 | ?Init@mmMultiBlitz@@QAEHXZ
+    // ?Init@mmMultiBlitz@@QAEHXZ
     ARTS_IMPORT i32 Init();
 
-    // 0x419230 | ?InitGameObjects@mmMultiBlitz@@UAEXXZ
+    // ?InitGameObjects@mmMultiBlitz@@UAEXXZ
     ARTS_IMPORT void InitGameObjects() override;
 
-    // 0x4191B0 | ?InitHUD@mmMultiBlitz@@UAEXXZ
+    // ?InitHUD@mmMultiBlitz@@UAEXXZ
     ARTS_IMPORT void InitHUD() override;
 
-    // 0x419140 | ?InitMyPlayer@mmMultiBlitz@@UAEXXZ
+    // ?InitMyPlayer@mmMultiBlitz@@UAEXXZ
     ARTS_IMPORT void InitMyPlayer() override;
 
-    // 0x4194C0 | ?InitNetworkPlayers@mmMultiBlitz@@UAEXXZ
+    // ?InitNetworkPlayers@mmMultiBlitz@@UAEXXZ
     ARTS_IMPORT void InitNetworkPlayers() override;
 
-    // 0x41A470 | ?PlayTimerWarning@mmMultiBlitz@@QAEXM@Z
+    // ?PlayTimerWarning@mmMultiBlitz@@QAEXM@Z
     ARTS_IMPORT void PlayTimerWarning(f32 arg1);
 
-    // 0x419820 | ?Reset@mmMultiBlitz@@UAEXXZ
+    // ?Reset@mmMultiBlitz@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x41A030 | ?SystemMessage@mmMultiBlitz@@UAEXPAUNETSYS_MSG@@@Z
+    // ?SystemMessage@mmMultiBlitz@@UAEXPAUNETSYS_MSG@@@Z
     ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
 
-    // 0x419910 | ?UpdateGame@mmMultiBlitz@@UAEXXZ
+    // ?UpdateGame@mmMultiBlitz@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;
 
-    // 0x4198D0 | ?UpdateGameInput@mmMultiBlitz@@UAEXH@Z
+    // ?UpdateGameInput@mmMultiBlitz@@UAEXH@Z
     ARTS_IMPORT void UpdateGameInput(i32 arg1) override;
 
-    // 0x41A550 | ?DeclareFields@mmMultiBlitz@@SAXXZ
+    // ?DeclareFields@mmMultiBlitz@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x41A420 | ?SendPlayerFinish@mmMultiBlitz@@AAEXXZ
+    // ?SendPlayerFinish@mmMultiBlitz@@AAEXXZ
     ARTS_IMPORT void SendPlayerFinish();
 
     u8 gap1EEA8[0x10];
@@ -109,5 +109,5 @@ private:
 
 check_size(mmMultiBlitz, 0x1EEB8);
 
-// 0x6A7170 | ?mmMultiBlitzMetaClass@@3VMetaClass@@A
+// ?mmMultiBlitzMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmMultiBlitzMetaClass;

@@ -36,27 +36,27 @@
 
 class agiBILight final : public agiLight
 {
-    // const agiBILight::`vftable' @ 0x621528
+    // const agiBILight::`vftable'
 
 public:
-    // 0x555370 | ??0agiBILight@@QAE@PAVagiPipeline@@@Z
+    // ??0agiBILight@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiBILight(class agiPipeline* arg1);
 
-    // 0x555430 | ??_EagiBILight@@UAEPAXI@Z
-    // 0x555430 | ??_GagiBILight@@UAEPAXI@Z
-    // 0x555390 | ??1agiBILight@@UAE@XZ
+    // ??_EagiBILight@@UAEPAXI@Z
+    // ??_GagiBILight@@UAEPAXI@Z
+    // ??1agiBILight@@UAE@XZ
     ARTS_IMPORT ~agiBILight() override;
 
-    // 0x5553E0 | ?BeginGfx@agiBILight@@UAEHXZ
+    // ?BeginGfx@agiBILight@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
-    // 0x555400 | ?EndGfx@agiBILight@@UAEXXZ
+    // ?EndGfx@agiBILight@@UAEXXZ
     ARTS_IMPORT void EndGfx() override;
 
-    // 0x555420 | ?Remove@agiBILight@@UAEXXZ
+    // ?Remove@agiBILight@@UAEXXZ
     ARTS_IMPORT void Remove() override;
 
-    // 0x555410 | ?Update@agiBILight@@UAEHXZ
+    // ?Update@agiBILight@@UAEHXZ
     ARTS_IMPORT i32 Update() override;
 };
 

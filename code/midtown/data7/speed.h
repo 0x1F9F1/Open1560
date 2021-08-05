@@ -26,8 +26,8 @@
     0x57CF50 | unsigned int __cdecl ComputeCpuSpeed(void) | ?ComputeCpuSpeed@@YAIXZ
 */
 
-// 0x57CF50 | ?ComputeCpuSpeed@@YAIXZ
+// ?ComputeCpuSpeed@@YAIXZ
 ARTS_EXPORT u32 ComputeCpuSpeed(); // Compute CPU speed in MHz (cycles per microsecond)
 
-// 0x57CE90 | ?__ComputeCpuSpeed@@YAIXZ
+// ?__ComputeCpuSpeed@@YAIXZ
 // u32 __ComputeCpuSpeed();

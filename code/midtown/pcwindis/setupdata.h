@@ -109,25 +109,25 @@ struct dxiRendererInfo_t
 
 check_size(dxiRendererInfo_t, 0x198);
 
-// 0x574B00 | ?dxiReadConfigFile@@YAHXZ
+// ?dxiReadConfigFile@@YAHXZ
 ARTS_EXPORT b32 dxiReadConfigFile();
 
-// 0x574E90 | ?dxiWriteConfigFile@@YAXXZ
+// ?dxiWriteConfigFile@@YAXXZ
 ARTS_EXPORT void dxiWriteConfigFile();
 
-// 0x5749B0 | ?dxiResClosestMatch@@YAHHHH@Z
+// ?dxiResClosestMatch@@YAHHHH@Z
 ARTS_EXPORT i32 dxiResClosestMatch(i32 renderer, i32 width, i32 height);
 
-// 0x574A60 | ?dxiResGetRecommended@@YAHHH@Z
+// ?dxiResGetRecommended@@YAHHH@Z
 ARTS_EXPORT i32 dxiResGetRecommended(i32 renderer, i32 cpu_speed);
 
-// 0x909680 | ?dxiInfo@@3PAUdxiRendererInfo_t@@A
+// ?dxiInfo@@3PAUdxiRendererInfo_t@@A
 ARTS_EXPORT extern struct dxiRendererInfo_t dxiInfo[16];
 
-// 0x661380 | ?dxiRendererChoice@@3HA
+// ?dxiRendererChoice@@3HA
 ARTS_EXPORT extern i32 dxiRendererChoice;
 
-// 0x90A350 | ?dxiRendererCount@@3HA
+// ?dxiRendererCount@@3HA
 ARTS_EXPORT extern i32 dxiRendererCount;
 
 inline dxiRendererInfo_t& GetRendererInfo()

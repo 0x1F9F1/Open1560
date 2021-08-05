@@ -48,72 +48,72 @@
 class mmSurfaceAudio
 {
 public:
-    // 0x487110 | ??0mmSurfaceAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z
+    // ??0mmSurfaceAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z
     ARTS_IMPORT mmSurfaceAudio(class mmCarSim* arg1, class Vector3* arg2);
 
-    // 0x487510 | ??1mmSurfaceAudio@@QAE@XZ
+    // ??1mmSurfaceAudio@@QAE@XZ
     ARTS_IMPORT ~mmSurfaceAudio();
 
-    // 0x487B00 | ?DisableSurface@mmSurfaceAudio@@QAEXXZ | unused
+    // ?DisableSurface@mmSurfaceAudio@@QAEXXZ | unused
     ARTS_IMPORT void DisableSurface();
 
-    // 0x487740 | ?EchoOff@mmSurfaceAudio@@QAEXPAVmmCarSim@@@Z
+    // ?EchoOff@mmSurfaceAudio@@QAEXPAVmmCarSim@@@Z
     ARTS_IMPORT void EchoOff(class mmCarSim* arg1);
 
-    // 0x487630 | ?EchoOn@mmSurfaceAudio@@QAEXPAVmmCarSim@@M@Z
+    // ?EchoOn@mmSurfaceAudio@@QAEXPAVmmCarSim@@M@Z
     ARTS_IMPORT void EchoOn(class mmCarSim* arg1, f32 arg2);
 
-    // 0x4877F0 | ?EnableAir@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z | unused
+    // ?EnableAir@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z | unused
     ARTS_IMPORT i32 EnableAir(class mmCarSim* arg1);
 
-    // 0x487970 | ?EnableSurface@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z
+    // ?EnableSurface@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z
     ARTS_IMPORT i32 EnableSurface(class mmCarSim* arg1);
 
-    // 0x4878C0 | ?EnableSuspension@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z
+    // ?EnableSuspension@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z
     ARTS_IMPORT i32 EnableSuspension(class mmCarSim* arg1);
 
-    // 0x487580 | ?EnableTireWobble@mmSurfaceAudio@@QAEXXZ
+    // ?EnableTireWobble@mmSurfaceAudio@@QAEXXZ
     ARTS_IMPORT void EnableTireWobble();
 
-    // 0x488E90 | ?OnTwoWheels@mmSurfaceAudio@@QAEFXZ | unused
+    // ?OnTwoWheels@mmSurfaceAudio@@QAEFXZ | unused
     ARTS_IMPORT i16 OnTwoWheels();
 
-    // 0x487B20 | ?SetWheelPointers@mmSurfaceAudio@@QAEXPAVmmWheel@@000@Z
+    // ?SetWheelPointers@mmSurfaceAudio@@QAEXPAVmmWheel@@000@Z
     ARTS_IMPORT void SetWheelPointers(
         class mmWheel* arg1, class mmWheel* arg2, class mmWheel* arg3, class mmWheel* arg4);
 
-    // 0x488F20 | ?SetWobblePitch@mmSurfaceAudio@@QAEXMM@Z
+    // ?SetWobblePitch@mmSurfaceAudio@@QAEXMM@Z
     ARTS_IMPORT void SetWobblePitch(f32 arg1, f32 arg2);
 
-    // 0x488F40 | ?SetWobbleVol@mmSurfaceAudio@@QAEXMM@Z
+    // ?SetWobbleVol@mmSurfaceAudio@@QAEXMM@Z
     ARTS_IMPORT void SetWobbleVol(f32 arg1, f32 arg2);
 
-    // 0x487B50 | ?Update@mmSurfaceAudio@@QAEXM@Z
+    // ?Update@mmSurfaceAudio@@QAEXM@Z
     ARTS_IMPORT void Update(f32 arg1);
 
-    // 0x4882C0 | ?UpdateSkidClear@mmSurfaceAudio@@QAEXM@Z
+    // ?UpdateSkidClear@mmSurfaceAudio@@QAEXM@Z
     ARTS_IMPORT void UpdateSkidClear(f32 arg1);
 
-    // 0x488680 | ?UpdateSkidRain@mmSurfaceAudio@@QAEXM@Z
+    // ?UpdateSkidRain@mmSurfaceAudio@@QAEXM@Z
     ARTS_IMPORT void UpdateSkidRain(f32 arg1);
 
-    // 0x488A50 | ?UpdateSkidSnow@mmSurfaceAudio@@QAEXM@Z
+    // ?UpdateSkidSnow@mmSurfaceAudio@@QAEXM@Z
     ARTS_IMPORT void UpdateSkidSnow(f32 arg1);
 
-    // 0x487D30 | ?UpdateSurface@mmSurfaceAudio@@QAEXM@Z
+    // ?UpdateSurface@mmSurfaceAudio@@QAEXM@Z
     ARTS_IMPORT void UpdateSurface(f32 arg1);
 
-    // 0x487FB0 | ?UpdateSurfaceSnow@mmSurfaceAudio@@QAEXM@Z
+    // ?UpdateSurfaceSnow@mmSurfaceAudio@@QAEXM@Z
     ARTS_IMPORT void UpdateSurfaceSnow(f32 arg1);
 
-    // 0x488D80 | ?UpdateSuspension@mmSurfaceAudio@@QAEXXZ
+    // ?UpdateSuspension@mmSurfaceAudio@@QAEXXZ
     ARTS_IMPORT void UpdateSuspension();
 
-    // 0x487BE0 | ?UpdateTireWobble@mmSurfaceAudio@@QAEXXZ
+    // ?UpdateTireWobble@mmSurfaceAudio@@QAEXXZ
     ARTS_IMPORT void UpdateTireWobble();
 
 private:
-    // 0x488190 | ?PlayCobble@mmSurfaceAudio@@AAEXM@Z
+    // ?PlayCobble@mmSurfaceAudio@@AAEXM@Z
     ARTS_IMPORT void PlayCobble(f32 arg1);
 
     u8 gap0[0xAC];

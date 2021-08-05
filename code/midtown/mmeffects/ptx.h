@@ -51,40 +51,40 @@ class Matrix34;
 
 class asParticles final : public asNode
 {
-    // const asParticles::`vftable' @ 0x6206F0
+    // const asParticles::`vftable'
 
 public:
-    // 0x5000B0 | ??0asParticles@@QAE@XZ
+    // ??0asParticles@@QAE@XZ
     ARTS_EXPORT asParticles();
 
-    // 0x5009A0 | ??_EasParticles@@UAEPAXI@Z
-    // 0x500120 | ??1asParticles@@UAE@XZ
+    // ??_EasParticles@@UAEPAXI@Z
+    // ??1asParticles@@UAE@XZ
     ARTS_EXPORT ~asParticles() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x500750 | ?AddWidgets@asParticles@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asParticles@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* bank) override;
 #endif
 
-    // 0x5005F0 | ?Blast@asParticles@@QAEXHPAVasBirthRule@@@Z
+    // ?Blast@asParticles@@QAEXHPAVasBirthRule@@@Z
     ARTS_EXPORT void Blast(i32 num_sparks, class asBirthRule* birth_rule);
 
-    // 0x5006B0 | ?Cull@asParticles@@UAEXXZ
+    // ?Cull@asParticles@@UAEXXZ
     ARTS_EXPORT void Cull() override;
 
-    // 0x5001A0 | ?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z
+    // ?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z
     ARTS_EXPORT void Init(i32 max_particles, i32 arg2, i32 arg3, i32 vert_count, struct agiMeshCardVertex* vertices);
 
-    // 0x500210 | ?Reset@asParticles@@UAEXXZ
+    // ?Reset@asParticles@@UAEXXZ
     ARTS_EXPORT void Reset() override;
 
-    // 0x500250 | ?SetTexture@asParticles@@QAEXPAD@Z
+    // ?SetTexture@asParticles@@QAEXPAD@Z
     ARTS_EXPORT void SetTexture(char* name);
 
-    // 0x500220 | ?SetTexture@asParticles@@QAEXPAVagiTexDef@@@Z
+    // ?SetTexture@asParticles@@QAEXPAVagiTexDef@@@Z
     ARTS_EXPORT void SetTexture(agiTexDef* texture);
 
-    // 0x5002A0 | ?Update@asParticles@@UAEXXZ
+    // ?Update@asParticles@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
     VIRTUAL_META_DECLARE;
@@ -108,11 +108,11 @@ private:
 
 check_size(asParticles, 0x6C);
 
-// 0x500690 | ?cmpPtx@@YAHPBX0@Z | unused
+// ?cmpPtx@@YAHPBX0@Z | unused
 ARTS_IMPORT i32 cmpPtx(void const* arg1, void const* arg2);
 
-// 0x7195D0 | ?EnablePtxSorting@@3HA
+// ?EnablePtxSorting@@3HA
 ARTS_IMPORT extern i32 EnablePtxSorting;
 
-// 0x7195A8 | ?asParticlesMetaClass@@3VMetaClass@@A
+// ?asParticlesMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asParticlesMetaClass;

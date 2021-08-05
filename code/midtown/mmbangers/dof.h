@@ -32,27 +32,27 @@
 
 class mmDofBangerInstance : public mmUnhitBangerInstance
 {
-    // const mmDofBangerInstance::`vftable' @ 0x61F478
+    // const mmDofBangerInstance::`vftable'
 
 public:
-    // 0x4C4EC0 | ??_GmmDofBangerInstance@@UAEPAXI@Z
-    // 0x4C4EC0 | ??_EmmDofBangerInstance@@UAEPAXI@Z
-    // 0x4C4EE0 | ??1mmDofBangerInstance@@UAE@XZ | inline
+    // ??_GmmDofBangerInstance@@UAEPAXI@Z
+    // ??_EmmDofBangerInstance@@UAEPAXI@Z
+    // ??1mmDofBangerInstance@@UAE@XZ | inline
     ARTS_IMPORT ~mmDofBangerInstance() override = default;
 
-    // 0x4C4E50 | ?FromMatrix@mmDofBangerInstance@@UAIXABVMatrix34@@@Z | inline
+    // ?FromMatrix@mmDofBangerInstance@@UAIXABVMatrix34@@@Z | inline
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
-    // 0x4C4E90 | ?GetPos@mmDofBangerInstance@@UAIAAVVector3@@XZ | inline
+    // ?GetPos@mmDofBangerInstance@@UAIAAVVector3@@XZ | inline
     ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
-    // 0x4CB7E0 | ?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
+    // ?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
     ARTS_IMPORT i32 Init(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
 
-    // 0x4CB7D0 | ?SizeOf@mmDofBangerInstance@@UAEIXZ
+    // ?SizeOf@mmDofBangerInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
 
-    // 0x4C4E60 | ?ToMatrix@mmDofBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | inline
+    // ?ToMatrix@mmDofBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | inline
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
     u8 gap30[0x4];
@@ -63,10 +63,10 @@ check_size(mmDofBangerInstance, 0x34);
 class mmFacadeBangerInstance final : public mmBangerInstance
 {
 public:
-    // 0x4CB940 | ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ | unused
+    // ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ | unused
     ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos();
 
-    // 0x4CB890 | ?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | unused
+    // ?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | unused
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1);
 
     u8 gap1C[0x14];
@@ -77,7 +77,7 @@ check_size(mmFacadeBangerInstance, 0x30);
 class mmGlassBangerInstance final : public mmBangerInstance
 {
 private:
-    // 0x4CB9C0 | ?Draw@mmGlassBangerInstance@@EAIXH@Z | unused
+    // ?Draw@mmGlassBangerInstance@@EAIXH@Z | unused
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1);
 };
 

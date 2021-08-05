@@ -20,11 +20,11 @@ define_dummy_symbol(mmui_pu_graphics);
 
 #include "pu_graphics.h"
 
-// 0x4A9EC0 | ?fix_lighting_lame@@YAXXZ
+// ?fix_lighting_lame@@YAXXZ
 ARTS_IMPORT /*static*/ void fix_lighting_lame();
 
-// 0x4A9E90 | ?toggle_filter@@YAXXZ
+// ?toggle_filter@@YAXXZ
 ARTS_IMPORT /*static*/ void toggle_filter();
 
-// 0x4A9E70 | ?toggle_interlace@@YAXXZ
+// ?toggle_interlace@@YAXXZ
 ARTS_IMPORT /*static*/ void toggle_interlace();

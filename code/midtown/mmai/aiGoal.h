@@ -24,10 +24,10 @@
 
 class aiGoal
 {
-    // const aiGoal::`vftable' @ 0x61BAF8
+    // const aiGoal::`vftable'
 
 public:
-    // 0x45F6F0 | ??1aiGoal@@QAE@XZ | inline
+    // ??1aiGoal@@QAE@XZ | inline
     ARTS_IMPORT ~aiGoal() = default;
 
     virtual void Init() = 0;
@@ -38,7 +38,7 @@ public:
 
     virtual i32 Priority() = 0;
 
-    // 0x45F700 | ?Update@aiGoal@@UAEXXZ | inline
+    // ?Update@aiGoal@@UAEXXZ | inline
     ARTS_IMPORT virtual void Update();
 
     u8 gap4[0x4];

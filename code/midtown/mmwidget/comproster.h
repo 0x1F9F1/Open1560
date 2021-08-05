@@ -43,49 +43,49 @@
 
 class mmCompRoster final : public mmCompBase
 {
-    // const mmCompRoster::`vftable' @ 0x61E978
+    // const mmCompRoster::`vftable'
 
 public:
-    // 0x4B7840 | ??0mmCompRoster@@QAE@XZ
+    // ??0mmCompRoster@@QAE@XZ
     ARTS_IMPORT mmCompRoster();
 
-    // 0x4B7C40 | ??_EmmCompRoster@@UAEPAXI@Z
-    // 0x4B7C40 | ??_GmmCompRoster@@UAEPAXI@Z
-    // 0x4B78B0 | ??1mmCompRoster@@UAE@XZ
+    // ??_EmmCompRoster@@UAEPAXI@Z
+    // ??_GmmCompRoster@@UAEPAXI@Z
+    // ??1mmCompRoster@@UAE@XZ
     ARTS_IMPORT ~mmCompRoster() override;
 
-    // 0x4B7C10 | ?Cull@mmCompRoster@@UAEXXZ
+    // ?Cull@mmCompRoster@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x4B7940 | ?Init@mmCompRoster@@QAEXPAD00K@Z
+    // ?Init@mmCompRoster@@QAEXPAD00K@Z
     ARTS_IMPORT void Init(char* arg1, char* arg2, char* arg3, ulong arg4);
 
-    // 0x4B79C0 | ?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z | unused
+    // ?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z | unused
     ARTS_EXPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
         struct LocString* arg7, struct LocString* arg8, i32 arg9);
 
-    // 0x4B79D0 | ?LoadBitmap@mmCompRoster@@QAEXPAD@Z
+    // ?LoadBitmap@mmCompRoster@@QAEXPAD@Z
     ARTS_IMPORT void LoadBitmap(char* arg1);
 
-    // 0x4B7A20 | ?Reset@mmCompRoster@@UAEXXZ
+    // ?Reset@mmCompRoster@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4B7BD0 | ?SetBltXY@mmCompRoster@@UAEXMM@Z
+    // ?SetBltXY@mmCompRoster@@UAEXMM@Z
     ARTS_IMPORT void SetBltXY(f32 arg1, f32 arg2) override;
 
-    // 0x4B7BA0 | ?SetGeometry@mmCompRoster@@UAEXMMMM@Z
+    // ?SetGeometry@mmCompRoster@@UAEXMMMM@Z
     ARTS_IMPORT void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
 
-    // 0x4B7B20 | ?SetPosition@mmCompRoster@@UAEXPAVmmTextNode@@HM@Z
+    // ?SetPosition@mmCompRoster@@UAEXPAVmmTextNode@@HM@Z
     ARTS_IMPORT void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
 
-    // 0x4B7A60 | ?SetReady@mmCompRoster@@QAEXH@Z
+    // ?SetReady@mmCompRoster@@QAEXH@Z
     ARTS_IMPORT void SetReady(i32 arg1);
 
-    // 0x4B7A80 | ?SetSubwidgetGeometry@mmCompRoster@@QAEXXZ
+    // ?SetSubwidgetGeometry@mmCompRoster@@QAEXXZ
     ARTS_IMPORT void SetSubwidgetGeometry();
 
-    // 0x4B7A30 | ?Update@mmCompRoster@@UAEXXZ
+    // ?Update@mmCompRoster@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap48[0x48];

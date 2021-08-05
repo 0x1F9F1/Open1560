@@ -134,252 +134,252 @@ class Vector3;
 
 class AudManager final : public asNode
 {
-    // const AudManager::`vftable' @ 0x61FD48
+    // const AudManager::`vftable'
 
 public:
-    // 0x4E8020 | ??0AudManager@@QAE@XZ
+    // ??0AudManager@@QAE@XZ
     ARTS_IMPORT AudManager();
 
-    // 0x4EA1F0 | ??_EAudManager@@UAEPAXI@Z
-    // 0x4E8160 | ??1AudManager@@UAE@XZ
+    // ??_EAudManager@@UAEPAXI@Z
+    // ??1AudManager@@UAE@XZ
     ARTS_IMPORT ~AudManager() override;
 
     ARTS_ZEROED;
 
-    // 0x4E8E40 | ?AddSound@AudManager@@QAEHPAVAudSound@@@Z
+    // ?AddSound@AudManager@@QAEHPAVAudSound@@@Z
     ARTS_IMPORT i32 AddSound(class AudSound* arg1);
 
-    // 0x4E8EA0 | ?AddStream@AudManager@@QAEHPAVAudStream@@@Z
+    // ?AddStream@AudManager@@QAEHPAVAudStream@@@Z
     ARTS_IMPORT i32 AddStream(class AudStream* arg1);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4E9610 | ?AddWidgets@AudManager@@UAEXPAVBank@@@Z
+    // ?AddWidgets@AudManager@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4E97D0 | ?AlwaysEAX@AudManager@@QAEXI@Z
+    // ?AlwaysEAX@AudManager@@QAEXI@Z
     ARTS_IMPORT void AlwaysEAX(u32 arg1);
 
-    // 0x4E95B0 | ?AssignCDBalance@AudManager@@QAEXM@Z
+    // ?AssignCDBalance@AudManager@@QAEXM@Z
     ARTS_IMPORT void AssignCDBalance(f32 arg1);
 
-    // 0x4E9470 | ?AssignCDVolume@AudManager@@QAEXM@Z
+    // ?AssignCDVolume@AudManager@@QAEXM@Z
     ARTS_IMPORT void AssignCDVolume(f32 arg1);
 
-    // 0x4E9570 | ?AssignWaveBalance@AudManager@@QAEXM@Z
+    // ?AssignWaveBalance@AudManager@@QAEXM@Z
     ARTS_IMPORT void AssignWaveBalance(f32 arg1);
 
-    // 0x4E9430 | ?AssignWaveVolume@AudManager@@QAEXM@Z
+    // ?AssignWaveVolume@AudManager@@QAEXM@Z
     ARTS_IMPORT void AssignWaveVolume(f32 arg1);
 
-    // 0x4E8DD0 | ?AttenuateAudSounds@AudManager@@QAEXM@Z | unused
+    // ?AttenuateAudSounds@AudManager@@QAEXM@Z | unused
     ARTS_IMPORT void AttenuateAudSounds(f32 arg1);
 
-    // 0x4E9530 | ?AttenuateCDVolume@AudManager@@QAEXM@Z
+    // ?AttenuateCDVolume@AudManager@@QAEXM@Z
     ARTS_IMPORT void AttenuateCDVolume(f32 arg1);
 
-    // 0x4E94E0 | ?CDIsEnabled@AudManager@@QAEHXZ
+    // ?CDIsEnabled@AudManager@@QAEHXZ
     ARTS_IMPORT i32 CDIsEnabled();
 
-    // 0x4E93A0 | ?CDIsPlaying@AudManager@@QAEFXZ
+    // ?CDIsPlaying@AudManager@@QAEFXZ
     ARTS_IMPORT i16 CDIsPlaying();
 
-    // 0x4E9630 | ?CheckCDFile@AudManager@@QAEEPAD@Z
+    // ?CheckCDFile@AudManager@@QAEEPAD@Z
     ARTS_IMPORT u8 CheckCDFile(char* arg1);
 
-    // 0x4E8390 | ?CheckPriority@AudManager@@QAEHHHH@Z
+    // ?CheckPriority@AudManager@@QAEHHHH@Z
     ARTS_IMPORT i32 CheckPriority(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x4E9810 | ?DSound3DEnabled@AudManager@@QAEIXZ
+    // ?DSound3DEnabled@AudManager@@QAEIXZ
     ARTS_IMPORT u32 DSound3DEnabled();
 
-    // 0x4E82A0 | ?DeallocateADFRecord@AudManager@@QAEXH@Z | unused
+    // ?DeallocateADFRecord@AudManager@@QAEXH@Z | unused
     ARTS_IMPORT void DeallocateADFRecord(i32 arg1);
 
-    // 0x4E8A80 | ?DeallocateCityADF@AudManager@@QAEXXZ | unused
+    // ?DeallocateCityADF@AudManager@@QAEXXZ | unused
     ARTS_IMPORT void DeallocateCityADF();
 
-    // 0x4E8A90 | ?DeallocateDSound@AudManager@@QAEXFF@Z
+    // ?DeallocateDSound@AudManager@@QAEXFF@Z
     ARTS_IMPORT void DeallocateDSound(i16 arg1, i16 arg2);
 
-    // 0x4E8A70 | ?DeallocateUIADF@AudManager@@QAEXXZ
+    // ?DeallocateUIADF@AudManager@@QAEXXZ
     ARTS_IMPORT void DeallocateUIADF();
 
-    // 0x4E9090 | ?Disable@AudManager@@QAEXFF@Z
+    // ?Disable@AudManager@@QAEXFF@Z
     ARTS_IMPORT void Disable(i16 sfx_mode, i16 cd_mode);
 
-    // 0x4E93C0 | ?DisableCD@AudManager@@QAEXXZ | unused
+    // ?DisableCD@AudManager@@QAEXXZ | unused
     ARTS_IMPORT void DisableCD();
 
-    // 0x4E9800 | ?EAXEnabled@AudManager@@QAEIXZ
+    // ?EAXEnabled@AudManager@@QAEIXZ
     ARTS_IMPORT u32 EAXEnabled();
 
-    // 0x4E8FE0 | ?Enable@AudManager@@QAEXPADFF@Z
+    // ?Enable@AudManager@@QAEXPADFF@Z
     ARTS_IMPORT void Enable(char* arg1, i16 arg2, i16 arg3);
 
-    // 0x4E9400 | ?EnableCD@AudManager@@QAEHXZ
+    // ?EnableCD@AudManager@@QAEHXZ
     ARTS_IMPORT i32 EnableCD();
 
-    // 0x4E9EA0 | ?GetActiveDeviceName@AudManager@@QAEPADXZ
+    // ?GetActiveDeviceName@AudManager@@QAEPADXZ
     ARTS_IMPORT char* GetActiveDeviceName();
 
-    // 0x4E95D0 | ?GetCDBalance@AudManager@@QAEMXZ | unused
+    // ?GetCDBalance@AudManager@@QAEMXZ | unused
     ARTS_IMPORT f32 GetCDBalance();
 
-    // 0x4E9F90 | ?GetCDPosition@AudManager@@QAEKPAE000@Z
+    // ?GetCDPosition@AudManager@@QAEKPAE000@Z
     ARTS_IMPORT u32 GetCDPosition(u8* arg1, u8* arg2, u8* arg3, u8* arg4);
 
-    // 0x4E9380 | ?GetCDTrackNum@AudManager@@QAEEXZ
+    // ?GetCDTrackNum@AudManager@@QAEEXZ
     ARTS_IMPORT u8 GetCDTrackNum();
 
-    // 0x4E9500 | ?GetCDVolume@AudManager@@QAEMXZ | unused
+    // ?GetCDVolume@AudManager@@QAEMXZ | unused
     ARTS_IMPORT f32 GetCDVolume();
 
-    // 0x4EA1E0 | ?GetClass@AudManager@@UAEPAVMetaClass@@XZ
+    // ?GetClass@AudManager@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4E9E60 | ?GetDeviceNames@AudManager@@QAEPAPADXZ
+    // ?GetDeviceNames@AudManager@@QAEPAPADXZ
     ARTS_IMPORT char** GetDeviceNames();
 
-    // 0x4E9A60 | ?GetEAXAll@AudManager@@QAEXPAUEAX_REVERBPROPERTIES@@@Z | unused
+    // ?GetEAXAll@AudManager@@QAEXPAUEAX_REVERBPROPERTIES@@@Z | unused
     ARTS_IMPORT void GetEAXAll(EAX_REVERBPROPERTIES* arg1);
 
-    // 0x4E9D60 | ?GetEAXDamping@AudManager@@QAEMXZ | unused
+    // ?GetEAXDamping@AudManager@@QAEMXZ | unused
     ARTS_IMPORT f32 GetEAXDamping();
 
-    // 0x4E9CA0 | ?GetEAXDecayTime@AudManager@@QAEMXZ | unused
+    // ?GetEAXDecayTime@AudManager@@QAEMXZ | unused
     ARTS_IMPORT f32 GetEAXDecayTime();
 
-    // 0x4E9B20 | ?GetEAXEnvironmet@AudManager@@QAEKXZ | unused
+    // ?GetEAXEnvironmet@AudManager@@QAEKXZ | unused
     ARTS_IMPORT u32 GetEAXEnvironmet();
 
-    // 0x4E9BE0 | ?GetEAXReverbVolume@AudManager@@QAEMXZ | unused
+    // ?GetEAXReverbVolume@AudManager@@QAEMXZ | unused
     ARTS_IMPORT f32 GetEAXReverbVolume();
 
-    // 0x4E9FD0 | ?GetMixerPtr@AudManager@@QAEPAVMixerCTL@@XZ
+    // ?GetMixerPtr@AudManager@@QAEPAVMixerCTL@@XZ
     ARTS_IMPORT class MixerCTL* GetMixerPtr();
 
-    // 0x4E9EC0 | ?GetNum3DHalBufs@AudManager@@QAEKXZ
+    // ?GetNum3DHalBufs@AudManager@@QAEKXZ
     ARTS_EXPORT u32 GetNum3DHalBufs();
 
-    // 0x4E9360 | ?GetNumCDTracks@AudManager@@QAEFXZ
+    // ?GetNumCDTracks@AudManager@@QAEFXZ
     ARTS_IMPORT i16 GetNumCDTracks();
 
-    // 0x4E9E80 | ?GetNumDevices@AudManager@@QAEHXZ
+    // ?GetNumDevices@AudManager@@QAEHXZ
     ARTS_IMPORT i32 GetNumDevices();
 
-    // 0x4E9FE0 | ?GetVoiceCommentaryPtr@AudManager@@QAEPAVmmVoiceCommentary@@XZ
+    // ?GetVoiceCommentaryPtr@AudManager@@QAEPAVmmVoiceCommentary@@XZ
     ARTS_IMPORT class mmVoiceCommentary* GetVoiceCommentaryPtr();
 
-    // 0x4E9590 | ?GetWaveBalance@AudManager@@QAEMXZ | unused
+    // ?GetWaveBalance@AudManager@@QAEMXZ | unused
     ARTS_IMPORT f32 GetWaveBalance();
 
-    // 0x4E9450 | ?GetWaveVolume@AudManager@@QAEMXZ | unused
+    // ?GetWaveVolume@AudManager@@QAEMXZ | unused
     ARTS_IMPORT f32 GetWaveVolume();
 
-    // 0x4E86F0 | ?Init@AudManager@@QAEXHIPADFF@Z
+    // ?Init@AudManager@@QAEXHIPADFF@Z
     ARTS_IMPORT void Init(i32 arg1, u32 arg2, char* arg3, i16 arg4, i16 arg5);
 
-    // 0x4E8930 | ?InitCityADF@AudManager@@QAEXHK@Z | unused
+    // ?InitCityADF@AudManager@@QAEXHK@Z | unused
     ARTS_IMPORT void InitCityADF(i32 arg1, u32 arg2);
 
-    // 0x4E89E0 | ?InitUIADF@AudManager@@QAEXHK@Z | unused
+    // ?InitUIADF@AudManager@@QAEXHK@Z | unused
     ARTS_IMPORT void InitUIADF(i32 arg1, u32 arg2);
 
-    // 0x4E97C0 | ?IsAlwaysEAX@AudManager@@QAEIXZ
+    // ?IsAlwaysEAX@AudManager@@QAEIXZ
     ARTS_IMPORT u32 IsAlwaysEAX();
 
-    // 0x4E9600 | ?IsStereo@AudManager@@QAEHXZ
+    // ?IsStereo@AudManager@@QAEHXZ
     ARTS_IMPORT i32 IsStereo();
 
-    // 0x4E8880 | ?LoadCityADF@AudManager@@QAEXHK@Z | unused
+    // ?LoadCityADF@AudManager@@QAEXHK@Z | unused
     ARTS_IMPORT void LoadCityADF(i32 arg1, u32 arg2);
 
-    // 0x4E8820 | ?LoadUIADF@AudManager@@QAEXXZ | unused
+    // ?LoadUIADF@AudManager@@QAEXXZ | unused
     ARTS_IMPORT void LoadUIADF();
 
-    // 0x4E9230 | ?PlayCDTrack@AudManager@@QAEHHH@Z
+    // ?PlayCDTrack@AudManager@@QAEHHH@Z
     ARTS_IMPORT i32 PlayCDTrack(i32 track, b32 restart);
 
-    // 0x4E92B0 | ?PlayCDTrack@AudManager@@QAEHHEEEH@Z
+    // ?PlayCDTrack@AudManager@@QAEHHEEEH@Z
     ARTS_IMPORT i32 PlayCDTrack(i32 arg1, u8 arg2, u8 arg3, u8 arg4, i32 arg5);
 
-    // 0x4E8C10 | ?ReallocateDSound@AudManager@@QAEXPADFF@Z
+    // ?ReallocateDSound@AudManager@@QAEXPADFF@Z
     ARTS_IMPORT void ReallocateDSound(char* arg1, i16 arg2, i16 arg3);
 
-    // 0x4E8EF0 | ?RemoveSound@AudManager@@QAEXPAVAudSound@@H@Z
+    // ?RemoveSound@AudManager@@QAEXPAVAudSound@@H@Z
     ARTS_IMPORT void RemoveSound(class AudSound* arg1, i32 arg2);
 
-    // 0x4E8630 | ?RemoveSoundFromPlayList@AudManager@@QAEXPAVAudSound@@@Z
+    // ?RemoveSoundFromPlayList@AudManager@@QAEXPAVAudSound@@@Z
     ARTS_IMPORT void RemoveSoundFromPlayList(class AudSound* arg1);
 
-    // 0x4E8670 | ?RemoveSoundFromPlayList@AudManager@@QAEXH@Z
+    // ?RemoveSoundFromPlayList@AudManager@@QAEXH@Z
     ARTS_IMPORT void RemoveSoundFromPlayList(i32 arg1);
 
-    // 0x4E8F60 | ?RemoveStream@AudManager@@QAEXPAVAudStream@@H@Z
+    // ?RemoveStream@AudManager@@QAEXPAVAudStream@@H@Z
     ARTS_IMPORT void RemoveStream(class AudStream* arg1, i32 arg2);
 
-    // 0x4E8FD0 | ?Reset@AudManager@@UAEXXZ
+    // ?Reset@AudManager@@UAEXXZ
     ARTS_EXPORT void Reset() override;
 
-    // 0x4E9340 | ?ResumeCDPlay@AudManager@@QAEHXZ | unused
+    // ?ResumeCDPlay@AudManager@@QAEHXZ | unused
     ARTS_IMPORT i32 ResumeCDPlay();
 
-    // 0x4E9DD0 | ?SetBitDepthAndSampleRate@AudManager@@QAEXHK@Z
+    // ?SetBitDepthAndSampleRate@AudManager@@QAEXHK@Z
     ARTS_IMPORT void SetBitDepthAndSampleRate(i32 arg1, u32 arg2);
 
-    // 0x4E94B0 | ?SetCDPlayMode@AudManager@@QAEXE@Z
+    // ?SetCDPlayMode@AudManager@@QAEXE@Z
     ARTS_IMPORT void SetCDPlayMode(u8 arg1);
 
-    // 0x4E9F50 | ?SetDeviceName@AudManager@@QAEXPAD@Z
+    // ?SetDeviceName@AudManager@@QAEXPAD@Z
     ARTS_IMPORT void SetDeviceName(char* arg1);
 
-    // 0x4E9CF0 | ?SetEAXDamping@AudManager@@QAEHM@Z | unused
+    // ?SetEAXDamping@AudManager@@QAEHM@Z | unused
     ARTS_IMPORT i32 SetEAXDamping(f32 arg1);
 
-    // 0x4E9C30 | ?SetEAXDecayTime@AudManager@@QAEHM@Z | unused
+    // ?SetEAXDecayTime@AudManager@@QAEHM@Z | unused
     ARTS_IMPORT i32 SetEAXDecayTime(f32 arg1);
 
-    // 0x4E9AB0 | ?SetEAXEnvironmet@AudManager@@QAEHK@Z | unused
+    // ?SetEAXEnvironmet@AudManager@@QAEHK@Z | unused
     ARTS_IMPORT i32 SetEAXEnvironmet(u32 arg1);
 
-    // 0x4E99F0 | ?SetEAXPreset@AudManager@@QAEHPAUEAX_REVERBPROPERTIES@@@Z
+    // ?SetEAXPreset@AudManager@@QAEHPAUEAX_REVERBPROPERTIES@@@Z
     ARTS_IMPORT i32 SetEAXPreset(EAX_REVERBPROPERTIES* arg1);
 
-    // 0x4E9970 | ?SetEAXPreset@AudManager@@QAEHKMMM@Z
+    // ?SetEAXPreset@AudManager@@QAEHKMMM@Z
     ARTS_IMPORT i32 SetEAXPreset(ulong environment, f32 volume, f32 decay_time, f32 damping);
 
-    // 0x4E9B70 | ?SetEAXReverbVolume@AudManager@@QAEHM@Z | unused
+    // ?SetEAXReverbVolume@AudManager@@QAEHM@Z | unused
     ARTS_IMPORT i32 SetEAXReverbVolume(f32 arg1);
 
-    // 0x4E82D0 | ?SetNumChannels@AudManager@@QAEXH@Z
+    // ?SetNumChannels@AudManager@@QAEXH@Z
     ARTS_IMPORT void SetNumChannels(i32 arg1);
 
-    // 0x4E8DA0 | ?SetStereo@AudManager@@QAEXH@Z | unused
+    // ?SetStereo@AudManager@@QAEXH@Z | unused
     ARTS_IMPORT void SetStereo(i32 arg1);
 
-    // 0x4E9FF0 | ?SetVoiceCommentaryPtr@AudManager@@QAEXPAVmmVoiceCommentary@@@Z
+    // ?SetVoiceCommentaryPtr@AudManager@@QAEXPAVmmVoiceCommentary@@@Z
     ARTS_IMPORT void SetVoiceCommentaryPtr(class mmVoiceCommentary* arg1);
 
-    // 0x4E9180 | ?StopAllSounds@AudManager@@QAEXXZ
+    // ?StopAllSounds@AudManager@@QAEXXZ
     ARTS_IMPORT void StopAllSounds();
 
-    // 0x4E93E0 | ?StopCD@AudManager@@QAEXXZ
+    // ?StopCD@AudManager@@QAEXXZ
     ARTS_IMPORT void StopCD();
 
-    // 0x4E9620 | ?Supports16Bit@AudManager@@QAEFXZ
+    // ?Supports16Bit@AudManager@@QAEFXZ
     ARTS_IMPORT i16 Supports16Bit();
 
-    // 0x4E86C0 | ?Update@AudManager@@UAEXXZ
+    // ?Update@AudManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4E9DB0 | ?UpdatePaused@AudManager@@UAEXXZ
+    // ?UpdatePaused@AudManager@@UAEXXZ
     ARTS_IMPORT void UpdatePaused() override;
 
-    // 0x4E9220 | ?ZeroVolAllSounds@AudManager@@QAEXXZ | unused
+    // ?ZeroVolAllSounds@AudManager@@QAEXXZ | unused
     ARTS_EXPORT void ZeroVolAllSounds();
 
-    // 0x4EA070 | ?DeclareFields@AudManager@@SAXXZ
+    // ?DeclareFields@AudManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     // TODO: Remove const from return type
@@ -387,31 +387,31 @@ public:
     ARTS_DIAGNOSTIC_PUSH;
     ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers");
 
-    // 0x4E9F30 | ?GetCDMusicOnMask@AudManager@@SA?BIXZ
+    // ?GetCDMusicOnMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetCDMusicOnMask();
 
-    // 0x4E9F40 | ?GetCommentaryOnMask@AudManager@@SA?BIXZ
+    // ?GetCommentaryOnMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetCommentaryOnMask();
 
-    // 0x4E9F10 | ?GetDSound3DMask@AudManager@@SA?BIXZ
+    // ?GetDSound3DMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetDSound3DMask();
 
-    // 0x4E9F00 | ?GetEchoOnMask@AudManager@@SA?BIXZ
+    // ?GetEchoOnMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetEchoOnMask();
 
-    // 0x4E9EE0 | ?GetHiResMask@AudManager@@SA?BIXZ
+    // ?GetHiResMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetHiResMask();
 
-    // 0x4E9EF0 | ?GetHiSampleSizeMask@AudManager@@SA?BIXZ
+    // ?GetHiSampleSizeMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetHiSampleSizeMask();
 
-    // 0x4E9F20 | ?GetSoundFXOnMask@AudManager@@SA?BIXZ
+    // ?GetSoundFXOnMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetSoundFXOnMask();
 
-    // 0x4E9ED0 | ?GetStereoOnMask@AudManager@@SA?BIXZ
+    // ?GetStereoOnMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetStereoOnMask();
 
-    // 0x4E97B0 | ?GetUsingEAXMask@AudManager@@SA?BIXZ
+    // ?GetUsingEAXMask@AudManager@@SA?BIXZ
     ARTS_IMPORT static u32 const GetUsingEAXMask();
 
     ARTS_DIAGNOSTIC_POP;
@@ -456,26 +456,26 @@ public:
     EAX_REVERBPROPERTIES* Reverb;
 
 private:
-    // 0x4E9820 | ?CreateListenerSoundObj@AudManager@@AAEIXZ
+    // ?CreateListenerSoundObj@AudManager@@AAEIXZ
     ARTS_IMPORT u32 CreateListenerSoundObj();
 
-    // 0x4E9960 | ?GetListenerEAXObj@AudManager@@AAEPAVCReverb@@XZ
+    // ?GetListenerEAXObj@AudManager@@AAEPAVCReverb@@XZ
     ARTS_IMPORT class CReverb* GetListenerEAXObj();
 
-    // 0x4E9650 | ?Update3DCDMusic@AudManager@@AAEXXZ
+    // ?Update3DCDMusic@AudManager@@AAEXXZ
     ARTS_IMPORT void Update3DCDMusic();
 };
 
 check_size(AudManager, 0xA0);
 
-// 0x4EA000 | ?DeactivateApplication@@YAXXZ
+// ?DeactivateApplication@@YAXXZ
 ARTS_IMPORT void DeactivateApplication();
 
-// 0x4EA040 | ?RestoreApplication@@YAXXZ
+// ?RestoreApplication@@YAXXZ
 ARTS_IMPORT void RestoreApplication();
 
-// 0x719320 | ?AUDMGRPTR@@3PAVAudManager@@A
+// ?AUDMGRPTR@@3PAVAudManager@@A
 ARTS_IMPORT extern class AudManager* AUDMGRPTR;
 
-// 0x7192F8 | ?AudManagerMetaClass@@3VMetaClass@@A
+// ?AudManagerMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass AudManagerMetaClass;

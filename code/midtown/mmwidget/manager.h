@@ -107,182 +107,182 @@ class AudSound;
 
 class MenuManager final : public asNode
 {
-    // const MenuManager::`vftable' @ 0x61E338
+    // const MenuManager::`vftable'
 
 public:
-    // 0x4AED60 | ??0MenuManager@@QAE@XZ
+    // ??0MenuManager@@QAE@XZ
     ARTS_IMPORT MenuManager();
 
-    // 0x4B1C10 | ??_EMenuManager@@UAEPAXI@Z
-    // 0x4B1C10 | ??_GMenuManager@@UAEPAXI@Z
-    // 0x4AEF20 | ??1MenuManager@@UAE@XZ
+    // ??_EMenuManager@@UAEPAXI@Z
+    // ??_GMenuManager@@UAEPAXI@Z
+    // ??1MenuManager@@UAE@XZ
     ARTS_IMPORT ~MenuManager() override;
 
-    // 0x4B14E0 | ?ActionID@MenuManager@@QAEHH@Z | unused
+    // ?ActionID@MenuManager@@QAEHH@Z | unused
     ARTS_IMPORT i32 ActionID(i32 arg1);
 
-    // 0x4B1980 | ?AddBrackets@MenuManager@@QAEXPAVUIIcon@@0PAVuiWidget@@MM@Z
+    // ?AddBrackets@MenuManager@@QAEXPAVUIIcon@@0PAVuiWidget@@MM@Z
     ARTS_IMPORT void AddBrackets(class UIIcon* arg1, class UIIcon* arg2, class uiWidget* arg3, f32 arg4, f32 arg5);
 
-    // 0x4B1670 | ?AddMenu2@MenuManager@@QAEHPAVUIMenu@@@Z
+    // ?AddMenu2@MenuManager@@QAEHPAVUIMenu@@@Z
     ARTS_IMPORT i32 AddMenu2(class UIMenu* arg1);
 
-    // 0x4AFB50 | ?AddPointer@MenuManager@@QAEXXZ
+    // ?AddPointer@MenuManager@@QAEXXZ
     ARTS_EXPORT void AddPointer();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4B1400 | ?AddWidgets@MenuManager@@UAEXPAVBank@@@Z
+    // ?AddWidgets@MenuManager@@UAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4B0A50 | ?AdjustPopupCard@MenuManager@@QAEXPAVUIMenu@@@Z
+    // ?AdjustPopupCard@MenuManager@@QAEXPAVUIMenu@@@Z
     ARTS_IMPORT void AdjustPopupCard(class UIMenu* arg1);
 
-    // 0x4B17D0 | ?AllocateMenuSwitchAudio@MenuManager@@QAEXXZ
+    // ?AllocateMenuSwitchAudio@MenuManager@@QAEXXZ
     ARTS_IMPORT void AllocateMenuSwitchAudio();
 
-    // 0x4B08E0 | ?CheckBG@MenuManager@@QAEXPAVUIMenu@@@Z
+    // ?CheckBG@MenuManager@@QAEXPAVUIMenu@@@Z
     ARTS_IMPORT void CheckBG(class UIMenu* arg1);
 
-    // 0x4B0E60 | ?CheckInput@MenuManager@@QAEXXZ
+    // ?CheckInput@MenuManager@@QAEXXZ
     ARTS_IMPORT void CheckInput();
 
-    // 0x4AF230 | ?ClearAllWidgets@MenuManager@@QAEXXZ
+    // ?ClearAllWidgets@MenuManager@@QAEXXZ
     ARTS_IMPORT void ClearAllWidgets();
 
-    // 0x4B0B60 | ?CloseDialog@MenuManager@@QAEXXZ
+    // ?CloseDialog@MenuManager@@QAEXXZ
     ARTS_IMPORT void CloseDialog();
 
-    // 0x4B1480 | ?CurrentMenuSelected@MenuManager@@QAEHXZ
+    // ?CurrentMenuSelected@MenuManager@@QAEHXZ
     ARTS_EXPORT i32 CurrentMenuSelected();
 
-    // 0x4B0DC0 | ?DeclareLastDrawn@MenuManager@@QAEXPAVasNode@@@Z
+    // ?DeclareLastDrawn@MenuManager@@QAEXPAVasNode@@@Z
     ARTS_IMPORT void DeclareLastDrawn(class asNode* arg1);
 
-    // 0x4B16D0 | ?DeleteMenu@MenuManager@@QAEXPAVUIMenu@@@Z | unused
+    // ?DeleteMenu@MenuManager@@QAEXPAVUIMenu@@@Z | unused
     ARTS_IMPORT void DeleteMenu(class UIMenu* arg1);
 
-    // 0x4B0C00 | ?Disable@MenuManager@@QAEXH@Z
+    // ?Disable@MenuManager@@QAEXH@Z
     ARTS_EXPORT void Disable(i32 id);
 
-    // 0x4B0C60 | ?DisableNavBar@MenuManager@@QAEXXZ
+    // ?DisableNavBar@MenuManager@@QAEXXZ
     ARTS_IMPORT void DisableNavBar();
 
-    // 0x4B0AA0 | ?DisablePU@MenuManager@@QAEXXZ
+    // ?DisablePU@MenuManager@@QAEXXZ
     ARTS_IMPORT void DisablePU();
 
-    // 0x4B0B90 | ?Enable@MenuManager@@QAEXH@Z
+    // ?Enable@MenuManager@@QAEXH@Z
     ARTS_EXPORT void Enable(i32 id);
 
-    // 0x4B0C40 | ?EnableNavBar@MenuManager@@QAEXXZ
+    // ?EnableNavBar@MenuManager@@QAEXXZ
     ARTS_IMPORT void EnableNavBar();
 
-    // 0x4B09D0 | ?EnablePU@MenuManager@@QAEXXZ
+    // ?EnablePU@MenuManager@@QAEXXZ
     ARTS_IMPORT void EnablePU();
 
-    // 0x4B1440 | ?FindMenu@MenuManager@@QAEHH@Z
+    // ?FindMenu@MenuManager@@QAEHH@Z
     ARTS_IMPORT i32 FindMenu(i32 arg1);
 
-    // 0x4B0E30 | ?Flush@MenuManager@@QAEXXZ
+    // ?Flush@MenuManager@@QAEXXZ
     ARTS_IMPORT void Flush();
 
-    // 0x4B1520 | ?ForceCurrentFocus@MenuManager@@QAEXXZ
+    // ?ForceCurrentFocus@MenuManager@@QAEXXZ
     ARTS_EXPORT void ForceCurrentFocus();
 
-    // 0x4B05D0 | ?GetControllerName@MenuManager@@QAEPADH@Z
+    // ?GetControllerName@MenuManager@@QAEPADH@Z
     ARTS_IMPORT char* GetControllerName(i32 arg1);
 
-    // 0x4B1410 | ?GetCurrentMenu@MenuManager@@QAEPAVUIMenu@@XZ
+    // ?GetCurrentMenu@MenuManager@@QAEPAVUIMenu@@XZ
     ARTS_EXPORT class UIMenu* GetCurrentMenu();
 
-    // 0x4B0740 | ?GetFGColor@MenuManager@@QAEAAVVector4@@H@Z
+    // ?GetFGColor@MenuManager@@QAEAAVVector4@@H@Z
     ARTS_IMPORT class Vector4& GetFGColor(i32 arg1);
 
-    // 0x4B0670 | ?GetFont@MenuManager@@QAEPAXH@Z
+    // ?GetFont@MenuManager@@QAEPAXH@Z
     ARTS_IMPORT void* GetFont(i32 arg1);
 
-    // 0x4B1650 | ?GetPreviousMenu@MenuManager@@QAEHXZ
+    // ?GetPreviousMenu@MenuManager@@QAEHXZ
     ARTS_EXPORT i32 GetPreviousMenu();
 
-    // 0x4AF140 | ?GetScale@MenuManager@@QAEXAAM000@Z
+    // ?GetScale@MenuManager@@QAEXAAM000@Z
     ARTS_EXPORT void GetScale(f32& x, f32& y, f32& width, f32& height);
 
-    // 0x4B1A60 | ?Help@MenuManager@@QAEXXZ
+    // ?Help@MenuManager@@QAEXXZ
     ARTS_IMPORT void Help();
 
-    // 0x4AF270 | ?Init@MenuManager@@QAEXHHPAD@Z
+    // ?Init@MenuManager@@QAEXHHPAD@Z
     ARTS_IMPORT void Init(i32 arg1, i32 arg2, char* arg3);
 
-    // 0x4AF600 | ?Init@MenuManager@@QAEXPAVasCamera@@HHMMMM@Z
+    // ?Init@MenuManager@@QAEXPAVasCamera@@HHMMMM@Z
     ARTS_IMPORT void Init(class asCamera* arg1, i32 arg2, i32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7);
 
-    // 0x4AF870 | ?InitCommonStuff@MenuManager@@QAEXHH@Z
+    // ?InitCommonStuff@MenuManager@@QAEXHH@Z
     ARTS_IMPORT void InitCommonStuff(i32 arg1, i32 arg2);
 
-    // 0x4AFB60 | ?InitGlobalStrings@MenuManager@@QAEXXZ
+    // ?InitGlobalStrings@MenuManager@@QAEXXZ
     ARTS_IMPORT void InitGlobalStrings();
 
-    // 0x4B0C70 | ?Kill@MenuManager@@QAEXXZ
+    // ?Kill@MenuManager@@QAEXXZ
     ARTS_IMPORT void Kill();
 
-    // 0x4B02D0 | ?LoadRaceNames@MenuManager@@QAEXXZ
+    // ?LoadRaceNames@MenuManager@@QAEXXZ
     ARTS_IMPORT void LoadRaceNames();
 
-    // 0x4B14A0 | ?MenuState@MenuManager@@QAEHH@Z
+    // ?MenuState@MenuManager@@QAEHH@Z
     ARTS_EXPORT i32 MenuState(i32 menu);
 
-    // 0x4AF1B0 | ?MouseAction@MenuManager@@QAEPAVuiWidget@@HMM@Z
+    // ?MouseAction@MenuManager@@QAEPAVuiWidget@@HMM@Z
     ARTS_IMPORT class uiWidget* MouseAction(i32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4B13C0 | ?NotifyMouseSelect@MenuManager@@QAEXPAVUIMenu@@@Z
+    // ?NotifyMouseSelect@MenuManager@@QAEXPAVUIMenu@@@Z
     ARTS_IMPORT void NotifyMouseSelect(class UIMenu* arg1);
 
-    // 0x4B0AE0 | ?OpenDialog@MenuManager@@QAEXH@Z
+    // ?OpenDialog@MenuManager@@QAEXH@Z
     ARTS_IMPORT void OpenDialog(i32 arg1);
 
-    // 0x4B1950 | ?PlayRecordsSound@MenuManager@@QAEXXZ
+    // ?PlayRecordsSound@MenuManager@@QAEXXZ
     ARTS_IMPORT void PlayRecordsSound();
 
-    // 0x4B0D10 | ?PlaySound@MenuManager@@QAEXH@Z
+    // ?PlaySound@MenuManager@@QAEXH@Z
     ARTS_IMPORT void PlaySound(i32 arg1);
 
-    // 0x4B0F60 | ?RegisterWidgetFocus@MenuManager@@QAEXHMMMMPAVuiWidget@@@Z
+    // ?RegisterWidgetFocus@MenuManager@@QAEXHMMMMPAVuiWidget@@@Z
     ARTS_IMPORT void RegisterWidgetFocus(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, class uiWidget* arg6);
 
-    // 0x4B0DD0 | ?ResChange@MenuManager@@UAEXHH@Z
+    // ?ResChange@MenuManager@@UAEXHH@Z
     ARTS_IMPORT void ResChange(i32 arg1, i32 arg2) override;
 
-    // 0x4B0FC0 | ?ScanGlobalKeys@MenuManager@@QAEHH@Z
+    // ?ScanGlobalKeys@MenuManager@@QAEHH@Z
     ARTS_IMPORT i32 ScanGlobalKeys(i32 arg1);
 
-    // 0x4B0960 | ?SetBackgroundImage@MenuManager@@QAEXPAD@Z
+    // ?SetBackgroundImage@MenuManager@@QAEXPAD@Z
     ARTS_IMPORT void SetBackgroundImage(char* arg1);
 
-    // 0x4B0900 | ?SetDefaultBackgroundImage@MenuManager@@QAEXPAD@Z
+    // ?SetDefaultBackgroundImage@MenuManager@@QAEXPAD@Z
     ARTS_IMPORT void SetDefaultBackgroundImage(char* arg1);
 
-    // 0x4B1550 | ?SetFocus@MenuManager@@QAEXPAVUIMenu@@@Z
+    // ?SetFocus@MenuManager@@QAEXPAVUIMenu@@@Z
     ARTS_EXPORT void SetFocus(class UIMenu* menu);
 
-    // 0x4B1620 | ?SetPreviousMenu@MenuManager@@QAEXH@Z
+    // ?SetPreviousMenu@MenuManager@@QAEXH@Z
     ARTS_IMPORT void SetPreviousMenu(i32 arg1);
 
-    // 0x4B1560 | ?Switch@MenuManager@@QAEHH@Z
+    // ?Switch@MenuManager@@QAEHH@Z
     ARTS_EXPORT i32 Switch(i32 id);
 
-    // 0x4B1370 | ?SwitchFocus@MenuManager@@QAEXPAVUIMenu@@@Z
+    // ?SwitchFocus@MenuManager@@QAEXPAVUIMenu@@@Z
     ARTS_IMPORT void SwitchFocus(class UIMenu* arg1);
 
-    // 0x4B0EE0 | ?ToggleFocus@MenuManager@@QAEXH@Z
+    // ?ToggleFocus@MenuManager@@QAEXH@Z
     ARTS_IMPORT void ToggleFocus(i32 arg1);
 
-    // 0x4B09B0 | ?TogglePU@MenuManager@@QAEXXZ | unused
+    // ?TogglePU@MenuManager@@QAEXXZ | unused
     ARTS_IMPORT void TogglePU();
 
-    // 0x4B0E00 | ?Update@MenuManager@@UAEXXZ
+    // ?Update@MenuManager@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
-    // 0x705960 | ?Instance@MenuManager@@2PAV1@A
+    // ?Instance@MenuManager@@2PAV1@A
     ARTS_IMPORT static class MenuManager* Instance;
 
     eqEventQ* GetEventQ()
@@ -301,7 +301,7 @@ public:
     }
 
 private:
-    // 0x4B1730 | ?PlayMenuSwitchSound@MenuManager@@AAEXXZ
+    // ?PlayMenuSwitchSound@MenuManager@@AAEXXZ
     ARTS_IMPORT void PlayMenuSwitchSound();
 
     void SwitchNow(i32 id);
@@ -371,5 +371,5 @@ private:
 
 check_size(MenuManager, 0x140);
 
-// 0x6418B4 | ?DELAYTTIME@@3MA
+// ?DELAYTTIME@@3MA
 ARTS_IMPORT extern f32 DELAYTTIME;

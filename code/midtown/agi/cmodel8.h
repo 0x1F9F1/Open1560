@@ -39,30 +39,30 @@ class agiPalette;
 
 class agiColorModel8 final : public agiColorModel
 {
-    // const agiColorModel8::`vftable' @ 0x621780
+    // const agiColorModel8::`vftable'
 
 public:
-    // 0x55BEB0 | ??0agiColorModel8@@QAE@PAVagiPalette@@@Z
+    // ??0agiColorModel8@@QAE@PAVagiPalette@@@Z
     ARTS_IMPORT agiColorModel8(class agiPalette* arg1);
 
-    // 0x55C040 | ??_EagiColorModel8@@UAEPAXI@Z
-    // 0x55C040 | ??_GagiColorModel8@@UAEPAXI@Z
-    // 0x55BF00 | ??1agiColorModel8@@UAE@XZ
+    // ??_EagiColorModel8@@UAEPAXI@Z
+    // ??_GagiColorModel8@@UAEPAXI@Z
+    // ??1agiColorModel8@@UAE@XZ
     ARTS_IMPORT ~agiColorModel8() override = default;
 
-    // 0x55BF50 | ?Filter@agiColorModel8@@UAEIIIII@Z
+    // ?Filter@agiColorModel8@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55BF30 | ?FindColor@agiColorModel8@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModel8@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55BF10 | ?GetColor@agiColorModel8@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModel8@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55C000 | ?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55C020 | ?SetPixel@agiColorModel8@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModel8@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_EXPORT void SetPixel(class agiSurfaceDesc* surface, i32 x, i32 y, u32 color) override;
 
     agiPalette* Palette {nullptr};

@@ -61,34 +61,34 @@
 struct mmText
 {
 public:
-    // 0x4FEE40 | ??0mmText@@QAE@XZ
+    // ??0mmText@@QAE@XZ
     ARTS_EXPORT mmText() = default;
 
-    // 0x4FEE50 | ??1mmText@@QAE@XZ
+    // ??1mmText@@QAE@XZ
     ARTS_EXPORT ~mmText() = default;
 
-    // 0x4FF2D0 | ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z | unused
+    // ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z | unused
     ARTS_EXPORT void Draw(class agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font);
 
-    // 0x4FF360 | ?Draw2@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAXI@Z
+    // ?Draw2@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAXI@Z
     ARTS_EXPORT void Draw2(class agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font, u32 color);
 
-    // 0x4FF0C0 | ?CreateFitBitmap@mmText@@SAPAVagiBitmap@@PADPAXHH@Z
+    // ?CreateFitBitmap@mmText@@SAPAVagiBitmap@@PADPAXHH@Z
     ARTS_EXPORT static RcOwner<class agiBitmap> CreateFitBitmap(char* text, void* font, i32 color, i32 bg_color);
 
-    // 0x4FEF30 | ?CreateFont@mmText@@SAPAXPADH@Z
+    // ?CreateFont@mmText@@SAPAXPADH@Z
     ARTS_EXPORT static void* CreateFont(const char* font_name, i32 height);
 
-    // 0x4FEE60 | ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
+    // ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
     ARTS_EXPORT static void* CreateLocFont(struct LocString* params, i32 screen_width);
 
-    // 0x4FEF60 | ?DeleteFont@mmText@@SAXPAX@Z
+    // ?DeleteFont@mmText@@SAXPAX@Z
     ARTS_EXPORT static void DeleteFont(void* font);
 
-    // 0x4FEF70 | ?GetDC@mmText@@SAPAXPAVagiSurfaceDesc@@@Z
+    // ?GetDC@mmText@@SAPAXPAVagiSurfaceDesc@@@Z
     ARTS_EXPORT static void* GetDC(class agiSurfaceDesc* surface);
 
-    // 0x4FF010 | ?ReleaseDC@mmText@@SAXXZ
+    // ?ReleaseDC@mmText@@SAXXZ
     ARTS_EXPORT static void ReleaseDC();
 
 private:
@@ -129,58 +129,58 @@ check_size(mmTextData, 0x110);
 
 class mmTextNode final : public asNode
 {
-    // const mmTextNode::`vftable' @ 0x620658
+    // const mmTextNode::`vftable'
 
 public:
-    // 0x4FF450 | ??0mmTextNode@@QAE@XZ
+    // ??0mmTextNode@@QAE@XZ
     ARTS_EXPORT mmTextNode();
 
-    // 0x426300 | ??_EmmTextNode@@UAEPAXI@Z
-    // 0x4FFE70 | ??_GmmTextNode@@UAEPAXI@Z | unused
-    // 0x4FF4D0 | ??1mmTextNode@@UAE@XZ
+    // ??_EmmTextNode@@UAEPAXI@Z
+    // ??_GmmTextNode@@UAEPAXI@Z | unused
+    // ??1mmTextNode@@UAE@XZ
     ARTS_EXPORT ~mmTextNode() override;
 
-    // 0x4FF930 | ?AddText@mmTextNode@@QAEHPAXPAULocString@@HMM@Z
+    // ?AddText@mmTextNode@@QAEHPAXPAULocString@@HMM@Z
     ARTS_IMPORT i32 AddText(void* font, struct LocString* text, i32 effects, f32 x, f32 y);
 
-    // 0x4FFD90 | ?Cull@mmTextNode@@UAEXXZ
+    // ?Cull@mmTextNode@@UAEXXZ
     ARTS_EXPORT void Cull() override;
 
-    // 0x4FF750 | ?GetFGColor@mmTextNode@@QAEIXZ
+    // ?GetFGColor@mmTextNode@@QAEIXZ
     ARTS_IMPORT u32 GetFGColor();
 
-    // 0x4FF790 | ?GetTextDimensions@mmTextNode@@QAEXPAXPAULocString@@AAM2@Z
+    // ?GetTextDimensions@mmTextNode@@QAEXPAXPAULocString@@AAM2@Z
     ARTS_EXPORT void GetTextDimensions(void* font, struct LocString* text, f32& width, f32& height);
 
-    // 0x4FF540 | ?Init@mmTextNode@@QAEXMMMMHH@Z
+    // ?Init@mmTextNode@@QAEXMMMMHH@Z
     ARTS_EXPORT void Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 flags);
 
-    // 0x4FFB00 | ?Printf@mmTextNode@@QAAXPBDZZ | unused
+    // ?Printf@mmTextNode@@QAAXPBDZZ | unused
     ARTS_IMPORT void Printf(char const* arg1, ...);
 
-    // 0x4FFB60 | ?RenderText@mmTextNode@@QAEXPAVagiSurfaceDesc@@PAUmmTextData@@HI@Z
+    // ?RenderText@mmTextNode@@QAEXPAVagiSurfaceDesc@@PAUmmTextData@@HI@Z
     ARTS_EXPORT void RenderText(
         class agiSurfaceDesc* surface, struct mmTextData* lines, i32 num_lines, u32 enabled_lines);
 
-    // 0x4FF690 | ?SetBGColor@mmTextNode@@QAEXAAVVector4@@@Z | unused
+    // ?SetBGColor@mmTextNode@@QAEXAAVVector4@@@Z | unused
     ARTS_IMPORT void SetBGColor(class Vector4& arg1);
 
-    // 0x4FF760 | ?SetEffects@mmTextNode@@QAEXHH@Z
+    // ?SetEffects@mmTextNode@@QAEXHH@Z
     ARTS_IMPORT void SetEffects(i32 line, i32 effects);
 
-    // 0x4FF6F0 | ?SetFGColor@mmTextNode@@QAEXAAVVector4@@@Z
+    // ?SetFGColor@mmTextNode@@QAEXAAVVector4@@@Z
     ARTS_IMPORT void SetFGColor(class Vector4& arg1);
 
-    // 0x4FFAA0 | ?SetPosition@mmTextNode@@QAEXHMM@Z
+    // ?SetPosition@mmTextNode@@QAEXHMM@Z
     ARTS_IMPORT void SetPosition(i32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4FFA40 | ?SetString@mmTextNode@@QAEXHPAULocString@@@Z
+    // ?SetString@mmTextNode@@QAEXHPAULocString@@@Z
     ARTS_IMPORT void SetString(i32 arg1, struct LocString* arg2);
 
-    // 0x4FF8D0 | ?SetTextPosition@mmTextNode@@QAEXHMM@Z
+    // ?SetTextPosition@mmTextNode@@QAEXHMM@Z
     ARTS_IMPORT void SetTextPosition(i32 arg1, f32 arg2, f32 arg3);
 
-    // 0x4FFB30 | ?Update@mmTextNode@@UAEXXZ
+    // ?Update@mmTextNode@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     agiBitmap* GetBitmap()
@@ -223,5 +223,5 @@ private:
     char* Context;
 };
 
-// 0x4FEE30 | ?ddGDIFlip@@YAXXZ | unused
+// ?ddGDIFlip@@YAXXZ | unused
 ARTS_IMPORT void ddGDIFlip();

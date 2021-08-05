@@ -34,26 +34,26 @@
 class agiLib<class agiTexParameters, class agiTexDef>
 {
 public:
-    // 0x5581A0 | ??0?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ | inline
+    // ??0?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ | inline
     ARTS_IMPORT agiLib<class agiTexParameters, class agiTexDef>();
 
-    // 0x5581D0 | ??1?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ | inline
+    // ??1?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ | inline
     ARTS_IMPORT ~agiLib<class agiTexParameters, class agiTexDef>();
 
-    // 0x48FB10 | ?Add@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEHAAVagiTexParameters@@@Z | inline
+    // ?Add@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEHAAVagiTexParameters@@@Z | inline
     ARTS_IMPORT i32 Add(class agiTexParameters& arg1);
 
-    // 0x55A190 | ?Init@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXH@Z | inline
+    // ?Init@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXH@Z | inline
     ARTS_IMPORT void Init(i32 arg1);
 
-    // 0x55A140 | ?Kill@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXXZ | inline
+    // ?Kill@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXXZ | inline
     ARTS_IMPORT void Kill();
 
     u8 gap0[0x4014];
 };
 #endif
 
-// 0x8FF0D8 | ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
+// ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
 ARTS_EXPORT extern class agiLib<class agiTexParameters, class agiTexDef> agiTexLib;
 
 check_size(agiTexLib, 0x4014);

@@ -57,40 +57,40 @@ class Matrix34;
 
 class asCullManager final : public asNode
 {
-    // const asCullManager::`vftable' @ 0x620AD0
+    // const asCullManager::`vftable'
 
 public:
-    // 0x5246C0 | ??0asCullManager@@QAE@HH@Z
+    // ??0asCullManager@@QAE@HH@Z
     ARTS_EXPORT asCullManager(i32 max_cullables, i32 max_cullables_2D);
 
-    // 0x525850 | ??_EasCullManager@@UAEPAXI@Z
-    // 0x524D40 | ??1asCullManager@@UAE@XZ
+    // ??_EasCullManager@@UAEPAXI@Z
+    // ??1asCullManager@@UAE@XZ
     ARTS_EXPORT ~asCullManager() override;
 
-    // 0x525440 | ?DeclareCamera@asCullManager@@UAEXPAVasCamera@@@Z
+    // ?DeclareCamera@asCullManager@@UAEXPAVasCamera@@@Z
     ARTS_EXPORT virtual void DeclareCamera(class asCamera* camera);
 
-    // 0x5254A0 | ?DeclareCullable@asCullManager@@UAEXPAVasCullable@@@Z
+    // ?DeclareCullable@asCullManager@@UAEXPAVasCullable@@@Z
     ARTS_EXPORT virtual void DeclareCullable(class asCullable* cullable);
 
-    // 0x525550 | ?DeclareCullable2D@asCullManager@@UAEXPAVasCullable@@@Z
+    // ?DeclareCullable2D@asCullManager@@UAEXPAVasCullable@@@Z
     ARTS_EXPORT virtual void DeclareCullable2D(class asCullable* cullable);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x525400 | ?AddPage@asCullManager@@QAEXVCallback@@@Z
+    // ?AddPage@asCullManager@@QAEXVCallback@@@Z
     ARTS_EXPORT void AddPage(class Callback callback);
 #endif
 
-    // 0x5255F0 | ?DeclareBitmap@asCullManager@@QAEXPAVasCullable@@PAVagiBitmap@@@Z
+    // ?DeclareBitmap@asCullManager@@QAEXPAVasCullable@@PAVagiBitmap@@@Z
     ARTS_EXPORT void DeclareBitmap(class asCullable* cullable, class agiBitmap* bitmap);
 
-    // 0x525660 | ?DeclarePrint@asCullManager@@QAEXPAVasCullable@@@Z
+    // ?DeclarePrint@asCullManager@@QAEXPAVasCullable@@@Z
     ARTS_EXPORT void DeclarePrint(class asCullable* cullable);
 
-    // 0x524DF0 | ?Reset@asCullManager@@UAEXXZ
+    // ?Reset@asCullManager@@UAEXXZ
     ARTS_EXPORT void Reset() override;
 
-    // 0x525090 | ?Update@asCullManager@@UAEXXZ
+    // ?Update@asCullManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u32 GetTextColor() const
@@ -101,13 +101,13 @@ public:
     VIRTUAL_META_DECLARE;
 
 protected:
-    // 0x524E50 | ?DisplayVersionString@asCullManager@@IAEXXZ
+    // ?DisplayVersionString@asCullManager@@IAEXXZ
     ARTS_EXPORT void DisplayVersionString();
 
-    // 0x524F00 | ?PrintMiniStats@asCullManager@@IAEXXZ
+    // ?PrintMiniStats@asCullManager@@IAEXXZ
     ARTS_EXPORT void PrintMiniStats();
 
-    // 0x524F90 | ?PrintStats@asCullManager@@IAEXXZ
+    // ?PrintStats@asCullManager@@IAEXXZ
     ARTS_EXPORT void PrintStats();
 
 private:
@@ -155,14 +155,14 @@ private:
 
 check_size(asCullManager, 0x1F8);
 
-// 0x524E70 | ?Statsf@@YAXPBDZZ
+// ?Statsf@@YAXPBDZZ
 ARTS_EXPORT void Statsf(ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x79086C | ?CULLMGR@@3PAVasCullManager@@A
+// ?CULLMGR@@3PAVasCullManager@@A
 ARTS_IMPORT extern class asCullManager* CULLMGR;
 
-// 0x7908A8 | ?Update3D@@3MA
+// ?Update3D@@3MA
 ARTS_IMPORT extern f32 Update3D;
 
-// 0x790880 | ?asCullManagerMetaClass@@3VMetaClass@@A
+// ?asCullManagerMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asCullManagerMetaClass;

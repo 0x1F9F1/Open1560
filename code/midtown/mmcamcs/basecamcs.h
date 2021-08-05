@@ -39,46 +39,46 @@
 
 class BaseCamCS : public asNode
 {
-    // const BaseCamCS::`vftable' @ 0x620488
+    // const BaseCamCS::`vftable'
 
 public:
-    // 0x4FBE00 | ??0BaseCamCS@@QAE@XZ
+    // ??0BaseCamCS@@QAE@XZ
     ARTS_IMPORT BaseCamCS();
 
-    // 0x4FC2D0 | ??_EBaseCamCS@@UAEPAXI@Z
-    // 0x4FBEA0 | ??1BaseCamCS@@UAE@XZ
+    // ??_EBaseCamCS@@UAEPAXI@Z
+    // ??1BaseCamCS@@UAE@XZ
     ARTS_IMPORT ~BaseCamCS() override = default;
 
-    // 0x4FB4A0 | ?MakeActive@BaseCamCS@@UAEXXZ | inline
+    // ?MakeActive@BaseCamCS@@UAEXXZ | inline
     ARTS_EXPORT virtual void MakeActive();
 
-    // 0x4F99D0 | ?UpdateInput@BaseCamCS@@UAEXXZ | inline
+    // ?UpdateInput@BaseCamCS@@UAEXXZ | inline
     ARTS_EXPORT virtual void UpdateInput();
 
-    // 0x4FC090 | ?ForceMatrixDelta@BaseCamCS@@UAEXABVVector3@@@Z
+    // ?ForceMatrixDelta@BaseCamCS@@UAEXABVVector3@@@Z
     ARTS_IMPORT virtual void ForceMatrixDelta(class Vector3 const& arg1);
 
-    // 0x4F6A50 | ?SetST@BaseCamCS@@UAEXPAM@Z | inline
+    // ?SetST@BaseCamCS@@UAEXPAM@Z | inline
     ARTS_EXPORT virtual void SetST(f32* arg1);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4FBF40 | ?AddWidgets@BaseCamCS@@UAEXPAVBank@@@Z
+    // ?AddWidgets@BaseCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4FBEB0 | ?AfterLoad@BaseCamCS@@UAEXXZ
+    // ?AfterLoad@BaseCamCS@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;
 
-    // 0x4FC2C0 | ?GetClass@BaseCamCS@@UAEPAVMetaClass@@XZ
+    // ?GetClass@BaseCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4FBEC0 | ?IsViewCSInTransition@BaseCamCS@@QAEHXZ
+    // ?IsViewCSInTransition@BaseCamCS@@QAEHXZ
     ARTS_IMPORT i32 IsViewCSInTransition();
 
-    // 0x4FBEF0 | ?UpdateView@BaseCamCS@@QAEXXZ
+    // ?UpdateView@BaseCamCS@@QAEXXZ
     ARTS_IMPORT void UpdateView();
 
-    // 0x4FC0E0 | ?DeclareFields@BaseCamCS@@SAXXZ
+    // ?DeclareFields@BaseCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x7C];
@@ -86,5 +86,5 @@ public:
 
 check_size(BaseCamCS, 0x9C);
 
-// 0x7194F8 | ?BaseCamCSMetaClass@@3VMetaClass@@A
+// ?BaseCamCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass BaseCamCSMetaClass;

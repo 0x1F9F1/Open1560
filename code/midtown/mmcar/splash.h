@@ -37,32 +37,32 @@
 
 class mmSplash final : public asNode
 {
-    // const mmSplash::`vftable' @ 0x61C8B0
+    // const mmSplash::`vftable'
 
 public:
-    // 0x480FF0 | ??0mmSplash@@QAE@XZ
+    // ??0mmSplash@@QAE@XZ
     ARTS_IMPORT mmSplash();
 
-    // 0x4814A0 | ??_GmmSplash@@UAEPAXI@Z
-    // 0x4814A0 | ??_EmmSplash@@UAEPAXI@Z
-    // 0x470310 | ??1mmSplash@@UAE@XZ | inline
+    // ??_GmmSplash@@UAEPAXI@Z
+    // ??_EmmSplash@@UAEPAXI@Z
+    // ??1mmSplash@@UAE@XZ | inline
     ARTS_IMPORT ~mmSplash() override = default;
 
-    // 0x4811C0 | ?Activate@mmSplash@@QAEXM@Z
+    // ?Activate@mmSplash@@QAEXM@Z
     ARTS_IMPORT void Activate(f32 arg1);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x481420 | ?AddWidgets@mmSplash@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmSplash@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x481070 | ?Init@mmSplash@@QAEXPAVasInertialCS@@VVector3@@1@Z
+    // ?Init@mmSplash@@QAEXPAVasInertialCS@@VVector3@@1@Z
     ARTS_IMPORT void Init(class asInertialCS* arg1, class Vector3 arg2, class Vector3 arg3);
 
-    // 0x481060 | ?Reset@mmSplash@@UAEXXZ
+    // ?Reset@mmSplash@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x4811E0 | ?Update@mmSplash@@UAEXXZ
+    // ?Update@mmSplash@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x310];

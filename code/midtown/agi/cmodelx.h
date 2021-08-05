@@ -139,30 +139,30 @@
 
 class agiColorModelRGB555 final : public agiColorModel
 {
-    // const agiColorModelRGB555::`vftable' @ 0x621798
+    // const agiColorModelRGB555::`vftable'
 
 public:
-    // 0x55C4A0 | ??0agiColorModelRGB555@@QAE@XZ
+    // ??0agiColorModelRGB555@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB555();
 
-    // 0x55D840 | ??_EagiColorModelRGB555@@UAEPAXI@Z
-    // 0x55D840 | ??_GagiColorModelRGB555@@UAEPAXI@Z
-    // 0x55D830 | ??1agiColorModelRGB555@@UAE@XZ | inline
+    // ??_EagiColorModelRGB555@@UAEPAXI@Z
+    // ??_GagiColorModelRGB555@@UAEPAXI@Z
+    // ??1agiColorModelRGB555@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB555() override = default;
 
-    // 0x55C560 | ?Filter@agiColorModelRGB555@@UAEIIIII@Z
+    // ?Filter@agiColorModelRGB555@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55C520 | ?FindColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55C4E0 | ?GetColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModelRGB555@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55C5F0 | ?GetPixel@agiColorModelRGB555@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModelRGB555@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55C610 | ?SetPixel@agiColorModelRGB555@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModelRGB555@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
@@ -170,30 +170,30 @@ check_size(agiColorModelRGB555, 0x2C);
 
 class agiColorModelRGB565 final : public agiColorModel
 {
-    // const agiColorModelRGB565::`vftable' @ 0x6217B0
+    // const agiColorModelRGB565::`vftable'
 
 public:
-    // 0x55C680 | ??0agiColorModelRGB565@@QAE@XZ
+    // ??0agiColorModelRGB565@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB565();
 
-    // 0x55D880 | ??_EagiColorModelRGB565@@UAEPAXI@Z
-    // 0x55D880 | ??_GagiColorModelRGB565@@UAEPAXI@Z
-    // 0x55D870 | ??1agiColorModelRGB565@@UAE@XZ | inline
+    // ??_EagiColorModelRGB565@@UAEPAXI@Z
+    // ??_GagiColorModelRGB565@@UAEPAXI@Z
+    // ??1agiColorModelRGB565@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB565() override = default;
 
-    // 0x55C740 | ?Filter@agiColorModelRGB565@@UAEIIIII@Z
+    // ?Filter@agiColorModelRGB565@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55C700 | ?FindColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55C6C0 | ?GetColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModelRGB565@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55C7D0 | ?GetPixel@agiColorModelRGB565@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModelRGB565@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55C7F0 | ?SetPixel@agiColorModelRGB565@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModelRGB565@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
@@ -201,30 +201,30 @@ check_size(agiColorModelRGB565, 0x2C);
 
 class agiColorModelRGB555_Rev final : public agiColorModel
 {
-    // const agiColorModelRGB555_Rev::`vftable' @ 0x6217C8
+    // const agiColorModelRGB555_Rev::`vftable'
 
 public:
-    // 0x55C860 | ??0agiColorModelRGB555_Rev@@QAE@XZ
+    // ??0agiColorModelRGB555_Rev@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB555_Rev();
 
-    // 0x55D8C0 | ??_EagiColorModelRGB555_Rev@@UAEPAXI@Z
-    // 0x55D8C0 | ??_GagiColorModelRGB555_Rev@@UAEPAXI@Z
-    // 0x55D8B0 | ??1agiColorModelRGB555_Rev@@UAE@XZ | inline
+    // ??_EagiColorModelRGB555_Rev@@UAEPAXI@Z
+    // ??_GagiColorModelRGB555_Rev@@UAEPAXI@Z
+    // ??1agiColorModelRGB555_Rev@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB555_Rev() override = default;
 
-    // 0x55C920 | ?Filter@agiColorModelRGB555_Rev@@UAEIIIII@Z
+    // ?Filter@agiColorModelRGB555_Rev@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55C8E0 | ?FindColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55C8A0 | ?GetColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModelRGB555_Rev@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55C9B0 | ?GetPixel@agiColorModelRGB555_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModelRGB555_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55C9D0 | ?SetPixel@agiColorModelRGB555_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModelRGB555_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
@@ -232,30 +232,30 @@ check_size(agiColorModelRGB555_Rev, 0x2C);
 
 class agiColorModelRGB565_Rev final : public agiColorModel
 {
-    // const agiColorModelRGB565_Rev::`vftable' @ 0x6217E0
+    // const agiColorModelRGB565_Rev::`vftable'
 
 public:
-    // 0x55CA40 | ??0agiColorModelRGB565_Rev@@QAE@XZ
+    // ??0agiColorModelRGB565_Rev@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB565_Rev();
 
-    // 0x55D900 | ??_GagiColorModelRGB565_Rev@@UAEPAXI@Z
-    // 0x55D900 | ??_EagiColorModelRGB565_Rev@@UAEPAXI@Z
-    // 0x55D8F0 | ??1agiColorModelRGB565_Rev@@UAE@XZ | inline
+    // ??_GagiColorModelRGB565_Rev@@UAEPAXI@Z
+    // ??_EagiColorModelRGB565_Rev@@UAEPAXI@Z
+    // ??1agiColorModelRGB565_Rev@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB565_Rev() override = default;
 
-    // 0x55CB00 | ?Filter@agiColorModelRGB565_Rev@@UAEIIIII@Z
+    // ?Filter@agiColorModelRGB565_Rev@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55CAC0 | ?FindColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55CA80 | ?GetColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModelRGB565_Rev@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55CB90 | ?GetPixel@agiColorModelRGB565_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModelRGB565_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55CBB0 | ?SetPixel@agiColorModelRGB565_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModelRGB565_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
@@ -263,30 +263,30 @@ check_size(agiColorModelRGB565_Rev, 0x2C);
 
 class agiColorModelRGB888 final : public agiColorModel
 {
-    // const agiColorModelRGB888::`vftable' @ 0x6217F8
+    // const agiColorModelRGB888::`vftable'
 
 public:
-    // 0x55CC20 | ??0agiColorModelRGB888@@QAE@XZ
+    // ??0agiColorModelRGB888@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB888();
 
-    // 0x55D940 | ??_GagiColorModelRGB888@@UAEPAXI@Z
-    // 0x55D940 | ??_EagiColorModelRGB888@@UAEPAXI@Z
-    // 0x55D930 | ??1agiColorModelRGB888@@UAE@XZ | inline
+    // ??_GagiColorModelRGB888@@UAEPAXI@Z
+    // ??_EagiColorModelRGB888@@UAEPAXI@Z
+    // ??1agiColorModelRGB888@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB888() override = default;
 
-    // 0x55CCC0 | ?Filter@agiColorModelRGB888@@UAEIIIII@Z
+    // ?Filter@agiColorModelRGB888@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55CC90 | ?FindColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55CC60 | ?GetColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModelRGB888@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55CD40 | ?GetPixel@agiColorModelRGB888@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModelRGB888@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55CD60 | ?SetPixel@agiColorModelRGB888@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModelRGB888@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
@@ -294,30 +294,30 @@ check_size(agiColorModelRGB888, 0x2C);
 
 class agiColorModelRGB888_Rev final : public agiColorModel
 {
-    // const agiColorModelRGB888_Rev::`vftable' @ 0x621810
+    // const agiColorModelRGB888_Rev::`vftable'
 
 public:
-    // 0x55CDC0 | ??0agiColorModelRGB888_Rev@@QAE@XZ
+    // ??0agiColorModelRGB888_Rev@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB888_Rev();
 
-    // 0x55D980 | ??_GagiColorModelRGB888_Rev@@UAEPAXI@Z
-    // 0x55D980 | ??_EagiColorModelRGB888_Rev@@UAEPAXI@Z
-    // 0x55D970 | ??1agiColorModelRGB888_Rev@@UAE@XZ | inline
+    // ??_GagiColorModelRGB888_Rev@@UAEPAXI@Z
+    // ??_EagiColorModelRGB888_Rev@@UAEPAXI@Z
+    // ??1agiColorModelRGB888_Rev@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGB888_Rev() override = default;
 
-    // 0x55CE60 | ?Filter@agiColorModelRGB888_Rev@@UAEIIIII@Z
+    // ?Filter@agiColorModelRGB888_Rev@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55CE30 | ?FindColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55CE00 | ?GetColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModelRGB888_Rev@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55CEE0 | ?GetPixel@agiColorModelRGB888_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModelRGB888_Rev@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55CF00 | ?SetPixel@agiColorModelRGB888_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModelRGB888_Rev@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
@@ -325,30 +325,30 @@ check_size(agiColorModelRGB888_Rev, 0x2C);
 
 class agiColorModelRGBA5551 final : public agiColorModel
 {
-    // const agiColorModelRGBA5551::`vftable' @ 0x621828
+    // const agiColorModelRGBA5551::`vftable'
 
 public:
-    // 0x55CF60 | ??0agiColorModelRGBA5551@@QAE@XZ
+    // ??0agiColorModelRGBA5551@@QAE@XZ
     ARTS_IMPORT agiColorModelRGBA5551();
 
-    // 0x55D9C0 | ??_EagiColorModelRGBA5551@@UAEPAXI@Z
-    // 0x55D9C0 | ??_GagiColorModelRGBA5551@@UAEPAXI@Z
-    // 0x55D9B0 | ??1agiColorModelRGBA5551@@UAE@XZ | inline
+    // ??_EagiColorModelRGBA5551@@UAEPAXI@Z
+    // ??_GagiColorModelRGBA5551@@UAEPAXI@Z
+    // ??1agiColorModelRGBA5551@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGBA5551() override = default;
 
-    // 0x55D050 | ?Filter@agiColorModelRGBA5551@@UAEIIIII@Z
+    // ?Filter@agiColorModelRGBA5551@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55D000 | ?FindColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55CFB0 | ?GetColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModelRGBA5551@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55D110 | ?GetPixel@agiColorModelRGBA5551@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModelRGBA5551@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55D130 | ?SetPixel@agiColorModelRGBA5551@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModelRGBA5551@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
@@ -356,30 +356,30 @@ check_size(agiColorModelRGBA5551, 0x2C);
 
 class agiColorModelRGBA4444 final : public agiColorModel
 {
-    // const agiColorModelRGBA4444::`vftable' @ 0x621840
+    // const agiColorModelRGBA4444::`vftable'
 
 public:
-    // 0x55D1A0 | ??0agiColorModelRGBA4444@@QAE@XZ
+    // ??0agiColorModelRGBA4444@@QAE@XZ
     ARTS_IMPORT agiColorModelRGBA4444();
 
-    // 0x55DA00 | ??_EagiColorModelRGBA4444@@UAEPAXI@Z
-    // 0x55DA00 | ??_GagiColorModelRGBA4444@@UAEPAXI@Z
-    // 0x55D9F0 | ??1agiColorModelRGBA4444@@UAE@XZ | inline
+    // ??_EagiColorModelRGBA4444@@UAEPAXI@Z
+    // ??_GagiColorModelRGBA4444@@UAEPAXI@Z
+    // ??1agiColorModelRGBA4444@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelRGBA4444() override = default;
 
-    // 0x55D280 | ?Filter@agiColorModelRGBA4444@@UAEIIIII@Z
+    // ?Filter@agiColorModelRGBA4444@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55D230 | ?FindColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55D1E0 | ?GetColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModelRGBA4444@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55D340 | ?GetPixel@agiColorModelRGBA4444@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModelRGBA4444@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55D360 | ?SetPixel@agiColorModelRGBA4444@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModelRGBA4444@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
@@ -387,30 +387,30 @@ check_size(agiColorModelRGBA4444, 0x2C);
 
 class agiColorModelARGB final : public agiColorModel
 {
-    // const agiColorModelARGB::`vftable' @ 0x621858
+    // const agiColorModelARGB::`vftable'
 
 public:
-    // 0x55D3D0 | ??0agiColorModelARGB@@QAE@XZ
+    // ??0agiColorModelARGB@@QAE@XZ
     ARTS_IMPORT agiColorModelARGB();
 
-    // 0x55DA40 | ??_EagiColorModelARGB@@UAEPAXI@Z
-    // 0x55DA40 | ??_GagiColorModelARGB@@UAEPAXI@Z
-    // 0x55DA30 | ??1agiColorModelARGB@@UAE@XZ | inline
+    // ??_EagiColorModelARGB@@UAEPAXI@Z
+    // ??_GagiColorModelARGB@@UAEPAXI@Z
+    // ??1agiColorModelARGB@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelARGB() override = default;
 
-    // 0x55D490 | ?Filter@agiColorModelARGB@@UAEIIIII@Z
+    // ?Filter@agiColorModelARGB@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55D450 | ?FindColor@agiColorModelARGB@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModelARGB@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55D410 | ?GetColor@agiColorModelARGB@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModelARGB@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55D530 | ?GetPixel@agiColorModelARGB@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModelARGB@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55D550 | ?SetPixel@agiColorModelARGB@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModelARGB@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
@@ -418,61 +418,61 @@ check_size(agiColorModelARGB, 0x2C);
 
 class agiColorModelABGR final : public agiColorModel
 {
-    // const agiColorModelABGR::`vftable' @ 0x621870
+    // const agiColorModelABGR::`vftable'
 
 public:
-    // 0x55D5B0 | ??0agiColorModelABGR@@QAE@XZ
+    // ??0agiColorModelABGR@@QAE@XZ
     ARTS_IMPORT agiColorModelABGR();
 
-    // 0x55DA80 | ??_GagiColorModelABGR@@UAEPAXI@Z
-    // 0x55DA80 | ??_EagiColorModelABGR@@UAEPAXI@Z
-    // 0x55DA70 | ??1agiColorModelABGR@@UAE@XZ | inline
+    // ??_GagiColorModelABGR@@UAEPAXI@Z
+    // ??_EagiColorModelABGR@@UAEPAXI@Z
+    // ??1agiColorModelABGR@@UAE@XZ | inline
     ARTS_IMPORT ~agiColorModelABGR() override = default;
 
-    // 0x55D670 | ?Filter@agiColorModelABGR@@UAEIIIII@Z
+    // ?Filter@agiColorModelABGR@@UAEIIIII@Z
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
-    // 0x55D630 | ?FindColor@agiColorModelABGR@@UAEIUagiRgba@@@Z
+    // ?FindColor@agiColorModelABGR@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
 
-    // 0x55D5F0 | ?GetColor@agiColorModelABGR@@UAEIUagiRgba@@@Z
+    // ?GetColor@agiColorModelABGR@@UAEIUagiRgba@@@Z
     ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
 
-    // 0x55D720 | ?GetPixel@agiColorModelABGR@@UAEIPAVagiSurfaceDesc@@HH@Z
+    // ?GetPixel@agiColorModelABGR@@UAEIPAVagiSurfaceDesc@@HH@Z
     ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
 
-    // 0x55D740 | ?SetPixel@agiColorModelABGR@@UAEXPAVagiSurfaceDesc@@HHI@Z
+    // ?SetPixel@agiColorModelABGR@@UAEXPAVagiSurfaceDesc@@HHI@Z
     ARTS_IMPORT void SetPixel(class agiSurfaceDesc* arg1, i32 arg2, i32 arg3, u32 arg4) override;
 };
 
 check_size(agiColorModelABGR, 0x2C);
 
-// 0x9076A8 | ?ColorModelABGR@@3VagiColorModelABGR@@A
+// ?ColorModelABGR@@3VagiColorModelABGR@@A
 ARTS_IMPORT extern class agiColorModelABGR ColorModelABGR;
 
-// 0x907648 | ?ColorModelARGB@@3VagiColorModelARGB@@A
+// ?ColorModelARGB@@3VagiColorModelARGB@@A
 ARTS_IMPORT extern class agiColorModelARGB ColorModelARGB;
 
-// 0x9077F8 | ?ColorModelRGB555@@3VagiColorModelRGB555@@A
+// ?ColorModelRGB555@@3VagiColorModelRGB555@@A
 ARTS_IMPORT extern class agiColorModelRGB555 ColorModelRGB555;
 
-// 0x9076D8 | ?ColorModelRGB555_Rev@@3VagiColorModelRGB555_Rev@@A
+// ?ColorModelRGB555_Rev@@3VagiColorModelRGB555_Rev@@A
 ARTS_IMPORT extern class agiColorModelRGB555_Rev ColorModelRGB555_Rev;
 
-// 0x9077C8 | ?ColorModelRGB565@@3VagiColorModelRGB565@@A
+// ?ColorModelRGB565@@3VagiColorModelRGB565@@A
 ARTS_IMPORT extern class agiColorModelRGB565 ColorModelRGB565;
 
-// 0x907678 | ?ColorModelRGB565_Rev@@3VagiColorModelRGB565_Rev@@A
+// ?ColorModelRGB565_Rev@@3VagiColorModelRGB565_Rev@@A
 ARTS_IMPORT extern class agiColorModelRGB565_Rev ColorModelRGB565_Rev;
 
-// 0x907798 | ?ColorModelRGB888@@3VagiColorModelRGB888@@A
+// ?ColorModelRGB888@@3VagiColorModelRGB888@@A
 ARTS_IMPORT extern class agiColorModelRGB888 ColorModelRGB888;
 
-// 0x907708 | ?ColorModelRGB888_Rev@@3VagiColorModelRGB888_Rev@@A
+// ?ColorModelRGB888_Rev@@3VagiColorModelRGB888_Rev@@A
 ARTS_IMPORT extern class agiColorModelRGB888_Rev ColorModelRGB888_Rev;
 
-// 0x907768 | ?ColorModelRGBA4444@@3VagiColorModelRGBA4444@@A
+// ?ColorModelRGBA4444@@3VagiColorModelRGBA4444@@A
 ARTS_IMPORT extern class agiColorModelRGBA4444 ColorModelRGBA4444;
 
-// 0x907738 | ?ColorModelRGBA5551@@3VagiColorModelRGBA5551@@A
+// ?ColorModelRGBA5551@@3VagiColorModelRGBA5551@@A
 ARTS_IMPORT extern class agiColorModelRGBA5551 ColorModelRGBA5551;

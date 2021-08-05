@@ -39,35 +39,35 @@
 
 class mmMapData final : public mmInfoBase
 {
-    // const mmMapData::`vftable' @ 0x61F930
+    // const mmMapData::`vftable'
 
 public:
-    // 0x4D3270 | ??0mmMapData@@QAE@XZ
+    // ??0mmMapData@@QAE@XZ
     ARTS_IMPORT mmMapData();
 
-    // 0x4D35C0 | ??_EmmMapData@@UAEPAXI@Z
-    // 0x4D3290 | ??1mmMapData@@UAE@XZ
+    // ??_EmmMapData@@UAEPAXI@Z
+    // ??1mmMapData@@UAE@XZ
     ARTS_IMPORT ~mmMapData() override;
 
-    // 0x4D3380 | ?Append@mmMapData@@QAEXPAD@Z | unused
+    // ?Append@mmMapData@@QAEXPAD@Z | unused
     ARTS_IMPORT void Append(char* arg1);
 
-    // 0x4D35B0 | ?GetClass@mmMapData@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmMapData@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4D3340 | ?GetItem@mmMapData@@QAEPADH@Z
+    // ?GetItem@mmMapData@@QAEPADH@Z
     ARTS_IMPORT char* GetItem(i32 arg1);
 
-    // 0x4D3370 | ?GetNumItems@mmMapData@@QAEHXZ
+    // ?GetNumItems@mmMapData@@QAEHXZ
     ARTS_IMPORT i32 GetNumItems();
 
-    // 0x4D32F0 | ?NewItems@mmMapData@@QAEXH@Z
+    // ?NewItems@mmMapData@@QAEXH@Z
     ARTS_IMPORT void NewItems(i32 arg1);
 
-    // 0x4D3320 | ?SetItem@mmMapData@@QAEXHPAD@Z
+    // ?SetItem@mmMapData@@QAEXHPAD@Z
     ARTS_IMPORT void SetItem(i32 arg1, char* arg2);
 
-    // 0x4D3400 | ?DeclareFields@mmMapData@@SAXXZ
+    // ?DeclareFields@mmMapData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x8];
@@ -75,5 +75,5 @@ public:
 
 check_size(mmMapData, 0x90);
 
-// 0x708690 | ?mmMapDataMetaClass@@3VMetaClass@@A
+// ?mmMapDataMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmMapDataMetaClass;

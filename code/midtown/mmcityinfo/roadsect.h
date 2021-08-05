@@ -78,21 +78,21 @@
 
 class mmRoadSide final : public mmInfoBase
 {
-    // const mmRoadSide::`vftable' @ 0x61B2D8
+    // const mmRoadSide::`vftable'
 
 public:
-    // 0x4D2320 | ??0mmRoadSide@@QAE@XZ
+    // ??0mmRoadSide@@QAE@XZ
     ARTS_IMPORT mmRoadSide();
 
-    // 0x4D31B0 | ??_EmmRoadSide@@UAEPAXI@Z
-    // 0x43C220 | ??_GmmRoadSide@@UAEPAXI@Z | unused
-    // 0x43C190 | ??1mmRoadSide@@UAE@XZ | inline
+    // ??_EmmRoadSide@@UAEPAXI@Z
+    // ??_GmmRoadSide@@UAEPAXI@Z | unused
+    // ??1mmRoadSide@@UAE@XZ | inline
     ARTS_IMPORT ~mmRoadSide() override;
 
-    // 0x4D2D80 | ?GetClass@mmRoadSide@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmRoadSide@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4D2B70 | ?DeclareFields@mmRoadSide@@SAXXZ
+    // ?DeclareFields@mmRoadSide@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x258];
@@ -102,102 +102,102 @@ check_size(mmRoadSide, 0x2E0);
 
 class mmRoadSect final : public mmInfoBase
 {
-    // const mmRoadSect::`vftable' @ 0x61B2F0
+    // const mmRoadSect::`vftable'
 
 public:
-    // 0x4D23B0 | ??0mmRoadSect@@QAE@XZ
+    // ??0mmRoadSect@@QAE@XZ
     ARTS_IMPORT mmRoadSect();
 
-    // 0x4D3210 | ??_EmmRoadSect@@UAEPAXI@Z
-    // 0x43C360 | ??_GmmRoadSect@@UAEPAXI@Z | unused
-    // 0x43C250 | ??1mmRoadSect@@UAE@XZ | inline
+    // ??_EmmRoadSect@@UAEPAXI@Z
+    // ??_GmmRoadSect@@UAEPAXI@Z | unused
+    // ??1mmRoadSect@@UAE@XZ | inline
     ARTS_IMPORT ~mmRoadSect() override;
 
-    // 0x4D3140 | ?GetClass@mmRoadSect@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmRoadSect@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4D27D0 | ?GetIntersectionType@mmRoadSect@@QAEHH@Z
+    // ?GetIntersectionType@mmRoadSect@@QAEHH@Z
     ARTS_IMPORT i32 GetIntersectionType(i32 arg1);
 
-    // 0x4D2790 | ?GetNormal@mmRoadSect@@QAEPAVVector3@@H@Z
+    // ?GetNormal@mmRoadSect@@QAEPAVVector3@@H@Z
     ARTS_IMPORT class Vector3* GetNormal(i32 arg1);
 
-    // 0x4D27B0 | ?GetRoomId@mmRoadSect@@QAEHH@Z | unused
+    // ?GetRoomId@mmRoadSect@@QAEHH@Z | unused
     ARTS_IMPORT i32 GetRoomId(i32 arg1);
 
-    // 0x4D26E0 | ?GetSidewalkVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
+    // ?GetSidewalkVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
     ARTS_IMPORT class Vector3* GetSidewalkVertex(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x4D2940 | ?GetStopLightName@mmRoadSect@@QAEPADH@Z
+    // ?GetStopLightName@mmRoadSect@@QAEPADH@Z
     ARTS_IMPORT char* GetStopLightName(i32 arg1);
 
-    // 0x4D2840 | ?GetStopLightPos@mmRoadSect@@QAEXHAAVVector3@@0@Z
+    // ?GetStopLightPos@mmRoadSect@@QAEXHAAVVector3@@0@Z
     ARTS_IMPORT void GetStopLightPos(i32 arg1, class Vector3& arg2, class Vector3& arg3);
 
-    // 0x4D26B0 | ?GetVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
+    // ?GetVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
     ARTS_IMPORT class Vector3* GetVertex(i32 arg1, i32 arg2, i32 arg3);
 
-    // 0x4D2990 | ?IsAlley@mmRoadSect@@QAEHXZ
+    // ?IsAlley@mmRoadSect@@QAEHXZ
     ARTS_IMPORT i32 IsAlley();
 
-    // 0x4D28B0 | ?IsBlocked@mmRoadSect@@QAEHH@Z
+    // ?IsBlocked@mmRoadSect@@QAEHH@Z
     ARTS_IMPORT i32 IsBlocked(i32 arg1);
 
-    // 0x4D2970 | ?IsDivided@mmRoadSect@@QAEHXZ
+    // ?IsDivided@mmRoadSect@@QAEHXZ
     ARTS_IMPORT i32 IsDivided();
 
-    // 0x4D28F0 | ?IsPedBlocked@mmRoadSect@@QAEHH@Z
+    // ?IsPedBlocked@mmRoadSect@@QAEHH@Z
     ARTS_IMPORT i32 IsPedBlocked(i32 arg1);
 
-    // 0x4D2550 | ?NewVertexs@mmRoadSect@@QAEXHHHHH@Z | unused
+    // ?NewVertexs@mmRoadSect@@QAEXHHHHH@Z | unused
     ARTS_IMPORT void NewVertexs(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
-    // 0x4D2980 | ?SetAlley@mmRoadSect@@QAEXH@Z | unused
+    // ?SetAlley@mmRoadSect@@QAEXH@Z | unused
     ARTS_IMPORT void SetAlley(i32 arg1);
 
-    // 0x4D2890 | ?SetBlocked@mmRoadSect@@QAEXHH@Z | unused
+    // ?SetBlocked@mmRoadSect@@QAEXHH@Z | unused
     ARTS_IMPORT void SetBlocked(i32 arg1, i32 arg2);
 
-    // 0x4D2960 | ?SetDivided@mmRoadSect@@QAEXH@Z | unused
+    // ?SetDivided@mmRoadSect@@QAEXH@Z | unused
     ARTS_IMPORT void SetDivided(i32 arg1);
 
-    // 0x4D2770 | ?SetIntersectionType@mmRoadSect@@QAEXHH@Z | unused
+    // ?SetIntersectionType@mmRoadSect@@QAEXHH@Z | unused
     ARTS_IMPORT void SetIntersectionType(i32 arg1, i32 arg2);
 
-    // 0x4D2530 | ?SetLSidewalk@mmRoadSect@@QAEXMM@Z | unused
+    // ?SetLSidewalk@mmRoadSect@@QAEXMM@Z | unused
     ARTS_IMPORT void SetLSidewalk(f32 arg1, f32 arg2);
 
-    // 0x4D28D0 | ?SetPedBlocked@mmRoadSect@@QAEXHH@Z | unused
+    // ?SetPedBlocked@mmRoadSect@@QAEXHH@Z | unused
     ARTS_IMPORT void SetPedBlocked(i32 arg1, i32 arg2);
 
-    // 0x4D2510 | ?SetRSidewalk@mmRoadSect@@QAEXMM@Z | unused
+    // ?SetRSidewalk@mmRoadSect@@QAEXMM@Z | unused
     ARTS_IMPORT void SetRSidewalk(f32 arg1, f32 arg2);
 
-    // 0x4D2720 | ?SetRoadNormal@mmRoadSect@@QAEXHAAVVector3@@@Z | unused
+    // ?SetRoadNormal@mmRoadSect@@QAEXHAAVVector3@@@Z | unused
     ARTS_IMPORT void SetRoadNormal(i32 arg1, class Vector3& arg2);
 
-    // 0x4D2600 | ?SetRoadVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z | unused
+    // ?SetRoadVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z | unused
     ARTS_IMPORT void SetRoadVertex(i32 arg1, i32 arg2, i32 arg3, class Vector3& arg4);
 
-    // 0x4D2750 | ?SetRoomId@mmRoadSect@@QAEXHH@Z | unused
+    // ?SetRoomId@mmRoadSect@@QAEXHH@Z | unused
     ARTS_IMPORT void SetRoomId(i32 arg1, i32 arg2);
 
-    // 0x4D2650 | ?SetSidewalkVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z | unused
+    // ?SetSidewalkVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z | unused
     ARTS_IMPORT void SetSidewalkVertex(i32 arg1, i32 arg2, i32 arg3, class Vector3& arg4);
 
-    // 0x4D2910 | ?SetStopLightName@mmRoadSect@@QAEXHPAD@Z | unused
+    // ?SetStopLightName@mmRoadSect@@QAEXHPAD@Z | unused
     ARTS_IMPORT void SetStopLightName(i32 arg1, char* arg2);
 
-    // 0x4D27F0 | ?SetStopLightPos@mmRoadSect@@QAEXHABVVector3@@0@Z | unused
+    // ?SetStopLightPos@mmRoadSect@@QAEXHABVVector3@@0@Z | unused
     ARTS_IMPORT void SetStopLightPos(i32 arg1, class Vector3 const& arg2, class Vector3 const& arg3);
 
-    // 0x4D2500 | ?SetStreetType@mmRoadSect@@QAEXPAD@Z | unused
+    // ?SetStreetType@mmRoadSect@@QAEXPAD@Z | unused
     ARTS_IMPORT void SetStreetType(char* arg1);
 
-    // 0x4D24F0 | ?SetStreetWidth@mmRoadSect@@QAEXM@Z | unused
+    // ?SetStreetWidth@mmRoadSect@@QAEXM@Z | unused
     ARTS_IMPORT void SetStreetWidth(f32 arg1);
 
-    // 0x4D2D90 | ?DeclareFields@mmRoadSect@@SAXXZ
+    // ?DeclareFields@mmRoadSect@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x644];
@@ -207,41 +207,41 @@ check_size(mmRoadSect, 0x6CC);
 
 class mmPropInfo final : public mmInfoBase
 {
-    // const mmPropInfo::`vftable' @ 0x61F918
+    // const mmPropInfo::`vftable'
 
 public:
-    // 0x4D2160 | ??0mmPropInfo@@QAE@XZ
+    // ??0mmPropInfo@@QAE@XZ
     ARTS_IMPORT mmPropInfo();
 
-    // 0x4D3150 | ??_EmmPropInfo@@UAEPAXI@Z
-    // 0x4D2190 | ??1mmPropInfo@@UAE@XZ
+    // ??_EmmPropInfo@@UAEPAXI@Z
+    // ??1mmPropInfo@@UAE@XZ
     ARTS_IMPORT ~mmPropInfo() override;
 
-    // 0x4D22A0 | ?Append@mmPropInfo@@QAEXPAD@Z | unused
+    // ?Append@mmPropInfo@@QAEXPAD@Z | unused
     ARTS_IMPORT void Append(char* arg1);
 
-    // 0x4D2B60 | ?GetClass@mmPropInfo@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmPropInfo@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4D2250 | ?GetItem@mmPropInfo@@QAEPADH@Z | unused
+    // ?GetItem@mmPropInfo@@QAEPADH@Z | unused
     ARTS_IMPORT char* GetItem(i32 arg1);
 
-    // 0x4D2290 | ?GetNumItems@mmPropInfo@@QAEHXZ | unused
+    // ?GetNumItems@mmPropInfo@@QAEHXZ | unused
     ARTS_IMPORT i32 GetNumItems();
 
-    // 0x4D2280 | ?GetSpacing@mmPropInfo@@QAEMXZ | unused
+    // ?GetSpacing@mmPropInfo@@QAEMXZ | unused
     ARTS_IMPORT f32 GetSpacing();
 
-    // 0x4D21F0 | ?NewItems@mmPropInfo@@QAEXH@Z
+    // ?NewItems@mmPropInfo@@QAEXH@Z
     ARTS_IMPORT void NewItems(i32 arg1);
 
-    // 0x4D2220 | ?SetItem@mmPropInfo@@QAEXHPAD@Z
+    // ?SetItem@mmPropInfo@@QAEXHPAD@Z
     ARTS_IMPORT void SetItem(i32 arg1, char* arg2);
 
-    // 0x4D2240 | ?SetSpacing@mmPropInfo@@QAEXM@Z | unused
+    // ?SetSpacing@mmPropInfo@@QAEXM@Z | unused
     ARTS_IMPORT void SetSpacing(f32 arg1);
 
-    // 0x4D29A0 | ?DeclareFields@mmPropInfo@@SAXXZ
+    // ?DeclareFields@mmPropInfo@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0xC];
@@ -249,11 +249,11 @@ public:
 
 check_size(mmPropInfo, 0x94);
 
-// 0x708618 | ?mmPropInfoMetaClass@@3VMetaClass@@A
+// ?mmPropInfoMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmPropInfoMetaClass;
 
-// 0x708668 | ?mmRoadSectMetaClass@@3VMetaClass@@A
+// ?mmRoadSectMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmRoadSectMetaClass;
 
-// 0x708640 | ?mmRoadSideMetaClass@@3VMetaClass@@A
+// ?mmRoadSideMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmRoadSideMetaClass;

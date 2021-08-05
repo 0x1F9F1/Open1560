@@ -34,11 +34,11 @@
 #define AGI_ERROR_NO_DEVICE -7
 #define AGI_ERROR_UNSUPPORTED -8
 
-// 0x55BE80 | ?agiDisplayf@@YAXPBDZZ
+// ?agiDisplayf@@YAXPBDZZ
 ARTS_EXPORT void agiDisplayf(ARTS_FORMAT_STRING char const* format, ...);
 
-// 0x55BE20 | ?agiGetError@@YAPADH@Z
+// ?agiGetError@@YAPADH@Z
 ARTS_EXPORT const char* agiGetError(i32 error);
 
-// 0x907230 | ?agiVerbose@@3HA
+// ?agiVerbose@@3HA
 ARTS_IMPORT extern i32 agiVerbose;

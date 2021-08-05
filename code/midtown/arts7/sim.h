@@ -81,87 +81,87 @@ class Matrix34;
 
 class asSimulation final : public asNode
 {
-    // const asSimulation::`vftable' @ 0x620A00
+    // const asSimulation::`vftable'
 
 public:
-    // 0x521800 | ??0asSimulation@@QAE@XZ
+    // ??0asSimulation@@QAE@XZ
     ARTS_IMPORT asSimulation();
 
-    // 0x523750 | ??_EasSimulation@@UAEPAXI@Z
-    // 0x521A60 | ??1asSimulation@@UAE@XZ
+    // ??_EasSimulation@@UAEPAXI@Z
+    // ??1asSimulation@@UAE@XZ
     ARTS_EXPORT ~asSimulation() override;
 
-    // 0x521C40 | ?Init@asSimulation@@QAEXPADHPAPAD@Z
+    // ?Init@asSimulation@@QAEXPADHPAPAD@Z
     ARTS_EXPORT void Init(char* proj_path, i32 argc, char** argv);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x522FD0 | ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x522CF0 | ?BeginOverSample@asSimulation@@QAEXH@Z
+    // ?BeginOverSample@asSimulation@@QAEXH@Z
     ARTS_IMPORT void BeginOverSample(i32 arg1);
 
-    // 0x522E40 | ?Benchmark@asSimulation@@QAEXXZ
+    // ?Benchmark@asSimulation@@QAEXXZ
     ARTS_IMPORT void Benchmark();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x522C20 | ?Cull@asSimulation@@UAEXXZ
+    // ?Cull@asSimulation@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x522B80 | ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
+    // ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
     ARTS_IMPORT void DeclareVector(class Vector3 const* arg1, class Vector3 const* arg2, class Vector3 const* arg3);
 #endif
 
-    // 0x522600 | ?Device@asSimulation@@QAEXXZ
+    // ?Device@asSimulation@@QAEXXZ
     ARTS_IMPORT void Device();
 
-    // 0x522D30 | ?EndOverSample@asSimulation@@QAEXXZ | unused
+    // ?EndOverSample@asSimulation@@QAEXXZ | unused
     ARTS_IMPORT void EndOverSample();
 
-    // 0x522D60 | ?EndOverSample@asSimulation@@QAEXH@Z
+    // ?EndOverSample@asSimulation@@QAEXH@Z
     ARTS_IMPORT void EndOverSample(i32 arg1);
 
-    // 0x5222A0 | ?FirstUpdate@asSimulation@@QAEXXZ
+    // ?FirstUpdate@asSimulation@@QAEXXZ
     ARTS_EXPORT void FirstUpdate();
 
-    // 0x522DF0 | ?FixedFrame@asSimulation@@QAEXMH@Z | unused
+    // ?FixedFrame@asSimulation@@QAEXMH@Z | unused
     ARTS_IMPORT void FixedFrame(f32 arg1, i32 arg2);
 
-    // 0x522E30 | ?FrameLock@asSimulation@@QAEXHH@Z | unused
+    // ?FrameLock@asSimulation@@QAEXHH@Z | unused
     ARTS_IMPORT void FrameLock(i32 arg1, i32 arg2);
 
 #ifdef ARTS_DEV_BUILD
-    // 0x522FA0 | ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
+    // ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
     ARTS_IMPORT void OpenPhysicsBank();
 #endif
 
-    // 0x522EC0 | ?Pause@asSimulation@@QAEXXZ
+    // ?Pause@asSimulation@@QAEXXZ
     ARTS_IMPORT void Pause();
 
-    // 0x521C10 | ?Quiet@asSimulation@@QAEXXZ
+    // ?Quiet@asSimulation@@QAEXXZ
     ARTS_IMPORT void Quiet();
 
-    // 0x522D90 | ?RealTime@asSimulation@@QAEXM@Z
+    // ?RealTime@asSimulation@@QAEXM@Z
     ARTS_IMPORT void RealTime(f32 arg1);
 
-    // 0x522290 | ?Reset@asSimulation@@UAEXXZ
+    // ?Reset@asSimulation@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x522CA0 | ?ResetClock@asSimulation@@QAEXXZ
+    // ?ResetClock@asSimulation@@QAEXXZ
     ARTS_EXPORT void ResetClock();
 
-    // 0x522A60 | ?Simulate@asSimulation@@QAEXXZ
+    // ?Simulate@asSimulation@@QAEXXZ
     ARTS_IMPORT void Simulate();
 
-    // 0x5222C0 | ?Update@asSimulation@@UAEXXZ
+    // ?Update@asSimulation@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
     // TODO: Rename UpdatePaused(asNode*) to avoid confusing with asNode::UpdatePaused()
-    // 0x522B10 | ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
+    // ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
     ARTS_IMPORT void UpdatePaused(class asNode* arg1);
 
-    // 0x5229C0 | ?Widgets@asSimulation@@QAEXXZ
+    // ?Widgets@asSimulation@@QAEXXZ
     ARTS_EXPORT void Widgets();
 
     Matrix34* GetCurrentCamera()
@@ -290,57 +290,57 @@ private:
 // check_size(asSimulation, 0x2B0);
 
 #ifdef ARTS_DEV_BUILD
-// 0x522FC0 | ?InitBank@@YAXHPAPAD@Z | unused
+// ?InitBank@@YAXHPAPAD@Z | unused
 ARTS_EXPORT void InitBank(i32 argc, char** argv);
 #endif
 
-// 0x523210 | ?InitPipeline@@YAHPADHPAPAD@Z
+// ?InitPipeline@@YAHPADHPAPAD@Z
 ARTS_EXPORT i32 InitPipeline(char* title, i32 argc, char** argv);
 
-// 0x523340 | ?RestartPipeline@@YAHHHHHH@Z | unused
+// ?RestartPipeline@@YAHHHHHH@Z | unused
 ARTS_IMPORT i32 RestartPipeline(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
-// 0x5232D0 | ?ShutdownPipeline@@YAXXZ
+// ?ShutdownPipeline@@YAXXZ
 ARTS_EXPORT void ShutdownPipeline();
 
 #ifdef ARTS_DEV_BUILD
-// 0x5225F0 | ?invert@@YANN@Z | unused
+// ?invert@@YANN@Z | unused
 ARTS_IMPORT f64 invert(f64 arg1);
 #endif
 
-// 0x79077C | ?ARTSPTR@@3PAVasSimulation@@A
+// ?ARTSPTR@@3PAVasSimulation@@A
 ARTS_IMPORT extern class asSimulation* ARTSPTR;
 
-// 0x790800 | ?Argc@@3HA
+// ?Argc@@3HA
 ARTS_IMPORT extern i32 Argc;
 
-// 0x790804 | ?Argv@@3PAPADA
+// ?Argv@@3PAPADA
 ARTS_IMPORT extern char** Argv;
 
-// 0x790820 | ?StereoBuffer@@3HA
+// ?StereoBuffer@@3HA
 ARTS_IMPORT extern i32 StereoBuffer;
 
-// 0x790808 | ?VFS@@3PAVVirtualFileSystem@@A
+// ?VFS@@3PAVVirtualFileSystem@@A
 ARTS_IMPORT extern class VirtualFileSystem* VFS;
 
-// 0x790750 | ?asSimulationMetaClass@@3VMetaClass@@A
+// ?asSimulationMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asSimulationMetaClass;
 
 class artsReplayChannel final : public eqReplayChannel
 {
-    // const artsReplayChannel::`vftable' @ 0x620A60
+    // const artsReplayChannel::`vftable'
 
 public:
-    // 0x5236B0 | ??0artsReplayChannel@@QAE@XZ | inline
+    // ??0artsReplayChannel@@QAE@XZ | inline
     ARTS_IMPORT artsReplayChannel();
 
-    // 0x523740 | ??1artsReplayChannel@@QAE@XZ | inline
+    // ??1artsReplayChannel@@QAE@XZ | inline
     ARTS_IMPORT ~artsReplayChannel() = default;
 
-    // 0x523710 | ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z | inline
+    // ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z | inline
     ARTS_IMPORT void DoPlayback(class Stream* arg1) override;
 
-    // 0x5236D0 | ?DoRecord@artsReplayChannel@@UAEXPAVStream@@@Z | inline
+    // ?DoRecord@artsReplayChannel@@UAEXPAVStream@@@Z | inline
     ARTS_IMPORT void DoRecord(class Stream* arg1) override;
 };
 

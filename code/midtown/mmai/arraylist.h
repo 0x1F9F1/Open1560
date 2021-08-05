@@ -28,14 +28,14 @@
 class CArrayList final
 {
 public:
-    // 0x43C180 | ??0CArrayList@@QAE@XZ | inline
+    // ??0CArrayList@@QAE@XZ | inline
     ARTS_IMPORT CArrayList();
 
-    // 0x43C070 | ??_ECArrayList@@QAEPAXI@Z | unused
-    // 0x446C00 | ??1CArrayList@@QAE@XZ
+    // ??_ECArrayList@@QAEPAXI@Z | unused
+    // ??1CArrayList@@QAE@XZ
     ARTS_IMPORT ~CArrayList();
 
-    // 0x446C20 | ?Append@CArrayList@@QAEXH@Z
+    // ?Append@CArrayList@@QAEXH@Z
     ARTS_IMPORT void Append(i32 arg1);
 
     u8 gap0[0x8];

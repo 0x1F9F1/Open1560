@@ -82,135 +82,135 @@
 class aiPedestrian final
 {
 public:
-    // 0x447CC0 | ??0aiPedestrian@@QAE@XZ
+    // ??0aiPedestrian@@QAE@XZ
     ARTS_IMPORT aiPedestrian();
 
-    // 0x43C010 | ??_EaiPedestrian@@QAEPAXI@Z | unused
-    // 0x447DA0 | ??1aiPedestrian@@QAE@XZ
+    // ??_EaiPedestrian@@QAEPAXI@Z | unused
+    // ??1aiPedestrian@@QAE@XZ
     ARTS_IMPORT ~aiPedestrian();
 
-    // 0x44CFC0 | ?CalculateAudioPanning@aiPedestrian@@QAEXXZ
+    // ?CalculateAudioPanning@aiPedestrian@@QAEXXZ
     ARTS_IMPORT void CalculateAudioPanning();
 
-    // 0x44CF70 | ?CalculateDistToPlayer2@aiPedestrian@@QAEXXZ | unused
+    // ?CalculateDistToPlayer2@aiPedestrian@@QAEXXZ | unused
     ARTS_IMPORT void CalculateDistToPlayer2();
 
-    // 0x44D3B0 | ?DrawDebug@aiPedestrian@@QAEXXZ
+    // ?DrawDebug@aiPedestrian@@QAEXXZ
     ARTS_IMPORT void DrawDebug();
 
-    // 0x44D1E0 | ?Dump@aiPedestrian@@QAEXXZ | unused
+    // ?Dump@aiPedestrian@@QAEXXZ | unused
     ARTS_IMPORT void Dump();
 
-    // 0x44D1A0 | ?Go@aiPedestrian@@QAEXXZ | unused
+    // ?Go@aiPedestrian@@QAEXXZ | unused
     ARTS_IMPORT void Go();
 
-    // 0x447DB0 | ?Init@aiPedestrian@@QAEXPADHH@Z
+    // ?Init@aiPedestrian@@QAEXPADHH@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2, i32 arg3);
 
-    // 0x44CEA0 | ?PlayVoice@aiPedestrian@@QAEXF@Z
+    // ?PlayVoice@aiPedestrian@@QAEXF@Z
     ARTS_IMPORT void PlayVoice(i16 arg1);
 
-    // 0x44D130 | ?Reset@aiPedestrian@@QAEXXZ
+    // ?Reset@aiPedestrian@@QAEXXZ
     ARTS_IMPORT void Reset();
 
-    // 0x448130 | ?Reset@aiPedestrian@@QAEXPAVaiPath@@@Z
+    // ?Reset@aiPedestrian@@QAEXPAVaiPath@@@Z
     ARTS_IMPORT void Reset(class aiPath* arg1);
 
-    // 0x44D0E0 | ?SetVoiceSoundPtr@aiPedestrian@@QAEXPAVAudSound@@@Z
+    // ?SetVoiceSoundPtr@aiPedestrian@@QAEXPAVAudSound@@@Z
     ARTS_IMPORT void SetVoiceSoundPtr(class AudSound* arg1);
 
-    // 0x44D160 | ?Stop@aiPedestrian@@QAEXXZ | unused
+    // ?Stop@aiPedestrian@@QAEXXZ | unused
     ARTS_IMPORT void Stop();
 
-    // 0x44D0F0 | ?UnAssignSounds@aiPedestrian@@QAEXXZ
+    // ?UnAssignSounds@aiPedestrian@@QAEXXZ
     ARTS_IMPORT void UnAssignSounds();
 
-    // 0x448460 | ?Update@aiPedestrian@@QAEXXZ
+    // ?Update@aiPedestrian@@QAEXXZ
     ARTS_IMPORT void Update();
 
-    // 0x44D010 | ?UpdateAudio@aiPedestrian@@QAEXXZ
+    // ?UpdateAudio@aiPedestrian@@QAEXXZ
     ARTS_IMPORT void UpdateAudio();
 
 private:
-    // 0x449CB0 | ?Anticipate@aiPedestrian@@AAEXAAVmmIntersection@@H@Z
+    // ?Anticipate@aiPedestrian@@AAEXAAVmmIntersection@@H@Z
     ARTS_IMPORT void Anticipate(class mmIntersection& arg1, i32 arg2);
 
-    // 0x449ED0 | ?Avoid@aiPedestrian@@AAEXAAVmmIntersection@@PAM@Z
+    // ?Avoid@aiPedestrian@@AAEXAAVmmIntersection@@PAM@Z
     ARTS_IMPORT void Avoid(class mmIntersection& arg1, f32* arg2);
 
-    // 0x44C170 | ?AvoidBanger@aiPedestrian@@AAEXPAVmmInstance@@M@Z
+    // ?AvoidBanger@aiPedestrian@@AAEXPAVmmInstance@@M@Z
     ARTS_IMPORT void AvoidBanger(class mmInstance* arg1, f32 arg2);
 
-    // 0x44C350 | ?AvoidObstacle@aiPedestrian@@AAEXAAVVector3@@M@Z
+    // ?AvoidObstacle@aiPedestrian@@AAEXAAVVector3@@M@Z
     ARTS_IMPORT void AvoidObstacle(class Vector3& arg1, f32 arg2);
 
-    // 0x44C260 | ?AvoidPedCollision@aiPedestrian@@AAEXPAV1@M@Z
+    // ?AvoidPedCollision@aiPedestrian@@AAEXPAV1@M@Z
     ARTS_IMPORT void AvoidPedCollision(class aiPedestrian* arg1, f32 arg2);
 
-    // 0x44C0E0 | ?AvoidPlayer@aiPedestrian@@AAEXAAVVector3@@M@Z
+    // ?AvoidPlayer@aiPedestrian@@AAEXAAVVector3@@M@Z
     ARTS_IMPORT void AvoidPlayer(class Vector3& arg1, f32 arg2);
 
-    // 0x44C6E0 | ?CalcCurve@aiPedestrian@@AAEXHHM@Z
+    // ?CalcCurve@aiPedestrian@@AAEXHHM@Z
     ARTS_IMPORT void CalcCurve(i32 arg1, i32 arg2, f32 arg3);
 
-    // 0x44CDA0 | ?ComputeCurve@aiPedestrian@@AAEXAAVVector3@@000@Z
+    // ?ComputeCurve@aiPedestrian@@AAEXAAVVector3@@000@Z
     ARTS_IMPORT void ComputeCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4);
 
-    // 0x44B420 | ?DetectBangerCollision@aiPedestrian@@AAEHPAPAVmmInstance@@PAMM@Z
+    // ?DetectBangerCollision@aiPedestrian@@AAEHPAPAVmmInstance@@PAMM@Z
     ARTS_IMPORT i32 DetectBangerCollision(class mmInstance** arg1, f32* arg2, f32 arg3);
 
-    // 0x44BA10 | ?DetectBangerObstacle@aiPedestrian@@AAEPAVmmInstance@@XZ | unused
+    // ?DetectBangerObstacle@aiPedestrian@@AAEPAVmmInstance@@XZ | unused
     ARTS_IMPORT class mmInstance* DetectBangerObstacle();
 
-    // 0x44BC00 | ?DetectPedCollision@aiPedestrian@@AAEHMPAPAV1@PAM@Z
+    // ?DetectPedCollision@aiPedestrian@@AAEHMPAPAV1@PAM@Z
     ARTS_IMPORT i32 DetectPedCollision(f32 arg1, class aiPedestrian** arg2, f32* arg3);
 
-    // 0x44BB80 | ?DetectPedObstacle@aiPedestrian@@AAEPAV1@XZ | unused
+    // ?DetectPedObstacle@aiPedestrian@@AAEPAV1@XZ | unused
     ARTS_IMPORT class aiPedestrian* DetectPedObstacle();
 
-    // 0x44A4D0 | ?DetectPlayerAnticipate@aiPedestrian@@AAEHPAM0@Z
+    // ?DetectPlayerAnticipate@aiPedestrian@@AAEHPAM0@Z
     ARTS_IMPORT i32 DetectPlayerAnticipate(f32* arg1, f32* arg2);
 
-    // 0x44B0C0 | ?DetectPlayerCollision@aiPedestrian@@AAEHPAM@Z
+    // ?DetectPlayerCollision@aiPedestrian@@AAEHPAM@Z
     ARTS_IMPORT i32 DetectPlayerCollision(f32* arg1);
 
-    // 0x44A2F0 | ?DetectPlayerForwardCollision@aiPedestrian@@AAEHPAM0@Z
+    // ?DetectPlayerForwardCollision@aiPedestrian@@AAEHPAM0@Z
     ARTS_IMPORT i32 DetectPlayerForwardCollision(f32* arg1, f32* arg2);
 
-    // 0x44D650 | ?GetRaceVoiceIndex@aiPedestrian@@AAEFXZ
+    // ?GetRaceVoiceIndex@aiPedestrian@@AAEFXZ
     ARTS_IMPORT i16 GetRaceVoiceIndex();
 
-    // 0x44D480 | ?GetRoamVoiceIndex@aiPedestrian@@AAEFXZ
+    // ?GetRoamVoiceIndex@aiPedestrian@@AAEFXZ
     ARTS_IMPORT i16 GetRoamVoiceIndex();
 
-    // 0x44AED0 | ?PickNextRdSeg@aiPedestrian@@AAEPAVaiPath@@XZ
+    // ?PickNextRdSeg@aiPedestrian@@AAEPAVaiPath@@XZ
     ARTS_IMPORT class aiPath* PickNextRdSeg();
 
-    // 0x44A690 | ?RoadDistance@aiPedestrian@@AAEMXZ
+    // ?RoadDistance@aiPedestrian@@AAEMXZ
     ARTS_IMPORT f32 RoadDistance();
 
-    // 0x44CE50 | ?SolvePosition@aiPedestrian@@AAEXAAVVector3@@M@Z
+    // ?SolvePosition@aiPedestrian@@AAEXAAVVector3@@M@Z
     ARTS_IMPORT void SolvePosition(class Vector3& arg1, f32 arg2);
 
-    // 0x44AD90 | ?SolveRoadSegment@aiPedestrian@@AAEXM@Z
+    // ?SolveRoadSegment@aiPedestrian@@AAEXM@Z
     ARTS_IMPORT void SolveRoadSegment(f32 arg1);
 
-    // 0x44C670 | ?SolveTargetPoint@aiPedestrian@@AAEXM@Z
+    // ?SolveTargetPoint@aiPedestrian@@AAEXM@Z
     ARTS_IMPORT void SolveTargetPoint(f32 arg1);
 
-    // 0x44A2D0 | ?TimeToCollision@aiPedestrian@@AAEMM@Z
+    // ?TimeToCollision@aiPedestrian@@AAEMM@Z
     ARTS_IMPORT f32 TimeToCollision(f32 arg1);
 
-    // 0x449850 | ?Wander@aiPedestrian@@AAEXXZ
+    // ?Wander@aiPedestrian@@AAEXXZ
     ARTS_IMPORT void Wander();
 
-    // 0x6A7A18 | ?s_fAttenuationMult@aiPedestrian@@0MA
+    // ?s_fAttenuationMult@aiPedestrian@@0MA
     ARTS_IMPORT static f32 s_fAttenuationMult;
 
-    // 0x639374 | ?s_fAudioMaxDistance@aiPedestrian@@0MA
+    // ?s_fAudioMaxDistance@aiPedestrian@@0MA
     ARTS_IMPORT static f32 s_fAudioMaxDistance;
 
-    // 0x639370 | ?s_fAudioVolume@aiPedestrian@@0MA
+    // ?s_fAudioVolume@aiPedestrian@@0MA
     ARTS_IMPORT static f32 s_fAudioVolume;
 
     u8 gap0[0xAC];
@@ -220,35 +220,35 @@ check_size(aiPedestrian, 0xAC);
 
 class aiPedestrianInstance final : public mmInstance
 {
-    // const aiPedestrianInstance::`vftable' @ 0x61B660
+    // const aiPedestrianInstance::`vftable'
 
 public:
-    // 0x44DA40 | ??_EaiPedestrianInstance@@UAEPAXI@Z
-    // 0x44DA40 | ??_GaiPedestrianInstance@@UAEPAXI@Z
-    // 0x44DA60 | ??1aiPedestrianInstance@@UAE@XZ | inline
+    // ??_EaiPedestrianInstance@@UAEPAXI@Z
+    // ??_GaiPedestrianInstance@@UAEPAXI@Z
+    // ??1aiPedestrianInstance@@UAE@XZ | inline
     ARTS_IMPORT ~aiPedestrianInstance() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x44DA30 | ?AddWidgets@aiPedestrianInstance@@UAEXPAVBank@@@Z | inline
+    // ?AddWidgets@aiPedestrianInstance@@UAEXPAVBank@@@Z | inline
     ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x44D820 | ?ComputeLod@aiPedestrianInstance@@UAEHMM@Z | inline
+    // ?ComputeLod@aiPedestrianInstance@@UAEHMM@Z | inline
     ARTS_IMPORT i32 ComputeLod(f32 arg1, f32 arg2) override;
 
-    // 0x44D850 | ?Draw@aiPedestrianInstance@@UAIXH@Z | inline
+    // ?Draw@aiPedestrianInstance@@UAIXH@Z | inline
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
-    // 0x44D960 | ?DrawShadow@aiPedestrianInstance@@UAIXXZ | inline
+    // ?DrawShadow@aiPedestrianInstance@@UAIXXZ | inline
     ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
-    // 0x44D800 | ?FromMatrix@aiPedestrianInstance@@UAIXABVMatrix34@@@Z | inline
+    // ?FromMatrix@aiPedestrianInstance@@UAIXABVMatrix34@@@Z | inline
     ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
 
-    // 0x44D810 | ?GetPos@aiPedestrianInstance@@UAIAAVVector3@@XZ | inline
+    // ?GetPos@aiPedestrianInstance@@UAIAAVVector3@@XZ | inline
     ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
-    // 0x44D7F0 | ?ToMatrix@aiPedestrianInstance@@UAIAAVMatrix34@@AAV2@@Z | inline
+    // ?ToMatrix@aiPedestrianInstance@@UAIAAVMatrix34@@AAV2@@Z | inline
     ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
 
     u8 gap14[0x14];

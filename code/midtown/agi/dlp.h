@@ -42,47 +42,47 @@
 
 class DLP : public agiRefreshable
 {
-    // const DLP::`vftable' @ 0x6218A8
+    // const DLP::`vftable'
 
 public:
-    // 0x55DE90 | ??0DLP@@QAE@PAVagiPipeline@@@Z
+    // ??0DLP@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT DLP(class agiPipeline* arg1);
 
-    // 0x55E580 | ??_GDLP@@UAEPAXI@Z
-    // 0x55E580 | ??_EDLP@@UAEPAXI@Z
-    // 0x55DEF0 | ??1DLP@@UAE@XZ
+    // ??_GDLP@@UAEPAXI@Z
+    // ??_EDLP@@UAEPAXI@Z
+    // ??1DLP@@UAE@XZ
     ARTS_IMPORT ~DLP() override;
 
-    // 0x55E490 | ?Cull@DLP@@UAEXH@Z
+    // ?Cull@DLP@@UAEXH@Z
     ARTS_IMPORT virtual void Cull(i32 arg1);
 
-    // 0x55E530 | ?FixROpts@DLP@@UAEXHH@Z
+    // ?FixROpts@DLP@@UAEXHH@Z
     ARTS_IMPORT virtual void FixROpts(i32 arg1, i32 arg2);
 
     virtual class DynamicDLP* GetDynamic(i32 arg1) = 0;
 
     virtual class MultipassDLP* GetMultipass(i32 arg1) = 0;
 
-    // 0x55E0D0 | ?BeginGfx@DLP@@UAEHXZ
+    // ?BeginGfx@DLP@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
-    // 0x55E460 | ?Clone@DLP@@QAEPAV1@XZ | unused
+    // ?Clone@DLP@@QAEPAV1@XZ | unused
     ARTS_IMPORT class DLP* Clone();
 
-    // 0x55E2F0 | ?EndGfx@DLP@@UAEXXZ
+    // ?EndGfx@DLP@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
 
-    // 0x55E4F0 | ?GetName@DLP@@UAEPADXZ
+    // ?GetName@DLP@@UAEPADXZ
     ARTS_IMPORT char* GetName() override;
 
-    // 0x55E300 | ?Init@DLP@@QAEHPAD0PAVVector3@@@Z
+    // ?Init@DLP@@QAEHPAD0PAVVector3@@@Z
     ARTS_IMPORT i32 Init(char* arg1, char* arg2, class Vector3* arg3);
 
-    // 0x55E380 | ?Init@DLP@@QAEHPAVDLPTemplate@@PADPAVVector3@@@Z
+    // ?Init@DLP@@QAEHPAVDLPTemplate@@PADPAVVector3@@@Z
     ARTS_IMPORT i32 Init(class DLPTemplate* arg1, char* arg2, class Vector3* arg3);
 
 protected:
-    // 0x55E000 | ?FixTemplateRefs@DLP@@IAEXH@Z
+    // ?FixTemplateRefs@DLP@@IAEXH@Z
     ARTS_IMPORT void FixTemplateRefs(i32 arg1);
 
     u8 gap18[0x7C];
@@ -90,5 +90,5 @@ protected:
 
 check_size(DLP, 0x94);
 
-// 0x907950 | ?DLPHash@@3VHashTable@@A
+// ?DLPHash@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable DLPHash;

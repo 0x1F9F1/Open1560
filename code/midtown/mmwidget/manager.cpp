@@ -34,7 +34,7 @@ void MenuManager::AddWidgets(class Bank* /*arg1*/)
 {}
 #endif
 
-// 0x4B1B30 | ?HelpWatcher@@YGKPAX@Z
+// ?HelpWatcher@@YGKPAX@Z
 ARTS_IMPORT /*static*/ ulong ARTS_STDCALL HelpWatcher(void* arg1);
 
 i32 MenuManager::GetPreviousMenu()

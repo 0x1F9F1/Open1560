@@ -37,34 +37,34 @@
 
 class asAero final : public asNode
 {
-    // const asAero::`vftable' @ 0x61FBF8
+    // const asAero::`vftable'
 
 public:
-    // 0x4DFC10 | ??0asAero@@QAE@XZ
+    // ??0asAero@@QAE@XZ
     ARTS_IMPORT asAero();
 
-    // 0x4E0680 | ??_EasAero@@UAEPAXI@Z
-    // 0x470320 | ??1asAero@@UAE@XZ | inline
+    // ??_EasAero@@UAEPAXI@Z
+    // ??1asAero@@UAE@XZ | inline
     ARTS_IMPORT ~asAero() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4E0330 | ?AddWidgets@asAero@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asAero@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4E0670 | ?GetClass@asAero@@UAEPAVMetaClass@@XZ
+    // ?GetClass@asAero@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4E0130 | ?Load@asAero@@QAEXPAVStream@@@Z | unused
+    // ?Load@asAero@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Load(class Stream* arg1);
 
-    // 0x4E0200 | ?Save@asAero@@QAEXPAVStream@@@Z | unused
+    // ?Save@asAero@@QAEXPAVStream@@@Z | unused
     ARTS_IMPORT void Save(class Stream* arg1);
 
-    // 0x4DFC70 | ?Update@asAero@@UAEXXZ
+    // ?Update@asAero@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x4E0490 | ?DeclareFields@asAero@@SAXXZ
+    // ?DeclareFields@asAero@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0x54];
@@ -72,5 +72,5 @@ public:
 
 check_size(asAero, 0x74);
 
-// 0x7191F8 | ?asAeroMetaClass@@3VMetaClass@@A
+// ?asAeroMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asAeroMetaClass;

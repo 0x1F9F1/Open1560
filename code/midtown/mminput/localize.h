@@ -26,5 +26,5 @@
 
 #include "localize/localize.h"
 
-// 0x4E7310 | ?AngelReadKeyString@@YAPAULocString@@I@Z
+// ?AngelReadKeyString@@YAPAULocString@@I@Z
 ARTS_IMPORT struct LocString* AngelReadKeyString(u32 arg1);

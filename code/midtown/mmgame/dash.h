@@ -60,38 +60,38 @@
 
 class mmExternalView final : public asNode
 {
-    // const mmExternalView::`vftable' @ 0x61AB00
+    // const mmExternalView::`vftable'
 
 public:
-    // 0x4220F0 | ??0mmExternalView@@QAE@XZ
+    // ??0mmExternalView@@QAE@XZ
     ARTS_IMPORT mmExternalView();
 
-    // 0x422F60 | ??_EmmExternalView@@UAEPAXI@Z
-    // 0x422F60 | ??_GmmExternalView@@UAEPAXI@Z
-    // 0x406910 | ??1mmExternalView@@UAE@XZ | inline
+    // ??_EmmExternalView@@UAEPAXI@Z
+    // ??_GmmExternalView@@UAEPAXI@Z
+    // ??1mmExternalView@@UAE@XZ | inline
     ARTS_IMPORT ~mmExternalView() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4224E0 | ?AddWidgets@mmExternalView@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmExternalView@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x422340 | ?Cull@mmExternalView@@UAEXXZ
+    // ?Cull@mmExternalView@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x422170 | ?Init@mmExternalView@@QAEXPAVmmPlayer@@@Z
+    // ?Init@mmExternalView@@QAEXPAVmmPlayer@@@Z
     ARTS_IMPORT void Init(class mmPlayer* arg1);
 
-    // 0x4221B0 | ?ResChange@mmExternalView@@UAEXHH@Z
+    // ?ResChange@mmExternalView@@UAEXHH@Z
     ARTS_IMPORT void ResChange(i32 arg1, i32 arg2) override;
 
-    // 0x422300 | ?Reset@mmExternalView@@UAEXXZ
+    // ?Reset@mmExternalView@@UAEXXZ
     ARTS_EXPORT void Reset() override;
 
-    // 0x422310 | ?Update@mmExternalView@@UAEXXZ
+    // ?Update@mmExternalView@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x422330 | ?WideFOV@mmExternalView@@QAEXH@Z
+    // ?WideFOV@mmExternalView@@QAEXH@Z
     ARTS_EXPORT void WideFOV(i32 arg1);
 
     u8 gap20[0xEC];
@@ -101,55 +101,55 @@ check_size(mmExternalView, 0x10C);
 
 class mmDashView final : public asLinearCS
 {
-    // const mmDashView::`vftable' @ 0x61AAC0
+    // const mmDashView::`vftable'
 
 public:
-    // 0x4215D0 | ??0mmDashView@@QAE@XZ
+    // ??0mmDashView@@QAE@XZ
     ARTS_IMPORT mmDashView();
 
-    // 0x422F90 | ??_EmmDashView@@UAEPAXI@Z
-    // 0x421770 | ??1mmDashView@@UAE@XZ
+    // ??_EmmDashView@@UAEPAXI@Z
+    // ??1mmDashView@@UAE@XZ
     ARTS_IMPORT ~mmDashView() override;
 
-    // 0x421D80 | ?Activate@mmDashView@@QAEXXZ
+    // ?Activate@mmDashView@@QAEXXZ
     ARTS_IMPORT void Activate();
 
-    // 0x421D60 | ?ActivateUntilTransitionIsOver@mmDashView@@QAEXXZ
+    // ?ActivateUntilTransitionIsOver@mmDashView@@QAEXXZ
     ARTS_IMPORT void ActivateUntilTransitionIsOver();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4227D0 | ?AddWidgets@mmDashView@@UAEXPAVBank@@@Z
+    // ?AddWidgets@mmDashView@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x421CC0 | ?AfterLoad@mmDashView@@UAEXXZ
+    // ?AfterLoad@mmDashView@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;
 
-    // 0x421C20 | ?BeforeSave@mmDashView@@UAEXXZ
+    // ?BeforeSave@mmDashView@@UAEXXZ
     ARTS_IMPORT void BeforeSave() override;
 
-    // 0x421F00 | ?Cull@mmDashView@@UAEXXZ
+    // ?Cull@mmDashView@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x421DA0 | ?Deactivate@mmDashView@@QAEXXZ
+    // ?Deactivate@mmDashView@@QAEXXZ
     ARTS_IMPORT void Deactivate();
 
-    // 0x422EC0 | ?GetClass@mmDashView@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmDashView@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x421880 | ?Init@mmDashView@@QAEXPADPAVmmPlayer@@@Z
+    // ?Init@mmDashView@@QAEXPADPAVmmPlayer@@@Z
     ARTS_IMPORT void Init(char* arg1, class mmPlayer* arg2);
 
-    // 0x421C10 | ?Reset@mmDashView@@UAEXXZ
+    // ?Reset@mmDashView@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x421DC0 | ?TempDeactivate@mmDashView@@QAEXXZ | unused
+    // ?TempDeactivate@mmDashView@@QAEXXZ | unused
     ARTS_IMPORT void TempDeactivate();
 
-    // 0x421DD0 | ?Update@mmDashView@@UAEXXZ
+    // ?Update@mmDashView@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x422BD0 | ?DeclareFields@mmDashView@@SAXXZ
+    // ?DeclareFields@mmDashView@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap88[0x7F8];
@@ -157,8 +157,8 @@ public:
 
 check_size(mmDashView, 0x880);
 
-// 0x636504 | ?MAX_SPEED@@3MA
+// ?MAX_SPEED@@3MA
 ARTS_IMPORT extern f32 MAX_SPEED;
 
-// 0x6A72B8 | ?mmDashViewMetaClass@@3VMetaClass@@A
+// ?mmDashViewMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmDashViewMetaClass;

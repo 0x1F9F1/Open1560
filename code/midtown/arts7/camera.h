@@ -73,37 +73,37 @@ class agiBitmap;
 
 class asCamera final : public asNode
 {
-    // const asCamera::`vftable' @ 0x620D50
+    // const asCamera::`vftable'
 
 public:
-    // 0x528C40 | ??0asCamera@@QAE@XZ
+    // ??0asCamera@@QAE@XZ
     ARTS_IMPORT asCamera();
 
-    // 0x52A820 | ??_EasCamera@@UAEPAXI@Z
-    // 0x528BB0 | ??1asCamera@@UAE@XZ
+    // ??_EasCamera@@UAEPAXI@Z
+    // ??1asCamera@@UAE@XZ
     ARTS_IMPORT ~asCamera() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x52A040 | ?AddWidgets@asCamera@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asCamera@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x5297D0 | ?DrawBegin@asCamera@@QAEXXZ
+    // ?DrawBegin@asCamera@@QAEXXZ
     ARTS_EXPORT void DrawBegin();
 
-    // 0x5299C0 | ?DrawEnd@asCamera@@QAEXXZ
+    // ?DrawEnd@asCamera@@QAEXXZ
     ARTS_IMPORT void DrawEnd();
 
-    // 0x529D40 | ?FadeIn@asCamera@@QAEXMH@Z
+    // ?FadeIn@asCamera@@QAEXMH@Z
     ARTS_IMPORT void FadeIn(f32 arg1, i32 arg2);
 
-    // 0x529CE0 | ?FadeOut@asCamera@@QAEXMH@Z
+    // ?FadeOut@asCamera@@QAEXMH@Z
     ARTS_IMPORT void FadeOut(f32 arg1, i32 arg2);
 
-    // 0x529DA0 | ?FileIO@asCamera@@QAEXPAVMiniParser@@@Z | unused
+    // ?FileIO@asCamera@@QAEXPAVMiniParser@@@Z | unused
     ARTS_IMPORT void FileIO(class MiniParser* arg1);
 
-    // 0x52A810 | ?GetClass@asCamera@@UAEPAVMetaClass@@XZ
+    // ?GetClass@asCamera@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
     enum kNearClip
@@ -115,56 +115,56 @@ public:
         kNearClip4,
     };
 
-    // 0x529270 | ?GetNearClip@asCamera@@QAEXPAVVector3@@AAVMatrix34@@W4kNearClip@1@@Z | unused
+    // ?GetNearClip@asCamera@@QAEXPAVVector3@@AAVMatrix34@@W4kNearClip@1@@Z | unused
     ARTS_IMPORT void GetNearClip(class Vector3* arg1, class Matrix34& arg2, enum asCamera::kNearClip arg3);
 
-    // 0x529CC0 | ?GetViewportHeight@asCamera@@QAEHXZ | unused
+    // ?GetViewportHeight@asCamera@@QAEHXZ | unused
     ARTS_IMPORT i32 GetViewportHeight();
 
-    // 0x529CA0 | ?GetViewportWidth@asCamera@@QAEHXZ | unused
+    // ?GetViewportWidth@asCamera@@QAEHXZ | unused
     ARTS_IMPORT i32 GetViewportWidth();
 
-    // 0x529F50 | ?SetAmbient@asCamera@@QAEXABVVector3@@@Z | unused
+    // ?SetAmbient@asCamera@@QAEXABVVector3@@@Z | unused
     ARTS_IMPORT void SetAmbient(class Vector3 const& arg1);
 
-    // 0x529100 | ?SetClipArea@asCamera@@QAEXMMMM@Z
+    // ?SetClipArea@asCamera@@QAEXMMMM@Z
     ARTS_IMPORT void SetClipArea(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x529C10 | ?SetFog@asCamera@@QAEXMMMM@Z
+    // ?SetFog@asCamera@@QAEXMMMM@Z
     ARTS_IMPORT void SetFog(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x529230 | ?SetLighting@asCamera@@QAEXH@Z
+    // ?SetLighting@asCamera@@QAEXH@Z
     ARTS_IMPORT void SetLighting(i32 arg1);
 
-    // 0x529F90 | ?SetMonochrome@asCamera@@QAEXH@Z | unused
+    // ?SetMonochrome@asCamera@@QAEXH@Z | unused
     ARTS_IMPORT void SetMonochrome(i32 arg1);
 
-    // 0x529C40 | ?SetUnderlay@asCamera@@QAEXPAD@Z
+    // ?SetUnderlay@asCamera@@QAEXPAD@Z
     ARTS_IMPORT void SetUnderlay(char* arg1);
 
-    // 0x529C80 | ?SetUnderlayCB@asCamera@@QAEXPAVagiBitmap@@PAVCallback@@@Z
+    // ?SetUnderlayCB@asCamera@@QAEXPAVagiBitmap@@PAVCallback@@@Z
     ARTS_IMPORT void SetUnderlayCB(class agiBitmap* arg1, class Callback* arg2);
 
-    // 0x529BC0 | ?SetView@asCamera@@QAEXMMMM@Z
+    // ?SetView@asCamera@@QAEXMMMM@Z
     ARTS_EXPORT void SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip);
 
-    // 0x529B70 | ?SetViewport@asCamera@@QAEXMMMMH@Z
+    // ?SetViewport@asCamera@@QAEXMMMMH@Z
     ARTS_IMPORT void SetViewport(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5);
 
-    // 0x529250 | ?SetWorld@asCamera@@QAEXAAVMatrix34@@@Z
+    // ?SetWorld@asCamera@@QAEXAAVMatrix34@@@Z
     ARTS_IMPORT void SetWorld(class Matrix34& arg1);
 
-    // 0x529DB0 | ?SphereVisible@asCamera@@QAEMABVVector3@@MPAM@Z | unused
+    // ?SphereVisible@asCamera@@QAEMABVVector3@@MPAM@Z | unused
     ARTS_IMPORT f32 SphereVisible(class Vector3 const& arg1, f32 arg2, f32* arg3);
 
-    // 0x528DF0 | ?Update@asCamera@@UAEXXZ
+    // ?Update@asCamera@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x52A6A0 | ?DeclareFields@asCamera@@SAXXZ
+    // ?DeclareFields@asCamera@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x529FB0 | ?Regen@asCamera@@AAEXXZ
+    // ?Regen@asCamera@@AAEXXZ
     ARTS_IMPORT void Regen();
 
     agiViewport* viewport_ {nullptr};
@@ -241,24 +241,24 @@ private:
 check_size(asCamera, 0x18C);
 
 #ifdef ARTS_DEV_BUILD
-// 0x529FF0 | ?FadeItIn@@YAXPAVasCamera@@@Z
+// ?FadeItIn@@YAXPAVasCamera@@@Z
 ARTS_IMPORT void FadeItIn(class asCamera* arg1);
 
-// 0x529FD0 | ?FadeItOut@@YAXPAVasCamera@@@Z
+// ?FadeItOut@@YAXPAVasCamera@@@Z
 ARTS_IMPORT void FadeItOut(class asCamera* arg1);
 
-// 0x52A010 | ?FritzIt@@YAXPAVasCamera@@@Z
+// ?FritzIt@@YAXPAVasCamera@@@Z
 ARTS_IMPORT void FritzIt(class asCamera* arg1);
 
-// 0x52A020 | ?ViewIt@@YAXPAVasCamera@@@Z
+// ?ViewIt@@YAXPAVasCamera@@@Z
 ARTS_IMPORT void ViewIt(class asCamera* arg1);
 
-// 0x64DF5C | ?Duration@@3MA
+// ?Duration@@3MA
 ARTS_IMPORT extern f32 Duration;
 #endif
 
-// 0x790980 | ?VW@@3PAVagiViewport@@A
+// ?VW@@3PAVagiViewport@@A
 ARTS_IMPORT extern class agiViewport* VW;
 
-// 0x790958 | ?asCameraMetaClass@@3VMetaClass@@A
+// ?asCameraMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asCameraMetaClass;

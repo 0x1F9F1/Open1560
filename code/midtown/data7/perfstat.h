@@ -27,14 +27,14 @@
     0x57B530 | unsigned int __cdecl PerfGetValue(int) | ?PerfGetValue@@YAIH@Z
 */
 
-// 0x57B530 | ?PerfGetValue@@YAIH@Z
+// ?PerfGetValue@@YAIH@Z
 ARTS_IMPORT u32 PerfGetValue(i32 arg1);
 
-// 0x57B410 | ?PerfInit@@YAXXZ | unused
+// ?PerfInit@@YAXXZ | unused
 ARTS_IMPORT void PerfInit();
 
-// 0x57B470 | ?PerfLookup@@YAHPAD@Z | unused
+// ?PerfLookup@@YAHPAD@Z | unused
 ARTS_IMPORT i32 PerfLookup(char* arg1);
 
-// 0x57B450 | ?PerfShutdown@@YAXXZ | unused
+// ?PerfShutdown@@YAXXZ | unused
 ARTS_IMPORT void PerfShutdown();

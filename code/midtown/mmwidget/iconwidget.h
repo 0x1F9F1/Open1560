@@ -36,28 +36,28 @@
 
 class UIIconW final : public uiWidget
 {
-    // const UIIconW::`vftable' @ 0x61EE18
+    // const UIIconW::`vftable'
 
 public:
-    // 0x4BC0F0 | ??0UIIconW@@QAE@XZ
+    // ??0UIIconW@@QAE@XZ
     ARTS_IMPORT UIIconW();
 
-    // 0x4BC460 | ??_GUIIconW@@UAEPAXI@Z
-    // 0x4BC460 | ??_EUIIconW@@UAEPAXI@Z
-    // 0x4BC1B0 | ??1UIIconW@@UAE@XZ
+    // ??_GUIIconW@@UAEPAXI@Z
+    // ??_EUIIconW@@UAEPAXI@Z
+    // ??1UIIconW@@UAE@XZ
     ARTS_IMPORT ~UIIconW() override;
 
-    // 0x4BC300 | ?Action@UIIconW@@UAEXTeqEvent@@@Z
+    // ?Action@UIIconW@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void Action(union eqEvent arg1) override;
 
-    // 0x4BC220 | ?Init@UIIconW@@QAEXPAULocString@@PADMMMMVCallback@@@Z
+    // ?Init@UIIconW@@QAEXPAULocString@@PADMMMMVCallback@@@Z
     ARTS_IMPORT void Init(
         struct LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class Callback arg7);
 
-    // 0x4BC3E0 | ?Switch@UIIconW@@UAEXH@Z
+    // ?Switch@UIIconW@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;
 
-    // 0x4BC360 | ?Update@UIIconW@@UAEXXZ
+    // ?Update@UIIconW@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap74[0x48];

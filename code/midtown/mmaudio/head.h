@@ -41,45 +41,45 @@
 
 class AudHead final : public asNode
 {
-    // const AudHead::`vftable' @ 0x61FE08
+    // const AudHead::`vftable'
 
 public:
-    // 0x4EBCB0 | ??0AudHead@@QAE@PAVMatrix34@@@Z
+    // ??0AudHead@@QAE@PAVMatrix34@@@Z
     ARTS_IMPORT AudHead(class Matrix34* arg1);
 
-    // 0x4EC040 | ??_EAudHead@@UAEPAXI@Z
-    // 0x4EC040 | ??_GAudHead@@UAEPAXI@Z
-    // 0x4EBD00 | ??1AudHead@@UAE@XZ
+    // ??_EAudHead@@UAEPAXI@Z
+    // ??_GAudHead@@UAEPAXI@Z
+    // ??1AudHead@@UAE@XZ
     ARTS_IMPORT ~AudHead() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4EBEF0 | ?AddWidgets@AudHead@@UAEXPAVBank@@@Z
+    // ?AddWidgets@AudHead@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4EC030 | ?GetHeadPtr@AudHead@@QAEPAVMatrix34@@XZ
+    // ?GetHeadPtr@AudHead@@QAEPAVMatrix34@@XZ
     ARTS_IMPORT class Matrix34* GetHeadPtr();
 
-    // 0x4EC010 | ?GetPositionPtr@AudHead@@QAEPAVVector3@@XZ
+    // ?GetPositionPtr@AudHead@@QAEPAVVector3@@XZ
     ARTS_IMPORT class Vector3* GetPositionPtr();
 
-    // 0x4EBD10 | ?Init@AudHead@@QAEHXZ
+    // ?Init@AudHead@@QAEHXZ
     ARTS_IMPORT i32 Init();
 
-    // 0x4EBFB0 | ?SetDoppler@AudHead@@QAEXM@Z
+    // ?SetDoppler@AudHead@@QAEXM@Z
     ARTS_IMPORT void SetDoppler(f32 arg1);
 
-    // 0x4EC020 | ?SetHeadPtr@AudHead@@QAEXPAVMatrix34@@@Z | unused
+    // ?SetHeadPtr@AudHead@@QAEXPAVMatrix34@@@Z | unused
     ARTS_IMPORT void SetHeadPtr(class Matrix34* arg1);
 
-    // 0x4EBF50 | ?SetRolloff@AudHead@@QAEXM@Z
+    // ?SetRolloff@AudHead@@QAEXM@Z
     ARTS_IMPORT void SetRolloff(f32 arg1);
 
-    // 0x4EBEE0 | ?WidgetSetRolloff@AudHead@@QAEXXZ
+    // ?WidgetSetRolloff@AudHead@@QAEXXZ
     ARTS_IMPORT void WidgetSetRolloff();
 
 private:
-    // 0x4EBD60 | ?Update@AudHead@@EAEXXZ
+    // ?Update@AudHead@@EAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x30];

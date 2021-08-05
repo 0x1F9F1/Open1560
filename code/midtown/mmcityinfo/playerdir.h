@@ -53,75 +53,75 @@
 
 class mmPlayerDirectory final : public mmInfoBase
 {
-    // const mmPlayerDirectory::`vftable' @ 0x61F900
+    // const mmPlayerDirectory::`vftable'
 
 public:
-    // 0x4CEF00 | ??0mmPlayerDirectory@@QAE@XZ
+    // ??0mmPlayerDirectory@@QAE@XZ
     ARTS_IMPORT mmPlayerDirectory();
 
-    // 0x4CFBD0 | ??_EmmPlayerDirectory@@UAEPAXI@Z
-    // 0x4CEF40 | ??1mmPlayerDirectory@@UAE@XZ
+    // ??_EmmPlayerDirectory@@UAEPAXI@Z
+    // ??1mmPlayerDirectory@@UAE@XZ
     ARTS_IMPORT ~mmPlayerDirectory() override;
 
-    // 0x4CF0D0 | ?AddPlayer@mmPlayerDirectory@@QAEHPAD@Z
+    // ?AddPlayer@mmPlayerDirectory@@QAEHPAD@Z
     ARTS_IMPORT i32 AddPlayer(char* arg1);
 
-    // 0x4CF320 | ?FindPlayer@mmPlayerDirectory@@QAEHPAD@Z
+    // ?FindPlayer@mmPlayerDirectory@@QAEHPAD@Z
     ARTS_IMPORT i32 FindPlayer(char* arg1);
 
-    // 0x4CFB80 | ?GetClass@mmPlayerDirectory@@UAEPAVMetaClass@@XZ
+    // ?GetClass@mmPlayerDirectory@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4CF390 | ?GetFileName@mmPlayerDirectory@@QAEPADPAD@Z
+    // ?GetFileName@mmPlayerDirectory@@QAEPADPAD@Z
     ARTS_IMPORT char* GetFileName(char* arg1);
 
-    // 0x4CF4B0 | ?GetFileName@mmPlayerDirectory@@QAEPADH@Z
+    // ?GetFileName@mmPlayerDirectory@@QAEPADH@Z
     ARTS_IMPORT char* GetFileName(i32 arg1);
 
-    // 0x4CF0A0 | ?GetLastPlayer@mmPlayerDirectory@@QAEPADXZ
+    // ?GetLastPlayer@mmPlayerDirectory@@QAEPADXZ
     ARTS_IMPORT char* GetLastPlayer();
 
-    // 0x4CF090 | ?GetNumPlayers@mmPlayerDirectory@@QAEHXZ
+    // ?GetNumPlayers@mmPlayerDirectory@@QAEHXZ
     ARTS_IMPORT i32 GetNumPlayers();
 
-    // 0x4CF060 | ?GetPlayer@mmPlayerDirectory@@QAEPADH@Z
+    // ?GetPlayer@mmPlayerDirectory@@QAEPADH@Z
     ARTS_IMPORT char* GetPlayer(i32 arg1);
 
-    // 0x4CF420 | ?GetPlayerName@mmPlayerDirectory@@QAEPADPAD@Z | unused
+    // ?GetPlayerName@mmPlayerDirectory@@QAEPADPAD@Z | unused
     ARTS_IMPORT char* GetPlayerName(char* arg1);
 
-    // 0x4CF6A0 | ?Load@mmPlayerDirectory@@QAEHPAD@Z
+    // ?Load@mmPlayerDirectory@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);
 
-    // 0x4CF870 | ?LoadBinary@mmPlayerDirectory@@QAEHPAD@Z
+    // ?LoadBinary@mmPlayerDirectory@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadBinary(char* arg1);
 
-    // 0x4CEFA0 | ?NewDirectory@mmPlayerDirectory@@QAEXH@Z
+    // ?NewDirectory@mmPlayerDirectory@@QAEXH@Z
     ARTS_IMPORT void NewDirectory(i32 arg1);
 
-    // 0x4CF5A0 | ?RemovePlayer@mmPlayerDirectory@@QAEHPAD@Z
+    // ?RemovePlayer@mmPlayerDirectory@@QAEHPAD@Z
     ARTS_IMPORT i32 RemovePlayer(char* arg1);
 
-    // 0x4CF6D0 | ?Save@mmPlayerDirectory@@QAEHPADH@Z
+    // ?Save@mmPlayerDirectory@@QAEHPADH@Z
     ARTS_IMPORT i32 Save(char* arg1, i32 arg2);
 
-    // 0x4CF770 | ?SaveBinary@mmPlayerDirectory@@QAEHPAD@Z
+    // ?SaveBinary@mmPlayerDirectory@@QAEHPAD@Z
     ARTS_IMPORT i32 SaveBinary(char* arg1);
 
-    // 0x4CF010 | ?SetLastPlayer@mmPlayerDirectory@@QAEXPAD@Z
+    // ?SetLastPlayer@mmPlayerDirectory@@QAEXPAD@Z
     ARTS_IMPORT void SetLastPlayer(char* arg1);
 
-    // 0x4CEFE0 | ?SetPlayer@mmPlayerDirectory@@QAEXHPAD0@Z
+    // ?SetPlayer@mmPlayerDirectory@@QAEXHPAD0@Z
     ARTS_IMPORT void SetPlayer(i32 arg1, char* arg2, char* arg3);
 
-    // 0x4CF9B0 | ?DeclareFields@mmPlayerDirectory@@SAXXZ
+    // ?DeclareFields@mmPlayerDirectory@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 private:
-    // 0x4CF210 | ?CreatePlayer@mmPlayerDirectory@@AAEXPAD0@Z | unused
+    // ?CreatePlayer@mmPlayerDirectory@@AAEXPAD0@Z | unused
     ARTS_IMPORT void CreatePlayer(char* arg1, char* arg2);
 
-    // 0x4CF4E0 | ?MakeFileName@mmPlayerDirectory@@AAEPADXZ
+    // ?MakeFileName@mmPlayerDirectory@@AAEPADXZ
     ARTS_IMPORT char* MakeFileName();
 
     u8 gap88[0x5C];
@@ -129,8 +129,8 @@ private:
 
 check_size(mmPlayerDirectory, 0xE4);
 
-// 0x4CFB90 | ?RefTo@@YAPAUMetaType@@PAU1@HPAH@Z | inline
+// ?RefTo@@YAPAUMetaType@@PAU1@HPAH@Z | inline
 ARTS_IMPORT struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i32* arg3);
 
-// 0x708548 | ?mmPlayerDirectoryMetaClass@@3VMetaClass@@A
+// ?mmPlayerDirectoryMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmPlayerDirectoryMetaClass;

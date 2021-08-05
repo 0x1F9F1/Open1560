@@ -34,21 +34,21 @@
 
 class Dialog_Password final : public PUMenuBase
 {
-    // const Dialog_Password::`vftable' @ 0x61D538
+    // const Dialog_Password::`vftable'
 
 public:
-    // 0x49DAB0 | ??0Dialog_Password@@QAE@HMMMMPAD@Z
+    // ??0Dialog_Password@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_Password(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x49DC50 | ??_GDialog_Password@@UAEPAXI@Z
-    // 0x49DC50 | ??_EDialog_Password@@UAEPAXI@Z
-    // 0x49DC20 | ??1Dialog_Password@@UAE@XZ
+    // ??_GDialog_Password@@UAEPAXI@Z
+    // ??_EDialog_Password@@UAEPAXI@Z
+    // ??1Dialog_Password@@UAE@XZ
     ARTS_IMPORT ~Dialog_Password() override = default;
 
-    // 0x49DC40 | ?PasswordCallback@Dialog_Password@@QAEXXZ
+    // ?PasswordCallback@Dialog_Password@@QAEXXZ
     ARTS_IMPORT void PasswordCallback();
 
-    // 0x49DC30 | ?PreSetup@Dialog_Password@@UAEXXZ
+    // ?PreSetup@Dialog_Password@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
     u8 gapC0[0x2C];

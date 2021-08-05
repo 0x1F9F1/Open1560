@@ -32,22 +32,22 @@
 
 class mmSpringFF final : public mmEffectFF
 {
-    // const mmSpringFF::`vftable' @ 0x61FCF0
+    // const mmSpringFF::`vftable'
 
 public:
-    // 0x4E7E80 | ?Assign@mmSpringFF@@QAEHJ@Z
+    // ?Assign@mmSpringFF@@QAEHJ@Z
     ARTS_IMPORT i32 Assign(ilong arg1);
 
-    // 0x4E7D50 | ?Init@mmSpringFF@@UAEHPAUIDirectInputDevice2A@@@Z
+    // ?Init@mmSpringFF@@UAEHPAUIDirectInputDevice2A@@@Z
     ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;
 
-    // 0x4E7F70 | ?Play@mmSpringFF@@UAEHXZ
+    // ?Play@mmSpringFF@@UAEHXZ
     ARTS_IMPORT i32 Play() override;
 
-    // 0x4E7E50 | ?SetValues@mmSpringFF@@UAEHMM@Z
+    // ?SetValues@mmSpringFF@@UAEHMM@Z
     ARTS_IMPORT i32 SetValues(f32 arg1, f32 arg2) override;
 
-    // 0x4E7FE0 | ?Stop@mmSpringFF@@UAEHXZ
+    // ?Stop@mmSpringFF@@UAEHXZ
     ARTS_IMPORT i32 Stop() override;
 
     u8 gap80[0x1C];

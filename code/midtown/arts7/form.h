@@ -45,55 +45,55 @@
 
 class asForm final : public asNode
 {
-    // const asForm::`vftable' @ 0x620D10
+    // const asForm::`vftable'
 
 public:
-    // 0x528390 | ??0asForm@@QAE@XZ
+    // ??0asForm@@QAE@XZ
     ARTS_IMPORT asForm();
 
-    // 0x528B50 | ??_EasForm@@UAEPAXI@Z
-    // 0x5283C0 | ??1asForm@@UAE@XZ
+    // ??_EasForm@@UAEPAXI@Z
+    // ??1asForm@@UAE@XZ
     ARTS_IMPORT ~asForm() override;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x5288E0 | ?AddWidgets@asForm@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asForm@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x528520 | ?Cull@asForm@@UAEXXZ
+    // ?Cull@asForm@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
-    // 0x5288D0 | ?FileIO@asForm@@QAEXPAVMiniParser@@@Z | unused
+    // ?FileIO@asForm@@QAEXPAVMiniParser@@@Z | unused
     ARTS_EXPORT void FileIO(class MiniParser* arg1);
 
-    // 0x528820 | ?GetBoundMax@asForm@@QAE?AVVector3@@XZ | unused
+    // ?GetBoundMax@asForm@@QAE?AVVector3@@XZ | unused
     ARTS_IMPORT class Vector3 GetBoundMax();
 
-    // 0x5287D0 | ?GetBoundMin@asForm@@QAE?AVVector3@@XZ | unused
+    // ?GetBoundMin@asForm@@QAE?AVVector3@@XZ | unused
     ARTS_IMPORT class Vector3 GetBoundMin();
 
-    // 0x528870 | ?GetBoundSphere@asForm@@QAE?AVVector4@@XZ | unused
+    // ?GetBoundSphere@asForm@@QAE?AVVector4@@XZ | unused
     ARTS_IMPORT class Vector4 GetBoundSphere();
 
-    // 0x528B40 | ?GetClass@asForm@@UAEPAVMetaClass@@XZ
+    // ?GetClass@asForm@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x5284D0 | ?SetCull@asForm@@QAEXHM@Z
+    // ?SetCull@asForm@@QAEXHM@Z
     ARTS_IMPORT void SetCull(i32 arg1, f32 arg2);
 
-    // 0x528420 | ?SetDLP@asForm@@QAEXPAVDLP@@@Z | unused
+    // ?SetDLP@asForm@@QAEXPAVDLP@@@Z | unused
     ARTS_IMPORT void SetDLP(class DLP* arg1);
 
-    // 0x528450 | ?SetShape@asForm@@QAEXPAD0PAVVector3@@HH@Z
+    // ?SetShape@asForm@@QAEXPAD0PAVVector3@@HH@Z
     ARTS_IMPORT void SetShape(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
 
-    // 0x5284F0 | ?Update@asForm@@UAEXXZ
+    // ?Update@asForm@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x528600 | ?Visible@asForm@@QBEHPAVasCamera@@ABVMatrix34@@@Z
+    // ?Visible@asForm@@QBEHPAVasCamera@@ABVMatrix34@@@Z
     ARTS_IMPORT i32 Visible(class asCamera* arg1, class Matrix34 const& arg2) const;
 
-    // 0x5289D0 | ?DeclareFields@asForm@@SAXXZ
+    // ?DeclareFields@asForm@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap20[0xA8];
@@ -101,5 +101,5 @@ public:
 
 check_size(asForm, 0xC8);
 
-// 0x790930 | ?asFormMetaClass@@3VMetaClass@@A
+// ?asFormMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asFormMetaClass;

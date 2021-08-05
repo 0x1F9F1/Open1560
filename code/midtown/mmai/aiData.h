@@ -28,10 +28,10 @@
 class aiRaceData
 {
 public:
-    // 0x446630 | ??0aiRaceData@@QAE@PAD0@Z
+    // ??0aiRaceData@@QAE@PAD0@Z
     ARTS_IMPORT aiRaceData(char* arg1, char* arg2);
 
-    // 0x446B10 | ??1aiRaceData@@QAE@XZ
+    // ??1aiRaceData@@QAE@XZ
     ARTS_IMPORT ~aiRaceData();
 
     u8 gap0[0x2C];

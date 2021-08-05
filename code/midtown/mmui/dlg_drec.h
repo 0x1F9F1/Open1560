@@ -38,33 +38,33 @@
 
 class Dialog_DriverRec final : public PUMenuBase
 {
-    // const Dialog_DriverRec::`vftable' @ 0x61D668
+    // const Dialog_DriverRec::`vftable'
 
 public:
-    // 0x49EC10 | ??0Dialog_DriverRec@@QAE@HMMMMPAD@Z
+    // ??0Dialog_DriverRec@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_DriverRec(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x49F2B0 | ??_GDialog_DriverRec@@UAEPAXI@Z
-    // 0x49F2B0 | ??_EDialog_DriverRec@@UAEPAXI@Z
-    // 0x49EF70 | ??1Dialog_DriverRec@@UAE@XZ
+    // ??_GDialog_DriverRec@@UAEPAXI@Z
+    // ??_EDialog_DriverRec@@UAEPAXI@Z
+    // ??1Dialog_DriverRec@@UAE@XZ
     ARTS_IMPORT ~Dialog_DriverRec() override = default;
 
-    // 0x49F060 | ?AddDriverRecord@Dialog_DriverRec@@QAEHHPADHM0H@Z
+    // ?AddDriverRecord@Dialog_DriverRec@@QAEHHPADHM0H@Z
     ARTS_IMPORT i32 AddDriverRecord(i32 arg1, char* arg2, i32 arg3, f32 arg4, char* arg5, i32 arg6);
 
-    // 0x49EF90 | ?InitDriverRecord@Dialog_DriverRec@@QAEXH@Z
+    // ?InitDriverRecord@Dialog_DriverRec@@QAEXH@Z
     ARTS_IMPORT void InitDriverRecord(i32 arg1);
 
-    // 0x49EF80 | ?PreSetup@Dialog_DriverRec@@UAEXXZ
+    // ?PreSetup@Dialog_DriverRec@@UAEXXZ
     ARTS_IMPORT void PreSetup() override;
 
-    // 0x49F1A0 | ?ResetDriverRecord@Dialog_DriverRec@@QAEXXZ
+    // ?ResetDriverRecord@Dialog_DriverRec@@QAEXXZ
     ARTS_IMPORT void ResetDriverRecord();
 
-    // 0x49F230 | ?SetRecordPosition@Dialog_DriverRec@@QAEXH@Z
+    // ?SetRecordPosition@Dialog_DriverRec@@QAEXH@Z
     ARTS_IMPORT void SetRecordPosition(i32 arg1);
 
-    // 0x49F250 | ?SetSortState@Dialog_DriverRec@@QAEXXZ
+    // ?SetSortState@Dialog_DriverRec@@QAEXXZ
     ARTS_IMPORT void SetSortState();
 
     u8 gapC0[0x24];

@@ -33,18 +33,18 @@
 
 class Dialog_ControlAssign final : public PUMenuBase
 {
-    // const Dialog_ControlAssign::`vftable' @ 0x61D7B8
+    // const Dialog_ControlAssign::`vftable'
 
 public:
-    // 0x4A0230 | ??0Dialog_ControlAssign@@QAE@HMMMMPAD@Z
+    // ??0Dialog_ControlAssign@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_ControlAssign(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x4A0350 | ??_GDialog_ControlAssign@@UAEPAXI@Z
-    // 0x4A0350 | ??_EDialog_ControlAssign@@UAEPAXI@Z
-    // 0x4A0330 | ??1Dialog_ControlAssign@@UAE@XZ
+    // ??_GDialog_ControlAssign@@UAEPAXI@Z
+    // ??_EDialog_ControlAssign@@UAEPAXI@Z
+    // ??1Dialog_ControlAssign@@UAE@XZ
     ARTS_IMPORT ~Dialog_ControlAssign() override = default;
 
-    // 0x4A0340 | ?PreSetup@Dialog_ControlAssign@@UAEXXZ
+    // ?PreSetup@Dialog_ControlAssign@@UAEXXZ
     ARTS_EXPORT void PreSetup() override;
 };
 

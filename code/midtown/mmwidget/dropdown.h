@@ -46,45 +46,45 @@ class mmTextNode;
 
 class mmDropDown final : public asNode
 {
-    // const mmDropDown::`vftable' @ 0x61F2B8
+    // const mmDropDown::`vftable'
 
 public:
-    // 0x4C0810 | ??0mmDropDown@@QAE@XZ
+    // ??0mmDropDown@@QAE@XZ
     ARTS_EXPORT mmDropDown();
 
-    // 0x4C10B0 | ??_EmmDropDown@@UAEPAXI@Z
-    // 0x4C0870 | ??1mmDropDown@@UAE@XZ
+    // ??_EmmDropDown@@UAEPAXI@Z
+    // ??1mmDropDown@@UAE@XZ
     ARTS_EXPORT ~mmDropDown() override;
 
-    // 0x4C0E30 | ?FindFirstEnabled@mmDropDown@@QAEHXZ
+    // ?FindFirstEnabled@mmDropDown@@QAEHXZ
     ARTS_IMPORT i32 FindFirstEnabled();
 
-    // 0x4C0D60 | ?GetCurrentString@mmDropDown@@QAEXPADH@Z
+    // ?GetCurrentString@mmDropDown@@QAEXPADH@Z
     ARTS_IMPORT void GetCurrentString(char* arg1, i32 arg2);
 
-    // 0x4C0EC0 | ?GetHit@mmDropDown@@QAEHMM@Z
+    // ?GetHit@mmDropDown@@QAEHMM@Z
     ARTS_IMPORT i32 GetHit(f32 arg1, f32 arg2);
 
-    // 0x4C08F0 | ?Init@mmDropDown@@QAEXPAVasCamera@@PAXMMMMVstring@@H@Z
+    // ?Init@mmDropDown@@QAEXPAVasCamera@@PAXMMMMVstring@@H@Z
     ARTS_IMPORT void Init(
         class asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7, i32 arg8);
 
-    // 0x4C09F0 | ?InitString@mmDropDown@@QAEXVstring@@@Z
+    // ?InitString@mmDropDown@@QAEXVstring@@@Z
     ARTS_EXPORT void InitString(class string values);
 
-    // 0x4C0DB0 | ?SetDisabledColors@mmDropDown@@QAEXXZ
+    // ?SetDisabledColors@mmDropDown@@QAEXXZ
     ARTS_IMPORT void SetDisabledColors();
 
-    // 0x4C0E60 | ?SetHighlight@mmDropDown@@QAEXH@Z
+    // ?SetHighlight@mmDropDown@@QAEXH@Z
     ARTS_EXPORT void SetHighlight(i32 index);
 
-    // 0x4C0F20 | ?Update@mmDropDown@@UAEXXZ
+    // ?Update@mmDropDown@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     VIRTUAL_META_DECLARE;
 
 private:
-    // 0x4C0C70 | ?SetString@mmDropDown@@AAEXVstring@@@Z
+    // ?SetString@mmDropDown@@AAEXVstring@@@Z
     ARTS_IMPORT void SetString(class string arg1);
 
     Ptr<mmTextNode[]> ValueNodes;
@@ -108,5 +108,5 @@ private:
 
 check_size(mmDropDown, 0xC8);
 
-// 0x705D40 | ?mmDropDownMetaClass@@3VMetaClass@@A
+// ?mmDropDownMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass mmDropDownMetaClass;

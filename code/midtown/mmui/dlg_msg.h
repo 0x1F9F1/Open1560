@@ -34,21 +34,21 @@
 
 class Dialog_Message final : public PUMenuBase
 {
-    // const Dialog_Message::`vftable' @ 0x61D6B8
+    // const Dialog_Message::`vftable'
 
 public:
-    // 0x49F2E0 | ??0Dialog_Message@@QAE@HMMMMPAD@Z
+    // ??0Dialog_Message@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_Message(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x49F480 | ??_GDialog_Message@@UAEPAXI@Z
-    // 0x49F480 | ??_EDialog_Message@@UAEPAXI@Z
-    // 0x49F460 | ??1Dialog_Message@@UAE@XZ
+    // ??_GDialog_Message@@UAEPAXI@Z
+    // ??_EDialog_Message@@UAEPAXI@Z
+    // ??1Dialog_Message@@UAE@XZ
     ARTS_IMPORT ~Dialog_Message() override = default;
 
-    // 0x49F3F0 | ?Init@Dialog_Message@@QAEXHPAD0@Z
+    // ?Init@Dialog_Message@@QAEXHPAD0@Z
     ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3);
 
-    // 0x49F470 | ?PreSetup@Dialog_Message@@UAEXXZ
+    // ?PreSetup@Dialog_Message@@UAEXXZ
     ARTS_EXPORT void PreSetup() override;
 
     u8 gapC0[0x10];

@@ -63,100 +63,100 @@
 
 class aiVehicleSpline : public aiVehicle
 {
-    // const aiVehicleSpline::`vftable' @ 0x61B9F0
+    // const aiVehicleSpline::`vftable'
 
 public:
-    // 0x459EE0 | ??0aiVehicleSpline@@QAE@XZ
+    // ??0aiVehicleSpline@@QAE@XZ
     ARTS_IMPORT aiVehicleSpline();
 
-    // 0x45C4A0 | ??_EaiVehicleSpline@@QAEPAXI@Z | unused
-    // 0x459F50 | ??1aiVehicleSpline@@QAE@XZ
+    // ??_EaiVehicleSpline@@QAEPAXI@Z | unused
+    // ??1aiVehicleSpline@@QAE@XZ
     ARTS_IMPORT ~aiVehicleSpline();
 
-    // 0x45BD00 | ?Impact@aiVehicleSpline@@UAEXH@Z
+    // ?Impact@aiVehicleSpline@@UAEXH@Z
     ARTS_EXPORT virtual void Impact(i32 arg1);
 
-    // 0x4465E0 | ?GetImpactAudioPtr@aiVehicleSpline@@UAEPAVmmOpponentImpactAudio@@XZ | inline
+    // ?GetImpactAudioPtr@aiVehicleSpline@@UAEPAVmmOpponentImpactAudio@@XZ | inline
     ARTS_EXPORT virtual class mmOpponentImpactAudio* GetImpactAudioPtr();
 
-    // 0x4465F0 | ?PlayHorn@aiVehicleSpline@@UAEXMM@Z | inline
+    // ?PlayHorn@aiVehicleSpline@@UAEXMM@Z | inline
     ARTS_EXPORT virtual void PlayHorn(f32 arg1, f32 arg2);
 
-    // 0x446600 | ?ImpactAudioReaction@aiVehicleSpline@@UAEXM@Z | inline
+    // ?ImpactAudioReaction@aiVehicleSpline@@UAEXM@Z | inline
     ARTS_EXPORT virtual void ImpactAudioReaction(f32 arg1);
 
-    // 0x446610 | ?StopVoice@aiVehicleSpline@@UAEXXZ | inline
+    // ?StopVoice@aiVehicleSpline@@UAEXXZ | inline
     ARTS_EXPORT virtual void StopVoice();
 
-    // 0x45C3E0 | ?GetClass@aiVehicleSpline@@UAEPAVMetaClass@@XZ
+    // ?GetClass@aiVehicleSpline@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT virtual class MetaClass* GetClass();
 
 #ifdef ARTS_DEV_BUILD
-    // 0x45C1F0 | ?AddWidgets@aiVehicleSpline@@QAEXPAVBank@@@Z
+    // ?AddWidgets@aiVehicleSpline@@QAEXPAVBank@@@Z
     ARTS_EXPORT void AddWidgets(class Bank* arg1);
 #endif
 
-    // 0x45BC50 | ?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ | unused
+    // ?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ | unused
     ARTS_IMPORT void AvoidPlayerCollision();
 
-    // 0x45B270 | ?DetectPlayerCollision@aiVehicleSpline@@QAEHHM@Z | unused
+    // ?DetectPlayerCollision@aiVehicleSpline@@QAEHHM@Z | unused
     ARTS_IMPORT i32 DetectPlayerCollision(i32 arg1, f32 arg2);
 
-    // 0x45B040 | ?DetectPlayerForwardCollision@aiVehicleSpline@@QAEHXZ | unused
+    // ?DetectPlayerForwardCollision@aiVehicleSpline@@QAEHXZ | unused
     ARTS_IMPORT i32 DetectPlayerForwardCollision();
 
-    // 0x45B130 | ?DetectPlayerTargetPtCollision@aiVehicleSpline@@QAEHXZ | unused
+    // ?DetectPlayerTargetPtCollision@aiVehicleSpline@@QAEHXZ | unused
     ARTS_IMPORT i32 DetectPlayerTargetPtCollision();
 
-    // 0x45B870 | ?DetectPlayerZoneCollision@aiVehicleSpline@@QAEHXZ
+    // ?DetectPlayerZoneCollision@aiVehicleSpline@@QAEHXZ
     ARTS_IMPORT i32 DetectPlayerZoneCollision();
 
-    // 0x45BFF0 | ?DistanceToIntersection@aiVehicleSpline@@QAEMXZ
+    // ?DistanceToIntersection@aiVehicleSpline@@QAEMXZ
     ARTS_IMPORT f32 DistanceToIntersection();
 
-    // 0x45BD10 | ?DistanceToVehicle@aiVehicleSpline@@QAEMPAV1@@Z
+    // ?DistanceToVehicle@aiVehicleSpline@@QAEMPAV1@@Z
     ARTS_IMPORT f32 DistanceToVehicle(class aiVehicleSpline* arg1);
 
-    // 0x45C200 | ?DrawId@aiVehicleSpline@@UAEXXZ
+    // ?DrawId@aiVehicleSpline@@UAEXXZ
     ARTS_IMPORT void DrawId() override;
 
-    // 0x45C090 | ?Dump@aiVehicleSpline@@QAEXXZ
+    // ?Dump@aiVehicleSpline@@QAEXXZ
     ARTS_IMPORT void Dump();
 
-    // 0x459FC0 | ?Init@aiVehicleSpline@@QAEXPADH@Z
+    // ?Init@aiVehicleSpline@@QAEXPADH@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2);
 
-    // 0x45BB60 | ?IsAmbientBlockingPlayer@aiVehicleSpline@@QAEHXZ
+    // ?IsAmbientBlockingPlayer@aiVehicleSpline@@QAEHXZ
     ARTS_IMPORT i32 IsAmbientBlockingPlayer();
 
-    // 0x45BA60 | ?IsThePlayerInFrontOfMe@aiVehicleSpline@@QAEHXZ
+    // ?IsThePlayerInFrontOfMe@aiVehicleSpline@@QAEHXZ
     ARTS_IMPORT i32 IsThePlayerInFrontOfMe();
 
-    // 0x45A2B0 | ?Reset@aiVehicleSpline@@UAEXXZ
+    // ?Reset@aiVehicleSpline@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x45A340 | ?ResetReactTicks@aiVehicleSpline@@QAEXXZ
+    // ?ResetReactTicks@aiVehicleSpline@@QAEXXZ
     ARTS_IMPORT void ResetReactTicks();
 
-    // 0x45A3A0 | ?SolvePositionAndOrientation@aiVehicleSpline@@QAEXXZ
+    // ?SolvePositionAndOrientation@aiVehicleSpline@@QAEXXZ
     ARTS_IMPORT void SolvePositionAndOrientation();
 
-    // 0x45AAB0 | ?SolveYPositionAndOrientation@aiVehicleSpline@@QAEXXZ
+    // ?SolveYPositionAndOrientation@aiVehicleSpline@@QAEXXZ
     ARTS_IMPORT void SolveYPositionAndOrientation();
 
-    // 0x45BCF0 | ?TotLength@aiVehicleSpline@@QAEMXZ
+    // ?TotLength@aiVehicleSpline@@QAEMXZ
     ARTS_IMPORT f32 TotLength();
 
-    // 0x45C500 | ?Type@aiVehicleSpline@@UAEHXZ | inline
+    // ?Type@aiVehicleSpline@@UAEHXZ | inline
     ARTS_IMPORT i32 Type() override;
 
-    // 0x45A2F0 | ?Update@aiVehicleSpline@@UAEXXZ
+    // ?Update@aiVehicleSpline@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    // 0x45BCD0 | ?WaitTime@aiVehicleSpline@@QAEHXZ | unused
+    // ?WaitTime@aiVehicleSpline@@QAEHXZ | unused
     ARTS_IMPORT i32 WaitTime();
 
-    // 0x45C250 | ?DeclareFields@aiVehicleSpline@@SAXXZ
+    // ?DeclareFields@aiVehicleSpline@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     u8 gap14[0xC4];
@@ -164,5 +164,5 @@ public:
 
 check_size(aiVehicleSpline, 0xD8);
 
-// 0x6A7BA0 | ?aiVehicleSplineMetaClass@@3VMetaClass@@A
+// ?aiVehicleSplineMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass aiVehicleSplineMetaClass;

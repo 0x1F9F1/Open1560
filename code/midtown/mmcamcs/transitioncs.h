@@ -41,42 +41,42 @@
 
 class TransitionCS final : public CarCamCS
 {
-    // const TransitionCS::`vftable' @ 0x620438
+    // const TransitionCS::`vftable'
 
 public:
-    // 0x4FB4B0 | ??0TransitionCS@@QAE@XZ
+    // ??0TransitionCS@@QAE@XZ
     ARTS_IMPORT TransitionCS();
 
-    // 0x4FBDD0 | ??_GTransitionCS@@UAEPAXI@Z
-    // 0x4FBDD0 | ??_ETransitionCS@@UAEPAXI@Z
-    // 0x4FB540 | ??1TransitionCS@@UAE@XZ
+    // ??_GTransitionCS@@UAEPAXI@Z
+    // ??_ETransitionCS@@UAEPAXI@Z
+    // ??1TransitionCS@@UAE@XZ
     ARTS_IMPORT ~TransitionCS() override = default;
 
-    // 0x4FBC00 | ?ForceMatrixDelta@TransitionCS@@UAEXABVVector3@@@Z
+    // ?ForceMatrixDelta@TransitionCS@@UAEXABVVector3@@@Z
     ARTS_IMPORT void ForceMatrixDelta(class Vector3 const& arg1) override;
 
-    // 0x4FB550 | ?Init@TransitionCS@@QAEXPAVmmCar@@@Z
+    // ?Init@TransitionCS@@QAEXPAVmmCar@@@Z
     ARTS_IMPORT void Init(class mmCar* arg1);
 
-    // 0x4FBC30 | ?NewTransition@TransitionCS@@QAEXPAVCarCamCS@@0@Z
+    // ?NewTransition@TransitionCS@@QAEXPAVCarCamCS@@0@Z
     ARTS_IMPORT void NewTransition(class CarCamCS* arg1, class CarCamCS* arg2);
 
-    // 0x4FBC60 | ?NextTransition@TransitionCS@@QAEXPAVCarCamCS@@@Z
+    // ?NextTransition@TransitionCS@@QAEXPAVCarCamCS@@@Z
     ARTS_IMPORT void NextTransition(class CarCamCS* arg1);
 
-    // 0x4FB570 | ?Reset@TransitionCS@@UAEXXZ
+    // ?Reset@TransitionCS@@UAEXXZ
     ARTS_EXPORT void Reset() override;
 
-    // 0x4FBD50 | ?ReverseTransition@TransitionCS@@QAEXXZ
+    // ?ReverseTransition@TransitionCS@@QAEXXZ
     ARTS_IMPORT void ReverseTransition();
 
-    // 0x4FBD10 | ?StartNextTransition@TransitionCS@@QAEXXZ
+    // ?StartNextTransition@TransitionCS@@QAEXXZ
     ARTS_IMPORT void StartNextTransition();
 
-    // 0x4FBCA0 | ?StartTransition@TransitionCS@@QAEXXZ
+    // ?StartTransition@TransitionCS@@QAEXXZ
     ARTS_IMPORT void StartTransition();
 
-    // 0x4FB580 | ?Update@TransitionCS@@UAEXXZ
+    // ?Update@TransitionCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap118[0x18];

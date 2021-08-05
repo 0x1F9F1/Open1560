@@ -69,124 +69,124 @@
 
 class aiAudioManager final : public asNode
 {
-    // const aiAudioManager::`vftable' @ 0x61B398
+    // const aiAudioManager::`vftable'
 
 public:
-    // 0x440070 | ??0aiAudioManager@@QAE@XZ
+    // ??0aiAudioManager@@QAE@XZ
     ARTS_IMPORT aiAudioManager();
 
-    // 0x443F30 | ??_EaiAudioManager@@UAEPAXI@Z
-    // 0x443F30 | ??_GaiAudioManager@@UAEPAXI@Z
-    // 0x440390 | ??1aiAudioManager@@UAE@XZ
+    // ??_EaiAudioManager@@UAEPAXI@Z
+    // ??_GaiAudioManager@@UAEPAXI@Z
+    // ??1aiAudioManager@@UAE@XZ
     ARTS_IMPORT ~aiAudioManager() override;
 
-    // 0x440790 | ?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z
+    // ?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z
     ARTS_IMPORT i16 AddVehicle(class aiVehicleAmbient* arg1);
 
-    // 0x440840 | ?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z
+    // ?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z
     ARTS_IMPORT i16 AddVehicle(class aiVehicleOpponent* arg1);
 
-    // 0x4408F0 | ?AddVehicle@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z
+    // ?AddVehicle@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z
     ARTS_IMPORT i16 AddVehicle(class aiVehiclePolice* arg1);
 
-    // 0x443930 | ?AllocateAddOnEngine@aiAudioManager@@QAEFPAD@Z
+    // ?AllocateAddOnEngine@aiAudioManager@@QAEFPAD@Z
     ARTS_IMPORT i16 AllocateAddOnEngine(char* arg1);
 
-    // 0x442820 | ?AllocateAmbients@aiAudioManager@@QAEXXZ
+    // ?AllocateAmbients@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateAmbients();
 
-    // 0x442EB0 | ?AllocateCopVoice@aiAudioManager@@QAEXXZ
+    // ?AllocateCopVoice@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateCopVoice();
 
-    // 0x443B00 | ?AllocateEngine@aiAudioManager@@QAEPAPAVAudSound@@PAD@Z
+    // ?AllocateEngine@aiAudioManager@@QAEPAPAVAudSound@@PAD@Z
     ARTS_IMPORT class AudSound** AllocateEngine(char* arg1);
 
-    // 0x443720 | ?AllocateEngine@aiAudioManager@@QAEXFF@Z
+    // ?AllocateEngine@aiAudioManager@@QAEXFF@Z
     ARTS_IMPORT void AllocateEngine(i16 arg1, i16 arg2);
 
-    // 0x443370 | ?AllocateHorns@aiAudioManager@@QAEXXZ
+    // ?AllocateHorns@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateHorns();
 
-    // 0x4432C0 | ?AllocateImpacts@aiAudioManager@@QAEXXZ
+    // ?AllocateImpacts@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateImpacts();
 
-    // 0x442880 | ?AllocateOpponents@aiAudioManager@@QAEXXZ
+    // ?AllocateOpponents@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateOpponents();
 
-    // 0x4428D0 | ?AllocatePolice@aiAudioManager@@QAEXXZ
+    // ?AllocatePolice@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocatePolice();
 
-    // 0x443C50 | ?AllocateReverseBeep@aiAudioManager@@QAEXXZ
+    // ?AllocateReverseBeep@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateReverseBeep();
 
-    // 0x442C10 | ?AllocateSkids@aiAudioManager@@QAEXXZ
+    // ?AllocateSkids@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateSkids();
 
-    // 0x443550 | ?AllocateVoices@aiAudioManager@@QAEXXZ
+    // ?AllocateVoices@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void AllocateVoices();
 
-    // 0x441F50 | ?AssignAddOnSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
+    // ?AssignAddOnSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
     ARTS_IMPORT void AssignAddOnSounds(class aiVehicleOpponent* arg1, i16 arg2);
 
-    // 0x442630 | ?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z
+    // ?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z
     ARTS_IMPORT void AssignSounds(class aiVehicleAmbient* arg1, i16 arg2);
 
-    // 0x441B60 | ?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
+    // ?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
     ARTS_IMPORT void AssignSounds(class aiVehicleOpponent* arg1, i16 arg2);
 
-    // 0x442050 | ?AssignSounds@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z
+    // ?AssignSounds@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z
     ARTS_IMPORT void AssignSounds(class aiVehiclePolice* arg1, i16 arg2);
 
-    // 0x4419C0 | ?EchoOff@aiAudioManager@@QAEXXZ
+    // ?EchoOff@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void EchoOff();
 
-    // 0x441670 | ?EchoOn@aiAudioManager@@QAEXM@Z
+    // ?EchoOn@aiAudioManager@@QAEXM@Z
     ARTS_IMPORT void EchoOn(f32 arg1);
 
-    // 0x440AF0 | ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z
+    // ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z
     ARTS_IMPORT i16 FindGreatestDistance(class aiVehicleAmbient* arg1);
 
-    // 0x440CE0 | ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z
+    // ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z
     ARTS_IMPORT i16 FindGreatestDistance(class aiVehicleOpponent* arg1);
 
-    // 0x440ED0 | ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z
+    // ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z
     ARTS_IMPORT i16 FindGreatestDistance(class aiVehiclePolice* arg1);
 
-    // 0x4412C0 | ?FindUnusedSlot@aiAudioManager@@QAEFXZ
+    // ?FindUnusedSlot@aiAudioManager@@QAEFXZ
     ARTS_IMPORT i16 FindUnusedSlot();
 
-    // 0x443E50 | ?GetClosestCop@aiAudioManager@@QAEFXZ
+    // ?GetClosestCop@aiAudioManager@@QAEFXZ
     ARTS_IMPORT i16 GetClosestCop();
 
-    // 0x442F90 | ?LoadCopVoice@aiAudioManager@@QAEXXZ
+    // ?LoadCopVoice@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void LoadCopVoice();
 
-    // 0x443E00 | ?PlayCopVoice@aiAudioManager@@QAEFXZ
+    // ?PlayCopVoice@aiAudioManager@@QAEFXZ
     ARTS_IMPORT i16 PlayCopVoice();
 
-    // 0x443DA0 | ?QueueInCopVoice@aiAudioManager@@QAEFM@Z
+    // ?QueueInCopVoice@aiAudioManager@@QAEFM@Z
     ARTS_IMPORT i16 QueueInCopVoice(f32 arg1);
 
-    // 0x4409A0 | ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z
+    // ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z
     ARTS_IMPORT void RemoveVehicle(class aiVehicleAmbient* arg1, i16 arg2);
 
-    // 0x440A10 | ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
+    // ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
     ARTS_IMPORT void RemoveVehicle(class aiVehicleOpponent* arg1, i16 arg2);
 
-    // 0x440A80 | ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z
+    // ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z
     ARTS_IMPORT void RemoveVehicle(class aiVehiclePolice* arg1, i16 arg2);
 
-    // 0x441130 | ?UnassignFurthestAmbient@aiAudioManager@@QAEFXZ
+    // ?UnassignFurthestAmbient@aiAudioManager@@QAEFXZ
     ARTS_IMPORT i16 UnassignFurthestAmbient();
 
-    // 0x4411F0 | ?UnassignFurthestOpponent@aiAudioManager@@QAEFXZ
+    // ?UnassignFurthestOpponent@aiAudioManager@@QAEFXZ
     ARTS_IMPORT i16 UnassignFurthestOpponent();
 
-    // 0x441300 | ?Update@aiAudioManager@@UAEXXZ
+    // ?Update@aiAudioManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
-    // 0x4430C0 | ?CatName@aiAudioManager@@AAEPADPADHH@Z
+    // ?CatName@aiAudioManager@@AAEPADPADHH@Z
     ARTS_IMPORT char* CatName(char* arg1, i32 arg2, i32 arg3);
 
     u8 gap20[0x1E4];
@@ -194,5 +194,5 @@ private:
 
 check_size(aiAudioManager, 0x204);
 
-// 0x6A796C | ?AIAUDMGRPTR@@3PAVaiAudioManager@@A
+// ?AIAUDMGRPTR@@3PAVaiAudioManager@@A
 ARTS_IMPORT extern class aiAudioManager* AIAUDMGRPTR;

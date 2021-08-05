@@ -48,63 +48,63 @@
 
 class mmPopup final : public asNode
 {
-    // const mmPopup::`vftable' @ 0x61AD80
+    // const mmPopup::`vftable'
 
 public:
-    // 0x426BA0 | ??0mmPopup@@QAE@PAVmmGame@@MMMM@Z
+    // ??0mmPopup@@QAE@PAVmmGame@@MMMM@Z
     ARTS_IMPORT mmPopup(class mmGame* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x427D80 | ??_GmmPopup@@UAEPAXI@Z
-    // 0x427D80 | ??_EmmPopup@@UAEPAXI@Z
-    // 0x427010 | ??1mmPopup@@UAE@XZ
+    // ??_GmmPopup@@UAEPAXI@Z
+    // ??_EmmPopup@@UAEPAXI@Z
+    // ??1mmPopup@@UAE@XZ
     ARTS_IMPORT ~mmPopup() override = default;
 
-    // 0x427CF0 | ?ChatCB@mmPopup@@QAEXXZ
+    // ?ChatCB@mmPopup@@QAEXXZ
     ARTS_IMPORT void ChatCB();
 
-    // 0x427030 | ?DisablePU@mmPopup@@QAEXH@Z
+    // ?DisablePU@mmPopup@@QAEXH@Z
     ARTS_IMPORT void DisablePU(i32 arg1);
 
-    // 0x427600 | ?ForceRoster@mmPopup@@QAEXXZ
+    // ?ForceRoster@mmPopup@@QAEXXZ
     ARTS_IMPORT void ForceRoster();
 
-    // 0x427C70 | ?GetComment@mmPopup@@QAEPADXZ
+    // ?GetComment@mmPopup@@QAEPADXZ
     ARTS_IMPORT char* GetComment();
 
-    // 0x427020 | ?IsEnabled@mmPopup@@QAEHXZ
+    // ?IsEnabled@mmPopup@@QAEHXZ
     ARTS_IMPORT i32 IsEnabled();
 
-    // 0x427CD0 | ?Lock@mmPopup@@QAEXXZ
+    // ?Lock@mmPopup@@QAEXXZ
     ARTS_IMPORT void Lock();
 
-    // 0x427250 | ?ProcessChat@mmPopup@@QAEXXZ
+    // ?ProcessChat@mmPopup@@QAEXXZ
     ARTS_IMPORT void ProcessChat();
 
-    // 0x427110 | ?ProcessEscape@mmPopup@@QAEXH@Z
+    // ?ProcessEscape@mmPopup@@QAEXH@Z
     ARTS_IMPORT void ProcessEscape(i32 arg1);
 
-    // 0x427350 | ?ProcessKeymap@mmPopup@@QAEXH@Z
+    // ?ProcessKeymap@mmPopup@@QAEXH@Z
     ARTS_IMPORT void ProcessKeymap(i32 arg1);
 
-    // 0x427CA0 | ?RecordPosition@mmPopup@@QAEXXZ
+    // ?RecordPosition@mmPopup@@QAEXXZ
     ARTS_IMPORT void RecordPosition();
 
-    // 0x427C50 | ?Reset@mmPopup@@UAEXXZ
+    // ?Reset@mmPopup@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
-    // 0x427C80 | ?SetComment@mmPopup@@QAEXPAD@Z
+    // ?SetComment@mmPopup@@QAEXPAD@Z
     ARTS_IMPORT void SetComment(char* arg1);
 
-    // 0x4274D0 | ?ShowResults@mmPopup@@QAEXXZ
+    // ?ShowResults@mmPopup@@QAEXXZ
     ARTS_IMPORT void ShowResults();
 
-    // 0x427560 | ?ShowRoster@mmPopup@@QAEXXZ
+    // ?ShowRoster@mmPopup@@QAEXXZ
     ARTS_IMPORT void ShowRoster();
 
-    // 0x427CE0 | ?Unlock@mmPopup@@QAEXXZ
+    // ?Unlock@mmPopup@@QAEXXZ
     ARTS_IMPORT void Unlock();
 
-    // 0x427680 | ?Update@mmPopup@@UAEXXZ
+    // ?Update@mmPopup@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     u8 gap20[0x40];

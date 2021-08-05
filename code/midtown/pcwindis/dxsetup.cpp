@@ -28,20 +28,20 @@ define_dummy_symbol(pcwindis_dxsetup);
 #include "mmui/graphics.h"
 #include "setupdata.h"
 
-// 0x576000 | ?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z
+// ?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z
 ARTS_IMPORT /*static*/ void AddRenderer(struct IDirectDraw4* arg1, struct _GUID* arg2, char* arg3);
 
-// 0x575920 | ?CheckSoftwareRenderer@@YAHPAUIDirectDraw4@@PAU_GUID@@@Z
+// ?CheckSoftwareRenderer@@YAHPAUIDirectDraw4@@PAU_GUID@@@Z
 ARTS_IMPORT /*static*/ i32 CheckSoftwareRenderer(struct IDirectDraw4* arg1, struct _GUID* arg2);
 
-// 0x575740 | ?EnumCounter@@YGHPAU_GUID@@PAD1PAX@Z
+// ?EnumCounter@@YGHPAU_GUID@@PAD1PAX@Z
 ARTS_IMPORT /*static*/ i32 ARTS_STDCALL EnumCounter(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
 
-// 0x576470 | ?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z
+// ?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z
 ARTS_IMPORT /*static*/ ilong ARTS_STDCALL EnumTextures(struct _DDPIXELFORMAT* arg1, void* arg2);
 
 #ifndef ARTS_STANDALONE // Just to shut up warnings
-// 0x575FD0 | ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
+// ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
 static long WINAPI EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
 {
     if (ddpf->dwRGBBitCount == 16)
@@ -51,16 +51,16 @@ static long WINAPI EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
 }
 #endif
 
-// 0x5757D0 | ?EnumerateRenderers2@@YAXXZ
+// ?EnumerateRenderers2@@YAXXZ
 ARTS_IMPORT /*static*/ void EnumerateRenderers2();
 
-// 0x576580 | ?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z
+// ?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z
 ARTS_IMPORT /*static*/ i32 ARTS_STDCALL Enumerator(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
 
-// 0x5764B0 | ?GetSpecialFlags@@YAIKK@Z
+// ?GetSpecialFlags@@YAIKK@Z
 ARTS_IMPORT /*static*/ u32 GetSpecialFlags(ulong arg1, ulong arg2);
 
-// 0x575A10 | ?LockScreen@@YAJPAUIDirectDraw4@@@Z
+// ?LockScreen@@YAJPAUIDirectDraw4@@@Z
 ARTS_IMPORT /*static*/ ilong LockScreen(struct IDirectDraw4* arg1);
 
 static mem::cmd_param PARAM_min_aspect {"minaspect"};
@@ -82,7 +82,7 @@ static bool IsGoodResolution(i32 width, i32 height, dxiRendererType type)
     return ar >= PARAM_min_aspect.get_or<f32>(1.6f) && ar <= PARAM_max_aspect.get_or<f32>(2.4f);
 }
 
-// 0x575F40 | ?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z
+// ?ModeCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z
 ARTS_EXPORT /*static*/ long WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
 {
     dxiRendererInfo_t* info = static_cast<dxiRendererInfo_t*>(ctx);
@@ -101,20 +101,20 @@ ARTS_EXPORT /*static*/ long WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
     return 1;
 }
 
-// 0x575760 | ?MyDirectDrawEnumerate@@YAXP6GHPAU_GUID@@PAD1PAX@Z2@Z
+// ?MyDirectDrawEnumerate@@YAXP6GHPAU_GUID@@PAD1PAX@Z2@Z
 ARTS_IMPORT /*static*/ void MyDirectDrawEnumerate(
     i32(ARTS_STDCALL* arg1)(struct _GUID*, char*, char*, void*), void* arg2);
 
-// 0x575710 | ?NeedDX6@@YAXXZ
+// ?NeedDX6@@YAXXZ
 ARTS_IMPORT /*static*/ void NeedDX6();
 
-// 0x5764A0 | ?NotLameChipset@@YAHKK@Z
+// ?NotLameChipset@@YAHKK@Z
 ARTS_IMPORT /*static*/ i32 NotLameChipset(ulong arg1, ulong arg2);
 
-// 0x575AF0 | ?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z
+// ?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z
 ARTS_IMPORT /*static*/ i32 TestResolution(struct IDirectDraw4* arg1, struct dxiRendererInfo_t& arg2);
 
-// 0x575AD0 | ?UnlockScreen@@YAXXZ
+// ?UnlockScreen@@YAXXZ
 ARTS_EXPORT /*static*/ void UnlockScreen()
 {
     dxiWindowDestroy();

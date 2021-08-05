@@ -50,36 +50,36 @@
 class agiViewParameters
 {
 public:
-    // 0x5571D0 | ??0agiViewParameters@@QAE@XZ
+    // ??0agiViewParameters@@QAE@XZ
     ARTS_IMPORT agiViewParameters();
 
-    // 0x5573B0 | ?Frustum@agiViewParameters@@QAEXMMMMMM@Z | unused
+    // ?Frustum@agiViewParameters@@QAEXMMMMMM@Z | unused
     ARTS_IMPORT void Frustum(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
 
-    // 0x557310 | ?Ortho@agiViewParameters@@QAEXMMMM@Z | unused
+    // ?Ortho@agiViewParameters@@QAEXMMMM@Z | unused
     ARTS_IMPORT void Ortho(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x557240 | ?Perspective@agiViewParameters@@QAEXMMMM@Z
+    // ?Perspective@agiViewParameters@@QAEXMMMM@Z
     ARTS_IMPORT void Perspective(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
-    // 0x557960 | ?Project@agiViewParameters@@QAEXAAVVector3@@0@Z | unused
+    // ?Project@agiViewParameters@@QAEXAAVVector3@@0@Z | unused
     ARTS_IMPORT void Project(class Vector3& arg1, class Vector3& arg2);
 
-    // 0x557590 | ?SetBill@agiViewParameters@@QAEXAAVVector3@@@Z
+    // ?SetBill@agiViewParameters@@QAEXAAVVector3@@@Z
     ARTS_IMPORT void SetBill(class Vector3& arg1);
 
-    // 0x5576D0 | ?SetBillY@agiViewParameters@@QAEXAAVMatrix34@@@Z
+    // ?SetBillY@agiViewParameters@@QAEXAAVMatrix34@@@Z
     ARTS_IMPORT void SetBillY(class Matrix34& arg1);
 
-    // 0x557490 | ?SphereVisible@agiViewParameters@@QAEHAAVVector3@@M@Z
+    // ?SphereVisible@agiViewParameters@@QAEHAAVVector3@@M@Z
     ARTS_IMPORT i32 SphereVisible(class Vector3& arg1, f32 arg2);
 
     void SetWorld(class Matrix34& world);
 
-    // 0x8FF044 | ?MtxSerial@agiViewParameters@@2IA
+    // ?MtxSerial@agiViewParameters@@2IA
     ARTS_IMPORT static u32 MtxSerial;
 
-    // 0x8FF040 | ?ViewSerial@agiViewParameters@@2IA
+    // ?ViewSerial@agiViewParameters@@2IA
     ARTS_IMPORT static u32 ViewSerial;
 
     f32 X;
@@ -118,7 +118,7 @@ check_size(agiViewParameters, 0x12C);
 
 class agiViewport : public agiRefreshable
 {
-    // const agiViewport::`vftable' @ 0x621620
+    // const agiViewport::`vftable'
 
 public:
     virtual void Activate() = 0;
@@ -127,13 +127,13 @@ public:
 
     virtual void Clear(i32 flags) = 0;
 
-    // 0x5578A0 | ?SetWorld@agiViewport@@UAEXAAVMatrix34@@@Z
+    // ?SetWorld@agiViewport@@UAEXAAVMatrix34@@@Z
     ARTS_EXPORT virtual void SetWorld(class Matrix34& world);
 
-    // 0x557870 | ?Aspect@agiViewport@@QAEMXZ | unused
+    // ?Aspect@agiViewport@@QAEMXZ | unused
     ARTS_EXPORT f32 Aspect();
 
-    // 0x5579D0 | ?GetName@agiViewport@@UAEPADXZ
+    // ?GetName@agiViewport@@UAEPADXZ
     ARTS_EXPORT char* GetName() override;
 
     const agiViewParameters& GetParams()
@@ -142,15 +142,15 @@ public:
     }
 
 protected:
-    // 0x5578E0 | ??0agiViewport@@IAE@PAVagiPipeline@@@Z
+    // ??0agiViewport@@IAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiViewport(class agiPipeline* pipe);
 
-    // 0x5579F0 | ??_GagiViewport@@MAEPAXI@Z
-    // 0x5579F0 | ??_EagiViewport@@MAEPAXI@Z
-    // 0x557940 | ??1agiViewport@@MAE@XZ
+    // ??_GagiViewport@@MAEPAXI@Z
+    // ??_EagiViewport@@MAEPAXI@Z
+    // ??1agiViewport@@MAE@XZ
     ARTS_EXPORT ~agiViewport() override;
 
-    // 0x8FF048 | ?Active@agiViewport@@1PAV1@A
+    // ?Active@agiViewport@@1PAV1@A
     ARTS_IMPORT static class agiViewport* Active;
 
     friend agiViewport* Viewport();

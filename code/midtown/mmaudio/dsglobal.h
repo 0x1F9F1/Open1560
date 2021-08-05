@@ -108,158 +108,158 @@ class MixerCTL;
 class DSGlobal
 {
 public:
-    // 0x4EF140 | ??0DSGlobal@@QAE@XZ
+    // ??0DSGlobal@@QAE@XZ
     ARTS_IMPORT DSGlobal();
 
-    // 0x4EF200 | ??1DSGlobal@@QAE@XZ
+    // ??1DSGlobal@@QAE@XZ
     ARTS_IMPORT ~DSGlobal();
 
-    // 0x4F0AD0 | ?AlwaysEAX@DSGlobal@@QAEII@Z
+    // ?AlwaysEAX@DSGlobal@@QAEII@Z
     ARTS_IMPORT u32 AlwaysEAX(u32 arg1);
 
-    // 0x4F08E0 | ?CheckCDFile@DSGlobal@@QAEEPAD@Z
+    // ?CheckCDFile@DSGlobal@@QAEEPAD@Z
     ARTS_EXPORT u8 CheckCDFile(char* file_name);
 
-    // 0x4EFDD0 | ?ClearDSDeviceList@DSGlobal@@QAEXXZ
+    // ?ClearDSDeviceList@DSGlobal@@QAEXXZ
     ARTS_IMPORT void ClearDSDeviceList();
 
-    // 0x4F0340 | ?ConvertTo8Bit@DSGlobal@@QAEXH@Z
+    // ?ConvertTo8Bit@DSGlobal@@QAEXH@Z
     ARTS_IMPORT void ConvertTo8Bit(i32 arg1);
 
-    // 0x4F0B00 | ?DSound3DEnabled@DSGlobal@@QAEIXZ
+    // ?DSound3DEnabled@DSGlobal@@QAEIXZ
     ARTS_IMPORT u32 DSound3DEnabled();
 
-    // 0x4EF400 | ?DeInit@DSGlobal@@QAEXFF@Z
+    // ?DeInit@DSGlobal@@QAEXFF@Z
     ARTS_IMPORT void DeInit(i16 arg1, i16 arg2);
 
-    // 0x4EF370 | ?DeallocateADFRecord@DSGlobal@@QAEXH@Z
+    // ?DeallocateADFRecord@DSGlobal@@QAEXH@Z
     ARTS_IMPORT void DeallocateADFRecord(i32 arg1);
 
-    // 0x4EF340 | ?DeallocateCityADF@DSGlobal@@QAEXXZ
+    // ?DeallocateCityADF@DSGlobal@@QAEXXZ
     ARTS_IMPORT void DeallocateCityADF();
 
-    // 0x4EF2E0 | ?DeallocateUIADF@DSGlobal@@QAEXXZ
+    // ?DeallocateUIADF@DSGlobal@@QAEXXZ
     ARTS_IMPORT void DeallocateUIADF();
 
-    // 0x4F0B10 | ?DisableEAXFlag@DSGlobal@@QAEXXZ
+    // ?DisableEAXFlag@DSGlobal@@QAEXXZ
     ARTS_IMPORT void DisableEAXFlag();
 
-    // 0x4F0AB0 | ?EAXEnabled@DSGlobal@@QAEIXZ
+    // ?EAXEnabled@DSGlobal@@QAEIXZ
     ARTS_IMPORT u32 EAXEnabled();
 
-    // 0x4EFBB0 | ?EnumDSDevices@DSGlobal@@QAEHXZ
+    // ?EnumDSDevices@DSGlobal@@QAEHXZ
     ARTS_IMPORT i32 EnumDSDevices();
 
-    // 0x4F09C0 | ?GetDeviceNames@DSGlobal@@QAEPAPADXZ
+    // ?GetDeviceNames@DSGlobal@@QAEPAPADXZ
     ARTS_EXPORT char** GetDeviceNames();
 
     bool GetWaveDeviceID(u32 device_num, u32& wave_id);
 
     const char* GetDeviceName(u32 index);
 
-    // 0x4F09F0 | ?GetNum3DHallBufs@DSGlobal@@QAEKXZ | unused
+    // ?GetNum3DHallBufs@DSGlobal@@QAEKXZ | unused
     ARTS_IMPORT ulong GetNum3DHallBufs();
 
-    // 0x4EF550 | ?Init@DSGlobal@@QAEHKEPAIPADFF@Z
+    // ?Init@DSGlobal@@QAEHKEPAIPADFF@Z
     ARTS_IMPORT i32 Init(ulong arg1, u8 arg2, u32* arg3, char* arg4, i16 arg5, i16 arg6);
 
-    // 0x4EF770 | ?Init3DListener@DSGlobal@@QAEHMMMMM@Z
+    // ?Init3DListener@DSGlobal@@QAEHMMMMM@Z
     ARTS_IMPORT i32 Init3DListener(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
-    // 0x4F01C0 | ?InitCityADF@DSGlobal@@QAEHPADHK@Z
+    // ?InitCityADF@DSGlobal@@QAEHPADHK@Z
     ARTS_IMPORT i32 InitCityADF(char* arg1, i32 arg2, ulong arg3);
 
-    // 0x4EFBD0 | ?InitPrimarySoundBuffer@DSGlobal@@QAEHKEPAD@Z
+    // ?InitPrimarySoundBuffer@DSGlobal@@QAEHKEPAD@Z
     ARTS_IMPORT b32 InitPrimarySoundBuffer(ulong sample_rate, u8 stero, char* device_name);
 
-    // 0x4F0280 | ?InitUIADF@DSGlobal@@QAEHPADHK@Z
+    // ?InitUIADF@DSGlobal@@QAEHPADHK@Z
     ARTS_IMPORT i32 InitUIADF(char* arg1, i32 arg2, ulong arg3);
 
-    // 0x4F0AC0 | ?IsAlwaysEAX@DSGlobal@@QAEIXZ
+    // ?IsAlwaysEAX@DSGlobal@@QAEIXZ
     ARTS_IMPORT u32 IsAlwaysEAX();
 
-    // 0x4EFFB0 | ?LoadCityADF@DSGlobal@@QAEHPADHK@Z
+    // ?LoadCityADF@DSGlobal@@QAEHPADHK@Z
     ARTS_IMPORT i32 LoadCityADF(char* arg1, i32 arg2, ulong arg3);
 
-    // 0x4EFE10 | ?LoadUIADF@DSGlobal@@QAEHPAD@Z
+    // ?LoadUIADF@DSGlobal@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadUIADF(char* arg1);
 
-    // 0x4F0670 | ?ScanAvailableDSFormats@DSGlobal@@QAEXXZ | unused
+    // ?ScanAvailableDSFormats@DSGlobal@@QAEXXZ | unused
     ARTS_IMPORT void ScanAvailableDSFormats();
 
-    // 0x4F0990 | ?SetBitDepth@DSGlobal@@QAEXH@Z
+    // ?SetBitDepth@DSGlobal@@QAEXH@Z
     ARTS_IMPORT void SetBitDepth(i32 arg1);
 
-    // 0x4EFA50 | ?SetDeviceRating@DSGlobal@@QAEXPAUtag_dsdevdesc@@@Z
+    // ?SetDeviceRating@DSGlobal@@QAEXPAUtag_dsdevdesc@@@Z
     ARTS_IMPORT void SetDeviceRating(struct tag_dsdevdesc* arg1);
 
-    // 0x4F0580 | ?SetPrimaryBufferFormat@DSGlobal@@QAEXKE@Z
+    // ?SetPrimaryBufferFormat@DSGlobal@@QAEXKE@Z
     ARTS_IMPORT void SetPrimaryBufferFormat(ulong arg1, u8 arg2);
 
-    // 0x4F0730 | ?TranslateDSError@DSGlobal@@QAEPADJ@Z
+    // ?TranslateDSError@DSGlobal@@QAEPADJ@Z
     ARTS_IMPORT char* TranslateDSError(ilong arg1);
 
     ARTS_DIAGNOSTIC_PUSH;
     ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers");
 
-    // 0x4F0A90 | ?GetCDMusicOnMask@DSGlobal@@SA?BIXZ
+    // ?GetCDMusicOnMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetCDMusicOnMask();
 
-    // 0x4F0A80 | ?GetCommentaryOnMask@DSGlobal@@SA?BIXZ
+    // ?GetCommentaryOnMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetCommentaryOnMask();
 
-    // 0x4F0A60 | ?GetDSound3DMask@DSGlobal@@SA?BIXZ
+    // ?GetDSound3DMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetDSound3DMask();
 
-    // 0x4F0A50 | ?GetEchoOnMask@DSGlobal@@SA?BIXZ
+    // ?GetEchoOnMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetEchoOnMask();
 
-    // 0x4F0A30 | ?GetHiResMask@DSGlobal@@SA?BIXZ
+    // ?GetHiResMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetHiResMask();
 
-    // 0x4F0A40 | ?GetHiSampleSizeMask@DSGlobal@@SA?BIXZ
+    // ?GetHiSampleSizeMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetHiSampleSizeMask();
 
-    // 0x4F0A70 | ?GetSoundFXOnMask@DSGlobal@@SA?BIXZ
+    // ?GetSoundFXOnMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetSoundFXOnMask();
 
-    // 0x4F0A20 | ?GetStereoOnMask@DSGlobal@@SA?BIXZ
+    // ?GetStereoOnMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetStereoOnMask();
 
-    // 0x4F0AA0 | ?GetUsingEAXMask@DSGlobal@@SA?BIXZ
+    // ?GetUsingEAXMask@DSGlobal@@SA?BIXZ
     ARTS_IMPORT static u32 const GetUsingEAXMask();
 
     ARTS_DIAGNOSTIC_POP;
 
 private:
-    // 0x61FEF0 | ?s_iAlwaysEAXMask@DSGlobal@@0IB
+    // ?s_iAlwaysEAXMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iAlwaysEAXMask;
 
-    // 0x61FEE8 | ?s_iCDMusicOnMask@DSGlobal@@0IB
+    // ?s_iCDMusicOnMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iCDMusicOnMask;
 
-    // 0x61FEF4 | ?s_iCommentaryOnMask@DSGlobal@@0IB
+    // ?s_iCommentaryOnMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iCommentaryOnMask;
 
-    // 0x61FEE0 | ?s_iDSound3DMask@DSGlobal@@0IB
+    // ?s_iDSound3DMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iDSound3DMask;
 
-    // 0x61FEDC | ?s_iEchoOnMask@DSGlobal@@0IB
+    // ?s_iEchoOnMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iEchoOnMask;
 
-    // 0x61FED4 | ?s_iHiResMask@DSGlobal@@0IB
+    // ?s_iHiResMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iHiResMask;
 
-    // 0x61FED8 | ?s_iHiSampleSizeMask@DSGlobal@@0IB
+    // ?s_iHiSampleSizeMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iHiSampleSizeMask;
 
-    // 0x61FEE4 | ?s_iSoundFXOnMask@DSGlobal@@0IB
+    // ?s_iSoundFXOnMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iSoundFXOnMask;
 
-    // 0x61FED0 | ?s_iStereoOnMask@DSGlobal@@0IB
+    // ?s_iStereoOnMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iStereoOnMask;
 
-    // 0x61FEEC | ?s_iUsingEAXMask@DSGlobal@@0IB
+    // ?s_iUsingEAXMask@DSGlobal@@0IB
     ARTS_IMPORT static u32 const s_iUsingEAXMask;
 
     IDirectSoundBuffer* DSBuffer;
@@ -288,20 +288,20 @@ private:
 
 check_size(DSGlobal, 0xB8);
 
-// 0x4EF8B0 | ?DSEnumProc@@YGHPAU_GUID@@PAD1PAX@Z
+// ?DSEnumProc@@YGHPAU_GUID@@PAD1PAX@Z
 ARTS_IMPORT i32 ARTS_STDCALL DSEnumProc(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
 
-// 0x4F04D0 | ?FormatCodeToWFX@@YAHKPAUtWAVEFORMATEX@@@Z
+// ?FormatCodeToWFX@@YAHKPAUtWAVEFORMATEX@@@Z
 ARTS_IMPORT i32 FormatCodeToWFX(ulong arg1, struct tWAVEFORMATEX* arg2);
 
-// 0x4EF850 | ?IsDSDeviceInList@@YAHPAU_GUID@@@Z
+// ?IsDSDeviceInList@@YAHPAU_GUID@@@Z
 ARTS_IMPORT i32 IsDSDeviceInList(struct _GUID* arg1);
 
-// 0x4EF800 | ?UpperCase@@YAXPAD@Z
+// ?UpperCase@@YAXPAD@Z
 ARTS_IMPORT void UpperCase(char* arg1);
 
-// 0x719334 | ?DSGlobalPtr@@3PAVDSGlobal@@A
+// ?DSGlobalPtr@@3PAVDSGlobal@@A
 ARTS_IMPORT extern class DSGlobal* DSGlobalPtr;
 
-// 0x647DD8 | ?aOutputFormats@@3PAUtag_fd@@A
+// ?aOutputFormats@@3PAUtag_fd@@A
 ARTS_IMPORT extern DSFormatData aOutputFormats[16];

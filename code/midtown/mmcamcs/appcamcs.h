@@ -39,39 +39,39 @@
 
 class AppCamCS : public BaseCamCS
 {
-    // const AppCamCS::`vftable' @ 0x6204D8
+    // const AppCamCS::`vftable'
 
 public:
-    // 0x4FC330 | ??0AppCamCS@@QAE@XZ
+    // ??0AppCamCS@@QAE@XZ
     ARTS_IMPORT AppCamCS();
 
-    // 0x4FD390 | ??_EAppCamCS@@UAEPAXI@Z
-    // 0x4FC420 | ??1AppCamCS@@UAE@XZ
+    // ??_EAppCamCS@@UAEPAXI@Z
+    // ??1AppCamCS@@UAE@XZ
     ARTS_IMPORT ~AppCamCS() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x4FCDB0 | ?AddWidgets@AppCamCS@@UAEXPAVBank@@@Z
+    // ?AddWidgets@AppCamCS@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x4FD380 | ?GetClass@AppCamCS@@UAEPAVMetaClass@@XZ
+    // ?GetClass@AppCamCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x4FD0D0 | ?DeclareFields@AppCamCS@@SAXXZ
+    // ?DeclareFields@AppCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
 protected:
-    // 0x4FC430 | ?ApproachIt@AppCamCS@@IAEXXZ
+    // ?ApproachIt@AppCamCS@@IAEXXZ
     ARTS_IMPORT void ApproachIt();
 
 private:
-    // 0x4FCC60 | ?DApproach@AppCamCS@@AAEHAAMMMM0M@Z
+    // ?DApproach@AppCamCS@@AAEHAAMMMM0M@Z
     ARTS_IMPORT i32 DApproach(f32& arg1, f32 arg2, f32 arg3, f32 arg4, f32& arg5, f32 arg6);
 
-    // 0x4FC460 | ?UpdateApproach@AppCamCS@@AAEXXZ
+    // ?UpdateApproach@AppCamCS@@AAEXXZ
     ARTS_IMPORT void UpdateApproach();
 
-    // 0x4FC9D0 | ?UpdateMaxDist@AppCamCS@@AAEXXZ
+    // ?UpdateMaxDist@AppCamCS@@AAEXXZ
     ARTS_IMPORT void UpdateMaxDist();
 
     u8 gap9C[0x78];
@@ -79,5 +79,5 @@ private:
 
 check_size(AppCamCS, 0x114);
 
-// 0x719520 | ?AppCamCSMetaClass@@3VMetaClass@@A
+// ?AppCamCSMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass AppCamCSMetaClass;

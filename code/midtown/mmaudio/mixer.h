@@ -53,13 +53,13 @@
 struct VolumeDW
 {
 public:
-    // 0x4EEB80 | ??1VolumeDW@@QAE@XZ | inline
+    // ??1VolumeDW@@QAE@XZ | inline
     ARTS_IMPORT ~VolumeDW() = default;
 
-    // 0x4EE040 | ?Set@VolumeDW@@QAEXMM@Z | unused
+    // ?Set@VolumeDW@@QAEXMM@Z | unused
     ARTS_IMPORT void Set(f32 arg1, f32 arg2);
 
-    // 0x4EE110 | ?Value@VolumeDW@@QAEKXZ | unused
+    // ?Value@VolumeDW@@QAEKXZ | unused
     ARTS_IMPORT ulong Value();
 
     u8 gap0[0xC];
@@ -71,64 +71,64 @@ class MixerCTL final
     : public Dispatchable
     , public Base
 {
-    // const MixerCTL::`vftable'{for `Base'} @ 0x61FEB8
-    // const MixerCTL::`vftable'{for `Dispatchable'} @ 0x61FECC
+    // const MixerCTL::`vftable'{for `Base'}
+    // const MixerCTL::`vftable'{for `Dispatchable'}
 
 public:
     MixerCTL(HWND window);
 
-    // 0x4EEB90 | ??_GMixerCTL@@UAEPAXI@Z
-    // 0x4EEB90 | ??_EMixerCTL@@UAEPAXI@Z
-    // 0x4EE180 | ??1MixerCTL@@UAE@XZ
+    // ??_GMixerCTL@@UAEPAXI@Z
+    // ??_EMixerCTL@@UAEPAXI@Z
+    // ??1MixerCTL@@UAE@XZ
     ARTS_EXPORT ~MixerCTL() override;
 
-    // 0x4EE240 | ?AssignCDBalance@MixerCTL@@QAEXM@Z
+    // ?AssignCDBalance@MixerCTL@@QAEXM@Z
     ARTS_IMPORT void AssignCDBalance(f32 arg1);
 
-    // 0x4EE2E0 | ?AssignCDVolume@MixerCTL@@QAEXM@Z
+    // ?AssignCDVolume@MixerCTL@@QAEXM@Z
     ARTS_IMPORT void AssignCDVolume(f32 arg1);
 
-    // 0x4EE580 | ?AssignMixerBalance@MixerCTL@@QAEKMK@Z
+    // ?AssignMixerBalance@MixerCTL@@QAEKMK@Z
     ARTS_IMPORT u32 AssignMixerBalance(f32 arg1, ulong arg2);
 
-    // 0x4EE320 | ?AssignMixerVolume@MixerCTL@@QAEKMK@Z
+    // ?AssignMixerVolume@MixerCTL@@QAEKMK@Z
     ARTS_IMPORT u32 AssignMixerVolume(f32 arg1, ulong arg2);
 
-    // 0x4EE1F0 | ?AssignWaveBalance@MixerCTL@@QAEXM@Z
+    // ?AssignWaveBalance@MixerCTL@@QAEXM@Z
     ARTS_IMPORT void AssignWaveBalance(f32 arg1);
 
-    // 0x4EE2C0 | ?AssignWaveVolume@MixerCTL@@QAEXM@Z
+    // ?AssignWaveVolume@MixerCTL@@QAEXM@Z
     ARTS_IMPORT void AssignWaveVolume(f32 arg1);
 
-    // 0x4EE300 | ?GetCDBalance@MixerCTL@@QAEMXZ
+    // ?GetCDBalance@MixerCTL@@QAEMXZ
     ARTS_IMPORT f32 GetCDBalance();
 
-    // 0x4EE310 | ?GetCDVolume@MixerCTL@@QAEMXZ
+    // ?GetCDVolume@MixerCTL@@QAEMXZ
     ARTS_IMPORT f32 GetCDVolume();
 
-    // 0x4EE830 | ?GetMixerBalance@MixerCTL@@QAEMK@Z
+    // ?GetMixerBalance@MixerCTL@@QAEMK@Z
     ARTS_IMPORT f32 GetMixerBalance(ulong arg1);
 
-    // 0x4EE2A0 | ?GetWaveBalance@MixerCTL@@QAEMXZ
+    // ?GetWaveBalance@MixerCTL@@QAEMXZ
     ARTS_IMPORT f32 GetWaveBalance();
 
-    // 0x4EE2B0 | ?GetWaveVolume@MixerCTL@@QAEMXZ
+    // ?GetWaveVolume@MixerCTL@@QAEMXZ
     ARTS_IMPORT f32 GetWaveVolume();
 
-    // 0x4EE140 | ?Init@MixerCTL@@QAEKXZ
+    // ?Init@MixerCTL@@QAEKXZ
     ARTS_IMPORT ulong Init();
 
-    // 0x4EE290 | ?RefreshAll@MixerCTL@@QAEXK@Z | unused
+    // ?RefreshAll@MixerCTL@@QAEXK@Z | unused
     ARTS_EXPORT void RefreshAll(ulong arg1);
 
-    // 0x4EEAB0 | ?SetDeviceNum@MixerCTL@@QAEXI@Z
+    // ?SetDeviceNum@MixerCTL@@QAEXI@Z
     ARTS_EXPORT void SetDeviceNum(u32 device_id);
 
 private:
-    // 0x4EEAD0 | ?GetErrorMessage@MixerCTL@@AAEPADK@Z
+    // ?GetErrorMessage@MixerCTL@@AAEPADK@Z
     ARTS_EXPORT const char* GetErrorMessage(ulong error);
 
-    // 0x4EEB70 | ?WindowProc@MixerCTL@@EAEJPAUHWND__@@IIJ@Z
+    // ?WindowProc@MixerCTL@@EAEJPAUHWND__@@IIJ@Z
     ARTS_EXPORT LRESULT WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
     f32 field_8 {1.0f};

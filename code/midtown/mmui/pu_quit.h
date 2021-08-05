@@ -32,15 +32,15 @@
 
 class PUQuit final : public PUMenuBase
 {
-    // const PUQuit::`vftable' @ 0x61E148
+    // const PUQuit::`vftable'
 
 public:
-    // 0x4AAC20 | ??0PUQuit@@QAE@HMMMMPAD@Z
+    // ??0PUQuit@@QAE@HMMMMPAD@Z
     ARTS_IMPORT PUQuit(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
 
-    // 0x4AAD70 | ??_GPUQuit@@UAEPAXI@Z
-    // 0x4AAD70 | ??_EPUQuit@@UAEPAXI@Z
-    // 0x4AAD60 | ??1PUQuit@@UAE@XZ
+    // ??_GPUQuit@@UAEPAXI@Z
+    // ??_EPUQuit@@UAEPAXI@Z
+    // ??1PUQuit@@UAE@XZ
     ARTS_IMPORT ~PUQuit() override = default;
 };
 

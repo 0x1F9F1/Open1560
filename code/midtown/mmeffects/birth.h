@@ -38,28 +38,28 @@ struct asSparkPos;
 
 class asBirthRule final : public asNode
 {
-    // const asBirthRule::`vftable' @ 0x620740
+    // const asBirthRule::`vftable'
 
 public:
-    // 0x500A00 | ??0asBirthRule@@QAE@XZ
+    // ??0asBirthRule@@QAE@XZ
     ARTS_IMPORT asBirthRule();
 
-    // 0x501630 | ??_EasBirthRule@@UAEPAXI@Z
-    // 0x453BC0 | ??1asBirthRule@@UAE@XZ | inline
+    // ??_EasBirthRule@@UAEPAXI@Z
+    // ??1asBirthRule@@UAE@XZ | inline
     ARTS_IMPORT ~asBirthRule() override = default;
 
 #ifdef ARTS_DEV_BUILD
-    // 0x500D30 | ?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z
+    // ?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z
     ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
 #endif
 
-    // 0x501620 | ?GetClass@asBirthRule@@UAEPAVMetaClass@@XZ
+    // ?GetClass@asBirthRule@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
 
-    // 0x500AB0 | ?InitSpark@asBirthRule@@QAEXPAUasSparkInfo@@PAUasSparkPos@@@Z
+    // ?InitSpark@asBirthRule@@QAEXPAUasSparkInfo@@PAUasSparkPos@@@Z
     ARTS_IMPORT void InitSpark(struct asSparkInfo* arg1, struct asSparkPos* arg2);
 
-    // 0x5012A0 | ?DeclareFields@asBirthRule@@SAXXZ
+    // ?DeclareFields@asBirthRule@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
     Vector3 Position;
@@ -103,5 +103,5 @@ public:
 
 check_size(asBirthRule, 0xB0);
 
-// 0x7195D8 | ?asBirthRuleMetaClass@@3VMetaClass@@A
+// ?asBirthRuleMetaClass@@3VMetaClass@@A
 // ARTS_IMPORT extern class MetaClass asBirthRuleMetaClass;
