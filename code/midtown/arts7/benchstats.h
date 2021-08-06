@@ -52,7 +52,7 @@ public:
     f32 UpdateTime;
     f32 DeviceTime;
     f32 field_24;
-    f32 Widgets;
+    f32 WidgetsTime;
     f32 field_2C;
     f32 field_30;
     i32 field_34;

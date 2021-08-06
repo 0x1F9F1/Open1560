@@ -114,7 +114,7 @@ public:
 #endif
 
     // ?Device@asSimulation@@QAEXXZ
-    ARTS_IMPORT void Device();
+    ARTS_EXPORT void Device();
 
     // ?EndOverSample@asSimulation@@QAEXXZ | unused
     ARTS_IMPORT void EndOverSample();
@@ -203,6 +203,11 @@ public:
         return physics_bank_open_;
     }
 #endif
+
+    void ToggleFrameStep()
+    {
+        frame_step_ ^= true;
+    }
 
     i32 GetDrawMode() const
     {

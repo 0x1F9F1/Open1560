@@ -287,5 +287,5 @@ void agiDDPipeline::UnlockFrameBuffer()
 
 i32 agiDDPipeline::Validate()
 {
-    return 0;
+    return AGI_ERROR_SUCCESS;
 }

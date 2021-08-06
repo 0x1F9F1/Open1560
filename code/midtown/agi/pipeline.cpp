@@ -39,7 +39,7 @@ define_dummy_symbol(agi_pipeline);
 
 i32 agiPipeline::Validate()
 {
-    return 0;
+    return AGI_ERROR_SUCCESS;
 }
 
 void agiPipeline::BeginFrame()
@@ -169,7 +169,7 @@ i32 agiPipeline::BeginAllGfx()
 
         if (error != AGI_ERROR_SUCCESS && error != AGI_ERROR_ALREADY_INITIALIZED)
         {
-            Quitf("Error resurrecting object: %s: %s", i->GetName(), agiGetError(error));
+            Errorf("Error resurrecting object: %s: %s", i->GetName(), agiGetError(error));
         }
     }
 

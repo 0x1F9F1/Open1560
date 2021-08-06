@@ -26,17 +26,21 @@ define_dummy_symbol(arts7_sim);
 #include "agi/physlib.h"
 #include "agi/pipeline.h"
 #include "agi/print.h"
+#include "agi/rsys.h"
 #include "agi/texlib.h"
 #include "cullmgr.h"
 #include "data7/args.h"
 #include "data7/ipc.h"
 #include "data7/memstat.h"
 #include "data7/metadefine.h"
+#include "data7/mmx.h"
 #include "data7/str.h"
 #include "data7/utimer.h"
 #include "eventq7/keys.h"
 #include "midgets.h"
 #include "midtown.h"
+#include "pcwindis/dxinit.h"
+#include "pgraph.h"
 #include "stream/hfsystem.h"
 #include "stream/vfsystem.h"
 
@@ -436,12 +440,204 @@ void asSimulation::Update()
 #endif
 }
 
+void asSimulation::Device()
+{
+    Timer timer;
+
+    if (!Pipe()->HaveGfxStarted())
+        Pipe()->BeginAllGfx();
+
+    eqEventHandler::SuperQ->Update(0);
+
+    if (paused_)
+        paused_ = false;
+
+    for (eqEvent event; keys_queue_.Pop(&event);)
+    {
+        if ((event.Common.Type != eqEventType::Keyboard) || !(event.Key.Modifiers & EQ_KMOD_DOWN))
+            continue;
+
+        i32 vkey = event.Key.Key;
+
+        if (vkey == EQ_VK_ESCAPE)
+            in_escape_ = true;
+
+        i32 mods = event.Key.Modifiers & (EQ_KMOD_SHIFT | EQ_KMOD_CTRL | EQ_KMOD_ALT);
+
+        if (!(mods & EQ_KMOD_SHIFT))
+            continue;
+
+        if (vkey == EQ_VK_PAUSE)
+            Pause();
+
+        if (vkey == EQ_VK_V && (mods & EQ_KMOD_CTRL) && CULLMGR)
+            CULLMGR->ToggleDebug();
+
+        if (no_debug_)
+        {
+            switch (vkey)
+            {
+                case EQ_VK_F1: {
+                    if (CULLMGR->CurrentPage())
+                        CULLMGR->HidePage();
+                    else
+                        CULLMGR->NextPage();
+
+                    break;
+                }
+
+                case EQ_VK_F4: {
+                    if (mods == (EQ_KMOD_SHIFT | EQ_KMOD_CTRL | EQ_KMOD_ALT))
+                        no_debug_ = false;
+
+                    break;
+                }
+
+                case EQ_VK_F5: {
+                    dxiScreenShot(nullptr);
+
+                    break;
+                }
+
+                case EQ_VK_F6: {
+                    switch (agiCurState.GetTexFilter())
+                    {
+                        case agiTexFilter::Point: agiCurState.SetTexFilter(agiTexFilter::Bilinear); break;
+                        case agiTexFilter::Bilinear: agiCurState.SetTexFilter(agiTexFilter::Trilinear); break;
+                        case agiTexFilter::Trilinear: agiCurState.SetTexFilter(agiTexFilter::Point); break;
+                    }
+
+                    break;
+                }
+
+                case EQ_VK_F9: {
+                    if (HaveKNI)
+                    {
+                        UseKNI ^= true;
+
+                        Displayf("Pentium III insns %s", UseKNI ? "ENABLED" : "DISABLED");
+                    }
+
+                    break;
+                }
+            }
+        }
+        else if (vkey == EQ_VK_F1)
+        {
+            if (mods & EQ_KMOD_CTRL)
+                CULLMGR->PrevPage();
+            else
+                CULLMGR->NextPage();
+        }
+        else if (mods & EQ_KMOD_CTRL)
+        {
+            PGRAPH->Key(vkey);
+        }
+        else
+        {
+            switch (vkey)
+            {
+                case EQ_VK_F2: {
+                    physics_bank_open_ = false;
+                    draw_mode_ = (draw_mode_ == agiDrawDepth) ? agiDrawTextured : agiDrawDepth;
+
+                    break;
+                }
+
+                case EQ_VK_F3: {
+                    physics_bank_open_ = false;
+
+                    if (draw_mode_ == agiDrawWireframe)
+                        draw_mode_ = agiDrawSolid;
+                    else if (draw_mode_ == agiDrawSolid)
+                        draw_mode_ = agiDrawTextured;
+                    else
+                        draw_mode_ = agiDrawWireframe;
+
+                    break;
+                }
+
+                case EQ_VK_F4: {
+                    physics_bank_open_ ^= true;
+                    draw_mode_ = physics_bank_open_ ? agiDrawSolid : agiDrawTextured;
+
+                    break;
+                }
+
+                case EQ_VK_F5: {
+                    dxiScreenShot(nullptr);
+
+                    break;
+                }
+
+                case EQ_VK_F6: {
+                    agiCurState.SetDither(!agiCurState.GetDither());
+
+                    break;
+                }
+
+                case EQ_VK_F7: {
+                    switch (agiCurState.GetTexFilter())
+                    {
+                        case agiTexFilter::Point: agiCurState.SetTexFilter(agiTexFilter::Bilinear); break;
+                        case agiTexFilter::Bilinear: agiCurState.SetTexFilter(agiTexFilter::Trilinear); break;
+                        case agiTexFilter::Trilinear: agiCurState.SetTexFilter(agiTexFilter::Point); break;
+                    }
+
+                    break;
+                }
+
+                case EQ_VK_F8: {
+                    if (mods & EQ_KMOD_SHIFT)
+                    {
+                        agiEnableZBuffer ^= true;
+                        Displayf("Z buffer %s", agiEnableZBuffer ? "ENABLED" : "DISABLED");
+                    }
+
+                    break;
+                }
+
+                case EQ_VK_F9: {
+                    if (HaveKNI)
+                    {
+                        UseKNI ^= true;
+                        Displayf("Pentium III insns %s", UseKNI ? "ENABLED" : "DISABLED");
+                    }
+
+                    break;
+                }
+
+                case EQ_VK_F11: {
+                    if (frame_step_)
+                        ToggleFrameStep();
+
+                    break;
+                }
+
+                case EQ_VK_F12: {
+                    if (frame_step_)
+                        paused_ = true;
+                    else
+                        ToggleFrameStep();
+
+                    break;
+                }
+            }
+        }
+    }
+
+    curr_stats_.DeviceTime += timer.Time();
+}
+
 void asSimulation::Widgets()
 {
     Timer timer;
 
     for (eqEvent event; widgets_queue_.Pop(&event);)
     {
+        if ((event.Common.Type != eqEventType::Keyboard) || !(event.Key.Modifiers & EQ_KMOD_DOWN))
+            continue;
+
         if ((event.Common.Type == eqEventType::Keyboard) && (event.Key.Modifiers == (EQ_KMOD_DOWN | EQ_KMOD_CTRL)) &&
             (event.Key.Key == EQ_VK_M) && !no_debug_)
         {
@@ -457,7 +653,7 @@ void asSimulation::Widgets()
         }
     }
 
-    curr_stats_.Widgets += timer.Time();
+    curr_stats_.WidgetsTime += timer.Time();
 }
 
 void asSimulation::SmoothDelta(f32& delta)

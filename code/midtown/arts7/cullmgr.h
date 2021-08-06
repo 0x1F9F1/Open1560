@@ -93,9 +93,38 @@ public:
     // ?Update@asCullManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
+    void ToggleDebug()
+    {
+        debug_ ^= true;
+    }
+
     u32 GetTextColor() const
     {
         return text_color_;
+    }
+
+    u32 CurrentPage() const
+    {
+        return current_page_;
+    }
+
+    void HidePage()
+    {
+        current_page_ = 0;
+    }
+
+    void PrevPage()
+    {
+        if (current_page_ == 0)
+            current_page_ = num_pages_ + 1;
+
+        --current_page_;
+    }
+
+    void NextPage()
+    {
+        if (++current_page_ == num_pages_ + 1)
+            current_page_ = 0;
     }
 
     VIRTUAL_META_DECLARE;
