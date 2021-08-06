@@ -110,6 +110,28 @@ void ShutdownPipeline()
         eqReplay::ShutdownRecord();
 }
 
+static void TogglePipelineWindow()
+{
+    agiPrintShutdown();
+    Pipe()->EndAllGfx();
+    DestroyPipelineAttachableWindow();
+    dxiShutdown();
+
+    dxiFlags ^= DXI_FLAG_FULL_SCREEN;
+
+    dxiInit(APPTITLE, 0, nullptr);
+    Pipe()->SetWindow(CreatePipelineAttachableWindow(APPTITLE, 0, 0, Pipe()->GetWidth(), Pipe()->GetHeight(), nullptr));
+
+    i32 error = Pipe()->BeginAllGfx();
+
+    if (error == 0)
+    {
+        agiPrintInit();
+
+        Pipe()->ClearAll(0);
+    }
+}
+
 // ?IsValidPointer@@YAHPAXIH@Z
 ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
 
@@ -529,7 +551,7 @@ void asSimulation::Device()
             else
                 CULLMGR->NextPage();
         }
-        else if (mods & EQ_KMOD_CTRL)
+        else if ((vkey >= EQ_VK_F1) && (vkey <= EQ_VK_F12) && (mods & EQ_KMOD_CTRL))
         {
             PGRAPH->Key(vkey);
         }
@@ -619,6 +641,13 @@ void asSimulation::Device()
                         paused_ = true;
                     else
                         ToggleFrameStep();
+
+                    break;
+                }
+
+                case EQ_VK_RETURN: {
+                    if (mods == (EQ_KMOD_SHIFT | EQ_KMOD_CTRL | EQ_KMOD_ALT))
+                        TogglePipelineWindow();
 
                     break;
                 }
