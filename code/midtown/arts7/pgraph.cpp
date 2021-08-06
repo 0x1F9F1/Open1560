@@ -218,7 +218,7 @@ void asPerfGraph::Cull()
         agiPrintf(0, text_y, 0xFFFFFFFF, "   %5.2f %s", component_history_[i][write_index_], component_name_[i]);
 
         Pipe()->ClearRect(
-            0, text_y, agiFontWidth * 2, agiFontHeight, Pipe()->GetHiColorModel()->GetColor(component_color_[i]));
+            0, text_y, agiFontWidth * 2, agiFontHeight, Pipe()->GetScreenColorModel()->GetColor(component_color_[i]));
 
         text_y += agiFontHeight;
     }

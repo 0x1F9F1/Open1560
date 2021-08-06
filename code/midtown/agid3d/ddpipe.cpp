@@ -157,7 +157,7 @@ i32 agiDDPipeline::BeginGfx()
 
     if (bit_depth_ == 8)
     {
-        hi_color_model_ = MakeRc<agiColorModel8>(&agiPal);
+        screen_color_model_ = MakeRc<agiColorModel8>(&agiPal);
 
         DD_TRY(d_front_->SetPalette(d_pal_));
         DD_TRY(d_back_->SetPalette(d_pal_));
@@ -174,22 +174,25 @@ i32 agiDDPipeline::BeginGfx()
         // NOTE: Originally used lpdsFront
         d_front_->GetSurfaceDesc(&screen_desc);
 
-        screen_format_ = agiSurfaceDesc::FromDDSD2(screen_desc);
+        screen_format_ = agiSurfaceDesc::FromDD(screen_desc);
         d_pix_format_ = screen_desc.ddpfPixelFormat;
 
-        hi_color_model_ = AsRc(agiColorModel::FindMatch(d_pix_format_.dwRBitMask, d_pix_format_.dwGBitMask,
+        screen_color_model_ = AsRc(agiColorModel::FindMatch(d_pix_format_.dwRBitMask, d_pix_format_.dwGBitMask,
             d_pix_format_.dwBBitMask, d_pix_format_.dwRGBAlphaBitMask));
 
-        if (hi_color_model_ == nullptr)
+        if (screen_color_model_ == nullptr)
         {
             Quitf("Unsupported hicolor model R=%x G=%x B=%x A=%x", d_pix_format_.dwRBitMask, d_pix_format_.dwGBitMask,
                 d_pix_format_.dwBBitMask, d_pix_format_.dwRGBAlphaBitMask);
         }
     }
 
-    opaque_color_model_ = hi_color_model_;
-    alpha_color_model_ = hi_color_model_;
-    text_color_model_ = hi_color_model_;
+    opaque_format_ = screen_format_;
+    alpha_format_ = screen_format_;
+
+    opaque_color_model_ = screen_color_model_;
+    alpha_color_model_ = screen_color_model_;
+    text_color_model_ = screen_color_model_;
 
     gfx_started_ = 1;
 
@@ -260,7 +263,7 @@ void agiDDPipeline::EndGfx()
     gfx_started_ = false;
 
     text_color_model_ = nullptr;
-    hi_color_model_ = nullptr;
+    screen_color_model_ = nullptr;
     opaque_color_model_ = nullptr;
     alpha_color_model_ = nullptr;
 }
@@ -275,7 +278,7 @@ b32 agiDDPipeline::LockFrameBuffer(agiSurfaceDesc& surface)
     if (d_rend_->Lock(nullptr, &ddsd, DDLOCK_WAIT, nullptr))
         return false;
 
-    surface = agiSurfaceDesc::FromDDSD2(ddsd);
+    surface = agiSurfaceDesc::FromDD(ddsd);
 
     return true;
 }

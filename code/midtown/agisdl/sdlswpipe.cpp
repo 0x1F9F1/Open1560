@@ -121,7 +121,7 @@ public:
 
     void SetBackground(class Vector3& color) override
     {
-        clear_color_ = Pipe()->GetHiColorModel()->GetColor(color);
+        clear_color_ = Pipe()->GetScreenColorModel()->GetColor(color);
     }
 
     agiSDLSWPipeline* Pipe()
@@ -332,9 +332,9 @@ i32 agiSDLSWPipeline::BeginGfx()
 
     const auto& pixel_format = PixelFormat_R5G6B5;
 
-    screen_format_ = {sizeof(screen_format_)};
-    screen_format_.Flags = AGISD_PIXELFORMAT;
-    screen_format_.PixelFormat = pixel_format;
+    screen_format_ = agiSurfaceDesc::FromFormat(pixel_format);
+    opaque_format_ = agiSurfaceDesc::FromFormat(PixelFormat_P8);
+    alpha_format_ = opaque_format_;
 
     swBytesPerPixel = pixel_format.RGBBitCount >> 3;
     swRedMask = pixel_format.RBitMask;
@@ -349,14 +349,14 @@ i32 agiSDLSWPipeline::BeginGfx()
 
     if (bit_depth_ == 8)
     {
-        hi_color_model_ = MakeRc<agiColorModel8>(&agiPal);
+        screen_color_model_ = MakeRc<agiColorModel8>(&agiPal);
     }
     else
     {
-        hi_color_model_ = AsRc(agiColorModel::FindMatch(swRedMask, swGreenMask, swBlueMask, 0));
+        screen_color_model_ = AsRc(agiColorModel::FindMatch(swRedMask, swGreenMask, swBlueMask, 0));
     }
 
-    text_color_model_ = hi_color_model_;
+    text_color_model_ = screen_color_model_;
 
     opaque_color_model_ = MakeRc<agiColorModel8>(&agiPal);
     alpha_color_model_ = opaque_color_model_;

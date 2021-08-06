@@ -57,7 +57,8 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     if (Pipe()->IsHardware())
     {
         alpha = PARAM_alphafont.get_or(false);
-        surface = AsPtr(agiSurfaceDesc::Init(256, 64, Pipe()->GetScreenFormat()));
+
+        surface = AsPtr(agiSurfaceDesc::Init(256, 64, Pipe()->GetAlphaFormat()));
 
         Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface.get()));
 
@@ -86,11 +87,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     }
     else
     {
-        agiSurfaceDesc format {sizeof(format)};
-        format.Flags = AGISD_PIXELFORMAT;
-        format.PixelFormat = PixelFormat_P8;
-
-        surface = AsPtr(agiSurfaceDesc::Init(256, 64, format));
+        surface = AsPtr(agiSurfaceDesc::Init(256, 64, agiSurfaceDesc::FromFormat(PixelFormat_P8)));
 
         surface->lpLut = AsRaw(Pipe()->GetTexLut(const_cast<char*>("*grey")));
         surface->MipMapCount = 3;

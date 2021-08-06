@@ -420,8 +420,11 @@ void dxiSetDisplayMode()
         dxiDirectDrawCreate();
     }
 
-    SDL_SetWindowResizable(g_MainWindow, dxiIsFullScreen() ? SDL_TRUE : SDL_FALSE);
-    SDL_SetWindowPosition(g_MainWindow, 0, 0);
+    if (g_MainWindow)
+    {
+        SDL_SetWindowResizable(g_MainWindow, dxiIsFullScreen() ? SDL_TRUE : SDL_FALSE);
+        SDL_SetWindowPosition(g_MainWindow, 0, 0);
+    }
 
     if (dxiIsFullScreen())
     {
@@ -437,7 +440,10 @@ void dxiSetDisplayMode()
     }
     else
     {
-        SDL_SetWindowSize(g_MainWindow, dxiWidth, dxiHeight);
+        if (g_MainWindow)
+            SDL_SetWindowSize(g_MainWindow, dxiWidth, dxiHeight);
+        else
+            SetWindowPos(hwndMain, 0, 0, 0, dxiWidth, dxiHeight, SWP_NOMOVE | SWP_NOZORDER);
     }
 
     dxiDirectDrawSurfaceCreate();

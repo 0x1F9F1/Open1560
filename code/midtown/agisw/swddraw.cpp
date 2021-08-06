@@ -52,7 +52,7 @@ ARTS_EXPORT /*static*/ void ddStart()
     lpdsRend->Lock(NULL, &sd, DDLOCK_WAIT, NULL);
     lpdsRend->Unlock(NULL);
 
-    swScreenDesc = agiSurfaceDesc::FromDDSD2(sd);
+    swScreenDesc = agiSurfaceDesc::FromDD(sd);
 
     if (!(sd.ddpfPixelFormat.dwFlags & DDPF_RGB))
         Quitf("ddStart: Require RGB color!");

@@ -191,15 +191,13 @@ void DefaultPrinter(i32 level, char const* format, std::va_list args)
 
     if (level >= 3)
     {
+        MessageBoxA(NULL, buffer, "Fatal Error", MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
+
         StackTraceback(16, 2);
 
         if (IsDebuggerPresent())
         {
             ArDebugBreak();
-        }
-        else
-        {
-            MessageBoxA(NULL, buffer, "Fatal Error", MB_OK | MB_ICONERROR | MB_SETFOREGROUND | MB_TOPMOST);
         }
 
         if (level == 3)

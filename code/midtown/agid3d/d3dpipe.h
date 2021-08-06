@@ -138,14 +138,14 @@ public:
         return texture_filter_;
     }
 
-    const DDPIXELFORMAT& GetOpaqueFormat() const
+    const DDPIXELFORMAT& GetOpaqueDDFormat() const
     {
-        return opaque_format_;
+        return opaque_dd_format_;
     }
 
-    const DDPIXELFORMAT& GetAlphaFormat() const
+    const DDPIXELFORMAT& GetAlphaDDFormat() const
     {
-        return alpha_format_;
+        return alpha_dd_format_;
     }
 
     IDirect3D3* GetD3D() const
@@ -168,8 +168,8 @@ protected:
     IDirect3DDevice3* d3d_device_ {nullptr};
     IDirect3DViewport3* d3d_view_ {nullptr};
     IDirectDrawSurface4* d_zbuffer_ {nullptr};
-    DDPIXELFORMAT opaque_format_ {};
-    DDPIXELFORMAT alpha_format_ {};
+    DDPIXELFORMAT opaque_dd_format_ {};
+    DDPIXELFORMAT alpha_dd_format_ {};
     b32 is_hardware_ {0};
 
     // D3DPTFILTERCAPS

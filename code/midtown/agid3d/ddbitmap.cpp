@@ -76,7 +76,7 @@ i32 agiDDBitmap::BeginGfx()
 
     DD_TRY(d_surf_->Lock(nullptr, &ddsdDest, DDLOCK_WAIT, nullptr));
 
-    agiSurfaceDesc surface = agiSurfaceDesc::FromDDSD2(ddsdDest);
+    agiSurfaceDesc surface = agiSurfaceDesc::FromDD(ddsdDest);
     surface.CopyFrom(surface_.get(), 0);
 
     DD_TRY(d_surf_->Unlock(nullptr));

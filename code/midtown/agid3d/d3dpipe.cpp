@@ -375,23 +375,24 @@ i32 agiD3DPipeline::BeginGfx()
 
     agiDisplayf("Texture Format: %d; Alpha Texture Format: %d", opaque_format, alpha_format);
 
-    opaque_format_ = TextureFormats[opaque_format];
-    alpha_format_ = TextureFormats[alpha_format];
+    opaque_dd_format_ = TextureFormats[opaque_format];
+    alpha_dd_format_ = TextureFormats[alpha_format];
 
-    if (opaque_format_.dwRBitMask)
+    opaque_format_ = agiSurfaceDesc::FromFormat(agiPixelFormat::FromDD(opaque_dd_format_));
+    alpha_format_ = agiSurfaceDesc::FromFormat(agiPixelFormat::FromDD(alpha_dd_format_));
+
+    if (opaque_dd_format_.dwRBitMask)
     {
-        opaque_color_model_ = AsRc(agiColorModel::FindMatch(opaque_format_.dwRBitMask, opaque_format_.dwGBitMask,
-            opaque_format_.dwBBitMask, opaque_format_.dwRGBAlphaBitMask));
+        opaque_color_model_ = AsRc(agiColorModel::FindMatch(&opaque_format_));
     }
     else
     {
         opaque_color_model_ = MakeRc<agiColorModel8>(&agiPal);
     }
 
-    if (alpha_format_.dwRBitMask)
+    if (alpha_dd_format_.dwRBitMask)
     {
-        alpha_color_model_ = AsRc(agiColorModel::FindMatch(alpha_format_.dwRBitMask, alpha_format_.dwGBitMask,
-            alpha_format_.dwBBitMask, alpha_format_.dwRGBAlphaBitMask));
+        alpha_color_model_ = AsRc(agiColorModel::FindMatch(&alpha_format_));
     }
     else
     {
@@ -436,10 +437,10 @@ i32 agiD3DPipeline::BeginGfx()
 
         if (agiFOURCC && !NoTextureCompression)
         {
-            opaque_format_.dwFlags = DDPF_FOURCC;
-            opaque_format_.dwFourCC = agiFOURCC;
+            opaque_dd_format_.dwFlags = DDPF_FOURCC;
+            opaque_dd_format_.dwFourCC = agiFOURCC;
 
-            alpha_format_.dwFlags = DDPF_PALETTEINDEXED8;
+            alpha_dd_format_.dwFlags = DDPF_PALETTEINDEXED8;
             AlphaPalette = true;
 
             flags_ |= 0x10;
@@ -554,7 +555,8 @@ RcOwner<agiViewport> agiD3DPipeline::CreateViewport()
 
 void agiD3DPipeline::Defragment()
 {
-    d3d_->EvictManagedTextures();
+    if (d3d_)
+        d3d_->EvictManagedTextures();
 }
 
 ARTS_IMPORT extern Stream* SurfaceDumpStream;

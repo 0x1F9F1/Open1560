@@ -110,7 +110,7 @@ i32 agiGLTexDef::BeginGfx()
     if (color_key || alpha_glow)
     {
         Ptr<agiSurfaceDesc> temp_surface =
-            AsPtr(agiSurfaceDesc::Init(surface->Width, surface->Height, Pipe()->GetScreenFormat()));
+            AsPtr(agiSurfaceDesc::Init(surface->Width, surface->Height, Pipe()->GetAlphaFormat()));
 
         temp_surface->CopyFrom(Surface.get(), 0, &Tex);
 

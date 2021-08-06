@@ -275,9 +275,19 @@ public:
         return screen_format_;
     }
 
-    const Rc<agiColorModel>& GetHiColorModel() const
+    const agiSurfaceDesc& GetOpaqueFormat() const
     {
-        return hi_color_model_;
+        return opaque_format_;
+    }
+
+    const agiSurfaceDesc& GetAlphaFormat() const
+    {
+        return alpha_format_;
+    }
+
+    const Rc<agiColorModel>& GetScreenColorModel() const
+    {
+        return screen_color_model_;
     }
 
     const Rc<agiColorModel>& GetOpaqueColorModel() const
@@ -371,12 +381,10 @@ protected:
     i32 valid_bit_depths_ {0};
 
     agiSurfaceDesc screen_format_ {};
+    agiSurfaceDesc opaque_format_ {};
+    agiSurfaceDesc alpha_format_ {};
 
-    // TODO: Initialize these (alpha/opaque?)
-    agiSurfaceDesc screen_format_2_ {};
-    agiSurfaceDesc screen_format_3_ {};
-
-    Rc<agiColorModel> hi_color_model_;
+    Rc<agiColorModel> screen_color_model_;
     Rc<agiColorModel> opaque_color_model_;
     Rc<agiColorModel> alpha_color_model_;
     Rc<agiColorModel> text_color_model_;

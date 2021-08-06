@@ -77,7 +77,7 @@ public:
     // ?SetBackground@agiSWViewport@@UAEXAAVVector3@@@Z | inline
     ARTS_EXPORT void SetBackground(class Vector3& color) override
     {
-        clear_color_ = Pipe()->GetHiColorModel()->GetColor(color);
+        clear_color_ = Pipe()->GetScreenColorModel()->GetColor(color);
     }
 
 private:
@@ -158,7 +158,7 @@ public:
 
         DD_TRY(d_surf_->Lock(nullptr, &ddsdDest, DDLOCK_WAIT, nullptr));
 
-        agiSurfaceDesc surface = agiSurfaceDesc::FromDDSD2(ddsdDest);
+        agiSurfaceDesc surface = agiSurfaceDesc::FromDD(ddsdDest);
         surface.CopyFrom(surface_.get(), 0);
 
         DD_TRY(d_surf_->Unlock(nullptr));
@@ -284,6 +284,9 @@ i32 agiSWPipeline::BeginGfx()
     swFbStart();
 
     screen_format_ = swScreenDesc;
+    opaque_format_ = agiSurfaceDesc::FromFormat(PixelFormat_P8);
+    alpha_format_ = opaque_format_;
+
     swInit();
 
     // FIXME: Leaks agiSWRasterizer
@@ -291,14 +294,14 @@ i32 agiSWPipeline::BeginGfx()
 
     if (bit_depth_ == 8)
     {
-        hi_color_model_ = MakeRc<agiColorModel8>(&agiPal);
+        screen_color_model_ = MakeRc<agiColorModel8>(&agiPal);
     }
     else
     {
-        hi_color_model_ = AsRc(agiColorModel::FindMatch(swRedMask, swGreenMask, swBlueMask, 0));
+        screen_color_model_ = AsRc(agiColorModel::FindMatch(swRedMask, swGreenMask, swBlueMask, 0));
     }
 
-    text_color_model_ = hi_color_model_;
+    text_color_model_ = screen_color_model_;
 
     opaque_color_model_ = MakeRc<agiColorModel8>(&agiPal);
     alpha_color_model_ = opaque_color_model_;

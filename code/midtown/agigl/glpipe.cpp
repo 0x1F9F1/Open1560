@@ -107,16 +107,14 @@ i32 agiGLPipeline::BeginGfx()
         SDL_GL_SetSwapInterval(0);
     }
 
-    // FIXME: Check pixel format masks
-    screen_format_ = {sizeof(screen_format_)};
-
     // TODO: Should this have alpha?
-    screen_format_.Flags = AGISD_PIXELFORMAT;
-    screen_format_.PixelFormat = PixelFormat_A8R8G8B8;
+    screen_format_ = agiSurfaceDesc::FromFormat(PixelFormat_A8R8G8B8);
+    opaque_format_ = agiSurfaceDesc::FromFormat(PixelFormat_X8R8G8B8);
+    alpha_format_ = agiSurfaceDesc::FromFormat(PixelFormat_A8R8G8B8);
 
-    alpha_color_model_ = AsRc(agiColorModel::FindMatch(&screen_format_));
-    opaque_color_model_ = alpha_color_model_;
-    hi_color_model_ = alpha_color_model_;
+    screen_color_model_ = AsRc(agiColorModel::FindMatch(&screen_format_));
+    opaque_color_model_ = AsRc(agiColorModel::FindMatch(&opaque_format_));
+    alpha_color_model_ = AsRc(agiColorModel::FindMatch(&alpha_format_));
     text_color_model_ = alpha_color_model_;
 
     TexSearchPath = const_cast<char*>("tex16a\0tex16o\0tex16\0");
@@ -245,7 +243,7 @@ void agiGLPipeline::EndGfx()
     }
 
     text_color_model_ = nullptr;
-    hi_color_model_ = nullptr;
+    screen_color_model_ = nullptr;
     opaque_color_model_ = nullptr;
     alpha_color_model_ = nullptr;
 

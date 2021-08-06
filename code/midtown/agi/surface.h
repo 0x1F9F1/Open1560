@@ -55,6 +55,8 @@ struct agiColorKey // DDCOLORKEY
 #define AGIPF_PALETTEINDEXED8 0x00000020l
 #define AGIPF_RGB 0x00000040l
 
+typedef struct _DDPIXELFORMAT DDPIXELFORMAT;
+
 struct agiPixelFormat // DDPIXELFORMAT
 {
     u32 Size {0};
@@ -65,6 +67,9 @@ struct agiPixelFormat // DDPIXELFORMAT
     u32 GBitMask {0};
     u32 BBitMask {0};
     u32 RGBAlphaBitMask {0};
+
+    DDPIXELFORMAT ToDD();
+    static agiPixelFormat FromDD(const DDPIXELFORMAT& sd);
 };
 
 extern const agiPixelFormat PixelFormat_A8R8G8B8;
@@ -134,8 +139,10 @@ public:
 
     void FixPitch();
 
-    DDSURFACEDESC2 ToDDSD2();
-    static agiSurfaceDesc FromDDSD2(const DDSURFACEDESC2& sd);
+    static agiSurfaceDesc FromFormat(const agiPixelFormat& format);
+
+    DDSURFACEDESC2 ToDD();
+    static agiSurfaceDesc FromDD(const DDSURFACEDESC2& sd);
 
     u32 GetPixelSize() const
     {
