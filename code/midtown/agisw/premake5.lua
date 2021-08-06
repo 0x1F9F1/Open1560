@@ -10,6 +10,6 @@ arts_component "agisw"
         "swrend.h",
         "swrsys.cpp",
         "swrsys.h",
-        -- "swtexdef.cpp",
-        -- "swtexdef.h",
+        "swtexdef.cpp",
+        "swtexdef.h",
     }

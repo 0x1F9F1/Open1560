@@ -45,24 +45,28 @@
 
 #include "agi/texdef.h"
 
+#include "swpipe.h"
+
 class agiSWTexDef final : public agiTexDef
 {
     // const agiSWTexDef::`vftable'
 
 public:
     // ??0agiSWTexDef@@QAE@PAVagiSWPipeline@@@Z
-    ARTS_IMPORT agiSWTexDef(class agiSWPipeline* arg1);
+    ARTS_EXPORT agiSWTexDef(class agiSWPipeline* pipe)
+        : agiTexDef(pipe)
+    {}
 
     // ??_GagiSWTexDef@@UAEPAXI@Z
     // ??_EagiSWTexDef@@UAEPAXI@Z
     // ??1agiSWTexDef@@UAE@XZ
-    ARTS_IMPORT ~agiSWTexDef() override = default;
+    ARTS_EXPORT ~agiSWTexDef() override = default;
 
     // ?BeginGfx@agiSWTexDef@@UAEHXZ
-    ARTS_IMPORT i32 BeginGfx() override;
+    ARTS_EXPORT i32 BeginGfx() override;
 
     // ?EndGfx@agiSWTexDef@@UAEXXZ
-    ARTS_IMPORT void EndGfx() override;
+    ARTS_EXPORT void EndGfx() override;
 
     // ?IsAvailable@agiSWTexDef@@UAEHXZ
     ARTS_IMPORT b32 IsAvailable() override;
@@ -79,7 +83,11 @@ public:
     // ?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z
     ARTS_EXPORT void Unlock(struct agiTexLock& arg1) override;
 
-    u8 gap74[0x28];
+private:
+    i32 field_74 {0};
+    i32 width_mips_ {0};
+    i32 height_mips_ {0};
+    Ptr<u8[]> surfaces_[7] {};
 };
 
 check_size(agiSWTexDef, 0x9C);
