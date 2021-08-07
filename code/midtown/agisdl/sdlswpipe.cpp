@@ -133,6 +133,20 @@ private:
     u32 clear_color_ {0};
 };
 
+static u32 GetSDLPixelFormat(const agiPixelFormat& format)
+{
+    switch (format.RBitMask)
+    {
+        case 0xF800: return SDL_PIXELFORMAT_RGB565;
+        case 0xF00: return (format.RGBAlphaBitMask == 0xF000) ? SDL_PIXELFORMAT_ARGB4444 : SDL_PIXELFORMAT_XRGB4444;
+        case 0x7C00: return (format.RGBAlphaBitMask == 0x8000) ? SDL_PIXELFORMAT_ARGB1555 : SDL_PIXELFORMAT_XRGB1555;
+
+        default:
+            Quitf("Invalid Format %x / %x / %x / %s", format.RBitMask, format.GBitMask, format.BBitMask,
+                format.RGBAlphaBitMask);
+    }
+}
+
 class agiSDLBitmap final : public agiBitmap
 {
 public:
@@ -184,20 +198,13 @@ public:
         // FIXME: Some RV3 bitmaps (ICON_*) have incorrect pitch.
         surface_->FixPitch();
 
-        u32 format = 0;
-
-        switch (surface_->PixelFormat.RBitMask)
-        {
-            case 0xF800: format = SDL_PIXELFORMAT_RGB565; break;
-            case 0xF00: format = SDL_PIXELFORMAT_RGBA4444; break;
-
-            default: Quitf("Invalid Format");
-        }
+        u32 format = GetSDLPixelFormat(surface_->PixelFormat);
 
         sdl_surface_ = SDL_CreateRGBSurfaceWithFormat(0, width_, height_, 16, format);
 
         SDL_Surface* source = SDL_CreateRGBSurfaceWithFormatFrom(
             surface_->Surface, surface_->Width, surface_->Height, 16, surface_->Pitch, format);
+
         SDL_BlitScaled(source, NULL, sdl_surface_, NULL);
         SDL_FreeSurface(source);
 
@@ -294,6 +301,8 @@ void agiSDLSWPipeline::BeginFrame()
     debugTri = 0;
 }
 
+static mem::cmd_param PARAM_use555 {"use555"};
+
 i32 agiSDLSWPipeline::BeginGfx()
 {
     if (gfx_started_)
@@ -324,24 +333,24 @@ i32 agiSDLSWPipeline::BeginGfx()
     SDL_Rect viewport {blit_x_, blit_y_, blit_width_, blit_height_};
     SDL_RenderSetViewport(sdl_renderer_, &viewport);
 
-    render_texture_ =
-        SDL_CreateTexture(sdl_renderer_, SDL_PIXELFORMAT_RGB565, SDL_TEXTUREACCESS_STREAMING, width_, height_);
+    const auto& screen_format = PARAM_use555 ? PixelFormat_X1R5G5B5 : PixelFormat_R5G6B5;
+
+    render_texture_ = SDL_CreateTexture(
+        sdl_renderer_, GetSDLPixelFormat(screen_format), SDL_TEXTUREACCESS_STREAMING, width_, height_);
 
     swFbWidth = width_;
     swFbHeight = height_;
 
-    const auto& pixel_format = PixelFormat_R5G6B5;
-
-    screen_format_ = agiSurfaceDesc::FromFormat(pixel_format);
+    screen_format_ = agiSurfaceDesc::FromFormat(screen_format);
     opaque_format_ = agiSurfaceDesc::FromFormat(PixelFormat_P8);
     alpha_format_ = opaque_format_;
 
-    swBytesPerPixel = pixel_format.RGBBitCount >> 3;
-    swRedMask = pixel_format.RBitMask;
-    swGreenMask = pixel_format.GBitMask;
-    swBlueMask = pixel_format.BBitMask;
+    swBytesPerPixel = screen_format.RGBBitCount >> 3;
+    swRedMask = screen_format.RBitMask;
+    swGreenMask = screen_format.GBitMask;
+    swBlueMask = screen_format.BBitMask;
 
-    Displayf("SCREEN MODEL: %x / %x / %x", pixel_format.RBitMask, pixel_format.GBitMask, pixel_format.BBitMask);
+    Displayf("SCREEN MODEL: %x / %x / %x", screen_format.RBitMask, screen_format.GBitMask, screen_format.BBitMask);
 
     swInit();
 
