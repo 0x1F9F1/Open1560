@@ -1116,9 +1116,6 @@ void InitPatches()
     create_patch(
         "aiVehiclePolice::Reset", "Fix List::Clear memory leak", 0x44511C, "\x89\xF9\xE8\x6D\x71\x13\x00\x90", 8);
 
-    create_patch("agiSWTexDef::BeginGfx", "MipMapCount Comparison", 0x537797, "\x7E", 1);
-    create_patch("agiSWTexDef::EndGfx", "MipMapCount Comparison", 0x537833, "\x7E", 1);
-
     create_patch("agiSWTexLut::BeginGfx", "Fixed Fog Calculation", 0x5379F2,
         "\xB8\x00\x01\x00\x00\x89\x45\xE4\x46\xC1\xE6\x05\x29\xF0\x90\x90\x90", 0x11);
 
