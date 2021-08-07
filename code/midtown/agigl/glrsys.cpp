@@ -714,7 +714,7 @@ void agiGLRasterizer::FlushState()
         agiLastState.TexFilter = tex_filter;
     }
 
-    bool zenable = agiCurState.GetZEnable();
+    bool zenable = agiEnableZBuffer && agiCurState.GetZEnable();
 
     if (zenable != agiLastState.ZEnable)
     {
