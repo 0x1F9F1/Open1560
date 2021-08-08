@@ -85,7 +85,7 @@ struct dxiRendererInfo_t
         {
             GUID Interface;
             GUID Driver;
-        } Guid;
+        } DX6;
 
         struct
         {

@@ -89,8 +89,8 @@ b32 dxiReadConfigFile()
         *std::strrchr(name, ']') = '\0';
         arts_strcpy(info.Name, &name[1]);
 
-        strtoguid(&info.Guid.Interface, interface_guid);
-        strtoguid(&info.Guid.Driver, driver_guid);
+        strtoguid(&info.DX6.Interface, interface_guid);
+        strtoguid(&info.DX6.Driver, driver_guid);
 
         for (i32 j = 0; j < info.ResCount; ++j)
         {
@@ -126,9 +126,9 @@ void dxiWriteConfigFile()
         output->Printf("Type=%d\n", info.Type);
 
         char guid[64];
-        guidtostr(guid, &info.Guid.Interface);
+        guidtostr(guid, &info.DX6.Interface);
         output->Printf("InterfaceGuid=%s\n", guid);
-        guidtostr(guid, &info.Guid.Driver);
+        guidtostr(guid, &info.DX6.Driver);
         output->Printf("DriverGuid=%s\n", guid);
 
         output->Printf("bSmoothAlpha=%d\n", info.SmoothAlpha);

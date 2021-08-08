@@ -143,7 +143,7 @@ static bool ValidateRenderersDX6()
 
         IDirectDraw* ddraw = nullptr;
 
-        if (pDirectDrawCreate((info.Type == dxiRendererType::DX6) ? &info.Guid.Interface : nullptr, &ddraw, NULL))
+        if (pDirectDrawCreate((info.Type == dxiRendererType::DX6) ? &info.DX6.Interface : nullptr, &ddraw, NULL))
             return false;
 
         IDirectDraw4* ddraw4 = nullptr;
@@ -153,7 +153,7 @@ static bool ValidateRenderersDX6()
             NeedDX6();
 
         if (!ddraw4->GetDeviceIdentifier(&ident, 0) &&
-            !std::memcmp(&ident.guidDeviceIdentifier, &info.Guid.Driver, sizeof(GUID)))
+            !std::memcmp(&ident.guidDeviceIdentifier, &info.DX6.Driver, sizeof(GUID)))
         {
             ++count;
         }
