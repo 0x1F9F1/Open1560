@@ -183,7 +183,7 @@ void dxiConfig([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
     void (*enumerate)() = EnumerateRenderers2;
     bool show_message = true;
 
-    if (PARAM_d3d || PARAM_sw)
+    if (PARAM_d3d)
     {
         validate = ValidateRenderersDX6;
         enumerate = EnumerateRenderers2;
