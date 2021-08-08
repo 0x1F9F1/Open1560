@@ -25,10 +25,12 @@
     0x90B4B4 | float ut2float | ?ut2float@@3MA
 */
 
-ulong adjust_utimer(f32 elapsed, ulong prev);
+using utimer_t = ulong;
+
+utimer_t adjust_utimer(f32 elapsed, utimer_t prev);
 
 // ?utimer@@YAKXZ
-ARTS_EXPORT ulong utimer();
+ARTS_EXPORT utimer_t utimer();
 
 // ?ut2float@@3MA
 ARTS_EXPORT extern f32 ut2float;
@@ -36,7 +38,7 @@ ARTS_EXPORT extern f32 ut2float;
 #ifdef ARTS_DEV_BUILD
 struct scoped_utimer
 {
-    scoped_utimer(ulong* total)
+    scoped_utimer(utimer_t* total)
         : start_(utimer())
         , total_(total)
     {}
@@ -46,8 +48,8 @@ struct scoped_utimer
         *total_ += utimer() - start_;
     }
 
-    ulong start_ {0};
-    ulong* const total_ {nullptr};
+    utimer_t start_ {0};
+    utimer_t* const total_ {nullptr};
 };
 
 #    define ARTS_UTIMED(VAR)                        \

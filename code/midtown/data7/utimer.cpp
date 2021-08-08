@@ -26,9 +26,9 @@ define_dummy_symbol(data7_utimer);
 static i32 utimer_mode = 1;
 f32 ut2float = 0.0f;
 
-#define ARTS_RDTSC() static_cast<ulong>(__rdtsc())
+#define ARTS_RDTSC() static_cast<utimer_t>(__rdtsc())
 
-ulong adjust_utimer(f32 elapsed, ulong prev)
+utimer_t adjust_utimer(f32 elapsed, utimer_t prev)
 {
     if (utimer_mode == 2)
         return 0;
@@ -41,7 +41,7 @@ ulong adjust_utimer(f32 elapsed, ulong prev)
     return now;
 }
 
-static ARTS_NOINLINE ulong init_utimer()
+static ARTS_NOINLINE utimer_t init_utimer()
 {
     if (utimer_mode == 2)
         return 0;
@@ -49,7 +49,7 @@ static ARTS_NOINLINE ulong init_utimer()
     __try
     {
         Timer t;
-        ulong start = ARTS_RDTSC();
+        utimer_t start = ARTS_RDTSC();
 
         Timer::Sleep(100);
         adjust_utimer(t.Time(), start);
@@ -64,7 +64,7 @@ static ARTS_NOINLINE ulong init_utimer()
     return ARTS_RDTSC();
 }
 
-ARTS_NOINLINE ulong utimer()
+ARTS_NOINLINE utimer_t utimer()
 {
     if (utimer_mode)
         return init_utimer();
