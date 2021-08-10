@@ -112,6 +112,8 @@
 
 #include "arts7/node.h"
 
+#include "eventq7/eventq.h"
+
 // ?testsuperq@@YAXXZ | unused
 ARTS_IMPORT void testsuperq();
 
@@ -164,8 +166,10 @@ ARTS_IMPORT extern class mmInput* GameInputPtr;
 #define MM_POLL_MOUSE 0x20000
 #define MM_POLL_JOYSTICK 0x40000
 
+// See mmInput::BuildCaptureIO for how these are handled
+
 // mmJoyMan::PollJoyButtons
-#define MM_POLL_JOY_BUTTONS_SHIFT 8 // Joystick index of button pressed ((index + 1) << 8)
+#define MM_POLL_JOY_BUTTON_INDEX_SHIFT 8 // Joystick index of button pressed ((index + 1) << 8)
 
 // mmJoyMan::PollJoyAxes
 #define MM_POLL_JOY_AXES_INDEX 0x1000 // Joystick index of axis pressed (0x1000 << index)
@@ -298,7 +302,7 @@ public:
     ARTS_IMPORT i32 BinarySaveConfig(class Stream* arg1);
 
     // ?BuildCaptureIO@mmInput@@QAEHHPAVmmIO@@TeqEvent@@@Z
-    ARTS_IMPORT i32 BuildCaptureIO(i32 arg1, class mmIO* arg2, union eqEvent arg3);
+    ARTS_EXPORT i32 BuildCaptureIO(i32 button, class mmIO* io, union eqEvent event);
 
     // ?CaptureState@mmInput@@QAEXH@Z
     ARTS_IMPORT void CaptureState(i32 arg1);
@@ -495,64 +499,56 @@ private:
     ARTS_IMPORT i64 ScanState(class mmIO* arg1);
 
     mmJoyMan* Joy;
-    mmIO* Controls;
+    mmIO* IO;
     i32 NumControls;
     eqEventQ* Events;
-    i32 field_30;
-    i32 field_34;
-    i32 field_38;
-    i32 field_3C;
-    i32 field_40;
-    i32 field_44;
-    i32 field_48;
-    i32 field_4C;
-    i32 field_50;
+    eqEvent CaptureEvent;
     i32 field_54;
     i64 EventQueue[30];
     i32 QueuedEvents;
-    i32 field_14C;
-    i32 field_150;
+    i32 WantPoll;
+    i32 StateCaptured;
     i32 field_154;
-    i32 field_158;
+    i32 LastUnassigned;
     i32 field_15C;
-    i64 field_160;
-    i32 EnablEFF;
+    i64 CurrentState;
     i32 EnableFF;
-    f32 field_170;
-    f32 field_174;
+    i32 field_16C;
+    f32 DamageFFWait;
+    f32 CollidePeriod;
     i32 field_178;
     i32 field_17C;
     i32 field_180;
-    i32 field_184;
+    i32 SteeringType;
     i32 field_188;
     i32 HasCoolie;
     i32 field_190;
-    i32 field_194;
-    f32 field_198;
-    f32 field_19C;
-    f32 field_1A0;
-    f32 field_1A4;
-    f32 field_1A8;
-    f32 field_1AC;
-    f32 field_1B0;
-    f32 field_1B4;
+    i32 AutoReverse;
+    f32 BrakesVal;
+    f32 HandbrakeVal;
+    f32 ThrottleVal;
+    f32 SteeringVal;
+    f32 GamepadSteeringVal;
+    f32 CamPanVal;
+    f32 DiscreteSteeringLimit;
+    f32 FFScale;
     f32 SpringFFLevel;
-    f32 field_1BC;
-    f32 field_1C0;
-    f32 field_1C4;
-    f32 field_1C8;
-    f32 field_1CC;
-    f32 field_1D0;
-    i32 field_1D4;
-    i32 field_1D8;
+    f32 JoyDeadZone;
+    f32 MouseSensitivity;
+    f32 UserSteeringSensitivity;
+    f32 DiscreteSteeringDeltaIn;
+    f32 DiscreteSteeringDeltaOut;
+    f32 SteeringExponent;
+    i32 SwapThrottle;
+    i32 ResetMouse;
     i32 MouseDeltaX;
     i32 MouseDeltaY;
     f32 ScreenCenterX;
     f32 ScreenCenterY;
     f32 InvScreenCenterX;
     f32 InvScreenCenterY;
-    i32 field_1F4;
-    i32 field_1F8;
+    i32 CaptureDevice;
+    i32 CaptureComponent;
     i32 field_1FC;
     i8 KeyboardPresses[64];
     i32 NumKeyboardInputs;

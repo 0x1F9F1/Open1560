@@ -75,7 +75,13 @@ public:
     // ?Write@mmIO@@QAEHPAVStream@@@Z
     ARTS_IMPORT i32 Write(class Stream* arg1);
 
-    u8 gap0[0x1C];
+    char* Name;
+    u32 IoIndex;
+    u32 Flags;
+    u32 Changed;
+    u32 Pressed;
+    u32 Enabled;
+    u32 dword18;
 };
 
 check_size(mmIO, 0x1C);

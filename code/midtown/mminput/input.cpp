@@ -20,9 +20,17 @@ define_dummy_symbol(mminput_input);
 
 #include "input.h"
 
-#include "eventq7/eventq.h"
 #include "eventq7/geinputLib.h"
 #include "eventq7/keys.h"
+
+#include "io.h"
+
+enum
+{
+    kcaCantAssign = 0,
+    kcaCanAssign = 1,
+    kcaAlreadyAssigned = 2,
+};
 
 // TODO: Decide type of connected joystick (mmJoystick::DevInfo::dwDevType)
 b32 mmInput::GamepadConnected()
