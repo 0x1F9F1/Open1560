@@ -1,0 +1,20 @@
+struct Vector3
+{
+    float x;
+    float y;
+    float z;
+};
+
+struct BinaryFacade
+{
+    ushort Room;
+    ushort Flags;
+    Vector3 Start;
+    Vector3 End;
+    Vector3 Sides;
+    float Scale;
+    string Name;
+};
+
+uint Count;
+BinaryFacade Facades[Count] <optimize=false>;

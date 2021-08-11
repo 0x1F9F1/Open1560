@@ -1,0 +1,18 @@
+struct Vector3
+{
+    float x;
+    float y;
+    float z;
+};
+
+struct BinaryBanger
+{
+    ushort Room;
+    ushort Flags;
+    Vector3 Start;
+    Vector3 End;
+    string Name;
+};
+
+uint Count;
+BinaryBanger Bangers[Count] <optimize=false>;
