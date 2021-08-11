@@ -330,9 +330,6 @@ i32 agiSDLSWPipeline::BeginGfx()
 
     InitScaling();
 
-    SDL_Rect viewport {blit_x_, blit_y_, blit_width_, blit_height_};
-    SDL_RenderSetViewport(sdl_renderer_, &viewport);
-
     const auto& screen_format = PARAM_use555 ? PixelFormat_X1R5G5B5 : PixelFormat_R5G6B5;
 
     render_texture_ = SDL_CreateTexture(
@@ -490,7 +487,8 @@ void agiSDLSWPipeline::EndFrame()
     SDL_UnlockTexture(render_texture_);
     render_surface_ = nullptr;
 
-    SDL_RenderCopy(sdl_renderer_, render_texture_, NULL, NULL);
+    SDL_Rect dest {blit_x_, blit_y_, blit_width_, blit_height_};
+    SDL_RenderCopy(sdl_renderer_, render_texture_, NULL, &dest);
 
     SDL_RenderPresent(sdl_renderer_);
 
