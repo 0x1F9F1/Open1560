@@ -184,8 +184,19 @@ static void LoadArchives(const char* base_path)
             }
         }
 
-        std::sort(
-            files, files + file_count, [](const char* lhs, const char* rhs) { return std::strcmp(lhs, rhs) < 0; });
+        std::sort(files, files + file_count, [](const char* lhs, const char* rhs) {
+            const auto get_priority = [](const char* name) -> i32 {
+                if (!arts_stricmp(name, "1560.ar"))
+                    return 1;
+
+                return 0;
+            };
+
+            if (i32 prio = get_priority(rhs) - get_priority(lhs); prio)
+                return prio < 0;
+
+            return std::strcmp(lhs, rhs) < 0;
+        });
     }
 
     for (usize i = 0; i < file_count; ++i)
