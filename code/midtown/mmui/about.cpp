@@ -49,5 +49,5 @@ run_once([] {
 
     create_patch("AboutMenu", "AboutMenu PID", 0x4A5F8D, patch, 0x1F);
 
-    create_hook("AboutMenu", "Credits Image", 0x4A5EB7, "credits", hook_type::push);
+    // create_hook("AboutMenu", "Credits Image", 0x4A5EB7, "credits", hook_type::push);
 });
