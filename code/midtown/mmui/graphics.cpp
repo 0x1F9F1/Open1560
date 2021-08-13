@@ -42,7 +42,13 @@ void AutoDetect(i32 renderer, i32 resolution)
 
     dxiResolution& res = info.Resolutions[resolution];
 
-    if (!IsSoftwareRenderer(info.Type))
+    if (IsSDLRenderer(info.Type))
+    {
+        agiRQ.TerrainQuality = AGI_QUALITY_VERY_HIGH;
+        agiRQ.TextureQuality = AGI_QUALITY_VERY_HIGH;
+        agiRQ.FarClip = 1000.0f;
+    }
+    else if (!IsSoftwareRenderer(info.Type))
     {
         agiRQ.TerrainQuality = AGI_QUALITY_VERY_HIGH;
 
