@@ -198,12 +198,11 @@ public:
         // FIXME: Some RV3 bitmaps (ICON_*) have incorrect pitch.
         surface_->FixPitch();
 
-        u32 format = GetSDLPixelFormat(surface_->PixelFormat);
+        sdl_surface_ = SDL_CreateRGBSurfaceWithFormat(
+            0, width_, height_, 16, GetSDLPixelFormat(Pipe()->GetScreenFormat().PixelFormat));
 
-        sdl_surface_ = SDL_CreateRGBSurfaceWithFormat(0, width_, height_, 16, format);
-
-        SDL_Surface* source = SDL_CreateRGBSurfaceWithFormatFrom(
-            surface_->Surface, surface_->Width, surface_->Height, 16, surface_->Pitch, format);
+        SDL_Surface* source = SDL_CreateRGBSurfaceWithFormatFrom(surface_->Surface, surface_->Width, surface_->Height,
+            16, surface_->Pitch, GetSDLPixelFormat(surface_->PixelFormat));
 
         SDL_BlitScaled(source, NULL, sdl_surface_, NULL);
         SDL_FreeSurface(source);
