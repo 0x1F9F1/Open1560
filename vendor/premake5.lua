@@ -8,7 +8,7 @@ GLAD_DIR = path.join(VENDOR_DIR, "glad")
 WGL_DIR = path.join(VENDOR_DIR, "wgl")
 MINIZ_DIR = path.join(VENDOR_DIR, "miniz")
 DX6_DIR = path.join(VENDOR_DIR, "dx6")
-SDL2_DIR = path.join(VENDOR_DIR, "SDL2-2.0.14")
+SDL2_DIR = path.join(VENDOR_DIR, "SDL2-2.0.16")
 
 function includeMem()
     includedirs { MEM_DIR }
