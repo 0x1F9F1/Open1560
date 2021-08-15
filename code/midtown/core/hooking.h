@@ -125,16 +125,30 @@ inline void* alloc_proxy(std::size_t /*size*/)
             create_patch("", "", addr, "\xC3", 1); \
     });
 
+#define mem_offset_field(OFFSET, TYPE, NAME)                                              \
+    MEM_STRONG_INLINE typename std::add_lvalue_reference<TYPE>::type Get##NAME() noexcept \
+    {                                                                                     \
+        return mem::field<TYPE>(this, OFFSET);                                            \
+    }                                                                                     \
+    template <typename T>                                                                 \
+    MEM_STRONG_INLINE typename std::add_lvalue_reference<TYPE>::type Set##NAME(T&& value) \
+    {                                                                                     \
+        return Get##NAME() = std::forward<T>(value);                                      \
+    }                                                                                     \
+    __declspec(property(get = Get##NAME, put = Set##NAME)) TYPE NAME
+
 #ifdef ARTS_STANDALONE
 #    define check_size(TYPE, SIZE)
 #    define define_dummy_symbol mem_define_dummy_symbol
 #    define include_dummy_symbol mem_include_dummy_symbol
 #    define run_once(...)
+#    define offset_field(OFFSET, TYPE, NAME) TYPE NAME
 #else
 #    define check_size mem_check_size
 #    define define_dummy_symbol mem_define_dummy_symbol
 #    define include_dummy_symbol mem_include_dummy_symbol
 #    define run_once mem_run_once
+#    define offset_field mem_offset_field
 #endif
 
 extern mem::init_function* INIT_early;

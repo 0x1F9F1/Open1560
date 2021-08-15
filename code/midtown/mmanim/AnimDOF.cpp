@@ -28,9 +28,6 @@ define_dummy_symbol(mmanim_AnimDOF);
 
 void mmDrawbridgeInstance::Draw(i32 lod)
 {
-    Matrix34 world;
-    Viewport()->SetWorld(ToMatrix(world));
-
     if (agiMeshSet* mesh = GetResidentMeshSet(lod, (asRenderWeb::PassMask & 1) ? 0 : 1, 0))
     {
         bool zenable = agiCurState.GetZEnable();
@@ -39,10 +36,11 @@ void mmDrawbridgeInstance::Draw(i32 lod)
         if (agiCurState.GetSoftwareRendering())
             agiCurState.SetZEnable(true);
 
-        mesh->DrawLitEnv(
-            mmInstance::DynamicLighter, CullCity()->GetShadowMap(), CullCity()->GetEnvTransform(), AGI_MESH_DRAW_CLIP);
+        Matrix34 world;
+        Viewport()->SetWorld(ToMatrix(world));
 
-        if (agiCurState.GetSoftwareRendering())
-            agiCurState.SetZEnable(zenable);
+        mesh->DrawLitEnv(mmInstance::DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, AGI_MESH_DRAW_CLIP);
+
+        agiCurState.SetZEnable(zenable);
     }
 }

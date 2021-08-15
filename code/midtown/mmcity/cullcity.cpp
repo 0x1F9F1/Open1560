@@ -56,12 +56,6 @@ ARTS_IMPORT /*static*/ void parseVector3(class Vector3& arg1);
 
 void mmCullCity::Cull()
 {
-    // TODO: Use proper members
-    u32 SkyColor = mem::field<u32>(this, 0x34D54);
-    b32 UseFogEnd2 = mem::field<b32>(this, 0x34D58);
-    f32 FogEnd = mem::field<f32>(this, 0x34D5C);
-    f32 FogEnd2 = mem::field<f32>(this, 0x34D60);
-
     if (FogEnd == 0.0f || agiCurState.GetDrawMode() == agiDrawDepth)
     {
         agiCurState.SetFogMode(agiFogMode::None);

@@ -177,15 +177,13 @@ public:
     // ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
     ARTS_IMPORT static class mmCullCity* GetInstance();
 
-    agiTexDef* GetShadowMap()
-    {
-        return mem::field<agiTexDef*>(this, 0x34B48);
-    }
+    offset_field(0x34B48, agiTexDef*, ShadowMap);
+    offset_field(0x34B50, Matrix34, EnvMatrix);
 
-    Matrix34& GetEnvTransform()
-    {
-        return mem::field<Matrix34>(this, 0x34B50);
-    }
+    offset_field(0x34D54, u32, SkyColor);
+    offset_field(0x34D58, b32, UseFogEnd2);
+    offset_field(0x34D5C, f32, FogEnd);
+    offset_field(0x34D60, f32, FogEnd2);
 
 private:
     // ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
