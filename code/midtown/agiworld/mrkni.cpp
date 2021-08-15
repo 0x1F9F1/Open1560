@@ -288,13 +288,6 @@ u32 agiMeshSet::TransformOutcode(
 
 void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 count, u32 color)
 {
-    if (color == 0xFFFFFFFF)
-    {
-        std::memcpy(shaded, colors, count * sizeof(u32));
-
-        return;
-    }
-
     if (count >= 4)
     {
         const __m128i color16 = _mm_unpacklo_epi8(_mm_set1_epi32(color), _mm_setzero_si128());

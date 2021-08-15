@@ -286,13 +286,6 @@ u32 agiMeshSet::TransformOutcode(
 
 void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 count, u32 color)
 {
-    if (color == 0xFFFFFFFF)
-    {
-        std::memcpy(shaded, colors, count * sizeof(u32));
-
-        return;
-    }
-
     if (count)
     {
         u32 const mul_b = (color & 0xFF) * 0x8081;
@@ -535,7 +528,7 @@ b32 agiMeshSet::DrawColor(u32 color, u32 flags)
         {
             u32* colors = Colors;
 
-            if (colors)
+            if (colors && color != 0xFFFFFFFF)
             {
                 u32* shaded = ARTS_ALLOCA(u32, AdjunctCount);
 
