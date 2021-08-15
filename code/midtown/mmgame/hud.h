@@ -97,6 +97,90 @@
 
 #include "arts7/node.h"
 
+#include "cd.h"
+#include "dash.h"
+#include "mmeffects/mmnumber.h"
+#include "mmeffects/mmtext.h"
+#include "vector7/vector4.h"
+
+class mmWPHUD;
+class mmCircuitHUD;
+class mmCRHUD;
+class AudSound;
+
+class mmTimer final : public asNode
+{
+    // const mmTimer::`vftable'
+
+public:
+    // ??0mmTimer@@QAE@XZ
+    ARTS_IMPORT mmTimer();
+
+    // ??_GmmTimer@@UAEPAXI@Z
+    // ??_EmmTimer@@UAEPAXI@Z
+    // ??1mmTimer@@UAE@XZ
+    ARTS_IMPORT ~mmTimer() override = default;
+
+    // ?GetTime@mmTimer@@QAEMXZ
+    ARTS_IMPORT f32 GetTime();
+
+    // ?Init@mmTimer@@QAEXHM@Z
+    ARTS_IMPORT void Init(i32 arg1, f32 arg2);
+
+    // ?Reset@mmTimer@@UAEXXZ
+    ARTS_IMPORT void Reset() override;
+
+    // ?Start@mmTimer@@QAEXXZ
+    ARTS_IMPORT void Start();
+
+    // ?StartStop@mmTimer@@QAEXXZ | unused
+    ARTS_IMPORT void StartStop();
+
+    // ?Stop@mmTimer@@QAEXXZ
+    ARTS_IMPORT void Stop();
+
+    // ?Update@mmTimer@@UAEXXZ
+    ARTS_IMPORT void Update() override;
+
+    u8 gap20[0x10];
+};
+
+check_size(mmTimer, 0x30);
+
+class mmArrow final : public asNode
+{
+    // const mmArrow::`vftable'
+
+public:
+    // ??0mmArrow@@QAE@XZ
+    ARTS_IMPORT mmArrow();
+
+    // ??_GmmArrow@@UAEPAXI@Z
+    // ??_EmmArrow@@UAEPAXI@Z
+    // ??1mmArrow@@UAE@XZ
+    ARTS_IMPORT ~mmArrow() override;
+
+    // ?Init@mmArrow@@QAEXPAVMatrix34@@@Z
+    ARTS_IMPORT void Init(class Matrix34* arg1);
+
+    // ?Reset@mmArrow@@UAEXXZ
+    ARTS_IMPORT void Reset() override;
+
+    // ?SetInterest@mmArrow@@QAEXPAVVector3@@@Z
+    ARTS_IMPORT void SetInterest(class Vector3* arg1);
+
+    // ?Update@mmArrow@@UAEXXZ
+    ARTS_IMPORT void Update() override;
+
+private:
+    // ?ReColorArrow@mmArrow@@AAEXH@Z
+    ARTS_IMPORT void ReColorArrow(i32 arg1);
+
+    u8 gap20[0x18];
+};
+
+check_size(mmArrow, 0x38);
+
 class mmHUD final : public asNode
 {
     // const mmHUD::`vftable'
@@ -217,94 +301,62 @@ public:
     ARTS_IMPORT void ToggleMirror();
 
     // ?TogglePositionDisplay@mmHUD@@QAEXH@Z
-    ARTS_IMPORT void TogglePositionDisplay(i32 arg1);
+    ARTS_EXPORT void TogglePositionDisplay(i32 mode);
 
     // ?Update@mmHUD@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     // ?UpdatePaused@mmHUD@@UAEXXZ
-    ARTS_IMPORT void UpdatePaused() override;
+    ARTS_EXPORT void UpdatePaused() override;
 
     // ?DeclareFields@mmHUD@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0xE74];
+    mmPlayer* Player;
+    mmDashView DashView;
+    mmExternalView ExternalView;
+    void* PositionFont;
+    void* MessageFont;
+    void* ChatFont;
+    mmTextNode UpperMessage;
+    mmTextNode LowerMessage;
+    mmTextNode ChatMessages;
+    mmNumberFont NumberFont;
+    i32 TimerCountDown;
+    i32 WaypointDist;
+    i32 field_AE4;
+    i32 ShowTimer;
+    agiBitmap* Bitmaps[11];
+    i32 field_B18;
+    i32 field_B1C;
+    i32 field_B20;
+    i32 field_B24;
+    i32 TimerParts[8];
+    i32 field_B48;
+    i32 field_B4C;
+    i32 TimerY;
+    asNode HudElements;
+    mmWPHUD* WpHud;
+    mmCircuitHUD* CircuitHud;
+    mmCRHUD* CrHud;
+    mmArrow Arrow;
+    f32 MessageFadeTime;
+    i32 field_BBC;
+    b32 ShowMessageAtTop;
+    mmTimer ClockTimer;
+    mmTimer LapTimer;
+    mmTimer BlitzTimer;
+    AudSound* AlertSound;
+    b32 ShowPosition;
+    mmNumber NumberText;
+    mmTextNode PositionText;
+    Vector4 CurrentPosition;
+    mmCDPlayer CDPlayer;
+    b16 DamageWarning;
+    AudSound* DamageWarningSound;
 };
 
 check_size(mmHUD, 0xE94);
-
-class mmTimer final : public asNode
-{
-    // const mmTimer::`vftable'
-
-public:
-    // ??0mmTimer@@QAE@XZ
-    ARTS_IMPORT mmTimer();
-
-    // ??_GmmTimer@@UAEPAXI@Z
-    // ??_EmmTimer@@UAEPAXI@Z
-    // ??1mmTimer@@UAE@XZ
-    ARTS_IMPORT ~mmTimer() override = default;
-
-    // ?GetTime@mmTimer@@QAEMXZ
-    ARTS_IMPORT f32 GetTime();
-
-    // ?Init@mmTimer@@QAEXHM@Z
-    ARTS_IMPORT void Init(i32 arg1, f32 arg2);
-
-    // ?Reset@mmTimer@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
-
-    // ?Start@mmTimer@@QAEXXZ
-    ARTS_IMPORT void Start();
-
-    // ?StartStop@mmTimer@@QAEXXZ | unused
-    ARTS_IMPORT void StartStop();
-
-    // ?Stop@mmTimer@@QAEXXZ
-    ARTS_IMPORT void Stop();
-
-    // ?Update@mmTimer@@UAEXXZ
-    ARTS_IMPORT void Update() override;
-
-    u8 gap20[0x10];
-};
-
-check_size(mmTimer, 0x30);
-
-class mmArrow final : public asNode
-{
-    // const mmArrow::`vftable'
-
-public:
-    // ??0mmArrow@@QAE@XZ
-    ARTS_IMPORT mmArrow();
-
-    // ??_GmmArrow@@UAEPAXI@Z
-    // ??_EmmArrow@@UAEPAXI@Z
-    // ??1mmArrow@@UAE@XZ
-    ARTS_IMPORT ~mmArrow() override;
-
-    // ?Init@mmArrow@@QAEXPAVMatrix34@@@Z
-    ARTS_IMPORT void Init(class Matrix34* arg1);
-
-    // ?Reset@mmArrow@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
-
-    // ?SetInterest@mmArrow@@QAEXPAVVector3@@@Z
-    ARTS_IMPORT void SetInterest(class Vector3* arg1);
-
-    // ?Update@mmArrow@@UAEXXZ
-    ARTS_IMPORT void Update() override;
-
-private:
-    // ?ReColorArrow@mmArrow@@AAEXH@Z
-    ARTS_IMPORT void ReColorArrow(i32 arg1);
-
-    u8 gap20[0x18];
-};
-
-check_size(mmArrow, 0x38);
 
 // ?FirstPrintTime@@3HA
 ARTS_IMPORT extern i32 FirstPrintTime;

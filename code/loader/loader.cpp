@@ -525,7 +525,7 @@ include_dummy_symbol(mmgame_gameman);
 include_dummy_symbol(mmgame_gamemulti);
 // include_dummy_symbol(mmgame_gamesingle);
 // include_dummy_symbol(mmgame_gauge);
-// include_dummy_symbol(mmgame_hud);
+include_dummy_symbol(mmgame_hud);
 include_dummy_symbol(mmgame_hudmap);
 // include_dummy_symbol(mmgame_icons);
 include_dummy_symbol(mmgame_interface);

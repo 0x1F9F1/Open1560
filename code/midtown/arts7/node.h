@@ -174,6 +174,14 @@ public:
         return node_flags_ & 0x1;
     }
 
+    void SetActive(bool active)
+    {
+        if (active)
+            node_flags_ |= 0x1;
+        else
+            node_flags_ &= ~0x1;
+    }
+
     bool UpdateWhilePaused() const
     {
         return node_flags_ & 0x400;
