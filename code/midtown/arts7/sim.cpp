@@ -462,6 +462,25 @@ void asSimulation::Update()
 #endif
 }
 
+void asSimulation::UpdatePaused(asNode* node)
+{
+    for (i32 i = 0; i < node->NumChildren(); ++i)
+    {
+        if (asNode* child = node->GetChild(i + 1); child->IsActive())
+        {
+            if (child->UpdateWhilePaused())
+            {
+                child->Update();
+            }
+            else
+            {
+                child->UpdatePaused();
+                UpdatePaused(child);
+            }
+        }
+    }
+}
+
 void asSimulation::Device()
 {
     Timer timer;

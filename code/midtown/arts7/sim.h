@@ -159,7 +159,7 @@ public:
 
     // TODO: Rename UpdatePaused(asNode*) to avoid confusing with asNode::UpdatePaused()
     // ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
-    ARTS_IMPORT void UpdatePaused(class asNode* arg1);
+    ARTS_EXPORT void UpdatePaused(class asNode* node);
 
     // ?Widgets@asSimulation@@QAEXXZ
     ARTS_EXPORT void Widgets();
