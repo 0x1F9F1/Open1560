@@ -95,12 +95,12 @@ public:
     ARTS_EXPORT void Init(char* proj_path, i32 argc, char** argv);
 
 #ifdef ARTS_DEV_BUILD
-    // ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
-#endif
+    // ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
+    ARTS_EXPORT void OpenPhysicsBank();
 
-    // ?BeginOverSample@asSimulation@@QAEXH@Z
-    ARTS_IMPORT void BeginOverSample(i32 arg1);
+    // ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
+    ARTS_EXPORT void AddWidgets(class Bank* bank) override;
+#endif
 
     // ?Benchmark@asSimulation@@QAEXXZ
     ARTS_IMPORT void Benchmark();
@@ -116,25 +116,23 @@ public:
     // ?Device@asSimulation@@QAEXXZ
     ARTS_EXPORT void Device();
 
+    // ?BeginOverSample@asSimulation@@QAEXH@Z
+    ARTS_EXPORT void BeginOverSample(i32 samples);
+
     // ?EndOverSample@asSimulation@@QAEXXZ | unused
-    ARTS_IMPORT void EndOverSample();
+    ARTS_EXPORT void EndOverSample();
 
     // ?EndOverSample@asSimulation@@QAEXH@Z
-    ARTS_IMPORT void EndOverSample(i32 arg1);
+    ARTS_EXPORT void EndOverSample(i32 samples);
 
     // ?FirstUpdate@asSimulation@@QAEXXZ
     ARTS_EXPORT void FirstUpdate();
 
     // ?FixedFrame@asSimulation@@QAEXMH@Z | unused
-    ARTS_IMPORT void FixedFrame(f32 arg1, i32 arg2);
+    ARTS_EXPORT void FixedFrame(f32 frame_rate, i32 frame_samples);
 
     // ?FrameLock@asSimulation@@QAEXHH@Z | unused
-    ARTS_IMPORT void FrameLock(i32 arg1, i32 arg2);
-
-#ifdef ARTS_DEV_BUILD
-    // ?OpenPhysicsBank@asSimulation@@QAEXXZ | unused
-    ARTS_IMPORT void OpenPhysicsBank();
-#endif
+    ARTS_EXPORT void FrameLock(i32 lock, i32 arg2);
 
     // ?Pause@asSimulation@@QAEXXZ
     ARTS_IMPORT void Pause();

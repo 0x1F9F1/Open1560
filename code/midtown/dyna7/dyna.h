@@ -52,6 +52,20 @@ ARTS_IMPORT extern class Vector3 CloseColor;
 // ?CollTestColor@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 CollTestColor;
 
+#define DYNA_DRAW_GEOMETRY 0x1
+#define DYNA_DRAW_STATUS 0x2
+#define DYNA_DRAW_BOUNDS 0x4
+#define DYNA_DRAW_INTERSECT 0x8
+#define DYNA_DRAW_APPLIED_FORCES 0x10
+#define DYNA_DRAW_RESULT_FORCES 0x20
+#define DYNA_DRAW_VOLUME_SAMPLES 0x40
+#define DYNA_DRAW_FLUID_SAMPLES 0x80
+#define DYNA_DRAW_SPRINGS 0x100
+#define DYNA_DRAW_MATRIX 0x200
+#define DYNA_DRAW_TABLES 0x400
+#define DYNA_DRAW_CULL_SPHERES 0x800
+#define DYNA_DRAW_APPLIED_PUSHES 0x1000
+
 // ?DynaDrawMode@@3HA
 ARTS_IMPORT extern i32 DynaDrawMode;
 

@@ -36,6 +36,7 @@ define_dummy_symbol(arts7_sim);
 #include "data7/mmx.h"
 #include "data7/str.h"
 #include "data7/utimer.h"
+#include "dyna7/dyna.h"
 #include "eventq7/keys.h"
 #include "midgets.h"
 #include "midtown.h"
@@ -48,9 +49,6 @@ define_dummy_symbol(arts7_sim);
 #include <cstdlib>
 
 ARTS_IMPORT extern b32 PipelineInitialized;
-
-void InitBank(i32 /*argc*/, char** /*argv*/)
-{}
 
 i32 InitPipeline(char* title, i32 argc, char** argv)
 {
@@ -315,6 +313,41 @@ void asSimulation::Init(char* proj_path, i32 argc, char** argv)
         SunLight->Init(SunParams);
 
     arts_free(proj_path_env);
+}
+
+static f32 NumOverSamples = 0.0f;
+
+void asSimulation::BeginOverSample(i32 samples)
+{
+    NumOverSamples = static_cast<f32>(samples);
+    seconds_ /= NumOverSamples;
+    inv_seconds_ *= NumOverSamples;
+}
+
+void asSimulation::EndOverSample()
+{
+    seconds_ *= NumOverSamples;
+    inv_seconds_ /= NumOverSamples;
+}
+
+void asSimulation::EndOverSample(i32 samples)
+{
+    seconds_ *= samples;
+    inv_seconds_ /= samples;
+}
+
+void asSimulation::FixedFrame(f32 frame_rate, i32 frame_samples)
+{
+    ResetClock();
+    sample_mode_ = 1;
+    frame_samples_ = frame_samples;
+    fixed_fps_ = frame_rate;
+    sample_step_ = 1.0f / (frame_samples * frame_rate);
+}
+
+void asSimulation::FrameLock(i32 lock, i32)
+{
+    frame_lock_ = lock;
 }
 
 void asSimulation::FirstUpdate()
@@ -747,6 +780,38 @@ const char* asNode::VerifyTree()
 
     return msg;
 }
+
+#ifdef ARTS_DEV_BUILD
+void asSimulation::OpenPhysicsBank()
+{
+    physics_bank_open_ ^= true;
+}
+
+void asSimulation::AddWidgets(Bank* bank)
+{
+    asNode::AddWidgets(bank);
+
+    bank->AddButton("Reset Simulation", MFA(asSimulation::Reset, this));
+
+    bank->AddTitle("Physics Draw Mode");
+    bank->AddToggle("Matrix", &DynaDrawMode, DYNA_DRAW_MATRIX, NullCallback);
+    bank->AddToggle("Cull Spheres", &DynaDrawMode, DYNA_DRAW_CULL_SPHERES, NullCallback);
+    bank->AddToggle("Geometry", &DynaDrawMode, DYNA_DRAW_GEOMETRY, NullCallback);
+    bank->AddToggle("Status", &DynaDrawMode, DYNA_DRAW_STATUS, NullCallback);
+    bank->AddToggle("Bounds", &DynaDrawMode, DYNA_DRAW_BOUNDS, NullCallback);
+    bank->AddToggle("Tables", &DynaDrawMode, DYNA_DRAW_TABLES, NullCallback);
+    bank->AddToggle("Intersect", &DynaDrawMode, DYNA_DRAW_INTERSECT, NullCallback);
+    bank->AddToggle("Applied Forces", &DynaDrawMode, DYNA_DRAW_APPLIED_FORCES, NullCallback);
+    bank->AddToggle("Applied Pushes", &DynaDrawMode, DYNA_DRAW_APPLIED_PUSHES, NullCallback);
+    bank->AddToggle("Result Forces", &DynaDrawMode, DYNA_DRAW_RESULT_FORCES, NullCallback);
+    bank->AddToggle("Volume Samples", &DynaDrawMode, DYNA_DRAW_VOLUME_SAMPLES, NullCallback);
+    bank->AddToggle("Fluid Samples", &DynaDrawMode, DYNA_DRAW_FLUID_SAMPLES, NullCallback);
+    bank->AddToggle("Springs", &DynaDrawMode, DYNA_DRAW_SPRINGS, NullCallback);
+}
+
+void InitBank(i32 /*argc*/, char** /*argv*/)
+{}
+#endif
 
 META_DEFINE_CHILD("asSimulation", asSimulation, asNode)
 {}
