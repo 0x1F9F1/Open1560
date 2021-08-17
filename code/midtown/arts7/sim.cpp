@@ -108,6 +108,7 @@ void ShutdownPipeline()
         eqReplay::ShutdownRecord();
 }
 
+#ifdef ARTS_DEV_BUILD
 static void TogglePipelineWindow()
 {
     agiPrintShutdown();
@@ -129,6 +130,7 @@ static void TogglePipelineWindow()
         Pipe()->ClearAll(0);
     }
 }
+#endif
 
 // ?IsValidPointer@@YAHPAXIH@Z
 ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
@@ -547,6 +549,7 @@ void asSimulation::Device()
         if (vkey == EQ_VK_V && (mods & EQ_KMOD_CTRL) && CULLMGR)
             CULLMGR->ToggleDebug();
 
+#ifdef ARTS_DEV_BUILD
         if (no_debug_)
         {
             switch (vkey)
@@ -705,6 +708,7 @@ void asSimulation::Device()
                 }
             }
         }
+#endif
     }
 
     curr_stats_.DeviceTime += timer.Time();
@@ -714,11 +718,9 @@ void asSimulation::Widgets()
 {
     Timer timer;
 
+#ifdef ARTS_DEV_BUILD
     for (eqEvent event; widgets_queue_.Pop(&event);)
     {
-        if ((event.Common.Type != eqEventType::Keyboard) || !(event.Key.Modifiers & EQ_KMOD_DOWN))
-            continue;
-
         if ((event.Common.Type == eqEventType::Keyboard) && (event.Key.Modifiers == (EQ_KMOD_DOWN | EQ_KMOD_CTRL)) &&
             (event.Key.Key == EQ_VK_M) && !no_debug_)
         {
@@ -733,6 +735,7 @@ void asSimulation::Widgets()
             }
         }
     }
+#endif
 
     curr_stats_.WidgetsTime += timer.Time();
 }

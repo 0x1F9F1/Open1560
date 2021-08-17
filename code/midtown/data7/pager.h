@@ -32,10 +32,17 @@ struct PagerInfo_t
     u32 Size {0};
 
 #ifdef ARTS_DEV_BUILD
-    char* Name {nullptr};
+    ConstString Path {};
 #endif
 
-    ~PagerInfo_t();
+    const char* GetPath()
+    {
+#ifdef ARTS_DEV_BUILD
+        return Path.get();
+#else
+        return "unknown";
+#endif
+    }
 
     // ?Read@PagerInfo_t@@QAEXPAXII@Z | stream:hfsystem
     ARTS_EXPORT void Read(void* buffer, u32 offset, u32 size);

@@ -48,11 +48,7 @@ struct DataCacheObject
 
     const char* GetName()
     {
-#ifdef ARTS_DEV_BUILD
-        return reinterpret_cast<PagerInfo_t*>(pHandle)[-1].Name;
-#else
-        return "unknown";
-#endif
+        return reinterpret_cast<PagerInfo_t*>(pHandle)[-1].GetPath();
     }
 };
 

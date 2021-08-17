@@ -232,7 +232,8 @@ void PagerInfo_t::Read(void* buffer, u32 offset, u32 size)
     DWORD bytes_read = 0;
 
     if (!ReadFile(reinterpret_cast<HANDLE>(Handle), buffer, size, &bytes_read, &overlapped) || (bytes_read != size))
-        Errorf("PagerInfo_t(%s)::Read - Failed to read 0x%X bytes @ 0x%X: 0x%08X", Name, size, offset, GetLastError());
+        Errorf("PagerInfo_t(%s)::Read - Failed to read 0x%X bytes @ 0x%X: 0x%08X", GetPath(), size, offset,
+            GetLastError());
 }
 
 patch_static_ctors(0x560590);

@@ -107,10 +107,11 @@
 */
 
 #include "arts7/node.h"
+#include "vector7/matrix34.h"
+
 #include "inst.h"
 
 class agiTexDef;
-class Matrix34;
 
 class mmCullCity final : public asNode
 {

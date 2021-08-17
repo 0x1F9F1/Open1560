@@ -144,7 +144,10 @@ b32 VirtualFileSystem::PagerInfo(const char* path, struct PagerInfo_t& info)
     info.Handle = base_stream_->GetPagerHandle();
     info.Offset = node->GetOffset();
     info.Size = node->GetSize();
-    info.Name = arts_strdup(path);
+
+#ifdef ARTS_DEV_BUILD
+    info.Path = path;
+#endif
 
     return true;
 }

@@ -20,6 +20,11 @@
 
 // #define ARTS_STANDALONE
 
+#ifndef ARTS_DEV_BUILD
+#    undef ARTS_STANDALONE
+#    define ARTS_STANDALONE
+#endif
+
 #ifdef ARTS_STANDALONE
 #    undef ARTS_TARGET_BUILD
 #    define ARTS_TARGET_BUILD 9999

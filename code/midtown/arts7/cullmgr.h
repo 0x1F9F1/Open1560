@@ -103,6 +103,7 @@ public:
         return text_color_;
     }
 
+#ifdef ARTS_DEV_BUILD
     u32 CurrentPage() const
     {
         return current_page_;
@@ -126,6 +127,7 @@ public:
         if (++current_page_ == num_pages_ + 1)
             current_page_ = 0;
     }
+#endif
 
     VIRTUAL_META_DECLARE;
 
