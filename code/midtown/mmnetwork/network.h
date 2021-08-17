@@ -265,6 +265,11 @@ public:
     // ?WaitForLobbyConnection@asNetwork@@QAEXH@Z
     ARTS_IMPORT void WaitForLobbyConnection(i32 arg1);
 
+    bool InSession() const
+    {
+        return in_session_;
+    }
+
     bool InLobby() const
     {
         return in_lobby_;

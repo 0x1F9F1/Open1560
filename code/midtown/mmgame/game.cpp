@@ -20,6 +20,13 @@ define_dummy_symbol(mmgame_game);
 
 #include "game.h"
 
+#include "arts7/sim.h"
+#include "eventq7/eventq.h"
+#include "eventq7/keys.h"
+#include "mmnetwork/network.h"
+#include "player.h"
+#include "popup.h"
+
 u32 IconColor[8] {
     0xFF0000EF, // Blue
     0xFF00EF00, // Green
@@ -30,6 +37,34 @@ u32 IconColor[8] {
     0xFF00FFFF, // Cyan
     0xFFFF0390, // Pink
 };
+
+void mmGame::UpdatePaused()
+{
+    eqEvent& event = CurrentEvent;
+
+    while (EventQueue->Pop(&event))
+    {
+        if ((event.Common.Type == eqEventType::Keyboard) && (event.Key.Key != 0) &&
+            !(event.Key.Modifiers & EQ_KMOD_DOWN))
+        {
+            switch (event.Key.Key)
+            {
+                case EQ_VK_C: Player->ToggleCam(); break;
+                case EQ_VK_V: Player->ToggleExternalView(); break;
+                case EQ_VK_F1: Popup->ProcessKeymap(!NETMGR.InSession()); break;
+                case EQ_VK_F2:
+                    if (!NETMGR.InSession() && !IsPopupEnabled())
+                        ARTSPTR->TogglePause();
+                    break;
+            }
+        }
+    }
+}
+
+b32 mmGame::IsPopupEnabled()
+{
+    return Popup->IsEnabled();
+}
 
 run_once([] {
     create_hook("IconColor", "Add Player 8 Icon", 0x40E9AC, IconColor + ARTS_SIZE(IconColor), hook_type::pointer);

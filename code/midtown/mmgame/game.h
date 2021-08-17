@@ -61,6 +61,29 @@
 */
 
 #include "arts7/node.h"
+#include "data7/str.h"
+#include "eventq7/eventq.h"
+#include "mmcityinfo/miscdata.h"
+#include "mmcityinfo/playercfg.h"
+#include "vector7/random.h"
+#include "vector7/vector3.h"
+
+#include "hudmap.h"
+#include "icons.h"
+
+class mmPlayer;
+class mmPositions;
+class mmCullCity;
+class asLamp;
+class asLinearCS;
+class AudSound;
+class mmVoiceCommentary;
+class mmAmbientAudio;
+class mmPopup;
+class mmAnimMgr;
+class mmRaceData;
+
+class eqEventQ;
 
 class mmGame : public asNode
 {
@@ -127,7 +150,7 @@ public:
     ARTS_IMPORT i32 Init();
 
     // ?IsPopupEnabled@mmGame@@QAEHXZ
-    ARTS_IMPORT i32 IsPopupEnabled();
+    ARTS_EXPORT b32 IsPopupEnabled();
 
     // ?PlayerSetState@mmGame@@QAEXXZ
     ARTS_IMPORT void PlayerSetState();
@@ -148,7 +171,7 @@ public:
     ARTS_IMPORT void UpdateGameInput();
 
     // ?UpdatePaused@mmGame@@UAEXXZ
-    ARTS_IMPORT void UpdatePaused() override;
+    ARTS_EXPORT void UpdatePaused() override;
 
     // ?UpdateSteeringBrakes@mmGame@@QAEXXZ
     ARTS_IMPORT void UpdateSteeringBrakes();
@@ -156,14 +179,51 @@ public:
     // ?DeclareFields@mmGame@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    mmPlayer* Player;
+    mmPositions* ResetPositions;
+    mmIcons Icons;
+    string OpponentNames;
+    string FinishMessages;
+    f32 AutoRevLevel;
+    f32 AutoRevSpeed;
+    Vector3 ResetPosition;
+    b32 ShowResults;
+    mmCullCity* CullCity;
+    i32 field_B0;
+    i32 field_B4;
+    asLamp* Lamp;
+    asLinearCS* LampCS;
+    i32 field_C0;
+    AudSound* StartSounds;
+    mmVoiceCommentary* VoiceCommentary;
+    mmAmbientAudio* AmbientAudio;
+    mmPopup* Popup;
+    mmAnimMgr* AnimMgr;
+    mmRaceData* RaceData;
+    mmMiscData MiscData;
+    b32 MiscDataLoaded;
+    b32 IsChicago;
+    i32 GameState;
+    i16 PlayingHorn;
+    bool HasAIMap;
+    bool EnableAI;
+    char MapName[40];
+    char RaceDir[40];
+    OppIconInfo OppIcons[8];
+    eqEventQ* EventQueue;
+    eqEvent CurrentEvent;
+    f32 GameStateWait;
+    mmPlayerConfig Config;
+    b32 EnableSave;
+    i32 NextHudMode;
+    Random RNG;
+
 protected:
     // ?CalculateRaceScore@mmGame@@IAEHHH@Z
     ARTS_IMPORT i32 CalculateRaceScore(i32 arg1, i32 arg2);
 
     // ?RespawnXYZ@mmGame@@IAEXAAVVector3@@AAM@Z
     ARTS_IMPORT void RespawnXYZ(class Vector3& arg1, f32& arg2);
-
-    u8 gap20[0x1E550];
 };
 
 check_size(mmGame, 0x1E570);
