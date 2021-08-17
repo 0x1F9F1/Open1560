@@ -204,9 +204,9 @@ public:
     }
 #endif
 
-    void ToggleFrameStep()
+    void TogglePause()
     {
-        frame_step_ ^= true;
+        paused_ ^= true;
     }
 
     i32 GetDrawMode() const
@@ -251,7 +251,7 @@ private:
     f32 max_frame_delta_;
     i32 max_samples_;
     i32 frame_samples_;
-    b32 paused_;
+    b32 frame_step_;
     i32 frame_count_;
     b32 print_bench_stats_;
     i32 field_184;
@@ -282,7 +282,7 @@ private:
 
     b32 no_debug_;
     b32 show_ui_;
-    b32 frame_step_;
+    b32 paused_;
 
     // New Fields
     bool smooth_;

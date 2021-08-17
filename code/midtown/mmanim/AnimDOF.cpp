@@ -39,7 +39,7 @@ void mmDrawbridgeInstance::Draw(i32 lod)
         Matrix34 world;
         Viewport()->SetWorld(ToMatrix(world));
 
-        mesh->DrawLitEnv(mmInstance::DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, AGI_MESH_DRAW_CLIP);
+        mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, AGI_MESH_DRAW_CLIP);
 
         agiCurState.SetZEnable(zenable);
     }

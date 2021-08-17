@@ -357,7 +357,7 @@ void asSimulation::Update()
         Quitf("ARTS.Init() not called");
 
 #ifdef ARTS_DEV_BUILD
-    if (!frame_step_ || paused_)
+    if (!paused_ || frame_step_)
         vector_count_ = 0;
 #endif
 
@@ -390,7 +390,7 @@ void asSimulation::Update()
 
     if (!eqReplay::Playback)
     {
-        if (paused_)
+        if (frame_step_)
         {
             seconds_ = sample_step_ ? sample_step_ : 0.05f;
         }
@@ -427,7 +427,7 @@ void asSimulation::Update()
 
         elapsed_ += seconds_;
 
-        if (!frame_step_ || paused_)
+        if (!paused_ || frame_step_)
             asNode::Update();
         else
             UpdatePaused(this);
@@ -490,8 +490,8 @@ void asSimulation::Device()
 
     eqEventHandler::SuperQ->Update(0);
 
-    if (paused_)
-        paused_ = false;
+    if (frame_step_)
+        frame_step_ = false;
 
     for (eqEvent event; keys_queue_.Pop(&event);)
     {
@@ -649,17 +649,17 @@ void asSimulation::Device()
                 }
 
                 case EQ_VK_F11: {
-                    if (frame_step_)
-                        ToggleFrameStep();
+                    if (paused_)
+                        TogglePause();
 
                     break;
                 }
 
                 case EQ_VK_F12: {
-                    if (frame_step_)
-                        paused_ = true;
+                    if (paused_)
+                        frame_step_ = true;
                     else
-                        ToggleFrameStep();
+                        TogglePause();
 
                     break;
                 }
