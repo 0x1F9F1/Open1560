@@ -38,7 +38,7 @@ struct LocString
     char Text[1];
 };
 
-#define LOC_TEXT(TEXT) ((struct LocString*) (TEXT))
+#define LOC_TEXT(TEXT) (reinterpret_cast<struct LocString*>(const_cast<char*>(static_cast<const char*>(TEXT))))
 
 // ?AngelReadString@@YAPAULocString@@I@Z
 ARTS_EXPORT struct LocString* AngelReadString(u32 index);

@@ -64,6 +64,9 @@
 
 #include "arts7/node.h"
 
+#include "hud.h"
+#include "mmcar/car.h"
+
 class mmPlayer final : public asNode
 {
     // const mmPlayer::`vftable'
@@ -152,6 +155,10 @@ public:
 
     // ?DeclareFields@mmPlayer@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
+
+    offset_field(0x38, mmCar, Car);
+    offset_field(0x2344, mmCarSim*, CarSim);
+    offset_field(0x2348, mmHUD, Hud);
 
     u8 gap20[0x4A78];
 };

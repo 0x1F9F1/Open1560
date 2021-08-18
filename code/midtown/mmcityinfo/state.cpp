@@ -30,7 +30,7 @@ void mmStatePack::SetDefaults()
     InputType = mmInputType::Mouse;
     NetworkStatus = 0;
     NumPlayers = 0;
-    CopBehaviorFlag = 0;
+    ChaseOpponents = 0;
     NoUI = false;
     Shutdown = false;
     GameMode = mmGameMode::Cruise;

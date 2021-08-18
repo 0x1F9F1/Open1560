@@ -262,7 +262,7 @@ public:
     ARTS_IMPORT void SetLapTime(i32 arg1, f32 arg2, i32 arg3);
 
     // ?SetMessage@mmHUD@@QAEXPAULocString@@MH@Z
-    ARTS_IMPORT void SetMessage(struct LocString* arg1, f32 arg2, i32 arg3);
+    ARTS_IMPORT void SetMessage(struct LocString* arg1, f32 time, b32 top = false);
 
     // ?SetMessage2@mmHUD@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetMessage2(struct LocString* arg1);

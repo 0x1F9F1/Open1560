@@ -60,6 +60,15 @@
 
 #include "aiVehicleSpline.h"
 
+#include "mmcar/car.h"
+
+class aiRaceData;
+class aiGoalChase;
+class aiGoalBackup;
+class aiGoalStop;
+class aiGoalRandomDrive;
+class mmPed;
+
 class aiVehiclePolice final : public aiVehicleSpline
 {
     // const aiVehiclePolice::`vftable'
@@ -151,14 +160,28 @@ public:
     // ?UpdateAudio@aiVehiclePolice@@QAEXXZ
     ARTS_IMPORT void UpdateAudio();
 
+    mmCar Car;
+    mmCar* TargetCar;
+    aiRaceData* RaceData;
+    aiGoalChase* ChaseGoal;
+    aiGoalBackup* BackupGoal;
+    aiGoalStop* StopGoal;
+    aiGoalRandomDrive* RandomDriveGoal;
+    mmPed* Ped;
+    Vector3 TargetPt;
+    i16 StopId;
+    i16 BackupId;
+    i16 PoliceType;
+    i16 field_2412;
+    i32 AudioIndexNumber;
+    f32 AudioMaxDist;
+
 private:
     // ?AddToAiAudMgr@aiVehiclePolice@@AAEXXZ
     ARTS_IMPORT void AddToAiAudMgr();
 
     // ?FindPerp@aiVehiclePolice@@AAEHHHPAVaiPath@@HH@Z
     ARTS_IMPORT i32 FindPerp(i32 arg1, i32 arg2, class aiPath* arg3, i32 arg4, i32 arg5);
-
-    u8 gapD8[0x2344];
 };
 
 check_size(aiVehiclePolice, 0x241C);

@@ -38,6 +38,11 @@
 
 #include "arts7/node.h"
 
+#include "Excel.h"
+#include "bridge.h"
+
+class mmAnimSpline;
+
 class mmAnimMgr final : public asNode
 {
     // const mmAnimMgr::`vftable'
@@ -71,7 +76,11 @@ public:
     // ?DeclareFields@mmAnimMgr@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x2690];
+    mmAnimExcel AnimExcel;
+    i32 field_30;
+    mmAnimSpline* Splines;
+    mmBridgeMgr BridgeMgr;
+    i32 SplineCount;
 };
 
 check_size(mmAnimMgr, 0x26B0);

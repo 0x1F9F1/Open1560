@@ -129,6 +129,8 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
 private:
+    friend mmGameManager* GameManager();
+
     // ?Instance@mmGameManager@@0PAV1@A
     ARTS_IMPORT static class mmGameManager* Instance;
 
@@ -136,6 +138,11 @@ private:
 };
 
 check_size(mmGameManager, 0x5C);
+
+inline mmGameManager* GameManager()
+{
+    return mmGameManager::Instance;
+}
 
 // ?ReplayLog@@3PAVStream@@A
 ARTS_IMPORT extern class Stream* ReplayLog;

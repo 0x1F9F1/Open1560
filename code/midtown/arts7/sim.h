@@ -190,6 +190,11 @@ public:
         current_camera_ = cameras_[--camera_depth_]->GetCamera();
     }
 
+    bool IsDebug() const
+    {
+        return !no_debug_;
+    }
+
     void SetDebug(bool debug)
     {
         no_debug_ = !debug;

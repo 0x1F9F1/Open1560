@@ -365,15 +365,15 @@ include_dummy_symbol(mmai_aiPoliceForce);
 // include_dummy_symbol(mmai_aiVehicle);
 // include_dummy_symbol(mmai_aiVehicleAmbient);
 // include_dummy_symbol(mmai_aiVehicleMGR);
-// include_dummy_symbol(mmai_aiVehicleOpponent);
-// include_dummy_symbol(mmai_aiVehiclePolice);
+include_dummy_symbol(mmai_aiVehicleOpponent);
+include_dummy_symbol(mmai_aiVehiclePolice);
 // include_dummy_symbol(mmai_aiVehicleSpline);
 // include_dummy_symbol(mmai_aiaudiomanager);
 // include_dummy_symbol(mmai_aipedaudiomanager);
 // include_dummy_symbol(mmai_arraylist);
 
 include_dummy_symbol(mmanim_AnimDOF);
-// include_dummy_symbol(mmanim_AnimMgr);
+include_dummy_symbol(mmanim_AnimMgr);
 // include_dummy_symbol(mmanim_AnimSpline);
 // include_dummy_symbol(mmanim_AnimTrigger);
 // include_dummy_symbol(mmanim_Excel);

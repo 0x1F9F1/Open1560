@@ -453,51 +453,6 @@ public:
 
     ARTS_ZEROED;
 
-private:
-#ifdef ARTS_DEV_BUILD
-    // ?AddWidgets@mmInput@@EAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
-#endif
-
-    // ?EventToButton@mmInput@@AAEHH@Z | unused
-    ARTS_IMPORT i32 EventToButton(i32 arg1);
-
-    // ?FilterDiscreteSteering@mmInput@@AAEMM@Z
-    ARTS_IMPORT f32 FilterDiscreteSteering(f32 arg1);
-
-    // ?GetBufferedKeyboardData@mmInput@@AAEXXZ
-    ARTS_EXPORT void GetBufferedKeyboardData();
-
-    // ?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z
-    ARTS_EXPORT b32 GetNextKeyboardEvent(union eqEvent* event);
-
-    // ?PollContinuous@mmInput@@AAEXPAVmmIO@@@Z
-    ARTS_IMPORT void PollContinuous(class mmIO* arg1);
-
-    // ?ProcessEvents@mmInput@@AAEXXZ
-    ARTS_EXPORT void ProcessEvents();
-
-    // ?ProcessJoyEvents@mmInput@@AAEXXZ
-    ARTS_IMPORT void ProcessJoyEvents();
-
-    // ?ProcessKeyboardEvents@mmInput@@AAEXXZ
-    ARTS_EXPORT void ProcessKeyboardEvents();
-
-    // ?ProcessMouseEvents@mmInput@@AAEXXZ
-    ARTS_EXPORT void ProcessMouseEvents();
-
-    // ?ProcessStates@mmInput@@AAE_JXZ
-    ARTS_IMPORT i64 ProcessStates();
-
-    // ?PutEventInQueue@mmInput@@AAEX_J@Z
-    ARTS_IMPORT void PutEventInQueue(i64 arg1);
-
-    // ?ScanForEvent@mmInput@@AAE_JPATeqEvent@@@Z
-    ARTS_IMPORT i64 ScanForEvent(union eqEvent* arg1);
-
-    // ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
-    ARTS_IMPORT i64 ScanState(class mmIO* arg1);
-
     mmJoyMan* Joy;
     mmIO* IO;
     i32 NumControls;
@@ -553,6 +508,51 @@ private:
     i8 KeyboardPresses[64];
     i32 NumKeyboardInputs;
     i32 field_244;
+
+private:
+#ifdef ARTS_DEV_BUILD
+    // ?AddWidgets@mmInput@@EAEXPAVBank@@@Z
+    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+#endif
+
+    // ?EventToButton@mmInput@@AAEHH@Z | unused
+    ARTS_IMPORT i32 EventToButton(i32 arg1);
+
+    // ?FilterDiscreteSteering@mmInput@@AAEMM@Z
+    ARTS_IMPORT f32 FilterDiscreteSteering(f32 arg1);
+
+    // ?GetBufferedKeyboardData@mmInput@@AAEXXZ
+    ARTS_EXPORT void GetBufferedKeyboardData();
+
+    // ?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z
+    ARTS_EXPORT b32 GetNextKeyboardEvent(union eqEvent* event);
+
+    // ?PollContinuous@mmInput@@AAEXPAVmmIO@@@Z
+    ARTS_IMPORT void PollContinuous(class mmIO* arg1);
+
+    // ?ProcessEvents@mmInput@@AAEXXZ
+    ARTS_EXPORT void ProcessEvents();
+
+    // ?ProcessJoyEvents@mmInput@@AAEXXZ
+    ARTS_IMPORT void ProcessJoyEvents();
+
+    // ?ProcessKeyboardEvents@mmInput@@AAEXXZ
+    ARTS_EXPORT void ProcessKeyboardEvents();
+
+    // ?ProcessMouseEvents@mmInput@@AAEXXZ
+    ARTS_EXPORT void ProcessMouseEvents();
+
+    // ?ProcessStates@mmInput@@AAE_JXZ
+    ARTS_IMPORT i64 ProcessStates();
+
+    // ?PutEventInQueue@mmInput@@AAEX_J@Z
+    ARTS_IMPORT void PutEventInQueue(i64 arg1);
+
+    // ?ScanForEvent@mmInput@@AAE_JPATeqEvent@@@Z
+    ARTS_IMPORT i64 ScanForEvent(union eqEvent* arg1);
+
+    // ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
+    ARTS_IMPORT i64 ScanState(class mmIO* arg1);
 };
 
 check_size(mmInput, 0x248);

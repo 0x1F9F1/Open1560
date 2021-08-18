@@ -113,6 +113,19 @@
 
 #include "arts7/node.h"
 
+class aiIntersection;
+class aiPath;
+class aiPedestrian;
+class aiPoliceForce;
+class aiRaceData;
+class aiVehicleAmbient;
+class aiVehicleManager;
+class aiVehicleOpponent;
+class aiVehiclePolice;
+class aiVehicleSpline;
+class CArrayList;
+class mmCar;
+
 class aiMap final : public asNode
 {
     // const aiMap::`vftable'
@@ -274,6 +287,56 @@ public:
     // ?DeclareFields@aiMap@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    aiVehicleManager* VehicleMgr;
+    aiRaceData* RaceData;
+    aiIntersection** Intersections;
+    i16 NumIntersections;
+    i16 field_2E;
+    aiPath** Paths;
+    i16 NumPaths;
+    i16 field_36;
+    aiVehicleAmbient* Ambients;
+    i16 NumAmbients;
+    i16 field_3E;
+    aiVehicleSpline* pFirstAmbient;
+    aiPoliceForce* PoliceForce;
+    aiVehiclePolice* PoliceVehicles;
+    i16 NumPolice;
+    i16 CopCount;
+    u32 CopRoads;
+    u32 field_50;
+    u32 field_54;
+    aiVehicleOpponent* Opponents;
+    i16 NumOpponents;
+    u16 field_62;
+    aiPedestrian* Pedestrians;
+    i16 NumPedestrians;
+    i16 field_6A;
+    aiPedestrian* field_6C;
+    i16 UpdateGroup;
+    i16 UpdateCount;
+    Vector3 CameraPos;
+    mmCar* PlayerCar;
+    Vector3 zAxis;
+    f32 InvCarSpeed;
+    f32 SpeedRacerCheat;
+    i16 RoadCount;
+    i16 field_9A;
+    CArrayList* AmbientRoads;
+    CArrayList* PedRoads;
+    i16 DrawIntersections;
+    i16 DrawIntersectionIds;
+    i16 DrawPathIds;
+    i16 DrawAmbientIds;
+    i16 AlwaysGreen;
+    i16 AlwaysRed;
+    i16 DrawPathNormals;
+    i16 DrawAmbientPts;
+    i16 DrawPaths;
+    i16 DrawBBoxes;
+    u16 nAmbientCount;
+    u16 BackwardsCheat;
+
 private:
     // ?AddAIPath@aiMap@@AAEPAVaiPath@@AAVmmRoadSect@@HH@Z
     ARTS_IMPORT class aiPath* AddAIPath(class mmRoadSect& arg1, i32 arg2, i32 arg3);
@@ -316,8 +379,6 @@ private:
 
     // ?ScanIntersections@aiMap@@AAEPAVaiIntersection@@AAVVector3@@@Z
     ARTS_IMPORT class aiIntersection* ScanIntersections(class Vector3& arg1);
-
-    u8 gap20[0x9C];
 };
 
 check_size(aiMap, 0xBC);

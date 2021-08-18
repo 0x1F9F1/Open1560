@@ -162,6 +162,8 @@ public:
     // ?DeclareFields@asInertialCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    offset_field(0x94, f32, Mass);
+
 private:
     // ?DrawForce@asInertialCS@@AAEXABVVector3@@0@Z
     ARTS_IMPORT void DrawForce(class Vector3 const& arg1, class Vector3 const& arg2);

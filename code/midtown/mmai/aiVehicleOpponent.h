@@ -50,6 +50,13 @@
 
 #include "aiVehicle.h"
 
+#include "aiRailSet.h"
+#include "mmcar/car.h"
+
+class aiGoalFollowWayPts;
+class aiGoalBackup;
+class aiGoalStop;
+
 class aiVehicleOpponent final : public aiVehicle
 {
     // const aiVehicleOpponent::`vftable'
@@ -123,11 +130,22 @@ public:
     // ?DeclareFields@aiVehicleOpponent@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    mmCar Car;
+    aiRailSet RailSet;
+    aiGoalFollowWayPts* WayPts;
+    aiGoalBackup* BackupGoal;
+    aiGoalStop* StopGoal;
+    i16 IsFinished;
+    i16 IsStopped;
+    i16 IsBackup;
+    i16 IsSemi;
+    i16 AudIndexNumber;
+    i16 field_23B6;
+    f32 MaxAudDist;
+
 private:
     // ?AddToAiAudMgr@aiVehicleOpponent@@AAEXXZ
     ARTS_IMPORT void AddToAiAudMgr();
-
-    u8 gap14[0x23A8];
 };
 
 check_size(aiVehicleOpponent, 0x23BC);

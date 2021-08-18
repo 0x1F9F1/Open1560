@@ -64,6 +64,15 @@ void mmCar::PostUpdate()
     CullCity()->ReparentObject(&Model);
 }
 
+void mmCar::ReleaseTrailer()
+{
+    if (Model.CarFlags & CAR_MODEL_FLAG_TRAILER)
+    {
+        TrailerJoint->BreakJoint();
+        Trailer->SetHackedImpactParams();
+    }
+}
+
 run_once([] {
     static const f32 spark_multiplier = 16.0f / 30.0f;
     create_patch("mmCar::Impact", "Spark Count", 0x47422C, "\xD9\xE8\x90\x90\x90\x90", 6);

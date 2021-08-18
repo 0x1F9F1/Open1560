@@ -31,7 +31,19 @@
     0x492180 | public: int __thiscall mmPositions::Register(class Vector4 &,int,int,int,int,char *) | ?Register@mmPositions@@QAEHAAVVector4@@HHHHPAD@Z
 */
 
-struct mmPositions
+#include "vector7/vector4.h"
+
+struct mmPosition
+{
+    ConstString Message;
+    Vector4 Position;
+    i32 PolyCount;
+    i32 FrameCount;
+    i32 StateChanges;
+    i32 TextureChanges;
+};
+
+class mmPositions
 {
 public:
     // ??0mmPositions@@QAE@XZ
@@ -58,7 +70,9 @@ public:
     // ?Register@mmPositions@@QAEHAAVVector4@@HHHHPAD@Z
     ARTS_IMPORT i32 Register(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
 
-    u8 gap0[0xC];
+    mmPosition** Positions;
+    i32 NumPositions;
+    i32 MaxPositions;
 };
 
 check_size(mmPositions, 0xC);

@@ -88,7 +88,7 @@ struct mmStatePack
     i32 NetworkStatus;
     i32 NumPlayers;
     i32 field_14;
-    i32 CopBehaviorFlag; // Cops chase opponents?
+    b32 ChaseOpponents;
     i32 NoUI;
     i32 field_20;
     i32 Shutdown;

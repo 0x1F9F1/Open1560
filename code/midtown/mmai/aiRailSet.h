@@ -110,10 +110,10 @@ public:
     // ?SolveXZPosition@aiRailSet@@QAEXAAVVector3@@M@Z | unused
     ARTS_IMPORT void SolveXZPosition(class Vector3& arg1, f32 arg2);
 
-    u8 gap0[0x60];
+    u8 gap0[0x80];
 };
 
-check_size(aiRailSet, 0x60);
+check_size(aiRailSet, 0x80);
 
 // ??D@YA?AVVector3@@MABV0@@Z | inline
 ARTS_IMPORT class Vector3 operator*(f32 arg1, class Vector3 const& arg2);

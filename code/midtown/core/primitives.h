@@ -91,3 +91,6 @@ _ARTS_LITERAL(_isize, unsigned long long int, isize);
 _ARTS_LITERAL(_usize, unsigned long long int, usize);
 
 #undef _ARTS_LITERAL
+
+// TODO: Move to a maths header
+#define ARTS_DEG_TO_RADF 0.017453292f

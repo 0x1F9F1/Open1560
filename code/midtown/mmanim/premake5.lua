@@ -2,8 +2,8 @@ arts_component "mmanim"
     files {
         "AnimDOF.cpp",
         "AnimDOF.h",
-        -- "AnimMgr.cpp",
-        -- "AnimMgr.h",
+        "AnimMgr.cpp",
+        "AnimMgr.h",
         -- "AnimSpline.cpp",
         -- "AnimSpline.h",
         -- "AnimTrigger.cpp",

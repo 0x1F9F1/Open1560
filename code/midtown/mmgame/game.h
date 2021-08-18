@@ -110,12 +110,12 @@ public:
 
     virtual void InitHUD() = 0;
 
-    virtual void UpdateGameInput(i32 arg1) = 0;
+    virtual void UpdateGameInput(i32 key) = 0;
 
     // ?UpdateDebugInput@mmGame@@UAEXXZ
-    ARTS_IMPORT virtual void UpdateDebugInput();
+    ARTS_EXPORT virtual void UpdateDebugInput();
 
-    virtual void UpdateDebugKeyInput(i32 arg1) = 0;
+    virtual void UpdateDebugKeyInput(i32 key) = 0;
 
     virtual void UpdateGame() = 0;
 
@@ -188,7 +188,7 @@ public:
     f32 AutoRevSpeed;
     Vector3 ResetPosition;
     b32 ShowResults;
-    mmCullCity* CullCity;
+    mmCullCity* pCullCity;
     i32 field_B0;
     i32 field_B4;
     asLamp* Lamp;

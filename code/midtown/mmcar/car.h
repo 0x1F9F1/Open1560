@@ -113,7 +113,7 @@ public:
     ARTS_IMPORT void ReInit(char* arg1, i32 arg2);
 
     // ?ReleaseTrailer@mmCar@@QAEXXZ
-    ARTS_IMPORT void ReleaseTrailer();
+    ARTS_EXPORT void ReleaseTrailer();
 
     // ?RemoveVehicleAudio@mmCar@@QAEXXZ
     ARTS_IMPORT void RemoveVehicleAudio();
