@@ -212,7 +212,7 @@ public:
     ARTS_IMPORT class MetaClass* GetClass() override;
 
     // ?GetResidentMeshSet@mmInstance@@QAEPAVagiMeshSet@@HHH@Z
-    ARTS_IMPORT class agiMeshSet* GetResidentMeshSet(i32 lod, i32 index, i32 variant);
+    ARTS_EXPORT class agiMeshSet* GetResidentMeshSet(i32 lod, i32 index, i32 variant);
 
     // ?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
     ARTS_IMPORT void InitMeshes(char* arg1, i32 arg2, char* arg3, class Vector3* arg4);
@@ -246,12 +246,14 @@ public:
     // ?MeshSetSetCount@mmInstance@@2HA
     ARTS_IMPORT static i32 MeshSetSetCount;
 
+#define INST_LOD_VLOW 0
+#define INST_LOD_LOW 1
+#define INST_LOD_MED 2
+#define INST_LOD_HIGH 3
+
     struct MeshSetTableEntry
     {
-        agiMeshSet* VLow {nullptr};
-        agiMeshSet* Low {nullptr};
-        agiMeshSet* Medium {nullptr};
-        agiMeshSet* High {nullptr};
+        agiMeshSet* Meshes[4] {};
         mmBoundTemplate* Bound {nullptr};
     };
 
@@ -263,6 +265,16 @@ public:
 
     // ?StaticLighter@mmInstance@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
     ARTS_IMPORT static void (*StaticLighter)(u8*, u32*, u32*, class agiMeshSet*);
+
+    MeshSetTableEntry* GetMeshBase(i32 index)
+    {
+        return MeshIndex ? &MeshSetTable[MeshIndex - 1 + index] : nullptr;
+    }
+
+    agiMeshSet* GetMesh(i32 lod, i32 index)
+    {
+        return MeshIndex ? MeshSetTable[MeshIndex - 1 + index].Meshes[lod] : nullptr;
+    }
 
 /*
         mmBangerInstance |= 0x44
@@ -298,10 +310,12 @@ public:
 
     u16 MeshIndex {0};
     i16 ChainId {-1};
+
+    // mmShardManager::GetInstance(ShardIndex)
     u8 ShardIndex {0};
     u8 AiVehicleIndex {0};
+    mmInstance* PrevChain {nullptr};
     mmInstance* NextChain {nullptr};
-    mmInstance* Parent {nullptr};
 };
 
 check_size(mmInstance, 0x14);

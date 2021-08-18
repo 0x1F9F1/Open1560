@@ -20,6 +20,7 @@ define_dummy_symbol(mmcity_inst);
 
 #include "inst.h"
 
+#include "agiworld/meshset.h"
 #include "heap.h"
 
 f32 mmInstance::LodTable[3 /*Inst Type*/][4 /*Terrain Quality*/][3 /*Lod Dist*/] {
@@ -92,6 +93,25 @@ void mmMatrixInstance::AddWidgets(class Bank* /*arg1*/)
 
 void ARTS_FASTCALL mmStaticInstance::Relight()
 {}
+
+agiMeshSet* mmInstance::GetResidentMeshSet(i32 lod, i32 index, i32 variant)
+{
+    agiMeshSet* mesh = nullptr;
+
+    if (MeshSetTableEntry* entry = GetMeshBase(index))
+    {
+        if (mesh = entry->Meshes[lod]; mesh && !mesh->IsFullyResident(variant))
+        {
+            if (lod)
+            {
+                if (agiMeshSet* low = entry->Meshes[lod - 1]; low && low->IsFullyResident(variant))
+                    return low;
+            }
+        }
+    }
+
+    return mesh;
+}
 
 void* mmInstance::operator new(std::size_t size)
 {
