@@ -24,11 +24,13 @@ define_dummy_symbol(mmphysics_joint3dof);
 
 void Joint3Dof::MoveICS()
 {
-    if (!(ForceFlags & 0x1))
-    {
-        CarICS->ApplyPush(TrailerICS->LinearPush);
-        TrailerICS->LinearPush = CarICS->LinearPush;
-    }
+    // TODO: Why was LinearPush applied here?
+    // It is already applied in Joint3Dof::Update.
+    // if (!(JointFlags & JOINT_FLAG_BROKEN))
+    // {
+    //     CarICS->ApplyPush(TrailerICS->LinearPush);
+    //     TrailerICS->LinearPush = CarICS->LinearPush;
+    // }
 
     CarICS->MoveICS();
     TrailerICS->MoveICS();

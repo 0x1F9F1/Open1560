@@ -187,7 +187,11 @@ public:
     Vector3 TrailerOffset;
     Vector3 Position;
     f32 ForceLimit;
-    i32 ForceFlags;
+
+#define JOINT_FLAG_BROKEN 0x1
+#define JOINT_FLAG_LIMIT 0x2 // DoJoint[Torque/Limits]
+
+    i32 JointFlags;
     Matrix34 Orientation1;
     Matrix34 Orientation2;
     Vector3 FrictionLean;
