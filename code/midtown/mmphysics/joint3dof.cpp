@@ -19,3 +19,17 @@
 define_dummy_symbol(mmphysics_joint3dof);
 
 #include "joint3dof.h"
+
+#include "inertia.h"
+
+void Joint3Dof::MoveICS()
+{
+    if (!(ForceFlags & 0x1))
+    {
+        CarICS->ApplyPush(TrailerICS->LinearPush);
+        TrailerICS->LinearPush = CarICS->LinearPush;
+    }
+
+    CarICS->MoveICS();
+    TrailerICS->MoveICS();
+}

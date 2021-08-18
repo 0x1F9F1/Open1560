@@ -65,6 +65,10 @@
 
 #include "arts7/node.h"
 
+#include "vector7/matrix34.h"
+
+class asInertialCS;
+
 class JointedStruct : public asNode
 {
 public:
@@ -127,7 +131,7 @@ public:
         class asInertialCS* arg1, class Vector3 const& arg2, class asInertialCS* arg3, class Vector3 const& arg4);
 
     // ?MoveICS@Joint3Dof@@QAEXXZ
-    ARTS_IMPORT void MoveICS();
+    ARTS_EXPORT void MoveICS();
 
     // ?Reset@Joint3Dof@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -177,7 +181,22 @@ public:
     // ?DeclareFields@Joint3Dof@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0xC0];
+    asInertialCS* CarICS;
+    asInertialCS* TrailerICS;
+    Vector3 CarOffset;
+    Vector3 TrailerOffset;
+    Vector3 Position;
+    f32 ForceLimit;
+    i32 ForceFlags;
+    Matrix34 Orientation1;
+    Matrix34 Orientation2;
+    Vector3 FrictionLean;
+    Vector3 FrictionRoll;
+    f32 LeanLimit1;
+    f32 RollLimit1;
+    f32 RollLimit2;
+    f32 LeanLimit2;
+    f32 RollLimit3;
 };
 
 check_size(Joint3Dof, 0xE0);

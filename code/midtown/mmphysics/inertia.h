@@ -163,6 +163,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     offset_field(0x94, f32, Mass);
+    offset_field(0x120, Vector3, LinearPush);
 
 private:
     // ?DrawForce@asInertialCS@@AAEXABVVector3@@0@Z

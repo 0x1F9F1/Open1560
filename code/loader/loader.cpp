@@ -563,10 +563,10 @@ include_dummy_symbol(mmnetwork_network);
 // include_dummy_symbol(mmphysics_aero);
 // include_dummy_symbol(mmphysics_bound);
 include_dummy_symbol(mmphysics_entity);
-// include_dummy_symbol(mmphysics_inertia);
-// include_dummy_symbol(mmphysics_joint3dof);
+include_dummy_symbol(mmphysics_inertia);
+include_dummy_symbol(mmphysics_joint3dof);
 include_dummy_symbol(mmphysics_osample);
-// include_dummy_symbol(mmphysics_phys);
+include_dummy_symbol(mmphysics_phys);
 
 include_dummy_symbol(mmui_about);
 // include_dummy_symbol(mmui_audio);
