@@ -65,6 +65,20 @@
 
 #include "arts7/node.h"
 
+class JointedStruct : public asNode
+{
+public:
+    // ??1JointedStruct@@UAE@XZ | inline
+    ARTS_IMPORT ~JointedStruct() = default;
+
+    virtual void GetCMatrix(class asInertialCS const* arg1, class asInertialCS const* arg2, class Matrix34& arg3,
+        class Vector3 const& arg4) = 0;
+
+    virtual void GetCMatrix(class asInertialCS const* arg1, class Matrix34& arg2, class Vector3 const& arg3) = 0;
+};
+
+check_size(JointedStruct, 0x20);
+
 class Joint3Dof final : public JointedStruct
 {
     // const Joint3Dof::`vftable'
@@ -167,20 +181,6 @@ public:
 };
 
 check_size(Joint3Dof, 0xE0);
-
-class JointedStruct : public asNode
-{
-public:
-    // ??1JointedStruct@@UAE@XZ | inline
-    ARTS_IMPORT ~JointedStruct() = default;
-
-    virtual void GetCMatrix(class asInertialCS const* arg1, class asInertialCS const* arg2, class Matrix34& arg3,
-        class Vector3 const& arg4) = 0;
-
-    virtual void GetCMatrix(class asInertialCS const* arg1, class Matrix34& arg2, class Vector3 const& arg3) = 0;
-};
-
-check_size(JointedStruct, 0x20);
 
 // ?CrossProdMatrix@@YAXPAVMatrix34@@ABVVector3@@@Z | inline
 ARTS_IMPORT void CrossProdMatrix(class Matrix34* arg1, class Vector3 const& arg2);

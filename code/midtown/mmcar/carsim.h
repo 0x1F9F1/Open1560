@@ -82,6 +82,30 @@
 
 #include "arts7/node.h"
 
+#include "data7/callback.h"
+#include "mmeffects/birth.h"
+#include "mmeffects/ptx.h"
+#include "mmphysics/aero.h"
+#include "mmphysics/bound.h"
+#include "mmphysics/inertia.h"
+
+#include "axle.h"
+#include "drivetrain.h"
+#include "engine.h"
+#include "force.h"
+#include "gyro.h"
+#include "shock.h"
+#include "splash.h"
+#include "stuck.h"
+#include "transmission.h"
+#include "wheel.h"
+
+class mmPlayerCarAudio;
+class mmOpponentCarAudio;
+class mmPoliceCarAudio;
+class mmNetworkCarAudio;
+class mmCarRoadFF;
+
 // ?IMPACTCB@@YAXPAVmmCarSim@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M3@Z
 ARTS_IMPORT void IMPACTCB(class mmCarSim* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4,
     f32 arg5, class Vector3* arg6);
@@ -220,7 +244,154 @@ public:
     // ?SnowTex@mmCarSim@@2PAVagiTexDef@@A
     ARTS_IMPORT static class agiTexDef* SnowTex;
 
-    u8 gap20[0x1F8C];
+    asOverSample OverSample;
+    asInertialCS ICS;
+    asLinearCS LCS;
+    asLinearCS field_280;
+    Vector3 BodyCG;
+    Vector3 ResetPosition;
+    Vector3 Dimensions;
+    f32 ResetRotation;
+    asBound Bound;
+    asBound field_36C;
+    asBound field_3A8;
+    mmStuck Stuck;
+    mmSplash Splash;
+    asAero AeroCollide;
+    mmForce Force;
+    VehGyro Gyro;
+    f32 field_840;
+    f32 field_844;
+    f32 field_848;
+    f32 field_84C;
+    f32 field_850;
+    f32 field_854;
+    f32 field_858;
+    f32 field_85C;
+    f32 RedistHeight;
+    f32 RedistLongRatio;
+    i32 DrivetrainType;
+    i32 RealDrivetrainType;
+    mmDrivetrain DriveTrain1;
+    mmDrivetrain DriveTrain2;
+    mmDrivetrain DriveTrain3;
+    mmWheel FrontLeft;
+    mmWheel FrontRight;
+    mmWheel BackLeft;
+    mmWheel BackRight;
+    mmAxle FrontAxle;
+    mmAxle BackAxle;
+    mmShock Shock0;
+    mmShock Shock1;
+    mmShock Shock2;
+    mmShock Shock3;
+    mmEngine Engine;
+    mmTransmission Trans;
+    Vector3 WHL2_Pos;
+    Vector3 WHL3_Pos;
+    i32 field_17E8;
+    i32 HasCollided;
+    f32* Realism;
+    Vector3 InertiaBox;
+    i32 field_1800;
+    f32 Brakes;
+    f32 HandBrake;
+    f32 Steering;
+    i32 NumWheels;
+    f32 Drag;
+    f32 Downforce;
+    f32 BoundFriction;
+    f32 BoundElasticity;
+    f32 DriftTorque;
+    i32 field_1828;
+    f32 Mass;
+    f32 Speed;
+    f32 SpeedMPH;
+    f32 TBWidth;
+    f32 TBHeight;
+    i32 field_1840;
+    f32 TB_Freq;
+    f32 Gain;
+    f32 field_184C;
+    f32 field_1850;
+    f32 field_1854;
+    i32 DriverType;
+    i16 CurrentLOD;
+    i16 EnableDamage;
+    f32 field_1860;
+    i32 field_1864;
+    i32 field_1868;
+    i32 field_186C;
+    i32 field_1870;
+    i32 field_1874;
+    mmCarModel* Model;
+    mmCar* Car;
+    f32 CurrentDamage;
+    f32 SmokePtx;
+    f32 SmokeParticleFraction;
+    f32 MaxDamage;
+    f32 MedDamage;
+    f32 MaxDamageScaled;
+    f32 MedDamageScaled;
+    Vector3 DamageSmokeOffset;
+    Vector3 field_18A8;
+    f32 Damage;
+    f32 CarFrictionHandling;
+    f32 LongSlideMultiplier;
+    f32 ExhaustParticleMultiplier;
+    f32 ExhaustParticles;
+    i32 EnableExhaust;
+    Vector3 ExhaustSmokeOffset;
+    f32 SlipPercentThresh;
+    Callback OnExplosion;
+    asParticles GrassPtx;
+    asParticles ExhaustPtx;
+    asBirthRule AsphaltRule;
+    asBirthRule OffroadRule;
+    asBirthRule ExhaustRule;
+    asBirthRule SnowRule;
+    asBirthRule WaterRule;
+    asBirthRule SmokeRule;
+    asParticles ExplosionPtx;
+    asBirthRule ExplosionRule;
+    i32 Exploded;
+    i32 field_1F08;
+    i32 HornPlaying;
+    i32 EnableFF;
+    mmPlayerCarAudio* PlayerCarAudio;
+    mmOpponentCarAudio* OpponentCarAudio;
+    mmPoliceCarAudio* PoliceCarAudio;
+    mmNetworkCarAudio* NetworkCarAudio;
+    mmCarRoadFF* CarRoadFF;
+    f32 field_1F28;
+    f32 field_1F2C;
+    f32 field_1F30;
+    i32 SpinState;
+    f32 SpinStartTimer;
+    f32 SpinSight;
+    f32 SpinEndTimer;
+    f32 SpinStartTime;
+    f32 SpinEndTime;
+    f32 SpinStart;
+    f32 SpinStop;
+    f32 SpinFromMax;
+    f32 SpinFromMin;
+    f32 SpinToMin;
+    f32 SpinToMax;
+    f32 DriftThreshold;
+    f32 SpinThreshold;
+    f32 FrontDriftFricMultiplier;
+    f32 BackDriftFricMultiplier;
+    f32 FrontSpinFricMultiplier;
+    f32 BackSpinFricMultiplier;
+    f32 BrakeFrontFricMultiplier;
+    f32 BrakeBackFricMultiplier;
+    f32 SteerMultiplier;
+    f32 FrontFriction;
+    f32 BackFriction;
+    f32 field_1F90;
+    Vector3 DashCamHeadlightOffset;
+    Vector3 POVCamHeadlightOffset;
 };
 
 check_size(mmCarSim, 0x1FAC);

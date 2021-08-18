@@ -20,8 +20,51 @@ define_dummy_symbol(mmcar_car);
 
 #include "car.h"
 
+#include "data7/timer.h"
+#include "mmcity/cullcity.h"
+#include "mmphysics/joint3dof.h"
+
+#include "trailer.h"
+
+void mmCar::PostUpdate()
+{
+#ifdef ARTS_DEV_BUILD
+    Timer t;
+#endif
+
+    if (Model.CarFlags & CAR_MODEL_FLAG_TRAILER)
+    {
+        Trailer->PostUpdate();
+
+        if (TrailerJoint->IsActive())
+            TrailerJoint->MoveICS();
+    }
+    else
+    {
+        Sim.ICS.MoveICS();
+    }
+
+    FLSkid.Update();
+    FRSkid.Update();
+    BLSkid.Update();
+    BRSkid.Update();
+
+    Shards.Update();
+
+    Sim.ExhaustPtx.Update();
+    Sim.GrassPtx.Update();
+    Sim.ExplosionPtx.Update();
+
+#ifdef ARTS_DEV_BUILD
+    f32 elapsed = t.Time();
+    mmCar::PostUpdateTime += elapsed;
+    mmCar::TotalUpdateTime += elapsed;
+#endif
+
+    CullCity()->ReparentObject(&Model);
+}
+
 run_once([] {
-    // TODO: Move to mmCar
     static const f32 spark_multiplier = 16.0f / 30.0f;
     create_patch("mmCar::Impact", "Spark Count", 0x47422C, "\xD9\xE8\x90\x90\x90\x90", 6);
     create_packed_patch<const void*>("mmCar::Impact", "Spark Count", 0x474235 + 2, &spark_multiplier);

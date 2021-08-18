@@ -165,6 +165,7 @@ public:
     mmCar* Entity {nullptr};
 
 #define CAR_MODEL_FLAG_40 0x40
+#define CAR_MODEL_FLAG_TRAILER 0x80
 
     u32 CarFlags {0};
     Matrix34 field_20 {};

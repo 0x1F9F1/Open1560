@@ -107,7 +107,7 @@ public:
     ARTS_IMPORT i32 IsDrivingDisabled();
 
     // ?PostUpdate@mmCar@@UAEXXZ
-    ARTS_IMPORT void PostUpdate() override;
+    ARTS_EXPORT void PostUpdate() override;
 
     // ?ReInit@mmCar@@QAEXPADH@Z
     ARTS_IMPORT void ReInit(char* arg1, i32 arg2);
