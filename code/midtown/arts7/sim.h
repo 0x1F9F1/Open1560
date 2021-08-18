@@ -162,32 +162,32 @@ public:
     // ?Widgets@asSimulation@@QAEXXZ
     ARTS_EXPORT void Widgets();
 
-    Matrix34* GetCurrentCamera()
-    {
-        return current_camera_;
-    }
-
-    void SetCurrentCamera(Matrix34* view)
-    {
-        current_camera_ = view;
-    }
-
     asBenchStats& GetStats()
     {
         return curr_stats_;
     }
 
-    void PushCamera(asLinearCS* camera)
+    Matrix34* GetCurrentMatrix()
     {
-        ArAssert(++camera_depth_ < ARTS_SSIZE(cameras_), "Too Many Cameras");
-        cameras_[camera_depth_] = camera;
-        current_camera_ = camera->GetCamera();
+        return current_matrix_;
     }
 
-    void PopCamera()
+    void SetCurrentMatrix(Matrix34* view)
     {
-        ArAssert(camera_depth_ > 0, "Camera underflow");
-        current_camera_ = cameras_[--camera_depth_]->GetCamera();
+        current_matrix_ = view;
+    }
+
+    void PushFrame(asLinearCS* lcs)
+    {
+        ArAssert(++frame_depth_ < ARTS_SSIZE(frame_stack_), "Frame overflow");
+        frame_stack_[frame_depth_] = lcs;
+        current_matrix_ = &lcs->World;
+    }
+
+    void PopFrame()
+    {
+        ArAssert(--frame_depth_ >= 0, "Frame underflow");
+        current_matrix_ = &frame_stack_[frame_depth_]->World;
     }
 
     bool IsDebug() const
@@ -233,10 +233,10 @@ private:
     void SmoothDelta(f32& delta);
 
     b32 in_escape_;
-    i32 camera_depth_;
-    asLinearCS* cameras_[32];
-    asLinearCS root_camera_;
-    Matrix34* current_camera_;
+    i32 frame_depth_;
+    asLinearCS* frame_stack_[32];
+    asLinearCS root_frame_;
+    Matrix34* current_matrix_;
     Timer frame_timer_;
     i32 frame_lock_;
     f32 seconds_;

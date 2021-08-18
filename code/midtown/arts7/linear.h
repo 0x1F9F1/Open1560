@@ -62,23 +62,17 @@ public:
     // ?Update@asLinearCS@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
-    Vector3& GetPos()
+    Vector3& GetPosition()
     {
-        return matrix_.m3;
-    }
-
-    Matrix34* GetCamera()
-    {
-        return &camera_;
+        return World.m3;
     }
 
     VIRTUAL_META_DECLARE;
 
-private:
-    Matrix34 matrix_ {};
-    Matrix34 camera_ {};
-    i32 global_ {};
-    asLinearCS* inherit_ {};
+    Matrix34 Matrix {};
+    Matrix34 World {};
+    b32 Global {false};
+    asLinearCS* Inherit {nullptr};
 };
 
 check_size(asLinearCS, 0x88);

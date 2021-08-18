@@ -148,7 +148,7 @@ void asCullManager::DeclareCullable(asCullable* cullable)
         else
         {
             cullables_[num_cullables_] = cullable;
-            transforms_[num_cullables_] = ARTSPTR->GetCurrentCamera();
+            transforms_[num_cullables_] = ARTSPTR->GetCurrentMatrix();
             ++num_cullables_;
         }
     }

@@ -98,7 +98,7 @@ i32 aiPoliceForce::State(mmCar* cop, mmCar* perp, f32 cop_dist)
 
     for (i32 j = 0; j < num_cops_[i]; ++j)
     {
-        if (f32 dist = perp->GetICS()->GetPos().Dist2(cops_[i][j]->GetICS()->GetPos()); dist < best_dist)
+        if (f32 dist = perp->GetICS()->GetPosition().Dist2(cops_[i][j]->GetICS()->GetPosition()); dist < best_dist)
         {
             best_dist = dist;
             best = j;

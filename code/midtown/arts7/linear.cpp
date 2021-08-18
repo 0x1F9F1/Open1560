@@ -28,8 +28,8 @@ define_dummy_symbol(arts7_linear);
 #include "sim.h"
 
 asLinearCS::asLinearCS()
-    : matrix_(IDENTITY)
-    , camera_(IDENTITY)
+    : Matrix(IDENTITY)
+    , World(IDENTITY)
 {
     SetNodeFlag2(false);
 }
@@ -42,16 +42,16 @@ void asLinearCS::AddWidgets(Bank* bank)
     bank->AddTitle("Matrix");
 
     bank->PushSection("Rotation", 0);
-    bank->AddVector("A Axis:", &matrix_.m0, -5000.0f, 5000.0f, 0.1f, NullCallback);
-    bank->AddVector("B Axis:", &matrix_.m1, -5000.0f, 5000.0f, 0.1f, NullCallback);
-    bank->AddVector("C Axis:", &matrix_.m2, -5000.0f, 5000.0f, 0.1f, NullCallback);
+    bank->AddVector("A Axis:", &Matrix.m0, -5000.0f, 5000.0f, 0.1f, NullCallback);
+    bank->AddVector("B Axis:", &Matrix.m1, -5000.0f, 5000.0f, 0.1f, NullCallback);
+    bank->AddVector("C Axis:", &Matrix.m2, -5000.0f, 5000.0f, 0.1f, NullCallback);
     bank->PopSection();
 
     bank->PushSection("Translation", 1);
-    bank->AddVector("Position:", &matrix_.m3, -5000.0f, 5000.0f, 0.1f, NullCallback);
+    bank->AddVector("Position:", &Matrix.m3, -5000.0f, 5000.0f, 0.1f, NullCallback);
     bank->PopSection();
 
-    bank->AddToggle("Global", &global_, 0, NullCallback);
+    bank->AddToggle("Global", &Global, 0, NullCallback);
 
     asNode::AddWidgets(bank);
 }
@@ -60,7 +60,7 @@ void asLinearCS::AddWidgets(Bank* bank)
 void asLinearCS::Cull()
 {
 #ifdef ARTS_DEV_BUILD
-    DrawBegin(camera_);
+    DrawBegin(World);
     DrawColor(ColRed);
     DrawLine(ORIGIN, XAXIS);
     DrawColor(ColGreen);
@@ -79,34 +79,32 @@ void asLinearCS::FileIO(class MiniParser* /*arg1*/)
 
 void asLinearCS::Update()
 {
-    if (global_)
+    if (Global)
     {
-        camera_ = inherit_ ? inherit_->camera_ : matrix_;
+        World = Inherit ? Inherit->World : Matrix;
     }
     else
     {
-        camera_.Dot(matrix_, inherit_ ? inherit_->camera_ : *ARTSPTR->GetCurrentCamera());
+        World.Dot(Matrix, Inherit ? Inherit->World : *ARTSPTR->GetCurrentMatrix());
     }
 
     ARTSPTR->GetStats().LCSUpdates++;
 
-    ARTSPTR->PushCamera(this);
+    ARTSPTR->PushFrame(this);
 
     asNode::Update();
 
 #ifdef ARTS_DEV_BUILD
-    if (ARTSPTR->IsDebugDrawEnabled() && (DynaDrawMode & 0x200))
-    {
+    if (ARTSPTR->IsDebugDrawEnabled() && (DynaDrawMode & DYNA_DRAW_MATRIX))
         CULLMGR->DeclareCullable(this);
-    }
 #endif
 
-    ARTSPTR->PopCamera();
+    ARTSPTR->PopFrame();
 }
 
 META_DEFINE_CHILD("asLinearCS", asLinearCS, asNode)
 {
-    META_FIELD("Matrix", matrix_);
-    META_FIELD("Global", global_);
-    META_FIELD("Inherit", inherit_);
+    META_FIELD("Matrix", Matrix);
+    META_FIELD("Global", Global);
+    META_FIELD("Inherit", Inherit);
 }

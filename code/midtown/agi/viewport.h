@@ -99,16 +99,27 @@ public:
     f32 ProjYZ;
     f32 Left;
     f32 Right;
+
+    // Position/Orientation of the camera in world space
     Matrix34 Camera;
+
+    // Transform from world space to view space
+    // Equal to `Camera.Inverse()`
     Matrix34 View;
-    Matrix34 Model; // World
+
+    // Transform from model space to world space
+    Matrix34 World;
+
+    // Transform from model space to view space
+    // Equal to `View * Model`
     Matrix34 ModelView;
+
     Vector2 field_104;
     Vector2 field_10C;
     Vector2 field_114;
     Vector2 field_11C;
     f32 field_124;
-    i32 Orthographic;
+    b32 Orthographic;
 };
 
 check_size(agiViewParameters, 0x12C);

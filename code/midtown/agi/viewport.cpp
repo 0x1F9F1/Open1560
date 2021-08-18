@@ -25,8 +25,8 @@ define_dummy_symbol(agi_viewport);
 
 void agiViewParameters::SetWorld(Matrix34& world)
 {
-    Model = world;
-    ModelView.Dot(Model, View);
+    World = world;
+    ModelView.Dot(World, View);
     ++MtxSerial;
 }
 
