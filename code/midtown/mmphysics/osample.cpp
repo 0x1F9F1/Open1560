@@ -19,3 +19,8 @@
 define_dummy_symbol(mmphysics_osample);
 
 #include "osample.h"
+
+void asOverSample::RealTime(f32 fps)
+{
+    SampleStep = 1.0f / fps;
+}

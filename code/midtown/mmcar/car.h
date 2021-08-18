@@ -55,6 +55,15 @@
 */
 
 #include "mmphysics/entity.h"
+#include "mmphysics/osample.h"
+
+#include "carmodel.h"
+#include "carsim.h"
+#include "shard.h"
+#include "skid.h"
+
+class Joint3Dof;
+class mmTrailer;
 
 class mmCar final : public mmPhysEntity
 {
@@ -147,7 +156,17 @@ public:
     ARTS_IMPORT static f32 UpdateTime;
 #endif
 
-    u8 gap20[0x22EC];
+    asOverSample OverSample {};
+    mmCarSim Sim {};
+    mmCarModel Model {};
+    mmSkidManager FLSkid {};
+    mmSkidManager FRSkid {};
+    mmSkidManager BLSkid {};
+    mmSkidManager BRSkid {};
+    mmShardManager Shards {};
+    b32 TrailerJoined {false};
+    Joint3Dof* TrailerJoint {nullptr};
+    mmTrailer* Trailer {nullptr};
 };
 
 check_size(mmCar, 0x230C);

@@ -86,9 +86,6 @@
 ARTS_IMPORT void IMPACTCB(class mmCarSim* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4,
     f32 arg5, class Vector3* arg6);
 
-// ?Struct@@YAPAUMetaType@@PAVMetaClass@@@Z | inline
-ARTS_IMPORT struct MetaType* Struct(class MetaClass* arg1);
-
 // ?HitWaterTimer@@3MA
 ARTS_IMPORT extern f32 HitWaterTimer;
 

@@ -32,7 +32,7 @@ public:
     // ??_GmmPhysEntity@@UAEPAXI@Z
     // ??_EmmPhysEntity@@UAEPAXI@Z
     // ??1mmPhysEntity@@UAE@XZ | inline
-    ARTS_IMPORT ~mmPhysEntity() override = default;
+    ARTS_EXPORT ~mmPhysEntity() override = default;
 
     // ?PostUpdate@mmPhysEntity@@UAEXXZ | inline
     ARTS_EXPORT virtual void PostUpdate();

@@ -41,11 +41,11 @@ class asOverSample final : public asNode
 
 public:
     // ??0asOverSample@@QAE@XZ
-    ARTS_IMPORT asOverSample();
+    ARTS_EXPORT asOverSample() = default;
 
     // ??_EasOverSample@@UAEPAXI@Z
     // ??1asOverSample@@UAE@XZ | inline
-    ARTS_IMPORT ~asOverSample() override = default;
+    ARTS_EXPORT ~asOverSample() override = default;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asOverSample@@UAEXPAVBank@@@Z
@@ -56,7 +56,7 @@ public:
     ARTS_IMPORT class MetaClass* GetClass() override;
 
     // ?RealTime@asOverSample@@QAEXM@Z
-    ARTS_IMPORT void RealTime(f32 arg1);
+    ARTS_EXPORT void RealTime(f32 fps);
 
     // ?Update@asOverSample@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -64,7 +64,11 @@ public:
     // ?DeclareFields@asOverSample@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x10];
+private:
+    f32 SampleStep {1.0f / 25.0f};
+    i32 MaxSamples {20};
+    i32 NumSamples {0};
+    i32 field_2C {1};
 };
 
 check_size(asOverSample, 0x30);

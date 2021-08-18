@@ -2,8 +2,8 @@ arts_component "mmcar"
     files {
         -- "axle.cpp",
         -- "axle.h",
-        -- "car.cpp",
-        -- "car.h",
+        "car.cpp",
+        "car.h",
         -- "carmodel.cpp",
         -- "carmodel.h",
         -- "carsim.cpp",
