@@ -141,6 +141,9 @@ b32 VirtualFileSystem::PagerInfo(const char* path, struct PagerInfo_t& info)
     if (!node || node->IsDirectory())
         return false;
 
+    // FIXME: Pager has no constructor, so Path may be invalid
+    std::memset(&info, 0, sizeof(info));
+
     info.Handle = base_stream_->GetPagerHandle();
     info.Offset = node->GetOffset();
     info.Size = node->GetSize();
