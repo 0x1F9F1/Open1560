@@ -20,6 +20,15 @@ define_dummy_symbol(mmcar_carmodel);
 
 #include "carmodel.h"
 
+mmCarModel::mmCarModel()
+{
+    field_20.Identity();
+    Flags |= INST_FLAG_SHADOW | INST_FLAG_MOVER | INST_FLAG_VALID | INST_FLAG_400 | INST_FLAG_2000;
+    CarFlags |= CAR_MODEL_FLAG_40;
+
+    Sparks.Init(256, GetSparkLut(const_cast<char*>("tune/spark.tga")));
+}
+
 i32 mmCarModel::GetCarFlags(char* /*arg1*/)
 {
     return 0;

@@ -420,7 +420,7 @@ include_dummy_symbol(mmaudio_mixer);
 
 // include_dummy_symbol(mmcar_axle);
 include_dummy_symbol(mmcar_car);
-// include_dummy_symbol(mmcar_carmodel);
+include_dummy_symbol(mmcar_carmodel);
 // include_dummy_symbol(mmcar_carsim);
 // include_dummy_symbol(mmcar_carsimcheap);
 // include_dummy_symbol(mmcar_drivetrain);

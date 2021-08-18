@@ -19,3 +19,10 @@
 define_dummy_symbol(mmcar_car);
 
 #include "car.h"
+
+run_once([] {
+    // TODO: Move to mmCar
+    static const f32 spark_multiplier = 16.0f / 30.0f;
+    create_patch("mmCar::Impact", "Spark Count", 0x47422C, "\xD9\xE8\x90\x90\x90\x90", 6);
+    create_packed_patch<const void*>("mmCar::Impact", "Spark Count", 0x474235 + 2, &spark_multiplier);
+});

@@ -58,17 +58,25 @@
 
 #include "mmcity/inst.h"
 
+#include "mmeffects/damage.h"
+#include "mmeffects/linespark.h"
+#include "vector7/matrix34.h"
+
+class mmCar;
+class mmCarSim;
+class mmHitBangerInstance;
+
 class mmCarModel final : public mmInstance
 {
     // const mmCarModel::`vftable'
 
 public:
     // ??0mmCarModel@@QAE@XZ
-    ARTS_IMPORT mmCarModel();
+    ARTS_EXPORT mmCarModel();
 
     // ??_EmmCarModel@@UAEPAXI@Z
     // ??1mmCarModel@@UAE@XZ
-    ARTS_IMPORT ~mmCarModel() override;
+    ARTS_EXPORT ~mmCarModel() override = default;
 
     // ?Activate@mmCarModel@@QAEXXZ
     ARTS_IMPORT void Activate();
@@ -153,7 +161,21 @@ public:
     // ?DeclareFields@mmCarModel@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap14[0xFC];
+    mmCarSim* CarSim {nullptr};
+    mmCar* Entity {nullptr};
+
+#define CAR_MODEL_FLAG_40 0x40
+
+    u32 CarFlags {0};
+    Matrix34 field_20 {};
+    i32 field_50 {0};
+    i32 PaintJobIndex {0};
+    mmDamage DamageHigh {};
+    mmDamage DamageMedium {};
+    asLineSparks Sparks {};
+    i16 WHL0_Entry {-1};
+    i16 FNDR0_Entry {-1};
+    mmHitBangerInstance* Bangers[6] {};
 };
 
 check_size(mmCarModel, 0x110);

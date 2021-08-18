@@ -143,7 +143,7 @@ class mmInstance : public Base
 
 public:
     // ??0mmInstance@@QAE@XZ
-    ARTS_IMPORT mmInstance();
+    ARTS_EXPORT mmInstance() = default;
 
     // ??_EmmInstance@@UAEPAXI@Z
     // ??_GmmInstance@@UAEPAXI@Z
@@ -264,7 +264,44 @@ public:
     // ?StaticLighter@mmInstance@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
     ARTS_IMPORT static void (*StaticLighter)(u8*, u32*, u32*, class agiMeshSet*);
 
-    u8 gap4[0x10];
+/*
+        mmBangerInstance |= 0x44
+        aiTrafficLightInstance |= 0x200
+        mmUnhitBangerInstance |= 0x244
+        mmHitBangerInstance |= 0x44
+        aiPedestrianInstance |= 0x2002
+        aiVehicleInstance |= 0x2506
+        mmCarModel |= 0x250A
+        mmSkid &= ~0xC
+        mmMatrixInstance |= 0x4
+            mmShard &= ~0xC
+            mmShearInstance &= ~0x4
+            mmBuildingInstance &= ~0x4
+    */
+#define INST_FLAG_1 0x1        // ?
+#define INST_FLAG_SHADOW 0x2   // Shadow
+#define INST_FLAG_COLLIDER 0x4 // Collidable
+#define INST_FLAG_MOVER 0x8    // Movable
+#define INST_FLAG_ACTIVE 0x20  // Active
+#define INST_FLAG_40 0x40      // ?
+#define INST_FLAG_80 0x80      // ?
+#define INST_FLAG_VALID 0x100  // Valid
+#define INST_FLAG_UNHIT 0x200  // Unhit
+#define INST_FLAG_400 0x400    //
+#define INST_FLAG_800 0x800    // ?
+#define INST_FLAG_1000 0x1000  // ?
+#define INST_FLAG_2000 0x2000  // Player/AI
+#define INST_FLAG_4000 0x4000  // ?
+
+    // INST_FLAG_*
+    u16 Flags {INST_FLAG_ACTIVE};
+
+    u16 MeshIndex {0};
+    i16 ChainId {-1};
+    u8 ShardIndex {0};
+    u8 AiVehicleIndex {0};
+    mmInstance* NextChain {nullptr};
+    mmInstance* Parent {nullptr};
 };
 
 check_size(mmInstance, 0x14);
