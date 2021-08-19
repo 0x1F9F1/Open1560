@@ -22,8 +22,8 @@ arts_component "mmcity"
         -- "position.h",
         -- "positions.cpp",
         -- "positions.h",
-        -- "renderweb.cpp",
-        -- "renderweb.h",
+        "renderweb.cpp",
+        "renderweb.h",
         -- "sky.cpp",
         -- "sky.h",
     }

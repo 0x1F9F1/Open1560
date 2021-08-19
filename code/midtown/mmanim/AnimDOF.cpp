@@ -28,19 +28,32 @@ define_dummy_symbol(mmanim_AnimDOF);
 
 void mmDrawbridgeInstance::Draw(i32 lod)
 {
-    if (agiMeshSet* mesh = GetResidentMeshSet(lod, (asRenderWeb::PassMask & 1) ? 0 : 1, 0))
+    enum
     {
-        bool zenable = agiCurState.GetZEnable();
+        BRIDGE = 0,
+        RAIL = 1,
+    };
 
-        // TODO: Why is this only enabled when software rendering?
-        if (agiCurState.GetSoftwareRendering())
-            agiCurState.SetZEnable(true);
+    Matrix34 world;
+    Viewport()->SetWorld(ToMatrix(world));
 
-        Matrix34 world;
-        Viewport()->SetWorld(ToMatrix(world));
+    // FIXME: The main part of the bridge is drawn during the terrain pass, which has depth testing disabled with the software renderer
+    // This can cause other terrain to become visible through the bridge
+    bool zenable = agiCurState.GetZEnable();
 
-        mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, AGI_MESH_DRAW_CLIP);
+    agiCurState.SetZEnable(true);
 
-        agiCurState.SetZEnable(zenable);
+    if (asRenderWeb::PassMask & RENDER_PASS_TERRAIN)
+    {
+        if (agiMeshSet* mesh = GetResidentMeshSet(lod, BRIDGE))
+            mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, AGI_MESH_DRAW_CLIP);
     }
+
+    if (asRenderWeb::PassMask & RENDER_PASS_OBJECTS)
+    {
+        if (agiMeshSet* mesh = GetResidentMeshSet(lod, RAIL))
+            mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, AGI_MESH_DRAW_CLIP);
+    }
+
+    agiCurState.SetZEnable(zenable);
 }

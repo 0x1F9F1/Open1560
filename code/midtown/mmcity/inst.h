@@ -134,6 +134,7 @@
 #include "data7/base.h"
 
 #include "heap.h"
+#include "vector7/matrix34.h"
 
 class mmBoundTemplate;
 
@@ -212,7 +213,7 @@ public:
     ARTS_IMPORT class MetaClass* GetClass() override;
 
     // ?GetResidentMeshSet@mmInstance@@QAEPAVagiMeshSet@@HHH@Z
-    ARTS_EXPORT class agiMeshSet* GetResidentMeshSet(i32 lod, i32 index, i32 variant);
+    ARTS_EXPORT class agiMeshSet* GetResidentMeshSet(i32 lod, i32 index, i32 variant = 0);
 
     // ?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
     ARTS_IMPORT void InitMeshes(char* arg1, i32 arg2, char* arg3, class Vector3* arg4);
@@ -266,44 +267,64 @@ public:
     // ?StaticLighter@mmInstance@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
     ARTS_IMPORT static void (*StaticLighter)(u8*, u32*, u32*, class agiMeshSet*);
 
+    // TODO: When to use GetMeshSet vs GetResidentMeshSet?
+
     MeshSetTableEntry* GetMeshBase(i32 index)
     {
         return MeshIndex ? &MeshSetTable[MeshIndex - 1 + index] : nullptr;
     }
 
-    agiMeshSet* GetMesh(i32 lod, i32 index)
+    agiMeshSet* GetMeshSet(i32 lod, i32 index)
     {
         return MeshIndex ? MeshSetTable[MeshIndex - 1 + index].Meshes[lod] : nullptr;
     }
 
-/*
-        mmBangerInstance |= 0x44
-        aiTrafficLightInstance |= 0x200
-        mmUnhitBangerInstance |= 0x244
-        mmHitBangerInstance |= 0x44
-        aiPedestrianInstance |= 0x2002
-        aiVehicleInstance |= 0x2506
-        mmCarModel |= 0x250A
-        mmSkid &= ~0xC
-        mmMatrixInstance |= 0x4
-            mmShard &= ~0xC
-            mmShearInstance &= ~0x4
-            mmBuildingInstance &= ~0x4
+    /*
+        mmInstance |= 0x20
+            aiPedestrianInstance |= 0x2 | 0x2000
+            aiVehicleInstance |= 0x2 | 0x4 | 0x100 | 0x400 | 0x2000
+            mmCarModel |= 0x2 | 0x8 | 0x100 | 0x400 | 0x2000
+            mmRunwayLight |= 0x2 | 0x2000
+            mmSkid &= ~(0x4 | 0x8)
+            mmTrailerInstance |= 0x2 | 0x8 | 0x100 | 0x2000
+
+            mmBangerInstance |= 0x4 | 0x40
+                mmFacadeBangerInstance - Unused
+                mmGlassBangerInstance - Unused
+                mmHitBangerInstance
+                mmUnhitBangerInstance |= 0x200
+                    aiTrafficLightInstance
+                    mmDofBangerInstance
+                        mmDrawbridgeInstance &= ~(0x2 | 0x20), |= 0x800
+
+            mmMatrixInstance |= 0x4
+                mmAnimPlane
+                mmAnimTrainCar
+                mmBuildingInstance &= ~0x4
+                mmShard &= ~(0x4 | 0x8)
+                mmShearInstance &= ~0x4
+                mmUpperInstance
+
+            mmYInstance
+                mmPed
+                mmStaticInstance
+                    mmFacadeInstance
+                    mmWaypointInstance
     */
-#define INST_FLAG_1 0x1        // ?
-#define INST_FLAG_SHADOW 0x2   // Shadow
-#define INST_FLAG_COLLIDER 0x4 // Collidable
-#define INST_FLAG_MOVER 0x8    // Movable
-#define INST_FLAG_ACTIVE 0x20  // Active
-#define INST_FLAG_40 0x40      // ?
-#define INST_FLAG_80 0x80      // ?
-#define INST_FLAG_VALID 0x100  // Valid
-#define INST_FLAG_UNHIT 0x200  // Unhit
-#define INST_FLAG_400 0x400    //
-#define INST_FLAG_800 0x800    // ?
-#define INST_FLAG_1000 0x1000  // ?
-#define INST_FLAG_2000 0x2000  // Player/AI
-#define INST_FLAG_4000 0x4000  // ?
+#define INST_FLAG_1 0x1
+#define INST_FLAG_SHADOW 0x2
+#define INST_FLAG_COLLIDER 0x4
+#define INST_FLAG_MOVER 0x8
+#define INST_FLAG_ACTIVE 0x20
+#define INST_FLAG_BANGER 0x40 // Instance is a mmBangerInstance
+#define INST_FLAG_80 0x80
+#define INST_FLAG_100 0x100   // Vehicle?
+#define INST_FLAG_UNHIT 0x200 // Instance is a mmUnhitBangerInstance
+#define INST_FLAG_GLOW 0x400
+#define INST_FLAG_800 0x800   // Terrain Collidable? Passed from mmPhysicsMGR::Update to mmPhysicsMGR::GatherCollidables
+#define INST_FLAG_1000 0x1000 // mmBangerInstance::Draw - Increment lod
+#define INST_FLAG_2000 0x2000
+#define INST_FLAG_4000 0x4000 // Collided with Player?
 
     // INST_FLAG_*
     u16 Flags {INST_FLAG_ACTIVE};
@@ -311,9 +332,24 @@ public:
     u16 MeshIndex {0};
     i16 ChainId {-1};
 
-    // mmShardManager::GetInstance(ShardIndex)
-    u8 ShardIndex {0};
-    u8 AiVehicleIndex {0};
+    /*
+        mmFacadeInstance:
+            SubType = flags & 0xFF;
+            Owner = (flags >> 8) & 0xFF;
+
+        aiVehicleInstance:
+            aiVehicleManager::VehicleData[SubType]
+            aiVehicleManager::ActiveVehicles[Owner] ; aiVehicleInstance::GetEntity
+
+        mmBangerInstance:
+            mmBangerActiveManager::Bangers[Owner] ; mmBangerActiveManager::GetActive
+
+        mmShard:
+            mmShardManager::Instances[SubType] ; mmShardManager::GetInstance
+    */
+    u8 SubType {0};
+    u8 Owner {0};
+
     mmInstance* PrevChain {nullptr};
     mmInstance* NextChain {nullptr};
 };
@@ -362,7 +398,7 @@ public:
     // ?DeclareFields@mmMatrixInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap14[0x30];
+    Matrix34 Matrix {};
 };
 
 check_size(mmMatrixInstance, 0x44);
@@ -417,7 +453,7 @@ public:
     ARTS_IMPORT ~mmBuildingInstance() override = default;
 
     // ?Draw@mmBuildingInstance@@UAIXH@Z
-    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL Draw(i32 lod) override;
 
     // ?GetClass@mmBuildingInstance@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
@@ -434,7 +470,7 @@ public:
     // ?DeclareFields@mmBuildingInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap44[0x4];
+    f32 Scale {1.0f};
 };
 
 check_size(mmBuildingInstance, 0x48);

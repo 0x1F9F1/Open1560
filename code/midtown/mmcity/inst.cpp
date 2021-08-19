@@ -20,8 +20,12 @@ define_dummy_symbol(mmcity_inst);
 
 #include "inst.h"
 
+#include "agi/viewport.h"
 #include "agiworld/meshset.h"
+#include "arts7/sim.h"
 #include "heap.h"
+#include "mmcity/cullcity.h"
+#include "mmcity/renderweb.h"
 
 f32 mmInstance::LodTable[3 /*Inst Type*/][4 /*Terrain Quality*/][3 /*Lod Dist*/] {
     {
@@ -121,4 +125,31 @@ void* mmInstance::operator new(std::size_t size)
 void mmInstance::operator delete(void* ptr)
 {
     mmInstanceHeap.Free(ptr);
+}
+
+void mmBuildingInstance::Draw(i32 lod)
+{
+    enum
+    {
+        FACADE = 0,
+        GRND = 1,
+    };
+
+    Matrix34 world;
+    Viewport()->SetWorld(ToMatrix(world));
+
+    if (ARTSPTR->IsDebugDrawEnabled())
+        return;
+
+    if (asRenderWeb::PassMask & RENDER_PASS_TERRAIN)
+    {
+        if (agiMeshSet* mesh = GetMeshSet(INST_LOD_HIGH, GRND))
+            mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, AGI_MESH_DRAW_CLIP);
+    }
+
+    if (asRenderWeb::PassMask & RENDER_PASS_BUILDINGS)
+    {
+        if (agiMeshSet* mesh = GetResidentMeshSet(std::max(lod, INST_LOD_LOW), FACADE))
+            mesh->DrawLit(StaticLighter, AGI_MESH_DRAW_CLIP, nullptr);
+    }
 }

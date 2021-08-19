@@ -22,8 +22,7 @@ define_dummy_symbol(mmcar_carmodel);
 
 mmCarModel::mmCarModel()
 {
-    field_20.Identity();
-    Flags |= INST_FLAG_SHADOW | INST_FLAG_MOVER | INST_FLAG_VALID | INST_FLAG_400 | INST_FLAG_2000;
+    Flags |= INST_FLAG_SHADOW | INST_FLAG_MOVER | INST_FLAG_100 | INST_FLAG_GLOW | INST_FLAG_2000;
     CarFlags |= CAR_MODEL_FLAG_40;
 
     Sparks.Init(256, GetSparkLut(const_cast<char*>("tune/spark.tga")));

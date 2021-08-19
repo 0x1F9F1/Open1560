@@ -361,6 +361,6 @@ run_once([] {
 
     create_patch("agiMeshSet::DrawCard", "Invalid indices count", 0x50F718, "\x8D\x0C\x52", 3);
 
-    for (usize addr : {0x499281, 0x4991B9})
-        create_patch("mmCellRenderer::Cull", "Don't flush TexSorter", addr, "\x83\xC4\x04\x90\x90", 5);
+    // for (usize addr : {0x499281, 0x4991B9})
+    //     create_patch("mmCellRenderer::Cull", "Don't flush TexSorter", addr, "\x83\xC4\x04\x90\x90", 5);
 });

@@ -168,7 +168,7 @@ public:
 #define CAR_MODEL_FLAG_TRAILER 0x80
 
     u32 CarFlags {0};
-    Matrix34 field_20 {};
+    Matrix34 field_20 {IDENTITY};
     i32 field_50 {0};
     i32 PaintJobIndex {0};
     mmDamage DamageHigh {};

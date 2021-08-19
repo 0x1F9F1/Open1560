@@ -64,6 +64,12 @@
 
 #include "portal.h"
 
+#define RENDER_PASS_TERRAIN 0x1   // Roads, Grass, Water, Bridges
+#define RENDER_PASS_SHADOWS 0x2   // Shadows, Skids
+#define RENDER_PASS_BUILDINGS 0x4 // Buildings
+#define RENDER_PASS_OBJECTS 0x8   // Objects
+#define RENDER_PASS_LIGHTS 0x10   // Lights
+
 class asRenderWeb final : public asPortalWeb
 {
     // const asRenderWeb::`vftable'
@@ -118,6 +124,7 @@ public:
     ARTS_IMPORT static f32 InvLodFactor;
 
     // ?PassMask@asRenderWeb@@2HA
+    // RENDER_PASS_*
     ARTS_IMPORT static i32 PassMask;
 
     u8 gap904C[0x12C];

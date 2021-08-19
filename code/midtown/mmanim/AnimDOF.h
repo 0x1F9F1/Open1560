@@ -59,13 +59,13 @@ public:
     // ??_GmmDrawbridgeInstance@@UAEPAXI@Z
     // ??_EmmDrawbridgeInstance@@UAEPAXI@Z
     // ??1mmDrawbridgeInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmDrawbridgeInstance() override = default;
+    ARTS_EXPORT ~mmDrawbridgeInstance() override = default;
 
     // ?Draw@mmDrawbridgeInstance@@UAIXH@Z
     ARTS_EXPORT void ARTS_FASTCALL Draw(i32 lod) override;
 
     // ?InitBridge@mmDrawbridgeInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
-    ARTS_IMPORT i32 InitBridge(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
+    ARTS_IMPORT i32 InitBridge(char* name, char* part, i32 flags, class Matrix34* matrix, class Vector3* offset);
 };
 
 check_size(mmDrawbridgeInstance, 0x34);

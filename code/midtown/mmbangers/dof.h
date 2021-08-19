@@ -47,7 +47,7 @@ public:
     ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
-    ARTS_IMPORT i32 Init(char* arg1, char* arg2, i32 arg3, class Matrix34* arg4, class Vector3* arg5);
+    ARTS_IMPORT i32 Init(char* name, char* part, i32 flags, class Matrix34* matrix, class Vector3* offset);
 
     // ?SizeOf@mmDofBangerInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
