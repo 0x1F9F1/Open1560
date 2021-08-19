@@ -1,8 +1,8 @@
 arts_component "mmphysics"
     files {
-        -- "aero.cpp",
+        "aero.cpp",
         "aero.h",
-        -- "bound.cpp",
+        "bound.cpp",
         "bound.h",
         "entity.cpp",
         "entity.h",

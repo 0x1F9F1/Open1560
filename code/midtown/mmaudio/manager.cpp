@@ -20,7 +20,7 @@ define_dummy_symbol(mmaudio_manager);
 
 #include "manager.h"
 
-u32 AudManager::GetNum3DHalBufs()
+ulong AudManager::GetNum3DHalBufs()
 {
     return 0;
 }

@@ -73,6 +73,8 @@
 
 #include "arts7/node.h"
 
+enum class mmCRGameClass : i32;
+
 class mmWPHUD final : public asNode
 {
     // const mmWPHUD::`vftable'

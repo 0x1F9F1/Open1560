@@ -33,6 +33,8 @@
 
 #include "arts7/node.h"
 
+#include "vector7/vector3.h"
+
 struct asSparkInfo;
 struct asSparkPos;
 

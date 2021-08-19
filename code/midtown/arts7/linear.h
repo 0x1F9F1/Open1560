@@ -71,7 +71,7 @@ public:
 
     Matrix34 Matrix {};
     Matrix34 World {};
-    b32 Global {false};
+    i32 Global {false};
     asLinearCS* Inherit {nullptr};
 };
 

@@ -33,5 +33,5 @@ i32 mmMultiCR::SelectTeams()
     return 0;
 }
 
-void mmMultiCR::SendSetup(u32 /*arg1*/)
+void mmMultiCR::SendSetup(ulong /*arg1*/)
 {}

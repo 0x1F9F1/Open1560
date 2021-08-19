@@ -20,6 +20,8 @@ define_dummy_symbol(mmwidget_label);
 
 #include "label.h"
 
+#include "eventq7/eventq.h"
+
 void UILabel::Action(union eqEvent /*arg1*/)
 {}
 

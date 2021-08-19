@@ -38,6 +38,8 @@
     0x4D2130 | public: float __thiscall mmRaceData::GetDifficulty(int,enum mmSkillLevel) | ?GetDifficulty@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
 */
 
+enum class mmSkillLevel : i32;
+
 struct mmRaceData
 {
 public:

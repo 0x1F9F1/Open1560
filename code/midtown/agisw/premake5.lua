@@ -2,7 +2,7 @@ arts_component "agisw"
     files {
         "swddraw.cpp",
         "swddraw.h",
-        -- "swemitrunall.cpp",
+        "swemitrunall.cpp",
         "swemitrunall.h",
         "swpipe.cpp",
         "swpipe.h",

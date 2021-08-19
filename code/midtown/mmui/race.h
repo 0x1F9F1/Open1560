@@ -37,6 +37,8 @@
 
 #include "racebase.h"
 
+enum class mmGameMode : i32;
+
 class RaceMenu final : public RaceMenuBase
 {
     // const RaceMenu::`vftable'

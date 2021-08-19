@@ -45,10 +45,10 @@ ARTS_IMPORT void* jpeg_get_large(struct jpeg_common_struct* arg1, u32 arg2);
 ARTS_IMPORT void* jpeg_get_small(struct jpeg_common_struct* arg1, u32 arg2);
 
 // ?jpeg_mem_available@@YAJPAUjpeg_common_struct@@JJJ@Z
-ARTS_IMPORT i32 jpeg_mem_available(struct jpeg_common_struct* arg1, i32 arg2, i32 arg3, i32 arg4);
+ARTS_IMPORT ilong jpeg_mem_available(struct jpeg_common_struct* arg1, ilong arg2, ilong arg3, ilong arg4);
 
 // ?jpeg_mem_init@@YAJPAUjpeg_common_struct@@@Z
-ARTS_EXPORT i32 jpeg_mem_init(struct jpeg_common_struct* arg1);
+ARTS_EXPORT ilong jpeg_mem_init(struct jpeg_common_struct* arg1);
 
 // ?jpeg_mem_term@@YAXPAUjpeg_common_struct@@@Z
 ARTS_EXPORT void jpeg_mem_term(struct jpeg_common_struct* arg1);

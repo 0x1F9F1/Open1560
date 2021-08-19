@@ -113,6 +113,8 @@
 
 #include "arts7/node.h"
 
+#include "vector7/vector3.h"
+
 class aiIntersection;
 class aiPath;
 class aiPedestrian;

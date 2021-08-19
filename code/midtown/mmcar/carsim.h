@@ -88,6 +88,7 @@
 #include "mmphysics/aero.h"
 #include "mmphysics/bound.h"
 #include "mmphysics/inertia.h"
+#include "mmphysics/osample.h"
 
 #include "axle.h"
 #include "drivetrain.h"
@@ -104,6 +105,7 @@ class mmPlayerCarAudio;
 class mmOpponentCarAudio;
 class mmPoliceCarAudio;
 class mmNetworkCarAudio;
+class mmCarModel;
 class mmCarRoadFF;
 
 // ?IMPACTCB@@YAXPAVmmCarSim@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M3@Z

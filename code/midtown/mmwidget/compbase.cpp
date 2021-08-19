@@ -20,6 +20,8 @@ define_dummy_symbol(mmwidget_compbase);
 
 #include "compbase.h"
 
+#include "eventq7/eventq.h"
+
 void mmCompBase::Action(union eqEvent /*arg1*/, f32 /*arg2*/, f32 /*arg3*/, i32 /*arg4*/)
 {}
 

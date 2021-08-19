@@ -9,11 +9,11 @@ arts_component "arts7"
         "cullable.h",
         "cullmgr.cpp",
         "cullmgr.h",
-        -- "dof.cpp",
+        "dof.cpp",
         "dof.h",
-        -- "form.cpp",
+        "form.cpp",
         "form.h",
-        -- "lamp.cpp",
+        "lamp.cpp",
         "lamp.h",
         "linear.cpp",
         "linear.h",
@@ -23,7 +23,7 @@ arts_component "arts7"
 
         "sim.cpp",
         "sim.h",
-        -- "view.cpp",
+        "view.cpp",
         "view.h",
     }
 

@@ -260,7 +260,7 @@ public:
     ARTS_IMPORT class MixerCTL* GetMixerPtr();
 
     // ?GetNum3DHalBufs@AudManager@@QAEKXZ
-    ARTS_EXPORT u32 GetNum3DHalBufs();
+    ARTS_EXPORT ulong GetNum3DHalBufs();
 
     // ?GetNumCDTracks@AudManager@@QAEFXZ
     ARTS_IMPORT i16 GetNumCDTracks();

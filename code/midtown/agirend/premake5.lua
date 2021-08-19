@@ -1,17 +1,17 @@
 arts_component "agirend"
     files {
-        -- "bilight.cpp",
+        "bilight.cpp",
         "bilight.h",
-        -- "bilmodel.cpp",
+        "bilmodel.cpp",
         "bilmodel.h",
-        -- "lighter.cpp",
+        "lighter.cpp",
         "lighter.h",
-        -- "projvtx.cpp",
+        "projvtx.cpp",
         "projvtx.h",
-        -- "rdlp.cpp",
+        "rdlp.cpp",
         "rdlp.h",
         "surfrender.cpp",
         "surfrender.h",
-        -- "zbrender.cpp",
+        "zbrender.cpp",
         "zbrender.h",
     }

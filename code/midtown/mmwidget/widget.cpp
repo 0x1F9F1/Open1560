@@ -20,6 +20,8 @@ define_dummy_symbol(mmwidget_widget);
 
 #include "widget.h"
 
+#include "eventq7/eventq.h"
+
 void uiWidget::Action(union eqEvent /*arg1*/)
 {}
 
