@@ -73,7 +73,7 @@ public:
     ARTS_IMPORT void AddShard(class Vector3 arg1, class Vector3 arg2, class Vector3 arg3, f32 arg4);
 
     // ?Draw@mmShard@@UAIXH@Z
-    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL Draw(i32 lod) override;
 
     // ?GetClass@mmShard@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT class MetaClass* GetClass() override;
@@ -87,7 +87,10 @@ public:
     // ?DeclareFields@mmShard@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap44[0x20];
+    Vector3 Velocity;
+    Vector3 RotationAxis;
+    f32 Age;
+    f32 RotationSpeed;
 };
 
 check_size(mmShard, 0x64);
@@ -135,6 +138,8 @@ public:
 
     // ?GetInstance@mmShardManager@@SAPAV1@H@Z
     ARTS_EXPORT static class mmShardManager* GetInstance(i32 index);
+
+    friend class mmShard;
 
 protected:
     // ?Instances@mmShardManager@@1PAPAV1@A

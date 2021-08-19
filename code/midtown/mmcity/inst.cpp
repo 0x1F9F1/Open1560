@@ -135,11 +135,11 @@ void mmBuildingInstance::Draw(i32 lod)
         GRND = 1,
     };
 
-    Matrix34 world;
-    Viewport()->SetWorld(ToMatrix(world));
-
     if (ARTSPTR->IsDebugDrawEnabled())
         return;
+
+    Matrix34 world;
+    Viewport()->SetWorld(ToMatrix(world));
 
     if (asRenderWeb::PassMask & RENDER_PASS_TERRAIN)
     {

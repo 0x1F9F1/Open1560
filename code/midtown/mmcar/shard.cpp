@@ -20,6 +20,35 @@ define_dummy_symbol(mmcar_shard);
 
 #include "shard.h"
 
+#include "agi/rsys.h"
+#include "agi/viewport.h"
+#include "agiworld/meshset.h"
+#include "arts7/sim.h"
+
+void mmShard::Draw(i32 lod)
+{
+    if (ARTSPTR->IsDebugDrawEnabled())
+        return;
+
+    Matrix34 world;
+    Viewport()->SetWorld(ToMatrix(world));
+
+    agiMeshSet* mesh = GetMeshSet(lod, 0);
+    mmShardManager* manager = mmShardManager::GetInstance(SubType);
+
+    if (mesh && manager)
+    {
+        mesh->Textures[0][1] = manager->TexDef;
+
+        // FIXME: Backfaces are still culled in HW mode, because the verts are not directly sent to the rasterizer
+        auto cull_mode = agiCurState.SetCullMode(agiCullMode::None);
+
+        mesh->Draw(MESH_DRAW_CLIP);
+
+        agiCurState.SetCullMode(cull_mode);
+    }
+}
+
 class mmShardManager* mmShardManager::Instances[64];
 
 mmShardManager::mmShardManager()
