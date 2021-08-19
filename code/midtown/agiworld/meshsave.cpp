@@ -55,18 +55,18 @@ void agiMeshSet::BinarySave(Stream* stream)
     if (VertexCount >= 16)
         cache_size += AlignSize(8 * sizeof(Vector3));
 
-    if (Flags & AGI_MESH_SET_LIT)
+    if (Flags & MESH_SET_NORMAL)
         cache_size += AlignSize(AdjunctCount * sizeof(*Normals));
 
-    if (Flags & AGI_MESH_SET_UV)
+    if (Flags & MESH_SET_UV)
         cache_size += AlignSize(AdjunctCount * sizeof(*TexCoords));
 
-    if (Flags & AGI_MESH_SET_CPV)
+    if (Flags & MESH_SET_CPV)
         cache_size += AlignSize(AdjunctCount * sizeof(*Colors));
 
     cache_size += AlignSize(AdjunctCount * sizeof(*VertexIndices));
 
-    if (Flags & AGI_MESH_SET_PLANES)
+    if (Flags & MESH_SET_PLANES)
         cache_size += AlignSize(SurfaceCount * sizeof(*Planes));
 
     cache_size += AlignSize(SurfaceCount * sizeof(*TextureIndices));
@@ -89,18 +89,18 @@ void agiMeshSet::BinarySave(Stream* stream)
     if (VertexCount >= 16)
         stream->Write(BoundingBox, 8 * sizeof(*BoundingBox));
 
-    if (Flags & AGI_MESH_SET_LIT)
+    if (Flags & MESH_SET_NORMAL)
         stream->Write(Normals, AdjunctCount * sizeof(*Normals));
 
-    if (Flags & AGI_MESH_SET_UV)
+    if (Flags & MESH_SET_UV)
         stream->Write(TexCoords, AdjunctCount * sizeof(*TexCoords));
 
-    if (Flags & AGI_MESH_SET_CPV)
+    if (Flags & MESH_SET_CPV)
         stream->Write(Colors, AdjunctCount * sizeof(*Colors));
 
     stream->Write(VertexIndices, AdjunctCount * sizeof(*VertexIndices));
 
-    if (Flags & AGI_MESH_SET_PLANES)
+    if (Flags & MESH_SET_PLANES)
         stream->Write(Planes, SurfaceCount * sizeof(*Planes));
 
     stream->Write(TextureIndices, SurfaceCount * sizeof(*TextureIndices));

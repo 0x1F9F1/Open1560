@@ -42,42 +42,42 @@
 #include <atomic>
 
 // agiMeshSet::Flags
-#define AGI_MESH_SET_UV 0x1      // agiMeshSet::TexCoords
-#define AGI_MESH_SET_LIT 0x2     // agiMeshSet::Normals
-#define AGI_MESH_SET_CPV 0x4     // agiMeshSet::Colors
-#define AGI_MESH_SET_OFFSET 0x8  // agiMeshSet::Vertices are offset
-#define AGI_MESH_SET_PLANES 0x10 // agiMeshSet::Planes
+#define MESH_SET_UV 0x1      // agiMeshSet::TexCoords
+#define MESH_SET_NORMAL 0x2  // agiMeshSet::Normals
+#define MESH_SET_CPV 0x4     // agiMeshSet::Colors
+#define MESH_SET_OFFSET 0x8  // agiMeshSet::Vertices are offset
+#define MESH_SET_PLANES 0x10 // agiMeshSet::Planes
 
 // GetMeshSet
-// mesh->Flags = flags & AGI_MESH_SET_FLAGS_MASK
-#define AGI_MESH_SET_FLAGS_MASK \
-    (AGI_MESH_SET_UV | AGI_MESH_SET_LIT | AGI_MESH_SET_CPV | AGI_MESH_SET_OFFSET | AGI_MESH_SET_PLANES)
-
-// if (!(flags & 0x100) && (EnablePaging & 2) && FileSystem::PagerInfoAny(bms_path, &pager))
-#define AGI_MESH_SET_KEEP_LOADED 0x100 // Overlaps with AGI_MESH_SET_VARIANT_MASK, why?
-
-// if (flags & 0xF00) mesh->Variant = flags >> 8
-#define AGI_MESH_SET_VARIANT_MASK 0xF00
-#define AGI_MESH_SET_VARIANT_SHIFT 8
+// mesh->Flags = flags & MESH_SET_FLAGS_MASK
+#define MESH_SET_FLAGS_MASK (MESH_SET_UV | MESH_SET_NORMAL | MESH_SET_CPV | MESH_SET_OFFSET | MESH_SET_PLANES)
 
 // mmInstance::GetMeshSetSet
-#define AGI_MESH_SET_SET_NO_BOUND 0x40
-#define AGI_MESH_SET_SET_BREAKABLE 0x80 // strcat(bnd_name, "_break")
+#define MESH_SET_NO_BOUND 0x40
+#define MESH_SET_BREAKABLE 0x80 // strcat(bnd_name, "_break")
+
+// if (!(flags & 0x100) && (EnablePaging & 2) && FileSystem::PagerInfoAny(bms_path, &pager))
+#define MESH_SET_KEEP_LOADED 0x100 // FIXME: Overlaps with MESH_SET_VARIANT_MASK
+
+// if (flags & 0xF00) mesh->Variant = flags >> 8
+#define MESH_SET_VARIANT_MASK 0xF00
+#define MESH_SET_VARIANT_SHIFT 8
 
 using agiMeshLighter = void (*)(u8* codes, u32* output, u32* colors, class agiMeshSet* mesh);
 
-#define AGI_MESH_DRAW_CLIP 0x1        // Use agiMeshSet::codes
-#define AGI_MESH_DRAW_DYNTEX 0x8      // Do not share vertices between textures
-#define AGI_MESH_DRAW_VARIANT_SHIFT 4 // CurrentMeshSetVariant = flags >> 4
+#define MESH_DRAW_CLIP 0x1   // Use agiMeshSet::codes
+#define MESH_DRAW_DYNTEX 0x8 // Do not share vertices between textures
+#define MESH_DRAW_VARIANT(VARIANT) ((VARIANT) << 4)
+#define MESH_DRAW_GET_VARIANT(VARIANT) ((VARIANT) >> 4)
 
-#define AGI_MESH_CLIP_NX 0x01     // Clip -X
-#define AGI_MESH_CLIP_PX 0x02     // Clip +X
-#define AGI_MESH_CLIP_NY 0x04     // Clip -Y
-#define AGI_MESH_CLIP_PY 0x08     // Clip +Y
-#define AGI_MESH_CLIP_NZ 0x10     // Clip -Z
-#define AGI_MESH_CLIP_PZ 0x20     // Clip +Z
-#define AGI_MESH_CLIP_ANY 0x3F    // Clip *
-#define AGI_MESH_CLIP_SCREEN 0x40 // ToScreen
+#define MESH_CLIP_NX 0x01     // Clip -X
+#define MESH_CLIP_PX 0x02     // Clip +X
+#define MESH_CLIP_NY 0x04     // Clip -Y
+#define MESH_CLIP_PY 0x08     // Clip +Y
+#define MESH_CLIP_NZ 0x10     // Clip -Z
+#define MESH_CLIP_PZ 0x20     // Clip +Z
+#define MESH_CLIP_ANY 0x3F    // Clip *
+#define MESH_CLIP_SCREEN 0x40 // ToScreen
 
 class agiMeshSet
 {
@@ -267,7 +267,7 @@ public:
     // ?MirrorMode@agiMeshSet@@2HA | agiworld:meshrend
     ARTS_EXPORT static b32 MirrorMode;
 
-    // AGI_MESH_CLIP_*
+    // MESH_CLIP_*
     // ?codes@agiMeshSet@@2PAEA | agiworld:meshrend
     ARTS_EXPORT static u8 codes[16384];
 
@@ -429,7 +429,7 @@ public:
     u8 TextureCount {0};
     u8 VariationCount {0};
 
-    // AGI_MESH_SET_*
+    // MESH_SET_*
     u8 Flags {0};
 
     // 0 | Unloaded

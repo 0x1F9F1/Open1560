@@ -526,7 +526,7 @@ RcOwner<agiBitmap> mmText::CreateFitBitmap(char* text, void* font_ptr, i32 color
         i32 extra = (bg_color != -1) ? 2 : 0;
 
         bitmap->Init(arts_formatf<256>("*FitBitmap:%p", bitmap.get()), static_cast<f32>(size.cx + extra),
-            static_cast<f32>(size.cy + extra), AGI_BITMAP_TRANSPARENT | AGI_BITMAP_OFFSCREEN);
+            static_cast<f32>(size.cy + extra), BITMAP_TRANSPARENT | BITMAP_OFFSCREEN);
     }
 
     if (bg_color != -1)

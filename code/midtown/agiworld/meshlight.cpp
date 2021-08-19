@@ -181,7 +181,7 @@ void agiMeshLighterTriple(
 
     for (i32 i = 0; i < count; ++i, colors += stride)
     {
-        if (codes && !(codes[mesh->VertexIndices[i]] & AGI_MESH_CLIP_SCREEN))
+        if (codes && !(codes[mesh->VertexIndices[i]] & MESH_CLIP_SCREEN))
             continue;
 
         u32 const color = *colors;

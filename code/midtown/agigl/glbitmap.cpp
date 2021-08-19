@@ -86,7 +86,7 @@ i32 agiGLBitmap::BeginGfx()
         return AGI_ERROR_UNSUPPORTED;
     }
 
-    if (name_[0] != '*' || (flags_ & AGI_BITMAP_UNLOAD_ALWAYS))
+    if (name_[0] != '*' || (flags_ & BITMAP_UNLOAD_ALWAYS))
     {
         tex_def_->Surface->Surface = nullptr;
 

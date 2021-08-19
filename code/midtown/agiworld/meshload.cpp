@@ -92,18 +92,18 @@ void agiMeshSet::BinaryLoad(Stream* stream)
     if (VertexCount >= 16)
         BoundingBox = stream->ReadMapped<Vector3>(8);
 
-    if (Flags & AGI_MESH_SET_LIT)
+    if (Flags & MESH_SET_NORMAL)
         Normals = stream->ReadMapped<u8>(AdjunctCount);
 
-    if (Flags & AGI_MESH_SET_UV)
+    if (Flags & MESH_SET_UV)
         TexCoords = stream->ReadMapped<Vector2>(AdjunctCount);
 
-    if (Flags & AGI_MESH_SET_CPV)
+    if (Flags & MESH_SET_CPV)
         Colors = stream->ReadMapped<u32>(AdjunctCount);
 
     VertexIndices = stream->ReadMapped<u16>(AdjunctCount);
 
-    if (Flags & AGI_MESH_SET_PLANES)
+    if (Flags & MESH_SET_PLANES)
         Planes = stream->ReadMapped<Vector4>(SurfaceCount);
 
     TextureIndices = stream->ReadMapped<u8>(SurfaceCount);
@@ -215,18 +215,18 @@ void agiMeshSet::DoPageIn()
     if (VertexCount >= 16)
         X(BoundingBox, 8);
 
-    if (Flags & AGI_MESH_SET_LIT)
+    if (Flags & MESH_SET_NORMAL)
         X(Normals, AdjunctCount);
 
-    if (Flags & AGI_MESH_SET_UV)
+    if (Flags & MESH_SET_UV)
         X(TexCoords, AdjunctCount);
 
-    if (Flags & AGI_MESH_SET_CPV)
+    if (Flags & MESH_SET_CPV)
         X(Colors, AdjunctCount);
 
     X(VertexIndices, AdjunctCount);
 
-    if (Flags & AGI_MESH_SET_PLANES)
+    if (Flags & MESH_SET_PLANES)
         X(Planes, SurfaceCount);
 
     X(TextureIndices, SurfaceCount);

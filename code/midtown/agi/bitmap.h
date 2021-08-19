@@ -38,9 +38,9 @@
 
 #include "surface.h"
 
-#define AGI_BITMAP_TRANSPARENT 0x1    // Chromakey
-#define AGI_BITMAP_OFFSCREEN 0x2      // Blit-able
-#define AGI_BITMAP_UNLOAD_ALWAYS 0x10 // TODO: Can this be 0x4 ?
+#define BITMAP_TRANSPARENT 0x1    // Chromakey
+#define BITMAP_OFFSCREEN 0x2      // Blit-able
+#define BITMAP_UNLOAD_ALWAYS 0x10 // TODO: Can this be 0x4 ?
 
 class agiBitmap : public agiRefreshable
 {
@@ -84,7 +84,7 @@ public:
 
     bool IsTransparent() const
     {
-        return flags_ & AGI_BITMAP_TRANSPARENT;
+        return flags_ & BITMAP_TRANSPARENT;
     }
 
     bool NeedsReload() const
@@ -102,7 +102,7 @@ protected:
 
     Ptr<agiSurfaceDesc> surface_;
 
-    // AGI_BITMAP_*
+    // BITMAP_*
     u32 flags_ {0};
     i32 width_ {0};
     i32 height_ {0};

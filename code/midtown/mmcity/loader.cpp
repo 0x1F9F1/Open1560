@@ -31,7 +31,7 @@ void mmLoader::Init(char* underlay_name, f32 bar_x, f32 bar_y)
 
     camera_.SetUnderlay(underlay_name);
 
-    task_text_.Init(0.25f, 0.85f, 0.5f, 0.0729f, 2, AGI_BITMAP_TRANSPARENT);
+    task_text_.Init(0.25f, 0.85f, 0.5f, 0.0729f, 2, BITMAP_TRANSPARENT);
     task_text_.AddText(myFont, LOC_TEXT(""), MM_TEXT_CENTER, 0.0f, 0.0f);
     task_text_.AddText(myFont, LOC_TEXT(""), MM_TEXT_CENTER, 0.0f, 0.075f);
 

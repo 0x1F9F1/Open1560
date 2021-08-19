@@ -97,13 +97,13 @@ void agiMeshSet::ComputePlaneEquations()
 
 void agiMeshSet::Offset(Vector3 offset)
 {
-    if (Flags & AGI_MESH_SET_OFFSET)
+    if (Flags & MESH_SET_OFFSET)
         return;
 
     for (u32 i = 0; i < VertexCount; ++i)
         Vertices[i] -= offset;
 
-    Flags |= AGI_MESH_SET_OFFSET;
+    Flags |= MESH_SET_OFFSET;
     ComputePlaneEquations();
 }
 

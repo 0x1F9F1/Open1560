@@ -40,7 +40,7 @@ void mmTextNode::Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 fl
 
     text_bitmap_ = AsRc(Pipe()->CreateBitmap());
     text_bitmap_->Init(arts_formatf<256>("*TextNode:%p", this), width * Pipe()->GetWidth(),
-        height * Pipe()->GetHeight(), flags | AGI_BITMAP_UNLOAD_ALWAYS);
+        height * Pipe()->GetHeight(), flags | BITMAP_UNLOAD_ALWAYS);
 
     // hl_color_ = 0xFFFFFF00
 }

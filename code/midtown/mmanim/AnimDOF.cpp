@@ -46,13 +46,13 @@ void mmDrawbridgeInstance::Draw(i32 lod)
     if (asRenderWeb::PassMask & RENDER_PASS_TERRAIN)
     {
         if (agiMeshSet* mesh = GetResidentMeshSet(lod, BRIDGE))
-            mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, AGI_MESH_DRAW_CLIP);
+            mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, MESH_DRAW_CLIP);
     }
 
     if (asRenderWeb::PassMask & RENDER_PASS_OBJECTS)
     {
         if (agiMeshSet* mesh = GetResidentMeshSet(lod, RAIL))
-            mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, AGI_MESH_DRAW_CLIP);
+            mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, MESH_DRAW_CLIP);
     }
 
     agiCurState.SetZEnable(zenable);

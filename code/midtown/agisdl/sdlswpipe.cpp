@@ -209,7 +209,7 @@ public:
 
         state_ = 1;
 
-        if (name_[0] != '*' || (flags_ & AGI_BITMAP_UNLOAD_ALWAYS))
+        if (name_[0] != '*' || (flags_ & BITMAP_UNLOAD_ALWAYS))
             surface_->Unload();
 
         UpdateFlags();

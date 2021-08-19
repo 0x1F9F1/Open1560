@@ -66,7 +66,7 @@ i32 agiDDBitmap::BeginGfx()
     ddsdDest.dwWidth = width_;
     ddsdDest.dwFlags = DDSD_CAPS | DDSD_WIDTH | DDSD_HEIGHT;
     ddsdDest.dwHeight = height_;
-    ddsdDest.ddsCaps.dwCaps = (flags_ & AGI_BITMAP_OFFSCREEN) ? DDSCAPS_OFFSCREENPLAIN : DDSCAPS_SYSTEMMEMORY;
+    ddsdDest.ddsCaps.dwCaps = (flags_ & BITMAP_OFFSCREEN) ? DDSCAPS_OFFSCREENPLAIN : DDSCAPS_SYSTEMMEMORY;
 
     if (Pipe()->GetDirectDraw()->CreateSurface(&ddsdDest, &d_surf_, nullptr))
     {
@@ -91,7 +91,7 @@ i32 agiDDBitmap::BeginGfx()
 
     agiDisplayf("Bitmap %s: %d bytes texture memory total, %d available", name_.get(), dwTotal, dwFree);
 
-    if (name_[0] != '*' || (flags_ & AGI_BITMAP_UNLOAD_ALWAYS))
+    if (name_[0] != '*' || (flags_ & BITMAP_UNLOAD_ALWAYS))
         surface_->Unload();
 
     UpdateFlags();

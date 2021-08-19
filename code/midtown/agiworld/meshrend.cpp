@@ -100,11 +100,11 @@ ARTS_IMPORT extern CT* ClippedTextures[256];
 static bool OnlyZClip = false;
 ARTS_IMPORT extern Matrix44 ShadowMatrix;
 
-u32 ClipMask = AGI_MESH_CLIP_ANY;
+u32 ClipMask = MESH_CLIP_ANY;
 
 void SetClipMode(b32 mask_only_z)
 {
-    ClipMask = mask_only_z ? (AGI_MESH_CLIP_NZ | AGI_MESH_CLIP_PZ) : AGI_MESH_CLIP_ANY;
+    ClipMask = mask_only_z ? (MESH_CLIP_NZ | MESH_CLIP_PZ) : MESH_CLIP_ANY;
     OnlyZClip = true;
 }
 
@@ -211,7 +211,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
 
     for (i32 i = 0; i < count; ++i)
     {
-        if (!(in_codes[i] & AGI_MESH_CLIP_SCREEN))
+        if (!(in_codes[i] & MESH_CLIP_SCREEN))
             continue;
 
         Vector4& vert = verts[i];
@@ -458,7 +458,7 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
     MaxY = OffsY - HalfHeight;
 
     OnlyZClip = false;
-    ClipMask = AGI_MESH_CLIP_ANY;
+    ClipMask = MESH_CLIP_ANY;
 
     if (GetRendererInfo().SpecialFlags & 0x20)
     {
@@ -472,7 +472,7 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
             MaxY = +INFINITY;
 
             OnlyZClip = true;
-            ClipMask = AGI_MESH_CLIP_NZ | AGI_MESH_CLIP_PZ;
+            ClipMask = MESH_CLIP_NZ | MESH_CLIP_PZ;
         }
     }
     else
@@ -688,7 +688,7 @@ void agiMeshSet::FirstPass(u32* colors, Vector2* tex_coords, u32 color)
 
     ARTS_UTIMED(agiFirstPass);
 
-    (this->*FirstPassFunctions[agiCurState.GetSoftwareRendering()][tex_coords == nullptr][colors == nullptr][(DynTexFlag & AGI_MESH_DRAW_DYNTEX) != 0])(
+    (this->*FirstPassFunctions[agiCurState.GetSoftwareRendering()][tex_coords == nullptr][colors == nullptr][(DynTexFlag & MESH_DRAW_DYNTEX) != 0])(
         colors, tex_coords, color);
 }
 
@@ -710,7 +710,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
 
     Init(planes && (SurfaceCount > 1));
 
-    u32 clip_mask = (flags & AGI_MESH_DRAW_CLIP) ? AGI_MESH_CLIP_ANY : 0; // clip_any | (clip_all << 8)
+    u32 clip_mask = (flags & MESH_DRAW_CLIP) ? MESH_CLIP_ANY : 0; // clip_any | (clip_all << 8)
 
     {
         ARTS_UTIMED(agiTransformTimer);
@@ -744,8 +744,8 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
         fill_bytes(vertCounts, TextureCount + 1, 0);
         fill_bytes(indexCounts, TextureCount + 1, 0);
 
-        DynTexFlag = flags & AGI_MESH_DRAW_DYNTEX;
-        CurrentMeshSetVariant = std::min<i32>(flags >> AGI_MESH_DRAW_VARIANT_SHIFT, VariationCount - 1);
+        DynTexFlag = flags & MESH_DRAW_DYNTEX;
+        CurrentMeshSetVariant = std::min<i32>(MESH_DRAW_GET_VARIANT(flags), VariationCount - 1);
 
         if (clip_mask)
         {
@@ -779,7 +779,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                     num_index = 3;
                 }
 
-                if (!(clip_all & AGI_MESH_CLIP_ANY) && (!planes || !IsBackfacing(planes[i])))
+                if (!(clip_all & MESH_CLIP_ANY) && (!planes || !IsBackfacing(planes[i])))
                 {
                     u8 texture = TextureIndices[i];
 
@@ -803,12 +803,12 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                         firstFacet[texture] = static_cast<i16>(i);
                     }
 
-                    codes[indices[0]] |= AGI_MESH_CLIP_SCREEN;
-                    codes[indices[1]] |= AGI_MESH_CLIP_SCREEN;
-                    codes[indices[2]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[indices[0]] |= MESH_CLIP_SCREEN;
+                    codes[indices[1]] |= MESH_CLIP_SCREEN;
+                    codes[indices[2]] |= MESH_CLIP_SCREEN;
 
                     if (surface[3])
-                        codes[indices[3]] |= AGI_MESH_CLIP_SCREEN;
+                        codes[indices[3]] |= MESH_CLIP_SCREEN;
                 }
             }
         }
@@ -817,7 +817,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
             // Either we didn't use TransformOutcode, or we don't care about the clipping it returned. Either way, initialize codes
             fill_bytes(codes, VertexCount,
 #ifdef CLIP_ALL_TO_SCREEN
-                AGI_MESH_CLIP_SCREEN
+                MESH_CLIP_SCREEN
 #else
                 0
 #endif
@@ -836,7 +836,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                         indexCounts[texture] += 6;
 
 #ifndef CLIP_ALL_TO_SCREEN
-                        codes[VertexIndices[surface[3]]] |= AGI_MESH_CLIP_SCREEN;
+                        codes[VertexIndices[surface[3]]] |= MESH_CLIP_SCREEN;
 #endif
                     }
                     else
@@ -846,9 +846,9 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
                     }
 
 #ifndef CLIP_ALL_TO_SCREEN
-                    codes[VertexIndices[surface[0]]] |= AGI_MESH_CLIP_SCREEN;
-                    codes[VertexIndices[surface[1]]] |= AGI_MESH_CLIP_SCREEN;
-                    codes[VertexIndices[surface[2]]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[VertexIndices[surface[0]]] |= MESH_CLIP_SCREEN;
+                    codes[VertexIndices[surface[1]]] |= MESH_CLIP_SCREEN;
+                    codes[VertexIndices[surface[2]]] |= MESH_CLIP_SCREEN;
 #endif
 
                     nextFacet[i] = firstFacet[texture];
@@ -870,7 +870,7 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& plane, 
     ClippedTextures[0] = 0;
     ShadowInit(plane, light_dir);
 
-    u32 clip_mask = (flags & AGI_MESH_DRAW_CLIP) ? AGI_MESH_CLIP_ANY : 0; // clip_any | (clip_all << 8)
+    u32 clip_mask = (flags & MESH_DRAW_CLIP) ? MESH_CLIP_ANY : 0; // clip_any | (clip_all << 8)
 
     {
         ARTS_UTIMED(agiTransformTimer);
@@ -939,7 +939,7 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& plane, 
                     num_index = 3;
                 }
 
-                if (!(clip_all & AGI_MESH_CLIP_ANY))
+                if (!(clip_all & MESH_CLIP_ANY))
                 {
                     if (clip_any & ClipMask)
                     {
@@ -961,12 +961,12 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& plane, 
                         firstFacet[0] = static_cast<i16>(i);
                     }
 
-                    codes[indices[0]] |= AGI_MESH_CLIP_SCREEN;
-                    codes[indices[1]] |= AGI_MESH_CLIP_SCREEN;
-                    codes[indices[2]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[indices[0]] |= MESH_CLIP_SCREEN;
+                    codes[indices[1]] |= MESH_CLIP_SCREEN;
+                    codes[indices[2]] |= MESH_CLIP_SCREEN;
 
                     if (surface[3])
-                        codes[indices[3]] |= AGI_MESH_CLIP_SCREEN;
+                        codes[indices[3]] |= MESH_CLIP_SCREEN;
                 }
             }
         }
@@ -975,7 +975,7 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& plane, 
             // Either we didn't use TransformOutcode, or we don't care about the clipping it returned. Either way, initialize codes
             fill_bytes(codes, VertexCount,
 #ifdef CLIP_ALL_TO_SCREEN
-                AGI_MESH_CLIP_SCREEN
+                MESH_CLIP_SCREEN
 #else
                 0
 #endif
@@ -991,7 +991,7 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& plane, 
                     indexCounts[0] += 6;
 
 #ifndef CLIP_ALL_TO_SCREEN
-                    codes[VertexIndices[surface[3]]] |= AGI_MESH_CLIP_SCREEN;
+                    codes[VertexIndices[surface[3]]] |= MESH_CLIP_SCREEN;
 #endif
                 }
                 else
@@ -1001,9 +1001,9 @@ i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& plane, 
                 }
 
 #ifndef CLIP_ALL_TO_SCREEN
-                codes[VertexIndices[surface[0]]] |= AGI_MESH_CLIP_SCREEN;
-                codes[VertexIndices[surface[1]]] |= AGI_MESH_CLIP_SCREEN;
-                codes[VertexIndices[surface[2]]] |= AGI_MESH_CLIP_SCREEN;
+                codes[VertexIndices[surface[0]]] |= MESH_CLIP_SCREEN;
+                codes[VertexIndices[surface[1]]] |= MESH_CLIP_SCREEN;
+                codes[VertexIndices[surface[2]]] |= MESH_CLIP_SCREEN;
 #endif
 
                 nextFacet[i] = firstFacet[0];

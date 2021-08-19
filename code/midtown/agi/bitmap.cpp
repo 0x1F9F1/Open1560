@@ -91,9 +91,9 @@ i32 agiBitmap::Init(const char* name, f32 sx, f32 sy, i32 flags)
 void agiBitmap::SetTransparency(b32 enabled)
 {
     if (enabled)
-        flags_ |= AGI_BITMAP_TRANSPARENT;
+        flags_ |= BITMAP_TRANSPARENT;
     else
-        flags_ &= ~AGI_BITMAP_TRANSPARENT;
+        flags_ &= ~BITMAP_TRANSPARENT;
 
     UpdateFlags();
 }

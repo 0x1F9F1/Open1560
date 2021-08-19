@@ -73,12 +73,12 @@ void mmDashView::Cull()
     else if (trans.IsAutomatic && (gear != DASH_GEAR_NEUTRAL))
         gear = DASH_GEAR_DRIVE;
 
-    GearMesh->Draw(AGI_MESH_DRAW_CLIP | (gear << AGI_MESH_DRAW_VARIANT_SHIFT));
+    GearMesh->Draw(MESH_DRAW_CLIP | MESH_DRAW_VARIANT(gear));
 
     if (RoofMesh)
     {
         vp->SetWorld(RoofLCS.World);
-        RoofMesh->DrawColor(color, AGI_MESH_DRAW_CLIP);
+        RoofMesh->DrawColor(color, MESH_DRAW_CLIP);
     }
 
     SpeedGuage.Cull();
@@ -86,7 +86,7 @@ void mmDashView::Cull()
     DamageGuage.Cull();
 
     vp->SetWorld(WheelLCS.World);
-    WheelMesh->DrawColor(color, AGI_MESH_DRAW_CLIP);
+    WheelMesh->DrawColor(color, MESH_DRAW_CLIP);
 
     TexSorter()->Cull(true);
 

@@ -144,12 +144,12 @@ void mmBuildingInstance::Draw(i32 lod)
     if (asRenderWeb::PassMask & RENDER_PASS_TERRAIN)
     {
         if (agiMeshSet* mesh = GetMeshSet(INST_LOD_HIGH, GRND))
-            mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, AGI_MESH_DRAW_CLIP);
+            mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, MESH_DRAW_CLIP);
     }
 
     if (asRenderWeb::PassMask & RENDER_PASS_BUILDINGS)
     {
         if (agiMeshSet* mesh = GetResidentMeshSet(std::max(lod, INST_LOD_LOW), FACADE))
-            mesh->DrawLit(StaticLighter, AGI_MESH_DRAW_CLIP, nullptr);
+            mesh->DrawLit(StaticLighter, MESH_DRAW_CLIP, nullptr);
     }
 }

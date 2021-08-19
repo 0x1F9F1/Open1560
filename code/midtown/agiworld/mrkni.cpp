@@ -45,7 +45,7 @@ static __m128 KniMax;
 
 void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count)
 {
-    static constexpr u32 CLIP_SCREEN_32 = AGI_MESH_CLIP_SCREEN * 0x01010101;
+    static constexpr u32 CLIP_SCREEN_32 = MESH_CLIP_SCREEN * 0x01010101;
 
     ARTS_UTIMED(agiInvertTimer);
 
@@ -121,7 +121,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
 
     while (count)
     {
-        if (*in_codes & AGI_MESH_CLIP_SCREEN)
+        if (*in_codes & MESH_CLIP_SCREEN)
         {
             __m128 vert = _mm_load_ps(&verts->x);
 
