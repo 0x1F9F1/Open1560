@@ -1,12 +1,11 @@
 arts_component "mmdyna"
     files {
         -- "bndtmpl.cpp",
-        -- "bndtmpl.h",
+        "bndtmpl.h",
         -- "bndtmpl2.cpp",
-        -- "bndtmpl2.h",
+        "bndtmpl2.h",
         -- "isect.cpp",
-        -- "isect.h",
+        "isect.h",
         -- "poly.cpp",
-        -- "poly.h",
+        "poly.h",
     }
-

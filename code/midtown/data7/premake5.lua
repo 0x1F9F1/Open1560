@@ -33,7 +33,7 @@ arts_component "data7"
         "pager.cpp",
         "pager.h",
         -- "perfstat.cpp",
-        -- "perfstat.h",
+        "perfstat.h",
         "printer.cpp",
         "printer.h",
         "quitf.cpp",

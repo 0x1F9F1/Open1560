@@ -1,8 +1,7 @@
 arts_component "dyna7"
     files {
         -- "dyna.cpp",
-        -- "dyna.h",
+        "dyna.h",
         -- "gfx.cpp",
-        -- "gfx.h",
+        "gfx.h",
     }
-

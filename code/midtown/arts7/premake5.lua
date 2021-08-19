@@ -10,11 +10,11 @@ arts_component "arts7"
         "cullmgr.cpp",
         "cullmgr.h",
         -- "dof.cpp",
-        -- "dof.h",
+        "dof.h",
         -- "form.cpp",
-        -- "form.h",
+        "form.h",
         -- "lamp.cpp",
-        -- "lamp.h",
+        "lamp.h",
         "linear.cpp",
         "linear.h",
 
@@ -24,7 +24,7 @@ arts_component "arts7"
         "sim.cpp",
         "sim.h",
         -- "view.cpp",
-        -- "view.h",
+        "view.h",
     }
 
     if ARTS_DEV_BUILD then

@@ -3,7 +3,7 @@ arts_component "agisw"
         "swddraw.cpp",
         "swddraw.h",
         -- "swemitrunall.cpp",
-        -- "swemitrunall.h",
+        "swemitrunall.h",
         "swpipe.cpp",
         "swpipe.h",
         "swrend.cpp",

@@ -3,7 +3,7 @@ arts_component "agid3d"
         "d3dlight.cpp",
         "d3dlight.h",
         -- "d3dmtldef.cpp",
-        -- "d3dmtldef.h",
+        "d3dmtldef.h",
         "d3dpipe.cpp",
         "d3dpipe.h",
         "d3drpipe.cpp",

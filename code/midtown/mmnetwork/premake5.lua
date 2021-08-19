@@ -4,7 +4,7 @@ project "*"
 arts_component "mmnetwork"
     files {
         -- "netobject.cpp",
-        -- "netobject.h",
+        "netobject.h",
         "network.cpp",
         "network.h",
     }

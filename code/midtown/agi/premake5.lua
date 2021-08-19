@@ -9,7 +9,7 @@ arts_component "agi"
         "cmodelx.cpp",
         "cmodelx.h",
         -- "dlp.cpp",
-        -- "dlp.h",
+        "dlp.h",
         "dlptmpl.cpp",
         "dlptmpl.h",
 
@@ -20,7 +20,7 @@ arts_component "agi"
         "light.cpp",
         "light.h",
         -- "lmodel.cpp",
-        -- "lmodel.h",
+        "lmodel.h",
         "mtldef.cpp",
         "mtldef.h",
         "mtllib.cpp",
@@ -58,10 +58,10 @@ arts_component "agi"
     if ARTS_DEV_BUILD then
         files {
             -- "dyndlp.cpp",
-            -- "dyndlp.h",
+            "dyndlp.h",
             "render.cpp",
             "render.h",
             -- "smap.cpp",
-            -- "smap.h",
+            "smap.h",
         }
     end

@@ -1,12 +1,11 @@
 arts_component "mmbangers"
     files {
         -- "active.cpp",
-        -- "active.h",
+        "active.h",
         -- "banger.cpp",
-        -- "banger.h",
+        "banger.h",
         -- "data.cpp",
-        -- "data.h",
+        "data.h",
         -- "dof.cpp",
-        -- "dof.h",
+        "dof.h",
     }
-

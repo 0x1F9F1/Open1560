@@ -16,20 +16,20 @@ include "agisw"
 include "agiworld"
 include "arts7"
 include "data7"
--- include "dyna7"
+include "dyna7"
 include "eventq7"
 include "localize"
 include "memory"
 include "mmai"
 include "mmanim"
 include "mmaudio"
--- include "mmbangers"
--- include "mmcamcs"
+include "mmbangers"
+include "mmcamcs"
 include "mmcar"
 include "mmcity"
 include "mmcityinfo"
--- include "mmdjpeg"
--- include "mmdyna"
+include "mmdjpeg"
+include "mmdyna"
 include "mmeffects"
 include "mmgame"
 include "mminput"
@@ -46,7 +46,7 @@ project "*"
 
 if ARTS_DEV_BUILD then
     include "agirend"
-    -- include "mmcamtour"
+    include "mmcamtour"
 
     project "*"
         defines { "ARTS_DEV_BUILD" }
@@ -78,20 +78,20 @@ arts_component "midtown"
         "arts_agiworld",
         "arts_arts7",
         "arts_data7",
-        -- "arts_dyna7",
+        "arts_dyna7",
         "arts_eventq7",
         "arts_localize",
         "arts_memory",
         "arts_mmai",
         "arts_mmanim",
         "arts_mmaudio",
-        -- "arts_mmbangers",
-        -- "arts_mmcamcs",
+        "arts_mmbangers",
+        "arts_mmcamcs",
         "arts_mmcar",
         "arts_mmcity",
         "arts_mmcityinfo",
-        -- "arts_mmdjpeg",
-        -- "arts_mmdyna",
+        "arts_mmdjpeg",
+        "arts_mmdyna",
         "arts_mmeffects",
         "arts_mmgame",
         "arts_mminput",
@@ -111,7 +111,7 @@ arts_component "midtown"
     if ARTS_DEV_BUILD then
         links {
             "arts_agirend",
-            -- "arts_mmcamtour",
+            "arts_mmcamtour",
         }
     end
 
