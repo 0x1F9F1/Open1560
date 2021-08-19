@@ -141,11 +141,18 @@ public:
     ARTS_IMPORT static i32 TotalTris;
 
 private:
+    friend agiTexSorter* TexSorter();
+
     // ?Instance@agiTexSorter@@0PAV1@A
     ARTS_IMPORT static class agiTexSorter* Instance;
 };
 
 check_size(agiTexSorter, 0x1);
+
+inline agiTexSorter* TexSorter()
+{
+    return agiTexSorter::Instance;
+}
 
 // ?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z
 ARTS_EXPORT RcOwner<class agiTexDef> GetPackedTexture(char* name, i32 variation);

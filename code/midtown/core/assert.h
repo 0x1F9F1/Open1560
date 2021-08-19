@@ -41,7 +41,6 @@ struct ArAssertData
 
 [[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArReportAssertion(const ArAssertData& data);
 [[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArReportCheck(const ArCheckData& data);
-[[noreturn]] ARTS_NOINLINE void ARTS_FASTCALL ArUnimplemented(const ArSourceLocation& location);
 
 #define AR_SOURCE_LOCATION                                             \
     ::ArSourceLocation                                                 \

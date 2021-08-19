@@ -2,7 +2,7 @@ arts_component "mmgame"
     files {
         -- "cd.cpp",
         "cd.h",
-        -- "dash.cpp",
+        "dash.cpp",
         "dash.h",
         "game.cpp",
         "game.h",

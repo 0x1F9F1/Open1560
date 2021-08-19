@@ -23,7 +23,9 @@
     extern "C" const usize Symbol_##ADDRESS = ADDRESS;
 
 import_symbol(0x5248E0, "?PrintRenderPerf@@YAXXZ");
+import_symbol(0x63650C, "?DashColorScale@@3MA");
 import_symbol(0x6A6F1C, "?JoinViaZone@@3HA");
+import_symbol(0x6A72E4, "?DashAlphaRef@@3HA");
 import_symbol(0x7057E8, "?LightQualityOption@@3MA");
 import_symbol(0x705804, "?MaxTextureQuality@@3HA");
 import_symbol(0x719740, "?LastPolySet@@3PAVagiPolySet@@A");

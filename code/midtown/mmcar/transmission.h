@@ -45,6 +45,8 @@
 
 #include "arts7/node.h"
 
+class mmCarSim;
+
 class mmTransmission final : public asNode
 {
     // const mmTransmission::`vftable'
@@ -101,7 +103,23 @@ public:
     // ?DeclareFields@mmTransmission@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0xB4];
+    mmCarSim* CarSim;
+    b32 IsAutomatic;
+    f32 Clutch;
+    f32 UpshiftThreshold;
+    f32 DownshiftThreshold;
+    i32 NumGears;
+    f32 GearRatios[8];
+    f32 UpshiftRPM[8];
+    f32 DownshiftRPM[8];
+    f32 ManualGearRatios[8];
+    i32 ManualNumGears;
+    f32 DownshiftBias;
+    b32 GearChanged;
+    b32 InPark;
+    i32 CurrentGear;
+    f32 TimeInGear;
+    f32 GearChangeDelay;
 };
 
 check_size(mmTransmission, 0xD4);

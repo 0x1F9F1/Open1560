@@ -156,9 +156,25 @@ public:
     // ?DeclareFields@mmPlayer@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    offset_field(0x38, mmCar, Car);
-    offset_field(0x2344, mmCarSim*, CarSim);
-    offset_field(0x2348, mmHUD, Hud);
+    mmCar& GetCar()
+    {
+        return mem::field<mmCar>(this, 0x38);
+    }
+
+    mmCarSim& GetCarSim()
+    {
+        return GetCar().Sim;
+    }
+
+    mmCarModel& GetCarModel()
+    {
+        return GetCar().Model;
+    }
+
+    mmHUD& GetHUD()
+    {
+        return mem::field<mmHUD>(this, 0x2348);
+    }
 
     u8 gap20[0x4A78];
 };

@@ -518,7 +518,7 @@ include_dummy_symbol(mmeffects_ptx);
 include_dummy_symbol(mmeffects_vehform);
 
 // include_dummy_symbol(mmgame_cd);
-// include_dummy_symbol(mmgame_dash);
+include_dummy_symbol(mmgame_dash);
 include_dummy_symbol(mmgame_game);
 // include_dummy_symbol(mmgame_gameedit);
 include_dummy_symbol(mmgame_gameman);

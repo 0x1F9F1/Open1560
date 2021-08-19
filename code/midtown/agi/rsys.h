@@ -242,7 +242,7 @@ public:
     }
 
     template <typename T>
-    T Set(T& value, T new_value)
+    inline T Set(T& value, T new_value)
     {
         T old_value = value;
 
@@ -255,15 +255,15 @@ public:
         return old_value;
     }
 
-#define AGI_RSTATE_MEMBER(NAME)                 \
-    auto Get##NAME() const                      \
-    {                                           \
-        return state_.NAME;                     \
-    }                                           \
-                                                \
-    auto Set##NAME(decltype(state_.NAME) value) \
-    {                                           \
-        return Set(state_.NAME, value);         \
+#define AGI_RSTATE_MEMBER(NAME)                        \
+    inline auto Get##NAME() const                      \
+    {                                                  \
+        return state_.NAME;                            \
+    }                                                  \
+                                                       \
+    inline auto Set##NAME(decltype(state_.NAME) value) \
+    {                                                  \
+        return Set(state_.NAME, value);                \
     }
 
     AGI_RSTATE_MEMBER(Mtl)

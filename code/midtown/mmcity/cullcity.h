@@ -113,6 +113,17 @@
 
 class agiTexDef;
 
+// TODO: Move to portal.h?
+#define ROOM_FLAG_1 0x1     // No Env/Sph Mapping
+#define ROOM_FLAG_2 0x2     // ?
+#define ROOM_FLAG_4 0x4     // Water/Slide
+#define ROOM_FLAG_8 0x8     // ?
+#define ROOM_FLAG_10 0x10   // ?
+#define ROOM_FLAG_20 0x20   // Force ZEnable
+#define ROOM_FLAG_40 0x40   // ?
+#define ROOM_FLAG_80 0x80   // Fogvlaue = 0.25
+#define ROOM_FLAG_100 0x100 // ?
+
 class mmCullCity final : public asNode
 {
     // const mmCullCity::`vftable'

@@ -58,6 +58,11 @@
 #include "arts7/linear.h"
 #include "arts7/node.h"
 
+#include "arts7/form.h"
+#include "gauge.h"
+
+class agiMeshSet;
+
 class mmExternalView final : public asNode
 {
     // const mmExternalView::`vftable'
@@ -129,7 +134,7 @@ public:
     ARTS_IMPORT void BeforeSave() override;
 
     // ?Cull@mmDashView@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // ?Deactivate@mmDashView@@QAEXXZ
     ARTS_IMPORT void Deactivate();
@@ -152,7 +157,53 @@ public:
     // ?DeclareFields@mmDashView@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap88[0x7F8];
+private:
+    mmPlayer* Player;
+    u8 gap_8C[12];
+    RadialGauge RPMGuage;
+    RadialGauge SpeedGuage;
+    RadialGauge DamageGuage;
+    Vector3 SpeedPos;
+    Vector3 RPMPos;
+    Vector3 DamagePos;
+    f32 SpeedMinRot;
+    f32 SpeedMaxRot;
+    f32 RPMMinRot;
+    f32 RPMMaxRot;
+    f32 DamageMinRot;
+    f32 DamgeMaxRot;
+    f32 WheelFact;
+    f32 field_33C;
+    asLinearCS DashLCS;
+    asLinearCS WheelLCS;
+    asLinearCS RoofLCS;
+    asForm field_4D8;
+    asForm field_5A0;
+    asForm field_668;
+    asForm field_730;
+    agiMeshSet* DashMesh;
+    agiMeshSet* WheelMesh;
+    agiMeshSet* GearMesh;
+    agiMeshSet* RoofMesh;
+    Vector3 WheelOffset;
+    Vector3 DashPos;
+    Vector3 RoofPos;
+    Vector3 DashCamOffset;
+    i32 field_838;
+    i32 field_83C;
+    i32 field_840;
+    i32 field_844;
+    i32 field_848;
+    u16 NeutralTexture;
+    u16 GearTextures[11];
+    i32 field_864;
+    f32 DashJitterAmp;
+    f32 CollisionJitterAmp;
+    f32 MaxSpeed;
+    f32 MaxRPM;
+    f32 MinSpeed;
+    u16 InTransition;
+    i16 Active;
 };
 
 check_size(mmDashView, 0x880);

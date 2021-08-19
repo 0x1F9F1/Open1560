@@ -82,25 +82,25 @@ void mmGame::UpdateDebugInput()
             switch (event.Key)
             {
                 case EQ_VK_1: {
-                    Player->Hud.SetMessage(GameInputPtr->ToggleFFEnabled(0) ? LOC_TEXT("ffFriction Enabled")
-                                                                            : LOC_TEXT("ffFriction Disabled"),
+                    Player->GetHUD().SetMessage(GameInputPtr->ToggleFFEnabled(0) ? LOC_TEXT("ffFriction Enabled")
+                                                                                 : LOC_TEXT("ffFriction Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_2: {
-                    Player->Hud.SetMessage(GameInputPtr->ToggleFFEnabled(1) ? LOC_TEXT("ffCollide Enabled")
-                                                                            : LOC_TEXT("ffCollide Disabled"),
+                    Player->GetHUD().SetMessage(GameInputPtr->ToggleFFEnabled(1) ? LOC_TEXT("ffCollide Enabled")
+                                                                                 : LOC_TEXT("ffCollide Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_3: {
-                    Player->Hud.SetMessage(
+                    Player->GetHUD().SetMessage(
                         GameInputPtr->ToggleFFEnabled(2) ? LOC_TEXT("ffShake Enabled") : LOC_TEXT("ffShake Disabled"),
                         3.0f);
                     break;
                 }
                 case EQ_VK_4: {
-                    Player->Hud.SetMessage(
+                    Player->GetHUD().SetMessage(
                         GameInputPtr->ToggleFFEnabled(3) ? LOC_TEXT("ffSpring Enabled") : LOC_TEXT("ffSpring Disabled"),
                         3.0f);
                     break;
@@ -124,7 +124,7 @@ void mmGame::UpdateDebugInput()
                     break;
                 }
                 case EQ_VK_9: {
-                    Player->Car.Sim.Explode();
+                    Player->GetCarSim().Explode();
                     break;
                 }
                 case EQ_VK_A: {
@@ -174,7 +174,7 @@ void mmGame::UpdateDebugInput()
                 case EQ_VK_F: {
                     GameInputPtr->UseForceFeedback = !GameInputPtr->UseForceFeedback;
 
-                    Player->Hud.SetMessage(
+                    Player->GetHUD().SetMessage(
                         GameInputPtr->UseForceFeedback ? LOC_TEXT("FF Enabled") : LOC_TEXT("FF Disabled"), 3.0f);
                     break;
                 }
@@ -213,7 +213,7 @@ void mmGame::UpdateDebugInput()
                         if (aiVehicleOpponent* opp = AIMAP.Opponent(target_opp))
                             Player->SetCamInterest(&opp->Car.Sim.ICS);
 
-                        Player->Hud.SetMessage(LOC_TEXT(arts_formatf<64>("Opponent #%d", target_opp)), 5.0f);
+                        Player->GetHUD().SetMessage(LOC_TEXT(arts_formatf<64>("Opponent #%d", target_opp)), 5.0f);
 
                         MMSTATE.ChaseOpponents = false;
                         ++target_opp;
@@ -221,14 +221,15 @@ void mmGame::UpdateDebugInput()
                     break;
                 }
                 case EQ_VK_P: {
-                    Player->Hud.RecordPosition(Popup->GetComment());
+                    Player->GetHUD().RecordPosition(Popup->GetComment());
                     Popup->SetComment(const_cast<char*>(""));
                     break;
                 }
                 case EQ_VK_Q: {
                     masscycle = (masscycle + 1) % 3;
-                    Player->Car.Sim.ICS.Mass = defmass - masscycle * -500.0f;
-                    Player->Hud.SetMessage(LOC_TEXT(arts_formatf<64>("Mass=%f", Player->Car.Sim.ICS.Mass)), 3.0f);
+                    Player->GetCarSim().ICS.Mass = defmass - masscycle * -500.0f;
+                    Player->GetHUD().SetMessage(
+                        LOC_TEXT(arts_formatf<64>("Mass=%f", Player->GetCarSim().ICS.Mass)), 3.0f);
                     break;
                 }
                 case EQ_VK_R: {
@@ -240,9 +241,9 @@ void mmGame::UpdateDebugInput()
 
                     if (ResetPositions->Recall(next_pos, &matrix, 0, 0))
                     {
-                        Player->Car.Sim.SetResetPos(matrix.m3);
+                        Player->GetCarSim().SetResetPos(matrix.m3);
 
-                        Player->Car.Sim.ResetRotation =
+                        Player->GetCarSim().ResetRotation =
                             ResetPositions->Positions[next_pos]->Position.w * -ARTS_DEG_TO_RADF;
                         Reset();
                     }
@@ -286,7 +287,7 @@ void mmGame::UpdateDebugInput()
                 }
 #ifdef ARTS_DEV_BUILD
                 case EQ_VK_P: {
-                    Player->Hud.TogglePositionDisplay(-1);
+                    Player->GetHUD().TogglePositionDisplay(-1);
                     break;
                 }
 #endif
@@ -305,7 +306,7 @@ void mmGame::UpdateDebugInput()
                 }
                 case EQ_VK_F5: {
                     if (MMSTATE.NetworkStatus == 0)
-                        Player->Car.ReleaseTrailer();
+                        Player->GetCar().ReleaseTrailer();
                     break;
                 }
                 case EQ_VK_F6: {
