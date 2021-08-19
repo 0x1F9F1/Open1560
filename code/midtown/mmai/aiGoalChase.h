@@ -61,8 +61,6 @@
 
 class aiGoalChase final : public aiGoal
 {
-    // const aiGoalChase::`vftable'
-
 public:
     // ??0aiGoalChase@@QAE@PAVaiVehiclePolice@@PAVaiRailSet@@PAPAVmmCar@@PAFPAVVector3@@3@Z
     ARTS_IMPORT aiGoalChase(class aiVehiclePolice* arg1, class aiRailSet* arg2, class mmCar** arg3, i16* arg4,

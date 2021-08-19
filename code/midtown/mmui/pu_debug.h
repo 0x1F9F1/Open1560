@@ -33,8 +33,6 @@
 
 class PUDebug final : public PUMenuBase
 {
-    // const PUDebug::`vftable'
-
 public:
     // ??0PUDebug@@QAE@HMMMM@Z
     ARTS_IMPORT PUDebug(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);

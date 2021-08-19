@@ -145,8 +145,6 @@ check_size(VirtualFileInode, 0xC);
 
 class VirtualFileSystem final : public FileSystem
 {
-    // const VirtualFileSystem::`vftable'
-
 public:
     // ??0VirtualFileSystem@@QAE@PAVStream@@@Z
     ARTS_EXPORT VirtualFileSystem(Owner<class Stream> stream);

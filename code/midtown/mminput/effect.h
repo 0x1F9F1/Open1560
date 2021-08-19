@@ -35,8 +35,6 @@ ARTS_IMPORT i32 ARTS_STDCALL inputEnumEffectTypeProc(struct DIEFFECTINFOA const*
 
 class mmEffectFF
 {
-    // const mmEffectFF::`vftable'
-
 public:
     // ??0mmEffectFF@@QAE@XZ
     ARTS_IMPORT mmEffectFF();

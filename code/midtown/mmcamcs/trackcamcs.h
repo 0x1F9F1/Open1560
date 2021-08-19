@@ -51,8 +51,6 @@
 
 class TrackCamCS final : public CarCamCS
 {
-    // const TrackCamCS::`vftable'
-
 public:
     // ??0TrackCamCS@@QAE@XZ
     ARTS_IMPORT TrackCamCS();

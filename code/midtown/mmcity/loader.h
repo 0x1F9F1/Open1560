@@ -50,8 +50,6 @@
 
 class mmLoader final : public asCullable
 {
-    // const mmLoader::`vftable'
-
 public:
     // ??0mmLoader@@QAE@XZ
     ARTS_IMPORT mmLoader();

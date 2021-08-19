@@ -26,8 +26,6 @@
 
 class mmPhysEntity : public asNode
 {
-    // const mmPhysEntity::`vftable'
-
 public:
     // ??_GmmPhysEntity@@UAEPAXI@Z
     // ??_EmmPhysEntity@@UAEPAXI@Z

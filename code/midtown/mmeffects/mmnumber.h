@@ -48,8 +48,6 @@ class agiBitmap;
 
 class mmNumber final : public asNode
 {
-    // const mmNumber::`vftable'
-
 public:
     // ??0mmNumber@@QAE@XZ
     ARTS_EXPORT mmNumber();

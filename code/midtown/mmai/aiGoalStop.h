@@ -35,8 +35,6 @@
 
 class aiGoalStop final : public aiGoal
 {
-    // const aiGoalStop::`vftable'
-
 public:
     // ??0aiGoalStop@@QAE@PAVmmCar@@PAF@Z
     ARTS_IMPORT aiGoalStop(class mmCar* arg1, i16* arg2);

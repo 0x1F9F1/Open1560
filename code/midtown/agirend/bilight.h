@@ -36,8 +36,6 @@
 
 class agiBILight final : public agiLight
 {
-    // const agiBILight::`vftable'
-
 public:
     // ??0agiBILight@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiBILight(class agiPipeline* arg1);

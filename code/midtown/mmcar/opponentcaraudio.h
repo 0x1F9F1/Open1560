@@ -48,8 +48,6 @@
 
 class mmOpponentCarAudio : public asNode
 {
-    // const mmOpponentCarAudio::`vftable'
-
 public:
     // ??0mmOpponentCarAudio@@QAE@XZ | inline
     ARTS_IMPORT mmOpponentCarAudio();

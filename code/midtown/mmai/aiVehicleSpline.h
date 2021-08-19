@@ -63,8 +63,6 @@
 
 class aiVehicleSpline : public aiVehicle
 {
-    // const aiVehicleSpline::`vftable'
-
 public:
     // ??0aiVehicleSpline@@QAE@XZ
     ARTS_IMPORT aiVehicleSpline();

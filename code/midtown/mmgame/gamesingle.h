@@ -61,8 +61,6 @@ ARTS_IMPORT ulong ARTS_STDCALL ThreadFunc(void* arg1);
 
 class mmGameSingle final : public mmGame
 {
-    // const mmGameSingle::`vftable'
-
 public:
     // ??0mmGameSingle@@QAE@XZ
     ARTS_IMPORT mmGameSingle();

@@ -47,8 +47,6 @@
 
 class FileStream final : public Stream
 {
-    // const FileStream::`vftable'
-
 public:
     // ??0FileStream@@QAE@H@Z
     ARTS_EXPORT FileStream(i32 handle);

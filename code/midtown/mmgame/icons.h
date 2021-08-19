@@ -36,8 +36,6 @@
 
 class mmIcons final : public asNode
 {
-    // const mmIcons::`vftable'
-
 public:
     // ??0mmIcons@@QAE@XZ
     ARTS_IMPORT mmIcons();

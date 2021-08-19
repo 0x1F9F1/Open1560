@@ -35,8 +35,6 @@
 
 class agiZBufRenderer final : public agiSurfRenderer
 {
-    // const agiZBufRenderer::`vftable'
-
 public:
     // ??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z
     ARTS_IMPORT agiZBufRenderer(class agiRasterizer* arg1);

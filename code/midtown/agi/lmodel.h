@@ -62,8 +62,6 @@ check_size(agiLightModelParameters, 0x28);
 
 class agiLightModel : public agiRefreshable
 {
-    // const agiLightModel::`vftable'
-
 public:
     // ??_EagiLightModel@@UAEPAXI@Z
     // ??_GagiLightModel@@UAEPAXI@Z

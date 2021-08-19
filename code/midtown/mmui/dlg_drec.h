@@ -38,8 +38,6 @@
 
 class Dialog_DriverRec final : public PUMenuBase
 {
-    // const Dialog_DriverRec::`vftable'
-
 public:
     // ??0Dialog_DriverRec@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_DriverRec(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);

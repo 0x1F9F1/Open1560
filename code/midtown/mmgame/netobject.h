@@ -45,8 +45,6 @@
 
 class mmNetObject final : public asNetObject
 {
-    // const mmNetObject::`vftable'
-
 public:
     // ??0mmNetObject@@QAE@XZ
     ARTS_IMPORT mmNetObject();

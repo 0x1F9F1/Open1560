@@ -34,8 +34,6 @@
 
 class asCullable : public Base
 {
-    // const asCullable::`vftable'
-
 public:
     // ??0asCullable@@QAE@XZ | inline
     ARTS_EXPORT asCullable() = default;

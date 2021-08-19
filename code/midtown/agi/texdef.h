@@ -152,8 +152,6 @@ check_size(agiTexLock, 0x14);
 
 class agiTexDef : public agiRefreshable
 {
-    // const agiTexDef::`vftable'
-
 public:
     // ?IsAvailable@agiTexDef@@UAEHXZ
     ARTS_EXPORT virtual b32 IsAvailable();
@@ -277,8 +275,6 @@ ARTS_IMPORT extern struct lutQentry lutQ[64];
 
 class agiTexLut : public agiRefreshable
 {
-    // const agiTexLut::`vftable'
-
 public:
     // ?GetName@agiTexLut@@UAEPADXZ
     ARTS_EXPORT char* GetName() override;

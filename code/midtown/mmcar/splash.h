@@ -37,8 +37,6 @@
 
 class mmSplash final : public asNode
 {
-    // const mmSplash::`vftable'
-
 public:
     // ??0mmSplash@@QAE@XZ
     ARTS_IMPORT mmSplash();

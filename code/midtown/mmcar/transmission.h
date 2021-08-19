@@ -49,8 +49,6 @@ class mmCarSim;
 
 class mmTransmission final : public asNode
 {
-    // const mmTransmission::`vftable'
-
 public:
     // ??0mmTransmission@@QAE@XZ
     ARTS_IMPORT mmTransmission();

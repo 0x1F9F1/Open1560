@@ -48,8 +48,6 @@
 
 class mmPopup final : public asNode
 {
-    // const mmPopup::`vftable'
-
 public:
     // ??0mmPopup@@QAE@PAVmmGame@@MMMM@Z
     ARTS_IMPORT mmPopup(class mmGame* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);

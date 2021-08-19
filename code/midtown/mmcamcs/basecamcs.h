@@ -39,8 +39,6 @@
 
 class BaseCamCS : public asNode
 {
-    // const BaseCamCS::`vftable'
-
 public:
     // ??0BaseCamCS@@QAE@XZ
     ARTS_IMPORT BaseCamCS();

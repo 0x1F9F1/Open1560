@@ -45,8 +45,6 @@
 
 class MiniParser
 {
-    // const MiniParser::`vftable'
-
 public:
     enum Token : i32
     {

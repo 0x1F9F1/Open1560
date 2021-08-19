@@ -34,8 +34,6 @@
 
 class VehShowcase final : public UIMenu
 {
-    // const VehShowcase::`vftable'
-
 public:
     // ??0VehShowcase@@QAE@H@Z
     ARTS_IMPORT VehShowcase(i32 arg1);

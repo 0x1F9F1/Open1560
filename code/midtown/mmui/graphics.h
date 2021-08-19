@@ -80,8 +80,6 @@ ARTS_IMPORT extern i32 data6;
 
 class GraphicsOptions final : public OptionsBase
 {
-    // const GraphicsOptions::`vftable'
-
 public:
     // ??0GraphicsOptions@@QAE@H@Z
     ARTS_IMPORT GraphicsOptions(i32 arg1);

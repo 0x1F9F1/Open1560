@@ -93,8 +93,6 @@
 
 class AudSound final : public asNode
 {
-    // const AudSound::`vftable'
-
 public:
     // ??0AudSound@@QAE@KHF@Z
     ARTS_IMPORT AudSound(ulong arg1, i32 arg2, i16 arg3);

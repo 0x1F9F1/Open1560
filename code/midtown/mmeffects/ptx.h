@@ -51,8 +51,6 @@ class Matrix34;
 
 class asParticles final : public asNode
 {
-    // const asParticles::`vftable'
-
 public:
     // ??0asParticles@@QAE@XZ
     ARTS_EXPORT asParticles();

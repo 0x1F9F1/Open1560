@@ -140,8 +140,6 @@ class mmBoundTemplate;
 
 class mmInstance : public Base
 {
-    // const mmInstance::`vftable'
-
 public:
     // ??0mmInstance@@QAE@XZ
     ARTS_EXPORT mmInstance() = default;
@@ -358,8 +356,6 @@ check_size(mmInstance, 0x14);
 
 class mmMatrixInstance : public mmInstance
 {
-    // const mmMatrixInstance::`vftable'
-
 public:
     // ??0mmMatrixInstance@@QAE@XZ
     ARTS_IMPORT mmMatrixInstance();
@@ -405,8 +401,6 @@ check_size(mmMatrixInstance, 0x44);
 
 class mmShearInstance final : public mmMatrixInstance
 {
-    // const mmShearInstance::`vftable'
-
 public:
     // ??0mmShearInstance@@QAE@XZ | inline
     ARTS_IMPORT mmShearInstance();
@@ -441,8 +435,6 @@ check_size(mmShearInstance, 0x48);
 
 class mmBuildingInstance final : public mmMatrixInstance
 {
-    // const mmBuildingInstance::`vftable'
-
 public:
     // ??0mmBuildingInstance@@QAE@XZ | inline
     ARTS_IMPORT mmBuildingInstance();
@@ -512,8 +504,6 @@ ARTS_IMPORT extern class mmHeap<i32> mmInstanceHeap;
 
 class mmYInstance : public mmInstance
 {
-    // const mmYInstance::`vftable'
-
 public:
     // ??0mmYInstance@@QAE@XZ
     ARTS_IMPORT mmYInstance();
@@ -553,8 +543,6 @@ check_size(mmYInstance, 0x2C);
 
 class mmStaticInstance : public mmYInstance
 {
-    // const mmStaticInstance::`vftable'
-
 public:
     // ??0mmStaticInstance@@QAE@XZ
     ARTS_IMPORT mmStaticInstance();
@@ -593,8 +581,6 @@ check_size(mmStaticInstance, 0x38);
 
 class mmFacadeInstance final : public mmStaticInstance
 {
-    // const mmFacadeInstance::`vftable'
-
 public:
     // ??0mmFacadeInstance@@QAE@XZ
     ARTS_IMPORT mmFacadeInstance();

@@ -50,8 +50,6 @@
 
 class mmGameEdit final : public mmGame
 {
-    // const mmGameEdit::`vftable'
-
 public:
     // ??0mmGameEdit@@QAE@XZ
     ARTS_IMPORT mmGameEdit();

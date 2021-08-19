@@ -39,8 +39,6 @@ class agiPalette;
 
 class agiColorModel8 final : public agiColorModel
 {
-    // const agiColorModel8::`vftable'
-
 public:
     // ??0agiColorModel8@@QAE@PAVagiPalette@@@Z
     ARTS_IMPORT agiColorModel8(class agiPalette* arg1);

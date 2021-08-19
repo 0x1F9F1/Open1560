@@ -39,8 +39,6 @@ class agiMeshSet;
 
 class mmVehicleForm final : public asNode
 {
-    // const mmVehicleForm::`vftable'
-
 public:
     // ??0mmVehicleForm@@QAE@XZ
     ARTS_EXPORT mmVehicleForm();

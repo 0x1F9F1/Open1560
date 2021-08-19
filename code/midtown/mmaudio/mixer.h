@@ -71,9 +71,6 @@ class MixerCTL final
     : public Dispatchable
     , public Base
 {
-    // const MixerCTL::`vftable'{for `Base'}
-    // const MixerCTL::`vftable'{for `Dispatchable'}
-
 public:
     MixerCTL(HWND window);
 

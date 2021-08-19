@@ -129,8 +129,6 @@ check_size(mmTextData, 0x110);
 
 class mmTextNode final : public asNode
 {
-    // const mmTextNode::`vftable'
-
 public:
     // ??0mmTextNode@@QAE@XZ
     ARTS_EXPORT mmTextNode();

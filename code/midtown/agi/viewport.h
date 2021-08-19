@@ -129,8 +129,6 @@ check_size(agiViewParameters, 0x12C);
 
 class agiViewport : public agiRefreshable
 {
-    // const agiViewport::`vftable'
-
 public:
     virtual void Activate() = 0;
 

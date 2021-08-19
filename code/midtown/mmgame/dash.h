@@ -65,8 +65,6 @@ class agiMeshSet;
 
 class mmExternalView final : public asNode
 {
-    // const mmExternalView::`vftable'
-
 public:
     // ??0mmExternalView@@QAE@XZ
     ARTS_IMPORT mmExternalView();
@@ -106,8 +104,6 @@ check_size(mmExternalView, 0x10C);
 
 class mmDashView final : public asLinearCS
 {
-    // const mmDashView::`vftable'
-
 public:
     // ??0mmDashView@@QAE@XZ
     ARTS_IMPORT mmDashView();

@@ -67,8 +67,6 @@ class mmTrailer;
 
 class mmCar final : public mmPhysEntity
 {
-    // const mmCar::`vftable'
-
 public:
     // ??0mmCar@@QAE@XZ
     ARTS_IMPORT mmCar();

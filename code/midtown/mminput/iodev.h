@@ -45,8 +45,6 @@
 
 class mmIODev final : public mmInfoBase
 {
-    // const mmIODev::`vftable'
-
 public:
     // ??0mmIODev@@QAE@XZ
     ARTS_IMPORT mmIODev();

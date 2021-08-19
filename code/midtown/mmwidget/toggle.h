@@ -39,8 +39,6 @@
 
 class mmToggle final : public asNode
 {
-    // const mmToggle::`vftable'
-
 public:
     // ??0mmToggle@@QAE@XZ
     ARTS_IMPORT mmToggle();

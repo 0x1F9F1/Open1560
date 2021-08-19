@@ -37,8 +37,6 @@
 
 class asOverSample final : public asNode
 {
-    // const asOverSample::`vftable'
-
 public:
     // ??0asOverSample@@QAE@XZ
     ARTS_EXPORT asOverSample() = default;

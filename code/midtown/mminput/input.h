@@ -276,8 +276,6 @@ class eqEventQ;
 
 class mmInput final : public asNode
 {
-    // const mmInput::`vftable'
-
 public:
     // ??0mmInput@@QAE@XZ
     ARTS_IMPORT mmInput();

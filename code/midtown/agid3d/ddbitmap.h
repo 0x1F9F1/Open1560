@@ -39,8 +39,6 @@
 
 class agiDDBitmap final : public agiBitmap
 {
-    // const agiDDBitmap::`vftable'
-
 public:
     // ??0agiDDBitmap@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiDDBitmap(class agiPipeline* pipe)

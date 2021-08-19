@@ -53,8 +53,6 @@
 
 class ControlSetup final : public OptionsBase
 {
-    // const ControlSetup::`vftable'
-
 public:
     // ??0ControlSetup@@QAE@H@Z
     ARTS_IMPORT ControlSetup(i32 arg1);

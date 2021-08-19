@@ -55,8 +55,6 @@
 
 class mmAnimPlane final : public mmMatrixInstance
 {
-    // const mmAnimPlane::`vftable'
-
 public:
     // ??0mmAnimPlane@@QAE@XZ
     ARTS_IMPORT mmAnimPlane();

@@ -58,8 +58,6 @@
 
 class mmScreenClearFlunky final : public asNode
 {
-    // const mmScreenClearFlunky::`vftable'
-
 public:
     // ??_EmmScreenClearFlunky@@UAEPAXI@Z
     // ??_GmmScreenClearFlunky@@UAEPAXI@Z
@@ -77,8 +75,6 @@ check_size(mmScreenClearFlunky, 0x20);
 
 class mmGameManager final : public asNode
 {
-    // const mmGameManager::`vftable'
-
 public:
     // ??0mmGameManager@@QAE@XZ
     ARTS_IMPORT mmGameManager();

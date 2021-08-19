@@ -34,8 +34,6 @@
 
 class Dialog_NewPlayer final : public PUMenuBase
 {
-    // const Dialog_NewPlayer::`vftable'
-
 public:
     // ??0Dialog_NewPlayer@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_NewPlayer(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);

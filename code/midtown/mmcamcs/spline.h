@@ -43,8 +43,6 @@
 
 class Spline final : public asNode
 {
-    // const Spline::`vftable'
-
 public:
     // ??0Spline@@QAE@XZ
     ARTS_IMPORT Spline();

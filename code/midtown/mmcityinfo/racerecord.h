@@ -47,8 +47,6 @@
 
 class mmRecord final : public mmInfoBase
 {
-    // const mmRecord::`vftable'
-
 public:
     // ??0mmRecord@@QAE@XZ
     ARTS_IMPORT mmRecord();

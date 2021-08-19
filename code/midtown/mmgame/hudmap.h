@@ -84,8 +84,6 @@ check_size(OppIconInfo, 0x24);
 
 class mmHudMap final : public asNode
 {
-    // const mmHudMap::`vftable'
-
 public:
     // ??0mmHudMap@@QAE@XZ
     ARTS_IMPORT mmHudMap();

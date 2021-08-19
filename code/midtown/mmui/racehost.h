@@ -35,8 +35,6 @@
 
 class HostRaceMenu final : public RaceMenuBase
 {
-    // const HostRaceMenu::`vftable'
-
 public:
     // ??0HostRaceMenu@@QAE@H@Z
     ARTS_IMPORT HostRaceMenu(i32 arg1);

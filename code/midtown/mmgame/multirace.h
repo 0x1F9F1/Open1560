@@ -47,8 +47,6 @@
 
 class mmMultiRace final : public mmGameMulti
 {
-    // const mmMultiRace::`vftable'
-
 public:
     // ??0mmMultiRace@@QAE@XZ
     ARTS_IMPORT mmMultiRace();

@@ -41,8 +41,6 @@
 
 class asLamp final : public asNode
 {
-    // const asLamp::`vftable'
-
 public:
     // ??0asLamp@@QAE@XZ
     ARTS_IMPORT asLamp();

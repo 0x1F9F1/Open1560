@@ -46,8 +46,6 @@ class mmTextNode;
 
 class mmDropDown final : public asNode
 {
-    // const mmDropDown::`vftable'
-
 public:
     // ??0mmDropDown@@QAE@XZ
     ARTS_EXPORT mmDropDown();

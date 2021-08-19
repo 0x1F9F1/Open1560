@@ -44,8 +44,6 @@
 
 class mmWaypointInstance final : public mmStaticInstance
 {
-    // const mmWaypointInstance::`vftable'
-
 public:
     // ??0mmWaypointInstance@@QAE@HMM@Z
     ARTS_IMPORT mmWaypointInstance(i32 arg1, f32 arg2, f32 arg3);

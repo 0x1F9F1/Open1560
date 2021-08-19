@@ -41,8 +41,6 @@
 
 class sfPointer final : public asNode
 {
-    // const sfPointer::`vftable'
-
 public:
     // ??0sfPointer@@QAE@XZ
     ARTS_IMPORT sfPointer();

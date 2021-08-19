@@ -36,8 +36,6 @@
 
 class UIIconW final : public uiWidget
 {
-    // const UIIconW::`vftable'
-
 public:
     // ??0UIIconW@@QAE@XZ
     ARTS_IMPORT UIIconW();

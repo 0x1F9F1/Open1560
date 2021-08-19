@@ -40,8 +40,6 @@
 
 class mmVehList final
 {
-    // const mmVehList::`vftable'
-
 public:
     // ??0mmVehList@@QAE@XZ
     ARTS_EXPORT mmVehList();

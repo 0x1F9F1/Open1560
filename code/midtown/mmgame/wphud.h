@@ -77,8 +77,6 @@ enum class mmCRGameClass : i32;
 
 class mmWPHUD final : public asNode
 {
-    // const mmWPHUD::`vftable'
-
 public:
     // ??0mmWPHUD@@QAE@XZ
     ARTS_IMPORT mmWPHUD();
@@ -118,8 +116,6 @@ check_size(mmWPHUD, 0x98);
 
 class mmCircuitHUD final : public asNode
 {
-    // const mmCircuitHUD::`vftable'
-
 public:
     // ??0mmCircuitHUD@@QAE@XZ
     ARTS_IMPORT mmCircuitHUD();
@@ -154,8 +150,6 @@ check_size(mmCircuitHUD, 0x9C);
 
 class mmCRHUD final : public asNode
 {
-    // const mmCRHUD::`vftable'
-
 public:
     // ??0mmCRHUD@@QAE@XZ
     ARTS_IMPORT mmCRHUD();

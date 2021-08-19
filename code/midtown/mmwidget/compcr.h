@@ -42,8 +42,6 @@
 
 class mmCompCRPlayer final : public mmCompBase
 {
-    // const mmCompCRPlayer::`vftable'
-
 public:
     // ??0mmCompCRPlayer@@QAE@XZ
     ARTS_IMPORT mmCompCRPlayer();

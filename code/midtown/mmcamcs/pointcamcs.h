@@ -43,8 +43,6 @@
 
 class PointCamCS final : public CarCamCS
 {
-    // const PointCamCS::`vftable'
-
 public:
     // ??0PointCamCS@@QAE@XZ
     ARTS_IMPORT PointCamCS();

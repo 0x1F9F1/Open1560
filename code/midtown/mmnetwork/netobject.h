@@ -34,8 +34,6 @@
 
 class asNetObject : public asNode
 {
-    // const asNetObject::`vftable'
-
 public:
     // ??0asNetObject@@QAE@XZ
     ARTS_IMPORT asNetObject();

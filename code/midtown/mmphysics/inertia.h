@@ -66,8 +66,6 @@
 
 class asInertialCS final : public asLinearCS
 {
-    // const asInertialCS::`vftable'
-
 public:
     // ??0asInertialCS@@QAE@XZ
     ARTS_IMPORT asInertialCS();

@@ -32,8 +32,6 @@
 
 class PUMain final : public PUMenuBase
 {
-    // const PUMain::`vftable'
-
 public:
     // ??0PUMain@@QAE@HMMMMPAD@Z
     ARTS_IMPORT PUMain(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);

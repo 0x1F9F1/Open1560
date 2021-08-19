@@ -39,8 +39,6 @@
 
 class mmWaypointObject final : public asNode
 {
-    // const mmWaypointObject::`vftable'
-
 public:
     // ??0mmWaypointObject@@QAE@AAVVector4@@PADHMHM@Z
     ARTS_IMPORT mmWaypointObject(class Vector4& arg1, char* arg2, i32 arg3, f32 arg4, i32 arg5, f32 arg6);

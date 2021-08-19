@@ -39,8 +39,6 @@
 
 class mmBridgeAudMgr final : public asNode
 {
-    // const mmBridgeAudMgr::`vftable'
-
 public:
     // ??0mmBridgeAudMgr@@QAE@XZ
     ARTS_IMPORT mmBridgeAudMgr();

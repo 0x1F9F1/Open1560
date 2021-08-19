@@ -40,8 +40,6 @@
 
 class mmDrivetrain final : public asNode
 {
-    // const mmDrivetrain::`vftable'
-
 public:
     // ??0mmDrivetrain@@QAE@XZ
     ARTS_IMPORT mmDrivetrain();

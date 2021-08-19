@@ -113,8 +113,6 @@ check_size(agiMemStatus, 0x30);
 
 class agiPipeline
 {
-    // const agiPipeline::`vftable'
-
 public:
     // ??1agiPipeline@@UAE@XZ
     ARTS_EXPORT virtual ~agiPipeline() = 0;

@@ -75,8 +75,6 @@
 
 class agiSWPipeline final : public agiPipeline
 {
-    // const agiSWPipeline::`vftable'
-
 public:
     // ??0agiSWPipeline@@QAE@HPAPAD@Z
     ARTS_EXPORT agiSWPipeline(i32 argc, char** argv);

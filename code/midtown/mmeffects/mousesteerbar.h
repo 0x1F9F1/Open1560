@@ -36,8 +36,6 @@
 
 class mmMouseSteerBar final : public asNode
 {
-    // const mmMouseSteerBar::`vftable'
-
 public:
     // ??0mmMouseSteerBar@@QAE@XZ
     ARTS_IMPORT mmMouseSteerBar();

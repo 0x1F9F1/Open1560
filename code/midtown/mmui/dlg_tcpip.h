@@ -34,8 +34,6 @@
 
 class Dialog_TCPIP final : public PUMenuBase
 {
-    // const Dialog_TCPIP::`vftable'
-
 public:
     // ??0Dialog_TCPIP@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_TCPIP(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);

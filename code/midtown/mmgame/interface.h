@@ -123,8 +123,6 @@ enum class mmGameMode : i32;
 
 class mmInterface final : public asNode
 {
-    // const mmInterface::`vftable'
-
 public:
     // ??0mmInterface@@QAE@XZ
     ARTS_IMPORT mmInterface();

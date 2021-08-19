@@ -41,8 +41,6 @@
 
 class VirtualStream final : public Stream
 {
-    // const VirtualStream::`vftable'
-
 public:
     // ??0VirtualStream@@QAE@PAVStream@@PAUVirtualFileInode@@PAXHPAVFileSystem@@@Z
     ARTS_EXPORT VirtualStream(class Stream* base_stream, struct VirtualFileInode* file_node, void* buffer,

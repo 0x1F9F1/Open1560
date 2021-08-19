@@ -36,8 +36,6 @@
 
 class Vehicle final : public VehicleSelectBase
 {
-    // const Vehicle::`vftable'
-
 public:
     // ??0Vehicle@@QAE@H@Z
     ARTS_IMPORT Vehicle(i32 arg1);

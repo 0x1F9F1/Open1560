@@ -69,8 +69,6 @@
 
 class mmPlayer final : public asNode
 {
-    // const mmPlayer::`vftable'
-
 public:
     // ??0mmPlayer@@QAE@XZ
     ARTS_IMPORT mmPlayer();

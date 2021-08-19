@@ -57,8 +57,6 @@
 
 class mmBangerData final : public asNode
 {
-    // const mmBangerData::`vftable'
-
 public:
     // ??0mmBangerData@@QAE@XZ | inline
     ARTS_IMPORT mmBangerData();
@@ -106,8 +104,6 @@ check_size(mmBangerData, 0x134);
 
 class mmBangerDataManager final : public asNode
 {
-    // const mmBangerDataManager::`vftable'
-
 public:
     // ??0mmBangerDataManager@@QAE@XZ
     ARTS_IMPORT mmBangerDataManager();

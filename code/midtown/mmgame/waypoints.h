@@ -67,8 +67,6 @@
 
 class mmWaypoints final : public asNode
 {
-    // const mmWaypoints::`vftable'
-
 public:
     // ??0mmWaypoints@@QAE@XZ
     ARTS_IMPORT mmWaypoints();

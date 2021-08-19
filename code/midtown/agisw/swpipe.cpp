@@ -41,8 +41,6 @@ define_dummy_symbol(agisw_swpipe);
 
 class agiSWViewport final : public agiViewport
 {
-    // const agiSWViewport::`vftable'
-
 public:
     agiSWViewport(class agiSWPipeline* pipe)
         : agiViewport(pipe)
@@ -91,8 +89,6 @@ static DDCOLORKEY ddk {};
 // TODO: Merge with agiDDBitmap (identical code)
 class agiSWBitmap final : public agiBitmap
 {
-    // const agiSWBitmap::`vftable'
-
 public:
     agiSWBitmap(class agiSWPipeline* pipe)
         : agiBitmap(pipe)

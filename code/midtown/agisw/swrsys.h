@@ -44,8 +44,6 @@
 
 class agiSWRasterizer final : public agiRasterizer
 {
-    // const agiSWRasterizer::`vftable'
-
 public:
     // ??0agiSWRasterizer@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiSWRasterizer(class agiPipeline* arg1);

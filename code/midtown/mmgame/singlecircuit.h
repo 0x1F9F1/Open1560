@@ -55,8 +55,6 @@
 
 class mmSingleCircuit final : public mmGame
 {
-    // const mmSingleCircuit::`vftable'
-
 public:
     // ??0mmSingleCircuit@@QAE@XZ
     ARTS_IMPORT mmSingleCircuit();

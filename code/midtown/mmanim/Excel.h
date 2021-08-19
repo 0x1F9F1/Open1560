@@ -35,8 +35,6 @@
 
 class mmAnimExcel final
 {
-    // const mmAnimExcel::`vftable'
-
 public:
     // ??0mmAnimExcel@@QAE@XZ
     ARTS_IMPORT mmAnimExcel();

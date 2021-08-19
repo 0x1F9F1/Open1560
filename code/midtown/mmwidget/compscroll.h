@@ -52,8 +52,6 @@
 
 class UICompositeScroll final : public uiWidget
 {
-    // const UICompositeScroll::`vftable'
-
 public:
     // ??0UICompositeScroll@@QAE@XZ
     ARTS_IMPORT UICompositeScroll();

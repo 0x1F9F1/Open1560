@@ -40,8 +40,6 @@
 
 class UIBMLabel final : public uiWidget
 {
-    // const UIBMLabel::`vftable'
-
 public:
     // ??0UIBMLabel@@QAE@XZ
     ARTS_IMPORT UIBMLabel();

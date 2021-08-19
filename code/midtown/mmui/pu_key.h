@@ -36,8 +36,6 @@ class mmTextNode;
 
 class PUKey final : public PUMenuBase
 {
-    // const PUKey::`vftable'
-
 public:
     // ??0PUKey@@QAE@HMMMM@Z
     ARTS_IMPORT PUKey(i32 menu_id, f32 x, f32 y, f32 width, f32 height);

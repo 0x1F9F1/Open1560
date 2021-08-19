@@ -81,8 +81,6 @@ class Matrix34;
 
 class asSimulation final : public asNode
 {
-    // const asSimulation::`vftable'
-
 public:
     // ??0asSimulation@@QAE@XZ
     ARTS_IMPORT asSimulation();
@@ -336,8 +334,6 @@ ARTS_IMPORT extern class VirtualFileSystem* VFS;
 
 class artsReplayChannel final : public eqReplayChannel
 {
-    // const artsReplayChannel::`vftable'
-
 public:
     // ??0artsReplayChannel@@QAE@XZ | inline
     ARTS_IMPORT artsReplayChannel();

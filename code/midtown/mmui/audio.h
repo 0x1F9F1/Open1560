@@ -54,8 +54,6 @@
 
 class AudioOptions final : public OptionsBase
 {
-    // const AudioOptions::`vftable'
-
 public:
     // ??0AudioOptions@@QAE@H@Z
     ARTS_IMPORT AudioOptions(i32 arg1);

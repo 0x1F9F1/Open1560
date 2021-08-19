@@ -48,8 +48,6 @@
 
 class DriverMenu final : public UIMenu
 {
-    // const DriverMenu::`vftable'
-
 public:
     // ??0DriverMenu@@QAE@H@Z
     ARTS_IMPORT DriverMenu(i32 arg1);

@@ -41,8 +41,6 @@
 
 class mmCellRenderer final : public asPortalRenderable
 {
-    // const mmCellRenderer::`vftable'
-
 public:
     // ??0mmCellRenderer@@QAE@XZ
     ARTS_IMPORT mmCellRenderer();

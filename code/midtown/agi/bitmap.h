@@ -44,8 +44,6 @@
 
 class agiBitmap : public agiRefreshable
 {
-    // const agiBitmap::`vftable'
-
 public:
     // ??0agiBitmap@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiBitmap(class agiPipeline* pipe);

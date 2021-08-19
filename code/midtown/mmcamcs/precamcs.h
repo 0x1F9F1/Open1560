@@ -38,8 +38,6 @@
 
 class PreCamCS final : public CarCamCS
 {
-    // const PreCamCS::`vftable'
-
 public:
     // ??0PreCamCS@@QAE@XZ
     ARTS_IMPORT PreCamCS();

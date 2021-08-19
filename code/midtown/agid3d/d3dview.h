@@ -39,8 +39,6 @@
 
 class agiD3DViewport final : public agiViewport
 {
-    // const agiD3DViewport::`vftable'
-
 public:
     // ??0agiD3DViewport@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiD3DViewport(class agiPipeline* pipe)

@@ -39,8 +39,6 @@
 
 class AppCamCS : public BaseCamCS
 {
-    // const AppCamCS::`vftable'
-
 public:
     // ??0AppCamCS@@QAE@XZ
     ARTS_IMPORT AppCamCS();

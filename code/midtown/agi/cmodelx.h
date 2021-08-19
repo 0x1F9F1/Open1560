@@ -139,8 +139,6 @@
 
 class agiColorModelRGB555 final : public agiColorModel
 {
-    // const agiColorModelRGB555::`vftable'
-
 public:
     // ??0agiColorModelRGB555@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB555();
@@ -170,8 +168,6 @@ check_size(agiColorModelRGB555, 0x2C);
 
 class agiColorModelRGB565 final : public agiColorModel
 {
-    // const agiColorModelRGB565::`vftable'
-
 public:
     // ??0agiColorModelRGB565@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB565();
@@ -201,8 +197,6 @@ check_size(agiColorModelRGB565, 0x2C);
 
 class agiColorModelRGB555_Rev final : public agiColorModel
 {
-    // const agiColorModelRGB555_Rev::`vftable'
-
 public:
     // ??0agiColorModelRGB555_Rev@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB555_Rev();
@@ -232,8 +226,6 @@ check_size(agiColorModelRGB555_Rev, 0x2C);
 
 class agiColorModelRGB565_Rev final : public agiColorModel
 {
-    // const agiColorModelRGB565_Rev::`vftable'
-
 public:
     // ??0agiColorModelRGB565_Rev@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB565_Rev();
@@ -263,8 +255,6 @@ check_size(agiColorModelRGB565_Rev, 0x2C);
 
 class agiColorModelRGB888 final : public agiColorModel
 {
-    // const agiColorModelRGB888::`vftable'
-
 public:
     // ??0agiColorModelRGB888@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB888();
@@ -294,8 +284,6 @@ check_size(agiColorModelRGB888, 0x2C);
 
 class agiColorModelRGB888_Rev final : public agiColorModel
 {
-    // const agiColorModelRGB888_Rev::`vftable'
-
 public:
     // ??0agiColorModelRGB888_Rev@@QAE@XZ
     ARTS_IMPORT agiColorModelRGB888_Rev();
@@ -325,8 +313,6 @@ check_size(agiColorModelRGB888_Rev, 0x2C);
 
 class agiColorModelRGBA5551 final : public agiColorModel
 {
-    // const agiColorModelRGBA5551::`vftable'
-
 public:
     // ??0agiColorModelRGBA5551@@QAE@XZ
     ARTS_IMPORT agiColorModelRGBA5551();
@@ -356,8 +342,6 @@ check_size(agiColorModelRGBA5551, 0x2C);
 
 class agiColorModelRGBA4444 final : public agiColorModel
 {
-    // const agiColorModelRGBA4444::`vftable'
-
 public:
     // ??0agiColorModelRGBA4444@@QAE@XZ
     ARTS_IMPORT agiColorModelRGBA4444();
@@ -387,8 +371,6 @@ check_size(agiColorModelRGBA4444, 0x2C);
 
 class agiColorModelARGB final : public agiColorModel
 {
-    // const agiColorModelARGB::`vftable'
-
 public:
     // ??0agiColorModelARGB@@QAE@XZ
     ARTS_IMPORT agiColorModelARGB();
@@ -418,8 +400,6 @@ check_size(agiColorModelARGB, 0x2C);
 
 class agiColorModelABGR final : public agiColorModel
 {
-    // const agiColorModelABGR::`vftable'
-
 public:
     // ??0agiColorModelABGR@@QAE@XZ
     ARTS_IMPORT agiColorModelABGR();

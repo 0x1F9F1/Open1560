@@ -53,8 +53,6 @@
 
 class UICWArray final : public uiWidget
 {
-    // const UICWArray::`vftable'
-
 public:
     // ??0UICWArray@@QAE@XZ
     ARTS_IMPORT UICWArray();

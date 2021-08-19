@@ -52,8 +52,6 @@
 
 class mmBangerActive final : public mmPhysEntity
 {
-    // const mmBangerActive::`vftable'
-
 public:
     // ??0mmBangerActive@@QAE@XZ
     ARTS_IMPORT mmBangerActive();
@@ -91,8 +89,6 @@ check_size(mmBangerActive, 0x27C);
 
 class mmBangerActiveManager final : public asNode
 {
-    // const mmBangerActiveManager::`vftable'
-
 public:
     // ??0mmBangerActiveManager@@QAE@XZ
     ARTS_IMPORT mmBangerActiveManager();

@@ -38,8 +38,6 @@
 
 class PUGraphics final : public PUMenuBase
 {
-    // const PUGraphics::`vftable'
-
 public:
     // ??0PUGraphics@@QAE@HMMMM@Z
     ARTS_IMPORT PUGraphics(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);

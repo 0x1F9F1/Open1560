@@ -38,8 +38,6 @@
 
 class PUAudioOptions final : public PUMenuBase
 {
-    // const PUAudioOptions::`vftable'
-
 public:
     // ??0PUAudioOptions@@QAE@HMMMM@Z
     ARTS_IMPORT PUAudioOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);

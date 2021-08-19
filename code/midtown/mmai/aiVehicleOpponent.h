@@ -59,8 +59,6 @@ class aiGoalStop;
 
 class aiVehicleOpponent final : public aiVehicle
 {
-    // const aiVehicleOpponent::`vftable'
-
 public:
     // ??0aiVehicleOpponent@@QAE@XZ
     ARTS_IMPORT aiVehicleOpponent();

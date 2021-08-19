@@ -68,8 +68,6 @@ class agiRasterizer;
 
 class agiD3DPipeline : public agiDDPipeline
 {
-    // const agiD3DPipeline::`vftable'
-
 public:
     // ??0agiD3DPipeline@@QAE@XZ
     ARTS_EXPORT agiD3DPipeline();

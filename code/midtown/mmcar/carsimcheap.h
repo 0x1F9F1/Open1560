@@ -35,8 +35,6 @@
 
 class mmWheelCheap final : public asLinearCS
 {
-    // const mmWheelCheap::`vftable'
-
 public:
     // ??0mmWheelCheap@@QAE@XZ
     ARTS_IMPORT mmWheelCheap();

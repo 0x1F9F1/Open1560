@@ -91,8 +91,6 @@
 
 class UIMenu : public asNode
 {
-    // const UIMenu::`vftable'
-
 public:
     enum class eSource : i32
     {

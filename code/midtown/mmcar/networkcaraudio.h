@@ -50,8 +50,6 @@
 
 class mmNetworkCarAudio final : public asNode
 {
-    // const mmNetworkCarAudio::`vftable'
-
 public:
     // ??0mmNetworkCarAudio@@QAE@XZ | inline
     ARTS_IMPORT mmNetworkCarAudio();

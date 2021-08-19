@@ -36,8 +36,6 @@
 
 class aiGoalBackup final : public aiGoal
 {
-    // const aiGoalBackup::`vftable'
-
 public:
     // ??0aiGoalBackup@@QAE@PAVaiRailSet@@PAVmmCar@@PAF@Z
     ARTS_IMPORT aiGoalBackup(class aiRailSet* arg1, class mmCar* arg2, i16* arg3);

@@ -38,8 +38,6 @@
 
 class aiStuck final : public asNode
 {
-    // const aiStuck::`vftable'
-
 public:
     // ??0aiStuck@@QAE@XZ
     ARTS_IMPORT aiStuck();

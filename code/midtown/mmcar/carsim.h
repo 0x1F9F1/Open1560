@@ -129,8 +129,6 @@ ARTS_IMPORT extern f32 WeatherFriction;
 
 class mmCarSim final : public asNode
 {
-    // const mmCarSim::`vftable'
-
 public:
     // ??0mmCarSim@@QAE@XZ
     ARTS_IMPORT mmCarSim();

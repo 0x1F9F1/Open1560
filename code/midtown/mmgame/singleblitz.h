@@ -66,8 +66,6 @@
 
 class mmSingleBlitz final : public mmGame
 {
-    // const mmSingleBlitz::`vftable'
-
 public:
     // ??0mmSingleBlitz@@QAE@XZ
     ARTS_IMPORT mmSingleBlitz();

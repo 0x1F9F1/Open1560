@@ -40,8 +40,6 @@
 
 class mmCDPlayer final : public asNode
 {
-    // const mmCDPlayer::`vftable'
-
 public:
     // ??0mmCDPlayer@@QAE@XZ
     ARTS_IMPORT mmCDPlayer();

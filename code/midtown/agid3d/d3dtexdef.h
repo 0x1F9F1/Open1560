@@ -46,8 +46,6 @@
 
 class agiD3DTexDef final : public agiTexDef
 {
-    // const agiD3DTexDef::`vftable'
-
 public:
     // ??0agiD3DTexDef@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiD3DTexDef(class agiPipeline* pipe)
@@ -111,8 +109,6 @@ check_size(agiD3DTexDef, 0x88);
 
 class agiD3DTexLut final : public agiTexLut
 {
-    // const agiD3DTexLut::`vftable'
-
 public:
     agiD3DTexLut(agiPipeline* pipe)
         : agiTexLut(pipe)

@@ -220,8 +220,6 @@ check_size(aiPedestrian, 0xAC);
 
 class aiPedestrianInstance final : public mmInstance
 {
-    // const aiPedestrianInstance::`vftable'
-
 public:
     // ??_EaiPedestrianInstance@@UAEPAXI@Z
     // ??_GaiPedestrianInstance@@UAEPAXI@Z

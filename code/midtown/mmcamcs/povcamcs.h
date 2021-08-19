@@ -42,8 +42,6 @@
 
 class PovCamCS final : public CarCamCS
 {
-    // const PovCamCS::`vftable'
-
 public:
     // ??0PovCamCS@@QAE@XZ
     ARTS_IMPORT PovCamCS();

@@ -32,8 +32,6 @@
 
 class mmSpringFF final : public mmEffectFF
 {
-    // const mmSpringFF::`vftable'
-
 public:
     // ?Assign@mmSpringFF@@QAEHJ@Z
     ARTS_IMPORT i32 Assign(ilong arg1);

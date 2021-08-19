@@ -43,8 +43,6 @@
 
 class mmCompRoster final : public mmCompBase
 {
-    // const mmCompRoster::`vftable'
-
 public:
     // ??0mmCompRoster@@QAE@XZ
     ARTS_IMPORT mmCompRoster();

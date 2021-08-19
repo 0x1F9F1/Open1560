@@ -36,8 +36,6 @@
 
 class mmAnimTrainCar final : public mmMatrixInstance
 {
-    // const mmAnimTrainCar::`vftable'
-
 public:
     // ??0mmAnimTrainCar@@QAE@XZ
     ARTS_IMPORT mmAnimTrainCar();

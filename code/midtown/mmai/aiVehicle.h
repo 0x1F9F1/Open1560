@@ -31,8 +31,6 @@
 
 class aiVehicle
 {
-    // const aiVehicle::`vftable'
-
 public:
     // ??0aiVehicle@@QAE@XZ
     ARTS_IMPORT aiVehicle();

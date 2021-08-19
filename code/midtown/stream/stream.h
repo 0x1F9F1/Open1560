@@ -79,8 +79,6 @@
 
 class Stream : public Base
 {
-    // const Stream::`vftable'
-
 public:
     // ??0Stream@@QAE@PAXHPAVFileSystem@@@Z
     ARTS_EXPORT Stream(void* buffer, isize buffer_size, class FileSystem* file_system);

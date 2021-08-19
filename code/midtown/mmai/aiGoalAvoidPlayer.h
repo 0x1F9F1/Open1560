@@ -37,8 +37,6 @@
 
 class aiGoalAvoidPlayer final : public aiGoal
 {
-    // const aiGoalAvoidPlayer::`vftable'
-
 public:
     // ??0aiGoalAvoidPlayer@@QAE@PAVaiRailSet@@PAVaiVehicleAmbient@@@Z
     ARTS_IMPORT aiGoalAvoidPlayer(class aiRailSet* arg1, class aiVehicleAmbient* arg2);

@@ -33,8 +33,6 @@ ARTS_EXPORT class asMidgets* MIDGETSPTR = nullptr;
 
 class MI
 {
-    // const MI::`vftable'
-
 public:
     MI(const char* name)
         : Name(name)
@@ -71,8 +69,6 @@ asMidgets::~asMidgets()
 
 class BMI final : public MI
 {
-    // const BMI::`vftable'
-
 public:
     BMI(const char* title, Callback cb)
         : MI(title)
@@ -128,8 +124,6 @@ void asMidgets::AddFileButton(const char* arg1, [[maybe_unused]] Callback arg2)
 
 class TMI final : public MI
 {
-    // const TMI::`vftable'
-
 public:
     TMI(const char* title, i32* value, i32 expected, i32 mask, Callback cb)
         : MI(title)
@@ -401,8 +395,6 @@ bkSlider* asMidgets::AddTextSlider(const char* arg1, [[maybe_unused]] const char
 
 class SMI final : public MI
 {
-    // const SMI::`vftable'
-
 public:
     using MI::MI;
 
@@ -596,8 +588,6 @@ void asMidgets::Open(asNode* node)
 
 class SBMI final : public MI
 {
-    // const SBMI::`vftable'
-
 public:
     using MI::MI;
 

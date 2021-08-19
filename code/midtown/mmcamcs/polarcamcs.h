@@ -37,8 +37,6 @@
 
 class PolarCamCS final : public CarCamCS
 {
-    // const PolarCamCS::`vftable'
-
 public:
     // ??0PolarCamCS@@QAE@XZ
     ARTS_IMPORT PolarCamCS();

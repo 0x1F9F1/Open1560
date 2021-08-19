@@ -39,8 +39,6 @@
 
 class mmForce final : public asNode
 {
-    // const mmForce::`vftable'
-
 public:
     // ??0mmForce@@QAE@XZ
     ARTS_IMPORT mmForce();

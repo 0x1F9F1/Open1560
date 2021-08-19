@@ -49,8 +49,6 @@
 
 class aiTrafficLightSet final : public asNode
 {
-    // const aiTrafficLightSet::`vftable'
-
 public:
     // ??0aiTrafficLightSet@@QAE@PAVaiIntersection@@@Z
     ARTS_IMPORT aiTrafficLightSet(class aiIntersection* arg1);
@@ -77,8 +75,6 @@ check_size(aiTrafficLightSet, 0x38);
 
 class aiTrafficLightInstance final : public mmUnhitBangerInstance
 {
-    // const aiTrafficLightInstance::`vftable'
-
 public:
     // ??_EaiTrafficLightInstance@@UAEPAXI@Z
     // ??_GaiTrafficLightInstance@@UAEPAXI@Z

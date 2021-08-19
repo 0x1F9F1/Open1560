@@ -33,8 +33,6 @@
 
 class mmVehInfo final
 {
-    // const mmVehInfo::`vftable'
-
 public:
     // ??0mmVehInfo@@QAE@XZ
     ARTS_IMPORT mmVehInfo();

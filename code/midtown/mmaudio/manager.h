@@ -134,8 +134,6 @@ class Vector3;
 
 class AudManager final : public asNode
 {
-    // const AudManager::`vftable'
-
 public:
     // ??0AudManager@@QAE@XZ
     ARTS_IMPORT AudManager();

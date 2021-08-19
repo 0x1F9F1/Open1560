@@ -53,8 +53,6 @@
 
 class aiGoalFollowWayPts final : public aiGoal
 {
-    // const aiGoalFollowWayPts::`vftable'
-
 public:
     // ??0aiGoalFollowWayPts@@QAE@XZ
     ARTS_IMPORT aiGoalFollowWayPts();

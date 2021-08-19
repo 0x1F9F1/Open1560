@@ -33,8 +33,6 @@
 
 class MainMenu final : public UIMenu
 {
-    // const MainMenu::`vftable'
-
 public:
     // ??0MainMenu@@QAE@H@Z
     ARTS_IMPORT MainMenu(i32 arg1);

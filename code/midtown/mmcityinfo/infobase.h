@@ -35,8 +35,6 @@
 
 class mmInfoBase : public Base
 {
-    // const mmInfoBase::`vftable'
-
 public:
     // ??0mmInfoBase@@QAE@XZ
     ARTS_IMPORT mmInfoBase();

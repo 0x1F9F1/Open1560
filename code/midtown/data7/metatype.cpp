@@ -28,8 +28,6 @@ define_dummy_symbol(data7_metatype);
 
 struct PtrToType final : MetaType
 {
-    // const PtrToType::`vftable'
-
     PtrToType(MetaType* target)
         : TargetType(target)
     {}
@@ -74,8 +72,6 @@ ARTS_NOINLINE struct MetaType* PtrTo(struct MetaType* target)
 
 struct StructType final : MetaType
 {
-    // const StructType::`vftable'
-
     StructType(MetaClass* target)
         : TargetClass(target)
     {}
@@ -122,8 +118,6 @@ ARTS_NOINLINE struct MetaType* Struct(class MetaClass* target)
 
 struct SignedIntType final : MetaType
 {
-    // const SignedIntType::`vftable'
-
 public:
     // ?Delete@SignedIntType@@UAEXPAXH@Z
     ARTS_EXPORT void Delete(void* ptr, isize len) override
@@ -168,8 +162,6 @@ const MetaType* CreateMetaType_<signed int>()
 
 struct StringType final : MetaType
 {
-    // const StringType::`vftable'
-
 public:
     // ?Delete@StringType@@UAEXPAXH@Z
     ARTS_EXPORT void Delete(void*, isize) override

@@ -35,8 +35,6 @@
 
 class aiGoalCollision final : public aiGoal
 {
-    // const aiGoalCollision::`vftable'
-
 public:
     // ??0aiGoalCollision@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
     ARTS_IMPORT aiGoalCollision(class aiRailSet* arg1, class aiVehicleSpline* arg2);

@@ -66,8 +66,6 @@
 
 class mmBridgeMgr final : public asNode
 {
-    // const mmBridgeMgr::`vftable'
-
 public:
     // ??0mmBridgeMgr@@QAE@XZ
     ARTS_IMPORT mmBridgeMgr();
@@ -110,8 +108,6 @@ check_size(mmBridgeMgr, 0x2674);
 
 class mmBridgeSet final : public asNode
 {
-    // const mmBridgeSet::`vftable'
-
 public:
     // ??0mmBridgeSet@@QAE@XZ
     ARTS_IMPORT mmBridgeSet();

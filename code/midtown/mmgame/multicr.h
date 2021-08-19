@@ -79,8 +79,6 @@
 
 class mmMultiCR final : public mmGameMulti
 {
-    // const mmMultiCR::`vftable'
-
 public:
     // ??0mmMultiCR@@QAE@XZ
     ARTS_IMPORT mmMultiCR();

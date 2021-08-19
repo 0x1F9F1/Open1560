@@ -41,8 +41,6 @@
 
 class UIControlWidget final : public uiWidget
 {
-    // const UIControlWidget::`vftable'
-
 public:
     // ??0UIControlWidget@@QAE@XZ
     ARTS_IMPORT UIControlWidget();

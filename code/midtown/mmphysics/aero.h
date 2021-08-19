@@ -37,8 +37,6 @@
 
 class asAero final : public asNode
 {
-    // const asAero::`vftable'
-
 public:
     // ??0asAero@@QAE@XZ
     ARTS_IMPORT asAero();

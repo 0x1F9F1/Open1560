@@ -57,8 +57,6 @@ class Matrix34;
 
 class asCullManager final : public asNode
 {
-    // const asCullManager::`vftable'
-
 public:
     // ??0asCullManager@@QAE@HH@Z
     ARTS_EXPORT asCullManager(i32 max_cullables, i32 max_cullables_2D);

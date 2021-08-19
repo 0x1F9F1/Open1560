@@ -87,8 +87,6 @@ class eqEventQ;
 
 class mmGame : public asNode
 {
-    // const mmGame::`vftable'
-
 public:
     // ??0mmGame@@QAE@XZ
     ARTS_IMPORT mmGame();
@@ -230,8 +228,6 @@ check_size(mmGame, 0x1E570);
 
 class foobar final : public asNode
 {
-    // const foobar::`vftable'
-
 public:
     // ??_Gfoobar@@UAEPAXI@Z
     // ??_Efoobar@@UAEPAXI@Z

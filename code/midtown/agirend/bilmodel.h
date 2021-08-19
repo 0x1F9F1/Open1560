@@ -35,8 +35,6 @@
 
 class agiBILightModel final : public agiLightModel
 {
-    // const agiBILightModel::`vftable'
-
 public:
     // ??0agiBILightModel@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiBILightModel(class agiPipeline* arg1);

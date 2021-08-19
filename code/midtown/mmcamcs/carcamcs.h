@@ -37,8 +37,6 @@
 
 class CarCamCS : public AppCamCS
 {
-    // const CarCamCS::`vftable'
-
 public:
     // ??0CarCamCS@@QAE@XZ
     ARTS_IMPORT CarCamCS();

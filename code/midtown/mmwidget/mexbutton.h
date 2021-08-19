@@ -38,8 +38,6 @@
 
 class UIMexButton final : public UIToggleButton2
 {
-    // const UIMexButton::`vftable'
-
 public:
     // ??0UIMexButton@@QAE@XZ
     ARTS_IMPORT UIMexButton();

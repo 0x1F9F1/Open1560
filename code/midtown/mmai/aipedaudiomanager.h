@@ -40,8 +40,6 @@
 
 class aiPedAudioManager final : public asNode
 {
-    // const aiPedAudioManager::`vftable'
-
 public:
     // ??0aiPedAudioManager@@QAE@XZ
     ARTS_IMPORT aiPedAudioManager();

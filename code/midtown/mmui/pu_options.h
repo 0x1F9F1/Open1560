@@ -32,8 +32,6 @@
 
 class PUOptions final : public PUMenuBase
 {
-    // const PUOptions::`vftable'
-
 public:
     // ??0PUOptions@@QAE@HMMMM@Z
     ARTS_IMPORT PUOptions(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);

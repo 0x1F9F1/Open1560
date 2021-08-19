@@ -41,8 +41,6 @@
 
 class AudHead final : public asNode
 {
-    // const AudHead::`vftable'
-
 public:
     // ??0AudHead@@QAE@PAVMatrix34@@@Z
     ARTS_IMPORT AudHead(class Matrix34* arg1);

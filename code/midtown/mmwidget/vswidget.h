@@ -48,8 +48,6 @@
 
 class VSWidget final : public asNode
 {
-    // const VSWidget::`vftable'
-
 public:
     // ??0VSWidget@@QAE@XZ
     ARTS_IMPORT VSWidget();

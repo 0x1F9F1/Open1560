@@ -31,8 +31,6 @@
 
 class agiColorModel
 {
-    // const agiColorModel::`vftable'
-
 public:
     // ??1agiColorModel@@MAE@XZ
     virtual ~agiColorModel() = default;

@@ -42,8 +42,6 @@
 
 class eqReplayChannel
 {
-    // const eqReplayChannel::`vftable'
-
 public:
     // ??1eqReplayChannel@@QAE@XZ
     ARTS_EXPORT ~eqReplayChannel();

@@ -46,8 +46,6 @@
 
 class RadialGauge final : public asNode
 {
-    // const RadialGauge::`vftable'
-
 public:
     // ??0RadialGauge@@QAE@XZ
     ARTS_IMPORT RadialGauge();

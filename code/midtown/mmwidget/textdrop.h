@@ -48,8 +48,6 @@
 
 class UITextDropdown final : public uiWidget
 {
-    // const UITextDropdown::`vftable'
-
 public:
     // ??0UITextDropdown@@QAE@XZ
     ARTS_IMPORT UITextDropdown();

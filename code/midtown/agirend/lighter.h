@@ -63,8 +63,6 @@
 
 class agiLighter
 {
-    // const agiLighter::`vftable'
-
 public:
     // ??0agiLighter@@QAE@XZ
     ARTS_IMPORT agiLighter();
@@ -140,8 +138,6 @@ check_size(agiLighter, 0x4);
 
 class agiMonoLighter final : public agiLighter
 {
-    // const agiMonoLighter::`vftable'
-
 public:
     // ??0agiMonoLighter@@QAE@XZ
     ARTS_IMPORT agiMonoLighter();
@@ -159,8 +155,6 @@ check_size(agiMonoLighter, 0x4);
 
 class agiRGBLighter final : public agiLighter
 {
-    // const agiRGBLighter::`vftable'
-
 public:
     // ??0agiRGBLighter@@QAE@XZ
     ARTS_IMPORT agiRGBLighter();

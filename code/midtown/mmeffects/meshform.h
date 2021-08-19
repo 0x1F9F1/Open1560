@@ -39,8 +39,6 @@
 
 class asMeshSetForm final : public asNode
 {
-    // const asMeshSetForm::`vftable'
-
 public:
     // ??0asMeshSetForm@@QAE@XZ
     ARTS_IMPORT asMeshSetForm();

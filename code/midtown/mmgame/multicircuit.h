@@ -47,8 +47,6 @@
 
 class mmMultiCircuit final : public mmGameMulti
 {
-    // const mmMultiCircuit::`vftable'
-
 public:
     // ??0mmMultiCircuit@@QAE@XZ
     ARTS_IMPORT mmMultiCircuit();

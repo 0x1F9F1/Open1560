@@ -38,8 +38,6 @@
 
 class asLinearCS : public asNode
 {
-    // const asLinearCS::`vftable'
-
 public:
     // ??0asLinearCS@@QAE@XZ
     ARTS_EXPORT asLinearCS();

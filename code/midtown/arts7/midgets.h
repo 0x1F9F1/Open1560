@@ -108,9 +108,6 @@ class asMidgets final
     : public Bank
     , public asCullable
 {
-    // const asMidgets::`vftable'{for `asCullable'}
-    // const asMidgets::`vftable'{for `Bank'}
-
 public:
     // ??0asMidgets@@QAE@XZ
     ARTS_EXPORT asMidgets();

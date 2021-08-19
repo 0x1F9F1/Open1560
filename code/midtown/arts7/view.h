@@ -45,8 +45,6 @@
 
 class asViewCS final : public asLinearCS
 {
-    // const asViewCS::`vftable'
-
 public:
     // ??0asViewCS@@QAE@XZ
     ARTS_IMPORT asViewCS();

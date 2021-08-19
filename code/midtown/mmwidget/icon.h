@@ -39,8 +39,6 @@
 
 class UIIcon final : public uiWidget
 {
-    // const UIIcon::`vftable'
-
 public:
     // ??0UIIcon@@QAE@XZ
     ARTS_IMPORT UIIcon();

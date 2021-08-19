@@ -50,8 +50,6 @@
 
 class mmSlider final : public asNode
 {
-    // const mmSlider::`vftable'
-
 public:
     // ??0mmSlider@@QAE@XZ
     ARTS_IMPORT mmSlider();

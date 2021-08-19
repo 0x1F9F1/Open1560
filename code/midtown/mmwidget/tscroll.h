@@ -51,8 +51,6 @@
 
 class UITextScroll final : public uiWidget
 {
-    // const UITextScroll::`vftable'
-
 public:
     // ??0UITextScroll@@QAE@XZ
     ARTS_IMPORT UITextScroll();

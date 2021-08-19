@@ -39,8 +39,6 @@ class agiPipeline;
 
 class agiRefreshable
 {
-    // const agiRefreshable::`vftable'
-
 public:
     // ??0agiRefreshable@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiRefreshable(class agiPipeline* pipe);

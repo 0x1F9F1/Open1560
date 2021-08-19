@@ -58,8 +58,6 @@
 
 class UIBMButton final : public uiWidget
 {
-    // const UIBMButton::`vftable'
-
 public:
     // ??0UIBMButton@@QAE@XZ
     ARTS_IMPORT UIBMButton();

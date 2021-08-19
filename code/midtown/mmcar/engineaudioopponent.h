@@ -40,8 +40,6 @@
 
 class EngineAudioOpponent final : public asNode
 {
-    // const EngineAudioOpponent::`vftable'
-
 public:
     // ??0EngineAudioOpponent@@QAE@XZ
     ARTS_IMPORT EngineAudioOpponent();

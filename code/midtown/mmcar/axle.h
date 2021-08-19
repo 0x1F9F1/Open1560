@@ -36,8 +36,6 @@
 
 class mmAxle final : public asLinearCS
 {
-    // const mmAxle::`vftable'
-
 public:
     // ??0mmAxle@@QAE@XZ
     ARTS_IMPORT mmAxle();

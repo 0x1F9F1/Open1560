@@ -37,8 +37,6 @@
 
 class VehGyro final : public asNode
 {
-    // const VehGyro::`vftable'
-
 public:
     // ??0VehGyro@@QAE@XZ
     ARTS_IMPORT VehGyro();

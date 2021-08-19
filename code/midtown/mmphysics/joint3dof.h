@@ -85,8 +85,6 @@ check_size(JointedStruct, 0x20);
 
 class Joint3Dof final : public JointedStruct
 {
-    // const Joint3Dof::`vftable'
-
 public:
     // ??0Joint3Dof@@QAE@XZ
     ARTS_IMPORT Joint3Dof();

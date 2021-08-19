@@ -40,8 +40,6 @@ struct asSparkPos;
 
 class asBirthRule final : public asNode
 {
-    // const asBirthRule::`vftable'
-
 public:
     // ??0asBirthRule@@QAE@XZ
     ARTS_IMPORT asBirthRule();

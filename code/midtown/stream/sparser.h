@@ -36,8 +36,6 @@ class Stream;
 
 class StreamMiniParser final : public MiniParser
 {
-    // const StreamMiniParser::`vftable'
-
 public:
     // ??0StreamMiniParser@@QAE@PADPAVStream@@@Z
     ARTS_EXPORT StreamMiniParser(const char* name, Owner<class Stream> stream);

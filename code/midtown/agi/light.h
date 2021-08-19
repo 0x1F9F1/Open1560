@@ -85,8 +85,6 @@ check_size(agiLightParameters, 0x70);
 
 class agiLight : public agiRefreshable
 {
-    // const agiLight::`vftable'
-
 public:
     // ??0agiLight@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiLight(class agiPipeline* pipe)

@@ -58,8 +58,6 @@
 
 class mmBangerInstance : public mmInstance
 {
-    // const mmBangerInstance::`vftable'
-
 public:
     // ??0mmBangerInstance@@QAE@XZ | inline
     ARTS_IMPORT mmBangerInstance();
@@ -105,8 +103,6 @@ check_size(mmBangerInstance, 0x1C);
 
 class mmUnhitBangerInstance : public mmBangerInstance
 {
-    // const mmUnhitBangerInstance::`vftable'
-
 public:
     // ??0mmUnhitBangerInstance@@QAE@XZ | inline
     ARTS_IMPORT mmUnhitBangerInstance();
@@ -147,8 +143,6 @@ check_size(mmUnhitBangerInstance, 0x30);
 
 class mmBangerManager final : public asNode
 {
-    // const mmBangerManager::`vftable'
-
 public:
     // ??_GmmBangerManager@@UAEPAXI@Z
     // ??_EmmBangerManager@@UAEPAXI@Z
@@ -175,8 +169,6 @@ check_size(mmBangerManager, 0x2C);
 
 class mmHitBangerInstance final : public mmBangerInstance
 {
-    // const mmHitBangerInstance::`vftable'
-
 public:
     // ??0mmHitBangerInstance@@QAE@XZ | inline
     ARTS_IMPORT mmHitBangerInstance();

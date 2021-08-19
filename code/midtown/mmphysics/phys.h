@@ -87,8 +87,6 @@ struct mmInstChain;
 
 class mmPhysExec final : public asNode
 {
-    // const mmPhysExec::`vftable'
-
 public:
     // ??_GmmPhysExec@@UAEPAXI@Z
     // ??_EmmPhysExec@@UAEPAXI@Z
@@ -111,8 +109,6 @@ check_size(mmPhysExec, 0x24);
 
 class mmPhysicsMGR final : public asNode
 {
-    // const mmPhysicsMGR::`vftable'
-
 public:
     // ??0mmPhysicsMGR@@QAE@XZ
     ARTS_IMPORT mmPhysicsMGR();

@@ -43,8 +43,6 @@
 
 class uiNavBar final : public UIMenu
 {
-    // const uiNavBar::`vftable'
-
 public:
     // ??0uiNavBar@@QAE@H@Z
     ARTS_IMPORT uiNavBar(i32 arg1);

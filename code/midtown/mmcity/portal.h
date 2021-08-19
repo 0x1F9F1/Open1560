@@ -54,8 +54,6 @@
 
 class asPortalWeb : public asNode
 {
-    // const asPortalWeb::`vftable'
-
 public:
     // ??0asPortalWeb@@QAE@XZ
     ARTS_IMPORT asPortalWeb();

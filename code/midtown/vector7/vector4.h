@@ -133,9 +133,7 @@ check_size(Vector4Array, 0x14);
 
 struct Vector4Type final : MetaType
 {
-    // const Vector4Type::`vftable'
-
-public:
+    public:
     // ?Delete@Vector4Type@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 

@@ -30,8 +30,6 @@ class bkSlider;
 
 class Bank
 {
-    // const Bank::`vftable'
-
 public:
     virtual void SetLabel(const char* title) = 0;
     virtual class bkWindow* AddTitle(const char* title) = 0;

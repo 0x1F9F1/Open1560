@@ -36,8 +36,6 @@
 
 class aiGoalRegainRail final : public aiGoal
 {
-    // const aiGoalRegainRail::`vftable'
-
 public:
     // ??0aiGoalRegainRail@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
     ARTS_IMPORT aiGoalRegainRail(class aiRailSet* arg1, class aiVehicleSpline* arg2);

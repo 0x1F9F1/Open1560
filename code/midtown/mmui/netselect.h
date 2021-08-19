@@ -68,8 +68,6 @@
 
 class NetSelectMenu final : public UIMenu
 {
-    // const NetSelectMenu::`vftable'
-
 public:
     // ??0NetSelectMenu@@QAE@H@Z
     ARTS_IMPORT NetSelectMenu(i32 arg1);

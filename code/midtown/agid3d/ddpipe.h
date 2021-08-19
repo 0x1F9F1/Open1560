@@ -49,8 +49,6 @@
 
 class agiDDPipeline : public agiPipeline
 {
-    // const agiDDPipeline::`vftable'
-
 public:
     // ??0agiDDPipeline@@QAE@XZ
     ARTS_EXPORT agiDDPipeline();

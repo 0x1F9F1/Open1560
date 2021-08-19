@@ -37,8 +37,6 @@ void GetMidtownRegString(char* buffer, i32 buffer_len, char* key, char* default_
 
 class AboutMenu final : public UIMenu
 {
-    // const AboutMenu::`vftable'
-
 public:
     // ??0AboutMenu@@QAE@H@Z
     ARTS_IMPORT AboutMenu(i32 arg1);

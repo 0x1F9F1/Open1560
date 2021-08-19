@@ -24,8 +24,6 @@
 
 class aiGoal
 {
-    // const aiGoal::`vftable'
-
 public:
     // ??1aiGoal@@QAE@XZ | inline
     ARTS_IMPORT ~aiGoal() = default;

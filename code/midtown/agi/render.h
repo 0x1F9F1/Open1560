@@ -28,8 +28,6 @@
 
 class agiRenderer
 {
-    // const agiRenderer::`vftable'
-
 public:
     // ??0agiRenderer@@QAE@XZ
     ARTS_IMPORT agiRenderer();

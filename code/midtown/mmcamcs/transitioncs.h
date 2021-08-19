@@ -41,8 +41,6 @@
 
 class TransitionCS final : public CarCamCS
 {
-    // const TransitionCS::`vftable'
-
 public:
     // ??0TransitionCS@@QAE@XZ
     ARTS_IMPORT TransitionCS();

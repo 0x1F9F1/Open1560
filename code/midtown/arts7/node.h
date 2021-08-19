@@ -64,8 +64,6 @@
 
 class asNode : public asCullable
 {
-    // const asNode::`vftable'
-
 public:
     // ??0asNode@@QAE@XZ
     ARTS_EXPORT asNode() = default;

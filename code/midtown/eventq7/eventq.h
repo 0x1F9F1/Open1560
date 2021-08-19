@@ -112,8 +112,6 @@ check_size(eqEvent, 0x24);
 
 class eqEventQ final : public eqEventMonitor
 {
-    // const eqEventQ::`vftable'
-
 public:
     // ??0eqEventQ@@QAE@HHH@Z
     ARTS_EXPORT eqEventQ(i32 arg1, i32 enabled_events, i32 max_events);

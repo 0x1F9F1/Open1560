@@ -34,8 +34,6 @@
 
 class OptionsBase : public UIMenu
 {
-    // const OptionsBase::`vftable'
-
 public:
     // ??0OptionsBase@@QAE@H@Z
     ARTS_IMPORT OptionsBase(i32 arg1);

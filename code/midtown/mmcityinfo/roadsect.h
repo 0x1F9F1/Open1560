@@ -78,8 +78,6 @@
 
 class mmRoadSide final : public mmInfoBase
 {
-    // const mmRoadSide::`vftable'
-
 public:
     // ??0mmRoadSide@@QAE@XZ
     ARTS_IMPORT mmRoadSide();
@@ -102,8 +100,6 @@ check_size(mmRoadSide, 0x2E0);
 
 class mmRoadSect final : public mmInfoBase
 {
-    // const mmRoadSect::`vftable'
-
 public:
     // ??0mmRoadSect@@QAE@XZ
     ARTS_IMPORT mmRoadSect();
@@ -207,8 +203,6 @@ check_size(mmRoadSect, 0x6CC);
 
 class mmPropInfo final : public mmInfoBase
 {
-    // const mmPropInfo::`vftable'
-
 public:
     // ??0mmPropInfo@@QAE@XZ
     ARTS_IMPORT mmPropInfo();

@@ -41,8 +41,6 @@ enum class mmGameMode : i32;
 
 class RaceMenu final : public RaceMenuBase
 {
-    // const RaceMenu::`vftable'
-
 public:
     // ??0RaceMenu@@QAE@H@Z
     ARTS_IMPORT RaceMenu(i32 arg1);

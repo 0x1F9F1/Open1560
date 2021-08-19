@@ -43,8 +43,6 @@
 
 class mmCarRoadFF final : public asNode
 {
-    // const mmCarRoadFF::`vftable'
-
 public:
     // ??0mmCarRoadFF@@QAE@XZ
     ARTS_IMPORT mmCarRoadFF();

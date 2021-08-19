@@ -39,8 +39,6 @@
 
 class mmMapData final : public mmInfoBase
 {
-    // const mmMapData::`vftable'
-
 public:
     // ??0mmMapData@@QAE@XZ
     ARTS_IMPORT mmMapData();

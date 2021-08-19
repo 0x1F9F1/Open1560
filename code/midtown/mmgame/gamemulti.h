@@ -65,8 +65,6 @@
 
 class mmGameMulti : public mmGame
 {
-    // const mmGameMulti::`vftable'
-
 public:
     // ??0mmGameMulti@@QAE@XZ
     ARTS_IMPORT mmGameMulti();

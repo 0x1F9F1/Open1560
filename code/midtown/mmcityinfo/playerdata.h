@@ -68,8 +68,6 @@
 
 class mmPlayerRecord final : public mmInfoBase
 {
-    // const mmPlayerRecord::`vftable'
-
 public:
     // ??0mmPlayerRecord@@QAE@XZ
     ARTS_IMPORT mmPlayerRecord();
@@ -110,8 +108,6 @@ check_size(mmPlayerRecord, 0xE4);
 
 class mmPlayerData final : public mmInfoBase
 {
-    // const mmPlayerData::`vftable'
-
 public:
     // ??0mmPlayerData@@QAE@XZ
     ARTS_IMPORT mmPlayerData();

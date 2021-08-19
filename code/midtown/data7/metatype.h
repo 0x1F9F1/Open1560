@@ -158,9 +158,7 @@ struct MetaTypeFactory<T*>
 #if 0
 struct RefToType final : MetaType
 {
-    // const RefToType::`vftable'
-
-public:
+    public:
     // ?Delete@RefToType@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
@@ -184,9 +182,7 @@ check_size(RefToType, 0x0);
 
 struct ArrayOfType final : MetaType
 {
-    // const ArrayOfType::`vftable'
-
-public:
+    public:
     // ?Delete@ArrayOfType@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
@@ -221,9 +217,7 @@ struct MetaTypeFactory<T, std::enable_if_t<std::is_class_v<T>>>
 #if 0
 struct CharType final : MetaType
 {
-    // const CharType::`vftable'
-
-public:
+    public:
     // ?Delete@CharType@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
@@ -244,9 +238,7 @@ check_size(CharType, 0x0);
 
 struct SignedCharType final : MetaType
 {
-    // const SignedCharType::`vftable'
-
-public:
+    public:
     // ?Delete@SignedCharType@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
@@ -267,9 +259,7 @@ check_size(SignedCharType, 0x0);
 
 struct UnsignedCharType final : MetaType
 {
-    // const UnsignedCharType::`vftable'
-
-public:
+    public:
     // ?Delete@UnsignedCharType@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
@@ -290,9 +280,7 @@ check_size(UnsignedCharType, 0x0);
 
 struct SignedShortType final : MetaType
 {
-    // const SignedShortType::`vftable'
-
-public:
+    public:
     // ?Delete@SignedShortType@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
@@ -313,9 +301,7 @@ check_size(SignedShortType, 0x0);
 
 struct UnsignedShortType final : MetaType
 {
-    // const UnsignedShortType::`vftable'
-
-public:
+    public:
     // ?Delete@UnsignedShortType@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
@@ -341,9 +327,7 @@ const MetaType* CreateMetaType_<signed int>();
 #if 0
 struct SignedInt64Type final : MetaType
 {
-    // const SignedInt64Type::`vftable'
-
-public:
+    public:
     // ?Delete@SignedInt64Type@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
@@ -364,9 +348,7 @@ check_size(SignedInt64Type, 0x0);
 
 struct UnsignedIntType final : MetaType
 {
-    // const UnsignedIntType::`vftable'
-
-public:
+    public:
     // ?Delete@UnsignedIntType@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
@@ -387,9 +369,7 @@ check_size(UnsignedIntType, 0x0);
 
 struct FloatType final : MetaType
 {
-    // const FloatType::`vftable'
-
-public:
+    public:
     // ?Delete@FloatType@@UAEXPAXH@Z
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 

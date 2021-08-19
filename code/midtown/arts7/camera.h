@@ -73,8 +73,6 @@ class agiBitmap;
 
 class asCamera final : public asNode
 {
-    // const asCamera::`vftable'
-
 public:
     // ??0asCamera@@QAE@XZ
     ARTS_IMPORT asCamera();

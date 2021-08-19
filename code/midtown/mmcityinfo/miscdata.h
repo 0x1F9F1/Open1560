@@ -49,8 +49,6 @@
 
 class mmMiscData final : public mmInfoBase
 {
-    // const mmMiscData::`vftable'
-
 public:
     // ??0mmMiscData@@QAE@XZ
     ARTS_IMPORT mmMiscData();

@@ -43,8 +43,6 @@
 
 class mmCompDRecord final : public mmCompBase
 {
-    // const mmCompDRecord::`vftable'
-
 public:
     // ??0mmCompDRecord@@QAE@XZ
     ARTS_IMPORT mmCompDRecord();

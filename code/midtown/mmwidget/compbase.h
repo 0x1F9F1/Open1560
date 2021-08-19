@@ -29,8 +29,6 @@
 
 class mmCompBase : public asNode
 {
-    // const mmCompBase::`vftable'
-
 public:
     // ??_GmmCompBase@@UAEPAXI@Z
     // ??_EmmCompBase@@UAEPAXI@Z

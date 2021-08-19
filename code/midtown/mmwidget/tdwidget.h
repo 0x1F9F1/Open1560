@@ -50,8 +50,6 @@
 
 class TextDropWidget final : public asNode
 {
-    // const TextDropWidget::`vftable'
-
 public:
     // ??0TextDropWidget@@QAE@XZ
     ARTS_IMPORT TextDropWidget();

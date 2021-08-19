@@ -48,8 +48,6 @@
 
 class UISlider final : public uiWidget
 {
-    // const UISlider::`vftable'
-
 public:
     // ??0UISlider@@QAE@XZ
     ARTS_IMPORT UISlider();

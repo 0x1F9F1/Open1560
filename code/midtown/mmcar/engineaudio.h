@@ -42,8 +42,6 @@
 
 class EngineAudio final : public asNode
 {
-    // const EngineAudio::`vftable'
-
 public:
     // ??0EngineAudio@@QAE@XZ
     ARTS_IMPORT EngineAudio();

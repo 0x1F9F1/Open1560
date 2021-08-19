@@ -61,8 +61,6 @@
 
 class AudStream final : public asNode
 {
-    // const AudStream::`vftable'
-
 public:
     // ??0AudStream@@QAE@KHF@Z
     ARTS_IMPORT AudStream(ulong arg1, i32 arg2, i16 arg3);

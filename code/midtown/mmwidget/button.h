@@ -44,8 +44,6 @@
 
 class UIButton : public uiWidget
 {
-    // const UIButton::`vftable'
-
 public:
     // ??0UIButton@@QAE@XZ
     ARTS_IMPORT UIButton();

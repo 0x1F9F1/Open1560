@@ -45,8 +45,6 @@
 
 class asForm final : public asNode
 {
-    // const asForm::`vftable'
-
 public:
     // ??0asForm@@QAE@XZ
     ARTS_IMPORT asForm();

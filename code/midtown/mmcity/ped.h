@@ -48,8 +48,6 @@
 
 class mmPed final : public mmYInstance
 {
-    // const mmPed::`vftable'
-
 public:
     // ??0mmPed@@QAE@XZ
     ARTS_IMPORT mmPed();
@@ -83,8 +81,6 @@ check_size(mmPed, 0x34);
 
 class mmPedManager final : public asNode
 {
-    // const mmPedManager::`vftable'
-
 public:
     // ??0mmPedManager@@QAE@XZ
     ARTS_IMPORT mmPedManager();

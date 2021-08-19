@@ -51,8 +51,6 @@
 
 class NetArena final : public UIMenu
 {
-    // const NetArena::`vftable'
-
 public:
     // ??0NetArena@@QAE@H@Z
     ARTS_IMPORT NetArena(i32 arg1);

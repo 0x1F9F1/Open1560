@@ -42,8 +42,6 @@
 
 class mmAnimSpline final : public asNode
 {
-    // const mmAnimSpline::`vftable'
-
 public:
     // ??0mmAnimSpline@@QAE@XZ
     ARTS_IMPORT mmAnimSpline();

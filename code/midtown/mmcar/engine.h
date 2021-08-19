@@ -45,8 +45,6 @@
 
 class mmEngine final : public asNode
 {
-    // const mmEngine::`vftable'
-
 public:
     // ??0mmEngine@@QAE@XZ
     ARTS_IMPORT mmEngine();

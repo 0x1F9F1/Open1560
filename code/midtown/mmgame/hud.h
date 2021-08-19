@@ -110,8 +110,6 @@ class AudSound;
 
 class mmTimer final : public asNode
 {
-    // const mmTimer::`vftable'
-
 public:
     // ??0mmTimer@@QAE@XZ
     ARTS_IMPORT mmTimer();
@@ -149,8 +147,6 @@ check_size(mmTimer, 0x30);
 
 class mmArrow final : public asNode
 {
-    // const mmArrow::`vftable'
-
 public:
     // ??0mmArrow@@QAE@XZ
     ARTS_IMPORT mmArrow();
@@ -183,8 +179,6 @@ check_size(mmArrow, 0x38);
 
 class mmHUD final : public asNode
 {
-    // const mmHUD::`vftable'
-
 public:
     // ??0mmHUD@@QAE@XZ
     ARTS_IMPORT mmHUD();

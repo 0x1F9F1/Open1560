@@ -32,8 +32,6 @@
 
 class mmFrictionFF final : public mmEffectFF
 {
-    // const mmFrictionFF::`vftable'
-
 public:
     // ?Assign@mmFrictionFF@@QAEHJ@Z
     ARTS_IMPORT i32 Assign(ilong arg1);

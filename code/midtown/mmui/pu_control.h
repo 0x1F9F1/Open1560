@@ -37,8 +37,6 @@
 
 class PUControl final : public PUMenuBase
 {
-    // const PUControl::`vftable'
-
 public:
     // ??0PUControl@@QAE@HMMMM@Z
     ARTS_IMPORT PUControl(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);

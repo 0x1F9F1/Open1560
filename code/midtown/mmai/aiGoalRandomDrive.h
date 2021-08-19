@@ -47,8 +47,6 @@
 
 class aiGoalRandomDrive final : public aiGoal
 {
-    // const aiGoalRandomDrive::`vftable'
-
 public:
     // ??0aiGoalRandomDrive@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
     ARTS_IMPORT aiGoalRandomDrive(class aiRailSet* arg1, class aiVehicleSpline* arg2);

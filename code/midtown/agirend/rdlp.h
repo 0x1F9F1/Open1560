@@ -48,8 +48,6 @@
 
 class RDLP final : public DLP
 {
-    // const RDLP::`vftable'
-
 public:
     // ??0RDLP@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT RDLP(class agiPipeline* arg1);
@@ -85,8 +83,6 @@ check_size(RDLP, 0xAC);
 
 class RDynamicDLP final : public DynamicDLP
 {
-    // const RDynamicDLP::`vftable'
-
 public:
     // ??0RDynamicDLP@@QAE@HPAVRDLP@@@Z
     ARTS_IMPORT RDynamicDLP(i32 arg1, class RDLP* arg2);

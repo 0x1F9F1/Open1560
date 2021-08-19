@@ -34,8 +34,6 @@
 
 class Dialog_Password final : public PUMenuBase
 {
-    // const Dialog_Password::`vftable'
-
 public:
     // ??0Dialog_Password@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_Password(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);

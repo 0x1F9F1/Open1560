@@ -130,8 +130,6 @@ class mmCar;
 
 class aiMap final : public asNode
 {
-    // const aiMap::`vftable'
-
 public:
     // ??0aiMap@@QAE@XZ
     ARTS_IMPORT aiMap();

@@ -31,8 +31,6 @@
 
 class mmCityInfo final
 {
-    // const mmCityInfo::`vftable'
-
 public:
     // ??0mmCityInfo@@QAE@XZ
     ARTS_EXPORT mmCityInfo();

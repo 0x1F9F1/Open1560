@@ -52,8 +52,6 @@
 
 class mmBoat final : public asNode
 {
-    // const mmBoat::`vftable'
-
 public:
     // ??0mmBoat@@QAE@XZ
     ARTS_IMPORT mmBoat();

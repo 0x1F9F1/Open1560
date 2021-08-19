@@ -42,8 +42,6 @@
 
 class DLP : public agiRefreshable
 {
-    // const DLP::`vftable'
-
 public:
     // ??0DLP@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT DLP(class agiPipeline* arg1);

@@ -61,8 +61,6 @@
 
 class UITextField final : public uiWidget
 {
-    // const UITextField::`vftable'
-
 public:
     // ??0UITextField@@QAE@XZ
     ARTS_IMPORT UITextField();

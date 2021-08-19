@@ -34,8 +34,6 @@
 
 class asBound final : public asNode
 {
-    // const asBound::`vftable'
-
 public:
     // ??0asBound@@QAE@XZ
     ARTS_IMPORT asBound();

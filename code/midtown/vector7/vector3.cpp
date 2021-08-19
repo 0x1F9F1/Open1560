@@ -26,8 +26,6 @@ define_dummy_symbol(vector7_vector3);
 
 struct Vector3Type final : MetaType
 {
-    // const Vector3Type::`vftable'
-
 public:
     // ?Delete@Vector3Type@@UAEXPAXH@Z
     ARTS_EXPORT void Delete(void* ptr, isize len) override

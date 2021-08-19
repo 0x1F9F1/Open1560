@@ -32,8 +32,6 @@
 
 class DynamicDLP
 {
-    // const DynamicDLP::`vftable'
-
 public:
     // ??0DynamicDLP@@QAE@H@Z
     ARTS_IMPORT DynamicDLP(i32 arg1);

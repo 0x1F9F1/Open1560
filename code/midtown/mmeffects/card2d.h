@@ -39,8 +39,6 @@
 
 class Card2D final : public asNode
 {
-    // const Card2D::`vftable'
-
 public:
     // ??0Card2D@@QAE@XZ
     ARTS_IMPORT Card2D();

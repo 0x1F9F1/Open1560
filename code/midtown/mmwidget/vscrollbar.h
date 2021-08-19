@@ -50,8 +50,6 @@
 
 class UIVScrollBar final : public uiWidget
 {
-    // const UIVScrollBar::`vftable'
-
 public:
     // ??0UIVScrollBar@@QAE@XZ
     ARTS_IMPORT UIVScrollBar();

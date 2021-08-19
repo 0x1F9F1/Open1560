@@ -63,8 +63,6 @@
 
 class mmTrailer final : public mmPhysEntity
 {
-    // const mmTrailer::`vftable'
-
 public:
     // ??0mmTrailer@@QAE@XZ
     ARTS_IMPORT mmTrailer();
@@ -130,8 +128,6 @@ check_size(mmTrailer, 0x1204);
 
 class mmTrailerInstance final : public mmInstance
 {
-    // const mmTrailerInstance::`vftable'
-
 public:
     // ??_GmmTrailerInstance@@UAEPAXI@Z
     // ??_EmmTrailerInstance@@UAEPAXI@Z

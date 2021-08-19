@@ -36,8 +36,6 @@
 
 class mmToolTip final : public asNode
 {
-    // const mmToolTip::`vftable'
-
 public:
     // ??0mmToolTip@@QAE@XZ | unused
     ARTS_IMPORT mmToolTip();

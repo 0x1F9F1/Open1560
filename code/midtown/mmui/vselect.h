@@ -61,8 +61,6 @@
 
 class VehicleSelectBase : public UIMenu
 {
-    // const VehicleSelectBase::`vftable'
-
 public:
     // ??0VehicleSelectBase@@QAE@H@Z
     ARTS_IMPORT VehicleSelectBase(i32 arg1);

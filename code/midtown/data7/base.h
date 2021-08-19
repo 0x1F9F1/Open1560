@@ -33,8 +33,6 @@
 
 class Base
 {
-    // const Base::`vftable'
-
 public:
     // ??_GBase@@UAEPAXI@Z
     // ??1Base@@UAE@XZ

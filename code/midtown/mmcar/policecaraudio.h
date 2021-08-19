@@ -46,8 +46,6 @@
 
 class mmPoliceCarAudio final : public mmOpponentCarAudio
 {
-    // const mmPoliceCarAudio::`vftable'
-
 public:
     // ??0mmPoliceCarAudio@@QAE@PAVmmCarSim@@M@Z
     ARTS_IMPORT mmPoliceCarAudio(class mmCarSim* arg1, f32 arg2);

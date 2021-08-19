@@ -40,8 +40,6 @@
 
 class asDofCS final : public asLinearCS
 {
-    // const asDofCS::`vftable'
-
 public:
     // ??0asDofCS@@QAE@XZ
     ARTS_IMPORT asDofCS();

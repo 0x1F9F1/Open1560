@@ -41,8 +41,6 @@
 
 class mmCityList final
 {
-    // const mmCityList::`vftable'
-
 public:
     // ??0mmCityList@@QAE@XZ
     ARTS_EXPORT mmCityList();

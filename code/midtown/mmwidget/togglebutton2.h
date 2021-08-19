@@ -43,8 +43,6 @@
 
 class UIToggleButton2 : public UIButton
 {
-    // const UIToggleButton2::`vftable'
-
 public:
     // ??0UIToggleButton2@@QAE@XZ
     ARTS_IMPORT UIToggleButton2();

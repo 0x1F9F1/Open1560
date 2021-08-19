@@ -53,8 +53,6 @@
 
 class mmPlayerDirectory final : public mmInfoBase
 {
-    // const mmPlayerDirectory::`vftable'
-
 public:
     // ??0mmPlayerDirectory@@QAE@XZ
     ARTS_IMPORT mmPlayerDirectory();

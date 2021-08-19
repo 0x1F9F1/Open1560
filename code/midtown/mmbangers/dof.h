@@ -32,8 +32,6 @@
 
 class mmDofBangerInstance : public mmUnhitBangerInstance
 {
-    // const mmDofBangerInstance::`vftable'
-
 public:
     // ??_GmmDofBangerInstance@@UAEPAXI@Z
     // ??_EmmDofBangerInstance@@UAEPAXI@Z

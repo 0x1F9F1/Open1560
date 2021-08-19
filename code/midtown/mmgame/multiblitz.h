@@ -48,8 +48,6 @@
 
 class mmMultiBlitz final : public mmGameMulti
 {
-    // const mmMultiBlitz::`vftable'
-
 public:
     // ??0mmMultiBlitz@@QAE@XZ
     ARTS_IMPORT mmMultiBlitz();

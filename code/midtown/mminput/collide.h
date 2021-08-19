@@ -32,8 +32,6 @@
 
 class mmCollideFF final : public mmEffectFF
 {
-    // const mmCollideFF::`vftable'
-
 public:
     // ?Assign@mmCollideFF@@QAEHJJ@Z
     ARTS_IMPORT i32 Assign(ilong arg1, ilong arg2);

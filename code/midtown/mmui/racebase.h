@@ -50,8 +50,6 @@
 
 class RaceMenuBase : public UIMenu
 {
-    // const RaceMenuBase::`vftable'
-
 public:
     // ??0RaceMenuBase@@QAE@H@Z
     ARTS_IMPORT RaceMenuBase(i32 arg1);

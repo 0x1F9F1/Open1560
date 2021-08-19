@@ -47,8 +47,6 @@ class agiMtlDef;
 
 class agiRasterizer : public agiRefreshable
 {
-    // const agiRasterizer::`vftable'
-
 public:
     // ??0agiRasterizer@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiRasterizer(class agiPipeline* pipe);

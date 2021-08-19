@@ -53,8 +53,6 @@
 
 class agiD3DRasterizer final : public agiRasterizer
 {
-    // const agiD3DRasterizer::`vftable'
-
 public:
     // ??0agiD3DRasterizer@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiD3DRasterizer(class agiPipeline* pipe)

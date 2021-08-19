@@ -58,8 +58,6 @@ class eqEventMonitor;
 
 class eqEventHandler
 {
-    // const eqEventHandler::`vftable'
-
 public:
     // ??0eqEventHandler@@QAE@XZ
     ARTS_EXPORT eqEventHandler();
@@ -120,8 +118,6 @@ check_size(eqEventHandler, 0x164);
 
 class eqEventMonitor
 {
-    // const eqEventMonitor::`vftable'
-
 public:
     // ??0eqEventMonitor@@QAE@H@Z
     ARTS_EXPORT eqEventMonitor(i32 channels);
@@ -166,8 +162,6 @@ check_size(eqEventMonitor, 0x14);
 
 class eqEventReplayChannelClass final : public eqReplayChannel
 {
-    // const eqEventReplayChannelClass::`vftable'
-
 public:
     // ??0eqEventReplayChannelClass@@QAE@XZ
     ARTS_EXPORT eqEventReplayChannelClass();

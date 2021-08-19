@@ -34,8 +34,6 @@
 
 class Dialog_Message final : public PUMenuBase
 {
-    // const Dialog_Message::`vftable'
-
 public:
     // ??0Dialog_Message@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_Message(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);

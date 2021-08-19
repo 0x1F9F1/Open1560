@@ -69,8 +69,6 @@ check_size(agiMtlParameters, 0x68);
 
 class agiMtlDef : public agiRefreshable
 {
-    // const agiMtlDef::`vftable'
-
 public:
     // ?GetName@agiMtlDef@@UAEPADXZ
     ARTS_IMPORT char* GetName() override;

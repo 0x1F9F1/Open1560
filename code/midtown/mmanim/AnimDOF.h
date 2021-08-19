@@ -53,8 +53,6 @@
 
 class mmDrawbridgeInstance final : public mmDofBangerInstance
 {
-    // const mmDrawbridgeInstance::`vftable'
-
 public:
     // ??_GmmDrawbridgeInstance@@UAEPAXI@Z
     // ??_EmmDrawbridgeInstance@@UAEPAXI@Z
@@ -72,8 +70,6 @@ check_size(mmDrawbridgeInstance, 0x34);
 
 class mmAnimDOF final
 {
-    // const mmAnimDOF::`vftable'
-
 public:
     // ??0mmAnimDOF@@QAE@XZ
     ARTS_IMPORT mmAnimDOF();

@@ -68,8 +68,6 @@ class mmHitBangerInstance;
 
 class mmCarModel final : public mmInstance
 {
-    // const mmCarModel::`vftable'
-
 public:
     // ??0mmCarModel@@QAE@XZ
     ARTS_EXPORT mmCarModel();

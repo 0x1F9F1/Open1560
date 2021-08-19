@@ -39,8 +39,6 @@
 
 class PostCamCS final : public CarCamCS
 {
-    // const PostCamCS::`vftable'
-
 public:
     // ??0PostCamCS@@QAE@XZ
     ARTS_IMPORT PostCamCS();

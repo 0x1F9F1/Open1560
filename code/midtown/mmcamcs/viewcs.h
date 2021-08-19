@@ -45,8 +45,6 @@
 
 class mmViewCS final : public asLinearCS
 {
-    // const mmViewCS::`vftable'
-
 public:
     // ??0mmViewCS@@QAE@XZ
     ARTS_IMPORT mmViewCS();

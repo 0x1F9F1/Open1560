@@ -43,8 +43,6 @@
 
 class UITextRoller final : public uiWidget
 {
-    // const UITextRoller::`vftable'
-
 public:
     // ??0UITextRoller@@QAE@XZ
     ARTS_IMPORT UITextRoller();

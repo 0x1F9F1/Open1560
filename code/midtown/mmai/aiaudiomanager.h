@@ -69,8 +69,6 @@
 
 class aiAudioManager final : public asNode
 {
-    // const aiAudioManager::`vftable'
-
 public:
     // ??0aiAudioManager@@QAE@XZ
     ARTS_IMPORT aiAudioManager();

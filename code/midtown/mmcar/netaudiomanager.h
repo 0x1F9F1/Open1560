@@ -52,8 +52,6 @@
 
 class NetAudioManager final : public asNode
 {
-    // const NetAudioManager::`vftable'
-
 public:
     // ??0NetAudioManager@@QAE@XZ
     ARTS_IMPORT NetAudioManager();

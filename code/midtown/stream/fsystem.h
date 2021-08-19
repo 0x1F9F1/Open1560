@@ -61,8 +61,6 @@ check_size(FileInfo, 0x108);
 
 class FileSystem : public Base
 {
-    // const FileSystem::`vftable'
-
 public:
     // ??0FileSystem@@QAE@XZ
     ARTS_EXPORT FileSystem();

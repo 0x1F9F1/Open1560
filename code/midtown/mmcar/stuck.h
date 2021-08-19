@@ -38,8 +38,6 @@
 
 class mmStuck final : public asNode
 {
-    // const mmStuck::`vftable'
-
 public:
     // ??0mmStuck@@QAE@XZ
     ARTS_IMPORT mmStuck();

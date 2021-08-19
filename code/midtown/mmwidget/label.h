@@ -40,8 +40,6 @@
 
 class UILabel final : public uiWidget
 {
-    // const UILabel::`vftable'
-
 public:
     // ??0UILabel@@QAE@XZ
     ARTS_IMPORT UILabel();

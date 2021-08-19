@@ -126,8 +126,6 @@ class agiTexDef;
 
 class mmCullCity final : public asNode
 {
-    // const mmCullCity::`vftable'
-
 public:
     // ??0mmCullCity@@QAE@XZ
     ARTS_IMPORT mmCullCity();
@@ -228,8 +226,6 @@ inline mmCullCity* CullCity()
 
 class mmUpperInstance final : public mmMatrixInstance
 {
-    // const mmUpperInstance::`vftable'
-
 public:
     // ??_GmmUpperInstance@@UAEPAXI@Z
     // ??_EmmUpperInstance@@UAEPAXI@Z
@@ -245,8 +241,6 @@ check_size(mmUpperInstance, 0x44);
 
 class mmRunwayLight final : public mmInstance
 {
-    // const mmRunwayLight::`vftable'
-
 public:
     // ??0mmRunwayLight@@QAE@PADAAVVector3@@1@Z
     ARTS_IMPORT mmRunwayLight(char* arg1, class Vector3& arg2, class Vector3& arg3);

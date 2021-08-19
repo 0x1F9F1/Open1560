@@ -107,8 +107,6 @@ class AudSound;
 
 class MenuManager final : public asNode
 {
-    // const MenuManager::`vftable'
-
 public:
     // ??0MenuManager@@QAE@XZ
     ARTS_IMPORT MenuManager();

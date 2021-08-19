@@ -46,8 +46,6 @@
 
 class HierFileSystem final : public FileSystem
 {
-    // const HierFileSystem::`vftable'
-
 public:
     // ??0HierFileSystem@@QAE@XZ
     ARTS_EXPORT HierFileSystem();

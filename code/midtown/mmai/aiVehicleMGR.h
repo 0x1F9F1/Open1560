@@ -113,8 +113,6 @@ ARTS_IMPORT extern class HashTable VehicleDataHash;
 
 class aiVehicleInstance final : public mmInstance
 {
-    // const aiVehicleInstance::`vftable'
-
 public:
     // ??_GaiVehicleInstance@@UAEPAXI@Z
     // ??_EaiVehicleInstance@@UAEPAXI@Z
@@ -172,8 +170,6 @@ check_size(aiVehicleInstance, 0x24);
 
 class aiVehicleActive final : public mmPhysEntity
 {
-    // const aiVehicleActive::`vftable'
-
 public:
     // ??0aiVehicleActive@@QAE@XZ
     ARTS_IMPORT aiVehicleActive();
@@ -217,8 +213,6 @@ check_size(aiVehicleActive, 0xA6C);
 
 class aiVehicleManager final : public asNode
 {
-    // const aiVehicleManager::`vftable'
-
 public:
     // ??0aiVehicleManager@@QAE@XZ
     ARTS_IMPORT aiVehicleManager();
@@ -270,8 +264,6 @@ check_size(aiVehicleManager, 0x16628);
 
 class aiVehicleData final : public asNode
 {
-    // const aiVehicleData::`vftable'
-
 public:
     // ??0aiVehicleData@@QAE@XZ | inline
     ARTS_IMPORT aiVehicleData();

@@ -72,8 +72,6 @@
 
 class asRenderWeb final : public asPortalWeb
 {
-    // const asRenderWeb::`vftable'
-
 public:
     // ??0asRenderWeb@@QAE@XZ
     ARTS_IMPORT asRenderWeb();

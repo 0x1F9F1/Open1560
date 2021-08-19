@@ -49,8 +49,6 @@
 
 class agiSWTexDef final : public agiTexDef
 {
-    // const agiSWTexDef::`vftable'
-
 public:
     // ??0agiSWTexDef@@QAE@PAVagiSWPipeline@@@Z
     ARTS_EXPORT agiSWTexDef(class agiSWPipeline* pipe)
@@ -94,8 +92,6 @@ check_size(agiSWTexDef, 0x9C);
 
 class agiSWTexLut final : public agiTexLut
 {
-    // const agiSWTexLut::`vftable'
-
 public:
     // ??0agiSWTexLut@@QAE@PAVagiSWPipeline@@@Z
     ARTS_IMPORT agiSWTexLut(class agiSWPipeline* arg1);

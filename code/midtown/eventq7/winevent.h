@@ -51,9 +51,6 @@ class WINEventHandler final
     : public eqEventHandler
     , public Dispatchable
 {
-    // const WINEventHandler::`vftable'{for `Dispatchable'}
-    // const WINEventHandler::`vftable'{for `eqEventHandler'}
-
 public:
     // ??0WINEventHandler@@QAE@XZ
     ARTS_EXPORT WINEventHandler();

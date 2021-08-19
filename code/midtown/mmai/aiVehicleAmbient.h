@@ -72,8 +72,6 @@
 
 class aiVehicleAmbient final : public aiVehicleSpline
 {
-    // const aiVehicleAmbient::`vftable'
-
 public:
     // ??0aiVehicleAmbient@@QAE@XZ
     ARTS_IMPORT aiVehicleAmbient();

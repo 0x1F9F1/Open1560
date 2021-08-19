@@ -55,8 +55,6 @@ class agiLighter;
 
 class agiSurfRenderer : public agiRenderer
 {
-    // const agiSurfRenderer::`vftable'
-
 public:
     // ??0agiSurfRenderer@@QAE@PAVagiRasterizer@@@Z
     ARTS_IMPORT agiSurfRenderer(class agiRasterizer* arg1);

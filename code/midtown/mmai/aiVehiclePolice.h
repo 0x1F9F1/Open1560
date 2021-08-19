@@ -71,8 +71,6 @@ class mmPed;
 
 class aiVehiclePolice final : public aiVehicleSpline
 {
-    // const aiVehiclePolice::`vftable'
-
 public:
     // ??0aiVehiclePolice@@QAE@XZ
     ARTS_IMPORT aiVehiclePolice();

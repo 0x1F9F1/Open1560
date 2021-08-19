@@ -32,8 +32,6 @@
 
 class uiWidget : public asNode
 {
-    // const uiWidget::`vftable'
-
 public:
     // ??0uiWidget@@QAE@XZ
     ARTS_IMPORT uiWidget();

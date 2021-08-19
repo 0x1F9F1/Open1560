@@ -36,8 +36,6 @@
 
 class mmShock final : public asLinearCS
 {
-    // const mmShock::`vftable'
-
 public:
     // ??0mmShock@@QAE@XZ
     ARTS_IMPORT mmShock();

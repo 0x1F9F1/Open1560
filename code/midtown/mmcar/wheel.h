@@ -55,8 +55,6 @@ class agiPhysParameters;
 
 class mmWheel final : public asLinearCS
 {
-    // const mmWheel::`vftable'
-
 public:
     // ??0mmWheel@@QAE@XZ
     ARTS_IMPORT mmWheel();

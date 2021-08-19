@@ -41,8 +41,6 @@
 
 class agiD3DRPipeline final : public agiD3DPipeline
 {
-    // const agiD3DRPipeline::`vftable'
-
 public:
     // ??0agiD3DRPipeline@@QAE@XZ
     ARTS_EXPORT agiD3DRPipeline() = default;

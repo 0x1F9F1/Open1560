@@ -39,8 +39,6 @@
 
 class CDMan final : public Dispatchable
 {
-    // const CDMan::`vftable'
-
 public:
     CDMan(HWND window);
 

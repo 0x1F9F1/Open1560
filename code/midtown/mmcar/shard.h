@@ -59,8 +59,6 @@ class mmCarSim;
 
 class mmShard final : public mmMatrixInstance
 {
-    // const mmShard::`vftable'
-
 public:
     // ??0mmShard@@QAE@XZ
     ARTS_IMPORT mmShard();
@@ -97,8 +95,6 @@ check_size(mmShard, 0x64);
 
 class mmShardManager final : public asNode
 {
-    // const mmShardManager::`vftable'
-
 public:
     // ??0mmShardManager@@QAE@XZ
     ARTS_EXPORT mmShardManager();

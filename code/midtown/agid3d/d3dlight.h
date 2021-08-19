@@ -37,8 +37,6 @@
 
 class agiD3DLight final : public agiLight
 {
-    // const agiD3DLight::`vftable'
-
 public:
     // ??0agiD3DLight@@QAE@PAVagiPipeline@@@Z
     ARTS_EXPORT agiD3DLight(class agiPipeline* pipe);

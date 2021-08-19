@@ -56,8 +56,6 @@
 
 class mmPlayerConfig final : public mmInfoBase
 {
-    // const mmPlayerConfig::`vftable'
-
 public:
     // ??0mmPlayerConfig@@QAE@XZ
     ARTS_IMPORT mmPlayerConfig();

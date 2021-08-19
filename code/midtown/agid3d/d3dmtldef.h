@@ -37,8 +37,6 @@
 
 class agiD3DMtlDef final : public agiMtlDef
 {
-    // const agiD3DMtlDef::`vftable'
-
 public:
     // ??0agiD3DMtlDef@@QAE@PAVagiPipeline@@@Z
     ARTS_IMPORT agiD3DMtlDef(class agiPipeline* arg1);

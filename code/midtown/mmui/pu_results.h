@@ -44,8 +44,6 @@
 
 class PUResults final : public PUMenuBase
 {
-    // const PUResults::`vftable'
-
 public:
     // ??0PUResults@@QAE@HMMMMPAD@Z
     ARTS_IMPORT PUResults(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);

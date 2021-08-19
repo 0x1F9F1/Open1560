@@ -53,8 +53,6 @@
 
 class CRSettings final : public UIMenu
 {
-    // const CRSettings::`vftable'
-
 public:
     // ??0CRSettings@@QAE@H@Z
     ARTS_IMPORT CRSettings(i32 arg1);

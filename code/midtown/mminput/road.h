@@ -32,8 +32,6 @@
 
 class mmRoadFF final : public mmEffectFF
 {
-    // const mmRoadFF::`vftable'
-
 public:
     // ?Assign@mmRoadFF@@QAEHJJ@Z
     ARTS_IMPORT i32 Assign(ilong arg1, ilong arg2);

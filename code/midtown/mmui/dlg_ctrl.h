@@ -33,8 +33,6 @@
 
 class Dialog_ControlAssign final : public PUMenuBase
 {
-    // const Dialog_ControlAssign::`vftable'
-
 public:
     // ??0Dialog_ControlAssign@@QAE@HMMMMPAD@Z
     ARTS_IMPORT Dialog_ControlAssign(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
