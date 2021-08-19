@@ -73,6 +73,3 @@ public:
 };
 
 check_size(PreCamCS, 0x130);
-
-// ?PreCamCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass PreCamCSMetaClass;

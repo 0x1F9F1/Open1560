@@ -69,6 +69,3 @@ public:
 };
 
 check_size(VehGyro, 0x34);
-
-// ?VehGyroMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass VehGyroMetaClass;

@@ -181,6 +181,3 @@ check_size(mmCarModel, 0x110);
 
 // ?IsPlayerAutoCam@@3HA
 ARTS_IMPORT extern i32 IsPlayerAutoCam;
-
-// ?mmCarModelMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmCarModelMetaClass;

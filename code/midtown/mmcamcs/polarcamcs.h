@@ -67,6 +67,3 @@ public:
 };
 
 check_size(PolarCamCS, 0x130);
-
-// ?PolarCamCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass PolarCamCSMetaClass;

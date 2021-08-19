@@ -261,6 +261,3 @@ ARTS_IMPORT extern f32 ProjectileY;
 
 // ?masscycle@@3HA
 ARTS_IMPORT extern i32 masscycle;
-
-// ?mmGameMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmGameMetaClass;

@@ -474,6 +474,3 @@ ARTS_IMPORT void RestoreApplication();
 
 // ?AUDMGRPTR@@3PAVAudManager@@A
 ARTS_IMPORT extern class AudManager* AUDMGRPTR;
-
-// ?AudManagerMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass AudManagerMetaClass;

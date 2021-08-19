@@ -82,6 +82,3 @@ public:
 };
 
 check_size(mmAnimMgr, 0x26B0);
-
-// ?mmAnimMgrMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmAnimMgrMetaClass;

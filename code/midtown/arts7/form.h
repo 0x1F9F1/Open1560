@@ -98,6 +98,3 @@ public:
 };
 
 check_size(asForm, 0xC8);
-
-// ?asFormMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asFormMetaClass;

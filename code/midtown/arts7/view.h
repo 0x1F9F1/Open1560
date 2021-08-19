@@ -98,6 +98,3 @@ public:
 };
 
 check_size(asViewCS, 0x124);
-
-// ?asViewCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asViewCSMetaClass;

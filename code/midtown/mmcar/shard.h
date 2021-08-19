@@ -161,9 +161,3 @@ private:
 };
 
 check_size(mmShardManager, 0x54);
-
-// ?mmShardManagerMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmShardManagerMetaClass;
-
-// ?mmShardMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmShardMetaClass;

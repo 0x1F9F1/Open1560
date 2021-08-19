@@ -363,6 +363,3 @@ ARTS_IMPORT extern f32 arotX;
 
 // ?defmass@@3MA
 ARTS_IMPORT extern f32 defmass;
-
-// ?mmHUDMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmHUDMetaClass;

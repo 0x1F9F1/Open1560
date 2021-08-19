@@ -113,9 +113,6 @@ ARTS_EXPORT void ReportTimeAlloc(f32 time);
 // ?defcarname@@3PADA
 ARTS_IMPORT extern char defcarname[80];
 
-// ?mmInterfaceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmInterfaceMetaClass;
-
 // ?szSearchPath@@3PADA
 ARTS_IMPORT extern char szSearchPath[128];
 

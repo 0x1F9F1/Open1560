@@ -98,6 +98,3 @@ public:
 };
 
 check_size(mmEngine, 0x7C);
-
-// ?mmEngineMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmEngineMetaClass;

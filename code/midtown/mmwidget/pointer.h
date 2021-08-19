@@ -81,6 +81,3 @@ private:
 };
 
 check_size(sfPointer, 0x54);
-
-// ?sfPointerMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass sfPointerMetaClass;

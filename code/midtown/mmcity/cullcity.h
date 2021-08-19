@@ -334,9 +334,6 @@ ARTS_IMPORT extern i32 carTriCount;
 ARTS_IMPORT extern i32 facadeTriCount;
 #endif
 
-// ?mmCullCityMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmCullCityMetaClass;
-
 struct t_mmEnvSetup
 {
     const char* Sky;

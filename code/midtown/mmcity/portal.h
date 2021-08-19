@@ -131,9 +131,6 @@ ARTS_EXPORT struct asPortalCell* LookupCell(char* arg1);
 // ?LookupEdge@@YAPAUasPortalCell@@PAD@Z | unused
 ARTS_EXPORT struct asPortalCell* LookupEdge(char* arg1);
 
-// ?asPortalWebMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asPortalWebMetaClass;
-
 struct asPortalPVS
 {
 public:

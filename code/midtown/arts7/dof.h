@@ -84,6 +84,3 @@ protected:
 };
 
 check_size(asDofCS, 0xF8);
-
-// ?asDofCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asDofCSMetaClass;

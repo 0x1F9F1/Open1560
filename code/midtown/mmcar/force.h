@@ -77,6 +77,3 @@ ARTS_IMPORT extern f32 YDownForceMin;
 
 // ?YDownForceMinHeight@@3MA
 ARTS_IMPORT extern f32 YDownForceMinHeight;
-
-// ?mmForceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmForceMetaClass;

@@ -83,6 +83,3 @@ public:
 };
 
 check_size(BaseCamCS, 0x9C);
-
-// ?BaseCamCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass BaseCamCSMetaClass;

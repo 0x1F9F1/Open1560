@@ -67,6 +67,3 @@ public:
 };
 
 check_size(AICamCS, 0x120);
-
-// ?AICamCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass AICamCSMetaClass;

@@ -58,7 +58,4 @@ public:
 
 check_size(Base, 0x4);
 
-// ?BaseMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass BaseMetaClass;
-
 inline Base::~Base() = default;

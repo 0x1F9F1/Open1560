@@ -193,6 +193,3 @@ check_size(mmWheel, 0x268);
 
 // ?DispLatZeroThresh@@3MA
 ARTS_IMPORT extern f32 DispLatZeroThresh;
-
-// ?mmWheelMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmWheelMetaClass;

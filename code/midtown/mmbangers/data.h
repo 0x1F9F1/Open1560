@@ -146,9 +146,3 @@ check_size(mmBangerDataManager, 0x268D0);
 
 // ?RefTo@@YAPAUMetaType@@PAU1@HPAF@Z | inline
 ARTS_IMPORT struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i16* arg3);
-
-// ?mmBangerDataManagerMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmBangerDataManagerMetaClass;
-
-// ?mmBangerDataMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmBangerDataMetaClass;

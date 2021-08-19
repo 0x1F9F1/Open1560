@@ -120,6 +120,3 @@ private:
 };
 
 check_size(TrackCamCS, 0x324);
-
-// ?TrackCamCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass TrackCamCSMetaClass;

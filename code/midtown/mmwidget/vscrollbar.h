@@ -117,6 +117,3 @@ public:
 };
 
 check_size(UIVScrollBar, 0x10C);
-
-// ?UIVScrollBarMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass UIVScrollBarMetaClass;

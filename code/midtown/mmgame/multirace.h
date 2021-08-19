@@ -105,6 +105,3 @@ private:
 };
 
 check_size(mmMultiRace, 0x1EEB0);
-
-// ?mmMultiRaceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmMultiRaceMetaClass;

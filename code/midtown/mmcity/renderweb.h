@@ -178,9 +178,6 @@ ARTS_IMPORT extern i32 ZREAD;
 // ?ZWRITE@@3HA
 ARTS_IMPORT extern i32 ZWRITE;
 
-// ?asRenderWebMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asRenderWebMetaClass;
-
 #ifdef ARTS_DEV_BUILD
 // ?pass1Count@@3HA
 ARTS_IMPORT extern i32 pass1Count;

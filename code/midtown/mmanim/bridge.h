@@ -186,9 +186,3 @@ private:
 };
 
 check_size(mmBridgeSet, 0x438);
-
-// ?mmBridgeMgrMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmBridgeMgrMetaClass;
-
-// ?mmBridgeSetMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmBridgeSetMetaClass;

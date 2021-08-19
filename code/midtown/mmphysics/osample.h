@@ -73,6 +73,3 @@ check_size(asOverSample, 0x30);
 
 // ?BenchOSample@@3HA
 ARTS_IMPORT extern i32 BenchOSample;
-
-// ?asOverSampleMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asOverSampleMetaClass;

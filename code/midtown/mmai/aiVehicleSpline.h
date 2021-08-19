@@ -161,6 +161,3 @@ public:
 };
 
 check_size(aiVehicleSpline, 0xD8);
-
-// ?aiVehicleSplineMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass aiVehicleSplineMetaClass;

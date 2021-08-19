@@ -206,9 +206,6 @@ check_size(Joint3Dof, 0xE0);
 // ?CrossProdMatrix@@YAXPAVMatrix34@@ABVVector3@@@Z | inline
 ARTS_IMPORT void CrossProdMatrix(class Matrix34* arg1, class Vector3 const& arg2);
 
-// ?Joint3DofMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass Joint3DofMetaClass;
-
 // ?Veldiscrepancy@@3VVector3@@A
 ARTS_IMPORT extern class Vector3 Veldiscrepancy;
 

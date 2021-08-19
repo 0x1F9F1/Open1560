@@ -74,6 +74,3 @@ public:
 };
 
 check_size(asLinearCS, 0x88);
-
-// ?asLinearCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asLinearCSMetaClass;

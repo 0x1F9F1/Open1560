@@ -124,6 +124,3 @@ check_size(mmTransmission, 0xD4);
 
 // ?ArrayOf@@YAPAUMetaType@@PAU1@H@Z | inline
 ARTS_IMPORT struct MetaType* ArrayOf(struct MetaType* arg1, i32 arg2);
-
-// ?mmTransmissionMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmTransmissionMetaClass;

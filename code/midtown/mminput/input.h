@@ -264,9 +264,6 @@ ARTS_IMPORT extern i32 UseDIKey;
 // ?gpdi@@3PAUIDirectInputA@@A
 ARTS_IMPORT extern struct IDirectInputA* gpdi;
 
-// ?mmInputMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmInputMetaClass;
-
 // ?testValue@@3MA
 ARTS_IMPORT extern f32 testValue;
 

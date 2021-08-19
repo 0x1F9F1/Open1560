@@ -84,6 +84,3 @@ private:
 };
 
 check_size(PovCamCS, 0x144);
-
-// ?PovCamCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass PovCamCSMetaClass;

@@ -156,6 +156,3 @@ public:
 };
 
 check_size(mmCtrlCFG, 0x6C80);
-
-// ?mmPlayerConfigMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmPlayerConfigMetaClass;

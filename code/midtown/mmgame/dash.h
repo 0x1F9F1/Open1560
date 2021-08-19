@@ -206,6 +206,3 @@ check_size(mmDashView, 0x880);
 
 // ?MAX_SPEED@@3MA
 ARTS_IMPORT extern f32 MAX_SPEED;
-
-// ?mmDashViewMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmDashViewMetaClass;

@@ -109,6 +109,3 @@ public:
 };
 
 check_size(mmOpponentCarAudio, 0xE0);
-
-// ?mmOpponentCarAudioMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmOpponentCarAudioMetaClass;

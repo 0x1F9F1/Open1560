@@ -192,6 +192,3 @@ ARTS_IMPORT extern class asCullManager* CULLMGR;
 
 // ?Update3D@@3MA
 ARTS_IMPORT extern f32 Update3D;
-
-// ?asCullManagerMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asCullManagerMetaClass;

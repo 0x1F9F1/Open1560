@@ -117,6 +117,3 @@ public:
 };
 
 check_size(mmSlider, 0xA4);
-
-// ?mmSliderMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmSliderMetaClass;

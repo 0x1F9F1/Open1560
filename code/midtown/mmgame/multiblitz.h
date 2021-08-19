@@ -106,6 +106,3 @@ private:
 };
 
 check_size(mmMultiBlitz, 0x1EEB8);
-
-// ?mmMultiBlitzMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmMultiBlitzMetaClass;

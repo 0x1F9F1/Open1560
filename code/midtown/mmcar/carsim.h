@@ -124,9 +124,6 @@ ARTS_IMPORT extern class Vector3 PlayerPos;
 // ?WeatherFriction@@3MA
 ARTS_IMPORT extern f32 WeatherFriction;
 
-// ?mmCarSimMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmCarSimMetaClass;
-
 class mmCarSim final : public asNode
 {
 public:

@@ -128,6 +128,3 @@ check_size(mmNumberFont, 0x24);
 
 // ?NUMBERSTRING@@3PADA
 ARTS_EXPORT extern char* NUMBERSTRING;
-
-// ?mmNumberMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmNumberMetaClass;

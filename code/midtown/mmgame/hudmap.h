@@ -270,6 +270,3 @@ check_size(mmHudMap, 0x2C8);
 
 // ?Tris@@3PATagiVtx@@A
 ARTS_IMPORT extern union agiVtx Tris[30];
-
-// ?mmHudMapMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmHudMapMetaClass;

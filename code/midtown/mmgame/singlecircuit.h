@@ -139,6 +139,3 @@ private:
 };
 
 check_size(mmSingleCircuit, 0x1E600);
-
-// ?mmSingleCircuitMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmSingleCircuitMetaClass;

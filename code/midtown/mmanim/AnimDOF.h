@@ -104,6 +104,3 @@ public:
 };
 
 check_size(mmAnimDOF, 0x98);
-
-// ?mmAnimDOFMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmAnimDOFMetaClass;

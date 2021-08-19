@@ -258,6 +258,3 @@ check_size(asNode, 0x20);
 
 // ?DebugMemory@@3HA
 ARTS_IMPORT extern i32 DebugMemory;
-
-// ?asNodeMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asNodeMetaClass;

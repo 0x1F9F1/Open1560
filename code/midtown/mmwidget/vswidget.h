@@ -108,6 +108,3 @@ public:
 };
 
 check_size(VSWidget, 0xD0);
-
-// ?VSWidgetMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass VSWidgetMetaClass;

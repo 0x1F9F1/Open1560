@@ -63,6 +63,3 @@ public:
 };
 
 check_size(mmInfoBase, 0x88);
-
-// ?mmInfoBaseMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmInfoBaseMetaClass;

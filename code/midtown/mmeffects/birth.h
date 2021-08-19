@@ -102,6 +102,3 @@ public:
 };
 
 check_size(asBirthRule, 0xB0);
-
-// ?asBirthRuleMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asBirthRuleMetaClass;

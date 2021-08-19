@@ -242,12 +242,3 @@ public:
 };
 
 check_size(mmPropInfo, 0x94);
-
-// ?mmPropInfoMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmPropInfoMetaClass;
-
-// ?mmRoadSectMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmRoadSectMetaClass;
-
-// ?mmRoadSideMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmRoadSideMetaClass;

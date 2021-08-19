@@ -105,12 +105,6 @@ ARTS_IMPORT extern class HashTable NoDataWhined;
 // ?VehicleDataHash@@3VHashTable@@A
 ARTS_IMPORT extern class HashTable VehicleDataHash;
 
-// ?aiVehicleDataMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass aiVehicleDataMetaClass;
-
-// ?aiVehicleInstanceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass aiVehicleInstanceMetaClass;
-
 class aiVehicleInstance final : public mmInstance
 {
 public:

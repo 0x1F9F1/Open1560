@@ -132,6 +132,3 @@ private:
 };
 
 check_size(aiGoalFollowWayPts, 0x18C);
-
-// ?aiGoalFollowWayPtsMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass aiGoalFollowWayPtsMetaClass;

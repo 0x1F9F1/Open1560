@@ -73,6 +73,3 @@ private:
 };
 
 check_size(mmToggle, 0x38);
-
-// ?mmToggleMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmToggleMetaClass;

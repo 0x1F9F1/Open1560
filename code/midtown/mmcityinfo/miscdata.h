@@ -106,6 +106,3 @@ public:
 };
 
 check_size(mmMiscData, 0x173C8);
-
-// ?mmMiscDataMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmMiscDataMetaClass;

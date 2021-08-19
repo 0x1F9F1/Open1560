@@ -74,6 +74,3 @@ public:
 };
 
 check_size(PostCamCS, 0x12C);
-
-// ?PostCamCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass PostCamCSMetaClass;

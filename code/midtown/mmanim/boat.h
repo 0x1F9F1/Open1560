@@ -126,6 +126,3 @@ ARTS_IMPORT extern class Matrix44 _Hermite;
 
 // ?cb@@3PAMA
 ARTS_IMPORT extern f32 cb[16];
-
-// ?mmBoatMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmBoatMetaClass;

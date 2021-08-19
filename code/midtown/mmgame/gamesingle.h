@@ -56,9 +56,6 @@
 // ?ThreadFunc@@YGKPAX@Z | unused
 ARTS_IMPORT ulong ARTS_STDCALL ThreadFunc(void* arg1);
 
-// ?mmGameSingleMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmGameSingleMetaClass;
-
 class mmGameSingle final : public mmGame
 {
 public:

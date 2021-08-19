@@ -150,6 +150,3 @@ private:
 };
 
 check_size(UIBMButton, 0xF0);
-
-// ?UIBMButtonMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass UIBMButtonMetaClass;

@@ -77,6 +77,3 @@ private:
 };
 
 check_size(UIBMLabel, 0xA0);
-
-// ?UIBMLabelMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass UIBMLabelMetaClass;

@@ -148,6 +148,3 @@ ARTS_IMPORT extern i32 ScreenClearCount;
 
 // ?dummyGlobal2@@3EA
 ARTS_IMPORT extern u8 dummyGlobal2;
-
-// ?mmGameManagerMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmGameManagerMetaClass;

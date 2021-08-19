@@ -181,6 +181,3 @@ check_size(mmPlayer, 0x4A98);
 
 // ?RestoreCityCam@@3HA
 ARTS_IMPORT extern i32 RestoreCityCam;
-
-// ?mmPlayerMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmPlayerMetaClass;

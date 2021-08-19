@@ -233,6 +233,3 @@ check_size(mmMultiCR, 0x1EF30);
 
 // ?TwoPlayers@@3HA
 ARTS_IMPORT extern i32 TwoPlayers;
-
-// ?mmMultiCRMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmMultiCRMetaClass;

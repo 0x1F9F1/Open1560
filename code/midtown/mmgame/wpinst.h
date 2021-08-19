@@ -78,6 +78,3 @@ public:
 };
 
 check_size(mmWaypointInstance, 0x44);
-
-// ?mmWaypointInstanceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmWaypointInstanceMetaClass;

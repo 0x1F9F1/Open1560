@@ -84,6 +84,3 @@ public:
 };
 
 check_size(EngineAudio, 0x90);
-
-// ?EngineAudioMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass EngineAudioMetaClass;

@@ -81,6 +81,3 @@ public:
 };
 
 check_size(mmDrivetrain, 0x48);
-
-// ?mmDrivetrainMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmDrivetrainMetaClass;

@@ -279,9 +279,6 @@ ARTS_IMPORT extern class mmPhysicsMGR PHYS;
 // ?PhysUpdate@@3MA
 ARTS_IMPORT extern f32 PhysUpdate;
 
-// ?mmPhysicsMGRMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmPhysicsMGRMetaClass;
-
 #ifdef ARTS_DEV_BUILD
 // ?physCollisions@@3KA
 ARTS_IMPORT extern ulong physCollisions;

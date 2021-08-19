@@ -183,6 +183,3 @@ ARTS_IMPORT class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, f32 ar
 
 // ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@0M@Z | unused
 ARTS_IMPORT class Vector3 MatrixToAngVelocity(class Matrix34 const& arg1, class Matrix34 const& arg2, f32 arg3);
-
-// ?asInertialCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asInertialCSMetaClass;

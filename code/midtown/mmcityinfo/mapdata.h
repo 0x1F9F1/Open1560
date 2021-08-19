@@ -72,6 +72,3 @@ public:
 };
 
 check_size(mmMapData, 0x90);
-
-// ?mmMapDataMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmMapDataMetaClass;

@@ -106,6 +106,3 @@ check_size(mmIODev, 0xA8);
 
 // ?ConvertDItoString@@YAHHPADH@Z
 ARTS_EXPORT b32 ConvertDItoString(i32 vsc, char* buffer, i32 buflen);
-
-// ?mmIODevMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmIODevMetaClass;

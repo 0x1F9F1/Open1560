@@ -69,6 +69,3 @@ public:
 };
 
 check_size(asAero, 0x74);
-
-// ?asAeroMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asAeroMetaClass;

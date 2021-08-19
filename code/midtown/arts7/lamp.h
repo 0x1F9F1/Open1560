@@ -86,6 +86,3 @@ private:
 };
 
 check_size(asLamp, 0x30);
-
-// ?asLampMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asLampMetaClass;

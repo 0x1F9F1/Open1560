@@ -117,6 +117,3 @@ public:
 };
 
 check_size(TextDropWidget, 0x38);
-
-// ?TextDropWidgetMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass TextDropWidgetMetaClass;

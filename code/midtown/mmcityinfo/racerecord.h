@@ -108,6 +108,3 @@ public:
 };
 
 check_size(mmRecord, 0x108);
-
-// ?mmRecordMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmRecordMetaClass;

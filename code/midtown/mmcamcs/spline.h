@@ -93,6 +93,3 @@ public:
 };
 
 check_size(Spline, 0x74);
-
-// ?SplineMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass SplineMetaClass;

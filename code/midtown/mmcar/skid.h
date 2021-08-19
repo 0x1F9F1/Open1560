@@ -140,9 +140,3 @@ public:
 };
 
 check_size(mmSkidManager, 0x68);
-
-// ?mmSkidManagerMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmSkidManagerMetaClass;
-
-// ?mmSkidMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmSkidMetaClass;

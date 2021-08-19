@@ -56,7 +56,4 @@ public:
 
 check_size(asCullable, 0x4);
 
-// ?asCullableMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asCullableMetaClass;
-
 inline asCullable::~asCullable() = default;

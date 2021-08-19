@@ -91,6 +91,3 @@ public:
 };
 
 check_size(PointCamCS, 0x144);
-
-// ?PointCamCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass PointCamCSMetaClass;

@@ -98,6 +98,3 @@ public:
 };
 
 check_size(mmViewCS, 0xC0);
-
-// ?mmViewCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmViewCSMetaClass;

@@ -174,6 +174,3 @@ ARTS_IMPORT i32 EggNameIndex(char* arg1);
 
 // ?ffval@@3MA
 ARTS_IMPORT extern f32 ffval;
-
-// ?mmCarMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmCarMetaClass;

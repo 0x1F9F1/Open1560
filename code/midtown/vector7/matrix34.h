@@ -282,9 +282,6 @@ inline constexpr const Matrix34 IDENTITY {
     {0.0f, 0.0f, 0.0f},
 };
 
-// ?Matrix34MetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass Matrix34MetaClass;
-
 constexpr void Matrix34::Identity()
 {
     *this = IDENTITY;

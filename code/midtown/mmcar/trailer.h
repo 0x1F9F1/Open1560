@@ -170,6 +170,3 @@ public:
 };
 
 check_size(mmTrailerInstance, 0x48);
-
-// ?mmTrailerMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmTrailerMetaClass;

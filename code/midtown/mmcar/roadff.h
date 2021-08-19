@@ -90,6 +90,3 @@ public:
 };
 
 check_size(mmCarRoadFF, 0x44);
-
-// ?mmCarRoadFFMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmCarRoadFFMetaClass;

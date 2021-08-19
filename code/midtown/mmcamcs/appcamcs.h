@@ -76,6 +76,3 @@ private:
 };
 
 check_size(AppCamCS, 0x114);
-
-// ?AppCamCSMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass AppCamCSMetaClass;

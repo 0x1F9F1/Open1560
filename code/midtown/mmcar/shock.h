@@ -65,6 +65,3 @@ public:
 };
 
 check_size(mmShock, 0x98);
-
-// ?mmShockMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmShockMetaClass;

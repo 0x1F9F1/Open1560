@@ -478,29 +478,8 @@ ARTS_IMPORT char* formatf(char const* arg1, ...);
 ARTS_IMPORT extern i32 EnableFacadeSideClipping;
 #endif
 
-// ?mmBuildingInstanceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmBuildingInstanceMetaClass;
-
-// ?mmFacadeInstanceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmFacadeInstanceMetaClass;
-
 // ?mmInstanceHeap@@3V?$mmHeap@H@@A
 ARTS_IMPORT extern class mmHeap<i32> mmInstanceHeap;
-
-// ?mmInstanceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmInstanceMetaClass;
-
-// ?mmMatrixInstanceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmMatrixInstanceMetaClass;
-
-// ?mmShearInstanceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmShearInstanceMetaClass;
-
-// ?mmStaticInstanceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmStaticInstanceMetaClass;
-
-// ?mmYInstanceMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmYInstanceMetaClass;
 
 class mmYInstance : public mmInstance
 {

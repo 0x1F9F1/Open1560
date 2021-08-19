@@ -129,6 +129,3 @@ check_size(mmPlayerDirectory, 0xE4);
 
 // ?RefTo@@YAPAUMetaType@@PAU1@HPAH@Z | inline
 ARTS_IMPORT struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i32* arg3);
-
-// ?mmPlayerDirectoryMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmPlayerDirectoryMetaClass;

@@ -202,9 +202,3 @@ public:
 };
 
 check_size(mmPlayerData, 0x2178);
-
-// ?mmPlayerDataMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmPlayerDataMetaClass;
-
-// ?mmPlayerRecordMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmPlayerRecordMetaClass;

@@ -105,6 +105,3 @@ private:
 };
 
 check_size(mmDropDown, 0xC8);
-
-// ?mmDropDownMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmDropDownMetaClass;

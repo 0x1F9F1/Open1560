@@ -122,6 +122,3 @@ public:
 };
 
 check_size(mmGameEdit, 0x1E738);
-
-// ?mmGameEditMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmGameEditMetaClass;

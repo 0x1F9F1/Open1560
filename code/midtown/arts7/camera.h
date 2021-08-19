@@ -257,6 +257,3 @@ ARTS_IMPORT extern f32 Duration;
 
 // ?VW@@3PAVagiViewport@@A
 ARTS_IMPORT extern class agiViewport* VW;
-
-// ?asCameraMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asCameraMetaClass;

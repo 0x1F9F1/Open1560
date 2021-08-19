@@ -111,6 +111,3 @@ ARTS_IMPORT i32 cmpPtx(void const* arg1, void const* arg2);
 
 // ?EnablePtxSorting@@3HA
 ARTS_IMPORT extern i32 EnablePtxSorting;
-
-// ?asParticlesMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asParticlesMetaClass;

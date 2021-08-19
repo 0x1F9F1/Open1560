@@ -65,6 +65,3 @@ public:
 };
 
 check_size(mmAxle, 0x9C);
-
-// ?mmAxleMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmAxleMetaClass;

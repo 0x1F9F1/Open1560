@@ -329,9 +329,6 @@ ARTS_IMPORT extern i32 StereoBuffer;
 // ?VFS@@3PAVVirtualFileSystem@@A
 ARTS_IMPORT extern class VirtualFileSystem* VFS;
 
-// ?asSimulationMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass asSimulationMetaClass;
-
 class artsReplayChannel final : public eqReplayChannel
 {
 public:

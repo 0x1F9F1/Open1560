@@ -147,6 +147,3 @@ private:
 };
 
 check_size(aiVehicleOpponent, 0x23BC);
-
-// ?aiVehicleOpponentMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass aiVehicleOpponentMetaClass;

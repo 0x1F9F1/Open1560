@@ -105,9 +105,3 @@ public:
 };
 
 check_size(mmPedManager, 0x2C);
-
-// ?mmPedManagerMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmPedManagerMetaClass;
-
-// ?mmPedMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass mmPedMetaClass;

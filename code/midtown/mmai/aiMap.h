@@ -412,6 +412,3 @@ ARTS_IMPORT extern i32 _nPedQty;
 
 // ?_nRdQty@@3HA
 ARTS_IMPORT extern i32 _nRdQty;
-
-// ?aiMapMetaClass@@3VMetaClass@@A
-// ARTS_IMPORT extern class MetaClass aiMapMetaClass;
