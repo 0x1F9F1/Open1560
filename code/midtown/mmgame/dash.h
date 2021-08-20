@@ -62,6 +62,7 @@
 #include "gauge.h"
 
 class agiMeshSet;
+class mmPlayer;
 
 class mmExternalView final : public asNode
 {
@@ -76,14 +77,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmExternalView@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@mmExternalView@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
     // ?Init@mmExternalView@@QAEXPAVmmPlayer@@@Z
-    ARTS_IMPORT void Init(class mmPlayer* arg1);
+    ARTS_IMPORT void Init(mmPlayer* arg1);
 
     // ?ResChange@mmExternalView@@UAEXHH@Z
     ARTS_IMPORT void ResChange(i32 arg1, i32 arg2) override;
@@ -120,7 +121,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmDashView@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AfterLoad@mmDashView@@UAEXXZ
@@ -136,10 +137,10 @@ public:
     ARTS_IMPORT void Deactivate();
 
     // ?GetClass@mmDashView@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmDashView@@QAEXPADPAVmmPlayer@@@Z
-    ARTS_IMPORT void Init(char* arg1, class mmPlayer* arg2);
+    ARTS_IMPORT void Init(char* arg1, mmPlayer* arg2);
 
     // ?Reset@mmDashView@@UAEXXZ
     ARTS_IMPORT void Reset() override;

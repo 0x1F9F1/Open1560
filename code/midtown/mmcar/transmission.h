@@ -59,7 +59,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmTransmission@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Automatic@mmTransmission@@QAEXH@Z
@@ -72,13 +72,13 @@ public:
     ARTS_IMPORT i32 Downshift();
 
     // ?GetClass@mmTransmission@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetCurrentGear@mmTransmission@@QAEHXZ
     ARTS_IMPORT i32 GetCurrentGear();
 
     // ?Init@mmTransmission@@QAEXPAVmmCarSim@@@Z
-    ARTS_IMPORT void Init(class mmCarSim* arg1);
+    ARTS_IMPORT void Init(mmCarSim* arg1);
 
     // ?Reset@mmTransmission@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -123,4 +123,4 @@ public:
 check_size(mmTransmission, 0xD4);
 
 // ?ArrayOf@@YAPAUMetaType@@PAU1@H@Z | inline
-ARTS_IMPORT struct MetaType* ArrayOf(struct MetaType* arg1, i32 arg2);
+// ARTS_IMPORT MetaType* ArrayOf(MetaType* arg1, i32 arg2);

@@ -61,7 +61,7 @@ public:
     ARTS_IMPORT ~UITextScroll() override;
 
     // ?Action@UITextScroll@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?GetCurrentString@UITextScroll@@QAEXPADH@Z | unused
     ARTS_IMPORT void GetCurrentString(char* arg1, i32 arg2);
@@ -70,20 +70,20 @@ public:
     ARTS_IMPORT i32 GetHit(f32 arg1, f32 arg2);
 
     // ?Init@UITextScroll@@QAEXPAXMMMMVstring@@HPAHVCallback@@@Z
-    ARTS_IMPORT void Init(void* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, class string arg6, i32 arg7, i32* arg8,
-        class Callback arg9);
+    ARTS_IMPORT void Init(
+        void* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, string arg6, i32 arg7, i32* arg8, Callback arg9);
 
     // ?InitVScroll@UITextScroll@@QAEXMMM@Z
     ARTS_EXPORT void InitVScroll(f32 arg1, f32 arg2, f32 arg3);
 
     // ?Recalc@UITextScroll@@QAEXVstring@@@Z
-    ARTS_IMPORT void Recalc(class string arg1);
+    ARTS_IMPORT void Recalc(string arg1);
 
     // ?SetHighlight@UITextScroll@@QAEXH@Z | unused
     ARTS_IMPORT void SetHighlight(i32 arg1);
 
     // ?SetText@UITextScroll@@QAEXHPAULocString@@@Z
-    ARTS_IMPORT void SetText(i32 arg1, struct LocString* arg2);
+    ARTS_IMPORT void SetText(i32 arg1, LocString* arg2);
 
     // ?SetVScrollPos@UITextScroll@@QAEXXZ
     ARTS_IMPORT void SetVScrollPos();
@@ -108,7 +108,7 @@ private:
     ARTS_IMPORT void FillScroll();
 
     // ?InitTextScroll@UITextScroll@@AAEXVstring@@@Z
-    ARTS_IMPORT void InitTextScroll(class string arg1);
+    ARTS_IMPORT void InitTextScroll(string arg1);
 
     // ?KeyAction@UITextScroll@@AAEXXZ | unused
     ARTS_IMPORT void KeyAction();

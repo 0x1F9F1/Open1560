@@ -24,6 +24,9 @@
     0x583790 | void __cdecl jpeg_idct_islow(struct jpeg_decompress_struct *,struct jpeg_component_info *,short *,unsigned char * *,unsigned int) | ?jpeg_idct_islow@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z
 */
 
+struct jpeg_component_info;
+struct jpeg_decompress_struct;
+
 // ?jpeg_idct_islow@@YAXPAUjpeg_decompress_struct@@PAUjpeg_component_info@@PAFPAPAEI@Z
 ARTS_IMPORT void jpeg_idct_islow(
-    struct jpeg_decompress_struct* arg1, struct jpeg_component_info* arg2, i16* arg3, u8** arg4, u32 arg5);
+    jpeg_decompress_struct* arg1, jpeg_component_info* arg2, i16* arg3, u8** arg4, u32 arg5);

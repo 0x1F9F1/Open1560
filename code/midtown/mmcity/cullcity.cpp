@@ -26,11 +26,11 @@ define_dummy_symbol(mmcity_cullcity);
 #include "agiworld/quality.h"
 
 #ifdef ARTS_DEV_BUILD
-void mmRunwayLight::AddWidgets(class Bank* /*arg1*/)
+void mmRunwayLight::AddWidgets(Bank* /*arg1*/)
 {}
 #endif
 
-void ARTS_FASTCALL mmRunwayLight::FromMatrix(class Matrix34 const& /*arg1*/)
+void ARTS_FASTCALL mmRunwayLight::FromMatrix(Matrix34 const& /*arg1*/)
 {}
 
 // ?fix_fill1@@YAXXZ
@@ -52,7 +52,7 @@ ARTS_IMPORT /*static*/ void parseFloat(f32& arg1);
 ARTS_IMPORT /*static*/ void parseRGB(u32& arg1);
 
 // ?parseVector3@@YAXAAVVector3@@@Z
-ARTS_IMPORT /*static*/ void parseVector3(class Vector3& arg1);
+ARTS_IMPORT /*static*/ void parseVector3(Vector3& arg1);
 
 void mmCullCity::Cull()
 {

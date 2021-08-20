@@ -27,14 +27,16 @@
     0x73E738 | union mmx * UnpackNormalMMX | ?UnpackNormalMMX@@3PATmmx@@A
 */
 
+union mmx;
+
 // ?PackNormal@@YAEAAVVector3@@@Z
-ARTS_IMPORT u8 PackNormal(class Vector3& normal);
+ARTS_IMPORT u8 PackNormal(Vector3& normal);
 
 // ?PackNormalSlow@@YAEAAVVector3@@@Z | unused
-ARTS_IMPORT u8 PackNormalSlow(class Vector3& normal);
+ARTS_IMPORT u8 PackNormalSlow(Vector3& normal);
 
 // ?UnpackNormal@@3PAVVector3@@A
-ARTS_EXPORT extern class Vector3 UnpackNormal[198];
+ARTS_EXPORT extern Vector3 UnpackNormal[198];
 
 // ?UnpackNormalMMX@@3PATmmx@@A
-ARTS_IMPORT extern union mmx UnpackNormalMMX[198];
+ARTS_IMPORT extern mmx UnpackNormalMMX[198];

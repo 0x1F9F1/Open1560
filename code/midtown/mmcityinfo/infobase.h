@@ -45,7 +45,7 @@ public:
     ARTS_IMPORT ~mmInfoBase() override = default;
 
     // ?GetClass@mmInfoBase@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Load@mmInfoBase@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);

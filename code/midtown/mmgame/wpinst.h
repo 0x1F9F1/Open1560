@@ -54,7 +54,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmWaypointInstance@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?ComputeLod@mmWaypointInstance@@UAEHMM@Z
@@ -64,7 +64,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?GetClass@mmWaypointInstance@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetScale@mmWaypointInstance@@UAIMXZ
     ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;

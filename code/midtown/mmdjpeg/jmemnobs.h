@@ -32,29 +32,32 @@
     0x90B4C0 | int jpeg_allocated | ?jpeg_allocated@@3HA
 */
 
+struct backing_store_struct;
+struct jpeg_common_struct;
+
 // ?jpeg_free_large@@YAXPAUjpeg_common_struct@@PAXI@Z
-ARTS_IMPORT void jpeg_free_large(struct jpeg_common_struct* arg1, void* arg2, u32 arg3);
+ARTS_IMPORT void jpeg_free_large(jpeg_common_struct* arg1, void* arg2, u32 arg3);
 
 // ?jpeg_free_small@@YAXPAUjpeg_common_struct@@PAXI@Z
-ARTS_IMPORT void jpeg_free_small(struct jpeg_common_struct* arg1, void* arg2, u32 arg3);
+ARTS_IMPORT void jpeg_free_small(jpeg_common_struct* arg1, void* arg2, u32 arg3);
 
 // ?jpeg_get_large@@YAPAXPAUjpeg_common_struct@@I@Z
-ARTS_IMPORT void* jpeg_get_large(struct jpeg_common_struct* arg1, u32 arg2);
+ARTS_IMPORT void* jpeg_get_large(jpeg_common_struct* arg1, u32 arg2);
 
 // ?jpeg_get_small@@YAPAXPAUjpeg_common_struct@@I@Z
-ARTS_IMPORT void* jpeg_get_small(struct jpeg_common_struct* arg1, u32 arg2);
+ARTS_IMPORT void* jpeg_get_small(jpeg_common_struct* arg1, u32 arg2);
 
 // ?jpeg_mem_available@@YAJPAUjpeg_common_struct@@JJJ@Z
-ARTS_IMPORT ilong jpeg_mem_available(struct jpeg_common_struct* arg1, ilong arg2, ilong arg3, ilong arg4);
+ARTS_IMPORT ilong jpeg_mem_available(jpeg_common_struct* arg1, ilong arg2, ilong arg3, ilong arg4);
 
 // ?jpeg_mem_init@@YAJPAUjpeg_common_struct@@@Z
-ARTS_EXPORT ilong jpeg_mem_init(struct jpeg_common_struct* arg1);
+ARTS_EXPORT ilong jpeg_mem_init(jpeg_common_struct* arg1);
 
 // ?jpeg_mem_term@@YAXPAUjpeg_common_struct@@@Z
-ARTS_EXPORT void jpeg_mem_term(struct jpeg_common_struct* arg1);
+ARTS_EXPORT void jpeg_mem_term(jpeg_common_struct* arg1);
 
 // ?jpeg_open_backing_store@@YAXPAUjpeg_common_struct@@PAUbacking_store_struct@@J@Z
-ARTS_IMPORT void jpeg_open_backing_store(struct jpeg_common_struct* arg1, struct backing_store_struct* arg2, i32 arg3);
+ARTS_IMPORT void jpeg_open_backing_store(jpeg_common_struct* arg1, backing_store_struct* arg2, i32 arg3);
 
 // ?jpeg_allocated@@3HA
 ARTS_IMPORT extern i32 jpeg_allocated;

@@ -60,4 +60,4 @@ ARTS_IMPORT extern i32 BoundBytesPaged;
 ARTS_IMPORT extern i32 BoundsPaged;
 
 // ?MakeTableStats@@3PAVStream@@A
-ARTS_IMPORT extern class Stream* MakeTableStats;
+ARTS_IMPORT extern Stream* MakeTableStats;

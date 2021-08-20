@@ -282,7 +282,7 @@ void LookupAddress(char* buffer, usize buflen, usize address)
     LookupAddress(buffer, 128, usize(addr));
 }
 
-ARTS_NOINLINE i32 StackTraceback(i32 depth, isize* frames, i32 skipped, struct _CONTEXT* context_record)
+ARTS_NOINLINE i32 StackTraceback(i32 depth, isize* frames, i32 skipped, _CONTEXT* context_record)
 {
     InitDebugSymbols();
 
@@ -366,7 +366,7 @@ static const char* GetExceptionCodeString(DWORD code)
 
 thread_local bool InException {false};
 
-i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception)
+i32 ExceptionFilter(_EXCEPTION_POINTERS* exception)
 {
     if (InException)
         Abortf("Exception occured during handler");

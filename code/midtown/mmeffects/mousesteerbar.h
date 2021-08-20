@@ -47,7 +47,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmMouseSteerBar@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@mmMouseSteerBar@@UAEXXZ

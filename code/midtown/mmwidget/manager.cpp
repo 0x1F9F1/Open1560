@@ -30,7 +30,7 @@ void MenuManager::AddPointer()
 {}
 
 #ifdef ARTS_DEV_BUILD
-void MenuManager::AddWidgets(class Bank* /*arg1*/)
+void MenuManager::AddWidgets(Bank* /*arg1*/)
 {}
 #endif
 

@@ -71,8 +71,10 @@
 
 #include <atomic>
 
-class agiPolySet;
 class agiColorModel;
+class agiPolySet;
+class DataCache;
+struct lutQentry;
 
 class agiTexParameters
 {
@@ -81,10 +83,10 @@ public:
     ARTS_EXPORT agiTexParameters() = default;
 
     // ?Load@agiTexParameters@@QAEXPAVStream@@@Z
-    ARTS_EXPORT void Load(class Stream* file);
+    ARTS_EXPORT void Load(Stream* file);
 
     // ?Save@agiTexParameters@@QAEXPAVStream@@@Z
-    ARTS_EXPORT void Save(class Stream* file);
+    ARTS_EXPORT void Save(Stream* file);
 
     char Name[32] {};
 
@@ -156,13 +158,13 @@ public:
     // ?IsAvailable@agiTexDef@@UAEHXZ
     ARTS_EXPORT virtual b32 IsAvailable();
 
-    virtual void Set(class Vector2& arg1, class Vector2& arg2) = 0;
+    virtual void Set(Vector2& arg1, Vector2& arg2) = 0;
 
     // ?Lock@agiTexDef@@UAEHAAUagiTexLock@@@Z
-    ARTS_EXPORT virtual b32 Lock(struct agiTexLock& lock);
+    ARTS_EXPORT virtual b32 Lock(agiTexLock& lock);
 
     // ?Unlock@agiTexDef@@UAEXAAUagiTexLock@@@Z
-    ARTS_EXPORT virtual void Unlock(struct agiTexLock& lock);
+    ARTS_EXPORT virtual void Unlock(agiTexLock& lock);
 
     // ?Request@agiTexDef@@UAEXXZ
     ARTS_EXPORT virtual void Request();
@@ -177,9 +179,9 @@ public:
     ARTS_EXPORT char* GetName() override;
 
     // ?Init@agiTexDef@@QAEHABVagiTexParameters@@@Z
-    ARTS_EXPORT i32 Init(class agiTexParameters const& params);
+    ARTS_EXPORT i32 Init(agiTexParameters const& params);
 
-    i32 Init(class agiTexParameters const& params, Ptr<agiSurfaceDesc> surface);
+    i32 Init(agiTexParameters const& params, Ptr<agiSurfaceDesc> surface);
 
     // ?IsTexture@agiTexDef@@UAEHXZ
     ARTS_EXPORT b32 IsTexture() override;
@@ -224,7 +226,7 @@ public:
 
 protected:
     // ??0agiTexDef@@IAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiTexDef(class agiPipeline* pipe);
+    ARTS_EXPORT agiTexDef(agiPipeline* pipe);
 
     // ??_EagiTexDef@@MAEPAXI@Z
     // ??_GagiTexDef@@MAEPAXI@Z
@@ -256,13 +258,13 @@ ARTS_IMPORT extern i32 MaxTexSize;
 ARTS_IMPORT extern i32 PackShift;
 
 // ?TEXCACHE@@3VDataCache@@A
-ARTS_EXPORT extern class DataCache TEXCACHE;
+ARTS_EXPORT extern DataCache TEXCACHE;
 
 // ?TexBytesPaged@@3HA
 ARTS_IMPORT extern i32 TexBytesPaged;
 
 // ?TexLutHash@@3VHashTable@@A
-ARTS_IMPORT extern class HashTable TexLutHash;
+ARTS_IMPORT extern HashTable TexLutHash;
 
 // ?TexSearchPath@@3PADA
 ARTS_IMPORT extern char* TexSearchPath; // Null Separated
@@ -271,7 +273,7 @@ ARTS_IMPORT extern char* TexSearchPath; // Null Separated
 ARTS_IMPORT extern i32 TexsPaged;
 
 // ?lutQ@@3PAUlutQentry@@A
-ARTS_IMPORT extern struct lutQentry lutQ[64];
+ARTS_IMPORT extern lutQentry lutQ[64];
 
 class agiTexLut : public agiRefreshable
 {
@@ -284,7 +286,7 @@ public:
 
 protected:
     // ??0agiTexLut@@IAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiTexLut(class agiPipeline* pipe);
+    ARTS_EXPORT agiTexLut(agiPipeline* pipe);
 
     // ??_GagiTexLut@@MAEPAXI@Z
     // ??_EagiTexLut@@MAEPAXI@Z

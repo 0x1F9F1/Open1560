@@ -30,6 +30,8 @@
     0x907238 | class agiPalette agiPal | ?agiPal@@3VagiPalette@@A
 */
 
+struct agiRgba;
+
 class agiPalette
 {
 public:
@@ -40,10 +42,10 @@ public:
     ARTS_IMPORT void Cube();
 
     // ?FindColor@agiPalette@@QAEIUagiRgba@@@Z
-    ARTS_IMPORT u32 FindColor(struct agiRgba arg1);
+    ARTS_IMPORT u32 FindColor(agiRgba arg1);
 
     // ?GetColor@agiPalette@@QAEIUagiRgba@@@Z
-    ARTS_IMPORT u32 GetColor(struct agiRgba arg1);
+    ARTS_IMPORT u32 GetColor(agiRgba arg1);
 
     // ?Kill@agiPalette@@QAEXXZ
     ARTS_IMPORT void Kill();
@@ -61,4 +63,4 @@ public:
 check_size(agiPalette, 0x410);
 
 // ?agiPal@@3VagiPalette@@A
-ARTS_IMPORT extern class agiPalette agiPal;
+ARTS_IMPORT extern agiPalette agiPal;

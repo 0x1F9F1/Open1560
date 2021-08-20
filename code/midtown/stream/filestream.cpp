@@ -49,7 +49,7 @@ FileStream::FileStream(i32 handle)
     , pager_handle_(INVALID_HANDLE_VALUE)
 {}
 
-FileStream::FileStream(void* buffer, isize buffer_size, class FileSystem* file_system)
+FileStream::FileStream(void* buffer, isize buffer_size, FileSystem* file_system)
     : Stream(buffer, buffer_size, file_system)
     , file_handle_(INVALID_HANDLE_VALUE)
     , pager_handle_(INVALID_HANDLE_VALUE)

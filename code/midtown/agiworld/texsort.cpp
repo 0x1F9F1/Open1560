@@ -46,8 +46,8 @@ ARTS_IMPORT extern agiPolySet BigPolySet;
 
 static mem::cmd_param PARAM_max_verts_per_set {"maxverts"};
 
-class agiPolySet* agiTexSorter::AlphaPolySets[32];
-class agiPolySet* agiTexSorter::OpaquePolySets[128];
+agiPolySet* agiTexSorter::AlphaPolySets[32];
+agiPolySet* agiTexSorter::OpaquePolySets[128];
 
 agiTexSorter::agiTexSorter()
 {
@@ -301,7 +301,7 @@ void agiPolySet::Kill()
     Indices = nullptr;
 }
 
-RcOwner<class agiTexDef> GetPackedTexture(char* name, i32 variation)
+RcOwner<agiTexDef> GetPackedTexture(char* name, i32 variation)
 {
     static i32 mutex = 0;
     ArAssert(++mutex == 1, "Wow, what a great mutex");

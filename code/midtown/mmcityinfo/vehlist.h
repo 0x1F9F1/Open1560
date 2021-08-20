@@ -53,10 +53,10 @@ public:
     ARTS_EXPORT i32 GetVehicleID(char* name);
 
     // ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@PAD@Z
-    ARTS_EXPORT class mmVehInfo* GetVehicleInfo(const char* name);
+    ARTS_EXPORT mmVehInfo* GetVehicleInfo(const char* name);
 
     // ?GetVehicleInfo@mmVehList@@QAEPAVmmVehInfo@@H@Z
-    ARTS_EXPORT class mmVehInfo* GetVehicleInfo(i32 index);
+    ARTS_EXPORT mmVehInfo* GetVehicleInfo(i32 index);
 
     // ?Init@mmVehList@@QAEXH@Z | unused
     ARTS_EXPORT void Init(i32 arg1);
@@ -80,4 +80,4 @@ public:
 // check_size(mmVehList, 0xC);
 
 // ?VehicleListPtr@@3PAVmmVehList@@A
-ARTS_IMPORT extern class mmVehList* VehicleListPtr;
+ARTS_IMPORT extern mmVehList* VehicleListPtr;

@@ -30,29 +30,6 @@
 
 #include "texdef.h"
 
-#if 0
-class agiLib<class agiTexParameters, class agiTexDef>
-{
-public:
-    // ??0?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ | inline
-    ARTS_IMPORT agiLib<class agiTexParameters, class agiTexDef>();
-
-    // ??1?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAE@XZ | inline
-    ARTS_IMPORT ~agiLib<class agiTexParameters, class agiTexDef>();
-
-    // ?Add@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEHAAVagiTexParameters@@@Z | inline
-    ARTS_IMPORT i32 Add(class agiTexParameters& arg1);
-
-    // ?Init@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXH@Z | inline
-    ARTS_IMPORT void Init(i32 arg1);
-
-    // ?Kill@?$agiLib@VagiTexParameters@@VagiTexDef@@@@QAEXXZ | inline
-    ARTS_IMPORT void Kill();
-
-    u8 gap0[0x4014];
-};
-#endif
-
 // ?agiTexLib@@3V?$agiLib@VagiTexParameters@@VagiTexDef@@@@A
 ARTS_EXPORT extern class agiLib<class agiTexParameters, class agiTexDef> agiTexLib;
 

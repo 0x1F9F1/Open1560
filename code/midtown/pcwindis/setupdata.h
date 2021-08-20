@@ -122,7 +122,7 @@ ARTS_EXPORT i32 dxiResClosestMatch(i32 renderer, i32 width, i32 height);
 ARTS_EXPORT i32 dxiResGetRecommended(i32 renderer, i32 cpu_speed);
 
 // ?dxiInfo@@3PAUdxiRendererInfo_t@@A
-ARTS_EXPORT extern struct dxiRendererInfo_t dxiInfo[16];
+ARTS_EXPORT extern dxiRendererInfo_t dxiInfo[16];
 
 // ?dxiRendererChoice@@3HA
 ARTS_EXPORT extern i32 dxiRendererChoice;

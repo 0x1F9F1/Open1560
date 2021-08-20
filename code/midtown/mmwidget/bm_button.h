@@ -56,6 +56,9 @@
 
 #include "widget.h"
 
+class agiBitmap;
+class AudSound;
+
 class UIBMButton final : public uiWidget
 {
 public:
@@ -67,10 +70,10 @@ public:
     ARTS_IMPORT ~UIBMButton() override;
 
     // ?Action@UIBMButton@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?CreateDummyBitmap@UIBMButton@@QAEPAVagiBitmap@@XZ
-    ARTS_IMPORT class agiBitmap* CreateDummyBitmap();
+    ARTS_IMPORT agiBitmap* CreateDummyBitmap();
 
     // ?Cull@UIBMButton@@UAEXXZ
     ARTS_IMPORT void Cull() override;
@@ -85,7 +88,7 @@ public:
     ARTS_IMPORT void Enable() override;
 
     // ?GetClass@UIBMButton@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetDiv@UIBMButton@@QAEHXZ
     ARTS_IMPORT i32 GetDiv();
@@ -98,7 +101,7 @@ public:
 
     // ?Init@UIBMButton@@QAEXPADMMHHPAHHHPAULocString@@VCallback@@3@Z
     ARTS_IMPORT void Init(char* arg1, f32 arg2, f32 arg3, i32 arg4, i32 arg5, i32* arg6, i32 arg7, i32 arg8,
-        struct LocString* arg9, class Callback arg10, class Callback arg11);
+        LocString* arg9, Callback arg10, Callback arg11);
 
     // ?Kill@UIBMButton@@QAEXXZ
     ARTS_IMPORT void Kill();
@@ -144,7 +147,7 @@ private:
     ARTS_IMPORT static void AllocateSounds();
 
     // ?s_pSound@UIBMButton@@0PAVAudSound@@A
-    ARTS_IMPORT static class AudSound* s_pSound;
+    ARTS_IMPORT static AudSound* s_pSound;
 
     u8 gap74[0x7C];
 };

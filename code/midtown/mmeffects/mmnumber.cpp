@@ -58,7 +58,7 @@ void mmNumber::Cull()
 }
 
 #ifdef ARTS_DEV_BUILD
-void mmNumber::AddWidgets(class Bank* /*arg1*/)
+void mmNumber::AddWidgets(Bank* /*arg1*/)
 {}
 #endif
 

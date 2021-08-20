@@ -49,18 +49,18 @@ public:
     ARTS_IMPORT ~asDofCS() override = default;
 
     // ??4asDofCS@@QAEXABV0@@Z | unused
-    ARTS_IMPORT void operator=(class asDofCS const& arg1);
+    ARTS_IMPORT void operator=(asDofCS const& arg1);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asDofCS@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?FileIO@asDofCS@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_EXPORT void FileIO(class MiniParser* arg1);
+    ARTS_EXPORT void FileIO(MiniParser* arg1);
 
     // ?GetClass@asDofCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Reset@asDofCS@@UAEXXZ
     ARTS_IMPORT void Reset() override;

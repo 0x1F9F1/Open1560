@@ -74,6 +74,7 @@
 #include "arts7/node.h"
 
 enum class mmCRGameClass : i32;
+class asLinearCS;
 
 class mmWPHUD final : public asNode
 {
@@ -88,7 +89,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmWPHUD@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@mmWPHUD@@UAEXXZ
@@ -175,7 +176,7 @@ public:
     ARTS_IMPORT void DeactivateRosterGold();
 
     // ?Init@mmCRHUD@@QAEXPAVasLinearCS@@PADW4mmCRGameClass@@@Z
-    ARTS_IMPORT void Init(class asLinearCS* arg1, char* arg2, enum mmCRGameClass arg3);
+    ARTS_IMPORT void Init(asLinearCS* arg1, char* arg2, mmCRGameClass arg3);
 
     // ?RemovePlayer@mmCRHUD@@QAEXK@Z
     ARTS_IMPORT void RemovePlayer(ulong arg1);
@@ -202,7 +203,7 @@ public:
     ARTS_IMPORT void ToggleScores();
 
     // ?UnPackColor@mmCRHUD@@QAEXIAAVVector4@@@Z
-    ARTS_IMPORT void UnPackColor(u32 arg1, class Vector4& arg2);
+    ARTS_IMPORT void UnPackColor(u32 arg1, Vector4& arg2);
 
     // ?Update@mmCRHUD@@UAEXXZ
     ARTS_IMPORT void Update() override;

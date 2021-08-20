@@ -25,9 +25,11 @@ define_dummy_symbol(agisw_swrend);
 #include "data7/utimer.h"
 #include "eventq7/winevent.h"
 
+struct swEdge;
+
 ARTS_IMPORT extern u32 (*swFindColor)(u32);
 
-void ARTS_FASTCALL __setupNone(struct swSurface* /*arg1*/)
+void ARTS_FASTCALL __setupNone(swSurface* /*arg1*/)
 {}
 
 // ?__emitSemiBlack@@YIXH@Z
@@ -37,7 +39,7 @@ ARTS_IMPORT /*static*/ void ARTS_FASTCALL __emitSemiBlack(i32 arg1);
 ARTS_IMPORT /*static*/ void ARTS_FASTCALL __emitStippleBlack(i32 arg1);
 
 // ?__emitZwrite@@YIXPAUswSurface@@H@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL __emitZwrite(struct swSurface* arg1, i32 arg2);
+ARTS_IMPORT /*static*/ void ARTS_FASTCALL __emitZwrite(swSurface* arg1, i32 arg2);
 
 // ?emms@@YAXXZ
 ARTS_IMPORT /*static*/ void emms();
@@ -55,7 +57,7 @@ ARTS_IMPORT /*static*/ u32 ARTS_FASTCALL swClampAddColor555(u32 arg1);
 ARTS_IMPORT /*static*/ u32 ARTS_FASTCALL swClampAddColor565(u32 arg1);
 
 // ?swComputeIntensity@@YAHAAUagiScreenVtx@@@Z
-ARTS_IMPORT /*static*/ i32 swComputeIntensity(struct agiScreenVtx& arg1);
+ARTS_IMPORT /*static*/ i32 swComputeIntensity(agiScreenVtx& arg1);
 
 // ?swFindColor555@@YAII@Z
 ARTS_IMPORT /*static*/ u32 swFindColor555(u32 arg1);
@@ -64,7 +66,7 @@ ARTS_IMPORT /*static*/ u32 swFindColor555(u32 arg1);
 ARTS_IMPORT /*static*/ u32 swFindColor565(u32 arg1);
 
 // ?swSetupEdgeScan@@YAXPAUswEdge@@HH@Z
-ARTS_IMPORT /*static*/ void swSetupEdgeScan(struct swEdge* arg1, i32 arg2, i32 arg3);
+ARTS_IMPORT /*static*/ void swSetupEdgeScan(swEdge* arg1, i32 arg2, i32 arg3);
 
 void swKill()
 {

@@ -52,6 +52,8 @@
     0x4F6290 | public: void __thiscall StreamObj::SetPlayingFlag(short) | ?SetPlayingFlag@StreamObj@@QAEXF@Z
 */
 
+struct IDirectSoundBuffer;
+
 class StreamObj
 {
 public:
@@ -65,13 +67,13 @@ public:
     ARTS_IMPORT i32 DSCreateSoundBuffer();
 
     // ?DSLoadSoundBuffer@StreamObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
-    ARTS_IMPORT struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, ulong arg2);
+    ARTS_IMPORT IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, ulong arg2);
 
     // ?FillDataBuffer@StreamObj@@QAEHI@Z
     ARTS_IMPORT i32 FillDataBuffer(u32 arg1);
 
     // ?GetFileStreamPtr@StreamObj@@QAEPAVStream@@XZ
-    ARTS_IMPORT class Stream* GetFileStreamPtr();
+    ARTS_IMPORT Stream* GetFileStreamPtr();
 
     // ?Init@StreamObj@@QAEHPBDK@Z
     ARTS_IMPORT i32 Init(char const* arg1, ulong arg2);
@@ -135,10 +137,10 @@ public:
 
 private:
     // ?GetWaveBytesOffset@StreamObj@@AAEIPAVStream@@F@Z
-    ARTS_IMPORT u32 GetWaveBytesOffset(class Stream* arg1, i16 arg2);
+    ARTS_IMPORT u32 GetWaveBytesOffset(Stream* arg1, i16 arg2);
 
     // ?OpenWaveFile@StreamObj@@AAEPAVStream@@PBDF@Z
-    ARTS_IMPORT class Stream* OpenWaveFile(char const* arg1, i16 arg2);
+    ARTS_IMPORT Stream* OpenWaveFile(char const* arg1, i16 arg2);
 
     u8 gap0[0x138];
 };

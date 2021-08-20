@@ -109,43 +109,43 @@ void SetClipMode(b32 mask_only_z)
 }
 
 // ?ClipNX@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNX(struct CV& arg1, struct CV& arg2);
+ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNX(CV& arg1, CV& arg2);
 
 // ?ClipNX@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipNX(struct CV* arg1, struct CV* arg2, i32 arg3);
+ARTS_IMPORT /*static*/ i32 ClipNX(CV* arg1, CV* arg2, i32 arg3);
 
 // ?ClipNY@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNY(struct CV& arg1, struct CV& arg2);
+ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNY(CV& arg1, CV& arg2);
 
 // ?ClipNY@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipNY(struct CV* arg1, struct CV* arg2, i32 arg3);
+ARTS_IMPORT /*static*/ i32 ClipNY(CV* arg1, CV* arg2, i32 arg3);
 
 // ?ClipNZ@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNZ(struct CV& arg1, struct CV& arg2);
+ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipNZ(CV& arg1, CV& arg2);
 
 // ?ClipNZ@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipNZ(struct CV* arg1, struct CV* arg2, i32 arg3);
+ARTS_IMPORT /*static*/ i32 ClipNZ(CV* arg1, CV* arg2, i32 arg3);
 
 // ?ClipPX@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPX(struct CV& arg1, struct CV& arg2);
+ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPX(CV& arg1, CV& arg2);
 
 // ?ClipPX@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipPX(struct CV* arg1, struct CV* arg2, i32 arg3);
+ARTS_IMPORT /*static*/ i32 ClipPX(CV* arg1, CV* arg2, i32 arg3);
 
 // ?ClipPY@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPY(struct CV& arg1, struct CV& arg2);
+ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPY(CV& arg1, CV& arg2);
 
 // ?ClipPY@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipPY(struct CV* arg1, struct CV* arg2, i32 arg3);
+ARTS_IMPORT /*static*/ i32 ClipPY(CV* arg1, CV* arg2, i32 arg3);
 
 // ?ClipPZ@@YIXAAUCV@@0@Z
-ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPZ(struct CV& arg1, struct CV& arg2);
+ARTS_IMPORT /*static*/ void ARTS_FASTCALL ClipPZ(CV& arg1, CV& arg2);
 
 // ?ClipPZ@@YAHPAUCV@@0H@Z
-ARTS_IMPORT /*static*/ i32 ClipPZ(struct CV* arg1, struct CV* arg2, i32 arg3);
+ARTS_IMPORT /*static*/ i32 ClipPZ(CV* arg1, CV* arg2, i32 arg3);
 
 // ?FullClip@@YAHPAUCV@@0H@Z
-ARTS_EXPORT /*static*/ i32 FullClip(struct CV* ARTS_RESTRICT output, struct CV* ARTS_RESTRICT input, i32 count)
+ARTS_EXPORT /*static*/ i32 FullClip(CV* ARTS_RESTRICT output, CV* ARTS_RESTRICT input, i32 count)
 {
     if (count = ClipNZ(output, input, count); count == 0)
         return 0;
@@ -172,7 +172,7 @@ ARTS_EXPORT /*static*/ i32 FullClip(struct CV* ARTS_RESTRICT output, struct CV* 
 }
 
 // ?ZClipOnly@@YAHPAUCV@@0H@Z
-ARTS_EXPORT /*static*/ i32 ZClipOnly(struct CV* ARTS_RESTRICT output, struct CV* ARTS_RESTRICT input, i32 count)
+ARTS_EXPORT /*static*/ i32 ZClipOnly(CV* ARTS_RESTRICT output, CV* ARTS_RESTRICT input, i32 count)
 {
     if (count = ClipNZ(output, input, count); count == 0)
         return 0;
@@ -233,7 +233,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
         output[i].w = M.m0.z * input[i].x + M.m1.z * input[i].y + M.m2.z * input[i].z + M.m3.z; \
         output[i].z = output[i].w * ProjZZ + ProjZW
 
-void agiMeshSet::Transform(class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count)
+void agiMeshSet::Transform(Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count)
 {
     STATS.VertsXfrm += count;
 
@@ -255,7 +255,7 @@ void agiMeshSet::Transform(class Vector4* ARTS_RESTRICT output, class Vector3* A
 }
 
 u32 agiMeshSet::TransformOutcode(
-    u8* ARTS_RESTRICT out_codes, class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count)
+    u8* ARTS_RESTRICT out_codes, Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count)
 {
     STATS.VertsOut += count;
     STATS.VertsXfrm += count;
@@ -1117,7 +1117,7 @@ static u16 QuadIndices[144] {
 };
 // clang-format on
 
-void agiMeshSet::DrawWideLines(class Vector3* starts, class Vector3* ends, f32* widths, u32* colors, i32 count)
+void agiMeshSet::DrawWideLines(Vector3* starts, Vector3* ends, f32* widths, u32* colors, i32 count)
 {
     const agiViewParameters& vp = ViewParams();
 

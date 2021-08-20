@@ -38,7 +38,7 @@ class aiGoalRegainRail final : public aiGoal
 {
 public:
     // ??0aiGoalRegainRail@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
-    ARTS_IMPORT aiGoalRegainRail(class aiRailSet* arg1, class aiVehicleSpline* arg2);
+    ARTS_IMPORT aiGoalRegainRail(aiRailSet* arg1, aiVehicleSpline* arg2);
 
     // ??1aiGoalRegainRail@@QAE@XZ
     ARTS_IMPORT ~aiGoalRegainRail() = default;

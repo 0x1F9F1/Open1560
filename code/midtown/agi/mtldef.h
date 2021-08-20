@@ -45,13 +45,13 @@ public:
     ARTS_IMPORT agiMtlParameters();
 
     // ??4agiMtlParameters@@QAEXABV0@@Z
-    ARTS_IMPORT void operator=(class agiMtlParameters const& arg1);
+    ARTS_IMPORT void operator=(agiMtlParameters const& arg1);
 
     // ?Load@agiMtlParameters@@QAEXPAVStream@@@Z
-    ARTS_IMPORT void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(Stream* arg1);
 
     // ?Save@agiMtlParameters@@QAEXPAVStream@@@Z
-    ARTS_IMPORT void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(Stream* arg1);
 
     char Name[32] {};
 
@@ -74,11 +74,11 @@ public:
     ARTS_IMPORT char* GetName() override;
 
     // ?Init@agiMtlDef@@QAEHABVagiMtlParameters@@@Z
-    ARTS_IMPORT i32 Init(class agiMtlParameters const& arg1);
+    ARTS_IMPORT i32 Init(agiMtlParameters const& arg1);
 
 protected:
     // ??0agiMtlDef@@IAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiMtlDef(class agiPipeline* arg1);
+    ARTS_IMPORT agiMtlDef(agiPipeline* arg1);
 
     // ??_EagiMtlDef@@MAEPAXI@Z
     // ??_GagiMtlDef@@MAEPAXI@Z

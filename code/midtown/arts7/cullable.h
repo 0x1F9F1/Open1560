@@ -32,6 +32,8 @@
 
 #include "data7/base.h"
 
+class Bank;
+
 class asCullable : public Base
 {
 public:
@@ -48,7 +50,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asCullable@@QAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* bank);
+    ARTS_EXPORT void AddWidgets(Bank* bank);
 #endif
 
     VIRTUAL_META_DECLARE;

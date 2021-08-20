@@ -63,17 +63,17 @@ public:
     ARTS_IMPORT void AdjustPhaseOffsets();
 
     // ?CalculateCubics@mmAnimTrain@@QAEXHAAVVector4@@00@Z
-    ARTS_IMPORT void CalculateCubics(i32 arg1, class Vector4& arg2, class Vector4& arg3, class Vector4& arg4);
+    ARTS_IMPORT void CalculateCubics(i32 arg1, Vector4& arg2, Vector4& arg3, Vector4& arg4);
 
     // ?ComputeXZCurve@mmAnimTrain@@QAEXAAVVector3@@000AAVVector4@@11@Z
-    ARTS_IMPORT void ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
-        class Vector4& arg5, class Vector4& arg6, class Vector4& arg7);
+    ARTS_IMPORT void ComputeXZCurve(
+        Vector3& arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, Vector4& arg5, Vector4& arg6, Vector4& arg7);
 
     // ?GetStart@mmAnimTrain@@QAEXMAAHAAM@Z
     ARTS_IMPORT void GetStart(f32 arg1, i32& arg2, f32& arg3);
 
     // ?Init@mmAnimTrain@@QAEXHPAD0PAVVector3@@HHPAM@Z
-    ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3, class Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
+    ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3, Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
 
     // ?PreCalcCubics@mmAnimTrain@@QAEXXZ
     ARTS_IMPORT void PreCalcCubics();
@@ -88,10 +88,10 @@ public:
     ARTS_IMPORT void SetPathSpeed();
 
     // ?SolvePosition@mmAnimTrain@@QAEXAAVVector3@@AAM@Z
-    ARTS_IMPORT void SolvePosition(class Vector3& arg1, f32& arg2);
+    ARTS_IMPORT void SolvePosition(Vector3& arg1, f32& arg2);
 
     // ?SolveXZCurve@mmAnimTrain@@QAEXAAVVector3@@0M@Z
-    ARTS_IMPORT void SolveXZCurve(class Vector3& arg1, class Vector3& arg2, f32 arg3);
+    ARTS_IMPORT void SolveXZCurve(Vector3& arg1, Vector3& arg2, f32 arg3);
 
     // ?Update@mmAnimTrain@@QAEXXZ
     ARTS_IMPORT void Update();
@@ -133,7 +133,7 @@ private:
 check_size(mmAnimTrain, 0x100);
 
 // ?SplineBasis@@3VMatrix44@@A
-ARTS_IMPORT extern class Matrix44 SplineBasis;
+ARTS_IMPORT extern Matrix44 SplineBasis;
 
 // ?TrainHermite@@3VMatrix44@@A
-ARTS_IMPORT extern class Matrix44 TrainHermite;
+ARTS_IMPORT extern Matrix44 TrainHermite;

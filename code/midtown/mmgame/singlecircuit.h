@@ -65,14 +65,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmSingleCircuit@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetClass@mmSingleCircuit@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetWaypoints@mmSingleCircuit@@UAEPAVmmWaypoints@@XZ | inline
-    ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
+    ARTS_IMPORT mmWaypoints* GetWaypoints() override;
 
     // ?HitWaterHandler@mmSingleCircuit@@UAEXXZ
     ARTS_IMPORT void HitWaterHandler() override;

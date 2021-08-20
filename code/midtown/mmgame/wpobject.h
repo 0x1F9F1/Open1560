@@ -41,7 +41,7 @@ class mmWaypointObject final : public asNode
 {
 public:
     // ??0mmWaypointObject@@QAE@AAVVector4@@PADHMHM@Z
-    ARTS_IMPORT mmWaypointObject(class Vector4& arg1, char* arg2, i32 arg3, f32 arg4, i32 arg5, f32 arg6);
+    ARTS_IMPORT mmWaypointObject(Vector4& arg1, char* arg2, i32 arg3, f32 arg4, i32 arg5, f32 arg6);
 
     // ??_EmmWaypointObject@@UAEPAXI@Z
     // ??_GmmWaypointObject@@UAEPAXI@Z

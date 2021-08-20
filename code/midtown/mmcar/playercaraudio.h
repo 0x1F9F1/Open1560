@@ -46,6 +46,8 @@
 
 #include "arts7/node.h"
 
+class mmCarSim;
+
 class mmPlayerCarAudio final : public asNode
 {
 public:
@@ -53,7 +55,7 @@ public:
     ARTS_IMPORT mmPlayerCarAudio();
 
     // ??0mmPlayerCarAudio@@QAE@PAVmmCarSim@@@Z
-    ARTS_IMPORT mmPlayerCarAudio(class mmCarSim* arg1);
+    ARTS_IMPORT mmPlayerCarAudio(mmCarSim* arg1);
 
     // ??_EmmPlayerCarAudio@@UAEPAXI@Z
     // ??1mmPlayerCarAudio@@UAE@XZ
@@ -72,10 +74,10 @@ public:
     ARTS_IMPORT void FluctuateSlowSiren();
 
     // ?GetClass@mmPlayerCarAudio@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z
-    ARTS_IMPORT void Init(class mmCarSim* arg1);
+    ARTS_IMPORT void Init(mmCarSim* arg1);
 
     // ?LoadSucessful@mmPlayerCarAudio@@QAEXXZ
     ARTS_IMPORT void LoadSucessful();
@@ -90,7 +92,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SetUpDefault@mmPlayerCarAudio@@QAEXPAVmmCarSim@@@Z | unused
-    ARTS_IMPORT void SetUpDefault(class mmCarSim* arg1);
+    ARTS_IMPORT void SetUpDefault(mmCarSim* arg1);
 
     // ?StartSiren@mmPlayerCarAudio@@QAEXXZ
     ARTS_IMPORT void StartSiren();

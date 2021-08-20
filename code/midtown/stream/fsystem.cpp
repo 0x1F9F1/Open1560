@@ -22,7 +22,7 @@ define_dummy_symbol(stream_fsystem);
 
 #include "stream.h"
 
-class FileSystem* FileSystem::FS[MAX_FILESYSTEMS] {};
+FileSystem* FileSystem::FS[MAX_FILESYSTEMS] {};
 i32 FileSystem::FSCount = 0;
 
 b32 fsVerbose = false;
@@ -45,7 +45,7 @@ FileSystem::~FileSystem()
     FS[--FSCount] = nullptr;
 }
 
-b32 FileSystem::PagerInfo(const char*, struct PagerInfo_t&)
+b32 FileSystem::PagerInfo(const char*, PagerInfo_t&)
 {
     return false;
 }
@@ -215,7 +215,7 @@ b32 FileSystem::Search(
     return false;
 }
 
-Owner<class Stream> FileSystem::OpenAny(const char* path, b32 read_only, void* buffer, isize buffer_len)
+Owner<Stream> FileSystem::OpenAny(const char* path, b32 read_only, void* buffer, isize buffer_len)
 {
     for (i32 i = 0; i < FSCount; ++i)
     {
@@ -228,7 +228,7 @@ Owner<class Stream> FileSystem::OpenAny(const char* path, b32 read_only, void* b
     return nullptr;
 }
 
-b32 FileSystem::PagerInfoAny(const char* path, struct PagerInfo_t& pager)
+b32 FileSystem::PagerInfoAny(const char* path, PagerInfo_t& pager)
 {
     for (i32 i = 0; i < FSCount; ++i)
     {
@@ -241,7 +241,7 @@ b32 FileSystem::PagerInfoAny(const char* path, struct PagerInfo_t& pager)
     return false;
 }
 
-class FileSystem* FileSystem::SearchAll(
+FileSystem* FileSystem::SearchAll(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len)
 {
     // NOTE: Incompatible
@@ -260,28 +260,27 @@ class FileSystem* FileSystem::SearchAll(
 void FileSystem::NotifyDelete()
 {}
 
-class FileSystem* FindFile(
-    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len)
+FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len)
 {
     // NOTE: Incompatible
 
     return FileSystem::SearchAll(file, folder, ext, ext_id, buffer, buffer_len);
 }
 
-class FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer)
+FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer)
 {
     // TODO: Avoid hardcoded buffer size (chosen as smallest buffer buffer size passed by the game)
     return FindFile(file, folder, ext, ext_id, buffer, 120);
 }
 
-Owner<class Stream> OpenFile(
+Owner<Stream> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, const char* desc)
 {
     // TODO: Avoid hardcoded buffer size (chosen as smallest buffer buffer size passed by the game)
     return OpenFile(file, folder, ext, ext_id, buffer, 128, desc);
 }
 
-Owner<class Stream> OpenFile(
+Owner<Stream> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len, const char* desc)
 {
     // NOTE: Incompatible

@@ -59,8 +59,8 @@ public:
     ARTS_IMPORT void Init(char* arg1, char* arg2, char* arg3, ulong arg4);
 
     // ?InitTitle@mmCompRoster@@QAEXMMMMPAULocString@@000H@Z | unused
-    ARTS_EXPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
-        struct LocString* arg7, struct LocString* arg8, i32 arg9);
+    ARTS_EXPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, LocString* arg5, LocString* arg6,
+        LocString* arg7, LocString* arg8, i32 arg9);
 
     // ?LoadBitmap@mmCompRoster@@QAEXPAD@Z
     ARTS_IMPORT void LoadBitmap(char* arg1);
@@ -75,7 +75,7 @@ public:
     ARTS_IMPORT void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
 
     // ?SetPosition@mmCompRoster@@UAEXPAVmmTextNode@@HM@Z
-    ARTS_IMPORT void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
+    ARTS_IMPORT void SetPosition(mmTextNode* arg1, i32 arg2, f32 arg3) override;
 
     // ?SetReady@mmCompRoster@@QAEXH@Z
     ARTS_IMPORT void SetReady(i32 arg1);

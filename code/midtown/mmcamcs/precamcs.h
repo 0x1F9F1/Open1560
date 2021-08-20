@@ -48,14 +48,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@PreCamCS@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetClass@PreCamCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@PreCamCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(class mmCar* arg1);
+    ARTS_IMPORT void Init(mmCar* arg1);
 
     // ?MakeActive@PreCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;

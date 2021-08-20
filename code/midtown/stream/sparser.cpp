@@ -23,7 +23,7 @@ define_dummy_symbol(stream_sparser);
 #include "data7/metaclass.h"
 #include "stream.h"
 
-StreamMiniParser::StreamMiniParser(const char* name, Owner<class Stream> stream)
+StreamMiniParser::StreamMiniParser(const char* name, Owner<Stream> stream)
     : MiniParser(name)
     , stream_(std::move(stream))
 {}
@@ -40,7 +40,7 @@ void StreamMiniParser::RawPutCh(i32 value)
     stream_->PutCh(static_cast<u8>(value));
 }
 
-void StreamMiniParser::Load(class MetaClass* cls, const char* path, void* ptr)
+void StreamMiniParser::Load(MetaClass* cls, const char* path, void* ptr)
 {
     Ptr<Stream> input {arts_fopen(path, "r")};
 
@@ -59,7 +59,7 @@ void StreamMiniParser::Load(class MetaClass* cls, const char* path, void* ptr)
     }
 }
 
-void StreamMiniParser::Save(class MetaClass* cls, const char* path, void* ptr)
+void StreamMiniParser::Save(MetaClass* cls, const char* path, void* ptr)
 {
     Ptr<Stream> output {arts_fopen(path, "w")};
 

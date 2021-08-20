@@ -63,10 +63,10 @@ public:
     ARTS_IMPORT void EnableClutch(char* arg1, f32 arg2);
 
     // ?GetClass@EngineAudio@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@EngineAudio@@QAEXPAVVector3@@@Z
-    ARTS_IMPORT void Init(class Vector3* arg1);
+    ARTS_IMPORT void Init(Vector3* arg1);
 
     // ?Init@EngineAudio@@QAEXPAD0@Z
     ARTS_IMPORT void Init(char* arg1, char* arg2);

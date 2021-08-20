@@ -36,6 +36,8 @@
 
 #include "pu_menu.h"
 
+class mmPlayerConfig;
+
 class PUAudioOptions final : public PUMenuBase
 {
 public:
@@ -66,4 +68,4 @@ public:
 check_size(PUAudioOptions, 0xC0);
 
 // ?PUOptionsConfig@@3PAVmmPlayerConfig@@A
-ARTS_IMPORT extern class mmPlayerConfig* PUOptionsConfig;
+ARTS_IMPORT extern mmPlayerConfig* PUOptionsConfig;

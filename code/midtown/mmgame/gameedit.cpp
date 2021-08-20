@@ -20,7 +20,7 @@ define_dummy_symbol(mmgame_gameedit);
 
 #include "gameedit.h"
 
-class mmWaypoints* mmGameEdit::GetWaypoints()
+mmWaypoints* mmGameEdit::GetWaypoints()
 {
     return nullptr;
 }

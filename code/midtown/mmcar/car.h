@@ -77,7 +77,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmCar@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?ClearDamage@mmCar@@QAEXXZ
@@ -87,16 +87,16 @@ public:
     ARTS_IMPORT void EnableDriving(i32 arg1);
 
     // ?GetBound@mmCar@@UAEPAVasBound@@XZ | inline
-    ARTS_IMPORT class asBound* GetBound() override;
+    ARTS_IMPORT asBound* GetBound() override;
 
     // ?GetClass@mmCar@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetICS@mmCar@@UAEPAVasInertialCS@@XZ | inline
-    ARTS_IMPORT class asInertialCS* GetICS() override;
+    ARTS_IMPORT asInertialCS* GetICS() override;
 
     // ?Impact@mmCar@@QAEXPAVmmIntersection@@PAVVector3@@MH1@Z
-    ARTS_IMPORT void Impact(class mmIntersection* arg1, class Vector3* arg2, f32 arg3, i32 arg4, class Vector3* arg5);
+    ARTS_IMPORT void Impact(mmIntersection* arg1, Vector3* arg2, f32 arg3, i32 arg4, Vector3* arg5);
 
     // ?Init@mmCar@@QAEXPADHH@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2, i32 arg3);

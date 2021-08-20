@@ -37,7 +37,7 @@ class aiGoalCollision final : public aiGoal
 {
 public:
     // ??0aiGoalCollision@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
-    ARTS_IMPORT aiGoalCollision(class aiRailSet* arg1, class aiVehicleSpline* arg2);
+    ARTS_IMPORT aiGoalCollision(aiRailSet* arg1, aiVehicleSpline* arg2);
 
     // ??1aiGoalCollision@@QAE@XZ
     ARTS_IMPORT ~aiGoalCollision() = default;

@@ -34,6 +34,8 @@
 
 #include "arts7/node.h"
 
+struct OppIconInfo;
+
 class mmIcons final : public asNode
 {
 public:
@@ -49,10 +51,10 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?Init@mmIcons@@QAEXPAVMatrix34@@MM@Z
-    ARTS_IMPORT void Init(class Matrix34* arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void Init(Matrix34* arg1, f32 arg2, f32 arg3);
 
     // ?RegisterOpponents@mmIcons@@QAEXPAUOppIconInfo@@HPAX@Z
-    ARTS_IMPORT void RegisterOpponents(struct OppIconInfo* arg1, i32 arg2, void* arg3);
+    ARTS_IMPORT void RegisterOpponents(OppIconInfo* arg1, i32 arg2, void* arg3);
 
     // ?Update@mmIcons@@UAEXXZ
     ARTS_IMPORT void Update() override;

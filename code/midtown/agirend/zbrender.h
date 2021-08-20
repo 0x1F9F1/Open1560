@@ -37,7 +37,7 @@ class agiZBufRenderer final : public agiSurfRenderer
 {
 public:
     // ??0agiZBufRenderer@@QAE@PAVagiRasterizer@@@Z
-    ARTS_IMPORT agiZBufRenderer(class agiRasterizer* arg1);
+    ARTS_IMPORT agiZBufRenderer(agiRasterizer* arg1);
 
     // ??_EagiZBufRenderer@@UAEPAXI@Z
     // ??_GagiZBufRenderer@@UAEPAXI@Z

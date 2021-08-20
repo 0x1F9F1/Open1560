@@ -51,9 +51,9 @@
 #include "data7/mutex.h"
 #include "data7/timer.h"
 
+class agiBitmap;
 class asCamera;
 class asCullable;
-class Matrix34;
 
 class asCullManager final : public asNode
 {
@@ -66,24 +66,24 @@ public:
     ARTS_EXPORT ~asCullManager() override;
 
     // ?DeclareCamera@asCullManager@@UAEXPAVasCamera@@@Z
-    ARTS_EXPORT virtual void DeclareCamera(class asCamera* camera);
+    ARTS_EXPORT virtual void DeclareCamera(asCamera* camera);
 
     // ?DeclareCullable@asCullManager@@UAEXPAVasCullable@@@Z
-    ARTS_EXPORT virtual void DeclareCullable(class asCullable* cullable);
+    ARTS_EXPORT virtual void DeclareCullable(asCullable* cullable);
 
     // ?DeclareCullable2D@asCullManager@@UAEXPAVasCullable@@@Z
-    ARTS_EXPORT virtual void DeclareCullable2D(class asCullable* cullable);
+    ARTS_EXPORT virtual void DeclareCullable2D(asCullable* cullable);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddPage@asCullManager@@QAEXVCallback@@@Z
-    ARTS_EXPORT void AddPage(class Callback callback);
+    ARTS_EXPORT void AddPage(Callback callback);
 #endif
 
     // ?DeclareBitmap@asCullManager@@QAEXPAVasCullable@@PAVagiBitmap@@@Z
-    ARTS_EXPORT void DeclareBitmap(class asCullable* cullable, class agiBitmap* bitmap);
+    ARTS_EXPORT void DeclareBitmap(asCullable* cullable, agiBitmap* bitmap);
 
     // ?DeclarePrint@asCullManager@@QAEXPAVasCullable@@@Z
-    ARTS_EXPORT void DeclarePrint(class asCullable* cullable);
+    ARTS_EXPORT void DeclarePrint(asCullable* cullable);
 
     // ?Reset@asCullManager@@UAEXXZ
     ARTS_EXPORT void Reset() override;
@@ -188,7 +188,7 @@ check_size(asCullManager, 0x1F8);
 ARTS_EXPORT void Statsf(ARTS_FORMAT_STRING char const* format, ...);
 
 // ?CULLMGR@@3PAVasCullManager@@A
-ARTS_IMPORT extern class asCullManager* CULLMGR;
+ARTS_IMPORT extern asCullManager* CULLMGR;
 
 // ?Update3D@@3MA
 ARTS_IMPORT extern f32 Update3D;

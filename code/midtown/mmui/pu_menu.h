@@ -39,6 +39,8 @@
 
 #include "mmwidget/menu.h"
 
+class agiBitmap;
+
 class PUMenuBase : public UIMenu
 {
 public:
@@ -54,13 +56,13 @@ public:
     ARTS_IMPORT f32 AddExit(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // ?AddOKCancel@PUMenuBase@@QAEXVCallback@@0@Z
-    ARTS_IMPORT void AddOKCancel(class Callback arg1, class Callback arg2);
+    ARTS_IMPORT void AddOKCancel(Callback arg1, Callback arg2);
 
     // ?AddPrevious@PUMenuBase@@QAEMMMMM@Z
     ARTS_IMPORT f32 AddPrevious(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // ?CreateDummyBitmap@PUMenuBase@@QAEPAVagiBitmap@@XZ
-    ARTS_IMPORT RcOwner<class agiBitmap> CreateDummyBitmap();
+    ARTS_IMPORT RcOwner<agiBitmap> CreateDummyBitmap();
 
     // ?CreateTitle@PUMenuBase@@QAEMXZ
     ARTS_IMPORT f32 CreateTitle();

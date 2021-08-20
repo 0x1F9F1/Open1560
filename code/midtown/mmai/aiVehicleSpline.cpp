@@ -23,7 +23,7 @@ define_dummy_symbol(mmai_aiVehicleSpline);
 void aiVehicleSpline::Impact(i32 /*arg1*/)
 {}
 
-class mmOpponentImpactAudio* aiVehicleSpline::GetImpactAudioPtr()
+mmOpponentImpactAudio* aiVehicleSpline::GetImpactAudioPtr()
 {
     return nullptr;
 }
@@ -37,5 +37,5 @@ void aiVehicleSpline::ImpactAudioReaction(f32 /*arg1*/)
 void aiVehicleSpline::StopVoice()
 {}
 
-void aiVehicleSpline::AddWidgets(class Bank* /*arg1*/)
+void aiVehicleSpline::AddWidgets(Bank* /*arg1*/)
 {}

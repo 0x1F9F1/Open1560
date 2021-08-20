@@ -59,12 +59,13 @@
 
 #include "aiGoal.h"
 
+class aiVehiclePolice;
+
 class aiGoalChase final : public aiGoal
 {
 public:
     // ??0aiGoalChase@@QAE@PAVaiVehiclePolice@@PAVaiRailSet@@PAPAVmmCar@@PAFPAVVector3@@3@Z
-    ARTS_IMPORT aiGoalChase(class aiVehiclePolice* arg1, class aiRailSet* arg2, class mmCar** arg3, i16* arg4,
-        class Vector3* arg5, i16* arg6);
+    ARTS_IMPORT aiGoalChase(aiVehiclePolice* arg1, aiRailSet* arg2, mmCar** arg3, i16* arg4, Vector3* arg5, i16* arg6);
 
     // ??1aiGoalChase@@QAE@XZ
     ARTS_IMPORT ~aiGoalChase();
@@ -95,7 +96,7 @@ private:
     ARTS_IMPORT void AvoidAmbientCollision(i32 arg1);
 
     // ?AvoidCopCollision@aiGoalChase@@AAEXPAVaiVehiclePolice@@@Z
-    ARTS_IMPORT void AvoidCopCollision(class aiVehiclePolice* arg1);
+    ARTS_IMPORT void AvoidCopCollision(aiVehiclePolice* arg1);
 
     // ?Barricade@aiGoalChase@@AAEXXZ
     ARTS_IMPORT void Barricade();
@@ -113,37 +114,37 @@ private:
     ARTS_IMPORT void CloseInRoad();
 
     // ?Collision@aiGoalChase@@AAEHPAVmmCar@@@Z
-    ARTS_IMPORT i32 Collision(class mmCar* arg1);
+    ARTS_IMPORT i32 Collision(mmCar* arg1);
 
     // ?DetectAmbientCollision@aiGoalChase@@AAEHPAH@Z
     ARTS_IMPORT i32 DetectAmbientCollision(i32* arg1);
 
     // ?DetectCopCollision@aiGoalChase@@AAEPAVaiVehiclePolice@@XZ
-    ARTS_IMPORT class aiVehiclePolice* DetectCopCollision();
+    ARTS_IMPORT aiVehiclePolice* DetectCopCollision();
 
     // ?FindPerp@aiGoalChase@@AAEHHHPAVaiPath@@@Z
-    ARTS_IMPORT i32 FindPerp(i32 arg1, i32 arg2, class aiPath* arg3);
+    ARTS_IMPORT i32 FindPerp(i32 arg1, i32 arg2, aiPath* arg3);
 
     // ?Follow@aiGoalChase@@AAEXXZ
     ARTS_IMPORT void Follow();
 
     // ?Fov@aiGoalChase@@AAEHPAVmmCar@@@Z
-    ARTS_IMPORT i32 Fov(class mmCar* arg1);
+    ARTS_IMPORT i32 Fov(mmCar* arg1);
 
     // ?HitMe@aiGoalChase@@AAEHPAVmmCar@@@Z
-    ARTS_IMPORT i32 HitMe(class mmCar* arg1);
+    ARTS_IMPORT i32 HitMe(mmCar* arg1);
 
     // ?IsPerpACop@aiGoalChase@@AAEHPAVmmCar@@@Z
-    ARTS_IMPORT i32 IsPerpACop(class mmCar* arg1);
+    ARTS_IMPORT i32 IsPerpACop(mmCar* arg1);
 
     // ?LocatePerpFromInt@aiGoalChase@@AAEHPAVaiIntersection@@PAPAVaiPath@@@Z
-    ARTS_IMPORT i32 LocatePerpFromInt(class aiIntersection* arg1, class aiPath** arg2);
+    ARTS_IMPORT i32 LocatePerpFromInt(aiIntersection* arg1, aiPath** arg2);
 
     // ?LocatePerpFromRoad@aiGoalChase@@AAEHPAVaiPath@@PAPAV2@1@Z
-    ARTS_IMPORT i32 LocatePerpFromRoad(class aiPath* arg1, class aiPath** arg2, class aiPath** arg3);
+    ARTS_IMPORT i32 LocatePerpFromRoad(aiPath* arg1, aiPath** arg2, aiPath** arg3);
 
     // ?OffRoad@aiGoalChase@@AAEHPAVmmCar@@@Z
-    ARTS_IMPORT i32 OffRoad(class mmCar* arg1);
+    ARTS_IMPORT i32 OffRoad(mmCar* arg1);
 
     // ?PlanRoute@aiGoalChase@@AAEHXZ
     ARTS_IMPORT i32 PlanRoute();
@@ -155,10 +156,10 @@ private:
     ARTS_IMPORT void Push();
 
     // ?Speeding@aiGoalChase@@AAEHPAVmmCar@@@Z
-    ARTS_IMPORT i32 Speeding(class mmCar* arg1);
+    ARTS_IMPORT i32 Speeding(mmCar* arg1);
 
     // ?Stopped@aiGoalChase@@AAEHPAVmmCar@@@Z
-    ARTS_IMPORT i32 Stopped(class mmCar* arg1);
+    ARTS_IMPORT i32 Stopped(mmCar* arg1);
 
     u8 gap8[0x1A4];
 };

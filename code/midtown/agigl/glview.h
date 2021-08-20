@@ -25,7 +25,7 @@
 class agiGLViewport final : public agiViewport
 {
 public:
-    agiGLViewport(class agiGLPipeline* pipe)
+    agiGLViewport(agiGLPipeline* pipe)
         : agiViewport(pipe)
     {}
 

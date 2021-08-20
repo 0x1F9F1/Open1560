@@ -67,7 +67,7 @@ public:
     ARTS_IMPORT void AddRosterName(char* arg1);
 
     // ?AddRosterName@NetArena@@QAEXPAULocString@@00K@Z
-    ARTS_IMPORT void AddRosterName(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3, ulong arg4);
+    ARTS_IMPORT void AddRosterName(LocString* arg1, LocString* arg2, LocString* arg3, ulong arg4);
 
     // ?ChatEntry@NetArena@@QAEXXZ
     ARTS_IMPORT void ChatEntry();
@@ -91,7 +91,7 @@ public:
     ARTS_IMPORT void PostHostSettings();
 
     // ?PostPlayerInfo@NetArena@@QAEXPAULocString@@00@Z
-    ARTS_IMPORT void PostPlayerInfo(struct LocString* arg1, struct LocString* arg2, struct LocString* arg3);
+    ARTS_IMPORT void PostPlayerInfo(LocString* arg1, LocString* arg2, LocString* arg3);
 
     // ?PreSetup@NetArena@@UAEXXZ
     ARTS_EXPORT void PreSetup() override;

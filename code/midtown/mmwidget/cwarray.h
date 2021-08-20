@@ -66,10 +66,10 @@ public:
     ARTS_IMPORT void AcceptCapture();
 
     // ?Action@UICWArray@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?CaptureAction@UICWArray@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void CaptureAction(union eqEvent arg1) override;
+    ARTS_IMPORT void CaptureAction(eqEvent arg1) override;
 
     // ?CheckCapture@UICWArray@@QAEXXZ
     ARTS_IMPORT void CheckCapture();
@@ -87,7 +87,7 @@ public:
     ARTS_IMPORT void ForceCapture();
 
     // ?Init@UICWArray@@QAEXMMMMHVCallback@@@Z
-    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, class Callback arg6);
+    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, Callback arg6);
 
     // ?LoadCFG@UICWArray@@QAEXXZ | unused
     ARTS_IMPORT void LoadCFG();

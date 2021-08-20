@@ -25,6 +25,8 @@
     0x90AA18 | int EnablePaging | ?EnablePaging@@3HA
 */
 
+class ipcMessageQueue;
+
 struct PagerInfo_t
 {
     usize Handle {0};
@@ -58,4 +60,4 @@ check_size(PagerInfo_t, 0x10);
 ARTS_IMPORT extern i32 EnablePaging; // ARTS_PAGE_*
 
 // ?PAGER@@3VipcMessageQueue@@A
-ARTS_IMPORT extern class ipcMessageQueue PAGER;
+ARTS_IMPORT extern ipcMessageQueue PAGER;

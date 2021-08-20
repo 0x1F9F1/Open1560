@@ -23,5 +23,5 @@ define_dummy_symbol(mmwidget_textdrop);
 void UITextDropdown::SetPos(f32 /*arg1*/, f32 /*arg2*/)
 {}
 
-void UITextDropdown::SetText(struct LocString* /*arg1*/)
+void UITextDropdown::SetText(LocString* /*arg1*/)
 {}

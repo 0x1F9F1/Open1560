@@ -63,13 +63,13 @@ class IntArray
 {
 public:
     // ??4IntArray@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(class IntArray& arg1);
+    ARTS_IMPORT void operator=(IntArray& arg1);
 
     // ??AIntArray@@QAEAAHH@Z | unused
     ARTS_IMPORT i32& operator[](i32 arg1);
 
     // ?BlockCopy@IntArray@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(class IntArray& arg1);
+    ARTS_IMPORT void BlockCopy(IntArray& arg1);
 
     // ?Delete@IntArray@@QAEXXZ
     ARTS_IMPORT void Delete();
@@ -90,13 +90,13 @@ class FloatArray
 {
 public:
     // ??4FloatArray@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(class FloatArray& arg1);
+    ARTS_IMPORT void operator=(FloatArray& arg1);
 
     // ??AFloatArray@@QAEAAMH@Z | unused
     ARTS_IMPORT f32& operator[](i32 arg1);
 
     // ?BlockCopy@FloatArray@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(class FloatArray& arg1);
+    ARTS_IMPORT void BlockCopy(FloatArray& arg1);
 
     // ?Delete@FloatArray@@QAEXXZ
     ARTS_IMPORT void Delete();

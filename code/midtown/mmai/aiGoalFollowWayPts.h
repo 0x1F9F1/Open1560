@@ -51,6 +51,8 @@
 
 #include "aiGoal.h"
 
+class aiVehicleOpponent;
+
 class aiGoalFollowWayPts final : public aiGoal
 {
 public:
@@ -58,19 +60,19 @@ public:
     ARTS_IMPORT aiGoalFollowWayPts();
 
     // ??0aiGoalFollowWayPts@@QAE@PADPAVaiRailSet@@PAVaiVehicleOpponent@@PAF330M@Z
-    ARTS_IMPORT aiGoalFollowWayPts(char* arg1, class aiRailSet* arg2, class aiVehicleOpponent* arg3, i16* arg4,
-        i16* arg5, i16* arg6, char* arg7, f32 arg8);
+    ARTS_IMPORT aiGoalFollowWayPts(
+        char* arg1, aiRailSet* arg2, aiVehicleOpponent* arg3, i16* arg4, i16* arg5, i16* arg6, char* arg7, f32 arg8);
 
     // ??_EaiGoalFollowWayPts@@QAEPAXI@Z | unused
     // ??1aiGoalFollowWayPts@@QAE@XZ
     ARTS_IMPORT ~aiGoalFollowWayPts();
 
     // ?GetClass@aiGoalFollowWayPts@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT virtual class MetaClass* GetClass();
+    ARTS_IMPORT virtual MetaClass* GetClass();
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiGoalFollowWayPts@@QAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1);
+    ARTS_IMPORT void AddWidgets(Bank* arg1);
 #endif
 
     // ?Context@aiGoalFollowWayPts@@UAEHXZ
@@ -102,25 +104,25 @@ private:
     ARTS_IMPORT void AvoidCollision(i32 arg1);
 
     // ?AvoidOpponentCollision@aiGoalFollowWayPts@@AAEXPAVaiVehicleOpponent@@@Z
-    ARTS_IMPORT void AvoidOpponentCollision(class aiVehicleOpponent* arg1);
+    ARTS_IMPORT void AvoidOpponentCollision(aiVehicleOpponent* arg1);
 
     // ?CalcSpeed@aiGoalFollowWayPts@@AAEXXZ
     ARTS_IMPORT void CalcSpeed();
 
     // ?DetRdSegBetweenInts@aiGoalFollowWayPts@@AAEPAVaiPath@@PAVaiIntersection@@0@Z
-    ARTS_IMPORT class aiPath* DetRdSegBetweenInts(class aiIntersection* arg1, class aiIntersection* arg2);
+    ARTS_IMPORT aiPath* DetRdSegBetweenInts(aiIntersection* arg1, aiIntersection* arg2);
 
     // ?DetectCollision@aiGoalFollowWayPts@@AAEHPAH@Z
     ARTS_IMPORT i32 DetectCollision(i32* arg1);
 
     // ?DetectOpponentCollision@aiGoalFollowWayPts@@AAEPAVaiVehicleOpponent@@XZ
-    ARTS_IMPORT class aiVehicleOpponent* DetectOpponentCollision();
+    ARTS_IMPORT aiVehicleOpponent* DetectOpponentCollision();
 
     // ?LocateWayPtFromInt@aiGoalFollowWayPts@@AAEHPAVaiIntersection@@PAPAVaiPath@@@Z
-    ARTS_IMPORT i32 LocateWayPtFromInt(class aiIntersection* arg1, class aiPath** arg2);
+    ARTS_IMPORT i32 LocateWayPtFromInt(aiIntersection* arg1, aiPath** arg2);
 
     // ?LocateWayPtFromRoad@aiGoalFollowWayPts@@AAEHPAVaiPath@@PAPAV2@1@Z
-    ARTS_IMPORT i32 LocateWayPtFromRoad(class aiPath* arg1, class aiPath** arg2, class aiPath** arg3);
+    ARTS_IMPORT i32 LocateWayPtFromRoad(aiPath* arg1, aiPath** arg2, aiPath** arg3);
 
     // ?PlanRoute@aiGoalFollowWayPts@@AAEXXZ
     ARTS_IMPORT void PlanRoute();

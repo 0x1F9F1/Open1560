@@ -42,6 +42,7 @@
 #include "arts7/node.h"
 #include "data7/str.h"
 
+class asCamera;
 class mmTextNode;
 
 class mmDropDown final : public asNode
@@ -64,11 +65,10 @@ public:
     ARTS_IMPORT i32 GetHit(f32 arg1, f32 arg2);
 
     // ?Init@mmDropDown@@QAEXPAVasCamera@@PAXMMMMVstring@@H@Z
-    ARTS_IMPORT void Init(
-        class asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7, i32 arg8);
+    ARTS_IMPORT void Init(asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, string arg7, i32 arg8);
 
     // ?InitString@mmDropDown@@QAEXVstring@@@Z
-    ARTS_EXPORT void InitString(class string values);
+    ARTS_EXPORT void InitString(string values);
 
     // ?SetDisabledColors@mmDropDown@@QAEXXZ
     ARTS_IMPORT void SetDisabledColors();
@@ -83,7 +83,7 @@ public:
 
 private:
     // ?SetString@mmDropDown@@AAEXVstring@@@Z
-    ARTS_IMPORT void SetString(class string arg1);
+    ARTS_IMPORT void SetString(string arg1);
 
     Ptr<mmTextNode[]> ValueNodes;
     Ptr<u32[]> DropIndex;

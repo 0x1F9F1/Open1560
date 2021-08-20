@@ -101,16 +101,16 @@
 #include "transmission.h"
 #include "wheel.h"
 
-class mmPlayerCarAudio;
-class mmOpponentCarAudio;
-class mmPoliceCarAudio;
-class mmNetworkCarAudio;
+class mmCar;
 class mmCarModel;
 class mmCarRoadFF;
+class mmNetworkCarAudio;
+class mmOpponentCarAudio;
+class mmPlayerCarAudio;
+class mmPoliceCarAudio;
 
 // ?IMPACTCB@@YAXPAVmmCarSim@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M3@Z
-ARTS_IMPORT void IMPACTCB(class mmCarSim* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4,
-    f32 arg5, class Vector3* arg6);
+ARTS_IMPORT void IMPACTCB(mmCarSim* arg1, asBound* arg2, mmIntersection* arg3, Vector3* arg4, f32 arg5, Vector3* arg6);
 
 // ?HitWaterTimer@@3MA
 ARTS_IMPORT extern f32 HitWaterTimer;
@@ -119,7 +119,7 @@ ARTS_IMPORT extern f32 HitWaterTimer;
 ARTS_IMPORT extern f32 MetricFactor;
 
 // ?PlayerPos@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 PlayerPos;
+ARTS_IMPORT extern Vector3 PlayerPos;
 
 // ?WeatherFriction@@3MA
 ARTS_IMPORT extern f32 WeatherFriction;
@@ -139,7 +139,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmCarSim@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AfterLoad@mmCarSim@@UAEXXZ
@@ -155,10 +155,10 @@ public:
     ARTS_IMPORT void Explode();
 
     // ?GetClass@mmCarSim@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmCarSim@@QAEXPADPAVmmCar@@H@Z
-    ARTS_IMPORT void Init(char* arg1, class mmCar* arg2, i32 arg3);
+    ARTS_IMPORT void Init(char* arg1, mmCar* arg2, i32 arg3);
 
     // ?InitPtx@mmCarSim@@QAEXXZ
     ARTS_IMPORT void InitPtx();
@@ -170,7 +170,7 @@ public:
     ARTS_IMPORT void PlayHorn();
 
     // ?PlayImpactAudio@mmCarSim@@QAEXFPAVmmIntersection@@PAVVector3@@@Z
-    ARTS_IMPORT void PlayImpactAudio(i16 arg1, class mmIntersection* arg2, class Vector3* arg3);
+    ARTS_IMPORT void PlayImpactAudio(i16 arg1, mmIntersection* arg2, Vector3* arg3);
 
     // ?ReInit@mmCarSim@@QAEXPAD@Z
     ARTS_IMPORT void ReInit(char* arg1);
@@ -191,7 +191,7 @@ public:
     ARTS_IMPORT void SetHackedImpactParams();
 
     // ?SetResetPos@mmCarSim@@QAEXAAVVector3@@@Z
-    ARTS_IMPORT void SetResetPos(class Vector3& arg1);
+    ARTS_IMPORT void SetResetPos(Vector3& arg1);
 
     // ?ShouldSkid@mmCarSim@@QAEHXZ
     ARTS_IMPORT i32 ShouldSkid();
@@ -230,16 +230,16 @@ public:
     ARTS_EXPORT static void SetGlobalTuning(f32 arg1, f32 arg2);
 
     // ?DirtTex@mmCarSim@@2PAVagiTexDef@@A
-    ARTS_IMPORT static class agiTexDef* DirtTex;
+    ARTS_IMPORT static agiTexDef* DirtTex;
 
     // ?GrassTex@mmCarSim@@2PAVagiTexDef@@A
-    ARTS_IMPORT static class agiTexDef* GrassTex;
+    ARTS_IMPORT static agiTexDef* GrassTex;
 
     // ?PlayerRawSteering@mmCarSim@@2MA
     ARTS_IMPORT static f32 PlayerRawSteering;
 
     // ?SnowTex@mmCarSim@@2PAVagiTexDef@@A
-    ARTS_IMPORT static class agiTexDef* SnowTex;
+    ARTS_IMPORT static agiTexDef* SnowTex;
 
     asOverSample OverSample;
     asInertialCS ICS;

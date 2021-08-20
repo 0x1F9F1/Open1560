@@ -51,7 +51,7 @@ class agiSWTexDef final : public agiTexDef
 {
 public:
     // ??0agiSWTexDef@@QAE@PAVagiSWPipeline@@@Z
-    ARTS_EXPORT agiSWTexDef(class agiSWPipeline* pipe)
+    ARTS_EXPORT agiSWTexDef(agiSWPipeline* pipe)
         : agiTexDef(pipe)
     {}
 
@@ -70,16 +70,16 @@ public:
     ARTS_IMPORT b32 IsAvailable() override;
 
     // ?Lock@agiSWTexDef@@UAEHAAUagiTexLock@@@Z
-    ARTS_IMPORT b32 Lock(struct agiTexLock& arg1) override;
+    ARTS_IMPORT b32 Lock(agiTexLock& arg1) override;
 
     // ?Request@agiSWTexDef@@UAEXXZ
     ARTS_IMPORT void Request() override;
 
     // ?Set@agiSWTexDef@@UAEXAAVVector2@@0@Z
-    ARTS_IMPORT void Set(class Vector2& arg1, class Vector2& arg2) override;
+    ARTS_IMPORT void Set(Vector2& arg1, Vector2& arg2) override;
 
     // ?Unlock@agiSWTexDef@@UAEXAAUagiTexLock@@@Z
-    ARTS_EXPORT void Unlock(struct agiTexLock& arg1) override;
+    ARTS_EXPORT void Unlock(agiTexLock& arg1) override;
 
 private:
     i32 field_74 {0};
@@ -94,7 +94,7 @@ class agiSWTexLut final : public agiTexLut
 {
 public:
     // ??0agiSWTexLut@@QAE@PAVagiSWPipeline@@@Z
-    ARTS_IMPORT agiSWTexLut(class agiSWPipeline* arg1);
+    ARTS_IMPORT agiSWTexLut(agiSWPipeline* arg1);
 
     // ??_GagiSWTexLut@@UAEPAXI@Z
     // ??_EagiSWTexLut@@UAEPAXI@Z

@@ -35,6 +35,8 @@
 
 #include "arts7/node.h"
 
+class asInertialCS;
+
 class mmSplash final : public asNode
 {
 public:
@@ -51,11 +53,11 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmSplash@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Init@mmSplash@@QAEXPAVasInertialCS@@VVector3@@1@Z
-    ARTS_IMPORT void Init(class asInertialCS* arg1, class Vector3 arg2, class Vector3 arg3);
+    ARTS_IMPORT void Init(asInertialCS* arg1, Vector3 arg2, Vector3 arg3);
 
     // ?Reset@mmSplash@@UAEXXZ
     ARTS_IMPORT void Reset() override;

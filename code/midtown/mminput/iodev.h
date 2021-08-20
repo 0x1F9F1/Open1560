@@ -43,6 +43,8 @@
 
 #include "mmcityinfo/infobase.h"
 
+union eqEvent;
+
 class mmIODev final : public mmInfoBase
 {
 public:
@@ -54,13 +56,13 @@ public:
     ARTS_IMPORT ~mmIODev() override = default;
 
     // ??8mmIODev@@QAEHPATeqEvent@@@Z
-    ARTS_IMPORT i32 operator==(union eqEvent* arg1);
+    ARTS_IMPORT i32 operator==(eqEvent* arg1);
 
     // ?Assign@mmIODev@@QAEXHHH@Z
     ARTS_IMPORT void Assign(i32 arg1, i32 arg2, i32 arg3);
 
     // ?GetClass@mmIODev@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetComponentType@mmIODev@@QAEHHH@Z
     ARTS_EXPORT i32 GetComponentType(i32 device, i32 component);
@@ -77,19 +79,19 @@ public:
     ARTS_IMPORT void Print(i32 arg1);
 
     // ?Read@mmIODev@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 Read(class Stream* arg1);
+    ARTS_IMPORT i32 Read(Stream* arg1);
 
     // ?ReadBinary@mmIODev@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 ReadBinary(class Stream* arg1);
+    ARTS_IMPORT i32 ReadBinary(Stream* arg1);
 
     // ?SanityCheckioType@mmIODev@@QAEHHHH@Z
     ARTS_IMPORT i32 SanityCheckioType(i32 arg1, i32 arg2, i32 arg3);
 
     // ?Write@mmIODev@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 Write(class Stream* arg1);
+    ARTS_IMPORT i32 Write(Stream* arg1);
 
     // ?WriteBinary@mmIODev@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 WriteBinary(class Stream* arg1);
+    ARTS_IMPORT i32 WriteBinary(Stream* arg1);
 
     // ?DeclareFields@mmIODev@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

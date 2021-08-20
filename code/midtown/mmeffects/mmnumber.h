@@ -45,6 +45,7 @@
 // Rewritten using 1588+ logic
 
 class agiBitmap;
+class mmNumberFont;
 
 class mmNumber final : public asNode
 {
@@ -60,7 +61,7 @@ public:
     ARTS_EXPORT void Cull() override;
 
     // ?Init@mmNumber@@QAEXPAVmmNumberFont@@MM@Z
-    ARTS_EXPORT void Init(class mmNumberFont* font, f32 x, f32 y);
+    ARTS_EXPORT void Init(mmNumberFont* font, f32 x, f32 y);
 
     // ?Printf@mmNumber@@QAAXPBDZZ
     ARTS_EXPORT void Printf(char const* format, ...);
@@ -73,7 +74,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmNumber@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     VIRTUAL_META_DECLARE;
@@ -107,7 +108,7 @@ public:
     ARTS_EXPORT void LoadFont(char* font, i32 height, u32 color);
 
     // ?LoadLocFont@mmNumberFont@@QAEXPADPAULocString@@HI@Z
-    ARTS_EXPORT void LoadLocFont(char* font, struct LocString* params, i32 screen_width, u32 color);
+    ARTS_EXPORT void LoadLocFont(char* font, LocString* params, i32 screen_width, u32 color);
 
 private:
     friend class mmNumber;

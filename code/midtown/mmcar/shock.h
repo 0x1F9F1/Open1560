@@ -34,6 +34,8 @@
 
 #include "arts7/linear.h"
 
+class mmWheel;
+
 class mmShock final : public asLinearCS
 {
 public:
@@ -46,14 +48,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmShock@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetClass@mmShock@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmShock@@QAEXPAD0PAVmmWheel@@@Z | unused
-    ARTS_IMPORT void Init(char* arg1, char* arg2, class mmWheel* arg3);
+    ARTS_IMPORT void Init(char* arg1, char* arg2, mmWheel* arg3);
 
     // ?Update@mmShock@@UAEXXZ
     ARTS_IMPORT void Update() override;

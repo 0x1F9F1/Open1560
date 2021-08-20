@@ -56,6 +56,14 @@
     0x672094 | int AllCars | ?AllCars@@3HA
 */
 
+struct _EXCEPTION_POINTERS;
+class agiPipeline;
+class CallbackArray;
+class mmGameManager;
+class mmGameRecord;
+class mmInterface;
+class Timer;
+
 // _WinMain@16 | void
 
 // ?Application@@YAXHPAPAD@Z
@@ -65,13 +73,13 @@ ARTS_EXPORT void Application(i32 argc, char** argv);
 ARTS_EXPORT void ApplicationHelper(i32 argc, char** argv);
 
 // ?CreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-ARTS_EXPORT Owner<class agiPipeline> CreatePipeline(i32 argc, char** argv);
+ARTS_EXPORT Owner<agiPipeline> CreatePipeline(i32 argc, char** argv);
 
 // ?GameFilter@@YAHPAU_EXCEPTION_POINTERS@@@Z
-ARTS_EXPORT i32 GameFilter(struct _EXCEPTION_POINTERS* exception);
+ARTS_EXPORT i32 GameFilter(_EXCEPTION_POINTERS* exception);
 
 // ?GameLoop@@YAXPAVmmInterface@@PAVmmGameManager@@PAD@Z
-ARTS_IMPORT void GameLoop(class mmInterface* mm_interface, class mmGameManager* game_manager, char* replay_name);
+ARTS_IMPORT void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* replay_name);
 
 // ?GenerateLoadScreenName@@YAHXZ
 ARTS_EXPORT b32 GenerateLoadScreenName();
@@ -120,7 +128,7 @@ ARTS_IMPORT extern u8 GraphicsPreviousMenu;
 ARTS_IMPORT extern char LoadScreen[40];
 
 // ?LoadTimer@@3VTimer@@A
-ARTS_IMPORT extern class Timer LoadTimer;
+ARTS_IMPORT extern Timer LoadTimer;
 
 #ifdef ARTS_DEV_BUILD
 // ?SampleStats@@3HA
@@ -128,7 +136,7 @@ ARTS_IMPORT extern i32 SampleStats;
 #endif
 
 // ?SystemStatsRecord@@3PAVmmGameRecord@@A
-ARTS_IMPORT extern class mmGameRecord* SystemStatsRecord;
+ARTS_IMPORT extern mmGameRecord* SystemStatsRecord;
 
 // ?VERSION_STRING@@3PADA
 ARTS_IMPORT extern char* VERSION_STRING;
@@ -150,4 +158,4 @@ ARTS_IMPORT extern ulong hImmContext; // TODO: Use usize/void*
 // ?page_override@@3HA
 ARTS_IMPORT extern i32 page_override;
 
-extern class CallbackArray OnGameReset;
+extern CallbackArray OnGameReset;

@@ -52,6 +52,12 @@
 
 #include "setupdata.h"
 
+struct HWND__;
+struct IDirectDraw4;
+struct IDirectDrawClipper;
+struct IDirectDrawSurface4;
+struct IDirectInputA;
+
 // ?dxiChangeDisplaySettings@@YAHHHH@Z
 ARTS_EXPORT i32 dxiChangeDisplaySettings(i32 width, i32 height, i32 bpp);
 
@@ -71,10 +77,10 @@ ARTS_EXPORT void dxiDirectInputCreate();
 ARTS_EXPORT void dxiInit(char* title, i32 argc, char** argv);
 
 // ?dxiMemoryAllocate@@YAPAXPAPAUIDirectDrawSurface4@@I@Z | unused
-ARTS_IMPORT void* dxiMemoryAllocate(struct IDirectDrawSurface4** arg1, u32 arg2);
+ARTS_IMPORT void* dxiMemoryAllocate(IDirectDrawSurface4** arg1, u32 arg2);
 
 // ?dxiMemoryFree@@YAXPAUIDirectDrawSurface4@@@Z | unused
-ARTS_IMPORT void dxiMemoryFree(struct IDirectDrawSurface4* arg1);
+ARTS_IMPORT void dxiMemoryFree(IDirectDrawSurface4* arg1);
 
 // ?dxiScreenShot@@YAXPAD@Z
 ARTS_EXPORT void dxiScreenShot(char* file_name);
@@ -134,28 +140,28 @@ ARTS_IMPORT extern i32 dxiIcon;
 ARTS_IMPORT extern i32 dxiWidth;
 
 // ?hwndMain@@3PAUHWND__@@A
-ARTS_IMPORT extern struct HWND__* hwndMain;
+ARTS_IMPORT extern HWND__* hwndMain;
 
 // ?lpClip@@3PAUIDirectDrawClipper@@A
-ARTS_IMPORT extern struct IDirectDrawClipper* lpClip;
+ARTS_IMPORT extern IDirectDrawClipper* lpClip;
 
 // ?lpDD4@@3PAUIDirectDraw4@@A
-ARTS_IMPORT extern struct IDirectDraw4* lpDD4;
+ARTS_IMPORT extern IDirectDraw4* lpDD4;
 
 // ?lpDI@@3PAUIDirectInputA@@A
-ARTS_IMPORT extern struct IDirectInputA* lpDI;
+ARTS_IMPORT extern IDirectInputA* lpDI;
 
 // ?lpdsBack@@3PAUIDirectDrawSurface4@@A
-ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsBack;
+ARTS_IMPORT extern IDirectDrawSurface4* lpdsBack;
 
 // ?lpdsBack2@@3PAUIDirectDrawSurface4@@A
-ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsBack2;
+ARTS_IMPORT extern IDirectDrawSurface4* lpdsBack2;
 
 // ?lpdsFront@@3PAUIDirectDrawSurface4@@A
-ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsFront;
+ARTS_IMPORT extern IDirectDrawSurface4* lpdsFront;
 
 // ?lpdsRend@@3PAUIDirectDrawSurface4@@A
-ARTS_IMPORT extern struct IDirectDrawSurface4* lpdsRend;
+ARTS_IMPORT extern IDirectDrawSurface4* lpdsRend;
 
 typedef struct SDL_Window SDL_Window;
 

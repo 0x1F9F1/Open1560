@@ -34,6 +34,8 @@
 
 #include "pu_menu.h"
 
+struct NETCOMMPACK;
+
 class Dialog_Serial final : public PUMenuBase
 {
 public:
@@ -49,7 +51,7 @@ public:
     ARTS_IMPORT void BuildComs();
 
     // ?GetCommPack@Dialog_Serial@@QAEPAUNETCOMMPACK@@XZ
-    ARTS_IMPORT struct NETCOMMPACK* GetCommPack();
+    ARTS_IMPORT NETCOMMPACK* GetCommPack();
 
     // ?IPAddressCallback@Dialog_Serial@@QAEXXZ | unused
     ARTS_IMPORT void IPAddressCallback();

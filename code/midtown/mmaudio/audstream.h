@@ -59,6 +59,8 @@
 
 #include "arts7/node.h"
 
+class StreamObj;
+
 class AudStream final : public asNode
 {
 public:
@@ -80,7 +82,7 @@ public:
     ARTS_IMPORT void Enable();
 
     // ?GetCurrentSoundObj@AudStream@@QAEPAVStreamObj@@XZ | unused
-    ARTS_IMPORT class StreamObj* GetCurrentSoundObj();
+    ARTS_IMPORT StreamObj* GetCurrentSoundObj();
 
     // ?GetFrequency@AudStream@@QAEMH@Z | unused
     ARTS_IMPORT f32 GetFrequency(i32 arg1);

@@ -55,6 +55,9 @@
 #include "arts7/node.h"
 #include "mmcity/inst.h"
 
+class agiPhysParameters;
+class mmWheel;
+
 class mmSkid final : public mmInstance
 {
 public:
@@ -66,11 +69,11 @@ public:
     ARTS_IMPORT ~mmSkid() override = default;
 
     // ?AddSkid@mmSkid@@QAEXAAVMatrix34@@PAVVector3@@PAVagiPhysParameters@@M@Z
-    ARTS_IMPORT void AddSkid(class Matrix34& arg1, class Vector3* arg2, class agiPhysParameters* arg3, f32 arg4);
+    ARTS_IMPORT void AddSkid(Matrix34& arg1, Vector3* arg2, agiPhysParameters* arg3, f32 arg4);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmSkid@@UAEXPAVBank@@@Z | inline
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Draw@mmSkid@@UAIXH@Z
@@ -80,19 +83,19 @@ public:
     ARTS_EXPORT void ARTS_FASTCALL DrawShadow() override;
 
     // ?FromMatrix@mmSkid@@UAIXABVMatrix34@@@Z
-    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
 
     // ?GetClass@mmSkid@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetPos@mmSkid@@UAIAAVVector3@@XZ
-    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?Init@mmSkid@@QAEXPAD@Z
     ARTS_IMPORT void Init(char* arg1);
 
     // ?ToMatrix@mmSkid@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
     // ?Update@mmSkid@@QAEXXZ | unused
     ARTS_EXPORT void Update();
@@ -116,16 +119,16 @@ public:
     ARTS_IMPORT ~mmSkidManager() override;
 
     // ?GetClass@mmSkidManager@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmSkidManager@@QAEXPADHPAVmmWheel@@@Z
-    ARTS_IMPORT void Init(char* arg1, i32 arg2, class mmWheel* arg3);
+    ARTS_IMPORT void Init(char* arg1, i32 arg2, mmWheel* arg3);
 
     // ?LayTrack@mmSkidManager@@QAEXXZ
     ARTS_IMPORT void LayTrack();
 
     // ?ReInit@mmSkidManager@@QAEXPAVmmWheel@@@Z
-    ARTS_IMPORT void ReInit(class mmWheel* arg1);
+    ARTS_IMPORT void ReInit(mmWheel* arg1);
 
     // ?Reset@mmSkidManager@@UAEXXZ
     ARTS_IMPORT void Reset() override;

@@ -37,6 +37,8 @@
 
 #include "arts7/node.h"
 
+class mmBridgeSet;
+
 class mmBridgeAudMgr final : public asNode
 {
 public:
@@ -49,19 +51,19 @@ public:
     ARTS_IMPORT ~mmBridgeAudMgr() override;
 
     // ?Add@mmBridgeAudMgr@@QAEFPAVmmBridgeSet@@@Z
-    ARTS_IMPORT i16 Add(class mmBridgeSet* arg1);
+    ARTS_IMPORT i16 Add(mmBridgeSet* arg1);
 
     // ?AssignSounds@mmBridgeAudMgr@@QAEXF@Z
     ARTS_IMPORT void AssignSounds(i16 arg1);
 
     // ?FindGreatestDistance@mmBridgeAudMgr@@QAEFPAVmmBridgeSet@@@Z
-    ARTS_IMPORT i16 FindGreatestDistance(class mmBridgeSet* arg1);
+    ARTS_IMPORT i16 FindGreatestDistance(mmBridgeSet* arg1);
 
     // ?FindUnusedSlot@mmBridgeAudMgr@@QAEFXZ
     ARTS_IMPORT i16 FindUnusedSlot();
 
     // ?Remove@mmBridgeAudMgr@@QAEXPAVmmBridgeSet@@F@Z
-    ARTS_IMPORT void Remove(class mmBridgeSet* arg1, i16 arg2);
+    ARTS_IMPORT void Remove(mmBridgeSet* arg1, i16 arg2);
 
     // ?Update@mmBridgeAudMgr@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -72,4 +74,4 @@ public:
 check_size(mmBridgeAudMgr, 0x38);
 
 // ?MMBRIDGEAUDMGRPTR@@3PAVmmBridgeAudMgr@@A
-ARTS_IMPORT extern class mmBridgeAudMgr* MMBRIDGEAUDMGRPTR;
+ARTS_IMPORT extern mmBridgeAudMgr* MMBRIDGEAUDMGRPTR;

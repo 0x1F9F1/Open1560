@@ -29,7 +29,7 @@ define_dummy_symbol(agi_texdef);
 #include "stream/stream.h"
 #include "texlib.h"
 
-ARTS_EXPORT class DataCache TEXCACHE;
+ARTS_EXPORT DataCache TEXCACHE;
 
 struct lutQentry
 {
@@ -65,12 +65,12 @@ b32 agiTexDef::IsAvailable()
     return page_state_ == 2;
 }
 
-b32 agiTexDef::Lock(struct agiTexLock& /*arg1*/)
+b32 agiTexDef::Lock(agiTexLock& /*arg1*/)
 {
     return false;
 }
 
-void agiTexDef::Unlock(struct agiTexLock& /*arg1*/)
+void agiTexDef::Unlock(agiTexLock& /*arg1*/)
 {}
 
 void agiTexDef::Request()
@@ -177,7 +177,7 @@ i32 agiTexDef::Init(agiTexParameters const& params)
     }
 }
 
-i32 agiTexDef::Init(class agiTexParameters const& params, Ptr<agiSurfaceDesc> surface)
+i32 agiTexDef::Init(agiTexParameters const& params, Ptr<agiSurfaceDesc> surface)
 {
     EndGfx();
 

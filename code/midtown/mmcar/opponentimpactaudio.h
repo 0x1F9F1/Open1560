@@ -57,7 +57,7 @@ public:
     ARTS_IMPORT void Disable3DMode();
 
     // ?Enable3DMode@mmOpponentImpactAudio@@QAEXPAVVector3@@@Z
-    ARTS_IMPORT void Enable3DMode(class Vector3* arg1);
+    ARTS_IMPORT void Enable3DMode(Vector3* arg1);
 
     // ?Play@mmOpponentImpactAudio@@QAEXMFMM@Z
     ARTS_IMPORT void Play(f32 arg1, i16 arg2, f32 arg3, f32 arg4);

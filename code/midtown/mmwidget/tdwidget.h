@@ -48,6 +48,8 @@
 
 #include "arts7/node.h"
 
+class asCamera;
+
 class TextDropWidget final : public asNode
 {
 public:
@@ -68,7 +70,7 @@ public:
     ARTS_IMPORT i32 DecDrop();
 
     // ?GetClass@TextDropWidget@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetCount@TextDropWidget@@QAEHXZ | unused
     ARTS_IMPORT i32 GetCount();
@@ -83,8 +85,8 @@ public:
     ARTS_IMPORT i32 IncDrop();
 
     // ?Init@TextDropWidget@@QAEXPAVasCamera@@PAXMMMMMVstring@@H@Z
-    ARTS_IMPORT void Init(class asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7,
-        class string arg8, i32 arg9);
+    ARTS_IMPORT void Init(
+        asCamera* arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, string arg8, i32 arg9);
 
     // ?IsActive@TextDropWidget@@QAEHXZ
     ARTS_IMPORT i32 IsActive();
@@ -99,13 +101,13 @@ public:
     ARTS_IMPORT i32 SetHighlight(i32 arg1);
 
     // ?SetString@TextDropWidget@@QAEXVstring@@@Z
-    ARTS_IMPORT void SetString(class string arg1);
+    ARTS_IMPORT void SetString(string arg1);
 
     // ?SetValue@TextDropWidget@@QAEHH@Z
     ARTS_IMPORT i32 SetValue(i32 arg1);
 
     // ?Switch@TextDropWidget@@QAEXHAAVVector4@@@Z
-    ARTS_IMPORT void Switch(i32 arg1, class Vector4& arg2);
+    ARTS_IMPORT void Switch(i32 arg1, Vector4& arg2);
 
     // ?Update@TextDropWidget@@UAEXXZ
     ARTS_IMPORT void Update() override;

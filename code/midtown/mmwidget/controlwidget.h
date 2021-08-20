@@ -39,6 +39,8 @@
 
 #include "widget.h"
 
+class mmIO;
+
 class UIControlWidget final : public uiWidget
 {
 public:
@@ -51,7 +53,7 @@ public:
     ARTS_IMPORT ~UIControlWidget() override;
 
     // ?Action@UIControlWidget@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?DisableField@UIControlWidget@@QAEXXZ
     ARTS_IMPORT void DisableField();
@@ -60,7 +62,7 @@ public:
     ARTS_IMPORT void EnableField();
 
     // ?Init@UIControlWidget@@QAEXMMMMMPAVmmIO@@VCallback@@@Z
-    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, class mmIO* arg6, class Callback arg7);
+    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, mmIO* arg6, Callback arg7);
 
     // ?SetPosition@UIControlWidget@@QAEXMMMM@Z
     ARTS_IMPORT void SetPosition(f32 arg1, f32 arg2, f32 arg3, f32 arg4);

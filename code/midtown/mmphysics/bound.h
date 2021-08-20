@@ -32,6 +32,10 @@
 
 #include "arts7/node.h"
 
+class agiPhysParameters;
+class mmIntersection;
+class mmPolygon;
+
 class asBound final : public asNode
 {
 public:
@@ -44,10 +48,10 @@ public:
     ARTS_IMPORT ~asBound() override = default;
 
     // ?GetPhysMtl@asBound@@QAEAAVagiPhysParameters@@ABVmmPolygon@@@Z
-    ARTS_IMPORT class agiPhysParameters& GetPhysMtl(class mmPolygon const& arg1);
+    ARTS_IMPORT agiPhysParameters& GetPhysMtl(mmPolygon const& arg1);
 
     // ?Impact@asBound@@QAEHPAVmmIntersection@@PAV1@HHH@Z
-    ARTS_IMPORT i32 Impact(class mmIntersection* arg1, class asBound* arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT i32 Impact(mmIntersection* arg1, asBound* arg2, i32 arg3, i32 arg4, i32 arg5);
 
     u8 gap20[0x1C];
 };

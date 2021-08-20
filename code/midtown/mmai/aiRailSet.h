@@ -46,6 +46,8 @@
     0x459E90 | public: class Vector3 * __thiscall aiPath::LBoundary(int) | ?LBoundary@aiPath@@QAEPAVVector3@@H@Z
 */
 
+class aiPath;
+
 class aiRailSet
 {
 public:
@@ -56,41 +58,41 @@ public:
     ARTS_IMPORT ~aiRailSet() = default;
 
     // ?CalcCopRailPosition@aiRailSet@@QAEHAAVVector3@@0MM@Z
-    ARTS_IMPORT i32 CalcCopRailPosition(class Vector3& arg1, class Vector3& arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT i32 CalcCopRailPosition(Vector3& arg1, Vector3& arg2, f32 arg3, f32 arg4);
 
     // ?CalcRailLength@aiRailSet@@QAEMXZ
     ARTS_IMPORT f32 CalcRailLength();
 
     // ?CalcRailPosOrient@aiRailSet@@QAEXAAVVector3@@0M@Z
-    ARTS_IMPORT void CalcRailPosOrient(class Vector3& arg1, class Vector3& arg2, f32 arg3);
+    ARTS_IMPORT void CalcRailPosOrient(Vector3& arg1, Vector3& arg2, f32 arg3);
 
     // ?CalcRailPosition@aiRailSet@@QAEXAAVVector3@@M@Z
-    ARTS_IMPORT void CalcRailPosition(class Vector3& arg1, f32 arg2);
+    ARTS_IMPORT void CalcRailPosition(Vector3& arg1, f32 arg2);
 
     // ?CalcRailState@aiRailSet@@QAEHM@Z
     ARTS_IMPORT i32 CalcRailState(f32 arg1);
 
     // ?CalcTurnIntersection@aiRailSet@@QAEXAAVVector3@@HPAVaiPath@@1@Z
-    ARTS_IMPORT void CalcTurnIntersection(class Vector3& arg1, i32 arg2, class aiPath* arg3, class aiPath* arg4);
+    ARTS_IMPORT void CalcTurnIntersection(Vector3& arg1, i32 arg2, aiPath* arg3, aiPath* arg4);
 
     // ?CalcXZDirection@aiRailSet@@QAEXAAVVector3@@0000M@Z | unused
-    ARTS_IMPORT void CalcXZDirection(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
-        class Vector3& arg5, f32 arg6);
+    ARTS_IMPORT void CalcXZDirection(
+        Vector3& arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, Vector3& arg5, f32 arg6);
 
     // ?CalcXZPosOrient@aiRailSet@@QAEXAAVVector3@@00000M@Z
-    ARTS_IMPORT void CalcXZPosOrient(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
-        class Vector3& arg5, class Vector3& arg6, f32 arg7);
+    ARTS_IMPORT void CalcXZPosOrient(
+        Vector3& arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, Vector3& arg5, Vector3& arg6, f32 arg7);
 
     // ?CalcXZPosition@aiRailSet@@QAEXAAVVector3@@0000M@Z
-    ARTS_IMPORT void CalcXZPosition(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
-        class Vector3& arg5, f32 arg6);
+    ARTS_IMPORT void CalcXZPosition(
+        Vector3& arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, Vector3& arg5, f32 arg6);
 
     // ?ComputeXZCurve@aiRailSet@@QAEXAAVVector3@@000@Z
-    ARTS_IMPORT void ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4);
+    ARTS_IMPORT void ComputeXZCurve(Vector3& arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4);
 
     // ?ComputeXZCurve@aiRailSet@@QAEXAAVVector3@@000AAVVector4@@1@Z
-    ARTS_IMPORT void ComputeXZCurve(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
-        class Vector4& arg5, class Vector4& arg6);
+    ARTS_IMPORT void ComputeXZCurve(
+        Vector3& arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, Vector4& arg5, Vector4& arg6);
 
     // ?DrawTurn@aiRailSet@@QAEXM@Z
     ARTS_IMPORT void DrawTurn(f32 arg1);
@@ -102,13 +104,13 @@ public:
     ARTS_IMPORT void SolveNextLane();
 
     // ?SolveTurnType@aiRailSet@@QAEHPAVaiPath@@0@Z
-    ARTS_IMPORT i32 SolveTurnType(class aiPath* arg1, class aiPath* arg2);
+    ARTS_IMPORT i32 SolveTurnType(aiPath* arg1, aiPath* arg2);
 
     // ?SolveXZCurve@aiRailSet@@QAEXAAVVector3@@0M@Z
-    ARTS_IMPORT void SolveXZCurve(class Vector3& arg1, class Vector3& arg2, f32 arg3);
+    ARTS_IMPORT void SolveXZCurve(Vector3& arg1, Vector3& arg2, f32 arg3);
 
     // ?SolveXZPosition@aiRailSet@@QAEXAAVVector3@@M@Z | unused
-    ARTS_IMPORT void SolveXZPosition(class Vector3& arg1, f32 arg2);
+    ARTS_IMPORT void SolveXZPosition(Vector3& arg1, f32 arg2);
 
     u8 gap0[0x80];
 };
@@ -116,4 +118,4 @@ public:
 check_size(aiRailSet, 0x80);
 
 // ??D@YA?AVVector3@@MABV0@@Z | inline
-ARTS_IMPORT class Vector3 operator*(f32 arg1, class Vector3 const& arg2);
+ARTS_IMPORT Vector3 operator*(f32 arg1, Vector3 const& arg2);

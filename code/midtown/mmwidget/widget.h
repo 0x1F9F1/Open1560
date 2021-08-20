@@ -30,6 +30,9 @@
 
 #include "arts7/node.h"
 
+union eqEvent;
+class UIMenu;
+
 class uiWidget : public asNode
 {
 public:
@@ -57,10 +60,10 @@ public:
     ARTS_IMPORT virtual void SetReadOnly(i32 arg1);
 
     // ?Action@uiWidget@@UAEXTeqEvent@@@Z | inline
-    ARTS_EXPORT virtual void Action(union eqEvent arg1);
+    ARTS_EXPORT virtual void Action(eqEvent arg1);
 
     // ?CaptureAction@uiWidget@@UAEXTeqEvent@@@Z | inline
-    ARTS_EXPORT virtual void CaptureAction(union eqEvent arg1);
+    ARTS_EXPORT virtual void CaptureAction(eqEvent arg1);
 
     // ?Switch@uiWidget@@UAEXH@Z
     ARTS_EXPORT virtual void Switch(i32 arg1);
@@ -78,13 +81,13 @@ public:
     ARTS_IMPORT virtual f32 GetScreenHeight();
 
     // ?AddToolTip@uiWidget@@QAEXPAVUIMenu@@PAULocString@@@Z
-    ARTS_EXPORT void AddToolTip(class UIMenu* arg1, struct LocString* arg2);
+    ARTS_EXPORT void AddToolTip(UIMenu* arg1, LocString* arg2);
 
     // ?ResetToolTip@uiWidget@@QAEXXZ
     ARTS_EXPORT void ResetToolTip();
 
     // ?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z
-    ARTS_IMPORT void SetToolTipText(struct LocString* arg1);
+    ARTS_IMPORT void SetToolTipText(LocString* arg1);
 
     u8 gap20[0x54];
 };

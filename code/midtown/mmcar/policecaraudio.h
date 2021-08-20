@@ -48,7 +48,7 @@ class mmPoliceCarAudio final : public mmOpponentCarAudio
 {
 public:
     // ??0mmPoliceCarAudio@@QAE@PAVmmCarSim@@M@Z
-    ARTS_IMPORT mmPoliceCarAudio(class mmCarSim* arg1, f32 arg2);
+    ARTS_IMPORT mmPoliceCarAudio(mmCarSim* arg1, f32 arg2);
 
     // ??_EmmPoliceCarAudio@@UAEPAXI@Z
     // ??_GmmPoliceCarAudio@@UAEPAXI@Z
@@ -56,8 +56,8 @@ public:
     ARTS_IMPORT ~mmPoliceCarAudio() override = default;
 
     // ?AssignSounds@mmPoliceCarAudio@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
-    ARTS_IMPORT void AssignSounds(class AudSound* arg1, class AudSound* arg2, class AudSound* arg3,
-        class AudSound* arg4, class mmOpponentImpactAudio* arg5, class AudSound* arg6);
+    ARTS_IMPORT void AssignSounds(
+        AudSound* arg1, AudSound* arg2, AudSound* arg3, AudSound* arg4, mmOpponentImpactAudio* arg5, AudSound* arg6);
 
     // ?DamageSiren@mmPoliceCarAudio@@QAEXXZ
     ARTS_IMPORT void DamageSiren();

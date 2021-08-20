@@ -29,16 +29,16 @@ define_dummy_symbol(pcwindis_dxsetup);
 #include "setupdata.h"
 
 // ?AddRenderer@@YAXPAUIDirectDraw4@@PAU_GUID@@PAD@Z
-ARTS_IMPORT /*static*/ void AddRenderer(struct IDirectDraw4* arg1, struct _GUID* arg2, char* arg3);
+ARTS_IMPORT /*static*/ void AddRenderer(IDirectDraw4* arg1, _GUID* arg2, char* arg3);
 
 // ?CheckSoftwareRenderer@@YAHPAUIDirectDraw4@@PAU_GUID@@@Z
-ARTS_IMPORT /*static*/ i32 CheckSoftwareRenderer(struct IDirectDraw4* arg1, struct _GUID* arg2);
+ARTS_IMPORT /*static*/ i32 CheckSoftwareRenderer(IDirectDraw4* arg1, _GUID* arg2);
 
 // ?EnumCounter@@YGHPAU_GUID@@PAD1PAX@Z
-ARTS_IMPORT /*static*/ i32 ARTS_STDCALL EnumCounter(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
+ARTS_IMPORT /*static*/ i32 ARTS_STDCALL EnumCounter(_GUID* arg1, char* arg2, char* arg3, void* arg4);
 
 // ?EnumTextures@@YGJPAU_DDPIXELFORMAT@@PAX@Z
-ARTS_IMPORT /*static*/ ilong ARTS_STDCALL EnumTextures(struct _DDPIXELFORMAT* arg1, void* arg2);
+ARTS_IMPORT /*static*/ ilong ARTS_STDCALL EnumTextures(_DDPIXELFORMAT* arg1, void* arg2);
 
 #ifndef ARTS_STANDALONE // Just to shut up warnings
 // ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
@@ -55,13 +55,13 @@ static long WINAPI EnumZ(DDPIXELFORMAT* ddpf, void* ctx)
 ARTS_IMPORT /*static*/ void EnumerateRenderers2();
 
 // ?Enumerator@@YGHPAU_GUID@@PAD1PAX@Z
-ARTS_IMPORT /*static*/ i32 ARTS_STDCALL Enumerator(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
+ARTS_IMPORT /*static*/ i32 ARTS_STDCALL Enumerator(_GUID* arg1, char* arg2, char* arg3, void* arg4);
 
 // ?GetSpecialFlags@@YAIKK@Z
 ARTS_IMPORT /*static*/ u32 GetSpecialFlags(ulong arg1, ulong arg2);
 
 // ?LockScreen@@YAJPAUIDirectDraw4@@@Z
-ARTS_IMPORT /*static*/ ilong LockScreen(struct IDirectDraw4* arg1);
+ARTS_IMPORT /*static*/ ilong LockScreen(IDirectDraw4* arg1);
 
 static mem::cmd_param PARAM_min_aspect {"minaspect"};
 static mem::cmd_param PARAM_max_aspect {"maxaspect"};
@@ -102,8 +102,7 @@ ARTS_EXPORT /*static*/ long WINAPI ModeCallback(DDSURFACEDESC2* sd, void* ctx)
 }
 
 // ?MyDirectDrawEnumerate@@YAXP6GHPAU_GUID@@PAD1PAX@Z2@Z
-ARTS_IMPORT /*static*/ void MyDirectDrawEnumerate(
-    i32(ARTS_STDCALL* arg1)(struct _GUID*, char*, char*, void*), void* arg2);
+ARTS_IMPORT /*static*/ void MyDirectDrawEnumerate(i32(ARTS_STDCALL* arg1)(_GUID*, char*, char*, void*), void* arg2);
 
 // ?NeedDX6@@YAXXZ
 ARTS_IMPORT /*static*/ void NeedDX6();
@@ -112,7 +111,7 @@ ARTS_IMPORT /*static*/ void NeedDX6();
 ARTS_IMPORT /*static*/ i32 NotLameChipset(ulong arg1, ulong arg2);
 
 // ?TestResolution@@YAHPAUIDirectDraw4@@AAUdxiRendererInfo_t@@@Z
-ARTS_IMPORT /*static*/ i32 TestResolution(struct IDirectDraw4* arg1, struct dxiRendererInfo_t& arg2);
+ARTS_IMPORT /*static*/ i32 TestResolution(IDirectDraw4* arg1, dxiRendererInfo_t& arg2);
 
 // ?UnlockScreen@@YAXXZ
 ARTS_EXPORT /*static*/ void UnlockScreen()

@@ -44,10 +44,11 @@
 #include "arts7/node.h"
 #include "vector7/vector3.h"
 
+struct agiMeshCardVertex;
+class agiTexDef;
+class asBirthRule;
 struct asSparkInfo;
 struct asSparkPos;
-class agiTexDef;
-class Matrix34;
 
 class asParticles final : public asNode
 {
@@ -61,17 +62,17 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asParticles@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* bank) override;
+    ARTS_EXPORT void AddWidgets(Bank* bank) override;
 #endif
 
     // ?Blast@asParticles@@QAEXHPAVasBirthRule@@@Z
-    ARTS_EXPORT void Blast(i32 num_sparks, class asBirthRule* birth_rule);
+    ARTS_EXPORT void Blast(i32 num_sparks, asBirthRule* birth_rule);
 
     // ?Cull@asParticles@@UAEXXZ
     ARTS_EXPORT void Cull() override;
 
     // ?Init@asParticles@@QAEXHHHHPAUagiMeshCardVertex@@@Z
-    ARTS_EXPORT void Init(i32 max_particles, i32 arg2, i32 arg3, i32 vert_count, struct agiMeshCardVertex* vertices);
+    ARTS_EXPORT void Init(i32 max_particles, i32 arg2, i32 arg3, i32 vert_count, agiMeshCardVertex* vertices);
 
     // ?Reset@asParticles@@UAEXXZ
     ARTS_EXPORT void Reset() override;

@@ -74,6 +74,8 @@
 
 #include "core/endian.h"
 
+class FileSystem;
+
 #define ARTS_STREAM_MANAGED_BUFFER 0x1
 #define ARTS_STREAM_SUPPORTS_MAPPING 0x2
 
@@ -81,7 +83,7 @@ class Stream : public Base
 {
 public:
     // ??0Stream@@QAE@PAXHPAVFileSystem@@@Z
-    ARTS_EXPORT Stream(void* buffer, isize buffer_size, class FileSystem* file_system);
+    ARTS_EXPORT Stream(void* buffer, isize buffer_size, FileSystem* file_system);
 
     // ??_GStream@@UAEPAXI@Z
     // ??1Stream@@UAE@XZ
@@ -295,19 +297,19 @@ private:
 check_size(Stream, 0x20);
 
 // ?fgets@@YAHPADHPAVStream@@@Z
-ARTS_EXPORT isize arts_fgets(char* buffer, isize buffer_len, class Stream* stream);
+ARTS_EXPORT isize arts_fgets(char* buffer, isize buffer_len, Stream* stream);
 
 // ?fopen@@YAPAVStream@@PAD0@Z
-ARTS_EXPORT class Stream* arts_fopen(const char* path, const char* mode);
+ARTS_EXPORT Stream* arts_fopen(const char* path, const char* mode);
 
 // ?fprintf@@YAXPAVStream@@PBDZZ
-ARTS_EXPORT void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, ...);
+ARTS_EXPORT void arts_fprintf(Stream* stream, ARTS_FORMAT_STRING char const* format, ...);
 
 // ?fscanf@@YAHPAVStream@@PBDZZ
-ARTS_EXPORT i32 arts_fscanf(class Stream* stream, char const* format, ...);
+ARTS_EXPORT i32 arts_fscanf(Stream* stream, char const* format, ...);
 
 // ?fseek@@YAHPAVStream@@HH@Z
-ARTS_EXPORT i32 arts_fseek(class Stream* stream, i32 offset, i32 origin);
+ARTS_EXPORT i32 arts_fseek(Stream* stream, i32 offset, i32 origin);
 
 // ?EnableBinaryFileMapping@@3HA
 ARTS_EXPORT extern b32 EnableBinaryFileMapping;

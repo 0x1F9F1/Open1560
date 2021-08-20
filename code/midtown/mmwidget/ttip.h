@@ -34,6 +34,8 @@
 
 #include "arts7/node.h"
 
+class UIMenu;
+
 class mmToolTip final : public asNode
 {
 public:
@@ -46,10 +48,10 @@ public:
     ARTS_IMPORT ~mmToolTip() override;
 
     // ?Init@mmToolTip@@QAEXPAVUIMenu@@PAULocString@@@Z | unused
-    ARTS_IMPORT void Init(class UIMenu* arg1, struct LocString* arg2);
+    ARTS_IMPORT void Init(UIMenu* arg1, LocString* arg2);
 
     // ?SetText@mmToolTip@@QAEXPAULocString@@@Z
-    ARTS_IMPORT void SetText(struct LocString* arg1);
+    ARTS_IMPORT void SetText(LocString* arg1);
 
     // ?Switch@mmToolTip@@QAEXH@Z
     ARTS_EXPORT void Switch(i32 arg1);

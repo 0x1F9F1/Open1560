@@ -50,40 +50,40 @@ public:
     ARTS_IMPORT ~mmRaceData() = default;
 
     // ?GetAmbientDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
-    ARTS_IMPORT f32 GetAmbientDensity(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT f32 GetAmbientDensity(i32 arg1, mmSkillLevel arg2);
 
     // ?GetCarType@mmRaceData@@QAEHHW4mmSkillLevel@@@Z | unused
-    ARTS_IMPORT i32 GetCarType(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetCarType(i32 arg1, mmSkillLevel arg2);
 
     // ?GetDifficulty@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
-    ARTS_IMPORT f32 GetDifficulty(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT f32 GetDifficulty(i32 arg1, mmSkillLevel arg2);
 
     // ?GetNumCops@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
-    ARTS_IMPORT i32 GetNumCops(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetNumCops(i32 arg1, mmSkillLevel arg2);
 
     // ?GetNumLaps@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
-    ARTS_IMPORT i32 GetNumLaps(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetNumLaps(i32 arg1, mmSkillLevel arg2);
 
     // ?GetNumOpponents@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
-    ARTS_IMPORT i32 GetNumOpponents(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetNumOpponents(i32 arg1, mmSkillLevel arg2);
 
     // ?GetNumRaces@mmRaceData@@QAEHXZ
     ARTS_IMPORT i32 GetNumRaces();
 
     // ?GetPedDensity@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
-    ARTS_IMPORT f32 GetPedDensity(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT f32 GetPedDensity(i32 arg1, mmSkillLevel arg2);
 
     // ?GetRaceName@mmRaceData@@QAEPADH@Z | unused
     ARTS_EXPORT char* GetRaceName(i32 arg1);
 
     // ?GetTimeLimit@mmRaceData@@QAEMHW4mmSkillLevel@@@Z
-    ARTS_IMPORT f32 GetTimeLimit(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT f32 GetTimeLimit(i32 arg1, mmSkillLevel arg2);
 
     // ?GetTimeOfDay@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
-    ARTS_IMPORT i32 GetTimeOfDay(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetTimeOfDay(i32 arg1, mmSkillLevel arg2);
 
     // ?GetWeather@mmRaceData@@QAEHHW4mmSkillLevel@@@Z
-    ARTS_IMPORT i32 GetWeather(i32 arg1, enum mmSkillLevel arg2);
+    ARTS_IMPORT i32 GetWeather(i32 arg1, mmSkillLevel arg2);
 
     // ?Load@mmRaceData@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);

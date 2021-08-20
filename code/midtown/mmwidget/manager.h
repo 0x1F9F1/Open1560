@@ -91,19 +91,21 @@
 #include "arts7/node.h"
 #include "data7/str.h"
 
-class eqEventQ;
 class asCamera;
-class asViewCS;
 class asLamp;
 class asLinearCS;
-class uiNavBar;
-class WArray;
-class MArray;
-class sfPointer;
-class Card2D;
-class UIMenu;
-class mmTextNode;
+class asViewCS;
 class AudSound;
+class Card2D;
+class eqEventQ;
+class MArray;
+class mmTextNode;
+class sfPointer;
+class UIIcon;
+class UIMenu;
+class uiNavBar;
+class uiWidget;
+class WArray;
 
 class MenuManager final : public asNode
 {
@@ -120,27 +122,27 @@ public:
     ARTS_IMPORT i32 ActionID(i32 arg1);
 
     // ?AddBrackets@MenuManager@@QAEXPAVUIIcon@@0PAVuiWidget@@MM@Z
-    ARTS_IMPORT void AddBrackets(class UIIcon* arg1, class UIIcon* arg2, class uiWidget* arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT void AddBrackets(UIIcon* arg1, UIIcon* arg2, uiWidget* arg3, f32 arg4, f32 arg5);
 
     // ?AddMenu2@MenuManager@@QAEHPAVUIMenu@@@Z
-    ARTS_IMPORT i32 AddMenu2(class UIMenu* arg1);
+    ARTS_IMPORT i32 AddMenu2(UIMenu* arg1);
 
     // ?AddPointer@MenuManager@@QAEXXZ
     ARTS_EXPORT void AddPointer();
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@MenuManager@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AdjustPopupCard@MenuManager@@QAEXPAVUIMenu@@@Z
-    ARTS_IMPORT void AdjustPopupCard(class UIMenu* arg1);
+    ARTS_IMPORT void AdjustPopupCard(UIMenu* arg1);
 
     // ?AllocateMenuSwitchAudio@MenuManager@@QAEXXZ
     ARTS_IMPORT void AllocateMenuSwitchAudio();
 
     // ?CheckBG@MenuManager@@QAEXPAVUIMenu@@@Z
-    ARTS_IMPORT void CheckBG(class UIMenu* arg1);
+    ARTS_IMPORT void CheckBG(UIMenu* arg1);
 
     // ?CheckInput@MenuManager@@QAEXXZ
     ARTS_IMPORT void CheckInput();
@@ -155,10 +157,10 @@ public:
     ARTS_EXPORT i32 CurrentMenuSelected();
 
     // ?DeclareLastDrawn@MenuManager@@QAEXPAVasNode@@@Z
-    ARTS_IMPORT void DeclareLastDrawn(class asNode* arg1);
+    ARTS_IMPORT void DeclareLastDrawn(asNode* arg1);
 
     // ?DeleteMenu@MenuManager@@QAEXPAVUIMenu@@@Z | unused
-    ARTS_IMPORT void DeleteMenu(class UIMenu* arg1);
+    ARTS_IMPORT void DeleteMenu(UIMenu* arg1);
 
     // ?Disable@MenuManager@@QAEXH@Z
     ARTS_EXPORT void Disable(i32 id);
@@ -191,10 +193,10 @@ public:
     ARTS_IMPORT char* GetControllerName(i32 arg1);
 
     // ?GetCurrentMenu@MenuManager@@QAEPAVUIMenu@@XZ
-    ARTS_EXPORT class UIMenu* GetCurrentMenu();
+    ARTS_EXPORT UIMenu* GetCurrentMenu();
 
     // ?GetFGColor@MenuManager@@QAEAAVVector4@@H@Z
-    ARTS_IMPORT class Vector4& GetFGColor(i32 arg1);
+    ARTS_IMPORT Vector4& GetFGColor(i32 arg1);
 
     // ?GetFont@MenuManager@@QAEPAXH@Z
     ARTS_IMPORT void* GetFont(i32 arg1);
@@ -212,7 +214,7 @@ public:
     ARTS_IMPORT void Init(i32 arg1, i32 arg2, char* arg3);
 
     // ?Init@MenuManager@@QAEXPAVasCamera@@HHMMMM@Z
-    ARTS_IMPORT void Init(class asCamera* arg1, i32 arg2, i32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7);
+    ARTS_IMPORT void Init(asCamera* arg1, i32 arg2, i32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7);
 
     // ?InitCommonStuff@MenuManager@@QAEXHH@Z
     ARTS_IMPORT void InitCommonStuff(i32 arg1, i32 arg2);
@@ -230,10 +232,10 @@ public:
     ARTS_EXPORT i32 MenuState(i32 menu);
 
     // ?MouseAction@MenuManager@@QAEPAVuiWidget@@HMM@Z
-    ARTS_IMPORT class uiWidget* MouseAction(i32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT uiWidget* MouseAction(i32 arg1, f32 arg2, f32 arg3);
 
     // ?NotifyMouseSelect@MenuManager@@QAEXPAVUIMenu@@@Z
-    ARTS_IMPORT void NotifyMouseSelect(class UIMenu* arg1);
+    ARTS_IMPORT void NotifyMouseSelect(UIMenu* arg1);
 
     // ?OpenDialog@MenuManager@@QAEXH@Z
     ARTS_IMPORT void OpenDialog(i32 arg1);
@@ -245,7 +247,7 @@ public:
     ARTS_IMPORT void PlaySound(i32 arg1);
 
     // ?RegisterWidgetFocus@MenuManager@@QAEXHMMMMPAVuiWidget@@@Z
-    ARTS_IMPORT void RegisterWidgetFocus(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, class uiWidget* arg6);
+    ARTS_IMPORT void RegisterWidgetFocus(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, uiWidget* arg6);
 
     // ?ResChange@MenuManager@@UAEXHH@Z
     ARTS_IMPORT void ResChange(i32 arg1, i32 arg2) override;
@@ -260,7 +262,7 @@ public:
     ARTS_IMPORT void SetDefaultBackgroundImage(char* arg1);
 
     // ?SetFocus@MenuManager@@QAEXPAVUIMenu@@@Z
-    ARTS_EXPORT void SetFocus(class UIMenu* menu);
+    ARTS_EXPORT void SetFocus(UIMenu* menu);
 
     // ?SetPreviousMenu@MenuManager@@QAEXH@Z
     ARTS_IMPORT void SetPreviousMenu(i32 arg1);
@@ -269,7 +271,7 @@ public:
     ARTS_EXPORT i32 Switch(i32 id);
 
     // ?SwitchFocus@MenuManager@@QAEXPAVUIMenu@@@Z
-    ARTS_IMPORT void SwitchFocus(class UIMenu* arg1);
+    ARTS_IMPORT void SwitchFocus(UIMenu* arg1);
 
     // ?ToggleFocus@MenuManager@@QAEXH@Z
     ARTS_IMPORT void ToggleFocus(i32 arg1);
@@ -281,7 +283,7 @@ public:
     ARTS_EXPORT void Update() override;
 
     // ?Instance@MenuManager@@2PAV1@A
-    ARTS_IMPORT static class MenuManager* Instance;
+    ARTS_IMPORT static MenuManager* Instance;
 
     eqEventQ* GetEventQ()
     {

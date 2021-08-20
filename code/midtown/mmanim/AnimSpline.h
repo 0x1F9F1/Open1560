@@ -52,7 +52,7 @@ public:
     ARTS_IMPORT ~mmAnimSpline() override;
 
     // ?AddVector@mmAnimSpline@@QAEXAAVVector3@@@Z
-    ARTS_IMPORT void AddVector(class Vector3& arg1);
+    ARTS_IMPORT void AddVector(Vector3& arg1);
 
     // ?AirlinerSwap@mmAnimSpline@@QAEXXZ
     ARTS_IMPORT void AirlinerSwap();

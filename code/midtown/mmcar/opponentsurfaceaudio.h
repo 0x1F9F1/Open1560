@@ -31,6 +31,8 @@
     0x4863A0 | public: void __thiscall mmOpponentSurfaceAudio::Disable3DMode(void) | ?Disable3DMode@mmOpponentSurfaceAudio@@QAEXXZ
 */
 
+class mmWheel;
+
 struct mmOpponentSurfaceAudio
 {
 public:
@@ -44,11 +46,10 @@ public:
     ARTS_IMPORT void Disable3DMode();
 
     // ?Enable3DMode@mmOpponentSurfaceAudio@@QAEXPAVVector3@@@Z
-    ARTS_IMPORT void Enable3DMode(class Vector3* arg1);
+    ARTS_IMPORT void Enable3DMode(Vector3* arg1);
 
     // ?SetWheelPointers@mmOpponentSurfaceAudio@@QAEXPAVmmWheel@@000@Z
-    ARTS_IMPORT void SetWheelPointers(
-        class mmWheel* arg1, class mmWheel* arg2, class mmWheel* arg3, class mmWheel* arg4);
+    ARTS_IMPORT void SetWheelPointers(mmWheel* arg1, mmWheel* arg2, mmWheel* arg3, mmWheel* arg4);
 
     // ?Update@mmOpponentSurfaceAudio@@QAEXM@Z
     ARTS_IMPORT void Update(f32 arg1);

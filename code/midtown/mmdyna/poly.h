@@ -39,6 +39,10 @@
     0x51D170 | private: float __thiscall mmPolygon::CheckCellZSide(float,float,float) | ?CheckCellZSide@mmPolygon@@AAEMMMM@Z
 */
 
+class mmBoundTemplate;
+class mmEdgeBodyIsect;
+class mmIntersection;
+
 class mmPolygon
 {
 public:
@@ -64,20 +68,20 @@ private:
 #endif
 
     // ?FullSegment@mmPolygon@@AAEHPAVmmEdgeBodyIsect@@@Z
-    ARTS_IMPORT i32 FullSegment(class mmEdgeBodyIsect* arg1);
+    ARTS_IMPORT i32 FullSegment(mmEdgeBodyIsect* arg1);
 
     // ?FullSegment@mmPolygon@@AAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 FullSegment(class mmIntersection* arg1);
+    ARTS_IMPORT i32 FullSegment(mmIntersection* arg1);
 
     // ?FullSphere@mmPolygon@@AAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 FullSphere(class mmIntersection* arg1);
+    ARTS_IMPORT i32 FullSphere(mmIntersection* arg1);
 
     // ?GetCorner@mmPolygon@@AAEHAAVVector3@@00000AAM@Z
-    ARTS_IMPORT i32 GetCorner(class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4,
-        class Vector3& arg5, class Vector3& arg6, f32& arg7);
+    ARTS_IMPORT i32 GetCorner(
+        Vector3& arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, Vector3& arg5, Vector3& arg6, f32& arg7);
 
     // ?GetST@mmPolygon@@AAEXPAVVector3@@0PAVmmBoundTemplate@@@Z | unused
-    ARTS_IMPORT void GetST(class Vector3* arg1, class Vector3* arg2, class mmBoundTemplate* arg3);
+    ARTS_IMPORT void GetST(Vector3* arg1, Vector3* arg2, mmBoundTemplate* arg3);
 
     // ?Init@mmPolygon@@AAEXXZ
     ARTS_IMPORT void Init();
@@ -86,13 +90,13 @@ private:
     ARTS_IMPORT f32 MaxY(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // ?Plot@mmPolygon@@AAEXPAVmmBoundTemplate@@H@Z
-    ARTS_IMPORT void Plot(class mmBoundTemplate* arg1, i32 arg2);
+    ARTS_IMPORT void Plot(mmBoundTemplate* arg1, i32 arg2);
 
     // ?PlotScan@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
-    ARTS_IMPORT void PlotScan(i32 arg1, i32 arg2, i32 arg3, class mmBoundTemplate* arg4, i32 arg5);
+    ARTS_IMPORT void PlotScan(i32 arg1, i32 arg2, i32 arg3, mmBoundTemplate* arg4, i32 arg5);
 
     // ?PlotTriangle@mmPolygon@@AAEXHHHPAVmmBoundTemplate@@H@Z
-    ARTS_IMPORT void PlotTriangle(i32 arg1, i32 arg2, i32 arg3, class mmBoundTemplate* arg4, i32 arg5);
+    ARTS_IMPORT void PlotTriangle(i32 arg1, i32 arg2, i32 arg3, mmBoundTemplate* arg4, i32 arg5);
 
     u8 gap0[0x4C];
 };

@@ -63,6 +63,10 @@
     0x77F598 | public: static class mmBoundTemplate * mmBoundTemplate::BoundPtr | ?BoundPtr@mmBoundTemplate@@2PAV1@A
 */
 
+class asInertialCS;
+class mmEdgeBodyIsect;
+class mmIntersection;
+
 class mmBoundTemplate
 {
 public:
@@ -85,19 +89,18 @@ public:
     ARTS_IMPORT void AddTriangle(i32 arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     // ?Collide@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 Collide(class mmIntersection* arg1);
+    ARTS_IMPORT i32 Collide(mmIntersection* arg1);
 
     // ?Collide@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
-    ARTS_IMPORT i32 Collide(class mmEdgeBodyIsect* arg1, i32 arg2);
+    ARTS_IMPORT i32 Collide(mmEdgeBodyIsect* arg1, i32 arg2);
 
     // ?Collide@mmBoundTemplate@@QAEHPAV1@AAVMatrix34@@11PAVmmEdgeBodyIsect@@HHPAVasInertialCS@@3PAVVector3@@4@Z
-    ARTS_IMPORT i32 Collide(class mmBoundTemplate* arg1, class Matrix34& arg2, class Matrix34& arg3,
-        class Matrix34& arg4, class mmEdgeBodyIsect* arg5, i32 arg6, i32 arg7, class asInertialCS* arg8,
-        class asInertialCS* arg9, class Vector3* arg10, class Vector3* arg11);
+    ARTS_IMPORT i32 Collide(mmBoundTemplate* arg1, Matrix34& arg2, Matrix34& arg3, Matrix34& arg4,
+        mmEdgeBodyIsect* arg5, i32 arg6, i32 arg7, asInertialCS* arg8, asInertialCS* arg9, Vector3* arg10,
+        Vector3* arg11);
 
     // ?CollideTerrains@mmBoundTemplate@@QAEHPAPAV1@AAVMatrix34@@PAVmmEdgeBodyIsect@@HH@Z
-    ARTS_IMPORT i32 CollideTerrains(
-        class mmBoundTemplate** arg1, class Matrix34& arg2, class mmEdgeBodyIsect* arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT i32 CollideTerrains(mmBoundTemplate** arg1, Matrix34& arg2, mmEdgeBodyIsect* arg3, i32 arg4, i32 arg5);
 
     // ?ComputeBounds@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void ComputeBounds();
@@ -132,29 +135,29 @@ public:
     ARTS_IMPORT void InitGeometry(i32 arg1, i32 arg2);
 
     // ?LineGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 LineGeometry(class mmIntersection* arg1);
+    ARTS_IMPORT i32 LineGeometry(mmIntersection* arg1);
 
     // ?LineGeometry@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
-    ARTS_IMPORT i32 LineGeometry(class mmEdgeBodyIsect* arg1, i32 arg2);
+    ARTS_IMPORT i32 LineGeometry(mmEdgeBodyIsect* arg1, i32 arg2);
 
     // ?LineSpan@mmBoundTemplate@@QAEHPAVmmIntersection@@HHH@Z
-    ARTS_IMPORT i32 LineSpan(class mmIntersection* arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT i32 LineSpan(mmIntersection* arg1, i32 arg2, i32 arg3, i32 arg4);
 
     // ?LineSpan@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@HHHH@Z
-    ARTS_IMPORT i32 LineSpan(class mmEdgeBodyIsect* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT i32 LineSpan(mmEdgeBodyIsect* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     // ?LineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_EXPORT i32 LineSphere(class mmIntersection* arg1);
+    ARTS_EXPORT i32 LineSphere(mmIntersection* arg1);
 
     // ?LineTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 LineTable(class mmIntersection* arg1);
+    ARTS_IMPORT i32 LineTable(mmIntersection* arg1);
 
     // ?LineTable@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@H@Z
-    ARTS_IMPORT i32 LineTable(class mmEdgeBodyIsect* arg1, i32 arg2);
+    ARTS_IMPORT i32 LineTable(mmEdgeBodyIsect* arg1, i32 arg2);
 
     // ?Load@mmBoundTemplate@@QAEHPAD0PAVVector3@@HHHHHH@Z | mmdyna:bndtmpl2
     ARTS_IMPORT i32 Load(
-        char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8, i32 arg9);
+        char* arg1, char* arg2, Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8, i32 arg9);
 
     // ?LockIfResident@mmBoundTemplate@@QAEHXZ | mmdyna:bndtmpl2
     ARTS_IMPORT i32 LockIfResident();
@@ -163,28 +166,28 @@ public:
     ARTS_IMPORT void PageIn();
 
     // ?PlotLine@mmBoundTemplate@@QAEXVVector3@@0@Z | mmdyna:bndtmpl2 | unused
-    ARTS_IMPORT void PlotLine(class Vector3 arg1, class Vector3 arg2);
+    ARTS_IMPORT void PlotLine(Vector3 arg1, Vector3 arg2);
 
     // ?PlotSpan@mmBoundTemplate@@QAEXHHH@Z | mmdyna:bndtmpl2
     ARTS_EXPORT void PlotSpan(i32 arg1, i32 arg2, i32 arg3);
 
     // ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
-    ARTS_IMPORT i32 QuickLineBox(class mmEdgeBodyIsect* arg1);
+    ARTS_IMPORT i32 QuickLineBox(mmEdgeBodyIsect* arg1);
 
     // ?QuickLineBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 QuickLineBox(class mmIntersection* arg1);
+    ARTS_IMPORT i32 QuickLineBox(mmIntersection* arg1);
 
     // ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmEdgeBodyIsect@@@Z
-    ARTS_IMPORT i32 QuickLineSphere(class mmEdgeBodyIsect* arg1);
+    ARTS_IMPORT i32 QuickLineSphere(mmEdgeBodyIsect* arg1);
 
     // ?QuickLineSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 QuickLineSphere(class mmIntersection* arg1);
+    ARTS_IMPORT i32 QuickLineSphere(mmIntersection* arg1);
 
     // ?QuickSphereBox@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 QuickSphereBox(class mmIntersection* arg1);
+    ARTS_IMPORT i32 QuickSphereBox(mmIntersection* arg1);
 
     // ?QuickSphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z | unused
-    ARTS_IMPORT i32 QuickSphereSphere(class mmIntersection* arg1);
+    ARTS_IMPORT i32 QuickSphereSphere(mmIntersection* arg1);
 
     // ?Release@mmBoundTemplate@@QAEHXZ
     ARTS_IMPORT i32 Release();
@@ -193,13 +196,13 @@ public:
     ARTS_IMPORT void Reset();
 
     // ?SphereGeometry@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 SphereGeometry(class mmIntersection* arg1);
+    ARTS_IMPORT i32 SphereGeometry(mmIntersection* arg1);
 
     // ?SphereSphere@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 SphereSphere(class mmIntersection* arg1);
+    ARTS_IMPORT i32 SphereSphere(mmIntersection* arg1);
 
     // ?SphereTable@mmBoundTemplate@@QAEHPAVmmIntersection@@@Z
-    ARTS_IMPORT i32 SphereTable(class mmIntersection* arg1);
+    ARTS_IMPORT i32 SphereTable(mmIntersection* arg1);
 
     // ?Unlock@mmBoundTemplate@@QAEXXZ | mmdyna:bndtmpl2
     ARTS_IMPORT void Unlock();
@@ -208,15 +211,14 @@ public:
     ARTS_IMPORT void ValidatePtr(char* arg1);
 
     // ?GetBoundTemplate@mmBoundTemplate@@SAPAV1@PAD0PAVVector3@@HHHHH@Z
-    ARTS_IMPORT static class mmBoundTemplate* GetBoundTemplate(
-        char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
+    ARTS_IMPORT static mmBoundTemplate* GetBoundTemplate(
+        char* arg1, char* arg2, Vector3* arg3, i32 arg4, i32 arg5, i32 arg6, i32 arg7, i32 arg8);
 
     // ?MakeBox@mmBoundTemplate@@SAPAV1@PAD0HPAVVector3@@1@Z
-    ARTS_IMPORT static class mmBoundTemplate* MakeBox(
-        char* arg1, char* arg2, i32 arg3, class Vector3* arg4, class Vector3* arg5);
+    ARTS_IMPORT static mmBoundTemplate* MakeBox(char* arg1, char* arg2, i32 arg3, Vector3* arg4, Vector3* arg5);
 
     // ?BoundPtr@mmBoundTemplate@@2PAV1@A
-    ARTS_IMPORT static class mmBoundTemplate* BoundPtr;
+    ARTS_IMPORT static mmBoundTemplate* BoundPtr;
 
     // ?ConstructionTable@mmBoundTemplate@@2PAGA | mmdyna:bndtmpl2
     ARTS_IMPORT static u16* ConstructionTable;
@@ -237,7 +239,7 @@ public:
     ARTS_IMPORT static i32 NumIndexs;
 
     // ?VertPtr@mmBoundTemplate@@2PAVVector3@@A
-    ARTS_IMPORT static class Vector3* VertPtr;
+    ARTS_IMPORT static Vector3* VertPtr;
 
     // ?WinID@mmBoundTemplate@@2HA | mmdyna:bndtmpl2
     ARTS_IMPORT static i32 WinID;

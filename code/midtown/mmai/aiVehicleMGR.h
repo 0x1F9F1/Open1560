@@ -95,15 +95,18 @@
 #include "mmcity/inst.h"
 #include "mmphysics/entity.h"
 
+class aiVehicleActive;
+class aiVehicleData;
+class mmIntersection;
+
 // ?AMBIENTCB@@YAXPAVaiVehicleActive@@PAVasBound@@PAVmmIntersection@@PAVVector3@@M@Z
-ARTS_IMPORT void AMBIENTCB(
-    class aiVehicleActive* arg1, class asBound* arg2, class mmIntersection* arg3, class Vector3* arg4, f32 arg5);
+ARTS_IMPORT void AMBIENTCB(aiVehicleActive* arg1, asBound* arg2, mmIntersection* arg3, Vector3* arg4, f32 arg5);
 
 // ?NoDataWhined@@3VHashTable@@A
-ARTS_IMPORT extern class HashTable NoDataWhined;
+ARTS_IMPORT extern HashTable NoDataWhined;
 
 // ?VehicleDataHash@@3VHashTable@@A
-ARTS_IMPORT extern class HashTable VehicleDataHash;
+ARTS_IMPORT extern HashTable VehicleDataHash;
 
 class aiVehicleInstance final : public mmInstance
 {
@@ -115,11 +118,11 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiVehicleInstance@@UAEXPAVBank@@@Z | inline
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AttachEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
-    ARTS_IMPORT class mmPhysEntity* AttachEntity() override;
+    ARTS_IMPORT mmPhysEntity* AttachEntity() override;
 
     // ?Detach@aiVehicleInstance@@UAEXXZ
     ARTS_IMPORT void Detach() override;
@@ -134,25 +137,25 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // ?FromMatrix@aiVehicleInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
 
     // ?GetClass@aiVehicleInstance@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetData@aiVehicleInstance@@QAEPAVaiVehicleData@@XZ
-    ARTS_IMPORT class aiVehicleData* GetData();
+    ARTS_IMPORT aiVehicleData* GetData();
 
     // ?GetEntity@aiVehicleInstance@@UAEPAVmmPhysEntity@@XZ
-    ARTS_IMPORT class mmPhysEntity* GetEntity() override;
+    ARTS_IMPORT mmPhysEntity* GetEntity() override;
 
     // ?GetPos@aiVehicleInstance@@UAIAAVVector3@@XZ
-    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?GetVelocity@aiVehicleInstance@@UAE?AVVector3@@XZ
-    ARTS_IMPORT class Vector3 GetVelocity() override;
+    ARTS_IMPORT Vector3 GetVelocity() override;
 
     // ?ToMatrix@aiVehicleInstance@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
     // ?DeclareFields@aiVehicleInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -174,7 +177,7 @@ public:
     ARTS_IMPORT ~aiVehicleActive() override;
 
     // ?Attach@aiVehicleActive@@QAEXPAVaiVehicleInstance@@@Z
-    ARTS_IMPORT void Attach(class aiVehicleInstance* arg1);
+    ARTS_IMPORT void Attach(aiVehicleInstance* arg1);
 
     // ?Detach@aiVehicleActive@@QAEXXZ
     ARTS_IMPORT void Detach();
@@ -183,10 +186,10 @@ public:
     ARTS_IMPORT void DetachMe() override;
 
     // ?GetBound@aiVehicleActive@@UAEPAVasBound@@XZ | inline
-    ARTS_IMPORT class asBound* GetBound() override;
+    ARTS_IMPORT asBound* GetBound() override;
 
     // ?GetICS@aiVehicleActive@@UAEPAVasInertialCS@@XZ | inline
-    ARTS_IMPORT class asInertialCS* GetICS() override;
+    ARTS_IMPORT asInertialCS* GetICS() override;
 
     // ?Init@aiVehicleActive@@QAEXPAD@Z
     ARTS_IMPORT void Init(char* arg1);
@@ -221,14 +224,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiVehicleManager@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Attach@aiVehicleManager@@QAEPAVaiVehicleActive@@PAVaiVehicleInstance@@@Z
-    ARTS_IMPORT class aiVehicleActive* Attach(class aiVehicleInstance* arg1);
+    ARTS_IMPORT aiVehicleActive* Attach(aiVehicleInstance* arg1);
 
     // ?Detach@aiVehicleManager@@QAEXPAVaiVehicleActive@@@Z
-    ARTS_IMPORT void Detach(class aiVehicleActive* arg1);
+    ARTS_IMPORT void Detach(aiVehicleActive* arg1);
 
     // ?Init@aiVehicleManager@@QAEXPAD@Z
     ARTS_IMPORT void Init(char* arg1);
@@ -246,7 +249,7 @@ public:
     ARTS_IMPORT static f32 FloatClock;
 
     // ?Instance@aiVehicleManager@@2PAV1@A
-    ARTS_IMPORT static class aiVehicleManager* Instance;
+    ARTS_IMPORT static aiVehicleManager* Instance;
 
     // ?SignalClock@aiVehicleManager@@2HA
     ARTS_IMPORT static i32 SignalClock;
@@ -268,11 +271,11 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiVehicleData@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetClass@aiVehicleData@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?LoadEntry@aiVehicleData@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadEntry(char* arg1);

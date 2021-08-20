@@ -57,7 +57,7 @@ public:
     ARTS_IMPORT ~mmRecord() override = default;
 
     // ??4mmRecord@@QAEXAAV0@@Z
-    ARTS_IMPORT void operator=(class mmRecord& arg1);
+    ARTS_IMPORT void operator=(mmRecord& arg1);
 
     // ?ComputeCRC@mmRecord@@QAEIXZ
     ARTS_IMPORT u32 ComputeCRC();
@@ -66,7 +66,7 @@ public:
     ARTS_IMPORT char* GetCarName();
 
     // ?GetClass@mmRecord@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetName@mmRecord@@QAEPADXZ
     ARTS_IMPORT char* GetName();
@@ -81,10 +81,10 @@ public:
     ARTS_IMPORT f32 GetTime();
 
     // ?LoadBinary@mmRecord@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 LoadBinary(class Stream* arg1);
+    ARTS_IMPORT i32 LoadBinary(Stream* arg1);
 
     // ?SaveBinary@mmRecord@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 SaveBinary(class Stream* arg1);
+    ARTS_IMPORT i32 SaveBinary(Stream* arg1);
 
     // ?SetCarName@mmRecord@@QAEXPAD@Z
     ARTS_IMPORT void SetCarName(char* arg1);

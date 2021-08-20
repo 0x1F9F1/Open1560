@@ -42,6 +42,7 @@
 #include "bridge.h"
 
 class mmAnimSpline;
+class mmInstance;
 
 class mmAnimMgr final : public asNode
 {
@@ -57,10 +58,10 @@ public:
     ARTS_IMPORT void AirlinerSwap();
 
     // ?GetClass@mmAnimMgr@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmAnimMgr@@QAEHPADPAVmmInstance@@PAPAV2@H@Z
-    ARTS_IMPORT i32 Init(char* arg1, class mmInstance* arg2, class mmInstance** arg3, i32 arg4);
+    ARTS_IMPORT i32 Init(char* arg1, mmInstance* arg2, mmInstance** arg3, i32 arg4);
 
     // ?TestDOFAct@mmAnimMgr@@QAEXH@Z
     ARTS_EXPORT void TestDOFAct(i32 arg1);

@@ -91,6 +91,9 @@
 #include <dplay.h>
 #include <dplobby.h>
 
+struct NETCOMMPACK;
+struct NETSESSION_DESC;
+
 class asNetwork
 {
 public:
@@ -113,7 +116,7 @@ public:
     ARTS_IMPORT i32 CreatePlayer(char* arg1, void* arg2, i32 arg3);
 
     // ?CreateSession@asNetwork@@QAEHPAD0HPAUNETSESSION_DESC@@@Z
-    ARTS_IMPORT i32 CreateSession(char* arg1, char* arg2, i32 arg3, struct NETSESSION_DESC* arg4);
+    ARTS_IMPORT i32 CreateSession(char* arg1, char* arg2, i32 arg3, NETSESSION_DESC* arg4);
 
     // ?Deallocate@asNetwork@@QAEXXZ
     ARTS_IMPORT void Deallocate();
@@ -182,13 +185,13 @@ public:
     ARTS_IMPORT i32 GetPlayerName(ulong arg1, char* arg2);
 
     // ?GetPlayers@asNetwork@@QAEHPAU_GUID@@@Z
-    ARTS_IMPORT i32 GetPlayers(struct _GUID* arg1);
+    ARTS_IMPORT i32 GetPlayers(_GUID* arg1);
 
     // ?GetProtocols@asNetwork@@QAEXXZ
     ARTS_IMPORT void GetProtocols();
 
     // ?GetSessionData@asNetwork@@QAEXPAUNETSESSION_DESC@@@Z
-    ARTS_IMPORT void GetSessionData(struct NETSESSION_DESC* arg1);
+    ARTS_IMPORT void GetSessionData(NETSESSION_DESC* arg1);
 
     // ?GetSessionsAsynch@asNetwork@@QAEXXZ
     ARTS_IMPORT void GetSessionsAsynch();
@@ -215,7 +218,7 @@ public:
     ARTS_IMPORT i32 JoinSession(i32 arg1, char* arg2);
 
     // ?JoinSession@asNetwork@@QAEHPADPAU_GUID@@0@Z
-    ARTS_IMPORT i32 JoinSession(char* arg1, struct _GUID* arg2, char* arg3);
+    ARTS_IMPORT i32 JoinSession(char* arg1, _GUID* arg2, char* arg3);
 
     // ?Logout@asNetwork@@QAEXXZ
     ARTS_IMPORT void Logout();
@@ -248,10 +251,10 @@ public:
     ARTS_IMPORT i32 SetProtocol(i32 arg1);
 
     // ?SetProtocol@asNetwork@@QAEHHPAUNETCOMMPACK@@@Z
-    ARTS_IMPORT i32 SetProtocol(i32 arg1, struct NETCOMMPACK* arg2);
+    ARTS_IMPORT i32 SetProtocol(i32 arg1, NETCOMMPACK* arg2);
 
     // ?SetSessionData@asNetwork@@QAEXPAUNETSESSION_DESC@@PAD@Z
-    ARTS_IMPORT void SetSessionData(struct NETSESSION_DESC* arg1, char* arg2);
+    ARTS_IMPORT void SetSessionData(NETSESSION_DESC* arg1, char* arg2);
 
     // ?StopSessionsAsynch@asNetwork@@QAEXXZ
     ARTS_IMPORT void StopSessionsAsynch();
@@ -316,10 +319,10 @@ check_size(asNetwork, 0x64);
 
 // ?EnumConnectionsCallback@@YGHPBU_GUID@@PAXKPBUDPNAME@@K1@Z
 ARTS_IMPORT i32 ARTS_STDCALL EnumConnectionsCallback(
-    struct _GUID const* arg1, void* arg2, ulong arg3, DPNAME const* arg4, ulong arg5, void* arg6);
+    _GUID const* arg1, void* arg2, ulong arg3, DPNAME const* arg4, ulong arg5, void* arg6);
 
 // ?EnumModemAddress@@YGHABU_GUID@@KPBXPAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL EnumModemAddress(struct _GUID const& arg1, ulong arg2, void const* arg3, void* arg4);
+ARTS_IMPORT i32 ARTS_STDCALL EnumModemAddress(_GUID const& arg1, ulong arg2, void const* arg3, void* arg4);
 
 // ?EnumPlayersCallback@@YGHKKPBUDPNAME@@KPAX@Z
 ARTS_IMPORT i32 ARTS_STDCALL EnumPlayersCallback(ulong arg1, ulong arg2, DPNAME const* arg3, ulong arg4, void* arg5);
@@ -328,6 +331,6 @@ ARTS_IMPORT i32 ARTS_STDCALL EnumPlayersCallback(ulong arg1, ulong arg2, DPNAME 
 ARTS_IMPORT i32 ARTS_STDCALL EnumSessionCallback(DPSESSIONDESC2 const* arg1, ulong* arg2, ulong arg3, void* arg4);
 
 // ?NETMGR@@3VasNetwork@@A
-ARTS_IMPORT extern class asNetwork NETMGR;
+ARTS_IMPORT extern asNetwork NETMGR;
 
 // _MM_GUID | void

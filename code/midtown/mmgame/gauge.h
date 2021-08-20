@@ -44,6 +44,10 @@
 
 #include "arts7/node.h"
 
+class mmCarSim;
+class mmExternalView;
+class mmPlayer;
+
 class RadialGauge final : public asNode
 {
 public:
@@ -57,7 +61,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@RadialGauge@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@RadialGauge@@UAEXXZ
@@ -87,7 +91,7 @@ public:
     ARTS_IMPORT void Draw();
 
     // ?Init@mmLinearGauge@@QAEXPADPAM11HPAVmmExternalView@@@Z
-    ARTS_IMPORT void Init(char* arg1, f32* arg2, f32* arg3, f32* arg4, i32 arg5, class mmExternalView* arg6);
+    ARTS_IMPORT void Init(char* arg1, f32* arg2, f32* arg3, f32* arg4, i32 arg5, mmExternalView* arg6);
 
     u8 gap0[0x34];
 };
@@ -101,7 +105,7 @@ public:
     ARTS_IMPORT void Draw();
 
     // ?Init@mmRadGauge@@QAEXPAM0PAVmmExternalView@@HI@Z | unused
-    ARTS_IMPORT void Init(f32* arg1, f32* arg2, class mmExternalView* arg3, i32 arg4, u32 arg5);
+    ARTS_IMPORT void Init(f32* arg1, f32* arg2, mmExternalView* arg3, i32 arg4, u32 arg5);
 
     // ?ResChange@mmRadGauge@@QAEXXZ
     ARTS_IMPORT void ResChange();
@@ -118,7 +122,7 @@ public:
     ARTS_IMPORT void Draw();
 
     // ?Init@mmGearIndicator@@QAEXPAVmmExternalView@@PAVmmPlayer@@@Z
-    ARTS_IMPORT void Init(class mmExternalView* arg1, class mmPlayer* arg2);
+    ARTS_IMPORT void Init(mmExternalView* arg1, mmPlayer* arg2);
 
     u8 gap0[0x40];
 };
@@ -132,7 +136,7 @@ public:
     ARTS_IMPORT void Draw();
 
     // ?Init@mmSpeedIndicator@@QAEXPAVmmExternalView@@PAVmmCarSim@@@Z
-    ARTS_IMPORT void Init(class mmExternalView* arg1, class mmCarSim* arg2);
+    ARTS_IMPORT void Init(mmExternalView* arg1, mmCarSim* arg2);
 
     u8 gap0[0x38];
 };

@@ -64,6 +64,9 @@
 
 #include "arts7/node.h"
 
+class AudSound;
+class mmInstance;
+
 class mmBridgeMgr final : public asNode
 {
 public:
@@ -76,17 +79,17 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmBridgeMgr@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@mmBridgeMgr@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
     // ?GetClass@mmBridgeMgr@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmBridgeMgr@@QAEXPADPAVmmInstance@@PAPAV2@H@Z
-    ARTS_IMPORT void Init(char* arg1, class mmInstance* arg2, class mmInstance** arg3, i32 arg4);
+    ARTS_IMPORT void Init(char* arg1, mmInstance* arg2, mmInstance** arg3, i32 arg4);
 
     // ?Save@mmBridgeMgr@@UAEXXZ
     ARTS_IMPORT void Save() override;
@@ -99,7 +102,7 @@ public:
 
 protected:
     // ?Instance@mmBridgeMgr@@1PAV1@A
-    ARTS_IMPORT static class mmBridgeMgr* Instance;
+    ARTS_IMPORT static mmBridgeMgr* Instance;
 
     u8 gap20[0x2654];
 };
@@ -118,29 +121,29 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmBridgeSet@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@mmBridgeSet@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
     // ?GetClass@mmBridgeSet@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmBridgeSet@@QAEHPADPAVStream@@@Z
-    ARTS_IMPORT i32 Init(char* arg1, class Stream* arg2);
+    ARTS_IMPORT i32 Init(char* arg1, Stream* arg2);
 
     // ?InitTrigger@mmBridgeSet@@QAEXXZ
     ARTS_IMPORT void InitTrigger();
 
     // ?ReadEntry@mmBridgeSet@@QAEHPAVStream@@H@Z
-    ARTS_IMPORT i32 ReadEntry(class Stream* arg1, i32 arg2);
+    ARTS_IMPORT i32 ReadEntry(Stream* arg1, i32 arg2);
 
     // ?Reset@mmBridgeSet@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
     // ?SetSoundPtrs@mmBridgeSet@@QAEXPAVAudSound@@0@Z
-    ARTS_IMPORT void SetSoundPtrs(class AudSound* arg1, class AudSound* arg2);
+    ARTS_IMPORT void SetSoundPtrs(AudSound* arg1, AudSound* arg2);
 
     // ?UnAssignSounds@mmBridgeSet@@QAEXXZ
     ARTS_IMPORT void UnAssignSounds();

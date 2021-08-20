@@ -70,6 +70,9 @@
 
 #include "aiVehicleSpline.h"
 
+class AudSound;
+class mmOpponentImpactAudio;
+
 class aiVehicleAmbient final : public aiVehicleSpline
 {
 public:
@@ -81,8 +84,7 @@ public:
     ARTS_IMPORT ~aiVehicleAmbient();
 
     // ?AssignSounds@aiVehicleAmbient@@QAEXPAVAudSound@@00PAVmmOpponentImpactAudio@@@Z
-    ARTS_IMPORT void AssignSounds(
-        class AudSound* arg1, class AudSound* arg2, class AudSound* arg3, class mmOpponentImpactAudio* arg4);
+    ARTS_IMPORT void AssignSounds(AudSound* arg1, AudSound* arg2, AudSound* arg3, mmOpponentImpactAudio* arg4);
 
     // ?CalculateAudioPanning@aiVehicleAmbient@@QAEXXZ
     ARTS_IMPORT void CalculateAudioPanning();
@@ -100,7 +102,7 @@ public:
     ARTS_IMPORT void Dump();
 
     // ?GetImpactAudioPtr@aiVehicleAmbient@@UAEPAVmmOpponentImpactAudio@@XZ | inline
-    ARTS_IMPORT class mmOpponentImpactAudio* GetImpactAudioPtr() override;
+    ARTS_IMPORT mmOpponentImpactAudio* GetImpactAudioPtr() override;
 
     // ?Impact@aiVehicleAmbient@@UAEXH@Z
     ARTS_IMPORT void Impact(i32 arg1) override;

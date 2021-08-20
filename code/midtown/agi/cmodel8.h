@@ -41,7 +41,7 @@ class agiColorModel8 final : public agiColorModel
 {
 public:
     // ??0agiColorModel8@@QAE@PAVagiPalette@@@Z
-    ARTS_IMPORT agiColorModel8(class agiPalette* arg1);
+    ARTS_IMPORT agiColorModel8(agiPalette* arg1);
 
     // ??_EagiColorModel8@@UAEPAXI@Z
     // ??_GagiColorModel8@@UAEPAXI@Z
@@ -52,16 +52,16 @@ public:
     ARTS_IMPORT u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) override;
 
     // ?FindColor@agiColorModel8@@UAEIUagiRgba@@@Z
-    ARTS_IMPORT u32 FindColor(struct agiRgba arg1) override;
+    ARTS_IMPORT u32 FindColor(agiRgba arg1) override;
 
     // ?GetColor@agiColorModel8@@UAEIUagiRgba@@@Z
-    ARTS_IMPORT u32 GetColor(struct agiRgba arg1) override;
+    ARTS_IMPORT u32 GetColor(agiRgba arg1) override;
 
     // ?GetPixel@agiColorModel8@@UAEIPAVagiSurfaceDesc@@HH@Z
-    ARTS_EXPORT u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) override;
+    ARTS_EXPORT u32 GetPixel(agiSurfaceDesc* surface, i32 x, i32 y) override;
 
     // ?SetPixel@agiColorModel8@@UAEXPAVagiSurfaceDesc@@HHI@Z
-    ARTS_EXPORT void SetPixel(class agiSurfaceDesc* surface, i32 x, i32 y, u32 color) override;
+    ARTS_EXPORT void SetPixel(agiSurfaceDesc* surface, i32 x, i32 y, u32 color) override;
 
     agiPalette* Palette {nullptr};
 };

@@ -32,6 +32,9 @@
     0x4AC590 | public: int __thiscall WArray::RetrieveWidgetData(int,int,float &,float &,float &,float &) | ?RetrieveWidgetData@WArray@@QAEHHHAAM000@Z
 */
 
+class Stream;
+class UIMenu;
+
 class WArray
 {
 public:
@@ -42,10 +45,10 @@ public:
     ARTS_IMPORT ~WArray();
 
     // ?AddWidgetData@WArray@@QAEXHHAAVVector4@@PAD@Z
-    ARTS_IMPORT void AddWidgetData(i32 arg1, i32 arg2, class Vector4& arg3, char* arg4);
+    ARTS_IMPORT void AddWidgetData(i32 arg1, i32 arg2, Vector4& arg3, char* arg4);
 
     // ?DumpMenu@WArray@@QAEXPAVStream@@PAVUIMenu@@@Z
-    ARTS_IMPORT void DumpMenu(class Stream* arg1, class UIMenu* arg2);
+    ARTS_IMPORT void DumpMenu(Stream* arg1, UIMenu* arg2);
 
     // ?Flush@WArray@@QAEXXZ | unused
     ARTS_EXPORT void Flush();

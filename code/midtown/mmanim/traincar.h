@@ -55,7 +55,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SetMatrix@mmAnimTrainCar@@QAEXAAVMatrix34@@@Z
-    ARTS_IMPORT void SetMatrix(class Matrix34& arg1);
+    ARTS_IMPORT void SetMatrix(Matrix34& arg1);
 
     // ?SetStart@mmAnimTrainCar@@QAEXMM@Z
     ARTS_IMPORT void SetStart(f32 arg1, f32 arg2);

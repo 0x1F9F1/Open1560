@@ -82,7 +82,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asRenderWeb@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@asRenderWeb@@UAEXXZ
@@ -94,14 +94,13 @@ public:
 #endif
 
     // ?GetCellNeighbors@asRenderWeb@@QAEHHPAPAUasPortalCell@@H@Z
-    ARTS_IMPORT i32 GetCellNeighbors(i32 arg1, struct asPortalCell** arg2, i32 arg3);
+    ARTS_IMPORT i32 GetCellNeighbors(i32 arg1, asPortalCell** arg2, i32 arg3);
 
     // ?GetClass@asRenderWeb@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetStartCell@asRenderWeb@@UAEPAUasPortalCell@@AAVVector3@@PAU2@PAPAVmmPolygon@@@Z
-    ARTS_IMPORT struct asPortalCell* GetStartCell(
-        class Vector3& arg1, struct asPortalCell* arg2, class mmPolygon** arg3) override;
+    ARTS_IMPORT asPortalCell* GetStartCell(Vector3& arg1, asPortalCell* arg2, mmPolygon** arg3) override;
 
     // ?Load@asRenderWeb@@QAEHPADH@Z
     ARTS_IMPORT i32 Load(char* arg1, i32 arg2);
@@ -149,7 +148,7 @@ ARTS_IMPORT extern i32 EnableSubClip;
 ARTS_IMPORT extern i32 Front2Back;
 
 // ?GridMtx@@3PAVMatrix34@@A
-ARTS_IMPORT extern class Matrix34* GridMtx;
+ARTS_IMPORT extern Matrix34* GridMtx;
 
 // ?MULTIPASS@@3HA
 ARTS_IMPORT extern i32 MULTIPASS;

@@ -43,6 +43,10 @@
 
 #include "node.h"
 
+class asCamera;
+class DLP;
+class MiniParser;
+
 class asForm final : public asNode
 {
 public:
@@ -55,41 +59,41 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asForm@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@asForm@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
     // ?FileIO@asForm@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_EXPORT void FileIO(class MiniParser* arg1);
+    ARTS_EXPORT void FileIO(MiniParser* arg1);
 
     // ?GetBoundMax@asForm@@QAE?AVVector3@@XZ | unused
-    ARTS_IMPORT class Vector3 GetBoundMax();
+    ARTS_IMPORT Vector3 GetBoundMax();
 
     // ?GetBoundMin@asForm@@QAE?AVVector3@@XZ | unused
-    ARTS_IMPORT class Vector3 GetBoundMin();
+    ARTS_IMPORT Vector3 GetBoundMin();
 
     // ?GetBoundSphere@asForm@@QAE?AVVector4@@XZ | unused
-    ARTS_IMPORT class Vector4 GetBoundSphere();
+    ARTS_IMPORT Vector4 GetBoundSphere();
 
     // ?GetClass@asForm@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?SetCull@asForm@@QAEXHM@Z
     ARTS_IMPORT void SetCull(i32 arg1, f32 arg2);
 
     // ?SetDLP@asForm@@QAEXPAVDLP@@@Z | unused
-    ARTS_IMPORT void SetDLP(class DLP* arg1);
+    ARTS_IMPORT void SetDLP(DLP* arg1);
 
     // ?SetShape@asForm@@QAEXPAD0PAVVector3@@HH@Z
-    ARTS_IMPORT void SetShape(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT void SetShape(char* arg1, char* arg2, Vector3* arg3, i32 arg4, i32 arg5);
 
     // ?Update@asForm@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
     // ?Visible@asForm@@QBEHPAVasCamera@@ABVMatrix34@@@Z
-    ARTS_IMPORT i32 Visible(class asCamera* arg1, class Matrix34 const& arg2) const;
+    ARTS_IMPORT i32 Visible(asCamera* arg1, Matrix34 const& arg2) const;
 
     // ?DeclareFields@asForm@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

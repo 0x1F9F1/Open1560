@@ -70,16 +70,16 @@ public:
     ARTS_EXPORT constexpr Callback(Static2 func, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXXZPAV1@@Z
-    ARTS_EXPORT constexpr Callback(Member0 func, class Base* this_ptr) noexcept;
+    ARTS_EXPORT constexpr Callback(Member0 func, Base* this_ptr) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX@ZPAV1@0@Z
-    ARTS_EXPORT constexpr Callback(Member1 func, class Base* this_ptr, void* param) noexcept;
+    ARTS_EXPORT constexpr Callback(Member1 func, Base* this_ptr, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@0@Z
-    ARTS_EXPORT constexpr Callback(Member2 func, class Base* this_ptr, void* param) noexcept;
+    ARTS_EXPORT constexpr Callback(Member2 func, Base* this_ptr, void* param) noexcept;
 
     // ??0Callback@@QAE@P8Base@@AEXPAX0@ZPAV1@00@Z
-    ARTS_EXPORT constexpr Callback(Member2 func, class Base* this_ptr, void* param1, void* param2) noexcept;
+    ARTS_EXPORT constexpr Callback(Member2 func, Base* this_ptr, void* param1, void* param2) noexcept;
 
     // ?Call@Callback@@QAEXPAX@Z
     ARTS_EXPORT void Call(void* param = nullptr);
@@ -134,7 +134,7 @@ private:
 check_size(Callback, 0x14);
 
 // ?NullCallback@@3VCallback@@A
-// ARTS_IMPORT extern class Callback NullCallback;
+// ARTS_IMPORT extern Callback NullCallback;
 inline constexpr const Callback NullCallback {};
 
 inline constexpr Callback::Callback(Static0 func) noexcept

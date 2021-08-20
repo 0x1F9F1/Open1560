@@ -107,6 +107,9 @@
 
 #include "arts7/node.h"
 
+struct mmPlayerInfo;
+struct NETSESSION_DESC;
+
 // ?ReportTimeAlloc@@YAXM@Z
 ARTS_EXPORT void ReportTimeAlloc(f32 time);
 
@@ -132,7 +135,7 @@ public:
     ARTS_IMPORT void BeDone();
 
     // ?GetClass@mmInterface@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?InitLobby@mmInterface@@QAEXXZ
     ARTS_EXPORT void InitLobby();
@@ -193,10 +196,10 @@ private:
     ARTS_IMPORT void FillCRRoster();
 
     // ?GetHostPlayerData@mmInterface@@AAEHAAUmmPlayerInfo@@@Z
-    ARTS_IMPORT i32 GetHostPlayerData(struct mmPlayerInfo& arg1);
+    ARTS_IMPORT i32 GetHostPlayerData(mmPlayerInfo& arg1);
 
     // ?GetRaceName@mmInterface@@AAEPADW4mmGameMode@@H@Z
-    ARTS_IMPORT char* GetRaceName(enum mmGameMode arg1, i32 arg2);
+    ARTS_IMPORT char* GetRaceName(mmGameMode arg1, i32 arg2);
 
     // ?GetRaceString@mmInterface@@AAEXHPAD@Z
     ARTS_IMPORT void GetRaceString(i32 arg1, char* arg2);
@@ -205,7 +208,7 @@ private:
     ARTS_IMPORT void GetScoreString(i32 arg1, char* arg2);
 
     // ?GetSessionData@mmInterface@@AAEXUNETSESSION_DESC@@@Z
-    ARTS_IMPORT void GetSessionData(struct NETSESSION_DESC arg1);
+    ARTS_IMPORT void GetSessionData(NETSESSION_DESC arg1);
 
     // ?GetTimeString@mmInterface@@AAEXMPAD@Z
     ARTS_IMPORT void GetTimeString(f32 arg1, char* arg2);
@@ -331,7 +334,7 @@ private:
     ARTS_IMPORT i32 SetProtocol2();
 
     // ?SetSessionData@mmInterface@@AAEXPAUNETSESSION_DESC@@@Z
-    ARTS_IMPORT void SetSessionData(struct NETSESSION_DESC* arg1);
+    ARTS_IMPORT void SetSessionData(NETSESSION_DESC* arg1);
 
     // ?SetStateDefaults@mmInterface@@AAEXXZ | unused
     ARTS_IMPORT void SetStateDefaults();

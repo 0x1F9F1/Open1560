@@ -61,6 +61,8 @@
 #include "mmcity/inst.h"
 #include "mmphysics/entity.h"
 
+class mmCarSim;
+
 class mmTrailer final : public mmPhysEntity
 {
 public:
@@ -76,7 +78,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmTrailer@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AfterLoad@mmTrailer@@UAEXXZ
@@ -89,16 +91,16 @@ public:
     ARTS_IMPORT void Deactivate();
 
     // ?GetBound@mmTrailer@@UAEPAVasBound@@XZ | inline
-    ARTS_IMPORT class asBound* GetBound() override;
+    ARTS_IMPORT asBound* GetBound() override;
 
     // ?GetClass@mmTrailer@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetICS@mmTrailer@@UAEPAVasInertialCS@@XZ | inline
-    ARTS_IMPORT class asInertialCS* GetICS() override;
+    ARTS_IMPORT asInertialCS* GetICS() override;
 
     // ?Init@mmTrailer@@QAEXPADPAVmmCarSim@@VVector3@@@Z
-    ARTS_IMPORT void Init(char* arg1, class mmCarSim* arg2, class Vector3 arg3);
+    ARTS_IMPORT void Init(char* arg1, mmCarSim* arg2, Vector3 arg3);
 
     // ?PostUpdate@mmTrailer@@UAEXXZ
     ARTS_IMPORT void PostUpdate() override;
@@ -136,11 +138,11 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z | inline
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AttachEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
-    ARTS_IMPORT class mmPhysEntity* AttachEntity() override;
+    ARTS_IMPORT mmPhysEntity* AttachEntity() override;
 
     // ?Draw@mmTrailerInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
@@ -149,22 +151,22 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // ?FromMatrix@mmTrailerInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
 
     // ?GetEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
-    ARTS_IMPORT class mmPhysEntity* GetEntity() override;
+    ARTS_IMPORT mmPhysEntity* GetEntity() override;
 
     // ?GetPos@mmTrailerInstance@@UAIAAVVector3@@XZ
-    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?GetVelocity@mmTrailerInstance@@UAE?AVVector3@@XZ
-    ARTS_IMPORT class Vector3 GetVelocity() override;
+    ARTS_IMPORT Vector3 GetVelocity() override;
 
     // ?Init@mmTrailerInstance@@QAEXPADPAVVector3@@@Z
-    ARTS_IMPORT void Init(char* arg1, class Vector3* arg2);
+    ARTS_IMPORT void Init(char* arg1, Vector3* arg2);
 
     // ?ToMatrix@mmTrailerInstance@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
     u8 gap14[0x34];
 };

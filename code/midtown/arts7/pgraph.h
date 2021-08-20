@@ -30,8 +30,6 @@
     0x790984 | class asPerfGraph * PGRAPH | ?PGRAPH@@3PAVasPerfGraph@@A
 */
 
-class Vector3;
-
 #include "agi/rgba.h"
 
 class asPerfGraph
@@ -76,4 +74,4 @@ private:
 // check_size(asPerfGraph, 0x94);
 
 // ?PGRAPH@@3PAVasPerfGraph@@A
-ARTS_IMPORT extern class asPerfGraph* PGRAPH;
+ARTS_IMPORT extern asPerfGraph* PGRAPH;

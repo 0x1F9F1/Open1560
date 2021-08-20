@@ -22,7 +22,7 @@ define_dummy_symbol(mmwidget_label);
 
 #include "eventq7/eventq.h"
 
-void UILabel::Action(union eqEvent /*arg1*/)
+void UILabel::Action(eqEvent /*arg1*/)
 {}
 
 void UILabel::Switch(i32 /*arg1*/)

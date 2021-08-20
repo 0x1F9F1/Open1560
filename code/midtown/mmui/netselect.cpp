@@ -20,7 +20,7 @@ define_dummy_symbol(mmui_netselect);
 
 #include "netselect.h"
 
-void NetSelectMenu::AddWidgetToList(i32 /*arg1*/, class uiWidget* /*arg2*/)
+void NetSelectMenu::AddWidgetToList(i32 /*arg1*/, uiWidget* /*arg2*/)
 {}
 
 void NetSelectMenu::BuildAllTheIPXWidgets(f32 /*arg1*/, f32 /*arg2*/, f32 /*arg3*/, f32 /*arg4*/)
@@ -35,7 +35,7 @@ void NetSelectMenu::DisableSessions()
 void NetSelectMenu::ReparentWidgets(i32 /*arg1*/)
 {}
 
-void NetSelectMenu::SetDescription(struct LocString* /*arg1*/)
+void NetSelectMenu::SetDescription(LocString* /*arg1*/)
 {}
 
 void NetSelectMenu::SetTCPLocalButton(i32 /*arg1*/)

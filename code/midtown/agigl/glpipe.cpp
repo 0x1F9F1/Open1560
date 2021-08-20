@@ -324,17 +324,17 @@ void agiGLPipeline::EndFrame()
     agiPipeline::EndFrame();
 }
 
-RcOwner<class agiTexDef> agiGLPipeline::CreateTexDef()
+RcOwner<agiTexDef> agiGLPipeline::CreateTexDef()
 {
     return AsOwner(MakeRc<agiGLTexDef>(this));
 }
 
-RcOwner<class agiTexLut> agiGLPipeline::CreateTexLut()
+RcOwner<agiTexLut> agiGLPipeline::CreateTexLut()
 {
     return nullptr;
 }
 
-RcOwner<class DLP> agiGLPipeline::CreateDLP()
+RcOwner<DLP> agiGLPipeline::CreateDLP()
 {
     return AsOwner(MakeRc<RDLP>(this));
 }
@@ -349,12 +349,12 @@ RcOwner<agiLightModel> agiGLPipeline::CreateLightModel()
     return AsOwner(MakeRc<agiBILightModel>(this));
 }
 
-RcOwner<class agiViewport> agiGLPipeline::CreateViewport()
+RcOwner<agiViewport> agiGLPipeline::CreateViewport()
 {
     return AsOwner(MakeRc<agiGLViewport>(this));
 }
 
-RcOwner<class agiBitmap> agiGLPipeline::CreateBitmap()
+RcOwner<agiBitmap> agiGLPipeline::CreateBitmap()
 {
     return AsOwner(MakeRc<agiGLBitmap>(this));
 }

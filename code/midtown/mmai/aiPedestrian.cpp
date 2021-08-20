@@ -20,5 +20,5 @@ define_dummy_symbol(mmai_aiPedestrian);
 
 #include "aiPedestrian.h"
 
-void aiPedestrianInstance::AddWidgets(class Bank* /*arg1*/)
+void aiPedestrianInstance::AddWidgets(Bank* /*arg1*/)
 {}

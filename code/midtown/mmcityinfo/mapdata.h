@@ -51,7 +51,7 @@ public:
     ARTS_IMPORT void Append(char* arg1);
 
     // ?GetClass@mmMapData@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetItem@mmMapData@@QAEPADH@Z
     ARTS_IMPORT char* GetItem(i32 arg1);

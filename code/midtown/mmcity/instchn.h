@@ -38,7 +38,9 @@
     0x6ED4F0 | int NormalsOnInstances | ?NormalsOnInstances@@3HA
 */
 
-struct mmInstChain
+class mmInstance;
+
+class mmInstChain
 {
 public:
     // ??0mmInstChain@@QAE@XZ
@@ -49,7 +51,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmInstChain@@QAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* arg1);
+    ARTS_EXPORT void AddWidgets(Bank* arg1);
 #endif
 
     // ?Draw@mmInstChain@@QAEXFFIHM@Z
@@ -59,7 +61,7 @@ public:
     ARTS_IMPORT void Init(i32 arg1);
 
     // ?Parent@mmInstChain@@QAEXPAVmmInstance@@F@Z
-    ARTS_IMPORT void Parent(class mmInstance* arg1, i16 arg2);
+    ARTS_IMPORT void Parent(mmInstance* arg1, i16 arg2);
 
     // ?Relight@mmInstChain@@QAEXF@Z
     ARTS_IMPORT void Relight(i16 arg1);
@@ -68,10 +70,10 @@ public:
     ARTS_IMPORT void RelightEverything();
 
     // ?Reparent@mmInstChain@@QAEXPAVmmInstance@@F@Z
-    ARTS_IMPORT void Reparent(class mmInstance* arg1, i16 arg2);
+    ARTS_IMPORT void Reparent(mmInstance* arg1, i16 arg2);
 
     // ?Unparent@mmInstChain@@QAEXPAVmmInstance@@@Z
-    ARTS_IMPORT void Unparent(class mmInstance* arg1);
+    ARTS_IMPORT void Unparent(mmInstance* arg1);
 
     u8 gap0[0xC];
 };

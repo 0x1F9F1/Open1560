@@ -36,16 +36,16 @@ public:
 
     void ClearAll(i32 color) override;
     void ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color) override;
-    void CopyBitmap(i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
+    void CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
-    RcOwner<class agiBitmap> CreateBitmap() override;
-    RcOwner<class DLP> CreateDLP() override;
-    RcOwner<class agiLight> CreateLight() override;
-    RcOwner<class agiLightModel> CreateLightModel() override;
-    RcOwner<class agiMtlDef> CreateMtlDef() override;
-    RcOwner<class agiTexDef> CreateTexDef() override;
-    RcOwner<class agiTexLut> CreateTexLut() override;
-    RcOwner<class agiViewport> CreateViewport() override;
+    RcOwner<agiBitmap> CreateBitmap() override;
+    RcOwner<DLP> CreateDLP() override;
+    RcOwner<agiLight> CreateLight() override;
+    RcOwner<agiLightModel> CreateLightModel() override;
+    RcOwner<agiMtlDef> CreateMtlDef() override;
+    RcOwner<agiTexDef> CreateTexDef() override;
+    RcOwner<agiTexLut> CreateTexLut() override;
+    RcOwner<agiViewport> CreateViewport() override;
 
     void EndFrame() override;
     void EndGfx() override;
@@ -65,4 +65,4 @@ private:
 
 Ptr<u8[]> sdlScreenShot(i32& width, i32& height);
 
-Owner<class agiPipeline> sdlCreatePipeline(i32 argc, char** argv);
+Owner<agiPipeline> sdlCreatePipeline(i32 argc, char** argv);

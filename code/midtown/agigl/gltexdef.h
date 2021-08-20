@@ -25,7 +25,7 @@
 class agiGLTexDef final : public agiTexDef
 {
 public:
-    agiGLTexDef(class agiPipeline* pipe)
+    agiGLTexDef(agiPipeline* pipe)
         : agiTexDef(pipe)
     {}
 
@@ -36,8 +36,8 @@ public:
     // Assumes texture is actively bound
     void SetFilters(u32 min, u32 mag);
 
-    b32 Lock(struct agiTexLock& lock) override;
-    void Unlock(struct agiTexLock& lock) override;
+    b32 Lock(agiTexLock& lock) override;
+    void Unlock(agiTexLock& lock) override;
 
     b32 IsAvailable() override;
     void Request() override;

@@ -75,10 +75,10 @@ public:
     ARTS_IMPORT ~mmSingleBlitz() override;
 
     // ?GetClass@mmSingleBlitz@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetWaypoints@mmSingleBlitz@@UAEPAVmmWaypoints@@XZ | inline
-    ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
+    ARTS_IMPORT mmWaypoints* GetWaypoints() override;
 
     // ?HitWaterHandler@mmSingleBlitz@@UAEXXZ
     ARTS_IMPORT void HitWaterHandler() override;

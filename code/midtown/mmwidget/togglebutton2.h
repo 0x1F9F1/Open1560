@@ -56,7 +56,7 @@ public:
     ARTS_IMPORT virtual void DoToggle();
 
     // ?Action@UIToggleButton2@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?Disable@UIToggleButton2@@UAEXXZ | inline
     ARTS_IMPORT void Disable() override;
@@ -65,8 +65,8 @@ public:
     ARTS_IMPORT void Enable() override;
 
     // ?Init@UIToggleButton2@@QAEXPAULocString@@PAHMMMMHHVCallback@@@Z
-    ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8,
-        class Callback arg9);
+    ARTS_IMPORT void Init(
+        LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8, Callback arg9);
 
     // ?Switch@UIToggleButton2@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;

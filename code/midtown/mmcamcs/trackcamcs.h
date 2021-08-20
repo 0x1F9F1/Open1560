@@ -61,14 +61,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@TrackCamCS@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AfterLoad@TrackCamCS@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;
 
     // ?GetClass@TrackCamCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?MakeActive@TrackCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;
@@ -90,13 +90,13 @@ public:
 
 private:
     // ?Collide@TrackCamCS@@AAEXVVector3@@@Z
-    ARTS_IMPORT void Collide(class Vector3 arg1);
+    ARTS_IMPORT void Collide(Vector3 arg1);
 
     // ?Front@TrackCamCS@@AAEXM@Z | unused
     ARTS_IMPORT void Front(f32 arg1);
 
     // ?MinMax@TrackCamCS@@AAEXVMatrix34@@@Z
-    ARTS_IMPORT void MinMax(class Matrix34 arg1);
+    ARTS_IMPORT void MinMax(Matrix34 arg1);
 
     // ?PreApproach@TrackCamCS@@AAEXXZ
     ARTS_IMPORT void PreApproach();

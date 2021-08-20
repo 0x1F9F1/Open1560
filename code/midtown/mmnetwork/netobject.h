@@ -46,7 +46,7 @@ public:
     virtual void SetLocalData() = 0;
 
     // ?PositionUpdate@asNetObject@@UAEXPAVMatrix34@@VVector3@@MMM@Z
-    ARTS_IMPORT virtual void PositionUpdate(class Matrix34* arg1, class Vector3 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT virtual void PositionUpdate(Matrix34* arg1, Vector3 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // ?Update@asNetObject@@UAEXXZ
     ARTS_IMPORT void Update() override;

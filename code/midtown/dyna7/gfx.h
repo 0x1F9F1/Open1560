@@ -63,117 +63,116 @@
 
 #ifdef ARTS_DEV_BUILD
 // ?DrawBegin@@YAXAAVMatrix34@@@Z
-ARTS_IMPORT void DrawBegin(class Matrix34& arg1);
+ARTS_IMPORT void DrawBegin(Matrix34& arg1);
 
 // ?DrawColor@@YAXAAVVector3@@@Z
-ARTS_IMPORT void DrawColor(class Vector3& arg1);
+ARTS_IMPORT void DrawColor(Vector3& arg1);
 
 // ?DrawColor@@YAXAAVVector4@@@Z
-ARTS_IMPORT void DrawColor(class Vector4& arg1);
+ARTS_IMPORT void DrawColor(Vector4& arg1);
 
 // ?DrawColor2@@YAXAAVVector3@@@Z | unused
-ARTS_IMPORT void DrawColor2(class Vector3& arg1);
+ARTS_IMPORT void DrawColor2(Vector3& arg1);
 
 // ?DrawColor2@@YAXAAVVector4@@@Z | unused
-ARTS_IMPORT void DrawColor2(class Vector4& arg1);
+ARTS_IMPORT void DrawColor2(Vector4& arg1);
 
 // ?DrawEnd@@YAXXZ
 ARTS_IMPORT void DrawEnd();
 
 // ?DrawLabelf@@YAXAAVVector3@@PADZZ
-ARTS_IMPORT void DrawLabelf(class Vector3& arg1, char* arg2, ...);
+ARTS_IMPORT void DrawLabelf(Vector3& arg1, char* arg2, ...);
 
 // ?DrawLine@@YAXAAVVector3@@0@Z
-ARTS_IMPORT void DrawLine(class Vector3& arg1, class Vector3& arg2);
+ARTS_IMPORT void DrawLine(Vector3& arg1, Vector3& arg2);
 
 // ?DrawLine@@YAXMMMMMM@Z
 ARTS_IMPORT void DrawLine(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
 
 // ?DrawQuad@@YAXPAVVector3@@AAV1@111@Z
-ARTS_IMPORT void DrawQuad(
-    class Vector3* arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4, class Vector3& arg5);
+ARTS_IMPORT void DrawQuad(Vector3* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, Vector3& arg5);
 
 // ?DrawTri@@YAXPAVVector3@@AAV1@11@Z
-ARTS_IMPORT void DrawTri(class Vector3* arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4);
+ARTS_IMPORT void DrawTri(Vector3* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4);
 
 // ?DrawWireBox@@YAXAAVVector3@@0@Z
-ARTS_IMPORT void DrawWireBox(class Vector3& arg1, class Vector3& arg2);
+ARTS_IMPORT void DrawWireBox(Vector3& arg1, Vector3& arg2);
 
 // ?DrawWireSphere@@YAXAAVVector4@@@Z
-ARTS_IMPORT void DrawWireSphere(class Vector4& arg1);
+ARTS_IMPORT void DrawWireSphere(Vector4& arg1);
 
 // ?DrawWireSphere@@YAXAAVVector3@@M@Z
-ARTS_IMPORT void DrawWireSphere(class Vector3& arg1, f32 arg2);
+ARTS_IMPORT void DrawWireSphere(Vector3& arg1, f32 arg2);
 #endif
 
 // ?ColBlack@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColBlack;
+ARTS_IMPORT extern Vector3 ColBlack;
 
 // ?ColBlue@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColBlue;
+ARTS_IMPORT extern Vector3 ColBlue;
 
 // ?ColCyan@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColCyan;
+ARTS_IMPORT extern Vector3 ColCyan;
 
 // ?ColDarkBlue@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColDarkBlue;
+ARTS_IMPORT extern Vector3 ColDarkBlue;
 
 // ?ColDarkCyan@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColDarkCyan;
+ARTS_IMPORT extern Vector3 ColDarkCyan;
 
 // ?ColDarkGreen@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColDarkGreen;
+ARTS_IMPORT extern Vector3 ColDarkGreen;
 
 // ?ColDarkOrange@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColDarkOrange;
+ARTS_IMPORT extern Vector3 ColDarkOrange;
 
 // ?ColDarkPurple@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColDarkPurple;
+ARTS_IMPORT extern Vector3 ColDarkPurple;
 
 // ?ColDarkRed@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColDarkRed;
+ARTS_IMPORT extern Vector3 ColDarkRed;
 
 // ?ColDarkYellow@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColDarkYellow;
+ARTS_IMPORT extern Vector3 ColDarkYellow;
 
 // ?ColGreen@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColGreen;
+ARTS_IMPORT extern Vector3 ColGreen;
 
 // ?ColGrey@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColGrey;
+ARTS_IMPORT extern Vector3 ColGrey;
 
 // ?ColLightBlue@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColLightBlue;
+ARTS_IMPORT extern Vector3 ColLightBlue;
 
 // ?ColLightCyan@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColLightCyan;
+ARTS_IMPORT extern Vector3 ColLightCyan;
 
 // ?ColLightGreen@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColLightGreen;
+ARTS_IMPORT extern Vector3 ColLightGreen;
 
 // ?ColLightOrange@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColLightOrange;
+ARTS_IMPORT extern Vector3 ColLightOrange;
 
 // ?ColLightPurple@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColLightPurple;
+ARTS_IMPORT extern Vector3 ColLightPurple;
 
 // ?ColLightRed@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColLightRed;
+ARTS_IMPORT extern Vector3 ColLightRed;
 
 // ?ColLightYellow@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColLightYellow;
+ARTS_IMPORT extern Vector3 ColLightYellow;
 
 // ?ColOrange@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColOrange;
+ARTS_IMPORT extern Vector3 ColOrange;
 
 // ?ColPurple@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColPurple;
+ARTS_IMPORT extern Vector3 ColPurple;
 
 // ?ColRed@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColRed;
+ARTS_IMPORT extern Vector3 ColRed;
 
 // ?ColWhite@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColWhite;
+ARTS_IMPORT extern Vector3 ColWhite;
 
 // ?ColYellow@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ColYellow;
+ARTS_IMPORT extern Vector3 ColYellow;

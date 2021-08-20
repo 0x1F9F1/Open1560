@@ -46,11 +46,13 @@
 #include "agi/dlp.h"
 #include "agi/dyndlp.h"
 
+struct agiPatch;
+
 class RDLP final : public DLP
 {
 public:
     // ??0RDLP@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT RDLP(class agiPipeline* arg1);
+    ARTS_IMPORT RDLP(agiPipeline* arg1);
 
     // ??_ERDLP@@UAEPAXI@Z
     // ??_GRDLP@@UAEPAXI@Z
@@ -67,14 +69,14 @@ public:
     ARTS_IMPORT void FixROpts(i32 arg1, i32 arg2) override;
 
     // ?GetDynamic@RDLP@@UAEPAVDynamicDLP@@H@Z
-    ARTS_IMPORT class DynamicDLP* GetDynamic(i32 arg1) override;
+    ARTS_IMPORT DynamicDLP* GetDynamic(i32 arg1) override;
 
     // ?GetMultipass@RDLP@@UAEPAVMultipassDLP@@H@Z
-    ARTS_EXPORT class MultipassDLP* GetMultipass(i32 arg1) override;
+    ARTS_EXPORT MultipassDLP* GetMultipass(i32 arg1) override;
 
 private:
     // ?InitFacet@RDLP@@AAEHPAUagiPatch@@HHHH@Z
-    ARTS_IMPORT i32 InitFacet(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT i32 InitFacet(agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     u8 gap94[0x18];
 };
@@ -85,7 +87,7 @@ class RDynamicDLP final : public DynamicDLP
 {
 public:
     // ??0RDynamicDLP@@QAE@HPAVRDLP@@@Z
-    ARTS_IMPORT RDynamicDLP(i32 arg1, class RDLP* arg2);
+    ARTS_IMPORT RDynamicDLP(i32 arg1, RDLP* arg2);
 
     // ??_ERDynamicDLP@@UAEPAXI@Z
     // ??_GRDynamicDLP@@UAEPAXI@Z

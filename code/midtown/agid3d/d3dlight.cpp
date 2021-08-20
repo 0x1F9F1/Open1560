@@ -23,7 +23,7 @@ define_dummy_symbol(agid3d_d3dlight);
 #include "agi/error.h"
 #include "dderror.h"
 
-agiD3DLight::agiD3DLight(class agiPipeline* pipe)
+agiD3DLight::agiD3DLight(agiPipeline* pipe)
     : agiLight(pipe)
 {
     ++LightCount;

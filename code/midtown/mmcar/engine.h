@@ -43,6 +43,8 @@
 
 #include "arts7/node.h"
 
+class mmCarSim;
+
 class mmEngine final : public asNode
 {
 public:
@@ -55,7 +57,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmEngine@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AfterLoad@mmEngine@@UAEXXZ
@@ -74,19 +76,19 @@ public:
     ARTS_IMPORT void ComputeConstants();
 
     // ?GetClass@mmEngine@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmEngine@@QAEXPAVmmCarSim@@@Z
-    ARTS_IMPORT void Init(class mmCarSim* arg1);
+    ARTS_IMPORT void Init(mmCarSim* arg1);
 
     // ?Load@mmEngine@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(Stream* arg1);
 
     // ?Reset@mmEngine@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
     // ?Save@mmEngine@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(Stream* arg1);
 
     // ?Update@mmEngine@@UAEXXZ
     ARTS_IMPORT void Update() override;

@@ -38,7 +38,7 @@ class StreamMiniParser final : public MiniParser
 {
 public:
     // ??0StreamMiniParser@@QAE@PADPAVStream@@@Z
-    ARTS_EXPORT StreamMiniParser(const char* name, Owner<class Stream> stream);
+    ARTS_EXPORT StreamMiniParser(const char* name, Owner<Stream> stream);
 
     // ??1StreamMiniParser@@QAE@XZ
     ARTS_EXPORT ~StreamMiniParser();
@@ -50,10 +50,10 @@ public:
     ARTS_EXPORT void RawPutCh(i32 arg1) override;
 
     // ?Load@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z | unused
-    ARTS_EXPORT static void Load(class MetaClass* cls, const char* path, void* ptr);
+    ARTS_EXPORT static void Load(MetaClass* cls, const char* path, void* ptr);
 
     // ?Save@StreamMiniParser@@SAXPAVMetaClass@@PADPAX@Z | unused
-    ARTS_EXPORT static void Save(class MetaClass* cls, const char* path, void* ptr);
+    ARTS_EXPORT static void Save(MetaClass* cls, const char* path, void* ptr);
 
 private:
     Ptr<Stream> stream_;

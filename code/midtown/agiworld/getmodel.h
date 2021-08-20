@@ -25,8 +25,10 @@
     0x73E720 | class HashTable MeshModelHash | ?MeshModelHash@@3VHashTable@@A
 */
 
+class agiMeshModel;
+
 // ?GetModel@@YAPAVagiMeshModel@@PAD00@Z
-ARTS_IMPORT class agiMeshModel* GetModel(char* arg1, char* arg2, char* arg3);
+ARTS_IMPORT agiMeshModel* GetModel(char* arg1, char* arg2, char* arg3);
 
 // ?MeshModelHash@@3VHashTable@@A
-ARTS_IMPORT extern class HashTable MeshModelHash;
+ARTS_IMPORT extern HashTable MeshModelHash;

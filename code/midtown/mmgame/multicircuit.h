@@ -56,13 +56,13 @@ public:
     ARTS_IMPORT ~mmMultiCircuit() override;
 
     // ?GameMessage@mmMultiCircuit@@UAEXPAUNETGAME_MSG@@@Z
-    ARTS_IMPORT void GameMessage(struct NETGAME_MSG* arg1) override;
+    ARTS_IMPORT void GameMessage(NETGAME_MSG* arg1) override;
 
     // ?GetClass@mmMultiCircuit@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetWaypoints@mmMultiCircuit@@UAEPAVmmWaypoints@@XZ | inline
-    ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
+    ARTS_IMPORT mmWaypoints* GetWaypoints() override;
 
     // ?Init@mmMultiCircuit@@QAEHXZ
     ARTS_IMPORT i32 Init();
@@ -83,7 +83,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SystemMessage@mmMultiCircuit@@UAEXPAUNETSYS_MSG@@@Z
-    ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
+    ARTS_IMPORT void SystemMessage(NETSYS_MSG* arg1) override;
 
     // ?UpdateDebugKeyInput@mmMultiCircuit@@UAEXH@Z
     ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;

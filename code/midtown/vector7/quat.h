@@ -38,26 +38,26 @@ class Quaternion
 {
 public:
     // ??SQuaternion@@QBE?AV0@XZ | unused
-    ARTS_IMPORT class Quaternion operator~() const;
+    ARTS_IMPORT Quaternion operator~() const;
 
     // ?Angle@Quaternion@@QBEMABV1@@Z
-    ARTS_IMPORT f32 Angle(class Quaternion const& arg1) const;
+    ARTS_IMPORT f32 Angle(Quaternion const& arg1) const;
 
     // ?Approach@Quaternion@@QAEHABV1@MM@Z | unused
-    ARTS_IMPORT i32 Approach(class Quaternion const& arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT i32 Approach(Quaternion const& arg1, f32 arg2, f32 arg3);
 
     // ?CatmullRom@Quaternion@@QAEXMABV1@000@Z | unused
-    ARTS_IMPORT void CatmullRom(f32 arg1, class Quaternion const& arg2, class Quaternion const& arg3,
-        class Quaternion const& arg4, class Quaternion const& arg5);
+    ARTS_IMPORT void CatmullRom(
+        f32 arg1, Quaternion const& arg2, Quaternion const& arg3, Quaternion const& arg4, Quaternion const& arg5);
 
     // ?FromMatrix@Quaternion@@QAEXABVMatrix34@@@Z
-    ARTS_IMPORT void FromMatrix(class Matrix34 const& arg1);
+    ARTS_IMPORT void FromMatrix(Matrix34 const& arg1);
 
     // ?Init@Quaternion@@QAEXMMMM@Z
     ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // ?Lerp@Quaternion@@QAEXMABV1@0@Z
-    ARTS_IMPORT void Lerp(f32 arg1, class Quaternion const& arg2, class Quaternion const& arg3);
+    ARTS_IMPORT void Lerp(f32 arg1, Quaternion const& arg2, Quaternion const& arg3);
 
     // ?Mag@Quaternion@@QBEMXZ
     ARTS_IMPORT f32 Mag() const;
@@ -66,7 +66,7 @@ public:
     ARTS_IMPORT void Normalize();
 
     // ?Slerp@Quaternion@@QAEXMABV1@0@Z | unused
-    ARTS_IMPORT void Slerp(f32 arg1, class Quaternion const& arg2, class Quaternion const& arg3);
+    ARTS_IMPORT void Slerp(f32 arg1, Quaternion const& arg2, Quaternion const& arg3);
 
     // ?TrackBall@Quaternion@@QAEXMMMMM@Z | unused
     ARTS_IMPORT void TrackBall(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);

@@ -58,26 +58,26 @@ public:
     {}
 
     // ??7Vector4@@QBE?AV0@XZ
-    ARTS_IMPORT class Vector4 operator!() const;
+    ARTS_IMPORT Vector4 operator!() const;
 
     // ??KVector4@@QBE?AV0@M@Z | unused
-    ARTS_IMPORT class Vector4 operator/(f32 arg1) const;
+    ARTS_IMPORT Vector4 operator/(f32 arg1) const;
 
     // ??TVector4@@QBEMABV0@@Z | inline
-    ARTS_IMPORT f32 operator^(class Vector4 const& arg1) const;
+    ARTS_IMPORT f32 operator^(Vector4 const& arg1) const;
 
     // ?Bilinear@Vector4@@QAEXMMABV1@000@Z | unused
-    ARTS_IMPORT void Bilinear(f32 arg1, f32 arg2, class Vector4 const& arg3, class Vector4 const& arg4,
-        class Vector4 const& arg5, class Vector4 const& arg6);
+    ARTS_IMPORT void Bilinear(
+        f32 arg1, f32 arg2, Vector4 const& arg3, Vector4 const& arg4, Vector4 const& arg5, Vector4 const& arg6);
 
     // ?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z
-    ARTS_IMPORT void CalculatePlane(class Vector3 const& arg1, class Vector3 const& arg2, class Vector3 const& arg3);
+    ARTS_IMPORT void CalculatePlane(Vector3 const& arg1, Vector3 const& arg2, Vector3 const& arg3);
 
     // ?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z | unused
-    ARTS_IMPORT void GetLookAt(class Vector3 const& arg1, class Vector3* arg2, class Vector3* arg3) const;
+    ARTS_IMPORT void GetLookAt(Vector3 const& arg1, Vector3* arg2, Vector3* arg3) const;
 
     // ?Lerp@Vector4@@QAEXMABV1@0@Z
-    ARTS_IMPORT void Lerp(f32 arg1, class Vector4 const& arg2, class Vector4 const& arg3);
+    ARTS_IMPORT void Lerp(f32 arg1, Vector4 const& arg2, Vector4 const& arg3);
 
     // ?Mag@Vector4@@QBEMXZ | unused
     ARTS_IMPORT f32 Mag() const;
@@ -108,13 +108,13 @@ class Vector4Array
 {
 public:
     // ??4Vector4Array@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(class Vector4Array& arg1);
+    ARTS_IMPORT void operator=( Vector4Array& arg1);
 
     // ??AVector4Array@@QAEAAVVector4@@H@Z | unused
-    ARTS_IMPORT class Vector4& operator[](i32 arg1);
+    ARTS_IMPORT Vector4& operator[](i32 arg1);
 
     // ?BlockCopy@Vector4Array@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(class Vector4Array& arg1);
+    ARTS_IMPORT void BlockCopy( Vector4Array& arg1);
 
     // ?Delete@Vector4Array@@QAEXXZ
     ARTS_IMPORT void Delete();
@@ -138,13 +138,13 @@ struct Vector4Type final : MetaType
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // ?Load@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load( MiniParser* arg1, void* arg2) override;
 
     // ?New@Vector4Type@@UAEPAXH@Z
     ARTS_IMPORT void* New(i32 arg1) override;
 
     // ?Save@Vector4Type@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@Vector4Type@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
@@ -153,5 +153,5 @@ struct Vector4Type final : MetaType
 check_size(Vector4Type, 0x4);
 
 // ?Vector4Inst@@3UVector4Type@@A
-ARTS_IMPORT extern struct Vector4Type Vector4Inst;
+ARTS_IMPORT extern Vector4Type Vector4Inst;
 #endif

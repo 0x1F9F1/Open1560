@@ -24,5 +24,7 @@
     0x5829E0 | void __cdecl jinit_upsampler(struct jpeg_decompress_struct *) | ?jinit_upsampler@@YAXPAUjpeg_decompress_struct@@@Z
 */
 
+struct jpeg_decompress_struct;
+
 // ?jinit_upsampler@@YAXPAUjpeg_decompress_struct@@@Z
-ARTS_IMPORT void jinit_upsampler(struct jpeg_decompress_struct* arg1);
+ARTS_IMPORT void jinit_upsampler(jpeg_decompress_struct* arg1);

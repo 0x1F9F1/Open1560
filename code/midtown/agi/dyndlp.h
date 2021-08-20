@@ -30,6 +30,8 @@
     0x6218D0 | const DynamicDLP::`vftable' | ??_7DynamicDLP@@6B@
 */
 
+class DLP;
+
 class DynamicDLP
 {
 public:
@@ -52,7 +54,7 @@ public:
     virtual void SetTexture(i16 arg1) = 0;
 
     // ?InitOffsets@DynamicDLP@@QAEHPAVDLP@@PAD@Z
-    ARTS_IMPORT i32 InitOffsets(class DLP* arg1, char* arg2);
+    ARTS_IMPORT i32 InitOffsets(DLP* arg1, char* arg2);
 
     // ?Release@DynamicDLP@@QAEHXZ | unused
     ARTS_IMPORT i32 Release();

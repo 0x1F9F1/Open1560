@@ -89,6 +89,30 @@
 
 #include "arts7/node.h"
 
+union eqEvent;
+class mmIO;
+
+class UIBMButton;
+class UIBMLabel;
+class UIButton;
+class UICompositeScroll;
+class UIControlWidget;
+class UICWArray;
+class UIIcon;
+class UIIconW;
+class UILabel;
+class UIMexButton;
+class UISlider;
+class UITextDropdown;
+class UITextField;
+class UITextRoller2;
+class UITextRoller;
+class UITextScroll;
+class UIToggleButton2;
+class UIToggleButton;
+class UIVScrollBar;
+class uiWidget;
+
 class UIMenu : public asNode
 {
 public:
@@ -122,92 +146,90 @@ public:
     ARTS_EXPORT virtual i32 IsAnOptionMenu();
 
     // ?AddBMButton@UIMenu@@QAEPAVUIBMButton@@HPADMMHVCallback@@PAHHH1@Z
-    ARTS_IMPORT class UIBMButton* AddBMButton(i32 arg1, char* arg2, f32 arg3, f32 arg4, i32 arg5, class Callback arg6,
-        i32* arg7, i32 arg8, i32 arg9, class Callback arg10);
+    ARTS_IMPORT UIBMButton* AddBMButton(i32 arg1, char* arg2, f32 arg3, f32 arg4, i32 arg5, Callback arg6, i32* arg7,
+        i32 arg8, i32 arg9, Callback arg10);
 
     // ?AddBMLabel@UIMenu@@QAEPAVUIBMLabel@@HPADPAVstring@@MMPAH@Z
-    ARTS_IMPORT class UIBMLabel* AddBMLabel(i32 arg1, char* arg2, class string* arg3, f32 arg4, f32 arg5, i32* arg6);
+    ARTS_IMPORT UIBMLabel* AddBMLabel(i32 arg1, char* arg2, string* arg3, f32 arg4, f32 arg5, i32* arg6);
 
     // ?AddButton@UIMenu@@QAEPAVUIButton@@HPAULocString@@MMMMHHVCallback@@@Z
-    ARTS_IMPORT class UIButton* AddButton(i32 arg1, struct LocString* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6,
-        i32 arg7, i32 arg8, class Callback arg9);
+    ARTS_IMPORT UIButton* AddButton(
+        i32 arg1, LocString* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8, Callback arg9);
 
     // ?AddCWArray@UIMenu@@QAEPAVUICWArray@@HMMMMHVCallback@@@Z
-    ARTS_IMPORT class UICWArray* AddCWArray(
-        i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, i32 arg6, class Callback arg7);
+    ARTS_IMPORT UICWArray* AddCWArray(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, i32 arg6, Callback arg7);
 
     // ?AddCompScroll@UIMenu@@QAEPAVUICompositeScroll@@HMMMMMHPAHHHVCallback@@@Z
-    ARTS_IMPORT class UICompositeScroll* AddCompScroll(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6,
-        i32 arg7, i32* arg8, i32 arg9, i32 arg10, class Callback arg11);
+    ARTS_IMPORT UICompositeScroll* AddCompScroll(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7,
+        i32* arg8, i32 arg9, i32 arg10, Callback arg11);
 
     // ?AddHotSpot@UIMenu@@QAEPAVuiWidget@@HPADMMMMVCallback@@@Z
-    ARTS_IMPORT class uiWidget* AddHotSpot(
-        i32 arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class Callback arg7);
+    ARTS_IMPORT uiWidget* AddHotSpot(i32 arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, Callback arg7);
 
     // ?AddIcon@UIMenu@@QAEPAVUIIcon@@HPADMM@Z | unused
-    ARTS_IMPORT class UIIcon* AddIcon(i32 arg1, char* arg2, f32 arg3, f32 arg4);
+    ARTS_IMPORT UIIcon* AddIcon(i32 arg1, char* arg2, f32 arg3, f32 arg4);
 
     // ?AddIconW@UIMenu@@QAEPAVUIIconW@@HPAULocString@@PADMMMMVCallback@@@Z | unused
-    ARTS_IMPORT class UIIconW* AddIconW(
-        i32 arg1, struct LocString* arg2, char* arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, class Callback arg8);
+    ARTS_IMPORT UIIconW* AddIconW(
+        i32 arg1, LocString* arg2, char* arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, Callback arg8);
 
     // ?AddLabel@UIMenu@@QAEPAVUILabel@@HPAULocString@@MMMMHH@Z
-    ARTS_IMPORT class UILabel* AddLabel(
-        i32 arg1, struct LocString* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8);
+    ARTS_IMPORT UILabel* AddLabel(
+        i32 arg1, LocString* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8);
 
     // ?AddMex@UIMenu@@QAEPAVUIMexButton@@HPAULocString@@PAHHMMMMHHVCallback@@@Z | unused
-    ARTS_IMPORT class UIMexButton* AddMex(i32 arg1, struct LocString* arg2, i32* arg3, i32 arg4, f32 arg5, f32 arg6,
-        f32 arg7, f32 arg8, i32 arg9, i32 arg10, class Callback arg11);
+    ARTS_IMPORT UIMexButton* AddMex(i32 arg1, LocString* arg2, i32* arg3, i32 arg4, f32 arg5, f32 arg6, f32 arg7,
+        f32 arg8, i32 arg9, i32 arg10, Callback arg11);
 
     // ?AddSlider@UIMenu@@QAEPAVUISlider@@HPAULocString@@PAMMMMMMMHHHHVCallback@@@Z
-    ARTS_IMPORT class UISlider* AddSlider(i32 arg1, struct LocString* arg2, f32* arg3, f32 arg4, f32 arg5, f32 arg6,
-        f32 arg7, f32 arg8, f32 arg9, i32 arg10, i32 arg11, i32 arg12, i32 arg13, class Callback arg14);
+    ARTS_IMPORT UISlider* AddSlider(i32 arg1, LocString* arg2, f32* arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7,
+        f32 arg8, f32 arg9, i32 arg10, i32 arg11, i32 arg12, i32 arg13, Callback arg14);
 
     // ?AddTextDropdown@UIMenu@@QAEPAVUITextDropdown@@HPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z
-    ARTS_IMPORT class UITextDropdown* AddTextDropdown(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5,
-        f32 arg6, f32 arg7, class string arg8, i32 arg9, i32 arg10, i32 arg11, class Callback arg12, char* arg13);
+    ARTS_IMPORT UITextDropdown* AddTextDropdown(i32 arg1, LocString* arg2, i32* arg3, f32 arg4, f32 arg5, f32 arg6,
+        f32 arg7, string arg8, i32 arg9, i32 arg10, i32 arg11, Callback arg12, char* arg13);
 
     // ?AddTextField@UIMenu@@QAEPAVUITextField@@HPAULocString@@PADMMMMHHHHHVCallback@@@Z
-    ARTS_IMPORT class UITextField* AddTextField(i32 arg1, struct LocString* arg2, char* arg3, f32 arg4, f32 arg5,
-        f32 arg6, f32 arg7, i32 arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, class Callback arg13);
+    ARTS_IMPORT UITextField* AddTextField(i32 arg1, LocString* arg2, char* arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7,
+        i32 arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, Callback arg13);
 
     // ?AddTextRoller@UIMenu@@QAEPAVUITextRoller@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z | unused
-    ARTS_IMPORT class UITextRoller* AddTextRoller(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5,
-        f32 arg6, f32 arg7, class string arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, class Callback arg13);
+    ARTS_IMPORT UITextRoller* AddTextRoller(i32 arg1, LocString* arg2, i32* arg3, f32 arg4, f32 arg5, f32 arg6,
+        f32 arg7, string arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, Callback arg13);
 
     // ?AddTextRoller2@UIMenu@@QAEPAVUITextRoller2@@HPAULocString@@PAHMMMMVstring@@HHHHVCallback@@@Z
-    ARTS_IMPORT class UITextRoller2* AddTextRoller2(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5,
-        f32 arg6, f32 arg7, class string arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, class Callback arg13);
+    ARTS_IMPORT UITextRoller2* AddTextRoller2(i32 arg1, LocString* arg2, i32* arg3, f32 arg4, f32 arg5, f32 arg6,
+        f32 arg7, string arg8, i32 arg9, i32 arg10, i32 arg11, i32 arg12, Callback arg13);
 
     // ?AddTextScroll@UIMenu@@QAEPAVUITextScroll@@HPAXMMMMVstring@@HPAHVCallback@@@Z
-    ARTS_IMPORT class UITextScroll* AddTextScroll(i32 arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6,
-        class string arg7, i32 arg8, i32* arg9, class Callback arg10);
+    ARTS_IMPORT UITextScroll* AddTextScroll(
+        i32 arg1, void* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, string arg7, i32 arg8, i32* arg9, Callback arg10);
 
     // ?AddToggle@UIMenu@@QAEPAVUIToggleButton@@HPAULocString@@PAHMMMMHHVCallback@@@Z | unused
-    ARTS_IMPORT class UIToggleButton* AddToggle(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5,
-        f32 arg6, f32 arg7, i32 arg8, i32 arg9, class Callback arg10);
+    ARTS_IMPORT UIToggleButton* AddToggle(i32 arg1, LocString* arg2, i32* arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7,
+        i32 arg8, i32 arg9, Callback arg10);
 
     // ?AddToggle2@UIMenu@@QAEPAVUIToggleButton2@@HPAULocString@@PAHMMMMHHVCallback@@@Z
-    ARTS_IMPORT class UIToggleButton2* AddToggle2(i32 arg1, struct LocString* arg2, i32* arg3, f32 arg4, f32 arg5,
-        f32 arg6, f32 arg7, i32 arg8, i32 arg9, class Callback arg10);
+    ARTS_IMPORT UIToggleButton2* AddToggle2(i32 arg1, LocString* arg2, i32* arg3, f32 arg4, f32 arg5, f32 arg6,
+        f32 arg7, i32 arg8, i32 arg9, Callback arg10);
 
     // ?AddUIControl@UIMenu@@QAEPAVUIControlWidget@@HMMMMMPAVmmIO@@VCallback@@@Z | unused
-    ARTS_IMPORT class UIControlWidget* AddUIControl(
-        i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class mmIO* arg7, class Callback arg8);
+    ARTS_IMPORT UIControlWidget* AddUIControl(
+        i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, mmIO* arg7, Callback arg8);
 
     // ?AddVScrollBar@UIMenu@@QAEPAVUIVScrollBar@@HPAHMMMMMMHHVCallback@@@Z | unused
-    ARTS_IMPORT class UIVScrollBar* AddVScrollBar(i32 arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7,
-        f32 arg8, i32 arg9, i32 arg10, class Callback arg11);
+    ARTS_IMPORT UIVScrollBar* AddVScrollBar(i32 arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7,
+        f32 arg8, i32 arg9, i32 arg10, Callback arg11);
 
     // ?AddWidget@UIMenu@@QAEXPAVuiWidget@@PADMMMMH1@Z
     ARTS_IMPORT void AddWidget(
-        class uiWidget* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, char* arg8);
+        uiWidget* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, char* arg8);
 
     // ?AssignBackground@UIMenu@@QAEXPAD@Z
     ARTS_IMPORT void AssignBackground(char* arg1);
 
     // ?AssignName@UIMenu@@QAEXPAULocString@@@Z
-    ARTS_IMPORT void AssignName(struct LocString* arg1);
+    ARTS_IMPORT void AssignName(LocString* arg1);
 
     // ?CheckMouseHits@UIMenu@@QAEXXZ
     ARTS_IMPORT void CheckMouseHits();
@@ -255,22 +277,22 @@ public:
     ARTS_IMPORT i32 Increment();
 
     // ?KeyboardAction@UIMenu@@QAEXTeqEvent@@@Z
-    ARTS_IMPORT void KeyboardAction(union eqEvent arg1);
+    ARTS_IMPORT void KeyboardAction(eqEvent arg1);
 
     // ?MouseAction@UIMenu@@QAEXTeqEvent@@@Z
-    ARTS_IMPORT void MouseAction(union eqEvent arg1);
+    ARTS_IMPORT void MouseAction(eqEvent arg1);
 
     // ?MouseHitCheck@UIMenu@@QAEPAVuiWidget@@HMM@Z
-    ARTS_IMPORT class uiWidget* MouseHitCheck(i32 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT uiWidget* MouseHitCheck(i32 arg1, f32 arg2, f32 arg3);
 
     // ?ScaleWidget@UIMenu@@QAEXAAM000@Z
     ARTS_IMPORT void ScaleWidget(f32& arg1, f32& arg2, f32& arg3, f32& arg4);
 
     // ?ScanInput@UIMenu@@QAEHPATeqEvent@@@Z
-    ARTS_EXPORT b32 ScanInput(union eqEvent* event);
+    ARTS_EXPORT b32 ScanInput(eqEvent* event);
 
     // ?SetAction@UIMenu@@QAEXW4eSource@1@@Z
-    ARTS_IMPORT void SetAction(enum UIMenu::eSource arg1);
+    ARTS_IMPORT void SetAction(UIMenu::eSource arg1);
 
     // ?SetBstate@UIMenu@@QAEXH@Z
     ARTS_IMPORT void SetBstate(i32 arg1);

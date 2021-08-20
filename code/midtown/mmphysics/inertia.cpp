@@ -20,5 +20,5 @@ define_dummy_symbol(mmphysics_inertia);
 
 #include "inertia.h"
 
-void asInertialCS::FileIO(class MiniParser* /*arg1*/)
+void asInertialCS::FileIO(MiniParser* /*arg1*/)
 {}

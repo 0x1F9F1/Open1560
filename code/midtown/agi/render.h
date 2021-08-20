@@ -26,6 +26,11 @@
     0x907898 | class agiCardState agiCurCardState | ?agiCurCardState@@3VagiCardState@@A
 */
 
+class agiCardState;
+class agiCardStateStruct;
+union agiVtx;
+class DLP;
+
 class agiRenderer
 {
 public:
@@ -40,23 +45,23 @@ protected:
 public:
     virtual void BeginGroup() = 0;
 
-    virtual void Draw(class DLP* arg1, i32 arg2) = 0;
+    virtual void Draw(DLP* arg1, i32 arg2) = 0;
 
-    virtual void DrawCard(class Vector3& arg1) = 0;
+    virtual void DrawCard(Vector3& arg1) = 0;
 
     virtual void EndGroup() = 0;
 
     virtual void BeginDraw(i32 arg1) = 0;
 
-    virtual void Verts(union agiVtx* arg1, i32 arg2) = 0;
+    virtual void Verts(agiVtx* arg1, i32 arg2) = 0;
 
-    virtual void Points(union agiVtx* arg1, i32 arg2) = 0;
+    virtual void Points(agiVtx* arg1, i32 arg2) = 0;
 
     virtual void DrawTri(i32 arg1, i32 arg2, i32 arg3) = 0;
 
     virtual void DrawLine(i32 arg1, i32 arg2) = 0;
 
-    virtual void DrawLabel(union agiVtx& arg1, char* arg2) = 0;
+    virtual void DrawLabel(agiVtx& arg1, char* arg2) = 0;
 
     virtual void EndDraw() = 0;
 
@@ -85,7 +90,7 @@ protected:
 check_size(agiRenderer, 0xC);
 
 // ?agiCurCardState@@3VagiCardState@@A
-ARTS_IMPORT extern class agiCardState agiCurCardState;
+ARTS_IMPORT extern agiCardState agiCurCardState;
 
 // ?agiLastCardState@@3UagiCardStateStruct@@A
-ARTS_IMPORT extern struct agiCardStateStruct agiLastCardState;
+ARTS_IMPORT extern agiCardStateStruct agiLastCardState;

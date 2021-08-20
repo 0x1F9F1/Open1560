@@ -29,7 +29,7 @@ constexpr bool IsLittleEndian = true;
 
 b32 EnableBinaryFileMapping = false;
 
-Stream::Stream(void* buffer, isize buffer_size, class FileSystem* file_system)
+Stream::Stream(void* buffer, isize buffer_size, FileSystem* file_system)
     : buffer_(static_cast<u8*>(buffer))
     , buffer_capacity_(buffer_size)
     , file_system_(file_system)
@@ -491,17 +491,17 @@ void Stream::SwapShorts(u16* values, isize count)
     ByteSwapN(values, count);
 }
 
-isize arts_fgets(char* buffer, isize buffer_len, class Stream* stream)
+isize arts_fgets(char* buffer, isize buffer_len, Stream* stream)
 {
     return stream->Gets(buffer, buffer_len);
 }
 
-class Stream* arts_fopen(const char* path, const char* mode)
+Stream* arts_fopen(const char* path, const char* mode)
 {
     return AsRaw((mode[0] == 'r') ? FileSystem::OpenAny(path, mode[1] != '+', 0, 4096) : HFS.CreateOn(path, 0, 4096));
 }
 
-void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, ...)
+void arts_fprintf(Stream* stream, ARTS_FORMAT_STRING char const* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -509,7 +509,7 @@ void arts_fprintf(class Stream* stream, ARTS_FORMAT_STRING char const* format, .
     va_end(va);
 }
 
-i32 arts_fscanf(class Stream* stream, char const* format, ...)
+i32 arts_fscanf(Stream* stream, char const* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -520,7 +520,7 @@ i32 arts_fscanf(class Stream* stream, char const* format, ...)
     return result;
 }
 
-i32 arts_fseek(class Stream* stream, i32 offset, i32 origin)
+i32 arts_fseek(Stream* stream, i32 offset, i32 origin)
 {
     switch (origin)
     {

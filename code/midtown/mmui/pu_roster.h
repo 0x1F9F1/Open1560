@@ -80,7 +80,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SetBootCB@PURoster@@QAEXVCallback@@@Z
-    ARTS_IMPORT void SetBootCB(class Callback arg1);
+    ARTS_IMPORT void SetBootCB(Callback arg1);
 
     // ?SetHost@PURoster@@QAEXH@Z | unused
     ARTS_IMPORT void SetHost(i32 arg1);

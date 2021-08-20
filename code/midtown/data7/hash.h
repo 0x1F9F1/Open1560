@@ -70,7 +70,7 @@ public:
     }
 
     // ??4HashTable@@QAEXAAV0@@Z | unused
-    ARTS_EXPORT void operator=(class HashTable& other);
+    ARTS_EXPORT void operator=(HashTable& other);
 
     // ?Access@HashTable@@QAEPAXPAD@Z
     ARTS_EXPORT void* Access(const char* key);
@@ -114,7 +114,7 @@ private:
     ARTS_EXPORT void RemoveMe();
 
     // ?First@HashTable@@0PAV1@A
-    ARTS_EXPORT static class HashTable* First;
+    ARTS_EXPORT static HashTable* First;
 
     i32 bucket_count_ {0};
     i32 value_count_ {0};

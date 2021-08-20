@@ -39,7 +39,7 @@ class agiD3DLight final : public agiLight
 {
 public:
     // ??0agiD3DLight@@QAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiD3DLight(class agiPipeline* pipe);
+    ARTS_EXPORT agiD3DLight(agiPipeline* pipe);
 
     // ??_GagiD3DLight@@UAEPAXI@Z
     // ??_EagiD3DLight@@UAEPAXI@Z

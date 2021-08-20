@@ -57,13 +57,13 @@ public:
     ARTS_IMPORT ~mmMultiBlitz() override;
 
     // ?GameMessage@mmMultiBlitz@@UAEXPAUNETGAME_MSG@@@Z
-    ARTS_IMPORT void GameMessage(struct NETGAME_MSG* arg1) override;
+    ARTS_IMPORT void GameMessage(NETGAME_MSG* arg1) override;
 
     // ?GetClass@mmMultiBlitz@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetWaypoints@mmMultiBlitz@@UAEPAVmmWaypoints@@XZ | inline
-    ARTS_IMPORT class mmWaypoints* GetWaypoints() override;
+    ARTS_IMPORT mmWaypoints* GetWaypoints() override;
 
     // ?Init@mmMultiBlitz@@QAEHXZ
     ARTS_IMPORT i32 Init();
@@ -87,7 +87,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SystemMessage@mmMultiBlitz@@UAEXPAUNETSYS_MSG@@@Z
-    ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
+    ARTS_IMPORT void SystemMessage(NETSYS_MSG* arg1) override;
 
     // ?UpdateGame@mmMultiBlitz@@UAEXXZ
     ARTS_IMPORT void UpdateGame() override;

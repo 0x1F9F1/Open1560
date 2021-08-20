@@ -36,6 +36,8 @@
     0x447C50 | public: class aiPath * __thiscall aiIntersection::Path(int) | ?Path@aiIntersection@@QAEPAVaiPath@@H@Z
 */
 
+class aiPath;
+
 class aiIntersection
 {
 public:
@@ -46,10 +48,10 @@ public:
     ARTS_IMPORT ~aiIntersection();
 
     // ?AddSinkPath@aiIntersection@@QAEXPAVaiPath@@@Z
-    ARTS_IMPORT void AddSinkPath(class aiPath* arg1);
+    ARTS_IMPORT void AddSinkPath(aiPath* arg1);
 
     // ?AddSourcePath@aiIntersection@@QAEXPAVaiPath@@@Z
-    ARTS_IMPORT void AddSourcePath(class aiPath* arg1);
+    ARTS_IMPORT void AddSourcePath(aiPath* arg1);
 
     // ?CreateRoadMap@aiIntersection@@QAEXXZ
     ARTS_IMPORT void CreateRoadMap();
@@ -69,16 +71,16 @@ public:
     ARTS_IMPORT void Init();
 
     // ?Path@aiIntersection@@QAEPAVaiPath@@H@Z
-    ARTS_IMPORT class aiPath* Path(i32 arg1);
+    ARTS_IMPORT aiPath* Path(i32 arg1);
 
     // ?ReadBinary@aiIntersection@@QAEXPAVStream@@@Z
-    ARTS_IMPORT void ReadBinary(class Stream* arg1);
+    ARTS_IMPORT void ReadBinary(Stream* arg1);
 
     // ?Reset@aiIntersection@@QAEXXZ
     ARTS_IMPORT void Reset();
 
     // ?SaveBinary@aiIntersection@@QAEXPAVStream@@@Z
-    ARTS_IMPORT void SaveBinary(class Stream* arg1);
+    ARTS_IMPORT void SaveBinary(Stream* arg1);
 
     u8 gap0[0x2C];
 };

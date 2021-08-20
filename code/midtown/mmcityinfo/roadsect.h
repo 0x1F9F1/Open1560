@@ -88,7 +88,7 @@ public:
     ARTS_IMPORT ~mmRoadSide() override;
 
     // ?GetClass@mmRoadSide@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?DeclareFields@mmRoadSide@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -110,28 +110,28 @@ public:
     ARTS_IMPORT ~mmRoadSect() override;
 
     // ?GetClass@mmRoadSect@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetIntersectionType@mmRoadSect@@QAEHH@Z
     ARTS_IMPORT i32 GetIntersectionType(i32 arg1);
 
     // ?GetNormal@mmRoadSect@@QAEPAVVector3@@H@Z
-    ARTS_IMPORT class Vector3* GetNormal(i32 arg1);
+    ARTS_IMPORT Vector3* GetNormal(i32 arg1);
 
     // ?GetRoomId@mmRoadSect@@QAEHH@Z | unused
     ARTS_IMPORT i32 GetRoomId(i32 arg1);
 
     // ?GetSidewalkVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
-    ARTS_IMPORT class Vector3* GetSidewalkVertex(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT Vector3* GetSidewalkVertex(i32 arg1, i32 arg2, i32 arg3);
 
     // ?GetStopLightName@mmRoadSect@@QAEPADH@Z
     ARTS_IMPORT char* GetStopLightName(i32 arg1);
 
     // ?GetStopLightPos@mmRoadSect@@QAEXHAAVVector3@@0@Z
-    ARTS_IMPORT void GetStopLightPos(i32 arg1, class Vector3& arg2, class Vector3& arg3);
+    ARTS_IMPORT void GetStopLightPos(i32 arg1, Vector3& arg2, Vector3& arg3);
 
     // ?GetVertex@mmRoadSect@@QAEPAVVector3@@HHH@Z
-    ARTS_IMPORT class Vector3* GetVertex(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT Vector3* GetVertex(i32 arg1, i32 arg2, i32 arg3);
 
     // ?IsAlley@mmRoadSect@@QAEHXZ
     ARTS_IMPORT i32 IsAlley();
@@ -170,22 +170,22 @@ public:
     ARTS_IMPORT void SetRSidewalk(f32 arg1, f32 arg2);
 
     // ?SetRoadNormal@mmRoadSect@@QAEXHAAVVector3@@@Z | unused
-    ARTS_IMPORT void SetRoadNormal(i32 arg1, class Vector3& arg2);
+    ARTS_IMPORT void SetRoadNormal(i32 arg1, Vector3& arg2);
 
     // ?SetRoadVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z | unused
-    ARTS_IMPORT void SetRoadVertex(i32 arg1, i32 arg2, i32 arg3, class Vector3& arg4);
+    ARTS_IMPORT void SetRoadVertex(i32 arg1, i32 arg2, i32 arg3, Vector3& arg4);
 
     // ?SetRoomId@mmRoadSect@@QAEXHH@Z | unused
     ARTS_IMPORT void SetRoomId(i32 arg1, i32 arg2);
 
     // ?SetSidewalkVertex@mmRoadSect@@QAEXHHHAAVVector3@@@Z | unused
-    ARTS_IMPORT void SetSidewalkVertex(i32 arg1, i32 arg2, i32 arg3, class Vector3& arg4);
+    ARTS_IMPORT void SetSidewalkVertex(i32 arg1, i32 arg2, i32 arg3, Vector3& arg4);
 
     // ?SetStopLightName@mmRoadSect@@QAEXHPAD@Z | unused
     ARTS_IMPORT void SetStopLightName(i32 arg1, char* arg2);
 
     // ?SetStopLightPos@mmRoadSect@@QAEXHABVVector3@@0@Z | unused
-    ARTS_IMPORT void SetStopLightPos(i32 arg1, class Vector3 const& arg2, class Vector3 const& arg3);
+    ARTS_IMPORT void SetStopLightPos(i32 arg1, Vector3 const& arg2, Vector3 const& arg3);
 
     // ?SetStreetType@mmRoadSect@@QAEXPAD@Z | unused
     ARTS_IMPORT void SetStreetType(char* arg1);
@@ -215,7 +215,7 @@ public:
     ARTS_IMPORT void Append(char* arg1);
 
     // ?GetClass@mmPropInfo@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetItem@mmPropInfo@@QAEPADH@Z | unused
     ARTS_IMPORT char* GetItem(i32 arg1);

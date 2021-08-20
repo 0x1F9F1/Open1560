@@ -53,9 +53,12 @@
 #include "aiRailSet.h"
 #include "mmcar/car.h"
 
-class aiGoalFollowWayPts;
 class aiGoalBackup;
+class aiGoalFollowWayPts;
 class aiGoalStop;
+class aiRaceData;
+class AudSound;
+class mmOpponentImpactAudio;
 
 class aiVehicleOpponent final : public aiVehicle
 {
@@ -68,14 +71,13 @@ public:
     ARTS_IMPORT ~aiVehicleOpponent();
 
     // ?GetClass@aiVehicleOpponent@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT virtual class MetaClass* GetClass();
+    ARTS_IMPORT virtual MetaClass* GetClass();
 
     // ?AddWidget@aiVehicleOpponent@@QAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidget(class Bank* arg1);
+    ARTS_IMPORT void AddWidget(Bank* arg1);
 
     // ?AssignSounds@aiVehicleOpponent@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
-    ARTS_IMPORT void AssignSounds(
-        class AudSound* arg1, class AudSound* arg2, class mmOpponentImpactAudio* arg3, class AudSound* arg4);
+    ARTS_IMPORT void AssignSounds(AudSound* arg1, AudSound* arg2, mmOpponentImpactAudio* arg3, AudSound* arg4);
 
     // ?DrawDamage@aiVehicleOpponent@@QAEXXZ | unused
     ARTS_EXPORT void DrawDamage();
@@ -90,7 +92,7 @@ public:
     ARTS_IMPORT void Dump();
 
     // ?GetCarAudioPtr@aiVehicleOpponent@@QAEPAVmmOpponentCarAudio@@XZ
-    ARTS_IMPORT class mmOpponentCarAudio* GetCarAudioPtr();
+    ARTS_IMPORT mmOpponentCarAudio* GetCarAudioPtr();
 
     // ?GetDistanceToPlayer2@aiVehicleOpponent@@QAEMXZ
     ARTS_IMPORT f32 GetDistanceToPlayer2();
@@ -99,7 +101,7 @@ public:
     ARTS_IMPORT i32 GetEngineSoundIndex();
 
     // ?Init@aiVehicleOpponent@@QAEXHPAVaiRaceData@@PAD@Z
-    ARTS_IMPORT void Init(i32 arg1, class aiRaceData* arg2, char* arg3);
+    ARTS_IMPORT void Init(i32 arg1, aiRaceData* arg2, char* arg3);
 
     // ?Reset@aiVehicleOpponent@@UAEXXZ
     ARTS_IMPORT void Reset() override;

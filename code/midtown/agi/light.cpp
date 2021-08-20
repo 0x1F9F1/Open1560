@@ -30,7 +30,7 @@ char* agiLight::GetName()
     return buffer;
 }
 
-i32 agiLight::Init(class agiLightParameters const& params)
+i32 agiLight::Init(agiLightParameters const& params)
 {
     EndGfx();
     Params = params;

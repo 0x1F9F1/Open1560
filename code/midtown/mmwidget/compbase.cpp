@@ -22,19 +22,19 @@ define_dummy_symbol(mmwidget_compbase);
 
 #include "eventq7/eventq.h"
 
-void mmCompBase::Action(union eqEvent /*arg1*/, f32 /*arg2*/, f32 /*arg3*/, i32 /*arg4*/)
+void mmCompBase::Action(eqEvent /*arg1*/, f32 /*arg2*/, f32 /*arg3*/, i32 /*arg4*/)
 {}
 
-void mmCompBase::Action(union eqEvent /*arg1*/)
+void mmCompBase::Action(eqEvent /*arg1*/)
 {}
 
-void mmCompBase::CaptureAction(union eqEvent /*arg1*/)
+void mmCompBase::CaptureAction(eqEvent /*arg1*/)
 {}
 
 void mmCompBase::EvalMouseXY(f32 /*arg1*/, f32 /*arg2*/)
 {}
 
-void mmCompBase::Highlight(class mmTextNode* /*arg1*/, i32 /*arg2*/)
+void mmCompBase::Highlight(mmTextNode* /*arg1*/, i32 /*arg2*/)
 {}
 
 void mmCompBase::Reset()

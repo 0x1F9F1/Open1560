@@ -200,7 +200,7 @@ void agiMeshSet::ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT ver
     clip_all &= clip_code;                                                                                       \
     out_codes[i] = clip_code;
 
-void agiMeshSet::Transform(class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count)
+void agiMeshSet::Transform(Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count)
 {
     STATS.VertsXfrm += count;
 
@@ -252,7 +252,7 @@ alignas(64) static const u8 CodesLookup[64] {
 };
 
 u32 agiMeshSet::TransformOutcode(
-    u8* ARTS_RESTRICT out_codes, class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count)
+    u8* ARTS_RESTRICT out_codes, Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count)
 {
     STATS.VertsOut += count;
     STATS.VertsXfrm += count;

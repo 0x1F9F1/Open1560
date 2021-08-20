@@ -47,17 +47,17 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asAero@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetClass@asAero@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Load@asAero@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(Stream* arg1);
 
     // ?Save@asAero@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(Stream* arg1);
 
     // ?Update@asAero@@UAEXXZ
     ARTS_IMPORT void Update() override;

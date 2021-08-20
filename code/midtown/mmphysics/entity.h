@@ -24,6 +24,9 @@
 
 #include "arts7/node.h"
 
+class asBound;
+class asInertialCS;
+
 class mmPhysEntity : public asNode
 {
 public:
@@ -36,10 +39,10 @@ public:
     ARTS_EXPORT virtual void PostUpdate();
 
     // ?GetBound@mmPhysEntity@@UAEPAVasBound@@XZ | inline
-    ARTS_EXPORT virtual class asBound* GetBound();
+    ARTS_EXPORT virtual asBound* GetBound();
 
     // ?GetICS@mmPhysEntity@@UAEPAVasInertialCS@@XZ | inline
-    ARTS_EXPORT virtual class asInertialCS* GetICS();
+    ARTS_EXPORT virtual asInertialCS* GetICS();
 
     // ?DetachMe@mmPhysEntity@@UAEXXZ | inline
     ARTS_EXPORT virtual void DetachMe();

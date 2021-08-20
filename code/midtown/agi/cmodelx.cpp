@@ -22,7 +22,7 @@ define_dummy_symbol(agi_cmodelx);
 
 #include "surface.h"
 
-RcOwner<class agiColorModel> agiColorModel::FindMatch(agiSurfaceDesc* surface)
+RcOwner<agiColorModel> agiColorModel::FindMatch(agiSurfaceDesc* surface)
 {
     return FindMatch(surface->PixelFormat.RBitMask, surface->PixelFormat.GBitMask, surface->PixelFormat.BBitMask,
         surface->PixelFormat.RGBAlphaBitMask);
@@ -42,7 +42,7 @@ static agiColorModel* const ColorModels[] {
     nullptr,
 };
 
-RcOwner<class agiColorModel> agiColorModel::FindMatch(i32 mask_r, i32 mask_g, i32 mask_b, i32 mask_a)
+RcOwner<agiColorModel> agiColorModel::FindMatch(i32 mask_r, i32 mask_g, i32 mask_b, i32 mask_a)
 {
     for (agiColorModel* const* models = ColorModels; *models; ++models)
     {

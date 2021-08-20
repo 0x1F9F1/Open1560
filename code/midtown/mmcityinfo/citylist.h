@@ -39,6 +39,8 @@
     0x7084E4 | class mmCityList * CityListPtr | ?CityListPtr@@3PAVmmCityList@@A
 */
 
+class mmCityInfo;
+
 class mmCityList final
 {
 public:
@@ -54,13 +56,13 @@ public:
     ARTS_EXPORT i32 GetCityID(char* name);
 
     // ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@PAD@Z
-    ARTS_EXPORT class mmCityInfo* GetCityInfo(char* name);
+    ARTS_EXPORT mmCityInfo* GetCityInfo(char* name);
 
     // ?GetCityInfo@mmCityList@@QAEPAVmmCityInfo@@H@Z
-    ARTS_EXPORT class mmCityInfo* GetCityInfo(i32 index);
+    ARTS_EXPORT mmCityInfo* GetCityInfo(i32 index);
 
     // ?GetCurrentCity@mmCityList@@QAEPAVmmCityInfo@@XZ
-    ARTS_EXPORT class mmCityInfo* GetCurrentCity();
+    ARTS_EXPORT mmCityInfo* GetCurrentCity();
 
     // ?Init@mmCityList@@QAEXH@Z | unused
     ARTS_EXPORT void Init(i32 arg1);
@@ -88,4 +90,4 @@ public:
 check_size(mmCityList, 0x10);
 
 // ?CityListPtr@@3PAVmmCityList@@A
-ARTS_IMPORT extern class mmCityList* CityListPtr;
+ARTS_IMPORT extern mmCityList* CityListPtr;

@@ -39,7 +39,11 @@
     0x903190 | int AnnotateTextures | ?AnnotateTextures@@3HA
 */
 
+class agiTexLut;
 class agiTexParameters;
+
+typedef struct _DDPIXELFORMAT DDPIXELFORMAT;
+typedef struct _DDSURFACEDESC2 DDSURFACEDESC2;
 
 struct agiColorKey // DDCOLORKEY
 {
@@ -54,8 +58,6 @@ struct agiColorKey // DDCOLORKEY
 #define AGIPF_PALETTEINDEXEDTO8 0x00000010l
 #define AGIPF_PALETTEINDEXED8 0x00000020l
 #define AGIPF_RGB 0x00000040l
-
-typedef struct _DDPIXELFORMAT DDPIXELFORMAT;
 
 struct agiPixelFormat // DDPIXELFORMAT
 {
@@ -105,8 +107,6 @@ struct agiDDSCAPS2 // DDSCAPS2
 
 // TODO: Allow safe conversion to/from DDSURFACEDESC2 (instead of bitcasting)
 
-typedef struct _DDSURFACEDESC2 DDSURFACEDESC2;
-
 class agiSurfaceDesc // DDSURFACEDESC2
 {
 public:
@@ -116,7 +116,7 @@ public:
     void CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters* params);
 
     // ?Reload@agiSurfaceDesc@@QAEXPAD0HHPAVStream@@HH@Z
-    ARTS_IMPORT void Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, class Stream* arg5, i32 arg6, i32 arg7);
+    ARTS_IMPORT void Reload(char* arg1, char* arg2, i32 arg3, i32 arg4, Stream* arg5, i32 arg6, i32 arg7);
 
     // ?Unload@agiSurfaceDesc@@QAEXXZ
     ARTS_EXPORT void Unload();
@@ -161,7 +161,7 @@ public:
     union
     {
         // NOTE: 64-bit incompatible
-        class agiTexLut* lpLut {0};
+        agiTexLut* lpLut {0};
         char szLut[4];
     };
 

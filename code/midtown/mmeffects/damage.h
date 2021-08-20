@@ -40,10 +40,10 @@ public:
     ARTS_IMPORT ~mmDamage();
 
     // ?Apply@mmDamage@@QAEXAAVVector3@@M@Z
-    ARTS_IMPORT void Apply(class Vector3& arg1, f32 arg2);
+    ARTS_IMPORT void Apply(Vector3& arg1, f32 arg2);
 
     // ?Init@mmDamage@@QAEXPAVagiMeshSet@@@Z
-    ARTS_IMPORT void Init(class agiMeshSet* arg1);
+    ARTS_IMPORT void Init(agiMeshSet* arg1);
 
     // ?Reset@mmDamage@@QAEXH@Z
     ARTS_IMPORT void Reset(i32 arg1);

@@ -59,7 +59,7 @@ public:
     ARTS_IMPORT ~mmLoader() override;
 
     // ?BeginTask@mmLoader@@QAEXPAULocString@@M@Z
-    ARTS_IMPORT void BeginTask(struct LocString* arg1, f32 arg2);
+    ARTS_IMPORT void BeginTask(LocString* arg1, f32 arg2);
 
     // ?Cull@mmLoader@@UAEXXZ
     ARTS_IMPORT void Cull() override;
@@ -77,7 +77,7 @@ public:
     ARTS_IMPORT void Reset();
 
     // ?SetIntroText@mmLoader@@QAEXPAULocString@@@Z
-    ARTS_IMPORT void SetIntroText(struct LocString* arg1);
+    ARTS_IMPORT void SetIntroText(LocString* arg1);
 
     // ?Shutdown@mmLoader@@QAEXXZ | unused
     ARTS_IMPORT void Shutdown();
@@ -87,7 +87,7 @@ public:
 
 private:
     // ?Current@mmLoader@@0PAV1@A
-    ARTS_IMPORT static class mmLoader* Current;
+    ARTS_IMPORT static mmLoader* Current;
 
     i32 task_percent_ {0};
     i32 field_8_ {0};
@@ -100,8 +100,8 @@ private:
     mmTextNode task_text_ {};
     mmTextNode intro_text_ {};
     mmTextNode text_node3_ {};
-    class agiBitmap* bar_active_ {nullptr};
-    class agiBitmap* bar_inactive_ {nullptr};
+    agiBitmap* bar_active_ {nullptr};
+    agiBitmap* bar_inactive_ {nullptr};
     i32 field_2b0_ {0};
     f32 task_start_percent_ {0.0f};
     i32 field_2b8_ {0};

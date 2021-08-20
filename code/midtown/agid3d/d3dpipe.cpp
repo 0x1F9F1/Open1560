@@ -41,10 +41,10 @@ define_dummy_symbol(agid3d_d3dpipe);
 
 // ?EnumCallback@@YGJPAU_GUID@@PAD1PAU_D3DDeviceDesc@@2PAX@Z
 ARTS_IMPORT /*static*/ long ARTS_STDCALL EnumCallback(
-    struct _GUID* arg1, char* arg2, char* arg3, struct _D3DDeviceDesc* arg4, struct _D3DDeviceDesc* arg5, void* arg6);
+    _GUID* arg1, char* arg2, char* arg3, _D3DDeviceDesc* arg4, _D3DDeviceDesc* arg5, void* arg6);
 
 // ?EnumTextureCallback@@YGJPAU_DDPIXELFORMAT@@PAX@Z
-ARTS_IMPORT /*static*/ long ARTS_STDCALL EnumTextureCallback(struct _DDPIXELFORMAT* arg1, void* arg2);
+ARTS_IMPORT /*static*/ long ARTS_STDCALL EnumTextureCallback(_DDPIXELFORMAT* arg1, void* arg2);
 
 agiD3DPipeline::agiD3DPipeline()
 {
@@ -81,7 +81,7 @@ ARTS_IMPORT extern const char* WantedDeviceName;
 static DDPIXELFORMAT ZBufferFormat;
 
 // ?EnumZ@@YGJPAU_DDPIXELFORMAT@@PAX@Z
-static long ARTS_STDCALL EnumZ(struct _DDPIXELFORMAT* format, void* context)
+static long ARTS_STDCALL EnumZ(_DDPIXELFORMAT* format, void* context)
 {
     agiDisplayf("Z bit depth = %d", format->dwRGBBitCount);
 

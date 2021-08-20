@@ -55,55 +55,58 @@
     0x73E6B8 | union mmx fill2Color | ?fill2Color@@3Tmmx@@A
 */
 
+class agiMeshSet;
+union mmx;
+
 // ?agiBeginCones@@YAXXZ
 ARTS_IMPORT void agiBeginCones();
 
 // ?agiConeLighter@@YAXPAEPAI1PAVagiMeshSet@@@Z
-ARTS_IMPORT void agiConeLighter(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4);
+ARTS_IMPORT void agiConeLighter(u8* arg1, u32* arg2, u32* arg3, agiMeshSet* arg4);
 
 // ?agiDeclareCone@@YAXAAVVector3@@00MM0H@Z
 ARTS_IMPORT void agiDeclareCone(
-    class Vector3& arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, f32 arg5, class Vector3& arg6, i32 arg7);
+    Vector3& arg1, Vector3& arg2, Vector3& arg3, f32 arg4, f32 arg5, Vector3& arg6, i32 arg7);
 
 // ?agiDrawCones@@YAXXZ | unused
 ARTS_IMPORT void agiDrawCones();
 
 // ?agiMeshLighterQuarter@@YAXPAEPAI1PAVagiMeshSet@@@Z
-ARTS_IMPORT void agiMeshLighterQuarter(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4);
+ARTS_IMPORT void agiMeshLighterQuarter(u8* arg1, u32* arg2, u32* arg3, agiMeshSet* arg4);
 
 // ?agiMeshLighterReset@@YAXXZ
 ARTS_IMPORT void agiMeshLighterReset();
 
 // ?agiMeshLighterSpecular@@YAXPAEPAI1PAVagiMeshSet@@@Z | unused
-ARTS_IMPORT void agiMeshLighterSpecular(u8* arg1, u32* arg2, u32* arg3, class agiMeshSet* arg4);
+ARTS_IMPORT void agiMeshLighterSpecular(u8* arg1, u32* arg2, u32* arg3, agiMeshSet* arg4);
 
 // ?agiMeshLighterTriple@@YAXPAEPAI1PAVagiMeshSet@@@Z
 ARTS_EXPORT void agiMeshLighterTriple(
-    u8* ARTS_RESTRICT codes, u32* ARTS_RESTRICT output, u32* ARTS_RESTRICT colors, class agiMeshSet* mesh);
+    u8* ARTS_RESTRICT codes, u32* ARTS_RESTRICT output, u32* ARTS_RESTRICT colors, agiMeshSet* mesh);
 
 // ?agiMeshLighterUpdateColors@@YAXXZ
 ARTS_IMPORT void agiMeshLighterUpdateColors();
 
 // ?agiMeshPrelight@@YAXPAIPAVagiMeshSet@@AAVMatrix34@@@Z | unused
-ARTS_IMPORT void agiMeshPrelight(u32* arg1, class agiMeshSet* arg2, class Matrix34& arg3);
+ARTS_IMPORT void agiMeshPrelight(u32* arg1, agiMeshSet* arg2, Matrix34& arg3);
 
 // ?agiMeshLighterAmbient@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 agiMeshLighterAmbient;
+ARTS_IMPORT extern Vector3 agiMeshLighterAmbient;
 
 // ?agiMeshLighterConeRange2@@3MA
 ARTS_IMPORT extern f32 agiMeshLighterConeRange2;
 
 // ?agiMeshLighterFill1@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 agiMeshLighterFill1;
+ARTS_IMPORT extern Vector3 agiMeshLighterFill1;
 
 // ?agiMeshLighterFill1Color@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 agiMeshLighterFill1Color;
+ARTS_IMPORT extern Vector3 agiMeshLighterFill1Color;
 
 // ?agiMeshLighterFill2@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 agiMeshLighterFill2;
+ARTS_IMPORT extern Vector3 agiMeshLighterFill2;
 
 // ?agiMeshLighterFill2Color@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 agiMeshLighterFill2Color;
+ARTS_IMPORT extern Vector3 agiMeshLighterFill2Color;
 
 // ?agiMeshLighterMax@@3MA
 ARTS_IMPORT extern f32 agiMeshLighterMax;
@@ -112,37 +115,37 @@ ARTS_IMPORT extern f32 agiMeshLighterMax;
 ARTS_IMPORT extern f32 agiMeshLighterMin;
 
 // ?agiMeshLighterSpecularColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 agiMeshLighterSpecularColor;
+ARTS_IMPORT extern Vector3 agiMeshLighterSpecularColor;
 
 // ?agiMeshLighterSpecularExponent@@3MA
 ARTS_IMPORT extern f32 agiMeshLighterSpecularExponent;
 
 // ?agiMeshLighterSun@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 agiMeshLighterSun;
+ARTS_IMPORT extern Vector3 agiMeshLighterSun;
 
 // ?agiMeshLighterSunColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 agiMeshLighterSunColor;
+ARTS_IMPORT extern Vector3 agiMeshLighterSunColor;
 
 // ?ambColor@@3Tmmx@@A
-ARTS_IMPORT extern union mmx ambColor;
+ARTS_IMPORT extern mmx ambColor;
 
 // ?clampSSS_3_10@@3Tmmx@@A
-ARTS_IMPORT extern union mmx clampSSS_3_10;
+ARTS_IMPORT extern mmx clampSSS_3_10;
 
 // ?fill1Color@@3Tmmx@@A
-ARTS_IMPORT extern union mmx fill1Color;
+ARTS_IMPORT extern mmx fill1Color;
 
 // ?fill2Color@@3Tmmx@@A
-ARTS_IMPORT extern union mmx fill2Color;
+ARTS_IMPORT extern mmx fill2Color;
 
 // ?keyColor@@3Tmmx@@A
-ARTS_IMPORT extern union mmx keyColor;
+ARTS_IMPORT extern mmx keyColor;
 
 // ?minus1@@3Tmmx@@A
-ARTS_IMPORT extern union mmx minus1;
+ARTS_IMPORT extern mmx minus1;
 
 // ?unclampSSS_3_10@@3Tmmx@@A
-ARTS_IMPORT extern union mmx unclampSSS_3_10;
+ARTS_IMPORT extern mmx unclampSSS_3_10;
 
 // ?zero@@3Tmmx@@A
-ARTS_IMPORT extern union mmx zero;
+ARTS_IMPORT extern mmx zero;

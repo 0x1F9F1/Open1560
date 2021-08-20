@@ -32,10 +32,10 @@ class agiPhysParameters
 {
 public:
     // ?Load@agiPhysParameters@@QAEXPAVStream@@@Z
-    ARTS_IMPORT void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(Stream* arg1);
 
     // ?Save@agiPhysParameters@@QAEXPAVStream@@@Z
-    ARTS_IMPORT void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(Stream* arg1);
 
     char Name[32] {};
 

@@ -66,6 +66,8 @@
 
 #include "mmwidget/menu.h"
 
+struct NETCOMMPACK;
+
 class NetSelectMenu final : public UIMenu
 {
 public:
@@ -81,7 +83,7 @@ public:
     ARTS_IMPORT void AddModem(char* arg1, i32 arg2);
 
     // ?AddWidgetToList@NetSelectMenu@@QAEXHPAVuiWidget@@@Z | unused
-    ARTS_EXPORT void AddWidgetToList(i32 arg1, class uiWidget* arg2);
+    ARTS_EXPORT void AddWidgetToList(i32 arg1, uiWidget* arg2);
 
     // ?BuildAllTheIPXWidgets@NetSelectMenu@@QAEXMMMM@Z
     ARTS_EXPORT void BuildAllTheIPXWidgets(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
@@ -105,7 +107,7 @@ public:
     ARTS_IMPORT void FocusDescription(i32 arg1);
 
     // ?GetCommPack@NetSelectMenu@@QAEPAUNETCOMMPACK@@XZ
-    ARTS_IMPORT struct NETCOMMPACK* GetCommPack();
+    ARTS_IMPORT NETCOMMPACK* GetCommPack();
 
     // ?GetHostJoin@NetSelectMenu@@QAEHXZ
     ARTS_IMPORT i32 GetHostJoin();
@@ -114,7 +116,7 @@ public:
     ARTS_IMPORT i32 GetSessionID();
 
     // ?GetSessions@NetSelectMenu@@QAEPAVUITextScroll@@XZ
-    ARTS_IMPORT class UITextScroll* GetSessions();
+    ARTS_IMPORT UITextScroll* GetSessions();
 
     // ?HostCB@NetSelectMenu@@QAEXXZ
     ARTS_IMPORT void HostCB();
@@ -147,7 +149,7 @@ public:
     ARTS_IMPORT void SetComs();
 
     // ?SetDescription@NetSelectMenu@@QAEXPAULocString@@@Z
-    ARTS_EXPORT void SetDescription(struct LocString* arg1);
+    ARTS_EXPORT void SetDescription(LocString* arg1);
 
     // ?SetIPAddress@NetSelectMenu@@QAEXPAD@Z
     ARTS_IMPORT void SetIPAddress(char* arg1);

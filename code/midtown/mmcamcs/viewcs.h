@@ -43,6 +43,9 @@
 
 #include "arts7/linear.h"
 
+class asCamera;
+class CarCamCS;
+
 class mmViewCS final : public asLinearCS
 {
 public:
@@ -55,23 +58,23 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmViewCS@@UAEXPAVBank@@@Z | inline
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z | unused
-    ARTS_IMPORT void ForceMatrixDelta(class Matrix34 const& arg1);
+    ARTS_IMPORT void ForceMatrixDelta(Matrix34 const& arg1);
 
     // ?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z | unused
-    ARTS_IMPORT void ForceMatrixDelta(class Vector3 const& arg1);
+    ARTS_IMPORT void ForceMatrixDelta(Vector3 const& arg1);
 
     // ?GetClass@mmViewCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmViewCS@@QAEXXZ
     ARTS_EXPORT void Init();
 
     // ?NewCam@mmViewCS@@QAEHPAVCarCamCS@@HMVCallback@@@Z
-    ARTS_IMPORT i32 NewCam(class CarCamCS* arg1, i32 arg2, f32 arg3, class Callback arg4);
+    ARTS_IMPORT i32 NewCam(CarCamCS* arg1, i32 arg2, f32 arg3, Callback arg4);
 
     // ?OneShot@mmViewCS@@QAEXXZ | unused
     ARTS_IMPORT void OneShot();
@@ -80,10 +83,10 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SetCamera@mmViewCS@@QAEXPAVasCamera@@@Z
-    ARTS_IMPORT void SetCamera(class asCamera* arg1);
+    ARTS_IMPORT void SetCamera(asCamera* arg1);
 
     // ?SetCurrentCam@mmViewCS@@QAEXPAVCarCamCS@@@Z
-    ARTS_IMPORT void SetCurrentCam(class CarCamCS* arg1);
+    ARTS_IMPORT void SetCurrentCam(CarCamCS* arg1);
 
     // ?Update@mmViewCS@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -92,7 +95,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // ?Instance@mmViewCS@@SAPAV1@PAVasCamera@@@Z
-    ARTS_IMPORT static class mmViewCS* Instance(class asCamera* arg1);
+    ARTS_IMPORT static mmViewCS* Instance(asCamera* arg1);
 
     u8 gap88[0x38];
 };

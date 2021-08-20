@@ -38,6 +38,8 @@
 
 #include "arts7/node.h"
 
+class aiPedestrian;
+
 class aiPedAudioManager final : public asNode
 {
 public:
@@ -50,13 +52,13 @@ public:
     ARTS_IMPORT ~aiPedAudioManager() override;
 
     // ?Add@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z
-    ARTS_IMPORT i16 Add(class aiPedestrian* arg1);
+    ARTS_IMPORT i16 Add(aiPedestrian* arg1);
 
     // ?AssignSounds@aiPedAudioManager@@QAEXF@Z
     ARTS_IMPORT void AssignSounds(i16 arg1);
 
     // ?FindGreatestDistance@aiPedAudioManager@@QAEFPAVaiPedestrian@@@Z
-    ARTS_IMPORT i16 FindGreatestDistance(class aiPedestrian* arg1);
+    ARTS_IMPORT i16 FindGreatestDistance(aiPedestrian* arg1);
 
     // ?FindUnusedSlot@aiPedAudioManager@@QAEFXZ
     ARTS_IMPORT i16 FindUnusedSlot();
@@ -65,7 +67,7 @@ public:
     ARTS_EXPORT void RandomizeSeconds(f32 arg1, f32 arg2);
 
     // ?Remove@aiPedAudioManager@@QAEXPAVaiPedestrian@@F@Z
-    ARTS_IMPORT void Remove(class aiPedestrian* arg1, i16 arg2);
+    ARTS_IMPORT void Remove(aiPedestrian* arg1, i16 arg2);
 
     // ?Update@aiPedAudioManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -76,4 +78,4 @@ public:
 check_size(aiPedAudioManager, 0x120);
 
 // ?AIPEDAUDMGRPTR@@3PAVaiPedAudioManager@@A
-ARTS_IMPORT extern class aiPedAudioManager* AIPEDAUDMGRPTR;
+ARTS_IMPORT extern aiPedAudioManager* AIPEDAUDMGRPTR;

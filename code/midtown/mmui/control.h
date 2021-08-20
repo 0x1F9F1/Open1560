@@ -105,7 +105,7 @@ public:
     ARTS_IMPORT void ResetDefaultAction() override;
 
     // ?SetControlPosition@ControlSetup@@QAEMPAVuiWidget@@MM@Z
-    ARTS_IMPORT f32 SetControlPosition(class uiWidget* arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT f32 SetControlPosition(uiWidget* arg1, f32 arg2, f32 arg3);
 
     // ?SetFFPermissions@ControlSetup@@QAEXXZ
     ARTS_IMPORT void SetFFPermissions();

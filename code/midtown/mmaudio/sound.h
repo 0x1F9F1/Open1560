@@ -91,6 +91,9 @@
 
 #include "arts7/node.h"
 
+class CReverbBuffer;
+class SoundObj;
+
 class AudSound final : public asNode
 {
 public:
@@ -104,7 +107,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@AudSound@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AllOneShotLayersPlaying@AudSound@@QAEHXZ
@@ -135,7 +138,7 @@ public:
     ARTS_IMPORT void EnabledAction();
 
     // ?GetCurrentSoundObj@AudSound@@QAEPAVSoundObj@@XZ | unused
-    ARTS_IMPORT class SoundObj* GetCurrentSoundObj();
+    ARTS_IMPORT SoundObj* GetCurrentSoundObj();
 
     // ?GetEAXReverbMix@AudSound@@QAEMH@Z | unused
     ARTS_IMPORT f32 GetEAXReverbMix(i32 arg1);
@@ -150,7 +153,7 @@ public:
     ARTS_IMPORT f32 GetSampleTime();
 
     // ?GetSecondaryEAXObj@AudSound@@QAEPAVCReverbBuffer@@H@Z
-    ARTS_IMPORT class CReverbBuffer* GetSecondaryEAXObj(i32 arg1);
+    ARTS_IMPORT CReverbBuffer* GetSecondaryEAXObj(i32 arg1);
 
     // ?GetVolume@AudSound@@QAEMH@Z
     ARTS_IMPORT f32 GetVolume(i32 arg1);
@@ -195,7 +198,7 @@ public:
     ARTS_IMPORT void SetConeAngles(ulong arg1, ulong arg2);
 
     // ?SetConeOrientation@AudSound@@QAEXPAVVector3@@@Z | unused
-    ARTS_IMPORT void SetConeOrientation(class Vector3* arg1);
+    ARTS_IMPORT void SetConeOrientation(Vector3* arg1);
 
     // ?SetConeOutsideVolume@AudSound@@QAEXJ@Z | unused
     ARTS_IMPORT void SetConeOutsideVolume(ilong arg1);

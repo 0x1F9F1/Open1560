@@ -61,6 +61,8 @@
 
 #include "aiVehicle.h"
 
+class mmOpponentImpactAudio;
+
 class aiVehicleSpline : public aiVehicle
 {
 public:
@@ -75,7 +77,7 @@ public:
     ARTS_EXPORT virtual void Impact(i32 arg1);
 
     // ?GetImpactAudioPtr@aiVehicleSpline@@UAEPAVmmOpponentImpactAudio@@XZ | inline
-    ARTS_EXPORT virtual class mmOpponentImpactAudio* GetImpactAudioPtr();
+    ARTS_EXPORT virtual mmOpponentImpactAudio* GetImpactAudioPtr();
 
     // ?PlayHorn@aiVehicleSpline@@UAEXMM@Z | inline
     ARTS_EXPORT virtual void PlayHorn(f32 arg1, f32 arg2);
@@ -87,11 +89,11 @@ public:
     ARTS_EXPORT virtual void StopVoice();
 
     // ?GetClass@aiVehicleSpline@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT virtual class MetaClass* GetClass();
+    ARTS_IMPORT virtual MetaClass* GetClass();
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiVehicleSpline@@QAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* arg1);
+    ARTS_EXPORT void AddWidgets(Bank* arg1);
 #endif
 
     // ?AvoidPlayerCollision@aiVehicleSpline@@QAEXXZ | unused
@@ -113,7 +115,7 @@ public:
     ARTS_IMPORT f32 DistanceToIntersection();
 
     // ?DistanceToVehicle@aiVehicleSpline@@QAEMPAV1@@Z
-    ARTS_IMPORT f32 DistanceToVehicle(class aiVehicleSpline* arg1);
+    ARTS_IMPORT f32 DistanceToVehicle(aiVehicleSpline* arg1);
 
     // ?DrawId@aiVehicleSpline@@UAEXXZ
     ARTS_IMPORT void DrawId() override;

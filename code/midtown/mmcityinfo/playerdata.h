@@ -73,7 +73,7 @@ public:
     ARTS_IMPORT mmPlayerRecord();
 
     // ??0mmPlayerRecord@@QAE@ABV0@@Z | inline
-    ARTS_IMPORT mmPlayerRecord(class mmPlayerRecord const& arg1);
+    ARTS_IMPORT mmPlayerRecord(mmPlayerRecord const& arg1);
 
     // ??_EmmPlayerRecord@@UAEPAXI@Z
     // ??_GmmPlayerRecord@@UAEPAXI@Z | unused
@@ -81,22 +81,22 @@ public:
     ARTS_IMPORT ~mmPlayerRecord() override = default;
 
     // ??4mmPlayerRecord@@QAEXAAV0@@Z
-    ARTS_IMPORT void operator=(class mmPlayerRecord& arg1);
+    ARTS_IMPORT void operator=(mmPlayerRecord& arg1);
 
     // ?ComputeCRC@mmPlayerRecord@@QAEIXZ
     ARTS_IMPORT u32 ComputeCRC();
 
     // ?GetClass@mmPlayerRecord@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?LoadBinary@mmPlayerRecord@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 LoadBinary(class Stream* arg1);
+    ARTS_IMPORT i32 LoadBinary(Stream* arg1);
 
     // ?Reset@mmPlayerRecord@@QAEXXZ
     ARTS_IMPORT void Reset();
 
     // ?SaveBinary@mmPlayerRecord@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 SaveBinary(class Stream* arg1);
+    ARTS_IMPORT i32 SaveBinary(Stream* arg1);
 
     // ?DeclareFields@mmPlayerRecord@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -118,7 +118,7 @@ public:
     ARTS_IMPORT ~mmPlayerData() override;
 
     // ??4mmPlayerData@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(class mmPlayerData& arg1);
+    ARTS_IMPORT void operator=(mmPlayerData& arg1);
 
     // ?ComputeCRC@mmPlayerData@@QAEIXZ
     ARTS_IMPORT u32 ComputeCRC();
@@ -145,7 +145,7 @@ public:
     ARTS_IMPORT i32 GetCircuitPassed();
 
     // ?GetClass@mmPlayerData@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetFileName@mmPlayerData@@QAEPADXZ
     ARTS_IMPORT char* GetFileName();
@@ -169,7 +169,7 @@ public:
     ARTS_IMPORT i32 LoadBinary(char* arg1);
 
     // ?RegisterFinish@mmPlayerData@@QAEHVmmPlayerRecord@@HH@Z
-    ARTS_IMPORT i32 RegisterFinish(class mmPlayerRecord arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT i32 RegisterFinish(mmPlayerRecord arg1, i32 arg2, i32 arg3);
 
     // ?RegisterFinish@mmPlayerData@@QAEHHMD@Z | unused
     ARTS_EXPORT i32 RegisterFinish(i32 arg1, f32 arg2, char arg3);

@@ -46,6 +46,8 @@
 
 #include "arts7/node.h"
 
+union eqEvent;
+
 class VSWidget final : public asNode
 {
 public:
@@ -57,7 +59,7 @@ public:
     ARTS_IMPORT ~VSWidget() override;
 
     // ?Action@VSWidget@@QAEHTeqEvent@@MMH@Z
-    ARTS_IMPORT i32 Action(union eqEvent arg1, f32 arg2, f32 arg3, i32 arg4);
+    ARTS_IMPORT i32 Action(eqEvent arg1, f32 arg2, f32 arg3, i32 arg4);
 
     // ?CalcTroughRatio@VSWidget@@QAEXM@Z
     ARTS_IMPORT void CalcTroughRatio(f32 arg1);
@@ -72,13 +74,13 @@ public:
     ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2, i32 arg3);
 
     // ?GetClass@VSWidget@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Inc@VSWidget@@QAEMXZ
     ARTS_IMPORT f32 Inc();
 
     // ?Init@VSWidget@@QAEXMMMMPAHVCallback@@H@Z
-    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32* arg5, class Callback arg6, i32 arg7);
+    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32* arg5, Callback arg6, i32 arg7);
 
     // ?LoadBitmap@VSWidget@@QAEXXZ
     ARTS_IMPORT void LoadBitmap();

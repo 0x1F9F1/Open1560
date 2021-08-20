@@ -58,7 +58,7 @@ public:
     ARTS_IMPORT ~UISlider() override;
 
     // ?Action@UISlider@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?EvalMouseXY@UISlider@@QAEXMM@Z
     ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2);
@@ -73,8 +73,8 @@ public:
     ARTS_IMPORT f32 GetValue();
 
     // ?Init@UISlider@@QAEXPAULocString@@PAMMMMMMMHHHHVCallback@@PAVUIMenu@@@Z
-    ARTS_IMPORT void Init(struct LocString* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8,
-        i32 arg9, i32 arg10, i32 arg11, i32 arg12, class Callback arg13, class UIMenu* arg14);
+    ARTS_IMPORT void Init(LocString* arg1, f32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8,
+        i32 arg9, i32 arg10, i32 arg11, i32 arg12, Callback arg13, UIMenu* arg14);
 
     // ?IsReadWrite@UISlider@@QAEHXZ | unused
     ARTS_IMPORT i32 IsReadWrite();
@@ -92,7 +92,7 @@ public:
     ARTS_IMPORT void SetReadWrite(i32 arg1);
 
     // ?SetText@UISlider@@QAEXPAULocString@@@Z | unused
-    ARTS_EXPORT void SetText(struct LocString* arg1);
+    ARTS_EXPORT void SetText(LocString* arg1);
 
     // ?SetValue@UISlider@@QAEMM@Z
     ARTS_IMPORT f32 SetValue(f32 arg1);

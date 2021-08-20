@@ -74,7 +74,7 @@ void asLinearCS::Cull()
 #endif
 }
 
-void asLinearCS::FileIO(class MiniParser* /*arg1*/)
+void asLinearCS::FileIO(MiniParser* /*arg1*/)
 {}
 
 void asLinearCS::Update()

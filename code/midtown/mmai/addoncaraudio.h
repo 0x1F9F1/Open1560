@@ -29,6 +29,8 @@
     0x45C780 | public: void __thiscall AddOnCarAudio::Update(void) | ?Update@AddOnCarAudio@@QAEXXZ
 */
 
+class AudSound;
+
 struct AddOnCarAudio
 {
 public:
@@ -45,7 +47,7 @@ public:
     ARTS_IMPORT void EchoOn(f32 arg1);
 
     // ?GetEngineSoundPtr@AddOnCarAudio@@QAEPAVAudSound@@F@Z
-    ARTS_IMPORT class AudSound* GetEngineSoundPtr(i16 arg1);
+    ARTS_IMPORT AudSound* GetEngineSoundPtr(i16 arg1);
 
     // ?Update@AddOnCarAudio@@QAEXXZ
     ARTS_IMPORT void Update();

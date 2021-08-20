@@ -57,6 +57,7 @@
 
 #include "agi/vertex.h"
 
+class agiPolySet;
 class agiTexDef;
 
 class agiTexSorter
@@ -70,21 +71,21 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@agiTexSorter@@QAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* bank);
+    ARTS_EXPORT void AddWidgets(Bank* bank);
 #endif
 
     // ?Cull@agiTexSorter@@QAEXH@Z
     ARTS_EXPORT void Cull(b32 alpha);
 
     // ?BeginVerts@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
-    ARTS_EXPORT static class agiPolySet* BeginVerts(class agiTexDef* texture, i32 vert_count, i32 index_count);
+    ARTS_EXPORT static agiPolySet* BeginVerts(agiTexDef* texture, i32 vert_count, i32 index_count);
 
     // ?BeginVerts2@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@0HH@Z
-    ARTS_IMPORT static class agiPolySet* BeginVerts2(
-        class agiTexDef* texture1, class agiTexDef* texture2, i32 vert_count, i32 index_count);
+    ARTS_IMPORT static agiPolySet* BeginVerts2(
+        agiTexDef* texture1, agiTexDef* texture2, i32 vert_count, i32 index_count);
 
     // ?DoTexture@agiTexSorter@@SAXPAVagiPolySet@@@Z
-    ARTS_IMPORT static void DoTexture(class agiPolySet* arg1);
+    ARTS_IMPORT static void DoTexture(agiPolySet* arg1);
 
     // ?EndVerts@agiTexSorter@@SAXXZ
     ARTS_EXPORT static void EndVerts();
@@ -93,10 +94,10 @@ public:
     ARTS_IMPORT static void EndVerts2();
 
     // ?GetEnv@agiTexSorter@@SAPAVagiPolySet@@PAVagiTexDef@@HH@Z
-    ARTS_EXPORT static class agiPolySet* GetEnv(class agiTexDef* texture, i32 vert_count, i32 index_count);
+    ARTS_EXPORT static agiPolySet* GetEnv(agiTexDef* texture, i32 vert_count, i32 index_count);
 
     // ?AlphaPolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    ARTS_EXPORT static class agiPolySet* AlphaPolySets[32];
+    ARTS_EXPORT static agiPolySet* AlphaPolySets[32];
 
     // ?AlphaSetCount@agiTexSorter@@2HA
     ARTS_IMPORT static i32 AlphaSetCount;
@@ -105,7 +106,7 @@ public:
     ARTS_IMPORT static i32 BigPoolFlushes;
 
     // ?EnvPolySet@agiTexSorter@@2VagiPolySet@@A
-    ARTS_IMPORT static class agiPolySet EnvPolySet;
+    ARTS_IMPORT static agiPolySet EnvPolySet;
 
     // ?GeometryCalls@agiTexSorter@@2HA
     ARTS_IMPORT static i32 GeometryCalls;
@@ -126,7 +127,7 @@ public:
     ARTS_IMPORT static i32 MaxVertsPerSet;
 
     // ?OpaquePolySets@agiTexSorter@@2PAPAVagiPolySet@@A
-    ARTS_EXPORT static class agiPolySet* OpaquePolySets[128];
+    ARTS_EXPORT static agiPolySet* OpaquePolySets[128];
 
     // ?OpaqueSetCount@agiTexSorter@@2HA
     ARTS_IMPORT static i32 OpaqueSetCount;
@@ -144,7 +145,7 @@ private:
     friend agiTexSorter* TexSorter();
 
     // ?Instance@agiTexSorter@@0PAV1@A
-    ARTS_IMPORT static class agiTexSorter* Instance;
+    ARTS_IMPORT static agiTexSorter* Instance;
 };
 
 check_size(agiTexSorter, 0x1);
@@ -155,7 +156,7 @@ inline agiTexSorter* TexSorter()
 }
 
 // ?GetPackedTexture@@YAPAVagiTexDef@@PADH@Z
-ARTS_EXPORT RcOwner<class agiTexDef> GetPackedTexture(char* name, i32 variation);
+ARTS_EXPORT RcOwner<agiTexDef> GetPackedTexture(char* name, i32 variation);
 
 // ?DisableFogOnAlphaGlow@@3HA
 ARTS_IMPORT extern i32 DisableFogOnAlphaGlow;

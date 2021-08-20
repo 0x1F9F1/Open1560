@@ -103,31 +103,31 @@ public:
 
     // ?CopyBitmap@agiSWPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
     ARTS_EXPORT void CopyBitmap(
-        i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
+        i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
     // ?CreateBitmap@agiSWPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_EXPORT RcOwner<class agiBitmap> CreateBitmap() override;
+    ARTS_EXPORT RcOwner<agiBitmap> CreateBitmap() override;
 
     // ?CreateDLP@agiSWPipeline@@UAEPAVDLP@@XZ
-    ARTS_EXPORT RcOwner<class DLP> CreateDLP() override;
+    ARTS_EXPORT RcOwner<DLP> CreateDLP() override;
 
     // ?CreateLight@agiSWPipeline@@UAEPAVagiLight@@XZ
-    ARTS_EXPORT RcOwner<class agiLight> CreateLight() override;
+    ARTS_EXPORT RcOwner<agiLight> CreateLight() override;
 
     // ?CreateLightModel@agiSWPipeline@@UAEPAVagiLightModel@@XZ
-    ARTS_EXPORT RcOwner<class agiLightModel> CreateLightModel() override;
+    ARTS_EXPORT RcOwner<agiLightModel> CreateLightModel() override;
 
     // ?CreateMtlDef@agiSWPipeline@@UAEPAVagiMtlDef@@XZ
-    ARTS_EXPORT RcOwner<class agiMtlDef> CreateMtlDef() override;
+    ARTS_EXPORT RcOwner<agiMtlDef> CreateMtlDef() override;
 
     // ?CreateTexDef@agiSWPipeline@@UAEPAVagiTexDef@@XZ
-    ARTS_EXPORT RcOwner<class agiTexDef> CreateTexDef() override;
+    ARTS_EXPORT RcOwner<agiTexDef> CreateTexDef() override;
 
     // ?CreateTexLut@agiSWPipeline@@UAEPAVagiTexLut@@XZ
-    ARTS_EXPORT RcOwner<class agiTexLut> CreateTexLut() override;
+    ARTS_EXPORT RcOwner<agiTexLut> CreateTexLut() override;
 
     // ?CreateViewport@agiSWPipeline@@UAEPAVagiViewport@@XZ
-    ARTS_EXPORT RcOwner<class agiViewport> CreateViewport() override;
+    ARTS_EXPORT RcOwner<agiViewport> CreateViewport() override;
 
     // ?EndFrame@agiSWPipeline@@UAEXXZ
     ARTS_EXPORT void EndFrame() override;
@@ -152,4 +152,4 @@ public:
 check_size(agiSWPipeline, 0x2F0);
 
 // ?swCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-ARTS_EXPORT Owner<class agiPipeline> swCreatePipeline(i32 argc, char** argv);
+ARTS_EXPORT Owner<agiPipeline> swCreatePipeline(i32 argc, char** argv);

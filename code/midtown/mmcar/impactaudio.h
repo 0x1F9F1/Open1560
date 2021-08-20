@@ -40,23 +40,26 @@
     0x485530 | public: void __thiscall mmImpactAudio::Update(void) | ?Update@mmImpactAudio@@QAEXXZ
 */
 
+class AudSound;
+class mmCarSim;
+
 struct mmImpactAudio
 {
 public:
     // ??0mmImpactAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z
-    ARTS_IMPORT mmImpactAudio(class mmCarSim* arg1, class Vector3* arg2);
+    ARTS_IMPORT mmImpactAudio(mmCarSim* arg1, Vector3* arg2);
 
     // ??1mmImpactAudio@@QAE@XZ
     ARTS_IMPORT ~mmImpactAudio();
 
     // ?EchoOff@mmImpactAudio@@QAEXPAVmmCarSim@@@Z | unused
-    ARTS_IMPORT void EchoOff(class mmCarSim* arg1);
+    ARTS_IMPORT void EchoOff(mmCarSim* arg1);
 
     // ?EchoOn@mmImpactAudio@@QAEXPAVmmCarSim@@@Z | unused
-    ARTS_IMPORT void EchoOn(class mmCarSim* arg1);
+    ARTS_IMPORT void EchoOn(mmCarSim* arg1);
 
     // ?GetBangerPtrs@mmImpactAudio@@QAEXFPAPAVAudSound@@0@Z
-    ARTS_IMPORT void GetBangerPtrs(i16 arg1, class AudSound** arg2, class AudSound** arg3);
+    ARTS_IMPORT void GetBangerPtrs(i16 arg1, AudSound** arg2, AudSound** arg3);
 
     // ?Play@mmImpactAudio@@QAEXMFMM@Z
     ARTS_IMPORT void Play(f32 arg1, i16 arg2, f32 arg3, f32 arg4);

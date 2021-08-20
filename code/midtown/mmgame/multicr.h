@@ -77,6 +77,8 @@
 
 #include "gamemulti.h"
 
+class mmCar;
+
 class mmMultiCR final : public mmGameMulti
 {
 public:
@@ -94,16 +96,16 @@ public:
     ARTS_IMPORT void DropThruCityHandler() override;
 
     // ?FondleCarMass@mmMultiCR@@QAEXPAVmmCar@@M@Z
-    ARTS_IMPORT void FondleCarMass(class mmCar* arg1, f32 arg2);
+    ARTS_IMPORT void FondleCarMass(mmCar* arg1, f32 arg2);
 
     // ?GameMessage@mmMultiCR@@UAEXPAUNETGAME_MSG@@@Z
-    ARTS_IMPORT void GameMessage(struct NETGAME_MSG* arg1) override;
+    ARTS_IMPORT void GameMessage(NETGAME_MSG* arg1) override;
 
     // ?GetClass@mmMultiCR@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetWaypoints@mmMultiCR@@UAEPAVmmWaypoints@@XZ | inline
-    ARTS_EXPORT class mmWaypoints* GetWaypoints() override;
+    ARTS_EXPORT mmWaypoints* GetWaypoints() override;
 
     // ?HitWaterHandler@mmMultiCR@@UAEXXZ
     ARTS_IMPORT void HitWaterHandler() override;
@@ -139,7 +141,7 @@ public:
     ARTS_IMPORT void ResetPositions(i32 arg1);
 
     // ?SystemMessage@mmMultiCR@@UAEXPAUNETSYS_MSG@@@Z
-    ARTS_IMPORT void SystemMessage(struct NETSYS_MSG* arg1) override;
+    ARTS_IMPORT void SystemMessage(NETSYS_MSG* arg1) override;
 
     // ?UpdateDebugKeyInput@mmMultiCR@@UAEXH@Z
     ARTS_EXPORT void UpdateDebugKeyInput(i32 arg1) override;
@@ -161,13 +163,13 @@ private:
     ARTS_IMPORT void DisplayTimeWarning(i32 arg1);
 
     // ?DropGold@mmMultiCR@@AAEXVVector3@@H@Z
-    ARTS_IMPORT void DropGold(class Vector3 arg1, i32 arg2);
+    ARTS_IMPORT void DropGold(Vector3 arg1, i32 arg2);
 
     // ?FillResults@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void FillResults();
 
     // ?FindGround@mmMultiCR@@AAEXVVector3@@AAV2@@Z
-    ARTS_IMPORT void FindGround(class Vector3 arg1, class Vector3& arg2);
+    ARTS_IMPORT void FindGround(Vector3 arg1, Vector3& arg2);
 
     // ?GetRandomIndex@mmMultiCR@@AAEHXZ
     ARTS_IMPORT i32 GetRandomIndex();
@@ -194,7 +196,7 @@ private:
     ARTS_IMPORT void SendGoldDeliver();
 
     // ?SendGoldDrop@mmMultiCR@@AAEXVVector3@@@Z
-    ARTS_IMPORT void SendGoldDrop(class Vector3 arg1);
+    ARTS_IMPORT void SendGoldDrop(Vector3 arg1);
 
     // ?SendLimitReached@mmMultiCR@@AAEXH@Z
     ARTS_IMPORT void SendLimitReached(i32 arg1);
@@ -206,7 +208,7 @@ private:
     ARTS_IMPORT void SendTimeWarning(i32 arg1);
 
     // ?StealGold@mmMultiCR@@AAEXPAVmmCar@@@Z
-    ARTS_IMPORT void StealGold(class mmCar* arg1);
+    ARTS_IMPORT void StealGold(mmCar* arg1);
 
     // ?UpdateBank@mmMultiCR@@AAEXXZ
     ARTS_IMPORT void UpdateBank();

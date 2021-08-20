@@ -60,7 +60,7 @@ public:
     ARTS_IMPORT void AddName(i32 arg1, char* arg2, i32 arg3);
 
     // ?AddTitle@PUResults@@QAEXPAULocString@@0@Z
-    ARTS_IMPORT void AddTitle(struct LocString* arg1, struct LocString* arg2);
+    ARTS_IMPORT void AddTitle(LocString* arg1, LocString* arg2);
 
     // ?ClearNames@PUResults@@QAEXXZ
     ARTS_IMPORT void ClearNames();
@@ -87,7 +87,7 @@ public:
     ARTS_IMPORT void RosterRO(i32 arg1);
 
     // ?SetMessage@PUResults@@QAEXPAULocString@@@Z
-    ARTS_IMPORT void SetMessage(struct LocString* arg1);
+    ARTS_IMPORT void SetMessage(LocString* arg1);
 
     u8 gapC0[0x30];
 };

@@ -50,14 +50,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asBirthRule@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetClass@asBirthRule@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?InitSpark@asBirthRule@@QAEXPAUasSparkInfo@@PAUasSparkPos@@@Z
-    ARTS_IMPORT void InitSpark(struct asSparkInfo* arg1, struct asSparkPos* arg2);
+    ARTS_IMPORT void InitSpark(asSparkInfo* arg1, asSparkPos* arg2);
 
     // ?DeclareFields@asBirthRule@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -98,7 +98,7 @@ public:
 
     i32 BirthFlags;
 
-    void (*InitCallback)(struct asSparkInfo*, struct asSparkPos*);
+    void (*InitCallback)(asSparkInfo*, asSparkPos*);
 };
 
 check_size(asBirthRule, 0xB0);

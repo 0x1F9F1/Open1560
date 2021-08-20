@@ -50,6 +50,8 @@
 
 #include "widget.h"
 
+class mmCompBase;
+
 class UICompositeScroll final : public uiWidget
 {
 public:
@@ -62,16 +64,16 @@ public:
     ARTS_IMPORT ~UICompositeScroll() override;
 
     // ?Action@UICompositeScroll@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?AddComponent@UICompositeScroll@@QAEXPAVmmCompBase@@@Z
-    ARTS_IMPORT void AddComponent(class mmCompBase* arg1);
+    ARTS_IMPORT void AddComponent(mmCompBase* arg1);
 
     // ?AddTitle@UICompositeScroll@@QAEXPAVmmCompBase@@@Z | unused
-    ARTS_IMPORT void AddTitle(class mmCompBase* arg1);
+    ARTS_IMPORT void AddTitle(mmCompBase* arg1);
 
     // ?CaptureAction@UICompositeScroll@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void CaptureAction(union eqEvent arg1) override;
+    ARTS_IMPORT void CaptureAction(eqEvent arg1) override;
 
     // ?Clear@UICompositeScroll@@QAEXXZ
     ARTS_IMPORT void Clear();
@@ -86,8 +88,8 @@ public:
     ARTS_IMPORT i32 GetSelectedCount();
 
     // ?Init@UICompositeScroll@@QAEXMMMMMHPAHHHVCallback@@@Z
-    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, i32 arg6, i32* arg7, i32 arg8, i32 arg9,
-        class Callback arg10);
+    ARTS_IMPORT void Init(
+        f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, i32 arg6, i32* arg7, i32 arg8, i32 arg9, Callback arg10);
 
     // ?InitVScroll@UICompositeScroll@@QAEXMMM@Z
     ARTS_IMPORT void InitVScroll(f32 arg1, f32 arg2, f32 arg3);

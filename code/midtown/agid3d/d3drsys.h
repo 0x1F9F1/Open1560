@@ -55,7 +55,7 @@ class agiD3DRasterizer final : public agiRasterizer
 {
 public:
     // ??0agiD3DRasterizer@@QAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiD3DRasterizer(class agiPipeline* pipe)
+    ARTS_EXPORT agiD3DRasterizer(agiPipeline* pipe)
         : agiRasterizer(pipe)
     {}
 
@@ -83,14 +83,13 @@ public:
     ARTS_EXPORT void Line(i32 i1, i32 i2) override;
 
     // ?Mesh@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
-    ARTS_EXPORT void Mesh(
-        enum agiVtxType type, union agiVtx* verts, i32 vert_count, u16* indices, i32 index_count) override;
+    ARTS_EXPORT void Mesh(agiVtxType type, agiVtx* verts, i32 vert_count, u16* indices, i32 index_count) override;
 
     // ?Mesh2@agiD3DRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z
-    ARTS_EXPORT void Mesh2(struct agiScreenVtx2* verts, i32 vert_count, u16* indices, i32 index_count) override;
+    ARTS_EXPORT void Mesh2(agiScreenVtx2* verts, i32 vert_count, u16* indices, i32 index_count) override;
 
     // ?Points@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    ARTS_EXPORT void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
+    ARTS_EXPORT void Points(agiVtxType arg1, agiVtx* arg2, i32 arg3) override;
 
     // ?SetVertCount@agiD3DRasterizer@@UAEXH@Z
     ARTS_EXPORT void SetVertCount(i32 vert_count) override;
@@ -99,7 +98,7 @@ public:
     ARTS_EXPORT void Triangle(i32 i1, i32 i2, i32 i3) override;
 
     // ?Verts@agiD3DRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    ARTS_EXPORT void Verts(enum agiVtxType type, union agiVtx* verts, i32 vert_count) override;
+    ARTS_EXPORT void Verts(agiVtxType type, agiVtx* verts, i32 vert_count) override;
 
     agiD3DPipeline* Pipe() const
     {
@@ -129,4 +128,4 @@ ARTS_IMPORT extern i32 OrthoFix;
 ARTS_IMPORT extern void* VtxBase;
 
 // ?d3ddev@@3PAUIDirect3DDevice3@@A
-ARTS_IMPORT extern struct IDirect3DDevice3* d3ddev;
+ARTS_IMPORT extern IDirect3DDevice3* d3ddev;

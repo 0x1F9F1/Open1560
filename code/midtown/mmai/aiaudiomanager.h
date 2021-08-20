@@ -67,6 +67,11 @@
 
 #include "arts7/node.h"
 
+class aiVehicleAmbient;
+class aiVehicleOpponent;
+class aiVehiclePolice;
+class AudSound;
+
 class aiAudioManager final : public asNode
 {
 public:
@@ -79,13 +84,13 @@ public:
     ARTS_IMPORT ~aiAudioManager() override;
 
     // ?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z
-    ARTS_IMPORT i16 AddVehicle(class aiVehicleAmbient* arg1);
+    ARTS_IMPORT i16 AddVehicle(aiVehicleAmbient* arg1);
 
     // ?AddVehicle@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z
-    ARTS_IMPORT i16 AddVehicle(class aiVehicleOpponent* arg1);
+    ARTS_IMPORT i16 AddVehicle(aiVehicleOpponent* arg1);
 
     // ?AddVehicle@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z
-    ARTS_IMPORT i16 AddVehicle(class aiVehiclePolice* arg1);
+    ARTS_IMPORT i16 AddVehicle(aiVehiclePolice* arg1);
 
     // ?AllocateAddOnEngine@aiAudioManager@@QAEFPAD@Z
     ARTS_IMPORT i16 AllocateAddOnEngine(char* arg1);
@@ -97,7 +102,7 @@ public:
     ARTS_IMPORT void AllocateCopVoice();
 
     // ?AllocateEngine@aiAudioManager@@QAEPAPAVAudSound@@PAD@Z
-    ARTS_IMPORT class AudSound** AllocateEngine(char* arg1);
+    ARTS_IMPORT AudSound** AllocateEngine(char* arg1);
 
     // ?AllocateEngine@aiAudioManager@@QAEXFF@Z
     ARTS_IMPORT void AllocateEngine(i16 arg1, i16 arg2);
@@ -124,16 +129,16 @@ public:
     ARTS_IMPORT void AllocateVoices();
 
     // ?AssignAddOnSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
-    ARTS_IMPORT void AssignAddOnSounds(class aiVehicleOpponent* arg1, i16 arg2);
+    ARTS_IMPORT void AssignAddOnSounds(aiVehicleOpponent* arg1, i16 arg2);
 
     // ?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z
-    ARTS_IMPORT void AssignSounds(class aiVehicleAmbient* arg1, i16 arg2);
+    ARTS_IMPORT void AssignSounds(aiVehicleAmbient* arg1, i16 arg2);
 
     // ?AssignSounds@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
-    ARTS_IMPORT void AssignSounds(class aiVehicleOpponent* arg1, i16 arg2);
+    ARTS_IMPORT void AssignSounds(aiVehicleOpponent* arg1, i16 arg2);
 
     // ?AssignSounds@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z
-    ARTS_IMPORT void AssignSounds(class aiVehiclePolice* arg1, i16 arg2);
+    ARTS_IMPORT void AssignSounds(aiVehiclePolice* arg1, i16 arg2);
 
     // ?EchoOff@aiAudioManager@@QAEXXZ
     ARTS_IMPORT void EchoOff();
@@ -142,13 +147,13 @@ public:
     ARTS_IMPORT void EchoOn(f32 arg1);
 
     // ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleAmbient@@@Z
-    ARTS_IMPORT i16 FindGreatestDistance(class aiVehicleAmbient* arg1);
+    ARTS_IMPORT i16 FindGreatestDistance(aiVehicleAmbient* arg1);
 
     // ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehicleOpponent@@@Z
-    ARTS_IMPORT i16 FindGreatestDistance(class aiVehicleOpponent* arg1);
+    ARTS_IMPORT i16 FindGreatestDistance(aiVehicleOpponent* arg1);
 
     // ?FindGreatestDistance@aiAudioManager@@QAEFPAVaiVehiclePolice@@@Z
-    ARTS_IMPORT i16 FindGreatestDistance(class aiVehiclePolice* arg1);
+    ARTS_IMPORT i16 FindGreatestDistance(aiVehiclePolice* arg1);
 
     // ?FindUnusedSlot@aiAudioManager@@QAEFXZ
     ARTS_IMPORT i16 FindUnusedSlot();
@@ -166,13 +171,13 @@ public:
     ARTS_IMPORT i16 QueueInCopVoice(f32 arg1);
 
     // ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleAmbient@@F@Z
-    ARTS_IMPORT void RemoveVehicle(class aiVehicleAmbient* arg1, i16 arg2);
+    ARTS_IMPORT void RemoveVehicle(aiVehicleAmbient* arg1, i16 arg2);
 
     // ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehicleOpponent@@F@Z
-    ARTS_IMPORT void RemoveVehicle(class aiVehicleOpponent* arg1, i16 arg2);
+    ARTS_IMPORT void RemoveVehicle(aiVehicleOpponent* arg1, i16 arg2);
 
     // ?RemoveVehicle@aiAudioManager@@QAEXPAVaiVehiclePolice@@F@Z
-    ARTS_IMPORT void RemoveVehicle(class aiVehiclePolice* arg1, i16 arg2);
+    ARTS_IMPORT void RemoveVehicle(aiVehiclePolice* arg1, i16 arg2);
 
     // ?UnassignFurthestAmbient@aiAudioManager@@QAEFXZ
     ARTS_IMPORT i16 UnassignFurthestAmbient();
@@ -193,4 +198,4 @@ private:
 check_size(aiAudioManager, 0x204);
 
 // ?AIAUDMGRPTR@@3PAVaiAudioManager@@A
-ARTS_IMPORT extern class aiAudioManager* AIAUDMGRPTR;
+ARTS_IMPORT extern aiAudioManager* AIAUDMGRPTR;

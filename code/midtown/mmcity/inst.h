@@ -136,7 +136,9 @@
 #include "heap.h"
 #include "vector7/matrix34.h"
 
+class agiMeshSet;
 class mmBoundTemplate;
+class mmPhysEntity;
 
 class mmInstance : public Base
 {
@@ -149,23 +151,23 @@ public:
     // ??1mmInstance@@UAE@XZ
     ARTS_IMPORT ~mmInstance() override = default;
 
-    virtual void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) = 0;
+    virtual void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) = 0;
 
-    virtual class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) = 0;
+    virtual Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) = 0;
 
-    virtual class Vector3& ARTS_FASTCALL GetPos() = 0;
+    virtual Vector3& ARTS_FASTCALL GetPos() = 0;
 
     // ?GetEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ | inline
-    ARTS_EXPORT virtual class mmPhysEntity* GetEntity();
+    ARTS_EXPORT virtual mmPhysEntity* GetEntity();
 
     // ?AttachEntity@mmInstance@@UAEPAVmmPhysEntity@@XZ | inline
-    ARTS_EXPORT virtual class mmPhysEntity* AttachEntity();
+    ARTS_EXPORT virtual mmPhysEntity* AttachEntity();
 
     // ?GetVelocity@mmInstance@@UAE?AVVector3@@XZ | inline
-    ARTS_IMPORT virtual class Vector3 GetVelocity();
+    ARTS_IMPORT virtual Vector3 GetVelocity();
 
     // ?Impact@mmInstance@@UAEXPAV1@PAVVector3@@@Z | inline
-    ARTS_EXPORT virtual void Impact(class mmInstance* arg1, class Vector3* arg2);
+    ARTS_EXPORT virtual void Impact(mmInstance* arg1, Vector3* arg2);
 
     // ?Detach@mmInstance@@UAEXXZ | inline
     ARTS_EXPORT virtual void Detach();
@@ -189,11 +191,11 @@ public:
     ARTS_EXPORT virtual void Reset();
 
 #ifdef ARTS_DEV_BUILD
-    virtual void AddWidgets(class Bank* arg1) = 0;
+    virtual void AddWidgets(Bank* arg1) = 0;
 #endif
 
     // ?Init@mmInstance@@UAEHPADAAVVector3@@1H0@Z
-    ARTS_EXPORT virtual i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5);
+    ARTS_EXPORT virtual i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, i32 arg4, char* arg5);
 
     // ?GetScale@mmInstance@@UAIMXZ
     ARTS_IMPORT virtual f32 ARTS_FASTCALL GetScale();
@@ -202,19 +204,19 @@ public:
     ARTS_IMPORT virtual i32 ComputeLod(f32 arg1, f32 arg2);
 
     // ?AddMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
-    ARTS_IMPORT void AddMeshes(char* arg1, i32 arg2, char* arg3, class Vector3* arg4);
+    ARTS_IMPORT void AddMeshes(char* arg1, i32 arg2, char* arg3, Vector3* arg4);
 
     // ?DrawDropShadow@mmInstance@@QAEXHHABVMatrix34@@@Z
-    ARTS_IMPORT void DrawDropShadow(i32 arg1, i32 arg2, class Matrix34 const& arg3);
+    ARTS_IMPORT void DrawDropShadow(i32 arg1, i32 arg2, Matrix34 const& arg3);
 
     // ?GetClass@mmInstance@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetResidentMeshSet@mmInstance@@QAEPAVagiMeshSet@@HHH@Z
-    ARTS_EXPORT class agiMeshSet* GetResidentMeshSet(i32 lod, i32 index, i32 variant = 0);
+    ARTS_EXPORT agiMeshSet* GetResidentMeshSet(i32 lod, i32 index, i32 variant = 0);
 
     // ?InitMeshes@mmInstance@@QAEXPADH0PAVVector3@@@Z
-    ARTS_IMPORT void InitMeshes(char* arg1, i32 arg2, char* arg3, class Vector3* arg4);
+    ARTS_IMPORT void InitMeshes(char* arg1, i32 arg2, char* arg3, Vector3* arg4);
 
     static void* operator new(std::size_t size);
 
@@ -225,13 +227,13 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // ?GetMeshSetSet@mmInstance@@SAHPADH0PAVVector3@@@Z
-    ARTS_IMPORT static i32 GetMeshSetSet(char* arg1, i32 arg2, char* arg3, class Vector3* arg4);
+    ARTS_IMPORT static i32 GetMeshSetSet(char* arg1, i32 arg2, char* arg3, Vector3* arg4);
 
     // ?ResetAll@mmInstance@@SAXXZ
     ARTS_IMPORT static void ResetAll();
 
     // ?DynamicLighter@mmInstance@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    ARTS_IMPORT static void (*DynamicLighter)(u8*, u32*, u32*, class agiMeshSet*);
+    ARTS_IMPORT static void (*DynamicLighter)(u8*, u32*, u32*, agiMeshSet*);
 
     // ?LodTable@mmInstance@@2PAY132MA
     ARTS_EXPORT static f32 LodTable[3][4][3];
@@ -257,13 +259,13 @@ public:
     };
 
     // ?MeshSetTable@mmInstance@@2PAUMeshSetTableEntry@1@A
-    ARTS_IMPORT static struct MeshSetTableEntry MeshSetTable[4096];
+    ARTS_IMPORT static MeshSetTableEntry MeshSetTable[4096];
 
     // ?ShowLights@mmInstance@@2HA
     ARTS_IMPORT static i32 ShowLights;
 
     // ?StaticLighter@mmInstance@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    ARTS_IMPORT static void (*StaticLighter)(u8*, u32*, u32*, class agiMeshSet*);
+    ARTS_IMPORT static void (*StaticLighter)(u8*, u32*, u32*, agiMeshSet*);
 
     // TODO: When to use GetMeshSet vs GetResidentMeshSet?
 
@@ -365,31 +367,30 @@ public:
     ARTS_IMPORT ~mmMatrixInstance() override = default;
 
     // ?Hit@mmMatrixInstance@@UAEXPAVmmInstance@@@Z
-    ARTS_EXPORT virtual void Hit(class mmInstance* arg1);
+    ARTS_EXPORT virtual void Hit(mmInstance* arg1);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmMatrixInstance@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?FromMatrix@mmMatrixInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
 
     // ?GetClass@mmMatrixInstance@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetPos@mmMatrixInstance@@UAIAAVVector3@@XZ
-    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?Init@mmMatrixInstance@@QAEHPADAAVVector3@@11H0@Z
-    ARTS_IMPORT i32 Init(
-        char* arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4, i32 arg5, char* arg6);
+    ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4, i32 arg5, char* arg6);
 
     // ?SizeOf@mmMatrixInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
 
     // ?ToMatrix@mmMatrixInstance@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
     // ?DeclareFields@mmMatrixInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -414,13 +415,13 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?GetClass@mmShearInstance@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetScale@mmShearInstance@@UAIMXZ
     ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
     // ?Init@mmShearInstance@@QAEHPADAAVVector3@@1MH0@Z
-    ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, i32 arg5, char* arg6);
+    ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, f32 arg4, i32 arg5, char* arg6);
 
     // ?SizeOf@mmShearInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
@@ -448,13 +449,13 @@ public:
     ARTS_EXPORT void ARTS_FASTCALL Draw(i32 lod) override;
 
     // ?GetClass@mmBuildingInstance@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetScale@mmBuildingInstance@@UAIMXZ
     ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
     // ?Init@mmBuildingInstance@@QAEHPADAAVVector3@@11@Z
-    ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, class Vector3& arg4);
+    ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, Vector3& arg4);
 
     // ?SizeOf@mmBuildingInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
@@ -468,7 +469,7 @@ public:
 check_size(mmBuildingInstance, 0x48);
 
 // ?GetPolyInfo@@YAHPAVagiMeshSet@@@Z
-ARTS_IMPORT i32 GetPolyInfo(class agiMeshSet* arg1);
+ARTS_IMPORT i32 GetPolyInfo(agiMeshSet* arg1);
 
 // ?formatf@@YAPADPBDZZ
 ARTS_IMPORT char* formatf(char const* arg1, ...);
@@ -494,23 +495,23 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmYInstance@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?FromMatrix@mmYInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
 
     // ?GetClass@mmYInstance@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetPos@mmYInstance@@UAIAAVVector3@@XZ
-    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?SizeOf@mmYInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
 
     // ?ToMatrix@mmYInstance@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
     // ?DeclareFields@mmYInstance@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
@@ -532,17 +533,17 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmStaticInstance@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Draw@mmStaticInstance@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?GetClass@mmStaticInstance@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmStaticInstance@@QAEHPADAAVVector3@@1MH0@Z | unused
-    ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, i32 arg5, char* arg6);
+    ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, f32 arg4, i32 arg5, char* arg6);
 
     // ?Relight@mmStaticInstance@@UAIXXZ
     ARTS_EXPORT void ARTS_FASTCALL Relight() override;
@@ -572,14 +573,13 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?GetClass@mmFacadeInstance@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetScale@mmFacadeInstance@@UAIMXZ
     ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
     // ?InitFacade@mmFacadeInstance@@QAEHPADAAVVector3@@1MHABV2@@Z
-    ARTS_IMPORT i32 InitFacade(
-        char* arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, i32 arg5, class Vector3 const& arg6);
+    ARTS_IMPORT i32 InitFacade(char* arg1, Vector3& arg2, Vector3& arg3, f32 arg4, i32 arg5, Vector3 const& arg6);
 
     // ?SizeOf@mmFacadeInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
@@ -596,16 +596,16 @@ struct mmFacadeQuad
 {
 public:
     // ??0mmFacadeQuad@@QAE@PAVagiMeshSet@@MM@Z
-    ARTS_IMPORT mmFacadeQuad(class agiMeshSet* arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT mmFacadeQuad(agiMeshSet* arg1, f32 arg2, f32 arg3);
 
     // ?DrawLit@mmFacadeQuad@@QAEXP6AXPAEPAI1PAVagiMeshSet@@@Z2@Z
-    ARTS_IMPORT void DrawLit(void (*arg1)(u8*, u32*, u32*, class agiMeshSet*), class agiMeshSet* arg2);
+    ARTS_IMPORT void DrawLit(void (*arg1)(u8*, u32*, u32*, agiMeshSet*), agiMeshSet* arg2);
 
     // ?DoubleArea@mmFacadeQuad@@SAMPAVagiMeshSet@@@Z
-    ARTS_IMPORT static f32 DoubleArea(class agiMeshSet* arg1);
+    ARTS_IMPORT static f32 DoubleArea(agiMeshSet* arg1);
 
     // ?Valid@mmFacadeQuad@@SAHPAVagiMeshSet@@@Z
-    ARTS_IMPORT static i32 Valid(class agiMeshSet* arg1);
+    ARTS_IMPORT static i32 Valid(agiMeshSet* arg1);
 
     u8 gap0[0x18];
 };

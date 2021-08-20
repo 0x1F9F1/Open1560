@@ -39,7 +39,7 @@ ARTS_IMPORT void DumpPositions(char* arg1);
 ARTS_IMPORT i32 GetPositionCount();
 
 // ?GetPositionVector4@@YAAAVVector4@@H@Z
-ARTS_IMPORT class Vector4& GetPositionVector4(i32 arg1);
+ARTS_IMPORT Vector4& GetPositionVector4(i32 arg1);
 
 // ?InitPositions@@YAXXZ
 ARTS_IMPORT void InitPositions();
@@ -48,10 +48,10 @@ ARTS_IMPORT void InitPositions();
 ARTS_IMPORT void LoadPositions(char* arg1);
 
 // ?RecallPosition@@YAHHPAVMatrix34@@PAHPAD@Z
-ARTS_IMPORT i32 RecallPosition(i32 arg1, class Matrix34* arg2, i32* arg3, char* arg4);
+ARTS_IMPORT i32 RecallPosition(i32 arg1, Matrix34* arg2, i32* arg3, char* arg4);
 
 // ?RegisterPosition@@YAHAAVVector4@@HHHHPAD@Z
-ARTS_IMPORT i32 RegisterPosition(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
+ARTS_IMPORT i32 RegisterPosition(Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
 
 // ?DontClearPositions@@3HA
 ARTS_IMPORT extern i32 DontClearPositions;

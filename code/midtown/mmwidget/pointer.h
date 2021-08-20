@@ -53,7 +53,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?GetClass@sfPointer@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetPointerHeight@sfPointer@@QAEMXZ
     ARTS_IMPORT f32 GetPointerHeight();

@@ -36,6 +36,7 @@
 #include "damage.h"
 
 class agiMeshSet;
+class agiTexDef;
 
 class mmVehicleForm final : public asNode
 {
@@ -52,16 +53,16 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?SetShape@mmVehicleForm@@QAEXPAD00PAVVector3@@@Z
-    ARTS_IMPORT void SetShape(char* arg1, char* arg2, char* arg3, class Vector3* arg4);
+    ARTS_IMPORT void SetShape(char* arg1, char* arg2, char* arg3, Vector3* arg4);
 
     // ?Update@mmVehicleForm@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
     // ?Lighter@mmVehicleForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    ARTS_IMPORT static void (*Lighter)(u8*, u32*, u32*, class agiMeshSet*);
+    ARTS_IMPORT static void (*Lighter)(u8*, u32*, u32*, agiMeshSet*);
 
     // ?SphMapTex@mmVehicleForm@@2PAVagiTexDef@@A
-    ARTS_IMPORT static class agiTexDef* SphMapTex;
+    ARTS_IMPORT static agiTexDef* SphMapTex;
 
 private:
     agiMeshSet* vehicle_mesh_ {nullptr};

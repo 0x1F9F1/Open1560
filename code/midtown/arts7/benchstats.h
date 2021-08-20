@@ -31,10 +31,10 @@ class asBenchStats
 {
 public:
     // ?Average@asBenchStats@@QAEXPAV1@MH@Z
-    ARTS_IMPORT void Average(class asBenchStats* arg1, f32 arg2, i32 arg3);
+    ARTS_IMPORT void Average(asBenchStats* arg1, f32 arg2, i32 arg3);
 
     // ?Current@asBenchStats@@QAEXPAV1@@Z
-    ARTS_IMPORT void Current(class asBenchStats* arg1);
+    ARTS_IMPORT void Current(asBenchStats* arg1);
 
     // ?Print@asBenchStats@@QAEXXZ
     ARTS_EXPORT void Print();

@@ -122,8 +122,13 @@
     0x79FF10 | int LODBIAS | ?LODBIAS@@3HA
 */
 
+struct agiScreenVtx;
+struct swr_sizes_t;
+struct swRastInfo;
+struct swSurface;
+
 // ?__emitDebug@@YIXPAUswSurface@@H@Z | unused
-ARTS_IMPORT void ARTS_FASTCALL __emitDebug(struct swSurface* arg1, i32 arg2);
+ARTS_IMPORT void ARTS_FASTCALL __emitDebug(swSurface* arg1, i32 arg2);
 
 // ?__emitDepthComplexity@@YIXH@Z
 ARTS_IMPORT void ARTS_FASTCALL __emitDepthComplexity(i32 arg1);
@@ -138,34 +143,34 @@ ARTS_IMPORT void ARTS_FASTCALL __emitSolidZ(i32 arg1);
 ARTS_IMPORT void ARTS_FASTCALL __emitWireframe(i32 arg1);
 
 // ?__setupNone@@YIXPAUswSurface@@@Z
-ARTS_EXPORT void ARTS_FASTCALL __setupNone(struct swSurface* arg1);
+ARTS_EXPORT void ARTS_FASTCALL __setupNone(swSurface* arg1);
 
 // ?__setupUV@@YIXPAUswSurface@@@Z
-ARTS_IMPORT void ARTS_FASTCALL __setupUV(struct swSurface* arg1);
+ARTS_IMPORT void ARTS_FASTCALL __setupUV(swSurface* arg1);
 
 // ?__setupUVI@@YIXPAUswSurface@@@Z | unused
-ARTS_IMPORT void ARTS_FASTCALL __setupUVI(struct swSurface* arg1);
+ARTS_IMPORT void ARTS_FASTCALL __setupUVI(swSurface* arg1);
 
 // ?__setupUVIZ@@YIXPAUswSurface@@@Z | unused
-ARTS_IMPORT void ARTS_FASTCALL __setupUVIZ(struct swSurface* arg1);
+ARTS_IMPORT void ARTS_FASTCALL __setupUVIZ(swSurface* arg1);
 
 // ?__setupUVZ@@YIXPAUswSurface@@@Z
-ARTS_IMPORT void ARTS_FASTCALL __setupUVZ(struct swSurface* arg1);
+ARTS_IMPORT void ARTS_FASTCALL __setupUVZ(swSurface* arg1);
 
 // ?__setupZ@@YIXPAUswSurface@@@Z
-ARTS_IMPORT void ARTS_FASTCALL __setupZ(struct swSurface* arg1);
+ARTS_IMPORT void ARTS_FASTCALL __setupZ(swSurface* arg1);
 
 // ?__spanLinear@@YIXPAUswSurface@@H@Z
-ARTS_IMPORT void ARTS_FASTCALL __spanLinear(struct swSurface* arg1, i32 arg2);
+ARTS_IMPORT void ARTS_FASTCALL __spanLinear(swSurface* arg1, i32 arg2);
 
 // ?__spanLinearZwrite@@YIXPAUswSurface@@H@Z
-ARTS_IMPORT void ARTS_FASTCALL __spanLinearZwrite(struct swSurface* arg1, i32 arg2);
+ARTS_IMPORT void ARTS_FASTCALL __spanLinearZwrite(swSurface* arg1, i32 arg2);
 
 // ?__spanPerspXY@@YIXPAUswSurface@@H@Z
-ARTS_IMPORT void ARTS_FASTCALL __spanPerspXY(struct swSurface* arg1, i32 arg2);
+ARTS_IMPORT void ARTS_FASTCALL __spanPerspXY(swSurface* arg1, i32 arg2);
 
 // ?__spanPerspXYZwrite@@YIXPAUswSurface@@H@Z
-ARTS_IMPORT void ARTS_FASTCALL __spanPerspXYZwrite(struct swSurface* arg1, i32 arg2);
+ARTS_IMPORT void ARTS_FASTCALL __spanPerspXYZwrite(swSurface* arg1, i32 arg2);
 
 // ?swAddEdge@@YAXHH@Z
 ARTS_IMPORT void swAddEdge(i32 arg1, i32 arg2);
@@ -174,27 +179,25 @@ ARTS_IMPORT void swAddEdge(i32 arg1, i32 arg2);
 ARTS_IMPORT void swInit();
 
 // ?swInitSurface@@YAPAUswSurface@@UagiScreenVtx@@00I@Z
-ARTS_IMPORT struct swSurface* swInitSurface(
-    struct agiScreenVtx arg1, struct agiScreenVtx arg2, struct agiScreenVtx arg3, u32 arg4);
+ARTS_IMPORT swSurface* swInitSurface(agiScreenVtx arg1, agiScreenVtx arg2, agiScreenVtx arg3, u32 arg4);
 
 // ?swKill@@YAXXZ
 ARTS_EXPORT void swKill();
 
 // ?swLine@@YAXPAUagiScreenVtx@@0@Z
-ARTS_EXPORT void swLine(struct agiScreenVtx* start, struct agiScreenVtx* end);
+ARTS_EXPORT void swLine(agiScreenVtx* start, agiScreenVtx* end);
 
 // ?swLineInt@@YAXHHHHH@Z
 ARTS_IMPORT void swLineInt(i32 start_x, i32 start_y, i32 end_x, i32 end_y, i32 color);
 
 // ?swPoly@@YAXPAUagiScreenVtx@@H@Z
-ARTS_IMPORT void swPoly(struct agiScreenVtx* arg1, i32 arg2);
+ARTS_IMPORT void swPoly(agiScreenVtx* arg1, i32 arg2);
 
 // ?swQuad@@YAXPAUagiScreenVtx@@000@Z
-ARTS_IMPORT void swQuad(
-    struct agiScreenVtx* arg1, struct agiScreenVtx* arg2, struct agiScreenVtx* arg3, struct agiScreenVtx* arg4);
+ARTS_IMPORT void swQuad(agiScreenVtx* arg1, agiScreenVtx* arg2, agiScreenVtx* arg3, agiScreenVtx* arg4);
 
 // ?swScanSurface@@YAXPAUswSurface@@@Z
-ARTS_IMPORT void swScanSurface(struct swSurface* arg1);
+ARTS_IMPORT void swScanSurface(swSurface* arg1);
 
 // ?swScanSurfaces@@YAXXZ
 ARTS_IMPORT void swScanSurfaces();
@@ -203,7 +206,7 @@ ARTS_IMPORT void swScanSurfaces();
 ARTS_IMPORT void swSetInterlace(i32 arg1);
 
 // ?swTri@@YAXPAUagiScreenVtx@@00@Z
-ARTS_IMPORT void swTri(struct agiScreenVtx* arg1, struct agiScreenVtx* arg2, struct agiScreenVtx* arg3);
+ARTS_IMPORT void swTri(agiScreenVtx* arg1, agiScreenVtx* arg2, agiScreenVtx* arg3);
 
 // ?BACKFACE@@3HA
 ARTS_IMPORT extern i32 BACKFACE;
@@ -311,7 +314,7 @@ ARTS_IMPORT extern u32 swFrameOffset;
 ARTS_IMPORT extern i32 swGreenMask;
 
 // ?swInfo@@3UswRastInfo@@A
-ARTS_IMPORT extern struct swRastInfo swInfo;
+ARTS_IMPORT extern swRastInfo swInfo;
 
 // ?swIsInterlaced@@3HA
 ARTS_IMPORT extern i32 swIsInterlaced;
@@ -359,7 +362,7 @@ ARTS_IMPORT extern i32 swr_dz;
 ARTS_IMPORT extern i32 swr_i;
 
 // ?swr_sizes@@3Tswr_sizes_t@@A
-ARTS_IMPORT extern union swr_sizes_t swr_sizes;
+ARTS_IMPORT extern swr_sizes_t swr_sizes;
 
 // ?swr_src@@3PAXA
 ARTS_IMPORT extern void* swr_src;

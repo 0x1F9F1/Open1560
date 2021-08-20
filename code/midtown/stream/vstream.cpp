@@ -22,8 +22,8 @@ define_dummy_symbol(stream_vstream);
 
 #include "vfsystem.h"
 
-VirtualStream::VirtualStream(class Stream* base_stream, struct VirtualFileInode* file_node, void* buffer,
-    isize buffer_size, class FileSystem* file_system)
+VirtualStream::VirtualStream(
+    Stream* base_stream, VirtualFileInode* file_node, void* buffer, isize buffer_size, FileSystem* file_system)
     : Stream(buffer, buffer_size, file_system)
     , base_stream_(base_stream)
     , data_offset_(file_node->GetOffset())

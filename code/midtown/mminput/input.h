@@ -114,11 +114,15 @@
 
 #include "eventq7/eventq.h"
 
+struct IDirectInputA;
+class mmInput;
+class mmIODev;
+
 // ?testsuperq@@YAXXZ | unused
 ARTS_IMPORT void testsuperq();
 
 // ?GameInputPtr@@3PAVmmInput@@A
-ARTS_IMPORT extern class mmInput* GameInputPtr;
+ARTS_IMPORT extern mmInput* GameInputPtr;
 
 // mmIO Flags
 #define IO_FLAG_EVENT 0x1
@@ -175,7 +179,7 @@ ARTS_IMPORT extern class mmInput* GameInputPtr;
 #define MM_POLL_JOY_AXES_INDEX 0x1000 // Joystick index of axis pressed (0x1000 << index)
 
 // ?IODev@@3PAVmmIODev@@A
-ARTS_IMPORT extern class mmIODev* IODev;
+ARTS_IMPORT extern mmIODev* IODev;
 
 namespace $
 {
@@ -262,14 +266,14 @@ ARTS_IMPORT extern char* LocStrUndef;
 ARTS_IMPORT extern i32 UseDIKey;
 
 // ?gpdi@@3PAUIDirectInputA@@A
-ARTS_IMPORT extern struct IDirectInputA* gpdi;
+ARTS_IMPORT extern IDirectInputA* gpdi;
 
 // ?testValue@@3MA
 ARTS_IMPORT extern f32 testValue;
 
-class mmJoyMan;
-class mmIO;
 class eqEventQ;
+class mmIO;
+class mmJoyMan;
 
 class mmInput final : public asNode
 {
@@ -282,7 +286,7 @@ public:
     ARTS_IMPORT ~mmInput() override;
 
     // ?AssignIO@mmInput@@QAEXPAVmmIO@@HH@Z
-    ARTS_IMPORT void AssignIO(class mmIO* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT void AssignIO(mmIO* arg1, i32 arg2, i32 arg3);
 
     // ?AttachToPipe@mmInput@@QAEHXZ
     ARTS_IMPORT i32 AttachToPipe();
@@ -291,13 +295,13 @@ public:
     ARTS_IMPORT void AutoSetup();
 
     // ?BinaryLoadConfig@mmInput@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 BinaryLoadConfig(class Stream* arg1);
+    ARTS_IMPORT i32 BinaryLoadConfig(Stream* arg1);
 
     // ?BinarySaveConfig@mmInput@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 BinarySaveConfig(class Stream* arg1);
+    ARTS_IMPORT i32 BinarySaveConfig(Stream* arg1);
 
     // ?BuildCaptureIO@mmInput@@QAEHHPAVmmIO@@TeqEvent@@@Z
-    ARTS_EXPORT i32 BuildCaptureIO(i32 button, class mmIO* io, union eqEvent event);
+    ARTS_EXPORT i32 BuildCaptureIO(i32 button, mmIO* io, eqEvent event);
 
     // ?CaptureState@mmInput@@QAEXH@Z
     ARTS_IMPORT void CaptureState(i32 arg1);
@@ -333,7 +337,7 @@ public:
     ARTS_IMPORT void Flush();
 
     // ?ForceAssignment@mmInput@@QAEXPAVmmIO@@@Z
-    ARTS_IMPORT void ForceAssignment(class mmIO* arg1);
+    ARTS_IMPORT void ForceAssignment(mmIO* arg1);
 
     // ?GamepadConnected@mmInput@@QAEHXZ
     ARTS_EXPORT b32 GamepadConnected();
@@ -348,7 +352,7 @@ public:
     ARTS_IMPORT f32 GetCamPan();
 
     // ?GetClass@mmInput@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetHandBrake@mmInput@@QAEMXZ
     ARTS_IMPORT f32 GetHandBrake();
@@ -363,13 +367,13 @@ public:
     ARTS_IMPORT f32 GetThrottleVal();
 
     // ?IOInit@mmInput@@QAEXHPAULocString@@J@Z
-    ARTS_IMPORT void IOInit(i32 arg1, struct LocString* arg2, ilong arg3);
+    ARTS_IMPORT void IOInit(i32 arg1, LocString* arg2, ilong arg3);
 
     // ?Init@mmInput@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
     // ?IsAlreadyAssigned@mmInput@@QAEHPAVmmIO@@HHH@Z
-    ARTS_IMPORT i32 IsAlreadyAssigned(class mmIO* arg1, i32 arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT i32 IsAlreadyAssigned(mmIO* arg1, i32 arg2, i32 arg3, i32 arg4);
 
     // ?JoystickConnected@mmInput@@QAEHXZ
     ARTS_EXPORT b32 JoystickConnected();
@@ -381,7 +385,7 @@ public:
     ARTS_IMPORT b32 JoystickHasThrottle();
 
     // ?LoadConfig@mmInput@@QAEHPAVStream@@@Z | unused
-    ARTS_IMPORT i32 LoadConfig(class Stream* arg1);
+    ARTS_IMPORT i32 LoadConfig(Stream* arg1);
 
     // ?PollStates@mmInput@@QAEHXZ
     ARTS_IMPORT i32 PollStates();
@@ -405,16 +409,16 @@ public:
     ARTS_IMPORT i32 ReturnStateCaptured();
 
     // ?SanityCheck@mmInput@@QAEHPAVmmIO@@HH@Z
-    ARTS_IMPORT i32 SanityCheck(class mmIO* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT i32 SanityCheck(mmIO* arg1, i32 arg2, i32 arg3);
 
     // ?SaveCB@mmInput@@QAEXXZ
     ARTS_IMPORT void SaveCB();
 
     // ?SaveCodeConfig@mmInput@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 SaveCodeConfig(class Stream* arg1);
+    ARTS_IMPORT i32 SaveCodeConfig(Stream* arg1);
 
     // ?SaveConfig@mmInput@@QAEHPAVStream@@@Z | unused
-    ARTS_IMPORT i32 SaveConfig(class Stream* arg1);
+    ARTS_IMPORT i32 SaveConfig(Stream* arg1);
 
     // ?SetDeadZone@mmInput@@QAEXM@Z | unused
     ARTS_IMPORT void SetDeadZone(f32 arg1);
@@ -507,7 +511,7 @@ public:
 private:
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmInput@@EAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?EventToButton@mmInput@@AAEHH@Z | unused
@@ -520,10 +524,10 @@ private:
     ARTS_EXPORT void GetBufferedKeyboardData();
 
     // ?GetNextKeyboardEvent@mmInput@@AAEHPATeqEvent@@@Z
-    ARTS_EXPORT b32 GetNextKeyboardEvent(union eqEvent* event);
+    ARTS_EXPORT b32 GetNextKeyboardEvent(eqEvent* event);
 
     // ?PollContinuous@mmInput@@AAEXPAVmmIO@@@Z
-    ARTS_IMPORT void PollContinuous(class mmIO* arg1);
+    ARTS_IMPORT void PollContinuous(mmIO* arg1);
 
     // ?ProcessEvents@mmInput@@AAEXXZ
     ARTS_EXPORT void ProcessEvents();
@@ -544,10 +548,10 @@ private:
     ARTS_IMPORT void PutEventInQueue(i64 arg1);
 
     // ?ScanForEvent@mmInput@@AAE_JPATeqEvent@@@Z
-    ARTS_IMPORT i64 ScanForEvent(union eqEvent* arg1);
+    ARTS_IMPORT i64 ScanForEvent(eqEvent* arg1);
 
     // ?ScanState@mmInput@@AAE_JPAVmmIO@@@Z
-    ARTS_IMPORT i64 ScanState(class mmIO* arg1);
+    ARTS_IMPORT i64 ScanState(mmIO* arg1);
 };
 
 check_size(mmInput, 0x248);

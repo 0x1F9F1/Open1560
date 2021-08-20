@@ -45,7 +45,7 @@ public:
     ARTS_EXPORT agiLightParameters() = default;
 
     // ??4agiLightParameters@@QAEXABV0@@Z
-    ARTS_EXPORT void operator=(class agiLightParameters const& rhs)
+    ARTS_EXPORT void operator=(agiLightParameters const& rhs)
     {
         std::memcpy(this, &rhs, sizeof(*this));
 
@@ -87,7 +87,7 @@ class agiLight : public agiRefreshable
 {
 public:
     // ??0agiLight@@QAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiLight(class agiPipeline* pipe)
+    ARTS_EXPORT agiLight(agiPipeline* pipe)
         : agiRefreshable(pipe)
     {}
 
@@ -105,7 +105,7 @@ public:
     ARTS_EXPORT char* GetName() override;
 
     // ?Init@agiLight@@QAEHABVagiLightParameters@@@Z
-    ARTS_EXPORT i32 Init(class agiLightParameters const& params);
+    ARTS_EXPORT i32 Init(agiLightParameters const& params);
 
     agiLightParameters Params {};
 };

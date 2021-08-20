@@ -42,7 +42,7 @@ public:
     ARTS_IMPORT ~mmGameRecord();
 
     // ?DoScan@mmGameRecord@@QAEXAAVVector4@@@Z
-    ARTS_IMPORT void DoScan(class Vector4& arg1);
+    ARTS_IMPORT void DoScan(Vector4& arg1);
 
     // ?Dump@mmGameRecord@@QAEXPAD@Z
     ARTS_IMPORT void Dump(char* arg1);
@@ -51,14 +51,14 @@ public:
     ARTS_IMPORT i32 GetCount();
 
     // ?GetVector4@mmGameRecord@@QAEAAVVector4@@H@Z | unused
-    ARTS_IMPORT class Vector4& GetVector4(i32 arg1);
+    ARTS_IMPORT Vector4& GetVector4(i32 arg1);
 
     // ?Init@mmGameRecord@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
 
     // ?Register@mmGameRecord@@QAEHAAVVector4@@MMMMMMMM@Z
     ARTS_IMPORT i32 Register(
-        class Vector4& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9);
+        Vector4& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, f32 arg8, f32 arg9);
 
     // ?Sim@mmGameRecord@@QAEXXZ
     ARTS_IMPORT void Sim();

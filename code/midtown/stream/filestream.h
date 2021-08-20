@@ -52,7 +52,7 @@ public:
     ARTS_EXPORT FileStream(i32 handle);
 
     // ??0FileStream@@QAE@PAXHPAVFileSystem@@@Z
-    ARTS_EXPORT FileStream(void* buffer, isize buffer_size, class FileSystem* file_system);
+    ARTS_EXPORT FileStream(void* buffer, isize buffer_size, FileSystem* file_system);
 
     // ??_EFileStream@@UAEPAXI@Z
     // ??1FileStream@@UAE@XZ
@@ -108,7 +108,7 @@ private:
 // check_size(FileStream, 0x28);
 
 // ?__stdin@@3VFileStream@@A
-ARTS_EXPORT extern class FileStream __stdin;
+ARTS_EXPORT extern FileStream __stdin;
 
 // ?__stdout@@3VFileStream@@A
-ARTS_EXPORT extern class FileStream __stdout;
+ARTS_EXPORT extern FileStream __stdout;

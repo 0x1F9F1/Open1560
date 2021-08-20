@@ -22,10 +22,10 @@ define_dummy_symbol(mmwidget_widget);
 
 #include "eventq7/eventq.h"
 
-void uiWidget::Action(union eqEvent /*arg1*/)
+void uiWidget::Action(eqEvent /*arg1*/)
 {}
 
-void uiWidget::CaptureAction(union eqEvent /*arg1*/)
+void uiWidget::CaptureAction(eqEvent /*arg1*/)
 {}
 
 void uiWidget::Switch(i32 /*arg1*/)
@@ -42,7 +42,7 @@ char* uiWidget::ReturnDescription()
 void uiWidget::SetPosition(f32 /*arg1*/, f32 /*arg2*/)
 {}
 
-void uiWidget::AddToolTip(class UIMenu* /*arg1*/, struct LocString* /*arg2*/)
+void uiWidget::AddToolTip(UIMenu* /*arg1*/, LocString* /*arg2*/)
 {}
 
 void uiWidget::ResetToolTip()

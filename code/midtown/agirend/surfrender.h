@@ -50,14 +50,16 @@
 
 #include "agi/render.h"
 
-class agiRasterizer;
 class agiLighter;
+struct agiPatch;
+class agiRasterizer;
+struct agiSurface;
 
 class agiSurfRenderer : public agiRenderer
 {
 public:
     // ??0agiSurfRenderer@@QAE@PAVagiRasterizer@@@Z
-    ARTS_IMPORT agiSurfRenderer(class agiRasterizer* arg1);
+    ARTS_IMPORT agiSurfRenderer(agiRasterizer* arg1);
 
     // ?BeginDraw@agiSurfRenderer@@UAEXH@Z
     ARTS_EXPORT void BeginDraw(i32 flags) override;
@@ -66,13 +68,13 @@ public:
     ARTS_EXPORT void BeginGroup() override;
 
     // ?Draw@agiSurfRenderer@@UAEXPAVDLP@@H@Z
-    ARTS_IMPORT void Draw(class DLP* arg1, i32 arg2) override;
+    ARTS_IMPORT void Draw(DLP* arg1, i32 arg2) override;
 
     // ?DrawCard@agiSurfRenderer@@UAEXAAVVector3@@@Z
-    ARTS_IMPORT void DrawCard(class Vector3& arg1) override;
+    ARTS_IMPORT void DrawCard(Vector3& arg1) override;
 
     // ?DrawLabel@agiSurfRenderer@@UAEXAATagiVtx@@PAD@Z
-    ARTS_IMPORT void DrawLabel(union agiVtx& arg1, char* arg2) override;
+    ARTS_IMPORT void DrawLabel(agiVtx& arg1, char* arg2) override;
 
     // ?DrawLine@agiSurfRenderer@@UAEXHH@Z
     ARTS_IMPORT void DrawLine(i32 arg1, i32 arg2) override;
@@ -84,10 +86,10 @@ public:
     ARTS_IMPORT void EndDraw() override;
 
     // ?Points@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
-    ARTS_IMPORT void Points(union agiVtx* arg1, i32 arg2) override;
+    ARTS_IMPORT void Points(agiVtx* arg1, i32 arg2) override;
 
     // ?Verts@agiSurfRenderer@@UAEXPATagiVtx@@H@Z
-    ARTS_IMPORT void Verts(union agiVtx* arg1, i32 arg2) override;
+    ARTS_IMPORT void Verts(agiVtx* arg1, i32 arg2) override;
 
 protected:
     // ??_EagiSurfRenderer@@MAEPAXI@Z
@@ -99,14 +101,14 @@ protected:
     ARTS_IMPORT static i32 SurfaceCount;
 
     // ?SurfaceHeap@agiSurfRenderer@@1PAUagiSurface@@A
-    ARTS_IMPORT static struct agiSurface SurfaceHeap[16384];
+    ARTS_IMPORT static agiSurface SurfaceHeap[16384];
 
     // ?VertexCount@agiSurfRenderer@@1HA
     ARTS_IMPORT static i32 VertexCount;
 
 private:
     // ?AddSurface@agiSurfRenderer@@CAHPAUagiPatch@@HHHH@Z
-    ARTS_IMPORT static i32 AddSurface(struct agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT static i32 AddSurface(agiPatch* arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     agiRasterizer* rasterizer_ {nullptr};
     agiLighter* lighter_ {nullptr};

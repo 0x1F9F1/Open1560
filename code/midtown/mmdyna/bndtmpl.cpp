@@ -23,7 +23,7 @@ define_dummy_symbol(mmdyna_bndtmpl);
 void mmBoundTemplate::DrawGraph()
 {}
 
-i32 mmBoundTemplate::LineSphere(class mmIntersection* /*arg1*/)
+i32 mmBoundTemplate::LineSphere(mmIntersection* /*arg1*/)
 {
     return 0;
 }

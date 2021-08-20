@@ -41,6 +41,11 @@
 
 #include <atomic>
 
+struct agiMeshCardInfo;
+struct agiMeshCardVertex;
+class agiTexDef;
+class agiViewParameters;
+
 // agiMeshSet::Flags
 #define MESH_SET_UV 0x1      // agiMeshSet::TexCoords
 #define MESH_SET_NORMAL 0x2  // agiMeshSet::Normals
@@ -63,8 +68,6 @@
 #define MESH_SET_VARIANT_MASK 0xF00
 #define MESH_SET_VARIANT_SHIFT 8
 
-using agiMeshLighter = void (*)(u8* codes, u32* output, u32* colors, class agiMeshSet* mesh);
-
 #define MESH_DRAW_CLIP 0x1   // Use agiMeshSet::codes
 #define MESH_DRAW_DYNTEX 0x8 // Do not share vertices between textures
 #define MESH_DRAW_VARIANT(VARIANT) ((VARIANT) << 4)
@@ -79,6 +82,9 @@ using agiMeshLighter = void (*)(u8* codes, u32* output, u32* colors, class agiMe
 #define MESH_CLIP_ANY 0x3F    // Clip *
 #define MESH_CLIP_SCREEN 0x40 // ToScreen
 
+class agiMeshSet;
+using agiMeshLighter = void (*)(u8* codes, u32* output, u32* colors, agiMeshSet* mesh);
+
 class agiMeshSet
 {
 public:
@@ -89,10 +95,10 @@ public:
     ARTS_EXPORT ~agiMeshSet();
 
     // ?BinaryLoad@agiMeshSet@@QAEXPAVStream@@@Z | agiworld:meshload
-    ARTS_EXPORT void BinaryLoad(class Stream* stream);
+    ARTS_EXPORT void BinaryLoad(Stream* stream);
 
     // ?BinarySave@agiMeshSet@@QAEXPAVStream@@@Z | agiworld:meshsave
-    ARTS_EXPORT void BinarySave(class Stream* stream);
+    ARTS_EXPORT void BinarySave(Stream* stream);
 
     // ?ComputePlaneEquations@agiMeshSet@@QAEXXZ
     ARTS_EXPORT void ComputePlaneEquations();
@@ -107,73 +113,73 @@ public:
     ARTS_EXPORT b32 DrawLit(agiMeshLighter lighter, u32 flags, u32* colors);
 
     // ?DrawLitEnv@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@AAVMatrix34@@I@Z | agiworld:meshrend
-    ARTS_EXPORT void DrawLitEnv(agiMeshLighter lighter, class agiTexDef* env_map, class Matrix34& transform, u32 flags);
+    ARTS_EXPORT void DrawLitEnv(agiMeshLighter lighter, agiTexDef* env_map, Matrix34& transform, u32 flags);
 
     // ?DrawLitSph@agiMeshSet@@QAEXP6AXPAEPAI1PAV1@@ZPAVagiTexDef@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void DrawLitSph(agiMeshLighter lighter, class agiTexDef* sph_map, u32 flags);
+    ARTS_IMPORT void DrawLitSph(agiMeshLighter lighter, agiTexDef* sph_map, u32 flags);
 
     // ?DrawNormals@agiMeshSet@@QAEXAAVVector3@@@Z | agiworld:meshrend
-    ARTS_IMPORT void DrawNormals(class Vector3& arg1);
+    ARTS_IMPORT void DrawNormals(Vector3& arg1);
 
     // ?DrawShadow@agiMeshSet@@QAEXIABVVector4@@ABVVector3@@@Z | agiworld:meshrend
-    ARTS_EXPORT void DrawShadow(u32 flags, class Vector4 const& plane, class Vector3 const& light_dir);
+    ARTS_EXPORT void DrawShadow(u32 flags, Vector4 const& plane, Vector3 const& light_dir);
 
     // ?EnvMap@agiMeshSet@@QAEXAAVMatrix34@@PAVagiTexDef@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void EnvMap(class Matrix34& arg1, class agiTexDef* arg2, u32 arg3);
+    ARTS_IMPORT void EnvMap(Matrix34& arg1, agiTexDef* arg2, u32 arg3);
 
     // ?FirstPass@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_EXPORT void FirstPass(u32* colors, class Vector2* tex_coords, u32 color);
+    ARTS_EXPORT void FirstPass(u32* colors, Vector2* tex_coords, u32 color);
 
     // ?FirstPass_HW_UV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_HW_UV_CPV_DYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_HW_UV_CPV_DYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_HW_UV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_HW_UV_CPV_noDYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_HW_UV_CPV_noDYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_HW_UV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_HW_UV_noCPV_DYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_HW_UV_noCPV_DYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_HW_UV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_HW_UV_noCPV_noDYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_HW_UV_noCPV_noDYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_HW_noUV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_HW_noUV_CPV_DYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_HW_noUV_CPV_DYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_HW_noUV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_HW_noUV_CPV_noDYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_HW_noUV_CPV_noDYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_HW_noUV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_HW_noUV_noCPV_DYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_HW_noUV_noCPV_DYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_HW_noUV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_HW_noUV_noCPV_noDYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_HW_noUV_noCPV_noDYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_SW_UV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_SW_UV_CPV_DYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_SW_UV_CPV_DYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_SW_UV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_SW_UV_CPV_noDYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_SW_UV_CPV_noDYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_SW_UV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_SW_UV_noCPV_DYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_SW_UV_noCPV_DYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_SW_UV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_SW_UV_noCPV_noDYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_SW_UV_noCPV_noDYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_SW_noUV_CPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_SW_noUV_CPV_DYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_SW_noUV_CPV_DYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_SW_noUV_CPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_SW_noUV_CPV_noDYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_SW_noUV_CPV_noDYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_SW_noUV_noCPV_DYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_SW_noUV_noCPV_DYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_SW_noUV_noCPV_DYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?FirstPass_SW_noUV_noCPV_noDYNTEX@agiMeshSet@@QAEXPAIPAVVector2@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void FirstPass_SW_noUV_noCPV_noDYNTEX(u32* arg1, class Vector2* arg2, u32 arg3);
+    ARTS_IMPORT void FirstPass_SW_noUV_noCPV_noDYNTEX(u32* arg1, Vector2* arg2, u32 arg3);
 
     // ?Geometry@agiMeshSet@@QAEHIPAVVector3@@PAVVector4@@@Z | agiworld:meshrend
-    ARTS_EXPORT i32 Geometry(u32 flags, class Vector3* verts, class Vector4* planes);
+    ARTS_EXPORT i32 Geometry(u32 flags, Vector3* verts, Vector4* planes);
 
     // ?IsFullyResident@agiMeshSet@@QAEHH@Z
     ARTS_EXPORT b32 IsFullyResident(i32 variant);
@@ -185,20 +191,19 @@ public:
     ARTS_EXPORT void MakeResident();
 
     // ?MultiTexEnvMap@agiMeshSet@@QAEXPAIIPAVagiTexDef@@AAVMatrix34@@@Z | agiworld:meshrend
-    ARTS_IMPORT void MultiTexEnvMap(u32* arg1, u32 arg2, class agiTexDef* arg3, class Matrix34& arg4);
+    ARTS_IMPORT void MultiTexEnvMap(u32* arg1, u32 arg2, agiTexDef* arg3, Matrix34& arg4);
 
     // ?Offset@agiMeshSet@@QAEXVVector3@@@Z
-    ARTS_EXPORT void Offset(class Vector3 offset);
+    ARTS_EXPORT void Offset(Vector3 offset);
 
     // ?PageIn@agiMeshSet@@QAEXXZ
     ARTS_EXPORT void PageIn();
 
     // ?ShadowGeometry@agiMeshSet@@QAEHIPAVVector3@@ABVVector4@@ABV2@@Z | agiworld:meshrend
-    ARTS_EXPORT i32 ShadowGeometry(
-        u32 flags, class Vector3* verts, class Vector4 const& surface_dir, class Vector3 const& light_dir);
+    ARTS_EXPORT i32 ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface_dir, Vector3 const& light_dir);
 
     // ?SphereMap@agiMeshSet@@QAEXPAVagiTexDef@@I@Z | agiworld:meshrend
-    ARTS_IMPORT void SphereMap(class agiTexDef* arg1, u32 arg2);
+    ARTS_IMPORT void SphereMap(agiTexDef* arg1, u32 arg2);
 
     // ?Unlock@agiMeshSet@@QAEXXZ
     ARTS_EXPORT void Unlock();
@@ -207,35 +212,34 @@ public:
     ARTS_EXPORT void UnlockAndFree();
 
     // ?DrawCard@agiMeshSet@@SAXAAVVector3@@MIII@Z | agiworld:meshrend
-    ARTS_IMPORT static void DrawCard(class Vector3& arg1, f32 arg2, u32 arg3, u32 arg4, u32 arg5);
+    ARTS_IMPORT static void DrawCard(Vector3& arg1, f32 arg2, u32 arg3, u32 arg4, u32 arg5);
 
     // ?DrawLines@agiMeshSet@@SAXPAVVector3@@0PAIH@Z | agiworld:meshrend
-    ARTS_EXPORT static void DrawLines(class Vector3* starts, class Vector3* ends, u32* colors, i32 count);
+    ARTS_EXPORT static void DrawLines(Vector3* starts, Vector3* ends, u32* colors, i32 count);
 
     // ?DrawWideLines@agiMeshSet@@SAXPAVVector3@@0PAMPAIH@Z | agiworld:meshrend
-    ARTS_EXPORT static void DrawWideLines(
-        class Vector3* starts, class Vector3* ends, f32* widths, u32* colors, i32 count);
+    ARTS_EXPORT static void DrawWideLines(Vector3* starts, Vector3* ends, f32* widths, u32* colors, i32 count);
 
     // ?Init@agiMeshSet@@SIXH@Z | agiworld:meshrend
     ARTS_IMPORT static void ARTS_FASTCALL Init(i32 arg1);
 
     // ?InitCards@agiMeshSet@@SAXAAUagiMeshCardInfo@@@Z | agiworld:meshrend
-    ARTS_IMPORT static void InitCards(struct agiMeshCardInfo& arg1);
+    ARTS_IMPORT static void InitCards(agiMeshCardInfo& arg1);
 
     // ?InitLocalize@agiMeshSet@@SAXXZ | agiworld:meshrend
     ARTS_IMPORT static void InitLocalize();
 
     // ?Localize@agiMeshSet@@SAXAAVVector3@@0@Z | agiworld:meshrend | unused
-    ARTS_IMPORT static void Localize(class Vector3& arg1, class Vector3& arg2);
+    ARTS_IMPORT static void Localize(Vector3& arg1, Vector3& arg2);
 
     // ?LocalizeDirection@agiMeshSet@@SAXAAVVector3@@0@Z | agiworld:meshrend
-    ARTS_IMPORT static void LocalizeDirection(class Vector3& arg1, class Vector3& arg2);
+    ARTS_IMPORT static void LocalizeDirection(Vector3& arg1, Vector3& arg2);
 
     // ?SetFog@agiMeshSet@@SAXMH@Z | agiworld:meshrend
     ARTS_EXPORT static void SetFog(f32 fog, i32 arg2);
 
     // ?DefaultQuad@agiMeshSet@@2PAUagiMeshCardVertex@@A | agiworld:meshrend
-    ARTS_IMPORT static struct agiMeshCardVertex DefaultQuad[4];
+    ARTS_IMPORT static agiMeshCardVertex DefaultQuad[4];
 
     // ?DepthOffset@agiMeshSet@@2MA | agiworld:meshrend
     ARTS_EXPORT static f32 DepthOffset;
@@ -247,13 +251,13 @@ public:
     ARTS_EXPORT static i32 EyePlaneCount;
 
     // ?EyePlanes@agiMeshSet@@2PAVVector4@@A | agiworld:meshrend
-    ARTS_IMPORT static class Vector4 EyePlanes[2];
+    ARTS_IMPORT static Vector4 EyePlanes[2];
 
     // ?EyePlanesHit@agiMeshSet@@2HA | agiworld:meshrend
     ARTS_EXPORT static i32 EyePlanesHit;
 
     // ?EyePos@agiMeshSet@@2VVector3@@A | agiworld:meshrend
-    ARTS_EXPORT static class Vector3 EyePos;
+    ARTS_EXPORT static Vector3 EyePos;
 
     // ?FlipX@agiMeshSet@@2HA | agiworld:meshrend
     ARTS_EXPORT static b32 FlipX;
@@ -262,7 +266,7 @@ public:
     ARTS_EXPORT static f32 FogValue;
 
     // ?HitEyePlanes@agiMeshSet@@2PAVVector4@@A | agiworld:meshrend
-    ARTS_IMPORT static class Vector4 HitEyePlanes[2];
+    ARTS_IMPORT static Vector4 HitEyePlanes[2];
 
     // ?MirrorMode@agiMeshSet@@2HA | agiworld:meshrend
     ARTS_EXPORT static b32 MirrorMode;
@@ -279,33 +283,32 @@ protected:
     static void ARTS_FASTCALL ClampToScreen(T& vert);
 
     // ?InitMtx@agiMeshSet@@KIXAAVagiViewParameters@@H@Z | agiworld:meshrend
-    ARTS_IMPORT static void ARTS_FASTCALL InitMtx(class agiViewParameters& arg1, i32 arg2);
+    ARTS_IMPORT static void ARTS_FASTCALL InitMtx(agiViewParameters& arg1, i32 arg2);
 
     // ?InitViewport@agiMeshSet@@KIXAAVagiViewParameters@@@Z | agiworld:meshrend
-    ARTS_EXPORT static void ARTS_FASTCALL InitViewport(class agiViewParameters& params);
+    ARTS_EXPORT static void ARTS_FASTCALL InitViewport(agiViewParameters& params);
 
     // ?ShadowInit@agiMeshSet@@KIXABVVector4@@ABVVector3@@@Z | agiworld:meshrend
-    ARTS_IMPORT static void ARTS_FASTCALL ShadowInit(class Vector4 const& arg1, class Vector3 const& arg2);
+    ARTS_IMPORT static void ARTS_FASTCALL ShadowInit(Vector4 const& arg1, Vector3 const& arg2);
 
     // ?ShadowTransform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
     ARTS_EXPORT static void ARTS_FASTCALL ShadowTransform(
-        class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count);
+        Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
 
     // ?ShadowTransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    ARTS_EXPORT static u32 ARTS_FASTCALL ShadowTransformOutcode(u8* ARTS_RESTRICT out_codes,
-        class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count);
+    ARTS_EXPORT static u32 ARTS_FASTCALL ShadowTransformOutcode(
+        u8* ARTS_RESTRICT out_codes, Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
 
     // ?ToScreen@agiMeshSet@@KIXPAEPAVVector4@@H@Z | agiworld:mrkni
-    ARTS_EXPORT static void ARTS_FASTCALL ToScreen(
-        u8* ARTS_RESTRICT in_codes, class Vector4* ARTS_RESTRICT verts, i32 count);
+    ARTS_EXPORT static void ARTS_FASTCALL ToScreen(u8* ARTS_RESTRICT in_codes, Vector4* ARTS_RESTRICT verts, i32 count);
 
     // ?Transform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
     ARTS_EXPORT static void ARTS_FASTCALL Transform(
-        class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count);
+        Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
 
     // ?TransformOutcode@agiMeshSet@@KIIPAEPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
-    ARTS_EXPORT static u32 ARTS_FASTCALL TransformOutcode(u8* ARTS_RESTRICT out_codes,
-        class Vector4* ARTS_RESTRICT output, class Vector3* ARTS_RESTRICT input, i32 count);
+    ARTS_EXPORT static u32 ARTS_FASTCALL TransformOutcode(
+        u8* ARTS_RESTRICT out_codes, Vector4* ARTS_RESTRICT output, Vector3* ARTS_RESTRICT input, i32 count);
 
     // ?AllowEyeBackfacing@agiMeshSet@@1HA | agiworld:meshrend
     ARTS_EXPORT static b32 AllowEyeBackfacing;
@@ -317,10 +320,10 @@ protected:
     ARTS_EXPORT static f32 HalfWidth;
 
     // ?LocPos@agiMeshSet@@1VVector3@@A | agiworld:meshrend
-    ARTS_EXPORT static class Vector3 LocPos;
+    ARTS_EXPORT static Vector3 LocPos;
 
     // ?M@agiMeshSet@@1VMatrix34@@A | agiworld:meshrend
-    ARTS_EXPORT static class Matrix34 M;
+    ARTS_EXPORT static Matrix34 M;
 
     // ?MaxX@agiMeshSet@@1MA | agiworld:meshrend
     ARTS_EXPORT static f32 MaxX;
@@ -366,7 +369,7 @@ protected:
 
     // Must be 16-byte aligned
     // ?out@agiMeshSet@@1PAVVector4@@A | agiworld:mrkni
-    ARTS_EXPORT static class Vector4 out[16384];
+    ARTS_EXPORT static Vector4 out[16384];
 
     // ?vertCounts@agiMeshSet@@1PAFA | agiworld:meshrend
     ARTS_EXPORT static i16 vertCounts[256];

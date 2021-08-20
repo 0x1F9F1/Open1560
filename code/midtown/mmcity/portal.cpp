@@ -20,15 +20,15 @@ define_dummy_symbol(mmcity_portal);
 
 #include "portal.h"
 
-void asPortalWeb::DeleteEdge(struct asPortalEdge* /*arg1*/)
+void asPortalWeb::DeleteEdge(asPortalEdge* /*arg1*/)
 {}
 
-struct asPortalCell* LookupCell(char* /*arg1*/)
+asPortalCell* LookupCell(char* /*arg1*/)
 {
     return nullptr;
 }
 
-struct asPortalCell* LookupEdge(char* /*arg1*/)
+asPortalCell* LookupEdge(char* /*arg1*/)
 {
     return nullptr;
 }

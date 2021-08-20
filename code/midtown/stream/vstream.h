@@ -39,12 +39,14 @@
 
 #include "data7/mutex.h"
 
+struct VirtualFileInode;
+
 class VirtualStream final : public Stream
 {
 public:
     // ??0VirtualStream@@QAE@PAVStream@@PAUVirtualFileInode@@PAXHPAVFileSystem@@@Z
-    ARTS_EXPORT VirtualStream(class Stream* base_stream, struct VirtualFileInode* file_node, void* buffer,
-        isize buffer_size, class FileSystem* file_system);
+    ARTS_EXPORT VirtualStream(
+        Stream* base_stream, VirtualFileInode* file_node, void* buffer, isize buffer_size, FileSystem* file_system);
 
     // ??_EVirtualStream@@UAEPAXI@Z
     // ??1VirtualStream@@UAE@XZ

@@ -37,6 +37,8 @@
 
 #include "widget.h"
 
+class agiBitmap;
+
 class UIIcon final : public uiWidget
 {
 public:
@@ -49,7 +51,7 @@ public:
     ARTS_IMPORT ~UIIcon() override = default;
 
     // ?CreateDummyBitmap@UIIcon@@QAEPAVagiBitmap@@XZ
-    ARTS_IMPORT class agiBitmap* CreateDummyBitmap();
+    ARTS_IMPORT agiBitmap* CreateDummyBitmap();
 
     // ?Cull@UIIcon@@UAEXXZ
     ARTS_IMPORT void Cull() override;

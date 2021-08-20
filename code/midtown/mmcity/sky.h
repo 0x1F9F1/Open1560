@@ -33,6 +33,8 @@
     0x705704 | private: static class mmSky * mmSky::Instance | ?Instance@mmSky@@0PAV1@A
 */
 
+class agiTexDef;
+
 class mmSky
 {
 public:
@@ -43,13 +45,13 @@ public:
     ARTS_IMPORT ~mmSky();
 
     // ?Draw@mmSky@@QAEXAAVMatrix34@@@Z
-    ARTS_IMPORT void Draw(class Matrix34& arg1);
+    ARTS_IMPORT void Draw(Matrix34& arg1);
 
     // ?Init@mmSky@@QAEXPAD@Z
     ARTS_IMPORT void Init(char* arg1);
 
     // ?SetTexture@mmSky@@QAEXPAVagiTexDef@@@Z
-    ARTS_IMPORT void SetTexture(class agiTexDef* arg1);
+    ARTS_IMPORT void SetTexture(agiTexDef* arg1);
 
     // ?Color@mmSky@@2IA
     ARTS_IMPORT static u32 Color;
@@ -59,7 +61,7 @@ private:
     ARTS_IMPORT static i32 DoFlash;
 
     // ?Instance@mmSky@@0PAV1@A
-    ARTS_IMPORT static class mmSky* Instance;
+    ARTS_IMPORT static mmSky* Instance;
 
     u8 gap0[0x8];
 };
@@ -67,7 +69,7 @@ private:
 check_size(mmSky, 0x8);
 
 // ?FlashTex@@3PAVagiTexDef@@A
-ARTS_IMPORT extern class agiTexDef* FlashTex;
+ARTS_IMPORT extern agiTexDef* FlashTex;
 
 // ?SkyScale@@3MA
 ARTS_IMPORT extern f32 SkyScale;

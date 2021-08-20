@@ -58,16 +58,16 @@ public:
     ARTS_IMPORT ~UITextDropdown() override;
 
     // ?Action@UITextDropdown@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?AnyEnabled@UITextDropdown@@QAEHXZ | unused
     ARTS_IMPORT i32 AnyEnabled();
 
     // ?AssignString@UITextDropdown@@QAEXVstring@@@Z
-    ARTS_IMPORT void AssignString(class string arg1);
+    ARTS_IMPORT void AssignString(string arg1);
 
     // ?CaptureAction@UITextDropdown@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void CaptureAction(union eqEvent arg1) override;
+    ARTS_IMPORT void CaptureAction(eqEvent arg1) override;
 
     // ?Cull@UITextDropdown@@UAEXXZ
     ARTS_IMPORT void Cull() override;
@@ -79,8 +79,8 @@ public:
     ARTS_IMPORT i32 GetValue();
 
     // ?Init@UITextDropdown@@QAEXPAULocString@@PAHMMMMVstring@@HHHVCallback@@PAD@Z
-    ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7,
-        i32 arg8, i32 arg9, i32 arg10, class Callback arg11, char* arg12);
+    ARTS_IMPORT void Init(LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, string arg7, i32 arg8,
+        i32 arg9, i32 arg10, Callback arg11, char* arg12);
 
     // ?SetData@UITextDropdown@@QAEXPAH@Z
     ARTS_IMPORT void SetData(i32* arg1);
@@ -95,7 +95,7 @@ public:
     ARTS_IMPORT void SetSliderFocus(i32 arg1);
 
     // ?SetText@UITextDropdown@@QAEXPAULocString@@@Z | unused
-    ARTS_EXPORT void SetText(struct LocString* arg1);
+    ARTS_EXPORT void SetText(LocString* arg1);
 
     // ?SetValue@UITextDropdown@@QAEHH@Z
     ARTS_IMPORT i32 SetValue(i32 arg1);

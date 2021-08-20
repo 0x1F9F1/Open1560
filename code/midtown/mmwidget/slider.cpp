@@ -20,7 +20,7 @@ define_dummy_symbol(mmwidget_slider);
 
 #include "slider.h"
 
-void UISlider::SetText(struct LocString* /*arg1*/)
+void UISlider::SetText(LocString* /*arg1*/)
 {}
 
 i32 UISlider::TestHit(f32 /*arg1*/, f32 /*arg2*/)

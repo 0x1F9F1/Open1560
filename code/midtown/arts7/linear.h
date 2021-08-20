@@ -48,14 +48,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asLinearCS@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* bank) override;
+    ARTS_EXPORT void AddWidgets(Bank* bank) override;
 #endif
 
     // ?Cull@asLinearCS@@UAEXXZ
     ARTS_EXPORT void Cull() override;
 
     // ?FileIO@asLinearCS@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_EXPORT void FileIO(class MiniParser* arg1);
+    ARTS_EXPORT void FileIO(MiniParser* arg1);
 
     // ?Update@asLinearCS@@UAEXXZ
     ARTS_EXPORT void Update() override;

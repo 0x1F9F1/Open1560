@@ -26,12 +26,13 @@
     0x57FCB0 | void __cdecl jpeg_set_marker_processor(struct jpeg_decompress_struct *,int,unsigned char (__cdecl*)(struct jpeg_decompress_struct *)) | ?jpeg_set_marker_processor@@YAXPAUjpeg_decompress_struct@@HP6AE0@Z@Z
 */
 
+struct jpeg_decompress_struct;
+
 // ?jinit_marker_reader@@YAXPAUjpeg_decompress_struct@@@Z
-ARTS_IMPORT void jinit_marker_reader(struct jpeg_decompress_struct* arg1);
+ARTS_IMPORT void jinit_marker_reader(jpeg_decompress_struct* arg1);
 
 // ?jpeg_resync_to_restart@@YAEPAUjpeg_decompress_struct@@H@Z
-ARTS_IMPORT u8 jpeg_resync_to_restart(struct jpeg_decompress_struct* arg1, i32 arg2);
+ARTS_IMPORT u8 jpeg_resync_to_restart(jpeg_decompress_struct* arg1, i32 arg2);
 
 // ?jpeg_set_marker_processor@@YAXPAUjpeg_decompress_struct@@HP6AE0@Z@Z | unused
-ARTS_IMPORT void jpeg_set_marker_processor(
-    struct jpeg_decompress_struct* arg1, i32 arg2, u8 (*arg3)(struct jpeg_decompress_struct*));
+ARTS_IMPORT void jpeg_set_marker_processor(jpeg_decompress_struct* arg1, i32 arg2, u8 (*arg3)(jpeg_decompress_struct*));

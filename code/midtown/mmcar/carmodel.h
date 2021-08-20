@@ -65,6 +65,7 @@
 class mmCar;
 class mmCarSim;
 class mmHitBangerInstance;
+class mmWheel;
 
 class mmCarModel final : public mmInstance
 {
@@ -81,14 +82,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmCarModel@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?ApplyDamage@mmCarModel@@QAEXAAVVector3@@M@Z
-    ARTS_IMPORT void ApplyDamage(class Vector3& arg1, f32 arg2);
+    ARTS_IMPORT void ApplyDamage(Vector3& arg1, f32 arg2);
 
     // ?AttachEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ | inline
-    ARTS_IMPORT class mmPhysEntity* AttachEntity() override;
+    ARTS_IMPORT mmPhysEntity* AttachEntity() override;
 
     // ?ClearDamage@mmCarModel@@QAEXH@Z
     ARTS_IMPORT void ClearDamage(i32 arg1);
@@ -112,37 +113,37 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // ?EjectPart@mmCarModel@@QAEXPAVmmWheel@@FFH@Z
-    ARTS_IMPORT void EjectPart(class mmWheel* arg1, i16 arg2, i16 arg3, i32 arg4);
+    ARTS_IMPORT void EjectPart(mmWheel* arg1, i16 arg2, i16 arg3, i32 arg4);
 
     // ?EjectWheels@mmCarModel@@QAEXH@Z
     ARTS_IMPORT void EjectWheels(i32 arg1);
 
     // ?FromMatrix@mmCarModel@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
 
     // ?GetCarFlags@mmCarModel@@QAEHPAD@Z | unused
     ARTS_EXPORT i32 GetCarFlags(char* arg1);
 
     // ?GetClass@mmCarModel@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetEntity@mmCarModel@@UAEPAVmmPhysEntity@@XZ | inline
-    ARTS_IMPORT class mmPhysEntity* GetEntity() override;
+    ARTS_IMPORT mmPhysEntity* GetEntity() override;
 
     // ?GetPart@mmCarModel@@QAEPAVmmHitBangerInstance@@H@Z | unused
-    ARTS_IMPORT class mmHitBangerInstance* GetPart(i32 arg1);
+    ARTS_IMPORT mmHitBangerInstance* GetPart(i32 arg1);
 
     // ?GetPos@mmCarModel@@UAIAAVVector3@@XZ
-    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?GetVelocity@mmCarModel@@UAE?AVVector3@@XZ | inline
-    ARTS_IMPORT class Vector3 GetVelocity() override;
+    ARTS_IMPORT Vector3 GetVelocity() override;
 
     // ?Impact@mmCarModel@@QAEXPAVVector3@@@Z
-    ARTS_IMPORT void Impact(class Vector3* arg1);
+    ARTS_IMPORT void Impact(Vector3* arg1);
 
     // ?Init@mmCarModel@@QAEXPADPAVmmCar@@H@Z
-    ARTS_IMPORT void Init(char* arg1, class mmCar* arg2, i32 arg3);
+    ARTS_IMPORT void Init(char* arg1, mmCar* arg2, i32 arg3);
 
     // ?InitDamage@mmCarModel@@QAEXXZ
     ARTS_IMPORT void InitDamage();
@@ -154,7 +155,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?ToMatrix@mmCarModel@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
     // ?DeclareFields@mmCarModel@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

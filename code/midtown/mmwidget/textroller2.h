@@ -54,7 +54,7 @@ public:
     ARTS_IMPORT ~UITextRoller2() override;
 
     // ?Action@UITextRoller2@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?Cull@UITextRoller2@@UAEXXZ
     ARTS_IMPORT void Cull() override;
@@ -69,14 +69,14 @@ public:
     ARTS_IMPORT i32 Inc();
 
     // ?Init@UITextRoller2@@QAEXPAULocString@@PAHMMMMVstring@@HHHHVCallback@@PAVUIMenu@@@Z
-    ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class string arg7,
-        i32 arg8, i32 arg9, i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
+    ARTS_IMPORT void Init(LocString* arg1, i32* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, string arg7, i32 arg8,
+        i32 arg9, i32 arg10, i32 arg11, Callback arg12, UIMenu* arg13);
 
     // ?SetData@UITextRoller2@@QAEXPAH@Z | unused
     ARTS_IMPORT void SetData(i32* arg1);
 
     // ?SetString@UITextRoller2@@QAEXVstring@@@Z
-    ARTS_IMPORT void SetString(class string arg1);
+    ARTS_IMPORT void SetString(string arg1);
 
     // ?SetText@UITextRoller2@@QAEXXZ
     ARTS_IMPORT void SetText();

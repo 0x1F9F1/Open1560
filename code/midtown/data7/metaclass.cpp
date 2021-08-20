@@ -38,7 +38,7 @@ MetaField** MetaClass::ppField {nullptr};
 MetaClass MetaClass::RootMetaClass {"Root", 0, nullptr, nullptr, nullptr, nullptr};
 
 MetaClass::MetaClass(const char* name, usize size, void* (*allocate)(isize), void (*free)(void*, isize),
-    void (*declare)(void), class MetaClass* parent)
+    void (*declare)(void), MetaClass* parent)
     : name_(name)
     , size_(size)
     , allocate_(allocate)
@@ -115,7 +115,7 @@ void MetaClass::InitFields()
     Current = nullptr;
 }
 
-b32 MetaClass::IsSubclassOf(class MetaClass* parent)
+b32 MetaClass::IsSubclassOf(MetaClass* parent)
 {
     for (MetaClass* cls = this; cls; cls = cls->parent_)
     {
@@ -126,7 +126,7 @@ b32 MetaClass::IsSubclassOf(class MetaClass* parent)
     return false;
 }
 
-void MetaClass::Load(class MiniParser* parser, void* ptr)
+void MetaClass::Load(MiniParser* parser, void* ptr)
 {
     if (fields_ == nullptr)
         InitFields();
@@ -186,7 +186,7 @@ void MetaClass::Load(class MiniParser* parser, void* ptr)
         static_cast<Base*>(ptr)->AfterLoad();
 }
 
-void MetaClass::Save(class MiniParser* parser, void* ptr)
+void MetaClass::Save(MiniParser* parser, void* ptr)
 {
     if (fields_ == nullptr)
         InitFields();
@@ -225,7 +225,7 @@ void MetaClass::Save(class MiniParser* parser, void* ptr)
         Free(default_ptr, 0);
 }
 
-void MetaClass::SkipBlock(class MiniParser* parser)
+void MetaClass::SkipBlock(MiniParser* parser)
 {
     parser->Errorf("'%s' is not a valid field name in %s.", parser->GetBuffer(), GetName());
 
@@ -347,7 +347,7 @@ void MetaClass::FixupClasses()
     }
 }
 
-ARTS_NOINLINE void MetaClass::DeclareNamedTypedField(const char* name, u32 offset, struct MetaType* type)
+ARTS_NOINLINE void MetaClass::DeclareNamedTypedField(const char* name, u32 offset, MetaType* type)
 {
     MetaField* field = new MetaField {nullptr, name, offset, type};
     *ppField = field;
@@ -363,7 +363,7 @@ ARTS_NOINLINE void ARTS_FASTCALL MetaClass::DeclareStaticFields(
     }
 }
 
-class MetaClass* MetaClass::FindByName(const char* name, class MetaClass* root)
+MetaClass* MetaClass::FindByName(const char* name, MetaClass* root)
 {
     for (MetaClass* cls = root; cls; cls = cls->next_child_)
     {
@@ -396,7 +396,7 @@ void MetaClass::FreeFields()
     fields_ = nullptr;
 }
 
-void __BadSafeCall(const char* name, class Base* ptr)
+void __BadSafeCall(const char* name, Base* ptr)
 {
     Quitf("SafeCall failed: '%s' is not a '%s'.", ptr->GetTypeName(), name);
 }

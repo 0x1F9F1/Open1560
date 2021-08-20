@@ -43,6 +43,9 @@
 
 #include "mmnetwork/netobject.h"
 
+class mmCar;
+struct NETGAME_MSG;
+
 class mmNetObject final : public asNetObject
 {
 public:
@@ -64,22 +67,22 @@ public:
     ARTS_IMPORT void Deactivate();
 
     // ?Init@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
-    ARTS_IMPORT void Init(class mmCar* arg1, char* arg2, i32 arg3, ulong arg4, char* arg5);
+    ARTS_IMPORT void Init(mmCar* arg1, char* arg2, i32 arg3, ulong arg4, char* arg5);
 
     // ?PositionUpdate@mmNetObject@@QAEXPAUNETGAME_MSG@@@Z
-    ARTS_IMPORT void PositionUpdate(struct NETGAME_MSG* arg1);
+    ARTS_IMPORT void PositionUpdate(NETGAME_MSG* arg1);
 
     // ?Predict@mmNetObject@@QAEXXZ
     ARTS_IMPORT void Predict();
 
     // ?ReInit@mmNetObject@@QAEXPAVmmCar@@PADHK1@Z
-    ARTS_IMPORT void ReInit(class mmCar* arg1, char* arg2, i32 arg3, ulong arg4, char* arg5);
+    ARTS_IMPORT void ReInit(mmCar* arg1, char* arg2, i32 arg3, ulong arg4, char* arg5);
 
     // ?SetActive@mmNetObject@@QAEXH@Z
     ARTS_IMPORT void SetActive(i32 arg1);
 
     // ?SetCar@mmNetObject@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void SetCar(class mmCar* arg1);
+    ARTS_IMPORT void SetCar(mmCar* arg1);
 
     // ?SetLocalData@mmNetObject@@UAEXXZ
     ARTS_IMPORT void SetLocalData() override;

@@ -46,6 +46,10 @@
 
 #include "arts7/node.h"
 
+class AudSound;
+class mmCarSim;
+class mmOpponentImpactAudio;
+
 class mmOpponentCarAudio : public asNode
 {
 public:
@@ -53,15 +57,14 @@ public:
     ARTS_IMPORT mmOpponentCarAudio();
 
     // ??0mmOpponentCarAudio@@QAE@PAVmmCarSim@@@Z
-    ARTS_IMPORT mmOpponentCarAudio(class mmCarSim* arg1);
+    ARTS_IMPORT mmOpponentCarAudio(mmCarSim* arg1);
 
     // ??_EmmOpponentCarAudio@@UAEPAXI@Z
     // ??1mmOpponentCarAudio@@UAE@XZ
     ARTS_IMPORT ~mmOpponentCarAudio() override;
 
     // ?AssignSounds@mmOpponentCarAudio@@QAEXPAVAudSound@@0PAVmmOpponentImpactAudio@@0@Z
-    ARTS_IMPORT void AssignSounds(
-        class AudSound* arg1, class AudSound* arg2, class mmOpponentImpactAudio* arg3, class AudSound* arg4);
+    ARTS_IMPORT void AssignSounds(AudSound* arg1, AudSound* arg2, mmOpponentImpactAudio* arg3, AudSound* arg4);
 
     // ?CalculateDistToPlayer2@mmOpponentCarAudio@@QAEXXZ
     ARTS_IMPORT void CalculateDistToPlayer2();
@@ -73,13 +76,13 @@ public:
     ARTS_IMPORT void CalculatePan();
 
     // ?GetClass@mmOpponentCarAudio@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
-    ARTS_IMPORT void Init(class mmCarSim* arg1);
+    ARTS_IMPORT void Init(mmCarSim* arg1);
 
     // ?LoadSucessful@mmOpponentCarAudio@@QAEXPAVmmCarSim@@@Z
-    ARTS_IMPORT void LoadSucessful(class mmCarSim* arg1);
+    ARTS_IMPORT void LoadSucessful(mmCarSim* arg1);
 
     // ?PlayReverseBeep@mmOpponentCarAudio@@QAEXXZ | unused
     ARTS_IMPORT void PlayReverseBeep();

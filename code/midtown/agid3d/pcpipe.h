@@ -34,8 +34,10 @@
     0x790DE8 | int DrawLabelPArg | ?DrawLabelPArg@@3HA
 */
 
+class agiPipeline;
+
 // ?d3dCreatePipeline@@YAPAVagiPipeline@@HPAPAD@Z
-ARTS_EXPORT Owner<class agiPipeline> d3dCreatePipeline(i32 argc, char** argv);
+ARTS_EXPORT Owner<agiPipeline> d3dCreatePipeline(i32 argc, char** argv);
 
 // ?AutoMip@@3HA
 ARTS_IMPORT extern b32 AutoMip;

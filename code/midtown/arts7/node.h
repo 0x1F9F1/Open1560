@@ -62,6 +62,8 @@
 
 #include "cullable.h"
 
+class bkWindow;
+
 class asNode : public asCullable
 {
 public:
@@ -94,29 +96,29 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asNode@@UAEXPAVBank@@@Z
-    ARTS_EXPORT virtual void AddWidgets(class Bank* bank);
+    ARTS_EXPORT virtual void AddWidgets(Bank* bank);
 
     // ?OpenWidgets@asNode@@UAEXPADPAVbkWindow@@@Z
-    ARTS_EXPORT virtual void OpenWidgets(char* arg1, class bkWindow* arg2);
+    ARTS_EXPORT virtual void OpenWidgets(char* arg1, bkWindow* arg2);
 
     // ?CloseWidgets@asNode@@UAEXXZ
     ARTS_EXPORT virtual void CloseWidgets();
 
     // ?AddButton@asNode@@QAEXPAVBank@@AAH@Z | unused
-    ARTS_EXPORT void AddButton(class Bank* arg1, i32& arg2);
+    ARTS_EXPORT void AddButton(Bank* arg1, i32& arg2);
 #endif
 
     // ?AddChild@asNode@@QAEHPAV1@@Z
-    ARTS_EXPORT b32 AddChild(class asNode* child);
+    ARTS_EXPORT b32 AddChild(asNode* child);
 
     // ?GetChild@asNode@@QAEPAV1@H@Z
-    ARTS_EXPORT class asNode* GetChild(i32 index);
+    ARTS_EXPORT asNode* GetChild(i32 index);
 
     // ?GetLastChild@asNode@@QAEPAV1@XZ | unused
-    ARTS_EXPORT class asNode* GetLastChild();
+    ARTS_EXPORT asNode* GetLastChild();
 
     // ?GetNext@asNode@@QAEPAV1@XZ | unused
-    ARTS_EXPORT class asNode* GetNext()
+    ARTS_EXPORT asNode* GetNext()
     {
         return next_node_;
     }
@@ -125,10 +127,10 @@ public:
     ARTS_EXPORT const char* GetNodeType();
 
     // ?GetParent@asNode@@QAEPAV1@PAVMetaClass@@@Z | unused
-    ARTS_EXPORT class asNode* GetParent(class MetaClass* cls);
+    ARTS_EXPORT asNode* GetParent(MetaClass* cls);
 
     // ?InsertChild@asNode@@QAEHHPAV1@@Z
-    ARTS_EXPORT b32 InsertChild(i32 index, class asNode* child);
+    ARTS_EXPORT b32 InsertChild(i32 index, asNode* child);
 
     // ?Load@asNode@@QAEHPAD@Z
     ARTS_EXPORT b32 Load(const char* path);
@@ -138,14 +140,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?PerfReport@asNode@@QAEXPAVStream@@H@Z
-    ARTS_EXPORT void PerfReport(class Stream* output, i32 indent);
+    ARTS_EXPORT void PerfReport(Stream* output, i32 indent);
 #endif
 
     // ?RemoveAllChildren@asNode@@QAEXXZ
     ARTS_EXPORT void RemoveAllChildren();
 
     // ?RemoveChild@asNode@@QAEHPAV1@@Z
-    ARTS_EXPORT b32 RemoveChild(class asNode* child);
+    ARTS_EXPORT b32 RemoveChild(asNode* child);
 
     // ?RemoveChild@asNode@@QAEHH@Z
     ARTS_EXPORT b32 RemoveChild(i32 idx);
@@ -206,12 +208,12 @@ public:
             node_flags_ &= ~0x2;
     }
 
-    class asNode* GetFirstChild() const
+    asNode* GetFirstChild() const
     {
         return child_node_;
     }
 
-    class asNode* GetParent() const
+    asNode* GetParent() const
     {
         return parent_node_;
     }
@@ -246,7 +248,7 @@ private:
     i32 node_flags_ {0x3};
 
 #ifdef ARTS_DEV_BUILD
-    class Bank* current_bank_ {nullptr};
+    Bank* current_bank_ {nullptr};
 #endif
 };
 

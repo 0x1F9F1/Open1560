@@ -50,6 +50,8 @@
 #include "arts7/node.h"
 #include "mmphysics/entity.h"
 
+class mmBangerInstance;
+
 class mmBangerActive final : public mmPhysEntity
 {
 public:
@@ -62,7 +64,7 @@ public:
     ARTS_IMPORT ~mmBangerActive() override;
 
     // ?Attach@mmBangerActive@@QAEXPAVmmBangerInstance@@@Z
-    ARTS_IMPORT void Attach(class mmBangerInstance* arg1);
+    ARTS_IMPORT void Attach(mmBangerInstance* arg1);
 
     // ?Detach@mmBangerActive@@QAEXXZ
     ARTS_IMPORT void Detach();
@@ -71,10 +73,10 @@ public:
     ARTS_IMPORT void DetachMe() override;
 
     // ?GetBound@mmBangerActive@@UAEPAVasBound@@XZ | inline
-    ARTS_IMPORT class asBound* GetBound() override;
+    ARTS_IMPORT asBound* GetBound() override;
 
     // ?GetICS@mmBangerActive@@UAEPAVasInertialCS@@XZ | inline
-    ARTS_IMPORT class asInertialCS* GetICS() override;
+    ARTS_IMPORT asInertialCS* GetICS() override;
 
     // ?PostUpdate@mmBangerActive@@UAEXXZ
     ARTS_IMPORT void PostUpdate() override;
@@ -99,13 +101,13 @@ public:
     ARTS_IMPORT ~mmBangerActiveManager() override;
 
     // ?Attach@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z
-    ARTS_IMPORT class mmBangerActive* Attach(class mmBangerInstance* arg1);
+    ARTS_IMPORT mmBangerActive* Attach(mmBangerInstance* arg1);
 
     // ?Detach@mmBangerActiveManager@@QAEXPAVmmBangerActive@@@Z
-    ARTS_IMPORT void Detach(class mmBangerActive* arg1);
+    ARTS_IMPORT void Detach(mmBangerActive* arg1);
 
     // ?GetActive@mmBangerActiveManager@@QAEPAVmmBangerActive@@PAVmmBangerInstance@@@Z
-    ARTS_IMPORT class mmBangerActive* GetActive(class mmBangerInstance* arg1);
+    ARTS_IMPORT mmBangerActive* GetActive(mmBangerInstance* arg1);
 
     // ?Reset@mmBangerActiveManager@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -115,7 +117,7 @@ public:
 
 protected:
     // ?Instance@mmBangerActiveManager@@1PAV1@A
-    ARTS_IMPORT static class mmBangerActiveManager* Instance;
+    ARTS_IMPORT static mmBangerActiveManager* Instance;
 
     u8 gap20[0x5004];
 };

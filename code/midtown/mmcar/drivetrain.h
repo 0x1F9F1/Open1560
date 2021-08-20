@@ -38,6 +38,9 @@
 
 #include "arts7/node.h"
 
+class mmCarSim;
+class mmWheel;
+
 class mmDrivetrain final : public asNode
 {
 public:
@@ -49,11 +52,11 @@ public:
     ARTS_IMPORT ~mmDrivetrain() override = default;
 
     // ?AddWheel@mmDrivetrain@@QAEHPAVmmWheel@@@Z
-    ARTS_IMPORT i32 AddWheel(class mmWheel* arg1);
+    ARTS_IMPORT i32 AddWheel(mmWheel* arg1);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmDrivetrain@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Attach@mmDrivetrain@@QAEXXZ
@@ -63,10 +66,10 @@ public:
     ARTS_IMPORT void Detach();
 
     // ?GetClass@mmDrivetrain@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmDrivetrain@@QAEXPAVmmCarSim@@@Z
-    ARTS_IMPORT void Init(class mmCarSim* arg1);
+    ARTS_IMPORT void Init(mmCarSim* arg1);
 
     // ?Reset@mmDrivetrain@@UAEXXZ | inline
     ARTS_EXPORT void Reset() override;

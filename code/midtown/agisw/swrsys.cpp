@@ -69,7 +69,7 @@ void agiSWRasterizer::Mesh([[maybe_unused]] agiVtxType type, agiVtx* vertices, [
     }
 }
 
-void agiSWRasterizer::Points(enum agiVtxType /*arg1*/, union agiVtx* /*arg2*/, i32 /*arg3*/)
+void agiSWRasterizer::Points(agiVtxType /*arg1*/, agiVtx* /*arg2*/, i32 /*arg3*/)
 {}
 
 void agiSWRasterizer::SetVertCount(i32 /*arg1*/)

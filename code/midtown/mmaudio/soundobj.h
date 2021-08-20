@@ -76,6 +76,10 @@
     0x4F3580 | public: void __thiscall SoundObj::Disable3DMode(void) | ?Disable3DMode@SoundObj@@QAEXXZ
 */
 
+struct HINSTANCE__;
+struct IDirectSoundBuffer;
+struct tWAVEFORMATEX;
+
 class SoundObj
 {
 public:
@@ -98,27 +102,27 @@ public:
     ARTS_IMPORT u16 CreateSecondaryEAXObj();
 
     // ?DSCreateSoundBuffer@SoundObj@@QAEHPAPAUIDirectSoundBuffer@@E@Z
-    ARTS_IMPORT i32 DSCreateSoundBuffer(struct IDirectSoundBuffer** arg1, u8 arg2);
+    ARTS_IMPORT i32 DSCreateSoundBuffer(IDirectSoundBuffer** arg1, u8 arg2);
 
     // ?DSFillSoundBuffer@SoundObj@@QAEHPAUIDirectSoundBuffer@@@Z
-    ARTS_IMPORT i32 DSFillSoundBuffer(struct IDirectSoundBuffer* arg1);
+    ARTS_IMPORT i32 DSFillSoundBuffer(IDirectSoundBuffer* arg1);
 
     // ?DSGetWaveFile@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAKPAPAX@Z
     ARTS_IMPORT i32 DSGetWaveFile(
-        struct HINSTANCE__* arg1, char const* arg2, struct tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5, void** arg6);
+        HINSTANCE__* arg1, char const* arg2, tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5, void** arg6);
 
     // ?DSGetWaveResource@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
     ARTS_IMPORT i32 DSGetWaveResource(
-        struct HINSTANCE__* arg1, char const* arg2, struct tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5);
+        HINSTANCE__* arg1, char const* arg2, tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5);
 
     // ?DSLoadSoundBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
-    ARTS_IMPORT struct IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, ulong arg2);
+    ARTS_IMPORT IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, ulong arg2);
 
     // ?DSLoadSoundBuffer@SoundObj@@QAEXGK@Z
     ARTS_IMPORT void DSLoadSoundBuffer(u16 arg1, ulong arg2);
 
     // ?DSParseWaveResource@SoundObj@@QAEHPAXPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
-    ARTS_IMPORT i32 DSParseWaveResource(void* arg1, struct tWAVEFORMATEX** arg2, u8** arg3, ulong* arg4);
+    ARTS_IMPORT i32 DSParseWaveResource(void* arg1, tWAVEFORMATEX** arg2, u8** arg3, ulong* arg4);
 
     // ?DeallocateEffects@SoundObj@@QAEXXZ
     ARTS_IMPORT void DeallocateEffects();
@@ -136,7 +140,7 @@ public:
     ARTS_IMPORT void FreeOneShotLayerBuffers();
 
     // ?GetFormat@SoundObj@@QAEPAUtWAVEFORMATEX@@XZ | unused
-    ARTS_IMPORT struct tWAVEFORMATEX* GetFormat();
+    ARTS_IMPORT tWAVEFORMATEX* GetFormat();
 
     // ?Init@SoundObj@@QAEHPBDKF@Z
     ARTS_IMPORT i32 Init(char const* arg1, ulong arg2, i16 arg3);
@@ -166,7 +170,7 @@ public:
     ARTS_IMPORT void SetConeAngles(ulong arg1, ulong arg2);
 
     // ?SetConeOrientation@SoundObj@@QAEXPAVVector3@@@Z
-    ARTS_IMPORT void SetConeOrientation(class Vector3* arg1);
+    ARTS_IMPORT void SetConeOrientation(Vector3* arg1);
 
     // ?SetConeOutsideVolume@SoundObj@@QAEXJ@Z
     ARTS_IMPORT void SetConeOutsideVolume(ilong arg1);
@@ -205,7 +209,7 @@ public:
     ARTS_IMPORT void SetVolume(f32 arg1);
 
     // ?SetupDuplicateBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PAD@Z | unused
-    ARTS_IMPORT struct IDirectSoundBuffer* SetupDuplicateBuffer(char* arg1);
+    ARTS_IMPORT IDirectSoundBuffer* SetupDuplicateBuffer(char* arg1);
 
     // ?SetupEchoBuffer@SoundObj@@QAEXPAD@Z
     ARTS_IMPORT void SetupEchoBuffer(char* arg1);
@@ -239,7 +243,7 @@ public:
 
 private:
     // ?SetupChorusBuffer@SoundObj@@AAEPAUIDirectSoundBuffer@@PAD@Z
-    ARTS_IMPORT struct IDirectSoundBuffer* SetupChorusBuffer(char* arg1);
+    ARTS_IMPORT IDirectSoundBuffer* SetupChorusBuffer(char* arg1);
 
     u8 gap0[0x88];
 };

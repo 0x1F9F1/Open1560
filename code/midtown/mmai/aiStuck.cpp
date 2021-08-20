@@ -21,4 +21,4 @@ define_dummy_symbol(mmai_aiStuck);
 #include "aiStuck.h"
 
 // ?StuckCB@@YAXPAVaiStuck@@@Z
-ARTS_IMPORT /*static*/ void StuckCB(class aiStuck* arg1);
+ARTS_IMPORT /*static*/ void StuckCB(aiStuck* arg1);

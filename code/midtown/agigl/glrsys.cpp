@@ -126,7 +126,7 @@ static u32 CompileShader(u32 type, i32 glsl_version, const char* src)
     return shader;
 }
 
-agiGLRasterizer::agiGLRasterizer(class agiPipeline* pipe)
+agiGLRasterizer::agiGLRasterizer(agiPipeline* pipe)
     : agiRasterizer(pipe)
 {}
 

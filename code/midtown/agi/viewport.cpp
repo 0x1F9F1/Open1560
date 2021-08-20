@@ -30,7 +30,7 @@ void agiViewParameters::SetWorld(Matrix34& world)
     ++MtxSerial;
 }
 
-agiViewport::agiViewport(class agiPipeline* pipe)
+agiViewport::agiViewport(agiPipeline* pipe)
     : agiRefreshable(pipe)
     , field_144_(pipe_->GetDword38())
 {}
@@ -41,7 +41,7 @@ agiViewport::~agiViewport()
         Active = nullptr;
 }
 
-void agiViewport::SetWorld(class Matrix34& world)
+void agiViewport::SetWorld(Matrix34& world)
 {
     params_.SetWorld(world);
 }

@@ -47,11 +47,13 @@
 #include "arts7/node.h"
 #include "mmbangers/banger.h"
 
+class aiIntersection;
+
 class aiTrafficLightSet final : public asNode
 {
 public:
     // ??0aiTrafficLightSet@@QAE@PAVaiIntersection@@@Z
-    ARTS_IMPORT aiTrafficLightSet(class aiIntersection* arg1);
+    ARTS_IMPORT aiTrafficLightSet(aiIntersection* arg1);
 
     // ??_GaiTrafficLightSet@@UAEPAXI@Z
     // ??_EaiTrafficLightSet@@UAEPAXI@Z
@@ -85,7 +87,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?Init@aiTrafficLightInstance@@UAEHPADAAVVector3@@1H0@Z
-    ARTS_IMPORT i32 Init(char* arg1, class Vector3& arg2, class Vector3& arg3, i32 arg4, char* arg5) override;
+    ARTS_IMPORT i32 Init(char* arg1, Vector3& arg2, Vector3& arg3, i32 arg4, char* arg5) override;
 
     u8 gap30[0x4];
 };

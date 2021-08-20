@@ -41,7 +41,7 @@ class agiRefreshable
 {
 public:
     // ??0agiRefreshable@@QAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiRefreshable(class agiPipeline* pipe);
+    ARTS_EXPORT agiRefreshable(agiPipeline* pipe);
 
     virtual void EndGfx() = 0;
 

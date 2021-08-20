@@ -24,5 +24,7 @@
     0x5825E0 | void __cdecl jinit_inverse_dct(struct jpeg_decompress_struct *) | ?jinit_inverse_dct@@YAXPAUjpeg_decompress_struct@@@Z
 */
 
+struct jpeg_decompress_struct;
+
 // ?jinit_inverse_dct@@YAXPAUjpeg_decompress_struct@@@Z
-ARTS_IMPORT void jinit_inverse_dct(struct jpeg_decompress_struct* arg1);
+ARTS_IMPORT void jinit_inverse_dct(jpeg_decompress_struct* arg1);

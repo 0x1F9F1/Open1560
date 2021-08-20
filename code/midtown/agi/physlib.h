@@ -30,30 +30,6 @@
 
 #include "physdef.h"
 
-#if 0
-class agiLib<class agiPhysParameters, class agiPhysDef>
-{
-public:
-    // ??0?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ | inline
-    ARTS_IMPORT agiLib<class agiPhysParameters, class agiPhysDef>();
-
-    // ??1?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAE@XZ | inline
-    ARTS_IMPORT ~agiLib<class agiPhysParameters, class agiPhysDef>();
-
-    // ?Add@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEHAAVagiPhysParameters@@@Z | inline
-    ARTS_IMPORT i32 Add(class agiPhysParameters& arg1);
-
-    // ?Init@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXH@Z | inline
-    ARTS_IMPORT void Init(i32 arg1);
-
-    // ?Kill@?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@QAEXXZ | inline
-    ARTS_IMPORT void Kill();
-
-    u8 gap0[0x4014];
-};
-
-#endif
-
 // ?agiPhysLib@@3V?$agiLib@VagiPhysParameters@@VagiPhysDef@@@@A
 ARTS_EXPORT extern class agiLib<class agiPhysParameters, class agiPhysDef> agiPhysLib;
 

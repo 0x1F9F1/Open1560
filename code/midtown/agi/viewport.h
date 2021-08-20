@@ -63,18 +63,18 @@ public:
     ARTS_IMPORT void Perspective(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
 
     // ?Project@agiViewParameters@@QAEXAAVVector3@@0@Z | unused
-    ARTS_IMPORT void Project(class Vector3& arg1, class Vector3& arg2);
+    ARTS_IMPORT void Project(Vector3& arg1, Vector3& arg2);
 
     // ?SetBill@agiViewParameters@@QAEXAAVVector3@@@Z
-    ARTS_IMPORT void SetBill(class Vector3& arg1);
+    ARTS_IMPORT void SetBill(Vector3& arg1);
 
     // ?SetBillY@agiViewParameters@@QAEXAAVMatrix34@@@Z
-    ARTS_IMPORT void SetBillY(class Matrix34& arg1);
+    ARTS_IMPORT void SetBillY(Matrix34& arg1);
 
     // ?SphereVisible@agiViewParameters@@QAEHAAVVector3@@M@Z
-    ARTS_IMPORT i32 SphereVisible(class Vector3& arg1, f32 arg2);
+    ARTS_IMPORT i32 SphereVisible(Vector3& arg1, f32 arg2);
 
-    void SetWorld(class Matrix34& world);
+    void SetWorld(Matrix34& world);
 
     // ?MtxSerial@agiViewParameters@@2IA
     ARTS_IMPORT static u32 MtxSerial;
@@ -132,12 +132,12 @@ class agiViewport : public agiRefreshable
 public:
     virtual void Activate() = 0;
 
-    virtual void SetBackground(class Vector3& color) = 0;
+    virtual void SetBackground(Vector3& color) = 0;
 
     virtual void Clear(i32 flags) = 0;
 
     // ?SetWorld@agiViewport@@UAEXAAVMatrix34@@@Z
-    ARTS_EXPORT virtual void SetWorld(class Matrix34& world);
+    ARTS_EXPORT virtual void SetWorld(Matrix34& world);
 
     // ?Aspect@agiViewport@@QAEMXZ | unused
     ARTS_EXPORT f32 Aspect();
@@ -152,7 +152,7 @@ public:
 
 protected:
     // ??0agiViewport@@IAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiViewport(class agiPipeline* pipe);
+    ARTS_EXPORT agiViewport(agiPipeline* pipe);
 
     // ??_GagiViewport@@MAEPAXI@Z
     // ??_EagiViewport@@MAEPAXI@Z
@@ -160,7 +160,7 @@ protected:
     ARTS_EXPORT ~agiViewport() override;
 
     // ?Active@agiViewport@@1PAV1@A
-    ARTS_IMPORT static class agiViewport* Active;
+    ARTS_IMPORT static agiViewport* Active;
 
     friend agiViewport* Viewport();
 

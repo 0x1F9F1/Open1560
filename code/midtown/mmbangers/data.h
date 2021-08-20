@@ -67,7 +67,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmBangerData@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Bootstrap@mmBangerData@@QAEHPAD0@Z
@@ -80,7 +80,7 @@ public:
     ARTS_IMPORT void ComputeYRadius(char* arg1);
 
     // ?GetClass@mmBangerData@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?InitBreakables@mmBangerData@@QAEXPAD@Z
     ARTS_IMPORT void InitBreakables(char* arg1);
@@ -89,7 +89,7 @@ public:
     ARTS_IMPORT i32 InitPhysics(char* arg1, char* arg2);
 
     // ?LaunchInstance@mmBangerData@@QAEXMPAVVector3@@@Z
-    ARTS_IMPORT void LaunchInstance(f32 arg1, class Vector3* arg2);
+    ARTS_IMPORT void LaunchInstance(f32 arg1, Vector3* arg2);
 
     // ?LoadEntry@mmBangerData@@QAEHPAD@Z
     ARTS_IMPORT i32 LoadEntry(char* arg1);
@@ -117,11 +117,11 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmBangerDataManager@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetClass@mmBangerDataManager@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Save@mmBangerDataManager@@UAEXXZ
     ARTS_IMPORT void Save() override;
@@ -137,7 +137,7 @@ public:
 
 protected:
     // ?Instance@mmBangerDataManager@@1PAV1@A
-    ARTS_IMPORT static class mmBangerDataManager* Instance;
+    ARTS_IMPORT static mmBangerDataManager* Instance;
 
     u8 gap20[0x268B0];
 };
@@ -145,4 +145,4 @@ protected:
 check_size(mmBangerDataManager, 0x268D0);
 
 // ?RefTo@@YAPAUMetaType@@PAU1@HPAF@Z | inline
-ARTS_IMPORT struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i16* arg3);
+// ARTS_IMPORT MetaType* RefTo(MetaType* arg1, i32 arg2, i16* arg3);

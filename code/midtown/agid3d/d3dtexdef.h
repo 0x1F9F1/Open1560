@@ -48,7 +48,7 @@ class agiD3DTexDef final : public agiTexDef
 {
 public:
     // ??0agiD3DTexDef@@QAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiD3DTexDef(class agiPipeline* pipe)
+    ARTS_EXPORT agiD3DTexDef(agiPipeline* pipe)
         : agiTexDef(pipe)
     {}
 
@@ -64,13 +64,13 @@ public:
     ARTS_EXPORT void EndGfx() override;
 
     // ?GetHandle@agiD3DTexDef@@QAEPAUIDirect3DTexture2@@H@Z
-    ARTS_EXPORT struct IDirect3DTexture2* GetHandle(i32 stage);
+    ARTS_EXPORT IDirect3DTexture2* GetHandle(i32 stage);
 
     // ?IsAvailable@agiD3DTexDef@@UAEHXZ
     ARTS_EXPORT b32 IsAvailable() override;
 
     // ?Lock@agiD3DTexDef@@UAEHAAUagiTexLock@@@Z
-    ARTS_EXPORT b32 Lock(struct agiTexLock& lock) override;
+    ARTS_EXPORT b32 Lock(agiTexLock& lock) override;
 
     // ?Request@agiD3DTexDef@@UAEXXZ
     ARTS_EXPORT void Request() override;
@@ -79,10 +79,10 @@ public:
     ARTS_EXPORT void Restore() override;
 
     // ?Set@agiD3DTexDef@@UAEXAAVVector2@@0@Z
-    ARTS_EXPORT void Set(class Vector2& arg1, class Vector2& arg2) override;
+    ARTS_EXPORT void Set(Vector2& arg1, Vector2& arg2) override;
 
     // ?Unlock@agiD3DTexDef@@UAEXAAUagiTexLock@@@Z
-    ARTS_EXPORT void Unlock(struct agiTexLock& lock) override;
+    ARTS_EXPORT void Unlock(agiTexLock& lock) override;
 
     // ?Prober@agiD3DTexDef@@SAXPAX@Z | agid3d:d3dpipe
     ARTS_EXPORT static void Prober(void* arg1);

@@ -47,10 +47,10 @@
 */
 
 // ?CloseColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 CloseColor;
+ARTS_IMPORT extern Vector3 CloseColor;
 
 // ?CollTestColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 CollTestColor;
+ARTS_IMPORT extern Vector3 CollTestColor;
 
 #define DYNA_DRAW_GEOMETRY 0x1
 #define DYNA_DRAW_STATUS 0x2
@@ -73,25 +73,25 @@ ARTS_IMPORT extern i32 DynaDrawMode;
 ARTS_IMPORT extern f32 DynaDrawScale;
 
 // ?FluidColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 FluidColor;
+ARTS_IMPORT extern Vector3 FluidColor;
 
 // ?ForceColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ForceColor;
+ARTS_IMPORT extern Vector3 ForceColor;
 
 // ?HitColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 HitColor;
+ARTS_IMPORT extern Vector3 HitColor;
 
 // ?ImpulseColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ImpulseColor;
+ARTS_IMPORT extern Vector3 ImpulseColor;
 
 // ?MissColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 MissColor;
+ARTS_IMPORT extern Vector3 MissColor;
 
 // ?NormalColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 NormalColor;
+ARTS_IMPORT extern Vector3 NormalColor;
 
 // ?PushColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 PushColor;
+ARTS_IMPORT extern Vector3 PushColor;
 
 // ?SegVCPoly@@3HA
 ARTS_IMPORT extern i32 SegVCPoly;
@@ -118,13 +118,13 @@ ARTS_IMPORT extern i32 SphVPoly;
 ARTS_IMPORT extern i32 SphVSph;
 
 // ?SpringColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 SpringColor;
+ARTS_IMPORT extern Vector3 SpringColor;
 
 // ?TestColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 TestColor;
+ARTS_IMPORT extern Vector3 TestColor;
 
 // ?TorqueColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 TorqueColor;
+ARTS_IMPORT extern Vector3 TorqueColor;
 
 // ?VolumeColor@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 VolumeColor;
+ARTS_IMPORT extern Vector3 VolumeColor;

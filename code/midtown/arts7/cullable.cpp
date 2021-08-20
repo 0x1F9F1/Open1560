@@ -26,7 +26,7 @@ void asCullable::Cull()
 {}
 
 #ifdef ARTS_DEV_BUILD
-void asCullable::AddWidgets(class Bank* /*bank*/)
+void asCullable::AddWidgets(Bank* /*bank*/)
 {}
 #endif
 

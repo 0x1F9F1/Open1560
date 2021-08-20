@@ -20,10 +20,10 @@ define_dummy_symbol(mmdjpeg_jmemnobs);
 
 #include "jmemnobs.h"
 
-ilong jpeg_mem_init(struct jpeg_common_struct* /*arg1*/)
+ilong jpeg_mem_init(jpeg_common_struct* /*arg1*/)
 {
     return 0;
 }
 
-void jpeg_mem_term(struct jpeg_common_struct* /*arg1*/)
+void jpeg_mem_term(jpeg_common_struct* /*arg1*/)
 {}

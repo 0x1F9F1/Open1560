@@ -24,7 +24,7 @@ define_dummy_symbol(agiworld_meshlight);
 #include "vector7/vector3.h"
 
 // ?agiInitCones@@YAXAAVMatrix34@@M@Z
-ARTS_IMPORT /*static*/ void agiInitCones(class Matrix34& arg1, f32 arg2);
+ARTS_IMPORT /*static*/ void agiInitCones(Matrix34& arg1, f32 arg2);
 
 #ifdef ARTS_ENABLE_KNI
 #    include <xmmintrin.h>
@@ -33,9 +33,9 @@ ARTS_IMPORT /*static*/ void agiInitCones(class Matrix34& arg1, f32 arg2);
 #    include "data7/mmx.h"
 #    include "mmx.h"
 
-static union mmx keyNormal;
-static union mmx fill1Normal;
-static union mmx fill2Normal;
+static mmx keyNormal;
+static mmx fill1Normal;
+static mmx fill2Normal;
 
 // ?mmxTriple@@YAXPAI0HPAEH@Z
 static void mmxTriple(
@@ -95,7 +95,7 @@ static void mmxTriple(
 }
 
 // Quantize signed normals using 1:1:14 | [-1.0, +1.0] -> [-0x4000,+0x4000]
-static ARTS_FORCEINLINE void PackNormalMMX(union mmx& output, const Vector3& input)
+static ARTS_FORCEINLINE void PackNormalMMX(mmx& output, const Vector3& input)
 {
     output.m16[0] = static_cast<u16>(mem::bit_cast<u32>(input.z + 768.0f));
     output.m16[1] = static_cast<u16>(mem::bit_cast<u32>(input.y + 768.0f));

@@ -39,7 +39,7 @@ public:
     ARTS_EXPORT virtual ~Base() = 0;
 
     // ?GetClass@Base@@UAEPAVMetaClass@@XZ
-    ARTS_EXPORT virtual class MetaClass* GetClass();
+    ARTS_EXPORT virtual MetaClass* GetClass();
 
     // ?GetTypeNameV@Base@@UAEPADXZ
     ARTS_EXPORT virtual const char* GetTypeNameV();

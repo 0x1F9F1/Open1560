@@ -53,14 +53,11 @@ public:
         , y(y)
     {}
 
-    // ??0Vector2@@QAE@ABV0@@Z | inline
-    // ARTS_IMPORT Vector2(class Vector2 const& arg1);
-
     // ??KVector2@@QBE?AV0@M@Z | unused
-    ARTS_IMPORT class Vector2 operator/(f32 arg1) const;
+    ARTS_IMPORT Vector2 operator/(f32 arg1) const;
 
     // ??SVector2@@QBE?AV0@XZ | unused
-    ARTS_IMPORT class Vector2 operator~() const;
+    ARTS_IMPORT Vector2 operator~() const;
 
     // ?InvMag@Vector2@@QBEMXZ
     ARTS_IMPORT f32 InvMag() const;
@@ -89,13 +86,13 @@ class Vector2Array
 {
 public:
     // ??4Vector2Array@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(class Vector2Array& arg1);
+    ARTS_IMPORT void operator=( Vector2Array& arg1);
 
     // ??AVector2Array@@QAEAAVVector2@@H@Z | unused
-    ARTS_IMPORT class Vector2& operator[](i32 arg1);
+    ARTS_IMPORT Vector2& operator[](i32 arg1);
 
     // ?BlockCopy@Vector2Array@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(class Vector2Array& arg1);
+    ARTS_IMPORT void BlockCopy( Vector2Array& arg1);
 
     // ?Delete@Vector2Array@@QAEXXZ
     ARTS_IMPORT void Delete();
@@ -119,13 +116,13 @@ struct Vector2Type final : MetaType
     ARTS_IMPORT void Delete(void* arg1, i32 arg2) override;
 
     // ?Load@Vector2Type@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Load(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Load( MiniParser* arg1, void* arg2) override;
 
     // ?New@Vector2Type@@UAEPAXH@Z
     ARTS_IMPORT void* New(i32 arg1) override;
 
     // ?Save@Vector2Type@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_IMPORT void Save(class MiniParser* arg1, void* arg2) override;
+    ARTS_IMPORT void Save( MiniParser* arg1, void* arg2) override;
 
     // ?SizeOf@Vector2Type@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
@@ -134,7 +131,7 @@ struct Vector2Type final : MetaType
 check_size(Vector2Type, 0x4);
 
 // ?Vector2Inst@@3UVector2Type@@A
-ARTS_IMPORT extern struct Vector2Type Vector2Inst;
+ARTS_IMPORT extern Vector2Type Vector2Inst;
 #endif
 
 template <>

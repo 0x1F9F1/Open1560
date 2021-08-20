@@ -20,7 +20,7 @@ define_dummy_symbol(mmcamcs_viewcs);
 
 #include "viewcs.h"
 
-void mmViewCS::AddWidgets(class Bank* /*arg1*/)
+void mmViewCS::AddWidgets(Bank* /*arg1*/)
 {}
 
 void mmViewCS::Init()

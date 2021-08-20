@@ -40,11 +40,15 @@
 
 #include "refresh.h"
 
+class DLPTemplate;
+class DynamicDLP;
+class MultipassDLP;
+
 class DLP : public agiRefreshable
 {
 public:
     // ??0DLP@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT DLP(class agiPipeline* arg1);
+    ARTS_IMPORT DLP(agiPipeline* arg1);
 
     // ??_GDLP@@UAEPAXI@Z
     // ??_EDLP@@UAEPAXI@Z
@@ -57,15 +61,15 @@ public:
     // ?FixROpts@DLP@@UAEXHH@Z
     ARTS_IMPORT virtual void FixROpts(i32 arg1, i32 arg2);
 
-    virtual class DynamicDLP* GetDynamic(i32 arg1) = 0;
+    virtual DynamicDLP* GetDynamic(i32 arg1) = 0;
 
-    virtual class MultipassDLP* GetMultipass(i32 arg1) = 0;
+    virtual MultipassDLP* GetMultipass(i32 arg1) = 0;
 
     // ?BeginGfx@DLP@@UAEHXZ
     ARTS_IMPORT i32 BeginGfx() override;
 
     // ?Clone@DLP@@QAEPAV1@XZ | unused
-    ARTS_IMPORT class DLP* Clone();
+    ARTS_IMPORT DLP* Clone();
 
     // ?EndGfx@DLP@@UAEXXZ
     ARTS_EXPORT void EndGfx() override;
@@ -74,10 +78,10 @@ public:
     ARTS_IMPORT char* GetName() override;
 
     // ?Init@DLP@@QAEHPAD0PAVVector3@@@Z
-    ARTS_IMPORT i32 Init(char* arg1, char* arg2, class Vector3* arg3);
+    ARTS_IMPORT i32 Init(char* arg1, char* arg2, Vector3* arg3);
 
     // ?Init@DLP@@QAEHPAVDLPTemplate@@PADPAVVector3@@@Z
-    ARTS_IMPORT i32 Init(class DLPTemplate* arg1, char* arg2, class Vector3* arg3);
+    ARTS_IMPORT i32 Init(DLPTemplate* arg1, char* arg2, Vector3* arg3);
 
 protected:
     // ?FixTemplateRefs@DLP@@IAEXH@Z
@@ -89,4 +93,4 @@ protected:
 check_size(DLP, 0x94);
 
 // ?DLPHash@@3VHashTable@@A
-ARTS_IMPORT extern class HashTable DLPHash;
+ARTS_IMPORT extern HashTable DLPHash;

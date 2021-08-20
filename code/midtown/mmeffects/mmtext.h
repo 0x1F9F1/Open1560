@@ -58,6 +58,9 @@
 #    undef CreateFont
 #endif
 
+class agiBitmap;
+class agiSurfaceDesc;
+
 struct mmText
 {
 public:
@@ -68,25 +71,25 @@ public:
     ARTS_EXPORT ~mmText() = default;
 
     // ?Draw@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAX@Z | unused
-    ARTS_EXPORT void Draw(class agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font);
+    ARTS_EXPORT void Draw(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font);
 
     // ?Draw2@mmText@@QAEXPAVagiSurfaceDesc@@MMPADPAXI@Z
-    ARTS_EXPORT void Draw2(class agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font, u32 color);
+    ARTS_EXPORT void Draw2(agiSurfaceDesc* surface, f32 x, f32 y, char* text, void* font, u32 color);
 
     // ?CreateFitBitmap@mmText@@SAPAVagiBitmap@@PADPAXHH@Z
-    ARTS_EXPORT static RcOwner<class agiBitmap> CreateFitBitmap(char* text, void* font, i32 color, i32 bg_color);
+    ARTS_EXPORT static RcOwner<agiBitmap> CreateFitBitmap(char* text, void* font, i32 color, i32 bg_color);
 
     // ?CreateFont@mmText@@SAPAXPADH@Z
     ARTS_EXPORT static void* CreateFont(const char* font_name, i32 height);
 
     // ?CreateLocFont@mmText@@SAPAXPAULocString@@H@Z
-    ARTS_EXPORT static void* CreateLocFont(struct LocString* params, i32 screen_width);
+    ARTS_EXPORT static void* CreateLocFont(LocString* params, i32 screen_width);
 
     // ?DeleteFont@mmText@@SAXPAX@Z
     ARTS_EXPORT static void DeleteFont(void* font);
 
     // ?GetDC@mmText@@SAPAXPAVagiSurfaceDesc@@@Z
-    ARTS_EXPORT static void* GetDC(class agiSurfaceDesc* surface);
+    ARTS_EXPORT static void* GetDC(agiSurfaceDesc* surface);
 
     // ?ReleaseDC@mmText@@SAXXZ
     ARTS_EXPORT static void ReleaseDC();
@@ -139,7 +142,7 @@ public:
     ARTS_EXPORT ~mmTextNode() override;
 
     // ?AddText@mmTextNode@@QAEHPAXPAULocString@@HMM@Z
-    ARTS_IMPORT i32 AddText(void* font, struct LocString* text, i32 effects, f32 x, f32 y);
+    ARTS_IMPORT i32 AddText(void* font, LocString* text, i32 effects, f32 x, f32 y);
 
     // ?Cull@mmTextNode@@UAEXXZ
     ARTS_EXPORT void Cull() override;
@@ -148,7 +151,7 @@ public:
     ARTS_IMPORT u32 GetFGColor();
 
     // ?GetTextDimensions@mmTextNode@@QAEXPAXPAULocString@@AAM2@Z
-    ARTS_EXPORT void GetTextDimensions(void* font, struct LocString* text, f32& width, f32& height);
+    ARTS_EXPORT void GetTextDimensions(void* font, LocString* text, f32& width, f32& height);
 
     // ?Init@mmTextNode@@QAEXMMMMHH@Z
     ARTS_EXPORT void Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 flags);
@@ -157,23 +160,22 @@ public:
     ARTS_IMPORT void Printf(char const* arg1, ...);
 
     // ?RenderText@mmTextNode@@QAEXPAVagiSurfaceDesc@@PAUmmTextData@@HI@Z
-    ARTS_EXPORT void RenderText(
-        class agiSurfaceDesc* surface, struct mmTextData* lines, i32 num_lines, u32 enabled_lines);
+    ARTS_EXPORT void RenderText(agiSurfaceDesc* surface, mmTextData* lines, i32 num_lines, u32 enabled_lines);
 
     // ?SetBGColor@mmTextNode@@QAEXAAVVector4@@@Z | unused
-    ARTS_IMPORT void SetBGColor(class Vector4& arg1);
+    ARTS_IMPORT void SetBGColor(Vector4& arg1);
 
     // ?SetEffects@mmTextNode@@QAEXHH@Z
     ARTS_IMPORT void SetEffects(i32 line, i32 effects);
 
     // ?SetFGColor@mmTextNode@@QAEXAAVVector4@@@Z
-    ARTS_IMPORT void SetFGColor(class Vector4& arg1);
+    ARTS_IMPORT void SetFGColor(Vector4& arg1);
 
     // ?SetPosition@mmTextNode@@QAEXHMM@Z
     ARTS_IMPORT void SetPosition(i32 arg1, f32 arg2, f32 arg3);
 
     // ?SetString@mmTextNode@@QAEXHPAULocString@@@Z
-    ARTS_IMPORT void SetString(i32 arg1, struct LocString* arg2);
+    ARTS_IMPORT void SetString(i32 arg1, LocString* arg2);
 
     // ?SetTextPosition@mmTextNode@@QAEXHMM@Z
     ARTS_IMPORT void SetTextPosition(i32 arg1, f32 arg2, f32 arg3);

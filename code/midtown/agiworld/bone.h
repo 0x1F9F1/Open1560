@@ -31,6 +31,8 @@
     0x517090 | void __cdecl Matrix34__FromEulersXZY(class Matrix34 &,class Vector3 const &) | ?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z
 */
 
+class Tokenizer;
+
 class bnBone
 {
 public:
@@ -38,22 +40,22 @@ public:
     ARTS_IMPORT bnBone();
 
     // ?AddChild@bnBone@@QAEXPAV1@@Z
-    ARTS_IMPORT void AddChild(class bnBone* arg1);
+    ARTS_IMPORT void AddChild(bnBone* arg1);
 
     // ?Attach@bnBone@@QAEXQAVMatrix34@@AAH@Z
-    ARTS_IMPORT void Attach(class Matrix34* const arg1, i32& arg2);
+    ARTS_IMPORT void Attach(Matrix34* const arg1, i32& arg2);
 
     // ?Draw@bnBone@@QAEXXZ
     ARTS_EXPORT void Draw();
 
     // ?Load@bnBone@@QAEHPAVTokenizer@@PAPAV1@@Z
-    ARTS_IMPORT i32 Load(class Tokenizer* arg1, class bnBone** arg2);
+    ARTS_IMPORT i32 Load(Tokenizer* arg1, bnBone** arg2);
 
     // ?Pose@bnBone@@QAEXPBVVector3@@AAH@Z
-    ARTS_IMPORT void Pose(class Vector3 const* arg1, i32& arg2);
+    ARTS_IMPORT void Pose(Vector3 const* arg1, i32& arg2);
 
     // ?Transform@bnBone@@QAEXPAVMatrix34@@@Z
-    ARTS_IMPORT void Transform(class Matrix34* arg1);
+    ARTS_IMPORT void Transform(Matrix34* arg1);
 
     u8 gap0[0x8C];
 };

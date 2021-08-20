@@ -21,8 +21,8 @@
 #include "agisdl/sdlpipe.h"
 #include "data7/hash.h"
 
-class agiGLRasterizer;
 class agiGLContext;
+class agiGLRasterizer;
 
 class agiGLPipeline final : public agiSDLPipeline
 {
@@ -38,15 +38,15 @@ public:
     void EndScene() override;
     void EndFrame() override;
 
-    RcOwner<class agiTexDef> CreateTexDef() override;
-    RcOwner<class agiTexLut> CreateTexLut() override;
-    RcOwner<class DLP> CreateDLP() override;
-    RcOwner<class agiLight> CreateLight() override;
-    RcOwner<class agiLightModel> CreateLightModel() override;
-    RcOwner<class agiViewport> CreateViewport() override;
-    RcOwner<class agiBitmap> CreateBitmap() override;
+    RcOwner<agiTexDef> CreateTexDef() override;
+    RcOwner<agiTexLut> CreateTexLut() override;
+    RcOwner<DLP> CreateDLP() override;
+    RcOwner<agiLight> CreateLight() override;
+    RcOwner<agiLightModel> CreateLightModel() override;
+    RcOwner<agiViewport> CreateViewport() override;
+    RcOwner<agiBitmap> CreateBitmap() override;
 
-    void CopyBitmap(i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
+    void CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
     void ClearAll(i32 arg1) override;
     void ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color) override;

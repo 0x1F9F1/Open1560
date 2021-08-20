@@ -54,7 +54,7 @@ public:
     ARTS_IMPORT ~UIButton() override;
 
     // ?Action@UIButton@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?Disable@UIButton@@UAEXXZ | inline
     ARTS_IMPORT void Disable() override;
@@ -63,14 +63,13 @@ public:
     ARTS_IMPORT void Enable() override;
 
     // ?Init@UIButton@@QAEXPAULocString@@HMMMMHVCallback@@@Z
-    ARTS_IMPORT void Init(
-        struct LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, class Callback arg8);
+    ARTS_IMPORT void Init(LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, Callback arg8);
 
     // ?SetReadOnly@UIButton@@UAEXH@Z
     ARTS_IMPORT void SetReadOnly(i32 arg1) override;
 
     // ?SetString@UIButton@@QAEXPAULocString@@@Z
-    ARTS_IMPORT void SetString(struct LocString* arg1);
+    ARTS_IMPORT void SetString(LocString* arg1);
 
     // ?SetType@UIButton@@QAEXH@Z
     ARTS_IMPORT void SetType(i32 arg1);

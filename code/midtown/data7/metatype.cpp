@@ -39,7 +39,7 @@ struct PtrToType final : MetaType
     {}
 
     // ?Load@PtrToType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Load(class MiniParser* parser, void*) override
+    ARTS_EXPORT void Load(MiniParser* parser, void*) override
     {
         parser->Match(MiniParser::LabelRefToken);
     }
@@ -51,7 +51,7 @@ struct PtrToType final : MetaType
     }
 
     // ?Save@PtrToType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Save(MiniParser* parser, void* ptr) override
     {
         parser->PlaceLabelRef(*static_cast<void**>(ptr));
     }
@@ -65,7 +65,7 @@ struct PtrToType final : MetaType
 
 check_size(PtrToType, 0x8);
 
-ARTS_NOINLINE struct MetaType* PtrTo(struct MetaType* target)
+ARTS_NOINLINE MetaType* PtrTo(MetaType* target)
 {
     return new PtrToType(target);
 }
@@ -85,7 +85,7 @@ struct StructType final : MetaType
     }
 
     // ?Load@StructType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Load(class MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Load(MiniParser* parser, void* ptr) override
     {
         TargetClass->Load(parser, ptr);
     }
@@ -97,7 +97,7 @@ struct StructType final : MetaType
     }
 
     // ?Save@StructType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Save(MiniParser* parser, void* ptr) override
     {
         TargetClass->Save(parser, ptr);
     }
@@ -111,7 +111,7 @@ struct StructType final : MetaType
 
 check_size(StructType, 0x8);
 
-ARTS_NOINLINE struct MetaType* Struct(class MetaClass* target)
+ARTS_NOINLINE MetaType* Struct(MetaClass* target)
 {
     return new StructType(target);
 }
@@ -126,7 +126,7 @@ public:
     }
 
     // ?Load@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Load(class MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Load(MiniParser* parser, void* ptr) override
     {
         *static_cast<i32*>(ptr) = parser->IntVal();
     }
@@ -138,7 +138,7 @@ public:
     }
 
     // ?Save@SignedIntType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Save(MiniParser* parser, void* ptr) override
     {
         parser->Printf("%" PRIi32 " ", *static_cast<i32*>(ptr));
     }
@@ -170,7 +170,7 @@ public:
     }
 
     // ?Load@StringType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Load(class MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Load(MiniParser* parser, void* ptr) override
     {
         char*& str = *static_cast<char**>(ptr);
 
@@ -193,7 +193,7 @@ public:
     }
 
     // ?Save@StringType@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Save(MiniParser* parser, void* ptr) override
     {
         if (char* str = *static_cast<char**>(ptr))
             parser->PrintString(str, 1024);
@@ -226,7 +226,7 @@ public:
         // TODO: Implement this?
     }
 
-    void Load(class MiniParser* parser, void* ptr) override
+    void Load(MiniParser* parser, void* ptr) override
     {
         ConstString& str = *static_cast<ConstString*>(ptr);
 
@@ -244,7 +244,7 @@ public:
             return new ConstString();
     }
 
-    void Save(class MiniParser* parser, void* ptr) override
+    void Save(MiniParser* parser, void* ptr) override
     {
         if (ConstString& str = *static_cast<ConstString*>(ptr))
             parser->PrintString(str.get(), 1024);

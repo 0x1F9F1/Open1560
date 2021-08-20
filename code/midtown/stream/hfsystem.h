@@ -58,19 +58,19 @@ public:
     ARTS_EXPORT b32 ChangeDir(const char* path) override;
 
     // ?CreateOn@HierFileSystem@@UAEPAVStream@@PADPAXH@Z
-    ARTS_EXPORT Owner<class Stream> CreateOn(const char* path, void* buffer, isize buffer_len) override;
+    ARTS_EXPORT Owner<Stream> CreateOn(const char* path, void* buffer, isize buffer_len) override;
 
     // ?FirstEntry@HierFileSystem@@UAEPAUFileInfo@@PAD@Z
-    ARTS_EXPORT struct FileInfo* FirstEntry(const char* path) override;
+    ARTS_EXPORT FileInfo* FirstEntry(const char* path) override;
 
     // ?GetDir@HierFileSystem@@UAEHPADH@Z
     ARTS_EXPORT b32 GetDir(char* buffer, isize buffer_len) override;
 
     // ?NextEntry@HierFileSystem@@UAEPAUFileInfo@@PAU2@@Z
-    ARTS_EXPORT struct FileInfo* NextEntry(struct FileInfo* info) override;
+    ARTS_EXPORT FileInfo* NextEntry(FileInfo* info) override;
 
     // ?OpenOn@HierFileSystem@@UAEPAVStream@@PADHPAXH@Z
-    ARTS_EXPORT Owner<class Stream> OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len) override;
+    ARTS_EXPORT Owner<Stream> OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len) override;
 
     // ?QueryOn@HierFileSystem@@UAEHPAD@Z
     ARTS_EXPORT b32 QueryOn(const char* path) override;
@@ -85,7 +85,7 @@ check_size(HierFileSystem, 0x8);
 ARTS_EXPORT const char* FQN(const char* path);
 
 // ?HFS@@3VHierFileSystem@@A
-ARTS_EXPORT extern class HierFileSystem HFS;
+ARTS_EXPORT extern HierFileSystem HFS;
 
 // ?HierAllowPath@@3PADA
 ARTS_EXPORT extern char* HierAllowPath; // Null Separated

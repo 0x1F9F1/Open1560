@@ -1018,7 +1018,7 @@ void Application(i32 argc, char** argv)
     }
 }
 
-i32 GameFilter(struct _EXCEPTION_POINTERS* exception)
+i32 GameFilter(_EXCEPTION_POINTERS* exception)
 {
     return ExceptionFilter(exception);
 }

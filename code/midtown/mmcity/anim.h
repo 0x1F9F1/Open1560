@@ -35,7 +35,7 @@ class mmAnimation
 {
 public:
     // ?Load@mmAnimation@@QAEXPADPAVStream@@@Z
-    ARTS_IMPORT void Load(char* arg1, class Stream* arg2);
+    ARTS_IMPORT void Load(char* arg1, Stream* arg2);
 
     // ?LookupSequence@mmAnimation@@QAEHPAD@Z
     ARTS_IMPORT i32 LookupSequence(char* arg1);
@@ -46,7 +46,7 @@ public:
 check_size(mmAnimation, 0x18);
 
 // ?GetAnimation@@YAPAVmmAnimation@@PAD@Z
-ARTS_IMPORT class mmAnimation* GetAnimation(char* arg1);
+ARTS_IMPORT mmAnimation* GetAnimation(char* arg1);
 
 struct mmAnimInstState
 {

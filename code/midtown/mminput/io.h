@@ -35,6 +35,8 @@
     0x4E4FA0 | public: void __thiscall mmIO::ForceSettingAcrossConfigs(int) | ?ForceSettingAcrossConfigs@mmIO@@QAEXH@Z
 */
 
+union eqEvent;
+
 class mmIO final
 {
 public:
@@ -46,7 +48,7 @@ public:
     ARTS_IMPORT ~mmIO();
 
     // ??8mmIO@@QAEHPATeqEvent@@@Z
-    ARTS_IMPORT i32 operator==(union eqEvent* arg1);
+    ARTS_IMPORT i32 operator==(eqEvent* arg1);
 
     // ?Assign@mmIO@@QAEXHH@Z
     ARTS_IMPORT void Assign(i32 arg1, i32 arg2);
@@ -70,10 +72,10 @@ public:
     ARTS_IMPORT void InitDev(i32 arg1, i64 arg2, i32 arg3, i32 arg4, i32 arg5);
 
     // ?Read@mmIO@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 Read(class Stream* arg1);
+    ARTS_IMPORT i32 Read(Stream* arg1);
 
     // ?Write@mmIO@@QAEHPAVStream@@@Z
-    ARTS_IMPORT i32 Write(class Stream* arg1);
+    ARTS_IMPORT i32 Write(Stream* arg1);
 
     char* Name;
     u32 IoIndex;

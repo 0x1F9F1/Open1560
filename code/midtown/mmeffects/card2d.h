@@ -37,6 +37,8 @@
 
 #include "arts7/node.h"
 
+class asCamera;
+
 class Card2D final : public asNode
 {
 public:
@@ -49,13 +51,13 @@ public:
     ARTS_IMPORT ~Card2D() override = default;
 
     // ?Init@Card2D@@QAEXPAVasCamera@@MMMMM@Z
-    ARTS_IMPORT void Init(class asCamera* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
+    ARTS_IMPORT void Init(asCamera* arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
 
     // ?SetAlpha@Card2D@@QAEXM@Z
     ARTS_IMPORT void SetAlpha(f32 arg1);
 
     // ?SetColor@Card2D@@QAEXVVector4@@@Z | inline
-    ARTS_IMPORT void SetColor(class Vector4 arg1);
+    ARTS_IMPORT void SetColor(Vector4 arg1);
 
     // ?SetDimensions@Card2D@@QAEXMMMM@Z
     ARTS_IMPORT void SetDimensions(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
@@ -69,7 +71,7 @@ public:
 private:
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@Card2D@@EAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@Card2D@@EAEXXZ

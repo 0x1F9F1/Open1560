@@ -64,7 +64,7 @@ ARTS_EXPORT void StackTraceback(i32 depth);
 
 void StackTraceback(i32 depth, i32 skipped);
 
-i32 ExceptionFilter(struct _EXCEPTION_POINTERS* exception);
+i32 ExceptionFilter(_EXCEPTION_POINTERS* exception);
 
 #ifndef ARTS_NO_EXCEPTION_CATCHING
 #    define ARTS_EXCEPTION_BEGIN \

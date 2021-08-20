@@ -62,11 +62,13 @@
 
 #include "mmcar/car.h"
 
-class aiRaceData;
-class aiGoalChase;
 class aiGoalBackup;
-class aiGoalStop;
+class aiGoalChase;
 class aiGoalRandomDrive;
+class aiGoalStop;
+class aiPath;
+class aiRaceData;
+class AudSound;
 class mmPed;
 
 class aiVehiclePolice final : public aiVehicleSpline
@@ -80,8 +82,8 @@ public:
     ARTS_IMPORT ~aiVehiclePolice();
 
     // ?AssignSounds@aiVehiclePolice@@QAEXPAVAudSound@@000PAVmmOpponentImpactAudio@@0@Z
-    ARTS_IMPORT void AssignSounds(class AudSound* arg1, class AudSound* arg2, class AudSound* arg3,
-        class AudSound* arg4, class mmOpponentImpactAudio* arg5, class AudSound* arg6);
+    ARTS_IMPORT void AssignSounds(
+        AudSound* arg1, AudSound* arg2, AudSound* arg3, AudSound* arg4, mmOpponentImpactAudio* arg5, AudSound* arg6);
 
     // ?Backup@aiVehiclePolice@@QAEXXZ | unused
     ARTS_IMPORT void Backup();
@@ -102,10 +104,10 @@ public:
     ARTS_IMPORT void Dump();
 
     // ?GetAudioPtr@aiVehiclePolice@@QAEPAVmmPoliceCarAudio@@XZ
-    ARTS_IMPORT class mmPoliceCarAudio* GetAudioPtr();
+    ARTS_IMPORT mmPoliceCarAudio* GetAudioPtr();
 
     // ?GetCarAudioPtr@aiVehiclePolice@@QAEPAVmmPoliceCarAudio@@XZ
-    ARTS_IMPORT class mmPoliceCarAudio* GetCarAudioPtr();
+    ARTS_IMPORT mmPoliceCarAudio* GetCarAudioPtr();
 
     // ?GetDistanceToPlayer2@aiVehiclePolice@@QAEMXZ
     ARTS_IMPORT f32 GetDistanceToPlayer2();
@@ -117,10 +119,10 @@ public:
     ARTS_IMPORT i32 InPersuit();
 
     // ?Init@aiVehiclePolice@@QAEXHPAVaiRaceData@@@Z
-    ARTS_IMPORT void Init(i32 arg1, class aiRaceData* arg2);
+    ARTS_IMPORT void Init(i32 arg1, aiRaceData* arg2);
 
     // ?IsPerpInRange@aiVehiclePolice@@QAEHPAVmmCar@@@Z | unused
-    ARTS_IMPORT i32 IsPerpInRange(class mmCar* arg1);
+    ARTS_IMPORT i32 IsPerpInRange(mmCar* arg1);
 
     // ?PerpEscapes@aiVehiclePolice@@QAEXE@Z
     ARTS_IMPORT void PerpEscapes(u8 arg1);
@@ -179,7 +181,7 @@ private:
     ARTS_IMPORT void AddToAiAudMgr();
 
     // ?FindPerp@aiVehiclePolice@@AAEHHHPAVaiPath@@HH@Z
-    ARTS_IMPORT i32 FindPerp(i32 arg1, i32 arg2, class aiPath* arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT i32 FindPerp(i32 arg1, i32 arg2, aiPath* arg3, i32 arg4, i32 arg5);
 };
 
 check_size(aiVehiclePolice, 0x241C);

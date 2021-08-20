@@ -47,11 +47,11 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asOverSample@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetClass@asOverSample@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?RealTime@asOverSample@@QAEXM@Z
     ARTS_EXPORT void RealTime(f32 fps);

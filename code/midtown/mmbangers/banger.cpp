@@ -20,5 +20,5 @@ define_dummy_symbol(mmbangers_banger);
 
 #include "banger.h"
 
-void mmBangerInstance::AddWidgets(class Bank* /*arg1*/)
+void mmBangerInstance::AddWidgets(Bank* /*arg1*/)
 {}

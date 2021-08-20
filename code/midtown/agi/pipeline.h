@@ -94,10 +94,15 @@
 
 typedef struct SDL_Window SDL_Window;
 
-class agiRefreshable;
 class agiBitmap;
 class agiColorModel;
+class agiLight;
+class agiLightModel;
+class agiMtlDef;
+class agiRefreshable;
 class agiRenderer;
+class agiTexDef;
+class agiViewport;
 class ipcMessageQueue;
 
 struct agiMemStatus
@@ -136,29 +141,29 @@ public:
     // ?EndFrame@agiPipeline@@UAEXXZ
     ARTS_EXPORT virtual void EndFrame();
 
-    virtual RcOwner<class agiTexDef> CreateTexDef() = 0;
+    virtual RcOwner<agiTexDef> CreateTexDef() = 0;
 
-    virtual RcOwner<class agiTexLut> CreateTexLut() = 0;
+    virtual RcOwner<agiTexLut> CreateTexLut() = 0;
 
     // ?CreateMtlDef@agiPipeline@@UAEPAVagiMtlDef@@XZ
-    ARTS_EXPORT virtual RcOwner<class agiMtlDef> CreateMtlDef();
+    ARTS_EXPORT virtual RcOwner<agiMtlDef> CreateMtlDef();
 
-    virtual RcOwner<class DLP> CreateDLP() = 0;
+    virtual RcOwner<DLP> CreateDLP() = 0;
 
-    virtual RcOwner<class agiViewport> CreateViewport() = 0;
+    virtual RcOwner<agiViewport> CreateViewport() = 0;
 
     // ?CreateLight@agiPipeline@@UAEPAVagiLight@@XZ
-    ARTS_EXPORT virtual RcOwner<class agiLight> CreateLight();
+    ARTS_EXPORT virtual RcOwner<agiLight> CreateLight();
 
     // ?CreateLightModel@agiPipeline@@UAEPAVagiLightModel@@XZ
-    ARTS_EXPORT virtual RcOwner<class agiLightModel> CreateLightModel();
+    ARTS_EXPORT virtual RcOwner<agiLightModel> CreateLightModel();
 
     // ?CreateBitmap@agiPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_EXPORT virtual RcOwner<class agiBitmap> CreateBitmap();
+    ARTS_EXPORT virtual RcOwner<agiBitmap> CreateBitmap();
 
     // ?CopyBitmap@agiPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
     ARTS_EXPORT virtual void CopyBitmap(
-        i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height);
+        i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height);
 
     virtual void ClearAll(i32 color) = 0;
 
@@ -181,24 +186,24 @@ public:
     ARTS_EXPORT virtual void Defragment();
 
     // ?LockFrameBuffer@agiPipeline@@UAEHAAVagiSurfaceDesc@@@Z
-    ARTS_EXPORT virtual b32 LockFrameBuffer(class agiSurfaceDesc& arg1);
+    ARTS_EXPORT virtual b32 LockFrameBuffer(agiSurfaceDesc& arg1);
 
     // ?UnlockFrameBuffer@agiPipeline@@UAEXXZ
     ARTS_EXPORT virtual void UnlockFrameBuffer();
 
     // ?DumpStatus@agiPipeline@@UAEXAAUagiMemStatus@@@Z
-    ARTS_EXPORT virtual void DumpStatus(struct agiMemStatus& arg1);
+    ARTS_EXPORT virtual void DumpStatus(agiMemStatus& arg1);
 
     // ?BeginAllGfx@agiPipeline@@QAEHXZ
     ARTS_EXPORT i32 BeginAllGfx();
 
     // ?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHH@Z
     ARTS_EXPORT b32 CopyClippedBitmap(
-        i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height);
+        i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height);
 
     // ?CopyClippedBitmap@agiPipeline@@QAEHHHPAVagiBitmap@@HHHHHHHH@Z
-    ARTS_EXPORT b32 CopyClippedBitmap(i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width,
-        i32 height, i32 min_x, i32 min_y, i32 max_x, i32 max_y);
+    ARTS_EXPORT b32 CopyClippedBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height,
+        i32 min_x, i32 min_y, i32 max_x, i32 max_y);
 
     // ?DumpStatus@agiPipeline@@QAEXXZ | unused
     ARTS_EXPORT void DumpStatus();
@@ -207,46 +212,46 @@ public:
     ARTS_EXPORT void EndAllGfx();
 
     // ?GetBitmap@agiPipeline@@QAEPAVagiBitmap@@PADMMH@Z
-    ARTS_EXPORT RcOwner<class agiBitmap> GetBitmap(const char* name, f32 sx, f32 sy, i32 flags);
+    ARTS_EXPORT RcOwner<agiBitmap> GetBitmap(const char* name, f32 sx, f32 sy, i32 flags);
 
     // ?GetDLP@agiPipeline@@QAEPAVDLP@@PAD0PAVVector3@@HH@Z
-    ARTS_IMPORT RcOwner<class DLP> GetDLP(char* arg1, char* arg2, class Vector3* arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT RcOwner<DLP> GetDLP(char* arg1, char* arg2, Vector3* arg3, i32 arg4, i32 arg5);
 
     // ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@PAD@Z | unused
-    ARTS_IMPORT RcOwner<class agiMtlDef> GetMaterial(char* arg1);
+    ARTS_IMPORT RcOwner<agiMtlDef> GetMaterial(char* arg1);
 
     // ?GetMaterial@agiPipeline@@QAEPAVagiMtlDef@@H@Z
-    ARTS_IMPORT RcOwner<class agiMtlDef> GetMaterial(i32 arg1);
+    ARTS_IMPORT RcOwner<agiMtlDef> GetMaterial(i32 arg1);
 
     // ?GetTexLut@agiPipeline@@QAEPAVagiTexLut@@PAD@Z
-    ARTS_IMPORT RcOwner<class agiTexLut> GetTexLut(char* arg1);
+    ARTS_IMPORT RcOwner<agiTexLut> GetTexLut(char* arg1);
 
     // ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@PADH@Z
-    ARTS_EXPORT RcOwner<class agiTexDef> GetTexture(char* name, i32 pack_shift);
+    ARTS_EXPORT RcOwner<agiTexDef> GetTexture(char* name, i32 pack_shift);
 
     // ?GetTexture@agiPipeline@@QAEPAVagiTexDef@@HH@Z
-    ARTS_EXPORT RcOwner<class agiTexDef> GetTexture(i32 index, i32 pack_shift);
+    ARTS_EXPORT RcOwner<agiTexDef> GetTexture(i32 index, i32 pack_shift);
 
     // ?Init@agiPipeline@@QAEHPADHHHHHHPAX@Z | unused
     i32 Init(const char* name, i32 x, i32 y, i32 width, i32 height, i32 bit_depth, i32 flags, SDL_Window* window);
 
     // ?NotifyDelete@agiPipeline@@QAEXPAVagiRefreshable@@@Z
-    ARTS_EXPORT void NotifyDelete(class agiRefreshable* ptr);
+    ARTS_EXPORT void NotifyDelete(agiRefreshable* ptr);
 
     // ?NotifyNew@agiPipeline@@QAEXPAVagiRefreshable@@@Z
-    ARTS_EXPORT void NotifyNew(class agiRefreshable* ptr);
+    ARTS_EXPORT void NotifyNew(agiRefreshable* ptr);
 
     // ?RestoreAll@agiPipeline@@QAEXXZ
     ARTS_EXPORT void RestoreAll();
 
     // ?ValidateObject@agiPipeline@@QAEXPAVagiRefreshable@@@Z | unused
-    ARTS_EXPORT void ValidateObject(class agiRefreshable* ptr);
+    ARTS_EXPORT void ValidateObject(agiRefreshable* ptr);
 
     // ?CurrentPipe@agiPipeline@@2PAV1@A
-    ARTS_IMPORT static class agiPipeline* CurrentPipe;
+    ARTS_IMPORT static agiPipeline* CurrentPipe;
 
     // ?CurrentRenderer@agiPipeline@@2PAVagiRenderer@@A
-    ARTS_IMPORT static class agiRenderer* CurrentRenderer;
+    ARTS_IMPORT static agiRenderer* CurrentRenderer;
 
     i32 GetWidth() const
     {
@@ -456,7 +461,7 @@ struct agiStats
 check_size(agiStats, 0x44);
 
 // ?STATS@@3UagiStats@@A
-ARTS_IMPORT extern struct agiStats STATS;
+ARTS_IMPORT extern agiStats STATS;
 
 // ?ZFill@@3HA
 ARTS_IMPORT extern i32 ZFill;

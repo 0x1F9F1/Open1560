@@ -51,17 +51,22 @@
     0x8BABF4 | public: static float agiProjVtx::HalfWidth | ?HalfWidth@agiProjVtx@@2MA
 */
 
+struct agiAdjunctData;
+class agiLighter;
+struct agiLitVtx;
+union agiVtx;
+
 struct agiProjVtx
 {
 public:
     // ?Init@agiProjVtx@@SAXHPAVagiLighter@@I@Z
-    ARTS_IMPORT static void Init(i32 arg1, class agiLighter* arg2, u32 arg3);
+    ARTS_IMPORT static void Init(i32 arg1, agiLighter* arg2, u32 arg3);
 
     // ?InitMtx@agiProjVtx@@SAXAAVMatrix34@@MMMM@Z
-    ARTS_IMPORT static void InitMtx(class Matrix34& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT static void InitMtx(Matrix34& arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5);
 
     // ?Project@agiProjVtx@@SAHHPAUagiLitVtx@@@Z
-    ARTS_IMPORT static i32 Project(i32 arg1, struct agiLitVtx* arg2);
+    ARTS_IMPORT static i32 Project(i32 arg1, agiLitVtx* arg2);
 
     // ?SetOutcode@agiProjVtx@@SAXH@Z
     ARTS_IMPORT static void SetOutcode(i32 arg1);
@@ -70,7 +75,7 @@ public:
     ARTS_IMPORT static void ToScreen(i32 arg1);
 
     // ?Adj@agiProjVtx@@2PAUagiAdjunctData@@A
-    ARTS_IMPORT static struct agiAdjunctData Adj[6968];
+    ARTS_IMPORT static agiAdjunctData Adj[6968];
 
     // ?HalfHeight@agiProjVtx@@2MA
     ARTS_IMPORT static f32 HalfHeight;
@@ -79,13 +84,13 @@ public:
     ARTS_IMPORT static f32 HalfWidth;
 
     // ?LIGHTER@agiProjVtx@@2PAVagiLighter@@A
-    ARTS_IMPORT static class agiLighter* LIGHTER;
+    ARTS_IMPORT static agiLighter* LIGHTER;
 
     // ?M@agiProjVtx@@2VMatrix34@@A
-    ARTS_IMPORT static class Matrix34 M;
+    ARTS_IMPORT static Matrix34 M;
 
     // ?M2@agiProjVtx@@2VMatrix34@@A
-    ARTS_IMPORT static class Matrix34 M2;
+    ARTS_IMPORT static Matrix34 M2;
 
     // ?NeedsClip@agiProjVtx@@2HA
     ARTS_IMPORT static i32 NeedsClip;
@@ -127,7 +132,7 @@ public:
     ARTS_IMPORT static f32 ScreenWidth;
 
     // ?Vtx@agiProjVtx@@2PATagiVtx@@A
-    ARTS_IMPORT static union agiVtx Vtx[6968];
+    ARTS_IMPORT static agiVtx Vtx[6968];
 };
 
 // ?DepthOffset@@3MA

@@ -74,10 +74,10 @@ public:
 
     // ?CopyBitmap@agiDDPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
     ARTS_EXPORT void CopyBitmap(
-        i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
+        i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
     // ?CreateBitmap@agiDDPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_EXPORT RcOwner<class agiBitmap> CreateBitmap() override;
+    ARTS_EXPORT RcOwner<agiBitmap> CreateBitmap() override;
 
     // ?EndFrame@agiDDPipeline@@UAEXXZ
     ARTS_EXPORT void EndFrame() override;
@@ -89,7 +89,7 @@ public:
     ARTS_EXPORT void EndScene() override;
 
     // ?LockFrameBuffer@agiDDPipeline@@UAEHAAVagiSurfaceDesc@@@Z
-    ARTS_EXPORT b32 LockFrameBuffer(class agiSurfaceDesc& surface) override;
+    ARTS_EXPORT b32 LockFrameBuffer(agiSurfaceDesc& surface) override;
 
     // ?UnlockFrameBuffer@agiDDPipeline@@UAEXXZ
     ARTS_EXPORT void UnlockFrameBuffer() override;
@@ -116,14 +116,13 @@ protected:
 check_size(agiDDPipeline, 0x32C);
 
 // ?DDCallback@@YGHPAU_GUID@@PAD1PAX@Z | unused
-ARTS_IMPORT i32 ARTS_STDCALL DDCallback(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
+ARTS_IMPORT i32 ARTS_STDCALL DDCallback(_GUID* arg1, char* arg2, char* arg3, void* arg4);
 
 // ?EnumModesCallback@@YGJPAU_DDSURFACEDESC2@@PAX@Z | unused
-ARTS_IMPORT ilong ARTS_STDCALL EnumModesCallback(struct _DDSURFACEDESC2* arg1, void* arg2);
+ARTS_IMPORT ilong ARTS_STDCALL EnumModesCallback(_DDSURFACEDESC2* arg1, void* arg2);
 
 // ?EnumSurfsCallback@@YGJPAUIDirectDrawSurface@@PAU_DDSURFACEDESC@@PAX@Z | unused
-ARTS_IMPORT ilong ARTS_STDCALL EnumSurfsCallback(
-    struct IDirectDrawSurface* arg1, struct _DDSURFACEDESC* arg2, void* arg3);
+ARTS_IMPORT ilong ARTS_STDCALL EnumSurfsCallback(IDirectDrawSurface* arg1, _DDSURFACEDESC* arg2, void* arg3);
 
 template <typename T>
 inline void SafeRelease(T*& ptr)

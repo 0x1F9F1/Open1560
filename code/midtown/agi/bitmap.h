@@ -46,7 +46,7 @@ class agiBitmap : public agiRefreshable
 {
 public:
     // ??0agiBitmap@@QAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiBitmap(class agiPipeline* pipe);
+    ARTS_EXPORT agiBitmap(agiPipeline* pipe);
 
     // ?UpdateFlags@agiBitmap@@UAEXXZ
     ARTS_EXPORT virtual void UpdateFlags();
@@ -114,7 +114,7 @@ protected:
 check_size(agiBitmap, 0x3C);
 
 // ?BitmapHash@@3VHashTable@@A
-ARTS_IMPORT extern class HashTable BitmapHash;
+ARTS_IMPORT extern HashTable BitmapHash;
 
 // ?BitmapSearchPath@@3PADA
 ARTS_IMPORT extern char* BitmapSearchPath;

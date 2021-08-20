@@ -33,6 +33,9 @@
 
 #include "arts7/linear.h"
 
+class aiVehicleData;
+class asInertialCS;
+
 class mmWheelCheap final : public asLinearCS
 {
 public:
@@ -45,7 +48,7 @@ public:
     ARTS_IMPORT ~mmWheelCheap() override = default;
 
     // ?Init@mmWheelCheap@@QAEXPAVVector3@@PAVaiVehicleData@@PAVasInertialCS@@@Z
-    ARTS_IMPORT void Init(class Vector3* arg1, class aiVehicleData* arg2, class asInertialCS* arg3);
+    ARTS_IMPORT void Init(Vector3* arg1, aiVehicleData* arg2, asInertialCS* arg3);
 
     // ?Reset@mmWheelCheap@@UAEXXZ
     ARTS_IMPORT void Reset() override;

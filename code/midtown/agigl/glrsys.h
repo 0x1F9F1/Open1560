@@ -29,7 +29,7 @@ class agiGLStreamBuffer;
 class agiGLRasterizer final : public agiRasterizer
 {
 public:
-    agiGLRasterizer(class agiPipeline* pipe);
+    agiGLRasterizer(agiPipeline* pipe);
     ~agiGLRasterizer();
 
     void EndGfx() override;

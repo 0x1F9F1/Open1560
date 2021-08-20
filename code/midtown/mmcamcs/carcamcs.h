@@ -35,6 +35,8 @@
 
 #include "appcamcs.h"
 
+class mmCar;
+
 class CarCamCS : public AppCamCS
 {
 public:
@@ -47,14 +49,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@CarCamCS@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetClass@CarCamCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@CarCamCS@@QAEXPAVmmCar@@PAD@Z
-    ARTS_IMPORT void Init(class mmCar* arg1, char* arg2);
+    ARTS_IMPORT void Init(mmCar* arg1, char* arg2);
 
     // ?DeclareFields@CarCamCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

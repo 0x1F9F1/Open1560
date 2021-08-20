@@ -49,7 +49,7 @@ class aiGoalRandomDrive final : public aiGoal
 {
 public:
     // ??0aiGoalRandomDrive@@QAE@PAVaiRailSet@@PAVaiVehicleSpline@@@Z
-    ARTS_IMPORT aiGoalRandomDrive(class aiRailSet* arg1, class aiVehicleSpline* arg2);
+    ARTS_IMPORT aiGoalRandomDrive(aiRailSet* arg1, aiVehicleSpline* arg2);
 
     // ??1aiGoalRandomDrive@@QAE@XZ
     ARTS_IMPORT ~aiGoalRandomDrive() = default;
@@ -70,7 +70,7 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SolvePosition@aiGoalRandomDrive@@QAEXAAVVector3@@M@Z | unused
-    ARTS_IMPORT void SolvePosition(class Vector3& arg1, f32 arg2);
+    ARTS_IMPORT void SolvePosition(Vector3& arg1, f32 arg2);
 
     // ?Update@aiGoalRandomDrive@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -80,7 +80,7 @@ private:
     ARTS_IMPORT i32 AnyVehiclesComingThisWay();
 
     // ?AvoidCollision@aiGoalRandomDrive@@AAEXPAVaiVehicleSpline@@M@Z
-    ARTS_IMPORT void AvoidCollision(class aiVehicleSpline* arg1, f32 arg2);
+    ARTS_IMPORT void AvoidCollision(aiVehicleSpline* arg1, f32 arg2);
 
     // ?ChangeLanes@aiGoalRandomDrive@@AAEXXZ
     ARTS_IMPORT void ChangeLanes();

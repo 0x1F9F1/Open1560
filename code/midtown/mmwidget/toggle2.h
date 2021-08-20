@@ -51,7 +51,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?GetClass@mmToggle2@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmToggle2@@QAEXPADMMPAH@Z
     ARTS_IMPORT void Init(char* arg1, f32 arg2, f32 arg3, i32* arg4);

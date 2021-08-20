@@ -39,19 +39,19 @@ public:
     ARTS_IMPORT ~mmDofBangerInstance() override = default;
 
     // ?FromMatrix@mmDofBangerInstance@@UAIXABVMatrix34@@@Z | inline
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
 
     // ?GetPos@mmDofBangerInstance@@UAIAAVVector3@@XZ | inline
-    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?Init@mmDofBangerInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
-    ARTS_IMPORT i32 Init(char* name, char* part, i32 flags, class Matrix34* matrix, class Vector3* offset);
+    ARTS_IMPORT i32 Init(char* name, char* part, i32 flags, Matrix34* matrix, Vector3* offset);
 
     // ?SizeOf@mmDofBangerInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;
 
     // ?ToMatrix@mmDofBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | inline
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
     u8 gap30[0x4];
 };
@@ -62,10 +62,10 @@ class mmFacadeBangerInstance final : public mmBangerInstance
 {
 public:
     // ?GetPos@mmFacadeBangerInstance@@UAIAAVVector3@@XZ | unused
-    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos();
+    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos();
 
     // ?ToMatrix@mmFacadeBangerInstance@@UAIAAVMatrix34@@AAV2@@Z | unused
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1);
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1);
 
     u8 gap1C[0x14];
 };

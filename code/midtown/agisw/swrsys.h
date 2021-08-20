@@ -46,7 +46,7 @@ class agiSWRasterizer final : public agiRasterizer
 {
 public:
     // ??0agiSWRasterizer@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiSWRasterizer(class agiPipeline* arg1);
+    ARTS_IMPORT agiSWRasterizer(agiPipeline* arg1);
 
     // ??_GagiSWRasterizer@@UAEPAXI@Z
     // ??_EagiSWRasterizer@@UAEPAXI@Z
@@ -72,11 +72,10 @@ public:
     ARTS_EXPORT void Line(i32 i1, i32 i2) override;
 
     // ?Mesh@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@HPAGH@Z
-    ARTS_EXPORT void Mesh(
-        enum agiVtxType type, union agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) override;
+    ARTS_EXPORT void Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) override;
 
     // ?Points@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    ARTS_EXPORT void Points(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
+    ARTS_EXPORT void Points(agiVtxType arg1, agiVtx* arg2, i32 arg3) override;
 
     // ?Quad@agiSWRasterizer@@UAEXHHHH@Z
     ARTS_IMPORT void Quad(i32 arg1, i32 arg2, i32 arg3, i32 arg4) override;
@@ -88,7 +87,7 @@ public:
     ARTS_IMPORT void Triangle(i32 arg1, i32 arg2, i32 arg3) override;
 
     // ?Verts@agiSWRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    ARTS_IMPORT void Verts(enum agiVtxType arg1, union agiVtx* arg2, i32 arg3) override;
+    ARTS_IMPORT void Verts(agiVtxType arg1, agiVtx* arg2, i32 arg3) override;
 };
 
 check_size(agiSWRasterizer, 0x18);

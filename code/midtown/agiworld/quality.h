@@ -57,4 +57,4 @@ struct agiWorldRenderQuality
 check_size(agiWorldRenderQuality, 0x28);
 
 // ?agiRQ@@3UagiWorldRenderQuality@@A
-ARTS_IMPORT extern struct agiWorldRenderQuality agiRQ;
+ARTS_IMPORT extern agiWorldRenderQuality agiRQ;

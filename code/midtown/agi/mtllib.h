@@ -29,29 +29,6 @@
 
 #include "mtldef.h"
 
-#if 0
-class agiLib<class agiMtlParameters, class agiMtlDef>
-{
-public:
-    // ??0?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ | inline
-    ARTS_IMPORT agiLib<class agiMtlParameters, class agiMtlDef>();
-
-    // ??1?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAE@XZ | inline
-    ARTS_IMPORT ~agiLib<class agiMtlParameters, class agiMtlDef>();
-
-    // ?Add@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEHAAVagiMtlParameters@@@Z | inline
-    ARTS_IMPORT i32 Add(class agiMtlParameters& arg1);
-
-    // ?Init@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXH@Z | inline
-    ARTS_IMPORT void Init(i32 arg1);
-
-    // ?Kill@?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@QAEXXZ | inline
-    ARTS_IMPORT void Kill();
-
-    u8 gap0[0x4014];
-};
-#endif
-
 // ?agiMtlLib@@3V?$agiLib@VagiMtlParameters@@VagiMtlDef@@@@A
 ARTS_EXPORT extern class agiLib<class agiMtlParameters, class agiMtlDef> agiMtlLib;
 

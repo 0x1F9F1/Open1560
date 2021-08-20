@@ -51,17 +51,17 @@ f32 mmInstance::LodTable[3 /*Inst Type*/][4 /*Terrain Quality*/][3 /*Lod Dist*/]
     },
 };
 
-class mmPhysEntity* mmInstance::GetEntity()
+mmPhysEntity* mmInstance::GetEntity()
 {
     return nullptr;
 }
 
-class mmPhysEntity* mmInstance::AttachEntity()
+mmPhysEntity* mmInstance::AttachEntity()
 {
     return nullptr;
 }
 
-void mmInstance::Impact(class mmInstance* /*arg1*/, class Vector3* /*arg2*/)
+void mmInstance::Impact(mmInstance* /*arg1*/, Vector3* /*arg2*/)
 {}
 
 void mmInstance::Detach()
@@ -79,19 +79,19 @@ void ARTS_FASTCALL mmInstance::Relight()
 void mmInstance::Reset()
 {}
 
-i32 mmInstance::Init(char* /*arg1*/, class Vector3& /*arg2*/, class Vector3& /*arg3*/, i32 /*arg4*/, char* /*arg5*/)
+i32 mmInstance::Init(char* /*arg1*/, Vector3& /*arg2*/, Vector3& /*arg3*/, i32 /*arg4*/, char* /*arg5*/)
 {
     return 0;
 }
 
 // ?MatrixFromPoints@@YAXAAVMatrix34@@AAVVector3@@1M@Z
-ARTS_IMPORT /*static*/ void MatrixFromPoints(class Matrix34& arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4);
+ARTS_IMPORT /*static*/ void MatrixFromPoints(Matrix34& arg1, Vector3& arg2, Vector3& arg3, f32 arg4);
 
-void mmMatrixInstance::Hit(class mmInstance* /*arg1*/)
+void mmMatrixInstance::Hit(mmInstance* /*arg1*/)
 {}
 
 #ifdef ARTS_DEV_BUILD
-void mmMatrixInstance::AddWidgets(class Bank* /*arg1*/)
+void mmMatrixInstance::AddWidgets(Bank* /*arg1*/)
 {}
 #endif
 

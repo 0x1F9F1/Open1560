@@ -85,9 +85,9 @@ public:
     ARTS_EXPORT void Free(void* ptr);
 
     // ?GetStats@asMemoryAllocator@@QAEXPAUasMemStats@@@Z
-    ARTS_EXPORT void GetStats(struct asMemStats* stats);
+    ARTS_EXPORT void GetStats(asMemStats* stats);
 
-    void GetStats(struct asMemStats* stats, struct asMemSource* sources, usize* num_sources);
+    void GetStats(asMemStats* stats, asMemSource* sources, usize* num_sources);
 
     // ?Init@asMemoryAllocator@@QAEXPAXIH@Z
     ARTS_EXPORT void Init(void* heap, usize heap_size, b32 use_nodes);
@@ -189,13 +189,13 @@ private:
 // check_size(asMemoryAllocator, 0xA0);
 
 // ?ALLOCATOR@@3VasMemoryAllocator@@A
-ARTS_EXPORT extern class asMemoryAllocator ALLOCATOR;
+ARTS_EXPORT extern asMemoryAllocator ALLOCATOR;
 
 // ?CRTALLOCATOR@@3VasMemoryAllocator@@A
 
 // ?CRTHEAP@@3PAEA
 
 // ?CURHEAP@@3PAVasMemoryAllocator@@A
-ARTS_EXPORT extern class asMemoryAllocator* CURHEAP;
+ARTS_EXPORT extern asMemoryAllocator* CURHEAP;
 
 asMemoryAllocator* StaticAllocator();

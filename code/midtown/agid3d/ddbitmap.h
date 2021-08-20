@@ -41,7 +41,7 @@ class agiDDBitmap final : public agiBitmap
 {
 public:
     // ??0agiDDBitmap@@QAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiDDBitmap(class agiPipeline* pipe)
+    ARTS_EXPORT agiDDBitmap(agiPipeline* pipe)
         : agiBitmap(pipe)
     {}
 

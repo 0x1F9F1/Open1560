@@ -30,8 +30,11 @@
     0x61FD10 | const mmEffectFF::`vftable' | ??_7mmEffectFF@@6B@
 */
 
+struct DIEFFECTINFOA;
+struct IDirectInputDevice2A;
+
 // ?inputEnumEffectTypeProc@@YGHPBUDIEFFECTINFOA@@PAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL inputEnumEffectTypeProc(struct DIEFFECTINFOA const* arg1, void* arg2);
+ARTS_IMPORT i32 ARTS_STDCALL inputEnumEffectTypeProc(DIEFFECTINFOA const* arg1, void* arg2);
 
 class mmEffectFF
 {
@@ -42,7 +45,7 @@ public:
     // ??1mmEffectFF@@QAE@XZ
     ARTS_IMPORT ~mmEffectFF();
 
-    virtual i32 Init(struct IDirectInputDevice2A* arg1) = 0;
+    virtual i32 Init(IDirectInputDevice2A* arg1) = 0;
 
     // ?Play@mmEffectFF@@UAEHXZ | inline
     ARTS_EXPORT virtual i32 Play();

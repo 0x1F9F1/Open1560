@@ -450,7 +450,7 @@ void asMemoryAllocator::GetStats(asMemStats* stats)
     GetStats(stats, nullptr, nullptr);
 }
 
-void asMemoryAllocator::GetStats(struct asMemStats* stats, struct asMemSource* sources, usize* num_sources)
+void asMemoryAllocator::GetStats(asMemStats* stats, asMemSource* sources, usize* num_sources)
 {
     Lock();
 

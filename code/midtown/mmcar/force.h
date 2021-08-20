@@ -49,11 +49,11 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmForce@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetClass@mmForce@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Update@mmForce@@UAEXXZ
     ARTS_IMPORT void Update() override;

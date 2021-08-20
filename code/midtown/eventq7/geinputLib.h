@@ -33,6 +33,8 @@
     0x9092C0 | struct _DIMOUSESTATE MOUSESTATE | ?MOUSESTATE@@3U_DIMOUSESTATE@@A
 */
 
+#include <dinput.h>
+
 // ?geinputAcquireMouse@@YAXXZ | unused
 ARTS_EXPORT void geinputAcquireMouse();
 
@@ -62,4 +64,4 @@ void geinputAcquireKeyboard();
 void geinputUnacquireKeyboard();
 
 // ?MOUSESTATE@@3U_DIMOUSESTATE@@A
-ARTS_IMPORT extern struct _DIMOUSESTATE MOUSESTATE;
+ARTS_IMPORT extern _DIMOUSESTATE MOUSESTATE;

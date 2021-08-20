@@ -53,14 +53,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmCarRoadFF@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AssignProperties@mmCarRoadFF@@QAEXMH@Z
     ARTS_IMPORT void AssignProperties(f32 arg1, i32 arg2);
 
     // ?GetClass@mmCarRoadFF@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?IsPlaying@mmCarRoadFF@@QAEHXZ
     ARTS_IMPORT i32 IsPlaying();

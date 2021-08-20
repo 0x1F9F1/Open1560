@@ -68,13 +68,13 @@ public:
     ARTS_EXPORT ~mmShard() override = default;
 
     // ?AddShard@mmShard@@QAEXVVector3@@00M@Z
-    ARTS_IMPORT void AddShard(class Vector3 arg1, class Vector3 arg2, class Vector3 arg3, f32 arg4);
+    ARTS_IMPORT void AddShard(Vector3 arg1, Vector3 arg2, Vector3 arg3, f32 arg4);
 
     // ?Draw@mmShard@@UAIXH@Z
     ARTS_EXPORT void ARTS_FASTCALL Draw(i32 lod) override;
 
     // ?GetClass@mmShard@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmShard@@QAEXPADH@Z
     ARTS_IMPORT void Init(char* arg1, i32 arg2);
@@ -105,26 +105,26 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmShardManager@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?EmitAllShards@mmShardManager@@QAEXVVector3@@M@Z
-    ARTS_IMPORT void EmitAllShards(class Vector3 arg1, f32 arg2);
+    ARTS_IMPORT void EmitAllShards(Vector3 arg1, f32 arg2);
 
     // ?EmitShard@mmShardManager@@QAEXVVector3@@M@Z
-    ARTS_IMPORT void EmitShard(class Vector3 arg1, f32 arg2);
+    ARTS_IMPORT void EmitShard(Vector3 arg1, f32 arg2);
 
     // ?EmitShards@mmShardManager@@QAEXVVector3@@MM@Z
-    ARTS_IMPORT void EmitShards(class Vector3 arg1, f32 arg2, f32 arg3);
+    ARTS_IMPORT void EmitShards(Vector3 arg1, f32 arg2, f32 arg3);
 
     // ?GetClass@mmShardManager@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmShardManager@@QAEXPADHPAVmmCarSim@@@Z
-    ARTS_IMPORT void Init(char* arg1, i32 arg2, class mmCarSim* arg3);
+    ARTS_IMPORT void Init(char* arg1, i32 arg2, mmCarSim* arg3);
 
     // ?ReInit@mmShardManager@@QAEXPAVmmCarSim@@@Z | unused
-    ARTS_IMPORT void ReInit(class mmCarSim* arg1);
+    ARTS_IMPORT void ReInit(mmCarSim* arg1);
 
     // ?Update@mmShardManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -133,13 +133,13 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // ?GetInstance@mmShardManager@@SAPAV1@H@Z
-    ARTS_EXPORT static class mmShardManager* GetInstance(i32 index);
+    ARTS_EXPORT static mmShardManager* GetInstance(i32 index);
 
     friend class mmShard;
 
 protected:
     // ?Instances@mmShardManager@@1PAPAV1@A
-    ARTS_EXPORT static class mmShardManager* Instances[64];
+    ARTS_EXPORT static mmShardManager* Instances[64];
 
     // ?NumInstances@mmShardManager@@1HA
     ARTS_IMPORT static i32 NumInstances;

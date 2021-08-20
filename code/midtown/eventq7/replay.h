@@ -52,9 +52,9 @@ public:
     // ?InitPlayback@eqReplayChannel@@UAEXXZ
     ARTS_EXPORT virtual void InitPlayback();
 
-    virtual void DoRecord(class Stream* arg1) = 0;
+    virtual void DoRecord(Stream* arg1) = 0;
 
-    virtual void DoPlayback(class Stream* arg1) = 0;
+    virtual void DoPlayback(Stream* arg1) = 0;
 
     // ?ShutdownRecord@eqReplayChannel@@UAEXXZ
     ARTS_EXPORT virtual void ShutdownRecord();
@@ -73,7 +73,7 @@ protected:
 
 private:
     // ?First@eqReplayChannel@@0PAV1@A
-    ARTS_IMPORT static class eqReplayChannel* First;
+    ARTS_IMPORT static eqReplayChannel* First;
 
     u32 magic_ {0};
     eqReplayChannel* next_ {nullptr};
@@ -112,5 +112,5 @@ public:
 
 private:
     // ?ReplayStream@eqReplay@@0PAVStream@@A
-    ARTS_IMPORT static class Stream* ReplayStream;
+    ARTS_IMPORT static Stream* ReplayStream;
 };

@@ -80,16 +80,16 @@ public:
     virtual const char* GKeyName(i32 arg1) = 0;
 
     // ?AddClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
-    ARTS_EXPORT void AddClient(class eqEventMonitor* monitor);
+    ARTS_EXPORT void AddClient(eqEventMonitor* monitor);
 
     // ?RemoveClient@eqEventHandler@@QAEXPAVeqEventMonitor@@@Z
-    ARTS_EXPORT void RemoveClient(class eqEventMonitor* monitor);
+    ARTS_EXPORT void RemoveClient(eqEventMonitor* monitor);
 
     // ?EKeyName@eqEventHandler@@SAPADH@Z | unused
     ARTS_EXPORT static const char* EKeyName(i32 key_code);
 
     // ?SuperQ@eqEventHandler@@2PAV1@A
-    ARTS_IMPORT static class eqEventHandler* SuperQ;
+    ARTS_IMPORT static eqEventHandler* SuperQ;
 
 protected:
     friend class eqEventMonitor;
@@ -170,10 +170,10 @@ public:
     ARTS_EXPORT ~eqEventReplayChannelClass() = default;
 
     // ?DoPlayback@eqEventReplayChannelClass@@UAEXPAVStream@@@Z
-    ARTS_EXPORT void DoPlayback(class Stream* file) override;
+    ARTS_EXPORT void DoPlayback(Stream* file) override;
 
     // ?DoRecord@eqEventReplayChannelClass@@UAEXPAVStream@@@Z
-    ARTS_EXPORT void DoRecord(class Stream* file) override;
+    ARTS_EXPORT void DoRecord(Stream* file) override;
 
     // ?QueueKeyboard@eqEventReplayChannelClass@@QAEXHHHH@Z
     ARTS_EXPORT void QueueKeyboard(i32 arg1, i32 arg2, i32 arg3, i32 arg4);
@@ -202,4 +202,4 @@ public:
 check_size(eqEventReplayChannelClass, 0x638);
 
 // ?eqEventReplayChannel@@3VeqEventReplayChannelClass@@A
-ARTS_IMPORT extern class eqEventReplayChannelClass eqEventReplayChannel;
+ARTS_IMPORT extern eqEventReplayChannelClass eqEventReplayChannel;

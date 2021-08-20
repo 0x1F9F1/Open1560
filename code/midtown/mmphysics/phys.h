@@ -83,7 +83,15 @@
 
 #include "osample.h"
 
-struct mmInstChain;
+class asBound;
+class asInertialCS;
+class mmBoundTemplate;
+class mmEdgeBodyIsect;
+class mmInstance;
+class mmInstChain;
+class mmIntersection;
+class mmPolygon;
+class mmViewCS;
 
 class mmPhysExec final : public asNode
 {
@@ -119,38 +127,38 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmPhysicsMGR@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Collide@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z
-    ARTS_IMPORT i32 Collide(class mmIntersection* arg1, i32 arg2, i16 arg3, i16 arg4);
+    ARTS_IMPORT i32 Collide(mmIntersection* arg1, i32 arg2, i16 arg3, i16 arg4);
 
     // ?CollideLOS@mmPhysicsMGR@@QAEHPAVmmIntersection@@HFF@Z
-    ARTS_IMPORT i32 CollideLOS(class mmIntersection* arg1, i32 arg2, i16 arg3, i16 arg4);
+    ARTS_IMPORT i32 CollideLOS(mmIntersection* arg1, i32 arg2, i16 arg3, i16 arg4);
 
     // ?Cull@mmPhysicsMGR@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
     // ?DeclareMover@mmPhysicsMGR@@QAEXPAVmmInstance@@HH@Z
-    ARTS_IMPORT void DeclareMover(class mmInstance* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT void DeclareMover(mmInstance* arg1, i32 arg2, i32 arg3);
 
     // ?GetClass@mmPhysicsMGR@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?IgnoreMover@mmPhysicsMGR@@QAEXPAVmmInstance@@@Z
-    ARTS_IMPORT void IgnoreMover(class mmInstance* arg1);
+    ARTS_IMPORT void IgnoreMover(mmInstance* arg1);
 
     // ?Init@mmPhysicsMGR@@QAEXPAVasInertialCS@@PAVmmViewCS@@@Z
-    ARTS_IMPORT void Init(class asInertialCS* arg1, class mmViewCS* arg2);
+    ARTS_IMPORT void Init(asInertialCS* arg1, mmViewCS* arg2);
 
     // ?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@@Z
-    ARTS_IMPORT void NewMover(class mmInstance* arg1);
+    ARTS_IMPORT void NewMover(mmInstance* arg1);
 
     // ?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@0@Z
-    ARTS_IMPORT void NewMover(class mmInstance* arg1, class mmInstance* arg2);
+    ARTS_IMPORT void NewMover(mmInstance* arg1, mmInstance* arg2);
 
     // ?NewMover@mmPhysicsMGR@@QAEXPAVmmInstance@@00@Z
-    ARTS_IMPORT void NewMover(class mmInstance* arg1, class mmInstance* arg2, class mmInstance* arg3);
+    ARTS_IMPORT void NewMover(mmInstance* arg1, mmInstance* arg2, mmInstance* arg3);
 
     // ?Reset@mmPhysicsMGR@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -180,16 +188,16 @@ protected:
     ARTS_IMPORT i32 ClosestNeighboringCullRoom(i32 arg1);
 
     // ?CollideInstances@mmPhysicsMGR@@IAEHPAVmmInstance@@0HH@Z
-    ARTS_IMPORT i32 CollideInstances(class mmInstance* arg1, class mmInstance* arg2, i32 arg3, i32 arg4);
+    ARTS_IMPORT i32 CollideInstances(mmInstance* arg1, mmInstance* arg2, i32 arg3, i32 arg4);
 
     // ?CollideProbe@mmPhysicsMGR@@IAEHFPAVmmIntersection@@H@Z
-    ARTS_IMPORT i32 CollideProbe(i16 arg1, class mmIntersection* arg2, i32 arg3);
+    ARTS_IMPORT i32 CollideProbe(i16 arg1, mmIntersection* arg2, i32 arg3);
 
     // ?CollideTerrain@mmPhysicsMGR@@IAEXPAVmmInstance@@@Z
-    ARTS_IMPORT void CollideTerrain(class mmInstance* arg1);
+    ARTS_IMPORT void CollideTerrain(mmInstance* arg1);
 
     // ?DeclareBound@mmPhysicsMGR@@IAEXPAVmmBoundTemplate@@@Z
-    ARTS_IMPORT void DeclareBound(class mmBoundTemplate* arg1);
+    ARTS_IMPORT void DeclareBound(mmBoundTemplate* arg1);
 
     // ?GatherCollidables@mmPhysicsMGR@@IAEXHH@Z
     ARTS_IMPORT void GatherCollidables(i32 arg1, i32 arg2);
@@ -203,10 +211,10 @@ protected:
 #endif
 
     // ?TrivialCollideInstances@mmPhysicsMGR@@IAEHPAVmmInstance@@0@Z
-    ARTS_IMPORT i32 TrivialCollideInstances(class mmInstance* arg1, class mmInstance* arg2);
+    ARTS_IMPORT i32 TrivialCollideInstances(mmInstance* arg1, mmInstance* arg2);
 
     // ?Instance@mmPhysicsMGR@@1PAV1@A
-    ARTS_IMPORT static class mmPhysicsMGR* Instance;
+    ARTS_IMPORT static mmPhysicsMGR* Instance;
 
 private:
     i32 dword20;
@@ -231,27 +239,24 @@ private:
 check_size(mmPhysicsMGR, 0x224);
 
 // ?DoEdgeEdge@@YAXPAVmmEdgeBodyIsect@@PAPAVmmIntersection@@PAHH@Z
-ARTS_IMPORT void DoEdgeEdge(class mmEdgeBodyIsect* arg1, class mmIntersection** arg2, i32* arg3, i32 arg4);
+ARTS_IMPORT void DoEdgeEdge(mmEdgeBodyIsect* arg1, mmIntersection** arg2, i32* arg3, i32 arg4);
 
 // ?DoEndPtSearch@@YAXHABVVector3@@PAVmmEdgeBodyIsect@@HPAPAVmmIntersection@@PAHH@Z
-ARTS_IMPORT void DoEndPtSearch(i32 arg1, class Vector3 const& arg2, class mmEdgeBodyIsect* arg3, i32 arg4,
-    class mmIntersection** arg5, i32* arg6, i32 arg7);
+ARTS_IMPORT void DoEndPtSearch(
+    i32 arg1, Vector3 const& arg2, mmEdgeBodyIsect* arg3, i32 arg4, mmIntersection** arg5, i32* arg6, i32 arg7);
 
 // ?FindIntersections@@YAHPAVmmIntersection@@HPAVasBound@@1PAVmmBoundTemplate@@2PAVmmEdgeBodyIsect@@H3H@Z
-ARTS_IMPORT i32 FindIntersections(class mmIntersection* arg1, i32 arg2, class asBound* arg3, class asBound* arg4,
-    class mmBoundTemplate* arg5, class mmBoundTemplate* arg6, class mmEdgeBodyIsect* arg7, i32 arg8,
-    class mmEdgeBodyIsect* arg9, i32 arg10);
+ARTS_IMPORT i32 FindIntersections(mmIntersection* arg1, i32 arg2, asBound* arg3, asBound* arg4, mmBoundTemplate* arg5,
+    mmBoundTemplate* arg6, mmEdgeBodyIsect* arg7, i32 arg8, mmEdgeBodyIsect* arg9, i32 arg10);
 
 // ?GetCollidePolyEdge@@YAHABVVector3@@PAVmmPolygon@@PAVmmBoundTemplate@@PAVasInertialCS@@0M0000PAV1@4PAMPAH6@Z
-ARTS_IMPORT i32 GetCollidePolyEdge(class Vector3 const& arg1, class mmPolygon* arg2, class mmBoundTemplate* arg3,
-    class asInertialCS* arg4, class Vector3 const& arg5, f32 arg6, class Vector3 const& arg7, class Vector3 const& arg8,
-    class Vector3 const& arg9, class Vector3 const& arg10, class Vector3* arg11, class Vector3* arg12, f32* arg13,
-    i32* arg14, i32* arg15);
+ARTS_IMPORT i32 GetCollidePolyEdge(Vector3 const& arg1, mmPolygon* arg2, mmBoundTemplate* arg3, asInertialCS* arg4,
+    Vector3 const& arg5, f32 arg6, Vector3 const& arg7, Vector3 const& arg8, Vector3 const& arg9, Vector3 const& arg10,
+    Vector3* arg11, Vector3* arg12, f32* arg13, i32* arg14, i32* arg15);
 
 // ?SegSegDistNorm@@YAXABVVector3@@00000PAV1@11PAMPAH@Z
-ARTS_IMPORT void SegSegDistNorm(class Vector3 const& arg1, class Vector3 const& arg2, class Vector3 const& arg3,
-    class Vector3 const& arg4, class Vector3 const& arg5, class Vector3 const& arg6, class Vector3* arg7,
-    class Vector3* arg8, class Vector3* arg9, f32* arg10, i32* arg11);
+ARTS_IMPORT void SegSegDistNorm(Vector3 const& arg1, Vector3 const& arg2, Vector3 const& arg3, Vector3 const& arg4,
+    Vector3 const& arg5, Vector3 const& arg6, Vector3* arg7, Vector3* arg8, Vector3* arg9, f32* arg10, i32* arg11);
 
 // ?testNoOverlap@@YAHMM@Z | inline
 ARTS_IMPORT i32 testNoOverlap(f32 arg1, f32 arg2);
@@ -260,10 +265,10 @@ ARTS_IMPORT i32 testNoOverlap(f32 arg1, f32 arg2);
 ARTS_IMPORT extern i32 CallImpactCallbacks;
 
 // ?EBISECTS@@3PAVmmEdgeBodyIsect@@A
-ARTS_IMPORT extern class mmEdgeBodyIsect EBISECTS[32];
+ARTS_IMPORT extern mmEdgeBodyIsect EBISECTS[32];
 
 // ?ISECTS@@3PAVmmIntersection@@A
-ARTS_IMPORT extern class mmIntersection ISECTS[32];
+ARTS_IMPORT extern mmIntersection ISECTS[32];
 
 #ifdef ARTS_DEV_BUILD
 // ?ImpactCallbackTime@@3KA
@@ -274,7 +279,7 @@ ARTS_IMPORT extern ulong ImpactTime;
 #endif
 
 // ?PHYS@@3VmmPhysicsMGR@@A
-ARTS_IMPORT extern class mmPhysicsMGR PHYS;
+ARTS_IMPORT extern mmPhysicsMGR PHYS;
 
 // ?PhysUpdate@@3MA
 ARTS_IMPORT extern f32 PhysUpdate;

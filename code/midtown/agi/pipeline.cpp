@@ -60,22 +60,22 @@ void agiPipeline::EndScene()
 void agiPipeline::EndFrame()
 {}
 
-RcOwner<class agiMtlDef> agiPipeline::CreateMtlDef()
+RcOwner<agiMtlDef> agiPipeline::CreateMtlDef()
 {
     return nullptr;
 }
 
-RcOwner<class agiLight> agiPipeline::CreateLight()
+RcOwner<agiLight> agiPipeline::CreateLight()
 {
     return nullptr;
 }
 
-RcOwner<class agiLightModel> agiPipeline::CreateLightModel()
+RcOwner<agiLightModel> agiPipeline::CreateLightModel()
 {
     return nullptr;
 }
 
-RcOwner<class agiBitmap> agiPipeline::CreateBitmap()
+RcOwner<agiBitmap> agiPipeline::CreateBitmap()
 {
     return nullptr;
 }
@@ -90,7 +90,7 @@ void agiPipeline::ClearRect(i32 /*x*/, i32 /*y*/, i32 /*width*/, i32 /*height*/,
 void agiPipeline::Defragment()
 {}
 
-b32 agiPipeline::LockFrameBuffer(class agiSurfaceDesc& /*arg1*/)
+b32 agiPipeline::LockFrameBuffer(agiSurfaceDesc& /*arg1*/)
 {
     return 0;
 }
@@ -98,7 +98,7 @@ b32 agiPipeline::LockFrameBuffer(class agiSurfaceDesc& /*arg1*/)
 void agiPipeline::UnlockFrameBuffer()
 {}
 
-void agiPipeline::DumpStatus(struct agiMemStatus& /*arg1*/)
+void agiPipeline::DumpStatus(agiMemStatus& /*arg1*/)
 {}
 
 ipcMessageQueue GFXPAGER;
@@ -285,12 +285,12 @@ RcOwner<agiBitmap> agiPipeline::GetBitmap(const char* name, f32 sx, f32 sy, i32 
     return AsOwner(result);
 }
 
-RcOwner<class agiTexDef> agiPipeline::GetTexture(char* name, i32 pack_shift)
+RcOwner<agiTexDef> agiPipeline::GetTexture(char* name, i32 pack_shift)
 {
     return GetTexture(agiTexLib.Lookup(name), pack_shift);
 }
 
-RcOwner<class agiTexDef> agiPipeline::GetTexture(i32 index, i32 pack_shift)
+RcOwner<agiTexDef> agiPipeline::GetTexture(i32 index, i32 pack_shift)
 {
     if (index == 0)
         return nullptr;

@@ -26,11 +26,13 @@
     0x427E60 | public: void __thiscall mmAmbientAudio::Update(void) | ?Update@mmAmbientAudio@@QAEXXZ
 */
 
+class mmPlayer;
+
 struct mmAmbientAudio
 {
 public:
     // ??0mmAmbientAudio@@QAE@PAVmmPlayer@@@Z
-    ARTS_IMPORT mmAmbientAudio(class mmPlayer* arg1);
+    ARTS_IMPORT mmAmbientAudio(mmPlayer* arg1);
 
     // ??1mmAmbientAudio@@QAE@XZ
     ARTS_IMPORT ~mmAmbientAudio();

@@ -67,7 +67,7 @@ LRESULT ARTS_STDCALL MasterWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARA
     return HandleMessage(hwnd, uMsg, wParam, lParam, lResult) ? lResult : DefWindowProcA(hwnd, uMsg, wParam, lParam);
 }
 
-void RegisterMap(const char* name, u32* msgs, i32 num_msgs, class Dispatchable* handler)
+void RegisterMap(const char* name, u32* msgs, i32 num_msgs, Dispatchable* handler)
 {
     if (NumMapEntries == MAX_MAP_ENTRIES)
     {

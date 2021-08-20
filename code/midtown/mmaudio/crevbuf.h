@@ -31,17 +31,20 @@
     0x4F4BE0 | public: void __thiscall CReverbBuffer::GetAll(struct EAXBUFFER_REVERBPROPERTIES *) | ?GetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z
 */
 
+struct EAXBUFFER_REVERBPROPERTIES;
+struct IDirectSound3DBuffer;
+
 class CReverbBuffer
 {
 public:
     // ??0CReverbBuffer@@QAE@PAUIDirectSound3DBuffer@@@Z
-    ARTS_IMPORT CReverbBuffer(struct IDirectSound3DBuffer* arg1);
+    ARTS_IMPORT CReverbBuffer(IDirectSound3DBuffer* arg1);
 
     // ??1CReverbBuffer@@QAE@XZ
     ARTS_IMPORT ~CReverbBuffer();
 
     // ?GetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z | unused
-    ARTS_IMPORT void GetAll(struct EAXBUFFER_REVERBPROPERTIES* arg1);
+    ARTS_IMPORT void GetAll(EAXBUFFER_REVERBPROPERTIES* arg1);
 
     // ?GetReverbMix@CReverbBuffer@@QAEMXZ
     ARTS_IMPORT f32 GetReverbMix();
@@ -50,7 +53,7 @@ public:
     ARTS_IMPORT i32 PropertySetOk();
 
     // ?SetAll@CReverbBuffer@@QAEXPAUEAXBUFFER_REVERBPROPERTIES@@@Z | unused
-    ARTS_IMPORT void SetAll(struct EAXBUFFER_REVERBPROPERTIES* arg1);
+    ARTS_IMPORT void SetAll(EAXBUFFER_REVERBPROPERTIES* arg1);
 
     // ?SetReverbMix@CReverbBuffer@@QAEXM@Z
     ARTS_IMPORT void SetReverbMix(f32 arg1);

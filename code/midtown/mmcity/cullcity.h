@@ -112,6 +112,8 @@
 #include "inst.h"
 
 class agiTexDef;
+class asCamera;
+class mmPolygon;
 
 // TODO: Move to portal.h?
 #define ROOM_FLAG_1 0x1     // No Env/Sph Mapping
@@ -136,29 +138,29 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmCullCity@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@mmCullCity@@UAEXXZ
     ARTS_EXPORT void Cull() override;
 
     // ?GetClass@mmCullCity@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetHitId@mmCullCity@@QAEFAAVVector3@@@Z
-    ARTS_IMPORT i16 GetHitId(class Vector3& arg1);
+    ARTS_IMPORT i16 GetHitId(Vector3& arg1);
 
     // ?GetRoomFlags@mmCullCity@@QAEFF@Z
     ARTS_IMPORT i16 GetRoomFlags(i16 arg1);
 
     // ?Init@mmCullCity@@QAEXPADPAVasCamera@@@Z
-    ARTS_IMPORT void Init(char* arg1, class asCamera* arg2);
+    ARTS_IMPORT void Init(char* arg1, asCamera* arg2);
 
     // ?InitObjectDetail@mmCullCity@@QAEXXZ
     ARTS_IMPORT void InitObjectDetail();
 
     // ?IsPolyWater@mmCullCity@@QAEHPAVmmPolygon@@@Z
-    ARTS_IMPORT i32 IsPolyWater(class mmPolygon* arg1);
+    ARTS_IMPORT i32 IsPolyWater(mmPolygon* arg1);
 
     // ?LoadBangers@mmCullCity@@QAEXPAD@Z
     ARTS_IMPORT void LoadBangers(char* arg1);
@@ -170,7 +172,7 @@ public:
     ARTS_IMPORT void RelightEverything();
 
     // ?ReparentObject@mmCullCity@@QAEXPAVmmInstance@@@Z
-    ARTS_IMPORT void ReparentObject(class mmInstance* arg1);
+    ARTS_IMPORT void ReparentObject(mmInstance* arg1);
 
     // ?Reset@mmCullCity@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -185,7 +187,7 @@ public:
     ARTS_IMPORT static void DeclareFields();
 
     // ?GetInstance@mmCullCity@@SAPAV1@XZ | inline
-    ARTS_IMPORT static class mmCullCity* GetInstance();
+    ARTS_IMPORT static mmCullCity* GetInstance();
 
     offset_field(0x34B48, agiTexDef*, ShadowMap);
     offset_field(0x34B50, Matrix34, EnvMatrix);
@@ -197,8 +199,8 @@ public:
 
 private:
     // ?AddInstance@mmCullCity@@AAEXHPAD0HPAVVector3@@11M@Z
-    ARTS_IMPORT void AddInstance(i32 arg1, char* arg2, char* arg3, i32 arg4, class Vector3* arg5, class Vector3* arg6,
-        class Vector3* arg7, f32 arg8);
+    ARTS_IMPORT void AddInstance(
+        i32 arg1, char* arg2, char* arg3, i32 arg4, Vector3* arg5, Vector3* arg6, Vector3* arg7, f32 arg8);
 
     // ?InitSnowTextures@mmCullCity@@AAEXXZ
     ARTS_IMPORT void InitSnowTextures();
@@ -212,7 +214,7 @@ private:
     friend mmCullCity* CullCity();
 
     // ?Instance@mmCullCity@@0PAV1@A
-    ARTS_IMPORT static class mmCullCity* Instance;
+    ARTS_IMPORT static mmCullCity* Instance;
 
     u8 gap20[0x34D4C];
 };
@@ -243,7 +245,7 @@ class mmRunwayLight final : public mmInstance
 {
 public:
     // ??0mmRunwayLight@@QAE@PADAAVVector3@@1@Z
-    ARTS_IMPORT mmRunwayLight(char* arg1, class Vector3& arg2, class Vector3& arg3);
+    ARTS_IMPORT mmRunwayLight(char* arg1, Vector3& arg2, Vector3& arg3);
 
     // ??_EmmRunwayLight@@UAEPAXI@Z
     // ??_GmmRunwayLight@@UAEPAXI@Z
@@ -252,23 +254,23 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmRunwayLight@@UAEXPAVBank@@@Z | inline
-    ARTS_EXPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Draw@mmRunwayLight@@UAIXH@Z
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?FromMatrix@mmRunwayLight@@UAIXABVMatrix34@@@Z
-    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(class Matrix34 const& arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
 
     // ?GetPos@mmRunwayLight@@UAIAAVVector3@@XZ
-    ARTS_IMPORT class Vector3& ARTS_FASTCALL GetPos() override;
+    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
 
     // ?GetScale@mmRunwayLight@@UAIMXZ
     ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
     // ?ToMatrix@mmRunwayLight@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
     // ?Phase@mmRunwayLight@@2MA
     ARTS_IMPORT static f32 Phase;
@@ -310,11 +312,11 @@ ARTS_IMPORT extern f32 FadeConstant;
 ARTS_IMPORT extern f32 FadeScale;
 
 // ?PlaneFudge@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 PlaneFudge;
+ARTS_IMPORT extern Vector3 PlaneFudge;
 
 #ifdef ARTS_DEV_BUILD
 // ?StaticLog@@3PAVStream@@A
-ARTS_IMPORT extern class Stream* StaticLog;
+ARTS_IMPORT extern Stream* StaticLog;
 #endif
 
 // ?UsePixelFog@@3HA
@@ -351,7 +353,7 @@ struct t_mmEnvSetup
 check_size(t_mmEnvSetup, 0x28);
 
 // ?mmEnvSetup@@3PAY03Ut_mmEnvSetup@@A
-ARTS_IMPORT extern struct t_mmEnvSetup mmEnvSetup[4][4];
+ARTS_IMPORT extern t_mmEnvSetup mmEnvSetup[4][4];
 
 #ifdef ARTS_DEV_BUILD
 // ?pedTriCount@@3HA

@@ -54,21 +54,21 @@ public:
     ARTS_EXPORT virtual void UpdateInput();
 
     // ?ForceMatrixDelta@BaseCamCS@@UAEXABVVector3@@@Z
-    ARTS_IMPORT virtual void ForceMatrixDelta(class Vector3 const& arg1);
+    ARTS_IMPORT virtual void ForceMatrixDelta(Vector3 const& arg1);
 
     // ?SetST@BaseCamCS@@UAEXPAM@Z | inline
     ARTS_EXPORT virtual void SetST(f32* arg1);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@BaseCamCS@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AfterLoad@BaseCamCS@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;
 
     // ?GetClass@BaseCamCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?IsViewCSInTransition@BaseCamCS@@QAEHXZ
     ARTS_IMPORT i32 IsViewCSInTransition();

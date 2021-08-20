@@ -127,10 +127,14 @@
 
 #include <eax.h>
 
-class Bank;
-class SoundObj;
 class AudHead;
-class Vector3;
+class AudSound;
+class AudStream;
+class Bank;
+class CReverb;
+class MixerCTL;
+class mmVoiceCommentary;
+class SoundObj;
 
 class AudManager final : public asNode
 {
@@ -145,14 +149,14 @@ public:
     ARTS_ZEROED;
 
     // ?AddSound@AudManager@@QAEHPAVAudSound@@@Z
-    ARTS_IMPORT i32 AddSound(class AudSound* arg1);
+    ARTS_IMPORT i32 AddSound(AudSound* arg1);
 
     // ?AddStream@AudManager@@QAEHPAVAudStream@@@Z
-    ARTS_IMPORT i32 AddStream(class AudStream* arg1);
+    ARTS_IMPORT i32 AddStream(AudStream* arg1);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@AudManager@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AlwaysEAX@AudManager@@QAEXI@Z
@@ -234,7 +238,7 @@ public:
     ARTS_IMPORT f32 GetCDVolume();
 
     // ?GetClass@AudManager@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetDeviceNames@AudManager@@QAEPAPADXZ
     ARTS_IMPORT char** GetDeviceNames();
@@ -255,7 +259,7 @@ public:
     ARTS_IMPORT f32 GetEAXReverbVolume();
 
     // ?GetMixerPtr@AudManager@@QAEPAVMixerCTL@@XZ
-    ARTS_IMPORT class MixerCTL* GetMixerPtr();
+    ARTS_IMPORT MixerCTL* GetMixerPtr();
 
     // ?GetNum3DHalBufs@AudManager@@QAEKXZ
     ARTS_EXPORT ulong GetNum3DHalBufs();
@@ -267,7 +271,7 @@ public:
     ARTS_IMPORT i32 GetNumDevices();
 
     // ?GetVoiceCommentaryPtr@AudManager@@QAEPAVmmVoiceCommentary@@XZ
-    ARTS_IMPORT class mmVoiceCommentary* GetVoiceCommentaryPtr();
+    ARTS_IMPORT mmVoiceCommentary* GetVoiceCommentaryPtr();
 
     // ?GetWaveBalance@AudManager@@QAEMXZ | unused
     ARTS_IMPORT f32 GetWaveBalance();
@@ -306,16 +310,16 @@ public:
     ARTS_IMPORT void ReallocateDSound(char* arg1, i16 arg2, i16 arg3);
 
     // ?RemoveSound@AudManager@@QAEXPAVAudSound@@H@Z
-    ARTS_IMPORT void RemoveSound(class AudSound* arg1, i32 arg2);
+    ARTS_IMPORT void RemoveSound(AudSound* arg1, i32 arg2);
 
     // ?RemoveSoundFromPlayList@AudManager@@QAEXPAVAudSound@@@Z
-    ARTS_IMPORT void RemoveSoundFromPlayList(class AudSound* arg1);
+    ARTS_IMPORT void RemoveSoundFromPlayList(AudSound* arg1);
 
     // ?RemoveSoundFromPlayList@AudManager@@QAEXH@Z
     ARTS_IMPORT void RemoveSoundFromPlayList(i32 arg1);
 
     // ?RemoveStream@AudManager@@QAEXPAVAudStream@@H@Z
-    ARTS_IMPORT void RemoveStream(class AudStream* arg1, i32 arg2);
+    ARTS_IMPORT void RemoveStream(AudStream* arg1, i32 arg2);
 
     // ?Reset@AudManager@@UAEXXZ
     ARTS_EXPORT void Reset() override;
@@ -357,7 +361,7 @@ public:
     ARTS_IMPORT void SetStereo(i32 arg1);
 
     // ?SetVoiceCommentaryPtr@AudManager@@QAEXPAVmmVoiceCommentary@@@Z
-    ARTS_IMPORT void SetVoiceCommentaryPtr(class mmVoiceCommentary* arg1);
+    ARTS_IMPORT void SetVoiceCommentaryPtr(mmVoiceCommentary* arg1);
 
     // ?StopAllSounds@AudManager@@QAEXXZ
     ARTS_IMPORT void StopAllSounds();
@@ -458,7 +462,7 @@ private:
     ARTS_IMPORT u32 CreateListenerSoundObj();
 
     // ?GetListenerEAXObj@AudManager@@AAEPAVCReverb@@XZ
-    ARTS_IMPORT class CReverb* GetListenerEAXObj();
+    ARTS_IMPORT CReverb* GetListenerEAXObj();
 
     // ?Update3DCDMusic@AudManager@@AAEXXZ
     ARTS_IMPORT void Update3DCDMusic();
@@ -473,4 +477,4 @@ ARTS_IMPORT void DeactivateApplication();
 ARTS_IMPORT void RestoreApplication();
 
 // ?AUDMGRPTR@@3PAVAudManager@@A
-ARTS_IMPORT extern class AudManager* AUDMGRPTR;
+ARTS_IMPORT extern AudManager* AUDMGRPTR;

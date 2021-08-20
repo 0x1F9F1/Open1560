@@ -24,7 +24,7 @@ define_dummy_symbol(stream_vfsystem);
 #include "stream.h"
 #include "vstream.h"
 
-VirtualFileSystem::VirtualFileSystem(Owner<class Stream> stream)
+VirtualFileSystem::VirtualFileSystem(Owner<Stream> stream)
     : base_stream_(std::move(stream))
 {
     base_stream_->Read(&file_header_, sizeof(file_header_));
@@ -48,7 +48,7 @@ b32 VirtualFileSystem::ChangeDir(const char*)
     return false;
 }
 
-Owner<class Stream> VirtualFileSystem::CreateOn(const char*, void*, isize)
+Owner<Stream> VirtualFileSystem::CreateOn(const char*, void*, isize)
 {
     return nullptr;
 }
@@ -65,7 +65,7 @@ struct VirtualFileEntry
     }
 };
 
-struct FileInfo* VirtualFileSystem::FirstEntry(const char* path)
+FileInfo* VirtualFileSystem::FirstEntry(const char* path)
 {
     VirtualFileInode* nodes = nullptr;
     u32 node_count = 0;
@@ -103,7 +103,7 @@ b32 VirtualFileSystem::GetDir(char*, isize)
     return false;
 }
 
-struct FileInfo* VirtualFileSystem::NextEntry(struct FileInfo* info)
+FileInfo* VirtualFileSystem::NextEntry(FileInfo* info)
 {
     VirtualFileEntry* context = static_cast<VirtualFileEntry*>(info->Context);
 
@@ -121,7 +121,7 @@ struct FileInfo* VirtualFileSystem::NextEntry(struct FileInfo* info)
     return info;
 }
 
-Owner<class Stream> VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len)
+Owner<Stream> VirtualFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len)
 {
     if (!read_only)
         return nullptr;
@@ -134,7 +134,7 @@ Owner<class Stream> VirtualFileSystem::OpenOn(const char* path, b32 read_only, v
     return AsOwner(MakeUnique<VirtualStream>(base_stream_.get(), node, buffer, buffer_len, this));
 }
 
-b32 VirtualFileSystem::PagerInfo(const char* path, struct PagerInfo_t& info)
+b32 VirtualFileSystem::PagerInfo(const char* path, PagerInfo_t& info)
 {
     VirtualFileInode* node = Lookup(path);
 
@@ -167,7 +167,7 @@ b32 VirtualFileSystem::ValidPath(const char*)
     return true;
 }
 
-void VirtualFileSystem::ExpandName(char* buf, struct VirtualFileInode* node, const char* names)
+void VirtualFileSystem::ExpandName(char* buf, VirtualFileInode* node, const char* names)
 {
     ExpandName(buf, 56, node, names);
 }
@@ -219,8 +219,7 @@ void VirtualFileSystem::ExpandName(char* buf, isize buf_len, VirtualFileInode* n
     }
 }
 
-struct VirtualFileInode* VirtualFileSystem::Lookup(
-    struct VirtualFileInode* nodes, i32 node_count, const char* names, char* path)
+VirtualFileInode* VirtualFileSystem::Lookup(VirtualFileInode* nodes, i32 node_count, const char* names, char* path)
 {
     if (node_count == 0)
         return nullptr;

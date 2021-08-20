@@ -29,6 +29,8 @@
     0x4857D0 | public: void __thiscall NetAddOnCarAudio::Update(void) | ?Update@NetAddOnCarAudio@@QAEXXZ
 */
 
+class mmNetworkCarAudio;
+
 struct NetAddOnCarAudio
 {
 public:
@@ -39,7 +41,7 @@ public:
     ARTS_IMPORT ~NetAddOnCarAudio();
 
     // ?AssignSounds@NetAddOnCarAudio@@QAEHPAVmmNetworkCarAudio@@F@Z
-    ARTS_IMPORT i32 AssignSounds(class mmNetworkCarAudio* arg1, i16 arg2);
+    ARTS_IMPORT i32 AssignSounds(mmNetworkCarAudio* arg1, i16 arg2);
 
     // ?EchoOff@NetAddOnCarAudio@@QAEXXZ
     ARTS_IMPORT void EchoOff();

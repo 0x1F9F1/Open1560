@@ -45,11 +45,14 @@
     0x488F40 | public: void __thiscall mmSurfaceAudio::SetWobbleVol(float,float) | ?SetWobbleVol@mmSurfaceAudio@@QAEXMM@Z
 */
 
+class mmCarSim;
+class mmWheel;
+
 class mmSurfaceAudio
 {
 public:
     // ??0mmSurfaceAudio@@QAE@PAVmmCarSim@@PAVVector3@@@Z
-    ARTS_IMPORT mmSurfaceAudio(class mmCarSim* arg1, class Vector3* arg2);
+    ARTS_IMPORT mmSurfaceAudio(mmCarSim* arg1, Vector3* arg2);
 
     // ??1mmSurfaceAudio@@QAE@XZ
     ARTS_IMPORT ~mmSurfaceAudio();
@@ -58,19 +61,19 @@ public:
     ARTS_IMPORT void DisableSurface();
 
     // ?EchoOff@mmSurfaceAudio@@QAEXPAVmmCarSim@@@Z
-    ARTS_IMPORT void EchoOff(class mmCarSim* arg1);
+    ARTS_IMPORT void EchoOff(mmCarSim* arg1);
 
     // ?EchoOn@mmSurfaceAudio@@QAEXPAVmmCarSim@@M@Z
-    ARTS_IMPORT void EchoOn(class mmCarSim* arg1, f32 arg2);
+    ARTS_IMPORT void EchoOn(mmCarSim* arg1, f32 arg2);
 
     // ?EnableAir@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z | unused
-    ARTS_IMPORT i32 EnableAir(class mmCarSim* arg1);
+    ARTS_IMPORT i32 EnableAir(mmCarSim* arg1);
 
     // ?EnableSurface@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z
-    ARTS_IMPORT i32 EnableSurface(class mmCarSim* arg1);
+    ARTS_IMPORT i32 EnableSurface(mmCarSim* arg1);
 
     // ?EnableSuspension@mmSurfaceAudio@@QAEHPAVmmCarSim@@@Z
-    ARTS_IMPORT i32 EnableSuspension(class mmCarSim* arg1);
+    ARTS_IMPORT i32 EnableSuspension(mmCarSim* arg1);
 
     // ?EnableTireWobble@mmSurfaceAudio@@QAEXXZ
     ARTS_IMPORT void EnableTireWobble();
@@ -79,8 +82,7 @@ public:
     ARTS_IMPORT i16 OnTwoWheels();
 
     // ?SetWheelPointers@mmSurfaceAudio@@QAEXPAVmmWheel@@000@Z
-    ARTS_IMPORT void SetWheelPointers(
-        class mmWheel* arg1, class mmWheel* arg2, class mmWheel* arg3, class mmWheel* arg4);
+    ARTS_IMPORT void SetWheelPointers(mmWheel* arg1, mmWheel* arg2, mmWheel* arg3, mmWheel* arg4);
 
     // ?SetWobblePitch@mmSurfaceAudio@@QAEXMM@Z
     ARTS_IMPORT void SetWobblePitch(f32 arg1, f32 arg2);

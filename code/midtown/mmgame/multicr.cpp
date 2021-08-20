@@ -20,7 +20,7 @@ define_dummy_symbol(mmgame_multicr);
 
 #include "multicr.h"
 
-class mmWaypoints* mmMultiCR::GetWaypoints()
+mmWaypoints* mmMultiCR::GetWaypoints()
 {
     return nullptr;
 }

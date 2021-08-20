@@ -43,7 +43,7 @@ class AudHead final : public asNode
 {
 public:
     // ??0AudHead@@QAE@PAVMatrix34@@@Z
-    ARTS_IMPORT AudHead(class Matrix34* arg1);
+    ARTS_IMPORT AudHead(Matrix34* arg1);
 
     // ??_EAudHead@@UAEPAXI@Z
     // ??_GAudHead@@UAEPAXI@Z
@@ -52,14 +52,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@AudHead@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?GetHeadPtr@AudHead@@QAEPAVMatrix34@@XZ
-    ARTS_IMPORT class Matrix34* GetHeadPtr();
+    ARTS_IMPORT Matrix34* GetHeadPtr();
 
     // ?GetPositionPtr@AudHead@@QAEPAVVector3@@XZ
-    ARTS_IMPORT class Vector3* GetPositionPtr();
+    ARTS_IMPORT Vector3* GetPositionPtr();
 
     // ?Init@AudHead@@QAEHXZ
     ARTS_IMPORT i32 Init();
@@ -68,7 +68,7 @@ public:
     ARTS_IMPORT void SetDoppler(f32 arg1);
 
     // ?SetHeadPtr@AudHead@@QAEXPAVMatrix34@@@Z | unused
-    ARTS_IMPORT void SetHeadPtr(class Matrix34* arg1);
+    ARTS_IMPORT void SetHeadPtr(Matrix34* arg1);
 
     // ?SetRolloff@AudHead@@QAEXM@Z
     ARTS_IMPORT void SetRolloff(f32 arg1);

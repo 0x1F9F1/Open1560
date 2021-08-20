@@ -89,7 +89,7 @@ typedef struct tag_dsdevdesc
     GUID guDevice;      // Device GUID
     PSTR pszDeviceDesc; // Description string
     DWORD dwRating;     // Device Rating
-    struct tag_dsdevdesc* pNext;
+    tag_dsdevdesc* pNext;
 } DSDeviceDesc;
 
 check_size(DSDeviceDesc, 0x1C);
@@ -191,7 +191,7 @@ public:
     ARTS_IMPORT void SetBitDepth(i32 arg1);
 
     // ?SetDeviceRating@DSGlobal@@QAEXPAUtag_dsdevdesc@@@Z
-    ARTS_IMPORT void SetDeviceRating(struct tag_dsdevdesc* arg1);
+    ARTS_IMPORT void SetDeviceRating(tag_dsdevdesc* arg1);
 
     // ?SetPrimaryBufferFormat@DSGlobal@@QAEXKE@Z
     ARTS_IMPORT void SetPrimaryBufferFormat(ulong arg1, u8 arg2);
@@ -289,19 +289,19 @@ private:
 check_size(DSGlobal, 0xB8);
 
 // ?DSEnumProc@@YGHPAU_GUID@@PAD1PAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL DSEnumProc(struct _GUID* arg1, char* arg2, char* arg3, void* arg4);
+ARTS_IMPORT i32 ARTS_STDCALL DSEnumProc(_GUID* arg1, char* arg2, char* arg3, void* arg4);
 
 // ?FormatCodeToWFX@@YAHKPAUtWAVEFORMATEX@@@Z
-ARTS_IMPORT i32 FormatCodeToWFX(ulong arg1, struct tWAVEFORMATEX* arg2);
+ARTS_IMPORT i32 FormatCodeToWFX(ulong arg1, tWAVEFORMATEX* arg2);
 
 // ?IsDSDeviceInList@@YAHPAU_GUID@@@Z
-ARTS_IMPORT i32 IsDSDeviceInList(struct _GUID* arg1);
+ARTS_IMPORT i32 IsDSDeviceInList(_GUID* arg1);
 
 // ?UpperCase@@YAXPAD@Z
 ARTS_IMPORT void UpperCase(char* arg1);
 
 // ?DSGlobalPtr@@3PAVDSGlobal@@A
-ARTS_IMPORT extern class DSGlobal* DSGlobalPtr;
+ARTS_IMPORT extern DSGlobal* DSGlobalPtr;
 
 // ?aOutputFormats@@3PAUtag_fd@@A
 ARTS_IMPORT extern DSFormatData aOutputFormats[16];

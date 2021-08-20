@@ -85,7 +85,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmGameManager@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?BeDone@mmGameManager@@QAEXXZ
@@ -98,7 +98,7 @@ public:
     ARTS_IMPORT f32 GetBrakes();
 
     // ?GetClass@mmGameManager@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetSteering@mmGameManager@@QAEMXZ
     ARTS_IMPORT f32 GetSteering();
@@ -128,7 +128,7 @@ private:
     friend mmGameManager* GameManager();
 
     // ?Instance@mmGameManager@@0PAV1@A
-    ARTS_IMPORT static class mmGameManager* Instance;
+    ARTS_IMPORT static mmGameManager* Instance;
 
     u8 gap20[0x3C];
 };
@@ -141,7 +141,7 @@ inline mmGameManager* GameManager()
 }
 
 // ?ReplayLog@@3PAVStream@@A
-ARTS_IMPORT extern class Stream* ReplayLog;
+ARTS_IMPORT extern Stream* ReplayLog;
 
 // ?ScreenClearCount@@3HA
 ARTS_IMPORT extern i32 ScreenClearCount;

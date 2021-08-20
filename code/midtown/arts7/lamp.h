@@ -39,6 +39,8 @@
 
 #include "node.h"
 
+class MiniParser;
+
 class asLamp final : public asNode
 {
 public:
@@ -51,20 +53,20 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asLamp@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@asLamp@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
     // ?FileIO@asLamp@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_EXPORT void FileIO(class MiniParser* arg1);
+    ARTS_EXPORT void FileIO(MiniParser* arg1);
 
     // ?GetClass@asLamp@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?SetColor@asLamp@@QAEXABVVector3@@M@Z
-    ARTS_IMPORT void SetColor(class Vector3 const& arg1, f32 arg2);
+    ARTS_IMPORT void SetColor(Vector3 const& arg1, f32 arg2);
 
     // ?SetDistant@asLamp@@QAEXXZ
     ARTS_IMPORT void SetDistant();

@@ -35,6 +35,8 @@
 
 #include "carcamcs.h"
 
+class mmCar;
+
 class AICamCS final : public CarCamCS
 {
 public:
@@ -46,10 +48,10 @@ public:
     ARTS_IMPORT ~AICamCS() override = default;
 
     // ?GetClass@AICamCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@AICamCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(class mmCar* arg1);
+    ARTS_IMPORT void Init(mmCar* arg1);
 
     // ?MakeActive@AICamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;

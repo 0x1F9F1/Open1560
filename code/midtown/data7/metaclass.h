@@ -41,6 +41,7 @@
 */
 
 struct MetaType;
+class MiniParser;
 
 struct MetaField
 {
@@ -66,7 +67,7 @@ class MetaClass
 public:
     // ??0MetaClass@@QAE@PADIP6APAXH@ZP6AXPAXH@ZP6AXXZPAV0@@Z
     ARTS_EXPORT MetaClass(const char* name, usize size, void* (*allocate)(isize), void (*free)(void*, isize),
-        void (*declare)(void), class MetaClass* parent);
+        void (*declare)(void), MetaClass* parent);
 
     // ??1MetaClass@@QAE@XZ
     ARTS_EXPORT ~MetaClass();
@@ -75,16 +76,16 @@ public:
     ARTS_EXPORT void InitFields();
 
     // ?IsSubclassOf@MetaClass@@QAEHPAV1@@Z
-    ARTS_EXPORT b32 IsSubclassOf(class MetaClass* parent);
+    ARTS_EXPORT b32 IsSubclassOf(MetaClass* parent);
 
     // ?Load@MetaClass@@QAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Load(class MiniParser* parser, void* ptr);
+    ARTS_EXPORT void Load(MiniParser* parser, void* ptr);
 
     // ?Save@MetaClass@@QAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Save(class MiniParser* parser, void* ptr);
+    ARTS_EXPORT void Save(MiniParser* parser, void* ptr);
 
     // ?SkipBlock@MetaClass@@QAEXPAVMiniParser@@@Z
-    ARTS_EXPORT void SkipBlock(class MiniParser* parser);
+    ARTS_EXPORT void SkipBlock(MiniParser* parser);
 
     const char* GetName() const
     {
@@ -120,30 +121,30 @@ public:
     static void FixupClasses();
 
     // ?DeclareNamedTypedField@MetaClass@@SAXPADIPAUMetaType@@@Z
-    ARTS_EXPORT static void DeclareNamedTypedField(const char* name, u32 offset, struct MetaType* type);
+    ARTS_EXPORT static void DeclareNamedTypedField(const char* name, u32 offset, MetaType* type);
 
     static void ARTS_FASTCALL DeclareStaticFields(const std::initializer_list<const StaticMetaField>& fields);
 
     // ?FindByName@MetaClass@@SAPAV1@PADPAV1@@Z
-    ARTS_EXPORT static class MetaClass* FindByName(const char* name, class MetaClass* root);
+    ARTS_EXPORT static MetaClass* FindByName(const char* name, MetaClass* root);
 
     // ?UndeclareAll@MetaClass@@SAXXZ
     ARTS_EXPORT static void UndeclareAll();
 
     // ?ClassIndex@MetaClass@@2PAPAV1@A
-    static class MetaClass* ClassIndex[MAX_CLASSES];
+    static MetaClass* ClassIndex[MAX_CLASSES];
 
     // ?Current@MetaClass@@2PAV1@A
-    static class MetaClass* Current;
+    static MetaClass* Current;
 
     // ?NextSerial@MetaClass@@2HA
     static i32 NextSerial;
 
     // ?RootMetaClass@MetaClass@@2V1@A
-    static class MetaClass RootMetaClass;
+    static MetaClass RootMetaClass;
 
     // ?ppField@MetaClass@@2PAPAUMetaField@@A
-    static struct MetaField** ppField;
+    static MetaField** ppField;
 
 private:
     const char* name_ {nullptr};
@@ -167,7 +168,7 @@ private:
 check_size(MetaClass, 0x28);
 
 // ?__BadSafeCall@@YAXPADPAVBase@@@Z | unused
-ARTS_EXPORT void __BadSafeCall(const char* name, class Base* ptr);
+ARTS_EXPORT void __BadSafeCall(const char* name, Base* ptr);
 
 // ?NoDefault@@3HA
 ARTS_IMPORT extern i32 NoDefault;

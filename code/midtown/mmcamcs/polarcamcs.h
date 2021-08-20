@@ -46,10 +46,10 @@ public:
     ARTS_IMPORT ~PolarCamCS() override = default;
 
     // ?GetClass@PolarCamCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@PolarCamCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(class mmCar* arg1);
+    ARTS_IMPORT void Init(mmCar* arg1);
 
     // ?MakeActive@PolarCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;

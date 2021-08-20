@@ -33,6 +33,8 @@
     0x795F40 | int bRenderToSystem | ?bRenderToSystem@@3HA
 */
 
+class agiSurfaceDesc;
+
 // ?ddAttach@@YAXHH@Z
 ARTS_EXPORT void ddAttach(i32 flags, i32 bit_depth);
 
@@ -43,4 +45,4 @@ ARTS_IMPORT extern i32 bRenderToSystem;
 ARTS_IMPORT extern u8 swNibbleLut[256];
 
 // ?swScreenDesc@@3VagiSurfaceDesc@@A
-ARTS_IMPORT extern class agiSurfaceDesc swScreenDesc;
+ARTS_IMPORT extern agiSurfaceDesc swScreenDesc;

@@ -91,31 +91,31 @@ public:
 
     // ?CopyBitmap@agiD3DPipeline@@UAEXHHPAVagiBitmap@@HHHH@Z
     ARTS_EXPORT void CopyBitmap(
-        i32 dst_x, i32 dst_y, class agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
+        i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height) override;
 
     // ?CreateBitmap@agiD3DPipeline@@UAEPAVagiBitmap@@XZ
-    ARTS_EXPORT RcOwner<class agiBitmap> CreateBitmap() override;
+    ARTS_EXPORT RcOwner<agiBitmap> CreateBitmap() override;
 
     // ?CreateLight@agiD3DPipeline@@UAEPAVagiLight@@XZ
-    ARTS_EXPORT RcOwner<class agiLight> CreateLight() override;
+    ARTS_EXPORT RcOwner<agiLight> CreateLight() override;
 
     // ?CreateMtlDef@agiD3DPipeline@@UAEPAVagiMtlDef@@XZ
-    ARTS_EXPORT RcOwner<class agiMtlDef> CreateMtlDef() override;
+    ARTS_EXPORT RcOwner<agiMtlDef> CreateMtlDef() override;
 
     // ?CreateTexDef@agiD3DPipeline@@UAEPAVagiTexDef@@XZ
-    ARTS_EXPORT RcOwner<class agiTexDef> CreateTexDef() override;
+    ARTS_EXPORT RcOwner<agiTexDef> CreateTexDef() override;
 
     // ?CreateTexLut@agiD3DPipeline@@UAEPAVagiTexLut@@XZ
-    ARTS_EXPORT RcOwner<class agiTexLut> CreateTexLut() override;
+    ARTS_EXPORT RcOwner<agiTexLut> CreateTexLut() override;
 
     // ?CreateViewport@agiD3DPipeline@@UAEPAVagiViewport@@XZ
-    ARTS_EXPORT RcOwner<class agiViewport> CreateViewport() override;
+    ARTS_EXPORT RcOwner<agiViewport> CreateViewport() override;
 
     // ?Defragment@agiD3DPipeline@@UAEXXZ
     ARTS_EXPORT void Defragment() override;
 
     // ?DumpStatus@agiD3DPipeline@@UAEXAAUagiMemStatus@@@Z
-    ARTS_EXPORT void DumpStatus(struct agiMemStatus& status) override;
+    ARTS_EXPORT void DumpStatus(agiMemStatus& status) override;
 
     // ?EndFrame@agiD3DPipeline@@UAEXXZ
     ARTS_EXPORT void EndFrame() override;
@@ -185,11 +185,10 @@ protected:
 check_size(agiD3DPipeline, 0x49C);
 
 // ?RestoreCallback@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z | unused
-ARTS_IMPORT i32 ARTS_STDCALL RestoreCallback(
-    struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
+ARTS_IMPORT i32 ARTS_STDCALL RestoreCallback(IDirectDrawSurface4* arg1, _DDSURFACEDESC2* arg2, void* arg3);
 
 // ?callb@@YGJPAUIDirectDrawSurface4@@PAU_DDSURFACEDESC2@@PAX@Z
-ARTS_IMPORT long ARTS_STDCALL callb(struct IDirectDrawSurface4* arg1, struct _DDSURFACEDESC2* arg2, void* arg3);
+ARTS_IMPORT long ARTS_STDCALL callb(IDirectDrawSurface4* arg1, _DDSURFACEDESC2* arg2, void* arg3);
 
 // ?AlphaPalette@@3HA
 ARTS_IMPORT extern b32 AlphaPalette;

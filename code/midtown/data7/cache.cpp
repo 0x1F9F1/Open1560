@@ -26,7 +26,7 @@ define_dummy_symbol(data7_cache);
 // Max age before an object is automatically unloaded
 static u32 MaxObjectAge = 1000;
 
-ARTS_EXPORT class DataCache CACHE;
+ARTS_EXPORT DataCache CACHE;
 
 struct DataCacheObject
 {

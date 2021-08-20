@@ -71,7 +71,7 @@ public:
     ARTS_IMPORT void AdjustPhaseOffsets();
 
     // ?CalculateCubics@mmAnimPlane@@QAEXHAAVVector4@@00@Z
-    ARTS_IMPORT void CalculateCubics(i32 arg1, class Vector4& arg2, class Vector4& arg3, class Vector4& arg4);
+    ARTS_IMPORT void CalculateCubics(i32 arg1, Vector4& arg2, Vector4& arg3, Vector4& arg4);
 
     // ?Deactivate@mmAnimPlane@@QAEXXZ | unused
     ARTS_IMPORT void Deactivate();
@@ -80,7 +80,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?Init@mmAnimPlane@@QAEXHPAD0PAVVector3@@HHPAM@Z
-    ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3, class Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
+    ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3, Vector3* arg4, i32 arg5, i32 arg6, f32* arg7);
 
     // ?PreCalcCubics@mmAnimPlane@@QAEXXZ
     ARTS_IMPORT void PreCalcCubics();
@@ -95,10 +95,10 @@ public:
     ARTS_IMPORT void SetPathSpeed();
 
     // ?SolvePosition@mmAnimPlane@@QAEXAAVVector3@@AAM@Z
-    ARTS_IMPORT void SolvePosition(class Vector3& arg1, f32& arg2);
+    ARTS_IMPORT void SolvePosition(Vector3& arg1, f32& arg2);
 
     // ?SolveVector@mmAnimPlane@@QAEXMAAVVector3@@0@Z
-    ARTS_IMPORT void SolveVector(f32 arg1, class Vector3& arg2, class Vector3& arg3);
+    ARTS_IMPORT void SolveVector(f32 arg1, Vector3& arg2, Vector3& arg3);
 
     // ?Update@mmAnimPlane@@QAEXXZ
     ARTS_IMPORT void Update();

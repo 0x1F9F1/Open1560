@@ -48,6 +48,8 @@
 
 #include "arts7/node.h"
 
+class uiWidget;
+
 class mmSlider final : public asNode
 {
 public:
@@ -68,7 +70,7 @@ public:
     ARTS_IMPORT f32 FudgeWidth();
 
     // ?GetClass@mmSlider@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetScreenHeight@mmSlider@@QAEMXZ
     ARTS_IMPORT f32 GetScreenHeight();
@@ -80,7 +82,7 @@ public:
     ARTS_IMPORT f32 Inc();
 
     // ?Init@mmSlider@@QAEXPADPAVuiWidget@@MMMMHMMHH@Z
-    ARTS_IMPORT void Init(char* arg1, class uiWidget* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, f32 arg8,
+    ARTS_IMPORT void Init(char* arg1, uiWidget* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, f32 arg8,
         f32 arg9, i32 arg10, i32 arg11);
 
     // ?IsReadWrite@mmSlider@@QAEHXZ

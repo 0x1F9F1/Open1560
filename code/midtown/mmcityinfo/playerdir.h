@@ -68,7 +68,7 @@ public:
     ARTS_IMPORT i32 FindPlayer(char* arg1);
 
     // ?GetClass@mmPlayerDirectory@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetFileName@mmPlayerDirectory@@QAEPADPAD@Z
     ARTS_IMPORT char* GetFileName(char* arg1);
@@ -128,4 +128,4 @@ private:
 check_size(mmPlayerDirectory, 0xE4);
 
 // ?RefTo@@YAPAUMetaType@@PAU1@HPAH@Z | inline
-ARTS_IMPORT struct MetaType* RefTo(struct MetaType* arg1, i32 arg2, i32* arg3);
+// ARTS_IMPORT MetaType* RefTo(MetaType* arg1, i32 arg2, i32* arg3);

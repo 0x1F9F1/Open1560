@@ -59,7 +59,7 @@ public:
     ARTS_IMPORT ~UIVScrollBar() override;
 
     // ?Action@UIVScrollBar@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?Cull@UIVScrollBar@@UAEXXZ
     ARTS_IMPORT void Cull() override;
@@ -77,14 +77,14 @@ public:
     ARTS_IMPORT void EvalMouseXY(f32 arg1, f32 arg2);
 
     // ?GetClass@UIVScrollBar@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Inc@UIVScrollBar@@QAEMXZ
     ARTS_IMPORT f32 Inc();
 
     // ?Init@UIVScrollBar@@QAEXMMMMHMMPAHVCallback@@H@Z
-    ARTS_IMPORT void Init(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, f32 arg6, f32 arg7, i32* arg8,
-        class Callback arg9, i32 arg10);
+    ARTS_IMPORT void Init(
+        f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5, f32 arg6, f32 arg7, i32* arg8, Callback arg9, i32 arg10);
 
     // ?LoadBitmap@UIVScrollBar@@QAEXXZ
     ARTS_IMPORT void LoadBitmap();

@@ -71,23 +71,23 @@ public:
     ARTS_IMPORT ~UITextField() override;
 
     // ?Action@UITextField@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?CaptureAction@UITextField@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void CaptureAction(union eqEvent arg1) override;
+    ARTS_IMPORT void CaptureAction(eqEvent arg1) override;
 
     // ?ClearField@UITextField@@QAEXXZ | unused
     ARTS_IMPORT void ClearField();
 
     // ?Init@UITextField@@QAEXPAULocString@@PADMMMMHHHHHVCallback@@PAVUIMenu@@@Z
-    ARTS_IMPORT void Init(struct LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7,
-        i32 arg8, i32 arg9, i32 arg10, i32 arg11, class Callback arg12, class UIMenu* arg13);
+    ARTS_IMPORT void Init(LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7, i32 arg8,
+        i32 arg9, i32 arg10, i32 arg11, Callback arg12, UIMenu* arg13);
 
     // ?IsValidChar@UITextField@@QAEHG@Z
     ARTS_IMPORT i32 IsValidChar(u16 arg1);
 
     // ?KeyAction@UITextField@@QAEXPATeqEvent@@@Z
-    ARTS_IMPORT void KeyAction(union eqEvent* arg1);
+    ARTS_IMPORT void KeyAction(eqEvent* arg1);
 
     // ?SetCompositionWindow@UITextField@@QAEXXZ
     ARTS_IMPORT void SetCompositionWindow();
@@ -96,7 +96,7 @@ public:
     ARTS_IMPORT void SetField(char* arg1);
 
     // ?SetText@UITextField@@QAEXPAULocString@@@Z | unused
-    ARTS_IMPORT void SetText(struct LocString* arg1);
+    ARTS_IMPORT void SetText(LocString* arg1);
 
     // ?SetTextField@UITextField@@QAEXXZ
     ARTS_IMPORT void SetTextField();

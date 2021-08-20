@@ -27,6 +27,8 @@
     0x6A7CE0 | struct tagSurfaceAudioInfo * SURFACEAUDIOINFO | ?SURFACEAUDIOINFO@@3PAUtagSurfaceAudioInfo@@A
 */
 
+struct tagSurfaceAudioInfo;
+
 // ?SetClearSurfaceAudioInfos@@YAXXZ
 ARTS_IMPORT void SetClearSurfaceAudioInfos();
 
@@ -37,4 +39,4 @@ ARTS_IMPORT void SetRainSurfaceAudioInfos();
 ARTS_IMPORT void SetSnowSurfaceAudioInfos();
 
 // ?SURFACEAUDIOINFO@@3PAUtagSurfaceAudioInfo@@A
-ARTS_IMPORT extern struct tagSurfaceAudioInfo SURFACEAUDIOINFO[6];
+ARTS_IMPORT extern tagSurfaceAudioInfo SURFACEAUDIOINFO[6];

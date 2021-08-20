@@ -37,7 +37,7 @@ public:
     ARTS_IMPORT i32 Assign(ilong arg1);
 
     // ?Init@mmFrictionFF@@UAEHPAUIDirectInputDevice2A@@@Z
-    ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1) override;
+    ARTS_IMPORT i32 Init(IDirectInputDevice2A* arg1) override;
 
     // ?Play@mmFrictionFF@@UAEHXZ
     ARTS_IMPORT i32 Play() override;

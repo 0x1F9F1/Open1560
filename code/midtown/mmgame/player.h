@@ -67,6 +67,8 @@
 #include "hud.h"
 #include "mmcar/car.h"
 
+class mmGame;
+
 class mmPlayer final : public asNode
 {
 public:
@@ -79,7 +81,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmPlayer@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AfterLoad@mmPlayer@@UAEXXZ
@@ -92,10 +94,10 @@ public:
     ARTS_IMPORT void EnableRegen(i32 arg1);
 
     // ?GetClass@mmPlayer@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmPlayer@@QAEXPAD0PAVmmGame@@@Z
-    ARTS_IMPORT void Init(char* arg1, char* arg2, class mmGame* arg3);
+    ARTS_IMPORT void Init(char* arg1, char* arg2, mmGame* arg3);
 
     // ?IsMaxDamaged@mmPlayer@@QAEHXZ
     ARTS_IMPORT i32 IsMaxDamaged();
@@ -113,7 +115,7 @@ public:
     ARTS_IMPORT void ResetDamage();
 
     // ?SetCamInterest@mmPlayer@@QAEXPAVasInertialCS@@@Z
-    ARTS_IMPORT void SetCamInterest(class asInertialCS* arg1);
+    ARTS_IMPORT void SetCamInterest(asInertialCS* arg1);
 
     // ?SetMirrorFOV@mmPlayer@@QAEXXZ | unused
     ARTS_IMPORT void SetMirrorFOV();

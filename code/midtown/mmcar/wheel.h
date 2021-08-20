@@ -49,9 +49,11 @@
 #include "arts7/linear.h"
 #include "mmdyna/isect.h"
 
+class agiPhysParameters;
+class asInertialCS;
+class mmBoundTemplate;
 class mmCarSim;
 class mmPolygon;
-class agiPhysParameters;
 
 class mmWheel final : public asLinearCS
 {
@@ -65,7 +67,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmWheel@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AfterLoad@mmWheel@@UAEXXZ
@@ -78,29 +80,29 @@ public:
     ARTS_IMPORT f32 ComputeDwtdw(f32 arg1, f32* arg2, f32* arg3, f32* arg4);
 
     // ?CopyVars@mmWheel@@QAEXPAV1@@Z
-    ARTS_IMPORT void CopyVars(class mmWheel* arg1);
+    ARTS_IMPORT void CopyVars(mmWheel* arg1);
 
     // ?GenerateSkidParticles@mmWheel@@QAEXXZ
     ARTS_EXPORT void GenerateSkidParticles();
 
     // ?GetClass@mmWheel@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetSurfaceSound@mmWheel@@QAEHXZ
     ARTS_IMPORT i32 GetSurfaceSound();
 
     // ?Init@mmWheel@@QAEXPAD0VVector3@@PAVasInertialCS@@HPAVmmBoundTemplate@@H@Z
-    ARTS_IMPORT void Init(char* arg1, char* arg2, class Vector3 arg3, class asInertialCS* arg4, i32 arg5,
-        class mmBoundTemplate* arg6, i32 arg7);
+    ARTS_IMPORT void Init(
+        char* arg1, char* arg2, Vector3 arg3, asInertialCS* arg4, i32 arg5, mmBoundTemplate* arg6, i32 arg7);
 
     // ?Load@mmWheel@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Load(class Stream* arg1);
+    ARTS_IMPORT void Load(Stream* arg1);
 
     // ?Reset@mmWheel@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
     // ?Save@mmWheel@@QAEXPAVStream@@@Z | unused
-    ARTS_IMPORT void Save(class Stream* arg1);
+    ARTS_IMPORT void Save(Stream* arg1);
 
     // ?SetFricMultiplier@mmWheel@@QAEXM@Z
     ARTS_IMPORT void SetFricMultiplier(f32 arg1);

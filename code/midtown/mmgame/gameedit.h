@@ -60,7 +60,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmGameEdit@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
 #ifdef ARTS_DEV_BUILD
@@ -69,10 +69,10 @@ public:
 #endif
 
     // ?GetClass@mmGameEdit@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetWaypoints@mmGameEdit@@UAEPAVmmWaypoints@@XZ | inline
-    ARTS_EXPORT class mmWaypoints* GetWaypoints() override;
+    ARTS_EXPORT mmWaypoints* GetWaypoints() override;
 
     // ?Init@mmGameEdit@@QAEHXZ
     ARTS_IMPORT i32 Init();

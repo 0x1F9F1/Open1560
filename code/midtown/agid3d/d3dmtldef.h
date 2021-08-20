@@ -39,7 +39,7 @@ class agiD3DMtlDef final : public agiMtlDef
 {
 public:
     // ??0agiD3DMtlDef@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiD3DMtlDef(class agiPipeline* arg1);
+    ARTS_IMPORT agiD3DMtlDef(agiPipeline* arg1);
 
     // ??_GagiD3DMtlDef@@UAEPAXI@Z
     // ??_EagiD3DMtlDef@@UAEPAXI@Z

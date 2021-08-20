@@ -51,6 +51,8 @@
 
 #include "mmbangers/dof.h"
 
+class mmAnimTrigger;
+
 class mmDrawbridgeInstance final : public mmDofBangerInstance
 {
 public:
@@ -63,7 +65,7 @@ public:
     ARTS_EXPORT void ARTS_FASTCALL Draw(i32 lod) override;
 
     // ?InitBridge@mmDrawbridgeInstance@@QAEHPAD0HPAVMatrix34@@PAVVector3@@@Z
-    ARTS_IMPORT i32 InitBridge(char* name, char* part, i32 flags, class Matrix34* matrix, class Vector3* offset);
+    ARTS_IMPORT i32 InitBridge(char* name, char* part, i32 flags, Matrix34* matrix, Vector3* offset);
 };
 
 check_size(mmDrawbridgeInstance, 0x34);
@@ -79,11 +81,10 @@ public:
     ARTS_IMPORT ~mmAnimDOF() = default;
 
     // ?GetClass@mmAnimDOF@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT virtual class MetaClass* GetClass();
+    ARTS_IMPORT virtual MetaClass* GetClass();
 
     // ?Init@mmAnimDOF@@QAEHPAVmmAnimTrigger@@PADAAVVector3@@2HPAH@Z
-    ARTS_IMPORT i32 Init(
-        class mmAnimTrigger* arg1, char* arg2, class Vector3& arg3, class Vector3& arg4, i32 arg5, i32* arg6);
+    ARTS_IMPORT i32 Init(mmAnimTrigger* arg1, char* arg2, Vector3& arg3, Vector3& arg4, i32 arg5, i32* arg6);
 
     // ?Reset@mmAnimDOF@@QAEXXZ
     ARTS_IMPORT void Reset();

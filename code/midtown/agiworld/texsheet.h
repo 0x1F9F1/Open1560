@@ -34,11 +34,13 @@
     0x73E6C0 | class agiTexSheet TEXSHEET | ?TEXSHEET@@3VagiTexSheet@@A
 */
 
+class agiTexSheet;
+
 // ?mystrtok@@YAPADPADPBD@Z
 ARTS_IMPORT char* mystrtok(char* str, char const* delims);
 
 // ?TEXSHEET@@3VagiTexSheet@@A
-ARTS_IMPORT extern class agiTexSheet TEXSHEET;
+ARTS_IMPORT extern agiTexSheet TEXSHEET;
 
 struct agiTexProp
 {
@@ -99,10 +101,10 @@ public:
     ARTS_IMPORT void Load(char* arg1);
 
     // ?Lookup@agiTexSheet@@QAEPAUagiTexProp@@PADH@Z
-    ARTS_IMPORT struct agiTexProp* Lookup(char* name, i32 variation = 0);
+    ARTS_IMPORT agiTexProp* Lookup(char* name, i32 variation = 0);
 
     // ?LookupAlternate@agiTexSheet@@QAEPAUagiTexProp@@PAD@Z | unused
-    ARTS_IMPORT struct agiTexProp* LookupAlternate(char* arg1);
+    ARTS_IMPORT agiTexProp* LookupAlternate(char* arg1);
 
     // ?RemapName@agiTexSheet@@QAEPADPADH@Z
     ARTS_IMPORT char* RemapName(char* arg1, i32 arg2);

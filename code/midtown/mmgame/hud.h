@@ -103,10 +103,10 @@
 #include "mmeffects/mmtext.h"
 #include "vector7/vector4.h"
 
-class mmWPHUD;
+class AudSound;
 class mmCircuitHUD;
 class mmCRHUD;
-class AudSound;
+class mmWPHUD;
 
 class mmTimer final : public asNode
 {
@@ -157,13 +157,13 @@ public:
     ARTS_IMPORT ~mmArrow() override;
 
     // ?Init@mmArrow@@QAEXPAVMatrix34@@@Z
-    ARTS_IMPORT void Init(class Matrix34* arg1);
+    ARTS_IMPORT void Init(Matrix34* arg1);
 
     // ?Reset@mmArrow@@UAEXXZ
     ARTS_IMPORT void Reset() override;
 
     // ?SetInterest@mmArrow@@QAEXPAVVector3@@@Z
-    ARTS_IMPORT void SetInterest(class Vector3* arg1);
+    ARTS_IMPORT void SetInterest(Vector3* arg1);
 
     // ?Update@mmArrow@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -198,7 +198,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmHUD@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@mmHUD@@UAEXXZ
@@ -217,16 +217,16 @@ public:
     ARTS_IMPORT void Enable();
 
     // ?GetClass@mmHUD@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetPosHdg@mmHUD@@QAEXAAVVector4@@@Z
-    ARTS_IMPORT void GetPosHdg(class Vector4& arg1);
+    ARTS_IMPORT void GetPosHdg(Vector4& arg1);
 
     // ?GetTime@mmHUD@@QAEXPADM@Z
     ARTS_IMPORT void GetTime(char* arg1, f32 arg2);
 
     // ?Init@mmHUD@@QAEXPADPAVmmPlayer@@@Z
-    ARTS_IMPORT void Init(char* arg1, class mmPlayer* arg2);
+    ARTS_IMPORT void Init(char* arg1, mmPlayer* arg2);
 
     // ?IsDashActive@mmHUD@@QAEHXZ
     ARTS_IMPORT i32 IsDashActive();
@@ -256,10 +256,10 @@ public:
     ARTS_IMPORT void SetLapTime(i32 arg1, f32 arg2, i32 arg3);
 
     // ?SetMessage@mmHUD@@QAEXPAULocString@@MH@Z
-    ARTS_IMPORT void SetMessage(struct LocString* arg1, f32 time, b32 top = false);
+    ARTS_IMPORT void SetMessage(LocString* arg1, f32 time, b32 top = false);
 
     // ?SetMessage2@mmHUD@@QAEXPAULocString@@@Z
-    ARTS_IMPORT void SetMessage2(struct LocString* arg1);
+    ARTS_IMPORT void SetMessage2(LocString* arg1);
 
     // ?SetScore@mmHUD@@QAEXPAD@Z
     ARTS_IMPORT void SetScore(char* arg1);

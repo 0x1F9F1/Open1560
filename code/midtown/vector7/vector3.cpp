@@ -34,7 +34,7 @@ public:
     }
 
     // ?Load@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Load(class MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Load(MiniParser* parser, void* ptr) override
     {
         Vector3* val = static_cast<Vector3*>(ptr);
 
@@ -50,7 +50,7 @@ public:
     }
 
     // ?Save@Vector3Type@@UAEXPAVMiniParser@@PAX@Z
-    ARTS_EXPORT void Save(class MiniParser* parser, void* ptr) override
+    ARTS_EXPORT void Save(MiniParser* parser, void* ptr) override
     {
         Vector3* val = static_cast<Vector3*>(ptr);
 

@@ -20,6 +20,6 @@ define_dummy_symbol(mmwidget_comproster);
 
 #include "comproster.h"
 
-void mmCompRoster::InitTitle(f32 /*arg1*/, f32 /*arg2*/, f32 /*arg3*/, f32 /*arg4*/, struct LocString* /*arg5*/,
-    struct LocString* /*arg6*/, struct LocString* /*arg7*/, struct LocString* /*arg8*/, i32 /*arg9*/)
+void mmCompRoster::InitTitle(f32 /*arg1*/, f32 /*arg2*/, f32 /*arg3*/, f32 /*arg4*/, LocString* /*arg5*/,
+    LocString* /*arg6*/, LocString* /*arg7*/, LocString* /*arg8*/, i32 /*arg9*/)
 {}

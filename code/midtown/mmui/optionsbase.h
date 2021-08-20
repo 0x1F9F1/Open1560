@@ -54,7 +54,7 @@ public:
     ARTS_EXPORT virtual void StoreCurrentSetup();
 
     // ?CreateTitle@OptionsBase@@QAEXPAULocString@@@Z | unused
-    ARTS_IMPORT void CreateTitle(struct LocString* arg1);
+    ARTS_IMPORT void CreateTitle(LocString* arg1);
 
     // ?IsAnOptionMenu@OptionsBase@@UAEHXZ | inline
     ARTS_IMPORT i32 IsAnOptionMenu() override;

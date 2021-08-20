@@ -133,16 +133,16 @@
 #include "vector7/vector4.h"
 
 // ?EyePlaneOutcode@@YAIPAEEAAVVector4@@PAVVector3@@H@Z | unused
-ARTS_IMPORT u32 EyePlaneOutcode(u8* arg1, u8 arg2, class Vector4& arg3, class Vector3* arg4, i32 arg5);
+ARTS_IMPORT u32 EyePlaneOutcode(u8* arg1, u8 arg2, Vector4& arg3, Vector3* arg4, i32 arg5);
 
 // ?SetClipMode@@YAXH@Z | unused
 ARTS_EXPORT void SetClipMode(b32 mask_only_z);
 
 // ?begin_invert@@YIXPAVVector4@@@Z | unused
-ARTS_IMPORT void ARTS_FASTCALL begin_invert(class Vector4* arg1);
+ARTS_IMPORT void ARTS_FASTCALL begin_invert(Vector4* arg1);
 
 // ?end_invert@@YIXPAVVector4@@@Z | unused
-ARTS_IMPORT void ARTS_FASTCALL end_invert(class Vector4* arg1);
+ARTS_IMPORT void ARTS_FASTCALL end_invert(Vector4* arg1);
 
 // ?MaxCardSize@@3MA
 ARTS_IMPORT extern f32 MaxCardSize;
@@ -171,7 +171,7 @@ struct agiMeshCardInfo
 {
 public:
     // ?Init@agiMeshCardInfo@@QAEXHPAUagiMeshCardVertex@@HHH@Z
-    ARTS_IMPORT void Init(i32 arg1, struct agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT void Init(i32 arg1, agiMeshCardVertex* arg2, i32 arg3, i32 arg4, i32 arg5);
 
     u32 VertCount {0};
     u32 PointCount {0};

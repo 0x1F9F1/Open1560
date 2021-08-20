@@ -48,14 +48,14 @@ public:
     ARTS_IMPORT ~UIMexButton() override = default;
 
     // ?Action@UIMexButton@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?DoToggle@UIMexButton@@UAEXXZ
     ARTS_IMPORT void DoToggle() override;
 
     // ?Init@UIMexButton@@QAEXPAULocString@@PAHHMMMMHHVCallback@@@Z
-    ARTS_IMPORT void Init(struct LocString* arg1, i32* arg2, i32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, i32 arg8,
-        i32 arg9, class Callback arg10);
+    ARTS_IMPORT void Init(LocString* arg1, i32* arg2, i32 arg3, f32 arg4, f32 arg5, f32 arg6, f32 arg7, i32 arg8,
+        i32 arg9, Callback arg10);
 
     // ?Update@UIMexButton@@UAEXXZ
     ARTS_IMPORT void Update() override;

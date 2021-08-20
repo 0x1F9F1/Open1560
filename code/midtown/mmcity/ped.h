@@ -60,13 +60,13 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?GetClass@mmPed@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmPed@@QAEXPADAAVVector3@@@Z
-    ARTS_IMPORT void Init(char* arg1, class Vector3& arg2);
+    ARTS_IMPORT void Init(char* arg1, Vector3& arg2);
 
     // ?ToMatrix@mmPed@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT class Matrix34& ARTS_FASTCALL ToMatrix(class Matrix34& arg1) override;
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
 
     // ?Update@mmPed@@QAEXXZ
     ARTS_IMPORT void Update();
@@ -90,7 +90,7 @@ public:
     ARTS_IMPORT ~mmPedManager() override = default;
 
     // ?GetClass@mmPedManager@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmPedManager@@QAEXH@Z | unused
     ARTS_IMPORT void Init(i32 arg1);

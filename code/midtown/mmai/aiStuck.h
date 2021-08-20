@@ -36,6 +36,8 @@
 
 #include "arts7/node.h"
 
+class mmCarSim;
+
 class aiStuck final : public asNode
 {
 public:
@@ -49,14 +51,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@aiStuck@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Impact@aiStuck@@QAEXXZ | unused
     ARTS_IMPORT void Impact();
 
     // ?Init@aiStuck@@QAEXPAVmmCarSim@@@Z
-    ARTS_IMPORT void Init(class mmCarSim* arg1);
+    ARTS_IMPORT void Init(mmCarSim* arg1);
 
     // ?Pegged@aiStuck@@QAEHXZ
     ARTS_IMPORT i32 Pegged();

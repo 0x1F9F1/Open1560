@@ -39,17 +39,20 @@
     0x4F4A70 | public: void __thiscall CReverb::GetAll(struct EAX_REVERBPROPERTIES *) | ?GetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
 */
 
+struct EAX_REVERBPROPERTIES;
+struct IDirectSound3DBuffer;
+
 class CReverb
 {
 public:
     // ??0CReverb@@QAE@PAUIDirectSound3DBuffer@@@Z
-    ARTS_IMPORT CReverb(struct IDirectSound3DBuffer* arg1);
+    ARTS_IMPORT CReverb(IDirectSound3DBuffer* arg1);
 
     // ??1CReverb@@QAE@XZ
     ARTS_IMPORT ~CReverb();
 
     // ?GetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
-    ARTS_IMPORT void GetAll(struct EAX_REVERBPROPERTIES* arg1);
+    ARTS_IMPORT void GetAll(EAX_REVERBPROPERTIES* arg1);
 
     // ?GetDamping@CReverb@@QAEMXZ
     ARTS_IMPORT f32 GetDamping();
@@ -67,7 +70,7 @@ public:
     ARTS_IMPORT i32 PropertySetOk();
 
     // ?SetAll@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z | unused
-    ARTS_IMPORT void SetAll(struct EAX_REVERBPROPERTIES* arg1);
+    ARTS_IMPORT void SetAll(EAX_REVERBPROPERTIES* arg1);
 
     // ?SetDamping@CReverb@@QAEXM@Z
     ARTS_IMPORT void SetDamping(f32 arg1);
@@ -79,7 +82,7 @@ public:
     ARTS_IMPORT void SetEnvironment(ulong arg1);
 
     // ?SetPreset@CReverb@@QAEXPAUEAX_REVERBPROPERTIES@@@Z
-    ARTS_IMPORT void SetPreset(struct EAX_REVERBPROPERTIES* arg1);
+    ARTS_IMPORT void SetPreset(EAX_REVERBPROPERTIES* arg1);
 
     // ?SetPreset@CReverb@@QAEXKMMM@Z
     ARTS_IMPORT void SetPreset(ulong arg1, f32 arg2, f32 arg3, f32 arg4);

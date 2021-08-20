@@ -326,6 +326,8 @@
     0x652348 | struct swEmitterSet swCurrentEmitterSet | ?swCurrentEmitterSet@@3UswEmitterSet@@A
 */
 
+class swEmitterSet;
+
 // ?swEmitRun0_NoZChromaDecalLinearSolidCUCV@@YIXH@Z
 ARTS_IMPORT void ARTS_FASTCALL swEmitRun0_NoZChromaDecalLinearSolidCUCV(i32 arg1);
 
@@ -1233,4 +1235,4 @@ ARTS_IMPORT void ARTS_FASTCALL swEmitRun8_NoZOpaqueDecalLinearSolidWUWV(i32 arg1
 ARTS_IMPORT void ARTS_FASTCALL swEmitRun8_ZReadWriteOpaqueDecalLinearSolidWUWV(i32 arg1);
 
 // ?swCurrentEmitterSet@@3UswEmitterSet@@A
-ARTS_IMPORT extern struct swEmitterSet swCurrentEmitterSet;
+ARTS_IMPORT extern swEmitterSet swCurrentEmitterSet;

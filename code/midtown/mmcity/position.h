@@ -56,7 +56,7 @@ public:
     ARTS_IMPORT i32 GetCount();
 
     // ?GetVector4@mmPositions@@QAEAAVVector4@@H@Z | unused
-    ARTS_IMPORT class Vector4& GetVector4(i32 arg1);
+    ARTS_IMPORT Vector4& GetVector4(i32 arg1);
 
     // ?Init@mmPositions@@QAEXH@Z
     ARTS_IMPORT void Init(i32 arg1);
@@ -65,10 +65,10 @@ public:
     ARTS_IMPORT i32 Load(char* arg1);
 
     // ?Recall@mmPositions@@QAEHHPAVMatrix34@@PAHPAD@Z
-    ARTS_IMPORT i32 Recall(i32 arg1, class Matrix34* arg2, i32* arg3, char* arg4);
+    ARTS_IMPORT i32 Recall(i32 arg1, Matrix34* arg2, i32* arg3, char* arg4);
 
     // ?Register@mmPositions@@QAEHAAVVector4@@HHHHPAD@Z
-    ARTS_IMPORT i32 Register(class Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
+    ARTS_IMPORT i32 Register(Vector4& arg1, i32 arg2, i32 arg3, i32 arg4, i32 arg5, char* arg6);
 
     mmPosition** Positions;
     i32 NumPositions;

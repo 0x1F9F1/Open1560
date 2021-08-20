@@ -45,19 +45,19 @@ public:
     ARTS_EXPORT ~aiPoliceForce() = default;
 
     // ?Find@aiPoliceForce@@QAEHPAVmmCar@@0@Z
-    ARTS_EXPORT i32 Find(class mmCar* cop, class mmCar* perp);
+    ARTS_EXPORT i32 Find(mmCar* cop, mmCar* perp);
 
     // ?RegisterPerp@aiPoliceForce@@QAEHPAVmmCar@@0@Z
-    ARTS_EXPORT b32 RegisterPerp(class mmCar* cop, class mmCar* perp);
+    ARTS_EXPORT b32 RegisterPerp(mmCar* cop, mmCar* perp);
 
     // ?Reset@aiPoliceForce@@QAEXXZ
     ARTS_EXPORT void Reset();
 
     // ?State@aiPoliceForce@@QAEHPAVmmCar@@0M@Z
-    ARTS_EXPORT i32 State(class mmCar* cop, class mmCar* perp, f32 dist);
+    ARTS_EXPORT i32 State(mmCar* cop, mmCar* perp, f32 dist);
 
     // ?UnRegisterCop@aiPoliceForce@@QAEHPAVmmCar@@0@Z
-    ARTS_EXPORT b32 UnRegisterCop(class mmCar* cop, class mmCar* perp);
+    ARTS_EXPORT b32 UnRegisterCop(mmCar* cop, mmCar* perp);
 
     // ?Update@aiPoliceForce@@QAEXXZ
     ARTS_EXPORT void Update();

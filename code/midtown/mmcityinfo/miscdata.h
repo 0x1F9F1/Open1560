@@ -47,6 +47,8 @@
 
 #include "infobase.h"
 
+class mmRecord;
+
 class mmMiscData final : public mmInfoBase
 {
 public:
@@ -67,25 +69,25 @@ public:
     ARTS_IMPORT i32 CheckCircuit(char* arg1, f32 arg2, i32 arg3, char* arg4, i32 arg5, i32 arg6);
 
     // ?GetBestBlitzScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    ARTS_IMPORT class mmRecord GetBestBlitzScore(i32 arg1, i32 arg2);
+    ARTS_IMPORT mmRecord GetBestBlitzScore(i32 arg1, i32 arg2);
 
     // ?GetBestBlitzTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    ARTS_IMPORT class mmRecord GetBestBlitzTime(i32 arg1, i32 arg2);
+    ARTS_IMPORT mmRecord GetBestBlitzTime(i32 arg1, i32 arg2);
 
     // ?GetBestCircuitScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    ARTS_IMPORT class mmRecord GetBestCircuitScore(i32 arg1, i32 arg2);
+    ARTS_IMPORT mmRecord GetBestCircuitScore(i32 arg1, i32 arg2);
 
     // ?GetBestCircuitTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    ARTS_IMPORT class mmRecord GetBestCircuitTime(i32 arg1, i32 arg2);
+    ARTS_IMPORT mmRecord GetBestCircuitTime(i32 arg1, i32 arg2);
 
     // ?GetBestRaceScore@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    ARTS_IMPORT class mmRecord GetBestRaceScore(i32 arg1, i32 arg2);
+    ARTS_IMPORT mmRecord GetBestRaceScore(i32 arg1, i32 arg2);
 
     // ?GetBestRaceTime@mmMiscData@@QAE?AVmmRecord@@HH@Z
-    ARTS_IMPORT class mmRecord GetBestRaceTime(i32 arg1, i32 arg2);
+    ARTS_IMPORT mmRecord GetBestRaceTime(i32 arg1, i32 arg2);
 
     // ?GetClass@mmMiscData@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Load@mmMiscData@@QAEHPAD@Z
     ARTS_IMPORT i32 Load(char* arg1);

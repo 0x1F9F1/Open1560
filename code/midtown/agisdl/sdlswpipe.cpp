@@ -50,7 +50,7 @@ static void zmemset(u16* values, u32 count)
 class agiSDLViewport final : public agiViewport
 {
 public:
-    agiSDLViewport(class agiSDLSWPipeline* pipe)
+    agiSDLViewport(agiSDLSWPipeline* pipe)
         : agiViewport(pipe)
     {}
 
@@ -119,7 +119,7 @@ public:
     void EndGfx() override
     {}
 
-    void SetBackground(class Vector3& color) override
+    void SetBackground(Vector3& color) override
     {
         clear_color_ = Pipe()->GetScreenColorModel()->GetColor(color);
     }
@@ -150,7 +150,7 @@ static u32 GetSDLPixelFormat(const agiPixelFormat& format)
 class agiSDLBitmap final : public agiBitmap
 {
 public:
-    agiSDLBitmap(class agiSDLSWPipeline* pipe)
+    agiSDLBitmap(agiSDLSWPipeline* pipe)
         : agiBitmap(pipe)
     {}
 
@@ -439,42 +439,42 @@ void agiSDLSWPipeline::CopyBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_
     SDL_BlitScaled(src_surface, &src_rect, render_surface_, &dst_rect);
 }
 
-RcOwner<class agiBitmap> agiSDLSWPipeline::CreateBitmap()
+RcOwner<agiBitmap> agiSDLSWPipeline::CreateBitmap()
 {
     return AsOwner(MakeRc<agiSDLBitmap>(this));
 }
 
-RcOwner<class DLP> agiSDLSWPipeline::CreateDLP()
+RcOwner<DLP> agiSDLSWPipeline::CreateDLP()
 {
     return AsOwner(MakeRc<RDLP>(this));
 }
 
-RcOwner<class agiLight> agiSDLSWPipeline::CreateLight()
+RcOwner<agiLight> agiSDLSWPipeline::CreateLight()
 {
     return AsOwner(MakeRc<agiBILight>(this));
 }
 
-RcOwner<class agiLightModel> agiSDLSWPipeline::CreateLightModel()
+RcOwner<agiLightModel> agiSDLSWPipeline::CreateLightModel()
 {
     return AsOwner(MakeRc<agiBILightModel>(this));
 }
 
-RcOwner<class agiMtlDef> agiSDLSWPipeline::CreateMtlDef()
+RcOwner<agiMtlDef> agiSDLSWPipeline::CreateMtlDef()
 {
     return nullptr;
 }
 
-RcOwner<class agiTexDef> agiSDLSWPipeline::CreateTexDef()
+RcOwner<agiTexDef> agiSDLSWPipeline::CreateTexDef()
 {
     return AsOwner(MakeRc<agiSWTexDef>(reinterpret_cast<agiSWPipeline*>(this)));
 }
 
-RcOwner<class agiTexLut> agiSDLSWPipeline::CreateTexLut()
+RcOwner<agiTexLut> agiSDLSWPipeline::CreateTexLut()
 {
     return AsOwner(MakeRc<agiSWTexLut>(reinterpret_cast<agiSWPipeline*>(this)));
 }
 
-RcOwner<class agiViewport> agiSDLSWPipeline::CreateViewport()
+RcOwner<agiViewport> agiSDLSWPipeline::CreateViewport()
 {
     return AsOwner(MakeRc<agiSDLViewport>(this));
 }
@@ -586,7 +586,7 @@ Ptr<u8[]> sdlScreenShot(i32& width, i32& height)
     return buffer;
 }
 
-Owner<class agiPipeline> sdlCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
+Owner<agiPipeline> sdlCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)
 {
     Ptr<agiSDLSWPipeline> result = MakeUnique<agiSDLSWPipeline>();
     result->Init();

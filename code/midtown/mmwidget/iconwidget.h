@@ -46,11 +46,10 @@ public:
     ARTS_IMPORT ~UIIconW() override;
 
     // ?Action@UIIconW@@UAEXTeqEvent@@@Z
-    ARTS_IMPORT void Action(union eqEvent arg1) override;
+    ARTS_IMPORT void Action(eqEvent arg1) override;
 
     // ?Init@UIIconW@@QAEXPAULocString@@PADMMMMVCallback@@@Z
-    ARTS_IMPORT void Init(
-        struct LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, class Callback arg7);
+    ARTS_IMPORT void Init(LocString* arg1, char* arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, Callback arg7);
 
     // ?Switch@UIIconW@@UAEXH@Z
     ARTS_IMPORT void Switch(i32 arg1) override;

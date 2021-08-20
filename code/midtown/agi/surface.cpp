@@ -28,6 +28,8 @@ define_dummy_symbol(agi_surface);
 #include <ddraw.h>
 #include <emmintrin.h>
 
+struct jpeg_decompress_struct;
+
 // clang-format off
 const agiPixelFormat PixelFormat_A8R8G8B8 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000};
 const agiPixelFormat PixelFormat_A8B8G8R8 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_ALPHAPIXELS, 0, 32, 0x000000FF, 0x0000FF00, 0x00FF0000, 0xFF000000};
@@ -43,7 +45,7 @@ const agiPixelFormat PixelFormat_P8 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF
 // clang-format on
 
 // ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
-ARTS_IMPORT /*static*/ void RescaleJpeg(u32 arg1, u32 arg2, u8* arg3, struct jpeg_decompress_struct& arg4);
+ARTS_IMPORT /*static*/ void RescaleJpeg(u32 arg1, u32 arg2, u8* arg3, jpeg_decompress_struct& arg4);
 
 // ?copyrow4444_to_555@@YAXPAX0II@Z
 ARTS_IMPORT /*static*/ void copyrow4444_to_555(void* dst, void* src, u32 len, u32 step);

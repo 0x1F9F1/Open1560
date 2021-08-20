@@ -77,7 +77,7 @@
 #include "linear.h"
 #include "node.h"
 
-class Matrix34;
+class VirtualFileSystem;
 
 class asSimulation final : public asNode
 {
@@ -97,7 +97,7 @@ public:
     ARTS_EXPORT void OpenPhysicsBank();
 
     // ?AddWidgets@asSimulation@@UAEXPAVBank@@@Z
-    ARTS_EXPORT void AddWidgets(class Bank* bank) override;
+    ARTS_EXPORT void AddWidgets(Bank* bank) override;
 #endif
 
     // ?Benchmark@asSimulation@@QAEXXZ
@@ -108,7 +108,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
-    ARTS_IMPORT void DeclareVector(class Vector3 const* arg1, class Vector3 const* arg2, class Vector3 const* arg3);
+    ARTS_IMPORT void DeclareVector(Vector3 const* arg1, Vector3 const* arg2, Vector3 const* arg3);
 #endif
 
     // ?Device@asSimulation@@QAEXXZ
@@ -155,7 +155,7 @@ public:
 
     // TODO: Rename UpdatePaused(asNode*) to avoid confusing with asNode::UpdatePaused()
     // ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
-    ARTS_EXPORT void UpdatePaused(class asNode* node);
+    ARTS_EXPORT void UpdatePaused(asNode* node);
 
     // ?Widgets@asSimulation@@QAEXXZ
     ARTS_EXPORT void Widgets();
@@ -315,7 +315,7 @@ ARTS_IMPORT f64 invert(f64 arg1);
 #endif
 
 // ?ARTSPTR@@3PAVasSimulation@@A
-ARTS_IMPORT extern class asSimulation* ARTSPTR;
+ARTS_IMPORT extern asSimulation* ARTSPTR;
 
 // ?Argc@@3HA
 ARTS_IMPORT extern i32 Argc;
@@ -327,7 +327,7 @@ ARTS_IMPORT extern char** Argv;
 ARTS_IMPORT extern i32 StereoBuffer;
 
 // ?VFS@@3PAVVirtualFileSystem@@A
-ARTS_IMPORT extern class VirtualFileSystem* VFS;
+ARTS_IMPORT extern VirtualFileSystem* VFS;
 
 class artsReplayChannel final : public eqReplayChannel
 {
@@ -339,10 +339,10 @@ public:
     ARTS_IMPORT ~artsReplayChannel() = default;
 
     // ?DoPlayback@artsReplayChannel@@UAEXPAVStream@@@Z | inline
-    ARTS_IMPORT void DoPlayback(class Stream* arg1) override;
+    ARTS_IMPORT void DoPlayback(Stream* arg1) override;
 
     // ?DoRecord@artsReplayChannel@@UAEXPAVStream@@@Z | inline
-    ARTS_IMPORT void DoRecord(class Stream* arg1) override;
+    ARTS_IMPORT void DoRecord(Stream* arg1) override;
 };
 
 check_size(artsReplayChannel, 0xC);

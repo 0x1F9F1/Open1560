@@ -38,7 +38,7 @@ class agiBILight final : public agiLight
 {
 public:
     // ??0agiBILight@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiBILight(class agiPipeline* arg1);
+    ARTS_IMPORT agiBILight(agiPipeline* arg1);
 
     // ??_EagiBILight@@UAEPAXI@Z
     // ??_GagiBILight@@UAEPAXI@Z

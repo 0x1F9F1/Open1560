@@ -65,7 +65,7 @@ public:
     ARTS_IMPORT ~mmPlayerConfig() override;
 
     // ??4mmPlayerConfig@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(class mmPlayerConfig& arg1);
+    ARTS_IMPORT void operator=(mmPlayerConfig& arg1);
 
     // ?DefaultAudio@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void DefaultAudio();
@@ -83,7 +83,7 @@ public:
     ARTS_IMPORT void GetAudio();
 
     // ?GetClass@mmPlayerConfig@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetControls@mmPlayerConfig@@QAEXXZ
     ARTS_IMPORT void GetControls();

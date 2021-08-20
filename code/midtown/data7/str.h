@@ -57,8 +57,6 @@
     0x90B3D0 | char * ExecPath | ?ExecPath@@3PADA
 */
 
-struct LocString;
-
 class string
 {
 public:
@@ -80,7 +78,7 @@ public:
     }
 
     // ??0string@@QAE@ABV0@@Z | inline
-    ARTS_EXPORT string(class string const& other)
+    ARTS_EXPORT string(string const& other)
         : string(other.data_)
     {}
 
@@ -104,10 +102,10 @@ public:
     ARTS_IMPORT void operator=(char const* arg1);
 
     // ??Hstring@@QBE?AV0@PBD@Z
-    ARTS_IMPORT class string operator+(char const* arg1) const;
+    ARTS_IMPORT string operator+(char const* arg1) const;
 
     // ??Hstring@@QBE?AV0@ABV0@@Z | inline
-    ARTS_IMPORT class string operator+(class string const& arg1) const;
+    ARTS_IMPORT string operator+(string const& arg1) const;
 
     // ??Ystring@@QAEXD@Z
     ARTS_IMPORT void operator+=(char arg1);
@@ -116,37 +114,37 @@ public:
     ARTS_IMPORT void operator+=(char const* arg1);
 
     // ??Gstring@@QBE?AV0@PBD@Z
-    ARTS_IMPORT class string operator-(char const* arg1) const;
+    ARTS_IMPORT string operator-(char const* arg1) const;
 
     // ??Zstring@@QAEXPBD@Z | unused
     ARTS_IMPORT void operator-=(char const* arg1);
 
     // ?ChangeExtension@string@@QAEXABV1@@Z | unused
-    ARTS_IMPORT void ChangeExtension(class string const& arg1);
+    ARTS_IMPORT void ChangeExtension(string const& arg1);
 
     // ?CommaFile@string@@QBEHXZ | unused
     ARTS_IMPORT i32 CommaFile() const;
 
     // ?Contains@string@@QBEHAAV1@@Z
-    ARTS_IMPORT i32 Contains(class string& arg1) const;
+    ARTS_IMPORT i32 Contains(string& arg1) const;
 
     // ?DirFileExt@string@@QBEXAAV1@00@Z
-    ARTS_IMPORT void DirFileExt(class string& arg1, class string& arg2, class string& arg3) const;
+    ARTS_IMPORT void DirFileExt(string& arg1, string& arg2, string& arg3) const;
 
     // ?ExpandEnvs@string@@QAEXXZ
     ARTS_IMPORT void ExpandEnvs();
 
     // ?Extension@string@@QBE?AV1@XZ | unused
-    ARTS_IMPORT class string Extension() const;
+    ARTS_IMPORT string Extension() const;
 
     // ?FileExists@string@@QBEHXZ
     ARTS_IMPORT i32 FileExists() const;
 
     // ?FileName@string@@QBE?AV1@XZ | unused
-    ARTS_IMPORT class string FileName() const;
+    ARTS_IMPORT string FileName() const;
 
     // ?FindFile@string@@QAEHABV1@H00@Z | unused
-    ARTS_IMPORT i32 FindFile(class string const& arg1, i32 arg2, class string const& arg3, class string const& arg4);
+    ARTS_IMPORT i32 FindFile(string const& arg1, i32 arg2, string const& arg3, string const& arg4);
 
     // ?Init@string@@QAEXH@Z | inline
     ARTS_IMPORT void Init(i32 arg1);
@@ -164,10 +162,10 @@ public:
     ARTS_IMPORT void RemoveExtension();
 
     // ?SaveName@string@@QAEXABV1@H00@Z
-    ARTS_IMPORT void SaveName(class string const& arg1, i32 arg2, class string const& arg3, class string const& arg4);
+    ARTS_IMPORT void SaveName(string const& arg1, i32 arg2, string const& arg3, string const& arg4);
 
     // ?SubString@string@@QBE?AV1@H@Z
-    ARTS_IMPORT class string SubString(i32 arg1) const;
+    ARTS_IMPORT string SubString(i32 arg1) const;
 
     char* get()
     {
@@ -192,7 +190,7 @@ private:
 check_size(string, 0x8);
 
 // ??H@YA?AVstring@@PBDABV0@@Z | unused
-ARTS_IMPORT class string operator+(char const* arg1, class string const& arg2);
+ARTS_IMPORT string operator+(char const* arg1, string const& arg2);
 
 // ?ExecPath@@3PADA
 ARTS_IMPORT extern char ExecPath[128];
@@ -208,13 +206,13 @@ class StringArray
 {
 public:
     // ??4StringArray@@QAEXAAV0@@Z | unused
-    ARTS_IMPORT void operator=(class StringArray& arg1);
+    ARTS_IMPORT void operator=( StringArray& arg1);
 
     // ??AStringArray@@QAEAAVstring@@H@Z | unused
-    ARTS_IMPORT class string& operator[](i32 arg1);
+    ARTS_IMPORT string& operator[](i32 arg1);
 
     // ?BlockCopy@StringArray@@QAEXAAV1@@Z | unused
-    ARTS_IMPORT void BlockCopy(class StringArray& arg1);
+    ARTS_IMPORT void BlockCopy( StringArray& arg1);
 
     // ?Delete@StringArray@@QAEXXZ
     ARTS_IMPORT void Delete();

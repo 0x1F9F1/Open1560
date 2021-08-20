@@ -68,7 +68,7 @@ void agiSWTexDef::EndGfx()
     state_ = 0;
 }
 
-void agiSWTexDef::Unlock(struct agiTexLock& /*arg1*/)
+void agiSWTexDef::Unlock(agiTexLock& /*arg1*/)
 {}
 
 void agiSWTexLut::EndGfx()

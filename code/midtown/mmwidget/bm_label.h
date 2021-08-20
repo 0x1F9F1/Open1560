@@ -38,6 +38,8 @@
 
 #include "widget.h"
 
+class agiBitmap;
+
 class UIBMLabel final : public uiWidget
 {
 public:
@@ -49,19 +51,19 @@ public:
     ARTS_IMPORT ~UIBMLabel() override;
 
     // ?CreateDummyBitmap@UIBMLabel@@QAEPAVagiBitmap@@XZ
-    ARTS_IMPORT class agiBitmap* CreateDummyBitmap();
+    ARTS_IMPORT agiBitmap* CreateDummyBitmap();
 
     // ?Cull@UIBMLabel@@UAEXXZ
     ARTS_IMPORT void Cull() override;
 
     // ?GetClass@UIBMLabel@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@UIBMLabel@@QAEXPAVstring@@MMPAH@Z
-    ARTS_IMPORT void Init(class string* arg1, f32 arg2, f32 arg3, i32* arg4);
+    ARTS_IMPORT void Init(string* arg1, f32 arg2, f32 arg3, i32* arg4);
 
     // ?SetBitmapName@UIBMLabel@@QAEXPAVstring@@@Z
-    ARTS_IMPORT void SetBitmapName(class string* arg1);
+    ARTS_IMPORT void SetBitmapName(string* arg1);
 
     // ?Update@UIBMLabel@@UAEXXZ
     ARTS_IMPORT void Update() override;

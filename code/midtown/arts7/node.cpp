@@ -126,7 +126,7 @@ void asNode::Save()
 }
 
 #ifdef ARTS_DEV_BUILD
-void asNode::AddWidgets(class Bank* bank)
+void asNode::AddWidgets(Bank* bank)
 {
     current_bank_ = bank;
 
@@ -138,7 +138,7 @@ void asNode::AddWidgets(class Bank* bank)
     asCullable::AddWidgets(bank);
 }
 
-void asNode::OpenWidgets(char* /*arg1*/, class bkWindow* /*arg2*/)
+void asNode::OpenWidgets(char* /*arg1*/, bkWindow* /*arg2*/)
 {}
 
 void asNode::CloseWidgets()
@@ -147,11 +147,11 @@ void asNode::CloseWidgets()
         current_bank_->Off();
 }
 
-void asNode::AddButton(class Bank* /*arg1*/, i32& /*arg2*/)
+void asNode::AddButton(Bank* /*arg1*/, i32& /*arg2*/)
 {}
 #endif
 
-b32 asNode::AddChild(class asNode* child)
+b32 asNode::AddChild(asNode* child)
 {
     if (!child)
     {
@@ -178,7 +178,7 @@ b32 asNode::AddChild(class asNode* child)
     return true;
 }
 
-class asNode* asNode::GetChild(i32 index)
+asNode* asNode::GetChild(i32 index)
 {
     asNode* child = child_node_;
 
@@ -193,7 +193,7 @@ class asNode* asNode::GetChild(i32 index)
     return child;
 }
 
-class asNode* asNode::GetLastChild()
+asNode* asNode::GetLastChild()
 {
     if (!parent_node_)
     {
@@ -225,7 +225,7 @@ const char* asNode::GetNodeType()
     return GetClass()->GetName();
 }
 
-class asNode* asNode::GetParent(class MetaClass* cls)
+asNode* asNode::GetParent(MetaClass* cls)
 {
     asNode* n = parent_node_;
 
@@ -238,7 +238,7 @@ class asNode* asNode::GetParent(class MetaClass* cls)
     return n;
 }
 
-b32 asNode::InsertChild(i32 index, class asNode* child)
+b32 asNode::InsertChild(i32 index, asNode* child)
 {
     if (!child)
     {
@@ -306,7 +306,7 @@ i32 asNode::NumChildren()
 }
 
 #ifdef ARTS_DEV_BUILD
-void asNode::PerfReport(class Stream* output, i32 indent)
+void asNode::PerfReport(Stream* output, i32 indent)
 {
     f32 self_update = update_time_;
 
@@ -332,7 +332,7 @@ void asNode::RemoveAllChildren()
         RemoveChild(1);
 }
 
-b32 asNode::RemoveChild(class asNode* child)
+b32 asNode::RemoveChild(asNode* child)
 {
     i32 i = 1;
     for (asNode* n = child_node_; n; n = n->next_node_, ++i)

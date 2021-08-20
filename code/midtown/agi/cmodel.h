@@ -29,39 +29,42 @@
     0x621740 | const agiColorModel::`vftable' | ??_7agiColorModel@@6B@
 */
 
+struct agiRgba;
+class agiSurfaceDesc;
+
 class agiColorModel
 {
 public:
     // ??1agiColorModel@@MAE@XZ
     virtual ~agiColorModel() = default;
 
-    virtual u32 GetColor(struct agiRgba color) = 0;
+    virtual u32 GetColor(agiRgba color) = 0;
 
-    virtual u32 FindColor(struct agiRgba color) = 0;
+    virtual u32 FindColor(agiRgba color) = 0;
 
     virtual u32 Filter(u32 arg1, u32 arg2, u32 arg3, u32 arg4) = 0;
 
-    virtual void SetPixel(class agiSurfaceDesc* surface, i32 x, i32 y, u32 color) = 0;
+    virtual void SetPixel(agiSurfaceDesc* surface, i32 x, i32 y, u32 color) = 0;
 
-    virtual u32 GetPixel(class agiSurfaceDesc* surface, i32 x, i32 y) = 0;
+    virtual u32 GetPixel(agiSurfaceDesc* surface, i32 x, i32 y) = 0;
 
     // ?FindColor@agiColorModel@@QAEIHHHH@Z | unused
     ARTS_EXPORT u32 FindColor(i32 r, i32 g, i32 b, i32 a);
 
     // ?GetColor@agiColorModel@@QAEIABVVector3@@@Z
-    ARTS_EXPORT u32 GetColor(class Vector3 const& color);
+    ARTS_EXPORT u32 GetColor(Vector3 const& color);
 
     // ?GetColor@agiColorModel@@QAEIABVVector4@@@Z | unused
-    ARTS_EXPORT u32 GetColor(class Vector4 const& color);
+    ARTS_EXPORT u32 GetColor(Vector4 const& color);
 
     // ?GetColor@agiColorModel@@QAEIHHHH@Z
     ARTS_EXPORT u32 GetColor(i32 r, i32 g, i32 b, i32 a);
 
     // ?FindMatch@agiColorModel@@SAPAV1@PAVagiSurfaceDesc@@@Z | agi:cmodelx
-    ARTS_EXPORT static RcOwner<class agiColorModel> FindMatch(class agiSurfaceDesc* surface);
+    ARTS_EXPORT static RcOwner<agiColorModel> FindMatch(agiSurfaceDesc* surface);
 
     // ?FindMatch@agiColorModel@@SAPAV1@HHHH@Z | agi:cmodelx
-    ARTS_EXPORT static RcOwner<class agiColorModel> FindMatch(i32 mask_r, i32 mask_g, i32 mask_b, i32 mask_a);
+    ARTS_EXPORT static RcOwner<agiColorModel> FindMatch(i32 mask_r, i32 mask_g, i32 mask_b, i32 mask_a);
 
     void AddRef()
     {

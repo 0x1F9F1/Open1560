@@ -135,7 +135,7 @@ public:
         i32 window_x, i32 window_y) override;
 
     // ?Pop@eqEventQ@@QAEHPATeqEvent@@@Z
-    ARTS_EXPORT b32 Pop(union eqEvent* event);
+    ARTS_EXPORT b32 Pop(eqEvent* event);
 
     // ?Redraw@eqEventQ@@UAEXPAXHHHH@Z
     ARTS_EXPORT void Redraw(void* window, i32 arg2, i32 arg3, i32 arg4, i32 arg5) override;
@@ -147,7 +147,7 @@ public:
 
 private:
     // ?Queue@eqEventQ@@AAEXAATeqEvent@@@Z
-    ARTS_EXPORT void Queue(union eqEvent& event);
+    ARTS_EXPORT void Queue(eqEvent& event);
 
     Ptr<eqEvent[]> events_;
     u32 enabled_events_ {0};

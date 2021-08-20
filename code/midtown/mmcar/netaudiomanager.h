@@ -50,6 +50,9 @@
 
 #include "arts7/node.h"
 
+class AudSound;
+class mmNetworkCarAudio;
+
 class NetAudioManager final : public asNode
 {
 public:
@@ -62,13 +65,13 @@ public:
     ARTS_IMPORT ~NetAudioManager() override;
 
     // ?AddVehicle@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z
-    ARTS_IMPORT i16 AddVehicle(class mmNetworkCarAudio* arg1);
+    ARTS_IMPORT i16 AddVehicle(mmNetworkCarAudio* arg1);
 
     // ?AllocateAddOnEngine@NetAudioManager@@QAEFPAD@Z
     ARTS_IMPORT i16 AllocateAddOnEngine(char* arg1);
 
     // ?AllocateEngine@NetAudioManager@@QAEPAPAVAudSound@@PAD@Z
-    ARTS_IMPORT class AudSound** AllocateEngine(char* arg1);
+    ARTS_IMPORT AudSound** AllocateEngine(char* arg1);
 
     // ?AllocateEngine@NetAudioManager@@QAEXF@Z
     ARTS_IMPORT void AllocateEngine(i16 arg1);
@@ -89,7 +92,7 @@ public:
     ARTS_IMPORT void AllocateSkids();
 
     // ?AssignSounds@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z
-    ARTS_IMPORT void AssignSounds(class mmNetworkCarAudio* arg1, i16 arg2);
+    ARTS_IMPORT void AssignSounds(mmNetworkCarAudio* arg1, i16 arg2);
 
     // ?EchoOff@NetAudioManager@@QAEXXZ
     ARTS_IMPORT void EchoOff();
@@ -98,7 +101,7 @@ public:
     ARTS_IMPORT void EchoOn(f32 arg1);
 
     // ?FindGreatestDistance@NetAudioManager@@QAEFPAVmmNetworkCarAudio@@@Z
-    ARTS_IMPORT i16 FindGreatestDistance(class mmNetworkCarAudio* arg1);
+    ARTS_IMPORT i16 FindGreatestDistance(mmNetworkCarAudio* arg1);
 
     // ?FindUnusedSlot@NetAudioManager@@QAEFXZ
     ARTS_IMPORT i16 FindUnusedSlot();
@@ -107,14 +110,14 @@ public:
     ARTS_IMPORT f32 GetAvailableDistance();
 
     // ?RemoveVehicle@NetAudioManager@@QAEXPAVmmNetworkCarAudio@@F@Z
-    ARTS_IMPORT void RemoveVehicle(class mmNetworkCarAudio* arg1, i16 arg2);
+    ARTS_IMPORT void RemoveVehicle(mmNetworkCarAudio* arg1, i16 arg2);
 
     // ?Update@NetAudioManager@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
 private:
     // ?AssignAddOnSounds@NetAudioManager@@AAEXPAVmmNetworkCarAudio@@F@Z
-    ARTS_IMPORT void AssignAddOnSounds(class mmNetworkCarAudio* arg1, i16 arg2);
+    ARTS_IMPORT void AssignAddOnSounds(mmNetworkCarAudio* arg1, i16 arg2);
 
     u8 gap20[0x54];
 };
@@ -122,4 +125,4 @@ private:
 check_size(NetAudioManager, 0x74);
 
 // ?NETAUDMGRPTR@@3PAVNetAudioManager@@A
-ARTS_IMPORT extern class NetAudioManager* NETAUDMGRPTR;
+ARTS_IMPORT extern NetAudioManager* NETAUDMGRPTR;

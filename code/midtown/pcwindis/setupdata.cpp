@@ -23,10 +23,10 @@ define_dummy_symbol(pcwindis_setupdata);
 #include "stream/stream.h"
 
 // ?guidtostr@@YAXPADPAU_GUID@@@Z
-ARTS_IMPORT /*static*/ void guidtostr(char* arg1, struct _GUID* arg2);
+ARTS_IMPORT /*static*/ void guidtostr(char* arg1, _GUID* arg2);
 
 // ?strtoguid@@YAXPAU_GUID@@PAD@Z
-ARTS_IMPORT /*static*/ void strtoguid(struct _GUID* arg1, char* arg2);
+ARTS_IMPORT /*static*/ void strtoguid(_GUID* arg1, char* arg2);
 
 dxiRendererInfo_t dxiInfo[16];
 i32 dxiRendererChoice = -1;

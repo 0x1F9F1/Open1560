@@ -23,8 +23,6 @@ define_dummy_symbol(eventq7_geinputLib);
 #include "pcwindis/dxinit.h"
 #include "winevent.h"
 
-#include <dinput.h>
-
 ARTS_IMPORT extern IDirectInputDeviceA* MouseDevice;
 ARTS_IMPORT extern IDirectInputDeviceA* KeyboardDevice;
 

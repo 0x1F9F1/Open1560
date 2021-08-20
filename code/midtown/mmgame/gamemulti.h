@@ -63,6 +63,9 @@
 
 #include "game.h"
 
+struct NETGAME_MSG;
+struct NETSYS_MSG;
+
 class mmGameMulti : public mmGame
 {
 public:
@@ -79,9 +82,9 @@ public:
     // ?InitRoster@mmGameMulti@@UAEXXZ
     ARTS_IMPORT virtual void InitRoster();
 
-    virtual void SystemMessage(struct NETSYS_MSG* arg1) = 0;
+    virtual void SystemMessage(NETSYS_MSG* arg1) = 0;
 
-    virtual void GameMessage(struct NETGAME_MSG* arg1) = 0;
+    virtual void GameMessage(NETGAME_MSG* arg1) = 0;
 
     // ?ActivateMapNetObject@mmGameMulti@@QAEXH@Z
     ARTS_IMPORT void ActivateMapNetObject(i32 arg1);
@@ -108,7 +111,7 @@ public:
     ARTS_IMPORT void GameMessageCB(void* arg1, void* arg2);
 
     // ?GetClass@mmGameMulti@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?HitWaterHandler@mmGameMulti@@UAEXXZ
     ARTS_IMPORT void HitWaterHandler() override;
@@ -178,7 +181,7 @@ protected:
     ARTS_IMPORT void EnableRacers();
 
     // ?StartXYZ@mmGameMulti@@IAEXHAAVVector3@@0MM@Z
-    ARTS_IMPORT void StartXYZ(i32 arg1, class Vector3& arg2, class Vector3& arg3, f32 arg4, f32 arg5);
+    ARTS_IMPORT void StartXYZ(i32 arg1, Vector3& arg2, Vector3& arg3, f32 arg4, f32 arg5);
 
     u8 gap1E570[0x938];
 };

@@ -35,6 +35,8 @@
     0x4C43B0 | public: int __thiscall mmAnimTrigger::CheckObjectDistance(void) | ?CheckObjectDistance@mmAnimTrigger@@QAEHXZ
 */
 
+class mmInstance;
+
 class mmAnimTrigger
 {
 public:
@@ -63,10 +65,10 @@ public:
     ARTS_IMPORT void Init(f32 arg1);
 
     // ?Init@mmAnimTrigger@@QAEXPAVVector3@@PAM@Z
-    ARTS_IMPORT void Init(class Vector3* arg1, f32* arg2);
+    ARTS_IMPORT void Init(Vector3* arg1, f32* arg2);
 
     // ?Init@mmAnimTrigger@@QAEXPAVmmInstance@@H@Z | unused
-    ARTS_IMPORT void Init(class mmInstance* arg1, i32 arg2);
+    ARTS_IMPORT void Init(mmInstance* arg1, i32 arg2);
 
     // ?Init@mmAnimTrigger@@QAEXPAHM@Z | unused
     ARTS_IMPORT void Init(i32* arg1, f32 arg2);

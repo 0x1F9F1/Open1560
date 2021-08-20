@@ -23,12 +23,12 @@ define_dummy_symbol(mmphysics_entity);
 void mmPhysEntity::PostUpdate()
 {}
 
-class asBound* mmPhysEntity::GetBound()
+asBound* mmPhysEntity::GetBound()
 {
     return nullptr;
 }
 
-class asInertialCS* mmPhysEntity::GetICS()
+asInertialCS* mmPhysEntity::GetICS()
 {
     return nullptr;
 }

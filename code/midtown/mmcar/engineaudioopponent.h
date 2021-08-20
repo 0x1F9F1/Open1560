@@ -38,6 +38,8 @@
 
 #include "arts7/node.h"
 
+class AudSound;
+
 class EngineAudioOpponent final : public asNode
 {
 public:
@@ -55,10 +57,10 @@ public:
     ARTS_IMPORT void Disable3DMode();
 
     // ?Enable3DMode@EngineAudioOpponent@@QAEXPAVVector3@@@Z
-    ARTS_IMPORT void Enable3DMode(class Vector3* arg1);
+    ARTS_IMPORT void Enable3DMode(Vector3* arg1);
 
     // ?GetClass@EngineAudioOpponent@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@EngineAudioOpponent@@QAEXXZ
     ARTS_IMPORT void Init();
@@ -67,7 +69,7 @@ public:
     ARTS_IMPORT void Init(i16 arg1);
 
     // ?SetSoundPtr@EngineAudioOpponent@@QAEXPAVAudSound@@@Z | inline
-    ARTS_IMPORT void SetSoundPtr(class AudSound* arg1);
+    ARTS_IMPORT void SetSoundPtr(AudSound* arg1);
 
     // ?UpdateRPM@EngineAudioOpponent@@QAEXM@Z
     ARTS_IMPORT void UpdateRPM(f32 arg1);

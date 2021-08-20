@@ -71,19 +71,19 @@
 #include "hudmap.h"
 #include "icons.h"
 
-class mmPlayer;
-class mmPositions;
-class mmCullCity;
 class asLamp;
 class asLinearCS;
 class AudSound;
-class mmVoiceCommentary;
-class mmAmbientAudio;
-class mmPopup;
-class mmAnimMgr;
-class mmRaceData;
-
 class eqEventQ;
+class mmAmbientAudio;
+class mmAnimMgr;
+class mmBangerData;
+class mmCullCity;
+class mmPlayer;
+class mmPopup;
+class mmPositions;
+class mmRaceData;
+class mmVoiceCommentary;
 
 class mmGame : public asNode
 {
@@ -128,11 +128,11 @@ public:
     // ?SendChatMessage@mmGame@@UAEXPAD@Z
     ARTS_IMPORT virtual void SendChatMessage(char* arg1);
 
-    virtual class mmWaypoints* GetWaypoints() = 0;
+    virtual mmWaypoints* GetWaypoints() = 0;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmGame@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?CollideAIOpponents@mmGame@@QAEXXZ
@@ -142,7 +142,7 @@ public:
     ARTS_IMPORT i32 GetCDTrack(i16 arg1);
 
     // ?GetClass@mmGame@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmGame@@QAEHXZ
     ARTS_IMPORT i32 Init();
@@ -221,7 +221,7 @@ protected:
     ARTS_IMPORT i32 CalculateRaceScore(i32 arg1, i32 arg2);
 
     // ?RespawnXYZ@mmGame@@IAEXAAVVector3@@AAM@Z
-    ARTS_IMPORT void RespawnXYZ(class Vector3& arg1, f32& arg2);
+    ARTS_IMPORT void RespawnXYZ(Vector3& arg1, f32& arg2);
 };
 
 check_size(mmGame, 0x1E570);
@@ -245,7 +245,7 @@ private:
 check_size(foobar, 0x20);
 
 // ?BangerProjectile@@3PAVmmBangerData@@A
-ARTS_IMPORT extern class mmBangerData* BangerProjectile;
+ARTS_IMPORT extern mmBangerData* BangerProjectile;
 
 // ?IconColor@@3PAIA
 ARTS_EXPORT extern u32 IconColor[8];
@@ -254,7 +254,7 @@ ARTS_EXPORT extern u32 IconColor[8];
 ARTS_IMPORT extern char LocPlayerName[20];
 
 // ?ProjectileV@@3VVector3@@A
-ARTS_IMPORT extern class Vector3 ProjectileV;
+ARTS_IMPORT extern Vector3 ProjectileV;
 
 // ?ProjectileY@@3MA
 ARTS_IMPORT extern f32 ProjectileY;

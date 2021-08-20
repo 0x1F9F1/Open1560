@@ -52,14 +52,14 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@PovCamCS@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?AfterLoad@PovCamCS@@UAEXXZ
     ARTS_IMPORT void AfterLoad() override;
 
     // ?GetClass@PovCamCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?MakeActive@PovCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;

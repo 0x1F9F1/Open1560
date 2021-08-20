@@ -37,6 +37,9 @@
 
 #include "arts7/node.h"
 
+class agiMeshSet;
+class agiTexDef;
+
 class asMeshSetForm final : public asNode
 {
 public:
@@ -52,7 +55,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?SetShape@asMeshSetForm@@QAEXPAD0PAVVector3@@@Z
-    ARTS_IMPORT void SetShape(char* arg1, char* arg2, class Vector3* arg3);
+    ARTS_IMPORT void SetShape(char* arg1, char* arg2, Vector3* arg3);
 
     // ?SetZRead@asMeshSetForm@@QAEXH@Z
     ARTS_IMPORT void SetZRead(i32 arg1);
@@ -64,10 +67,10 @@ public:
     ARTS_IMPORT void Update() override;
 
     // ?Lighter@asMeshSetForm@@2P6AXPAEPAI1PAVagiMeshSet@@@ZA
-    ARTS_IMPORT static void (*Lighter)(u8*, u32*, u32*, class agiMeshSet*);
+    ARTS_IMPORT static void (*Lighter)(u8*, u32*, u32*, agiMeshSet*);
 
     // ?SphMapTex@asMeshSetForm@@2PAVagiTexDef@@A
-    ARTS_IMPORT static class agiTexDef* SphMapTex;
+    ARTS_IMPORT static agiTexDef* SphMapTex;
 
     u8 gap20[0xC];
 };

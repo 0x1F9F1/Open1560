@@ -66,10 +66,10 @@
 #include "vector7/vector3.h"
 #include "vector7/vector4.h"
 
-class agiViewport;
+class agiBitmap;
 class agiLightModel;
 class agiLightModelParameters;
-class agiBitmap;
+class agiViewport;
 
 class asCamera final : public asNode
 {
@@ -83,7 +83,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asCamera@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?DrawBegin@asCamera@@QAEXXZ
@@ -99,10 +99,10 @@ public:
     ARTS_IMPORT void FadeOut(f32 arg1, i32 arg2);
 
     // ?FileIO@asCamera@@QAEXPAVMiniParser@@@Z | unused
-    ARTS_IMPORT void FileIO(class MiniParser* arg1);
+    ARTS_IMPORT void FileIO(MiniParser* arg1);
 
     // ?GetClass@asCamera@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     enum kNearClip
     {
@@ -114,7 +114,7 @@ public:
     };
 
     // ?GetNearClip@asCamera@@QAEXPAVVector3@@AAVMatrix34@@W4kNearClip@1@@Z | unused
-    ARTS_IMPORT void GetNearClip(class Vector3* arg1, class Matrix34& arg2, enum asCamera::kNearClip arg3);
+    ARTS_IMPORT void GetNearClip(Vector3* arg1, Matrix34& arg2, asCamera::kNearClip arg3);
 
     // ?GetViewportHeight@asCamera@@QAEHXZ | unused
     ARTS_IMPORT i32 GetViewportHeight();
@@ -123,7 +123,7 @@ public:
     ARTS_IMPORT i32 GetViewportWidth();
 
     // ?SetAmbient@asCamera@@QAEXABVVector3@@@Z | unused
-    ARTS_IMPORT void SetAmbient(class Vector3 const& arg1);
+    ARTS_IMPORT void SetAmbient(Vector3 const& arg1);
 
     // ?SetClipArea@asCamera@@QAEXMMMM@Z
     ARTS_IMPORT void SetClipArea(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
@@ -141,7 +141,7 @@ public:
     ARTS_IMPORT void SetUnderlay(char* arg1);
 
     // ?SetUnderlayCB@asCamera@@QAEXPAVagiBitmap@@PAVCallback@@@Z
-    ARTS_IMPORT void SetUnderlayCB(class agiBitmap* arg1, class Callback* arg2);
+    ARTS_IMPORT void SetUnderlayCB(agiBitmap* arg1, Callback* arg2);
 
     // ?SetView@asCamera@@QAEXMMMM@Z
     ARTS_EXPORT void SetView(f32 horz_fov, f32 aspect, f32 near_clip, f32 far_clip);
@@ -150,10 +150,10 @@ public:
     ARTS_IMPORT void SetViewport(f32 arg1, f32 arg2, f32 arg3, f32 arg4, i32 arg5);
 
     // ?SetWorld@asCamera@@QAEXAAVMatrix34@@@Z
-    ARTS_IMPORT void SetWorld(class Matrix34& arg1);
+    ARTS_IMPORT void SetWorld(Matrix34& arg1);
 
     // ?SphereVisible@asCamera@@QAEMABVVector3@@MPAM@Z | unused
-    ARTS_IMPORT f32 SphereVisible(class Vector3 const& arg1, f32 arg2, f32* arg3);
+    ARTS_IMPORT f32 SphereVisible(Vector3 const& arg1, f32 arg2, f32* arg3);
 
     // ?Update@asCamera@@UAEXXZ
     ARTS_IMPORT void Update() override;
@@ -240,20 +240,20 @@ check_size(asCamera, 0x18C);
 
 #ifdef ARTS_DEV_BUILD
 // ?FadeItIn@@YAXPAVasCamera@@@Z
-ARTS_IMPORT void FadeItIn(class asCamera* arg1);
+ARTS_IMPORT void FadeItIn(asCamera* arg1);
 
 // ?FadeItOut@@YAXPAVasCamera@@@Z
-ARTS_IMPORT void FadeItOut(class asCamera* arg1);
+ARTS_IMPORT void FadeItOut(asCamera* arg1);
 
 // ?FritzIt@@YAXPAVasCamera@@@Z
-ARTS_IMPORT void FritzIt(class asCamera* arg1);
+ARTS_IMPORT void FritzIt(asCamera* arg1);
 
 // ?ViewIt@@YAXPAVasCamera@@@Z
-ARTS_IMPORT void ViewIt(class asCamera* arg1);
+ARTS_IMPORT void ViewIt(asCamera* arg1);
 
 // ?Duration@@3MA
 ARTS_IMPORT extern f32 Duration;
 #endif
 
 // ?VW@@3PAVagiViewport@@A
-ARTS_IMPORT extern class agiViewport* VW;
+ARTS_IMPORT extern agiViewport* VW;

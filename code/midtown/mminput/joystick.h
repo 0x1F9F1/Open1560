@@ -63,10 +63,11 @@
 
 #include <dinput.h>
 
-class mmSpringFF;
+class mmCollideFF;
+class mmEffectFF;
 class mmFrictionFF;
 class mmRoadFF;
-class mmCollideFF;
+class mmSpringFF;
 
 struct mmJaxis
 {
@@ -123,10 +124,10 @@ public:
     ARTS_IMPORT f32 GetButton(i32 arg1);
 
     // ?GetFFEffect@mmJoystick@@QAEPAVmmEffectFF@@H@Z
-    ARTS_IMPORT class mmEffectFF* GetFFEffect(i32 arg1);
+    ARTS_IMPORT mmEffectFF* GetFFEffect(i32 arg1);
 
     // ?Init@mmJoystick@@QAEHPAUIDirectInputDevice2A@@PAUHWND__@@@Z
-    ARTS_IMPORT i32 Init(struct IDirectInputDevice2A* arg1, struct HWND__* arg2);
+    ARTS_IMPORT i32 Init(IDirectInputDevice2A* arg1, HWND__* arg2);
 
     // ?InputCreateEffect@mmJoystick@@QAEXXZ
     ARTS_IMPORT void InputCreateEffect();

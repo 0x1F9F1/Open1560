@@ -53,7 +53,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@Spline@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?CalcCoeff@Spline@@QAEXXZ
@@ -63,7 +63,7 @@ public:
     ARTS_IMPORT void FixTimeStop();
 
     // ?GetClass@Spline@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?InRange@Spline@@QAEHXZ
     ARTS_IMPORT i32 InRange();

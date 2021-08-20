@@ -71,8 +71,8 @@ public:
     ARTS_IMPORT void Init(i32 arg1, char* arg2, char* arg3, char* arg4, char* arg5, char* arg6, i32 arg7, i32 arg8);
 
     // ?InitTitle@mmCompRaceRecord@@QAEXMMMMPAULocString@@00000H@Z
-    ARTS_IMPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, struct LocString* arg5, struct LocString* arg6,
-        struct LocString* arg7, struct LocString* arg8, struct LocString* arg9, struct LocString* arg10, i32 arg11);
+    ARTS_IMPORT void InitTitle(f32 arg1, f32 arg2, f32 arg3, f32 arg4, LocString* arg5, LocString* arg6,
+        LocString* arg7, LocString* arg8, LocString* arg9, LocString* arg10, i32 arg11);
 
     // ?LoadBitmap@mmCompRaceRecord@@QAEXPAD@Z
     ARTS_IMPORT void LoadBitmap(char* arg1);
@@ -87,7 +87,7 @@ public:
     ARTS_IMPORT void SetGeometry(f32 arg1, f32 arg2, f32 arg3, f32 arg4) override;
 
     // ?SetPosition@mmCompRaceRecord@@UAEXPAVmmTextNode@@HM@Z
-    ARTS_IMPORT void SetPosition(class mmTextNode* arg1, i32 arg2, f32 arg3) override;
+    ARTS_IMPORT void SetPosition(mmTextNode* arg1, i32 arg2, f32 arg3) override;
 
     // ?SetSubwidgetGeometry@mmCompRaceRecord@@QAEXXZ
     ARTS_IMPORT void SetSubwidgetGeometry();

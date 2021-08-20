@@ -47,6 +47,8 @@
 
 #define ARTS_MAX_PATH 1024
 
+struct PagerInfo_t;
+
 struct FileInfo
 {
     char Path[(ARTS_TARGET_BUILD > 1560) ? ARTS_MAX_PATH : 256] {};
@@ -73,39 +75,39 @@ public:
 
     virtual b32 QueryOn(const char* path) = 0;
 
-    virtual Owner<class Stream> OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len) = 0;
+    virtual Owner<Stream> OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len) = 0;
 
-    virtual Owner<class Stream> CreateOn(const char* path, void* buffer, isize buffer_len) = 0;
+    virtual Owner<Stream> CreateOn(const char* path, void* buffer, isize buffer_len) = 0;
 
     // ?PagerInfo@FileSystem@@UAEHPADAAUPagerInfo_t@@@Z
-    ARTS_EXPORT virtual b32 PagerInfo(const char* path, struct PagerInfo_t& pager);
+    ARTS_EXPORT virtual b32 PagerInfo(const char* path, PagerInfo_t& pager);
 
     virtual b32 ChangeDir(const char* path) = 0;
 
     virtual b32 GetDir(char* buffer, isize buffer_len) = 0;
 
-    virtual struct FileInfo* FirstEntry(const char* path) = 0;
+    virtual FileInfo* FirstEntry(const char* path) = 0;
 
-    virtual struct FileInfo* NextEntry(struct FileInfo* info) = 0;
+    virtual FileInfo* NextEntry(FileInfo* info) = 0;
 
     // ?Search@FileSystem@@QAEHPAD00H0@Z
     ARTS_EXPORT b32 Search(
         const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len);
 
     // ?OpenAny@FileSystem@@SAPAVStream@@PADHPAXH@Z
-    ARTS_EXPORT static Owner<class Stream> OpenAny(const char* path, b32 read_only, void* buffer, isize buffer_len);
+    ARTS_EXPORT static Owner<Stream> OpenAny(const char* path, b32 read_only, void* buffer, isize buffer_len);
 
     // ?PagerInfoAny@FileSystem@@SAHPADAAUPagerInfo_t@@@Z
-    ARTS_EXPORT static b32 PagerInfoAny(const char* path, struct PagerInfo_t& pager);
+    ARTS_EXPORT static b32 PagerInfoAny(const char* path, PagerInfo_t& pager);
 
     // ?SearchAll@FileSystem@@SAPAV1@PAD00H0@Z
-    ARTS_EXPORT static class FileSystem* SearchAll(
+    ARTS_EXPORT static FileSystem* SearchAll(
         const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len);
 
     static constexpr i32 MAX_FILESYSTEMS = 128;
 
     // ?FS@FileSystem@@2PAPAV1@A
-    ARTS_EXPORT static class FileSystem* FS[MAX_FILESYSTEMS];
+    ARTS_EXPORT static FileSystem* FS[MAX_FILESYSTEMS];
 
     // ?FSCount@FileSystem@@2HA
     ARTS_EXPORT static i32 FSCount;
@@ -135,17 +137,16 @@ private:
 check_size(FileSystem, 0x8);
 
 // ?FindFile@@YAPAVFileSystem@@PAD00H0@Z
-[[deprecated]] ARTS_EXPORT class FileSystem* FindFile(
+[[deprecated]] ARTS_EXPORT FileSystem* FindFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer);
 
-class FileSystem* FindFile(
-    const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len);
+FileSystem* FindFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, isize buffer_len);
 
 // ?OpenFile@@YAPAVStream@@PAD00H00@Z
-[[deprecated]] ARTS_EXPORT Owner<class Stream> OpenFile(
+[[deprecated]] ARTS_EXPORT Owner<Stream> OpenFile(
     const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer, const char* desc);
 
-Owner<class Stream> OpenFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer,
+Owner<Stream> OpenFile(const char* file, const char* folder, const char* ext, i32 ext_id, char* buffer,
     isize buffer_len, const char* desc);
 
 // ?fsVerbose@@3HA

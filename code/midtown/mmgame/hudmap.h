@@ -63,12 +63,15 @@
 
 #include "vector7/vector2.h"
 
-class Callback;
-class aiMap;
-class mmWaypoints;
-class mmPlayer;
-class Matrix34;
 class agiBitmap;
+union agiVtx;
+class aiMap;
+class asCamera;
+class mmGame;
+class mmHUD;
+class mmPlayer;
+class mmWaypoints;
+struct Point;
 
 struct OppIconInfo
 {
@@ -97,7 +100,7 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@mmHudMap@@UAEXPAVBank@@@Z
-    ARTS_IMPORT void AddWidgets(class Bank* arg1) override;
+    ARTS_IMPORT void AddWidgets(Bank* arg1) override;
 #endif
 
     // ?Cull@mmHudMap@@UAEXXZ
@@ -113,20 +116,19 @@ public:
     ARTS_IMPORT void DrawMisc();
 
     // ?GetClass@mmHudMap@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?Init@mmHudMap@@QAEXPAVasCamera@@PAVMatrix34@@PAVmmHUD@@PAVmmGame@@PAD@Z
-    ARTS_IMPORT void Init(
-        class asCamera* arg1, class Matrix34* arg2, class mmHUD* arg3, class mmGame* arg4, char* arg5);
+    ARTS_IMPORT void Init(asCamera* arg1, Matrix34* arg2, mmHUD* arg3, mmGame* arg4, char* arg5);
 
     // ?RegisterCopsnRobbers@mmHudMap@@QAEXPAPAVVector3@@@Z
-    ARTS_IMPORT void RegisterCopsnRobbers(class Vector3** arg1);
+    ARTS_IMPORT void RegisterCopsnRobbers(Vector3** arg1);
 
     // ?RegisterMisc@mmHudMap@@QAEXPAPAVVector3@@H@Z
-    ARTS_IMPORT void RegisterMisc(class Vector3** arg1, i32 arg2);
+    ARTS_IMPORT void RegisterMisc(Vector3** arg1, i32 arg2);
 
     // ?RegisterOpponents@mmHudMap@@QAEXPAUOppIconInfo@@H@Z
-    ARTS_IMPORT void RegisterOpponents(struct OppIconInfo* arg1, i32 arg2);
+    ARTS_IMPORT void RegisterOpponents(OppIconInfo* arg1, i32 arg2);
 
     // ?ResChanged@mmHudMap@@QAEXXZ
     ARTS_IMPORT void ResChanged();
@@ -151,13 +153,13 @@ public:
 
 private:
     // ?BitmapToScreen@mmHudMap@@AAEHPAUPoint@@U2@@Z
-    ARTS_IMPORT i32 BitmapToScreen(struct Point* arg1, struct Point arg2);
+    ARTS_IMPORT i32 BitmapToScreen(Point* arg1, Point arg2);
 
     // ?DrawCentered@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@@Z | unused
-    ARTS_IMPORT void DrawCentered(class agiBitmap* arg1, struct Point arg2);
+    ARTS_IMPORT void DrawCentered(agiBitmap* arg1, Point arg2);
 
     // ?DrawClipped@mmHudMap@@AAEXPAVagiBitmap@@UPoint@@MMMM@Z
-    ARTS_IMPORT void DrawClipped(class agiBitmap* arg1, struct Point arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
+    ARTS_IMPORT void DrawClipped(agiBitmap* arg1, Point arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6);
 
     // ?DrawCops@mmHudMap@@AAEXXZ
     ARTS_IMPORT void DrawCops();
@@ -169,10 +171,10 @@ private:
     ARTS_EXPORT void DrawOpponents();
 
     // ?DrawOriented@mmHudMap@@AAEXPAVMatrix34@@I@Z | unused
-    ARTS_IMPORT void DrawOriented(class Matrix34* arg1, u32 arg2);
+    ARTS_IMPORT void DrawOriented(Matrix34* arg1, u32 arg2);
 
     // ?DrawOrientedBitmap@mmHudMap@@AAEXPAVMatrix34@@PAVagiBitmap@@@Z
-    ARTS_IMPORT void DrawOrientedBitmap(class Matrix34* arg1, class agiBitmap* arg2);
+    ARTS_IMPORT void DrawOrientedBitmap(Matrix34* arg1, agiBitmap* arg2);
 
     // ?DrawWaypoints@mmHudMap@@AAEXXZ
     ARTS_IMPORT void DrawWaypoints();
@@ -181,10 +183,10 @@ private:
     ARTS_IMPORT void FlushVerts();
 
     // ?GetCurrentMap@mmHudMap@@AAEPAVagiBitmap@@XZ
-    ARTS_IMPORT class agiBitmap* GetCurrentMap();
+    ARTS_IMPORT agiBitmap* GetCurrentMap();
 
     // ?WorldToBitmap@mmHudMap@@AAE?AUPoint@@PAVVector3@@@Z
-    ARTS_IMPORT struct Point WorldToBitmap(class Vector3* arg1);
+    ARTS_IMPORT Point WorldToBitmap(Vector3* arg1);
 
     aiMap* AiMap;
     mmWaypoints* Waypoints;
@@ -269,4 +271,4 @@ private:
 check_size(mmHudMap, 0x2C8);
 
 // ?Tris@@3PATagiVtx@@A
-ARTS_IMPORT extern union agiVtx Tris[30];
+ARTS_IMPORT extern agiVtx Tris[30];

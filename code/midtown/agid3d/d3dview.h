@@ -41,7 +41,7 @@ class agiD3DViewport final : public agiViewport
 {
 public:
     // ??0agiD3DViewport@@QAE@PAVagiPipeline@@@Z
-    ARTS_IMPORT agiD3DViewport(class agiPipeline* pipe)
+    ARTS_IMPORT agiD3DViewport(agiPipeline* pipe)
         : agiViewport(pipe)
     {}
 
@@ -63,7 +63,7 @@ public:
     ARTS_EXPORT void EndGfx() override;
 
     // ?SetBackground@agiD3DViewport@@UAEXAAVVector3@@@Z
-    ARTS_EXPORT void SetBackground(class Vector3& color) override;
+    ARTS_EXPORT void SetBackground(Vector3& color) override;
 
     agiD3DPipeline* Pipe() const
     {

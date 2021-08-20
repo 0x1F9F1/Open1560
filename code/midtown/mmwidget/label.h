@@ -50,16 +50,16 @@ public:
     ARTS_IMPORT ~UILabel() override;
 
     // ?Action@UILabel@@UAEXTeqEvent@@@Z | inline
-    ARTS_EXPORT void Action(union eqEvent arg1) override;
+    ARTS_EXPORT void Action(eqEvent arg1) override;
 
     // ?Init@UILabel@@QAEXPAULocString@@HMMMMH@Z
-    ARTS_IMPORT void Init(struct LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7);
+    ARTS_IMPORT void Init(LocString* arg1, i32 arg2, f32 arg3, f32 arg4, f32 arg5, f32 arg6, i32 arg7);
 
     // ?SetBlink@UILabel@@QAEXH@Z | unused
     ARTS_IMPORT void SetBlink(i32 arg1);
 
     // ?SetText@UILabel@@QAEXPAULocString@@@Z
-    ARTS_IMPORT void SetText(struct LocString* arg1);
+    ARTS_IMPORT void SetText(LocString* arg1);
 
     // ?Switch@UILabel@@UAEXH@Z
     ARTS_EXPORT void Switch(i32 arg1) override;

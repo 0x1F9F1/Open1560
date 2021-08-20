@@ -95,7 +95,7 @@ public:
     ARTS_IMPORT void FillStats();
 
     // ?GetCarTitle@VehicleSelectBase@@QAEPADHPADFPAVstring@@@Z
-    ARTS_IMPORT char* GetCarTitle(i32 arg1, char* arg2, i16 arg3, class string* arg4);
+    ARTS_IMPORT char* GetCarTitle(i32 arg1, char* arg2, i16 arg3, string* arg4);
 
     // ?IncCar@VehicleSelectBase@@QAEXXZ | inline
     ARTS_IMPORT void IncCar();

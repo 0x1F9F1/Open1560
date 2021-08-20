@@ -45,7 +45,7 @@ static inline constexpr bool IsStdPath(const char* path) noexcept
     return (path[0] == '-') && !path[1];
 }
 
-Owner<class Stream> HierFileSystem::CreateOn(const char* path, void* buffer, isize buffer_len)
+Owner<Stream> HierFileSystem::CreateOn(const char* path, void* buffer, isize buffer_len)
 {
     Ptr<FileStream> result = MakeUnique<FileStream>(buffer, buffer_len, this);
 
@@ -81,7 +81,7 @@ struct HierFileEntry
 
 check_size(HierFileEntry, 0x144);
 
-struct FileInfo* HierFileSystem::FirstEntry(const char* path)
+FileInfo* HierFileSystem::FirstEntry(const char* path)
 {
     if (!QueryOn(path))
         return nullptr;
@@ -115,7 +115,7 @@ b32 HierFileSystem::GetDir(char* buffer, isize buffer_len)
     return GetCurrentDirectoryA(buffer_len, buffer) != 0;
 }
 
-struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* info)
+FileInfo* HierFileSystem::NextEntry(FileInfo* info)
 {
     HierFileEntry* context = static_cast<HierFileEntry*>(info->Context);
 
@@ -134,7 +134,7 @@ struct FileInfo* HierFileSystem::NextEntry(struct FileInfo* info)
     return info;
 }
 
-Owner<class Stream> HierFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len)
+Owner<Stream> HierFileSystem::OpenOn(const char* path, b32 read_only, void* buffer, isize buffer_len)
 {
     path = FQN(path);
 

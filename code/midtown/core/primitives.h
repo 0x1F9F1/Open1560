@@ -92,5 +92,18 @@ _ARTS_LITERAL(_usize, unsigned long long int, usize);
 
 #undef _ARTS_LITERAL
 
+// Common forward declarations
+class Callback;
+class HashTable;
+struct LocString;
+class string;
+
+class Matrix34;
+class Matrix44;
+class Quaternion;
+class Vector2;
+class Vector3;
+class Vector4;
+
 // TODO: Move to a maths header
 #define ARTS_DEG_TO_RADF 0.017453292f

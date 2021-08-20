@@ -52,13 +52,13 @@ public:
     ARTS_IMPORT ~PointCamCS() override = default;
 
     // ?GetClass@PointCamCS@@UAEPAVMetaClass@@XZ
-    ARTS_IMPORT class MetaClass* GetClass() override;
+    ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetPos@PointCamCS@@QAE?AVVector3@@XZ | unused
-    ARTS_IMPORT class Vector3 GetPos();
+    ARTS_IMPORT Vector3 GetPos();
 
     // ?Init@PointCamCS@@QAEXPAVmmCar@@@Z
-    ARTS_IMPORT void Init(class mmCar* arg1);
+    ARTS_IMPORT void Init(mmCar* arg1);
 
     // ?MakeActive@PointCamCS@@UAEXXZ
     ARTS_IMPORT void MakeActive() override;
@@ -76,10 +76,10 @@ public:
     ARTS_IMPORT void SetMinDist(f32 arg1);
 
     // ?SetPos@PointCamCS@@QAEXAAVVector3@@@Z
-    ARTS_IMPORT void SetPos(class Vector3& arg1);
+    ARTS_IMPORT void SetPos(Vector3& arg1);
 
     // ?SetVel@PointCamCS@@QAEXAAVVector3@@@Z
-    ARTS_IMPORT void SetVel(class Vector3& arg1);
+    ARTS_IMPORT void SetVel(Vector3& arg1);
 
     // ?Update@PointCamCS@@UAEXXZ
     ARTS_IMPORT void Update() override;

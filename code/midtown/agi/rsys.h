@@ -42,14 +42,15 @@
 #include "refresh.h"
 #include "vertex.h"
 
-class agiTexDef;
 class agiMtlDef;
+struct agiRenderOpts;
+class agiTexDef;
 
 class agiRasterizer : public agiRefreshable
 {
 public:
     // ??0agiRasterizer@@QAE@PAVagiPipeline@@@Z
-    ARTS_EXPORT agiRasterizer(class agiPipeline* pipe);
+    ARTS_EXPORT agiRasterizer(agiPipeline* pipe);
 
     // ??_GagiRasterizer@@UAEPAXI@Z
     // ??_EagiRasterizer@@UAEPAXI@Z
@@ -62,9 +63,9 @@ public:
     // ?EndGroup@agiRasterizer@@UAEXXZ
     ARTS_EXPORT virtual void EndGroup();
 
-    virtual void Verts(enum agiVtxType type, union agiVtx* vertices, i32 vertex_count) = 0;
+    virtual void Verts(agiVtxType type, agiVtx* vertices, i32 vertex_count) = 0;
 
-    virtual void Points(enum agiVtxType type, union agiVtx* vertices, i32 vertex_count) = 0;
+    virtual void Points(agiVtxType type, agiVtx* vertices, i32 vertex_count) = 0;
 
     virtual void SetVertCount(i32 vertex_count) = 0;
 
@@ -80,14 +81,13 @@ public:
 
     virtual void Card(i32 v0, i32 v1) = 0;
 
-    virtual void Mesh(
-        enum agiVtxType type, union agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) = 0;
+    virtual void Mesh(agiVtxType type, agiVtx* vertices, i32 vertex_count, u16* indices, i32 index_count) = 0;
 
     // ?Mesh2@agiRasterizer@@UAEXPAUagiScreenVtx2@@HPAGH@Z
-    ARTS_EXPORT virtual void Mesh2(struct agiScreenVtx2* vertices, i32 vertex_count, u16* indices, i32 index_count);
+    ARTS_EXPORT virtual void Mesh2(agiScreenVtx2* vertices, i32 vertex_count, u16* indices, i32 index_count);
 
     // ?LineList@agiRasterizer@@UAEXW4agiVtxType@@PATagiVtx@@H@Z
-    ARTS_EXPORT virtual void LineList(enum agiVtxType type, union agiVtx* vertices, i32 vertex_count);
+    ARTS_EXPORT virtual void LineList(agiVtxType type, agiVtx* vertices, i32 vertex_count);
 };
 
 check_size(agiRasterizer, 0x18);
@@ -302,13 +302,13 @@ public:
 check_size(agiRendState, 0x40);
 
 // ?RAST@@3PAVagiRasterizer@@A
-ARTS_EXPORT extern class agiRasterizer* RAST;
+ARTS_EXPORT extern agiRasterizer* RAST;
 
 // ?ROPTS@@3UagiRenderOpts@@A
-ARTS_EXPORT extern struct agiRenderOpts ROPTS;
+ARTS_EXPORT extern agiRenderOpts ROPTS;
 
 // ?agiCurState@@3VagiRendState@@A
-ARTS_EXPORT extern class agiRendState agiCurState;
+ARTS_EXPORT extern agiRendState agiCurState;
 
 // ?agiLastState@@3UagiRendStateStruct@@A
-ARTS_EXPORT extern struct agiRendStateStruct agiLastState;
+ARTS_EXPORT extern agiRendStateStruct agiLastState;
