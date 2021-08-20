@@ -48,7 +48,10 @@
 */
 
 #include "arts7/node.h"
+#include "mmeffects/ptx.h"
+#include "mmphysics/bound.h"
 #include "mmphysics/entity.h"
+#include "mmphysics/inertia.h"
 
 class mmBangerInstance;
 
@@ -84,7 +87,12 @@ public:
     // ?Update@mmBangerActive@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
-    u8 gap20[0x25C];
+    i32 Index;
+    asInertialCS ICS;
+    asBound Bound;
+    mmBangerInstance* Target;
+    asParticles Particles;
+    i32 field_278;
 };
 
 check_size(mmBangerActive, 0x27C);
@@ -113,13 +121,15 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?Update@mmBangerActiveManager@@UAEXXZ
-    ARTS_IMPORT void Update() override;
+    ARTS_EXPORT void Update() override;
 
 protected:
     // ?Instance@mmBangerActiveManager@@1PAV1@A
     ARTS_IMPORT static mmBangerActiveManager* Instance;
 
-    u8 gap20[0x5004];
+    mmBangerActive* Active[32];
+    mmBangerActive Bangers[32];
+    i32 NumActive;
 };
 
 check_size(mmBangerActiveManager, 0x5024);

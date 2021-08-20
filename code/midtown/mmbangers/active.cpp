@@ -19,3 +19,40 @@
 define_dummy_symbol(mmbangers_active);
 
 #include "active.h"
+
+#include "arts7/sim.h"
+#include "banger.h"
+#include "data.h"
+#include "mmphysics/phys.h"
+
+void mmBangerActiveManager::Update()
+{
+    // TODO: Is there a better way to avoid updating while paused?
+    if (ARTSPTR->IsPaused())
+        return;
+
+    for (i32 i = 0; i < NumActive; ++i)
+    {
+        mmBangerActive* banger = Active[i];
+        mmBangerInstance* target = banger->Target;
+        ArAssert(target->SizeOf() == sizeof(mmHitBangerInstance), "Invalid Banger");
+
+        i16 banger_type = target->GetData()->CollisionType;
+
+        if (banger_type == BANGER_COLLISION_TYPE_1)
+        {
+            banger->Update();
+            banger->PostUpdate();
+        }
+        else
+        {
+            i32 mover_type = (banger_type == BANGER_COLLISION_TYPE_6) ? MOVER_TYPE_1 : MOVER_TYPE_2;
+            i32 mover_flags = MOVER_FLAG_ACTIVE;
+
+            if (banger_type != BANGER_COLLISION_TYPE_2)
+                mover_flags |= MOVER_FLAG_COLLIDE_TERRAIN | MOVER_FLAG_COLLIDE_MOVERS;
+
+            PHYS.DeclareMover(banger->Target, mover_type, mover_flags);
+        }
+    }
+}

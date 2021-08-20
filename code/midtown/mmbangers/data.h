@@ -55,6 +55,8 @@
 
 #include "arts7/node.h"
 
+#include "mmeffects/birth.h"
+
 class mmBangerData final : public asNode
 {
 public:
@@ -97,7 +99,32 @@ public:
     // ?DeclareFields@mmBangerData@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x114];
+    i32 Index;
+    Vector3 CG;
+    Vector3 Size;
+    Vector3 Offset;
+    Vector3 GlowOffset;
+    f32 Mass;
+    f32 Elasticity;
+    f32 Friction;
+    f32 ImpulseLimit2;
+    f32 YRadius;
+    asBirthRule BirthRule;
+    i32 TexNumber;
+    i32 BillFlags;
+    i16 SpinAxis;
+    i16 Flash;
+
+#define BANGER_COLLISION_TYPE_1 1
+#define BANGER_COLLISION_TYPE_2 2 // Glass
+#define BANGER_COLLISION_TYPE_4 4 // Props
+#define BANGER_COLLISION_TYPE_6 6 // Walls
+
+    i16 CollisionType;
+    i16 NumParts;
+    char** PartNames;
+    u32 AudioId;
+    i32 MeshIndex;
 };
 
 check_size(mmBangerData, 0x134);

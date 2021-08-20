@@ -115,6 +115,16 @@ public:
 
 check_size(mmPhysExec, 0x24);
 
+#define MOVER_TYPE_1 1   // Vehicles, plus a few broken bits
+#define MOVER_TYPE_2 2   // Props
+#define MOVER_TYPE_10 10 // mmNetObject mmTrailerInstance
+
+#define MOVER_FLAG_ACTIVE 0x1          // Do Update/PostUpdate
+#define MOVER_FLAG_COLLIDE_TERRAIN 0x2 // Collide with terrain
+#define MOVER_FLAG_COLLIDE_MOVERS 0x8  // Collide with other movers
+#define MOVER_FLAG_20 0x20             // Collide with INST_FLAG_800
+#define MOVER_FLAG_PLAYER 0x40         // Is attached to player
+
 class mmPhysicsMGR final : public asNode
 {
 public:
@@ -140,7 +150,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?DeclareMover@mmPhysicsMGR@@QAEXPAVmmInstance@@HH@Z
-    ARTS_IMPORT void DeclareMover(mmInstance* arg1, i32 arg2, i32 arg3);
+    ARTS_IMPORT void DeclareMover(mmInstance* arg1, i32 type, i32 flags);
 
     // ?GetClass@mmPhysicsMGR@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
