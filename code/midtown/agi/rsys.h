@@ -43,7 +43,6 @@
 #include "vertex.h"
 
 class agiMtlDef;
-struct agiRenderOpts;
 class agiTexDef;
 
 class agiRasterizer : public agiRefreshable
@@ -204,10 +203,12 @@ public:
 
     bool ZEnable {false};
     bool ZWrite {false};
+
     u32 FogColor {0};
     f32 FogStart {0.0f};
     f32 FogEnd {0.0f};
     f32 FogDensity {0.0f};
+
     bool Dither {false};
     u8 byte2D {0};
     bool SoftwareRendering {0};
@@ -303,6 +304,10 @@ check_size(agiRendState, 0x40);
 
 // ?RAST@@3PAVagiRasterizer@@A
 ARTS_EXPORT extern agiRasterizer* RAST;
+
+// Unused
+struct agiRenderOpts
+{};
 
 // ?ROPTS@@3UagiRenderOpts@@A
 ARTS_EXPORT extern agiRenderOpts ROPTS;

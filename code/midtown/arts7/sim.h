@@ -205,9 +205,19 @@ public:
     }
 #endif
 
+    bool IsPaused() const
+    {
+        return paused_;
+    }
+
+    void SetPause(bool pause)
+    {
+        toggle_pause_ = static_cast<bool>(paused_) ^ pause;
+    }
+
     void TogglePause()
     {
-        paused_ ^= true;
+        toggle_pause_ = true;
     }
 
     i32 GetDrawMode() const
@@ -291,6 +301,7 @@ private:
     f32 target_delta_;
     ulong prev_utimer_;
     f32 max_fps_delta_;
+    bool toggle_pause_;
 };
 
 // check_size(asSimulation, 0x2B0);

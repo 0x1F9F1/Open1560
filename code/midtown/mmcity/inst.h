@@ -321,7 +321,7 @@ public:
 #define INST_FLAG_100 0x100   // Vehicle?
 #define INST_FLAG_UNHIT 0x200 // Instance is a mmUnhitBangerInstance
 #define INST_FLAG_GLOW 0x400
-#define INST_FLAG_800 0x800   // Terrain Collidable? Passed from mmPhysicsMGR::Update to mmPhysicsMGR::GatherCollidables
+#define INST_FLAG_800 0x800   // Terrain? Passed from mmPhysicsMGR::Update to mmPhysicsMGR::GatherCollidables
 #define INST_FLAG_1000 0x1000 // mmBangerInstance::Draw - Increment lod
 #define INST_FLAG_2000 0x2000
 #define INST_FLAG_4000 0x4000 // Collided with Player?

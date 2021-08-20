@@ -24,10 +24,6 @@ define_dummy_symbol(agi_rsys);
 
 agiRasterizer* RAST = nullptr;
 
-// Unused
-struct agiRenderOpts
-{};
-
 agiRenderOpts ROPTS {};
 agiRendState agiCurState {};
 agiRendStateStruct agiLastState {};

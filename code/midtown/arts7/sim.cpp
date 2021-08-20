@@ -379,6 +379,7 @@ void asSimulation::ResetClock()
     target_delta_ = 1.0f / 30.0f;
     delta_drift_ = 0.0f;
     prev_utimer_ = 0;
+    toggle_pause_ = false;
 
     f32 max_fps = PARAM_maxfps.get_or(500.0f);
     max_fps_delta_ = (max_fps > 0.0f) ? (1.0f / max_fps) : 0.0f;
@@ -390,6 +391,12 @@ void asSimulation::Update()
         FirstUpdate();
     else if (seconds_ == 1234.0f)
         Quitf("ARTS.Init() not called");
+
+    if (toggle_pause_)
+    {
+        paused_ ^= true;
+        toggle_pause_ = false;
+    }
 
 #ifdef ARTS_DEV_BUILD
     if (!paused_ || frame_step_)
@@ -685,17 +692,16 @@ void asSimulation::Device()
                 }
 
                 case EQ_VK_F11: {
-                    if (paused_)
-                        TogglePause();
+                    SetPause(false);
 
                     break;
                 }
 
                 case EQ_VK_F12: {
-                    if (paused_)
+                    if (IsPaused())
                         frame_step_ = true;
                     else
-                        TogglePause();
+                        SetPause(true);
 
                     break;
                 }
