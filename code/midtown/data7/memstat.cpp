@@ -33,7 +33,7 @@ static constexpr const i32 MAX_CHECK = 16;
 static isize MemStatValues[MAX_CHECK] {};
 static const char* MemStatNames[MAX_CHECK] {};
 
-void BeginMemStat(char const* name)
+void BeginMemStat(const char* name)
 {
     if (EnableMemStat)
     {

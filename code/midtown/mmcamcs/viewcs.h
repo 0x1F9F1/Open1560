@@ -62,10 +62,10 @@ public:
 #endif
 
     // ?ForceMatrixDelta@mmViewCS@@QAEXABVMatrix34@@@Z | unused
-    ARTS_IMPORT void ForceMatrixDelta(Matrix34 const& arg1);
+    ARTS_IMPORT void ForceMatrixDelta(const Matrix34& arg1);
 
     // ?ForceMatrixDelta@mmViewCS@@QAEXABVVector3@@@Z | unused
-    ARTS_IMPORT void ForceMatrixDelta(Vector3 const& arg1);
+    ARTS_IMPORT void ForceMatrixDelta(const Vector3& arg1);
 
     // ?GetClass@mmViewCS@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

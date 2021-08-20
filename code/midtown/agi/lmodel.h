@@ -47,7 +47,7 @@ public:
     ARTS_IMPORT ~agiLightModelParameters() = default;
 
     // ??4agiLightModelParameters@@QAEXABV0@@Z
-    ARTS_IMPORT void operator=(agiLightModelParameters const& arg1);
+    ARTS_IMPORT void operator=(const agiLightModelParameters& arg1);
 
     Vector4 Ambient;
     b32 LocalViewer;
@@ -74,7 +74,7 @@ public:
     ARTS_IMPORT char* GetName() override;
 
     // ?Init@agiLightModel@@QAEHABVagiLightModelParameters@@@Z
-    ARTS_IMPORT i32 Init(agiLightModelParameters const& arg1);
+    ARTS_IMPORT i32 Init(const agiLightModelParameters& arg1);
 
     agiLightModelParameters Params;
 

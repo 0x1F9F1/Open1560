@@ -173,7 +173,7 @@ public:
     ConstString GetString();
 
     // ?Printf@Stream@@QAAHPBDZZ | unused
-    ARTS_EXPORT isize Printf(ARTS_FORMAT_STRING char const* format, ...);
+    ARTS_EXPORT isize Printf(ARTS_FORMAT_STRING const char* format, ...);
 
     i32 Scanf(const char* format, ...);
 
@@ -238,7 +238,7 @@ public:
     }
 
     // ?Vprintf@Stream@@QAEHPBDPAD@Z
-    ARTS_EXPORT isize Vprintf(char const* format, std::va_list va);
+    ARTS_EXPORT isize Vprintf(const char* format, std::va_list va);
 
     // ?Write@Stream@@QAEHPAXH@Z
     ARTS_EXPORT isize Write(const void* ptr, isize size);
@@ -303,10 +303,10 @@ ARTS_EXPORT isize arts_fgets(char* buffer, isize buffer_len, Stream* stream);
 ARTS_EXPORT Stream* arts_fopen(const char* path, const char* mode);
 
 // ?fprintf@@YAXPAVStream@@PBDZZ
-ARTS_EXPORT void arts_fprintf(Stream* stream, ARTS_FORMAT_STRING char const* format, ...);
+ARTS_EXPORT void arts_fprintf(Stream* stream, ARTS_FORMAT_STRING const char* format, ...);
 
 // ?fscanf@@YAHPAVStream@@PBDZZ
-ARTS_EXPORT i32 arts_fscanf(Stream* stream, char const* format, ...);
+ARTS_EXPORT i32 arts_fscanf(Stream* stream, const char* format, ...);
 
 // ?fseek@@YAHPAVStream@@HH@Z
 ARTS_EXPORT i32 arts_fseek(Stream* stream, i32 offset, i32 origin);

@@ -33,7 +33,7 @@ class Tokenizer
 {
 public:
     // ??0Tokenizer@@QAE@PBDPAVStream@@@Z
-    ARTS_EXPORT Tokenizer(char const* name, Stream* input);
+    ARTS_EXPORT Tokenizer(const char* name, Stream* input);
 
     // ?GetFloat@Tokenizer@@QAEMXZ
     ARTS_EXPORT f32 GetFloat();

@@ -136,7 +136,7 @@ static void TogglePipelineWindow()
 ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
 
 // ?QuietPrinter@@YAXHPBDPAD@Z
-ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, char const* arg2, char* arg3);
+ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, const char* arg2, char* arg3);
 
 asSimulation::~asSimulation()
 {

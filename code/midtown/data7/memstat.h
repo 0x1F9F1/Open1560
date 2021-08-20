@@ -29,7 +29,7 @@
 */
 
 // ?BeginMemStat@@YAXPBD@Z
-ARTS_EXPORT void BeginMemStat(char const* name);
+ARTS_EXPORT void BeginMemStat(const char* name);
 
 // ?EndMemStat@@YAXXZ
 ARTS_EXPORT void EndMemStat();

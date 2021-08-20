@@ -24,4 +24,4 @@ void bnBone::Draw()
 {}
 
 // ?Matrix34__FromEulersXZY@@YAXAAVMatrix34@@ABVVector3@@@Z
-ARTS_IMPORT /*static*/ void Matrix34__FromEulersXZY(Matrix34& arg1, Vector3 const& arg2);
+ARTS_IMPORT /*static*/ void Matrix34__FromEulersXZY(Matrix34& arg1, const Vector3& arg2);

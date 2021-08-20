@@ -390,31 +390,31 @@ public:
     ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers");
 
     // ?GetCDMusicOnMask@AudManager@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetCDMusicOnMask();
+    ARTS_IMPORT static const u32 GetCDMusicOnMask();
 
     // ?GetCommentaryOnMask@AudManager@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetCommentaryOnMask();
+    ARTS_IMPORT static const u32 GetCommentaryOnMask();
 
     // ?GetDSound3DMask@AudManager@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetDSound3DMask();
+    ARTS_IMPORT static const u32 GetDSound3DMask();
 
     // ?GetEchoOnMask@AudManager@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetEchoOnMask();
+    ARTS_IMPORT static const u32 GetEchoOnMask();
 
     // ?GetHiResMask@AudManager@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetHiResMask();
+    ARTS_IMPORT static const u32 GetHiResMask();
 
     // ?GetHiSampleSizeMask@AudManager@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetHiSampleSizeMask();
+    ARTS_IMPORT static const u32 GetHiSampleSizeMask();
 
     // ?GetSoundFXOnMask@AudManager@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetSoundFXOnMask();
+    ARTS_IMPORT static const u32 GetSoundFXOnMask();
 
     // ?GetStereoOnMask@AudManager@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetStereoOnMask();
+    ARTS_IMPORT static const u32 GetStereoOnMask();
 
     // ?GetUsingEAXMask@AudManager@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetUsingEAXMask();
+    ARTS_IMPORT static const u32 GetUsingEAXMask();
 
     ARTS_DIAGNOSTIC_POP;
 

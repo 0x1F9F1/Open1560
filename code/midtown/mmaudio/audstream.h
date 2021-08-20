@@ -148,17 +148,17 @@ public:
     ARTS_IMPORT void Update() override;
 
     // ?Get2DFlags@AudStream@@SA?BKXZ | unused
-    ARTS_IMPORT static ulong const Get2DFlags();
+    ARTS_IMPORT static const ulong Get2DFlags();
 
     // ?GetFreqChange2DFlags@AudStream@@SA?BKXZ
-    ARTS_IMPORT static ulong const GetFreqChange2DFlags();
+    ARTS_IMPORT static const ulong GetFreqChange2DFlags();
 
 private:
     // ?s_DWDefault2DCtrlFlags@AudStream@@0KB
-    ARTS_IMPORT static ulong const s_DWDefault2DCtrlFlags;
+    ARTS_IMPORT static const ulong s_DWDefault2DCtrlFlags;
 
     // ?s_DWFreqChange2DCtrlFlags@AudStream@@0KB
-    ARTS_IMPORT static ulong const s_DWFreqChange2DCtrlFlags;
+    ARTS_IMPORT static const ulong s_DWFreqChange2DCtrlFlags;
 
     u8 gap20[0x34];
 };

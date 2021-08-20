@@ -83,7 +83,7 @@ public:
     ARTS_EXPORT void ARTS_FASTCALL DrawShadow() override;
 
     // ?FromMatrix@mmSkid@@UAIXABVMatrix34@@@Z
-    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetClass@mmSkid@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

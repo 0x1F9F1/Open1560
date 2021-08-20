@@ -157,7 +157,7 @@ public:
     ARTS_EXPORT void Init(f32 x, f32 y, f32 width, f32 height, i32 num_lines, i32 flags);
 
     // ?Printf@mmTextNode@@QAAXPBDZZ | unused
-    ARTS_IMPORT void Printf(char const* arg1, ...);
+    ARTS_IMPORT void Printf(const char* arg1, ...);
 
     // ?RenderText@mmTextNode@@QAEXPAVagiSurfaceDesc@@PAUmmTextData@@HI@Z
     ARTS_EXPORT void RenderText(agiSurfaceDesc* surface, mmTextData* lines, i32 num_lines, u32 enabled_lines);

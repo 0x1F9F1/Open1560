@@ -109,14 +109,14 @@ public:
 
     // ?DSGetWaveFile@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAKPAPAX@Z
     ARTS_IMPORT i32 DSGetWaveFile(
-        HINSTANCE__* arg1, char const* arg2, tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5, void** arg6);
+        HINSTANCE__* arg1, const char* arg2, tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5, void** arg6);
 
     // ?DSGetWaveResource@SoundObj@@QAEHPAUHINSTANCE__@@PBDPAPAUtWAVEFORMATEX@@PAPAEPAK@Z
     ARTS_IMPORT i32 DSGetWaveResource(
-        HINSTANCE__* arg1, char const* arg2, tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5);
+        HINSTANCE__* arg1, const char* arg2, tWAVEFORMATEX** arg3, u8** arg4, ulong* arg5);
 
     // ?DSLoadSoundBuffer@SoundObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
-    ARTS_IMPORT IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, ulong arg2);
+    ARTS_IMPORT IDirectSoundBuffer* DSLoadSoundBuffer(const char* arg1, ulong arg2);
 
     // ?DSLoadSoundBuffer@SoundObj@@QAEXGK@Z
     ARTS_IMPORT void DSLoadSoundBuffer(u16 arg1, ulong arg2);
@@ -143,7 +143,7 @@ public:
     ARTS_IMPORT tWAVEFORMATEX* GetFormat();
 
     // ?Init@SoundObj@@QAEHPBDKF@Z
-    ARTS_IMPORT i32 Init(char const* arg1, ulong arg2, i16 arg3);
+    ARTS_IMPORT i32 Init(const char* arg1, ulong arg2, i16 arg3);
 
     // ?Init@SoundObj@@QAEHGKF@Z
     ARTS_IMPORT i32 Init(u16 arg1, ulong arg2, i16 arg3);

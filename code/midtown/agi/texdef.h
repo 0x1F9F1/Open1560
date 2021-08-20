@@ -179,9 +179,9 @@ public:
     ARTS_EXPORT char* GetName() override;
 
     // ?Init@agiTexDef@@QAEHABVagiTexParameters@@@Z
-    ARTS_EXPORT i32 Init(agiTexParameters const& params);
+    ARTS_EXPORT i32 Init(const agiTexParameters& params);
 
-    i32 Init(agiTexParameters const& params, Ptr<agiSurfaceDesc> surface);
+    i32 Init(const agiTexParameters& params, Ptr<agiSurfaceDesc> surface);
 
     // ?IsTexture@agiTexDef@@UAEHXZ
     ARTS_EXPORT b32 IsTexture() override;

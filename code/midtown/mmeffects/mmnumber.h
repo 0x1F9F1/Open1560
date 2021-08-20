@@ -64,7 +64,7 @@ public:
     ARTS_EXPORT void Init(mmNumberFont* font, f32 x, f32 y);
 
     // ?Printf@mmNumber@@QAAXPBDZZ
-    ARTS_EXPORT void Printf(char const* format, ...);
+    ARTS_EXPORT void Printf(const char* format, ...);
 
     // ?SetString@mmNumber@@QAEXPAD@Z
     ARTS_EXPORT void SetString(char* text);

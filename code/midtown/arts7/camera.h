@@ -123,7 +123,7 @@ public:
     ARTS_IMPORT i32 GetViewportWidth();
 
     // ?SetAmbient@asCamera@@QAEXABVVector3@@@Z | unused
-    ARTS_IMPORT void SetAmbient(Vector3 const& arg1);
+    ARTS_IMPORT void SetAmbient(const Vector3& arg1);
 
     // ?SetClipArea@asCamera@@QAEXMMMM@Z
     ARTS_IMPORT void SetClipArea(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
@@ -153,7 +153,7 @@ public:
     ARTS_IMPORT void SetWorld(Matrix34& arg1);
 
     // ?SphereVisible@asCamera@@QAEMABVVector3@@MPAM@Z | unused
-    ARTS_IMPORT f32 SphereVisible(Vector3 const& arg1, f32 arg2, f32* arg3);
+    ARTS_IMPORT f32 SphereVisible(const Vector3& arg1, f32 arg2, f32* arg3);
 
     // ?Update@asCamera@@UAEXXZ
     ARTS_IMPORT void Update() override;

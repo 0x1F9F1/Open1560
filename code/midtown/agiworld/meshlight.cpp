@@ -184,7 +184,7 @@ void agiMeshLighterTriple(
         if (codes && !(codes[mesh->VertexIndices[i]] & MESH_CLIP_SCREEN))
             continue;
 
-        u32 const color = *colors;
+        const u32 color = *colors;
         const Vector3& normal = UnpackNormal[mesh->Normals[i]];
 
         f32 sun_intensity = normal.x * sun_dir.x + normal.y * sun_dir.y + normal.z * sun_dir.z;

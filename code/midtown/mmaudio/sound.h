@@ -255,41 +255,41 @@ public:
     ARTS_IMPORT void Update3DSettings();
 
     // ?Get2DFlags@AudSound@@SA?BKXZ
-    ARTS_IMPORT static ulong const Get2DFlags();
+    ARTS_IMPORT static const ulong Get2DFlags();
 
     // ?Get3DFlags@AudSound@@SA?BKXZ
-    ARTS_IMPORT static ulong const Get3DFlags();
+    ARTS_IMPORT static const ulong Get3DFlags();
 
     // ?GetFreqChange2DFlags@AudSound@@SA?BKXZ
-    ARTS_IMPORT static ulong const GetFreqChange2DFlags();
+    ARTS_IMPORT static const ulong GetFreqChange2DFlags();
 
     // ?GetFreqChange3DFlags@AudSound@@SA?BKXZ
-    ARTS_IMPORT static ulong const GetFreqChange3DFlags();
+    ARTS_IMPORT static const ulong GetFreqChange3DFlags();
 
     // ?GetSoft2DFlags@AudSound@@SA?BKXZ
-    ARTS_IMPORT static ulong const GetSoft2DFlags();
+    ARTS_IMPORT static const ulong GetSoft2DFlags();
 
     // ?GetSoftFreqChange2DFlags@AudSound@@SA?BKXZ | unused
-    ARTS_IMPORT static ulong const GetSoftFreqChange2DFlags();
+    ARTS_IMPORT static const ulong GetSoftFreqChange2DFlags();
 
 private:
     // ?s_DWDefault2DCtrlFlags@AudSound@@0KB
-    ARTS_IMPORT static ulong const s_DWDefault2DCtrlFlags;
+    ARTS_IMPORT static const ulong s_DWDefault2DCtrlFlags;
 
     // ?s_DWDefault3DCtrlFlags@AudSound@@0KB
-    ARTS_IMPORT static ulong const s_DWDefault3DCtrlFlags;
+    ARTS_IMPORT static const ulong s_DWDefault3DCtrlFlags;
 
     // ?s_DWFreqChange2DCtrlFlags@AudSound@@0KB
-    ARTS_IMPORT static ulong const s_DWFreqChange2DCtrlFlags;
+    ARTS_IMPORT static const ulong s_DWFreqChange2DCtrlFlags;
 
     // ?s_DWFreqChange3DCtrlFlags@AudSound@@0KB
-    ARTS_IMPORT static ulong const s_DWFreqChange3DCtrlFlags;
+    ARTS_IMPORT static const ulong s_DWFreqChange3DCtrlFlags;
 
     // ?s_DWSoft2DCtrlFlags@AudSound@@0KB
-    ARTS_IMPORT static ulong const s_DWSoft2DCtrlFlags;
+    ARTS_IMPORT static const ulong s_DWSoft2DCtrlFlags;
 
     // ?s_DWSoftFreqChange2DCtrlFlags@AudSound@@0KB
-    ARTS_IMPORT static ulong const s_DWSoftFreqChange2DCtrlFlags;
+    ARTS_IMPORT static const ulong s_DWSoftFreqChange2DCtrlFlags;
 
     u8 gap20[0x98];
 };

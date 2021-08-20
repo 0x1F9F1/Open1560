@@ -69,7 +69,7 @@ public:
     }
 
     // ??0string@@QAE@PBD@Z | inline
-    ARTS_EXPORT string(char const* str)
+    ARTS_EXPORT string(const char* str)
     {
         i32 len = static_cast<i32>(std::strlen(str));
         capacity_ = len + 50;
@@ -78,7 +78,7 @@ public:
     }
 
     // ??0string@@QAE@ABV0@@Z | inline
-    ARTS_EXPORT string(string const& other)
+    ARTS_EXPORT string(const string& other)
         : string(other.data_)
     {}
 
@@ -99,28 +99,28 @@ public:
     }
 
     // ??4string@@QAEXPBD@Z | inline
-    ARTS_IMPORT void operator=(char const* arg1);
+    ARTS_IMPORT void operator=(const char* arg1);
 
     // ??Hstring@@QBE?AV0@PBD@Z
-    ARTS_IMPORT string operator+(char const* arg1) const;
+    ARTS_IMPORT string operator+(const char* arg1) const;
 
     // ??Hstring@@QBE?AV0@ABV0@@Z | inline
-    ARTS_IMPORT string operator+(string const& arg1) const;
+    ARTS_IMPORT string operator+(const string& arg1) const;
 
     // ??Ystring@@QAEXD@Z
     ARTS_IMPORT void operator+=(char arg1);
 
     // ??Ystring@@QAEXPBD@Z
-    ARTS_IMPORT void operator+=(char const* arg1);
+    ARTS_IMPORT void operator+=(const char* arg1);
 
     // ??Gstring@@QBE?AV0@PBD@Z
-    ARTS_IMPORT string operator-(char const* arg1) const;
+    ARTS_IMPORT string operator-(const char* arg1) const;
 
     // ??Zstring@@QAEXPBD@Z | unused
-    ARTS_IMPORT void operator-=(char const* arg1);
+    ARTS_IMPORT void operator-=(const char* arg1);
 
     // ?ChangeExtension@string@@QAEXABV1@@Z | unused
-    ARTS_IMPORT void ChangeExtension(string const& arg1);
+    ARTS_IMPORT void ChangeExtension(const string& arg1);
 
     // ?CommaFile@string@@QBEHXZ | unused
     ARTS_IMPORT i32 CommaFile() const;
@@ -144,7 +144,7 @@ public:
     ARTS_IMPORT string FileName() const;
 
     // ?FindFile@string@@QAEHABV1@H00@Z | unused
-    ARTS_IMPORT i32 FindFile(string const& arg1, i32 arg2, string const& arg3, string const& arg4);
+    ARTS_IMPORT i32 FindFile(const string& arg1, i32 arg2, const string& arg3, const string& arg4);
 
     // ?Init@string@@QAEXH@Z | inline
     ARTS_IMPORT void Init(i32 arg1);
@@ -162,7 +162,7 @@ public:
     ARTS_IMPORT void RemoveExtension();
 
     // ?SaveName@string@@QAEXABV1@H00@Z
-    ARTS_IMPORT void SaveName(string const& arg1, i32 arg2, string const& arg3, string const& arg4);
+    ARTS_IMPORT void SaveName(const string& arg1, i32 arg2, const string& arg3, const string& arg4);
 
     // ?SubString@string@@QBE?AV1@H@Z
     ARTS_IMPORT string SubString(i32 arg1) const;
@@ -190,7 +190,7 @@ private:
 check_size(string, 0x8);
 
 // ??H@YA?AVstring@@PBDABV0@@Z | unused
-ARTS_IMPORT string operator+(char const* arg1, string const& arg2);
+ARTS_IMPORT string operator+(const char* arg1, const string& arg2);
 
 // ?ExecPath@@3PADA
 ARTS_IMPORT extern char ExecPath[128];

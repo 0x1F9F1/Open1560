@@ -108,7 +108,7 @@ public:
     ARTS_IMPORT void Cull() override;
 
     // ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
-    ARTS_IMPORT void DeclareVector(Vector3 const* arg1, Vector3 const* arg2, Vector3 const* arg3);
+    ARTS_IMPORT void DeclareVector(const Vector3* arg1, const Vector3* arg2, const Vector3* arg3);
 #endif
 
     // ?Device@asSimulation@@QAEXXZ

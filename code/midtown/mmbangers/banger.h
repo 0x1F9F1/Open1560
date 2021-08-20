@@ -116,7 +116,7 @@ public:
     ARTS_IMPORT ~mmUnhitBangerInstance() override = default;
 
     // ?FromMatrix@mmUnhitBangerInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetPos@mmUnhitBangerInstance@@UAIAAVVector3@@XZ
     ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
@@ -161,7 +161,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?FromMatrix@mmHitBangerInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetPos@mmHitBangerInstance@@UAIAAVVector3@@XZ
     ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;

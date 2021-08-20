@@ -151,7 +151,7 @@ public:
     // ??1mmInstance@@UAE@XZ
     ARTS_IMPORT ~mmInstance() override = default;
 
-    virtual void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) = 0;
+    virtual void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) = 0;
 
     virtual Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) = 0;
 
@@ -207,7 +207,7 @@ public:
     ARTS_IMPORT void AddMeshes(char* arg1, i32 arg2, char* arg3, Vector3* arg4);
 
     // ?DrawDropShadow@mmInstance@@QAEXHHABVMatrix34@@@Z
-    ARTS_IMPORT void DrawDropShadow(i32 arg1, i32 arg2, Matrix34 const& arg3);
+    ARTS_IMPORT void DrawDropShadow(i32 arg1, i32 arg2, const Matrix34& arg3);
 
     // ?GetClass@mmInstance@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
@@ -375,7 +375,7 @@ public:
 #endif
 
     // ?FromMatrix@mmMatrixInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetClass@mmMatrixInstance@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
@@ -472,7 +472,7 @@ check_size(mmBuildingInstance, 0x48);
 ARTS_IMPORT i32 GetPolyInfo(agiMeshSet* arg1);
 
 // ?formatf@@YAPADPBDZZ
-ARTS_IMPORT char* formatf(char const* arg1, ...);
+ARTS_IMPORT char* formatf(const char* arg1, ...);
 
 #ifdef ARTS_DEV_BUILD
 // ?EnableFacadeSideClipping@@3HA
@@ -499,7 +499,7 @@ public:
 #endif
 
     // ?FromMatrix@mmYInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetClass@mmYInstance@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;
@@ -579,7 +579,7 @@ public:
     ARTS_IMPORT f32 ARTS_FASTCALL GetScale() override;
 
     // ?InitFacade@mmFacadeInstance@@QAEHPADAAVVector3@@1MHABV2@@Z
-    ARTS_IMPORT i32 InitFacade(char* arg1, Vector3& arg2, Vector3& arg3, f32 arg4, i32 arg5, Vector3 const& arg6);
+    ARTS_IMPORT i32 InitFacade(char* arg1, Vector3& arg2, Vector3& arg3, f32 arg4, i32 arg5, const Vector3& arg6);
 
     // ?SizeOf@mmFacadeInstance@@UAEIXZ
     ARTS_IMPORT u32 SizeOf() override;

@@ -64,20 +64,20 @@ public:
     ARTS_IMPORT Vector4 operator/(f32 arg1) const;
 
     // ??TVector4@@QBEMABV0@@Z | inline
-    ARTS_IMPORT f32 operator^(Vector4 const& arg1) const;
+    ARTS_IMPORT f32 operator^(const Vector4& arg1) const;
 
     // ?Bilinear@Vector4@@QAEXMMABV1@000@Z | unused
     ARTS_IMPORT void Bilinear(
-        f32 arg1, f32 arg2, Vector4 const& arg3, Vector4 const& arg4, Vector4 const& arg5, Vector4 const& arg6);
+        f32 arg1, f32 arg2, const Vector4& arg3, const Vector4& arg4, const Vector4& arg5, const Vector4& arg6);
 
     // ?CalculatePlane@Vector4@@QAEXABVVector3@@00@Z
-    ARTS_IMPORT void CalculatePlane(Vector3 const& arg1, Vector3 const& arg2, Vector3 const& arg3);
+    ARTS_IMPORT void CalculatePlane(const Vector3& arg1, const Vector3& arg2, const Vector3& arg3);
 
     // ?GetLookAt@Vector4@@QBEXABVVector3@@PAV2@1@Z | unused
-    ARTS_IMPORT void GetLookAt(Vector3 const& arg1, Vector3* arg2, Vector3* arg3) const;
+    ARTS_IMPORT void GetLookAt(const Vector3& arg1, Vector3* arg2, Vector3* arg3) const;
 
     // ?Lerp@Vector4@@QAEXMABV1@0@Z
-    ARTS_IMPORT void Lerp(f32 arg1, Vector4 const& arg2, Vector4 const& arg3);
+    ARTS_IMPORT void Lerp(f32 arg1, const Vector4& arg2, const Vector4& arg3);
 
     // ?Mag@Vector4@@QBEMXZ | unused
     ARTS_IMPORT f32 Mag() const;

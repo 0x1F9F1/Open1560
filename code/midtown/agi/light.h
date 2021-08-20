@@ -45,7 +45,7 @@ public:
     ARTS_EXPORT agiLightParameters() = default;
 
     // ??4agiLightParameters@@QAEXABV0@@Z
-    ARTS_EXPORT void operator=(agiLightParameters const& rhs)
+    ARTS_EXPORT void operator=(const agiLightParameters& rhs)
     {
         std::memcpy(this, &rhs, sizeof(*this));
 
@@ -105,7 +105,7 @@ public:
     ARTS_EXPORT char* GetName() override;
 
     // ?Init@agiLight@@QAEHABVagiLightParameters@@@Z
-    ARTS_EXPORT i32 Init(agiLightParameters const& params);
+    ARTS_EXPORT i32 Init(const agiLightParameters& params);
 
     agiLightParameters Params {};
 };

@@ -122,7 +122,7 @@ public:
     ARTS_IMPORT void DrawNormals(Vector3& arg1);
 
     // ?DrawShadow@agiMeshSet@@QAEXIABVVector4@@ABVVector3@@@Z | agiworld:meshrend
-    ARTS_EXPORT void DrawShadow(u32 flags, Vector4 const& plane, Vector3 const& light_dir);
+    ARTS_EXPORT void DrawShadow(u32 flags, const Vector4& plane, const Vector3& light_dir);
 
     // ?EnvMap@agiMeshSet@@QAEXAAVMatrix34@@PAVagiTexDef@@I@Z | agiworld:meshrend
     ARTS_IMPORT void EnvMap(Matrix34& arg1, agiTexDef* arg2, u32 arg3);
@@ -200,7 +200,7 @@ public:
     ARTS_EXPORT void PageIn();
 
     // ?ShadowGeometry@agiMeshSet@@QAEHIPAVVector3@@ABVVector4@@ABV2@@Z | agiworld:meshrend
-    ARTS_EXPORT i32 ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& surface_dir, Vector3 const& light_dir);
+    ARTS_EXPORT i32 ShadowGeometry(u32 flags, Vector3* verts, const Vector4& surface_dir, const Vector3& light_dir);
 
     // ?SphereMap@agiMeshSet@@QAEXPAVagiTexDef@@I@Z | agiworld:meshrend
     ARTS_IMPORT void SphereMap(agiTexDef* arg1, u32 arg2);
@@ -289,7 +289,7 @@ protected:
     ARTS_EXPORT static void ARTS_FASTCALL InitViewport(agiViewParameters& params);
 
     // ?ShadowInit@agiMeshSet@@KIXABVVector4@@ABVVector3@@@Z | agiworld:meshrend
-    ARTS_IMPORT static void ARTS_FASTCALL ShadowInit(Vector4 const& arg1, Vector3 const& arg2);
+    ARTS_IMPORT static void ARTS_FASTCALL ShadowInit(const Vector4& arg1, const Vector3& arg2);
 
     // ?ShadowTransform@agiMeshSet@@KIXPAVVector4@@PAVVector3@@H@Z | agiworld:meshrend
     ARTS_EXPORT static void ARTS_FASTCALL ShadowTransform(

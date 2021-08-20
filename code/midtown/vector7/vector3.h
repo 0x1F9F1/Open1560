@@ -91,7 +91,7 @@ public:
     {}
 
     // ??LVector3@@QBE?AV0@ABV0@@Z | inline
-    ARTS_IMPORT Vector3 operator%(Vector3 const& arg1) const;
+    ARTS_IMPORT Vector3 operator%(const Vector3& arg1) const;
 
     // ??DVector3@@QBE?AV0@M@Z | inline
     ARTS_EXPORT Vector3 operator*(f32 value) const
@@ -106,13 +106,13 @@ public:
     }
 
     // ??HVector3@@QBE?AV0@ABV0@@Z | inline
-    ARTS_EXPORT Vector3 operator+(Vector3 const& other) const
+    ARTS_EXPORT Vector3 operator+(const Vector3& other) const
     {
         return {x + other.x, y + other.y, z + other.z};
     }
 
     // ??YVector3@@QAEXABV0@@Z | inline
-    ARTS_EXPORT void operator+=(Vector3 const& other)
+    ARTS_EXPORT void operator+=(const Vector3& other)
     {
         *this = {x + other.x, y + other.y, z + other.z};
     }
@@ -124,13 +124,13 @@ public:
     }
 
     // ??GVector3@@QBE?AV0@ABV0@@Z | inline
-    ARTS_EXPORT Vector3 operator-(Vector3 const& other) const
+    ARTS_EXPORT Vector3 operator-(const Vector3& other) const
     {
         return {x - other.x, y - other.y, z - other.z};
     }
 
     // ??ZVector3@@QAEXABV0@@Z | inline
-    ARTS_EXPORT void operator-=(Vector3 const& other)
+    ARTS_EXPORT void operator-=(const Vector3& other)
     {
         *this = {x - other.x, y - other.y, z - other.z};
     }
@@ -139,73 +139,73 @@ public:
     ARTS_IMPORT Vector3 operator/(f32 arg1) const;
 
     // ??TVector3@@QBE?AV0@ABVMatrix34@@@Z | inline
-    ARTS_IMPORT Vector3 operator^(Matrix34 const& arg1) const;
+    ARTS_IMPORT Vector3 operator^(const Matrix34& arg1) const;
 
     // ??TVector3@@QBEMABV0@@Z | inline
-    ARTS_IMPORT f32 operator^(Vector3 const& arg1) const;
+    ARTS_IMPORT f32 operator^(const Vector3& arg1) const;
 
     // ??SVector3@@QBE?AV0@XZ | inline
     ARTS_IMPORT Vector3 operator~() const;
 
     // ?Add@Vector3@@QAEXABV1@0@Z | inline
-    ARTS_IMPORT void Add(Vector3 const& arg1, Vector3 const& arg2);
+    ARTS_IMPORT void Add(const Vector3& arg1, const Vector3& arg2);
 
     // ?Angle@Vector3@@QBEMABV1@@Z
-    ARTS_IMPORT f32 Angle(Vector3 const& arg1) const;
+    ARTS_IMPORT f32 Angle(const Vector3& arg1) const;
 
     // ?Approach@Vector3@@QAEHABV1@MMPAM@Z
-    ARTS_IMPORT i32 Approach(Vector3 const& arg1, f32 arg2, f32 arg3, f32* arg4);
+    ARTS_IMPORT i32 Approach(const Vector3& arg1, f32 arg2, f32 arg3, f32* arg4);
 
     // ?Area@Vector3@@QBEMABV1@0@Z
-    ARTS_IMPORT f32 Area(Vector3 const& arg1, Vector3 const& arg2) const;
+    ARTS_IMPORT f32 Area(const Vector3& arg1, const Vector3& arg2) const;
 
     // ?Atan3@Vector3@@QBEMDD@Z | unused
     ARTS_IMPORT f32 Atan3(char arg1, char arg2) const;
 
     // ?Bilinear@Vector3@@QAEXMMABV1@000@Z | unused
     ARTS_IMPORT void Bilinear(
-        f32 arg1, f32 arg2, Vector3 const& arg3, Vector3 const& arg4, Vector3 const& arg5, Vector3 const& arg6);
+        f32 arg1, f32 arg2, const Vector3& arg3, const Vector3& arg4, const Vector3& arg5, const Vector3& arg6);
 
     // ?Bounce@Vector3@@QAEXABV1@M@Z | unused
-    ARTS_IMPORT void Bounce(Vector3 const& arg1, f32 arg2);
+    ARTS_IMPORT void Bounce(const Vector3& arg1, f32 arg2);
 
     // ?CatmullRom@Vector3@@QAEXMABV1@000@Z | unused
     ARTS_IMPORT void CatmullRom(
-        f32 arg1, Vector3 const& arg2, Vector3 const& arg3, Vector3 const& arg4, Vector3 const& arg5);
+        f32 arg1, const Vector3& arg2, const Vector3& arg3, const Vector3& arg4, const Vector3& arg5);
 
     // ?Clamp@Vector3@@QAEXABV1@0@Z | unused
-    ARTS_IMPORT void Clamp(Vector3 const& arg1, Vector3 const& arg2);
+    ARTS_IMPORT void Clamp(const Vector3& arg1, const Vector3& arg2);
 
     // ?Clamp@Vector3@@QAEXMM@Z | unused
     ARTS_IMPORT void Clamp(f32 arg1, f32 arg2);
 
     // ?Cos@Vector3@@QBEMABV1@@Z | unused
-    ARTS_IMPORT f32 Cos(Vector3 const& arg1) const;
+    ARTS_IMPORT f32 Cos(const Vector3& arg1) const;
 
     // ?Cross@Vector3@@QAEXABV1@0@Z | inline
-    ARTS_IMPORT void Cross(Vector3 const& arg1, Vector3 const& arg2);
+    ARTS_IMPORT void Cross(const Vector3& arg1, const Vector3& arg2);
 
     // ?Dist@Vector3@@QBEMABV1@@Z
-    ARTS_IMPORT f32 Dist(Vector3 const& arg1) const;
+    ARTS_IMPORT f32 Dist(const Vector3& arg1) const;
 
     // ?Dot@Vector3@@QAIXABV1@ABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL Dot(Vector3 const& arg1, Matrix34 const& arg2);
+    ARTS_IMPORT void ARTS_FASTCALL Dot(const Vector3& arg1, const Matrix34& arg2);
 
     // ?Dot3x3@Vector3@@QAIXABV1@ABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL Dot3x3(Vector3 const& arg1, Matrix34 const& arg2);
+    ARTS_IMPORT void ARTS_FASTCALL Dot3x3(const Vector3& arg1, const Matrix34& arg2);
 
     // ?Equal@Vector3@@QBEIABV1@M@Z
-    ARTS_IMPORT u32 Equal(Vector3 const& arg1, f32 arg2) const;
+    ARTS_IMPORT u32 Equal(const Vector3& arg1, f32 arg2) const;
 
     // ?GetPolar@Vector3@@QBEXABV1@PAVVector4@@PAV1@@Z
-    ARTS_IMPORT void GetPolar(Vector3 const& arg1, Vector4* arg2, Vector3* arg3) const;
+    ARTS_IMPORT void GetPolar(const Vector3& arg1, Vector4* arg2, Vector3* arg3) const;
 
     // ?HalfSpace@Vector3@@QBEHABVVector4@@@Z | unused
-    ARTS_IMPORT i32 HalfSpace(Vector4 const& arg1) const;
+    ARTS_IMPORT i32 HalfSpace(const Vector4& arg1) const;
 
     // ?Hermite@Vector3@@QAEXMABV1@000M@Z | unused
     ARTS_IMPORT void Hermite(
-        f32 arg1, Vector3 const& arg2, Vector3 const& arg3, Vector3 const& arg4, Vector3 const& arg5, f32 arg6);
+        f32 arg1, const Vector3& arg2, const Vector3& arg3, const Vector3& arg4, const Vector3& arg5, f32 arg6);
 
     // ?InvMag@Vector3@@QBEMXZ
     ARTS_IMPORT f32 InvMag() const;
@@ -214,41 +214,41 @@ public:
     ARTS_IMPORT f32 Mag() const;
 
     // ?Neg@Vector3@@QAEXABV1@@Z | inline
-    ARTS_IMPORT void Neg(Vector3 const& arg1);
+    ARTS_IMPORT void Neg(const Vector3& arg1);
 
     // ?PointToLine@Vector3@@QBEMABV1@0@Z | unused
-    ARTS_IMPORT f32 PointToLine(Vector3 const& arg1, Vector3 const& arg2) const;
+    ARTS_IMPORT f32 PointToLine(const Vector3& arg1, const Vector3& arg2) const;
 
     // ?PointToSegment@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z | unused
-    ARTS_IMPORT f32 PointToSegment(Vector3 const& arg1, Vector3 const& arg2, Vector3& arg3, i32& arg4, f32* arg5) const;
+    ARTS_IMPORT f32 PointToSegment(const Vector3& arg1, const Vector3& arg2, Vector3& arg3, i32& arg4, f32* arg5) const;
 
     // ?PointToSegment2@Vector3@@QBEMABV1@0AAV1@AAHPAM@Z | unused
     ARTS_IMPORT f32 PointToSegment2(
-        Vector3 const& arg1, Vector3 const& arg2, Vector3& arg3, i32& arg4, f32* arg5) const;
+        const Vector3& arg1, const Vector3& arg2, Vector3& arg3, i32& arg4, f32* arg5) const;
 
     // ?Project@Vector3@@QAE?AV1@AAV1@@Z | unused
     ARTS_IMPORT Vector3 Project(Vector3& arg1);
 
     // ?RayIntersectPlane@Vector3@@QAEHABV1@0ABVVector4@@M@Z | unused
-    ARTS_IMPORT i32 RayIntersectPlane(Vector3 const& arg1, Vector3 const& arg2, Vector4 const& arg3, f32 arg4);
+    ARTS_IMPORT i32 RayIntersectPlane(const Vector3& arg1, const Vector3& arg2, const Vector4& arg3, f32 arg4);
 
     // ?Rebound@Vector3@@QAEXABV1@M@Z | unused
-    ARTS_IMPORT void Rebound(Vector3 const& arg1, f32 arg2);
+    ARTS_IMPORT void Rebound(const Vector3& arg1, f32 arg2);
 
     // ?Reflect@Vector3@@QBE?AV1@ABV1@@Z | unused
-    ARTS_IMPORT Vector3 Reflect(Vector3 const& arg1) const;
+    ARTS_IMPORT Vector3 Reflect(const Vector3& arg1) const;
 
     // ?Rotate@Vector3@@QAEXMH@Z
     ARTS_IMPORT void Rotate(f32 arg1, i32 arg2);
 
     // ?Scale@Vector3@@QAEXABV1@M@Z | inline
-    ARTS_IMPORT void Scale(Vector3 const& arg1, f32 arg2);
+    ARTS_IMPORT void Scale(const Vector3& arg1, f32 arg2);
 
     // ?Set@Vector3@@QAEXMMM@Z | inline
     ARTS_IMPORT void Set(f32 arg1, f32 arg2, f32 arg3);
 
     // ?Slerp@Vector3@@QAEXMABV1@0@Z | unused
-    ARTS_IMPORT void Slerp(f32 arg1, Vector3 const& arg2, Vector3 const& arg3);
+    ARTS_IMPORT void Slerp(f32 arg1, const Vector3& arg2, const Vector3& arg3);
 
     // ?hsvtorgb@Vector3@@QAEXXZ | unused
     ARTS_IMPORT void hsvtorgb();
@@ -286,20 +286,20 @@ public:
 check_size(Vector3, 0xC);
 
 // ?TransformNormalList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z | unused
-ARTS_IMPORT void TransformNormalList(Vector3* arg1, Vector3 const* arg2, i32 arg3, Matrix34 const& arg4);
+ARTS_IMPORT void TransformNormalList(Vector3* arg1, const Vector3* arg2, i32 arg3, const Matrix34& arg4);
 
 // ?TransformNormalList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z | unused
-ARTS_IMPORT void TransformNormalList(Vector3** arg1, Vector3 const** arg2, i32 arg3, Matrix34 const& arg4);
+ARTS_IMPORT void TransformNormalList(Vector3** arg1, const Vector3** arg2, i32 arg3, const Matrix34& arg4);
 
 // ?TransformVertList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z
-ARTS_IMPORT void TransformVertList(Vector3* arg1, Vector3 const* arg2, i32 arg3, Matrix34 const& arg4);
+ARTS_IMPORT void TransformVertList(Vector3* arg1, const Vector3* arg2, i32 arg3, const Matrix34& arg4);
 
 // ?TransformVertList@@YAXPAPAVVector3@@PAPBV1@HABVMatrix34@@@Z | unused
-ARTS_IMPORT void TransformVertList(Vector3** arg1, Vector3 const** arg2, i32 arg3, Matrix34 const& arg4);
+ARTS_IMPORT void TransformVertList(Vector3** arg1, const Vector3** arg2, i32 arg3, const Matrix34& arg4);
 
 // ?TransformVertNorm@@YAXAAVVector3@@0ABV1@0ABVMatrix34@@@Z | unused
 ARTS_IMPORT void TransformVertNorm(
-    Vector3& arg1, Vector3& arg2, Vector3 const& arg3, Vector3& arg4, Matrix34 const& arg5);
+    Vector3& arg1, Vector3& arg2, const Vector3& arg3, Vector3& arg4, const Matrix34& arg5);
 
 // ?ORIGIN@@3VVector3@@A
 ARTS_IMPORT extern Vector3 ORIGIN;

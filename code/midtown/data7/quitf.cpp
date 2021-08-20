@@ -24,7 +24,7 @@ define_dummy_symbol(data7_quitf);
 
 #include <cstdlib>
 
-[[noreturn]] void Quitf(ARTS_FORMAT_STRING char const* format, ...)
+[[noreturn]] void Quitf(ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);

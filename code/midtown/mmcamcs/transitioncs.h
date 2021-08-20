@@ -51,7 +51,7 @@ public:
     ARTS_IMPORT ~TransitionCS() override = default;
 
     // ?ForceMatrixDelta@TransitionCS@@UAEXABVVector3@@@Z
-    ARTS_IMPORT void ForceMatrixDelta(Vector3 const& arg1) override;
+    ARTS_IMPORT void ForceMatrixDelta(const Vector3& arg1) override;
 
     // ?Init@TransitionCS@@QAEXPAVmmCar@@@Z
     ARTS_IMPORT void Init(mmCar* arg1);

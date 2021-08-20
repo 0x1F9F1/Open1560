@@ -25,4 +25,4 @@
 */
 
 // ?Quitf@@YAXPBDZZ
-[[noreturn]] ARTS_EXPORT void Quitf(ARTS_FORMAT_STRING char const* format, ...);
+[[noreturn]] ARTS_EXPORT void Quitf(ARTS_FORMAT_STRING const char* format, ...);

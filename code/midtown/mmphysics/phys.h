@@ -243,20 +243,20 @@ ARTS_IMPORT void DoEdgeEdge(mmEdgeBodyIsect* arg1, mmIntersection** arg2, i32* a
 
 // ?DoEndPtSearch@@YAXHABVVector3@@PAVmmEdgeBodyIsect@@HPAPAVmmIntersection@@PAHH@Z
 ARTS_IMPORT void DoEndPtSearch(
-    i32 arg1, Vector3 const& arg2, mmEdgeBodyIsect* arg3, i32 arg4, mmIntersection** arg5, i32* arg6, i32 arg7);
+    i32 arg1, const Vector3& arg2, mmEdgeBodyIsect* arg3, i32 arg4, mmIntersection** arg5, i32* arg6, i32 arg7);
 
 // ?FindIntersections@@YAHPAVmmIntersection@@HPAVasBound@@1PAVmmBoundTemplate@@2PAVmmEdgeBodyIsect@@H3H@Z
 ARTS_IMPORT i32 FindIntersections(mmIntersection* arg1, i32 arg2, asBound* arg3, asBound* arg4, mmBoundTemplate* arg5,
     mmBoundTemplate* arg6, mmEdgeBodyIsect* arg7, i32 arg8, mmEdgeBodyIsect* arg9, i32 arg10);
 
 // ?GetCollidePolyEdge@@YAHABVVector3@@PAVmmPolygon@@PAVmmBoundTemplate@@PAVasInertialCS@@0M0000PAV1@4PAMPAH6@Z
-ARTS_IMPORT i32 GetCollidePolyEdge(Vector3 const& arg1, mmPolygon* arg2, mmBoundTemplate* arg3, asInertialCS* arg4,
-    Vector3 const& arg5, f32 arg6, Vector3 const& arg7, Vector3 const& arg8, Vector3 const& arg9, Vector3 const& arg10,
+ARTS_IMPORT i32 GetCollidePolyEdge(const Vector3& arg1, mmPolygon* arg2, mmBoundTemplate* arg3, asInertialCS* arg4,
+    const Vector3& arg5, f32 arg6, const Vector3& arg7, const Vector3& arg8, const Vector3& arg9, const Vector3& arg10,
     Vector3* arg11, Vector3* arg12, f32* arg13, i32* arg14, i32* arg15);
 
 // ?SegSegDistNorm@@YAXABVVector3@@00000PAV1@11PAMPAH@Z
-ARTS_IMPORT void SegSegDistNorm(Vector3 const& arg1, Vector3 const& arg2, Vector3 const& arg3, Vector3 const& arg4,
-    Vector3 const& arg5, Vector3 const& arg6, Vector3* arg7, Vector3* arg8, Vector3* arg9, f32* arg10, i32* arg11);
+ARTS_IMPORT void SegSegDistNorm(const Vector3& arg1, const Vector3& arg2, const Vector3& arg3, const Vector3& arg4,
+    const Vector3& arg5, const Vector3& arg6, Vector3* arg7, Vector3* arg8, Vector3* arg9, f32* arg10, i32* arg11);
 
 // ?testNoOverlap@@YAHMM@Z | inline
 ARTS_IMPORT i32 testNoOverlap(f32 arg1, f32 arg2);

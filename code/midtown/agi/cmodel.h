@@ -52,10 +52,10 @@ public:
     ARTS_EXPORT u32 FindColor(i32 r, i32 g, i32 b, i32 a);
 
     // ?GetColor@agiColorModel@@QAEIABVVector3@@@Z
-    ARTS_EXPORT u32 GetColor(Vector3 const& color);
+    ARTS_EXPORT u32 GetColor(const Vector3& color);
 
     // ?GetColor@agiColorModel@@QAEIABVVector4@@@Z | unused
-    ARTS_EXPORT u32 GetColor(Vector4 const& color);
+    ARTS_EXPORT u32 GetColor(const Vector4& color);
 
     // ?GetColor@agiColorModel@@QAEIHHHH@Z
     ARTS_EXPORT u32 GetColor(i32 r, i32 g, i32 b, i32 a);
@@ -73,7 +73,7 @@ public:
 
     i32 Release()
     {
-        u32 const refs = --RefCount;
+        const u32 refs = --RefCount;
 
         if (refs == 0)
         {

@@ -38,11 +38,11 @@ i32 MessageFirst = 0;
 
 u16* MonoPointer = nullptr;
 
-void (*Printer)(i32 level, char const* format, std::va_list args) = DefaultPrinter;
+void (*Printer)(i32 level, const char* format, std::va_list args) = DefaultPrinter;
 
 char __assertFailed[] = "Assertion failed (%s,%d): '%s'";
 
-void Printerf(i32 level, ARTS_FORMAT_STRING char const* format, ...)
+void Printerf(i32 level, ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -50,7 +50,7 @@ void Printerf(i32 level, ARTS_FORMAT_STRING char const* format, ...)
     va_end(va);
 }
 
-void Displayf(ARTS_FORMAT_STRING char const* format, ...)
+void Displayf(ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -58,7 +58,7 @@ void Displayf(ARTS_FORMAT_STRING char const* format, ...)
     va_end(va);
 }
 
-void Printf(ARTS_FORMAT_STRING char const* format, ...)
+void Printf(ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -66,7 +66,7 @@ void Printf(ARTS_FORMAT_STRING char const* format, ...)
     va_end(va);
 }
 
-void Debugf(ARTS_FORMAT_STRING char const* format, ...)
+void Debugf(ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -74,7 +74,7 @@ void Debugf(ARTS_FORMAT_STRING char const* format, ...)
     va_end(va);
 }
 
-void Warningf(ARTS_FORMAT_STRING char const* format, ...)
+void Warningf(ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -82,7 +82,7 @@ void Warningf(ARTS_FORMAT_STRING char const* format, ...)
     va_end(va);
 }
 
-void Errorf(ARTS_FORMAT_STRING char const* format, ...)
+void Errorf(ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -90,7 +90,7 @@ void Errorf(ARTS_FORMAT_STRING char const* format, ...)
     va_end(va);
 }
 
-void PErrorf(ARTS_FORMAT_STRING char const* format, ...)
+void PErrorf(ARTS_FORMAT_STRING const char* format, ...)
 {
     char buffer[256];
     std::va_list va;
@@ -102,7 +102,7 @@ void PErrorf(ARTS_FORMAT_STRING char const* format, ...)
     Errorf("%s: %s", (strerror_s(error, errno) == 0) ? error : "Unknown Error", buffer);
 }
 
-void PDebug(ARTS_FORMAT_STRING char const* format, ...)
+void PDebug(ARTS_FORMAT_STRING const char* format, ...)
 {
     char buffer[256];
     std::va_list va;
@@ -114,7 +114,7 @@ void PDebug(ARTS_FORMAT_STRING char const* format, ...)
     Warningf("%s: %s", (strerror_s(error, errno) == 0) ? error : "Unknown Error", buffer);
 }
 
-[[noreturn]] void Abortf(ARTS_FORMAT_STRING char const* format, ...)
+[[noreturn]] void Abortf(ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -142,7 +142,7 @@ static constexpr u8 PrinterColors[5] {
     FOREGROUND_RED | FOREGROUND_INTENSITY,
 };
 
-void DefaultPrinter(i32 level, char const* format, std::va_list args)
+void DefaultPrinter(i32 level, const char* format, std::va_list args)
 {
     char buffer[4096];
     arts_strcpy(buffer, PrinterPrefixes[level]);
@@ -321,7 +321,7 @@ void LogToConsole()
     }
 }
 
-void Quit(char const* message)
+void Quit(const char* message)
 {
     if (message)
         Quitf("%s", message);

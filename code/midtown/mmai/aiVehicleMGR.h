@@ -137,7 +137,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // ?FromMatrix@aiVehicleInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetClass@aiVehicleInstance@@UAEPAVMetaClass@@XZ
     ARTS_IMPORT MetaClass* GetClass() override;

@@ -319,16 +319,16 @@ check_size(asNetwork, 0x64);
 
 // ?EnumConnectionsCallback@@YGHPBU_GUID@@PAXKPBUDPNAME@@K1@Z
 ARTS_IMPORT i32 ARTS_STDCALL EnumConnectionsCallback(
-    _GUID const* arg1, void* arg2, ulong arg3, DPNAME const* arg4, ulong arg5, void* arg6);
+    const _GUID* arg1, void* arg2, ulong arg3, const DPNAME* arg4, ulong arg5, void* arg6);
 
 // ?EnumModemAddress@@YGHABU_GUID@@KPBXPAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL EnumModemAddress(_GUID const& arg1, ulong arg2, void const* arg3, void* arg4);
+ARTS_IMPORT i32 ARTS_STDCALL EnumModemAddress(const _GUID& arg1, ulong arg2, const void* arg3, void* arg4);
 
 // ?EnumPlayersCallback@@YGHKKPBUDPNAME@@KPAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL EnumPlayersCallback(ulong arg1, ulong arg2, DPNAME const* arg3, ulong arg4, void* arg5);
+ARTS_IMPORT i32 ARTS_STDCALL EnumPlayersCallback(ulong arg1, ulong arg2, const DPNAME* arg3, ulong arg4, void* arg5);
 
 // ?EnumSessionCallback@@YGHPBUDPSESSIONDESC2@@PAKKPAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL EnumSessionCallback(DPSESSIONDESC2 const* arg1, ulong* arg2, ulong arg3, void* arg4);
+ARTS_IMPORT i32 ARTS_STDCALL EnumSessionCallback(const DPSESSIONDESC2* arg1, ulong* arg2, ulong arg3, void* arg4);
 
 // ?NETMGR@@3VasNetwork@@A
 ARTS_IMPORT extern asNetwork NETMGR;

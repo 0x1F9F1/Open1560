@@ -34,10 +34,10 @@ struct IUnknown;
 ARTS_IMPORT char* DDErrorToString(ilong arg1);
 
 // ?__DDRelease@@YAXPAUIUnknown@@PBD1H@Z
-ARTS_IMPORT void __DDRelease(IUnknown* arg1, char const* arg2, char const* arg3, i32 arg4);
+ARTS_IMPORT void __DDRelease(IUnknown* arg1, const char* arg2, const char* arg3, i32 arg4);
 
 // ?__DDTry@@YAXHPBD0H@Z
-ARTS_IMPORT void __DDTry(i32 arg1, char const* arg2, char const* arg3, i32 arg4);
+ARTS_IMPORT void __DDTry(i32 arg1, const char* arg2, const char* arg3, i32 arg4);
 
 // ?DDIgnoreErrors@@3HA
 ARTS_IMPORT extern b32 DDIgnoreErrors;

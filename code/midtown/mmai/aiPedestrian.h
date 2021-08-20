@@ -245,7 +245,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // ?FromMatrix@aiPedestrianInstance@@UAIXABVMatrix34@@@Z | inline
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetPos@aiPedestrianInstance@@UAIAAVVector3@@XZ | inline
     ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;

@@ -118,4 +118,4 @@ public:
 check_size(aiRailSet, 0x80);
 
 // ??D@YA?AVVector3@@MABV0@@Z | inline
-ARTS_IMPORT Vector3 operator*(f32 arg1, Vector3 const& arg2);
+ARTS_IMPORT Vector3 operator*(f32 arg1, const Vector3& arg2);

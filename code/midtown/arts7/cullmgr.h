@@ -185,7 +185,7 @@ private:
 check_size(asCullManager, 0x1F8);
 
 // ?Statsf@@YAXPBDZZ
-ARTS_EXPORT void Statsf(ARTS_FORMAT_STRING char const* format, ...);
+ARTS_EXPORT void Statsf(ARTS_FORMAT_STRING const char* format, ...);
 
 // ?CULLMGR@@3PAVasCullManager@@A
 ARTS_IMPORT extern asCullManager* CULLMGR;

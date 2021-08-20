@@ -69,7 +69,7 @@ void mmNumber::Init(mmNumberFont* font, f32 x, f32 y)
     y_ = y;
 }
 
-void mmNumber::Printf(char const* format, ...)
+void mmNumber::Printf(const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);

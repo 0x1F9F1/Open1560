@@ -52,7 +52,7 @@ public:
     ARTS_IMPORT i32 Load(Tokenizer* arg1, bnBone** arg2);
 
     // ?Pose@bnBone@@QAEXPBVVector3@@AAH@Z
-    ARTS_IMPORT void Pose(Vector3 const* arg1, i32& arg2);
+    ARTS_IMPORT void Pose(const Vector3* arg1, i32& arg2);
 
     // ?Transform@bnBone@@QAEXPAVMatrix34@@@Z
     ARTS_IMPORT void Transform(Matrix34* arg1);

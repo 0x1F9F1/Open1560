@@ -45,4 +45,4 @@ ARTS_IMPORT i32 jround_up(i32 arg1, i32 arg2);
 ARTS_IMPORT void jzero_far(void* arg1, u32 arg2);
 
 // ?jpeg_natural_order@@3PBHB
-ARTS_IMPORT extern i32 const* const jpeg_natural_order;
+ARTS_IMPORT extern const i32* const jpeg_natural_order;

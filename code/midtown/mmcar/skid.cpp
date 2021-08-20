@@ -26,7 +26,7 @@ void mmSkid::AddWidgets(Bank* /*arg1*/)
 void ARTS_FASTCALL mmSkid::DrawShadow()
 {}
 
-void ARTS_FASTCALL mmSkid::FromMatrix(Matrix34 const& /*arg1*/)
+void ARTS_FASTCALL mmSkid::FromMatrix(const Matrix34& /*arg1*/)
 {}
 
 void mmSkid::Update()

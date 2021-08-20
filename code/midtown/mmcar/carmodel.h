@@ -119,7 +119,7 @@ public:
     ARTS_IMPORT void EjectWheels(i32 arg1);
 
     // ?FromMatrix@mmCarModel@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetCarFlags@mmCarModel@@QAEHPAD@Z | unused
     ARTS_EXPORT i32 GetCarFlags(char* arg1);

@@ -37,7 +37,7 @@
 class agiTexSheet;
 
 // ?mystrtok@@YAPADPADPBD@Z
-ARTS_IMPORT char* mystrtok(char* str, char const* delims);
+ARTS_IMPORT char* mystrtok(char* str, const char* delims);
 
 // ?TEXSHEET@@3VagiTexSheet@@A
 ARTS_IMPORT extern agiTexSheet TEXSHEET;

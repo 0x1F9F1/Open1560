@@ -230,9 +230,9 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod)
 
 void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters* params)
 {
-    u32 const dst_width = Width;
-    u32 const dst_height = Height;
-    i32 const dst_pitch = Pitch;
+    const u32 dst_width = Width;
+    const u32 dst_height = Height;
+    const i32 dst_pitch = Pitch;
     u8* const dst_surface = static_cast<u8*>(Surface);
 
     // FIXME: Surfaces with a PackShift don't have their pitch updated. This should really be corrected in agiSurfaceDesc::Load.
@@ -333,8 +333,8 @@ void agiSurfaceDesc::CopyFrom(agiSurfaceDesc* src, i32 src_lod, agiTexParameters
 
     // 16:16 fixed point arithmetic
     // Avoids costly div instructions inside the for loop
-    u32 const src_x_step = (src_width << 16) / dst_width;
-    u32 const src_y_step = (src_height << 16) / dst_height;
+    const u32 src_x_step = (src_width << 16) / dst_width;
+    const u32 src_y_step = (src_height << 16) / dst_height;
 
     for (u32 dst_y = 0, src_y = 0; dst_y < dst_height; ++dst_y, src_y += src_y_step)
     {

@@ -20,7 +20,7 @@ define_dummy_symbol(agi_error);
 
 #include "error.h"
 
-void agiDisplayf(ARTS_FORMAT_STRING char const* format, ...)
+void agiDisplayf(ARTS_FORMAT_STRING const char* format, ...)
 {
     if (agiVerbose)
     {

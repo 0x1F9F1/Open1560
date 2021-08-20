@@ -162,7 +162,7 @@ ConstString Stream::GetString()
     return result;
 }
 
-isize Stream::Printf(ARTS_FORMAT_STRING char const* format, ...)
+isize Stream::Printf(ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -421,7 +421,7 @@ i32 Stream::Size()
     return RawSize();
 }
 
-isize Stream::Vprintf(char const* format, std::va_list va)
+isize Stream::Vprintf(const char* format, std::va_list va)
 {
     char buffer[256];
     arts_vsprintf(buffer, format, va);
@@ -501,7 +501,7 @@ Stream* arts_fopen(const char* path, const char* mode)
     return AsRaw((mode[0] == 'r') ? FileSystem::OpenAny(path, mode[1] != '+', 0, 4096) : HFS.CreateOn(path, 0, 4096));
 }
 
-void arts_fprintf(Stream* stream, ARTS_FORMAT_STRING char const* format, ...)
+void arts_fprintf(Stream* stream, ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);
@@ -509,7 +509,7 @@ void arts_fprintf(Stream* stream, ARTS_FORMAT_STRING char const* format, ...)
     va_end(va);
 }
 
-i32 arts_fscanf(Stream* stream, char const* format, ...)
+i32 arts_fscanf(Stream* stream, const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);

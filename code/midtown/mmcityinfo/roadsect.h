@@ -185,7 +185,7 @@ public:
     ARTS_IMPORT void SetStopLightName(i32 arg1, char* arg2);
 
     // ?SetStopLightPos@mmRoadSect@@QAEXHABVVector3@@0@Z | unused
-    ARTS_IMPORT void SetStopLightPos(i32 arg1, Vector3 const& arg2, Vector3 const& arg3);
+    ARTS_IMPORT void SetStopLightPos(i32 arg1, const Vector3& arg2, const Vector3& arg3);
 
     // ?SetStreetType@mmRoadSect@@QAEXPAD@Z | unused
     ARTS_IMPORT void SetStreetType(char* arg1);

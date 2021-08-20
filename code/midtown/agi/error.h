@@ -35,7 +35,7 @@
 #define AGI_ERROR_UNSUPPORTED -8
 
 // ?agiDisplayf@@YAXPBDZZ
-ARTS_EXPORT void agiDisplayf(ARTS_FORMAT_STRING char const* format, ...);
+ARTS_EXPORT void agiDisplayf(ARTS_FORMAT_STRING const char* format, ...);
 
 // ?agiGetError@@YAPADH@Z
 ARTS_EXPORT const char* agiGetError(i32 error);

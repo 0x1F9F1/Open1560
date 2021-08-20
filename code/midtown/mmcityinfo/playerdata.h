@@ -73,7 +73,7 @@ public:
     ARTS_IMPORT mmPlayerRecord();
 
     // ??0mmPlayerRecord@@QAE@ABV0@@Z | inline
-    ARTS_IMPORT mmPlayerRecord(mmPlayerRecord const& arg1);
+    ARTS_IMPORT mmPlayerRecord(const mmPlayerRecord& arg1);
 
     // ??_EmmPlayerRecord@@UAEPAXI@Z
     // ??_GmmPlayerRecord@@UAEPAXI@Z | unused

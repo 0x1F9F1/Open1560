@@ -49,23 +49,23 @@ public:
 #endif
 
     // ?InitSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
-    ARTS_IMPORT void InitSegment(Vector3 const& arg1, Vector3 const& arg2, mmBoundTemplate* arg3, i32 arg4, i32 arg5);
+    ARTS_IMPORT void InitSegment(const Vector3& arg1, const Vector3& arg2, mmBoundTemplate* arg3, i32 arg4, i32 arg5);
 
     // ?InitSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z | unused
-    ARTS_IMPORT void InitSphere(Vector3 const& arg1, f32 arg2, mmBoundTemplate* arg3, i32 arg4);
+    ARTS_IMPORT void InitSphere(const Vector3& arg1, f32 arg2, mmBoundTemplate* arg3, i32 arg4);
 
     // ?InitTransformedSegment@mmIntersection@@QAEXABVVector3@@0PAVmmBoundTemplate@@HH@Z
     ARTS_IMPORT void InitTransformedSegment(
-        Vector3 const& arg1, Vector3 const& arg2, mmBoundTemplate* arg3, i32 arg4, i32 arg5);
+        const Vector3& arg1, const Vector3& arg2, mmBoundTemplate* arg3, i32 arg4, i32 arg5);
 
     // ?InitTransformedSphere@mmIntersection@@QAEXABVVector3@@MPAVmmBoundTemplate@@H@Z
-    ARTS_IMPORT void InitTransformedSphere(Vector3 const& arg1, f32 arg2, mmBoundTemplate* arg3, i32 arg4);
+    ARTS_IMPORT void InitTransformedSphere(const Vector3& arg1, f32 arg2, mmBoundTemplate* arg3, i32 arg4);
 
     // ?Reset@mmIntersection@@QAEXXZ
     ARTS_IMPORT void Reset();
 
     // ?Transform@mmIntersection@@QAEXPBVMatrix34@@@Z
-    ARTS_IMPORT void Transform(Matrix34 const* arg1);
+    ARTS_IMPORT void Transform(const Matrix34* arg1);
 
     u8 gap0[0xB0];
 };
@@ -85,7 +85,7 @@ public:
 
     // ?InitSegment@mmEdgeBodyIsect@@QAEXABVVector3@@0HH0M@Z
     ARTS_IMPORT void InitSegment(
-        Vector3 const& arg1, Vector3 const& arg2, i32 arg3, i32 arg4, Vector3 const& arg5, f32 arg6);
+        const Vector3& arg1, const Vector3& arg2, i32 arg3, i32 arg4, const Vector3& arg5, f32 arg6);
 
     // ?Reset@mmEdgeBodyIsect@@QAEXXZ
     ARTS_IMPORT void Reset();

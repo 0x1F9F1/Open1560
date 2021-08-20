@@ -67,7 +67,7 @@ public:
     ARTS_IMPORT i32 DSCreateSoundBuffer();
 
     // ?DSLoadSoundBuffer@StreamObj@@QAEPAUIDirectSoundBuffer@@PBDK@Z
-    ARTS_IMPORT IDirectSoundBuffer* DSLoadSoundBuffer(char const* arg1, ulong arg2);
+    ARTS_IMPORT IDirectSoundBuffer* DSLoadSoundBuffer(const char* arg1, ulong arg2);
 
     // ?FillDataBuffer@StreamObj@@QAEHI@Z
     ARTS_IMPORT i32 FillDataBuffer(u32 arg1);
@@ -76,7 +76,7 @@ public:
     ARTS_IMPORT Stream* GetFileStreamPtr();
 
     // ?Init@StreamObj@@QAEHPBDK@Z
-    ARTS_IMPORT i32 Init(char const* arg1, ulong arg2);
+    ARTS_IMPORT i32 Init(const char* arg1, ulong arg2);
 
     // ?IsPlaying@StreamObj@@QAEFXZ
     ARTS_IMPORT i16 IsPlaying();
@@ -140,7 +140,7 @@ private:
     ARTS_IMPORT u32 GetWaveBytesOffset(Stream* arg1, i16 arg2);
 
     // ?OpenWaveFile@StreamObj@@AAEPAVStream@@PBDF@Z
-    ARTS_IMPORT Stream* OpenWaveFile(char const* arg1, i16 arg2);
+    ARTS_IMPORT Stream* OpenWaveFile(const char* arg1, i16 arg2);
 
     u8 gap0[0x138];
 };

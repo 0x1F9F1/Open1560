@@ -78,40 +78,40 @@ public:
     {}
 
     // ??0Matrix44@@QAE@ABVMatrix34@@@Z
-    ARTS_IMPORT Matrix44(Matrix34 const& arg1);
+    ARTS_IMPORT Matrix44(const Matrix34& arg1);
 
     // ??0Matrix44@@QAE@ABV0@@Z | inline
-    ARTS_IMPORT Matrix44(Matrix44 const& arg1);
+    ARTS_IMPORT Matrix44(const Matrix44& arg1);
 
     // ??DMatrix44@@QBE?AV0@M@Z | unused
     ARTS_IMPORT Matrix44 operator*(f32 arg1) const;
 
     // ??HMatrix44@@QBE?AV0@ABV0@@Z | unused
-    ARTS_IMPORT Matrix44 operator+(Matrix44 const& arg1) const;
+    ARTS_IMPORT Matrix44 operator+(const Matrix44& arg1) const;
 
     // ??GMatrix44@@QBE?AV0@XZ | unused
     ARTS_IMPORT Matrix44 operator-() const;
 
     // ??GMatrix44@@QBE?AV0@ABV0@@Z | unused
-    ARTS_IMPORT Matrix44 operator-(Matrix44 const& arg1) const;
+    ARTS_IMPORT Matrix44 operator-(const Matrix44& arg1) const;
 
     // ??KMatrix44@@QBE?AV0@M@Z | unused
     ARTS_IMPORT Matrix44 operator/(f32 arg1) const;
 
     // ??TMatrix44@@QBE?AV0@ABV0@@Z
-    ARTS_IMPORT Matrix44 operator^(Matrix44 const& arg1) const;
+    ARTS_IMPORT Matrix44 operator^(const Matrix44& arg1) const;
 
     // ??TMatrix44@@QBE?AVVector4@@ABV1@@Z
-    ARTS_IMPORT Vector4 operator^(Vector4 const& arg1) const;
+    ARTS_IMPORT Vector4 operator^(const Vector4& arg1) const;
 
     // ?Determinant@Matrix44@@QBEMXZ
     ARTS_IMPORT f32 Determinant() const;
 
     // ?Dot@Matrix44@@QAEXABV1@0@Z
-    ARTS_IMPORT void Dot(Matrix44 const& arg1, Matrix44 const& arg2);
+    ARTS_IMPORT void Dot(const Matrix44& arg1, const Matrix44& arg2);
 
     // ?FromQuaternion@Matrix44@@QAEXABVQuaternion@@@Z
-    ARTS_IMPORT void FromQuaternion(Quaternion const& arg1);
+    ARTS_IMPORT void FromQuaternion(const Quaternion& arg1);
 
     // ?Identity@Matrix44@@QAEXXZ
     ARTS_IMPORT void Identity();
@@ -132,13 +132,13 @@ public:
     ARTS_IMPORT void Rotate(char arg1, f32 arg2);
 
     // ?Rotate@Matrix44@@QAEXABVVector3@@0@Z
-    ARTS_IMPORT void Rotate(Vector3 const& arg1, Vector3 const& arg2);
+    ARTS_IMPORT void Rotate(const Vector3& arg1, const Vector3& arg2);
 
     // ?Rotate@Matrix44@@QAEXABVVector3@@M@Z | unused
-    ARTS_IMPORT void Rotate(Vector3 const& arg1, f32 arg2);
+    ARTS_IMPORT void Rotate(const Vector3& arg1, f32 arg2);
 
     // ?Scale@Matrix44@@QAEXABVVector3@@M@Z | unused
-    ARTS_IMPORT void Scale(Vector3 const& arg1, f32 arg2);
+    ARTS_IMPORT void Scale(const Vector3& arg1, f32 arg2);
 
     // ?Scale@Matrix44@@QAEXMMM@Z
     ARTS_IMPORT void Scale(f32 arg1, f32 arg2, f32 arg3);
@@ -158,13 +158,13 @@ public:
 check_size(Matrix44, 0x40);
 
 // ??D@YA?AVMatrix44@@MABV0@@Z | unused
-ARTS_IMPORT Matrix44 operator*(f32 arg1, Matrix44 const& arg2);
+ARTS_IMPORT Matrix44 operator*(f32 arg1, const Matrix44& arg2);
 
 // ??T@YA?AVVector3@@ABV0@ABVMatrix44@@@Z | unused
-ARTS_IMPORT Vector3 operator^(Vector3 const& arg1, Matrix44 const& arg2);
+ARTS_IMPORT Vector3 operator^(const Vector3& arg1, const Matrix44& arg2);
 
 // ??T@YA?AVVector4@@ABV0@ABVMatrix44@@@Z
-ARTS_IMPORT Vector4 operator^(Vector4 const& arg1, Matrix44 const& arg2);
+ARTS_IMPORT Vector4 operator^(const Vector4& arg1, const Matrix44& arg2);
 
 // ?BezierBasis@@3VMatrix44@@A
 ARTS_IMPORT extern Matrix44 BezierBasis;

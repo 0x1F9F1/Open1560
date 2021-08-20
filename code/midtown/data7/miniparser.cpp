@@ -20,7 +20,7 @@ define_dummy_symbol(data7_miniparser);
 
 #include "miniparser.h"
 
-void MiniParser::Commentf(ARTS_FORMAT_STRING char const* format, ...)
+void MiniParser::Commentf(ARTS_FORMAT_STRING const char* format, ...)
 {
     PutCh(';');
     PutCh(' ');
@@ -33,7 +33,7 @@ void MiniParser::Commentf(ARTS_FORMAT_STRING char const* format, ...)
 
 static i32 TotalParserErrors = 0;
 
-void MiniParser::Errorf(ARTS_FORMAT_STRING char const* format, ...)
+void MiniParser::Errorf(ARTS_FORMAT_STRING const char* format, ...)
 {
     ++TotalParserErrors;
 
@@ -258,7 +258,7 @@ void MiniParser::PrintString(const char* str, i32 len)
     }
 }
 
-void MiniParser::Printf(ARTS_FORMAT_STRING char const* format, ...)
+void MiniParser::Printf(ARTS_FORMAT_STRING const char* format, ...)
 {
     std::va_list va;
     va_start(va, format);

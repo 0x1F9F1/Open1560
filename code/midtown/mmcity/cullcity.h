@@ -261,7 +261,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
 
     // ?FromMatrix@mmRunwayLight@@UAIXABVMatrix34@@@Z
-    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_EXPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetPos@mmRunwayLight@@UAIAAVVector3@@XZ
     ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;

@@ -255,7 +255,7 @@ void asCullManager::PrintStats()
 
 extern const char* PrinterPrefixes[5];
 
-u32 const agiPrinterColors[5] {
+const u32 agiPrinterColors[5] {
     0xFFFFFFFF,
     0xFFFFFF00,
     0xFFFF0000,
@@ -263,7 +263,7 @@ u32 const agiPrinterColors[5] {
     0xFFFF0000,
 };
 
-void Statsf(ARTS_FORMAT_STRING char const* format, ...)
+void Statsf(ARTS_FORMAT_STRING const char* format, ...)
 {
     char buffer[256];
     std::va_list va;

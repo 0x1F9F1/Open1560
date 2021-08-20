@@ -33,8 +33,8 @@
 */
 
 // ?CollideTri@@YAHABVVector3@@0000AAMAAV1@2@Z | unused
-ARTS_IMPORT i32 CollideTri(Vector3 const& arg1, Vector3 const& arg2, Vector3 const& arg3, Vector3 const& arg4,
-    Vector3 const& arg5, f32& arg6, Vector3& arg7, Vector3& arg8);
+ARTS_IMPORT i32 CollideTri(const Vector3& arg1, const Vector3& arg2, const Vector3& arg3, const Vector3& arg4,
+    const Vector3& arg5, f32& arg6, Vector3& arg7, Vector3& arg8);
 
 // ?ComputeMirrorMatrix@@YAXAAVMatrix34@@AAVVector4@@@Z | unused
 ARTS_IMPORT void ComputeMirrorMatrix(Matrix34& arg1, Vector4& arg2);

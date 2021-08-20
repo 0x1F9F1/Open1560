@@ -93,7 +93,7 @@ public:
     ARTS_IMPORT void Update() override;
 
     // ?Visible@asForm@@QBEHPAVasCamera@@ABVMatrix34@@@Z
-    ARTS_IMPORT i32 Visible(asCamera* arg1, Matrix34 const& arg2) const;
+    ARTS_IMPORT i32 Visible(asCamera* arg1, const Matrix34& arg2) const;
 
     // ?DeclareFields@asForm@@SAXXZ
     ARTS_IMPORT static void DeclareFields();

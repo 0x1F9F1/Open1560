@@ -210,7 +210,7 @@ static inline void ARTS_FASTCALL HexDump16(char (&buffer)[65], const u8* data)
             v = 0;
         }
 
-        u32 const j = (i * 3);
+        const u32 j = (i * 3);
 
         buffer[j + 0] = HexCharTable[v >> 4];
         buffer[j + 1] = HexCharTable[v & 0xF];
@@ -731,7 +731,7 @@ void asMemoryAllocator::Link(FreeNode* n)
 {
     heap_used_ -= n->Size + sizeof(Node);
 
-    u32 const bucket = GetBucketIndex(n->Size);
+    const u32 bucket = GetBucketIndex(n->Size);
 
     FreeNode* const next = buckets_[bucket];
 

@@ -203,64 +203,64 @@ public:
     ARTS_CLANG_DIAGNOSTIC_IGNORED("-Wignored-qualifiers");
 
     // ?GetCDMusicOnMask@DSGlobal@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetCDMusicOnMask();
+    ARTS_IMPORT static const u32 GetCDMusicOnMask();
 
     // ?GetCommentaryOnMask@DSGlobal@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetCommentaryOnMask();
+    ARTS_IMPORT static const u32 GetCommentaryOnMask();
 
     // ?GetDSound3DMask@DSGlobal@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetDSound3DMask();
+    ARTS_IMPORT static const u32 GetDSound3DMask();
 
     // ?GetEchoOnMask@DSGlobal@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetEchoOnMask();
+    ARTS_IMPORT static const u32 GetEchoOnMask();
 
     // ?GetHiResMask@DSGlobal@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetHiResMask();
+    ARTS_IMPORT static const u32 GetHiResMask();
 
     // ?GetHiSampleSizeMask@DSGlobal@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetHiSampleSizeMask();
+    ARTS_IMPORT static const u32 GetHiSampleSizeMask();
 
     // ?GetSoundFXOnMask@DSGlobal@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetSoundFXOnMask();
+    ARTS_IMPORT static const u32 GetSoundFXOnMask();
 
     // ?GetStereoOnMask@DSGlobal@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetStereoOnMask();
+    ARTS_IMPORT static const u32 GetStereoOnMask();
 
     // ?GetUsingEAXMask@DSGlobal@@SA?BIXZ
-    ARTS_IMPORT static u32 const GetUsingEAXMask();
+    ARTS_IMPORT static const u32 GetUsingEAXMask();
 
     ARTS_DIAGNOSTIC_POP;
 
 private:
     // ?s_iAlwaysEAXMask@DSGlobal@@0IB
-    ARTS_IMPORT static u32 const s_iAlwaysEAXMask;
+    ARTS_IMPORT static const u32 s_iAlwaysEAXMask;
 
     // ?s_iCDMusicOnMask@DSGlobal@@0IB
-    ARTS_IMPORT static u32 const s_iCDMusicOnMask;
+    ARTS_IMPORT static const u32 s_iCDMusicOnMask;
 
     // ?s_iCommentaryOnMask@DSGlobal@@0IB
-    ARTS_IMPORT static u32 const s_iCommentaryOnMask;
+    ARTS_IMPORT static const u32 s_iCommentaryOnMask;
 
     // ?s_iDSound3DMask@DSGlobal@@0IB
-    ARTS_IMPORT static u32 const s_iDSound3DMask;
+    ARTS_IMPORT static const u32 s_iDSound3DMask;
 
     // ?s_iEchoOnMask@DSGlobal@@0IB
-    ARTS_IMPORT static u32 const s_iEchoOnMask;
+    ARTS_IMPORT static const u32 s_iEchoOnMask;
 
     // ?s_iHiResMask@DSGlobal@@0IB
-    ARTS_IMPORT static u32 const s_iHiResMask;
+    ARTS_IMPORT static const u32 s_iHiResMask;
 
     // ?s_iHiSampleSizeMask@DSGlobal@@0IB
-    ARTS_IMPORT static u32 const s_iHiSampleSizeMask;
+    ARTS_IMPORT static const u32 s_iHiSampleSizeMask;
 
     // ?s_iSoundFXOnMask@DSGlobal@@0IB
-    ARTS_IMPORT static u32 const s_iSoundFXOnMask;
+    ARTS_IMPORT static const u32 s_iSoundFXOnMask;
 
     // ?s_iStereoOnMask@DSGlobal@@0IB
-    ARTS_IMPORT static u32 const s_iStereoOnMask;
+    ARTS_IMPORT static const u32 s_iStereoOnMask;
 
     // ?s_iUsingEAXMask@DSGlobal@@0IB
-    ARTS_IMPORT static u32 const s_iUsingEAXMask;
+    ARTS_IMPORT static const u32 s_iUsingEAXMask;
 
     IDirectSoundBuffer* DSBuffer;
     IDirectSound* DSound;

@@ -34,7 +34,7 @@ struct DIEFFECTINFOA;
 struct IDirectInputDevice2A;
 
 // ?inputEnumEffectTypeProc@@YGHPBUDIEFFECTINFOA@@PAX@Z
-ARTS_IMPORT i32 ARTS_STDCALL inputEnumEffectTypeProc(DIEFFECTINFOA const* arg1, void* arg2);
+ARTS_IMPORT i32 ARTS_STDCALL inputEnumEffectTypeProc(const DIEFFECTINFOA* arg1, void* arg2);
 
 class mmEffectFF
 {

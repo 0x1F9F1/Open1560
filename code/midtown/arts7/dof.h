@@ -49,7 +49,7 @@ public:
     ARTS_IMPORT ~asDofCS() override = default;
 
     // ??4asDofCS@@QAEXABV0@@Z | unused
-    ARTS_IMPORT void operator=(asDofCS const& arg1);
+    ARTS_IMPORT void operator=(const asDofCS& arg1);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asDofCS@@UAEXPAVBank@@@Z

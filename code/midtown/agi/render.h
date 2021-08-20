@@ -72,7 +72,7 @@ public:
 
     i32 Release()
     {
-        u32 const refs = --ref_count_;
+        const u32 refs = --ref_count_;
 
         if (refs == 0)
         {

@@ -46,7 +46,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     // 96 8x8 characters, from 0x20 to 0x7F
     // Split into 16 per row, with 6 rows
 
-    i32 const font_scale = std::max(PARAM_font_scale.get_or<i32>(Pipe()->GetHeight() / 60), 8);
+    const i32 font_scale = std::max(PARAM_font_scale.get_or<i32>(Pipe()->GetHeight() / 60), 8);
     bool alpha = false;
 
     agiFontWidth = font_scale;
@@ -62,10 +62,10 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
 
         Rc<agiColorModel> cmodel = AsRc(agiColorModel::FindMatch(surface.get()));
 
-        u32 const black = cmodel->GetColor(0x00, 0x00, 0x00, alpha ? 0x00 : 0xFF);
-        u32 const white = cmodel->GetColor(0xFF, 0xFF, 0xFF, 0xFF);
+        const u32 black = cmodel->GetColor(0x00, 0x00, 0x00, alpha ? 0x00 : 0xFF);
+        const u32 white = cmodel->GetColor(0xFF, 0xFF, 0xFF, 0xFF);
 
-        u8 const* chars = CharSet;
+        const u8* chars = CharSet;
 
         for (i32 i = 0; i < 96; ++i)
         {
@@ -92,7 +92,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
         surface->lpLut = AsRaw(Pipe()->GetTexLut(const_cast<char*>("*grey")));
         surface->MipMapCount = 3;
 
-        u8 const* chars = CharSet;
+        const u8* chars = CharSet;
         u8* lut = static_cast<u8*>(surface->Surface);
 
         for (i32 i = 0; i < 96; ++i)
@@ -130,7 +130,7 @@ ARTS_EXPORT /*static*/ void InitBuiltin()
     BuiltinFontTexture = texture;
 }
 
-void agiPrint(i32 x, i32 y, i32 color, char const* text)
+void agiPrint(i32 x, i32 y, i32 color, const char* text)
 {
     Pipe()->Print(x, y, color, text);
 }
@@ -150,7 +150,7 @@ void agiPrintShutdown()
     return Pipe()->PrintShutdown();
 }
 
-void agiPrintf(i32 x, i32 y, i32 color, ARTS_FORMAT_STRING char const* format, ...)
+void agiPrintf(i32 x, i32 y, i32 color, ARTS_FORMAT_STRING const char* format, ...)
 {
     if (y + agiFontHeight <= 0 || y >= Pipe()->GetHeight())
         return;
@@ -218,7 +218,7 @@ static bool ClipQuad(agiScreenVtx* verts)
     return true;
 }
 
-void agiPipeline::Print(i32 x, i32 y, i32 color, char const* text)
+void agiPipeline::Print(i32 x, i32 y, i32 color, const char* text)
 {
     if (y + agiFontHeight <= 0 || y >= Pipe()->GetHeight())
         return;

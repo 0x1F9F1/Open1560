@@ -66,7 +66,7 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?SetColor@asLamp@@QAEXABVVector3@@M@Z
-    ARTS_IMPORT void SetColor(Vector3 const& arg1, f32 arg2);
+    ARTS_IMPORT void SetColor(const Vector3& arg1, f32 arg2);
 
     // ?SetDistant@asLamp@@QAEXXZ
     ARTS_IMPORT void SetDistant();

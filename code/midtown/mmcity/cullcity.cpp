@@ -30,7 +30,7 @@ void mmRunwayLight::AddWidgets(Bank* /*arg1*/)
 {}
 #endif
 
-void ARTS_FASTCALL mmRunwayLight::FromMatrix(Matrix34 const& /*arg1*/)
+void ARTS_FASTCALL mmRunwayLight::FromMatrix(const Matrix34& /*arg1*/)
 {}
 
 // ?fix_fill1@@YAXXZ

@@ -171,7 +171,7 @@ public:
     ARTS_EXPORT virtual void ClearRect(i32 x, i32 y, i32 width, i32 height, u32 color);
 
     // ?Print@agiPipeline@@UAEXHHHPBD@Z | agi:print
-    ARTS_EXPORT virtual void Print(i32 x, i32 y, i32 color, char const* text);
+    ARTS_EXPORT virtual void Print(i32 x, i32 y, i32 color, const char* text);
 
     // ?PrintIs3D@agiPipeline@@UAEHXZ | agi:print
     ARTS_EXPORT virtual b32 PrintIs3D();

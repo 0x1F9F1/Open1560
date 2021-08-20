@@ -59,13 +59,13 @@ public:
     ARTS_IMPORT i32 HowMany(char* arg1, char arg2);
 
     // ?Load@bnSkeleton@@QAEHPBD@Z
-    ARTS_IMPORT i32 Load(char const* arg1);
+    ARTS_IMPORT i32 Load(const char* arg1);
 
     // ?Pose@bnSkeleton@@QAEXPBVVector3@@@Z
-    ARTS_IMPORT void Pose(Vector3 const* arg1);
+    ARTS_IMPORT void Pose(const Vector3* arg1);
 
     // ?Save@bnSkeleton@@QAEHPBD@Z | unused
-    ARTS_IMPORT i32 Save(char const* arg1);
+    ARTS_IMPORT i32 Save(const char* arg1);
 
     // ?Transform@bnSkeleton@@QAEXPAVMatrix34@@@Z
     ARTS_IMPORT void Transform(Matrix34* arg1);

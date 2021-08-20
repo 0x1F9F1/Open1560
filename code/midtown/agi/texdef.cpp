@@ -159,7 +159,7 @@ char* agiTexDef::GetName()
     return buffer;
 }
 
-i32 agiTexDef::Init(agiTexParameters const& params)
+i32 agiTexDef::Init(const agiTexParameters& params)
 {
     if (DevelopmentMode || !(EnablePaging & ARTS_PAGE_TEXTURES) || (params.Flags & agiTexParameters::KeepLoaded))
     {
@@ -177,7 +177,7 @@ i32 agiTexDef::Init(agiTexParameters const& params)
     }
 }
 
-i32 agiTexDef::Init(agiTexParameters const& params, Ptr<agiSurfaceDesc> surface)
+i32 agiTexDef::Init(const agiTexParameters& params, Ptr<agiSurfaceDesc> surface)
 {
     EndGfx();
 

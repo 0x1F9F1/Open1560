@@ -75,10 +75,10 @@ public:
     ARTS_IMPORT ~asInertialCS() override = default;
 
     // ?ApplyPush@asInertialCS@@UAEXABVVector3@@0@Z
-    ARTS_IMPORT virtual void ApplyPush(Vector3 const& arg1, Vector3 const& arg2);
+    ARTS_IMPORT virtual void ApplyPush(const Vector3& arg1, const Vector3& arg2);
 
     // ?GetCMatrix@asInertialCS@@UBEXAAVMatrix34@@ABVVector3@@@Z
-    ARTS_IMPORT virtual void GetCMatrix(Matrix34& arg1, Vector3 const& arg2);
+    ARTS_IMPORT virtual void GetCMatrix(Matrix34& arg1, const Vector3& arg2);
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asInertialCS@@UAEXPAVBank@@@Z
@@ -86,31 +86,31 @@ public:
 #endif
 
     // ?ApplyAngImpulse@asInertialCS@@QAEXABVVector3@@@Z
-    ARTS_IMPORT void ApplyAngImpulse(Vector3 const& arg1);
+    ARTS_IMPORT void ApplyAngImpulse(const Vector3& arg1);
 
     // ?ApplyForce@asInertialCS@@QAEXABVVector3@@@Z
-    ARTS_IMPORT void ApplyForce(Vector3 const& arg1);
+    ARTS_IMPORT void ApplyForce(const Vector3& arg1);
 
     // ?ApplyForce@asInertialCS@@QAEXABVVector3@@0@Z
-    ARTS_IMPORT void ApplyForce(Vector3 const& arg1, Vector3 const& arg2);
+    ARTS_IMPORT void ApplyForce(const Vector3& arg1, const Vector3& arg2);
 
     // ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@@Z | unused
-    ARTS_IMPORT void ApplyImpulse(Vector3 const& arg1);
+    ARTS_IMPORT void ApplyImpulse(const Vector3& arg1);
 
     // ?ApplyImpulse@asInertialCS@@QAEXABVVector3@@0@Z
-    ARTS_IMPORT void ApplyImpulse(Vector3 const& arg1, Vector3 const& arg2);
+    ARTS_IMPORT void ApplyImpulse(const Vector3& arg1, const Vector3& arg2);
 
     // ?ApplyPush@asInertialCS@@QAEXABVVector3@@@Z
-    ARTS_IMPORT void ApplyPush(Vector3 const& arg1);
+    ARTS_IMPORT void ApplyPush(const Vector3& arg1);
 
     // ?ApplyTorque@asInertialCS@@QAEXABVVector3@@@Z
-    ARTS_IMPORT void ApplyTorque(Vector3 const& arg1);
+    ARTS_IMPORT void ApplyTorque(const Vector3& arg1);
 
     // ?ApplyTurn@asInertialCS@@QAEXABVVector3@@@Z | unused
-    ARTS_IMPORT void ApplyTurn(Vector3 const& arg1);
+    ARTS_IMPORT void ApplyTurn(const Vector3& arg1);
 
     // ?CalcCMatrix@asInertialCS@@QBEXAAVMatrix34@@ABVVector3@@@Z
-    ARTS_IMPORT void CalcCMatrix(Matrix34& arg1, Vector3 const& arg2) const;
+    ARTS_IMPORT void CalcCMatrix(Matrix34& arg1, const Vector3& arg2) const;
 
     // ?DoConstrain@asInertialCS@@QAEXXZ
     ARTS_IMPORT void DoConstrain();
@@ -128,10 +128,10 @@ public:
     ARTS_IMPORT MetaClass* GetClass() override;
 
     // ?GetVelocity@asInertialCS@@QAE?AVVector3@@PBV2@@Z
-    ARTS_IMPORT Vector3 GetVelocity(Vector3 const* arg1);
+    ARTS_IMPORT Vector3 GetVelocity(const Vector3* arg1);
 
     // ?MatricesToMomenta@asInertialCS@@QAEXABVMatrix34@@0M@Z | unused
-    ARTS_IMPORT void MatricesToMomenta(Matrix34 const& arg1, Matrix34 const& arg2, f32 arg3);
+    ARTS_IMPORT void MatricesToMomenta(const Matrix34& arg1, const Matrix34& arg2, f32 arg3);
 
     // ?MoveICS@asInertialCS@@QAEXXZ
     ARTS_IMPORT void MoveICS();
@@ -165,10 +165,10 @@ public:
 
 private:
     // ?DrawForce@asInertialCS@@AAEXABVVector3@@0@Z
-    ARTS_IMPORT void DrawForce(Vector3 const& arg1, Vector3 const& arg2);
+    ARTS_IMPORT void DrawForce(const Vector3& arg1, const Vector3& arg2);
 
     // ?DrawForce@asInertialCS@@AAEXABVVector3@@00@Z
-    ARTS_IMPORT void DrawForce(Vector3 const& arg1, Vector3 const& arg2, Vector3 const& arg3);
+    ARTS_IMPORT void DrawForce(const Vector3& arg1, const Vector3& arg2, const Vector3& arg3);
 
     u8 gap88[0x120];
 };
@@ -176,10 +176,10 @@ private:
 check_size(asInertialCS, 0x1A8);
 
 // ?InertiaAxis@@YAMABVVector3@@0@Z | unused
-ARTS_IMPORT f32 InertiaAxis(Vector3 const& arg1, Vector3 const& arg2);
+ARTS_IMPORT f32 InertiaAxis(const Vector3& arg1, const Vector3& arg2);
 
 // ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@M@Z
-ARTS_IMPORT Vector3 MatrixToAngVelocity(Matrix34 const& arg1, f32 arg2);
+ARTS_IMPORT Vector3 MatrixToAngVelocity(const Matrix34& arg1, f32 arg2);
 
 // ?MatrixToAngVelocity@@YA?AVVector3@@ABVMatrix34@@0M@Z | unused
-ARTS_IMPORT Vector3 MatrixToAngVelocity(Matrix34 const& arg1, Matrix34 const& arg2, f32 arg3);
+ARTS_IMPORT Vector3 MatrixToAngVelocity(const Matrix34& arg1, const Matrix34& arg2, f32 arg3);

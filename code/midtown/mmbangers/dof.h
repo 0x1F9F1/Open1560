@@ -39,7 +39,7 @@ public:
     ARTS_IMPORT ~mmDofBangerInstance() override = default;
 
     // ?FromMatrix@mmDofBangerInstance@@UAIXABVMatrix34@@@Z | inline
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetPos@mmDofBangerInstance@@UAIAAVVector3@@XZ | inline
     ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;

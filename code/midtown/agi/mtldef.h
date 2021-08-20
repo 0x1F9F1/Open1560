@@ -45,7 +45,7 @@ public:
     ARTS_IMPORT agiMtlParameters();
 
     // ??4agiMtlParameters@@QAEXABV0@@Z
-    ARTS_IMPORT void operator=(agiMtlParameters const& arg1);
+    ARTS_IMPORT void operator=(const agiMtlParameters& arg1);
 
     // ?Load@agiMtlParameters@@QAEXPAVStream@@@Z
     ARTS_IMPORT void Load(Stream* arg1);
@@ -74,7 +74,7 @@ public:
     ARTS_IMPORT char* GetName() override;
 
     // ?Init@agiMtlDef@@QAEHABVagiMtlParameters@@@Z
-    ARTS_IMPORT i32 Init(agiMtlParameters const& arg1);
+    ARTS_IMPORT i32 Init(const agiMtlParameters& arg1);
 
 protected:
     // ??0agiMtlDef@@IAE@PAVagiPipeline@@@Z

@@ -151,7 +151,7 @@ public:
     ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
 
     // ?FromMatrix@mmTrailerInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(Matrix34 const& arg1) override;
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
 
     // ?GetEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
     ARTS_IMPORT mmPhysEntity* GetEntity() override;

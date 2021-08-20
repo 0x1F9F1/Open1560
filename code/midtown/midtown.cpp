@@ -570,7 +570,7 @@ void ApplicationHelper(i32 argc, char** argv)
         static const char* const priority_names[4] = {"idle", "normal", "high", "REALTIME"};
         Warningf("Running with %s priority class.", priority_names[priority]);
 
-        static u32 const priority_classes[4] {
+        static const u32 priority_classes[4] {
             IDLE_PRIORITY_CLASS, NORMAL_PRIORITY_CLASS, HIGH_PRIORITY_CLASS, REALTIME_PRIORITY_CLASS};
         SetPriorityClass(GetCurrentProcess(), priority_classes[priority]);
     }

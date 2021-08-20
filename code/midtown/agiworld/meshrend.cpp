@@ -288,19 +288,19 @@ void agiBlendColors(u32* ARTS_RESTRICT shaded, u32* ARTS_RESTRICT colors, i32 co
 {
     if (count)
     {
-        u32 const mul_b = (color & 0xFF) * 0x8081;
-        u32 const mul_g = ((color >> 8) & 0xFF) * 0x8081;
-        u32 const mul_r = ((color >> 16) & 0xFF) * 0x8081;
-        u32 const mul_a = (color >> 24) * 0x8081;
+        const u32 mul_b = (color & 0xFF) * 0x8081;
+        const u32 mul_g = ((color >> 8) & 0xFF) * 0x8081;
+        const u32 mul_r = ((color >> 16) & 0xFF) * 0x8081;
+        const u32 mul_a = (color >> 24) * 0x8081;
 
         for (i32 i = 0; i < count; ++i)
         {
-            u32 const input = colors[i];
+            const u32 input = colors[i];
 
-            u8 const b = static_cast<u8>((mul_b * (input & 0xFF)) >> 23);
-            u8 const g = static_cast<u8>((mul_g * ((input >> 8) & 0xFF)) >> 23);
-            u8 const r = static_cast<u8>((mul_r * ((input >> 16) & 0xFF)) >> 23);
-            u8 const a = static_cast<u8>((mul_a * (input >> 24)) >> 23);
+            const u8 b = static_cast<u8>((mul_b * (input & 0xFF)) >> 23);
+            const u8 g = static_cast<u8>((mul_g * ((input >> 8) & 0xFF)) >> 23);
+            const u8 r = static_cast<u8>((mul_r * ((input >> 16) & 0xFF)) >> 23);
+            const u8 a = static_cast<u8>((mul_a * (input >> 24)) >> 23);
 
             shaded[i] = (a << 24) | (r << 16) | (g << 8) | b;
         }
@@ -626,7 +626,7 @@ void agiMeshSet::DrawLitEnv(agiMeshLighter lighter, agiTexDef* env_map, Matrix34
     }
 }
 
-void agiMeshSet::DrawShadow(u32 flags, Vector4 const& plane, Vector3 const& light_dir)
+void agiMeshSet::DrawShadow(u32 flags, const Vector4& plane, const Vector3& light_dir)
 {
     if (const Vector3& camera = ViewParams().Camera.m3;
         camera.x * plane.x + camera.y * plane.y + camera.z * plane.z + plane.w < 0.0f)
@@ -863,7 +863,7 @@ i32 agiMeshSet::Geometry(u32 flags, Vector3* verts, Vector4* planes)
     return clip_mask;
 }
 
-i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, Vector4 const& plane, Vector3 const& light_dir)
+i32 agiMeshSet::ShadowGeometry(u32 flags, Vector3* verts, const Vector4& plane, const Vector3& light_dir)
 {
     ClippedVertCount = 0;
     ClippedTriCount = 0;

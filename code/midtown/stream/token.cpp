@@ -22,7 +22,7 @@ define_dummy_symbol(stream_token);
 
 #include "stream.h"
 
-Tokenizer::Tokenizer(char const* name, Stream* input)
+Tokenizer::Tokenizer(const char* name, Stream* input)
     : name_(name)
     , input_(input)
 {}

@@ -54,7 +54,7 @@ public:
     ARTS_EXPORT virtual void UpdateInput();
 
     // ?ForceMatrixDelta@BaseCamCS@@UAEXABVVector3@@@Z
-    ARTS_IMPORT virtual void ForceMatrixDelta(Vector3 const& arg1);
+    ARTS_IMPORT virtual void ForceMatrixDelta(const Vector3& arg1);
 
     // ?SetST@BaseCamCS@@UAEXPAM@Z | inline
     ARTS_EXPORT virtual void SetST(f32* arg1);
