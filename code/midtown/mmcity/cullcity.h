@@ -123,7 +123,7 @@ class mmPolygon;
 #define ROOM_FLAG_10 0x10   // ?
 #define ROOM_FLAG_20 0x20   // Force ZEnable
 #define ROOM_FLAG_40 0x40   // ?
-#define ROOM_FLAG_80 0x80   // Fogvlaue = 0.25
+#define ROOM_FLAG_80 0x80   // FogValue = 0.25
 #define ROOM_FLAG_100 0x100 // ?
 
 class mmCullCity final : public asNode

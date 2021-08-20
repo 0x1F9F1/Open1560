@@ -88,11 +88,47 @@
 
 #include "data7/callback.h"
 
-#include <dplay.h>
 #include <dplobby.h>
 
-struct NETCOMMPACK;
-struct NETSESSION_DESC;
+struct NETSESSION_DESC
+{
+    i32 GameVersion; // = 5
+
+    // TimeOfDay: 4
+    // Weather: 4
+    // EventId: 4
+    // GameMode: 4
+    i32 dword4;
+
+    // DisableDamage: 1
+    // Unused: 1
+    // Difficulty: 2
+    // NumLaps: 4
+    // 
+    // if (EventId == 2)
+    //   Limit: 2
+    //   LimitMode: 2
+    //   GoldMass: 2
+    //   GameClass: 2
+    // else
+    //   TimeLimit: 8
+    i32 dword8;
+
+    // PedDensity: 8
+    i32 dwordC;
+};
+
+struct NETCOMMPACK
+{
+    i32 dword0;
+    i32 dword4;
+    i32 dword8;
+    i32 dwordC;
+    i32 dword10;
+    i32 dword14;
+    char char18[40];
+    char char40[40];
+};
 
 class asNetwork
 {
@@ -119,13 +155,13 @@ public:
     ARTS_IMPORT i32 CreateSession(char* arg1, char* arg2, i32 arg3, NETSESSION_DESC* arg4);
 
     // ?Deallocate@asNetwork@@QAEXXZ
-    ARTS_IMPORT void Deallocate();
+    ARTS_EXPORT void Deallocate();
 
     // ?DestroyPlayer@asNetwork@@QAEXXZ
-    ARTS_IMPORT void DestroyPlayer();
+    ARTS_EXPORT void DestroyPlayer();
 
     // ?Disconnect@asNetwork@@QAEXXZ
-    ARTS_IMPORT void Disconnect();
+    ARTS_EXPORT void Disconnect();
 
     // ?GetEnumModem@asNetwork@@QAEPADH@Z | unused
     ARTS_IMPORT char* GetEnumModem(i32 arg1);
@@ -206,13 +242,13 @@ public:
     ARTS_IMPORT void HandleSysMessage(DPMSG_GENERIC* arg1);
 
     // ?Initialize@asNetwork@@QAEHHHH@Z
-    ARTS_IMPORT i32 Initialize(i32 arg1, i32 arg2, i32 arg3);
+    ARTS_EXPORT b32 Initialize(i32 max_players, b32 secure, i32 game_version);
 
     // ?InitializeLobby@asNetwork@@QAEHHH@Z
     ARTS_EXPORT b32 InitializeLobby(i32 max_players, b32 secure);
 
     // ?JoinLobbySession@asNetwork@@QAEHXZ
-    ARTS_IMPORT i32 JoinLobbySession();
+    ARTS_EXPORT b32 JoinLobbySession();
 
     // ?JoinSession@asNetwork@@QAEHHPAD@Z
     ARTS_IMPORT i32 JoinSession(i32 arg1, char* arg2);
@@ -221,7 +257,7 @@ public:
     ARTS_IMPORT i32 JoinSession(char* arg1, _GUID* arg2, char* arg3);
 
     // ?Logout@asNetwork@@QAEXXZ
-    ARTS_IMPORT void Logout();
+    ARTS_EXPORT void Logout();
 
     // ?Ping@asNetwork@@QAEKK@Z | unused
     ARTS_IMPORT ulong Ping(ulong arg1);
@@ -254,7 +290,7 @@ public:
     ARTS_IMPORT i32 SetProtocol(i32 arg1, NETCOMMPACK* arg2);
 
     // ?SetSessionData@asNetwork@@QAEXPAUNETSESSION_DESC@@PAD@Z
-    ARTS_IMPORT void SetSessionData(NETSESSION_DESC* arg1, char* arg2);
+    ARTS_EXPORT void SetSessionData(NETSESSION_DESC* desc, char* name);
 
     // ?StopSessionsAsynch@asNetwork@@QAEXXZ
     ARTS_IMPORT void StopSessionsAsynch();
@@ -293,9 +329,9 @@ private:
     Callback sys_message_cb_;
     Callback app_message_cb_;
     IDirectPlay4A* dplay_;
-    IDirectPlayLobby3A* dplobby_;
+    IDirectPlayLobby3A* dp_lobby_;
     DPID player_id_;
-    DPLCONNECTION* dpconnection_;
+    DPLCONNECTION* dp_connection_;
     GUID* app_guid_;
     DPMSG_GENERIC* recv_buffer_;
     i32 recv_buffer_size_;

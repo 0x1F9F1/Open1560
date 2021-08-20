@@ -65,7 +65,7 @@ void mmGame::UpdateDebugInput()
 
         if (event.Modifiers & EQ_KMOD_DOWN)
         {
-            if (event.Key == VK_F7 &&
+            if (event.Key == EQ_VK_F7 &&
                 (event.Modifiers & (EQ_KMOD_DOWN | EQ_KMOD_SHIFT | EQ_KMOD_CTRL | EQ_KMOD_ALT)) ==
                     (EQ_KMOD_DOWN | EQ_KMOD_SHIFT | EQ_KMOD_CTRL | EQ_KMOD_ALT) &&
                 !NETMGR.InSession())
