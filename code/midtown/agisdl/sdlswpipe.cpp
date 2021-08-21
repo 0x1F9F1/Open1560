@@ -75,15 +75,16 @@ public:
 
         ARTS_UTIMED(agiClearViewport);
 
-        i32 width = Pipe()->GetWidth();
-        i32 height = Pipe()->GetHeight();
+        i32 pipe_width = Pipe()->GetWidth();
+        i32 pipe_height = Pipe()->GetHeight();
 
-        SDL_Rect rect {
-            static_cast<i32>(width * params_.X),
-            static_cast<i32>(height * (1.0f - (params_.Y + params_.Height))),
-            static_cast<i32>(std::ceil(width * params_.Width)),
-            static_cast<i32>(std::ceil(height * params_.Height)),
-        };
+        i32 x = static_cast<i32>(std::round(pipe_width * params_.X));
+        i32 y = static_cast<i32>(std::round(pipe_height * params_.Y));
+        i32 w = static_cast<i32>(std::round(pipe_width * (params_.X + params_.Width))) - x;
+        i32 h = static_cast<i32>(std::round(pipe_height * (params_.Y + params_.Height))) - y;
+        y = pipe_height - (y + h);
+
+        SDL_Rect rect {x, y, w, h};
 
         if (flags & AGI_VIEW_CLEAR_TARGET)
         {
@@ -92,7 +93,7 @@ public:
 
         if ((flags & AGI_VIEW_CLEAR_ZBUFFER) && agiEnableZBuffer)
         {
-            if (rect.x == 0 && rect.y == 0 && rect.w == width && rect.h == height)
+            if (rect.x == 0 && rect.y == 0 && rect.w == pipe_width && rect.h == pipe_height)
             {
                 zmemset(swDepthBuffer, (swFbWidth * swFbHeight) >> (swIsInterlaced + 2));
             }

@@ -88,18 +88,29 @@ void agiGLViewport::Clear(i32 flags)
 
     if (mask)
     {
-        i32 x = Pipe()->GetRenderX();
-        i32 y = Pipe()->GetRenderY();
+        i32 pipe_width = Pipe()->GetWidth();
+        i32 pipe_height = Pipe()->GetHeight();
 
-        i32 width = Pipe()->GetRenderWidth();
-        i32 height = Pipe()->GetRenderHeight();
+        i32 x = static_cast<i32>(std::round(pipe_width * params_.X));
+        i32 y = static_cast<i32>(std::round(pipe_height * params_.Y));
+        i32 w = static_cast<i32>(std::round(pipe_width * (params_.X + params_.Width))) - x;
+        i32 h = static_cast<i32>(std::round(pipe_height * (params_.Y + params_.Height))) - y;
+
+        i32 render_width = Pipe()->GetRenderWidth();
+        i32 render_height = Pipe()->GetRenderHeight();
+
+        // Scale by output size after rounding to match renderer calculations
+        x = (x * render_width) / pipe_width;
+        y = (y * render_height) / pipe_height;
+        w = (w * render_width) / pipe_width;
+        h = (h * render_height) / pipe_height;
+
+        x += Pipe()->GetRenderX();
+        y += Pipe()->GetRenderY();
 
         agiGL->EnableDisable(GL_SCISSOR_TEST, true);
 
-        glScissor(x + static_cast<GLint>(width * params_.X), y + static_cast<GLint>(height * params_.Y),
-            static_cast<GLsizei>(std::ceil(width * params_.Width)),
-            static_cast<GLsizei>(std::ceil(height * params_.Height)));
-
+        glScissor(x, y, w, h);
         glClear(mask);
 
         agiGL->EnableDisable(GL_SCISSOR_TEST, false);

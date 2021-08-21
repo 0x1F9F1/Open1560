@@ -440,14 +440,20 @@ void agiMeshSet::ClipTri(i32 i1, i32 i2, i32 i3, i32 texture)
 
 void agiMeshSet::InitViewport(agiViewParameters& params)
 {
-    f32 width = static_cast<f32>(Pipe()->GetWidth());
-    f32 height = static_cast<f32>(Pipe()->GetHeight());
+    f32 pipe_width = static_cast<f32>(Pipe()->GetWidth());
+    f32 pipe_height = static_cast<f32>(Pipe()->GetHeight());
 
-    HalfWidth = std::floor(width * params.Width * 0.5f);
-    HalfHeight = -std::floor(height * params.Height * 0.5f);
+    f32 x = std::round(pipe_width * params.X);
+    f32 y = std::round(pipe_height * params.Y);
+    f32 w = std::round(pipe_width * (params.X + params.Width)) - x;
+    f32 h = std::round(pipe_height * (params.Y + params.Height)) - y;
+    y = pipe_height - (y + h);
 
-    OffsX = width * params.X + HalfWidth;
-    OffsY = height * (1.0f - params.Y) + HalfHeight;
+    HalfWidth = w * 0.5f;
+    HalfHeight = -h * 0.5f;
+
+    OffsX = x + HalfWidth;
+    OffsY = y - HalfHeight;
 
     if (GetRendererInfo().SpecialFlags & 0x8)
         HalfHeight *= 1.01f;
@@ -464,7 +470,7 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
     {
         // TODO: Use viewport scissor region
         // TODO: Allow custom [Min/Max]Z
-        if (MinX <= 0.0f && MaxX >= width && MinY <= 0.0f && MaxY >= height)
+        if (MinX <= 0.0f && MaxX >= pipe_width && MinY <= 0.0f && MaxY >= pipe_height)
         {
             MinX = -INFINITY;
             MaxX = +INFINITY;
@@ -477,15 +483,15 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
     }
     else
     {
-        MinX = std::max(MinX, std::floor(params.X * width));
-        MaxX = std::min(MaxX, std::ceil((params.X + params.Width) * width));
-        MinY = std::max(MinY, std::floor((1.0f - (params.Y + params.Height)) * height));
-        MaxY = std::min(MaxY, std::ceil((1.0f - params.Y) * height));
+        MinX = std::max(MinX, x);
+        MaxX = std::min(MaxX, x + w);
+        MinY = std::max(MinY, y);
+        MaxY = std::min(MaxY, y + h);
 
         MinX = std::max(MinX, 0.0f);
-        MaxX = std::min(MaxX, width);
+        MaxX = std::min(MaxX, pipe_width);
         MinY = std::max(MinY, 0.0f);
-        MaxY = std::min(MaxY, height);
+        MaxY = std::min(MaxY, pipe_height);
     }
 
     if (FlipX)
@@ -495,6 +501,7 @@ void agiMeshSet::InitViewport(agiViewParameters& params)
 b32 agiMeshSet::Draw(u32 flags)
 {
     // FIXME: Avoid this check
+    // Lots of unchecked calss in aiVehicleInstance::Draw
     if (agiMeshSet* volatile this_ptr = this; !this_ptr)
         return false;
 
