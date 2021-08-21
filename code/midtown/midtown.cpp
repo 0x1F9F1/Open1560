@@ -41,12 +41,16 @@ define_dummy_symbol(midtown);
 #include "memory/allocator.h"
 #include "memory/stack.h"
 #include "memory/valloc.h"
+#include "mmai/aiMap.h"
 #include "mmaudio/manager.h"
 #include "mmcamtour/gamerecord.h"
+#include "mmcar/carsim.h"
 #include "mmcity/loader.h"
 #include "mmcityinfo/state.h"
+#include "mmgame/game.h"
 #include "mmgame/gameman.h"
 #include "mmgame/interface.h"
+#include "mmgame/player.h"
 #include "mminput/input.h"
 #include "mmphysics/phys.h"
 #include "mmui/graphics.h"
@@ -1023,6 +1027,108 @@ i32 GameFilter(_EXCEPTION_POINTERS* exception)
     return ExceptionFilter(exception);
 }
 
+void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* replay_name)
+{
+    ARTS_EXCEPTION_BEGIN
+    {
+        // bool lock_alloc = MMSTATE.GameState == 1;
+        // if (lock_alloc)
+        //     ++ ALLOCATOR.LockCount;
+
+        while (MMSTATE.GameState == -1)
+        {
+#ifdef ARTS_DEV_BUILD
+            if (CycleTest && ARTSPTR->GetElapsed() > CycleTime)
+            {
+                ARTSPTR->SetElapsed(0.0f);
+
+                if (CycleState == 1)
+                {
+                    if (CycleTest <= 1)
+                    {
+                        MMSTATE.GameMode = mmGameMode::Cruise;
+                        MMSTATE.NetworkStatus = 0;
+                    }
+                    else
+                    {
+                        mm_interface->SetupArchiveTest(CycleTest);
+                    }
+
+                    mm_interface->BeDone();
+                    MMSTATE.GameState = 1;
+                }
+                else if (CycleState == 2)
+                {
+                    static i32 CycleCount = 0;
+
+                    game_manager->BeDone();
+                    MMSTATE.GameState = 0;
+                    Displayf(">>>>>>>>>>>>>>>>>>>CYCLETEST: CYCLE # %d", ++CycleCount);
+                }
+            }
+
+            if (SampleStats == 1 && game_manager)
+            {
+                Vector4 pos;
+                game_manager->Game()->Player->GetHUD().GetPosHdg(pos);
+                SystemStatsRecord->DoScan(pos);
+            }
+            else
+#endif
+            {
+                bool sampling = false;
+
+                if (GetAsyncKeyState(VK_CAPITAL) & 0x8000)
+                {
+                    sampling = true;
+
+                    if (__VtResumeSampling)
+                        __VtResumeSampling();
+                }
+
+                if (GetAsyncKeyState(VK_SCROLL) & 0x8000)
+                    ALLOCATOR.SanityCheck();
+
+                if (EnablePaging)
+                {
+                    CACHE.Age();
+                    TEXCACHE.Age();
+                }
+
+                ARTSPTR->Simulate();
+
+                if (sampling)
+                {
+                    if (__VtPauseSampling)
+                        __VtPauseSampling();
+                }
+            }
+        }
+
+        // if (lock_alloc)
+        //     --ALLOCATOR.LockCount;
+    }
+    ARTS_EXCEPTION_END
+    {
+        Displayf("CRASH POSITION = (%f, %f, %f)", PlayerPos.x, PlayerPos.y, PlayerPos.z);
+
+        AIMAP.Dump();
+
+#ifdef ARTS_DEV_BUILD
+        if (game_manager && !replay_name)
+        {
+            game_manager->SaveReplay(const_cast<char*>("crash.rpl"));
+
+            Abortf("Exception caught during simulate loop, saving replay.");
+        }
+        else
+#endif
+        {
+            Abortf("Exception caught during simulate loop.");
+        }
+    }
+}
+
 b32 GenerateLoadScreenName()
 {
     arts_strcpy(LoadScreen, "title_screen");
@@ -1057,6 +1163,7 @@ b32 GenerateLoadScreenName()
             arts_strcat(name, "bl");
             arts_sprintf(LoadScreen, "%s%d", name, MMSTATE.EventId + 1);
             return true;
+
         default: return false;
     }
 }
@@ -1150,8 +1257,6 @@ void InitPatches()
         "\xCF\x0B\x00\x83\xC0\x2C\x50\x56\xE8\x3A\x66\x18\x00\x83\xC4\x08\x0F\xB6\x00\x24\xDF\x3C\x43\x0F\x94\xD0"
         "\xA3\xE0\x84\x70\x00\x90\x90\x90\x90\x90\x90\x90\x90",
         0x41);
-
-    create_packed_patch<u32>("asNetwork::JoinLobbySession", "Max Lobby Players", 0x4891EC + 3, 8);
 
     create_patch("mmWheel::Update", "Wheel Speed", 0x47F179, "\xDD\xD8\x90\x90\x90\x90", 6);
 

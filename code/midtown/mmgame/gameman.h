@@ -56,6 +56,17 @@
 
 #include "arts7/node.h"
 
+class mmGame;
+class mmGameSingle;
+class mmSingleCircuit;
+class mmSingleBlitz;
+class mmMultiRace;
+class mmMultiCR;
+class mmMultiCircuit;
+class mmMultiBlitz;
+class mmGameEdit;
+class agiBitmap;
+
 class mmScreenClearFlunky final : public asNode
 {
 public:
@@ -124,13 +135,32 @@ public:
     // ?DeclareFields@mmGameManager@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
+    mmGame* Game()
+    {
+        return CurrentGame;
+    }
+
 private:
     friend mmGameManager* GameManager();
 
     // ?Instance@mmGameManager@@0PAV1@A
     ARTS_IMPORT static mmGameManager* Instance;
 
-    u8 gap20[0x3C];
+    mmGame* CurrentGame;
+    mmGameSingle* GameSingle;
+    mmSingleCircuit* SingleCircuit;
+    mmSingleBlitz* SingleBlitz;
+    mmMultiRace* MultiRace;
+    mmMultiCR* MultiCR;
+    mmMultiCircuit* MultiCircuit;
+    mmMultiBlitz* MultiBlitz;
+    mmGameEdit* GameEdit;
+    b32 InReplay;
+    i32 Frame;
+    i32 PendingFrames;
+    b32 NeedsReset;
+    agiBitmap* ReplayBitmap;
+    i32 field_58;
 };
 
 check_size(mmGameManager, 0x5C);

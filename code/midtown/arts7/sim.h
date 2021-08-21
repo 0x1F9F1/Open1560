@@ -235,6 +235,16 @@ public:
         return full_update_;
     }
 
+    f32 GetElapsed() const
+    {
+        return elapsed_;
+    }
+
+    void SetElapsed(f32 elapsed)
+    {
+        elapsed_ = elapsed;
+    }
+
     VIRTUAL_META_DECLARE;
 
 private:

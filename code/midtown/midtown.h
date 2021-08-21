@@ -79,7 +79,7 @@ ARTS_EXPORT Owner<agiPipeline> CreatePipeline(i32 argc, char** argv);
 ARTS_EXPORT i32 GameFilter(_EXCEPTION_POINTERS* exception);
 
 // ?GameLoop@@YAXPAVmmInterface@@PAVmmGameManager@@PAD@Z
-ARTS_IMPORT void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* replay_name);
+ARTS_EXPORT void GameLoop(mmInterface* mm_interface, mmGameManager* game_manager, char* replay_name);
 
 // ?GenerateLoadScreenName@@YAHXZ
 ARTS_EXPORT b32 GenerateLoadScreenName();
