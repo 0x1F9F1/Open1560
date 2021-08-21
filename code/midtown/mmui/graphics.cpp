@@ -87,4 +87,6 @@ void AutoDetect(i32 renderer, i32 resolution)
     agiRQ.SphMap = info.AdditiveBlending;
 
     MMSTATE.DisablePeds = false;
+
+    agiRQ.TexFilter = 2; // Trilinear
 }

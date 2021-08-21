@@ -48,9 +48,7 @@ struct agiWorldRenderQuality
 
     f32 field_20;
 
-    // 0 | Point
-    // 1 | Linear
-    // 2 | Linear Mip
+    // agiTexFilter
     i32 TexFilter;
 };
 
