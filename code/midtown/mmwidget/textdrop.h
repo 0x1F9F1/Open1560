@@ -46,6 +46,8 @@
 
 #include "widget.h"
 
+class TextDropWidget;
+
 class UITextDropdown final : public uiWidget
 {
 public:
@@ -64,7 +66,7 @@ public:
     ARTS_IMPORT i32 AnyEnabled();
 
     // ?AssignString@UITextDropdown@@QAEXVstring@@@Z
-    ARTS_IMPORT void AssignString(string arg1);
+    ARTS_EXPORT void AssignString(string options);
 
     // ?CaptureAction@UITextDropdown@@UAEXTeqEvent@@@Z
     ARTS_IMPORT void CaptureAction(eqEvent arg1) override;
@@ -105,6 +107,9 @@ public:
 
     // ?Update@UITextDropdown@@UAEXXZ
     ARTS_IMPORT void Update() override;
+
+    offset_field(0x9C, TextDropWidget*, DropWidget);
+    offset_field(0xB4, i32*, ValuePtr);
 
     u8 gap74[0x90];
 };

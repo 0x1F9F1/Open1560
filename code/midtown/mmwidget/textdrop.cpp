@@ -19,9 +19,17 @@
 define_dummy_symbol(mmwidget_textdrop);
 
 #include "textdrop.h"
+#include "data7/str.h"
+#include "tdwidget.h"
 
 void UITextDropdown::SetPos(f32 /*arg1*/, f32 /*arg2*/)
 {}
 
 void UITextDropdown::SetText(LocString* /*arg1*/)
 {}
+
+void UITextDropdown::AssignString(string options)
+{
+    DropWidget->SetString(std::move(options));
+    DropWidget->SetValue(*ValuePtr);
+}
