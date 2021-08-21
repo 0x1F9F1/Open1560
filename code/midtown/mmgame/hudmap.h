@@ -104,7 +104,7 @@ public:
 #endif
 
     // ?Cull@mmHudMap@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // ?Cycle@mmHudMap@@QAEXXZ
     ARTS_IMPORT void Cycle();
@@ -202,7 +202,10 @@ private:
     OppIconInfo* OppIcons;
     i32 field_1DC;
     i32 field_1E0;
+
+    // 3 | Fullscreen
     i32 Mode;
+
     Matrix34* Transform;
     mmHUD* Hud;
     agiBitmap* Resolutions[2];

@@ -22,6 +22,7 @@ define_dummy_symbol(mmgame_hudmap);
 
 #include "agi/bitmap.h"
 #include "agi/pipeline.h"
+#include "mmcityinfo/state.h"
 
 #if ARTS_TARGET_BUILD < 1588
 agiBitmap* mmHudMap::Icon_Pink = nullptr;
@@ -36,6 +37,39 @@ mmHudMap::~mmHudMap()
         Icon_Pink = nullptr;
     }
 #endif
+}
+
+void mmHudMap::Cull()
+{
+    Pipe()->CopyBitmap(MapDstX, MapDstY, Current, MapSrcX, MapSrcY, MapWidth, MapHeight);
+
+    DrawMisc();
+    DrawCops();
+    DrawOpponents();
+    DrawWaypoints();
+    DrawOrientedBitmap(Transform, Icon_Player);
+
+    if (MMSTATE.GameMode == mmGameMode::CnR)
+        DrawCopsnRobbers();
+
+    if (Mode == 3)
+    {
+        u32 color = 0x00000000;
+
+        if (MapWidth < Pipe()->GetWidth())
+        {
+            Pipe()->ClearRect(0, 0, MapDstX, Pipe()->GetHeight(), color);
+            Pipe()->ClearRect(
+                MapDstX + MapWidth, 0, Pipe()->GetWidth() - (MapDstX + MapWidth), Pipe()->GetHeight(), color);
+        }
+
+        if (MapHeight < Pipe()->GetHeight())
+        {
+            Pipe()->ClearRect(MapDstX, 0, MapWidth, MapDstY, color);
+            Pipe()->ClearRect(
+                MapDstX, MapDstY + MapHeight, MapWidth, Pipe()->GetHeight() - (MapDstY + MapHeight), color);
+        }
+    }
 }
 
 void mmHudMap::DrawOpponents()
