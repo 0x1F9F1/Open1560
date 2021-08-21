@@ -31,5 +31,5 @@ void UITextDropdown::SetText(LocString* /*arg1*/)
 void UITextDropdown::AssignString(string options)
 {
     DropWidget->SetString(std::move(options));
-    DropWidget->SetValue(*ValuePtr);
+    SetValue(*ValuePtr);
 }
