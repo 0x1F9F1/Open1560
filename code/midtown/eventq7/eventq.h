@@ -114,7 +114,7 @@ class eqEventQ final : public eqEventMonitor
 {
 public:
     // ??0eqEventQ@@QAE@HHH@Z
-    ARTS_EXPORT eqEventQ(i32 arg1, i32 enabled_events, i32 max_events);
+    ARTS_EXPORT eqEventQ(i32 channels, i32 enabled_events, i32 max_events);
 
     // ??_GeqEventQ@@UAEPAXI@Z
     // ??_EeqEventQ@@UAEPAXI@Z

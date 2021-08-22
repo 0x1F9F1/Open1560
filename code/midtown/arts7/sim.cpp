@@ -37,6 +37,7 @@ define_dummy_symbol(arts7_sim);
 #include "data7/str.h"
 #include "data7/utimer.h"
 #include "dyna7/dyna.h"
+#include "dyna7/gfx.h"
 #include "eventq7/keys.h"
 #include "midgets.h"
 #include "midtown.h"
@@ -137,6 +138,39 @@ ARTS_IMPORT /*static*/ i32 IsValidPointer(void* arg1, u32 arg2, i32 arg3);
 
 // ?QuietPrinter@@YAXHPBDPAD@Z
 ARTS_IMPORT /*static*/ void QuietPrinter(i32 arg1, const char* arg2, char* arg3);
+
+asSimulation::asSimulation()
+    : keys_queue_(0xB, EQ_EVENT_MASK(eqEventType::Keyboard) | EQ_EVENT_MASK(eqEventType::Activate), 32)
+    , widgets_queue_(0xB, EQ_EVENT_MASK(eqEventType::Keyboard), 32)
+    , draw_mode_(agiDrawTextured)
+{
+    ArAssert(!ARTSPTR, "Already have simulation");
+
+    frame_depth_ = 0;
+    frame_stack_[0] = &root_frame_;
+    current_matrix_ = &root_frame_.World;
+
+    SetName("Root");
+    RealTime(0.0f);
+
+#ifdef ARTS_DEV_BUILD
+    {
+        ARTS_MEM_STAT("asSimulate::DeclareVector buffers");
+
+        vector_capacity_ = 256;
+        vector_count_ = 0;
+        vector_starts_ = MakeUnique<Vector3[]>(vector_capacity_);
+        vector_ends_ = MakeUnique<Vector3[]>(vector_capacity_);
+        vector_colors_ = MakeUnique<Vector3[]>(vector_capacity_);
+    }
+#endif
+
+    ARTSPTR = this;
+
+#ifdef ARTS_DEV_BUILD
+    MIDGETSPTR = new asMidgets();
+#endif
+}
 
 asSimulation::~asSimulation()
 {
@@ -352,12 +386,60 @@ void asSimulation::FrameLock(i32 lock, i32)
     frame_lock_ = lock;
 }
 
+void asSimulation::Pause()
+{
+    eqEventQ events {-1, -1, 32};
+    eqEvent event;
+
+    bool done = false;
+
+    while (!done)
+    {
+        eqEventHandler::SuperQ->Update(0);
+
+        while (events.Pop(&event))
+        {
+            if ((event.Common.Type == eqEventType::Keyboard) && (event.Key.Modifiers & EQ_KMOD_DOWN))
+            {
+                frame_step_ = 0;
+                done = true;
+            }
+        }
+
+        Widgets();
+    }
+
+    frame_timer_.Reset();
+
+    while (keys_queue_.Pop(&event))
+        ;
+}
+
 void asSimulation::FirstUpdate()
 {
     ResetClock();
     frame_timer_.Reset();
     first_frame_ = true;
     seconds_ = 0.0f;
+}
+
+void asSimulation::Quiet()
+{
+    Printer = QuietPrinter;
+}
+
+void asSimulation::RealTime(f32 fps)
+{
+    ResetClock();
+    fixed_fps_ = 30.0;
+    sample_mode_ = 0;
+    frame_samples_ = 1;
+    sample_step_ = fps ? (1.0f / fps) : 0.0f;
+}
+
+void asSimulation::Reset()
+{
+    should_reset_ = true;
 }
 
 static mem::cmd_param PARAM_smoothstep {"smoothstep"};
@@ -383,6 +465,35 @@ void asSimulation::ResetClock()
 
     f32 max_fps = PARAM_maxfps.get_or(500.0f);
     max_fps_delta_ = (max_fps > 0.0f) ? (1.0f / max_fps) : 0.0f;
+}
+
+void asSimulation::Simulate()
+{
+    if (eqReplay::Playback)
+        eqReplay::DoPlayback();
+
+    if (should_reset_)
+    {
+        asNode::Reset();
+        seconds_ = 4321.0f;
+        should_reset_ = false;
+    }
+
+    if (DebugMemory & ARTS_DEBUG_SIM)
+    {
+        ArAssert(_CrtCheckMemory(), "Memory Corrupt");
+
+        if (const char* error = VerifyTree())
+            Quitf("Node Tree Corrupt: %s", error);
+    }
+    Device();
+    Widgets();
+    Update();
+
+    CULLMGR->Update();
+
+    if (eqReplay::Recording)
+        eqReplay::DoRecord();
 }
 
 void asSimulation::Update()
@@ -520,6 +631,33 @@ void asSimulation::UpdatePaused(asNode* node)
                 UpdatePaused(child);
             }
         }
+    }
+}
+
+void asSimulation::Cull()
+{
+    if (vector_count_ == 0)
+        return;
+
+    Matrix34 world {IDENTITY};
+    DrawBegin(world);
+
+    for (i32 i = 0; i < vector_count_; ++i)
+    {
+        DrawColor(vector_colors_[i]);
+        DrawLine(vector_starts_[i], vector_ends_[i]);
+    }
+
+    DrawEnd();
+}
+
+void asSimulation::DeclareVector(const Vector3* start, const Vector3* end, const Vector3* color)
+{
+    if (full_update_ && vector_count_ < vector_capacity_)
+    {
+        vector_starts_[vector_count_] = *start;
+        vector_ends_[vector_count_] = *end;
+        vector_colors_[vector_count_] = *color;
     }
 }
 
@@ -796,13 +934,26 @@ void asSimulation::OpenPhysicsBank()
     physics_bank_open_ ^= true;
 }
 
+static i32 NodeTimingCount = 100;
+
+static void BeginNodeTiming()
+{
+    asNode::TimingCount += NodeTimingCount;
+}
+
+static void ResetNodeTiming()
+{
+    asNode::TimingCount = 0;
+    ARTSPTR->ResetTime();
+}
+
 void asSimulation::AddWidgets(Bank* bank)
 {
     asNode::AddWidgets(bank);
 
     bank->AddButton("Reset Simulation", MFA(asSimulation::Reset, this));
 
-    bank->AddTitle("Physics Draw Mode");
+    bank->PushSection("Physics Draw Mode", 0);
     bank->AddToggle("Matrix", &DynaDrawMode, DYNA_DRAW_MATRIX, NullCallback);
     bank->AddToggle("Cull Spheres", &DynaDrawMode, DYNA_DRAW_CULL_SPHERES, NullCallback);
     bank->AddToggle("Geometry", &DynaDrawMode, DYNA_DRAW_GEOMETRY, NullCallback);
@@ -816,6 +967,14 @@ void asSimulation::AddWidgets(Bank* bank)
     bank->AddToggle("Volume Samples", &DynaDrawMode, DYNA_DRAW_VOLUME_SAMPLES, NullCallback);
     bank->AddToggle("Fluid Samples", &DynaDrawMode, DYNA_DRAW_FLUID_SAMPLES, NullCallback);
     bank->AddToggle("Springs", &DynaDrawMode, DYNA_DRAW_SPRINGS, NullCallback);
+    bank->PopSection();
+
+    bank->PushSection("Node Timing", 0);
+    bank->AddSlider("Current", &asNode::TimingCount, 0, INT_MAX, 0, NullCallback);
+    bank->AddSlider("Additional", &NodeTimingCount, 1, 1000, 1, NullCallback);
+    bank->AddButton("Begin", CFA(BeginNodeTiming));
+    bank->AddButton("Reset", CFA(ResetNodeTiming));
+    bank->PopSection();
 }
 
 void InitBank(i32 /*argc*/, char** /*argv*/)

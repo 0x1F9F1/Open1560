@@ -319,7 +319,7 @@ void asNode::PerfReport(Stream* output, i32 indent)
     for (i32 i = 0; i < indent; ++i)
         arts_fprintf(output, "  ");
 
-    arts_fprintf(output, "%s %s Total %.7f Myself %.7f\n", GetNodeType(), node_name_.get(), update_time_, self_update);
+    arts_fprintf(output, "%s %s %.7f/%.7f\n", GetNodeType(), GetNodeName(), self_update, update_time_);
 
     for (asNode* n = child_node_; n; n = n->next_node_)
         n->PerfReport(output, indent + 1);

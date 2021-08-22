@@ -739,44 +739,6 @@ void asMidgets::UpdateKey(i32 key, i32 mods)
             break;
         }
 
-#if 0
-        case EQ_VK_MULTIPLY: {
-            asNode* here = current_node_;
-            i32 depth = 0;
-
-            while (here)
-            {
-                Displayf("%*s %p: %s %s", depth * 2, "", here, here->GetTypeName(), here->GetNodeName());
-
-                // Open(here);
-
-                if (asNode* child = here->GetFirstChild())
-                {
-                    here = child;
-                    ++depth;
-                    continue;
-                }
-
-                while (here && depth)
-                {
-                    if (asNode* next = here->GetNext())
-                    {
-                        here = next;
-                        break;
-                    }
-
-                    here = here->GetParent();
-                    --depth;
-                }
-
-                if (depth == 0)
-                    break;
-            }
-
-            Open(here);
-        }
-#endif
-
         default: {
             if (MI* midget = midgets_[current_index_])
                 midget->Key(key, mods & ~EQ_KMOD_DOWN); // TODO: Why does this clear EQ_KMOD_DOWN?

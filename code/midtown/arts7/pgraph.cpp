@@ -251,13 +251,6 @@ void asPerfGraph::Key(i32 vkey)
         case EQ_VK_F3: graph_scale_ *= 2.0f; break;
         case EQ_VK_F4: main_component_ = (main_component_ + 1) % num_components_; break;
         case EQ_VK_F5: mode_ = (mode_ + 1) % 3; break;
-
-        // TODO: Move somewhere else?
-        case EQ_VK_F6: asNode::TimingCount = 100; break;
-        case EQ_VK_F7:
-            ARTSPTR->ResetTime();
-            asNode::TimingCount = 0;
-            break;
     }
 }
 

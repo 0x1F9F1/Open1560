@@ -20,8 +20,8 @@ define_dummy_symbol(eventq7_eventq);
 
 #include "eventq.h"
 
-eqEventQ::eqEventQ(i32 arg1, i32 enabled_events, i32 max_events)
-    : eqEventMonitor(arg1)
+eqEventQ::eqEventQ(i32 channels, i32 enabled_events, i32 max_events)
+    : eqEventMonitor(channels)
     , events_(new eqEvent[max_events])
 {
     enabled_events_ = enabled_events;

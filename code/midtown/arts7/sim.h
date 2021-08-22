@@ -83,7 +83,7 @@ class asSimulation final : public asNode
 {
 public:
     // ??0asSimulation@@QAE@XZ
-    ARTS_IMPORT asSimulation();
+    ARTS_EXPORT asSimulation();
 
     // ??_EasSimulation@@UAEPAXI@Z
     // ??1asSimulation@@UAE@XZ
@@ -105,10 +105,10 @@ public:
 
 #ifdef ARTS_DEV_BUILD
     // ?Cull@asSimulation@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // ?DeclareVector@asSimulation@@QAEXPBVVector3@@00@Z
-    ARTS_IMPORT void DeclareVector(const Vector3* arg1, const Vector3* arg2, const Vector3* arg3);
+    ARTS_EXPORT void DeclareVector(const Vector3* start, const Vector3* end, const Vector3* color);
 #endif
 
     // ?Device@asSimulation@@QAEXXZ
@@ -133,22 +133,22 @@ public:
     ARTS_EXPORT void FrameLock(i32 lock, i32 arg2);
 
     // ?Pause@asSimulation@@QAEXXZ
-    ARTS_IMPORT void Pause();
+    ARTS_EXPORT void Pause();
 
     // ?Quiet@asSimulation@@QAEXXZ
-    ARTS_IMPORT void Quiet();
+    ARTS_EXPORT void Quiet();
 
     // ?RealTime@asSimulation@@QAEXM@Z
-    ARTS_IMPORT void RealTime(f32 arg1);
+    ARTS_EXPORT void RealTime(f32 fps);
 
     // ?Reset@asSimulation@@UAEXXZ
-    ARTS_IMPORT void Reset() override;
+    ARTS_EXPORT void Reset() override;
 
     // ?ResetClock@asSimulation@@QAEXXZ
     ARTS_EXPORT void ResetClock();
 
     // ?Simulate@asSimulation@@QAEXXZ
-    ARTS_IMPORT void Simulate();
+    ARTS_EXPORT void Simulate();
 
     // ?Update@asSimulation@@UAEXXZ
     ARTS_EXPORT void Update() override;
@@ -250,68 +250,70 @@ public:
 private:
     void SmoothDelta(f32& delta);
 
-    b32 in_escape_;
-    i32 frame_depth_;
-    asLinearCS* frame_stack_[32];
-    asLinearCS root_frame_;
-    Matrix34* current_matrix_;
-    Timer frame_timer_;
-    i32 frame_lock_;
-    f32 seconds_;
-    f32 inv_seconds_;
-    f32 elapsed_;
-    f32 actual_elapsed_;
-    i32 updates_;
-    i32 full_updates_;
-    b32 first_frame_;
-    b32 full_update_;
-    i32 sample_mode_;
-    f32 fixed_fps_;
-    f32 sample_step_;
-    f32 min_frame_delta_;
-    f32 max_frame_delta_;
-    i32 max_samples_;
-    i32 frame_samples_;
-    b32 frame_step_;
-    i32 frame_count_;
-    b32 print_bench_stats_;
-    i32 field_184;
-    f32 bench_elapsed_;
-    asBenchStats curr_stats_;
-    asBenchStats prev_stats_;
+    b32 in_escape_ {};
+    i32 frame_depth_ {};
+    asLinearCS* frame_stack_[32] {};
+    asLinearCS root_frame_ {};
+    Matrix34* current_matrix_ {};
+    Timer frame_timer_ {};
+    i32 frame_lock_ {};
+    f32 seconds_ {};
+    f32 inv_seconds_ {};
+    f32 elapsed_ {};
+    f32 actual_elapsed_ {};
+    i32 updates_ {};
+    i32 full_updates_ {};
+    b32 first_frame_ {};
+    b32 full_update_ {true};
+    i32 sample_mode_ {};
+    f32 fixed_fps_ {};
+    f32 sample_step_ {};
+    f32 min_frame_delta_ {0.0001f};
+    f32 max_frame_delta_ {0.25f};
+    i32 max_samples_ {4};
+    i32 frame_samples_ {};
+    b32 frame_step_ {};
+    i32 frame_count_ {};
+    b32 print_bench_stats_ {};
+    i32 field_184 {};
+    f32 bench_elapsed_ {};
+    asBenchStats curr_stats_ {};
+    asBenchStats prev_stats_ {};
 
 #ifdef ARTS_DEV_BUILD
-    i32 vector_count_;
-    Ptr<Vector3[]> vector_starts_;
-    Ptr<Vector3[]> vector_ends_;
-    Ptr<Vector3[]> vector_colors_;
+    i32 vector_count_ {};
+    Ptr<Vector3[]> vector_starts_ {};
+    Ptr<Vector3[]> vector_ends_ {};
+    Ptr<Vector3[]> vector_colors_ {};
 #endif
 
     eqEventQ keys_queue_;
     eqEventQ widgets_queue_;
 
 #ifdef ARTS_DEV_BUILD
-    i32 field_294;
-    i32 field_298;
+    i32 field_294 {};
+    i32 field_298 {};
 #endif
 
-    i32 draw_mode_;
+    i32 draw_mode_ {};
 
 #ifdef ARTS_DEV_BUILD
-    b32 physics_bank_open_;
+    b32 physics_bank_open_ {};
 #endif
 
-    b32 no_debug_;
-    b32 show_ui_;
-    b32 paused_;
+    b32 no_debug_ {};
+    b32 show_ui_ {};
+    b32 paused_ {};
 
     // New Fields
-    bool smooth_;
-    f32 delta_drift_;
-    f32 target_delta_;
-    ulong prev_utimer_;
-    f32 max_fps_delta_;
-    bool toggle_pause_;
+    bool smooth_ {};
+    f32 delta_drift_ {};
+    f32 target_delta_ {};
+    ulong prev_utimer_ {};
+    f32 max_fps_delta_ {};
+    bool toggle_pause_ {};
+    bool should_reset_ {};
+    i32 vector_capacity_ {};
 };
 
 // check_size(asSimulation, 0x2B0);
