@@ -8,6 +8,8 @@ arts_component "mmphysics"
         "entity.h",
         "inertia.cpp",
         "inertia.h",
+        "joint.cpp",
+        "joint.h",
         "joint3dof.cpp",
         "joint3dof.h",
         "osample.cpp",

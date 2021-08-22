@@ -16,34 +16,22 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(mmphysics_inertia);
+#pragma once
 
-#include "inertia.h"
+#include "arts7/node.h"
 
-void asInertialCS::FileIO(MiniParser* /*arg1*/)
-{}
+class asInertialCS;
 
-asInertialCS::asInertialCS()
+class JointedStruct : public asNode
 {
-    Global = true;
-    SetDensity(1.0f, 1.0f, 1.0f, 1.0f);
-    Zero();
-}
+public:
+    // ??1JointedStruct@@UAE@XZ | inline
+    ARTS_EXPORT ~JointedStruct() = default;
 
-void asInertialCS::SetDensity(f32 size_x, f32 size_y, f32 size_z, f32 density)
-{
-    SetMass(size_x, size_y, size_z, size_x * size_y * size_z * density * 1000.0f);
-}
+    virtual void GetCMatrix(
+        const asInertialCS* arg1, const asInertialCS* arg2, Matrix34& arg3, const Vector3& arg4) = 0;
 
-void asInertialCS::SetMass(f32 size_x, f32 size_y, f32 size_z, f32 mass)
-{
-    Size = Vector3(size_x, size_y, size_z);
-    Mass = mass;
-    InvMass = 1.0f / mass;
+    virtual void GetCMatrix(const asInertialCS* arg1, Matrix34& arg2, const Vector3& arg3) = 0;
+};
 
-    size_x *= size_x;
-    size_y *= size_y;
-    size_z *= size_z;
-    Inertia = Vector3(size_y + size_z, size_x + size_z, size_x + size_y) * (mass / 12.0f);
-    InvInertia = 1.0f / Inertia;
-}
+check_size(JointedStruct, 0x20);

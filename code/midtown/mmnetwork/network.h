@@ -104,7 +104,7 @@ struct NETSESSION_DESC
     // Unused: 1
     // Difficulty: 2
     // NumLaps: 4
-    // 
+    //
     // if (EventId == 2)
     //   Limit: 2
     //   LimitMode: 2

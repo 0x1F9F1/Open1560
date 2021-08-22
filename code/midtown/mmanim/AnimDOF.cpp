@@ -39,9 +39,8 @@ void mmDrawbridgeInstance::Draw(i32 lod)
 
     // FIXME: The main part of the bridge is drawn during the terrain pass, which has depth testing disabled with the software renderer
     // This can cause other terrain to become visible through the bridge
-    bool zenable = agiCurState.GetZEnable();
-
-    agiCurState.SetZEnable(true);
+    auto zwrite = agiCurState.SetZWrite(true);
+    auto zenable = agiCurState.SetZEnable(true);
 
     if (asRenderWeb::PassMask & RENDER_PASS_TERRAIN)
     {
@@ -52,8 +51,9 @@ void mmDrawbridgeInstance::Draw(i32 lod)
     if (asRenderWeb::PassMask & RENDER_PASS_OBJECTS)
     {
         if (agiMeshSet* mesh = GetResidentMeshSet(lod, RAIL))
-            mesh->DrawLitEnv(DynamicLighter, CullCity()->ShadowMap, CullCity()->EnvMatrix, MESH_DRAW_CLIP);
+            mesh->DrawLit(DynamicLighter, MESH_DRAW_CLIP, nullptr);
     }
 
+    agiCurState.SetZWrite(zwrite);
     agiCurState.SetZEnable(zenable);
 }

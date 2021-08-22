@@ -64,21 +64,37 @@
 
 #include "arts7/linear.h"
 
+class JointedStruct;
+
+// Translation
+#define INERTIAL_CONSTRAIN_TX 0x1
+#define INERTIAL_CONSTRAIN_TY 0x2
+#define INERTIAL_CONSTRAIN_TZ 0x4
+
+// Rotation
+#define INERTIAL_CONSTRAIN_RX 0x8
+#define INERTIAL_CONSTRAIN_RY 0x10
+#define INERTIAL_CONSTRAIN_RZ 0x20
+
+#define INERTIAL_CONSTRAIN_LINK 0x40
+#define INERTIAL_CONSTRAIN_80 0x80
+#define INERTIAL_CONSTRAIN_ZERODOF 0x400
+
 class asInertialCS final : public asLinearCS
 {
 public:
     // ??0asInertialCS@@QAE@XZ
-    ARTS_IMPORT asInertialCS();
+    ARTS_EXPORT asInertialCS();
 
     // ??_EasInertialCS@@UAEPAXI@Z
     // ??1asInertialCS@@UAE@XZ | inline
-    ARTS_IMPORT ~asInertialCS() override = default;
+    ARTS_EXPORT ~asInertialCS() override = default;
 
     // ?ApplyPush@asInertialCS@@UAEXABVVector3@@0@Z
-    ARTS_IMPORT virtual void ApplyPush(const Vector3& arg1, const Vector3& arg2);
+    ARTS_IMPORT virtual void ApplyPush(const Vector3& push, const Vector3& arg2);
 
     // ?GetCMatrix@asInertialCS@@UBEXAAVMatrix34@@ABVVector3@@@Z
-    ARTS_IMPORT virtual void GetCMatrix(Matrix34& arg1, const Vector3& arg2);
+    ARTS_IMPORT virtual void GetCMatrix(Matrix34& arg1, const Vector3& arg2) const;
 
 #ifdef ARTS_DEV_BUILD
     // ?AddWidgets@asInertialCS@@UAEXPAVBank@@@Z
@@ -140,10 +156,10 @@ public:
     ARTS_IMPORT void Reset() override;
 
     // ?SetDensity@asInertialCS@@QAEXMMMM@Z
-    ARTS_IMPORT void SetDensity(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT void SetDensity(f32 size_x, f32 size_y, f32 size_z, f32 density);
 
     // ?SetMass@asInertialCS@@QAEXMMMM@Z
-    ARTS_IMPORT void SetMass(f32 arg1, f32 arg2, f32 arg3, f32 arg4);
+    ARTS_EXPORT void SetMass(f32 size_x, f32 size_y, f32 size_z, f32 mass);
 
     // ?SetZeroDOF@asInertialCS@@QAEXMM@Z | unused
     ARTS_IMPORT void SetZeroDOF(f32 arg1, f32 arg2);
@@ -160,8 +176,42 @@ public:
     // ?DeclareFields@asInertialCS@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    offset_field(0x94, f32, Mass);
-    offset_field(0x120, Vector3, LinearPush);
+    Vector3 Size {};
+    f32 Mass {};
+    f32 InvMass {};
+    Vector3 Inertia {};
+    Vector3 InvInertia {};
+    Vector3 LinearMomentum {};
+    Vector3 AngularMomentum {};
+    Vector3 LinearVelocity {};
+    Vector3 AngularVelocity {};
+    Vector3 FrameVelocity {};
+    Vector3 LinearForce {};
+    Vector3 AngularTorque {};
+    Vector3 LinearImpulse {};
+    Vector3 AngularImpulse {};
+    Vector3 LinearPush {};
+    Vector3 TurnForce {};
+    Vector3 FramePush {};
+    i32 NumImpulses {};
+    i32 field_148 {};
+    f32 Elasticity {};
+    f32 Friction {};
+    Vector3 Gravity {0.0f, -10.0f, 0.0f};
+    Vector3 field_160 {};
+    Vector3 field_16C {};
+    i32 Constraints {};
+    i32 field_17C {-1};
+    i32 SleepState {};
+    f32 Vel2 {0.1f};
+    f32 AngVel2 {0.1f};
+    f32 Time {1.0f};
+    f32 Counter {};
+    f32 ForceLimit2 {FLT_MAX};
+    f32 ImpulseLimit2 {};
+    JointedStruct* Joint {};
+    f32 MaxAngVelocity {ARTS_PI * 10.0f};
+    i32 field_1A4 {};
 
 private:
     // ?DrawForce@asInertialCS@@AAEXABVVector3@@0@Z
@@ -169,8 +219,6 @@ private:
 
     // ?DrawForce@asInertialCS@@AAEXABVVector3@@00@Z
     ARTS_IMPORT void DrawForce(const Vector3& arg1, const Vector3& arg2, const Vector3& arg3);
-
-    u8 gap88[0x120];
 };
 
 check_size(asInertialCS, 0x1A8);

@@ -244,7 +244,7 @@ void mmGame::UpdateDebugInput()
                         Player->GetCarSim().SetResetPos(matrix.m3);
 
                         Player->GetCarSim().ResetRotation =
-                            ResetPositions->Positions[next_pos]->Position.w * -ARTS_DEG_TO_RADF;
+                            ResetPositions->Positions[next_pos]->Position.w * -ARTS_DEG_TO_RAD;
                         Reset();
                     }
 

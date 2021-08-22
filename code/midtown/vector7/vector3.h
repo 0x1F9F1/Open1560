@@ -91,64 +91,89 @@ public:
     {}
 
     // ??LVector3@@QBE?AV0@ABV0@@Z | inline
-    ARTS_IMPORT Vector3 operator%(const Vector3& arg1) const;
+    ARTS_EXPORT inline Vector3 operator%(const Vector3& other) const
+    {
+        Vector3 result;
+        result.Cross(*this, other);
+        return result;
+    }
 
     // ??DVector3@@QBE?AV0@M@Z | inline
-    ARTS_EXPORT Vector3 operator*(f32 value) const
+    ARTS_EXPORT inline Vector3 operator*(f32 value) const
     {
         return {x * value, y * value, z * value};
     }
 
     // ??XVector3@@QAEXM@Z | inline
-    ARTS_EXPORT void operator*=(f32 value)
+    ARTS_EXPORT inline void operator*=(f32 value)
     {
         *this = {x * value, y * value, z * value};
     }
 
     // ??HVector3@@QBE?AV0@ABV0@@Z | inline
-    ARTS_EXPORT Vector3 operator+(const Vector3& other) const
+    ARTS_EXPORT inline Vector3 operator+(const Vector3& other) const
     {
         return {x + other.x, y + other.y, z + other.z};
     }
 
     // ??YVector3@@QAEXABV0@@Z | inline
-    ARTS_EXPORT void operator+=(const Vector3& other)
+    ARTS_EXPORT inline void operator+=(const Vector3& other)
     {
         *this = {x + other.x, y + other.y, z + other.z};
     }
 
     // ??GVector3@@QBE?AV0@XZ | inline
-    ARTS_EXPORT Vector3 operator-() const
+    ARTS_EXPORT inline Vector3 operator-() const
     {
         return {-x, -y, -z};
     }
 
     // ??GVector3@@QBE?AV0@ABV0@@Z | inline
-    ARTS_EXPORT Vector3 operator-(const Vector3& other) const
+    ARTS_EXPORT inline Vector3 operator-(const Vector3& other) const
     {
         return {x - other.x, y - other.y, z - other.z};
     }
 
     // ??ZVector3@@QAEXABV0@@Z | inline
-    ARTS_EXPORT void operator-=(const Vector3& other)
+    ARTS_EXPORT inline void operator-=(const Vector3& other)
     {
         *this = {x - other.x, y - other.y, z - other.z};
     }
 
     // ??KVector3@@QBE?AV0@M@Z | inline
-    ARTS_IMPORT Vector3 operator/(f32 arg1) const;
+    ARTS_EXPORT inline Vector3 operator/(f32 value) const
+    {
+        value = 1.0f / value;
+        return {x * value, y * value, z * value};
+    }
 
     // ??TVector3@@QBE?AV0@ABVMatrix34@@@Z | inline
-    ARTS_IMPORT Vector3 operator^(const Matrix34& arg1) const;
+    // Dot Product
+    ARTS_EXPORT inline Vector3 operator^(const Matrix34& other) const
+    {
+        Vector3 result;
+        result.Dot(*this, other);
+        return result;
+    }
 
     // ??TVector3@@QBEMABV0@@Z | inline
-    ARTS_IMPORT f32 operator^(const Vector3& arg1) const;
+    // Dot Product
+    ARTS_IMPORT inline f32 operator^(const Vector3& other) const
+    {
+        return (x * other.x) + (y * other.y) + (z * other.z);
+    }
 
     // ??SVector3@@QBE?AV0@XZ | inline
-    ARTS_IMPORT Vector3 operator~() const;
+    ARTS_EXPORT inline Vector3 operator~() const
+    {
+        return *this * InvMag();
+    }
 
     // ?Add@Vector3@@QAEXABV1@0@Z | inline
-    ARTS_IMPORT void Add(const Vector3& arg1, const Vector3& arg2);
+    ARTS_EXPORT inline void Add(const Vector3& lhs, const Vector3& rhs)
+    {
+        *this = lhs + rhs;
+    }
 
     // ?Angle@Vector3@@QBEMABV1@@Z
     ARTS_IMPORT f32 Angle(const Vector3& arg1) const;
@@ -183,7 +208,10 @@ public:
     ARTS_IMPORT f32 Cos(const Vector3& arg1) const;
 
     // ?Cross@Vector3@@QAEXABV1@0@Z | inline
-    ARTS_IMPORT void Cross(const Vector3& arg1, const Vector3& arg2);
+    ARTS_EXPORT inline void Cross(const Vector3& lhs, const Vector3& rhs)
+    {
+        *this = {lhs.y * rhs.z - lhs.z * rhs.y, lhs.z * rhs.x - lhs.x * rhs.z, lhs.x * rhs.y - lhs.y * rhs.x};
+    }
 
     // ?Dist@Vector3@@QBEMABV1@@Z
     ARTS_IMPORT f32 Dist(const Vector3& arg1) const;
@@ -256,22 +284,22 @@ public:
     // ?rgbtohsv@Vector3@@QAEXXZ | unused
     ARTS_IMPORT void rgbtohsv();
 
-    f32 Mag2() const
+    inline f32 Mag2() const
     {
         return (x * x) + (y * y) + (z * z);
     }
 
-    f32 Dist2(const Vector3& other) const
+    inline f32 Dist2(const Vector3& other) const
     {
         return (*this - other).Mag2();
     }
 
-    constexpr inline bool operator==(const Vector3& other) const noexcept
+    constexpr inline bool operator==(const Vector3& other) const
     {
         return (x == other.x) && (y == other.y) && (z == other.z);
     }
 
-    constexpr inline bool operator!=(const Vector3& other) const noexcept
+    constexpr inline bool operator!=(const Vector3& other) const
     {
         return (x != other.x) || (y != other.y) || (z != other.z);
     }
@@ -284,6 +312,11 @@ public:
 };
 
 check_size(Vector3, 0xC);
+
+inline Vector3 operator/(f32 lhs, const Vector3& rhs)
+{
+    return {lhs / rhs.x, lhs / rhs.y, lhs / rhs.z};
+}
 
 // ?TransformNormalList@@YAXPAVVector3@@PBV1@HABVMatrix34@@@Z | unused
 ARTS_IMPORT void TransformNormalList(Vector3* arg1, const Vector3* arg2, i32 arg3, const Matrix34& arg4);

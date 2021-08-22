@@ -63,25 +63,9 @@
     0x719150 | class Vector3 discrepancy | ?discrepancy@@3VVector3@@A
 */
 
-#include "arts7/node.h"
+#include "joint.h"
 
 #include "vector7/matrix34.h"
-
-class asInertialCS;
-
-class JointedStruct : public asNode
-{
-public:
-    // ??1JointedStruct@@UAE@XZ | inline
-    ARTS_IMPORT ~JointedStruct() = default;
-
-    virtual void GetCMatrix(
-        const asInertialCS* arg1, const asInertialCS* arg2, Matrix34& arg3, const Vector3& arg4) = 0;
-
-    virtual void GetCMatrix(const asInertialCS* arg1, Matrix34& arg2, const Vector3& arg3) = 0;
-};
-
-check_size(JointedStruct, 0x20);
 
 class Joint3Dof final : public JointedStruct
 {

@@ -16,34 +16,4 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define_dummy_symbol(mmphysics_inertia);
-
-#include "inertia.h"
-
-void asInertialCS::FileIO(MiniParser* /*arg1*/)
-{}
-
-asInertialCS::asInertialCS()
-{
-    Global = true;
-    SetDensity(1.0f, 1.0f, 1.0f, 1.0f);
-    Zero();
-}
-
-void asInertialCS::SetDensity(f32 size_x, f32 size_y, f32 size_z, f32 density)
-{
-    SetMass(size_x, size_y, size_z, size_x * size_y * size_z * density * 1000.0f);
-}
-
-void asInertialCS::SetMass(f32 size_x, f32 size_y, f32 size_z, f32 mass)
-{
-    Size = Vector3(size_x, size_y, size_z);
-    Mass = mass;
-    InvMass = 1.0f / mass;
-
-    size_x *= size_x;
-    size_y *= size_y;
-    size_z *= size_z;
-    Inertia = Vector3(size_y + size_z, size_x + size_z, size_x + size_y) * (mass / 12.0f);
-    InvInertia = 1.0f / Inertia;
-}
+#include "joint.h"

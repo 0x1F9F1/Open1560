@@ -106,4 +106,6 @@ class Vector3;
 class Vector4;
 
 // TODO: Move to a maths header
-#define ARTS_DEG_TO_RADF 0.017453292f
+#define ARTS_DEG_TO_RAD 0.017453292f
+#define ARTS_RAD_TO_DEG 57.29578f
+#define ARTS_PI 3.1415927f
