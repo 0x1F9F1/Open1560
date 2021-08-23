@@ -53,23 +53,7 @@ void mmHudMap::Cull()
         DrawCopsnRobbers();
 
     if (Mode == 3)
-    {
-        u32 color = 0x00000000;
-
-        if (MapWidth < Pipe()->GetWidth())
-        {
-            Pipe()->ClearRect(0, 0, MapDstX, Pipe()->GetHeight(), color);
-            Pipe()->ClearRect(
-                MapDstX + MapWidth, 0, Pipe()->GetWidth() - (MapDstX + MapWidth), Pipe()->GetHeight(), color);
-        }
-
-        if (MapHeight < Pipe()->GetHeight())
-        {
-            Pipe()->ClearRect(MapDstX, 0, MapWidth, MapDstY, color);
-            Pipe()->ClearRect(
-                MapDstX, MapDstY + MapHeight, MapWidth, Pipe()->GetHeight() - (MapDstY + MapHeight), color);
-        }
-    }
+        Pipe()->ClearBorder(MapDstX, MapDstY, MapWidth, MapHeight, 0);
 }
 
 void mmHudMap::DrawOpponents()

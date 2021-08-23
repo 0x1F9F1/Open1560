@@ -47,9 +47,9 @@ constexpr usize DefaultNewAlignment = __STDCPP_DEFAULT_NEW_ALIGNMENT__;
 
 struct asMemStats
 {
-    usize nTotalNodes {0};
-    usize nFreeNodes {0};
-    usize nUsedNodes {0};
+    usize nTotalBlocks {0};
+    usize nFreeBlocks {0};
+    usize nUsedBlocks {0};
 
     usize cbOverhead {0};
     usize cbFree {0};
@@ -61,7 +61,7 @@ struct asMemSource
     usize uSource {0};
     usize cbUsed {0};
     usize cbOverhead {0};
-    usize nNodes {0};
+    usize nBlocks {0};
 };
 
 check_size(asMemStats, 0x18);

@@ -234,6 +234,21 @@ b32 agiPipeline::CopyClippedBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src
     return true;
 }
 
+void agiPipeline::ClearBorder(i32 x, i32 y, i32 width, i32 height, u32 color)
+{
+    if (x > 0)
+        ClearRect(0, 0, x, GetHeight(), color);
+
+    if (i32 right = x + width; right < GetWidth())
+        ClearRect(right, 0, GetWidth() - right, GetHeight(), color);
+
+    if (y > 0)
+        ClearRect(x, 0, width, y, color);
+
+    if (i32 bottom = y + height; bottom < GetHeight())
+        ClearRect(x, bottom, width, GetHeight() - bottom, color);
+}
+
 void agiPipeline::DumpStatus()
 {
     for (agiRefreshable* i = objects_; i; i = i->next_)

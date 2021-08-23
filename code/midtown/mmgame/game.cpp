@@ -221,8 +221,7 @@ void mmGame::UpdateDebugInput()
                     break;
                 }
                 case EQ_VK_P: {
-                    Player->GetHUD().RecordPosition(Popup->GetComment());
-                    Popup->SetComment(const_cast<char*>(""));
+                    Popup->RecordPosition();
                     break;
                 }
                 case EQ_VK_Q: {

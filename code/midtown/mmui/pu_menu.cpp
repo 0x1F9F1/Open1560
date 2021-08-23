@@ -83,3 +83,16 @@ PUMenuBase::PUMenuBase(
     field_B0 = 0.5f;
     field_B8 = 0.5f;
 }
+
+void PUMenuBase::Cull()
+{
+    i32 x = bg_x_;
+    i32 y = bg_y_;
+    i32 width = bg_bitmap_->GetWidth();
+    i32 height = bg_bitmap_->GetHeight();
+
+    Pipe()->CopyBitmap(x, y, bg_bitmap_.get(), 0, 0, width, height);
+
+    if (MenuManager::Instance->Is3D())
+        Pipe()->ClearBorder(x, y, width, height, 0);
+}

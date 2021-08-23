@@ -464,7 +464,7 @@ void asMemoryAllocator::GetStats(asMemStats* stats, asMemSource* sources, usize*
 
     for (Node* n = GetFirstNode(); n != GetHeapEnd(); n = n->GetNext())
     {
-        ++stats->nTotalNodes;
+        ++stats->nTotalBlocks;
 
         u32 size = n->Size;
         u32 overhead = sizeof(Node);
@@ -473,7 +473,7 @@ void asMemoryAllocator::GetStats(asMemStats* stats, asMemSource* sources, usize*
 
         if (n->IsAllocated())
         {
-            ++stats->nUsedNodes;
+            ++stats->nUsedBlocks;
             stats->cbUsed += size;
 
             if (max_sources)
@@ -501,7 +501,7 @@ void asMemoryAllocator::GetStats(asMemStats* stats, asMemSource* sources, usize*
 
                 if (find)
                 {
-                    find->nNodes++;
+                    find->nBlocks++;
                     find->cbUsed += size;
                     find->cbOverhead += overhead;
                 }
@@ -509,7 +509,7 @@ void asMemoryAllocator::GetStats(asMemStats* stats, asMemSource* sources, usize*
         }
         else
         {
-            ++stats->nFreeNodes;
+            ++stats->nFreeBlocks;
             stats->cbFree += size;
         }
     }
@@ -678,9 +678,9 @@ void asMemoryAllocator::DumpStats()
     Warningf(" Alloc Free: 0x%08X KB", stats.cbFree >> 10);
     Warningf("Alloc Waste: 0x%08X KB", stats.cbOverhead >> 10);
 
-    Warningf("Total Nodes: %10u", stats.nTotalNodes);
-    Warningf(" Used Nodes: %10u", stats.nUsedNodes);
-    Warningf(" Free Nodes: %10u", stats.nFreeNodes);
+    Warningf("Total Blocks: %10u", stats.nTotalBlocks);
+    Warningf(" Used Blocks: %10u", stats.nUsedBlocks);
+    Warningf(" Free Blocks: %10u", stats.nFreeBlocks);
 
     for (u32 i = 0; i < ARTS_SIZE(buckets_); ++i)
     {

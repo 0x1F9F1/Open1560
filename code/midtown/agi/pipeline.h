@@ -205,6 +205,8 @@ public:
     ARTS_EXPORT b32 CopyClippedBitmap(i32 dst_x, i32 dst_y, agiBitmap* src, i32 src_x, i32 src_y, i32 width, i32 height,
         i32 min_x, i32 min_y, i32 max_x, i32 max_y);
 
+    void ClearBorder(i32 x, i32 y, i32 width, i32 height, u32 color);
+
     // ?DumpStatus@agiPipeline@@QAEXXZ | unused
     ARTS_EXPORT void DumpStatus();
 

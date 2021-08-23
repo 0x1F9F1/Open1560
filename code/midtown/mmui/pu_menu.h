@@ -68,7 +68,7 @@ public:
     ARTS_IMPORT f32 CreateTitle();
 
     // ?Cull@PUMenuBase@@UAEXXZ
-    ARTS_IMPORT void Cull() override;
+    ARTS_EXPORT void Cull() override;
 
     // ?DisableExit@PUMenuBase@@QAEXXZ
     ARTS_IMPORT void DisableExit();
