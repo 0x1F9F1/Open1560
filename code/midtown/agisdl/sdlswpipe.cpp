@@ -527,35 +527,6 @@ i32 agiSDLSWPipeline::Validate()
     return AGI_ERROR_SUCCESS;
 }
 
-static void TranslatePixels(u8* data, i32 width, i32 height)
-{
-    // Flip vertically
-    for (i32 y = 0; y < height / 2; ++y)
-    {
-        u32* lhs = (u32*) &data[y * width * 4];
-        u32* rhs = (u32*) &data[(height - y - 1) * width * 4];
-
-        for (i32 x = 0; x < width; ++x)
-        {
-            u32 temp = lhs[x];
-            lhs[x] = rhs[x];
-            rhs[x] = temp;
-        }
-    }
-
-    // BGRA -> BGR
-    u8* src = data;
-    u8* dst = data;
-    for (i32 i = 0, count = width * height; i < count; ++i)
-    {
-        dst[0] = src[0];
-        dst[1] = src[1];
-        dst[2] = src[2];
-        src += 4;
-        dst += 3;
-    }
-}
-
 Ptr<u8[]> sdlScreenShot(i32& width, i32& height)
 {
     SDL_Window* window = SDL_GetGrabbedWindow();
@@ -574,15 +545,15 @@ Ptr<u8[]> sdlScreenShot(i32& width, i32& height)
     width = view.w;
     height = view.h;
 
-    Ptr<u8[]> buffer = MakeUniqueUninit<u8[]>(width * height * 4);
+    i32 pitch = width * 3;
+
+    Ptr<u8[]> buffer = MakeUniqueUninit<u8[]>(pitch * height);
 
     if (buffer == nullptr)
         return nullptr;
 
-    if (SDL_RenderReadPixels(renderer, &view, SDL_PIXELFORMAT_ARGB8888, buffer.get(), width * 4) != 0)
+    if (SDL_RenderReadPixels(renderer, &view, SDL_PIXELFORMAT_BGR24, buffer.get() + pitch * (height - 1), -pitch) != 0)
         return nullptr;
-
-    TranslatePixels(buffer.get(), width, height);
 
     return buffer;
 }
