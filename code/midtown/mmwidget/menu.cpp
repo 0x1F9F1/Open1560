@@ -85,3 +85,16 @@ b32 UIMenu::ScanInput(eqEvent* event)
 
     return true;
 }
+
+uiWidget* UIMenu::FindWidget(i32 id)
+{
+    for (i32 i = 0; i < widget_count_; ++i)
+    {
+        uiWidget* widget = widgets_[i];
+
+        if (widget->WidgetID == id)
+            return widget;
+    }
+
+    return nullptr;
+}

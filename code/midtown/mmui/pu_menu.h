@@ -40,6 +40,7 @@
 #include "mmwidget/menu.h"
 
 class agiBitmap;
+class mmTextNode;
 
 class PUMenuBase : public UIMenu
 {
@@ -79,14 +80,17 @@ public:
     // ?Update@PUMenuBase@@UAEXXZ
     ARTS_IMPORT void Update() override;
 
+    Ptr<mmTextNode> CreateTextNode(f32 x, f32 y, f32 width, f32 height, i32 lines, i32 flags);
+    i32 AddText(mmTextNode* node, void* font, LocString* text, i32 effects, f32 x, f32 y);
+
 protected:
     i32 field_90 {0};
     Rc<agiBitmap> bg_bitmap_;
     UIButton* exit_button_ {nullptr};
     i32 bg_x_ {0};
     i32 bg_y_ {0};
-    i32 field_A4 {0};
-    f32 field_A8 {0.0f};
+    i32 widget_font_size_ {0};
+    f32 widget_height_ {0.0f};
     f32 field_AC {0.0f};
     f32 field_B0 {0.0f};
     f32 field_B4 {0.0f};

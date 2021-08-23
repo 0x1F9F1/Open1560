@@ -31,6 +31,7 @@
 #include "arts7/node.h"
 
 union eqEvent;
+class mmToolTip;
 class UIMenu;
 
 class uiWidget : public asNode
@@ -43,6 +44,8 @@ public:
     // ??_EuiWidget@@UAEPAXI@Z
     // ??1uiWidget@@UAE@XZ | inline
     ARTS_IMPORT ~uiWidget() override = default;
+
+    void SetEnabled(bool enabled);
 
     // ?Disable@uiWidget@@UAEXXZ | inline
     ARTS_IMPORT virtual void Disable();
@@ -89,7 +92,27 @@ public:
     // ?SetToolTipText@uiWidget@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetToolTipText(LocString* arg1);
 
-    u8 gap20[0x54];
+    UIMenu* Menu;
+    f32 MinX;
+    f32 MinY;
+    f32 MaxX;
+    f32 MaxY;
+    f32 MouseX;
+    f32 MouseY;
+    i32 MouseHit;
+    i32 MouseButton;
+    b32 Active;
+    i32 WidgetID;
+    i32 ReadOnly;
+    const char* Label;
+    const char* Icon;
+    f32 X;
+    f32 Y;
+    f32 Width;
+    f32 Height;
+    i32 Enabled;
+    i32 field_6C;
+    mmToolTip* ToolTip;
 };
 
 check_size(uiWidget, 0x74);

@@ -47,3 +47,11 @@ void uiWidget::AddToolTip(UIMenu* /*arg1*/, LocString* /*arg2*/)
 
 void uiWidget::ResetToolTip()
 {}
+
+void uiWidget::SetEnabled(bool enabled)
+{
+    if (enabled)
+        Enable();
+    else
+        Disable();
+}

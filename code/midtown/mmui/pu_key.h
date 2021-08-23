@@ -38,19 +38,19 @@ class PUKey final : public PUMenuBase
 {
 public:
     // ??0PUKey@@QAE@HMMMM@Z
-    ARTS_IMPORT PUKey(i32 menu_id, f32 x, f32 y, f32 width, f32 height);
+    ARTS_EXPORT PUKey(i32 menu_id, f32 x, f32 y, f32 width, f32 height);
 
     // ??_GPUKey@@UAEPAXI@Z
     // ??_EPUKey@@UAEPAXI@Z
     // ??1PUKey@@UAE@XZ
-    ARTS_IMPORT ~PUKey() override = default;
+    ARTS_EXPORT ~PUKey() override;
 
 private:
-    // ?PostSetup@PUKey@@EAEXXZ
-    ARTS_IMPORT void PostSetup() override;
-
     // ?PreSetup@PUKey@@EAEXXZ
-    ARTS_IMPORT void PreSetup() override;
+    ARTS_EXPORT void PreSetup() override;
+
+    // ?PostSetup@PUKey@@EAEXXZ
+    ARTS_EXPORT void PostSetup() override;
 
     Ptr<mmTextNode> text_node_;
     i32 key_count_ {0};

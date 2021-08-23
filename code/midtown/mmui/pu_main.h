@@ -34,12 +34,14 @@ class PUMain final : public PUMenuBase
 {
 public:
     // ??0PUMain@@QAE@HMMMMPAD@Z
-    ARTS_IMPORT PUMain(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_EXPORT PUMain(i32 menu_id, f32 x, f32 y, f32 width, f32 height, char* background);
 
     // ??_GPUMain@@UAEPAXI@Z
     // ??_EPUMain@@UAEPAXI@Z
     // ??1PUMain@@UAE@XZ
-    ARTS_IMPORT ~PUMain() override = default;
+    ARTS_EXPORT ~PUMain() override = default;
+
+    void PreSetup() override;
 };
 
 check_size(PUMain, 0xC0);

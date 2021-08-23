@@ -48,6 +48,35 @@
 
 class mmGame;
 
+enum
+{
+    IDD_PU_MAIN = 1,
+    IDD_PU_QUIT = 2,
+    IDD_PU_EXIT = 3,
+    IDD_PU_CHAT = 4,
+    IDD_PU_OPTIONS = 5,
+    IDD_PU_AUDIO = 6,
+    IDD_PU_CONTROL = 7,
+    IDD_PU_GRAPHICS = 8,
+    IDD_PU_RESULTS = 9,
+    IDD_PU_ROSTER = 10,
+    IDD_PU_KEY = 11,
+    IDD_PU_DEBUG = 12,
+
+    IDC_PU_MAIN_RESTART = 10,
+    IDC_PU_MAIN_OPTIONS = 11,
+    IDC_PU_MAIN_HELP = 12,
+    IDC_PU_MAIN_QUIT = 13,
+    IDC_PU_MAIN_EXIT = 14,
+    IDC_PU_MAIN_DEBUG = 15,
+
+    IDC_PU_RESULTS_RESTART = 10,
+    IDC_PU_RESULTS_NEXT = 11,
+    IDC_PU_RESULTS_ROSTER = 12,
+    IDC_PU_RESULTS_QUIT = 13,
+    IDC_PU_RESULTS_EXIT = 14,
+};
+
 class mmPopup final : public asNode
 {
 public:

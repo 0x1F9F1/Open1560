@@ -89,6 +89,11 @@
 
 #include "arts7/node.h"
 
+#include "data7/callback.h"
+#include "data7/str.h"
+#include "localize/localize.h"
+#include "mmwidget/widget.h"
+
 union eqEvent;
 class mmIO;
 
@@ -111,7 +116,6 @@ class UITextScroll;
 class UIToggleButton2;
 class UIToggleButton;
 class UIVScrollBar;
-class uiWidget;
 
 class UIMenu : public asNode
 {
@@ -351,6 +355,8 @@ public:
     {
         return widgets_[index];
     }
+
+    uiWidget* FindWidget(i32 id);
 
 protected:
     i32 action_source_;

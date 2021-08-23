@@ -42,16 +42,18 @@
 
 #include "pu_menu.h"
 
+class mmTextNode;
+
 class PUResults final : public PUMenuBase
 {
 public:
     // ??0PUResults@@QAE@HMMMMPAD@Z
-    ARTS_IMPORT PUResults(i32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, char* arg6);
+    ARTS_EXPORT PUResults(i32 menu_id, f32 x, f32 y, f32 width, f32 height, char* background);
 
     // ??_GPUResults@@UAEPAXI@Z
     // ??_EPUResults@@UAEPAXI@Z
     // ??1PUResults@@UAE@XZ
-    ARTS_IMPORT ~PUResults() override = default;
+    ARTS_EXPORT ~PUResults() override;
 
     // ?AddName@PUResults@@QAEXHPADM@Z
     ARTS_IMPORT void AddName(i32 arg1, char* arg2, f32 arg3);
@@ -75,7 +77,7 @@ public:
     ARTS_IMPORT void Init320();
 
     // ?Init640@PUResults@@QAEXXZ
-    ARTS_IMPORT void Init640();
+    ARTS_EXPORT void Init640();
 
     // ?Reset@PUResults@@UAEXXZ
     ARTS_IMPORT void Reset() override;
@@ -89,7 +91,20 @@ public:
     // ?SetMessage@PUResults@@QAEXPAULocString@@@Z
     ARTS_IMPORT void SetMessage(LocString* arg1);
 
-    u8 gapC0[0x30];
+    Ptr<mmTextNode> RaceType;
+    Ptr<mmTextNode> RaceName;
+    Ptr<mmTextNode> Names;
+    Ptr<mmTextNode> Message;
+
+    UIButton* RosterButton;
+    UIButton* NextButton;
+    UIButton* RestartButton;
+
+    ConstString RestartRace;
+    ConstString NextRace;
+    ConstString ShowRoster;
+    ConstString RaceMenu;
+    ConstString ExitToWindows;
 };
 
 check_size(PUResults, 0xF0);

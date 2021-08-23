@@ -22,6 +22,7 @@ define_dummy_symbol(mmui_pu_menu);
 
 #include "agi/bitmap.h"
 #include "agi/pipeline.h"
+#include "mmeffects/mmtext.h"
 #include "mmwidget/manager.h"
 
 PUMenuBase::PUMenuBase(
@@ -32,14 +33,11 @@ PUMenuBase::PUMenuBase(
     {
         if (MenuManager::Instance->Is3D())
         {
-            if (menu_id == 9) // FIXME: Need to adjust PUResults text positions
-                bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, UI_FullW, UI_FullH, 0));
-            else
-                bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, 1.0f, 1.0f, 0));
+            bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, 1.0f, 1.0f, 0));
         }
         else
         {
-            bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, 0.0f, 0.0f, 1));
+            bg_bitmap_ = AsRc(Pipe()->GetBitmap(background, 0.0f, 0.0f, BITMAP_TRANSPARENT));
         }
 
         if (!bg_bitmap_)
@@ -54,12 +52,8 @@ PUMenuBase::PUMenuBase(
     }
     else if (width > 0.0f && height > 0.0f)
     {
-        // FIXME: Need to adjust PUKey control positions
-        if (menu_id != 11)
-        {
-            width *= UI_ScaleX;
-            height *= UI_ScaleY;
-        }
+        width *= UI_ScaleX;
+        height *= UI_ScaleY;
 
         menu_width_ = width;
         menu_height_ = height;
@@ -70,16 +64,16 @@ PUMenuBase::PUMenuBase(
 
     if (bg_bitmap_)
     {
-        bg_x_ = static_cast<i32>(Pipe()->GetWidth() * menu_x_);
-        bg_y_ = static_cast<i32>(Pipe()->GetHeight() * menu_y_);
+        bg_x_ = static_cast<i32>(menu_x_ * Pipe()->GetWidth());
+        bg_y_ = static_cast<i32>(menu_y_ * Pipe()->GetHeight());
     }
 
     field_AC = 0.075f;
-    field_A8 = 0.1f;
+    widget_height_ = 0.1f;
     field_68 = 1;
     field_BC = 0.1f;
     field_B4 = 0.9f;
-    field_A4 = MenuManager::Instance->GetFieldD0() ? 24 : 32;
+    widget_font_size_ = MenuManager::Instance->GetFieldD0() ? 24 : 32;
     field_B0 = 0.5f;
     field_B8 = 0.5f;
 }
@@ -95,4 +89,17 @@ void PUMenuBase::Cull()
 
     if (MenuManager::Instance->Is3D())
         Pipe()->ClearBorder(x, y, width, height, 0);
+}
+
+Ptr<mmTextNode> PUMenuBase::CreateTextNode(f32 x, f32 y, f32 width, f32 height, i32 lines, i32 flags)
+{
+    Ptr<mmTextNode> result = MakeUnique<mmTextNode>();
+    result->Init(menu_x_ + (x * menu_width_), menu_y_ + (y * menu_height_), width * menu_width_, height * menu_height_,
+        lines, flags);
+    return result;
+}
+
+i32 PUMenuBase::AddText(mmTextNode* node, void* font, LocString* text, i32 effects, f32 x, f32 y)
+{
+    return node->AddText(font, text, effects, x * menu_width_, y * menu_height_);
 }
