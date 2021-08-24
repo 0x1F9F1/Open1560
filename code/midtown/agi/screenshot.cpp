@@ -59,8 +59,7 @@ static void SaveScreenShotWorker(void* ctx)
     {
         if (EmptyClipboard())
         {
-            i32 src_pitch = width * 3;
-            i32 dst_pitch = (src_pitch + 3) & ~3;
+            i32 dst_pitch = ((width * 3) + 3) & ~3;
 
             BITMAPINFOHEADER info_header {};
             info_header.biSize = sizeof(info_header);
@@ -84,7 +83,7 @@ static void SaveScreenShotWorker(void* ctx)
                     clip_data += sizeof(info_header);
 
                     for (i32 i = 0; i < height; ++i)
-                        std::memcpy(&clip_data[i * dst_pitch], &pixels[i * src_pitch], src_pitch);
+                        std::memcpy(&clip_data[i * dst_pitch], &pixels[i * pitch], dst_pitch);
 
                     GlobalUnlock(clip_handle);
                 }
