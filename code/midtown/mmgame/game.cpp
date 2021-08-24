@@ -274,6 +274,7 @@ void mmGame::UpdateDebugInput()
         }
         else
 #endif
+        if (!(event.Modifiers & EQ_KMOD_SHIFT))
         {
             switch (event.Key)
             {
