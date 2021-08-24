@@ -84,7 +84,7 @@ public:
     ARTS_IMPORT void ClearDamage();
 
     // ?EnableDriving@mmCar@@QAEXH@Z
-    ARTS_IMPORT void EnableDriving(i32 arg1);
+    ARTS_EXPORT void EnableDriving(b32 enabled);
 
     // ?GetBound@mmCar@@UAEPAVasBound@@XZ | inline
     ARTS_IMPORT asBound* GetBound() override;

@@ -61,7 +61,59 @@
 #include "mmcity/inst.h"
 #include "mmphysics/entity.h"
 
+#include "drivetrain.h"
+#include "mmphysics/bound.h"
+#include "mmphysics/inertia.h"
+#include "skid.h"
+#include "splash.h"
+#include "wheel.h"
+
 class mmCarSim;
+
+class mmTrailerInstance final : public mmInstance
+{
+public:
+    // ??_GmmTrailerInstance@@UAEPAXI@Z
+    // ??_EmmTrailerInstance@@UAEPAXI@Z
+    // ??1mmTrailerInstance@@UAE@XZ | inline
+    ARTS_IMPORT ~mmTrailerInstance() override = default;
+
+#ifdef ARTS_DEV_BUILD
+    // ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z | inline
+    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
+#endif
+
+    // ?AttachEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
+    ARTS_IMPORT mmPhysEntity* AttachEntity() override;
+
+    // ?Draw@mmTrailerInstance@@UAIXH@Z
+    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
+
+    // ?DrawShadow@mmTrailerInstance@@UAIXXZ
+    ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
+
+    // ?FromMatrix@mmTrailerInstance@@UAIXABVMatrix34@@@Z
+    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
+
+    // ?GetEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
+    ARTS_IMPORT mmPhysEntity* GetEntity() override;
+
+    // ?GetPos@mmTrailerInstance@@UAIAAVVector3@@XZ
+    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
+
+    // ?GetVelocity@mmTrailerInstance@@UAE?AVVector3@@XZ
+    ARTS_IMPORT Vector3 GetVelocity() override;
+
+    // ?Init@mmTrailerInstance@@QAEXPADPAVVector3@@@Z
+    ARTS_IMPORT void Init(char* arg1, Vector3* arg2);
+
+    // ?ToMatrix@mmTrailerInstance@@UAIAAVMatrix34@@AAV2@@Z
+    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
+
+    u8 gap14[0x34];
+};
+
+check_size(mmTrailerInstance, 0x48);
 
 class mmTrailer final : public mmPhysEntity
 {
@@ -123,52 +175,28 @@ public:
     // ?DeclareFields@mmTrailer@@SAXXZ
     ARTS_IMPORT static void DeclareFields();
 
-    u8 gap20[0x11E4];
+    mmCarSim* CarSim;
+    mmTrailerInstance Inst;
+    asInertialCS ICS;
+    asBound Bound;
+    Vector3 InertiaBox;
+    Vector3 Center;
+    f32 BoundElasticity;
+    f32 BoundFriction;
+    f32 Mass;
+    mmDrivetrain DrivetrainFL;
+    mmDrivetrain DrivetrainFR;
+    mmDrivetrain DrivetrainBL;
+    mmDrivetrain DrivetrainBR;
+    mmWheel WheelFL;
+    mmWheel WheelFR;
+    mmWheel WheelBL;
+    mmWheel WheelBR;
+    mmSkidManager SkidFL;
+    mmSkidManager SkidFR;
+    mmSkidManager SkidBL;
+    mmSkidManager SkidBR;
+    mmSplash Splash;
 };
 
 check_size(mmTrailer, 0x1204);
-
-class mmTrailerInstance final : public mmInstance
-{
-public:
-    // ??_GmmTrailerInstance@@UAEPAXI@Z
-    // ??_EmmTrailerInstance@@UAEPAXI@Z
-    // ??1mmTrailerInstance@@UAE@XZ | inline
-    ARTS_IMPORT ~mmTrailerInstance() override = default;
-
-#ifdef ARTS_DEV_BUILD
-    // ?AddWidgets@mmTrailerInstance@@UAEXPAVBank@@@Z | inline
-    ARTS_EXPORT void AddWidgets(Bank* arg1) override;
-#endif
-
-    // ?AttachEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
-    ARTS_IMPORT mmPhysEntity* AttachEntity() override;
-
-    // ?Draw@mmTrailerInstance@@UAIXH@Z
-    ARTS_IMPORT void ARTS_FASTCALL Draw(i32 arg1) override;
-
-    // ?DrawShadow@mmTrailerInstance@@UAIXXZ
-    ARTS_IMPORT void ARTS_FASTCALL DrawShadow() override;
-
-    // ?FromMatrix@mmTrailerInstance@@UAIXABVMatrix34@@@Z
-    ARTS_IMPORT void ARTS_FASTCALL FromMatrix(const Matrix34& arg1) override;
-
-    // ?GetEntity@mmTrailerInstance@@UAEPAVmmPhysEntity@@XZ
-    ARTS_IMPORT mmPhysEntity* GetEntity() override;
-
-    // ?GetPos@mmTrailerInstance@@UAIAAVVector3@@XZ
-    ARTS_IMPORT Vector3& ARTS_FASTCALL GetPos() override;
-
-    // ?GetVelocity@mmTrailerInstance@@UAE?AVVector3@@XZ
-    ARTS_IMPORT Vector3 GetVelocity() override;
-
-    // ?Init@mmTrailerInstance@@QAEXPADPAVVector3@@@Z
-    ARTS_IMPORT void Init(char* arg1, Vector3* arg2);
-
-    // ?ToMatrix@mmTrailerInstance@@UAIAAVMatrix34@@AAV2@@Z
-    ARTS_IMPORT Matrix34& ARTS_FASTCALL ToMatrix(Matrix34& arg1) override;
-
-    u8 gap14[0x34];
-};
-
-check_size(mmTrailerInstance, 0x48);

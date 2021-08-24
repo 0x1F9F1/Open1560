@@ -73,6 +73,25 @@ void mmCar::ReleaseTrailer()
     }
 }
 
+void mmCar::EnableDriving(b32 enabled)
+{
+    if (enabled)
+    {
+        Sim.ICS.Constraints &= ~INERTIAL_CONSTRAIN_ALL;
+
+        if (Model.CarFlags & CAR_MODEL_FLAG_TRAILER)
+            Trailer->ICS.Constraints &= ~INERTIAL_CONSTRAIN_ALL;
+    }
+    else
+    {
+        Sim.ICS.Constraints |= INERTIAL_CONSTRAIN_TX | INERTIAL_CONSTRAIN_TZ | INERTIAL_CONSTRAIN_RY;
+
+        // TODO: Should this be TX|TZ|RY as well?
+        if (Model.CarFlags & CAR_MODEL_FLAG_TRAILER)
+            Trailer->ICS.Constraints |= INERTIAL_CONSTRAIN_ALL;
+    }
+}
+
 run_once([] {
     static const f32 spark_multiplier = 16.0f / 30.0f;
     create_patch("mmCar::Impact", "Spark Count", 0x47422C, "\xD9\xE8\x90\x90\x90\x90", 6);
