@@ -58,7 +58,10 @@ void agiPipeline::EndScene()
 {}
 
 void agiPipeline::EndFrame()
-{}
+{
+    if (ScreenShotRequested())
+        SaveScreenShot(TakeScreenShot());
+}
 
 RcOwner<agiMtlDef> agiPipeline::CreateMtlDef()
 {
@@ -183,7 +186,7 @@ i32 agiPipeline::BeginAllGfx()
     else
         error = eqEventHandler::SuperQ->BeginGfx(width_, height_, false);
 
-    GFXPAGER.Init(64, false);
+    GFXPAGER.Init(64, IPC_QUEUE_MODE_ASYNC);
 
     return error;
 }
@@ -423,6 +426,11 @@ void agiPipeline::ValidateObject(agiRefreshable* ptr)
         if (i == nullptr)
             Quitf("PIPE::ValidateObject: Not in my list.");
     }
+}
+
+Ptr<agiSurfaceDesc> agiPipeline::TakeScreenShot()
+{
+    return nullptr;
 }
 
 static mem::cmd_param PARAM_agiverbose {"agiverbose"};

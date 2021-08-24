@@ -292,9 +292,6 @@ void agiSDLSWPipeline::BeginFrame()
 
     agiPipeline::BeginFrame();
 
-    SDL_LockTextureToSurface(render_texture_, NULL, &render_surface_);
-    ArAssert(!SDL_MUSTLOCK(render_surface_), "Render Surface");
-
     SDL_SetRenderDrawColor(sdl_renderer_, 0, 0, 0, 0);
     SDL_RenderClear(sdl_renderer_);
 
@@ -331,6 +328,8 @@ i32 agiSDLSWPipeline::BeginGfx()
     InitScaling();
 
     const auto& screen_format = PARAM_use555 ? PixelFormat_X1R5G5B5 : PixelFormat_R5G6B5;
+
+    render_surface_ = SDL_CreateRGBSurfaceWithFormat(0, width_, height_, 16, GetSDLPixelFormat(screen_format));
 
     render_texture_ = SDL_CreateTexture(
         sdl_renderer_, GetSDLPixelFormat(screen_format), SDL_TEXTUREACCESS_STREAMING, width_, height_);
@@ -484,8 +483,7 @@ void agiSDLSWPipeline::EndFrame()
 {
     ARTS_UTIMED(agiEndFrame);
 
-    SDL_UnlockTexture(render_texture_);
-    render_surface_ = nullptr;
+    SDL_UpdateTexture(render_texture_, NULL, render_surface_->pixels, render_surface_->pitch);
 
     SDL_Rect dest {blit_x_, blit_y_, blit_width_, blit_height_};
     SDL_RenderCopy(sdl_renderer_, render_texture_, NULL, &dest);
@@ -503,6 +501,12 @@ void agiSDLSWPipeline::EndGfx()
     {
         SDL_DestroyTexture(render_texture_);
         render_texture_ = nullptr;
+    }
+
+    if (render_surface_)
+    {
+        SDL_FreeSurface(render_surface_);
+        render_surface_ = nullptr;
     }
 
     if (sdl_renderer_)
@@ -527,35 +531,18 @@ i32 agiSDLSWPipeline::Validate()
     return AGI_ERROR_SUCCESS;
 }
 
-Ptr<u8[]> sdlScreenShot(i32& width, i32& height)
+Ptr<agiSurfaceDesc> agiSDLSWPipeline::TakeScreenShot()
 {
-    SDL_Window* window = SDL_GetGrabbedWindow();
+    i32 width = render_surface_->w;
+    i32 height = render_surface_->h;
 
-    if (window == nullptr)
-        return nullptr;
+    Ptr<agiSurfaceDesc> surface =
+        AsPtr(agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8)));
 
-    SDL_Renderer* renderer = SDL_GetRenderer(window);
+    SDL_ConvertPixels(width, height, render_surface_->format->format, render_surface_->pixels, render_surface_->pitch,
+        SDL_PIXELFORMAT_BGR24, static_cast<u8*>(surface->Surface) + surface->Pitch * (height - 1), -surface->Pitch);
 
-    if (renderer == nullptr)
-        return nullptr;
-
-    SDL_Rect view;
-    SDL_RenderGetViewport(renderer, &view);
-
-    width = view.w;
-    height = view.h;
-
-    i32 pitch = width * 3;
-
-    Ptr<u8[]> buffer = MakeUniqueUninit<u8[]>(pitch * height);
-
-    if (buffer == nullptr)
-        return nullptr;
-
-    if (SDL_RenderReadPixels(renderer, &view, SDL_PIXELFORMAT_BGR24, buffer.get() + pitch * (height - 1), -pitch) != 0)
-        return nullptr;
-
-    return buffer;
+    return surface;
 }
 
 Owner<agiPipeline> sdlCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)

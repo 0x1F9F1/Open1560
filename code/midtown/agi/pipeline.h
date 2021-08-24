@@ -249,6 +249,8 @@ public:
     // ?ValidateObject@agiPipeline@@QAEXPAVagiRefreshable@@@Z | unused
     ARTS_EXPORT void ValidateObject(agiRefreshable* ptr);
 
+    static void RequestScreenShot(ConstString file_name);
+
     // ?CurrentPipe@agiPipeline@@2PAV1@A
     ARTS_IMPORT static agiPipeline* CurrentPipe;
 
@@ -349,6 +351,11 @@ public:
 protected:
     // ??0agiPipeline@@IAE@XZ
     ARTS_EXPORT agiPipeline();
+
+    virtual Ptr<agiSurfaceDesc> TakeScreenShot();
+
+    static bool ScreenShotRequested();
+    static void SaveScreenShot(Ptr<agiSurfaceDesc> surface);
 
     ConstString name_;
     i32 x_ {0};

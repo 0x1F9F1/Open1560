@@ -493,31 +493,46 @@ void agiGLPipeline::Init()
     AnnotateTextures = PARAM_annotate.get_or(false);
 }
 
-Ptr<u8[]> glScreenShot(i32& width, i32& height)
+Ptr<agiSurfaceDesc> agiGLPipeline::TakeScreenShot()
 {
-    if (agiGL == nullptr)
-        return nullptr;
+    i32 x = render_x_;
+    i32 y = render_y_;
+    i32 width = render_width_;
+    i32 height = render_height_;
+    bool use_fbo = false;
 
-    GLint viewport[4] {};
-    glGetIntegerv(GL_VIEWPORT, viewport);
-
-    i32 x = viewport[0];
-    i32 y = viewport[1];
-
-    width = viewport[2];
-    height = viewport[3];
-
-    Ptr<u8[]> buffer = MakeUniqueUninit<u8[]>(width * height * 3);
-
-    if (buffer)
+    if (rbo_[0])
     {
-        glPixelStorei(GL_PACK_ALIGNMENT, 1);
+        glBindRenderbuffer(GL_RENDERBUFFER, rbo_[0]);
 
-        // FIXME: Does not work with MSAA (FBO anti-alias method is not valid for read pixels.)
-        glReadPixels(x, y, width, height, GL_BGR, GL_UNSIGNED_BYTE, buffer.get());
+        GLint samples = -1;
+        glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_SAMPLES, &samples);
+
+        glBindRenderbuffer(GL_RENDERBUFFER, 0);
+
+        if (samples == 0)
+        {
+            use_fbo = true;
+        }
+        else
+        {
+            x = blit_x_;
+            y = blit_y_;
+            width = blit_width_;
+            height = blit_height_;
+        }
     }
 
-    return buffer;
+    Ptr<agiSurfaceDesc> surface =
+        AsPtr(agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8)));
+
+    if (gl_context_->HasExtension(300, "GL_ARB_framebuffer_object"))
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, use_fbo ? fbo_ : 0);
+
+    glPixelStorei(GL_PACK_ALIGNMENT, std::clamp<u32>(surface->Pitch & -surface->Pitch, 1, 8));
+    glReadPixels(x, y, width, height, GL_BGR, GL_UNSIGNED_BYTE, surface->Surface);
+
+    return surface;
 }
 
 Owner<agiPipeline> glCreatePipeline([[maybe_unused]] i32 argc, [[maybe_unused]] char** argv)

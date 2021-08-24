@@ -52,6 +52,8 @@ public:
     void EndScene() override;
     i32 Validate() override;
 
+    Ptr<agiSurfaceDesc> TakeScreenShot() override;
+
     SDL_Surface* GetSurface()
     {
         return render_surface_;

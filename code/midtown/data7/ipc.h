@@ -99,6 +99,10 @@ ARTS_IMPORT extern b32 SynchronousMessageQueues;
 
 struct ipcMessage;
 
+#define IPC_QUEUE_MODE_ASYNC 0
+#define IPC_QUEUE_MODE_BLOCKING 1
+#define IPC_QUEUE_MODE_SYNC 2
+
 // A bounded, multi-producer, single-consumer FIFO worker queue
 class ipcMessageQueue
 {
@@ -109,7 +113,7 @@ public:
     ARTS_NON_COPYABLE(ipcMessageQueue);
 
     // ?Init@ipcMessageQueue@@QAEXHH@Z
-    ARTS_EXPORT void Init(i32 max_messages, b32 blocking);
+    ARTS_EXPORT void Init(i32 max_messages, i32 mode);
 
     // ?Send@ipcMessageQueue@@QAEXP6AXPAX@Z0@Z
     ARTS_EXPORT void Send(void (*func)(void*), void* param);

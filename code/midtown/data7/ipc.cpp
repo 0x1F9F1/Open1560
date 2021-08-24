@@ -136,9 +136,9 @@ ipcMessageQueue::~ipcMessageQueue()
     Shutdown();
 }
 
-void ipcMessageQueue::Init(i32 max_messages, b32 blocking)
+void ipcMessageQueue::Init(i32 max_messages, i32 mode)
 {
-    if (SynchronousMessageQueues)
+    if (mode == IPC_QUEUE_MODE_SYNC)
         return;
 
     if (initialized_)
@@ -146,6 +146,8 @@ void ipcMessageQueue::Init(i32 max_messages, b32 blocking)
 
     read_index_ = 0;
     send_index_ = 0;
+
+    bool blocking = mode == IPC_QUEUE_MODE_BLOCKING;
 
     if (blocking)
         max_messages = 2;
@@ -168,7 +170,7 @@ void ipcMessageQueue::Init(i32 max_messages, b32 blocking)
 
 void ipcMessageQueue::Send(void (*func)(void*), void* param)
 {
-    if (SynchronousMessageQueues)
+    if (!initialized_)
     {
         func(param);
 
@@ -211,7 +213,7 @@ void ipcMessageQueue::Send(void (*func)(void*), void* param)
 
 void ipcMessageQueue::Shutdown()
 {
-    if (SynchronousMessageQueues || !initialized_)
+    if (!initialized_)
         return;
 
     initialized_ = false;

@@ -79,6 +79,8 @@ public:
     }
 
 private:
+    Ptr<agiSurfaceDesc> TakeScreenShot() override;
+
     Ptr<agiGLContext> gl_context_;
     Rc<agiGLRasterizer> rasterizer_;
 

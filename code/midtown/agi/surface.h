@@ -86,6 +86,8 @@ extern const agiPixelFormat PixelFormat_R5G6B5;
 
 extern const agiPixelFormat PixelFormat_P8;
 
+extern const agiPixelFormat PixelFormat_B8G8R8;
+
 struct agiDDSCAPS2 // DDSCAPS2
 {
     u32 Caps {0};

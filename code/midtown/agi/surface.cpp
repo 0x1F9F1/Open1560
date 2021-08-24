@@ -42,6 +42,8 @@ const agiPixelFormat PixelFormat_X1R5G5B5 = {sizeof(agiPixelFormat), AGIPF_RGB, 
 const agiPixelFormat PixelFormat_R5G6B5   = {sizeof(agiPixelFormat), AGIPF_RGB,                     0, 16, 0xF800, 0x07E0, 0x001F, 0x0000};
 
 const agiPixelFormat PixelFormat_P8 = {sizeof(agiPixelFormat), AGIPF_RGB | AGIPF_PALETTEINDEXED8, 0, 8, 0, 0, 0, 0};
+
+const agiPixelFormat PixelFormat_B8G8R8 = {sizeof(agiPixelFormat), AGIPF_RGB, 0, 24, 0x00FF0000, 0x0000FF00, 0x000000FF};
 // clang-format on
 
 // ?RescaleJpeg@@YAXIIPAEAAUjpeg_decompress_struct@@@Z
@@ -362,6 +364,8 @@ void agiSurfaceDesc::Init(i32 width, i32 height)
     SCaps.Caps = 0;
 
     Load();
+
+    // TODO: Avoid clearing when not necessary
     Clear();
 }
 

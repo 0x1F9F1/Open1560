@@ -12,7 +12,6 @@ arts_component "agi"
         "dlp.h",
         "dlptmpl.cpp",
         "dlptmpl.h",
-
         "error.cpp",
         "error.h",
         "getdlp.cpp",
@@ -37,10 +36,9 @@ arts_component "agi"
         "print.h",
         "refresh.cpp",
         "refresh.h",
-
         "rsys.cpp",
         "rsys.h",
-
+        "screenshot.cpp",
         "surface.cpp",
         "surface.h",
         "texdef.cpp",
@@ -49,7 +47,6 @@ arts_component "agi"
         "texlib.h",
         "viewport.cpp",
         "viewport.h",
-
         "rgba.h",
         "agilib.h",
         "vertex.h",
@@ -65,3 +62,7 @@ arts_component "agi"
             "smap.h",
         }
     end
+
+    includeMiniz()
+
+    links { "miniz" }

@@ -336,7 +336,7 @@ static void MainPhase(i32 argc, char** argv)
                 TEXCACHE.Init(4 << 20, 256, "TEXCACHE");
             }
 
-            PAGER.Init(128, false);
+            PAGER.Init(128, SynchronousMessageQueues ? IPC_QUEUE_MODE_SYNC : IPC_QUEUE_MODE_ASYNC);
         }
 
         loader.Reset();

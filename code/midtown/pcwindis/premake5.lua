@@ -11,7 +11,3 @@ arts_component "pcwindis"
         "setupdata.cpp",
         "setupdata.h",
     }
-
-    includeMiniz()
-
-    links { "miniz" }

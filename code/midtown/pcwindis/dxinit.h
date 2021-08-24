@@ -57,6 +57,7 @@ struct IDirectDraw4;
 struct IDirectDrawClipper;
 struct IDirectDrawSurface4;
 struct IDirectInputA;
+class agiSurfaceDesc;
 
 // ?dxiChangeDisplaySettings@@YAHHHH@Z
 ARTS_EXPORT i32 dxiChangeDisplaySettings(i32 width, i32 height, i32 bpp);
@@ -98,6 +99,8 @@ ARTS_EXPORT void dxiWindowCreate(const char* title);
 void dxiWindowCreate(const char* title, dxiRendererType type);
 
 void dxiWindowDestroy();
+
+Ptr<agiSurfaceDesc> dxiScreenShot();
 
 // ?dxiDepth@@3HA
 ARTS_IMPORT extern i32 dxiDepth;

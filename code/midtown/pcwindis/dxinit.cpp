@@ -37,8 +37,6 @@ define_dummy_symbol(pcwindis_dxinit);
 
 #include <ddraw.h>
 #include <dinput.h>
-#include <miniz.h>
-
 SDL_Window* g_MainWindow = nullptr;
 
 template <typename T>
@@ -199,7 +197,7 @@ ARTS_IMPORT /*static*/ void translate555(u8* output, u16* input, u32 width);
 // ?translate565@@YAXPAEPAGI@Z
 ARTS_IMPORT /*static*/ void translate565(u8* output, u16* input, u32 width);
 
-Ptr<u8[]> dxiScreenShot(i32& width, i32& height)
+Ptr<agiSurfaceDesc> dxiScreenShot()
 {
     if (lpdsRend == nullptr)
         return nullptr;
@@ -212,8 +210,11 @@ Ptr<u8[]> dxiScreenShot(i32& width, i32& height)
         return nullptr;
     }
 
-    width = static_cast<i32>(sd.dwWidth);
-    height = static_cast<i32>(sd.dwHeight);
+    i32 width = static_cast<i32>(sd.dwWidth);
+    i32 height = static_cast<i32>(sd.dwHeight);
+
+    Ptr<agiSurfaceDesc> surface =
+        AsPtr(agiSurfaceDesc::Init(width, height, agiSurfaceDesc::FromFormat(PixelFormat_B8G8R8)));
 
     void (*translate)(u8 * output, u16 * input, u32 width) = nullptr;
 
@@ -223,16 +224,12 @@ Ptr<u8[]> dxiScreenShot(i32& width, i32& height)
         case 0xF800: translate = translate565; break;
     }
 
-    Ptr<u8[]> buffer;
-
     if (translate)
     {
-        buffer = MakeUniqueUninit<u8[]>(width * height * 3);
-
         // Translate and flip horizontally
         for (i32 i = 0; i < height; ++i)
         {
-            translate(buffer.get() + (i * width * 3),
+            translate(static_cast<u8*>(surface->Surface) + (i * surface->Pitch),
                 reinterpret_cast<u16*>(static_cast<u8*>(sd.lpSurface) + (sd.lPitch * (height - i - 1))), sd.dwWidth);
         }
     }
@@ -244,160 +241,12 @@ Ptr<u8[]> dxiScreenShot(i32& width, i32& height)
 
     lpdsRend->Unlock(NULL);
 
-    return buffer;
-}
-
-static std::atomic<bool> TakingScreenshot {false};
-
-struct ScreenShotContext
-{
-    Ptr<u8[]> Pixels;
-    i32 Width;
-    i32 Height;
-    ConstString Filename;
-
-    ScreenShotContext(Ptr<u8[]> pixels, i32 width, i32 height, ConstString file_name)
-        : Pixels(std::move(pixels))
-        , Width(width)
-        , Height(height)
-        , Filename(std::move(file_name))
-    {
-        TakingScreenshot = true;
-    }
-
-    ~ScreenShotContext()
-    {
-        TakingScreenshot = false;
-    }
-};
-
-static void SaveScreenShot(void* ctx)
-{
-    Ptr<ScreenShotContext> context {static_cast<ScreenShotContext*>(ctx)};
-
-    auto& [pixels, width, height, wanted_file_name] = *context;
-
-    if (OpenClipboard(NULL))
-    {
-        if (EmptyClipboard())
-        {
-            i32 src_pitch = width * 3;
-            i32 dst_pitch = (src_pitch + 3) & ~3;
-
-            BITMAPINFOHEADER info_header {};
-            info_header.biSize = sizeof(info_header);
-            info_header.biWidth = width;
-            info_header.biHeight = height;
-            info_header.biPlanes = 1;
-            info_header.biBitCount = 24;
-            info_header.biCompression = BI_RGB;
-            info_header.biSizeImage = 0;
-            info_header.biXPelsPerMeter = width;
-            info_header.biYPelsPerMeter = height;
-            info_header.biClrUsed = 0;
-            info_header.biClrImportant = 0;
-
-            if (HGLOBAL clip_handle =
-                    GlobalAlloc(GMEM_MOVEABLE | GMEM_ZEROINIT, sizeof(info_header) + dst_pitch * height))
-            {
-                if (u8* clip_data = static_cast<u8*>(GlobalLock(clip_handle)))
-                {
-                    std::memcpy(clip_data, &info_header, sizeof(info_header));
-                    clip_data += sizeof(info_header);
-
-                    for (i32 i = 0; i < height; ++i)
-                        std::memcpy(&clip_data[i * dst_pitch], &pixels[i * src_pitch], src_pitch);
-
-                    GlobalUnlock(clip_handle);
-                }
-
-                SetClipboardData(CF_DIB, clip_handle);
-            }
-        }
-
-        CloseClipboard();
-    }
-
-    char name_buffer[64];
-    const char* file_name = wanted_file_name.get();
-
-    if (file_name == nullptr)
-    {
-        i32 shot_num = 0;
-        WIN32_FIND_DATAA find_data;
-
-        if (HANDLE find_handle = FindFirstFileA("screen/SHOT*.PNG", &find_data); find_handle != INVALID_HANDLE_VALUE)
-        {
-            do
-            {
-                if (!arts_strnicmp(find_data.cFileName, "SHOT", 4))
-                    shot_num = std::max<i32>(shot_num, std::atoi(find_data.cFileName + 4));
-            } while (FindNextFileA(find_handle, &find_data));
-
-            FindClose(find_handle);
-        }
-
-        CreateDirectoryA("screen", NULL);
-
-        arts_sprintf(name_buffer, "screen/SHOT%04d.PNG", shot_num + 1);
-        file_name = name_buffer;
-    }
-
-    // BGR -> RGB
-    for (i32 i = 0; i < height; ++i)
-    {
-        u8* row = pixels.get() + (i * width * 3);
-
-        for (i32 j = 0; j < width; ++j, row += 3)
-        {
-            u8 tmp = row[0];
-            row[0] = row[2];
-            row[2] = tmp;
-        }
-    }
-
-    size_t png_size = 0;
-    if (void* png_data =
-            tdefl_write_image_to_png_file_in_memory_ex(pixels.get(), width, height, 3, &png_size, 10, true);
-        png_data)
-    {
-        if (HANDLE file = CreateFileA(file_name, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-            file != INVALID_HANDLE_VALUE)
-        {
-            DWORD written = 0;
-            WriteFile(file, png_data, png_size, &written, NULL);
-            CloseHandle(file);
-        }
-
-        mz_free(png_data);
-    }
+    return surface;
 }
 
 void dxiScreenShot(char* file_name)
 {
-    if (TakingScreenshot)
-        return;
-
-    i32 width = 0;
-    i32 height = 0;
-
-    Ptr<u8[]> pixels;
-
-#ifdef ARTS_ENABLE_OPENGL
-    if (pixels == nullptr)
-        pixels = sdlScreenShot(width, height);
-
-    if (pixels == nullptr)
-        pixels = glScreenShot(width, height);
-#endif
-
-    if (pixels == nullptr)
-        pixels = dxiScreenShot(width, height);
-
-    if (pixels == nullptr)
-        return;
-
-    GFXPAGER.Send(SaveScreenShot, new ScreenShotContext {std::move(pixels), width, height, ConstString(file_name)});
+    agiPipeline::RequestScreenShot(ConstString(file_name));
 }
 
 static inline void dxiRestoreDisplayMode()
