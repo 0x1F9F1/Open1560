@@ -83,7 +83,7 @@ static void SaveScreenShotWorker(void* ctx)
                     clip_data += sizeof(info_header);
 
                     for (i32 i = 0; i < height; ++i)
-                        std::memcpy(&clip_data[i * dst_pitch], &pixels[i * pitch], dst_pitch);
+                        std::memcpy(&clip_data[i * dst_pitch], &pixels[i * pitch], width * 3);
 
                     GlobalUnlock(clip_handle);
                 }
