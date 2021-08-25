@@ -95,7 +95,7 @@ asCullManager::asCullManager(i32 max_cullables, i32 max_cullables_2D)
 {
     Reset(); // TODO: Is this call unncessary?
 
-    SetUpdateWhilePaused(true);
+    SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
 
 #ifdef ARTS_DEV_BUILD
     AddPage(MFA(asCullManager::PrintMiniStats, this));

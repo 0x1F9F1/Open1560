@@ -621,7 +621,7 @@ void asSimulation::UpdatePaused(asNode* node)
     {
         if (asNode* child = node->GetChild(i + 1); child->IsActive())
         {
-            if (child->UpdateWhilePaused())
+            if (child->TestNodeFlag(NODE_FLAG_UPDATE_PAUSED))
             {
                 child->Update();
             }

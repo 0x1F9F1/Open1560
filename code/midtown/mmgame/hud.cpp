@@ -23,7 +23,7 @@ define_dummy_symbol(mmgame_hud);
 void mmHUD::TogglePositionDisplay(i32 mode)
 {
     // FIXME: Move to constructor
-    if (DashView.GetParent() == &HudElements)
+    if (DashView.GetParentNode() == &HudElements)
     {
         // DashView is not a HUD element, and should not be hidden when a menu is shown.
         // To avoid drawing over the HUD, it should also come before HudElements
@@ -31,15 +31,15 @@ void mmHUD::TogglePositionDisplay(i32 mode)
         InsertChild(1, &DashView);
 
         // Show position text while paused
-        PositionText.SetUpdateWhilePaused(true);
+        PositionText.SetNodeFlag(NODE_FLAG_UPDATE_PAUSED);
     }
 
-    if (mode == -1)
-        ShowPosition = !ShowPosition;
-    else
-        ShowPosition = mode != 0;
+    ShowPosition = (mode != -1) ? (mode != 0) : !ShowPosition;
 
-    PositionText.SetActive(ShowPosition);
+    if (ShowPosition)
+        PositionText.Activate();
+    else
+        PositionText.Deactivate();
 }
 
 void mmHUD::UpdatePaused()

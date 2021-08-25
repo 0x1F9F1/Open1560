@@ -153,7 +153,7 @@ public:
     // ?Update@asSimulation@@UAEXXZ
     ARTS_EXPORT void Update() override;
 
-    // TODO: Rename UpdatePaused(asNode*) to avoid confusing with asNode::UpdatePaused()
+    // TODO: Mode code to asNode::UpdatePaused(), matching AGE
     // ?UpdatePaused@asSimulation@@QAEXPAVasNode@@@Z
     ARTS_EXPORT void UpdatePaused(asNode* node);
 

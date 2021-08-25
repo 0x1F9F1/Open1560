@@ -64,6 +64,11 @@
 
 class bkWindow;
 
+#define NODE_FLAG_ACTIVE 0x1
+#define NODE_FLAG_2 0x2
+#define NODE_FLAG_LOAD_ERROR 0x4
+#define NODE_FLAG_UPDATE_PAUSED 0x400
+
 class asNode : public asCullable
 {
 public:
@@ -118,7 +123,7 @@ public:
     ARTS_EXPORT asNode* GetLastChild();
 
     // ?GetNext@asNode@@QAEPAV1@XZ | unused
-    ARTS_EXPORT asNode* GetNext()
+    [[deprecated]] ARTS_EXPORT asNode* GetNext()
     {
         return next_node_;
     }
@@ -174,46 +179,47 @@ public:
         return node_flags_ & 0x1;
     }
 
-    void SetActive(bool active)
+    void Activate()
     {
-        if (active)
-            node_flags_ |= 0x1;
-        else
-            node_flags_ &= ~0x1;
+        node_flags_ |= 0x1;
     }
 
-    bool UpdateWhilePaused() const
+    void Deactivate()
     {
-        return node_flags_ & 0x400;
+        node_flags_ &= ~0x1;
     }
 
-    void SetUpdateWhilePaused(bool enabled)
+    void SetNodeFlag(i32 flag)
     {
-        if (enabled)
-            node_flags_ |= 0x400;
-        else
-            node_flags_ &= ~0x400;
+        node_flags_ |= flag;
     }
 
-    bool GetNodeFlag2() const
+    void ClearNodeFlag(i32 flag)
     {
-        return node_flags_ & 0x2;
+        node_flags_ &= ~flag;
     }
 
-    void SetNodeFlag2(bool enabled)
+    void ToggleNodeFlag(i32 flag)
     {
-        if (enabled)
-            node_flags_ |= 0x2;
-        else
-            node_flags_ &= ~0x2;
+        node_flags_ ^= flag;
     }
 
-    asNode* GetFirstChild() const
+    i32 TestNodeFlag(i32 flag) const
+    {
+        return node_flags_ & flag;
+    }
+
+    asNode* GetNextNode() const
+    {
+        return next_node_;
+    }
+
+    asNode* GetChildNode() const
     {
         return child_node_;
     }
 
-    asNode* GetParent() const
+    asNode* GetParentNode() const
     {
         return parent_node_;
     }
@@ -245,7 +251,7 @@ private:
     // 0x2 | ?
     // 0x4 | LoadError
     // 0x400 | Update While Paused
-    i32 node_flags_ {0x3};
+    i32 node_flags_ {NODE_FLAG_ACTIVE | NODE_FLAG_2};
 
 #ifdef ARTS_DEV_BUILD
     Bank* current_bank_ {nullptr};

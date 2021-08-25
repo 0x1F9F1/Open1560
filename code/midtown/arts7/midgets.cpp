@@ -539,7 +539,7 @@ void asMidgets::Open(asNode* node)
             node);
     }
 
-    if (asNode* parent = node->GetParent())
+    if (asNode* parent = node->GetParentNode())
     {
         char buffer[64];
 
@@ -565,7 +565,7 @@ void asMidgets::Open(asNode* node)
 
     usize count = 0;
 
-    for (asNode* child = node->GetFirstChild(); child; child = child->GetNext())
+    for (asNode* child = node->GetChildNode(); child; child = child->GetNextNode())
     {
         if (count < ARTS_SIZE(child_midget_index_))
             child_midget_index_[count++] = midget_count_;

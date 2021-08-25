@@ -31,7 +31,7 @@ asLinearCS::asLinearCS()
     : Matrix(IDENTITY)
     , World(IDENTITY)
 {
-    SetNodeFlag2(false);
+    ClearNodeFlag(NODE_FLAG_2);
 }
 
 #ifdef ARTS_DEV_BUILD
